@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="2" Name="Priester2" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="PHe" Geschlecht="m" Hand="Linkshänder" Muttersprache="Halftan" Spezies="Halbling" Stadt_Land="Stadt" Überleben="Überleben im Gebirge"/>
+  <Basiseigenschaften Gs="68" Gw="96" In="54" Ko="83" St="7" Zt="43"/>
+  <abgeleiteteEigenschaften Au="69" B="12" SG="2" Sb="72" Wk="96" pA="65"/>
+  <Erfolgswerte Abwehr="12" ZauberResistenz="11" Zaubern="11"/>
+  <Gesundheit AP="6" LP="12"/>
+  <Beschreibung Alter="21" Gestalt="schlank" Gewicht="33" Größe="111" Herkunft="Eschar" Stand="Mittelschicht"/>
+  <Vermögen GS="17"/>
+  <Steigern GFP="255" benötigte_Tage="61">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Bezeichnung="Kurzschwert" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Keule" Erfolgswert="0"/>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="10"/>
+   <Sinn Bezeichnung="Tasten" Wert="10"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Beruf Bezeichnung="Alchimist"/>
+   <ang-Fertigkeit Bezeichnung="Gute Reflexe" Wert="9"/>
+   <Fertigkeit Bezeichnung="Schleichen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Tarnen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="5" Zusatz="Medjis"/>
+   <Fertigkeit Bezeichnung="Meditieren" Wert="9"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Schlittenfahren" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Singen" Wert="8"/>
+   <Waffe Bezeichnung="Kurzschwert" Wert="5"/>
+   <Waffe Bezeichnung="Keule" Wert="5"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+   <Zauber Bezeichnung="Erkennen der Aura"/>
+   <Zauber Bezeichnung="Austreibung des Bösen"/>
+   <Zauber Bezeichnung="Heiliger Zorn"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Halftan" Wert="14"/>
+   <Sprache Bezeichnung="Kelwisch" Wert="12"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="12"/>
+   <Sprache Bezeichnung="Moravisch" Wert="14"/>
+   <Sprache Bezeichnung="Trll'ng" Wert="5"/>
+   <Sprache Bezeichnung="Altoqua" Wert="4"/>
+   <Urschrift Bezeichnung="Halftan" Wert="9"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Eschar" Region="E"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="2" Name="Wache2" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="Kr" Geschlecht="m" Hand="Rechtshänder" Muttersprache="Dvarskar" Spezialisierung="Handaxt" Spezies="Zwerg" Stadt_Land="Stadt" Überleben="Überleben im Gebirge"/>
+  <Basiseigenschaften Gs="43" Gw="50" In="95" Ko="97" St="90" Zt="82"/>
+  <abgeleiteteEigenschaften Au="54" B="18" Sb="92" Wk="65" pA="103"/>
+  <Erfolgswerte Abwehr="12" ZauberResistenz="11" Zaubern="2"/>
+  <Gesundheit AP="20" LP="15"/>
+  <Beschreibung Alter="38" Gestalt="breit" Gewicht="82" Größe="144" Herkunft="Eschar" Stand="Mittelschicht"/>
+  <Vermögen GS="7"/>
+  <Steigern GFP="389" benötigte_Tage="81.8">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>KR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Bezeichnung="Langschwert" Erfolgswert="0"/>
+   <Waffe Bezeichnung="schwere Armbrust" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Lanze" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Handaxt" Erfolgswert="0"/>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="10"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Waffenschmied"/>
+   <ang-Fertigkeit Bezeichnung="Nachtsicht" Wert="8"/>
+   <ang-Fertigkeit Bezeichnung="Robustheit" Wert="9"/>
+   <Fertigkeit Bezeichnung="Baukunde" Wert="9"/>
+   <Fertigkeit Bezeichnung="Kampf in Schlachtreihe" Wert="7"/>
+   <Fertigkeit Bezeichnung="Athletik" Wert="6"/>
+   <Fertigkeit Bezeichnung="Schiffsführung" Wert="9"/>
+   <Fertigkeit Bezeichnung="Wagenlenken" Wert="15"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Geheimzeichen" Wert="7" Zusatz="Nahuatlan"/>
+   <Fertigkeit Bezeichnung="Pyromantie" Wert="5"/>
+   <Fertigkeit Bezeichnung="Schätzen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Kampftaktik" Wert="7"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
+   <Fertigkeit Bezeichnung="Streitwagen lenken" Wert="10"/>
+   <Waffe Bezeichnung="Handaxt" Wert="7"/>
+   <Waffe Bezeichnung="Lanze" Wert="9"/>
+   <Waffe Bezeichnung="Langschwert" Wert="5"/>
+   <Waffe Bezeichnung="schwere Armbrust" Wert="7"/>
+   <Grundkenntnis Bezeichnung="Armbrust"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Sprache Bezeichnung="Dvarskar" Wert="19"/>
+   <Sprache Bezeichnung="Aranisch" Wert="12"/>
+   <Sprache Bezeichnung="KanThaiTun" Wert="19"/>
+   <Urschrift Bezeichnung="Aranisch" Wert="5"/>
+   <Urschrift Bezeichnung="Dvarskar" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Eschar" Region="E"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

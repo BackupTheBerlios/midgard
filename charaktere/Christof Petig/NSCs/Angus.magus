@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Angus" Zeitpunkt="Erschaffung" Grad="3"/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Kr" Spezialisierung="Handaxt" Überleben="Überleben im Schnee" Muttersprache="Albisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="29" Gw="89" Gs="92" Ko="47" In="25" Zt="45"/>
+  <abgeleiteteEigenschaften Au="49" pA="32" Wk="55" Sb="80" B="24"/>
+  <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="11"/>
+  <Gesundheit LP="9" AP="17"/>
+  <Beschreibung Alter="22" Gestalt="schlank" Gewicht="50" Größe="161" Stand="Mittelschicht" Herkunft="Alba"/>
+  <Vermögen GS="3"/>
+  <Steigern GFP="614" benötigte_Tage="142.8">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>KR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Keule"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Wurfpfeil"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Ochsenzunge"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Handaxt"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Kurzbogen"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="magisches Instrument nach eigener Wahl" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Beruf Bezeichnung="Waffenschmied"/>
+   <ang-Fertigkeit Bezeichnung="Berserkergang" Wert="18"/>
+   <Fertigkeit Bezeichnung="Kampf in Schlachtreihe" Wert="7"/>
+   <Fertigkeit Bezeichnung="Beidhändiger Kampf" Wert="4"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+   <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="16"/>
+   <Fertigkeit Bezeichnung="Bogenkampf zu Pferd" Wert="16"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Musizieren" Wert="9" Zusatz="Trumscheit"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Meditieren" Wert="6"/>
+   <Fertigkeit Bezeichnung="Schätzen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Streitwagen lenken" Wert="11"/>
+   <Fertigkeit Bezeichnung="Wagenlenken" Wert="10"/>
+   <Fertigkeit Bezeichnung="Schießen vom Streitwagen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Ballista bedienen" Wert="4"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="7"/>
+   <Waffe Bezeichnung="Handaxt" Wert="9"/>
+   <Waffe Bezeichnung="Kurzbogen" Wert="6"/>
+   <Waffe Bezeichnung="Ochsenzunge" Wert="6"/>
+   <Waffe Bezeichnung="Wurfpfeil" Wert="6"/>
+   <Waffe Bezeichnung="Keule" Wert="5"/>
+   <Waffe Bezeichnung="Rapier" Wert="6"/>
+   <Grundkenntnis Bezeichnung="Bögen"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Wurfpfeil"/>
+   <Sprache Bezeichnung="Albisch" Wert="10"/>
+   <Sprache Bezeichnung="Vallinga" Wert="11"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="11"/>
+   <Sprache Bezeichnung="Hurritisch" Wert="4"/>
+   <Sprache Bezeichnung="Maralinga" Wert="4"/>
+   <Sprache Bezeichnung="Medjisisch" Wert="4"/>
+   <Sprache Bezeichnung="Gnomenon" Wert="4"/>
+   <Urschrift Bezeichnung="Scharidisch" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Alba" Region="A"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

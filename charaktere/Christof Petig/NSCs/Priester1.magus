@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="2" Name="Priester1" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="PHe" Geschlecht="m" Hand="Beidhändig" Muttersprache="Gnomenon" Spezies="Waldgnom" Stadt_Land="Stadt" Überleben="Überleben im Schnee"/>
+  <Basiseigenschaften Gs="89" Gw="89" In="79" Ko="69" St="27" Zt="81"/>
+  <abgeleiteteEigenschaften Au="7" B="11" Sb="33" Wk="68" pA="45"/>
+  <Erfolgswerte Abwehr="12" ZauberResistenz="11" Zaubern="11"/>
+  <Gesundheit AP="4" LP="7"/>
+  <Beschreibung Alter="104" Gestalt="schlank" Gewicht="16" Größe="94" Herkunft="Eschar" Stand="Mittelschicht"/>
+  <Vermögen GS="15"/>
+  <Steigern GFP="445" benötigte_Tage="101">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Instrument nach eigener Wahl" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="10"/>
+   <Sinn Bezeichnung="Riechen" Wert="10"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Gelehrter"/>
+   <ang-Fertigkeit Bezeichnung="Nachtsicht" Wert="8"/>
+   <ang-Fertigkeit Bezeichnung="Robustheit" Wert="12"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="5" Zusatz="Feuerinseln"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Meditieren" Wert="9"/>
+   <Fertigkeit Bezeichnung="Singen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="12"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Musizieren" Wert="9" Zusatz="Doppelflöte"/>
+   <Fertigkeit Bezeichnung="Wagenlenken" Wert="11"/>
+   <Fertigkeit Bezeichnung="Überleben im Wald" Wert="6"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="7"/>
+   <Zauber Bezeichnung="Heiliger Zorn"/>
+   <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+   <Zauber Bezeichnung="Bannen von Dunkelheit"/>
+   <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
+   <Zauber Bezeichnung="Feuerfinger"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Sprache Bezeichnung="Gnomenon" Wert="18"/>
+   <Sprache Bezeichnung="Altoqua" Wert="12"/>
+   <Sprache Bezeichnung="Twyneddisch" Wert="12"/>
+   <Sprache Bezeichnung="Dunkle Sprache" Wert="18"/>
+   <Sprache Bezeichnung="Minangpahitisch" Wert="9"/>
+   <Urschrift Bezeichnung="Zwergenrunen Futhark" Wert="12"/>
+   <Urschrift Bezeichnung="Baumrunen Beth-Luis-Nion" Wert="12"/>
+   <Urschrift Bezeichnung="Twyneddisch" Wert="9"/>
+   <Urschrift Bezeichnung="Altoqua" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Eschar" Region="E"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
