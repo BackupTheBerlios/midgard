@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.133 2002/01/19 17:07:32 christof Exp $
+// $Id: midgard_CG.hh,v 1.134 2002/01/20 19:09:36 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -104,6 +104,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         vector<cH_Typen> Typ;
         Lernpunkte lernpunkte;
+#ifdef USE_XML
+	std::string filename;
+#endif
    
 //        void get_Database();
         void regnot(std::string sadd);
@@ -405,10 +408,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          Grundwerte Werte;
          void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
-         void grundwerte_speichern();
-         void save_ausruestung();
+         void grundwerte_speichern(IF_XML(ostream &));
+         void save_ausruestung(IF_XML(ostream &));
          void save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB);
-         void load_ausruestung();
+         void load_ausruestung(IF_XML(istream &));
          void load_ausruestung_C(int parent, AusruestungBaum *AB);
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export(const std::string& datei);
@@ -432,5 +435,12 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();
+
+	 // diese Funktion sorgt für klare Verhältnisse beim Steigern,
+	 // wurde früher mittels on_speichern_clicked() aufgerufen
+         void steigern_aktivieren()
+         {  frame_steigern->set_sensitive(true);
+            on_radio_steigern_all();
+         }
 };
 #endif

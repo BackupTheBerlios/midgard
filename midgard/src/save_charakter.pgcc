@@ -21,9 +21,13 @@
 exec sql include sqlca;
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
-#include <Waffe.hh>
-#endif
 #include <cstring>
+#endif
+#include "Waffe.hh"
+// for XML export
+#include "WindowInfo.hh"
+#include "export_common.h"
+#include <fstream>
 #include "xml_fileselection.hh"
 
 
@@ -37,33 +41,100 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 #else
   xml_export_auswahl();
 #endif
+  steigern_aktivieren();
   return false;
 }
 
 void midgard_CG::xml_export_auswahl()
 {
   manage (new xml_fileselection(this,"save"));
-  frame_steigern->show();
-  on_radio_steigern_all();
+  steigern_aktivieren();
 }
 
-void midgard_CG::xml_export(const std::string& datei)
-{
-#ifndef USE_XML
-  std::string cname   = Werte.Name_Charakter();
-  std::string version = Werte.Version(OptionBool.version);
-  std::string command = "midgard_xmlexport '"+cname+"' '"+version+"' > '"+datei+"'";
-  system(command.c_str());
-  std::string strinfo = "Charakter "+cname+" exportiert\n";
-  manage (new WindowInfo(strinfo));
+void midgard_CG::xml_export(const std::string& dateiname)
+{  steigern_aktivieren();
+   
+#ifdef USE_XML // geht sonst leider nicht!
+   ofstream datei(dateiname.c_str());
+   if (!datei.good())
+   {  manage(new WindowInfo("Ich kann die Datei '"+dateiname
+   		+"' nicht beschreiben"));
+      return;
+   }
+
+   datei << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
+   datei << "<MidgardCG-data>\n";
+
+// Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien
+// oder ganz unten?
+   
+   datei << " <Midgard-Charakter";
+   write_int_attrib(datei,"Version",9);
+   datei << ">\n";
+
+   grundwerte_speichern(datei);
+   datei << "  <Ausrüstung>\n"; // oder Besitz?
+   write_string(datei, "Rüstung", Werte.Ruestung()->Name(), 4);
+   // Waffen Besitz
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen_besitz.begin();
+         i!=list_Waffen_besitz.end();++i)
+      {  cH_WaffeBesitz WB(*i);
+         datei << "    <Waffe";
+         write_string_attrib(datei, "Bezeichnung", WB->Name());
+         write_int_attrib(datei, "AngriffVerteidigung_Bonus", WB->av_Bonus());
+         write_int_attrib(datei, "SchadenLebenspunkte_Bonus", WB->sl_Bonus());
+         write_string_attrib(datei, "Region", WB->Region());
+         if (WB->Magisch().empty()) datei << "/>\n";
+         else datei << '>' << WB->Magisch() << "</Waffe>\n";
+      }
+   save_ausruestung(datei);
+   datei << "  </Ausrüstung>\n";
+   
+   datei << "  <Fertigkeiten>\n";   
+
+   // Sinne
+   for(std::map<std::string,int>::const_iterator i=Werte.Sinne().begin();
+   			i!=Werte.Sinne().end();++i) 
+    { datei << "    <Sinn";
+      write_string_attrib(datei, "Bezeichnung", i->first);
+      write_int_attrib(datei, "Wert", i->second);
+      datei << "/>\n";
+    }
+
+   MidgardBasicElement::saveElementliste(datei,list_Beruf,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(datei,list_Fertigkeit_ang,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(datei,list_Fertigkeit,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(datei,list_Waffen,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(datei,list_Zauber,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(datei,list_Zauberwerk,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(datei,list_Kido,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(datei,list_WaffenGrund,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(datei,list_Sprache,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(datei,list_Schrift,Werte,Typ,Database.ausnahmen,OptionBool.version);
+
+   // Regionen & Ähnliches
+   if (!OptionBool.Original) datei << "    <bool ORIG=\"false\"/>\n";
+   if (!OptionBool.Info) datei << "    <bool INFO=\"false\"/>\n";
+   if (!OptionBool.Pics) datei << "    <bool PICS=\"false\"/>\n";
+   if (!OptionBool.version) datei << "    <bool VERS=\"false\"/>\n";
+   if (!OptionBool.steigern) datei << "    <bool STEI=\"false\"/>\n";
+
+  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+   {  if (!(*i)->Active()) continue;
+      datei << "    <Region";
+      write_string_attrib(datei, "Region", (*i)->Name());
+      datei << "/>\n";
+   }
+   datei << "  </Fertigkeiten>\n";   
+   datei << " </Midgard-Charakter>\n";
+   datei << "</MidgardCG-data>\n";
 #endif
 }
 
 #ifndef USE_XML
 void midgard_CG::on_speichern_clicked()
 {
-    frame_steigern->set_sensitive(true);
-   on_radio_steigern_all();
+   steigern_aktivieren();
    grundwerte_speichern();
    Transaction tr;
 
@@ -171,9 +242,11 @@ void midgard_CG::on_speichern_clicked()
    save_ausruestung();
    tr.commit();
 }
+#endif
 
-void midgard_CG::grundwerte_speichern()
+void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
 {
+#ifndef USE_XML
    exec sql begin declare section;
 //      char db_beschreibung[102400] ;
       char *db_beschreibung; 
@@ -307,11 +380,106 @@ void midgard_CG::grundwerte_speichern()
       WHERE charakter_name = :db_name_ch and version= :db_version;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode==100) charakter_db_anlegen();
+#else
+   datei << "  <Figur";
+   write_string_attrib(datei, "Name", Werte.Name_Charakter());
+   write_string_attrib(datei, "Spieler", Werte.Name_Spieler());
+   write_string_attrib(datei, "Zeitpunkt", Werte.Version(OptionBool.version));
+   write_int_attrib(datei, "Grad", Werte.Grad());
+   datei << "/>\n";
+   datei << "  <Typ";
+   write_string_attrib(datei, "Spezies", Werte.Spezies()->Name());
+   write_string_attrib(datei, "Geschlecht", Werte.Geschlecht());
+   write_string_attrib(datei, "Abkürzung", Typ[0]->Short());
+   write_string_attrib(datei, "Abkürzung2", Typ[1]->Short());
+   write_string_attrib(datei, "Spezialisierung", Werte.Spezialisierung());
+   write_string_attrib(datei, "Stadt_Land", Werte.Stadt_Land()); // ???
+   write_string_attrib(datei, "Hand", Werte.Hand());
+   datei << "/>\n";
+   datei << "  <Basiseigenschaften";
+   write_int_attrib(datei, "St", Werte.St());
+   write_int_attrib(datei, "Gw", Werte.Gw());
+   write_int_attrib(datei, "Gs", Werte.Gs());
+   write_int_attrib(datei, "Ko", Werte.Ko());
+   write_int_attrib(datei, "In", Werte.In());
+   write_int_attrib(datei, "Zt", Werte.Zt());
+   datei << "/>\n";
+   datei << "  <abgeleiteteEigenschaften";
+   write_int_attrib(datei, "Au", Werte.Au());
+   write_int_attrib(datei, "pA", Werte.pA());
+   write_int_attrib(datei, "Wk", Werte.Wk());
+   write_int_attrib(datei, "Sb", Werte.Sb());
+   write_int_attrib(datei, "B", Werte.B());
+//   write_int_attrib(datei, "KAW", Werte.St());
+//   write_int_attrib(datei, "WLW", Werte.St());
+   write_int_attrib(datei, "GG", Werte.GG());
+   write_int_attrib(datei, "SG", Werte.SG());
+   datei << "/>\n";
+   datei << "  <Erfolgswerte";
+   write_int_attrib(datei, "Abwehr", Werte.Abwehr_wert());
+   write_int_attrib(datei, "Zaubern", Werte.Zaubern_wert());
+   write_int_attrib(datei, "ZauberResistenz", Werte.Resistenz());
+   datei << "/>\n";
+   datei << "  <Gesundheit"; // schlechter Name ?
+//   write_int_attrib(datei, "LP_Basis");
+   write_int_attrib(datei, "LP", Werte.LP());
+   write_int_attrib(datei, "AP", Werte.AP());
+   datei << "/>\n";
+   datei << "  <Beschreibung"; // soziale?
+   write_int_attrib(datei, "Alter", Werte.Alter());
+   write_string_attrib(datei, "Gestalt", Werte.Gestalt());
+   write_int_attrib(datei, "Gewicht", Werte.Gewicht());
+   write_int_attrib(datei, "Größe", Werte.Groesse());
+   write_string_attrib(datei, "Stand", Werte.Stand());
+   write_string_attrib(datei, "Herkunft", Werte.Herkunft()->Name());
+   write_string_attrib(datei, "Glaube", Werte.Glaube());
+   datei << "/>\n";
+#if 0    // nicht mehr notwendig???
+   datei << "  <Boni"; 
+   write_int_attrib(datei, "Ausdauer");
+   write_int_attrib(datei, "Schaden");
+   write_int_attrib(datei, "Angriff");
+   write_int_attrib(datei, "Abwehr");
+   write_int_attrib(datei, "Zaubern");
+   datei << ">\n";
+   datei << "    <Resistenzen"; // Würde ich unter BONI fassen MAT
+   write_int_attrib(datei, "psy");
+   write_int_attrib(datei, "phs");
+   write_int_attrib(datei, "phk");
+   write_int_attrib(datei, "Gift");
+   datei << "/>\n";
+   datei << "  </Boni>\n";
+#endif
+   datei << "  <Vermögen";
+   write_int_attrib(datei, "GS", Werte.Gold());
+   write_int_attrib(datei, "SS", Werte.Silber());
+   write_int_attrib(datei, "KS", Werte.Kupfer());
+   datei << "/>\n";
+   datei << "  <Steigern";
+   write_int_attrib(datei, "GFP", Werte.GFP());
+   write_int_attrib(datei, "AEP", Werte.AEP());
+   write_int_attrib(datei, "KEP", Werte.KEP());
+   write_int_attrib(datei, "ZEP", Werte.ZEP());
+//   write_bool_attrib(datei, "EPabziehen", , false); ???
+   write_int_attrib(datei, "EPproGFP", Database.GradAnstieg.get_Steigern_EP_Prozent(), 50);
+   write_int_attrib(datei, "Basiswerte", Database.GradAnstieg.get_Grad_Basiswerte(), Werte.Grad());
+//   write_int_attrib(datei, "Abwehr", , Werte.Grad());
+//   write_int_attrib(datei, "Resistenz", , Werte.Grad());
+//   write_int_attrib(datei, "Zaubern", , Werte.Grad());
+   write_float_attrib(datei, "benötigte_Tage", Werte.Steigertage());
+   datei << "><Praxispunkte";
+   write_int_attrib(datei, "Abwehr", Werte.AbwehrPP());
+   write_int_attrib(datei, "Zaubern", Werte.ZaubernPP());
+   write_int_attrib(datei, "Resistenz", Werte.ResistenzPP());
+   datei << "/></Steigern>\n";
+   write_string(datei, "Text", Werte.Beschreibung(), 2);
+#endif
 }
 
 
-void midgard_CG::save_ausruestung()
+void midgard_CG::save_ausruestung(IF_XML(ostream &datei))
 {
+#ifndef USE_XML
   exec sql begin declare section;
     char db_name_a[50];
     char db_vers_a[50];
@@ -335,8 +503,48 @@ void midgard_CG::save_ausruestung()
      SQLerror::test(__FILELINE__);
      save_ausruestung_C(self,self,i->getChildren());
    }
+#else
+#if 0
+  {Query query2("select av_bonus, fertigkeit, region, magisch, wert, sl_bonus "
+   	"from charaktere_fertigkeiten "
+   	"where charakter_name='"+name+"' and version='"+version+"' "
+   	"and art='Ausruestung' "
+   	"order by sl_bonus");
+   FetchIStream is2;
+   list<int> parent_list;
+//   parent_list.push_back(0);
+   int last_id=0;
+   while ((query2>>is2).good())
+   {  int parent_id=fetch_int(is2);
+      if (last_id && parent_id==last_id)
+      {  o << ">\n";
+         parent_list.push_back(parent_id);
+      }
+      else 
+      {  if (last_id) o << "/>\n"; // close last 
+         while (parent_list.back()!=parent_id && !parent_list.empty())
+         {  parent_list.pop_back();
+            o << string(4+parent_list.size()*2,' ') << "</Gegenstand>\n";
+         }
+      }
+      o << string(4+parent_list.size()*2,' ') << "<Gegenstand";
+      fetch_and_write_string_attrib(is2, o, "Bezeichnung");
+      fetch_and_write_string_attrib(is2, o, "Region");
+      fetch_and_write_string_attrib(is2, o, "Besonderheit");
+      if (fetch_int(is2)) write_bool_attrib(o, "sichtbar", true);
+      last_id=fetch_int(is2);
+   }
+   if (last_id) o << "/>\n"; // close last 
+   while (!parent_list.empty())
+   {  parent_list.pop_back();
+      o << string(4+parent_list.size()*2,' ') << "</Gegenstand>\n";
+   }
+  }
+#endif // 0
+#endif   
 }
 
+#ifndef USE_XML
 void midgard_CG::save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB)
 {
   exec sql begin declare section;

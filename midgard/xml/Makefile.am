@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.24 2002/01/19 11:21:37 christof Exp $
+# $Id: Makefile.am,v 1.25 2002/01/20 19:09:36 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
 
@@ -15,7 +15,7 @@ LDFLAGS = @KOMPONENTEN_LDFLAGS@
 CLEANFILES = *~ $(BUILT_SOURCES) 
 LIBS=@LIBS@ @COMMONXX_LIBS@
 
-XMLDIR=../../midgard-xml
+XMLDIR=.
 
 export: all_exp arkanum_exp
 	./arkanum_exp >$(XMLDIR)/Arkanum.xml

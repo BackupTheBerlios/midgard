@@ -49,6 +49,8 @@ void midgard_CG::waffen_zeigen()
    zeige_werte(Werte);
 #ifndef USE_XML   
    on_speichern_clicked();
+#else
+   steigern_aktivieren();
 #endif   
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund    ,alte_grund_tree,Werte,Typ,Database.ausnahmen);

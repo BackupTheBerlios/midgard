@@ -24,6 +24,8 @@
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
+#else
+#include "export_common.h"
 #endif
 #include "xml.h"
 #include "Zauberwerk.hh"
@@ -194,14 +196,15 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
 #endif
 }
 
-#ifndef USE_XML
-void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElement>& b,
+void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
+			   const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
                            const vector<cH_Typen>& Typ,
                            const Ausnahmen& ausnahmen,
                            bool versionbool )
 {
   if(b.size()==0) return;
+#ifndef USE_XML
 /*
     int db_sl_bonus;
     char db_region[20];
@@ -238,8 +241,27 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
          (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_praxispunkte,:db_what,:db_magisch,:db_zauberwerk_stufe);
      SQLerror::test(__FILELINE__);
    }
-}
+#else
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
+   {
+      // oder <Beruf Wert=12>Arzt</Beruf> ?
+      datei << "    <" << (*i)->What_str();
+      write_string_attrib(datei, "Bezeichnung", (*i)->Name());
+      write_int_attrib(datei, "Wert", (*i)->Erfolgswert());
+//      write_string_attrib(datei, "Region", (*i)->Region());
+      write_int_attrib(datei, "Praxispunkte", (*i)->Praxispunkte());
+
+      if ((*i)->What()==ZAUBERWERK)
+      {  
+        write_string_attrib(datei, "Art", cH_Zauberwerk(*i)->Art());
+        write_string_attrib(datei, "Stufe", cH_Zauberwerk(*i)->Stufe());
+      }
+      else if ((*i)->What()==FERTIGKEIT && (*i)->Name()=="Landeskunde")
+         write_string_attrib(datei, "Land", cH_Fertigkeit(*i)->Zusatz());
+      datei << "/>\n";
+   }
 #endif
+}
 
   //////////////////////////////////////////////////////////////////////
   //Steigern von Fertigkeiten  

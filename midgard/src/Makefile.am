@@ -1,9 +1,10 @@
-# $Id: Makefile.am,v 1.93 2002/01/20 18:42:07 thoma Exp $
+# $Id: Makefile.am,v 1.94 2002/01/20 19:09:36 christof Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
 bin_PROGRAMS = midgard 
 
+# völlig veraltet!!!
 EXTRA_PROGRAMS = midgard_xmlexport midgard_xmlimport
 
 pkgdata_DATA = document_eingabe.tex document_eingabe4.tex \
@@ -196,7 +197,7 @@ midgard_SOURCES = \
    Window_doppelcharaktere.cc \
    Window_doppelcharaktere_glade.cc \
    Datenbank.cc class_SimpleTree.cc \
-   Tag.cc TagStream.cc xml.cc
+   Tag.cc TagStream.cc xml.cc export_common.cc
 
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
@@ -213,7 +214,7 @@ LDFLAGS = @KOMPONENTEN_LDFLAGS@
 CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
 # midgard_CG_glade.cc nicht optimieren, sonst explodiert der
-# Speicherverbrauch
+# Speicherverbrauch (immer noch? CP 2002-1-20)
 midgard_CG_glade.o: midgard_CG_glade.cc ../config.h midgard_CG.hh \
 		midgard_CG_glade.hh   # und vieles mehr !!!
 	$(CXXCOMPILE) -O0 -c $<

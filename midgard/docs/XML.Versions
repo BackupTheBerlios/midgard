@@ -38,3 +38,16 @@ Version 8:
 	+Praxispunkte,+benötigte_Tage
 	Gegenstände im Besitz 
 	(Vorabversion hatte Liste mit ID=, Parent-ID= statt Baumstruktur)
+
+Version 9:
+	speichern direkt im Programm (ohne Datenbank)
+	-HGW, -RW, -KAW, -WLW
+	Resistenzen/Zauber -> ZauberResistenz
+	-LP_Basis
+	GFP -> Steigern/GFP
+	+Typ/Hand
+	-Boni/*  (nicht mehr notwendig?)
+	-Steigern/EPabziehen, Abwehr, Resistenz, Zaubern ???
+	
+	<Region Region="ORIG"/> -> <bool ORIG="false"/>
+	

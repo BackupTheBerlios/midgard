@@ -37,6 +37,8 @@ void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, 
   MidgardBasicElement::move_element(list_Fertigkeit_ang,list_Fertigkeit_ang_neu,MBE);
 #ifndef USE_XML  
   hauptfenster->on_speichern_clicked();
+#else
+   hauptfenster->steigern_aktivieren();
 #endif
   show_alte_afert();
   show_neue_afert();
@@ -50,6 +52,8 @@ void Window_angeb_fert::on_clist_ang_fert_neu_select_row(gint row, gint column, 
      MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,MBE);
 #ifndef USE_XML     
   hauptfenster->on_speichern_clicked();
+#else
+   hauptfenster->steigern_aktivieren();
 #endif  
   if (wurf==100) { on_button_close_clicked(); return;}
   show_alte_afert();

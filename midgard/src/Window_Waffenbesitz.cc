@@ -135,7 +135,7 @@ void Window_Waffenbesitz::zeige_waffen()
 #ifndef USE_XML
   hauptfenster->on_speichern_clicked();
 #else
-#warning Wofür bitte das? CP
+   hauptfenster->steigern_aktivieren();
 #endif
   show_alte_waffen();
   show_neue_waffen();

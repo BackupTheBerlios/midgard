@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.119 2002/01/19 20:33:46 christof Exp $
+// $Id: midgard_CG.cc,v 1.120 2002/01/20 19:09:36 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -180,6 +180,8 @@ void midgard_CG::charakter_beschreibung_uebernehmen(const std::string& b)
   Werte.setBeschreibung(b);
 #ifndef USE_XML  
   on_speichern_clicked();
+#else
+   steigern_aktivieren();
 #endif
 }
 void midgard_CG::charakter_beschreibung_drucken(const std::string& b)
@@ -187,6 +189,8 @@ void midgard_CG::charakter_beschreibung_drucken(const std::string& b)
   Werte.setBeschreibung(b);
 #ifndef USE_XML
   on_speichern_clicked();
+#else
+   steigern_aktivieren();
 #endif
   midgard_CG::latex_beschreibung_drucken();
 }

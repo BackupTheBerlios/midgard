@@ -47,6 +47,8 @@ void midgard_CG::zauber_zeigen()
  zeige_werte(Werte);
 #ifndef USE_XML 
  on_speichern_clicked();
+#else
+   steigern_aktivieren();
 #endif
  MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Zauber    ,alte_zauber_tree,Werte,Typ,Database.ausnahmen);
@@ -93,6 +95,8 @@ void midgard_CG::on_checkbutton_zaubermittel_toggled()
  zeige_werte(Werte);
 #ifndef USE_XML 
  on_speichern_clicked();
+#else
+   steigern_aktivieren();
 #endif
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
@@ -200,6 +204,8 @@ void midgard_CG::zauberwerk_zeigen()
  zeige_werte(Werte);
 #ifndef USE_XML 
  on_speichern_clicked();
+#else
+   steigern_aktivieren();
 #endif 
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
