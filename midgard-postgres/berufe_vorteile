@@ -3,7 +3,7 @@
 --
 DROP TABLE "berufe_vorteile";
 --
--- TOC Entry ID 2 (OID 9068973)
+-- TOC Entry ID 2 (OID 30139980)
 --
 -- Name: berufe_vorteile Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "berufe_vorteile" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9068973) TABLE DATA berufe_vorteile
+-- Data for TOC Entry ID 3 (OID 30139980) TABLE DATA berufe_vorteile
 --
 
 COPY "berufe_vorteile"  FROM stdin;

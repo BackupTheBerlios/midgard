@@ -4,7 +4,7 @@
 DROP INDEX "berufe_voraussetzung_4_beruf";
 DROP TABLE "berufe_voraussetzung_4";
 --
--- TOC Entry ID 2 (OID 30138240)
+-- TOC Entry ID 2 (OID 30138706)
 --
 -- Name: berufe_voraussetzung_4 Type: TABLE Owner: thoma
 --
@@ -24,7 +24,7 @@ CREATE TABLE "berufe_voraussetzung_4" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 30138240) TABLE DATA berufe_voraussetzung_4
+-- Data for TOC Entry ID 4 (OID 30138706) TABLE DATA berufe_voraussetzung_4
 --
 
 COPY "berufe_voraussetzung_4"  FROM stdin;
@@ -252,7 +252,7 @@ Wundheiler	t	t	t	t	t	t	t	t	\N	\N
 Zimmermann	t	t	\N	t	\N	\N	\N	\N	\N	\N
 \.
 --
--- TOC Entry ID 3 (OID 30138240)
+-- TOC Entry ID 3 (OID 30138706)
 --
 -- Name: "berufe_voraussetzung_4_beruf" Type: INDEX Owner: thoma
 --

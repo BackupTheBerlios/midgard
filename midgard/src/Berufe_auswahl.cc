@@ -45,7 +45,7 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h,
    {
      cH_Beruf b(*i);
      (*i)->set_Lernpunkte(b->Lernpunkte());
-     if(!b->Voraussetzungen(Werte,Typ)) continue;
+//     if(!b->Voraussetzungen(Werte,Typ)) continue;
       if (hauptfenster->region_check(b->Region()))
         if(b->Lernpunkte()<=maxpunkte)
            list_beruf.push_back(*i);

@@ -22,16 +22,15 @@ cH_Beruf::cH_Beruf(const std::string& name)
 void Beruf::get_Beruf()
 {
   exec sql begin declare section;
-   char db_stand[100],db_vorteil[100];
-   char db_region[10],db_geschlecht[10],db_typ[10];
-   int db_lernpunkte,db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb; 
-   char query[1024],query2[1024],query3[1024];
+   bool U,V,M,A,LAND,STADT,TYPK,TYPZ;
+   char REGION[10],GESCHLECHT[10],db_vorteil[50];      
+   char query[1024],query2[1024];
   exec sql end declare section;
-  std::string squery="select distinct lernpunkte, coalesce(st,0), 
-      coalesce(ge,0), coalesce(ko,0), coalesce(\"in\",0), 
-      coalesce(zt,0), coalesce(pa,0), coalesce(au,0), coalesce(sb,0) ,
-      coalesce(typ,''),coalesce(geschlecht,''),coalesce(region,'')
-      from berufe_voraussetzung where beruf ='"+Name()+"'";
+  std::string squery="select distinct coalesce(land,false), 
+      coalesce(stadt,false), coalesce(u,false), coalesce(v,false), 
+      coalesce(m,false), coalesce(a,false), coalesce(typ_k,false), 
+      coalesce(typ_z,false),coalesce(geschlecht,''),coalesce(region,'')
+      from berufe_voraussetzung_4 where beruf ='"+Name()+"'";
   strncpy(query,squery.c_str(),sizeof(query));
   Transaction tr;
   exec sql prepare cl_beruf_ein_ from :query ;
@@ -41,16 +40,15 @@ void Beruf::get_Beruf()
   SQLerror::test(__FILELINE__);
   while (true)   
    {
-     exec sql fetch cl_beruf_ein into :db_lernpunkte,:db_st,:db_ge,
-         :db_ko,:db_in,:db_zt,:db_pa,:db_au,:db_sb,:db_typ,:db_geschlecht,:db_region;
+     exec sql fetch cl_beruf_ein into 
+      :LAND,:STADT,:U,:V,:M,:A,:TYPK,:TYPZ,:GESCHLECHT,:REGION;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     lernpunkte=db_lernpunkte;
-     region=db_region;
-     voraussetzung = st_Voraussetzung(db_st,db_ge,db_ge,db_ko,db_in,db_zt,db_au,db_pa,
-                                   db_sb,db_geschlecht,db_typ);
+     region=REGION;
+     geschlecht=GESCHLECHT;
+     u=U;v=V;m=M;a=A;typ_k=TYPK;typ_z=TYPZ;stadt=STADT;land=LAND;
 
-     std::string squery2= "select stand from berufe_stand where beruf='"
+     std::string squery2= "select vorteil from berufe_vorteile_4 where beruf='"
                            +Name()+"'";
      strncpy(query2,squery2.c_str(),sizeof(query2));
      exec sql prepare cl_beruf2_ein_ from :query2 ;
@@ -59,28 +57,12 @@ void Beruf::get_Beruf()
      SQLerror::test(__FILELINE__);
      while(true)
       {
-       exec sql fetch cl_beruf2_ein into :db_stand;
-       SQLerror::test(__FILELINE__,100);
-       if (sqlca.sqlcode) break;
-       stand.push_back(db_stand);
-      }     
-     exec sql close cl_beruf2_ein;
-
-     std::string squery3= "select vorteil from berufe_vorteile where beruf='"
-                           +Name()+"'";
-     strncpy(query3,squery3.c_str(),sizeof(query3));
-     exec sql prepare cl_beruf3_ein_ from :query3 ;
-     exec sql declare cl_beruf3_ein cursor for cl_beruf3_ein_ ;
-     exec sql open cl_beruf3_ein;
-     SQLerror::test(__FILELINE__);
-     while(true)
-      {
-       exec sql fetch cl_beruf3_ein into :db_vorteil;
+       exec sql fetch cl_beruf2_ein into :db_vorteil;
        SQLerror::test(__FILELINE__,100);
        if (sqlca.sqlcode) break;
        vorteile.push_back(db_vorteil);
       }     
-     exec sql close cl_beruf3_ein;
+     exec sql close cl_beruf2_ein;
    }
  exec sql close cl_beruf_ein;
  tr.close();
@@ -99,6 +81,27 @@ std::string Beruf::get_Vorteile() const
   return s;
 }
 
+
+bool Beruf::Stand(const std::string& stand) const
+{
+  if(stand=="Unfrei" && u) return true;
+  if(stand=="Volk" && v) return true;
+  if(stand=="Mittelschicht" && m) return true;
+  if(stand=="Adel" && a) return true;
+  return false;
+}
+
+bool Beruf::Typ(const vector<cH_Typen>& Typ) const
+{
+  if(Typ[0]->Zaubern()=="z" && typ_z ) return true; 
+  if(Typ[1]->Zaubern()=="z" && typ_z ) return true; 
+  if(Typ[0]->Zaubern()!="z" && typ_k ) return true; 
+  if(Typ[1]->Zaubern()!="z" && typ_k ) return true; 
+  return false;
+}
+
+
+/*
 bool Beruf::Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const
 {
  if ( voraussetzung.st<=Werte.St() &&
@@ -116,7 +119,7 @@ bool Beruf::Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ)
     return true;
  else return false ;
 }
-
+*/
 
 Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
 {
@@ -124,8 +127,8 @@ Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
    char db_name[100];
    int db_size;
  exec sql end declare section;
- exec sql select count(distinct beruf) into :db_size from berufe_voraussetzung;
- exec sql declare BAein cursor for select beruf from berufe_voraussetzung;
+ exec sql select count(distinct beruf) into :db_size from berufe_voraussetzung_4;
+ exec sql declare BAein cursor for select beruf from berufe_voraussetzung_4;
  Transaction tr;
  exec sql open BAein;
  SQLerror::test(__FILELINE__);

@@ -7,10 +7,13 @@
 
 class Beruf : public MidgardBasicElement
 {
-      std::string name, region; 
-      int lernpunkte;
-      vector<std::string> stand;
+      std::string name, region,geschlecht; 
+      int klasse;
+//      vector<std::string> stand;
       vector<std::string> vorteile;
+      bool u,v,m,a,typ_k,typ_z,stadt,land;
+      
+/*
       struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
                            int sb;std::string geschlecht;std::string typ;
          st_Voraussetzung()
@@ -21,7 +24,7 @@ class Beruf : public MidgardBasicElement
             : st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
               sb(_sb),geschlecht(_geschlecht),typ(_typ) {} };
      st_Voraussetzung voraussetzung; 
-
+*/
      void get_Beruf();      
   public:
       Beruf() {}
@@ -31,14 +34,17 @@ class Beruf : public MidgardBasicElement
      enum MBEE What() const {return MidgardBasicElement::BERUF;}
      std::string What_str() const {return "Beruf";}
 
+     bool Stand(const std::string& stand) const;
+     bool Typ(const vector<cH_Typen>& Typ) const;
+     bool Land() const {return land;}
+     bool Stadt() const {return stadt;}
      std::string Name() const {return name;}
      std::string Region() const {return region;}
-     int Lernpunkte() const {return lernpunkte;}
+//     int Lernpunkte() const {return lernpunkte;}
 
-     bool Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const;
+//     bool Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const;
      std::vector<string> Vorteile() const {return vorteile;}
      std::string Beruf::get_Vorteile() const;
-
 };
 
 

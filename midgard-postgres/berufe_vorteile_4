@@ -1,0 +1,167 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "berufe_vorteile_4";
+--
+-- TOC Entry ID 2 (OID 30139481)
+--
+-- Name: berufe_vorteile_4 Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "berufe_vorteile_4" (
+	"beruf" text,
+	"vorteil" text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 30139481) TABLE DATA berufe_vorteile_4
+--
+
+COPY "berufe_vorteile_4"  FROM stdin;
+Akrobat	Springen
+Akrobat	Balancieren
+Alchimist	Zauberkunde
+Alchimist	Kräuterkunde
+Alchimist	Giftmischen
+Arzt	Kräuterkunde
+Arzt	Erste Hilfe
+Barbier	Menschenkenntnis
+Barbier	Beredsamkeit
+Bauer	Tierkunde
+Bauer	Pflanzenkunde
+Bettler	Verkleiden
+Bettler	Geheimzeichen
+Bettler	Gassenwissen
+Bote	Reiten
+Bote	Laufen
+Brauer	Trinken
+Dieb	Stehlen
+Dieb	Geheimzeichen
+Dieb	Gassenwissen
+Einbrecher	Schlösser öffnen
+Einbrecher	Klettern
+Einbrecher	Gassenwissen
+Fallensteller	Spurenlesen
+Fallensteller	Fallenstellen
+Fischer	Schwimmen
+Fischer	Rudern
+Flußschiffer	Schwimmen
+Flußschiffer	Rudern
+Fuhrmann	Streitwagen lenken
+Fuhrmann	Wagenlenken
+Gaukler	Stimmen nachahmen
+Gaukler	Stehlen
+Gaukler	Gassenwissen
+Goldschmied	Schlösser öffnen
+Grobschmied	Athletik
+Hirte	Überleben
+Hirte	Tierkunde
+Sklavenhändler	Menschenkenntnis
+Karawanenführer	Überleben in der Wüste
+Karawanenführer	Reiten
+Karawanenführer	Himmelskunde
+Kaufmann	Geschäftstüchtigkeit
+Kaufmann	Beredsamkeit
+Koch	Kräuterkunde
+Köhler	Überleben im Wald
+Köhler	Überleben im Sumpf
+Köhler	Fallenstellen
+Krämer	Menschenkenntnis
+Krämer	Geschäftstüchtigkeit
+Kurtisane	Verführen
+Dewadasi	Verführen
+Seiler	Seilkunst
+Schlachter	Meucheln
+Müller	Wagenlenken
+Musikant	Tanzen
+Musikant	Musizieren
+Räuber	Tarnen
+Sattler	Reiten
+Scharfrichter	Seilkunst
+Bootsbauer	Rudern
+Schlosser	Schlösser öffnen
+Schmuggler	Schleichen
+Schreiber	Sprache
+Schreiber	Lesen/Schreiben
+Seemann	Rudern
+Seemann	Klettern
+Wagner	Wagenlenken
+Verwalter	Rechnen
+Verwalter	Lesen/Schreiben
+Vorarbeiter	Menschenkenntnis
+Vorarbeiter	Athletik
+Vorkoster	Giftmischen
+Vorkoster	Trinken
+Waffenschmied	Athletik
+Waldarbeiter	Geländelauf
+Winzer	Trinken
+Wirt	Menschenkenntnis
+Wirt	Beredsamkeit
+Wundheiler	Erste Hilfe
+Zureiter	Kampf zu Pferd
+Zureiter	Reiten
+Srimahaut	Srimara lenken
+Astrologe	Sagenkunde
+Astrologe	Rechnen
+Schlangenbeschwörer	Musizieren
+Schlangenbeschwörer	Schlangen beschwören
+Dewadasi	Tanzen
+Dewadasi	Natya
+Akrobat	Akrobatik
+Alchimist	Alchimie
+Arzt	Heilkunde
+Aufseher	Menschenkenntnis
+Bergmann	Baukunde
+Bootsbauer	Steuern
+Bergmann	Kampf in Dunkelheit
+Bettler	Schauspielern
+Dieb	Verbergen
+Einbrecher	Winden
+Falkner	Abrichten
+Fischer	Steuern
+Fischer	Seemannsgang
+Flußschiffer	Seemannsgang
+Gaukler	Gaukeln
+Goldschmied	Schätzen
+Hirte	Überleben im Gebirge
+Hirte	Überleben im Wald
+Hirte	Überleben in der Steppe
+Hirte	Überleben in der Wüste
+Hundeführer	Abrichten
+Jäger	Fallenstellen
+Jäger	Schleichen
+Jäger	Tarnen
+Jäger	Spurenlesen
+Karawanenführer	Landeskunde
+Karawanenführer	Überleben im Dschungel
+Karawanenführer	Überleben im Gebirge
+Karawanenführer	Überleben im Schnee
+Karawanenführer	Überleben im Sumpf
+Karawanenführer	Überleben im Wald
+Karawanenführer	Überleben in der Steppe
+Kaufmann	Landeskunde
+Kaufmann	Rechnen
+Kaufmann	Schätzen
+Kurtisane	Menschenkenntnis
+Kurtisane	Schauspielern
+Märchenerzähler	Dichten
+Märchenerzähler	Erzählen
+Märchenerzähler	Sagenkunde
+Schmuggler	Rudern
+Schmuggler	Steuern
+Schreiber	Fälschen
+Schreiner	Suchen
+Seemann	Seemannsgang
+Stadtwache	Suchen
+Stadtwache	Verhören
+Steuermann	Himmelskunde
+Steuermann	Steuern
+Steuermann	Rechnen
+Steuermann	Seemannsgang
+Träger	Athletik
+Verwalter	Menschenkenntnis
+Verwalter	Landeskunde
+Waffenschmied	Schätzen
+Zimmermann	Baukunde
+Zureiter	Abrichten
+\.

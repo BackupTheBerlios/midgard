@@ -17,7 +17,7 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
    bool PFLICHT;
    int WERT,LERNPUNKTE,db_size;
   exec sql end declare section;
-  exec sql select count(typ) into :db_size from lernschema;
+  exec sql select count(typ) into :db_size from lernschema_4;
   exec sql declare LEin cursor for select
    typ, pflicht, name, art, coalesce(wert,0), lernpunkte
    from lernschema_4 
