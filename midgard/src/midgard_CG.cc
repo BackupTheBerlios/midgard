@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.248 2002/07/01 10:22:42 christof Exp $
+// $Id: midgard_CG.cc,v 1.249 2002/07/01 12:27:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,8 +46,7 @@ midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
   MOptionen = new Midgard_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
   MOptionen->load_options(with_path("magus_optionen.xml",false,true));
-  setenv("TEXMFOUTPUT",MOptionen->getString(Midgard_Optionen::tmppfad).c_str(),1);
-
+  
   srand(time(0));
   Database.load(Midgard_Info,with_path("midgard.xml"));
 
@@ -67,7 +66,6 @@ midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
 
 midgard_CG::~midgard_CG()
 {  //cout << "~midgard_CG()\n\n\n\n";
-   unsetenv("TEXMFOUTPUT");
    delete MOptionen;
 //   if (menu) delete menu;
 //   if (table_steigern->menu_gradanstieg) table_steigern->delete menu_gradanstieg;
@@ -95,9 +93,9 @@ std::string midgard_CG::with_path(const std::string &name,bool path_only,bool no
   V.push_back(std::string(currentwd)+"/../xml/");
   V.push_back(std::string(currentwd)+"/../docs/");
 #else
-  V.push_back(Binary_Verzeichnis());
-  V.push_back(Binary_Verzeichnis()+"\\Daten");
-  V.push_back(Binary_Verzeichnis()+"\\Hilfe");
+  V.push_back(BinaryVerzeichnis());
+  V.push_back(BinaryVerzeichnis()+"\\Daten");
+  V.push_back(BinaryVerzeichnis()+"\\Hilfe");
 #endif  
   std::string ntmp;
   for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
