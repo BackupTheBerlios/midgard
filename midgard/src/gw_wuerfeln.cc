@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.27 2002/01/19 17:07:32 christof Exp $
+// $Id: gw_wuerfeln.cc,v 1.28 2002/01/26 21:19:04 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -238,29 +238,36 @@ void midgard_CG::gw_wuerfeln_2x()
  zeige_werte(Werte);
 }
 
+static inline int max(int a,int b) { return a>b?a:b; }
+
 int midgard_CG::constraint_gw(Random& random,int constraint)
 {
  int wert;
  if      (constraint==0) wert = wuerfeln_best_of_two(random);
+#if 1 // also correct for M4?
  else if (constraint<0) 
-   do wert = random.integer(1,100);
-   while (wert > -constraint);
+ {  do wert = random.integer(1,100);
+    while (wert > -constraint);
+ }
  else if (constraint > 0) 
    { wert = wuerfeln_best_of_two(random);
      while (wert < constraint) wert = random.integer(1,100);
    }
+#else // this has a different distribution (favoring better results) ??
+      // but seems more logical
+ else if (constraint<0) 
+    wert = max(random.integer(1,-constraint),random.integer(1,-constraint));
+ else if (constraint>0) 
+    wert = max(random.integer(constraint,100),random.integer(constraint,100));
+#endif
  return wert;
 }
 
 int midgard_CG::constraint_aw(Random& random,int constraint)
 {
- int wert = random.integer(1,100);
- if      (constraint==0) return wert;
- else if (constraint<0) 
-   while (wert > -constraint);
- else if (constraint > 0) 
-   while (wert < constraint) wert = random.integer(1,100);
- return wert;
+ if      (constraint==0) return random.integer(1,100);
+ else if (constraint<0) return random.integer(1,-constraint); 
+ else 			return random.integer(constraint,100);
 }
 
 int midgard_CG::wuerfeln_best_of_two(Random& random)
