@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.19 2003/09/01 06:47:57 christof Exp $
+// $Id: xml.cc,v 1.20 2004/04/01 06:25:29 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2003 Christof Petig
  *
@@ -27,7 +27,9 @@
 #include "Ausgabe.hh"
 
 void xml_init(SigC::Slot1<void,double> progress, class Datenbank &db)
-{  std::string filename=magus_paths::with_path("midgard.xml");
+{  const char *fname=getenv("MIDGARD_XML");
+   if (!fname) fname="midgard.xml";
+   std::string filename=magus_paths::with_path(fname);
    std::ifstream ifs(filename.c_str());
    TagStream ts=TagStream(ifs);
    try

@@ -50,7 +50,10 @@ int main(int argc,char **argv)
    t.proxies.wizard.signal_changed().connect(SigC::bind(
    		SigC::slot(&print2),"proxies.wizard.signal_changed"));
    Model_ref<Wizard::esteps>(t.getWizard()).signal_changed()
-           .connect(SigC::bind(SigC::slot(&print2),"t.getWizard"));
+           .connect(SigC::bind(SigC::slot(&print2),"old_t.getWizard"));
+   t.undosave("step");
+   Model_ref<Wizard::esteps>(t.getWizard()).signal_changed()
+           .connect(SigC::bind(SigC::slot(&print2),"new_t.getWizard"));
 std::cout << "proxies &t="<< &t << "\n";
    t.proxies.wizard=Wizard::GRUNDWERTE;
 std::cout << "t.getWiz direkt\n";
