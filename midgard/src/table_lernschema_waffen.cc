@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.21 2002/10/25 06:49:10 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.22 2002/11/12 08:57:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -27,6 +27,13 @@
 
 gint table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {
+  for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
+   {
+     AusruestungBaum &AB=hauptfenster->getAben().getAusruestung_as_parent((*i)->Name());
+     AusruestungBaum *Parent = AB.getParent();
+     if(Parent)  Parent->remove(AB); 
+     else std::cerr << "Keine Herkunftsnode gesetzt\n";
+   }
   hauptfenster->getChar()->List_Waffen_besitz().clear();
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::WAFFEN);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
@@ -141,6 +148,8 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
    else return;
 
    hauptfenster->getChar()->List_Waffen_besitz().push_back(WB);
+   AusruestungBaum &guertel=hauptfenster->getAben().getAusruestung_as_parent("Gürtel");
+   guertel.push_back(Ausruestung(WB->Name()));
 
    show_gelerntes();
    show_WaffenBesitz_lernschema();

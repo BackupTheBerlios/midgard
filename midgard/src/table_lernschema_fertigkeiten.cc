@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.18 2002/11/01 10:23:48 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.19 2002/11/12 08:57:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -105,9 +105,11 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
  return name;
 }
 
-void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
+//void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
+void table_lernschema::setFertigkeitenAusruestung()
 {
-  AusruestungBaum &besitz=hauptfenster->getChar()->getBesitz();
+  AusruestungBaum &koerper=hauptfenster->getChar()->getBesitz();
+  AusruestungBaum &rucksack=hauptfenster->getAben().getAusruestung_as_parent("Rucksack");
   for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Fertigkeit().begin();i!=hauptfenster->getChar()->List_Fertigkeit().end();++i)
    {
      const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit((*i)->getMBE())->get_vec_Besitz();
@@ -119,13 +121,13 @@ void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
            AusruestungBaum *A;
            if(j->position == Fertigkeit::Besitz)
             {
-              A = &besitz.push_back(Ausruestung(j->name)); 
-              A->setParent(&besitz);
+              A = &koerper.push_back(Ausruestung(j->name)); 
+              A->setParent(&koerper);
             }
            else if(j->position == Fertigkeit::Rucksack)
             {
-              A = &Rucksack.push_back(Ausruestung(j->name));
-              A->setParent(&Rucksack); 
+              A = &rucksack.push_back(Ausruestung(j->name));
+              A->setParent(&rucksack); 
             }
          }
         InfoFensterAusruestung((*(*i))->Name(),j->name,wurf,j->min);

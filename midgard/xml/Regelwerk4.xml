@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.16 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.17 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -7103,7 +7103,7 @@
   </Rüstung>
  </Rüstungen>
  <Waffen>
-  <Waffe Name="Anderthalbhänder" Grundkenntnisse="Zweihandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6+1|2">
+  <Waffe Name="Anderthalbhänder" Grundkenntnisse="Zweihandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="2">
    <Modifikationen Waffenrang="-1" Abwehr-leicht="0" Abwehr-schwer="-1"/>
    <Voraussetzungen St="31" Gs="21"/>
    <Reichweite/>
@@ -7198,7 +7198,7 @@
    <Lernschema Typ="Gl" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Or" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Dolch" Grundkenntnisse="Stichwaffe" Schwierigkeit="1" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+  <Waffe Name="Dolch" Grundkenntnisse="Stichwaffe" Schwierigkeit="1" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen Waffenrang="2" Abwehr-leicht="-2" Abwehr-schwer="2"/>
    <Voraussetzungen/>
    <Reichweite/>
@@ -7270,7 +7270,7 @@
    <Lernschema Typ="sHx" Lernpunkte="2" Erfolgswert="4"/>
    <Lernschema Typ="wHx" Lernpunkte="2" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Faustkampf" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-4">
+  <Waffe Name="Faustkampf" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-4" Schadensbonus2="-4">
    <Modifikationen Waffenrang="2" Abwehr-leicht="-2" Abwehr-schwer="2"/>
    <Voraussetzungen St="31" Gw="21"/>
    <Reichweite/>
@@ -7319,7 +7319,7 @@
    <Lernschema Typ="ScS" Lernpunkte="8" Erfolgswert="4"/>
    <Lernschema Typ="ScW" Lernpunkte="8" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Fuchtel" Grundkenntnisse="Stichwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+  <Waffe Name="Fuchtel" Grundkenntnisse="Stichwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
    <Modifikationen Waffenrang="2" Abwehr-leicht="-1" Abwehr-schwer="0"/>
    <Voraussetzungen St="61" Gs="31"/>
    <Reichweite/>
@@ -7608,7 +7608,7 @@
    <Lernschema Typ="PHe" Lernpunkte="6" Erfolgswert="4"/>
    <Lernschema Typ="PF" Lernpunkte="8" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Keule" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="1" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+  <Waffe Name="Keule" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="1" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen Abwehr-leicht="0" Abwehr-schwer="+2"/>
    <Voraussetzungen/>
    <Reichweite/>
@@ -7713,7 +7713,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Kriegsflegel" Grundkenntnisse="Kettenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="2W6" Schadensbonus="-1">
+  <Waffe Name="Kriegsflegel" Grundkenntnisse="Kettenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="2W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen Waffenrang="-3" Abwehr-leicht="+2" Abwehr-schwer="-2"/>
    <Voraussetzungen St="61" Gs="31"/>
    <Reichweite/>
@@ -7931,7 +7931,7 @@
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Langschwert" Grundkenntnisse="Einhandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+  <Waffe Name="Langschwert" Grundkenntnisse="Einhandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="21"/>
    <Reichweite/>
@@ -8070,7 +8070,7 @@
    <Lernschema Typ="sHx" Lernpunkte="6" Erfolgswert="4"/>
    <Lernschema Typ="wHx" Lernpunkte="6" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Magierstecken" Grundkenntnisse="Zauberstäbe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+  <Waffe Name="Magierstecken" Grundkenntnisse="Zauberstäbe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="61"/>
    <Reichweite/>
@@ -8098,7 +8098,7 @@
    <Lernschema Typ="Dr" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="Ma" Lernpunkte="8" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Morgenstern" Grundkenntnisse="Kettenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="2">
+  <Waffe Name="Morgenstern" Grundkenntnisse="Kettenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="2" Schadensbonus2="2">
    <Modifikationen Waffenrang="-2" Abwehr-leicht="+1" Abwehr-schwer="-1"/>
    <Voraussetzungen St="61" Gs="61"/>
    <Reichweite/>
@@ -8148,7 +8148,7 @@
    <Lernschema Typ="PHe" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="PK" Lernpunkte="4" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Ochsenzunge" Grundkenntnisse="Stichwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="2W6" Schadensbonus="-4">
+  <Waffe Name="Ochsenzunge" Grundkenntnisse="Stichwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="2W6" Schadensbonus="-4" Schadensbonus2="-4">
    <Modifikationen Waffenrang="+2" Abwehr-leicht="-1" Abwehr-schwer="+1"/>
    <Voraussetzungen Gs="31"/>
    <Reichweite/>
@@ -8199,7 +8199,7 @@
    <Lernschema Typ="sHx" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="wHx" Lernpunkte="4" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Ogerhammer" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="4W6+0|3">
+  <Waffe Name="Ogerhammer" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="4W6" Schadensbonus2="3">
    <Modifikationen Waffenrang="-4" Abwehr-leicht="+2" Abwehr-schwer="-3"/>
    <Voraussetzungen St="91" Gs="31"/>
    <Reichweite/>
@@ -8240,7 +8240,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="BN" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Peitsche" Grundkenntnisse="Peitsche" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-3">
+  <Waffe Name="Peitsche" Grundkenntnisse="Peitsche" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-3" Schadensbonus2="-3">
    <Modifikationen Waffenrang="-1"/>
    <Voraussetzungen St="21" Gs="81"/>
    <Reichweite/>
@@ -8333,7 +8333,7 @@
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Schlachtbeil" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="W6+3|1">
+  <Waffe Name="Schlachtbeil" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="3" Schadensbonus2="1">
    <Modifikationen Waffenrang="-2" Abwehr-leicht="+1" Abwehr-schwer="-2"/>
    <Voraussetzungen St="61" Gs="31"/>
    <Reichweite/>
@@ -8383,7 +8383,7 @@
    <Lernschema Typ="Ba" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="PK" Lernpunkte="8" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Stabkeule" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="2W6" Schadensbonus="-2">
+  <Waffe Name="Stabkeule" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="2W6" Schadensbonus="-2" Schadensbonus2="-2">
    <Modifikationen Waffenrang="-3" Abwehr-leicht="+2" Abwehr-schwer="-2"/>
    <Voraussetzungen St="81"/>
    <Reichweite/>
@@ -8542,7 +8542,7 @@
    <Lernschema Typ="Se" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Streitaxt" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+  <Waffe Name="Streitaxt" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
    <Modifikationen/>
    <Voraussetzungen St="61" Gs="11"/>
    <Reichweite/>
@@ -8653,7 +8653,7 @@
    <Lernschema Typ="Ba" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="leichter Speer" Grundkenntnisse="Spießwaffe" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+  <Waffe Name="leichter Speer" Grundkenntnisse="Spießwaffe" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen Waffenrang="+1" Abwehr-leicht="-1" Abwehr-schwer="+1"/>
    <Voraussetzungen/>
    <Reichweite/>
@@ -8883,7 +8883,7 @@
    <Lernschema Typ="Sp" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="PF" Lernpunkte="8" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Handarmbrust" Grundkenntnisse="Armbrust" Schwierigkeit="3" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="-1">
+  <Waffe Name="Handarmbrust" Grundkenntnisse="Armbrust" Schwierigkeit="3" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen/>
    <Voraussetzungen Gs="31"/>
    <Reichweite nah="20" mittel="40" fern="70"/>
@@ -8923,7 +8923,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Kompositbogen" Grundkenntnisse="Bögen" Schwierigkeit="6" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="1">
+  <Waffe Name="Kompositbogen" Grundkenntnisse="Bögen" Schwierigkeit="6" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
    <Modifikationen/>
    <Voraussetzungen St="61" Gs="61"/>
    <Reichweite nah="30" mittel="120" fern="200"/>
@@ -8964,7 +8964,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="BS" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Kurzbogen" Grundkenntnisse="Bögen" Schwierigkeit="3" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="-1">
+  <Waffe Name="Kurzbogen" Grundkenntnisse="Bögen" Schwierigkeit="3" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen/>
    <Voraussetzungen St="11" Gs="31"/>
    <Reichweite mittel="80" fern="120"/>
@@ -9020,7 +9020,7 @@
    <Lernschema Typ="Sp" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="PF" Lernpunkte="8" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Langbogen" Grundkenntnisse="Bögen" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="1">
+  <Waffe Name="Langbogen" Grundkenntnisse="Bögen" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
    <Modifikationen/>
    <Voraussetzungen St="61" Gs="61"/>
    <Reichweite nah="30" mittel="120" fern="200"/>
@@ -9125,7 +9125,7 @@
    <Lernschema Typ="Dr" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="PF" Lernpunkte="8" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Skhallanta" Grundkenntnisse="Armbrust" Schwierigkeit="4" Kategorie="Schußwaffe" Klasse="S" Schaden="2*2W6" Schadensbonus="-3">
+  <Waffe Name="Skhallanta" Grundkenntnisse="Armbrust" Schwierigkeit="4" Kategorie="Schußwaffe" Klasse="S" Schaden="2*2W6" Schadensbonus="-3" Schadensbonus2="-3">
    <Modifikationen/>
    <Voraussetzungen St="21" Gs="81"/>
    <Reichweite nah="30" mittel="120" fern="220"/>
@@ -9165,7 +9165,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Stockschleuder" Grundkenntnisse="Schleuder" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="2W6" Schadensbonus="-2">
+  <Waffe Name="Stockschleuder" Grundkenntnisse="Schleuder" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="2W6" Schadensbonus="-2" Schadensbonus2="-2">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="81"/>
    <Reichweite null="21" nah="30" mittel="100" fern="180"/>
@@ -9308,7 +9308,7 @@
    <Lernschema Typ="Se" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Er" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Buckler" Grundkenntnisse="Schild" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2">
+  <Waffe Name="Buckler" Grundkenntnisse="Schild" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2" Schadensbonus2="-2">
    <Modifikationen/>
    <Voraussetzungen/>
    <Reichweite/>
@@ -9359,7 +9359,7 @@
    <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="1"/>
    <Lernschema Typ="PT" Lernpunkte="3" Erfolgswert="1"/>
   </Waffe>
-  <Waffe Name="Kampfgabeln" Grundkenntnisse="Parierwaffe" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2">
+  <Waffe Name="Kampfgabeln" Grundkenntnisse="Parierwaffe" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2" Schadensbonus2="-2">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="61"/>
    <Reichweite/>
@@ -9399,7 +9399,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Parierdolch" Grundkenntnisse="Parierwaffe" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="V" Schadensbonus="-2" erfordert="Dolch">
+  <Waffe Name="Parierdolch" Grundkenntnisse="Parierwaffe" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="V" Schadensbonus="-2" Schadensbonus2="-2" erfordert="Dolch">
    <Modifikationen/>
    <Voraussetzungen/>
    <Reichweite/>
@@ -9507,7 +9507,7 @@
    <Lernschema Typ="PK" Lernpunkte="3" Erfolgswert="1"/>
    <Lernschema Typ="PM" Lernpunkte="3" Erfolgswert="1"/>
   </Waffe>
-  <Waffe Name="kleiner Schild" Grundkenntnisse="Schild" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="V" Schadensbonus="-1">
+  <Waffe Name="kleiner Schild" Grundkenntnisse="Schild" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="V" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="11"/>
    <Reichweite/>
@@ -9570,7 +9570,7 @@
    <Lernschema Typ="PK" Lernpunkte="3" Erfolgswert="1"/>
    <Lernschema Typ="PM" Lernpunkte="3" Erfolgswert="1"/>
   </Waffe>
-  <Waffe Name="Bola" Grundkenntnisse="Fesselwaffe" Schwierigkeit="7" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-2">
+  <Waffe Name="Bola" Grundkenntnisse="Fesselwaffe" Schwierigkeit="7" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-2" Schadensbonus2="-2">
    <Modifikationen/>
    <Voraussetzungen St="21" Gs="81"/>
    <Reichweite null="2" nah="10" mittel="15" fern="20"/>
@@ -9655,7 +9655,7 @@
    <Lernschema Typ="BS" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Ku" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Netz" Grundkenntnisse="Fesselwaffe" Schwierigkeit="7" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1">
+  <Waffe Name="Netz" Grundkenntnisse="Fesselwaffe" Schwierigkeit="7" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen Abwehr-leicht="+2" Abwehr-schwer="-2"/>
    <Voraussetzungen Gs="81"/>
    <Reichweite nah="5"/>
@@ -9742,7 +9742,7 @@
    <Lernschema Typ="ScS" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="ScW" Lernpunkte="4" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Werfen" Grundkenntnisse="Werfen" Schwierigkeit="7" Kategorie="Wurfwaffe" Schaden="var">
+  <Waffe Name="Werfen" Grundkenntnisse="Werfen" Schwierigkeit="7" Kategorie="Wurfwaffe" Schaden="variabel">
    <Modifikationen/>
    <Voraussetzungen Gs="21"/>
    <Reichweite/>
@@ -9935,7 +9935,7 @@
    <Lernschema Typ="PHe" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="PK" Lernpunkte="3" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Wurfkeule" Grundkenntnisse="Stielwurfwaffe" Schwierigkeit="1" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" erfordert="Keule">
+  <Waffe Name="Wurfkeule" Grundkenntnisse="Stielwurfwaffe" Schwierigkeit="1" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1" erfordert="Keule">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="31"/>
    <Reichweite nah="10" mittel="30" fern="50"/>
@@ -9995,7 +9995,7 @@
    <Lernschema Typ="ScW" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Wurfmesser" Grundkenntnisse="Wurfmesser" Schwierigkeit="2" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" erfordert="Dolch">
+  <Waffe Name="Wurfmesser" Grundkenntnisse="Wurfmesser" Schwierigkeit="2" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1" erfordert="Dolch">
    <Modifikationen/>
    <Voraussetzungen Gs="61"/>
    <Reichweite nah="10" mittel="15" fern="20"/>
@@ -10058,7 +10058,7 @@
    <Lernschema Typ="sHx" Lernpunkte="6" Erfolgswert="4"/>
    <Lernschema Typ="wHx" Lernpunkte="6" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Wurfpfeil" Grundkenntnisse="Wurfpfeil" Schwierigkeit="3" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-2">
+  <Waffe Name="Wurfpfeil" Grundkenntnisse="Wurfpfeil" Schwierigkeit="3" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-2" Schadensbonus2="-2">
    <Modifikationen/>
    <Voraussetzungen St="11" Gs="31"/>
    <Reichweite nah="10" mittel="20" fern="30"/>
@@ -10109,7 +10109,7 @@
    <Lernschema Typ="PC" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="PT" Lernpunkte="4" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Wurfscheibe" Grundkenntnisse="Wurfscheibe" Schwierigkeit="5" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-2">
+  <Waffe Name="Wurfscheibe" Grundkenntnisse="Wurfscheibe" Schwierigkeit="5" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-2" Schadensbonus2="-2">
    <Modifikationen/>
    <Voraussetzungen St="61" Gs="61"/>
    <Reichweite nah="10" mittel="20" fern="30"/>
@@ -10150,7 +10150,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="As" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Wurfspeer" Grundkenntnisse="Wurfspieß" Schwierigkeit="1" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" erfordert="leichter Speer">
+  <Waffe Name="Wurfspeer" Grundkenntnisse="Wurfspieß" Schwierigkeit="1" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1" erfordert="leichter Speer">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="21"/>
    <Reichweite nah="10" mittel="30" fern="50"/>
@@ -10259,7 +10259,7 @@
    <Lernschema Typ="PK" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="PM" Lernpunkte="3" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Wurfstern" Grundkenntnisse="Wurfscheibe" Schwierigkeit="5" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-3">
+  <Waffe Name="Wurfstern" Grundkenntnisse="Wurfscheibe" Schwierigkeit="5" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-3" Schadensbonus2="-3">
    <Modifikationen/>
    <Voraussetzungen Gs="61"/>
    <Reichweite nah="5" mittel="10" fern="15"/>

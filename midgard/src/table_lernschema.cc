@@ -558,8 +558,9 @@ void table_lernschema::ausruestung_setzen()
      button_ausruestung->set_sensitive(false);
   
   hauptfenster->getAben().setStandardAusruestung();
-  AusruestungBaum &Rucksack=hauptfenster->getAben().getBesitz();
-  setFertigkeitenAusruestung(Rucksack);
+//  AusruestungBaum &Rucksack=hauptfenster->getAben().getBesitz();
+//  setFertigkeitenAusruestung(Rucksack);
+  setFertigkeitenAusruestung();
 }
 
 

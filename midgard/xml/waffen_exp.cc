@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.24 2002/11/06 20:03:26 thoma Exp $
+// $Id: waffen_exp.cc,v 1.25 2002/11/12 08:57:41 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -57,7 +57,7 @@ void waffen_speichern(Tag &o)
 
    Tag &Waffen=o.push_back(Tag("Waffen"));
   {Query query("select name, region, grundkenntnisse, schwierigkeit,"
-   		"art, art_2, schaden, schaden_b, zusatz, "
+   		"art, art_2, schaden, schaden_b,coalesce(schaden_b2,schaden_b), zusatz, "
    		MIDGARD3_4("angriffsrangmod,","waffenrang,")
    		"wm_abwehr_leicht, wm_abwehr_schwer, st, "
    		MIDGARD3_4("ge,","gw,gs,")
@@ -77,6 +77,7 @@ void waffen_speichern(Tag &o)
    fetch_and_set_string_attrib(is, Waffe, "Klasse");
    fetch_and_set_string_attrib(is, Waffe, "Schaden");
    fetch_and_set_int_attrib(is, Waffe, "Schadensbonus");
+   fetch_and_set_int_attrib(is, Waffe, "Schadensbonus2");
    fetch_and_set_string_attrib(is, Waffe, "erfordert");
    Tag &Mod=Waffe.push_back(Tag("Modifikationen"));
 #ifdef MIDGARD3   

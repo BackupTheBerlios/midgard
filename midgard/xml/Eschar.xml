@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.7 $">
+<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.8 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -776,7 +776,7 @@
  <Rüstungen/>
  <Waffen>
   <Waffe Name="Anderthalbhänder">
-   <regionaleVariante Name="Nimcha" Region="E" Schaden="W6+1|2"/>
+   <regionaleVariante Name="Nimcha" Region="E" Schaden="W6" Schadensbonus="1"/>
    <Standard Typ="De"/>
    <Lernschema Typ="De" Lernpunkte="4" Erfolgswert="4"/>
   </Waffe>

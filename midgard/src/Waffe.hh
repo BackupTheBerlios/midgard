@@ -44,7 +44,7 @@ class Waffe : public MidgardBasicElement
      int schwierigkeit,st,gw,gs,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f;
      int lern_land,lern_stadt, anfangswert;
-     int schaden_bonus;
+     int schaden_bonus,schaden_bonus2;
      std::list<st_alias> list_alias;
      std::vector<std::string> vec_voraussetzung_W, vec_voraussetzung_F;
 
@@ -72,6 +72,7 @@ class Waffe : public MidgardBasicElement
      std::string Art2() const {return art2;}
      std::string Schaden(const std::string& name) const;
      int Schaden_Bonus(const std::string& name) const;
+     int Schaden_Bonus2(const std::string& name) const;
      std::string Waffenrang() const {return waffenrang;}
      std::string WM_Abwehr() const;
      int WM_Angriff(const std::string& name) const;
@@ -166,7 +167,7 @@ class WaffeBesitz : public MidgardBasicElement_mutable
      int sl_Bonus() const {return sl_bonus;}
      std::string Bonus() const;
      std::string Magisch() const {return magisch;}
-     std::string Schaden(const Grundwerte& Werte,const std::string& name,bool latex=false) const;
+     std::string Schaden(const Grundwerte& Werte,const std::string& name) const;
      std::string Region() const {return region;}
       
      void set_av_Bonus(int a) {av_bonus=a;}

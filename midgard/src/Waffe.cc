@@ -55,6 +55,7 @@ void Waffe::get_Waffe()
    art2=tag->getAttr("Klasse");
    schaden=tag->getAttr("Schaden");
    schaden_bonus=tag->getIntAttr("Schadensbonus");
+   schaden_bonus2=tag->getIntAttr("Schadensbonus2");
    voraussetzung=tag->getAttr("erfordert");
    region=tag->getAttr("Region");
    
@@ -153,34 +154,37 @@ FertEnd:
  return true;
 }
 
-///////////////////////////////////////////////////////////////////
+std::string add_plus_or_minus(const std::string &s,const int sb)
+{
+  if(s.find("|")!=std::string::npos) s="("+s+")";
+  if     (sb == 0) return s;
+  else if(sb  > 0) return s+"+"+itos(sb);
+  else if(sb  < 0) return s+itos(sb);
+  abort();
+}
 
-std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name,bool latex) const
+
+std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name) const
 {
   if (Waffe()->Art()=="Verteidigung") 
-   {
-     std::string s=itos(Waffe()->Schaden_Bonus(name))+"AP";
-     if(latex) return "-"+s;
-     else return s;
-   }
+     return itos(Waffe()->Schaden_Bonus(name))+"AP";
+
   std::string s=Waffe()->Schaden(name);
-  int sb=Waffe()->Schaden_Bonus(name) + sl_Bonus();
+  int sb =Waffe()->Schaden_Bonus(name) + sl_Bonus();
+  int sb2=Waffe()->Schaden_Bonus2(name) + sl_Bonus();
   if ( Waffe()->Grundkenntnis() == "Kampf ohne Waffen" ) 
       { s="W6";
         int w = Erfolgswert();
-        if (         w <= 7) sb=-4;
-        if ( 8<=w && w <=11) sb=-3;
-        if (12<=w && w <=15) sb=-2;
-        if (16<=w)           sb=-1;
+        if      (w <= 7) sb=-4;
+        else if (w <=11) sb=-3;
+        else if (w <=15) sb=-2;
+        else             sb=-1;
         if(name=="Kampfriemen") sb+=1;
       }
   if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe") 
-      sb += Werte.bo_Sc();
-  if     (sb == 0) return s;
-  else if(sb  > 0) return s+"+"+itos(sb);
-  else if(sb  < 0 &&  latex) return s+"-"+itos(sb);
-  else if(sb  < 0 && !latex) return s+itos(sb);
-  abort(); //Never get here
+    {  sb += Werte.bo_Sc(); sb2 += Werte.bo_Sc();}
+  if(sb==sb2)  return add_plus_or_minus(s,sb); 
+  else         return add_plus_or_minus(s,sb)+"|"+itos(sb2);
 }
 
 std::string WaffeBesitz::Bonus() const 
@@ -230,6 +234,11 @@ std::string Waffe::Schaden(const std::string& name) const
     if (name==(*i).name) 
       return (*i).schaden;
   assert(false);
+}
+
+int Waffe::Schaden_Bonus2(const std::string& name) const 
+{
+  return schaden_bonus2;
 }
 
 int Waffe::Schaden_Bonus(const std::string& name) const 

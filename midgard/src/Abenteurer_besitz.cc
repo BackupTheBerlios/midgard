@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.4 2002/11/05 07:24:18 thoma Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.5 2002/11/12 08:57:41 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -43,6 +43,26 @@ double Abenteurer::getBelastung() const
   return last;
 }
 
+
+AusruestungBaum& rekursiv(std::list<AusruestungBaum> &AB,const std::string &name)
+{
+  for(std::list<AusruestungBaum>::iterator i=AB.begin();i!=AB.end();++i)
+   {
+     if(name==i->getAusruestung().Name()) return *i;
+     return rekursiv(i->getChildren(),name);
+   }
+ return getBesitz();
+}
+
+AusruestungBaum& Abenteurer::getAusruestung_as_parent(const std::string &name)
+{
+  for(AusruestungBaum::iterator i=getBesitz().begin();i!=getBesitz().end();++i)
+   {
+     if(name==i->getAusruestung().Name()) return  *i;
+     return rekursiv(i->getChildren(),name);
+   }
+ return getBesitz();
+}
 
 
 void Abenteurer::setStandardAusruestung()

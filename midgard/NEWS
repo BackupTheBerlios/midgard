@@ -13,7 +13,10 @@ NEWS IN VERSION 0.8.9
 * Hausregel beim laden setzen
 * Ohne Namen in NEWS&Geschichte -> Wechsel des Abenteurers
 * KI-Steigern überarbeitet und (hoffentlich) verbessert
-* 'SegFault' Bug beim wechseln der Seite nach Charakterlöschen gefixed
+* 'SegFault' Bug beim wechseln der Seite nach Charakter-löschen gefixed
+* '--' im Ausdruck bei PP  für ang. Fertigkeiten
+* Direkte Addition der Schadensboni im Ausdruck bei Waffen mit unterschiedlichen
+   Schadensboni
 
 TODO: ('-' zeigt CP an)
 
@@ -23,8 +26,6 @@ TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Deutsche Sortierung (Bärenwut vor Beschleunigen)
-* '--' bei PP wenn nicht möglich
-* DIrektaddition der Schadensboni im Ausdruck
 - Ausrüstung mit drag & drop
 - Würfelvarianten für Nichtmenschen!
 - verschwinden alle Icons? :

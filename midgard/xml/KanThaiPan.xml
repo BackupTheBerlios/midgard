@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.9 $">
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.10 $">
  <Schriften>
   <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
    <Variante Name="KanThaiTun(1)"/>
@@ -1850,7 +1850,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="GunSen" Region="K" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+  <Waffe Name="GunSen" Region="K" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="61"/>
    <Reichweite/>
@@ -1910,7 +1910,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Katana" Region="K" Grundkenntnisse="Zweihandschwert" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+  <Waffe Name="Katana" Region="K" Grundkenntnisse="Zweihandschwert" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="21"/>
    <Reichweite/>
@@ -2038,7 +2038,7 @@
    <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Naginata" Region="K" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="2">
+  <Waffe Name="Naginata" Region="K" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="2" Schadensbonus2="2">
    <Modifikationen Waffenrang="+1/-3" Abwehr-schwer="+2/-2"/>
    <Voraussetzungen St="11" Gs="61"/>
    <Reichweite/>
@@ -2100,7 +2100,7 @@
    <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="NunChaku" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+  <Waffe Name="NunChaku" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen Waffenrang="+2" Abwehr-leicht="-1" Abwehr-schwer="+1"/>
    <Voraussetzungen St="31" Gs="61"/>
    <Reichweite/>
@@ -2162,7 +2162,7 @@
    <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="TetsuBo" Region="K" Grundkenntnisse="Kampfstab" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+  <Waffe Name="TetsuBo" Region="K" Grundkenntnisse="Kampfstab" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
    <Modifikationen Abwehr-schwer="+2"/>
    <Voraussetzungen St="31" Gs="61"/>
    <Reichweite/>
@@ -2222,7 +2222,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Tonfa" Region="K" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-2">
+  <Waffe Name="Tonfa" Region="K" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-2" Schadensbonus2="-2">
    <Modifikationen/>
    <Voraussetzungen St="21" Gs="61"/>
    <Reichweite/>
