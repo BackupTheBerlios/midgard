@@ -1,0 +1,43 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "grad_anstieg";
+--
+-- TOC Entry ID 2 (OID 16851485)
+--
+-- Name: grad_anstieg Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "grad_anstieg" (
+	"grad" integer NOT NULL,
+	"abwehr" integer,
+	"abwehr_kosten" integer,
+	"resistenz" integer,
+	"resistenz_kosten" integer,
+	"gfp" integer,
+	"zaubern" integer,
+	"zaubern_kosten" integer,
+	Constraint "grad_anstieg_pkey" Primary Key ("grad")
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 16851485) TABLE DATA grad_anstieg
+--
+
+COPY "grad_anstieg"  FROM stdin;
+11	\N	\N	\N	\N	70000	\N	\N
+12	17	1000	16	1000	90000	\N	\N
+13	\N	\N	\N	\N	110000	\N	\N
+14	18	1500	17	1500	130000	\N	\N
+15	\N	\N	\N	\N	150000	\N	\N
+2	12	10	11	10	200	12	10
+1	11	\N	10	\N	0	11	10
+10	16	700	15	700	50000	\N	\N
+3	\N	\N	\N	\N	500	13	20
+4	13	20	12	20	1000	14	30
+5	\N	\N	\N	\N	2000	15	70
+6	14	80	13	80	4000	16	150
+7	\N	\N	\N	\N	7000	17	300
+8	15	300	14	300	15000	18	600
+9	\N	\N	\N	\N	25000	19	800
+\.

@@ -68,6 +68,9 @@ CREATE TABLE "charaktere" (
 	"zep" integer,
 	"steigern_bool" boolean,
 	"steigern_ep_prozent" integer,
-	"grad_basiswerte" integer
+	"grad_basiswerte" integer,
+	"grad_abwehr" integer,
+	"grad_resistenz" integer,
+	"grad_zaubern" integer
 );
 
