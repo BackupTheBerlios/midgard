@@ -144,7 +144,9 @@ void midgard_CG::xml_import(const std::string& datei)
    Werte.setGlaube(Beschreibung->getAttr("Glaube"));
    Werte.setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
    Werte.setGFP(Steigern ? Steigern->getIntAttr("GFP",    		top->getInt("GFP")) : top->getInt("GFP"));
-   Werte.setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    Werte.setSG(abgeleiteteEigenschaften->getIntAttr("SG"));    Werte.setBeschreibung(top->getString("Text")); 
+   Werte.setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    Werte.setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
+   Werte.setBeschreibung(top->getString("Text")); 
+   Werte.setBeschreibungPix(top->getString("TextPix")); 
    Werte.setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
    if (Ruestung) Werte.setRuestung(cH_Ruestung(Ruestung->Value(),true));
    else Werte.setRuestung(cH_Ruestung("OR",true));

@@ -238,6 +238,7 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
    write_int_attrib(datei, "Resistenz", Werte.ResistenzPP());
    datei << "/></Steigern>\n";
    write_string(datei, "Text", Werte.Beschreibung(), 2);
+   write_string(datei, "TextPix", Werte.BeschreibungPix(), 2);
 }
 
 
