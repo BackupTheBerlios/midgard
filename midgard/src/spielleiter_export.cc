@@ -51,7 +51,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   Grundwerte W=Char.getCWerte();
   fout << LATIN(W.Name_Abenteurer())<<", "
       <<LATIN(Char.CTyp1()->Name(W.Geschlecht()))
-      <<"               Grad "<<W.Grad()<<"\n";
+      <<"               Gr "<<W.Grad()<<"\n";
   fout << LATIN(W.Stand())<<", "
        <<LATIN(W.Glaube())<<" - "
        <<W.GroesseBez() <<"("
@@ -60,24 +60,30 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
        << W.Alter()<<" Jahre\n";
   fout << "\n";
   fout <<"St " <<W.St()
-       <<", Gs"<<W.Gs()
-       <<", Gw"<<W.Gw()
-       <<", Ko"<<W.Ko()
-       <<", In"<<W.In()
-       <<", Zt"<<W.Zt()<<'\n'
-       <<"Au"<<W.Au()
-       <<", pA"<<W.pA()
-       <<", Wk"<<W.Wk()
-       <<", Sb"<<W.Sb()<<"\n";
-  fout <<W.LP()<<"LP, "
-       <<W.AP()<<"AP - "
+       <<", Gs "<<W.Gs()
+       <<", Gw "<<W.Gw()
+       <<", Ko "<<W.Ko()
+       <<", In "<<W.In()
+       <<", Zt "<<W.Zt()<<'\n'
+       <<"Au "<<W.Au()
+       <<", pA "<<W.pA()
+       <<", Wk "<<W.Wk()
+       <<", Sb "<<W.Sb()<<"\n";
+  fout <<W.LP()<<" LP, "
+       <<W.AP()<<" AP - "
        <<LATIN(W.Ruestung()->Name())<<" -  "
        << " B " << W.B() ;
-  if (W.bo_Sc() != 0 || W.bo_Ab() != 0 || W.bo_An() != 0) fout <<" - ";
-  if (W.bo_Sc() != 0) fout << "SchB+"<<W.bo_Sc();
-  if (W.bo_Sc() != 0 || W.bo_Ab() != 0 ) fout <<", ";
-  if (W.bo_Ab() != 0) fout << "AbB+"<<W.bo_Ab();
-  if (W.bo_An() != 0) fout <<", AnB+" << W.bo_Sc();
+  std::string boni;
+  if     (W.bo_Sc()>0) boni+="SchB+"+itos(W.bo_Sc())+", ";
+  else if(W.bo_Sc()<0) boni+="SchB" +itos(W.bo_Sc())+", ";
+  if     (W.bo_Ab()>0) boni+="AbB+"+itos(W.bo_Ab())+", ";
+  else if(W.bo_Ab()<0) boni+="AbB" +itos(W.bo_Ab())+", ";
+  if     (W.bo_An()>0) boni+="AnB+"+itos(W.bo_An())+", ";
+  else if(W.bo_An()<0) boni+="AnB" +itos(W.bo_An())+", ";
+  std::string::size_type st=boni.find_last_of(",");
+  if(st!=std::string::npos) boni.erase(st,1);
+  if(!boni.empty()) fout <<" - "<<boni<<'\n';
+
   fout << "\n\n";
   fout << "Angriff: ";
 
