@@ -65,7 +65,7 @@ class Data_Zusatz : public RowDataBase
       std::string zusatz;
 
    public:
-      Data_Zusatz(const MidgardBasicElement_mutable mbe,std::string z)
+      Data_Zusatz(const MidgardBasicElement_mutable &mbe,std::string z)
          : MBE(mbe),zusatz(z) {}
 
       enum Spalten {NAME};

@@ -19,9 +19,17 @@ NEWS IN VERSION 0.6delta6
 * Erst NACH der Typauswahl können die abgeleiteten Fertigkeiten gewählt werden
 * Die Druckenfunktion nutzt nun ebenfalls die neue Implementierung der 
    'Universellen Fähigkeiten'
+* Nach einem RIESENUMBAU, der nötig war, damit mehrere Abenteurer gleichzeitig
+   fehlerfrei geladen werden können dürfte nun wieder das meiste funktionieren.
+   Solle noch jemand einen Fehler finden, der mit Fertigkeiten/Waffen/Zaubern/
+   Sprachen/Schriften zu tun hat, dann sagt mir bitte sofort Bescheid.
+      
 
 
 TODO:
+* PP eingabe
+* Zustätze beim steigern
+* CAST in MidgardBasicElement.cc:98
 * Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50

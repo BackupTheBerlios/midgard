@@ -236,7 +236,7 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
 
 
 
-#include <algorithm>
+//#include <algorithm>
 void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
