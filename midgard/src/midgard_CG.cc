@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.238 2002/06/26 14:56:55 thoma Exp $
+// $Id: midgard_CG.cc,v 1.239 2002/06/27 14:51:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,8 +26,8 @@
 #include <time.h>
 #endif
 
-midgard_CG::midgard_CG(const string &datei)
-: InfoFenster(0), MOptionen(0),wizard(0),
+midgard_CG::midgard_CG(const string &_argv0,const string &datei)
+: argv0(_argv0),InfoFenster(0), MOptionen(0),wizard(0),
   ansicht_menu(0),region_menu(0),menu(0)
 {
   InfoFenster = manage(new WindowInfo(this));

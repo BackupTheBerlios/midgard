@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.41 2002/06/24 07:47:19 christof Exp $
+// $Id: midgard.cc,v 1.42 2002/06/27 14:51:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
    std::string datei;
    if (argc==2) datei=argv[1];
 
-   midgard_CG *magus=manage(new midgard_CG(datei));
+   midgard_CG *magus=manage(new midgard_CG(argv[0],datei));
    m.run();
    magus->destroy();
       

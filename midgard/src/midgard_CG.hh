@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.259 2002/06/26 14:01:18 christof Exp $
+// $Id: midgard_CG.hh,v 1.260 2002/06/27 14:51:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,6 +42,7 @@ class Random;
 
 class midgard_CG : public midgard_CG_glade
 {   
+        std::string argv0; // Dateiname
 /////////////////////////////////////////////////////////////////////////////
         friend class LaTeX_drucken;
         friend class Window_Waffenbesitz;
@@ -212,7 +213,7 @@ class midgard_CG : public midgard_CG_glade
 
         void set_status(std::string s,bool autoclean=true);
    public:
-         midgard_CG(const string &datei="");
+         midgard_CG(const string &argv0,const string &datei="");
          ~midgard_CG();
 };
 #endif
