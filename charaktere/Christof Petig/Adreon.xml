@@ -5,22 +5,22 @@
  </Preise>
 
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Adreon McTuron" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="2"/>
+  <Figur Name="Adreon McTuron" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="3"/>
   <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Er" Spezialisierung="Langschwert" Stadt_Land="Stadt" Hand="Rechtshänder"/>
   <Basiseigenschaften St="95" Gw="86" Gs="93" Ko="90" In="97" Zt="76"/>
   <abgeleiteteEigenschaften Au="50" pA="53" Wk="100" Sb="47" B="25"/>
   <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="11"/>
-  <Gesundheit LP="17" AP="17"/>
+  <Gesundheit LP="17" AP="22"/>
   <Beschreibung Alter="21" Gestalt="normal" Gewicht="82" Größe="180" Stand="Volk" Herkunft="Alba" Glaube="Dheis Albi"/>
-  <Vermögen GS="14" SS="1"/>
-  <Steigern GFP="445" benötigte_Tage="60,16"><Praxispunkte/></Steigern>
+  <Vermögen GS="26" SS="1"/>
+  <Steigern GFP="595" AEP="1" EPproGFP="33" benötigte_Tage="104,16"><Praxispunkte/></Steigern>
   <TextPixSize>8</TextPixSize>
   <Ausrüstung>
     <Rüstung>TR</Rüstung>
     <Rüstung2>OR</Rüstung2>
-    <Waffe Bezeichnung="Dolch"/>
-    <Waffe Bezeichnung="Langschwert"/>
-    <Waffe Bezeichnung="kleiner Schild"/>
+    <Waffe Bezeichnung="Dolch" AngriffVerteidigung_Bonus="2147478960" SchadenLebenspunkte_Bonus="2147478968"/>
+    <Waffe Bezeichnung="Langschwert" AngriffVerteidigung_Bonus="2147478960" SchadenLebenspunkte_Bonus="2147478968"/>
+    <Waffe Bezeichnung="kleiner Schild" AngriffVerteidigung_Bonus="2147478960" SchadenLebenspunkte_Bonus="2147478968"/>
     <Gegenstand Bezeichnung="Körper" sichtbar="true">
       <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
       <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
@@ -41,31 +41,34 @@
     <Sinn Bezeichnung="Tasten" Wert="8"/>
     <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
     <Beruf Bezeichnung="Bote"/>
-    <Fertigkeit Bezeichnung="Verkleiden" Wert="12"/>
-    <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
-    <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
-    <Fertigkeit Bezeichnung="Geländelauf" Wert="11"/>
-    <Fertigkeit Bezeichnung="Zeichensprache" Wert="8"/>
-    <Fertigkeit Bezeichnung="Geheimzeichen" Wert="11" Zusatz="Zinken (Meer der fünf Winde)"/>
     <Fertigkeit Bezeichnung="Gassenwissen" Wert="7"/>
+    <Fertigkeit Bezeichnung="Geheimzeichen" Wert="12" Zusatz="Zinken (Meer der fünf Winde)"/>
+    <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
     <Fertigkeit Bezeichnung="Himmelskunde" Wert="6"/>
+    <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
+    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="6"/>
     <Fertigkeit Bezeichnung="Lippenlesen" Wert="8"/>
     <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="7"/>
     <Fertigkeit Bezeichnung="Reiten" Wert="11"/>
+    <Fertigkeit Bezeichnung="Schwimmen" Wert="11"/>
     <Fertigkeit Bezeichnung="Seilkunst" Wert="8"/>
+    <Fertigkeit Bezeichnung="Springen" Wert="11"/>
     <Fertigkeit Bezeichnung="Spurenlesen" Wert="8"/>
     <Fertigkeit Bezeichnung="Suchen" Wert="10"/>
+    <Fertigkeit Bezeichnung="Verkleiden" Wert="13"/>
     <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
+    <Fertigkeit Bezeichnung="Zeichensprache" Wert="8"/>
     <Waffe Bezeichnung="Dolch" Wert="8"/>
     <Waffe Bezeichnung="Handaxt" Wert="7"/>
     <Waffe Bezeichnung="Langschwert" Wert="8"/>
-    <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+    <Waffe Bezeichnung="kleiner Schild" Wert="2"/>
     <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
     <Grundkenntnis Bezeichnung="Einhandschwert"/>
     <Grundkenntnis Bezeichnung="Schild"/>
     <Grundkenntnis Bezeichnung="Stichwaffe"/>
     <Sprache Bezeichnung="Albisch" Wert="20"/>
     <Sprache Bezeichnung="Comentang" Wert="12"/>
+    <Urschrift Bezeichnung="Comentang" Wert="4"/>
     <Urschrift Bezeichnung="Albisch" Wert="14"/>
     <Optionen Name="Originalregeln" Wert="false"/>
     <Optionen Name="NSCs zulassen" Wert="false"/>
