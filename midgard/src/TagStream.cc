@@ -224,7 +224,7 @@ char *TagStream::next_tag(Tag *parent)
          if (!endtagend) ERROR2("endtag doesn't end",valueend);
          if (memcmp(tagvalue+2,newtag->Type().c_str(),newtag->Type().size()))
          {  std::cerr << "tag <" << newtag->Type() << "> ended with </";
-            std::cerr.write(tagvalue+2,endtagend-tagvalue-2-1) << ">\n";
+            std::cerr.write(tagvalue+2,endtagend-(tagvalue+2)) << ">\n";
          }
          set_pointer(endtagend+1);
        }

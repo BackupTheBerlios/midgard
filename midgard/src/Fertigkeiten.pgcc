@@ -11,12 +11,10 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
 {
  cH_Fertigkeit *cached(cache.lookup(name));
  if (cached) *this=*cached;
-#ifndef USE_XML 
  else
   {
+#ifndef USE_XML 
    *this=cH_Fertigkeit(new Fertigkeit(name));  
-   cache.Register(name,*this);
-  }
 #else
 //  assert(!"Fertigkeit im Cache");
   cerr << "Fertigkeit '" << name << "' nicht im Cache\n";
@@ -25,6 +23,8 @@ cerr << i->first << ',';
 cerr << '\n';
   *this=cH_Fertigkeit(find_Tag("Fertigkeiten","Fertigkeit","Name",name));
 #endif
+   cache.Register(name,*this);
+  }
 }
 
 #ifdef USE_XML
@@ -33,6 +33,9 @@ cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
  *this=cH_Fertigkeit(new Fertigkeit(tag));
 cerr << "cH_Fertigkeit::cH_Fertigkeit(" << tag->getAttr("Name") << ")\n";
  cache.Register(tag->getAttr("Name"),*this);
+for (cache_t::const_iterator i=cache.begin();i!=cache.end();++i)
+cerr << i->first << ',';
+cerr << '\n';
 }
 #endif
 
