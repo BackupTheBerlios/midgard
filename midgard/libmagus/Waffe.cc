@@ -26,6 +26,8 @@
 #include "NotFound.h"
 #include "Ausgabe.hh"
 
+#include <iostream> // debug
+
 cH_Waffe::cache_t cH_Waffe::cache;
 
 cH_Waffe::cH_Waffe(const std::string& name , bool create)
@@ -44,7 +46,6 @@ cH_Waffe::cH_Waffe(const std::string& name , bool create)
   }
 }
 
-#include <iostream>
 void Waffe::get_Waffe(const Tag &t)
 {
 //  if (t.hasAttr("Schaden"))
@@ -341,13 +342,23 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
    std::list<H_WaffeBesitz> Verteidigungswaffen;
 //   MBEmlt wl(&*cH_Waffe("waffenloser Kampf"));
    cH_Waffe wl("waffenloser Kampf");
+
+   cH_Waffe TESTwl("kleiner Schild");
+std::cout<<"TEST1: " << TESTwl->Name()<<'\t'<< (*TESTwl).Art()<<'\n';
+   cH_Waffe TESTwl2("Langschwert");
+std::cout<<"TEST2: " << TESTwl2->Name()<<'\t'<< (*TESTwl2).Art()<<'\n';
+
    Verteidigungswaffen.push_back(new WaffeBesitz(wl,wl->Name(),0,0,"",""));
    for (std::list<H_WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
      {
        H_WaffeBesitz WB(*i);
-       if (WB->Waffe()->Art()=="Verteidigung" || (*WB)->Name()=="Kampfstab" || (*WB)->Name()=="Sai" ||
-          (*WB)->Name()=="Tonfa" || (*WB)->Name()=="GunSen" || (*WB)->Name()=="BuKasa" || 
+std::cout <<"B\t"<< WB->AliasName()<<'\t'<<WB->Waffe()->Name()<<"\tArt="
+<<WB->Waffe()->Art()<<'\n';
+       if (WB->Waffe()->Art()=="Verteidigung" || (*WB)->Name()=="Kampfstab" || 
+          (*WB)->Name()=="Sai" ||
+          (*WB)->Name()=="Tonfa" || (*WB)->Name()=="GunSen" || 
+          (*WB)->Name()=="BuKasa" || 
           (*WB)->Name()=="KusariGama" || (*WB)->Name()=="TetsuBo" ) 
          Verteidigungswaffen.push_back(*i);
      }
@@ -356,13 +367,15 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          i!=Verteidigungswaffen.end();/*siehe unten*/)
      {
       H_WaffeBesitz WB=*i;
+std::cout <<"C\t"<< (*WB)->Name()<<'\n';
       std::vector<int> vwert;
       for (std::list<MBEmlt>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)      
          { cH_Waffe w((*j)->getMBE());
             if ((*WB)->Name() == w->Name()) 
                { 
                  int erf_wert;
-                 if ((*WB)->Name()=="Kampfstab"||(*WB)->Name()=="Sai"||(*WB)->Name()=="Tonfa"||(*WB)->Name()=="KusariGama") 
+                 if ((*WB)->Name()=="Kampfstab"||(*WB)->Name()=="Sai"||
+                     (*WB)->Name()=="Tonfa"    ||(*WB)->Name()=="KusariGama") 
                   {erf_wert = (*j)->Erfolgswert()-5; (erf_wert<=7)?:erf_wert=7; }
                  else if ((*WB)->Name()=="TetsuBo")
                   {erf_wert = (*j)->Erfolgswert()-7; (erf_wert<=7)?:erf_wert=7; }
