@@ -55,7 +55,7 @@ protected:
         ~table_beschreibung_glade();
 private:
         virtual void on_button_beschreibung_drucken_clicked() = 0;
-        virtual void on_button_grafik_button_release_event() = 0;
+        virtual void on_button_grafik() = 0;
         virtual bool on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev) = 0;
         virtual bool on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev) = 0;
         virtual bool on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev) = 0;

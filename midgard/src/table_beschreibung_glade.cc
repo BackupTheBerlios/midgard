@@ -204,7 +204,7 @@ table_beschreibung_glade::table_beschreibung_glade(GlademmData *gmm_data
    frame118->show();
    table_beschreibung->show();
    button_beschreibung_drucken->signal_clicked().connect(SigC::slot(*this, &table_beschreibung_glade::on_button_beschreibung_drucken_clicked));
-   button_grafik->signal_clicked().connect(SigC::slot(*this, &table_beschreibung_glade::on_button_grafik_button_release_event));
+   button_grafik->signal_clicked().connect(SigC::slot(*this, &table_beschreibung_glade::on_button_grafik));
    spinbutton_pix_breite->signal_focus_out_event().connect(SigC::slot(*this, &table_beschreibung_glade::on_spinbutton_pix_breite_focus_out_event));
    spinbutton_pix_breite->signal_focus_in_event().connect(SigC::slot(*this, &table_beschreibung_glade::on_spinbutton_pix_breite_focus_in_event));
    text_charakter_beschreibung->signal_focus_out_event().connect(SigC::slot(*this, &table_beschreibung_glade::on_text_charakter_beschreibung_focus_out_event));

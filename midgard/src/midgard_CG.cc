@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.296 2003/04/25 07:12:09 christof Exp $
+// $Id: midgard_CG.cc,v 1.297 2003/04/29 07:06:55 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,6 +54,22 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
 	MOptionen(0),wizard(0),undo_menu(0),menu_kontext(0),
 	schummeln(false),tag_eigene_artikel(Tag("MAGUS-data"))
 { news_columns.attach_to(*list_news);
+
+// ToolBar: StyleIcon
+  button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter));
+  button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
+  button_speichern->add((StyleIcon(iClose).icon),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
+  button_speichern->add((StyleIcon(iClose).icon),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
+  button_main_drucken->add((StyleIcon(iPrint).icon),"Drucken",SigC::slot(*this,&midgard_CG::on_latex));
+  ImageLabelKnopf(button_undo,(StyleIcon(iBack).icon),StyleIcon(iBack).text);
+  ImageLabelKnopf(button_redo,(StyleIcon(iForward).icon),StyleIcon(iForward).text);
+  
+// Statusbar MVC
+  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(MOptionen->WerteEingebenModel(),
+  	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
+  hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
+  wuerfelt_butt->show();
+
 //  ManuProC::Tracer::Enable(table_grundwerte::trace_channel);
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   InfoFenster = manage(new WindowInfo(this));
@@ -78,26 +94,11 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   if(MOptionen->OptionenCheck(Midgard_Optionen::Notebook_start).wert!=-1) 
      notebook_main->set_current_page(MOptionen->OptionenCheck(Midgard_Optionen::Notebook_start).wert);
 
-
   menubar_init();
   table_optionen->init();
   menu_init();
   init_statusbar();
 
-// ToolBar: StyleIcon
-  button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_release_event));
-  button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
-  button_speichern->add((StyleIcon(iClose).icon),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
-  button_speichern->add((StyleIcon(iClose).icon),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
-  button_main_drucken->add((StyleIcon(iPrint).icon),"Drucken",SigC::slot(*this,&midgard_CG::on_latex_release_event));
-  ImageLabelKnopf(button_undo,(StyleIcon(iBack).icon),StyleIcon(iBack).text);
-  ImageLabelKnopf(button_redo,(StyleIcon(iForward).icon),StyleIcon(iForward).text);
-  
-// Statusbar MVC
-  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(MOptionen->WerteEingebenModel(),
-  	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
-  hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
-  
   // für die NEWS
   Gtk::OStream os(list_news);
   os << 

@@ -365,7 +365,7 @@ void table_ausruestung::save_new_arikel()
 // table_artikel->hide();
 }
 
-void table_ausruestung::on_button_ausruestung_druck_release_event()
+void table_ausruestung::on_button_ausruestung_druck()
 {
   hauptfenster->on_auch_unsichtbares_drucken();
 #warning B3

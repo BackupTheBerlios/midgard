@@ -37,7 +37,7 @@ void table_beschreibung::on_button_beschreibung_drucken_clicked()
   hauptfenster->on_beschreibung_drucken();
 }
 
-void table_beschreibung::on_button_grafik_button_release_event()
+void table_beschreibung::on_button_grafik()
 {
   on_button_grafik_clicked();
 #if 0  

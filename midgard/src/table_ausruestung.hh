@@ -99,7 +99,7 @@ private:
         void on_preise_tree_neu_leaf_selected(cH_RowDataBase d);
         void on_checkbutton_ausruestung_geld_toggled();
         void on_ausruestung_loeschen_clicked();
-        void on_button_ausruestung_druck_release_event();
+        void on_button_ausruestung_druck();
         void on_togglebutton_gruppe_neu_toggled();
         void on_togglebutton_artikel_neu_toggled();
         void on_combo_entry_artikel_art_activate();

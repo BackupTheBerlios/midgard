@@ -20,7 +20,7 @@
 #include "table_steigern.hh"
 #include <Misc/itos.h>
 
-void table_steigern::on_checkbutton_gfp_button_release_event()
+void table_steigern::on_checkbutton_gfp()
 {
 // if(ev->button==3) checkbutton_gfp->set_active(!checkbutton_gfp->get_active()); 
  if(checkbutton_gfp->get_active())
@@ -42,7 +42,7 @@ void table_steigern::on_LabelSpin_gfp_activate()
 
 //////////////////////////////////////////////////////////////////////////
 
-void table_steigern::on_button_gold_eingeben_button_release_event()
+void table_steigern::on_button_gold_eingeben()
 {
  // if(ev->button==3) button_gold_eingeben->set_active(!button_gold_eingeben->get_active()); 
  show_goldeingabe(button_gold_eingeben->get_active(),1);

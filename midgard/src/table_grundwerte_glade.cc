@@ -1543,7 +1543,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *gmm_data
    combo_spezies->get_entry()->signal_activate().connect(SigC::slot(*this, &table_grundwerte_glade::on_combo_spezies_activate));
    combo_spezies->get_entry()->signal_focus_out_event().connect(SigC::slot(*this, &table_grundwerte_glade::on_combo_spezies_focus_out_event));
    combo_spezies->get_entry()->signal_changed().connect(SigC::slot(*this, &table_grundwerte_glade::on_combo_spezies_changed));
-   button_grundwerte->signal_clicked().connect(SigC::slot(*this, &table_grundwerte_glade::on_button_grundwerte_button_release_event));
+   button_grundwerte->signal_clicked().connect(SigC::slot(*this, &table_grundwerte_glade::on_button_grundwerte));
    radiobutton_mann->signal_toggled().connect(SigC::slot(*this, &table_grundwerte_glade::on_radiobutton_mann_toggled));
    radiobutton_frau->signal_toggled().connect(SigC::slot(*this, &table_grundwerte_glade::on_radiobutton_frau_toggled));
    combo_typ->get_entry()->signal_activate().connect(SigC::slot(*this, &table_grundwerte_glade::on_combo_typ_activate));

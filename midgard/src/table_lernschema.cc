@@ -423,7 +423,7 @@ void table_lernschema::edit_lernpunkte(bool b)
 }
 
 
-void table_lernschema::on_button_lernschema_geld_button_release_event()
+void table_lernschema::on_button_lernschema_geld()
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GELD);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
@@ -489,7 +489,7 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
 }
 
 
-void table_lernschema::on_button_ruestung_button_release_event()
+void table_lernschema::on_button_ruestung()
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::RUESTUNG);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
@@ -557,7 +557,7 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
 }
 
 
-void table_lernschema::on_button_ausruestung_button_release_event()
+void table_lernschema::on_button_ausruestung()
 {  
   ausruestung_setzen();
 }

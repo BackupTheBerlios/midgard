@@ -24,7 +24,7 @@
 #include "xml_fileselection.hh"
 //#include <SelectMatching.h>
 
-void midgard_CG::on_laden_release_event()
+void midgard_CG::on_laden()
 {
   xml_import_auswahl();
 }

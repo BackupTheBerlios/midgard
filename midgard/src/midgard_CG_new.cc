@@ -19,7 +19,7 @@
 #include <Misc/Trace.h>
 
 
-void midgard_CG::on_neuer_charakter_release_event()
+void midgard_CG::on_neuer_charakter()
 {
    ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
    on_neuer_charakter_clicked();

@@ -757,12 +757,12 @@ midgard_CG_glade::midgard_CG_glade(
    handlebox_status->show();
    main_table->show();
    midgard_CG->show();
-   button9->signal_clicked().connect(SigC::slot(*this, &midgard_CG_glade::on_laden_release_event));
+   button9->signal_clicked().connect(SigC::slot(*this, &midgard_CG_glade::on_laden));
    button_undo->signal_clicked().connect(SigC::slot(*this, &midgard_CG_glade::on_button_undo_clicked));
    button_undo->signal_secondpressed().connect(SigC::slot(*this, &midgard_CG_glade::on_undo_secondpressed));
    button_redo->signal_clicked().connect(SigC::slot(*this, &midgard_CG_glade::on_button_redo_clicked));
    button_redo->signal_secondpressed().connect(SigC::slot(*this, &midgard_CG_glade::on_redo_secondpressed));
-   button_menu->signal_clicked().connect(SigC::slot(*this, &midgard_CG_glade::on_button_menu_button_release_event));
+   button_menu->signal_clicked().connect(SigC::slot(*this, &midgard_CG_glade::on_button_menu));
    button_info->signal_clicked().connect(SigC::slot(*this, &midgard_CG_glade::on_button_info_clicked));
    button_html_hilfe->signal_clicked().connect(SigC::slot(*this, &midgard_CG_glade::on_button_html_hilfe_clicked));
    button_schliessen->signal_clicked().connect(SigC::slot(*this, &midgard_CG_glade::on_schliessen_CG_clicked));

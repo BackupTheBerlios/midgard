@@ -681,7 +681,7 @@ table_ausruestung_glade::table_ausruestung_glade(GlademmData *gmm_data
    table94->show();
    vpaned11->show();
    table_ausruestung->show();
-   button_ausruestung_druck->signal_clicked().connect(SigC::slot(*this, &table_ausruestung_glade::on_button_ausruestung_druck_release_event));
+   button_ausruestung_druck->signal_clicked().connect(SigC::slot(*this, &table_ausruestung_glade::on_button_ausruestung_druck));
    togglebutton_gruppe_neu->signal_toggled().connect(SigC::slot(*this, &table_ausruestung_glade::on_togglebutton_gruppe_neu_toggled));
    togglebutton_artikel_neu->signal_toggled().connect(SigC::slot(*this, &table_ausruestung_glade::on_togglebutton_artikel_neu_toggled));
    entry_name->signal_activate().connect(SigC::slot(*this, &table_ausruestung_glade::on_entry_name_activate));

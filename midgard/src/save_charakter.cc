@@ -23,7 +23,7 @@
 #include <Misc/itos.h>
 
 
-void midgard_CG::on_speichern_release_event()
+void midgard_CG::on_speichern()
 {
   save_existing_filename();
   //else                xml_export_auswahl();

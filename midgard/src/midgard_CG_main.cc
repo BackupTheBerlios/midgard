@@ -72,7 +72,7 @@ void show_window(Gdk_Window &W)
 }
 */
 
-void midgard_CG::on_button_menu_button_release_event()
+void midgard_CG::on_button_menu()
 {
 /*
 Gtk::HandleBox *HB=table_steigern->handlebox_steigern_1;

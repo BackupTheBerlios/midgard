@@ -2127,9 +2127,9 @@ table_steigern_glade::table_steigern_glade(GlademmData *gmm_data
    LabelSpin_kupfer->signal_activate().connect(SigC::slot(*this, &table_steigern_glade::on_LabelSpin_kupfer_activate));
    LabelSpin_gfp->signal_activate().connect(SigC::slot(*this, &table_steigern_glade::on_LabelSpin_gfp_activate));
    vscale_EP_Gold->signal_button_release_event().connect(SigC::slot(*this, &table_steigern_glade::vscale_value_changed));
-   button_gold_eingeben->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_gold_eingeben_button_release_event), true);
-   checkbutton_gfp->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_checkbutton_gfp_button_release_event), true);
-   button_EP->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_EP_eingeben_button_release_event), true);
+   button_gold_eingeben->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_gold_eingeben), true);
+   checkbutton_gfp->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_checkbutton_gfp), true);
+   button_EP->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_EP_eingeben), true);
    button_grad->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_grad_clicked));
    button_grad_ausdauer->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_grad_ausdauer_clicked));
    button_grad_abwehr->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_grad_abwehr_clicked));
@@ -2137,7 +2137,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *gmm_data
    grad_anstieg->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_grad_anstieg_clicked));
    button_grad_resistenz->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_grad_resistenz_clicked));
    spinbutton_eigenschaften_grad_anstieg->signal_activate().connect(SigC::slot(*this, &table_steigern_glade::on_spinbutton_eigenschaften_grad_anstieg_activate));
-   button_grad_basiswerte->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_grad_basiswerte_button_release_event));
+   button_grad_basiswerte->signal_clicked().connect(SigC::slot(*this, &table_steigern_glade::on_button_grad_basiswerte));
    togglebutton_spruchrolle->signal_toggled().connect(SigC::slot(*this, &table_steigern_glade::on_spruchrolle_toggled), true);
    togglebutton_alle_zauber->signal_toggled().connect(SigC::slot(*this, &table_steigern_glade::on_togglebutton_alle_zauber_toggled));
    togglebutton_zaubersalze->signal_toggled().connect(SigC::slot(*this, &table_steigern_glade::on_togglebutton_zaubersalze_toggled));

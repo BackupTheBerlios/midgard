@@ -84,7 +84,7 @@ protected:
         
         ~table_ausruestung_glade();
 private:
-        virtual void on_button_ausruestung_druck_release_event() = 0;
+        virtual void on_button_ausruestung_druck() = 0;
         virtual void on_togglebutton_gruppe_neu_toggled() = 0;
         virtual void on_togglebutton_artikel_neu_toggled() = 0;
         virtual void on_entry_name_activate() = 0;

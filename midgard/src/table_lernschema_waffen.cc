@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.29 2003/02/25 21:53:09 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.30 2003/04/29 07:06:56 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -25,7 +25,7 @@
 #include "LernListen.hh"
 #include "Zufall.hh"
 
-void table_lernschema::on_button_lernschema_waffen_button_release_event()
+void table_lernschema::on_button_lernschema_waffen()
 {
   if(hauptfenster->getAben().List_Waffen().empty()) 
    { hauptfenster->set_info("Fehler: Noch keine Waffen gewählt"); return ;}

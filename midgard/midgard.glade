@@ -62,7 +62,7 @@
 		  <property name="label" translatable="yes">Öffnen</property>
 		  <property name="use_underline">True</property>
 		  <property name="icon">LoadChar-trans-50.xpm</property>
-		  <signal name="clicked" handler="on_laden_release_event"/>
+		  <signal name="clicked" handler="on_laden"/>
 		</widget>
 	      </child>
 
@@ -131,7 +131,7 @@
 		  <property name="label" translatable="yes">Menü</property>
 		  <property name="use_underline">True</property>
 		  <property name="icon">wizzard-trans-50_2.xpm</property>
-		  <signal name="clicked" handler="on_button_menu_button_release_event"/>
+		  <signal name="clicked" handler="on_button_menu"/>
 		</widget>
 		<packing>
 		  <property name="new_group">True</property>
@@ -3165,7 +3165,7 @@ Sven Rey, Markus Steinberg, Ottmar Zimmer und viele andere geholfen.</property>
 schaften</property>
 			  <property name="use_underline">True</property>
 			  <property name="icon">Dice-W100-trans-50.xpm</property>
-			  <signal name="clicked" handler="on_button_grundwerte_button_release_event"/>
+			  <signal name="clicked" handler="on_button_grundwerte"/>
 			</widget>
 		      </child>
 
@@ -6344,7 +6344,7 @@ auswählen</property>
 			      <property name="tooltip" translatable="yes">Würfeln bzw. Auswählen</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
-			      <signal name="clicked" handler="on_angeborene_fertigkeit_button_release_event"/>
+			      <signal name="clicked" handler="on_button_angeborene_fertigkeit"/>
 
 			      <child>
 				<widget class="GtkVBox" id="vbox62">
@@ -6436,7 +6436,7 @@ auswählen</property>
 			      <property name="label" translatable="yes">Beruf</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Job-trans-50.xpm</property>
-			      <signal name="clicked" handler="on_button_beruf_release_event"/>
+			      <signal name="clicked" handler="on_button_beruf"/>
 			    </widget>
 			    <packing>
 			      <property name="new_group">True</property>
@@ -6608,7 +6608,7 @@ Beruf eingeben</property>
 			      <property name="label" translatable="yes">Geld</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Money-50.xpm</property>
-			      <signal name="clicked" handler="on_button_lernschema_geld_button_release_event"/>
+			      <signal name="clicked" handler="on_button_lernschema_geld"/>
 			    </widget>
 			    <packing>
 			      <property name="new_group">True</property>
@@ -6624,7 +6624,7 @@ Beruf eingeben</property>
 			      <property name="label" translatable="yes">Waffen</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Weapon-trans-50.xpm</property>
-			      <signal name="clicked" handler="on_button_lernschema_waffen_button_release_event"/>
+			      <signal name="clicked" handler="on_button_lernschema_waffen"/>
 			    </widget>
 			  </child>
 
@@ -6699,7 +6699,7 @@ eingeben</property>
 			      <property name="label" translatable="yes">Rüstung</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Dice_Armor-trans-50.xpm</property>
-			      <signal name="clicked" handler="on_button_ruestung_button_release_event"/>
+			      <signal name="clicked" handler="on_button_ruestung"/>
 			    </widget>
 			  </child>
 
@@ -6712,7 +6712,7 @@ eingeben</property>
 			      <property name="label" translatable="yes">Ausrüstung</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Dice-Ausruest-50.xpm</property>
-			      <signal name="clicked" handler="on_button_ausruestung_button_release_event"/>
+			      <signal name="clicked" handler="on_button_ausruestung"/>
 			    </widget>
 			  </child>
 			</widget>
@@ -11098,7 +11098,7 @@ eingeben</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">False</property>
-				  <signal name="clicked" handler="on_button_gold_eingeben_button_release_event" after="yes"/>
+				  <signal name="clicked" handler="on_button_gold_eingeben" after="yes"/>
 
 				  <child>
 				    <widget class="GtkHBox" id="hbox99">
@@ -11166,7 +11166,7 @@ eing.</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">False</property>
-				  <signal name="clicked" handler="on_checkbutton_gfp_button_release_event" after="yes"/>
+				  <signal name="clicked" handler="on_checkbutton_gfp" after="yes"/>
 
 				  <child>
 				    <widget class="GtkHBox" id="hbox98">
@@ -11233,7 +11233,7 @@ eing.</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">False</property>
-				  <signal name="clicked" handler="on_button_EP_eingeben_button_release_event" after="yes"/>
+				  <signal name="clicked" handler="on_button_EP_eingeben" after="yes"/>
 
 				  <child>
 				    <widget class="GtkHBox" id="hbox97">
@@ -11837,7 +11837,7 @@ eing.</property>
 				      <property name="visible">True</property>
 				      <property name="tooltip" translatable="yes">Linke Maustaste: Würfeln, ob sich die Basiswerte beim Gradanstieg erhöhen         Rechte Maustaste: Würfelwurf direkt eingeben. In beiden Fällen wird zusätzlich die Schicksalsgunst erhöht.</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <signal name="clicked" handler="on_button_grad_basiswerte_button_release_event"/>
+				      <signal name="clicked" handler="on_button_grad_basiswerte"/>
 
 				      <child>
 					<widget class="GtkVBox" id="vbox43">
@@ -13366,7 +13366,7 @@ Drucken</property>
 		      <property name="tooltip" translatable="yes">Linke Maustaste: Grafik hinzufügen.                        Rechte Maustaste: Grafik entfernen.</property>
 		      <property name="can_focus">True</property>
 		      <property name="relief">GTK_RELIEF_NORMAL</property>
-		      <signal name="clicked" handler="on_button_grafik_button_release_event"/>
+		      <signal name="clicked" handler="on_button_grafik"/>
 
 		      <child>
 			<widget class="GtkHBox" id="hbox71">
@@ -13855,7 +13855,7 @@ Drucken</property>
 			      <property name="label" translatable="yes">Drucken</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">PrintChar-trans-50.xpm</property>
-			      <signal name="clicked" handler="on_button_ausruestung_druck_release_event"/>
+			      <signal name="clicked" handler="on_button_ausruestung_druck"/>
 			    </widget>
 			  </child>
 

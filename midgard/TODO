@@ -21,28 +21,41 @@ was bedeutet:
    on_eventbox_ausruestung_button_release_event
 
 umbenennen:
-       on_neuer_charakter_release_event
-       on_laden_release_event
-       on_speichern_release_event
-       on_latex_release_event
-       on_button_menu_button_release_event
-       on_button_grundwerte_button_release_event
-       on_angeborene_fertigkeit_button_release_event
-       on_button_beruf_release_event
-       on_button_lernschema_geld_button_release_event
-       on_button_lernschema_waffen_button_release_event
-       on_button_ruestung_button_release_event
-       on_button_ausruestung_button_release_event
-       on_button_gold_eingeben_button_release_event" after="yes
-       on_checkbutton_gfp_button_release_event" after="yes
-       on_button_EP_eingeben_button_release_event" after="yes
-       on_button_grad_basiswerte_button_release_event
-       on_button_grafik_button_release_event
-       on_button_ausruestung_druck_release_event
+replace on_neuer_charakter_release_event on_neuer_charakter `fgrep -l on_neuer_charakter_release_event *.cc *.hh ../midgard.glade` 
+replace on_laden_release_event on_laden `fgrep -l on_laden_release_event *.cc *.hh ../midgard.glade` 
+replace on_speichern_release_event on_speichern `fgrep -l on_speichern_release_event *.cc *.hh ../midgard.glade` 
+replace on_latex_release_event on_latex `fgrep -l on_latex_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_beruf_release_event on_button_beruf `fgrep -l on_button_beruf_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_ausruestung_druck_release_event on_button_ausruestung_druck `fgrep -l on_button_ausruestung_druck_release_event *.cc *.hh ../midgard.glade` 
 
-- table_gruppe->hide();
-- table_artikel->hide();
+replace on_button_menu_button_release_event on_button_menu_button `fgrep -l on_button_menu_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_grundwerte_button_release_event on_button_grundwerte_button `fgrep -l on_button_grundwerte_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_angeborene_fertigkeit_button_release_event on_angeborene_fertigkeit_button `fgrep -l on_angeborene_fertigkeit_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_lernschema_geld_button_release_event on_button_lernschema_geld_button `fgrep -l on_button_lernschema_geld_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_lernschema_waffen_button_release_event on_button_lernschema_waffen_button `fgrep -l on_button_lernschema_waffen_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_ruestung_button_release_event on_button_ruestung_button `fgrep -l on_button_ruestung_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_ausruestung_button_release_event on_button_ausruestung_button `fgrep -l on_button_ausruestung_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_gold_eingeben_button_release_event on_button_gold_eingeben_button `fgrep -l on_button_gold_eingeben_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_checkbutton_gfp_button_release_event on_checkbutton_gfp_button `fgrep -l on_checkbutton_gfp_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_EP_eingeben_button_release_event on_button_EP_eingeben_button `fgrep -l on_button_EP_eingeben_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_grad_basiswerte_button_release_event on_button_grad_basiswerte_button `fgrep -l on_button_grad_basiswerte_button_release_event *.cc *.hh ../midgard.glade` 
+replace on_button_grafik_button_release_event on_button_grafik_button `fgrep -l on_button_grafik_button_release_event *.cc *.hh ../midgard.glade` 
+
+replace on_button_menu_button on_button_menu `fgrep -l on_button_menu_button *.cc *.hh ../midgard.glade` 
+replace on_button_grundwerte_button on_button_grundwerte `fgrep -l on_button_grundwerte_button *.cc *.hh ../midgard.glade` 
+replace on_angeborene_fertigkeit_button on_button_angeborene_fertigkeit `fgrep -l on_angeborene_fertigkeit_button *.cc *.hh ../midgard.glade` 
+replace on_button_lernschema_geld_button on_button_lernschema_geld `fgrep -l on_button_lernschema_geld_button *.cc *.hh ../midgard.glade` 
+replace on_button_lernschema_waffen_button on_button_lernschema_waffen `fgrep -l on_button_lernschema_waffen_button *.cc *.hh ../midgard.glade` 
+replace on_button_ruestung_button on_button_ruestung `fgrep -l on_button_ruestung_button *.cc *.hh ../midgard.glade` 
+replace on_button_ausruestung_button on_button_ausruestung `fgrep -l on_button_ausruestung_button *.cc *.hh ../midgard.glade` 
+replace on_button_gold_eingeben_button on_button_gold_eingeben `fgrep -l on_button_gold_eingeben_button *.cc *.hh ../midgard.glade` 
+replace on_checkbutton_gfp_button on_checkbutton_gfp `fgrep -l on_checkbutton_gfp_button *.cc *.hh ../midgard.glade` 
+replace on_button_EP_eingeben_button on_button_EP_eingeben `fgrep -l on_button_EP_eingeben_button *.cc *.hh ../midgard.glade` 
+replace on_button_grad_basiswerte_button on_button_grad_basiswerte `fgrep -l on_button_grad_basiswerte_button *.cc *.hh ../midgard.glade` 
+replace on_button_grafik_button on_button_grafik `fgrep -l on_button_grafik_button *.cc *.hh ../midgard.glade` 
+
 
 eventuell Größe neu berechnen, wenn Optionen ausgewertet wurden.
+Optionen vor Hauptfenster laden?
 
 use StyleIcon for new Icons

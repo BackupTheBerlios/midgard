@@ -1,4 +1,4 @@
-// $Id: midgard_CG_drucken.cc,v 1.6 2003/02/25 16:50:28 christof Exp $   
+// $Id: midgard_CG_drucken.cc,v 1.7 2003/04/29 07:06:55 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,7 +54,7 @@ void midgard_CG::on_alles_drucken()
 }
 
 
-void midgard_CG::on_latex_release_event()
+void midgard_CG::on_latex()
 {
   on_abenteurerdokument_drucken();
 //  if (ev->button==2) on_beschreibung_drucken();
@@ -64,7 +64,7 @@ void midgard_CG::on_latex_release_event()
  
 
 // Ausrüstung ///////////////////////////////////////////////////
-//gint midgard_CG::on_button_ausruestung_druck_release_event(GdkEventButton *event)
+//gint midgard_CG::on_button_ausruestung_druck(GdkEventButton *event)
 //{
 //  if (event->button==1) on_auch_unsichtbares_drucken();
 //  if (event->button==3) on_nur_sichtbares_drucken();

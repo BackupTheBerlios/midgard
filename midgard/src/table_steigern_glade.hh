@@ -230,9 +230,9 @@ private:
         virtual void on_LabelSpin_kupfer_activate() = 0;
         virtual void on_LabelSpin_gfp_activate() = 0;
         virtual bool vscale_value_changed(GdkEventButton *ev) = 0;
-        virtual void on_button_gold_eingeben_button_release_event() = 0;
-        virtual void on_checkbutton_gfp_button_release_event() = 0;
-        virtual void on_button_EP_eingeben_button_release_event() = 0;
+        virtual void on_button_gold_eingeben() = 0;
+        virtual void on_checkbutton_gfp() = 0;
+        virtual void on_button_EP_eingeben() = 0;
         virtual void on_button_grad_clicked() = 0;
         virtual void on_button_grad_ausdauer_clicked() = 0;
         virtual void on_button_grad_abwehr_clicked() = 0;
@@ -240,7 +240,7 @@ private:
         virtual void on_grad_anstieg_clicked() = 0;
         virtual void on_button_grad_resistenz_clicked() = 0;
         virtual void on_spinbutton_eigenschaften_grad_anstieg_activate() = 0;
-        virtual void on_button_grad_basiswerte_button_release_event() = 0;
+        virtual void on_button_grad_basiswerte() = 0;
         virtual void on_spruchrolle_toggled() = 0;
         virtual void on_togglebutton_alle_zauber_toggled() = 0;
         virtual void on_togglebutton_zaubersalze_toggled() = 0;

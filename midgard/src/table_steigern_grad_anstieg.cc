@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.19 2003/04/23 07:35:50 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.20 2003/04/29 07:06:56 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -83,7 +83,7 @@ void table_steigern::on_button_grad_basiswerte_clicked()
   zeige_werte();
 }
 
-void table_steigern::on_button_grad_basiswerte_button_release_event()
+void table_steigern::on_button_grad_basiswerte()
 {
   if (hauptfenster->MOptionen->WerteEingebenModel().Value()) 
    {

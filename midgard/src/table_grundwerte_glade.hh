@@ -185,7 +185,7 @@ private:
         virtual void on_combo_spezies_activate() = 0;
         virtual bool on_combo_spezies_focus_out_event(GdkEventFocus *ev) = 0;
         virtual void on_combo_spezies_changed() = 0;
-        virtual void on_button_grundwerte_button_release_event() = 0;
+        virtual void on_button_grundwerte() = 0;
         virtual void on_radiobutton_mann_toggled() = 0;
         virtual void on_radiobutton_frau_toggled() = 0;
         virtual void on_combo_typ_activate() = 0;
