@@ -484,7 +484,6 @@ COPY "lernschema_4" FROM stdin;
 1	Th	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Th	f	Stottersalz	Zauberkünste	0
 1	Th	f	Wehsalz	Zauberkünste	0
-1	Tm	f	Abrichten	Fachkenntnisse	8
 1	Tm	f	Dolch	Waffenfertigkeiten	5
 1	Tm	f	Geländelauf	Fachkenntnisse	15
 1	Tm	f	Handaxt	Waffenfertigkeiten	5
@@ -497,6 +496,7 @@ COPY "lernschema_4" FROM stdin;
 1	Tm	f	Wurfspeer	Waffenfertigkeiten	5
 1	Tm	f	kleiner Schild	Waffenfertigkeiten	1
 1	Tm	f	leichter Speer	Waffenfertigkeiten	5
+1	Tm	t	Abrichten	Fachkenntnisse	8
 1	Tr	f	Dolch	Waffenfertigkeiten	5
 1	Tr	f	Geschenke machen	Fachkenntnisse	\N
 1	Tr	f	Sagenkunde	Fachkenntnisse	4

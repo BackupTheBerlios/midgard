@@ -149,6 +149,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
    { if(MBE->ZusatzEnum(Typ))
       {  
+        neue_fert_tree->set_sensitive(false);
         MBE=new Fertigkeit(*cH_Fertigkeit(MBE));
         fillClistLand(MBE);
         // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
@@ -241,6 +242,12 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
    {
     list_Zauber=mbe;
     angeborene_zauber();
+//    show_zauber();
+   }
+  if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
+   {
+    list_Waffen_besitz=mbe;
+//    angeborene_zauber();
 //    show_zauber();
    }
 //cout << (*mbe.begin())->What()<<'\t'<<MidgardBasicElement::KIDO<<'\n';

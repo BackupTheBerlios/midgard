@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.32 2002/01/26 09:17:41 christof Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.33 2002/02/25 10:04:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,7 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         void lade_waffen();
         void zeige_waffen();
         void on_button_close_clicked();
-        void on_button_sort_clicked();
+        void on_alte_waffen_reorder();
         void on_checkbutton_mag_waffenbonus_toggled();
         void on_spinbutton_av_bonus_activate();
         void on_spinbutton_sl_bonus_activate();

@@ -107,12 +107,6 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
 
 void midgard_CG::on_alte_waffen_reorder()
 {
-  on_button_waffen_sort_clicked();
-}
-
-
-void midgard_CG::on_button_waffen_sort_clicked()
-{
   std::deque<guint> seq = alte_waffen_tree->get_seq();
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::WERTa : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;

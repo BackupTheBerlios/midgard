@@ -62,16 +62,16 @@ Abrichten	gHx	S
 Abrichten	sHx	S
 Abrichten	wHx	S
 Akrobatik	As	G
-Akrobatik	BN	G
-Akrobatik	BS	G
+Akrobatik	BN	S
+Akrobatik	BS	S
 Akrobatik	BW	G
 Akrobatik	Ba	S
-Akrobatik	Dr	A
+Akrobatik	Dr	S
 Akrobatik	Er	S
 Akrobatik	Fi	S
 Akrobatik	Gl	G
-Akrobatik	Hl	G
-Akrobatik	Hä	G
+Akrobatik	Hl	A
+Akrobatik	Hä	S
 Akrobatik	Kd	S
 Akrobatik	Kr	S
 Akrobatik	Ku	S
@@ -87,15 +87,15 @@ Akrobatik	PT	A
 Akrobatik	PW	A
 Akrobatik	Ri	S
 Akrobatik	Sa	A
-Akrobatik	ScN	A
-Akrobatik	ScS	A
-Akrobatik	ScW	A
+Akrobatik	ScN	S
+Akrobatik	ScS	S
+Akrobatik	ScW	S
 Akrobatik	Se	S
 Akrobatik	Sp	G
 Akrobatik	Sr	S
 Akrobatik	Sö	S
 Akrobatik	Th	A
-Akrobatik	Tm	A
+Akrobatik	Tm	S
 Akrobatik	Wa	G
 Akrobatik	dBe	A
 Akrobatik	eBe	A
@@ -234,7 +234,7 @@ Athletik	Kr	G
 Athletik	Ku	S
 Athletik	Ma	A
 Athletik	Ny	S
-Athletik	Or	S
+Athletik	Or	G
 Athletik	PC	A
 Athletik	PF	A
 Athletik	PHa	A
@@ -567,8 +567,8 @@ Bogenkampf zu Pferd	Ny	S
 Bogenkampf zu Pferd	Or	S
 Bogenkampf zu Pferd	PC	A
 Bogenkampf zu Pferd	PF	A
-Bogenkampf zu Pferd	PHa	G
-Bogenkampf zu Pferd	PHe	G
+Bogenkampf zu Pferd	PHa	A
+Bogenkampf zu Pferd	PHe	A
 Bogenkampf zu Pferd	PK	A
 Bogenkampf zu Pferd	PM	A
 Bogenkampf zu Pferd	PT	A
@@ -748,7 +748,7 @@ Erste Hilfe	eBe	S
 Erste Hilfe	gHx	S
 Erste Hilfe	sHx	S
 Erste Hilfe	wHx	S
-Erzählen	As	A
+Erzählen	As	S
 Erzählen	BN	S
 Erzählen	BS	S
 Erzählen	BW	S
@@ -883,8 +883,8 @@ Fallen entdecken	Ny	G
 Fallen entdecken	Or	A
 Fallen entdecken	PC	A
 Fallen entdecken	PF	A
-Fallen entdecken	PHa	S
-Fallen entdecken	PHe	S
+Fallen entdecken	PHa	A
+Fallen entdecken	PHe	A
 Fallen entdecken	PK	A
 Fallen entdecken	PM	A
 Fallen entdecken	PT	A
@@ -956,14 +956,14 @@ Fallenmechanik	Hl	A
 Fallenmechanik	Hä	G
 Fallenmechanik	Kd	S
 Fallenmechanik	Kr	A
-Fallenmechanik	Ku	G
+Fallenmechanik	Ku	S
 Fallenmechanik	Ma	A
 Fallenmechanik	Ny	G
-Fallenmechanik	Or	S
+Fallenmechanik	Or	A
 Fallenmechanik	PC	A
 Fallenmechanik	PF	A
-Fallenmechanik	PHa	G
-Fallenmechanik	PHe	G
+Fallenmechanik	PHa	A
+Fallenmechanik	PHe	A
 Fallenmechanik	PK	A
 Fallenmechanik	PM	A
 Fallenmechanik	PT	A
@@ -974,7 +974,7 @@ Fallenmechanik	ScN	A
 Fallenmechanik	ScS	A
 Fallenmechanik	ScW	A
 Fallenmechanik	Se	S
-Fallenmechanik	Sp	S
+Fallenmechanik	Sp	G
 Fallenmechanik	Sr	S
 Fallenmechanik	Sö	A
 Fallenmechanik	Th	G
@@ -991,17 +991,21 @@ Fallenstellen	BS	G
 Fallenstellen	BW	G
 Fallenstellen	Ba	S
 Fallenstellen	Dr	G
+Fallenstellen	Er	S
 Fallenstellen	Fi	S
 Fallenstellen	Gl	S
 Fallenstellen	Hl	A
 Fallenstellen	Hä	S
 Fallenstellen	Kd	S
 Fallenstellen	Kr	S
+Fallenstellen	Ku	G
 Fallenstellen	Ma	A
 Fallenstellen	Ny	G
 Fallenstellen	Or	S
 Fallenstellen	PC	A
 Fallenstellen	PF	A
+Fallenstellen	PHa	S
+Fallenstellen	PHe	S
 Fallenstellen	PK	A
 Fallenstellen	PM	A
 Fallenstellen	PT	A
@@ -1016,6 +1020,7 @@ Fallenstellen	Sp	A
 Fallenstellen	Sr	S
 Fallenstellen	Sö	S
 Fallenstellen	Th	A
+Fallenstellen	Tm	G
 Fallenstellen	Wa	G
 Fallenstellen	dBe	A
 Fallenstellen	eBe	A
@@ -1125,8 +1130,8 @@ Fechten tevarrischer Stil	Ny	A
 Fechten tevarrischer Stil	Or	S
 Fechten tevarrischer Stil	PC	A
 Fechten tevarrischer Stil	PF	A
-Fechten tevarrischer Stil	PHa	S
-Fechten tevarrischer Stil	PHe	S
+Fechten tevarrischer Stil	PHa	A
+Fechten tevarrischer Stil	PHe	A
 Fechten tevarrischer Stil	PK	A
 Fechten tevarrischer Stil	PM	A
 Fechten tevarrischer Stil	PT	A
@@ -1230,9 +1235,9 @@ Fälschen	Ba	S
 Fälschen	Dr	A
 Fälschen	Er	S
 Fälschen	Fi	A
-Fälschen	Gl	G
+Fälschen	Gl	S
 Fälschen	Hl	A
-Fälschen	Hä	G
+Fälschen	Hä	S
 Fälschen	Kd	A
 Fälschen	Kr	A
 Fälschen	Ku	A
@@ -1363,7 +1368,7 @@ Geheimmechanismen öffnen	Kr	A
 Geheimmechanismen öffnen	Ku	S
 Geheimmechanismen öffnen	Ma	S
 Geheimmechanismen öffnen	Ny	S
-Geheimmechanismen öffnen	Or	S
+Geheimmechanismen öffnen	Or	A
 Geheimmechanismen öffnen	PC	S
 Geheimmechanismen öffnen	PF	S
 Geheimmechanismen öffnen	PHa	S
@@ -1605,7 +1610,7 @@ Giftmischen	Kr	A
 Giftmischen	Ku	S
 Giftmischen	Ma	S
 Giftmischen	Ny	S
-Giftmischen	Or	S
+Giftmischen	Or	A
 Giftmischen	PC	S
 Giftmischen	PF	A
 Giftmischen	PHa	S
@@ -1704,7 +1709,7 @@ Himmelskunde	BS	G
 Himmelskunde	BW	S
 Himmelskunde	Ba	G
 Himmelskunde	Dr	A
-Himmelskunde	Er	A
+Himmelskunde	Er	S
 Himmelskunde	Fi	S
 Himmelskunde	Gl	S
 Himmelskunde	Hl	A
@@ -1835,7 +1840,7 @@ Kampf in Dunkelheit	PC	A
 Kampf in Dunkelheit	PF	A
 Kampf in Dunkelheit	PHa	A
 Kampf in Dunkelheit	PHe	A
-Kampf in Dunkelheit	PK	A
+Kampf in Dunkelheit	PK	S
 Kampf in Dunkelheit	PM	A
 Kampf in Dunkelheit	PT	A
 Kampf in Dunkelheit	PW	A
@@ -1857,9 +1862,9 @@ Kampf in Dunkelheit	gHx	A
 Kampf in Dunkelheit	sHx	A
 Kampf in Dunkelheit	wHx	A
 Kampf in Schlachtreihe	As	S
-Kampf in Schlachtreihe	BN	S
+Kampf in Schlachtreihe	BN	G
 Kampf in Schlachtreihe	BS	S
-Kampf in Schlachtreihe	BW	G
+Kampf in Schlachtreihe	BW	S
 Kampf in Schlachtreihe	Ba	S
 Kampf in Schlachtreihe	Dr	A
 Kampf in Schlachtreihe	Er	S
@@ -1872,7 +1877,7 @@ Kampf in Schlachtreihe	Kr	G
 Kampf in Schlachtreihe	Ku	S
 Kampf in Schlachtreihe	Ma	A
 Kampf in Schlachtreihe	Ny	S
-Kampf in Schlachtreihe	Or	S
+Kampf in Schlachtreihe	Or	G
 Kampf in Schlachtreihe	PC	A
 Kampf in Schlachtreihe	PF	A
 Kampf in Schlachtreihe	PHa	A
@@ -2072,7 +2077,7 @@ Kampf zu Pferd	Kr	G
 Kampf zu Pferd	Ku	G
 Kampf zu Pferd	Ma	A
 Kampf zu Pferd	Ny	S
-Kampf zu Pferd	Or	S
+Kampf zu Pferd	Or	G
 Kampf zu Pferd	PC	A
 Kampf zu Pferd	PF	A
 Kampf zu Pferd	PHa	A
@@ -2087,7 +2092,7 @@ Kampf zu Pferd	ScN	A
 Kampf zu Pferd	ScS	A
 Kampf zu Pferd	ScW	A
 Kampf zu Pferd	Se	A
-Kampf zu Pferd	Sp	S
+Kampf zu Pferd	Sp	A
 Kampf zu Pferd	Sr	S
 Kampf zu Pferd	Sö	G
 Kampf zu Pferd	Th	A
@@ -2151,7 +2156,7 @@ Kampftaktik	Kr	G
 Kampftaktik	Ku	S
 Kampftaktik	Ma	A
 Kampftaktik	Ny	A
-Kampftaktik	Or	S
+Kampftaktik	Or	G
 Kampftaktik	PC	A
 Kampftaktik	PF	A
 Kampftaktik	PHa	A
@@ -2460,11 +2465,11 @@ Kräuterkunde	Gl	S
 Kräuterkunde	Hl	G
 Kräuterkunde	Hä	S
 Kräuterkunde	Kd	S
-Kräuterkunde	Kr	S
+Kräuterkunde	Kr	A
 Kräuterkunde	Ku	S
 Kräuterkunde	Ma	G
 Kräuterkunde	Ny	S
-Kräuterkunde	Or	S
+Kräuterkunde	Or	A
 Kräuterkunde	PC	S
 Kräuterkunde	PF	S
 Kräuterkunde	PHa	S
@@ -2479,9 +2484,9 @@ Kräuterkunde	ScN	G
 Kräuterkunde	ScS	G
 Kräuterkunde	ScW	G
 Kräuterkunde	Se	S
-Kräuterkunde	Sp	S
+Kräuterkunde	Sp	A
 Kräuterkunde	Sr	S
-Kräuterkunde	Sö	S
+Kräuterkunde	Sö	A
 Kräuterkunde	Th	S
 Kräuterkunde	Tm	A
 Kräuterkunde	Wa	G
@@ -2730,7 +2735,7 @@ Laufen	Hä	S
 Laufen	Kd	S
 Laufen	Kr	S
 Laufen	Ku	G
-Laufen	Ma	G
+Laufen	Ma	A
 Laufen	Ny	G
 Laufen	Or	S
 Laufen	PC	A
@@ -2819,8 +2824,8 @@ Lesen von Zauberschrift	Ny	A
 Lesen von Zauberschrift	Or	A
 Lesen von Zauberschrift	PC	G
 Lesen von Zauberschrift	PF	G
-Lesen von Zauberschrift	PHa	S
-Lesen von Zauberschrift	PHe	S
+Lesen von Zauberschrift	PHa	G
+Lesen von Zauberschrift	PHe	G
 Lesen von Zauberschrift	PK	G
 Lesen von Zauberschrift	PM	G
 Lesen von Zauberschrift	PT	G
@@ -2834,7 +2839,7 @@ Lesen von Zauberschrift	Se	A
 Lesen von Zauberschrift	Sp	A
 Lesen von Zauberschrift	Sr	A
 Lesen von Zauberschrift	Sö	A
-Lesen von Zauberschrift	Th	S
+Lesen von Zauberschrift	Th	G
 Lesen von Zauberschrift	Tm	A
 Lesen von Zauberschrift	Wa	A
 Lesen von Zauberschrift	dBe	S
@@ -2999,23 +3004,22 @@ Malen/Zeichnen	eBe	S
 Malen/Zeichnen	gHx	S
 Malen/Zeichnen	sHx	S
 Malen/Zeichnen	wHx	S
-Meditieren	As	A
-Meditieren	BN	A
-Meditieren	BS	A
-Meditieren	BW	A
-Meditieren	Ba	A
-Meditieren	Dr	A
+Meditieren	As	S
+Meditieren	BN	S
+Meditieren	BS	S
+Meditieren	BW	S
+Meditieren	Ba	S
+Meditieren	Dr	S
 Meditieren	Er	S
-Meditieren	Fi	G
 Meditieren	Gl	A
-Meditieren	Hl	A
+Meditieren	Hl	S
 Meditieren	Hä	A
 Meditieren	Kd	G
-Meditieren	Kr	A
+Meditieren	Kr	S
 Meditieren	Ku	S
-Meditieren	Ma	A
+Meditieren	Ma	S
 Meditieren	Ny	G
-Meditieren	Or	A
+Meditieren	Or	G
 Meditieren	PC	G
 Meditieren	PF	G
 Meditieren	PHa	G
@@ -3024,23 +3028,22 @@ Meditieren	PK	G
 Meditieren	PM	G
 Meditieren	PT	G
 Meditieren	PW	G
-Meditieren	Ri	G
 Meditieren	Sa	G
-Meditieren	ScN	A
-Meditieren	ScS	A
-Meditieren	ScW	A
+Meditieren	ScN	G
+Meditieren	ScS	G
+Meditieren	ScW	G
 Meditieren	Se	A
 Meditieren	Sp	A
 Meditieren	Sr	G
 Meditieren	Sö	A
 Meditieren	Th	A
 Meditieren	Tm	G
-Meditieren	Wa	A
-Meditieren	dBe	A
-Meditieren	eBe	A
-Meditieren	gHx	A
-Meditieren	sHx	A
-Meditieren	wHx	A
+Meditieren	Wa	S
+Meditieren	dBe	S
+Meditieren	eBe	S
+Meditieren	gHx	S
+Meditieren	sHx	S
+Meditieren	wHx	S
 Menschenkenntnis	As	S
 Menschenkenntnis	BN	S
 Menschenkenntnis	BS	S
@@ -3072,7 +3075,7 @@ Menschenkenntnis	ScN	S
 Menschenkenntnis	ScS	S
 Menschenkenntnis	ScW	S
 Menschenkenntnis	Se	G
-Menschenkenntnis	Sp	S
+Menschenkenntnis	Sp	G
 Menschenkenntnis	Sr	S
 Menschenkenntnis	Sö	S
 Menschenkenntnis	Th	S
@@ -3099,7 +3102,7 @@ Meucheln	Kr	A
 Meucheln	Ku	S
 Meucheln	Ma	A
 Meucheln	Ny	G
-Meucheln	Or	S
+Meucheln	Or	A
 Meucheln	PC	A
 Meucheln	PF	A
 Meucheln	PHa	A
@@ -3255,9 +3258,9 @@ Naturkunde	Hä	S
 Naturkunde	Kd	S
 Naturkunde	Kr	A
 Naturkunde	Ku	G
-Naturkunde	Ma	G
+Naturkunde	Ma	S
 Naturkunde	Ny	G
-Naturkunde	Or	S
+Naturkunde	Or	A
 Naturkunde	PC	S
 Naturkunde	PF	S
 Naturkunde	PHa	S
@@ -3410,7 +3413,7 @@ Pflanzenkunde	Kr	A
 Pflanzenkunde	Ku	S
 Pflanzenkunde	Ma	S
 Pflanzenkunde	Ny	S
-Pflanzenkunde	Or	S
+Pflanzenkunde	Or	A
 Pflanzenkunde	PC	S
 Pflanzenkunde	PF	G
 Pflanzenkunde	PHa	S
@@ -3489,7 +3492,7 @@ Rechnen	Kr	A
 Rechnen	Ku	S
 Rechnen	Ma	S
 Rechnen	Ny	S
-Rechnen	Or	S
+Rechnen	Or	A
 Rechnen	PC	S
 Rechnen	PF	S
 Rechnen	PHa	S
@@ -3779,7 +3782,7 @@ Schiffsführung	Hä	G
 Schiffsführung	Kd	S
 Schiffsführung	Kr	G
 Schiffsführung	Ku	A
-Schiffsführung	Ma	S
+Schiffsführung	Ma	A
 Schiffsführung	Ny	S
 Schiffsführung	Or	S
 Schiffsführung	PC	A
@@ -4018,7 +4021,7 @@ Schlösser öffnen	Kr	A
 Schlösser öffnen	Ku	S
 Schlösser öffnen	Ma	A
 Schlösser öffnen	Ny	S
-Schlösser öffnen	Or	S
+Schlösser öffnen	Or	A
 Schlösser öffnen	PC	A
 Schlösser öffnen	PF	A
 Schlösser öffnen	PHa	A
@@ -4089,7 +4092,7 @@ Schreiben	Ba	S
 Schreiben	Dr	S
 Schreiben	Er	G
 Schreiben	Fi	G
-Schreiben	Gl	G
+Schreiben	Gl	S
 Schreiben	Hl	G
 Schreiben	Hä	G
 Schreiben	Kd	S
@@ -4187,8 +4190,8 @@ Schwimmen	PT	S
 Schwimmen	PW	S
 Schwimmen	Ri	G
 Schwimmen	Sa	G
-Schwimmen	ScN	G
-Schwimmen	ScS	G
+Schwimmen	ScN	S
+Schwimmen	ScS	S
 Schwimmen	ScW	G
 Schwimmen	Se	G
 Schwimmen	Sp	S
@@ -4353,9 +4356,9 @@ Singen	PT	G
 Singen	PW	G
 Singen	Ri	S
 Singen	Sa	G
-Singen	ScN	G
-Singen	ScS	G
-Singen	ScW	G
+Singen	ScN	S
+Singen	ScS	S
+Singen	ScW	S
 Singen	Se	S
 Singen	Sp	S
 Singen	Sr	S
@@ -4746,7 +4749,7 @@ Stimmen nachahmen	Kr	A
 Stimmen nachahmen	Ku	G
 Stimmen nachahmen	Ma	S
 Stimmen nachahmen	Ny	G
-Stimmen nachahmen	Or	S
+Stimmen nachahmen	Or	A
 Stimmen nachahmen	PC	S
 Stimmen nachahmen	PF	S
 Stimmen nachahmen	PHa	S
@@ -4793,7 +4796,7 @@ Streitwagen lenken	PC	A
 Streitwagen lenken	PF	A
 Streitwagen lenken	PHa	A
 Streitwagen lenken	PHe	A
-Streitwagen lenken	PK	G
+Streitwagen lenken	PK	S
 Streitwagen lenken	PM	A
 Streitwagen lenken	PT	A
 Streitwagen lenken	PW	A
@@ -4815,7 +4818,7 @@ Streitwagen lenken	gHx	A
 Streitwagen lenken	sHx	A
 Streitwagen lenken	wHx	A
 Suchen	As	G
-Suchen	BN	G
+Suchen	BN	S
 Suchen	BS	S
 Suchen	BW	S
 Suchen	Ba	S
@@ -5128,7 +5131,7 @@ Tierkunde	Kr	A
 Tierkunde	Ku	G
 Tierkunde	Ma	S
 Tierkunde	Ny	S
-Tierkunde	Or	S
+Tierkunde	Or	A
 Tierkunde	PC	S
 Tierkunde	PF	G
 Tierkunde	PHa	S
@@ -5288,7 +5291,7 @@ Verhören	Ba	S
 Verhören	Dr	S
 Verhören	Er	G
 Verhören	Fi	G
-Verhören	Gl	G
+Verhören	Gl	S
 Verhören	Hl	S
 Verhören	Hä	G
 Verhören	Kd	S
@@ -5338,7 +5341,7 @@ Verkleiden	Kr	A
 Verkleiden	Ku	S
 Verkleiden	Ma	A
 Verkleiden	Ny	G
-Verkleiden	Or	S
+Verkleiden	Or	A
 Verkleiden	PC	A
 Verkleiden	PF	A
 Verkleiden	PHa	A
@@ -5406,7 +5409,7 @@ Wagenlenken	eBe	S
 Wagenlenken	gHx	S
 Wagenlenken	sHx	S
 Wagenlenken	wHx	S
-Wahrnehmung	As	G
+Wahrnehmung	As	S
 Wahrnehmung	BN	G
 Wahrnehmung	BS	G
 Wahrnehmung	BW	G
@@ -5414,9 +5417,9 @@ Wahrnehmung	Ba	S
 Wahrnehmung	Dr	G
 Wahrnehmung	Er	G
 Wahrnehmung	Fi	G
-Wahrnehmung	Gl	G
+Wahrnehmung	Gl	S
 Wahrnehmung	Hl	S
-Wahrnehmung	Hä	G
+Wahrnehmung	Hä	S
 Wahrnehmung	Kd	S
 Wahrnehmung	Kr	S
 Wahrnehmung	Ku	G
@@ -5501,7 +5504,7 @@ Winden	Kr	A
 Winden	Ku	S
 Winden	Ma	A
 Winden	Ny	G
-Winden	Or	S
+Winden	Or	A
 Winden	PC	A
 Winden	PF	A
 Winden	PHa	A
@@ -5842,7 +5845,7 @@ Zunge verschlucken	wHx	S
 Überleben im Gebirge	Sö	S
 Überleben im Gebirge	Th	S
 Überleben im Gebirge	Tm	S
-Überleben im Gebirge	Wa	S
+Überleben im Gebirge	Wa	G
 Überleben im Gebirge	dBe	S
 Überleben im Gebirge	eBe	S
 Überleben im Gebirge	gHx	S
@@ -5884,7 +5887,7 @@ Zunge verschlucken	wHx	S
 Überleben im Schnee	Sö	S
 Überleben im Schnee	Th	S
 Überleben im Schnee	Tm	S
-Überleben im Schnee	Wa	G
+Überleben im Schnee	Wa	S
 Überleben im Schnee	dBe	S
 Überleben im Schnee	eBe	S
 Überleben im Schnee	gHx	S

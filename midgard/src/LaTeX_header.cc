@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.11 2002/02/24 12:59:19 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.12 2002/02/25 10:04:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,8 +51,8 @@ void midgard_CG::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
  fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
  fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
  fout <<"\\end{tabularx}\n}\n";
- fout <<"\\IfFileExists{drache.png}{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{drache.png}}}}\n";
- fout <<"{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}}\n";
+ fout <<"\\IfFileExists{dracher.png}{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{dracher.png}}}}\n";
+ fout <<"{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"dracher.png}}}}\n";
  fout <<"\\vspace*{2ex}\n\n";
 }
 

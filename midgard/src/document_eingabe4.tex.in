@@ -74,8 +74,8 @@
 \makebox[1.1cm]{Spieler}&{\namespieler}\\\hline
   \end{tabularx}
 }
-\IfFileExists{drache.png}{\parbox{10cm}{{\includegraphics[width=10cm]{drache.png}}}}%
-{\parbox{10cm}{{\includegraphics[width=10cm]{@PACKAGE_DATA_DIR@drache.png}}}}
+\IfFileExists{dracher.png}{\parbox{10cm}{{\includegraphics[width=10cm]{dracher.png}}}}%
+{\parbox{10cm}{{\includegraphics[width=10cm]{@PACKAGE_DATA_DIR@dracher.png}}}}
 
 \vspace*{2ex}
 \begin{minipage}[t]{13cm}

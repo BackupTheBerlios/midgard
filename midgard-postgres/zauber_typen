@@ -665,6 +665,8 @@ Bannen von Zauberwerk	Th	G
 Bannen von Zauberwerk	gHx	S
 Bannen von Zauberwerk	sHx	S
 Bannen von Zauberwerk	wHx	S
+Bannrune	Ru	G
+Bannrune	Sk	S
 Bannsphäre, Blaue	Dr	A
 Bannsphäre, Blaue	Hl	A
 Bannsphäre, Blaue	Ma	S
@@ -789,6 +791,8 @@ Baumwächter	ScW	S
 Baumwächter	gHx	A
 Baumwächter	sHx	A
 Baumwächter	wHx	A
+Becherrune	Ru	G
+Becherrune	Sk	S
 Beeinflussen	Dr	S
 Beeinflussen	Ma	S
 Beeinflussen	PC	S
@@ -877,6 +881,8 @@ Bergeist rufen	eBe	A
 Bergeist rufen	gHx	A
 Bergeist rufen	sHx	A
 Bergeist rufen	wHx	A
+Berserkerrune	Ru	G
+Berserkerrune	Sk	S
 Beschleunigen	Dr	S
 Beschleunigen	Fi	G
 Beschleunigen	Hl	G
@@ -1425,6 +1431,8 @@ Doppelgänger schaffen	ScW	S
 Doppelgänger schaffen	dBe	S
 Doppelgänger schaffen	eBe	S
 Doppelgänger schaffen	gHx	A
+Drachenrune	Ru	G
+Drachenrune	Sk	S
 Dschinn beschwören	Dr	A
 Dschinn beschwören	Hl	A
 Dschinn beschwören	Ma	A
@@ -2428,6 +2436,8 @@ Fesselbann	Th	S
 Fesselbann	gHx	S
 Fesselbann	sHx	S
 Fesselbann	wHx	S
+Fesselrune	Ru	G
+Fesselrune	Sk	A
 Feuerelementargeist beschwören	Dr	A
 Feuerelementargeist beschwören	Hl	A
 Feuerelementargeist beschwören	Ma	A
@@ -2720,6 +2730,8 @@ Flammenkreis	gHx	S
 Flammenkreis	sHx	S
 Flammenkreis	tBe	A
 Flammenkreis	wHx	S
+Flammenrune	Ru	G
+Flammenrune	Sk	S
 Fliegen	Dr	S
 Fliegen	Hl	S
 Fliegen	Ma	S
@@ -2820,6 +2832,8 @@ Freundesauge	Tm	G
 Freundesauge	gHx	S
 Freundesauge	sHx	S
 Freundesauge	wHx	S
+Friedensrune	Ru	G
+Friedensrune	Sk	G
 Frostball	Dr	A
 Frostball	Hl	A
 Frostball	Ma	S
@@ -2928,6 +2942,8 @@ Geas	ScN	S
 Geas	ScS	S
 Geas	ScW	S
 Geas	wHx	S
+Geberrune	Ru	G
+Geberrune	Sk	G
 Geist beschwören	Dr	A
 Geist beschwören	Hl	A
 Geist beschwören	Ma	A
@@ -2956,6 +2972,8 @@ Geisterlauf	ScN	G
 Geisterlauf	ScS	G
 Geisterlauf	ScW	G
 Geisterlauf	Tm	S
+Geisterrune	Ru	G
+Geisterrune	Sk	A
 Geistesschild	Dr	S
 Geistesschild	Fi	S
 Geistesschild	Hl	G
@@ -2978,6 +2996,8 @@ Geistesschild	sHx	S
 Geistesschild	wHx	S
 Geistesschlüssel	PC	S
 Geistesschlüssel	sHx	S
+Geizrune	Ru	G
+Geizrune	Sk	G
 Gelbe Glocke (1. Urton Kung)	Ba	S
 Geruchsverlust	Dr	G
 Geruchsverlust	Hl	A
@@ -2997,6 +3017,8 @@ Geruchsverlust	Th	G
 Geruchsverlust	gHx	S
 Geruchsverlust	sHx	S
 Geruchsverlust	wHx	S
+Gesichtsrune	Ru	G
+Gesichtsrune	Sk	S
 Ghussat el-Masin	Sa	S
 Ghussat el-Masin	ScN	S
 Ghussat el-Masin	ScS	S
@@ -3307,6 +3329,8 @@ Hagel	eBe	S
 Hagel	gHx	S
 Hagel	sHx	S
 Hagel	wHx	S
+Hagelrune	Ru	G
+Hagelrune	Sk	S
 Halebant 1 beschwören	Dr	A
 Halebant 1 beschwören	Hl	A
 Halebant 1 beschwören	Ma	A
@@ -3663,6 +3687,8 @@ Heiliges Wort	ScS	A
 Heiliges Wort	ScW	A
 Heiliges Wort	Sr	G
 Heiliges Wort	wHx	G
+Heilsrune	Ru	G
+Heilsrune	Sk	A
 Heimstein	Hl	S
 Heimstein	Ma	G
 Heimstein	PC	G
@@ -4432,6 +4458,8 @@ Klebesalz	eBe	A
 Klebesalz	gHx	S
 Klebesalz	sHx	S
 Klebesalz	wHx	S
+Klingenrune	Ru	G
+Klingenrune	Sk	S
 Knallsalz	Dr	A
 Knallsalz	Hl	A
 Knallsalz	Ma	A
@@ -4537,6 +4565,8 @@ Kuß des Schlafes	ScW	G
 Kuß des Schlafes	gHx	G
 Kuß des Schlafes	sHx	G
 Kuß des Schlafes	wHx	G
+Kälterune	Ru	G
+Kälterune	Sk	S
 Kälteschutz	Dr	S
 Kälteschutz	Fi	G
 Kälteschutz	Hl	A
@@ -4737,6 +4767,8 @@ Lichtrunen	Th	G
 Lichtrunen	gHx	S
 Lichtrunen	sHx	S
 Lichtrunen	wHx	S
+Liebesrune	Ru	G
+Liebesrune	Sk	S
 Liebeszauber	Dr	A
 Liebeszauber	Hl	S
 Liebeszauber	Ma	A
@@ -4983,6 +5015,8 @@ Löschsalz	gHx	S
 Löschsalz	sHx	S
 Löschsalz	tBe	A
 Löschsalz	wHx	S
+Lösungsrune	Ru	G
+Lösungsrune	Sk	A
 Macht der Finsternis	PC	S
 Macht der Finsternis	sHx	S
 Macht über Leben	Ma	G
@@ -5699,6 +5733,8 @@ Pestklaue	ScW	S
 Pestklaue	gHx	G
 Pestklaue	sHx	G
 Pestklaue	tBe	S
+Pfeilrune	Ru	G
+Pfeilrune	Sk	S
 Pflanzenfessel	Dr	G
 Pflanzenfessel	Hl	S
 Pflanzenfessel	Ma	A
@@ -5785,6 +5821,8 @@ Rauschsalz	gHx	S
 Rauschsalz	sHx	S
 Rauschsalz	tBe	A
 Rauschsalz	wHx	S
+Regenrune	Ru	G
+Regenrune	Sk	S
 Regenzauber	Dr	S
 Regenzauber	Hl	S
 Regenzauber	Ma	S
@@ -5850,6 +5888,8 @@ Reise zu den Sphären	gHx	A
 Reise zu den Sphären	sHx	A
 Reise zu den Sphären	tBe	S
 Reise zu den Sphären	wHx	A
+Reiserune	Ru	G
+Reiserune	Sk	S
 Reizen	Hl	A
 Reizen	Ord	S
 Reizen	PW	G
@@ -6107,6 +6147,8 @@ Scheintod	ScW	G
 Scheintod	gHx	S
 Scheintod	sHx	S
 Scheintod	wHx	S
+Schildrune	Ru	G
+Schildrune	Sk	S
 Schlachtenwahnsinn	Fi	G
 Schlaf	Dr	S
 Schlaf	Hl	G
@@ -6230,6 +6272,10 @@ Schminken	ScW	S
 Schminken	gHx	G
 Schminken	sHx	G
 Schminken	wHx	G
+Schneidenrune	Ru	G
+Schneidenrune	Sk	S
+Schnellrune	Ru	G
+Schnellrune	Sk	S
 Schreiber beschwören	Hl	A
 Schreiber beschwören	Ma	S
 Schreiber beschwören	PHe	A
@@ -6548,6 +6594,8 @@ Schutzkreis gegen Wisfolk	eBe	A
 Schutzkreis gegen Wisfolk	gHx	A
 Schutzkreis gegen Wisfolk	sHx	A
 Schutzkreis gegen Wisfolk	wHx	A
+Schutzrune	Ru	G
+Schutzrune	Sk	S
 Schwarm	Dr	G
 Schwarm	Hl	S
 Schwarm	Ma	A
@@ -7070,6 +7118,8 @@ Stärke	Tm	G
 Stärke	gHx	S
 Stärke	sHx	S
 Stärke	wHx	S
+Stärkerune	Ru	G
+Stärkerune	Sk	G
 Sumpfboden	Dr	G
 Sumpfboden	Hl	A
 Sumpfboden	Ma	S
@@ -7274,6 +7324,8 @@ Tierisches Handeln	Th	G
 Tierisches Handeln	gHx	G
 Tierisches Handeln	sHx	G
 Tierisches Handeln	wHx	G
+Tierrune	Ru	G
+Tierrune	Sk	A
 Tiersprache	Dr	G
 Tiersprache	Fi	G
 Tiersprache	Hl	G
@@ -7358,6 +7410,8 @@ Tor schaffen	eBe	S
 Tor schaffen	gHx	A
 Tor schaffen	sHx	A
 Tor schaffen	wHx	A
+Totenrune	Ru	G
+Totenrune	Sk	A
 Trampelsalz	Dr	A
 Trampelsalz	Hl	A
 Trampelsalz	Ma	A
@@ -7380,6 +7434,8 @@ Trampelsalz	gHx	S
 Trampelsalz	sHx	S
 Trampelsalz	tBe	A
 Trampelsalz	wHx	S
+Traumrune	Ru	G
+Traumrune	Sk	S
 Trockensalz	Dr	A
 Trockensalz	Hl	A
 Trockensalz	Ma	A
@@ -7523,6 +7579,8 @@ Ungeheuer rufen	eBe	S
 Ungeheuer rufen	gHx	S
 Ungeheuer rufen	sHx	S
 Ungeheuer rufen	tBe	S
+Ungeheuerrune	Ru	G
+Ungeheuerrune	Sk	S
 Ungeziefer bannen	Dr	G
 Ungeziefer bannen	Hl	S
 Ungeziefer bannen	Ma	A
@@ -7539,6 +7597,8 @@ Ungeziefer bannen	eBe	S
 Ungeziefer bannen	gHx	A
 Ungeziefer bannen	sHx	S
 Ungeziefer bannen	wHx	S
+Unheilsrune	Ru	G
+Unheilsrune	Sk	A
 Unsichtbarkeit	Dr	S
 Unsichtbarkeit	Fi	S
 Unsichtbarkeit	Hl	S
@@ -7971,6 +8031,8 @@ Wahnsinn	ScW	S
 Wahnsinn	gHx	G
 Wahnsinn	sHx	G
 Wahnsinn	wHx	G
+Wahrheitsrune	Ru	G
+Wahrheitsrune	Sk	S
 Wahrsehen	Dr	S
 Wahrsehen	Fi	S
 Wahrsehen	Hl	S
@@ -8246,6 +8308,8 @@ Wasserwandlung	eBe	S
 Wasserwandlung	gHx	S
 Wasserwandlung	sHx	S
 Wasserwandlung	wHx	S
+Wehrrune	Ru	G
+Wehrrune	Sk	A
 Wehsalz	Dr	A
 Wehsalz	Hl	A
 Wehsalz	Ma	A
@@ -8290,6 +8354,8 @@ Weltentor schaffen	eBe	S
 Weltentor schaffen	gHx	A
 Weltentor schaffen	sHx	A
 Weltentor schaffen	wHx	A
+Wetterrune	Ru	G
+Wetterrune	Sk	S
 Wetterzauber	Dr	S
 Wetterzauber	Hl	S
 Wetterzauber	Ma	S
@@ -8403,6 +8469,8 @@ Wittern	Th	G
 Wittern	gHx	S
 Wittern	sHx	S
 Wittern	wHx	S
+Wogenrune	Ru	G
+Wogenrune	Sk	S
 Wolkenbruch	Dr	S
 Wolkenbruch	Hl	S
 Wolkenbruch	Ma	S
@@ -8464,6 +8532,8 @@ Wundersame Tarnung	Tm	S
 Wundersame Tarnung	gHx	A
 Wundersame Tarnung	sHx	A
 Wundersame Tarnung	wHx	A
+Wundrune	Ru	G
+Wundrune	Sk	S
 Wüstenwind	De	G
 Wüstenwind	Dr	S
 Wüstenwind	Ma	S

@@ -73,11 +73,6 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 
 void midgard_CG::on_alte_fert_reorder()
 {
-  on_button_fertigkeiten_sort_clicked();
-}
-
-void midgard_CG::on_button_fertigkeiten_sort_clicked()
-{
   std::deque<guint> seq = alte_fert_tree->get_seq();
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
@@ -99,13 +94,11 @@ bool midgard_CG::kido_steigern_check(int wert)
 
 void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  
-
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   if (MBE->Name()=="KiDo") 
     { kido_bool=true;show_gtk();
       optionmenu_KiDo_Stile->set_sensitive(true);
-//      table_kido_lernen->set_sensitive(true);
       button_kido_auswahl->set_sensitive(false);
       InfoFenster->AppendShow("Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!",WindowInfo::None);
       MidgardBasicElement_leaf_neu(d);      
@@ -196,5 +189,6 @@ void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent
   if(zusatz==Werte.Herkunft()->Name()) MBE->set_Erfolgswert(9);
   scrolledwindow_landauswahl->hide();
   on_fertigkeiten_laden_clicked();
+  neue_fert_tree->set_sensitive(true);
 }
 

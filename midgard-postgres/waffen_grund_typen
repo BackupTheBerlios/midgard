@@ -105,7 +105,7 @@ Blasrohr	sHx	A
 Blasrohr	wHx	A
 Bögen	As	S
 Bögen	BN	S
-Bögen	BS	S
+Bögen	BS	G
 Bögen	BW	S
 Bögen	Ba	S
 Bögen	Dr	A
@@ -1104,7 +1104,7 @@ Wurfspieß	gHx	A
 Wurfspieß	sHx	A
 Wurfspieß	wHx	A
 ZSchlagwaffe	As	S
-ZSchlagwaffe	BN	S
+ZSchlagwaffe	BN	G
 ZSchlagwaffe	BS	S
 ZSchlagwaffe	BW	S
 ZSchlagwaffe	Ba	S

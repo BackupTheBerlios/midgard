@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.25 2002/02/18 07:01:06 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.26 2002/02/25 10:04:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,9 +55,9 @@ std::string s="
 * Abgeleitete Werte würfeln (eventuell editieren)
 * Werte editieren: 'Name des Abenteurers' und 'Version' eintragen, unter diesen
    beiden Angaben wird der Abenteurer in gespeichert.
-* Lernschema
+* Lernschema (oberer Reiter)
 * Herkunftsland wählen
-* Angeborene Fertigkeit auswürfeln (mit der RECHTEN Maustaste könenn die Fertigkeiten 
+* Angeborene Fertigkeit auswürfeln (mit der RECHTEN Maustaste können die Fertigkeiten 
    explizit gewählt werden.)
 * Lernpunkte würfeln (eventuell editieren)
 * Fertigkeiten, Waffen und Zauber in beliebiger Reinfolge auswählen 
@@ -69,7 +69,7 @@ std::string s="
 * Rüstung auswürfeln (kann über 'Steigern' auch ausgesucht werden 
    wenn der Abenteurer vorher abgespeichert wird)
 * bei Bedarf Abenteurerbeschreibung eingeben und ausdrucken.
-   Es ist zu beachten, daß die Beschriebung als LaTeX Dokument verarbeitet wird.
+   Es ist zu beachten, daß die Beschreibung als LaTeX Dokument verarbeitet wird.
    Dadurch ist gewährleistet, daß nahezu alle Zeichen darstellen werden können.
    Allerdings sind einige Symbole nur über LaTeX Komandos erhältlich.
    Für Anführungszeichen muß man bspw. '\\glqq' bzw '\\grqq' verwenden.
@@ -119,9 +119,9 @@ zur Bedienung der 'TreeBaseListen'
    (mit Lernkosten in GFP).
    Im linken Bereich stehen oben die Waffen, die der Abenteurer schon 
    beherrscht (mit Erfolgswert und Kosten für die nächst höhere bzw. 
-   niedirgere Stufe), unten stehen die Waffen, die der Abenteurer mit dem
+   niedrigere Stufe), unten stehen die Waffen, die der Abenteurer mit dem
    Erfolgswert +4 beherrscht, weil er die Grundkenntnisse in der jeweiligen
-   Waffenart besitzt. Durch Ancklicken kann man Waffen steigern und lernen,
+   Waffenart besitzt. Durch Anklicken kann man Waffen steigern und lernen,
    bzw. Grundkenntnisse lernen.
 * Zauber (Zauber laden)
    Oben die Zauber, die ein Abenteurer kann, unten die, die er lernen darf

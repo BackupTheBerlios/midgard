@@ -115,7 +115,8 @@ Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
 
 void Window_Waffenbesitz::on_button_close_clicked()
 {
-   hauptfenster->waffe_besitz_uebernehmen(Waffe_Besitz);
+//   hauptfenster->waffe_besitz_uebernehmen(Waffe_Besitz);
+   hauptfenster->MidgardBasicElement_uebernehmen(Waffe_Besitz);
    destroy();
 }
 
@@ -177,14 +178,12 @@ void Window_Waffenbesitz::on_checkbutton_mag_waffenbonus_toggled()
 {
 }
 
-
-void Window_Waffenbesitz::on_button_sort_clicked()
+void Window_Waffenbesitz::on_alte_waffen_reorder()
 {
   std::deque<guint> seq = waffenbesitz_alt_tree->get_seq();
   switch((Data_waffenbesitz::SPALTEN_A)seq[0]) {
       case Data_waffenbesitz::MAGBONUS : Waffe_Besitz.sort(WaffenBesitz_sort_magbonus()) ;break;
       case Data_waffenbesitz::NAME_A   : Waffe_Besitz.sort(WaffenBesitz_sort_name()); break;
       default : hauptfenster->InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
-//      manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

@@ -26,6 +26,7 @@ ESchlagwaffe	400	\N
 ESchwert	600	\N
 Fesselwaffe	700	\N
 Garotte	200	\N
+Kampf ohne Waffen	800	\N
 Kampfstab	700	\N
 Kettenwaffe	900	\N
 Kharrata	200	R
@@ -46,7 +47,6 @@ Wurfspieﬂ	200	\N
 ZSchlagwaffe	600	\N
 ZSchwert	800	\N
 Zauberstab	400	\N
-waffenloser Kampf	800	\N
 \.
 --
 --

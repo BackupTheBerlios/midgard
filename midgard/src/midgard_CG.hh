@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.182 2002/02/24 12:59:20 thoma Exp $
+// $Id: midgard_CG.hh,v 1.183 2002/02/25 10:04:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -342,8 +342,11 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void set_lernpunkte();
         void on_button_fach_trans_clicked();
         void on_button_waffe_trans_clicked();
+        gint on_button_ruestung_button_release_event(GdkEventButton *ev);
         void on_button_ruestung_clicked();
-        void on_button_geld_waffen_clicked();
+        gint on_button_lernschema_geld_button_release_event(GdkEventButton *ev);
+        gint on_button_lernschema_waffen_button_release_event(GdkEventButton *ev);
+        void lernschema_geld_wuerfeln();
         void on_button_geld_s_clicked();
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
@@ -432,7 +435,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
         void show_neue_fertigkeiten();
         void on_leaf_selected_neue_fert(cH_RowDataBase d);
-        void on_button_fertigkeiten_sort_clicked();
         void on_alte_fert_reorder();
         bool kido_steigern_check(int wert);
         void fillClistLand(const cH_MidgardBasicElement &MBE);
@@ -446,7 +448,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_leaf_selected_neue_grund(cH_RowDataBase d);
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);
         void on_leaf_selected_neue_waffen(cH_RowDataBase d);
-        void on_button_waffen_sort_clicked();
 
         void on_zauber_laden_clicked();
         void on_alte_zauber_reorder();
@@ -461,17 +462,13 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_leaf_selected_neue_zauberwerk(cH_RowDataBase d);
         void zauberwerk_laden();
         void zauberwerk_zeigen();
-        void on_button_zauber_sort_clicked();
         void on_alte_zaubermittel_reorder();
-        void on_button_zaubermittel_sort_clicked();
 
         void on_kido_laden_clicked();
         void kido_zeigen();
         void on_leaf_selected_alte_kido(cH_RowDataBase d);
         void on_leaf_selected_neue_kido(cH_RowDataBase d);
         void on_alte_kido_reorder();
-        void on_button_kido_sort_clicked();
-
 
         void on_sprache_laden_clicked();
         void on_leaf_selected_alte_sprache(cH_RowDataBase d);
@@ -558,7 +555,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void xml_import(const std::string& datei);
          void spielleiter_export_save(const std::string& dateiname);
          void charakter_beschreibung_uebernehmen(const std::string& b,bool drucken);
-         void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
+//         void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe,bool beruf=false);

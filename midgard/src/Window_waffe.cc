@@ -22,15 +22,16 @@
 #include <Gtk_OStream.h>
 #include <Aux/itos.h>
 #include "midgard_CG.hh"
-#include "Window_Waffe_Geld.hh"
+//#include "Window_Waffe_Geld.hh"
+
 
 Window_waffe::Window_waffe(int _wurf, 
-      Window_Waffe_Geld* o, Grundwerte& W,const vector<cH_Typen>& T, 
+      midgard_CG* h, Grundwerte& W,const vector<cH_Typen>& T, 
       const Datenbank& _Database,
       const std::list<cH_MidgardBasicElement>& wa)
 :Database(_Database),wurf(_wurf),list_Waffen(wa) ,Werte(W), Typ(T)
 {
-  oberfenster=o;
+  hauptfenster=h;
   wuerfeln();
 }
 
@@ -100,7 +101,7 @@ void Window_waffe::wuerfeln()
          os.flush((*i)->ref(),&HandleContent::unref);
       }  
   }
- oberfenster->hauptfenster->InfoFenster->AppendShow(strinfo);
+ hauptfenster->InfoFenster->AppendShow(strinfo);
  label_anzahl_E->set_text(itos(E));
  label_anzahl_A->set_text(itos(A));
 
@@ -126,13 +127,14 @@ void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *ev
 
 void Window_waffe::on_button_close_clicked()
 {
-  vector<cH_MidgardBasicElement> V;
+  std::list<cH_MidgardBasicElement> V;
   for (Gtk::CList::SelectionList::iterator i=clist_waffe->selection().begin();i!=clist_waffe->selection().end();++i)
    {
      cH_MidgardBasicElement mbe=static_cast<MidgardBasicElement*>(i->get_data());
      V.push_back(mbe);
    }
-  oberfenster->get_waffe(V);
+//  oberfenster->get_waffe(V);
+  hauptfenster->MidgardBasicElement_uebernehmen(V);
   destroy();
 }
 
@@ -187,5 +189,5 @@ void Window_waffe::magische_Waffe()
 {
    std::string strinfo="100 gewürfelt!!! => magische Einhandwaffe\n";
       strinfo+= "bitte unter 'steigern'->'Besitztümer' einen Angriffsbonus von +1 einstellen.\n";
-   oberfenster->hauptfenster->InfoFenster->AppendShow(strinfo);   
+   hauptfenster->InfoFenster->AppendShow(strinfo);   
 }

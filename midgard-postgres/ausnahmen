@@ -33,6 +33,14 @@ Askese	f	\N	Eschar	ScS	G	\N	\N
 Askese	f	\N	Eschar	ScW	G	\N	\N
 Askese	f	\N	Rawindra	Hl	G	\N	\N
 Augensalbe herstellen	f	\N	Rawindra	Th	G	\N	\N
+Bannrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Bannrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Becherrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Becherrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Berserkerrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Berserkerrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Drachenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Drachenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Elefanten lenken	f	\N	Minangpahit	BW	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	Gl	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	Hä	G	\N	\N
@@ -49,14 +57,32 @@ Etikette	f	\N	\N	\N	A	\N	Volk
 Etikette	f	\N	\N	\N	G	Herold	Adel
 Fangen	f	\N	\N	\N	G	Fischer	\N
 Fangen	f	\N	\N	\N	G	Gaukler	\N
+Fesselrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Fesselrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Flammenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Flammenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Friedensrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Friedensrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Geberrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Geberrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Geisterrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Geisterrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Geizrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Geizrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	ScN	G	\N	\N
 Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	ScS	G	\N	\N
 Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	ScW	G	\N	\N
+Gesichtsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Gesichtsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Großer Hitzeschutz	z	\N	KanThaiPan	Or	G	\N	\N
 Großer Hitzeschutz	z	\N	KanThaiPan	PW	G	\N	\N
 Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	ScN	G	\N	\N
 Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	ScS	G	\N	\N
 Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	ScW	G	\N	\N
+Hagelrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Hagelrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Heilsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Heilsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Heraldik	f	\N	\N		G	Herold	\N
 Kampf zu Elefanten	f	\N	Minangpahit	As	S	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	BN	G	\N	\N
@@ -97,6 +123,10 @@ Kampf zu Srimara	f	\N	Rawindra	Se	S	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Sp	S	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Sö	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Wa	G	\N	\N
+Klingenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Klingenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Kälterune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Kälterune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Körperkontrolle	f	\N	Rawindra	As	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	BN	S	\N	\N
 Körperkontrolle	f	\N	Rawindra	BS	S	\N	\N
@@ -135,6 +165,10 @@ Lanzenstechen	f	\N	Küstenstaaten	\N	S	\N	\N
 Leomies Birneneis	z	Halbling	\N	Hl	S	\N	\N
 Leomies Birneneis	z	Halbling	\N	PF	G	\N	\N
 Leomies Birneneis	z	Halbling	\N	PW	G	\N	\N
+Liebesrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Liebesrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Lösungsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Lösungsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Meditieren	f	\N	KanThaiPan	Kr	G	\N	\N
 Meditieren	f	\N	KanThaiPan	Or	G	\N	\N
 Meditieren	f	\N	KanThaiPan	PC	G	\N	\N
@@ -176,15 +210,23 @@ NüQuang	z	\N	KanThaiPan	ScN	G	\N	\N
 NüQuang	z	\N	KanThaiPan	ScS	G	\N	\N
 NüQuang	z	\N	KanThaiPan	ScW	G	\N	\N
 Paschuyana, der Weg des Tieres	z	\N	Rawindra	pw	G	\N	\N
+Pfeilrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Pfeilrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 PiPingQuang	z	\N	KanThaiPan	ScN	G	\N	\N
 PiPingQuang	z	\N	KanThaiPan	ScS	G	\N	\N
 PiPingQuang	z	\N	KanThaiPan	ScW	G	\N	\N
 PiYeúQuang	z	\N	KanThaiPan	ScN	G	\N	\N
 PiYeúQuang	z	\N	KanThaiPan	ScS	G	\N	\N
 PiYeúQuang	z	\N	KanThaiPan	ScW	G	\N	\N
+Regenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Regenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Reiserune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Reiserune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScN	G	\N	\N
 Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScS	G	\N	\N
 Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScW	G	\N	\N
+Schildrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Schildrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Schlangen beschwören	f	\N	Rawindra	Ba	G	\N	\N
 Schlangen beschwören	f	\N	Rawindra	Dr	S	\N	\N
 Schlangen beschwören	f	\N	Rawindra	Hl	S	\N	\N
@@ -236,15 +278,43 @@ Schmerzen ertragen	f	\N	Rawindra	eBe	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	gHx	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	sHx	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	wHx	S	\N	\N
+Schneidenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Schneidenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Schnellrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Schnellrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Schutzrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Schutzrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScN	G	\N	\N
 Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScS	G	\N	\N
 Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScW	G	\N	\N
 Srimara lenken	f	\N	Rawindra	Kr	S	\N	\N
 Srimara lenken	f	\N	Rawindra	Or	S	\N	\N
 Srimara lenken	f	\N	Rawindra	Sö	S	\N	\N
+Stärkerune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Stärkerune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Tierrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Tierrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Totenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Totenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Traumrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Traumrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Ungeheuerrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Ungeheuerrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Unheilsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Unheilsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Wahrheitsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Wahrheitsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Wehrrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Wehrrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScN	G	\N	\N
 Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScS	G	\N	\N
 Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScW	G	\N	\N
+Wetterrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Wetterrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Wogenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Wogenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Wundrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+Wundrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 XiengBaQuang	z	\N	KanThaiPan	ScN	G	\N	\N
 XiengBaQuang	z	\N	KanThaiPan	ScS	G	\N	\N
 XiengBaQuang	z	\N	KanThaiPan	ScW	G	\N	\N

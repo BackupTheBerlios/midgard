@@ -150,11 +150,6 @@ bool midgard_CG::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
 
 void midgard_CG::on_alte_zauber_reorder()
 {
-  on_button_zauber_sort_clicked();
-}
-
-void midgard_CG::on_button_zauber_sort_clicked()
-{
   std::deque<guint> seq = alte_zauber_tree->get_seq();
   switch((Data_SimpleTree::Spalten_ZAUBER)seq[0]) {
       case Data_SimpleTree::NAMEn_Z  : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
@@ -169,11 +164,6 @@ void midgard_CG::on_button_zauber_sort_clicked()
 ///////////////////////////////////////////////////////////////////////////////
 
 void midgard_CG::on_alte_zaubermittel_reorder()
-{
-  on_button_zaubermittel_sort_clicked();
-}
-
-void midgard_CG::on_button_zaubermittel_sort_clicked()
 {
   std::deque<guint> seq = alte_zaubermittel_tree->get_seq();
   switch((Data_SimpleTree::Spalten_ZAUBERWERK)seq[0]) {

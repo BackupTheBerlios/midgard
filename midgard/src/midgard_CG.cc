@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.168 2002/02/22 09:46:34 thoma Exp $
+// $Id: midgard_CG.cc,v 1.169 2002/02/25 10:04:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,6 +35,8 @@ midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0), wizard(0),menu(0),menu_gradanstieg(0),
   haus_menuitem(0),Database(Midgard_Info)
 {
+  notebook_main->set_sensitive(true); // solange die Datenbank nicht geladen ist
+                                      // stürzt das Programm ab
   wizard_starten_bool=true;
   srand(time(0));
   if(InfoFenster) delete(InfoFenster);
@@ -321,7 +323,8 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    button_lernpunkte->set_sensitive(false);
    togglebutton_lernpunkte_edit->set_sensitive(false);
-   button_geld_waffen->set_sensitive(false);
+   button_lernschema_geld->set_sensitive(false);
+   button_lernschema_waffen->set_sensitive(false);
    button_ruestung->set_sensitive(false);
 
    edit_lernpunkte(false);

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.124 2002/02/24 14:31:17 thoma Exp $
+# $Id: Makefile.am,v 1.125 2002/02/25 10:04:26 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -43,8 +43,6 @@ Window_charakter_beschreibung_glade.hh Window_charakter_beschreibung.hh \
 WindowInfo_glade.hh WindowInfo.hh \
    Window_hilfe_glade.hh \
    Window_hilfe.hh \
-	Window_Waffe_Geld_glade.hh \
-	Window_Waffe_Geld.hh \
 	Window_Geld_eingeben_glade.hh \
 	Window_Geld_eingeben.hh \
 	Window_ruestung_glade.hh \
@@ -164,8 +162,6 @@ midgard_SOURCES = \
    midgard_CG_fertigkeiten.cc\
    midgard_CG_zauber.cc\
    midgard_CG_beruf.cc\
-	Window_Waffe_Geld_glade.cc \
-	Window_Waffe_Geld.cc \
 	Window_Geld_eingeben_glade.cc \
 	Window_Geld_eingeben.cc \
    grundwere_edit_setzen.cc \

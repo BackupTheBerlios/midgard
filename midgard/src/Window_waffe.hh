@@ -1,4 +1,4 @@
-// $Id: Window_waffe.hh,v 1.26 2002/01/12 08:12:25 thoma Exp $
+// $Id: Window_waffe.hh,v 1.27 2002/02/25 10:04:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,10 +34,11 @@
 
 #include <vector>
 #include <list>
-class Window_Waffe_Geld;
+//class Window_Waffe_Geld;
 class cH_MidgardBasicElement;
 class Grundwerte; 
 class cH_Typen;
+class midgard_CG;
 #include "midgard_CG.hh"
 
 class Window_waffe : public Window_waffe_glade
@@ -47,16 +48,17 @@ class Window_waffe : public Window_waffe_glade
         const std::list<cH_MidgardBasicElement>& list_Waffen;        
         Grundwerte& Werte;
         std::vector<cH_Typen> Typ;
-        Window_Waffe_Geld* oberfenster;
+//        Window_Waffe_Geld* oberfenster;
+        midgard_CG* hauptfenster;
         friend class Window_waffe_glade;
         void on_clist_waffe_select_row(gint row, gint column, GdkEvent *event);
         void wuerfeln();
 //        void get_art(std::string& aartE,std::string& aartS,std::string& aartW,std::string&Z,std::string& aartA);
-        void Window_waffe::magische_Waffe();
+        void magische_Waffe();
         void on_button_close_clicked();
    public:
         Window_waffe::Window_waffe(int we,
-                                    Window_Waffe_Geld* o,Grundwerte& W,
+                                    midgard_CG* h,Grundwerte& W,
                                     const vector<cH_Typen>& T,
                                     const Datenbank& Database,
                                     const std::list<cH_MidgardBasicElement>& wa);

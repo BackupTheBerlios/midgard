@@ -55,7 +55,7 @@ COPY "typen" FROM stdin;
 23	sHx	schwarzer Hexer	schwarze Hexe	z	z	0	0	4	\N	3	\N	\N	\N
 24	wHx	weiﬂer Hexer	weiﬂe Hexe	z	z	0	0	4	\N	3	\N	\N	\N
 25	Ma	Magier	Magierin	z	z	10	0	4	\N	3	z	\N	\N
-26	PF	Fruchtbarkeitspriester	Fruchtberkeitspriesterin	z	z	20	0	4	\N	3	z	\N	t
+26	PF	Fruchtbarkeitspriester	Fruchtbarkeitspriesterin	z	z	20	0	4	\N	3	z	\N	t
 27	PHa	Priester Handel/Handwerk	Priesterin Handel/Handwerk	z	z	20	0	1	\N	4	z	\N	t
 28	PHe	Herrschaftspriester	Herrschaftspriesterin	z	z	20	0	1	\N	4	z	\N	t
 29	PK	Kriegspriester	Kriegspriesterin	z	z	20	0	1	\N	4	z	\N	t

@@ -88,12 +88,6 @@ void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
 
 void midgard_CG::on_alte_kido_reorder()
 {
-   on_button_kido_sort_clicked();
-}
-
-
-void midgard_CG::on_button_kido_sort_clicked()
-{
   std::deque<guint> seq = alte_kido_tree->get_seq();
   switch((Data_SimpleTree::Spalten_KIDO)seq[0]) {
       case Data_SimpleTree::HOHOa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::HOHO)) ;break;

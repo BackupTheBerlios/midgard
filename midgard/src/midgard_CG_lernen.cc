@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.81 2002/02/24 14:31:17 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.82 2002/02/25 10:04:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,8 @@
  */
 
 #include "midgard_CG.hh"
-#include "Window_Waffe_Geld.hh"
+//#include "Window_Waffe_Geld.hh"
+#include "Window_waffe.hh"
 #include <Aux/itos.h>
 #include "class_SimpleTree.hh"
 #include "Waffe.hh"
@@ -26,6 +27,9 @@
 //#include "Zauber.hh"
 #include "Fertigkeiten.hh"
 //#include "Sprache_auswahl.hh"
+#include "Window_Waffenbesitz.hh"
+#include "Window_Geld_eingeben.hh"
+#include "Window_ruestung.hh"
 
 void midgard_CG::on_herkunftsland_clicked()
 {
@@ -63,7 +67,8 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   if(Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
       button_zauber->set_sensitive(true);
 //  vbox_berufsname->set_sensitive(true);               
-  button_geld_waffen->set_sensitive(true);
+  button_lernschema_geld->set_sensitive(true);
+  button_lernschema_waffen->set_sensitive(true);
   button_ruestung->set_sensitive(true);
 
   on_lernliste_wahl_toggled();
@@ -160,18 +165,56 @@ void midgard_CG::zeige_lernpunkte()
  table_berufswahl->set_sensitive(true);
 }
 
-void midgard_CG::on_button_geld_waffen_clicked()
+
+gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {   
-  Werte.setGeld(0,0,0);
-  steigern_aktivieren();
-  manage(new Window_Waffe_Geld(this,Werte,Typ,Database,list_Waffen));
+  if  (ev->button==1)
+   {
+     int wurf = random.integer(1,100);
+     manage (new Window_waffe(wurf,this,Werte,Typ,Database,list_Waffen));
+   }
+  else if (ev->button==3) 
+     manage (new Window_Waffenbesitz(this,Database,list_Waffen,list_Waffen_besitz,Werte,Typ));
+  return 0;
 }
 
-void midgard_CG::waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu)
+gint midgard_CG::on_button_lernschema_geld_button_release_event(GdkEventButton *ev)
 {
- list_Waffen_besitz = wbu;
- steigern_aktivieren();
- show_gelerntes();
+  Werte.setGeld(0,0,0);
+  if      (ev->button==1)  lernschema_geld_wuerfeln();
+  else if (ev->button==3)  manage (new Window_Geld_eingeben(this,Werte));;
+  return 0;
+}
+
+void midgard_CG::lernschema_geld_wuerfeln()
+{
+ int igold=0;  
+ vector<int> V;
+ for(int i=0;i<3;++i) V.push_back(random.integer(1,6));
+ igold=V[0]+V[1]+V[2];
+ if      (Typ[0]->Geld() == 1) igold-=3;
+ else if (Typ[0]->Geld() == 2) igold+=0;
+ else if (Typ[0]->Geld() == 3) igold+=6;
+ else if (Typ[0]->Geld() == 4) igold+=3;
+
+ if(Werte.Stand()=="Adel" ) igold*=2;  
+ if(Werte.Stand()=="Unfrei" ) igold/=2;
+ if(V[0]==V[1] && V[1]==V[2]) igold += 100;
+
+ std::string strinfo ="Beim Auswürfeln von Geld wurden \n"
+   +itos(V[0])+"  "+itos(V[1])+"  "+itos(V[2])+"\n gewürfelt\n"
+   "das ergibt "+itos(igold)+" Gold\n";
+ InfoFenster->AppendShow(strinfo);
+ Werte.addGold(igold);
+ Geld_uebernehmen();
+}
+
+
+gint midgard_CG::on_button_ruestung_button_release_event(GdkEventButton *ev)
+{
+  if      (ev->button==1)  on_button_ruestung_clicked();
+  else if (ev->button==3)  manage (new Window_ruestung(Werte,this,Database));
+  return 0;
 }
 
 
