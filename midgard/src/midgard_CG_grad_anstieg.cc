@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.23 2001/09/03 10:26:32 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.24 2001/09/04 07:35:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,15 +23,12 @@
 
 void midgard_CG::on_grad_anstieg_clicked()
 {
-   int old_grad = Werte.Grad();
    get_grad(Werte.GFP());
    get_ausdauer(Werte.Grad());
-//   get_abwehr_wert(Werte.Grad());
-//   get_resistenz_wert(Werte.Grad());
-   get_abwehr_resistenz("Abwehr");
-   get_abwehr_resistenz("Resistenz");
-   get_zauber(Werte.Grad());
-   if (old_grad<Werte.Grad()) get_grundwerte();
+   get_ab_re_za("Abwehr");
+   get_ab_re_za("Resistenz");
+   get_ab_re_za("Zaubern");
+   get_grundwerte();
    zeige_werte(Werte);
 }
 
@@ -40,26 +37,33 @@ void midgard_CG::on_button_grad_clicked()
   get_grad(Werte.GFP());
   zeige_werte(Werte);
 }
-
 void midgard_CG::on_button_grad_ausdauer_clicked()
 {   
   get_ausdauer(Werte.Grad());
   zeige_werte(Werte);
 }
-
+void midgard_CG::on_button_grad_abwehr_clicked()
+{   
+ get_ab_re_za("Abwehr");
+ zeige_werte(Werte);
+}
+void midgard_CG::on_button_grad_zaubern_clicked()
+{   
+ if (Typ.Zaubern() == "z" || Typ.Zaubern() == "j" || Typ2.Zaubern() == "z" || Typ2.Zaubern() == "j")
+  {
+    get_ab_re_za("Zaubern");
+    zeige_werte(Werte);
+  }
+}
+void midgard_CG::on_button_grad_resistenz_clicked()
+{   
+ get_ab_re_za("Resistenz");
+ zeige_werte(Werte);
+}
 void midgard_CG::on_button_grad_basiswerte_clicked()
 {   
   get_grundwerte();
   zeige_werte(Werte);
-}
-
-void midgard_CG::on_button_grad_azr_clicked()
-{   
- get_zauber(Werte.Grad());
- get_abwehr_resistenz("Abwehr");
- get_abwehr_resistenz("Resistenz");
-
- zeige_werte(Werte);
 }
 
 
@@ -101,7 +105,7 @@ void midgard_CG::get_grundwerte()
   if (Originalbool) original_midgard_check() ;
   Grad_Anstieg.set_Grad_Basiswerte(1+Grad_Anstieg.get_Grad_Basiswerte());
 }
-
+/*
 void midgard_CG::get_zauber(int grad)
 {
  if (Typ.Zaubern() == "z" || Typ.Zaubern() == "j" || Typ2.Zaubern() == "z" || Typ2.Zaubern() == "j")
@@ -127,57 +131,7 @@ void midgard_CG::get_zauber(int grad)
    Werte.set_Zaubern_wert(a);
   }
 }
-
-/*
-void midgard_CG::get_abwehr_wert(int grad)
-{
-   if (get_Grad_Abwehr()>=grad) return;
-   int kosten=0;
-   int a;
-   if (grad == 1)  { a=11; }
-   else if (grad == 2)  { a=12; kosten =   10; }
-   else if (grad == 4)  { a=13; kosten =   20; }
-   else if (grad == 6)  { a=14; kosten =   80; }
-   else if (grad == 8)  { a=15; kosten =  300; }
-   else if (grad == 10) { a=16; kosten =  700; }
-   else if (grad == 12) { a=17; kosten = 1000; }
-   else if (grad == 14) { a=18; kosten = 1500; }
-   else     { a=Werte.Abwehr_wert(); kosten=0; }
-   if (!steigern(kosten,"Abwehr"))
-      { std::string strinfo ="Zu wenig EP um die 'Abwehr' zu steigern";
-        manage(new WindowInfo(strinfo));
-        return;
-      }
-   Werte.add_GFP(kosten);  
-   Werte.set_Abwehr_wert(a);
-   set_Grad_Abwehr(grad);
-}
-
-void midgard_CG::get_resistenz_wert(int grad)
-{
-   if (get_Grad_Resistenz()>=grad) return;
-   int kosten=0;
-   int r;
-   if (grad == 1)  { r=10; }
-   else if (grad == 2)  { r=11; kosten =   10; }
-   else if (grad == 4)  { r=12; kosten =   20; }
-   else if (grad == 6)  { r=13; kosten =   80; }
-   else if (grad == 8)  { r=14; kosten =  300; }
-   else if (grad == 10) { r=15; kosten =  700; }
-   else if (grad == 12) { r=16; kosten = 1000; }
-   else if (grad == 14) { r=17; kosten = 1500; }
-   else     { r=Werte.Resistenz(); kosten=0; }
-   if (!steigern(kosten,"Resistenz"))
-      { std::string strinfo ="Zu wenig EP um die 'Resistenz' zu steigern";
-        manage(new WindowInfo(strinfo));
-        return;
-      }
-   Werte.add_GFP(kosten);  
-   Werte.set_Resistenz(r);
-   set_Grad_Resistenz(grad);
-}
 */
-
 
 void midgard_CG::get_ausdauer(int grad)
 {
@@ -216,24 +170,3 @@ void midgard_CG::get_ausdauer(int grad)
   if (nap>Werte.AP())  Werte.set_AP(nap)  ;
 }
 
-
-void midgard_CG::get_grad(int gfp)
-{
-   int new_grad;
-   if (gfp <   200 )                new_grad = 1;
-   if (   200<=gfp && gfp <   500 ) new_grad = 2;
-   if (   500<=gfp && gfp <  1000 ) new_grad = 3;
-   if (  1000<=gfp && gfp <  2000 ) new_grad = 4;
-   if (  2000<=gfp && gfp <  4000 ) new_grad = 5;
-   if (  4000<=gfp && gfp <  7000 ) new_grad = 6;
-   if (  7000<=gfp && gfp < 15000 ) new_grad = 7;
-   if ( 15000<=gfp && gfp < 25000 ) new_grad = 8;
-   if ( 25000<=gfp && gfp < 50000 ) new_grad = 9;
-   if ( 50000<=gfp && gfp < 70000 ) new_grad = 10;
-   if ( 70000<=gfp && gfp < 90000 ) new_grad = 11;
-   if (110000<=gfp && gfp <110000 ) new_grad = 12;
-   if (130000<=gfp && gfp <130000 ) new_grad = 13;
-   if (150000<=gfp && gfp <150000 ) new_grad = 14;
-   if (150000<=gfp )                new_grad = 15;
-   Werte.set_Grad(new_grad);
-}

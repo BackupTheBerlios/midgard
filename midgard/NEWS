@@ -1,4 +1,14 @@
 ##########################################################################
+NEWS IN VERSION 0.8beta2
+- Verwenden der Funktion EmptyInt_4TeX -> dadurch wird eine Grundwertefunktion
+    überflüssig, Anpassung des Quellcodes
+- Sortieren der Waffen nach Erfolgswert jetzt nach 'größter Erfolgswert zuerst'
+- Bug beim Abw. und Res. anpassen beseitigt, bzw. auf Datenbanl umgestellt.
+- kleinere Bugs beseitigt
+- Christof hat den xml-im/export überarbeitet
+
+
+##########################################################################
 NEWS IN VERSION 0.8beta1
 - Jetzt kann man die Erfolgswerte für die gelernten Berufe nicht nur
    würfeln, sondern auch einstellen.
@@ -17,7 +27,6 @@ NEWS IN VERSION 0.8beta1
    aufklappt. Dort finden sich selten und häufig verwendete Funktionen.
    Wenn sich noch jemand etwas wünschen sollte dann möge er es nur mitteilen ...
 - Über das Menu kann man jetzt auch ein leeres Charakterdokument ausdrucken
-
 
 ##########################################################################
 NEWS IN VERSION 0.8beta0

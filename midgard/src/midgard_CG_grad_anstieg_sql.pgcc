@@ -6,12 +6,14 @@
 exec sql include sqlca;
 
 
-void midgard_CG::get_abwehr_resistenz(const string& was)
+void midgard_CG::get_ab_re_za(const string& was)
 {
   int grad=Werte.Grad();
   int grad_alt;
   if (was=="Abwehr")    grad_alt = Grad_Anstieg.get_Grad_Abwehr(); 
-  if (was=="Resistenz") grad_alt = Grad_Anstieg.get_Grad_Resistenz();
+  else if (was=="Resistenz") grad_alt = Grad_Anstieg.get_Grad_Resistenz();
+  else if (was=="Zaubern")   grad_alt = Grad_Anstieg.get_Grad_Zaubern();
+  else abort();
   if (grad <= grad_alt)
       {manage(new WindowInfo("Für Grad "+itos(grad_alt)+" wurde schon gesteigert!")) ;return;}
   ++grad_alt;
@@ -23,6 +25,7 @@ void midgard_CG::get_abwehr_resistenz(const string& was)
   string squery = "select ";
   if (was=="Abwehr"   ) squery += "abwehr   , abwehr_kosten ";
   if (was=="Resistenz") squery += "resistenz, resistenz_kosten ";
+  if (was=="Zaubern"  ) squery += "zaubern  , zaubern_kosten ";
   squery += " from grad_anstieg where grad = '"+itos(grad_alt)+"'"; 
 
   snprintf(query,sizeof(query),squery.c_str());
@@ -46,7 +49,20 @@ void midgard_CG::get_abwehr_resistenz(const string& was)
      Werte.add_GFP(kosten);
      if (was=="Abwehr") Werte.set_Abwehr_wert(wert);
      if (was=="Resistenz") Werte.set_Resistenz(wert); 
+     if (was=="Zaubern") Werte.set_Zaubern_wert(wert); 
    }
   if (was=="Abwehr") Grad_Anstieg.set_Grad_Abwehr(grad_alt);
   if (was=="Resistenz") Grad_Anstieg.set_Grad_Resistenz(grad_alt);
+  if (was=="Zaubern") Grad_Anstieg.set_Grad_Zaubern(grad_alt);
+}
+
+void midgard_CG::get_grad(int gfp)
+{
+ exec sql begin declare section;
+   int db_new_grad,db_gfp=gfp;
+ exec sql end declare section;
+ exec sql select max(grad) into :db_new_grad from grad_anstieg 
+      where gfp <= :db_gfp;
+ SQLerror::test(__FILELINE__);
+ Werte.set_Grad(db_new_grad);
 }

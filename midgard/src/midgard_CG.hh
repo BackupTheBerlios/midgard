@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.63 2001/09/03 08:11:00 thoma Exp $
+// $Id: midgard_CG.hh,v 1.64 2001/09/04 07:35:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -238,15 +238,17 @@ class midgard_CG : public midgard_CG_glade
         void on_grad_anstieg_clicked();
         void on_button_grad_ausdauer_clicked();
         void on_button_grad_basiswerte_clicked();
-        void on_button_grad_azr_clicked();
+        void on_button_grad_abwehr_clicked();
+        void on_button_grad_zaubern_clicked();
+        void on_button_grad_resistenz_clicked();
         void on_button_grad_clicked();
         void get_grad(int gfp);
         void get_ausdauer(int grad);
 //        void get_resistenz_wert(int grad);
 //        void get_abwehr_wert(int grad);
-        void get_zauber(int grad);
+//        void get_zauber(int grad);
         void get_grundwerte();
-        void get_abwehr_resistenz(const string& was);
+        void get_ab_re_za(const string& was);
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);

@@ -7085,8 +7085,7 @@ sortieren</label>
 			<handler>on_sprache_laden_clicked</handler>
 			<last_modification_time>Mon, 02 Apr 2001 06:27:49 GMT</last_modification_time>
 		      </signal>
-		      <label>Sprachen &amp; Schriften 
-laden</label>
+		      <label>Sprachen &amp; Schriften laden</label>
 		      <icon>LoadLang_u_Font-trans-50.xpm</icon>
 		    </widget>
 
@@ -7100,8 +7099,7 @@ laden</label>
 			<handler>on_button_sprache_sort_clicked</handler>
 			<last_modification_time>Sat, 04 Aug 2001 14:42:03 GMT</last_modification_time>
 		      </signal>
-		      <label>Sprachen 
-sortieren</label>
+		      <label>Sprachen sortieren</label>
 		      <icon>Sort_Lang-trans-50.xpm</icon>
 		      <child>
 			<new_group>True</new_group>
@@ -7901,15 +7899,40 @@ würfeln</label>
 		  <widget>
 		    <class>GtkButton</class>
 		    <child_name>Toolbar:button</child_name>
-		    <name>button_grad_azr</name>
+		    <name>button_grad_abwehr</name>
 		    <tooltip>Abwehr, Zaubern und Resistenz an den Grad anpassen</tooltip>
 		    <signal>
 		      <name>clicked</name>
-		      <handler>on_button_grad_azr_clicked</handler>
-		      <last_modification_time>Tue, 21 Aug 2001 05:51:19 GMT</last_modification_time>
+		      <handler>on_button_grad_abwehr_clicked</handler>
+		      <last_modification_time>Mon, 03 Sep 2001 19:28:59 GMT</last_modification_time>
 		    </signal>
-		    <label>Abw., Zau.
-und Res.</label>
+		    <label>Abwehr</label>
+		    <icon>Armor-trans-50.xpm</icon>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
+		    <name>button_grad_zaubern</name>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_button_grad_zaubern_clicked</handler>
+		      <last_modification_time>Mon, 03 Sep 2001 18:41:09 GMT</last_modification_time>
+		    </signal>
+		    <label>Zaubern</label>
+		    <icon>Zauber-trans-50.xpm</icon>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
+		    <name>button_grad_resistenz</name>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_button_grad_resistenz_clicked</handler>
+		      <last_modification_time>Mon, 03 Sep 2001 18:41:40 GMT</last_modification_time>
+		    </signal>
+		    <label>Resistenz</label>
 		    <icon>Steigern-trans-32.xpm</icon>
 		  </widget>
 
@@ -7963,8 +7986,7 @@ würfeln</label>
 		      <handler>on_grad_anstieg_clicked</handler>
 		      <last_modification_time>Tue, 03 Apr 2001 20:58:07 GMT</last_modification_time>
 		    </signal>
-		    <label>Grad, Ausdauer, Abwehr, Zaubern, Resistenz  
-an Grad anpassen</label>
+		    <label>   Grad, Ausdauer, Abwehr, Zaubern, Resistenz an Grad anpassen   </label>
 		    <icon>Anpass-trans-50.xpm</icon>
 		  </widget>
 		</widget>
@@ -9813,45 +9835,6 @@ an Grad anpassen</label>
 
       <widget>
 	<class>GtkSpinButton</class>
-	<name>gift_ein</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<can_focus>True</can_focus>
-	<signal>
-	  <name>activate</name>
-	  <handler>wgift_activate</handler>
-	  <after>True</after>
-	  <last_modification_time>Fri, 17 Aug 2001 20:54:12 GMT</last_modification_time>
-	</signal>
-	<climb_rate>1</climb_rate>
-	<digits>0</digits>
-	<numeric>False</numeric>
-	<update_policy>GTK_UPDATE_ALWAYS</update_policy>
-	<snap>False</snap>
-	<wrap>False</wrap>
-	<value>1</value>
-	<lower>0</lower>
-	<upper>200</upper>
-	<step>1</step>
-	<page>10</page>
-	<page_size>10</page_size>
-	<child>
-	  <left_attach>7</left_attach>
-	  <right_attach>8</right_attach>
-	  <top_attach>11</top_attach>
-	  <bottom_attach>12</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>True</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-
-      <widget>
-	<class>GtkSpinButton</class>
 	<name>resistenz_ein</name>
 	<cxx_visibility>protected</cxx_visibility>
 	<can_focus>True</can_focus>
@@ -10922,32 +10905,6 @@ Adel
 	  <right_attach>7</right_attach>
 	  <top_attach>10</top_attach>
 	  <bottom_attach>11</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>label180</name>
-	<label>Gift</label>
-	<justify>GTK_JUSTIFY_CENTER</justify>
-	<wrap>False</wrap>
-	<xalign>0</xalign>
-	<yalign>0</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<child>
-	  <left_attach>6</left_attach>
-	  <right_attach>7</right_attach>
-	  <top_attach>11</top_attach>
-	  <bottom_attach>12</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
