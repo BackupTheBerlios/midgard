@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.1 2001/12/19 14:12:06 christof Exp $
+// $Id: fertigk_exp.cc,v 1.2 2001/12/27 09:47:22 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -28,8 +28,12 @@ void fert_speichern(std::ostream &o)
    Transaction t;
    
    o << " <Fertigkeiten>\n";
-  {Query query("select fertigkeit, region, lp as lernpunkte, anfangswert0,"
-  	" fp, anfangswert, attribut"
+  {Query query("select fertigkeit, region, lp as lernpunkte, "
+  	MIDGARD3_4("","lp_land, lp_stadt, ")
+  	" anfangswert0, fp, anfangswert, "
+  	MIDGARD3_4("","ungelernt, ")
+  	" attribut"
+  	MIDGARD3_4("",", berufsklasse")
   	" from fertigkeiten"
   	" where coalesce(region,'')='"+region+"'"
   	" order by region,fertigkeit");
@@ -38,11 +42,21 @@ void fert_speichern(std::ostream &o)
   {o << "  <Fertigkeit";
    string fert=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_int_attrib(is, o, "Lernpunkte");
+   fetch_and_write_int_attrib(is, o, "Lernpunkte"); // außergewöhnliche Fertigkeit
+#ifndef MIDGARD3
+   fetch_and_write_int_attrib(is, o, "Lernpunkte:Land");
+   fetch_and_write_int_attrib(is, o, "Lernpunkte:Stadt");
+#endif
    fetch_and_write_int_attrib(is, o, "Anfangswert");
    fetch_and_write_int_attrib(is, o, "Lernkosten");
    fetch_and_write_int_attrib(is, o, "Erfolgswert");
+#ifndef MIDGARD3
+   fetch_and_write_int_attrib(is, o, "Erfolgswert:ungelernt");
+#endif
    fetch_and_write_string_attrib(is, o, "Attribut");
+#ifndef MIDGARD3
+   fetch_and_write_int_attrib(is, o, "Berufskategorie");
+#endif
    o << ">\n";
    
    grund_standard_ausnahme(o, "fertigkeiten_typen", fert);
@@ -309,6 +323,7 @@ void fert_speichern(std::ostream &o)
  }
 
 //********************* praxispunkte ********************
+#ifdef MIDGARD3
   if (region=="")
   {o << " <Praxispunkte>\n";
    Query query("select name, max_wert, lernfaktor"
@@ -325,6 +340,7 @@ void fert_speichern(std::ostream &o)
   }
    o << " </Praxispunkte>\n";
   }
+#endif
 
 //********************* ZEP oder KEP oder beides? ********************
   if (region=="")
