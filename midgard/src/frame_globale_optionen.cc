@@ -30,7 +30,14 @@ void frame_globale_optionen::init()
    Gtk::CheckButton *cb=manage(new Gtk::CheckButton(i->text,0,0.5));
    cb->set_active(i->active);
    cb->toggled.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate),cb,i->index));
-   table->attach(*cb,0,1,count,count+1,GTK_FILL,0,0,0);
+   Gtk::Table *t=manage(new Gtk::Table(0,0,false));
+   t->attach(*cb,0,1,0,1,GTK_FILL,0,0,0);
+   if(i->bild)
+    {
+      Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
+      t->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
+    }
+   table->attach(*t,0,1,count,count+1,GTK_FILL,0,0,0);
    ++count;
   } 
  table->show_all();

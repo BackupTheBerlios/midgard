@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.4 2002/04/15 05:45:02 thoma Exp $
+// $Id: Optionen.cc,v 1.5 2002/04/15 10:05:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -108,15 +108,14 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
 {
 //  if(!hauptfenster->fire_enabled) return;
 //  hauptfenster->fire_enabled=false;
-  std::list<Midgard_Optionen::st_OptionenCheck> L=hauptfenster->getOptionen()->getOptionenCheck();
-  for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=L.begin();i!=L.end();++i)
+  for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    {
      if(i->index!=index) continue;
      i->active = b;
-     if(i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
-     if(i->index==showPics) hauptfenster->Pics(i->active);
-     if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
-     if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
+     if     (i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
+     else if(i->index==showPics) hauptfenster->Pics(i->active);
+     else if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
+     else if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
    }
 //  hauptfenster->fire_enabled=true;
 }

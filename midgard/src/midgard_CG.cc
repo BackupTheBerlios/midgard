@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.187 2002/04/15 05:45:02 thoma Exp $
+// $Id: midgard_CG.cc,v 1.188 2002/04/15 10:05:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,8 +48,9 @@ midgard_CG::midgard_CG(const string &datei)
   set_tree_titles();
   optionmenu_init();  
 
-  on_neuer_charakter_clicked();
   MOptionen->load_options();
+  on_neuer_charakter_clicked();
+
   notebook_main->set_page(PAGE_GRUNDWERTE); // muß nach 'on_neuer_charakter_clicked' kommen wg. Typ.resize(2)
   if (!datei.empty()) xml_import(datei); // Charakter laden
   else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) wizard_starten_clicked();
@@ -137,7 +138,6 @@ void midgard_CG::on_radiobutton_mann_toggled()
      if( Werte.Geschlecht()=="w") Werte.setGewicht(Werte.Gewicht()-4);
      if( Werte.Geschlecht()=="m") Werte.setGewicht(Werte.Gewicht()+4);
    }
-
   fill_typauswahl();
   fill_typauswahl_2();
   zeige_werte();
