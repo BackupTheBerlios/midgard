@@ -18,7 +18,7 @@ checkout() {
   cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co $GTKMM1 GtkmmAddons
   
   echo ========  ManuProC_Widgets ========
-  cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co ManuProC_Widgets
+  cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co $GTKMM1 ManuProC_Widgets
   
 #  echo =========== Midgard-Postgres ========
 #  echo not needed?
@@ -34,7 +34,7 @@ update() {
   echo ========== GtkmmAddons ========
   ( cd GtkmmAddons && cvs -z3 update -dP $GTKMM1 )
   echo ========  ManuProC_Widgets ========
-  ( cd ManuProC_Widgets && cvs -z3 update -dP )
+  ( cd ManuProC_Widgets && cvs -z3 update -dP $GTKMM1 )
 #  echo =========== Midgard-Postgres ========
 #  ( cd midgard-postgres && cvs -z3 update -dP )
   echo ============ Magus ========
@@ -109,7 +109,7 @@ then
   domake
   doinstall
 else
-  echo "Magus anonymous-CVS Installierer, $Revision: 1.11 $"
+  echo "Magus anonymous-CVS Installierer, $Revision: 1.12 $"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
