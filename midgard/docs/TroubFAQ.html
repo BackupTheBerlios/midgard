@@ -83,7 +83,7 @@
             <li><a href="#SKINN">Kann mir bitte jemand sagen, wie ich das Win9x Look&amp;Feel aktiviere?</a></li>
             <li><a href="#FONTS">Wie kann ich die Schrift ändern? (Windows)</a></li>
             <li><a href="#BRACE">Wenn ich mit Version 6 aus 9 würfele sind die Abenteurerklassen irgendwie immer alle eingeklammert</a></li>
-
+	    <li><a href="#PRINT">Leider kann ich keinen Helden drucken. - &quot;There was an error opening this document. no such file or directory&quot;</a></li>
           </ul>
         </td>
         <td>  </td>
@@ -176,6 +176,21 @@
               <td class="body tiny">  </td>
             </tr>
             <tr>
+              <td><a name="BRACE"></a>
+                <font  class="highlight">Leider kann ich keinen Helden drucken. - &quot;There was an error opening this document. no such file or directory&quot;</font><br>
+		Mit dieser oder einer ähnlichen Meldung beschwert sich der Acrobatreader (oder ein anderer PDF-Viewer), wenn keine pdf-Ausgabe
+		erzeugt wurde. Dies kann mehrere Gründe haben:<br>
+		<ul>
+		<li>LaTeX ist nicht oder nur unvollständig installiert. Um das Abenteuerdokument (im PDF-Format) zu
+		erstellen, benutzt MAGUS LaTeX. Hierzu muss das Paket &quot;pdftex&quot; installiert sein. (Bei SuSE 8.1
+		unter &quot;te_pdf&quot; in Publishing/TeX)</li>
+		<li>Das Temporäre Verzeichnis (unter Optionen) existiert nicht oder die Dateirechte sind nicht
+		korrekt gesetzt.</li>
+		</ul>
+		</td>
+              <td class="body tiny">Die Windowsversion von MAGUS beinhaltet die notwendigen LaTeX-Komponenten.</td>
+            </tr>
+	    <tr>
               <td></td>
               <td class="body tiny">  </td>
             </tr>
