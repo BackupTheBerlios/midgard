@@ -65,7 +65,14 @@ void midgard_CG::menu_init()
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
      _mi->remove();
 
-     Gtk::Label *_l=manage (new Gtk::Label((*i)->Name(),0,0));
+     std::string labeltext=(*i)->Name();
+     if (labeltext.size()>11)
+     {  string::size_type pos=0;
+        while ((pos=labeltext.find(' ',pos))!=string::npos)
+        {  labeltext.replace(pos,1,'\n');
+        }
+     }
+     Gtk::Label *_l=manage (new Gtk::Label(labeltext,0,0));
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      Gtk::Pixmap *_o=manage(new Gtk::Pixmap(midgard_logo_tiny_xpm));
      int row=1;
