@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.223 2003/09/10 07:15:43 christof Exp $
+# $Id: Makefile.am,v 1.224 2003/09/16 08:36:15 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -32,10 +32,8 @@ EXTRA_DIST = midgard_document_eingabe.tex.in \
 noinst_HEADERS = \
    BegruessungsWindow_glade.hh \
    BegruessungsWindow.hh \
-   KI.hh \
    customize_toolbars.h \
    class_AbenteurerListe.hh \
-   LaTeX_drucken.hh \
    table_beschreibung.hh \
    table_beschreibung_glade.hh \
    table_zufall.hh \
@@ -44,7 +42,6 @@ noinst_HEADERS = \
    table_grundwerte_glade.hh \
    table_ausruestung.hh \
    table_ausruestung_glade.hh \
-   Wizard.hh \
    table_optionen.hh \
    table_optionen_glade.hh \
    frame_globale_optionen.hh \
@@ -55,7 +52,6 @@ noinst_HEADERS = \
    frame_ansicht_glade.hh \
    frame_icons.hh \
    frame_icons_glade.hh \
-   Optionen.hh \
    Midgard_Undo.hh \
    MidgardBasicTree.hh \
 midgard_CG_glade.hh midgard_CG.hh  \
