@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.222 2002/04/27 15:11:43 thoma Exp $
+// $Id: midgard_CG.hh,v 1.223 2002/04/27 21:27:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -168,7 +168,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_radiobutton_frau_toggled();
    public:
         void set_info(const std::string& sadd);
-        void set_status(std::string s);
+        void set_status(std::string s,bool autoclean=true);
         void on_radiobutton_mann_toggled();
    private:
         void spezieswahl_button();

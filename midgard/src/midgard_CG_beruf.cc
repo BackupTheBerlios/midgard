@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.63 2002/04/25 11:05:33 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.64 2002/04/27 21:27:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,6 +23,7 @@
 #include "Fertigkeiten.hh"
 #include "class_Beruf_Data.hh"
 #include "Beruf.hh"
+#include <Aux/itos.h>
 
 gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
 {
@@ -30,11 +31,13 @@ gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
   if (ev->button==1) 
    {
      beruf_gewuerfelt(random.integer(1,100));
-     if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active) frame_berufswahl->set_sensitive(false);
+//     if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active) 
+//         frame_berufswahl->set_sensitive(false);
    }
   if (ev->button==3) 
    {
      vbox_berufsname->show();
+//     frame_berufswahl->set_sensitive(true);
      entry_berufsname->grab_focus();
    }
   return false;
@@ -46,13 +49,17 @@ void midgard_CG::on_entry_berufsname_activate()
   list_Beruf.clear();
   list_Beruf.push_back(beruf);
   vbox_berufsname->hide();
-  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active) frame_berufswahl->set_sensitive(false);
+//  frame_berufswahl->set_sensitive(false);
+//  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active)
+//    frame_berufswahl->set_sensitive(false);
   show_gelerntes();
 }
 
 void midgard_CG::on_spinbutton_beruf_activate()
 {
   gtk_spin_button_update(spinbutton_beruf->gtkobj());
+//  frame_berufswahl->set_sensitive(false);
+  table_berufsprozent->hide();
   beruf_gewuerfelt(spinbutton_beruf->get_value_as_int());
 }
 
@@ -114,7 +121,10 @@ void midgard_CG::showBerufsLernList()
            }
        }
     }
-  if(gelerntes) label_berufsstern_erklaerung->show();
+//  if(gelerntes) label_berufsstern_erklaerung->show();
+  if(gelerntes) set_status(label_status->get_text()
+                           +"\nEin * bezeichnet eine bereits gelernte Fertigkeit."
+                            " Für diese wird dann der Erfolgswert um eins erhöht.",false);
   Beruf_tree->setDataVec(datavec);
   Beruf_tree->Expand_recursively();
   scrolledwindow_beruf->show();
@@ -125,30 +135,30 @@ void midgard_CG::showBerufsLernList()
 void midgard_CG::beruf_gewuerfelt(int wurf)
 {
  BKategorie=st_BKategorie();
-//TODO label_wuerfel->set_text("Würfelergebnis: "+itos(wurf));
- spinbutton_beruf->set_value(wurf);
- std::string kat;
- if(wurf<=20) kat="Kein(e) Beruf/Fertigkeit wählbar";
+// spinbutton_beruf->set_value(wurf);
+ std::string kat=itos(wurf)+" gewürfelt: ";
+ if(wurf<=20) kat+="Kein(e) Beruf/Fertigkeit wählbar";
  if(21<=wurf&&wurf<=50)
-  { kat="Eine Fertigkeit aus der Kategorie I wählbar";
+  { kat+="Eine Fertigkeit aus der Kategorie I wählbar";
     BKategorie.kat_I=true; }
  if(51<=wurf&&wurf<=80)
-  { kat="Eine Fertigkeit aus der Kategorie I oder II wählbar";
+  { kat+="Eine Fertigkeit aus der Kategorie I oder II wählbar";
     BKategorie.kat_I=true; 
     BKategorie.kat_II=true;}
  if(81<=wurf&&wurf<=95)
-  { kat="Eine Fertigkeit aus der Kategorie I,II oder III wählbar";
+  { kat+="Eine Fertigkeit aus der Kategorie I,II oder III wählbar";
     BKategorie.kat_I=true; 
     BKategorie.kat_II=true;
     BKategorie.kat_III=true;}
  if(96<=wurf&&wurf<=100)
-  { kat="Eine Fertigkeit aus der Kategorie III oder IV \n oder zwei aus den Kategorien I und II wählbar (aber trotzdem nur EIN Beruf)";
+  { kat+="Eine Fert. aus der Kat. III oder IV oder zwei aus den Kat. I und II wählbar (aber trotzdem nur EIN Beruf)";
     BKategorie.kat_I=true; 
     BKategorie.kat_II=true;
     BKategorie.kat_III=true;
     BKategorie.kat_IV=true; }
-    label_berufskategorie->set_text(kat);
-    label_berufskategorie->show();
+//    label_berufskategorie->set_text(kat);
+//    label_berufskategorie->show();
+    set_status(kat,false);
 
   showBerufsLernList();
 }
@@ -186,9 +196,7 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
     if (!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4))
       {
          tree_lernschema->clear();
-         label_berufskategorie->set_text("");
-         label_berufskategorie->hide();
-         label_berufsstern_erklaerung->hide();
+         set_status("");
          scrolledwindow_beruf->hide();
          label_lernschma_titel->set_text("");
       }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.81 2002/04/27 15:11:43 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.82 2002/04/27 21:27:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -71,7 +71,7 @@ void midgard_CG::lernschema_sensitive(bool active)
    button_angeborene_fert->show();
    button_kido_auswahl->set_sensitive(true);
    button_angeborene_fert->set_sensitive(true);
-   frame_berufswahl->set_sensitive(true);
+//   frame_berufswahl->set_sensitive(true);
 }
 
 

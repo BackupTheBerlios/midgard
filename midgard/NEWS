@@ -1,6 +1,8 @@
 ##########################################################################
 NEWS IN VERSION 0.6delta2
 
+* Statuszeile ersetzt weitgehend das Info Fenster
+
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * KiDo Lernschema

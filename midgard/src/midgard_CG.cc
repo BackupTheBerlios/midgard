@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.210 2002/04/27 15:11:43 thoma Exp $
+// $Id: midgard_CG.cc,v 1.211 2002/04/27 21:27:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -135,7 +135,7 @@ void midgard_CG::on_radiobutton_mann_toggled()
 {
   if(wizard)
    { 
-     notebook_main->set_sensitive(false) ;
+//     notebook_main->set_sensitive(false) ;
      wizard->next_step();
    }
   std::string oldG=Werte.Geschlecht();
@@ -243,10 +243,11 @@ void midgard_CG::on_button_waffen_s_clicked()
   manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
 }
 
-void midgard_CG::set_status(std::string s)
+void midgard_CG::set_status(std::string s,bool autoclean)
 {
   label_status->set_text(s);
-  connection_status=Gtk::Main::timeout.connect(slot(this,&midgard_CG::timeout_status),7000);
+  if(autoclean)
+     connection_status=Gtk::Main::timeout.connect(slot(this,&midgard_CG::timeout_status),7000);
 }
 
 gint midgard_CG::timeout_status()
@@ -341,11 +342,11 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_untyp_fertigkeiten->set_sensitive(false);
    button_waffen->set_sensitive(false);
    button_zauber->set_sensitive(false);
-   frame_berufswahl->set_sensitive(false);
+//   frame_berufswahl->set_sensitive(false);
    scrolledwindow_beruf->hide();
    scrolledwindow_ange_fert->hide();
-   label_berufskategorie->hide();
-   label_berufsstern_erklaerung->hide();
+//   label_berufskategorie->hide();
+//   label_berufsstern_erklaerung->hide();
    togglebutton_spezialwaffe->set_active(false);
    togglebutton_spezialwaffe->hide();
       

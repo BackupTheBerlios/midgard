@@ -27,6 +27,7 @@ void midgard_CG::wizard_do_something()
 {
   if(!wizard) return;
   Wizard_window::esteps e=wizard->ActualStep();
+/*
   GdkEventButton button;
   memset(&button,0,sizeof button);
   button.button=1;
@@ -54,13 +55,14 @@ void midgard_CG::wizard_do_something()
       case Wizard_window::FERTIG : on_button_close_wizard_clicked(); break;
       default: set_status("Nicht impelmentiert");break;
    }
+*/
 }
 
 void midgard_CG::wizard_starten_clicked()
 {
  on_neuer_charakter_clicked();
  wizard = manage(new class Wizard_window(this));
- notebook_main->set_sensitive(false);
+// notebook_main->set_sensitive(false);
  wizard->restart();
 }
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.105 2002/04/27 15:11:43 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.106 2002/04/27 21:27:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,7 +114,12 @@ void midgard_CG::edit_lernpunkte(bool b)
  spinbutton_unge->set_sensitive(b);
  spinbutton_waffen->set_sensitive(b);
  spinbutton_zauber->set_sensitive(b);
- spinbutton_beruf->set_sensitive(b);
+// spinbutton_beruf->set_sensitive(b);
+ if(b) 
+    table_berufsprozent->show();
+ else 
+    table_berufsprozent->hide();
+// frame_berufswahl->set_sensitive(true);
 }
 
 
@@ -165,10 +170,12 @@ void midgard_CG::zeige_lernpunkte()
  spinbutton_zauber->set_value(lernpunkte.Zauber());
  zeige_werte();
 
+/*
  if(lernpunkte.Fach()==0 && lernpunkte.Allgemein()==0 &&
     lernpunkte.Unge()==0 && lernpunkte.Waffen()==0 &&
     lernpunkte.Zauber()==0 )
- frame_berufswahl->set_sensitive(true);
+*/
+// frame_berufswahl->set_sensitive(true);
 }
 
 
@@ -622,6 +629,7 @@ void midgard_CG::show_lernschema()
   setTitels_for_Lernschema(what,fert);
   tree_lernschema->Expand_recursively();
   scrolledwindow_beruf->hide();
+//  table_berufsprozent->hide();
   scrolledwindow_lernschema->show();
   scrolledwindow_ange_fert->hide();
 }
