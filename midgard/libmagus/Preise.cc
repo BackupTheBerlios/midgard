@@ -28,7 +28,6 @@
 bool operator!=(const cH_Preise &a, const std::string &b)
 {  return a->Name()!=b; }
 
-
 cH_Preise::cache_t cH_Preise::cache;
 
 cH_Preise::cH_Preise(const std::string& name ,bool create)
@@ -44,44 +43,47 @@ cH_Preise::cH_Preise(const std::string& name ,bool create)
      t2.setAttr("Ware",name);
      t2.setAttr("Art","?");
      t2.setAttr("Art2","?");
-     *this=cH_Preise(&t2);
+     *this=new Preise(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Preise::cH_Preise(const Tag *tag)
-{*this=cH_Preise(new Preise(tag));
- cache.Register(tag->getAttr("Ware"),*this);
-}
-
-cH_Preise::cH_Preise(const std::string& _name, const std::string& _art, const Tag *tag)
-{*this=cH_Preise(new Preise(_name,_art,tag));
- cache.Register(_name,*this);
-}
-
-void Preise::get_Preise()
+void Preise::get_Preise(const Tag &tag)
 {
-  art2=tag->getAttr("Art2");
-  einheit=tag->getAttr("Währung");
-  kosten=tag->getFloatAttr("Preis");
-  gewicht=tag->getFloatAttr("Gewicht");
-  region=tag->getAttr("Region");
-  beschreibung=tag->getAttr("Beschreibung");
-  ruestung=tag->getBoolAttr("Rüstung_ohne_Gewicht");
+  art2=tag.getAttr("Art2");
+  einheit=tag.getAttr("Währung");
+  kosten=tag.getFloatAttr("Preis");
+  gewicht=tag.getFloatAttr("Gewicht");
+  region=tag.getAttr("Region");
+  beschreibung=tag.getAttr("Beschreibung");
+  ruestung=tag.getBoolAttr("Rüstung_ohne_Gewicht");
   if(kosten<0) {kosten=0; unverkauflich=true;}
 }
 
+cH_Preise cH_Preise::load(const Tag &t,bool &is_new)
+{  cH_Preise *res=cache.lookup(t.getAttr("Name"));
+   if (!res)
+   {  cH_Preise r2=new Preise(t);
+      is_new=true;
+      cache.Register(t.getAttr("Ware"),r2);
+      return r2;
+   }
+   else 
+   {  const_cast<Preise&>(**res).load(t);
+      return *res;
+   }
+}
+
+void Preise_All::load(std::list<cH_Preise> &list,const Tag &t)
+{  bool is_new=false;
+   cH_Preise z=cH_Preise::load(t,is_new);
+   if (is_new) list.push_back(z);
+}
+
+#if 0
 Preise_All::Preise_All(const std::string &filename,Tag &tag_eigene_artikel)
 {
- const Tag *preise=xml_data->find("PreiseNeu");
- if(preise)
- {  Tag::const_iterator b=preise->begin(),e=preise->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Dinge")
-    {  
-       list_All.push_back(cH_Preise(&*i));
-    }
- }   
  try {
    std::ifstream f(filename.c_str());
    if (!f.good()) {std::cout << "Cannot open " << filename << '\n'; return;}
@@ -107,14 +109,10 @@ Preise_All::Preise_All(const std::string &filename,Tag &tag_eigene_artikel)
     }   
  } catch (std::exception &e) { std::cerr << e.what() << '\n'; }
 }  
+#endif
 //////////////////////////////////////////////////////////////////////
 
 cH_PreiseNewMod::cache_t cH_PreiseNewMod::cache;
-
-cH_PreiseNewMod::cH_PreiseNewMod(const Tag *tag)
-{*this=cH_PreiseNewMod(new PreiseNewMod(tag));  
- cache.Register(tag->getAttr("Name"),*this);
-}
 
 cH_PreiseNewMod::cH_PreiseNewMod(const std::string& name, bool create)
 {
@@ -125,20 +123,20 @@ cH_PreiseNewMod::cH_PreiseNewMod(const std::string& name, bool create)
   std::cerr << "PreiseNewMod '" << name << "' nicht im Cache\n";
   if (create)
   {  
-     static Tag t2("Spruch");
+     static Tag t2("Art");
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
-     *this=cH_PreiseNewMod(&t2);
+     *this=new PreiseNewMod(t2);
   }
   else throw NotFound();
   }
 }
 
 
-void PreiseNewMod::getPNM()
+void PreiseNewMod::getPNM(const Tag &t)
 {
-  name=tag->getAttr("Name");
-  FOR_EACH_CONST_TAG_OF(i,*tag,"Variante")
+  name=t.getAttr("Name");
+  FOR_EACH_CONST_TAG_OF(i,t,"Variante")
    {
     std::string variante=i->getAttr("Name");
      FOR_EACH_CONST_TAG_OF(j,*i,variante)
@@ -149,15 +147,30 @@ void PreiseNewMod::getPNM()
    }
 }
 
-PreiseNewMod_All::PreiseNewMod_All()
-{
-  const Tag *P=xml_data->find("PreiseNeuMod");
-  if(P)
-   {
-     Tag::const_iterator b=P->begin(),e=P->end();
-     FOR_EACH_CONST_TAG_OF_5(i,*P,b,e,"Art")
-       list_All.push_back(cH_PreiseNewMod(&*i));
-   } 
+PreiseNewMod::PreiseNewMod(const Tag &t)
+{ load(t); }
+
+void PreiseNewMod::load(const Tag &t)
+{ getPNM(t); }
+
+cH_PreiseNewMod cH_PreiseNewMod::load(const Tag &t,bool &is_new)
+{  cH_PreiseNewMod *res=cache.lookup(t.getAttr("Name"));
+   if (!res)
+   {  cH_PreiseNewMod r2=new PreiseNewMod(t);
+      is_new=true;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+   else 
+   {  const_cast<PreiseNewMod&>(**res).load(t);
+      return *res;
+   }
+}
+
+void PreiseNewMod_All::load(std::vector<cH_PreiseNewMod> &list,const Tag &t)
+{  bool is_new=false;
+   cH_PreiseNewMod z=cH_PreiseNewMod::load(t,is_new);
+   if (is_new) list.push_back(z);
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -198,10 +211,22 @@ void Preise::saveArtikel(const std::string &Filename,Datenbank &db,
    TeA.setAttr("Region",region);
    TeA.setAttr("Beschreibung",beschreibung);
 
-   cH_Preise(name,art,&TeA);
+   cH_Preise::cache.Register(name,new Preise(name,art,TeA));
 
    TagStream ts;
    ts.setEncoding("ISO-8859-1");
    ts.setContent(RootTag);
    ts.write(datei);
 }
+
+Preise::Preise(const Tag &_tag)
+     : name(_tag.getAttr("Ware")), art(_tag.getAttr("Art")),   
+      unverkauflich()
+{load(_tag);}
+
+void Preise::load(const Tag &_tag)
+{get_Preise(_tag);}
+
+Preise::Preise(const std::string& _name, const std::string& _art, const Tag &_tag)
+     : name(_name), art(_art), unverkauflich()
+{get_Preise(_tag);}

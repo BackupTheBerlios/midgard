@@ -1,0 +1,40 @@
+Beruf::Beruf(const Tag &t)
+      : MidgardBasicElement(t.getAttr("Name")),
+      	stufe(t.getAttr("Stufe")),art(t.getAttr("Art")) 
+{get_Beruf(t);get_map_typ(t);
+ getVoraussetzungen(t);getVoraussetzungenFert(t);
+}
+
+cH_Beruf cH_Beruf::load(const Tag &t,bool &is_new)
+{  cH_Beruf *res=cache.lookup(t.getAttr("Name"));
+   if (!res)
+   {  cH_Beruf r2=new Beruf(t);
+      is_new=true;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+   else 
+   {  const_cast<Beruf&>(**res).load(t);
+      return *res;
+   }
+}
+
+void Beruf_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  bool is_new=false;
+   cH_Beruf z=cH_Beruf::load(t,is_new);
+   // das &* dient dazu um aus einem cH_Beruf ein cH_MBE zu machen
+   if (is_new) list.push_back(&*z);
+}
+
+############## im h file ###############################
+
+- alle get_ members mit (const Tag &t) Argument
+- ctor mit (const Tag &t) statt (const Tag *), Init ins c file
+- void load(const Tag &t); [ehemals ctor]
+
+- cH_: cH_Zauber(const Tag *) weg
+- static cH_Zauber load(const Tag &t,bool &is_new);
+
+- _All: static void load(std::list<cH_MidgardBasicElement> &list, const Tag &t);
+- rest weg
+- evtl namespace statt class/public/static

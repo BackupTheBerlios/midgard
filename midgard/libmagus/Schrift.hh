@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.2 2003/05/13 07:08:36 christof Exp $               
+// $Id: Schrift.hh,v 1.3 2003/05/19 06:10:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@ class Schrift : public MidgardBasicElement
   
   public:
    Schrift(const std::string& name,const Tag *t) : MidgardBasicElement(t,name)
-      { get_Schrift();get_map_typ(*tag); get_Steigern_Kosten_map(*t);
+      { get_Schrift();get_map_typ(); get_Steigern_Kosten_map();
         EP_steigern("Schreiben");
       }
    enum MBEE What() const {return MidgardBasicElement::SCHRIFT;}

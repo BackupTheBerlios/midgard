@@ -1,4 +1,4 @@
-// $Id: readxml.cc,v 1.1 2003/05/14 07:05:43 christof Exp $
+// $Id: readxml.cc,v 1.2 2003/05/19 06:10:34 christof Exp $
 /*  glade--: C++ frontend for glade (Gtk+ User Interface Builder)
  *  Copyright (C) 1998-2002  Christof Petig
  *
@@ -23,6 +23,12 @@
 #include <iostream>
 
 int main(int argc, char ** argv)
-{  TagStream ts(std::cin);
+{  if (argc<2) TagStream ts(std::cin);
+   else
+   {  for (int i=1;i<argc;++i) 
+      {  // std::cout << argv[i] << '\n';
+         TagStream ts((0,std::string(argv[i])));
+      }
+   }
    return 0;
 }

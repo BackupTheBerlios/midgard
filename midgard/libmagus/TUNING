@@ -1,0 +1,4 @@
+- attr: map
+- isword: in statt strchr?
+- tiefenabhängige Vorgrößen?
+- recode statt spezialversion?

@@ -36,6 +36,7 @@
 #include "Abenteurer.hh"
 #include <iostream>
 #include <Misc/germanstring.h>
+#include <memory>
 
 bool H_MidgardBasicElement_mutable::sort::operator() (H_MidgardBasicElement_mutable x,H_MidgardBasicElement_mutable y) const
 { switch(es) {
@@ -210,91 +211,96 @@ int MidgardBasicElement_mutable::Verlernen(const Abenteurer &A) const
 
 
 void MidgardBasicElement::get_map_typ(const Tag &t)
-{  
- const Tag *tag=&t;
-
-#warning das muss besser gel�st werden 
- if(What()==SPRACHE) 
-    tag=cH_Fertigkeit("Sprache")->tag;
- else if(What()==SCHRIFT)
-    tag=cH_Fertigkeit("Schreiben")->tag;
- else if(What()==KIDO)
-    tag=cH_Fertigkeit("KiDo")->tag;
- else assert(tag);
-
- if (tag)
- {  FOR_EACH_CONST_TAG(i,*tag)
+{  FOR_EACH_CONST_TAG(i,t)
     {  if (i->Type()=="Grund") map_typ[i->getAttr("Typ")]="G";
        else if (i->Type()=="Standard") map_typ[i->getAttr("Typ")]="S";
        else if (i->Type()=="Ausnahme") map_typ[i->getAttr("Typ")]="A";
     }
+}
+ 
+void MidgardBasicElement::get_map_typ()
+{
+ static std::auto_ptr<cH_Fertigkeit> sprache,schrift,kido;
+
+ if(What()==SPRACHE)
+ {  if (!sprache.get()) sprache.reset(new cH_Fertigkeit("Sprache"));
+    map_typ=(*sprache)->map_typ;
  }
+ else if(What()==SCHRIFT)
+ {  if (!schrift.get()) schrift.reset(new cH_Fertigkeit("Schreiben"));
+    map_typ=(*schrift)->map_typ;
+ }
+ else if(What()==KIDO)
+ {  if (!kido.get()) kido.reset(new cH_Fertigkeit("KiDo"));
+    map_typ=(*kido)->map_typ;
+ }
+ else assert(!"get_map_typ mit merkw�rdigem Typ");
 }
  
 
-void MidgardBasicElement::get_Steigern_Kosten_map(const Tag &t)
+const std::map<int,int> &MidgardBasicElement::get_Steigern_Kosten_map()
 {
- const Tag *tag=&t;
- const Tag *kosten=0;
- std::string steigern_wie=Name();
- 
  if(What()==WAFFE) 
- {  assert(tag);
-    typedef std::map<int,const Tag *> map_int_tag_t;
-    static map_int_tag_t waffen_schwierigkeit;
-    int schwierigkeit=tag->getIntAttr("Schwierigkeit");
-    
-    map_int_tag_t::const_iterator i=waffen_schwierigkeit.find(schwierigkeit);
-    if (i==waffen_schwierigkeit.end())
-    {  kosten=find_Tag("Waffen-Steigern","Kosten","Schwierigkeit",itos(schwierigkeit));
-       waffen_schwierigkeit[schwierigkeit]=kosten;
-    }
-    else kosten=i->second;
+ {  int schwierigkeit=dynamic_cast<Waffe&>(*this).Schwierigkeit();
+    map_erfolgswert_kosten=waffen_steigern_nach_schwierigkeit[schwierigkeit];
  }
  else if(What()==SPRACHE) 
- { tag=cH_Fertigkeit("Sprache")->tag; steigern_wie="Sprache"; }
+ { map_erfolgswert_kosten=cH_Fertigkeit("Sprache")->map_erfolgswert_kosten; }
  else if(What()==SCHRIFT) 
- { tag=cH_Fertigkeit("Schreiben")->tag; steigern_wie="Schreiben"; }
- else assert(tag);
+ { map_erfolgswert_kosten=cH_Fertigkeit("Schreiben")->map_erfolgswert_kosten; }
+ else assert(!"get here");
+ 
+ return map_erfolgswert_kosten;
+}
 
- if (!kosten)
+void MidgardBasicElement::load_steigern_kosten(const Tag &t)
+{ sonstige_steigern_kosten
+    for (int i=1;i<=22;++i)
+       map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0);
+}
+
+void MidgardBasicElement::load_waffen_steigern_nach_schwierigkeit(const Tag &t)
+{int schwierigkeit=
+    for (int i=1;i<=22;++i)
+       map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0);
+}
+
+void MidgardBasicElement::get_Steigern_Kosten_map(const Tag &t)
+{const Tag *kosten=t.find("Kosten");
+
+ if (!kosten) 
  {  // steigern_wie herausfinden
-    const Tag *steigern_wie_t=tag->find("steigern_wie");
+    std::string steigern_wie;
+    const Tag *steigern_wie_t=t.find("steigern_wie");
     if (steigern_wie_t) steigern_wie=steigern_wie_t->getAttr("Fertigkeit");
+    else
+    {  std::cerr << "keine Kosten für '" << Name() << "' gefunden\n";
+       return;
+    }
     
     // Kosten für steigern_wie suchen: 
-    // lokaler Cache, cH_Fertigkeit, dann SteigernKosten
-    typedef std::map<std::string,const Tag *> map_string_tag_t;
-    static map_string_tag_t steigern_kosten;
-
     try
-    {  if (steigern_wie==Name()) steigern_wie_t=this->tag;
+    {  if (steigern_wie=="-" || steigern_wie.empty()) return;
        else
-       {  // zuerst in lokalen Cache (schneller)
-          map_string_tag_t::const_iterator i=steigern_kosten.find(steigern_wie);
-          if (i!=steigern_kosten.end()) kosten=i->second;
-          // Fertigkeit suchen, wenn nicht gefunden wirft es NotFound
-          else
-             steigern_wie_t=cH_Fertigkeit(steigern_wie)->tag;
-       }
-          
-       if (!kosten)
-       {  if (steigern_wie_t)
-             kosten=steigern_wie_t->find("Kosten");
-          else std::cerr << "!steigern_wie_t: " << Name() << ',' << What() << '\n';
+       {  std::map<std::string,std::map<int,int> >::const_iterator i=
+       		sonstige_steigern_kosten.find(steigern_wie);
+       	  if (i!=sonstige_steigern_kosten.end())
+       	  {  map_erfolgswert_kosten=i->second;
+       	     return;
+       	  }
+
+          map_erfolgswert_kosten=cH_Fertigkeit(steigern_wie)->map_erfolgswert_kosten;
+          return;
        }
     } 
     catch (const NotFound &e) // keine Fertigkeit
-    {  kosten=find_Tag("SteigernKosten","Kosten","Fertigkeit",steigern_wie);
-       steigern_kosten[steigern_wie]=kosten;
+    {  std::cerr << "keine Kosten für '" << Name() << '/' << steigern_wie << "' gefunden\n";
+       return;
     }
  }
- if (!kosten) 
- { std::cerr << "keine Kosten für '" << steigern_wie << "' gefunden\n";
-   return;
- }
- for (int i=1;i<=22;++i)
-    map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0/*??*/);
+ else 
+    for (int i=1;i<=22;++i)
+       map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0);
 }
 
 void MidgardBasicElement::saveElementliste(Tag &datei,

@@ -22,6 +22,7 @@
 #include <Misc/itos.h>
 #include <iostream>
 #include "Abenteurer.hh"
+// #include <memory>
 
 cH_Waffe::cache_t cH_Waffe::cache;
 
@@ -36,46 +37,42 @@ cH_Waffe::cH_Waffe(const std::string& name , bool create)
   {  static Tag t2("Waffe"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
-     *this=cH_Waffe(&t2);
+     *this=new Waffe(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Waffe::cH_Waffe(const Tag *tag)
-{*this=cH_Waffe(new Waffe(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-void Waffe::get_Waffe()
+void Waffe::get_Waffe(const Tag &t)
 {
-   assert(tag);
-   grundkenntnisse=tag->getAttr("Grundkenntnisse");
-   schwierigkeit=tag->getIntAttr("Schwierigkeit");
-   art=tag->getAttr("Kategorie");
-   art2=tag->getAttr("Klasse");
-   schaden=tag->getAttr("Schaden");
-   schaden_bonus=tag->getIntAttr("Schadensbonus");
-   schaden_bonus2=tag->getIntAttr("Schadensbonus2");
-   voraussetzung=tag->getAttr("erfordert");
-   region=tag->getAttr("Region");
-   text=tag->getAttr("Text");
+  if (t.hasAttr("Schaden"))
+  {grundkenntnisse=t.getAttr("Grundkenntnisse");
+   schwierigkeit=t.getIntAttr("Schwierigkeit");
+   art=t.getAttr("Kategorie");
+   art2=t.getAttr("Klasse");
+   schaden=t.getAttr("Schaden");
+   schaden_bonus=t.getIntAttr("Schadensbonus");
+   schaden_bonus2=t.getIntAttr("Schadensbonus2");
+   voraussetzung=t.getAttr("erfordert");
+   region=t.getAttr("Region");
+   text=t.getAttr("Text");
+  }
    
-   const Tag *Modifikationen=tag->find("Modifikationen");
+   const Tag *Modifikationen=t.find("Modifikationen");
    if (Modifikationen)
    {  waffenrang=Modifikationen->getAttr("Waffenrang");
       wm_abwehr_leicht=Modifikationen->getAttr("Abwehr-leicht");
       wm_abwehr_schwer=Modifikationen->getAttr("Abwehr-schwer");
    }
 
-   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
+   const Tag *Voraussetzungen=t.find("Voraussetzungen");
    if (Voraussetzungen)
    {  st=Voraussetzungen->getIntAttr("St");
       gw=Voraussetzungen->getIntAttr("Gw");
       gs=Voraussetzungen->getIntAttr("Gs");
    }
 
-   const Tag *Reichweite=tag->find("Reichweite");
+   const Tag *Reichweite=t.find("Reichweite");
    if (Reichweite)
    {  reichweite_0=Reichweite->getIntAttr("null");
       reichweite_n=Reichweite->getIntAttr("nah");
@@ -83,19 +80,19 @@ void Waffe::get_Waffe()
       reichweite_f=Reichweite->getIntAttr("fern");
    }
 
-   const Tag *Lernkosten=tag->find("Lernkosten");
+   const Tag *Lernkosten=t.find("Lernkosten");
    if (Lernkosten)
    {  lern_land=Lernkosten->getIntAttr("Land",99);
       lern_stadt=Lernkosten->getIntAttr("Stadt",99);
    }
 
-   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_F")
+   FOR_EACH_CONST_TAG_OF(i,t,"Voraussetzungen_F")
      vec_voraussetzung_F.push_back(i->getAttr("Name"));
-   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_W")
+   FOR_EACH_CONST_TAG_OF(i,t,"Voraussetzungen_W")
      vec_voraussetzung_W.push_back(i->getAttr("Name"));
              
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
+    FOR_EACH_CONST_TAG_OF(i,t,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
                               i->getAttr("Spezies"),
                               i->getAttr("Typ"),
@@ -112,16 +109,16 @@ std::list<cH_MidgardBasicElement> Waffe::getAllgemeinwissen(const std::list<cH_M
   return S;
 }
 
-void Waffe::get_Alias() 
+void Waffe::get_Alias(const Tag &t) 
 {
-    assert(tag);
-    FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleVariante")
+    FOR_EACH_CONST_TAG_OF(i,t,"regionaleVariante")
     {  int Angriff=0;
        const Tag *Modifikationen=i->find("Modifikationen");
        if (Modifikationen) Angriff=Modifikationen->getIntAttr("Angriff");
        list_alias.push_back(st_alias(i->getAttr("Name"),i->getAttr("Region"),
        		i->getAttr("Schaden"),i->getIntAttr("Schadensbonus"),
             i->getIntAttr("St"),Angriff));
+       Waffe_from_Alias[i->getAttr("Name")]=Name();
     }
 }
 
@@ -283,26 +280,6 @@ std::string Waffe::Schwierigkeit_str() const
   return itos(Schwierigkeit());
 }
 
-
-
-std::map<std::string,std::string> Waffe::fill_map_alias_waffe()
-{
-  std::map<std::string,std::string> M;
- const Tag *waffen=xml_data->find("Waffen");
- if (!waffen)
-    std::cerr << "<Waffen><Waffe/>... nicht gefunden\n";
- else
- {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  
-       FOR_EACH_CONST_TAG_OF(j,*i,"regionaleVariante")
-          M[j->getAttr("Name")]=i->getAttr("Name");
-    }
- }
-  return M;
-}
-
-
 int Waffe::MaxErfolgswert(const Abenteurer &A) const
 {
  assert(A.getVTyp().size()==2);
@@ -402,19 +379,43 @@ void Waffe::setSpezialWaffe(const std::string& name,std::list<MBEmlt>& list_Waff
    }
 }
 
+static MidgardBasicElement::EP_t Waffe_EP=MidgardBasicElement::EP_t_undefined;
 
+Waffe::Waffe(const Tag &t)
+      : MidgardBasicElement(t.getAttr("Name")), lern_land(),lern_stadt()
+{ load(t); }
 
-Waffe_All::Waffe_All()
-{
- const Tag *waffen=xml_data->find("Waffen");
- if (!waffen)
-    std::cerr << "<Waffen><Waffe/>... nicht gefunden\n";
- else
- {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  
-// warum sowas? siehe Zauber.pgcc
-       list_All.push_back(&*(cH_Waffe(&*i)));
-    }
- }
+void Waffe::load(const Tag &t)
+{get_Waffe(t);get_Alias(t);get_map_typ(t);get_Steigern_Kosten_map();
+ if (Waffe_EP==EP_t_undefined) Waffe_EP=EP_steigern("Waffen");
+ else EP_steigern(Waffe_EP);
 }
+
+cH_Waffe cH_Waffe::load(const Tag &t,bool &is_new)
+{  cH_Waffe *res=cache.lookup(t.getAttr("Name"));
+   if (!res)
+   {  cH_Waffe r2=new Waffe(t);
+      is_new=true;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+   else 
+   {  const_cast<Waffe&>(**res).load(t);
+      return *res;
+   }
+}
+
+void Waffe_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  bool is_new=false;
+   cH_Waffe z=cH_Waffe::load(t,is_new);
+   // das &* dient dazu um aus einem cH_Waffe ein cH_MBE zu machen
+   if (is_new) list.push_back(&*z);
+}
+
+cH_Waffe Waffe::WaffeVonBezeichnung(const std::string &name)
+{  std::map<std::string,std::string>::const_iterator i=Waffe_from_Alias.find(name);
+   if (i!=Waffe_from_Alias.end()) return cH_Waffe(i->second);
+   return cH_Waffe(name,true);
+}
+
+std::map<std::string,std::string> Waffe::Waffe_from_Alias;

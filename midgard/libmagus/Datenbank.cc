@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.9 2003/05/16 06:42:03 christof Exp $               
+// $Id: Datenbank.cc,v 1.10 2003/05/19 06:10:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -48,6 +48,7 @@
 #include "Sprache.hh"
 #include "Schrift.hh"
 #include "magus_paths.h"
+#include <Misc/inbetween.h>
 
 Datenbank::Datenbank() : tag_eigene_artikel("MAGUS-data")
 {
@@ -63,6 +64,18 @@ void Datenbank::load_list(const Tag &t)
          FOR_EACH_CONST_TAG(k,*j) Fertigkeiten_All::load(Fertigkeit,*k);
       else if (j->Type()=="Berufe")
          FOR_EACH_CONST_TAG(k,*j) Beruf_All::load(Beruf,*k);
+      else if (j->Type()=="Waffen")
+         FOR_EACH_CONST_TAG(k,*j) Waffe_All::load(Waffe,*k);
+      else if (j->Type()=="PreiseNeuMod")
+         FOR_EACH_CONST_TAG(k,*j) PreiseNewMod_All::load(preisenewmod,*k);
+      else if (in<std::string>(j->Type(),"Preise","PreiseNeu"))
+         FOR_EACH_CONST_TAG(k,*j) Preise_All::load(preise,*k);
+      else if ((j->Type()=="Waffen-Steigern")
+         FOR_EACH_CONST_TAG(k,*j) 
+           MidgardBasicElement::load_waffen_steigern_nach_schwierigkeit(*k);
+      else if ((j->Type()=="SteigernKosten")
+         FOR_EACH_CONST_TAG(k,*j) 
+           MidgardBasicElement::load_steigern_kosten(*k);
       else if (j->Type()=="verwendbareEP")
          FOR_EACH_CONST_TAG(k,*j) 
             Fertigkeit::EP_steigern(k->getAttr("Fertigkeit"),Fertigkeit::EP_steigern_load(*k));
@@ -81,8 +94,7 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
     Fertigkeit_ang = Fertigkeiten_angeborene_All().get_All();
 //    Fertigkeit = Fertigkeiten_All().get_All();
     WaffeGrund = WaffeGrund_All().get_All();
-    Waffe = Waffe_All().get_All();
-    Waffe_from_Alias = Waffe::fill_map_alias_waffe();
+//    Waffe = Waffe_All().get_All();
 //    Zauber = Zauber_All().get_All();
 //    Zauberwerk = Zauberwerk_All().get_All();
     Kido = KiDo_All().get_All();
@@ -92,15 +104,11 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
     Typen = Typen_All().get_All();
     GradAnstieg = Grad_anstieg(true);
     Spezialgebiet = Spezialgebiet_All().get_All();
-    preise = Preise_All(magus_paths::with_path("magus_preise.xml",false,true),tag_eigene_artikel).get_All();
-    preisenewmod = PreiseNewMod_All().get_All();
+//    preise = Preise_All(magus_paths::with_path("magus_preise.xml",false,true),tag_eigene_artikel).get_All();
+//    preisenewmod = PreiseNewMod_All().get_All();
     prototyp = Prototyp_All().get_All();
     prototyp2 = Prototyp2_All().get_All();
 //    MI->database_hide();  // can't do this yet
+//    Waffe_from_Alias = Waffe::fill_map_alias_waffe();
 }
 
-cH_Waffe Datenbank::WaffeVonBezeichnung(const std::string &name) const
-{  std::map<std::string,std::string>::const_iterator i=Waffe_from_Alias.find(name);
-   if (i!=Waffe_from_Alias.end()) return cH_Waffe(i->second);
-   return cH_Waffe(name,true);
-}

@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2002      Christof Petig 
+ *  Copyright (C) 2002-2003 Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -174,6 +174,7 @@ cH_Beruf cH_Beruf::load(const Tag &t,bool &is_new)
    {  cH_Beruf r2=new Beruf(t);
       is_new=true;
       cache.Register(t.getAttr("Name"),r2);
+//       cache.Register(t.getAttr("Name_w"),r2); weibliche Bezeichnung?
       return r2;
    }
    else 

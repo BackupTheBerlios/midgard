@@ -21,6 +21,7 @@
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 #include "Grundwerte.hh"
+#include <map>
 
 class cH_Waffe;
 class WaffeBesitz;
@@ -48,16 +49,14 @@ class Waffe : public MidgardBasicElement
      std::list<st_alias> list_alias;
      std::vector<std::string> vec_voraussetzung_W, vec_voraussetzung_F;
 
-     void get_Waffe();
-     void get_Alias();
+     void get_Waffe(const Tag &t);
+     void get_Alias(const Tag &t);
      int St() const {return st;}
      int Gw() const {return gw;}
      int Gs() const {return gs;}
   public:
-     Waffe(const Tag *t)
-      :MidgardBasicElement(t,t->getAttr("Name")),lern_land(0),lern_stadt(0)
-     {get_Waffe(); get_Alias(); get_map_typ(*tag);get_Steigern_Kosten_map(*t);
-      EP_steigern("Waffen"); }
+     Waffe(const Tag &t);
+     void load(const Tag &t);
 
      enum MBEE What() const {return MidgardBasicElement::WAFFE;}
      std::string What_str() const {return "Waffe";}
@@ -90,8 +89,9 @@ class Waffe : public MidgardBasicElement
 //     int Maxwert(const std::vector<cH_Typen>& Typ) const;
      int MaxErfolgswert(const Abenteurer &A) const; 
 
-
-     static std::map<std::string,std::string> fill_map_alias_waffe();
+     // besser wäre noch <std::string,cH_Waffe>
+     static std::map<std::string,std::string> Waffe_from_Alias;
+     static void fill_map_alias_waffe(const Tag &t);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<MBEmlt>& list_Waffen,
          const std::list<WaffeBesitz>& list_Waffen_besitz,
@@ -99,6 +99,8 @@ class Waffe : public MidgardBasicElement
      static void setSpezialWaffe(const std::string& name, std::list<MBEmlt>& list_Waffen_gelernt);
      static std::list<cH_MidgardBasicElement> getAllgemeinwissen(const std::list<cH_MidgardBasicElement> &L);
 
+     // verwendet Alias map
+     static cH_Waffe WaffeVonBezeichnung(const std::string &name);
 };
 
 class cH_Waffe : public Handle<const Waffe>
@@ -110,7 +112,7 @@ class cH_Waffe : public Handle<const Waffe>
  public:
     cH_Waffe(const Waffe *s) : Handle<const Waffe>(s) {};
     cH_Waffe(const std::string& n,bool create=false);
-    cH_Waffe(const Tag *tag);
+    static cH_Waffe load(const Tag &t,bool &is_new);
 
     cH_Waffe(const cH_MidgardBasicElement &x) : Handle<const Waffe>
       (dynamic_cast<const Waffe *>(&*x)){}
@@ -119,10 +121,8 @@ class cH_Waffe : public Handle<const Waffe>
 
 class Waffe_All
 {
-   std::list<cH_MidgardBasicElement> list_All;
   public:
-   Waffe_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
+   static void load(std::list<cH_MidgardBasicElement> &list,const Tag &t);
 };
 
 

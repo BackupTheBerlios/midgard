@@ -25,7 +25,7 @@
 #include "Abenteurer.hh"
 #include <iostream>
 #include <Misc/germanstring.h>
-#include <memory>
+//#include <memory>
 
 bool cH_Zauber::sort::operator() (MBEmlt _x,MBEmlt _y) const
 {  cH_Zauber x(_x->getMBE());
@@ -213,32 +213,6 @@ cH_Zauber cH_Zauber::load(const Tag &t,bool &is_new)
    {  const_cast<Zauber&>(**res).load(t);
       return *res;
    }
-}
-
-Zauber_All::Zauber_All()
-{
-#if 0
- const Tag *zauber=xml_data->find("Zauber");
- if (!zauber)
-    std::cerr << "<Zauber><Spruch/>... nicht gefunden\n";
- else
- {  Tag::const_iterator b=zauber->begin(),e=zauber->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*zauber,b,e,"Spruch")
-    {  
-// warum sowas?
-//    die Klasse cH_Zauber enthält den Cache, erzeuge ich nur einen Zauber, so
-//    wird er nicht in den Cache (nach Namen) aufgenommen.
-//    Ich brauche aber einen cH_MidgardBasicElement, daher bilde ich einen
-//    Zauber* um danach (aus dem ebenfalls MidgardBasicElement*) ein 
-//    cH_MidgardBasicElement zu machen. Wow.
-       list_All.push_back(&*(cH_Zauber(&*i)));
-    }
- }
-#endif 
-}
-
-void Zauber_All::load(const Tag &t)
-{  load(list_All,t);
 }
 
 void Zauber_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)

@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.2 2003/05/07 12:42:08 christof Exp $
+// $Id: Preise.hh,v 1.3 2003/05/19 06:10:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,8 @@
 #include<string>
 #include<vector>
 #include<list>
-#include "xml.h"
+//#include "xml.h"
+class Tag;
 class Datenbank;
 
 class Preise : public HandleContent
@@ -33,20 +34,15 @@ class Preise : public HandleContent
    std::string region;
    std::string beschreibung;
    double kosten,gewicht;
-   const Tag *tag;
-   friend class Preise_All;
+//   friend class Preise_All;
    bool unverkauflich;
    bool ruestung; // Ruestung wird bei der Belastung nicht mitgezÃ¤hlt
 
-   void get_Preise();
+   void get_Preise(const Tag &t);
  public:
-   Preise(const Tag *_tag)
-     : name(_tag->getAttr("Ware")), art(_tag->getAttr("Art")), tag(_tag)  
-      ,unverkauflich(false)
-     {get_Preise();}
-   Preise(const std::string& _name, const std::string& _art, const Tag *_tag)
-     : name(_name), art(_art), tag(_tag),unverkauflich(false)
-     {get_Preise();}
+   Preise(const Tag &_tag);
+   Preise(const std::string& _name, const std::string& _art, const Tag &_tag);
+   void load(const Tag &t);
 
  std::string Art() const {  return art; }
  std::string Art2() const {  return art2; }
@@ -61,7 +57,8 @@ class Preise : public HandleContent
  std::string Einheit()  const {  return einheit; }
 // bool ist_eigener_Artikel() const { return tag==&Tag_eigene_Artikel; }
 
- static void saveArtikel(const std::string &Filename,Datenbank &db,
+// warum kein Preise &?
+ static void saveArtikel(const std::string &Filename, Datenbank &db,
      const std::string &art,const std::string &art2,
      const std::string &name,const double &preis, const std::string &einheit,
      const double &gewicht,const std::string &region,
@@ -74,11 +71,11 @@ class cH_Preise : public Handle<const Preise>
     static cache_t cache;
     cH_Preise(const Preise *s) : Handle<const Preise>(s) {};
     friend class std::map<std::string,cH_Preise>;
+    friend class Preise;
     cH_Preise(){};
  public:
     cH_Preise(const std::string& name ,bool create=false);
-    cH_Preise(const Tag *tag);
-    cH_Preise(const std::string& name, const std::string& art, const Tag *tag);
+    static cH_Preise load(const Tag &t,bool &is_new);
     bool operator==(const std::string& name)
     {  return (*this)->Name()==name; }
 
@@ -97,12 +94,8 @@ class cH_Preise : public Handle<const Preise>
     };
 };
 
-class Preise_All
-{
-   std::list<cH_Preise> list_All;
-  public:
-   Preise_All(const std::string &filename,Tag &tag_eigene_artikel);
-   std::list<cH_Preise> get_All() const {return list_All;}
+namespace Preise_All 
+{  void load(std::list<cH_Preise> &list, const Tag &t);
 };
 
 bool operator!=(const cH_Preise &a, const std::string &b);
@@ -111,6 +104,7 @@ bool operator!=(const cH_Preise &a, const std::string &b);
 
 ///////////////////////////////////
 
+// vielleicht wieder in PreiseMod zurückbenennen
 class PreiseNewMod :  public HandleContent
 {
    public: 
@@ -120,7 +114,6 @@ class PreiseNewMod :  public HandleContent
                   :spezifikation(s),preis_faktor(p) {} };
 
    private:
-      const Tag *tag;
       std::string name;  // Kleidung, Waffen, ...
 
       // Farbe | Stand | Material | ...
@@ -128,13 +121,12 @@ class PreiseNewMod :  public HandleContent
 
       std::map<std::string,std::vector<st_preismod> > VS;  
    public:
-      PreiseNewMod(const Tag *_tag) : tag(_tag) { getPNM(); }
+      PreiseNewMod(const Tag &_tag);
+      void load(const Tag &t);
+      void getPNM(const Tag &t);
       
-      void getPNM();
-      
-      std::string Name() const {return name;}
+      const std::string &Name() const {return name;}
       const std::map<std::string,std::vector<st_preismod> > &VSpezifikation() const {return VS; }
-               
 };
 
 class cH_PreiseNewMod : public Handle<const PreiseNewMod>
@@ -147,80 +139,11 @@ class cH_PreiseNewMod : public Handle<const PreiseNewMod>
 
    public:
       cH_PreiseNewMod(const std::string& name, bool create=false) ;
-      cH_PreiseNewMod(const Tag *tag);
-
+      static cH_PreiseNewMod load(const Tag &t,bool &is_new);
 };
 
-class PreiseNewMod_All
-{
-   std::vector<cH_PreiseNewMod> list_All;
- public:
-   PreiseNewMod_All();
-   std::vector<cH_PreiseNewMod> get_All() const {return list_All;}
+namespace PreiseNewMod_All
+{  void load(std::vector<cH_PreiseNewMod> &list, const Tag &t);
 };
            
-           
-
-
-#if 0
-class PreiseMod : public HandleContent
-{
- public: 
-   struct st_payload{std::string name; double faktor;
-          st_payload() : faktor(0) {}
-          st_payload(std::string n, double f) 
-             : name(n), faktor(f) {}
-          };
- private:
-   const Tag *tag;
-   std::string art,art2,typ;
-   int nr;
-   st_payload payload;
-   void get_PreiseMod();
- public:
-   PreiseMod(const Tag *_tag)
-     : tag (_tag), nr(0) {get_PreiseMod();}
-
- std::string Art() const {  return art; }
- std::string Art2() const {  return art2; }
- std::string Typ() const {  return typ; }
- int Nr() const {  return nr; }
- st_payload Payload() const {return payload;}
-
-// static saveGruppe(std::string art,int typ, std::string eigenschaft);
-};
-
-class cH_PreiseMod : public Handle<const PreiseMod>
-{
-   struct st_index{std::string art; std::string art2; std::string typ;int nr;
-          st_index() :nr(0) {}
-          st_index(std::string a,std::string a2,std::string t,int n) 
-               : art(a),art2(a2),typ(t),nr(n) {}
-          bool operator<(const st_index& b) const
-            {return art<b.art || (art==b.art && art2<b.art2) ||
-              ( art==b.art && art2==b.art2 && typ<b.typ)
-                    || (art==b.art && art2==b.art2 &&typ==b.typ&&nr<b.nr) ;}          
-         };
-
-    typedef CacheStatic<st_index,cH_PreiseMod> cache_t;
-    static cache_t cache;
-    friend class std::map<st_index,cH_PreiseMod>;
-    cH_PreiseMod(){};
- public:
-    cH_PreiseMod(const std::string& art,const std::string& art2,const std::string typ,const int &nr);
-    cH_PreiseMod(const Tag *tag);
-    cH_PreiseMod(const PreiseMod *s) : Handle<const PreiseMod>(s) {};
-};
-
-class PreiseMod_All
-{
-   std::list<cH_PreiseMod> list_All;
-  public:
-   PreiseMod_All();
-   std::list<cH_PreiseMod> get_All() const {return list_All;}
-};
-
-#endif
-
-
 #endif

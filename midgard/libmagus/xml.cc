@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.8 2003/05/16 06:42:03 christof Exp $
+// $Id: xml.cc,v 1.9 2003/05/19 06:10:34 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -21,6 +21,7 @@
 #include <iostream>
 #include "magus_paths.h"
 #include <map>
+#include <Misc/inbetween.h>
 
 //#define PARANOIA
 #define VERBOSE
@@ -52,14 +53,14 @@ static void reserve(Tag *t)
    reserve(t,"SpeziesListe",16);
    reserve(t,"Gradanstieg",16);
    reserve(t,"Typen",64);
-   reserve(t,"Preise",256);
+//   reserve(t,"Preise",256);
 //   reserve(t,"Fertigkeiten",256);
    reserve(t,"angeboreneFertigkeiten",32);
-   reserve(t,"Berufe",256);
+//   reserve(t,"Berufe",256);
    reserve(t,"verwendbareEP",8);
    reserve(t,"SteigernKosten",8);
    reserve(t,"Rüstungen",32);
-   reserve(t,"Waffen",128);
+//   reserve(t,"Waffen",128);
    reserve(t,"Waffen-Grundkenntnisse",32);
    reserve(t,"Waffen-Steigern",16);
    reserve(t,"KI",32);
@@ -121,8 +122,8 @@ reloop:
           db.load_list(*data2);
           FOR_EACH_CONST_TAG(j,*data2)
           {  if (j->Type().empty()) continue; // inter tag space
-             if (j->Type()=="Zauber" || j->Type()=="Zauberwerke" 
-                 || j->Type()=="Fertigkeiten" || j->Type()=="Berufe")
+             if (in<std::string>(j->Type(),"Zauber","Zauberwerke","Fertigkeiten","Berufe")
+             	|| in<std::string>(j->Type(),"Waffen","PreiseNeu","Preise"))
                 continue;
              Tag *merge_here;
              if ((merge_here=xml_data_mutable->find(j->Type())))

@@ -70,7 +70,7 @@ class MidgardBasicElement : public HandleContentCopyable
                :name(n),erlaubt(e),typ(t),region(r),region_zusatz(rz),long_region(lr) {}};
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP, EP_t_undefined };
    protected:
-	const Tag *tag; // später weg
+//	const Tag *tag; // später weg
       std::string name, region,region_zusatz;
       int kosten;
       mutable int anfangswert;
@@ -82,19 +82,24 @@ class MidgardBasicElement : public HandleContentCopyable
       EP_t steigern_mit_EP;
       std::map<std::string,std::string> map_typ;
       std::map<int,int> map_erfolgswert_kosten;
-      static std::map<std::string,EP_t> verwendbareEP;
       
-//      void get_map_typ() { get_map_typ(*tag); }
+      static std::map<std::string,EP_t> verwendbareEP;
+      static std::map<int,std::map<int,int> > waffen_steigern_nach_schwierigkeit;
+      static std::map<std::string,std::map<int,int> > sonstige_steigern_kosten;
+public:      
+      static void load_waffen_steigern_nach_schwierigkeit(const Tag &t);
+      static void load_steigern_kosten(const Tag &t);
+      
+protected:
+      void get_map_typ();
       void get_map_typ(const Tag &t);
       void get_Steigern_Kosten_map(const Tag &t);
+      const std::map<int,int> &get_Steigern_Kosten_map(); // anhand des Typs bestimmen
       int GrundKosten() const {  return kosten; }
 
    public:
       MidgardBasicElement(const std::string &n) 
-            : tag(), name(n), kosten(),anfangswert(),enum_zusatz()
-              ,nsc_only(),steigern_mit_EP() {}
-      MidgardBasicElement(const Tag *t,const std::string &n) 
-		: tag(t), name(n), kosten(),anfangswert(),enum_zusatz()
+            : name(n), kosten(),anfangswert(),enum_zusatz()
               ,nsc_only(),steigern_mit_EP() {}
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,

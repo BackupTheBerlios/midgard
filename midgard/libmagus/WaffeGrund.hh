@@ -1,4 +1,4 @@
-// $Id: WaffeGrund.hh,v 1.3 2003/05/13 07:08:36 christof Exp $               
+// $Id: WaffeGrund.hh,v 1.4 2003/05/19 06:10:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -34,8 +34,8 @@ class WaffeGrund : public MidgardBasicElement
      void get_WaffeGrund();
   public:
      WaffeGrund(const Tag *t)
-       : MidgardBasicElement(t,t->getAttr("Name"))
-       {get_WaffeGrund();get_map_typ(*tag);}
+       : MidgardBasicElement(t->getAttr("Name"))
+       {get_WaffeGrund();get_map_typ(*t);}
 
      // Wenn Keine Waffe gelernt werden kann, die zu einer Grundkenntnis
      // gehört, dann ist eine Grundkenntnis nicht sinnvoll

@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.7 2003/05/12 06:37:44 christof Exp $               
+// $Id: Datenbank.hh,v 1.8 2003/05/19 06:10:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,7 +51,6 @@ class Datenbank
   std::list<cH_MidgardBasicElement> Fertigkeit;
   std::list<cH_MidgardBasicElement> WaffeGrund;
   std::list<cH_MidgardBasicElement> Waffe;
-  std::map<std::string,std::string> Waffe_from_Alias;
   std::list<cH_MidgardBasicElement> Zauber;
   std::list<cH_MidgardBasicElement> Zauberwerk;
   std::list<cH_MidgardBasicElement> Kido;
@@ -74,7 +73,9 @@ class Datenbank
   void load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen);
   
   // verwendet Alias map
-  cH_Waffe WaffeVonBezeichnung(const std::string &name) const;
+  cH_Waffe WaffeVonBezeichnung(const std::string &name) const
+  {  return Waffe::WaffeVonBezeichnung(name);
+  }
   
   void load_one(const std::string&, const Tag&);
   void load_list(const Tag&);

@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.4 2003/05/12 06:37:44 christof Exp $               
+// $Id: Zauber.hh,v 1.5 2003/05/19 06:10:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -106,14 +106,9 @@ class cH_Zauber : public Handle<const Zauber>
 };
 
 
-class Zauber_All
+namespace Zauber_All
 {
-   std::list<cH_MidgardBasicElement> list_All;
-  public:
-   Zauber_All();
-   void load(const Tag &t);
-   static void load(std::list<cH_MidgardBasicElement> &list, const Tag &t);
-   const std::list<cH_MidgardBasicElement> &get_All() const {return list_All;}
-};
+   void load(std::list<cH_MidgardBasicElement> &list, const Tag &t);
+}
 
 #endif
