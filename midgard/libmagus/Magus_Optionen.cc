@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.5 2003/09/12 07:30:39 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.6 2003/09/14 18:31:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -87,6 +87,13 @@ std::string Magus_Optionen::getString(StringIndex index) const
  abort();//never get here
 }
 
+Model_ref<std::string> Magus_Optionen::getString(StringIndex index)
+{
+ for(std::list<st_strings>::const_iterator i=list_Strings.begin();i!=list_Strings.end();++i)
+   if(i->index==index) return i->name;    
+ abort();//never get here
+}
+
 void Magus_Optionen::setString(StringIndex index,std::string n)
 {
  for(std::list<st_strings>::iterator i=list_Strings.begin();i!=list_Strings.end();++i)
@@ -127,7 +134,7 @@ Magus_Optionen::IconIndex Magus_Optionen::getIconIndex() const
  throw std::out_of_range("getIconIndex");
 }
 
-Magus_Optionen::st_pdfViewer Magus_Optionen::pdfViewerCheck(pdfViewerIndex pi) const 
+Magus_Optionen::st_pdfViewer &Magus_Optionen::pdfViewerCheck(pdfViewerIndex pi)
 {
  for(std::list<st_pdfViewer>::const_iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    if(i->index==pi) return *i;
@@ -422,7 +429,7 @@ void Magus_Optionen::save_options(const std::string &filename)
    }
   for(std::list<st_strings>::iterator i=list_Strings.begin();i!=list_Strings.end();++i)
    {
-     if(i->name.empty()) continue;
+     if(i->name.Value().empty()) continue;
      Tag &opt=optionen.push_back(Tag("Einstellungen"));
      opt.setAttr("Name",i->text);
      opt.setAttr("Wert", i->name);
