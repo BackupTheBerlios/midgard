@@ -85,10 +85,12 @@ public:
 	{  return ::find(it,end(),type); }
 
 	// values of attributes
+	typedef attvec_t::const_iterator const_attiterator;
+	const_attiterator attbegin() const { return attributes.begin(); }
 	attvec_t::iterator attend() { return attributes.end(); }
-	attvec_t::const_iterator attend() const { return attributes.end(); }
+	const_attiterator attend() const { return attributes.end(); }
 	attvec_t::iterator attfind(const std::string &name);
-	attvec_t::const_iterator attfind(const std::string &name) const;
+	const_attiterator attfind(const std::string &name) const;
 	
 	const std::string &getAttr(const std::string &name, const std::string &def="") const throw();
 	void setAttr(const std::string &name, const std::string &value);
@@ -115,18 +117,34 @@ public:
 
 // some nice macros
 
-#define FOR_EACH_TAG(variable,parent) \
+#define FOR_EACH_CONST_TAG(variable,parent) \
 	for (Tag::const_iterator variable=(parent).begin(); \
 		(variable)!=(parent).end(); ++(variable))
 
-#define FOR_EACH_TAG_OF(variable,parent,type) \
+#define FOR_EACH_CONST_TAG_OF(variable,parent,type) \
 	for (Tag::const_iterator variable= \
 			(parent).find((parent).begin(),(type)); \
 		(variable)!=(parent).end(); \
 		variable=(parent).find((variable)+1,(type)))
 
-#define FOR_EACH_TAG_OF_5(variable,parent,begin,end,type) \
+#define FOR_EACH_CONST_TAG_OF_5(variable,parent,begin,end,type) \
 	for (Tag::const_iterator variable= \
+			(parent).find((begin),(type)); \
+		(variable)!=(end); \
+		variable=(parent).find((variable)+1,(type)))
+
+#define FOR_EACH_TAG(variable,parent) \
+	for (Tag::iterator variable=(parent).begin(); \
+		(variable)!=(parent).end(); ++(variable))
+
+#define FOR_EACH_TAG_OF(variable,parent,type) \
+	for (Tag::iterator variable= \
+			(parent).find((parent).begin(),(type)); \
+		(variable)!=(parent).end(); \
+		variable=(parent).find((variable)+1,(type)))
+
+#define FOR_EACH_TAG_OF_5(variable,parent,begin,end,type) \
+	for (Tag::iterator variable= \
 			(parent).find((begin),(type)); \
 		(variable)!=(end); \
 		variable=(parent).find((variable)+1,(type)))

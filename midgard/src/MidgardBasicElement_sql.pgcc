@@ -97,7 +97,7 @@ void MidgardBasicElement::get_map_typ()
 #else
 #  define FOUND
 #endif
-    FOR_EACH_TAG(i,*tag)
+    FOR_EACH_CONST_TAG(i,*tag)
     {  if (i->Type()=="Grund") 
        { map_typ[i->getAttr("Typ")]="G"; FOUND; }
        else if (i->Type()=="Standard") 
@@ -112,7 +112,7 @@ void MidgardBasicElement::get_map_typ()
        {  cerr << "<Waffen-Steigern><Grund/>... nicht gefunden\n";
           return;
        }
-       FOR_EACH_TAG(i,*tag)
+       FOR_EACH_CONST_TAG(i,*tag)
        {  if (i->Type()=="Grund") map_typ[i->getAttr("Typ")]="G";
           else if (i->Type()=="Standard") map_typ[i->getAttr("Typ")]="S";
           else if (i->Type()=="Ausnahme") map_typ[i->getAttr("Typ")]="A";

@@ -194,7 +194,7 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
  else
  {  Tag::const_iterator b=zauber->begin(),e=zauber->end();
     double size=e-b;
-    FOR_EACH_TAG_OF_5(i,*zauber,b,e,"Spruch")
+    FOR_EACH_CONST_TAG_OF_5(i,*zauber,b,e,"Spruch")
     {  if (!((++count)&31))
        {  progressbar->set_percentage((i-b)/size);
           while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;

@@ -95,24 +95,32 @@ void Waffe::get_Waffe()
    region=tag->getAttr("Region");
    
    const Tag *Modifikationen=tag->find("Modifikationen");
-   waffenrang=Modifikationen->getAttr("Waffenrang");
-   wm_abwehr_leicht=Modifikationen->getAttr("Abwehr-leicht");
-   wm_abwehr_schwer=Modifikationen->getAttr("Abwehr-schwer");
+   if (Modifikationen)
+   {  waffenrang=Modifikationen->getAttr("Waffenrang");
+      wm_abwehr_leicht=Modifikationen->getAttr("Abwehr-leicht");
+      wm_abwehr_schwer=Modifikationen->getAttr("Abwehr-schwer");
+   }
 
    const Tag *Voraussetzungen=tag->find("Voraussetzungen");
-   st=Voraussetzungen->getIntAttr("St");
-   gw=Voraussetzungen->getIntAttr("Gw");
-   gs=Voraussetzungen->getIntAttr("Gs");
+   if (Voraussetzungen)
+   {  st=Voraussetzungen->getIntAttr("St");
+      gw=Voraussetzungen->getIntAttr("Gw");
+      gs=Voraussetzungen->getIntAttr("Gs");
+   }
 
    const Tag *Reichweite=tag->find("Reichweite");
-   reichweite_0=Reichweite->getIntAttr("null");
-   reichweite_n=Reichweite->getIntAttr("nah");
-   reichweite_m=Reichweite->getIntAttr("mittel");
-   reichweite_f=Reichweite->getIntAttr("fern");
+   if (Reichweite)
+   {  reichweite_0=Reichweite->getIntAttr("null");
+      reichweite_n=Reichweite->getIntAttr("nah");
+      reichweite_m=Reichweite->getIntAttr("mittel");
+      reichweite_f=Reichweite->getIntAttr("fern");
+   }
 
    const Tag *Lernkosten=tag->find("Lernkosten");
-   lern_land=Lernkosten->getIntAttr("Land");
-   lern_stadt=Lernkosten->getIntAttr("Stadt");
+   if (Lernkosten)
+   {  lern_land=Lernkosten->getIntAttr("Land");
+      lern_stadt=Lernkosten->getIntAttr("Stadt");
+   }
 #endif
 
    if(Art()=="Verteidigung") erfolgswert=1;
@@ -154,7 +162,7 @@ void Waffe::get_Alias()
 //cout << Name()<<'\t'<<(*j).name<<'\t'<<(*j).region<<'\n';
 #else
     assert(tag);
-    FOR_EACH_TAG_OF(i,*tag,"regionaleVariante")
+    FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleVariante")
     {  int Angriff=0;
        const Tag *Modifikationen=i->find("Modifikationen");
        if (Modifikationen) Angriff=Modifikationen->getIntAttr("Angriff");
@@ -297,11 +305,11 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
  else
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
     double size=e-b;
-    FOR_EACH_TAG_OF_5(i,*waffen,b,e,"Waffe")
+    FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
     {  progressbar->set_percentage((i-b)/size);
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
        
-       FOR_EACH_TAG_OF(j,*i,"regionaleVariante")
+       FOR_EACH_CONST_TAG_OF(j,*i,"regionaleVariante")
           M[j->getAttr("Name")]=i->getAttr("Name");
     }
  }
@@ -423,7 +431,7 @@ Waffe_All::Waffe_All(Gtk::ProgressBar *progressbar)
  else
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
     double size=e-b;
-    FOR_EACH_TAG_OF_5(i,*waffen,b,e,"Waffe")
+    FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
     {  progressbar->set_percentage((i-b)/size);
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 // warum sowas? siehe Zauber.pgcc

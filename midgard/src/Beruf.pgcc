@@ -100,7 +100,7 @@ void Beruf::get_Beruf()
 
     const Tag *Vorteil=tag->find("Vorteil");
     if (Vorteil)
-       FOR_EACH_TAG_OF(i,*Vorteil,"Fertigkeit")
+       FOR_EACH_CONST_TAG_OF(i,*Vorteil,"Fertigkeit")
           vorteile.push_back(i->getAttr("Name"));
 #endif 
 }
@@ -191,7 +191,7 @@ Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
  else
  {  Tag::const_iterator b=berufe->begin(),e=berufe->end();
     double size=e-b;
-    FOR_EACH_TAG_OF_5(i,*berufe,b,e,"Beruf")
+    FOR_EACH_CONST_TAG_OF_5(i,*berufe,b,e,"Beruf")
     {  // if (!((++count)&31))
        {  progressbar->set_percentage((i-b)/size);
           while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
