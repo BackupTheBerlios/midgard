@@ -1,4 +1,4 @@
-// $Id: magusicons.cc,v 1.3 2003/05/06 07:10:41 christof Exp $
+// $Id: magusicons.cc,v 1.4 2003/05/06 07:46:41 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>
@@ -22,27 +22,29 @@ Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name)
          }
       }
       {  Glib::RefPtr<Gdk::Pixbuf> pb;
-         pb=images[key_t(Alessandro,"Gross_ark_pre.xpm")];
+         pb=images[key_t(Any,"Gross_ark_pre.xpm")];
          pb=pb->copy();
          pb->saturate_and_pixelate(pb,2.0,false);
-         images[key_t(Alessandro,"Gross_ark.light")]=pb;
-         pb=images[key_t(Alessandro,"Gross_dfr4_pre.xpm")];
+         images[key_t(Any,"Gross_ark.light")]=pb;
+         pb=images[key_t(Any,"Gross_dfr4_pre.xpm")];
          pb=pb->copy();
          pb->saturate_and_pixelate(pb,2.0,false);
-         images[key_t(Alessandro,"Gross_dfr4.light")]=pb;
-         pb=images[key_t(Alessandro,"Gross_kurai_pre.xpm")];
+         images[key_t(Any,"Gross_dfr4.light")]=pb;
+         pb=images[key_t(Any,"Gross_kurai_pre.xpm")];
          pb=pb->copy();
          pb->saturate_and_pixelate(pb,2.0,false);
-         images[key_t(Alessandro,"Gross_kurai.light")]=pb;
-         pb=images[key_t(Alessandro,"Gross_dfr3_pre.xpm")];
+         images[key_t(Any,"Gross_kurai.light")]=pb;
+         pb=images[key_t(Any,"Gross_dfr3_pre.xpm")];
          pb=pb->copy();
          pb->saturate_and_pixelate(pb,2.0,false);
-         images[key_t(Alessandro,"Gross_dfr3.light")]=pb;
+         images[key_t(Any,"Gross_dfr3.light")]=pb;
       }
    }
    map_t::const_iterator res=images.find(key_t(current_style,name));
    if (res!=images.end()) return res->second;
-   return images[key_t(Any,name)];
+   Glib::RefPtr<Gdk::Pixbuf> pb=images[key_t(Any,name)];
+   if (!pb) std::cerr << "MagusImage(\"" << name << "\") not found\n";
+   return pb;
 }
 
 void MagusIcons::set_icon_style(style st)
