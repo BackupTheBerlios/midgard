@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.42 2002/10/24 07:21:01 christof Exp $
+// $Id: xml.cc,v 1.43 2002/10/24 07:29:17 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -178,10 +178,10 @@ cerr << '\'' << i->first << "'='" << i->second << "' ";
 cerr << ")\n";
 #endif
 #ifdef PARANOIA
-{const xml_liste *std::list=suche_Tageigenschaften(listtag,elementtag);
- if (!std::list) std::cerr << "find_Tag " << listtag << ',' << elementtag << ": unbekannt\n";
+{const xml_liste *liste=suche_Tageigenschaften(listtag,elementtag);
+ if (!liste) std::cerr << "find_Tag " << listtag << ',' << elementtag << ": unbekannt\n";
  else
- {  const char * const *k=std::list->key;
+ {  const char * const *k=liste->key;
     std::vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();
     for (;*k && i!=anforderungen.end();++i,++k)
     {  if (*k!=i->first)
@@ -258,11 +258,11 @@ const struct xml_liste xml_tags[] =
    {  "Zauberwerke",	"Zauberwerk",	zauberwerk_matching },
    {  (const char*)0,	(const char*)0,	(const char*const*)0 }};
    
-const xml_liste *suche_Tageigenschaften(const std::string &std::list, const std::string &elem)
+const xml_liste *suche_Tageigenschaften(const std::string &liste, const std::string &elem)
 {  const xml_liste *result=xml_tags;
 //   std::cerr << "suche_Tageigenschaften " << art << '\n';
    for (;result->listtag;++result)
-      if (result->listtag==std::list && result->elementtag==elem) return result;
+      if (result->listtag==liste && result->elementtag==elem) return result;
    return 0;
 }
 

@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.17 2002/10/24 07:21:01 christof Exp $
+// $Id: customize_toolbars.cc,v 1.18 2002/10/24 07:33:26 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -107,9 +107,9 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
          CustomizeToolbars(*i,show_icons,show_text,tab_text);
 #endif
       // G_ListWrap<GtkTableChild*>
-      for (GList *std::list=GTK_TABLE(w->gtkobj())->children;std::list;
-      		std::list=list->next)
-      {  CustomizeToolbars(Gtk::wrap(((GtkTableChild*)(std::list->data))->widget),
+      for (GList *liste=GTK_TABLE(w->gtkobj())->children;liste;
+      		liste=list->next)
+      {  CustomizeToolbars(Gtk::wrap(((GtkTableChild*)(liste->data))->widget),
       		show_icons,show_text,tab_text);
       }
    }
