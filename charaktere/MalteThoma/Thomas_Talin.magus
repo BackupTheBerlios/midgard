@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Don Talian Bernado di Cigno y Carastelli da Allvera" Spieler="Thomas" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Rapier" Überleben="Überleben im Wald" Muttersprache="Neu-Vallinga" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="96" Gw="83" Gs="92" Ko="93" In="69" Zt="53"/>
+  <abgeleiteteEigenschaften Au="69" pA="25" Wk="68" Sb="50" B="23"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="16" AP="14"/>
+  <Beschreibung Alter="23" Gestalt="breit" Gewicht="85" Größe="177" Stand="Adel" Herkunft="Küstenstaaten" Glaube="Valian"/>
+  <Vermögen GS="7"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8">Name: Talian Fernando di Cigno y Carastelli da Allvera (2. Sohn)&#x0A;&#x0A;Vater: Don Fernando Francesco di Cigno y Carastelli da Allvera&#x0A;Mutter: Donna Tilia Maria di Garcia y Carastelli da Torbole&#x0A;&#x0A;Schwester: Cornelia Tilia di Cigno&#x0A;Bruder: Tresarion Francesco di Gigno (1.Sohn)&#x0A;&#x0A;Werdegang: Mit 6 Jahren beginnt die Ausbildung zum Fechter durch den alten Schwertmeister Don Alberto Julio di Garcia y Carastelli da Torbole&#x0A;Ab dem Alter von 12 beginnt die Ausbildung an anderen Waffengattungen und der Umgang mit Rüstung und Schild&#x0A;&#x0A;Nach Vollendung seiner Ausbildung tritt er in den Dienst des Tin-Ordens, doch leider hat ihn sein Gott nicht berührt,  sp dass ihm die Fähigkeit Magie zu wirken bislang verwehrt blieb. &#x0A;Trotzdem blieb er in dem Dienst als einfache Tempelwache. Dort verbrachte er etliche Jahre und erhielt nun den Auftrag, mit mehreren Ordenskriegern und Priestern eine heilige Reliquie,&#x0A;dem Fingerknochen des heiligen Don Antonio da Flagellati zum TinTempel in der Hauptstadt zu bringen. Danach ist er aufs erste vom Dienst freigestellt um seinen Weg zu machen.</Text>
+  <Ausrüstung>
+   <Rüstung>KR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Rapier"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Parierdolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="leichte Armbrust"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Stoßspeer"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Krummsäbel"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Rapier" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Parierdolch" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="leichte Armbrust" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Stoßspeer" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Krummsäbel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Reitpferd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="10"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="2"/>
+   <Beruf Bezeichnung="Wundheiler"/>
+   <Fertigkeit Bezeichnung="Kampf in Schlachtreihe" Wert="5"/>
+   <Fertigkeit Bezeichnung="Kampf in Vollrüstung" Wert="17"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+   <Fertigkeit Bezeichnung="Beidhändiger Kampf" Wert="4"/>
+   <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="16"/>
+   <Fertigkeit Bezeichnung="Athletik" Wert="6"/>
+   <Fertigkeit Bezeichnung="Wagenlenken" Wert="16"/>
+   <Fertigkeit Bezeichnung="Tanzen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Fechten" Wert="4"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="6"/>
+   <Waffe Bezeichnung="Rapier" Wert="7"/>
+   <Waffe Bezeichnung="Dolch" Wert="5"/>
+   <Waffe Bezeichnung="Parierdolch" Wert="1"/>
+   <Waffe Bezeichnung="Krummsäbel" Wert="5"/>
+   <Waffe Bezeichnung="leichte Armbrust" Wert="5"/>
+   <Waffe Bezeichnung="Faustkampf" Wert="5"/>
+   <Waffe Bezeichnung="Stoßspeer" Wert="5"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+   <Grundkenntnis Bezeichnung="Armbrust"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Parierwaffe"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="18"/>
+   <Sprache Bezeichnung="Chryseisch" Wert="12"/>
+   <Urschrift Bezeichnung="Neu-Vallinga" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

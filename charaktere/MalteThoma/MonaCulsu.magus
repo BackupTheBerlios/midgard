@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="???" Spieler="Mona" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="PT" Überleben="Überleben Heimat" Muttersprache="Neu-Vallinga" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="29" Gw="77" Gs="76" Ko="89" In="79" Zt="98"/>
+  <abgeleiteteEigenschaften Au="95" pA="100" Wk="97" Sb="90" B="25"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="18" AP="8"/>
+  <Beschreibung Alter="26" Gestalt="schlank" Gewicht="56" Größe="163" Stand="Adel" Herkunft="Küstenstaaten" Glaube="Culsu"/>
+  <Vermögen GS="57"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Kurzschwert" AngriffVerteidigung_Bonus="1"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Kurzschwert"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Robe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="weiß, Baumwolle, Adel" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gemme aus weißem Quarz" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Umhang" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="weiß, Wolle, Adel" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder, Adel" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder, Adel" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Ledergürteltasche für 20 Münzen" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel für 20 Münzen" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   </Gegenstand>
+   <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.500000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Robe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="weiß, Leinen, Adel" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Erste Hilfe-Ausrüstung" Beschreibung="" Region="" Gewicht="1.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Rechtsgelehrter"/>
+   <ang-Fertigkeit Bezeichnung="Robustheit" Wert="9"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="6"/>
+   <Fertigkeit Bezeichnung="Giftmischen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Kampf in Dunkelheit" Wert="2"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz="Küstenstaaten"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="12"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="4"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Verhören" Wert="10"/>
+   <Waffe Bezeichnung="Kurzschwert" Wert="4"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="4"/>
+   <Zauber Bezeichnung="Bannen von Licht"/>
+   <Zauber Bezeichnung="Erkennen der Aura"/>
+   <Zauber Bezeichnung="Verfluchen"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Heiliger Zorn"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="18"/>
+   <Sprache Bezeichnung="Maralinga" Wert="12"/>
+   <Sprache Bezeichnung="Vallinga" Wert="12"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="4"/>
+   <Urschrift Bezeichnung="Neu-Vallinga" Wert="12"/>
+   <Urschrift Bezeichnung="Maralinga" Wert="12"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

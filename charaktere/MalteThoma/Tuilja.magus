@@ -8,7 +8,7 @@
   <abgeleiteteEigenschaften Au="75" pA="87" Wk="1" Sb="16" B="24" GG="1" SG="3"/>
   <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="10"/>
   <Gesundheit LP="19" AP="39"/>
-  <Beschreibung Alter="23" Gestalt="schlank" Gewicht="53" Größe="159" Stand="Volk" Herkunft="Erainn" Glaube="an sich selbst"/>
+  <Beschreibung Alter="23" Gestalt="schlank" Gewicht="53" Größe="159" Stand="Volk" Merkmale="Edelsteinsplitter (2xGold, 2xBlau) je 100 GS" Herkunft="Erainn" Glaube="an sich selbst"/>
   <Vermögen GS="133"/>
   <Steigern GFP="4300" AEP="170" KEP="15" benötigte_Tage="131">
    <Praxispunkte/>
@@ -17,10 +17,21 @@
   <Ausrüstung>
    <Rüstung>TR</Rüstung>
    <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="12" Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="1"/>
-   <Waffe Erfolgswert="12" Bezeichnung="Dolch"/>
-   <Waffe Erfolgswert="3" Bezeichnung="Parierdolch"/>
-   <Waffe Erfolgswert="10" Bezeichnung="Wurfmesser"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="1"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Parierdolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Wurfmesser"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
   </Ausrüstung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="10"/>

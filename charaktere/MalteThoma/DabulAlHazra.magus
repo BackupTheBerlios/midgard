@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Dabul Al Hazra" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Hä" Überleben="Überleben in der Wüste" Muttersprache="Scharidisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="72" Gw="84" Gs="86" Ko="75" In="94" Zt="37"/>
+  <abgeleiteteEigenschaften Au="65" pA="73" Wk="86" Sb="35" B="27"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="15" AP="7"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="81" Größe="185" Stand="Volk" Herkunft="Eschar"/>
+  <Vermögen GS="8"/>
+  <Steigern GFP="10" benötigte_Tage="1">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="schwere Armbrust"/>
+   <Waffe Erfolgswert="0" Bezeichnung="kleiner Schild" AngriffVerteidigung_Bonus="1"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Krummsäbel"/>
+   <Gegenstand Anzahl="1" Bezeichnung="schwere Armbrust" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="kleiner Schild" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Krummsäbel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Dietriche und Nachschlüssel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Beruf Bezeichnung="Bote"/>
+   <ang-Fertigkeit Bezeichnung="Einprägen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Geschäftstüchtigkeit" Wert="9"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="5"/>
+   <Fertigkeit Bezeichnung="Beredsamkeit" Wert="8"/>
+   <Fertigkeit Bezeichnung="Schätzen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Rechnen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Verhören" Wert="8"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Schlösser öffnen" Wert="7"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="4"/>
+   <Waffe Bezeichnung="Peitsche" Wert="5"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+   <Waffe Bezeichnung="Krummsäbel" Wert="5"/>
+   <Waffe Bezeichnung="schwere Armbrust" Wert="5"/>
+   <Waffe Bezeichnung="Dolch" Wert="4"/>
+   <Grundkenntnis Bezeichnung="Armbrust"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Peitsche"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="19"/>
+   <Sprache Bezeichnung="Comentang" Wert="13"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="12"/>
+   <Urschrift Bezeichnung="Comentang" Wert="4"/>
+   <Urschrift Bezeichnung="Scharidisch" Wert="10"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="true"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
