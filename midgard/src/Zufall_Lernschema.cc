@@ -23,19 +23,29 @@
 #include "WaffeGrund.hh"
 #include "class_lernpunkte.hh"
 
+enum Zufall::eFAUWZ &operator++(enum Zufall::eFAUWZ &s)
+{  return (enum Zufall::eFAUWZ)(++(int&)s);
+}
+
+
 void Zufall::Lernschema()
 {
   Lernpunkte lernpunkte;
   Lernpunkte_wuerfeln(lernpunkte,Aben,random);
   st_LL FAUWZ_Listen=getLernlisten();
 
-  Lernpunkte_verteilen(FAUWZ_Listen.Waff,lernpunkte.Waffen());
+  if(Aben->Typ1()->getLernpflichtSchrift() || Aben->Typ2()->getLernpflichtSchrift())
+   {
+     int i=random.integer(1,2);
+     if     (i==1) lernpunkte.set_schreiben_pflicht_allg(true);
+     else if(i==2) lernpunkte.set_schreiben_pflicht_fach(true);
+   }
+
+  for(eFAUWZ i=eWaffen;i<eMAX;++i)
+     Lernpunkte_verteilen(i,lernpunkte,FAUWZ_Listen);
+
   setSpezialwaffe();
-  Lernpunkte_verteilen(FAUWZ_Listen.Zaub,lernpunkte.Zauber());
   setSpezialgebiet();
-  Lernpunkte_verteilen(FAUWZ_Listen.Fach,lernpunkte.Fach());
-  Lernpunkte_verteilen(FAUWZ_Listen.Allg,lernpunkte.Allgemein(),false);
-  Lernpunkte_verteilen(FAUWZ_Listen.Unge,lernpunkte.Unge());
 }
 
 void Zufall::setSpezialwaffe()
@@ -80,8 +90,21 @@ std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicEl
   return V;
 }
 
-void Zufall::Lernpunkte_verteilen(std::list<MidgardBasicElement_mutable> L,int lp,bool ungew)
+void Zufall:: Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte,const st_LL &Listen)
 {
+ std::list<MidgardBasicElement_mutable> L;
+ int lp=0;
+ bool nachbarland=false;
+ bool mutter_12=false,mutter_9=false;
+ switch (was) {
+   case eWaffen: lp=lernpunkte.Waffen(); L=Listen.Waff; break;
+   case eZauber: lp=lernpunkte.Zauber(); L=Listen.Zaub; break;
+   case eFach:   lp=lernpunkte.Fach();   L=Listen.Fach; mutter_12=lernpunkte.get_schreiben_pflicht_fach(); break;
+   case eAllg:   lp=lernpunkte.Allgemein(); L=Listen.Allg; nachbarland=true; mutter_9=lernpunkte.get_schreiben_pflicht_allg();break;
+   case eUnge:   lp=lernpunkte.Unge();   L=Listen.Unge; break;
+   default: return;
+  }
+
 reloop:
   L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::LERNPUNKTEPFLICHT));
   std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,lp); // Lernpunkte und Vorraussetzungen
@@ -89,14 +112,35 @@ reloop:
    {
      if(V.begin()==V.end()) break;
      int i;
+     std::vector<MidgardBasicElement_mutable>::const_iterator ci;
+     try{
      if(V[0].Lernpunkte()==0) i=0;  // Fertigkeiten mit '0' Lernpunkten 
      else if(V[0].Pflicht()) i=0;   // Pflichtfertigkeiten 
+     else if(was==eAllg && mutter_9) 
+       { ci=find(V.begin(),V.end(),MidgardBasicElement_mutable(&*cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
+         if(ci==V.end()) assert(!"Muttersprache nicht im Lernschema gefunden");
+         i=-1;
+         mutter_9=false;
+//cout << Aben->Typ1()->Name(Enums::Mann) <<" lernt Allgemeine Sprache\n";
+       }
+     else if(was==eFach && mutter_12) 
+       { ci=find(V.begin(),V.end(),MidgardBasicElement_mutable(&*cH_Fertigkeit("Schreiben: Muttersprache(+12)")));
+         if(ci==V.end()) 
+            { cerr << "Zu blöd für Schreiben: Muttersprache(+12)\n";
+              const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
+              throw std::exception();
+            }
+         i=-1;
+         mutter_12=false;
+//cout << Aben->Typ1()->Name(Enums::Mann) <<" lernt Fach Sprache\n";
+       }
      else i=random.integer(0,V.size()-1);
-
+     }catch(std::exception &e){cerr << e.what()<<'\n';i=random.integer(0,V.size()-1);} 
 //if(i==0)
 //cout << V[0]->Name()<<'\t'<<V[0].Lernpunkte()<<'\t'<<V[0].Pflicht()<<'\n';
-
-     MidgardBasicElement_mutable M=V[i];
+     MidgardBasicElement_mutable M=V[0];
+     if(i==-1)  M=*ci;
+     else       M=V[i];
 
      L.remove(M); // Die nächste Methode ändert 'M' daher muß es HIER entfernt werden
 
@@ -110,7 +154,7 @@ reloop:
 
      // Fertigkeit/Zauber mit Zusätzen
      if(M->ZusatzEnum(Aben->getVTyp())) 
-          M=getZusatz(M->ZusatzEnum(Aben->getVTyp()),M);
+          M=getZusatz(M->ZusatzEnum(Aben->getVTyp()),M,nachbarland);
 
      if(M.Lernpunkte()<=lp)
       {
@@ -164,7 +208,7 @@ Zufall::st_LL Zufall::getLernlisten()
 
 
 
-MidgardBasicElement_mutable Zufall::getZusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE,bool ungew) const
+MidgardBasicElement_mutable Zufall::getZusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE,bool nachbarland) const
 {
 //cout << "Zusatz für "<<MBE->Name()<<'\n';
   std::vector<MidgardBasicElement::st_zusatz> VG;
@@ -173,7 +217,7 @@ MidgardBasicElement_mutable Zufall::getZusatz(MidgardBasicElement::eZusatz was,M
 //     case MidgardBasicElement::ZHerkunft:
      case MidgardBasicElement::ZUeberleben: VG=LL.getUeberlebenZusatz();break;
      case MidgardBasicElement::ZLand:       VG=LL.getLandZusatz(); break;
-     case MidgardBasicElement::ZSprache:    VG=LL.getSprachenZusatz(MBE,Aben,!ungew); break;
+     case MidgardBasicElement::ZSprache:    VG=LL.getSprachenZusatz(MBE,Aben,nachbarland); break;
      case MidgardBasicElement::ZSchrift:    VG=LL.getSchriftenZusatz(MBE,Aben); break;
      case MidgardBasicElement::ZWaffe:      VG=LL.getWaffenZusatz(Aben.List_Waffen()); break;
      case MidgardBasicElement::ZTabelle:    VG=MBE->VZusatz(); break;

@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.28 2002/09/11 11:09:22 thoma Exp $               
+// $Id: Typen.hh,v 1.29 2002/09/15 09:47:17 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,12 +52,14 @@ private:
    std::vector<st_herkunft> vec_herkunft;
    std::vector<std::string> vec_gruppe;
    std::string lernpflichten_info;
+   bool lernpflicht_schrift;
 
 public:
    Typen(const Tag *tag);
    Typen() : typnr(0),stand(0),sb(0),ruestung(0),geld(0),
          stadt(true),land(true),nsc_only(false),
-         min_st(0),min_gw(0),min_gs(0),min_in(0),min_pa(0) {}
+         min_st(0),min_gw(0),min_gs(0),min_in(0),min_pa(0),
+         lernpflicht_schrift(false) {}
    
    std::string Name(const Enums::geschlecht& geschlecht) const 
       { if (geschlecht==Enums::Mann) return typl; else return typlw;}
@@ -86,7 +88,7 @@ public:
    const std::vector<std::string> &get_vec_gruppe() const {return vec_gruppe;}
    bool Gruppe(const std::string &gruppe) const;
    std::string getLernpflichtenInfo(cH_Land herkunft) const;
-
+   bool getLernpflichtSchrift() const {return lernpflicht_schrift;}
 
    bool is_mage() const 
     { if(Zaubern()=="z" || Zaubern()=="j") return true; else return false; } 

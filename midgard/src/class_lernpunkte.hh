@@ -23,12 +23,15 @@
 
 class Lernpunkte {
 
-int fach, waffen, allgemein, unge, zauber;
+ int fach, waffen, allgemein, unge, zauber;
+ bool schreiben_pflicht_allg, schreiben_pflicht_fach;
 
 public:
-   Lernpunkte():fach(0),waffen(0),allgemein(0),unge(0),zauber(0){}
+   Lernpunkte():fach(0),waffen(0),allgemein(0),unge(0),zauber(0),
+   schreiben_pflicht_allg(false),schreiben_pflicht_fach(false){}
    Lernpunkte(int f, int w, int a,int u, int z)
-      :fach(f),waffen(w),allgemein(a),unge(0),zauber(z){}
+      :fach(f),waffen(w),allgemein(a),unge(0),zauber(z),
+      schreiben_pflicht_allg(false),schreiben_pflicht_fach(false){}
 
    void clear() {fach=0;waffen=0;allgemein=0;unge=0;zauber=0;}
 
@@ -50,6 +53,12 @@ public:
    void addUnge(int i) {unge +=i;}
    void addZauber(int i) {zauber +=i;}
 
+   bool get_schreiben_pflicht_allg() const {return schreiben_pflicht_allg;}
+   bool get_schreiben_pflicht_fach() const {return schreiben_pflicht_fach;}
+
+   void set_schreiben_pflicht_allg(bool b) {schreiben_pflicht_allg=b;}
+   void set_schreiben_pflicht_fach(bool b) {schreiben_pflicht_fach=b;}
+   
 };
 
 

@@ -70,6 +70,7 @@ Typen::Typen(const Tag *tag)
  nsc_only=tag->getBoolAttr("NSC_only",false);
  kultwaffe=tag->getBoolAttr("Kultwaffe",false);
  lernpflichten_info=tag->getAttr("Lernpflichten");
+ lernpflicht_schrift=tag->getBoolAttr("SchreibenPflicht");
  min_st=tag->getIntAttr("MinSt");
  min_gw=tag->getIntAttr("MinGw");
  min_gs=tag->getIntAttr("MinGs");

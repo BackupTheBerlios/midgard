@@ -6,15 +6,17 @@ NEWS IN VERSION 0.8.2
    - Spezialwaffe, Spezialgebiet
    - gewürfelte 100 bei angeborenen Fertigkeiten wird berücksichtigt
    - Beruf + Berufsfertigkeit(en)
+   - Schreiben+9 als Pflichtebdingung
 * Neue Routine um Icons und Text der Knöpfe zu wechseln
 * Ulf Würfel-Icon ist jetzt überall wo gewürfelt wird.
 * Waffenbesitz wieder möglich
 * Wizard Icon jetzt erscheint jetzt zuverlässig
+* Falsche Länder (die zum Absturz führten) aus Datenbank entfernt
 
 TODO: ('-' zeigt CP an)
 
-* Zufallsabenteurer Grad 1:
-   # Schreiben+9 als Pflichtebdingung
+* Lernen von Schreiben: Muttersprache ist nicht immer wirklich die
+   Muttersprache
 * Schwarzer Balken im Lernschema bei Maximierung
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 

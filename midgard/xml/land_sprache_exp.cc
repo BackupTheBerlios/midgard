@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.50 2002/07/08 10:09:32 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.51 2002/09/15 09:47:17 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -232,7 +232,8 @@ void land_speichern(Tag &o)
 //********************** typen ****************************************
    Tag &Typen=o.push_back(Tag("Typen"));
   {Query query("select typs, region, typnr, typl, typlw, "
-  		"typz, sprueche_mit_pp, nsc_only,kultwaffe,lernpflichten, st,gw,gs,\"in\",pa ,beruf, "
+  		"typz, sprueche_mit_pp, nsc_only,kultwaffe,lernpflichten,schreiben_pflicht,"
+  		"st,gw,gs,\"in\",pa ,beruf, "
   		"stadt_land, ausdauer, stand, sb, ruestung, geld "
    	" from typen"
    	" where coalesce(region,'')='"+region+"'"
@@ -251,6 +252,7 @@ void land_speichern(Tag &o)
    fetch_and_set_bool_attrib(is, Typ, "NSC_only");
    fetch_and_set_bool_attrib(is, Typ, "Kultwaffe");
    fetch_and_set_string_attrib(is, Typ, "Lernpflichten");
+   fetch_and_set_bool_attrib(is, Typ, "SchreibenPflicht");
    fetch_and_set_int_attrib(is, Typ, "MinSt");
    fetch_and_set_int_attrib(is, Typ, "MinGw");
    fetch_and_set_int_attrib(is, Typ, "MinGs");
