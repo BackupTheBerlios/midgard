@@ -1,40 +1,40 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="H&amp;Df" Name="H&amp;D (Finstere Magie)" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes" Jahr="1994" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="11" MAGUS-Bild="14" CVS="$Revision: 1.12 $">
+<MAGUS-data Region="H&amp;Df" Name="H&amp;D (Finstere Magie)" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes" Jahr="1994" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="11" MAGUS-Bild="14" CVS="$Revision: 1.13 $">
  <Fertigkeiten/>
  <Berufe/>
  <Schriften/>
  <Sprachen/>
  <Typen/>
- <Rüstungen/>
+ <RÃ¼stungen/>
  <Waffen/>
  <Waffen-Grundkenntnisse/>
  <Zauber>
-  <Spruch Name="Alpträume" Region="H&amp;Df" Grad="4" Lernkosten="1500" AP="2*Gr" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 min" Reichweite="500 m" Wirkungsziel="Geist" Wirkungsbereich="1-4 Ws" Wirkungsdauer="var" NSC_only="true">
+  <Spruch Name="AlptrÃ¤ume" Region="H&amp;Df" Grad="4" Lernkosten="1500" AP="2*Gr" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="1 min" Reichweite="500 m" Wirkungsziel="Geist" Wirkungsbereich="1-4 Ws" Wirkungsdauer="var" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 2 je Ws. Das Opfer hat Alpträume. Jeden Tag einen WW:psy möglich. Solange der Zauber wirkt, werden keine AP regeneriert. Nach mehr Tagen als Grad Opfer siehe Entbehrungsregeln.</Beschreibung>
+   <Beschreibung>GZ 2 je Ws. Das Opfer hat AlptrÃ¤ume. Jeden Tag einen WW:psy mÃ¶glich. Solange der Zauber wirkt, werden keine AP regeneriert. Nach mehr Tagen als Grad Opfer siehe Entbehrungsregeln.</Beschreibung>
   </Spruch>
-  <Spruch Name="Altern" Region="H&amp;Df" Grad="6" Lernkosten="5000" AP="var" Typ="Geste" Ursprung="finster" Agens="Eis" Prozess="verändert" Reagens="Erde" Zauberdauer="2 min" Reichweite="10 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Tag" Material="Zu Staub zerfallene Schädelknochen" NSC_only="true">
+  <Spruch Name="Altern" Region="H&amp;Df" Grad="6" Lernkosten="5000" AP="var" Typ="Geste" Ursprung="finster" Agens="Eis" Prozess="verÃ¤ndert" Reagens="Erde" Zauberdauer="2 min" Reichweite="10 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Tag" Material="Zu Staub zerfallene SchÃ¤delknochen" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 30. Der Zauber läßt das Opfer schnell altern. Benötigt einen persönlichen Gegenstand des Opfers und muß ihn für die Dauer des Zaubers auf der Haut tragen. Für 1/5/20 Jahre muß der Zauberer 2/10/40 AP aufwenden. Pro Tag der Wirkung sind weitere 5 AP notwendig. Dagegen wirkt Bannen von Zauberwerk und Allheilung/Austreibung des Bösen. Beides muß innerhalb einer Stunde erfolgreich sein. Bannen von Zauberwerk beendet den Alterungsprozess. Weitere Moglichskeiten sind eigenhändiges Töten des Finstermagiers, der Magier hebt den Spruch freiwillig auf oder der Hautkontakt des Gegenstandes wird beendet.</Beschreibung>
+   <Beschreibung>GZ 30. Der Zauber lÃ¤Ã&#x9F;t das Opfer schnell altern. BenÃ¶tigt einen persÃ¶nlichen Gegenstand des Opfers und muÃ&#x9F; ihn fÃ¼r die Dauer des Zaubers auf der Haut tragen. FÃ¼r 1/5/20 Jahre muÃ&#x9F; der Zauberer 2/10/40 AP aufwenden. Pro Tag der Wirkung sind weitere 5 AP notwendig. Dagegen wirkt Bannen von Zauberwerk und Allheilung/Austreibung des BÃ¶sen. Beides muÃ&#x9F; innerhalb einer Stunde erfolgreich sein. Bannen von Zauberwerk beendet den Alterungsprozess. Weitere Moglichskeiten sind eigenhÃ¤ndiges TÃ¶ten des Finstermagiers, der Magier hebt den Spruch freiwillig auf oder der Hautkontakt des Gegenstandes wird beendet.</Beschreibung>
   </Spruch>
-  <Spruch Name="Dämonenhand" Region="H&amp;Df" Grad="G" Lernkosten="10000" AP="alle" Typ="Wort" Ursprung="finster" Agens="Feuer" Prozess="bewegt" Reagens="Metall" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var" NSC_only="true">
+  <Spruch Name="DÃ¤monenhand" Region="H&amp;Df" Grad="G" Lernkosten="10000" AP="alle" Typ="Wort" Ursprung="finster" Agens="Feuer" Prozess="bewegt" Reagens="Metall" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 20. Der Zauberer beschwört eine riesige Dämonenhand, die das Opfer ergreift und in seine Dimension zieht. Das Opfer kann mit einenm PW-(5*Grad):RW ausweichen. Dann 20&#x25; Chance, dass der ganze Dämon erscheint.</Beschreibung>
+   <Beschreibung>GZ 20. Der Zauberer beschwÃ¶rt eine riesige DÃ¤monenhand, die das Opfer ergreift und in seine Dimension zieht. Das Opfer kann mit einenm PW-(5*Grad):RW ausweichen. Dann 20&#x25; Chance, dass der ganze DÃ¤mon erscheint.</Beschreibung>
   </Spruch>
-  <Spruch Name="Dämonenkreis" Region="H&amp;Df" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="finster" Agens="Feuer" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="20 s" Reichweite="50 m" Wirkungsziel="Körper" Wirkungsbereich="1m Uk" Wirkungsdauer="2 h" Material="Giftige Waldpilze" NSC_only="true">
+  <Spruch Name="DÃ¤monenkreis" Region="H&amp;Df" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="finster" Agens="Feuer" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="20 s" Reichweite="50 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1m Uk" Wirkungsdauer="2 h" Material="Giftige Waldpilze" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
   </Spruch>
-  <Spruch Name="Erdrosseln" Region="H&amp;Df" Grad="3" Lernkosten="500" AP="1*Runde" Typ="Geste" Ursprung="finster" Agens="Luft" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="50 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" NSC_only="true">
+  <Spruch Name="Erdrosseln" Region="H&amp;Df" Grad="3" Lernkosten="500" AP="1*Runde" Typ="Geste" Ursprung="finster" Agens="Luft" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="50 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 3. Das Opfer spürt einen eisernen Griff um seine Kehle und kann nicht mehr atmen. 3 AP pro Runde. Ab er vierten Runde ein EW:Tauchen, falls mißlungen, verliert das Opfer das Bewußtsein und 2 LP pro Runde. Dem Opfer stehen alle zwei Runden ein WW:phs zu.</Beschreibung>
+   <Beschreibung>GZ 3. Das Opfer spÃ¼rt einen eisernen Griff um seine Kehle und kann nicht mehr atmen. 3 AP pro Runde. Ab er vierten Runde ein EW:Tauchen, falls miÃ&#x9F;lungen, verliert das Opfer das BewuÃ&#x9F;tsein und 2 LP pro Runde. Dem Opfer stehen alle zwei Runden ein WW:phs zu.</Beschreibung>
   </Spruch>
-  <Spruch Name="Farbensalz" Region="H&amp;Df" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="finster" Agens="Magan" Prozess="verändert" Reagens="Holz" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="50x50cm" Wirkungsdauer="3 h" Spruchrolle="true" NSC_only="true">
+  <Spruch Name="Farbensalz" Region="H&amp;Df" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="finster" Agens="Magan" Prozess="verÃ¤ndert" Reagens="Holz" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="50x50cm" Wirkungsdauer="3 h" Spruchrolle="true" NSC_only="true">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="To"/>
@@ -61,40 +61,40 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Finsterer Blick" Region="H&amp;Df" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 s" Reichweite="12 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" NSC_only="true">
+  <Spruch Name="Finsterer Blick" Region="H&amp;Df" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="1 s" Reichweite="12 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
    <Beschreibung>GZ 0. Das Oper hat fuer 1 h WM-4 auf alle EW und WW. Wenn das Oper eine geringere Int als der Finstermagier hat und im Augenblick des Zauber dem Finstermagier in die Augen schaut, muss es auch einen WW:psy gegen Angst machen.</Beschreibung>
   </Spruch>
-  <Spruch Name="Firzars Zorn" Region="H&amp;Df" Grad="6" Lernkosten="5000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" NSC_only="true">
+  <Spruch Name="Firzars Zorn" Region="H&amp;Df" Grad="6" Lernkosten="5000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 20. Erzeugt Flammensäule(5m Höhe und 2m Durchmesser). Bei erfolgreichem WW:phk 3W6 AP, sonst 4W6 Schaden(Rüstung hilft). Mit gelungenem PW:HGW/2 kann das Opfer die Säule verlassen und erleidet weitere 2W6 AP. Wenn das Opfer mehr als 1/3 der LPs verliert, erblindet jedes Auge mit 20&#x25; und 2W6 Punkte Au und pA. Im Falle eines kritischen Fehlers des Zauberers umhüllt die Säule den Finstermagier.</Beschreibung>
+   <Beschreibung>GZ 20. Erzeugt FlammensÃ¤ule(5m HÃ¶he und 2m Durchmesser). Bei erfolgreichem WW:phk 3W6 AP, sonst 4W6 Schaden(RÃ¼stung hilft). Mit gelungenem PW:HGW/2 kann das Opfer die SÃ¤ule verlassen und erleidet weitere 2W6 AP. Wenn das Opfer mehr als 1/3 der LPs verliert, erblindet jedes Auge mit 20&#x25; und 2W6 Punkte Au und pA. Im Falle eines kritischen Fehlers des Zauberers umhÃ¼llt die SÃ¤ule den Finstermagier.</Beschreibung>
   </Spruch>
-  <Spruch Name="Flucht des Geistes" Region="H&amp;Df" Grad="5" Lernkosten="4000" AP="9" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="Zauberer" Wirkungsdauer="var" NSC_only="true">
-   <Standard Typ="PC"/>
-   <Standard Typ="sHx"/>
-  </Spruch>
-  <Spruch Name="Fäulnis" Region="H&amp;Df" Grad="2" Lernkosten="1500" AP="2" Typ="Geste" Ursprung="finster" Agens="Magan" Prozess="zerstört" Reagens="Erde" Zauberdauer="10 s" Reichweite="24 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="var" Material="Faules Holz" NSC_only="true">
-   <Standard Typ="PC"/>
-   <Standard Typ="sHx"/>
-   <Beschreibung>GZ 1. Totes organisches Material verfault rapide. Obst in 2 min, eine Eichentuür in 2 h. Der Zauberer kann nur 3 kg * Grad verfaulen lassen.</Beschreibung>
-  </Spruch>
-  <Spruch Name="Geister der Finsternis" Region="H&amp;Df" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="200 m" Wirkungsziel="Geist" Wirkungsbereich="0" Wirkungsdauer="10 min" Material="Marder- oder Fledermaus-schädel" NSC_only="true">
+  <Spruch Name="Flucht des Geistes" Region="H&amp;Df" Grad="5" Lernkosten="4000" AP="9" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="Zauberer" Wirkungsdauer="var" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
   </Spruch>
-  <Spruch Name="Geistesschlüssel" Region="H&amp;Df" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" NSC_only="true">
+  <Spruch Name="FÃ¤ulnis" Region="H&amp;Df" Grad="2" Lernkosten="1500" AP="2" Typ="Geste" Ursprung="finster" Agens="Magan" Prozess="zerstÃ¶rt" Reagens="Erde" Zauberdauer="10 s" Reichweite="24 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="var" Material="Faules Holz" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 8. Dem Opfer können mehrere Befehle, max 8x8 Worte, denen es sich nicht bewusst ist, aufgetragen werden. Wird mit Schlüsselwort ausgelöst. Maximale Dauer 8x8 h. Mit Bannen von Finsterwerk kann der Zauber aufgehoben werden.</Beschreibung>
+   <Beschreibung>GZ 1. Totes organisches Material verfault rapide. Obst in 2 min, eine EichentuÃ¼r in 2 h. Der Zauberer kann nur 3 kg * Grad verfaulen lassen.</Beschreibung>
   </Spruch>
-  <Spruch Name="Globus der Finsternis" Region="H&amp;Df" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="10 min" Material="Ebenholzkugel, Obsidiankugel, schwarze Perle" NSC_only="true">
+  <Spruch Name="Geister der Finsternis" Region="H&amp;Df" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="10 s" Reichweite="200 m" Wirkungsziel="Geist" Wirkungsbereich="0" Wirkungsdauer="10 min" Material="Marder- oder Fledermaus-schÃ¤del" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 2. Um den Finstermagier ensteht eine 6m durchmessende schwarze Späre. Der Magier kann ungehindert hinaussehen, ist selbst aber nicht sichtbar. Maximal B4. Wenn ein Wesen die Sphäre betritt, muss es 3 WW:psy machen. Wenn ein WW gelingt, müssen die weiteren nicht gemacht werden. WM 0/+2/+4 fuer Ebenholzkugel, WM -2/0/+2 Obidiankugel und WM -4/-2/0 fuer schwarze Perle. Gute Wesen haben WM+4. Die Zauber der 3 WW sind Angst, Namenloses Grauen und Wahnsinn.</Beschreibung>
   </Spruch>
-  <Spruch Name="Glühsalz" Region="H&amp;Df" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="finster" Agens="Feuer" Prozess="erschafft" Reagens="Feuer" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsdauer="10 s" Spruchrolle="true" NSC_only="true">
+  <Spruch Name="GeistesschlÃ¼ssel" Region="H&amp;Df" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" NSC_only="true">
+   <Standard Typ="PC"/>
+   <Standard Typ="sHx"/>
+   <Beschreibung>GZ 8. Dem Opfer kÃ¶nnen mehrere Befehle, max 8x8 Worte, denen es sich nicht bewusst ist, aufgetragen werden. Wird mit SchlÃ¼sselwort ausgelÃ¶st. Maximale Dauer 8x8 h. Mit Bannen von Finsterwerk kann der Zauber aufgehoben werden.</Beschreibung>
+  </Spruch>
+  <Spruch Name="Globus der Finsternis" Region="H&amp;Df" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="10 min" Material="Ebenholzkugel, Obsidiankugel, schwarze Perle" NSC_only="true">
+   <Standard Typ="PC"/>
+   <Standard Typ="sHx"/>
+   <Beschreibung>GZ 2. Um den Finstermagier ensteht eine 6m durchmessende schwarze SpÃ¤re. Der Magier kann ungehindert hinaussehen, ist selbst aber nicht sichtbar. Maximal B4. Wenn ein Wesen die SphÃ¤re betritt, muss es 3 WW:psy machen. Wenn ein WW gelingt, mÃ¼ssen die weiteren nicht gemacht werden. WM 0/+2/+4 fuer Ebenholzkugel, WM -2/0/+2 Obidiankugel und WM -4/-2/0 fuer schwarze Perle. Gute Wesen haben WM+4. Die Zauber der 3 WW sind Angst, Namenloses Grauen und Wahnsinn.</Beschreibung>
+  </Spruch>
+  <Spruch Name="GlÃ¼hsalz" Region="H&amp;Df" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="finster" Agens="Feuer" Prozess="erschafft" Reagens="Feuer" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsdauer="10 s" Spruchrolle="true" NSC_only="true">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="To"/>
@@ -121,60 +121,60 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Höllenbote rufen" Region="H&amp;Df" Grad="5" Lernkosten="3500" AP="alle(mind 9)" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 h" Reichweite="100 km" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Element="Eis" NSC_only="true">
+  <Spruch Name="HÃ¶llenbote rufen" Region="H&amp;Df" Grad="5" Lernkosten="3500" AP="alle(mind 9)" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="1 h" Reichweite="100 km" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Element="Eis" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 15.Der Zauber muss eine Stunde nach Mitternacht gewirkt werden. Ruft einen Höllenboten herbei. Der Magier muss den Aufenthaltsort des Opfers angeben(max 100 km weg, mit 500m Genauigkeit). Der Höllenbote macht dann sofort Jagd auf das Opfer. Wenn er es nicht finden kann(wonanders, tot), kommt es zurueck und greift den Finstermagier an.</Beschreibung>
+   <Beschreibung>GZ 15.Der Zauber muss eine Stunde nach Mitternacht gewirkt werden. Ruft einen HÃ¶llenboten herbei. Der Magier muss den Aufenthaltsort des Opfers angeben(max 100 km weg, mit 500m Genauigkeit). Der HÃ¶llenbote macht dann sofort Jagd auf das Opfer. Wenn er es nicht finden kann(wonanders, tot), kommt es zurueck und greift den Finstermagier an.</Beschreibung>
   </Spruch>
-  <Spruch Name="Höllenfeuer" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="4*#" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="15 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="0" Material="Pech und Schwefel" NSC_only="true">
+  <Spruch Name="HÃ¶llenfeuer" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="4*#" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="15 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="0" Material="Pech und Schwefel" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 3. Der Magier kann von bis zu Grad Fingerspitzen Flammenzungen schwarzen Feuers aussenden. Bei gelungenem WW:phk 1W6 AP, sonst 2W6+2 AP und 1W6 LP. Rüstung schützt nicht. Körperlose, gute Priester und andere vergleichbare Wesen sind immun gegen den Zauber.</Beschreibung>
+   <Beschreibung>GZ 3. Der Magier kann von bis zu Grad Fingerspitzen Flammenzungen schwarzen Feuers aussenden. Bei gelungenem WW:phk 1W6 AP, sonst 2W6+2 AP und 1W6 LP. RÃ¼stung schÃ¼tzt nicht. KÃ¶rperlose, gute Priester und andere vergleichbare Wesen sind immun gegen den Zauber.</Beschreibung>
   </Spruch>
-  <Spruch Name="Höllenglocke" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="alle(mind 9)" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 km" Wirkungsdauer="0" NSC_only="true">
+  <Spruch Name="HÃ¶llenglocke" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="alle(mind 9)" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 km" Wirkungsdauer="0" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 5. Über dem Kopf des Finstermagiers erscheint eine Glocke, die läutet. Alle Wesen in Reichweite verlieren bei mislungenem WW:phk 2W6 LP und AP, sonst 1W6 AP. Andere Finstermagier werden mit Grad*5&#x25; in die Hölle versetzt. Gute Priester und vergleichbare übernatürliche Wesen sind immun.</Beschreibung>
+   <Beschreibung>GZ 5. Ã&#x9C;ber dem Kopf des Finstermagiers erscheint eine Glocke, die lÃ¤utet. Alle Wesen in Reichweite verlieren bei mislungenem WW:phk 2W6 LP und AP, sonst 1W6 AP. Andere Finstermagier werden mit Grad*5&#x25; in die HÃ¶lle versetzt. Gute Priester und vergleichbare Ã¼bernatÃ¼rliche Wesen sind immun.</Beschreibung>
   </Spruch>
-  <Spruch Name="Konvulsion" Region="H&amp;Df" Grad="4" Lernkosten="1500" AP="6" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="24 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Wackelpudding" NSC_only="true">
+  <Spruch Name="Konvulsion" Region="H&amp;Df" Grad="4" Lernkosten="1500" AP="6" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="10 s" Reichweite="24 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Wackelpudding" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 8. Misslingt ein WW.phs des Opfers, sinkt es unter konvulsivischen Zuckungen wehr und bewegungslos zu Boden. Am Ende jeder Runde ein WW möglich. In jeder Runde verliert es 2 LP. Nach gelungenem WW ist es noch 2 Runden bewegungslos, dann 2 Runden WM-4/WM-2, bis es nach 5 Runden voll erholt ist.  </Beschreibung>
+   <Beschreibung>GZ 8. Misslingt ein WW.phs des Opfers, sinkt es unter konvulsivischen Zuckungen wehr und bewegungslos zu Boden. Am Ende jeder Runde ein WW mÃ¶glich. In jeder Runde verliert es 2 LP. Nach gelungenem WW ist es noch 2 Runden bewegungslos, dann 2 Runden WM-4/WM-2, bis es nach 5 Runden voll erholt ist.  </Beschreibung>
   </Spruch>
-  <Spruch Name="Macht der Finsternis" Region="H&amp;Df" Grad="6" Lernkosten="6000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="1 h" NSC_only="true">
+  <Spruch Name="Macht der Finsternis" Region="H&amp;Df" Grad="6" Lernkosten="6000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="KÃ¶rper" Wirkungsbereich="Zauberer" Wirkungsdauer="1 h" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ var. Damit kann der Finstermagier eines der folgenden: eine Eigenschaft auf 100 steigern(GZ 5), eine Eigenschaft um 10 auch über 100 steigern(GZ 10), die Form eines Elementargeistes/Geist/Gespenst/Mumie/Manticora/Niederer Dämon/Riesenschlange/Thurse/Troll annehmen. In der Gestalt hat der die jeweils maximalen Werte. Nach der Verwandlung hat der dieselben LP und AP wie vorher.</Beschreibung>
+   <Beschreibung>GZ var. Damit kann der Finstermagier eines der folgenden: eine Eigenschaft auf 100 steigern(GZ 5), eine Eigenschaft um 10 auch Ã¼ber 100 steigern(GZ 10), die Form eines Elementargeistes/Geist/Gespenst/Mumie/Manticora/Niederer DÃ¤mon/Riesenschlange/Thurse/Troll annehmen. In der Gestalt hat der die jeweils maximalen Werte. Nach der Verwandlung hat der dieselben LP und AP wie vorher.</Beschreibung>
   </Spruch>
-  <Spruch Name="Schattenroß" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="12" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="0" Wirkungsdauer="var" NSC_only="true">
+  <Spruch Name="SchattenroÃ&#x9F;" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="12" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="KÃ¶rper" Wirkungsbereich="0" Wirkungsdauer="var" NSC_only="true">
    <Standard Typ="Dr"/>
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
   </Spruch>
-  <Spruch Name="Schleichende Verderbnis" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="8" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="12 h" Reichweite="2 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Material="Pergament" NSC_only="true">
+  <Spruch Name="Schleichende Verderbnis" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="8" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="12 h" Reichweite="2 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Material="Pergament" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 15. Zauberzutat ist Pergament gemacht aus der Haut eines gehängten/geräderten Mörders. Das mit Runen versehene Pergament muß 2 m um die augenblickliche Wohnstatt des Opfers vergraben werden. Dann sinken die Basiswerte des Opfers pro Tag um 1, es hat Alpträume(keine AP Regeneration). LPmax sinkt um 2 pro Woche. Das Opfer hat jede Woche einen WW:phs, auf den aber kumulativ WM-2 dazu kommen. Das Opfer stirbt bei 0 LP oder eine Basiseigenschaft 0. Der Zauber kann gebrochen werden, wenn das Opfer die Wohnstatt verlässt oder das Pergament findet und zerstört.</Beschreibung>
+   <Beschreibung>GZ 15. Zauberzutat ist Pergament gemacht aus der Haut eines gehÃ¤ngten/gerÃ¤derten MÃ¶rders. Das mit Runen versehene Pergament muÃ&#x9F; 2 m um die augenblickliche Wohnstatt des Opfers vergraben werden. Dann sinken die Basiswerte des Opfers pro Tag um 1, es hat AlptrÃ¤ume(keine AP Regeneration). LPmax sinkt um 2 pro Woche. Das Opfer hat jede Woche einen WW:phs, auf den aber kumulativ WM-2 dazu kommen. Das Opfer stirbt bei 0 LP oder eine Basiseigenschaft 0. Der Zauber kann gebrochen werden, wenn das Opfer die Wohnstatt verlÃ¤sst oder das Pergament findet und zerstÃ¶rt.</Beschreibung>
   </Spruch>
-  <Spruch Name="Unwetter rufen" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="150m Uk" Wirkungsdauer="15 min" NSC_only="true">
+  <Spruch Name="Unwetter rufen" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="150m Uk" Wirkungsdauer="15 min" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 5. Dadurch wird ein sehr starkes Gewitter gerufen, das sich innerhalb von 5 Minuten bildet und dann 15 Minuten anhält. Massive Wirkungen. Lebewesen mit weniger als LP, die nicht rechtzeitig einen Unterschlupf finden, sterben.</Beschreibung>
+   <Beschreibung>GZ 5. Dadurch wird ein sehr starkes Gewitter gerufen, das sich innerhalb von 5 Minuten bildet und dann 15 Minuten anhÃ¤lt. Massive Wirkungen. Lebewesen mit weniger als LP, die nicht rechtzeitig einen Unterschlupf finden, sterben.</Beschreibung>
   </Spruch>
-  <Spruch Name="Verglasen" Region="H&amp;Df" Grad="5" Lernkosten="3500" AP="6" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" NSC_only="true">
+  <Spruch Name="Verglasen" Region="H&amp;Df" Grad="5" Lernkosten="3500" AP="6" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 5. Mißlingt der WW:phs, verwandelt sich der Körper des Opfers innerhalb von 4 Runden in Glas. Kann mit Bannen von Zauberwerk/Bannen von Finsterwerk aufgehoben werden, wenn PW:WLW gelingt.</Beschreibung>
+   <Beschreibung>GZ 5. MiÃ&#x9F;lingt der WW:phs, verwandelt sich der KÃ¶rper des Opfers innerhalb von 4 Runden in Glas. Kann mit Bannen von Zauberwerk/Bannen von Finsterwerk aufgehoben werden, wenn PW:WLW gelingt.</Beschreibung>
   </Spruch>
-  <Spruch Name="Verwüstung" Region="H&amp;Df" Grad="2" Lernkosten="250" AP="2" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="10m Uk" Wirkungsdauer="0" Material="Wüstensand" NSC_only="true">
+  <Spruch Name="VerwÃ¼stung" Region="H&amp;Df" Grad="2" Lernkosten="250" AP="2" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="KÃ¶rper" Wirkungsbereich="10m Uk" Wirkungsdauer="0" Material="WÃ¼stensand" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 1. Pflanzen innerhalb des Wirkungsbereiches verdorren innerhalb von Sekunden. Das Gelände bleibt (Grad Fm)^2 unfruchtbar.</Beschreibung>
+   <Beschreibung>GZ 1. Pflanzen innerhalb des Wirkungsbereiches verdorren innerhalb von Sekunden. Das GelÃ¤nde bleibt (Grad Fm)^2 unfruchtbar.</Beschreibung>
   </Spruch>
-  <Spruch Name="Zeichen des Chaos" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="10 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" NSC_only="true">
+  <Spruch Name="Zeichen des Chaos" Region="H&amp;Df" Grad="4" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verÃ¤ndert" Reagens="Luft" Zauberdauer="10 s" Reichweite="10 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-   <Beschreibung>GZ 4. Mißlingt dem Opfer ein WW:phs(weiße Hexer, Priester und Ordenskriegen haben WM+4), wächst ihm ein leicht zu bemerkendes Chaoszeichen: Schwarz verfärbte Körperteile, glühende Augen, Klauen, Hörner usw. Die Wirkung des Zaubers dauert (Gr Fm)*(Gr Opfer). </Beschreibung>
+   <Beschreibung>GZ 4. MiÃ&#x9F;lingt dem Opfer ein WW:phs(weiÃ&#x9F;e Hexer, Priester und Ordenskriegen haben WM+4), wÃ¤chst ihm ein leicht zu bemerkendes Chaoszeichen: Schwarz verfÃ¤rbte KÃ¶rperteile, glÃ¼hende Augen, Klauen, HÃ¶rner usw. Die Wirkung des Zaubers dauert (Gr Fm)*(Gr Opfer). </Beschreibung>
   </Spruch>
  </Zauber>
  <Zauberwerke/>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.19 $">
+<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.20 $">
  <Fertigkeiten>
   <Fertigkeit Name="Adlersprung" Region="N" Lernkosten="200" Attribut="Ge">
    <Grund Typ="Sw"/>
@@ -17,7 +17,7 @@
    <Ausnahme Typ="Gl"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="HÃ¤"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
@@ -47,7 +47,7 @@
    <Ausnahme Typ="Sk"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="SÃ¶"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="To"/>
@@ -79,7 +79,7 @@
    <Ausnahme Typ="Gl"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="HÃ¤"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
@@ -109,7 +109,7 @@
    <Ausnahme Typ="Sk"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="SÃ¶"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
@@ -135,7 +135,7 @@
    <Grund Typ="Fi"/>
    <Grund Typ="Gl"/>
    <Grund Typ="Hj"/>
-   <Grund Typ="Hä"/>
+   <Grund Typ="HÃ¤"/>
    <Grund Typ="Kd"/>
    <Grund Typ="Kr"/>
    <Grund Typ="Ku"/>
@@ -148,7 +148,7 @@
    <Grund Typ="Se"/>
    <Grund Typ="Sk"/>
    <Grund Typ="Sp"/>
-   <Grund Typ="Sö"/>
+   <Grund Typ="SÃ¶"/>
    <Grund Typ="Tm"/>
    <Grund Typ="Tr"/>
    <Grund Typ="Wa"/>
@@ -193,7 +193,7 @@
    <Lernschema Typ="Dt" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
    <Kosten Wert3="500" Wert4="500" Wert5="500" Wert6="500" Wert7="500" Wert8="500" Wert9="500"/>
   </Fertigkeit>
-  <Fertigkeit Name="Wahrsagekalender führen" Region="N" Lernkosten="1000" Attribut="In">
+  <Fertigkeit Name="Wahrsagekalender fÃ¼hren" Region="N" Lernkosten="1000" Attribut="In">
    <Grund Typ="Dt"/>
    <Standard Typ="Sw"/>
    <Ausnahme Typ="As"/>
@@ -208,7 +208,7 @@
    <Ausnahme Typ="Gl"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="HÃ¤"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
@@ -238,7 +238,7 @@
    <Ausnahme Typ="Sk"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="SÃ¶"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="To"/>
@@ -273,7 +273,7 @@
    <Ausnahme Typ="Gl"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="HÃ¤"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
@@ -301,7 +301,7 @@
    <Ausnahme Typ="Sk"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="SÃ¶"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
@@ -333,7 +333,7 @@
    <Ausnahme Typ="Gl"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="HÃ¤"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
@@ -363,7 +363,7 @@
    <Ausnahme Typ="Sk"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="SÃ¶"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="To"/>
@@ -380,7 +380,7 @@
    <Voraussetzungen Gw="31"/>
    <steigern_wie Fertigkeit="Bewegung"/>
   </Fertigkeit>
-  <Fertigkeit Name="Dämonenkunde" Region="N" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In">
+  <Fertigkeit Name="DÃ¤monenkunde" Region="N" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In">
    <Grund Typ="Dt"/>
    <Grund Typ="Nb"/>
    <Standard Typ="Hj"/>
@@ -399,7 +399,7 @@
    <Ausnahme Typ="Fi"/>
    <Ausnahme Typ="Gl"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="HÃ¤"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
@@ -429,7 +429,7 @@
    <Ausnahme Typ="Sk"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="SÃ¶"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="To"/>
@@ -444,7 +444,7 @@
    <Lernschema Typ="Dt" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
    <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
-  <Fertigkeit Name="Tätowieren" Region="N" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="Gs">
+  <Fertigkeit Name="TÃ¤towieren" Region="N" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="Gs">
    <Grund Typ="Th"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
@@ -469,7 +469,7 @@
    <Ausnahme Typ="Gl"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="HÃ¤"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
@@ -496,7 +496,7 @@
    <Ausnahme Typ="Sk"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="SÃ¶"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
@@ -544,7 +544,7 @@
    <Standard Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Beidhändiger Kampf">
+  <Fertigkeit Name="BeidhÃ¤ndiger Kampf">
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
    <Ausnahme Typ="Dt"/>
@@ -576,7 +576,7 @@
    <Lernschema Typ="Dt" Lernpunkte="2" Erfolgswert="8"/>
    <Lernschema Typ="Tt" Lernpunkte="2" Erfolgswert="12"/>
   </Fertigkeit>
-  <Fertigkeit Name="Erzählen">
+  <Fertigkeit Name="ErzÃ¤hlen">
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
@@ -611,7 +611,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Fälschen">
+  <Fertigkeit Name="FÃ¤lschen">
    <Grund Typ="Tr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
@@ -627,7 +627,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Geheimmechanismen öffnen">
+  <Fertigkeit Name="Geheimmechanismen Ã¶ffnen">
    <Grund Typ="Tr"/>
    <Standard Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
@@ -638,12 +638,12 @@
    <Standard Typ="Tt"/>
    <Lernschema Typ="Tr" Lernpunkte="2" Erfolgswert="12"/>
   </Fertigkeit>
-  <Fertigkeit Name="Geländelauf">
+  <Fertigkeit Name="GelÃ¤ndelauf">
    <Grund Typ="Tr"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Dt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Geschäftstüchtigkeit">
+  <Fertigkeit Name="GeschÃ¤ftstÃ¼chtigkeit">
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
@@ -653,7 +653,7 @@
    <Standard Typ="Tt"/>
    <Ausnahme Typ="Dt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Glücksspiel">
+  <Fertigkeit Name="GlÃ¼cksspiel">
    <Grund Typ="Tr"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tt"/>
@@ -678,7 +678,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kampf in Vollrüstung">
+  <Fertigkeit Name="Kampf in VollrÃ¼stung">
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
@@ -710,7 +710,7 @@
    <Standard Typ="Tt"/>
    <Lernschema Typ="Tr" Lernpunkte="2" Erfolgswert="15"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kräuterkunde">
+  <Fertigkeit Name="KrÃ¤uterkunde">
    <Standard Typ="Dt"/>
    <Standard Typ="Tt"/>
    <Ausnahme Typ="Tr"/>
@@ -790,7 +790,7 @@
    <Lernschema Typ="Tr" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Tt" Lernpunkte="2" Erfolgswert="5"/>
   </Fertigkeit>
-  <Fertigkeit Name="Scharfschießen">
+  <Fertigkeit Name="ScharfschieÃ&#x9F;en">
    <Standard Typ="Tr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
@@ -800,12 +800,12 @@
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schießen vom Streitwagen">
+  <Fertigkeit Name="SchieÃ&#x9F;en vom Streitwagen">
    <Standard Typ="Tr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schiffsführung">
+  <Fertigkeit Name="SchiffsfÃ¼hrung">
    <Standard Typ="Tr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
@@ -821,7 +821,7 @@
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schlösser öffnen">
+  <Fertigkeit Name="SchlÃ¶sser Ã¶ffnen">
    <Grund Typ="Tr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
@@ -840,7 +840,7 @@
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schätzen">
+  <Fertigkeit Name="SchÃ¤tzen">
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
@@ -944,12 +944,12 @@
    <Standard Typ="Dt"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Verführen">
+  <Fertigkeit Name="VerfÃ¼hren">
    <Standard Typ="Tr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Verhören">
+  <Fertigkeit Name="VerhÃ¶ren">
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
@@ -991,37 +991,37 @@
    <Standard Typ="Tt"/>
    <Lernschema Typ="Tr" Lernpunkte="1" Erfolgswert="1"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Dschungel">
+  <Fertigkeit Name="Ã&#x9C;berleben im Dschungel">
    <Grund Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Gebirge">
+  <Fertigkeit Name="Ã&#x9C;berleben im Gebirge">
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Schnee">
+  <Fertigkeit Name="Ã&#x9C;berleben im Schnee">
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Sumpf">
+  <Fertigkeit Name="Ã&#x9C;berleben im Sumpf">
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Wald">
+  <Fertigkeit Name="Ã&#x9C;berleben im Wald">
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben in der Steppe">
+  <Fertigkeit Name="Ã&#x9C;berleben in der Steppe">
    <Grund Typ="Tt"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben in der Wüste">
+  <Fertigkeit Name="Ã&#x9C;berleben in der WÃ¼ste">
    <Grund Typ="Tt"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
@@ -1076,7 +1076,7 @@
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K">
+  <Fertigkeit Name="Kenntnis der fÃ¼nf Klassiker" Region="K">
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
@@ -1187,7 +1187,7 @@
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Körperkontrolle" Region="R">
+  <Fertigkeit Name="KÃ¶rperkontrolle" Region="R">
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
@@ -1197,7 +1197,7 @@
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schlangen beschwören" Region="R">
+  <Fertigkeit Name="Schlangen beschwÃ¶ren" Region="R">
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
@@ -1231,40 +1231,40 @@
  <Schriften/>
  <Sprachen/>
  <Typen>
-  <Typ Abkürzung="Dt" Region="N" MAGUS-Index="47" Bezeichnung-Mann="Deuter" Bezeichnung-Frau="Deuterin" Zauberer="true" kannZaubern="true" Berufswahl="z" Ausdauer="z">
-   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
+  <Typ AbkÃ¼rzung="Dt" Region="N" MAGUS-Index="47" Bezeichnung-Mann="Deuter" Bezeichnung-Frau="Deuterin" Zauberer="true" kannZaubern="true" Berufswahl="z" Ausdauer="z">
+   <Modifikation Stand="20" RÃ¼stung="1" Geld="4"/>
    <Herkunft Land="Nahuatlan"/>
    <Gruppe Name="ZAU"/>
   </Typ>
-  <Typ Abkürzung="Tt" Region="N" MAGUS-Index="48" Bezeichnung-Mann="Tempeltänzer" Bezeichnung-Frau="Tempeltänzerin" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="Wunder" Berufswahl="z" Ausdauer="ak">
-   <Modifikation Rüstung="1" Geld="3"/>
+  <Typ AbkÃ¼rzung="Tt" Region="N" MAGUS-Index="48" Bezeichnung-Mann="TempeltÃ¤nzer" Bezeichnung-Frau="TempeltÃ¤nzerin" Zauberer="true" kannZaubern="true" SprÃ¼cheMitPraxisPunkten="Wunder" Berufswahl="z" Ausdauer="ak">
+   <Modifikation RÃ¼stung="1" Geld="3"/>
    <Herkunft Land="Nahuatlan"/>
    <Gruppe Name="ZAU"/>
   </Typ>
-  <Typ Abkürzung="Tr" Region="N" MAGUS-Index="49" Bezeichnung-Mann="Trickser" Bezeichnung-Frau="Trickserin" kannZaubern="true" Ausdauer="ak">
-   <Modifikation Stand="-20" Sb="-20" Rüstung="1" Geld="4"/>
+  <Typ AbkÃ¼rzung="Tr" Region="N" MAGUS-Index="49" Bezeichnung-Mann="Trickser" Bezeichnung-Frau="Trickserin" kannZaubern="true" Ausdauer="ak">
+   <Modifikation Stand="-20" Sb="-20" RÃ¼stung="1" Geld="4"/>
    <Herkunft Land="Nahuatlan"/>
-   <Gruppe Name="KÄM"/>
-   <Gruppe Name="ZKÄM"/>
+   <Gruppe Name="KÃ&#x84;M"/>
+   <Gruppe Name="ZKÃ&#x84;M"/>
   </Typ>
  </Typen>
- <Rüstungen>
-  <Rüstung Name="Baumwollharnisch" Region="N" Abkürzung="TR(N)" schütztLP="1">
+ <RÃ¼stungen>
+  <RÃ¼stung Name="Baumwollharnisch" Region="N" AbkÃ¼rzung="TR(N)" schÃ¼tztLP="1">
    <Verlust BehinderungWie="TR"/>
-  </Rüstung>
-  <Rüstung Name="Baumwollrüstung" Region="N" Abkürzung="LR(N)" schütztLP="2">
+  </RÃ¼stung>
+  <RÃ¼stung Name="BaumwollrÃ¼stung" Region="N" AbkÃ¼rzung="LR(N)" schÃ¼tztLP="2">
    <Verlust BehinderungWie="LR"/>
-  </Rüstung>
- </Rüstungen>
+  </RÃ¼stung>
+ </RÃ¼stungen>
  <Waffen>
-  <Waffe Name="Dreizackspeer" Region="N" Grundkenntnisse="Wurfspieß" Schwierigkeit="4" Kategorie="Angriff" Klasse="W" Schaden="W6" Schadensbonus="4" Schadensbonus2="4" erfordert="leichter Speer">
+  <Waffe Name="Dreizackspeer" Region="N" Grundkenntnisse="WurfspieÃ&#x9F;" Schwierigkeit="4" Kategorie="Angriff" Klasse="W" Schaden="W6" Schadensbonus="4" Schadensbonus2="4" erfordert="leichter Speer">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="51"/>
    <Reichweite/>
    <Lernkosten/>
    <Voraussetzungen_W Name="leichter Speer"/>
   </Waffe>
-  <Waffe Name="Bihänder">
+  <Waffe Name="BihÃ¤nder">
    <regionaleVariante Name="Maquahuitl (Z)" Region="N" Schaden="2W6" St="81"/>
   </Waffe>
   <Waffe Name="Dolch">
@@ -1277,7 +1277,7 @@
   <Waffe Name="Handaxt">
    <regionaleVariante Name="Steinaxt" Region="N" Schaden="W6" St="11"/>
   </Waffe>
-  <Waffe Name="Krummsäbel">
+  <Waffe Name="KrummsÃ¤bel">
    <regionaleVariante Name="Maquahuitl (S)" Region="N" Schaden="W6" St="31"/>
   </Waffe>
   <Waffe Name="Langschwert">
@@ -1305,7 +1305,7 @@
   <Waffe Name="Wurfpfeil">
    <regionaleVariante Name="Mague-Stacheln" Region="N" Schaden="W6" Schadensbonus="-2" St="11"/>
   </Waffe>
-  <Waffe Name="großer Schild">
+  <Waffe Name="groÃ&#x9F;er Schild">
    <regionaleVariante Name="Krabbenschild" Region="N" St="61"/>
   </Waffe>
   <Waffe Name="kleiner Schild">
@@ -1325,7 +1325,7 @@
  </Waffen>
  <Waffen-Grundkenntnisse/>
  <Zauber>
-  <Spruch Name="Ahuatls Sturm" Region="N" Grad="6" Lernkosten="8000" AP="9" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="10 km Uk" Wirkungsdauer="1 h" Zauberart="Tanz">
+  <Spruch Name="Ahuatls Sturm" Region="N" Grad="6" Lernkosten="8000" AP="9" Typ="Tanz" Ursprung="gÃ¶ttlich" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="10 km Uk" Wirkungsdauer="1 h" Zauberart="Tanz">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1337,11 +1337,11 @@
    <Standard Typ="wHx"/>
    <Lernschema Typ="Tt" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Ballbalance" Region="N" Grad="1/Ball" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="5 sec" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1-10 Objekte" Wirkungsdauer="Grad min" Material="Gummiball (25KS)" Thaumagramm="Trickser">
+  <Spruch Name="Ballbalance" Region="N" Grad="1/Ball" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="verÃ¤ndert" Reagens="Metall" Zauberdauer="5 sec" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1-10 Objekte" Wirkungsdauer="Grad min" Material="Gummiball (25KS)" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Blumen erschaffen" Region="N" Grad="1" Lernkosten="60" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erschafft" Reagens="Holz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="Zauberer" Wirkungsdauer="-" Material="getrocknete Blütenblätter (5KS)" Spruchrolle="true">
+  <Spruch Name="Blumen erschaffen" Region="N" Grad="1" Lernkosten="60" AP="1" Typ="Geste" Ursprung="gÃ¶ttlich" Agens="Holz" Prozess="erschafft" Reagens="Holz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="Zauberer" Wirkungsdauer="-" Material="getrocknete BlÃ¼tenblÃ¤tter (5KS)" Spruchrolle="true">
    <Grund Typ="PF"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Hl"/>
@@ -1365,15 +1365,15 @@
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="sHx" Standard="S"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="wHx" Standard="S"/>
   </Spruch>
-  <Spruch Name="Blumen herbeizaubern" Region="N" Grad="1" Lernkosten="160" AP="1-20" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Holz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch Name="Blumen herbeizaubern" Region="N" Grad="1" Lernkosten="160" AP="1-20" Typ="Gedanke" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="erschafft" Reagens="Holz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="0" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Blumenfee" Region="N" Grad="4-20" Lernkosten="400" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1-10 Objekte" Wirkungsdauer="Grad min" Material="Blüten (je 5 KS)" Thaumagramm="Trickser">
+  <Spruch Name="Blumenfee" Region="N" Grad="4-20" Lernkosten="400" AP="2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1-10 Objekte" Wirkungsdauer="Grad min" Material="BlÃ¼ten (je 5 KS)" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="6"/>
   </Spruch>
-  <Spruch Name="Blumengeist betrachten" Region="N" Grad="2" Lernkosten="300" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="frische Blüte">
+  <Spruch Name="Blumengeist betrachten" Region="N" Grad="2" Lernkosten="300" AP="3" Typ="Geste" Ursprung="gÃ¶ttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="frische BlÃ¼te">
    <Grund Typ="Dt"/>
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
@@ -1386,18 +1386,18 @@
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PT" Standard="S"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PW" Standard="S"/>
   </Spruch>
-  <Spruch Name="Dinge aufspüren" Region="N" Grad="4" Lernkosten="1400" AP="4" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erkennt" Reagens="Metall" Zauberdauer="30 sec" Reichweite="9 km" Wirkungsziel="Geist" Wirkungsbereich="1  Objekt" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch Name="Dinge aufspÃ¼ren" Region="N" Grad="4" Lernkosten="1400" AP="4" Typ="Gedanke" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="erkennt" Reagens="Metall" Zauberdauer="30 sec" Reichweite="9 km" Wirkungsziel="Geist" Wirkungsbereich="1  Objekt" Wirkungsdauer="0" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Farbenspiel" Region="N" Grad="2" Lernkosten="300" AP="1-10" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="1 sec" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch Name="Farbenspiel" Region="N" Grad="2" Lernkosten="300" AP="1-10" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="verÃ¤ndert" Reagens="Metall" Zauberdauer="1 sec" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="0" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Fehlleistung" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 sec" Reichweite="9 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch Name="Fehlleistung" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 sec" Reichweite="9 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="8"/>
   </Spruch>
-  <Spruch Name="Fruchtbarkeit" Region="N" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="pulverisierte Nabelschnur, diverse Kräuter (50 GS)" Spruchrolle="true">
+  <Spruch Name="Fruchtbarkeit" Region="N" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verÃ¤ndert" Reagens="Erde" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="pulverisierte Nabelschnur, diverse KrÃ¤uter (50 GS)" Spruchrolle="true">
    <Grund Typ="Hl"/>
    <Grund Typ="PF"/>
    <Standard Typ="Dr"/>
@@ -1411,15 +1411,15 @@
    <Ausnahme Typ="PHa"/>
    <Ausnahme Typ="PHe"/>
   </Spruch>
-  <Spruch Name="Funkenflug" Region="N" Grad="2" Lernkosten="300" AP="2-20" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="200 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="20-60 sec" Thaumagramm="Trickser">
+  <Spruch Name="Funkenflug" Region="N" Grad="2" Lernkosten="300" AP="2-20" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="erschafft" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="200 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="20-60 sec" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="8"/>
   </Spruch>
-  <Spruch Name="Geruch intensivieren" Region="N" Grad="2" Lernkosten="300" AP="1-4" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Holz" Zauberdauer="5 sec" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1 h" Thaumagramm="Trickser">
+  <Spruch Name="Geruch intensivieren" Region="N" Grad="2" Lernkosten="300" AP="1-4" Typ="Gedanke" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="verÃ¤ndert" Reagens="Holz" Zauberdauer="5 sec" Reichweite="B" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1 h" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Hexenspüren" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="göttlich" Agens="Magan" Prozess="erkennt" Reagens="Magan" Zauberdauer="1 min" Reichweite="var" Wirkungsziel="Geist" Wirkungsbereich="1 Zauberer" Wirkungsdauer="1 h">
+  <Spruch Name="HexenspÃ¼ren" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="gÃ¶ttlich" Agens="Magan" Prozess="erkennt" Reagens="Magan" Zauberdauer="1 min" Reichweite="var" Wirkungsziel="Geist" Wirkungsbereich="1 Zauberer" Wirkungsdauer="1 h">
    <Standard Typ="PF"/>
    <Standard Typ="PHa"/>
    <Standard Typ="PHe"/>
@@ -1449,7 +1449,7 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Iquibalams Ruhm" Region="N" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Zauberart="Tanz">
+  <Spruch Name="Iquibalams Ruhm" Region="N" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="gÃ¶ttlich" Agens="Luft" Prozess="beherrscht" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Zauberart="Tanz">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1462,7 +1462,7 @@
    <Standard Typ="wHx"/>
    <Lernschema Typ="Tt" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Iquibalams Tapferkeit" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Erde" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch Name="Iquibalams Tapferkeit" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Tanz" Ursprung="gÃ¶ttlich" Agens="Luft" Prozess="verÃ¤ndert" Reagens="Erde" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="KÃ¶rper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1475,7 +1475,7 @@
    <Standard Typ="wHx"/>
    <Lernschema Typ="Tt" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Iquibalams Verachtung" Region="N" Grad="3" Lernkosten="800" AP="5" Typ="Tanz" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0 m" Wirkungsziel="Körper" Wirkungsbereich="10 m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch Name="Iquibalams Verachtung" Region="N" Grad="3" Lernkosten="800" AP="5" Typ="Tanz" Agens="Magan" Prozess="verÃ¤ndert" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="10 m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
    <Grund Typ="Tt"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
@@ -1486,7 +1486,7 @@
    <Standard Typ="wHx"/>
    <Lernschema Typ="Tt" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Ixtantzutuhs Ekstase" Region="N" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+  <Spruch Name="Ixtantzutuhs Ekstase" Region="N" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="gÃ¶ttlich" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
    <Grund Typ="PF"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -1498,7 +1498,7 @@
    <Standard Typ="Tt"/>
    <Lernschema Typ="Tt" Lernpunkte="3"/>
   </Spruch>
-  <Spruch Name="Ixtantzutuhs Schönheit" Region="N" Grad="3" Lernkosten="1000" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Zauberart="Tanz">
+  <Spruch Name="Ixtantzutuhs SchÃ¶nheit" Region="N" Grad="3" Lernkosten="1000" AP="3" Typ="Tanz" Ursprung="gÃ¶ttlich" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Zauberart="Tanz">
    <Grund Typ="PF"/>
    <Grund Typ="Tt"/>
    <Grund Typ="gHx"/>
@@ -1509,7 +1509,7 @@
    <Standard Typ="ScW"/>
    <Lernschema Typ="Tt" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Jadezauber" Region="N" Grad="1" Lernkosten="120" AP="1" Typ="Wort" Ursprung="göttlich" Agens="Magan" Prozess="erkennt" Reagens="Metall" Zauberdauer="20 sec" Reichweite="0m" Wirkungsziel="Geist" Wirkungsbereich="100m Uk" Wirkungsdauer="5 sec" Spruchrolle="true" Thaumagramm="Runenstab">
+  <Spruch Name="Jadezauber" Region="N" Grad="1" Lernkosten="120" AP="1" Typ="Wort" Ursprung="gÃ¶ttlich" Agens="Magan" Prozess="erkennt" Reagens="Metall" Zauberdauer="20 sec" Reichweite="0m" Wirkungsziel="Geist" Wirkungsbereich="100m Uk" Wirkungsdauer="5 sec" Spruchrolle="true" Thaumagramm="Runenstab">
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Or"/>
@@ -1549,17 +1549,17 @@
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="ScW" Standard="G"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="Th" Standard="G"/>
   </Spruch>
-  <Spruch Name="Kernkleid" Region="N" Grad="4" Lernkosten="1600" AP="5-20" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Metall" Zauberdauer="10 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Obj" Wirkungsdauer="Grad Tage" Thaumagramm="Trickser">
+  <Spruch Name="Kernkleid" Region="N" Grad="4" Lernkosten="1600" AP="5-20" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="erschafft" Reagens="Metall" Zauberdauer="10 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Obj" Wirkungsdauer="Grad Tage" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
   </Spruch>
   <Spruch Name="Macht des Netzes" Region="N" Grad="G" Lernkosten="20000" AP="alle" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Holz" Zauberdauer="1 min" Reichweite="Grad * 10 km" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws / 1 Ob" Wirkungsdauer="12 h" Thaumagramm="Netz">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Maskieren" Region="N" Grad="6" Lernkosten="3000" AP="6" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="50 m" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="1 h" Thaumagramm="Trickser">
+  <Spruch Name="Maskieren" Region="N" Grad="6" Lernkosten="3000" AP="6" Typ="Gedanke" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="50 m" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="1 h" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Nahuahauquihs Preis" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Tanz" Ursprung="göttlich" Agens="Feuer" Prozess="verwandelt" Reagens="Erde" Zauberdauer="2 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch Name="Nahuahauquihs Preis" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Tanz" Ursprung="gÃ¶ttlich" Agens="Feuer" Prozess="verwandelt" Reagens="Erde" Zauberdauer="2 min" Reichweite="0" Wirkungsziel="KÃ¶rper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1572,7 +1572,7 @@
    <Standard Typ="wHx"/>
    <Lernschema Typ="Tt" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Nahuahauquihs Zorn" Region="N" Grad="4" Lernkosten="2000" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+  <Spruch Name="Nahuahauquihs Zorn" Region="N" Grad="4" Lernkosten="2000" AP="6" Typ="Tanz" Ursprung="gÃ¶ttlich" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1582,7 +1582,7 @@
    <Standard Typ="wHx"/>
    <Lernschema Typ="Tt" Lernpunkte="3"/>
   </Spruch>
-  <Spruch Name="Netz ahnen" Region="N" Grad="2" Lernkosten="200" AP="4" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="zerstört" Reagens="Erde" Zauberdauer="10 sec" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="Strahl" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch Name="Netz ahnen" Region="N" Grad="2" Lernkosten="200" AP="4" Typ="Gedanke" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="zerstÃ¶rt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="30 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="Strahl" Wirkungsdauer="0" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="8"/>
   </Spruch>
@@ -1590,7 +1590,7 @@
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Netzkontakt" Region="N" Grad="3" Lernkosten="1000" AP="5+1/min" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="var" Thaumagramm="Netz">
+  <Spruch Name="Netzkontakt" Region="N" Grad="3" Lernkosten="1000" AP="5+1/min" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="KÃ¶rper" Wirkungsbereich="Z" Wirkungsdauer="var" Thaumagramm="Netz">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
@@ -1610,7 +1610,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Netzkraft" Region="N" Grad="3" Lernkosten="1200" AP="3" Typ="Gedanke" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="0" Thaumagramm="Netz">
+  <Spruch Name="Netzkraft" Region="N" Grad="3" Lernkosten="1200" AP="3" Typ="Gedanke" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="KÃ¶rper" Wirkungsbereich="Z" Wirkungsdauer="0" Thaumagramm="Netz">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
@@ -1618,7 +1618,7 @@
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Netzschutz" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Holz" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="7 Tage" Thaumagramm="Netz">
+  <Spruch Name="Netzschutz" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verÃ¤ndert" Reagens="Holz" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="7 Tage" Thaumagramm="Netz">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
@@ -1626,18 +1626,18 @@
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Netzversteck" Region="N" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Metall" Zauberdauer="10 sec" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Person/Objekt" Wirkungsdauer="Grad h" Thaumagramm="Netz">
+  <Spruch Name="Netzversteck" Region="N" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verÃ¤ndert" Reagens="Metall" Zauberdauer="10 sec" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Person/Objekt" Wirkungsdauer="Grad h" Thaumagramm="Netz">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Passieren" Region="N" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="20 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="30 cm Wanddicke" Wirkungsdauer="10 sec" Thaumagramm="Trickser">
+  <Spruch Name="Passieren" Region="N" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="verÃ¤ndert" Reagens="Metall" Zauberdauer="20 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="30 cm Wanddicke" Wirkungsdauer="10 sec" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Rauchkringel" Region="N" Grad="1" Lernkosten="100" AP="1-20" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="1 sec" Reichweite="0m" Wirkungsziel="Umgebung" Wirkungsbereich="9m Uk" Wirkungsdauer="1-5 min" Material="Tabackpfeife (1GS)" Thaumagramm="Trickser">
+  <Spruch Name="Rauchkringel" Region="N" Grad="1" Lernkosten="100" AP="1-20" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="verÃ¤ndert" Reagens="Metall" Zauberdauer="1 sec" Reichweite="0m" Wirkungsziel="Umgebung" Wirkungsbereich="9m Uk" Wirkungsdauer="1-5 min" Material="Tabackpfeife (1GS)" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="6"/>
   </Spruch>
-  <Spruch Name="Ruf des Herzens" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Gedanke" Ursprung="göttlich" Agens="Magan" Prozess="erkennt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="0m" Wirkungsziel="Geist" Wirkungsbereich="10m Uk" Wirkungsdauer="1 min">
+  <Spruch Name="Ruf des Herzens" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Gedanke" Ursprung="gÃ¶ttlich" Agens="Magan" Prozess="erkennt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="0m" Wirkungsziel="Geist" Wirkungsbereich="10m Uk" Wirkungsdauer="1 min">
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
@@ -1660,11 +1660,11 @@
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="ScW" Standard="S"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="Tm" Standard="S"/>
   </Spruch>
-  <Spruch Name="Scharade" Region="N" Grad="3" Lernkosten="600" AP="1-10" Typ="Wort" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 sec" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1-10 Ws" Wirkungsdauer="GRad min" Thaumagramm="Trickser">
+  <Spruch Name="Scharade" Region="N" Grad="3" Lernkosten="600" AP="1-10" Typ="Wort" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 sec" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1-10 Ws" Wirkungsdauer="GRad min" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Schattenjaguar" Region="N" Grad="2" Lernkosten="400" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="10m Uk" Wirkungsdauer="inf" Material="Jaguarhaar" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch Name="Schattenjaguar" Region="N" Grad="2" Lernkosten="400" AP="4" Typ="Geste" Ursprung="gÃ¶ttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="KÃ¶rper" Wirkungsbereich="10m Uk" Wirkungsdauer="inf" Material="Jaguarhaar" Spruchrolle="true" Thaumagramm="Siegel">
    <Grund Typ="Dr"/>
    <Grund Typ="Nb"/>
    <Grund Typ="Or"/>
@@ -1692,7 +1692,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Stigma" Region="N" Grad="2" Lernkosten="300" AP="4" Typ="Wort" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Feuer" Zauberdauer="30 sec" Reichweite="7 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws / 1 Ob" Wirkungsdauer="inf">
+  <Spruch Name="Stigma" Region="N" Grad="2" Lernkosten="300" AP="4" Typ="Wort" Ursprung="gÃ¶ttlich" Agens="Luft" Prozess="verÃ¤ndert" Reagens="Feuer" Zauberdauer="30 sec" Reichweite="7 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws / 1 Ob" Wirkungsdauer="inf">
    <Standard Typ="Dt"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PF" Standard="G"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHa" Standard="G"/>
@@ -1702,7 +1702,7 @@
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PT" Standard="G"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PW" Standard="G"/>
   </Spruch>
-  <Spruch Name="Stigma lokalisieren" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Feuer" Zauberdauer="1 min" Reichweite="Grad * 10km" Wirkungsziel="Geist" Wirkungsbereich="1 Ws / 10km Uk" Wirkungsdauer="1 h">
+  <Spruch Name="Stigma lokalisieren" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="gÃ¶ttlich" Agens="Luft" Prozess="erkennt" Reagens="Feuer" Zauberdauer="1 min" Reichweite="Grad * 10km" Wirkungsziel="Geist" Wirkungsbereich="1 Ws / 10km Uk" Wirkungsdauer="1 h">
    <Ausnahme Typ="Dt"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PF" Standard="G"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHa" Standard="G"/>
@@ -1712,11 +1712,11 @@
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PT" Standard="G"/>
    <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PW" Standard="G"/>
   </Spruch>
-  <Spruch Name="Stoß" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="1 sec" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="1 sec" Thaumagramm="Trickser">
+  <Spruch Name="StoÃ&#x9F;" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="1 sec" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="1 sec" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="8"/>
   </Spruch>
-  <Spruch Name="Tolucans Gabe" Region="N" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="5 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Zauberart="Tanz">
+  <Spruch Name="Tolucans Gabe" Region="N" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="gÃ¶ttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="5 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Zauberart="Tanz">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1729,11 +1729,11 @@
    <Standard Typ="wHx"/>
    <Lernschema Typ="Tt" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Tüchertanz" Region="N" Grad="2" Lernkosten="300" AP="5" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Metall" Zauberdauer="1 sec" Reichweite="0m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="Grad * 10 min" Material="variable" Thaumagramm="Trickser">
+  <Spruch Name="TÃ¼chertanz" Region="N" Grad="2" Lernkosten="300" AP="5" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="erschafft" Reagens="Metall" Zauberdauer="1 sec" Reichweite="0m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="Grad * 10 min" Material="variable" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="6"/>
   </Spruch>
-  <Spruch Name="Unfruchtbarkeit" Region="N" Grad="2" Lernkosten="300" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="pulverisierte Granatapfelkerne und Kräuter (10GS)" Spruchrolle="true">
+  <Spruch Name="Unfruchtbarkeit" Region="N" Grad="2" Lernkosten="300" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verÃ¤ndert" Reagens="Erde" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="pulverisierte Granatapfelkerne und KrÃ¤uter (10GS)" Spruchrolle="true">
    <Grund Typ="Hl"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -1777,20 +1777,20 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Verblüffen" Region="N" Grad="2" Lernkosten="400" AP="1/Grad" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 sec" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="1-10 Ws" Wirkungsdauer="10 sec" Thaumagramm="Trickser">
+  <Spruch Name="VerblÃ¼ffen" Region="N" Grad="2" Lernkosten="400" AP="1/Grad" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 sec" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="1-10 Ws" Wirkungsdauer="10 sec" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Wegzauber" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="10 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="10 min" Element="null" Thaumagramm="Trickser">
+  <Spruch Name="Wegzauber" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="10 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="10 min" Element="null" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Wesen aufspüren" Region="N" Grad="4" Lernkosten="1400" AP="6" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erkennt" Reagens="Wasser" Zauberdauer="30 sec" Reichweite="9 km" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch Name="Wesen aufspÃ¼ren" Region="N" Grad="4" Lernkosten="1400" AP="6" Typ="Gedanke" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="erkennt" Reagens="Wasser" Zauberdauer="30 sec" Reichweite="9 km" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Wunden schließen" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch Name="Wunden schlieÃ&#x9F;en" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Zusammenfügen" Region="N" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Metall" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch Name="ZusammenfÃ¼gen" Region="N" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="erschafft" Reagens="Metall" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="0" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
    <Lernschema Typ="Tr" Lernpunkte="4"/>
   </Spruch>
@@ -1801,7 +1801,7 @@
    <Grund Typ="Dt"/>
    <Lernschema Typ="Dt" Lernpunkte="1"/>
   </Spruch>
-  <Spruch Name="Austreibung des Bösen">
+  <Spruch Name="Austreibung des BÃ¶sen">
    <Grund Typ="Dt"/>
   </Spruch>
   <Spruch Name="Austreibung des Guten">
@@ -1823,7 +1823,7 @@
    <Standard Typ="Dt"/>
    <Lernschema Typ="Dt" Lernpunkte="3"/>
   </Spruch>
-  <Spruch Name="Bannen von Kälte">
+  <Spruch Name="Bannen von KÃ¤lte">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Bannen von Licht">
@@ -1832,23 +1832,23 @@
   <Spruch Name="Bannen von Zauberwerk">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Bannsphäre, Blaue">
+  <Spruch Name="BannsphÃ¤re, Blaue">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Bannsphäre, Goldene">
+  <Spruch Name="BannsphÃ¤re, Goldene">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Bannsphäre, Schwarze">
+  <Spruch Name="BannsphÃ¤re, Schwarze">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Bannsphäre, Silberne">
+  <Spruch Name="BannsphÃ¤re, Silberne">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Baum">
    <Grund Typ="Dt"/>
    <Lernschema Typ="Dt" Lernpunkte="3"/>
   </Spruch>
-  <Spruch Name="Baumkämpfer">
+  <Spruch Name="BaumkÃ¤mpfer">
    <Grund Typ="Dt"/>
   </Spruch>
   <Spruch Name="Beeinflussen">
@@ -1860,7 +1860,7 @@
   <Spruch Name="Beschleunigen">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Besänftigen">
+  <Spruch Name="BesÃ¤nftigen">
    <Grund Typ="Dt"/>
   </Spruch>
   <Spruch Name="Bittersalz">
@@ -1875,7 +1875,7 @@
   <Spruch Name="Blitze schleudern">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Blutsbrüderschaft stiften">
+  <Spruch Name="BlutsbrÃ¼derschaft stiften">
    <Grund Typ="Dt"/>
    <Lernschema Typ="Dt" Lernpunkte="2"/>
   </Spruch>
@@ -2030,7 +2030,7 @@
   <Spruch Name="Funkensalz">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Färbersalz">
+  <Spruch Name="FÃ¤rbersalz">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Geas">
@@ -2045,22 +2045,22 @@
   <Spruch Name="Golem schaffen">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Grüne Hand">
+  <Spruch Name="GrÃ¼ne Hand">
    <Grund Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Göttliche Eingebung">
+  <Spruch Name="GÃ¶ttliche Eingebung">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Göttliche Strafe">
+  <Spruch Name="GÃ¶ttliche Strafe">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Göttlicher Blitz">
+  <Spruch Name="GÃ¶ttlicher Blitz">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Göttlicher Schutz vor Magie">
+  <Spruch Name="GÃ¶ttlicher Schutz vor Magie">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Göttlicher Schutz vor dem Bösen">
+  <Spruch Name="GÃ¶ttlicher Schutz vor dem BÃ¶sen">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Haarsalz">
@@ -2111,10 +2111,10 @@
   <Spruch Name="Hungersalz">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Hören der Geister">
+  <Spruch Name="HÃ¶ren der Geister">
    <Grund Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Hörnerklang">
+  <Spruch Name="HÃ¶rnerklang">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Jucksalz">
@@ -2123,16 +2123,16 @@
   <Spruch Name="Juwelenauge">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kälteschutz">
+  <Spruch Name="KÃ¤lteschutz">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kühlsalz">
+  <Spruch Name="KÃ¼hlsalz">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Lachsalz">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Lichtbrücke">
+  <Spruch Name="LichtbrÃ¼cke">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Lichtrunen">
@@ -2141,7 +2141,7 @@
   <Spruch Name="Liebeszauber">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Lindern von Entkräftung">
+  <Spruch Name="Lindern von EntkrÃ¤ftung">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Liniensicht">
@@ -2150,23 +2150,23 @@
   <Spruch Name="Luftlauf">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Luftsphäre">
+  <Spruch Name="LuftsphÃ¤re">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Lähmung">
+  <Spruch Name="LÃ¤hmung">
    <Grund Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Löschsalz">
+  <Spruch Name="LÃ¶schsalz">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Macht über das Selbst">
+  <Spruch Name="Macht Ã¼ber das Selbst">
    <Grund Typ="Dt"/>
    <Lernschema Typ="Dt" Lernpunkte="1"/>
   </Spruch>
-  <Spruch Name="Macht über die Sinne">
+  <Spruch Name="Macht Ã¼ber die Sinne">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Macht über magische Wesen">
+  <Spruch Name="Macht Ã¼ber magische Wesen">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Magischer Kreis des Bewachens">
@@ -2214,7 +2214,7 @@
   <Spruch Name="Reinigen">
    <Grund Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Reise zu den Sphären">
+  <Spruch Name="Reise zu den SphÃ¤ren">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Riechsalz">
@@ -2259,13 +2259,13 @@
   <Spruch Name="Schwingenkeule">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Schwäche">
+  <Spruch Name="SchwÃ¤che">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Seelenheilung">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Seelenkompaß">
+  <Spruch Name="SeelenkompaÃ&#x9F;">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Segnen">
@@ -2280,7 +2280,7 @@
   <Spruch Name="Spruch intensivieren">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Staubkämpfer">
+  <Spruch Name="StaubkÃ¤mpfer">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Steinkugel">
@@ -2308,7 +2308,7 @@
   <Spruch Name="Sturmwind">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Stärke">
+  <Spruch Name="StÃ¤rke">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Sumpfboden">
@@ -2347,10 +2347,10 @@
   <Spruch Name="Verfluchen">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Vergrößern">
+  <Spruch Name="VergrÃ¶Ã&#x9F;ern">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Verjüngen">
+  <Spruch Name="VerjÃ¼ngen">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Verkleinern">
@@ -2425,7 +2425,7 @@
   <Spruch Name="Windmeisterschaft">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Windstoß">
+  <Spruch Name="WindstoÃ&#x9F;">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Wirbelwind">
@@ -2449,10 +2449,10 @@
   <Spruch Name="Zauberschild">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Zauberschloß">
+  <Spruch Name="ZauberschloÃ&#x9F;">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Zauberschlüssel">
+  <Spruch Name="ZauberschlÃ¼ssel">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Zauberschmiede">
@@ -2473,10 +2473,10 @@
   <Spruch Name="Zwiesprache">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Zähmen">
+  <Spruch Name="ZÃ¤hmen">
    <Grund Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Zündersalz">
+  <Spruch Name="ZÃ¼ndersalz">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Bannen von Dunebargen" Region="3">
@@ -2500,10 +2500,10 @@
   <Spruch Name="Bannen von Hyrrkin" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Bannen von Jördfolk" Region="3">
+  <Spruch Name="Bannen von JÃ¶rdfolk" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Bannen von Jördkin" Region="3">
+  <Spruch Name="Bannen von JÃ¶rdkin" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Bannen von Kaobargen" Region="3">
@@ -2521,61 +2521,61 @@
   <Spruch Name="Bannen von Wiskin" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Bergeist beschwören" Region="3">
+  <Spruch Name="Bergeist beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Bergeist rufen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Coluscar 1 beschwören" Region="3">
+  <Spruch Name="Coluscar 1 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Coluscar 2 beschwören" Region="3">
+  <Spruch Name="Coluscar 2 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Coluscar 3 beschwören" Region="3">
+  <Spruch Name="Coluscar 3 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Coluscar 4 beschwören" Region="3">
+  <Spruch Name="Coluscar 4 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dschinn beschwören" Region="3">
+  <Spruch Name="Dschinn beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Dschinn rufen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dunebrast 1 beschwören" Region="3">
+  <Spruch Name="Dunebrast 1 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dunebrast 2 beschwören" Region="3">
+  <Spruch Name="Dunebrast 2 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dunebrast 3 beschwören" Region="3">
+  <Spruch Name="Dunebrast 3 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dunebrast 4 beschwören" Region="3">
+  <Spruch Name="Dunebrast 4 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dunkle Horde beschwören" Region="3">
+  <Spruch Name="Dunkle Horde beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dunskrat beschwören" Region="3">
+  <Spruch Name="Dunskrat beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dämonen binden" Region="3">
+  <Spruch Name="DÃ¤monen binden" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dämonenbann" Region="3">
+  <Spruch Name="DÃ¤monenbann" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Dämonenschar beschwören" Region="3">
+  <Spruch Name="DÃ¤monenschar beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Eiselementargeist beschwören" Region="3">
+  <Spruch Name="Eiselementargeist beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Eldring beschwören" Region="3">
+  <Spruch Name="Eldring beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Elementarbann" Region="3">
@@ -2584,145 +2584,145 @@
   <Spruch Name="Elementarwesen binden" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Erdeelementargeist beschwören" Region="3">
+  <Spruch Name="Erdeelementargeist beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Erkurku beschwören" Region="3">
+  <Spruch Name="Erkurku beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Erkurku rufen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Felldvegar beschwören" Region="3">
+  <Spruch Name="Felldvegar beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Felldverg beschwören" Region="3">
+  <Spruch Name="Felldverg beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Fengrip beschwören" Region="3">
+  <Spruch Name="Fengrip beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Feuerelementargeist beschwören" Region="3">
+  <Spruch Name="Feuerelementargeist beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Fjalhune beschwören" Region="3">
+  <Spruch Name="Fjalhune beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Fossemand beschwören" Region="3">
+  <Spruch Name="Fossemand beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Geist beschwören" Region="3">
+  <Spruch Name="Geist beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Gjornhune beschwören" Region="3">
+  <Spruch Name="Gjornhune beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Gletschergnom beschwören" Region="3">
+  <Spruch Name="Gletschergnom beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Gletschergnom rufen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Gloddvegar beschwören" Region="3">
+  <Spruch Name="Gloddvegar beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Gloddverg beschwören" Region="3">
+  <Spruch Name="Gloddverg beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Halebant 1 beschwören" Region="3">
+  <Spruch Name="Halebant 1 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Halebant 2 beschwören" Region="3">
+  <Spruch Name="Halebant 2 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Halebant 3 beschwören" Region="3">
+  <Spruch Name="Halebant 3 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Halebant 4 beschwören" Region="3">
+  <Spruch Name="Halebant 4 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Hardlogi beschwören" Region="3">
+  <Spruch Name="Hardlogi beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Harkarhune beschwören" Region="3">
+  <Spruch Name="Harkarhune beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Harkbuar beschwören" Region="3">
+  <Spruch Name="Harkbuar beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Haugskadi beschwören" Region="3">
+  <Spruch Name="Haugskadi beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Herbeizwingen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Hrimdvegar beschwören" Region="3">
+  <Spruch Name="Hrimdvegar beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Hrimdverg beschwören" Region="3">
+  <Spruch Name="Hrimdverg beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Hrimhune beschwören" Region="3">
+  <Spruch Name="Hrimhune beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Hyrrbauti beschwören" Region="3">
+  <Spruch Name="Hyrrbauti beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Ifrit beschwören" Region="3">
+  <Spruch Name="Ifrit beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Ifrit rufen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Indruwal 1 beschwören" Region="3">
+  <Spruch Name="Indruwal 1 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Indruwal 2 beschwören" Region="3">
+  <Spruch Name="Indruwal 2 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Indruwal 3 beschwören" Region="3">
+  <Spruch Name="Indruwal 3 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Indruwal 4 beschwören" Region="3">
+  <Spruch Name="Indruwal 4 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Ising beschwören" Region="3">
+  <Spruch Name="Ising beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Jambani beschwören" Region="3">
+  <Spruch Name="Jambani beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Jokulskadi beschwören" Region="3">
+  <Spruch Name="Jokulskadi beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Jurugu beschwören" Region="3">
+  <Spruch Name="Jurugu beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Jurugu rufen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Jördmand beschwören" Region="3">
+  <Spruch Name="JÃ¶rdmand beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kaligin 1 beschwören" Region="3">
+  <Spruch Name="Kaligin 1 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kaligin 2 beschwören" Region="3">
+  <Spruch Name="Kaligin 2 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kaligin 3 beschwören" Region="3">
+  <Spruch Name="Kaligin 3 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kaligin 4 beschwören" Region="3">
+  <Spruch Name="Kaligin 4 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kallbjargi beschwören" Region="3">
+  <Spruch Name="Kallbjargi beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kallrani beschwören" Region="3">
+  <Spruch Name="Kallrani beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Karing beschwören" Region="3">
+  <Spruch Name="Karing beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Kreatur erschaffen" Region="3">
@@ -2731,58 +2731,58 @@
   <Spruch Name="Lehrersuche" Region="3">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Lergris beschwören" Region="3">
+  <Spruch Name="Lergris beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Ljosfang beschwören" Region="3">
+  <Spruch Name="Ljosfang beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Luftelementargeist beschwören" Region="3">
+  <Spruch Name="Luftelementargeist beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Marhune beschwören" Region="3">
+  <Spruch Name="Marhune beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Marid beschwören" Region="3">
+  <Spruch Name="Marid beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Marid rufen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Marmennil beschwören" Region="3">
+  <Spruch Name="Marmennil beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Megant 1 beschwören" Region="3">
+  <Spruch Name="Megant 1 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Megant 2 beschwören" Region="3">
+  <Spruch Name="Megant 2 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Megant 3 beschwören" Region="3">
+  <Spruch Name="Megant 3 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Megant 4 beschwören" Region="3">
+  <Spruch Name="Megant 4 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Meisterbann" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Mokkurbjargi beschwören" Region="3">
+  <Spruch Name="Mokkurbjargi beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Myrknir beschwören" Region="3">
+  <Spruch Name="Myrknir beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Nefling beschwören" Region="3">
+  <Spruch Name="Nefling beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Person beschwören" Region="3">
+  <Spruch Name="Person beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Saeldvegar beschwören" Region="3">
+  <Spruch Name="Saeldvegar beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Saeldverg beschwören" Region="3">
+  <Spruch Name="Saeldverg beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Dunebargen" Region="3">
@@ -2791,7 +2791,7 @@
   <Spruch Name="Schutzkreis gegen Dvergar" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dämonen" Region="3">
+  <Spruch Name="Schutzkreis gegen DÃ¤monen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Elementarwesen" Region="3">
@@ -2809,7 +2809,7 @@
   <Spruch Name="Schutzkreis gegen Hyrrfolk" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Jördfolk" Region="3">
+  <Spruch Name="Schutzkreis gegen JÃ¶rdfolk" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Kaobargen" Region="3">
@@ -2824,43 +2824,43 @@
   <Spruch Name="Schutzkreis gegen Wisfolk" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Snaerhamir beschwören" Region="3">
+  <Spruch Name="Snaerhamir beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Svalgrim beschwören" Region="3">
+  <Spruch Name="Svalgrim beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Thrymbar beschwören" Region="3">
+  <Spruch Name="Thrymbar beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Tor schaffen" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Truscan 1 beschwören" Region="3">
+  <Spruch Name="Truscan 1 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Truscan 2 beschwören" Region="3">
+  <Spruch Name="Truscan 2 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Truscan 3 beschwören" Region="3">
+  <Spruch Name="Truscan 3 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Truscan 4 beschwören" Region="3">
+  <Spruch Name="Truscan 4 beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Vergangenheit beschwören" Region="3">
+  <Spruch Name="Vergangenheit beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Vinddvegar beschwören" Region="3">
+  <Spruch Name="Vinddvegar beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Vinddverg beschwören" Region="3">
+  <Spruch Name="Vinddverg beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Vindmand beschwören" Region="3">
+  <Spruch Name="Vindmand beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Wasserelementargeist beschwören" Region="3">
+  <Spruch Name="Wasserelementargeist beschwÃ¶ren" Region="3">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Weltentor schaffen" Region="3">
@@ -2908,7 +2908,7 @@
   <Spruch Name="Haram fil-Din" Region="E">
    <Grund Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Hauch der Wüste" Region="E">
+  <Spruch Name="Hauch der WÃ¼ste" Region="E">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Incheper schaffen" Region="E">
@@ -2944,7 +2944,7 @@
   <Spruch Name="Tausch des Ba" Region="E">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Wasser spüren" Region="E">
+  <Spruch Name="Wasser spÃ¼ren" Region="E">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Abwenden von Blicken" Region="G">
@@ -2962,10 +2962,10 @@
   <Spruch Name="Fluch des Hundes" Region="G">
    <Grund Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Bann der wahren Eigentümerschaft" Region="H&amp;D">
+  <Spruch Name="Bann der wahren EigentÃ¼merschaft" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Bannen von Fäulnis" Region="H&amp;D">
+  <Spruch Name="Bannen von FÃ¤ulnis" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Blindsalz" Region="H&amp;D">
@@ -2989,7 +2989,7 @@
   <Spruch Name="Hexenwirbel" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kammerdiener beschwören" Region="H&amp;D">
+  <Spruch Name="Kammerdiener beschwÃ¶ren" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Klebesalz" Region="H&amp;D">
@@ -3004,7 +3004,7 @@
   <Spruch Name="Kravyad-Schrei" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Kuß des Schlafes" Region="H&amp;D">
+  <Spruch Name="KuÃ&#x9F; des Schlafes" Region="H&amp;D">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Lahmsalz" Region="H&amp;D">
@@ -3025,13 +3025,13 @@
   <Spruch Name="Reizen" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Schmerzen spüren" Region="H&amp;D">
+  <Spruch Name="Schmerzen spÃ¼ren" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Schreiber beschwören" Region="H&amp;D">
+  <Spruch Name="Schreiber beschwÃ¶ren" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Sprachlähmung" Region="H&amp;D">
+  <Spruch Name="SprachlÃ¤hmung" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Tiefschlaf" Region="H&amp;D">
@@ -3049,7 +3049,7 @@
   <Spruch Name="Wolkenbruch" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Wüstenwind" Region="H&amp;D">
+  <Spruch Name="WÃ¼stenwind" Region="H&amp;D">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Zucksalz" Region="H&amp;D">
@@ -3061,13 +3061,13 @@
   <Spruch Name="Farbensalz" Region="H&amp;Df">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Glühsalz" Region="H&amp;Df">
+  <Spruch Name="GlÃ¼hsalz" Region="H&amp;Df">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Großer Hitzeschutz" Region="K">
+  <Spruch Name="GroÃ&#x9F;er Hitzeschutz" Region="K">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Hauch des Frühlings" Region="K">
+  <Spruch Name="Hauch des FrÃ¼hlings" Region="K">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Metallmeisterschaft" Region="K">
@@ -3076,13 +3076,13 @@
   <Spruch Name="PiPingQuang" Region="K">
    <Standard Typ="Tt"/>
   </Spruch>
-  <Spruch Name="PiYeúQuang" Region="K">
+  <Spruch Name="PiYeÃºQuang" Region="K">
    <Standard Typ="Tt"/>
   </Spruch>
   <Spruch Name="Scheintod" Region="K">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Schöne Leiche" Region="K">
+  <Spruch Name="SchÃ¶ne Leiche" Region="K">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="TaiQuang" Region="K">
@@ -3103,16 +3103,16 @@
   <Spruch Name="Paschuyana, der Weg des Tieres" Region="R">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Rückführung" Region="R">
+  <Spruch Name="RÃ¼ckfÃ¼hrung" Region="R">
    <Ausnahme Typ="Dt"/>
   </Spruch>
   <Spruch Name="Seele finden" Region="R">
    <Grund Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Fährtenduft" Region="TuT">
+  <Spruch Name="FÃ¤hrtenduft" Region="TuT">
    <Ausnahme Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Lösen" Region="W">
+  <Spruch Name="LÃ¶sen" Region="W">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Oysteins kleine Prophezeiung" Region="W">

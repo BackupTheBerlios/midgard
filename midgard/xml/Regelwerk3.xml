@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <MAGUS-data Region="3">
  <Fertigkeiten>
@@ -37,7 +37,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Beidhändiger Kampf">
+  <Fertigkeit Name="BeidhÃ¤ndiger Kampf">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -67,7 +67,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Erzählen">
+  <Fertigkeit Name="ErzÃ¤hlen">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -102,7 +102,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Fälschen">
+  <Fertigkeit Name="FÃ¤lschen">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -117,7 +117,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Geheimmechanismen öffnen">
+  <Fertigkeit Name="Geheimmechanismen Ã¶ffnen">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -127,12 +127,12 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Geländelauf">
+  <Fertigkeit Name="GelÃ¤ndelauf">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Geschäftstüchtigkeit">
+  <Fertigkeit Name="GeschÃ¤ftstÃ¼chtigkeit">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -142,7 +142,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Glücksspiel">
+  <Fertigkeit Name="GlÃ¼cksspiel">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -162,7 +162,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kampf in Vollrüstung">
+  <Fertigkeit Name="Kampf in VollrÃ¼stung">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -192,7 +192,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kräuterkunde">
+  <Fertigkeit Name="KrÃ¤uterkunde">
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
    <Grund Typ="tBe"/>
@@ -273,7 +273,7 @@
    <Lernschema Typ="dBe" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="eBe" Lernpunkte="1" Erfolgswert="5"/>
   </Fertigkeit>
-  <Fertigkeit Name="Scharfschießen">
+  <Fertigkeit Name="ScharfschieÃ&#x9F;en">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -283,12 +283,12 @@
    <Grund Typ="eBe"/>
    <Grund Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schießen vom Streitwagen">
+  <Fertigkeit Name="SchieÃ&#x9F;en vom Streitwagen">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schiffsführung">
+  <Fertigkeit Name="SchiffsfÃ¼hrung">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -303,7 +303,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schlösser öffnen">
+  <Fertigkeit Name="SchlÃ¶sser Ã¶ffnen">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -322,7 +322,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schätzen">
+  <Fertigkeit Name="SchÃ¤tzen">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -422,12 +422,12 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Verführen">
+  <Fertigkeit Name="VerfÃ¼hren">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Verhören">
+  <Fertigkeit Name="VerhÃ¶ren">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -469,37 +469,37 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Dschungel">
+  <Fertigkeit Name="Ã&#x9C;berleben im Dschungel">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Gebirge">
+  <Fertigkeit Name="Ã&#x9C;berleben im Gebirge">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Schnee">
+  <Fertigkeit Name="Ã&#x9C;berleben im Schnee">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Sumpf">
+  <Fertigkeit Name="Ã&#x9C;berleben im Sumpf">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben im Wald">
+  <Fertigkeit Name="Ã&#x9C;berleben im Wald">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben in der Steppe">
+  <Fertigkeit Name="Ã&#x9C;berleben in der Steppe">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Überleben in der Wüste">
+  <Fertigkeit Name="Ã&#x9C;berleben in der WÃ¼ste">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -559,7 +559,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K">
+  <Fertigkeit Name="Kenntnis der fÃ¼nf Klassiker" Region="K">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -659,7 +659,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Dämonenkunde" Region="N">
+  <Fertigkeit Name="DÃ¤monenkunde" Region="N">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -674,12 +674,12 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Tätowieren" Region="N">
+  <Fertigkeit Name="TÃ¤towieren" Region="N">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Wahrsagekalender führen" Region="N">
+  <Fertigkeit Name="Wahrsagekalender fÃ¼hren" Region="N">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -709,7 +709,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Körperkontrolle" Region="R">
+  <Fertigkeit Name="KÃ¶rperkontrolle" Region="R">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -721,7 +721,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schlangen beschwören" Region="R">
+  <Fertigkeit Name="Schlangen beschwÃ¶ren" Region="R">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -764,8 +764,8 @@
  <Schriften/>
  <Sprachen/>
  <Typen>
-  <Typ Abkürzung="eBe" Region="3" MAGUS-Index="17" Bezeichnung-Mann="Elementarbeschwörer" Bezeichnung-Frau="Elementarbeschwörerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
-   <Modifikation Stand="20" Sb="30" Rüstung="4" Geld="3"/>
+  <Typ AbkÃ¼rzung="eBe" Region="3" MAGUS-Index="17" Bezeichnung-Mann="ElementarbeschwÃ¶rer" Bezeichnung-Frau="ElementarbeschwÃ¶rerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muÃ&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
+   <Modifikation Stand="20" Sb="30" RÃ¼stung="4" Geld="3"/>
    <Herkunft Land="Alba"/>
    <Herkunft Land="Aran"/>
    <Herkunft Land="Buluga"/>
@@ -773,7 +773,7 @@
    <Herkunft Land="Eschar"/>
    <Herkunft Land="Ikengabecken"/>
    <Herkunft Land="KanThaiPan"/>
-   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="KÃ¼stenstaaten"/>
    <Herkunft Land="Medjis"/>
    <Herkunft Land="Moravod"/>
    <Herkunft Land="Nahuatlan"/>
@@ -786,8 +786,8 @@
    <Gruppe Name="Be"/>
    <Gruppe Name="ZAU"/>
   </Typ>
-  <Typ Abkürzung="dBe" Region="3" MAGUS-Index="18" Bezeichnung-Mann="Dämonenbeschwörer" Bezeichnung-Frau="Dämonenbeschwörerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
-   <Modifikation Stand="20" Sb="30" Rüstung="4" Geld="3"/>
+  <Typ AbkÃ¼rzung="dBe" Region="3" MAGUS-Index="18" Bezeichnung-Mann="DÃ¤monenbeschwÃ¶rer" Bezeichnung-Frau="DÃ¤monenbeschwÃ¶rerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muÃ&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
+   <Modifikation Stand="20" Sb="30" RÃ¼stung="4" Geld="3"/>
    <Herkunft Land="Alba"/>
    <Herkunft Land="Aran"/>
    <Herkunft Land="Buluga"/>
@@ -795,7 +795,7 @@
    <Herkunft Land="Eschar"/>
    <Herkunft Land="Ikengabecken"/>
    <Herkunft Land="KanThaiPan"/>
-   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="KÃ¼stenstaaten"/>
    <Herkunft Land="Medjis"/>
    <Herkunft Land="Moravod"/>
    <Herkunft Land="Nahuatlan"/>
@@ -807,8 +807,8 @@
    <Gruppe Name="Be"/>
    <Gruppe Name="ZAU"/>
   </Typ>
-  <Typ Abkürzung="tBe" Region="3" MAGUS-Index="19" Bezeichnung-Mann="Totenbeschwörer" Bezeichnung-Frau="Totenbeschwörerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
-   <Modifikation Stand="20" Sb="30" Rüstung="4" Geld="3"/>
+  <Typ AbkÃ¼rzung="tBe" Region="3" MAGUS-Index="19" Bezeichnung-Mann="TotenbeschwÃ¶rer" Bezeichnung-Frau="TotenbeschwÃ¶rerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muÃ&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
+   <Modifikation Stand="20" Sb="30" RÃ¼stung="4" Geld="3"/>
    <Herkunft Land="Alba"/>
    <Herkunft Land="Aran"/>
    <Herkunft Land="Buluga"/>
@@ -816,7 +816,7 @@
    <Herkunft Land="Eschar"/>
    <Herkunft Land="Ikengabecken"/>
    <Herkunft Land="KanThaiPan"/>
-   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="KÃ¼stenstaaten"/>
    <Herkunft Land="Medjis"/>
    <Herkunft Land="Moravod"/>
    <Herkunft Land="Nahuatlan"/>
@@ -829,9 +829,9 @@
    <Gruppe Name="ZAU"/>
   </Typ>
  </Typen>
- <Rüstungen/>
+ <RÃ¼stungen/>
  <Waffen>
-  <Waffe Name="Pilum" Region="3" Grundkenntnisse="Wurfspieß" Schwierigkeit="2" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" erfordert="leichter Speer">
+  <Waffe Name="Pilum" Region="3" Grundkenntnisse="WurfspieÃ&#x9F;" Schwierigkeit="2" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" erfordert="leichter Speer">
    <Modifikationen/>
    <Voraussetzungen St="61" Gs="21"/>
    <Reichweite nah="10" mittel="20" fern="30"/>
@@ -841,7 +841,7 @@
    <Grund Typ="Ri"/>
    <Grund Typ="RiN"/>
    <Grund Typ="RiS"/>
-   <Grund Typ="Sö"/>
+   <Grund Typ="SÃ¶"/>
    <Standard Typ="As"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
@@ -851,7 +851,7 @@
    <Standard Typ="Fi"/>
    <Standard Typ="Gl"/>
    <Standard Typ="Hj"/>
-   <Standard Typ="Hä"/>
+   <Standard Typ="HÃ¤"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Km"/>
    <Standard Typ="Ku"/>
@@ -892,11 +892,11 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Anderthalbhänder">
+  <Waffe Name="AnderthalbhÃ¤nder">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
-  <Waffe Name="Bihänder">
+  <Waffe Name="BihÃ¤nder">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
@@ -978,7 +978,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
-  <Waffe Name="Krummsäbel">
+  <Waffe Name="KrummsÃ¤bel">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
@@ -1072,7 +1072,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
-  <Waffe Name="Stoßspeer">
+  <Waffe Name="StoÃ&#x9F;speer">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
@@ -1120,7 +1120,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
-  <Waffe Name="Wurfspieß">
+  <Waffe Name="WurfspieÃ&#x9F;">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
@@ -1128,7 +1128,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
-  <Waffe Name="großer Schild">
+  <Waffe Name="groÃ&#x9F;er Schild">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
@@ -1214,7 +1214,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffen-Grundkenntnis>
-  <Waffen-Grundkenntnis Name="Bögen">
+  <Waffen-Grundkenntnis Name="BÃ¶gen">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffen-Grundkenntnis>
@@ -1262,7 +1262,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffen-Grundkenntnis>
-  <Waffen-Grundkenntnis Name="Spießwaffe">
+  <Waffen-Grundkenntnis Name="SpieÃ&#x9F;waffe">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffen-Grundkenntnis>
@@ -1294,11 +1294,11 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffen-Grundkenntnis>
-  <Waffen-Grundkenntnis Name="Wurfspieß">
+  <Waffen-Grundkenntnis Name="WurfspieÃ&#x9F;">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffen-Grundkenntnis>
-  <Waffen-Grundkenntnis Name="Zauberstäbe">
+  <Waffen-Grundkenntnis Name="ZauberstÃ¤be">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
   </Waffen-Grundkenntnis>
@@ -1320,7 +1320,7 @@
   </Waffen-Grundkenntnis>
  </Waffen-Grundkenntnisse>
  <Zauber>
-  <Spruch Name="Bannen von Dunebargen" Region="3" Grad="3" Lernkosten="500" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Bannen von Dunebargen" Region="3" Grad="3" Lernkosten="500" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Material=" " Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -1351,7 +1351,7 @@
    <Lernschema Typ="dBe" Lernpunkte="4"/>
    <Beschreibung>Bannt Dunebargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Dvergar" Region="3" Grad="2" Lernkosten="140" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Bannen von Dvergar" Region="3" Grad="2" Lernkosten="140" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="BeschwÃ¶rung">
    <Grund Typ="eBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -1381,7 +1381,7 @@
    <Ausnahme Typ="wHx"/>
    <Beschreibung>Bannt Dvergar von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Hrimfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Eis" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Bannen von Hrimfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Eis" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1413,7 +1413,7 @@
    <Lernschema Typ="eBe" Lernpunkte="4"/>
    <Beschreibung>Bannt Hrimfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Hrimkin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Bannen von Hrimkin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Material=" " Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1442,7 +1442,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Bannen von Hunar" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Bannen von Hunar" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Material=" " Zauberart="BeschwÃ¶rung">
    <Grund Typ="eBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -1471,7 +1471,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Bannen von Hyrrfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Bannen von Hyrrfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1503,7 +1503,7 @@
    <Lernschema Typ="eBe" Lernpunkte="4"/>
    <Beschreibung>Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Hyrrkin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Bannen von Hyrrkin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Material=" " Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1532,7 +1532,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Bannen von Jördfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Bannen von JÃ¶rdfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1562,9 +1562,9 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="3"/>
    <Lernschema Typ="eBe" Lernpunkte="4"/>
-   <Beschreibung>Bannt Jördfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
+   <Beschreibung>Bannt JÃ¶rdfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Jördkin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Bannen von JÃ¶rdkin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Material=" " Zauberart="BeschwÃ¶rung">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1593,7 +1593,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Bannen von Kaobargen" Region="3" Grad="2" Lernkosten="140" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Bannen von Kaobargen" Region="3" Grad="2" Lernkosten="140" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -1624,7 +1624,7 @@
    <Lernschema Typ="dBe" Lernpunkte="3"/>
    <Beschreibung>Bannt Kaobargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Vindfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Bannen von Vindfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1656,7 +1656,7 @@
    <Lernschema Typ="eBe" Lernpunkte="4"/>
    <Beschreibung>Bannt Vindfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Vindskin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Bannen von Vindskin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Material=" " Zauberart="BeschwÃ¶rung">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1685,7 +1685,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Bannen von Wisfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Wasser" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Material=" " Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Bannen von Wisfolk" Region="3" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Wasser" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Material=" " Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1717,7 +1717,7 @@
    <Lernschema Typ="eBe" Lernpunkte="4"/>
    <Beschreibung>Bannt Wisfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Wiskin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Bannen von Wiskin" Region="3" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Material=" " Zauberart="BeschwÃ¶rung">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1745,36 +1745,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Bergeist beschwören" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Erde">
-   <Ausnahme Typ="De"/>
-   <Ausnahme Typ="Dr"/>
-   <Ausnahme Typ="Dt"/>
-   <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
-   <Ausnahme Typ="Ma"/>
-   <Ausnahme Typ="PC"/>
-   <Ausnahme Typ="PF"/>
-   <Ausnahme Typ="PHa"/>
-   <Ausnahme Typ="PHe"/>
-   <Ausnahme Typ="PK"/>
-   <Ausnahme Typ="PM"/>
-   <Ausnahme Typ="PT"/>
-   <Ausnahme Typ="PW"/>
-   <Ausnahme Typ="Sa"/>
-   <Ausnahme Typ="ScN"/>
-   <Ausnahme Typ="ScS"/>
-   <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Sw"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="To"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="wHx"/>
-  </Spruch>
-  <Spruch Name="Bergeist rufen" Region="3" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Bergeist beschwÃ¶ren" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1803,7 +1774,36 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Coluscar 1 beschwören" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Kaninchen" Zauberart="Beschwörung">
+  <Spruch Name="Bergeist rufen" Region="3" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="BeschwÃ¶rung" Element="Erde">
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Coluscar 1 beschwÃ¶ren" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Kaninchen" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -1833,7 +1833,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="dBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Coluscar 2 beschwören" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="schwarzes Huhn" Zauberart="Beschwörung">
+  <Spruch Name="Coluscar 2 beschwÃ¶ren" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="schwarzes Huhn" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -1863,7 +1863,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="dBe" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Coluscar 3 beschwören" Region="3" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="7 Ratten" Zauberart="Beschwörung">
+  <Spruch Name="Coluscar 3 beschwÃ¶ren" Region="3" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="7 Ratten" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -1892,7 +1892,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Coluscar 4 beschwören" Region="3" Grad="4" Lernkosten="1200" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="schwarze Katze" Zauberart="Beschwörung">
+  <Spruch Name="Coluscar 4 beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1200" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="schwarze Katze" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -1921,7 +1921,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Dschinn beschwören" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Dschinn beschwÃ¶ren" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1950,7 +1950,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Dschinn rufen" Region="3" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Dschinn rufen" Region="3" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -1979,7 +1979,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Dunebrast 1 beschwören" Region="3" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="1l Menschenblut" Zauberart="Beschwörung">
+  <Spruch Name="Dunebrast 1 beschwÃ¶ren" Region="3" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="1l Menschenblut" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2009,7 +2009,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="dBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Dunebrast 2 beschwören" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="2l Menschenblut" Zauberart="Beschwörung">
+  <Spruch Name="Dunebrast 2 beschwÃ¶ren" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="2l Menschenblut" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2039,7 +2039,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="dBe" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Dunebrast 3 beschwören" Region="3" Grad="4" Lernkosten="1400" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="3l Menschenblut" Zauberart="Beschwörung">
+  <Spruch Name="Dunebrast 3 beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1400" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="3l Menschenblut" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2068,7 +2068,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Dunebrast 4 beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="6l Menschenblut" Zauberart="Beschwörung">
+  <Spruch Name="Dunebrast 4 beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="6l Menschenblut" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2097,7 +2097,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Dunkle Horde beschwören" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1W6+2 Ws" Wirkungsdauer="1 h" Material="Waffen" Zauberart="Beschwörung">
+  <Spruch Name="Dunkle Horde beschwÃ¶ren" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1W6+2 Ws" Wirkungsdauer="1 h" Material="Waffen" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2126,121 +2126,8 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Dunskrat beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Dunskrat beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
-   <Ausnahme Typ="Dr"/>
-   <Ausnahme Typ="Dt"/>
-   <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
-   <Ausnahme Typ="Ma"/>
-   <Ausnahme Typ="PC"/>
-   <Ausnahme Typ="PF"/>
-   <Ausnahme Typ="PHa"/>
-   <Ausnahme Typ="PHe"/>
-   <Ausnahme Typ="PK"/>
-   <Ausnahme Typ="PM"/>
-   <Ausnahme Typ="PT"/>
-   <Ausnahme Typ="PW"/>
-   <Ausnahme Typ="Sa"/>
-   <Ausnahme Typ="ScN"/>
-   <Ausnahme Typ="ScS"/>
-   <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Sw"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="To"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="wHx"/>
-  </Spruch>
-  <Spruch Name="Dämonen binden" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="verändert" Reagens="Feuer" Zauberdauer="30 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Jahr" Zauberart="Beschwörung">
-   <Standard Typ="dBe"/>
-   <Ausnahme Typ="De"/>
-   <Ausnahme Typ="Dr"/>
-   <Ausnahme Typ="Dt"/>
-   <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
-   <Ausnahme Typ="Ma"/>
-   <Ausnahme Typ="PC"/>
-   <Ausnahme Typ="PF"/>
-   <Ausnahme Typ="PHa"/>
-   <Ausnahme Typ="PHe"/>
-   <Ausnahme Typ="PK"/>
-   <Ausnahme Typ="PM"/>
-   <Ausnahme Typ="PT"/>
-   <Ausnahme Typ="PW"/>
-   <Ausnahme Typ="Sa"/>
-   <Ausnahme Typ="ScN"/>
-   <Ausnahme Typ="ScS"/>
-   <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Sw"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="wHx"/>
-  </Spruch>
-  <Spruch Name="Dämonenbann" Region="3" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
-   <Standard Typ="dBe"/>
-   <Ausnahme Typ="De"/>
-   <Ausnahme Typ="Dr"/>
-   <Ausnahme Typ="Dt"/>
-   <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
-   <Ausnahme Typ="Ma"/>
-   <Ausnahme Typ="PC"/>
-   <Ausnahme Typ="PF"/>
-   <Ausnahme Typ="PHa"/>
-   <Ausnahme Typ="PHe"/>
-   <Ausnahme Typ="PK"/>
-   <Ausnahme Typ="PM"/>
-   <Ausnahme Typ="PT"/>
-   <Ausnahme Typ="PW"/>
-   <Ausnahme Typ="Sa"/>
-   <Ausnahme Typ="ScN"/>
-   <Ausnahme Typ="ScS"/>
-   <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Sw"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="wHx"/>
-  </Spruch>
-  <Spruch Name="Dämonenschar beschwören" Region="3" Grad="5" Lernkosten="3000" AP="5" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1W6+2 Ws" Wirkungsdauer="1 h" Material="Waffen" Zauberart="Beschwörung">
-   <Standard Typ="dBe"/>
-   <Ausnahme Typ="De"/>
-   <Ausnahme Typ="Dr"/>
-   <Ausnahme Typ="Dt"/>
-   <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
-   <Ausnahme Typ="Ma"/>
-   <Ausnahme Typ="PC"/>
-   <Ausnahme Typ="PF"/>
-   <Ausnahme Typ="PHa"/>
-   <Ausnahme Typ="PHe"/>
-   <Ausnahme Typ="PK"/>
-   <Ausnahme Typ="PM"/>
-   <Ausnahme Typ="PT"/>
-   <Ausnahme Typ="PW"/>
-   <Ausnahme Typ="Sa"/>
-   <Ausnahme Typ="ScN"/>
-   <Ausnahme Typ="ScS"/>
-   <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Sw"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="To"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="wHx"/>
-  </Spruch>
-  <Spruch Name="Eiselementargeist beschwören" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Eis">
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
@@ -2268,7 +2155,120 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Eldring beschwören" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="DÃ¤monen binden" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="verÃ¤ndert" Reagens="Feuer" Zauberdauer="30 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Jahr" Zauberart="BeschwÃ¶rung">
+   <Standard Typ="dBe"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="DÃ¤monenbann" Region="3" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="var" Material=" " Zauberart="BeschwÃ¶rung">
+   <Standard Typ="dBe"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="DÃ¤monenschar beschwÃ¶ren" Region="3" Grad="5" Lernkosten="3000" AP="5" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1W6+2 Ws" Wirkungsdauer="1 h" Material="Waffen" Zauberart="BeschwÃ¶rung">
+   <Standard Typ="dBe"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Eiselementargeist beschwÃ¶ren" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="BeschwÃ¶rung" Element="Eis">
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Eldring beschwÃ¶ren" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2298,7 +2298,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Elementarbann" Region="3" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Elementarbann" Region="3" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="var" Material=" " Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2326,7 +2326,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Elementarwesen binden" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="verändert" Reagens="Feuer" Zauberdauer="30 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Jahr" Zauberart="Beschwörung">
+  <Spruch Name="Elementarwesen binden" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="verÃ¤ndert" Reagens="Feuer" Zauberdauer="30 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Jahr" Zauberart="BeschwÃ¶rung">
    <Grund Typ="eBe"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2354,7 +2354,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Erdeelementargeist beschwören" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Erdeelementargeist beschwÃ¶ren" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2383,7 +2383,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Erkurku beschwören" Region="3" Grad="6" Lernkosten="4000" AP="6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1Ws" Wirkungsdauer="1 h" Material="Affe" Zauberart="Beschwörung">
+  <Spruch Name="Erkurku beschwÃ¶ren" Region="3" Grad="6" Lernkosten="4000" AP="6" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1Ws" Wirkungsdauer="1 h" Material="Affe" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2412,7 +2412,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Erkurku rufen" Region="3" Grad="5" Lernkosten="2000" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1Ws" Wirkungsdauer="1 h" Zauberart="Beschwörung">
+  <Spruch Name="Erkurku rufen" Region="3" Grad="5" Lernkosten="2000" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1Ws" Wirkungsdauer="1 h" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2441,7 +2441,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Felldvegar beschwören" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Felldvegar beschwÃ¶ren" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2470,7 +2470,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Felldverg beschwören" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Felldverg beschwÃ¶ren" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2500,7 +2500,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Fengrip beschwören" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Fengrip beschwÃ¶ren" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2529,7 +2529,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Feuerelementargeist beschwören" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Feuerelementargeist beschwÃ¶ren" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2558,7 +2558,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Fjalhune beschwören" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (100 GS)" Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Fjalhune beschwÃ¶ren" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (100 GS)" Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2587,7 +2587,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Fossemand beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Fossemand beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2616,7 +2616,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Geist beschwören" Region="3" Grad="5" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="Beschwörung">
+  <Spruch Name="Geist beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Ausnahme Typ="De"/>
@@ -2645,7 +2645,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Gjornhune beschwören" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (100 GS)" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Gjornhune beschwÃ¶ren" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (100 GS)" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2674,7 +2674,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Gletschergnom beschwören" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (500 GS)" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Gletschergnom beschwÃ¶ren" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (500 GS)" Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2703,7 +2703,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Gletschergnom rufen" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (500 GS)" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Gletschergnom rufen" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (500 GS)" Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2732,7 +2732,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Gloddvegar beschwören" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein (200 GS)" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Gloddvegar beschwÃ¶ren" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein (200 GS)" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2761,7 +2761,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Gloddverg beschwören" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (40 GS)" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Gloddverg beschwÃ¶ren" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein (40 GS)" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2791,7 +2791,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Halebant 1 beschwören" Region="3" Grad="1" Lernkosten="60" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="1l Hundeblut" Zauberart="Beschwörung">
+  <Spruch Name="Halebant 1 beschwÃ¶ren" Region="3" Grad="1" Lernkosten="60" AP="1" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="1l Hundeblut" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2821,7 +2821,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="dBe" Lernpunkte="1"/>
   </Spruch>
-  <Spruch Name="Halebant 2 beschwören" Region="3" Grad="2" Lernkosten="140" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="1l Vogelblut" Zauberart="Beschwörung">
+  <Spruch Name="Halebant 2 beschwÃ¶ren" Region="3" Grad="2" Lernkosten="140" AP="2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="1l Vogelblut" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2851,7 +2851,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="dBe" Lernpunkte="3"/>
   </Spruch>
-  <Spruch Name="Halebant 3 beschwören" Region="3" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="2l Schafsblut" Zauberart="Beschwörung">
+  <Spruch Name="Halebant 3 beschwÃ¶ren" Region="3" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="2l Schafsblut" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2880,7 +2880,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Halebant 4 beschwören" Region="3" Grad="4" Lernkosten="1200" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="2l Pferdeblut" Zauberart="Beschwörung">
+  <Spruch Name="Halebant 4 beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1200" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="2l Pferdeblut" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -2909,7 +2909,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Hardlogi beschwören" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Hardlogi beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2938,7 +2938,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Harkarhune beschwören" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Harkarhune beschwÃ¶ren" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2967,7 +2967,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Harkbuar beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Harkbuar beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -2996,7 +2996,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Haugskadi beschwören" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Haugskadi beschwÃ¶ren" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3026,7 +3026,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Herbeizwingen" Region="3" Grad="4" Lernkosten="1000" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Material="10 g Körpersusbtanz" Zauberart="Beschwörung">
+  <Spruch Name="Herbeizwingen" Region="3" Grad="4" Lernkosten="1000" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Material="10 g KÃ¶rpersusbtanz" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Ausnahme Typ="De"/>
@@ -3055,7 +3055,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Hrimdvegar beschwören" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Hrimdvegar beschwÃ¶ren" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3084,7 +3084,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Hrimdverg beschwören" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Hrimdverg beschwÃ¶ren" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3114,7 +3114,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Hrimhune beschwören" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Hrimhune beschwÃ¶ren" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3143,7 +3143,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Hyrrbauti beschwören" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Hyrrbauti beschwÃ¶ren" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3172,7 +3172,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Ifrit beschwören" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Ifrit beschwÃ¶ren" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3201,7 +3201,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Ifrit rufen" Region="3" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Ifrit rufen" Region="3" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3230,7 +3230,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Indruwal 1 beschwören" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="LP" Zauberart="Beschwörung">
+  <Spruch Name="Indruwal 1 beschwÃ¶ren" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="LP" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3259,7 +3259,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Indruwal 2 beschwören" Region="3" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="LP" Zauberart="Beschwörung">
+  <Spruch Name="Indruwal 2 beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="LP" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3288,7 +3288,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Indruwal 3 beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="LP" Zauberart="Beschwörung">
+  <Spruch Name="Indruwal 3 beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="LP" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3317,7 +3317,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Indruwal 4 beschwören" Region="3" Grad="6" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="LP" Zauberart="Beschwörung">
+  <Spruch Name="Indruwal 4 beschwÃ¶ren" Region="3" Grad="6" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="LP" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3346,7 +3346,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Ising beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Ising beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3375,7 +3375,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Jambani beschwören" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Jambani beschwÃ¶ren" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3405,7 +3405,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Jokulskadi beschwören" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Jokulskadi beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3434,7 +3434,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Jurugu beschwören" Region="3" Grad="G" Lernkosten="14000" AP="18" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1Ws" Wirkungsdauer="1 h" Material="Schrumpfkopf" Zauberart="Beschwörung">
+  <Spruch Name="Jurugu beschwÃ¶ren" Region="3" Grad="G" Lernkosten="14000" AP="18" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1Ws" Wirkungsdauer="1 h" Material="Schrumpfkopf" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3463,7 +3463,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Jurugu rufen" Region="3" Grad="6" Lernkosten="6000" AP="9" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1Ws" Wirkungsdauer="1 h" Zauberart="Beschwörung">
+  <Spruch Name="Jurugu rufen" Region="3" Grad="6" Lernkosten="6000" AP="9" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1Ws" Wirkungsdauer="1 h" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3492,7 +3492,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Jördmand beschwören" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="JÃ¶rdmand beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3521,7 +3521,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Kaligin 1 beschwören" Region="3" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Dolch oder Kurzschwert" Zauberart="Beschwörung">
+  <Spruch Name="Kaligin 1 beschwÃ¶ren" Region="3" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Dolch oder Kurzschwert" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3551,7 +3551,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="dBe" Lernpunkte="3"/>
   </Spruch>
-  <Spruch Name="Kaligin 2 beschwören" Region="3" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Streitkolben oder Axt" Zauberart="Beschwörung">
+  <Spruch Name="Kaligin 2 beschwÃ¶ren" Region="3" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Streitkolben oder Axt" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3580,7 +3580,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Kaligin 3 beschwören" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Morgenstern" Zauberart="Beschwörung">
+  <Spruch Name="Kaligin 3 beschwÃ¶ren" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Morgenstern" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3609,7 +3609,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Kaligin 4 beschwören" Region="3" Grad="4" Lernkosten="1400" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Hellebarde oder Stielhammer" Zauberart="Beschwörung">
+  <Spruch Name="Kaligin 4 beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1400" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Hellebarde oder Stielhammer" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -3638,7 +3638,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Kallbjargi beschwören" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Kallbjargi beschwÃ¶ren" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3669,7 +3669,7 @@
    <Lernschema Typ="eBe" Lernpunkte="1"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Kallrani beschwören" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Kallrani beschwÃ¶ren" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3698,7 +3698,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Karing beschwören" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Karing beschwÃ¶ren" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3729,7 +3729,7 @@
    <Lernschema Typ="eBe" Lernpunkte="1"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Kreatur erschaffen" Region="3" Grad="4" Lernkosten="1000" AP="4*Gr" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="Beschwörung">
+  <Spruch Name="Kreatur erschaffen" Region="3" Grad="4" Lernkosten="1000" AP="4*Gr" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Ausnahme Typ="De"/>
@@ -3758,7 +3758,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Lehrersuche" Region="3" Grad="1" Lernkosten="3000" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Zauberart="Beschwörung">
+  <Spruch Name="Lehrersuche" Region="3" Grad="1" Lernkosten="3000" AP="2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Zauberart="BeschwÃ¶rung">
    <Grund Typ="MMa"/>
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
@@ -3787,7 +3787,7 @@
    <Lernschema Typ="dBe"/>
    <Lernschema Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Lergris beschwören" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Lergris beschwÃ¶ren" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="BeschwÃ¶rung" Element="Erde">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3818,7 +3818,7 @@
    <Lernschema Typ="eBe" Lernpunkte="1"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Ljosfang beschwören" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Ljosfang beschwÃ¶ren" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3849,7 +3849,7 @@
    <Lernschema Typ="eBe" Lernpunkte="1"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Luftelementargeist beschwören" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Luftelementargeist beschwÃ¶ren" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3878,7 +3878,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Marhune beschwören" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Marhune beschwÃ¶ren" Region="3" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3907,7 +3907,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Marid beschwören" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Marid beschwÃ¶ren" Region="3" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3936,7 +3936,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Marid rufen" Region="3" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Marid rufen" Region="3" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3965,7 +3965,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Marmennil beschwören" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Marmennil beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -3994,7 +3994,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Megant 1 beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="1 Sack grosse Nuesse" Zauberart="Beschwörung">
+  <Spruch Name="Megant 1 beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="1 Sack grosse Nuesse" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4023,7 +4023,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Megant 2 beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="1 Faß Pflanzenöl" Zauberart="Beschwörung">
+  <Spruch Name="Megant 2 beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="1 FaÃ&#x9F; PflanzenÃ¶l" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4052,7 +4052,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Megant 3 beschwören" Region="3" Grad="6" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="7,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="1 Faß Fischöl" Zauberart="Beschwörung">
+  <Spruch Name="Megant 3 beschwÃ¶ren" Region="3" Grad="6" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="7,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="1 FaÃ&#x9F; FischÃ¶l" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4081,7 +4081,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Megant 4 beschwören" Region="3" Grad="6" Lernkosten="5000" AP="6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="7,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="1 Rind" Zauberart="Beschwörung">
+  <Spruch Name="Megant 4 beschwÃ¶ren" Region="3" Grad="6" Lernkosten="5000" AP="6" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="7,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="1 Rind" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4110,7 +4110,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Meisterbann" Region="3" Grad="6" Lernkosten="5000" AP="18" Typ="Geste" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Zauberart="Beschwörung">
+  <Spruch Name="Meisterbann" Region="3" Grad="6" Lernkosten="5000" AP="18" Typ="Geste" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="KÃ¶rper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Zauberart="BeschwÃ¶rung">
    <Grund Typ="eBe"/>
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
@@ -4139,7 +4139,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Mokkurbjargi beschwören" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Mokkurbjargi beschwÃ¶ren" Region="3" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4170,7 +4170,7 @@
    <Lernschema Typ="eBe" Lernpunkte="1"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Myrknir beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Myrknir beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4199,7 +4199,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Nefling beschwören" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Nefling beschwÃ¶ren" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4229,7 +4229,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Person beschwören" Region="3" Grad="4" Lernkosten="1000" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Zauberart="Beschwörung">
+  <Spruch Name="Person beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1000" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Ausnahme Typ="De"/>
@@ -4258,7 +4258,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Saeldvegar beschwören" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Saeldvegar beschwÃ¶ren" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4287,7 +4287,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Saeldverg beschwören" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Saeldverg beschwÃ¶ren" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4317,7 +4317,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dunebargen" Region="3" Grad="2" Lernkosten="160" AP="#*2" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Dunebargen" Region="3" Grad="2" Lernkosten="160" AP="#*2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung">
    <Grund Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4346,9 +4346,9 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="dBe" Lernpunkte="3"/>
-   <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dunebarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
+   <Beschreibung>Schutzkreis schÃ¼tzt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dunebarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dvergar" Region="3" Grad="2" Lernkosten="160" AP="#*2" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h  " Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Dvergar" Region="3" Grad="2" Lernkosten="160" AP="#*2" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h  " Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung">
    <Grund Typ="eBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4376,9 +4376,9 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dvergar, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
+   <Beschreibung>Schutzkreis schÃ¼tzt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dvergar, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dämonen" Region="3" Grad="5" Lernkosten="2000" AP="#*6" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen DÃ¤monen" Region="3" Grad="5" Lernkosten="2000" AP="#*6" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4407,7 +4407,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Elementarwesen" Region="3" Grad="5" Lernkosten="2000" AP="#*6" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Elementarwesen" Region="3" Grad="5" Lernkosten="2000" AP="#*6" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung">
    <Grund Typ="eBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4436,7 +4436,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Geisterwesen" Region="3" Grad="4" Lernkosten="1500" AP="#*4" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Geisterwesen" Region="3" Grad="4" Lernkosten="1500" AP="#*4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Ausnahme Typ="De"/>
@@ -4464,9 +4464,9 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 4AP pro Person im Schutzkreis. Jeder Geist, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
+   <Beschreibung>Schutzkreis schÃ¼tzt die Personen innerhalb. Anlegen 1 Stunde, 4AP pro Person im Schutzkreis. Jeder Geist, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hrimfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Schutzkreis gegen Hrimfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4496,9 +4496,9 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
    <Lernschema Typ="eBe" Lernpunkte="3"/>
-   <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Hrimfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
+   <Beschreibung>Schutzkreis schÃ¼tzt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Hrimfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hunar" Region="3" Grad="4" Lernkosten="600" AP="#*4" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Element" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="1 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Hunar" Region="3" Grad="4" Lernkosten="600" AP="#*4" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Element" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="1 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung">
    <Grund Typ="eBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4527,7 +4527,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hyrrfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Schutzkreis gegen Hyrrfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4558,7 +4558,7 @@
    <Lernschema Typ="eBe" Lernpunkte="2"/>
    <Lernschema Typ="eBe" Lernpunkte="3"/>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Jördfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Schutzkreis gegen JÃ¶rdfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung" Element="Feuer">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4588,9 +4588,9 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
    <Lernschema Typ="eBe" Lernpunkte="3"/>
-   <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jördfolk , der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
+   <Beschreibung>Schutzkreis schÃ¼tzt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. JÃ¶rdfolk , der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Kaobargen" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Kaobargen" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung">
    <Grund Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4619,9 +4619,9 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="dBe" Lernpunkte="2"/>
-   <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jeder Kaobarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
+   <Beschreibung>Schutzkreis schÃ¼tzt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jeder Kaobarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Untote" Region="3" Grad="3" Lernkosten="600" AP="#*3" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Untote" Region="3" Grad="3" Lernkosten="600" AP="#*3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Ausnahme Typ="De"/>
@@ -4649,9 +4649,9 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 3AP pro Person im Schutzkreis. Jeder Untote, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
+   <Beschreibung>Schutzkreis schÃ¼tzt die Personen innerhalb. Anlegen 1 Stunde, 3AP pro Person im Schutzkreis. Jeder Untote, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Vindfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Schutzkreis gegen Vindfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4681,9 +4681,9 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
    <Lernschema Typ="eBe" Lernpunkte="3"/>
-   <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
+   <Beschreibung>Schutzkreis schÃ¼tzt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Wisfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h " Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Schutzkreis gegen Wisfolk" Region="3" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h " Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4713,9 +4713,9 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
    <Lernschema Typ="eBe" Lernpunkte="3"/>
-   <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
+   <Beschreibung>Schutzkreis schÃ¼tzt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Snaerhamir beschwören" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Snaerhamir beschwÃ¶ren" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4744,7 +4744,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Svalgrim beschwören" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Svalgrim beschwÃ¶ren" Region="3" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="BeschwÃ¶rung" Element="Eis">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4774,7 +4774,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="4"/>
   </Spruch>
-  <Spruch Name="Thrymbar beschwören" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Thrymbar beschwÃ¶ren" Region="3" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -4803,7 +4803,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Tor schaffen" Region="3" Grad="6" Lernkosten="5000" AP="12" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="2x1 m" Wirkungsdauer="1 Monat" Zauberart="Beschwörung">
+  <Spruch Name="Tor schaffen" Region="3" Grad="6" Lernkosten="5000" AP="12" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="2x1 m" Wirkungsdauer="1 Monat" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Ausnahme Typ="De"/>
@@ -4832,7 +4832,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Truscan 1 beschwören" Region="3" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="Schmuck" Zauberart="Beschwörung">
+  <Spruch Name="Truscan 1 beschwÃ¶ren" Region="3" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="Schmuck" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4861,7 +4861,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Truscan 2 beschwören" Region="3" Grad="3" Lernkosten="700" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="Schmuck" Zauberart="Beschwörung">
+  <Spruch Name="Truscan 2 beschwÃ¶ren" Region="3" Grad="3" Lernkosten="700" AP="3" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="Schmuck" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4890,7 +4890,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Truscan 3 beschwören" Region="3" Grad="4" Lernkosten="1400" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="Schmuck" Zauberart="Beschwörung">
+  <Spruch Name="Truscan 3 beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1400" AP="4" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="Schmuck" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4919,7 +4919,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Truscan 4 beschwören" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="Schmuck" Zauberart="Beschwörung">
+  <Spruch Name="Truscan 4 beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="Schmuck" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
@@ -4948,7 +4948,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Vergangenheit beschwören" Region="3" Grad="5" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="Beschwörung">
+  <Spruch Name="Vergangenheit beschwÃ¶ren" Region="3" Grad="5" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Ausnahme Typ="De"/>
@@ -4977,7 +4977,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Vinddvegar beschwören" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Vinddvegar beschwÃ¶ren" Region="3" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -5006,7 +5006,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Vinddverg beschwören" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Vinddverg beschwÃ¶ren" Region="3" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -5036,7 +5036,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="eBe" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Vindmand beschwören" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Vindmand beschwÃ¶ren" Region="3" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="BeschwÃ¶rung" Element="Luft">
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
@@ -5065,7 +5065,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Wasserelementargeist beschwören" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Wasserelementargeist beschwÃ¶ren" Region="3" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="BeschwÃ¶rung" Element="Wasser">
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
@@ -5093,7 +5093,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Weltentor schaffen" Region="3" Grad="G" Lernkosten="20000" AP="36" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="2x1 m" Wirkungsdauer="1 Monat" Zauberart="Beschwörung">
+  <Spruch Name="Weltentor schaffen" Region="3" Grad="G" Lernkosten="20000" AP="36" Typ="Geste" Ursprung="dÃ¤monisch" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="2x1 m" Wirkungsdauer="1 Monat" Zauberart="BeschwÃ¶rung">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Ausnahme Typ="De"/>
@@ -5126,22 +5126,22 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Bannsphäre, Blaue">
+  <Spruch Name="BannsphÃ¤re, Blaue">
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
    <Grund Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Bannsphäre, Goldene">
+  <Spruch Name="BannsphÃ¤re, Goldene">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Bannsphäre, Schwarze">
+  <Spruch Name="BannsphÃ¤re, Schwarze">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Bannsphäre, Silberne">
+  <Spruch Name="BannsphÃ¤re, Silberne">
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
    <Grund Typ="tBe"/>
@@ -5171,7 +5171,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Böser Blick">
+  <Spruch Name="BÃ¶ser Blick">
    <Standard Typ="tBe"/>
   </Spruch>
   <Spruch Name="Dschinni-Auge">
@@ -5189,12 +5189,12 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Dämonische Eingebung">
+  <Spruch Name="DÃ¤monische Eingebung">
    <Grund Typ="dBe"/>
    <Grund Typ="tBe"/>
    <Standard Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Dämonische Zaubermacht">
+  <Spruch Name="DÃ¤monische Zaubermacht">
    <Standard Typ="dBe"/>
    <Standard Typ="tBe"/>
   </Spruch>
@@ -5264,7 +5264,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Färbersalz">
+  <Spruch Name="FÃ¤rbersalz">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -5301,7 +5301,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Hören der Geister">
+  <Spruch Name="HÃ¶ren der Geister">
    <Grund Typ="tBe"/>
   </Spruch>
   <Spruch Name="Jucksalz">
@@ -5312,7 +5312,7 @@
   <Spruch Name="Knochenbestie">
    <Standard Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Kühlsalz">
+  <Spruch Name="KÃ¼hlsalz">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -5327,38 +5327,38 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Luftsphäre">
+  <Spruch Name="LuftsphÃ¤re">
    <Standard Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Löschsalz">
+  <Spruch Name="LÃ¶schsalz">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Macht über Leben">
+  <Spruch Name="Macht Ã¼ber Leben">
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Macht über Menschen">
+  <Spruch Name="Macht Ã¼ber Menschen">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Macht über das Selbst">
+  <Spruch Name="Macht Ã¼ber das Selbst">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Macht über den Tod">
+  <Spruch Name="Macht Ã¼ber den Tod">
    <Grund Typ="tBe"/>
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Macht über die belebte Natur">
+  <Spruch Name="Macht Ã¼ber die belebte Natur">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Macht über magische Wesen">
+  <Spruch Name="Macht Ã¼ber magische Wesen">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -5407,7 +5407,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Reise zu den Sphären">
+  <Spruch Name="Reise zu den SphÃ¤ren">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -5437,7 +5437,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Staubkämpfer">
+  <Spruch Name="StaubkÃ¤mpfer">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
@@ -5523,7 +5523,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Windstoß">
+  <Spruch Name="WindstoÃ&#x9F;">
    <Standard Typ="eBe"/>
   </Spruch>
   <Spruch Name="Wirbelwind">
@@ -5534,7 +5534,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Zündersalz">
+  <Spruch Name="ZÃ¼ndersalz">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -5548,7 +5548,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Macht über Mumien" Region="E">
+  <Spruch Name="Macht Ã¼ber Mumien" Region="E">
    <Grund Typ="tBe"/>
    <Standard Typ="dBe"/>
   </Spruch>
@@ -5621,7 +5621,7 @@
    <Grund Typ="eBe"/>
    <Standard Typ="dBe"/>
   </Spruch>
-  <Spruch Name="Kammerdiener beschwören" Region="H&amp;D">
+  <Spruch Name="Kammerdiener beschwÃ¶ren" Region="H&amp;D">
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
   </Spruch>
@@ -5656,11 +5656,11 @@
    <Grund Typ="dBe"/>
    <Standard Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Schmerzen spüren" Region="H&amp;D">
+  <Spruch Name="Schmerzen spÃ¼ren" Region="H&amp;D">
    <Grund Typ="eBe"/>
    <Ausnahme Typ="dBe"/>
   </Spruch>
-  <Spruch Name="Schreiber beschwören" Region="H&amp;D">
+  <Spruch Name="Schreiber beschwÃ¶ren" Region="H&amp;D">
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
   </Spruch>
@@ -5689,15 +5689,15 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Glühsalz" Region="H&amp;Df">
+  <Spruch Name="GlÃ¼hsalz" Region="H&amp;Df">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Doppelgänger schaffen" Region="K">
+  <Spruch Name="DoppelgÃ¤nger schaffen" Region="K">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Hexenspüren" Region="N">
+  <Spruch Name="HexenspÃ¼ren" Region="N">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
@@ -5745,7 +5745,7 @@
  </Zauber>
  <Zauberwerke>
   <Zauberwerk Name="Binden"/>
-  <Zauberwerk Name="Dämonenamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="DÃ¤monenamulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Elementaramulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Geisteramulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Kraut der konzentrierten Energie" Stufe="Pflanzliches Zaubermittel"/>
@@ -5756,23 +5756,23 @@
   <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
-  <Zauberwerk Name="Trunk der Macht über Hunde aktivieren" Stufe="Alchimistisches Zaubermittel"/>
-  <Zauberwerk Name="Trunk der Macht über Menschen aktivieren" Stufe="Alchimistisches Zaubermittel"/>
-  <Zauberwerk Name="Trunk der Macht über Orks aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk der Macht Ã¼ber Hunde aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk der Macht Ã¼ber Menschen aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk der Macht Ã¼ber Orks aktivieren" Stufe="Alchimistisches Zaubermittel"/>
   <Zauberwerk Name="Untotenamulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Werwesenamulett verzaubern" Stufe="Amulett"/>
  </Zauberwerke>
  <Spezialgebiete>
-  <Spezialgebiet Typ="eBe" Name="Primär- und Sekundärelement"/>
-  <Spezialgebiet Typ="eBe" Name="Eis Erde" MAGUS-Index="1" Spezialisierung="Eis" Sekundärelement="Erde"/>
-  <Spezialgebiet Typ="eBe" Name="Erde Eis" MAGUS-Index="2" Spezialisierung="Erde" Sekundärelement="Eis"/>
-  <Spezialgebiet Typ="eBe" Name="Eis Wasser" MAGUS-Index="3" Spezialisierung="Eis" Sekundärelement="Wasser"/>
-  <Spezialgebiet Typ="eBe" Name="Wasser Eis" MAGUS-Index="4" Spezialisierung="Wasser" Sekundärelement="Eis"/>
-  <Spezialgebiet Typ="eBe" Name="Erde Feuer" MAGUS-Index="5" Spezialisierung="Erde" Sekundärelement="Feuer"/>
-  <Spezialgebiet Typ="eBe" Name="Feuer Erde" MAGUS-Index="6" Spezialisierung="Feuer" Sekundärelement="Erde"/>
-  <Spezialgebiet Typ="eBe" Name="Feuer Luft" MAGUS-Index="7" Spezialisierung="Feuer" Sekundärelement="Luft"/>
-  <Spezialgebiet Typ="eBe" Name="Luft Feuer" MAGUS-Index="8" Spezialisierung="Luft" Sekundärelement="Feuer"/>
-  <Spezialgebiet Typ="eBe" Name="Luft Wasser" MAGUS-Index="9" Spezialisierung="Luft" Sekundärelement="Wasser"/>
-  <Spezialgebiet Typ="eBe" Name="Wasser Luft" MAGUS-Index="10" Spezialisierung="Wasser" Sekundärelement="Luft"/>
+  <Spezialgebiet Typ="eBe" Name="PrimÃ¤r- und SekundÃ¤relement"/>
+  <Spezialgebiet Typ="eBe" Name="Eis Erde" MAGUS-Index="1" Spezialisierung="Eis" SekundÃ¤relement="Erde"/>
+  <Spezialgebiet Typ="eBe" Name="Erde Eis" MAGUS-Index="2" Spezialisierung="Erde" SekundÃ¤relement="Eis"/>
+  <Spezialgebiet Typ="eBe" Name="Eis Wasser" MAGUS-Index="3" Spezialisierung="Eis" SekundÃ¤relement="Wasser"/>
+  <Spezialgebiet Typ="eBe" Name="Wasser Eis" MAGUS-Index="4" Spezialisierung="Wasser" SekundÃ¤relement="Eis"/>
+  <Spezialgebiet Typ="eBe" Name="Erde Feuer" MAGUS-Index="5" Spezialisierung="Erde" SekundÃ¤relement="Feuer"/>
+  <Spezialgebiet Typ="eBe" Name="Feuer Erde" MAGUS-Index="6" Spezialisierung="Feuer" SekundÃ¤relement="Erde"/>
+  <Spezialgebiet Typ="eBe" Name="Feuer Luft" MAGUS-Index="7" Spezialisierung="Feuer" SekundÃ¤relement="Luft"/>
+  <Spezialgebiet Typ="eBe" Name="Luft Feuer" MAGUS-Index="8" Spezialisierung="Luft" SekundÃ¤relement="Feuer"/>
+  <Spezialgebiet Typ="eBe" Name="Luft Wasser" MAGUS-Index="9" Spezialisierung="Luft" SekundÃ¤relement="Wasser"/>
+  <Spezialgebiet Typ="eBe" Name="Wasser Luft" MAGUS-Index="10" Spezialisierung="Wasser" SekundÃ¤relement="Luft"/>
  </Spezialgebiete>
 </MAGUS-data>
