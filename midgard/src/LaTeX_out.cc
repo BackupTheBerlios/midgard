@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.31 2001/06/30 20:30:06 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.32 2001/07/05 12:43:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,6 +18,7 @@
  */
 
 #include "midgard_CG.hh"
+#include <unistd.h>
 
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
@@ -29,8 +30,16 @@ gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_latex_clicked()
 {   
- system("cp "PACKAGE_DATA_DIR"document_eingabe.tex midgard_tmp_document_eingabe.tex");
- system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
+ if (!access("document_eingabe.tex",R_OK)) // Files im aktuellen Verzeichnis?
+   {
+    system("cp document_eingabe.tex midgard_tmp_document_eingabe.tex");
+    system("cp latexwertedef.tex midgard_tmp_latexwertedef.tex");
+   }
+ else
+   {
+    system("cp "PACKAGE_DATA_DIR"document_eingabe.tex midgard_tmp_document_eingabe.tex");
+    system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
+   }
 
  ofstream fout("midgard_tmp_latexwerte.tex");
  std::string styp = Typ.Name();

@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.19 2001/06/27 11:24:35 thoma Exp $
+// $Id: xmlimport.pgcc,v 1.20 2001/07/05 12:43:35 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -79,8 +79,6 @@ bool charakter_laden(istream &i)
       int db_abwehr;      
       int db_zaubern ;
       int db_resistenz;      
-      int db_gift;      
-      int db_bo_au_typ;      
       int db_bo_au;      
       int db_bo_sc;      
       int db_bo_an;
@@ -135,8 +133,6 @@ bool charakter_laden(istream &i)
    db_resistenz=Resistenzen->getInt("Zauber", // V5
    	Resistenzen->getInt("Resistenz", // V4.Malte
    	Resistenzen->getInt("psy",0))); // V-4
-   db_gift=Resistenzen->getInt("Gift",0);
-   db_bo_au_typ=Boni->getInt("Ausdauer_Typ",0);
    db_bo_au=Boni->getInt("Ausdauer",0);
    db_bo_sc=Boni->getInt("Schaden",0);
    db_bo_an=Boni->getInt("Angriff",0);
@@ -194,7 +190,6 @@ update:
       abwehr         = :db_abwehr   ,
       zaubern        = :db_zaubern  ,
       resistenz      = :db_resistenz,
-      gift           = :db_gift     ,
       lpbasis        = :db_lpbasis  ,
       alter          = :db_alter    ,
       gestalt        = :db_gestalt  ,
@@ -206,7 +201,6 @@ update:
       stand          = :db_stand    ,
       herkunft       = :db_herkunft ,
       glaube         = :db_glaube   ,
-      db_bo_au_typ   = :db_bo_au_typ   ,
       db_bo_au       = :db_bo_au       ,
       db_bo_sc       = :db_bo_sc       ,
       db_bo_an       = :db_bo_an       ,

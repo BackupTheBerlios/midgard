@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.20 2001/06/27 11:24:35 thoma Exp $
+// $Id: xmlexport.pgcc,v 1.21 2001/07/05 12:43:35 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -76,9 +76,9 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    		spezies, geschlecht, typ_s, typ_2_s, spezialisierung,
    		st, ge, ko, inn, zt, au, pa,
    		sb, rw, hgw, b, kaw, wlw, abwehr, zaubern,
-   		resistenz, gift, lpbasis, lp, ap, alter, gestalt,
+   		resistenz, lpbasis, lp, ap, alter, gestalt,
    		gewicht, groesse, stand, herkunft,
-   		glaube, db_bo_au_typ, db_bo_au, db_bo_sc, db_bo_an, 
+   		glaube, db_bo_au, db_bo_sc, db_bo_an, 
    		db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,
    		db_bo_gi, db_gfp, gold, silber, kupfer, 
    		beschreibung, ruestung
@@ -92,7 +92,7 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    SQLerror::test(__FILELINE__);
    FetchIStream is("spalten");
    o << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n"
-   	"<Midgard-Charakter Version=\"5\">\n";
+   	"<Midgard-Charakter Version=\"6\">\n";
    o << "  <Figur";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Spieler");
@@ -129,7 +129,6 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    o << "/>\n";
    o << "  <Resistenzen";
    fetch_and_write_int_attrib(is, o, "Zauber");
-   fetch_and_write_int_attrib(is, o, "Gift");
    o << "/>\n";
    o << "  <Gesundheit"; // schlechter Name ?
    fetch_and_write_int_attrib(is, o, "LP_Basis");
@@ -146,7 +145,6 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    fetch_and_write_string_attrib(is, o, "Glaube");
    o << "/>\n";
    o << "  <Boni"; 
-   fetch_and_write_int_attrib(is, o, "Ausdauer_Typ");
    fetch_and_write_int_attrib(is, o, "Ausdauer");
    fetch_and_write_int_attrib(is, o, "Schaden");
    fetch_and_write_int_attrib(is, o, "Angriff");

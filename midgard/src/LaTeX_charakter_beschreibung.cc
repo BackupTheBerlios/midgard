@@ -1,4 +1,4 @@
-// $Id: LaTeX_charakter_beschreibung.cc,v 1.15 2001/06/30 20:30:06 thoma Exp $
+// $Id: LaTeX_charakter_beschreibung.cc,v 1.16 2001/07/05 12:43:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,9 @@ void midgard_CG::latex_beschreibung_drucken()
  ofstream fout("tmp_b.tex");
  fout << Werte.Beschreibung()<<"\n";
  fout.close();
- system("latex "PACKAGE_DATA_DIR"charakter_beschreibung.tex");
+ if(!access("charakter_beschreibung.tex",R_OK))
+       system("latex charakter_beschreibung.tex");
+ else  system("latex "PACKAGE_DATA_DIR"charakter_beschreibung.tex");
  system("dvips charakter_beschreibung.dvi");
  system("gv charakter_beschreibung.ps &");
 
