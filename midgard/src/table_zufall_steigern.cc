@@ -34,7 +34,7 @@
 
 void table_zufall::on_button_steigern_clicked()
 {
-  if(hauptfenster->getChar().empty())
+  if(!hauptfenster->getAben().Typ1()->Valid())
    {
     hauptfenster->set_status("Noch kein Abenteurer vorhanden.");
     return;
