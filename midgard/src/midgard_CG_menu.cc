@@ -103,7 +103,7 @@ void midgard_CG::menu_init()
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *regionen = manage(new class Gtk::MenuItem("Regionen")); 
   regionen->set_submenu(*regionen_menu);
-  Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
+//  Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
 
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
@@ -119,9 +119,9 @@ void midgard_CG::menu_init()
        }
      Gtk::Label *_l=manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,0,0,0,0);
-     _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
+//     _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
      char_Pixmap *_pix=manage(new char_Pixmap((*i)->RegionPix()));
-     _tab->attach(*_pix,5,6,0,row,0,0,0,0);
+     _tab->attach(*_pix,0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
      bool_CheckMenuItem *mi = manage(new bool_CheckMenuItem((*i)->Active(),*_tab));
@@ -224,9 +224,8 @@ void midgard_CG::menubar_init()
 
   // Regionen
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
-//  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Regionen","<Control>R", *regionen_menu));
   main_menubar->items().insert(--main_menubar->items().end(),Gtk::Menu_Helpers::MenuElem("_Regionen","<Control>R", *regionen_menu));
-  Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
+//  Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
 
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
@@ -242,7 +241,9 @@ void midgard_CG::menubar_init()
        }
      Gtk::Label *_l=manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,0,0,0,0);
-     _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
+     char_Pixmap *_pix=manage(new char_Pixmap((*i)->RegionPix()));
+     _tab->attach(*_pix,0,1,0,row,0,0,0,0);
+//     _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
      bool_CheckMenuItem *mi = manage(new bool_CheckMenuItem((*i)->Active(),*_tab));
