@@ -22,6 +22,9 @@ NEWS IN VERSION 0.1delta2
 * Neue Ausrüstungsgegenstäne können angelegt werden
 * Steigern mit Unterweisung, Selbststudium und Praxispunkten 
      (neue Regeln) implementiert
+* Gründlicher Umbau der Oberfläche incl. der Logik des Programmes
+   beim Steigern
+* Schriften haben jetzt einen steigerbaren Wert
 
 TODO:
 * Die Ausrüstung kann noch nicht geladen werden

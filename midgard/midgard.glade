@@ -8126,7 +8126,7 @@ Spruchrolle</label>
 		  <bottom_attach>1</bottom_attach>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
+		  <xexpand>True</xexpand>
 		  <yexpand>True</yexpand>
 		  <xshrink>False</xshrink>
 		  <yshrink>False</yshrink>
