@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.4 2002/06/05 07:31:22 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.5 2002/06/05 09:58:59 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -31,6 +31,7 @@ void LaTeX_drucken::Spielleiterbogen()
  fout << "\\newcommand{\\n}{\\normalsize\\rule[-0.5ex]{0ex}{2.5ex}}\n";
  fout << "\\setlength{\\doublerulesep}{0.1mm}\n";
 // fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
+ fout << "\\vspace*{-2cm}\n\n";
 
  fout << "\\scalebox{0.97}{\\footnotesize\n";
  fout << "\\begin{tabular}{|||l|||\n";
@@ -146,7 +147,7 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
 void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
 {
  const Datenbank Database=hauptfenster->getCDatabase();
- int maxlength=12;
+ int maxlength=15;
  std::string cm="2.2cm";
  for(std::list<VAbenteurer::st_abenteurer>::const_iterator i=hauptfenster->Char.getList().begin();i!=hauptfenster->Char.getList().end();++i)
   {
@@ -192,37 +193,24 @@ void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
        case Gassenwissen: fout << " & "<<i->abenteurer.SErfolgswert("Gassenwissen",Database); break;
        case Himmelskunde: fout << " & "<<i->abenteurer.SErfolgswert("Himmelskunde",Database); break;
        case Schaetzen: fout << " & "<<i->abenteurer.SErfolgswert("Schaetzen",Database); break;
-       case angFert: 
-         { fout << " & \\parbox{"<<cm<<"}{";
-           for(std::list<cH_MidgardBasicElement>::const_iterator j=i->abenteurer.CList_Fertigkeit_ang().begin();j!=i->abenteurer.CList_Fertigkeit_ang().end();++j)
-            {
-              std::string s=(*j)->Name()+" (+"+itos((*j)->Erfolgswert())+")";
-              fout << LaTeX_scale(s,maxlength,cm)<<"\\newline ";
-            }
-           fout <<"}\n\t";
-           break;
-         }
-       case Sprachen:  
-         { fout << " & \\parbox{"<<cm<<"}{";
-           for(std::list<cH_MidgardBasicElement>::const_iterator j=i->abenteurer.CList_Sprache().begin();j!=i->abenteurer.CList_Sprache().end();++j)
-            {
-              std::string s=(*j)->Name()+" (+"+itos((*j)->Erfolgswert())+")";
-              fout << LaTeX_scale(s,maxlength,cm)<<"\\newline ";
-            }
-           fout <<"}\n\t";
-           break;
-         }
-       case Schriften: 
-         { fout << " & \\parbox{"<<cm<<"}{";
-           for(std::list<cH_MidgardBasicElement>::const_iterator j=i->abenteurer.CList_Schrift().begin();j!=i->abenteurer.CList_Schrift().end();++j)
-            {
-              std::string s=(*j)->Name()+" (+"+itos((*j)->Erfolgswert())+")";
-              fout << LaTeX_scale(s,maxlength,cm)<<"\\newline ";
-            }
-           fout <<"}\n\t";
-           break;
-         }
+       case angFert: list_for_each(fout,i->abenteurer.CList_Fertigkeit_ang(),maxlength,cm); break;
+       case Sprachen: list_for_each(fout,i->abenteurer.CList_Sprache(),maxlength,cm); break;
+       case Schriften: list_for_each(fout,i->abenteurer.CList_Schrift(),maxlength,cm); break;
      }
    }
+}
+
+
+void LaTeX_drucken::list_for_each(ofstream &fout,const std::list<cH_MidgardBasicElement>& L,const int &maxlength,const std::string& cm)
+{
+  fout << " & \\parbox{"<<cm<<"}{";
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();)
+   {
+     std::string s=(*i)->Name()+" (+"+itos((*i)->Erfolgswert())+")";
+     fout << LaTeX_scale(s,maxlength,cm);
+     ++i;
+     if(i!=L.end()) fout<<"\\newline ";
+   }
+  fout <<"}\n\t";
 }
 

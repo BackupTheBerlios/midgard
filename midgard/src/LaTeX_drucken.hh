@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.4 2002/06/05 07:31:22 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.5 2002/06/05 09:58:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,11 +21,13 @@
 #  define _LATEXDRUCKEN_HH
 
 class midgard_CG;
+class cH_MidgardBasicElement;
 class AusruestungBaum;
 #include <iostream>
 #include <string>
 #include <list>
 #include <fstream>
+
 
 class LaTeX_drucken
 {
@@ -66,6 +68,7 @@ class LaTeX_drucken
                Himmelskunde,Schaetzen,angFert};
     void line(ofstream &fout,const ewhat &what);
     void for_each(ofstream &fout,const ewhat &what);
+    void list_for_each(ofstream &fout,const std::list<cH_MidgardBasicElement>& L,const int &maxlength,const std::string& cm);
  public:
     LaTeX_drucken(const midgard_CG* h)
       : hauptfenster(h) {}
