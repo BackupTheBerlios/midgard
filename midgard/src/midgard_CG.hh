@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.287 2002/10/05 07:34:45 thoma Exp $
+// $Id: midgard_CG.hh,v 1.288 2002/10/07 09:01:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -86,6 +86,7 @@ class midgard_CG : public midgard_CG_glade
         void on_nur_sichtbares_drucken();
         void on_auch_unsichtbares_drucken();
         void on_spielleiterbogen_drucken_activate();
+        void spielleiter_export_save_zauber(ostream& fout);
         
         // Info Fenster
    private: 

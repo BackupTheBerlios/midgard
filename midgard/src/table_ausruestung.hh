@@ -47,7 +47,7 @@ class table_ausruestung : public table_ausruestung_glade
         Gtk::CTree *Ausruestung_tree;
 
    public:
-        enum e_spalten{None,Farbe,Material,Stand};
+        enum e_spalten{None,Farbe,Material,Stand,Max};
    private:
         void fill_new_tree_titles(const std::map<e_spalten,std::string> &VSpalten);
         pair<e_spalten,std::string> enum_from_string(const std::string &s);

@@ -81,8 +81,6 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   if     (W.bo_An()>0) boni+="AnB+"+itos(W.bo_An())+", ";
   else if(W.bo_An()<0) boni+="AnB" +itos(W.bo_An())+", ";
   ManuProC::remove_last_from(boni,",");
-//  std::string::size_type st=boni.find_last_of(",");
-//  if(st!=std::string::npos) boni.erase(st,1);
   if(!boni.empty()) fout <<" - "<<boni<<'\n';
 
   std::string angriff;
@@ -106,7 +104,8 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
         {
           besitz=true;
           name = WB.AliasName();
-          if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) name +="$^*$";
+//LaTeX          if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) name +="$^*$";
+          if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) name +="*";
           wert += WB.av_Bonus() + WB.Waffe()->WM_Angriff((*j)->Name());
           schaden=WB.Schaden(Char->getWerte(),WB->Name());
         }
@@ -114,8 +113,6 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
     angriff += name+"+"+itos(wert)+" ("+schaden+"), ";
    }
   ManuProC::remove_last_from(angriff,",");
-//  std::string::size_type st2=angriff.find_last_of(",");
-//  if(st2!=std::string::npos) angriff.erase(st2,2);
   if(!angriff.empty()) 
     { 
      fout << "\n\n";
@@ -168,8 +165,6 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
       sprache += (*(*i))->Name()+"+("+itos((*i)->Erfolgswert())+"), ";
    }
  ManuProC::remove_last_from(sprache,",");
-// std::string::size_type st4=sprache.find_last_of(",");
-// if(st4!=std::string::npos) sprache.erase(st4,2);
  fout << "Sprechen: "<<sprache<<"\n";
 
  // Schreiben
@@ -184,15 +179,26 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 
  // Zauber
  if (Char->List_Zauber().size()!=0)
-   {
-     std::string zauber;
-     zauber+="Zaubern+"+itos(W.Zaubern_wert()+Char->getWerte().bo_Za())+": ";
-     for (std::list<MBEmlt>::const_iterator i=Char->List_Zauber().begin();i!=Char->List_Zauber().end();++i)
-        zauber += (*(*i))->Name()+", ";
-     ManuProC::remove_last_from(zauber,",");
-//     std::string::size_type st=zauber.find_last_of(",");
-//     if(st!=std::string::npos) zauber.erase(st,1);
-     fout << zauber<<"\n\n";
-   }  
+    spielleiter_export_save_zauber(fout);
  fout << W.Beschreibung()<<'\n';
+}
+
+void midgard_CG::spielleiter_export_save_zauber(ostream& fout)
+{
+  Grundwerte W=Char->getWerte();
+  Abenteurer A=getAben();
+  std::map<int,std::list<MBEmlt> > ZL;
+  for (std::list<MBEmlt>::const_iterator i=Char->List_Zauber().begin();i!=Char->List_Zauber().end();++i)
+     ZL[cH_Zauber((*i)->getMBE())->Erfolgswert_Z(A)].push_back(*i);
+
+  for(std::map<int,std::list<MBEmlt> >::const_iterator i=ZL.begin();i!=ZL.end();++i)
+   {
+     std::string z;
+     z+="Zaubern+"+itos(i->first)+": ";
+     for (std::list<MBEmlt>::const_iterator j=i->second.begin();j!=i->second.end();++j)
+        z += (*(*j))->Name()+", ";
+     ManuProC::remove_last_from(z,",");
+     fout << z<<"\n";
+   }
+  fout << "\n";
 }

@@ -121,9 +121,7 @@ int Zauber::Erfolgswert_Z(const Abenteurer &A) const
    if (A.Typ2()->Short()=="Ma") 
       ispez = get_spezial_zauber_for_magier(A,standard[1]);
 
-//cout << Name()<<' '<<Werte.Zaubern_wert()<<'+'<<Werte.bo_Za()<<'+'<<ifac<<'+'<<ispez<<'=';
    int erf = A.getWerte().Zaubern_wert()+A.getWerte().bo_Za() + ifac + ispez ;
-//cout << erf<<'\n';
    return erf;
 }
 

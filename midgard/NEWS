@@ -9,6 +9,8 @@ NEWS IN VERSION 0.8.6
 * Neuimpelmentation der Preis-Modifikatoren in der Datenbank und der 
    entsprechenden Klasse   
 * Ein paar neue Icons von Ulf
+* In der expöortierten TXT-Datei wird der Malus beim Zaubern von 
+   nicht-Grundzaubern berücksichtigt.
 
 TODO: ('-' zeigt CP an)
 
@@ -23,8 +25,8 @@ TODO: ('-' zeigt CP an)
   (vielleicht drag'n'drop oder CTree verschieben)
 - Würfelvarianten für Nichtmenschen!
 - verschwinden alle Icons? :
-   Unter "Lernschema" bleibt noch das Icon von "angeborene 
-   Fertigkeiten" stehen und noch einiges anderes. Bei "Steigern" 
+   Unter "Lernschema" bleibt noch 
+   einiges stehen. Bei "Steigern" 
    und "Optionen" sind auch noch bunte Bildchen, und bei 
    "Ausrüstung" verweigern die Icons von "Modifikatoren 
    entfernen" und "mit Geld ausrüsten" das Verschwinden.
