@@ -22,10 +22,12 @@ INHALT:
 ##########################################################################
 TODO
 * Datenbank: 'arkanum_zauber' um  Sprüche für Beschwörer ergänzen.
-* Andere Rassen (Zwerg, Halbling, Ork, ...)
+* Voraussetzungen und ausürfeln anderer Rassen (Zwerg, Halbling, Ork, ...)
 * Charakterklassen aus den Quellenbüchern (siehe unten),
 * Geschlecht
 * Typbezogene Grundwerte
+* Zauberstäbe
+* Verzauberte Waffen
 
 ##########################################################################
 1. Abschnitt: Installation
@@ -148,3 +150,6 @@ b) Anderes
 
 pg_dump -O -x -c [-d|-D] midgard > midgard-postgres-0.2beta1
 pg_dump -O -x -c midgard | gzip -9 -c > midgard-postgres-0.3beta0 
+
+scp midgard-postgres-*.tar.gz midgard.berlios.de:/home/groups/ftp/pub/midgard
+scp midgard-0.*.tar.gz midgard.berlios.de:/home/groups/ftp/pub/midgard

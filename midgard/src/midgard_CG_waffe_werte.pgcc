@@ -24,6 +24,11 @@ string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,st_werte& werte, st
       from waffen where name = :db_waffe;
   SQLerror::test(__FILELINE__);
   string art=db_art;
+  if (mod=="Verteidigung")
+   {
+      if (art=="Verteidigung") return "true";
+      else return "false";
+   }
   if (mod=="Angriffsrangmodifikation")
    {
       string anm = db_angriffsrangmod;

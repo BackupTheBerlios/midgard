@@ -64,8 +64,10 @@ void midgard_CG::LaTeX_zauber_main(void)
    fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
    fout << "\\setlength{\\doublerulesep}{0mm}\n";
   fout << "\\begin{document}\n";
-   fout << "\\input{./midgard_tmp_latexwertedef}\n";
-   fout << "\\input{./midgard_tmp_latexwerte}\n";
+//   fout << "\\input{./midgard_tmp_latexwertedef}\n";
+//   fout << "\\input{./midgard_tmp_latexwerte}\n";
+   fout << "\\newcommand{\\namecharakter}{"  <<werte.name_charakter << "}\n";
+   fout << "\\newcommand{\\namespieler}{"  <<werte.name_spieler << "}\n";
    fout << "\\begin{center}\n";
    fout << "\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}\n";
    fout << "\\parbox[][][c]{7cm}{\n";
@@ -89,11 +91,14 @@ void midgard_CG::LaTeX_zauber_main(void)
   fout << "\\input{midgard_tmp_myzauber.tex}\n";
   fout << "\\end{tabular}\n";
 
-  fout << "\\begin{tabular}{llllll}\\hline\n";
-  fout << "Stufe&Name&Art&Stufe&\\scriptsize Zeitaufwand&Kosten\\\\\\hline\n";
-  fout << "\\input{midgard_tmp_myzaubermittel.tex}\n";
-  fout << "\\end{tabular}\n";
-
+ 
+  if (vec_zaubermittel.size()!=0)
+   {
+     fout << "\\begin{tabular}{llllll}\\hline\n";
+     fout << "Stufe&Name&Art&Stufe&\\scriptsize Zeitaufwand&Kosten\\\\\\hline\n";
+     fout << "\\input{midgard_tmp_myzaubermittel.tex}\n";
+     fout << "\\end{tabular}\n";
+   }
   fout << "\\end{center}\n";
   fout << "\\end{document}\n\n";
 }

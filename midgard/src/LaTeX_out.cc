@@ -169,7 +169,10 @@ void midgard_CG::on_latex_clicked()
          fout << "}\n";
          int mag_schadensbonus = waffe_besitz[j].av_bonus;
          if (waffe_besitz[j].av_bonus==-5 && waffe_besitz[j].sl_bonus==-5) mag_schadensbonus = 0; 
-         int wert = vec_waffen[i].erfolgswert + werte.bo_an + mag_schadensbonus;
+         int anbo = werte.bo_an;
+         if (midgard_CG::waffe_werte(waffe_besitz[j],werte,"Verteidigung")=="true")
+            anbo = 0;
+         int wert = vec_waffen[i].erfolgswert + anbo + mag_schadensbonus;
          fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert << "}\n";
          string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";

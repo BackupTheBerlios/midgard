@@ -9,6 +9,7 @@ string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
       char db_waffe[30], db_art[30];
    exec sql end declare section;
    vector<st_waffen_besitz> Verteidigungswaffen;
+   Verteidigungswaffen.push_back(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0));
    for (vector<st_waffen_besitz>::const_iterator i=waffe_besitz.begin();
          i!=waffe_besitz.end();++i)
      {
@@ -18,7 +19,7 @@ string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
        string art = db_art;
        if (art=="Verteidigung" || i->name=="Kampfstab" || i->name=="Sai" ||
           i->name=="Tonfa" || i->name=="GunSen" || i->name=="BuKasa" || 
-          i->name=="KusariGama" || i->name=="TetsuBo") 
+          i->name=="KusariGama" || i->name=="TetsuBo" ) 
          Verteidigungswaffen.push_back(st_waffen_besitz(i->name,i->name,i->region,i->av_bonus,i->sl_bonus));
      }
    string Vwaffewert;
@@ -38,14 +39,18 @@ string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
                   {erf_wert = j->erfolgswert-7; (erf_wert<=7)?:erf_wert=7; }
                  else if (i->name=="GunSen"||i->name=="BuKasa")
                   {erf_wert = j->erfolgswert; (erf_wert<=10)?:erf_wert=10; }
+                 else if (i->name=="waffenloser Kampf")
+                  {if ( 8<=j->erfolgswert&&j->erfolgswert<12) erf_wert = 1;
+                   if (12<=j->erfolgswert&&j->erfolgswert<16) erf_wert = 2;
+                   if (16<=j->erfolgswert)                    erf_wert = 3;
+                  }
                  else erf_wert = j->erfolgswert;
                  int ewert = werte.abwehr_wert+werte.bo_ab // Grundwerte
                            + erf_wert + i->av_bonus ;// Waffenwerte
                  Vwaffewert += itos(ewert);
                }
          }
-       if (i+1!=Verteidigungswaffen.end()) Vwaffewert += "$|$"; 
+       if (i+1!=Verteidigungswaffen.end() && Vwaffewert!="") Vwaffewert += "$|$"; 
      }
    return Vwaffewert;
 }
-
