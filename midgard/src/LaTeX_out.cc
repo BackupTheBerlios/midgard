@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.68 2001/12/27 09:39:52 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.69 2001/12/27 20:46:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -134,7 +134,7 @@ void midgard_CG::LaTeX_write_values()
  int abbor = Werte.Ruestung()->AbwehrBonus_Verlust(Werte.bo_Ab());
  std::string vollruestabzug,abbors;
  if(abbor) abbors="--"+itos(abs(abbor)); 
- if(!Fertigkeit("Kampf in Vollrüstung").ist_gelernt(list_Fertigkeit))
+ if(!cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit))
     vollruestabzug="--"+itos(abs(Werte.Ruestung()->VollRuestungsAbzug()));
  fout << "\\newcommand{\\abwehrfinal}{"<<Werte.Abwehr_wert()+Werte.bo_Ab()
       << vollruestabzug<<abbors<< "}\n";
