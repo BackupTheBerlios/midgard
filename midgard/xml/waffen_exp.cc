@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.2 2001/12/19 14:14:54 christof Exp $
+// $Id: waffen_exp.cc,v 1.3 2001/12/27 21:38:16 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -61,10 +61,13 @@ void waffen_speichern(std::ostream &o)
 
    o << " <Waffen>\n";
   {Query query("select name, region, grundkenntnisse, schwierigkeit,"
-   		"art, art_2, schaden, schaden_b, zusatz, angriffsrangmod,"
-   		"wm_abwehr_leicht, wm_abwehr_schwer,"
-   		"st, ge, reichweite_0, reichweite_n,"
+   		"art, art_2, schaden, schaden_b, zusatz, "
+   		MIDGARD3_4("angriffsrangmod,","")
+   		"wm_abwehr_leicht, wm_abwehr_schwer, st, "
+   		MIDGARD3_4("ge,","gw,gs,")
+   		" reichweite_0, reichweite_n,"
    		"reichweite_m, reichweite_f"
+   		MIDGARD3_4("","lern_land,lern_stadt")
    	" from waffen"
    	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),art,name");
@@ -80,18 +83,32 @@ void waffen_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Schadensbonus");
    fetch_and_write_string_attrib(is, o, "erfordert");
    o << ">\n    <Modifikationen";
+#ifdef MIDGARD3   
    fetch_and_write_string_attrib(is, o, "Angriffsrang");
+#endif
    fetch_and_write_string_attrib(is, o, "Abwehr:leicht");
    fetch_and_write_string_attrib(is, o, "Abwehr:schwer");
    o << "/><Voraussetzungen";
    fetch_and_write_int_attrib(is, o, "St");
+#ifdef MIDGARD3   
    fetch_and_write_int_attrib(is, o, "Ge");
+#else
+   fetch_and_write_int_attrib(is, o, "Gw");
+   fetch_and_write_int_attrib(is, o, "Gs");
+#endif   
    o << "/><Reichweite";
    fetch_and_write_int_attrib(is, o, "null");
    fetch_and_write_int_attrib(is, o, "nah");
    fetch_and_write_int_attrib(is, o, "mittel");
    fetch_and_write_int_attrib(is, o, "fern");
-   o << "/>\n";
+   o << "/>"
+#ifndef MIDGARD3
+   o << "<Lernkosten";
+   fetch_and_write_int_attrib(is, o, "Land");
+   fetch_and_write_int_attrib(is, o, "Stadt");
+   o << "/>";
+#endif   
+   o << "\n";
 
  //************************* waffen_region_name ************************  
    {  Query query2("select alias,region,schaden,schaden_b,angriffs_mod"
