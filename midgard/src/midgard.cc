@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.38 2002/04/25 13:08:23 thoma Exp $
+// $Id: midgard.cc,v 1.39 2002/05/02 14:14:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,8 +24,10 @@
 
 int main(int argc, char **argv)
 {   
+#ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
+   putenv("GTK_RC_FILES=gtkrc");
+#endif
    Gtk::Main m(&argc, &argv,true); 
-   // hmm ich habe gehört, das true hilft gegen den Umlaut bug ...
    
    std::string datei;
    if (argc==2) datei=argv[1];
