@@ -35,14 +35,14 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
      F->set_Erfolgswert(wert);
      hauptfenster->MidgardBasicElement_uebernehmen(F);
    }
-  if (mod == MUSIZIEREN)
+  else if (mod == MUSIZIEREN)
    {
      cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Musizieren")));
      cH_Fertigkeit(F)->setZusatz(zusatz);
      F->set_Erfolgswert(wert);
      hauptfenster->MidgardBasicElement_uebernehmen(F);
    }
-  if (mod == SCHARFSCHIESSEN)
+  else if (mod == SCHARFSCHIESSEN)
    {
      cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Scharfschießen")));
      cH_Fertigkeit(F)->setZusatz(zusatz);

@@ -2,9 +2,13 @@
 NEWS IN VERSION 0.4delta3
 
 * Aufgeräumt ...
+* Oberfläche überarbeitet
+* Waffenbesitz im 'gelernt' fenster anzeigen
 
 TODO:
+* Tiersprache wie 'Geheimzeichen'
 * Speichern vor dem Schließen
+* GFP min. GradGFP
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 
    Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT

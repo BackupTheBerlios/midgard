@@ -220,8 +220,8 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     list_Waffen=mbe;
     list_WaffenGrund=mbe2;
 //    show_waffen();
-    button_geld_waffen->set_sensitive(true);
-    button_ruestung->set_sensitive(true);
+//    button_geld_waffen->set_sensitive(true);
+//    button_ruestung->set_sensitive(true);
          
 //    hbox_zauber->set_sensitive(true);
 //    table_magier_lernen->set_sensitive(true);
