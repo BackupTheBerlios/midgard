@@ -72,58 +72,23 @@ void MidgardBasicElement::get_map_typ()
 
  const Tag *tag=this->tag;
  
- if(What()==ZAUBER) assert(tag);
- else if(What()==ZAUBERWERK)
- {  vector<pair<std::string,std::string> > anforderungen;
-    anforderungen.push_back(pair<std::string,std::string>("Name",Name()));
-    anforderungen.push_back(pair<std::string,std::string>("Art",static_cast<Zauberwerk*>(this)->Art()));
-    anforderungen.push_back(pair<std::string,std::string>("Stufe",Stufe()));
-    tag=find_Tag("Zauberwerke","Zauberwerk",anforderungen);
- }
- else if(What()==FERTIGKEIT ) assert(tag);
- else if(What()==WAFFEGRUND)
+ if(What()==WAFFEGRUND)
     tag=find_Tag("Waffen-Grundkenntnisse","Waffen-Grundkenntnis","Name",Name());
- // auch in Waffen-Steigern suchen
- // dynamic_cast<Waffe*>(this)->Grundkenntnis()
- else if(What()==WAFFE)
-    tag=find_Tag("Waffen","Waffe","Name",Name());
  else if(What()==SPRACHE) 
     tag=cH_Fertigkeit("Sprache")->tag;
  else if(What()==SCHRIFT)
     tag=cH_Fertigkeit("Schreiben")->tag;
  else if(What()==KIDO)
     tag=cH_Fertigkeit("KiDo")->tag;
+ else assert(tag);
 
  if (tag)
  {  
-#ifdef MIDGARD3  // ich weiß, das ist hässlich ...
-    bool found=false;
-#  define FOUND found=true
-#else
-#  define FOUND
-#endif
     FOR_EACH_CONST_TAG(i,*tag)
-    {  if (i->Type()=="Grund") 
-       { map_typ[i->getAttr("Typ")]="G"; FOUND; }
-       else if (i->Type()=="Standard") 
-       { map_typ[i->getAttr("Typ")]="S"; FOUND; }
-       else if (i->Type()=="Ausnahme") 
-       { map_typ[i->getAttr("Typ")]="A"; FOUND; }
+    {  if (i->Type()=="Grund") map_typ[i->getAttr("Typ")]="G";
+       else if (i->Type()=="Standard") map_typ[i->getAttr("Typ")]="S";
+       else if (i->Type()=="Ausnahme") map_typ[i->getAttr("Typ")]="A";
     }
-#ifdef MIDGARD3
-    if ((What()==WAFFEGRUND || What()==WAFFE) && !found)
-    {  tag=xml_data->find("Waffen-Steigern");
-       if (!tag)
-       {  cerr << "<Waffen-Steigern><Grund/>... nicht gefunden\n";
-          return;
-       }
-       FOR_EACH_CONST_TAG(i,*tag)
-       {  if (i->Type()=="Grund") map_typ[i->getAttr("Typ")]="G";
-          else if (i->Type()=="Standard") map_typ[i->getAttr("Typ")]="S";
-          else if (i->Type()=="Ausnahme") map_typ[i->getAttr("Typ")]="A";
-       }
-    }
-#endif    
     return;
  }
 #endif    
@@ -195,14 +160,8 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
  const Tag *kosten=0;
  std::string steigern_wie=Name();
  
- if(What()==FERTIGKEIT ) assert(tag);
- else if(What()==WAFFE) 
- {  tag=find_Tag("Waffen","Waffe","Name",Name());
-//    assert(tag);
-if (!tag) 
-{ cerr << "get_Steigern_Kosten_map: nicht existente Waffe " << Name() << '\n'; 
-return; 
-}
+ if(What()==WAFFE) 
+ {  assert(tag);
     int schwierigkeit=tag->getIntAttr("Schwierigkeit");
     kosten=find_Tag("Waffen-Steigern","Kosten","Schwierigkeit",itos(schwierigkeit));
  }
@@ -210,7 +169,7 @@ return;
  { tag=cH_Fertigkeit("Sprache")->tag; steigern_wie="Sprache"; }
  else if(What()==SCHRIFT) 
  { tag=cH_Fertigkeit("Schreiben")->tag; steigern_wie="Schreiben"; }
- else assert(!"get here");
+ else assert(tag);
 
  if (!kosten)
  {  const Tag *steigern_wie_t=tag->find("steigern_wie");
@@ -243,6 +202,7 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
                            const Ausnahmen& ausnahmen,
                            bool versionbool )
 {
+#ifndef USE_XML
   if(b.size()==0) return;
 /*
     int db_sl_bonus;
@@ -280,6 +240,9 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
          (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_praxispunkte,:db_what,:db_magisch,:db_zauberwerk_stufe);
      SQLerror::test(__FILELINE__);
    }
+#else
+   cout << "MidgardBasicElement::saveElementliste nicht implementiert\n";
+#endif
 }
 
   //////////////////////////////////////////////////////////////////////
