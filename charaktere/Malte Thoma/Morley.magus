@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Morley" Spieler="Malte Thoma" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ma" Spezialgebiet="Adept des formbaren Chaos" Spezialisierung="Adept des formbaren Chaos" Überleben="Überleben im Wald" Muttersprache="Comentang" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="62" Gw="56" Gs="32" Ko="95" In="94" Zt="98"/>
+  <abgeleiteteEigenschaften Au="33" pA="48" Wk="18" Sb="44" B="22"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="19" AP="12"/>
+  <Beschreibung Alter="25" Gestalt="normal" Gewicht="83" Größe="187" Stand="Adel" Herkunft="Alba" Glaube="Dehis Albai"/>
+  <Vermögen GS="34"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8">Morleys Eltern sind Ärzte, doch aufgrund seiner Ungeschicklichkeit war er für diesen Berunf nicht besonders geeignet. Also wurde er für viel Geld auf eine Magierakademie geschickt um dort zu lernen. Er erwies sich als äußerst talentiert und fleißig. Doch sein Mentor und der Clan kamen überein, daß Morley ein wenig zu sehr an den Büchern klebt und beschloß ihn auf Abenteuer zu schicken, damit er auch etwas von der Welt sehen sollte. Der Clan hätte auch gerne einen fähigen und welterfahrenen Magier, der vielleicht einmal Berater des Lairds wird oder sogar noch weiter. So würde man seinen Einfluß auf die albische Politik verstärken. Ein Bücherwurm, der von der Welt nichts gesehen hat, ist für so einen Posten allerdings nicht geeignet und daher heißt es: Wenn Morley es überlebt, dann wird er ein ganz großer ...&#x0A;&#x0A;&#x0A;Morley glaubt an die Dehis Albi und auch Vraidos hat da bestimmt seinen Platz, aber er ist viel zu beschäftigt um sich da ernsthafte Gedanken drüber zu machen.&#x0A;Auch die große Politik interessiert ihn nicht wirklich.&#x0A;Immerhin hat der Laird Donuhil MacConuhil einigen Einfluß im Reich und der aufstrebende 'Thornerbe' Elrohir MacConuilh braucht bestimmt fähige Magier an seiner Seite.&#x0A;Camrane NiConuilh ist schon sehr alt und die Kaja NiConuilh ist nur bedingt vertrauesnwürdig...&#x0A;Vielleicht kann das dieser Morley mal ein guter Hofmagier werden wenn wir ihm die richtige Ausbildung angedeihen lassen.&#x0A;Das er ein machtpolitisches Instrument für den Clan Conuilh werden soll ist ihm nicht bewußt und es würde ihn zum gegenwärtigen Zeitpunkt auch völlig überfordern sich mit soetwas Gedanken zu machen.</Text>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Magierstab"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="4"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Arzt"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="5"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
+   <Fertigkeit Bezeichnung="Thaumatographie" Wert="7"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="5"/>
+   <Waffe Bezeichnung="Dolch" Wert="4"/>
+   <Waffe Bezeichnung="Magierstab" Wert="4"/>
+   <Zauber Bezeichnung="Heranholen"/>
+   <Zauber Bezeichnung="Macht über Menschen"/>
+   <Zauber Bezeichnung="Macht über Unbelebtes"/>
+   <Zauber Bezeichnung="Macht über die belebte Natur"/>
+   <Zauber Bezeichnung="Sehen von Verborgenem"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Zauberstäbe"/>
+   <Sprache Bezeichnung="Albisch" Wert="19"/>
+   <Sprache Bezeichnung="Comentang" Wert="12"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="12"/>
+   <Sprache Bezeichnung="Maralinga" Wert="5"/>
+   <Sprache Bezeichnung="Vallinga" Wert="5"/>
+   <Urschrift Bezeichnung="Albisch" Wert="13"/>
+   <Urschrift Bezeichnung="Comentang" Wert="8"/>
+   <Urschrift Bezeichnung="Erainnisch" Wert="8"/>
+   <Optionen Name="Originalregeln" Wert="true"/>
+   <Optionen Name="NSC zulassen" Wert="true"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>
