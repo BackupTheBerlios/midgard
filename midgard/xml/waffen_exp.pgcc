@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.8 2001/11/20 22:18:06 christof Exp $
+// $Id: waffen_exp.pgcc,v 1.9 2001/11/26 16:51:43 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -47,13 +47,27 @@ void waffen_speichern(std::ostream &o)
    if (sqlca.sqlcode) break;
    FetchIStream is("spalten");
    o << "  <Rüstung";
-   fetch_and_write_string_attrib(is, o, "Name");
+   std::string ruestung=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_string_attrib(is, o, "Abkürzung");
    fetch_and_write_int_attrib(is, o, "schütztLP");
    fetch_and_write_int_attrib(is, o, "minimaleStärke");
    fetch_and_write_int_attrib(is, o, "RW-Verlust");
    fetch_and_write_int_attrib(is, o, "B-Verlust");
+   //***** preise ******
+   {  exec sql begin declare section;
+      const char *RUESTUNG=ruestung.c_str(GARNIX);
+      float kosten;
+      char einheit[30];
+      exec sql end declare section;
+      
+      exec sql select kosten, einheit into :kosten, :einheit 
+      	from preise where name=:RUESTUNG and art='Rüstungen';
+      if (!sqlca.sqlcode)
+      {  write_int_attrib(o, "Preis", kosten);
+         write_string_attrib(o, "Währung", einheit);
+      }
+   }   
    o << "/>\n";
   }
    exec sql close ruestung_curs;
@@ -258,6 +272,21 @@ void waffen_speichern(std::ostream &o)
       }
       exec sql close cursor_ausn;
 #endif
+   //***** preise ******
+   {  exec sql begin declare section;
+      float kosten;
+      char einheit[30];
+      exec sql end declare section;
+      
+      exec sql select kosten, einheit into :kosten, :einheit 
+      	from preise where name=:WAFFE and art='Waffen';
+      if (!sqlca.sqlcode)
+      {  o << "    <Kaufpreis";
+         write_int_attrib(o, "Preis", kosten);
+         write_string_attrib(o, "Währung", einheit);
+         o << "/>\n";
+      }
+   }   
    }
       
    o << "  </Waffe>\n";

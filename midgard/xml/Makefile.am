@@ -1,6 +1,6 @@
-# $Id: Makefile.am,v 1.10 2001/11/26 09:00:55 christof Exp $
+# $Id: Makefile.am,v 1.11 2001/11/26 16:51:43 christof Exp $
 
-noinst_PROGRAMS = all_exp
+noinst_PROGRAMS = all_exp test
 #arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp 
 
 %_nm.o: %_exp.cc ; $(COMPILE.cc) -DXML_NO_MAIN $(OUTPUT_OPTION) $<
@@ -13,7 +13,7 @@ CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
 #kido_exp_SOURCES= kido_exp.cc export_common.cc
 #fertigk_exp_SOURCES= fertigk_exp.cc export_common.cc
 #land_sprache_exp_SOURCES= land_sprache_exp.cc export_common.cc
-#waffen_exp_SOURCES=waffen_exp.cc export_common.cc
+test_SOURCES=waffen_exp.cc export_common.cc
 all_exp_SOURCES=all_exp.cc export_common.cc
 
 all_exp_LDADD=arkanum_nm.o kido_nm.o fertigk_nm.o land_sprache_nm.o \
