@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.23 2004/03/10 14:47:58 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.24 2004/04/22 08:04:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -220,10 +220,6 @@ void Magus_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true));
 
-//  list_OptionenCheck.push_back(st_OptionenCheck(RegionenAuswahlSpeichern, 
-//                           "Regionen auswahl speichern",false));
-
-
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen"));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
                            "Lernschema/Steigern auswählbar machen"));
@@ -421,8 +417,10 @@ void Magus_Optionen::save_options(const std::string &filename)
   }
 
  Tag &optionen=data.push_back(Tag("Optionen"));
+std::cout << "SIZE:"<<list_OptionenCheck.size()<<'\n';
  for(std::list<st_OptionenCheck>::const_iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    { Tag &opt=optionen.push_back(Tag("Option"));
+std::cout << i->text<<' '<<i->active<<'\n';
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
      if(i->wert!=-1 && i->active)  opt.setIntAttr("Page",i->wert);
