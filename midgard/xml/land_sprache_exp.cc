@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.2 2001/12/19 15:44:49 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.3 2001/12/27 14:47:40 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -189,7 +189,7 @@ void land_speichern(std::ostream &o)
   
   if (region=="")
   {o << " <Preise>\n";
-  {Query query("select name, art, kosten, einheit"
+  {Query query("select name, art, kosten, einheit"MIDGARD3_4("",",gewicht")
    	" from preise"
    	" where not exists (select true from waffen"
    		" where waffen.name=preise.name)"
@@ -202,6 +202,9 @@ void land_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Art");
    fetch_and_write_float_attrib(is, o, "Preis");
    fetch_and_write_string_attrib(is, o, "Währung");
+#ifndef MIDGARD3   
+   fetch_and_write_int_attrib(is, o, "Gewicht");
+#endif
    o << "/>\n";
   }
   }
