@@ -31,6 +31,8 @@ NEWS IN VERSION 0.3delta3
 	 Programmstart viel schneller
 
 TODO:
+* Abspeichern und laden von Optionen testen
+* Hausregel Gold auswerten
 * Landeskunde als Berufsfähigkeit für 3 Berufe
   (Karawanenführer, land, v,m
    Kaufmann, stadt,m,a
