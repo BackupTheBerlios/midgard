@@ -114,7 +114,6 @@ Window_angeb_fert::Window_angeb_fert(midgard_CG* h, vector<st_angeborene_fertigk
 : vec_an_fertigkeit(vaf),werte(w),wurf(wu)
 {
  hauptfenster=h;
- vec_an_fertigkeit.clear();
  hauptfenster->on_speichern_clicked();
  if (wurf==100) 
    { label_ang_fert->set_text("100 gewürfelt --> Fertigkeit auswählen");

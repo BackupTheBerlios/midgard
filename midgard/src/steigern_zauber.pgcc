@@ -27,7 +27,7 @@ exec sql include sqlca;
 
 void midgard_CG::on_zauber_laden_clicked()
 {   
- if (typ.z=="n") return;
+ if (typ.z=="n" && typ_2.z=="n") return;
  midgard_CG::on_speichern_clicked();
  midgard_CG::show_alte_zauber();
  midgard_CG::show_neue_zauber();
@@ -42,7 +42,7 @@ void midgard_CG::show_alte_zauber()
    Gtk::OStream os(steigern_zauber_clist_alt);
    for (vector<st_zauber>::iterator i=zauber.begin(); i!=zauber.end();++i)
       {
-         double fac = midgard_CG::get_standard_zauber(typ.s,i->name);
+         double fac = midgard_CG::get_standard_zauber(typ,typ_2,i->name);
          os << i->name<<"\t"<<i->ursprung<<"\t"<<i->kosten*fac<<"\n";
       }
    for (unsigned int i=0;i<steigern_zauber_clist_alt->columns().size();++i)
@@ -59,23 +59,31 @@ void midgard_CG::show_neue_zauber()
    int db_kosten;
    char db_stufe[10];
    char db_spruchrolle[10];
-   char db_standard[20];
+   char db_standard[20],db_standard2[20];
    char query[1000];
    char db_region[10];
    char db_zauberart[30];
    char db_p_element[30],db_s_element[30];
   exec sql end declare section;
+  strncpy(db_standard2,"",sizeof(db_standard2));
   string alle_zauber="";
   if (!checkbutton_alle_zauber->get_active() )
-      alle_zauber = "("+typ.s+" = 'G' OR "+typ.s+" = 'S' OR "+typ.s+" = 'A') AND ";
-  string squery = "SELECT distinct z.name, z.ursprung, z.kosten, z.stufe, \
-      z."+typ.s+", z.spruchrolle, \
+    {
+      if (get_typ_s("Magie",typ)) alle_zauber += "("+typ.s+" = 'G' OR "+typ.s+" = 'S' OR "+typ.s+" = 'A') ";
+      if (get_typ_s("Magie",typ) && get_typ_s("Magie",typ_2)) alle_zauber += " OR ";
+      if (get_typ_s("Magie",typ) && !get_typ_s("Magie",typ_2)) alle_zauber += " AND ";
+      if (get_typ_s("Magie",typ_2)) alle_zauber += "("+typ_2.s+" = 'G' OR "+typ_2.s+" = 'S' OR "+typ_2.s+" = 'A') AND ";
+    }
+  string squery = "SELECT distinct z.name, z.ursprung, z.kosten, z.stufe, ";
+  if (get_typ_s("Magie",typ)) squery+= "z."+typ.s+", " ;
+  if (typ_2.s!="" && get_typ_s("Magie",typ_2)) squery += "z."+typ_2.s+", ";
+  squery +=" z.spruchrolle, \
       coalesce(z.region,''), coalesce(z.zauberart,''), \
       coalesce(z.p_element,''), coalesce(z.s_element,'') \
       FROM arkanum_zauber z WHERE "+alle_zauber+"\
       z.name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
       WHERE charakter_name = '"+werte.name_charakter+"' \
-      AND version = '"+werte.version+"') 
+      AND version = '"+werte.version+"') \
       ORDER BY z.stufe,z.name ";
 
 
@@ -89,14 +97,19 @@ void midgard_CG::show_neue_zauber()
    Gtk::OStream os(steigern_zauber_clist_neu);
    while (true)
       {
+       if (get_typ_s("Magie",typ) && get_typ_s("Magie",typ_2)) // beide Zypen Zauberer
+         exec sql fetch zauber_ein into :db_name, :db_ursprung, :db_kosten, :db_stufe, 
+            :db_standard, :db_standard2, :db_spruchrolle, :db_region, :db_zauberart,
+      	    :db_p_element, :db_s_element ;
+       else // ein Typ Zauberer
          exec sql fetch zauber_ein into :db_name, :db_ursprung, :db_kosten, :db_stufe, 
             :db_standard, :db_spruchrolle, :db_region, :db_zauberart,
       	    :db_p_element, :db_s_element ;
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
-         double fac=midgard_CG::get_standard_zauber_(db_standard,db_p_element,db_s_element,db_name);
+         double fac=midgard_CG::get_standard_zauber_(db_standard,db_standard2,db_p_element,db_s_element,db_name);
          if (fac == 0) continue;
-         string standard = midgard_CG::Ausnahmen_string(db_name,db_standard);
+         string standard = midgard_CG::Ausnahmen_string(db_name,db_standard,db_standard2);
          string zauberart=db_zauberart;
          if (zauberart=="Zaubersalz" && !checkbutton_zaubersalze->get_active())
             continue;
@@ -142,7 +155,7 @@ void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, 
 {   
   int new_kosten = atoi(steigern_zauber_clist_neu->get_text(row,3).c_str());
   string new_zauber = steigern_zauber_clist_neu->get_text(row,1);
-  string erf = midgard_CG::get_erfolgswert_zaubern(typ,new_zauber);
+  string erf = midgard_CG::get_erfolgswert_zaubern(typ,typ_2,new_zauber);
   string stufe= steigern_zauber_clist_neu->get_text(row,0);
   string art =steigern_zauber_clist_neu->get_text(row,4);
   
@@ -170,7 +183,7 @@ void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, 
      zauber.push_back(st_zauber("0",new_zauber,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
    }
 
-//  midgard_CG::show_zauber();
+  midgard_CG::show_zauber();
   midgard_CG::on_speichern_clicked();
   midgard_CG::zeige_werte(werte,"alle");
   midgard_CG::show_alte_zauber();
@@ -217,20 +230,21 @@ int midgard_CG::spruchrolle_wuerfeln(int istufe, string art, string zauber)
  int xr=random.integer(1,20);
  int iaus=0;
  
- if (typ.s != "Ma")
+ if (typ.s != "Ma" && typ_2.s != "Ma")
    {
       if (art=="A")  iaus=-2;
    }
- if (typ.s == "Ma") 
+ else if (typ.s == "Ma" || typ_2.s == "Ma" ) 
    {
-    iaus = midgard_CG::get_spezial_zauber(typ.s,zauber);
+    if (typ.s=="Ma") iaus = midgard_CG::get_spezial_zauber(typ.s,zauber);
+    if (typ_2.s=="Ma") iaus = midgard_CG::get_spezial_zauber(typ_2.s,zauber);
     if (!iaus)
      {
        if (art=="S")  iaus=+1;
        if (art=="A")  iaus=-1;
      }
    }
-
+ else abort();
 
  
  int x = xr-istufe;
@@ -292,22 +306,30 @@ void midgard_CG::show_alte_zaubermittel()
    clist_zaubermittel_alt->set_reorderable(true);
 }
 
+
 void midgard_CG::show_neue_zaubermittel()
 {
  if (!checkbutton_zaubermittel->get_active()) return ;
  clist_zaubermittel_neu->clear();
  exec sql begin declare section;
    char db_name[50], db_art[50], db_zeitaufwand[30], db_preis[50],
-         db_standard[5], db_region[10];
+         db_standard[5],db_standard2[5], db_region[10];
    int db_gfp;
    char db_stufe[10];
    char query[1024];
  exec sql end declare section;
  string alle_zauber="";
  if (!checkbutton_alle_zauber->get_active() )
-    alle_zauber = " ("+typ.s+" = 'G' OR "+typ.s+" = 'S' OR "+typ.s+" = 'A') AND ";
- string squery = "select z.name, z.kosten_gfp, z.stufe, coalesce(z.art,''), \
-   z.zeitaufwand, z.kosten, coalesce(z."+typ.s+",'A'), coalesce(z.region,'') from zauberwerk z \
+   {
+    if (get_typ_s("Magie",typ)) alle_zauber += " ("+typ.s+" = 'G' OR "+typ.s+" = 'S' OR "+typ.s+" = 'A') AND ";
+    if (get_typ_s("Magie",typ_2)) alle_zauber += " ("+typ_2.s+" = 'G' OR "+typ_2.s+" = 'S' OR "+typ_2.s+" = 'A') AND ";
+   }
+
+ string squery = "select z.name, z.kosten_gfp, z.stufe, coalesce(z.art,''),
+   z.zeitaufwand, z.kosten, ";
+ if (get_typ_s("Magie",typ)) squery += " coalesce(z."+typ.s+",'A'), " ;
+ if (get_typ_s("Magie",typ_2)) squery += " coalesce(z."+typ_2.s+",'A'), " ;
+ squery += " coalesce(z.region,'') from zauberwerk z \
    where "+alle_zauber+" name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
    WHERE charakter_name = '"+werte.name_charakter+"' \
    AND version = '"+werte.version+"') order by art, stufe, name";
@@ -322,11 +344,16 @@ void midgard_CG::show_neue_zaubermittel()
  Gtk::OStream os(clist_zaubermittel_neu);
  while (true)
    {
-     exec sql fetch zauberm_ein into :db_name, :db_gfp, :db_stufe, 
+
+     if (get_typ_s("Magie",typ) && get_typ_s("Magie",typ_2)) 
+        exec sql fetch zauberm_ein into :db_name, :db_gfp, :db_stufe, 
+            :db_art, :db_zeitaufwand, :db_preis, :db_standard, :db_standard2,
+            :db_region ;
+     else exec sql fetch zauberm_ein into :db_name, :db_gfp, :db_stufe, 
             :db_art, :db_zeitaufwand, :db_preis, :db_standard, :db_region ;
      SQLerror::test(__FILELINE__,100);  
      if (sqlca.sqlcode) break;
-     double fac= midgard_CG::get_standard_zaubermittel(typ.s,db_name);
+     double fac= midgard_CG::get_standard_zaubermittel(typ,typ_2,db_name);
 
      string art=db_art ;
      if (  (midgard_CG::zauberwerk_voraussetzung(db_name) 
@@ -348,6 +375,7 @@ void midgard_CG::show_neue_zaubermittel()
  tr.commit();
 }
 
+
 void midgard_CG::get_zaubermittel(vector<st_zaubermittel>& vec_zaubermittel)
 {
  exec sql begin declare section;
@@ -358,7 +386,7 @@ void midgard_CG::get_zaubermittel(vector<st_zaubermittel>& vec_zaubermittel)
  for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin();
       i!=vec_zaubermittel.end();++i)
    {
-    double fac= midgard_CG::get_standard_zaubermittel(typ.s,i->name);
+    double fac= midgard_CG::get_standard_zaubermittel(typ,typ_2,i->name);
     strncpy(db_name,i->name.c_str(),sizeof(db_name));
     exec sql select kosten_gfp, art, stufe, zeitaufwand, kosten
       into :db_gfp, :db_art, :db_stufe, :db_zeitaufwand, :db_kosten

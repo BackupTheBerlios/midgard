@@ -16,6 +16,8 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#warning Ausnahmen berücksichtigen noch keien Doppelklassencharaktere
+
 #include "midgard_CG.hh"
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
@@ -37,7 +39,8 @@ void midgard_CG::get_Ausnahmen()
  string squery = "select name, art, standard from ausnahmen \
    where (spezies = '"+werte.spezies+"' or spezies=null) \
    and (herkunft = '"+werte.herkunft+"' or herkunft = null) \
-   and typ = '"+typ.s+"'";
+   and typ = '"+typ.s+"'" ;
+ if (typ_2.s!="") squery += "or typ = '"+typ_2.s+"'";
  strncpy (query,squery.c_str(),sizeof(query));
  Transaction tr;
  exec sql prepare ein_ from :query;
@@ -76,10 +79,16 @@ float midgard_CG::Ausnahmen_float(const string& name)
  return 0;
 }
 
-string midgard_CG::Ausnahmen_string(const string& name, const string& alt)
+string midgard_CG::Ausnahmen_string(const string& name, const string& alt,const string& alt2)
 {
  for (vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
          i!=vec_ausnahmen.end();++i)
    if (i->name==name) return i->standard;
- return alt;
+ return alt+" "+alt2;
+/*
+ if (alt=="G" || alt2=="G") return "G";
+ if (alt=="S" && alt2=="S") return "S";
+ else return "A";
+*/
+ abort();
 }

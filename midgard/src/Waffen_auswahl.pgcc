@@ -32,7 +32,8 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 
 
-Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l)
+Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, 
+   st_lernpunkte& l, const st_werte& werte)
 {
   hauptfenster=h;
   vector<string> vorteile=hauptfenster->Berufs_Vorteile();
@@ -47,8 +48,10 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l
    char db_grund[100];
    char db_zusatz[50];
    char db_region[10];
+   char db_spezies[50];
   exec sql end declare section;
    strncpy(db_typ,typ.c_str(),sizeof(db_typ));
+   strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
    
    Transaction tr;
     exec sql declare waffen cursor for
@@ -56,6 +59,10 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l
       coalesce(zusatz,''), coalesce(w.region,'')
       from lernschema l, waffen w where typ = :db_typ
       and l.art = 'Waffe' and w.name = l.fertigkeit
+      and  fertigkeit not in  
+         (select verboten from pflicht_lernen where typ=:db_spezies  and verboten is not null)
+      and  grundkenntnisse not in  
+         (select verboten from pflicht_lernen where typ=:db_spezies  and verboten is not null)
       order by lernpunkte ;
 
     exec sql open waffen;

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.22 2001/05/07 14:01:46 thoma Exp $
+# $Id: Makefile.am,v 1.23 2001/05/14 13:43:23 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -43,7 +43,9 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 	Midgard_Info.hh \
    KiDo_auswahl.hh \
    KiDo_auswahl_glade.hh \
-   Tag.hh TagStream.hh
+   Tag.hh TagStream.hh \
+   Window_doppelcharaktere.hh \
+   Window_doppelcharaktere_glade.hh
 
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
@@ -72,7 +74,8 @@ midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 midgard_SOURCES = \
-   LaTeX_out.cc \
+   midgard_CG_typ_2.cc \
+	LaTeX_out.cc \
    LaTeX_zauber.cc \
    LaTeX_kido.cc \
    LaTeX_charakter_beschreibung.cc \
@@ -127,7 +130,9 @@ midgard_SOURCES = \
    WindowInfo.cc \
    WindowInfo_glade.cc \
    $(BUILT_SOURCES_CG) \
-   itos.cc 
+   itos.cc \
+   Window_doppelcharaktere.cc \
+   Window_doppelcharaktere_glade.cc
 
 
 CXXFLAGS = @CXXFLAGS@ @COMMONXX_INCLUDES@ \

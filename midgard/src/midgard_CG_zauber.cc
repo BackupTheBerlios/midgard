@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.10 2001/04/25 10:30:18 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.11 2001/05/14 13:43:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@ void midgard_CG::on_zauber_wahl_clicked()
       manage(new WindowInfo(strinfo));
       return;
    }
-  manage(new Zauber_auswahl(this,werte,typ.s,lernpunkte));
+  manage(new Zauber_auswahl(this,werte,typ,typ_2,lernpunkte));
 }
 
 void midgard_CG::show_zauber()
@@ -55,7 +55,7 @@ void midgard_CG::zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz)
    for(vector<st_ausgewaehlte_zauber>::iterator i=vec_zauber.begin();
          i!=vec_zauber.end();++i)
       {
-         string erf = midgard_CG::get_erfolgswert_zaubern(typ,i->name);
+         string erf = midgard_CG::get_erfolgswert_zaubern(typ,typ_2,i->name);
          zauber.push_back(st_zauber(i->ap,i->name,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
       }
    midgard_CG::show_zauber();

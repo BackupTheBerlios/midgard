@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten_auswahl.hh,v 1.5 2001/04/19 13:29:11 thoma Exp $
+// $Id: Fertigkeiten_auswahl.hh,v 1.6 2001/05/14 13:43:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,6 +35,7 @@
 #include <vector>
 class midgard_CG;
 struct st_lernpunkte;
+struct st_werte;
 
 struct db_struct_fertigkeiten
 {  int lernpunkte; 
@@ -62,8 +63,9 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         vector<db_struct_fertigkeiten> allg_fert;
         void on_fertigkeiten_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_fertigkeiten_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
+        bool Fertigkeiten_spezies_voraussetzung(const string& name,const string& spezies);
  public:
         Fertigkeiten_auswahl(midgard_CG* h,const string& typ, 
-                 st_lernpunkte& l);
+                 st_lernpunkte& l, const st_werte& werte);
 };
 #endif

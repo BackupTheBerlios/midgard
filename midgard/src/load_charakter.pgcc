@@ -45,6 +45,7 @@ void midgard_CG::load_charakter()
    exec sql begin declare section;
       char db_beschreibung[102400] ;
       char db_typ_s[5]     ;
+      char db_typ_2_s[5]     ;
       int db_st = werte.st;      
       int db_ge = werte.ge;      
       int db_ko = werte.ko;      
@@ -111,6 +112,7 @@ void midgard_CG::load_charakter()
          beschreibung   ,
          version        ,
          typ_s          ,
+         typ_2_s          ,
          spieler_name   ,
          st             ,
          ge             ,
@@ -170,9 +172,8 @@ void midgard_CG::load_charakter()
        :db_name_ch  , 
        :db_beschreibung,
        :db_version  ,
---       :db_typ_l      ,
        :db_typ_s      ,
---       :db_typ_i      ,
+       :db_typ_2_s      ,
        :db_name_sp  , 
        :db_st       ,
        :db_ge       ,
@@ -222,6 +223,7 @@ void midgard_CG::load_charakter()
        :db_kupfer      ,
        :db_ruestung    ,
        :db_spezies       ;
+   SQLerror::test(__FILELINE__);
    exec sql close cha;
 
        werte.st=   db_st ;    
@@ -522,7 +524,13 @@ void midgard_CG::load_charakter()
 
    typ.s = db_typ_s;
    get_typ(-1);
-   if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
+   typ_2.s = db_typ_2_s;
+   if (typ_2.s!="") 
+     { fill_typauswahl_2();
+       get_typ(-1,2);      
+     }
+   if (typ.z=="n" || typ.s == "Ord" ||
+       typ_2.z=="n" || typ_2.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
    else label_spezialwaffe->set_text("");
    // Spezies setzen
    exec sql begin declare section;   
@@ -535,5 +543,6 @@ void midgard_CG::load_charakter()
    if (werte.geschlecht=="m") radiobutton_mann->set_active(true);
    optionmenu_spezies->set_history(db_nr); // Spezies
    midgard_CG::show_gtk(get_typ_nr());
+   if (typ_2.s!="") midgard_CG::show_gtk(get_typ_nr(2),2);
    midgard_CG::get_spezial_from_spezialgebiet();
 }

@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.7 2001/04/23 10:55:31 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.8 2001/05/14 13:43:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,7 @@ string s="
 
 * Spezies wählen
 * Grundwerte würfeln (eventuell editieren)
+* Geschlecht wählen
 * Charaktertyp wählen
 * Abgeleitete Werte würfeln (eventuell editieren)
 * Werte editieren: 'Name des Charakters' und 'Version' eintragen, unter diesen

@@ -30,33 +30,38 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-double midgard_CG::get_standard_fertigkeit(const string& typ, const string& fertigkeit)
+double midgard_CG::get_standard_fertigkeit(const string& typ, const string& typ_2, const string& fertigkeit)
 {
   exec sql begin declare section;
-   char db_ergebnis[20];
+   char db_ergebnis[20],db_ergebnis2[20];
    char query[200];
   exec sql end declare section;
+  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
+  string squery = "select "+typ ;
+  if (typ_2!="") squery += ", " + typ_2 ; 
+  squery += " from fertigkeiten where fertigkeit  = '"+fertigkeit+"'";
+  strncpy(query,squery.c_str(),sizeof(query));  
 
-  snprintf(query,sizeof(query),"select %s from fertigkeiten where fertigkeit = '%s'",
-               typ.c_str(), fertigkeit.c_str());
    Transaction tr;
    exec sql prepare fert from :query ;    
     exec sql declare fertig cursor for fert ;
 
     exec sql open fertig;
     SQLerror::test(__FILELINE__);
-
-    exec sql fetch fertig into  :db_ergebnis;
+    if (typ_2!="") exec sql fetch fertig into  :db_ergebnis, :db_ergebnis2;
+    else exec sql fetch fertig into  :db_ergebnis;
     SQLerror::test(__FILELINE__,100);  
 
     exec sql close fertig;
-   return(get_standard_fertigkeit_(db_ergebnis));
+   return(get_standard_fertigkeit_(db_ergebnis,db_ergebnis2));
 }
 
-double midgard_CG::get_standard_fertigkeit_(const string& ergebnis)
+double midgard_CG::get_standard_fertigkeit_(const string& ergebnis,const string& ergebnis2)
 {
-  if (ergebnis=="G") return 0.5;
-  if (ergebnis=="S") return 1.0;
-  if (ergebnis=="A") return 2.0;
+  if (ergebnis=="G" || ergebnis2=="G") return 0.5;
+  if (ergebnis=="S" && (ergebnis2=="S" || ergebnis2=="")) return 1.0;
+  if (ergebnis2=="S" && (ergebnis=="S" || ergebnis=="")) return 1.0;
+  else return 2.0;
+//  if (ergebnis=="A") return 2.0;
   abort();
 }

@@ -32,7 +32,6 @@ void midgard_CG::on_waffen_laden_clicked()
    midgard_CG::show_neue_grund();
    midgard_CG::show_alte_waffen();
    midgard_CG::show_neue_waffen();
-   
 }
 
 void midgard_CG::show_alte_grund()
@@ -87,7 +86,7 @@ db_alter_erfolgswert,db_neuer_erfolgswert,db_waffe);
          tr.close();
          
          
-         double fac = midgard_CG::get_standard_waffen(typ.s,i->name);
+         double fac = midgard_CG::get_standard_waffen(typ.s,typ_2.s,i->name);
          string kosten_steigern = itos(db_schwierigkeit*db_erfolgsfaktor_s*fac);
          string kosten_reduzieren = itos(db_schwierigkeit*db_erfolgsfaktor_r*fac);
          if (kosten_steigern=="0") kosten_steigern="";         
@@ -108,15 +107,19 @@ void midgard_CG::show_neue_grund()
    char db_name[50];
    int db_fp;
    char db_cname[50],db_version[50];
+   char db_spezies[50];
   exec sql end declare section;
   strncpy(db_cname,werte.name_charakter.c_str(),sizeof(db_cname));
   strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+  strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
   Transaction tr;  
   exec sql declare grund_ein cursor for 
    SELECT name, fp from waffen_grund 
    WHERE  name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten 
    WHERE art = 'Grundkenntnis' 
-   AND charakter_name = :db_cname AND version = :db_version) order by name;
+   AND charakter_name = :db_cname AND version = :db_version) 
+   AND name  not in (select verboten from pflicht_lernen where typ=:db_spezies
+    and verboten is not null) order by name;
   SQLerror::test(__FILELINE__);
   Gtk::OStream os(grundkenntnisse_clist_neu);
  exec sql open grund_ein;
@@ -126,7 +129,7 @@ void midgard_CG::show_neue_grund()
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
 
-      double fac = midgard_CG::get_standard_waffen(typ.s,db_name);
+      double fac = midgard_CG::get_standard_waffen(typ.s,typ_2.s,db_name);
       os << db_name<<"\t"<<db_fp*fac <<"\n";
    }
  exec sql close grund_ein;
@@ -144,16 +147,20 @@ void midgard_CG::show_neue_waffen()
       char db_waffe[50];
       char db_art[50];
       char db_zusatz[50];
-      char query[512];
+      char query[1024];
       char db_region[10];
    exec sql end declare section;
    snprintf(query,sizeof(query),"SELECT w.name, w.art, coalesce(w.zusatz,''), \
    coalesce(w.region,'') FROM  waffen w, \
    charaktere_fertigkeiten c WHERE  w.grundkenntnisse = c.fertigkeit \
    AND c.charakter_name = '%s' AND w.name NOT IN \
-   (SELECT fertigkeit FROM charaktere_fertigkeiten WHERE art = 'Waffe'
-   AND charakter_name = '%s' AND version = '%s')",
-   werte.name_charakter.c_str(),werte.name_charakter.c_str(),werte.version.c_str());
+   (SELECT fertigkeit FROM charaktere_fertigkeiten WHERE art = 'Waffe' \
+   AND charakter_name = '%s' AND version = '%s') \
+   AND w.name  not in (select verboten from pflicht_lernen where typ='%s' \
+    and verboten is not null) AND  grundkenntnisse not in \
+    (select verboten from pflicht_lernen where typ='%s' and verboten is not null)",
+   werte.name_charakter.c_str(),werte.name_charakter.c_str(),
+      werte.version.c_str(),werte.spezies.c_str(),werte.spezies.c_str());
    Transaction tr;
    exec sql prepare wa_ein_ from :query;
    exec sql declare wa_ein cursor for wa_ein_;
@@ -197,6 +204,21 @@ void midgard_CG::on_grundkenntnisse_clist_neu_select_row(gint row, gint column, 
 
 void midgard_CG::on_grundkenntnisse_clist_alt_select_row(gint row, gint column, GdkEvent *event)
 {
+ if (radiobutton_grundkenntnisse_verlernen->get_active())
+   {
+      radiobutton_grundkenntnisse_verlernen->set_active(false);
+      string altg=grundkenntnisse_clist_alt->get_text(row,0);
+      for (map<string,string>::iterator i=waffen_grundkenntnisse.begin();
+            i!= waffen_grundkenntnisse.end();++i) 
+         if (i->first==altg) {waffen_grundkenntnisse.erase(i);break;}
+   }
+  string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden weder die\n";
+  strinfo +="GFP angepaßt, noch die bereits gelernten Waffen, die zu dieser\n";
+  strinfo +="Grundkenntnis gehöhren, verlernt\n";
+  WindowInfo(strinfo,true);
+  midgard_CG::on_speichern_clicked();
+  midgard_CG::show_alte_grund();
+  midgard_CG::show_neue_grund();
 }
 
 
@@ -223,14 +245,14 @@ void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, 
           if (art == "Angriff" || art == "Fern" )
             {
              maxwert = 17;
-             if (typ.s == "Kr" || typ.s == "Sö") maxwert = 19;
-             if (typ.z == "z" ) maxwert = 14;
+             if ((typ.s == "Kr" || typ.s == "Sö") && typ_2.s=="") maxwert = 19;
+             if (typ.z == "z" && typ_2.z == "z") maxwert = 14;
             }
           if (art == "Verteidigung")
             {
              maxwert = 7;
-             if (typ.s == "Kr" || typ.s == "Sö") maxwert = 8;
-             if (typ.z == "z" ) maxwert = 6;
+             if ((typ.s == "Kr" || typ.s == "Sö") && typ_2.s=="") maxwert = 8;
+             if (typ.z == "z" && typ_2.z == "z") maxwert = 6;
             }
           if (erfolgswert >=maxwert) 
             {  

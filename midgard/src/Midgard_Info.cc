@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.16 2001/05/07 14:01:46 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.17 2001/05/14 13:43:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,5 +34,5 @@ void Midgard_Info::on_button_close_clicked()
 
 Midgard_Info::Midgard_Info()
 {
-   versionsnummer->set_text("Version: 0.4beta10");
+   versionsnummer->set_text("Version: 0.5beta0");
 }

@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.6 2001/04/19 13:29:12 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.7 2001/05/14 13:43:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,25 +44,25 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   //////////////////////////////////////////////////////////////////////
   // Boni 
   // Assassine, Beschwörer & Druide
-  if (typ.sb == 20) werte.sb += random.integer(1,20); 
+  if (typ.sb == 20 || typ_2.sb ) werte.sb += random.integer(1,20); 
   // Spitzbube
-  if (typ.sb == -20) werte.sb -= random.integer(1,20); 
+  if (typ.sb == -20&& typ_2.sb == -20) werte.sb -= random.integer(1,20); 
 //cout << typ.sb<<"\n";
   midgard_CG::grundwerte_boni_setzen();
 
   // Ausdauerbonus für Typen
-  if (typ.ausdauer == "k" ) werte.bo_au_typ = 4 ;
-  if (typ.ausdauer == "ak" ) werte.bo_au_typ = 3 ;
-  if (typ.ausdauer == "z" ) werte.bo_au_typ = 2 ;
-//cout << werte.bo_au_typ<<"\n";
+  if      (typ.ausdauer == "k" || typ_2.ausdauer == "k" ) werte.bo_au_typ = 4 ;
+  else if (typ.ausdauer == "ak"|| typ_2.ausdauer == "ak" ) werte.bo_au_typ = 3 ;
+  else werte.bo_au_typ = 2 ;
+//cout <<"werte.bo_au_typ\t"<<werte.bo_au_typ<<"\n";
   // Werte würfeln und setzen
   werte.lp = random.integer(1,6)+werte.lpbasis+spezies_constraint.lpbasis ;
   werte.ap = random.integer(1,6)+werte.bo_au+werte.bo_au_typ + werte.grad*spezies_constraint.ap_grad ;
   if (werte.ap<1) werte.ap=1;
   werte.abwehr_wert= 11 ;
   //Barde,Ordenskrieger,Zauberer
-  if (typ.z == "j" || typ.z == "z") werte.zaubern_wert = "10" ;
-   else werte.zaubern_wert=" ";
+  if (typ.z == "j" || typ.z == "z" || typ_2.z == "j" || typ_2.z == "z" ) werte.zaubern_wert = "10" ;
+   else werte.zaubern_wert="";
   werte.psyZR_wert = 10;
   werte.phsZR_wert = 10;
   werte.phkZR_wert = 10;
@@ -84,8 +84,10 @@ void midgard_CG::on_abge_werte_setzen_clicked()
    { werte.gestalt = "breit";
      werte.gewicht =  gin+(int)(gin*0.2) ; }
   int istand=random.integer(1,100);
-  istand += typ.stand;
-//cout << typ.stand<<"\n";
+  int typstand = typ.stand;
+  (typstand<typ_2.stand)?typstand=typ_2.stand:
+  istand += typstand;
+//cout << "typstand\t"<<typstand<<"\n";
   if (istand<=10) werte.stand = "Unfrei";
   if (11<=istand&&istand<=50) werte.stand = "Volk";
   if (51<=istand&&istand<=90) werte.stand = "Mittelschicht";
@@ -157,7 +159,7 @@ void midgard_CG::grundwerte_boni_setzen()
 
   // Höhere Resistenz zählt + Resistenzen für Kämpfer|Zauberer
   (werte.bo_psy >= ibo_psy2) ? : werte.bo_psy=ibo_psy2 ;
-  if (typ.z=="z" ) 
+  if (typ.z=="z" || typ_2.z=="z" ) 
       { werte.bo_phs+=3; werte.bo_psy+=3; werte.bo_phk+=3; }
   else
       { werte.bo_phs+=2; }

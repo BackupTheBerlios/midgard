@@ -1,10 +1,50 @@
 ##########################################################################
-NEWS IN VERSION 0.4beta11
+NEWS IN VERSION 0.5beta0
 - Ein neuer Knopf ist hinzugekommen: 'Zaubermittel anzeigen'
    dadurch wird das steigern von Zaubern schneller, wenn der Button
    deaktiviert ist.
-- Eine Umarbeitung der Programms macht das Zaubern nochmal deutlich(!)
-   schneller. 
+- Eine Umarbeitung der Programms macht das Zaubern steigern nochmal 
+   deutlich(!!!) schneller. 
+- War kein KiDo Stil gewählt, dann zeigte die Typauswahl immer den 
+   ersten Eintrag (statt des zweiten) an.
+- Anfangsanzeige bei 'KiDo-Stile' war falsch.
+- Wenn KiDo nachträglich gelernt wird ist es nun auch möglich Techniken 
+   zu lernen. 
+- Neuaufbau des MCG funktionierte nicht richtig, wenn man auf 'Neuer Charakter'
+   klickte.
+- Die Anzahl der KiDo-Techniken, die bei Spielbeginn gelernt werden können
+   ist jetzt korrekt implementiert.
+- Speziesabhängige Pflichtfertigkeiten und Pflichtberufe werden beim
+   lernen während der Charaktererschaffung mit entsprechenden 
+   Lernpunkten und Erfolgswerten angezeigt
+- Speziesspezifische Verbote werden berücksichtigt. 
+- Elfen und Zwerge bekommen bei Spielbeginn 'Nachtsicht'
+- Es wird auch berücksichtigt, daß einige Fertigkeiten von Spezies zwar bei 
+   Spielbeginn NICHT lernbar sind, wohl aber später.
+- Es ist möglich Waffengrundkenntnisse zu 'verlernen'.
+   Dieses Feature sollte allerdings nur dann verwendet werden, wenn
+   man sich vertippt hat, da keinerlei Kausalitätsprüfung stattfindet.
+- Unterteilung der Spezies Gnom in Wald-/Berggnom
+- Berücksichtigung des Geschlechtes bei der Berufsvoraussetzung
+- Auch auf der 'steigern'-Seite wird nun die Charakterklasse angegeben.
+- Hilfe leicht überarbeitet (Geschlecht wählen hinzugefügt)
+- Zahlreiche weitere Bugs beseitigt
+- Doppelcharakterklassen implementiert:
+   - Zauber funktionieren (Kämpfer/Zauberer oder Barde/Zauberer 
+      oder Ordenskrieger/Priester) mit richtigen Lernkosten
+   - Fertigkeiten funktionieren
+   - Waffen funktioniert
+   - Sprachen und Schriften steigern funktioniert
+   - Abspeichern/laden funktioniert
+   - Doppelklassen sind möglich wenn ein Kämpfer 'Wissen von der Magie lernt'
+   Einschränkung:
+   - Nach dem lernen von 'Wissen von der Magie' ist man ein Doppelklassencharakter
+      Es ist nicht möglich die Laufbahn als Kämpfer aufzugeben und ein 
+      1. Klassencharakter zu werden. (Aber mal ehrlich, hat jemand aml davon
+      gehöhrt, das DAS jemand wollte?)  
+   - Doppelklassen sind nicht dadurch möglich, daß ein zauberer Waffen hochgenug lernt
+   - Doppelklassen für Elfen bei Spielbeginn funktioniert zwar prinzipiell, aber die 
+      jeweils günstigsten Lernkosten werden noch(!!!) nicht berücksichtigt
 
 ##########################################################################
 NEWS IN VERSION 0.4beta10
@@ -387,7 +427,7 @@ Einige Bugs beseitigt
 NEWS IN VERSION 0.1alpha6
 Einige kleinere Bugs beseitigt
 Waffen aussuchen komplett, 
-Ausdruck von Waffen, die ein CHarakter besitzt mit
+Ausdruck von Waffen, die ein Charakter besitzt mit
    Erfolgswert und Schaden (incl. waffenl. Kampf!)
 Damit der Ausdruck wieder ohne Stopp funktioniert habe ich eine '~'
    als Defaultwert eingetragen, da diese für LaTeX 

@@ -40,7 +40,7 @@ void midgard_CG::show_alte_kido()
    Gtk::OStream os(steigern_kido_clist_alt);
    for (vector<st_kido>::iterator i=vec_kido.begin(); i!=vec_kido.end();++i)
       {
-         double fac = midgard_CG::get_standard_fertigkeit(typ.s,"KiDo");
+         double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"KiDo");
          os << i->hoho<<"\t"<<i->technik<<"\t"<<i->stufe<<"\t"
             << i->ap<<"\t"<<fac*i->fp<<"\t"<<i->stil<<"\n";
       }
@@ -125,7 +125,7 @@ void midgard_CG::show_neue_kido()
    tr.commit();
 
    midgard_CG::get_kido(new_kido);
-   double fac = midgard_CG::get_standard_fertigkeit(typ.s,"KiDo");
+   double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"KiDo");
    for (vector<st_kido>::iterator i=new_kido.begin();i!=new_kido.end();++i)
      {
         os << i->hoho <<"\t"<< i->technik <<"\t"<<i->stufe<<"\t"

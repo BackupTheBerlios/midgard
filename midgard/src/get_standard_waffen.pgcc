@@ -30,7 +30,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-double midgard_CG::get_standard_waffen(const string& typ, const string& waffe)
+double midgard_CG::get_standard_waffen(const string& typ, const string& typ2, const string& waffe)
 {
   string swaffe="Waffen";
   if (waffe=="Peitsche") swaffe="Peitsche";
@@ -39,12 +39,16 @@ double midgard_CG::get_standard_waffen(const string& typ, const string& waffe)
   if (waffe=="Bola") swaffe="Bola";
 
   exec sql begin declare section;
-   char db_ergebnis[20];
+   char db_ergebnis[20],db_ergebnis2[20];
    char query[200];
   exec sql end declare section;
-  snprintf(query,sizeof(query),"select %s from waffen_standard where fertigkeit = '%s'",
-               typ.c_str(),swaffe.c_str());
-
+  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
+  string squery = "select "+typ;
+  if (typ2!="") squery += ", "+typ2; 
+  squery += " from waffen_standard where fertigkeit = '"+swaffe+"'";
+//  snprintf(query,sizeof(query),"select %s from waffen_standard where fertigkeit = '%s'",
+//               typ.c_str(),swaffe.c_str());
+   strncpy(query,squery.c_str(),sizeof(query));
    Transaction tr;
    exec sql prepare fert from :query ;    
    exec sql declare fertig cursor for fert ;
@@ -52,15 +56,21 @@ double midgard_CG::get_standard_waffen(const string& typ, const string& waffe)
     exec sql open fertig;
     SQLerror::test(__FILELINE__);
 
-    exec sql fetch fertig into  :db_ergebnis;
+    if (typ2=="")  exec sql fetch fertig into  :db_ergebnis;
+    if (typ2!="")  exec sql fetch fertig into  :db_ergebnis,:db_ergebnis2;
     SQLerror::test(__FILELINE__,100);  
 
     exec sql close fertig;
-
+ string e1=db_ergebnis, e2=db_ergebnis2;
  double fac;
+ if      (e1=="G" || e2=="G") fac = 0.5;
+ else if (e1=="S" || e2=="S") fac = 1.0;
+ else fac = 2.0;
+/*
  if (!strcmp(db_ergebnis,"G")) fac = 0.5; 
  if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
  if (!strcmp(db_ergebnis,"A")) fac = 2.0; 
+*/
 //cout << typ << "\t"<<fertigkeit<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
  return(fac);
 }

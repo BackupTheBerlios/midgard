@@ -37,7 +37,18 @@ void midgard_CG::sprachen_schrift()
             j!=vec_schriften.end();++j)
          {
             string schrift = db_schrift;
+            string ktp;
             if (schrift==j->urschrift) i->schrift=db_schrift;
+            if (i->name=="KanThaiTun")
+               {  string ks(j->urschrift,0,10);
+                  if (ks==i->name) 
+                   { if (i->schrift.size()==0) i->schrift=ks+" ";
+                     else i->schrift += ",";
+                     string z(j->urschrift,11,1);
+                     i->schrift += z;
+                   }
+               }
          }
    }
 }
+

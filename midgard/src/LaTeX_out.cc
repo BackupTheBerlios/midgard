@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.14 2001/05/09 08:18:42 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.15 2001/05/14 13:43:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,8 +34,9 @@ void midgard_CG::on_latex_clicked()
  system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
 
  ofstream fout("midgard_tmp_latexwerte.tex");
-// fout << "\\newcommand{\\typ}{\\footnotesize " << typ.l << "}\n";
- fout << "\\newcommand{\\typ}{"<< LaTeX_scale(typ.l,10,"2.2cm") << "}\n";
+ string styp = typ.l;
+ if (typ_2.l!="") styp += "/"+typ_2.l;
+ fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<werte.st << "}\n";
  fout << "\\newcommand{\\gee}{" <<werte.ge << "}\n";
  fout << "\\newcommand{\\ko}{"  <<werte.ko<< "}\n";
@@ -113,7 +114,7 @@ void midgard_CG::on_latex_clicked()
       fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< vec_sprachen[i].wert <<"}\n";
       fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< vec_sprachen[i].schrift <<"}\n";
    }
- for (unsigned int i=sprachanz; i<maxsprach;++i)
+ for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
    {
       string a = LaTeX_string(i);
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize }\n";

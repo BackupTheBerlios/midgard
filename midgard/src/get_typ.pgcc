@@ -20,8 +20,9 @@
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
 
-void midgard_CG::get_typ(int nr)
+void midgard_CG::get_typ(int nr, int typ_1_2)
 {
+//cout << nr<<"\t"<<typ_1_2<<"\n";
  exec sql begin declare section ;
   char db_typs[50], db_typl[50], db_typz[5], db_ausdauer[5];
   int  db_stand, db_sb;
@@ -35,7 +36,9 @@ void midgard_CG::get_typ(int nr)
    }
  else if (nr==-1)
    {
-    strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
+    if (typ_1_2==1) strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
+    else if (typ_1_2==2) strncpy(db_typs,typ_2.s.c_str(),sizeof(db_typs));
+    else abort();
     exec sql select typs, typl, typz, ausdauer, stand, sb 
       into :db_typs, :db_typl, :db_typz, :db_ausdauer, :db_stand, :db_sb
       from typen where typs = :db_typs;
@@ -46,34 +49,61 @@ void midgard_CG::get_typ(int nr)
  if (werte.geschlecht=="w")
  exec sql select typlw into :db_typl from typen where typl = :db_typl;
  SQLerror::test(__FILELINE__); 
- typ.s = db_typs;
- typ.l = db_typl;
- typ.z = db_typz;
- typ.ausdauer = db_ausdauer;
- typ.stand = db_stand;
- typ.sb = db_sb;
+ 
+ if (typ_1_2==1)
+  {
+    typ.s = db_typs;
+    typ.l = db_typl;
+    typ.z = db_typz;
+    typ.ausdauer = db_ausdauer;
+    typ.stand = db_stand;
+    typ.sb = db_sb;
+   }
+ else if (typ_1_2==2)
+  {
+    typ_2.s = db_typs;
+    typ_2.l = db_typl;
+    typ_2.z = db_typz;
+    typ_2.ausdauer = db_ausdauer;
+    typ_2.stand = db_stand;
+    typ_2.sb = db_sb;
+   }
+ else abort();
+//cout <<typ.l <<"\t"<<typ_2.l <<"<-\n";
  midgard_CG::get_Ausnahmen();
+
 //cout << typ.l<<"\n";
 }
 
-int midgard_CG::get_typ_nr()
+int midgard_CG::get_typ_nr(int typ_1_2)
 {
+//cout << "get_typ_nr für "<<typ_1_2<<"\n";
  exec sql begin declare section ;
   char db_typs[5];
   int db_typnr;
  exec sql end declare section ; 
- strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
+ if (typ_1_2==1) strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
+ else if (typ_1_2==2) strncpy(db_typs,typ_2.s.c_str(),sizeof(db_typs));
+ else abort();
+
  exec sql select typnr into :db_typnr from typen where typs = :db_typs;
  SQLerror::test(__FILELINE__,100); 
  if (sqlca.sqlcode) return 0; // Kein Charakter gewählt
  int count=0;
- for (vector<st_typen>::const_iterator i=typen_vector.begin();
-        i!=typen_vector.end();++i)
-   { 
-//cout << db_typnr<<"\t"<<typ.s<<"\t"<<i->nr<<"\t"<<i->name<<"\n";
-
-if(db_typnr==i->nr) { return count ; }
-     ++count;
+ if (typ_1_2==1)
+   {
+      for (vector<st_typen>::const_iterator i=typen_vector.begin();
+           i!=typen_vector.end();++i)
+      { if(db_typnr==i->nr) { return count ; }
+        ++count;
+      }
    }
- abort();
+ if (typ_1_2==2)
+   {for (vector<st_typen>::const_iterator i=typen_2_vector.begin();
+           i!=typen_2_vector.end();++i)
+      { if(db_typnr==i->nr) { return count+100 ; } // 2. Charakterklasse ab 100
+        ++count;
+      }
+   }
+ return 0; // Kein Charakter = 1. Charakter
 }

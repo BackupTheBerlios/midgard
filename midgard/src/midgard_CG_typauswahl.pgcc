@@ -19,11 +19,23 @@
 #include "midgard_CG.hh"
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
+#include "Window_doppelcharaktere.hh"
 exec sql include sqlca;
 
 void midgard_CG::fill_typauswahl()
 {
   typen_vector.clear();
+  fill_typauswahl_fill(1);
+}
+
+void midgard_CG::fill_typauswahl_2()
+{
+  typen_2_vector.clear();
+  fill_typauswahl_fill(2);
+}
+
+void midgard_CG::fill_typauswahl_fill(int typ_1_2)
+{
   exec sql begin declare section;
    char db_typ[50];
    char db_region[10];
@@ -36,6 +48,8 @@ void midgard_CG::fill_typauswahl()
   if (werte.spezies!="Mensch") 
      squery += ", spezies_typen st where t.typs = st.typen and st.spezies = '"
             + werte.spezies +"'";
+  if (werte.spezies!="Mensch" && typ_1_2==2) squery += " and  typz = 'z' ";
+  if (werte.spezies=="Mensch" && typ_1_2==2) squery += " where  typz = 'z' ";
   squery +="  order by typnr";
 
   Transaction tr;
@@ -54,7 +68,8 @@ void midgard_CG::fill_typauswahl()
       if (sqlca.sqlcode) break;   
       if (region_check(db_region))
        {
-         typen_vector.push_back(st_typen(db_typnr,db_typ));
+         if (typ_1_2==1)  typen_vector.push_back(st_typen(db_typnr,db_typ));
+         if (typ_1_2==2)  typen_2_vector.push_back(st_typen(db_typnr,db_typ));
 //cout << db_typnr<<"\t"<<db_typ<<"\t"<<typen_vector.size()<<"\n";
          _mi = manage(new Gtk::MenuItem(db_typ));
          _m->append(*_mi);
@@ -63,9 +78,45 @@ void midgard_CG::fill_typauswahl()
          ++count;
        }
    }  
-  typauswahl->set_menu(*_m);
-  typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
+  if (typ_1_2==1) 
+   { typauswahl->set_menu(*_m);
+     typauswahl->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button),get_typ_nr()));
+   }
+  if (typ_1_2==2) 
+   { typauswahl_2->set_menu(*_m);
+     typauswahl_2->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button),get_typ_nr(2)));
+   }
 }
+
+
+void midgard_CG::typauswahl_button(int ttyp)
+{
+ int ityp,count=0;
+ int ityp_ = int(typauswahl->get_menu()->get_active()->get_user_data());
+ if (ttyp==-1) ityp_=0;
+ for (vector<st_typen>::const_iterator i=typen_vector.begin();
+    i!=typen_vector.end();++i)
+    { if (count==ityp_){ityp=i->nr;break;}
+      ++count;
+    }
+ get_typ(ityp);     
+ show_gtk(ityp_);
+}
+
+void midgard_CG::typauswahl_2_button(int ttyp)
+{
+ int ityp,count=0;
+ int ityp_ = int(typauswahl_2->get_menu()->get_active()->get_user_data());
+ if (ttyp==-1) ityp_=0;
+ for (vector<st_typen>::const_iterator i=typen_2_vector.begin();
+   i!=typen_2_vector.end();++i)
+   { if (count==ityp_){ityp=i->nr;break;}
+     ++count;
+   }
+ get_typ(ityp,2);     
+ show_gtk(ityp_,2);
+}
+
 
 /*
 int  fill_typauswahl_int(int i)
@@ -103,5 +154,23 @@ void midgard_CG::fill_spezies()
     }
   optionmenu_spezies->set_menu(*_m);
   optionmenu_spezies->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezieswahl_button));
+}
+
+void midgard_CG::spezieswahl_button()
+{
+ int ityp = int(optionmenu_spezies->get_menu()->get_active()->get_user_data());
+ werte.spezies = spezies_vector[ityp];
+ midgard_CG::fill_typauswahl();
+ midgard_CG::get_spezies_constraint();
+ midgard_CG::typauswahl_button(-1);
+
+ if (werte.spezies=="Elf") manage (new Window_doppelcharaktere(this));
+}
+
+void midgard_CG::doppelcharaktere()
+{
+   fill_typauswahl_2();
+   typauswahl_2->show();
+   magie_bool=true;
 }
 

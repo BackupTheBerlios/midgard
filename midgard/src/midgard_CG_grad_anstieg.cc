@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.5 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.6 2001/05/14 13:43:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,12 +63,12 @@ void midgard_CG::get_grundwerte()
        midgard_CG::grundwerte_boni_setzen();
     }
 //  cout << ".\n";
-  manage(new WindowInfo(stinfo));
+  manage(new WindowInfo(stinfo,true));
 }
 
 void midgard_CG::get_zauber(int grad)
 {
- if (typ.z == "z" || typ.z == "j" )
+ if (typ.z == "z" || typ.z == "j" || typ_2.z == "z" || typ_2.z == "j")
   {  
    int kosten=0;
    if (grad == 1)  { werte.zaubern_wert = 10 ;}
@@ -121,9 +121,9 @@ void midgard_CG::get_ausdauer(int grad)
    for (int i=0;i<grad;++i) ap += random.integer(1,6);
 
   int nab, nap;
-  if (typ.ausdauer == "k")  nab = bonus_K ;
-  if (typ.ausdauer == "ak") nab = bonus_aK ;
-  if (typ.ausdauer == "z")  nab = bonus_Z ;
+  if      (typ.ausdauer == "k" || typ_2.ausdauer == "k")  nab = bonus_K ;
+  else if (typ.ausdauer == "ak"|| typ_2.ausdauer == "ak") nab = bonus_aK ;
+  else  nab = bonus_Z ;
   nap = ap + nab + werte.bo_au ;
   int nspez = werte.grad*spezies_constraint.ap_grad;
   nap += nspez;
@@ -131,7 +131,7 @@ void midgard_CG::get_ausdauer(int grad)
   string stinfo="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
    stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
    stinfo+="+";stinfo+=itos(werte.bo_au);stinfo+="=";stinfo+=itos(nap);
-  manage(new WindowInfo(stinfo));
+  manage(new WindowInfo(stinfo,true));
    // Für alle ist die AP-anzahel mind. = Grad
   if (werte.ap<werte.grad) werte.ap=werte.grad; 
    // Neue AP höher als alte?

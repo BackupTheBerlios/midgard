@@ -136,7 +136,7 @@ void midgard_CG::show_alte_sprachen()
 {
    clist_steigern_sprachen_alt->clear();
    Gtk::OStream os(clist_steigern_sprachen_alt);
-   double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Sprache");
+   double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"Sprache");
    for (vector<st_sprachen>::const_iterator i=vec_sprachen.begin();
             i!=vec_sprachen.end();++i)
       {
@@ -210,7 +210,7 @@ void midgard_CG::show_neue_sprachen()
    AND charakter_name = :db_cname AND version = :db_version) order by name;
   SQLerror::test(__FILELINE__);
  exec sql open ein;
- double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Sprache");
+ double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"Sprache");
   while (true)
    {
       exec sql fetch ein into :db_name, :db_fp, :db_urschrift;
@@ -235,7 +235,7 @@ void midgard_CG::show_alte_schriften()
    char db_typ[20], db_name[20];
    int db_kosten;
   exec sql end declare section;
-  double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Lesen/Schreiben");
+  double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"Lesen/Schreiben");
   for (vector<st_schriften>::const_iterator i=vec_schriften.begin();
       i!=vec_schriften.end();++i)
    {
@@ -265,7 +265,7 @@ void midgard_CG::show_neue_schriften()
    AND charakter_name = :db_cname AND version = :db_version) order by name, typ;
   SQLerror::test(__FILELINE__);
  exec sql open ein2;
- double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Lesen/Schreiben");
+ double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"Lesen/Schreiben");
   while (true)
    {
       exec sql fetch ein2 into :db_name, :db_fp, :db_typ;

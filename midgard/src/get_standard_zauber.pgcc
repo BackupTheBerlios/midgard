@@ -30,7 +30,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
+double midgard_CG::get_standard_zauber(const styp& typ, const styp& typ_2, const string& zauber)
 {
    double fac;
    // gibt es eine Ausnahmeregelung?
@@ -39,10 +39,23 @@ double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
 
    //sonst
   exec sql begin declare section;
-   char db_ergebnis[20];
+   char db_ergebnis[20], db_ergebnis2[20];
    char db_p_element[50],db_s_element[50];
    char query[200];
   exec sql end declare section;
+  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
+  strncpy(db_p_element,"",sizeof(db_p_element));
+  strncpy(db_s_element,"",sizeof(db_s_element));
+ 
+  string squery = "select ";
+  if (get_typ_s("Magie",typ)) squery += " coalesce("+typ.s+",'A')"; 
+  if (get_typ_s("Magie",typ) && get_typ_s("Magie",typ_2)) squery += ", ";
+  if (get_typ_s("Magie",typ_2)) squery += " coalesce("+typ_2.s+",'A')";
+  if (typ.s=="eBe" || typ_2.s=="eBe") squery += " , coalesce(p_element,'') , coalesce(s_element,'') "; 
+  squery += " from arkanum_zauber where name = '"+zauber+"'";
+  strncpy(query,squery.c_str(),sizeof(query));  
+
+/*
   if (typ!="eBe")
      snprintf(query,sizeof(query),"select coalesce(%s,'A') from arkanum_zauber where name = '%s'",
                typ.c_str(), zauber.c_str());
@@ -50,23 +63,31 @@ double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
      snprintf(query,sizeof(query),"select coalesce(%s,'A'), coalesce(p_element,''), \
                coalesce(s_element,'') from arkanum_zauber where name = '%s'", \
                typ.c_str(), zauber.c_str());
+*/
+
 //cout << query<<"\n";
    Transaction tr;
    exec sql prepare zaub from :query ;    
    exec sql declare zauber cursor for zaub ;
    exec sql open zauber;
    SQLerror::test(__FILELINE__);
-   if (typ !="eBe") exec sql fetch zauber into  :db_ergebnis;
-   if (typ =="eBe") exec sql fetch zauber into  :db_ergebnis,:db_p_element,:db_s_element;
+   if(get_typ_s("Magie",typ) && get_typ_s("Magie",typ_2) ) 
+    { if (typ.s !="eBe" && typ_2.s !="eBe") exec sql fetch zauber into  :db_ergebnis,:db_ergebnis2;
+      else exec sql fetch zauber into  :db_ergebnis,:db_ergebnis2,:db_p_element,:db_s_element;
+    }
+   else 
+    { if (typ.s !="eBe") exec sql fetch zauber into  :db_ergebnis;
+      if (typ.s =="eBe") exec sql fetch zauber into  :db_ergebnis,:db_p_element,:db_s_element;
+    }
    SQLerror::test(__FILELINE__);  
 
-   fac = get_standard_zauber_(db_ergebnis,db_p_element,db_s_element,zauber);
+   fac = get_standard_zauber_(db_ergebnis,db_ergebnis2,db_p_element,db_s_element,zauber);
 //cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
    return(fac);
 }
 
-double midgard_CG::get_standard_zauber_(const string& ergebnis, const string&
-	p_element, const string& s_element, const string& zauber)
+double midgard_CG::get_standard_zauber_(const string& ergebnis,const string& ergebnis2, 
+   const string& p_element, const string& s_element, const string& zauber)
 {
    double fac;
    // gibt es eine Ausnahmeregelung?
@@ -75,10 +96,10 @@ double midgard_CG::get_standard_zauber_(const string& ergebnis, const string&
 
    if (typ.s != "eBe" || (p_element=="" && s_element==""))
       {
-         if (ergebnis=="G") fac = 0.5; 
-         if (ergebnis=="S") fac = 1.0; 
-         if (ergebnis=="A") fac = 5.0; 
-         if (ergebnis=="")  fac = 5.0; 
+         if      (ergebnis=="G" || ergebnis2=="G") fac = 0.5; 
+         else if (ergebnis=="S" && ( ergebnis2=="S" || ergebnis2=="" )) fac = 1.0; 
+         else if (ergebnis2=="S" && ( ergebnis=="S" || ergebnis=="" )) fac = 1.0; 
+         else fac = 5.0; 
       }
    else
       {

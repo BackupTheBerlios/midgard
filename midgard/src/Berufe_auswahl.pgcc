@@ -41,12 +41,34 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const styp& typ, const st_lernpunk
    char db_beruf[100];
    int db_lernpunkte;
    char db_stand[100];
+   char db_spezies[50];
    char db_voraussetzung[10];
    int db_maxp = maxpunkte;
   exec sql end declare section;
   strncpy(db_stand,werte.stand.c_str(),sizeof(db_stand));
+  strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
 
    Transaction tr;
+    // Spezielle Speziesberufe
+    exec sql declare beruf_spezies cursor for
+      select p.pflicht, p.lernpunkte 
+      from pflicht_lernen p, berufe_voraussetzung b
+      where p.pflicht=b.beruf and p.typ = :db_spezies;
+
+    exec sql open beruf_spezies;
+    SQLerror::test(__FILELINE__);
+    while (true)
+      {
+         exec sql fetch beruf_spezies into :db_beruf,:db_lernpunkte;
+         SQLerror::test(__FILELINE__,100);
+         if (sqlca.sqlcode) break;
+         string vorteile = Berufe_auswahl::Beruf_vorteile(db_beruf);         
+         beruf.push_back(db_struct_beruf(db_lernpunkte,db_beruf,werte.spezies,
+                           werte.spezies, vorteile));
+      }
+    exec sql close beruf_spezies;
+
+    // Alle anderen Berufe
     exec sql declare beruf cursor for
       select distinct v.lernpunkte, v.beruf, coalesce(v.geschlecht,'')
       from berufe_stand s, berufe_voraussetzung v 
@@ -54,7 +76,6 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const styp& typ, const st_lernpunk
       s.stand = :db_stand and v.beruf = s.beruf
       and :db_maxp >= v.lernpunkte 
       order by lernpunkte ;
-
     exec sql open beruf;
     SQLerror::test(__FILELINE__);
     while (true)
@@ -72,7 +93,7 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const styp& typ, const st_lernpunk
     Gtk::OStream os(berufe_clist_auswahl);
     for(vector<db_struct_beruf>::iterator i=beruf.begin();i!=beruf.end();++i)
       {
-         if (Berufe_auswahl::berufe_voraussetzung(i->beruf,werte,typ.z))
+         if (Berufe_auswahl::berufe_voraussetzung(i->beruf,werte,typ.z)||werte.spezies!="Mensch")
           {
             os << i->lernpunkte <<"\t"<< i->voraussetzung <<"\t"
                <<i->beruf<<"\t"<<i->vorteile <<"\n";
@@ -124,6 +145,7 @@ bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& w
 {
   exec sql begin declare section;
    int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb;
+   char db_geschlecht[5];
    char db_typ[5];
    char db_region[10];
    char db_beruf[30];
@@ -132,12 +154,15 @@ bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& w
 
   exec sql select coalesce(st,'0'), coalesce(ge,'0'),
    coalesce(ko,'0'),  coalesce("in",'0'), coalesce(zt,'0'),
-   coalesce(typ,'0'), coalesce(pa,'0'), coalesce(au,'0'), coalesce(sb,'0')
-   , coalesce(region,'')
-   into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_typ,:db_pa,:db_au,:db_sb,:db_region
+   coalesce(typ,'0'), coalesce(pa,'0'), coalesce(au,'0'), coalesce(sb,'0'),
+   coalesce(geschlecht,''), coalesce(region,'')
+   into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_typ,:db_pa,:db_au,
+      :db_sb,:db_geschlecht,:db_region
    from berufe_voraussetzung where beruf= :db_beruf limit 1;
   SQLerror::test(__FILELINE__);
 //cout << beruf<<"\t->"<<db_typ<<"<-\t";
+  string geschlecht = db_geschlecht;
+//cout << "->"<<geschlecht<<"<- ->"<<werte.geschlecht<<"<-\n";
   if (   db_st<=werte.st &&
          db_ge<=werte.ge &&
          db_ko<=werte.ko &&
@@ -146,6 +171,7 @@ bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& w
          db_pa<=werte.pa &&
          db_au<=werte.au &&
          db_sb<=werte.sb &&
+         (geschlecht==werte.geschlecht || geschlecht == "") &&
          Berufe_auswahl::btyp(db_typ,typz) &&
          hauptfenster->region_check(db_region)
      )   

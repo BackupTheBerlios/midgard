@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.24 2001/05/09 08:18:42 thoma Exp $
+// $Id: midgard_CG.cc,v 1.25 2001/05/14 13:43:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,34 +37,7 @@
 
 midgard_CG::midgard_CG()
 {
- kido_bool=false;
- magie_bool=false;
- midgard_CG::fill_typauswahl();
- midgard_CG::fill_spezies();
- midgard_CG::spezieswahl_button();
- midgard_CG::typauswahl_button();
- werte.version="Erschaffung";
-}
-
-void midgard_CG::spezieswahl_button()
-{
- int ityp = int(optionmenu_spezies->get_menu()->get_active()->get_user_data());
- werte.spezies = spezies_vector[ityp];
- midgard_CG::fill_typauswahl();
- midgard_CG::get_spezies_constraint();
-}
-
-void midgard_CG::typauswahl_button()
-{
- int ityp_ = int(typauswahl->get_menu()->get_active()->get_user_data());
- int ityp,count=0;
- for (vector<st_typen>::const_iterator i=typen_vector.begin();
-	i!=typen_vector.end();++i)
-   { if (count==ityp_){ityp=i->nr;break;}
-     ++count;
-   }
- get_typ(ityp);
- show_gtk(ityp_);
+  on_neuer_charakter_clicked();
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
@@ -72,7 +45,9 @@ void midgard_CG::on_radiobutton_frau_toggled()
   if (radiobutton_frau->get_active()) werte.geschlecht="w";
    else werte.geschlecht="m";
   midgard_CG::fill_typauswahl();
+  midgard_CG::fill_typauswahl_2();
   typauswahl->set_history(get_typ_nr());
+  typauswahl_2->set_history(get_typ_nr(2)-100);
 }
 
 void midgard_CG::on_radiobutton_mann_toggled()
@@ -80,14 +55,27 @@ void midgard_CG::on_radiobutton_mann_toggled()
   if (radiobutton_mann->get_active()) werte.geschlecht="m";
    else werte.geschlecht="w";
   midgard_CG::fill_typauswahl();
+  midgard_CG::fill_typauswahl_2();
   typauswahl->set_history(get_typ_nr());
+  typauswahl_2->set_history(get_typ_nr(2)-100);
 }
 
-void midgard_CG::show_gtk(int tnr)
+void midgard_CG::show_gtk(int tnr,int typ_1_2)
 {
- typauswahl->set_history(tnr); // Charakterklasse
+//cout << "show_gtk "<<tnr<<"\t"<<typ_1_2<<"\n";
+ if (typ_1_2==1) 
+   { typauswahl->set_history(tnr); // Charakterklasse
+     if (typen_2_vector.size()==0) typauswahl_2->hide();
+   }
+ if (typ_1_2==2) 
+   { typauswahl_2->show(); 
+     typauswahl_2->set_history(tnr-100);
+   }
  fertig_typ->set_text(typ.l);     // Charakterklasse im Lernfenster
-
+ if (typ_2.l!="") fertig_typ->set_text(typ.l+"/"+typ_2.l);
+ steigern_typ->set_text(typ.l);     // Charakterklasse im Lernfenster
+ if (typ_2.l!="") steigern_typ->set_text(typ.l+"/"+typ_2.l);
+ 
    midgard_CG::zeige_werte(werte,"alle");
    midgard_CG::show_berufe();
    midgard_CG::show_fertigkeiten();
@@ -110,7 +98,6 @@ void midgard_CG::show_gtk(int tnr)
    { table_magier_lernen->hide();
      table_magier_steigern->hide();
    }
-
  // KiDo anzeigen?
 // if (typ.s=="Kd" || typ.s == "Ny" ) 
  if (kido_bool) 
@@ -212,6 +199,9 @@ void midgard_CG::on_neuer_charakter_clicked()
    werte.clear();
    lernpunkte.clear();
    typ.clear();
+   typ_2.clear();
+   typen_vector.clear();
+   typen_2_vector.clear();
    waffen_grundkenntnisse.clear();
    midgard_CG::zeige_lernpunkte();
    midgard_CG::zeige_werte(werte,"alle");
@@ -236,10 +226,15 @@ void midgard_CG::on_neuer_charakter_clicked()
    clist_steigern_sprachen_neu->clear();
    clist_steigern_schrift_alt->clear();
    clist_steigern_schrift_neu->clear();
-
-   midgard_CG::typauswahl_button();
-   werte.version="Erschaffung";
-   optionmenu_spezies->set_history(0);
+   
+ kido_bool=false;
+ magie_bool=false;
+ werte.version="Erschaffung";
+ midgard_CG::fill_typauswahl();
+ midgard_CG::fill_spezies();
+ midgard_CG::spezieswahl_button();
+ midgard_CG::typauswahl_button(-1);
+ show_gtk(get_typ_nr());
 }
 
 

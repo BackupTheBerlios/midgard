@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.7 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.8 2001/05/14 13:43:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,11 +21,12 @@
 #include "Fertigkeiten_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Window_angeb_fert.hh"
+//#include <algorithm>
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
 //  manage(new Fertigkeiten_auswahl(this,typ.s,werte,lernpunkte,vec_beruf));
-  manage(new Fertigkeiten_auswahl(this,typ.s,lernpunkte));
+  manage(new Fertigkeiten_auswahl(this,typ.s,lernpunkte,werte));
 }
 
 void midgard_CG::show_fertigkeiten()
@@ -54,18 +55,39 @@ void midgard_CG::show_fertigkeiten()
 void midgard_CG::fertigkeiten_uebernehmen(vector<st_ausgewaehlte_fertigkeiten>& saf)
 {
    vec_fertigkeiten = saf;
-
+   maxkido=0;
+   if (typ.s=="Kd") maxkido=2;
+//XXX   vector<vector<st_ausgewaehlte_fertigkeiten>::iterator>  vi;
+   int KD_tech=0; //XXX
    for(vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
          i!=vec_fertigkeiten.end();++i)
       {
          int bonus = midgard_CG::attribut_check(i->attribut);
          i->erfolgswert += bonus;
+         if (i->name=="KiDo") {kido_bool=true; show_gtk(get_typ_nr());}
+///XXX         if (i->name=="KiDo-Technik") { vi.push_back(i);++maxkido;}
+         if (i->name=="KiDo-Technik") { ++KD_tech;++maxkido;}
       }
-    midgard_CG::show_fertigkeiten();
+/*
+   for (vector<st_ausgewaehlte_fertigkeiten>::iterator xvi=*vi.begin();
+         xvi!=*vi.end();++(*vi))
+      {
+         vec_fertigkeiten.erase(vi);
+      }
+XXX */
+   for (int j=0;j<KD_tech;++j)
+     for(vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+         i!=vec_fertigkeiten.end();++i)
+       if (i->name=="KiDo-Technik") {vec_fertigkeiten.erase(i);break;}
+      
+   midgard_CG::show_fertigkeiten();
 }
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
+  vec_an_fertigkeit.clear();
+  if (werte.spezies=="Zwerg" || werte.spezies=="Elf") 
+      vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Nachtsicht",0));
   if (event->button==1) midgard_CG::on_angeborene_fertigkeit_clicked() ;
   if (event->button==3) midgard_CG::on_angeborene_fertigkeit_right_clicked() ;
   return false;
@@ -73,7 +95,6 @@ gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *e
 
 void midgard_CG::on_angeborene_fertigkeit_clicked()
 {
-  vec_an_fertigkeit.clear();
   Random random;
   int wurf = random.integer(1,100);
 //wurf = -1; /*debug*/
@@ -90,7 +111,6 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()
 {
-  vec_an_fertigkeit.clear();
   manage (new Window_angeb_fert(this,vec_an_fertigkeit,werte,-1));
   midgard_CG::show_fertigkeiten();
 }
