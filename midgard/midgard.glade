@@ -4978,48 +4978,15 @@ editieren</label>
 		  </widget>
 
 		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button_menu</name>
-		    <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
-		    <signal>
-		      <name>button_release_event</name>
-		      <handler>on_button_menu_button_release_event</handler>
-		      <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
-		    </signal>
-		    <label>Menü</label>
-		    <icon>wizzard-trans-50_2.xpm</icon>
-		    <child>
-		      <new_group>True</new_group>
-		    </child>
+		    <class>Placeholder</class>
 		  </widget>
 
 		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button_info</name>
-		    <tooltip>Info</tooltip>
-		    <signal>
-		      <name>clicked</name>
-		      <handler>on_button_info_clicked</handler>
-		      <last_modification_time>Sun, 01 Apr 2001 19:06:08 GMT</last_modification_time>
-		    </signal>
-		    <label>Info</label>
-		    <icon>Info-trans-50.xpm</icon>
+		    <class>Placeholder</class>
 		  </widget>
 
 		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button11</name>
-		    <tooltip>Hilfe</tooltip>
-		    <signal>
-		      <name>clicked</name>
-		      <handler>on_button_hilfe_clicked</handler>
-		      <last_modification_time>Fri, 30 Mar 2001 19:46:38 GMT</last_modification_time>
-		    </signal>
-		    <label>Hilfe</label>
-		    <icon>Help-trans-50.xpm</icon>
+		    <class>Placeholder</class>
 		  </widget>
 		</widget>
 	      </widget>
@@ -15047,6 +15014,51 @@ KS
 	  <widget>
 	    <class>GtkButton</class>
 	    <child_name>Toolbar:button</child_name>
+	    <name>button_menu</name>
+	    <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_button_menu_button_release_event</handler>
+	      <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
+	    </signal>
+	    <label>Menü</label>
+	    <icon>wizzard-trans-50_2.xpm</icon>
+	    <child>
+	      <new_group>True</new_group>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_info</name>
+	    <tooltip>Info</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_info_clicked</handler>
+	      <last_modification_time>Sun, 01 Apr 2001 19:06:08 GMT</last_modification_time>
+	    </signal>
+	    <label>Info</label>
+	    <icon>Info-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button11</name>
+	    <tooltip>Hilfe</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_hilfe_clicked</handler>
+	      <last_modification_time>Fri, 30 Mar 2001 19:46:38 GMT</last_modification_time>
+	    </signal>
+	    <label>Hilfe</label>
+	    <icon>Help-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
 	    <name>button12</name>
 	    <tooltip>Schließen</tooltip>
 	    <signal>
@@ -15054,7 +15066,7 @@ KS
 	      <handler>on_schliessen_CG_clicked</handler>
 	      <last_modification_time>Fri, 30 Mar 2001 19:47:22 GMT</last_modification_time>
 	    </signal>
-	    <label>Schließen</label>
+	    <label>Beenden</label>
 	    <icon>Exit-trans-50.xpm</icon>
 	    <child>
 	      <new_group>True</new_group>
@@ -15127,8 +15139,8 @@ KS
 		</accelerator>
 		<signal>
 		  <name>activate</name>
-		  <handler>on_laden_release_event</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		  <handler>xml_import_auswahl</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 09:46:03 GMT</last_modification_time>
 		</signal>
 		<label>Laden</label>
 		<right_justify>False</right_justify>
@@ -15144,8 +15156,8 @@ KS
 		</accelerator>
 		<signal>
 		  <name>activate</name>
-		  <handler>on_speichern_release_event</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		  <handler>xml_export_auswahl</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 09:46:03 GMT</last_modification_time>
 		</signal>
 		<label>Speichern</label>
 		<right_justify>False</right_justify>
@@ -15167,8 +15179,8 @@ KS
 		</accelerator>
 		<signal>
 		  <name>activate</name>
-		  <handler>on_speichern_release_event</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		  <handler>on_latex_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 09:46:03 GMT</last_modification_time>
 		</signal>
 		<label>Drucken</label>
 		<right_justify>False</right_justify>
@@ -15314,11 +15326,6 @@ KS
 		  <widget>
 		    <class>GtkCheckMenuItem</class>
 		    <name>bilder1</name>
-		    <signal>
-		      <name>activate</name>
-		      <handler>on_bilder1_activate</handler>
-		      <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
-		    </signal>
 		    <label>Bilder</label>
 		    <active>True</active>
 		    <always_show_toggle>True</always_show_toggle>
