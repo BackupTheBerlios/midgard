@@ -69,7 +69,7 @@ void MidgardBasicElement::get_map_typ()
  else if(What()==ZAUBERWERK)
  {  vector<pair<std::string,std::string> > anforderungen;
     anforderungen.push_back(pair<std::string,std::string>("Name",Name()));
-    anforderungen.push_back(pair<std::string,std::string>("Art",Art()));
+    anforderungen.push_back(pair<std::string,std::string>("Art",cH_Zauberwerk(this)->Art()));
     anforderungen.push_back(pair<std::string,std::string>("Stufe",Stufe()));
     tag=find_Tag("Zauberwerke","Zauberwerk",anforderungen);
  }
