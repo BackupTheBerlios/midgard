@@ -1,7 +1,8 @@
 NEU in Version 0.9.0
 
-* Wechsel nach gtk+ 2.0 und gtkmm 2.0 (neuere Bibliotheken)
-* Icons in eigene (auswechselbare) DLL
+- Wechsel nach gtk+ 2.0 und gtkmm 2.0 (neuere Bibliotheken)
+- Icons in eigene (auswechselbare) DLL
+- Bilder sind jetzt im Hintergrund (statt neben den Elementen)
 
 ###################################################################
 durch merge:
