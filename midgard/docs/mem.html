@@ -13,6 +13,13 @@
    # $(CXXCOMPILE) -O0 -c $<tt><<tt></pre><br>
    entfernen.
   <p>
+  Desweiteren kann man die gesamten MCG ohne Optimierung kompilieren:<br>
+  anstatt:
+  <pre>
+   'autogen.sh'
+   'CXXFLAGS=-O0 autogen.sh'
+  </pre>
+  ausführen.<br> <p>
   Alternativ läßt sich der Arbeitsspeicher durch ein Swapfile erhöhen (als root):<br><br>
   <pre>
    'dd if=/dev/zero of=/tmp/swapfile bs=1024 count=65536'
