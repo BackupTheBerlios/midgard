@@ -38,8 +38,6 @@ void midgard_CG::zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz)
 
 void midgard_CG::spezialgebiet_button()
 {
- static bool block=false;
- if (block==true) return ;
 if (typ.s=="Ma")
 {
  int ityp = int(option_magier_spezialgebiet->get_menu()->get_active()->get_user_data());
@@ -63,9 +61,6 @@ else
 {
  string stinfo="Nur für Magier";
  manage (new WindowInfo(stinfo));
- option_magier_spezialgebiet->get_menu()->set_active(0);
- block=true;
- option_magier_spezialgebiet->get_menu()->deactivate();
- block=false;
+ option_magier_spezialgebiet->set_history(0);
 }  
 }

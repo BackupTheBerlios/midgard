@@ -166,9 +166,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    midgard_CG::typauswahl_button();
    werte.version="Erschaffung";
-   optionmenu_spezies->get_menu()->set_active(0);
-   optionmenu_spezies->get_menu()->deactivate();
-
+   optionmenu_spezies->set_history(0);
 }
 
 

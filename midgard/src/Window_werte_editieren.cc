@@ -122,8 +122,7 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,st_werte& werte)
  int inr=0;
  for (unsigned int i=0; i<vstand.size();++i)
    if (vstand[i]==werte.stand) inr=i;
- optionmenu_stand->get_menu()->set_active(inr);
- optionmenu_stand->get_menu()->deactivate();
+ optionmenu_stand->set_history(inr);
  herkunft_ein->set_text(werte.herkunft);
  glaube_ein->set_text(werte.glaube);
  name_charakter_ein->set_text(werte.name_charakter);
