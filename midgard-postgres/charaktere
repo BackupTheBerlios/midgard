@@ -3,7 +3,7 @@
 --
 DROP TABLE "charaktere";
 --
--- TOC Entry ID 2 (OID 23650)
+-- TOC Entry ID 2 (OID 23921)
 --
 -- Name: charaktere Type: TABLE Owner: thoma
 --
@@ -13,9 +13,7 @@ CREATE TABLE "charaktere" (
 	"beschreibung" text,
 	"version" text,
 	"spieler_name" text,
-	"typ_l" text,
 	"typ_s" text,
-	"typ_i" text,
 	"st" integer,
 	"ge" integer,
 	"ko" integer,

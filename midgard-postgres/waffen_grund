@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_grund";
 --
--- TOC Entry ID 2 (OID 23108)
+-- TOC Entry ID 2 (OID 23218)
 --
 -- Name: waffen_grund Type: TABLE Owner: thoma
 --
@@ -14,11 +14,9 @@ CREATE TABLE "waffen_grund" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23108) TABLE DATA waffen_grund
+-- Data for TOC Entry ID 3 (OID 23218) TABLE DATA waffen_grund
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'waffen_grund';
 COPY "waffen_grund"  FROM stdin;
 ESchwert	600
 Stichwaffe	400
@@ -47,11 +45,3 @@ Bola	700
 Netz	700
 Peitsche	900
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'waffen_grund'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

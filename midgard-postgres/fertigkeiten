@@ -3,7 +3,7 @@
 --
 DROP TABLE "fertigkeiten";
 --
--- TOC Entry ID 2 (OID 20586)
+-- TOC Entry ID 2 (OID 20693)
 --
 -- Name: fertigkeiten Type: TABLE Owner: thoma
 --
@@ -51,11 +51,9 @@ CREATE TABLE "fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 20586) TABLE DATA fertigkeiten
+-- Data for TOC Entry ID 3 (OID 20693) TABLE DATA fertigkeiten
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'fertigkeiten';
 COPY "fertigkeiten"  FROM stdin;
 5	8	Beredsamkeit	6	200		S	G	S	S	S	G	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	pA
 4	8	Beschatten	6	300		G	S	S	S	G	S	S	S	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	RW
@@ -175,11 +173,3 @@ COPY "fertigkeiten"  FROM stdin;
 4	\N	Mumifizieren	\N	200	E	A	A	A	A	A	A	A	A	A	A	A	A	A	S	G	S	S	S	S	A	A	G	A	S	S	S	S	S	G	S	A	A	In
 1	\N	Pyromantie	\N	400	E	S	S	S	S	S	S	S	S	A	S	S	S	S	S	S	S	S	S	A	A	A	G	A	G	S	S	S	S	S	S	\N	\N	Zt
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'fertigkeiten'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

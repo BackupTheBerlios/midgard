@@ -3,7 +3,7 @@
 --
 DROP TABLE "spezies";
 --
--- TOC Entry ID 2 (OID 22325)
+-- TOC Entry ID 2 (OID 22434)
 --
 -- Name: spezies Type: TABLE Owner: thoma
 --
@@ -43,11 +43,9 @@ CREATE TABLE "spezies" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22325) TABLE DATA spezies
+-- Data for TOC Entry ID 3 (OID 22434) TABLE DATA spezies
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'spezies';
 COPY "spezies"  FROM stdin;
 2	Gnom	\N	60	61	\N	31	\N	\N	0	\N	0	\N	0	\N	80	-4	\N	-3	20	2	5	5	5	3	2	6	90	-1	2	8
 4	Zwerg	61	\N	\N	90	61	\N	\N	0	\N	0	\N	0	\N	80	1	\N	0	15	\N	4	4	\N	2	2	6	130	2	3	12
@@ -55,11 +53,3 @@ COPY "spezies"  FROM stdin;
 3	Halbling	\N	80	91	\N	\N	0	\N	0	\N	0	\N	0	\N	0	-2	\N	-2	\N	1	5	5	5	1	3	6	100	0	2	8
 0	Mensch	0	0	\N	0	\N	0	\N	0	\N	0	\N	0	\N	0	0	\N	0	\N	\N	\N	\N	\N	1	2	20	145	0	4	16
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'spezies'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

@@ -3,7 +3,7 @@
 --
 DROP TABLE "lernschema";
 --
--- TOC Entry ID 2 (OID 26717)
+-- TOC Entry ID 2 (OID 26912)
 --
 -- Name: lernschema Type: TABLE Owner: thoma
 --
@@ -20,11 +20,9 @@ CREATE TABLE "lernschema" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 26717) TABLE DATA lernschema
+-- Data for TOC Entry ID 3 (OID 26912) TABLE DATA lernschema
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'lernschema';
 COPY "lernschema"  FROM stdin;
 Sp	leichter Speer	Waffe	5	\N	2	\N	\N
 Sp	Parierdolch	Waffe	1	\N	2	\N	\N
@@ -954,6 +952,7 @@ eBe	Bannen von Vindfolk	Zauber	\N	\N	3	Luft	\N
 eBe	Bannen von Vindfolk	Zauber	\N	\N	4		Luft
 eBe	Bannen von Wisfolk	Zauber	\N	\N	3	Wasser	\N
 eBe	Bannen von Wisfolk	Zauber	\N	\N	4		Wasser
+eBe	Lehrersuche	Zauber	\N	\N	0	\N	\N
 eBe	Wissen von der Magie	Fertigkeit	\N	\N	1	\N	\N
 BN	Faustkampf	Fertigkeit	\N	\N	2	\N	\N
 BN	Himmelskunde	Fertigkeit	\N	\N	1	\N	\N
@@ -979,19 +978,20 @@ Ba	Lied der Tanzlust	Zauber	\N	\N	8	\N	\N
 Ba	Lied der Tapferkeit	Zauber	\N	\N	1	\N	\N
 Ba	Lied des Spottes	Zauber	\N	\N	8	\N	\N
 Ba	Tanzen	Fertigkeit	\N	\N	1	\N	\N
-dBe	Dunebargen bannen	Zauber	\N	\N	4	\N	\N
-dBe	Dunkle Kämpfer beschwören 1	Zauber	\N	\N	2	\N	\N
-dBe	Dunkle Kämpfer beschwören 2	Zauber	\N	\N	4	\N	\N
-dBe	Kämpfer beschwören 1	Zauber	\N	\N	3	\N	\N
-dBe	Kaobargen bannen	Zauber	\N	\N	3	\N	\N
-dBe	Kundschafter beschwören 1	Zauber	\N	\N	2	\N	\N
-dBe	Kundschafter beschwören 2	Zauber	\N	\N	4	\N	\N
+dBe	Bannen von Dunebargen	Zauber	\N	\N	4	\N	\N
+dBe	Dunebrasten 1 beschwören	Zauber	\N	\N	2	\N	\N
+dBe	Dunebrasten 2 beschwören	Zauber	\N	\N	4	\N	\N
+dBe	Kaligin 1 beschwören	Zauber	\N	\N	3	\N	\N
+dBe	Bannen von Kaobargen	Zauber	\N	\N	3	\N	\N
+dBe	Coluscar 1 beschwören	Zauber	\N	\N	2	\N	\N
+dBe	Coluscar 2 beschwören	Zauber	\N	\N	4	\N	\N
 dBe	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
 dBe	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 dBe	Schutzkreis gegen Dunebargen	Zauber	\N	\N	3	\N	\N
 dBe	Schutzkreis gegen Kaobargen	Zauber	\N	\N	2	\N	\N
-dBe	Träger beschwören 1	Zauber	\N	\N	1	\N	\N
-dBe	Träger beschwören 2	Zauber	\N	\N	3	\N	\N
+dBe	Lehrersuche	Zauber	\N	 \\N	0	\N	\N
+dBe	Halebant 1 beschwören	Zauber	\N	\N	1	\N	\N
+dBe	Halebant 2 beschwören	Zauber	\N	\N	3	\N	\N
 dBe	Wissen von der Magie	Fertigkeit	\N	\N	1	\N	\N
 eBe	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
 eBe	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
@@ -1127,11 +1127,3 @@ Ba	kleiner Schild	Waffe	1	\N	2	\N	\N
 Ass	kleiner Schild	Waffe	1	\N	3	\N	\N
 Ord	kleiner Schild	Waffe	1	\N	1	\N	\N
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'lernschema'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

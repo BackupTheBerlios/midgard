@@ -3,7 +3,7 @@
 --
 DROP TABLE "arkanum_zauber";
 --
--- TOC Entry ID 2 (OID 28032)
+-- TOC Entry ID 2 (OID 18768)
 --
 -- Name: arkanum_zauber Type: TABLE Owner: thoma
 --
@@ -59,11 +59,9 @@ CREATE TABLE "arkanum_zauber" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 28032) TABLE DATA arkanum_zauber
+-- Data for TOC Entry ID 3 (OID 18768) TABLE DATA arkanum_zauber
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'arkanum_zauber';
 COPY "arkanum_zauber"  FROM stdin;
 Allheilung	2500	6	Geste	5	Holz	erschafft	Erde	30 min	0	Körper	1 Ws	0	göttlich		nicht									G		G		G	G	G	G	G	G	G	S					A		\N	\N	\N	\N	\N
 Rauchwolke	300	2	Geste	2	Feuer	verändert	Luft	5 s	30 m	Umgebung	9 m Uk	10 min	elementar	Asche, Zunder		Siegel					S	S	G	S	S		S	S	S	S	S	S	S	S	S	G			G		G	\N	\N	\N	\N	\N
@@ -389,22 +387,6 @@ Luftspiegelung	600	3	Geste	3	Feuer	verändert	Luft	10 s	30 km	Umgebung	-	30 min	e
 Manifestation des Ka	15000	18	Geste	groß	Wasser	beherrscht	Metall	6 h	3 m	Geist	1 Ws	-	dämonisch	Wachsbad mit seltenen Essenzen	nicht					G	S	G	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N	\N	\N	\N
 Mumie erwecken	6000	18	Geste	6	Eis	verändert	Erde	6 h	0	Körper	1 Ws	-	dämonisch	Mumie	nicht					S		S	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N		\N	\N
 Sandmeisterschaft	6000	9	Geste	6	Wasser	bewegt	Erde	30 s	2 km	Umgebung	500m Uk	1 h	elementar	10g Sandwurmhaut							S		S	S	S		S	G	A	A	A	A	S	S	S	S					S	E	G		\N	\N
-Schutzkreis gegen Dunebargen	160	#*2	Geste	2	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Schutzkreis gegen Dvergar	160	#*2	Geste	2	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Schutzkreis gegen Geisterwesen	1500	#*4	Geste	4	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Schutzkreis gegen Kaobargen	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Schutzkreis gegen Untote	600	#*3	Geste	3	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Schutzkreis gegen Hrimfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
-Schutzkreis gegen Hyrrfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
-Schutzkreis gegen Jördfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
-Schutzkreis gegen Vindfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
-Schutzkreis gegen Wisfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h 	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
-Schutzkreis gegen Hrimfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
-Schutzkreis gegen Hyrrfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
-Schutzkreis gegen Jördfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
-Schutzkreis gegen Vindfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
-Schutzkreis gegen Wisfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h 	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
-Thrymbar eschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
 Dau ed-Datin	800	3	Geste	3	Magan	beherrscht	Wasser	15 min	0	Geist	15 m Uk	10 min	dämonisch		nicht								G					G							S	G					G	E	\N	\N	\N	\N
 Seelenraub	12000	18	Geste	groß	Magan	beherrscht	Luft	30 min	0	Körper	bis 12 Ws	-	schwarzmagisch		nicht					G	S	A	A												S	G						E	\N	\N	\N	\N
 Sutechs Heer	600	12	Wort	3	Magan	beherrscht	Wasser	10 sec	2 km	Geist	4W6 Ws	30 min	druidisch								S		S	S	A		A	A			G			A	S	S					S	E	\N	\N	\N	\N
@@ -448,94 +430,248 @@ Wehsalz	40	1	Gedanke	1	Magan	bewegt	Erde	1 s	500 m	Körper	1 Ws	10 s	dämonisch			
 Zündersalz	100	1	Gedanke	1	Feuer	erschafft	Feuer	1 s	500 m	Umgebung	1 Ob	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
 Bannsphäre, Blaue	300	2	Geste	2	Luft	beherrscht	Eis	20 s	0	Geist	3 m Uk	2 min	göttlich			Siegel				G	A	G	S	A	S	G	S	S	S	S	S	S	G	S	S	S		G	G		S	\N	\N	\N	\N	\N
 Bannsphäre, Goldene	300	2	Geste	2	Metall	zerstört	Magan	20 s	0	Umgebung	3 m Uk	2 min	göttlich							A	A	A	S	A	S	G	S	G	G	G	G	G	G	G	A	S		A			S	\N	\N	\N	\N	\N
-Bannen von Dunebargen	5000	4	Geste	3	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	 	dämonisch	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Bannen von Dvergar	140	3	Geste	2	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Bannen von Hrimfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
-Bannen von Hrimfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
-Bannen von Hyrfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
-Bannen von Hyrfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
-Bannen von Jördfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
-Bannen von Jördfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
-Bannen von Kaobargen	140	3	Geste	2	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	dämonisch	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Bannen von Vindfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
-Bannen von Vindfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
-Bannen von Wisfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	 	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
-Bannen von Wisfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	 	elementar	 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
-Kämpfer beschwören 1	100	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Dolch oder Kurzschwert	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Kämpfer beschwören 2	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	Streitkolben oder Axt	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Kämpfer beschwören 3	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Morgenstern	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Kämpfer beschwören 4	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	Hellebarde oder Stielhammer	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Kundschafter beschwören 1	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Kaninchen	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Kundschafter beschwören 2	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	schwarzes Huhn	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Kundschafter beschwören 3	500	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	7 Ratten	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Kundschafter beschwören 4	1200	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	schwarze Katze	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Träger beschwören 1	60	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Hundeblut	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Träger beschwören 2	140	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Vogelblut	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Träger beschwören 3	500	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Schafsblut	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Träger beschwören 4	1200	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Pferdeblut	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Lenker beschwören 1	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Lenker beschwören 2	1600	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Wächter beschwören 1	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Wächter beschwören 2	700	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Wächter beschwören 3	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Hrimdverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
-Felldverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
-Gloddverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
-Vinddverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
-Saeldverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
-Hrimdverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
-Felldverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
-Gloddverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
-Vinddverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
-Saeldverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
-Kallbjargi beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
-Lergris beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
-Ljosfang beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
-Karing beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
-Mokkurbjargi beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
-Kallbjargi beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
-Lergris beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
-Ljosfang beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
-Karing beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
-Mokkurbjargi beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
-Svalgrim beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
-Haugskadi beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
-Eldring beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
-Nefling beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
-Jambani beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
-Svalgrim beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
-Haugskadi beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
-Eldring beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
-Nefling beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
-Jambani beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
-Snaerhamir beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
-Fengrip beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
-Hyrrbauti beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
-Thrymbar beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
-Kallrani beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
-Snaerhamir beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
-Fengrip beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
-Hyrrbauti beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
-Kallrani beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
-Jokulskadi beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
-Jördmand beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
-Hardlogi beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
-Vindmand beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
-Marmennil beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
-Jokulskadi beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
-Jördmand beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
-Hardlogi beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
-Vindmand beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
-Marmennil beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
-Dunkle Kämpfer beschwören 1	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Menschenblut	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Dunkle Kämpfer beschwören 2	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Menschenblut	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Dunkle Kämpfer beschwören 3	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	3l Menschenblut	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Schutzkreis gegen Dunebargen	160	#*2	Geste	2	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					G	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Schutzkreis gegen Kaobargen	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					G	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Schutzkreis gegen Geisterwesen	1500	#*4	Geste	4	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Schutzkreis gegen Untote	600	#*3	Geste	3	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Schutzkreis gegen Dvergar	160	#*2	Geste	2	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h  	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Schutzkreis gegen Hrimfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Schutzkreis gegen Hyrrfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Schutzkreis gegen Jördfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Schutzkreis gegen Vindfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
+Schutzkreis gegen Wisfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h 	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
+Schutzkreis gegen Hrimfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Schutzkreis gegen Hyrrfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Schutzkreis gegen Jördfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Schutzkreis gegen Vindfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Schutzkreis gegen Wisfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h 	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Bannen von Dunebargen	500	4	Geste	3	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	 	dämonisch	 	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Bannen von Dvergar	140	3	Geste	2	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Bannen von Hrimfolk	60	2	Geste	1	Magan	bewegt	Eis	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Bannen von Hrimfolk	60	2	Geste	1	Magan	bewegt	Eis	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Bannen von Hyrfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Bannen von Hyrfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Bannen von Jördfolk	60	2	Geste	1	Magan	bewegt	Erde	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Bannen von Jördfolk	60	2	Geste	1	Magan	bewegt	Erde	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Bannen von Kaobargen	140	3	Geste	2	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	dämonisch	 	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Bannen von Vindfolk	60	2	Geste	1	Magan	bewegt	Luft	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
+Bannen von Vindfolk	60	2	Geste	1	Magan	bewegt	Luft	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Bannen von Wisfolk	60	2	Geste	1	Magan	bewegt	Wasser	10 sec	15 m	Körper	1 Ws	 	elementar	 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
+Bannen von Wisfolk	60	2	Geste	1	Magan	bewegt	Wasser	10 sec	15 m	Körper	1 Ws	 	elementar	 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Kaligin 1 beschwören	100	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Dolch oder Kurzschwert	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Kaligin 2 beschwören	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	Streitkolben oder Axt	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Kaligin 3 beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Morgenstern	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Kaligin 4 beschwören	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	Hellebarde oder Stielhammer	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Coluscar 1 beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Kaninchen	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung	\N	\N
+Coluscar 2 beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	schwarzes Huhn	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Coluscar 3 beschwören	500	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	7 Ratten	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Coluscar 4 beschwören	1200	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	schwarze Katze	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Halebant 1 beschwören	60	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Hundeblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Halebant 2 beschwören	140	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Vogelblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Halebant 3 beschwören	500	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Schafsblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Halebant 4 beschwören	1200	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Pferdeblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Indruwal 1 beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Indruwal 2 beschwören	1600	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Truscan 1 beschwören	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Truscan 2 beschwören	700	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Truscan 3 beschwören	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Hrimdverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Felldverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Gloddverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Vinddverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
+Saeldverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
+Hrimdverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Felldverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Gloddverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Vinddverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Saeldverg beschwören	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Kallbjargi beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Lergris beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Ljosfang beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Karing beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
+Mokkurbjargi beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
+Kallbjargi beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Lergris beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Ljosfang beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Karing beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Mokkurbjargi beschwören	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Svalgrim beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Haugskadi beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Eldring beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Nefling beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
+Jambani beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
+Svalgrim beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Haugskadi beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Eldring beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Nefling beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Jambani beschwören	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Snaerhamir beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Fengrip beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Hyrrbauti beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Thrymbar beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
+Kallrani beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
+Snaerhamir beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Fengrip beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Hyrrbauti beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Thrymbar eschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Kallrani beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Jokulskadi beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Jördmand beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Hardlogi beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Vindmand beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
+Marmennil beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
+Jokulskadi beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Jördmand beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Hardlogi beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					a	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Vindmand beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Marmennil beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Dunebrast 1 beschwören	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Menschenblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Dunebrast 2 beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Menschenblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Dunebrast 3 beschwören	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	3l Menschenblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Schutzkreis gegen Hunar	600	#*4	Geste	4	Luft	beherrscht	Element	1 h	0	Umgebung h	var	elemtar	magische Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		\N	\N
+Schutzkreis gegen Dämonen	2000	#*6	Geste	5	Luft	beherrscht	Eis	3 h	0	Umgebung	var	24 h	dämonisch	magische Farbe, Kreide und Zutaten	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Schutzkreis gegen Elementarwesen	2000	#*6	Geste	5	Luft	beherrscht	Eis	3 h	0	Umgebung	var	24 h	elementar	magische Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Bannen von Hunar	800	6	Geste	4	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Bannen von Hrimkin	800	6	Geste	4	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Bannen von Hyrrkin	800	6	Geste	4	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Bannen von Jördkin	800	6	Geste	4	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Bannen von Vindskin	800	6	Geste	4	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Bannen von Wiskin	800	6	Geste	4	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Dämonenbann	3000	#*6	Geste	5	Magan	bewegt	Feuer	10 sec	15 m	Körper	var		dämonisch	 	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Elementarbann	3000	#*6	Geste	5	Magan	bewegt	Feuer	10 sec	15 m	Körper	var		elementar	 	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Meisterbann	5000	18	Geste	6	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	var			nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Dunebrast 4 beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	6l Menschenblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Indruwal 3 beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Indruwal 4 beschwören	3000	6	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Megant 1 beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	5 h	0	Umgebung	1 Ws	7 Tage	dämonisch	1 Sack grosse Nuesse	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Megant 2 beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	5 h	0	Umgebung	1 Ws	7 Tage	dämonisch	1 Faß Pflanzenöl	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Megant 3 beschwören	3000	6	Geste	6	Magan	bewegt	Feuer	7,5 h	0	Umgebung	1 Ws	7 Tage	dämonisch	1 Faß Fischöl	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Megant 4 beschwören	5000	6	Geste	6	Magan	bewegt	Feuer	7,5 h	0	Umgebung	1 Ws	7 Tage	dämonisch	1 Rind	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Truscan 4 beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Eiselementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Eiselementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Luftelementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
+Luftelementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Feuerelementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Feuerelementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Erdeelementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Erdeelementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Wasserelementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
+Wasserelementargeist beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Ising beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Ising beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Dunskrat beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Dunskrat beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Harkbuar beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Harkbuar beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Myrknir beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	\N
+Myrknir beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Fossemand beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	\N
+Fossemand beschwören	2000	5	Geste	5	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Hrimhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	\N
+Hrimhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Fjalhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	\N
+Fjalhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Harkarhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	\N
+Harkarhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Gjornhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	
+Gjornhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Marhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	
+Marhune beschwören	7000	6	Geste	6	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Dämonenschar beschwören	3000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	1W6+2 Ws	1 h	dämonisch	Waffen	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Dunkle Horde beschwören	6000	6	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1W6+2 Ws	1 h	dämonisch	Waffen	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Hrimdvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	
+Hrimdvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Felldvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	
+Felldvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Gloddvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	
+Gloddvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Vinddvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	
+Vinddvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Saeldvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	
+Saeldvegar beschwören	4000	5	Geste	5	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Erkurku beschwören	4000	6	Geste	6	Magan	bewegt	Feuer	3,5 h	0	Umgebung	1Ws	1 h	dämonisch	Affe	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Jurugu beschwören	14000	18	Geste	G	Magan	bewegt	Feuer	6 h	0	Umgebung	1Ws	1 h	dämonisch	Schrumpfkopf	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Gletschergnom beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	
+Gletschergnom beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Bergeist beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	
+Bergeist beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Ifrit beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	
+Ifrit beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Dschinn beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	
+Dschinn beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Marid beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	
+Marid beschwören	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Erkurku rufen	2000	3	Geste	5	Magan	bewegt	Feuer	2 h	0	Umgebung	1Ws	1 h	dämonisch		nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Jurugu rufen	6000	9	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1Ws	1 h	dämonisch		nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
+Gletschergnom rufen	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Eis	
+Gletschergnom rufen	7000	18	Geste	G	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Eis
+Bergeist rufen	3000	9	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Erde	
+Bergeist rufen	3000	9	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Erde
+Ifrit rufen	3000	9	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Feuer	
+Ifrit rufen	3000	9	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Feuer
+Dschinn rufen	3000	9	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Luft	
+Dschinn rufen	3000	9	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Luft
+Marid rufen	3000	9	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	Wasser	
+Marid rufen	3000	9	Geste	6	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	nicht					A	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung		Wasser
+Lehrersuche	3000	2	Geste	1	Luft	bewegt	Feuer	1 h	0	Umgebung	1 Ws	0	dämonisch		nicht					G	S	G	S	S	S		S	S	S	S	S	S	S	S	S	S			S		S			Beschwörung		\N
+Dämonen binden	7000	18	Geste	G	Luft	verändert	Feuer	30 min	15 m	Geist	1 Ws	1 Jahr	dämonisch		nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Elementarwesen binden	7000	18	Geste	G	Luft	verändert	Feuer	30 min	15 m	Geist	1 Ws	1 Jahr	elementar		nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Kreatur erschaffen	1000	4*Gr	Geste	4	Luft	bewegt	Erde	10 min	0	Umgebung	1 Ws	10 min	dämonisch		nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Herbeizwingen	1000	4	Geste	4	Luft	bewegt	Erde	30 min	0	Umgebung	1 Ws		dämonisch	10 g Körpersusbtanz	nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Person beschwören	1000	4	Geste	4	Luft	bewegt	Erde	2 h	0	Umgebung	1 Ws	1 h	dämonisch		nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Vergangenheit beschwören	2000	6	Geste	5	Luft	bewegt	Erde	2 h	0	Umgebung	1 Ws	10 min	dämonisch		nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Geist beschwören	2000	6	Geste	5	Luft	bewegt	Erde	1 h	0	Umgebung	1 Ws	10 min	dämonisch		nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Tor schaffen	5000	12	Geste	6	Luft	bewegt	Erde	1 h	0	Umgebung	2x1 m	1 Monat	dämonisch		nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Weltentor schaffen	20000	36	Geste	G	Luft	bewegt	Erde	6 h	0	Umgebung	2x1 m	1 Monat	dämonisch		nicht					S	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
+Ballade der Begierde	300	1	Zauberlied	3	Magan	beherrscht	Luft	5 min	0	Geist	1 Ws	perm	druidisch	Harfe oder Laute	nicht				G																		S					H&D	\N	\N	\N	\N
+Ballader der besiegten Gier	1500	1	Zauberlied	4	Magan	beherrscht	Luft	10 min	0	Geist	1 Ws	perm	druidisch	Harfe oder Laute	nicht				G																		S					H&D	\N			\N
+Das Lied der Feier	60	1	Zauberlied	1	Magan	beherrscht	Luft	0	0	Geist	20m Uk	2 min+	druidisch	Flöte, Harfe oder Laute	nicht				G																		S					H&D	\N	\N	\N	\N
+Das Lied der Macht	7500	2*min	Zauberlied	G	Magan	beherrscht	Wasser	3 min	0	Geist	30m Uk	var	druidisch	Flöte	nicht				G																		S					H&D	\N	\N	\N	\N
+Das Lied der Magie	3000	2	Zauberlied	5	Magan	verändert	Magan	0	0	Umgebung	10m Uk	var	druidisch	Harfe	nicht				G																		S					H&D	\N	\N	\N	\N
+Das Lied des Verstehens	1000	2	Zauberlied	5	Magan	beherrscht	Luft	3 min	0	Geist	30m Uk	30 min	druidisch	Harfe oder Laute	nicht				G																		S					H&D	\N	\N	\N	\N
+Der Gesang Crescendis	120	2*h	Zauberlied	1	Magan	verändert	Erde	0	100m Uk	Körper	var	var	druidisch	Gesang plus Instrument(beliebig)	nicht				G																		S					H&D	\N	\N	\N	\N
+Die Klänge der Genesung	600	2	Zauberlied	3	Magan	veraendert	Wasser	0	0	Körper	10m Uk	var	druidisch	Flöte, Harfe oder Laute	nicht				G																		S					H&D	\N	\N	\N	\N
+Die Stimme der Gerechten	8000	alle AP(mind18)	Zauberlied	G	Magan	verändert	Magan	20 sec	0	Umgebung	50m Uk	0	druidisch	Chimäron	nicht				G																		S					H&D	\N	\N	\N	\N
+Blindsalz	100	1	Gedanke	1	Magan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	10 s	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Brechsalz	40	1	Gedanke	1	Feuer	verändert	Erde	1 s	500 m	Körper	1 Ws	1 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Fiebersalz	80	1	Gedanke	1	Feuer	zerstört	Wasser	1 s	500 m	Körper	1 Ws	10 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Klebesalz	40	1	Gedanke	1	Magan	bewegt	Metall	1 s	500 m	1 Ws	Umgebung	10 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Knallsalz	60	1	Gedanke	1	Magan	verändert	Luft	1 s	500 m	Umgebung		2 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Lahmsalz	80	1	Gedanke	1	Holz	verändert	Erde	1 s	500 m	Körper	1 Ws	1 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Lustsalz	80	1	Gedanke	1	Mangan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	 	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Nebelsalz	60	1	Gedanke	1	Wasser	verwandelt	Luft	1 s	500 m	Umgebung	2m Uk	3 h	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Baumtor	10000	9	Gedanke	G				30 s	0	Umgebung	selbst	2 min	druidisch		nicht						G														G							H&D				
+Trockensalz	40	1	Gedanke	1	Feuer	bewegt	Wasser	1 s	500 m	Umgebung			finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Zucksalz	60	1	Gedanke	1	Mangan	beherrscht	Luft	1 s	500 m	Körper	1 Ws	2 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
+Alpträume	1500	2*Gr	Wort	4	Metall	verändert	Luft	1 min	500 m	Geist	1-4 Ws	var	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Altern	5000	var	Geste	6	Eis	verändert	Erde	2 min	10 m	Körper	1 Ws	1 Tag	finster	Zu Staub zerfallene Schädelknochen	nicht												S									S						H&D	\N	\N	\N	\N
+Dämonenhand	10000	alle	Wort	G	Feuer	bewegt	Metall	10 s	0	Umgebung	1 Ws	var	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Dämonenkreis	1500	4	Geste	4	Feuer	beherrscht	Wasser	20 s	50 m	Körper	1m Uk	2 h	finster	Giftige Waldpilze	nicht												S									S						H&D	\N	\N	\N	\N
+Erdrosseln	500	1*Runde	Geste	3	Luft	beherrscht	Wasser	1 s	50 m	Körper	1 Ws	var	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Fäulnis	1500	2	Geste	2	Magan	zerstört	Erde	10 s	24 m	Umgebung	1 Ob	var	finster	Faules Holz	nicht												S									S						H&D	\N	\N	\N	\N
+Finsterer Blick	200	2	Gedanke	2	Metall	verändert	Luft	1 s	12 m	Geist	1 Ws	1 h	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Firzars Zorn	5000	9	Wort	6	Metall	verändert	Luft	10 s	30 m	Umgebung	1 Ws	2 min	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Flucht des Geistes	4000	9	Gedanke	5	Metall	verändert	Luft	10 s	0	Geist	selbst	var	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Geister der Finsternis	500	3	Geste	3	Metall	verändert	Luft	10 s	200 m	Geist	0	10 min	finster	Marder- oder Fledermaus-schädel	nicht												S									S						H&D	\N	\N	\N	\N
+Geistesschlüssel	1500	4	Geste	4	Metall	verändert	Luft	30 min	0	Geist	1 Ws	0	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Globus der Finsternis	500	3	Geste	3	Metall	verändert	Luft	20 s	0	Umgebung	3m Uk	10 min	finster	Ebenholzkugel, Obsidiankugel, schwarze Perle	nicht												S									S						H&D	\N	\N	\N	\N
+Höllenbote rufen	3500	alle(mind 9)	Wort	5	Metall	verändert	Luft	1 h	100 km	umgebung	1 Ws	var	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Höllenfeuer	2000	4*#	Geste	4	Metall	verändert	Luft	15 s	50 m	Umgebung	var	0	finster	Pech und Schwefel	nicht												S									S						H&D	\N	\N	\N	\N
+Höllenglocke	2000	alle(mind 9)	Gedanke	4	Metall	verändert	Luft	10 s	0	Umgebung	1 km	0	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Konvulsion	1500	6	Geste	4	Metall	verändert	Luft	10 s	24 m	Umgebung	1 Ws	0	finster	Wackelpudding	nicht												S									S						H&D	\N	\N	\N	\N
+Macht der Finsternis	6000	9	Wort	6	Metall	verändert	Luft	10 s	0	Körper	selbst	1 h	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Schattenroß	2000	12	Geste	4	Metall	verändert	Luft	10 min	0	Körper	0	var	finster		nicht						S						S									S						H&D	\N	\N	\N	\N
+Schleichende Verderbnis	2000	8	Geste	4	Metall	verändert	Luft	12 h	2 m	Körper	1 Ws	var	finster	Pergament	nicht												S									S						H&D	\N	\N	\N	\N
+Unwetter rufen	2000	9	Wort	4	Metall	verändert	Luft	1 min	0	Umgebung	150m Uk	15 min	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Verglasen	3500	6	Gedanke	5	Metall	verändert	Luft	10 s	15 m	Körper	1 Ws	0	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Verwüstung	250	2	Geste	2	Metall	verändert	Luft	30 s	0	Körper	10m Uk	0	finster	Wüstensand	nicht												S									S						H&D	\N	\N	\N	\N
+Zeichen des Chaos	2000	6	Geste	4	Metall	verändert	Luft	10 s	10 m	Körper	1 Ws	0	finster		nicht												S									S						H&D	\N	\N	\N	\N
+Aggression	2000	Gr*2	Wort	4	 	 	 	5 s	10 m	1 Ws	Geist	1 min	dämonisch		nicht								G		A		S								S	G					G	H&D				
+Aufladen	15000	alle	Geste	G				7*6 Tage	0	Umgebung	1 Ob		dämonisch	Einhornpulver und Essenzen		Siegel						A		S									S		A			G		A		H&D				\N
+Augenschleier	200	1*Gr	Geste	2				1 s	50 m	Geist	1 Ws	1 min	dämonisch								A		G	S	S						S		S		A	G					G	H&D				
+Bärenstärke	100	1	Geste	1				20 s	0	Körper	selbst	1 min	druidisch	Bärenfett	nicht						S		S		A						A				G	S					S	H&D				
+Bann der wahren Eigentümerschaft	10000	alle(mind 18)	Geste	G				6 h	0	Körper	1 Ob		dämonisch	Halsband eines bis zum Tode treuen Hundes	nicht	Siegel							A		S		S	A	S	S	S	A	S	S		A			G		A	H&D				
+Bannen von Fäulnis	800	4	Geste	3				10 min	0	Umgebung	1 Ob(3m*3m)	Gr*Monat	druidisch		nicht						A		A	G	A			G		G	S	S	G	S	A	A					A	H&D				
+Bruchbann	200	var	Geste	2				10 min	0	Körper	var	Gr*h	dämonisch			Siegel					A		G	A	G		S	S	S	S	S	S	S	S	A	G			G		G	H&D				
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'arkanum_zauber'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

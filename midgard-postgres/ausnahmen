@@ -3,7 +3,7 @@
 --
 DROP TABLE "ausnahmen";
 --
--- TOC Entry ID 2 (OID 19304)
+-- TOC Entry ID 2 (OID 19411)
 --
 -- Name: ausnahmen Type: TABLE Owner: thoma
 --
@@ -18,11 +18,9 @@ CREATE TABLE "ausnahmen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19304) TABLE DATA ausnahmen
+-- Data for TOC Entry ID 3 (OID 19411) TABLE DATA ausnahmen
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'ausnahmen';
 COPY "ausnahmen"  FROM stdin;
 Leomies Birneneis	z	Halbling	\N	PF	G
 Leomies Birneneis	z	Halbling	\N	PW	G
@@ -42,11 +40,3 @@ Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	Sc	G
 Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	Sc	G
 Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	Sc	G
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'ausnahmen'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

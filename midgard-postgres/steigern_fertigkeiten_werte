@@ -3,7 +3,7 @@
 --
 DROP TABLE "steigern_fertigkeiten_werte";
 --
--- TOC Entry ID 2 (OID 22814)
+-- TOC Entry ID 2 (OID 22923)
 --
 -- Name: steigern_fertigkeiten_werte Type: TABLE Owner: thoma
 --
@@ -42,11 +42,9 @@ CREATE TABLE "steigern_fertigkeiten_werte" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22814) TABLE DATA steigern_fertigkeiten_werte
+-- Data for TOC Entry ID 3 (OID 22923) TABLE DATA steigern_fertigkeiten_werte
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'steigern_fertigkeiten_werte';
 COPY "steigern_fertigkeiten_werte"  FROM stdin;
 Abenteuer	\N	\N	100	100	200	200	400	400	800	800	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Athletik	\N	100	250	500	1000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
@@ -97,11 +95,3 @@ YangScheng	\N	200	500	1000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	
 Zeichensprache	\N	30	150	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zunge Verschlucken	\N	\N	\N	\N	\N	\N	\N	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'steigern_fertigkeiten_werte'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_region_name";
 --
--- TOC Entry ID 2 (OID 23171)
+-- TOC Entry ID 2 (OID 23281)
 --
 -- Name: waffen_region_name Type: TABLE Owner: thoma
 --
@@ -15,11 +15,9 @@ CREATE TABLE "waffen_region_name" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23171) TABLE DATA waffen_region_name
+-- Data for TOC Entry ID 3 (OID 23281) TABLE DATA waffen_region_name
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'waffen_region_name';
 COPY "waffen_region_name"  FROM stdin;
 Dolch	Tanto	K
 Parierdolch	Jitte	K
@@ -50,11 +48,3 @@ Langschwert	Takuba	E
 Bogen	Mukantar	E
 leichte Armbrust	Ud al-Khal	E
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'waffen_region_name'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

@@ -3,7 +3,7 @@
 --
 DROP TABLE "berufe_voraussetzung";
 --
--- TOC Entry ID 2 (OID 19812)
+-- TOC Entry ID 2 (OID 19919)
 --
 -- Name: berufe_voraussetzung Type: TABLE Owner: thoma
 --
@@ -25,11 +25,9 @@ CREATE TABLE "berufe_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19812) TABLE DATA berufe_voraussetzung
+-- Data for TOC Entry ID 3 (OID 19919) TABLE DATA berufe_voraussetzung
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'berufe_voraussetzung';
 COPY "berufe_voraussetzung"  FROM stdin;
 9	Gelehrter	\N	\N	\N	81	\N	\N	\N	\N	\N	\N	\N
 9	Adliger	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
@@ -249,11 +247,3 @@ COPY "berufe_voraussetzung"  FROM stdin;
 9	Exorzist	\N	\N	\N	61	81	\N	P	\N	\N	\N	\N
 7	Schlangenbeschwörer	61	\N	\N	\N	\N	\N	\N	\N	\N	31	R
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'berufe_voraussetzung'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

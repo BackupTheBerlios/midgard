@@ -3,7 +3,7 @@
 --
 DROP TABLE "fertigkeiten_voraussetzung";
 --
--- TOC Entry ID 2 (OID 20777)
+-- TOC Entry ID 2 (OID 20884)
 --
 -- Name: fertigkeiten_voraussetzung Type: TABLE Owner: thoma
 --
@@ -23,11 +23,9 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 20777) TABLE DATA fertigkeiten_voraussetzung
+-- Data for TOC Entry ID 3 (OID 20884) TABLE DATA fertigkeiten_voraussetzung
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'fertigkeiten_voraussetzung';
 COPY "fertigkeiten_voraussetzung"  FROM stdin;
 Faustkampf	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Vollrüstung	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
@@ -147,11 +145,3 @@ Kampf zu Kamel	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kamelreiten
 Mumifizieren	\N	31	\N	31	\N	\N	\N	\N	\N	Kräuterkunde, Naturkunde
 Pyromantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'fertigkeiten_voraussetzung'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

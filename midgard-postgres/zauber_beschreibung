@@ -3,7 +3,7 @@
 --
 DROP TABLE "zauber_beschreibung";
 --
--- TOC Entry ID 2 (OID 23367)
+-- TOC Entry ID 2 (OID 23479)
 --
 -- Name: zauber_beschreibung Type: TABLE Owner: thoma
 --
@@ -14,11 +14,9 @@ CREATE TABLE "zauber_beschreibung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23367) TABLE DATA zauber_beschreibung
+-- Data for TOC Entry ID 3 (OID 23479) TABLE DATA zauber_beschreibung
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'zauber_beschreibung';
 COPY "zauber_beschreibung"  FROM stdin;
 Heilen von Wunden	Heilt W6 LP und AP, nur alle drei Tage möglich
 Schutzkreis gegen Dunebargen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dunebarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
@@ -65,11 +63,3 @@ Späfolk beschwören 2 	Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP.
 Späfolk beschwören 3 	Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Späfolk beschwören 4 	Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'zauber_beschreibung'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

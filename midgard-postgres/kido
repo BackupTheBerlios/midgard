@@ -3,7 +3,7 @@
 --
 DROP TABLE "kido";
 --
--- TOC Entry ID 2 (OID 20940)
+-- TOC Entry ID 2 (OID 21047)
 --
 -- Name: kido Type: TABLE Owner: thoma
 --
@@ -19,11 +19,9 @@ CREATE TABLE "kido" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 20940) TABLE DATA kido
+-- Data for TOC Entry ID 3 (OID 21047) TABLE DATA kido
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'kido';
 COPY "kido"  FROM stdin;
 ChochoInu	Schmetterling und Hund	Schüler	beide	40	0	Sich aus einem Kontrollbereich entfernen, wenn PW+60:RW des Gegners mißlingt. Danach ist eine freie Bewegung möglich.
 DageIki	Hauch eines Hiebes	Schüler	beide	40	0	Finte. Kein eigener Angriff. Mißlingt PW+30:In/bzw RW bei In:t, so erhält der Gegner in der nächsten Runde WM-4 auf die Abwehr. (max. WM-8)
@@ -74,11 +72,3 @@ DoMino	Sichere Ernte	Eingeweihter	Sanfte Techniken	200	0	weiter Wurf. Gegner stü
 YubeChian	Finger des Friedens	Eingeweihter	Sanfte Techniken	200	0	Im Handgemenge festgehaltene werden gelähmt. Der Griff kann max. 2min aufrecht erhalten werden.
 SchindoKu	Schwingungen der Alten	Meister	Sanfte Techniken	1600	6	Handfläche schwingt. KiDo vs phsZR. leichter Schaden: 1W6+1 LP/AP schwerer Schaden: 3W6+1 LP/AP. Kein Treffer: selbst phsZR für 1W6-1 bzw 3W6-3 LP/AP
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'kido'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

@@ -3,7 +3,7 @@
 --
 DROP TABLE "schrift";
 --
--- TOC Entry ID 2 (OID 22521)
+-- TOC Entry ID 2 (OID 22630)
 --
 -- Name: schrift Type: TABLE Owner: thoma
 --
@@ -16,11 +16,9 @@ CREATE TABLE "schrift" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22521) TABLE DATA schrift
+-- Data for TOC Entry ID 3 (OID 22630) TABLE DATA schrift
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'schrift';
 COPY "schrift"  FROM stdin;
 Seemeister	Buchstaben	100	\N
 Coraniaid	Buchstaben	100	\N
@@ -44,11 +42,3 @@ KanThaiTun(5)	Silben	1000	K
 KanThaiTun(6)	Silben	1000	K
 Geisterschrift	Silben	100	K
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'schrift'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

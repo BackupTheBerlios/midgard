@@ -3,7 +3,7 @@
 --
 DROP TABLE "berufe_vorteile";
 --
--- TOC Entry ID 2 (OID 20077)
+-- TOC Entry ID 2 (OID 20184)
 --
 -- Name: berufe_vorteile Type: TABLE Owner: thoma
 --
@@ -14,11 +14,9 @@ CREATE TABLE "berufe_vorteile" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 20077) TABLE DATA berufe_vorteile
+-- Data for TOC Entry ID 3 (OID 20184) TABLE DATA berufe_vorteile
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'berufe_vorteile';
 COPY "berufe_vorteile"  FROM stdin;
 Adliger	Kampftaktik
 Akrobat	Springen
@@ -493,11 +491,3 @@ Dewadasi	Tanzen
 Dewadasi	Natya
 Dewadasy	Verführen
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'berufe_vorteile'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

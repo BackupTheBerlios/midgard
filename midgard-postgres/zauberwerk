@@ -3,7 +3,7 @@
 --
 DROP TABLE "zauberwerk";
 --
--- TOC Entry ID 2 (OID 28583)
+-- TOC Entry ID 2 (OID 23560)
 --
 -- Name: zauberwerk Type: TABLE Owner: thoma
 --
@@ -42,11 +42,9 @@ CREATE TABLE "zauberwerk" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 28583) TABLE DATA zauberwerk
+-- Data for TOC Entry ID 3 (OID 23560) TABLE DATA zauberwerk
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'zauberwerk';
 COPY "zauberwerk"  FROM stdin;
 Flohpulver aktivieren	400	AZ	2	3 Tage	70 GS	\N	\N	S	\N	S	S	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	G	\N	S	\N
 Heiltrunk (1W6) aktivieren	600	AZ	2	3 Tage	100 GS (70 GS)	\N	\N	S	\N	S	G	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	\N	\N	S	\N
@@ -103,12 +101,91 @@ Binden	10000		G			\N	A	A	A	A	A	S	\N	A	A	A	A	A	A	A	S	A	A	\N	A	G	\N	A	\N
 Waffen verzaubern	800		2	1 Monat	100 GS + 5*Waffenpreis	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 Waffen verzaubern	1600		4	1 Monat	200 GS + 5*Waffenpreis	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 Waffen verzaubern	3500		6	1 Monat	300 GS + 5*Waffenpreis	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Feuerkugel	800	Schutzrune	2	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+L‰hmung	500	Schutzrune	5	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Namenloses Grauen	400	Schutzrune	4	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Schlaf	100	Schutzrune	1	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Schmerzen	100	Schutzrune	2	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Todeshauch	400	Schutzrune	3	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Verdorren	600	Schutzrune	3	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Vereisen	1000	Schutzrune	4	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Versteinern	1000	Schutzrune	5	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Verwandeln	1000	Schutzrune	6	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Wahnsinn	600	Schutzrune	6	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Angst	200	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Bannen von Dunkelheit	100	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Bannen von Licht	100	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Eisiger Nebel	250	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Feuerkugel	2000	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Feuerring	2000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Funkenregen	400	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Graue Hand	4000	Groﬂes Siegel	6	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Hauch des Winters	80	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+L‰hmung	3000	Groﬂes Siegel	5	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Namenloses Grauen	1600	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Nebel	1000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Staubk‰mpfer	1000	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Schlaf	200	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Schmerzen	200	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Schw‰che	80	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Stille	200	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Tierisches Handeln	3000	Groﬂes Siegel	5	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Todeshauch	800	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Verdorren	1000	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Vereisen	2000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Verlangsamen	800	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Versetzen	2000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Versteinern	3000	Groﬂes Siegel	5	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Verwandlung	8000	Groﬂes Siegel	6	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Wahnsinn	3000	Groﬂes Siegel	6	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Windstoﬂ	120	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zauberstimme	150	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Auslˆsen	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Alarm	1000	magische Letter	4		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Farbletter (Infrarot)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Farbletter (Rot)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Farbletter (Orange)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Farbletter (Gelb)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Farbletter (Gr¸n)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Farbletter (Blau)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Farbletter (Violett)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Farbletter (Ultraviolett)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Ger‰uschletter (Knarren)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Ger‰uschletter (Pfeifen)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Ger‰uschletter (Donnern)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Ger‰uschletter (Knistern)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Menschen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Zwerge)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Elfen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Orcs)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Menschen‰hnliche)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Tiermenschen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Tiere)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Lebewesen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Magische Wesen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Elemetarwesen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (D‰monen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Untote)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Opferletter (Geisterwesen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (1)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (2)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (3)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (4)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (5)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (6)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (7)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (8)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (9)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (10)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (11)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (12)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zahlenletter (13)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zeitletter (Stunde)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zeitletter (Tag)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zeitletter (Trideade)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zeitletter (Mond)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Zeitletter (Jahr)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Z¸ndletter (Bereich)	600	magische Letter	3		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Z¸ndletter (Ber¸hrung)	600	magische Letter	3		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Z¸ndletter (Schl¸sselwort)	600	magische Letter	3		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'zauberwerk'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

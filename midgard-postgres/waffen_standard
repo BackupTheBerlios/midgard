@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_standard";
 --
--- TOC Entry ID 2 (OID 23237)
+-- TOC Entry ID 2 (OID 23347)
 --
 -- Name: waffen_standard Type: TABLE Owner: thoma
 --
@@ -39,27 +39,19 @@ CREATE TABLE "waffen_standard" (
 	"pm" text,
 	"pk" text,
 	"pt" text,
-	"pc" text
+	"pc" text,
+	"ny" text,
+	"kd" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23237) TABLE DATA waffen_standard
+-- Data for TOC Entry ID 3 (OID 23347) TABLE DATA waffen_standard
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'waffen_standard';
 COPY "waffen_standard"  FROM stdin;
-Waffen	S	S	S	S	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
-Peitsche	S	S	S	S	S	S	G	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
-Lasso	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
-Netz	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
-Bola	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
+Waffen	S	S	S	S	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S
+Peitsche	S	S	S	S	S	S	G	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S
+Lasso	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S
+Netz	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S
+Bola	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'waffen_standard'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

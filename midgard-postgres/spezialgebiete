@@ -3,7 +3,7 @@
 --
 DROP TABLE "spezialgebiete";
 --
--- TOC Entry ID 2 (OID 26101)
+-- TOC Entry ID 2 (OID 23854)
 --
 -- Name: spezialgebiete Type: TABLE Owner: thoma
 --
@@ -17,11 +17,9 @@ CREATE TABLE "spezialgebiete" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 26101) TABLE DATA spezialgebiete
+-- Data for TOC Entry ID 3 (OID 23854) TABLE DATA spezialgebiete
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'spezialgebiete';
 COPY "spezialgebiete"  FROM stdin;
 Ma	0	Spezialgebiet	\N	\N
 Ma	1	Adept der Herrschaft	beherrscht	\N
@@ -51,11 +49,3 @@ eBe	8	Luft Feuer	Luft	Feuer
 eBe	9	Luft Wasser	Luft	Wasser
 eBe	10	Wasser Luft	Wasser	Luft
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'spezialgebiete'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-

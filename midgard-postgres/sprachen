@@ -3,7 +3,7 @@
 --
 DROP TABLE "sprachen";
 --
--- TOC Entry ID 2 (OID 22581)
+-- TOC Entry ID 2 (OID 22690)
 --
 -- Name: sprachen Type: TABLE Owner: thoma
 --
@@ -20,11 +20,9 @@ CREATE TABLE "sprachen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22581) TABLE DATA sprachen
+-- Data for TOC Entry ID 3 (OID 22690) TABLE DATA sprachen
 --
 
--- Disable triggers
-UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'sprachen';
 COPY "sprachen"  FROM stdin;
 Vesternesse	Fuardain	10	Twyneddisch	4	Seemeister	f	\N
 Vesternesse	Clanngadarn	10	Twyneddisch	4	Seemeister	f	\N
@@ -68,11 +66,3 @@ Sirao	Moravod	10	Moravisch	4	Tegarisch	f	\N
 Valian	Valian	10	Vallinga	4	Seemeister	f	\N
 Vesternesse	Alba	10	Dunathisch	4	Seemeister	t	A
 \.
--- Enable triggers
-BEGIN TRANSACTION;
-CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
-INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'sprachen'  GROUP BY 1;
-UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
-DROP TABLE "tr";
-COMMIT TRANSACTION;
-
