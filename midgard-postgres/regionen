@@ -1,0 +1,31 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "regionen";
+--
+--
+--
+
+CREATE TABLE "regionen" (
+	"name" text NOT NULL,
+	"abkuerzung" text NOT NULL,
+	"file" text,
+	"url" text,
+	"maintainer" text NOT NULL,
+	"version" text NOT NULL,
+	Constraint "regionen_pkey" Primary Key ("name")
+);
+
+--
+--
+--
+
+
+COPY "regionen" FROM stdin;
+Alba	A	\N	\N	Malte Thoma	1.0
+Eschar	E	\N	\N	Malte Thoma	1.0
+Gildenbrief	G	\N	\N	Malte Thoma	1.0
+Hexenzauber & Druidenkraft	H&D	\N	\N	Malte Thoma	1.0
+KanThaiPan	K	\N	\N	Malte Thoma	1.0
+Rawindra	R	\N	\N	Malte Thoma	1.0
+\.

@@ -94,7 +94,7 @@ Stockschleuder	31	\N	81	Schleuder	5	Schuﬂwaffe	2W6	-2	S	\N	\N	\N	\N	\N	21	30	100
 Stoﬂspeer	31	\N	11	Spieﬂwaffe	3	Angriff	1/2/3W6	0	E	+2/+2	0/0	0/-2	\N	\N	\N	\N	\N	\N	\N	\N
 Streitaxt	61	\N	11	ESchlagwaffe	3	Angriff	W6	1	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Streitkolben	31	\N	\N	ESchlagwaffe	2	Angriff	W6	0	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-TetsuBo	31	\N	61	Kampfstab	8	Angriff	W6	1	E	\N	\N	+2	\N	K	\N	\N	\N	\N	\N	\N
+TetsuBo	31	\N	61	Kampfstab	7	Angriff	W6	1	E	\N	\N	+2	\N	K	\N	\N	\N	\N	\N	\N
 Tonfa	21	\N	61	waffenloser Kampf	6	Angriff	W6	-2	E	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N
 Werfen	\N	\N	21	Werfen	7	Wurfwaffe	var	0		\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Wurfaxt	31	\N	31	Stielwurfwaffe	2	Wurfwaffe	W6	0	W	\N	\N	\N	Handaxt	\N	0	10	20	30	\N	\N
