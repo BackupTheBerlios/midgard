@@ -1,4 +1,23 @@
 ##########################################################################
+NEWS IN VERSION 0.3beta5
+Rawindische Berufe eingearbeitet
+Rassenauswahlknopf hinzugefügt, allerdings werden NOCH keine Werte etc.
+   berücksichtigt und erst vier Rassen eingearbeitet sind.
+   Die Motivation für diesen Knopf lag in der neuen 
+   Funktion 'Ausnahmen', von der alle Besonderheiten erfaßt werden sollen
+   also auch 'Leomies Birneneis' und DAFÜR brauchte ich den Rassenknopf 
+   (Ein besserer Name dafür fällt mir nicht ein, auch wenn ich ihn aus
+   ethischen Gründen nicht mag, aber ich denke im Fantasy-genre wird 
+   er nicht falsch verstanden, wenn aber jemand eine bessere Bezeichning weiß, 
+   dann bin ich gerne bereit sie zu übernhemen.)
+Ausnahmebehandlung für Zauber programmiert, damit werden die Rassenabhängigkeit
+   und die regionale Abhängigkeit bei der Berechnung von Lernkosten
+   berücksichtigt. Bisher eingearbeitet sind Alba und KanThaiPan. 
+Christof hat mich auf eine Inkompatibilität zwischen Postgress 7.0 und 7.1
+   hingewiesen -> ist beseitigt. Aufgrund dieser Änderung gibt es jetzt 
+   erstmal eine neue Version :-)
+
+##########################################################################
 NEWS IN VERSION 0.3beta4
 Ausdruck von KiDo-Techniken MIT KURZBESCHREIBUNG (Dank an Nils) ist 
    jetzt möglich

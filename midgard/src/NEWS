@@ -13,6 +13,9 @@ Rassenauswahlknopf hinzugefügt, allerdings werden NOCH keine Werte etc.
 Ausnahmebehandlung für Zauber programmiert, damit werden die Rassenabhängigkeit
    und die regionale Abhängigkeit bei der Berechnung von Lernkosten
    berücksichtigt. Bisher eingearbeitet sind Alba und KanThaiPan. 
+Christof hat mich auf eine Inkompatibilität zwischen Postgress 7.0 und 7.1
+   hingewiesen -> ist beseitigt. Aufgrund dieser Änderung gibt es jetzt 
+   erstmal eine neue Version :-)
 
 ##########################################################################
 NEWS IN VERSION 0.3beta4
