@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.5 2002/01/03 08:20:58 christof Exp $
+// $Id: arkanum_exp.cc,v 1.6 2002/01/03 08:39:20 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -183,7 +183,7 @@ int main(int argc, char *argv[])
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data";
-   write_string_attrib("Region",region.empty()?std::string("Arkanum"):region);
+   write_string_attrib(std::cout, "Region",region.empty()?std::string("Arkanum"):region);
    std::cout << ">\n";
    arkanum_speichern(std::cout);
    std::cout << "</MidgardCG-data>\n";
