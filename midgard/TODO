@@ -15,3 +15,5 @@ damit es moeglich ist mehrere repositories zu verwenden.
 "Content Type"="application/pdf"
 
 ---
+
+g_locale_to_utf8()
