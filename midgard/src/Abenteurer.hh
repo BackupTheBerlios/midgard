@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.13 2002/06/07 12:17:03 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.14 2002/06/11 08:24:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -163,6 +163,7 @@ class VAbenteurer
       void set_Abenteurer(const Abenteurer& A);
       void modified() {ai->gespeichert=false;}
       void safed() {ai->gespeichert=true;}
+      bool gespeichert() const {return ai->gespeichert;}
       void setFilename(std::string s) {ai->filename=s;}
       const std::string &getFilename() {return ai->filename;}
 
