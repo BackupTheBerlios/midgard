@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.84 2001/12/31 16:06:34 thoma Exp $
+# $Id: Makefile.am,v 1.85 2002/01/03 11:01:16 christof Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -103,16 +103,15 @@ BUILT_SOURCES_CG =  \
    save_charakter.cc  load_charakter.cc  \
    Window_charakter_auswahl.cc
 
-BUILT_SOUCES_XMLE=xmlexport.cc
 BUILT_SOUCES_XMLI=xmlimport.cc
 
-BUILT_SOURCES= $(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE) $(BUILT_SOUCES_XMLI) \
+BUILT_SOURCES= $(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLI) \
 	export_common.h
 
 export_common.cc: ../xml/export_common.cc ; ln -sf ../xml/$@ .
 export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
 
-midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE) export_common.cc
+midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 
