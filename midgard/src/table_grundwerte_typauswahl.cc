@@ -38,8 +38,9 @@ void table_grundwerte::fill_typauswahl_2()
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 {
   Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
-  for(std::vector<cH_Typen>::const_iterator i=hauptfenster->getDatabase().Typen.begin();i!=hauptfenster->Database.Typen.end();++i)
-    {
+  std::vector<cH_Typen> T=hauptfenster->getDatabase().Typen;
+  for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
+   {
      if (hauptfenster->getCWerte().Spezies()->Name()=="Mensch" || hauptfenster->getCWerte().Spezies()->Typ_erlaubt((*i)->Short()))
        if (hauptfenster->region_check((*i)->Region()) && hauptfenster->nsc_check((*i)->NSC_only()))
          {
