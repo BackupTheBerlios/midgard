@@ -25,7 +25,7 @@ class frame_globale_optionen : public frame_globale_optionen_glade
         midgard_CG *hauptfenster;
 
 //        bool binit;
-        void element_activate_C(Gtk::CheckButton *cb,Midgard_Optionen::OptionenCheckIndex index);         
+        void element_activate_C(gpointer gp,Midgard_Optionen::OptionenCheckIndex index);         
         void element_activate_H(Gtk::CheckButton *cb,Midgard_Optionen::HausIndex index);         
 
         void on_spinbutton_notebookpage_changed(Midgard_Optionen::OptionenCheckIndex index);

@@ -679,17 +679,25 @@ void table_lernschema::show_gelerntes()
   LL.push_back(hauptfenster->getChar().List_Schrift());
   LL.push_back(hauptfenster->getChar().List_Beruf());  
   LL.push_back(hauptfenster->getWerte().Sinne());
+//  LL.push_back(hauptfenster->getChar().List_Waffen_besitz());
+/*
   {
   std::list<MidgardBasicElement_mutable> temp;
   for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
       temp.push_back(*i);
   LL.push_back(temp);
   }
-  
+*/  
   for(std::list<std::list<MidgardBasicElement_mutable> >::const_iterator i=LL.begin();i!=LL.end();++i)
     for (std::list<MidgardBasicElement_mutable>::const_iterator j=i->begin();j!=i->end();++j)
       FL.push_back(*j);
   MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,hauptfenster);
+
+  // Waffenbesitz anzeigen
+  std::vector<cH_RowDataBase> datavec;
+  for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
+   datavec.push_back(new Data_SimpleTree(*i,hauptfenster));
+  tree_gelerntes->setDataVec(datavec,false);
   tree_gelerntes->Expand_recursively();
   scrolledwindow_lernen->set_sensitive(true);
 }

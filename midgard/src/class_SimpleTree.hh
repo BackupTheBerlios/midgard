@@ -19,7 +19,8 @@
 #ifndef _CLASS_FERT_HH
 #  define _CLASS_FERT_HH
 
-#include <MidgardBasicElement.hh>
+//#include <MidgardBasicElement.hh>
+#include <Waffe.hh>
 #include <Typen.hh>
 #include <rowdata.h>
 class midgard_CG;
@@ -27,9 +28,12 @@ class midgard_CG;
 class Data_SimpleTree : public RowDataBase
 {
  private:
-   MidgardBasicElement_mutable MBE;
+//   MidgardBasicElement_mutable MBE;
+   WaffeBesitz MBE;
    const midgard_CG *hauptfenster; 
  public:
+   Data_SimpleTree(const WaffeBesitz& _MBE, const midgard_CG *h) 
+   : MBE(_MBE),hauptfenster(h) {}
    Data_SimpleTree(const MidgardBasicElement_mutable& _MBE, const midgard_CG *h) 
    : MBE(_MBE),hauptfenster(h) {}
 

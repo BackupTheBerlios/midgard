@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.79 2002/09/17 14:01:09 thoma Exp $
+// $Id: Optionen.cc,v 1.80 2002/09/18 08:35:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -96,11 +96,11 @@ void Midgard_Optionen::setString(StringIndex index,std::string n)
    if(i->index==index) { i->name=n; return; }
 }
 
-Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi,int wert=-1) const
+Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi) const
 {
  for(std::list<st_OptionenCheck>::const_iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->index==oi) 
-     { if(wert!=-1) const_cast<st_OptionenCheck&>(*i).wert=wert;
+     { //if(wert!=-1) const_cast<st_OptionenCheck&>(*i).wert=wert;
        return *i;
      }
  assert(!"OptionenCheck: nicht gefunden");
@@ -154,7 +154,9 @@ void Midgard_Optionen::setOptionCheck(std::string os,bool b,int wert)
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->text==os) 
      {  
-       OptionenCheck_setzen_from_menu(i->index,b,wert);
+       i->active=b;
+       i->wert=wert;
+       OptionenCheck_setzen_from_menu(i->index);
        return; 
      }
  std::cerr << "Option "<<os<<" unbekannt\n";
@@ -217,14 +219,13 @@ void Midgard_Optionen::setpdfViewer(std::string is,bool b)
 }   
     
 
-void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,bool b,int wert=-1)
+void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index)
 {
 //  if(!hauptfenster->fire_enabled) return;
 //  hauptfenster->fire_enabled=false;
   for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    {
      if(i->index!=index) continue;
-     i->active = b;
      if     (i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
      else if(i->index==Drei_Tasten_Maus) hauptfenster->show_3_Tasten_Maus(i->active);
      else if(i->index==NSC_only) {hauptfenster->show_NSC_active(i->active);
@@ -232,10 +233,10 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
                                   hauptfenster->table_grundwerte->fill_typauswahl_2();} // zum Neuaufbau des Typmenüs
      else if(i->index==Wizard_immer_starten) hauptfenster->show_wizard_active(i->active);
      else if(i->index==Notebook_start)  
-      { i->wert=wert;
+      { //i->wert=wert;
         if(!i->spin) return;
 cout << "Option: "<<i->spin<<'\n';
-        if(b) i->spin->show();
+        if(i->active) i->spin->show();
         else i->spin->hide();
       }
    }
@@ -353,7 +354,19 @@ void Midgard_Optionen::Optionen_init()
                            "MAGUS mit bestimmter Seite starten",false,0,1));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true,0));
-
+/*
+  list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
+                           true,midgard_logo_tiny_xpm));
+  list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
+                           false,NSC_Mode_32_xpm));
+  list_OptionenCheck.push_back(st_OptionenCheck(Drei_Tasten_Maus,
+                           "3-Tasten Maus",
+                           false,Cyan_Dice_trans_50_xpm));
+  list_OptionenCheck.push_back(st_OptionenCheck(Notebook_start, 
+                           "MAGUS mit bestimmter Seite starten",false,0,1));
+  list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
+                           "Wizard bei jedem Programmstart starten",true,0));
+*/
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",0));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
                            "Lernschema/Steigern auswählbar machen",0));

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.28 2002/09/17 14:01:09 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.29 2002/09/18 08:35:46 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -41,6 +41,7 @@ class Abenteurer
    std::list<MidgardBasicElement_mutable> list_WaffenGrund;
    std::list<MidgardBasicElement_mutable> list_Waffen;
    std::list<WaffeBesitz> list_Waffen_besitz;
+//   std::list<MidgardBasicElement_mutable> list_Waffen_besitz;
    std::list<MidgardBasicElement_mutable> list_Zauber;
    std::list<MidgardBasicElement_mutable> list_Zauberwerk;
    std::list<MidgardBasicElement_mutable> list_Kido;
@@ -85,6 +86,7 @@ public:
    const std::list<MidgardBasicElement_mutable>& List_WaffenGrund() const {return list_WaffenGrund;}
    const std::list<MidgardBasicElement_mutable>& List_Waffen() const {return list_Waffen;}
    const std::list<WaffeBesitz>& List_Waffen_besitz() const {return list_Waffen_besitz;}
+//   const std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() const {return list_Waffen_besitz;}
    const std::list<MidgardBasicElement_mutable>& List_Zauber() const {return list_Zauber;}
    const std::list<MidgardBasicElement_mutable>& List_Zauberwerk() const {return list_Zauberwerk;}
    const std::list<MidgardBasicElement_mutable>& List_Kido() const {return list_Kido;}
@@ -110,6 +112,7 @@ public:
    std::list<MidgardBasicElement_mutable>& List_WaffenGrund() {return list_WaffenGrund;}
    std::list<MidgardBasicElement_mutable>& List_Waffen()  {return list_Waffen;}
    std::list<WaffeBesitz>& List_Waffen_besitz() {return list_Waffen_besitz;}
+//   std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() {return list_Waffen_besitz;}
    std::list<MidgardBasicElement_mutable>& List_Zauber()  {return list_Zauber;}
    std::list<MidgardBasicElement_mutable>& List_Zauberwerk()  {return list_Zauberwerk;}
    std::list<MidgardBasicElement_mutable>& List_Kido()  {return list_Kido;}
@@ -228,6 +231,7 @@ public:
    const std::list<MidgardBasicElement_mutable>& List_WaffenGrund() const {return ai->abenteurer.List_WaffenGrund();}
    const std::list<MidgardBasicElement_mutable>& List_Waffen() const {return ai->abenteurer.List_Waffen();}
    const std::list<WaffeBesitz>& List_Waffen_besitz() const {return ai->abenteurer.List_Waffen_besitz();}
+//   const std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() const {return ai->abenteurer.List_Waffen_besitz();}
    const std::list<MidgardBasicElement_mutable>& List_Zauber() const {return ai->abenteurer.List_Zauber();}
    const std::list<MidgardBasicElement_mutable>& List_Zauberwerk() const {return ai->abenteurer.List_Zauberwerk();}
    const std::list<MidgardBasicElement_mutable>& List_Kido() const {return ai->abenteurer.List_Kido();}
@@ -241,6 +245,7 @@ public:
    std::list<MidgardBasicElement_mutable>& List_WaffenGrund() {return ai->abenteurer.List_WaffenGrund();}
    std::list<MidgardBasicElement_mutable>& List_Waffen()  {return ai->abenteurer.List_Waffen();}
    std::list<WaffeBesitz>& List_Waffen_besitz() {return ai->abenteurer.List_Waffen_besitz();}
+//   std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() {return ai->abenteurer.List_Waffen_besitz();}
    std::list<MidgardBasicElement_mutable>& List_Zauber()  {return ai->abenteurer.List_Zauber();}
    std::list<MidgardBasicElement_mutable>& List_Zauberwerk()  {return ai->abenteurer.List_Zauberwerk();}
    std::list<MidgardBasicElement_mutable>& List_Kido()  {return ai->abenteurer.List_Kido();}

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.29 2002/09/17 14:01:09 thoma Exp $
+// $Id: Optionen.hh,v 1.30 2002/09/18 08:35:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,9 @@
 #include "WindowInfo.hh"
 #include <gtk--/spinbutton.h>
 class midgard_CG;
-
+#include <MVC.h>
+#include <MVC_int_Widget.hh>
+#include <MVC_bool_Widget.hh>
 
 class Midgard_Optionen
 {
@@ -51,9 +53,21 @@ class Midgard_Optionen
       struct st_OptionenExecute{OptionenExecuteIndex index;std::string text;const char * const *bild;
                st_OptionenExecute(OptionenExecuteIndex i,std::string t,const char * const * const b)
                   :index(i),text(t),bild(b) {} };
+/*
       struct st_OptionenCheck{OptionenCheckIndex index;std::string text;bool active;const char * const *bild;int wert; Gtk::SpinButton *spin;
                st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a, const char * const * const b,int w=-1)
                   :index(i),text(t),active(a),bild(b),wert(w),spin(0)
+                  {}};
+*/
+      struct st_OptionenCheck{OptionenCheckIndex index;std::string text;
+               MVC<bool> active; MVC_bool_Widget *checkbutton;
+               const char * const *bild;
+               MVC<int> wert; 
+               MVC_int_Widget *spin;
+               st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a,
+                   const char * const * const b,int w=-1)
+                  :index(i),text(t),active(a),checkbutton(0),bild(b),
+                  wert(w),spin(0)
                   {}};
       struct st_Haus{HausIndex index;std::string text;const char * const *bild;bool active;
                st_Haus(HausIndex i,std::string t,const char * const *b,bool a)
@@ -112,7 +126,7 @@ class Midgard_Optionen
       void setDateiHistory(int i) {datei_history=i;}
 
 
-      st_OptionenCheck OptionenCheck(OptionenCheckIndex oi,int wert=-1) const ;
+      st_OptionenCheck OptionenCheck(OptionenCheckIndex oi) const ;
       st_Haus HausregelCheck(HausIndex hi) const ;
       st_Ober OberCheck(OberIndex hi) const ;
       st_Icon IconCheck(IconIndex i) const ;
@@ -122,7 +136,7 @@ class Midgard_Optionen
       void Hausregeln_setzen_from_menu(HausIndex index,bool b);
       void Ober_setzen_from_menu(OberIndex index,bool b);
       void Icon_setzen_from_menu(IconIndex index,bool b);
-      void OptionenCheck_setzen_from_menu(OptionenCheckIndex index,bool b,int wert=-1);
+      void OptionenCheck_setzen_from_menu(OptionenCheckIndex index);
       void OptionenExecute_setzen_from_menu(OptionenExecuteIndex index);
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);
 };

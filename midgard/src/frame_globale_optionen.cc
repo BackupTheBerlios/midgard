@@ -20,8 +20,8 @@ void frame_globale_optionen::set_Hauptfenster(midgard_CG *h)
 
 void frame_globale_optionen::set_values()
 {
-  hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).spin
-      ->set_value(hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).wert);
+//  hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).spin
+//      ->set_value(hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).wert);
 }
 
 
@@ -32,7 +32,9 @@ void frame_globale_optionen::init()
       if(ini) return;
       ini=true;
 #endif
+/*
  remove();
+*/
  if(!hauptfenster) assert(!"");
  if(!(hauptfenster->getOptionen())) assert(!"");
  Gtk::Table *table=manage(new Gtk::Table(0,0,false));
@@ -40,24 +42,29 @@ void frame_globale_optionen::init()
  int count=0;
  for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=L.begin();i!=L.end();++i)
   {
+/*
    Gtk::CheckButton *cb=manage(new Gtk::CheckButton(i->text,0,0.5));
    cb->set_active(i->active);
    cb->toggled.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_C),cb,i->index));
+*/
+   i->checkbutton = manage(new MVC_bool_Widget(i->active,i->text));
+   i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_C),i->index));
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
-   t->attach(*cb,0,1,0,1,GTK_FILL,0,0,0);
+//   t->attach(*cb,0,1,0,1,GTK_FILL,0,0,0);
+   t->attach(*i->checkbutton,0,1,0,1,GTK_FILL,0,0,0);
    if(i->wert!=-1) 
     {
 cout << "A: "<<i->spin<<'\n';
-      if(i->spin) i->spin->destroy();
       int min=hauptfenster->PAGE_INFO;
       int max=hauptfenster->PAGE_ZUFALL-1;
-      Gtk::Adjustment *spa = manage(new class Gtk::Adjustment(i->wert, min+1, max+1, 1, 10, 10)); 
+//      Gtk::Adjustment *spa = manage(new class Gtk::Adjustment(i->wert, min+1, max+1, 1, 10, 10)); 
 cout << "B: "<<i->spin<<'\n';
-      i->spin= manage(new class Gtk::SpinButton(*spa, 1, 0));
+//      i->spin= manage(new class Gtk::SpinButton(*spa, 1, 0));
+        i->spin= manage(new MVC_int_Widget(i->wert, min, max));
 cout << "C: "<<i->spin<<'\n';
 
-      i->spin->set_value(i->wert);
-      i->spin->changed.connect(SigC::bind(SigC::slot(static_cast<class frame_globale_optionen*>(this), &frame_globale_optionen::on_spinbutton_notebookpage_changed),i->index));
+//      i->spin->set_value(i->wert);
+//      i->spin->changed.connect(SigC::bind(SigC::slot(static_cast<class frame_globale_optionen*>(this), &frame_globale_optionen::on_spinbutton_notebookpage_changed),i->index));
       t->attach(*i->spin,1,2,0,1,GTK_FILL,0,0,0);
     }
    else if(i->bild)
@@ -100,20 +107,33 @@ cout << "C: "<<i->spin<<'\n';
  add(*table);
  show_all();
  
- if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).active) // für 'hide'
- hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(Midgard_Optionen::Notebook_start,false);
+// if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).active) // für 'hide'
+// hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(Midgard_Optionen::Notebook_start,false);
 }
 
 void frame_globale_optionen::on_spinbutton_notebookpage_changed(Midgard_Optionen::OptionenCheckIndex index)
 {
+/*
   Midgard_Optionen::st_OptionenCheck S=hauptfenster->getOptionen()->OptionenCheck(index);
   if(!S.spin) {cerr << "Spinbutten nicht definiert\n"; return;}
   S.spin->update();
   int wert = S.spin->get_value_as_int();
   hauptfenster->getOptionen()->OptionenCheck(index,wert);
+*/
 }
 
 
+void frame_globale_optionen::element_activate_C(gpointer gp,Midgard_Optionen::OptionenCheckIndex index)
+{
+  hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(index);
+  if(index==Midgard_Optionen::Original)
+   {
+    hauptfenster->getOptionen()->setAllHausregeln(false);
+    init();
+   }
+}
+
+/*
 void frame_globale_optionen::element_activate_C(Gtk::CheckButton *cb,Midgard_Optionen::OptionenCheckIndex index)
 {
   hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(index,cb->get_active());
@@ -123,6 +143,7 @@ void frame_globale_optionen::element_activate_C(Gtk::CheckButton *cb,Midgard_Opt
     init();
    }
 }
+*/
 
 void frame_globale_optionen::element_activate_H(Gtk::CheckButton *cb,Midgard_Optionen::HausIndex index)
 {

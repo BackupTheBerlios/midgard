@@ -193,15 +193,16 @@ void table_zufall::fill_combos()
   // Spezies
   L.clear();
   std::vector<cH_Spezies> S=LL.getSpezies(nsc_allowed);
-  for(vector<cH_Spezies>::const_iterator i=S.begin();i!=S.end();++i)
+  for(std::vector<cH_Spezies>::const_iterator i=S.begin();i!=S.end();++i)
      L.push_back((*i)->Name());
  combo_spezies->set_popdown_strings(L);
 
   // Herkunft
   L.clear();
    std::vector<pair<cH_Land,bool> > H=LL.getHerkunft(hauptfenster->getChar());
-  for(vector<pair<cH_Land,bool> >::const_iterator i=H.begin();i!=H.end();++i)
+  for(std::vector<pair<cH_Land,bool> >::const_iterator i=H.begin();i!=H.end();++i)
      L.push_back(i->first->Name());
+ L.sort();
  combo_herkunft->set_popdown_strings(L);
 }
 
