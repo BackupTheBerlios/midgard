@@ -76,7 +76,7 @@ COPY "fertigkeiten" FROM stdin;
 3	\N	\N	15	Springen	10	60	\N	\N	St	8	1	18	18	\N
 3	\N	\N	15	Tauchen	10	120	\N	\N	Ko	9	\N	18	16	\N
 4	3	3	5	Tierkunde	4	100	\N	\N	In	0	2	16	13	\N
-4	3	\N	5	Naturkunde	4	100	\N	\N	In	\N	1	16	13	\N
+4	3	\N	5	Naturkunde	4	100	\N	\N	In	0	1	16	13	\N
 4	3	\N	5	Pflanzenkunde	4	100	\N	\N	In	0	2	16	13	\N
 4	4	\N	15	Steuern	10	60	\N	\N	Gs	\N	1	18	18	\N
 4	\N	3	5	Schätzen	4	100	\N	\N	In	\N	2	16	13	\N
@@ -94,7 +94,7 @@ COPY "fertigkeiten" FROM stdin;
 4	\N	\N	5	Kräuterkunde	4	100	\N	\N	In	\N	2	16	13	\N
 4	\N	\N	5	Zauberkunde	4	100	\N	\N	In	0	2	16	13	\N
 4	\N	\N	6	Baukunde	4	100	\N	\N	In	0	2	16	12	\N
-4	\N	\N	6	Fallen entdecken	4	400	\N	\N	In	\N	\N	16	13	\N
+4	\N	\N	6	Fallen entdecken	4	400	\N	\N	In	0	\N	16	13	\N
 4	\N	\N	6	Geheimmechanismen öffnen	4	400	\N	\N	In	1	\N	16	13	\N
 4	\N	\N	6	Zeichensprache	4	20	\N	\N	In	\N	\N	12	11	\N
 4	\N	\N	8	Beschatten	6	300	\N	\N	Gw	3	\N	18	13	\N
@@ -116,6 +116,7 @@ COPY "fertigkeiten" FROM stdin;
 5	\N	\N	1	YangScheng	1	100	K	\N	\N	\N	\N	18	18	\N
 5	\N	\N	4	LiYao	2	100	K	\N	In	\N	\N	18	18	\N
 5	\N	\N	4	TaiTschi	4	100	K	\N	\N	\N	\N	18	18	\N
+5	\N	\N	5	Giftmischen	4	100	\N	\N	In	\N	2	16	13	\N
 5	\N	\N	5	Kampf in Schlachtreihe	4	50	\N	\N	\N	\N	\N	16	15	\N
 5	\N	\N	8	Geschenke machen	6	200	K	\N	pA	\N	\N	18	18	\N
 5	\N	\N	8	Meditieren	6	200	\N	\N	Wk	\N	\N	18	13	\N
@@ -143,7 +144,7 @@ COPY "fertigkeiten" FROM stdin;
 8	\N	\N	4	Katapult bedienen	4	100	\N	\N	Gs	\N	\N	16	16	\N
 8	\N	\N	5	Alchimie	4	100	\N	\N	In	\N	2	18	13	\N
 8	\N	\N	6	Thaumatographie	8	2000	\N	\N	In	\N	\N	16	13	\N
-8	\N	\N	8	Geschäftstüchtigkeit	6	2000	\N	\N	In	8	4	18	14	\N
+8	\N	\N	8	Geschäftstüchtigkeit	6	2000	\N	\N	In	\N	4	18	14	\N
 8	\N	\N	8	Kampftaktik	6	150	\N	\N	pA	5	\N	20	16	\N
 8	\N	\N	10	KiDo	10	800	K	\N	Zt	\N	\N	18	18	\N
 8	\N	\N	12	Lesen von Geisterschrift	6	20	K	\N	In	\N	\N	18	15	\N
@@ -179,7 +180,6 @@ COPY "fertigkeiten" FROM stdin;
 99	\N	\N	-1	Betäuben	\N	0	\N	\N	In	6	\N	20	16	\N
 99	\N	\N	2	Siebter Sinn	2	500	N	\N	\N	\N	\N	\N	\N	\N
 99	\N	\N	5	Dämonenkunde	4	100	N	\N	In	\N	\N	\N	\N	\N
-99	\N	\N	5	Giftmischen	4	100	\N	\N	In	5	2	16	13	\N
 99	\N	\N	5	Landeskunde	4	100	\N	\N	In	\N	2	16	13	2
 99	\N	\N	5	Wetterkunde	4	50	H&D	\N	In	\N	\N	16	14	\N
 99	\N	\N	10	Ballspiel	10	60	N	\N	Gw	\N	\N	\N	\N	\N

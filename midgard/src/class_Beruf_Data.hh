@@ -22,6 +22,7 @@ class Beruf_Data : public RowDataBase
 {
       int kat;
       std::string beruf,fert;
+      int wert;
       bool gelernte_fertigkeit;
 
       std::string kat_to_str(const int kat) const
@@ -36,11 +37,12 @@ class Beruf_Data : public RowDataBase
       Beruf_Data(const int _kat,
                  const std::string &_beruf,
                  const std::string &_fert,
+                 const int &_wert,
                  const bool _gelernte_fertigkeit)  
-         :kat(_kat),beruf(_beruf),fert(_fert),
+         :kat(_kat),beruf(_beruf),fert(_fert),wert(_wert),
             gelernte_fertigkeit(_gelernte_fertigkeit) {}
          
-      enum spalten{BERUF,GELERNT,FERT,KAT};
+      enum spalten{BERUF,GELERNT,FERT,WERT,KAT};
       
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
@@ -49,6 +51,7 @@ class Beruf_Data : public RowDataBase
             case KAT: return cH_EntryValueIntString(kat_to_str(kat));
             case BERUF: return cH_EntryValueIntString(beruf);
             case FERT: return cH_EntryValueIntString(fert);
+            case WERT: return cH_EntryValueIntString(wert);
             case GELERNT: {
                if(gelernte_fertigkeit) return cH_EntryValueIntString("*");
                else return cH_EntryValueIntString("");
@@ -59,6 +62,7 @@ class Beruf_Data : public RowDataBase
       int Kat() const {return kat;}
       std::string Beruf() const {return beruf;}
       std::string Fert() const {return fert;}
+      int Wert() const {return wert;}
       bool Gelernt() const {return gelernte_fertigkeit;}
 };
 class cH_Beruf_Data : public Handle<const Beruf_Data>

@@ -64,7 +64,6 @@ public:
 void table_ausruestung::init(midgard_CG *h)
 {
    hauptfenster=h;
-//   besitz=hauptfenster->getChar().getBesitz();
    zeige_werte();
    ausruestung_laden();
    table_gruppe->hide();
@@ -152,8 +151,8 @@ void table_ausruestung::on_button_modi_clicked()
 
 void table_ausruestung::showAusruestung()
 {
-//  if(besitz.empty()) 
-//      setStandardAusruestung();
+  if(hauptfenster->getChar().getBesitz().empty())
+      setStandardAusruestung(hauptfenster->getChar().getBesitz());
   std::vector<std::string> title;
   title.push_back("Titel");
   title.push_back("Material");

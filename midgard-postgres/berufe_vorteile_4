@@ -8,7 +8,8 @@ DROP TABLE "berufe_vorteile_4";
 
 CREATE TABLE "berufe_vorteile_4" (
 	"beruf" text,
-	"vorteil" text
+	"vorteil" text,
+	"wert" integer
 );
 
 --
@@ -17,154 +18,154 @@ CREATE TABLE "berufe_vorteile_4" (
 
 
 COPY "berufe_vorteile_4" FROM stdin;
-Akrobat	Akrobatik
-Akrobat	Balancieren
-Akrobat	Springen
-Alchimist	Alchimie
-Alchimist	Giftmischen
-Alchimist	Kräuterkunde
-Alchimist	Zauberkunde
-Arzt	Erste Hilfe
-Arzt	Heilkunde
-Arzt	Kräuterkunde
-Astrologe	Rechnen
-Astrologe	Sagenkunde
-Aufseher	Menschenkenntnis
-Barbier	Beredsamkeit
-Barbier	Menschenkenntnis
-Bauer	Pflanzenkunde
-Bauer	Tierkunde
-Bergmann	Baukunde
-Bergmann	Kampf in Dunkelheit
-Bettler	Gassenwissen
-Bettler	Geheimzeichen
-Bettler	Schauspielern
-Bettler	Verkleiden
-Bootsbauer	Rudern
-Bootsbauer	Steuern
-Bote	Laufen
-Bote	Reiten
-Brauer	Schmecken+10
-Brauer	Trinken
-Brenner	Schmecken+10
-Brenner	Trinken
-Dewadasi	Natya
-Dewadasi	Tanzen
-Dewadasi	Verführen
-Dieb	Gassenwissen
-Dieb	Geheimzeichen
-Dieb	Stehlen
-Dieb	Verbergen
-Einbrecher	Gassenwissen
-Einbrecher	Klettern
-Einbrecher	Schlösser öffnen
-Einbrecher	Winden
-Falkner	Abrichten
-Fallensteller	Fallenstellen
-Fallensteller	Spurenlesen
-Fischer	Rudern
-Fischer	Schwimmen
-Fischer	Seemannsgang
-Fischer	Steuern
-Flußschiffer	Rudern
-Flußschiffer	Schwimmen
-Flußschiffer	Seemannsgang
-Fuhrmann	Streitwagen lenken
-Fuhrmann	Wagenlenken
-Gaukler	Gassenwissen
-Gaukler	Gaukeln
-Gaukler	Stehlen
-Gaukler	Stimmen nachahmen
-Goldschmied	Schlösser öffnen
-Goldschmied	Schätzen
-Grobschmied	Athletik
-Hirte	Tierkunde
-Hirte	Überleben im Gebirge
-Hirte	Überleben im Wald
-Hirte	Überleben in der Steppe
-Hirte	Überleben in der Wüste
-Hundeführer	Abrichten
-Jäger	Fallenstellen
-Jäger	Schleichen
-Jäger	Spurenlesen
-Jäger	Tarnen
-Karawanenführer	Himmelskunde
-Karawanenführer	Landeskunde
-Karawanenführer	Reiten
-Karawanenführer	Überleben im Dschungel
-Karawanenführer	Überleben im Gebirge
-Karawanenführer	Überleben im Schnee
-Karawanenführer	Überleben im Sumpf
-Karawanenführer	Überleben im Wald
-Karawanenführer	Überleben in der Steppe
-Karawanenführer	Überleben in der Wüste
-Kaufmann	Beredsamkeit
-Kaufmann	Geschäftstüchtigkeit
-Kaufmann	Landeskunde (Heimat)
-Kaufmann	Rechnen
-Kaufmann	Schätzen
-Koch	Kräuterkunde
-Koch	Schmecken+10
-Krämer	Geschäftstüchtigkeit
-Krämer	Menschenkenntnis
-Kurtisane	Menschenkenntnis
-Kurtisane	Schauspielern
-Kurtisane	Verführen
-Köhler	Fallenstellen
-Köhler	Überleben im Sumpf
-Köhler	Überleben im Wald
-Musikant	Musizieren
-Musikant	Tanzen
-Märchenerzähler	Dichten
-Märchenerzähler	Erzählen
-Märchenerzähler	Sagenkunde
-Müller	Wagenlenken
-Räuber	Tarnen
-Sattler	Reiten
-Scharfrichter	Seilkunst
-Schlachter	Meucheln
-Schlangenbeschwörer	Musizieren
-Schlangenbeschwörer	Schlangen beschwören
-Schlosser	Schlösser öffnen
-Schmuggler	Rudern
-Schmuggler	Schleichen
-Schmuggler	Steuern
-Schreiber	Fälschen
-Schreiber	Schreiben
-Schreiber	Sprache
-Schreiner	Suchen
-Seemann	Klettern
-Seemann	Rudern
-Seemann	Seemannsgang
-Seiler	Seilkunst
-Sklavenhändler	Menschenkenntnis
-Srimahaut	Srimara lenken
-Stadtwache	Suchen
-Stadtwache	Verhören
-Steuermann	Himmelskunde
-Steuermann	Rechnen
-Steuermann	Seemannsgang
-Steuermann	Steuern
-Träger	Athletik
-Verwalter	Landeskunde (Heimat)
-Verwalter	Menschenkenntnis
-Verwalter	Rechnen
-Verwalter	Schreiben
-Vorarbeiter	Athletik
-Vorarbeiter	Menschenkenntnis
-Vorkoster	Giftmischen
-Vorkoster	Trinken
-Waffenschmied	Athletik
-Waffenschmied	Schätzen
-Wagner	Wagenlenken
-Waldarbeiter	Geländelauf
-Winzer	Schmecken+10
-Winzer	Trinken
-Wirt	Beredsamkeit
-Wirt	Menschenkenntnis
-Wundheiler	Erste Hilfe
-Zimmermann	Baukunde
-Zureiter	Abrichten
-Zureiter	Kampf zu Pferd
-Zureiter	Reiten
+Akrobat	Akrobatik	10
+Akrobat	Balancieren	10
+Akrobat	Springen	10
+Alchimist	Alchimie	4
+Alchimist	Giftmischen	4
+Alchimist	Kräuterkunde	4
+Alchimist	Zauberkunde	4
+Arzt	Erste Hilfe	8
+Arzt	Heilkunde	4
+Arzt	Kräuterkunde	4
+Astrologe	Rechnen	6
+Astrologe	Sagenkunde	4
+Aufseher	Menschenkenntnis	4
+Barbier	Beredsamkeit	6
+Barbier	Menschenkenntnis	4
+Bauer	Pflanzenkunde	4
+Bauer	Tierkunde	4
+Bergmann	Baukunde	4
+Bergmann	Kampf in Dunkelheit	2
+Bettler	Gassenwissen	4
+Bettler	Geheimzeichen	6
+Bettler	Schauspielern	6
+Bettler	Verkleiden	12
+Bootsbauer	Rudern	10
+Bootsbauer	Steuern	10
+Bote	Laufen	4
+Bote	Reiten	10
+Brauer	Schmecken+10	\N
+Brauer	Trinken	1
+Brenner	Schmecken+10	\N
+Brenner	Trinken	1
+Dewadasi	Natya	\N
+Dewadasi	Tanzen	10
+Dewadasi	Verführen	6
+Dieb	Gassenwissen	4
+Dieb	Geheimzeichen	6
+Dieb	Stehlen	8
+Dieb	Verbergen	6
+Einbrecher	Gassenwissen	4
+Einbrecher	Klettern	10
+Einbrecher	Schlösser öffnen	6
+Einbrecher	Winden	4
+Falkner	Abrichten	6
+Fallensteller	Fallenstellen	4
+Fallensteller	Spurenlesen	4
+Fischer	Rudern	10
+Fischer	Schwimmen	10
+Fischer	Seemannsgang	15
+Fischer	Steuern	10
+Flußschiffer	Rudern	10
+Flußschiffer	Schwimmen	10
+Flußschiffer	Seemannsgang	15
+Fuhrmann	Streitwagen lenken	10
+Fuhrmann	Wagenlenken	10
+Gaukler	Gassenwissen	4
+Gaukler	Gaukeln	8
+Gaukler	Stehlen	8
+Gaukler	Stimmen nachahmen	12
+Goldschmied	Schlösser öffnen	6
+Goldschmied	Schätzen	4
+Grobschmied	Athletik	4
+Hirte	Tierkunde	4
+Hirte	Überleben im Gebirge	6
+Hirte	Überleben im Wald	6
+Hirte	Überleben in der Steppe	6
+Hirte	Überleben in der Wüste	6
+Hundeführer	Abrichten	6
+Jäger	Fallenstellen	4
+Jäger	Schleichen	6
+Jäger	Spurenlesen	4
+Jäger	Tarnen	6
+Karawanenführer	Himmelskunde	4
+Karawanenführer	Landeskunde	4
+Karawanenführer	Reiten	10
+Karawanenführer	Überleben im Dschungel	6
+Karawanenführer	Überleben im Gebirge	6
+Karawanenführer	Überleben im Schnee	6
+Karawanenführer	Überleben im Sumpf	6
+Karawanenführer	Überleben im Wald	6
+Karawanenführer	Überleben in der Steppe	6
+Karawanenführer	Überleben in der Wüste	6
+Kaufmann	Beredsamkeit	6
+Kaufmann	Geschäftstüchtigkeit	6
+Kaufmann	Landeskunde (Heimat)	9
+Kaufmann	Rechnen	6
+Kaufmann	Schätzen	4
+Koch	Kräuterkunde	4
+Koch	Schmecken+10	\N
+Krämer	Geschäftstüchtigkeit	6
+Krämer	Menschenkenntnis	4
+Kurtisane	Menschenkenntnis	4
+Kurtisane	Schauspielern	6
+Kurtisane	Verführen	6
+Köhler	Fallenstellen	4
+Köhler	Überleben im Sumpf	6
+Köhler	Überleben im Wald	6
+Musikant	Musizieren	8
+Musikant	Tanzen	10
+Märchenerzähler	Dichten	8
+Märchenerzähler	Erzählen	8
+Märchenerzähler	Sagenkunde	4
+Müller	Wagenlenken	10
+Räuber	Tarnen	6
+Sattler	Reiten	10
+Scharfrichter	Seilkunst	6
+Schlachter	Meucheln	6
+Schlangenbeschwörer	Musizieren	8
+Schlangenbeschwörer	Schlangen beschwören	8
+Schlosser	Schlösser öffnen	6
+Schmuggler	Rudern	10
+Schmuggler	Schleichen	6
+Schmuggler	Steuern	10
+Schreiber	Fälschen	12
+Schreiber	Schreiben	4
+Schreiber	Sprache	4
+Schreiner	Suchen	6
+Seemann	Klettern	10
+Seemann	Rudern	10
+Seemann	Seemannsgang	15
+Seiler	Seilkunst	6
+Sklavenhändler	Menschenkenntnis	4
+Srimahaut	Srimara lenken	12
+Stadtwache	Suchen	6
+Stadtwache	Verhören	6
+Steuermann	Himmelskunde	4
+Steuermann	Rechnen	6
+Steuermann	Seemannsgang	15
+Steuermann	Steuern	10
+Träger	Athletik	4
+Verwalter	Landeskunde (Heimat)	9
+Verwalter	Menschenkenntnis	4
+Verwalter	Rechnen	6
+Verwalter	Schreiben	4
+Vorarbeiter	Athletik	4
+Vorarbeiter	Menschenkenntnis	4
+Vorkoster	Giftmischen	4
+Vorkoster	Trinken	1
+Waffenschmied	Athletik	4
+Waffenschmied	Schätzen	4
+Wagner	Wagenlenken	10
+Waldarbeiter	Geländelauf	10
+Winzer	Schmecken+10	\N
+Winzer	Trinken	1
+Wirt	Beredsamkeit	6
+Wirt	Menschenkenntnis	4
+Wundheiler	Erste Hilfe	6
+Zimmermann	Baukunde	4
+Zureiter	Abrichten	6
+Zureiter	Kampf zu Pferd	10
+Zureiter	Reiten	10
 \.

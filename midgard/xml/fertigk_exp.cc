@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.41 2002/07/11 10:41:05 christof Exp $
+// $Id: fertigk_exp.cc,v 1.42 2002/08/15 15:03:50 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -330,13 +330,15 @@ void fert_speichern(Tag &o)
          Beruf.push_back(staende);
    }
    {  Query query2(
-   		"select vorteil from berufe_vorteile" MIDGARD3_4("","_4")
+   		"select vorteil,wert from berufe_vorteile" MIDGARD3_4("","_4")
    		" where beruf='"+beruf
       		+"' order by vorteil");
       FetchIStream is2;
       Tag vorteile("Vorteil");
       while ((query2>>is2).good())
-      {  vorteile.push_back(Tag("Fertigkeit")).setAttr("Name",fetch_string(is2));
+      {  Tag &F=vorteile.push_back(Tag("Fertigkeit"));
+         fetch_and_set_string_attrib(is2,F,"Name");
+         fetch_and_set_int_attrib(is2,F,"Wert");
       }
       if (vorteile.begin()!=vorteile.end())
          Beruf.push_back(vorteile);

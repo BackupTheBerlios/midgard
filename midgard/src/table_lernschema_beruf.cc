@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.7 2002/06/26 14:01:18 christof Exp $
+// $Id: table_lernschema_beruf.cc,v 1.8 2002/08/15 15:01:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -95,12 +95,13 @@ void table_lernschema::showBerufsLernList()
 {
   clean_lernschema_trees();
 
-  Beruf_tree = manage(new SimpleTree(4,4));
+  Beruf_tree = manage(new SimpleTree(5,5));
   Beruf_tree->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_beruf_tree_leaf_selected));
   std::vector<std::string> beruf;
   beruf.push_back("Beruf"); 
   beruf.push_back("Gelernt"); 
   beruf.push_back("Fertigkeit");
+  beruf.push_back("Erfolgswert");
   beruf.push_back("Kategorie"); 
   Beruf_tree->setTitles(beruf);       
 
@@ -124,19 +125,19 @@ void table_lernschema::showBerufsLernList()
   for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
     {
       cH_Beruf b(*i);
-      std::vector<string> fert=b->Vorteile();
-      for(std::vector<string>::const_iterator j=fert.begin();j!=fert.end();++j)
+      std::vector<Beruf::st_vorteil> fert=b->Vorteile();
+      for(std::vector<Beruf::st_vorteil>::const_iterator j=fert.begin();j!=fert.end();++j)
        {
          int kat;
-         if(*j=="Schmecken+10") kat=1;
-         else kat=cH_Fertigkeit(*j)->Berufskategorie();
+         if(j->name=="Schmecken+10") kat=1;
+         else kat=cH_Fertigkeit(j->name)->Berufskategorie();
          if( (kat==1 && BKategorie.kat_I)   || (kat==2 && BKategorie.kat_II) ||
              (kat==3 && BKategorie.kat_III) || (kat==4 && BKategorie.kat_IV ) )
            {
-             if(*j!="Schmecken+10" && MidgardBasicElement_mutable(&*cH_Fertigkeit(*j)).ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))
+             if(j->name!="Schmecken+10" && MidgardBasicElement_mutable(&*cH_Fertigkeit(j->name)).ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))
                   gelerntes=true;
              else gelerntes=false;
-             datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,gelerntes));
+             datavec.push_back(new Beruf_Data(kat,(*i)->Name(),j->name,j->wert,gelerntes));
            }
        }
     }
@@ -213,6 +214,7 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
          cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(dt->Fert()));
          MidgardBasicElement_mutable MBE(cMBE);
          MBE.setLernArt("Beruf");
+         MBE.setErfolgswert(dt->Wert());
          if(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp())) 
               lernen_zusatz(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()),MBE);
          if(MBE->Name()!="Landeskunde (Heimat)")

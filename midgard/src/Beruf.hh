@@ -36,10 +36,13 @@ class BerufsKategorie
 
 class Beruf : public MidgardBasicElement
 {
+   public:
+      struct st_vorteil{std::string name;int wert;
+             st_vorteil(std::string n,int w) : name(n),wert(w) {}};
    private:
       std::string geschlecht; 
       int klasse;
-      vector<std::string> vorteile;
+      std::vector<st_vorteil> vorteile;
       bool u,v,m,a,typ_k,typ_z,stadt,land;
       
      void get_Beruf();      
@@ -56,8 +59,8 @@ class Beruf : public MidgardBasicElement
      bool Land() const {return land;}
      bool Stadt() const {return stadt;}
 
-     std::vector<string> Vorteile() const {return vorteile;}
-     std::string Beruf::get_Vorteile() const;
+     std::vector<st_vorteil> Vorteile() const {return vorteile;}
+//     std::string Beruf::get_Vorteile() const;
      int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 

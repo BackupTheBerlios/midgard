@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.53 2002/07/19 13:04:16 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.54 2002/08/15 15:01:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -371,7 +371,7 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
      case ealter:sfout += itos(W.Alter()); break ;
      case egewicht:sfout += itos(W.Gewicht())+ "\\,kg"; break ;
      case egestalt:sfout += LaTeX_scale(W.Gestalt(),5,"0.7cm"); break ;
-     case ekoerpergroesse:sfout += LaTeX_scale(dtos(W.Groesse()/100.)+ "\\,m " + W.GroesseBez(),7,"0.8cm"); break ;
+     case ekoerpergroesse:sfout += LaTeX_scale(dtos(W.Groesse()/100.)+ "\\,m~\\scriptsize(" + W.GroesseBez()+")",7,"0.8cm"); break ;
      case egrad:sfout += itos(W.Grad()); break ;
      case espezialisierung:sfout += LaTeX_scale(W.Spezialisierung(),10,"2.2cm") ; break ;
      case estand:sfout += LaTeX_scale(W.Stand(),10,"1.5cm"); break ;
@@ -452,15 +452,15 @@ void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MidgardBasi
 
      if(!longlist) fout << "\\newcommand{\\praxis"<<a<<"}";
      else fout << " & ";
-     fout <<"{"  << itos0((*i).Praxispunkte()) << "}   ";
+     fout <<"{"  << itos0p((*i).Praxispunkte()) << "}   ";
 
      std::string wert;
      if((*i)->What()==MidgardBasicElement::FERTIGKEIT)
-       wert=itos0(cH_Fertigkeit(*i)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i));
+       wert=itos0p(cH_Fertigkeit(*i)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i),0,true);
      else if((*i)->What()==MidgardBasicElement::FERTIGKEIT_ANG)
-       wert=itos0(cH_Fertigkeit_angeborene(*i)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i));
+       wert=itos0p(cH_Fertigkeit_angeborene(*i)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i),0,true);
      else if((*i)->What()==MidgardBasicElement::WAFFE)
-       wert=itos0(i->Erfolgswert());
+       wert=itos0p(i->Erfolgswert(),0,true);
      if(!longlist) fout << "\\newcommand{\\wert"<<a<<"}";
      else fout << " & ";
      fout << "{"  <<wert<< "}";

@@ -70,21 +70,22 @@ void Beruf::get_Beruf()
     const Tag *Vorteil=tag->find("Vorteil");
     if (Vorteil)
        FOR_EACH_CONST_TAG_OF(i,*Vorteil,"Fertigkeit")
-          vorteile.push_back(i->getAttr("Name"));
+          vorteile.push_back(st_vorteil(i->getAttr("Name"),i->getIntAttr("Wert")));
 }
 
 
+/*
 std::string Beruf::get_Vorteile() const
 {
   std::string s;
-  for(vector<std::string>::const_iterator i=vorteile.begin();i!=vorteile.end();++i)
+  for(vector<st_vorteil>::const_iterator i=vorteile.begin();i!=vorteile.end();++i)
    {  
      s+= (*i);
      if(i+1!=vorteile.end()) s+=", ";
    }
   return s;
 }
-
+*/
 
 bool Beruf::Stand(const std::string& stand) const
 {

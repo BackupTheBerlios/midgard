@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.12 2002/07/19 08:10:50 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.13 2002/08/15 15:01:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,7 +52,7 @@ class LaTeX_drucken
          eWaffen,eSprachen,eSchriften,eBeruf,eMAX};
     static const unsigned int maxsprach=23;
     static const unsigned int maxfert=40;
-    static const unsigned int maxwaffen=9;
+    static const unsigned int maxwaffen=12;
     static const unsigned int maxunifert=48;
    
     const midgard_CG *hauptfenster;

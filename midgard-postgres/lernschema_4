@@ -1241,6 +1241,7 @@ COPY "lernschema_4" FROM stdin;
 2	gHx	f	Kräuterkunde	Fachkenntnisse	5
 2	gHx	f	Macht über das Selbst	Zauberkünste	0
 2	gHx	f	Verbergen	Fachkenntnisse	8
+2	gHx	f	Zauberkunde	Fachkenntnisse	5
 2	sHx	f	Anziehen	Zauberkünste	0
 2	sHx	f	Dolch	Waffenfertigkeiten	4
 2	sHx	f	Dämonische Zaubermacht	Zauberkünste	0
@@ -1249,6 +1250,7 @@ COPY "lernschema_4" FROM stdin;
 2	sHx	f	Kräuterkunde	Fachkenntnisse	5
 2	sHx	f	Macht über das Selbst	Zauberkünste	0
 2	sHx	f	Verbergen	Fachkenntnisse	8
+2	sHx	f	Zauberkunde	Fachkenntnisse	5
 2	wHx	f	Anziehen	Zauberkünste	0
 2	wHx	f	Dolch	Waffenfertigkeiten	4
 2	wHx	f	Gassenwissen	Fachkenntnisse	5
@@ -1257,6 +1259,7 @@ COPY "lernschema_4" FROM stdin;
 2	wHx	f	Kräuterkunde	Fachkenntnisse	5
 2	wHx	f	Macht über das Selbst	Zauberkünste	0
 2	wHx	f	Verbergen	Fachkenntnisse	8
+2	wHx	f	Zauberkunde	Fachkenntnisse	5
 3	As	f	Anderthalbhänder	Waffenfertigkeiten	5
 3	As	f	Bihänder	Waffenfertigkeiten	5
 3	As	f	Buckler	Waffenfertigkeiten	1

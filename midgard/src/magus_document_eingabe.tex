@@ -172,11 +172,11 @@ Berufe&{\beruf}\\\hline
 Sehen          & \sinnse     &Ausdauer      & \boau  &Raufen        & \raufen & \\
 Hören          & \sinnh      &Schaden       & \bosc  &Abwehr        & \abwehr & \ppabwehr \\
 Riechen        & \sinnr      &Angriff       & \boan  &Zaubern       & \zauber & \ppzauber \\
-Schmecken      & \sinnsc     &Abwehr        & \boab  &Resistenz     & \res    & \ppresistenz \\
-Tasten         & \sinnt      &Zaubern       & \boza  &Geistesmagie  & \psy    & \\
-Sechster Sinn  & \sinnss     &Geistmagie    & \bopsy &Körpermagie   & \phs    & \\
-               &             &Körpermagie   & \bophs &Umgebungsmagie& \phk    & \\
-\multicolumn{2}{|l|}{\hand}  &Umgebungsmagie& \bophk &Gift          & \gift   & \\\hline
+Schmecken      & \sinnsc     &Abwehr        & \boab  &Gift          & \gift   & \\
+Tasten         & \sinnt      &Zaubern       & \boza  &Resistenz     & \res    & \ppresistenz \\
+Sechster Sinn  & \sinnss     &Geistesmagie  & \bopsy &Geistesmagie  & \psy    & \\
+               &             &Körpermagie   & \bophs &Körpermagie   & \phs    & \\
+\multicolumn{2}{|l|}{\hand}  &Umgebungsmagie& \bophk &Umgebungsmagie& \phk    & \\\hline
 \end{tabular}
 }
 \hfill
@@ -198,7 +198,7 @@ Sechster Sinn  & \sinnss     &Geistmagie    & \bopsy &Körpermagie   & \phs    & 
 \scriptsize
 \begin{tabular}{|c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c|c|c|c|} \hline
 Datum\hspace*{2.5em}&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
-&{\gfp}&{\aep}&{\kep}&{\zep}&{\gold}\\\hline
+&{\gfp}&{\kep}&{\zep}&{\aep}&{\gold}\\\hline
 &&&&&\\\hline
 &&&&&\\\hline
 &&&&&\\\hline
@@ -304,11 +304,14 @@ Sprache&Wert&Schrift\\\hline\hline
 \hspace{2ex}
 %\fbox{
 \begin{minipage}[t]{7.5cm}
-\small
+%\small
+\scriptsize
 \setlength{\tabcolsep}{0.3em}
     \begin{tabular}[t]{||p{3.1cm}|c|c||}\hline\hline
-      \raisebox{-1ex}[2ex][0ex]{\LARGE Waffe}&\normalsize Erfolgswert&\footnotesize Waffenrang\\\cline{2-3}
-      \raisebox{-0.2ex}[1ex][0.2ex]{\footnotesize (Reichweite)}&\normalsize\raisebox{-0.2ex}[1ex][0.2ex]{Schaden}&\footnotesize Abwehrmod.\\\hline\hline\hline
+%      \raisebox{-1ex}[2ex][0ex]{\LARGE Waffe}&\normalsize Erfolgswert&\footnotesize Waffenrang\\\cline{2-3}
+      \normalsize Waffe &\normalsize Erfolgswert&\footnotesize Waffenrang\\\cline{2-3}
+%      \raisebox{-0.2ex}[1ex][0.2ex]{\footnotesize (Reichweite)}&\normalsize\raisebox{-0.2ex}[1ex][0.2ex]{Schaden}&\footnotesize Abwehrmod.\\\hline\hline\hline
+      \scriptsize (Reichweite)&\normalsize\raisebox{-0.2ex}[1ex][0.2ex]{Schaden}&\footnotesize Abwehrmod.\\\hline\hline\hline
       &{\waffeEa}&{\waffeAa}\\\cline{2-3}
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffea}}}&{\waffeSa}&{\waffeVa}\\\hline\hline
       &{\waffeEb}&{\waffeAb}\\\cline{2-3}
@@ -327,6 +330,12 @@ Sprache&Wert&Schrift\\\hline\hline
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffeh}}}&{\waffeSh}&{\waffeVh}\\\hline\hline
       &{\waffeEi}&{\waffeAi}\\\cline{2-3}
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffei}}}&{\waffeSi}&{\waffeVi}\\\hline\hline
+      &{\waffeEj}&{\waffeAj}\\\cline{2-3}
+      \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffej}}}&{\waffeSj}&{\waffeVj}\\\hline\hline
+      &{\waffeEk}&{\waffeAk}\\\cline{2-3}
+      \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffek}}}&{\waffeSk}&{\waffeVk}\\\hline\hline
+      &{\waffeEl}&{\waffeAl}\\\cline{2-3}
+      \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffel}}}&{\waffeSl}&{\waffeVl}\\\hline\hline
     \end{tabular}
 
 \vspace{1ex}
@@ -349,10 +358,11 @@ Sprache&Wert&Schrift\\\hline\hline
 % \vspace*{2ex}
 
 \vspace{-2.5ex}
- \footnotesize
+\scalebox{0.7}{
 \parbox{7.7cm}
 {
-{\setlength{\tabcolsep}{0.2em}\renewcommand{\arraystretch}{0.8}
+ \footnotesize
+\setlength{\tabcolsep}{0.2em}\renewcommand{\arraystretch}{0.8}
     \begin{tabular}[b]{l|l|l|l|l|l|l}
       \multicolumn{4}{l}{\small Grundkenntnisse in}\\\cline{2-2}\cline{4-4}\cline{6-6}   
       Einhandschwert     &\makebox[1ex]{\usebox{\Einhandschwert}} & Stichwaffe  &\makebox[1ex]{\usebox{\Stichwaffe}}                & Armbrust    &\makebox[1ex]{\usebox{\Armbrust}}                   \\\cline{2-2}\cline{4-4}\cline{6-6}   
@@ -362,9 +372,9 @@ Sprache&Wert&Schrift\\\hline\hline
       Kampf ohne Waffen  &\usebox{\KampfohneWaffen}               & Zauberstäbe &\usebox{\Zauberstaebe}              & Wurfspieß   &\makebox[1ex]{\usebox{\Wurfspiess}}  \\\cline{2-2}\cline{4-4}\cline{6-6}
       Stangenwaffe       &\usebox{\Stangenwaffe}                  & Schild      &\usebox{\Schild}                  \\\cline{2-2}\cline{4-4}
       Stielwurfwaffe     &\usebox{\Stielwurfwaffe}                & Parierwaffe &\usebox{\Parierwaffe}             \\\cline{2-2}\cline{4-4}
-    \end{tabular}}                                    
+    \end{tabular}
 }
-
+}
 \vspace{1.5ex}
 %\vfill
 \parbox{7.5cm}
@@ -372,7 +382,7 @@ Sprache&Wert&Schrift\\\hline\hline
 \tiny
 \begin{tabular}{|lrlrlr|}
 \hline
-\multicolumn{6}{|c|}{\footnotesize Universelle Fertigkeiten}\\\hline
+\multicolumn{6}{|c|}{\footnotesize Ungelernte Fertigkeiten}\\\hline
 \unia  & \uniwa  & \uniq  & \uniwq  & \uniag & \uniwag\\
 \unib  & \uniwb  & \unir  & \uniwr  & \uniah & \uniwah\\
 \unic  & \uniwc  & \unis  & \uniws  & \uniai & \uniwai\\

@@ -5,11 +5,45 @@ NEWS IN VERSION 0.7.7
 * Laden mehrerer Abenteurer wieder möglich
 * Ausdruck von erhöter Begegungsweite aufgrund von 'Laufen'
 
+
 TODO: ('-' zeigt CP an)
+*  Bei der Berufswahl: Schreiber (zuvor wurde bereits Fachkenntnis
+ Schreiben:Muttersprache ausgewählt) wird nur ganz allgemein "Schreiben"
+ angezeigt jedoch nicht näher spezifiziert was geschrieben werden kann. Hier
+ sollte Schreiben:Muttersprache+12 stehen. Nach dem ich also "Schreiben"
+ ausgewählt hatte wurden mir "alte" und "neue" Sprachen angezeigt nur die
+ MUTTERSPRACHE fehlte (eventuell, weil diese schon zuvor gelernt wurde?). Des
+ weiteren wurde die gewählte Sprache nur mit EW+4 statt mit +12 eingetragen.
+ Hier liegt ein Fehler vor. Wie für andere Berufsfertigkeiten auch sollte es
+ möglich sein eine Sprache bzw. die Muttersprache hier noch einmal
+ auszuwählen um den EW um einen Punkt zu erhöhen.
+* Bei der Auswahl von "Alten Sprachen" ist mir Folgendes aufgefallen: wird
+> nicht zuerst "Sprechen:Alte Sprache" ausgewählt, sondern "Schreiben:Alte
+> Sprache", so erscheinen hier die "neuen" Sprachen im Auswahlfenster. Es gibt
+> ein Riesenchaos, wenn nun eine von diesen ausgewählt wird. Ungünstig ist
+> hierbei, das "Schreiben:Alte Sprache in der Liste vor "Sprechen: Alte
+> Sprache" im Auswahlfenster angezeigt wird. Da ist man schnell geneigt zuerst
+> auf das obere zu klicken. Ich denke, da es kostenlose Fertigkeiten sind wird
+> sowieso jeder Priester diese Fertigkeiten auswählen. Daher mein Vorschlag:
+> WÄre es nicht möglich im Auswahlfenster erstmal nur "Sprechen:Alte Sprache"
+> anzuzeigen und nach der Auswahl der entsprechenden Sprachen, dann
+> "Schreiben:Alte Sprache" für die entsprechende Sprache einfach
+> miteinzutragen oder dann erst auswählbar zu machen?
+* Und wenn ich diese Sprache
+> später lerne zählt immer der höhere EW als Startwert für Sprechen:Sprache;
+> zum Beispiel mein EW+10 Erainnisch statt dem in der Tabelle 5.1 angegebenen
+> Startwert von +4 für neuerworbene Fremdsprachen.
+* Schreiben im Spielleiterexport
+* Automatische Sprachen im Spielleiterexport
+* 8. Vorschlag: wäre es möglich die GFP-Liste zu verkleinern und dafür die
+  sehr unleserlichen, weil in sehr kleiner Schriftgröße aufgeführten Sinne und
+  Resistenzwerte etwas zu vergrößern?
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
 * Laufen =B+Laufen-2
+* Ausrüstungsauswahl stürzt ab
+* Graphik in Beschreibung
 - dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
