@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.7 2003/09/01 06:47:57 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.8 2003/09/18 07:32:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -527,10 +527,10 @@ void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,c
         int wert = (*i)->Erfolgswert()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
         swert=itos(wert);
       }
-     else  // Erfolgswert für Angriffswaffen
+     else  // Erfolgswert fÃ¼r Angriffswaffen
       {
         int wert = (*i)->Erfolgswert()+A.bo_An()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
-        // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
+        // Angriffsbonus subtrahieren, wenn schwere RÃ¼stung getragen wird:
         swert = itos(wert)+angriffsverlust;
       }
      std::string schaden=(*i)->Schaden(A,(*i)->AliasName());
@@ -543,7 +543,7 @@ void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,c
         grund_ist_gelernt=MBEmlt(&*cH_WaffeGrund((*i)->Waffe()->ZweiteGrundkenntnis()))
            ->ist_gelernt(A.List_WaffenGrund());
                     
-     if(text.find("Einhändig")!=std::string::npos)
+     if(text.find("EinhÃ¤ndig")!=std::string::npos)
       { if(!(*i)->Waffe()->Min_St_Einhand(A)) text="";
         if(!grund_ist_gelernt) text="";
       }

@@ -52,7 +52,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
   if(full)
   {  fout <<  W.Gewicht()+ "kg, "<<W.Hand()<<'\n'
           <<  W.Herkunft()->Name()<<", "<<W.Spezialisierung()<<'\n'
-          <<  "Göttliche Gnade: "<<W.GG()<<", Schicksalsgunst: "<<W.SG()<<'\n'
+          <<  "GÃ¶ttliche Gnade: "<<W.GG()<<", Schicksalsgunst: "<<W.SG()<<'\n'
           <<  "GFP: "<<W.GFP()<<", AEP: "<<W.AEP()<<", KEP: "<<W.KEP()<<", ZEP:"<<W.ZEP()<<'\n';
   }
                                              
@@ -85,8 +85,8 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
      else if(W.bo_Za()<0) boni+="ZauB" +itos(W.bo_Za())+", ";
      if     (W.bo_Psy()>0) boni+="GeistB+"+itos(W.bo_Psy())+", ";
      else if(W.bo_Psy()<0) boni+="GeistB" +itos(W.bo_Psy())+", ";
-     if     (W.bo_Phs()>0) boni+="KörperB+"+itos(W.bo_Phs())+", ";
-     else if(W.bo_Phs()<0) boni+="KörperB" +itos(W.bo_Phs())+", ";
+     if     (W.bo_Phs()>0) boni+="KÃ¶rperB+"+itos(W.bo_Phs())+", ";
+     else if(W.bo_Phs()<0) boni+="KÃ¶rperB" +itos(W.bo_Phs())+", ";
      if     (W.bo_Phk()>0) boni+="UmgebungB+"+itos(W.bo_Phk())+", ";
      else if(W.bo_Phk()<0) boni+="UmgebungB" +itos(W.bo_Phk())+", ";
    }
@@ -208,9 +208,9 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
   }
 
  fout << W.Beschreibung()<<'\n';
-  if(!full)  Ausgabe(Ausgabe::Log,"Datei '"+dateiname+"' enthält nun die Daten des "
-                       "Abenteurers im Format für Midgard Publikationen");
-  else Ausgabe(Ausgabe::Log,"Datei '"+dateiname+"' enthält nun die kompletten Daten des "
+  if(!full)  Ausgabe(Ausgabe::Log,"Datei '"+dateiname+"' enthÃ¤lt nun die Daten des "
+                       "Abenteurers im Format fÃ¼r Midgard Publikationen");
+  else Ausgabe(Ausgabe::Log,"Datei '"+dateiname+"' enthÃ¤lt nun die kompletten Daten des "
                    "Abenteurers");
 }
 

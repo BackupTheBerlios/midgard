@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.7 2003/09/01 06:47:57 christof Exp $
+// $Id: LernListen.hh,v 1.8 2003/09/18 07:32:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -28,7 +28,7 @@ class H_WaffeBesitz;
 #include "Beruf.hh"
 #include "Enums.hh"
 
-// könnte jetzt Namespace werden
+// kÃ¶nnte jetzt Namespace werden
 
 struct LernListen
 {
@@ -66,7 +66,7 @@ public:
                      int lernpunkte=0,std::string lernart="") const;
 
       std::list<MBEmlt> get_steigern_MBEm(const Abenteurer& A,Enums::MBEListen was) const;
-      // beschwörung ... ist das nicht eine Region?
+      // beschwÃ¶rung ... ist das nicht eine Region?
       std::list<MBEmlt> get_steigern_Zauberliste(const Abenteurer& A,
             bool salz,bool beschwoerung, bool alle,bool spruchrolle) const;
       std::list<MBEmlt> get_steigern_ZauberWerkliste(const Abenteurer& A,

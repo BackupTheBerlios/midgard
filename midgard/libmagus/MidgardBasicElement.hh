@@ -43,7 +43,7 @@ class H_MidgardBasicElement_mutable;
   
 typedef H_MidgardBasicElement_mutable MBEmlt;
   
-// dies ist eine erlernbare Fertigkeit, d.h. losgelöst von einem Abenteurer
+// dies ist eine erlernbare Fertigkeit, d.h. losgelÃ¶st von einem Abenteurer
 class MidgardBasicElement : public HandleContent
 {
    protected:
@@ -66,7 +66,7 @@ class MidgardBasicElement : public HandleContent
                :name(n),erlaubt(e),typ(t),region(r),region_zusatz(rz),long_region(lr) {}};
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP, EP_t_undefined };
    protected:
-//	const Tag *tag; // später weg
+//	const Tag *tag; // spÃ¤ter weg
       std::string name, region,region_zusatz;
       int kosten;
       mutable int anfangswert;

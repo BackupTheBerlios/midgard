@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.7 2003/09/08 06:27:52 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.8 2003/09/18 07:32:12 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -32,7 +32,7 @@ class VAbenteurer : public SigC::Object // um signale zu empfangen
 {
    public:
       struct st_abenteurer : VAbentModelProxy::divert_base
-      {			// für Undo wichtig (mehrfach vorhanden)
+      {			// fÃ¼r Undo wichtig (mehrfach vorhanden)
       			    Abenteurer abenteurer;
        			    AbenteurerLernpunkte ab_lp;
        			    Wizard wizard;

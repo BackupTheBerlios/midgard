@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.6 2003/09/01 06:47:57 christof Exp $
+// $Id: Preise.hh,v 1.7 2003/09/18 07:32:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -105,7 +105,7 @@ bool operator!=(const cH_Preise &a, const std::string &b);
 
 ///////////////////////////////////
 
-// vielleicht wieder in PreiseMod zurückbenennen
+// vielleicht wieder in PreiseMod zurÃ¼ckbenennen
 class PreiseNewMod :  public HandleContent
 {
    public: 

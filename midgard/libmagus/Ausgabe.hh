@@ -1,4 +1,4 @@
-// $Id: Ausgabe.hh,v 1.3 2003/09/01 06:47:57 christof Exp $
+// $Id: Ausgabe.hh,v 1.4 2003/09/18 07:32:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -22,7 +22,7 @@
 
 #include <string>
 
-// grundsätzlich in UTF-8 codiert
+// grundsÃ¤tzlich in UTF-8 codiert
 
 struct Ausgabe
 {	enum Level { Debug, Log, Warning, ActionNeeded, Error, Fatal, MaxLevel };
@@ -30,7 +30,7 @@ struct Ausgabe
 	typedef void Ausgabe_cb(Level l,const std::string &text);
 	static void set(Ausgabe_cb *cb=0);
 	Ausgabe(Level l,const std::string &text);
-	// für den Standard-callback
+	// fÃ¼r den Standard-callback
 	static void setLogLevel(Level l);
 };
 

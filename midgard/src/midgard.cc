@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.60 2003/09/16 08:00:08 christof Exp $
+// $Id: midgard.cc,v 1.61 2003/09/18 07:32:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
    for (int i=1;i<argc;++i) dateien.push_back(argv[i]);
 
 //   setlocale(LC_ALL, "de_DE");
-   // WindowInfo erzeugen und an midgard_CG übergeben
+   // WindowInfo erzeugen und an midgard_CG Ã¼bergeben
    midgard_CG *magus=new midgard_CG(dateien);
    m.run(*magus);
    delete magus;

@@ -16,6 +16,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#undef libmagus_COMPILATION
 #include "Datenbank.hh"
 #include "magustrace.h"
 #include <Misc/Trace.h>

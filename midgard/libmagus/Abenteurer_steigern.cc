@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.9 2003/09/01 06:47:57 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.10 2003/09/18 07:32:12 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -360,12 +360,12 @@ int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
   int gold_k = gold_kosten(kosten);
   if( !bool_steigern.HausG1 ) gold_k*=10;
 
-  std::pair<int,bool> gestu=Erfolgswert("Geschäftstüchtigkeit");
+  std::pair<int,bool> gestu=Erfolgswert("GeschÃ¤ftstÃ¼chtigkeit");
   if(gestu.second)
    {
       int iw=Random::W20();
       int erg=gestu.first+iw;
-      Ausgabe(Ausgabe::Log,"EW:Geschäftstüchtigkeit = "+itos(gestu.first)+"+"+itos(iw)
+      Ausgabe(Ausgabe::Log,"EW:GeschÃ¤ftstÃ¼chtigkeit = "+itos(gestu.first)+"+"+itos(iw)
                +"="+itos(erg));
       int gold_gespart = int(gold_k*0.9);
       if(erg>=20) Ausgabe(Ausgabe::Log," => "+itos(gold_gespart)+" Gold gespart");

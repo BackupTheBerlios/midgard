@@ -62,7 +62,7 @@ cH_Zauber::cH_Zauber(const std::string& name, bool create)
      t2.setAttr("Wirkungsziel","?");
      t2.setAttr("Wirkungsbereich","?");
      // Wirkungsdauer, Reichweite ???
-     *this=new Zauber(t2); // und wie fügen wir den der Liste zu?
+     *this=new Zauber(t2); // und wie fÃ¼gen wir den der Liste zu?
   }
   else throw NotFound(name);
   }

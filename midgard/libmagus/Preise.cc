@@ -153,7 +153,7 @@ void PreiseNewMod_All::load(std::vector<cH_PreiseNewMod> &list,const Tag &t)
 // use this tag to determine whether this is a user defined item
 //Tag Preise::Tag_eigene_Artikel("Dinge");
 
-// wieso wird Filename völlig ignoriert? CP
+// wieso wird Filename vÃ¶llig ignoriert? CP
 
 void Preise::saveArtikel(const std::string &Filename,
      const std::string &art,const std::string &art2,

@@ -36,7 +36,7 @@ class Zauberwerk : public MidgardBasicElement
           st_vor(){};
           st_vor(std::string v,std::string o) 
                : voraussetzung(v),op(o){} };
-   std::vector<st_vor> vec_vor; // Zaubersprüche
+   std::vector<st_vor> vec_vor; // ZaubersprÃ¼che
    std::vector<st_vor> vec_vorF; // Fertigkeiten
 
    void getVoraussetzungen(const Tag &t);

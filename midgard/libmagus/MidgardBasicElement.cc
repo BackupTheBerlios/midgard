@@ -235,7 +235,7 @@ void MidgardBasicElement::get_map_typ()
  {  if (!kido.get()) kido.reset(new cH_Fertigkeit("KiDo"));
     map_typ=(*kido)->map_typ;
  }
- else assert(!"get_map_typ mit merkwürdigem Typ");
+ else assert(!"get_map_typ mit merkwÃ¼rdigem Typ");
 }
  
 

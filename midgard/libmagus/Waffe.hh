@@ -93,7 +93,7 @@ class Waffe : public MidgardBasicElement
      int MaxErfolgswert(const Abenteurer &A) const; 
      bool Min_St_Einhand(const Grundwerte &A) const;
 
-     // besser w‰re noch <std::string,cH_Waffe>
+     // besser w√§re noch <std::string,cH_Waffe>
      static std::map<std::string,std::string> Waffe_from_Alias;
      static void fill_map_alias_waffe(const Tag &t);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,

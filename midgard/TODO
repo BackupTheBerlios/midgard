@@ -60,3 +60,17 @@ use StyleIcon for new Icons
 	exclusive (midgard+je haus)
 
 - Preise und Lernschema sind Regionenäbhangig ...
+
+- DLL decorations:
+
+#ifdef __MINGW32__
+#if defined(libmagus_COMPILATION) && defined(DLL_EXPORT)
+#define LIBMAGUS_API __declspec(dllexport) 
+#elif !defined(libmagus_COMPILATION)
+#define LIBMAGUS_API __declspec(dllimport)
+#else
+#define LIBMAGUS_API
+#endif /* libmagus_COMPILATION - DLL_EXPORT */
+#else
+#define LIBMAGUS_API
+#endif /* __MINGW32__ */

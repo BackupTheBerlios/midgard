@@ -1,9 +1,22 @@
-# $Id: Makefile.am,v 1.39 2003/09/17 07:44:31 christof Exp $
+# $Id: Makefile.am,v 1.40 2003/09/18 07:32:12 christof Exp $
+
+if WINDOWS
+PORT_FILES=registry.cc TeX.cc
+WIN_LDFLAGS=-no-undefined -export-symbols libmagus.def
+DLL_LDADD=@COMMONXX_LIBS@ @SIGC_LIBS@ libmagus_res.lo
+else
+PORT_FILES=
+WIN_LDFLAGS=
+DLL_LDADD=
+endif
+
+libmagus_res.lo: libmagus.rc
+	WINDRES=i586-mingw32msvc-windres $(top_srcdir)/../ManuProC_Base/build/win32/lt-compile-resource $< $@
 
 AM_CPPFLAGS = @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@ -Dlibmagus_COMPILATION
 
-AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@
+AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
 
 CLEANFILES = *~
 
@@ -12,18 +25,14 @@ EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
 registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 
-if WINDOWS
-PORT_FILES=registry.cc
-else
-PORT_FILES=
-endif
-
 test_SOURCES=test.cc
 Zufallscharakter_SOURCES=Zufallscharakter.cc
 readxml_SOURCES=readxml.cc
 readxml2_SOURCES=readxml2.cc
 
 lib_LTLIBRARIES=libmagus.la
+
+libmagus_la_LIBADD=$(DLL_LDADD)
 
 EXTRA_QUELLEN=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
 	LaTeX_drucken_ausruestung.cc LaTeX_drucken.cc \
@@ -51,4 +60,7 @@ Zufallscharakter_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIB
 readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
 readxml2_LDADD = @XMLPP_LIBS@
 
-BUILT_SOURCES= registry.h
+BUILT_SOURCES= registry.h TeX.cc
+
+TeX.cc: ../../GtkmmAddons/src/TeX.cc
+	ln -sf $^ $@

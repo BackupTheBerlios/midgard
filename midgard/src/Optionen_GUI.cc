@@ -1,4 +1,4 @@
-// $Id: Optionen_GUI.cc,v 1.5 2003/09/16 07:09:45 christof Exp $
+// $Id: Optionen_GUI.cc,v 1.6 2003/09/18 07:32:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,7 @@
 #include "Optionen_GUI.hh"
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
-// unnötig ...
+// unnÃ¶tig ...
 Glib::RefPtr<Gdk::Pixbuf> Optionen_GUI::Execute_bild(Magus_Optionen::OptionenExecuteIndex i)
 {  return Glib::RefPtr<Gdk::Pixbuf>();
 }

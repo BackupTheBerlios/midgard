@@ -95,7 +95,7 @@ void table_steigern::on_entry_magisch_activate()
 
      table_magbonus->hide();
   } catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());
-   Ausgabe(Ausgabe::Error,"Keine Waffe ausgew‰hlt");
+   Ausgabe(Ausgabe::Error,"Keine Waffe ausgew√§hlt");
      };
   show_alte_waffen();
   show_neue_waffen();

@@ -3,7 +3,7 @@
 #  define _WIZARD_HH
 
 #include <BaseObjects/Model.h>
-class Abenteurer; // Alternative wäre, Wizard in Abenteurer reinzunehmen
+class Abenteurer; // Alternative wÃ¤re, Wizard in Abenteurer reinzunehmen
 			// genau wie Lernpunkte
 
 struct Wizard

@@ -196,7 +196,7 @@ void midgard_CG::on_schliessen_CG_clicked()
      MagusDialog d(this);
      d.set_text("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?");
      int result=d.run();
-Ausgabe(Ausgabe::Debug,"Dialog gab "+itos(result)+" zurück");     
+Ausgabe(Ausgabe::Debug,"Dialog gab "+itos(result)+" zurÃ¼ck");     
      if (result!=Gtk::RESPONSE_OK) return;
    }
   on_button_quit_confirm_clicked();

@@ -34,7 +34,7 @@ void Wizard::fill_vecwiz()
    			  "Wizard inaktiv"));
    //START
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Hier erscheint jeweils der n�chste Schritt f�r einen neuen Abenteurer."));
+                          "Hier erscheint jeweils der nächste Schritt für einen neuen Abenteurer."));
    //SPEZIES
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
                           "Spezies auswählen (oder Eigenschaften auf eine der drei Arten würfeln)"));

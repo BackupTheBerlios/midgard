@@ -242,7 +242,7 @@ Fertigkeit::Fertigkeit(const Tag &t)
 
 void Fertigkeit::load(const Tag &t)
 {get_Fertigkeit(t); get_map_typ(t);
- // wenn dies die definitive Erw‰hnung der Fertigkeit ist
+ // wenn dies die definitive Erw√§hnung der Fertigkeit ist
  if (t.hasAttr("Lernkosten") || t.hasAttr("Anfangswert") || t.hasAttr("Maximalwert")) 
  { get_Steigern_Kosten_map(t); EP_steigern(t); }
 }

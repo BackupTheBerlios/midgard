@@ -21,7 +21,6 @@ PKG_CHECK_MODULES(SIGC,[sigc++-1.2 >= 1.2.0])
 PKG_CHECK_MODULES(XMLPP,[libxml++-1.0],,[echo libxml++ is not needed])
 PETIG_CHECK_KOMPONENTEN2
 
-echo $CPP
 if echo __MINGW32__ | $CPP - - | fgrep -q __MINGW32__
 then mingw=false
 else mingw=true
