@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.297 2003/04/29 07:06:55 christof Exp $
+// $Id: midgard_CG.cc,v 1.298 2003/04/29 12:33:37 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,6 +55,17 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
 	schummeln(false),tag_eigene_artikel(Tag("MAGUS-data"))
 { news_columns.attach_to(*list_news);
 
+//  ManuProC::Tracer::Enable(table_grundwerte::trace_channel);
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  InfoFenster = manage(new WindowInfo(this));
+
+  // Optionen laden
+  fill_IconVec();
+  MOptionen = new Midgard_Optionen(this); 
+  table_optionen->set_Hauptfenster(this);
+  MOptionen->load_options(with_path("magus_optionen.xml",false,true));
+  
+  srand(time(0));
 // ToolBar: StyleIcon
   button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter));
   button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
@@ -70,19 +81,9 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   wuerfelt_butt->show();
 
-//  ManuProC::Tracer::Enable(table_grundwerte::trace_channel);
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  InfoFenster = manage(new WindowInfo(this));
-
-  // Optionen laden
-  fill_IconVec();
-  MOptionen = new Midgard_Optionen(this); 
-  table_optionen->set_Hauptfenster(this);
-  MOptionen->load_options(with_path("magus_optionen.xml",false,true));
   // wait for Window to appear
   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-  
-  srand(time(0));
+
   Database.load(Midgard_Info,this);
 
   set_sensitive(true);
