@@ -12,8 +12,66 @@
   <Boni Ausdauer="3" Abwehr="1" Zaubern="2">
     <Resistenzen psy="6" phs="4" phk="3" Gift="5"/>
   </Boni>
+  <GFP>5835</GFP>
   <Vermoegen/>
   <Rüstung>OR</Rüstung>
   <Fertigkeiten>
+    <Beruf Bezeichnung="Gelehrter" Wert="14"/>
+    <Fertigkeit Bezeichnung="Erste Hilfe"/>
+    <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
+    <Fertigkeit Bezeichnung="Kräuterkunde" Wert="6"/>
+    <Fertigkeit Bezeichnung="Lesen von Zauberschrift"/>
+    <Fertigkeit Bezeichnung="Lesen/Schreiben"/>
+    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
+    <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
+    <Fertigkeit Bezeichnung="Sagenkunde" Wert="2"/>
+    <Fertigkeit Bezeichnung="TaiTschi"/>
+    <Fertigkeit Bezeichnung="Wissen von der Magie"/>
+    <Fertigkeit Bezeichnung="YangScheng" Wert="1"/>
+    <Fertigkeit Bezeichnung="Zauberkunde" Wert="6"/>
+    <Grundkenntnis Bezeichnung="Magierstab"/>
+    <Region Bezeichnung="Region"/>
+    <Region Bezeichnung="Region"/>
+    <Sprache Bezeichnung="Albisch" Wert="1"/>
+    <Sprache Bezeichnung="Chryseisch" Wert="1"/>
+    <Sprache Bezeichnung="Comentang" Wert="1"/>
+    <Sprache Bezeichnung="Dvarskar" Wert="1"/>
+    <Sprache Bezeichnung="Eldalyn" Wert="1"/>
+    <Sprache Bezeichnung="Erainnisch" Wert="1"/>
+    <Sprache Bezeichnung="Gnomenon" Wert="1"/>
+    <Sprache Bezeichnung="KanThaiTun" Wert="1"/>
+    <Sprache Bezeichnung="Maralinga" Wert="1"/>
+    <Sprache Bezeichnung="Meketisch" Wert="1"/>
+    <Sprache Bezeichnung="Scharidisch" Wert="1"/>
+    <Urschrift Bezeichnung="KanThaiTun(1)"/>
+    <Urschrift Bezeichnung="KanThaiTun(2)"/>
+    <Urschrift Bezeichnung="Meketisch"/>
+    <Urschrift Bezeichnung="Seemeister"/>
+    <Urschrift Bezeichnung="Tegarisch"/>
+    <Waffe Bezeichnung="Magierstab" Wert="4"/>
+    <Zauber Bezeichnung="Allheilung" Wert="19"/>
+    <Zauber Bezeichnung="Austreibung des Bösen" Wert="17"/>
+    <Zauber Bezeichnung="Bannen von Dunkelheit" Wert="19"/>
+    <Zauber Bezeichnung="Bannen von Finsterwerk" Wert="17"/>
+    <Zauber Bezeichnung="Bannen von Gift" Wert="19"/>
+    <Zauber Bezeichnung="Bannen von Zauberwerk" Wert="17"/>
+    <Zauber Bezeichnung="Beschleunigen" Wert="19"/>
+    <Zauber Bezeichnung="Besänftigen" Wert="19"/>
+    <Zauber Bezeichnung="Erkennen von Krankheit" Wert="19"/>
+    <Zauber Bezeichnung="Erkennen von Leben" Wert="17"/>
+    <Zauber Bezeichnung="Freundesauge" Wert="19"/>
+    <Zauber Bezeichnung="Handauflegen" Wert="19"/>
+    <Zauber Bezeichnung="Heilen von Krankheit" Wert="19"/>
+    <Zauber Bezeichnung="Heilen von Wunden" Wert="19"/>
+    <Zauber Bezeichnung="Macht über das Selbst" Wert="17"/>
+    <Zauber Bezeichnung="Macht über die belebte Natur" Wert="19"/>
+    <Zauber Bezeichnung="Reinigen" Wert="19"/>
+    <Zauber Bezeichnung="Schmerzen" Wert="19"/>
+    <Zauber Bezeichnung="Stille" Wert="17"/>
+    <Zauber Bezeichnung="Stärke" Wert="19"/>
+    <Zauber Bezeichnung="Tiere rufen" Wert="19"/>
+    <Zauber Bezeichnung="Unsichtbarkeit" Wert="17"/>
+    <Zauber Bezeichnung="Wasser spüren" Wert="17"/>
+    <Zauber Bezeichnung="Zwiesprache" Wert="17"/>
   </Fertigkeiten>
 </Midgard-Charakter>
