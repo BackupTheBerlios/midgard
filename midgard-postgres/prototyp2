@@ -168,6 +168,51 @@ Natur	Überleben im Sumpf	F	0.50
 Natur	Überleben im Wald	F	0.50
 Natur	Überleben in der Steppe	F	0.50
 Natur	Überleben in der Wüste	F	0.50
+Schutz	Abwenden von Blicken	Z	0.50
+Schutz	Bruchbann	Z	0.50
+Schutz	Dschinni-Auge	Z	0.50
+Schutz	Dschinni-Ohr	Z	0.50
+Schutz	Entgiften	Z	0.50
+Schutz	Flammenkreis	Z	0.50
+Schutz	Geistesschild	Z	0.50
+Schutz	Goldener Panzer	Z	0.50
+Schutz	Göttlicher Schutz vor Magie	Z	0.50
+Schutz	Göttlicher Schutz vor dem Bösen	Z	0.50
+Schutz	Heimstein	Z	0.50
+Schutz	Hitzeschutz	Z	0.50
+Schutz	Kälteschutz	Z	0.50
+Schutz	Luftsphäre	Z	0.70
+Schutz	Magischer Kreis des Bewachens	Z	0.50
+Schutz	Magischer Kreis des Widerstehens	Z	0.50
+Schutz	Magischer Kreis, klein	Z	0.50
+Schutz	Marmorhaut	Z	0.50
+Schutz	Netzschutz	Z	0.50
+Schutz	Reinigen	Z	0.50
+Schutz	Schildrune	Z	0.50
+Schutz	Schutzgeist	Z	0.50
+Schutz	Schutzgeste	Z	0.50
+Schutz	Schutzkreis gegen Dunebargen	Z	0.50
+Schutz	Schutzkreis gegen Dvergar	Z	0.50
+Schutz	Schutzkreis gegen Dämonen	Z	0.50
+Schutz	Schutzkreis gegen Elementarwesen	Z	0.50
+Schutz	Schutzkreis gegen Geisterwesen	Z	0.50
+Schutz	Schutzkreis gegen Hrimfolk	Z	0.50
+Schutz	Schutzkreis gegen Hunar	Z	0.50
+Schutz	Schutzkreis gegen Hyrrfolk	Z	0.50
+Schutz	Schutzkreis gegen Jördfolk	Z	0.50
+Schutz	Schutzkreis gegen Kaobargen	Z	0.50
+Schutz	Schutzkreis gegen Untote	Z	0.50
+Schutz	Schutzkreis gegen Vindfolk	Z	0.50
+Schutz	Schutzkreis gegen Wisfolk	Z	0.50
+Schutz	Schutzrune	Z	0.50
+Schutz	Schwarze Zone	Z	0.50
+Schutz	Stille	Z	0.60
+Schutz	Umkehrschild	Z	0.50
+Schutz	Ungeziefer bannen	Z	0.50
+Schutz	Unsichtbarkeit	Z	0.70
+Schutz	Warnung	Z	0.50
+Schutz	Zauberschild	Z	0.50
+Schutz	Zweite Haut	Z	0.50
 Soziales	Ballspiel	F	0.70
 Soziales	Beredsamkeit	F	0.50
 Soziales	Beschatten	F	0.60
