@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.33 2002/01/21 23:24:08 christof Exp $               
+// $Id: Zauber.hh,v 1.34 2002/01/26 09:17:41 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -83,7 +83,7 @@ class cH_Zauber : public Handle<const Zauber>
 {
     typedef CacheStatic<std::string,cH_Zauber> cache_t;
     static cache_t cache;
-    cH_Zauber(Zauber *s) : Handle<const Zauber>(s) {};
+    cH_Zauber(const Zauber *s) : Handle<const Zauber>(s) {};
     friend class std::map<std::string,cH_Zauber>;
     cH_Zauber(){};
  public:

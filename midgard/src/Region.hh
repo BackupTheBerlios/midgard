@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.10 2002/01/23 15:49:32 thoma Exp $               
+// $Id: Region.hh,v 1.11 2002/01/26 09:17:41 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -86,7 +86,7 @@ class cH_Region : public Handle<const Region>
     friend class std::map<std::string,cH_Region>;
     cH_Region(){};
   public:
-   cH_Region(Region *s) : Handle<const Region>(s) {};
+   cH_Region(const Region *s) : Handle<const Region>(s) {};
 //   cH_Region() {*this=new Region();}
    cH_Region(const std::string& name);
 #ifdef USE_XML

@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.11 2002/01/22 07:03:32 christof Exp $               
+// $Id: Typen.hh,v 1.12 2002/01/26 09:17:41 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -87,7 +87,7 @@ class cH_Typen : public Handle<const Typen>
 #ifdef USE_XML   
    cH_Typen(const Tag *tag);
 #endif   
-    cH_Typen(Typen *s) : Handle<const Typen>(s) {};
+    cH_Typen(const Typen *s) : Handle<const Typen>(s) {};
 };
  
 class Typen_All

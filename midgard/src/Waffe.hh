@@ -108,7 +108,7 @@ class cH_Waffe : public Handle<const Waffe>
     typedef CacheStatic<std::string,cH_Waffe> cache_t;
     static cache_t cache;
     cH_Waffe() {};
-    cH_Waffe(Waffe *s) : Handle<const Waffe>(s) {};
+    cH_Waffe(const Waffe *s) : Handle<const Waffe>(s) {};
     friend class std::map<std::string,cH_Waffe>;
  public:
     cH_Waffe(const std::string& n IF_XML(,bool create=false));
@@ -169,7 +169,7 @@ class cH_WaffeBesitz : public Handle<const WaffeBesitz>
 {
  public:
     cH_WaffeBesitz() {}
-    cH_WaffeBesitz(WaffeBesitz *s) : Handle<const WaffeBesitz>(s) {}
+    cH_WaffeBesitz(const WaffeBesitz *s) : Handle<const WaffeBesitz>(s) {}
 
     cH_WaffeBesitz(const cH_MidgardBasicElement &x) : Handle<const WaffeBesitz>
       (dynamic_cast<const WaffeBesitz *>(&*x)){}

@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.31 2002/01/12 08:12:25 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.32 2002/01/26 09:17:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -16,17 +16,6 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-// generated 2001/3/14 8:34:43 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Window_Waffenbesitz.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
 
 #ifndef _WINDOW_WAFFENBESITZ_HH
 #  include "Window_Waffenbesitz_glade.hh"
@@ -77,7 +66,7 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
 class Data_waffenbesitz :  public RowDataBase
 {
       cH_MidgardBasicElement waffe;
-      Grundwerte Werte;
+      Grundwerte Werte; // eine Kopie? in jeder Zeile? wenig sinnvoll CP
   public:
       Data_waffenbesitz(const cH_MidgardBasicElement& w,const Grundwerte& g)
          : waffe(w), Werte(g) {}

@@ -78,7 +78,7 @@ class cH_Beruf : public Handle<const Beruf>
 {
     typedef CacheStatic<std::string,cH_Beruf> cache_t;
     static cache_t cache;
-    cH_Beruf(Beruf *s) : Handle<const Beruf>(s) {};
+    cH_Beruf(const Beruf *s) : Handle<const Beruf>(s) {};
     friend class std::map<std::string,cH_Beruf>;
     cH_Beruf(){};
  public:

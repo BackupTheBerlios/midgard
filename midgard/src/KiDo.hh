@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.17 2002/01/21 23:24:08 christof Exp $               
+// $Id: KiDo.hh,v 1.18 2002/01/26 09:17:41 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,7 +65,7 @@ class cH_KiDo : public Handle<const KiDo>
 {
     typedef CacheStatic<std::string,cH_KiDo> cache_t;
     static cache_t cache;
-    cH_KiDo(KiDo *s) : Handle<const KiDo>(s) {};
+    cH_KiDo(const KiDo *s) : Handle<const KiDo>(s) {};
     friend class std::map<std::string,cH_KiDo>;
     cH_KiDo(){};
  public:

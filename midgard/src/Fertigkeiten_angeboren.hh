@@ -52,7 +52,6 @@ class cH_Fertigkeit_angeborene : public Handle<const Fertigkeit_angeborene>
 {
     typedef CacheStatic<std::string,cH_Fertigkeit_angeborene> cache_t;
     static cache_t cache;
-//    cH_Fertigkeit_angeborene(Fertigkeit_angeborene *s) : Handle<const Fertigkeit_angeborene>(s) {};
     friend class std::map<std::string,cH_Fertigkeit_angeborene>;
     cH_Fertigkeit_angeborene(){};
  public:
@@ -60,7 +59,7 @@ class cH_Fertigkeit_angeborene : public Handle<const Fertigkeit_angeborene>
 #ifdef USE_XML    
     cH_Fertigkeit_angeborene(const Tag *tag);
 #endif
-    cH_Fertigkeit_angeborene(Fertigkeit_angeborene *r) : Handle<const Fertigkeit_angeborene>(r){}
+    cH_Fertigkeit_angeborene(const Fertigkeit_angeborene *r) : Handle<const Fertigkeit_angeborene>(r){}
 
     cH_Fertigkeit_angeborene(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit_angeborene>
       (dynamic_cast<const Fertigkeit_angeborene *>(&*x)){}

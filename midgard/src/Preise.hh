@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.13 2002/01/21 23:24:08 christof Exp $
+// $Id: Preise.hh,v 1.14 2002/01/26 09:17:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,7 +68,7 @@ class cH_Preise : public Handle<const Preise>
 {
     typedef CacheStatic<std::string,cH_Preise> cache_t;
     static cache_t cache;
-    cH_Preise(Preise *s) : Handle<const Preise>(s) {};
+    cH_Preise(const Preise *s) : Handle<const Preise>(s) {};
     friend class std::map<std::string,cH_Preise>;
     cH_Preise(){};
  public:
@@ -158,7 +158,7 @@ class cH_PreiseMod : public Handle<const PreiseMod>
 #ifdef USE_XML
     cH_PreiseMod(const Tag *tag);
 #endif
-    cH_PreiseMod(PreiseMod *s) : Handle<const PreiseMod>(s) {};
+    cH_PreiseMod(const PreiseMod *s) : Handle<const PreiseMod>(s) {};
 };
 
 class PreiseMod_All

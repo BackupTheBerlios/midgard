@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.13 2002/01/21 23:24:08 christof Exp $               
+// $Id: Schrift.hh,v 1.14 2002/01/26 09:17:41 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,7 +65,7 @@ class cH_Schrift : public Handle<const Schrift>
 {
     typedef CacheStatic<std::string,cH_Schrift> cache_t;
     static cache_t cache;
-    cH_Schrift(Schrift *s) : Handle<const Schrift>(s) {};
+    cH_Schrift(const Schrift *s) : Handle<const Schrift>(s) {};
     friend class std::map<std::string,cH_Schrift>;
     cH_Schrift(){};
   public:

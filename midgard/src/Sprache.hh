@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.17 2002/01/21 23:24:08 christof Exp $               
+// $Id: Sprache.hh,v 1.18 2002/01/26 09:17:41 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -72,7 +72,7 @@ class cH_Sprache : public Handle<const Sprache>
 {
     typedef CacheStatic<std::string,cH_Sprache> cache_t;
     static cache_t cache;
-    cH_Sprache(Sprache *s) : Handle<const Sprache>(s) {};
+    cH_Sprache(const Sprache *s) : Handle<const Sprache>(s) {};
     friend class std::map<std::string,cH_Sprache>;
     cH_Sprache(){};
   public:

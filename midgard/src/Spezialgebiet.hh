@@ -1,4 +1,4 @@
-// $Id: Spezialgebiet.hh,v 1.6 2002/01/19 14:28:11 christof Exp $               
+// $Id: Spezialgebiet.hh,v 1.7 2002/01/26 09:17:41 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -56,9 +56,7 @@ class cH_Spezialgebiet : public Handle<const Spezialgebiet>
 {
     typedef CacheStatic<std::string,cH_Spezialgebiet> cache_t;
     static cache_t cache;
-//    cH_Spezialgebiet(Spezialgebiet *s) : Handle<const Spezialgebiet>(s) {};
     friend class std::map<std::string,cH_Spezialgebiet>;
-///    cH_Typen(){};
   public:
    cH_Spezialgebiet() {*this=new Spezialgebiet();}
    cH_Spezialgebiet(const std::string& name);

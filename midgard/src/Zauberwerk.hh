@@ -81,7 +81,7 @@ class cH_Zauberwerk : public Handle<const Zauberwerk>
             };
     typedef CacheStatic<st_index,cH_Zauberwerk> cache_t;
     static cache_t cache;
-    cH_Zauberwerk(Zauberwerk *s) : Handle<const Zauberwerk>(s) {};
+    cH_Zauberwerk(const Zauberwerk *s) : Handle<const Zauberwerk>(s) {};
     friend class std::map<st_index,cH_Zauberwerk>;
     cH_Zauberwerk(){};
  public:

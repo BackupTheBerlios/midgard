@@ -64,20 +64,14 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
   spinbutton_sl_bonus->update();
 
   try{
-  cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
-  cH_MidgardBasicElement selected_weapon = dt->get_Waffe();
+     cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
+     cH_MidgardBasicElement selected_weapon = dt->get_Waffe();
+     cH_WaffeBesitz WB=dynamic_cast<const WaffeBesitz*>(&*selected_weapon);
 
-  for (std::list<cH_MidgardBasicElement>::iterator i=Waffe_Besitz.begin();i!=Waffe_Besitz.end();++i)
-   { 
-     if ((*i)==selected_weapon)
-      {
-        cH_WaffeBesitz WB(*i);
         WB->set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
         WB->set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());
         WB->set_Magisch(entry_magisch->get_text());
-      }
-   }  
-  table_magbonus->hide();
+     table_magbonus->hide();
   } catch(std::exception &e) {cerr<<e.what()<<'\n';
       manage (new WindowInfo("Keine Waffe selektiert"));
      };
@@ -177,44 +171,6 @@ void  Window_Waffenbesitz::lade_waffen()
          }
        }
    }
-/*
-  exec sql begin declare section;
-   char db_waffe[50];
-   char db_name[50] ;
-   char db_version[50] ;
-  exec sql end declare section;
-  strncpy(db_name,(Werte.Name_Charakter()).c_str(),sizeof(db_name));
-  strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
-
-  exec sql declare ein cursor for 
-     SELECT distinct w.name from waffen w, charaktere_fertigkeiten c 
-     where w.name = c.fertigkeit and c.charakter_name = :db_name
-     and c.version = :db_version
-     and w.name not in 
-     (select fertigkeit from charaktere_fertigkeiten 
-      where charakter_name = :db_name and version = :db_version
-      and art = 'Besitz_W' and magisch = '');
-  Transaction tr;
-  exec sql open ein;
-  SQLerror::test(__FILELINE__);
-  while(true)
-   {
-     exec sql fetch ein into :db_waffe;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     cH_MidgardBasicElement waffe(new Waffe(db_waffe));
-     if (waffe->Name()!="waffenloser Kampf" )
-      {
-       Waffe_Besitz_neu.push_back(new WaffeBesitz(waffe,waffe->Name(),"",0,0,""));
-       for (list<Waffe::st_alias>::const_iterator j=cH_Waffe(waffe)->Alias().begin();j!=cH_Waffe(waffe)->Alias().end();++j)
-        {
-         Waffe_Besitz_neu.push_back(new WaffeBesitz(waffe,(*j).name,"",0,0,""));
-        }
-      }
-   }
-  exec sql close ein;
-  tr.close();
-*/
 }
 
 void Window_Waffenbesitz::on_checkbutton_mag_waffenbonus_toggled()

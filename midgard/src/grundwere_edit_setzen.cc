@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.23 2002/01/23 09:00:51 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.24 2002/01/26 09:17:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ void midgard_CG::set_all_entrys()
   Werte.setVersion(entry_version->get_text());
   Werte.setSpezialisierung(entry_spezialisierung->get_text());
   Werte.setGlaube(entry_glaube->get_text());
-  Werte.setHerkunft(entry_herkunft->get_text());
+  Werte.setHerkunft(cH_Land(entry_herkunft->get_text(),true));
 
   gtk_spin_button_update(spinbutton_grad->gtkobj());  
   Werte.setGrad(spinbutton_grad->get_value_as_int());
