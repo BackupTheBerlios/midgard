@@ -104,7 +104,7 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
          }
       if(art=="Waffenfertigkeiten") 
          { 
-           cH_MidgardBasicElement waffe(new Waffe(i->first.fertigkeit));
+           cH_MidgardBasicElement waffe(&*cH_Waffe(i->first.fertigkeit));
            cH_Waffe(waffe)->set_Erfolgswert(i->second.erfolgswert);
            L.push_back(waffe); 
          }
