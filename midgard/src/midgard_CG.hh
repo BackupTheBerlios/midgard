@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.336 2003/09/16 07:09:45 christof Exp $
+// $Id: midgard_CG.hh,v 1.337 2003/09/29 06:56:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,9 +33,9 @@
 class midgard_CG : public midgard_CG_glade
 {public:
         // Oberfläche Notebook 
-        enum enum_notebook_main{NOPAGE=-1,PAGE_INFO=0,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
+        enum enum_notebook_main{NOPAGE=-1,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
                                 PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_OPTIONEN,
-                                PAGE_NEWS,PAGE_ZUFALL};
+                                PAGE_INFO,PAGE_NEWS,PAGE_ZUFALL};
 private:
         VAbenteurer Char;
 
@@ -106,6 +106,7 @@ private:
         void set_AbenteurerListe_Title();
         void on_button_quit_confirm_clicked();
         void on_togglebutton_delete_abenteurer_aus_liste_toggled();
+        void on_schlie__en1_activate();
         
         void Eigenschaften_variante(int i);
         void on_neuer_charakter_clicked();

@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.80 2003/09/09 06:19:09 christof Exp $
+// $Id: Midgard_Info.cc,v 1.81 2003/09/29 06:56:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,10 +23,12 @@
 #include <gtkmm/main.h>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
+#if 0
 void Midgard_Info::database_hide()
 {   
   frame_datenbank->hide();
 }
+#endif
 
 Midgard_Info::Midgard_Info(GlademmData *data) : Midgard_Info_glade(data)
 {
