@@ -4,15 +4,14 @@
 #include <list>
 #include <vector>
 #include <Aux/Handles.h>
-//Y#include "MidgardBasic.hh"
+#include "MidgardBasicElement.hh"
 #include <Aux/CacheStatic.h>
-//#include "class_Grundwerte.hh"
 #include "class_typen.hh"
 #include "class_Ausnahmen.hh"
 class cH_Zauber;
 
-class Zauber : public HandleContent
-//Yclass Zauber : public MidgardBasic
+//class Zauber : public HandleContent
+class Zauber : public MidgardBasicElement
 {
    std::string ap, name;
    int erfolgswert;
@@ -34,10 +33,8 @@ class Zauber : public HandleContent
    Zauber(const std::string& n,int l=0) 
       : name(n),lernpunkte(l){get_Zauber();get_map_typ();} 
 
-//Y   cH_MidgardBasic operator cH_MidgardBasic() const {return cH_MidgardBasic(&*this);}
-//Y   int Wert() return 0;
-//Y   std::string What() {return "Zauber";}
 
+   std::string What() const {return "Zauber";}
 
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
@@ -76,19 +73,6 @@ class Zauber : public HandleContent
 
 class cH_Zauber : public Handle<const Zauber>
 {
-/*
-   struct st_index {std::string name; vector<H_Data_typen> Typ; int lernpunkte;
-      bool operator == (const st_index& b) const
-         {return (name==b.name && Typ[0]->Short() == b.Typ[0]->Short() && lernpunkte==b.lernpunkte);}
-      bool operator <  (const st_index& b) const
-         { return name < b.name || 
-             (name==b.name && Typ[0]->Short()<b.Typ[0]->Short()) ||
-             (name==b.name && Typ[0]->Short()==b.Typ[0]->Short() &&
-               lernpunkte<b.lernpunkte ); }
-      st_index(std::string n, vector<H_Data_typen> T,int l):name(n),Typ(T),lernpunkte(l){}
-      st_index(){}
-      };
-*/
    struct st_index {std::string name; int lernpunkte;
       bool operator == (const st_index& b) const
          {return (name==b.name  && lernpunkte==b.lernpunkte);}
@@ -106,8 +90,9 @@ class cH_Zauber : public Handle<const Zauber>
  public:
    cH_Zauber(const std::string& name,int lernpunkte=0) ;
 
-//Y   cH_Zauber(const cH_MidgardBasic &x) : Handle<const Zauber> 
-//Y (dynamic_cast<const Zauber *>(&*x)){}
+   cH_Zauber(const cH_MidgardBasicElement &x) : Handle<const Zauber> 
+      (dynamic_cast<const Zauber *>(&*x)){}
+//   cH_MidgardBasicElement operator cH_MidgardBasicElement() const {return cH_MidgardBasicElement(&*this);}
 };
 
 
