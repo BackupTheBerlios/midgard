@@ -79,14 +79,16 @@ void midgard_CG::on_checkbutton_zaubersalze_toggled()
 {
  on_zauber_laden_clicked();
 }
+void midgard_CG::on_checkbutton_beschwoerungen_toggled()
+{
+ on_zauber_laden_clicked();
+}
 void midgard_CG::on_checkbutton_alle_zauber_toggled()
 {
  on_zauber_laden_clicked();
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
 }
-
-/*
 void midgard_CG::on_checkbutton_zaubermittel_toggled()
 {
  zauberwerk_laden();
@@ -99,7 +101,6 @@ void midgard_CG::on_checkbutton_zaubermittel_toggled()
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
 }
-*/
 
 void midgard_CG::on_spruchrolle_toggled()
 {
