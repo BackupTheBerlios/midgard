@@ -7,15 +7,15 @@ exec sql include sqlca;
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
-cH_Fertigkeit::cH_Fertigkeit(const std::string& name,int lernpunkte,bool pflicht)
+cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
 {
- st_index index(name,lernpunkte);
- cH_Fertigkeit *cached(cache.lookup(index));
+// st_index index(name,lernpunkte);
+ cH_Fertigkeit *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
   {
-   *this=cH_Fertigkeit(new Fertigkeit(name,lernpunkte,pflicht));  
-   cache.Register(index,*this);
+   *this=cH_Fertigkeit(new Fertigkeit(name));  
+   cache.Register(name,*this);
   }
 }
 

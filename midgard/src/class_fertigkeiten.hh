@@ -8,6 +8,7 @@
 #include <Ausnahmen.hh>
 #include <Sprache.hh>
 #include <Schrift.hh>
+#include <rowdata.h>
 
 class Data_fert : public RowDataBase
 {

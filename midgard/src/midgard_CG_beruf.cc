@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.28 2001/11/06 14:26:21 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.29 2001/11/13 15:26:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,30 +25,33 @@
 void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
-  manage(new Berufe_auswahl(this,Typ[0]->Zaubern(),Typ[1]->Zaubern(),lernpunkte.Beruf(),Werte));
+  manage(new Berufe_auswahl(this,Database,Typ,lernpunkte.Beruf(),Werte));
 }
 
 void midgard_CG::show_berufe()
 {
    berufe_clist->clear();
    Gtk::OStream os(berufe_clist);
-   for(std::vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
-      {
-         os << (*i)->Name()<<"\t"<<(*i)->Vorteile()<<"\t"<<(*i)->Erfolgswert()<<"\n";
-      }
+   for(std::list<cH_MidgardBasicElement>::iterator i=list_Beruf.begin();i!=list_Beruf.end();++i)
+    {
+      cH_Beruf b(*i);  
+      os << (*i)->Name()<<"\t"<<b->Vorteile()<<"\t"<<(*i)->Erfolgswert()<<"\n";
+    }
    for (unsigned int i=0;i<berufe_clist->columns().size();++i)
       berufe_clist->set_column_auto_resize(i,true);
    berufe_clist->set_reorderable(true);
 }
 
-void midgard_CG::berufe_uebernehmen(std::vector<H_Data_beruf>& sab)
+/*
+void midgard_CG::berufe_uebernehmen(std::list<cH_MidgardBasicElement>& sab)
 {
-   vec_Beruf = sab;
-   Database.ausnahmen.set_Beruf(vec_Beruf);
+   list_Beruf = sab;
+   Database.ausnahmen.set_Beruf(list_Beruf);
    
    show_berufe();
    button_beruf_erfolgswert->set_sensitive(true);
 }
+*/
 
 gint midgard_CG::on_beruf_erfolgswert_release_event(GdkEventButton *ev)
 {
@@ -61,19 +64,21 @@ gint midgard_CG::on_beruf_erfolgswert_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_spinbutton_beruferfolgesert_activate()
 {
+/*
   gtk_spin_button_update(spinbutton_beruferfolgesert->gtkobj());
   int x=spinbutton_beruferfolgesert->get_value_as_int();
   static unsigned int i=0;
-  vec_Beruf[i]->set_Erfolgswert(x);
+  list_Beruf[i]->set_Erfolgswert(x);
   ++i;
-  if (i==vec_Beruf.size())
+  if (i==list_Beruf.size())
    {
      i=0;
      vbox_beruferfolgswert->hide();
      label_beruf_ew->set_text("Wert eingeben");
    }
   else  label_beruf_ew->set_text(itos(i+1)+". Beruf");
-  berufe_uebernehmen(vec_Beruf);
+  berufe_uebernehmen(list_Beruf);
+*/
 }
 
 
@@ -85,12 +90,25 @@ void midgard_CG::on_beruf_erfolgswert_clicked()
  if (atoi(in->get_text().c_str()) >= 81 ) ++inbo ;
  if (atoi(in->get_text().c_str()) >= 96 ) ++inbo ;
 
- for (std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
+ for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Beruf.begin();i!=list_Beruf.end();++i)
    {
     int ausbildungswert = random.integer(1,3)+6;
-    if (i==vec_Beruf.begin()) (*i)->set_Erfolgswert(ausbildungswert+erfahrungswert+inbo);
+    if (i==list_Beruf.begin()) (*i)->set_Erfolgswert(ausbildungswert+erfahrungswert+inbo);
     else (*i)->set_Erfolgswert(ausbildungswert+inbo);
    } 
-   midgard_CG::berufe_uebernehmen(vec_Beruf);
+ MidgardBasicElement_uebernehmen(list_Beruf);
+// berufe_uebernehmen(list_Beruf);
 }
 
+std::vector<string> midgard_CG::Berufs_Vorteile()
+{
+  std::vector<string> V;
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Beruf.begin();
+           i!=list_Beruf.end();++i)
+   {
+     std::vector<string> v=cH_Beruf(*i)->Vorteile();
+     for(std::vector<string>::const_iterator j=v.begin();j!=v.end();++j)
+         V.push_back(*j);      
+   }           
+ return V;
+}

@@ -6981,7 +6981,7 @@ Zündersalz	eBe	A
 Bannen von Wisfolk	eBe	Wasser
 Schutzkreis gegen Wisfolk	eBe	Wasser
 Bannen von Hrimfolk	eBe	Eis
-Bannen von Hrimkin	eBe	G
+Feuerfinger	eBe	S
 Hrimdvegar beschwören	eBe	Eis
 Hrimdverg beschwören	eBe	Eis
 Hrimhune beschwören	eBe	Eis
@@ -7046,6 +7046,7 @@ Magischer Kreis des Verschleierns	eBe	S
 Magischer Kreis des Widerstehens	eBe	S
 Magischer Kreis, klein	eBe	G
 Magischer Spion	eBe	A
+Feuerkugel	eBe	S
 Abwenden von Blicken	Ord	G
 Allheilung	Ord	G
 Austreibung des Bösen	Ord	G
@@ -7661,12 +7662,12 @@ Mumie erwecken	eBe	S
 Nebelsalz	eBe	A
 Niessalz	eBe	A
 Person beschwören	eBe	S
-Bannen von Hyrrkin	eBe	G
-Bannen von Jördfolk	eBe	S
-Bannen von Jördkin	eBe	G
+Feuerlanze	eBe	S
+Feuermeisterschaft	eBe	S
+Feuerregen	eBe	S
 Bannen von Kaobargen	eBe	A
-Bannen von Vindfolk	eBe	S
-Bannen von Vindskin	eBe	G
+Feuerring	eBe	S
+Feuerschild	eBe	S
 Bannsphäre, Blaue	eBe	G
 Bannsphäre, Goldene	eBe	A
 Bannsphäre, Schwarze	eBe	S
@@ -7864,13 +7865,6 @@ Erdwandlung	eBe	S
 Erkurku beschwören	eBe	A
 Erkurku rufen	eBe	A
 Farbensalz	eBe	A
-Feuerfinger	eBe	S
-Feuerkugel	eBe	S
-Feuerlanze	eBe	S
-Feuermeisterschaft	eBe	S
-Feuerregen	eBe	S
-Feuerring	eBe	S
-Feuerschild	eBe	S
 Feuerwand	eBe	S
 Fiebersalz	eBe	A
 Flammende Hand	eBe	S
@@ -7892,6 +7886,12 @@ Aufladen	eBe	A
 Bannen von Dunebargen	eBe	A
 Bannen von Dvergar	eBe	G
 Bannen von Hunar	eBe	G
+Bannen von Hrimkin	eBe	Eis
+Bannen von Hyrrkin	eBe	Feuer
+Bannen von Jördfolk	eBe	Erde
+Bannen von Jördkin	eBe	Erde
+Bannen von Vindfolk	eBe	Luft
+Bannen von Vindskin	eBe	Luft
 \.
 --
 -- TOC Entry ID 3 (OID 23222786)

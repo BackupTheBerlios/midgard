@@ -57,7 +57,7 @@ void KiDo_auswahl::on_button_close_clicked()
 
 KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
    const midgard_CG::st_Database& Database,
-   const vector<cH_Typen>& Typ,const std::vector<H_Data_beruf>& vec_Beruf)
+   const vector<cH_Typen>& Typ)
 : maxkido(m)
 {
 //   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;

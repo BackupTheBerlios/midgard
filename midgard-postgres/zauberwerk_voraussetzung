@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "zauberwerk_voraussetzung_name";
 DROP TABLE "zauberwerk_voraussetzung";
 --
 -- TOC Entry ID 2 (OID 9072725)
@@ -15,7 +16,7 @@ CREATE TABLE "zauberwerk_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9072725) TABLE DATA zauberwerk_voraussetzung
+-- Data for TOC Entry ID 4 (OID 9072725) TABLE DATA zauberwerk_voraussetzung
 --
 
 COPY "zauberwerk_voraussetzung"  FROM stdin;
@@ -73,3 +74,11 @@ Waffen verzaubern (4)	Zauberschmiede	\N
 Waffen verzaubern (6)	Binden	and
 Waffen verzaubern (6)	Zauberschmiede	\N
 \.
+--
+-- TOC Entry ID 3 (OID 9072725)
+--
+-- Name: "zauberwerk_voraussetzung_name" Type: INDEX Owner: thoma
+--
+
+CREATE  INDEX "zauberwerk_voraussetzung_name" on "zauberwerk_voraussetzung" using btree ( "name" "text_ops" );
+

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "ausnahmen_name";
 DROP TABLE "ausnahmen";
 --
 -- TOC Entry ID 2 (OID 9550212)
@@ -20,7 +21,7 @@ CREATE TABLE "ausnahmen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9550212) TABLE DATA ausnahmen
+-- Data for TOC Entry ID 4 (OID 9550212) TABLE DATA ausnahmen
 --
 
 COPY "ausnahmen"  FROM stdin;
@@ -220,3 +221,11 @@ Ahnengeist beschwören	z	\N	KanThaiPan	PC	G	\N	\N
 Großer Hitzeschutz	z	\N	KanThaiPan	Ord	G	\N	\N
 Großer Hitzeschutz	z	\N	KanThaiPan	PW	G	\N	\N
 \.
+--
+-- TOC Entry ID 3 (OID 9550212)
+--
+-- Name: "ausnahmen_name" Type: INDEX Owner: thoma
+--
+
+CREATE  INDEX "ausnahmen_name" on "ausnahmen" using btree ( "name" "text_ops" );
+

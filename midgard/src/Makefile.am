@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.71 2001/11/12 09:20:36 thoma Exp $
+# $Id: Makefile.am,v 1.72 2001/11/13 15:26:57 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -17,7 +17,9 @@ noinst_HEADERS = \
    MidgardBasicElement.hh \
    Zauber.hh \
    Zauberwerk.hh \
+   Beruf.hh \
    Fertigkeiten.hh \
+   Fertigkeiten_angeboren.hh \
    Waffe.hh \
    KiDo.hh \
    Ausnahmen.hh \
@@ -61,7 +63,6 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_doppelcharaktere_glade.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh \
-   class_berufe.hh \
    class_lernpunkte.hh \
    class_fertigkeiten.hh \
    Spezies.hh \
@@ -72,6 +73,7 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
 BUILT_SOURCES_CG =  \
+   Beruf.cc \
    Lernschema.cc \
    Praxispunkte.cc \
    Spezies.cc \
@@ -94,9 +96,7 @@ BUILT_SOURCES_CG =  \
    Spezialgebiet.cc \
    \
    save_charakter.cc  load_charakter.cc  \
-   Window_charakter_auswahl.cc \
-   Berufe_auswahl.cc \
-   get_berufs_vorteile.cc
+   Window_charakter_auswahl.cc
 
 BUILT_SOUCES_XMLE=xmlexport.cc
 BUILT_SOUCES_XMLI=xmlimport.cc
@@ -108,13 +108,14 @@ midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 
 midgard_SOURCES = \
+   Berufe_auswahl.cc \
+   $(BUILT_SOURCES_CG) \
    Fertigkeiten_auswahl.cc \
 	KiDo_auswahl.cc \
    Zauber_auswahl.cc  \
    Waffen_auswahl.cc \
 	Window_Waffenbesitz.cc \
    Window_waffe.cc \
-   $(BUILT_SOURCES_CG) \
    midgard_CG_typauswahl.cc \
    MidgardBasicElement.cc \
    midgard_CG_basic_elemente.cc \

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "berufe_stand_beruf";
 DROP TABLE "berufe_stand";
 --
 -- TOC Entry ID 2 (OID 9068276)
@@ -14,7 +15,7 @@ CREATE TABLE "berufe_stand" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9068276) TABLE DATA berufe_stand
+-- Data for TOC Entry ID 4 (OID 9068276) TABLE DATA berufe_stand
 --
 
 COPY "berufe_stand"  FROM stdin;
@@ -434,3 +435,11 @@ Schlangenbeschwörer	Volk
 Knappe	Adel
 Pagin	Adel
 \.
+--
+-- TOC Entry ID 3 (OID 9068276)
+--
+-- Name: "berufe_stand_beruf" Type: INDEX Owner: thoma
+--
+
+CREATE  INDEX "berufe_stand_beruf" on "berufe_stand" using btree ( "beruf" "text_ops" );
+

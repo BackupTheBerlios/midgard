@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "spezialgebiete_spezialgebiet";
 DROP TABLE "spezialgebiete";
 --
 -- TOC Entry ID 2 (OID 9072805)
@@ -17,7 +18,7 @@ CREATE TABLE "spezialgebiete" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9072805) TABLE DATA spezialgebiete
+-- Data for TOC Entry ID 4 (OID 9072805) TABLE DATA spezialgebiete
 --
 
 COPY "spezialgebiete"  FROM stdin;
@@ -49,3 +50,11 @@ eBe	8	Luft Feuer	Luft	Feuer
 eBe	9	Luft Wasser	Luft	Wasser
 eBe	10	Wasser Luft	Wasser	Luft
 \.
+--
+-- TOC Entry ID 3 (OID 9072805)
+--
+-- Name: "spezialgebiete_spezialgebiet" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "spezialgebiete_spezialgebiet" on "spezialgebiete" using btree ( "spezialgebiet" "text_ops" );
+

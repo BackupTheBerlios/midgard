@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "spezies_typen_spezies";
 DROP TABLE "spezies_typen";
 --
 -- TOC Entry ID 2 (OID 26599941)
@@ -15,7 +16,7 @@ CREATE TABLE "spezies_typen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 26599941) TABLE DATA spezies_typen
+-- Data for TOC Entry ID 4 (OID 26599941) TABLE DATA spezies_typen
 --
 
 COPY "spezies_typen"  FROM stdin;
@@ -67,3 +68,11 @@ Waldgnom	sHx	\N
 Waldgnom	Ma	\N
 Waldgnom	Th	\N
 \.
+--
+-- TOC Entry ID 3 (OID 26599941)
+--
+-- Name: "spezies_typen_spezies" Type: INDEX Owner: thoma
+--
+
+CREATE  INDEX "spezies_typen_spezies" on "spezies_typen" using btree ( "spezies" "text_ops" );
+

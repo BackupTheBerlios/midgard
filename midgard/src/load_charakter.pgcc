@@ -273,7 +273,7 @@ void midgard_CG::load_charakter()
    ///////////////////////////////////////////////////////////////////////   
    // Berufe, Fertigkeiten, Waffen und Zauber (KiDo), Grundkenntnisse (Waffen)
    load_fertigkeiten();
-   Database.ausnahmen.set_Beruf(vec_Beruf);
+   Database.ausnahmen.set_Beruf(list_Beruf);
 
    // Spezies setzen ////////////////////////////////////////////
    optionmenu_spezies->set_history(Werte.Spezies()->Nr());
@@ -313,7 +313,11 @@ void midgard_CG::load_fertigkeiten()
       if (sqlca.sqlcode) break;
       std::string sart=db_art;
       if(sart=="Beruf")
-         vec_Beruf.push_back(new Data_beruf(db_fert,"",db_wert));
+        {
+         cH_MidgardBasicElement beruf(new Beruf(db_fert));
+         cH_Beruf(beruf)->set_Erfolgswert(db_wert);
+         list_Beruf.push_back(beruf);
+        }
       if(sart=="ang.Fertigkeit")
        {
          cH_MidgardBasicElement fert_an(new Fertigkeit_angeborene(db_fert));

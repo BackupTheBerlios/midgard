@@ -41,8 +41,9 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
 }
 
 
-Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& Database, const std::string& mod)
- : hauptfenster(h),modus(mod)
+Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& Database, 
+   const std::string& mod,const std::list<cH_MidgardBasicElement>& L)
+ : hauptfenster(h)
 {
    Gtk::OStream os(clist_sp_sc);
    if (mod == "Sprache")
@@ -50,6 +51,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
          sp_sc_label->set_text("Sprache wählen");
          for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
           { 
+            if((*i)->ist_gelernt(L)) continue;
             cH_Sprache s(*i);
             os << s->Name()<<'\t'<<s->Maxwert()<<'\n';
             os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
@@ -61,8 +63,11 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
          for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Schrift.begin();i!=Database.Schrift.end();++i)
           { 
             cH_Schrift s(*i);
-            os << s->Name()<<'\t'<<s->Art_der_Schrift()<<'\n';
-            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+            if(s->kann_Sprache(L))
+             {
+               os << s->Name()<<'\t'<<s->Art_der_Schrift()<<'\n';
+               os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+             }
           }
       }
    for (unsigned int i=0;i<clist_sp_sc->columns().size();++i)

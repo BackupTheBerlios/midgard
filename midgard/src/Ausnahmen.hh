@@ -5,7 +5,8 @@
 #include <map.h>
 #include "Typen.hh"
 #include "Grundwerte.hh"
-#include "class_berufe.hh"
+//#include "class_berufe.hh"
+#include "Beruf.hh"
 #include <gtk--/progressbar.h>
 
 class Data_Ausnahmen 
@@ -36,14 +37,14 @@ class Ausnahmen
                : typ(t), herkunft(h), spezies(s), beruf(b),stand(st) {} 
             } ;
    std::map<st_index1,Data_Ausnahmen> map_ausnahmen;
-   std::vector<H_Data_beruf> vec_Beruf;
+   std::list<cH_MidgardBasicElement> list_Beruf;
    Grundwerte Werte;
    vector<cH_Typen> Typ;
 
  public:
    Ausnahmen() {}
    Ausnahmen(Gtk::ProgressBar *progressbar);
-   void set_Beruf (const std::vector<H_Data_beruf>& vB) {vec_Beruf = vB;}
+   void set_Beruf (const std::list<cH_MidgardBasicElement>& vB) {list_Beruf = vB;}
    void set_Werte (const Grundwerte& W) {Werte=W;}
    void set_Typ   (const vector<cH_Typen>& T) {Typ=T;}
 

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "fertigkeiten_voraussetzung_name";
 DROP TABLE "fertigkeiten_voraussetzung";
 --
 -- TOC Entry ID 2 (OID 9069702)
@@ -23,7 +24,7 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9069702) TABLE DATA fertigkeiten_voraussetzung
+-- Data for TOC Entry ID 4 (OID 9069702) TABLE DATA fertigkeiten_voraussetzung
 --
 
 COPY "fertigkeiten_voraussetzung"  FROM stdin;
@@ -148,11 +149,10 @@ Mumifizieren	\N	31	\N	31	\N	\N	\N	\N	\N	Kräuterkunde, Naturkunde
 Pyromantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie
 KiDo-Technik	\N	\N	\N	\N	\N	\N	\N	\N	\N	KiDo
 Kalligraphie	\N	61	\N	\N	\N	\N	\N	\N	\N	Lesen/Sreiben
-Dichten	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
+Lanzenstechen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kampf zu Pferd, Lanze
 Etikette	\N	31	\N	31	\N	\N	31	\N	\N	\N
 Fangen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
 Heraldik	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Lanzenstechen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kampf zu Pferd, Lanze
 Luftkampf	\N	61	\N	\N	\N	\N	\N	\N	\N	Reiten
 Malen/Zeichen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
 Schiffsführung	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
@@ -178,3 +178,11 @@ Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	0	\N
 Fallenstellen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
 Kenntnis der fünf Klassiker	\N	\N	\N	11	\N	\N	\N	\N	\N	
 \.
+--
+-- TOC Entry ID 3 (OID 9069702)
+--
+-- Name: "fertigkeiten_voraussetzung_name" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "fertigkeiten_voraussetzung_name" on "fertigkeiten_voraussetzung" using btree ( "name" "text_ops" );
+

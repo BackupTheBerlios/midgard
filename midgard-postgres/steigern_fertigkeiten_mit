@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "steigern_fertigkeiten_mit_name";
 DROP TABLE "steigern_fertigkeiten_mit";
 --
 -- TOC Entry ID 2 (OID 13830661)
@@ -14,7 +15,7 @@ CREATE TABLE "steigern_fertigkeiten_mit" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 13830661) TABLE DATA steigern_fertigkeiten_mit
+-- Data for TOC Entry ID 4 (OID 13830661) TABLE DATA steigern_fertigkeiten_mit
 --
 
 COPY "steigern_fertigkeiten_mit"  FROM stdin;
@@ -100,3 +101,11 @@ Werfen	KEP
 Wetterkunde	ZEP
 Heraldik	ZEP
 \.
+--
+-- TOC Entry ID 3 (OID 13830661)
+--
+-- Name: "steigern_fertigkeiten_mit_name" Type: INDEX Owner: thoma
+--
+
+CREATE  INDEX "steigern_fertigkeiten_mit_name" on "steigern_fertigkeiten_mit" using btree ( "name" "text_ops" );
+

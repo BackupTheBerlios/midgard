@@ -32,8 +32,10 @@
 #include "Pflicht.hh"
 
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Database& dat,const vector<cH_Typen>& Typ,
-     int lernpunkte, const Grundwerte& Werte,const std::vector<H_Data_beruf>& vec_Beruf)
-: Database(dat)
+     int lernpunkte, const Grundwerte& Werte,
+     const std::list<cH_MidgardBasicElement> _list_Sprache,
+     const std::list<cH_MidgardBasicElement> _list_Schrift)
+: Database(dat),list_Sprache(_list_Sprache),list_Schrift(_list_Schrift)
 {
   hauptfenster=h;
   maxpunkte = lernpunkte;
@@ -150,7 +152,8 @@ void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
          i!=fertigkeiten_clist_auswahl->selection().end();++i)
      {  
       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-      saf.push_back(*ptr);
+      if ((*ptr)->Name() != "Sprache" && (*ptr)->Name() != "Lesen/Schreiben" )
+         saf.push_back(*ptr);
      }
   hauptfenster->MidgardBasicElement_uebernehmen(saf);
   destroy();
@@ -170,7 +173,10 @@ void Fertigkeiten_auswahl::on_fertigkeiten_clist_auswahl_select_row(gint row, gi
    if (fert == "Sprache" || fert == "Lesen/Schreiben" )
     {
       if (maxpunkte >=  atoi(fertigkeiten_clist_auswahl->get_text(row,0).c_str() ))
-         manage (new Sprache_auswahl(hauptfenster,Database,fert));
+       {
+        if (fert == "Sprache") manage (new Sprache_auswahl(hauptfenster,Database,fert,list_Sprache));
+        if (fert == "Lesen/Schreiben") manage (new Sprache_auswahl(hauptfenster,Database,fert,list_Schrift));
+       }
     }
 }
 

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "waffen_standard_fertigkeit";
 DROP TABLE "waffen_standard";
 --
 -- TOC Entry ID 2 (OID 9072272)
@@ -49,7 +50,7 @@ CREATE TABLE "waffen_standard" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9072272) TABLE DATA waffen_standard
+-- Data for TOC Entry ID 4 (OID 9072272) TABLE DATA waffen_standard
 --
 
 COPY "waffen_standard"  FROM stdin;
@@ -61,3 +62,11 @@ Lasso	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	S	S	S	G	S	A
 Namisritra	G	S	S	S	S	S	S	S	S	S	S	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	S	S	S	A
 Kharrata	G	S	S	S	S	S	S	S	S	S	S	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	S	S	S	A
 \.
+--
+-- TOC Entry ID 3 (OID 9072272)
+--
+-- Name: "waffen_standard_fertigkeit" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "waffen_standard_fertigkeit" on "waffen_standard" using btree ( "fertigkeit" "text_ops" );
+

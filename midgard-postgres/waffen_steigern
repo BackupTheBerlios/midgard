@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "waffen_steigern_name";
 DROP TABLE "waffen_steigern";
 --
 -- TOC Entry ID 2 (OID 9072340)
@@ -33,7 +34,7 @@ CREATE TABLE "waffen_steigern" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9072340) TABLE DATA waffen_steigern
+-- Data for TOC Entry ID 4 (OID 9072340) TABLE DATA waffen_steigern
 --
 
 COPY "waffen_steigern"  FROM stdin;
@@ -41,3 +42,11 @@ Verteidigung	20	100	400	1000	2000	4000	6000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	
 Angriff	0	0	0	6	6	6	10	20	40	80	160	300	500	1000	1000	1500	1500	2500	\N	\N
 Fern	0	0	0	6	6	6	10	20	40	80	160	300	500	1000	1000	1500	1500	2500	\N	\N
 \.
+--
+-- TOC Entry ID 3 (OID 9072340)
+--
+-- Name: "waffen_steigern_name" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "waffen_steigern_name" on "waffen_steigern" using btree ( "name" "text_ops" );
+

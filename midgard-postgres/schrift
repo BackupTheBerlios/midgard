@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "schrift_name";
 DROP TABLE "schrift";
 --
 -- TOC Entry ID 2 (OID 9071583)
@@ -16,7 +17,7 @@ CREATE TABLE "schrift" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9071583) TABLE DATA schrift
+-- Data for TOC Entry ID 4 (OID 9071583) TABLE DATA schrift
 --
 
 COPY "schrift"  FROM stdin;
@@ -42,3 +43,11 @@ KanThaiTun(5)	Silben	1000	K
 KanThaiTun(6)	Silben	1000	K
 Geisterschrift	Silben	100	K
 \.
+--
+-- TOC Entry ID 3 (OID 9071583)
+--
+-- Name: "schrift_name" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "schrift_name" on "schrift" using btree ( "name" "text_ops" );
+

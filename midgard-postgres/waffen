@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "waffen_name";
 DROP TABLE "waffen";
 --
 -- TOC Entry ID 2 (OID 9072048)
@@ -30,7 +31,7 @@ CREATE TABLE "waffen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9072048) TABLE DATA waffen
+-- Data for TOC Entry ID 4 (OID 9072048) TABLE DATA waffen
 --
 
 COPY "waffen"  FROM stdin;
@@ -95,3 +96,11 @@ Bogen	Bögen	5	Fern	W6	0	S	\N	\N	\N	31	31	\N	\N	0	30	100	180
 Langbogen	Bögen	6	Fern	W6	1	S	\N	\N	\N	61	61	\N	\N	0	30	120	200
 Kharrata	Kharrata	3	Angriff	2W6	\N	E	\N	\N	\N	21	61	\N	R	\N	\N	\N	\N
 \.
+--
+-- TOC Entry ID 3 (OID 9072048)
+--
+-- Name: "waffen_name" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "waffen_name" on "waffen" using btree ( "name" "text_ops" );
+

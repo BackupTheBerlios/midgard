@@ -33,7 +33,7 @@ class MidgardBasicElement : public HandleContent
       MidgardBasicElement() : kosten(0),erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}                              
 
-      enum MBEE {FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,ZAUBER,
+      enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,ZAUBER,
                   ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
       enum TREE {OLD,NEW};
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.84 2001/11/12 09:20:36 thoma Exp $
+// $Id: midgard_CG.cc,v 1.85 2001/11/13 15:26:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,6 +59,7 @@ void midgard_CG::get_Database()
    Database = st_Database( Laender_All(MI->get_progressbar_laender()).get_All(),
                            Ruestung_All(MI->get_progressbar_ruestung()).get_All(),
                            Lernschema(MI->get_progressbar_lernschema()),
+                           Beruf_All(MI->get_progressbar_beruf()).get_All(),
                            Fertigkeiten_angeborene_All(MI->get_progressbar_ang_fert()).get_All(),
                            Fertigkeiten_All(MI->get_progressbar_fertigkeiten()).get_All(),
                            WaffeGrund_All(MI->get_progressbar_grundkenntnisse()).get_All(),
@@ -307,7 +308,7 @@ void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
 
 void midgard_CG::on_muttersprache_clicked()
 {   
-   manage (new Sprache_auswahl(this,Database,"Sprache"));
+   manage (new Sprache_auswahl(this,Database,"Sprache",list_Sprache));
 }
 
 void midgard_CG::on_charakter_beschreibung_clicked()
@@ -394,7 +395,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    list_Waffen_besitz.clear();
    list_Kido.clear();
    list_Kido_neu.clear();
-   vec_Beruf.clear();
+   list_Beruf.clear();
    list_Sprache.clear();
    list_Schrift.clear();
    list_Sprache_neu.clear();

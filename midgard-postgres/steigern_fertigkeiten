@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "steigern_fertigkeiten_name";
 DROP TABLE "steigern_fertigkeiten";
 --
 -- TOC Entry ID 2 (OID 19963729)
@@ -14,7 +15,7 @@ CREATE TABLE "steigern_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19963729) TABLE DATA steigern_fertigkeiten
+-- Data for TOC Entry ID 4 (OID 19963729) TABLE DATA steigern_fertigkeiten
 --
 
 COPY "steigern_fertigkeiten"  FROM stdin;
@@ -158,3 +159,11 @@ Srimara lenken	Elefanten lenken
 Natya	Bewegung
 Fallenstellen	Abenteuer
 \.
+--
+-- TOC Entry ID 3 (OID 19963729)
+--
+-- Name: "steigern_fertigkeiten_name" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "steigern_fertigkeiten_name" on "steigern_fertigkeiten" using btree ( "name" "text_ops" );
+

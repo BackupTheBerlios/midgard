@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "fertigkeiten_typen_name";
 DROP INDEX "fertigkeiten_typen_name_typ";
 DROP TABLE "fertigkeiten_typen";
 --
@@ -16,7 +17,7 @@ CREATE TABLE "fertigkeiten_typen" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26574826) TABLE DATA fertigkeiten_typen
+-- Data for TOC Entry ID 5 (OID 26574826) TABLE DATA fertigkeiten_typen
 --
 
 COPY "fertigkeiten_typen"  FROM stdin;
@@ -5175,4 +5176,12 @@ Schlittschuhlaufen	Ass	S
 --
 
 CREATE UNIQUE INDEX "fertigkeiten_typen_name_typ" on "fertigkeiten_typen" using btree ( "name" "text_ops", "typ" "text_ops" );
+
+--
+-- TOC Entry ID 4 (OID 26574826)
+--
+-- Name: "fertigkeiten_typen_name" Type: INDEX Owner: thoma
+--
+
+CREATE  INDEX "fertigkeiten_typen_name" on "fertigkeiten_typen" using btree ( "name" "text_ops" );
 

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "land_land";
 DROP TABLE "land";
 --
 -- TOC Entry ID 2 (OID 26591161)
@@ -15,7 +16,7 @@ CREATE TABLE "land" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 26591161) TABLE DATA land
+-- Data for TOC Entry ID 4 (OID 26591161) TABLE DATA land
 --
 
 COPY "land"  FROM stdin;
@@ -61,3 +62,11 @@ Valian	Valian	Vallinga
 Alba	Vesternesse	Dunathisch
 Aran	Sirao	Maralinga
 \.
+--
+-- TOC Entry ID 3 (OID 26591161)
+--
+-- Name: "land_land" Type: INDEX Owner: thoma
+--
+
+CREATE  INDEX "land_land" on "land" using btree ( "land" "text_ops" );
+

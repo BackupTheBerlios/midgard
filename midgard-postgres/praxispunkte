@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "praxispunkte_name";
 DROP TABLE "praxispunkte";
 --
 -- TOC Entry ID 2 (OID 9071348)
@@ -15,7 +16,7 @@ CREATE TABLE "praxispunkte" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9071348) TABLE DATA praxispunkte
+-- Data for TOC Entry ID 4 (OID 9071348) TABLE DATA praxispunkte
 --
 
 COPY "praxispunkte"  FROM stdin;
@@ -48,3 +49,11 @@ Wahrnehmung	6	15
 Winden	8	15
 Fern	17	7
 \.
+--
+-- TOC Entry ID 3 (OID 9071348)
+--
+-- Name: "praxispunkte_name" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "praxispunkte_name" on "praxispunkte" using btree ( "name" "text_ops" );
+

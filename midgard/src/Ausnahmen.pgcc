@@ -76,7 +76,7 @@ double Ausnahmen::Ausnahmen_float(const std::string& name) const
           return i->second.Fac();
      if (i->first.herkunft != "" && i->first.herkunft==Werte.Herkunft()->Name() )
           return i->second.Fac();
-     for(std::vector<H_Data_beruf>::const_iterator j=vec_Beruf.begin();j!=vec_Beruf.end();++j)
+     for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Beruf.begin();j!=list_Beruf.end();++j)
       if(i->first.beruf==(*j)->Name())  return i->second.Fac() ;
    }
  return 0;
@@ -100,7 +100,7 @@ void Ausnahmen::Ausnahmen_string(const std::string& name,
           i->second.Standard(standard);
      if (i->first.herkunft != "" && i->first.herkunft==Werte.Herkunft()->Name() )
           i->second.Standard(standard);
-     for(std::vector<H_Data_beruf>::const_iterator j=vec_Beruf.begin();j!=vec_Beruf.end();++j)
+     for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Beruf.begin();j!=list_Beruf.end();++j)
       if(i->first.beruf==(*j)->Name())  i->second.Standard(standard);
    }
 }

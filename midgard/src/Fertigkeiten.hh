@@ -26,8 +26,8 @@ class Fertigkeit : public MidgardBasicElement
 //     void get_Steigern_Kosten_map();
 
   public:
-     Fertigkeit(const std::string& n,int l=0,bool p=false)
-      :name(n),lernpunkte(l),pflicht(p) 
+     Fertigkeit(const std::string& n)
+      :name(n),lernpunkte(0),pflicht(false) 
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
 
@@ -49,6 +49,7 @@ class Fertigkeit : public MidgardBasicElement
 
 class cH_Fertigkeit : public Handle<const Fertigkeit>
 {
+/*
    struct st_index {std::string name; int lernpunkte; 
       bool operator == (const st_index& b) const
          {return (name==b.name && lernpunkte==b.lernpunkte);}
@@ -58,14 +59,14 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
       st_index(std::string n, int l):name(n),lernpunkte(l){}
       st_index(){}
       };
-
-    typedef CacheStatic<st_index,cH_Fertigkeit> cache_t;
+*/
+    typedef CacheStatic<std::string,cH_Fertigkeit> cache_t;
     static cache_t cache;
     cH_Fertigkeit(Fertigkeit *s) : Handle<const Fertigkeit>(s) {};
-    friend class std::map<st_index,cH_Fertigkeit>;
+    friend class std::map<std::string,cH_Fertigkeit>;
     cH_Fertigkeit(){};
  public:
-    cH_Fertigkeit(const std::string& n,int l=0,bool b=false);
+    cH_Fertigkeit(const std::string& n);
 
     cH_Fertigkeit(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit>
       (dynamic_cast<const Fertigkeit *>(&*x)){}

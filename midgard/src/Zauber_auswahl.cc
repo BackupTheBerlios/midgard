@@ -30,7 +30,6 @@
 
 Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, 
    const midgard_CG::st_Database& Database,
-   const std::vector<H_Data_beruf>& vec_Beruf,
    const vector<cH_Typen>& Typ, int lernpunkte)
 {
   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
@@ -40,7 +39,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
   zauber_auswahl_lernpunkte->set_text(itos(maxpunkte));
   std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Zauber",Typ);
   
-    for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
       {
        Lernschema::st_index I(Typ[0]->Short(),"Zauber",(*i)->Name());
 //       int v=0;
@@ -90,11 +89,7 @@ void Zauber_auswahl::on_close_zauber_clicked()
    for (Gtk::CList::SelectionList::iterator i=zauber_clist_auswahl->selection().begin();
          i!=zauber_clist_auswahl->selection().end();++i)
      {  
-         // ptr=&fert[i->get_row_num()];
-//         H_Data_zauber *ptr = static_cast<H_Data_zauber*>(i->get_data());
-         cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-//       saz.push_back(new Data_zauber((*ptr)->Name()));
-//       saz.push_back(cH_Zauber((*ptr)->Name(),Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
+       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
        saz.push_back(*ptr);
      }
   hauptfenster->MidgardBasicElement_uebernehmen(saz);

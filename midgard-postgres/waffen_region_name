@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "waffen_region_name_alias";
 DROP TABLE "waffen_region_name";
 --
 -- TOC Entry ID 2 (OID 13792874)
@@ -18,7 +19,7 @@ CREATE TABLE "waffen_region_name" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 13792874) TABLE DATA waffen_region_name
+-- Data for TOC Entry ID 4 (OID 13792874) TABLE DATA waffen_region_name
 --
 
 COPY "waffen_region_name"  FROM stdin;
@@ -29,7 +30,6 @@ Wurfspeer	YariNage	K	\N	\N	\N
 leichte Armbrust	OjuMi	K	\N	\N	\N
 schwere Armbrust	SangMiau	K	\N	\N	\N
 Blasrohr	FukiDake	K	\N	\N	\N
-Wurfmesser	Tanto	K	\N	\N	\N
 Morgenstern	KauSinKe	K	\N	\N	\N
 Kampfstab	Bo	K	\N	\N	\N
 Anderthalbh‰nder	Claemore	A	\N	\N	\N
@@ -42,10 +42,8 @@ Dolch	Rilok	E	\N	\N	\N
 Dolch	Telek	E	\N	\N	\N
 Streitkolben	Dabus	E	\N	\N	\N
 leichter Speer	Jarid	E	\N	\N	\N
-Wurfspeer	Jarid	E	\N	\N	\N
 Anderthalbh‰nder	Nimcha	E	\N	\N	\N
 Stoﬂspeer	Rumeh	E	\N	\N	\N
-Lanze	Rumeh	E	\N	\N	\N
 Kumms‰bel	Saif	E	\N	\N	\N
 Langschwert	Takuba	E	\N	\N	\N
 Bogen	Mukantar	E	\N	\N	\N
@@ -65,3 +63,11 @@ Krumms‰bel	Ma`khirr	R	W6	1	\N
 Krumms‰bel	Schimschar	R	W6(+2)	\N	\N
 Dolch	Katar (Spreizklinge)	R	W6	0	-2
 \.
+--
+-- TOC Entry ID 3 (OID 13792874)
+--
+-- Name: "waffen_region_name_alias" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "waffen_region_name_alias" on "waffen_region_name" using btree ( "alias" "text_ops" );
+

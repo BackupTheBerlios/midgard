@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "lernschema_typ_fertigkeit_p_ele";
 DROP TABLE "lernschema";
 --
 -- TOC Entry ID 2 (OID 19988292)
@@ -21,7 +22,7 @@ CREATE TABLE "lernschema" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19988292) TABLE DATA lernschema
+-- Data for TOC Entry ID 4 (OID 19988292) TABLE DATA lernschema
 --
 
 COPY "lernschema"  FROM stdin;
@@ -1196,3 +1197,11 @@ Hä	t	Geschäftstüchtigkeit	Fertigkeit	\N	\N	1	\N	\N
 Kd	t	KiDo	Fertigkeit	10	Zt	1	\N	\N
 Kr	t	Kampf in Vollrüstung	Fertigkeit	\N	\N	1	\N	\N
 \.
+--
+-- TOC Entry ID 3 (OID 19988292)
+--
+-- Name: "lernschema_typ_fertigkeit_p_ele" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "lernschema_typ_fertigkeit_p_ele" on "lernschema" using btree ( "typ" "text_ops", "fertigkeit" "text_ops", "p_element" "text_ops", "s_element" "text_ops" );
+

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "waffen_typen_name_typ";
 DROP TABLE "waffen_typen";
 --
 -- TOC Entry ID 2 (OID 26591586)
@@ -15,7 +16,7 @@ CREATE TABLE "waffen_typen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 26591586) TABLE DATA waffen_typen
+-- Data for TOC Entry ID 4 (OID 26591586) TABLE DATA waffen_typen
 --
 
 COPY "waffen_typen"  FROM stdin;
@@ -265,3 +266,11 @@ Peitsche	Wa	S
 Waffen	Wa	S
 Bola	Ba	S
 \.
+--
+-- TOC Entry ID 3 (OID 26591586)
+--
+-- Name: "waffen_typen_name_typ" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "waffen_typen_name_typ" on "waffen_typen" using btree ( "name" "text_ops", "typ" "text_ops" );
+

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "waffen_grund_name";
 DROP TABLE "waffen_grund";
 --
 -- TOC Entry ID 2 (OID 20006027)
@@ -15,7 +16,7 @@ CREATE TABLE "waffen_grund" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 20006027) TABLE DATA waffen_grund
+-- Data for TOC Entry ID 4 (OID 20006027) TABLE DATA waffen_grund
 --
 
 COPY "waffen_grund"  FROM stdin;
@@ -48,3 +49,11 @@ Peitsche	900	\N
 Namisritra	200	R
 Kharrata	200	R
 \.
+--
+-- TOC Entry ID 3 (OID 20006027)
+--
+-- Name: "waffen_grund_name" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "waffen_grund_name" on "waffen_grund" using btree ( "name" "text_ops" );
+

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "pflicht_lernen_typ";
 DROP TABLE "pflicht_lernen";
 --
 -- TOC Entry ID 2 (OID 19989498)
@@ -18,7 +19,7 @@ CREATE TABLE "pflicht_lernen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19989498) TABLE DATA pflicht_lernen
+-- Data for TOC Entry ID 4 (OID 19989498) TABLE DATA pflicht_lernen
 --
 
 COPY "pflicht_lernen"  FROM stdin;
@@ -119,3 +120,11 @@ Ri	\N	\N	Fälschen	\N	\N
 Ri	\N	\N	Streitwagen lenken	\N	\N
 Ri	\N	\N	Tarnen	\N	\N
 \.
+--
+-- TOC Entry ID 3 (OID 19989498)
+--
+-- Name: "pflicht_lernen_typ" Type: INDEX Owner: thoma
+--
+
+CREATE  INDEX "pflicht_lernen_typ" on "pflicht_lernen" using btree ( "typ" "text_ops" );
+

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "fertigkeiten_fertigkeit_region";
 DROP TABLE "fertigkeiten";
 --
 -- TOC Entry ID 2 (OID 19989624)
@@ -62,7 +63,7 @@ CREATE TABLE "fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19989624) TABLE DATA fertigkeiten
+-- Data for TOC Entry ID 4 (OID 19989624) TABLE DATA fertigkeiten
 --
 
 COPY "fertigkeiten"  FROM stdin;
@@ -198,7 +199,7 @@ COPY "fertigkeiten"  FROM stdin;
 4	5	Werfen	5	400	B&R	G	S	S	S	S	G	S	S	S	G	S	G	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 4	4	Wetterkunde	2	25	B&R	A	G	S	S	S	S	S	A	A	G	A	S	G	G	S	S	S	S	A	S	S	G	A	S	G	S	G	S	S	S	S	S	In	S	S	S	A	\N	\N	\N	\N	\N	\N	\N
 4	\N	Dichten	\N	150	E	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	In	S	S	A	S	\N	\N	\N	\N	\N	\N	\N
-3	1	Dichten	1	150	B&R	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	In	S	S	A	S	\N	\N	\N	\N	\N	\N	\N
+5	\N	Kenntnis der fünf Klassiker	\N	2500	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	A	S	\N	\N	\N	\N	\N	\N	\N
 3	1	Kalligraphie	1	150	B&R	A	A	A	A	A	A	S	A	S	A	A	A	A	A	S	S	S	S	G	S	S	A	G	G	G	G	G	A	G	G	A	A	Ge	A	A	A	S	\N	\N	\N	\N	\N	\N	\N
 3	4	Etikette	2	200	B&R	S	G	A	A	A	G	S	S	S	S	A	A	A	S	S	S	S	S	G	S	S	A	S	G	G	G	G	G	G	G	S	S	In	S	G	S	S	\N	\N	\N	\N	\N	\N	\N
 3	15	Fangen	12	100	B&R	S	S	G	G	G	S	S	S	S	G	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
@@ -216,5 +217,12 @@ COPY "fertigkeiten"  FROM stdin;
 3	8	Überleben in der Wüste	6	50		S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 3	15	Schlittschuhlaufen	12	100	B&R	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 4	\N	Rechnen	\N	100		S	S	A	A	A	S	G	A	S	G	A	S	A	S	S	S	S	S	S	S	S	A	G	S	S	G	S	S	S	S	S	S	\N	S	A	A	S	\N	\N	\N	\N	\N	\N	\N
-5	\N	Kenntnis der fünf Klassiker	\N	2500	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	A	S	\N	\N	\N	\N	\N	\N	\N
 \.
+--
+-- TOC Entry ID 3 (OID 19989624)
+--
+-- Name: "fertigkeiten_fertigkeit_region" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "fertigkeiten_fertigkeit_region" on "fertigkeiten" using btree ( "fertigkeit" "text_ops", "region" "text_ops" );
+

@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "angeborene_fertigkeiten_name";
 DROP TABLE "angeborene_fertigkeiten";
 --
 -- TOC Entry ID 2 (OID 9067316)
@@ -16,7 +17,7 @@ CREATE TABLE "angeborene_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9067316) TABLE DATA angeborene_fertigkeiten
+-- Data for TOC Entry ID 4 (OID 9067316) TABLE DATA angeborene_fertigkeiten
 --
 
 COPY "angeborene_fertigkeiten"  FROM stdin;
@@ -28,3 +29,11 @@ COPY "angeborene_fertigkeiten"  FROM stdin;
 96	97	Nachtsicht	\N
 98	99	Wachgabe	\N
 \.
+--
+-- TOC Entry ID 3 (OID 9067316)
+--
+-- Name: "angeborene_fertigkeiten_name" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "angeborene_fertigkeiten_name" on "angeborene_fertigkeiten" using btree ( "name" "text_ops" );
+

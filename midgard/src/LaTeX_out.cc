@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.54 2001/11/12 09:20:36 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.55 2001/11/13 15:26:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -181,8 +181,8 @@ void midgard_CG::LaTeX_write_values()
  /////////////////////////////////////////////////////////////////////////////
  // Beruf
  fout << "\\newcommand{\\beruf}{" ;
- for(std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
-         i!=vec_Beruf.end();++i)
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Beruf.begin();
+         i!=list_Beruf.end();++i)
    {
      fout << (*i)->Name()<<" ("<<(*i)->Erfolgswert()<<")\t";
    }

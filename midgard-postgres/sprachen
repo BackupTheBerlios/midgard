@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "sprachen_name";
 DROP TABLE "sprachen";
 --
 -- TOC Entry ID 2 (OID 26591260)
@@ -18,14 +19,11 @@ CREATE TABLE "sprachen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 26591260) TABLE DATA sprachen
+-- Data for TOC Entry ID 4 (OID 26591260) TABLE DATA sprachen
 --
 
 COPY "sprachen"  FROM stdin;
 10	Twyneddisch	4	Seemeister	f	\N
-10	Twyneddisch	4	Seemeister	f	\N
-10	Twyneddisch	4	Seemeister	f	\N
-10	Erainnisch	4	Seemeister	f	\N
 10	Erainnisch	4	Seemeister	f	\N
 10	Hochcoraniaid	4	Coraniaid	t	\N
 10	Albisch	4	Seemeister	f	\N
@@ -51,8 +49,6 @@ COPY "sprachen"  FROM stdin;
 10	Bulugi	4	Bulugi	f	\N
 10	Trll'ng	3		f	\N
 10	Nahuatlanisch	4	Nahuatlanisch	f	\N
-10	Nahuatlanisch	4	Nahuatlanisch	f	\N
-10	Maralinga	4	Seemeister	t	\N
 10	Halftan	4	Halftan	f	\N
 10	Dvarskar	4	Dvarskar	f	\N
 10	Gnomenon	4	Gnomenon	f	\N
@@ -60,7 +56,14 @@ COPY "sprachen"  FROM stdin;
 10	Moravisch	4	Tegarisch	f	\N
 10	Vallinga	4	Seemeister	f	\N
 10	Dunathisch	4	Seemeister	t	A
-10	Maralinga	4	Seemeister	t	\N
 10	Ikengadialekte	4		f	\N
 10	Feuerinseldialekte	2		f	\N
 \.
+--
+-- TOC Entry ID 3 (OID 26591260)
+--
+-- Name: "sprachen_name" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "sprachen_name" on "sprachen" using btree ( "name" "text_ops" );
+

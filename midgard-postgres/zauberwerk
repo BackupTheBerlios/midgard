@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "zauberwerk_name_art_stufe";
 DROP TABLE "zauberwerk";
 --
 -- TOC Entry ID 2 (OID 9072509)
@@ -42,7 +43,7 @@ CREATE TABLE "zauberwerk" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9072509) TABLE DATA zauberwerk
+-- Data for TOC Entry ID 4 (OID 9072509) TABLE DATA zauberwerk
 --
 
 COPY "zauberwerk"  FROM stdin;
@@ -91,9 +92,9 @@ Spiegelamulett verzaubern	2000	Amulett	5	1 Monat	5000 GS/ABW	\N		A		A	A	S	\N	A	A
 Spiegelamulett verzaubern	2500	Amulett	6	1 Monat	6000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
 Untotenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N	S	S	S	A	S	S	\N	A	S	A	A	A	A	S	A	S	A	\N	S	G	\N	A	\N
 Werwesenamulett verzaubern	400	Amulett	3	1 Monat	20000 GS/ABW	\N	S	S	S	A	S	S	\N	A	S	A	A	A	A	S	A	S	A	\N	S	G	\N	A	\N
-Talisman verzaubern	200	Talisman	1	1 Tag	10/20/30 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
-Talisman verzaubern	200	Talisman	2	1 Tag	30/60/90 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
 Talisman verzaubern	500	Talisman	3	1 Tag	60/120/180 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
+Talisman verzaubern	200	Talisman	2	1 Tag	30/60/90 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
+Talisman verzaubern	200	Talisman	1	1 Tag	10/20/30 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
 Talisman verzaubern	1000	Talisman	4	1 Tag	100/200/300 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
 Zahlenletter (12)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 Zahlenletter (13)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
@@ -209,3 +210,11 @@ Kriegsbemalung	200	Talisman	2	10 min	30/60/90 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S
 Kriegsbemalung	500	Talisman	3	10 min	60/120/180 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
 Kriegsbemalung	1000	Talisman	4	10 min	100/200/300 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
 \.
+--
+-- TOC Entry ID 3 (OID 9072509)
+--
+-- Name: "zauberwerk_name_art_stufe" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "zauberwerk_name_art_stufe" on "zauberwerk" using btree ( "name" "text_ops", "art" "text_ops", "stufe" "text_ops" );
+

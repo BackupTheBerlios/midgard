@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "charaktere_charakter_name_versi";
 DROP TABLE "charaktere";
 --
 -- TOC Entry ID 2 (OID 13830577)
@@ -73,4 +74,12 @@ CREATE TABLE "charaktere" (
 	"grad_resistenz" integer,
 	"grad_zaubern" integer
 );
+
+--
+-- TOC Entry ID 3 (OID 13830577)
+--
+-- Name: "charaktere_charakter_name_versi" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "charaktere_charakter_name_versi" on "charaktere" using btree ( "charakter_name" "text_ops", "version" "text_ops" );
 

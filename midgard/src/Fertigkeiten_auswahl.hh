@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten_auswahl.hh,v 1.26 2001/11/12 09:20:36 thoma Exp $
+// $Id: Fertigkeiten_auswahl.hh,v 1.27 2001/11/13 15:26:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,6 @@ class cH_Fertigkeit;
 #include "midgard_CG.hh"
 class Typen;
 class Grundwerte;
-class H_Data_beruf;
 
 class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
 {   
@@ -51,10 +50,14 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         std::list<cH_MidgardBasicElement> list_Fert_spez;
         std::list<cH_MidgardBasicElement> list_Fert;
         std::list<cH_MidgardBasicElement> list_allg_Fert;
+        std::list<cH_MidgardBasicElement> list_Sprache;
+        std::list<cH_MidgardBasicElement> list_Schrift;
         void on_fertigkeiten_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_fertigkeiten_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
  public:
         Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Database& Database,const vector<cH_Typen>& Typ,
-                 int lernpunkte, const Grundwerte& Werte,const std::vector<H_Data_beruf>& vec_Beruf);
+                 int lernpunkte, const Grundwerte& Werte,
+                 const std::list<cH_MidgardBasicElement> _list_Sprache,
+                 const std::list<cH_MidgardBasicElement> _list_Schrift);
 };
 #endif

@@ -73,6 +73,7 @@ void midgard_CG::on_speichern_clicked()
    // Alte einträge löschen
 
    exec sql DELETE FROM charaktere_fertigkeiten WHERE charakter_name = :db_name_ch ;
+/*
    for (std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
          i!=vec_Beruf.end();++i)
       {
@@ -84,6 +85,8 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Beruf') ;         
             SQLerror::test(__FILELINE__);
       }
+*/
+   MidgardBasicElement::saveElementliste(list_Beruf,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::saveElementliste(list_Waffen,Werte,Typ,Database.ausnahmen);

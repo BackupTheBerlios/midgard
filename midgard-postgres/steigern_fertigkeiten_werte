@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "steigern_fertigkeiten_werte_nam";
 DROP TABLE "steigern_fertigkeiten_werte";
 --
 -- TOC Entry ID 2 (OID 9071870)
@@ -42,7 +43,7 @@ CREATE TABLE "steigern_fertigkeiten_werte" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9071870) TABLE DATA steigern_fertigkeiten_werte
+-- Data for TOC Entry ID 4 (OID 9071870) TABLE DATA steigern_fertigkeiten_werte
 --
 
 COPY "steigern_fertigkeiten_werte"  FROM stdin;
@@ -101,3 +102,11 @@ Wetterkunde	\N	\N	5	5	13	13	13	25	25	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Werfen	\N	\N	\N	\N	\N	48	48	80	160	320	640	1280	2400	4000	8000	8000	12000	12000	20000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Beschatten	\N	\N	\N	\N	\N	\N	50	50	100	100	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
+--
+-- TOC Entry ID 3 (OID 9071870)
+--
+-- Name: "steigern_fertigkeiten_werte_nam" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "steigern_fertigkeiten_werte_nam" on "steigern_fertigkeiten_werte" using btree ( "name" "text_ops" );
+
