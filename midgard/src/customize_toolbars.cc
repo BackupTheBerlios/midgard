@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.4 2002/05/09 17:13:51 christof Exp $
+// $Id: customize_toolbars.cc,v 1.5 2002/05/09 17:24:19 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -28,7 +28,8 @@
 // bin + container sind schon dabei
 
 void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text)
-{  if (Gtk::Button::isA(w))
+{  cout << '+' << typeid(*w).name() << '\n';
+   if (Gtk::Button::isA(w))
    {  Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
       if (Gtk::HBox::isA(child))
       {  Gtk::Box_Helpers::BoxList &ch=dynamic_cast<Gtk::Box*>(w)->children();
@@ -54,10 +55,13 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text)
       CustomizeToolbars(child,show_icons,show_text);
    }
    else if (Gtk::Table::isA(w))
-   {  Gtk::Table_Helpers::TableList &ch=dynamic_cast<Gtk::Table*>(w)->children();
+   {  
+#if 0   
+      Gtk::Table_Helpers::TableList &ch=dynamic_cast<Gtk::Table*>(w)->children();
       for (Gtk::Table_Helpers::TableList::const_iterator i=ch.begin();
       		i!=ch.end();++i)
          CustomizeToolbars(*i,show_icons,show_text);
+#endif
    }
    else if (Gtk::Container::isA(w))
    {  // und nun ?
