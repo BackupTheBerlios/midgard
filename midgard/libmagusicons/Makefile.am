@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.7 2003/10/13 14:19:00 christof Exp $
+# $Id: Makefile.am,v 1.8 2004/06/07 16:03:24 christof Exp $
 
 if WINDOWS
 WIN_LDFLAGS=-no-undefined -export-symbols libmagusicons.def -L../libmagus
@@ -15,7 +15,7 @@ noinst_PROGRAMS=embed
 
 lib_LTLIBRARIES=libmagusicons.la
 
-libmagusicons_la_SOURCES=magusicons.cc big_embedding_file.cc
+libmagusicons_la_SOURCES=big_embedding_file.cc magusicons.cc 
 libmagusicons_la_LIBADD=$(DLL_LDADD)
 
 embed_SOURCES=embed.cc

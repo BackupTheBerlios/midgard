@@ -1,4 +1,4 @@
-// $Id: magusicons.cc,v 1.13 2004/05/18 14:49:50 christof Exp $
+// $Id: magusicons.cc,v 1.14 2004/06/07 16:03:24 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>
@@ -71,6 +71,10 @@ Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name)
  	    loader->close();
  	    images[key_t(iter->st,iter->name)]=loader->get_pixbuf();
          }
+      }
+      if (images.empty())
+      {  std::cerr << "Image registration failed\n";
+         return Glib::RefPtr<Gdk::Pixbuf>();
       }
       // gtk style
       {  GTK_ICON("LoadChar-trans-50.xpm",OPEN);
