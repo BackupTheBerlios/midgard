@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.21 2002/11/11 09:29:47 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.22 2002/11/12 08:59:47 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,6 +65,7 @@ void table_grundwerte::Eigenschaften_variante(int i)
    }
   else 
    { cH_Spezies spez=hauptfenster->getWerte().Spezies();
+std::cout << spez->Name() << '\n';
      Veigenschaften.clear();
      Veigenschaften.push_back(st_eigen(est,"die Stärke","St",spez->St()));
      Veigenschaften.push_back(st_eigen(egs,"die Geschicklichkeit","Gs",spez->Gs()));
@@ -72,7 +73,7 @@ void table_grundwerte::Eigenschaften_variante(int i)
      Veigenschaften.push_back(st_eigen(eko,"die Konstitution","Ko",spez->Ko()));
      Veigenschaften.push_back(st_eigen(ein,"die Intelligenz","In",spez->In()));
      Veigenschaften.push_back(st_eigen(ezt,"das Zaubertalent","Zt",spez->Zt()));
-     actual_eigen=est;
+     actual_eigen=Veigenschaften.begin();
 
      if      (i==2)  gw_variante_2();
      else if (i==3)  gw_variante_3();
@@ -156,6 +157,18 @@ int table_grundwerte::wuerfeln_best_of_two()
 
 ///////////////////////////////////////////////////////////////
 
+struct spezies_mod_comp
+{	bool operator()(const table_grundwerte::st_eigen &a,const table_grundwerte::st_eigen &b)
+	{  return a.spezies_mod>b.spezies_mod;
+	}
+};
+
+ostream &operator<<(ostream &o,const table_grundwerte::st_eigen &a)
+{  o << '{' << int(a.eigenschaft) << ',' << a.lang << ',' << a.kurz
+	<< ',' << a.spezies_mod << '}';
+   return o;
+}
+
 void table_grundwerte::Schwachpunkt_wuerfeln()
 {  for (std::vector<st_eigen>::iterator i=Veigenschaften.begin();i!=Veigenschaften.end();)
    {  if (i->spezies_mod<0)
@@ -164,6 +177,10 @@ void table_grundwerte::Schwachpunkt_wuerfeln()
       }
       else ++i;
    }
+   actual_eigen=Veigenschaften.begin();
+   
+   std::sort(Veigenschaften.begin(),Veigenschaften.end(),spezies_mod_comp());
+   std::copy(Veigenschaften.begin(),Veigenschaften.end(),std::ostream_iterator<st_eigen>(std::cout,"\n"));
 }
 
 void table_grundwerte::gw_variante_2()
@@ -188,11 +205,12 @@ void table_grundwerte::gw_variante_2()
   gw_variante_2_next();
 }
 
+#if 0
 enum table_grundwerte::e_eigen &operator++(enum table_grundwerte::e_eigen &s)
 {  ++(int&)s;
    return s;
 }
-
+#endif
 
 void table_grundwerte::on_button_variante_2_clicked(Gtk::Button *button,e_eigen eigenschaft)
 {
@@ -232,7 +250,7 @@ void table_grundwerte::gw_variante_3()
      Gtk::Button *b = manage(new class Gtk::Button(itos(*i)));
      tab->attach(*b, count, count+1, 2, 3, GTK_FILL, 0, 0, 0);
      b->clicked.connect(SigC::bind(SigC::slot(static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_3_clicked),b,*i));
-     if(count>5) b->set_sensitive(false);
+     if(count>=anz_wuerfe-3) b->set_sensitive(false);
      ++count;     
    }
 //  if(label) delete label;
@@ -246,15 +264,14 @@ void table_grundwerte::gw_variante_3()
 
 void table_grundwerte::gw_variante_3_next()
 {
-  std::vector<st_eigen>::const_iterator i=find(Veigenschaften.begin(),Veigenschaften.end(),actual_eigen);
   if(label)
-     label->set_text("Welcher Wert soll für "+i->lang+" ("+i->kurz+") verwendet werden?");  
+     label->set_text("Welcher Wert soll für "+actual_eigen->lang+" ("+actual_eigen->kurz+") verwendet werden?");  
 }
 
 void table_grundwerte::on_button_variante_3_clicked(Gtk::Button *button,int wert)
 {
   button->set_sensitive(false);
-  set_Grundwerte(actual_eigen,wert);
+  set_Grundwerte(actual_eigen->eigenschaft,wert);
   gw_variante_3_next();
 }
 
@@ -275,13 +292,14 @@ void table_grundwerte::set_Grundwerte(e_eigen eigenschaft,int wert)
   zeige_werte(false);
 
   Gtk::Table *tab = dynamic_cast<Gtk::Table*>(frame_wuerfelvariante->get_child());
+  if (!tab) return; // no children 
   bool all_insensitive=true;
 //  Gtk::Table_Helpers::TableList &ch=tab->children();
 //  for(Gtk::Table_Helpers::TableList::iterator i=ch.begin();i!=ch.end();++i)
   for(GList *liste=GTK_TABLE(tab->gtkobj())->children;liste;liste=liste->next)
    {
      Gtk::Widget *x=Gtk::wrap(((GtkTableChild*)(liste->data))->widget);
-     if(Gtk::Button::isA(x) && x->is_sensitive()) all_insensitive=false;
+     if(Gtk::Button::isA(x) && x->is_sensitive()) { all_insensitive=false; break; }
    }
   if(all_insensitive)
    { 

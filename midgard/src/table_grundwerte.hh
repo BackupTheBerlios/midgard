@@ -61,16 +61,17 @@ private:
 
         // Für Variante 2 + 3
         enum e_eigen{est,egw,egs,eko,ein,ezt,eMAX};
-        friend e_eigen &operator++(e_eigen &s);
-        e_eigen actual_eigen;
-        Gtk::Label *label;
+//        friend e_eigen &operator++(e_eigen &s);
         struct st_eigen{e_eigen eigenschaft;std::string lang;std::string kurz;
         		int spezies_mod; 
                st_eigen(e_eigen e,std::string l,std::string k,int spezies_m=0)  
-                   : eigenschaft(e),lang(l),kurz(k){}
+                   : eigenschaft(e),lang(l),kurz(k),spezies_mod(spezies_m){}
                bool operator==(const e_eigen& b) const 
                            {return eigenschaft== b;}
                     };
+        std::vector<st_eigen>::const_iterator actual_eigen;
+        
+        Gtk::Label *label;
         std::vector<st_eigen> Veigenschaften;
         void set_Grundwerte(e_eigen eigenschaft,int wert);
         void Schwachpunkt_wuerfeln();
