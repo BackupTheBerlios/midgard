@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.40 2002/05/31 21:22:05 thoma Exp $
+// $Id: midgard.cc,v 1.41 2002/06/24 07:47:19 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,11 +21,26 @@
 #include "midgard_CG.hh"
 //#include <unistd.h>
 #include "xml.h"
+#ifdef __MINGW32__
+#include <io.h>
+#endif
 
 int main(int argc, char **argv)
 {   
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
    putenv("GTK_RC_FILES=gtkrc");
+   {  char buf[10240];
+      *buf=0;
+      getcwd(buf,sizeof buf);
+      cout << "cwd: " << buf << '\n';
+      cout << "argv0: " << argv[0] << '\n';
+      const char *lastbackslash=strrchr(argv[0],'\\');
+      if (lastbackslash)
+      {  std::string d((const char *)argv[0],lastbackslash);
+         cout << "dir: " << d << '\n';
+         chdir(d.c_str());
+      }
+   }
 #endif
    Gtk::Main m(&argc, &argv,true); 
    
