@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.58 2002/07/01 11:34:55 thoma Exp $
+// $Id: Optionen.cc,v 1.59 2002/07/01 14:21:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -283,9 +283,13 @@ void Midgard_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
-                           false,0));  
+                           false,0));
   list_OptionenCheck.push_back(st_OptionenCheck(gw_wuerfeln,
+#ifndef __MINGW32__
                            "Grundwerte nur mit einer Maustaste auswürfelbar machen",
+#else
+			   "3-Tasten Maus",
+#endif                           
                            false,Cyan_Dice_trans_50_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true,0));
