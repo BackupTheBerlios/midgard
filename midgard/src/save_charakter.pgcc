@@ -274,7 +274,7 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region,:db_magisch) ;
             SQLerror::test(__FILELINE__);
       }
-   for (std::list<H_Zauber>::const_iterator i=list_Zauber.begin();
+   for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();
          i!=list_Zauber.end();++i)
       {
          strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));

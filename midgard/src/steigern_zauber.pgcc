@@ -73,7 +73,7 @@ void midgard_CG::on_zauber_laden_clicked()
 
          Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
          std::string db_standard = ausnahmen.Ausnahmen_string(db_name,db_standard,db_standard2);
-         H_Zauber zauber(db_name);  
+         cH_Zauber zauber(db_name);  
          zauber->set_Standard(db_standard);
          zauber->set_Standard2(db_standard2);
 
@@ -125,7 +125,7 @@ void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
 void midgard_CG::show_alte_zauber()
 {
    std::vector<cH_RowDataBase> datavec;
-   for (std::list<H_Zauber>::const_iterator i=list_Zauber.begin(); i!=list_Zauber.end();++i)
+   for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin(); i!=list_Zauber.end();++i)
         datavec.push_back(new Data_zauber((*i)->Name(),(*i)->Stufe(),(*i)->Ursprung(),(*i)->Kosten(),(*i)->Standard()));
    alte_zauber_tree->setDataVec(datavec);
 }
@@ -138,7 +138,7 @@ void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
 void midgard_CG::show_neue_zauber()
 {
    std::vector<cH_RowDataBase> datavec;
-   for (std::list<H_Zauber>::const_iterator i=list_Zauber_neu.begin(); i!=list_Zauber_neu.end();++i)
+   for (std::list<cH_Zauber>::const_iterator i=list_Zauber_neu.begin(); i!=list_Zauber_neu.end();++i)
         datavec.push_back(new Data_zauber((*i)->Name(),(*i)->Stufe(),(*i)->Ursprung(),(*i)->Kosten(),(*i)->Standard()));
    neue_zauber_tree->setDataVec(datavec);
 }
@@ -184,9 +184,9 @@ void midgard_CG::on_steigern_zauber_tree_neu_select(const std::string& new_zaube
    zauber_zeigen();
 }
 
-void midgard_CG::move_zauber(std::list<H_Zauber>& von,std::list<H_Zauber>& nach,std::string name)
+void midgard_CG::move_zauber(std::list<cH_Zauber>& von,std::list<cH_Zauber>& nach,std::string name)
 {
- for (std::list<H_Zauber>::iterator i=von.begin();i!= von.end();++i) 
+ for (std::list<cH_Zauber>::iterator i=von.begin();i!= von.end();++i) 
      if ((*i)->Name()==name) 
        {nach.splice(nach.begin(),von,i);break;}
 }

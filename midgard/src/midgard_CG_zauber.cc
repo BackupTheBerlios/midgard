@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.27 2001/10/02 06:39:57 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.28 2001/10/02 07:25:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,7 @@ void midgard_CG::show_zauber()
    zauber_clist->clear();
 //   midgard_CG::Zauber_get_Daten(list_Zauber);
    Gtk::OStream os(zauber_clist);
-   for(std::list<H_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
+   for(std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
       {
          os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
       }
@@ -47,11 +47,11 @@ void midgard_CG::show_zauber()
    zauber_clist->set_reorderable(true);
 }
 
-void midgard_CG::zauber_uebernehmen(const std::list<H_Zauber>& saz)
+void midgard_CG::zauber_uebernehmen(const std::list<cH_Zauber>& saz)
 {
    list_Zauber=saz;
    angeborene_zauber();
-   for(std::list<H_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
+   for(std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
       {
          int erf = get_erfolgswert_zaubern(Typ,Typ2,(*i)->Name());
          (*i)->set_Erfolgswert(erf);
@@ -62,9 +62,9 @@ void midgard_CG::zauber_uebernehmen(const std::list<H_Zauber>& saz)
 void midgard_CG::angeborene_zauber()
 {
  if (Typ.Short()=="eBe" || Typ2.Short()=="eBe" || Typ.Short()=="dBe" || Typ2.Short()=="dBe" ) 
-    list_Zauber.push_back(H_Zauber("Lehrersuche"));
+    list_Zauber.push_back(cH_Zauber("Lehrersuche"));
 //    vec_Zauber.push_back(new Data_zauber("Lehrersuche"));
  if (Werte.Spezies()=="Elf") 
-//    vec_Zauber.push_back(H_Zauber("Erkennen der Aura"));
-    list_Zauber.push_back(H_Zauber("Erkennen der Aura"));
+//    vec_Zauber.push_back(cH_Zauber("Erkennen der Aura"));
+    list_Zauber.push_back(cH_Zauber("Erkennen der Aura"));
 }

@@ -64,14 +64,14 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, const Data
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
 //         vec_zauber.push_back(new Data_zauber(db_fertigkeiten,db_ap,db_kosten,db_lernpunkte));
-         H_Zauber zauber(db_fertigkeiten);
+         cH_Zauber zauber(db_fertigkeiten);
          zauber->set_Lernpunkte(db_lernpunkte);
          list_zauber.push_back(zauber);
       }
 
     exec sql close zauber;
     Gtk::OStream os(zauber_clist_auswahl);
-    for(std::list<H_Zauber>::iterator i=list_zauber.begin();i!=list_zauber.end();++i)
+    for(std::list<cH_Zauber>::iterator i=list_zauber.begin();i!=list_zauber.end();++i)
       {
          double fac=hauptfenster->get_standard_zauber(Typ,Typ2,(*i)->Name());
          os << (*i)->Lernpunkte() <<"\t"<< (*i)->Name() <<"\t"
@@ -104,15 +104,15 @@ void Zauber_auswahl::on_zauber_clist_auswahl_unselect_row(gint row, gint column,
 
 void Zauber_auswahl::on_close_zauber_clicked()
 {   
-   std::list<H_Zauber> saz;
+   std::list<cH_Zauber> saz;
    for (Gtk::CList::SelectionList::iterator i=zauber_clist_auswahl->selection().begin();
          i!=zauber_clist_auswahl->selection().end();++i)
      {  
          // ptr=&fert[i->get_row_num()];
          H_Data_zauber *ptr = static_cast<H_Data_zauber*>(i->get_data());
-//         H_Zauber *ptr = static_cast<H_Zauber*>(i->get_data());
+//         cH_Zauber *ptr = static_cast<cH_Zauber*>(i->get_data());
 //       saz.push_back(new Data_zauber((*ptr)->Name()));
-       saz.push_back(H_Zauber((*ptr)->Name()));
+       saz.push_back(cH_Zauber((*ptr)->Name()));
      }
   hauptfenster->zauber_uebernehmen(saz);
   destroy();

@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.26 2001/10/02 06:39:57 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.27 2001/10/02 07:25:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@ void midgard_CG::LaTeX_zauber()
 //  Zauber_get_Daten(vec_Zauber);
   std::string name = "midgard_tmp_myzauber.tex";
   ofstream fout(name.c_str());
-  for (std::list<H_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
+  for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
    {
      fout << (*i)->Name() << " & ";
 //     fout << (*i)->Erfolgswert() <<" & ";

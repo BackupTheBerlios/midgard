@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.67 2001/10/02 06:39:57 thoma Exp $
+// $Id: midgard_CG.hh,v 1.68 2001/10/02 07:25:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -110,8 +110,8 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_beruf> vec_Beruf;
 //        std::list<H_Data_zauber> vec_Zauber;
 //        std::list<H_Data_zauber> vec_Zauber_neu;
-        std::list<H_Zauber> list_Zauber;
-        std::list<H_Zauber> list_Zauber_neu;
+        std::list<cH_Zauber> list_Zauber;
+        std::list<cH_Zauber> list_Zauber_neu;
         std::vector<H_Data_zaubermittel> vec_Zaubermittel;
         std::list<H_Data_kido> vec_Kido;
         std::list<H_Data_kido> vec_Kido_neu;
@@ -304,7 +304,7 @@ class midgard_CG : public midgard_CG_glade
 
         void on_zauber_laden_clicked();
         void zauber_zeigen();
-        void move_zauber(std::list<H_Zauber>& von,std::list<H_Zauber>& nach,std::string name);
+        void move_zauber(std::list<cH_Zauber>& von,std::list<cH_Zauber>& nach,std::string name);
         void on_spruchrolle_toggled();
         void on_checkbutton_zaubersalze_toggled();
         void on_checkbutton_beschwoerungen_toggled();
@@ -385,7 +385,7 @@ class midgard_CG : public midgard_CG_glade
          void show_fertigkeiten();
          void waffen_uebernehmen(const std::vector<H_Data_waffen>& saw,map<std::string,string> wg);
          void waffe_besitz_uebernehmen(const std::vector<H_Data_waffen>& wbu);
-         void zauber_uebernehmen(const std::list<H_Zauber>& saz);
+         void zauber_uebernehmen(const std::list<cH_Zauber>& saz);
          void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
          void kido_uebernehmen(std::vector<string>& technik);
          double get_standard_zauber(const Data_typen& typ,const Data_typen& typ2, const std::string& zauber);
