@@ -1,0 +1,10 @@
+alter table land add region text;
+update land set region='A' where land='Alba';
+update land set region='E' where land='Eschar';
+update land set region='K' where land='KanThaiPan';
+update land set region='N' where land='Nahuatlan';
+update land set region='R' where land='Rawindra';
+update land set region='M' where land='Minangpahit';
+update land set region='W' where land='Waeland';
+update land set region='KS' where land='Küstenstaaten';
+update land set region='I' where land='Ikengabecken';
