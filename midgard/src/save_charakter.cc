@@ -23,6 +23,7 @@
 // for XML export
 #include "xml_fileselection.hh"
 #include "TagStream.hh"
+#include <Aux/itos.h>
 
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
@@ -239,6 +240,7 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
    datei << "/></Steigern>\n";
    write_string(datei, "Text", Werte.Beschreibung(), 2);
    write_string(datei, "TextPix", Werte.BeschreibungPix(), 2);
+   write_string(datei, "TextPixSize", itos(Werte.BeschreibungPixSize()), 2);
 }
 
 

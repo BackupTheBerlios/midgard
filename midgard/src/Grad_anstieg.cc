@@ -92,6 +92,7 @@ int Grad_anstieg::get_Schicksalsgunst(int grad)
 
 int Grad_anstieg::get_Grad(int gfp) 
 {
+ if(gfp<0)gfp=0;
  map<int,st_grad>::const_reverse_iterator e=map_grad.rend();
  for(map<int,st_grad>::const_reverse_iterator i=map_grad.rbegin();i!=e;++i)
    { 

@@ -147,6 +147,7 @@ void midgard_CG::xml_import(const std::string& datei)
    Werte.setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    Werte.setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
    Werte.setBeschreibung(top->getString("Text")); 
    Werte.setBeschreibungPix(top->getString("TextPix")); 
+   Werte.setBeschreibungPixSize(atoi(top->getString("TextPixSize").c_str())); 
    Werte.setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
    if (Ruestung) Werte.setRuestung(cH_Ruestung(Ruestung->Value(),true));
    else Werte.setRuestung(cH_Ruestung("OR",true));

@@ -2155,7 +2155,6 @@ andere geholfen.</label>
 
 	  <widget>
 	    <class>GtkPixmap</class>
-	    <child_name>Notebook:tab</child_name>
 	    <name>pixmap_logo</name>
 	    <cxx_visibility>protected</cxx_visibility>
 	    <filename>midgard_logo_small.xpm</filename>
@@ -6290,7 +6289,6 @@ Beidhänder
 
 	  <widget>
 	    <class>GtkPixmap</class>
-	    <child_name>Notebook:tab</child_name>
 	    <name>pixmap87</name>
 	    <filename>Grundwert_small.xpm</filename>
 	    <xalign>0.5</xalign>
@@ -13128,36 +13126,10 @@ eingeben</label>
 	  </widget>
 
 	  <widget>
-	    <class>GtkLabel</class>
-	    <name>label398</name>
-	    <label>Die Abenteurerbeschreibung darf sämtliche LaTeX Befehle enthalten</label>
-	    <justify>GTK_JUSTIFY_CENTER</justify>
-	    <wrap>False</wrap>
-	    <xalign>0</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <child>
-	      <left_attach>1</left_attach>
-	      <right_attach>2</right_attach>
-	      <top_attach>0</top_attach>
-	      <bottom_attach>1</bottom_attach>
-	      <xpad>5</xpad>
-	      <ypad>5</ypad>
-	      <xexpand>False</xexpand>
-	      <yexpand>False</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>False</xfill>
-	      <yfill>False</yfill>
-	    </child>
-	  </widget>
-
-	  <widget>
 	    <class>GtkTable</class>
 	    <name>table134</name>
-	    <rows>1</rows>
-	    <columns>2</columns>
+	    <rows>2</rows>
+	    <columns>3</columns>
 	    <homogeneous>False</homogeneous>
 	    <row_spacing>0</row_spacing>
 	    <column_spacing>0</column_spacing>
@@ -13197,7 +13169,7 @@ eingeben</label>
 		<yexpand>False</yexpand>
 		<xshrink>False</xshrink>
 		<yshrink>False</yshrink>
-		<xfill>True</xfill>
+		<xfill>False</xfill>
 		<yfill>False</yfill>
 	      </child>
 
@@ -13264,7 +13236,7 @@ Drucken</label>
 		<yexpand>False</yexpand>
 		<xshrink>False</xshrink>
 		<yshrink>False</yshrink>
-		<xfill>True</xfill>
+		<xfill>False</xfill>
 		<yfill>False</yfill>
 	      </child>
 
@@ -13307,6 +13279,146 @@ Drucken</label>
 		    <fill>False</fill>
 		  </child>
 		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>label398</name>
+	      <label>(Die Abenteurerbeschreibung darf sämtliche LaTeX Befehle enthalten)</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<left_attach>0</left_attach>
+		<right_attach>3</right_attach>
+		<top_attach>1</top_attach>
+		<bottom_attach>2</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>False</yfill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkTable</class>
+	      <name>table135</name>
+	      <rows>2</rows>
+	      <columns>2</columns>
+	      <homogeneous>False</homogeneous>
+	      <row_spacing>0</row_spacing>
+	      <column_spacing>0</column_spacing>
+	      <child>
+		<left_attach>2</left_attach>
+		<right_attach>3</right_attach>
+		<top_attach>0</top_attach>
+		<bottom_attach>1</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>True</yfill>
+	      </child>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label567</name>
+		<label>Breite des Bildes</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <left_attach>0</left_attach>
+		  <right_attach>2</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>False</yfill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkSpinButton</class>
+		<name>spinbutton_pix_breite</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<can_focus>True</can_focus>
+		<signal>
+		  <name>focus_out_event</name>
+		  <handler>on_spinbutton_pix_breite_focus_out_event</handler>
+		  <last_modification_time>Sun, 10 Mar 2002 19:56:36 GMT</last_modification_time>
+		</signal>
+		<climb_rate>1</climb_rate>
+		<digits>0</digits>
+		<numeric>False</numeric>
+		<update_policy>GTK_UPDATE_ALWAYS</update_policy>
+		<snap>False</snap>
+		<wrap>False</wrap>
+		<value>8</value>
+		<lower>3</lower>
+		<upper>13</upper>
+		<step>1</step>
+		<page>10</page>
+		<page_size>10</page_size>
+		<child>
+		  <left_attach>0</left_attach>
+		  <right_attach>1</right_attach>
+		  <top_attach>1</top_attach>
+		  <bottom_attach>2</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>False</xfill>
+		  <yfill>False</yfill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label568</name>
+		<label>cm</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <left_attach>1</left_attach>
+		  <right_attach>2</right_attach>
+		  <top_attach>1</top_attach>
+		  <bottom_attach>2</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>False</yfill>
+		</child>
 	      </widget>
 	    </widget>
 	  </widget>

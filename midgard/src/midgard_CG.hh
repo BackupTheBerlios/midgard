@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.191 2002/03/09 22:06:57 thoma Exp $
+// $Id: midgard_CG.hh,v 1.192 2002/03/11 20:49:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -296,6 +296,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void clear_listen();
         void on_button_hilfe_clicked();
         gint on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev);        
+        gint on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
         void on_button_beschreibung_drucken_clicked();
         void on_button_grafik_clicked();
 
@@ -327,7 +328,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_tree_gelerntes_leaf_selected(cH_RowDataBase d);
         void on_tree_lernschema_leaf_selected(cH_RowDataBase d);
         void show_gelerntes();
-        void show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert="");
+//        void show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert="");
+        void show_lernschema();
         void setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert);
         void on_spinbutton_fach_activate();
         void on_spinbutton_allgemein_activate();

@@ -7,9 +7,16 @@ NEWS IN VERSION 0.4delta6
 * Angeborene Fertigkeiten Auswahl jetzt ohne extra Fenster (s.o.)
    außerdem ist der Absturzbug jetzt weg.
 * Charakterbeschreibung jetzt auch im Hauptfenster (konsistenter und einfacher)
-**TESTEN Der Chrakterbeschreibung kann nun eine Grafik hinzugefügt werden
+* TESTEN Der Chrakterbeschreibung kann nun eine Grafik hinzugefügt werden
+* Lernpunkte/Geld/Waffen/Rüstung nur noch einnmal wählbar
+* Anzeige der Lernauswahl springt nicht mehr zurück.
+* Code aufgeräumt
+* Negative GFP stürzen nicht mehr ab.
 
 TODO:
+* Ausrüstung drucken, Abenteurer drucken -> absturz
+* Waffenbesitz bei Spielbeginn ist leer
+* nach dem Laden muß steigern wählbar sein
 * Steigern mehrerer Stufen mit PP
 * Waeland: Zauber
 * Nahuathlan: Komplett

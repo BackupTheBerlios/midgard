@@ -1,4 +1,4 @@
-// $Id: LaTeX_charakter_beschreibung.cc,v 1.23 2002/03/10 18:26:57 thoma Exp $
+// $Id: LaTeX_charakter_beschreibung.cc,v 1.24 2002/03/11 20:49:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,10 +20,12 @@
 #include "midgard_CG.hh"
 #include <unistd.h>
 #include <fstream>
+#include <Aux/itos.h>
+
 
 void midgard_CG::latex_beschreibung_drucken()
 {   
- std::string figwidth="8cm";
+ std::string figwidth=itos(Werte.BeschreibungPixSize())+"cm";
  std::string file=Werte.BeschreibungPix();
  ofstream fout("midgard_tmp_beschreibung.tex");
  LaTeX_header(fout,false); 

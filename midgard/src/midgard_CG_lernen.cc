@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.91 2002/03/09 22:06:57 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.92 2002/03/11 20:49:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,6 +66,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   spinbutton_alter->set_value(Werte.Alter());
   zeige_lernpunkte();
 
+  button_lernpunkte->set_sensitive(false);
   button_fachkenntnisse->set_sensitive(true);    
   button_allgemeinwissen->set_sensitive(true);   
   button_untyp_fertigkeiten->set_sensitive(true);
@@ -173,6 +174,7 @@ void midgard_CG::zeige_lernpunkte()
 
 gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {   
+  button_lernschema_waffen->set_sensitive(false);
   if  (ev->button==1)
    {
      int wurf = random.integer(1,100);
@@ -185,6 +187,7 @@ gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton
 
 gint midgard_CG::on_button_lernschema_geld_button_release_event(GdkEventButton *ev)
 {
+  button_lernschema_geld->set_sensitive(false);
   Werte.setGeld(0,0,0);
   if      (ev->button==1)  lernschema_geld_wuerfeln();
   else if (ev->button==3)  manage (new Window_Geld_eingeben(this,Werte));;
@@ -217,6 +220,7 @@ void midgard_CG::lernschema_geld_wuerfeln()
 
 gint midgard_CG::on_button_ruestung_button_release_event(GdkEventButton *ev)
 {
+  button_ruestung->set_sensitive(false);
   if      (ev->button==1)  on_button_ruestung_clicked();
   else if (ev->button==3)  manage (new Window_ruestung(Werte,this,Database));
   return 0;
@@ -277,14 +281,16 @@ void midgard_CG::on_button_ruestung_clicked()
 
 void midgard_CG::on_lernliste_wahl_toggled()
 {
+/*
   if(button_fachkenntnisse->get_active())
-     show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
+     show_lernschema();//MidgardBasicElement::FERTIGKEIT,"Fach");
   if(button_allgemeinwissen->get_active())
      show_lernschema(MidgardBasicElement::FERTIGKEIT,"Allg");
   if(button_untyp_fertigkeiten->get_active())
       show_lernschema(MidgardBasicElement::FERTIGKEIT,"Unge");
   if(button_waffen->get_active())
       show_lernschema(MidgardBasicElement::WAFFE);
+*/
   if(button_zauber->get_active())
    {
      if (Werte.Spezialgebiet()->Spezial2()=="" && Typ[0]->Short()=="eBe")
@@ -293,8 +299,9 @@ void midgard_CG::on_lernliste_wahl_toggled()
          InfoFenster->AppendShow(strinfo);
          return;
       }
-    show_lernschema(MidgardBasicElement::ZAUBER);
+//    show_lernschema(MidgardBasicElement::ZAUBER);
    }
+ show_lernschema();
 }
 
 
@@ -352,6 +359,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 
      default : break;
    }
+/*
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
          show_lernschema(MBE->What(),cH_Fertigkeit(MBE)->LernArt());
   else if(MBE->What()==MidgardBasicElement::FERTIGKEIT_ANG)
@@ -360,6 +368,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
           MBE->What()==MidgardBasicElement::SCHRIFT )
          on_lernliste_wahl_toggled();
   else   show_lernschema(MBE->What());
+*/
   show_gelerntes();
 }
 
@@ -438,9 +447,11 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 #warning angezeigt wird. Daher dieser HAck mit dem Erfolgswert.
    int e=MBE->Erfolgswert();
 //cout <<"1 " <<MBE->Name()<<'a '<<MBE->Erfolgswert()<<'\n';
+/*
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
          show_lernschema(MBE->What(),cH_Fertigkeit(MBE)->LernArt());
   else   show_lernschema(MBE->What());
+*/
 //cout <<"2 " << MBE->Name()<<' '<<MBE->Erfolgswert()<<'\n';
   MBE->set_Erfolgswert(e);
   show_gelerntes();
@@ -473,15 +484,33 @@ void midgard_CG::show_gelerntes()
   tree_gelerntes->Expand_recursively();
 }
 
-void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)
+//void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)
+void midgard_CG::show_lernschema()
 {
-  if(what==MidgardBasicElement::WAFFE) label_lernschma_titel->set_text("Waffen");
-  if(what==MidgardBasicElement::ZAUBER) label_lernschma_titel->set_text("Zauber");
-  if(what==MidgardBasicElement::FERTIGKEIT)
-   {
-     if(fert=="Allg") label_lernschma_titel->set_text("Allgemeinwissen");
-     if(fert=="Unge") label_lernschma_titel->set_text("Ungewöhnliche Fertigkeiten");
-     if(fert=="Fach") label_lernschma_titel->set_text("Fachkenntnisse");
+  MidgardBasicElement::MBEE what;
+  std::string fert;
+  if(button_waffen->get_active())
+    {  what=MidgardBasicElement::WAFFE;
+       label_lernschma_titel->set_text("Waffen");
+    }
+  else if(button_zauber->get_active())
+    {  what=MidgardBasicElement::ZAUBER;
+       label_lernschma_titel->set_text("Zauber");
+    }
+  else 
+    {  what=MidgardBasicElement::FERTIGKEIT;
+       if(button_fachkenntnisse->get_active())
+         {  fert="Allg";
+            label_lernschma_titel->set_text("Allgemeinwissen");
+         }
+        else if(button_untyp_fertigkeiten->get_active())
+         {  fert="Unge";
+            label_lernschma_titel->set_text("Ungewöhnliche Fertigkeiten");
+         }
+        else 
+         { fert="Fach";
+           label_lernschma_titel->set_text("Fachkenntnisse");
+         }
    }
 
   std::list<cH_MidgardBasicElement> newlist;
