@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.48 2002/07/05 09:32:17 christof Exp $
+// $Id: midgard.cc,v 1.49 2002/07/05 12:46:19 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,8 +84,8 @@ int main(int argc, char **argv)
 	 // aber wir haben keine Wahl auﬂer aufgeben
 	 for (std::string::size_type i=magus_verzeichnis.find(WinLux::dirsep);
 	 	i!=std::string::npos;i=magus_verzeichnis.find(WinLux::dirsep,i+1))
-	 {  if (i && access(magus_verzeichnis.substr(0,i).c_str,R_OK))
-	    {  if (mkdir(magus_verzeichnis.substr(0,i).c_str))
+	 {  if (i && access(magus_verzeichnis.substr(0,i).c_str(),R_OK))
+	    {  if (mkdir(magus_verzeichnis.substr(0,i).c_str()))
 	       {  magus_verzeichnis="C:"; // last ressort
 	          break;
 	       }
