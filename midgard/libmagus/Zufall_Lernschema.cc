@@ -303,7 +303,7 @@ std::vector<H_WaffeBesitz> List_to_Vector(const std::list<H_WaffeBesitz>& L)
 void Zufall::setWaffenBesitz()
 {
   std::list<H_WaffeBesitz> L=LL.getWaffenBesitz(Aben);
-  WaffeBesitzLernen wbl=WaffenBesitz_wuerfeln(Aben,Random::integer(1,100));
+  WaffeBesitzLernen wbl=WaffenBesitz_wuerfeln(Aben,Random::W100());
 
 reloop:
   if(wbl.AWaffe() == 0 && wbl.EWaffe() == 0) return;
@@ -340,7 +340,7 @@ void Zufall::setBeruf()
   hauptfenster->getChar()->List_Beruf().push_back(V[i]);
   
   BerufsKategorie BKat;
-  BKat.wuerfeln(Random::integer(1,100));
+  BKat.wuerfeln(Random::W100());
   std::vector<Beruf::st_vorteil> F=LL.getBerufsVorteil(V[i],BKat,Aben);
   if(F.empty()) return;
 

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.5 2003/07/25 07:26:03 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.6 2003/07/25 07:29:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -363,7 +363,7 @@ int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
   std::pair<int,bool> gestu=Erfolgswert("Geschäftstüchtigkeit");
   if(gestu.second)
    {
-      int iw=Random::integer(1,20);
+      int iw=Random::W20();
       int erg=gestu.first+iw;
       info+= " EW:Geschäftstüchtigkeit = "+itos(gestu.first)+"+"+itos(iw)
                +"="+itos(erg);
@@ -622,7 +622,7 @@ void Abenteurer::eigenschaften_steigern(std::string &info,int wurf)
     getWerte().add_SG(n);
   }
 
-  if(wurf==-1) wurf=Random::integer(1,100);
+  if(wurf==-1) wurf=Random::W100();
 
   int z=wurf;  
   info+="Beim WÃ¼rfeln zur ErhÃ¶hung einer Eigenschaft fÃ¼r Grad "

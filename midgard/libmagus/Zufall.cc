@@ -100,7 +100,7 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
 #error Oh Oh    
    hauptfenster->table_lernschema->geld_wuerfeln();
    setWaffenBesitz();
-   hauptfenster->table_lernschema->on_button_ruestung_clicked(Random::integer(1,100));
+   hauptfenster->table_lernschema->on_button_ruestung_clicked(Random::W100());
    hauptfenster->table_lernschema->ausruestung_setzen();
    hauptfenster->table_grundwerte->zeige_werte();
    hauptfenster->table_lernschema->button_sensitive(true);

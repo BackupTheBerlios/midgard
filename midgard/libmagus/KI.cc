@@ -77,7 +77,7 @@ void MagusKI::Verteile(int gfp)
   const int MAXCOUNT=100;
   while(gfp>0 && count<MAXCOUNT)
    {
-     int i=Random::integer(1,100);
+     int i=Random::W100();
      const Enums::MBEListen was=Was();
      int spezial_allgemein=prozente100.getS(was);
 
@@ -114,7 +114,7 @@ std::vector<MBEmlt> List_to_Vector(const std::list<MBEmlt> &L)
 
 const Enums::MBEListen MagusKI::Was() const
 {
-  int z=Random::integer(1,100);
+  int z=Random::W100();
   const std::vector<Prozente100::st_was> V=prozente100.get100V();
   for(std::vector<Prozente100::st_was>::const_iterator i=V.begin();i!=V.end();++i)
     if( z <= i->prozent) return i->was; 
@@ -242,7 +242,7 @@ std::list<MBEmlt> MagusKI::KI_GSA_Liste(const std::list<MBEmlt> &L)
      else if((*(*i))->Standardfertigkeit(Aben)) Standard.push_back(*i);
      else Ausnahme.push_back(*i);
    }
-  int z=Random::integer(1,100);
+  int z=Random::W100();
   bool g=false,s=false,a=false;
   if     (z<GSA_MBE.getG()) g=true;
   else if(z<GSA_MBE.getG()+GSA_MBE.getS()) s=true;

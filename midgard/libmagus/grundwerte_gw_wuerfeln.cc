@@ -1,4 +1,4 @@
-// $Id: grundwerte_gw_wuerfeln.cc,v 1.1 2003/07/25 07:27:03 christof Exp $
+// $Id: grundwerte_gw_wuerfeln.cc,v 1.2 2003/07/25 07:29:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,7 @@ bool Grundwerte::check_350(const std::vector<int>& a) const
 // war vorher in check_350
 void Grundwerte::Au_pA_wuerfeln()
 { setAu(constraint_aw(Spezies()->Au()) );
-  setpA( Random::integer(1,100)-30 + 3*(In()/10 + Au()/10) );
+  setpA( Random::W100()-30 + 3*(In()/10 + Au()/10) );
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -80,7 +80,7 @@ int Grundwerte::constraint_gw(int constraint)
 int Grundwerte::constraint_aw(int constraint)
 {
   ManuProC::Trace _t(trace_channel,__FUNCTION__);
- if      (!constraint) return Random::integer(1,100);
+ if      (!constraint) return Random::W100();
  else if (constraint<0)  return Random::integer(1,-constraint); 
  else 			          return Random::integer(constraint,100);
 }
@@ -88,8 +88,8 @@ int Grundwerte::constraint_aw(int constraint)
 int Grundwerte::wuerfeln_best_of_two()
 {
   ManuProC::Trace _t(trace_channel,__FUNCTION__);
- int ran  = Random::integer(1,100);
- int ran2 = Random::integer(1,100);
+ int ran  = Random::W100();
+ int ran2 = Random::W100();
  (ran > ran2) ? : ran=ran2;
  return ran;
 }

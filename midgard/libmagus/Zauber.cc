@@ -184,7 +184,7 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info,const in
        if (Art()=="A")  iaus=-1;  }
    }
  
- int xr=Random::integer(1,20);
+ int xr=Random::W20();
  int x = xr-iStufe();
  int erf_z = A.getWerte().Zaubern_wert() + A.getWerte().bo_Za() ;
  

@@ -1,4 +1,4 @@
-// $Id: grundwerte_abge_werte.cc,v 1.2 2003/07/25 07:26:03 christof Exp $
+// $Id: grundwerte_abge_werte.cc,v 1.3 2003/07/25 07:29:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,16 +48,16 @@ void Grundwerte::abge_werte_setzen(const Abenteurer &A)
   setGrad(1);
   { //Bewegungsweite
     int b = Spezies()->B_Bonus();
-    for (int i=0;i<Spezies()->B_Wanz();++i) b+=Random::integer(1,3);
+    for (int i=0;i<Spezies()->B_Wanz();++i) b+=Random::W3();
     setB(b);
   }
-  setWk(Random::integer(1,100)-40 + 3*(In()/10 + Ko()/10) );
+  setWk(Random::W100()-40 + 3*(In()/10 + Ko()/10) );
   {
-    int sb = Random::integer(1,100) + 3*(In()/10 + Wk()/10) - 30;
+    int sb = Random::W100() + 3*(In()/10 + Wk()/10) - 30;
     // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
     sb += A.Typ1()->Sb() + A.Typ2()->Sb();
     // Saddhu
-    if (A.Typ1()->Short() == "Sa") sb = 80+Random::integer(1,20);
+    if (A.Typ1()->Short() == "Sa") sb = 80+Random::W20();
     setSb(sb);
   }
 
@@ -94,7 +94,7 @@ void Grundwerte::abge_werte_setzen(const Abenteurer &A)
   }
 
   {
-    int ihand=Random::integer(1,20)+Spezies()->HandBonus();
+    int ihand=Random::W20()+Spezies()->HandBonus();
     std::string h;
     if(ihand<=15) h=Vhand[0];
     else if (16<=ihand && ihand<=19) h=Vhand[1];
@@ -102,7 +102,7 @@ void Grundwerte::abge_werte_setzen(const Abenteurer &A)
     setHand(h);
   }
   {
-    int istand=Random::integer(1,100);
+    int istand=Random::W100();
     int typstand1 = A.Typ1()->Stand();
     int typstand2 = A.Typ2()->Stand();
     if(typstand1*typstand2 <= 0 ) istand += typstand1 + typstand2 ;
