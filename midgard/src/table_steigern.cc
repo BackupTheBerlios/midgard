@@ -125,7 +125,8 @@ std::string Steigerntyp(const Grundwerte &W)
 }
 
 void table_steigern::zeige_werte()
-{  clean_up();
+{  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__);
+   clean_up();
    const Abenteurer &W=hauptfenster->getAben();
    LabelSpin_gfp->set_value(W.GFP());
 
@@ -282,7 +283,8 @@ enum { Button_Steigern, Button_Verlernen, Button_PP_eingeben };
 enum { Button_GoldEP, Button_1Drittel, Button_1Halb, Button_2Drittel, Button_Ohne };
 
 void table_steigern::Abenteurer2Window()
-{ if (block_update) return;
+{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,block_update);
+  if (block_update) return;
   const Abenteurer &A=hauptfenster->getAben();
 
   block_update=true;
@@ -324,7 +326,8 @@ void table_steigern::Abenteurer2Window()
 }
 
 void table_steigern::Window2Abenteurer()
-{ if (block_update) return;
+{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,block_update);
+  if (block_update) return;
   Abenteurer &A=hauptfenster->getAben();
 
   block_update=true;
@@ -398,7 +401,8 @@ void table_steigern::button_was_tun_changed()
 }
 
 void table_steigern::steigern_gtk()
-{ if (block_update) return;
+{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,block_update);
+  if (block_update) return;
   const Abenteurer &A=hauptfenster->getAben();
   block_update=true;
   label_EP->set_text(itos(A.fpanteil)+"%");
@@ -407,9 +411,10 @@ void table_steigern::steigern_gtk()
   if ((A.fpanteil+A.goldanteil)<=34) gold_add=67;
   else if ((A.fpanteil+A.goldanteil)<=51) gold_add=50;
   else if ((A.fpanteil+A.goldanteil)<=67) gold_add=33;
-  if (33<=hauptfenster->getAben().fpanteil && hauptfenster->getAben().fpanteil<=67)
-  { Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
-    A->set_value(hauptfenster->getAben().goldanteil+gold_add);
+  ManuProC::Trace(LibMagus::trace_channel,"",A.fpanteil,A.goldanteil,gold_add);
+  if (33<=A.fpanteil && A.fpanteil<=67)
+  { Gtk::Adjustment *Adj=vscale_EP_Gold->get_adjustment();
+    Adj->set_value(A.goldanteil+gold_add);
     vscale_EP_Gold->set_sensitive(true);
   }
   else vscale_EP_Gold->set_sensitive(false);
