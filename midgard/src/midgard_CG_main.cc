@@ -19,14 +19,18 @@
 #include <glibmm/main.h>
 #include <unistd.h>
 #include "Windows_Linux.hh"
+#include "Wizard.hh"
+#include "MagusDialog.hh"
+#include <libmagus/Ausgabe.hh>
+#include <libmagus/magus_paths.h>
+#include <Misc/itos.h>
 
+// Vielleicht Anzahl an Sekunden einstellbar?
 void midgard_CG::set_status(const std::string &s,bool autoclean)
-{
+{ connection_status.disconnect();
   label_status->set_text(s);
-  InfoFenster->AppendShowLog(s);
   if(autoclean)
-//     connection_status=
-  Glib::signal_timeout().connect(SigC::slot(*this,&midgard_CG::timeout_status),7000);
+     connection_status=Glib::signal_timeout().connect(SigC::slot(*this,&midgard_CG::timeout_status),7000);
 }
 
 bool midgard_CG::timeout_status()
@@ -37,19 +41,15 @@ bool midgard_CG::timeout_status()
 
 void midgard_CG::on_button_html_hilfe_clicked()
 {
-  std::string pfad="file://"+with_path("index.html",false,false);
-  std::string s =MOptionen->getString(Magus_Optionen::html_viewer)+" \""+pfad+"\"";
+  std::string pfad="file://"+magus_paths::with_path("index.html",false,false);
+  std::string s =Programmoptionen.getString(Magus_Optionen::html_viewer)+" \""+pfad+"\"";
   if (!WinLux::CreateProcess(s))
-	Ausgabe(Ausgabe::Error,s+" funktioniert nicht",false);
+     Ausgabe(Ausgabe::Error,s+" funktioniert nicht");
 }
 
-#warning debug code still here
-#include "customize_toolbars.h"
 void midgard_CG::on_button_info_clicked()
-{ Gtk::rec_hide(this);
-//  notebook_main->set_current_page(PAGE_INFO);
+{  notebook_main->set_current_page(PAGE_INFO);
 }
-
 
 bool midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 
 { 
@@ -159,11 +159,8 @@ void midgard_CG::on_news_menu_activate()
 
 void midgard_CG::on_notebook_main_switch_page(GtkNotebookPage *page,guint pagenr)
 {
- if (!in_dtor) 
-  {
    if(Char.empty()) Char.push_back();
    load_for_mainpage(pagenr);
-  }  
 }
 
 
@@ -193,16 +190,18 @@ void midgard_CG::on_schliessen_CG_clicked()
   button_schliessen->grab_focus();
   std::string filename="magus_optionen.xml";
   if(access(filename.c_str(),W_OK)) 
-      filename=magus_verzeichnis+"magus_optionen.xml";
+      filename=magus_paths::MagusVerzeichnis()+"magus_optionen.xml";
 
-  MOptionen->save_options(filename,InfoFenster);
+  Programmoptionen.save_options(filename);
   if(Char.unsaved_exist())
    {
      notebook_main->set_current_page(PAGE_NEWS);
-     Ausgabe(Ausgabe::Error,"Es existieren nichtgespeicherte Abenteurer",false);
-#warning dialog     
-//     InfoFenster->AppendShow("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?",WindowInfo::Exit_ohne_speichern);
-     return;
+     Ausgabe(Ausgabe::Warning,"Es existieren nichtgespeicherte Abenteurer");
+     MagusDialog d(this);
+     d.set_text("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?");
+     int result=d.run();
+Ausgabe(Ausgabe::Debug,"Dialog gab "+itos(result)+" zurück");     
+     if (result!=Gtk::RESPONSE_OK) return;
    }
   on_button_quit_confirm_clicked();
 }

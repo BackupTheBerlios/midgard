@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.328 2003/09/02 06:38:19 christof Exp $
+// $Id: midgard_CG.hh,v 1.329 2003/09/02 09:35:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,6 +65,8 @@ private:
         struct st_reg_status{RegionenPic::epic name; Gtk::Image *pix;
                st_reg_status(RegionenPic::epic n, Gtk::Image *p):name(n),pix(p){}};
         std::vector<st_reg_status> vec_region_status;
+        
+        SigC::Connection connection_status;
 
 public:
         Wizard *wizard;
