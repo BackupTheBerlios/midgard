@@ -147,6 +147,10 @@ void Wizard_window::on_button_wizard_weiter_clicked()
   next_step();
 }
 
+void Wizard_window::on_button_wizard_skip()
+{   
+}
+
 void Wizard_window::on_button_wizard_wiederholen_clicked()
 {   
   same_step();
