@@ -81,13 +81,29 @@ void Waffe::get_Waffe()
    reichweite_m=db_reichweite_m;reichweite_f=db_reichweite_f;
    lern_land=db_lern_l; lern_stadt=db_lern_s;
 
-   if(Art()=="Verteidigung") erfolgswert=1;
-   else erfolgswert=4;   
-
   exec sql close cl_waffen_ein;
   tr.close();
 #else
+   assert(tag);
+   grundkenntnisse=tag->getAttr("Grundkenntnisse");
+   schwierigkeit=tag->getIntAttr("Schwierigkeit");
+   art=db_art;
+   art2=db_art2;
+   schaden=db_schaden;
+   schaden_bonus=db_schaden_b;
+   waffenrang=db_waffenrang;
+   wm_abwehr_leicht=db_wm_abwehr_leicht;
+   wm_abwehr_schwer=db_wm_abwehr_schwer;
+   st=db_st; gw=db_gw; gs=db_gs;
+   voraussetzung=db_voraussetzung;
+   region=db_region;
+   reichweite_0=db_reichweite_0;reichweite_n=db_reichweite_n;
+   reichweite_m=db_reichweite_m;reichweite_f=db_reichweite_f;
+   lern_land=db_lern_l; lern_stadt=db_lern_s;
 #endif
+
+   if(Art()=="Verteidigung") erfolgswert=1;
+   else erfolgswert=4;   
 }
 
 void Waffe::get_Alias() 
