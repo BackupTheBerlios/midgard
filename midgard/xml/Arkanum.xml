@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="Arkanum" Name="Arkanum" Titel="Das Arkanum" Copyright="Jürgen E. Franke" Jahr="2000" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-1" MAGUS-Bild="9" CVS="$Revision: 1.16 $">
+<MAGUS-data Region="Arkanum" Name="Arkanum" Titel="Das Arkanum" Copyright="Jürgen E. Franke" Jahr="2000" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-1" MAGUS-Bild="9" CVS="$Revision: 1.17 $">
  <Zauber>
   <Spruch Name="Allheilung" Grad="5" Lernkosten="2500" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
    <Grund Typ="Hl"/>
@@ -2634,7 +2634,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="Ma" Lernpunkte="4"/>
-   <Beschreibung>Diesr Zauber unterwirft die menschliche Seele einem magischen Zwang. Er wirkt auf Menschen und andere natürliche Wesen von gleichartiger Intelligenz wie beispielsweise Elfen, Zwerge, Orcs oder Tiermenschen. Der Zauberer erlangt geistige Kontrolle und bestimmt die Handlungsweise des Opfers.</Beschreibung>
+   <Beschreibung>Dieser Zauber unterwirft die menschliche Seele einem magischen Zwang. Er wirkt auf Menschen und andere natÃ¼rliche Wesen von gleichartiger Intelligenz wie beispielsweise Elfen, Zwerge, Orcs oder Tiermenschen. Der Zauberer erlangt geistige Kontrolle und bestimmt die Handlungsweise des Opfers.</Beschreibung>
   </Spruch>
   <Spruch Name="Macht über Unbelebtes" Grad="2" Lernkosten="150" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Feuer" Prozess="bewegt" Reagens="Metall" Zauberdauer="1 s" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="10 s">
    <Grund Typ="Ma"/>
