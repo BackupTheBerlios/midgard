@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.71 2003/11/03 16:49:24 christof Exp $
+// $Id: midgard.cc,v 1.72 2003/11/03 16:53:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,7 +40,11 @@ static unsigned current_n;
 static Gtk::Image *imag;
 
 static void progress(double d)
-{  unsigned n=unsigned(steps*d+.5);
+{  if (!imag)
+   {  Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
+      return;
+   }
+   unsigned n=unsigned(steps*d+.5);
    if (n!=current_n)
    {  // von Load0 nach Load1 morphen
       double beta=(steps-n)/double(steps-current_n);
@@ -70,7 +74,6 @@ static void progress(double d)
       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
       current_n=n;
    }
-//Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
 }
 
 int main(int argc, char **argv)
@@ -88,9 +91,11 @@ int main(int argc, char **argv)
 
 #warning Zeitmessung wegen Anzahl der Zwischenschritte?
    Gtk::Main m(&argc, &argv,true); 
+   if (!getenv("NOSPLASH")) 
+  {
 std::cerr << "composing images\n";
    Load0=MagusImage("MAGUS-Logo.png")->copy();
-   Load1=MagusImage("MAGUS-Logo.png")->copy();
+   Load1=Load0->copy();
    MagusImage("Loading.png")->composite(Load0,0,0,Load0->get_width(),Load0->get_height(),
    		0,0,1,1,Gdk::INTERP_NEAREST,255);
    MagusImage("Version.png")->composite(Load1,0,0,Load1->get_width(),Load1->get_height(),
@@ -103,8 +108,9 @@ std::cerr << "displaying images\n";
    imag=manage(new Gtk::Image(Load0));
    progresswin->add(*imag);
    imag->show();
-   if (!getenv("NOSPLASH")) progresswin->show();
+   progresswin->show();
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+  }
    libmagus_init1(progress);
 
    std::vector<std::string> dateien;
@@ -115,9 +121,9 @@ std::cerr << "displaying images\n";
    WindowInfo *info=new WindowInfo();
    Magus_Ausgabe::attach(info);
    midgard_CG *magus=new midgard_CG(info,dateien);
-   magus->show();
    // darf nicht eher geschehen wegen realize (background) als virtuellem callback
-   delete progresswin;
+   magus->show();
+   if (progesswin) { delete progresswin; }
   if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
      manage(new BegruessungsWindow(magus));
    m.run(*magus);
