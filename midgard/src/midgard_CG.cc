@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.91 2001/12/07 08:53:00 thoma Exp $
+// $Id: midgard_CG.cc,v 1.92 2001/12/10 17:11:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -306,9 +306,10 @@ void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
 }
 
 
+
 void midgard_CG::on_muttersprache_clicked()
 {   
-   manage (new Sprache_auswahl(this,Database,"Sprache",list_Sprache));
+//   manage (new Sprache_auswahl(this,Database,"Sprache",list_Sprache));
 }
 
 void midgard_CG::on_charakter_beschreibung_clicked()
@@ -408,10 +409,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_herkunft->set_sensitive(false);
    button_sprache->set_sensitive(false);
    button_beschreibung->set_sensitive(false);
-//   frame_steigern->set_sensitive(false);
-//   frame_lernschema->set_sensitive(false);
-   frame_steigern->hide();//set_sensitive(false);
-   frame_lernschema->hide();//set_sensitive(false);
+   frame_steigern->set_sensitive(false);
+   frame_lernschema->set_sensitive(false);
 
    button_geld_waffen->set_sensitive(false);
    button_ruestung->set_sensitive(false);

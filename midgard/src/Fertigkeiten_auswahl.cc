@@ -33,10 +33,12 @@
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,
      const midgard_CG::st_Database& dat,const vector<cH_Typen>& _Typ,
      Lernpunkte& _lernpunkte, const Grundwerte& _Werte,
-     const std::list<cH_MidgardBasicElement>& _list_Sprache,
-     const std::list<cH_MidgardBasicElement>& _list_Schrift)
+     const std::list<cH_MidgardBasicElement> *_list_Sprache,
+     const std::list<cH_MidgardBasicElement> &_list_Schrift,
+     const std::list<cH_MidgardBasicElement> &_list_Fertigkeit)
 : lernpunkte(_lernpunkte),Werte(_Werte),Typ(_Typ),Database(dat),
-   list_Sprache(_list_Sprache),list_Schrift(_list_Schrift)
+   list_Sprache(_list_Sprache),list_Schrift(_list_Schrift),
+   list_Fertigkeit(_list_Fertigkeit)
 {
   hauptfenster=h;
   Fachwissen();
@@ -56,7 +58,6 @@ void Fertigkeiten_auswahl::Fachwissen()
         int erf=Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::ERFOLGSWERT);
         (*i)->set_Erfolgswert(erf);
         Lernschema::st_index I(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
-//        (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I)-v);
         (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
         list_Fert_spez.push_back(*i);       
       }
@@ -78,7 +79,7 @@ void Fertigkeiten_auswahl::Fachwissen()
    // Speziesspezifische Fertigkeiten
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_spez.begin();i!=list_Fert_spez.end();++i)
       { cH_Fertigkeit f(*i);
-        std::string serfolgswert=itos(f->Erfolgswert());
+        std::string serfolgswert=itos(f->FErfolgswert(Werte));
         if (serfolgswert=="0") serfolgswert="";
         if ((f->Voraussetzungen(Werte) || Werte.Spezies()->Name()!="Mensch") &&
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name(),true))
@@ -91,7 +92,7 @@ void Fertigkeiten_auswahl::Fachwissen()
    // Fachkenntnisse
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_Fach.begin();i!=list_Fert_Fach.end();++i)
       { cH_Fertigkeit f(*i);
-        std::string serfolgswert=itos(f->Erfolgswert());
+        std::string serfolgswert=itos(f->FErfolgswert(Werte));
         if (serfolgswert=="0") serfolgswert="";
         if ((f->Voraussetzungen(Werte) || Werte.Spezies()->Name()!="Mensch") &&
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name(),true) &&
@@ -133,16 +134,19 @@ void Fertigkeiten_auswahl::Allgemeinwissen()
         list_Fert_Allg.push_back(*i);
        }
    }
-   list_Fert_Allg.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
+   if(true)
+      list_Fert_Allg.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::LERN_L));
+   if(false)
+      list_Fert_Allg.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::LERN_S));
    Gtk::OStream os(allgemein_clist_auswahl);
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_Allg.begin();i!=list_Fert_Allg.end();++i)
       { cH_Fertigkeit f(*i);
-        int lernpunkte=99;
+        int lernpunkte=0;
         if(true) lernpunkte=f->LernLand();
-        if(true) lernpunkte=f->LernStadt();
-        std::string serfolgswert=itos(f->Erfolgswert());
+        if(false) lernpunkte=f->LernStadt();
+        std::string serfolgswert=itos(f->FErfolgswert(Werte));
         if (serfolgswert=="0") serfolgswert="";
-        if(lernpunkte >= maxpunkte_A)
+        if(lernpunkte <= maxpunkte_A)
           if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
             { os << lernpunkte<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
@@ -170,19 +174,18 @@ void Fertigkeiten_auswahl::Unge()
        if((*j)->Name()==(*i)->Name()) { spezieskenntnis=true; break; }
 */    
 //    if(!fachkenntnis && !spezieskenntnis)
-     if(cH_Fertigkeit(*i)->Lernpunkte()!=99)
        {
         cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert());
         list_Fert_Unge.push_back(*i);
        }
    }
-   list_Fert_Unge.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
+   list_Fert_Unge.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
    Gtk::OStream os(unge_clist_auswahl);
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_Unge.begin();i!=list_Fert_Unge.end();++i)
       { cH_Fertigkeit f(*i);
-        std::string serfolgswert=itos(f->Erfolgswert());
+        std::string serfolgswert=itos(f->FErfolgswert(Werte));
         if (serfolgswert=="0") serfolgswert="";
-        if(f->Lernpunkte() >= maxpunkte_U)
+        if(f->Lernpunkte() <= maxpunkte_U)
           if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
                !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
            { os << f->Lernpunkte()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
@@ -194,8 +197,6 @@ void Fertigkeiten_auswahl::Unge()
       unge_clist_auswahl->set_column_auto_resize(i,true);
 
    unge_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
-//   fach_clist_auswahl->set_reorderable(true);
-//   fach_clist_auswahl->thaw();
 }
 
 
@@ -207,19 +208,19 @@ void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
    for (Gtk::CList::SelectionList::iterator i=fach_clist_auswahl->selection().begin();i!=fach_clist_auswahl->selection().end();++i)
      {  
       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-      if ((*ptr)->Name() != "Sprache" && (*ptr)->Name() != "Lesen/Schreiben" )
+      if(!SpracheSchrift((*ptr)->Name()))
          saf.push_back(*ptr);
      }
    for (Gtk::CList::SelectionList::iterator i=allgemein_clist_auswahl->selection().begin();i!=allgemein_clist_auswahl->selection().end();++i)
      {  
       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-      if ((*ptr)->Name() != "Sprache" && (*ptr)->Name() != "Lesen/Schreiben" )
+      if(!SpracheSchrift((*ptr)->Name()))
          saf.push_back(*ptr);
      }
    for (Gtk::CList::SelectionList::iterator i=unge_clist_auswahl->selection().begin();i!=unge_clist_auswahl->selection().end();++i)
      {  
       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-      if ((*ptr)->Name() != "Sprache" && (*ptr)->Name() != "Lesen/Schreiben" )
+      if(!SpracheSchrift((*ptr)->Name()))
          saf.push_back(*ptr);
      }
   hauptfenster->MidgardBasicElement_uebernehmen(saf);
@@ -233,10 +234,7 @@ void Fertigkeiten_auswahl::on_fach_clist_auswahl_select_row(gint row, gint colum
      {  fach_clist_auswahl->row(row).unselect(); }
    maxpunkte_F -= atoi(fach_clist_auswahl->get_text(row,0).c_str());
    fach_lernpunkte->set_text(itos(maxpunkte_F));
-   // Sprache oder Schrift?
-   std::string fert = fach_clist_auswahl->get_text(row,3);
-   if (fert == "Sprache" || fert == "Lesen/Schreiben" )
-     { SpracheSchrift(fert) ; }
+   SpracheSchrift(fach_clist_auswahl->get_text(row,3),atoi(fach_clist_auswahl->get_text(row,4).c_str()),true);
 }
 void Fertigkeiten_auswahl::on_allgemein_clist_auswahl_select_row(gint row, gint column, GdkEvent *event)
 {
@@ -244,10 +242,7 @@ void Fertigkeiten_auswahl::on_allgemein_clist_auswahl_select_row(gint row, gint 
      {  allgemein_clist_auswahl->row(row).unselect(); }
    maxpunkte_A -= atoi(allgemein_clist_auswahl->get_text(row,0).c_str());
    allgemein_lernpunkte->set_text(itos(maxpunkte_A));
-   // Sprache oder Schrift?
-   std::string fert = allgemein_clist_auswahl->get_text(row,2);
-   if (fert == "Sprache" || fert == "Lesen/Schreiben" )
-     { SpracheSchrift(fert) ; }
+   SpracheSchrift(allgemein_clist_auswahl->get_text(row,2),atoi(allgemein_clist_auswahl->get_text(row,3).c_str()),true) ;
 }
 void Fertigkeiten_auswahl::on_unge_clist_auswahl_select_row(gint row, gint column, GdkEvent *event)
 {
@@ -255,16 +250,32 @@ void Fertigkeiten_auswahl::on_unge_clist_auswahl_select_row(gint row, gint colum
      {  unge_clist_auswahl->row(row).unselect(); }
    maxpunkte_U -= atoi(unge_clist_auswahl->get_text(row,0).c_str());
    unge_lernpunkte->set_text(itos(maxpunkte_U));
-   // Sprache oder Schrift?
-   std::string fert = unge_clist_auswahl->get_text(row,2);
-   if (fert == "Sprache" || fert == "Lesen/Schreiben" )
-     { SpracheSchrift(fert) ; }
+   SpracheSchrift(unge_clist_auswahl->get_text(row,2),atoi(unge_clist_auswahl->get_text(row,3).c_str()),true) ;
 }
 
-void Fertigkeiten_auswahl::SpracheSchrift(const std::string& fert)
+bool Fertigkeiten_auswahl::SpracheSchrift(const std::string& fert,int wert,bool auswahl)
 {
-  if (fert == "Sprache") manage (new Sprache_auswahl(hauptfenster,Database,fert,list_Sprache));
-  if (fert == "Lesen/Schreiben") manage (new Sprache_auswahl(hauptfenster,Database,fert,list_Sprache));
+ bool launch=false;
+ Sprache_auswahl::modus mod;
+
+ if(fert=="Landeskunde" || fert=="Landeskunde (Heimat)")
+    { launch=true;  mod=Sprache_auswahl::LAND; }
+ else if(fert=="Muttersprache schreiben(+12)" ||
+         fert=="Muttersprache schreiben(+9)" ||        
+         fert=="Muttersprache schreiben(+4)" ||
+         fert=="Schreiben" )
+    { launch=true;  mod=Sprache_auswahl::SCHRIFT; }
+ else if(fert=="Muttersprache" ||
+         fert=="Gastlandsprache" ||
+         fert=="Sprache(+4)" ||
+         fert=="Sprache(+9)" ||
+         fert=="Sprache(+12)")
+    { launch=true;  mod=Sprache_auswahl::SPRACHE; }
+
+ if(auswahl && launch)
+     manage (new Sprache_auswahl(hauptfenster,Database,mod,wert,
+                                 list_Sprache,list_Schrift,list_Fertigkeit));
+ return launch;
 }
 
 void Fertigkeiten_auswahl::on_fach_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event)

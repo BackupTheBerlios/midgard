@@ -39,6 +39,7 @@ class Fertigkeit : public MidgardBasicElement
      std::string Name() const {return name;}
      std::string Attribut() const {return attribut;}
      std::string Region() const {return region;}
+     int FErfolgswert(const Grundwerte &Werte) const;
      int Lernpunkte() const {return lernpunkte;}
      int LernLand() const {return lern_land;}
      int LernStadt() const {return lern_stadt;}
@@ -75,6 +76,23 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
 
     cH_Fertigkeit(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit>
       (dynamic_cast<const Fertigkeit *>(&*x)){}
+
+   class sort {
+      public:
+         enum esort {LERN_L,LERN_S};
+      private:
+         esort es;
+      public:
+         sort(enum esort _es):es(_es) {}
+         bool operator() (cH_Fertigkeit x,cH_Fertigkeit y) const
+           { switch(es) {
+               case(LERN_L) : return x->LernLand()  < y->LernLand()  ;
+               case(LERN_S) : return x->LernStadt() < y->LernStadt()  ;
+           }}
+    };
+
+
+
 };
 
 class Fertigkeiten_All

@@ -37,7 +37,7 @@ void MidgardBasicElement::show_list_in_tree(
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {
-      datavec.push_back(new Data_SimpleTree(*i,Typ,ausnahmen));
+      datavec.push_back(new Data_SimpleTree(*i,Typ,ausnahmen,Werte));
    }
     Tree->setDataVec(datavec);
 }

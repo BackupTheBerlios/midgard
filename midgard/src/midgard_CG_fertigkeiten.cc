@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.36 2001/12/05 15:02:53 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.37 2001/12/10 17:11:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,7 @@
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
   manage(new Fertigkeiten_auswahl(this,Database,Typ,lernpunkte,
-      Werte,list_Sprache,list_Schrift));
+      Werte,&list_Sprache,list_Schrift,list_Fertigkeit));
 }
 
 void midgard_CG::show_fertigkeiten()

@@ -66,10 +66,8 @@ void midgard_CG::select_charakter(const std::string& name, const std::string& ve
   button_herkunft->set_sensitive(true);
   button_sprache->set_sensitive(true);
   button_beschreibung->set_sensitive(true);
-//  frame_steigern->set_sensitive(true);
-//  frame_lernschema->set_sensitive(true);
-  frame_steigern->show();
-  frame_lernschema->show();
+  frame_steigern->set_sensitive(true);
+  frame_lernschema->set_sensitive(true);
 }
 
 

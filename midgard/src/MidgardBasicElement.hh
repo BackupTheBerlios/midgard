@@ -14,7 +14,6 @@ class cH_MidgardBasicElement;
 class SimpleTree;
 
 
-
 class MidgardBasicElement : public HandleContent
 {
    protected:
@@ -108,6 +107,9 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
          bool operator() (cH_MidgardBasicElement x,cH_MidgardBasicElement y) const
            { switch(es) {
                case(LERNPUNKTE) : return x->Lernpunkte() < y->Lernpunkte()  ;
+//               case(LERN_L) : return cH_Fertigkeit(x)->LernLand() < cH_Fertigkeit(y)->LernLand()  ;
+//               case(LERN_S) : return cH_Fertigkeit(x)->LernStadt() < cH_Fertigkeit(y)->LernStadt()  ;
+//               case(LERN_U) : return x->Lernpunkte() < y->Lernpunkte()  ;
                case(NAME) : return x->Name() < y->Name()  ;
                case(ERFOLGSWERT): return x->Erfolgswert() > y->Erfolgswert();
            }}

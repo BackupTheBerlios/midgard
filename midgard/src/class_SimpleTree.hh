@@ -7,6 +7,7 @@
 #include <Typen.hh>
 #include <Ausnahmen.hh>
 #include <Sprache.hh>
+#include <Fertigkeiten.hh>
 #include <Schrift.hh>
 #include <rowdata.h>
 
@@ -15,10 +16,11 @@ class Data_SimpleTree : public RowDataBase
    cH_MidgardBasicElement MBE;
    vector<cH_Typen> Typ;
    Ausnahmen ausnahmen;
+   Grundwerte Werte;
  public:
    Data_SimpleTree(const cH_MidgardBasicElement& _MBE,const vector<cH_Typen>& _Typ, 
-         const Ausnahmen& _ausnahmen) 
-   : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen) {}
+         const Ausnahmen& _ausnahmen,const Grundwerte &_Werte) 
+   : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen),Werte(_Werte) {}
 
    enum Spalten_FA {NAMEa,WERTa,STEIGERN,REDUZIEREN,VERLERNEN} ;
    enum Spalten_FN {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
@@ -42,7 +44,7 @@ class Data_SimpleTree : public RowDataBase
       if (name=="FA")
        switch((Spalten_FA)seqnr) {
          case NAMEa : return cH_EntryValueIntString(MBE->Name());
-         case WERTa : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
+         case WERTa : return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
          case STEIGERN : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
          case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
          case VERLERNEN : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen)); 
@@ -50,7 +52,7 @@ class Data_SimpleTree : public RowDataBase
       if (name=="FN")
        switch ((Spalten_FN)seqnr) {
          case NAMEn : return cH_EntryValueIntString(MBE->Name());
-         case WERTn : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
+         case WERTn : return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
          case LERNKOSTEN : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
          case ART : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
          case VORAUSSETZUNGEN : return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung());

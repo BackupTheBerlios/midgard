@@ -28,7 +28,7 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
   if (ev->button==1) on_speichern_clicked();
 //  if (ev->button==3) midgard_CG::xml_export();
 //  if (ev->button==3) xml_export_auswahl();
-  frame_steigern->show();
+//  frame_steigern->show();
   return false;
 }
 
@@ -53,6 +53,7 @@ void midgard_CG::xml_export(const std::string& datei)
 
 void midgard_CG::on_speichern_clicked()
 {
+    frame_steigern->set_sensitive(true);
    grundwerte_speichern();
    Transaction tr;
 

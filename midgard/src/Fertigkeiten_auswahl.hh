@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten_auswahl.hh,v 1.29 2001/12/05 15:02:53 thoma Exp $
+// $Id: Fertigkeiten_auswahl.hh,v 1.30 2001/12/10 17:11:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,9 +58,10 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         std::list<cH_MidgardBasicElement> list_Fert_Unge;
 //        std::list<cH_MidgardBasicElement> list_Zauberwerk;
 //        std::list<cH_MidgardBasicElement> list_allg_Fert;
-        std::list<cH_MidgardBasicElement> list_Sprache;
+        const std::list<cH_MidgardBasicElement> *list_Sprache;
         std::list<cH_MidgardBasicElement> list_Schrift;
-        std::list<cH_MidgardBasicElement> list_Zauber;
+//        std::list<cH_MidgardBasicElement> list_Zauber;
+        std::list<cH_MidgardBasicElement> list_Fertigkeit;
         void on_fach_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_fach_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_allgemein_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
@@ -70,12 +71,13 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         void Fachwissen();
         void Allgemeinwissen();
         void Unge();
-        void SpracheSchrift(const std::string& fert);
+        bool SpracheSchrift(const std::string& fert,int wert=0,bool auswahl=false);
  public:
         Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Database& Database,
                  const vector<cH_Typen>& Typ,
                  Lernpunkte& _lernpunkte, const Grundwerte& _Werte,
-                 const std::list<cH_MidgardBasicElement>& _list_Sprache,
-                 const std::list<cH_MidgardBasicElement>& _list_Schrift);
+                 const std::list<cH_MidgardBasicElement> *_list_Sprache,
+                 const std::list<cH_MidgardBasicElement>& _list_Schrift,
+                 const std::list<cH_MidgardBasicElement>& _list_Fertigkeit);
 };
 #endif

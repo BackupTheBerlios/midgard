@@ -2,7 +2,7 @@
 
 void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,const std::list<cH_MidgardBasicElement>& mbe2)
 {
-  button_beruf_erfolgswert->set_sensitive(true); // falls Lernpunkte für Beruf nicht reichten
+//  button_beruf_erfolgswert->set_sensitive(true); // falls Lernpunkte für Beruf nicht reichten
   if(mbe.begin()==mbe.end()) return;
 /*
   if((*mbe.begin())->What()==MidgardBasicElement::BERUF)

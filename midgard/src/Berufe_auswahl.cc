@@ -79,6 +79,7 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h,
   spinbutton_wurf->hide();
   kat_I=false; kat_II=false; kat_III=false; kat_IV=false;
   setTitles();
+  wuerfel();
 }
 
 void Berufe_auswahl::setTitles()
@@ -191,6 +192,7 @@ void Berufe_auswahl::on_close_berufe_clicked(void)
 {
  try{
    std::vector<cH_RowDataBase> V=Beruf_tree->getSelectedRowDataBase_vec();
+   if(V.empty()) destroy();
    if(V.size()!=2) return;
    std::list<cH_MidgardBasicElement> saf;
    cH_MidgardBasicElement mbe(new Beruf(dynamic_cast<const Beruf_Data*>(&**V.begin())->Beruf()));
@@ -200,7 +202,7 @@ void Berufe_auswahl::on_close_berufe_clicked(void)
 //  sab.push_back(cH_MidgardBasicElement(new Beruf(beruf)));  
      saf.push_back(cH_MidgardBasicElement(new Fertigkeit(dt->Fert())));  
 //     cH_MidgardBasicElement mbe(new Beruf(dt->Beruf()));
-cout << dt->Beruf()<<' '<<dt->Fert()<<'\n';
+//cout << dt->Beruf()<<' '<<dt->Fert()<<'\n';
     }
    hauptfenster->MidgardBasicElement_uebernehmen(mbe);
    hauptfenster->MidgardBasicElement_uebernehmen(saf);

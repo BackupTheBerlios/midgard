@@ -48,9 +48,12 @@ void Fertigkeit::get_Fertigkeit()
       :db_attribut, :db_st,:db_gw,:db_gs,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
       :db_sb,:db_rw, :db_voraussetzung;
   SQLerror::test(__FILELINE__);
-  if (lernpunkte==0) lernpunkte=db_lp;
-  if (lern_land==0) lern_land=db_lp_l;
-  if (lern_stadt==0) lern_stadt=db_lp_s;
+//  if (lernpunkte==0) 
+lernpunkte=db_lp;
+//  if (lern_land==0)
+ lern_land=db_lp_l;
+//  if (lern_stadt==0)
+ lern_stadt=db_lp_s;
   anfangswert0=db_anfangswert0;
   anfangswert=db_anfangswert;
   ungelernt=db_ungelernt;
@@ -81,6 +84,13 @@ bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const
     return true;
  else return false ;
 }
+
+int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const
+{
+  if(Name()!="Trinken") return Erfolgswert();
+  else return Erfolgswert()+Werte.Ko()/10;
+}
+
 
 int Fertigkeit::AttributBonus(const Grundwerte& Werte) const
 {
