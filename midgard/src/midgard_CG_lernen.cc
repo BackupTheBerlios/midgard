@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.99 2002/04/06 15:30:59 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.100 2002/04/10 15:58:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -452,6 +452,7 @@ void midgard_CG::show_gelerntes()
   LL.push_back(list_Sprache);
   LL.push_back(list_Schrift);
   LL.push_back(list_Beruf);
+  LL.push_back(Werte.Sinne());
 
   for(std::list<std::list<cH_MidgardBasicElement> >::const_iterator i=LL.begin();i!=LL.end();++i)
     for (std::list<cH_MidgardBasicElement>::const_iterator j=i->begin();j!=i->end();++j)

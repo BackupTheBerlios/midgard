@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.33 2002/04/10 08:38:35 thoma Exp $
+// $Id: WindowInfo.cc,v 1.34 2002/04/10 15:58:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,6 +34,7 @@
 #include <gtk--/table.h>   
 #include <gtk--/label.h>
 #include <gtk--/box.h>
+#include <Aux/itos.h>
 
 void WindowInfo::on_button_info_ok_clicked()
 {   
@@ -53,8 +54,10 @@ void WindowInfo::on_button_auswahl_clicked(int connect)
 {
  assert(Modus==PraxisPunkteMBE);
   if       (connect==1) on_button_info_ok_clicked();
-  else if  (connect==2) hauptfenster->PraxisPunkt_to_AEP(MBE,true);
-  else if  (connect==3) hauptfenster->PraxisPunkt_to_AEP(MBE,false);
+  else if  (connect==2) hauptfenster->PraxisPunkt_to_AEP(MBE,true,false);
+  else if  (connect==3) hauptfenster->PraxisPunkt_to_AEP(MBE,false,false);
+  else if  (connect==4) hauptfenster->PraxisPunkt_to_AEP(MBE,true,true);
+  else if  (connect==5) hauptfenster->PraxisPunkt_to_AEP(MBE,false,true);
   frame_auswahl->remove();
   hide();
 }
@@ -116,21 +119,14 @@ void WindowInfo::auswahl()
 {
   table_bestaetigen->hide();
   table_schliessen->hide();
-  
-  Gtk::Pixmap *p1 = manage(new class Gtk::Pixmap(Excl_32_xpm));
-  Gtk::Label  *l1 = manage(new class Gtk::Label("1."));
-  Gtk::Pixmap *p2 = manage(new class Gtk::Pixmap(Excl_32_xpm));
-  Gtk::Label  *l2 = manage(new class Gtk::Label("2."));
-  Gtk::Pixmap *p3 = manage(new class Gtk::Pixmap(Excl_32_xpm));
-  Gtk::Label  *l3 = manage(new class Gtk::Label("3."));
-
-  Gtk::Table *table_auswahl = manage(new class Gtk::Table(1, 3, true));
-  Gtk::Button *b1 = auswahl_button(p1,l1,1);
-  Gtk::Button *b2 = auswahl_button(p2,l2,2);
-  Gtk::Button *b3 = auswahl_button(p3,l3,3);
-  table_auswahl->attach(*b1, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
-  table_auswahl->attach(*b2, 1, 2, 0, 1, GTK_FILL, 0, 0, 0);
-  table_auswahl->attach(*b3, 2, 3, 0, 1, GTK_FILL, 0, 0, 0);
+  Gtk::Table *table_auswahl = manage(new class Gtk::Table(1, 5, true));
+  for(int i=0;i<5;++i)
+   {
+     Gtk::Pixmap *p = manage(new class Gtk::Pixmap(Excl_32_xpm));
+     Gtk::Label  *l = manage(new class Gtk::Label(itos(i+1)+"."));
+     Gtk::Button *b = auswahl_button(p,l,i+1);
+     table_auswahl->attach(*b, i, i+1, 0, 1, GTK_FILL, 0, 0, 0);
+   }
   table_auswahl->show_all();
   frame_auswahl->add(*table_auswahl);
 }

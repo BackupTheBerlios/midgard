@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.28 2002/03/29 07:02:59 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.29 2002/04/10 15:58:49 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,7 @@
 #include "Spezies.hh"
 #include "Spezialgebiet.hh"
 #include "Typen.hh"
+#include "MidgardBasicElement.hh"
 
 class Grundwerte
 {
@@ -33,7 +34,8 @@ class Grundwerte
              :  st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt) {}
          };         
    st_grund grund;
-   std::map<std::string,int> sinnmap;
+   std::list<cH_MidgardBasicElement> list_Sinne;
+//   std::map<std::string,int> sinnmap;
    int raufen;
 
    int au,pa,sb,wk,b,lp,ap;
@@ -88,7 +90,7 @@ public:
    int B() const {return b;}
    int LP() const {return lp;}
    int AP() const {return ap;}
-   std::map<std::string,int> Sinne() const {return sinnmap;}
+   std::list<cH_MidgardBasicElement> Sinne() const {return list_Sinne;}
    int Raufen() const;
    int Abwehr_wert() const {return abwehr_wert;}
    int AbwehrPP() const {return abwehr_pp;}
@@ -169,15 +171,16 @@ public:
    void setAbgeleitetewerte_small(int _au,int _pa,int _sb,int _wk)
       { au=_au ;pa=_pa ;sb=_sb; wk=_wk; }
 
-   void setSinn(const std::string &name,int wert) {sinnmap[name]=wert;}
+   void setSinn(const std::string &name,int wert) ;
    void setSinnCheck(const std::string &name,int wert); // wg. Speziessinnen
+   int getSinn(const std::string &name) const;
 
-   int Sehen() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Sehen"];}
-   int Hoeren() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Hören"];}
-   int Riechen() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Riechen"];}
-   int Schmecken() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Schmecken"];}
-   int Tasten() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Tasten"];}
-   int SechsterSinn() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Sechster Sinn"];}
+   int Sehen() const {return getSinn("Sehen");}
+   int Hoeren() const {return getSinn("Hören");}
+   int Riechen() const {return getSinn("Riechen");}
+   int Schmecken() const {return getSinn("Schmecken");}
+   int Tasten() const {return getSinn("Tasten");}
+   int SechsterSinn() const {return getSinn("Sechster Sinn");}
 
    void setGrad1Werte(const vector<cH_Typen>& Typ);
 

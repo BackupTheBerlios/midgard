@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.15 2002/03/20 19:53:53 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.16 2002/04/10 15:58:49 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,7 @@
 
 #include "Grundwerte.hh"
 #include <Aux/itos.h>
+#include "Sinne.hh"
 
 int Grundwerte::bo_Au() const 
 { 
@@ -174,14 +175,39 @@ int Grundwerte::bo_Phk(const vector<cH_Typen>& Typ) const
   return bo_phk;
 }
 
+void Grundwerte::setSinn(const std::string &name,int wert)
+{
+  for(std::list<cH_MidgardBasicElement>::iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
+   {
+     if((*i)->Name()==name) 
+      {
+        (*i)->set_Erfolgswert(wert);
+        return;
+      }
+   }
+  assert(!"Sinn nicht gefunden\n");
+}
+
+int Grundwerte::getSinn(const std::string &name) const
+{
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
+   {
+     if((*i)->Name()==name) 
+      {
+        return (*i)->Erfolgswert();
+      }
+   }
+  assert(!"Sinn nicht gefunden\n");
+  abort();
+}
+
+                                           
+
+
 void Grundwerte::resetSinne() 
 { 
- sinnmap["Sehen"]=8;
- sinnmap["Hören"]=8;
- sinnmap["Riechen"]=8;
- sinnmap["Schmecken"]=8;
- sinnmap["Tasten"]=8; 
- sinnmap["Sechster Sinn"]=Zt()/25;
+ list_Sinne=Sinne_All().get_All();
+ setSinn("Sechster Sinn",Zt()/25); 
 }
 
 
@@ -213,9 +239,10 @@ std::string Grundwerte::GroesseBez() const
 }
 
 
+
 void Grundwerte::setSinnCheck(const std::string &name,int wert)
 {
-  if(sinnmap[name]>8) sinnmap[name]=8; // Speziesspezifische Fertigkeit
+  if(getSinn(name)>8) setSinn(name,8); // Speziesspezifische Fertigkeit
   else setSinn(name,wert);
 }
 

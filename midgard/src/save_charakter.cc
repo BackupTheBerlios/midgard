@@ -111,15 +111,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
    
    datei << "  <Fertigkeiten>\n";   
 
-   // Sinne
-   for(std::map<std::string,int>::const_iterator i=Werte.Sinne().begin();
-   			i!=Werte.Sinne().end();++i) 
-    { datei << "    <Sinn";
-      write_string_attrib(datei, "Bezeichnung", i->first);
-      write_int_attrib(datei, "Wert", i->second);
-      datei << "/>\n";
-    }
-
+   MidgardBasicElement::saveElementliste(datei,Werte.Sinne(),Werte,Typ);
    MidgardBasicElement::saveElementliste(datei,list_Beruf,Werte,Typ);
    MidgardBasicElement::saveElementliste(datei,list_Fertigkeit_ang,Werte,Typ);
    MidgardBasicElement::saveElementliste(datei,list_Fertigkeit,Werte,Typ);

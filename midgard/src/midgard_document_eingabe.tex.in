@@ -1,9 +1,5 @@
-%\documentclass[11pt,a4paper,landscape]{article}
-%\usepackage{array}
 \usepackage{german}
 \usepackage[latin1]{inputenc}
-%\usepackage[final]{epsfig}
-%\usepackage{array}
 \usepackage[pdftex]{graphicx}
 \usepackage{tabularx}
 \usepackage{times}
@@ -30,35 +26,6 @@
 \setlength{\doublerulesep}{0mm}
 
 \begin{document}
-\newsavebox{\ESchwert}    
-\newsavebox{\Stichwaffe}  
-\newsavebox{\ESchlagwaffe}
-\newsavebox{\Spiesswaffe}
-\newsavebox{\ZSchwert}
-\newsavebox{\ZSchlagwaffe}
-\newsavebox{\Stangenwaffe}
-\newsavebox{\Kettenwaffe} 
-\newsavebox{\KampfohneWaffen} 
-\newsavebox{\Zauberstaebe}
-\newsavebox{\Wurfspiess}  
-\newsavebox{\Stielwurfwaffe}
-\newsavebox{\Wurfscheibe}
-\newsavebox{\Fesselwaffe}
-\newsavebox{\Armbrust}    
-\newsavebox{\Bogen}       
-\newsavebox{\Schleuder}   
-\newsavebox{\Schilde}
-\newsavebox{\Parierwaffe}
-%%
-\newsavebox{\Kampfstab} 
-\newsavebox{\Peitsche}
-\newsavebox{\Garotte}
-\newsavebox{\Wurfmesser}
-\newsavebox{\Blasrohr}  
-\newsavebox{\Wurfpfeil} 
-\newsavebox{\Werfen}
-%\input{midgard_tmp_latexwertedef}
-%\input{midgard_tmp_latexwerte}
 \IfFileExists{drache.png}{\parbox{10cm}{\includegraphics[width=10cm]{drache.png}}}%
 {\parbox{10cm}{\includegraphics[width=10cm]{@PACKAGE_DATA_DIR@drache.png}}}
 \parbox[][][c]{7cm}{
@@ -424,11 +391,5 @@ Sprache&Wert&Schrift\\\hline\hline
 \unip  & \uniwp  & \uniaf & \uniwaf & \uniav & \uniwav\\\hline
 \end{tabular}}
 \end{minipage}
-%}
 
-%\IfFileExists{midgard_tmp_myzauber.tex}{\include{midgard_tmp_document_zauber}}
-
-%\IfFileExists{midgard_tmp_mykido.tex}{\include{midgard_tmp_document_kido}}
-
-%\end{document}
 

@@ -22,17 +22,13 @@
 #include <MidgardBasicElement.hh>
 #include <Typen.hh>
 #include <rowdata.h>
-//#include "Grundwerte.hh"
-//#include "Datenbank.hh"
 class midgard_CG;
 
 class Data_SimpleTree : public RowDataBase
 {
+ private:
    cH_MidgardBasicElement MBE;
    const midgard_CG *hauptfenster; 
-//   vector<cH_Typen> Typ;
-//   Grundwerte Werte;
-//   Datenbank Database;
  public:
    Data_SimpleTree(const cH_MidgardBasicElement& _MBE, const midgard_CG *h) 
    : MBE(_MBE),hauptfenster(h) {}

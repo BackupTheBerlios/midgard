@@ -45,8 +45,10 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
         }
       else if (Variante==MidgardBasicTree::GELERNTES)
        switch((Spalten_GELERNTES)seqnr) {
-         case ARTgg  : return cH_EntryValueIntString(MBE->What_str()); 
-         case NAMEgg : return cH_EntryValueIntString(MBE->Name()+" "+MBE->Zusatz());
+         case ARTgg  : 
+               return cH_EntryValueIntString(MBE->What_str()); 
+         case NAMEgg : 
+               return cH_EntryValueIntString(MBE->Name()+" "+MBE->Zusatz());
          case WERTgg : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
@@ -54,7 +56,8 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
              else
                 return cH_EntryValueEmptyInt(MBE->Erfolgswert());
            }
-         case LERNPUNKTEgg : return cH_EntryValueEmptyInt(MBE->Lernpunkte()); 
+         case LERNPUNKTEgg : 
+            return cH_EntryValueEmptyInt(MBE->Lernpunkte()); 
         }
       else if (Variante==MidgardBasicTree::LERNSCHEMA)
        switch((Spalten_LERNSCHEMA)seqnr) {

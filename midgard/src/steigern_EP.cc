@@ -135,14 +135,22 @@ bool midgard_CG::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_stei
         int kosten=0;
         int aep=40;
         int stufen=stufen_auf_einmal_steigern_fuer_aep(true,*MBE,kosten,aep);
-        std::string str ="ACHTUNG: Kosten ("+itos(ep_k)+") geringer als ein Praxispunkt wert (40GFP) ist.\n"
-            "Nun gibt es drei Möglichkeiten:\n"
+        int kosten_max=0;
+        int aep_max=40*pp;
+        int stufen_max=stufen_auf_einmal_steigern_fuer_aep(true,*MBE,kosten_max,aep_max);
+        std::string str ="\nACHTUNG: Kosten ("+itos(ep_k)+") geringer als ein Praxispunkt wert (40GFP) ist.\n"
+            "Nun gibt es fünf Möglichkeiten:\n"
             " 1. Es wird nicht gesteigert.\n"
             " 2. Es wird mit einem PP um "+itos(stufen)+" Stufen gesteigert.\n"
             "    Die restlichen Punkte ("+itos(aep)+") verfallen\n"
-            " 3. Es wird mit PP und "+itos(kosten-aep)+" AEP um "+itos(stufen+1)+" Stufen gesteigert\n"
+            " 3. Es wird mit einem PP und "+itos(kosten-aep)+" AEP um "+itos(stufen+1)+" Stufen gesteigert\n"
             "    (Damit verfallen dann keine Punkte. Die Lernzeit für die verwendeten AEP\n."
-            "     wird wie bei 'Selbststudium' angenommen)\n";
+            "     wird wie bei 'Selbststudium' angenommen)\n"
+            " 4. Es werden alle ("+itos(pp)+") PP verwendet um "+itos(stufen_max)+" Stufen zu steigern.\n"
+            "    Die restlichen Punkte ("+itos(aep_max)+") verfallen\n"
+            " 5. Es werden alle ("+itos(pp)+") PP und "+itos(kosten_max-aep_max)+" AEP verwendet um "+itos(stufen_max+1)+" Stufen zu steigern,\n"
+            "(sollten die AEP (bei 3. und 5.) nicht ausreichen um fehlende FP zu bezahlen,\n"
+            " so verfallen die restlichen FP der PP.)";
          InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,*MBE);
          return false;
       }
@@ -261,13 +269,18 @@ int midgard_CG::genug_geld(const int kosten)
 }
 
 
-void midgard_CG::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen)
+void midgard_CG::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,bool alle_pp)
 {
-  MBE->add_Praxispunkte(-1);
   int aep=40;
+  if(alle_pp) 
+     { aep=40*MBE->Praxispunkte();
+       MBE->set_Praxispunkte(0);
+     }
+  else 
+       MBE->add_Praxispunkte(-1);
+     
   int kosten=0;
   stufen_auf_einmal_steigern_fuer_aep(false,MBE,kosten,aep);
-
   // Die übrigbleibenden Punkte in AEP umwandeln
   if(!verfallen && aep>0)
    {
@@ -284,9 +297,9 @@ void midgard_CG::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen)
         Werte.addGFP(steiger_kosten);
         MBE->add_Erfolgswert(1);
 
-        set_lernzeit(steiger_kosten-aep_kosten);
+        set_lernzeit(steiger_kosten-aep_kosten); // Lernzeit für PP
         radiobutton_selbst->set_active(true);
-        set_lernzeit(aep_kosten);
+        set_lernzeit(aep_kosten); // Lernzeit für Selbststudium
         radiobutton_praxis->set_active(true);
       }  
    }

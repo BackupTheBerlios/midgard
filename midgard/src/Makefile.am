@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.134 2002/03/29 07:02:59 thoma Exp $
+# $Id: Makefile.am,v 1.135 2002/04/10 15:58:49 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -29,6 +29,7 @@ noinst_HEADERS = \
    KiDo.hh \
    Land.hh \
    Grundwerte.hh \
+   Sinne.hh \
    Ruestung.hh \
    Spezialgebiet.hh \
    Lernschema.hh \
@@ -98,6 +99,7 @@ midgard_SOURCES = \
    Grad_anstieg.cc \
    Beruf.cc \
    Preise.cc \
+   Sinne.cc \
    Grundwerte.cc \
 	gw_wuerfeln.cc \
    midgard_CG_Ausruestung.cc \

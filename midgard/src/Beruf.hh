@@ -67,9 +67,7 @@ class cH_Beruf : public Handle<const Beruf>
     cH_Beruf(){};
  public:
     cH_Beruf(const std::string& n IF_XML(,bool create=false));
-#ifdef USE_XML    
     cH_Beruf(const Tag *tag);
-#endif
 
     cH_Beruf(const cH_MidgardBasicElement &x) : Handle<const Beruf>
       (dynamic_cast<const Beruf *>(&*x)){}
