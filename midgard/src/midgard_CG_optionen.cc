@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.103 2002/08/28 07:57:42 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.104 2002/09/03 10:34:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,6 @@
 #include "WindowInfo.hh"
 #include <fstream>
 #include "TagStream.hh"
-#include "export_common.h"
 #include <xml.h>
 
 void midgard_CG::set_info(const std::string& sadd)
