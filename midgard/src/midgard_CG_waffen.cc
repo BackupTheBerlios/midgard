@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.37 2002/05/02 12:19:21 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.38 2002/05/02 14:13:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -73,11 +73,16 @@ void midgard_CG::show_WaffenBesitz_lernschema()
   Gtk::Table *table=manage(new Gtk::Table(0,0,false));
   Gtk::Label *lE = manage(new Gtk::Label(itos(waffebesitzlernen.EWaffe())+" Einhandwaffen, Verteidigungswaffen oder Wurfwaffen",0));
   Gtk::Label *lA = manage(new Gtk::Label(itos(waffebesitzlernen.AWaffe())+" beliebige Waffen (einschließlich Zweihand- und Schußwaffen)",0));
+  
 
   table->attach(*lE,0,1,0,1,GTK_FILL,0,0,0);
   table->attach(*lA,0,1,1,2,GTK_FILL,0,0,0);
   table->attach(*tree_waffen_lernschema,0,1,2,3,GTK_FILL,0,0,0);
-
+  if(waffebesitzlernen.getMagisch())
+   {
+     Gtk::Label *lM = manage(new Gtk::Label("Die erste gewählte Einhandwaffe ist magisch",0));
+     table->attach(*lM,0,1,3,4,GTK_FILL,0,0,0);
+   }
   viewport_lernen->add(*table);  
   scrolledwindow_lernen->show_all();
 }
@@ -89,7 +94,14 @@ void midgard_CG::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
    cH_MidgardBasicElement MBE = dt->getMBE();
    std::string art=cH_WaffeBesitz(MBE)->Waffe()->Art2();
    if( (art=="E" || art=="W" || art=="V") && waffebesitzlernen.EWaffe()>0)
-     waffebesitzlernen.add_EWaffe(-1);
+    {
+      waffebesitzlernen.add_EWaffe(-1);
+      if(waffebesitzlernen.getMagisch())
+        {
+          cH_WaffeBesitz(MBE)->set_av_Bonus(1);
+          waffebesitzlernen.setMagisch(false);
+        }
+    }
    else if(waffebesitzlernen.AWaffe()>0)
      waffebesitzlernen.add_AWaffe(-1);
    else return;
