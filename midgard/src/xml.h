@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.15 2002/12/12 10:36:39 christof Exp $
+// $Id: xml.h,v 1.16 2002/12/12 10:42:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,7 +25,7 @@
 
 extern const Tag *xml_data;
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
-		const std::vector<pair<std::string,std::string> > &anforderungen);
+		const std::vector<std::pair<std::string,std::string> > &anforderungen);
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 		const std::string &name, const std::string &wert);
 

@@ -25,6 +25,7 @@
 #include <list>
 #include "xml.h"
 #include "Enums.hh"
+#include <iostream> // wegen eines cerr ...
 
 class cH_Typen;
 class Grundwerte;
