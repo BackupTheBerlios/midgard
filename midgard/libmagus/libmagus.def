@@ -78,7 +78,6 @@ EXPORTS
 	_ZN10cH_Spezies5cacheE  DATA
 	_ZN10cH_SpeziesC1ERKSsb 
 	_ZN10cH_SpeziesC2ERKSsb 
-	_ZN10cH_SpeziesD1Ev 
 	_ZN10cH_Sprache4loadERK3TagRb 
 	_ZN10cH_Sprache5cacheE  DATA
 	_ZN10cH_SpracheC1ERKSsb 
@@ -518,7 +517,6 @@ EXPORTS
 	_ZN7cH_Land5cacheE  DATA
 	_ZN7cH_LandC1ERKSsb 
 	_ZN7cH_LandC2ERKSsb 
-	_ZN7cH_LandD1Ev 
 	_ZN7MagusKI11VerteileGFPEiRK11Prozente100RK27Grund_Standard_Ausnahme_MBE 
 	_ZN7MagusKI11VerteileGFPEiRK11Prozente100RKSt6vectorI12cH_Prototyp2SaIS4_EE 
 	_ZN7MagusKI12KI_GSA_ListeERKSt4listI29H_MidgardBasicElement_mutableSaIS1_EE 
@@ -614,7 +612,6 @@ EXPORTS
 	_ZN9cH_Region16getRegionfromAbkERKSs 
 	_ZN9cH_Region4loadERK3TagRKSs 
 	_ZN9cH_Region5cacheE  DATA
-	_ZN9cH_RegionC1ERKS_ 
 	_ZN9cH_RegionC1ERKSsb 
 	_ZN9cH_RegionC2ERKSsb 
 	_ZN9cH_Zauber4loadERK3TagRb 
