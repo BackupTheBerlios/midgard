@@ -304,7 +304,7 @@ void midgard_CG::load_ausruestung()
       if (sqlca.sqlcode) break;
       AusruestungBaum *A = &besitz.push_back(Ausruestung(adb_fert,adb_magisch,adb_wert));
       A->setParent(&besitz);
-      load_ausruestung_C(adb_self,*A);
+//      load_ausruestung_C(adb_self,*A);
     }
   exec sql close AFEIN;
   tr.close();
