@@ -18,10 +18,13 @@ CREATE TABLE "spezialgebiete" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26648396) TABLE DATA spezialgebiete
+-- Data for TOC Entry ID 4 (OID 26648396)
+--
+-- Name: spezialgebiete Type: TABLE DATA Owner: thoma
 --
 
-COPY "spezialgebiete"  FROM stdin;
+
+COPY "spezialgebiete" FROM stdin;
 Ma	0	Spezialgebiet	\N	\N
 Ma	1	Adept der Herrschaft	beherrscht	\N
 Ma	2	Adept der Bewegung	bewegt	\N
@@ -51,10 +54,10 @@ eBe	9	Luft Wasser	Luft	Wasser
 eBe	10	Wasser Luft	Wasser	Luft
 \.
 --
--- TOC Entry ID 3 (OID 26648396)
+-- TOC Entry ID 3 (OID 26648452)
 --
 -- Name: "spezialgebiete_spezialgebiet" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "spezialgebiete_spezialgebiet" on "spezialgebiete" using btree ( "spezialgebiet" "text_ops" );
+CREATE UNIQUE INDEX spezialgebiete_spezialgebiet ON spezialgebiete USING btree (spezialgebiet text_ops);
 

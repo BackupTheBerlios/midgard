@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.58 2001/12/13 21:53:48 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.59 2001/12/18 14:52:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,24 +78,28 @@ void midgard_CG::LaTeX_write_values()
       styp += "/"+Typ[1]->Name(Werte.Geschlecht());
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<Werte.St() << "}\n";
- fout << "\\newcommand{\\gee}{" <<Werte.Gw() << "}\n";
+ fout << "\\newcommand{\\gs}{" <<Werte.Gs() << "}\n";
+ int reaktionswert = Werte.Gw() - atoi(ruestung("RW").c_str());
+ fout << "\\newcommand{\\gw}{"  << Werte.Gw() << "\\scriptsize ("<<reaktionswert<<")}\n";
  fout << "\\newcommand{\\ko}{"  <<Werte.Ko()<< "}\n";
  fout << "\\newcommand{\\inn}{" <<Werte.In() << "}\n";
  fout << "\\newcommand{\\zt}{"  <<Werte.Zt() << "}\n";
  fout << "\\newcommand{\\au}{"  <<Werte.Au() << "}\n";
  fout << "\\newcommand{\\pa}{"  <<Werte.pA() << "}\n";
  fout << "\\newcommand{\\sbb}{"  <<Werte.Sb() << "}\n";
+ fout << "\\newcommand{\\wk}{"  <<Werte.Wk() << "}\n";
 // int reaktionswert = Werte.RW() - atoi(ruestung("RW").c_str());
 // fout << "\\newcommand{\\rw}{"  << Werte.RW() << "\\scriptsize ("<<reaktionswert<<")}\n";
 // fout << "\\newcommand{\\hgw}{"  <<Werte.HGW() << "}\n";
  fout << "\\newcommand{\\rw}{ X }\n";
  fout << "\\newcommand{\\hgw}{ X }\n";
-// int bewegungsweite = Werte.B() - atoi(ruestung("B").c_str());
  int bewegungsweite = Werte.B() - Werte.Ruestung()->B_Verlust();
  fout << "\\newcommand{\\bb}{"  <<Werte.B() << "\\scriptsize ("<<bewegungsweite<<")}\n";
  fout << "\\newcommand{\\kaw}{"  <<Werte.KAW() << "}\n";
- fout << "\\newcommand{\\wlw}{"  <<Werte.WLW() << "}\n";
- fout << "\\newcommand{\\lpbasis}{"  <<Werte.Gs() << "}\n";
+ fout << "\\newcommand{\\geistesblitz}{"  <<Werte.Geistesblitz() << "}\n";
+// fout << "\\newcommand{\\wlw}{"  <<Werte.WLW() << "}\n";
+ fout << "\\newcommand{\\gg}{"  <<Werte.GG() << "}\n";
+ fout << "\\newcommand{\\sg}{"  <<Werte.SG() << "}\n";
  fout << "\\newcommand{\\lp}{"  <<Werte.LP() << "}\n";
  fout << "\\newcommand{\\ap}{"  <<Werte.AP() << "}\n";
  fout << "\\newcommand{\\boau}{"<<Werte.bo_Au()<< "}\n";
@@ -106,13 +110,26 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\bopsy}{"<<Werte.bo_Psy()<< "}\n";
  fout << "\\newcommand{\\bophs}{"<<Werte.bo_Phs()<< "}\n";
  fout << "\\newcommand{\\bophk}{"<<Werte.bo_Phk()<< "}\n";
- fout << "\\newcommand{\\bogi}{ X }\n";
+
+ // Sinne
+ fout << "\\newcommand{\\sinnse}{"<<Werte.Sehen()<< "}\n";
+ fout << "\\newcommand{\\sinnh}{"<<Werte.Hoeren()<< "}\n";
+ fout << "\\newcommand{\\sinnr}{"<<Werte.Riechen()<< "}\n";
+ fout << "\\newcommand{\\sinnsc}{"<<Werte.Schmecken()<< "}\n";
+ fout << "\\newcommand{\\sinnt}{"<<Werte.Tasten()<< "}\n";
+ fout << "\\newcommand{\\sinnss}{"<<Werte.SechsterSinn()<< "}\n";
+
+
+
+
+// fout << "\\newcommand{\\bogi}{ X }\n";
  fout << "\\newcommand{\\psy}{"<<Werte.Resistenz()+Werte.bo_Psy()<<"}\n";
  fout << "\\newcommand{\\phs}{"<<Werte.Resistenz()+Werte.bo_Phs()<<"}\n";
  fout << "\\newcommand{\\phk}{"<<Werte.Resistenz()+Werte.bo_Phk()<<"}\n";
 // fout << "\\newcommand{\\gift}{"<<3*Werte.LP()+Werte.bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
  fout << "\\newcommand{\\gift}{"<<Werte.Gift()<<"}\n";
 
+ fout << "\\newcommand{\\raufen}{"<<Werte.Raufen()<< "}\n";
  fout << "\\newcommand{\\abwehr}{"<<Werte.Abwehr_wert()<< "}\n";
  fout << "\\newcommand{\\abwehrfinal}{"<<Werte.Abwehr_wert()+Werte.bo_Ab()<< "}\n";
  int ohne_waffe=Werte.Abwehr_wert()+Werte.bo_Ab();

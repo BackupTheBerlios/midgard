@@ -43,90 +43,93 @@ CREATE TABLE "steigern_fertigkeiten_werte" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9071870) TABLE DATA steigern_fertigkeiten_werte
+-- Data for TOC Entry ID 4 (OID 9071870)
+--
+-- Name: steigern_fertigkeiten_werte Type: TABLE DATA Owner: thoma
 --
 
-COPY "steigern_fertigkeiten_werte"  FROM stdin;
-Beredsamkeit	\N	\N	\N	\N	\N	\N	50	100	250	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Brettspiel	\N	\N	5	5	10	10	10	20	20	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Fälschen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Geschenke machen	\N	\N	\N	\N	\N	\N	50	100	250	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Glücksspiel	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-KiDo	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	15	20	30	70	150	300	600	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-KujKuri	\N	30	150	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-LiYao	\N	\N	10	10	30	30	30	50	50	100	100	200	200	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Meucheln	\N	\N	\N	\N	\N	\N	100	100	200	200	500	500	1000	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-NinJutsu	\N	\N	150	150	300	300	600	600	1200	1200	2400	2400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Scharfschießen	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Schildamulett verzaubern	\N	200	300	400	500	600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Schutzamulett verzaubern	\N	300	600	800	1000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Spiegelamulett verzaubern	\N	600	1000	1500	2000	2500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Talisman verzaubern	\N	400	800	1200	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Teezeremonie	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Überleben	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Verkleiden	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Verstellen	\N	\N	\N	\N	50	50	100	100	200	200	400	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Waffen verzaubern	\N	800	1500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-YangScheng	\N	200	500	1000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Zunge Verschlucken	\N	\N	\N	\N	\N	\N	\N	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Jonglieren	\N	\N	\N	\N	\N	\N	20	20	40	40	100	100	200	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Lanzenstechen	\N	100	100	150	150	200	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Wetterkunde	\N	\N	5	5	13	13	13	25	25	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Werfen	\N	\N	\N	\N	\N	48	48	80	160	320	640	1280	2400	4000	8000	8000	12000	12000	20000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Beschatten	\N	\N	\N	\N	\N	\N	50	50	100	100	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+
+COPY "steigern_fertigkeiten_werte" FROM stdin;
+Abenteuer	\N	\N	0	0	100	100	200	200	400	400	800	800	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Athletik	\N	0	0	0	20	20	50	50	100	100	250	250	500	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Bewegung	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	50	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Ballista bedienen	\N	\N	\N	\N	20	20	50	50	100	250	500	500	1000	2000	4000	4000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Baukunde	\N	\N	\N	\N	20	20	40	40	80	80	150	150	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Beidhändiger Kampf	0	0	0	50	100	100	200	200	400	400	800	800	1600	1600	3000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Beredsamkeit	\N	\N	\N	\N	\N	\N	50	100	250	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Beschatten	\N	\N	\N	\N	\N	\N	50	50	100	100	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Bewegung	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	50	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Bogen zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	20	20	50	100	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Brettspiel	\N	\N	5	5	10	10	10	20	20	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Dichten	\N	0	0	0	\N	\N	\N	\N	10	10	10	20	20	20	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Erste Hilfe	\N	\N	\N	\N	\N	\N	50	50	100	100	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Abenteuer	\N	\N	0	0	100	100	200	200	400	400	800	800	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Fallenstellen	\N	\N	\N	\N	50	100	200	200	400	400	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fallenmechanik	\N	\N	\N	\N	100	200	400	400	800	800	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Fallenstellen	\N	\N	\N	\N	50	100	200	200	400	400	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fechten	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Fälschen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Gassenwissen	\N	\N	0	0	50	50	100	100	250	250	500	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Geheimzeichen	\N	\N	\N	\N	\N	\N	10	10	10	10	10	20	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Geschenke machen	\N	\N	\N	\N	\N	\N	50	100	250	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 GeschÃ¤ftstÃ¼chtigkeit	\N	\N	\N	\N	\N	\N	50	50	100	100	200	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Glücksspiel	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Heilkunde	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Himmelskunde	\N	\N	\N	\N	10	10	10	10	10	10	20	20	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Jonglieren	\N	\N	\N	\N	\N	\N	20	20	40	40	100	100	200	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Dunkelheit	0	0	20	20	40	40	40	80	80	80	150	150	300	600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Schlachtreihe	\N	\N	\N	\N	10	10	20	20	50	100	250	250	500	1000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in VollrÃ¼stung	\N	\N	\N	\N	\N	\N	\N	\N	\N	0	100	100	200	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	20	20	50	100	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampftaktik	\N	0	0	\N	\N	\N	20	20	50	50	100	100	200	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Wissen	\N	\N	\N	\N	50	50	50	100	100	200	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+KiDo	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	15	20	30	70	150	300	600	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+KujKuri	\N	30	150	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Lanzenstechen	\N	100	100	150	150	200	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Laufen	\N	\N	0	0	100	250	500	1000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Lesen von Zauberschrift	\N	\N	\N	\N	\N	\N	10	10	10	10	10	20	20	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Lippenlesen	\N	\N	0	0	100	100	200	400	400	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Verhören	\N	\N	\N	\N	\N	\N	20	20	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Menschenkenntnis	\N	\N	0	0	100	100	200	400	400	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Musizieren	\N	\N	\N	\N	\N	\N	\N	\N	10	10	10	20	20	20	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Rechnen	\N	\N	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-SchÃ¤tzen	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Schauspielern	\N	\N	\N	\N	\N	\N	10	10	50	50	100	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Schleichen	\N	\N	\N	\N	\N	\N	200	200	400	400	800	800	800	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Lesen/Schreiben	\N	\N	\N	\N	10	10	10	10	10	10	10	10	20	50	100	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+LiYao	\N	\N	10	10	30	30	30	50	50	100	100	200	200	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Lippenlesen	\N	\N	0	0	100	100	200	400	400	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Menschenkenntnis	\N	\N	0	0	100	100	200	400	400	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Meucheln	\N	\N	\N	\N	\N	\N	100	100	200	200	500	500	1000	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Musizieren	\N	\N	\N	\N	\N	\N	\N	\N	10	10	10	20	20	20	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+NinJutsu	\N	\N	150	150	300	300	600	600	1200	1200	2400	2400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Rechnen	\N	\N	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Scharfschießen	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Schauspielern	\N	\N	\N	\N	\N	\N	10	10	50	50	100	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Schildamulett verzaubern	\N	200	300	400	500	600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Schleichen	\N	\N	\N	\N	\N	\N	200	200	400	400	800	800	800	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Schutzamulett verzaubern	\N	300	600	800	1000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+SchÃ¤tzen	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Seilkunst	\N	\N	\N	\N	\N	\N	10	10	20	20	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Spiegelamulett verzaubern	\N	600	1000	1500	2000	2500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Sprache	\N	0	0	0	10	10	10	20	20	20	50	50	100	100	200	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Stehlen	\N	\N	\N	\N	\N	\N	0	0	100	100	100	200	400	400	800	800	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Stimmen nachahmen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Suchen	\N	\N	\N	\N	\N	\N	50	50	100	100	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Talisman verzaubern	\N	400	800	1200	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Tanzen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Tauchen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	50	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Teezeremonie	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Thaumatographie	\N	\N	\N	\N	100	100	200	200	400	400	800	800	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Trinken	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Verführen	\N	\N	\N	\N	\N	\N	20	20	50	50	100	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Verhören	\N	\N	\N	\N	\N	\N	20	20	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Verkleiden	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Verstellen	\N	\N	\N	\N	50	50	100	100	200	200	400	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Waffen verzaubern	\N	800	1500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Wahrnehmung	\N	\N	\N	\N	100	300	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Werfen	\N	\N	\N	\N	\N	48	48	80	160	320	640	1280	2400	4000	8000	8000	12000	12000	20000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Wetterkunde	\N	\N	5	5	13	13	13	25	25	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Winden	\N	\N	0	0	100	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Wissen	\N	\N	\N	\N	50	50	50	100	100	200	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+YangScheng	\N	200	500	1000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zeichensprache	\N	0	0	\N	10	10	10	10	20	50	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Zunge Verschlucken	\N	\N	\N	\N	\N	\N	\N	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Überleben	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 --
--- TOC Entry ID 3 (OID 9071870)
+-- TOC Entry ID 3 (OID 26608128)
 --
 -- Name: "steigern_fertigkeiten_werte_nam" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "steigern_fertigkeiten_werte_nam" on "steigern_fertigkeiten_werte" using btree ( "name" "text_ops" );
+CREATE UNIQUE INDEX steigern_fertigkeiten_werte_nam ON steigern_fertigkeiten_werte USING btree (name text_ops);
 

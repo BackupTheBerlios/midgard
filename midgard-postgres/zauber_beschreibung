@@ -15,11 +15,81 @@ CREATE TABLE "zauber_beschreibung" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9072388) TABLE DATA zauber_beschreibung
+-- Data for TOC Entry ID 4 (OID 9072388)
+--
+-- Name: zauber_beschreibung Type: TABLE DATA Owner: thoma
 --
 
-COPY "zauber_beschreibung"  FROM stdin;
+
+COPY "zauber_beschreibung" FROM stdin;
+Aggression	Das Opfer fängt mit den umgebenden Streit an, nicht aber mit dem Zauberer. Bei einem kritischen Fehler beim Zaubern fängt er Streit mit dem Zauberer an.
+Alpträume	GZ 2 je Ws. Das Opfer hat Alpträume. Jeden Tag einen WW:psy möglich. Solange der Zauber wirkt, werden keine AP regeneriert. Nach mehr Tagen als Grad Opfer siehe Entbehrungsregeln.
+Altern	GZ 30. Der Zauber läßt das Opfer schnell altern. Benötigt einen persönlichen Gegenstand des Opfers und muß ihn für die Dauer des Zaubers auf der Haut tragen. Für 1/5/20 Jahre muß der Zauberer 2/10/40 AP aufwenden. Pro Tag der Wirkung sind weitere 5 AP notwendig. Dagegen wirkt Bannen von Zauberwerk und Allheilung/Austreibung des Bösen. Beides muß innerhalb einer Stunde erfolgreich sein. Bannen von Zauberwerk beendet den Alterungsprozess. Weitere Moglichskeiten sind eigenhändiges Töten des Finstermagiers, der Magier hebt den Spruch freiwillig auf oder der Hautkontakt des Gegenstandes wird beendet.
+Aufladen	Damit kann ein magisches Artefakt wieder neu aufgeladen werden. Bei normalen Erfolg verdoppelt sich die ABW, bei kritischen Erfolg bleibt sie gleich und bei kritischen Fehler wird das Artefakt vollkommen zerstört. 
+Augenschleier	Das Opfer sieht einen illusionären Lichtblitz und ist geblendet. Währdend der Wirkungsdauer hat es WM-4 auf alle EW und WW, zu denen Augen benötigt werden. Dazu BW-8.
+Ballade der Begierde	Das Opfer will unbedingt eine Begierde erfüllen. Es können keine Begierden sein, die die Verletzung anderer verursachen oder absurd sind. Ballade muss auf Opfer abgestimmt sein und wirkt nur, wenn WW-(Grad Barde):psy und PW+(5*Grad Barde) mißglücken.
+Ballade der besiegten Gier	Zauber hebt die Wirkung des Zaubers Ballade der Gier auf, wenn Opfer PW:Sb gelingt
+Bann der wahren Eigentümerschaft	Mit diesem Zauber wird ein Gegenstand bis max 5 kg an eine Person gebunden. Wird dieser Gegenstand länger als 3 Tage aus der Umgebung(50m) entfernt, wird er mittels von "Zufällen" innerhalb von 7 Tagen wieder zu seinem Besizert zurueckkehren. Priester beherrschen auch eine Abwandlung, bei der das Objekt an eine geweihte Stätte gebunden wird.
+Bannen von Dunebargen	Bannt Dunebargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Dvergar	Bannt Dvergar von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Fäulnis	Das Objekt wird von Schimmel, Pilzen und Pflanzen befreit.
+Bannen von Hrimfolk	Bannt Hrimfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Hyrrfolk	Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Jördfolk	Bannt Jördfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Kaobargen	Bannt Kaobargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Vindfolk	Bannt Vindfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Wisfolk	Bannt Wisfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Baumtor	Der Zauberer kann mit Kleidung in einen Baum treten und auch auf einen anderen überwechseln. Wenn er nicht vor dem Ende der Wirkungsdauer wieder herauskommt, stirbt er. Mit 10% bleibt die Seele im Baum zurück und der Baum verwandelt sich in 7 Wochen in einen Baumhirte. Wenn ein Druide die vorsätzlich tut, um am Ende seines Lebens mit der Natur zu verschmelzen, ist die Wahrscheinlichkeit 90%.
+Blindsalz	Das Opfer sieht eine Runde nichts. Zauber werden unterbrochen, wenn der Zauber Blickkontakt benötigt.
+Brechsalz	Dem Opfer wird eine Minute übel. In jeder Runde ist ein PW:Sb (hektische Bewegungen ergeben WM+10) notwendig, um sich nicht um übergeben.
+Bruchbann	Der Zauberer macht Gegenstände gegen mechanische Einwirkung unepfindlich. AP Kosten richten sich nach Gesamtgewicht: 1kg 2AP, 10 kg 8AP, 100 kg 32 AP. 
+Bärenstärke	Der Zauberer wird bärenstark. Tragfähigkeit +40 kg, Kraftakt +25. WM-2 auf alle EW wie Angriff, aber WM+3 auf Schaden. Keine Zauber möglich. Am Ende PW:St, falls mißlungen 1W3 AP verloren.
+Das Lied der Feier	Versetzt die Zuhörenden in freundliche, feiernde Stimmung und lässt über Unhöflichkeiten hinwegsehen.
+Das Lied der Macht	Der Barde hat Gewalt über alle Säugetiere und Vögel, die ihm zugehört haben. Nach 3/6/12 Minuten Spiel dauert die Wirkung 2 Minuten/1 Stunde/1 Tag an.
+Das Lied der Magie	Durch dieses Lied wird der Fluß der Magie innerhalb des Wirkungsbereiches verändert. Entweder wird er erleichtert (WM+1 auf EW:Zaubern und WM-4 auf WW:res) auf Zauber und Artefakte, oder erschwert (WM-1 auf EW:Zaubern und Wm+4 auf WW:res).
+Das Lied des Verstehens	Der Zauber ist ein Universalübersetzer. Alle betroffenen Personen können sich gegenseitig verstehen, auch wenn sie nicht die gleiche Sprachen sprechen.
+Der Gesang Crescendos	Verdorrte und beschädigte Pflanzen erhalten vom Gesang neue Kraft
+Die Klänge der Genesung	Die regenerativen Kräfte der Zuhörer werden verstärkt. Heilvorgänge sind dreimal schneller( auch 3 LP pro Tag). Dazu muss das Lied dreimal pro Tag 1 Stunde lang gespielt werden und dreimal der EW:Zaubern erfolgreich sein. Bei kritischen Fehler wird die Heilung gestoppt.
+Die Stimme der Gerechten	Durch das Spielen des Chimäron werden "die Gerechten" herbeigerufen. Im Wirkungsbereich wird die Ordung der Ebenen wiederhergestellt. Weltentore nach verlorenen Zauberduell werden geschlossen und Wesen von anderen Ebenen nach einem mißlungenen WW-4:phs in diese zurückgeschleudert (Im Fallen von kontrollierten Wesen nach einem verlorenen Zauberduell). Dazu muss der Barde alle, aber mindestens 18 AP aufbringen. Es dauert 2 min, bevor die Wirkung einsetzt und Wesen mit mindestens Int:m80 können nach einem gelungenen PW:In dem Wirkungsbereich verlassen. 
+Dunkle Kämpfer beschwören 1	Beschören von Dunebargen. Beschwören 2 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
+Dunkle Kämpfer beschwören 2	Beschören von Dunebargen. Beschwören 3 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
+Dunkle Kämpfer beschwören 3	Beschören von Dunebargen. Beschwören 4 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
+Dvergar beschwören	Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Dämonenhand	GZ 20. Der Zauberer beschwört eine riesige Dämonenhand, die das Opfer ergreift und in seine Dimension zieht. Das Opfer kann mit einenm PW-(5*Grad):RW ausweichen. Dann 20% Chance, dass der ganze Dämon erscheint.
+Dämonwnkreis	GZ 5. Nach der Aktivierung wird eine Person, die den Kreis betritt, für 10 min festgehalten und kann seine Beine nicht mehr bewegen. Wenn der Finstermagier in Rw ist, spürt er dieses. Der Kreis ist 2h aktiv und kann für weitere 4 AP und GZ 5 verlängert werden.
+Erdrosseln	GZ 3. Das Opfer spürt einen eisernen Griff um seine Kehle und kann nicht mehr atmen. 3 AP pro Runde. Ab er vierten Runde ein EW:Tauchen, falls mißlungen, verliert das Opfer das Bewußtsein und 2 LP pro Runde. Dem Opfer stehen alle zwei Runden ein WW:phs zu.
+Fiebersalz	Das Opfer hat Fieber, WM-1 auf alle EW.
+Finsterer Blick	GZ 0. Das Oper hat fuer 1 h WM-4 auf alle EW und WW. Wenn das Oper eine geringere Int als der Finstermagier hat und im Augenblick des Zauber dem Finstermagier in die Augen schaut, muss es auch einen WW:psy gegen Angst machen.
+Firzars Zorn	GZ 20. Erzeugt Flammensäule(5m Höhe und 2m Durchmesser). Bei erfolgreichem WW:phk 3W6 AP, sonst 4W6 Schaden(Rüstung hilft). Mit gelungenem PW:HGW/2 kann das Opfer die Säule verlassen und erleidet weitere 2W6 AP. Wenn das Opfer mehr als 1/3 der LPs verliert, erblindet jedes Auge mit 20% und 2W6 Punkte Au und pA. Im Falle eines kritischen Fehlers des Zauberers umhüllt die Säule den Finstermagier.
+Flucht des Geistes.	GZ 6. Mit diesem Spruch kann der Magier seinen Geist in einen Gegenstand übertragen, den er berührt. Sein Körper fällt in eine totenähnliche Starre. Weiteres siehe Regelwerk
+Fäulnis	GZ 1. Totes organisches Material verfault rapide. Obst in 2 min, eine Eichentuür in 2 h. Der Zauberer kann nur 3 kg * Grad verfaulen lassen.
+Geister der Finsternis.	GZ 2. Beschwört einen bösartigen Tiergeist. Der Magier sieht was der Tiergeist sieht wie mit dem Zauber Freundesauge.
+Geistesschlüssel	GZ 8. Dem Opfer können mehrere Befehle, max 8x8 Worte, denen es sich nicht bewusst ist, aufgetragen werden. Wird mit Schlüsselwort ausgelöst. Maximale Dauer 8x8 h. Mit Bannen von Finsterwerk kann der Zauber aufgehoben werden.
+Globus der Finsternis	GZ 2. Um den Finstermagier ensteht eine 6m durchmessende schwarze Späre. Der Magier kann ungehindert hinaussehen, ist selbst aber nicht sichtbar. Maximal B4. Wenn ein Wesen die Sphäre betritt, muss es 3 WW:psy machen. Wenn ein WW gelingt, müssen die weiteren nicht gemacht werden. WM 0/+2/+4 fuer Ebenholzkugel, WM -2/0/+2 Obidiankugel und WM -4/-2/0 fuer schwarze Perle. Gute Wesen haben WM+4. Die Zauber der 3 WW sind Angst, Namenloses Grauen und Wahnsinn.
 Heilen von Wunden	Heilt W6 LP und AP, nur alle drei Tage möglich
+Höllenbote rufen	GZ 15.Der Zauber muss eine Stunde nach Mitternacht gewirkt werden. Ruft einen Höllenboten herbei. Der Magier muss den Aufenthaltsort des Opfers angeben(max 100 km weg, mit 500m Genauigkeit). Der Höllenbote macht dann sofort Jagd auf das Opfer. Wenn er es nicht finden kann(wonanders, tot), kommt es zurueck und greift den Finstermagier an.
+Höllenfeuer	GZ 3. Der Magier kann von bis zu Grad Fingerspitzen Flammenzungen schwarzen Feuers aussenden. Bei gelungenem WW:phk 1W6 AP, sonst 2W6+2 AP und 1W6 LP. Rüstung schützt nicht. Körperlose, gute Priester und andere vergleichbare Wesen sind immun gegen den Zauber.
+Höllenglocke	GZ 5. Über dem Kopf des Finstermagiers erscheint eine Glocke, die läutet. Alle Wesen in Reichweite verlieren bei mislungenem WW:phk 2W6 LP und AP, sonst 1W6 AP. Andere Finstermagier werden mit Grad*5% in die Hölle versetzt. Gute Priester und vergleichbare übernatürliche Wesen sind immun.
+Klebesalz	Das Salz wird auf zwei möglichst glatte(sonst WM-2) Oberflächen aufgebracht und aneinandergehalten. Danach nur mit einem Kraftakt zu trennen.
+Knallsalz	Das Salz knallt und kracht.
+Konvulsion	GZ 8. Misslingt ein WW.phs des Opfers, sinkt es unter konvulsivischen Zuckungen wehr und bewegungslos zu Boden. Am Ende jeder Runde ein WW möglich. In jeder Runde verliert es 2 LP. Nach gelungenem WW ist es noch 2 Runden bewegungslos, dann 2 Runden WM-4/WM-2, bis es nach 5 Runden voll erholt ist.  
+Kundschafter beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
+Kundschafter beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
+Kundschafter beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Kundschafter beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Kämpfer beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
+Kämpfer beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
+Kämpfer beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Kämpfer beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Lahmsalz	Dem Opfer schlafen die Beine ein. WM-6 auf Springen, Geländelauf und ähnliches.
+Lallsalz	Das Opfer kann seine Stimmbänder nicht mehr kontrollieren. Damit sind alle nicht mentalen Zauber unmöglich und die pA sinkt auf ein Zehntel.
+Lenker beschwören 1	Beschören von Dunebargen. Beschwören 3 AP, Fesseln 2 AP und 1 LP, Verlängern 3 AP und 1 LP. 
+Lenker beschwören 2	Beschören von Dunebargen. Beschwören 4 AP, Fesseln 2 AP und 2 LP, Verlängern 4 AP und 2 LP. 
+Lustsalz	Das Opfer hat unwiderstehliche Lust auf Sex. Nur schwerwiegende Gründe können sie davon abhalten, Kampfeshandlungen, Erziehung, Standesunterschiede usw.
+Macht der Finsternis	GZ var. Damit kann der Finstermagier eines der folgenden: eine Eigenschaft auf 100 steigern(GZ 5), eine Eigenschaft um 10 auch über 100 steigern(GZ 10), die Form eines Elementargeistes/Geist/Gespenst/Mumie/Manticora/Niederer Dämon/Riesenschlange/Thurse/Troll annehmen. In der Gestalt hat der die jeweils maximalen Werte. Nach der Verwandlung hat der dieselben LP und AP wie vorher.
+Nebelsalz	Es entsteht eine dichte kleine Nebelwolke.
+Schattenroß rufen	GZ 10. Kann nur nachts beschworen werden aber auch tagsüber geritten werden. Roß verschwindet wieder, wenn Magier absteigt. Dieser hat WM+10 auf Reiten und Kampf zu Pferd
+Schleichende Verderbnis	GZ 15. Zauberzutat ist Pergament gemacht aus der Haut eines gehängten/geräderten Mörders. Das mit Runen versehene Pergament muß 2 m um die augenblickliche Wohnstatt des Opfers vergraben werden. Dann sinken die Basiswerte des Opfers pro Tag um 1, es hat Alpträume(keine AP Regeneration). LPmax sinkt um 2 pro Woche. Das Opfer hat jede Woche einen WW:phs, auf den aber kumulativ WM-2 dazu kommen. Das Opfer stirbt bei 0 LP oder eine Basiseigenschaft 0. Der Zauber kann gebrochen werden, wenn das Opfer die Wohnstatt verlässt oder das Pergament findet und zerstört.
 Schutzkreis gegen Dunebargen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dunebarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Dvergar	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dvergar, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Geisterwesen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 4AP pro Person im Schutzkreis. Jeder Geist, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
@@ -30,96 +100,29 @@ Schutzkreis gegen Kaobargen	Schutzkreis schützt die Personen innerhalb. Anlegen 
 Schutzkreis gegen Untote	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 3AP pro Person im Schutzkreis. Jeder Untote, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Vindfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Wisfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
-Bannen von Dunebargen	Bannt Dunebargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
-Bannen von Dvergar	Bannt Dvergar von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
-Bannen von Hrimfolk	Bannt Hrimfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
-Bannen von Jördfolk	Bannt Jördfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
-Bannen von Kaobargen	Bannt Kaobargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
-Bannen von Vindfolk	Bannt Vindfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
-Bannen von Wisfolk	Bannt Wisfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
-Dunkle Kämpfer beschwören 1	Beschören von Dunebargen. Beschwören 2 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
-Dunkle Kämpfer beschwören 2	Beschören von Dunebargen. Beschwören 3 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
-Dunkle Kämpfer beschwören 3	Beschören von Dunebargen. Beschwören 4 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
-Kämpfer beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
-Kämpfer beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
-Kämpfer beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
-Kämpfer beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
-Kundschafter beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
-Kundschafter beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
-Kundschafter beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
-Kundschafter beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
-Träger beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
-Träger beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
-Träger beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
-Träger beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
-Lenker beschwören 1	Beschören von Dunebargen. Beschwören 3 AP, Fesseln 2 AP und 1 LP, Verlängern 3 AP und 1 LP. 
-Lenker beschwören 2	Beschören von Dunebargen. Beschwören 4 AP, Fesseln 2 AP und 2 LP, Verlängern 4 AP und 2 LP. 
-Wächter beschwören 1	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
-Wächter beschwören 2	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
-Wächter beschwören 3	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
-Dvergar beschwören	Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Späfolk beschwören 1 	Beschwören 1 AP, Fesseln 1 AP, Verlängern 1 AP. 
 Späfolk beschwören 2 	Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
 Späfolk beschwören 3 	Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Späfolk beschwören 4 	Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
-Ballade der Begierde	Das Opfer will unbedingt eine Begierde erfüllen. Es können keine Begierden sein, die die Verletzung anderer verursachen oder absurd sind. Ballade muss auf Opfer abgestimmt sein und wirkt nur, wenn WW-(Grad Barde):psy und PW+(5*Grad Barde) mißglücken.
-Ballade der besiegten Gier	Zauber hebt die Wirkung des Zaubers Ballade der Gier auf, wenn Opfer PW:Sb gelingt
-Das Lied der Feier	Versetzt die Zuhörenden in freundliche, feiernde Stimmung und lässt über Unhöflichkeiten hinwegsehen.
-Das Lied der Macht	Der Barde hat Gewalt über alle Säugetiere und Vögel, die ihm zugehört haben. Nach 3/6/12 Minuten Spiel dauert die Wirkung 2 Minuten/1 Stunde/1 Tag an.
-Das Lied der Magie	Durch dieses Lied wird der Fluß der Magie innerhalb des Wirkungsbereiches verändert. Entweder wird er erleichtert (WM+1 auf EW:Zaubern und WM-4 auf WW:res) auf Zauber und Artefakte, oder erschwert (WM-1 auf EW:Zaubern und Wm+4 auf WW:res).
-Das Lied des Verstehens	Der Zauber ist ein Universalübersetzer. Alle betroffenen Personen können sich gegenseitig verstehen, auch wenn sie nicht die gleiche Sprachen sprechen.
-Der Gesang Crescendos	Verdorrte und beschädigte Pflanzen erhalten vom Gesang neue Kraft
-Die Klänge der Genesung	Die regenerativen Kräfte der Zuhörer werden verstärkt. Heilvorgänge sind dreimal schneller( auch 3 LP pro Tag). Dazu muss das Lied dreimal pro Tag 1 Stunde lang gespielt werden und dreimal der EW:Zaubern erfolgreich sein. Bei kritischen Fehler wird die Heilung gestoppt.
-Die Stimme der Gerechten	Durch das Spielen des Chimäron werden "die Gerechten" herbeigerufen. Im Wirkungsbereich wird die Ordung der Ebenen wiederhergestellt. Weltentore nach verlorenen Zauberduell werden geschlossen und Wesen von anderen Ebenen nach einem mißlungenen WW-4:phs in diese zurückgeschleudert (Im Fallen von kontrollierten Wesen nach einem verlorenen Zauberduell). Dazu muss der Barde alle, aber mindestens 18 AP aufbringen. Es dauert 2 min, bevor die Wirkung einsetzt und Wesen mit mindestens Int:m80 können nach einem gelungenen PW:In dem Wirkungsbereich verlassen. 
-Blindsalz	Das Opfer sieht eine Runde nichts. Zauber werden unterbrochen, wenn der Zauber Blickkontakt benötigt.
-Brechsalz	Dem Opfer wird eine Minute übel. In jeder Runde ist ein PW:Sb (hektische Bewegungen ergeben WM+10) notwendig, um sich nicht um übergeben.
-Fiebersalz	Das Opfer hat Fieber, WM-1 auf alle EW.
-Klebesalz	Das Salz wird auf zwei möglichst glatte(sonst WM-2) Oberflächen aufgebracht und aneinandergehalten. Danach nur mit einem Kraftakt zu trennen.
-Knallsalz	Das Salz knallt und kracht.
-Lahmsalz	Dem Opfer schlafen die Beine ein. WM-6 auf Springen, Geländelauf und ähnliches.
-Lallsalz	Das Opfer kann seine Stimmbänder nicht mehr kontrollieren. Damit sind alle nicht mentalen Zauber unmöglich und die pA sinkt auf ein Zehntel.
-Lustsalz	Das Opfer hat unwiderstehliche Lust auf Sex. Nur schwerwiegende Gründe können sie davon abhalten, Kampfeshandlungen, Erziehung, Standesunterschiede usw.
-Nebelsalz	Es entsteht eine dichte kleine Nebelwolke.
 Trockensalz	Das Salz saugt bis zu 1l Flüssigkeit auf.
-Zucksalz	Das Opfer leidet unter nervösen Zuckungen, was WM-4 auf alle EW bedeutet, auch Angriff und Zaubern. pA sinkt auf ein Viertel.
-Alpträume	GZ 2 je Ws. Das Opfer hat Alpträume. Jeden Tag einen WW:psy möglich. Solange der Zauber wirkt, werden keine AP regeneriert. Nach mehr Tagen als Grad Opfer siehe Entbehrungsregeln.
-Altern	GZ 30. Der Zauber läßt das Opfer schnell altern. Benötigt einen persönlichen Gegenstand des Opfers und muß ihn für die Dauer des Zaubers auf der Haut tragen. Für 1/5/20 Jahre muß der Zauberer 2/10/40 AP aufwenden. Pro Tag der Wirkung sind weitere 5 AP notwendig. Dagegen wirkt Bannen von Zauberwerk und Allheilung/Austreibung des Bösen. Beides muß innerhalb einer Stunde erfolgreich sein. Bannen von Zauberwerk beendet den Alterungsprozess. Weitere Moglichskeiten sind eigenhändiges Töten des Finstermagiers, der Magier hebt den Spruch freiwillig auf oder der Hautkontakt des Gegenstandes wird beendet.
-Dämonenhand	GZ 20. Der Zauberer beschwört eine riesige Dämonenhand, die das Opfer ergreift und in seine Dimension zieht. Das Opfer kann mit einenm PW-(5*Grad):RW ausweichen. Dann 20% Chance, dass der ganze Dämon erscheint.
-Dämonwnkreis	GZ 5. Nach der Aktivierung wird eine Person, die den Kreis betritt, für 10 min festgehalten und kann seine Beine nicht mehr bewegen. Wenn der Finstermagier in Rw ist, spürt er dieses. Der Kreis ist 2h aktiv und kann für weitere 4 AP und GZ 5 verlängert werden.
-Erdrosseln	GZ 3. Das Opfer spürt einen eisernen Griff um seine Kehle und kann nicht mehr atmen. 3 AP pro Runde. Ab er vierten Runde ein EW:Tauchen, falls mißlungen, verliert das Opfer das Bewußtsein und 2 LP pro Runde. Dem Opfer stehen alle zwei Runden ein WW:phs zu.
-Fäulnis	GZ 1. Totes organisches Material verfault rapide. Obst in 2 min, eine Eichentuür in 2 h. Der Zauberer kann nur 3 kg * Grad verfaulen lassen.
-Finsterer Blick	GZ 0. Das Oper hat fuer 1 h WM-4 auf alle EW und WW. Wenn das Oper eine geringere Int als der Finstermagier hat und im Augenblick des Zauber dem Finstermagier in die Augen schaut, muss es auch einen WW:psy gegen Angst machen.
-Firzars Zorn	GZ 20. Erzeugt Flammensäule(5m Höhe und 2m Durchmesser). Bei erfolgreichem WW:phk 3W6 AP, sonst 4W6 Schaden(Rüstung hilft). Mit gelungenem PW:HGW/2 kann das Opfer die Säule verlassen und erleidet weitere 2W6 AP. Wenn das Opfer mehr als 1/3 der LPs verliert, erblindet jedes Auge mit 20% und 2W6 Punkte Au und pA. Im Falle eines kritischen Fehlers des Zauberers umhüllt die Säule den Finstermagier.
-Flucht des Geistes.	GZ 6. Mit diesem Spruch kann der Magier seinen Geist in einen Gegenstand übertragen, den er berührt. Sein Körper fällt in eine totenähnliche Starre. Weiteres siehe Regelwerk
-Geister der Finsternis.	GZ 2. Beschwört einen bösartigen Tiergeist. Der Magier sieht was der Tiergeist sieht wie mit dem Zauber Freundesauge.
-Geistesschlüssel	GZ 8. Dem Opfer können mehrere Befehle, max 8x8 Worte, denen es sich nicht bewusst ist, aufgetragen werden. Wird mit Schlüsselwort ausgelöst. Maximale Dauer 8x8 h. Mit Bannen von Finsterwerk kann der Zauber aufgehoben werden.
-Globus der Finsternis	GZ 2. Um den Finstermagier ensteht eine 6m durchmessende schwarze Späre. Der Magier kann ungehindert hinaussehen, ist selbst aber nicht sichtbar. Maximal B4. Wenn ein Wesen die Sphäre betritt, muss es 3 WW:psy machen. Wenn ein WW gelingt, müssen die weiteren nicht gemacht werden. WM 0/+2/+4 fuer Ebenholzkugel, WM -2/0/+2 Obidiankugel und WM -4/-2/0 fuer schwarze Perle. Gute Wesen haben WM+4. Die Zauber der 3 WW sind Angst, Namenloses Grauen und Wahnsinn.
-Höllenbote rufen	GZ 15.Der Zauber muss eine Stunde nach Mitternacht gewirkt werden. Ruft einen Höllenboten herbei. Der Magier muss den Aufenthaltsort des Opfers angeben(max 100 km weg, mit 500m Genauigkeit). Der Höllenbote macht dann sofort Jagd auf das Opfer. Wenn er es nicht finden kann(wonanders, tot), kommt es zurueck und greift den Finstermagier an.
-Höllenfeuer	GZ 3. Der Magier kann von bis zu Grad Fingerspitzen Flammenzungen schwarzen Feuers aussenden. Bei gelungenem WW:phk 1W6 AP, sonst 2W6+2 AP und 1W6 LP. Rüstung schützt nicht. Körperlose, gute Priester und andere vergleichbare Wesen sind immun gegen den Zauber.
-Höllenglocke	GZ 5. Über dem Kopf des Finstermagiers erscheint eine Glocke, die läutet. Alle Wesen in Reichweite verlieren bei mislungenem WW:phk 2W6 LP und AP, sonst 1W6 AP. Andere Finstermagier werden mit Grad*5% in die Hölle versetzt. Gute Priester und vergleichbare übernatürliche Wesen sind immun.
-Konvulsion	GZ 8. Misslingt ein WW.phs des Opfers, sinkt es unter konvulsivischen Zuckungen wehr und bewegungslos zu Boden. Am Ende jeder Runde ein WW möglich. In jeder Runde verliert es 2 LP. Nach gelungenem WW ist es noch 2 Runden bewegungslos, dann 2 Runden WM-4/WM-2, bis es nach 5 Runden voll erholt ist.  
-Macht der Finsternis	GZ var. Damit kann der Finstermagier eines der folgenden: eine Eigenschaft auf 100 steigern(GZ 5), eine Eigenschaft um 10 auch über 100 steigern(GZ 10), die Form eines Elementargeistes/Geist/Gespenst/Mumie/Manticora/Niederer Dämon/Riesenschlange/Thurse/Troll annehmen. In der Gestalt hat der die jeweils maximalen Werte. Nach der Verwandlung hat der dieselben LP und AP wie vorher.
-Schattenroß rufen	GZ 10. Kann nur nachts beschworen werden aber auch tagsüber geritten werden. Roß verschwindet wieder, wenn Magier absteigt. Dieser hat WM+10 auf Reiten und Kampf zu Pferd
-Schleichende Verderbnis	GZ 15. Zauberzutat ist Pergament gemacht aus der Haut eines gehängten/geräderten Mörders. Das mit Runen versehene Pergament muß 2 m um die augenblickliche Wohnstatt des Opfers vergraben werden. Dann sinken die Basiswerte des Opfers pro Tag um 1, es hat Alpträume(keine AP Regeneration). LPmax sinkt um 2 pro Woche. Das Opfer hat jede Woche einen WW:phs, auf den aber kumulativ WM-2 dazu kommen. Das Opfer stirbt bei 0 LP oder eine Basiseigenschaft 0. Der Zauber kann gebrochen werden, wenn das Opfer die Wohnstatt verlässt oder das Pergament findet und zerstört.
+Träger beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
+Träger beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
+Träger beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Träger beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
 Unwetter rufen	GZ 5. Dadurch wird ein sehr starkes Gewitter gerufen, das sich innerhalb von 5 Minuten bildet und dann 15 Minuten anhält. Massive Wirkungen. Lebewesen mit weniger als LP, die nicht rechtzeitig einen Unterschlupf finden, sterben.
 Verglasen	GZ 5. Mißlingt der WW:phs, verwandelt sich der Körper des Opfers innerhalb von 4 Runden in Glas. Kann mit Bannen von Zauberwerk/Bannen von Finsterwerk aufgehoben werden, wenn PW:WLW gelingt.
 Verwüstung	GZ 1. Pflanzen innerhalb des Wirkungsbereiches verdorren innerhalb von Sekunden. Das Gelände bleibt (Grad Fm)^2 unfruchtbar.
+Wächter beschwören 1	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
+Wächter beschwören 2	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Wächter beschwören 3	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
 Zeichen des Chaos	GZ 4. Mißlingt dem Opfer ein WW:phs(weiße Hexer, Priester und Ordenskriegen haben WM+4), wächst ihm ein leicht zu bemerkendes Chaoszeichen: Schwarz verfärbte Körperteile, glühende Augen, Klauen, Hörner usw. Die Wirkung des Zaubers dauert (Gr Fm)*(Gr Opfer). 
-Aggression	Das Opfer fängt mit den umgebenden Streit an, nicht aber mit dem Zauberer. Bei einem kritischen Fehler beim Zaubern fängt er Streit mit dem Zauberer an.
-Aufladen	Damit kann ein magisches Artefakt wieder neu aufgeladen werden. Bei normalen Erfolg verdoppelt sich die ABW, bei kritischen Erfolg bleibt sie gleich und bei kritischen Fehler wird das Artefakt vollkommen zerstört. 
-Augenschleier	Das Opfer sieht einen illusionären Lichtblitz und ist geblendet. Währdend der Wirkungsdauer hat es WM-4 auf alle EW und WW, zu denen Augen benötigt werden. Dazu BW-8.
-Bärenstärke	Der Zauberer wird bärenstark. Tragfähigkeit +40 kg, Kraftakt +25. WM-2 auf alle EW wie Angriff, aber WM+3 auf Schaden. Keine Zauber möglich. Am Ende PW:St, falls mißlungen 1W3 AP verloren.
-Bann der wahren Eigentümerschaft	Mit diesem Zauber wird ein Gegenstand bis max 5 kg an eine Person gebunden. Wird dieser Gegenstand länger als 3 Tage aus der Umgebung(50m) entfernt, wird er mittels von "Zufällen" innerhalb von 7 Tagen wieder zu seinem Besizert zurueckkehren. Priester beherrschen auch eine Abwandlung, bei der das Objekt an eine geweihte Stätte gebunden wird.
-Bannen von Fäulnis	Das Objekt wird von Schimmel, Pilzen und Pflanzen befreit.
-Baumtor	Der Zauberer kann mit Kleidung in einen Baum treten und auch auf einen anderen überwechseln. Wenn er nicht vor dem Ende der Wirkungsdauer wieder herauskommt, stirbt er. Mit 10% bleibt die Seele im Baum zurück und der Baum verwandelt sich in 7 Wochen in einen Baumhirte. Wenn ein Druide die vorsätzlich tut, um am Ende seines Lebens mit der Natur zu verschmelzen, ist die Wahrscheinlichkeit 90%.
-Bruchbann	Der Zauberer macht Gegenstände gegen mechanische Einwirkung unepfindlich. AP Kosten richten sich nach Gesamtgewicht: 1kg 2AP, 10 kg 8AP, 100 kg 32 AP. 
-Bannen von Hyrrfolk	Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Zucksalz	Das Opfer leidet unter nervösen Zuckungen, was WM-4 auf alle EW bedeutet, auch Angriff und Zaubern. pA sinkt auf ein Viertel.
 \.
 --
--- TOC Entry ID 3 (OID 9072388)
+-- TOC Entry ID 3 (OID 26608159)
 --
 -- Name: "zauber_beschreibung_name" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "zauber_beschreibung_name" on "zauber_beschreibung" using btree ( "name" "text_ops" );
+CREATE UNIQUE INDEX zauber_beschreibung_name ON zauber_beschreibung USING btree (name text_ops);
 

@@ -20,27 +20,30 @@ CREATE TABLE "preise_modifikation" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 30117571) TABLE DATA preise_modifikation
+-- Data for TOC Entry ID 3 (OID 30117571)
+--
+-- Name: preise_modifikation Type: TABLE DATA Owner: thoma
 --
 
-COPY "preise_modifikation"  FROM stdin;
-versilbert	10	15	GS	Waffen	Material	2
+
+COPY "preise_modifikation" FROM stdin;
+Adel	5	0		Kleidung	Stand	3
 Alchemistenmetall	50	25	GS	Waffen	Material	3
+Baumwolle	2	0		Kleidung	Material	2
+Dauernahrung	2	0		Essen	?	1
+Getränke	5	0		Gasthaus	?	1
+Lebensmittel	1	0	kg/l	Lebensmittel	?	1
+Leinen	1	0		Kleidung	Material	1
+Mittelschicht	1	0	\N	Kleidung	Stand	1
+Pelz	4.5	0		Kleidung	Material	4
+Seide	8	0		Kleidung	Material	3
+Volk	0.33333	0		Kleidung	Stand	2
+blau	3	0		Kleidung	Farbe	4
+gelb	2	0		Kleidung	Farbe	3
+grün	2	0		Kleidung	Farbe	2
+purpur	20	0		Kleidung	Farbe	6
+rot	4	0		Kleidung	Farbe	5
 standard	1	0	\N	Waffen	Material	1
 ungefärbt	1	0	\N	Kleidung	Farbe	1
-grün	2	0		Kleidung	Farbe	2
-gelb	2	0		Kleidung	Farbe	3
-blau	3	0		Kleidung	Farbe	4
-rot	4	0		Kleidung	Farbe	5
-purpur	20	0		Kleidung	Farbe	6
-Baumwolle	2	0		Kleidung	Material	2
-Seide	8	0		Kleidung	Material	3
-Pelz	4.5	0		Kleidung	Material	4
-Mittelschicht	1	0	\N	Kleidung	Stand	1
-Volk	0.33333	0		Kleidung	Stand	2
-Adel	5	0		Kleidung	Stand	3
-Leinen	1	0		Kleidung	Material	1
-Lebensmittel	1	0	kg/l	Lebensmittel	?	1
-Getränke	5	0		Gasthaus	?	1
-Dauernahrung	2	0		Essen	?	1
+versilbert	10	15	GS	Waffen	Material	2
 \.

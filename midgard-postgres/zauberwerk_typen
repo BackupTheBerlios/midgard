@@ -17,121 +17,13 @@ CREATE TABLE "zauberwerk_typen" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 23238585) TABLE DATA zauberwerk_typen
+-- Data for TOC Entry ID 4 (OID 23238585)
+--
+-- Name: zauberwerk_typen Type: TABLE DATA Owner: thoma
 --
 
-COPY "zauberwerk_typen"  FROM stdin;
-Spiegelamulett verzaubern	2	wHx	A
-Spiegelamulett verzaubern	3	wHx	A
-Spiegelamulett verzaubern	4	wHx	A
-Spiegelamulett verzaubern	5	wHx	A
-Spiegelamulett verzaubern	6	wHx	A
-Talisman verzaubern	1	wHx	A
-Talisman verzaubern	2	wHx	A
-Talisman verzaubern	3	wHx	A
-Talisman verzaubern	4	wHx	A
-Trunk der Macht über Hunde aktivieren	2	wHx	S
-Trunk der Macht über Menschen aktivieren	4	wHx	S
-Trunk der Macht über Orks aktivieren	3	wHx	S
-Trunk des Riesenwuchses aktivieren	4	wHx	S
-Trunk des Schwerelosigkeit aktivieren	4	wHx	S
-Trunk des Unsichtbarkeit aktivieren	3	wHx	S
-Trunk des Verwandlung aktivieren	5	wHx	S
-Untotenamulett verzaubern	3	wHx	A
-Werwesenamulett verzaubern	3	wHx	A
-Spiegelamulett verzaubern	5	Th	G
-Spiegelamulett verzaubern	6	Th	G
-Srimarameisterschaft	3	Th	G
-Staubkämpfer	3	Th	G
-Stille	2	Th	G
-Talisman verzaubern	1	Th	G
-Talisman verzaubern	2	Th	G
-Talisman verzaubern	3	Th	G
-Talisman verzaubern	4	Th	G
-Tierisches Handeln	5	Th	G
-Todeshauch	3	Th	G
-Trunk der Macht über Hunde aktivieren	2	Th	G
-Trunk der Macht über Menschen aktivieren	4	Th	G
-Trunk der Macht über Orks aktivieren	3	Th	G
-Trunk des Riesenwuchses aktivieren	4	Th	G
-Trunk des Schwerelosigkeit aktivieren	4	Th	G
-Trunk des Unsichtbarkeit aktivieren	3	Th	G
-Trunk des Verwandlung aktivieren	5	Th	G
-Untotenamulett verzaubern	3	Th	G
-Verdorren	3	Th	G
-Vereisen	4	Th	G
-Verlangsamen	3	Th	G
-Versetzen	4	Th	G
-Versteinern	5	Th	G
-Verwandeln	6	Th	G
-Verwandlung	6	Th	G
-Waffen verzaubern (2)	2	Th	G
-Waffen verzaubern (4)	4	Th	G
-Waffen verzaubern (6)	6	Th	G
-Wahnsinn	6	Th	G
-Wahrsehen	5	Th	G
-Werwesenamulett verzaubern	3	Th	G
-Windstoß	1	Th	G
-Zahlenletter (1)	1	Th	G
-Zahlenletter (10)	1	Th	G
-Zahlenletter (11)	1	Th	G
-Zahlenletter (12)	1	Th	G
-Zahlenletter (13)	1	Th	G
-Zahlenletter (2)	1	Th	G
-Zahlenletter (3)	1	Th	G
-Zahlenletter (4)	1	Th	G
-Zahlenletter (5)	1	Th	G
-Zahlenletter (6)	1	Th	G
-Zahlenletter (7)	1	Th	G
-Zahlenletter (8)	1	Th	G
-Zahlenletter (9)	1	Th	G
-Zauberpergament beschriften	3	Th	G
-Zauberstimme	2	Th	G
-Zeitletter (Jahr)	2	Th	G
-Zeitletter (Mond)	2	Th	G
-Zeitletter (Stunde)	2	Th	G
-Zeitletter (Tag)	2	Th	G
-Zeitletter (Trideade)	2	Th	G
-Zündletter (Bereich)	3	Th	G
-Zündletter (Berührung)	3	Th	G
-Zündletter (Schlüsselwort)	3	Th	G
-Schamanentrommel herstellen	G	Tm	G
-Berserkerpilz aktivieren	2	wHx	S
-Binden	G	wHx	A
-Dämonenamulett verzaubern	3	wHx	A
-Elementaramulett verzaubern	3	wHx	A
-Flohpulver aktivieren	2	wHx	S
-Geisteramulett verzaubern	4	wHx	A
-Heiltrunk (1W6) aktivieren	2	wHx	S
-Krafttrunk (1W6) aktivieren	1	wHx	S
-Krafttrunk (2W6) aktivieren	2	wHx	S
-Kraut der konzentrierten Energie	4	wHx	S
-Liebestrank aktivieren	3	wHx	G
-Pulver der Panzerhaut aktivieren	3	wHx	S
-Rauchperle aktivieren	3	wHx	S
-Reckentrunk aktivieren	2	wHx	S
-Salbe der Eisenhaut aktivieren	4	wHx	S
-Salbe der Krakenhände aktivieren	2	wHx	S
-Schildamulett verzaubern	1	wHx	A
-Schildamulett verzaubern	2	wHx	A
-Schildamulett verzaubern	3	wHx	A
-Schildamulett verzaubern	4	wHx	A
-Schildamulett verzaubern	5	wHx	A
-Schildamulett verzaubern	6	wHx	A
-Schnellkraut aktivieren	3	wHx	S
-Schutzamulett verzaubern	1	wHx	A
-Schutzamulett verzaubern	2	wHx	A
-Schutzamulett verzaubern	3	wHx	A
-Schutzamulett verzaubern	4	wHx	A
-Schutzamulett verzaubern	5	wHx	A
-Schutzamulett verzaubern	6	wHx	A
-Spiegelamulett verzaubern	1	wHx	A
-Schildamulett verzaubern	6	tBe	S
-Trunk der Macht über Hunde aktivieren	2	tBe	S
-Trunk der Macht über Menschen aktivieren	4	tBe	S
-Trunk der Macht über Orks aktivieren	3	tBe	S
-Untotenamulett verzaubern	3	tBe	S
-Werwesenamulett verzaubern	3	tBe	S
+
+COPY "zauberwerk_typen" FROM stdin;
 Alarm	4	Th	G
 Angst	1	Th	G
 Anziehen	1	Th	G
@@ -139,10 +31,87 @@ Auslösen	1	Th	G
 Bannen von Dunkelheit	1	Th	G
 Bannen von Licht	1	Th	G
 Beeinflussen	3	Th	G
+Berserkerpilz aktivieren	2	Dr	S
+Berserkerpilz aktivieren	2	Hl	S
+Berserkerpilz aktivieren	2	Ma	S
+Berserkerpilz aktivieren	2	PC	S
+Berserkerpilz aktivieren	2	PF	S
+Berserkerpilz aktivieren	2	PHa	S
+Berserkerpilz aktivieren	2	PHe	S
+Berserkerpilz aktivieren	2	PK	G
+Berserkerpilz aktivieren	2	PM	S
+Berserkerpilz aktivieren	2	PT	S
+Berserkerpilz aktivieren	2	PW	S
+Berserkerpilz aktivieren	2	ScN	G
+Berserkerpilz aktivieren	2	ScS	G
+Berserkerpilz aktivieren	2	ScW	G
+Berserkerpilz aktivieren	2	gHx	S
+Berserkerpilz aktivieren	2	sHx	S
+Berserkerpilz aktivieren	2	wHx	S
+Binden	G	Dr	A
+Binden	G	Hl	A
+Binden	G	Ma	S
+Binden	G	PC	A
+Binden	G	PF	A
+Binden	G	PHa	A
+Binden	G	PHe	A
+Binden	G	PK	A
+Binden	G	PM	A
+Binden	G	PT	A
+Binden	G	PW	S
+Binden	G	ScN	A
+Binden	G	ScS	A
+Binden	G	ScW	A
 Binden	G	Th	G
+Binden	G	dBe	A
+Binden	G	eBe	A
+Binden	G	gHx	A
+Binden	G	sHx	A
+Binden	G	tBe	A
+Binden	G	wHx	A
+Dämonenamulett verzaubern	3	Dr	A
+Dämonenamulett verzaubern	3	Hl	A
+Dämonenamulett verzaubern	3	Ma	A
+Dämonenamulett verzaubern	3	PC	S
+Dämonenamulett verzaubern	3	PF	A
+Dämonenamulett verzaubern	3	PHa	A
+Dämonenamulett verzaubern	3	PHe	A
+Dämonenamulett verzaubern	3	PK	S
+Dämonenamulett verzaubern	3	PM	A
+Dämonenamulett verzaubern	3	PT	A
+Dämonenamulett verzaubern	3	PW	A
+Dämonenamulett verzaubern	3	ScN	S
+Dämonenamulett verzaubern	3	ScS	S
+Dämonenamulett verzaubern	3	ScW	S
 Dämonenamulett verzaubern	3	Th	G
+Dämonenamulett verzaubern	3	dBe	S
+Dämonenamulett verzaubern	3	eBe	S
+Dämonenamulett verzaubern	3	gHx	A
+Dämonenamulett verzaubern	3	sHx	A
+Dämonenamulett verzaubern	3	tBe	S
+Dämonenamulett verzaubern	3	wHx	A
 Eisiger Nebel	2	Th	G
+Elementaramulett verzaubern	3	Dr	A
+Elementaramulett verzaubern	3	Hl	A
+Elementaramulett verzaubern	3	Ma	A
+Elementaramulett verzaubern	3	PC	A
+Elementaramulett verzaubern	3	PF	A
+Elementaramulett verzaubern	3	PHa	A
+Elementaramulett verzaubern	3	PHe	A
+Elementaramulett verzaubern	3	PK	A
+Elementaramulett verzaubern	3	PM	A
+Elementaramulett verzaubern	3	PT	A
+Elementaramulett verzaubern	3	PW	A
+Elementaramulett verzaubern	3	ScN	S
+Elementaramulett verzaubern	3	ScS	S
+Elementaramulett verzaubern	3	ScW	S
 Elementaramulett verzaubern	3	Th	G
+Elementaramulett verzaubern	3	dBe	S
+Elementaramulett verzaubern	3	eBe	S
+Elementaramulett verzaubern	3	gHx	A
+Elementaramulett verzaubern	3	sHx	A
+Elementaramulett verzaubern	3	tBe	S
+Elementaramulett verzaubern	3	wHx	A
 Erkennen von Zauberei	2	Th	G
 Farbletter (Blau)	1	Th	G
 Farbletter (Gelb)	1	Th	G
@@ -154,19 +123,139 @@ Farbletter (Ultraviolett)	1	Th	G
 Farbletter (Violett)	1	Th	G
 Feuerkugel	2	Th	G
 Feuerring	4	Th	G
+Flohpulver aktivieren	2	Dr	S
+Flohpulver aktivieren	2	Hl	S
+Flohpulver aktivieren	2	PC	S
+Flohpulver aktivieren	2	PF	S
+Flohpulver aktivieren	2	PHa	S
+Flohpulver aktivieren	2	PHe	S
+Flohpulver aktivieren	2	PK	S
+Flohpulver aktivieren	2	PM	S
+Flohpulver aktivieren	2	PT	S
+Flohpulver aktivieren	2	PW	S
+Flohpulver aktivieren	2	ScN	S
+Flohpulver aktivieren	2	ScS	S
+Flohpulver aktivieren	2	ScW	S
 Flohpulver aktivieren	2	Th	G
+Flohpulver aktivieren	2	gHx	S
+Flohpulver aktivieren	2	sHx	S
+Flohpulver aktivieren	2	wHx	S
 Funkenregen	2	Th	G
+Geisteramulett verzaubern	4	Dr	A
+Geisteramulett verzaubern	4	Hl	A
+Geisteramulett verzaubern	4	Ma	A
+Geisteramulett verzaubern	4	PC	A
+Geisteramulett verzaubern	4	PF	A
+Geisteramulett verzaubern	4	PHa	A
+Geisteramulett verzaubern	4	PHe	A
+Geisteramulett verzaubern	4	PK	A
+Geisteramulett verzaubern	4	PM	A
+Geisteramulett verzaubern	4	PT	S
+Geisteramulett verzaubern	4	PW	A
+Geisteramulett verzaubern	4	ScN	S
+Geisteramulett verzaubern	4	ScS	S
+Geisteramulett verzaubern	4	ScW	S
 Geisteramulett verzaubern	4	Th	G
+Geisteramulett verzaubern	4	dBe	S
+Geisteramulett verzaubern	4	eBe	S
+Geisteramulett verzaubern	4	gHx	A
+Geisteramulett verzaubern	4	sHx	A
+Geisteramulett verzaubern	4	tBe	S
+Geisteramulett verzaubern	4	wHx	A
 Geräuschletter (Donnern)	1	Th	G
 Geräuschletter (Knarren)	1	Th	G
 Geräuschletter (Knistern)	1	Th	G
 Geräuschletter (Pfeifen)	1	Th	G
 Graue Hand	6	Th	G
 Hauch des Winters	1	Th	G
+Heiltrunk (1W6) aktivieren	2	Dr	S
+Heiltrunk (1W6) aktivieren	2	Hl	G
+Heiltrunk (1W6) aktivieren	2	PC	S
+Heiltrunk (1W6) aktivieren	2	PF	S
+Heiltrunk (1W6) aktivieren	2	PHa	S
+Heiltrunk (1W6) aktivieren	2	PHe	S
+Heiltrunk (1W6) aktivieren	2	PK	S
+Heiltrunk (1W6) aktivieren	2	PM	S
+Heiltrunk (1W6) aktivieren	2	PT	S
+Heiltrunk (1W6) aktivieren	2	PW	S
+Heiltrunk (1W6) aktivieren	2	ScN	S
+Heiltrunk (1W6) aktivieren	2	ScS	S
+Heiltrunk (1W6) aktivieren	2	ScW	S
+Heiltrunk (1W6) aktivieren	2	gHx	S
+Heiltrunk (1W6) aktivieren	2	sHx	S
+Heiltrunk (1W6) aktivieren	2	wHx	S
+Krafttrunk (1W6) aktivieren	1	Dr	S
+Krafttrunk (1W6) aktivieren	1	Hl	G
+Krafttrunk (1W6) aktivieren	1	PC	S
+Krafttrunk (1W6) aktivieren	1	PF	S
+Krafttrunk (1W6) aktivieren	1	PHa	S
+Krafttrunk (1W6) aktivieren	1	PHe	S
+Krafttrunk (1W6) aktivieren	1	PK	S
+Krafttrunk (1W6) aktivieren	1	PM	S
+Krafttrunk (1W6) aktivieren	1	PT	S
+Krafttrunk (1W6) aktivieren	1	PW	S
+Krafttrunk (1W6) aktivieren	1	ScN	S
+Krafttrunk (1W6) aktivieren	1	ScS	S
+Krafttrunk (1W6) aktivieren	1	ScW	S
 Krafttrunk (1W6) aktivieren	1	Th	G
+Krafttrunk (1W6) aktivieren	1	gHx	S
+Krafttrunk (1W6) aktivieren	1	sHx	S
+Krafttrunk (1W6) aktivieren	1	wHx	S
+Krafttrunk (2W6) aktivieren	2	Dr	S
+Krafttrunk (2W6) aktivieren	2	Hl	G
+Krafttrunk (2W6) aktivieren	2	PC	S
+Krafttrunk (2W6) aktivieren	2	PF	S
+Krafttrunk (2W6) aktivieren	2	PHa	S
+Krafttrunk (2W6) aktivieren	2	PHe	S
+Krafttrunk (2W6) aktivieren	2	PK	S
+Krafttrunk (2W6) aktivieren	2	PM	S
+Krafttrunk (2W6) aktivieren	2	PT	S
+Krafttrunk (2W6) aktivieren	2	PW	S
+Krafttrunk (2W6) aktivieren	2	ScN	S
+Krafttrunk (2W6) aktivieren	2	ScS	S
+Krafttrunk (2W6) aktivieren	2	ScW	S
 Krafttrunk (2W6) aktivieren	2	Th	G
+Krafttrunk (2W6) aktivieren	2	gHx	S
+Krafttrunk (2W6) aktivieren	2	sHx	S
+Krafttrunk (2W6) aktivieren	2	wHx	S
+Kraut der konzentrierten Energie	4	Dr	S
+Kraut der konzentrierten Energie	4	Hl	G
+Kraut der konzentrierten Energie	4	Ma	S
+Kraut der konzentrierten Energie	4	PC	S
+Kraut der konzentrierten Energie	4	PF	S
+Kraut der konzentrierten Energie	4	PHa	S
+Kraut der konzentrierten Energie	4	PHe	S
+Kraut der konzentrierten Energie	4	PK	S
+Kraut der konzentrierten Energie	4	PM	S
+Kraut der konzentrierten Energie	4	PT	S
+Kraut der konzentrierten Energie	4	PW	S
 Kraut der konzentrierten Energie	4	Th	G
+Kraut der konzentrierten Energie	4	dBe	S
+Kraut der konzentrierten Energie	4	eBe	S
+Kraut der konzentrierten Energie	4	gHx	S
+Kraut der konzentrierten Energie	4	sHx	S
+Kraut der konzentrierten Energie	4	tBe	S
+Kraut der konzentrierten Energie	4	wHx	S
+Liebestrank aktivieren	3	Dr	S
+Liebestrank aktivieren	3	Hl	S
+Liebestrank aktivieren	3	Ma	S
+Liebestrank aktivieren	3	PC	S
+Liebestrank aktivieren	3	PF	S
+Liebestrank aktivieren	3	PHa	S
+Liebestrank aktivieren	3	PHe	S
+Liebestrank aktivieren	3	PK	S
+Liebestrank aktivieren	3	PM	S
+Liebestrank aktivieren	3	PW	S
+Liebestrank aktivieren	3	ScN	S
+Liebestrank aktivieren	3	ScS	S
+Liebestrank aktivieren	3	ScW	S
 Liebestrank aktivieren	3	Th	G
+Liebestrank aktivieren	3	dBe	S
+Liebestrank aktivieren	3	eBe	S
+Liebestrank aktivieren	3	gHx	G
+Liebestrank aktivieren	3	sHx	G
+Liebestrank aktivieren	3	tBe	S
+Liebestrank aktivieren	3	wHx	G
 Liebeszauber	4	Th	G
 Lähmung	5	Th	G
 Macht über Menschen	3	Th	G
@@ -186,838 +275,752 @@ Opferletter (Tiere)	4	Th	G
 Opferletter (Tiermenschen)	4	Th	G
 Opferletter (Untote)	4	Th	G
 Opferletter (Zwerge)	4	Th	G
+Pulver der Panzerhaut aktivieren	3	Dr	S
+Pulver der Panzerhaut aktivieren	3	Hl	S
+Pulver der Panzerhaut aktivieren	3	Ma	S
+Pulver der Panzerhaut aktivieren	3	PC	S
+Pulver der Panzerhaut aktivieren	3	PF	S
+Pulver der Panzerhaut aktivieren	3	PHa	S
+Pulver der Panzerhaut aktivieren	3	PHe	S
+Pulver der Panzerhaut aktivieren	3	PK	S
+Pulver der Panzerhaut aktivieren	3	PM	S
+Pulver der Panzerhaut aktivieren	3	PT	S
+Pulver der Panzerhaut aktivieren	3	PW	S
+Pulver der Panzerhaut aktivieren	3	ScN	S
+Pulver der Panzerhaut aktivieren	3	ScS	S
+Pulver der Panzerhaut aktivieren	3	ScW	S
 Pulver der Panzerhaut aktivieren	3	Th	G
+Pulver der Panzerhaut aktivieren	3	gHx	S
+Pulver der Panzerhaut aktivieren	3	sHx	S
+Pulver der Panzerhaut aktivieren	3	wHx	S
+Rauchperle aktivieren	3	Dr	S
+Rauchperle aktivieren	3	Hl	S
+Rauchperle aktivieren	3	Ma	S
+Rauchperle aktivieren	3	PC	S
+Rauchperle aktivieren	3	PF	S
+Rauchperle aktivieren	3	PHa	S
+Rauchperle aktivieren	3	PHe	S
+Rauchperle aktivieren	3	PK	S
+Rauchperle aktivieren	3	PM	S
+Rauchperle aktivieren	3	PT	S
+Rauchperle aktivieren	3	PW	S
+Rauchperle aktivieren	3	ScN	S
+Rauchperle aktivieren	3	ScS	S
+Rauchperle aktivieren	3	ScW	S
 Rauchperle aktivieren	3	Th	G
+Rauchperle aktivieren	3	gHx	S
+Rauchperle aktivieren	3	sHx	S
+Rauchperle aktivieren	3	wHx	S
+Reckentrunk aktivieren	2	Dr	S
+Reckentrunk aktivieren	2	Hl	S
+Reckentrunk aktivieren	2	Ma	S
+Reckentrunk aktivieren	2	PC	S
+Reckentrunk aktivieren	2	PF	S
+Reckentrunk aktivieren	2	PHa	S
+Reckentrunk aktivieren	2	PHe	S
+Reckentrunk aktivieren	2	PK	S
+Reckentrunk aktivieren	2	PM	S
+Reckentrunk aktivieren	2	PT	S
+Reckentrunk aktivieren	2	PW	S
+Reckentrunk aktivieren	2	ScN	S
+Reckentrunk aktivieren	2	ScS	S
+Reckentrunk aktivieren	2	ScW	S
 Reckentrunk aktivieren	2	Th	G
+Reckentrunk aktivieren	2	gHx	S
+Reckentrunk aktivieren	2	sHx	S
+Reckentrunk aktivieren	2	wHx	S
+Salbe der Eisenhaut aktivieren	4	Hl	S
+Salbe der Eisenhaut aktivieren	4	Ma	S
+Salbe der Eisenhaut aktivieren	4	PC	S
+Salbe der Eisenhaut aktivieren	4	PF	S
+Salbe der Eisenhaut aktivieren	4	PHa	S
+Salbe der Eisenhaut aktivieren	4	PHe	S
+Salbe der Eisenhaut aktivieren	4	PK	S
+Salbe der Eisenhaut aktivieren	4	PM	S
+Salbe der Eisenhaut aktivieren	4	PT	S
+Salbe der Eisenhaut aktivieren	4	PW	S
+Salbe der Eisenhaut aktivieren	4	ScN	S
+Salbe der Eisenhaut aktivieren	4	ScS	S
+Salbe der Eisenhaut aktivieren	4	ScW	S
 Salbe der Eisenhaut aktivieren	4	Th	G
+Salbe der Eisenhaut aktivieren	4	gHx	S
+Salbe der Eisenhaut aktivieren	4	sHx	S
+Salbe der Eisenhaut aktivieren	4	wHx	S
+Salbe der Krakenhände aktivieren	2	Ma	S
 Salbe der Krakenhände aktivieren	2	Th	G
+Salbe der Krakenhände aktivieren	2	gHx	S
+Salbe der Krakenhände aktivieren	2	sHx	S
+Salbe der Krakenhände aktivieren	2	wHx	S
+Schamanentrommel herstellen	G	ScN	G
+Schamanentrommel herstellen	G	ScS	G
+Schamanentrommel herstellen	G	ScW	G
+Schamanentrommel herstellen	G	Tm	G
+Schildamulett verzaubern	1	Dr	A
+Schildamulett verzaubern	1	Hl	A
+Schildamulett verzaubern	1	Ma	A
+Schildamulett verzaubern	1	PC	S
+Schildamulett verzaubern	1	PF	S
+Schildamulett verzaubern	1	PHa	S
+Schildamulett verzaubern	1	PHe	S
+Schildamulett verzaubern	1	PK	S
+Schildamulett verzaubern	1	PM	S
+Schildamulett verzaubern	1	PT	S
+Schildamulett verzaubern	1	PW	S
+Schildamulett verzaubern	1	ScN	S
+Schildamulett verzaubern	1	ScS	S
+Schildamulett verzaubern	1	ScW	S
 Schildamulett verzaubern	1	Th	G
+Schildamulett verzaubern	1	dBe	S
+Schildamulett verzaubern	1	eBe	S
+Schildamulett verzaubern	1	gHx	A
+Schildamulett verzaubern	1	sHx	A
+Schildamulett verzaubern	1	tBe	S
+Schildamulett verzaubern	1	wHx	A
+Schildamulett verzaubern	2	Dr	A
+Schildamulett verzaubern	2	Hl	A
+Schildamulett verzaubern	2	Ma	A
+Schildamulett verzaubern	2	PC	S
+Schildamulett verzaubern	2	PF	S
+Schildamulett verzaubern	2	PHa	S
+Schildamulett verzaubern	2	PHe	S
+Schildamulett verzaubern	2	PK	S
+Schildamulett verzaubern	2	PM	S
+Schildamulett verzaubern	2	PT	S
+Schildamulett verzaubern	2	PW	S
+Schildamulett verzaubern	2	ScN	S
+Schildamulett verzaubern	2	ScS	S
+Schildamulett verzaubern	2	ScW	S
 Schildamulett verzaubern	2	Th	G
+Schildamulett verzaubern	2	dBe	S
+Schildamulett verzaubern	2	eBe	S
+Schildamulett verzaubern	2	gHx	A
+Schildamulett verzaubern	2	sHx	A
+Schildamulett verzaubern	2	tBe	S
+Schildamulett verzaubern	2	wHx	A
+Schildamulett verzaubern	3	Dr	A
+Schildamulett verzaubern	3	Hl	A
+Schildamulett verzaubern	3	Ma	A
+Schildamulett verzaubern	3	PC	S
+Schildamulett verzaubern	3	PF	S
+Schildamulett verzaubern	3	PHa	S
+Schildamulett verzaubern	3	PHe	S
+Schildamulett verzaubern	3	PK	S
+Schildamulett verzaubern	3	PM	S
+Schildamulett verzaubern	3	PT	S
+Schildamulett verzaubern	3	PW	S
+Schildamulett verzaubern	3	ScN	S
+Schildamulett verzaubern	3	ScS	S
+Schildamulett verzaubern	3	ScW	S
 Schildamulett verzaubern	3	Th	G
+Schildamulett verzaubern	3	dBe	S
+Schildamulett verzaubern	3	eBe	S
+Schildamulett verzaubern	3	gHx	A
+Schildamulett verzaubern	3	sHx	A
+Schildamulett verzaubern	3	tBe	S
+Schildamulett verzaubern	3	wHx	A
+Schildamulett verzaubern	4	Dr	A
+Schildamulett verzaubern	4	Hl	A
+Schildamulett verzaubern	4	Ma	A
+Schildamulett verzaubern	4	PC	S
+Schildamulett verzaubern	4	PF	S
+Schildamulett verzaubern	4	PHa	S
+Schildamulett verzaubern	4	PHe	S
+Schildamulett verzaubern	4	PK	S
+Schildamulett verzaubern	4	PM	S
+Schildamulett verzaubern	4	PT	S
+Schildamulett verzaubern	4	PW	S
+Schildamulett verzaubern	4	ScN	S
+Schildamulett verzaubern	4	ScS	S
+Schildamulett verzaubern	4	ScW	S
 Schildamulett verzaubern	4	Th	G
+Schildamulett verzaubern	4	dBe	S
+Schildamulett verzaubern	4	eBe	S
+Schildamulett verzaubern	4	gHx	A
+Schildamulett verzaubern	4	sHx	A
+Schildamulett verzaubern	4	tBe	S
+Schildamulett verzaubern	4	wHx	A
+Schildamulett verzaubern	5	Dr	A
+Schildamulett verzaubern	5	Hl	A
+Schildamulett verzaubern	5	Ma	A
+Schildamulett verzaubern	5	PC	S
+Schildamulett verzaubern	5	PF	S
+Schildamulett verzaubern	5	PHa	S
+Schildamulett verzaubern	5	PHe	S
+Schildamulett verzaubern	5	PK	S
+Schildamulett verzaubern	5	PM	S
+Schildamulett verzaubern	5	PT	S
+Schildamulett verzaubern	5	PW	S
+Schildamulett verzaubern	5	ScN	S
+Schildamulett verzaubern	5	ScS	S
+Schildamulett verzaubern	5	ScW	S
 Schildamulett verzaubern	5	Th	G
+Schildamulett verzaubern	5	dBe	S
+Schildamulett verzaubern	5	eBe	S
+Schildamulett verzaubern	5	gHx	A
+Schildamulett verzaubern	5	sHx	A
+Schildamulett verzaubern	5	tBe	S
+Schildamulett verzaubern	5	wHx	A
+Schildamulett verzaubern	6	Dr	A
+Schildamulett verzaubern	6	Hl	A
+Schildamulett verzaubern	6	Ma	A
+Schildamulett verzaubern	6	PC	S
+Schildamulett verzaubern	6	PF	S
+Schildamulett verzaubern	6	PHa	S
+Schildamulett verzaubern	6	PHe	S
+Schildamulett verzaubern	6	PK	S
+Schildamulett verzaubern	6	PM	S
+Schildamulett verzaubern	6	PT	S
+Schildamulett verzaubern	6	PW	S
+Schildamulett verzaubern	6	ScN	S
+Schildamulett verzaubern	6	ScS	S
+Schildamulett verzaubern	6	ScW	S
 Schildamulett verzaubern	6	Th	G
+Schildamulett verzaubern	6	dBe	S
+Schildamulett verzaubern	6	eBe	S
+Schildamulett verzaubern	6	gHx	A
+Schildamulett verzaubern	6	sHx	A
+Schildamulett verzaubern	6	tBe	S
+Schildamulett verzaubern	6	wHx	A
 Schlaf	1	Th	G
 Schmerzen	2	Th	G
-Schnellkraut aktivieren	3	Th	G
-Schutzamulett verzaubern	1	Th	G
-Schutzamulett verzaubern	2	Th	G
-Binden	G	dBe	A
-Dämonenamulett verzaubern	3	dBe	S
-Elementaramulett verzaubern	3	dBe	S
-Geisteramulett verzaubern	4	dBe	S
-Kraut der konzentrierten Energie	4	dBe	S
-Liebestrank aktivieren	3	dBe	S
-Schildamulett verzaubern	1	dBe	S
-Schildamulett verzaubern	2	dBe	S
-Schildamulett verzaubern	3	dBe	S
-Schildamulett verzaubern	4	dBe	S
-Schildamulett verzaubern	5	dBe	S
-Schildamulett verzaubern	6	dBe	S
-Trunk der Macht über Hunde aktivieren	2	dBe	S
-Trunk der Macht über Menschen aktivieren	4	dBe	S
-Trunk der Macht über Orks aktivieren	3	dBe	S
-Untotenamulett verzaubern	3	dBe	S
-Werwesenamulett verzaubern	3	dBe	S
-Berserkerpilz aktivieren	2	Dr	S
-Binden	G	Dr	A
-Dämonenamulett verzaubern	3	Dr	A
-Elementaramulett verzaubern	3	Dr	A
-Flohpulver aktivieren	2	Dr	S
-Geisteramulett verzaubern	4	Dr	A
-Heiltrunk (1W6) aktivieren	2	Dr	S
-Krafttrunk (1W6) aktivieren	1	Dr	S
-Krafttrunk (2W6) aktivieren	2	Dr	S
-Kraut der konzentrierten Energie	4	Dr	S
-Liebestrank aktivieren	3	Dr	S
-Pulver der Panzerhaut aktivieren	3	Dr	S
-Rauchperle aktivieren	3	Dr	S
-Reckentrunk aktivieren	2	Dr	S
-Schildamulett verzaubern	1	Dr	A
-Schildamulett verzaubern	2	Dr	A
-Schildamulett verzaubern	3	Dr	A
-Schildamulett verzaubern	4	Dr	A
-Schildamulett verzaubern	5	Dr	A
-Schildamulett verzaubern	6	Dr	A
 Schnellkraut aktivieren	3	Dr	S
-Schutzamulett verzaubern	1	Dr	A
-Schutzamulett verzaubern	2	Dr	A
-Schutzamulett verzaubern	3	Dr	A
-Schutzamulett verzaubern	4	Dr	A
-Schutzamulett verzaubern	5	Dr	A
-Schutzamulett verzaubern	6	Dr	A
-Spiegelamulett verzaubern	1	Dr	A
-Spiegelamulett verzaubern	2	Dr	A
-Spiegelamulett verzaubern	3	Dr	A
-Spiegelamulett verzaubern	4	Dr	A
-Spiegelamulett verzaubern	5	Dr	A
-Spiegelamulett verzaubern	6	Dr	A
-Talisman verzaubern	1	Dr	A
-Talisman verzaubern	2	Dr	A
-Talisman verzaubern	3	Dr	A
-Talisman verzaubern	4	Dr	A
-Trunk der Macht über Hunde aktivieren	2	Dr	S
-Trunk der Macht über Menschen aktivieren	4	Dr	S
-Trunk des Riesenwuchses aktivieren	4	Dr	S
-Trunk des Schwerelosigkeit aktivieren	4	Dr	S
-Trunk des Unsichtbarkeit aktivieren	3	Dr	S
-Trunk des Verwandlung aktivieren	5	Dr	S
-Untotenamulett verzaubern	3	Dr	S
-Werwesenamulett verzaubern	3	Dr	S
-Binden	G	eBe	A
-Dämonenamulett verzaubern	3	eBe	S
-Elementaramulett verzaubern	3	eBe	S
-Geisteramulett verzaubern	4	eBe	S
-Kraut der konzentrierten Energie	4	eBe	S
-Liebestrank aktivieren	3	eBe	S
-Schildamulett verzaubern	1	eBe	S
-Schildamulett verzaubern	2	eBe	S
-Schildamulett verzaubern	3	eBe	S
-Schildamulett verzaubern	4	eBe	S
-Schildamulett verzaubern	5	eBe	S
-Schildamulett verzaubern	6	eBe	S
-Trunk der Macht über Hunde aktivieren	2	eBe	S
-Trunk der Macht über Menschen aktivieren	4	eBe	S
-Trunk der Macht über Orks aktivieren	3	eBe	S
-Untotenamulett verzaubern	3	eBe	S
-Werwesenamulett verzaubern	3	eBe	S
-Berserkerpilz aktivieren	2	gHx	S
-Binden	G	gHx	A
-Dämonenamulett verzaubern	3	gHx	A
-Elementaramulett verzaubern	3	gHx	A
-Flohpulver aktivieren	2	gHx	S
-Geisteramulett verzaubern	4	gHx	A
-Heiltrunk (1W6) aktivieren	2	gHx	S
-Krafttrunk (1W6) aktivieren	1	gHx	S
-Krafttrunk (2W6) aktivieren	2	gHx	S
-Kraut der konzentrierten Energie	4	gHx	S
-Liebestrank aktivieren	3	gHx	G
-Pulver der Panzerhaut aktivieren	3	gHx	S
-Rauchperle aktivieren	3	gHx	S
-Reckentrunk aktivieren	2	gHx	S
-Salbe der Eisenhaut aktivieren	4	gHx	S
-Salbe der Krakenhände aktivieren	2	gHx	S
-Schildamulett verzaubern	1	gHx	A
-Schildamulett verzaubern	2	gHx	A
-Schildamulett verzaubern	3	gHx	A
-Schildamulett verzaubern	4	gHx	A
-Schildamulett verzaubern	5	gHx	A
-Schildamulett verzaubern	6	gHx	A
-Schnellkraut aktivieren	3	gHx	S
-Schutzamulett verzaubern	1	gHx	A
-Schutzamulett verzaubern	2	gHx	A
-Schutzamulett verzaubern	3	gHx	A
-Schutzamulett verzaubern	4	gHx	A
-Schutzamulett verzaubern	5	gHx	A
-Schutzamulett verzaubern	6	gHx	A
-Spiegelamulett verzaubern	1	gHx	A
-Spiegelamulett verzaubern	2	gHx	A
-Spiegelamulett verzaubern	3	gHx	A
-Spiegelamulett verzaubern	4	gHx	A
-Spiegelamulett verzaubern	5	gHx	A
-Spiegelamulett verzaubern	6	gHx	A
-Talisman verzaubern	1	gHx	A
-Talisman verzaubern	2	gHx	A
-Talisman verzaubern	3	gHx	A
-Talisman verzaubern	4	gHx	A
-Trunk der Macht über Hunde aktivieren	2	gHx	S
-Trunk der Macht über Menschen aktivieren	4	gHx	S
-Trunk der Macht über Orks aktivieren	3	gHx	S
-Trunk des Riesenwuchses aktivieren	4	gHx	S
-Trunk des Schwerelosigkeit aktivieren	4	gHx	S
-Trunk des Unsichtbarkeit aktivieren	3	gHx	S
-Trunk des Verwandlung aktivieren	5	gHx	S
-Untotenamulett verzaubern	3	gHx	A
-Werwesenamulett verzaubern	3	gHx	A
-Berserkerpilz aktivieren	2	Hl	S
-Binden	G	Hl	A
-Dämonenamulett verzaubern	3	Hl	A
-Elementaramulett verzaubern	3	Hl	A
-Flohpulver aktivieren	2	Hl	S
-Geisteramulett verzaubern	4	Hl	A
-Heiltrunk (1W6) aktivieren	2	Hl	G
-Krafttrunk (1W6) aktivieren	1	Hl	G
-Krafttrunk (2W6) aktivieren	2	Hl	G
-Kraut der konzentrierten Energie	4	Hl	G
-Liebestrank aktivieren	3	Hl	S
-Pulver der Panzerhaut aktivieren	3	Hl	S
-Rauchperle aktivieren	3	Hl	S
-Reckentrunk aktivieren	2	Hl	S
-Salbe der Eisenhaut aktivieren	4	Hl	S
-Schildamulett verzaubern	1	Hl	A
-Schildamulett verzaubern	2	Hl	A
-Schildamulett verzaubern	3	Hl	A
-Schildamulett verzaubern	4	Hl	A
-Schildamulett verzaubern	5	Hl	A
-Schildamulett verzaubern	6	Hl	A
 Schnellkraut aktivieren	3	Hl	S
-Schutzamulett verzaubern	1	Hl	A
-Schutzamulett verzaubern	2	Hl	A
-Schutzamulett verzaubern	3	Hl	A
-Schutzamulett verzaubern	4	Hl	A
-Schutzamulett verzaubern	5	Hl	A
-Schutzamulett verzaubern	6	Hl	A
-Spiegelamulett verzaubern	1	Hl	A
-Spiegelamulett verzaubern	2	Hl	A
-Spiegelamulett verzaubern	3	Hl	A
-Spiegelamulett verzaubern	4	Hl	A
-Spiegelamulett verzaubern	5	Hl	A
-Spiegelamulett verzaubern	6	Hl	A
-Talisman verzaubern	1	Hl	A
-Talisman verzaubern	2	Hl	A
-Talisman verzaubern	3	Hl	A
-Talisman verzaubern	4	Hl	A
-Trunk der Macht über Hunde aktivieren	2	Hl	S
-Trunk der Macht über Menschen aktivieren	4	Hl	S
-Trunk des Riesenwuchses aktivieren	4	Hl	S
-Trunk des Schwerelosigkeit aktivieren	4	Hl	S
-Trunk des Unsichtbarkeit aktivieren	3	Hl	S
-Trunk des Verwandlung aktivieren	5	Hl	S
-Untotenamulett verzaubern	3	Hl	S
-Werwesenamulett verzaubern	3	Hl	S
-Berserkerpilz aktivieren	2	Ma	S
-Binden	G	Ma	S
-Dämonenamulett verzaubern	3	Ma	A
-Elementaramulett verzaubern	3	Ma	A
-Geisteramulett verzaubern	4	Ma	A
-Kraut der konzentrierten Energie	4	Ma	S
-Liebestrank aktivieren	3	Ma	S
-Pulver der Panzerhaut aktivieren	3	Ma	S
-Rauchperle aktivieren	3	Ma	S
-Reckentrunk aktivieren	2	Ma	S
-Salbe der Eisenhaut aktivieren	4	Ma	S
-Salbe der Krakenhände aktivieren	2	Ma	S
-Schildamulett verzaubern	1	Ma	A
-Schildamulett verzaubern	2	Ma	A
-Schildamulett verzaubern	3	Ma	A
-Schildamulett verzaubern	4	Ma	A
-Schildamulett verzaubern	5	Ma	A
-Schildamulett verzaubern	6	Ma	A
 Schnellkraut aktivieren	3	Ma	S
-Schutzamulett verzaubern	1	Ma	S
-Schutzamulett verzaubern	2	Ma	S
-Schutzamulett verzaubern	3	Ma	S
-Schutzamulett verzaubern	4	Ma	S
-Schutzamulett verzaubern	5	Ma	S
-Schutzamulett verzaubern	6	Ma	S
-Spiegelamulett verzaubern	1	Ma	S
-Spiegelamulett verzaubern	2	Ma	S
-Spiegelamulett verzaubern	3	Ma	S
-Spiegelamulett verzaubern	4	Ma	S
-Spiegelamulett verzaubern	5	Ma	S
-Spiegelamulett verzaubern	6	Ma	S
-Talisman verzaubern	1	Ma	A
-Talisman verzaubern	2	Ma	A
-Talisman verzaubern	3	Ma	A
-Talisman verzaubern	4	Ma	A
-Trunk der Macht über Hunde aktivieren	2	Ma	S
-Trunk der Macht über Menschen aktivieren	4	Ma	S
-Trunk der Macht über Orks aktivieren	3	Ma	S
-Trunk des Riesenwuchses aktivieren	4	Ma	S
-Trunk des Schwerelosigkeit aktivieren	4	Ma	S
-Trunk des Unsichtbarkeit aktivieren	3	Ma	S
-Trunk des Verwandlung aktivieren	5	Ma	S
-Untotenamulett verzaubern	3	Ma	S
-Werwesenamulett verzaubern	3	Ma	S
-Zauberpergament beschriften	3	Ma	G
-Berserkerpilz aktivieren	2	PC	S
-Binden	G	PC	A
-Dämonenamulett verzaubern	3	PC	S
-Elementaramulett verzaubern	3	PC	A
-Flohpulver aktivieren	2	PC	S
-Geisteramulett verzaubern	4	PC	A
-Heiltrunk (1W6) aktivieren	2	PC	S
-Krafttrunk (1W6) aktivieren	1	PC	S
-Krafttrunk (2W6) aktivieren	2	PC	S
-Kraut der konzentrierten Energie	4	PC	S
-Liebestrank aktivieren	3	PC	S
-Pulver der Panzerhaut aktivieren	3	PC	S
-Rauchperle aktivieren	3	PC	S
-Reckentrunk aktivieren	2	PC	S
-Salbe der Eisenhaut aktivieren	4	PC	S
-Schildamulett verzaubern	1	PC	S
-Schildamulett verzaubern	2	PC	S
-Schildamulett verzaubern	3	PC	S
-Schildamulett verzaubern	4	PC	S
-Schildamulett verzaubern	5	PC	S
-Schildamulett verzaubern	6	PC	S
 Schnellkraut aktivieren	3	PC	S
-Schutzamulett verzaubern	1	PC	A
-Schutzamulett verzaubern	2	PC	A
-Schutzamulett verzaubern	3	PC	A
-Schutzamulett verzaubern	4	PC	A
-Schutzamulett verzaubern	5	PC	A
-Schutzamulett verzaubern	6	PC	A
-Spiegelamulett verzaubern	1	PC	A
-Spiegelamulett verzaubern	2	PC	A
-Spiegelamulett verzaubern	3	PC	A
-Spiegelamulett verzaubern	4	PC	A
-Spiegelamulett verzaubern	5	PC	A
-Spiegelamulett verzaubern	6	PC	A
-Talisman verzaubern	1	PC	S
-Talisman verzaubern	2	PC	S
-Talisman verzaubern	3	PC	S
-Talisman verzaubern	4	PC	S
-Trunk der Macht über Orks aktivieren	3	PC	S
-Trunk des Riesenwuchses aktivieren	4	PC	S
-Trunk des Schwerelosigkeit aktivieren	4	PC	S
-Trunk des Unsichtbarkeit aktivieren	3	PC	S
-Trunk des Verwandlung aktivieren	5	PC	S
-Untotenamulett verzaubern	3	PC	A
-Weihen	G	PC	S
-Werwesenamulett verzaubern	3	PC	A
-Zauberpergament beschriften	3	PC	S
-Berserkerpilz aktivieren	2	PF	S
-Binden	G	PF	A
-Dämonenamulett verzaubern	3	PF	A
-Elementaramulett verzaubern	3	PF	A
-Flohpulver aktivieren	2	PF	S
-Geisteramulett verzaubern	4	PF	A
-Heiltrunk (1W6) aktivieren	2	PF	S
-Krafttrunk (1W6) aktivieren	1	PF	S
-Krafttrunk (2W6) aktivieren	2	PF	S
-Kraut der konzentrierten Energie	4	PF	S
-Liebestrank aktivieren	3	PF	S
-Pulver der Panzerhaut aktivieren	3	PF	S
-Rauchperle aktivieren	3	PF	S
-Reckentrunk aktivieren	2	PF	S
-Salbe der Eisenhaut aktivieren	4	PF	S
-Schildamulett verzaubern	1	PF	S
-Schildamulett verzaubern	2	PF	S
-Schildamulett verzaubern	3	PF	S
-Schildamulett verzaubern	4	PF	S
-Schildamulett verzaubern	5	PF	S
-Schildamulett verzaubern	6	PF	S
 Schnellkraut aktivieren	3	PF	S
-Schutzamulett verzaubern	1	PF	A
-Schutzamulett verzaubern	2	PF	A
-Schutzamulett verzaubern	3	PF	A
-Schutzamulett verzaubern	4	PF	A
-Schutzamulett verzaubern	5	PF	A
-Schutzamulett verzaubern	6	PF	A
-Spiegelamulett verzaubern	1	PF	A
-Spiegelamulett verzaubern	2	PF	A
-Spiegelamulett verzaubern	3	PF	A
-Spiegelamulett verzaubern	4	PF	A
-Spiegelamulett verzaubern	5	PF	A
-Spiegelamulett verzaubern	6	PF	A
-Talisman verzaubern	1	PF	S
-Talisman verzaubern	2	PF	S
-Talisman verzaubern	3	PF	S
-Talisman verzaubern	4	PF	S
-Trunk der Macht über Hunde aktivieren	2	PF	S
-Trunk der Macht über Menschen aktivieren	4	PF	S
-Trunk des Riesenwuchses aktivieren	4	PF	S
-Trunk des Schwerelosigkeit aktivieren	4	PF	S
-Trunk des Unsichtbarkeit aktivieren	3	PF	S
-Trunk des Verwandlung aktivieren	5	PF	S
-Untotenamulett verzaubern	3	PF	S
-Wasser weihen	1	PF	G
-Weihen	G	PF	S
-Werwesenamulett verzaubern	3	PF	S
-Zauberpergament beschriften	3	PF	S
-Berserkerpilz aktivieren	2	PHa	S
-Binden	G	PHa	A
-Dämonenamulett verzaubern	3	PHa	A
-Elementaramulett verzaubern	3	PHa	A
-Flohpulver aktivieren	2	PHa	S
-Geisteramulett verzaubern	4	PHa	A
-Heiltrunk (1W6) aktivieren	2	PHa	S
-Krafttrunk (1W6) aktivieren	1	PHa	S
-Krafttrunk (2W6) aktivieren	2	PHa	S
-Kraut der konzentrierten Energie	4	PHa	S
-Liebestrank aktivieren	3	PHa	S
-Pulver der Panzerhaut aktivieren	3	PHa	S
-Rauchperle aktivieren	3	PHa	S
-Reckentrunk aktivieren	2	PHa	S
-Salbe der Eisenhaut aktivieren	4	PHa	S
-Schildamulett verzaubern	1	PHa	S
-Schildamulett verzaubern	2	PHa	S
-Schildamulett verzaubern	3	PHa	S
-Schildamulett verzaubern	4	PHa	S
-Schildamulett verzaubern	5	PHa	S
-Schildamulett verzaubern	6	PHa	S
 Schnellkraut aktivieren	3	PHa	S
-Schutzamulett verzaubern	1	PHa	A
-Schutzamulett verzaubern	2	PHa	A
-Schutzamulett verzaubern	3	PHa	A
-Schutzamulett verzaubern	4	PHa	A
-Schutzamulett verzaubern	5	PHa	A
-Schutzamulett verzaubern	6	PHa	A
-Spiegelamulett verzaubern	1	PHa	A
-Spiegelamulett verzaubern	2	PHa	A
-Spiegelamulett verzaubern	3	PHa	A
-Spiegelamulett verzaubern	4	PHa	A
-Spiegelamulett verzaubern	5	PHa	A
-Spiegelamulett verzaubern	6	PHa	A
-Talisman verzaubern	1	PHa	S
-Talisman verzaubern	2	PHa	S
-Talisman verzaubern	3	PHa	S
-Talisman verzaubern	4	PHa	S
-Trunk des Riesenwuchses aktivieren	4	PHa	S
-Trunk des Schwerelosigkeit aktivieren	4	PHa	S
-Trunk des Unsichtbarkeit aktivieren	3	PHa	S
-Trunk des Verwandlung aktivieren	5	PHa	S
-Untotenamulett verzaubern	3	PHa	A
-Wasser weihen	1	PHa	G
-Weihen	G	PHa	S
-Werwesenamulett verzaubern	3	PHa	A
-Zauberpergament beschriften	3	PHa	S
-Berserkerpilz aktivieren	2	PHe	S
-Binden	G	PHe	A
-Dämonenamulett verzaubern	3	PHe	A
-Elementaramulett verzaubern	3	PHe	A
-Flohpulver aktivieren	2	PHe	S
-Geisteramulett verzaubern	4	PHe	A
-Heiltrunk (1W6) aktivieren	2	PHe	S
-Krafttrunk (1W6) aktivieren	1	PHe	S
-Krafttrunk (2W6) aktivieren	2	PHe	S
-Kraut der konzentrierten Energie	4	PHe	S
-Liebestrank aktivieren	3	PHe	S
-Pulver der Panzerhaut aktivieren	3	PHe	S
-Rauchperle aktivieren	3	PHe	S
-Reckentrunk aktivieren	2	PHe	S
-Salbe der Eisenhaut aktivieren	4	PHe	S
-Schildamulett verzaubern	1	PHe	S
-Schildamulett verzaubern	2	PHe	S
-Schildamulett verzaubern	3	PHe	S
-Schildamulett verzaubern	4	PHe	S
-Schildamulett verzaubern	5	PHe	S
-Schildamulett verzaubern	6	PHe	S
 Schnellkraut aktivieren	3	PHe	S
-Schutzamulett verzaubern	1	PHe	A
-Schutzamulett verzaubern	2	PHe	A
-Schutzamulett verzaubern	3	PHe	A
-Schutzamulett verzaubern	4	PHe	A
-Schutzamulett verzaubern	5	PHe	A
-Schutzamulett verzaubern	6	PHe	A
-Spiegelamulett verzaubern	1	PHe	A
-Spiegelamulett verzaubern	2	PHe	A
-Spiegelamulett verzaubern	3	PHe	A
-Spiegelamulett verzaubern	4	PHe	A
-Spiegelamulett verzaubern	5	PHe	A
-Spiegelamulett verzaubern	6	PHe	A
-Talisman verzaubern	1	PHe	S
-Talisman verzaubern	2	PHe	S
-Talisman verzaubern	3	PHe	S
-Talisman verzaubern	4	PHe	S
-Trunk der Macht über Orks aktivieren	3	PHe	S
-Trunk des Riesenwuchses aktivieren	4	PHe	S
-Trunk des Schwerelosigkeit aktivieren	4	PHe	S
-Trunk des Unsichtbarkeit aktivieren	3	PHe	S
-Trunk des Verwandlung aktivieren	5	PHe	S
-Untotenamulett verzaubern	3	PHe	A
-Wasser weihen	1	PHe	G
-Weihen	G	PHe	S
-Werwesenamulett verzaubern	3	PHe	A
-Zauberpergament beschriften	3	PHe	S
-Berserkerpilz aktivieren	2	PK	G
-Binden	G	PK	A
-Dämonenamulett verzaubern	3	PK	S
-Elementaramulett verzaubern	3	PK	A
-Flohpulver aktivieren	2	PK	S
-Geisteramulett verzaubern	4	PK	A
-Heiltrunk (1W6) aktivieren	2	PK	S
-Krafttrunk (1W6) aktivieren	1	PK	S
-Krafttrunk (2W6) aktivieren	2	PK	S
-Kraut der konzentrierten Energie	4	PK	S
-Liebestrank aktivieren	3	PK	S
-Pulver der Panzerhaut aktivieren	3	PK	S
-Rauchperle aktivieren	3	PK	S
-Reckentrunk aktivieren	2	PK	S
-Salbe der Eisenhaut aktivieren	4	PK	S
-Schildamulett verzaubern	1	PK	S
-Schildamulett verzaubern	2	PK	S
-Schildamulett verzaubern	3	PK	S
-Schildamulett verzaubern	4	PK	S
-Schildamulett verzaubern	5	PK	S
-Schildamulett verzaubern	6	PK	S
 Schnellkraut aktivieren	3	PK	S
-Schutzamulett verzaubern	1	PK	A
-Schutzamulett verzaubern	2	PK	A
-Schutzamulett verzaubern	3	PK	A
-Schutzamulett verzaubern	4	PK	A
-Schutzamulett verzaubern	5	PK	A
-Schutzamulett verzaubern	6	PK	A
-Spiegelamulett verzaubern	1	PK	A
-Spiegelamulett verzaubern	2	PK	A
-Spiegelamulett verzaubern	3	PK	A
-Spiegelamulett verzaubern	4	PK	A
-Spiegelamulett verzaubern	5	PK	A
-Spiegelamulett verzaubern	6	PK	A
-Talisman verzaubern	1	PK	S
-Talisman verzaubern	2	PK	S
-Talisman verzaubern	3	PK	S
-Talisman verzaubern	4	PK	S
-Trunk des Riesenwuchses aktivieren	4	PK	S
-Trunk des Schwerelosigkeit aktivieren	4	PK	S
-Trunk des Unsichtbarkeit aktivieren	3	PK	S
-Trunk des Verwandlung aktivieren	5	PK	S
-Untotenamulett verzaubern	3	PK	A
-Wasser weihen	1	PK	G
-Weihen	G	PK	S
-Werwesenamulett verzaubern	3	PK	A
-Zauberpergament beschriften	3	PK	S
-Berserkerpilz aktivieren	2	PM	S
-Binden	G	PM	A
-Dämonenamulett verzaubern	3	PM	A
-Elementaramulett verzaubern	3	PM	A
-Flohpulver aktivieren	2	PM	S
-Geisteramulett verzaubern	4	PM	A
-Heiltrunk (1W6) aktivieren	2	PM	S
-Krafttrunk (1W6) aktivieren	1	PM	S
-Krafttrunk (2W6) aktivieren	2	PM	S
-Kraut der konzentrierten Energie	4	PM	S
-Liebestrank aktivieren	3	PM	S
-Pulver der Panzerhaut aktivieren	3	PM	S
-Rauchperle aktivieren	3	PM	S
-Reckentrunk aktivieren	2	PM	S
-Salbe der Eisenhaut aktivieren	4	PM	S
-Schildamulett verzaubern	1	PM	S
-Schildamulett verzaubern	2	PM	S
-Schildamulett verzaubern	3	PM	S
-Schildamulett verzaubern	4	PM	S
-Schildamulett verzaubern	5	PM	S
-Schildamulett verzaubern	6	PM	S
 Schnellkraut aktivieren	3	PM	S
-Schutzamulett verzaubern	1	PM	A
-Schutzamulett verzaubern	2	PM	A
-Schutzamulett verzaubern	3	PM	A
-Schutzamulett verzaubern	4	PM	A
-Schutzamulett verzaubern	5	PM	A
-Schutzamulett verzaubern	6	PM	A
-Spiegelamulett verzaubern	1	PM	A
-Spiegelamulett verzaubern	2	PM	A
-Spiegelamulett verzaubern	3	PM	A
-Spiegelamulett verzaubern	4	PM	A
-Spiegelamulett verzaubern	5	PM	A
-Spiegelamulett verzaubern	6	PM	A
-Talisman verzaubern	1	PM	S
-Talisman verzaubern	2	PM	S
-Talisman verzaubern	3	PM	S
-Talisman verzaubern	4	PM	S
-Trunk des Riesenwuchses aktivieren	4	PM	S
-Trunk des Schwerelosigkeit aktivieren	4	PM	S
-Trunk des Unsichtbarkeit aktivieren	3	PM	S
-Trunk des Verwandlung aktivieren	5	PM	S
-Untotenamulett verzaubern	3	PM	A
-Wasser weihen	1	PM	G
-Weihen	G	PM	S
-Werwesenamulett verzaubern	3	PM	A
-Zauberpergament beschriften	3	PM	S
-Berserkerpilz aktivieren	2	PT	S
-Binden	G	PT	A
-Dämonenamulett verzaubern	3	PT	A
-Elementaramulett verzaubern	3	PT	A
-Flohpulver aktivieren	2	PT	S
-Geisteramulett verzaubern	4	PT	S
-Heiltrunk (1W6) aktivieren	2	PT	S
-Krafttrunk (1W6) aktivieren	1	PT	S
-Krafttrunk (2W6) aktivieren	2	PT	S
-Kraut der konzentrierten Energie	4	PT	S
-Pulver der Panzerhaut aktivieren	3	PT	S
-Rauchperle aktivieren	3	PT	S
-Reckentrunk aktivieren	2	PT	S
-Salbe der Eisenhaut aktivieren	4	PT	S
-Schildamulett verzaubern	1	PT	S
-Schildamulett verzaubern	2	PT	S
-Schildamulett verzaubern	3	PT	S
-Schildamulett verzaubern	4	PT	S
-Schildamulett verzaubern	5	PT	S
-Schildamulett verzaubern	6	PT	S
 Schnellkraut aktivieren	3	PT	S
-Schutzamulett verzaubern	1	PT	A
-Schutzamulett verzaubern	2	PT	A
-Schutzamulett verzaubern	3	PT	A
-Schutzamulett verzaubern	4	PT	A
-Schutzamulett verzaubern	5	PT	A
-Schutzamulett verzaubern	6	PT	A
-Spiegelamulett verzaubern	1	PT	A
-Spiegelamulett verzaubern	2	PT	A
-Spiegelamulett verzaubern	3	PT	A
-Spiegelamulett verzaubern	4	PT	A
-Spiegelamulett verzaubern	5	PT	A
-Spiegelamulett verzaubern	6	PT	A
-Talisman verzaubern	1	PT	S
-Talisman verzaubern	2	PT	S
-Talisman verzaubern	3	PT	S
-Talisman verzaubern	4	PT	S
-Trunk des Riesenwuchses aktivieren	4	PT	S
-Trunk des Schwerelosigkeit aktivieren	4	PT	S
-Trunk des Unsichtbarkeit aktivieren	3	PT	S
-Trunk des Verwandlung aktivieren	5	PT	S
-Untotenamulett verzaubern	3	PT	S
-Wasser weihen	1	PT	G
-Weihen	G	PT	S
-Werwesenamulett verzaubern	3	PT	S
-Zauberpergament beschriften	3	PT	S
-Berserkerpilz aktivieren	2	PW	S
-Binden	G	PW	S
-Dämonenamulett verzaubern	3	PW	A
-Elementaramulett verzaubern	3	PW	A
-Flohpulver aktivieren	2	PW	S
-Geisteramulett verzaubern	4	PW	A
-Heiltrunk (1W6) aktivieren	2	PW	S
-Krafttrunk (1W6) aktivieren	1	PW	S
-Krafttrunk (2W6) aktivieren	2	PW	S
-Kraut der konzentrierten Energie	4	PW	S
-Liebestrank aktivieren	3	PW	S
-Pulver der Panzerhaut aktivieren	3	PW	S
-Rauchperle aktivieren	3	PW	S
-Reckentrunk aktivieren	2	PW	S
-Salbe der Eisenhaut aktivieren	4	PW	S
-Schildamulett verzaubern	1	PW	S
-Schildamulett verzaubern	2	PW	S
-Schildamulett verzaubern	3	PW	S
-Schildamulett verzaubern	4	PW	S
-Schildamulett verzaubern	5	PW	S
-Schildamulett verzaubern	6	PW	S
 Schnellkraut aktivieren	3	PW	S
-Schutzamulett verzaubern	1	PW	A
-Schutzamulett verzaubern	2	PW	A
-Schutzamulett verzaubern	3	PW	A
-Schutzamulett verzaubern	4	PW	A
-Schutzamulett verzaubern	5	PW	A
-Schutzamulett verzaubern	6	PW	A
-Spiegelamulett verzaubern	1	PW	A
-Spiegelamulett verzaubern	2	PW	A
-Spiegelamulett verzaubern	3	PW	A
-Spiegelamulett verzaubern	4	PW	A
-Spiegelamulett verzaubern	5	PW	A
-Spiegelamulett verzaubern	6	PW	A
-Talisman verzaubern	1	PW	S
-Talisman verzaubern	2	PW	S
-Talisman verzaubern	3	PW	S
-Talisman verzaubern	4	PW	S
-Trunk des Riesenwuchses aktivieren	4	PW	S
-Trunk des Schwerelosigkeit aktivieren	4	PW	S
-Trunk des Unsichtbarkeit aktivieren	3	PW	S
-Trunk des Verwandlung aktivieren	5	PW	S
-Untotenamulett verzaubern	3	PW	A
-Wasser weihen	1	PW	G
-Weihen	G	PW	S
-Werwesenamulett verzaubern	3	PW	A
-Zauberpergament beschriften	3	PW	G
-Berserkerpilz aktivieren	2	sHx	S
-Binden	G	sHx	A
-Dämonenamulett verzaubern	3	sHx	A
-Elementaramulett verzaubern	3	sHx	A
-Flohpulver aktivieren	2	sHx	S
-Geisteramulett verzaubern	4	sHx	A
-Heiltrunk (1W6) aktivieren	2	sHx	S
-Krafttrunk (1W6) aktivieren	1	sHx	S
-Krafttrunk (2W6) aktivieren	2	sHx	S
-Kraut der konzentrierten Energie	4	sHx	S
-Liebestrank aktivieren	3	sHx	G
-Pulver der Panzerhaut aktivieren	3	sHx	S
-Rauchperle aktivieren	3	sHx	S
-Reckentrunk aktivieren	2	sHx	S
-Salbe der Eisenhaut aktivieren	4	sHx	S
-Salbe der Krakenhände aktivieren	2	sHx	S
-Schildamulett verzaubern	1	sHx	A
-Schildamulett verzaubern	2	sHx	A
-Schildamulett verzaubern	3	sHx	A
-Schildamulett verzaubern	4	sHx	A
-Schildamulett verzaubern	5	sHx	A
-Schildamulett verzaubern	6	sHx	A
-Schnellkraut aktivieren	3	sHx	S
-Schutzamulett verzaubern	1	sHx	A
-Schutzamulett verzaubern	2	sHx	A
-Schutzamulett verzaubern	3	sHx	A
-Schutzamulett verzaubern	4	sHx	A
-Schutzamulett verzaubern	5	sHx	A
-Schutzamulett verzaubern	6	sHx	A
-Spiegelamulett verzaubern	1	sHx	A
-Spiegelamulett verzaubern	2	sHx	A
-Spiegelamulett verzaubern	3	sHx	A
-Spiegelamulett verzaubern	4	sHx	A
-Spiegelamulett verzaubern	5	sHx	A
-Spiegelamulett verzaubern	6	sHx	A
-Talisman verzaubern	1	sHx	A
-Talisman verzaubern	2	sHx	A
-Talisman verzaubern	3	sHx	A
-Talisman verzaubern	4	sHx	A
-Trunk der Macht über Hunde aktivieren	2	sHx	S
-Trunk der Macht über Menschen aktivieren	4	sHx	S
-Trunk der Macht über Orks aktivieren	3	sHx	S
-Trunk des Riesenwuchses aktivieren	4	sHx	S
-Trunk des Schwerelosigkeit aktivieren	4	sHx	S
-Trunk des Unsichtbarkeit aktivieren	3	sHx	S
-Trunk des Verwandlung aktivieren	5	sHx	S
-Untotenamulett verzaubern	3	sHx	A
-Werwesenamulett verzaubern	3	sHx	A
-Binden	G	tBe	A
-Dämonenamulett verzaubern	3	tBe	S
-Elementaramulett verzaubern	3	tBe	S
-Geisteramulett verzaubern	4	tBe	S
-Kraut der konzentrierten Energie	4	tBe	S
-Liebestrank aktivieren	3	tBe	S
-Schildamulett verzaubern	1	tBe	S
-Schildamulett verzaubern	2	tBe	S
-Schildamulett verzaubern	3	tBe	S
-Schildamulett verzaubern	4	tBe	S
-Schildamulett verzaubern	5	tBe	S
-Berserkerpilz aktivieren	2	ScN	G
-Binden	G	ScN	A
-Dämonenamulett verzaubern	3	ScN	S
-Elementaramulett verzaubern	3	ScN	S
-Flohpulver aktivieren	2	ScN	S
-Geisteramulett verzaubern	4	ScN	S
-Heiltrunk (1W6) aktivieren	2	ScN	S
-Krafttrunk (1W6) aktivieren	1	ScN	S
-Krafttrunk (2W6) aktivieren	2	ScN	S
-Liebestrank aktivieren	3	ScN	S
-Pulver der Panzerhaut aktivieren	3	ScN	S
-Rauchperle aktivieren	3	ScN	S
-Reckentrunk aktivieren	2	ScN	S
-Salbe der Eisenhaut aktivieren	4	ScN	S
-Schamanentrommel herstellen	G	ScN	G
-Schildamulett verzaubern	1	ScN	S
-Schildamulett verzaubern	2	ScN	S
-Schildamulett verzaubern	3	ScN	S
-Schildamulett verzaubern	4	ScN	S
-Schildamulett verzaubern	5	ScN	S
-Schildamulett verzaubern	6	ScN	S
 Schnellkraut aktivieren	3	ScN	S
-Schutzamulett verzaubern	1	ScN	A
-Schutzamulett verzaubern	2	ScN	A
-Schutzamulett verzaubern	3	ScN	A
-Schutzamulett verzaubern	4	ScN	A
-Schutzamulett verzaubern	5	ScN	A
-Schutzamulett verzaubern	6	ScN	A
-Spiegelamulett verzaubern	1	ScN	A
-Spiegelamulett verzaubern	2	ScN	A
-Spiegelamulett verzaubern	3	ScN	A
-Spiegelamulett verzaubern	4	ScN	A
-Spiegelamulett verzaubern	5	ScN	A
-Spiegelamulett verzaubern	6	ScN	A
-Talisman verzaubern	1	ScN	S
-Talisman verzaubern	2	ScN	S
-Talisman verzaubern	3	ScN	S
-Talisman verzaubern	4	ScN	S
-Trunk der Macht über Hunde aktivieren	2	ScN	S
-Trunk der Macht über Menschen aktivieren	4	ScN	S
-Trunk der Macht über Orks aktivieren	3	ScN	S
-Trunk des Riesenwuchses aktivieren	4	ScN	S
-Trunk des Schwerelosigkeit aktivieren	4	ScN	S
-Trunk des Unsichtbarkeit aktivieren	3	ScN	S
-Trunk des Verwandlung aktivieren	5	ScN	S
-Untotenamulett verzaubern	3	ScN	S
-Weihen	G	ScN	S
-Werwesenamulett verzaubern	3	ScN	S
-Berserkerpilz aktivieren	2	ScW	G
-Binden	G	ScW	A
-Dämonenamulett verzaubern	3	ScW	S
-Elementaramulett verzaubern	3	ScW	S
-Flohpulver aktivieren	2	ScW	S
-Geisteramulett verzaubern	4	ScW	S
-Heiltrunk (1W6) aktivieren	2	ScW	S
-Krafttrunk (1W6) aktivieren	1	ScW	S
-Krafttrunk (2W6) aktivieren	2	ScW	S
-Liebestrank aktivieren	3	ScW	S
-Pulver der Panzerhaut aktivieren	3	ScW	S
-Rauchperle aktivieren	3	ScW	S
-Reckentrunk aktivieren	2	ScW	S
-Salbe der Eisenhaut aktivieren	4	ScW	S
-Schamanentrommel herstellen	G	ScW	G
-Schildamulett verzaubern	1	ScW	S
-Schildamulett verzaubern	2	ScW	S
-Schildamulett verzaubern	3	ScW	S
-Schildamulett verzaubern	4	ScW	S
-Schildamulett verzaubern	5	ScW	S
-Schildamulett verzaubern	6	ScW	S
+Schnellkraut aktivieren	3	ScS	S
 Schnellkraut aktivieren	3	ScW	S
+Schnellkraut aktivieren	3	Th	G
+Schnellkraut aktivieren	3	gHx	S
+Schnellkraut aktivieren	3	sHx	S
+Schnellkraut aktivieren	3	wHx	S
+Schutzamulett verzaubern	1	Dr	A
+Schutzamulett verzaubern	1	Hl	A
+Schutzamulett verzaubern	1	Ma	S
+Schutzamulett verzaubern	1	PC	A
+Schutzamulett verzaubern	1	PF	A
+Schutzamulett verzaubern	1	PHa	A
+Schutzamulett verzaubern	1	PHe	A
+Schutzamulett verzaubern	1	PK	A
+Schutzamulett verzaubern	1	PM	A
+Schutzamulett verzaubern	1	PT	A
+Schutzamulett verzaubern	1	PW	A
+Schutzamulett verzaubern	1	ScN	A
+Schutzamulett verzaubern	1	ScS	A
 Schutzamulett verzaubern	1	ScW	A
+Schutzamulett verzaubern	1	Th	G
+Schutzamulett verzaubern	1	gHx	A
+Schutzamulett verzaubern	1	sHx	A
+Schutzamulett verzaubern	1	wHx	A
+Schutzamulett verzaubern	2	Dr	A
+Schutzamulett verzaubern	2	Hl	A
+Schutzamulett verzaubern	2	Ma	S
+Schutzamulett verzaubern	2	PC	A
+Schutzamulett verzaubern	2	PF	A
+Schutzamulett verzaubern	2	PHa	A
+Schutzamulett verzaubern	2	PHe	A
+Schutzamulett verzaubern	2	PK	A
+Schutzamulett verzaubern	2	PM	A
+Schutzamulett verzaubern	2	PT	A
+Schutzamulett verzaubern	2	PW	A
+Schutzamulett verzaubern	2	ScN	A
+Schutzamulett verzaubern	2	ScS	A
 Schutzamulett verzaubern	2	ScW	A
+Schutzamulett verzaubern	2	Th	G
+Schutzamulett verzaubern	2	gHx	A
+Schutzamulett verzaubern	2	sHx	A
+Schutzamulett verzaubern	2	wHx	A
+Schutzamulett verzaubern	3	Dr	A
+Schutzamulett verzaubern	3	Hl	A
+Schutzamulett verzaubern	3	Ma	S
+Schutzamulett verzaubern	3	PC	A
+Schutzamulett verzaubern	3	PF	A
+Schutzamulett verzaubern	3	PHa	A
+Schutzamulett verzaubern	3	PHe	A
+Schutzamulett verzaubern	3	PK	A
+Schutzamulett verzaubern	3	PM	A
+Schutzamulett verzaubern	3	PT	A
+Schutzamulett verzaubern	3	PW	A
+Schutzamulett verzaubern	3	ScN	A
+Schutzamulett verzaubern	3	ScS	A
 Schutzamulett verzaubern	3	ScW	A
-Schutzamulett verzaubern	4	ScW	A
-Schutzamulett verzaubern	5	ScW	A
-Schutzamulett verzaubern	6	ScW	A
-Spiegelamulett verzaubern	1	ScW	A
-Spiegelamulett verzaubern	2	ScW	A
-Spiegelamulett verzaubern	3	ScW	A
 Schutzamulett verzaubern	3	Th	G
+Schutzamulett verzaubern	3	gHx	A
+Schutzamulett verzaubern	3	sHx	A
+Schutzamulett verzaubern	3	wHx	A
+Schutzamulett verzaubern	4	Dr	A
+Schutzamulett verzaubern	4	Hl	A
+Schutzamulett verzaubern	4	Ma	S
+Schutzamulett verzaubern	4	PC	A
+Schutzamulett verzaubern	4	PF	A
+Schutzamulett verzaubern	4	PHa	A
+Schutzamulett verzaubern	4	PHe	A
+Schutzamulett verzaubern	4	PK	A
+Schutzamulett verzaubern	4	PM	A
+Schutzamulett verzaubern	4	PT	A
+Schutzamulett verzaubern	4	PW	A
+Schutzamulett verzaubern	4	ScN	A
+Schutzamulett verzaubern	4	ScS	A
+Schutzamulett verzaubern	4	ScW	A
 Schutzamulett verzaubern	4	Th	G
+Schutzamulett verzaubern	4	gHx	A
+Schutzamulett verzaubern	4	sHx	A
+Schutzamulett verzaubern	4	wHx	A
+Schutzamulett verzaubern	5	Dr	A
+Schutzamulett verzaubern	5	Hl	A
+Schutzamulett verzaubern	5	Ma	S
+Schutzamulett verzaubern	5	PC	A
+Schutzamulett verzaubern	5	PF	A
+Schutzamulett verzaubern	5	PHa	A
+Schutzamulett verzaubern	5	PHe	A
+Schutzamulett verzaubern	5	PK	A
+Schutzamulett verzaubern	5	PM	A
+Schutzamulett verzaubern	5	PT	A
+Schutzamulett verzaubern	5	PW	A
+Schutzamulett verzaubern	5	ScN	A
+Schutzamulett verzaubern	5	ScS	A
+Schutzamulett verzaubern	5	ScW	A
 Schutzamulett verzaubern	5	Th	G
+Schutzamulett verzaubern	5	gHx	A
+Schutzamulett verzaubern	5	sHx	A
+Schutzamulett verzaubern	5	wHx	A
+Schutzamulett verzaubern	6	Dr	A
+Schutzamulett verzaubern	6	Hl	A
+Schutzamulett verzaubern	6	Ma	S
+Schutzamulett verzaubern	6	PC	A
+Schutzamulett verzaubern	6	PF	A
+Schutzamulett verzaubern	6	PHa	A
+Schutzamulett verzaubern	6	PHe	A
+Schutzamulett verzaubern	6	PK	A
+Schutzamulett verzaubern	6	PM	A
+Schutzamulett verzaubern	6	PT	A
+Schutzamulett verzaubern	6	PW	A
+Schutzamulett verzaubern	6	ScN	A
+Schutzamulett verzaubern	6	ScS	A
+Schutzamulett verzaubern	6	ScW	A
 Schutzamulett verzaubern	6	Th	G
+Schutzamulett verzaubern	6	gHx	A
+Schutzamulett verzaubern	6	sHx	A
+Schutzamulett verzaubern	6	wHx	A
 Schwäche	1	Th	G
 Sehen in Dunkelheit	2	Th	G
 Sehen von Verborgenem	2	Th	G
-Spiegelamulett verzaubern	1	Th	G
-Spiegelamulett verzaubern	2	Th	G
-Spiegelamulett verzaubern	3	Th	G
-Spiegelamulett verzaubern	4	Th	G
-Spiegelamulett verzaubern	4	ScW	A
-Spiegelamulett verzaubern	5	ScW	A
-Spiegelamulett verzaubern	6	ScW	A
-Talisman verzaubern	1	ScW	S
-Talisman verzaubern	2	ScW	S
-Talisman verzaubern	3	ScW	S
-Talisman verzaubern	4	ScW	S
-Trunk der Macht über Hunde aktivieren	2	ScW	S
-Trunk der Macht über Menschen aktivieren	4	ScW	S
-Trunk der Macht über Orks aktivieren	3	ScW	S
-Trunk des Riesenwuchses aktivieren	4	ScW	S
-Trunk des Schwerelosigkeit aktivieren	4	ScW	S
-Trunk des Unsichtbarkeit aktivieren	3	ScW	S
-Trunk des Verwandlung aktivieren	5	ScW	S
-Untotenamulett verzaubern	3	ScW	S
-Weihen	G	ScW	S
-Werwesenamulett verzaubern	3	ScW	S
-Berserkerpilz aktivieren	2	ScS	G
-Binden	G	ScS	A
-Dämonenamulett verzaubern	3	ScS	S
-Elementaramulett verzaubern	3	ScS	S
-Flohpulver aktivieren	2	ScS	S
-Geisteramulett verzaubern	4	ScS	S
-Heiltrunk (1W6) aktivieren	2	ScS	S
-Krafttrunk (1W6) aktivieren	1	ScS	S
-Krafttrunk (2W6) aktivieren	2	ScS	S
-Liebestrank aktivieren	3	ScS	S
-Pulver der Panzerhaut aktivieren	3	ScS	S
-Rauchperle aktivieren	3	ScS	S
-Reckentrunk aktivieren	2	ScS	S
-Salbe der Eisenhaut aktivieren	4	ScS	S
-Schamanentrommel herstellen	G	ScS	G
-Schildamulett verzaubern	1	ScS	S
-Schildamulett verzaubern	2	ScS	S
-Schildamulett verzaubern	3	ScS	S
-Schildamulett verzaubern	4	ScS	S
-Schildamulett verzaubern	5	ScS	S
-Schildamulett verzaubern	6	ScS	S
-Schnellkraut aktivieren	3	ScS	S
-Schutzamulett verzaubern	1	ScS	A
-Schutzamulett verzaubern	2	ScS	A
-Schutzamulett verzaubern	3	ScS	A
-Schutzamulett verzaubern	4	ScS	A
-Schutzamulett verzaubern	5	ScS	A
-Schutzamulett verzaubern	6	ScS	A
+Spiegelamulett verzaubern	1	Dr	A
+Spiegelamulett verzaubern	1	Hl	A
+Spiegelamulett verzaubern	1	Ma	S
+Spiegelamulett verzaubern	1	PC	A
+Spiegelamulett verzaubern	1	PF	A
+Spiegelamulett verzaubern	1	PHa	A
+Spiegelamulett verzaubern	1	PHe	A
+Spiegelamulett verzaubern	1	PK	A
+Spiegelamulett verzaubern	1	PM	A
+Spiegelamulett verzaubern	1	PT	A
+Spiegelamulett verzaubern	1	PW	A
+Spiegelamulett verzaubern	1	ScN	A
 Spiegelamulett verzaubern	1	ScS	A
+Spiegelamulett verzaubern	1	ScW	A
+Spiegelamulett verzaubern	1	Th	G
+Spiegelamulett verzaubern	1	gHx	A
+Spiegelamulett verzaubern	1	sHx	A
+Spiegelamulett verzaubern	1	wHx	A
+Spiegelamulett verzaubern	2	Dr	A
+Spiegelamulett verzaubern	2	Hl	A
+Spiegelamulett verzaubern	2	Ma	S
+Spiegelamulett verzaubern	2	PC	A
+Spiegelamulett verzaubern	2	PF	A
+Spiegelamulett verzaubern	2	PHa	A
+Spiegelamulett verzaubern	2	PHe	A
+Spiegelamulett verzaubern	2	PK	A
+Spiegelamulett verzaubern	2	PM	A
+Spiegelamulett verzaubern	2	PT	A
+Spiegelamulett verzaubern	2	PW	A
+Spiegelamulett verzaubern	2	ScN	A
 Spiegelamulett verzaubern	2	ScS	A
+Spiegelamulett verzaubern	2	ScW	A
+Spiegelamulett verzaubern	2	Th	G
+Spiegelamulett verzaubern	2	gHx	A
+Spiegelamulett verzaubern	2	sHx	A
+Spiegelamulett verzaubern	2	wHx	A
+Spiegelamulett verzaubern	3	Dr	A
+Spiegelamulett verzaubern	3	Hl	A
+Spiegelamulett verzaubern	3	Ma	S
+Spiegelamulett verzaubern	3	PC	A
+Spiegelamulett verzaubern	3	PF	A
+Spiegelamulett verzaubern	3	PHa	A
+Spiegelamulett verzaubern	3	PHe	A
+Spiegelamulett verzaubern	3	PK	A
+Spiegelamulett verzaubern	3	PM	A
+Spiegelamulett verzaubern	3	PT	A
+Spiegelamulett verzaubern	3	PW	A
+Spiegelamulett verzaubern	3	ScN	A
 Spiegelamulett verzaubern	3	ScS	A
+Spiegelamulett verzaubern	3	ScW	A
+Spiegelamulett verzaubern	3	Th	G
+Spiegelamulett verzaubern	3	gHx	A
+Spiegelamulett verzaubern	3	sHx	A
+Spiegelamulett verzaubern	3	wHx	A
+Spiegelamulett verzaubern	4	Dr	A
+Spiegelamulett verzaubern	4	Hl	A
+Spiegelamulett verzaubern	4	Ma	S
+Spiegelamulett verzaubern	4	PC	A
+Spiegelamulett verzaubern	4	PF	A
+Spiegelamulett verzaubern	4	PHa	A
+Spiegelamulett verzaubern	4	PHe	A
+Spiegelamulett verzaubern	4	PK	A
+Spiegelamulett verzaubern	4	PM	A
+Spiegelamulett verzaubern	4	PT	A
+Spiegelamulett verzaubern	4	PW	A
+Spiegelamulett verzaubern	4	ScN	A
 Spiegelamulett verzaubern	4	ScS	A
+Spiegelamulett verzaubern	4	ScW	A
+Spiegelamulett verzaubern	4	Th	G
+Spiegelamulett verzaubern	4	gHx	A
+Spiegelamulett verzaubern	4	sHx	A
+Spiegelamulett verzaubern	4	wHx	A
+Spiegelamulett verzaubern	5	Dr	A
+Spiegelamulett verzaubern	5	Hl	A
+Spiegelamulett verzaubern	5	Ma	S
+Spiegelamulett verzaubern	5	PC	A
+Spiegelamulett verzaubern	5	PF	A
+Spiegelamulett verzaubern	5	PHa	A
+Spiegelamulett verzaubern	5	PHe	A
+Spiegelamulett verzaubern	5	PK	A
+Spiegelamulett verzaubern	5	PM	A
+Spiegelamulett verzaubern	5	PT	A
+Spiegelamulett verzaubern	5	PW	A
+Spiegelamulett verzaubern	5	ScN	A
 Spiegelamulett verzaubern	5	ScS	A
+Spiegelamulett verzaubern	5	ScW	A
+Spiegelamulett verzaubern	5	Th	G
+Spiegelamulett verzaubern	5	gHx	A
+Spiegelamulett verzaubern	5	sHx	A
+Spiegelamulett verzaubern	5	wHx	A
+Spiegelamulett verzaubern	6	Dr	A
+Spiegelamulett verzaubern	6	Hl	A
+Spiegelamulett verzaubern	6	Ma	S
+Spiegelamulett verzaubern	6	PC	A
+Spiegelamulett verzaubern	6	PF	A
+Spiegelamulett verzaubern	6	PHa	A
+Spiegelamulett verzaubern	6	PHe	A
+Spiegelamulett verzaubern	6	PK	A
+Spiegelamulett verzaubern	6	PM	A
+Spiegelamulett verzaubern	6	PT	A
+Spiegelamulett verzaubern	6	PW	A
+Spiegelamulett verzaubern	6	ScN	A
 Spiegelamulett verzaubern	6	ScS	A
+Spiegelamulett verzaubern	6	ScW	A
+Spiegelamulett verzaubern	6	Th	G
+Spiegelamulett verzaubern	6	gHx	A
+Spiegelamulett verzaubern	6	sHx	A
+Spiegelamulett verzaubern	6	wHx	A
+Srimarameisterschaft	3	Th	G
+Staubkämpfer	3	Th	G
+Stille	2	Th	G
+Talisman verzaubern	1	Dr	A
+Talisman verzaubern	1	Hl	A
+Talisman verzaubern	1	Ma	A
+Talisman verzaubern	1	PC	S
+Talisman verzaubern	1	PF	S
+Talisman verzaubern	1	PHa	S
+Talisman verzaubern	1	PHe	S
+Talisman verzaubern	1	PK	S
+Talisman verzaubern	1	PM	S
+Talisman verzaubern	1	PT	S
+Talisman verzaubern	1	PW	S
+Talisman verzaubern	1	ScN	S
 Talisman verzaubern	1	ScS	S
+Talisman verzaubern	1	ScW	S
+Talisman verzaubern	1	Th	G
+Talisman verzaubern	1	gHx	A
+Talisman verzaubern	1	sHx	A
+Talisman verzaubern	1	wHx	A
+Talisman verzaubern	2	Dr	A
+Talisman verzaubern	2	Hl	A
+Talisman verzaubern	2	Ma	A
+Talisman verzaubern	2	PC	S
+Talisman verzaubern	2	PF	S
+Talisman verzaubern	2	PHa	S
+Talisman verzaubern	2	PHe	S
+Talisman verzaubern	2	PK	S
+Talisman verzaubern	2	PM	S
+Talisman verzaubern	2	PT	S
+Talisman verzaubern	2	PW	S
+Talisman verzaubern	2	ScN	S
 Talisman verzaubern	2	ScS	S
+Talisman verzaubern	2	ScW	S
+Talisman verzaubern	2	Th	G
+Talisman verzaubern	2	gHx	A
+Talisman verzaubern	2	sHx	A
+Talisman verzaubern	2	wHx	A
+Talisman verzaubern	3	Dr	A
+Talisman verzaubern	3	Hl	A
+Talisman verzaubern	3	Ma	A
+Talisman verzaubern	3	PC	S
+Talisman verzaubern	3	PF	S
+Talisman verzaubern	3	PHa	S
+Talisman verzaubern	3	PHe	S
+Talisman verzaubern	3	PK	S
+Talisman verzaubern	3	PM	S
+Talisman verzaubern	3	PT	S
+Talisman verzaubern	3	PW	S
+Talisman verzaubern	3	ScN	S
 Talisman verzaubern	3	ScS	S
+Talisman verzaubern	3	ScW	S
+Talisman verzaubern	3	Th	G
+Talisman verzaubern	3	gHx	A
+Talisman verzaubern	3	sHx	A
+Talisman verzaubern	3	wHx	A
+Talisman verzaubern	4	Dr	A
+Talisman verzaubern	4	Hl	A
+Talisman verzaubern	4	Ma	A
+Talisman verzaubern	4	PC	S
+Talisman verzaubern	4	PF	S
+Talisman verzaubern	4	PHa	S
+Talisman verzaubern	4	PHe	S
+Talisman verzaubern	4	PK	S
+Talisman verzaubern	4	PM	S
+Talisman verzaubern	4	PT	S
+Talisman verzaubern	4	PW	S
+Talisman verzaubern	4	ScN	S
 Talisman verzaubern	4	ScS	S
+Talisman verzaubern	4	ScW	S
+Talisman verzaubern	4	Th	G
+Talisman verzaubern	4	gHx	A
+Talisman verzaubern	4	sHx	A
+Talisman verzaubern	4	wHx	A
+Tierisches Handeln	5	Th	G
+Todeshauch	3	Th	G
+Trunk der Macht über Hunde aktivieren	2	Dr	S
+Trunk der Macht über Hunde aktivieren	2	Hl	S
+Trunk der Macht über Hunde aktivieren	2	Ma	S
+Trunk der Macht über Hunde aktivieren	2	PF	S
+Trunk der Macht über Hunde aktivieren	2	ScN	S
 Trunk der Macht über Hunde aktivieren	2	ScS	S
+Trunk der Macht über Hunde aktivieren	2	ScW	S
+Trunk der Macht über Hunde aktivieren	2	Th	G
+Trunk der Macht über Hunde aktivieren	2	dBe	S
+Trunk der Macht über Hunde aktivieren	2	eBe	S
+Trunk der Macht über Hunde aktivieren	2	gHx	S
+Trunk der Macht über Hunde aktivieren	2	sHx	S
+Trunk der Macht über Hunde aktivieren	2	tBe	S
+Trunk der Macht über Hunde aktivieren	2	wHx	S
+Trunk der Macht über Menschen aktivieren	4	Dr	S
+Trunk der Macht über Menschen aktivieren	4	Hl	S
+Trunk der Macht über Menschen aktivieren	4	Ma	S
+Trunk der Macht über Menschen aktivieren	4	PF	S
+Trunk der Macht über Menschen aktivieren	4	ScN	S
 Trunk der Macht über Menschen aktivieren	4	ScS	S
+Trunk der Macht über Menschen aktivieren	4	ScW	S
+Trunk der Macht über Menschen aktivieren	4	Th	G
+Trunk der Macht über Menschen aktivieren	4	dBe	S
+Trunk der Macht über Menschen aktivieren	4	eBe	S
+Trunk der Macht über Menschen aktivieren	4	gHx	S
+Trunk der Macht über Menschen aktivieren	4	sHx	S
+Trunk der Macht über Menschen aktivieren	4	tBe	S
+Trunk der Macht über Menschen aktivieren	4	wHx	S
+Trunk der Macht über Orks aktivieren	3	Ma	S
+Trunk der Macht über Orks aktivieren	3	PC	S
+Trunk der Macht über Orks aktivieren	3	PHe	S
+Trunk der Macht über Orks aktivieren	3	ScN	S
 Trunk der Macht über Orks aktivieren	3	ScS	S
+Trunk der Macht über Orks aktivieren	3	ScW	S
+Trunk der Macht über Orks aktivieren	3	Th	G
+Trunk der Macht über Orks aktivieren	3	dBe	S
+Trunk der Macht über Orks aktivieren	3	eBe	S
+Trunk der Macht über Orks aktivieren	3	gHx	S
+Trunk der Macht über Orks aktivieren	3	sHx	S
+Trunk der Macht über Orks aktivieren	3	tBe	S
+Trunk der Macht über Orks aktivieren	3	wHx	S
+Trunk des Riesenwuchses aktivieren	4	Dr	S
+Trunk des Riesenwuchses aktivieren	4	Hl	S
+Trunk des Riesenwuchses aktivieren	4	Ma	S
+Trunk des Riesenwuchses aktivieren	4	PC	S
+Trunk des Riesenwuchses aktivieren	4	PF	S
+Trunk des Riesenwuchses aktivieren	4	PHa	S
+Trunk des Riesenwuchses aktivieren	4	PHe	S
+Trunk des Riesenwuchses aktivieren	4	PK	S
+Trunk des Riesenwuchses aktivieren	4	PM	S
+Trunk des Riesenwuchses aktivieren	4	PT	S
+Trunk des Riesenwuchses aktivieren	4	PW	S
+Trunk des Riesenwuchses aktivieren	4	ScN	S
 Trunk des Riesenwuchses aktivieren	4	ScS	S
+Trunk des Riesenwuchses aktivieren	4	ScW	S
+Trunk des Riesenwuchses aktivieren	4	Th	G
+Trunk des Riesenwuchses aktivieren	4	gHx	S
+Trunk des Riesenwuchses aktivieren	4	sHx	S
+Trunk des Riesenwuchses aktivieren	4	wHx	S
+Trunk des Schwerelosigkeit aktivieren	4	Dr	S
+Trunk des Schwerelosigkeit aktivieren	4	Hl	S
+Trunk des Schwerelosigkeit aktivieren	4	Ma	S
+Trunk des Schwerelosigkeit aktivieren	4	PC	S
+Trunk des Schwerelosigkeit aktivieren	4	PF	S
+Trunk des Schwerelosigkeit aktivieren	4	PHa	S
+Trunk des Schwerelosigkeit aktivieren	4	PHe	S
+Trunk des Schwerelosigkeit aktivieren	4	PK	S
+Trunk des Schwerelosigkeit aktivieren	4	PM	S
+Trunk des Schwerelosigkeit aktivieren	4	PT	S
+Trunk des Schwerelosigkeit aktivieren	4	PW	S
+Trunk des Schwerelosigkeit aktivieren	4	ScN	S
 Trunk des Schwerelosigkeit aktivieren	4	ScS	S
+Trunk des Schwerelosigkeit aktivieren	4	ScW	S
+Trunk des Schwerelosigkeit aktivieren	4	Th	G
+Trunk des Schwerelosigkeit aktivieren	4	gHx	S
+Trunk des Schwerelosigkeit aktivieren	4	sHx	S
+Trunk des Schwerelosigkeit aktivieren	4	wHx	S
+Trunk des Unsichtbarkeit aktivieren	3	Dr	S
+Trunk des Unsichtbarkeit aktivieren	3	Hl	S
+Trunk des Unsichtbarkeit aktivieren	3	Ma	S
+Trunk des Unsichtbarkeit aktivieren	3	PC	S
+Trunk des Unsichtbarkeit aktivieren	3	PF	S
+Trunk des Unsichtbarkeit aktivieren	3	PHa	S
+Trunk des Unsichtbarkeit aktivieren	3	PHe	S
+Trunk des Unsichtbarkeit aktivieren	3	PK	S
+Trunk des Unsichtbarkeit aktivieren	3	PM	S
+Trunk des Unsichtbarkeit aktivieren	3	PT	S
+Trunk des Unsichtbarkeit aktivieren	3	PW	S
+Trunk des Unsichtbarkeit aktivieren	3	ScN	S
 Trunk des Unsichtbarkeit aktivieren	3	ScS	S
+Trunk des Unsichtbarkeit aktivieren	3	ScW	S
+Trunk des Unsichtbarkeit aktivieren	3	Th	G
+Trunk des Unsichtbarkeit aktivieren	3	gHx	S
+Trunk des Unsichtbarkeit aktivieren	3	sHx	S
+Trunk des Unsichtbarkeit aktivieren	3	wHx	S
+Trunk des Verwandlung aktivieren	5	Dr	S
+Trunk des Verwandlung aktivieren	5	Hl	S
+Trunk des Verwandlung aktivieren	5	Ma	S
+Trunk des Verwandlung aktivieren	5	PC	S
+Trunk des Verwandlung aktivieren	5	PF	S
+Trunk des Verwandlung aktivieren	5	PHa	S
+Trunk des Verwandlung aktivieren	5	PHe	S
+Trunk des Verwandlung aktivieren	5	PK	S
+Trunk des Verwandlung aktivieren	5	PM	S
+Trunk des Verwandlung aktivieren	5	PT	S
+Trunk des Verwandlung aktivieren	5	PW	S
+Trunk des Verwandlung aktivieren	5	ScN	S
 Trunk des Verwandlung aktivieren	5	ScS	S
+Trunk des Verwandlung aktivieren	5	ScW	S
+Trunk des Verwandlung aktivieren	5	Th	G
+Trunk des Verwandlung aktivieren	5	gHx	S
+Trunk des Verwandlung aktivieren	5	sHx	S
+Trunk des Verwandlung aktivieren	5	wHx	S
+Untotenamulett verzaubern	3	Dr	S
+Untotenamulett verzaubern	3	Hl	S
+Untotenamulett verzaubern	3	Ma	S
+Untotenamulett verzaubern	3	PC	A
+Untotenamulett verzaubern	3	PF	S
+Untotenamulett verzaubern	3	PHa	A
+Untotenamulett verzaubern	3	PHe	A
+Untotenamulett verzaubern	3	PK	A
+Untotenamulett verzaubern	3	PM	A
+Untotenamulett verzaubern	3	PT	S
+Untotenamulett verzaubern	3	PW	A
+Untotenamulett verzaubern	3	ScN	S
 Untotenamulett verzaubern	3	ScS	S
+Untotenamulett verzaubern	3	ScW	S
+Untotenamulett verzaubern	3	Th	G
+Untotenamulett verzaubern	3	dBe	S
+Untotenamulett verzaubern	3	eBe	S
+Untotenamulett verzaubern	3	gHx	A
+Untotenamulett verzaubern	3	sHx	A
+Untotenamulett verzaubern	3	tBe	S
+Untotenamulett verzaubern	3	wHx	A
+Verdorren	3	Th	G
+Vereisen	4	Th	G
+Verlangsamen	3	Th	G
+Versetzen	4	Th	G
+Versteinern	5	Th	G
+Verwandeln	6	Th	G
+Verwandlung	6	Th	G
+Waffen verzaubern (2)	2	Th	G
+Waffen verzaubern (4)	4	Th	G
+Waffen verzaubern (6)	6	Th	G
+Wahnsinn	6	Th	G
+Wahrsehen	5	Th	G
+Wasser weihen	1	PF	G
+Wasser weihen	1	PHa	G
+Wasser weihen	1	PHe	G
+Wasser weihen	1	PK	G
+Wasser weihen	1	PM	G
+Wasser weihen	1	PT	G
+Wasser weihen	1	PW	G
+Weihen	G	PC	S
+Weihen	G	PF	S
+Weihen	G	PHa	S
+Weihen	G	PHe	S
+Weihen	G	PK	S
+Weihen	G	PM	S
+Weihen	G	PT	S
+Weihen	G	PW	S
+Weihen	G	ScN	S
 Weihen	G	ScS	S
+Weihen	G	ScW	S
+Werwesenamulett verzaubern	3	Dr	S
+Werwesenamulett verzaubern	3	Hl	S
+Werwesenamulett verzaubern	3	Ma	S
+Werwesenamulett verzaubern	3	PC	A
+Werwesenamulett verzaubern	3	PF	S
+Werwesenamulett verzaubern	3	PHa	A
+Werwesenamulett verzaubern	3	PHe	A
+Werwesenamulett verzaubern	3	PK	A
+Werwesenamulett verzaubern	3	PM	A
+Werwesenamulett verzaubern	3	PT	S
+Werwesenamulett verzaubern	3	PW	A
+Werwesenamulett verzaubern	3	ScN	S
 Werwesenamulett verzaubern	3	ScS	S
+Werwesenamulett verzaubern	3	ScW	S
+Werwesenamulett verzaubern	3	Th	G
+Werwesenamulett verzaubern	3	dBe	S
+Werwesenamulett verzaubern	3	eBe	S
+Werwesenamulett verzaubern	3	gHx	A
+Werwesenamulett verzaubern	3	sHx	A
+Werwesenamulett verzaubern	3	tBe	S
+Werwesenamulett verzaubern	3	wHx	A
+Windstoß	1	Th	G
+Zahlenletter (1)	1	Th	G
+Zahlenletter (10)	1	Th	G
+Zahlenletter (11)	1	Th	G
+Zahlenletter (12)	1	Th	G
+Zahlenletter (13)	1	Th	G
+Zahlenletter (2)	1	Th	G
+Zahlenletter (3)	1	Th	G
+Zahlenletter (4)	1	Th	G
+Zahlenletter (5)	1	Th	G
+Zahlenletter (6)	1	Th	G
+Zahlenletter (7)	1	Th	G
+Zahlenletter (8)	1	Th	G
+Zahlenletter (9)	1	Th	G
+Zauberpergament beschriften	3	Ma	G
+Zauberpergament beschriften	3	PC	S
+Zauberpergament beschriften	3	PF	S
+Zauberpergament beschriften	3	PHa	S
+Zauberpergament beschriften	3	PHe	S
+Zauberpergament beschriften	3	PK	S
+Zauberpergament beschriften	3	PM	S
+Zauberpergament beschriften	3	PT	S
+Zauberpergament beschriften	3	PW	G
+Zauberpergament beschriften	3	Th	G
+Zauberstimme	2	Th	G
+Zeitletter (Jahr)	2	Th	G
+Zeitletter (Mond)	2	Th	G
+Zeitletter (Stunde)	2	Th	G
+Zeitletter (Tag)	2	Th	G
+Zeitletter (Trideade)	2	Th	G
+Zündletter (Bereich)	3	Th	G
+Zündletter (Berührung)	3	Th	G
+Zündletter (Schlüsselwort)	3	Th	G
 \.
 --
--- TOC Entry ID 3 (OID 23238585)
+-- TOC Entry ID 3 (OID 23238613)
 --
 -- Name: "zauberwerk_typen_name_stufe_typ" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "zauberwerk_typen_name_stufe_typ" on "zauberwerk_typen" using btree ( "name" "text_ops", "stufe" "text_ops", "typ" "text_ops" );
+CREATE UNIQUE INDEX zauberwerk_typen_name_stufe_typ ON zauberwerk_typen USING btree (name text_ops, stufe text_ops, typ text_ops);
 

@@ -95,6 +95,8 @@ public:
    int Gewicht() const {return gewicht;}
    int Groesse() const {return groesse;}
    int Grad() const {return grad;}
+   std::string SG() const {return "";}
+   std::string GG() const {return "";}
    cH_Spezialgebiet Spezialgebiet() const {return spezialgebiet;}
    std::string Spezialisierung() const {return spezialisierung;}
 //   std::string Spezial2() const {return spezial2;}
@@ -152,14 +154,14 @@ public:
       }
 
    void set_Sinn(std::string name,int wert) {sinnmap[name]=wert;}
-/*
-   void set_Sinne_Sehen(int s) {sinne.sehen=s;}
-   void set_Sinne_Hoeren(int s) {sinne.hoeren=s;}
-   void set_Sinne_Riechen(int s) {sinne.riechen=s;}
-   void set_Sinne_Schmecken(int s) {sinne.schmecken=s;}
-   void set_Sinne_Tasten(int s) {sinne.tasten=s;}
-   void set_Sinne_SechserSinn(int s) {sinne.sechster_sinn=s;}
-*/
+
+   int Sehen() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Sehen"];}
+   int Hoeren() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Hören"];}
+   int Riechen() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Riechen"];}
+   int Schmecken() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Schmecken"];}
+   int Tasten() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Tasten"];}
+   int SechsterSinn() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Sechster Sinn"];}
+
    void set_Raufen(int r) {raufen=r;}
 
    void set_magBoni(int psy,int phs,int phk) {bo_psy=psy;bo_phs=phs;bo_phk=phk;}

@@ -16,44 +16,47 @@ CREATE TABLE "waffen_grund" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 30116948) TABLE DATA waffen_grund
+-- Data for TOC Entry ID 4 (OID 30116948)
+--
+-- Name: waffen_grund Type: TABLE DATA Owner: thoma
 --
 
-COPY "waffen_grund"  FROM stdin;
-ESchwert	600	\N
-ESchlagwaffe	400	\N
-Spießwaffe	400	\N
-ZSchwert	800	\N
-ZSchlagwaffe	600	\N
-Stangenwaffe	800	\N
-Kettenwaffe	900	\N
-Kampfstab	700	\N
-waffenloser Kampf	800	\N
-Bögen	700	\N
+
+COPY "waffen_grund" FROM stdin;
 Armbrust	600	\N
+Blasrohr	700	\N
+Bögen	700	\N
+ESchlagwaffe	400	\N
+ESchwert	600	\N
+Fesselwaffe	700	\N
+Garotte	200	\N
+Kampfstab	700	\N
+Kettenwaffe	900	\N
+Kharrata	200	R
+Namisritra	200	R
+Parierwaffe	300	\N
+Peitsche	900	\N
+Schilde	300	\N
 Schleuder	700	\N
-Wurfspieß	200	\N
+Spießwaffe	400	\N
+Stangenwaffe	800	\N
+Stichwaffe	400	\N
+Stielwurfwaffe	300	\N
+Werfen	200	\N
 Wurfmesser	300	\N
 Wurfpfeil	400	\N
-Blasrohr	700	\N
-Schilde	300	\N
-Peitsche	900	\N
-Namisritra	200	R
-Kharrata	200	R
-Garotte	200	\N
-Stielwurfwaffe	300	\N
 Wurfscheibe	700	\N
-Werfen	200	\N
-Fesselwaffe	700	\N
-Stichwaffe	400	\N
-Parierwaffe	300	\N
+Wurfspieß	200	\N
+ZSchlagwaffe	600	\N
+ZSchwert	800	\N
 Zauberstab	400	\N
+waffenloser Kampf	800	\N
 \.
 --
--- TOC Entry ID 3 (OID 30116948)
+-- TOC Entry ID 3 (OID 30117005)
 --
 -- Name: "waffen_grund_name" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "waffen_grund_name" on "waffen_grund" using btree ( "name" "text_ops" );
+CREATE UNIQUE INDEX waffen_grund_name ON waffen_grund USING btree (name text_ops);
 

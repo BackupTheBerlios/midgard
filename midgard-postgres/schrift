@@ -17,37 +17,40 @@ CREATE TABLE "schrift" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9071583) TABLE DATA schrift
+-- Data for TOC Entry ID 4 (OID 9071583)
+--
+-- Name: schrift Type: TABLE DATA Owner: thoma
 --
 
-COPY "schrift"  FROM stdin;
-Seemeister	Buchstaben	100	\N
-Coraniaid	Buchstaben	100	\N
-Waelska	Runen	100	\N
-Läinisch	Bilder	100	\N
-Rawindi	Buchstaben	100	\N
-Scharidisch	Buchstaben	100	\N
-Meketisch	Bilder	100	\N
-Luwisch	Keilschrift	100	\N
+
+COPY "schrift" FROM stdin;
 Bulugi	Bilder	100	\N
-Nahuatlanisch	Bilder	100	\N
-Halftan	Buchstaben	100	\N
+Coraniaid	Buchstaben	100	\N
 Dvarskar	Runen	100	\N
+Geisterschrift	Silben	100	K
 Gnomenon	Bilder	100	\N
-Tegarisch	Buchstaben	100	\N
+Halftan	Buchstaben	100	\N
 KanThaiTun(1)	Silben	100	K
 KanThaiTun(2)	Silben	200	K
 KanThaiTun(3)	Silben	1000	K
 KanThaiTun(4)	Silben	1000	K
 KanThaiTun(5)	Silben	1000	K
 KanThaiTun(6)	Silben	1000	K
-Geisterschrift	Silben	100	K
+Luwisch	Keilschrift	100	\N
+Läinisch	Bilder	100	\N
+Meketisch	Bilder	100	\N
+Nahuatlanisch	Bilder	100	\N
+Rawindi	Buchstaben	100	\N
+Scharidisch	Buchstaben	100	\N
+Seemeister	Buchstaben	100	\N
+Tegarisch	Buchstaben	100	\N
+Waelska	Runen	100	\N
 \.
 --
--- TOC Entry ID 3 (OID 9071583)
+-- TOC Entry ID 3 (OID 26608099)
 --
 -- Name: "schrift_name" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "schrift_name" on "schrift" using btree ( "name" "text_ops" );
+CREATE UNIQUE INDEX schrift_name ON schrift USING btree (name text_ops);
 

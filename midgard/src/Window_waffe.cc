@@ -119,15 +119,15 @@ void Window_waffe::wuerfeln()
 void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *event)
 {   
   std::string art= clist_waffe->get_text(row,0);
-  int X;
-  if(art=="E") X=atoi(label_anzahl_E->get_text().c_str());
-  else         X=atoi(label_anzahl_A->get_text().c_str());
- 
-  if(X>=1) --X; 
-  else     clist_waffe->row(row).unselect();   
+  int E=atoi(label_anzahl_E->get_text().c_str());
+  int A=atoi(label_anzahl_A->get_text().c_str());
 
-  if(art=="E") label_anzahl_E->set_text(itos(X));
-  else         label_anzahl_A->set_text(itos(X));
+  if( (art=="E" || art=="W" || art=="V") && E>0)
+     label_anzahl_E->set_text(itos(--E));
+  else if(A>0)
+     label_anzahl_A->set_text(itos(--A));
+  else 
+     clist_waffe->row(row).unselect();   
 }
 
 

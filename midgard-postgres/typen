@@ -24,57 +24,61 @@ CREATE TABLE "typen" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9071979) TABLE DATA typen
+-- Data for TOC Entry ID 4 (OID 9071979)
+--
+-- Name: typen Type: TABLE DATA Owner: thoma
 --
 
-COPY "typen"  FROM stdin;
+
+COPY "typen" FROM stdin;
 1	As	Assassine	Assassinin	n	ak	-10	30	1	\N	1
-41	Ri	Ritter	Ritterin	n	k	0	0	3	B&R	1
-8	Kr	Krieger	Kriegerin	n	k	0	0	3	\N	1
-11	Sö	Söldner	Söldnerin	n	k	0	0	3	\N	1
+2	BN	Nordlandbarbar	Nordlandbarbarin	n	k	0	0	2	\N	2
 3	BS	Steppenbarbar	Steppenbarbarin	n	k	0	0	2	\N	2
 4	BW	Waldlandbarbar	Waldlandbarbarin	n	k	0	0	4	\N	2
-2	BN	Nordlandbarbar	Nordlandbarbarin	n	k	0	0	2	\N	2
+5	Er	Ermittler	Ermittlerin	n	ak	0	0	1	\N	4
 6	Gl	Glücksritter	Glücksritterin	n	ak	0	-20	3	\N	2
+7	Hä	Händler	Händlerin	n	ak	-10	0	2	\N	4
+8	Kr	Krieger	Kriegerin	n	k	0	0	3	\N	1
 9	Ku	Kundschafter	Kundschafterin	n	k	-10	0	1	\N	2
 10	Se	Seefahrer	Seefahrerin	n	ak	0	0	2	\N	2
-16	Tm	Tiermeister	Tiermeisterin	j	ak	0	0	1	\N	2
-13	Wa	Waldläufer	Waldläuferin	n	k	-10	0	1	\N	2
-30	PT	Todespriester	Todespriesterin	z	z	20	0	4	\N	3
-31	PW	Weisheitspriester	Weisheitspriesterin	z	z	20	0	4	\N	3
-25	PF	Fruchtbarkeitspriester	Fruchtberkeitspriesterin	z	z	20	0	4	\N	3
-15	Or	Ordeskrieger	Ordenskriegerin	j	ak	0	0	3	\N	3
-24	Ma	Magier	Magierin	z	z	10	0	4	\N	3
-20	Hl	Heiler	Heilerin	z	z	10	0	4	\N	3
-21	gHx	grauer Hexer	graue Hexe	z	z	0	0	4	\N	3
-22	sHx	schwarzer Hexer	schwarze Hexe	z	z	0	0	4	\N	3
-23	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N	3
-18	dBe	Dämonenbeschwörer	Dämonenbeschwörerin	z	z	20	30	4	3	3
-17	eBe	Elementarbeschwörer	Elementarbeschwörerin	z	z	20	30	4	3	3
-19	Dr	Druide	Druidin	z	z	10	30	1	\N	3
-7	Hä	Händler	Händlerin	n	ak	-10	0	2	\N	4
+11	Sö	Söldner	Söldnerin	n	k	0	0	3	\N	1
 12	Sp	Spitzbube	Spitzbübin	n	ak	-20	-20	1	\N	4
+13	Wa	Waldläufer	Waldläuferin	n	k	-10	0	1	\N	2
 14	Ba	Barde	Bardin	j	ak	20	0	1	\N	4
-26	PHa	Priester Handel/Handwerk	Priesterin Handel/Handwerk	z	z	20	0	1	\N	4
-27	PHe	Herrschaftspriester	Herrschaftspriesterin	z	z	20	0	1	\N	4
-28	PK	Kriegspriester	Kriegspriesterin	z	z	20	0	1	\N	4
-29	PM	Meerespriester	Meerespriesterin	z	z	20	0	1	\N	4
-37	Kd	KiDoka	KiDoka	n	k	0	0	1	K	4
-39	Sr	Srikumara	Srikumara	j	ak	0	0	3	R	1
-40	Fi	Fian	Fian	j	ak	0	0	3	B&R	1
-32	ScN	Schamane (Nordland)	Schamanin (Nordland)	z	ak	0	0	1	\N	4
-33	ScS	Schamane (Steppe)	Schamanin (Steppe)	z	ak	0	0	1	\N	4
-38	Sa	Saddhu	Saddhu	z	z	0	0	4	R	1
-36	Ny	Ninya	Ninya	n	ak	0	30	1	K	1
-35	Th	Thaumaturge	Thaumaturgin	z	z	10	0	1	\N	4
-34	ScW	Schamane (Waldland)	Schamanin (Waldland)	z	ak	0	0	1	\N	4
-5	Er	Ermittler	Ermittlerin	n	ak	0	0	1	\N	4
+15	Or	Ordeskrieger	Ordenskriegerin	j	ak	0	0	3	\N	3
+16	Tm	Tiermeister	Tiermeisterin	j	ak	0	0	1	\N	2
+17	eBe	Elementarbeschwörer	Elementarbeschwörerin	z	z	20	30	4	3	3
+18	dBe	Dämonenbeschwörer	Dämonenbeschwörerin	z	z	20	30	4	3	3
+19	tBe	TotenbeschwÃ¶rer	TotenbeschwÃ¶rerin	z	z	20	30	4	3	3
+20	Dr	Druide	Druidin	z	z	10	30	1	\N	3
+21	Hl	Heiler	Heilerin	z	z	10	0	4	\N	3
+22	gHx	grauer Hexer	graue Hexe	z	z	0	0	4	\N	3
+23	sHx	schwarzer Hexer	schwarze Hexe	z	z	0	0	4	\N	3
+24	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N	3
+25	Ma	Magier	Magierin	z	z	10	0	4	\N	3
+26	PF	Fruchtbarkeitspriester	Fruchtberkeitspriesterin	z	z	20	0	4	\N	3
+27	PHa	Priester Handel/Handwerk	Priesterin Handel/Handwerk	z	z	20	0	1	\N	4
+28	PHe	Herrschaftspriester	Herrschaftspriesterin	z	z	20	0	1	\N	4
+29	PK	Kriegspriester	Kriegspriesterin	z	z	20	0	1	\N	4
+30	PM	Meerespriester	Meerespriesterin	z	z	20	0	1	\N	4
+31	PT	Todespriester	Todespriesterin	z	z	20	0	4	\N	3
+32	PW	Weisheitspriester	Weisheitspriesterin	z	z	20	0	4	\N	3
+33	ScN	Schamane (Nordland)	Schamanin (Nordland)	z	ak	0	0	1	\N	4
+34	ScS	Schamane (Steppe)	Schamanin (Steppe)	z	ak	0	0	1	\N	4
+35	ScW	Schamane (Waldland)	Schamanin (Waldland)	z	ak	0	0	1	\N	4
+36	Th	Thaumaturge	Thaumaturgin	z	z	10	0	1	\N	4
+37	Ny	Ninya	Ninya	n	ak	0	30	1	K	1
+38	Kd	KiDoka	KiDoka	n	k	0	0	1	K	4
+39	Sa	Saddhu	Saddhu	z	z	0	0	4	R	1
+40	Sr	Srikumara	Srikumara	j	ak	0	0	3	R	1
+41	Fi	Fian	Fian	j	ak	0	0	3	B&R	1
+42	Ri	Ritter	Ritterin	n	k	0	0	3	B&R	1
 \.
 --
--- TOC Entry ID 3 (OID 9071979)
+-- TOC Entry ID 3 (OID 26608132)
 --
 -- Name: "typen_typs" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "typen_typs" on "typen" using btree ( "typs" "text_ops" );
+CREATE UNIQUE INDEX typen_typs ON typen USING btree (typs text_ops);
 

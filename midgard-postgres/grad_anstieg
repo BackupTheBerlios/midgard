@@ -23,10 +23,13 @@ CREATE TABLE "grad_anstieg" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 16851485) TABLE DATA grad_anstieg
+-- Data for TOC Entry ID 4 (OID 16851485)
+--
+-- Name: grad_anstieg Type: TABLE DATA Owner: thoma
 --
 
-COPY "grad_anstieg"  FROM stdin;
+
+COPY "grad_anstieg" FROM stdin;
 1	11	\N	10	\N	0	11	10	0
 2	12	10	11	10	200	12	10	0
 3	\N	\N	\N	\N	500	13	20	0
@@ -44,10 +47,10 @@ COPY "grad_anstieg"  FROM stdin;
 15	\N	\N	\N	\N	150000	\N	\N	3
 \.
 --
--- TOC Entry ID 3 (OID 16851485)
+-- TOC Entry ID 3 (OID 26608064)
 --
 -- Name: "grad_anstieg_grad" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "grad_anstieg_grad" on "grad_anstieg" using btree ( "grad" "int4_ops" );
+CREATE UNIQUE INDEX grad_anstieg_grad ON grad_anstieg USING btree (grad int4_ops);
 

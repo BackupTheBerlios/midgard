@@ -75,14 +75,15 @@ CREATE TABLE "charaktere" (
 	"grad_zaubern" integer,
 	"gs" integer,
 	"wk" integer,
-	"hand" text
+	"hand" text,
+	"stadt_land" text
 );
 
 --
--- TOC Entry ID 3 (OID 13830577)
+-- TOC Entry ID 3 (OID 26608036)
 --
 -- Name: "charaktere_charakter_name_versi" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "charaktere_charakter_name_versi" on "charaktere" using btree ( "charakter_name" "text_ops", "version" "text_ops" );
+CREATE UNIQUE INDEX charaktere_charakter_name_versi ON charaktere USING btree (charakter_name text_ops, "version" text_ops);
 

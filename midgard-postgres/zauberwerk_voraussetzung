@@ -16,14 +16,26 @@ CREATE TABLE "zauberwerk_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9072725) TABLE DATA zauberwerk_voraussetzung
+-- Data for TOC Entry ID 4 (OID 9072725)
+--
+-- Name: zauberwerk_voraussetzung Type: TABLE DATA Owner: thoma
 --
 
-COPY "zauberwerk_voraussetzung"  FROM stdin;
+
+COPY "zauberwerk_voraussetzung" FROM stdin;
+Augensalbe	Augensalbe herstellen	\N
+Berserkerpilz aktivieren	Heiliger Zorn	or
+Berserkerpilz aktivieren	Wahnsinn	or
+Binden	Thaumatographie	\N
+Dämonenamulett verzaubern	Silberne Bannsphäre	\N
+Elementaramulett verzaubern	Silberne Bannsphäre	\N
 Flohpulver aktivieren	Schweben	\N
+Geisteramulett verzaubern	Silberne Bannsphäre	\N
 Heiltrunk (1W6) aktivieren	Heilen von Wunden	\N
 Krafttrunk (1W6) aktivieren	Handauflegen	\N
 Krafttrunk (2W6) aktivieren	Handauflegen	\N
+Kraut der konzentrierten Energie	Handauflegen	or
+Kraut der konzentrierten Energie	Macht über das Selbst	or
 Liebestrank aktivieren	Liebeszauber	or
 Liebestrank aktivieren	Macht über Menschen	or
 Pulver der Panzerhaut aktivieren	Marmorhaut	or
@@ -33,53 +45,44 @@ Reckentrunk aktivieren	Stärke	\N
 Salbe der Eisenhaut aktivieren	Eisenhaut	\N
 Salbe der Krakenhände aktivieren	Macht über das Selbst	and
 Salbe der Krakenhände aktivieren	Zauberschloß	and
-Trunk der Macht über Hunde aktivieren	Macht über die belebte Natur	\N
-Trunk der Macht über Orks aktivieren	Macht über Menschen	\N
-Trunk der Macht über Menschen aktivieren	Macht über Menschen	\N
-Trunk des Riesenwuchses aktivieren	Vergrößern	\N
-Trunk des Schwerelosigkeit aktivieren	Schweben	or
-Trunk des Schwerelosigkeit aktivieren	Fliegen	or
-Trunk des Unsichtbarkeit aktivieren	Unsichtbarkeit	\N
-Trunk des Verwandlung aktivieren	Verwandlung	\N
-Berserkerpilz aktivieren	Wahnsinn	or
-Berserkerpilz aktivieren	Heiliger Zorn	or
-Kraut der konzentrierten Energie	Handauflegen	or
-Kraut der konzentrierten Energie	Macht über das Selbst	or
-Schnellkraut aktivieren	Beschleunuigen	\N
-Wasser weihen	Austreibung des Bösen	and
-Wasser weihen	Bannen von Finsterwerk	and
-Wasser weihen	Reinigen	and
-Wasser weihen	Segnen	and
-Zauberpergament beschriften	Lesen von Zauberschrift	\N
-Dämonenamulett verzaubern	Silberne Bannsphäre	\N
-Elementaramulett verzaubern	Silberne Bannsphäre	\N
-Geisteramulett verzaubern	Silberne Bannsphäre	\N
+Schamanentrommel herstellen	Geisterlauf	\N
+Schildamulett verzaubern	Flammenkreis	or
 Schildamulett verzaubern	Silberne Bannsphäre	or
-Augensalbe	Augensalbe herstellen	\N
+Schnellkraut aktivieren	Beschleunuigen	\N
 Schutzamulett verzaubern	Geistesschild	or
 Schutzamulett verzaubern	Schwarze Zone	or
 Schutzamulett verzaubern	Zweite Haut	or
 Spiegelamulett verzaubern	Schutzamulett verzaubern	\N
+Talisman verzaubern	Göttlicher Schutz vor Magie	or
+Talisman verzaubern	Magischer Kreis des Widerstehens	or
+Trunk der Macht über Hunde aktivieren	Macht über die belebte Natur	\N
+Trunk der Macht über Menschen aktivieren	Macht über Menschen	\N
+Trunk der Macht über Orks aktivieren	Macht über Menschen	\N
+Trunk des Riesenwuchses aktivieren	Vergrößern	\N
+Trunk des Schwerelosigkeit aktivieren	Fliegen	or
+Trunk des Schwerelosigkeit aktivieren	Schweben	or
+Trunk des Unsichtbarkeit aktivieren	Unsichtbarkeit	\N
+Trunk des Verwandlung aktivieren	Verwandlung	\N
 Untotenamulett verzaubern	Blaue Bannsphäre or	\N
 Untotenamulett verzaubern	Ring des Lebens or	\N
-Werwesenamulett verzaubern	Silberstaub	\N
-Talisman verzaubern	Magischer Kreis des Widerstehens	or
-Talisman verzaubern	Göttlicher Schutz vor Magie	or
-Binden	Thaumatographie	\N
-Schamanentrommel herstellen	Geisterlauf	\N
 Waffen verzaubern (2)	Binden	and
 Waffen verzaubern (2)	Zauberschmiede	\N
 Waffen verzaubern (4)	Binden	and
 Waffen verzaubern (4)	Zauberschmiede	\N
 Waffen verzaubern (6)	Binden	and
 Waffen verzaubern (6)	Zauberschmiede	\N
-Schildamulett verzaubern	Flammenkreis	or
+Wasser weihen	Austreibung des Bösen	and
+Wasser weihen	Bannen von Finsterwerk	and
+Wasser weihen	Reinigen	and
+Wasser weihen	Segnen	and
+Werwesenamulett verzaubern	Silberstaub	\N
+Zauberpergament beschriften	Lesen von Zauberschrift	\N
 \.
 --
--- TOC Entry ID 3 (OID 9072725)
+-- TOC Entry ID 3 (OID 26608172)
 --
 -- Name: "zauberwerk_voraussetzung_name" Type: INDEX Owner: thoma
 --
 
-CREATE  INDEX "zauberwerk_voraussetzung_name" on "zauberwerk_voraussetzung" using btree ( "name" "text_ops" );
+CREATE INDEX zauberwerk_voraussetzung_name ON zauberwerk_voraussetzung USING btree (name text_ops);
 

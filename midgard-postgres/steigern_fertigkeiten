@@ -15,168 +15,171 @@ CREATE TABLE "steigern_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26665679) TABLE DATA steigern_fertigkeiten
+-- Data for TOC Entry ID 4 (OID 26665679)
+--
+-- Name: steigern_fertigkeiten Type: TABLE DATA Owner: thoma
 --
 
-COPY "steigern_fertigkeiten"  FROM stdin;
+
+COPY "steigern_fertigkeiten" FROM stdin;
 Alchemie	Wissen
+Askese	BeidhÃ¤ndiger Kampf
+Astrologie	Wissen
 Athletik	Athletik
+Augensalbe herstellen	-
 Balancieren	Bewegung
+Ballista bedienen	Ballista bedienen
+Baukunde	Baukunde
 Beidhändiger Kampf	Beidhändiger Kampf
 Beredsamkeit	Beredsamkeit
 Beschatten	Beschatten
+Bogen vom Streitwagen	Bogen zu Pferd
+Bogen zu Pferd	Bogen zu Pferd
+Brettspiel	Brettspiel
+Dichten	Dichten
+Elefanten lenken	Elefanten lenken
+Erste Hilfe	Erste Hilfe
+ErzÃ¤hlen	Dichten
+Etikette	Gassenwissen
+Fallen	Bewegung
+Fallen entdecken	Abenteuer
 Fallen entschärfen	Abenteuer
-Schiffsführung	Wissen
+Fallenmechanik	Fallenmechanik
+Fallenstellen	Fallenstellen
+Fangen	Bewegung
 Faustkampf	-
 Fechten	Fechten
+Fechten tevarrischer Stil	-
+FengSchui	Wissen
+FengTsu	-
+Fälschen	Verkleiden
 Gassenwissen	Gassenwissen
+Gastlandsprache	Sprache
+Gaukeln	Dichten
+Geheimmechanismen öffnen	Abenteuer
+Geheimzeichen	Geheimzeichen
 Geländelauf	Bewegung
+Geschenke machen	Beredsamkeit
+Geschäftstüchtigkeit	GeschÃ¤ftstÃ¼chtigkeit
+Giftmischen	Wissen
+Glücksspiel	Glücksspiel
+Heilkunde	Wissen
+Heraldik	-
+Himmelskunde	Himmelskunde
+IaiJutsu	-
+Jonglieren	Jonglieren
+Kalligraphie	Kalligraphie
+Kamelreiten	Bewegung
+Kampf in Dunkelheit	Kampf in Dunkelheit
+Kampf in Schlachtreihe	Kampf in Schlachtreihe
+Kampf in Vollrüstung	Kampf in VollrÃ¼stung
+Kampf zu Pferd	Kampf zu Pferd
 Kampftaktik	Kampftaktik
 Kanufahren	Bewegung
+KarumiJutsu	Bewegung
+Katapult bedienen	Ballista bedienen
+Kenntnis der Fünf Klassiker	-
+KentoYobu	-
+KiDo	KiDo
 Klettern	Bewegung
+Kriegsbemalung	Talisman verzaubern
 Kräuterkunde	Wissen
+KujKuri	Zeichensprache
+KujNoIu	-
+Körperbemalung	Talisman verzaubern
+Körperkontrolle	Bewegung
+Landeskunde	Wissen
+Lanzenstechen	Lanzenstechen
 Laufen	Laufen
+Lesen von Zauberschrift	Lesen von Zauberschrift
+LiYao	LiYao
 Lippenlesen	Lippenlesen
+Luftkampf	-
+Malen/Zeichnen	Kalligraphie
+Meditieren	Verhören
 Menschenkenntnis	Menschenkenntnis
 Meucheln	Meucheln
+MiChen	-
 Musizieren	Musizieren
+Muttersprache	Sprache
+Muttersprache schreiben	Schreiben
 Naturkunde	Wissen
+Natya	Bewegung
+NinJutsu	NinJutsu
+Orakelkunst	-
 Pflanzenkunde	Wissen
+Rechnen	Rechnen
 Reiten	Bewegung
 Rudern	Bewegung
 Sagenkunde	Wissen
 Scharfschießen	Scharfschießen
+Schauspielern	Schauspielern
+SchiffsfÃ¼hrung	Kampftaktik
+Schiffsführung	Wissen
+SchiyoKi	-
+Schleichen	Schleichen
+Schlittenfahren	Bewegung
+Schlittschuhlaufen	Bewegung
+Schlösser öffnen	Schleichen
+Schmerzen ertragen	Bewegung
+Schreiben	Schreiben
+Schwerttanz	Bewegung
 Schwimmen	Bewegung
+Schätzen	SchÃ¤tzen
+Seemannsgang	Bewegung
 Segeln	Bewegung
 Seilkunst	Seilkunst
+Siegelfälschung	-
+Siegelkunde	Wissen
+Singen	Dichten
 Skifahren	Bewegung
 Sprache	Sprache
 Springen	Bewegung
 Spurenlesen	Abenteuer
+Srimara lenken	Elefanten lenken
 Stehlen	Stehlen
+Steinabreibungen machen	-
+Steuern	Bewegung
 Stimmen nachahmen	Stimmen nachahmen
 Streitwagen lenken	Bewegung
+Suchen	Suchen
+TaiTschi	-
 Talisman verzaubern	Talisman verzaubern
+Tanzen	Tanzen
+Tarnen	Schleichen
 Tauchen	Tauchen
+Teezeremonie	Überleben
+Thaumatographie	Thaumatographie
 Tierkunde	Wissen
+Trinken	Trinken
+Verbergen	Suchen
 Verführen	Verführen
 Verhören	Verhören
 Verkleiden	Verkleiden
 Wagenlenken	Bewegung
 Wahrnehmung	Wahrnehmung
-Winden	Winden
-Wissen von der Magie	-
-Zauberkunde	Wissen
-Zeichensprache	Zeichensprache
-Fallen	Bewegung
-Fälschen	Verkleiden
-Überleben im Gebirge	Überleben
-Überleben im Schnee	Überleben
-Überleben in der Steppe	Überleben
-Überleben im Sumpf	Überleben
-Überleben im Wald	Überleben
-Überleben in der Wüste	Überleben
-Überleben im Dschungel	Überleben
-Schlittenfahren	Bewegung
-Glücksspiel	Glücksspiel
-Fallen entdecken	Abenteuer
-Giftmischen	Wissen
-FengSchui	Wissen
-FengTsu	-
-Geschenke machen	Beredsamkeit
-IaiJutsu	-
-KarumiJutsu	Bewegung
-Kenntnis der Fünf Klassiker	-
-KentoYobu	-
-KiDo	KiDo
-KujKuri	Zeichensprache
-KujNoIu	-
-LiYao	LiYao
-Meditieren	Verhören
-MiChen	-
-NinJutsu	NinJutsu
-Orakelkunst	-
-SchiyoKi	-
-Schwerttanz	Bewegung
-Steinabreibungen machen	-
-TaiTschi	-
-Teezeremonie	Überleben
-YangScheng	YangScheng
-YubeChian	-
-Zunge verschlucken	Verhören
-Brettspiel	Brettspiel
-Kamelreiten	Bewegung
-Geheimmechanismen öffnen	Abenteuer
-Kalligraphie	Kalligraphie
-Etikette	Gassenwissen
-Fangen	Bewegung
-Jonglieren	Jonglieren
-Heraldik	-
-Kampf in Dunkelheit	Kampf in Dunkelheit
-Lanzenstechen	Lanzenstechen
-Luftkampf	-
-Malen/Zeichnen	Kalligraphie
-Körperbemalung	Talisman verzaubern
-Schlittschuhlaufen	Bewegung
-Siegelfälschung	-
-Siegelkunde	Wissen
 Werfen	Werfen
 Wetterkunde	Wetterkunde
-Askese	BeidhÃ¤ndiger Kampf
-Astrologie	Wissen
-Augensalbe herstellen	-
-Elefanten lenken	Elefanten lenken
-Körperkontrolle	Bewegung
-Schmerzen ertragen	Bewegung
-Srimara lenken	Elefanten lenken
-Natya	Bewegung
-Kriegsbemalung	Talisman verzaubern
-Ballista bedienen	Ballista bedienen
-Baukunde	Baukunde
-Bogen zu Pferd	Bogen zu Pferd
-Dichten	Dichten
-Erste Hilfe	Erste Hilfe
-ErzÃ¤hlen	Dichten
-Fallenstellen	Fallenstellen
-Fallenmechanik	Fallenmechanik
-Gaukeln	Dichten
-Geheimzeichen	Geheimzeichen
-Geschäftstüchtigkeit	GeschÃ¤ftstÃ¼chtigkeit
-Heilkunde	Wissen
-Himmelskunde	Himmelskunde
-Kampf in Schlachtreihe	Kampf in Schlachtreihe
-Kampf in Vollrüstung	Kampf in VollrÃ¼stung
-Kampf zu Pferd	Kampf zu Pferd
-Katapult bedienen	Ballista bedienen
-Landeskunde	Wissen
-Lesen von Zauberschrift	Lesen von Zauberschrift
-Rechnen	Rechnen
-Schätzen	SchÃ¤tzen
-Schauspielern	Schauspielern
-Bogen vom Streitwagen	Bogen zu Pferd
-SchiffsfÃ¼hrung	Kampftaktik
-Schleichen	Schleichen
-Schlösser öffnen	Schleichen
-Seemannsgang	Bewegung
-Singen	Dichten
-Steuern	Bewegung
-Suchen	Suchen
-Tanzen	Tanzen
-Tarnen	Schleichen
-Thaumatographie	Thaumatographie
-Trinken	Trinken
-Verbergen	Suchen
-Fechten tevarrischer Stil	-
-Schreiben	Schreiben
-Gastlandsprache	Sprache
-Muttersprache	Sprache
-Muttersprache schreiben	Schreiben
+Winden	Winden
+Wissen von der Magie	-
+YangScheng	YangScheng
+YubeChian	-
+Zauberkunde	Wissen
+Zeichensprache	Zeichensprache
+Zunge verschlucken	Verhören
+Überleben im Dschungel	Überleben
+Überleben im Gebirge	Überleben
+Überleben im Schnee	Überleben
+Überleben im Sumpf	Überleben
+Überleben im Wald	Überleben
+Überleben in der Steppe	Überleben
+Überleben in der Wüste	Überleben
 \.
 --
--- TOC Entry ID 3 (OID 26665679)
+-- TOC Entry ID 3 (OID 26665846)
 --
 -- Name: "steigern_fertigkeiten_name" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "steigern_fertigkeiten_name" on "steigern_fertigkeiten" using btree ( "name" "text_ops" );
+CREATE UNIQUE INDEX steigern_fertigkeiten_name ON steigern_fertigkeiten USING btree (name text_ops);
 

@@ -22,10 +22,10 @@ CREATE TABLE "charaktere_fertigkeiten" (
 );
 
 --
--- TOC Entry ID 3 (OID 9030995)
+-- TOC Entry ID 3 (OID 26608039)
 --
 -- Name: "charaktere_fertigkeiten_charakt" Type: INDEX Owner: thoma
 --
 
-CREATE  INDEX "charaktere_fertigkeiten_charakt" on "charaktere_fertigkeiten" using btree ( "charakter_name" "text_ops", "version" "text_ops" );
+CREATE INDEX charaktere_fertigkeiten_charakt ON charaktere_fertigkeiten USING btree (charakter_name text_ops, "version" text_ops);
 

@@ -19,51 +19,54 @@ CREATE TABLE "sprachen" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26591260) TABLE DATA sprachen
+-- Data for TOC Entry ID 4 (OID 26591260)
+--
+-- Name: sprachen Type: TABLE DATA Owner: thoma
 --
 
-COPY "sprachen"  FROM stdin;
-10	Eldalyn	4	Coraniaid	f	\N
-10	Twyneddisch	4	Seemeister	f	\N
-10	Erainnisch	4	Seemeister	f	\N
-10	Hochcoraniaid	4	Coraniaid	t	\N
+
+COPY "sprachen" FROM stdin;
 10	Albisch	4	Seemeister	f	\N
 10	Altoqua	4	Seemeister	t	\N
-10	Chryseisch	4	Seemeister	f	\N
-10	Maralinga	4	Seemeister	t	\N
-10	Waelska	4	Waelska	f	\N
-10	Comentang	3	Seemeister	f	\N
-10	Medjisisch	4	Tegarisch	f	\N
-10	Tegarisch	4	Tegarisch	f	\N
-10	Berekusch	4	Tegarisch	f	\N
-10	Läinisch	4	Läinisch	f	\N
 10	Aranisch	4	Seemeister	f	\N
-10	Rawindi	4	Rawindi	f	\N
-10	KanThaiTun	4	KanThaiTun	f	\N
-10	Minangpahitisch	4	Rawindi	f	\N
-10	Neu Vallinga	4	Seemeister	f	\N
-10	Scharidisch	4	Scharidisch	f	\N
-10	Meketisch	4	Meketisch	t	\N
-10	Kelwisch	4	Luwisch	t	\N
-10	Hurritisch	4	Luwisch	f	\N
-10	Luwisch	4	Luwisch	t	\N
+10	Berekusch	4	Tegarisch	f	\N
 10	Bulugi	4	Bulugi	f	\N
-10	Trll'ng	3		f	\N
-10	Nahuatlanisch	4	Nahuatlanisch	f	\N
-10	Halftan	4	Halftan	f	\N
-10	Dvarskar	4	Dvarskar	f	\N
-10	Gnomenon	4	Gnomenon	f	\N
-10	Moravisch	4	Tegarisch	f	\N
-10	Vallinga	4	Seemeister	f	\N
+10	Chryseisch	4	Seemeister	f	\N
+10	Comentang	3	Seemeister	f	\N
 10	Dunathisch	4	Seemeister	t	A
-10	Ikengadialekte	4		f	\N
+10	Dvarskar	4	Dvarskar	f	\N
+10	Eldalyn	4	Coraniaid	f	\N
+10	Erainnisch	4	Seemeister	f	\N
 10	Feuerinseldialekte	2		f	\N
+10	Gnomenon	4	Gnomenon	f	\N
+10	Halftan	4	Halftan	f	\N
+10	Hochcoraniaid	4	Coraniaid	t	\N
+10	Hurritisch	4	Luwisch	f	\N
+10	Ikengadialekte	4		f	\N
+10	KanThaiTun	4	KanThaiTun	f	\N
+10	Kelwisch	4	Luwisch	t	\N
+10	Luwisch	4	Luwisch	t	\N
+10	Läinisch	4	Läinisch	f	\N
+10	Maralinga	4	Seemeister	t	\N
+10	Medjisisch	4	Tegarisch	f	\N
+10	Meketisch	4	Meketisch	t	\N
+10	Minangpahitisch	4	Rawindi	f	\N
+10	Moravisch	4	Tegarisch	f	\N
+10	Nahuatlanisch	4	Nahuatlanisch	f	\N
+10	Neu Vallinga	4	Seemeister	f	\N
+10	Rawindi	4	Rawindi	f	\N
+10	Scharidisch	4	Scharidisch	f	\N
+10	Tegarisch	4	Tegarisch	f	\N
+10	Trll'ng	3		f	\N
+10	Twyneddisch	4	Seemeister	f	\N
+10	Vallinga	4	Seemeister	f	\N
+10	Waelska	4	Waelska	f	\N
 \.
 --
--- TOC Entry ID 3 (OID 26591260)
+-- TOC Entry ID 3 (OID 26608116)
 --
 -- Name: "sprachen_name" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "sprachen_name" on "sprachen" using btree ( "name" "text_ops" );
+CREATE UNIQUE INDEX sprachen_name ON sprachen USING btree (name text_ops);
 
