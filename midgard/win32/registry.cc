@@ -14,6 +14,7 @@ details. */
 //#include "security.h"
 //#include <cygwin/version.h>
 //----- parts collected ---------------
+#if 0
 #define CYGWIN_INFO_CYGNUS_REGISTRY_NAME "Cygnus Solutions"
 #define CYGWIN_INFO_CYGWIN_REGISTRY_NAME "Cygwin"
 #define CYGWIN_INFO_PROGRAM_OPTIONS_NAME "Program Options"
@@ -21,6 +22,7 @@ details. */
 #define CYGWIN_INFO_CYGDRIVE_FLAGS "cygdrive flags"
 #define CYGWIN_INFO_CYGDRIVE_PREFIX "cygdrive prefix"
 #define CYGWIN_INFO_CYGDRIVE_DEFAULT_PREFIX "/cygdrive"
+#endif
 // I don't know what this might be for ...
 #define NO_COPY 
 static SECURITY_ATTRIBUTES NO_COPY sec_none_nih;
@@ -29,7 +31,7 @@ static SECURITY_ATTRIBUTES NO_COPY sec_none_nih;
 #define debug_printf printf
 //-------------------------------------
 
-char cygnus_class[] = "cygnus";
+char magus_class[] = "magus";
 
 reg_key::reg_key (HKEY top, REGSAM access, ...)
 {
@@ -39,6 +41,7 @@ reg_key::reg_key (HKEY top, REGSAM access, ...)
   va_end (av);
 }
 
+#if 0
 reg_key::reg_key (REGSAM access, ...)
 {
   va_list av;
@@ -62,6 +65,7 @@ reg_key::reg_key (REGSAM access)
 		 CYGWIN_INFO_CYGWIN_REGISTRY_NAME,
 		 CYGWIN_INFO_CYGWIN_MOUNT_REGISTRY_NAME, NULL);
 }
+#endif
 
 void
 reg_key::build_reg (HKEY top, REGSAM access, va_list av)
@@ -81,7 +85,7 @@ reg_key::build_reg (HKEY top, REGSAM access, va_list av)
       int res = RegCreateKeyExA (r,
 				 name,
 				 0,
-				 cygnus_class,
+				 magus_class,
 				 REG_OPTION_NON_VOLATILE,
 				 access,
 				 &sec_none_nih,

@@ -68,17 +68,17 @@ static std::string defFileName(const std::string &s)
 static void register_magus(const std::string &argv0)
 {  reg_key cl(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes",0);
    
-   reg_key magusf(cl.get_key(), KEY_CREATE_SUB_KEY, "magusfile",0);
+   reg_key magusf(cl.get_key(), KEY_ALL_ACCESS, "magusfile",0);
    magusf.set_string(0,"Midgard Abenteurer");
    magusf.set_int("EditFlags",0);
    
-   reg_key maguscmd(magusf.get_key(), KEY_CREATE_SUB_KEY, "Shell", "Magus", "command", 0);
+   reg_key maguscmd(magusf.get_key(), KEY_ALL_ACCESS, "Shell", "Magus", "command", 0);
    maguscmd.set_string(0,("\""+argv0+"\" %1").c_str());
    
-   reg_key magusicon(magusf.get_key(), KEY_CREATE_SUB_KEY, "DefaultIcon", 0);
+   reg_key magusicon(magusf.get_key(), KEY_ALL_ACCESS, "DefaultIcon", 0);
    magusicon.set_string(0,(argv0+",0").c_str());
    
-   reg_key magusextension(cl.get_key(), KEY_CREATE_SUB_KEY, ".magus", 0);
+   reg_key magusextension(cl.get_key(), KEY_ALL_ACCESS, ".magus", 0);
    magusextension.set_string(0,"magusfile");
 }
 
