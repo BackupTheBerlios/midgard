@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.239 2002/06/27 14:51:26 thoma Exp $
+// $Id: midgard_CG.cc,v 1.240 2002/06/27 15:19:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,6 +59,8 @@ midgard_CG::midgard_CG(const string &_argv0,const string &datei)
   os << 
 #include"NEWS.h" 
    <<'\n';
+
+cout << argv0<<'\t'<<PACKAGE_DATA_DIR<<'\n';
 }
 
 midgard_CG::~midgard_CG()

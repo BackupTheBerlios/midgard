@@ -2,7 +2,7 @@
 # using glademm V0.5_11c
 
 AC_INIT(src/midgard.cc)
-AM_INIT_AUTOMAKE(midgard, 0.7delta3)
+AM_INIT_AUTOMAKE(magus, 0.7delta3)
 AM_CONFIG_HEADER(config.h)
 
 AC_ISC_POSIX
@@ -13,6 +13,7 @@ AC_PROG_CPP
 AC_PROG_CXX
 AC_PROG_CXXCPP
 AM_PROG_LIBTOOL
+
 
 AC_LANG_CPLUSPLUS
 
@@ -39,6 +40,10 @@ else
   PACKAGE_DATA_DIR="${prefix}/share/${PACKAGE}/"
 fi
 AC_SUBST(PACKAGE_DATA_DIR)
+
+AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR,"$PACKAGE_DATA_DIR",[install path])
+
+
 
 AC_OUTPUT(Makefile src/Makefile src/midgard_document_eingabe.tex pixmaps/Makefile \
 	xml/Makefile )
