@@ -87,3 +87,5 @@ Fenster möglich, Neustart des Fensters möglich)
 
 - Komponenten: Entries/Spinbuttons mit many_changed+activate (wie MVC)
 	und dann in Grundwerte ersetzen (Werte ändern ...)
+
+- Tooltips in Abhängigkeit von Modellen ...

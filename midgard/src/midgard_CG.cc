@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.319 2003/11/28 07:55:09 christof Exp $
+// $Id: midgard_CG.cc,v 1.320 2003/11/28 08:52:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,11 +65,14 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter));
   button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
   button_neuer_charakter->set_relief(Gtk::RELIEF_NONE);
+  button_neuer_charakter->set_tooltips(&_tooltips);
   button_speichern->add(MagusImage("SaveChar-trans-50.xpm"),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
   button_speichern->add(MagusImage("SaveChar-trans-50.xpm"),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
   button_speichern->set_relief(Gtk::RELIEF_NONE);
+  button_speichern->set_tooltips(&_tooltips);
   button_main_drucken->add(MagusImage("PrintChar-trans-50.xpm"),"Drucken",SigC::slot(*this,&midgard_CG::on_latex));
   button_main_drucken->set_relief(Gtk::RELIEF_NONE);
+  button_main_drucken->set_tooltips(&_tooltips);
   ImageLabelKnopf(button_undo,MagusImage("Undo.xpm"),"Zurück");
   ImageLabelKnopf(button_redo,MagusImage("redo.xpm"),"Vorwärts");
   
