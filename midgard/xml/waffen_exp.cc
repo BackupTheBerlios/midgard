@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.10 2002/01/18 08:11:55 christof Exp $
+// $Id: waffen_exp.cc,v 1.11 2002/01/18 08:44:54 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -215,7 +215,7 @@ void waffen_speichern(std::ostream &o)
 
   o << " <Waffen-Grundkenntnisse>\n";
   {Query query("select name, region, fp from waffen_grund"
-   	" where coalesce(region,'')=='"+region+"'"
+   	" where coalesce(region,'')='"+region+"'"
    	" order by name");
   while ((query>>is).good())
   {o << "  <Waffen-Grundkenntnis";
