@@ -44,6 +44,17 @@ void table_grundwerte::init(midgard_CG *h)
    eventbox_werte_edit->add(*_m);
    eventbox_werte_edit->show_all();
    _m->signal_toggled().connect(SigC::slot(*this, &table_grundwerte::on_togglebutton_edit_werte_toggled),true);
+   
+   if (!h->get_window()) h->realize();
+   if (h->get_window())
+   {  Glib::RefPtr<Gdk::Pixbuf> pb=MagusImage("Gross_dfr4.light");
+      Glib::RefPtr<Gdk::Pixmap> pm=Gdk::Pixmap::create(h->get_window(),pb->get_width(),pb->get_height(),h->get_window()->get_depth());
+      Glib::RefPtr<Gdk::GC> gc=Gdk::GC::create(pm);
+      pm->draw_pixbuf(gc,pb,0,0,0,0,-1,-1,Gdk::RGB_DITHER_NORMAL,0,0);
+      Glib::RefPtr<Gtk::Style> st=get_style()->copy();
+      st->set_bg_pixmap(Gtk::STATE_NORMAL,pm);
+      set_style(st);
+   }
   }
   edit_werte=false;
   edit_sensitive(false);

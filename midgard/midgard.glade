@@ -1791,7 +1791,7 @@ Sven Rey, Markus Steinberg, Ottmar Zimmer und viele andere geholfen.</property>
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
 		  <property name="n_rows">7</property>
-		  <property name="n_columns">5</property>
+		  <property name="n_columns">4</property>
 		  <property name="homogeneous">False</property>
 		  <property name="row_spacing">0</property>
 		  <property name="column_spacing">0</property>
@@ -5411,25 +5411,6 @@ setzen</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkImage" id="pixmap_dfr4">
-		      <property agent="glademm" name="cxx_visibility">protected</property>
-		      <property name="pixbuf">Gross_dfr4_pre.xpm</property>
-		      <property name="xalign">0.5</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		    </widget>
-		    <packing>
-		      <property name="left_attach">4</property>
-		      <property name="right_attach">5</property>
-		      <property name="top_attach">0</property>
-		      <property name="bottom_attach">7</property>
-		      <property name="x_options">shrink|fill</property>
-		      <property name="y_options">shrink</property>
-		    </packing>
-		  </child>
-
-		  <child>
 		    <widget class="GtkFrame" id="frame_wuerfelvariante">
 		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="visible">True</property>
@@ -5982,44 +5963,6 @@ auswählen</property>
 		      <property name="right_attach">1</property>
 		      <property name="top_attach">2</property>
 		      <property name="bottom_attach">3</property>
-		      <property name="x_options">shrink|fill</property>
-		      <property name="y_options">shrink|fill</property>
-		    </packing>
-		  </child>
-
-		  <child>
-		    <widget class="GtkScrolledWindow" id="scrolledwindow_dfr3">
-		      <property agent="glademm" name="cxx_visibility">protected</property>
-		      <property name="visible">True</property>
-		      <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-		      <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-		      <property name="shadow_type">GTK_SHADOW_NONE</property>
-		      <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
-
-		      <child>
-			<widget class="GtkViewport" id="viewport36">
-			  <property name="visible">True</property>
-			  <property name="shadow_type">GTK_SHADOW_NONE</property>
-
-			  <child>
-			    <widget class="GtkImage" id="pixmap_dfr3">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="pixbuf">Gross_dfr3_pre.xpm</property>
-			      <property name="xalign">0.5</property>
-			      <property name="yalign">0.5</property>
-			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
-			    </widget>
-			  </child>
-			</widget>
-		      </child>
-		    </widget>
-		    <packing>
-		      <property name="left_attach">1</property>
-		      <property name="right_attach">2</property>
-		      <property name="top_attach">0</property>
-		      <property name="bottom_attach">4</property>
 		      <property name="x_options">shrink|fill</property>
 		      <property name="y_options">shrink|fill</property>
 		    </packing>
@@ -6834,7 +6777,7 @@ eingeben</property>
 					  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
-					  <property name="adjustment">1 0 95 1 10 10</property>
+					  <property name="adjustment">4 0 95 1 10 10</property>
 					  <signal name="activate" handler="on_spinbutton_fach_activate" after="yes"/>
 					  <signal name="focus_out_event" handler="on_spinbutton_fach_focus_out_event"/>
 					  <signal name="focus_in_event" handler="on_spinbutton_fach_focus_in_event"/>
@@ -8585,7 +8528,7 @@ auswählen</property>
 			  <property agent="glademm" name="cxx_visibility">protected</property>
 			  <property name="visible">True</property>
 			  <property name="n_rows">1</property>
-			  <property name="n_columns">2</property>
+			  <property name="n_columns">1</property>
 			  <property name="homogeneous">False</property>
 			  <property name="row_spacing">0</property>
 			  <property name="column_spacing">0</property>
@@ -8654,26 +8597,6 @@ auswählen</property>
 			      <property name="bottom_attach">1</property>
 			      <property name="x_options">expand|shrink|fill</property>
 			      <property name="y_options">expand|shrink|fill</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkImage" id="pixmap_kurai">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="pixbuf">Gross_kurai_pre.xpm</property>
-			      <property name="xalign">0.5</property>
-			      <property name="yalign">0.5</property>
-			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
-			    </widget>
-			    <packing>
-			      <property name="left_attach">1</property>
-			      <property name="right_attach">2</property>
-			      <property name="top_attach">0</property>
-			      <property name="bottom_attach">1</property>
-			      <property name="x_options"></property>
-			      <property name="y_options"></property>
 			    </packing>
 			  </child>
 			</widget>
@@ -9352,7 +9275,7 @@ PP lernen</property>
 			      <property name="right_attach">2</property>
 			      <property name="top_attach">0</property>
 			      <property name="bottom_attach">1</property>
-			      <property name="x_options">fill</property>
+			      <property name="x_options">expand|shrink|fill</property>
 			      <property name="y_options">expand|shrink|fill</property>
 			    </packing>
 			  </child>
@@ -9381,6 +9304,105 @@ PP lernen</property>
 				      <property name="homogeneous">False</property>
 				      <property name="row_spacing">0</property>
 				      <property name="column_spacing">0</property>
+
+				      <child>
+					<widget class="GtkCheckButton" id="checkbutton_mag_waffenbonus">
+					  <property agent="glademm" name="cxx_visibility">protected</property>
+					  <property name="visible">True</property>
+					  <property name="tooltip" translatable="yes">Nach dem aktivieren: Waffe wählen</property>
+					  <property name="can_focus">True</property>
+					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="active">False</property>
+					  <property name="inconsistent">False</property>
+					  <property name="draw_indicator">False</property>
+					  <signal name="toggled" handler="on_checkbutton_mag_waffenbonus_toggled"/>
+
+					  <child>
+					    <widget class="GtkHBox" id="hbox76">
+					      <property name="visible">True</property>
+					      <property name="homogeneous">False</property>
+					      <property name="spacing">0</property>
+
+					      <child>
+						<widget class="GtkImage" id="pixmap160">
+						  <property name="visible">True</property>
+						  <property name="pixbuf">Waf_Mag_bon-50.xpm</property>
+						  <property name="xalign">0.5</property>
+						  <property name="yalign">0.5</property>
+						  <property name="xpad">0</property>
+						  <property name="ypad">0</property>
+						</widget>
+						<packing>
+						  <property name="padding">0</property>
+						  <property name="expand">True</property>
+						  <property name="fill">True</property>
+						</packing>
+					      </child>
+
+					      <child>
+						<widget class="GtkLabel" id="label593">
+						  <property name="visible">True</property>
+						  <property name="label" translatable="yes">Magischen Bonus
+eingeben</property>
+						  <property name="use_underline">False</property>
+						  <property name="use_markup">False</property>
+						  <property name="justify">GTK_JUSTIFY_CENTER</property>
+						  <property name="wrap">False</property>
+						  <property name="selectable">False</property>
+						  <property name="xalign">0.5</property>
+						  <property name="yalign">0.5</property>
+						  <property name="xpad">0</property>
+						  <property name="ypad">0</property>
+						</widget>
+						<packing>
+						  <property name="padding">0</property>
+						  <property name="expand">False</property>
+						  <property name="fill">False</property>
+						</packing>
+					      </child>
+					    </widget>
+					  </child>
+					</widget>
+					<packing>
+					  <property name="left_attach">1</property>
+					  <property name="right_attach">2</property>
+					  <property name="top_attach">0</property>
+					  <property name="bottom_attach">1</property>
+					  <property name="x_options"></property>
+					  <property name="y_options"></property>
+					</packing>
+				      </child>
+
+				      <child>
+					<widget class="GtkScrolledWindow" id="scrolledwindow84">
+					  <property name="visible">True</property>
+					  <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+					  <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+					  <property name="shadow_type">GTK_SHADOW_NONE</property>
+					  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+
+					  <child>
+					    <widget class="Custom" id="waffenbesitz_alt_tree">
+					      <property agent="glademm" name="cxx_visibility">protected</property>
+					      <property name="visible">True</property>
+					      <property name="creation_function">SimpleTree</property>
+					      <property name="int1">5</property>
+					      <property name="int2">0</property>
+					      <property name="last_modification_time">Tue, 14 Aug 2001 09:30:13 GMT</property>
+					      <signal name="leaf_selected" handler="on_leaf_waffenbesitz_selected_alt"/>
+					      <signal name="reorder" handler="on_alte_waffenbesitz_reorder"/>
+					    </widget>
+					  </child>
+					</widget>
+					<packing>
+					  <property name="left_attach">0</property>
+					  <property name="right_attach">1</property>
+					  <property name="top_attach">0</property>
+					  <property name="bottom_attach">2</property>
+					  <property name="x_options">expand|shrink|fill</property>
+					  <property name="y_options">expand|shrink|fill</property>
+					</packing>
+				      </child>
 
 				      <child>
 					<widget class="GtkTable" id="table_magbonus">
@@ -9544,107 +9566,8 @@ PP lernen</property>
 					  <property name="right_attach">2</property>
 					  <property name="top_attach">1</property>
 					  <property name="bottom_attach">2</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options">fill</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkCheckButton" id="checkbutton_mag_waffenbonus">
-					  <property agent="glademm" name="cxx_visibility">protected</property>
-					  <property name="visible">True</property>
-					  <property name="tooltip" translatable="yes">Nach dem aktivieren: Waffe wählen</property>
-					  <property name="can_focus">True</property>
-					  <property name="relief">GTK_RELIEF_NORMAL</property>
-					  <property name="active">False</property>
-					  <property name="inconsistent">False</property>
-					  <property name="draw_indicator">False</property>
-					  <signal name="toggled" handler="on_checkbutton_mag_waffenbonus_toggled"/>
-
-					  <child>
-					    <widget class="GtkHBox" id="hbox76">
-					      <property name="visible">True</property>
-					      <property name="homogeneous">False</property>
-					      <property name="spacing">0</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap160">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">Waf_Mag_bon-50.xpm</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">True</property>
-						  <property name="fill">True</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label593">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Magischen Bonus
-eingeben</property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">1</property>
-					  <property name="right_attach">2</property>
-					  <property name="top_attach">0</property>
-					  <property name="bottom_attach">1</property>
-					  <property name="x_options"></property>
-					  <property name="y_options"></property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkScrolledWindow" id="scrolledwindow84">
-					  <property name="visible">True</property>
-					  <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-					  <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-					  <property name="shadow_type">GTK_SHADOW_NONE</property>
-					  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
-
-					  <child>
-					    <widget class="Custom" id="waffenbesitz_alt_tree">
-					      <property agent="glademm" name="cxx_visibility">protected</property>
-					      <property name="visible">True</property>
-					      <property name="creation_function">SimpleTree</property>
-					      <property name="int1">5</property>
-					      <property name="int2">0</property>
-					      <property name="last_modification_time">Tue, 14 Aug 2001 09:30:13 GMT</property>
-					      <signal name="leaf_selected" handler="on_leaf_waffenbesitz_selected_alt"/>
-					      <signal name="reorder" handler="on_alte_waffenbesitz_reorder"/>
-					    </widget>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">0</property>
-					  <property name="right_attach">1</property>
-					  <property name="top_attach">0</property>
-					  <property name="bottom_attach">2</property>
 					  <property name="x_options">expand|shrink|fill</property>
-					  <property name="y_options">expand|shrink|fill</property>
+					  <property name="y_options">fill</property>
 					</packing>
 				      </child>
 				    </widget>
@@ -9714,13 +9637,13 @@ eingeben</property>
 			      <property name="right_attach">1</property>
 			      <property name="top_attach">0</property>
 			      <property name="bottom_attach">1</property>
-			      <property name="x_options">fill</property>
+			      <property name="x_options">expand|shrink|fill</property>
 			      <property name="y_options">expand|shrink|fill</property>
 			    </packing>
 			  </child>
 			</widget>
 			<packing>
-			  <property name="tab_expand">False</property>
+			  <property name="tab_expand">True</property>
 			  <property name="tab_fill">True</property>
 			</packing>
 		      </child>
@@ -16378,6 +16301,7 @@ anzeigen</property>
 		    <widget class="GtkToggleButton" id="togglebutton_delete_abenteurer_aus_liste">
 		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="visible">True</property>
+		      <property name="tooltip" translatable="yes">Knopf aktivieren, dann Abenteurer auswählen</property>
 		      <property name="can_focus">True</property>
 		      <property name="relief">GTK_RELIEF_NORMAL</property>
 		      <property name="active">False</property>
@@ -16441,30 +16365,6 @@ Liste löschen</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label597">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Zum Editieren eines Abenteurers diesen anklicken.</property>
-		      <property name="use_underline">False</property>
-		      <property name="use_markup">False</property>
-		      <property name="justify">GTK_JUSTIFY_CENTER</property>
-		      <property name="wrap">False</property>
-		      <property name="selectable">False</property>
-		      <property name="xalign">0</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		    </widget>
-		    <packing>
-		      <property name="left_attach">1</property>
-		      <property name="right_attach">2</property>
-		      <property name="top_attach">0</property>
-		      <property name="bottom_attach">1</property>
-		      <property name="x_options">shrink|fill</property>
-		      <property name="y_options">shrink</property>
-		    </packing>
-		  </child>
-
-		  <child>
 		    <widget class="GtkScrolledWindow" id="scrolledwindow86">
 		      <property name="visible">True</property>
 		      <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
@@ -16502,30 +16402,6 @@ Liste löschen</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label579">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Durch anklicken einer Zeile aus der Liste wird der entsprechende Abenteurer geladen.</property>
-		      <property name="use_underline">False</property>
-		      <property name="use_markup">False</property>
-		      <property name="justify">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap">False</property>
-		      <property name="selectable">False</property>
-		      <property name="xalign">0</property>
-		      <property name="yalign">0.02</property>
-		      <property name="xpad">2</property>
-		      <property name="ypad">0</property>
-		    </widget>
-		    <packing>
-		      <property name="left_attach">0</property>
-		      <property name="right_attach">1</property>
-		      <property name="top_attach">0</property>
-		      <property name="bottom_attach">1</property>
-		      <property name="x_options">fill</property>
-		      <property name="y_options"></property>
-		    </packing>
-		  </child>
-
-		  <child>
 		    <widget class="GtkScrolledWindow" id="scrolledwindow81">
 		      <property name="visible">True</property>
 		      <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
@@ -16559,6 +16435,54 @@ Liste löschen</property>
 		      <property name="bottom_attach">3</property>
 		      <property name="x_options">fill</property>
 		      <property name="y_options">fill</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkLabel" id="label597">
+		      <property name="visible">True</property>
+		      <property name="label" translatable="yes">Geladene Abenteurer</property>
+		      <property name="use_underline">False</property>
+		      <property name="use_markup">False</property>
+		      <property name="justify">GTK_JUSTIFY_CENTER</property>
+		      <property name="wrap">False</property>
+		      <property name="selectable">False</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		    </widget>
+		    <packing>
+		      <property name="left_attach">1</property>
+		      <property name="right_attach">2</property>
+		      <property name="top_attach">0</property>
+		      <property name="bottom_attach">1</property>
+		      <property name="x_options">expand|shrink|fill</property>
+		      <property name="y_options">shrink</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkLabel" id="label579">
+		      <property name="visible">True</property>
+		      <property name="label" translatable="yes">Letzte Änderungen</property>
+		      <property name="use_underline">False</property>
+		      <property name="use_markup">False</property>
+		      <property name="justify">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap">False</property>
+		      <property name="selectable">False</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">2</property>
+		      <property name="ypad">0</property>
+		    </widget>
+		    <packing>
+		      <property name="left_attach">0</property>
+		      <property name="right_attach">1</property>
+		      <property name="top_attach">0</property>
+		      <property name="bottom_attach">1</property>
+		      <property name="x_options">expand|shrink|fill</property>
+		      <property name="y_options">shrink</property>
 		    </packing>
 		  </child>
 		</widget>
@@ -19325,7 +19249,7 @@ werk</property>
     <widget class="GtkTable" id="table133">
       <property name="visible">True</property>
       <property name="n_rows">11</property>
-      <property name="n_columns">2</property>
+      <property name="n_columns">1</property>
       <property name="homogeneous">False</property>
       <property name="row_spacing">0</property>
       <property name="column_spacing">0</property>
@@ -19775,26 +19699,6 @@ löschen</property>
 	  <property name="top_attach">10</property>
 	  <property name="bottom_attach">11</property>
 	  <property name="x_options">fill</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="pixmap_arkanum">
-	  <property agent="glademm" name="cxx_visibility">protected</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">Gross_ark_pre.xpm</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="left_attach">1</property>
-	  <property name="right_attach">2</property>
-	  <property name="top_attach">0</property>
-	  <property name="bottom_attach">11</property>
-	  <property name="x_options"></property>
-	  <property name="y_options"></property>
 	</packing>
       </child>
     </widget>
