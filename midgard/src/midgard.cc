@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.27 2001/11/03 09:55:04 thoma Exp $
+// $Id: midgard.cc,v 1.28 2001/11/21 07:19:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,11 +32,12 @@
 #include <Aux/dbconnect.h>
 #include "Midgard_Info.hh"
 #include <unistd.h>
+#include "xml.h"
 
 int main(int argc, char **argv)
 {   
    Gtk::Main m(&argc, &argv);
-
+   xml_init();
 //   if (argc==1) manage(new Midgard_Info(true));
 
    try {
@@ -50,5 +51,6 @@ int main(int argc, char **argv)
    {  std::cerr << e << '\n';
       return 1;
    }
+   xml_free();
    return 0;
 }

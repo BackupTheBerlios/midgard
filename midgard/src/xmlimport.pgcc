@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.29 2001/11/20 22:18:06 christof Exp $
+// $Id: xmlimport.pgcc,v 1.30 2001/11/21 07:19:46 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -304,7 +304,7 @@ update:
 
 bool charakter_laden(istream &i)
 {  TagStream ts(i);
-   Tag *top=&ts;
+   const Tag *top=&ts;
 //   ts.debug(15);
    
    Tag::const_iterator next=top->find(top->begin(),"Midgard-Charakter");

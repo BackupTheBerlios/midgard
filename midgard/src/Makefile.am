@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.73 2001/11/20 22:18:06 christof Exp $
+# $Id: Makefile.am,v 1.74 2001/11/21 07:19:46 christof Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -101,9 +101,11 @@ BUILT_SOURCES_CG =  \
 BUILT_SOUCES_XMLE=xmlexport.cc
 BUILT_SOUCES_XMLI=xmlimport.cc
 
-BUILT_SOURCES= $(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE) $(BUILT_SOUCES_XMLI)
+BUILT_SOURCES= $(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE) $(BUILT_SOUCES_XMLI) \
+	export_common.h
 
 export_common.cc: ../xml/export_common.cc ; ln -sf ../xml/$@ .
+export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
 
 midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE) export_common.cc
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
@@ -208,5 +210,7 @@ CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
 # midgard_CG_glade.cc nicht optimieren, sonst explodiert der
 # Speicherverbrauch
-midgard_CG_glade.o: midgard_CG_glade.cc
+midgard_CG_glade.o: midgard_CG_glade.cc ../config.h midgard_CG.hh \
+		midgard_CG_glade.hh   # und vieles mehr !!!
 	$(CXXCOMPILE) -O0 -c $<
+	echo > .deps/$(*F).P
