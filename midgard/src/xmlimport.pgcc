@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.21 2001/08/28 15:45:33 christof Exp $
+// $Id: xmlimport.pgcc,v 1.22 2001/08/28 16:54:35 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,15 +25,8 @@ exec sql include sqlca;
 #include "TagStream.hh"
 #include <Aux/string0.h>
 
-bool charakter_laden(istream &i)
-{  TagStream ts(i);
-//   ts.debug(15);
-   Tag::const_iterator top=ts.find("Midgard-Charakter");
-   if (!top || top==ts.end())
-   {  std::cerr << "Ist das wirklich die richtige Datei? Ich kann keinen Charakter finden.\n";
-      return false;
-   }
-   if (top->getInt("Version")<3 || top->getInt("Version")>6)
+bool charakter_laden(const Tag::const_iterator &top)
+{  if (top->getInt("Version")<3 || top->getInt("Version")>7)
    {  std::cerr << "Version " << top->getInt("Version") << " wird noch nicht unterstützt\n";
       return false;
    }
@@ -55,6 +48,7 @@ bool charakter_laden(istream &i)
    if (!Ausruestung) Ausruestung=top->find("Fertigkeiten"); // V3-
    if (!Ruestung) Ruestung=Ausruestung->find("Rüstung"); // V4+
    const Tag *Fertigkeiten=top->find("Fertigkeiten");
+   const Tag *Steigern=top->find("Steigern");
 
    // ---- taken from save_charakter.pgcc ------
    exec sql begin declare section;
@@ -108,6 +102,8 @@ bool charakter_laden(istream &i)
       int db_kupfer;
       char db_ruestung[20];
       char db_spezies[50];
+      int db_aep,db_kep,db_zep,db_steigern_ep_prozent,db_grad_basiswerte;
+      bool db_speichern_bool;
    exec sql end declare section;
 
    strncpy0(db_beschreibung,top->getString("Text").c_str(),sizeof db_beschreibung);
@@ -164,6 +160,13 @@ bool charakter_laden(istream &i)
    else *db_ruestung=0;
    strncpy0(db_spezies,Typ->getString("Spezies").c_str(),sizeof db_spezies);
    
+   db_aep=Steigern->getInt("AEP",0); // V7+
+   db_kep=Steigern->getInt("KEP",0); // V7+
+   db_zep=Steigern->getInt("ZEP",0); // V7+
+   db_steigern_ep_prozent=Steigern->getInt("APproGFP",50); // V7+
+   db_grad_basiswerte=Steigern->getInt("Basiswerte",db_grad); // V7+
+   db_speichern_bool=Steigern->getBool("steigern",false); // V7+
+   
 update:
    exec sql UPDATE charaktere SET 
       charakter_name = :db_name_ch  , 
@@ -215,7 +218,14 @@ update:
       silber         = :db_silber      ,
       kupfer         = :db_kupfer      ,
       ruestung       = :db_ruestung    ,
-      spezies          = :db_spezies
+      spezies        = :db_spezies     ,
+      steigern_bool  = :db_steigen_bool,
+      aep	     = :db_aep	       ,
+      kep 	     = :db_kep		, 
+      zep	     = :db_zep		,
+      steigern_ep_prozent = :db_steigern_ep_prozent,
+      grad_basiswerte = :db_grad_basiswerte
+      
       WHERE charakter_name = :db_name_ch ;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode==100) 
@@ -284,6 +294,21 @@ update:
    return true;
 }
 
+bool charakter_laden(istream &i)
+{  TagStream ts(i);
+//   ts.debug(15);
+   
+   Tag::const_iterator top=ts.find("Midgard-Charakter");
+   if (!top || top==ts.end())
+   {  std::cerr << "Ist das wirklich die richtige Datei? Ich kann keinen Charakter finden.\n";
+      return false;
+   }
+   // Wirklich abbrechen ?? oder andere Charaktere laden?
+   if (!charakter_laden(top)) return false;
+   while ((top=ts.find(top,"Midgard-Charakter"))!=0)
+      if (!charakter_laden(top)) return false;
+}
+
 int main(int argc, char *argv[])
 {  
    if (argc!=1) {std::cerr << "USAGE: "<<argv[0]<<" < XML_Datei \n";
@@ -293,7 +318,7 @@ int main(int argc, char *argv[])
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
 
-      if (!charakter_laden(std::cin)) return 1;
+      if (!charakter_laden(std::cin)) { Petig::dbdisconnect(); return 1; }
       
       Petig::dbdisconnect();
    } catch (SQLerror &e)
