@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.cc,v 1.5 2002/07/08 16:22:12 christof Exp $
+// $Id: Windows_Linux.cc,v 1.6 2002/07/10 07:49:16 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -36,3 +36,6 @@ std::string WinLux::recodePathForTeX(std::string p)
 #endif
    return p;
 };
+
+string Windows_Linux::normal_tilde="\\catcode`\\~=12\n";
+string Windows_Linux::active_tilde="\\catcode`\\~=\\active\n";

@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.hh,v 1.7 2002/07/08 14:54:08 christof Exp $
+// $Id: Windows_Linux.hh,v 1.8 2002/07/10 07:49:16 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -34,6 +34,8 @@ namespace WinLux
 {
   static const char dirsep=WINDOWS_LINUX('\\','/');
   static const char psep=WINDOWS_LINUX(';',':');
+  // ~ in TeX als normales Zeichen (Dateiname) oder als festes Leerzeichen?
+  static const string normal_tilde, active_tilde;
   
   std::string recodePathForTeX(std::string p);
 };
