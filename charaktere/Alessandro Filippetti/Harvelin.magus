@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="5" Name="Grimbald Harvelin" Zeitpunkt="Seelenkaefig"/>
+  <Typ Abkürzung="Sp" Geschlecht="m" Hand="Rechtshänder" Spezies="Halbling" Stadt_Land="Stadt" Überleben="Überleben Heimat"/>
+  <Basiseigenschaften Gs="77" Gw="100" In="89" Ko="97" St="60" Zt="22"/>
+  <abgeleiteteEigenschaften Au="69" B="12" SG="5" Sb="14" Wk="93" pA="34"/>
+  <Erfolgswerte Abwehr="13" ZauberResistenz="12" Zaubern="2"/>
+  <Gesundheit AP="25" LP="15"/>
+  <Beschreibung Alter="21" Gestalt="breit" Gewicht="61" Glaube="Leomie" Größe="112" Herkunft="Halfdal" Stand="Volk"/>
+  <Vermögen GS="126" KS="7" SS="7"/>
+  <Steigern AEP="7" EPproGFP="33" GFP="2910" benötigte_Tage="29.16">
+   <Praxispunkte/>
+  </Steigern>
+  <Text>Dies ist die Geschichte von Grimald Harvelin, einem jungen Hobbit, der auszog, etwas anderes als das heimatliche Halfdahl kennen zu lernen.&#x0A;Es begab sich eines schönen morgens vor nicht allzu langer Zeit, dass Harvelin von seinem Onkel, dem alten &#x5C;textsc { Nordel }   zum Weinhändler&#x0A;in der nahen Stadt der Grosslinge geschickt wurde.&#x0A;&#x0A;Dies war der Anfang des Abenteuers &#x0A;&#x0A;Kaum hatte er den Weinhändler verlassen und sich eine {&#x5C;Large gemütliche Gaststätte } gesucht, als auch schon ein verwegen &#x0A;(wenigstens für die Augen eines Halblings) aussehender Menschenpulk die Gaststätte in Beschlag nahm.</Text>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="11"/>
+   <Waffe Bezeichnung="Werfen" Erfolgswert="9"/>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="5 Liter-Wasserschlauch" Gewicht="0.1" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    </Gegenstand>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Dietriche und Nachschlüssel" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Bälle, Reifen und Keulen zum Jonglieren" Gewicht="1" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="20m Seil" Gewicht="1.5" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="20m Garn" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="20m Angelschnur" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gußeisentopf für 2 Liter" Gewicht="2" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Feuerstein und Zunder" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Laterne. abblendbar" Gewicht="1.5" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Angelhaken" Gewicht="0.05" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="3" Beschreibung="" Besonderheit="" Bezeichnung="Tischtuch, weiss, 1x1m" Gewicht="0.2" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="4" Beschreibung="" Besonderheit="" Bezeichnung="1/4 Liter Lampenöl" Gewicht="0.3" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Nähnadel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="3" Beschreibung="" Besonderheit="" Bezeichnung="Serviette, weiss, 40x40cm" Gewicht="0" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Essgeschirr, Holz" Gewicht="0.5" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="2" Beschreibung="" Besonderheit="" Bezeichnung="Handtuch, weiss" Gewicht="0.1" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
+    </Gegenstand>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="grün, Baumwolle, Mittelschicht" Bezeichnung="Weste" Gewicht="0.5" Region="EE" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="grün, Seide, Mittelschicht" Bezeichnung="5 Taschentücher" Gewicht="0" Region="EE" RüstungOhneGewicht="false"/>
+    </Gegenstand>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="ungefärbt, Leder, Volk" Bezeichnung="Stiefel (halbhoch)" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="ungefärbt, Leder, Volk" Bezeichnung="Lederhandschuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="grün, Leinen, Mittelschicht" Bezeichnung="Umhang" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="10"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="10"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn"/>
+   <Beruf Bezeichnung="Schmuggler"/>
+   <ang-Fertigkeit Bezeichnung="Gute Reflexe" Wert="9"/>
+   <Fertigkeit Bezeichnung="Akrobatik" Wert="10"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="6"/>
+   <Fertigkeit Bezeichnung="Gaukeln" Wert="12"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Klettern" Praxispunkte="1" Wert="13"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Praxispunkte="1" Wert="4" Zusatz="Alba"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="6"/>
+   <Fertigkeit Bezeichnung="Rudern" Wert="10"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Schleichen" Praxispunkte="3" Wert="11"/>
+   <Fertigkeit Bezeichnung="Schlösser öffnen" Praxispunkte="1" Wert="8"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="7"/>
+   <Fertigkeit Bezeichnung="Stehlen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Steuern" Praxispunkte="1" Wert="11"/>
+   <Fertigkeit Bezeichnung="Suchen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Tanzen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Tarnen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Überleben im Wald" Wert="6"/>
+   <Fertigkeit Bezeichnung="Verbergen" Wert="7"/>
+   <Waffe Bezeichnung="Dolch" Praxispunkte="1" Wert="11"/>
+   <Waffe Bezeichnung="Faustkampf" Wert="4"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="8"/>
+   <Waffe Bezeichnung="Werfen" Wert="9"/>
+   <Grundkenntnis Bezeichnung="Werfen"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Albisch" Praxispunkte="1" Wert="12"/>
+   <Sprache Bezeichnung="Comentang" Wert="5"/>
+   <Sprache Bezeichnung="Halftan" Wert="19"/>
+   <Sprache Bezeichnung="Twyneddisch" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Kompendium" Region="TuT"/>
+   <Region Name="Alba" Region="A"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

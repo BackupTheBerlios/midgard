@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Sulvahîr" Zeitpunkt="Wargars Grab" Grad="6"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ma" Spezialgebiet="Adept der Erkenntnis" Spezialisierung="Adept der Erkenntnis" Überleben="Überleben im Wald" Muttersprache="Albisch" Stadt_Land="Land" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="61" Gw="84" Gs="90" Ko="85" In="31" Zt="96"/>
+  <abgeleiteteEigenschaften Au="27" pA="27" Wk="70" Sb="37" B="27" SG="3"/>
+  <Erfolgswerte Abwehr="14" Zaubern="16" ZauberResistenz="13"/>
+  <Gesundheit LP="12" AP="32"/>
+  <Beschreibung Alter="24" Gestalt="normal" Gewicht="75" Größe="178" Stand="Volk" Herkunft="Alba"/>
+  <Vermögen GS="442"/>
+  <Steigern GFP="4708" AEP="129" KEP="30" ZEP="134" EPproGFP="67" benötigte_Tage="113">
+   <Praxispunkte Zaubern="5"/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="11" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="6" Bezeichnung="Kurzschwert"/>
+   <Waffe Erfolgswert="6" Bezeichnung="Wurfspieß"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="magische Brosche" Beschreibung="Brosche der Bruderschaft, Res. Geistesmagie +4" Region="EE" Gewicht="0.010000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="Laterne. abblendbar" Beschreibung="" Region="" Gewicht="1.500000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="2mx2m Fischernetz" Beschreibung="" Region="" Gewicht="1.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="4" Bezeichnung="1/4 Liter Lampenöl" Beschreibung="" Region="" Gewicht="0.300000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="wasserdichte Lederhülle für Schriftrollen" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="1/20 Liter Tusche" Beschreibung="" Region="" Gewicht="0.050000" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="30cmx30cm Pergament" Beschreibung="" Region="" Gewicht="0.050000" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="Schreibfeder" Beschreibung="" Region="" Gewicht="0.005000" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="Zeichenkohle" Beschreibung="" Region="" Gewicht="0.030000" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="Angelhaken" Beschreibung="" Region="" Gewicht="0.050000" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="Nähnadel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="2mx2m Fischernetz" Beschreibung="" Region="" Gewicht="1.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="20m Angelschnur" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="20m Seil" Beschreibung="" Region="" Gewicht="1.500000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+      <Gegenstand Anzahl="1" Bezeichnung="Wurfanker" Beschreibung="" Region="" Gewicht="1.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     </Gegenstand>
+     <Gegenstand Anzahl="1" Bezeichnung="20m Garn" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+    <Gegenstand Anzahl="1" Bezeichnung="5 Liter-Wasserschlauch" Beschreibung="" Region="" Gewicht="0.100000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="warme Oberbekleidung" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="ungefärbt, Pelz, Volk" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Stiefel (bis zum Knie)" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="ungefärbt, Leder, Volk" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="einfacher Waffengürtel" Beschreibung="" Region="" Gewicht="0.300000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Umhang" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="blau, Baumwolle, Volk" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Stab d. Feuers" Beschreibung="Feuerkreis (1) Feuerkugel (3) Flammenwand (9) Feuerelementar (18)" Region="EE" Gewicht="0.500000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <ang-Fertigkeit Bezeichnung="Wachgabe" Wert="6"/>
+   <Fertigkeit Bezeichnung="Fingerstechen" Wert="2"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="10"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="12" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Schlittenfahren" Wert="12"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="10"/>
+   <Fertigkeit Bezeichnung="Skifahren" Wert="12"/>
+   <Fertigkeit Bezeichnung="Stimmen nachahmen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Zeichensprache" Wert="4"/>
+   <Waffe Bezeichnung="Dolch" Wert="11"/>
+   <Waffe Bezeichnung="Kurzschwert" Wert="6"/>
+   <Waffe Bezeichnung="Wurfspieß" Wert="6"/>
+   <Waffe Bezeichnung="leichter Speer" Wert="4"/>
+   <Zauber Bezeichnung="Bannen von Zauberwerk"/>
+   <Zauber Bezeichnung="Erkennen von Leben"/>
+   <Zauber Bezeichnung="Erkennen von Zauberei"/>
+   <Zauber Bezeichnung="Feuerkugel"/>
+   <Zauber Bezeichnung="Hören der Geister"/>
+   <Zauber Bezeichnung="Hören von Fernem"/>
+   <Zauber Bezeichnung="Schlaf"/>
+   <Zauber Bezeichnung="Sehen in Dunkelheit"/>
+   <Zauber Bezeichnung="Sehen von Verborgenem"/>
+   <Zauber Bezeichnung="Stimmenwerfen"/>
+   <Zauber Bezeichnung="Wasseratmen"/>
+   <Zauber Bezeichnung="Zauberschlüssel"/>
+   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Grundkenntnis Bezeichnung="Wurfspieß"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Albisch" Wert="14"/>
+   <Sprache Bezeichnung="Eldalyn" Wert="4"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="13"/>
+   <Sprache Bezeichnung="Maralinga" Wert="12"/>
+   <Sprache Bezeichnung="Nahuatlanisch" Wert="6"/>
+   <Sprache Bezeichnung="Twyneddisch" Wert="13"/>
+   <Sprache Bezeichnung="Waelska" Wert="10"/>
+   <Urschrift Bezeichnung="Erainnisch" Wert="8"/>
+   <Urschrift Bezeichnung="Albisch" Wert="12"/>
+   <Urschrift Bezeichnung="Twyneddisch" Wert="8"/>
+   <Urschrift Bezeichnung="Maralinga" Wert="8"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Alba" Region="A"/>
+   <Region Name="Waeland" Region="W"/>
+   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
