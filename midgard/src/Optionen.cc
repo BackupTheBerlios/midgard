@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.80 2002/09/18 08:35:46 thoma Exp $
+// $Id: Optionen.cc,v 1.81 2002/09/18 09:09:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -96,7 +96,7 @@ void Midgard_Optionen::setString(StringIndex index,std::string n)
    if(i->index==index) { i->name=n; return; }
 }
 
-Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi) const
+const Midgard_Optionen::st_OptionenCheck &Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi) const
 {
  for(std::list<st_OptionenCheck>::const_iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->index==oi) 
@@ -345,6 +345,7 @@ void Midgard_Optionen::Optionen_init()
 {
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
+/*
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
                            false,NSC_Mode_32_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(Drei_Tasten_Maus,
@@ -354,6 +355,7 @@ void Midgard_Optionen::Optionen_init()
                            "MAGUS mit bestimmter Seite starten",false,0,1));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true,0));
+*/
 /*
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
