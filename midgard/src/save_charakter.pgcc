@@ -22,12 +22,13 @@ exec sql include sqlca;
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 #include <cstring>
-#endif
-#include "Waffe.hh"
-// for XML export
+#else
 #include "WindowInfo.hh"
 #include "export_common.h"
 #include <fstream>
+#endif
+#include "Waffe.hh"
+// for XML export
 #include "xml_fileselection.hh"
 
 
@@ -36,7 +37,7 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 #ifndef USE_XML
   if (ev->button==1) on_speichern_clicked();
 //  if (ev->button==3) midgard_CG::xml_export();
-//  if (ev->button==3) xml_export_auswahl();
+  if (ev->button==3) xml_export_auswahl();
 //  frame_steigern->show();
 #else
   xml_export_auswahl();
@@ -54,7 +55,8 @@ void midgard_CG::xml_export_auswahl()
 void midgard_CG::xml_export(const std::string& dateiname)
 {  steigern_aktivieren();
    
-#ifndef USE_XML // eigentlich Unsinn, aber besser als nichts zu tun
+#ifndef USE_XML
+  // eigentlich Unsinn da nur Version 8, aber besser als nichts zu tun
   std::string cname   = Werte.Name_Charakter();
   std::string version = Werte.Version(OptionBool.version);
   std::string command = "midgard_xmlexport '"+cname+"' '"+version+"' > '"+dateiname+"'";
@@ -94,7 +96,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
          if (WB->Magisch().empty()) datei << "/>\n";
          else datei << '>' << WB->Magisch() << "</Waffe>\n";
       }
-   save_ausruestung(datei);
+   save_ausruestung(datei, besitz.getChildren());
    datei << "  </Ausrüstung>\n";
    
    datei << "  <Fertigkeiten>\n";   
@@ -129,7 +131,8 @@ void midgard_CG::xml_export(const std::string& dateiname)
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {  if (!(*i)->Active()) continue;
       datei << "    <Region";
-      write_string_attrib(datei, "Region", (*i)->Name());
+      write_string_attrib(datei, "Name", (*i)->Name());
+      write_string_attrib(datei, "Region", (*i)->Abkuerzung());
       datei << "/>\n";
    }
    datei << "  </Fertigkeiten>\n";   
@@ -484,10 +487,9 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
 }
 
 
-void midgard_CG::save_ausruestung(IF_XML(ostream &datei))
-{
 #ifndef USE_XML
-  exec sql begin declare section;
+void midgard_CG::save_ausruestung()
+{ exec sql begin declare section;
     char db_name_a[50];
     char db_vers_a[50];
     char db_art_a[50],db_fert_a[50],db_magisch_a[50];
@@ -510,51 +512,10 @@ void midgard_CG::save_ausruestung(IF_XML(ostream &datei))
      SQLerror::test(__FILELINE__);
      save_ausruestung_C(self,self,i->getChildren());
    }
-#else
-#if 0
-  {Query query2("select av_bonus, fertigkeit, region, magisch, wert, sl_bonus "
-   	"from charaktere_fertigkeiten "
-   	"where charakter_name='"+name+"' and version='"+version+"' "
-   	"and art='Ausruestung' "
-   	"order by sl_bonus");
-   FetchIStream is2;
-   list<int> parent_list;
-//   parent_list.push_back(0);
-   int last_id=0;
-   while ((query2>>is2).good())
-   {  int parent_id=fetch_int(is2);
-      if (last_id && parent_id==last_id)
-      {  o << ">\n";
-         parent_list.push_back(parent_id);
-      }
-      else 
-      {  if (last_id) o << "/>\n"; // close last 
-         while (parent_list.back()!=parent_id && !parent_list.empty())
-         {  parent_list.pop_back();
-            o << string(4+parent_list.size()*2,' ') << "</Gegenstand>\n";
-         }
-      }
-      o << string(4+parent_list.size()*2,' ') << "<Gegenstand";
-      fetch_and_write_string_attrib(is2, o, "Bezeichnung");
-      fetch_and_write_string_attrib(is2, o, "Region");
-      fetch_and_write_string_attrib(is2, o, "Besonderheit");
-      if (fetch_int(is2)) write_bool_attrib(o, "sichtbar", true);
-      last_id=fetch_int(is2);
-   }
-   if (last_id) o << "/>\n"; // close last 
-   while (!parent_list.empty())
-   {  parent_list.pop_back();
-      o << string(4+parent_list.size()*2,' ') << "</Gegenstand>\n";
-   }
-  }
-#endif // 0
-#endif   
 }
 
-#ifndef USE_XML
 void midgard_CG::save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB)
-{
-  exec sql begin declare section;
+{ exec sql begin declare section;
     char db_name_ac[50];
     char db_vers_ac[50];
     char db_art_ac[50],db_fert_ac[50],db_magisch_ac[50];
@@ -578,8 +539,25 @@ void midgard_CG::save_ausruestung_C(int parent,int &self,const list<AusruestungB
      save_ausruestung_C(db_self_ac,self,i->getChildren());
    }
 }
+#else
+void midgard_CG::save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB, const int indent)
+{  
+  for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
+   {  datei << string(indent,' ') << "<Gegenstand";
+      write_string_attrib(datei, "Bezeichnung", i->getAusruestung().Name());
+      write_string_attrib(datei, "Besonderheit", i->getAusruestung().Material());
+      write_bool_attrib(datei, "sichtbar", i->getAusruestung().Sichtbar());
+      if (i->empty()) datei << "/>\n";
+      else
+      {  datei << ">\n";
+         save_ausruestung(datei, i->getChildren(), indent+2);
+         datei << string(indent,' ') << "</Gegenstand>\n";
+      }
+   }
+}
+#endif
 
-
+#ifndef USE_XML
 void midgard_CG::charakter_db_anlegen()
 {
   

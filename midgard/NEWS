@@ -26,9 +26,9 @@ TODO:
   (Karawanenführer, land, v,m
    Kaufmann, stadt,m,a
    Verwalter, land, stadt, m,a,
-* Einlesen von Charakteren aus XML (!!!)
-* Abspeichern von neuen Ausrüstungsgegenständen ohne DB
-
+* Einlesen von Ausrüstung aus XML
+* Abspeichern von neuen Ausrüstungsgegenständen in XML
+* KiDo XML korrekturlesen
 
 ##########################################################################
 NEWS IN VERSION 0.2delta1

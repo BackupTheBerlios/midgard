@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.34 2002/01/15 12:21:18 thoma Exp $
+// $Id: xmlimport.pgcc,v 1.35 2002/01/20 23:06:08 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -112,42 +112,42 @@ bool charakter_laden(const Tag::const_iterator &top)
    strncpy0(db_beschreibung,top->getString("Text").c_str(),sizeof db_beschreibung);
    strncpy0(db_typ_s,typ_std2mcg(Typ->getAttr("Abkürzung")).c_str(),sizeof db_typ_s);
    strncpy0(db_typ_2_s,typ_std2mcg(Typ->getAttr("Abkürzung2")).c_str(),sizeof db_typ_2_s);
-   db_st=Basiseigenschaften->getIntAttr("St",0);
-   db_ge=Basiseigenschaften->getIntAttr("Ge",0);
-   db_ko=Basiseigenschaften->getIntAttr("Ko",0);
-   db_in=Basiseigenschaften->getIntAttr("In",0);
-   db_zt=Basiseigenschaften->getIntAttr("Zt",0);
-   db_au=abgeleiteteEigenschaften->getIntAttr("Au",0);
-   db_pa=abgeleiteteEigenschaften->getIntAttr("pA",0);
-   db_sb=abgeleiteteEigenschaften->getIntAttr("Sb",0);
-   db_rw=abgeleiteteEigenschaften->getIntAttr("RW",0);
-   db_hgw=abgeleiteteEigenschaften->getIntAttr("HGW",0);
-   db_b=abgeleiteteEigenschaften->getIntAttr("B",0);
-   db_lp=Gesundheit->getIntAttr("LP",0);
-   db_ap=Gesundheit->getIntAttr("AP",0);
-   db_kaw=abgeleiteteEigenschaften->getIntAttr("KAW",0);
-   db_wlw=abgeleiteteEigenschaften->getIntAttr("WLW",0);
-   db_abwehr=Erfolgswerte->getIntAttr("Abwehr",0);
-   db_zaubern=Erfolgswerte->getIntAttr("Zaubern",0);
+   db_st=Basiseigenschaften->getIntAttr("St");
+   db_ge=Basiseigenschaften->getIntAttr("Ge");
+   db_ko=Basiseigenschaften->getIntAttr("Ko");
+   db_in=Basiseigenschaften->getIntAttr("In");
+   db_zt=Basiseigenschaften->getIntAttr("Zt");
+   db_au=abgeleiteteEigenschaften->getIntAttr("Au");
+   db_pa=abgeleiteteEigenschaften->getIntAttr("pA");
+   db_sb=abgeleiteteEigenschaften->getIntAttr("Sb");
+   db_rw=abgeleiteteEigenschaften->getIntAttr("RW");
+   db_hgw=abgeleiteteEigenschaften->getIntAttr("HGW");
+   db_b=abgeleiteteEigenschaften->getIntAttr("B");
+   db_lp=Gesundheit->getIntAttr("LP");
+   db_ap=Gesundheit->getIntAttr("AP");
+   db_kaw=abgeleiteteEigenschaften->getIntAttr("KAW");
+   db_wlw=abgeleiteteEigenschaften->getIntAttr("WLW");
+   db_abwehr=Erfolgswerte->getIntAttr("Abwehr");
+   db_zaubern=Erfolgswerte->getIntAttr("Zaubern");
    db_resistenz=Resistenzen->getIntAttr("Zauber", // V5
    	Resistenzen->getIntAttr("Resistenz", // V4.Malte
-   	Resistenzen->getIntAttr("psy",0))); // V-4
-   db_bo_au=Boni->getIntAttr("Ausdauer",0);
-   db_bo_sc=Boni->getIntAttr("Schaden",0);
-   db_bo_an=Boni->getIntAttr("Angriff",0);
-   db_bo_ab=Boni->getIntAttr("Abwehr",0);
-   db_bo_za=Boni->getIntAttr("Zaubern",0);
-   db_bo_psy=Boni_Resistenzen->getIntAttr("psy",0);
-   db_bo_phs=Boni_Resistenzen->getIntAttr("phs",0);
-   db_bo_phk=Boni_Resistenzen->getIntAttr("phk",0);
-   db_bo_gi=Boni_Resistenzen->getIntAttr("Gift",0);
-   db_lpbasis=Gesundheit->getIntAttr("LP_Basis",0);
-   db_alter=Beschreibung->getIntAttr("Alter",0);
+   	Resistenzen->getIntAttr("psy"))); // V-4
+   db_bo_au=Boni->getIntAttr("Ausdauer");
+   db_bo_sc=Boni->getIntAttr("Schaden");
+   db_bo_an=Boni->getIntAttr("Angriff");
+   db_bo_ab=Boni->getIntAttr("Abwehr");
+   db_bo_za=Boni->getIntAttr("Zaubern");
+   db_bo_psy=Boni_Resistenzen->getIntAttr("psy");
+   db_bo_phs=Boni_Resistenzen->getIntAttr("phs");
+   db_bo_phk=Boni_Resistenzen->getIntAttr("phk");
+   db_bo_gi=Boni_Resistenzen->getIntAttr("Gift");
+   db_lpbasis=Gesundheit->getIntAttr("LP_Basis");
+   db_alter=Beschreibung->getIntAttr("Alter");
    strncpy0(db_gestalt,Beschreibung->getAttr("Gestalt","normal").c_str(),sizeof db_gestalt);
    strncpy0(db_geschlecht,Typ->getAttr("Geschlecht","m").c_str(),sizeof db_geschlecht);
-   db_gewicht=Beschreibung->getIntAttr("Gewicht",0);
-   db_groesse=Beschreibung->getIntAttr("Größe",0);
-   db_grad=Figur->getIntAttr("Grad",0);
+   db_gewicht=Beschreibung->getIntAttr("Gewicht");
+   db_groesse=Beschreibung->getIntAttr("Größe");
+   db_grad=Figur->getIntAttr("Grad");
    strncpy0(db_spez,Typ->getAttr("Spezialisierung").c_str(),sizeof db_spez);
    strncpy0(db_stand,Beschreibung->getAttr("Stand").c_str(),sizeof db_stand);
    strncpy0(db_herkunft,Beschreibung->getAttr("Herkunft").c_str(),sizeof db_herkunft);
@@ -155,18 +155,18 @@ bool charakter_laden(const Tag::const_iterator &top)
    strncpy0(db_name_ch,Figur->getAttr("Name").c_str(),sizeof db_name_ch);
    strncpy0(db_name_sp,Figur->getAttr("Spieler").c_str(),sizeof db_name_sp);
    strncpy0(db_version,Figur->getAttr("Zeitpunkt").c_str(),sizeof db_version);
-   db_gfp=top->getInt("GFP",0);
-   db_gold=Vermoegen->getIntAttr("GS",0);
-   db_silber=Vermoegen->getIntAttr("SS",0);
-   db_kupfer=Vermoegen->getIntAttr("KS",0);
+   db_gfp=top->getInt("GFP");
+   db_gold=Vermoegen->getIntAttr("GS");
+   db_silber=Vermoegen->getIntAttr("SS");
+   db_kupfer=Vermoegen->getIntAttr("KS");
    if (Ruestung) strncpy0(db_ruestung,Ruestung->Value().c_str(),sizeof db_ruestung);
    else *db_ruestung=0;
    strncpy0(db_spezies,Typ->getAttr("Spezies").c_str(),sizeof db_spezies);
    
    if (Steigern)
-   {  db_aep=Steigern->getIntAttr("AEP",0); // V7+
-      db_kep=Steigern->getIntAttr("KEP",0); // V7+
-      db_zep=Steigern->getIntAttr("ZEP",0); // V7+
+   {  db_aep=Steigern->getIntAttr("AEP"); // V7+
+      db_kep=Steigern->getIntAttr("KEP"); // V7+
+      db_zep=Steigern->getIntAttr("ZEP"); // V7+
       db_steigern_ep_prozent=Steigern->getIntAttr("EPproGFP",50); // V7+
       db_grad_basiswerte=Steigern->getIntAttr("Basiswerte",db_grad); // V7+
       db_grad_zaubern=Steigern->getIntAttr("Zaubern",db_grad); // V7+
@@ -270,9 +270,9 @@ update:
 
       strncpy0(db_art,"Besitz_W",sizeof db_art);
       strncpy0(db_fertigkeit,i->getAttr("Bezeichnung").c_str(),sizeof db_fertigkeit);
-      db_wert=i->getIntAttr("Wert",0);
-      db_av_bonus=i->getIntAttr("AngriffVerteidigung_Bonus",0);
-      db_sl_bonus=i->getIntAttr("SchadenLebenspunkte_Bonus",0);
+      db_wert=i->getIntAttr("Wert");
+      db_av_bonus=i->getIntAttr("AngriffVerteidigung_Bonus");
+      db_sl_bonus=i->getIntAttr("SchadenLebenspunkte_Bonus");
       strncpy0(db_magisch,i->Value().c_str(),sizeof db_magisch);
       strncpy0(db_region,i->getAttr("Region").c_str(),sizeof db_region);
 
@@ -298,9 +298,9 @@ update:
 
       strncpy0(db_art,i->Type().c_str(),sizeof db_art);
       strncpy0(db_fertigkeit,i->getAttr("Bezeichnung").c_str(),sizeof db_fertigkeit);
-      db_wert=i->getIntAttr("Wert",0);
-      db_av_bonus=i->getIntAttr("AngriffVerteidigung_Bonus",0);
-      db_sl_bonus=i->getIntAttr("SchadenLebenspunkte_Bonus",0);
+      db_wert=i->getIntAttr("Wert");
+      db_av_bonus=i->getIntAttr("AngriffVerteidigung_Bonus");
+      db_sl_bonus=i->getIntAttr("SchadenLebenspunkte_Bonus");
       strncpy0(db_magisch,i->Value().c_str(),sizeof db_magisch);
       strncpy0(db_region,i->getAttr("Region").c_str(),sizeof db_region);
 

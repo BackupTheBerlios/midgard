@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.134 2002/01/20 19:09:36 christof Exp $
+// $Id: midgard_CG.hh,v 1.135 2002/01/20 23:06:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -181,7 +181,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void charakter_db_anlegen();
         void on_laden_clicked();
         void load_charakter();
-        void load_fertigkeiten();
+        void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b));
         void on_latex_clicked(bool values=true);
         void LaTeX_write_values();
         void LaTeX_write_empty_values();
@@ -409,10 +409,16 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
          void grundwerte_speichern(IF_XML(ostream &));
-         void save_ausruestung(IF_XML(ostream &));
+#ifndef USE_XML
+	// das könnte doch alles privat oder?
+         void save_ausruestung();
          void save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB);
-         void load_ausruestung(IF_XML(istream &));
+         void load_ausruestung();
          void load_ausruestung_C(int parent, AusruestungBaum *AB);
+#else
+         void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
+         void load_ausruestung(const Tag *tag, list<AusruestungBaum> &AB);
+#endif         
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);

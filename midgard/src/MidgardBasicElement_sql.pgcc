@@ -245,7 +245,10 @@ void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
   for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
    {
       // oder <Beruf Wert=12>Arzt</Beruf> ?
-      datei << "    <" << (*i)->What_str();
+      std::string type=(*i)->What_str();
+      if (type.find('.')!=string::npos)
+         type.replace(type.find('.'),1,"-");
+      datei << "    <" << type;
       write_string_attrib(datei, "Bezeichnung", (*i)->Name());
       write_int_attrib(datei, "Wert", (*i)->Erfolgswert());
 //      write_string_attrib(datei, "Region", (*i)->Region());

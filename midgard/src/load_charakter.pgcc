@@ -17,23 +17,28 @@
  */
 
 #include "midgard_CG.hh"
-#include <cstring>
 #include <Aux/itos.h>
+
 #ifndef USE_XML
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 #include "Window_charakter_auswahl.hh"
+exec sql include sqlca;
+#include <cstring>
+#else
+#include "TagStream.hh"
+#include "WindowInfo.hh"
+#endif
+
+#include "xml_fileselection.hh"
+#include <Sprache.hh>
+#include <Schrift.hh>
 #include "Fertigkeiten_angeboren.hh"
 #include "Waffe.hh"
 #include "WaffeGrund.hh"
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include "KiDo.hh"
-exec sql include sqlca;
-#endif
-#include "xml_fileselection.hh"
-#include <Sprache.hh>
-#include <Schrift.hh>
  
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
@@ -53,12 +58,148 @@ void midgard_CG::xml_import_auswahl()
 
 void midgard_CG::xml_import(const std::string& datei)
 {
-#if 0
-  std::string command = "midgard_xmlimport < '"+datei+"'";
-  system(command.c_str());
-  std::string strinfo = "Charakter aus Datei "+datei+" importiert\n";
-  manage (new WindowInfo(strinfo));
-  on_laden_clicked();  
+#ifdef USE_XML
+   TagStream ts(datei);
+   const Tag *top=ts.find("Midgard-Charakter"); // -V8
+   if (!top) 
+   {  top=ts.find("MidgardCG-data");  // V8+
+      if (!top) top=ts.find("MAGUS-data"); // V10?
+      if (top) top=top->find("Midgard-Charakter");
+   }
+   // Wenn mehrere Charaktere -> auswählen?
+   if (!top)
+   {  manage(new WindowInfo("(Abenteurer in) Datei '"+datei
+                   +"' nicht gefunden."));
+      return;
+   }
+   
+   if (top->getIntAttr("Version")<3 || top->getIntAttr("Version")>9)
+   {  manage(new WindowInfo("Version "+itos(top->getIntAttr("Version"))
+   			+" wird noch nicht unterstützt"));
+   }
+   const Tag *Figur=top->find("Figur");
+   const Tag *Typ=top->find("Typ");
+   const Tag *Basiseigenschaften=top->find("Basiseigenschaften");
+   const Tag *abgeleiteteEigenschaften=top->find("abgeleiteteEigenschaften");
+   const Tag *Erfolgswerte=top->find("Erfolgswerte");
+   const Tag *Resistenzen=top->find("Resistenzen");
+   const Tag *Gesundheit=top->find("Gesundheit");
+   const Tag *Beschreibung=top->find("Beschreibung");
+   const Tag *Boni=top->find("Boni");
+//   const Tag *Boni_Resistenzen=Boni->find("Resistenzen");
+   const Tag *Vermoegen=top->find("Vermoegen"); // V3
+   if (!Vermoegen) Vermoegen=top->find("Vermögen"); // V4
+   const Tag *Ruestung=top->find("Ruestung"); // V2?
+   if (!Ruestung) Ruestung=top->find("Rüstung"); // V3
+   const Tag *Ausruestung=top->find("Ausrüstung"); // V4+
+   if (!Ausruestung) Ausruestung=top->find("Fertigkeiten"); // V3-
+   if (!Ruestung) Ruestung=Ausruestung->find("Rüstung"); // V4+
+   const Tag *Fertigkeiten=top->find("Fertigkeiten");
+   const Tag *Steigern=top->find("Steigern");
+   const Tag *Praxispunkte=Steigern?Steigern->find("Praxispunkte"):0;
+
+   Werte.setBasiswerte(Basiseigenschaften->getIntAttr("St"),
+   	Basiseigenschaften->getIntAttr("Gw",Basiseigenschaften->getIntAttr("RW")),
+   	Basiseigenschaften->getIntAttr("Gs",Basiseigenschaften->getIntAttr("Ge")),
+   	Basiseigenschaften->getIntAttr("Ko"),
+   	Basiseigenschaften->getIntAttr("In"),
+   	Basiseigenschaften->getIntAttr("Zt"));
+   Werte.setAu(abgeleiteteEigenschaften->getIntAttr("Au"));
+   Werte.setpA(abgeleiteteEigenschaften->getIntAttr("pA"));
+   Werte.setSb(abgeleiteteEigenschaften->getIntAttr("Sb"));
+   Werte.setWk(abgeleiteteEigenschaften->getIntAttr("Wk"));
+   Werte.setB(abgeleiteteEigenschaften->getIntAttr("B"));
+   Werte.setLP(Gesundheit->getIntAttr("LP"));
+   Werte.setAP(Gesundheit->getIntAttr("AP"));
+   Werte.setZaubern_wert(Erfolgswerte->getIntAttr("Zaubern"));
+   Werte.setAbwehr_wert(Erfolgswerte->getIntAttr("Abwehr"));
+   Werte.setResistenz(Erfolgswerte->getIntAttr("ZauberResistenz", // V9
+   	Resistenzen->getIntAttr("Zauber", // V5
+   	Resistenzen->getIntAttr("Resistenz", // V4.Malte
+   	Resistenzen->getIntAttr("psy"))))); // V-4
+   if (Praxispunkte)
+   {  Werte.setZaubernPP(Praxispunkte->getIntAttr("Zaubern")); // V8
+      Werte.setAbwehrPP(Praxispunkte->getIntAttr("Abwehr")); // V8
+      Werte.setResistenzPP(Praxispunkte->getIntAttr("Resistenz")); // V8
+   }
+   else
+   {  Werte.setZaubernPP(0);
+      Werte.setAbwehrPP(0);
+      Werte.setResistenzPP(0);
+   }
+   Werte.setHand(Typ->getAttr("Hand"));
+   Werte.setGewicht(Beschreibung->getIntAttr("Gewicht"));
+   Werte.setGroesse(Beschreibung->getIntAttr("Größe"));
+   Werte.setGrad(Figur->getIntAttr("Grad"));
+   Werte.setStand(Beschreibung->getAttr("Stand"));
+
+   Werte.setAlter(Beschreibung->getIntAttr("Alter")); 
+   Werte.setGeschlecht(Typ->getAttr("Geschlecht","m"));
+   Werte.setSpezialisierung(Typ->getAttr("Spezialisierung"));
+   Werte.setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft")));
+   Werte.setGlaube(Beschreibung->getAttr("Glaube"));
+   Werte.setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
+   Werte.setGFP(Steigern ? Steigern->getIntAttr("GFP", // V9
+   		top->getInt("GFP")) : top->getInt("GFP"));
+   Werte.setGG(abgeleiteteEigenschaften->getIntAttr("GG")); // V9
+   Werte.setSG(abgeleiteteEigenschaften->getIntAttr("SG")); // V9
+   Werte.setBeschreibung(top->getString("Text")); 
+   Werte.setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
+   if (Ruestung) Werte.setRuestung(cH_Ruestung(Ruestung->Value()));
+   else Werte.setRuestung(cH_Ruestung("OR"));
+   Werte.setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch")));
+   if (Steigern) // V7+
+      Werte.setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
+   else
+      Werte.setEP(0,0,0);
+   Werte.setStadt_Land(Typ->getAttr("Stadt_Land","Stadt")); // V8+
+   if (Steigern)
+      Database.GradAnstieg.set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
+      	,Steigern->getIntAttr("Basiswerte",Werte.Grad()));
+   else Database.GradAnstieg.set_Grad_Anstieg(50,Werte.Grad());
+
+// sinnvollerweise in andere Funktion ???
+
+//////////////////////////////////////////////////////////////////////////////
+//   // Land oder Stadt?
+//   if(Werte.Stadt_Land()=="Stadt") optionmenu_land->set_history(0);
+//   else radiobutton_land->set_active;
+
+   // Geschlecht setzen ////////////////////////////////////////////////
+   if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
+   if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
+   // Charakterklasse setzen und anzeigen 
+   this->Typ[0]=cH_Typen(Typ->getAttr("Abkürzung"));
+   fill_typauswahl();
+   typauswahl->set_history(this->Typ[0]->Nr());
+
+   { std::string s = Typ->getAttr("Abkürzung2");
+     if(s!="") 
+      { this->Typ[1]=cH_Typen(s);
+        fill_typauswahl_2();
+        typauswahl_2->set_history(this->Typ[1]->Nr());
+      }
+   }
+   if (this->Typ[0]->Zaubern()=="n" || this->Typ[0]->Short() == "Or" ||
+       this->Typ[1]->Zaubern()=="n" || this->Typ[1]->Short() == "Or") 
+      label_spezialwaffe->set_text("Spezialwaffe durch \nSelektieren auswählen");
+   else label_spezialwaffe->set_text("");
+   Database.ausnahmen.set_Typ(this->Typ);
+
+   ///////////////////////////////////////////////////////////////////////   
+   // Berufe, Fertigkeiten, Waffen und Zauber (KiDo), Grundkenntnisse (Waffen)
+   load_fertigkeiten(Fertigkeiten,Ausruestung);
+   menu_init();
+
+   Database.ausnahmen.set_Beruf(list_Beruf);
+
+   // Spezies setzen ////////////////////////////////////////////
+   optionmenu_spezies->set_history(Werte.Spezies()->Nr());
+   //////////////////////////////////////////////////////////////
+   show_gtk();
+   if(cH_Spezialgebiet::is_cached(Werte.Spezialisierung()))
+      Werte.setSpezialgebiet(cH_Spezialgebiet(Werte.Spezialisierung()));
+   load_ausruestung(Ausruestung,besitz.getChildren());
 #endif
 }
 
@@ -392,9 +533,16 @@ void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum *AB)
     load_ausruestung_C(i->first,i->second);
    }
 }
-
-void midgard_CG::load_fertigkeiten()
+#else
+void midgard_CG::load_ausruestung(const Tag *tag, list<AusruestungBaum> &AB)
 {
+#warning kommt später
+}
+#endif
+
+void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b))
+{
+#ifndef USE_XML
   exec sql begin declare section;
    char db_fert[50],db_art[50];
    int db_wert;
@@ -502,6 +650,101 @@ void midgard_CG::load_fertigkeiten()
     } 
   exec sql close LFEIN;
   tr.close();
+#else
+
+#warning alle Regionen an!!!
+#warning wer löscht die Listen?
+#warning alle bools an
+
+    FOR_EACH_CONST_TAG(i,*tag)
+    {
+      const std::string sart=i->Type();
+      if(sart=="Sinn")
+        {
+         Werte.setSinn(i->getAttr("Bezeichnung"),i->getIntAttr("Wert"));
+        }
+      else if(sart=="Beruf")
+        {
+         cH_MidgardBasicElement beruf(&*cH_Beruf(i->getAttr("Bezeichnung")));
+         cH_Beruf(beruf)->set_Erfolgswert(i->getIntAttr("Wert"));
+         list_Beruf.push_back(beruf);
+        }
+      else if(sart=="ang-Fertigkeit" || sart=="ang.Fertigkeit")
+       {
+         cH_MidgardBasicElement fert_an(&*cH_Fertigkeit_angeborene(i->getAttr("Bezeichnung")));
+         cH_Fertigkeit_angeborene(fert_an)->set_Erfolgswert(i->getIntAttr("Wert"));
+         list_Fertigkeit_ang.push_back(fert_an);
+       }    
+      else if(sart=="Fertigkeit")
+       {
+         cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->getAttr("Bezeichnung")));
+         fert->set_Erfolgswert(i->getIntAttr("Wert"));
+         fert->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
+         if(fert->Name()=="Landeskunde") 
+         {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
+            cH_Fertigkeit(fert)->setZusatz(i->getAttr("Land"));
+         }
+         list_Fertigkeit.push_back(fert);
+         if      (fert->Name()=="KiDo") kido_bool=true;
+         else if (fert->Name()=="Zaubern") magie_bool=true;
+       }    
+      else if(sart=="Waffe")
+        {
+         cH_MidgardBasicElement waffe(&*cH_Waffe(i->getAttr("Bezeichnung")));
+         waffe->set_Erfolgswert(i->getIntAttr("Wert"));
+         waffe->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
+         list_Waffen.push_back(waffe);
+        }
+#if 0 // andere Liste       
+      if(sart=="Besitz_W")
+#endif
+      else if(sart=="Zauber")
+      	  list_Zauber.push_back(&*cH_Zauber(i->getAttr("Bezeichnung")));
+      else if(sart=="Zauberwerk")
+          list_Zauberwerk.push_back(&*cH_Zauberwerk(i->getAttr("Bezeichnung"),
+          	i->getAttr("Art"),i->getAttr("Stufe")));
+      else if(sart=="KiDo")          list_Kido.push_back(&*cH_KiDo(i->getAttr("Bezeichnung"))) ;
+      else if(sart=="Grundkenntnis") list_WaffenGrund.push_back(&*cH_WaffeGrund(i->getAttr("Bezeichnung")));
+      else if(sart=="Sprache")
+        {
+         cH_MidgardBasicElement sprache(&*cH_Sprache(i->getAttr("Bezeichnung")));
+         sprache->set_Erfolgswert(i->getIntAttr("Wert"));
+         sprache->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
+         list_Sprache.push_back(sprache);
+        }
+      else if(sart=="Urschrift") 
+        {
+         cH_MidgardBasicElement schrift(&*cH_Schrift(i->getAttr("Bezeichnung")));
+         schrift->set_Erfolgswert(i->getIntAttr("Wert"));
+         schrift->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
+         list_Schrift.push_back(schrift);
+        }
+      else if(sart=="bool" && i->attbegin()!=i->attend())
+        {
+         std::string reg=i->attbegin()->first;
+         if (reg=="ORIG") {OptionBool.Original=false ; }
+         else if (reg=="INFO") {OptionBool.Info=false ;}
+         else if (reg=="PICS") {OptionBool.Info=false ;}
+         else if (reg=="VERS") {OptionBool.version=false ;}
+         else if (reg=="STEI") {OptionBool.steigern=false ;}
+        }
+      else if(sart=="Region")
+        {
+         cH_Region R(i->getAttr("Name"));
+         Region::setActive(Database.Regionen,R,false);
+        }
+    } 
+    FOR_EACH_CONST_TAG_OF(i,*waffen_b,"Waffe")
+    {   std::string wn = Database.Waffe_from_Alias[i->getAttr("Bezeichnung")];
+        if (wn=="") wn=i->getAttr("Bezeichnung"); 
+        list_Waffen_besitz.push_back(new 
+	        WaffeBesitz(cH_Waffe(wn),
+                        i->getAttr("Bezeichnung"),
+                        i->getAttr("Region"),
+                        i->getIntAttr("AngriffVerteidigung_Bonus"),
+                        i->getIntAttr("SchadenLebenspunkte_Bonus"),
+                        i->Value()));
+    }
+#endif
 }
 
-#endif

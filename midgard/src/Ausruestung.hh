@@ -54,6 +54,7 @@ class AusruestungBaum
 {
       std::list<AusruestungBaum> child;
       Ausruestung ausruestung;
+      // wieso ist das const ? wenn unten eine nicht const funktion existiert
       const AusruestungBaum *parent;
 
       typedef list<AusruestungBaum>::const_iterator const_iterator;
@@ -71,9 +72,16 @@ class AusruestungBaum
           { child.push_back(a); return child.back(); }
 
       const Ausruestung &getAusruestung() const {return ausruestung;}
+
       AusruestungBaum *getParent() const {return const_cast<AusruestungBaum*>(parent);}
+      // reicht der hier nicht? CP
+      // AusruestungBaum *getParent() {return parent;}
+      // dann könnte man :
+      // const AusruestungBaum *getParent() const {return parent;}
       void setParent(AusruestungBaum *p) {parent=p;}
+
       const std::list<AusruestungBaum> &getChildren() const {return child;}
+      std::list<AusruestungBaum> &getChildren() {return child;}
 
       void remove(const AusruestungBaum &A) {child.remove(A);}
          

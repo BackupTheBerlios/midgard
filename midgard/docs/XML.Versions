@@ -50,4 +50,5 @@ Version 9:
 	-Steigern/EPabziehen, Abwehr, Resistenz, Zaubern ???
 	
 	<Region Region="ORIG"/> -> <bool ORIG="false"/>
+	<Region Region="A"/> -> <Region Name="Alba" Region="A"/>
 	
