@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.21 2002/01/08 08:40:27 christof Exp $
+# $Id: Makefile.am,v 1.22 2002/01/08 11:09:35 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
 
@@ -33,7 +33,7 @@ LIBS=@LIBS@ @COMMONXX_LIBS@
 
 XMLDIR=../../midgard-xml
 
-export: $(EXTRA_PROGRAMS)
+export: all_exp arkanum_exp # $(EXTRA_PROGRAMS)
 	./arkanum_exp >$(XMLDIR)/Arkanum.xml
 	./all_exp K >$(XMLDIR)/KanThaiPan.xml
 	./all_exp R >$(XMLDIR)/Rawindra.xml

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.8 2002/01/08 09:40:51 christof Exp $
+// $Id: fertigk_exp.cc,v 1.9 2002/01/08 11:09:35 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -297,7 +297,8 @@ void fert_speichern(std::ostream &o)
    	" from pflicht_lernen"
    	" where not exists (select true from fertigkeiten"
    		" where pflicht=fertigkeit or verboten=fertigkeit)"
-   	" and not exists (select true from berufe_voraussetzung"
+   	" and not exists (select true from "
+   		MIDGARD3_4("berufe_voraussetzung","berufe_voraussetzung_4")
    		" where pflicht=beruf or verboten=beruf)"
    	" order by typ,coalesce(pflicht,''),verboten");
    FetchIStream is;
