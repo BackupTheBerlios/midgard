@@ -145,6 +145,8 @@ void midgard_CG::on_speichern_clicked()
             SQLerror::test(__FILELINE__);
       }
 */
+   MidgardBasicElement::saveElementliste(list_Zauber,Werte,Typ,vec_Beruf);
+/*
    for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();
          i!=list_Zauber.end();++i)
       {
@@ -156,6 +158,9 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert_str,'Zauber') ;         
             SQLerror::test(__FILELINE__);
       }
+*/
+   MidgardBasicElement::saveElementliste(list_Zauberwerk,Werte,Typ,vec_Beruf);
+/*
    for (std::list<cH_Zauberwerk>::const_iterator i=list_Zauberwerk.begin();
          i!=list_Zauberwerk.end();++i)
       {
@@ -168,6 +173,9 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Zaubermittel') ;         
             SQLerror::test(__FILELINE__);
       }
+*/
+   MidgardBasicElement::saveElementliste(list_Kido,Werte,Typ,vec_Beruf);
+/*
    for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
       {
          strncpy(db_fertigkeit, ((*i)->Hoho()).c_str(),sizeof(db_fertigkeit));
@@ -178,6 +186,7 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,0,'KiDo') ;         
             SQLerror::test(__FILELINE__);
       }
+*/
 //   for (map<std::string,string>::const_iterator i=waffen_grundkenntnisse.begin();
 //            i!=waffen_grundkenntnisse.end();++i)
    for (std::list<cH_WaffeGrund>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)

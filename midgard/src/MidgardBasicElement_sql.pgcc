@@ -1,7 +1,42 @@
-#inlcude "MidgardBasicElement.hh"
+#include "MidgardBasicElement.hh"
+#include "class_Grundwerte.hh"
+#include "class_Ausnahmen.hh"
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
 
-saveElementliste(const std::list<cH_MidgardBasicElement>& b)
+
+void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElement>& b,
+                           const Grundwerte& Werte,
+                           const vector<H_Data_typen>& Typ,
+                           const std::vector<H_Data_beruf>& vec_Beruf
+                           )
 {
+  if(b.size()==0) return;
+/*
+    int db_av_bonus,db_sl_bonus;
+    char db_region[20];
+    char db_wert_str[20];
+    char db_magisch[1024];
+*/
+  exec sql begin declare section;
+    char db_name_ch[50], db_version[50];
+    char db_fertigkeit[50];
+    int db_wert;
+    char db_what[30];
+  exec sql end declare section;
+  strncpy(db_name_ch,Werte.Name_Charakter().c_str(),sizeof(db_name_ch));
+  strncpy(db_version,Werte.Version().c_str(),sizeof(db_version));
+  strncpy(db_what, ((*b.begin())->What_str()).c_str(),sizeof(db_what));
 
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
+   {
+     strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+     db_wert = (*i)->Erfolgswert(Typ,Werte,Ausnahmen(Werte,Typ,vec_Beruf));
+     exec sql INSERT INTO charaktere_fertigkeiten
+         (charakter_name,version,fertigkeit,wert,art)
+       VALUES
+         (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_what) ;
+     SQLerror::test(__FILELINE__);
+   }
 }
 

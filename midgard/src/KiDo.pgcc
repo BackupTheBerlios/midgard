@@ -33,16 +33,17 @@ exec sql include sqlca;
 
 cH_KiDo::cache_t cH_KiDo::cache;
 
-cH_KiDo::cH_KiDo(const std::string& name,const vector<H_Data_typen>& Typ, const Ausnahmen& ausnahmen)
+//cH_KiDo::cH_KiDo(const std::string& name,const vector<H_Data_typen>& Typ, const Ausnahmen& ausnahmen)
+cH_KiDo::cH_KiDo(const std::string& name)
 {
- st_index index(name,Typ);
- cH_KiDo *cached(cache.lookup(index));
+// st_index index(name,Typ);
+ cH_KiDo *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
   {
 //cout << "cH_"<<name<<'\n';
-   *this=cH_KiDo(new KiDo(name,Typ,ausnahmen));
-   cache.Register(index,*this);
+   *this=cH_KiDo(new KiDo(name));
+   cache.Register(name,*this);
   }
 
 }
@@ -82,3 +83,47 @@ int KiDo::get_erfolgswert_kido(const std::list<cH_Fertigkeit>& L)
 // return 0; 
   abort();
 }   
+
+void KiDo::get_map_typ()
+{
+ exec sql begin declare section;
+   char query[1024], db_typ[10], db_standard[10];
+ exec sql end declare section;
+ std::string squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
+ strncpy(query,squery.c_str(),sizeof(query));
+ Transaction tr;
+ exec sql prepare KMein_ from :query ;
+ exec sql declare KMein cursor for KMein_ ;
+ exec sql open KMein;
+ SQLerror::test(__FILELINE__);
+ while(true)
+  {
+    exec sql fetch KMein into :db_typ,:db_standard;
+    SQLerror::test(__FILELINE__,100);
+    if (sqlca.sqlcode) break;
+    map_typ[db_typ]=db_standard;
+  } 
+}   
+
+
+
+KiDo_All::KiDo_All()
+{
+ exec sql begin declare section;
+   char db_name[100];
+ exec sql end declare section;
+ exec sql declare KIein cursor for select distinct name_orig from kido;
+ Transaction tr;
+ exec sql open KIein; 
+ SQLerror::test(__FILELINE__);
+ while(true)
+  {
+   exec sql fetch KIein into :db_name;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   list_All.push_back(new KiDo(db_name));
+//   list_All.push_back(const std::list<cH_Zauber> (cH_Zauber(db_name)));
+  }
+ exec sql close KIein;
+ tr.close();
+}  

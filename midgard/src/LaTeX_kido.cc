@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.23 2001/10/09 09:03:43 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.24 2001/10/27 17:54:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,19 +24,20 @@ void midgard_CG::LaTeX_kido()
 {
   std::string name = "midgard_tmp_mykido.tex";
   ofstream fout(name.c_str());
-  for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
    {
-     std::string ap = itos((*i)->Ap());
+     cH_KiDo kd(*i);
+     std::string ap = itos(kd->Ap());
      if (ap=="0") ap="";
-     std::string stufe=(*i)->Stufe();
+     std::string stufe=kd->Stufe();
      if (stufe=="Schüler") stufe="S";
      if (stufe=="Eingeweihter") stufe="E";
      if (stufe=="Meister") stufe="M";
      fout << ap << " & ";
-     fout << (*i)->Hoho() << " & ";
-     fout << (*i)->Name() << " & ";
+     fout << kd->Hoho() << " & ";
+     fout << kd->Name() << " & ";
      fout << stufe << " & ";
-     fout << Gtk2TeX::string2TeX((*i)->Effekt()) ;
+     fout << Gtk2TeX::string2TeX(kd->Effekt()) ;
      fout << "\\\\\n";
    }
 }

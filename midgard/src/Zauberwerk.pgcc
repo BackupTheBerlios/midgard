@@ -78,20 +78,22 @@ void Zauberwerk::get_map_typ()
   } 
 }
 
+/*
 bool Zauberwerk::ist_lernbar(const vector<H_Data_typen>& Typ) const
 {
   for (std::vector<H_Data_typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
     if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") return true;
   return false;
 }
-
+*/
+/*
 bool Zauberwerk::ist_gelernt(const std::list<cH_Zauberwerk>& L) const
 {
  for (std::list<cH_Zauberwerk>::const_iterator i=L.begin();i!=L.end();++i)
     if((*i)->Name()==Name()) return true;
  return false;
 }
-
+*/
 
 int Zauberwerk::Kosten(const vector<H_Data_typen>& Typ) const
 {
@@ -224,7 +226,7 @@ Zauberwerk_All::Zauberwerk_All()
    exec sql fetch ZAWein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
-   list_All.push_back(cH_Zauberwerk(db_name));
+   list_All.push_back(new Zauberwerk(db_name));
   }
  exec sql close ZAWein;
  tr.close();

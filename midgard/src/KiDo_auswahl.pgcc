@@ -46,12 +46,13 @@ void KiDo_auswahl::on_clist_kido_auswahl_unselect_row(gint row, gint column, Gdk
 
 void KiDo_auswahl::on_button_close_clicked()
 {
-  std::list<cH_KiDo> technik;
+  std::list<cH_MidgardBasicElement> technik;
   for(Gtk::CList::SelectionList::iterator i=clist_kido_auswahl->selection().begin();
       i!=clist_kido_auswahl->selection().end();++i)
    {
 //cout << '1'<<' ' ;
-     cH_KiDo *ptr = static_cast<cH_KiDo*>(i->get_data());
+//     cH_KiDo *ptr = static_cast<cH_KiDo*>(i->get_data());
+     cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
 //     std::string *ptr = static_cast<std::string*>(i->get_data());
 //cout << '2'<<' ';
 //cout << *ptr<<'\t';
@@ -61,7 +62,8 @@ void KiDo_auswahl::on_button_close_clicked()
 //cout << '4'<<'\n';
 
    }
-  hauptfenster->kido_uebernehmen(technik);
+//  hauptfenster->kido_uebernehmen(technik);
+  hauptfenster->MidgardBasicElement_uebernehmen(technik);
   destroy();
 }
 
@@ -89,21 +91,23 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
    exec sql declare ein cursor for ein_;
    exec sql open ein;
    SQLerror::test(__FILELINE__);
-   std::list<cH_KiDo> kido_technik;
+   std::list<cH_MidgardBasicElement> kido_technik;
    while (true)
      {
       exec sql fetch ein into :db_name_orig;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
 //      kido_technik.push_back(st_kido_(db_name_orig,db_name,db_ap,db_fp));
-      kido_technik.push_back(cH_KiDo(db_name_orig,Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
+//      kido_technik.push_back(cH_KiDo(db_name_orig,Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
+      kido_technik.push_back(new KiDo(db_name_orig));
      }
    exec sql close ein;
    Gtk::OStream os(clist_kido_auswahl);
    clist_kido_auswahl->freeze();
-   for (std::list<cH_KiDo>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
+   for (std::list<cH_MidgardBasicElement>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
     {
-      os << (*i)->Hoho() <<"\t"<<(*i)->Name()<<"\t"<<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
+      cH_KiDo kd(*i);
+      os << kd->Hoho() <<"\t"<<kd->Name()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Typ,Ausnahmen(Werte,Typ,vec_Beruf))<<"\n";
       os.flush(&*i);
 //      os.flush((*i)->Hoho());
     }

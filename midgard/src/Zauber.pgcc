@@ -110,6 +110,7 @@ void Zauber::get_map_typ()
   } 
 }
 
+/*
 bool Zauber::ist_lernbar(const vector<H_Data_typen>& Typ) const
 {
   for (std::vector<H_Data_typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
@@ -123,6 +124,7 @@ bool Zauber::ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const
     if( **i==*this ) return true;
  return false;
 }
+*/
 
 int Zauber::Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
 {

@@ -9,23 +9,32 @@
 class H_Data_typen;
 class Grundwerte;
 class Ausnahmen;
+class H_Data_beruf;
 //class cH_Zauber;
 class cH_MidgardBasicElement;
 
 class MidgardBasicElement : public HandleContent
 {
    public:
-      enum MBEE {FERTIGKEITE,WAFFEN,ZAUBER,KIDO,SPRACHE,SCHRIFT} ;
+      enum MBEE {FERTIGKEITE,WAFFEN,ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
+
 
       virtual std::string Name() const=0;
-      virtual int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const {return 0;}
+      virtual int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const {return 99;}
       virtual std::string Region() const {return "";}
       virtual enum MBEE What() const=0;
-
+      virtual std::string What_str() const=0; // zum speichern
+      virtual map<std::string,std::string> get_MapTyp() const=0;
+      bool ist_lernbar(const vector<H_Data_typen>& Typ,const map<std::string,std::string>& map_typ) const;
+      bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
+      
       virtual bool operator == (const MidgardBasicElement& b) const 
          {return Name()==b.Name();}
 
-      saveElementliste(const std::list<cH_MidgardBasicElement>& b);
+      static void saveElementliste(const std::list<cH_MidgardBasicElement>& b,
+                                   const Grundwerte& Werte,
+                                   const vector<H_Data_typen>& Typ,
+                                   const std::vector<H_Data_beruf>& vec_Beruf);
 
 };
 

@@ -1,11 +1,11 @@
 #ifndef ZAUBERCLASS
 #define ZAUBERCLASS
-#include <string>
-#include <list>
-#include <vector>
-#include <Aux/Handles.h>
+//#include <string>
+//#include <list>
+//#include <vector>
+//#include <Aux/Handles.h>
 #include "MidgardBasicElement.hh"
-#include <Aux/CacheStatic.h>
+//#include <Aux/CacheStatic.h>
 #include "class_typen.hh"
 #include "class_Ausnahmen.hh"
 class cH_Zauber;
@@ -33,12 +33,14 @@ class Zauber : public MidgardBasicElement
    Zauber(const std::string& n,int l=0) 
       : name(n),lernpunkte(l){get_Zauber();get_map_typ();} 
 
+   map<std::string,std::string> get_MapTyp() const {return map_typ;}
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
+   std::string What_str() const {return "Zauber";}
 
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
-   bool ist_lernbar(const vector<H_Data_typen>& Typ) const;
+//   bool ist_lernbar(const vector<H_Data_typen>& Typ) const;
 //   bool ist_gelernt(const std::list<cH_Zauber>& L) const;
    bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
 
@@ -115,10 +117,9 @@ class Zauber_sort_ursprung
 
 class Zauber_All
 {
-//   std::list<cH_Zauber> list_All;
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Zauber_All();// {fill_list();} 
+   Zauber_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.77 2001/10/26 16:07:30 thoma Exp $
+// $Id: midgard_CG.hh,v 1.78 2001/10/27 17:54:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -115,8 +115,8 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_beruf> vec_Beruf;
         std::list<cH_MidgardBasicElement> list_Zauber;
         std::list<cH_MidgardBasicElement> list_Zauber_neu;
-        std::list<cH_Zauberwerk> list_Zauberwerk;
-        std::list<cH_Zauberwerk> list_Zauberwerk_neu;
+        std::list<cH_MidgardBasicElement> list_Zauberwerk;
+        std::list<cH_MidgardBasicElement> list_Zauberwerk_neu;
         std::list<cH_MidgardBasicElement> list_Kido;
         std::list<cH_MidgardBasicElement> list_Kido_neu;
 
@@ -314,7 +314,7 @@ class midgard_CG : public midgard_CG_glade
         void on_leaf_selected_neue_zauberwerk(cH_RowDataBase d);
         void show_altes_zauberwerk();
         void show_neues_zauberwerk();
-        void move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,const std::string& name);
+//        void move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,const std::string& name);
         void zauberwerk_laden();
         void zauberwerk_zeigen();
         void on_button_zauber_sort_clicked();

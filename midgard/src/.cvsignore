@@ -33,7 +33,6 @@ load_charakter.cc
 save_charakter.cc
 steigern_fertigkeiten.cc
 steigern_waffen.cc
-steigern_zauber.cc
 get_spezial_zauber.cc
 charakter_beschreibung.ps
 tmp_b.tex
@@ -56,7 +55,6 @@ Window_angeb_fert.cc
 get_Verteidigungswaffe.cc
 Window_mag_bonus.cc
 KiDo_auswahl.cc
-steigern_kido.cc
 get_kido.cc
 midgard_CG_Ausnahmen.cc
 .libs

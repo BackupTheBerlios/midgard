@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.30 2001/10/26 16:07:30 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.31 2001/10/27 17:54:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,16 +49,16 @@ void midgard_CG::LaTeX_zaubermittel()
 {
   std::string name = "midgard_tmp_myzaubermittel.tex";
   ofstream fout(name.c_str());
-  for (std::list<cH_Zauberwerk>::iterator i=list_Zauberwerk.begin();
-         i!=list_Zauberwerk.end();++i)
+  for (std::list<cH_MidgardBasicElement>::iterator i=list_Zauberwerk.begin();i!=list_Zauberwerk.end();++i)
    {
+     cH_Zauberwerk z(*i);
 //     std::string wert ;//= itos((*i)->Wert());
 //     fout << wert <<" & ";
-     fout << (*i)->Name()  <<" & ";
-     fout << (*i)->Art()   <<" & ";
-     fout << (*i)->Stufe()   <<" & ";
-     fout << (*i)->Zeitaufwand()  <<" & ";
-     fout << (*i)->Preis()   <<" \\\\\n ";
+     fout << z->Name()  <<" & ";
+     fout << z->Art()   <<" & ";
+     fout << z->Stufe()   <<" & ";
+     fout << z->Zeitaufwand()  <<" & ";
+     fout << z->Preis()   <<" \\\\\n ";
    }
 }
 
