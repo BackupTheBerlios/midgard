@@ -134,12 +134,12 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 {  
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MBEmlt MBE = dt->getMBE();
-  if(togglebutton_spezialwaffe->get_active() && (*MBE)->What()!= MidgardBasicElement::WAFFE)
+  if(togglebutton_spezialwaffe->get_active() && (*MBE).What()!= MidgardBasicElement::WAFFE)
       {
-        hauptfenster->set_status((*MBE)->What_str()+" kann nicht als Spezialwaffe verwendet werden.");
+        hauptfenster->set_status((*MBE).What_str()+" kann nicht als Spezialwaffe verwendet werden.");
         return;         
       }
-  switch((*MBE)->What()) {
+  switch((*MBE).What()) {
      case MidgardBasicElement::WAFFE :
          { 
            if(togglebutton_spezialwaffe->get_active() )
@@ -191,7 +191,7 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
      case MidgardBasicElement::SPRACHE :
      case MidgardBasicElement::SCHRIFT :
         {
-           switch((*MBE)->What()) {
+           switch((*MBE).What()) {
              case MidgardBasicElement::FERTIGKEIT :
                  hauptfenster->getChar()->List_Fertigkeit().remove(MBE);
                  list_FertigkeitZusaetze.remove((*MBE)->Name());
@@ -225,12 +225,12 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
          }
      default : break;
    }
-  if((*MBE)->What()==MidgardBasicElement::WAFFEBESITZ)
+  if((*MBE).What()==MidgardBasicElement::WAFFEBESITZ)
     show_WaffenBesitz_lernschema();
   else 
      show_lernschema();
   show_gelerntes();
-  if((*MBE)->What()==MidgardBasicElement::WAFFE && togglebutton_spezialwaffe->get_active())
+  if((*MBE).What()==MidgardBasicElement::WAFFE && togglebutton_spezialwaffe->get_active())
      hauptfenster->undosave("Spezialwaffe "+(*MBE)->Name()+" gewählt");
   else
      hauptfenster->undosave((*MBE)->Name()+" verlernt");
@@ -247,14 +247,14 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
      tree_lernschema->unselect_all();
      return;
    }
- if(((*MBE)->What()==MidgardBasicElement::FERTIGKEIT || (*MBE)->What()==MidgardBasicElement::WAFFE)
+ if(((*MBE).What()==MidgardBasicElement::FERTIGKEIT || (*MBE).What()==MidgardBasicElement::WAFFE)
    && !(*MBE)->Voraussetzung(A,false))
   {
     hauptfenster->set_status("Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden");
     return;
   }
   
-  switch((*MBE)->What()) {
+  switch((*MBE).What()) {
     case MidgardBasicElement::WAFFE:
       { 
         int lp=MBE->Lernpunkte();
@@ -858,7 +858,7 @@ void table_lernschema::show_lernschema()
       for(std::list<MBEmlt>::iterator i=LW.begin();i!=LW.end();++i)
         {
           bool gelernt=false;
-          if((*(*i))->What()==MidgardBasicElement::FERTIGKEIT)
+          if((*(*i)).What()==MidgardBasicElement::FERTIGKEIT)
                (*i)->setLernArt("Fach");
           if(A.getWerte().Spezies()->istVerbotenSpielbegin((*i)->getMBE())) continue;
           if(what==MidgardBasicElement::WAFFE)  

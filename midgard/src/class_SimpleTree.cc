@@ -34,11 +34,11 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
 {
   switch (what) {
       case FName: return cH_EntryValueIntString((*MBE)->Name()+" "+(*MBE).Zusatz());
-      case FErfolgswert: { if((*MBE)->What()==MidgardBasicElement::FERTIGKEIT)
+      case FErfolgswert: { if((*MBE).What()==MidgardBasicElement::FERTIGKEIT)
                                return cH_EntryValueEmptyInt((*MBE)->FErfolgswert(hauptfenster->getAben(),MBE)); 
                            else return cH_EntryValueEmptyInt((*MBE).Erfolgswert()); }
       case FWurf: {cH_Fertigkeit_angeborene F((*MBE).getMBE()); return cH_EntryValueIntString(itos(F->Min())+"-"+itos(F->Max()));}
-      case FWhat:  return cH_EntryValueIntString((*MBE)->What_str());
+      case FWhat:  return cH_EntryValueIntString((*MBE).What_str());
       case FLernpunkte: return cH_EntryValueIntString((*MBE).Lernpunkte());
       case FLernart: return cH_EntryValueIntString((*MBE).LernArt());
       case FPflicht: return cH_EntryValueIntString((*MBE).Pflicht_str());
@@ -89,20 +89,20 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
       else if (Variante==MidgardBasicTree::LERNSCHEMA)
        switch((Spalten_LERNSCHEMA)seqnr) {
          case LERNPUNKTEg : return retEV(FLernpunkte);
-         case PFLICHTg : { if ( (*MBE)->What()==MidgardBasicElement::FERTIGKEIT)
+         case PFLICHTg : { if ( (*MBE).What()==MidgardBasicElement::FERTIGKEIT)
                                 return retEV(FPflicht); 
-                           if ( (*MBE)->What()==MidgardBasicElement::WAFFE)
+                           if ( (*MBE).What()==MidgardBasicElement::WAFFE)
                                 return retEV(FGrundkenntnis);}
          case NAMEg : return retEV(FName);
          case WERTg : 
-             if((*MBE)->What()==MidgardBasicElement::FERTIGKEIT) return retEV(FErfolgswerBonus);
-             else if((*MBE)->What()==MidgardBasicElement::WAFFE) return retEV(FErfolgswert);
-             else if((*MBE)->What()==MidgardBasicElement::ZAUBER)return retEV(FZauberAP);
+             if((*MBE).What()==MidgardBasicElement::FERTIGKEIT) return retEV(FErfolgswerBonus);
+             else if((*MBE).What()==MidgardBasicElement::WAFFE) return retEV(FErfolgswert);
+             else if((*MBE).What()==MidgardBasicElement::ZAUBER)return retEV(FZauberAP);
          case EIGENSCHAFTg : 
-             if ( (*MBE)->What()==MidgardBasicElement::FERTIGKEIT) return retEV(FAttribut);
+             if ( (*MBE).What()==MidgardBasicElement::FERTIGKEIT) return retEV(FAttribut);
          case VORAUSSETZUNGg : return retEV(FVoraussetung);
          case KOSTENg : 
-            if ( (*MBE)->What()==MidgardBasicElement::WAFFE) return retEV(FSchwierigkeit);
+            if ( (*MBE).What()==MidgardBasicElement::WAFFE) return retEV(FSchwierigkeit);
             return  retEV(FKosten);
          case ARTg : return retEV(FStandard);
          case GELERNTg : return retEV(FGelernt);

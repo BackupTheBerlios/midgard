@@ -185,8 +185,7 @@ class MidgardBasicElement_mutable : public HandleContentCopyable
       bool operator == (const MidgardBasicElement_mutable& b) const 
          {return mbe==b.mbe && Zusatz()==b.Zusatz();}
       bool operator < (const MidgardBasicElement_mutable& b) const 
-         {return  (*this)->Name()<b->Name() ||
-                 ((*this)->Name()==b->Name() && Zusatz()<b.Zusatz());  
+         {return mbe<b.mbe || (mbe==b.mbe && Zusatz()<b.Zusatz());
          }
       const MidgardBasicElement *getMBE() const {return &*mbe;}
 
