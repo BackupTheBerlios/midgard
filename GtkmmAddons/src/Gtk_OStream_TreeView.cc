@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream_TreeView.cc,v 1.4 2002/12/19 07:26:03 christof Exp $
+// $Id: Gtk_OStream_TreeView.cc,v 1.5 2002/12/19 07:48:26 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -24,6 +24,18 @@
 #include <gtkmm/treeviewcolumn.h>
 
 static int get_ModelColumn(Gtk::TreeViewColumn *tvc);
+
+void Gtk::OStream::erase_TreeView(openmode mode)
+{  if (mode&std::ios::trunc) 
+   {  Glib::RefPtr<TreeModel> r_model=handler_data.treeview.view->get_model();
+      Glib::RefPtr<Gtk::ListStore> store=Glib::RefPtr<Gtk::ListStore>::cast_dynamic(r_model);
+      if (!store) 
+      {  std::cerr << "Model is not a ListStore ...\n";
+         return;
+      }
+      store->clear();
+   }
+}
 
 void Gtk::OStream::line_TreeView(const std::string &line)
 {  Glib::RefPtr<TreeModel> r_model=handler_data.treeview.view->get_model();
