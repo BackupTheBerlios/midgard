@@ -437,7 +437,7 @@ void midgard_CG::on_button_ausruestung_druck_clicked()
    std::string name=i->getAusruestung().Name();
    if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
    if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
-   else                                fout <<"\\mygray "<< name<<"\\\\\n" ;
+   else                                fout <<"{\\mygray "<< name<<"}\\\\\n" ;
    ausruestung_druck(fout,i->getChildren(),1);
   }
  fout << "}}\n";
