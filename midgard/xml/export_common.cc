@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.21 2002/11/22 08:13:01 thoma Exp $
+// $Id: export_common.cc,v 1.22 2002/11/24 17:57:38 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -37,52 +37,52 @@ std::string toSQL(const std::string &s)
    return "'"+res+"'";
 }
 
-int fetch_int(FetchIStream &is,int standard=0)
+int fetch_int(FetchIStream &is,int standard)
 {  int val;
    
    is >> FetchIStream::MapNull<int>(val,standard);
    return val;
 }
 
-int fetch_and_set_int_attrib(FetchIStream &is,Tag &o,const std::string &wert,int standard=0)
+int fetch_and_set_int_attrib(FetchIStream &is,Tag &o,const std::string &wert,int standard)
 {  int val=fetch_int(is,standard);
    if (val!=standard) o.setIntAttr(wert,val);
    return val;
 }
 
-double fetch_float(FetchIStream &is,double standard=0)
+double fetch_float(FetchIStream &is,double standard)
 {  float val;
    
    is >> FetchIStream::MapNull<float>(val,standard);
    return val;
 }
 
- std::string fetch_string(FetchIStream &is,const std::string &standard="")
+std::string fetch_string(FetchIStream &is,const std::string &standard)
 {  std::string val;
    
-   is >> FetchIStream::MapNull<string>(val,standard); 
+   is >> FetchIStream::MapNull<std::string>(val,standard); 
    return val;
 }
 
- std::string fetch_and_set_string_attrib(FetchIStream &is,Tag &o,const std::string &wert,const std::string &standard)
+std::string fetch_and_set_string_attrib(FetchIStream &is,Tag &o,const std::string &wert,const std::string &standard)
 {  std::string val=fetch_string(is,standard);
    if (val!=standard) o.setAttr(wert,val);
    return val;
 }
 
-bool fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,bool standard=0)
+bool fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,bool standard)
 {  bool val=fetch_bool(is,standard);
    if (val!=standard) o.setBoolAttr(wert,val);
    return val;
 }
 
-double fetch_and_set_float_attrib(FetchIStream &is,Tag &o,const std::string &wert,double standard=0)
+double fetch_and_set_float_attrib(FetchIStream &is,Tag &o,const std::string &wert,double standard)
 {  double val=fetch_float(is,standard);
    if (val!=standard) o.setAttr(wert,dtos(val));
    return val;
 }
 
- bool fetch_bool(FetchIStream &is,const bool &standard)
+bool fetch_bool(FetchIStream &is,const bool &standard)
 {  bool val;
    
    is >> FetchIStream::MapNull<bool>(val,standard); 
