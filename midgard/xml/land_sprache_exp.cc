@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.5 2001/12/27 22:55:25 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.6 2001/12/30 13:49:02 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -64,7 +64,7 @@ void land_speichern(std::ostream &o)
 
 //******************************************************************
    o << " <Sprachen>\n";
-  {Query query("select name, region, fp, max_wert, schrift, alt,"
+  {Query query("select name, region, fp, max_wert, alt,"
   	" gruppe_1, gruppe_2, minderheit"
    	" from sprachen"
    	" where coalesce(region,'')='"+region+"'"
@@ -75,7 +75,7 @@ void land_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_int_attrib(is, o, "Kosten");
    fetch_and_write_int_attrib(is, o, "Maximalwert");
-   fetch_and_write_string_attrib(is, o, "Schrift");
+//   fetch_and_write_string_attrib(is, o, "Schrift");
    fetch_and_write_bool_attrib(is, o, "alteSchrift");
    fetch_and_write_int_attrib(is, o, "Gruppe_1"); // ??
    fetch_and_write_int_attrib(is, o, "Gruppe_2"); // ??
