@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.10 2003/07/18 06:38:00 christof Exp $            
+// $Id: Abenteurer.cc,v 1.11 2003/07/18 14:41:18 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -516,8 +516,8 @@ bool Abenteurer::xml_import_stream(std::istream& datei)
          setTyp2(cH_Typen(Typ->getAttr("Abkürzung2"),true));
    }
 
-   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Datenbank);
-   load_regionen_optionen(Opt,xml_version,Datenbank);
+   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version);
+   load_regionen_optionen(Opt,xml_version);
    load_ausruestung(Ausruestung,&(getBesitz()));
    return true;
 }
