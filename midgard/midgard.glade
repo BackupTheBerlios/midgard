@@ -839,7 +839,7 @@
 	  <property name="tab_pos">GTK_POS_TOP</property>
 	  <property name="scrollable">False</property>
 	  <property name="enable_popup">False</property>
-	  <signal name="switch_page" handler="on_notebook_main_switch_page"/>
+	  <signal name="switch_page" handler="on_notebook_main_switch_page" after="yes"/>
 
 	  <child>
 	    <widget class="GtkFrame" id="frame4">
@@ -1722,7 +1722,7 @@
 				      <property name="snap_to_ticks">False</property>
 				      <property name="wrap">False</property>
 				      <property name="adjustment">0 0 100 1 10 10</property>
-				      <signal name="activate" handler="on_spinbutton_gg_activate"/>
+				      <signal name="activate" handler="on_spinbutton_gg_activate" after="yes"/>
 				      <signal name="focus_out_event" handler="on_spinbutton_gg_focus_out_event"/>
 				      <signal name="focus_in_event" handler="on_spinbutton_gg_focus_in_event"/>
 				    </widget>
@@ -4174,7 +4174,7 @@ setzen</property>
 				      <property name="snap_to_ticks">False</property>
 				      <property name="wrap">False</property>
 				      <property name="adjustment">0 0 200 1 10 10</property>
-				      <signal name="activate" handler="on_spinbutton_zt_activate"/>
+				      <signal name="activate" handler="on_spinbutton_zt_activate" after="yes"/>
 				      <signal name="focus_out_event" handler="on_spinbutton_zt_focus_out_event"/>
 				      <signal name="focus_in_event" handler="on_spinbutton_zt_focus_in_event"/>
 				    </widget>
@@ -5652,7 +5652,7 @@ Beruf eingeben</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
 					  <property name="adjustment">1 1 100 1 10 10</property>
-					  <signal name="activate" handler="on_spinbutton_beruf_activate"/>
+					  <signal name="activate" handler="on_spinbutton_beruf_activate" after="yes"/>
 					  <signal name="focus_in_event" handler="on_spinbutton_beruf_focus_in"/>
 					</widget>
 					<packing>
@@ -5842,7 +5842,7 @@ eingeben</property>
 				      <property name="snap_to_ticks">False</property>
 				      <property name="wrap">False</property>
 				      <property name="adjustment">1 0 100 1 10 10</property>
-				      <signal name="activate" handler="on_spinbutton_waffen_lernschema_activate"/>
+				      <signal name="activate" handler="on_spinbutton_waffen_lernschema_activate" after="yes"/>
 				      <signal name="focus_in_event" handler="on_spinbutton_waffen_lernschema_focus_in_event"/>
 				    </widget>
 				    <packing>
@@ -7088,7 +7088,7 @@ auswählen</property>
 		      <property name="tab_pos">GTK_POS_LEFT</property>
 		      <property name="scrollable">False</property>
 		      <property name="enable_popup">False</property>
-		      <signal name="switch_page" handler="on_notebook_lernen_switch_page"/>
+		      <signal name="switch_page" handler="on_notebook_lernen_switch_page" after="yes"/>
 
 		      <child>
 			<widget class="GtkTable" id="table15">
@@ -8767,7 +8767,7 @@ eingeben</property>
 					      <property name="snap_to_ticks">False</property>
 					      <property name="wrap">False</property>
 					      <property name="adjustment">0 -5 5 1 10 10</property>
-					      <signal name="activate" handler="on_spinbutton_av_bonus_activate"/>
+					      <signal name="activate" handler="on_spinbutton_av_bonus_activate" after="yes"/>
 					    </widget>
 					    <packing>
 					      <property name="left_attach">1</property>
@@ -8791,7 +8791,7 @@ eingeben</property>
 					      <property name="snap_to_ticks">False</property>
 					      <property name="wrap">False</property>
 					      <property name="adjustment">0 -5 5 1 10 10</property>
-					      <signal name="activate" handler="on_spinbutton_sl_bonus_activate"/>
+					      <signal name="activate" handler="on_spinbutton_sl_bonus_activate" after="yes"/>
 					    </widget>
 					    <packing>
 					      <property name="left_attach">1</property>
@@ -9854,7 +9854,7 @@ eingeben</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Wed, 20 Nov 2002 07:30:49 GMT</property>
-					  <signal name="activate" handler="on_LabelSpin_aep_activate"/>
+					  <signal name="activate" handler="on_LabelSpin_aep_activate" after="yes"/>
 					</widget>
 				      </child>
 
@@ -9899,7 +9899,7 @@ eingeben</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Wed, 20 Nov 2002 07:30:58 GMT</property>
-					  <signal name="activate" handler="on_LabelSpin_kep_activate"/>
+					  <signal name="activate" handler="on_LabelSpin_kep_activate" after="yes"/>
 					</widget>
 				      </child>
 
@@ -9944,7 +9944,7 @@ eingeben</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Wed, 20 Nov 2002 07:31:04 GMT</property>
-					  <signal name="activate" handler="on_LabelSpin_zep_activate"/>
+					  <signal name="activate" handler="on_LabelSpin_zep_activate" after="yes"/>
 					</widget>
 				      </child>
 
@@ -10005,7 +10005,7 @@ eingeben</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Wed, 20 Nov 2002 07:30:36 GMT</property>
-					  <signal name="activate" handler="on_LabelSpin_gold_activate"/>
+					  <signal name="activate" handler="on_LabelSpin_gold_activate" after="yes"/>
 					</widget>
 				      </child>
 
@@ -10050,7 +10050,7 @@ eingeben</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Wed, 20 Nov 2002 07:30:31 GMT</property>
-					  <signal name="activate" handler="on_LabelSpin_silber_activate"/>
+					  <signal name="activate" handler="on_LabelSpin_silber_activate" after="yes"/>
 					</widget>
 				      </child>
 
@@ -10095,7 +10095,7 @@ eingeben</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Wed, 20 Nov 2002 07:30:43 GMT</property>
-					  <signal name="activate" handler="on_LabelSpin_kupfer_activate"/>
+					  <signal name="activate" handler="on_LabelSpin_kupfer_activate" after="yes"/>
 					</widget>
 				      </child>
 
@@ -10150,7 +10150,7 @@ eingeben</property>
 				      <property name="int1">0</property>
 				      <property name="int2">0</property>
 				      <property name="last_modification_time">Fri, 15 Nov 2002 12:50:16 GMT</property>
-				      <signal name="activate" handler="on_LabelSpin_gfp_activate"/>
+				      <signal name="activate" handler="on_LabelSpin_gfp_activate" after="yes"/>
 				    </widget>
 				  </child>
 
@@ -11103,7 +11103,7 @@ eing.</property>
 					      <property name="snap_to_ticks">False</property>
 					      <property name="wrap">False</property>
 					      <property name="adjustment">1 0 100 1 10 10</property>
-					      <signal name="activate" handler="on_spinbutton_eigenschaften_grad_anstieg_activate"/>
+					      <signal name="activate" handler="on_spinbutton_eigenschaften_grad_anstieg_activate" after="yes"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -12177,7 +12177,7 @@ anzeigen</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
 					  <property name="adjustment">0 0 100000 1 10 10</property>
-					  <signal name="activate" handler="on_spinbutton_pp_eingeben_activate"/>
+					  <signal name="activate" handler="on_spinbutton_pp_eingeben_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">0</property>
@@ -13608,7 +13608,7 @@ Drucken</property>
 			      <property name="snap_to_ticks">False</property>
 			      <property name="wrap">False</property>
 			      <property name="adjustment">1 0 100000 1 10 10</property>
-			      <signal name="activate" handler="on_spinbutton_preis_activate"/>
+			      <signal name="activate" handler="on_spinbutton_preis_activate" after="yes"/>
 			    </widget>
 			    <packing>
 			      <property name="left_attach">4</property>
@@ -13632,7 +13632,7 @@ Drucken</property>
 			      <property name="snap_to_ticks">False</property>
 			      <property name="wrap">False</property>
 			      <property name="adjustment">1 0 100 1 10 10</property>
-			      <signal name="activate" handler="on_spinbutton_gewicht_activate"/>
+			      <signal name="activate" handler="on_spinbutton_gewicht_activate" after="yes"/>
 			    </widget>
 			    <packing>
 			      <property name="left_attach">3</property>
@@ -17872,7 +17872,7 @@ Grad 1 erzeugen</property>
 						  <property name="snap_to_ticks">False</property>
 						  <property name="wrap">False</property>
 						  <property name="adjustment">1 0 100 1 10 10</property>
-						  <signal name="activate" handler="on_spinbutton_ausnahme_activate"/>
+						  <signal name="activate" handler="on_spinbutton_ausnahme_activate" after="yes"/>
 						</widget>
 						<packing>
 						  <property name="left_attach">4</property>
@@ -17896,7 +17896,7 @@ Grad 1 erzeugen</property>
 						  <property name="snap_to_ticks">False</property>
 						  <property name="wrap">False</property>
 						  <property name="adjustment">1 0 100 1 10 10</property>
-						  <signal name="activate" handler="on_spinbutton_standard_activate"/>
+						  <signal name="activate" handler="on_spinbutton_standard_activate" after="yes"/>
 						</widget>
 						<packing>
 						  <property name="left_attach">2</property>
@@ -17920,7 +17920,7 @@ Grad 1 erzeugen</property>
 						  <property name="snap_to_ticks">False</property>
 						  <property name="wrap">False</property>
 						  <property name="adjustment">1 0 100 1 10 10</property>
-						  <signal name="activate" handler="on_spinbutton_grund_activate"/>
+						  <signal name="activate" handler="on_spinbutton_grund_activate" after="yes"/>
 						</widget>
 						<packing>
 						  <property name="left_attach">0</property>
@@ -18060,7 +18060,7 @@ Grad 1 erzeugen</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
 					  <property name="adjustment">1 0 100 1 10 10</property>
-					  <signal name="activate" handler="on_spinbutton_zauberwerk_activate"/>
+					  <signal name="activate" handler="on_spinbutton_zauberwerk_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">5</property>
@@ -18318,7 +18318,7 @@ werk</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Tue, 15 Oct 2002 19:46:49 GMT</property>
-					  <signal name="activate" handler="on_scale_fert_activate"/>
+					  <signal name="activate" handler="on_scale_fert_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">1</property>
@@ -18338,7 +18338,7 @@ werk</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Tue, 15 Oct 2002 19:46:49 GMT</property>
-					  <signal name="activate" handler="on_scale_waffen_activate"/>
+					  <signal name="activate" handler="on_scale_waffen_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">2</property>
@@ -18358,7 +18358,7 @@ werk</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Tue, 15 Oct 2002 19:46:49 GMT</property>
-					  <signal name="activate" handler="on_scale_sprachen_activate"/>
+					  <signal name="activate" handler="on_scale_sprachen_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">6</property>
@@ -18378,7 +18378,7 @@ werk</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Tue, 15 Oct 2002 19:46:49 GMT</property>
-					  <signal name="activate" handler="on_scale_schriften_activate"/>
+					  <signal name="activate" handler="on_scale_schriften_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">7</property>
@@ -18416,7 +18416,7 @@ werk</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
 					  <property name="adjustment">1 0 100 1 10 10</property>
-					  <signal name="activate" handler="on_spinbutton_fertigkeit_activate"/>
+					  <signal name="activate" handler="on_spinbutton_fertigkeit_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">1</property>
@@ -18440,7 +18440,7 @@ werk</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
 					  <property name="adjustment">1 0 100 1 10 10</property>
-					  <signal name="activate" handler="on_spinbutton_waffen_activate"/>
+					  <signal name="activate" handler="on_spinbutton_waffen_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">2</property>
@@ -18464,7 +18464,7 @@ werk</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
 					  <property name="adjustment">1 0 100 1 10 10</property>
-					  <signal name="activate" handler="on_spinbutton_waffen_grund_activate"/>
+					  <signal name="activate" handler="on_spinbutton_waffen_grund_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">3</property>
@@ -18488,7 +18488,7 @@ werk</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
 					  <property name="adjustment">1 0 100 1 10 10</property>
-					  <signal name="activate" handler="on_spinbutton_zauber_activate"/>
+					  <signal name="activate" handler="on_spinbutton_zauber_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">4</property>
@@ -18512,7 +18512,7 @@ werk</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
 					  <property name="adjustment">1 0 100 1 10 10</property>
-					  <signal name="activate" handler="on_spinbutton_sprachen_activate"/>
+					  <signal name="activate" handler="on_spinbutton_sprachen_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">6</property>
@@ -18536,7 +18536,7 @@ werk</property>
 					  <property name="snap_to_ticks">False</property>
 					  <property name="wrap">False</property>
 					  <property name="adjustment">1 0 100 1 10 10</property>
-					  <signal name="activate" handler="on_spinbutton_schriften_activate"/>
+					  <signal name="activate" handler="on_spinbutton_schriften_activate" after="yes"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">7</property>
