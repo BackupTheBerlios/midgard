@@ -18,10 +18,11 @@ checkout() {
   echo ========  ManuProC_Widgets ========
   cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co ManuProC_Widgets
   
-  echo =========== Midgard-Postgres ========
-  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard-postgres
+#  echo =========== Midgard-Postgres ========
+#  echo not needed?
+#  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard-postgres
   
-  echo ============ Midgard CG ========
+  echo ============ Magus ========
   cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard
 }
 
@@ -32,9 +33,9 @@ update() {
   ( cd GtkmmAddons && cvs -z3 update -dP )
   echo ========  ManuProC_Widgets ========
   ( cd ManuProC_Widgets && cvs -z3 update -dP )
-  echo =========== Midgard-Postgres ========
-  ( cd midgard-postgres && cvs -z3 update -dP )
-  echo ============ Midgard CG ========
+#  echo =========== Midgard-Postgres ========
+#  ( cd midgard-postgres && cvs -z3 update -dP )
+  echo ============ Magus ========
   ( cd midgard && cvs -z3 update -dP )
 }
 
@@ -46,7 +47,7 @@ configure() {
   	 ./autogen.sh $* ; make )
   echo ========  ManuProC_Widgets ========
   ( cd ManuProC_Widgets && ( ./autogen.sh $* ; make ) )
-  echo ============ Midgard CG ========
+  echo ============ Magus ========
   ( cd midgard && ./autogen.sh $* )
 }
 
@@ -66,19 +67,19 @@ configure_if_needed() {
   ( cd ManuProC_Widgets && \
   	(if [ ! -f config.status ] ; then ./autogen.sh $* ; fi ; \
   	 make ) )
-  echo ============ Midgard CG ========
+  echo ============ Magus ========
   ( cd midgard && ./autogen.sh $* )
 }
 
 domake() {
-  echo ============ Midgard CG ========
+  echo ============ Magus ========
   ( cd midgard && make )
 }
 
 doinstall() {
-  echo ============ Midgard-PostgreSQL ========
-  ( cd midgard-postgres && make install )
-  echo ============ Midgard ========
+#  echo ============ Midgard-PostgreSQL ========
+#  ( cd midgard-postgres && make install )
+  echo ============ Magus ========
   cd midgard || exit 1
   make install
   echo Wenn --prefix nicht angegeben wurde, brauche ich jetzt das
@@ -106,7 +107,7 @@ then
   domake
   doinstall
 else
-  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.9 $aetsch"
+  echo "Magus anonymous-CVS Installierer, $Revision: 1.10 $"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
