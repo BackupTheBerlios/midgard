@@ -1,0 +1,5910 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:54.98375+02" MAGUS-Index="1" MAGUS-Bild="12">
+ <Schriften/>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="Fi" Region="TuT" MAGUS-Index="41" Bezeichnung-Mann="Fian" Bezeichnung-Frau="Fiana" kannZaubern="true" SprücheMitPraxisPunkten="Dweomer" Kultwaffe="true" Stadt="false" Ausdauer="ak">
+   <Modifikation Stand="10" Rüstung="1" Geld="2"/>
+   <Herkunft Land="Erainn" Kultwaffe="Langschwert"/>
+   <Herkunft Land="Ywerddon" Kultwaffe="Langschwert"/>
+   <Gruppe Name="KÄM"/>
+   <Gruppe Name="ZKÄM"/>
+  </Typ>
+  <Typ Abkürzung="Mg" Region="TuT" MAGUS-Index="50" Bezeichnung-Mann="Magister" Bezeichnung-Frau="Magisterin" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinGs="31" MinIn="61" MinpA="61" Ausdauer="ak">
+   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Valian"/>
+   <Gruppe Name="KÄM"/>
+   <Gruppe Name="ZKÄM"/>
+  </Typ>
+  <Typ Abkürzung="RiN" Region="TuT" MAGUS-Index="51" Bezeichnung-Mann="Ritter [Alba, Küstenstaaten]" Bezeichnung-Frau="Ritterin [Alba, Küstenstaaten]" Lernpflichten="Ritter aus Alba dürfen weder Rapier, Buckler noch Parierdolch wählen. Ritter aus den Küstenstaaten dürfen weder Kampf in Schlachtreihe noch das Schlachtbeil lernen." Ausdauer="k">
+   <Modifikation Rüstung="3" Geld="1"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Küstenstaaten"/>
+  </Typ>
+  <Typ Abkürzung="RiS" Region="TuT" MAGUS-Index="52" Bezeichnung-Mann="Ritter [Aran,Eschar]" Bezeichnung-Frau="Ritterin [Aran,Eschar]" Ausdauer="k">
+   <Modifikation Rüstung="3" Geld="1"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Eschar"/>
+  </Typ>
+  <Typ Abkürzung="Hj" Region="TuT" MAGUS-Index="53" Bezeichnung-Mann="Hexenjäger" Bezeichnung-Frau="Hexenjägerin" kannZaubern="true" Lernpflichten="Nur Dolch, Kurzschwert, Streitkolben oder Kriegshammer als Spezialwaffe möglich." Ausdauer="ak">
+   <Modifikation Sb="30" Rüstung="2" Geld="3"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Buluga"/>
+   <Herkunft Land="Chryseia"/>
+   <Herkunft Land="Clanngadarn"/>
+   <Herkunft Land="Dvarheim"/>
+   <Herkunft Land="Erainn"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Feuerinseln"/>
+   <Herkunft Land="Fuardain"/>
+   <Herkunft Land="Halfdal"/>
+   <Herkunft Land="Ikengabecken"/>
+   <Herkunft Land="Inseln unter dem Westwind"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Medjis"/>
+   <Herkunft Land="Minangpahit"/>
+   <Herkunft Land="Moravod"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Herkunft Land="Rawindra"/>
+   <Herkunft Land="Tegarische Steppe"/>
+   <Herkunft Land="Urruti"/>
+   <Herkunft Land="Valian"/>
+   <Herkunft Land="Vesternesse"/>
+   <Herkunft Land="Waeland"/>
+   <Herkunft Land="Ywerddon"/>
+  </Typ>
+  <Typ Abkürzung="Sw" Region="TuT" MAGUS-Index="54" Bezeichnung-Mann="Schattenweber" Bezeichnung-Frau="Schattenweberin" kannZaubern="true" Lernpflichten="Nur Dolch, Keule, Wurfaxt oder Wurfmesser kann als Spezialwaffe gewählt werden. Schreiben: Muttersprache +9 muß gelernt werden" SchreibenPflicht="true" Land="false" Ausdauer="ak">
+   <Modifikation Stand="10" Sb="-20" Rüstung="1" Geld="4"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Buluga"/>
+   <Herkunft Land="Chryseia"/>
+   <Herkunft Land="Clanngadarn"/>
+   <Herkunft Land="Dvarheim"/>
+   <Herkunft Land="Erainn"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Feuerinseln"/>
+   <Herkunft Land="Fuardain"/>
+   <Herkunft Land="Halfdal"/>
+   <Herkunft Land="Ikengabecken"/>
+   <Herkunft Land="Inseln unter dem Westwind"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Medjis"/>
+   <Herkunft Land="Minangpahit"/>
+   <Herkunft Land="Moravod"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Herkunft Land="Rawindra"/>
+   <Herkunft Land="Tegarische Steppe"/>
+   <Herkunft Land="Urruti"/>
+   <Herkunft Land="Valian"/>
+   <Herkunft Land="Vesternesse"/>
+   <Herkunft Land="Waeland"/>
+   <Herkunft Land="Ywerddon"/>
+  </Typ>
+  <Typ Abkürzung="Wi" Region="TuT" MAGUS-Index="55" Bezeichnung-Mann="Wildläufer" Bezeichnung-Frau="Wildläuferin" kannZaubern="true" SprücheMitPraxisPunkten="Dweomer" Stadt="false" Ausdauer="ak">
+   <Modifikation Rüstung="1" Geld="2"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Clanngadarn"/>
+   <Herkunft Land="Moravod"/>
+  </Typ>
+  <Typ Abkürzung="To" Region="TuT" MAGUS-Index="56" Bezeichnung-Mann="Todeswirker" Bezeichnung-Frau="Todeswirkerin" kannZaubern="true" Lernpflichten="Als Spezialwaffe kann nur Dolch, Kurzschwert, Rapier, Wurfmesser oder leichte Armbrust gewählt werden." Land="false" Ausdauer="ak">
+   <Modifikation Stand="-10" Sb="30" Rüstung="1" Geld="3"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Chryseia"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Moravod"/>
+   <Herkunft Land="Valian"/>
+  </Typ>
+  <Typ Abkürzung="Km" Region="TuT" MAGUS-Index="57" Bezeichnung-Mann="Klingenmagier" Bezeichnung-Frau="Klingenmagierin" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." Stadt="false" Ausdauer="k">
+   <Modifikation Stand="10" Rüstung="3" Geld="3"/>
+  </Typ>
+ </Typen>
+ <Fertigkeiten>
+  <Fertigkeit Name="Geomantie" Region="TuT" Lernpunkte="4" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
+   <Grund Typ="De"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="Tm"/>
+   <Ausnahme Typ="Wi"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="tBe"/>
+   <Voraussetzungen Zt="61" Fertigkeit="Zaubern"/>
+   <Lernschema Typ="De" Lernpunkte="3" Erfolgswert="15"/>
+   <Kosten Wert5="20" Wert6="20" Wert7="50" Wert8="50" Wert9="50" Wert10="100" Wert11="100" Wert12="200"/>
+   <EP-Typ ZEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Abrichten">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Mg"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Akrobatik">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Alchimie">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Athletik">
+   <Grund Typ="Km"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="3" Erfolgswert="4"/>
+   <Lernschema Typ="RiN" Lernpunkte="3" Erfolgswert="4"/>
+   <Lernschema Typ="RiS" Lernpunkte="3" Erfolgswert="4"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Balancieren">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ballista bedienen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Baukunde">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beidhändiger Kampf">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="3"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="3"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beredsamkeit">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="RiN" Lernpunkte="3" Erfolgswert="8"/>
+   <Lernschema Typ="RiS" Lernpunkte="3" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beschatten">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Bogenkampf zu Pferd">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Dichten">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erste Hilfe">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erzählen">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallen entdecken">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="6"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="6"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenmechanik">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="4"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="4"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenstellen">
+   <Grund Typ="To"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="4"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fangen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten">
+   <Grund Typ="Mg"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten tevarrischer Stil">
+   <Grund Typ="Mg"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fälschen">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Gassenwissen">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Gaukeln">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimmechanismen öffnen">
+   <Grund Typ="Mg"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="6"/>
+   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="6"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimzeichen">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geländelauf">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschäftstüchtigkeit">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Giftmischen">
+   <Grund Typ="To"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Glücksspiel">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Heilkunde">
+   <Grund Typ="Mg"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Himmelskunde">
+   <Grund Typ="Mg"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Dunkelheit">
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Sw"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Schlachtreihe">
+   <Grund Typ="Km"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="RiN" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Vollrüstung">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf vom Streitwagen">
+   <Grund Typ="Km"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Pferd">
+   <Grund Typ="Km"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="15" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampftaktik">
+   <Grund Typ="Km"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Katapult bedienen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Klettern">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kräuterkunde">
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Sw"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Landeskunde">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Laufen">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="4"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Zauberschrift">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lippenlesen">
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="6"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meditieren">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Menschenkenntnis">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meucheln">
+   <Grund Typ="To"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Musizieren">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Naturkunde">
+   <Grund Typ="Mg"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Sw"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Pflanzenkunde">
+   <Grund Typ="Mg"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rechnen">
+   <Grund Typ="Mg"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Reiten">
+   <Grund Typ="Km"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rudern">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sagenkunde">
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Scharfschießen">
+   <Grund Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schauspielern">
+   <Grund Typ="To"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schießen vom Streitwagen">
+   <Grund Typ="Km"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schiffsführung">
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schleichen">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittenfahren">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlösser öffnen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwimmen">
+   <Grund Typ="Km"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="To"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schätzen">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Seemannsgang">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Seilkunst">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Singen">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Skifahren">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprache">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Springen">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Spurenlesen">
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Sw"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="6" Pflicht="true"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="6" Pflicht="true"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="6"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stehlen">
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Steuern">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stimmen nachahmen">
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Streitwagen lenken">
+   <Grund Typ="Km"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Suchen">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tanzen">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tarnen">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tauchen">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Thaumatographie">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="6" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tierkunde">
+   <Grund Typ="Mg"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Sw"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Trinken">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verbergen">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verführen">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verhören">
+   <Grund Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verkleiden">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wagenlenken">
+   <Grund Typ="Km"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wahrnehmung">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="4"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Winden">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="4"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zauberkunde">
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Hj"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zaubern">
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zeichensprache">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Erfolgswert="6"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Dschungel">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Gebirge">
+   <Grund Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Schnee">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Sumpf">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Wald">
+   <Grund Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Steppe">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Wüste">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Fi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Brettspiel" Region="E">
+   <Grund Typ="Mg"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kamelreiten" Region="E">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Kamel" Region="E">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Mumifizieren" Region="E">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Orakelkunst" Region="E">
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Pyromantie" Region="E">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wetterkunde" Region="H&amp;D">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="FengSchui" Region="K">
+   <Grund Typ="Fi"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="FengTsu" Region="K">
+   <Grund Typ="Fi"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschenke machen" Region="K">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KarumiJutsu" Region="K">
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KentoYobu" Region="K">
+   <Grund Typ="Fi"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KiDo" Region="K">
+   <Grund Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujKuri" Region="K">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujNoIu" Region="K">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Geisterschrift" Region="K">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="LiYao" Region="K">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Mg"/>
+  </Fertigkeit>
+  <Fertigkeit Name="MiChen" Region="K">
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="NinJutsu" Region="K">
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+  </Fertigkeit>
+  <Fertigkeit Name="SchiyoKi" Region="K">
+   <Grund Typ="Fi"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwerttanz" Region="K">
+   <Grund Typ="Fi"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Hj"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Steinabreibungen machen" Region="K">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+  </Fertigkeit>
+  <Fertigkeit Name="TaiTschi" Region="K">
+   <Grund Typ="Fi"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Teezeremonie" Region="K">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YangScheng" Region="K">
+   <Grund Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YubeChian" Region="K">
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zunge verschlucken" Region="K">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Adlersprung" Region="N">
+   <Grund Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Akribie" Region="N">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ballspiel" Region="N">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Dämonenkunde" Region="N">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Federflechten" Region="N">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlachtruf" Region="N">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Hj"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tätowieren" Region="N">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wahrsagekalender führen" Region="N">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Askese" Region="R">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Astrologie" Region="R">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Augensalbe herstellen" Region="R">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Elefanten lenken" Region="R">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Elefant" Region="R">
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Körperkontrolle" Region="R">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Natya" Region="R">
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlangen beschwören" Region="R">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schmerzen ertragen" Region="R">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Srimara lenken" Region="R">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Zauberrunen" Region="W">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittschuhlaufen" Region="X">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben: Alte Sprache(+12)">
+   <Lernschema Typ="Mg" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben: Muttersprache(+12)">
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprechen: Alte Sprache">
+   <Lernschema Typ="Mg" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprechen: Sprache(+12)">
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
+ </Fertigkeiten>
+ <Berufe/>
+ <Rüstungen/>
+ <Waffen>
+  <Waffe Name="Anderthalbhänder">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Bihänder">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Blasrohr">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="4" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Bogen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="4" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Bola">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Buckler">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="1"/>
+  </Waffe>
+  <Waffe Name="Dolch">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Faustkampf">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Fuchtel">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Garotte">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Glefe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Handarmbrust">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Handaxt">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Hellebarde">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Kampfgabeln">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Kampfstab">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="4" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Keule">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Kharrata">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Kompositbogen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Kriegsflegel">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Kriegshammer">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Krummsäbel">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Kurzbogen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="4" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Kurzschwert">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Langbogen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Langschwert">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Lanze">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5" Pflicht="true"/>
+  </Waffe>
+  <Waffe Name="Lasso">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Magierstab">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="6" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Magierstecken">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Wi" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="4" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Morgenstern">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Netz">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Ochsenzunge">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Ogerhammer">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Parierdolch">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="1"/>
+  </Waffe>
+  <Waffe Name="Peitsche">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Rapier">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Schlachtbeil">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Schleuder">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Skhallanta">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Speerschleuder">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Stabkeule">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Stielhammer">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Stockschleuder">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Stoßspeer">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Streitaxt">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Streitkolben">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Werfen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Wurfaxt">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Wurfeisen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Wurfhammer">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Wurfkeule">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Wurfmesser">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Wurfpfeil">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Wurfscheibe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Wurfspeer">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Wurfspieß">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Wurfstern">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="großer Schild">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1" Pflicht="true"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1" Pflicht="true"/>
+   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="1"/>
+  </Waffe>
+  <Waffe Name="kleiner Schild">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1" Pflicht="true"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1" Pflicht="true"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="1"/>
+  </Waffe>
+  <Waffe Name="leichte Armbrust">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="4" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="leichter Speer">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="schwere Armbrust">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="waffenloser Kampf">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Fi" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Typ="Wi" Lernpunkte="4" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Pilum" Region="3">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="BuKasa" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="GunSen" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Katana" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="KusariGama" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Kyu" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Naginata" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="NunChaku" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Sai" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="TetsuBo" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Tonfa" Region="K">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+  <Waffe Name="Namisritra" Region="R">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffe>
+ </Waffen>
+ <Waffen-Grundkenntnisse>
+  <Waffen-Grundkenntnis Name="Armbrust">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Blasrohr">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Bögen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Einhandschlagwaffe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Einhandschwert">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Fesselwaffe">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Garotte">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kampf ohne Waffen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kampfstab">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kettenwaffe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Parierwaffe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Peitsche">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Schild">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Schleuder">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Spießwaffe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stangenwaffe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stichwaffe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stielwurfwaffe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Werfen">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfmesser">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfpfeil">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfscheibe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfspieß">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zauberstäbe">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zweihandschlagwaffe">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zweihandschwert">
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kharrata" Region="R">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Namisritra" Region="R">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Waffen-Grundkenntnis>
+ </Waffen-Grundkenntnisse>
+ <Zauber>
+  <Spruch Name="Elfenklinge" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Metall" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="10 min" Spruchrolle="true">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="sSc"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Besessenheit" Region="TuT" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Feuer" Zauberdauer="5 sec" Reichweite="0 m" Wirkungsziel="Geist" Wirkungsbereich="30 m Kegel" Wirkungsdauer="10 sec">
+   <Grund Typ="De"/>
+   <Grund Typ="Hj"/>
+   <Grund Typ="PW"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="tBe"/>
+   <Ausnahme Typ="To"/>
+   <Lernschema Typ="Hj" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Fährtenduft" Region="TuT" Grad="2" Lernkosten="200" AP="1+1/Ws" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1-6 Ws" Wirkungsdauer="30 min" Material="Tierkot (2KS)" Spruchrolle="true">
+   <Grund Typ="Dr"/>
+   <Grund Typ="Hl"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Geräusche dämpfen" Region="TuT" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="3 m UK" Wirkungsdauer="5 min" Thaumagramm="Siegel">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Tm"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Hauch der Betäubung" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="erschafft" Reagens="Hulz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="bis 18 m UK" Wirkungsdauer="1 min" Material="getr. Vamirmoos (1 Gs)" Thaumagramm="Runenstab">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Laufen wie der Wind" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Leuchtspur" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="erkennt" Reagens="Feuer" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="50 m UK" Wirkungsdauer="6 h">
+   <Grund Typ="Hj"/>
+   <Grund Typ="dBe"/>
+   <Grund Typ="eBe"/>
+   <Grund Typ="tBe"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="Tm"/>
+   <Ausnahme Typ="Wi"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Person wiederfinden" Region="TuT" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Spruchrolle="true" Thaumagramm="Siegel">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Or"/>
+  </Spruch>
+  <Spruch Name="Rauchbild" Region="TuT" Grad="4" Lernkosten="1800" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="erkennt" Reagens="Feuer" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="Z" Wirkungsdauer="5 min" Material="Wollgras, Rauschmittel, Regenbogenpulver (10 Gs)">
+   <Grund Typ="Hj"/>
+   <Grund Typ="dBe"/>
+   <Grund Typ="eBe"/>
+   <Grund Typ="tBe"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Schatten verstärken" Region="TuT" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="verändert" Reagens="Feuer" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="15 m UK" Wirkungsdauer="10 min" Thaumagramm="Siegel">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="3"/>
+  </Spruch>
+  <Spruch Name="Schattenrobe" Region="TuT" Grad="2" Lernkosten="200" AP="2" Typ="Wort" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Feuer" Zauberdauer="5 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="Z" Wirkungsdauer="10 min" Thaumagramm="Siegel">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Lernschema Typ="Sw" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Schattenschrecken" Region="TuT" Grad="4" Lernkosten="1200" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="bewegt" Reagens="Feuer" Zauberdauer="20 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="100 m UK" Wirkungsdauer="30 min" Thaumagramm="Runenstab">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schlachtenwahnsinn" Region="TuT" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="2 min">
+   <Grund Typ="Fi"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Tm"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Schutzgeste" Region="TuT" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="verändert" Reagens="Erde" Zauberdauer="1 sec" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="0">
+   <Grund Typ="Hj"/>
+   <Standard Typ="De"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="Tm"/>
+  </Spruch>
+  <Spruch Name="Torwandeln" Region="TuT" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="verwandelt" Reagens="Holz" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="30 cm" Wirkungsdauer="1 min" Thaumagramm="Siegel">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+  </Spruch>
+  <Spruch Name="Wandwandeln" Region="TuT" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="verwandelt" Reagens="Erde" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="1 min" Thaumagramm="Siegel">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+  </Spruch>
+  <Spruch Name="Wittern" Region="TuT" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="25m Uk" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="10 min" Material="Spürhundhaare (5 SS)" Thaumagramm="Siegel">
+   <Grund Typ="Dr"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+  </Spruch>
+  <Spruch Name="Zaubersprung" Region="TuT" Grad="4" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="5 s" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Hl"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+   <Lernschema Typ="Fi" Lernpunkte="8"/>
+  </Spruch>
+  <Spruch Name="Zwingkreis, Blauer" Region="TuT" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="20 sec" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="6 m UK" Wirkungsdauer="10 min" Material="Eichenholzreif (1 Gs)" Spruchrolle="true">
+   <Grund Typ="Hj"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="tBe"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Zwingkreis, Silberner" Region="TuT" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="20 sec" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="6 m UK" Wirkungsdauer="10 min" Material="Silberreif (5Gs)">
+   <Grund Typ="Hj"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="tBe"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Angst">
+   <Grund Typ="Hj"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="2"/>
+   <Lernschema Typ="Mg" Lernpunkte="4"/>
+   <Lernschema Typ="To" Lernpunkte="4"/>
+   <Lernschema Typ="Wi" Lernpunkte="8"/>
+  </Spruch>
+  <Spruch Name="Anziehen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Auflösung">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Austreibung des Bösen">
+   <Grund Typ="Hj"/>
+   <Lernschema Typ="Hj" Lernpunkte="8"/>
+  </Spruch>
+  <Spruch Name="Automat schaffen">
+   <Grund Typ="Sw"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Bannen von Dunkelheit">
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Bannen von Finsterwerk">
+   <Grund Typ="Hj"/>
+  </Spruch>
+  <Spruch Name="Bannen von Kälte">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Bannen von Licht">
+   <Grund Typ="To"/>
+   <Ausnahme Typ="Km"/>
+   <Lernschema Typ="To" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Bannen von Zauberwerk">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannsphäre, Blaue">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Bannsphäre, Goldene">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Bannsphäre, Schwarze">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Km"/>
+   <Standard Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Bannsphäre, Silberne">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Baum">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Baumkämpfer">
+   <Standard Typ="Km"/>
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Baumwächter">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Beeinflussen">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+  </Spruch>
+  <Spruch Name="Befestigen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="1"/>
+  </Spruch>
+  <Spruch Name="Belebungshauch">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Beschleunigen">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Besänftigen">
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Mg" Lernpunkte="8"/>
+  </Spruch>
+  <Spruch Name="Binden des Vertrauten">
+   <Standard Typ="Hj"/>
+  </Spruch>
+  <Spruch Name="Bittersalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Blendwerk">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Blicksalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Blitze schleudern">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Brot und Wasser">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Bärenwut">
+   <Grund Typ="To"/>
+   <Grund Typ="Wi"/>
+   <Lernschema Typ="To" Lernpunkte="2"/>
+   <Lernschema Typ="Wi" Lernpunkte="4"/>
+   <Lernschema Typ="Fi" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Böser Blick">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Deckmantel">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dinge verbergen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dinge wiederfinden">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Donnerkeil">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dschinni-Auge">
+   <Grund Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dschinni-Horn">
+   <Grund Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dschinni-Ohr">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Dschungelwand">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Durstsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Dämonenfeuer">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Dämonische Zaubermacht">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Eisenhaut">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Eisiger Nebel">
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Eismeisterschaft">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Eiswand">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Eiswandlung">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Elementenwandlung">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Elfenfeuer">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Entgiften">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Erdbeben">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Erdfessel">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Erdmeisterschaft">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Erdwandlung">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Erkennen der Aura">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Mg"/>
+   <Lernschema Typ="Hj" Lernpunkte="2"/>
+   <Lernschema Typ="Mg" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Krankheit">
+   <Grund Typ="Mg"/>
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Leben">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Zauberei">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="4"/>
+   <Lernschema Typ="Hj" Lernpunkte="8"/>
+   <Lernschema Typ="Mg" Lernpunkte="8"/>
+  </Spruch>
+  <Spruch Name="Erscheinungen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Feenfluch">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Feenzauber">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Felsenfaust">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Fesselbann">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Feuerfinger">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Feuerkugel">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Feuerlanze">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Feuerlauf">
+   <Grund Typ="Sw"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Feuermeisterschaft">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Feuerregen">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Feuerring">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Feuerschild">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Feuerwand">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Flammende Hand">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Flammenklinge">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Flammenkreis">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Lernschema Typ="Hj" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Fliegen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Fliegensalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Freundesauge">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Frostball">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Funkenregen">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Funkensalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Färbersalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Geas">
+   <Grund Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Geistesschild">
+   <Grund Typ="Km"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Goldener Panzer">
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Graue Hand">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Grüne Hand">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Haarsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Hagel">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Handauflegen">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Hauch der Verwesung">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Hauch des Winters">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Heilen schwerer Wunden">
+   <Standard Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Heilen von Wunden">
+   <Grund Typ="Fi"/>
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Heimstein">
+   <Grund Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Heranholen">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1"/>
+   <Lernschema Typ="Sw" Lernpunkte="3"/>
+  </Spruch>
+  <Spruch Name="Himmelsleiter">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Hitzeschutz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Hitzsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Hort der Natur">
+   <Grund Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Hungersalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Hören der Geister">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+  </Spruch>
+  <Spruch Name="Hören von Fernem">
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Hörnerklang">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Jucksalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Juwelenauge">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Knochenbestie">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kraft entziehen">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kälteschutz">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Kühlsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Lachsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Lauschen">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="1"/>
+   <Lernschema Typ="Sw" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Lichtbrücke">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Lichtrunen">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="1"/>
+  </Spruch>
+  <Spruch Name="Liebeszauber">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Lindern von Entkräftung">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Liniensicht">
+   <Standard Typ="Km"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Linienwanderung">
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Luftlauf">
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Luftsphäre">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Lähmung">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Löschsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Macht über Leben">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Macht über Menschen">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Macht über Unbelebtes">
+   <Grund Typ="Km"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Macht über das Selbst">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1"/>
+   <Lernschema Typ="To" Lernpunkte="3"/>
+   <Lernschema Typ="Hj" Lernpunkte="4"/>
+   <Lernschema Typ="Fi" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Macht über den Tod">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Macht über die Sinne">
+   <Grund Typ="Km"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Macht über die Zeit">
+   <Grund Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Macht über die belebte Natur">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="3"/>
+   <Lernschema Typ="Wi" Lernpunkte="4"/>
+   <Lernschema Typ="Fi" Lernpunkte="8"/>
+  </Spruch>
+  <Spruch Name="Macht über magische Wesen">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Magischer Kreis des Bewachens">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Magischer Kreis des Verschleierns">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Magischer Kreis des Widerstehens">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Magischer Kreis, klein">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Magischer Spion">
+   <Grund Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Marmorhaut">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Namenloses Grauen">
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+  </Spruch>
+  <Spruch Name="Naturgeist rufen">
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Nebel schaffen">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Nebel wecken">
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Niessalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Pestklaue">
+   <Grund Typ="To"/>
+  </Spruch>
+  <Spruch Name="Pflanzenfessel">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Pflanzenmann">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Rauchsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Rauchwolke">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Rauschsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Regenzauber">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Reinigen">
+   <Grund Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Reise der Seele">
+   <Grund Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Reise in die Zeit">
+   <Grund Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Reise zu den Sphären">
+   <Grund Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Riechsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Rindenhaut">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Rost">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Rutschsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Scharfblick">
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Km" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Schlaf">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schlafsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schlangenbiß">
+   <Grund Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schleichsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schmerzen">
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+   <Lernschema Typ="To" Lernpunkte="3"/>
+  </Spruch>
+  <Spruch Name="Schrumpfen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Schutzgeist">
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Schwarm">
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schwarze Zone">
+   <Grund Typ="Km"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Schweben">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schwäche">
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+   <Lernschema Typ="To" Lernpunkte="1"/>
+  </Spruch>
+  <Spruch Name="Seelenkompaß">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Sehen in Dunkelheit">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Sw" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Sehen von Verborgenem">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Km" Lernpunkte="1"/>
+   <Lernschema Typ="Sw" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Silberstaub">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Lernschema Typ="Hj" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Spruch intensivieren">
+   <Grund Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Staubkämpfer">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Steinkugel">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Steinwand">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Stille">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+   <Lernschema Typ="To" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Stimmenwerfen">
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+   <Lernschema Typ="To" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Stottersalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Sturmflut">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Sturmhand">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Sturmwind">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Stärke">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Sumpfboden">
+   <Grund Typ="Wi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Thursenstein">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Tiere rufen">
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Tiergestalt">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Tierisches Handeln">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Tiersprache">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Km"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="Wi"/>
+   <Lernschema Typ="Wi" Lernpunkte="8"/>
+  </Spruch>
+  <Spruch Name="Todeshauch">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Todeskeule">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Todeszauber">
+   <Grund Typ="To"/>
+  </Spruch>
+  <Spruch Name="Trampelsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Umkehrschild">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Ungeheuer rufen">
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Unsichtbarkeit">
+   <Grund Typ="Sw"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Verdorren">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Vereisen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Vergiften">
+   <Grund Typ="To"/>
+  </Spruch>
+  <Spruch Name="Vergrößern">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Verkleinern">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Verlangsamen">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Verletzung">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Versetzen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Versteinern">
+   <Grund Typ="To"/>
+  </Spruch>
+  <Spruch Name="Vertieren">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Verursachen schwerer Wunden">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Verursachen von Krankheit">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Verursachen von Wunden">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Verwandlung">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Verwirren">
+   <Grund Typ="Mg"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Mg" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Verzweiflung">
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Wachsen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Wagemut">
+   <Grund Typ="Fi"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Km"/>
+   <Lernschema Typ="Km" Lernpunkte="3"/>
+   <Lernschema Typ="Fi" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Wahnsinn">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wahrsehen">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Mg"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Wandelhand">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wandeln wie der Wind">
+   <Grund Typ="Fi"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Wi" Lernpunkte="2"/>
+   <Lernschema Typ="Fi" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Wandelsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Warnung">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Wasseratmen">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wasserlauf">
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Wassermeisterschaft">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wassersalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Wasserstrahl">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wasserwandlung">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wehsalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+   <Lernschema Typ="Sw" Lernpunkte="1"/>
+   <Lernschema Typ="Mg" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Wetterzauber">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Wiederkehr">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Windmeisterschaft">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Windstoß">
+   <Grund Typ="Sw"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wirbelwind">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wundersame Tarnung">
+   <Grund Typ="Fi"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Lernschema Typ="Wi" Lernpunkte="2"/>
+   <Lernschema Typ="Fi" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Zauberauge">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Zauberhand">
+   <Grund Typ="To"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Zaubermacht">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Zauberschild">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Zauberschloß">
+   <Grund Typ="Sw"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Zauberschlüssel">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Zauberschmiede">
+   <Grund Typ="Hj"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Zauberstimme">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Zauberwirklichkeit">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Zauberzunge">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Zielsuche">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+  </Spruch>
+  <Spruch Name="Zweite Haut">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Km"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Zwiesprache">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Zähmen">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Wi"/>
+   <Standard Typ="Mg"/>
+   <Ausnahme Typ="To"/>
+   <Lernschema Typ="Wi" Lernpunkte="2"/>
+   <Lernschema Typ="Mg" Lernpunkte="4"/>
+   <Lernschema Typ="Fi" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Zündersalz">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Dunebargen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Dvergar" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hrimfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hrimkin" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hunar" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hyrrfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hyrrkin" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Jördfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Jördkin" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Kaobargen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Vindfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Vindskin" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Wisfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Wiskin" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bergeist beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bergeist rufen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Coluscar 1 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Coluscar 2 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Coluscar 3 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Coluscar 4 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dschinn beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dschinn rufen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dunebrast 1 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dunebrast 2 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dunebrast 3 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dunebrast 4 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dunkle Horde beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dunskrat beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dämonen binden" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Dämonenbann" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Dämonenschar beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Eiselementargeist beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Eldring beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Elementarbann" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Elementarwesen binden" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Erdeelementargeist beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Erkurku beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Erkurku rufen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Felldvegar beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Felldverg beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Fengrip beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Feuerelementargeist beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Fjalhune beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Fossemand beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Geist beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Gjornhune beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Gletschergnom beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Gletschergnom rufen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Gloddvegar beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Gloddverg beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Halebant 1 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Halebant 2 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Halebant 3 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Halebant 4 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Hardlogi beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Harkarhune beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Harkbuar beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Haugskadi beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Herbeizwingen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Hrimdvegar beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Hrimdverg beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Hrimhune beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Hyrrbauti beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Ifrit beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Ifrit rufen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Indruwal 1 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Indruwal 2 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Indruwal 3 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Indruwal 4 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Ising beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Jambani beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Jokulskadi beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Jurugu beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Jurugu rufen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Jördmand beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kaligin 1 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kaligin 2 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kaligin 3 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kaligin 4 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kallbjargi beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kallrani beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Karing beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kreatur erschaffen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Lehrersuche" Region="3">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Lergris beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Ljosfang beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Luftelementargeist beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Marhune beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Marid beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Marid rufen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Marmennil beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Megant 1 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Megant 2 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Megant 3 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Megant 4 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Meisterbann" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Mokkurbjargi beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Myrknir beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Nefling beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Person beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Saeldvegar beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Saeldverg beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Dunebargen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Dvergar" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Dämonen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Elementarwesen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Geisterwesen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Hrimfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Hunar" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Hyrrfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Jördfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Kaobargen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Untote" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Vindfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Wisfolk" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Snaerhamir beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Svalgrim beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Thrymbar beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Tor schaffen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Truscan 1 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Truscan 2 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Truscan 3 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Truscan 4 beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Vergangenheit beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Vinddvegar beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Vinddverg beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Vindmand beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wasserelementargeist beschwören" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Weltentor schaffen" Region="3">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Leomies Birneneis" Region="A">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Al-Mutadid" Region="E">
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Blenden" Region="E">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Cheprus Sendbote" Region="E">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dalail al-Khairat" Region="E">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Hauch der Wüste" Region="E">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Incheper schaffen" Region="E">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Luftspiegelung" Region="E">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Macht über Mumien" Region="E">
+   <Grund Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Manifestation des Ka" Region="E">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Mumie erwecken" Region="E">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Sa rauben" Region="E">
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Sadik es-Sidiki" Region="E">
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Sandmeisterschaft" Region="E">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Seelenraub" Region="E">
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Seelenschock" Region="E">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Serkefs Todesbote" Region="E">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Sutechs Heer" Region="E">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Tausch des Ba" Region="E">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Wasser spüren" Region="E">
+   <Grund Typ="Sw"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Abwenden von Blicken" Region="G">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Damhsa Claimh (Schwerttanz)" Region="G">
+   <Grund Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Damhsa Meallim (Locktanz)" Region="G">
+   <Grund Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Damhsa an Duiseacht (Tanz des Erwachens)" Region="G">
+   <Grund Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Rince an Coisreacan (Reigen der Weihe)" Region="G">
+   <Standard Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Rince na Daoine Maithe (Reigen des Feenvolks)" Region="G">
+   <Grund Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Aggression" Region="H&amp;D">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Augenschleier" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Bann der wahren Eigentümerschaft" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bannen von Fäulnis" Region="H&amp;D">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Blindsalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Brechsalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Bruchbann" Region="H&amp;D">
+   <Grund Typ="Km"/>
+   <Grund Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Bärenstärke" Region="H&amp;D">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Der Große Knall" Region="H&amp;D">
+   <Grund Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Dinge rufen" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Gift" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Verdammten" Region="H&amp;D">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Fiebersalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Geruchsverlust" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Grenzenlose Freude" Region="H&amp;D">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Hammerhand" Region="H&amp;D">
+   <Grund Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Hexenhand" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Kammerdiener beschwören" Region="H&amp;D">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Klebesalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Knallsalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kopieren" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kravyad-Schrei" Region="H&amp;D">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Kuß des Schlafes" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Lahmsalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Lustsalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Magische Aura" Region="H&amp;D">
+   <Grund Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Nebelsalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Reptilien rufen" Region="H&amp;D">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Schattenbruder" Region="H&amp;D">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Schminken" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Schreiber beschwören" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Seance" Region="H&amp;D">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Signalkugel" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Sprachlähmung" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Tiefschlaf" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Trockensalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Trunk des Lebens" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Ungeziefer bannen" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Waldluft" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Wolkenbruch" Region="H&amp;D">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Wüstenwind" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Zaubertür" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Zucksalz" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Zurückführen" Region="H&amp;D">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Farbensalz" Region="H&amp;Df">
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Glühsalz" Region="H&amp;Df">
+   <Grund Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Doppelgänger schaffen" Region="K">
+   <Grund Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Metall" Region="K">
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Hauch des Frühlings" Region="K">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Metallmeisterschaft" Region="K">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Scheintod" Region="K">
+   <Standard Typ="Km"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schöne Leiche" Region="K">
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Wasser befreien" Region="K">
+   <Standard Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Blumen erschaffen" Region="N">
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Hexenspüren" Region="N">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Iquibalams Ruhm" Region="N">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Iquibalams Tapferkeit" Region="N">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Iquibalams Verachtung" Region="N">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Jadezauber" Region="N">
+   <Ausnahme Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Nahuahauquihs Preis" Region="N">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Netzkontakt" Region="N">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Ruf des Herzens" Region="N">
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Schattenjaguar" Region="N">
+   <Grund Typ="Sw"/>
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Tolucans Gabe" Region="N">
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Ungeziefer rufen" Region="N">
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Sw"/>
+  </Spruch>
+  <Spruch Name="Der große Seiltrick" Region="R">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Der kleine Seiltrick" Region="R">
+   <Standard Typ="To"/>
+   <Ausnahme Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Levitation" Region="R">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Spruch>
+  <Spruch Name="Seele finden" Region="R">
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Srimarameisterschaft I" Region="R">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Srimarameisterschaft II" Region="R">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Lösen" Region="W">
+   <Standard Typ="Km"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+  </Spruch>
+ </Zauber>
+ <Zauberwerke>
+  <Zauberwerk Name="Alarm" Stufe="magische Letter"/>
+  <Zauberwerk Name="Angst" Stufe="Augensalbe"/>
+  <Zauberwerk Name="Angst" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Auslösen" Stufe="magische Letter"/>
+  <Zauberwerk Name="Bannen von Dunkelheit" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Bannen von Licht" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Berserkerpilz aktivieren" Stufe="Pflanzliches Zaubermittel"/>
+  <Zauberwerk Name="Binden"/>
+  <Zauberwerk Name="Dämonenamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Eisiger Nebel" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Elementaramulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Farbletter (Blau)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Farbletter (Gelb)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Farbletter (Grün)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Farbletter (Infrarot)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Farbletter (Orange)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Farbletter (Rot)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Farbletter (Ultraviolett)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Farbletter (Violett)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Feuerkugel" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Feuerkugel" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Feuerring" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Flohpulver aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Funkenregen" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Geisteramulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Geräuschletter (Donnern)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Geräuschletter (Knarren)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Geräuschletter (Knistern)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Geräuschletter (Pfeifen)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Graue Hand" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Hauch des Winters" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Krafttrunk (1W6) aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Krafttrunk (2W6) aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Kraut der konzentrierten Energie" Stufe="Pflanzliches Zaubermittel"/>
+  <Zauberwerk Name="Liebestrank aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Lähmung" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Lähmung" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Namenloses Grauen" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Namenloses Grauen" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Nebel" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Opferletter (Dämonen)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Elemetarwesen)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Elfen)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Geisterwesen)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Lebewesen)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Magische Wesen)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Menschen)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Menschenähnliche)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Orcs)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Tiere)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Tiermenschen)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Untote)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Opferletter (Zwerge)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Pulver der Panzerhaut aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Rauchperle aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Reckentrunk aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Salbe der Eisenhaut aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Salbe der Krakenhände aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schlaf" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Schlaf" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Schmerzen" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Schmerzen" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Schnellkraut aktivieren" Stufe="Pflanzliches Zaubermittel"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schwäche" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Staubkämpfer" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Stille" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Talisman verzaubern" Stufe="Talisman"/>
+  <Zauberwerk Name="Talisman verzaubern" Stufe="Talisman"/>
+  <Zauberwerk Name="Talisman verzaubern" Stufe="Talisman"/>
+  <Zauberwerk Name="Talisman verzaubern" Stufe="Talisman"/>
+  <Zauberwerk Name="Tierisches Handeln" Stufe="Augensalbe"/>
+  <Zauberwerk Name="Tierisches Handeln" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Todeshauch" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Todeshauch" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Trunk der Macht über Hunde aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk der Macht über Menschen aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk der Macht über Orks aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk des Riesenwuchses aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk des Schwerelosigkeit aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk des Unsichtbarkeit aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk des Verwandlung aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Untotenamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Verdorren" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Verdorren" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Vereisen" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Vereisen" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Verlangsamen" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Versetzen" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Versteinern" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Versteinern" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Verwandeln" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Verwandlung" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Wahnsinn" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Wahnsinn" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Werwesenamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Windstoß" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Zahlenletter (1)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (10)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (11)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (12)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (13)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (2)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (3)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (4)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (5)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (6)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (7)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (8)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zahlenletter (9)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zauberpergament beschriften" Stufe="Zauberpergament"/>
+  <Zauberwerk Name="Zauberstimme" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Zeitletter (Jahr)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zeitletter (Mond)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zeitletter (Stunde)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zeitletter (Tag)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zeitletter (Trideade)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zündletter (Bereich)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zündletter (Berührung)" Stufe="magische Letter"/>
+  <Zauberwerk Name="Zündletter (Schlüsselwort)" Stufe="magische Letter"/>
+ </Zauberwerke>
+</MAGUS-data>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="M" Name="Minangpahit" Titel="Minangpahit" Copyright="?" Jahr="null" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:52.319627+02" MAGUS-Index="5">
+ <Schriften/>
+ <Sprachen/>
+ <Typen/>
+ <Fertigkeiten>
+  <Fertigkeit Name="Elefanten lenken" Region="R">
+   <regionaleBesonderheit Herkunft="Minangpahit" Typ="BW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Typ="Gl" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Typ="Hä" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Typ="Kr" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Typ="PW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Typ="Sö" Standard="G"/>
+  </Fertigkeit>
+ </Fertigkeiten>
+ <Berufe/>
+ <Rüstungen/>
+ <Waffen/>
+ <Waffen-Grundkenntnisse/>
+ <Zauber/>
+ <Zauberwerke/>
+</MAGUS-data>

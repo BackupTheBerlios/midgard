@@ -1,0 +1,1459 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:47.308675+02" MAGUS-Index="9" MAGUS-Bild="7">
+ <Schriften>
+  <Schrift Name="Futhark" Region="W" Typ="Runen" Kosten="20">
+   <Variante Name="Futhark"/>
+  </Schrift>
+ </Schriften>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="Sk" Region="W" MAGUS-Index="43" Bezeichnung-Mann="Skalde" Bezeichnung-Frau="Skaldin" kannZaubern="true" Ausdauer="ak">
+   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
+   <Herkunft Land="Waeland"/>
+   <Gruppe Name="KÄM"/>
+   <Gruppe Name="ZKÄM"/>
+  </Typ>
+  <Typ Abkürzung="Ru" Region="W" MAGUS-Index="44" Bezeichnung-Mann="Runenschneider" Bezeichnung-Frau="Runenschneiderin" kannZaubern="true" SprücheMitPraxisPunkten="Runen" Berufswahl="k" Ausdauer="ak">
+   <Modifikation Rüstung="3" Geld="3"/>
+   <Herkunft Land="Waeland"/>
+   <Gruppe Name="KÄM"/>
+   <Gruppe Name="ZKÄM"/>
+  </Typ>
+ </Typen>
+ <Fertigkeiten>
+  <Fertigkeit Name="Lesen von Zauberrunen" Region="W" Anfangswert="12" Lernkosten="20" Erfolgswert="6" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="15">
+   <Grund Typ="De"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PHa"/>
+   <Grund Typ="PHe"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Sk"/>
+   <Grund Typ="Th"/>
+   <Grund Typ="Tt"/>
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="tBe"/>
+   <Ausnahme Typ="As"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Er"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="Ku"/>
+   <Ausnahme Typ="Ny"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="Ri"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="Sr"/>
+   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Tm"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Tr"/>
+   <Ausnahme Typ="Wa"/>
+   <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
+   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <steigern_wie Fertigkeit="Lesen von Zauberschrift"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Abrichten">
+   <Standard Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Akrobatik">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Alchimie">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Athletik">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Balancieren">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ballista bedienen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Baukunde">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beidhändiger Kampf">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beredsamkeit">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beschatten">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Bogenkampf zu Pferd">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Dichten">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
+   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erste Hilfe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erzählen">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallen entdecken">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenmechanik">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenstellen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fangen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten tevarrischer Stil">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fälschen">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Gassenwissen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Gaukeln">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimmechanismen öffnen">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimzeichen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geländelauf">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschäftstüchtigkeit">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Giftmischen">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Glücksspiel">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Heilkunde">
+   <Standard Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Himmelskunde">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Dunkelheit">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Schlachtreihe">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Vollrüstung">
+   <Standard Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf vom Streitwagen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Pferd">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampftaktik">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Katapult bedienen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Klettern">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kräuterkunde">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Landeskunde">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Laufen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Zauberschrift">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lippenlesen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meditieren">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Menschenkenntnis">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meucheln">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Musizieren">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Naturkunde">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Pflanzenkunde">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rechnen">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Reiten">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rudern">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sagenkunde">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Scharfschießen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schauspielern">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schießen vom Streitwagen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schiffsführung">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schleichen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittenfahren">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlösser öffnen">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwimmen">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schätzen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Seemannsgang">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Seilkunst">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Singen">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Skifahren">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprache">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Springen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Spurenlesen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stehlen">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Steuern">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stimmen nachahmen">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Streitwagen lenken">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Suchen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tanzen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tarnen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tauchen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tierkunde">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Trinken">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verbergen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verführen">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verhören">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verkleiden">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wagenlenken">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wahrnehmung">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Winden">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zauberkunde">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zaubern">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zeichensprache">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Dschungel">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Gebirge">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Schnee">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Sumpf">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Wald">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Steppe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Wüste">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Brettspiel" Region="E">
+   <Grund Typ="Sk"/>
+   <Standard Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kamelreiten" Region="E">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Kamel" Region="E">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Mumifizieren" Region="E">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Orakelkunst" Region="E">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wetterkunde" Region="H&amp;D">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="FengSchui" Region="K">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="FengTsu" Region="K">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschenke machen" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KarumiJutsu" Region="K">
+   <Standard Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KentoYobu" Region="K">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KiDo" Region="K">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujKuri" Region="K">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujNoIu" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Geisterschrift" Region="K">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="LiYao" Region="K">
+   <Standard Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="MiChen" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="NinJutsu" Region="K">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="SchiyoKi" Region="K">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwerttanz" Region="K">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Steinabreibungen machen" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="TaiTschi" Region="K">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Teezeremonie" Region="K">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YangScheng" Region="K">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YubeChian" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zunge verschlucken" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Adlersprung" Region="N">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Akribie" Region="N">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ballspiel" Region="N">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Dämonenkunde" Region="N">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Federflechten" Region="N">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlachtruf" Region="N">
+   <Grund Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tätowieren" Region="N">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wahrsagekalender führen" Region="N">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Askese" Region="R">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Astrologie" Region="R">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Augensalbe herstellen" Region="R">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Elefanten lenken" Region="R">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Elefant" Region="R">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Körperkontrolle" Region="R">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Natya" Region="R">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlangen beschwören" Region="R">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schmerzen ertragen" Region="R">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Srimara lenken" Region="R">
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittschuhlaufen" Region="X">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben: Muttersprache(+12)">
+   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
+   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
+ </Fertigkeiten>
+ <Berufe/>
+ <Rüstungen/>
+ <Waffen>
+  <Waffe Name="Anderthalbhänder">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Bihänder">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Blasrohr">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Bogen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Sk" Lernpunkte="4" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Bola">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Buckler">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Dolch">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Faustkampf">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Fuchtel">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Garotte">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Glefe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Handarmbrust">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Handaxt">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Hellebarde">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Kampfgabeln">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Kampfstab">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Keule">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Kharrata">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Kompositbogen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Kriegsflegel">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Kriegshammer">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Krummsäbel">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Kurzbogen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Kurzschwert">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Langbogen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Langschwert">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Lanze">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Lasso">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Magierstab">
+   <Ausnahme Typ="Ru"/>
+  </Waffe>
+  <Waffe Name="Magierstecken">
+   <Ausnahme Typ="Ru"/>
+  </Waffe>
+  <Waffe Name="Morgenstern">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Netz">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Ochsenzunge">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Ogerhammer">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Parierdolch">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Peitsche">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Rapier">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Schlachtbeil">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Sk" Lernpunkte="4" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Schleuder">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Skhallanta">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Speerschleuder">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Stabkeule">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Stielhammer">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Stockschleuder">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Stoßspeer">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Streitaxt">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Streitkolben">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Werfen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Wurfaxt">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Wurfeisen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Wurfhammer">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Wurfkeule">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Wurfmesser">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Wurfpfeil">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Wurfscheibe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Wurfspeer">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Wurfspieß">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Wurfstern">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="großer Schild">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="1"/>
+  </Waffe>
+  <Waffe Name="kleiner Schild">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="leichte Armbrust">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="leichter Speer">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="schwere Armbrust">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="waffenloser Kampf">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Pilum" Region="3">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="BuKasa" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="GunSen" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Katana" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="KusariGama" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Kyu" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Naginata" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="NunChaku" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Sai" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="TetsuBo" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Tonfa" Region="K">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Namisritra" Region="R">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+ </Waffen>
+ <Waffen-Grundkenntnisse>
+  <Waffen-Grundkenntnis Name="Armbrust">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Blasrohr">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Bögen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Einhandschlagwaffe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Einhandschwert">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Fesselwaffe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Garotte">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kampf ohne Waffen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kampfstab">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kettenwaffe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Parierwaffe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Peitsche">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Schild">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Schleuder">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Spießwaffe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stangenwaffe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stichwaffe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stielwurfwaffe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Werfen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfmesser">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfpfeil">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfscheibe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfspieß">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zauberstäbe">
+   <Ausnahme Typ="Ru"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zweihandschlagwaffe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zweihandschwert">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kharrata" Region="R">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Namisritra" Region="R">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffen-Grundkenntnis>
+ </Waffen-Grundkenntnisse>
+ <Zauber>
+  <Spruch Name="Bannrune" Region="W" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="12 h" Material="6 Apfelbaumstücke" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Becherrune" Region="W" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erkennt" Reagens="Eis" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="6 h" Material="Trinkgefäß" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="4"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Berserkerrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Material="Waffe mit Eichenholzschaft" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Drachenrune" Region="W" Grad="5" Lernkosten="1400" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Drachenschuppe" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Fesselrune" Region="W" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="Wolle und Espenholz" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Flammenrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Wasser" Prozess="zerstört" Reagens="Feuer" Zauberdauer="30 min" Reichweite="1 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1 h" Material="Drachenschuppe" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Friedensrune" Region="W" Grad="6" Lernkosten="5000" AP="9" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="2 Wesen" Wirkungsdauer="0" Material="Goldreif (100 GS)" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Geberrune" Region="W" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Silberscheibe in Münzgröße (2 SS)" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Geisterrune" Region="W" Grad="4" Lernkosten="1200" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Stab aus dem Holz eines Apfelbaums" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Geizrune" Region="W" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Pferdeschädel" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Gesichtsrune" Region="W" Grad="5" Lernkosten="30000" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Magan" Zauberdauer="30 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="Zauberer" Wirkungsdauer="6 h" Material="Wurzelstück einer Esche" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Hagelrune" Region="W" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Woche" Material="Knochen eines Wildschafes" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="4"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Heilsrune" Region="W" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="zerstört" Reagens="Eis" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Stück Brennholz" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="6"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Hexenschuß" Region="W" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="schwarzmagisch" Agens="Magan" Prozess="zerstört" Reagens="Feuer" Zauberdauer="20 sec" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="Strahl" Wirkungsdauer="10 min" Material="Schwarzdornpfeil mit Silberspitze (2GS)" Spruchrolle="true">
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Klingenrune" Region="W" Grad="4" Lernkosten="1200" AP="5" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Material="Klingenwaffe, eigenes blut" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Kälterune" Region="W" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="24 h" Material="Seehundknochen" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Liebesrune" Region="W" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Stück Birkenholz" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Lösen" Region="W" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="zerstört" Reagens="Magan" Zauberdauer="10 sec" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Schwungfeder eines Singschwans (1GS)" Spruchrolle="true" Thaumagramm="Siegel">
+   <Grund Typ="PW"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Lösungsrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="zerstört" Reagens="Magan" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="0" Material="Stück Espenholz" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Oysteins kleine Prophezeiung" Region="W" Grad="4" Lernkosten="1500" AP="8" Typ="Gedanke" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Zauberer" Wirkungsdauer="0" Spruchrolle="true">
+   <Grund Typ="Dt"/>
+   <Grund Typ="PW"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Pfeilrune" Region="W" Grad="2" Lernkosten="400" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Metall" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Eibenholzscheibe an Bogensehne" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="8"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Regenrune" Region="W" Grad="3" Lernkosten="800" AP="9" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="erschafft" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 km Uk" Wirkungsdauer="var" Material="Specksteinfigur" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Reiserune" Region="W" Grad="1" Lernkosten="120" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="Rentierknochen" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="4"/>
+   <Lernschema Typ="Sk" Lernpunkte="4"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Schildrune" Region="W" Grad="2" Lernkosten="400" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Holz" Zauberdauer="10 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Material="Holzschild, Spucke" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="8"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Schneidenrune" Region="W" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 We" Wirkungsdauer="1 h" Material="Stück Eichenholz an Lederschnur" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="8"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Schnellrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="Schuhsohle, Huf" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Schutzrune" Region="W" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="12 h" Material="6 Fichtenholzstücke" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Stärkerune" Region="W" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Material="Ochsenhornscheibe" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="6"/>
+   <Lernschema Typ="Sk" Lernpunkte="6"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Tierrune" Region="W" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="göttlich" Agens="Wasser" Prozess="verwandelt" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="w6 h" Material="Knochenstück" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Totenrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Eibenholzstab" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Traumrune" Region="W" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Zauberer" Wirkungsdauer="0" Material="Stück Eschenholz" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Ungeheuerrune" Region="W" Grad="3" Lernkosten="800" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="12 h" Material="Stab aus kaltem Eisen, eigenes Blut" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Unheilsrune" Region="W" Grad="2" Lernkosten="400" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Eis" Prozess="zerstört" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Stück Buchenholz" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Wahrheitsrune" Region="W" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="10 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Goldring (30 GS), Spucke des Verzauberten" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Sk" Lernpunkte="4"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Wehrrune" Region="W" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="zerstört" Reagens="Magan" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="0" Material="Eschenholzstab" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Ausnahme Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Wetterrune" Region="W" Grad="3" Lernkosten="1200" AP="9" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Luft" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 km Uk" Wirkungsdauer="var" Material="Specksteinfigur" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Wogenrune" Region="W" Grad="5" Lernkosten="4000" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Wasser" Prozess="bewegt" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="100 m Uk" Wirkungsdauer="12 h" Material="Schiff oder Boot" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Wundrune" Region="W" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Kieselstein, Stechpalmenblätter" Zauberart="Runen">
+   <Grund Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Typ="Ru" Lernpunkte="8"/>
+   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Das Lied der Feier">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied der Liebe">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied der Ruhe">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied der Tapferkeit">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied der Verführung">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied der verborgenen Kraft">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied des Erinnerns">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied des Fesselns">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied des Friedens">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied des Spottes">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied des Vergessens">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied des Wagemuts">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Der einschläfernde Gesang">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Der frohlockende Gesang">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Der traurige Gesang">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Die Klänge der Genesung">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Die überzeugende Stimme">
+   <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Ballade der Begierde" Region="H&amp;D">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied der Macht" Region="H&amp;D">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied der Magie" Region="H&amp;D">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied des Verstehens" Region="H&amp;D">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Der Gesang Crescendis" Region="H&amp;D">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Die Stimme der Gerechten" Region="H&amp;D">
+   <Standard Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Kravyad-Schrei" Region="H&amp;D">
+   <Grund Typ="Sk"/>
+  </Spruch>
+ </Zauber>
+ <Zauberwerke/>
+</MAGUS-data>

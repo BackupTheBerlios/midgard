@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="B&amp;R">
+ <Schriften/>
+ <Sprachen/>
+ <Typen/>
+ <Fertigkeiten/>
+ <Berufe>
+  <Beruf Name="Knappe" Region="B&amp;R">
+   <Voraussetzungen Geschlecht="m"/>
+  </Beruf>
+  <Beruf Name="Pagin" Region="B&amp;R">
+   <Voraussetzungen Geschlecht="w"/>
+  </Beruf>
+ </Berufe>
+ <Rüstungen/>
+ <Waffen/>
+ <Waffen-Grundkenntnisse/>
+ <Zauber/>
+ <Zauberwerke/>
+</MAGUS-data>

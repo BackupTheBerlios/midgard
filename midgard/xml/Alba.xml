@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="A" Name="Alba" Titel="Alba - Für Clan und Krone" Copyright="Thomas Kreutz und Ludger Fischer" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:23:53.624692+02" MAGUS-Index="3" MAGUS-Bild="3">
+ <Schriften/>
+ <Sprachen>
+  <Sprache Name="Dunathisch" Region="A" Kosten="10" Maximalwert="20" alteSprache="true">
+   <Schrift/>
+  </Sprache>
+ </Sprachen>
+ <Typen/>
+ <Fertigkeiten/>
+ <Berufe/>
+ <Rüstungen/>
+ <Waffen>
+  <Waffe Name="Anderthalbhänder">
+   <regionaleVariante Name="Claymore" Region="A" Schaden="W6+1|2"/>
+  </Waffe>
+  <Waffe Name="Dolch">
+   <regionaleVariante Name="Dirgh" Region="A" Schaden="W6" Schadensbonus="-1"/>
+  </Waffe>
+  <Waffe Name="Kurzschwert">
+   <regionaleVariante Name="Laingdirgh" Region="A" Schaden="W6"/>
+  </Waffe>
+  <Waffe Name="Langschwert">
+   <regionaleVariante Name="Breitschwert" Region="A" Schaden="W6" Schadensbonus="1"/>
+  </Waffe>
+ </Waffen>
+ <Waffen-Grundkenntnisse/>
+ <Zauber>
+  <Spruch Name="Leomies Birneneis" Region="A" Grad="2" Lernkosten="500" AP="2/Wesen" Typ="Geste" Ursprung="elementar" Agens="Eis" Prozess="erschafft" Reagens="Eis" Zauberdauer="5 s" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="50 cm Umkreis" Wirkungsdauer="1 min" Spruchrolle="true">
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sr"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="wHx"/>
+   <regionaleBesonderheit Spezies="Halbling" Typ="Hl" Standard="S"/>
+   <regionaleBesonderheit Spezies="Halbling" Typ="PF" Standard="G"/>
+   <regionaleBesonderheit Spezies="Halbling" Typ="PW" Standard="G"/>
+  </Spruch>
+ </Zauber>
+ <Zauberwerke/>
+</MAGUS-data>

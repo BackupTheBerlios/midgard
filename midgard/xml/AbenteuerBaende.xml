@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="X" Name="Abenteuer" Titel="Abenteuer" Copyright="var." Jahr="1981-" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:52.758772+02" MAGUS-Index="12" MAGUS-Bild="13">
+ <Schriften/>
+ <Sprachen>
+  <Sprache Name="Ferangah" Region="X" RegionZusatz="Die schwarze Sphäre" Kosten="10" Maximalwert="20" Gruppe="10">
+   <Schrift/>
+  </Sprache>
+ </Sprachen>
+ <Typen/>
+ <Fertigkeiten>
+  <Fertigkeit Name="Schlittschuhlaufen" Region="X" RegionZusatz="Smaskrifter" Lernpunkte="3" Lernpunkte-Land="2" Anfangswert="15" Lernkosten="60" Erfolgswert="10" Attribut="Gs" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="BN"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Voraussetzungen Gw="21"/>
+   <steigern_wie Fertigkeit="Bewegung"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Musizieren">
+   <Zusätze Name="Cheng (Mundorgel)" Typ="Zupfinstrument" Region="X" RegionZusatz="Unter der Sturmdrachen"/>
+  </Fertigkeit>
+ </Fertigkeiten>
+ <Berufe/>
+ <Rüstungen/>
+ <Waffen/>
+ <Waffen-Grundkenntnisse/>
+ <Zauber>
+  <Spruch Name="Die Wirklichkeit des Vertrauten ist stärker als die Augen" Region="X" RegionZusatz="Unter dem Sturmdrachen" Grad="5" Lernkosten="2000" AP="6" Typ="Geste" Zauberdauer="20 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="3x3x3 m" Wirkungsdauer="-" Material="Edelsteinstaub (10 GS)" Spruchrolle="true" Thaumagramm="Siegel"/>
+ </Zauber>
+ <Zauberwerke/>
+</MAGUS-data>

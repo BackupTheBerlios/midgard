@@ -1,0 +1,2964 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:27.423632+02" MAGUS-Index="4" MAGUS-Bild="4">
+ <Schriften/>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="De" Region="E" MAGUS-Index="46" Bezeichnung-Mann="Derwisch" Bezeichnung-Frau="Derwisch" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="Wunder" Ausdauer="ak">
+   <Modifikation Rüstung="1" Geld="4"/>
+   <Herkunft Land="Eschar"/>
+   <Gruppe Name="ZAU"/>
+  </Typ>
+ </Typen>
+ <Fertigkeiten>
+  <Fertigkeit Name="Brettspiel" Region="E" Lernpunkte="1" Anfangswert="4" Lernkosten="20" Erfolgswert="2" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="Ba"/>
+   <Grund Typ="Dr"/>
+   <Grund Typ="Dt"/>
+   <Grund Typ="Gl"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Hä"/>
+   <Grund Typ="Ma"/>
+   <Grund Typ="Mg"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="Sk"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="As"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="Tt"/>
+   <Voraussetzungen In="31"/>
+   <Kosten Wert3="5" Wert4="5" Wert5="10" Wert6="10" Wert7="10" Wert8="20" Wert9="20" Wert10="50" Wert11="50" Wert12="100" Wert13="100"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kamelreiten" Region="E" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="10" Erfolgswert-ungelernt="5" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="BS"/>
+   <Grund Typ="Gl"/>
+   <Grund Typ="Hä"/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ku"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Voraussetzungen Gw="31"/>
+   <Lernschema Typ="De" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <steigern_wie Fertigkeit="Bewegung"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Kamel" Region="E" Lernpunkte="8" Anfangswert="15" Lernkosten="200" Erfolgswert="10" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="BS"/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Wa"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Tt"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="wHx"/>
+   <Voraussetzungen Gw="21" Fertigkeit="Kamelreiten"/>
+   <Voraussetzungen_2 Name="Kamelreiten"/>
+   <steigern_wie Fertigkeit="Kampf zu Pferd"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Mumifizieren" Region="E" Lernpunkte="4" Lernkosten="200" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="De"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="As"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Ny"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="Ri"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="Sr"/>
+   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Tr"/>
+   <Ausnahme Typ="Wa"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="tBe"/>
+   <Voraussetzungen Gw="31" In="31" Fertigkeit="Kräuterkunde, Naturkunde"/>
+   <Voraussetzungen_2 Name="Kräuterkunde"/>
+   <Voraussetzungen_2 Name="Naturkunde"/>
+   <steigern_wie Fertigkeit="Wissen"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Orakelkunst" Region="E" Anfangswert="5" Lernkosten="60" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
+   <Grund Typ="As"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="To"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="Ri"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="Sr"/>
+   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Tr"/>
+   <Ausnahme Typ="Wa"/>
+   <Voraussetzungen In="61" Zt="61"/>
+   <Lernschema Typ="Ny" Lernpunkte="1"/>
+   <steigern_wie Fertigkeit="Geomantie"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Pyromantie" Region="E" Lernpunkte="1" Anfangswert="5" Lernkosten="400" Erfolgswert="4" Attribut="Zt" Berufskategorie="1" Maximalwert="12" MaximalMitUnterweisung="11">
+   <Grund Typ="De"/>
+   <Grund Typ="Dr"/>
+   <Grund Typ="PHa"/>
+   <Grund Typ="PHe"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="Wi"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="tBe"/>
+   <Voraussetzungen Zt="61" Fertigkeit="Zaubern"/>
+   <steigern_wie Fertigkeit="Geomantie"/>
+   <EP-Typ ZEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Abrichten">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Akrobatik">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Alchimie">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Athletik">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Balancieren">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ballista bedienen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Baukunde">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beidhändiger Kampf">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beredsamkeit">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beschatten">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Bogenkampf zu Pferd">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Dichten">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erste Hilfe">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erzählen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallen entdecken">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenmechanik">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenstellen">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fangen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten tevarrischer Stil">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fälschen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Gassenwissen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Gaukeln">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimmechanismen öffnen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimzeichen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geländelauf">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschäftstüchtigkeit">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Giftmischen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Glücksspiel">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Heilkunde">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Himmelskunde">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Dunkelheit">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Schlachtreihe">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Vollrüstung">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf vom Streitwagen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Pferd">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampftaktik">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Katapult bedienen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Klettern">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kräuterkunde">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Landeskunde">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Laufen">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Zauberschrift">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lippenlesen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meditieren">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="3" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Menschenkenntnis">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meucheln">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Musizieren">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Naturkunde">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Pflanzenkunde">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rechnen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Reiten">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rudern">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sagenkunde">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Scharfschießen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schauspielern">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schießen vom Streitwagen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schiffsführung">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schleichen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittenfahren">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlösser öffnen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwimmen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schätzen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Seemannsgang">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Seilkunst">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Singen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Skifahren">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprache">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Springen">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Spurenlesen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stehlen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Steuern">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stimmen nachahmen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Streitwagen lenken">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Suchen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tanzen">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tarnen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tauchen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Thaumatographie">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tierkunde">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Trinken">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verbergen">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verführen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verhören">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verkleiden">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wagenlenken">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wahrnehmung">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Winden">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zauberkunde">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zaubern">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zeichensprache">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Dschungel">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Gebirge">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Schnee">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Sumpf">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Wald">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Steppe">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Wüste">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="1" Erfolgswert="8"/>
+   <regionaleBesonderheit Herkunft="Eschar" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Eschar" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Eschar" Typ="ScW" Standard="G"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wetterkunde" Region="H&amp;D">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="FengSchui" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="FengTsu" Region="K">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschenke machen" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KarumiJutsu" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KentoYobu" Region="K">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KiDo" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujKuri" Region="K">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujNoIu" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Geisterschrift" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="LiYao" Region="K">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="MiChen" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="NinJutsu" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="SchiyoKi" Region="K">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwerttanz" Region="K">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Steinabreibungen machen" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="TaiTschi" Region="K">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Teezeremonie" Region="K">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YangScheng" Region="K">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YubeChian" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zunge verschlucken" Region="K">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Adlersprung" Region="N">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Akribie" Region="N">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ballspiel" Region="N">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Dämonenkunde" Region="N">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Federflechten" Region="N">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlachtruf" Region="N">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tätowieren" Region="N">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wahrsagekalender führen" Region="N">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Askese" Region="R">
+   <Standard Typ="De"/>
+   <regionaleBesonderheit Herkunft="Eschar" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Eschar" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Eschar" Typ="ScW" Standard="G"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Astrologie" Region="R">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Augensalbe herstellen" Region="R">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Elefanten lenken" Region="R">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Elefant" Region="R">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Körperkontrolle" Region="R">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Natya" Region="R">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlangen beschwören" Region="R">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schmerzen ertragen" Region="R">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Srimara lenken" Region="R">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geomantie" Region="TuT">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="3" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Zauberrunen" Region="W">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittschuhlaufen" Region="X">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimzeichen">
+   <Zusätze Name="Bruderschaft der Schatten" Region="E"/>
+  </Fertigkeit>
+ </Fertigkeiten>
+ <Berufe/>
+ <Rüstungen/>
+ <Waffen>
+  <Waffe Name="Anderthalbhänder">
+   <regionaleVariante Name="Nimcha" Region="E" Schaden="W6+1|2"/>
+   <Standard Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="4" Erfolgswert="4"/>
+  </Waffe>
+  <Waffe Name="Bihänder">
+   <Standard Typ="De"/>
+  </Waffe>
+  <Waffe Name="Blasrohr">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Bogen">
+   <regionaleVariante Name="Mukantar" Region="E" Schaden="W6"/>
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Bola">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Buckler">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Dolch">
+   <regionaleVariante Name="Jambiya" Region="E" Schaden="W6" Schadensbonus="-1"/>
+   <regionaleVariante Name="Khanjar" Region="E" Schaden="W6" Schadensbonus="-1"/>
+   <regionaleVariante Name="Rilok" Region="E" Schaden="W6" Schadensbonus="-1"/>
+   <regionaleVariante Name="Telek" Region="E" Schaden="W6" Schadensbonus="-1"/>
+   <Ausnahme Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="4"/>
+  </Waffe>
+  <Waffe Name="Faustkampf">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Fuchtel">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Garotte">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Glefe">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Handarmbrust">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Handaxt">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Hellebarde">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Kampfgabeln">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Kampfstab">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Keule">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Kharrata">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Kompositbogen">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Kriegsflegel">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Kriegshammer">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Krummsäbel">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Kurzbogen">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Kurzschwert">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Langbogen">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Langschwert">
+   <regionaleVariante Name="Takuba" Region="E" Schaden="W6" Schadensbonus="1"/>
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Lanze">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Lasso">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Magierstab">
+   <Standard Typ="De"/>
+  </Waffe>
+  <Waffe Name="Magierstecken">
+   <Standard Typ="De"/>
+  </Waffe>
+  <Waffe Name="Morgenstern">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Netz">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Ochsenzunge">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Ogerhammer">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Parierdolch">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Peitsche">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Rapier">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Schlachtbeil">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Schleuder">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Skhallanta">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Speerschleuder">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Stabkeule">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Stielhammer">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Stockschleuder">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Stoßspeer">
+   <regionaleVariante Name="Rumeh" Region="E" Schaden="1/2/3W6"/>
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Streitaxt">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Streitkolben">
+   <regionaleVariante Name="Dabus" Region="E" Schaden="W6"/>
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Werfen">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Wurfaxt">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Wurfeisen">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Wurfhammer">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Wurfkeule">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Wurfmesser">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Wurfpfeil">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Wurfscheibe">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Wurfspeer">
+   <Ausnahme Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="4" Erfolgswert="4"/>
+  </Waffe>
+  <Waffe Name="Wurfspieß">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Wurfstern">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="großer Schild">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="kleiner Schild">
+   <Ausnahme Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="3" Erfolgswert="1"/>
+  </Waffe>
+  <Waffe Name="leichte Armbrust">
+   <regionaleVariante Name="Ud al-Khal" Region="E" Schaden="W6"/>
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="leichter Speer">
+   <regionaleVariante Name="Jarid" Region="E" Schaden="W6" Schadensbonus="-1"/>
+   <Ausnahme Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="4"/>
+  </Waffe>
+  <Waffe Name="schwere Armbrust">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="waffenloser Kampf">
+   <Ausnahme Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="9" Erfolgswert="4"/>
+  </Waffe>
+  <Waffe Name="Pilum" Region="3">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="BuKasa" Region="K">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="GunSen" Region="K">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Katana" Region="K">
+   <Standard Typ="De"/>
+  </Waffe>
+  <Waffe Name="KusariGama" Region="K">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Kyu" Region="K">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Naginata" Region="K">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="NunChaku" Region="K">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Sai" Region="K">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="TetsuBo" Region="K">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Tonfa" Region="K">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="Namisritra" Region="R">
+   <Ausnahme Typ="De"/>
+  </Waffe>
+ </Waffen>
+ <Waffen-Grundkenntnisse>
+  <Waffen-Grundkenntnis Name="Armbrust">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Blasrohr">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Bögen">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Einhandschlagwaffe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Einhandschwert">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Fesselwaffe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Garotte">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kampf ohne Waffen">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kampfstab">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kettenwaffe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Parierwaffe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Peitsche">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Schild">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Schleuder">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Spießwaffe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stangenwaffe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stichwaffe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stielwurfwaffe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Werfen">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfmesser">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfpfeil">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfscheibe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfspieß">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zauberstäbe">
+   <Standard Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zweihandschlagwaffe">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zweihandschwert">
+   <Standard Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kharrata" Region="R">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Namisritra" Region="R">
+   <Ausnahme Typ="De"/>
+  </Waffen-Grundkenntnis>
+ </Waffen-Grundkenntnisse>
+ <Zauber>
+  <Spruch Name="Abu es-Samum" Region="E" Grad="6" Lernkosten="8000" AP="9" Typ="Tanz" Ursprung="elementar" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="10 km Uk" Wirkungsdauer="1 h" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Ain es-Samum" Region="E" Grad="4" Lernkosten="1500" AP="4" Typ="Tanz" Ursprung="elementar" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="30 m Uk" Wirkungsdauer="1 h" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Akbar fil-Ghadban" Region="E" Grad="2" Lernkosten="200" AP="2" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Erde" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Lernschema Typ="De" Lernpunkte="3"/>
+  </Spruch>
+  <Spruch Name="Al-Ghussat" Region="E" Grad="4" Lernkosten="2000" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Al-Karama" Region="E" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="5 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Lernschema Typ="De" Lernpunkte="3"/>
+  </Spruch>
+  <Spruch Name="Al-Mahram" Region="E" Grad="2" Lernkosten="400" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="6 m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+  </Spruch>
+  <Spruch Name="Al-Mutadid" Region="E" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="6m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Lernschema Typ="De" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Al-Tarka" Region="E" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Lernschema Typ="De" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Blenden" Region="E" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="erschafft" Reagens="Feuer" Zauberdauer="1 s" Wirkungsziel="Umgebung" Wirkungsbereich="9m Uk" Wirkungsdauer="1 min" Thaumagramm="Runenstab">
+   <Grund Typ="De"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PHe"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Sr"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Blutwandlung" Region="E" Grad="2" Lernkosten="150" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Wasser" Prozess="verwandelt" Reagens="Erde" Zauberdauer="10 min" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="-">
+   <Grund Typ="PC"/>
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Cheprus Sendbote" Region="E" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1W6 h" Material="Körperflüssigkeit des Opfers">
+   <Grund Typ="De"/>
+   <Grund Typ="Dt"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Dalail al-Khairat" Region="E" Grad="2" Lernkosten="200" AP="2" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Lernschema Typ="De" Lernpunkte="3"/>
+  </Spruch>
+  <Spruch Name="Dalail ed-Dawahi" Region="E" Grad="2" Lernkosten="300" AP="2" Typ="Tanz" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+   <Grund Typ="PF"/>
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tt"/>
+  </Spruch>
+  <Spruch Name="Dau ed-Datin" Region="E" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="dämonisch" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+   <Grund Typ="PF"/>
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tt"/>
+  </Spruch>
+  <Spruch Name="Dau ed-Din" Region="E" Grad="5" Lernkosten="2500" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Metall" Prozess="zerstört" Reagens="Magan" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Feuerspiel" Region="E" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="elementar" Agens="Feuer" Prozess="verändert" Reagens="Feuer" Zauberdauer="5 s" Reichweite="10 m" Wirkungsziel="Umgebung" Wirkungsbereich="1m Uk" Wirkungsdauer="2 min" Spruchrolle="true">
+   <Grund Typ="De"/>
+   <Grund Typ="PHa"/>
+   <Grund Typ="PHe"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Ghussat el-Masin" Region="E" Grad="4" Lernkosten="1600" AP="6" Typ="Tanz" Ursprung="dämonisch" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+   <Grund Typ="PF"/>
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tt"/>
+  </Spruch>
+  <Spruch Name="Haram fil-Din" Region="E" Grad="1" Lernkosten="100" AP="1" Typ="Tanz" Ursprung="elementar" Agens="Feuer" Prozess="verwandelt" Reagens="Erde" Zauberdauer="2 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Lernschema Typ="De" Lernpunkte="1"/>
+  </Spruch>
+  <Spruch Name="Hauch der Wüste" Region="E" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Feuer" Prozess="verändert" Reagens="Luft" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12m Uk" Wirkungsdauer="10 min" Spruchrolle="true" Thaumagramm="Runenstab">
+   <Grund Typ="PHa"/>
+   <Grund Typ="PHe"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Incheper schaffen" Region="E" Grad="6" Lernkosten="6000" AP="18" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="-" Material="Statue">
+   <Grund Typ="Dt"/>
+   <Grund Typ="PHa"/>
+   <Grund Typ="PHe"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="tBe"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+  </Spruch>
+  <Spruch Name="Luftspiegelung" Region="E" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Feuer" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="30 km" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="30 min" Material="Quarz und Silberstaub" Spruchrolle="true">
+   <Grund Typ="De"/>
+   <Grund Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Macht über Mumien" Region="E" Grad="6" Lernkosten="4000" AP="12" Typ="Wort" Ursprung="dämonisch" Agens="Eis" Prozess="verändert" Reagens="Erde" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Material="Mumie">
+   <Grund Typ="Km"/>
+   <Grund Typ="Ma"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="tBe"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+  </Spruch>
+  <Spruch Name="Manifestation des Ka" Region="E" Grad="G" Lernkosten="15000" AP="18" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="6 h" Reichweite="3 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Material="Wachsbad mit seltenen Essenzen">
+   <Grund Typ="Dt"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PHa"/>
+   <Grund Typ="PHe"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="dBe"/>
+   <Grund Typ="eBe"/>
+   <Grund Typ="tBe"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Mumie erwecken" Region="E" Grad="6" Lernkosten="6000" AP="18" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="verändert" Reagens="Erde" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Material="Mumie">
+   <Grund Typ="Dt"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PHa"/>
+   <Grund Typ="PHe"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="tBe"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Sa rauben" Region="E" Grad="2" Lernkosten="250" AP="5" Typ="Geste" Ursprung="schwarzmagisch" Agens="Eis" Prozess="zerstört" Reagens="Holz" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="-">
+   <Grund Typ="PC"/>
+   <Grund Typ="sHx"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="gHx"/>
+  </Spruch>
+  <Spruch Name="Sa spenden" Region="E" Grad="4" Lernkosten="1500" AP="4 vom Max" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="zerstört" Reagens="Holz" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="-">
+   <Grund Typ="Dt"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PHa"/>
+   <Grund Typ="PHe"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Sadik es-Sidiki" Region="E" Grad="2" Lernkosten="400" AP="4" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="1 h" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Lernschema Typ="De" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Saijidat el-Masin" Region="E" Grad="3" Lernkosten="600" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Erde" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Lernschema Typ="De" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch Name="Sandmeisterschaft" Region="E" Grad="6" Lernkosten="6000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="30 s" Reichweite="2 km" Wirkungsziel="Umgebung" Wirkungsbereich="500m Uk" Wirkungsdauer="1 h" Material="10g Sandwurmhaut" Spruchrolle="true">
+   <Grund Typ="De"/>
+   <Grund Typ="PF"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+  </Spruch>
+  <Spruch Name="Schadd wa-Tarka" Region="E" Grad="3" Lernkosten="1000" AP="3" Typ="Tanz" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Zauberart="Tanz">
+   <Grund Typ="PF"/>
+   <Grund Typ="Tt"/>
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Seelenraub" Region="E" Grad="G" Lernkosten="12000" AP="18" Typ="Geste" Ursprung="schwarzmagisch" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="bis 12 Ws" Wirkungsdauer="-">
+   <Grund Typ="dBe"/>
+   <Grund Typ="sHx"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+  </Spruch>
+  <Spruch Name="Seelenschock" Region="E" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Luft" Zauberdauer="15 s" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Spruchrolle="true">
+   <Grund Typ="Dr"/>
+   <Grund Typ="Hl"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Serkefs Todesbote" Region="E" Grad="5" Lernkosten="5000" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1W6 h" Material="Haare oder Nägel des Opfers">
+   <Grund Typ="De"/>
+   <Grund Typ="PHa"/>
+   <Grund Typ="PHe"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Sutechs Heer" Region="E" Grad="3" Lernkosten="600" AP="12" Typ="Wort" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="10 sec" Reichweite="2 km" Wirkungsziel="Geist" Wirkungsbereich="4W6 Ws" Wirkungsdauer="30 min" Spruchrolle="true">
+   <Grund Typ="PK"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PW"/>
+  </Spruch>
+  <Spruch Name="Tausch des Ba" Region="E" Grad="G" Lernkosten="20000" AP="18" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="3 h" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="2 Ws" Wirkungsdauer="-" Material="Silberdraht">
+   <Grund Typ="De"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="dBe"/>
+   <Grund Typ="eBe"/>
+   <Grund Typ="tBe"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Tibb al-Mumani" Region="E" Grad="3" Lernkosten="600" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="20 min" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws, 1Ob" Wirkungsdauer="-" Zauberart="Tanz">
+   <Grund Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Lernschema Typ="De" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Wasser spüren" Region="E" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="elementar" Agens="Wasser" Prozess="erkennt" Reagens="Wasser" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="500 m Ke" Wirkungsdauer="10 s" Thaumagramm="Siegel">
+   <Grund Typ="De"/>
+   <Grund Typ="Dr"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PT"/>
+  </Spruch>
+  <Spruch Name="Wind des Todes" Region="E" Grad="G" Lernkosten="15000" AP="18" Typ="Geste" Ursprung="schwarzmagisch" Agens="Feuer" Prozess="zerstört" Reagens="Wasser" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="100 m Ke" Wirkungsdauer="2 min" Material="Vulkansche, Wüstensand,Diamantstaub" Spruchrolle="true">
+   <Grund Typ="PC"/>
+   <Grund Typ="sHx"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Ausnahme Typ="gHx"/>
+  </Spruch>
+  <Spruch Name="Allheilung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Angst">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Auflösung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Austreibung des Bösen">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Austreibung des Guten">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Dunkelheit">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Finsterwerk">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Gift">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Kälte">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Licht">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Zauberwerk">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannsphäre, Blaue">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannsphäre, Goldene">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannsphäre, Schwarze">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannsphäre, Silberne">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Beeinflussen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Belebungshauch">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Beschleunigen">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Besänftigen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bittersalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Blendwerk">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Blicksalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Blutmeisterschaft">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Blutsbrüderschaft stiften">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Brot und Wasser">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Deckmantel">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Donnerkeil">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dschungelwand">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Durstsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dämonenfeuer">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Eisenhaut">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Eisiger Nebel">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Eismeisterschaft">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Eiswandlung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Elementenwandlung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Elfenfeuer">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Entgiften">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erdbeben">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erdfessel">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erdmeisterschaft">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erdwandlung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erheben der Toten">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erkennen der Aura">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Krankheit">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Leben">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Zauberei">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erscheinungen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feenfluch">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feenzauber">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Felsenfaust">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Fesselbann">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuerfinger">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuerkugel">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuerlanze">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuerlauf">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuermeisterschaft">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuerregen">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuerring">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuerschild">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuerwand">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Flammende Hand">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Flammenklinge">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Flammenkreis">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Fliegen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Fliegensalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Funkenregen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Funkensalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Färbersalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Geas">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Geisterlauf">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Geistesschild">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Grüne Hand">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Göttliche Eingebung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Göttliche Strafe">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Göttlicher Schutz vor Magie">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Göttlicher Schutz vor dem Bösen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Haarsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hagel">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Handauflegen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hauch der Verwesung">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hauch des Winters">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Heilen schwerer Wunden">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Heilen von Krankheit">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Heilen von Wunden">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Heiliger Zorn">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="1"/>
+  </Spruch>
+  <Spruch Name="Heiliges Wort">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Heranholen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Himmelsleiter">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hitzeschutz">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="2"/>
+  </Spruch>
+  <Spruch Name="Hitzsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hort der Natur">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hungersalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hören der Geister">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hören von Fernem">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hörnerklang">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Jucksalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Juwelenauge">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kälteschutz">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kühlsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Lachsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Lichtbrücke">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Lindern von Entkräftung">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Liniensicht">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Lähmung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Löschsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Macht über Leben">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Macht über Menschen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Macht über Unbelebtes">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Macht über das Selbst">
+   <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="3"/>
+  </Spruch>
+  <Spruch Name="Macht über die Sinne">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Macht über die belebte Natur">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Macht über magische Wesen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Magischer Kreis des Widerstehens">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Magischer Kreis, klein">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Marmorhaut">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Namenloses Grauen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Naturgeist rufen">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Nebel schaffen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Nebel wecken">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Niessalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Rauchsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Rauchwolke">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Rauschsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Regenzauber">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Reinigen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Reise der Seele">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Reise in die Zeit">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Reise zu den Sphären">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Riechsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Rindenhaut">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Ring des Lebens">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Rutschsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schlaf">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schlafsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schlangenbiß">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schleichsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schmerzen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schrumpfen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzgeist">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schwarze Zone">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schweben">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schwingenkeule">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schwäche">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Seelenheilung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Seelenkompaß">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Segnen">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Sehen in Dunkelheit">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Silberstaub">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Spruch intensivieren">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Staubkämpfer">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Steinkugel">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Steinwand">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Stille">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Stimmenwerfen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Stottersalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Sturmflut">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Sturmhand">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Sturmwind">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Stärke">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Sumpfboden">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Thursenstein">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Tiere rufen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Tierisches Handeln">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Tiersprache">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Todeszauber">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Trampelsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Unsichtbarkeit">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Vereisen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Verfluchen">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Vergrößern">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Verjüngen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Verkleinern">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Verlangsamen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Vertieren">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Verursachen von Krankheit">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Verwandlung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Verwirren">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Verzweiflung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Vision">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wachsen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wagemut">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wahnsinn">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wahrsehen">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wandelhand">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wandeln wie der Wind">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wandelsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Warnung">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wasseratmen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wassermeisterschaft">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wassersalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wasserstrahl">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wasserwandlung">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wehsalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wetterzauber">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wiederkehr">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Windmeisterschaft">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Windstoß">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wirbelwind">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wort der Trauer">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wort des Lebens">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wundersame Tarnung">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zauberhand">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zaubermacht">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zauberschild">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zauberschmiede">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zauberstimme">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zauberwirklichkeit">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zauberzunge">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zielsuche">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zweite Haut">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zwiesprache">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zähmen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zündersalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Dunebargen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Dvergar" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hrimfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hrimkin" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hunar" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hyrrfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Hyrrkin" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Jördfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Jördkin" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Kaobargen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Vindfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Vindskin" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Wisfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Wiskin" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bergeist beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bergeist rufen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Coluscar 1 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Coluscar 2 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Coluscar 3 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Coluscar 4 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dschinn beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dschinn rufen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dunebrast 1 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dunebrast 2 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dunebrast 3 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dunebrast 4 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dunkle Horde beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dunskrat beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dämonen binden" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dämonenbann" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dämonenschar beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Eldring beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Elementarbann" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erdeelementargeist beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erkurku beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erkurku rufen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Felldvegar beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Felldverg beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Fengrip beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Feuerelementargeist beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Fjalhune beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Fossemand beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Geist beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Gjornhune beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Gletschergnom beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Gletschergnom rufen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Gloddvegar beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Gloddverg beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Halebant 1 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Halebant 2 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Halebant 3 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Halebant 4 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hardlogi beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Harkarhune beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Harkbuar beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Haugskadi beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Herbeizwingen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hrimdvegar beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hrimdverg beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hrimhune beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hyrrbauti beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Ifrit beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Ifrit rufen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Indruwal 1 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Indruwal 2 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Indruwal 3 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Indruwal 4 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Ising beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Jambani beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Jokulskadi beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Jurugu beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Jurugu rufen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Jördmand beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kaligin 1 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kaligin 2 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kaligin 3 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kaligin 4 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kallbjargi beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kallrani beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Karing beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kreatur erschaffen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Lergris beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Ljosfang beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Luftelementargeist beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Marhune beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Marid beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Marid rufen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Marmennil beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Megant 1 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Megant 2 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Megant 3 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Megant 4 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Meisterbann" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Mokkurbjargi beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Myrknir beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Nefling beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Person beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Saeldvegar beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Saeldverg beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Dunebargen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Dvergar" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Dämonen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Elementarwesen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Geisterwesen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Hrimfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Hunar" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Hyrrfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Jördfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Kaobargen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Untote" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Vindfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzkreis gegen Wisfolk" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Snaerhamir beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Svalgrim beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Thrymbar beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Tor schaffen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Truscan 1 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Truscan 2 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Truscan 3 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Truscan 4 beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Vergangenheit beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Vinddvegar beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Vinddverg beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Vindmand beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Weltentor schaffen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Fluch des Hundes" Region="G">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Aggression" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Aufladen" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Augenschleier" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Bannen von Fäulnis" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Blindsalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Brechsalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Der Große Knall" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Fiebersalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Geruchsverlust" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Grenzenlose Freude" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hammerhand" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hexenwirbel" Region="H&amp;D">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Klebesalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Knallsalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Kuß des Schlafes" Region="H&amp;D">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Lahmsalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Lustsalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Magische Aura" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Nebelsalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Reptilien rufen" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schattenbruder" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schmerzen spüren" Region="H&amp;D">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schminken" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Seance" Region="H&amp;D">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Sprachlähmung" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Tiefschlaf" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Trockensalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Trunk des Lebens" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Ungeziefer bannen" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Waldluft" Region="H&amp;D">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wolkenbruch" Region="H&amp;D">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wüstenwind" Region="H&amp;D">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zucksalz" Region="H&amp;D">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zurückführen" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zwingkreis" Region="H&amp;D">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Farbensalz" Region="H&amp;Df">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Glühsalz" Region="H&amp;Df">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Ahnengeist beschwören" Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Das Essen nährt..." Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Die Wiesenheuschrecke zirpt..." Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Doppelgänger schaffen" Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Metallmeisterschaft" Region="K">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="NüQuang" Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="PiPingQuang" Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="PiYeúQuang" Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Scheintod" Region="K">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schöne Leiche" Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Stolz zieht der Krieger..." Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Wasser befreien" Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="XiengBaQuang" Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="YehKiQuang" Region="K">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Ahuatls Sturm" Region="N">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hexenspüren" Region="N">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Iquibalams Ruhm" Region="N">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Iquibalams Tapferkeit" Region="N">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Nahuahauquihs Preis" Region="N">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Nahuahauquihs Zorn" Region="N">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Tolucans Gabe" Region="N">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Ungeziefer rufen" Region="N">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Binden von Srimara" Region="R">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Levitation" Region="R">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Paschuyana, der Weg des Tieres" Region="R">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Rückführung" Region="R">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Besessenheit" Region="TuT">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Geräusche dämpfen" Region="TuT">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Leuchtspur" Region="TuT">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Person wiederfinden" Region="TuT">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Rauchbild" Region="TuT">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Schutzgeste" Region="TuT">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zwingkreis, Blauer" Region="TuT">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Zwingkreis, Silberner" Region="TuT">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+ </Zauber>
+ <Zauberwerke>
+  <Zauberwerk Name="Berserkerpilz aktivieren" Stufe="Pflanzliches Zaubermittel"/>
+  <Zauberwerk Name="Binden"/>
+  <Zauberwerk Name="Dämonenamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Elementaramulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Geisteramulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Heiltrunk (1W6) aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Krafttrunk (1W6) aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Krafttrunk (2W6) aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Kraut der konzentrierten Energie" Stufe="Pflanzliches Zaubermittel"/>
+  <Zauberwerk Name="Pulver der Panzerhaut aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Reckentrunk aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Salbe der Eisenhaut aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schnellkraut aktivieren" Stufe="Pflanzliches Zaubermittel"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Talisman verzaubern" Stufe="Talisman"/>
+  <Zauberwerk Name="Talisman verzaubern" Stufe="Talisman"/>
+  <Zauberwerk Name="Talisman verzaubern" Stufe="Talisman"/>
+  <Zauberwerk Name="Talisman verzaubern" Stufe="Talisman"/>
+  <Zauberwerk Name="Trunk der Macht über Hunde aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk der Macht über Menschen aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk der Macht über Orks aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk des Riesenwuchses aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk des Schwerelosigkeit aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk des Unsichtbarkeit aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Trunk des Verwandlung aktivieren" Stufe="Alchimistisches Zaubermittel"/>
+  <Zauberwerk Name="Untotenamulett verzaubern" Stufe="Amulett"/>
+  <Zauberwerk Name="Wasser weihen" Stufe="Weihwasser"/>
+  <Zauberwerk Name="Weihen"/>
+  <Zauberwerk Name="Werwesenamulett verzaubern" Stufe="Amulett"/>
+ </Zauberwerke>
+</MAGUS-data>

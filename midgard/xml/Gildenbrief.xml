@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:25:05.411588+02" MAGUS-Index="13" MAGUS-Bild="5">
+ <Schriften/>
+ <Sprachen/>
+ <Typen/>
+ <Fertigkeiten/>
+ <Berufe/>
+ <Rüstungen/>
+ <Waffen/>
+ <Waffen-Grundkenntnisse/>
+ <Zauber>
+  <Spruch Name="Abwenden von Blicken" Region="G" RegionZusatz="?" Grad="1" Lernkosten="120" AP="1" Typ="Geist" Zauberdauer="1s" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="10min" Spruchrolle="true">
+   <Grund Typ="Dt"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="PW"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Charivari Klänge" Region="G" RegionZusatz="?" Grad="2" Lernkosten="400" AP="2" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="-" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="15m Uk" Wirkungsdauer="var" Material="Flöte oder Laute">
+   <Grund Typ="Ba"/>
+  </Spruch>
+  <Spruch Name="Damhsa Claimh (Schwerttanz)" Region="G" RegionZusatz="46" Grad="3" Lernkosten="1000" AP="2/Tänzer" Typ="Tanz" Ursprung="druidisch" Agens="Luft" Prozess="verändert" Reagens="Feuer" Zauberdauer="10 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="Mittänzer" Wirkungsdauer="24 h" Material="Gruppentanz (min 3)" Zauberart="Tanz">
+   <Grund Typ="Fi"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="sHx"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="wHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Damhsa Meallim (Locktanz)" Region="G" RegionZusatz="46" Grad="1" Lernkosten="80" AP="2" Typ="Tanz" Ursprung="druidisch" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="Solotanz" Zauberart="Tanz">
+   <Grund Typ="Fi"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="sHx"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="wHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Damhsa an Duiseacht (Tanz des Erwachens)" Region="G" RegionZusatz="46" Grad="5" Lernkosten="1600" AP="6" Typ="Tanz" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="inf" Material="Solotanz" Zauberart="Tanz">
+   <Grund Typ="Fi"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Eichenzauber" Region="G" RegionZusatz="?" Grad="G" Lernkosten="15000" AP="5" Typ="Geste" Zauberdauer="30min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Eichel" Wirkungsdauer="var" Material="Silbereichel">
+   <Grund Typ="Dr"/>
+   <Standard Typ="Hl"/>
+  </Spruch>
+  <Spruch Name="Fainne ghuairne (Der wirbelnde Kreis)" Region="G" RegionZusatz="46" Grad="3" Lernkosten="1000" AP="6" Typ="Tanz" Ursprung="druidisch" Agens="Wasser" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Mittänzer" Wirkungsdauer="1 h" Material="Gruppentanz (min 3)" Zauberart="Tanz">
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="sHx"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="wHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Fluch des Hundes" Region="G" RegionZusatz="?" Grad="5" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Hundeurin       " Spruchrolle="true">
+   <Grund Typ="De"/>
+   <Grund Typ="Dt"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Tm"/>
+   <Grund Typ="eBe"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="dBe"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+  </Spruch>
+  <Spruch Name="Rince an Coisreacan (Reigen der Weihe)" Region="G" RegionZusatz="46" Grad="6" Lernkosten="3000" AP="alle (mind. 9)" Typ="Tanz" Ursprung="druidisch" Agens="Holz" Prozess="zerstört" Reagens="Eis" Zauberdauer="1 h" Reichweite="0m" Wirkungsziel="Umgebung" Wirkungsbereich="var. Uk" Wirkungsdauer="inf" Material="Gruppentanz (min 4)" Zauberart="Tanz">
+   <Standard Typ="Fi"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+  </Spruch>
+  <Spruch Name="Rince na Daoine Maithe (Reigen des Feenvolks)" Region="G" RegionZusatz="46" Grad="5" Lernkosten="1500" AP="3" Typ="Tanz" Ursprung="druidisch" Agens="Holz" Prozess="beherrscht" Reagens="Holz" Zauberdauer="5 min" Reichweite="500 m" Wirkungsziel="Geist" Wirkungsbereich="-" Wirkungsdauer="2 min" Material="Gruppentanz (min 5)" Zauberart="Tanz">
+   <Grund Typ="Fi"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tm"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+  </Spruch>
+ </Zauber>
+ <Zauberwerke/>
+</MAGUS-data>

@@ -1,0 +1,3130 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:11.707946+02" MAGUS-Index="7" MAGUS-Bild="2">
+ <Schriften>
+  <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
+   <Variante Name="KanThaiTun(1)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(2)" Region="K" Typ="Silben" Kosten="50">
+   <Variante Name="KanThaiTun(2)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(3)" Region="K" Typ="Silben" Kosten="100">
+   <Variante Name="KanThaiTun(3)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(4)" Region="K" Typ="Silben" Kosten="100">
+   <Variante Name="KanThaiTun(4)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(5)" Region="K" Typ="Silben" Kosten="100">
+   <Variante Name="KanThaiTun(5)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(6)" Region="K" Typ="Silben" Kosten="100">
+   <Variante Name="KanThaiTun(6)"/>
+  </Schrift>
+ </Schriften>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="Ny" Region="K" MAGUS-Index="37" Bezeichnung-Mann="Ninya" Bezeichnung-Frau="Ninya" Ausdauer="ak">
+   <Modifikation Sb="30" Rüstung="1" Geld="1"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Gruppe Name="KÄM"/>
+  </Typ>
+  <Typ Abkürzung="Kd" Region="K" MAGUS-Index="38" Bezeichnung-Mann="KiDoka" Bezeichnung-Frau="KiDoka" Ausdauer="k">
+   <Modifikation Rüstung="1" Geld="4"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Gruppe Name="KÄM"/>
+  </Typ>
+ </Typen>
+ <Fertigkeiten>
+  <Fertigkeit Name="+1 KiDo-Technik" Region="K" Lernpunkte="1" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Lernschema Typ="Kd" Lernpunkte="1"/>
+   <Lernschema Typ="Ny" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="+1 KiDo-Technik " Region="K" Lernpunkte="1" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Lernschema Typ="Kd" Lernpunkte="1"/>
+   <Lernschema Typ="Ny" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="+1 KiDo-Technik  " Region="K" Lernpunkte="1" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Lernschema Typ="Kd" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KiDo" Region="K" Lernpunkte="8" Anfangswert="10" Lernkosten="800" Erfolgswert="10" Attribut="Zt" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="As"/>
+   <Grund Typ="Fi"/>
+   <Grund Typ="Kd"/>
+   <Grund Typ="Ny"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sr"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="wHx"/>
+   <Voraussetzungen Gw="31" Zt="61" Fertigkeit="TaiTschi"/>
+   <Voraussetzungen_2 Name="TaiTschi"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="10" Pflicht="true"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="10"/>
+   <Kosten Wert11="10" Wert12="15" Wert13="20" Wert14="30" Wert15="70" Wert16="150" Wert17="300" Wert18="600" Wert19="800"/>
+   <EP-Typ KEP="true" ZEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="LiYao" Region="K" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="Ny"/>
+   <Grund Typ="Th"/>
+   <Standard Typ="As"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Tt"/>
+   <Ausnahme Typ="Wa"/>
+   <Voraussetzungen Gw="61" In="61"/>
+   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="4"/>
+   <Kosten Wert3="10" Wert4="10" Wert5="30" Wert6="30" Wert7="30" Wert8="50" Wert9="50" Wert10="100" Wert11="100" Wert12="200" Wert13="200"/>
+  </Fertigkeit>
+  <Fertigkeit Name="NinJutsu" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="600" Erfolgswert="2" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="Ny"/>
+   <Standard Typ="As"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="Ri"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sr"/>
+   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Wa"/>
+   <Voraussetzungen Gw="61"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
+   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="4"/>
+   <Kosten Wert3="150" Wert4="150" Wert5="300" Wert6="300" Wert7="600" Wert8="600" Wert9="1200" Wert10="1200" Wert11="2400" Wert12="2400"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YangScheng" Region="K" Lernpunkte="5" Anfangswert="1" Lernkosten="100" Erfolgswert="1" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="De"/>
+   <Grund Typ="Dt"/>
+   <Grund Typ="Fi"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Kd"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Sr"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="As"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="Ri"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Se"/>
+   <Voraussetzungen Zt="61"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="1"/>
+   <Kosten Wert2="200" Wert3="500" Wert4="1000" Wert5="2000"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zunge verschlucken" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Voraussetzungen Sb="61"/>
+   <Kosten Wert9="50" Wert10="100" Wert11="200" Wert12="400" Wert13="800"/>
+  </Fertigkeit>
+  <Fertigkeit Name="FengSchui" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="10" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="As"/>
+   <Grund Typ="Fi"/>
+   <Grund Typ="Kd"/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ny"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sr"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="To"/>
+   <Voraussetzungen In="81"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="4"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="4"/>
+   <steigern_wie Fertigkeit="Wissen"/>
+  </Fertigkeit>
+  <Fertigkeit Name="FengTsu" Region="K" Lernpunkte="8" Anfangswert="15" Lernkosten="300" Erfolgswert="10" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="As"/>
+   <Grund Typ="Fi"/>
+   <Grund Typ="Gl"/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ny"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sr"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Wa"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Tt"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="wHx"/>
+   <Voraussetzungen Gw="61" Sb="61"/>
+   <steigern_wie Fertigkeit="Bewegung"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschenke machen" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Sa"/>
+   <Voraussetzungen In="61" pA="61"/>
+   <Lernschema Typ="Tr" Lernpunkte="1"/>
+   <steigern_wie Fertigkeit="Beredsamkeit"/>
+   <Kosten Wert7="50" Wert8="100" Wert9="250" Wert10="500"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KarumiJutsu" Region="K" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="Ny"/>
+   <Standard Typ="As"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="Ri"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sr"/>
+   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Wa"/>
+   <Voraussetzungen St="61" Gw="61" Fertigkeit="Klettern"/>
+   <Voraussetzungen_2 Name="Klettern"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+   <steigern_wie Fertigkeit="Bewegung"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K" Lernpunkte="5" Lernkosten="2500" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="Sw"/>
+   <Voraussetzungen In="11"/>
+   <Lernschema Typ="Kd" Lernpunkte="1"/>
+   <Lernschema Typ="Ny" Lernpunkte="1"/>
+   <steigern_wie Fertigkeit="Wissen"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KentoYobu" Region="K" Lernpunkte="8" Lernkosten="100" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sr"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Wa"/>
+   <Ausnahme Typ="As"/>
+   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Tr"/>
+   <Ausnahme Typ="Tt"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="wHx"/>
+   <Voraussetzungen Zt="21"/>
+   <steigern_wie Fertigkeit="-"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujKuri" Region="K" Lernpunkte="4" Anfangswert="1" Lernkosten="20" Erfolgswert="1" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="Ny"/>
+   <Standard Typ="As"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Ri"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sr"/>
+   <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="Tt"/>
+   <Ausnahme Typ="Wa"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="wHx"/>
+   <Voraussetzungen Gw="21" In="31"/>
+   <Lernschema Typ="Ny" Erfolgswert="1" Pflicht="true"/>
+   <steigern_wie Fertigkeit="Zeichensprache"/>
+   <Kosten Wert2="30" Wert3="150"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujNoIu" Region="K" Lernpunkte="8" Lernkosten="400" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="Th"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Sw"/>
+   <Voraussetzungen Gw="31" Fertigkeit="Thaumaturg"/>
+   <steigern_wie Fertigkeit="-"/>
+   <EP-Typ ZEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Geisterschrift" Region="K" Lernpunkte="8" Anfangswert="12" Lernkosten="20" Erfolgswert="6" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="15">
+   <Grund Typ="Hl"/>
+   <Grund Typ="Ma"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PHe"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="tBe"/>
+   <Ausnahme Typ="As"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="Ku"/>
+   <Ausnahme Typ="Ny"/>
+   <Ausnahme Typ="Or"/>
+   <Ausnahme Typ="Ri"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Ru"/>
+   <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="Sr"/>
+   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Tm"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Tr"/>
+   <Ausnahme Typ="Wa"/>
+   <Ausnahme Typ="Wi"/>
+   <Voraussetzungen In="21"/>
+   <steigern_wie Fertigkeit="Lesen von Zauberschrift"/>
+  </Fertigkeit>
+  <Fertigkeit Name="MiChen" Region="K" Lernpunkte="8" Lernkosten="500" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="As"/>
+   <Grund Typ="Dt"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Ny"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="tBe"/>
+   <Voraussetzungen Gw="61" In="61"/>
+   <steigern_wie Fertigkeit="-"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="SchiyoKi" Region="K" Lernpunkte="8" Lernkosten="100" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="As"/>
+   <Grund Typ="De"/>
+   <Grund Typ="Dt"/>
+   <Grund Typ="Fi"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Kd"/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ny"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Sr"/>
+   <Grund Typ="To"/>
+   <Grund Typ="Tt"/>
+   <Grund Typ="Wa"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="tBe"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+   <Voraussetzungen Gw="21" Sb="21" Fertigkeit="TaiTschi"/>
+   <Voraussetzungen_2 Name="TaiTschi"/>
+   <Lernschema Typ="Kd" Lernpunkte="2"/>
+   <steigern_wie Fertigkeit="-"/>
+   <EP-Typ KEP="true" ZEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwerttanz" Region="K" Lernpunkte="8" Anfangswert="14" Lernkosten="100" Erfolgswert="12" Attribut="Gw" Berufskategorie="3" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="Fi"/>
+   <Grund Typ="Gl"/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sr"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="Tr"/>
+   <Ausnahme Typ="Tt"/>
+   <Ausnahme Typ="Wa"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="wHx"/>
+   <Voraussetzungen Gw="61" Fertigkeit="Beidhändiger Kampf"/>
+   <Voraussetzungen_2 Name="Beidhändiger Kampf"/>
+   <steigern_wie Fertigkeit="Bewegung"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Steinabreibungen machen" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="60" Erfolgswert="4" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="Ma"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="Th"/>
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="As"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="tBe"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="Ri"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Wa"/>
+   <Voraussetzungen Gw="31"/>
+   <Lernschema Typ="Dt" Lernpunkte="2" Erfolgswert="4"/>
+   <steigern_wie Fertigkeit="Wissen"/>
+  </Fertigkeit>
+  <Fertigkeit Name="TaiTschi" Region="K" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="4" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="As"/>
+   <Grund Typ="De"/>
+   <Grund Typ="Dt"/>
+   <Grund Typ="Fi"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Kd"/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ny"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Sr"/>
+   <Grund Typ="Tt"/>
+   <Grund Typ="Wa"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="tBe"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+   <Voraussetzungen Gw="21" Sb="21"/>
+   <Lernschema Typ="Kd" Lernpunkte="1"/>
+   <Lernschema Typ="Ny" Lernpunkte="2"/>
+   <steigern_wie Fertigkeit="Wissen"/>
+   <EP-Typ KEP="true" ZEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Teezeremonie" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="pA" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="De"/>
+   <Grund Typ="Kd"/>
+   <Grund Typ="Or"/>
+   <Grund Typ="PC"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PK"/>
+   <Grund Typ="PM"/>
+   <Grund Typ="PT"/>
+   <Grund Typ="PW"/>
+   <Grund Typ="Ru"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Grund Typ="Sr"/>
+   <Grund Typ="Tt"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="tBe"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Fi"/>
+   <Voraussetzungen pA="31"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="8"/>
+   <steigern_wie Fertigkeit="Überleben"/>
+   <Kosten Wert7="10" Wert8="10" Wert9="10" Wert10="20" Wert11="20" Wert12="50" Wert13="100" Wert14="100"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YubeChian" Region="K" Lernpunkte="8" Lernkosten="200" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="As"/>
+   <Grund Typ="Dt"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Ny"/>
+   <Grund Typ="To"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Kr"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Ri"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Sö"/>
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="BN"/>
+   <Ausnahme Typ="BS"/>
+   <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="tBe"/>
+   <Voraussetzungen Gw="61"/>
+   <steigern_wie Fertigkeit="-"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Abrichten">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Akrobatik">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Alchimie">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Athletik">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Balancieren">
+   <Grund Typ="Kd"/>
+   <Grund Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ballista bedienen">
+   <Standard Typ="Ny"/>
+   <Ausnahme Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Baukunde">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beidhändiger Kampf">
+   <Grund Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="3"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beredsamkeit">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beschatten">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Bogenkampf zu Pferd">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Dichten">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erste Hilfe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="8"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erzählen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallen entdecken">
+   <Grund Typ="Ny"/>
+   <Ausnahme Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenmechanik">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenstellen">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fangen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten">
+   <Standard Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten tevarrischer Stil">
+   <Standard Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fälschen">
+   <Grund Typ="Ny"/>
+   <Ausnahme Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Gassenwissen">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Gaukeln">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimmechanismen öffnen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimzeichen">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geländelauf">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschäftstüchtigkeit">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Giftmischen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Glücksspiel">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Heilkunde">
+   <Standard Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Himmelskunde">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Dunkelheit">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Schlachtreihe">
+   <Standard Typ="Ny"/>
+   <Ausnahme Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Vollrüstung">
+   <Standard Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf vom Streitwagen">
+   <Standard Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Pferd">
+   <Standard Typ="Ny"/>
+   <Ausnahme Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampftaktik">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Katapult bedienen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Klettern">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kräuterkunde">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Landeskunde">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Laufen">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Zauberschrift">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lippenlesen">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meditieren">
+   <Grund Typ="Kd"/>
+   <Grund Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="8"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Kr" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Or" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PF" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PH" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PK" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PM" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Menschenkenntnis">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="4"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meucheln">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="8" Pflicht="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Musizieren">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Naturkunde">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Pflanzenkunde">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rechnen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Reiten">
+   <Standard Typ="Ny"/>
+   <Ausnahme Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rudern">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sagenkunde">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Scharfschießen">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schauspielern">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schießen vom Streitwagen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schiffsführung">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schleichen">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittenfahren">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlösser öffnen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwimmen">
+   <Grund Typ="Kd"/>
+   <Grund Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schätzen">
+   <Grund Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Seemannsgang">
+   <Grund Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Seilkunst">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Singen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Skifahren">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprache">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Springen">
+   <Grund Typ="Kd"/>
+   <Grund Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Spurenlesen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stehlen">
+   <Standard Typ="Ny"/>
+   <Ausnahme Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Steuern">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stimmen nachahmen">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Streitwagen lenken">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Suchen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tanzen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tarnen">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tauchen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tierkunde">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Trinken">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verbergen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verführen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verhören">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verkleiden">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wagenlenken">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wahrnehmung">
+   <Grund Typ="Ny"/>
+   <Standard Typ="Kd"/>
+   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="4"/>
+   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="4"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Winden">
+   <Grund Typ="Kd"/>
+   <Grund Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zauberkunde">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zaubern">
+   <Standard Typ="Ny"/>
+   <Ausnahme Typ="Kd"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zeichensprache">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Dschungel">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Gebirge">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Schnee">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Sumpf">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Wald">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Steppe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Wüste">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Brettspiel" Region="E">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kamelreiten" Region="E">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Kamel" Region="E">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Mumifizieren" Region="E">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Orakelkunst" Region="E">
+   <Standard Typ="Ny"/>
+   <Ausnahme Typ="Kd"/>
+   <Lernschema Typ="Ny" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wetterkunde" Region="H&amp;D">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Adlersprung" Region="N">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Akribie" Region="N">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ballspiel" Region="N">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Dämonenkunde" Region="N">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Federflechten" Region="N">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlachtruf" Region="N">
+   <Grund Typ="Kd"/>
+   <Grund Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tätowieren" Region="N">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wahrsagekalender führen" Region="N">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Askese" Region="R">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Astrologie" Region="R">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Augensalbe herstellen" Region="R">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Elefanten lenken" Region="R">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Elefant" Region="R">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Körperkontrolle" Region="R">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Natya" Region="R">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlangen beschwören" Region="R">
+   <Grund Typ="Kd"/>
+   <Grund Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schmerzen ertragen" Region="R">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Srimara lenken" Region="R">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Zauberrunen" Region="W">
+   <Ausnahme Typ="Kd"/>
+   <Ausnahme Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittschuhlaufen" Region="X">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben: Muttersprache(+12)">
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimzeichen">
+   <Zusätze Name="Weißer Lotus" Region="K"/>
+  </Fertigkeit>
+ </Fertigkeiten>
+ <Berufe/>
+ <Rüstungen>
+  <Rüstung Name="Papierrüstung" Region="K" Abkürzung="TR(K)" schütztLP="1">
+   <Verlust/>
+  </Rüstung>
+  <Rüstung Name="SaMurai-Rüstung" Region="K" Abkürzung="PR(K)" schütztLP="4" minimaleStärke="31">
+   <Verlust B="4" Abwehrbonus="1"/>
+  </Rüstung>
+  <Rüstung Name="SaMurai-Rüstung" Region="K" Abkürzung="VR(K)" schütztLP="5" minimaleStärke="61">
+   <Verlust RW="25" B="8" Abwehrbonus="2" Vollrüstung="2"/>
+  </Rüstung>
+ </Rüstungen>
+ <Waffen>
+  <Waffe Name="BuKasa" Region="K" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6">
+   <Modifikationen/>
+   <Voraussetzungen St="31" Gs="61"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Waffe>
+  <Waffe Name="GunSen" Region="K" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+   <Modifikationen/>
+   <Voraussetzungen St="31" Gs="61"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Waffe>
+  <Waffe Name="Katana" Region="K" Grundkenntnisse="Zweihandschwert" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+   <Modifikationen/>
+   <Voraussetzungen St="31" Gs="21"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Waffe>
+  <Waffe Name="KusariGama" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="Z" Schaden="W6-1/W6+2">
+   <Modifikationen/>
+   <Voraussetzungen St="61" Gs="81"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Naginata" Region="K" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="2">
+   <Modifikationen Waffenrang="+1/-3" Abwehr-schwer="+2/-2"/>
+   <Voraussetzungen St="11" Gs="61"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="NunChaku" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+   <Modifikationen Waffenrang="+2" Abwehr-leicht="-1" Abwehr-schwer="+1"/>
+   <Voraussetzungen St="31" Gs="61"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+   <Kaufpreis Preis="10" Währung="GS" Gewicht="0.5"/>
+  </Waffe>
+  <Waffe Name="Sai" Region="K" Grundkenntnisse="Stichwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-3">
+   <Modifikationen/>
+   <Voraussetzungen St="31" Gs="61"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="TetsuBo" Region="K" Grundkenntnisse="Kampfstab" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+   <Modifikationen Abwehr-schwer="+2"/>
+   <Voraussetzungen St="31" Gs="61"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Waffe>
+  <Waffe Name="Tonfa" Region="K" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-2">
+   <Modifikationen/>
+   <Voraussetzungen St="21" Gs="61"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Kyu" Region="K" Grundkenntnisse="Bögen" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="W6">
+   <Modifikationen/>
+   <Voraussetzungen St="31" Gs="61"/>
+   <Reichweite nah="30" mittel="100" fern="180"/>
+   <Lernkosten/>
+   <Grund Typ="Kr"/>
+   <Grund Typ="Ri"/>
+   <Grund Typ="RiN"/>
+   <Grund Typ="RiS"/>
+   <Grund Typ="Sö"/>
+   <Standard Typ="As"/>
+   <Standard Typ="BN"/>
+   <Standard Typ="BS"/>
+   <Standard Typ="BW"/>
+   <Standard Typ="Ba"/>
+   <Standard Typ="Er"/>
+   <Standard Typ="Fi"/>
+   <Standard Typ="Gl"/>
+   <Standard Typ="Hj"/>
+   <Standard Typ="Hä"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ku"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="Ru"/>
+   <Standard Typ="Se"/>
+   <Standard Typ="Sk"/>
+   <Standard Typ="Sp"/>
+   <Standard Typ="Sr"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wa"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Waffe>
+  <Waffe Name="Anderthalbhänder">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Bihänder">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Blasrohr">
+   <regionaleVariante Name="FukiDake" Region="K" Schaden="Speziell"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Bogen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Bola">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Buckler">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Dolch">
+   <regionaleVariante Name="Tanto" Region="K" Schaden="W6" Schadensbonus="-1"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Faustkampf">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Fuchtel">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Garotte">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Glefe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Handarmbrust">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Handaxt">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Hellebarde">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Kampfgabeln">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Kampfstab">
+   <regionaleVariante Name="Bo" Region="K" Schaden="W6"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Keule">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Kharrata">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Kompositbogen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Kriegsflegel">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Kriegshammer">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Krummsäbel">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Kurzbogen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Kurzschwert">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Langbogen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Langschwert">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Lanze">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Lasso">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Morgenstern">
+   <regionaleVariante Name="KauSinKe" Region="K" Schaden="W6" Schadensbonus="2"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Netz">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Ochsenzunge">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Ogerhammer">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Parierdolch">
+   <regionaleVariante Name="Jitte" Region="K" Schadensbonus="-2"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Peitsche">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Rapier">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Schlachtbeil">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Schleuder">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Skhallanta">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Speerschleuder">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Stabkeule">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Stielhammer">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Stockschleuder">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Stoßspeer">
+   <regionaleVariante Name="Yari" Region="K" Schaden="1/2/3W6"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Streitaxt">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Streitkolben">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Werfen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfaxt">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfeisen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfhammer">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfkeule">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfmesser">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfpfeil">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfscheibe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfspeer">
+   <regionaleVariante Name="YariNage" Region="K" Schaden="W6" Schadensbonus="-1"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfspieß">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Wurfstern">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="großer Schild">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="kleiner Schild">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="leichte Armbrust">
+   <regionaleVariante Name="OjuMi" Region="K" Schaden="W6"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="leichter Speer">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="schwere Armbrust">
+   <regionaleVariante Name="SangMiau" Region="K" Schaden="2W6-1"/>
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="waffenloser Kampf">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Pilum" Region="3">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Namisritra" Region="R">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+ </Waffen>
+ <Waffen-Grundkenntnisse>
+  <Waffen-Grundkenntnis Name="Armbrust">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Blasrohr">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Bögen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Einhandschlagwaffe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Einhandschwert">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Fesselwaffe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Garotte">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kampf ohne Waffen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kampfstab">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kettenwaffe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Parierwaffe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Peitsche">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Schild">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Schleuder">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Spießwaffe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stangenwaffe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stichwaffe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Stielwurfwaffe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Werfen">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfmesser">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfpfeil">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfscheibe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Wurfspieß">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zweihandschlagwaffe">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Zweihandschwert">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Kharrata" Region="R">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+  <Waffen-Grundkenntnis Name="Namisritra" Region="R">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffen-Grundkenntnis>
+ </Waffen-Grundkenntnisse>
+ <Zauber>
+  <Spruch Name="Ahnengeist beschwören" Region="K" Grad="3" Lernkosten="1000" AP="6" Typ="Geste" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Kerzen, Kräuter, Speiseopfer">
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="Das Essen nährt..." Region="K" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsdauer="1 h" Material="1 p Gifttausendfüßler, 1 g GoGoNe-Pulver">
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Die Wiesenheuschrecke zirpt..." Region="K" Grad="5" Lernkosten="5000" AP="12" Typ="Wort" Zauberdauer="10 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Jahr">
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="Doppelgänger schaffen" Region="K" Grad="6" Lernkosten="6000" AP="9" Typ="Geste" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Haare, Nägel, Speichel und Blut">
+   <Grund Typ="Km"/>
+   <Grund Typ="Ma"/>
+   <Grund Typ="PC"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
+  </Spruch>
+  <Spruch Name="Erkennen von Metall" Region="K" Grad="3" Lernkosten="600" AP="3" Typ="Gedanke" Zauberdauer="10 sec" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="15 m Kegel" Wirkungsdauer="1 min" Thaumagramm="Siegel">
+   <Grund Typ="PHe"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="wHx"/>
+  </Spruch>
+  <Spruch Name="Gelbe Glocke (1. Urton Kung)" Region="K" Grad="2" Lernkosten="800" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Spruchrolle="true">
+   <Standard Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="Großer Hitzeschutz" Region="K" Grad="3" Lernkosten="1000" AP="4" Typ="Wort" Zauberdauer="10 min" Reichweite="1 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="4 Wochen">
+   <Standard Typ="Dt"/>
+   <Standard Typ="Or"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Or" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="Grüne Flöte (5. Urton Chüeh)" Region="K" Grad="3" Lernkosten="2000" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Spruchrolle="true">
+   <Standard Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="Hauch des Frühlings" Region="K" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12 m Uk" Wirkungsdauer="10 min" Material="Fasanenfedern" Spruchrolle="true" Thaumagramm="Runenstab">
+   <Grund Typ="Dr"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="gHx"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Metallmeisterschaft" Region="K" Grad="6" Lernkosten="6000" AP="9" Typ="Gedanke" Zauberdauer="30 sec" Reichweite="1 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="10 min" Spruchrolle="true">
+   <Grund Typ="PHe"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PF"/>
+   <Standard Typ="PHa"/>
+   <Standard Typ="PK"/>
+   <Standard Typ="PM"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="De"/>
+   <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="ScN"/>
+   <Ausnahme Typ="ScS"/>
+   <Ausnahme Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="NüQuang" Region="K" Grad="5" Lernkosten="3000" AP="alle" Typ="Geste" Zauberdauer="var" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="3 d">
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="PiPingQuang" Region="K" Grad="3" Lernkosten="600" AP="4" Typ="Tanz" Agens="Holz" Prozess="zerstört" Reagens="Eis" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Zauberart="Tanz">
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tt"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="PiYeúQuang" Region="K" Grad="3" Lernkosten="800" AP="4" Typ="Tanz" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Zauberart="Tanz">
+   <Standard Typ="De"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tt"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="Roter Pirol (2. Urton Chih)" Region="K" Grad="1" Lernkosten="160" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Spruchrolle="true">
+   <Standard Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="Scheintod" Region="K" Grad="5" Lernkosten="2400" AP="6" Typ="Gedanke" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="var" Spruchrolle="true">
+   <Grund Typ="De"/>
+   <Grund Typ="Hl"/>
+   <Grund Typ="Sa"/>
+   <Grund Typ="ScN"/>
+   <Grund Typ="ScS"/>
+   <Grund Typ="ScW"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PT"/>
+   <Ausnahme Typ="PW"/>
+  </Spruch>
+  <Spruch Name="Schwarzes Horn (4. Urton Yü)" Region="K" Grad="4" Lernkosten="6000" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="24 h" Spruchrolle="true">
+   <Standard Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="Schöne Leiche" Region="K" Grad="3" Lernkosten="800" AP="4" Typ="Geste" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Spruchrolle="true" Thaumagramm="Siegel">
+   <Grund Typ="Hl"/>
+   <Grund Typ="PT"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Sw"/>
+   <Standard Typ="Th"/>
+   <Standard Typ="To"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PF"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Ausnahme Typ="PW"/>
+  </Spruch>
+  <Spruch Name="Stolz zieht der Krieger..." Region="K" Grad="5" Lernkosten="3000" AP="9" Typ="Geste" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 Wochen" Material="Seidenschirm">
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+  </Spruch>
+  <Spruch Name="TaiQuang" Region="K" Grad="3" Lernkosten="1000" AP="1/Grad des Opfers" Typ="Tanz" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="50 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws/Grad des Zauberers" Wirkungsdauer="2 h" Zauberart="Tanz">
+   <Standard Typ="PC"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tt"/>
+  </Spruch>
+  <Spruch Name="Wasser befreien" Region="K" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Zauberdauer="10 sec" Reichweite="5 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 m Uk" Wirkungsdauer="1 min" Material="Bambussprosse" Spruchrolle="true">
+   <Grund Typ="Dr"/>
+   <Grund Typ="PF"/>
+   <Grund Typ="PM"/>
+   <Standard Typ="De"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="PC"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PT"/>
+  </Spruch>
+  <Spruch Name="Weißer Jadeklangstein (3. Urton Schang)" Region="K" Grad="5" Lernkosten="10000" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Kegel" Wirkungsdauer="var" Spruchrolle="true">
+   <Standard Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="XiengBaQuang" Region="K" Grad="5" Lernkosten="4000" AP="var" Typ="Tanz" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="var" Reichweite="var" Wirkungsziel="Körper" Wirkungsbereich="var" Wirkungsdauer="var" Zauberart="Tanz">
+   <Standard Typ="De"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tt"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="YehKiQuang" Region="K" Grad="1" Lernkosten="80" AP="3" Typ="Geste" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Geist">
+   <Standard Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="Tt"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+  </Spruch>
+  <Spruch Name="Jadezauber" Region="N">
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Dr" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Hl" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Ma" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PF" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PHa" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PHe" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PK" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PM" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PT" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="dBe" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="eBe" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="gHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="sHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="tBe" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="wHx" Standard="S"/>
+  </Spruch>
+ </Zauber>
+ <Zauberwerke/>
+ <Kido-Fertigkeiten>
+  <KiDo Name="ChochoInu" Übersetzung="Schmetterling und Hund" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Sich aus einem Kontrollbereich entfernen, wenn PW+60:RW des Gegners mißlingt. Danach ist eine freie Bewegung möglich.</KiDo>
+  <KiDo Name="DageIki" Übersetzung="Hauch eines Hiebes" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Finte. Kein eigener Angriff. Mißlingt PW+30:In/bzw RW bei In:t, so erhält der Gegner in der nächsten Runde WM-4 auf die Abwehr. (max. WM-8)</KiDo>
+  <KiDo Name="DaiUchi" Übersetzung="Großer Schlag" Stufe="Eingeweihter" Stil="Harte Techniken" Lernkosten="120" AP="0">Erlaubt Gezielten Hieb mit Todesfolge.</KiDo>
+  <KiDo Name="DoMino" Übersetzung="Sichere Ernte" Stufe="Eingeweihter" Stil="Sanfte Techniken" Lernkosten="200" AP="0">weiter Wurf. Gegner stürzt automatisch. Gelingt der WW:Abwehr: 1W6-3 AP, sonst Flug bis 6m auf Ziel (1W6-1 LP/AP). Ziel verliert automatischem 1W6-3 AP, WW:Abwehr vs.EW:KiDo oder Sturz. Dahinterstehende Personen verfahren dann ebenso (Domino)</KiDo>
+  <KiDo Name="DokujaOschi" Übersetzung="Stoß der Giftschlange" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="0">Überraschungsangriff auf Gegner in 12mUK. Alle überrascht, WM-4 auf Abwehr.</KiDo>
+  <KiDo Name="EnchuTao" Übersetzung="Säule umstürzen" Stufe="Eingeweihter" Stil="Harte Techniken" Lernkosten="120" AP="0">Erlaubt Gezielten Hieb mit Todesfolge, der bei einem normalen Erfolg nur leichten Schaden und 1W20 min Bewustlosigkeit verursacht.</KiDo>
+  <KiDo Name="FengAschi" Übersetzung="Wind in den Füßen" Stufe="Meister" Stil="beide" Lernkosten="800" AP="2">Ermöglicht Bewgung mit 4xB max. 10min</KiDo>
+  <KiDo Name="FengTsu" Übersetzung="Bambus im Wind" Stufe="Schüler" Stil="beide" Lernkosten="100" AP="0">Verringert leichte Schäden um 2 AP</KiDo>
+  <KiDo Name="FengYetsi" Übersetzung="Wind und Blatt" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="60" AP="0">weiter Wurf gegen Gegner die im Sturm angreifen oder mehr als B/2 gelaufen sind. KiDoka stürzt. Gegner stürzt automatisch (1W6-3 AP) mißlingt der WW:Abwehr, Flug 1W6m, 1W6LP/AP</KiDo>
+  <KiDo Name="GinZjang" Übersetzung="Opfer des Kranichs" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="80" AP="3">Sturmangriff ab 6m. KiDoka stürzt und WM-4 auf Abwehr. 1x Angriff vs Abwehr SchB+5, 1x KiDo vs Abwehr wie Wurf.</KiDo>
+  <KiDo Name="HaschiBami" Übersetzung="Zweig der Haselnuß" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Aufstehen. Gilt nicht als Aktion.</KiDo>
+  <KiDo Name="HiaBatta" Übersetzung="Sprung der Heuschrecke" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Verbessert Sprungweiten und - höhen um 50&#x25;</KiDo>
+  <KiDo Name="HiaFei" Übersetzung="Sprung des Tigers" Stufe="Meister" Stil="Harte Techniken" Lernkosten="800" AP="5">Sturmangriff nach 6 bis B Meter. SchB +7 bzw KAW 50</KiDo>
+  <KiDo Name="HiaPao" Übersetzung="Sprung des Leoparden" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="1">Sturmangriff nach 6 bis B Metern. SchB + 2 bzw KAW 15</KiDo>
+  <KiDo Name="HyoKobe" Übersetzung="Hagel von Fäusten" Stufe="Eingeweihter" Stil="Harte Techniken" Lernkosten="400" AP="3">6 Angriffe auch verschiedene Gegner</KiDo>
+  <KiDo Name="ItaSone" Übersetzung="Schmerzlicher Verlust" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="0">Entwaffnen. Gegner muß letzte Runde angegriffen haben. KiDo vs Abwehr : 1W6 AP + Waffenverlust. krit.=krit.Armtreffer. Nur Einhandwaffen.</KiDo>
+  <KiDo Name="KaHiko" Übersetzung="Mückenflug" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="3">Verwirren der Nahkampfgegner. KiDo vs psyZR. WM+4 auf Angriff gegen einen Verwirrten. Verwirrte handeln nicht, wehren aber ab.</KiDo>
+  <KiDo Name="KamaKusa" Übersetzung="Sichel und Gras" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="0">Wurf durch Tritt</KiDo>
+  <KiDo Name="KanaUchi" Übersetzung="Hammerschlag" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="40" AP="0">Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.</KiDo>
+  <KiDo Name="KansiTeko" Übersetzung="Zange und Hebel" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="40" AP="0">Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.</KiDo>
+  <KiDo Name="KawaSui" Übersetzung="Austrocknen der Quelle" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="3">Heilt 1W6 LP/AP des KiDokas. Wirkt exakt wie Heilen von Wunden.</KiDo>
+  <KiDo Name="KentoYobu" Übersetzung="Kampfschrei" Stufe="Schüler" Stil="beide" Lernkosten="60" AP="1">Der Kampfschrei gibt WM+1 auf Angriff und Abwehr für 10 min. Gelingt der KentoYubo nicht, darf er erst beim nächsten Kampf wieder eingesetzt werden. Der KentoYubo ist die erste Technik in einem Kampf, es sei denn ein PW:Sb gelingt.</KiDo>
+  <KiDo Name="KoéLong" Übersetzung="Stimme des Drachen" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="4">&quot;Schrei, &quot;&quot;Schmerzen&quot;&quot; auf 30m Kegel, phsZR oder 1W6 AP und 1min WM-4&quot;</KiDo>
+  <KiDo Name="LingHia" Übersetzung="Göttlicher Sprung" Stufe="Meister" Stil="beide" Lernkosten="800" AP="5">Springen: bis 20m weit, 5m hoch, 10m tief, über Angreifer + Angriff</KiDo>
+  <KiDo Name="MiChen" Übersetzung="Biene und Nadel" Stufe="Eingeweihter" Stil="beide" Lernkosten="400" AP="0">Gezielter Hieb, WW+2 auf 2.Abwehr, nur leichter Schaden dafür PW:Ko (bzw. 5*LPmax) oder 1W6 Runden Ohnmacht</KiDo>
+  <KiDo Name="MingHa" Übersetzung="Leuchtende Klinge" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="1">Verwirren. KiDo vs phsZR. Nur mit Dolch oder Sai und helle Lichtquelle. Lichtreflexe blenden einen Gegner. WM+4 auf Angriff</KiDo>
+  <KiDo Name="MuYosai" Übersetzung="Unbezwingbare Festung" Stufe="Schüler" Stil="beide" Lernkosten="60" AP="0">Blockade + konzentrierte Abwehr mit WM+6 gegen die restlichen Gegner</KiDo>
+  <KiDo Name="MuhiKabe" Übersetzung="Unvergleichliche Mauer" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="0">Blockade WW+2:KiDo. Kein Eigener Angriff. Gegner verliert (WW+2:KiDo - Angriff) AP</KiDo>
+  <KiDo Name="NagaKusa" Übersetzung="Strömung im Seegras" Stufe="Eingeweihter" Stil="beide" Lernkosten="400" AP="0">Verringert leichte Schäden um 4 AP</KiDo>
+  <KiDo Name="NiNintai" Übersetzung="Zweite Ausdauer" Stufe="Eingeweihter" Stil="beide" Lernkosten="400" AP="3">Regeneriert sofort alle AP. Nach einer Stunde: Verlust aller AP und von 3 LP. Während dieser Zeit kann die Technik nicht erneut angewendet werden.</KiDo>
+  <KiDo Name="NiuTsuke" Übersetzung="Ochsentritt" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="1">SchB +2</KiDo>
+  <KiDo Name="OchiFuku" Übersetzung="Fallender Sack" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="60" AP="0">Wurf</KiDo>
+  <KiDo Name="OjuKiba" Übersetzung="Verjagen der Wespe" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="80" AP="0">Entwaffnen. Nur Einhandwaffen. Waffe fliegt 1W6m. krit.=krit.Armtreffer</KiDo>
+  <KiDo Name="SchanScha" Übersetzung="Mörderischer Berg" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="1">Eisenhaut. 1 Runde. Verringert Verluste um 5 LP oder AP. RW-xx</KiDo>
+  <KiDo Name="SchindoKu" Übersetzung="Schwingungen der Alten" Stufe="Meister" Stil="Sanfte Techniken" Lernkosten="1600" AP="6">Handfläche schwingt. KiDo vs phsZR. leichter Schaden: 1W6+1 LP/AP schwerer Schaden: 3W6+1 LP/AP. Kein Treffer: selbst phsZR für 1W6-1 bzw 3W6-3 LP/AP</KiDo>
+  <KiDo Name="SosaYaku" Übersetzung="Suche die Schwäche" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Angriff WM+2, Angriff erst am Ende der Runde</KiDo>
+  <KiDo Name="SukuHaya" Übersetzung="Schnelle Heilung" Stufe="Meister" Stil="beide" Lernkosten="1200" AP="6">Allheilung. EW:KiDo vs 1W20+20</KiDo>
+  <KiDo Name="TateTiao" Übersetzung="Tanzender Schild" Stufe="Eingeweihter" Stil="Sanfte Techniken" Lernkosten="120" AP="1">Nur mit Schirm/Fächer (GunSen oder BuKasa). Gegner: WM-4 Angriff, WW:psyZR</KiDo>
+  <KiDo Name="TiaoYuschi" Übersetzung="Tanz des Helden" Stufe="Eingeweihter" Stil="beide" Lernkosten="120" AP="3">Showeinlage mit Wirkung wie Angst. KiDo vs psyZR.</KiDo>
+  <KiDo Name="TsiJe" Übersetzung="Gedanken der Wärme" Stufe="Eingeweihter" Stil="beide" Lernkosten="120" AP="1">Kälteschutz</KiDo>
+  <KiDo Name="TsiLeng" Übersetzung="Gedanken der Kühle" Stufe="Eingeweihter" Stil="beide" Lernkosten="120" AP="1">Hitzeschutz</KiDo>
+  <KiDo Name="TuoKobe" Übersetzung="VieleFäuste" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">2 Waffenlose Angriffe, auch versch. Gegner</KiDo>
+  <KiDo Name="UzuHaki" Übersetzung="Zerstörerischer Wirbel" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="2">bis zu 4x Angriff, SchB+1, nur verschiedene Gegner im Kontrollbereich</KiDo>
+  <KiDo Name="WanTsui" Übersetzung="Zehntausend Münder" Stufe="Meister" Stil="beide" Lernkosten="1600" AP="6">Schrei. 30m Kegel. Wie Sturmwind. Gegner max 6m in Richtung KiDoka. Alle PW+30:HGW oder 1W6 LP/AP und Sturz</KiDo>
+  <KiDo Name="YingKando" Übersetzung="Siegreiche Bewegung" Stufe="Meister" Stil="beide" Lernkosten="800" AP="6">Je ein Angriff auf jeden Gegner, der in der zweiten Rundenhälfte in 6mUk steht. Hierbei WM+2, SchB+2</KiDo>
+  <KiDo Name="YoroYoschi" Übersetzung="Schwankendes Schilf" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="40" AP="0">Geschossen ausweichen und Angreifen. Fernkämpfer WM-2. KiDoka WM+4 Abwehr/phkZR(!)</KiDo>
+  <KiDo Name="YubeChian" Übersetzung="Finger des Friedens" Stufe="Eingeweihter" Stil="Sanfte Techniken" Lernkosten="200" AP="0">Im Handgemenge festgehaltene werden gelähmt. Der Griff kann max. 2min aufrecht erhalten werden.</KiDo>
+  <KiDo Name="YuehSchu" Übersetzung="Axt und Baum" Stufe="Schüler" Stil="beide" Lernkosten="60" AP="0">Blockade und Angriff. Mißlingt der EW.KiDo: Nur Blockade.</KiDo>
+ </Kido-Fertigkeiten>
+</MAGUS-data>
