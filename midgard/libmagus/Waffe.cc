@@ -44,9 +44,10 @@ cH_Waffe::cH_Waffe(const std::string& name , bool create)
   }
 }
 
+#include <iostream>
 void Waffe::get_Waffe(const Tag &t)
 {
-  if (t.hasAttr("Schaden"))
+//  if (t.hasAttr("Schaden"))
   {grundkenntnisse=t.getAttr("Grundkenntnisse");
    schwierigkeit=t.getIntAttr("Schwierigkeit");
    art=t.getAttr("Kategorie");
@@ -58,7 +59,6 @@ void Waffe::get_Waffe(const Tag &t)
    region=t.getAttr("Region");
    text=t.getAttr("Text");
    zweite_grundkenntnis=t.getAttr("ZweiteGrundkenntnis");
-   
   }
    
    const Tag *Modifikationen=t.find("Modifikationen");
