@@ -196,6 +196,8 @@ public:
    void set_Herkunft(const cH_Land& _herkunft){herkunft=_herkunft;}
    void set_Spezies(const cH_Spezies& _spezies){spezies=_spezies;}
    void set_Glaube(const std::string& _glaube){glaube=_glaube;}
+   void setCharaktername(const std::string& s) {name_charakter=s;}
+   void setVersion(const std::string& s) {version=s;}
    void set_Namen(const std::string& _name_charakter,std::string _name_spieler, std::string _version)
       {name_charakter=_name_charakter;name_spieler=_name_spieler;version=_version;}
    void set_Beschreibung(const std::string& _beschreibung){beschreibung=_beschreibung;}

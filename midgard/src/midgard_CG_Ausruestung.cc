@@ -485,14 +485,22 @@ void midgard_CG::ausruestung_druck(ofstream &fout,const list<AusruestungBaum> &A
 ////////////////////////////////////////////////////////////////////////
 //Neueingeben
 //von hier 
-void midgard_CG::on_button_artikel_neu_clicked()
+void midgard_CG::on_togglebutton_artikel_neu_toggled()
 {
-  table_artikel->show();
-  entry_name->grab_focus();
+ if(togglebutton_artikel_neu->get_active())
+  {
+    table_artikel->show();
+    entry_name->grab_focus();
+  }
+ else 
+    table_artikel->hide();
 }
-void midgard_CG::on_button_gruppe_neu_clicked()
+void midgard_CG::on_togglebutton_gruppe_neu_toggled()
 {
+ if(togglebutton_gruppe_neu->get_active())
   table_gruppe->show();
+ else 
+  table_gruppe->hide();
 }
 void midgard_CG::on_entry_art_activate()
 {
@@ -551,5 +559,5 @@ void midgard_CG::on_spinbutton_gewicht_activate()
   Database.preise.push_back(cH_Preise(name));
   ausruestung_laden();
    } catch(SQLerror &e) {manage (new WindowInfo(e.what()));}
- table_artikel->hide();
+// table_artikel->hide();
 }

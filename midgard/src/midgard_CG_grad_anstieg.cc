@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.36 2001/12/31 16:06:34 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.37 2002/01/11 08:48:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -169,24 +169,24 @@ void midgard_CG::get_ausdauer(int grad)
   Werte.addSteigertage(28);
 }
 
-void midgard_CG::get_ab_re_za(const string& was)
+void midgard_CG::get_ab_re_za(e_was_steigern was)
 {
   int alter_wert, max_wert;
   int kosten;
   int grad=Werte.Grad();
-  if      (was=="Abwehr")    
+  if      (was==Abwehr)    
     { 
       max_wert = Database.GradAnstieg.get_Abwehr(grad); 
       kosten   = Database.GradAnstieg.get_Abwehr_Kosten(grad+1);
       alter_wert = Werte.Abwehr_wert(); 
     } 
-  else if (was=="Resistenz") 
+  else if (was==Resistenz) 
     { 
       max_wert = Database.GradAnstieg.get_Resistenz(grad);
       kosten   = Database.GradAnstieg.get_Resistenz_Kosten(grad+1);
       alter_wert = Werte.Resistenz(); 
     } 
-  else if (was=="Zaubern") 
+  else if (was==Zaubern) 
     { 
       if ( Typ[0]->Zaubern()  == "z" || Typ[0]->Zaubern()  == "j" ||
            Typ[1]->Zaubern() == "z" || Typ[1]->Zaubern() == "j" ) 
@@ -203,7 +203,7 @@ void midgard_CG::get_ab_re_za(const string& was)
 
   if(!steigern_usp(kosten,0,was));  
   Werte.add_GFP(kosten);
-  if (was=="Abwehr") Werte.set_Abwehr_wert(alter_wert+1);
-  if (was=="Resistenz") Werte.set_Resistenz(alter_wert+1); 
-  if (was=="Zaubern") Werte.set_Zaubern_wert(alter_wert+1); 
+  if (was==Abwehr) Werte.set_Abwehr_wert(alter_wert+1);
+  if (was==Resistenz) Werte.set_Resistenz(alter_wert+1); 
+  if (was==Zaubern) Werte.set_Zaubern_wert(alter_wert+1); 
 }

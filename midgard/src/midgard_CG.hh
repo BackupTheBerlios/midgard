@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.125 2002/01/10 08:00:46 thoma Exp $
+// $Id: midgard_CG.hh,v 1.126 2002/01/11 08:48:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -244,6 +244,7 @@ class midgard_CG : public midgard_CG_glade
         void on_schliessen_CG_clicked();
         void on_lernpunkte_wuerfeln_clicked();
         void on_lernpunkte_editieren_clicked();
+        void on_entry_Cname_activate();
         void on_button_fach_trans_clicked();
         void on_button_waffe_trans_clicked();
         void on_button_ruestung_clicked();
@@ -291,18 +292,24 @@ class midgard_CG : public midgard_CG_glade
         void on_button_grad_clicked();
         void get_ausdauer(int grad);
         void get_grundwerte();
+        enum e_was_steigern{Nichts,Ausdauer,Abwehr,Zaubern,Resistenz};
         void get_ab_re_za(const string& was);
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
         void set_lernzeit(unsigned int kosten);
-        bool steigern_usp(unsigned int kosten,const cH_MidgardBasicElement *MBE,const std::string &was="");
+        bool steigern_usp(unsigned int kosten,const cH_MidgardBasicElement *MBE,e_was_steigern was=Nichts);
         void desteigern(unsigned int kosten);
         void on_checkbutton_EP_Geld_toggled();
         void steigern_gtk();
         int steigern_womit(const std::string& fert);
 
         void on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
+        gint on_eventbox_ausruestung_button_release_event(GdkEventButton *event);
+        gint on_eventbox_steigern_button_release_event(GdkEventButton *event);
+        gint on_eventbox_lernen_button_release_event(GdkEventButton *event);
+        gint on_eventbox_grundwerte_button_release_event(GdkEventButton *event);
+
         void on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
         void load_for_page(guint pagenr);
         void on_radio_steigern_toggled();
@@ -319,7 +326,7 @@ class midgard_CG : public midgard_CG_glade
         void on_radiobutton_pp_abwehr_toggled();
         void on_radiobutton_pp_resistenz_toggled();
         void on_radiobutton_pp_all_toggled();
-
+        void on_button_alter_clicked();
 
         void on_fertigkeiten_laden_clicked();
         void fertigkeiten_zeigen();
@@ -413,8 +420,8 @@ class midgard_CG : public midgard_CG_glade
         void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
         void on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column);
         bool tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList) ;
-        void on_button_artikel_neu_clicked();
-        void on_button_gruppe_neu_clicked();
+        void on_togglebutton_artikel_neu_toggled();
+        void on_togglebutton_gruppe_neu_toggled();
         void on_entry_art_activate();
         void on_entry_typ_activate();
         void on_entry_eigenschaft_activate();

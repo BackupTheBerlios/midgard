@@ -147,6 +147,30 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
 }
 
 
+void midgard_CG::on_button_alter_clicked()
+{
+  float tage=Werte.Steigertage();
+  int alter=Werte.Alter();
+  int tage_pro_jahr=360;
+  while(tage>tage_pro_jahr)
+   {
+     alter+=tage_pro_jahr;
+     tage-=tage_pro_jahr;
+   }
+  Werte.set_Alter(alter);
+  Werte.setSteigertage(tage);
+  zeige_werte(Werte);
+}
+
+
+gint midgard_CG::on_eventbox_ausruestung_button_release_event(GdkEventButton *event)
+{ notebook_main->set_page(PAGE_AUSRUESTUNG); }
+gint midgard_CG::on_eventbox_steigern_button_release_event(GdkEventButton *event)
+{ notebook_main->set_page(PAGE_STEIGERN); }
+gint midgard_CG::on_eventbox_lernen_button_release_event(GdkEventButton *event)
+{ notebook_main->set_page(PAGE_LERNEN); }
+gint midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *event)
+{ notebook_main->set_page(PAGE_GRUNDWERTE); }
 
 
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
@@ -157,6 +181,8 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
     button_grad_zaubern->set_sensitive(false);
  if(pagenr==PAGE_STEIGERN)
    load_for_page(notebook_lernen->get_current_page_num());
+ else if(pagenr==PAGE_AUSRUESTUNG)
+    ausruestung_laden();
 }
 
 void midgard_CG::on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)

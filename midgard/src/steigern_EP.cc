@@ -89,7 +89,7 @@ void midgard_CG::set_lernzeit(unsigned int kosten)
       Werte.addSteigertage(kosten/500.);
 }
 
-bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* MBE,const std::string &was)
+bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* MBE, e_was_steigern was)
 {
   if (!steigern_bool) // Steigern OHNE EP/Gold/PP
       { set_lernzeit(kosten);
@@ -108,10 +108,10 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   bool bkep=false,bzep=false;
   int womit;
   if(MBE) womit = (*MBE)->Steigern_mit_EP();
-  else if (was=="Ausdauer") womit=3;
-  else if (was=="Zaubern") womit=3;
-  else if (was=="Resistenz") womit=3;
-  else if (was=="Abwehr") womit=3;
+  else if (was==Ausdauer) womit=3;
+  else if (was==Zaubern) womit=3;
+  else if (was==Resistenz) womit=3;
+  else if (was==Abwehr) womit=3;
   else assert(!"Fehler in steigern_EP.cc:steigern_usp");
   if(womit==1 || womit==3) bkep=true;
   if(womit==2 || womit==3) bzep=true;
@@ -126,10 +126,10 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   guint pp=0;
   if     (radiobutton_praxis->get_active())
    { 
-     if(MBE)                   pp=(*MBE)->Praxispunkte() ;
-     else if(was=="Resistenz") pp=Werte.ResistenzPP() ;
-     else if(was=="Abwehr")    pp=Werte.AbwehrPP() ;
-     else if(was=="Zauber")    pp=Werte.ZaubernPP() ;
+     if(MBE)                 pp=(*MBE)->Praxispunkte() ;
+     else if(was==Resistenz) pp=Werte.ResistenzPP() ;
+     else if(was==Abwehr)    pp=Werte.AbwehrPP() ;
+     else if(was==Zaubern)   pp=Werte.ZaubernPP() ;
      else assert(!"Fehler in steigern_EP.cc");
    }
 
@@ -148,9 +148,9 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   Werte.add_Gold(-gold_k);  
   set_lernzeit(kosten);
   if (MBE) (*MBE)->add_Praxispunkte(-pp) ;
-  else if(was=="Resistenz")  Werte.addResistenzPP(-pp) ;
-  else if(was=="Abwehr")  Werte.addAbwehrPP(-pp) ;
-  else if(was=="Zauber")  Werte.addZaubernPP(-pp) ;
+  else if(was==Resistenz)  Werte.addResistenzPP(-pp) ;
+  else if(was==Abwehr)  Werte.addAbwehrPP(-pp) ;
+  else if(was==Zaubern)  Werte.addZaubernPP(-pp) ;
   else assert(!"Fehler in steigern_EP.cc");
 
   if(bkep)

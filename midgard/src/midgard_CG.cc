@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.107 2002/01/10 08:00:46 thoma Exp $
+// $Id: midgard_CG.cc,v 1.108 2002/01/11 08:48:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,6 +43,7 @@
 #include "Praxispunkte.hh"
 #include <gtk--/notebook.h>
 #include  <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
 
 midgard_CG::midgard_CG(int argc,char **argv)
 :menu(0)
@@ -59,6 +60,7 @@ void midgard_CG::get_Database()
 {
    Midgard_Info *MI = manage(new Midgard_Info(this,true));
    try{
+   Transaction tr;
    Database = st_Database( Regionen_All(MI->get_progressbar_regionen()).get_All(),
                            Laender_All(MI->get_progressbar_laender()).get_All(),
                            Ruestung_All(MI->get_progressbar_ruestung()).get_All(),
@@ -82,6 +84,7 @@ void midgard_CG::get_Database()
                            Spezialgebiet_All(MI->get_progressbar_spezial()).get_All(),
                            Preise_All(MI->get_progressbar_preise()).get_All(),
                            PreiseMod_All(MI->get_progressbar_preise()).get_All());
+   tr.close();
    }catch(SQLerror &e) {cerr<< e.what()<<'\n'; return;}
    MI->on_button_close_clicked();
 }
@@ -323,7 +326,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    spinbutton_pp_eingeben->hide();
    table_gruppe->hide();
    table_artikel->hide();
-   button_gruppe_neu->hide(); // nicht implementiert
+   togglebutton_gruppe_neu->hide(); // nicht implementiert
 
 //   button_beruf_erfolgswert->set_sensitive(false);
    button_beruf_erfolgswert->hide();
