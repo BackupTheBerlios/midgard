@@ -4,7 +4,7 @@ SUBDIRS=close_window
 
 CXXFLAGS=-I$(top_srcdir)/searchcombo/src -I$(top_srcdir)/src @CFLAGS@
 
-noinst_PROGRAMS = nsc_test sccont_test optionmenu
+EXTRA_PROGRAMS = nsc_test sccont_test optionmenu
 
 sccont_test_SOURCES = sccont_test.cc
 sccont_test_LDADD = $(top_srcdir)/src/libGtkmmAddons.a
