@@ -778,8 +778,9 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 2	Mg	f	Beredsamkeit	Fachkenntnisse	8
 2	PHa	f	Beredsamkeit	Fachkenntnisse	8
 2	PHe	f	Beredsamkeit	Fachkenntnisse	8
-2	Ru	f	Beredsamkeit	Fachkenntnisse	15
+2	Ru	f	Beredsamkeit	Fachkenntnisse	8
 2	Sk	f	Beredsamkeit	Fachkenntnisse	8
+2	To	f	Beredsamkeit	Fachkenntnisse	8
 2	As	f	Beschatten	Fachkenntnisse	8
 2	Ny	f	Beschatten	Fachkenntnisse	8
 2	To	f	Beschatten	Fachkenntnisse	8
