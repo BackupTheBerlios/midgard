@@ -75,7 +75,11 @@ void MidgardBasicElement::move_element(std::list<MidgardBasicElement_mutable>& v
    else
     {
       if ((*i)->Name()==MBE->Name()) 
-        { nach.splice(nach.begin(),von,i);break; }
+        { 
+//          i->setErfolgswert(MBE.Erfolgswert());
+          nach.splice(nach.begin(),von,i);
+          break; 
+        }
     }
   }
 }
@@ -320,6 +324,13 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
  for (int i=1;i<=22;++i)
     map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0/*??*/);
 }
+
+#ifdef __MINGW__
+std::string utf82iso(const std::string &s);
+# define Internal2Latin(x) utf82iso(x)
+#else
+# define Internal2Latin(x) (x)
+#endif
 
 void MidgardBasicElement::saveElementliste(Tag &datei,
 			   const std::list<MidgardBasicElement_mutable>& b,

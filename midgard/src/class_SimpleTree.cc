@@ -155,24 +155,23 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
              else
                 return cH_EntryValueIntString(MBE.Erfolgswert());
            }
-         case LERNKOSTEN : 
-          {
-             if(MBE->What()==MidgardBasicElement::WAFFE)
-                return cH_EntryValueEmptyInt(0);//MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())); 
-             else
-                return cH_EntryValueEmptyInt(MBE->Kosten(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
-          }
+         case LERNKOSTEN : return cH_EntryValueEmptyInt(MBE->Kosten(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
          case ART : return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
          case VORAUSSETZUNGEN : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
                return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung());
-             else if(MBE->What()==MidgardBasicElement::WAFFE)
-               return cH_EntryValueIntString(cH_Waffe(MBE)->Voraussetzung());
              else
                return cH_EntryValueIntString("");
            }
          case REGIONn : return cH_EntryValueIntString(MBE->RegionString(hauptfenster->getCDatabase())); 
+        }
+      else if (Variante==MidgardBasicTree::LONG_NEU_WAFFE)
+       switch ((Spalten_LONG_NEU_WAFFE)seqnr) {
+         case NAMEnw : return cH_EntryValueIntString(MBE->Name());
+         case ARTw : return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
+         case VORAUSSETZUNGENw : return cH_EntryValueIntString(cH_Waffe(MBE)->Voraussetzung());
+         case REGIONnw : return cH_EntryValueIntString(MBE->RegionString(hauptfenster->getCDatabase())); 
         }
       else if (Variante==MidgardBasicTree::SPRACHE_NEU)
        switch ((Spalten_SPRACHE_NEU)seqnr) {

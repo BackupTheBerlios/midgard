@@ -165,7 +165,11 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      MyList     = &hauptfenster->getChar().List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;
    }
  else if(MBE->What()==MidgardBasicElement::WAFFE) 
-   { MyList     = &hauptfenster->getChar().List_Waffen(); MyList_neu = &list_Waffen_neu;  }
+   { MyList     = &hauptfenster->getChar().List_Waffen(); 
+     MyList_neu = &list_Waffen_neu;  
+//     if(cH_Waffe(MBE)->Art()=="Verteidigung") MBE.setErfolgswert(1);
+//     else MBE.setErfolgswert(4);
+   }
  else if(MBE->What()==MidgardBasicElement::WAFFEGRUND) 
    { MyList     = &hauptfenster->getChar().List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBER) 
@@ -191,6 +195,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 
 
 //cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
+
  MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE);
  hauptfenster->undosave(MBE->Name()+" gelernt");
 

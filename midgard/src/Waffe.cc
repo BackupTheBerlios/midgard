@@ -90,9 +90,10 @@ void Waffe::get_Waffe()
    if(Art()=="Verteidigung") erfolgswert=1;
    else erfolgswert=4;   
 */
+/*
    if(Art()=="Verteidigung") anfangswert=1;
    else anfangswert=4;   
-
+*/
    FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_F")
      vec_voraussetzung_F.push_back(i->getAttr("Name"));
    FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_W")

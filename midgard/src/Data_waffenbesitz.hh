@@ -1,4 +1,4 @@
-// $Id: Data_waffenbesitz.hh,v 1.2 2002/06/07 12:17:03 thoma Exp $
+// $Id: Data_waffenbesitz.hh,v 1.3 2002/06/12 08:14:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,27 +26,21 @@
 #include <Waffe.hh>
 
 #include "MidgardBasicElement.hh"
-//class Grundwerte;
-//class Typen;
 #include "midgard_CG.hh"
 
 class Data_waffenbesitz :  public RowDataBase
 {
-//      cH_MidgardBasicElement waffe;
       WaffeBesitz waffe;
       const midgard_CG *hauptfenster;
   public:
-//      Data_waffenbesitz(const cH_MidgardBasicElement& w,const midgard_CG *h)
-//         : waffe(w), hauptfenster(h) {}
       Data_waffenbesitz(const WaffeBesitz& w,const midgard_CG *h)
          : waffe(w), hauptfenster(h) {}
 
       enum SPALTEN_A {NAME_A,SCHADEN_A,REGION,MAGBONUS,MAGTEXT};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
-//         cH_WaffeBesitz W(waffe);
           switch(seqnr) {
-            case NAME_A : return cH_EntryValueIntString(waffe->Name());
+            case NAME_A : return cH_EntryValueIntString(waffe.AliasName());
             case SCHADEN_A : return cH_EntryValueIntString(waffe.Schaden(hauptfenster->getCWerte(),waffe->Name()));
             case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(hauptfenster->getCDatabase().Regionen,waffe.Waffe()->Region(waffe->Name()))->Name());
             case MAGBONUS : return cH_EntryValueIntString(waffe.Bonus());

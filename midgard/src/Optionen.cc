@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.48 2002/06/12 06:59:31 christof Exp $
+// $Id: Optionen.cc,v 1.49 2002/06/12 08:14:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,7 @@
 #ifdef __MINGW32__
 #  include "registry.h"
 #endif
+#include "customize_toolbars.h"
 
 #ifdef __MINGW32__
 static std::string CommandByExtension(const std::string &ext)
@@ -189,7 +190,6 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
      if(i->index!=index) continue;
      i->active = b;
      if     (i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
-//     else if(i->index==showPics) hauptfenster->Pics(i->active);
      else if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
      else if(i->index==NSC_only) {hauptfenster->table_grundwerte->fill_typauswahl();
                                   hauptfenster->table_grundwerte->fill_typauswahl_2();} // zum Neuaufbau des Typmenüs
@@ -200,9 +200,6 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
 void Midgard_Optionen::OptionenExecute_setzen_from_menu(OptionenExecuteIndex index)
 {
   if(index==LernschemaSensitive) hauptfenster->lernschema_sensitive(true);
-//  if(index==WizardStarten) hauptfenster->wizard_starten_clicked();
-//  if(index==LernschemaZusaetzeLoeschen) {hauptfenster->list_FertigkeitZusaetze.clear();
-//                                         hauptfenster->on_lernliste_wahl_toggled();}   
   if(index==show_InfoWindow) hauptfenster->InfoFenster->Show();
 }
 
@@ -250,6 +247,12 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
            hauptfenster->show_NIcons(i->active);
         else if(index==NBeschriftungen) 
            hauptfenster->show_NBeschriftungen(i->active);
+        else if(index==BIcons) 
+           Gtk::CustomizeToolbars(hauptfenster,i->active,
+               OberCheck(BBeschriftungen).active,true);
+        else if(index==BBeschriftungen) 
+           Gtk::CustomizeToolbars(hauptfenster,OberCheck(BIcons).active,
+               i->active,true);
         hauptfenster->menu_init();
         return;
       }
@@ -274,16 +277,12 @@ void Midgard_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(gw_wuerfeln,
                            "Grundwerte nur mit einer Maustaste auswürfelbar machen",
                            false,Cyan_Dice_trans_50_xpm));
-//  list_OptionenCheck.push_back(st_OptionenCheck(showPics,"Bilder anzeigen",true,0));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true,0));
 
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",0));
-//  list_OptionenExecute.push_back(st_OptionenExecute(WizardStarten,"Wizard starten",0));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
                            "Lernschema/Steigern auswählbar machen",0));
-//  list_OptionenExecute.push_back(st_OptionenExecute(LernschemaZusaetzeLoeschen,
-//                           "Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen",0));
 }
 
 
@@ -362,10 +361,12 @@ void Midgard_Optionen::Ober_init()
  list_Ober.push_back(st_Ober(Bilder,"Bilder anzeigen",true));
  list_Ober.push_back(st_Ober(Menueleiste,"Menüleiste",true));
  list_Ober.push_back(st_Ober(Knopfleiste,"Knopfleiste",true));
- list_Ober.push_back(st_Ober(Icons,"Icons",true));
- list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen",true));
+ list_Ober.push_back(st_Ober(Icons,"Icons der Knopfleiste",true));
+ list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen der Knopfleiste",true));
  list_Ober.push_back(st_Ober(NIcons,"Icons der Notebooks",true));
  list_Ober.push_back(st_Ober(NBeschriftungen,"Beschriftungen der Notebooks",true));
+ list_Ober.push_back(st_Ober(BIcons,"Icons sonstiger Knöpfe",true));
+ list_Ober.push_back(st_Ober(BBeschriftungen,"Beschriftungen sonstiger Knöpfe",true));
  list_Ober.push_back(st_Ober(Status,"Statuszeile",true));
 }
 

@@ -1,6 +1,30 @@
 ##########################################################################
 NEWS IN VERSION 0.7delta0
 
+?* Steigern von neuen Waffen wieder mit richtigem Erfolgswert
+* Oberfläche leicht überarbeitet
+?* Icons/Text von sämltlichen Knöpfen läßt sich konfigurieren
+?* AliasNamen von Waffenbesitz wieder korrekt
+?* Mag.Waffenboni und Beschreibung eingeben geht wieder
+
+TODO:
+* Mag. Waffe bei Spielbeginn testen
+* CAST in MidgardBasicElement.cc:98 korrekt?
+* Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
+in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
+links). 
+* Fokus im Zusatzfenster einfrieren
+* Ausdruck für lange Listen
+* Gildenbrief funktioniert nicht
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
+NEWS IN VERSION 0.7delta0
+
 * Erster Abenteurer bei Programmstart als 'gespeichert' markieren.
 * Fenster aufpoppen, wenn nicht alle Abenteurer gespeichert beim beenden
 * Neuer Abenteurer gilt als 'gespeichert'

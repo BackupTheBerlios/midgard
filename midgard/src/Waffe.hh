@@ -160,16 +160,8 @@ class WaffeBesitz : public MidgardBasicElement_mutable
          {setErfolgswert(e);}
 
      WaffeBesitz(const MidgardBasicElement_mutable &b)
-       : MidgardBasicElement_mutable(b),waffe(b) {}
+       : MidgardBasicElement_mutable(b),waffe(b),av_bonus(0),sl_bonus(0) {}
 
-
-/*
-     WaffeBesitz(const MidgardBasicElement_mutable& mbeu, std::string b,
-                  int a,int s, std::string m)
-      :MidgardBasicElement_mutable(mbeu),
-         waffe(mbeu), alias_name(b),av_bonus(a),sl_bonus(s),magisch(m)
-         {}
-*/
      enum MidgardBasicElement::MBEE What() const {return MidgardBasicElement::WAFFEBESITZ;}
      std::string What_str() const {return "WaffeBesitz";}
 
@@ -187,24 +179,6 @@ class WaffeBesitz : public MidgardBasicElement_mutable
 
 };
 
-/*
-class cH_WaffeBesitz : public Handle<const WaffeBesitz>
-{
- public:
-    cH_WaffeBesitz() {}
-    cH_WaffeBesitz(const WaffeBesitz *s) : Handle<const WaffeBesitz>(s) {}
-
-    cH_WaffeBesitz(const cH_MidgardBasicElement &x) : Handle<const WaffeBesitz>
-      (dynamic_cast<const WaffeBesitz *>(&*x)){}
-
-
-    bool operator == (const cH_WaffeBesitz& b) const
-      {return (*this)->Name()==b->Name() && (*this)->Region() == b->Region() &&
-              (*this)->av_Bonus()==b->av_Bonus() && (*this)->sl_Bonus()==b->sl_Bonus() &&
-               (*this)->Magisch()==b->Magisch(); }
-
-};
-*/
 
 class WaffenBesitz_sort_magbonus
 { public : bool operator() (WaffeBesitz x, WaffeBesitz y) const

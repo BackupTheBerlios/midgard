@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.17 2002/06/12 06:59:31 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.18 2002/06/12 08:14:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -315,7 +315,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
 
  /////////////////////////////////////////////////////////////////////////////
  // Waffen + Waffen/Besitz
- int  i_waffenlos = 4;
+//WL int  i_waffenlos = 4;
  unsigned int countwaffen=0;
  std::string angriffsverlust_string = hauptfenster->getCWerte().Ruestung_Angriff_Verlust(hauptfenster->getCChar().CList_Fertigkeit());
  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
@@ -331,8 +331,8 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     fout <<"\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
     // waffenloser Kampf:
-    if (w->Name()=="waffenloser Kampf") 
-         { i_waffenlos=atoi(wert.c_str());}
+//WL    if (w->Name()=="waffenloser Kampf") 
+//WL         { i_waffenlos=atoi(wert.c_str());}
       for (std::list<MidgardBasicElement_mutable>::const_iterator j=hauptfenster->getCChar().CList_Waffen_besitz().begin();j!=hauptfenster->getCChar().CList_Waffen_besitz().end();++j)
      {
       WaffeBesitz WB(*j);
@@ -341,7 +341,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
          std::string b = LaTeX_string(countwaffen++);
 //std::cout << (*j)->Name()<<"\t"<<w->Name()<<"\t"<<"latexstring = "<<b<<"\n";
          std::string waffenname ;
-         waffenname = WB->Name();
+         waffenname = WB->AliasName();
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
          if (WB.Magisch()!="" || 
             (WB.av_Bonus()!=0 && WB.sl_Bonus()!=0)) waffenname+="$^*$ "+WB.Bonus() ;
@@ -371,13 +371,14 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
    }
  // waffenloser Kampf:
 /*
- cH_MidgardBasicElement waffenlos(new WaffeBesitz(cH_Waffe("waffenloser Kampf"),"waffenloser Kampf",0,0,""));
+ WaffeBesitz waffenlos(cH_Waffe("waffenloser Kampf"));
+ 
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+hauptfenster->getCWerte().bo_An() << "}\n";
- std::string schaden= cH_WaffeBesitz(waffenlos)->Schaden(hauptfenster->getCWerte(), waffenlos->Name(),true);
+ std::string schaden= waffenlos.Schaden(hauptfenster->getCWerte(), waffenlos->Name(),true);
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- std::string anm = cH_WaffeBesitz(waffenlos)->Waffe()->Waffenrang();
+ std::string anm = waffenlos.Waffe()->Waffenrang();
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- std::string abm = cH_WaffeBesitz(waffenlos)->Waffe()->WM_Abwehr();
+ std::string abm = waffenlos.Waffe()->WM_Abwehr();
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
 */
  /////////////////////////////////////////////////////////////////////////
