@@ -3,14 +3,13 @@ NEWS IN VERSION 0.8.2
 
 * Zufallsabenteurer Grad 1:
    - Vorgaben für Eigenschaften und abgeleitete Werte
-
+   - Spezialwaffe, Spezialgebiet
 
 TODO: ('-' zeigt CP an)
 * Zufallsabenteurer Grad 1:
    # Berufe 
    # gewürfelte 100 bei angeborenen Fertigkeiten
    # Schreiben+9 als Pflichtebdingung
-   # Spezialwaffe und Spezialgebiet
 * Schwarzer Balken im Lernschema bei Maximierung
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
