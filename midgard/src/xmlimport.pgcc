@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.20 2001/07/05 12:43:35 thoma Exp $
+// $Id: xmlimport.pgcc,v 1.21 2001/08/28 15:45:33 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -33,7 +33,7 @@ bool charakter_laden(istream &i)
    {  std::cerr << "Ist das wirklich die richtige Datei? Ich kann keinen Charakter finden.\n";
       return false;
    }
-   if (top->getInt("Version")<3 || top->getInt("Version")>5)
+   if (top->getInt("Version")<3 || top->getInt("Version")>6)
    {  std::cerr << "Version " << top->getInt("Version") << " wird noch nicht unterstützt\n";
       return false;
    }

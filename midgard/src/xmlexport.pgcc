@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.21 2001/07/05 12:43:35 thoma Exp $
+// $Id: xmlexport.pgcc,v 1.22 2001/08/28 15:45:33 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,24 +25,26 @@
 #include <Aux/dbconnect.h>
 exec sql include sqlca;
 
-void fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
+static int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
 {  int val;
    
    is >> FetchIStream::MapNull<int>(val,0);
-   if (!val) return;
+   if (!val) return val;
    for (int i=0;i<indent;++i) o << ' ';
    o << '<' << wert << '>' << val << "</" << wert << ">\n";
+   return val;
 }
 
-void fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert)
+static int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0)
 {  int val;
    
-   is >> FetchIStream::MapNull<int>(val,0);
-   if (!val) return;
+   is >> FetchIStream::MapNull<int>(val,standard);
+   if (val==standard) return val;
    o << ' ' << wert << "=\"" << val << '\"';
+   return val;
 }
 
-void fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
+static void fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
 {  std::string val;
    
    is >> FetchIStream::MapNull<string>(val,""); 
@@ -52,13 +54,14 @@ void fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &
    o << '<' << wert << '>' << val << "</" << wert << ">\n";
 }
 
-void fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert)
+static std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="")
 {  std::string val;
    
-   is >> FetchIStream::MapNull<string>(val,""); 
-   if (!val.size()) return;
+   is >> FetchIStream::MapNull<string>(val,standard); 
+   if (val==standard) return val;
    // val in XML wandeln ...
    o << ' ' << wert << "=\"" << val << '\"';
+   return val;
 }
 
 void charakter_speichern(std::ostream &o, const std::string &name,const std::string &version="")
@@ -81,7 +84,8 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    		glaube, db_bo_au, db_bo_sc, db_bo_an, 
    		db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,
    		db_bo_gi, db_gfp, gold, silber, kupfer, 
-   		beschreibung, ruestung
+   		aep, kep, zep, steigern_bool, steigern_ep_prozent,
+   		grad_basiswerte, beschreibung, ruestung
    	from charaktere 
    	where charakter_name=:NAME and version=:VERSION;
    exec sql open c;
@@ -91,13 +95,12 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    exec sql close c;
    SQLerror::test(__FILELINE__);
    FetchIStream is("spalten");
-   o << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n"
-   	"<Midgard-Charakter Version=\"6\">\n";
+   o <<	"<Midgard-Charakter Version=\"7\">\n";
    o << "  <Figur";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Spieler");
    fetch_and_write_string_attrib(is, o, "Zeitpunkt");
-   fetch_and_write_int_attrib(is, o, "Grad");
+   int grad=fetch_and_write_int_attrib(is, o, "Grad");
    o << "/>\n";
    o << "  <Typ";
    fetch_and_write_string_attrib(is, o, "Spezies");
@@ -163,6 +166,14 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    fetch_and_write_int_attrib(is, o, "GS");
    fetch_and_write_int_attrib(is, o, "SS");
    fetch_and_write_int_attrib(is, o, "KS");
+   o << "/>\n";
+   o << "  <Steigern";
+   fetch_and_write_int_attrib(is, o, "AEP");
+   fetch_and_write_int_attrib(is, o, "KEP");
+   fetch_and_write_int_attrib(is, o, "ZEP");
+   fetch_and_write_string_attrib(is, o, "steigern", "f");
+   fetch_and_write_int_attrib(is, o, "EPproGFP", 50);
+   fetch_and_write_int_attrib(is, o, "Basiswerte", grad);
    o << "/>\n";
    fetch_and_write_string(is, o, "Text", 2);
    
@@ -231,14 +242,37 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
 
 int main(int argc, char *argv[])
 {  
-   if (argc!=3) {std::cerr << "FEHLER: "<<argv[0]<<" muß mit 'Charaktername' und 'Version' aufgerufen werden\n";
+   if (argc!=3 && argc!=1) {std::cerr << "FEHLER: "<<argv[0]<<" muß mit 'Charaktername' und 'Version' aufgerufen werden\n";
       exit(1); };
    try{
       Petig::Connection conn;
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
 
-   charakter_speichern(std::cout,argv[1],argv[2]);
+   std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
+   if (argc==3) charakter_speichern(std::cout,argv[1],argv[2]);
+   else
+   {  Transaction tr;
+   exec sql allocate descriptor figuren;
+   exec sql declare fcurs cursor for
+   	select charakter_name, version
+   	from charaktere 
+   	order by charakter_name, version;
+   exec sql open fcurs;
+   SQLerror::test(__FILELINE__);
+   while (true)
+   {  exec sql fetch fcurs into sql descriptor figuren;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;
+      FetchIStream is("figuren");
+      string charakter,version;
+      is >> charakter >> version;
+      charakter_speichern(std::cout,charakter,version);
+   }
+   exec sql close fcurs;
+   SQLerror::test(__FILELINE__);
+   exec sql deallocate descriptor figuren;
+   }
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';
