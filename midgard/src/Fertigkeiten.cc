@@ -65,7 +65,7 @@ void Fertigkeit::get_Fertigkeit()
   region=tag->getAttr("Region");
   attribut=tag->getAttr("Attribut");
   maxunterweisung=tag->getIntAttr("MaximalMitUnterweisung");
-  zusatzbool=tag->getBoolAttr("Zusaetze",false);
+  zusatzbool=tag->getBoolAttr("Zusätze",false);
   maxerfolgswert=tag->getIntAttr("Maximalwert");
   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
   if (Voraussetzungen)
@@ -81,7 +81,7 @@ void Fertigkeit::get_Fertigkeit()
                 Voraussetzungen->getIntAttr("RW"),
                 Voraussetzungen->getAttr("Fertigkeit"));
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"Zusaetze")
+    FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
       Vzusatz.push_back(i->getAttr("Name"));
 }
 

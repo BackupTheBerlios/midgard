@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.20 2002/02/13 11:53:45 christof Exp $
+// $Id: fertigk_exp.cc,v 1.21 2002/02/13 12:17:00 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -58,7 +58,7 @@ void fert_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Berufskategorie");
    fetch_and_write_int_attrib(is, o, "Maximalwert");
    fetch_and_write_int_attrib(is, o, "MaximalMitUnterweisung");
-   fetch_and_write_bool_attrib(is, o, "Zusaetze");
+   fetch_and_write_bool_attrib(is, o, "Zusätze");
 #endif
    o << ">\n";
    
