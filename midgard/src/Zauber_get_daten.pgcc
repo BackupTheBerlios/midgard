@@ -30,9 +30,9 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-void midgard_CG::Zauber_get_daten(vector<st_zauber>& zauber)
+void midgard_CG::Zauber_get_Daten(vector<H_Data_zauber>& zauber)
 {
- for (vector<st_zauber>::iterator i=zauber.begin();i!=zauber.end();++i)
+ for (vector<H_Data_zauber>::iterator i=zauber.begin();i!=zauber.end();++i)
  {
   exec sql begin declare section;
    char db_name[100];
@@ -51,42 +51,40 @@ void midgard_CG::Zauber_get_daten(vector<st_zauber>& zauber)
    char db_ursprung[20];
    char db_material[100];
   exec sql end declare section;
-   strncpy(db_name,i->name.c_str(),sizeof(db_name));
+   strncpy(db_name,((*i)->Name()).c_str(),sizeof(db_name));
 
    Transaction tr;
-    exec sql declare zauber cursor for
+    exec sql declare czauber cursor for
       select kosten, ap, art, stufe, agens, prozess, reagens,
             zauberdauer, reichweite, wirkungsziel, wirkungsbereich,
             wirkungsdauer, ursprung, material
       from arkanum_zauber where name = :db_name ;
 
-    exec sql open zauber;
+    exec sql open czauber;
     SQLerror::test(__FILELINE__);
 
 
-         exec sql fetch zauber into :db_kosten, :db_ap, :db_art, :db_stufe,
+         exec sql fetch czauber into :db_kosten, :db_ap, :db_art, :db_stufe,
             :db_agens, :db_prozess, :db_reagens, :db_zauberdauer,
             :db_reichweite, :db_wirkungsziel, :db_wirkungsbereich,
             :db_wirkungsdauer, :db_ursprung, :db_material ;
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
-         i->kosten = db_kosten;
-         i->ap = db_ap;
-         i->art = db_art ;
-         i->stufe = db_stufe ;
-         i->agens = db_agens ;
-         i->prozess = db_prozess ;
-         i->reagens = db_reagens ;
-         i->zauberdauer = db_zauberdauer ;
-         i->reichweite = db_reichweite ;
-         i->wirkungsziel = db_wirkungsziel ;
-         i->wirkungsbereich = db_wirkungsbereich ;
-         i->wirkungsdauer = db_wirkungsdauer ;
-         i->ursprung = db_ursprung;
-         i->material = db_material ;
-    exec sql close zauber;
+         (*i)->set_Kosten(db_kosten);
+         (*i)->set_Ap(db_ap);
+         (*i)->set_Art(db_art) ;
+         (*i)->set_Stufe(db_stufe) ;
+         (*i)->set_Agens(db_agens) ;
+         (*i)->set_Prozess(db_prozess) ;
+         (*i)->set_Reagens(db_reagens) ;
+         (*i)->set_Zauberdauer(db_zauberdauer) ;
+         (*i)->set_Reichweite(db_reichweite) ;
+         (*i)->set_Wirkungsziel(db_wirkungsziel) ;
+         (*i)->set_Wirkungsbereich(db_wirkungsbereich) ;
+         (*i)->set_Wirkungsdauer(db_wirkungsdauer) ;
+         (*i)->set_Ursprung(db_ursprung);
+         (*i)->set_Material(db_material) ;
+    exec sql close czauber;
     tr.commit();
  }
 }
-
-

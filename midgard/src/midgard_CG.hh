@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.46 2001/06/22 10:50:21 thoma Exp $
+// $Id: midgard_CG.hh,v 1.47 2001/06/24 13:24:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,6 +44,9 @@
 #include <map>
 #include "itos.h"
 #include "zufall.h"
+#include "class_zauber.hh"
+#include "class_fertigkeiten.hh"
+#include "class_berufe.hh"
 
 struct st_werte{int st; int ge;int ko;int in;int zt;
              int au;int pa;int sb;int rw;int hgw;
@@ -81,12 +84,7 @@ struct st_lernpunkte{int beruf; int fertigkeiten; int waffen; int zauber;
 struct styp{string l;string s;string z; string ausdauer; int stand; int sb;
    styp() : stand(0), sb(0) {} 
    void clear() {*this=styp();} };
-struct st_ausgewaehlte_fertigkeiten {string name; int erfolgswert; string attribut;
-      st_ausgewaehlte_fertigkeiten(const string n,int e, const string a)
-      : name(n),erfolgswert(e), attribut(a) {} };
-struct st_angeborene_fertigkeit {string name; int erfolgswert;
-      st_angeborene_fertigkeit(const string n,int e )
-      : name(n),erfolgswert(e) {} };
+
 struct st_ausgewaehlte_waffen {string name; int erfolgswert; 
       st_ausgewaehlte_waffen(const string n,int e)
       : name(n),erfolgswert(e) {} };
@@ -95,28 +93,6 @@ struct st_waffen_besitz {string name; string alias; string region ;int av_bonus;
    st_waffen_besitz(string n, string na, string r,int a, int s, string m) 
    : name(n), alias(na), region(r),av_bonus(a),sl_bonus(s),magisch(m) {}
    st_waffen_besitz() : name(""), alias(""), region(""), av_bonus(0), sl_bonus(0), magisch("") {} };
-struct st_ausgewaehlte_zauber {string name; string ap; 
-      st_ausgewaehlte_zauber(const string n, const string a)
-      : name(n), ap(a) {} };
-struct st_ausgewaehlte_berufe {string name; string vorteile; int erfolgswert; 
-      st_ausgewaehlte_berufe(const string n, const string v, int e)
-      : name(n), vorteile(v), erfolgswert(e) {} };
-struct st_zauber{string ap; string name; string erfolgswert;string art; string stufe;
-              string zauberdauer; string reichweite; string wirkungsziel;
-              string wirkungsbereich; string wirkungsdauer; string ursprung;
-              string material; string agens; string prozess; string reagens; 
-              string beschreibung; int kosten;
-       st_zauber (const string a1, const string n, const string er, const string a, 
-            const string s,
-            const string zd, const string r, const string zi,
-            const string ber, const string wd, const string u,
-            const string mat, const string age, const string pro, 
-            const string rea, const string bes, int ko) 
-      : ap(a1), name(n), erfolgswert(er), art(a), stufe(s), zauberdauer(zd), 
-         reichweite(r),
-         wirkungsziel(zi), wirkungsbereich(ber), wirkungsdauer(wd), 
-         ursprung(u), material(mat), agens(age), prozess(pro), reagens(rea),
-         beschreibung(bes), kosten(ko) {} };
 
 struct st_kido {string hoho; string technik; string stufe;
       string stil; int fp; int ap; string effekt;
@@ -127,11 +103,6 @@ struct st_sprachen {string name; int wert;string schrift;
       st_sprachen(string n, int w, string s) : name(n),wert(w),schrift(s) {} };
 struct st_schriften {string urschrift; string typ;
       st_schriften(string u, string t) : urschrift(u),typ(t) {}};
-
-struct st_zaubermittel{int wert; string name; int gfp; string art; string stufe; 
-   string zeitaufwand; string kosten; string beschreibung;
-   st_zaubermittel(string n):wert(0),name(n),gfp(0) {};
-   st_zaubermittel(int w, string n):wert(w),name(n),gfp(0) {};};
 
 struct st_ausnahmen{string name; string art;float fac;string standard;
          st_ausnahmen(string nn, string aa, float ff, string ss)
@@ -161,14 +132,13 @@ class midgard_CG : public midgard_CG_glade
         vector<st_typen> typen_2_vector;
         vector<string> vec_spezialgebiet;
         vector<string> spezies_vector;
-        vector<st_ausgewaehlte_fertigkeiten> vec_fertigkeiten;
-        vector<st_angeborene_fertigkeit> vec_an_fertigkeit;
+        vector<H_Data_fert> vec_Fertigkeiten;
+        vector<H_Data_fert> vec_an_Fertigkeit;
         vector<st_ausgewaehlte_waffen> vec_waffen;
         vector<st_waffen_besitz> waffe_besitz;
-        vector<st_ausgewaehlte_zauber> vec_zauber;
-        vector<st_ausgewaehlte_berufe> vec_beruf;
-        vector<st_zauber> zauber;
-        vector<st_zaubermittel> vec_zaubermittel;
+        vector<H_Data_beruf> vec_Beruf;
+        vector<H_Data_zauber> vec_Zauber;
+        vector<H_Data_zaubermittel> vec_Zaubermittel;
         vector<st_kido> vec_kido;
         bool kido_bool;
         int maxkido;
@@ -186,7 +156,6 @@ class midgard_CG : public midgard_CG_glade
         void fill_typauswahl();
         void fill_typauswahl_2();
         void fill_typauswahl_fill(int typ_1_2);
-//        int  fill_typauswahl_int(int i);
         void fill_spezies();
         void typauswahl_button(int ttyp);
         void typauswahl_2_button(int ttyp);
@@ -248,14 +217,14 @@ class midgard_CG : public midgard_CG_glade
         int maxkidostil(const string& stufe);
         void show_kido();
         void stil_optionmenue();
-        string  get_erfolgswert_zaubern(const styp& typ,const styp& typ_2,const string& name);
+        int  get_erfolgswert_zaubern(const styp& typ,const styp& typ_2,const string& name);
         int get_spezial_zauber(const string& typ,const string& name);
         void show_berufe();
         void show_waffen();
         void show_zauber();
         void zeige_lernpunkte();
         void zeige_notebook();
-        void Zauber_get_daten(vector<st_zauber>& zauber);
+        void Zauber_get_Daten(vector<H_Data_zauber>& zauber);
         void on_beruf_erfolgswert_clicked();
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
         void on_angeborene_fertigkeit_clicked();
@@ -333,12 +302,12 @@ class midgard_CG : public midgard_CG_glade
         void show_alte_zauber();
         void show_neue_zauber();
         void on_steigern_zaubermittel_tree_alt_select(const string& name, int kosten);
-        void on_steigern_zaubermittel_tree_neu_select(const string& name, int kosten);
+        void on_steigern_zaubermittel_tree_neu_select(const string& name, const string& stufe, int kosten);
         void on_leaf_selected_alte_zaubermittel(cH_RowDataBase d);
         void on_leaf_selected_neue_zaubermittel(cH_RowDataBase d);
         void show_alte_zaubermittel();
         void show_neue_zaubermittel();
-        void get_zaubermittel(vector<st_zaubermittel>& vec_zaubermittel);
+        void get_Zaubermittel(vector<H_Data_zaubermittel>& vec_Zaubermittel);
         float get_standard_zaubermittel(const styp& typ,const styp& typ_2,const string& name);
         bool zauberwerk_voraussetzung(const string& name);
 
@@ -386,12 +355,12 @@ class midgard_CG : public midgard_CG_glade
          void select_charakter(const string& name, const string& version);
          void zeige_werte(const st_werte& w, const string& welche);
          void setze_lernpunkte(st_lernpunkte& lernpunkte);
-         void fertigkeiten_uebernehmen(vector<st_ausgewaehlte_fertigkeiten>& saf);
+         void fertigkeiten_uebernehmen(const vector<H_Data_fert>& saf);
          void show_fertigkeiten();
          void waffen_uebernehmen(vector<st_ausgewaehlte_waffen>& saw,map<string,string> wg);
          void waffe_besitz_uebernehmen(vector<st_waffen_besitz>& wbu);
-         void zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz);
-         void berufe_uebernehmen(vector<st_ausgewaehlte_berufe>& sab);
+         void zauber_uebernehmen(const vector<H_Data_zauber>& saz);
+         void berufe_uebernehmen(vector<H_Data_beruf>& sab);
          void kido_uebernehmen(vector<string>& technik);
          double get_standard_zauber(const styp& typ,const styp& typ2, const string& zauber);
          double get_standard_zauber_(const string& ergebnis, const string& ergebnis2, const string& p_element, const string& s_element, const string& zauber);

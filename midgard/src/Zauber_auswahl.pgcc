@@ -63,17 +63,16 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const styp& 
          exec sql fetch zauber into :db_fertigkeiten, :db_lernpunkte, :db_ap, :db_kosten;
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
-         zauber.push_back(db_struct_zauber(db_lernpunkte,db_fertigkeiten,db_ap,db_kosten));
+         vec_zauber.push_back(new Data_zauber(db_fertigkeiten,db_ap,db_kosten,db_lernpunkte));
       }
 
     exec sql close zauber;
     Gtk::OStream os(zauber_clist_auswahl);
-    for(vector<db_struct_zauber>::iterator i=zauber.begin();i!=zauber.end();++i)
+    for(vector<H_Data_zauber>::iterator i=vec_zauber.begin();i!=vec_zauber.end();++i)
       {
-//double fac =1;
-         double fac=hauptfenster->get_standard_zauber(typ,typ_2,i->zauber);
-         os << i->lernpunkte <<"\t"<< i->zauber <<"\t"
-            <<i->ap<<"\t"<<i->kosten*fac<<"\n";
+         double fac=hauptfenster->get_standard_zauber(typ,typ_2,(*i)->Name());
+         os << (*i)->Lernpunkte() <<"\t"<< (*i)->Name() <<"\t"
+            <<(*i)->Ap()<<"\t"<<(*i)->Kosten()*fac<<"\n";
          os.flush(&*i);
       }
     for (unsigned int i=0;i<zauber_clist_auswahl->columns().size();++i)
@@ -102,15 +101,13 @@ void Zauber_auswahl::on_zauber_clist_auswahl_unselect_row(gint row, gint column,
 
 void Zauber_auswahl::on_close_zauber_clicked()
 {   
-    vector<st_ausgewaehlte_zauber> saz;
+   vector<H_Data_zauber> saz;
    for (Gtk::CList::SelectionList::iterator i=zauber_clist_auswahl->selection().begin();
          i!=zauber_clist_auswahl->selection().end();++i)
      {  
-      db_struct_zauber *ptr
-         =static_cast<db_struct_zauber*>(i->get_data());
          // ptr=&fert[i->get_row_num()];
-//       cout << ptr ->zauber << ' ' << '\n';
-       saz.push_back(st_ausgewaehlte_zauber(ptr->zauber,ptr->ap));
+         H_Data_zauber *ptr = static_cast<H_Data_zauber*>(i->get_data());
+       saz.push_back(new Data_zauber((*ptr)->Name()));
      }
   hauptfenster->zauber_uebernehmen(saz);
   destroy();

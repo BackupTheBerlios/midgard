@@ -73,20 +73,23 @@ void midgard_CG::spielleiter_export()
                     <<werte.resistenz+werte.bo_phk<<"\n\n" ;
 
  // angeborene Fertigkeiten
- for (unsigned int i=0;i<vec_an_fertigkeit.size();++i)
+// for (unsigned int i=0;i<vec_an_fertigkeit.size();++i)
+ for(vector<H_Data_fert>::const_iterator i=vec_an_Fertigkeit.begin();i!=vec_an_Fertigkeit.end();++i)
    {
-    string wert = "+"+itos(vec_an_fertigkeit[i].erfolgswert);
+    string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
-    fout <<vec_an_fertigkeit[i].name << wert ;
+    fout <<(*i)->Name() << wert ;
     fout << ", ";
    }
  // Fertigkeiten
- for (unsigned int i=0;i<vec_fertigkeiten.size();++i)
+ for(vector<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
+// for (unsigned int i=0;i<vec_fertigkeiten.size();++i)
    {
-    string wert = "+"+itos(vec_fertigkeiten[i].erfolgswert);
+    string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
-    fout <<vec_fertigkeiten[i].name << wert ;
-    if (i!=vec_fertigkeiten.size()-1) fout << ", ";
+    fout <<(*i)->Name() << wert ;
+//    if (i!=vec_fertigkeiten.size()-1) fout << ", ";
+    if (i != vec_Fertigkeiten.end()) fout << ", ";
    }
  fout << " - ";
  for (unsigned int i=0; i<vec_sprachen.size();++i)
@@ -95,14 +98,16 @@ void midgard_CG::spielleiter_export()
       if (i!=vec_sprachen.size()-1) fout <<", ";
    }
   // Zauber
- if (zauber.size()!=0)
+ if (vec_Zauber.size()!=0)
    {
      fout << "\n\n";
      fout << "Zaubern+"<<atoi(werte.zaubern_wert.c_str())+werte.bo_za<<": ";
-     for (unsigned int i=0;i<zauber.size();++i)
+     for (vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();i!=vec_Zauber.end();)
       {
-        fout << zauber[i].name ;
-        if (i!=zauber.size()-1) fout << ", ";
+        fout << (*i)->Name() ;
+//        if (i!=zauber.size()-1) fout << ", ";
+        if (i!=vec_Zauber.end()) fout << ", ";
+        ++i;
       }
    }  
  fout << "\n";

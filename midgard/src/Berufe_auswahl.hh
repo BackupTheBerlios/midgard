@@ -1,4 +1,4 @@
-// $Id: Berufe_auswahl.hh,v 1.17 2001/06/12 09:31:05 thoma Exp $
+// $Id: Berufe_auswahl.hh,v 1.18 2001/06/24 13:24:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,10 +34,12 @@
 
 #include <vector>
 class midgard_CG;
+class H_Data_beruf;
 struct st_lernpunkte;
 struct st_werte;
 struct styp;
 
+/*
 struct db_struct_beruf
 {  int lernpunkte;    
    string beruf;      
@@ -49,13 +51,15 @@ struct db_struct_beruf
    : lernpunkte(l), beruf(b), stand(s), voraussetzung(v1), vorteile(v2)   
    {}
 };   
+*/
 
 class Berufe_auswahl : public Berufe_auswahl_glade
 {   
         int maxpunkte;
         midgard_CG* hauptfenster;         
         friend class Berufe_auswahl_glade;
-        vector<db_struct_beruf> beruf;
+//        vector<db_struct_beruf> beruf;
+        vector<H_Data_beruf> vec_Beruf;
         void on_berufe_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_berufe_clicked();

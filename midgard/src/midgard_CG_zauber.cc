@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.22 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.23 2001/06/24 13:24:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,28 +36,27 @@ void midgard_CG::on_zauber_wahl_clicked()
 void midgard_CG::show_zauber()
 {
    zauber_clist->clear();
-   midgard_CG::Zauber_get_daten(zauber);
+   midgard_CG::Zauber_get_Daten(vec_Zauber);
    Gtk::OStream os(zauber_clist);
-   for(vector<st_zauber>::iterator i=zauber.begin();
-         i!=zauber.end();++i)
+   for(vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();
+         i!=vec_Zauber.end();++i)
       {
-         os << i->name<<"\t"<<i->erfolgswert<<"\n";
+         os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
       }
    for (unsigned int i=0;i<zauber_clist->columns().size();++i)
       zauber_clist->set_column_auto_resize(i,true);
    zauber_clist->set_reorderable(true);
 }
 
-void midgard_CG::zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz)
+void midgard_CG::zauber_uebernehmen(const vector<H_Data_zauber>& saz)
 {
-   zauber.clear();
+   vec_Zauber=saz;
    angeborene_zauber();
-   vec_zauber = saz;
-   for(vector<st_ausgewaehlte_zauber>::iterator i=vec_zauber.begin();
-         i!=vec_zauber.end();++i)
+   for(vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();
+         i!=vec_Zauber.end();++i)
       {
-         string erf = midgard_CG::get_erfolgswert_zaubern(typ,typ_2,i->name);
-         zauber.push_back(st_zauber(i->ap,i->name,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
+         int erf = midgard_CG::get_erfolgswert_zaubern(typ,typ_2,(*i)->Name());
+         (*i)->set_Erfolgswert(erf);
       }
    midgard_CG::show_zauber();
 }
@@ -65,7 +64,7 @@ void midgard_CG::zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz)
 void midgard_CG::angeborene_zauber()
 {
  if (typ.s=="eBe" || typ_2.s=="eBe" || typ.s=="dBe" || typ_2.s=="dBe" ) 
-    zauber.push_back(st_zauber("0","Lehrersuche","0","0","0","0","0","0","0","0","0","0","0","0","0","0",0));
+    vec_Zauber.push_back(new Data_zauber("Lehrersuche"));
  if (werte.spezies=="Elf") 
-    zauber.push_back(st_zauber("0","Erkennen der Aura","0","0","0","0","0","0","0","0","0","0","0","0","0","0",0));
+    vec_Zauber.push_back(new Data_zauber("Erkennen der Aura"));
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.17 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.18 2001/06/24 13:24:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,20 +31,18 @@ void midgard_CG::show_berufe()
 {
    berufe_clist->clear();
    Gtk::OStream os(berufe_clist);
-   for(vector<st_ausgewaehlte_berufe>::iterator i=vec_beruf.begin();
-         i!=vec_beruf.end();++i)
+   for(vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
       {
-         os << i->name<<"\t"<<i->vorteile<<"\t"<<i->erfolgswert<<"\n";
+         os << (*i)->Name()<<"\t"<<(*i)->Vorteile()<<"\t"<<(*i)->Erfolgswert()<<"\n";
       }
    for (unsigned int i=0;i<berufe_clist->columns().size();++i)
       berufe_clist->set_column_auto_resize(i,true);
    berufe_clist->set_reorderable(true);
-
 }
 
-void midgard_CG::berufe_uebernehmen(vector<st_ausgewaehlte_berufe>& sab)
+void midgard_CG::berufe_uebernehmen(vector<H_Data_beruf>& sab)
 {
-   vec_beruf = sab;
+   vec_Beruf = sab;
    get_Ausnahmen();
    midgard_CG::show_berufe();
    button_beruf_erfolgswert->set_sensitive(true);
@@ -60,13 +58,14 @@ void midgard_CG::on_beruf_erfolgswert_clicked()
  if (atoi(in->get_text().c_str()) >= 81 ) ++inbo ;
  if (atoi(in->get_text().c_str()) >= 96 ) ++inbo ;
 
- for(unsigned int  i=0; i<=vec_beruf.size();++i)
+// for(unsigned int  i=0; i<=vec_beruf.size();++i)
+ for (vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
    {
     int ausbildungswert = random.integer(1,3)+6;
-    if (i==0) vec_beruf[i].erfolgswert = ausbildungswert+erfahrungswert+inbo;
-    else vec_beruf[i].erfolgswert = ausbildungswert+inbo;
+    if (i==vec_Beruf.begin()) (*i)->set_Erfolgswert(ausbildungswert+erfahrungswert+inbo);
+    else (*i)->set_Erfolgswert(ausbildungswert+inbo);
    }
- midgard_CG::berufe_uebernehmen(vec_beruf);
+ midgard_CG::berufe_uebernehmen(vec_Beruf);
  
    hbox_fertigkeit->set_sensitive(true);
    table_fertigkeit->set_sensitive(true);

@@ -44,7 +44,7 @@ class Data_kido : public RowDataBase
    Data_kido(const string& h,const string& n,const string& s1,int a,int k,const string& s)
        :hoho(h),name(n),stufe(s1),ap(a),kosten(k),stil(s) {}
 
-   virtual const cH_EntryValue Value(int seqnr) const
+   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
  { switch (seqnr) {
       case 0 : return cH_EntryValueIntString(hoho);
       case 1 : return cH_EntryValueIntString(name);
@@ -83,10 +83,10 @@ void midgard_CG::show_alte_kido()
 
 int midgard_CG::get_erfolgswert_kido()
 {
- for (vector<st_ausgewaehlte_fertigkeiten>::const_iterator
-      i= vec_fertigkeiten.begin();i!=vec_fertigkeiten.end();++i)
+ for (vector<H_Data_fert>::const_iterator
+      i= vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
    {
-      if (i->name == "KiDo") return i->erfolgswert; 
+      if ((*i)->Name() == "KiDo") return (*i)->Erfolgswert(); 
    }
  // should never get here 
  string strinfo="WARNUNG: Dieser Charakter beherrscht die Fertigkeit KiDo nicht.";

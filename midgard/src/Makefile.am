@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.36 2001/06/22 09:12:12 christof Exp $
+# $Id: Makefile.am,v 1.37 2001/06/24 13:24:52 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -47,7 +47,8 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_doppelcharaktere.hh \
    Window_doppelcharaktere_glade.hh \
    xml_fileselection_glade.hh \
-   xml_fileselection.hh
+   xml_fileselection.hh \
+   class_zauber.hh
 
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<

@@ -50,9 +50,8 @@ void midgard_CG::get_Ausnahmen()
        squery = "select name, art, standard from ausnahmen \
          where typ=null \
          and (herkunft = '"+werte.herkunft+"'";
-         for(vector<st_ausgewaehlte_berufe>::iterator i=vec_beruf.begin();
-            i!=vec_beruf.end();++i)
-            squery += " or beruf = '"+i->name+"' ";
+         for(vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
+            squery += " or beruf = '"+(*i)->Name()+"' ";
          squery += " or  stand = '"+werte.stand+"' )";
       }
      else abort();

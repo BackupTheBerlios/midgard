@@ -78,9 +78,13 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
             :db_erfolgswert, :db_attribut ; 
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
+          vec_Fert.push_back(new Data_fert (db_fertigkeiten,
+               db_erfolgswert,0,werte.spezies,db_attribut,"*",db_lernpunkte));
+         
+/*         fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
                db_erfolgswert, db_attribut,
                "*", 0, werte.spezies));
+*/
       }
    exec sql close fert_spezies;
 
@@ -147,28 +151,29 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
          if (sqlca.sqlcode) break;
 //cout << db_fertigkeiten<<"\n";
          if (hauptfenster->region_check(db_region))
-           fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
-               idb_erfolgswert?0:db_erfolgswert, idb_attribut?"":db_attribut,
-               idb_pflicht?"":db_pflicht, db_fp, db_voraussetzung));
+           vec_Fert.push_back(new Data_fert (db_fertigkeiten,
+               idb_erfolgswert?0:db_erfolgswert,db_fp,db_voraussetzung, 
+               idb_attribut?"":db_attribut,
+               idb_pflicht?"":db_pflicht,db_lernpunkte));
       }
    exec sql close fertigkeiten;
   
    Gtk::OStream os(fertigkeiten_clist_auswahl);
-   for(vector<db_struct_fertigkeiten>::iterator i=fert.begin();i!=fert.end();++i)
+   for(vector<H_Data_fert>::iterator i=vec_Fert.begin();i!=vec_Fert.end();++i)
       {
-        double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,i->fertigkeiten);
+        double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,(*i)->Name());
         for (vector<string>::const_iterator j=vorteile.begin();
                j!=vorteile.end();++j)
-           if ((*j)==i->fertigkeiten) --(i->lernpunkte);
+           if ((*j)==(*i)->Name()) (*i)->set_Lernpunkte((*i)->Lernpunkte()-1);
         string pf="";
-        if (i->pflicht != "") pf = "*";
-        string serfolgswert=itos(i->erfolgswert);
+        if ((*i)->Pflicht() != "") pf = "*";
+        string serfolgswert=itos((*i)->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
-        if ( (hauptfenster->Fertigkeiten_Voraussetzung(i->fertigkeiten)
+        if ( (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name())
                || werte.spezies!="Mensch") &&
-            Fertigkeiten_spezies_voraussetzung(i->fertigkeiten,werte.spezies))
-         { os << i->lernpunkte<<"\t"<<i->voraussetzung<<"\t"<<pf<<"\t"<<i->fertigkeiten<<"\t"
-               << serfolgswert<<"\t"<<i->attribut<<"\t"<<i->fp*fac<<"\n";
+            Fertigkeiten_spezies_voraussetzung((*i)->Name(),werte.spezies))
+         { os << (*i)->Lernpunkte()<<"\t"<<(*i)->Voraussetzung()<<"\t"<<pf<<"\t"<<(*i)->Name()<<"\t"
+               << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Lernkosten()*fac<<"\n";
             os.flush(&*i);
          }
       }
@@ -200,27 +205,27 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          if (hauptfenster->region_check(db_region))
-           allg_fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
-               idb_erfolgswert?0:db_erfolgswert, idb_attribut?"":db_attribut,
-               "", db_fp, db_voraussetzung));
+           vec_allg_Fert.push_back(new Data_fert(db_fertigkeiten,
+               idb_erfolgswert?0:db_erfolgswert, db_fp, db_voraussetzung,
+               idb_attribut?"":db_attribut,"",db_lernpunkte));
       }
    exec sql close an_fert;
 
    os <<"\n\n";   
-   for(vector<db_struct_fertigkeiten>::iterator i=allg_fert.begin();
-                                                      i!=allg_fert.end();++i)
+   for(vector<H_Data_fert>::iterator i=vec_allg_Fert.begin();
+                                                      i!=vec_allg_Fert.end();++i)
       {
-        double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,i->fertigkeiten);
+        double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,(*i)->Name());
         for (vector<string>::const_iterator j=vorteile.begin();
                j!=vorteile.end();++j)
-           if ((*j)==i->fertigkeiten) --(i->lernpunkte);
+           if ((*j)==(*i)->Name()) (*i)->set_Lernpunkte((*i)->Lernpunkte()-1);
         string pf="";
-        string serfolgswert=itos(i->erfolgswert);
+        string serfolgswert=itos((*i)->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
-        if (hauptfenster->Fertigkeiten_Voraussetzung(i->fertigkeiten) &&
-            Fertigkeiten_spezies_voraussetzung(i->fertigkeiten,werte.spezies))
-         { os << i->lernpunkte<<"\t"<<i->voraussetzung<<"\t"<<""<<"\t"<<i->fertigkeiten<<"\t"
-              << serfolgswert<<"\t"<<i->attribut<<"\t"<<i->fp*fac<<"\n";
+        if (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name()) &&
+            Fertigkeiten_spezies_voraussetzung((*i)->Name(),werte.spezies))
+         { os << (*i)->Lernpunkte()<<"\t"<<(*i)->Voraussetzung()<<"\t"<<""<<"\t"<<(*i)->Name()<<"\t"
+              << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Lernkosten()*fac<<"\n";
            os.flush(&*i);
          }
       }
@@ -236,16 +241,17 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
 
 void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
 {
-   vector<st_ausgewaehlte_fertigkeiten> saf;
+   vector<H_Data_fert> saf;
    for (Gtk::CList::SelectionList::iterator i=fertigkeiten_clist_auswahl->selection().begin();
          i!=fertigkeiten_clist_auswahl->selection().end();++i)
      {  
-      db_struct_fertigkeiten *ptr
-         =static_cast<db_struct_fertigkeiten*>(i->get_data());
+//      db_struct_fertigkeiten *ptr
+//         =static_cast<db_struct_fertigkeiten*>(i->get_data());
+      H_Data_fert *ptr = static_cast<H_Data_fert*>(i->get_data());
          // ptr=&fert[i->get_row_num()];
 //       cout << ptr ->fertigkeiten << ' ' << ptr -> erfolgswert << '\n'; 
-       saf.push_back(st_ausgewaehlte_fertigkeiten(ptr->fertigkeiten,
-                        ptr->erfolgswert, ptr->attribut));
+       saf.push_back(new Data_fert((*ptr)->Name(),
+                        (*ptr)->Erfolgswert(), (*ptr)->Attribut()));
      }
   hauptfenster->fertigkeiten_uebernehmen(saf);
   destroy();

@@ -63,8 +63,8 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const styp& typ, const styp& typ_2
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          string vorteile = Berufe_auswahl::Beruf_vorteile(db_beruf);         
-         beruf.push_back(db_struct_beruf(db_lernpunkte,db_beruf,werte.spezies,
-                           werte.spezies, vorteile));
+         vec_Beruf.push_back(new Data_beruf(db_beruf, vorteile,werte.spezies,
+                           werte.spezies,db_lernpunkte));
       }
     exec sql close beruf_spezies;
 
@@ -85,18 +85,20 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const styp& typ, const styp& typ_2
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          string vorteile = Berufe_auswahl::Beruf_vorteile(db_beruf);         
-         beruf.push_back(db_struct_beruf(db_lernpunkte,db_beruf,db_stand,
-                           db_voraussetzung, vorteile));
+         vec_Beruf.push_back(new Data_beruf(db_beruf, vorteile,db_voraussetzung,
+                           db_stand,db_lernpunkte));
+//         beruf.push_back(db_struct_beruf(db_lernpunkte,db_beruf,db_stand,
+//                           db_voraussetzung, vorteile));
       }
     exec sql close beruf;
     tr.close();
     Gtk::OStream os(berufe_clist_auswahl);
-    for(vector<db_struct_beruf>::iterator i=beruf.begin();i!=beruf.end();++i)
+    for(vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
       {
-         if (Berufe_auswahl::berufe_voraussetzung(i->beruf,werte,typ.z,typ_2.z)||werte.spezies!="Mensch")
+         if (Berufe_auswahl::berufe_voraussetzung((*i)->Name(),werte,typ.z,typ_2.z)||werte.spezies!="Mensch")
           {
-            os << i->lernpunkte <<"\t"<< i->voraussetzung <<"\t"
-               <<i->beruf<<"\t"<<i->vorteile <<"\n";
+            os << (*i)->Lernpunkte() <<"\t"<< (*i)->Voraussetzung() <<"\t"
+               <<(*i)->Name()<<"\t"<<(*i)->Vorteile() <<"\n";
             os.flush(&*i);
           }
       }
@@ -126,15 +128,13 @@ void Berufe_auswahl::on_berufe_clist_auswahl_unselect_row(gint row, gint column,
 
 void Berufe_auswahl::on_close_berufe_clicked()
 {   
-   vector<st_ausgewaehlte_berufe> sab;
+   vector<H_Data_beruf> sab;
    for (Gtk::CList::SelectionList::iterator i=berufe_clist_auswahl->selection().begin();
          i!=berufe_clist_auswahl->selection().end();++i)
      {  
-      db_struct_beruf *ptr
-         =static_cast<db_struct_beruf*>(i->get_data());
+      H_Data_beruf *ptr = static_cast<H_Data_beruf*>(i->get_data());
          // ptr=&fert[i->get_row_num()];
-       sab.push_back(st_ausgewaehlte_berufe(ptr->beruf,
-                        ptr->vorteile,0));
+       sab.push_back(new Data_beruf((*ptr)->Name(),(*ptr)->Vorteile(),0));
      }
   hauptfenster->berufe_uebernehmen(sab);
   destroy();

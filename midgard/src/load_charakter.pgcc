@@ -327,7 +327,7 @@ void midgard_CG::load_charakter()
          exec sql fetch beruf into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_beruf.push_back(st_ausgewaehlte_berufe(db_fertigkeit,"",db_wert));
+         vec_Beruf.push_back(new Data_beruf(db_fertigkeit,"",db_wert));
       } 
    exec sql close beruf;
    // angeborene Fertigkeiten
@@ -344,7 +344,7 @@ void midgard_CG::load_charakter()
          exec sql fetch an_fertigkeiten into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_an_fertigkeit.push_back(st_angeborene_fertigkeit(db_fertigkeit,db_wert));
+         vec_an_Fertigkeit.push_back(new Data_fert(db_fertigkeit,db_wert));
       } 
    exec sql close an_fertigkeit;
    // Fertigkeiten
@@ -361,7 +361,7 @@ void midgard_CG::load_charakter()
          exec sql fetch fertigkeiten into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_fertigkeiten.push_back(st_ausgewaehlte_fertigkeiten(db_fertigkeit,db_wert,""));
+         vec_Fertigkeiten.push_back(new Data_fert(db_fertigkeit,db_wert));
          string f = db_fertigkeit;
          if (f=="KiDo") kido_bool=true;
          if (f=="Wissen von der Magie") magie_bool=true;
@@ -418,7 +418,7 @@ void midgard_CG::load_charakter()
          exec sql fetch zauber into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         zauber.push_back(st_zauber("0",db_fertigkeit,itos(db_wert),"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
+         vec_Zauber.push_back(new Data_zauber(db_fertigkeit,db_wert));
       } 
    exec sql close zauber;
 
@@ -436,10 +436,12 @@ void midgard_CG::load_charakter()
          exec sql fetch zauberm into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_zaubermittel.push_back(st_zaubermittel(db_wert,db_fertigkeit));
+         string stufe = itos(db_wert); 
+         if (db_wert==99) stufe = "G";
+         vec_Zaubermittel.push_back(new Data_zaubermittel(stufe,db_fertigkeit));
       } 
    exec sql close zauberm;
-//   get_zaubermittel(vec_zaubermittel);
+//   get_Zaubermittel(vec_Zaubermittel);
 
    // KiDo
    strncpy(db_art,"KiDo",sizeof(db_art));

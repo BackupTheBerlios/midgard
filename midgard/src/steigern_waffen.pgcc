@@ -43,7 +43,7 @@ class Data_alt_grund : public RowDataBase
  public:
    Data_alt_grund(const string& n) :name(n) {}
 
-   virtual const cH_EntryValue Value(int seqnr) const
+   virtual const cH_EntryValue Value(int seqnr,gpointer gp) const
  { switch (seqnr) {
       case 0 : return cH_EntryValueIntString(name);
    }
@@ -78,7 +78,7 @@ class Data_alt_waffen : public RowDataBase
    Data_alt_waffen(const string& n, int w,int s,int r)
    :name(n),wert(w),steigern(s),reduzieren(r) {}
 
-   virtual const cH_EntryValue Value(int seqnr) const
+   virtual const cH_EntryValue Value(int seqnr,gpointer gp) const
  { switch (seqnr) {
       case 0 : return cH_EntryValueIntString(name);
       case 1 : return cH_EntryValueEmptyInt(wert); 
@@ -152,7 +152,7 @@ class Data_neu_grund : public RowDataBase
  public:
    Data_neu_grund(const string& n, int k) :name(n),kosten(k) {}
 
-   virtual const cH_EntryValue Value(int seqnr) const
+   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
  { switch (seqnr) {
       case 0 : return cH_EntryValueIntString(name);
       case 1 : return cH_EntryValueEmptyInt(kosten);
@@ -216,7 +216,7 @@ class Data_neu_waffen : public RowDataBase
    Data_neu_waffen(const string& n, int w, const string& v)
    :name(n),wert(w),vorraussetzung(v) {}
 
-   virtual const cH_EntryValue Value(int seqnr) const
+   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
  { switch (seqnr) {
       case 0 : return cH_EntryValueIntString(name);
       case 1 : return cH_EntryValueEmptyInt(wert); 

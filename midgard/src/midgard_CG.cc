@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.40 2001/06/22 10:50:21 thoma Exp $
+// $Id: midgard_CG.cc,v 1.41 2001/06/24 13:24:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,6 +49,7 @@ void midgard_CG::set_tree_titles()
  alte_fert.push_back("Steigern\n(nächste Stufe)");
  alte_fert.push_back("Reduzieren\n(eine Stufe)");
  alte_fert.push_back("Verlernen");
+ alte_fert_tree->set_value_data(reinterpret_cast<gpointer>('A'));
  alte_fert_tree->setTitles(alte_fert);
  vector<string> neue_fert;
  neue_fert.push_back("Fertigkeit");
@@ -56,6 +57,7 @@ void midgard_CG::set_tree_titles()
  neue_fert.push_back("Lernkosten");
  neue_fert.push_back("Art");
  neue_fert.push_back("Vorraussetzungen");
+ neue_fert_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_fert_tree->setTitles(neue_fert);
 
  vector<string> alte_waffen;
@@ -83,17 +85,20 @@ void midgard_CG::set_tree_titles()
  alte_zauber.push_back("Ursprung");
  alte_zauber.push_back("Lernkosten");
  alte_zauber_tree->setTitles(alte_zauber);
+ alte_zauber_tree->set_value_data(reinterpret_cast<gpointer>('A'));
  vector<string> neue_zauber;
  neue_zauber.push_back("Stufe");
  neue_zauber.push_back("Name");
  neue_zauber.push_back("Ursprung");
  neue_zauber.push_back("Lernkosten");
  neue_zauber.push_back("Art");
+ neue_zauber_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_zauber_tree->setTitles(neue_zauber);
 
  vector<string> alte_zaubermittel;
  alte_zaubermittel.push_back("Name");
  alte_zaubermittel.push_back("Kosten");
+ alte_zaubermittel_tree->set_value_data(reinterpret_cast<gpointer>('A'));
  alte_zaubermittel_tree->setTitles(alte_zaubermittel); 
  vector<string> neue_zaubermittel;
  neue_zaubermittel.push_back("Stufe");
@@ -102,6 +107,7 @@ void midgard_CG::set_tree_titles()
  neue_zaubermittel.push_back("Kosten");
  neue_zaubermittel.push_back("Preis");
  neue_zaubermittel.push_back("Zeitaufwand");
+ neue_zaubermittel_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_zaubermittel_tree->setTitles(neue_zaubermittel); 
 
  vector<string> kido;
@@ -311,17 +317,16 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_fertigkeiten->set_sensitive(false);
    button_kido_auswahl->set_sensitive(false);       
 
-   vec_fertigkeiten.clear();
-   vec_an_fertigkeit.clear();
+   vec_Fertigkeiten.clear();
+   vec_an_Fertigkeit.clear();
    vec_waffen.clear();
    waffe_besitz.clear();
-   vec_zauber.clear();
-   vec_zaubermittel.clear();
    vec_kido.clear();
-   vec_beruf.clear();
+   vec_Beruf.clear();
    vec_sprachen.clear();
    vec_schriften.clear();
-   zauber.clear();
+   vec_Zauber.clear();
+   vec_Zaubermittel.clear();
    werte.clear();
    lernpunkte.clear();
    typ.clear();

@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.19 2001/06/12 09:31:05 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.20 2001/06/24 13:24:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,21 +24,21 @@ void midgard_CG::LaTeX_zauber()
 {
   string name = "midgard_tmp_myzauber.tex";
   ofstream fout(name.c_str());
-  for (unsigned int i=0;i<zauber.size();++i)
+  for (vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();i!=vec_Zauber.end();++i)
    {
-     fout << zauber[i].name << " & ";
-     fout << zauber[i].erfolgswert <<" & ";
-     fout << Gtk2TeX::string2TeX(zauber[i].ap) << " & ";
-     fout << zauber[i].art << " & ";
-     fout << zauber[i].stufe << " & ";
-     fout << zauber[i].zauberdauer << " & ";
-     fout << zauber[i].reichweite << " & ";
-     fout << zauber[i].wirkungsziel << " & ";
-     fout << zauber[i].wirkungsbereich << " & ";
-     fout << zauber[i].wirkungsdauer << " & ";
-     fout << zauber[i].ursprung << " & " ;
-     fout << zauber[i].material << " & " ;
-     fout << zauber[i].agens <<" " <<zauber[i].prozess <<" "<<zauber[i].reagens ;
+     fout << (*i)->Name() << " & ";
+     fout << (*i)->Erfolgswert() <<" & ";
+     fout << Gtk2TeX::string2TeX((*i)->Ap()) << " & ";
+     fout << (*i)->Art() << " & ";
+     fout << (*i)->Stufe() << " & ";
+     fout << (*i)->Zauberdauer() << " & ";
+     fout << (*i)->Reichweite() << " & ";
+     fout << (*i)->Wirkungsziel() << " & ";
+     fout << (*i)->Wirkungsbereich() << " & ";
+     fout << (*i)->Wirkungsdauer() << " & ";
+     fout << (*i)->Ursprung() << " & " ;
+     fout << (*i)->Material() << " & " ;
+     fout << (*i)->Agens() <<" " <<(*i)->Prozess() <<" "<<(*i)->Reagens() ;
      fout << "\\\\\n";
    }
 }
@@ -47,20 +47,20 @@ void midgard_CG::LaTeX_zaubermittel()
 {
   string name = "midgard_tmp_myzaubermittel.tex";
   ofstream fout(name.c_str());
-  for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin();
-         i!=vec_zaubermittel.end();++i)
+  for (vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin();
+         i!=vec_Zaubermittel.end();++i)
    {
-     string wert = itos(i->wert);
-     string art = i->art;
+     string wert ;//= itos(*i->Wert());
+     string art = (*i)->Art();
      if (wert=="0") wert ="";
      if (art=="AZ") art ="Alchimistisches Zaubermittel";
      if (art=="PZ") art ="Pflanzliches Zaubermittel";
      fout << wert <<" & ";
-     fout << i->name  <<" & ";
+     fout << (*i)->Name()  <<" & ";
      fout << art   <<" & ";
-     fout << i->stufe   <<" & ";
-     fout << i->zeitaufwand  <<" & ";
-     fout << i->kosten   <<" & ";
+     fout << (*i)->Stufe()   <<" & ";
+     fout << (*i)->Zeitaufwand()  <<" & ";
+     fout << (*i)->Kosten()   <<" & ";
    }
 }
 
@@ -109,7 +109,7 @@ void midgard_CG::LaTeX_zauber_main(void)
   fout << "\\end{tabular}\n";
 
  
-  if (vec_zaubermittel.size()!=0)
+  if (vec_Zaubermittel.size()!=0)
    {
      fout << "\\begin{tabular}{llllll}\\hline\n";
      fout << "Stufe&Name&Art&Stufe&\\scriptsize Zeitaufwand&Kosten\\\\\\hline\n";

@@ -44,7 +44,7 @@ class Data_alt_sprache : public RowDataBase
    Data_alt_sprache(const string& n,int w, int s, int r, int v)
        :name(n),wert(w),steigern(s),reduzieren(r),verlernen(v) {}
 
-   virtual const cH_EntryValue Value(int seqnr) const
+   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
  { switch (seqnr) {
       case 0 : return cH_EntryValueIntString(name);
       case 1 : return cH_EntryValueEmptyInt(wert);
@@ -72,7 +72,7 @@ class Data_neu_sprache : public RowDataBase
    Data_neu_sprache(const string& n,const string& u, int k)
        :name(n),urschrift(u),kosten(k) {}
 
-   virtual const cH_EntryValue Value(int seqnr) const
+   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
  { switch (seqnr) {
       case 0 : return cH_EntryValueIntString(name);
       case 1 : return cH_EntryValueIntString(urschrift);
@@ -144,7 +144,7 @@ class Data_schrift : public RowDataBase
    Data_schrift(const string& u,const string& a, int k)
        :urschrift(u),art(a),kosten(k) {}
 
-   virtual const cH_EntryValue Value(int seqnr) const
+   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
  { switch (seqnr) {
       case 0 : return cH_EntryValueIntString(urschrift);
       case 1 : return cH_EntryValueIntString(art);

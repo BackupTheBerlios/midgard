@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.19 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.20 2001/06/24 13:24:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,18 +33,18 @@ void midgard_CG::show_fertigkeiten()
 {
    fertigkeiten_clist->clear();
    Gtk::OStream os(fertigkeiten_clist);
-   for(vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
-         i!=vec_fertigkeiten.end();++i)
+   for(vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+         i!=vec_Fertigkeiten.end();++i)
       {
-         os << i->name;
-         if (i->erfolgswert!=0) os <<"\t" <<i->erfolgswert;
+         os << (*i)->Name();
+         if ((*i)->Erfolgswert()!=0) os <<"\t" <<(*i)->Erfolgswert();
          os << "\n";
       }
-   for(vector<st_angeborene_fertigkeit>::iterator i=vec_an_fertigkeit.begin();
-         i!=vec_an_fertigkeit.end();++i)
+   for(vector<H_Data_fert>::iterator i=vec_an_Fertigkeit.begin();
+         i!=vec_an_Fertigkeit.end();++i)
       {
-         os << i->name;
-         if (i->erfolgswert!=0) os <<"\t" <<i->erfolgswert;
+         os << (*i)->Name();
+         if ((*i)->Erfolgswert()!=0) os <<"\t" <<(*i)->Erfolgswert();
          os << "\n";
       }
    for (unsigned int i=0;i<fertigkeiten_clist->columns().size();++i)
@@ -52,33 +52,26 @@ void midgard_CG::show_fertigkeiten()
    fertigkeiten_clist->set_reorderable(true);
 }
 
-void midgard_CG::fertigkeiten_uebernehmen(vector<st_ausgewaehlte_fertigkeiten>& saf)
+void midgard_CG::fertigkeiten_uebernehmen(const vector<H_Data_fert>& saf)
 {
-   vec_fertigkeiten = saf;
+   vec_Fertigkeiten = saf;
    maxkido=0;
    if (typ.s=="Kd") maxkido=2;
 //XXX   vector<vector<st_ausgewaehlte_fertigkeiten>::iterator>  vi;
    int KD_tech=0; //XXX
-   for(vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
-         i!=vec_fertigkeiten.end();++i)
+   for(vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+         i!=vec_Fertigkeiten.end();++i)
       {
-         int bonus = midgard_CG::attribut_check(i->attribut);
-         i->erfolgswert += bonus;
-         if (i->name=="KiDo") {kido_bool=true; show_gtk(get_typ_nr());}
-///XXX         if (i->name=="KiDo-Technik") { vi.push_back(i);++maxkido;}
-         if (i->name=="KiDo-Technik") { ++KD_tech;++maxkido;}
+         int bonus = midgard_CG::attribut_check((*i)->Attribut());
+         (*i)->set_Erfolgswert( (*i)->Erfolgswert() + bonus);
+         if ((*i)->Name()=="KiDo") {kido_bool=true; show_gtk(get_typ_nr());}
+         if ((*i)->Name()=="KiDo-Technik") { ++KD_tech;++maxkido;}
       }
-/*
-   for (vector<st_ausgewaehlte_fertigkeiten>::iterator xvi=*vi.begin();
-         xvi!=*vi.end();++(*vi))
-      {
-         vec_fertigkeiten.erase(vi);
-      }
-XXX */
+
    for (int j=0;j<KD_tech;++j)
-     for(vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
-         i!=vec_fertigkeiten.end();++i)
-       if (i->name=="KiDo-Technik") {vec_fertigkeiten.erase(i);break;}
+     for(vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+         i!=vec_Fertigkeiten.end();++i)
+       if ((*i)->Name()=="KiDo-Technik") {vec_Fertigkeiten.erase(i);break;}
       
    midgard_CG::show_fertigkeiten();
 
@@ -88,9 +81,9 @@ XXX */
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
-  vec_an_fertigkeit.clear();
+  vec_an_Fertigkeit.clear();
   if (werte.spezies=="Zwerg" || werte.spezies=="Elf") 
-      vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Nachtsicht",0));
+      vec_an_Fertigkeit.push_back(new Data_fert("Nachtsicht",0));
   if (event->button==1) midgard_CG::on_angeborene_fertigkeit_clicked() ;
   if (event->button==3) midgard_CG::on_angeborene_fertigkeit_right_clicked() ;
   button_fertigkeiten->set_sensitive(true);
@@ -104,10 +97,10 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 //wurf = 100; /*debug*/
   while (wurf==100)
    {
-      manage (new Window_angeb_fert(this,vec_an_fertigkeit,werte,wurf));
+      manage (new Window_angeb_fert(this,vec_an_Fertigkeit,werte,wurf));
       wurf = random.integer(1,100);
    }
-  manage (new Window_angeb_fert(this,vec_an_fertigkeit,werte,wurf));
+  manage (new Window_angeb_fert(this,vec_an_Fertigkeit,werte,wurf));
   string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";stinfo+=itos(wurf);stinfo+=" gewürfelt.\n";
   manage(new WindowInfo(stinfo));
   midgard_CG::show_fertigkeiten();
@@ -115,7 +108,7 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()
 {
-  manage (new Window_angeb_fert(this,vec_an_fertigkeit,werte,-1));
+  manage (new Window_angeb_fert(this,vec_an_Fertigkeit,werte,-1));
   midgard_CG::show_fertigkeiten();
 }
 

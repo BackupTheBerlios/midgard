@@ -188,33 +188,33 @@ void midgard_CG::on_speichern_clicked()
    Transaction tr;
    // Alte einträge löschen
    exec sql DELETE FROM charaktere_fertigkeiten WHERE charakter_name = :db_name_ch ;
-   for (vector<st_ausgewaehlte_berufe>::iterator i=vec_beruf.begin();
-         i!=vec_beruf.end();++i)
+   for (vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
+         i!=vec_Beruf.end();++i)
       {
-         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
-         db_wert =  i->erfolgswert ;
+         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+         db_wert =  (*i)->Erfolgswert() ;
          exec sql INSERT INTO charaktere_fertigkeiten
             (charakter_name,version,fertigkeit,wert,art)
          VALUES
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Beruf') ;         
             SQLerror::test(__FILELINE__);
       }
-   for (vector<st_angeborene_fertigkeit>::iterator i=vec_an_fertigkeit.begin();
-         i!=vec_an_fertigkeit.end();++i)
+   for (vector<H_Data_fert>::iterator i=vec_an_Fertigkeit.begin();
+         i!=vec_an_Fertigkeit.end();++i)
       {
-         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
-         db_wert =  i->erfolgswert ;
+         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
+         db_wert =  (*i)->Erfolgswert() ;
          exec sql INSERT INTO charaktere_fertigkeiten
             (charakter_name,version,fertigkeit,wert,art)
          VALUES
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'ang.Fertigkeit') ;         
             SQLerror::test(__FILELINE__);
       }
-   for (vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
-         i!=vec_fertigkeiten.end();++i)
+   for (vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+         i!=vec_Fertigkeiten.end();++i)
       {
-         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
-         db_wert =  i->erfolgswert ;
+         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
+         db_wert =  (*i)->Erfolgswert() ;
          exec sql INSERT INTO charaktere_fertigkeiten
             (charakter_name,version,fertigkeit,wert,art)
          VALUES
@@ -246,22 +246,23 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region,:db_magisch) ;
             SQLerror::test(__FILELINE__);
       }
-   for (vector<st_zauber>::iterator i=zauber.begin();
-         i!=zauber.end();++i)
+   for (vector<H_Data_zauber>::iterator i=vec_Zauber.begin();
+         i!=vec_Zauber.end();++i)
       {
-         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
-         strncpy(db_wert_str,i->erfolgswert.c_str(),sizeof(db_wert_str)) ;
+         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+         strncpy(db_wert_str,itos((*i)->Erfolgswert()).c_str(),sizeof(db_wert_str)) ;
          exec sql INSERT INTO charaktere_fertigkeiten
             (charakter_name,version,fertigkeit,wert,art)
          VALUES
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert_str,'Zauber') ;         
             SQLerror::test(__FILELINE__);
       }
-   for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin();
-         i!=vec_zaubermittel.end();++i)
+   for (vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin();
+         i!=vec_Zaubermittel.end();++i)
       {
-         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
-         db_wert = i->wert ;
+         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+         db_wert = atoi((*i)->Stufe().c_str()) ;
+         if ((*i)->Stufe()=="G") db_wert = 99;
          exec sql INSERT INTO charaktere_fertigkeiten
             (charakter_name,version,fertigkeit,wert,art)
          VALUES

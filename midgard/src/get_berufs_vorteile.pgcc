@@ -36,10 +36,10 @@ vector<string> midgard_CG::Berufs_Vorteile()
   exec sql begin declare section;
    char db_beruf[30], db_vorteil[30];
   exec sql end declare section;  
-  for (vector<st_ausgewaehlte_berufe>::const_iterator i=vec_beruf.begin();
-         i!=vec_beruf.end();++i)
+  for (vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
+         i!=vec_Beruf.end();++i)
    {
-     strncpy(db_beruf,i->name.c_str(),sizeof(db_beruf));
+     strncpy(db_beruf,((*i)->Name()).c_str(),sizeof(db_beruf));
      exec sql declare ein cursor for
        select vorteil from berufe_vorteile where beruf = :db_beruf;
      Transaction tr;

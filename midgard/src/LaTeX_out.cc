@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.26 2001/06/18 05:58:50 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.27 2001/06/24 13:24:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -139,10 +139,10 @@ void midgard_CG::on_latex_clicked()
  /////////////////////////////////////////////////////////////////////////////
  // Beruf
  fout << "\\newcommand{\\beruf}{" ;
- for(vector<st_ausgewaehlte_berufe>::iterator i=vec_beruf.begin();
-         i!=vec_beruf.end();++i)
+ for(vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
+         i!=vec_Beruf.end();++i)
    {
-     fout << i->name<<" ("<<i->erfolgswert<<")\t";
+     fout << (*i)->Name()<<" ("<<(*i)->Erfolgswert()<<")\t";
    }
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
@@ -150,25 +150,27 @@ void midgard_CG::on_latex_clicked()
  /////////////////////////////////////////////////////////////////////////////
  // angeborene Fertigkeiten
  int count=0;
- for (unsigned int i=0;i<vec_an_fertigkeit.size();++i)
+ for(vector<H_Data_fert>::const_iterator i=vec_an_Fertigkeit.begin();i!=vec_an_Fertigkeit.end();++i) 
    {
     string a = LaTeX_string(count);
     count++;
-    string wert = itos(vec_an_fertigkeit[i].erfolgswert);
+    string wert = itos((*i)->Erfolgswert());
     if (wert == "0") wert = "";
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<vec_an_fertigkeit[i].name << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<(*i)->Name() << "}\t\t";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
+//    fout << "\\newcommand{\\wert"<<a<<"}{"  <<(*i)->Empty_Erfolgswert() << "}\n";
    }
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten
- for (unsigned int i=0;i<vec_fertigkeiten.size();++i)
+ for(vector<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i) 
    {
     string a = LaTeX_string(count);
     count++;
-    string wert = itos(vec_fertigkeiten[i].erfolgswert);
+    string wert = itos((*i)->Erfolgswert());
     if (wert == "0") wert = "";
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<vec_fertigkeiten[i].name << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<(*i)->Name() << "}\t\t";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
+//    fout << "\\newcommand{\\wert"<<a<<"}{"  <<(*i)->Empty_Erfolgswert() << "}\n";
    }
  string a = LaTeX_string(count);
  fout << "\\newcommand{\\fert"<<a<<"}{\\scriptsize }\n";
@@ -248,7 +250,7 @@ void midgard_CG::on_latex_clicked()
  system("gv -seascape midgard_tmp_document_eingabe.ps &");
 
  // Zauber
- if (zauber.size()>0 || vec_zaubermittel.size()>0)
+ if (vec_Zauber.size()>0 || vec_Zaubermittel.size()>0)
  {
     midgard_CG::LaTeX_zauber_main();
     midgard_CG::LaTeX_zauber();
