@@ -1,4 +1,4 @@
-// $Id: LaTeX_charakter_beschreibung.cc,v 1.18 2001/12/17 14:53:58 thoma Exp $
+// $Id: LaTeX_charakter_beschreibung.cc,v 1.19 2001/12/17 21:51:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,9 @@ void midgard_CG::latex_beschreibung_drucken()
 {   
  ofstream fout("midgard_tmp_beschreibung.tex");
  LaTeX_header(fout,false); 
+ fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
  fout << Werte.Beschreibung()<<"\n";
+ fout << "}}\n";
  LaTeX_footer(fout);
  fout.close();
  system("latex midgard_tmp_beschreibung.tex");

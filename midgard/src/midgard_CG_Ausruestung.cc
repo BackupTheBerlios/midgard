@@ -305,14 +305,14 @@ void midgard_CG::on_button_ausruestung_druck_clicked()
  ofstream fout("midgard_tmp_ausruestung.tex");
  LaTeX_header(fout,false);           
 
- fout << "\\fbox{\\parbox[t][22cm]{\\textwidth}{ \n";
+ fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
   {
    std::string name=i->getAusruestung().Name();
    if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
    if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
-   else                                fout <<"\\mygray"<< name<<"\\\\\n" ;
-   ausruestung_druck(fout,i->getChildren(),0);
+   else                                fout <<"\\mygray "<< name<<"\\\\\n" ;
+   ausruestung_druck(fout,i->getChildren(),1);
   }
  fout << "}}\n";
  LaTeX_footer(fout);
@@ -328,11 +328,13 @@ void midgard_CG::ausruestung_druck(ofstream &fout,const list<AusruestungBaum> &A
  for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
   {
    std::string name=i->getAusruestung().Name();
-   if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
+   if (!i->getAusruestung().Material().empty() &&
+        i->getAusruestung().Material()!="standard" ) 
+      name +=" ("+i->getAusruestung().Material()+")";
    double fdeep = deep*0.5;
-   fout << "\\hspace{"+dtos(fdeep)+"cm}";
+   fout << "\\hspace*{"+dtos(fdeep)+"cm} ";
    if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
-   else                                 fout <<"\\mygray"<< name<<"\\\\\n" ;
-   ausruestung_druck(fout,i->getChildren(),++deep);
+   else                                 fout <<"\\mygray "<< name<<"\\\\\n" ;
+   ausruestung_druck(fout,i->getChildren(),deep+1);
   }
 }

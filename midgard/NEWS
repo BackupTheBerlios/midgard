@@ -7,18 +7,22 @@ NEWS IN VERSION 0.1delta1
 * Viele(!) Bugfixes
 * Landeskunde funktioniert jetzt für Heimatländer (Charaktererschaffung)
 * Neuer Grundwerte-Auswürfelmechanismus implementiert
-* Die Oberfläche ist weitgehend umgebaut
+* Die Oberfläche für die 4.Version ist weitgehend fertig
 * Die Ausrüstungsbaum funktioniert prinzipiell
 * Ausrüstungsbaum kann abgespeichert werden
-
+* Die Ausrüstung kann noch nicht ausgedruckt werden
+* 'Hand' kann editiert werden
+* Zahllose Bugfixes
+* Die Hilfe an die neuen Regeln angepaßt
+* Charakterbeschreibung (Ausdruck) überarbeitet
 
 TODO:
 * Landeskunde beim 'steigern' stürzt ab.
-* Das (ausdruckbare) Charakterdokument ist noch nicht an die neuen Regeln
-   angepaßt 
-* Die Ausrüstung kann noch nicht ausgedruckt werden
-* Spezielgebiete für Magier stürzt noch ab
-* Hand kann noch nicht gesetzt werden
+* Die Ausrüstung kann noch nicht geladen werden
+* Das (ausdruckbare) Charakterdokument ist noch nicht an die neuen Regeln angepaßt 
+* Universelle Fertigkeiten im ausgedruckten Charakterdokument
+* Waffen und Geld bei Spielbeginn (Regeln fehlen noch)
+* Spezielgebiete für Magier stürzt ab
 * Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
    und dem dazugehörigen Abwerbonus noch nicht.
 
