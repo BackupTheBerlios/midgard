@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="X" Name="Abenteuer" Titel="Abenteuer" Copyright="var." Jahr="1981-" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="12" MAGUS-Bild="13" CVS="$Revision: 1.5 $">
+<MAGUS-data Region="X" Name="Abenteuer" Titel="Abenteuer" Copyright="var." Jahr="1981-" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="12" MAGUS-Bild="13" CVS="$Revision: 1.6 $">
  <Schriften/>
  <Sprachen>
   <Sprache Name="Ferangah" Region="X" RegionZusatz="Die schwarze Sphäre" Kosten="10" Maximalwert="20" Gruppe="10">
