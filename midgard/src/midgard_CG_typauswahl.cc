@@ -25,14 +25,14 @@ void midgard_CG::fill_typauswahl()
 {
   fill_typauswahl_fill(1);
   typauswahl->get_menu()->deactivate.connect(SigC::slot(this, &midgard_CG::typauswahl_button));
-  Gtk::Menu_Helpers::SelectMatching(*typauswahl,Typ[0]);
+  if (!Typ.empty()) Gtk::Menu_Helpers::SelectMatching(*typauswahl,Typ[0]);
 }
 
 void midgard_CG::fill_typauswahl_2()
 {
   fill_typauswahl_fill(2);
   typauswahl_2->get_menu()->deactivate.connect(SigC::slot(this, &midgard_CG::typauswahl_2_button));
-  Gtk::Menu_Helpers::SelectMatching(*typauswahl_2,Typ[1]);
+  if (Typ.size()>1) Gtk::Menu_Helpers::SelectMatching(*typauswahl_2,Typ[1]);
 }
 
 void midgard_CG::fill_typauswahl_fill(int typ_1_2)

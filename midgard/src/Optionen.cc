@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.6 2002/04/15 13:46:44 thoma Exp $
+// $Id: Optionen.cc,v 1.7 2002/04/15 16:50:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -116,7 +116,8 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
      if     (i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
      else if(i->index==showPics) hauptfenster->Pics(i->active);
      else if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
-     else if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
+#warning führt zum Absturz beim Programmstart, etwas unausgegoren? CP     
+//     else if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
    }
 //  hauptfenster->fire_enabled=true;
 }
