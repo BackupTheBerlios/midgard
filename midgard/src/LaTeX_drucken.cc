@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.16 2002/06/08 06:35:03 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.17 2002/06/12 06:59:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -750,8 +750,8 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
  fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
  fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
  fout <<"\\end{tabularx}\n}\n";
- fout <<"\\IfFileExists{dracher.png}{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{dracher.png}}}}\n";
- fout <<"{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"dracher.png}}}}\n";
+ fout <<"\\IfFileExists{drache.png}{\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{drache.png}}}}\n";
+ fout <<"{\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}}\n";
  fout <<"\\vspace*{2ex}\n\n";
 }
 

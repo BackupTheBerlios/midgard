@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.47 2002/06/04 13:56:11 thoma Exp $
+// $Id: Optionen.cc,v 1.48 2002/06/12 06:59:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,6 +28,29 @@
 #include "midgard_CG.hh"
 #ifdef __MINGW32__
 #  include "registry.h"
+#endif
+
+#ifdef __MINGW32__
+static std::string CommandByExtension(const std::string &ext)
+{ char extclass[1024];
+    
+  reg_key r1(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes",ext.c_str(),0);
+  r1.get_string(0, extclass, sizeof extclass, "");
+  if (*extclass)
+  {  reg_key r2(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes", extclass,
+  		"shell", "open", "command", 0);
+     r2.get_string(0, extclass, sizeof extclass, "");
+  
+     std::string path=extclass;
+     if (path.size()>3 && path.substr(path.size()-3)==" %1") 
+        path=path.substr(0, path.size()-3);
+     else if (path.size()>5 && path.substr(path.size()-5)==" \"%1\"") 
+        path=path.substr(0, path.size()-5);
+std::cout << "Found "<<ext<<" Viewer @" << path << '\n';
+     return path;
+   }
+   return "";
+}
 #endif
 
 #include <gdk--.h>
@@ -267,13 +290,38 @@ void Midgard_Optionen::Optionen_init()
 void Midgard_Optionen::Strings_init()
 {
   datei_history=6;
+#ifndef __MINGW32__
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",""));
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer","mozilla"));
-  list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad","$TEMP"));
-#ifdef __MINGW32__
-  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis","C:\\Eigene Dateien\\magus\\"));
-#else
+  list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad","/tmp"));
   list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis","~/magus/"));
+#else
+  list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",CommandByExtension(".pdf")));
+  list_Strings.push_back(st_strings(html_viewer,"HTML Viewer",CommandByExtension(".htm")));
+  char *tmp=getenv("TMPDIR");
+  if (!tmp) tmp=getenv("TEMP");
+  if (!tmp) tmp="C:\WINDOWS\TEMP";
+  list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad",tmp));
+  
+ {std::string save_path;
+  char buf[1024];
+  reg_key r1(HKEY_CURRENT_USER, KEY_READ, "Software", "Microsoft", "Windows",
+  	"CurrentVersion", "Explorer", "User Shell Folders", NULL); // "AppData");?
+  if (r1.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) save_path=buf;
+  else
+  {  reg_key r2(HKEY_USERS, KEY_READ, ".Default", "Software", "Microsoft", "Windows",
+  	"CurrentVersion", "Explorer", "User Shell Folders", NULL);
+     if (r2.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) save_path=buf;
+     else
+     {  reg_key r3(HKEY_LOCAL_MACHINE, KEY_READ, "Software", "Microsoft", "Windows",
+     		"CurrentVersion", "Explorer", "User Shell Folders", NULL);
+        if (r3.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) save_path=buf;
+        else save_path="C:\\Eigene Dateien"
+     }
+  }
+  save_path+="\\Magus\\";
+  // %USERPROFILE%\Anwendungsdaten\Magus ???
+  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",save_path));
 #endif
 }
 
@@ -297,24 +345,6 @@ void Midgard_Optionen::pdfViewer_init()
   list_pdfViewer.push_back(st_pdfViewer(anderer,
                            "PDF Programm",
                            true));
-
-  char pdfclass[1024];
-    
-  reg_key r1(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes",".pdf",0);
-  r1.get_string(0, pdfclass, sizeof pdfclass, "");
-  if (*pdfclass)
-  {  reg_key r2(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes", pdfclass,
-  		"shell", "open", "command", 0);
-     r2.get_string(0, pdfclass, sizeof pdfclass, "");
-  
-     std::string path=pdfclass;
-     if (path.size()>3 && path.substr(path.size()-3)==" %1") 
-        path=path.substr(0, path.size()-3);
-     else if (path.size()>5 && path.substr(path.size()-5)==" \"%1\"") 
-        path=path.substr(0, path.size()-5);
-std::cout << "Found Acrobat Reader @" << path << '\n';
-     setString(pdf_viewer,path);
-   }
 #endif
 }
 

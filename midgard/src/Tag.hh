@@ -93,6 +93,11 @@ public:
 	void setIntAttr(const std::string &name, int val);
 	void setBoolAttr(const std::string &name, bool val)
 	{  setAttr(name,val?"true":"false"); }
+	// Spezialfall: nur setzen wenn !=""
+	void setAttr_ne(const std::string &name, const std::string &value)
+	{  if (!value.empty()) setAttr(name,value); }
+	void setIntAttr_nn(const std::string &name, int val)
+	{  if (val) setIntAttr(name,val); }
 	
 	// values of substructures
 	bool hasTag(const std::string &typ) const throw();

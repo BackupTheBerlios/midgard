@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.14 2002/06/11 08:24:12 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.15 2002/06/12 06:59:31 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -112,8 +112,8 @@ public:
    std::list<MidgardBasicElement_mutable>& List_Schrift()  {return list_Schrift;}
 
    void speicherstream(ostream &datei, const Datenbank &Database,const Midgard_Optionen *Optionen);
-   void grundwerte_speichern(ostream &);
-   void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
+   void grundwerte_speichern(Tag &);
+   void save_ausruestung(Tag &datei,const list<AusruestungBaum> &AB);
 
    bool xml_import_stream(istream &datei, Datenbank &Database,Midgard_Optionen *Optionen);
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
@@ -175,9 +175,9 @@ class VAbenteurer
 
       // Wrapper
 private:
-   void grundwerte_speichern(ostream &datei) {ai->abenteurer.grundwerte_speichern(datei);}
-   void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4)
-      {ai->abenteurer.save_ausruestung(datei,AB,indent);}
+   void grundwerte_speichern(Tag &datei) {ai->abenteurer.grundwerte_speichern(datei);}
+   void save_ausruestung(Tag &datei,const list<AusruestungBaum> &AB)
+      {ai->abenteurer.save_ausruestung(datei,AB);}
    
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB) {ai->abenteurer.load_ausruestung(tag,AB);}
    void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen)

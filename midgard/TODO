@@ -18,4 +18,8 @@ damit es moeglich ist mehrere repositories zu verwenden.
 
 g_locale_to_utf8()
 
-Beim Laden ESchert -> Einhandschwert / Z/Schlagwaffe
+- Pfade (mozilla, tmp, speichern)
+- Pfad zur Optionsdatei
+- XML Override?
+- dnd Ausrüstung
+- ISO (neues XML)

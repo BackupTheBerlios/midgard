@@ -143,7 +143,7 @@ public:
                                std::list<MidgardBasicElement_mutable>& nach,
                                const MidgardBasicElement_mutable& MBE);
 
-      static void saveElementliste(ostream &datei,
+      static void saveElementliste(Tag &datei,
       				const std::list<MidgardBasicElement_mutable>& b,
                                    const Grundwerte& Werte,
                                    const vector<cH_Typen>& Typ);

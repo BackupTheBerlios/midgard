@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.11 2002/06/08 06:35:03 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.12 2002/06/12 06:59:31 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -128,87 +128,70 @@ bool VAbenteurer::unsaved_exist()
 }
 
 
-///////////////////////////////////////////////////////////////////
-#ifdef __MINGW__
-std::string utf82iso(const std::string &s);
-std::string iso2utf8(const std::string &s);
-# define Latin2Screen(x) iso2utf8(x)
-# define Internal2Latin(x) utf82iso(x)
-#else
-# define Latin2Screen(x) (x)
-# define Internal2Latin(x) (x)
-#endif
-
 void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen)
 {
-   datei << "<?xml";
-   write_string_attrib(datei, "version", "1.0");
-   write_string_attrib(datei, "encoding", "ISO-8859-1"); // TagStream::host_encoding);
-   datei << "?>\n\n";
-   datei << "<MAGUS-data>\n";
+   TagStream ts;
+   ts.setEncoding("ISO-8859-1");
+   
+   Tag &data=ts.push_back(Tag("MAGUS-data"));  
 
 // Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien
 // oder ganz unten?
-   datei << " <Preise>\n";
+   Tag &Preise=data.push_back(Tag("Preise"));
    for (std::list<cH_Preise>::const_iterator i=Database.preise.begin();i!=Database.preise.end();++i)
    {  if ((*i)->ist_eigener_Artikel())
-      {  datei << "  <Kaufpreis";
-         write_string_attrib(datei, "Ware", Internal2Latin((*i)->Name()));
-         write_string_attrib(datei, "Art", Internal2Latin((*i)->Art()));
-         write_string_attrib(datei, "Art2", Internal2Latin((*i)->Art2()));
-         write_float_attrib(datei, "Preis", (*i)->Kosten());
-         write_string_attrib(datei, "Währung", Internal2Latin((*i)->Einheit()));
-         write_float_attrib(datei, "Gewicht", (*i)->Gewicht());
-         datei << "/>\n";
+      {  Tag &k=Preise.push_back(Tag("Kaufpreis"));
+         k.setAttr("Ware", (*i)->Name());
+         k.setAttr_ne("Art", (*i)->Art());
+         k.setAttr_ne("Art2", (*i)->Art2());
+         k.setAttr("Preis", dtos((*i)->Kosten()));
+         k.setAttr("Währung", (*i)->Einheit());
+         k.setAttr("Gewicht", dtos((*i)->Gewicht()));
       }
    }
-   datei << " </Preise>\n\n";
    
-   datei << " <Midgard-Abenteurer";
-   write_int_attrib(datei,"Version",10);
-   datei << ">\n";
+   Tag &Abenteurer=data.push_back(Tag("Midgard-Abenteurer"));
+   Abenteurer.setIntAttr("Version",10);
 
-   grundwerte_speichern(datei);
-   datei << Internal2Latin("  <Ausrüstung>\n");
-   write_string(datei, Internal2Latin("Rüstung"), getCWerte().Ruestung()->Name(), 4);
-   write_string(datei, Internal2Latin("Rüstung2"), getCWerte().Ruestung(1)->Name(), 4);
+   grundwerte_speichern(Abenteurer);
+   Tag Ausruestung=Abenteurer.push_back(Tag("Ausrüstung"));
+   Ausruestung.push_back(Tag("Rüstung", getCWerte().Ruestung()->Name()));
+   if (!getCWerte().Ruestung(1)->Name().empty())
+     Ausruestung.push_back(Tag("Rüstung2", getCWerte().Ruestung(1)->Name()));
    // Waffen Besitz
    for (std::list<MidgardBasicElement_mutable>::const_iterator i=CList_Waffen_besitz().begin();
          i!=CList_Waffen_besitz().end();++i)
       {  WaffeBesitz WB(*i);
-         datei << "    <Waffe";
-         write_int_attrib(datei, "Erfolgswert", i->Erfolgswert());
-         write_string_attrib(datei, "Bezeichnung", Internal2Latin(WB->Name()));
-         write_int_attrib(datei, "AngriffVerteidigung_Bonus", WB.av_Bonus());
-         write_int_attrib(datei, "SchadenLebenspunkte_Bonus", WB.sl_Bonus());
-         write_string_attrib(datei, "Region", Internal2Latin(WB->Region()));
-         if (WB.Magisch().empty()) datei << "/>\n";
-         else datei << '>' << Internal2Latin(WB.Magisch()) << "</Waffe>\n";
+         Tag &w=Ausruestung.push_back(Tag("Waffe"));
+         w.setIntAttr("Erfolgswert", i->Erfolgswert());
+         w.setAttr("Bezeichnung", WB->Name());
+         w.setIntAttr_nn("AngriffVerteidigung_Bonus", WB.av_Bonus());
+         w.setIntAttr_nn("SchadenLebenspunkte_Bonus", WB.sl_Bonus());
+         w.setAttr_ne("Region", WB->Region());
+         if (WB.Magisch().empty()) w.Value(WB.Magisch());
       }
-   save_ausruestung(datei, getCBesitz().getChildren());
-   datei << Internal2Latin("  </Ausrüstung>\n");
+   save_ausruestung(Ausruestung, getCBesitz().getChildren());
    
-   datei << "  <Fertigkeiten>\n";   
+   Tag &Fertigkeiten=Abenteurer.push_back(Tag("Fertigkeiten"));
 
-   MidgardBasicElement::saveElementliste(datei,getCWerte().Sinne(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_Beruf(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_Fertigkeit_ang(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_Fertigkeit(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_Waffen(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_Zauber(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_Zauberwerk(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_Kido(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_WaffenGrund(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_Sprache(),getCWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(datei,CList_Schrift(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,getCWerte().Sinne(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_Beruf(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_Fertigkeit_ang(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_Fertigkeit(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_Waffen(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_Zauber(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_Zauberwerk(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_Kido(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_WaffenGrund(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_Sprache(),getCWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,CList_Schrift(),getCWerte(),getVTyp());
 
    // Regionen & Ähnliches
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {  if (!(*i)->Active()) continue;
-      datei << "    <Region";
-      write_string_attrib(datei, "Name", Internal2Latin((*i)->Name()));
-      write_string_attrib(datei, "Region", Internal2Latin((*i)->Abkuerzung()));
-      datei << "/>\n";
+      Tag &r=Fertigkeiten.push_back(Tag("Region"));
+      r.setAttr("Name", (*i)->Name());
+      r.setAttr("Region", (*i)->Abkuerzung());
    }
    // Optionen
    const std::list<Midgard_Optionen::st_OptionenCheck> LO=Optionen->getOptionenCheck();
@@ -216,111 +199,106 @@ void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const M
    {
      // Option, die mit dem C. gespeichert werden müssen
      if(i->index!=Midgard_Optionen::Original && i->index!=Midgard_Optionen::NSC_only) continue; 
-     datei << "    <Optionen";
-     write_string_attrib(datei, "Name", Internal2Latin(i->text));
-     write_bool_attrib_force(datei, "Wert", Internal2Latin(i->active));
-     datei << "/>\n";
+     Tag &o=Fertigkeiten.push_back(Tag("Optionen"));
+     o.setAttr("Name", i->text);
+     o.setBoolAttr("Wert", i->active);
    }
-   datei << "  </Fertigkeiten>\n";   
-   datei << " </Midgard-Abenteurer>\n";
-   datei << "</MAGUS-data>\n";
+   ts.write(datei);
 }
 
 
-void Abenteurer::grundwerte_speichern(ostream &datei)
+void Abenteurer::grundwerte_speichern(Tag &datei)
 {
-   datei << "  <Figur";
-   write_string_attrib(datei, "Name", Internal2Latin(getCWerte().Name_Abenteurer()));
-   write_string_attrib(datei, "Spieler", Internal2Latin(getCWerte().Name_Spieler()));
-   write_string_attrib(datei, "Zeitpunkt", Internal2Latin(getCWerte().Version()));
-   write_int_attrib(datei, "Grad", getCWerte().Grad());
-   datei << "/>\n";
-   datei << "  <Typ";
-   write_string_attrib(datei, "Spezies", Internal2Latin(getCWerte().Spezies()->Name()));
-   write_string_attrib(datei, "Geschlecht", Internal2Latin(getCWerte().Geschlecht()));
-   write_string_attrib(datei, Internal2Latin("Abkürzung"), Internal2Latin(CTyp1()->Short()));
-   write_string_attrib(datei, Internal2Latin("Abkürzung2"), Internal2Latin(CTyp2()->Short()));
-   write_string_attrib(datei, "Spezialgebiet", Internal2Latin(getCWerte().Spezialgebiet()->Name()));
-   write_string_attrib(datei, "Spezialisierung", Internal2Latin(getCWerte().Spezialisierung()));
-   write_string_attrib(datei, "Stadt_Land", Internal2Latin(getCWerte().Stadt_Land()));
-   write_string_attrib(datei, "Hand", Internal2Latin(getCWerte().Hand()));
-   datei << "/>\n";
-   datei << "  <Basiseigenschaften";
-   write_int_attrib(datei, "St", getCWerte().St());
-   write_int_attrib(datei, "Gw", getCWerte().Gw());
-   write_int_attrib(datei, "Gs", getCWerte().Gs());
-   write_int_attrib(datei, "Ko", getCWerte().Ko());
-   write_int_attrib(datei, "In", getCWerte().In());
-   write_int_attrib(datei, "Zt", getCWerte().Zt());
-   datei << "/>\n";
-   datei << "  <abgeleiteteEigenschaften";
-   write_int_attrib(datei, "Au", getCWerte().Au());
-   write_int_attrib(datei, "pA", getCWerte().pA());
-   write_int_attrib(datei, "Wk", getCWerte().Wk());
-   write_int_attrib(datei, "Sb", getCWerte().Sb());
-   write_int_attrib(datei, "B", getCWerte().B());
-//   write_int_attrib(datei, "KAW", getCWerte().St());
-//   write_int_attrib(datei, "WLW", getCWerte().St());
-   write_int_attrib(datei, "GG", getCWerte().GG());
-   write_int_attrib(datei, "SG", getCWerte().SG());
-   datei << "/>\n";
-   datei << "  <Erfolgswerte";
-   write_int_attrib(datei, "Abwehr", getCWerte().Abwehr_wert());
-   write_int_attrib(datei, "Zaubern", getCWerte().Zaubern_wert());
-   write_int_attrib(datei, "ZauberResistenz", getCWerte().Resistenz());
-   datei << "/>\n";
-   datei << "  <Gesundheit"; // schlechter Name ?
-//   write_int_attrib(datei, "LP_Basis");
-   write_int_attrib(datei, "LP", getCWerte().LP());
-   write_int_attrib(datei, "AP", getCWerte().AP());
-   datei << "/>\n";
-   datei << "  <Beschreibung"; // soziale?
-   write_int_attrib(datei, "Alter", getCWerte().Alter());
-   write_string_attrib(datei, "Gestalt", Internal2Latin(getCWerte().Gestalt()));
-   write_int_attrib(datei, "Gewicht", getCWerte().Gewicht());
-   write_int_attrib(datei, Internal2Latin("Größe"), getCWerte().Groesse());
-   write_string_attrib(datei, "Stand", Internal2Latin(getCWerte().Stand()));
-   write_string_attrib(datei, "Bezeichnung", Internal2Latin(getCWerte().Bezeichnung()));
-   write_string_attrib(datei, "Herkunft", Internal2Latin(getCWerte().Herkunft()->Name()));
-   write_string_attrib(datei, "Glaube", Internal2Latin(getCWerte().Glaube()));
-   datei << "/>\n";
-   datei << Internal2Latin("  <Vermögen");
-   write_int_attrib(datei, "GS", getCWerte().Gold());
-   write_int_attrib(datei, "SS", getCWerte().Silber());
-   write_int_attrib(datei, "KS", getCWerte().Kupfer());
-   datei << "/>\n";
-   datei << "  <Steigern";
-   write_int_attrib(datei, "GFP", getCWerte().GFP());
-   write_int_attrib(datei, "AEP", getCWerte().AEP());
-   write_int_attrib(datei, "KEP", getCWerte().KEP());
-   write_int_attrib(datei, "ZEP", getCWerte().ZEP());
-   write_int_attrib(datei, "EPproGFP", getCWerte().get_Steigern_EP_Prozent(), 50);
-   write_int_attrib(datei, "Basiswerte", getCWerte().get_Grad_Basiswerte(), getCWerte().Grad());
-   write_float_attrib(datei, Internal2Latin("benötigte_Tage"), getCWerte().Steigertage());
-   datei << "><Praxispunkte";
-   write_int_attrib(datei, "Abwehr", getCWerte().AbwehrPP());
-   write_int_attrib(datei, "Zaubern", getCWerte().ZaubernPP());
-   write_int_attrib(datei, "Spezial", getCWerte().SpezialPP());
-   write_int_attrib(datei, "Resistenz", getCWerte().ResistenzPP());
-   datei << "/></Steigern>\n";
-   write_string(datei, "Text", Internal2Latin(getCWerte().Beschreibung()), 2);
-   write_string(datei, "TextPix", Internal2Latin(getCWerte().BeschreibungPix()), 2);
-   write_string(datei, "TextPixSize", itos(getCWerte().BeschreibungPixSize()), 2);
+   Tag &Figur=datei.push_back(Tag("Figur"));
+   Figur.setAttr_ne("Name", getCWerte().Name_Abenteurer());
+   Figur.setAttr_ne("Spieler", getCWerte().Name_Spieler());
+   Figur.setAttr_ne("Zeitpunkt", getCWerte().Version());
+   Figur.setIntAttr("Grad", getCWerte().Grad());
+   
+   Tag &Typ=datei.push_back(Tag("Typ"));
+   Typ.setAttr_ne("Spezies", getCWerte().Spezies()->Name());
+   Typ.setAttr_ne("Geschlecht", getCWerte().Geschlecht());
+   Typ.setAttr_ne("Abkürzung", CTyp1()->Short());
+   Typ.setAttr_ne("Abkürzung2", CTyp2()->Short());
+   Typ.setAttr_ne("Spezialgebiet", getCWerte().Spezialgebiet()->Name());
+   Typ.setAttr_ne("Spezialisierung", getCWerte().Spezialisierung());
+   Typ.setAttr("Stadt_Land", getCWerte().Stadt_Land());
+   Typ.setAttr("Hand", getCWerte().Hand());
+   
+   Tag &BE=datei.push_back(Tag("Basiseigenschaften"));
+   BE.setIntAttr("St", getCWerte().St());
+   BE.setIntAttr("Gw", getCWerte().Gw());
+   BE.setIntAttr("Gs", getCWerte().Gs());
+   BE.setIntAttr("Ko", getCWerte().Ko());
+   BE.setIntAttr("In", getCWerte().In());
+   BE.setIntAttr("Zt", getCWerte().Zt());
+
+   Tag &aE=datei.push_back(Tag("abgeleiteteEigenschaften"));
+   aE.setIntAttr("Au", getCWerte().Au());
+   aE.setIntAttr("pA", getCWerte().pA());
+   aE.setIntAttr("Wk", getCWerte().Wk());
+   aE.setIntAttr("Sb", getCWerte().Sb());
+   aE.setIntAttr("B", getCWerte().B());
+   aE.setIntAttr_nn("GG", getCWerte().GG());
+   aE.setIntAttr_nn("SG", getCWerte().SG());
+
+   Tag &Ew=datei.push_back(Tag("Erfolgswerte"));
+   Ew.setIntAttr("Abwehr", getCWerte().Abwehr_wert());
+   Ew.setIntAttr("Zaubern", getCWerte().Zaubern_wert());
+   Ew.setIntAttr("ZauberResistenz", getCWerte().Resistenz());
+
+   Tag &Gesundheit=datei.push_back(Tag("Gesundheit")); // schlechter Name ?
+   Gesundheit.setIntAttr("LP", getCWerte().LP());
+   Gesundheit.setIntAttr("AP", getCWerte().AP());
+
+   Tag &Beschreibung=datei.push_back(Tag("Beschreibung")); // soziale?
+   Beschreibung.setIntAttr("Alter", getCWerte().Alter());
+   Beschreibung.setAttr("Gestalt", getCWerte().Gestalt());
+   Beschreibung.setIntAttr("Gewicht", getCWerte().Gewicht());
+   Beschreibung.setIntAttr("Größe", getCWerte().Groesse());
+   Beschreibung.setAttr_ne("Stand", getCWerte().Stand());
+   Beschreibung.setAttr_ne("Bezeichnung", getCWerte().Bezeichnung());
+   Beschreibung.setAttr_ne("Herkunft", getCWerte().Herkunft()->Name());
+   Beschreibung.setAttr_ne("Glaube", getCWerte().Glaube());
+
+   Tag &Verm=datei.push_back(Tag("Vermögen"));
+   Verm.setIntAttr_nn("GS", getCWerte().Gold());
+   Verm.setIntAttr_nn("SS", getCWerte().Silber());
+   Verm.setIntAttr_nn("KS", getCWerte().Kupfer());
+
+   Tag &Steigern=datei.push_back(Tag("Steigern"));
+   Steigern.setIntAttr_nn("GFP", getCWerte().GFP());
+   Steigern.setIntAttr_nn("AEP", getCWerte().AEP());
+   Steigern.setIntAttr_nn("KEP", getCWerte().KEP());
+   Steigern.setIntAttr_nn("ZEP", getCWerte().ZEP());
+   if (getCWerte().get_Steigern_EP_Prozent()!=50)
+      Steigern.setIntAttr("EPproGFP", getCWerte().get_Steigern_EP_Prozent());
+   if (getCWerte().get_Grad_Basiswerte()!=getCWerte().Grad())
+      Steigern.setIntAttr("Basiswerte", getCWerte().get_Grad_Basiswerte());
+   if (getCWerte().Steigertage())
+      Steigern.setAttr("benötigte_Tage", dtos(getCWerte().Steigertage()));
+
+   Tag &Pp=Steigern.push_back(Tag("Praxispunkte"));
+   Pp.setIntAttr_nn("Abwehr", getCWerte().AbwehrPP());
+   Pp.setIntAttr_nn("Zaubern", getCWerte().ZaubernPP());
+   Pp.setIntAttr_nn("Spezial", getCWerte().SpezialPP());
+   Pp.setIntAttr_nn("Resistenz", getCWerte().ResistenzPP());
+   
+   Tag &Text=datei.push_back(Tag("Text",getCWerte().Beschreibung()));
+   Text.setIntAttr_nn("Größe", getCWerte().BeschreibungPixSize());
+   Text.setAttr_ne("Bild", getCWerte().BeschreibungPix());
 }
 
-void Abenteurer::save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB, const int indent)
+void Abenteurer::save_ausruestung(Tag &datei,const list<AusruestungBaum> &AB)
 {  
   for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
-   {  datei << string(indent,' ') << "<Gegenstand";
-      write_string_attrib(datei, "Bezeichnung", Internal2Latin(i->getAusruestung().Name()));
-      write_string_attrib(datei, "Besonderheit", Internal2Latin(i->getAusruestung().Material()));
-      write_bool_attrib(datei, "sichtbar", i->getAusruestung().Sichtbar());
-      if (i->empty()) datei << "/>\n";
-      else
-      {  datei << ">\n";
-         save_ausruestung(datei, i->getChildren(), indent+2);
-         datei << string(indent,' ') << "</Gegenstand>\n";
-      }
+   {  Tag &Ggs=datei.push_back(Tag("Gegenstand"));
+      Ggs.setAttr("Bezeichnung", i->getAusruestung().Name());
+      Ggs.setAttr("Besonderheit", i->getAusruestung().Material());
+      if (i->getAusruestung().Sichtbar()) 
+         Ggs.setBoolAttr("sichtbar", i->getAusruestung().Sichtbar());
+      if (!i->empty())
+         save_ausruestung(Ggs, i->getChildren());
    }
 }
 
@@ -453,9 +431,11 @@ bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
    getWerte().setSteigertage(Steigern ? Steigern->getFloatAttr("benötigte_Tage", top->getInt("benötigte_Tage")) : top->getInt("benötigte_Tage"));
    getWerte().setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    
    getWerte().setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
-   getWerte().setBeschreibung(top->getString("Text")); 
-   getWerte().setBeschreibungPix(top->getString("TextPix")); 
-   getWerte().setBeschreibungPixSize(atoi(top->getString("TextPixSize").c_str())); 
+   const Tag *Text=top->find("Text");
+   if (!Text) Text=top; // to avoid testing below
+   getWerte().setBeschreibung(Text->Value()); 
+   getWerte().setBeschreibungPix(top->getString("TextPix",Text->getAttr("Bild"))); 
+   getWerte().setBeschreibungPixSize(top->getInt("TextPixSize",Text->getIntAttr("Größe")));
    getWerte().setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
 //   getWerte().clearRuestung();
    if (Ruestung1) getWerte().setRuestung1(Ruestung1->Value(),true);
