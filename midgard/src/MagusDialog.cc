@@ -1,4 +1,4 @@
-// $Id: MagusDialog.cc,v 1.3 2003/09/10 07:15:43 christof Exp $
+// $Id: MagusDialog.cc,v 1.4 2003/12/15 23:17:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -48,6 +48,11 @@ MagusDialog::MagusDialog(Gtk::Window *w)
 
 void MagusDialog::set_text(const std::string& s)
 {  text->set_text(s);
+}
+
+void MagusDialog::set_yes_no(const std::string& y,const std::string& n)
+{  text_yes->set_text(y);
+   text_no->set_text(n);
 }
 
 int MagusDialog::run()

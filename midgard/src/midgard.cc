@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.75 2003/12/01 07:52:36 christof Exp $
+// $Id: midgard.cc,v 1.76 2003/12/15 23:17:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,23 +114,22 @@ std::cerr << "displaying images\n";
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
   }
    libmagus_init1(progress);
+   if (progresswin) progress(1.0);
 
-   for (int i=1;i<argc;++i) 
-   {  std::ifstream fi(argv[i]);
-      VAbenteurer::iterator Char=AbenteurerAuswahl::Chars.push_back();
-      
-      if(!(Char->getAbenteurer().xml_import_stream(fi)))
-        {
-          Ausgabe(Ausgabe::Error,"Laden von "+std::string(argv[i])+" fehlgeschlagen");
-          // löschen !
-        }
-      else Char->setFilename(argv[i]);
-   }
-
-//   setlocale(LC_ALL, "de_DE");
    // WindowInfo erzeugen und an midgard_CG Ã¼bergeben
    WindowInfo *info=new WindowInfo();
    Magus_Ausgabe::attach(info);
+
+   for (int i=1;i<argc;++i) 
+   {  try
+      {  AbenteurerAuswahl::Chars.load(argv[i]);
+      }
+      catch (...)
+      {
+      }
+   }
+
+//   setlocale(LC_ALL, "de_DE");
    midgard_CG *magus=new midgard_CG(info,AbenteurerAuswahl::Chars.begin());
    // darf nicht eher geschehen wegen realize (background) als virtuellem callback
    magus->show();
@@ -138,7 +137,7 @@ std::cerr << "displaying images\n";
    if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
      manage(new BegruessungsWindow(magus));
    m.run(*magus);
-#warning nur wenn geändert ...
+#warning nur wenn geÃ¤ndert ...
    Programmoptionen.save_options(magus_paths::MagusVerzeichnis()+"magus_optionen.xml");
    delete magus;
    delete info;

@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.6 2003/11/28 07:52:20 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.7 2003/12/15 23:17:06 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,15 +23,24 @@
 #include <Misc/Trace.h>
 #include "magustrace.h"
 #include <sigc++/object_slot.h>
+#include <stdexcept>
+#include <Ausgabe.hh>
+#include <fstream>
 
-VAbenteurer::iterator VAbenteurer::push_back()
+VAbenteurer::iterator VAbenteurer::push_back_silent()
 { 
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    VA.push_back(st_abenteurer()); 
-   list_changed();
    return --end();
 }
 
+VAbenteurer::iterator VAbenteurer::push_back()
+{ 
+   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+   VAbenteurer::iterator i=push_back_silent();
+   list_changed();
+   return i;
+}
 
 bool VAbenteurer::unsaved_exist()
 { 
@@ -52,6 +61,51 @@ void VAbenteurer::delete_empty()
           goto reloop;
         } 
     }
+}
+
+VAbenteurer::iterator VAbenteurer::load(std::istream &datei)
+{  iterator i=push_back_silent();
+   try
+   {  if(!(i->getAbenteurer().xml_import_stream(datei)))
+      {  Ausgabe(Ausgabe::Error,"XML Aufbau fehlerhaft");
+         throw std::runtime_error("XML fehlerhaft");
+      }
+      i->saved();
+      list_changed();
+      return i;
+   }
+   catch (...)
+   {  erase_silent(i);
+      throw;
+   }
+}
+
+VAbenteurer::iterator VAbenteurer::load(const std::string &dateiname)
+{  std::ifstream fi(dateiname.c_str());
+   if (!fi.good()) 
+   {  Ausgabe(Ausgabe::Error,"Kann '"+dateiname+"' nicht öffnen/lesen");
+      throw std::runtime_error(dateiname);
+   }
+   try
+   {  iterator i=load(fi);
+      i->setFilename(dateiname);
+      list_changed();
+      return i;
+   }
+   catch (std::exception &e)
+   {  Ausgabe(Ausgabe::Error,"Fehler "+std::string(e.what())+" beim Einlesen von '"+dateiname+"'");
+      throw;
+   }
+}
+
+VAbenteurer::iterator VAbenteurer::erase_silent(iterator i)
+{  return VA.erase(i);
+}
+
+VAbenteurer::iterator VAbenteurer::erase(iterator j)
+{  iterator i=erase_silent(j);
+   list_changed();
+   return i;
 }
 
 // ===================== Item =========================

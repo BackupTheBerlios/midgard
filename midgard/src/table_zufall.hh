@@ -35,7 +35,7 @@ class table_zufall : public table_zufall_glade
 
       // besser VAbenteurer
       midgard_CG *hauptfenster;
-      // aus historischen Gründen ... eigentlich sollten die hier weg
+      // aus historischen GrÃ¼nden ... eigentlich sollten die hier weg
       Prozente100 prozente100;
       Grund_Standard_Ausnahme_MBE GSA_MBE;
       

@@ -1,4 +1,4 @@
-// $Id: MagusDialog.hh,v 1.3 2003/09/08 06:27:52 christof Exp $
+// $Id: MagusDialog.hh,v 1.4 2003/12/15 23:17:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -29,6 +29,7 @@ class MagusDialog : public MagusDialog_glade
    public:
         MagusDialog(Gtk::Window *w);
         void set_text(const std::string& s);
+        void set_yes_no(const std::string& y,const std::string& n);
         int run();
 };
 #endif

@@ -143,32 +143,38 @@ bool midgard_CG::on_eventbox_credits_button_release_event(GdkEventButton *event)
 bool midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *event)
 { notebook_main->set_current_page(PAGE_NEWS); return false;}
 
+void midgard_CG::on_schlie__en1_activate()
+{  button_schliessen->grab_focus(); // Fokuswechsel erzwingen (wegen ungenommener Änderungen)
+   if (getChar()->gespeichert())
+   {loeschen:
+      AbenteurerAuswahl::Chars.erase(getChar().actualIterator());
+      if (AbenteurerAuswahl::Chars.empty()) on_schliessen_CG_clicked();
+      aktiver.setAbenteurer(AbenteurerAuswahl::Chars.begin());
+   }
+   else
+   {  MagusDialog d(this);
+      d.set_text("Sollen die Änderungen an '"+getAben().Name_Abenteurer()+"' verworfen werden?");
+      d.set_yes_no("Änderungen verwerfen","Nicht schließen");
+      int result=d.run();
+      if (result==Gtk::RESPONSE_OK) goto loeschen; 
+   }
+}
 
-
+// das ist hier eigentlich beenden
 void midgard_CG::on_schliessen_CG_clicked()
 {
-  button_schliessen->grab_focus();
+  while (!AbenteurerAuswahl::Chars.empty())
+  {  VAbenteurer::iterator i=getChar().actualIterator();
+     on_schlie__en1_activate();
+     if (!AbenteurerAuswahl::Chars.empty() 
+		     	&& getChar().actualIterator()==i) 
+	return; // Abbruch
+  }
+
   std::string filename="magus_optionen.xml";
   if(access(filename.c_str(),W_OK)) 
       filename=magus_paths::MagusVerzeichnis()+"magus_optionen.xml";
-
-#warning TODO: alle gespeicherten schlie�en, wechseln
-  if(AbenteurerAuswahl::Chars.unsaved_exist())
-   {
-//     notebook_main->set_current_page(PAGE_NEWS);
-     Ausgabe(Ausgabe::Warning,"Es existieren nichtgespeicherte Abenteurer");
-     MagusDialog d(this);
-     d.set_text("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?");
-     int result=d.run();
-Ausgabe(Ausgabe::Debug,"Dialog gab "+itos(result)+" zurück");     
-     if (result!=Gtk::RESPONSE_OK) return;
-   }
-  on_button_quit_confirm_clicked();
-}
-
-void midgard_CG::on_button_quit_confirm_clicked()
-{
-//  connection_status.disconnect();
+  Programmoptionen.save_options(filename);
   Gtk::Main::instance()->quit();
 }
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.330 2003/12/10 07:30:25 christof Exp $
+// $Id: midgard_CG.cc,v 1.331 2003/12/15 23:17:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,7 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include "xml_fileselection.hh"
 //#include "WindowInfo.hh"
 #include <libmagus/Datenbank.hh>
+#include "MagusDialog.hh"
 
 static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const Glib::ustring &t)
 {  Gtk::VBox *vbox=manage(new Gtk::VBox());
@@ -81,8 +82,8 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   bool_ImageButton *wuerfelt_butt = new bool_ImageButton(aktiver.proxies.werte_eingeben,
   	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
   toolview.Associate(*wuerfelt_butt,aktiver.proxies.werte_eingeben,
-  		"Werte werden ausgewürfelt. (Hier klicken zum eingeben)",
-  		"Werte werden eingegeben. (Hier klicken zum auswürfeln)");
+  		"Werte werden ausgewÃ¼rfelt. (Hier klicken zum eingeben)",
+  		"Werte werden eingegeben. (Hier klicken zum auswÃ¼rfeln)");
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   wuerfelt_butt->show();
 
@@ -244,11 +245,6 @@ void midgard_CG::on_exportieren_activate()
 void midgard_CG::on_kompletter_export_activate()
 {
    (new xml_fileselection(this,xml_fileselection::ExportFull));
-}
-
-#include <libmagus/Ausgabe.hh>
-void midgard_CG::on_schlie__en1_activate()
-{  Ausgabe(Ausgabe::Error,"Noch nicht programmiert!");
 }
 
 void midgard_CG::grundwerte_background_create()

@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.11 2003/11/28 07:52:20 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.12 2003/12/15 23:17:06 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -42,7 +42,7 @@ namespace AbenteurerListe
 	};
 	class Item : public SigC::Object
 	{	std::vector<st_undo> undos;
-		// Einfügen und löschen können den Iterator gerne ungültig machen,
+		// EinfÃ¼gen und lÃ¶schen kÃ¶nnen den Iterator gerne ungÃ¼ltig machen,
 		// er muss so oder so neu gesetzt werden
        		// global 
 		std::vector<st_undo>::iterator current_undo;
@@ -81,7 +81,7 @@ namespace AbenteurerListe
 		bool gespeichert() const {return bgespeichert;}
 		void setFilename(std::string s) {filename=s;}
 		const std::string &getFilename() {return filename;}
-		// einen Undoschritt abschließen und benennen
+		// einen Undoschritt abschlieÃŸen und benennen
 		void undosave(const std::string &s);
 		SigC::Signal0<void> &signal_undo_changed()
 		{  return _signal_undo_changed; }
@@ -110,6 +110,8 @@ class VAbenteurer // : public SigC::Object // um signale zu empfangen
           }
       };
       
+      iterator push_back_silent();
+      iterator erase_silent(iterator i);
    public:
    
 //      VAbenteurer();
@@ -118,6 +120,9 @@ class VAbenteurer // : public SigC::Object // um signale zu empfangen
       std::list<Item> &getList() {return VA;}
       void sort_gw() {VA.sort(sort());}
       iterator push_back(); // kein Argument???
+      iterator load(std::istream &datei); // throw (was denn?)
+      iterator load(const std::string &dateiname); // throw (was denn?)
+      iterator erase(iterator i);
       bool unsaved_exist();
       bool empty() const {return VA.empty();}
       size_t size() const {return VA.size();}

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.8 2003/09/18 07:32:12 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.9 2003/12/15 23:17:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -36,6 +36,9 @@
 #include "magus_paths.h"
 #include "Ausgabe.hh"
 #include "Datenbank.hh"
+#include "WaffeGrund.hh"
+// to redefine VERSION
+#include <config.h>
 
 static std::string defFileName(const std::string &s)
 {  std::string res;
@@ -509,7 +512,6 @@ struct st_WB{std::string name;std::string wert;std::string schaden;
                                   std::string r,std::string m)
                     : name(n),wert(w),schaden(s),rang(r),modi(m) {}};
 
-#include "WaffeGrund.hh"
 void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,const std::list<H_WaffeBesitz>& L,bool longlist)
 {
   std::string angriffsverlust = A.Ruestung_Angriff_Verlust(A.List_Fertigkeit());

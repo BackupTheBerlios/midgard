@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.85 2003/12/02 07:44:40 christof Exp $
+// $Id: Midgard_Info.cc,v 1.86 2003/12/15 23:17:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,6 +22,9 @@
 #include "midgard_CG.hh"
 #include <gtkmm/main.h>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+#include <libmagus/Ausgabe.hh>
+// to redefine VERSION
+#include "config.h"
 
 #if 0
 void Midgard_Info::database_hide()
@@ -119,7 +122,6 @@ std::string Midgard_Info::umbruch(std::string s)
  return s;
 }
 
-#include <libmagus/Ausgabe.hh>
 
 void Midgard_Info::lizenz_anzeigen()
 {  Ausgabe(Ausgabe::Error,"hier müsste jetzt die GPL hin");

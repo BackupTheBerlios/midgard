@@ -19372,10 +19372,11 @@ löschen</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label697">
+		    <widget class="GtkLabel" id="text_no">
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">Nein</property>
 		      <property name="use_underline">False</property>
+		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_CENTER</property>
 		      <property name="wrap">False</property>
@@ -19427,9 +19428,10 @@ löschen</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label696">
+		    <widget class="GtkLabel" id="text_yes">
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">Ja</property>
+		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_CENTER</property>

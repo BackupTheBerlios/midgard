@@ -42,7 +42,7 @@ void table_ausruestung::refresh()
    label_normallast->set_text(itos(hauptfenster->getAben().getNormallast())+" kg");
    label_hoechstlast->set_text(itos(hauptfenster->getAben().getHoechstlast())+" kg");
    label_schublast->set_text(itos(hauptfenster->getAben().getSchublast())+" kg");
-   // wenn sich die Regionen ge‰ndert haben ...
+   // wenn sich die Regionen ge√§ndert haben ...
    fill_new_preise();
 }
    

@@ -37,29 +37,17 @@ void midgard_CG::xml_import_auswahl()
 void midgard_CG::xml_import_history(const std::string datei)
 {
  xml_import(datei);
-// load_for_mainpage(notebook_main->get_current_page());
 }
 
 void midgard_CG::xml_import(const std::string& datei)
 {
-   on_wizard_beenden_activate();
-   std::ifstream fi(datei.c_str());
-//   hmmm
-//   table_grundwerte->combo_spezies->set_sensitive(false);
-   VAbenteurer::iterator nab=AbenteurerAuswahl::Chars.push_back();
-#if 0   
-   // wieso ist der Char denn jetzt schon aktiv?
-//   on_neuer_charakter_clicked();
-   frame_steigern->set_sensitive(true);
-#endif   
-   if(!(nab->getAbenteurer().xml_import_stream(fi)))
-     {
-       Ausgabe(Ausgabe::Error,"Laden fehlgeschlagen");
-       return;
-     }
-   nab->setFilename(datei);
-   nab->saved();
-   push_back_LDateien(datei);
-   aktiver.setAbenteurer(nab);
+  try
+  {  VAbenteurer::iterator nab=AbenteurerAuswahl::Chars.load(datei);
+     push_back_LDateien(datei);
+     aktiver.setAbenteurer(nab);
+  }
+  catch (...)
+  {  // Info Fenster zeigen?
+  }
 }
 
