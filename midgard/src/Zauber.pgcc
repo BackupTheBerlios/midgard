@@ -86,34 +86,26 @@ void Zauber::get_Zauber()
    exec sql close cl_zauber_ein;
    tr.close();
 #else // USE_XML
- const Tag *zauber=xml_data->find("Zauber");
- if (!zauber)
-    cerr << "<Zauber><Spruch/>... nicht gefunden\n";
- else
- {  Tag::const_iterator b=zauber->begin(),e=zauber->end();
-    for (Tag::const_iterator i=zauber->find(b,"Spruch");
-    		i!=e;	i=zauber->find(i+1,"Spruch"))
-    {  if (i->getAttr("Name")!=name) continue;
-       ursprung=i->getAttr("Ursprung");
-       kosten=i->getIntAttr("Lernkosten");
-       stufe=i->getAttr("Grad");
-       spruchrolle=i->getBoolAttr("Spruchrolle");
-       region=i->getAttr("Region");
-       zauberart=i->getAttr("Zauberart");
-       element=i->getAttr("Element");
-       ap=i->getIntAttr("AP");;
-       art=i->getAttr("Typ");
-       zauberdauer=i->getAttr("Zauberdauer");
-       reichweite=i->getAttr("Reichweite");
-       wirkungsziel=i->getAttr("Wirkungsziel");
-       wirkungsbereich=i->getAttr("Wirkungsbereich");
-       wirkungsdauer=i->getAttr("Wirkungsdauer");
-       material=i->getAttr("Material");
-       agens=i->getAttr("Agens");
-       prozess=i->getAttr("Prozess");
-       reagens=i->getAttr("Reagens");
-       return;
-    }
+ const Tag *zauber=find_Tag("Zauber","Spruch","Name",name);
+ if (zauber)
+ {  ursprung=zauber->getAttr("Ursprung");
+    kosten=zauber->getIntAttr("Lernkosten");
+    stufe=zauber->getAttr("Grad");
+    spruchrolle=zauber->getBoolAttr("Spruchrolle");
+    region=zauber->getAttr("Region");
+    zauberart=zauber->getAttr("Zauberart");
+    element=zauber->getAttr("Element");
+    ap=zauber->getIntAttr("AP");;
+    art=zauber->getAttr("Typ");
+    zauberdauer=zauber->getAttr("Zauberdauer");
+    reichweite=zauber->getAttr("Reichweite");
+    wirkungsziel=zauber->getAttr("Wirkungsziel");
+    wirkungsbereich=zauber->getAttr("Wirkungsbereich");
+    wirkungsdauer=zauber->getAttr("Wirkungsdauer");
+    material=zauber->getAttr("Material");
+    agens=zauber->getAttr("Agens");
+    prozess=zauber->getAttr("Prozess");
+    reagens=zauber->getAttr("Reagens");
  }
 #endif   
 }
