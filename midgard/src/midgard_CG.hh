@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.339 2003/10/13 10:18:11 christof Exp $
+// $Id: midgard_CG.hh,v 1.340 2003/10/14 07:33:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,7 @@
 #include <TreeViewUtility.h>
 #include <libmagus/VAbenteurer.hh>
 #include <Misc/compiler_ports.h>
+class WindowInfo;
 
 class midgard_CG : public midgard_CG_glade
 {public:
@@ -43,8 +44,9 @@ private:
         Gtk::Menu *undo_menu;
         Gtk::Menu *menu_kontext;
 
-        Model<bool> schummeln;
+        Model<bool> schummeln; // weg hier ?!
 
+	WindowInfo *InfoFenster;
         SigC::Connection connection_status;
 
 /////////////////////////////////////////////////////////////////////////////
@@ -168,7 +170,7 @@ private:
 	void Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex index);
 
    public:
-        midgard_CG(const std::vector<std::string> &dateien);
+        midgard_CG(WindowInfo *inf,const std::vector<std::string> &dateien);
          ~midgard_CG();
          
          // neue klarere Methoden

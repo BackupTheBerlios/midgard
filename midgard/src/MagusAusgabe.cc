@@ -1,4 +1,4 @@
-// $Id: MagusAusgabe.cc,v 1.1 2003/09/01 06:48:57 christof Exp $
+// $Id: MagusAusgabe.cc,v 1.2 2003/10/14 07:33:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -18,23 +18,22 @@
  */
 
 #include <MagusAusgabe.hh>
-#include <midgard_CG.hh>
 #include <WindowInfo.hh>
 
 std::vector<Magus_Ausgabe::entry> Magus_Ausgabe::remembered;
 
-static midgard_CG *hauptfenster;
+static WindowInfo *fenster;
 
-void Magus_Ausgabe::attach(midgard_CG *h)
-{  hauptfenster=h;
+void Magus_Ausgabe::attach(WindowInfo *w)
+{  fenster=w;
    for (std::vector<entry>::const_iterator i=remembered.begin();i!=remembered.end();++i)
       replay(*i);
    remembered.clear();
 }
 
 void Magus_Ausgabe::callback(Ausgabe::Level l,const std::string &text)
-{  //if (hauptfenster) play(l,text);
-   //else 
+{  if (fenster) replay(entry(l,text));
+   else 
       remembered.push_back(entry(l,text));
 }
 
@@ -42,4 +41,9 @@ void Magus_Ausgabe::replay(const entry &e)
 {  // ...
    // InfoFenster->AppendShow( ... ,WindowInfo::None);
    // set_info = InfoFenster->AppendShow(sadd);
+   fenster->AppendShow(e.text);
+}
+
+void Magus_Ausgabe::register_Ausgabe()
+{  Ausgabe::set(&Magus_Ausgabe::callback);
 }

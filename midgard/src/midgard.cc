@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.69 2003/10/13 13:10:06 christof Exp $
+// $Id: midgard.cc,v 1.70 2003/10/14 07:33:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,12 +24,14 @@
 #include <libmagusicons/magusicons.h>
 #include <gtkmm/enums.h>
 #include <Misc/itos.h>
+#include "WindowInfo.hh"
 #ifdef __MINGW32__
 #include <io.h>
 #endif
 #include <iostream>
 #include <libmagus/magus_paths.h>
 #include "BegruessungsWindow.hh"
+#include "MagusAusgabe.hh"
 
 static const unsigned steps=8;
 static Gtk::Window *progresswin;
@@ -72,7 +74,8 @@ static void progress(double d)
 }
 
 int main(int argc, char **argv)
-{  Ausgabe::setLogLevel(Ausgabe::Debug);
+{  if (!getenv("DEBUG")) Magus_Ausgabe::register_Ausgabe();
+   Ausgabe::setLogLevel(Ausgabe::Debug);
    libmagus_init0(argc,const_cast<const char **>(argv));
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
    std::string gtkrc;
@@ -109,13 +112,16 @@ std::cerr << "displaying images\n";
 
 //   setlocale(LC_ALL, "de_DE");
    // WindowInfo erzeugen und an midgard_CG übergeben
-   midgard_CG *magus=new midgard_CG(dateien);
-   magus->show(); 
+   WindowInfo *info=new WindowInfo();
+   Magus_Ausgabe::attach(info);
+   midgard_CG *magus=new midgard_CG(info,dateien);
+   magus->show();
    // darf nicht eher geschehen wegen realize (background) als virtuellem callback
    delete progresswin;
   if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
      manage(new BegruessungsWindow(magus));
    m.run(*magus);
    delete magus;
+   delete info;
    return 0;
 }

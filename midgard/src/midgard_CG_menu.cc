@@ -24,6 +24,7 @@
 //#include <RefPtr_Pixmap.hh>
 #include "Region_GUI.hh"
 #include "Optionen_GUI.hh"
+#include "WindowInfo.hh"
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 Gtk::Box &midgard_CG::make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild,const bool hbox)
@@ -280,7 +281,6 @@ void midgard_CG::push_back_LDateien(std::string s)
 
 void midgard_CG::OptionenExecute_setzen_from_menu(Magus_Optionen::OptionenExecuteIndex index)
 {  if(index==Magus_Optionen::LernschemaSensitive) lernschema_sensitive(true);
-#warning fehlt
-//   else if(index==Magus_Optionen::show_InfoWindow) InfoFenster->Show();
+   else if(index==Magus_Optionen::show_InfoWindow) InfoFenster->show();
 }
 

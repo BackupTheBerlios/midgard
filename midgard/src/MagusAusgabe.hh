@@ -1,4 +1,4 @@
-// $Id: MagusAusgabe.hh,v 1.1 2003/09/01 06:48:57 christof Exp $
+// $Id: MagusAusgabe.hh,v 1.2 2003/10/14 07:33:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -22,7 +22,7 @@
 
 #include <libmagus/Ausgabe.hh>
 #include <vector>
-class midgard_CG;
+class WindowInfo;
 
 struct Magus_Ausgabe
 {	struct entry
@@ -34,9 +34,10 @@ struct Magus_Ausgabe
 	};
 	static std::vector<entry> remembered;
 	
-	void attach(midgard_CG *);
-	void callback(Ausgabe::Level l,const std::string &text);
-	void replay(const entry &e);
+	static void attach(WindowInfo *);
+	static void callback(Ausgabe::Level l,const std::string &text);
+	static void replay(const entry &e);
+	static void register_Ausgabe();
 };
 
 #endif

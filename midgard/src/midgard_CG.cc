@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.313 2003/10/13 14:33:19 christof Exp $
+// $Id: midgard_CG.cc,v 1.314 2003/10/14 07:33:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,6 +36,7 @@
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include <Gtk_OStream.h>
 #include "xml_fileselection.hh"
+//#include "WindowInfo.hh"
 
 static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const Glib::ustring &t)
 {  Gtk::VBox *vbox=manage(new Gtk::VBox());
@@ -49,8 +50,9 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
    vbox->show();
 }
 
-midgard_CG::midgard_CG(const std::vector<std::string> &dateien)
-: news_columns(), undo_menu(),menu_kontext(), schummeln(false)
+midgard_CG::midgard_CG(WindowInfo *info,const std::vector<std::string> &dateien)
+: news_columns(), undo_menu(),menu_kontext(), schummeln(false),
+	InfoFenster(info)
 { news_columns.attach_to(*list_news);
 
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -222,9 +224,17 @@ void midgard_CG::on_schlie__en1_activate()
 void midgard_CG::grundwerte_background_create()
 {  assert (get_window());
    {  Glib::RefPtr<Gdk::Pixbuf> pb=MagusImage("Gross_dfr4.light");
-      Glib::RefPtr<Gdk::Pixmap> pm=Gdk::Pixmap::create(get_window(),pb->get_width(),pb->get_height(),get_window()->get_depth());
+      int w,h;
+      get_window()->get_size(w,h);
+      Glib::RefPtr<Gdk::Pixmap> pm=Gdk::Pixmap::create(get_window(),w,h,get_window()->get_depth());
       Glib::RefPtr<Gdk::GC> gc=Gdk::GC::create(pm);
-      pm->draw_pixbuf(gc,pb,0,0,0,0,-1,-1,Gdk::RGB_DITHER_NORMAL,0,0);
+      gfloat faktor_x=gfloat(w)/pb->get_width(),
+      	faktor_y=gfloat(h)/pb->get_height();
+      if (faktor_x>faktor_y) faktor_y=faktor_x;
+      else faktor_x=faktor_y;
+      Glib::RefPtr<Gdk::Pixbuf> pb_scaled=
+      	pb->scale_simple(gint(faktor_x*pb->get_width()),gint(faktor_y*pb->get_height()),Gdk::INTERP_HYPER);
+      pm->draw_pixbuf(gc,pb_scaled,0,0,0,0,-1,-1,Gdk::RGB_DITHER_NORMAL,0,0);
       Glib::RefPtr<Gtk::Style> st=grundwerte_background->get_style()->copy();
       st->set_bg_pixmap(Gtk::STATE_NORMAL,pm);
       grundwerte_background->set_style(st);
