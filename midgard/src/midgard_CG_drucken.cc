@@ -1,4 +1,4 @@
-// $Id: midgard_CG_drucken.cc,v 1.11 2004/05/18 14:14:15 christof Exp $   
+// $Id: midgard_CG_drucken.cc,v 1.12 2004/12/16 08:24:52 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,7 +29,8 @@ void midgard_CG::on_beschreibung_drucken()
 
 // Dokument ///////////////////////////////////////////////////
 void midgard_CG::on_abenteurerdokument_drucken()
-{  
+{
+std::cerr << "on_abenteurerdokument_drucken\n";
   LaTeX_drucken L;
   L.Ausdrucken(getAben());
 }

@@ -47,9 +47,9 @@ void table_steigern::alte_fertigkeiten_zeigen()
  MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Fertigkeit(),alte_fert_tree,hauptfenster->getChar().actualIterator());
 }
 
-
 void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
+#if 0
  if (MidgardBasicElement_leaf_alt(d)) 
    {  
       dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_fert_tree);
@@ -57,12 +57,13 @@ void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
       zeige_werte();
       if (hauptfenster->getAben().reduzieren) alte_fertigkeiten_zeigen();
    }
+#endif    
  if(!spinbutton_pp_eingeben->is_visible())
     alte_fert_tree->get_selection()->unselect_all();
 }
 
-void table_steigern::on_leaf_selected_alte_fert2(const MBEmlt &d)
-{cH_RowDataBase rdb=new Data_SimpleTree(d,hauptfenster->getChar().actualIterator());
+void table_steigern::on_leaf_selected_alte_fert2(cH_RowDataBase rdb)
+{//cH_RowDataBase rdb=new Data_SimpleTree(d,hauptfenster->getChar().actualIterator());
  if (MidgardBasicElement_leaf_alt(rdb))
    {  
 #if 0 // automatisch?

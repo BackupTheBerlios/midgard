@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.25 2004/12/15 08:11:29 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.26 2004/12/16 08:24:52 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -59,7 +59,9 @@ std::string LaTeX_drucken::get_latex_filename(const Abenteurer &A, const LaTeX_F
   
   switch (what)
     {
-      case TeX_MainDocument : return "magus_document_eingabe";
+      case TeX_MainDocument : if ((Programmoptionen->OberCheck(Magus_Optionen::UTF8TeX).active))
+          return "magus_document_utf8";
+        else return "magus_document_eingabe";
       case TeX_MainWerte    : return "magus"+nv+"latexwerte";  
       case TeX_Beschreibung : return "magus"+nv+"beschreibung";
       case TeX_Ausruestung  : return "magus"+nv+"ausruestung"; 
@@ -84,20 +86,24 @@ void LaTeX_drucken::Ausdrucken(const Abenteurer &A,bool values)
 //cout <<"LaTeX: "<< filename<<'\n';
  {
  std::ofstream fout((filename+".tex").c_str());
- orecodestream rfout(fout);
- if (values) LaTeX_write_values(A,rfout,installfile);
- else LaTeX_write_empty_values(rfout,installfile);
+ std::ostream *rfout=&fout;
+ if (!(Programmoptionen->OberCheck(Magus_Optionen::UTF8TeX).active))
+   rfout=new orecodestream(fout);
+ if (values) LaTeX_write_values(A,*rfout,installfile);
+ else LaTeX_write_empty_values(*rfout,installfile);
 
  if (!A.List_Zauber().empty() || !A.List_Zauberwerk().empty())  // Zauber
   {
-    LaTeX_zauber_main(A,rfout);
+    LaTeX_zauber_main(A,*rfout);
   }
  if (!A.List_Kido().empty()) // KiDo
   {
-    LaTeX_kido_main(A,rfout);
+    LaTeX_kido_main(A,*rfout);
   }
- rfout << "\\end{document}\n";
- rfout.flush();
+ *rfout << "\\end{document}\n";
+ rfout->flush();
+ if (!(Programmoptionen->OberCheck(Magus_Optionen::UTF8TeX).active))
+   delete rfout;
  fout.close();
  }
  pdf_viewer(filename);
@@ -757,7 +763,9 @@ void LaTeX_drucken::LaTeX_Bildboxen(std::ostream &fout,const std::string &file,c
 void LaTeX_drucken::LaTeX_newsavebox(const Abenteurer &A,std::ostream &fout)
 {
  fout << "\\usepackage{german}\n";
- fout << "\\usepackage[latin1]{inputenc}\n";
+ if ((Programmoptionen->OberCheck(Magus_Optionen::UTF8TeX).active))
+   fout << "\\usepackage{ucs}\n\\usepackage[utf8]{inputenc}\n";
+ else fout << "\\usepackage[latin1]{inputenc}\n";
  fout << "\\usepackage[pdftex]{graphicx}\n";
 #ifdef __MINGW32__ 
  fout << "\\DeclareGraphicsRule{.PNG}{png}{.PNG}{}\n"

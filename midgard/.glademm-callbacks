@@ -2,6 +2,6 @@
 
 <glademm-callbacks>
   <class name="MidgardBasicTree" parent="SimpleTree">
-    <callback name="clicked" args="const MBEmlt &leaf"/>
+    <callback name="clicked" args="cH_RowDataBase &row"/>
   </class>
 </glademm-callbacks>

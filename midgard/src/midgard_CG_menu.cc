@@ -56,6 +56,13 @@ static void prop_adaptor(GtkWindow*o)
 {  create_prop_editor(G_OBJECT(o),0);
 } 
 
+static Gtk::MenuItem *AddItem(Gtk::Menu *m,const std::string &name,const SigC::Slot0<void> &sl)
+{ m->items().push_back(Gtk::Menu_Helpers::MenuElem(name));
+  Gtk::MenuItem *mi = (Gtk::MenuItem *)&m->items().back();
+  mi->signal_activate().connect(sl);
+  mi->show();
+}
+
 void midgard_CG::menu_init()
 {
   menu_kontext=Gtk::manage(new Gtk::Menu());
@@ -101,9 +108,13 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *drucken = Gtk::manage(new class Gtk::MenuItem("Drucken")); 
   drucken->set_submenu(*drucken_menu);
 
-  Gtk::MenuItem *latex = Gtk::manage(new class Gtk::MenuItem("Abenteurer drucken (LaTeX)"));
-  drucken_menu->append(*latex);
+  drucken_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Abenteurer drucken (LaTeX)"));
+  Gtk::MenuItem *latex = (Gtk::MenuItem *)&drucken_menu->items().back();
+//  Gtk::MenuItem *latex = Gtk::manage(new class Gtk::MenuItem("Abenteurer drucken (LaTeX)"));
+//  drucken_menu->append(*latex);
   latex->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_abenteurerdokument_drucken));
+
+  AddItem(drucken_menu,"Abenteurer drucken (LaTeX)",SigC::slot(*this,&midgard_CG::on_abenteurerdokument_drucken));
 
   Gtk::MenuItem *latex_beschreibung = Gtk::manage(new class Gtk::MenuItem("Abenteurerbeschreibung drucken"));
   drucken_menu->append(*latex_beschreibung);

@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.31 2004/11/22 07:25:28 christof Exp $
+// $Id: MidgardBasicTree.cc,v 1.32 2004/12/16 08:24:52 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2004 Malte Thoma
@@ -191,10 +191,14 @@ void MidgardBasicTree::show_list_in_tree(
   for (std::list<MBEmlt>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
       datavec.push_back(new Data_SimpleTree(*i,a));
   Tree->setDataVec(datavec);
+//std::cerr << "show_list_in_tree(";
+//for (std::vector<cH_RowDataBase>::const_iterator i=datavec.begin();i!=datavec.end();++i)
+// std::cerr << &**i << ',';
+//std::cerr << ")\n";
 }
 
 bool MidgardBasicTree::clicked_impl(SimpleTree_Basic *_this, const cH_RowDataBase &row, int col_idx)
 {  MidgardBasicTree *ths=static_cast<MidgardBasicTree*>(_this);
-   ths->_clicked(row.cast_dynamic<const Data_SimpleTree>()->getMBE());
+   ths->_clicked(row); // .cast_dynamic<const Data_SimpleTree>()->getMBE());
    return ths->was_isses==FERT_ALT; // true;
 }

@@ -163,7 +163,7 @@ private:
 private:
         void on_steigern_zusatz_leaf_selected(cH_RowDataBase d);
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
-        void on_leaf_selected_alte_fert2(const MBEmlt &d);
+        void on_leaf_selected_alte_fert2(cH_RowDataBase d);
         void on_alte_fert_reorder();
         void on_leaf_selected_neue_fert(cH_RowDataBase d);
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.350 2004/12/15 08:11:30 christof Exp $
+// $Id: midgard_CG.cc,v 1.351 2004/12/16 08:24:52 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -198,6 +198,8 @@ void midgard_CG::init_statusbar()
    }
   hb_regionen_status->show();
   frame_regionen_status->add(*hb_regionen_status);
+  Gtk::AssociateVisibility(eventbox_Original_Midgard,aktiver.proxies.checks[Optionen::Original]);
+  Gtk::AssociateVisibility(eventbox_NSC_aktiv,aktiver.proxies.checks[Optionen::NSC_only]);
 }
 
 void midgard_CG::WizardBeenden() { on_wizard_beenden_activate(); }

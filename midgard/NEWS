@@ -11,7 +11,10 @@ Version 0.9.8
 	mittendrin eingefügt, so dass sich die Numerierung verschob)
 - Kontext-Menü ist wieder da
 - Optionen sind nun hierarchisch aufgebaut (und aus templates abgeleitet)
-- neue Optionen: LaTeX ucs (Unicode) und Hintergrundkontrast
+- neue Optionen: LaTeX ucs (Unicode) und Hintergrundkontrast (ohne Funktion)
+- Statusbaricons passen jetzt wieder zu den Optionen
+- auch gelernte Fertigkeiten erhöhen bewirkt kein zuklappen
+- erstmalige (ungetestete) UTF-8 LaTeX Unterstützung
 
 -------------- TODO ----------------
 

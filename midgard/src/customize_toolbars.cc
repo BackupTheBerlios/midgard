@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.33 2004/05/07 06:17:29 christof Exp $
+// $Id: customize_toolbars.cc,v 1.34 2004/12/16 08:24:52 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -86,7 +86,7 @@ static void CustomizeButton(Gtk::Widget *w, bool show_icons, bool show_text)
 }
 
 void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, bool tab_text)
-{  if (getenv("TRACE")) std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
+{  if (getenv("CT_TRACE")) std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
    if (!show_icons && !show_text) show_text=true;
    if (!show_icons && !tab_text) tab_text=true;
    if (dynamic_cast<ManuProC::ChoiceButton*>(w))
@@ -113,7 +113,7 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
 #endif
          {  CustomizeToolbars(ch,show_icons,show_text,tab_text);
          }
-         else if (getenv("TRACE"))
+         else if (getenv("CT_TRACE"))
             std::cout << "skipping tb child " 
          	<< (ch?ch->get_name():"<NULL>")
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION<=2
@@ -153,7 +153,7 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
    }
    else if (dynamic_cast<Gtk::Container*>(w))
    {  // und nun ?
-      if (getenv("TRACE")) std::cout << typeid(*w).name() << '\n';
+      if (getenv("CT_TRACE")) std::cout << typeid(*w).name() << '\n';
    }
 }
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.128 2004/01/30 23:29:46 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.129 2004/12/16 08:24:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,6 +45,7 @@ assert(active);
    table_lernschema->button_angeborene_fert->set_sensitive(true);
    table_lernschema->button_beruf->set_sensitive(true);
 #endif   
+   getChar().proxies.wizard_mode=Wizard::Aus;
 }
 
 void midgard_CG::Schummeln()

@@ -1,17 +1,19 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
-- beim Laden wird nicht alles richtig angezeigt
-- Praxispunkte/Scroll nicht richtig aktiv/inaktiv
-? funktionieren Verzeichnisse unter Windows? (z.B. tmp)
-- Wizard
-- Zusatz etc in Dialog tun
-? ChoiceButtons überprüfen
-- GFP, Steigertage, nocht X GFP werden bei Neulernen nicht aktualisiert
-	(zuviel Refresh bei Gradanstieg etc?)
 - Umsortieren des oberen Baumes nicht möglich (häh?)
 - Baum klappt nicht bis zu gewählter Tiefe auf !!!
-- Icons in Statusleiste im falschen Zustand (NSC, Original)
 - Menü bewirkt gar nichts (?)
-- Zeilen verdoppeln sich beim Lernen (?)
+- beim Laden wird nicht alles richtig angezeigt
+- Praxispunkte/Scroll nicht richtig aktiv/inaktiv
+####
+
+? funktionieren Verzeichnisse unter Windows? (z.B. tmp)
+- Wizard
+? GFP, Steigertage, nocht X GFP werden bei Neulernen nicht aktualisiert
+- (zuviel Refresh bei Gradanstieg etc?)
+? Zeilen verdoppeln sich beim Lernen
+- alle MBTrees sollten auf clicks reagieren (statt select)
+- statt on_leaf_selected_alte_fert2 kann MidgardBasicElement_leaf_alt genommen werden
+		(abgesehen vom bool Rückgabewert)
 
 Bugreport Sanni:
 Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
@@ -33,6 +35,7 @@ Dazu kommen sporadische Segfaults.
 	- Spezialwaffe etc.
 - aktiver Wizard sollte focus und page direkt setzen (und wenn möglich
 	machen)
+- Zusatz etc in Dialog tun
 ######################################################################
 
 #### das finde ich (CP) beunruhigend #################################

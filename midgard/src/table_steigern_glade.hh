@@ -199,7 +199,7 @@ protected:
 private:
         virtual void on_steigern_zusatz_leaf_selected(cH_RowDataBase leaf) = 0;
         virtual void on_leaf_selected_alte_fert(cH_RowDataBase leaf) = 0;
-        virtual void on_leaf_selected_alte_fert2(const MBEmlt &leaf) = 0;
+        virtual void on_leaf_selected_alte_fert2(cH_RowDataBase leaf) = 0;
         virtual void on_alte_fert_reorder() = 0;
         virtual void on_leaf_selected_neue_fert(cH_RowDataBase leaf) = 0;
         virtual void on_leaf_selected_alte_waffen(cH_RowDataBase leaf) = 0;
