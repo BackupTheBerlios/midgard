@@ -3,37 +3,32 @@
 <head>
   <title>Fenster - Lernschemata</title>
   <map name="Main_Win_LS">
-  <area shape=rect coords="1,1,340,33" href="Main_Reiter.html">
-  <area shape=rect coords="6,40,293,86" href="#BUT">
-  <area shape=rect coords="30,95,375,171" href="#LP-EDIT-2">
-  <area shape=rect coords="1,176,404,432" href="#LSCHEM">
+    <area shape=rect coords="1,1,340,33" href="Main_Reiter.html">
+    <area shape=rect coords="16,37,396,84" href="#BUT">
+    <area shape=rect coords="1,88,459,179" href="#LP-EDIT-2">
+    <area shape=rect coords="157,180,305,208" href="#BERUF">
   </map>
   <map name="LS_But">
-  <area shape=rect coords="6,6,88,76" href="#LAND">
-  <area shape=rect coords="99,6,179,76" href="#DICE_LP">
-  <area shape=rect coords="181,6,263,76" href="#EDIT_LP">
-  <area shape=rect coords="272,6,354,76" href="#MONEY">
-  <area shape=rect coords="356,6,436,76" href="#RUEST">
-  </map>
-  <map name="LS_TAB">
-  <area shape=rect coords="3,6,130,50" href="#TFERT">
-  <area shape=rect coords="132,6,231,50" href="#TWAF">
-  <area shape=rect coords="233,6,334,50" href="#TZAUB">
-  <area shape=rect coords="336,6,425,50" href="#TBER">
+    <area shape=rect coords="1,1,80,70" href="#LAND">
+    <area shape=rect coords="82,1,218,70" href="#ANGEB">
+    <area shape=rect coords="230,1,309,70" href="#DICE_LP">
+    <area shape=rect coords="311,1,393,70" href="#EDIT_LP">
+    <area shape=rect coords="402,1,484,70" href="#MONEY">
+    <area shape=rect coords="488,1,565,70" href="#RUEST">
   </map>
 </head>
 <body>
   <a name="TOP"></a>
   <h2>Lernschemata</h2>
   <p>
-  <img src="image/LSchema-66.png" usemap="#Main_Win_LS" alt="Hauptfenster des MCG - Grundwerte" border="0" width="673" height="385">
+  <img src="image/LSchema-66.png" usemap="#Main_Win_LS" alt="Hauptfenster - Lernschemata" border="0" width="677" height="384">
   <p>
-  <div align="center">Zurück zur <a href="Main_Reiter.html">Vorseite</a></div><br>
+  <div align="center">Zurück zur <a href="element.html">Vorseite</a></div><br>
   <p>
   <a name="BUT"></a>
   <h3>Die Buttons im Fenster 'Lernschemata':</h3><p>
   (Mit der Maus auswählen)<p>
-  <img src="image/LS-Buttons.png" usemap="#LS_But" border="0" width="443" height="86">
+  <img src="image/LS-Buttons.png" usemap="#LS_But" border="0" width="567" height="71">
   <p>
   <div align="center"><a href="#TOP"><font size="-1">zum Seitenanfang</font></a></div>
   <a name="TOP_BUT"></a>
@@ -43,6 +38,18 @@
   <img src="image/But_LAND.png" alt="Button: Herkunftsland auswählen" width="82" height="71" align="left" border="0" hspace="5">
   <b>Herkunftsland wählen:</b><br>
   Über diesen Button wird das Herkunftsland des Abenteurers ausgewählt.<br clear=all>
+  <P>
+  <a name="ANGEB"></a>
+  <img src="image/But_LS-F_Angeb.png" alt="Button: Herkunftsland auswählen" width="137" height="70" align="left" border="0" hspace="5" vspace="5">
+  <img src="image/WIN-AngebFert.png" alt="Auswahl: Angeborene Fertigkeiten" width=341 height=316 hspace=5 align="right" border=0>
+  <b>Angeborene Fertigkeiten:</b><br>
+  Um die angeborenen Fertigkeiten zu ermitteln dient dieser Button.
+  Es gibt zwei Wege, auf welchen der Angeborenen Fertigkeit ermittelt werden können.<br>
+  Durch einen Druck auf die <i>linke Maustaste</i> wird eine Fertigkeit zufällig ausgwürfelt.<br>
+  Mit der <i>rechten Maustaste</i> öffnet sich ein Auswahlfenster (Abb.: rechts).<br>
+  In dem Auswahlfenster können eine oder mehrere angeborene Fertigkeiten mit der Maus
+  selektiert werden.<br clear=all>
+
   <p>
   <a name="DICE_LP"></a>
   <img src="image/But_LernP-D.png" alt="Button: Lernpunkte würfeln" width="82" height="70" align="left" border="0" hspace="5">
@@ -56,15 +63,15 @@
   <p>
   <a name="MONEY"></a>
   <img src="image/But_G-u-W.png" alt="Button: Geld und Waffen auswürfeln" width="82" height="71" align="left" border="0" hspace="5">
-  <b>Geld und Waffen:</b><br>
-  Hinter diesem Button verbirgt sich die Möglichkeit, Geld und Waffen für den Abenteurer auszuwürfeln oder alternativ auszuwählen.<br clear=all>
-  <p>
   <img src="image/WIN-G_u_W.png" alt="Fenster: Geld und Waffen" width="334" height="174" border="0" align="right" hspace="5">
-  <b>Fenster: Waffen und Geld</b><br>
-  Zunächst wird bestimmt, ob Geld, bzw. Waffen ausgewählt oder ausgewürfelt werden. (Würfeln ist voreingestelt).
-  Es kann jeweils nur einmal für Geld oder Waffen gewürfelt werden. Sobald ein Button betätigt wurde, ist er nicht
-  mehr auswählbar ('Geisterschrift')<br clear=all>
-  <p>
+  <b>Geld und Waffen:</b><br>
+  Hinter diesem Button verbirgt sich die Möglichkeit, Geld und Waffen für den Abenteurer auszuwürfeln oder alternativ auszuwählen.<br>
+  Es öffnet sich das nebenstehende Fenster (rechts):<br>
+  Hier wird zunächst bestimmt, ob Geld, bzw. Waffen ausgewählt oder ausgewürfelt werden sollen (Würfeln ist voreingestelt).<br>
+
+  Es kann jeweils nur einmal für Geld oder Waffen gewürfelt werden. Sobald ein Button betätigt wurde, steht er nicht
+  mehr zur Auswahl ('Geisterschrift')<br clear=all>
+  <p></p>
   <a name="RUEST"></a>
   <img src="image/But_RS.png" alt="Button: Rüstung würfeln" width="83" height="70" align="left" border="0" hspace="5">
   <b>Rüstung würfeln:</b><br>
@@ -74,49 +81,83 @@
   <p>
 
   <a name="LP-EDIT-2"></a>
-  <h3>Lernpunkte editieren:</h3>
-  <img src="image/LPunkt-Edit.png" alt="Lernpunkte editieren" width="533" height="116" align="left" border="0" hspace="5"><br clear=all><br>
-  Nachdem der Button 'Lernpunkte editieren' betätigt wurde, sind die Felder der einzelnen Lernpunkte editierbar.<br>
-  Mittels der Pfeile können Lernpunkte aus den Bereichen 'Fachkenntnisse' und 'Waffen' in den Bereich 'Ungewöhnliche Fertigkeiten
-  transferiert werden. Es wird je Klick ein Lernpunkt übertragen.<br>
+  <h3>Lernpunkte und Lernschemata:</h3>
+  <img src="image/LPunkt-Edit.png" alt="Lernpunkte editieren" width="687" height="144" align="left" border="0" hspace="5"><br clear=all><br>
+  Dieser Punkt umfaßt 3 Bereiche:<br>
+  In der obersten Zeile sind die Felder für die zu den jeweiligen Fertigkeitsbereichen gehörenden Lernpunkte, die
+  entweder durch Lernpunkte würfeln automatsich bestimmt werden, oder durch werte editieren in das jeweilige Feld eingetragen werden.<br>
+  In der mittleren Reihe befinden sich die Buttons zu den jeweiligen Fertigkeiten.<br>
+  In der untersten Zeile Bewinden sich zwei Pfeile, mit denen Lernpunkte für Fachkenntnisse und Waffen zu Lernpunkten für
+  Ungewöhnliche Fertigkeiten gewandelt werden können.<br>
+  Zusätzlich befindet sich noch ein Auswahl-Button für das Spezielgebiet eines Magiers in dieser Zeile, wenn der
+  Abenteurer ein Magier ist. Bei anderen Abenteurertypen ist dieser Button nicht sichtbar.<br>
   <p>
   <div align="center"><a href="#TOP"><font size="-1">zum Seitenanfang</font></a></div><p>
 
 
   <a name="LSCHEM"></a><p>
-  <h3>Die Lernschemata im Einzelnen:</h3>
+  <h3>Auswahl der Fertigkeiten:</h3>
+  <img src="image/LS-Fert-Select.png" alt="Fertigkeiten: Auswahl" width=460 height=205 hspace=5 align="right" border=0>
+  Die jeweiligen Lernschemata lassen sich mit Hilfe ihres jeweiligen Buttons auswählen.<br> Die zum jeweiligen Schema
+  gehörenden Fähigeiten erscheinen im rechten Teil des Auswahlfensters. Es werden nur Fertigkeiten angezeigt, dernen
+  Voraussetzungen erfüllt sind und für deren Erwerb ausreichend Lernpunkte vorhanden sind.<br>
+  Bereits erworbene Fertigkeiten werden im linken Teil des Fensters aufgelistet<br><p>
   <a name="LSMain"></a>
-  <img src="image/LS-Fert.png" usemap="#LS_TAB" alt="Lernschemata" width="608" height="318" align="left" border="0" hspace="5"><br clear=all>
-  Die verschiedenen Lernschemata lassen sich wieder über die jeweiligen Reiter anwählen. Das Lernschema 'Fertigkeiten'
-  ist von vorneherein geöffnet, allerdings erst nach der Bestimmung der Lernpunkte auswählbar.<br>
+  <h4>Buttons:</h4>
+  <img src="image/BUT-F-FK.png" usemap="#LS_TAB" alt="Button: Lernschema, Fachkenntnisse" width="120" height="38" align="left" border="0" hspace="5">
+  <b>Fachkenntnisse:</b><br>
+  Zur Auswahl stehen die  Erlernbaren Fachkenntnisse.<br>
   <p><br>
 
   <a name="TFERT"></a>
-  <a href="LS-Fert.html"><img src="image/TAB-LS-Fertigkeit.png" alt="Reiter: Lernschema Fertigkeit" width=129 height=49 hspace=5 align="left" border=0></a>
-  <b>Fähigkeiten</b><br>
-  Dieser Reiter führt zu der Auswahl der erlernten, sowie der angeborenen Fertigkeiten.<br clear=all>
+  <img src="image/BUT-F-ALLG.png" alt="Button: Lernschema Allgemeine Fertigkeiten" width="100" height="38" hspace="5" align="left" border="0">
+  <b>Allgemeine Fertigkeiten</b><br>
+   Die verfügbaren Allgemeinen Fertigkeiten.<br clear=all>
   <p>
 
-  <a name="TWAF"></a>
-  <a href="LS-Waf.html"><img src="image/TAB-LS-Waffen.png" alt="Reiter: Lernschema Waffen" width="103" height="44" hspace="5" align="left" border="0"></a>
-  <b>Waffen</b><br>
-  Hier erhält der Abenteurer die Waffenfertigkeiten, die er zu Begin seiner Laufbahn beherrscht.<br clear=all>
+  <img src="image/BUT-F-UNG.png" alt="Button: Lernschema Ungewöhnliche Fertigkeiten" width="121" height="39" hspace="5" align="left" border="0">
+  <b>Ungewöhnliche Fertigkeiten</b><br>
+  Auswahl de Ungewöhnlichen Fertigkeiten.<br clear=all>
   <p>
 
-  <a name="TZAUB"></a>
-  <a href="LS-Zauber.html"><img src="image/TAB-LS-Zauber.png" alt="Reiter: Lernschema Zauber" width="106" height="45" hspace="5" align="left" border="0"></a>
+  <img src="image/BUT-F-WAF.png" alt="Button: Lernschema Waffenfertigkeiten" width="106" height="38" hspace="5" align="left" border="0">
+  <b>Waffenfertigkeiten:</b><br>
+  Die erlernbaren Waffenfertigkeiten.<br clear=all>
+  <p>
+
+  <img src="image/BUT-F-ZAU.png" alt="Button: Lernschema Zauber" width="207" height="38" hspace="5" align="left" border="0">
   <b>Zauber:</b><br>
-  Magiekundige Abenteurer wählen hier ihre Zauber aus, die sie von Anfang an beherrschen.<br>
-  Dieses Lernschema ist nur sichtbar, wenn der Abenteurertyp Magie berherrscht.<br clear=all>
+  Die Erlernbaren Zauber.<br clear=all>
   <p>
-
-  <a name="TBER"></a>
-  <a href="LS-Beruf.html"><img src="image/TAB-LS-Beruf.png" alt="Reiter: Lernschema Beruf" width="94" height="45" hspace="5" align="left" border="0"></a>
-  <b>Beruf:</b><br>
-  Der Beruf des Abenteurers wird hier festgelegt.<br clear=all>
+  <br>
+  <div align="center"><a href="#TOP"><font size="-1">zum Seitenanfang</font></a></div>
   <p>
+  <a name="BERUF"></a>
+  <h3>Berufswahl:</h3>
+  <img src="image/BUT-F-BER.png" alt="Button: Auswahl Beruf" width="117" height="39" hspace="5" align="left" border="0">
+  Es bestehen zwei Möglichkeiten, wie ein Beruf ausgewählt werden kann:<br clear=all><br>
 
-  <p><br>
+  <img src="image/BUT_Beruf_Eingabe.png" alt="Button: Eingabe, Beruf" width="279" height="44" hspace="5" border="0" align="right">
+  <i>rechte Maustaste:</i><br>
+  Neben dem Button erscheint ein Eingabefeld. In dieses kann ein Beruf direkt eingegeben werden.
+  In diesem Fall wird jedoch keine mit dem Beruf verbundene Fertigkeit berücksichtigt.<br clear=all>
+  <p>
+  <img src="image/WIN-Beruf_I.png" alt="Fenster: Berufauswahl" width=467 height=267 hspace=5 align="right" border=0>
+  <i>linke Maustaste:</i><br>
+  Der Wert für den Beruf wird ausgewürfelt und es öffnet sich ein Auswahfenster, welches die verfügbaren Berufe und
+  die mit ihnen verbundenen Fertigkeiten auflistet.<br> <p>
+  <img src="image/BUT_Beruf_Dice.png" alt="Button: Beruf auswürfeln" width=57 height=55 hspace=5 align="left" border=0><br>
+  Der Button "Würfeln" hat zwei Funktionen:<br>
+  Die <i>linke Maustaste</i> ermöglicht es, den Wert für die Berufsauswahl erneut auzuwürfeln.<br><p>
+  <img src="image/BUT_Beruf_Dice_Sel.png" alt="Button: Berufswert eingeben" width=110 height=57 hspace=5 align="left" border=0><br>
+  Die <i>rechte Maustaste</i> öffnet ein Eingabefeld:<br>
+  Hier kann der Berufswert direkt eingegeben werden.<br><p>
+  Der eigentliche Berufsfertigkeit wird durch die Selektion einer mit ihr verbundenen Fertigkeit bestimmt.<br>
+  <br clear=all>
+
+
+
+  <br>
   <div align="center"><a href="#TOP"><font size="-1">zum Seitenanfang</font></a></div>
   <p>
 </body>
