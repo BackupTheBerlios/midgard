@@ -1,0 +1,75 @@
+// $Id: land_sprache_exp.pgcc,v 1.1 2001/11/14 15:28:32 christof Exp $
+/*  Midgard Roleplaying Character Generator
+ *  Copyright (C) 2001 Christof Petig
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+#include <fstream>
+#include <Aux/Transaction.h>
+#include <Aux/dbconnect.h>
+exec sql include sqlca;
+#include "export_common.h"
+
+// wegen eines bugs in epcg <=V6.1
+#define GARNIX 
+
+void land_speichern(std::ostream &o)
+{  
+   o << "<MidgardCG-data>\n";
+
+   Transaction t;
+   exec sql allocate descriptor spalten;
+   exec sql declare land_curs cursor for
+   	select land, kontinent, sprache
+   	from land
+   	order by kontinent,land;
+   exec sql open land_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch land_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   o << "  <Land";
+   fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_string_attrib(is, o, "Kontinent");
+   fetch_and_write_string_attrib(is, o, "Sprache");
+   o << "/>\n";
+  }
+   exec sql close land_curs;
+   SQLerror::test(__FILELINE__);
+
+//******************************************************************
+   o << "</MidgardCG-data>\n";
+   
+   exec sql deallocate descriptor spalten;
+}
+
+int main(int argc, char *argv[])
+{  
+   try{
+      Petig::Connection conn;
+      conn.setDbase("midgard");
+      Petig::dbconnect(conn);
+
+   std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
+   land_speichern(std::cout);
+   Petig::dbdisconnect();
+   } catch (SQLerror &e)
+   {  std::cerr << e << '\n';
+   }
+   return 0;
+}

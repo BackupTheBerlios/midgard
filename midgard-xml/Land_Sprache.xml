@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MidgardCG-data>
+  <Land Name="Feuerinseln" Kontinent="Huaxal" Sprache="Stammesdialekte"/>
+  <Land Name="Inseln unter dem Westwind" Kontinent="Huaxal" Sprache="Trll"/>
+  <Land Name="Inseln unter dem Westwind" Kontinent="Huaxal" Sprache="Nahuatlanisch"/>
+  <Land Name="Nahuatlan" Kontinent="Huaxal" Sprache="Nahuatlanisch"/>
+  <Land Name="Buluga" Kontinent="Lamaran" Sprache="Bulugi"/>
+  <Land Name="Eschar" Kontinent="Lamaran" Sprache="Scharidisch"/>
+  <Land Name="Eschar" Kontinent="Lamaran" Sprache="Meketisch"/>
+  <Land Name="Eschar" Kontinent="Lamaran" Sprache="Kelwisch"/>
+  <Land Name="Ikenga Becken" Kontinent="Lamaran" Sprache="Stammesdialekte"/>
+  <Land Name="Küstenstaaten" Kontinent="Lamaran" Sprache="Neu Vallinga"/>
+  <Land Name="Urruti" Kontinent="Lamaran" Sprache="Hurritisch"/>
+  <Land Name="Urruti" Kontinent="Lamaran" Sprache="Luwisch"/>
+  <Land Name="Dvarheim" Kontinent="Nichtmenschen" Sprache="Dvarskar"/>
+  <Land Name="Elfen" Kontinent="Nichtmenschen" Sprache="Eldalyn"/>
+  <Land Name="Gnome" Kontinent="Nichtmenschen" Sprache="Gnomenon"/>
+  <Land Name="Halfdal" Kontinent="Nichtmenschen" Sprache="Halftan"/>
+  <Land Name="Aran" Kontinent="Sirao" Sprache="Aranisch"/>
+  <Land Name="Aran" Kontinent="Sirao" Sprache="Maralinga"/>
+  <Land Name="KanThaiPan" Kontinent="Sirao" Sprache="KanThaiTun"/>
+  <Land Name="Medjis" Kontinent="Sirao" Sprache="Medjisisch"/>
+  <Land Name="Minangpahit" Kontinent="Sirao" Sprache="Minangpahitisch"/>
+  <Land Name="Moravod" Kontinent="Sirao" Sprache="Moravisch"/>
+  <Land Name="Rawindra" Kontinent="Sirao" Sprache="Rawindi"/>
+  <Land Name="Tegarische Steppe" Kontinent="Sirao" Sprache="Tegarisch"/>
+  <Land Name="Tegarische Steppe" Kontinent="Sirao" Sprache="Berekusch"/>
+  <Land Name="Tegarische Steppe" Kontinent="Sirao" Sprache="Läinisch"/>
+  <Land Name="Waeland" Kontinent="Sirao" Sprache="Waelska"/>
+  <Land Name="Valian" Kontinent="Valian" Sprache="Maralinga"/>
+  <Land Name="Valian" Kontinent="Valian" Sprache="Vallinga"/>
+  <Land Name="Alba" Kontinent="Vesternesse" Sprache="Albisch"/>
+  <Land Name="Alba" Kontinent="Vesternesse" Sprache="Altoqua"/>
+  <Land Name="Alba" Kontinent="Vesternesse" Sprache="Dunathisch"/>
+  <Land Name="Chryseia" Kontinent="Vesternesse" Sprache="Chryseisch"/>
+  <Land Name="Chryseia" Kontinent="Vesternesse" Sprache="Maralinga"/>
+  <Land Name="Clanngadarn" Kontinent="Vesternesse" Sprache="Twyneddisch"/>
+  <Land Name="Erainn" Kontinent="Vesternesse" Sprache="Erainnisch"/>
+  <Land Name="Erainn" Kontinent="Vesternesse" Sprache="Hochcoraniaid"/>
+  <Land Name="Fuardain" Kontinent="Vesternesse" Sprache="Twyneddisch"/>
+  <Land Name="Vesternesse" Kontinent="Vesternesse" Sprache="Comentang"/>
+  <Land Name="Ywerdon" Kontinent="Vesternesse" Sprache="Twyneddisch"/>
+  <Land Name="Ywerdon" Kontinent="Vesternesse" Sprache="Erainnisch"/>
+</MidgardCG-data>

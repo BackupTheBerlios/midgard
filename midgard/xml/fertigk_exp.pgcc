@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.6 2001/11/14 08:17:54 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.7 2001/11/14 15:28:32 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -30,16 +30,16 @@ void fert_speichern(std::ostream &o)
 {  
    Transaction t;
    exec sql allocate descriptor spalten;
-   exec sql declare c cursor for
+   exec sql declare fert_curs cursor for
    	select fertigkeit, region, 
    		lp as lernpunkte, anfangswert0, fp, anfangswert, attribut
    	from fertigkeiten
    	order by region,fertigkeit;
-   exec sql open c;
+   exec sql open fert_curs;
    SQLerror::test(__FILELINE__);
    o << "<MidgardCG-data>\n";
   while (true)
-  {exec sql fetch c into sql descriptor spalten;
+  {exec sql fetch fert_curs into sql descriptor spalten;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
    FetchIStream is("spalten");
@@ -111,10 +111,98 @@ void fert_speichern(std::ostream &o)
    }
    
    o << "  </Fertigkeit>\n";
-   // Lernschemata, Wer wie leicht etc.
   }
-   exec sql close c;
+   exec sql close fert_curs;
    SQLerror::test(__FILELINE__);
+
+//********************* angeborene Fertigkeiten ********************
+   exec sql declare angeb_curs cursor for
+   	select name, min, max, wert
+   	from angeborene_fertigkeiten
+   	order by name;
+   exec sql open angeb_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch angeb_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   o << "  <angeboreneFertigkeit";
+   fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_int_attrib(is, o, "Min");
+   fetch_and_write_int_attrib(is, o, "Max");
+   fetch_and_write_int_attrib(is, o, "Wert");
+   o << "/>\n";
+  }
+   exec sql close angeb_curs;
+   SQLerror::test(__FILELINE__);
+
+//********************* Berufe ********************
+   exec sql declare beruf_curs cursor for
+   	select beruf, region, lernpunkte, st, ge, ko, "in", zt, pa, au, sb, 
+   		typ, geschlecht
+   	from berufe_voraussetzung
+   	order by region, beruf;
+   exec sql open beruf_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch beruf_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   o << "  <Beruf";
+   std::string beruf=fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_int_attrib(is, o, "Lernpunkte");
+   o << ">\n";
+   o << "    <Voraussetzungen";
+   fetch_and_write_int_attrib(is, o, "St");
+   fetch_and_write_int_attrib(is, o, "Ge");
+   fetch_and_write_int_attrib(is, o, "Ko");
+   fetch_and_write_int_attrib(is, o, "In");
+   fetch_and_write_int_attrib(is, o, "Zt");
+   fetch_and_write_int_attrib(is, o, "pA");
+   fetch_and_write_int_attrib(is, o, "Au");
+   fetch_and_write_int_attrib(is, o, "Sb");
+   fetch_and_write_typ_attrib(is, o, "Typ");
+   fetch_and_write_string_attrib(is, o, "Geschlecht");
+   o << "/>\n";
+   {  exec sql begin declare section;
+      const char *BERUF=beruf.c_str(GARNIX);
+      char STAND[10][40];
+      char VORTEIL[10][40];
+      exec sql end declare section;
+      
+      exec sql select stand into :STAND from berufe_stand
+      	where beruf=:BERUF
+      	order by stand;
+      if (!sqlca.sqlcode) 
+      {  o << "    <Stand>";
+         for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << STAND[i];
+            if (i+1 < sqlca.sqlerrd[2]) o << ',';
+         }
+         o << "</Stand>\n";
+      }
+
+      exec sql select vorteil into :VORTEIL from berufe_vorteile
+      	where beruf=:BERUF
+      	order by vorteil;
+      if (!sqlca.sqlcode) 
+      {  o << "    <Vorteil>";
+         for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << VORTEIL[i];
+            if (i+1 < sqlca.sqlerrd[2]) o << ',';
+         }
+         o << "</Vorteil>\n";
+      }
+   }
+   o << "  </Beruf>\n";
+  }
+   exec sql close beruf_curs;
+   SQLerror::test(__FILELINE__);
+
+//******************************************************************
    o << "</MidgardCG-data>\n";
    
    exec sql deallocate descriptor spalten;
