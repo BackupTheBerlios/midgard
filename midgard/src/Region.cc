@@ -22,7 +22,7 @@
 
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
-Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
+Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(epic typ,bool tiny)
 {  std::string name="pinguin.xpm";
    if      (typ==Eschar)     name="Eschar-trans-50.xpm";
    else if (typ==KanThaiPan) name="KiDo-trans-50.xpm";
@@ -39,14 +39,14 @@ Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(epic typ,Midgard_Optionen::IconI
    else if (typ==Abenteuer)  name="Abwehr-50.xpm";
 
    Glib::RefPtr<Gdk::Pixbuf> res=MagusImage(name);
-   if (tiny && ii!=Midgard_Optionen::Ulf && !res.is_null())
+   if (tiny && !res.is_null() && res->get_height()>26)
       res=res->scale_simple(int(res->get_width()*26.0/res->get_height()+.5),
       				26,Gdk::INTERP_BILINEAR);
    return res;
 }
 
-Gtk::Image *RegionenPic::Pic(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
-{  return manage(new Gtk::Image(PicModel(typ,ii,tiny)));
+Gtk::Image *RegionenPic::Pic(epic typ,bool tiny)
+{  return manage(new Gtk::Image(PicModel(typ,tiny)));
 }
 
 cH_Region::cache_t cH_Region::cache;
@@ -86,8 +86,8 @@ Region::Region(const Tag *tag)
   jahr=tag->getAttr("Jahr");
   offiziell=tag->getBoolAttr("offiziell");
   pic=RegionenPic::epic(tag->getIntAttr("MAGUS-Bild",tag->getIntAttr("MCG-Bild")));
-  region_pix=RegionenPic::PicModel(pic,Midgard_Optionen::Self);
-  region_pix_small=RegionenPic::PicModel(pic,Midgard_Optionen::Self,true);
+  region_pix=RegionenPic::PicModel(pic);
+  region_pix_small=RegionenPic::PicModel(pic,true);
 }
 
 bool Region::setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active)

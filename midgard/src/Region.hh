@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.35 2003/04/24 11:51:00 christof Exp $               
+// $Id: Region.hh,v 1.36 2003/05/07 00:01:37 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -38,8 +38,8 @@ class RegionenPic
    enum epic {None, Rawindra,KanThaiPan,Alba,Eschar,Gildenbrief,HD,Waeland,
               Nahuatlan,Arkanum,DFR,Meister_der_Sphaeren,Tipps_und_Tricks,
               Abenteuer,HD_finster,Kuestenstaaten,Ikengabecken};
-   static Gtk::Image* Pic(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
-   static Glib::RefPtr<Gdk::Pixbuf> PicModel(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
+   static Gtk::Image* Pic(epic e,bool tiny=false) ;
+   static Glib::RefPtr<Gdk::Pixbuf> PicModel(epic e,bool tiny=false) ;
 };
 
 
