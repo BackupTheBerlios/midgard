@@ -21,6 +21,38 @@
 #include "Data_NewPreis.hh"
 #include <Misc/mystring.h>
 
+class MyTreeStore : public Gtk::TreeStore
+{	MyTreeStore(const Gtk::TreeModelColumnRecord& cols) 
+		: Gtk::TreeStore(cols) {}
+	virtual bool drag_data_get_vfunc(const Gtk::TreeModel::Path& path, GtkSelectionData* selection_data);
+	virtual bool drag_data_delete_vfunc(const Gtk::TreeModel::Path& path);
+	virtual bool drag_data_received_vfunc(const TreeModel::Path& dest, GtkSelectionData* selection_data);
+public:
+	static Glib::RefPtr<MyTreeStore> MyTreeStore::create(const Gtk::TreeModelColumnRecord& cols)
+	{  MyTreeStore *x=new MyTreeStore(cols);
+ 	   x->reference();
+	   return Glib::RefPtr<MyTreeStore>(x);
+	}
+};
+
+bool MyTreeStore::drag_data_get_vfunc(const Gtk::TreeModel::Path& path, GtkSelectionData* selection_data)
+{ 
+std::cerr << "drag_data_get " << path.to_string() << ':' << selection_data->target << '\n'; 
+   return false;
+}
+
+bool MyTreeStore::drag_data_delete_vfunc(const Gtk::TreeModel::Path& path)
+{ 
+std::cerr << "drag_data_delete " << path.to_string() << '\n'; 
+   return false;
+}
+
+bool MyTreeStore::drag_data_received_vfunc(const TreeModel::Path& dest, GtkSelectionData* selection_data)
+{ 
+std::cerr << "drag_data_received " << dest.to_string() << ':' << selection_data->target << '\n'; 
+   return false;
+}
+
 void table_ausruestung::on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,
                                      GtkSelectionData   *selection_data,
                                      guint               info,
@@ -76,7 +108,9 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 #endif                          
 
   Ausruestung_tree=manage(new Gtk::TreeView());
-  m_refStore= Gtk::TreeStore::create(m_columns);
+  m_refStore= MyTreeStore::create(m_columns);
+  Ausruestung_tree->enable_model_drag_source();
+  Ausruestung_tree->enable_model_drag_dest();
   Ausruestung_tree->set_model(m_refStore);
   Ausruestung_tree->append_column("Titel",m_columns.name);
   Ausruestung_tree->append_column("Material",m_columns.material);

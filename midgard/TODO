@@ -16,9 +16,6 @@ was bedeutet:
    on_eventbox_beschreibung_button_release_event
    on_eventbox_ausruestung_button_release_event
 
-- kurai hinter table_kido_steigern
-- arkanum hinter table133
-- dfr3 hinter table_lernschema
 
 ---
 
@@ -42,7 +39,7 @@ was bedeutet:
 
 - set_remember fehlt ganz (ist auch nicht notwendig)
 
-- Wizard implementieren
+- !!! Wizard implementieren
 
 - mehrere Fenster, Neustart des Fensters
 
@@ -62,16 +59,15 @@ was bedeutet:
 - Lizenz
 
 - Hintergrundbilder ?
-
-- Exit
+- kurai hinter table_kido_steigern
+- arkanum hinter table133
+- dfr3 hinter table_lernschema
 
 - vabenteurer->getLernpunkte()  => (*vabenteurer)->getLernpunkte()
 
 - Grafik löschen können
 
 - Auf vereinheitlichten FileRequester umstellen (slot)
-
-- 1. Grafik zentrieren
 
 - Spezialisierung?
 
@@ -81,15 +77,12 @@ was bedeutet:
 
 - viele Buttons haben keine Tooltips wenn die Schrift abgestellt ist
 
-- Zufall Grad1 stürzt ab
-
 - Neuanzeigen wieder nach Tabs trennen (schneller!)
 
 - Lernschema: Würfeln/Eingeben Button noch getrennt
 
-- hide 2: Praxispunkte*SpinButton, clist rechts 
-- hide 4: Beschreibung des Artikels (optional)
-
-- Endlosschleife beim Beenden
+- hide 4: Beschreibung des Artikels (optional) ??
 
 - Absturz bei Landauswahl
+
+- Zufall: steigern inaktiv?

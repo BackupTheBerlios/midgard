@@ -149,7 +149,7 @@ void midgard_CG::on_schlie__en1_activate()
    {loeschen:
       AbenteurerAuswahl::Chars.erase(getChar().actualIterator());
       if (AbenteurerAuswahl::Chars.empty()) on_schliessen_CG_clicked();
-      aktiver.setAbenteurer(AbenteurerAuswahl::Chars.begin());
+      else aktiver.setAbenteurer(AbenteurerAuswahl::Chars.begin());
    }
    else
    {  MagusDialog d(this);
@@ -166,9 +166,8 @@ void midgard_CG::on_schliessen_CG_clicked()
   while (!AbenteurerAuswahl::Chars.empty())
   {  VAbenteurer::iterator i=getChar().actualIterator();
      on_schlie__en1_activate();
-     if (!AbenteurerAuswahl::Chars.empty() 
-		     	&& getChar().actualIterator()==i) 
-	return; // Abbruch
+     if (AbenteurerAuswahl::Chars.empty()) break;
+     if (getChar().actualIterator()==i) return; // Abbruch
   }
 
   std::string filename="magus_optionen.xml";

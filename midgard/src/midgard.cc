@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.76 2003/12/15 23:17:06 christof Exp $
+// $Id: midgard.cc,v 1.77 2004/01/02 09:22:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -95,14 +95,14 @@ int main(int argc, char **argv)
    Gtk::Main m(&argc, &argv,true); 
    if (!getenv("NOSPLASH")) 
   {
-std::cerr << "composing images\n";
+//std::cerr << "composing images\n";
    Load0=MagusImage("MAGUS-Logo.png")->copy();
    Load1=Load0->copy();
    MagusImage("Loading.png")->composite(Load0,0,0,Load0->get_width(),Load0->get_height(),
    		0,0,1,1,Gdk::INTERP_NEAREST,255);
    MagusImage("Version.png")->composite(Load1,0,0,Load1->get_width(),Load1->get_height(),
    		0,0,1,1,Gdk::INTERP_NEAREST,255);
-std::cerr << "displaying images\n";
+//std::cerr << "displaying images\n";
    progresswin=new Gtk::Window(Gtk::WINDOW_POPUP);
    progresswin->set_position(Gtk::WIN_POS_CENTER_ALWAYS);
    progresswin->set_type_hint(Gdk::WINDOW_TYPE_HINT_SPLASHSCREEN);

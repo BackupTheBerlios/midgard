@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.331 2003/12/15 23:17:06 christof Exp $
+// $Id: midgard_CG.cc,v 1.332 2004/01/02 09:22:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -155,75 +155,6 @@ void midgard_CG::init_statusbar()
   frame_regionen_status->add(*hb_regionen_status);
 }
 
-#if 0
-void midgard_CG::set_region_statusbar(RegionenPic_enum::epic pic,bool active)
-{
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  for(std::vector<st_reg_status>::const_iterator i=vec_region_status.begin();i!=vec_region_status.end();++i)
-   {
-     if(i->name==pic)
-      {
-        if(active) i->pix->show();
-        else i->pix->hide();
-        return;
-      }
-   }
-}
-#endif
-
-#if 0
-void midgard_CG::fill_IconVec()
-{
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  // InfoFenster
-  IconVec.push_back(st_buttons(InfoFenster->button_bestaetigen,iJa));
-  IconVec.push_back(st_buttons(InfoFenster->button_abbrechen,iNein));
-  IconVec.push_back(st_buttons(InfoFenster->button_info_ok,iOK));
-  IconVec.push_back(st_buttons(InfoFenster->button_erase,iErase));
-  // Grundwerte
-  IconVec.push_back(st_buttons(table_grundwerte->button_grundwerte,iEigenschaften));
-  IconVec.push_back(st_buttons(table_grundwerte->button_abg_werte,iAbgeleitet));
-  IconVec.push_back(st_buttons(table_lernschema->button_angeborene_fert,iAngeFert));
-  IconVec.push_back(st_buttons(table_grundwerte->eventbox_werte_edit,iEditGrund));
-  // Lernschema
-  IconVec.push_back(st_buttons(table_lernschema->button_lernpunkte,iLernpunkte));
-  IconVec.push_back(st_buttons(table_lernschema->togglebutton_lernpunkte_edit,iLernEdit));
-  IconVec.push_back(st_buttons(table_lernschema->button_beruf,iBeruf));
-  IconVec.push_back(st_buttons(table_lernschema->button_angeborene_fert,iAngeFert));
-  IconVec.push_back(st_buttons(table_lernschema->button_lernschema_geld,iGeld));
-  IconVec.push_back(st_buttons(table_lernschema->button_lernschema_waffen,iWaffen));
-  IconVec.push_back(st_buttons(table_lernschema->button_ruestung,iRuestung));
-  IconVec.push_back(st_buttons(table_lernschema->button_ausruestung,iAusruestung));
-  // Steigern
-  IconVec.push_back(st_buttons(table_steigern->button_grad_basiswerte,iEigenschaft));
-//  IconVec.push_back(st_buttons(table_steigern->eventbox_eppp_steigern,???));
-  IconVec.push_back(st_buttons(table_steigern->radiobutton_steigern,iButtonSteigern));
-  IconVec.push_back(st_buttons(table_steigern->radiobutton_reduzieren,iButtonReduce));
-  IconVec.push_back(st_buttons(table_steigern->radiobutton_verlernen,iButtonVerlernen));
-  // Beschreibung
-  IconVec.push_back(st_buttons(table_beschreibung->button_grafik,iBildeinfuegen));
-  IconVec.push_back(st_buttons(table_beschreibung->button_beschreibung_drucken,iPrint));
-  // Ausrüstung
-  IconVec.push_back(st_buttons(table_ausruestung->button_ausruestung_loeschen,iDeleteAusr));
-
-  IconVec.push_back(st_buttons(togglebutton_delete_abenteurer_aus_liste,iDeleteA));
-  //////////////////////////////////////////////////////////////////////////
-  IconVecBin.push_back(st_buttons(eventbox_wizard_aktiv,iStatusWizard));
-  IconVecBin.push_back(st_buttons(eventbox_NSC_aktiv,iStatusNPC));
-  //////////////////////////////////////////////////////////////////////////
-  IconVec.push_back(st_buttons(eventbox_credits,iNotebookCredit));
-  IconVec.push_back(st_buttons(eventbox_grundwerte,iNotebookGrundwerte));
-  IconVec.push_back(st_buttons(eventbox_lernen,iNotebookLernen));
-  IconVec.push_back(st_buttons(eventbox_steigern,iNotebookSteigern));
-//future  IconVec.push_back(st_buttons(eventbox_beschreibung,iNotebookBeschreibung));
-//future  IconVec.push_back(st_buttons(eventbox_ausruestung,iNotebookAusruestung));
-  IconVec.push_back(st_buttons(eventbox_optionen,iNotebookOptionen));
-  IconVec.push_back(st_buttons(eventbox_geschichte,iNotebookNEWS));
-  IconVec.push_back(st_buttons(eventbox_zufall,iNotebookZufall));
-
-}
-#endif
-
 void midgard_CG::WizardBeenden() { on_wizard_beenden_activate(); }
 void midgard_CG::AndererAbenteurer() 
 {  getChar().signal_anderer_abenteurer()(); 
@@ -258,9 +189,14 @@ void midgard_CG::grundwerte_background_create()
       	faktor_y=gfloat(h)/pb->get_height();
       if (faktor_x>faktor_y) faktor_y=faktor_x;
       else faktor_x=faktor_y;
-      Glib::RefPtr<Gdk::Pixbuf> pb_scaled=
-      	pb->scale_simple(gint(faktor_x*pb->get_width()),gint(faktor_y*pb->get_height()),Gdk::INTERP_HYPER);
-      pm->draw_pixbuf(gc,pb_scaled,0,0,0,0,-1,-1,Gdk::RGB_DITHER_NORMAL,0,0);
+      int pbw=gint(faktor_x*pb->get_width()+.5),
+      	  pbh=gint(faktor_y*pb->get_height()+.5);
+      if (pbw<w) pbw=w; // make absolutely sure that it is bigger
+      if (pbh<h) pbh=h;
+      Glib::RefPtr<Gdk::Pixbuf> pb_scaled
+      		=pb->scale_simple(pbw,pbh,Gdk::INTERP_HYPER);
+std::cout << w << ',' << h << ' ' << pbw << ',' << pbh << '\n';      		
+      pm->draw_pixbuf(gc,pb_scaled,(pbw-w)/2,(pbh-h)/2,0,0,w,h,Gdk::RGB_DITHER_NORMAL,0,0);
       Glib::RefPtr<Gtk::Style> st=grundwerte_background->get_style()->copy();
       st->set_bg_pixmap(Gtk::STATE_NORMAL,pm);
       grundwerte_background->set_style(st);

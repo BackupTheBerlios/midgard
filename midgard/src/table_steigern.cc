@@ -45,6 +45,7 @@ void table_steigern::refresh()
 
   spinbutton_eigenschaften_grad_anstieg->hide();  
   load_for_page(notebook_lernen->get_current_page());
+ togglebutton_praxispunkte->set_active(false);
 }
 
 void table_steigern::init(midgard_CG *h)
@@ -221,4 +222,7 @@ table_steigern::table_steigern(GlademmData *_data)
    _m->signal_toggled().connect(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled),true);
    eventbox_eppp_steigern->add(*_m);
    eventbox_eppp_steigern->show_all();
+     vbox_praxispunkte->hide();
+     spinbutton_pp_eingeben->hide();
+ scrolledwindow_landauswahl->hide();
 }

@@ -46,13 +46,6 @@ void table_ausruestung::refresh()
    fill_new_preise();
 }
    
-#if 0   
-void table_ausruestung::ausruestung_laden()
-{
-  showAusruestung();
-}
-#endif
-
 void table_ausruestung::showAusruestung()
 {
 //  hauptfenster->getAben().setStandardAusruestung();
