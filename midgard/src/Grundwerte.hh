@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.46 2002/06/14 07:14:08 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.47 2002/06/17 07:19:45 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -256,6 +256,8 @@ public:
    
 
    int get_Steigern_EP_Prozent() const {return steigern_EP_prozent;}
+   int gold_kosten(int kosten) const;
+   int ep_kosten(int kosten) const;
    int get_Grad_Basiswerte() const {return grad_basiswerte;}
    void set_Grad_Anstieg(int p,int b)
               { steigern_EP_prozent=p; grad_basiswerte=b; }

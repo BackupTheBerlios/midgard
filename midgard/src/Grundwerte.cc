@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.31 2002/06/16 21:08:11 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.32 2002/06/17 07:19:45 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -377,3 +377,19 @@ std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<MidgardBasicEle
  return s;
 }
 
+int Grundwerte::gold_kosten(int kosten) const
+{
+  int g=int(kosten * (100-get_Steigern_EP_Prozent())/100. + 0.5);
+  int e=ep_kosten(kosten);
+  
+  if(g+e != kosten) g= kosten-e; // Wg. Rundungsproblemen
+  return g;
+}
+
+
+int Grundwerte::ep_kosten(int kosten) const
+{
+  int i =int(kosten * get_Steigern_EP_Prozent()/100. +0.5);
+  return i;
+}
+      

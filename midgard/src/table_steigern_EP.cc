@@ -97,9 +97,8 @@ void table_steigern::desteigern(unsigned int kosten)
    }
   else 
    {
-     gold_k = (int)(0.5+kosten 
-               * ((100-hauptfenster->getCWerte().get_Steigern_EP_Prozent())/100.));
-     ep_k = (int)(0.5+kosten * (hauptfenster->getCWerte().get_Steigern_EP_Prozent()/100.));
+     gold_k = hauptfenster->getCWerte().gold_kosten(kosten);
+     ep_k = hauptfenster->getCWerte().ep_kosten(kosten);
    }
   if( !hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
   set_lernzeit(-ep_k,Nichts);
@@ -271,8 +270,8 @@ int table_steigern::PP_vorrat(const MidgardBasicElement_mutable *MBE,e_was_steig
 int table_steigern::EP_kosten(const int kosten)
 {
   int ep_k;
-  if(radiobutton_unterweisung->get_active()) //+0.5 zum runden
-      ep_k = (int)(0.5 + kosten * (hauptfenster->getCWerte().get_Steigern_EP_Prozent()/100.));
+  if(radiobutton_unterweisung->get_active())
+      ep_k = hauptfenster->getCWerte().ep_kosten(kosten);
   else
       ep_k = (int)(kosten);
   return ep_k;
@@ -304,8 +303,7 @@ int table_steigern::genug_geld(const int kosten)
 {
   if(!radiobutton_unterweisung->get_active())
      return 0; // keine Untreweisung => kein Geld nötig
-  // +0.5 zum runden
-  int gold_k = (int)(0.5 + kosten * (100-hauptfenster->getCWerte().get_Steigern_EP_Prozent())/100.);
+  int gold_k = hauptfenster->getCWerte().gold_kosten(kosten);
   if( !hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
   if (gold_k > hauptfenster->getCWerte().Gold()) 
     { hauptfenster->set_status("Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-hauptfenster->getCWerte().Gold())+" Gold."); 

@@ -135,24 +135,27 @@ void table_steigern::show_goldeingabe(bool b)
 
 void table_steigern::zeige_werte()
 {
-   gfp->set_text(itos(hauptfenster->getCWerte().GFP()));
+   const Grundwerte &W=hauptfenster->getCWerte();
+   gfp->set_text(itos(W.GFP()));
+
+   steigern_gtk();
   
-   label_s_grad->set_text(itos(hauptfenster->getCWerte().Grad()));
-   label_s_ap->set_text(itos(hauptfenster->getCWerte().AP()));
-   label_s_abwehr->set_text(itos(hauptfenster->getCWerte().Abwehr_wert()));
-   label_s_zaubern->set_text(itos(hauptfenster->getCWerte().Zaubern_wert()));
-   label_s_resistenz->set_text(itos(hauptfenster->getCWerte().Resistenz()));
-   label_pp_abwehr->set_text(itos(hauptfenster->getCWerte().AbwehrPP()));
-   label_pp_zaubern->set_text(itos(hauptfenster->getCWerte().ZaubernPP()));
-   label_pp_spezial->set_text(itos(hauptfenster->getCWerte().SpezialPP()));
-   label_pp_resistenz->set_text(itos(hauptfenster->getCWerte().ResistenzPP()));
-   label_steigertage->set_text(dtos1(hauptfenster->getCWerte().Steigertage()));
-   label_alter->set_text(itos(hauptfenster->getCWerte().Alter()));
-   label_grad_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,hauptfenster->getCWerte()));
-   label_ausdauer_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,hauptfenster->getCWerte()));
-   label_abwehr_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,hauptfenster->getCWerte()));
-   label_resistenz_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,hauptfenster->getCWerte()));
-   std::string z=hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,hauptfenster->getCWerte());
+   label_s_grad->set_text(itos(W.Grad()));
+   label_s_ap->set_text(itos(W.AP()));
+   label_s_abwehr->set_text(itos(W.Abwehr_wert()));
+   label_s_zaubern->set_text(itos(W.Zaubern_wert()));
+   label_s_resistenz->set_text(itos(W.Resistenz()));
+   label_pp_abwehr->set_text(itos(W.AbwehrPP()));
+   label_pp_zaubern->set_text(itos(W.ZaubernPP()));
+   label_pp_spezial->set_text(itos(W.SpezialPP()));
+   label_pp_resistenz->set_text(itos(W.ResistenzPP()));
+   label_steigertage->set_text(dtos1(W.Steigertage()));
+   label_alter->set_text(itos(W.Alter()));
+   label_grad_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,W));
+   label_ausdauer_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,W));
+   label_abwehr_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
+   label_resistenz_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,W));
+   std::string z=hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,W);
    if(!hauptfenster->getCChar().CTyp1()->is_mage() && !hauptfenster->getCChar().CTyp2()->is_mage()) z="";
    label_zauber_GFP->set_text(z);
 
@@ -161,12 +164,12 @@ void table_steigern::zeige_werte()
   checkbutton_gfp->set_active(false);
   on_button_gfp_s_toggled();
 
-  steigern_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht()));
-  if (hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht())!="")
-      steigern_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht())
-            +"/"+hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht()));
+  steigern_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(W.Geschlecht()));
+  if (hauptfenster->getCChar().CTyp2()->Name(W.Geschlecht())!="")
+      steigern_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(W.Geschlecht())
+            +"/"+hauptfenster->getCChar().CTyp2()->Name(W.Geschlecht()));
 
-  label_steigern_spezies->set_text(hauptfenster->getCWerte().Spezies()->Name());
+  label_steigern_spezies->set_text(W.Spezies()->Name());
 
   if (hauptfenster->getCChar().is_mage())  table_magier_steigern->show() ;
   else                 table_magier_steigern->hide() ;
