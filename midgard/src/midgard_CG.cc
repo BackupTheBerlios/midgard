@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.246 2002/07/01 08:49:29 christof Exp $
+// $Id: midgard_CG.cc,v 1.247 2002/07/01 08:57:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -91,7 +91,7 @@ std::string midgard_CG::with_path(const std::string &name,bool path_only,bool no
   V.push_back(magus_verzeichnis);
 #ifndef __MINGW32__
   V.push_back(PACKAGE_DATA_DIR);
-  V.push_back(PACKAGE_DATA_DIR+"/docs/");
+  V.push_back(std::string(PACKAGE_DATA_DIR)+"/docs/");
   V.push_back(std::string(currentwd)+"/../xml/");
   V.push_back(std::string(currentwd)+"/../docs/");
 #else
