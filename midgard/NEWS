@@ -7,6 +7,7 @@ NEWS IN VERSION 0.1delta3
 * Praxispunkte für Abwehr/Zauber/Resistenz: speichern, laden, setzen, anzeigen
 * Lernen von Zaubersprüchen für einige Chrakterklassen mit PP
 * Maximale Erfolgswerte für Fertigkeiten, Sprachen, Schriften und Waffen 
+* XML loading and merging (off by default)
 
 TODO:
 * Die Ausrüstung kann noch nicht geladen werden

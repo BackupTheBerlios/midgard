@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.12 2002/01/03 09:20:33 christof Exp $
+// $Id: xml.cc,v 1.13 2002/01/03 09:35:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -109,7 +109,7 @@ static const char * const std_matching[] = { "Name",0 };
 static const char * const ep_matching[] = { "Fertigkeit",0 };
 static const char * const grad_matching[] = { "Grad",0 };
 static const char * const typ_matching[] = { "Abkürzung",0 };
-static const char * const zauberwerk_matching[] = { "Name","Stufe",0 };
+static const char * const zauberwerk_matching[] = { "Name","Art","Stufe",0 };
 static const char * const preis_matching[] = { "Ware",0 }; // Region?
 static const char * const modifikation_matching[] = { "Art","Bezeichnung",0 };
 static const char * const waff_steig_matching[] = { "Schwierigkeit",0 };
