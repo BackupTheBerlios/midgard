@@ -83,11 +83,13 @@ void Ausnahmen::Ausnahmen_string(const std::string& name,
   for(std::map<st_index1,Data_Ausnahmen>::const_iterator i=map_ausnahmen.begin();i!=map_ausnahmen.end();++i)
    {
      if (i->second.Name()!=name) continue;
+cout <<name<<' '<< standard[0]<<' '<<standard[1]<<'\t';
      if (i->first.typ == Typ[0]->Short() || (Typ[1]->Short()!= "" && i->first.typ == Typ[1]->Short()))
       {
         if ( (i->first.spezies  !="" && i->first.spezies  == Werte.Spezies()->Name() ) || 
              (i->first.herkunft !="" && i->first.herkunft == Werte.Herkunft()->Name() )) 
           i->second.Standard(standard);
+cout << i->first.typ<<' '<<Typ[0]->Short()<<' ';
       }
      if (i->first.stand != "" && i->first.stand==Werte.Stand() )
           i->second.Standard(standard);
@@ -95,6 +97,7 @@ void Ausnahmen::Ausnahmen_string(const std::string& name,
           i->second.Standard(standard);
      for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Beruf.begin();j!=list_Beruf.end();++j)
       if(i->first.beruf==(*j)->Name())  i->second.Standard(standard);
+cout <<'\n';
    }
 }
 

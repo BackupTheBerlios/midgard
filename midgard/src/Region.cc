@@ -45,6 +45,7 @@ Gtk::Pixmap *RegionenPic::Pic(epic typ)
    else if (typ==Arkanum)    return manage(new Gtk::Pixmap(Regio_Arkanum_50_xpm));
    else if (typ==Gildenbrief)return manage(new Gtk::Pixmap(Regio_Gilde_50_xpm));
    else if (typ==HD)         return manage(new Gtk::Pixmap(Regio_H_u_D_50_xpm));
+   else if (typ==Abenteuer)  return manage(new Gtk::Pixmap(Regio_H_u_D_50_xpm));
    else return manage(new Gtk::Pixmap(pinguin_xpm));
    abort();
 }
