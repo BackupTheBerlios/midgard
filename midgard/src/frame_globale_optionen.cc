@@ -48,7 +48,7 @@ void frame_globale_optionen::init()
  table->attach(*hseparator, 0, 1, count, count+1, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
  ++count;
  
- std::list<Optionen::st_OptionenCheck> &L2=hauptfenster->getChar()->getOptionen().getOptionenCheck();
+ std::list<Optionen::st_OptionenCheck> &L2=hauptfenster->getAben().getOptionen().getOptionenCheck();
  for(std::list<Optionen::st_OptionenCheck>::iterator i=L2.begin();i!=L2.end();++i)
   {
    bool_CheckButton *cb = manage(new bool_CheckButton(hauptfenster->getChar().proxies.checks[i->index],i->text));
@@ -67,7 +67,7 @@ void frame_globale_optionen::init()
  Gtk::Label *label = Gtk::manage(new class Gtk::Label("Hausregeln"));
  table->attach(*label, 0, 1, count, count+1, Gtk::AttachOptions(0), Gtk::AttachOptions(0), 0, 0);
  ++count;
- std::list<Optionen::st_Haus> &L3=hauptfenster->getChar()->getOptionen().getHausregeln();
+ std::list<Optionen::st_Haus> &L3=hauptfenster->getAben().getOptionen().getHausregeln();
  for(std::list<Optionen::st_Haus>::iterator i=L3.begin();i!=L3.end();++i)
   {
    bool_CheckButton *cb = manage(new bool_CheckButton(hauptfenster->getChar().proxies.hausregeln[i->index],i->text));

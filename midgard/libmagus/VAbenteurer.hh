@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.8 2003/09/18 07:32:12 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.9 2003/11/24 16:21:42 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,82 +23,96 @@
 
 #include "Abenteurer.hh"
 #include "AbenteurerLernpunkte.hh"
-#include "Undo.hh"
-#include "VAbentModelProxy.hh"
-#include <sigc++/object.h>
 #include "Wizard.hh"
+#include <sigc++/object.h>
+#include "VAbentModelProxy.hh"
 
-class VAbenteurer : public SigC::Object // um signale zu empfangen
+class VAbenteurer // : public SigC::Object // um signale zu empfangen
 {
    public:
-      struct st_abenteurer : VAbentModelProxy::divert_base
-      {			// fÃ¼r Undo wichtig (mehrfach vorhanden)
-      			    Abenteurer abenteurer;
-       			    AbenteurerLernpunkte ab_lp;
-       			    Wizard wizard;
+	struct st_undo : VAbentModelProxy::divert_base
+	{	std::string text; // Bezeichnung des UndoSchrittes
+		Abenteurer abenteurer;
+       		AbenteurerLernpunkte ab_lp;
+       		Wizard wizard;
        			    // ... z.B. wie steigern etc ...
-       			   // global 
-      			   std::string filename;
-      			   Midgard_Undo undo;
-                           bool gespeichert;
-             st_abenteurer(const Abenteurer &A,bool g) : abenteurer(A),ab_lp(abenteurer),gespeichert(g) {}
-             st_abenteurer() : abenteurer(Abenteurer()),ab_lp(abenteurer),gespeichert(true){} 
-             bool operator==(const st_abenteurer& a) const 
-               {return abenteurer.Name_Abenteurer()==a.abenteurer.Name_Abenteurer() &&
-                       abenteurer.Version() == a.abenteurer.Version() ;}
-      };
+       		st_undo(const Abenteurer &a) : 
+       			text("geladen?"), 
+       			abenteurer(a)
+       			{}
+	};
+	class Item : public VAbentModelProxy::divert_base, public SigC::Object
+	{	std::vector<st_undo> undos;
+		// Einfügen und löschen können den Iterator gerne ungültig machen,
+		// er muss so oder so neu gesetzt werden
+       		// global 
+		std::vector<st_undo>::iterator current_undo;
+		SigC::Signal0<void> _signal_undo_changed;
+		std::string filename;
+		bool bgespeichert;
+
+		void divert_proxy();
+	public:
+		typedef std::vector<st_undo>::const_iterator const_iterator;
+		typedef std::vector<st_undo>::iterator iterator;
+		
+		const_iterator begin() const { return undos.begin(); }
+		const_iterator end() const { return undos.end(); }
+		const_iterator getUndo() const { return current_undo; }
+		void setUndo(const_iterator it);
+
+		VAbentModelProxy proxies; // proxy ist erforderlich um mit dem richtigen
+			// Model in den Undoschritten zu arbeiten
+		
+		Item(const Abenteurer &A=Abenteurer(),bool g=true) : bgespeichert(g) 
+		{  undos.push_back(st_undo(A)); current_undo=undos.begin(); }
+		
+		Abenteurer &getAbenteurer() { return current_undo->abenteurer; }
+		AbenteurerLernpunkte &getLernpunkte() { return current_undo->ab_lp; }
+		Wizard &getWizard() { return current_undo->wizard; }
+		const Abenteurer &getAbenteurer() const { return current_undo->abenteurer; }
+		const AbenteurerLernpunkte &getLernpunkte() const { return current_undo->ab_lp; }
+		const Wizard &getWizard() const { return current_undo->wizard; }
+		void modified() {bgespeichert=false;}
+		void saved() {bgespeichert=true;}
+		bool gespeichert() const {return bgespeichert;}
+		void setFilename(std::string s) {filename=s;}
+		const std::string &getFilename() {return filename;}
+		// einen Undoschritt abschließen und benennen
+		void undosave(const std::string &s);
+		SigC::Signal0<void> &signal_undo_changed()
+		{  return _signal_undo_changed; }
+	};
+	
+	typedef Item st_abenteurer; // old name
+	typedef std::list<Item>::const_iterator const_iterator;
+	typedef std::list<Item>::iterator iterator;
    private:
-      std::list<st_abenteurer> VA;
+	std::list<Item> VA;
+	SigC::Signal0<void> list_changed;
 
       class sort {
         public: sort() {}
-        bool operator()(st_abenteurer x,st_abenteurer y) const
-          { return x.abenteurer.Gw() < y.abenteurer.Gw() ;
+        bool operator()(const Item &x,const Item &y) const
+          { return x.getAbenteurer().Gw() < y.getAbenteurer().Gw() ;
           }
       };
-      void divert_proxy();
       
-      std::list<st_abenteurer>::iterator ai;
-      SigC::Signal0<void> sig_anderer;
    public:
-      VAbentModelProxy proxies;
-
-   public:
-      VAbenteurer();
+   
+//      VAbenteurer();
       
-      const std::list<st_abenteurer> &getList() const {return VA;}
-      std::list<st_abenteurer> &getList() {return VA;}
+      const std::list<Item> &getList() const {return VA;}
+      std::list<Item> &getList() {return VA;}
       void sort_gw() {VA.sort(sort());}
-      void push_back();
+      iterator push_back(); // kein Argument???
       bool unsaved_exist();
       bool empty() const {return VA.empty();}
       size_t size() const {return VA.size();}
+      iterator end() { return VA.end(); }
+      iterator begin() { return VA.begin(); }
       void delete_empty();
-
-      // these operate on the concept of a current character
-      std::list<st_abenteurer>::iterator actualIterator();
-      std::list<st_abenteurer>::const_iterator actualIterator() const;
-      const Abenteurer &getCAbenteurer() const {return actualIterator()->abenteurer;}
-      const Abenteurer &getAbenteurer() const {return actualIterator()->abenteurer;}
-      Abenteurer &getAbenteurer() {return actualIterator()->abenteurer;}
-      void setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::iterator &i);
-//      void set_Abenteurer(const Abenteurer& A);
-      SigC::Signal0<void> &signal_anderer_abenteurer() { return sig_anderer; }
-
-      void modified() {actualIterator()->gespeichert=false;}
-      void saved() {actualIterator()->gespeichert=true;}
-      bool gespeichert() const {return actualIterator()->gespeichert;}
-      void setFilename(std::string s) {actualIterator()->filename=s;}
-      const std::string &getFilename() {return actualIterator()->filename;}
-      AbenteurerLernpunkte &getLernpunkte() { return actualIterator()->ab_lp; }
-      const AbenteurerLernpunkte &getLernpunkte() const { return actualIterator()->ab_lp; }
-      Wizard &getWizard() { return actualIterator()->wizard; }
-      Midgard_Undo &getUndo() { return actualIterator()->undo; }
-      void undosave(const std::string &s);
-   const Abenteurer *operator->() const
-   {  return &actualIterator()->abenteurer; }
-   Abenteurer *operator->()
-   {  return &actualIterator()->abenteurer; }
+      SigC::Signal0<void> &signal_changed() { return list_changed; }
 };
 
 #endif

@@ -4,9 +4,9 @@
 
 #include "class_lernpunkte.hh"
 #include "MidgardBasicElement.hh"
-class VAbenteurer;
 class AusruestungBaum;
 class midgard_CG;
+class AbenteurerAuswahl;
 //#include "Waffe.hh"
 //#include "Beruf.hh"
 #include <libmagus/AbenteurerLernpunkte.hh>
@@ -16,7 +16,7 @@ class table_lernschema : public table_lernschema_glade
 //public:
 	enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
 private:
-        VAbenteurer *vabenteurer;
+        AbenteurerAuswahl *vabenteurer;
         midgard_CG *hauptfenster;
         // AbenteurerLernpunkte abent_lernpunkte;
         

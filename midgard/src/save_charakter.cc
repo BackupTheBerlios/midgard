@@ -31,7 +31,7 @@ void midgard_CG::on_speichern()
 
 void midgard_CG::xml_export_auswahl()
 { 
-   if(Char->Name_Abenteurer().empty())
+   if(getAben().Name_Abenteurer().empty())
     { Ausgabe(Ausgabe::ActionNeeded,"Der Abenteurer braucht noch einen Namen"); 
       notebook_main->set_current_page(PAGE_GRUNDWERTE);
       table_grundwerte->NamenEingeben();
@@ -41,19 +41,19 @@ void midgard_CG::xml_export_auswahl()
 
 void midgard_CG::save_existing_filename()
 {
-  if(!Char.getFilename().empty()) xml_export(Char.getFilename());
+  if(!aktiver.getFilename().empty()) xml_export(aktiver.getFilename());
   else                            xml_export_auswahl();
 }
 
 
 void midgard_CG::xml_export(const std::string& dateiname)
 {  
-   if(Char->Name_Abenteurer().empty())
+   if(getAben().Name_Abenteurer().empty())
     { Ausgabe(Ausgabe::ActionNeeded,"Der Abenteurer braucht noch einen Namen"); 
       notebook_main->set_current_page(PAGE_GRUNDWERTE);
       table_grundwerte->NamenEingeben();
       return;}
-   Char.setFilename(dateiname);
+   aktiver.setFilename(dateiname);
    frame_steigern->set_sensitive(true);
 
    std::ofstream datei(dateiname.c_str());
@@ -62,8 +62,8 @@ void midgard_CG::xml_export(const std::string& dateiname)
       Ausgabe(Ausgabe::Error,"Ich kann die Datei '"+dateiname+"' nicht beschreiben");
       return;
    }
-  Char->speicherstream(datei);
-  Char.saved();   
+  getAben().speicherstream(datei);
+  aktiver.saved();   
   push_back_LDateien(dateiname);
   if(notebook_main->get_current_page() == PAGE_NEWS)
       load_for_mainpage(PAGE_NEWS);

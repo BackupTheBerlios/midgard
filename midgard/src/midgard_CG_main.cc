@@ -116,7 +116,7 @@ void midgard_CG::load_for_mainpage(guint pagenr)
    }
  else if(pagenr==PAGE_NEWS)
    {
-    show_undo_tree();
+//    show_undo_tree();
     fill_AbenteurerListe();
    }
  else if(pagenr==PAGE_ZUFALL)
@@ -155,7 +155,7 @@ void midgard_CG::on_news_menu_activate()
 
 void midgard_CG::on_notebook_main_switch_page(GtkNotebookPage *page,guint pagenr)
 {
-   if(Char.empty()) Char.push_back();
+//   if(Char.empty()) Char.push_back();
    load_for_mainpage(pagenr);
 }
 
@@ -189,7 +189,7 @@ void midgard_CG::on_schliessen_CG_clicked()
       filename=magus_paths::MagusVerzeichnis()+"magus_optionen.xml";
 
   Programmoptionen.save_options(filename);
-  if(Char.unsaved_exist())
+  if(AbenteurerAuswahl::Chars.unsaved_exist())
    {
      notebook_main->set_current_page(PAGE_NEWS);
      Ausgabe(Ausgabe::Warning,"Es existieren nichtgespeicherte Abenteurer");

@@ -33,10 +33,9 @@ void table_zufall::on_button_zufall_voll_clicked()
    std::string noinfofenster=Programmoptionen.OberCheck(Magus_Optionen::NoInfoFenster).text;
    Programmoptionen.setOber(noinfofenster,true);
    Abenteurer oldAben; // =hauptfenster->getAben();
-   hauptfenster->getChar().push_back();
-   hauptfenster->AndererAbenteurer();
-   
-   Zufall zufall(hauptfenster->getAben());
+   VAbenteurer::iterator n=AbenteurerAuswahl::Chars.push_back();
+   hauptfenster->getChar().setAbenteurer(n);
+   Zufall zufall(n->getAbenteurer());
 
    try{
    if(!togglebutton_vorgaben->get_active()) zufall.Voll();

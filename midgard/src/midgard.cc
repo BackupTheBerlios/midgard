@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.73 2003/11/03 17:53:21 christof Exp $
+// $Id: midgard.cc,v 1.74 2003/11/24 16:21:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,6 +32,8 @@
 #include <libmagus/magus_paths.h>
 #include "BegruessungsWindow.hh"
 #include "MagusAusgabe.hh"
+#include <libmagus/AbenteurerAuswahl.h>
+#include <fstream>
 
 static const unsigned steps=8;
 static Gtk::Window *progresswin;
@@ -113,14 +115,23 @@ std::cerr << "displaying images\n";
   }
    libmagus_init1(progress);
 
-   std::vector<std::string> dateien;
-   for (int i=1;i<argc;++i) dateien.push_back(argv[i]);
+   for (int i=1;i<argc;++i) 
+   {  std::ifstream fi(argv[i]);
+      VAbenteurer::iterator Char=AbenteurerAuswahl::Chars.push_back();
+      
+      if(!(Char->getAbenteurer().xml_import_stream(fi)))
+        {
+          Ausgabe(Ausgabe::Error,"Laden von "+std::string(argv[i])+" fehlgeschlagen");
+          // löschen !
+        }
+      else Char->setFilename(argv[i]);
+   }
 
 //   setlocale(LC_ALL, "de_DE");
    // WindowInfo erzeugen und an midgard_CG Ã¼bergeben
    WindowInfo *info=new WindowInfo();
    Magus_Ausgabe::attach(info);
-   midgard_CG *magus=new midgard_CG(info,dateien);
+   midgard_CG *magus=new midgard_CG(info,AbenteurerAuswahl::Chars.begin());
    // darf nicht eher geschehen wegen realize (background) als virtuellem callback
    magus->show();
    if (progresswin) { delete progresswin; progresswin=0; imag=0; }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.341 2003/11/13 08:48:22 christof Exp $
+// $Id: midgard_CG.hh,v 1.342 2003/11/24 16:21:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,7 @@
 #include <list>
 #include "Region_GUI.hh"
 #include <TreeViewUtility.h>
-#include <libmagus/VAbenteurer.hh>
+#include <libmagus/AbenteurerAuswahl.h>
 #include <Misc/compiler_ports.h>
 class WindowInfo;
 
@@ -38,13 +38,14 @@ class midgard_CG : public midgard_CG_glade
                                 PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_OPTIONEN,
                                 PAGE_INFO,PAGE_NEWS,PAGE_ZUFALL};
 private:
-        VAbenteurer Char;
+//        VAbenteurer Char;
+	AbenteurerAuswahl aktiver;
 
         TreeViewUtility::CListEmulator news_columns;
         Gtk::Menu *undo_menu;
         Gtk::Menu *menu_kontext;
 
-        Model<bool> schummeln; // weg hier ?!
+        Model<bool> schummeln; // weg hier ?! in Char? Programmoption?
 
 	WindowInfo *InfoFenster;
         SigC::Connection connection_status;
@@ -170,7 +171,7 @@ private:
 	void Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex index);
 
    public:
-        midgard_CG(WindowInfo *inf,const std::vector<std::string> &dateien);
+        midgard_CG(WindowInfo *inf,VAbenteurer::iterator i); // const std::vector<std::string> &dateien);
          ~midgard_CG();
          
          // neue klarere Methoden
@@ -189,10 +190,10 @@ private:
          void xml_import(const std::string& datei);
          void spielleiter_export_save(const std::string& dateiname,const bool full);
 
-        const VAbenteurer &getChar() const {return Char;}
-        VAbenteurer &getChar() {return Char;}
-	const Abenteurer &getAben() const {return Char.getAbenteurer();}
-        Abenteurer &getAben() {return Char.getAbenteurer();}
+        const AbenteurerAuswahl &getChar() const {return aktiver;}
+        AbenteurerAuswahl &getChar() {return aktiver;}
+	const Abenteurer &getAben() const {return aktiver->getAbenteurer();}
+        Abenteurer &getAben() {return aktiver->getAbenteurer();}
 
         void on_auch_unsichtbares_drucken();
         void on_beschreibung_drucken();

@@ -1,4 +1,4 @@
-// $Id: AbenteurerLernpunkte.hh,v 1.5 2003/09/18 07:32:12 christof Exp $               
+// $Id: AbenteurerLernpunkte.hh,v 1.6 2003/11/24 16:21:42 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -56,28 +56,26 @@ private:
 	BerufsKategorie BKategorie;
 	std::vector<int> VGeldwurf;
 	// AbenteurerLernpunkte::GWR_Auswahl gwr_auswahl; ??
-	Abenteurer &a;
 
-	void lernschema_geld_wuerfeln(const std::vector<int>& VGeldwurf);
-   	void setFertigkeitenAusruestung();
+	void lernschema_geld_wuerfeln(Abenteurer &a,const std::vector<int>& VGeldwurf);
+   	void setFertigkeitenAusruestung(Abenteurer &a);
 	static void InfoAusruestung(const std::string &fert_name,
                const std::string &gegen_name,int wurf,int noetig);
 
    public:
-   	AbenteurerLernpunkte(Abenteurer &_a) 
-   		: maxkido(), BKategorie(), a(_a) {}
+   	AbenteurerLernpunkte() : maxkido(), BKategorie() {}
 
-   	void geld_wuerfeln();
-   	void ruestung_auswaehlen(int wprozent);
+   	void geld_wuerfeln(Abenteurer &a);
+   	void ruestung_auswaehlen(Abenteurer &a,int wprozent);
    	
    	// Beruf
-   	void beruf_gewuerfelt(int wurf);
+   	void beruf_gewuerfelt(Abenteurer &a,int wurf);
    	
    	// Fertigkeiten
-   	std::string AngebFert_gewuerfelt(int wurf);
+   	std::string AngebFert_gewuerfelt(Abenteurer &a,int wurf);
    	
-   	void on_button_ruestung_clicked(int wurf);
-   	void ausruestung_setzen();
+   	void on_button_ruestung_clicked(Abenteurer &a,int wurf);
+   	void ausruestung_setzen(Abenteurer &a);
    	
    	int &MaxKido() { return maxkido; }
    	std::vector<int> &getVGeldwurf() { return VGeldwurf; }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.316 2003/11/13 08:48:22 christof Exp $
+// $Id: midgard_CG.cc,v 1.317 2003/11/24 16:21:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,7 +51,7 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
    b->set_relief(Gtk::RELIEF_NONE);
 }
 
-midgard_CG::midgard_CG(WindowInfo *info,const std::vector<std::string> &dateien)
+midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 : news_columns(), undo_menu(),menu_kontext(), schummeln(false),
 	InfoFenster(info)
 { news_columns.attach_to(*list_news);
@@ -86,9 +86,8 @@ midgard_CG::midgard_CG(WindowInfo *info,const std::vector<std::string> &dateien)
   menu_init();
   init_statusbar();
 
-  if (!dateien.empty())
-     for (std::vector<std::string>::const_iterator i=dateien.begin();i!=dateien.end();++i) 
-        xml_import(*i); // Charakter laden
+  if (!AbenteurerAuswahl::Chars.empty())
+	aktiver.setAbenteurer(AbenteurerAuswahl::Chars.begin());
   else if(Programmoptionen.OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
        on_wizard_starten_activate();
   else on_neuer_charakter_clicked();
@@ -107,7 +106,7 @@ midgard_CG::midgard_CG(WindowInfo *info,const std::vector<std::string> &dateien)
 #include"NEWS.h" 
    <<'\n';
    
-  Char.proxies.wizard.signal_changed().connect(SigC::slot(*this,&midgard_CG::wizard_changed));
+  aktiver.proxies.wizard.signal_changed().connect(SigC::slot(*this,&midgard_CG::wizard_changed));
 }
 
 midgard_CG::~midgard_CG()
@@ -127,7 +126,7 @@ void midgard_CG::init_statusbar()
    {
      Gtk::Image *_pix=manage(new Gtk::Image(RegionenPic::PicModel((*i)->Pic(),true)));
      hb_regionen_status->pack_start(*_pix);
-     Gtk::AssociateVisibility(_pix,Char.proxies.regionen[*i]);
+     Gtk::AssociateVisibility(_pix,aktiver.proxies.regionen[*i]);
 //     vec_region_status.push_back(st_reg_status((*i)->Pic(),_pix));
    }
   hb_regionen_status->show();

@@ -24,7 +24,7 @@
 #  define _XML_FILESELECTION_HH
 
 class midgard_CG;
-class VAbenteurer;
+class AbenteurerAuswahl;
 #ifdef __MINGW32__
 #include <string>
 #endif
@@ -40,7 +40,7 @@ class xml_fileselection
   private:
         midgard_CG* hauptfenster;        
         eAction ewas;
-        VAbenteurer &VA;
+        AbenteurerAuswahl &VA;
 
 #ifndef __MINGW32__        
         friend class xml_fileselection_glade;

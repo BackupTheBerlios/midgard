@@ -141,13 +141,13 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
  if (!path.empty() && path[path.size()-1]!=WinLux::dirsep) 
     path+=WinLux::dirsep;
  if(ewas==Pix) 
- {  fname=VA->BeschreibungPix();
+ {  fname=VA->getAbenteurer().BeschreibungPix();
     if (fname.empty()) fname=path;
  }
  else if (ewas==Save) 
- {  fname=VA.getFilename();
+ {  fname=VA->getFilename();
     if (fname.empty()) 
-       fname=path+defFileName(VA->Name_Abenteurer())+".magus";
+       fname=path+defFileName(VA->getAbenteurer().Name_Abenteurer())+".magus";
 #ifdef __MINGW32__
     register_magus(magus_paths::getArgv0());
 #endif 
@@ -156,7 +156,7 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
  {  // path is ok
  }
  else if (ewas==Export) 
- {  fname=path+defFileName(VA->Name_Abenteurer())+".txt";
+ {  fname=path+defFileName(VA->getAbenteurer().Name_Abenteurer())+".txt";
  }
  set_filename(fname);
  

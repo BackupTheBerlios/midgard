@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.44 2003/09/08 06:27:52 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.45 2003/11/24 16:21:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,13 +31,13 @@
 void table_grundwerte::on_button_grundwerte()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active) 
+  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active) 
       button_grundwerte->set_sensitive(false);
   if (Programmoptionen.WerteEingebenModel().Value()) on_togglebutton_edit_werte_toggled();
   else grundwerte_wuerfeln();
   hauptfenster->getChar().getWizard().done(Wizard::GRUNDWERTE,hauptfenster->getAben());
 
-  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
       combo_spezies->set_sensitive(false);
 }
 
@@ -67,7 +67,7 @@ void table_grundwerte::Eigenschaften_variante(int i)
      check_350();
    }
   else 
-   { cH_Spezies spez=hauptfenster->getChar()->Spezies();
+   { cH_Spezies spez=hauptfenster->getAben().Spezies();
 //std::cout << spez->Name() << '\n';
      Veigenschaften.clear();
      Veigenschaften.push_back(st_eigen(est,"die Stärke","St",spez->St()));
@@ -90,8 +90,8 @@ void table_grundwerte::check_350(const std::vector<int>& a)
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   int sum=0;
   if(a.empty())
-   { sum  = hauptfenster->getChar()->St() + hauptfenster->getChar()->Gs() + hauptfenster->getChar()->Gw() 
-          + hauptfenster->getChar()->Ko() + hauptfenster->getChar()->In() + hauptfenster->getChar()->Zt(); 
+   { sum  = hauptfenster->getAben().St() + hauptfenster->getAben().Gs() + hauptfenster->getAben().Gw() 
+          + hauptfenster->getAben().Ko() + hauptfenster->getAben().In() + hauptfenster->getAben().Zt(); 
    }
   else
    {
@@ -103,11 +103,11 @@ void table_grundwerte::check_350(const std::vector<int>& a)
    {  Ausgabe(Ausgabe::Warning,"Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muß aber nicht) noch einmal gewürfelt werden.");
       button_grundwerte->set_sensitive(true);
    }
-  hauptfenster->getChar()->setAu(constraint_aw(
-                                 hauptfenster->getChar()->Spezies()->Au()) );
-  hauptfenster->getChar()->setpA( Random::integer(1,100)-30 
-                                 + 3*(hauptfenster->getChar()->In()/10 
-                                      + hauptfenster->getChar()->Au()/10) );
+  hauptfenster->getAben().setAu(constraint_aw(
+                                 hauptfenster->getAben().Spezies()->Au()) );
+  hauptfenster->getAben().setpA( Random::integer(1,100)-30 
+                                 + 3*(hauptfenster->getAben().In()/10 
+                                      + hauptfenster->getAben().Au()/10) );
   zeige_werte(false);
   fill_typauswahl();
   fill_typauswahl_2();
@@ -120,12 +120,12 @@ void table_grundwerte::check_350(const std::vector<int>& a)
 void table_grundwerte::gw_wuerfeln_2x()
 {   
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
- hauptfenster->getChar()->setBasiswerte(constraint_gw(hauptfenster->getChar()->Spezies()->St()),
-     constraint_gw(hauptfenster->getChar()->Spezies()->Gw()),
-     constraint_gw(hauptfenster->getChar()->Spezies()->Gs()),
-     constraint_gw(hauptfenster->getChar()->Spezies()->Ko()),
-     constraint_gw(hauptfenster->getChar()->Spezies()->In()),
-     constraint_gw(hauptfenster->getChar()->Spezies()->Zt()));
+ hauptfenster->getAben().setBasiswerte(constraint_gw(hauptfenster->getAben().Spezies()->St()),
+     constraint_gw(hauptfenster->getAben().Spezies()->Gw()),
+     constraint_gw(hauptfenster->getAben().Spezies()->Gs()),
+     constraint_gw(hauptfenster->getAben().Spezies()->Ko()),
+     constraint_gw(hauptfenster->getAben().Spezies()->In()),
+     constraint_gw(hauptfenster->getAben().Spezies()->Zt()));
 }
 
 //static inline int max(int a,int b) { return a>b?a:b; }
@@ -300,12 +300,12 @@ void table_grundwerte::set_Grundwerte(e_eigen eigenschaft,int wert)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   switch(eigenschaft) {
-     case est : hauptfenster->getChar()->setSt(wert); break;
-     case egw : hauptfenster->getChar()->setGw(wert); break;
-     case egs : hauptfenster->getChar()->setGs(wert); break;
-     case eko : hauptfenster->getChar()->setKo(wert); break;
-     case ein : hauptfenster->getChar()->setIn(wert); break;
-     case ezt : hauptfenster->getChar()->setZt(wert); break;
+     case est : hauptfenster->getAben().setSt(wert); break;
+     case egw : hauptfenster->getAben().setGw(wert); break;
+     case egs : hauptfenster->getAben().setGs(wert); break;
+     case eko : hauptfenster->getAben().setKo(wert); break;
+     case ein : hauptfenster->getAben().setIn(wert); break;
+     case ezt : hauptfenster->getAben().setZt(wert); break;
      case eMAX : assert(!"never get here");
    }
   ++actual_eigen;

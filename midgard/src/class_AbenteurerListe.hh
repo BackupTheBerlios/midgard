@@ -28,8 +28,8 @@ class Data_AbenteurerListe : public RowDataBase
 
       enum spalten{NAMEA,SAVE,TYP,BEZEICHNUNG,SPEZIES,SPIELER,VER};
    public:
-      Data_AbenteurerListe(const  std::list<VAbenteurer::st_abenteurer>::iterator i) 
-         : it(i), Char(it->abenteurer), saved(it->gespeichert) {}
+      Data_AbenteurerListe(const VAbenteurer::iterator i) 
+         : it(i), Char(it->getAbenteurer()), saved(it->gespeichert()) {}
 //      Data_AbenteurerListe(const VAbenteurer::st_abenteurer& c) 
 //         : Char(c.abenteurer), saved(c.gespeichert) {}
 

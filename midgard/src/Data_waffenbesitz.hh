@@ -1,4 +1,4 @@
-// $Id: Data_waffenbesitz.hh,v 1.11 2003/09/01 06:47:58 christof Exp $
+// $Id: Data_waffenbesitz.hh,v 1.12 2003/11/24 16:21:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,7 +42,7 @@ class Data_waffenbesitz :  public RowDataBase
        {
           switch(seqnr) {
             case NAME_A : return cH_EntryValueIntString(waffe->AliasName());
-            case SCHADEN_A : return cH_EntryValueIntString(waffe->Schaden(hauptfenster->getChar().getAbenteurer(),waffe->AliasName()));
+            case SCHADEN_A : return cH_EntryValueIntString(waffe->Schaden(hauptfenster->getAben(),waffe->AliasName()));
             case REGION : return cH_EntryValueIntString(Regionen_All::
                getRegionfromAbk(Datenbank.Regionen,
                waffe->Waffe()->Region(waffe->AliasName()))->Name());

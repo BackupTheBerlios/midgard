@@ -1,4 +1,4 @@
-// $Id: AbenteurerLernpunkte.cc,v 1.3 2003/09/01 06:47:57 christof Exp $               
+// $Id: AbenteurerLernpunkte.cc,v 1.4 2003/11/24 16:21:42 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -26,7 +26,7 @@
 #include "Datenbank.hh"
 #include "Fertigkeiten_angeboren.hh"
 
-void AbenteurerLernpunkte::ruestung_auswaehlen(int wprozent)
+void AbenteurerLernpunkte::ruestung_auswaehlen(Abenteurer &a,int wprozent)
 	// on_button_ruestung_clicked(int wurf)
 {
   std::string rue;
@@ -76,7 +76,7 @@ void AbenteurerLernpunkte::ruestung_auswaehlen(int wprozent)
              "==> " + a.Ruestung()->Long());
 }
 
-void AbenteurerLernpunkte::beruf_gewuerfelt(int wurf)
+void AbenteurerLernpunkte::beruf_gewuerfelt(Abenteurer &a,int wurf)
 {
   std::string kat=BKategorie.wuerfeln(wurf);
   Ausgabe(Ausgabe::ActionNeeded, kat);
@@ -110,14 +110,14 @@ void AbenteurerLernpunkte::on_beruf_tree_leaf_selected(Abenteurer &A, cH_Beruf b
 
 #endif
 
-void AbenteurerLernpunkte::geld_wuerfeln()
+void AbenteurerLernpunkte::geld_wuerfeln(Abenteurer &a)
 {
      VGeldwurf.clear();
      for(int i=0;i<3;++i) VGeldwurf.push_back(Random::W6());
-     lernschema_geld_wuerfeln(VGeldwurf);
+     lernschema_geld_wuerfeln(a,VGeldwurf);
 }
 
-void AbenteurerLernpunkte::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwurf)
+void AbenteurerLernpunkte::lernschema_geld_wuerfeln(Abenteurer &a,const std::vector<int>& VGeldwurf)
 {
  assert(VGeldwurf.size()==3);
  int igold=0;  
@@ -137,12 +137,12 @@ void AbenteurerLernpunkte::lernschema_geld_wuerfeln(const std::vector<int>& VGel
  a.addGold(igold);  
 }
 
-void AbenteurerLernpunkte::ausruestung_setzen()
+void AbenteurerLernpunkte::ausruestung_setzen(Abenteurer &a)
 { a.setStandardAusruestung();
-  setFertigkeitenAusruestung();
+  setFertigkeitenAusruestung(a);
 }
 
-std::string AbenteurerLernpunkte::AngebFert_gewuerfelt(int wurf)
+std::string AbenteurerLernpunkte::AngebFert_gewuerfelt(Abenteurer &a,int wurf)
 {
   std::string name;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Fertigkeit_ang.begin();i!=Datenbank.Fertigkeit_ang.end();++i)
@@ -157,7 +157,7 @@ std::string AbenteurerLernpunkte::AngebFert_gewuerfelt(int wurf)
  return name;
 }
 
-void AbenteurerLernpunkte::setFertigkeitenAusruestung()
+void AbenteurerLernpunkte::setFertigkeitenAusruestung(Abenteurer &a)
 {
   AusruestungBaum &koerper=a.getBesitz();
   AusruestungBaum &rucksack=a.getAusruestung_as_parent("Rucksack");

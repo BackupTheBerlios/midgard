@@ -31,9 +31,7 @@ class table_grundwerte : public table_grundwerte_glade
 public:
         Model<bool> edit_werte;
         
-        table_grundwerte(GlademmData *_data) 
-            : table_grundwerte_glade(_data), hauptfenster(0),
-              block_changed(false),edit_werte(false),label(0) {}
+        table_grundwerte(GlademmData *_data);
         void init(midgard_CG *hauptfenster);
         void fill_typauswahl();  
         void fill_typauswahl_2();

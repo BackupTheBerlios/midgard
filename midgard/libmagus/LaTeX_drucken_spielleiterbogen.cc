@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.6 2003/09/01 06:47:57 christof Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.7 2003/11/24 16:21:42 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -127,50 +127,49 @@ void LaTeX_drucken::for_each(const VAbenteurer &VA,std::ostream &fout,const ewha
  int maxlength=15;
  std::string cm="2.2cm";
  std::vector<st_is> V;
- for(std::list<VAbenteurer::st_abenteurer>::const_iterator i=VA.getList().begin();i!=VA.getList().end();++i)
+ for(VAbenteurer::const_iterator i=VA.getList().begin();i!=VA.getList().end();++i)
   {
-    const Grundwerte &W=i->abenteurer;
-    const Abenteurer &A=i->abenteurer;
+    const Abenteurer &A=i->getAbenteurer();
     switch(what)
      {
-       case enamespieler : fout << " & "<<LaTeX_scale(W.Name_Spieler(),maxlength,cm) ; break;
-       case enamecharakter : fout << " & "<<LaTeX_scale(W.Name_Abenteurer(),maxlength,cm) ; break;
-       case espez: fout << " & "<<LaTeX_scale(W.Spezies()->Name(),maxlength,cm); break; 
-       case etyp: fout << " & "<<LaTeX_scale(i->abenteurer.STyp(),maxlength,cm); break; 
-       case egrad: fout << " & "<<W.Grad()<<"/"<<W.GFP(); break; 
-       case eherkunft: fout << " & "<<LaTeX_scale(W.Herkunft()->Name(),maxlength,cm); break; 
-       case estand: fout << " & "<<LaTeX_scale(W.Stand(),maxlength,cm); break; 
-       case egestalt: fout << " & "<<LaTeX_scale(W.Gestalt(),maxlength,cm); break; 
-       case ekoerpergroesse: fout << " & "<<W.Groesse()<<" cm"; break; 
-       case egewicht: fout << " & "<<W.Gewicht()<<" kg"; break; 
-       case eBeruf: fout << " & "<<LaTeX_scale(i->abenteurer.Beruf(),maxlength,cm); break; 
-       case eglaube: fout << " & "<<LaTeX_scale(W.Glaube(),maxlength,cm); break; 
-       case est: V.push_back(st_is(W.St())); break;
-       case egw: V.push_back(st_is(W.Gw())); break;
-       case egs: V.push_back(st_is(W.Gs())); break;
-       case eko: V.push_back(st_is(W.Ko())); break;
-       case ein: V.push_back(st_is(W.In())); break;
-       case ezt: V.push_back(st_is(W.Zt())); break;
-       case eau: V.push_back(st_is(W.Au())); break;
-       case epa: V.push_back(st_is(W.pA())); break;
-       case ewk: V.push_back(st_is(W.Wk())); break;
-       case esb: V.push_back(st_is(W.Sb())); break;
+       case enamespieler : fout << " & "<<LaTeX_scale(A.Name_Spieler(),maxlength,cm) ; break;
+       case enamecharakter : fout << " & "<<LaTeX_scale(A.Name_Abenteurer(),maxlength,cm) ; break;
+       case espez: fout << " & "<<LaTeX_scale(A.Spezies()->Name(),maxlength,cm); break; 
+       case etyp: fout << " & "<<LaTeX_scale(A.STyp(),maxlength,cm); break; 
+       case egrad: fout << " & "<<A.Grad()<<"/"<<A.GFP(); break; 
+       case eherkunft: fout << " & "<<LaTeX_scale(A.Herkunft()->Name(),maxlength,cm); break; 
+       case estand: fout << " & "<<LaTeX_scale(A.Stand(),maxlength,cm); break; 
+       case egestalt: fout << " & "<<LaTeX_scale(A.Gestalt(),maxlength,cm); break; 
+       case ekoerpergroesse: fout << " & "<<A.Groesse()<<" cm"; break; 
+       case egewicht: fout << " & "<<A.Gewicht()<<" kg"; break; 
+       case eBeruf: fout << " & "<<LaTeX_scale(A.Beruf(),maxlength,cm); break; 
+       case eglaube: fout << " & "<<LaTeX_scale(A.Glaube(),maxlength,cm); break; 
+       case est: V.push_back(st_is(A.St())); break;
+       case egw: V.push_back(st_is(A.Gw())); break;
+       case egs: V.push_back(st_is(A.Gs())); break;
+       case eko: V.push_back(st_is(A.Ko())); break;
+       case ein: V.push_back(st_is(A.In())); break;
+       case ezt: V.push_back(st_is(A.Zt())); break;
+       case eau: V.push_back(st_is(A.Au())); break;
+       case epa: V.push_back(st_is(A.pA())); break;
+       case ewk: V.push_back(st_is(A.Wk())); break;
+       case esb: V.push_back(st_is(A.Sb())); break;
        case eb: {
            int b=A.Erfolgswert("Laufen").first;
            if(b==-99) b=0;
            else b-=2;
-           int bs= W.B() + b;
+           int bs= A.B() + b;
            V.push_back(st_is(bs)); break;
           }
-       case ezauber: V.push_back(st_is(W.Zaubern_wert())); break;
-       case eabwehr:  V.push_back(st_is(W.Abwehr_wert())); break;
-       case eres: fout << " & "<<W.Resistenzen_alle(); break; 
-       case esinnse: V.push_back(st_is(W.Sehen())); break;
-       case esinnh: V.push_back(st_is(W.Hoeren())); break;
-       case esinnr: V.push_back(st_is(W.Riechen())); break;
-       case esinnsc: V.push_back(st_is(W.Schmecken())); break;
-       case esinnt: V.push_back(st_is(W.Tasten())); break;
-       case esinnss: V.push_back(st_is(W.SechsterSinn())); break;
+       case ezauber: V.push_back(st_is(A.Zaubern_wert())); break;
+       case eabwehr:  V.push_back(st_is(A.Abwehr_wert())); break;
+       case eres: fout << " & "<<A.Resistenzen_alle(); break; 
+       case esinnse: V.push_back(st_is(A.Sehen())); break;
+       case esinnh: V.push_back(st_is(A.Hoeren())); break;
+       case esinnr: V.push_back(st_is(A.Riechen())); break;
+       case esinnsc: V.push_back(st_is(A.Schmecken())); break;
+       case esinnt: V.push_back(st_is(A.Tasten())); break;
+       case esinnss: V.push_back(st_is(A.SechsterSinn())); break;
        case eWahrnehmung:  V.push_back(st_is(A.Erfolgswert("Wahrnehmung"),A.SErfolgswert("Wahrnehmung"))); break;
        case eSpurenlesen: V.push_back(st_is(A.Erfolgswert("Spurenlesen"),A.SErfolgswert("Spurenlesen"))); break;
        case eFallen_entdecken: V.push_back(st_is(A.Erfolgswert("Fallen entdecken"),A.SErfolgswert("Fallen entdecken"))); break;

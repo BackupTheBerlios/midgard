@@ -121,22 +121,22 @@ static void fill_texte()
 }
 
 void midgard_CG::wizard_changed(gpointer x)
-{  if (Char.proxies.wizard.matches(x))
-   {  if (Char.getWizard().getMode().Value()==Wizard::Aus)
+{  if (aktiver.proxies.wizard.matches(x))
+   {  if (aktiver.getWizard().getMode().Value()==Wizard::Aus)
       {  label_wizard->hide();
          // alles sensitiv machen
       }
-      else if (Char.getWizard().getMode().Value()>=Wizard::Hints)
+      else if (aktiver.getWizard().getMode().Value()>=Wizard::Hints)
       {  if (!wizard_beschreibung[Wizard::SPEZIES]) fill_texte();
-         label_wizard->set_text(wizard_beschreibung[Char.proxies.wizard.Value()]
-         		?wizard_beschreibung[Char.proxies.wizard.Value()]
+         label_wizard->set_text(wizard_beschreibung[aktiver.proxies.wizard.Value()]
+         		?wizard_beschreibung[aktiver.proxies.wizard.Value()]
          		:"");
          label_wizard->show();
       }
       // sensitiv?
       // aktiv mithelfen?
-      if (Char.getWizard().getMode().Value()==Wizard::Aktiv)
-      {  Wizard::esteps e=Char.proxies.wizard.Value();
+      if (aktiver.getWizard().getMode().Value()==Wizard::Aktiv)
+      {  Wizard::esteps e=aktiver.proxies.wizard.Value();
 
 	 if(e==Wizard::FERTIG)
 	    on_wizard_beenden_activate();

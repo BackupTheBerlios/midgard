@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.12 2003/09/17 07:28:11 christof Exp $
+// $Id: magus_paths.cc,v 1.13 2003/11/24 16:21:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -132,6 +132,10 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
   append_dir(magus_verzeichnis);
 #ifndef __MINGW32__
   append_dir(std::string(currentwd)+"/../xml/");
+  if (BinaryVerzeichnis().find("/libmagus/.libs")!=std::string::npos)
+     append_dir(BinaryVerzeichnis()+"../../src/");
+  else if (BinaryVerzeichnis().find("/libmagus")!=std::string::npos)
+     append_dir(BinaryVerzeichnis()+"../src/");
 //  append_dir(std::string(currentwd)+"/../docs/");
   append_dir(PACKAGE_DATA_DIR);
 //  append_dir(std::string(PACKAGE_DATA_DIR)+"/docs/");
@@ -157,7 +161,10 @@ std::string magus_paths::with_path(const std::string &name,bool path_only,bool n
         else return n;
       }
    }
-  Ausgabe(Ausgabe::Warning, "File "+name+" nowhere found");
+  std::string path;
+  for(std::vector<std::string>::const_iterator i=paths.begin();i!=paths.end();++i)
+     path=path+*i+":";
+  Ausgabe(Ausgabe::Warning, "File "+name+" not found in "+path);
   if(!noexit) exit(1);
   return("");
 }

@@ -22,7 +22,7 @@
 #include "Random.hh"
 
 Zufall::Zufall(Abenteurer &a) 
-: Aben(a),oldAben(Aben), lernpunkte(a)
+: Aben(a),oldAben(Aben)
           {}
 
 void Zufall::Voll()
@@ -65,10 +65,10 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
    else            Aben.List_Fertigkeit_ang()=oldAben.List_Fertigkeit_ang();
    Lernschema();
    setBeruf();
-   lernpunkte.geld_wuerfeln();
+   lernpunkte.geld_wuerfeln(Aben);
    setWaffenBesitz();
-   lernpunkte.ruestung_auswaehlen(Random::W100());
-   lernpunkte.ausruestung_setzen();
+   lernpunkte.ruestung_auswaehlen(Aben,Random::W100());
+   lernpunkte.ausruestung_setzen(Aben);
 }
 
 extern std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const Abenteurer& Aben,int lp);
@@ -87,7 +87,7 @@ void Zufall::setAngebFert()
          cH_Fertigkeit_angeborene F(V[i]->getMBE());
          Aben.setAngebSinnFert(F->Min(),V[i]);
        }
-      else lernpunkte.AngebFert_gewuerfelt(wurf);
+      else lernpunkte.AngebFert_gewuerfelt(Aben,wurf);
      }while (wurf==100);
   Aben.List_Fertigkeit_ang().sort();
   Aben.List_Fertigkeit_ang().unique();
