@@ -175,7 +175,6 @@ COPY "fertigkeiten"  FROM stdin;
 4	\N	Rechnen	\N	100		\N
 8	1	Körperbemalung	1	400	R	\N
 8	1	Kriegsbemalung	1	400	R	\N
-8	\N		\N	\N	\N	\N
 \.
 --
 -- TOC Entry ID 3 (OID 26665849)
