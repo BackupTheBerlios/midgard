@@ -65,11 +65,11 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
  else if (ewas==Export) set_filename(path);
  
 #ifdef __MINGW32__
+std::cout << "Dateiname " << filename << '\n';
    OPENFILENAME ofn;
    char buf[10240];
 
-//   strncpy(buf,filename.c_str(),sizeof buf);
-   strncpy(buf,(path+hauptfenster->Char.getFilename()).c_str(),sizeof buf);
+   strncpy(buf,filename.c_str(),sizeof buf);
 
    ZeroMemory(&ofn, sizeof (OPENFILENAME));
    ofn.lStructSize = sizeof (OPENFILENAME);
