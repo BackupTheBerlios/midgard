@@ -133,14 +133,13 @@ MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
   if(!allowed_for_grad(M,eNeuLernen)) return st_KI((*M)->Name(),NotAllowedForGrad);
 
   std::string info;
-  bool ok=Aben.neu_lernen(M,info,get_wie_steigern(),get_bool_steigern());
+  bool ok=Aben.neu_lernen(M,info,get_wie_steigern(eNeuLernen),get_bool_steigern());
   if(ok) 
    { gfp-=(*M)->Kosten(Aben);
      Aben.get_known_list(was).push_back(M);
      return st_KI((*M)->Name(),(*M).Erfolgswert(),OK);
    }
- assert(!"never get here");
- abort();
+ return st_KI((*M)->Name(),(*M).Erfolgswert(),NoSteigern); 
 }
 
 
@@ -160,7 +159,7 @@ MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was)
          if(!allowed_for_grad(*i,eSteigern)) return st_KI((*(*i))->Name(),NotAllowedForGrad);
 
          std::string info;
-         bool ok=Aben.steigere(*i,info,get_wie_steigern(),get_bool_steigern());        
+         bool ok=Aben.steigere(*i,info,get_wie_steigern(eSteigern),get_bool_steigern());        
          if(ok) 
            { gfp-=(*i)->Steigern(Aben);
              return st_KI((*(*i))->Name(),(*(*i)).Erfolgswert(),OK);
@@ -297,20 +296,24 @@ int MagusKI::teste_auf_gradanstieg()
    {
      std::string info;
      kosten+=Aben.get_ausdauer(Aben.getWerte().Grad(),Database,info,
-                                get_wie_steigern(),get_bool_steigern());
-     kosten+=Aben.get_ab_re_za(Enums::eAbwehr,get_wie_steigern(),true,Database,info,get_bool_steigern());
-     kosten+=Aben.get_ab_re_za(Enums::eResistenz,get_wie_steigern(),true,Database,info,get_bool_steigern());
-     kosten+=Aben.get_ab_re_za(Enums::eZaubern,get_wie_steigern(),true,Database,info,get_bool_steigern());
+                                get_wie_steigern(eSpeziel),get_bool_steigern());
+     kosten+=Aben.get_ab_re_za(Enums::eAbwehr,get_wie_steigern(eSpeziel),true,Database,info,get_bool_steigern());
+     kosten+=Aben.get_ab_re_za(Enums::eResistenz,get_wie_steigern(eSpeziel),true,Database,info,get_bool_steigern());
+     kosten+=Aben.get_ab_re_za(Enums::eZaubern,get_wie_steigern(eSpeziel),true,Database,info,get_bool_steigern());
      Aben.eigenschaften_steigern(info,Database);
      hauptfenster->set_info(info);
    }  
   return kosten;
 }
 
-const Abenteurer::e_wie_steigern MagusKI::get_wie_steigern()
+const Abenteurer::e_wie_steigern MagusKI::get_wie_steigern(const eSL e)
 {
-//  return Enums::eUnterweisung;
-   return Enums::eSelbststudium;
+  switch(e) {
+   case eNeuLernen : return Enums::eUnterweisung;
+   case eSteigern  : return Enums::eSelbststudium;
+   case eSpeziel   : return Enums::eUnterweisung;
+   }
+  abort();
 }
 
 const Enums::st_bool_steigern MagusKI::get_bool_steigern()

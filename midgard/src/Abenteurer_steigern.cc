@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.15 2002/11/08 21:11:01 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.16 2002/11/20 22:26:10 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -83,7 +83,6 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
     else info+="Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden";
     return false;
   }
-
  // Neue Dinge können nur durch Unterweisung gelernt werden
  // es sei denn es handelt sich um Zaubersprüche
  if((*MBE).What()!=MidgardBasicElement::ZAUBER)   
@@ -425,7 +424,7 @@ void Abenteurer::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicEleme
 void Abenteurer::desteigern(unsigned int kosten,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
   int gold_k=0,ep_k=0;
-  if(wie==Enums::ePraxis || Enums::eSelbststudium) ep_k = kosten ;
+  if(wie==Enums::ePraxis || wie==Enums::eSelbststudium) ep_k = kosten ;
   else
    {  
      gold_k = getWerte().gold_kosten(kosten);
@@ -493,12 +492,14 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
       max_wert = Database.GradAnstieg.get_MaxAbwehr(grad);
       alter_wert = getWerte().Abwehr_wert(); 
       kosten   = Database.GradAnstieg.get_Abwehr_Kosten(alter_wert+1);
+      if(!bsteigern) kosten = Database.GradAnstieg.get_Abwehr_Kosten(alter_wert);
     } 
   else if (was==Enums::eResistenz)
     { 
       max_wert = Database.GradAnstieg.get_MaxResistenz(grad);
       alter_wert = getWerte().Resistenz(); 
       kosten   = Database.GradAnstieg.get_Resistenz_Kosten(alter_wert+1);
+      if(!bsteigern) kosten = Database.GradAnstieg.get_Resistenz_Kosten(alter_wert);
     } 
   else if (was==Enums::eZaubern)
     { 
@@ -507,6 +508,7 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
          max_wert = Database.GradAnstieg.get_MaxZauber(grad);
          alter_wert = getWerte().Zaubern_wert(); 
          kosten   = Database.GradAnstieg.get_Zauber_Kosten(alter_wert+1);
+         if(!bsteigern) kosten = Database.GradAnstieg.get_Zauber_Kosten(alter_wert);
        } 
       else return 0;
     }
@@ -565,16 +567,16 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
   int erh = random.integer(1,6)+1;
   int awko= getWerte().Ko(); //alter_wert;
   int aapb = getWerte().bo_Au(); // alter Wert
-  if( 76<=z && z>=78 ) { was="Stärke";           getWerte().add_St(erh); }
-  if( 79<=z && z>=81 ) { was="Geschicklichkeit"; getWerte().add_Gs(erh); }
-  if( 82<=z && z>=84 ) { was="Gewandheit"; getWerte().add_Gw(erh); }
-  if( 85<=z && z>=87 ) { was="Konstitution"; getWerte().add_Ko(erh); }
-  if( 88<=z && z>=90 ) { was="Intelligenz"; getWerte().add_In(erh); }
-  if( 91<=z && z>=93 ) { was="Zaubertalent"; getWerte().add_Zt(erh); }
-  if( 94<=z && z>=95 ) { was="Selbstbeherrschung"; getWerte().add_Sb(erh); }
-  if( 96<=z && z>=97 ) { was="Willenskraft"; getWerte().add_Wk(erh); }
-  if( 99<=z && z>=99 ) { was="persönliche Ausstrahlung"; getWerte().add_pA(erh); }
-  if (z==100)          { was="Aussehn"; getWerte().add_Au(erh); }
+  if( 76<=z && z<=78 ) { was="Stärke";           getWerte().add_St(erh); }
+  else if( z<=81 ) { was="Geschicklichkeit"; getWerte().add_Gs(erh); }
+  else if( z<=84 ) { was="Gewandheit"; getWerte().add_Gw(erh); }
+  else if( z<=87 ) { was="Konstitution"; getWerte().add_Ko(erh); }
+  else if( z<=90 ) { was="Intelligenz"; getWerte().add_In(erh); }
+  else if( z<=93 ) { was="Zaubertalent"; getWerte().add_Zt(erh); }
+  else if( z<=95 ) { was="Selbstbeherrschung"; getWerte().add_Sb(erh); }
+  else if( z<=97 ) { was="Willenskraft"; getWerte().add_Wk(erh); }
+  else if( z<=99 ) { was="persönliche Ausstrahlung"; getWerte().add_pA(erh); }
+  else if( z==100)          { was="Aussehn"; getWerte().add_Au(erh); }
 
   {
    //Setzen von abgeleiteten Werten, die durch eine Steigerung 
@@ -588,10 +590,7 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
   }
 
   info += was;
-  if (was != "keine Erhöhung" )
-    {
-       info += " um "+itos(erh)+" erhöht.";
-    }
+  if (was != "keine Erhöhung" )  info += " um "+itos(erh)+" erhöht.";
   getWerte().set_Grad_Basiswerte(1+getWerte().get_Grad_Basiswerte());
 }
 

@@ -39,7 +39,6 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
   ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__); 
    if(!hauptfenster) return;
    block_changed=true;
-//   if (hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Original).active)  
    midgard_check_werte100();
 
    spinbutton_st->set_value(hauptfenster->getWerte().St());

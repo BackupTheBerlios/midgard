@@ -56,10 +56,10 @@ class MagusKI
       st_KI Steigern(int &gfp,const Enums::MBEListen was) ; 
 
       void Verteile(int gfp);
-      enum eSL {eSteigern,eNeuLernen};
+      enum eSL {eSteigern,eNeuLernen,eSpeziel};
       bool allowed_for_grad(const MBEmlt &M,eSL was);
       int teste_auf_gradanstieg();
-      const Abenteurer::e_wie_steigern get_wie_steigern();
+      const Abenteurer::e_wie_steigern get_wie_steigern(const eSL e);
       const Enums::st_bool_steigern get_bool_steigern();
       
    public:

@@ -58,7 +58,7 @@
 \makebox[1.05cm]{\rule[-1.4ex]{0cm}{4ex}Grad}&\makebox[1.5cm]{{\grad}}\\\hline
   \end{tabular}
 
-\vspace{1ex}
+\vspace{0.5ex}
 \li
   \begin{tabular}{|c|l|}\hline
 \makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}\small Herkunft}&\makebox[2.2cm]{\herkunft}\\\hline
@@ -74,7 +74,7 @@
 \makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}Stand}&\makebox[1.5cm]{\stand}\\\hline
   \end{tabular}
 
-\vspace{1ex}
+\vspace{0.5ex}
 {\small
 \begin{tabular}{|c|l|}\hline
 Alter&\makebox[0.8cm]{{\alter}}\\\hline
@@ -89,7 +89,7 @@ Gewicht&\makebox[0.8cm]{\gewicht}\\\hline
 Körpergröße&\makebox[0.8cm]{\koerpergroesse}\\\hline
 \end{tabular}
 
-\vspace{1ex}
+\vspace{0.5ex}
 \renewcommand{\arraystretch}{0.9}
 
 \begin{tabular}{|c|c|}\hline
@@ -104,6 +104,7 @@ Hand&\makebox[1.2cm]{\hand}\\\hline
 Spezies&\makebox[1.2cm]{\spezies}\\\hline
 \end{tabular}
 
+\vspace{0.5ex}
 \begin{tabularx}{13cm}{|c|X|}\hline
 \parbox{1.5cm}{weitere\\ Merkmale}\rule[-2.0ex]{0ex}{5.2ex} & 
 \parbox{10.5cm}{\merkmale}
@@ -113,7 +114,7 @@ Spezies&\makebox[1.2cm]{\spezies}\\\hline
 \end{tabularx}\renewcommand{\arraystretch}{1}
 }
 
-\vspace{1ex}
+\vspace{0.5ex}
 \normalsize
 \LI
 \begin{tabular}{|c|c|}\hline
@@ -133,7 +134,7 @@ Spezies&\makebox[1.2cm]{\spezies}\\\hline
 \makebox[0.6cm]{KAW}&\makebox[0.6cm]{{\kaw}}\\\hline
 \end{tabular}
 
-\vspace{1ex}
+\vspace{0.5ex}
 \LI
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{Gs}&\makebox[0.6cm]{{\gs}}\\\hline
@@ -152,7 +153,7 @@ Spezies&\makebox[1.2cm]{\spezies}\\\hline
 \makebox[0.6cm]{\tiny Geistesblitz}&\makebox[0.6cm]{{\geistesblitz}}\\\hline
 \end{tabular}
 
-\vspace{1ex}
+\vspace{0.5ex}
 \LI
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{Gw}&\makebox[0.6cm]{{\gw}}\\\hline
@@ -171,7 +172,7 @@ Spezies&\makebox[1.2cm]{\spezies}\\\hline
 \makebox[0.6cm]{SG}&\makebox[0.6cm]{\sg}\\\hline
 \end{tabular}
 
-\vspace{1ex}
+%\vspace{0.5ex}
 %\IfFileExists{MAGUS-Logo-grey2.png}{\parbox{1.5cm}{\includegraphics[width=1.5cm]{MAGUS-Logo-grey2.png}}}%
 %\parbox{1.cm}{\includegraphics[width=1.5cm]{\installpath/MAGUS-Logo-grey2.png}}
 %\hfill
@@ -197,7 +198,7 @@ Umgebungsmagie& \bophk   \\\hline
 \footnotesize
 \begin{tabular}{|l|r|l|}
 \hline
-GFP    & \makebox[0.8cm]{\gfp}  &\hspace{2cm}  \\\hline
+GFP    & \gfp  &\hspace{2cm}  \\\hline
 KEP    & \kep  &  \\\hline
 ZEP    & \zep  &  \\\hline
 AEP    & \aep  &  \\\hline
@@ -205,28 +206,39 @@ AEP    & \aep  &  \\\hline
 
 \hspace*{1.0cm} {\includegraphics[height=0.7cm,angle=0]{\installpath/saebel.png}}
 }
-%\hfill
 \parbox[t]{4.9cm}{
 ~\\
 \footnotesize
 \begin{tabular}{|l|r|l|}
 \hline
-Gold   &  \makebox[0.8cm]{\gold}   &\hspace{2cm}  \\\hline 
+Gold   & \gold   &\hspace{2cm}  \\\hline 
 Silber & \silber &  \\\hline             
 Kupfer & \kupfer &  \\\hline             
 \end{tabular}
+\vspace{0.5ex}
 
-\hfill {\includegraphics[height=1.2cm,angle=0]{\installpath/Money-gray.png}}
+%\hfill
+\hspace*{-0.9ex}
+\scalebox{0.7}{
+%\footnotesize
+\begin{tabular}{|l|c|c|}\hline
+Regenerationstage für&$\surd$&1~~2~~3\\\hline
+Heilen von Wunden & &  \\
+Heilen schw. Wunden &  &\\
+Allheilung & & \\\hline
+\end{tabular}
+\hfill 
+~~~~~
+\raisebox{-2.5ex}{\includegraphics[height=0.9cm,angle=0]{\installpath/Money-gray.png}}
 }
-\hfill
-%\IfFileExists{wurfbeil.png}{\parbox{2cm}{\includegraphics[width=2cm]{wurfbeil.png}}}%
-%\parbox{2cm}{\includegraphics[width=2cm]{\installpath/wurfbeil.png}}
-%\parbox{2cm}{\includegraphics[width=2cm]{\installpath/Letter-Feather-grey.png}}
-%\hfill~
+}
+\vspace{0.5ex}
 
-\parbox{6cm}
+\parbox[t]{6cm}
 {
-\vspace{1ex}\LI
+%\vspace{1ex}
+~\\
+\LI
 \begin{tabularx}{5.9cm}{|p{0.5cm}|c|X|}\hline
 \makebox[0.4cm]{LP}&\makebox[0.4cm]{{\lp}}&\\\hline
 \makebox[0.4cm]{AP}&\makebox[0.4cm]{{\ap}}&\\\hline
@@ -282,19 +294,17 @@ Umgebungsmagie& \phk    \\\hline
 %&&&&&\\\hline
 %\end{tabular}
 }
-%\parbox{2.5cm}{\includegraphics[height=1.7cm,angle=280]{\installpath/saebel.png}}
 \parbox{2.5cm}{
 \includegraphics[width=2.5cm]{\installpath/Letter-Feather-grey.png}
-%\includegraphics[width=2.5cm]{\installpath/Alba-grey.png}
-%\vspace{1.cm}
 
-%\includegraphics[width=2.5cm]{\installpath/Alba-grey.png}
-\parbox{0.5cm}{\includegraphics[width=2.5cm]{\installpath/MAGUS-Logo-grey2.png}}
-%\includegraphics[width=2.5cm]{\installpath/wurfbeil.png}
+\parbox{0.5cm}{
+\includegraphics[width=2.5cm]{\installpath/MAGUS-Logo-grey2.png}}
 }
 }
 \parbox[t]{7cm}
-{\setlength{\tabcolsep}{0.5em}
+{
+~\\
+\setlength{\tabcolsep}{0.5em}
 \scriptsize
 \begin{tabular}{|p{2.6cm}|c|p{2.6cm}|}
   \hline

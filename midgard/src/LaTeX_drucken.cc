@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.83 2002/11/14 13:26:04 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.84 2002/11/20 22:26:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -380,13 +380,18 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case eglaube:sfout += LaTeX_scale(W.Glaube(),10,"2.5cm"); break ;
      case enamecharakter:sfout += LaTeX_scale(W.Name_Abenteurer(),25,"4.5cm"); break ;
      case enamespieler : sfout += LaTeX_scale(W.Name_Spieler(),25,"4.5cm"); break ;
-     case egfp : sfout += EmptyInt_4TeX(W.GFP()); break ;
-     case eaep : sfout += EmptyInt_4TeX(W.AEP()); break ;
-     case ekep : sfout += EmptyInt_4TeX(W.KEP()); break ;
-     case ezep : sfout += EmptyInt_4TeX(W.ZEP()); break ;
+     case egfp : sfout += EmptyInt_4TeX(W.GFP(),10); break ;
+     case eaep : sfout += EmptyInt_4TeX(W.AEP(),10); break ;
+     case ekep : sfout += EmptyInt_4TeX(W.KEP(),10); break ;
+     case ezep : sfout += EmptyInt_4TeX(W.ZEP(),10); break ;
+/*
      case egold   : sfout += "\\tiny " + itos0p(W.Gold()); break ;
      case esilber : sfout += "\\tiny " + itos0p(W.Silber()); break ;
      case ekupfer : sfout += "\\tiny " + itos0p(W.Kupfer()); break ;
+*/
+     case egold   : sfout += EmptyInt_4TeX(W.Gold(),10); break ;
+     case esilber : sfout += EmptyInt_4TeX(W.Silber(),10); break ;
+     case ekupfer : sfout += EmptyInt_4TeX(W.Kupfer(),10); break ;
      case eruestung : sfout += W.Ruestung()->Name(); break ;
      case eruestunglp : sfout += itos(W.Ruestung()->LP_Verlust()); break ;
      case eruestungb : sfout += W.Ruestung(1)->Name(); break ;

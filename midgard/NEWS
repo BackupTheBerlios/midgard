@@ -19,6 +19,10 @@ NEWS IN VERSION 0.8.11
 * Status-Zeilen im Info-Fenster anzeigbar
 * Starten etwas beschleunigt
 * Addition von EP/Gold/GFP möglich (anstelle von Direkteingabe des Wertes)
+* Erhöhen von Eigenschaften bei Gradanstieg funktioniert richtig
+* Ausdruck jetzt mit Tabelle für 3-Tage-Heilungs-Tabelle & überarbeitet
+* Korrekte Berücksichtigung des Verhältnisses von Gold/AEP beim Reduzieren
+   von Fertigkeiten und Abwehr/Resisztenz/Zauber
 
 TODO: ('-' zeigt CP an)
 
