@@ -37,11 +37,11 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
   hauptfenster=h;
   maxpunkte = lernpunkte;
   zauber_auswahl_lernpunkte->set_text(itos(maxpunkte));
-  std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Zauber",Typ);
+  std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Zauberkünste",Typ);
   
   for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
       {
-       Lernschema::st_index I(Typ[0]->Short(),"Zauber",(*i)->Name());
+       Lernschema::st_index I(Typ[0]->Short(),"Zauberkünste",(*i)->Name());
 //       int v=0;
 //       for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.
 //            if ((*j)==(*i)->Name()) v=1;

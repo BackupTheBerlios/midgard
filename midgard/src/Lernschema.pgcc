@@ -18,10 +18,9 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
    int WERT,LERNPUNKTE,db_size;
   exec sql end declare section;
   exec sql select count(typ) into :db_size from lernschema;
-  exec sql declare LEin cursor for select distinct
-   typ, pflicht, fertigkeit, art, coalesce(wert,0), 
-   lernpunkte, coalesce(attribut,''),
-   coalesce(p_element,''),coalesce(s_element,'') from lernschema 
+  exec sql declare LEin cursor for select
+   typ, pflicht, name, art, wert, lernpunkte
+   from lernschema_4 
    order by lernpunkte;
  Transaction tr;
  exec sql open LEin;
@@ -51,19 +50,19 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
    if( (i->first.typ==Typ[0]->Short() || i->first.typ==Typ[1]->Short()) &&
        i->first.art==art)
      {
-      if(art=="Fertigkeit") 
+      if(art=="Fachkenntnisse") 
          { 
            cH_MidgardBasicElement fert(new Fertigkeit(i->first.fertigkeit));
            cH_Fertigkeit(fert)->set_Erfolgswert(i->second.erfolgswert);
            L.push_back(fert); 
          }
-      if(art=="Waffe") 
+      if(art=="Waffenfertigkeiten") 
          { 
            cH_MidgardBasicElement waffe(new Waffe(i->first.fertigkeit));
            cH_Waffe(waffe)->set_Erfolgswert(i->second.erfolgswert);
            L.push_back(waffe); 
          }
-      if(art=="Zauber") 
+      if(art=="Zauberkünste") 
          { 
 //           cH_MidgardBasicElement zauber(new Zauber(i->first.fertigkeit));
 //           cH_Waffe(waffe)->set_Erfolgswert(i->second.erfolgswert);

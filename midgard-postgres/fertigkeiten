@@ -83,7 +83,6 @@ COPY "fertigkeiten"  FROM stdin;
 8	\N	\N	5	Alchemie	4	100		In	\N
 4	\N	\N	4	Athletik	4	50		St	\N
 6	\N	\N	4	Fechten	4	800		\N	\N
-6	\N	\N	\N	Fechten tevarischer Stil	\N	400		\N	\N
 6	\N	\N	15	F‰lschen	12	150		Gs	\N
 5	\N	\N	8	Meditieren	6	200		Wk	\N
 6	\N	\N	5	Scharfschieﬂen	4	800		Gs	\N
@@ -178,6 +177,7 @@ COPY "fertigkeiten"  FROM stdin;
 1	\N	\N	\N	Wissen von der Magie	\N	5000	3	\N	0
 4	\N	\N	5	Zauberkunde	4	100		In	0
 8	\N	\N	8	Kampftaktik	6	150	\N	pA	5
+6	\N	\N	\N	Fechten tevarrischer Stil	\N	400		\N	\N
 \.
 --
 -- TOC Entry ID 3 (OID 30118459)

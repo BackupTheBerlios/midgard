@@ -55,13 +55,13 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,
         int v=0;
         for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
             if ((*j)==(*i)->Name()) v=1;
-        Lernschema::st_index I(Typ[0]->Short(),"Fertigkeit",(*i)->Name());
+        Lernschema::st_index I(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
         (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I)-v);
         list_Fert_spez.push_back(*i);       
       }
    }
   // Lernschema //////////////////////////////////////////////////////////////
-  std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Fertigkeit",Typ);
+  std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Fachkenntnisse",Typ);
   for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
    {
       if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;

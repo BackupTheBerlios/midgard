@@ -21,7 +21,7 @@ cH_Waffe::cH_Waffe(const std::string& name)
 void Waffe::get_Waffe()
 {
   exec sql begin declare section;
-   int db_schwierigkeit,db_schaden_b, db_st,db_gw,
+   int db_schwierigkeit,db_schaden_b, db_st,db_gw,db_gs,
       db_reichweite_0,db_reichweite_n,db_reichweite_m,
       db_reichweite_f,db_lern_l,db_lern_s;
    char query[1024],db_grundkenntnisse[50],db_art[50],db_art2,
@@ -31,7 +31,8 @@ void Waffe::get_Waffe()
   std::string squery ="select grundkenntnisse,schwierigkeit,art,coalesce(art_2,''),
       coalesce(schaden,''),coalesce(schaden_b,''),
       coalesce(angriffsrangmod,''),coalesce(wm_abwehr_leicht,''),
-      coalesce(wm_abwehr_schwer,''),st,ge,coalesce(zusatz,''),
+      coalesce(wm_abwehr_schwer,''),coalesce(st,0),coalesce(gw,0),coalesce(gs,0),
+      coalesce(zusatz,''),
       coalesce(region,''),coalesce(reichweite_0,-1),
       coalesce(reichweite_n,-1),coalesce(reichweite_m,-1),
       coalesce(reichweite_f,-1),coalesce(lern_land,99),coalesce(lern_stadt,99)
@@ -49,7 +50,7 @@ void Waffe::get_Waffe()
   exec sql fetch cl_waffen_ein into 
    :db_grundkenntnisse,:db_schwierigkeit,:db_art,:db_art2,:db_schaden,
    :db_schaden_b,:db_angriffsrangmod,:db_wm_abwehr_leicht,:db_wm_abwehr_schwer,
-   :db_st,:db_gw,:db_voraussetzung,:db_region,:db_reichweite_0,:db_reichweite_n,
+   :db_st,:db_gw,:db_gs,:db_voraussetzung,:db_region,:db_reichweite_0,:db_reichweite_n,
    :db_reichweite_m,:db_reichweite_f,:db_lern_l,:db_lern_s;
   SQLerror::test(__FILELINE__);
    grundkenntnisse=db_grundkenntnisse;
@@ -61,7 +62,7 @@ void Waffe::get_Waffe()
    angriffsrangmod=db_angriffsrangmod;
    wm_abwehr_leicht=db_wm_abwehr_leicht;
    wm_abwehr_schwer=db_wm_abwehr_schwer;
-   st=db_st; gw=db_gw;
+   st=db_st; gw=db_gw; gs=db_gs;
    voraussetzung=db_voraussetzung;
    region=db_region;
    reichweite_0=db_reichweite_0;reichweite_n=db_reichweite_n;
@@ -118,7 +119,7 @@ bool Waffe::Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>& lis
 
 bool Waffe::SG_Voraussetzung(const Grundwerte& Werte) const
 {
-  if ( St()<=Werte.St() && Gw()<=Werte.Gw() ) return true;
+  if ( St()<=Werte.St() && Gw()<=Werte.Gw() && Gs()<=Werte.Gs() ) return true;
   else return false ;
 }
 

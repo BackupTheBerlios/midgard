@@ -43,8 +43,10 @@ class Lernschema
             {if (get_Pflicht(I)) return "*";else return "";}
       int get_Lernpunkte(const st_index& I) const 
             {return const_cast<std::map<st_index,st_wert>&>(lern_map)[I].lernpunkte;}
+/*
       std::string get_Attribut(const st_index& I) const 
             {return const_cast<std::map<st_index,st_wert>&>(lern_map)[I].attribut;}
+*/
       std::list<cH_MidgardBasicElement> get_List(const std::string& art, 
                                        const vector<cH_Typen>& _Typ) const;
 };
