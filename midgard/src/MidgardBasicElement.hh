@@ -36,15 +36,16 @@ class MidgardBasicElement : public HandleContent
 
    public:
       MidgardBasicElement(const std::string &n) 
-            : name(n),IF_XML(tag(0),) kosten(0),praxispunkte(0),
+            : IF_XML(tag(0),) name(n), kosten(0),praxispunkte(0),
                               erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
       MidgardBasicElement(const std::string &n,const std::string &r) 
-            : name(n),region(r),IF_XML(tag(0),) kosten(0),praxispunkte(0),
+            : IF_XML(tag(0),) name(n),region(r),kosten(0),praxispunkte(0),
                               erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
 #ifdef USE_XML
-      MidgardBasicElement(const Tag *t) : tag(t), kosten(0),praxispunkte(0),
+      MidgardBasicElement(const Tag *t,const std::string &n) 
+		: tag(t), name(n), kosten(0),praxispunkte(0),
                                erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
 #endif                              

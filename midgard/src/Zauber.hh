@@ -20,7 +20,7 @@ class Zauber : public MidgardBasicElement
  public: 
 #ifdef USE_XML
    Zauber(const Tag *t) 
-      : MidgardBasicElement(t), name(t->getAttr("Name"))
+      : MidgardBasicElement(t,t->getAttr("Name"))
    { get_Zauber();get_map_typ();EP_steigern("Zauber");} 
 #else
    Zauber(const std::string& n) 

@@ -35,7 +35,7 @@ class Fertigkeit : public MidgardBasicElement
        EP_steigern(Name());}
 #else
      Fertigkeit(const Tag *t)
-      :MidgardBasicElement(t),name(t->getAttr("Name")),lernpunkte(0),lern_land(0),lern_stadt(0),pflicht(false) 
+      :MidgardBasicElement(t,t->getAttr("Name")),lern_land(0),lern_stadt(0),pflicht(false) 
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
 #endif
