@@ -1,4 +1,92 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta7
+- Bug für 'Zauber lernen' beseitigt
+
+##########################################################################
+NEWS IN VERSION 0.4beta6
+- Es werden nur noch dann KiDo Techniken zum Lernen angeboten, wenn die
+   maximal mögliiche Anzahl für die entsprechende Stufe noch nicht erreicht ist.
+- 'alle Zauber' wirkt nun auch auf Zauberwerk
+- fehlende Tabelle 'spezialgebiete' ergänzt
+
+##########################################################################
+NEWS IN VERSION 0.4beta5
+- Joachim Jordan und ich haben zusammen die Beschwörungen (hoffentlich) 
+   fertig gestellt. Damit sollten jetzt eigentlich Beschwörer beider Kategorien
+   lern- und steigerbar sein.
+- Elementarbeschwörer führte zu Abstürzen.
+
+##########################################################################
+NEWS IN VERSION 0.4beta4
+- Thaumaturgen können jetzt auch 'Schutzrunen', 'Große Siegel' und 
+   'magische Lettern' lernen.
+- Das mit dem Alter funktioniert erst jetzt (ich hab bei dem Vergleich ein 
+   '=' vergessen ...).
+- KanThai CHaraktere in der Tabelle 'waffen_standard' ergänzt -> führte 
+   beim steigern von Waffen zum Absturz.
+- Noch ein subtiler Bug beseitigt: Wenn man eine KiDo Fertigkeit gelernt hatte
+   dann funktionierte die Anzeige des Charaktertyps nicht. 
+- Ausdruck des KiDo Dokumentes funktionierte nicht richtig.
+
+##########################################################################
+NEWS IN VERSION 0.4beta3
+- 'Waffen verzaubern' in die Datenbank eingetragen -> kann gelernt werden 
+   wenn die Voraussetzugen dafür erfüllt sind.
+- Nach dem mail-Austausch über das XML Format ist mir aufgefallen, daß es 
+   bisher sinnloserweise in der Datenbank redundante Informationen über 
+   die erzeugten
+   Charaktere gespeichert wurden (Charakterklasse, Abkürzung und Index). 
+   Daher habe ich mich entschlossen nur noch die 
+   Abkürzung eines Charakters in der Datenbank zu speichern. Da bedeutet, 
+   daß die Tabelle 'charaktere' jetzt ein neues Format bekommen hat. Die 
+   Spalten 'typ_l' und 'typ_i' werden ab jetzt nicht mehr benötigt.
+   Dank Christofs Bemühungen um die Datenbankinstallation braucht sich aber 
+   keiner um seine alten Charaktere zu sorgen. Die alten Datanbanken können
+   weiter verwendet werden. Aber wer möchte kann die oben erwähnten Spalten 
+   löschen oder 'make fullinstall' im Verzeichnis 'tabellen' ausführen, dann
+   sollte er vorher aber einen dump seiner Charaktere angelegt haben und 
+   diesen dann anschließend wieder einspielen. Außerdem ist es auf diese Art 
+   und Weise möglich neue Charakterklassen hinzuzufügen, ohne daß es zu 
+   Problemen mit schon abgespeichertten Charakteren kommt (wie in der 
+   Vergangenheit)
+- Das von 'http://www.midgard-online.de/FAQ/Technik.pdf' geforderte Format
+   kann anstelle eines LaTeX-Dokumentes ausgegeben werden, wenn man den 
+   RECHTEN Mausknopf drückt.
+- Kleinen Bug beseitigt: Beim Starten des Programms wurden die 
+   Speziesvoraussetzungen nicht eingelesen.
+- Hilfe leicht überarbeitet.
+- Das Alter wird nur noch dann (durch auswürfeln der Lernpunkte) berechnet,
+   wenn es vorher 0 ist. 
+- Weiteren lästigen Bug entfernt: durch 'Werte editieren' wurden alle 
+   bisherigen Werte, die NICHT editiert wurden, gelöscht (z.B. Rüstung)
+
+##########################################################################
+NEWS IN VERSION 0.4beta2
+- Umstellung der Spezialgebiete von Magiern auf die Datanbankebene.
+   dadurch wird es möglich auch Elemenetarbeschwörer ein Spezialgebiet
+   (bzw.) Primär und Sekundärelement wählen zu lassen.
+- Beschwörungen können jetzt gelernt werden, allerdings stimmen die Lernkosten 
+   (noch) nicht.
+- Abspeichern der Spezialgebiete von Magieren und Beschwörern funktionierte
+   jetzt (hoffentlich!) so, daß auch NACH dem Laden die Spezialisierung 
+   berücksichtigt werden.
+- Optionales Anzeigen von Zaubersalzen und Beschwörungen beim 
+   lernen von Zaubern
+- Da es in unserer Runde ab und zu vorkommt, daß ein Zauberer einen Spruch
+   lernen darf, der eigentlich nicht für seine Charakterklasse vorgesehen ist,
+   gibt es jetzt
+   eine Möglichkeit sich ALLE Zauber zur Auswahl anzeigen zu lassen.
+   (Die Kosten für diese Zauber werden wie für Ausnahmezauber berechnet)
+
+##########################################################################
+NEWS IN VERSION 0.4beta1
+- Geldbeträge können jetzt bis 100000 eingegeben werden (war: 100) 
+- Abwehrbonus durch 'waffenlosem Kampf' wird berücksichtigt
+- kleiner Bug in Fertigkeitstabelln für Eschar beseitigt, führte zu Absturz
+- Angriffsbonus wird nicht mehr zum Erfolgsbonus von Verteidigungswaffen addiert
+- zwei kleine Bugs beim Ausdrucken von Zauberdokumenten beseitigt
+
+##########################################################################
 NEWS IN VERSION 0.4beta0
 - Es können nur noch die Charterklassen gewählt werden, die die Spezies zuläßt.
 - Modifikationen der Grundwerte anderer Spezies werden korrekt berechnet
@@ -15,6 +103,9 @@ NEWS IN VERSION 0.4beta0
    = Dolch und Jarid = Dolch)
 - Zahllose Bugs beseitigt (Ich befürchte nur, daß durch die vielen Neuerungen
    auch wieder einige hinzugekommen sind :-(Ich bitte um Rückmeldung)
+- Dank Christof gibt es jetzt eine Möglichkeit einen Charakter im XML-Format
+   zu exportieren. (wird über den 'Speichern-Button' angesprochen, allerdings
+   mit dem RECHTEN Mausknopf :-)
 
 ##########################################################################
 NEWS IN VERSION 0.3beta6

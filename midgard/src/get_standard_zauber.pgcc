@@ -60,13 +60,24 @@ double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
    if (typ =="eBe") exec sql fetch zauber into  :db_ergebnis,:db_p_element,:db_s_element;
    SQLerror::test(__FILELINE__);  
 
-   string p_element = db_p_element;
-   string s_element = db_s_element;
-   if (typ != "eBe" || (p_element=="" && s_element==""))
+   fac = get_standard_zauber_(db_ergebnis,db_p_element,db_s_element,zauber);
+//cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
+   return(fac);
+}
+
+double midgard_CG::get_standard_zauber_(const string& ergebnis, const string&
+	p_element, const string& s_element, const string& zauber)
+{
+   double fac;
+   // gibt es eine Ausnahmeregelung?
+   fac = midgard_CG::Ausnahmen_float(zauber);
+   if (fac!=0) return fac;
+
+   if (typ.s != "eBe" || (p_element=="" && s_element==""))
       {
-         if (!strcmp(db_ergebnis,"G")) fac = 0.5; 
-         if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
-         if (!strcmp(db_ergebnis,"A")) fac = 5.0; 
+         if (ergebnis=="G") fac = 0.5; 
+         if (ergebnis=="S") fac = 1.0; 
+         if (ergebnis=="A") fac = 5.0; 
       }
    else
       {
@@ -77,3 +88,4 @@ double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
 //cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
    return(fac);
 }
+

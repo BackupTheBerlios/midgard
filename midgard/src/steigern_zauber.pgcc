@@ -63,13 +63,14 @@ void midgard_CG::show_neue_zauber()
    char query[1000];
    char db_region[10];
    char db_zauberart[30];
+   char db_p_element[30],db_s_element[30];
   exec sql end declare section;
   string alle_zauber="";
   if (!checkbutton_alle_zauber->get_active() )
       alle_zauber = "("+typ.s+" = 'G' OR "+typ.s+" = 'S' OR "+typ.s+" = 'A') AND ";
 //  if (typ.s!="eBe")
     string squery = "SELECT distinct name, kosten, stufe, "+typ.s+", spruchrolle, \
-      coalesce(region,''), coalesce(zauberart,'') \
+      coalesce(region,''), coalesce(zauberart,''), coalesce(p_element,''), coalesce(s_element,'') \
       FROM arkanum_zauber WHERE "+alle_zauber+"\
       name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
       WHERE charakter_name = '"+werte.name_charakter+"' \
@@ -87,10 +88,12 @@ void midgard_CG::show_neue_zauber()
    while (true)
       {
          exec sql fetch zauber_ein into :db_name, :db_kosten, :db_stufe, 
-            :db_standard, :db_spruchrolle, :db_region, :db_zauberart ;
+            :db_standard, :db_spruchrolle, :db_region, :db_zauberart,
+	    :db_p_element, :db_s_element ;
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
-         double fac= midgard_CG::get_standard_zauber(typ.s,db_name);
+//         double fac= midgard_CG::get_standard_zauber(typ.s,db_name);
+         double fac=midgard_CG::get_standard_zauber_(db_standard,db_p_element,db_s_element,db_name);
          if (fac == 0) continue;
          string standard = midgard_CG::Ausnahmen_string(db_name,db_standard);
          string zauberart=db_zauberart;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.22 2001/04/24 14:31:49 thoma Exp $
+// $Id: midgard_CG.hh,v 1.23 2001/04/30 15:02:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -346,6 +346,7 @@ class midgard_CG : public midgard_CG_glade
          void berufe_uebernehmen(vector<st_ausgewaehlte_berufe>& sab);
          void kido_uebernehmen(vector<string>& technik);
          double get_standard_zauber(const string& typ, const string& zauber);
+         double get_standard_zauber_(const string& ergebnis, const string& p_element, const string& s_element, const string& zauber);
          double get_standard_waffen(const string& typ, const string& waffe);
          double get_standard_fertigkeit(const string& typ, const string& fertigkeit);
          string get_region_waffen(const string& waffe, const string& region,int mod);
