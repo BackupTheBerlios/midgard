@@ -2,8 +2,8 @@
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="nach Ruf des roten Raben" Grad="8"/>
-  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand=""/>
+  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="nach Verflucht" Grad="8"/>
+  <Typ Spezies="Halbelfe" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand="Rechtshänderin"/>
   <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="6"/>
   <Erfolgswerte Abwehr="14" Zaubern="17" ZauberResistenz="13"/>
@@ -39,6 +39,7 @@
    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
    <Beruf Bezeichnung="Gelehrte" Wert="14"/>
    <ang-Fertigkeit Bezeichnung="Geschmacksschwäche"/>
+   <ang-Fertigkeit Bezeichnung="Nachtsicht"/>
    <Fertigkeit Bezeichnung="Erste Hilfe" Wert="12"/>
    <Fertigkeit Bezeichnung="Heilkunde" Wert="11"/>
    <Fertigkeit Bezeichnung="Kamelreiten" Wert="12"/>
@@ -53,7 +54,6 @@
    <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
    <Fertigkeit Bezeichnung="Sagenkunde" Wert="4"/>
    <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
-   <Fertigkeit Bezeichnung="Singen" Wert="9"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="8"/>
    <Fertigkeit Bezeichnung="TaiTschi"/>
    <Fertigkeit Bezeichnung="Tierkunde" Wert="8" Praxispunkte="1"/>
@@ -73,6 +73,7 @@
    <Zauber Bezeichnung="Besänftigen"/>
    <Zauber Bezeichnung="Entgiften"/>
    <Zauber Bezeichnung="Erkennen von Krankheit"/>
+   <Zauber Bezeichnung="Erkennen der Aura"/>
    <Zauber Bezeichnung="Erkennen von Leben"/>
    <Zauber Bezeichnung="Erscheinungen"/>
    <Zauber Bezeichnung="Freundesauge"/>
@@ -113,6 +114,7 @@
    <Grundkenntnis Bezeichnung="Zauberstäbe"/>
    <Sprache Bezeichnung="Albisch" Wert="13"/>
    <Sprache Bezeichnung="Aranisch" Wert="6"/>
+   <Sprache Bezeichnung="Sritrasprache" Wert="16"/>
    <Sprache Bezeichnung="Chryseisch" Wert="13"/>
    <Sprache Bezeichnung="Comentang" Wert="10"/>
    <Sprache Bezeichnung="Dvarskar" Wert="10"/>
