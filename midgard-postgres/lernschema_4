@@ -1,0 +1,1312 @@
+--
+-- Selected TOC Entries:
+--
+DROP INDEX "lernschema_4_typ_name_wert";
+DROP TABLE "lernschema_4";
+--
+-- TOC Entry ID 2 (OID 30113512)
+--
+-- Name: lernschema_4 Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "lernschema_4" (
+	"typ" text NOT NULL,
+	"pflicht" boolean NOT NULL,
+	"name" text NOT NULL,
+	"art" text NOT NULL,
+	"wert" integer
+);
+
+--
+-- Data for TOC Entry ID 4 (OID 30113512) TABLE DATA lernschema_4
+--
+
+COPY "lernschema_4"  FROM stdin;
+wHx	f	Ochsenzunge	Waffe	4
+PT	f	Dolch	Waffe	4
+As	f	Dolch	Waffe	5
+As	f	Kurzschwert	Waffe	5
+As	f	Keule	Waffe	5
+As	f	Wurfmesser	Waffe	5
+As	f	Wurfpfeil	Waffe	5
+As	f	Wurfstern	Waffe	5
+As	f	Blasrohr	Waffe	5
+As	f	Parierdolch	Waffe	1
+As	f	Ochsenzunge	Waffe	5
+As	f	Langschwert	Waffe	5
+As	f	Krummsäbel	Waffe	5
+As	f	Rapier	Waffe	5
+As	f	Streitkolben	Waffe	5
+As	f	Kriegshammer	Waffe	5
+As	f	Handaxt	Waffe	5
+As	f	leichter Speer	Waffe	5
+As	f	Kampfstab	Waffe	5
+As	f	waffenloser Kampf	Waffe	5
+As	f	Garotte	Waffe	5
+As	f	Bogen	Waffe	5
+As	f	Kurzbogen	Waffe	5
+As	f	leichte Armbrust	Waffe	5
+As	f	Werfen	Waffe	5
+As	f	Wurfscheibe	Waffe	5
+As	f	Wurfspeer	Waffe	5
+As	f	Wurfaxt	Waffe	5
+As	f	Fuchtel	Waffe	5
+As	f	Streitaxt	Waffe	5
+As	f	Stoßspeer	Waffe	5
+As	f	Lanze	Waffe	5
+As	f	Bihänder	Waffe	5
+As	f	Anderthalbhänder	Waffe	5
+As	f	Hellebarde	Waffe	5
+As	f	Morgenstern	Waffe	5
+As	f	Langbogen	Waffe	5
+As	f	schwere Armbrust	Waffe	5
+As	f	Schleuder	Waffe	5
+As	f	Wurfkeule	Waffe	5
+As	f	kleiner Schild	Waffe	1
+As	f	Buckler	Waffe	1
+BN	f	Dolch	Waffe	5
+BN	f	Langschwert	Waffe	5
+BN	f	Handaxt	Waffe	5
+BN	f	Streitaxt	Waffe	5
+BN	f	leichter Speer	Waffe	5
+BN	f	Stoßspeer	Waffe	5
+BN	f	Schlachtbeil	Waffe	5
+BN	f	Wurfspeer	Waffe	5
+BN	f	Wurfaxt	Waffe	5
+BN	f	Wurfhammer	Waffe	5
+BN	f	großer Schild	Waffe	1
+BN	f	kleiner Schild	Waffe	1
+BN	f	Kurzschwert	Waffe	5
+BN	f	Keule	Waffe	5
+BN	f	Kriegshammer	Waffe	5
+BN	f	Anderthalbhänder	Waffe	5
+BN	f	Stabkeule	Waffe	5
+BN	f	Faustkampf	Waffe	5
+BN	f	Bogen	Waffe	5
+BN	f	Langbogen	Waffe	5
+BN	f	Schleuder	Waffe	5
+BN	f	Wurfmesser	Waffe	5
+BN	f	Ogerhammer	Waffe	5
+BN	f	waffenloser Kampf	Waffe	5
+BS	f	Dolch	Waffe	5
+BS	f	Krummsäbel	Waffe	5
+BS	f	Keule	Waffe	5
+BS	f	Streitkolben	Waffe	5
+BS	f	Handaxt	Waffe	5
+BS	f	leichter Speer	Waffe	5
+BS	f	Stoßspeer	Waffe	5
+BS	f	Wurfspeer	Waffe	5
+BS	f	Wurfaxt	Waffe	5
+BS	f	kleiner Schild	Waffe	1
+BS	f	Kurzschwert	Waffe	5
+BS	f	Faustkampf	Waffe	5
+BS	f	Bogen	Waffe	5
+BS	f	Kurzbogen	Waffe	5
+BS	f	Speerschleuder	Waffe	5
+BS	f	Wurfkeule	Waffe	5
+BS	f	Wurfmesser	Waffe	5
+BS	f	Peitsche	Waffe	5
+BS	f	Streitaxt	Waffe	5
+BS	f	großer Schild	Waffe	1
+BS	f	waffenloser Kampf	Waffe	5
+BS	f	Bola	Waffe	5
+BS	f	Kompositbogen	Waffe	5
+BS	f	Lasso	Waffe	5
+BW	f	Dolch	Waffe	5
+BW	f	Kurzschwert	Waffe	5
+BW	f	Keule	Waffe	5
+BW	f	Handaxt	Waffe	5
+BW	f	leichter Speer	Waffe	5
+BW	f	Stoßspeer	Waffe	5
+BW	f	Speerschleuder	Waffe	5
+BW	f	Wurfspeer	Waffe	5
+BW	f	Wurfaxt	Waffe	5
+BW	f	Wurfkeule	Waffe	5
+BW	f	kleiner Schild	Waffe	1
+BW	f	Stabkeule	Waffe	5
+BW	f	Bogen	Waffe	5
+BW	f	Kurzbogen	Waffe	5
+BW	f	Wurfpfeil	Waffe	5
+BW	f	Blasrohr	Waffe	5
+BW	f	großer Schild	Waffe	1
+BW	f	Schleuder	Waffe	5
+BW	f	waffenloser Kampf	Waffe	5
+Ba	f	Dolch	Waffe	5
+Ba	f	Parierdolch	Waffe	1
+Ba	f	Langschwert	Waffe	5
+Ba	f	Krummsäbel	Waffe	5
+Ba	f	Kurzschwert	Waffe	5
+Ba	f	Rapier	Waffe	5
+Ba	f	Handaxt	Waffe	5
+Ba	f	Streitaxt	Waffe	5
+Ba	f	leichter Speer	Waffe	5
+Ba	f	Wurfspeer	Waffe	5
+Ba	f	Wurfaxt	Waffe	5
+Ba	f	Wurfhammer	Waffe	5
+Ba	f	Wurfmesser	Waffe	5
+Ba	f	großer Schild	Waffe	1
+Ba	f	kleiner Schild	Waffe	1
+Ba	f	Buckler	Waffe	1
+Ba	f	Keule	Waffe	5
+Ba	f	Streitkolben	Waffe	5
+Ba	f	Kriegshammer	Waffe	5
+Ba	f	Stoßspeer	Waffe	5
+Ba	f	Kampfstab	Waffe	5
+Ba	f	Kurzbogen	Waffe	5
+Ba	f	Schleuder	Waffe	5
+Ba	f	Lanze	Waffe	5
+Ba	f	Anderthalbhänder	Waffe	5
+Ba	f	Schlachtbeil	Waffe	5
+Ba	f	waffenloser Kampf	Waffe	5
+Ba	f	Bogen	Waffe	5
+Ba	f	Langbogen	Waffe	5
+Ba	f	leichte Armbrust	Waffe	5
+Er	f	Dolch	Waffe	5
+Er	f	Keule	Waffe	5
+Er	f	Kurzschwert	Waffe	5
+Er	f	Ochsenzunge	Waffe	5
+Er	f	Rapier	Waffe	5
+Er	f	Handaxt	Waffe	5
+Er	f	Wurfmesser	Waffe	5
+Er	f	Wurfkeule	Waffe	5
+Er	f	kleiner Schild	Waffe	1
+Er	f	Buckler	Waffe	1
+Er	f	Parierdolch	Waffe	1
+Er	f	Fuchtel	Waffe	5
+Er	f	Langschwert	Waffe	5
+Er	f	Kampfstab	Waffe	5
+Er	f	Kurzbogen	Waffe	5
+Er	f	Schleuder	Waffe	5
+Er	f	waffenloser Kampf	Waffe	5
+Er	f	Bogen	Waffe	5
+Er	f	leichte Armbrust	Waffe	5
+Er	f	schwere Armbrust	Waffe	5
+Gl	f	Dolch	Waffe	5
+Gl	f	Langschwert	Waffe	5
+Gl	f	Krummsäbel	Waffe	5
+Gl	f	Kurzschwert	Waffe	5
+Gl	f	Ochsenzunge	Waffe	5
+Gl	f	Rapier	Waffe	5
+Gl	f	Keule	Waffe	5
+Gl	f	Streitkolben	Waffe	5
+Gl	f	Kriegshammer	Waffe	5
+Gl	f	Handaxt	Waffe	5
+Gl	f	Streitaxt	Waffe	5
+Gl	f	leichter Speer	Waffe	5
+Gl	f	Stoßspeer	Waffe	5
+Gl	f	Lanze	Waffe	5
+Gl	f	großer Schild	Waffe	1
+Gl	f	kleiner Schild	Waffe	1
+Gl	f	Buckler	Waffe	1
+Gl	f	Parierdolch	Waffe	1
+Gl	f	Fuchtel	Waffe	5
+Gl	f	Morgenstern	Waffe	5
+Gl	f	Kampfstab	Waffe	5
+Gl	f	Werfen	Waffe	5
+Gl	f	Wurfspeer	Waffe	5
+Gl	f	Wurfspieß	Waffe	5
+Gl	f	Wurfaxt	Waffe	5
+Gl	f	Wurfhammer	Waffe	5
+Gl	f	Wurfkeule	Waffe	5
+Gl	f	Wurfmesser	Waffe	5
+Gl	f	Wurfpfeil	Waffe	5
+Gl	f	Bihänder	Waffe	5
+Gl	f	Anderthalbhänder	Waffe	5
+Gl	f	Schlachtbeil	Waffe	5
+Gl	f	Stabkeule	Waffe	5
+Gl	f	Hellebarde	Waffe	5
+Gl	f	Stielhammer	Waffe	5
+Gl	f	Kriegsflegel	Waffe	5
+Gl	f	Faustkampf	Waffe	5
+Gl	f	waffenloser Kampf	Waffe	5
+Gl	f	Bogen	Waffe	5
+Gl	f	Kurzbogen	Waffe	5
+Gl	f	Langbogen	Waffe	5
+Gl	f	leichte Armbrust	Waffe	5
+Gl	f	schwere Armbrust	Waffe	5
+Gl	f	Schleuder	Waffe	5
+Gl	f	Stockschleuder	Waffe	5
+Hä	f	Dolch	Waffe	5
+Hä	f	kleiner Schild	Waffe	1
+Hä	f	Langschwert	Waffe	5
+Hä	f	Krummsäbel	Waffe	5
+Hä	f	Kurzschwert	Waffe	5
+Hä	f	Ochsenzunge	Waffe	5
+Hä	f	Keule	Waffe	5
+Hä	f	Streitkolben	Waffe	5
+Hä	f	Handaxt	Waffe	5
+Hä	f	Streitaxt	Waffe	5
+Hä	f	leichter Speer	Waffe	5
+Hä	f	Wurfspeer	Waffe	5
+Hä	f	Wurfaxt	Waffe	5
+Hä	f	Wurfhammer	Waffe	5
+Hä	f	leichte Armbrust	Waffe	5
+Hä	f	großer Schild	Waffe	1
+Hä	f	Buckler	Waffe	1
+Hä	f	Parierdolch	Waffe	1
+Hä	f	Peitsche	Waffe	5
+Hä	f	Rapier	Waffe	5
+Hä	f	Kriegshammer	Waffe	5
+Hä	f	Stoßspeer	Waffe	5
+Hä	f	Kampfstab	Waffe	5
+Hä	f	Wurfmesser	Waffe	5
+Hä	f	schwere Armbrust	Waffe	5
+Hä	f	Schleuder	Waffe	5
+Hä	f	Fuchtel	Waffe	5
+Hä	f	waffenloser Kampf	Waffe	5
+Hä	f	Bogen	Waffe	5
+Hä	f	Kurzbogen	Waffe	5
+Hä	f	Langbogen	Waffe	5
+Kr	f	Dolch	Waffe	5
+Kr	f	Langschwert	Waffe	5
+Kr	f	Krummsäbel	Waffe	5
+Kr	f	Kurzschwert	Waffe	5
+Kr	f	Ochsenzunge	Waffe	5
+Kr	f	Rapier	Waffe	5
+Kr	f	Keule	Waffe	5
+Kr	f	Streitkolben	Waffe	5
+Kr	f	Kriegshammer	Waffe	5
+Kr	f	Handaxt	Waffe	5
+Kr	f	Streitaxt	Waffe	5
+Kr	f	leichter Speer	Waffe	5
+Kr	f	Stoßspeer	Waffe	5
+Kr	f	Lanze	Waffe	5
+Kr	f	Stabkeule	Waffe	5
+Kr	f	Morgenstern	Waffe	5
+Kr	f	Wurfspeer	Waffe	5
+Kr	f	Wurfspieß	Waffe	5
+Kr	f	Wurfaxt	Waffe	5
+Kr	f	Wurfhammer	Waffe	5
+Kr	f	Wurfkeule	Waffe	5
+Kr	f	Wurfmesser	Waffe	5
+Kr	f	Wurfpfeil	Waffe	5
+Kr	f	großer Schild	Waffe	1
+Kr	f	kleiner Schild	Waffe	1
+Kr	f	Buckler	Waffe	1
+Kr	f	Parierdolch	Waffe	1
+Kr	f	Fuchtel	Waffe	5
+Kr	f	Bihänder	Waffe	5
+Kr	f	Anderthalbhänder	Waffe	5
+Kr	f	Schlachtbeil	Waffe	5
+Kr	f	Hellebarde	Waffe	5
+Kr	f	Stielhammer	Waffe	5
+Kr	f	Kriegsflegel	Waffe	5
+Kr	f	Kampfstab	Waffe	5
+Kr	f	Faustkampf	Waffe	5
+Kr	f	waffenloser Kampf	Waffe	5
+Kr	f	Bogen	Waffe	5
+Kr	f	Kurzbogen	Waffe	5
+Kr	f	Langbogen	Waffe	5
+Kr	f	leichte Armbrust	Waffe	5
+Kr	f	schwere Armbrust	Waffe	5
+Kr	f	Schleuder	Waffe	5
+Kr	f	Stockschleuder	Waffe	5
+Ku	f	Dolch	Waffe	5
+Ku	f	Keule	Waffe	5
+Ku	f	Krummsäbel	Waffe	5
+Ku	f	Streitkolben	Waffe	5
+Ku	f	leichter Speer	Waffe	5
+Ku	f	Stoßspeer	Waffe	5
+Ku	f	Kurzschwert	Waffe	5
+Ku	f	Streitaxt	Waffe	5
+Ku	f	Bogen	Waffe	5
+Ku	f	Kurzbogen	Waffe	5
+Ku	f	Wurfspeer	Waffe	5
+Ku	f	Wurfkeule	Waffe	5
+Ku	f	kleiner Schild	Waffe	1
+Ku	f	Buckler	Waffe	1
+Ku	f	Morgenstern	Waffe	5
+Ku	f	Wurfmesser	Waffe	5
+Ku	f	Wurfpfeil	Waffe	5
+Ku	f	Lanze	Waffe	5
+Ku	f	waffenloser Kampf	Waffe	5
+Ku	f	Bola	Waffe	5
+Ku	f	Lasso	Waffe	5
+Or	f	Dolch	Waffe	5
+Or	f	Langschwert	Waffe	5
+Or	f	Krummsäbel	Waffe	5
+Or	f	Kurzschwert	Waffe	5
+Or	f	Keule	Waffe	5
+Or	f	Streitkolben	Waffe	5
+Or	f	Kriegshammer	Waffe	5
+Or	f	Handaxt	Waffe	5
+Or	f	Streitaxt	Waffe	5
+Or	f	leichter Speer	Waffe	5
+Or	f	Stoßspeer	Waffe	5
+Or	f	Wurfspeer	Waffe	5
+Or	f	Wurfaxt	Waffe	5
+Or	f	Wurfhammer	Waffe	5
+Or	f	Wurfkeule	Waffe	5
+Or	f	großer Schild	Waffe	1
+Or	f	kleiner Schild	Waffe	1
+Or	f	Buckler	Waffe	1
+Or	f	Lanze	Waffe	5
+Or	f	Anderthalbhänder	Waffe	5
+Or	f	Stabkeule	Waffe	5
+Or	f	Hellebarde	Waffe	5
+Or	f	Morgenstern	Waffe	5
+Or	f	Kampfstab	Waffe	5
+Or	f	Bihänder	Waffe	5
+Or	f	Schlachtbeil	Waffe	5
+Or	f	Stielhammer	Waffe	5
+Or	f	Kriegsflegel	Waffe	5
+Or	f	Bogen	Waffe	5
+Or	f	Kurzbogen	Waffe	5
+Or	f	Langbogen	Waffe	5
+Or	f	leichte Armbrust	Waffe	5
+Or	f	schwere Armbrust	Waffe	5
+Or	f	Schleuder	Waffe	5
+Or	f	Wurfmesser	Waffe	5
+Or	f	Wurfpfeil	Waffe	5
+Or	f	Parierdolch	Waffe	1
+Or	f	waffenloser Kampf	Waffe	5
+Se	f	Dolch	Waffe	5
+Se	f	Krummsäbel	Waffe	5
+Se	f	Kurzschwert	Waffe	5
+Se	f	Rapier	Waffe	5
+Se	f	Keule	Waffe	5
+Se	f	Streitkolben	Waffe	5
+Se	f	Handaxt	Waffe	5
+Se	f	Streitaxt	Waffe	5
+Se	f	leichter Speer	Waffe	5
+Se	f	kleiner Schild	Waffe	1
+Se	f	Parierdolch	Waffe	1
+Se	f	Ochsenzunge	Waffe	5
+Se	f	Langschwert	Waffe	5
+Se	f	Kampfstab	Waffe	5
+Se	f	Wurfspeer	Waffe	5
+Se	f	Wurfspieß	Waffe	5
+Se	f	Wurfaxt	Waffe	5
+Se	f	Wurfmesser	Waffe	5
+Se	f	großer Schild	Waffe	1
+Se	f	Kriegshammer	Waffe	5
+Se	f	Stoßspeer	Waffe	5
+Se	f	Anderthalbhänder	Waffe	5
+Se	f	Schlachtbeil	Waffe	5
+Se	f	Stabkeule	Waffe	5
+Se	f	Faustkampf	Waffe	5
+Se	f	waffenloser Kampf	Waffe	5
+Se	f	Netz	Waffe	5
+Se	f	Bogen	Waffe	5
+Se	f	Kurzbogen	Waffe	5
+Se	f	leichte Armbrust	Waffe	5
+Se	f	schwere Armbrust	Waffe	5
+Se	f	Schleuder	Waffe	5
+Se	f	Stockschleuder	Waffe	5
+Sö	f	Dolch	Waffe	5
+Sö	f	Langschwert	Waffe	5
+Sö	f	Krummsäbel	Waffe	5
+Sö	f	Kurzschwert	Waffe	5
+Sö	f	Ochsenzunge	Waffe	5
+Sö	f	Rapier	Waffe	5
+Sö	f	Keule	Waffe	5
+Sö	f	Streitkolben	Waffe	5
+Sö	f	Kriegshammer	Waffe	5
+Sö	f	Handaxt	Waffe	5
+Sö	f	Streitaxt	Waffe	5
+Sö	f	leichter Speer	Waffe	5
+Sö	f	Stoßspeer	Waffe	5
+Sö	f	Lanze	Waffe	5
+Sö	f	Stabkeule	Waffe	5
+Sö	f	Morgenstern	Waffe	5
+Sö	f	Wurfspeer	Waffe	5
+Sö	f	Wurfspieß	Waffe	5
+Sö	f	Wurfaxt	Waffe	5
+Sö	f	Wurfhammer	Waffe	5
+Sö	f	Wurfkeule	Waffe	5
+Sö	f	Wurfmesser	Waffe	5
+Sö	f	Wurfpfeil	Waffe	5
+Sö	f	großer Schild	Waffe	1
+Sö	f	kleiner Schild	Waffe	1
+Sö	f	Buckler	Waffe	1
+Sö	f	Parierdolch	Waffe	1
+Sö	f	Fuchtel	Waffe	5
+Sö	f	Bihänder	Waffe	5
+Sö	f	Anderthalbhänder	Waffe	5
+Sö	f	Schlachtbeil	Waffe	5
+Sö	f	Hellebarde	Waffe	5
+Sö	f	Stielhammer	Waffe	5
+Sö	f	Kriegsflegel	Waffe	5
+Sö	f	Kampfstab	Waffe	5
+Sö	f	Faustkampf	Waffe	5
+Sö	f	waffenloser Kampf	Waffe	5
+Sö	f	Bogen	Waffe	5
+Sö	f	Kurzbogen	Waffe	5
+Sö	f	Langbogen	Waffe	5
+Sö	f	leichte Armbrust	Waffe	5
+Sö	f	schwere Armbrust	Waffe	5
+Sö	f	Schleuder	Waffe	5
+Sö	f	Stockschleuder	Waffe	5
+Sp	f	Dolch	Waffe	5
+Sp	f	Keule	Waffe	5
+Sp	f	Krummsäbel	Waffe	5
+Sp	f	Kurzschwert	Waffe	5
+Sp	f	Ochsenzunge	Waffe	5
+Sp	f	Rapier	Waffe	5
+Sp	f	Streitkolben	Waffe	5
+Sp	f	Handaxt	Waffe	5
+Sp	f	leichter Speer	Waffe	5
+Sp	f	Werfen	Waffe	5
+Sp	f	Wurfmesser	Waffe	5
+Sp	f	Wurfspeer	Waffe	5
+Sp	f	Wurfaxt	Waffe	5
+Sp	f	Wurfkeule	Waffe	5
+Sp	f	kleiner Schild	Waffe	1
+Sp	f	Buckler	Waffe	1
+Sp	f	Parierdolch	Waffe	1
+Sp	f	Fuchtel	Waffe	5
+Sp	f	Langschwert	Waffe	5
+Sp	f	Kriegshammer	Waffe	5
+Sp	f	Streitaxt	Waffe	5
+Sp	f	Stoßspeer	Waffe	5
+Sp	f	Kampfstab	Waffe	5
+Sp	f	Schleuder	Waffe	5
+Sp	f	Wurfpfeil	Waffe	5
+Sp	f	waffenloser Kampf	Waffe	5
+Sp	f	Bogen	Waffe	5
+Sp	f	Kurzbogen	Waffe	5
+Sp	f	leichte Armbrust	Waffe	5
+Tm	f	Dolch	Waffe	5
+Tm	f	Kurzschwert	Waffe	5
+Tm	f	Keule	Waffe	5
+Tm	f	Handaxt	Waffe	5
+Tm	f	leichter Speer	Waffe	5
+Tm	f	Stoßspeer	Waffe	5
+Tm	f	Wurfspeer	Waffe	5
+Tm	f	Wurfaxt	Waffe	5
+Tm	f	Wurfkeule	Waffe	5
+Tm	f	kleiner Schild	Waffe	1
+Tm	f	Langschwert	Waffe	5
+Tm	f	Streitaxt	Waffe	5
+Tm	f	Bogen	Waffe	5
+Tm	f	Kurzbogen	Waffe	5
+Tm	f	Schleuder	Waffe	5
+Tm	f	Wurfpfeil	Waffe	5
+Tm	f	großer Schild	Waffe	1
+Tm	f	Schlachtbeil	Waffe	5
+Tm	f	Stabkeule	Waffe	5
+Tm	f	Wurfmesser	Waffe	5
+Tm	f	waffenloser Kampf	Waffe	5
+Tm	f	Bola	Waffe	5
+Wa	f	Dolch	Waffe	5
+Wa	f	leichter Speer	Waffe	5
+Wa	f	Stoßspeer	Waffe	5
+Wa	f	Langschwert	Waffe	5
+Wa	f	Kurzschwert	Waffe	5
+Wa	f	Keule	Waffe	5
+Wa	f	Handaxt	Waffe	5
+Wa	f	Streitaxt	Waffe	5
+Wa	f	Bogen	Waffe	5
+Wa	f	Kurzbogen	Waffe	5
+Wa	f	Wurfspeer	Waffe	5
+Wa	f	Wurfaxt	Waffe	5
+Wa	f	großer Schild	Waffe	1
+Wa	f	kleiner Schild	Waffe	1
+Wa	f	Krummsäbel	Waffe	5
+Wa	f	Streitkolben	Waffe	5
+Wa	f	Kriegshammer	Waffe	5
+Wa	f	Schlachtbeil	Waffe	5
+Wa	f	Kampfstab	Waffe	5
+Wa	f	Langbogen	Waffe	5
+Wa	f	Schleuder	Waffe	5
+Wa	f	Anderthalbhänder	Waffe	5
+Wa	f	waffenloser Kampf	Waffe	5
+Dr	f	Dolch	Waffe	4
+Dr	f	Keule	Waffe	4
+Dr	f	Handaxt	Waffe	4
+Dr	f	leichter Speer	Waffe	4
+Dr	f	Magierstecken	Waffe	4
+Dr	f	Wurfkeule	Waffe	4
+Dr	f	kleiner Schild	Waffe	1
+Dr	f	Kampfstab	Waffe	4
+Dr	f	Schleuder	Waffe	4
+Hl	f	Dolch	Waffe	4
+Hl	f	Magierstab	Waffe	4
+Hl	f	waffenloser Kampf	Waffe	4
+wHx	f	Dolch	Waffe	4
+wHx	f	Magierstab	Waffe	4
+wHx	f	Wurfmesser	Waffe	4
+gHx	f	Dolch	Waffe	4
+gHx	f	Ochsenzunge	Waffe	4
+gHx	f	Magierstab	Waffe	4
+gHx	f	Wurfmesser	Waffe	4
+sHx	f	Dolch	Waffe	4
+sHx	f	Ochsenzunge	Waffe	4
+sHx	f	Magierstab	Waffe	4
+sHx	f	Wurfmesser	Waffe	4
+Ma	f	Dolch	Waffe	4
+Ma	f	Magierstab	Waffe	4
+Ma	f	Wurfmesser	Waffe	4
+Ma	f	Magierstecken	Waffe	4
+ScS	f	Dolch	Waffe	4
+ScS	f	Keule	Waffe	4
+ScS	f	leichter Speer	Waffe	4
+ScS	f	Wurfspeer	Waffe	4
+ScS	f	Wurfkeule	Waffe	4
+ScS	f	Stabkeule	Waffe	4
+ScS	f	Speerschleuder	Waffe	4
+ScS	f	Faustkampf	Waffe	4
+ScW	f	Dolch	Waffe	4
+ScW	f	Keule	Waffe	4
+ScW	f	leichter Speer	Waffe	4
+ScW	f	Wurfspeer	Waffe	4
+ScW	f	Wurfkeule	Waffe	4
+ScW	f	Stabkeule	Waffe	4
+ScW	f	Speerschleuder	Waffe	4
+ScW	f	Faustkampf	Waffe	4
+ScN	f	Dolch	Waffe	4
+ScN	f	Keule	Waffe	4
+ScN	f	leichter Speer	Waffe	4
+ScN	f	Wurfspeer	Waffe	4
+ScN	f	Wurfkeule	Waffe	4
+ScN	f	Stabkeule	Waffe	4
+ScN	f	Speerschleuder	Waffe	4
+ScN	f	Faustkampf	Waffe	4
+Th	f	Dolch	Waffe	4
+Th	f	Blasrohr	Waffe	4
+Th	f	Magierstab	Waffe	4
+Th	f	Werfen	Waffe	4
+Th	f	leichte Armbrust	Waffe	4
+PF	f	Handaxt	Waffe	4
+PF	f	Keule	Waffe	4
+PF	f	Kurzschwert	Waffe	4
+PF	f	Stoßspeer	Waffe	4
+PF	f	Streitkolben	Waffe	4
+PF	f	Kriegshammer	Waffe	4
+PF	f	Wurfhammer	Waffe	4
+PF	f	Wurfkeule	Waffe	4
+PF	f	großer Schild	Waffe	1
+PF	f	kleiner Schild	Waffe	1
+PF	f	Stabkeule	Waffe	4
+PF	f	Morgenstern	Waffe	4
+PF	f	Magierstab	Waffe	4
+PF	f	Kampfstab	Waffe	4
+PF	f	Kriegsflegel	Waffe	4
+PF	f	Bogen	Waffe	4
+PF	f	Kurzbogen	Waffe	4
+PF	f	Schleuder	Waffe	4
+PF	f	waffenloser Kampf	Waffe	4
+PHa	f	Dolch	Waffe	4
+PHa	f	Handaxt	Waffe	4
+PHa	f	Keule	Waffe	4
+PHa	f	Kurzschwert	Waffe	4
+PHa	f	Streitkolben	Waffe	4
+PHa	f	Kriegshammer	Waffe	4
+PHa	f	Wurfaxt	Waffe	4
+PHa	f	Wurfhammer	Waffe	4
+PHa	f	Wurfkeule	Waffe	4
+PHa	f	großer Schild	Waffe	1
+PHa	f	kleiner Schild	Waffe	1
+PHa	f	Stabkeule	Waffe	4
+PHa	f	Morgenstern	Waffe	4
+PHa	f	Kriegsflegel	Waffe	4
+PHa	f	waffenloser Kampf	Waffe	4
+PHe	f	Kurzschwert	Waffe	4
+PHe	f	Krummsäbel	Waffe	4
+PHe	f	Stoßspeer	Waffe	4
+PHe	f	Keule	Waffe	4
+PHe	f	Streitkolben	Waffe	4
+PHe	f	Kriegshammer	Waffe	4
+PHe	f	Langschwert	Waffe	4
+PHe	f	Wurfhammer	Waffe	4
+PHe	f	Wurfkeule	Waffe	4
+PHe	f	großer Schild	Waffe	1
+PHe	f	kleiner Schild	Waffe	1
+PHe	f	Stabkeule	Waffe	4
+PHe	f	Morgenstern	Waffe	4
+PHe	f	Kampfstab	Waffe	4
+PHe	f	Magierstab	Waffe	4
+PHe	f	waffenloser Kampf	Waffe	4
+PK	f	Dolch	Waffe	4
+PK	f	Langschwert	Waffe	4
+PK	f	Krummsäbel	Waffe	4
+PK	f	Kurzschwert	Waffe	4
+PK	f	Rapier	Waffe	4
+PK	f	Keule	Waffe	4
+PK	f	Streitkolben	Waffe	4
+PK	f	Kriegshammer	Waffe	4
+PK	f	Handaxt	Waffe	4
+PK	f	Streitaxt	Waffe	4
+PK	f	leichter Speer	Waffe	4
+PK	f	Stoßspeer	Waffe	4
+PK	f	Wurfspeer	Waffe	4
+PK	f	Wurfspieß	Waffe	4
+PK	f	Wurfaxt	Waffe	4
+PK	f	Wurfhammer	Waffe	4
+PK	f	Wurfkeule	Waffe	4
+PK	f	Wurfmesser	Waffe	4
+PK	f	großer Schild	Waffe	1
+PK	f	kleiner Schild	Waffe	1
+PK	f	Anderthalbhänder	Waffe	4
+PK	f	Glefe	Waffe	4
+PK	f	Stabkeule	Waffe	4
+PK	f	Morgenstern	Waffe	4
+PK	f	Schlachtbeil	Waffe	4
+PK	f	Kriegsflegel	Waffe	4
+PK	f	waffenloser Kampf	Waffe	4
+PM	f	Dolch	Waffe	4
+PM	f	Kurzschwert	Waffe	4
+PM	f	leichter Speer	Waffe	4
+PM	f	Stoßspeer	Waffe	4
+PM	f	Wurfspeer	Waffe	4
+PM	f	Wurfspieß	Waffe	4
+PM	f	großer Schild	Waffe	1
+PM	f	kleiner Schild	Waffe	1
+PM	f	Netz	Waffe	4
+PM	f	waffenloser Kampf	Waffe	4
+PT	f	Kurzschwert	Waffe	4
+PT	f	Rapier	Waffe	4
+PT	f	Keule	Waffe	4
+PT	f	Magierstab	Waffe	4
+PT	f	Wurfmesser	Waffe	4
+PT	f	Buckler	Waffe	1
+PT	f	Wurfpfeil	Waffe	4
+PT	f	Blasrohr	Waffe	4
+PT	f	waffenloser Kampf	Waffe	4
+PW	f	Dolch	Waffe	4
+PW	f	Magierstab	Waffe	4
+PW	f	Stoßspeer	Waffe	4
+PW	f	Wurfmesser	Waffe	4
+PW	f	Parierdolch	Waffe	1
+PW	f	Wurfstern	Waffe	4
+PW	f	Kampfstab	Waffe	4
+PW	f	waffenloser Kampf	Waffe	4
+PC	f	Dolch	Waffe	4
+PC	f	leichter Speer	Waffe	4
+PC	f	Magierstab	Waffe	4
+PC	f	Wurfspeer	Waffe	4
+PC	f	Wurfmesser	Waffe	4
+PC	f	kleiner Schild	Waffe	1
+PC	f	Wurfpfeil	Waffe	4
+PC	f	waffenloser Kampf	Waffe	4
+PC	f	Blasrohr	Waffe	4
+As	f	Fallenmechanik	Fertigkeit	4
+As	f	Geheimzeichen	Fertigkeit	12
+As	f	Schleichen	Fertigkeit	8
+As	f	Stimmen nachahmen	Fertigkeit	15
+As	f	Tarnen	Fertigkeit	8
+As	f	Beschatten	Fertigkeit	8
+As	f	Fallen entdecken	Fertigkeit	6
+As	f	Fälschen	Fertigkeit	15
+As	f	Giftmischen	Fertigkeit	5
+As	f	Kampf in Dunkelheit	Fertigkeit	2
+As	f	Lippenlesen	Fertigkeit	6
+As	f	Scharfschießen	Fertigkeit	5
+As	f	Suchen	Fertigkeit	8
+As	f	Verbergen	Fertigkeit	8
+As	f	Verhören	Fertigkeit	8
+As	f	Verkleiden	Fertigkeit	15
+BN	f	Kampf in Schlachtreihe	Fertigkeit	5
+BN	f	Himmelskunde	Fertigkeit	5
+BN	f	Rudern	Fertigkeit	15
+BN	f	Schwimmen	Fertigkeit	15
+BN	f	Überleben im Schnee	Fertigkeit	8
+BN	f	Tauchen	Fertigkeit	15
+BN	f	Trinken	Fertigkeit	1
+BN	f	Klettern	Fertigkeit	15
+BN	f	Laufen	Fertigkeit	4
+BN	f	Schlittenfahren	Fertigkeit	15
+BN	f	Seemannsgang	Fertigkeit	15
+BN	f	Steuern	Fertigkeit	15
+BN	f	Skifahren	Fertigkeit	15
+BN	f	Abrichten	Fertigkeit	8
+BN	f	Athletik	Fertigkeit	4
+BN	f	Schiffsführung	Fertigkeit	8
+BS	f	Himmelskunde	Fertigkeit	5
+BS	f	Bogenkampf zu Pferd	Fertigkeit	15
+BS	f	Kampf zu Pferd	Fertigkeit	15
+BS	f	Reiten	Fertigkeit	15
+BS	f	Überleben in Steppe oder Wüste	Fertigkeit	8
+BS	f	Fangen	Fertigkeit	15
+BS	f	Gaukeln	Fertigkeit	12
+BS	f	Laufen	Fertigkeit	4
+BS	f	Spurenlesen	Fertigkeit	6
+BS	f	Wagenlenken	Fertigkeit	15
+BS	f	Abrichten	Fertigkeit	8
+BS	f	Athletik	Fertigkeit	4
+BW	f	Fallenstellen	Fertigkeit	4
+BW	f	Schwimmen	Fertigkeit	15
+BW	f	Spurenlesen	Fertigkeit	6
+BW	f	Stimmen nachahmen	Fertigkeit	15
+BW	f	Tanzen	Fertigkeit	15
+BW	f	Überleben in Dschungel oder Wald	Fertigkeit	8
+BW	f	Balancieren	Fertigkeit	15
+BW	f	Geländelauf	Fertigkeit	15
+BW	f	Rudern	Fertigkeit	15
+BW	f	Klettern	Fertigkeit	15
+BW	f	Kräuterkunde	Fertigkeit	5
+BW	f	Wahrnehmung	Fertigkeit	4
+BW	f	Abrichten	Fertigkeit	8
+BW	f	Akrobatik	Fertigkeit	15
+Ba	f	Erzählen	Fertigkeit	12
+Ba	f	Dichten	Fertigkeit	12
+Ba	f	Lesen von Zauberschrift	Fertigkeit	12
+Ba	f	Musizieren	Fertigkeit	12
+Ba	f	Sagenkunde	Fertigkeit	5
+Ba	f	Schreiben: Muttersprache	Fertigkeit	12
+Ba	f	Singen	Fertigkeit	12
+Ba	f	Stimmen nachahmen	Fertigkeit	15
+Ba	f	Tanzen	Fertigkeit	15
+Ba	f	Beredsamkeit	Fertigkeit	8
+Ba	f	Schauspielern	Fertigkeit	8
+Ba	f	Verführen	Fertigkeit	8
+Ba	f	Zauberkunde	Fertigkeit	5
+Er	f	Beschatten	Fertigkeit	8
+Er	f	Geheimzeichen	Fertigkeit	12
+Er	f	Landeskunde	Fertigkeit	10
+Er	f	Lippenlesen	Fertigkeit	6
+Er	f	Menschenkenntnis	Fertigkeit	5
+Er	f	Schreiben: Muttersprache	Fertigkeit	12
+Er	f	Suchen	Fertigkeit	8
+Er	f	Verhören	Fertigkeit	8
+Er	f	Zeichensprache	Fertigkeit	6
+Er	f	Fallen entdecken	Fertigkeit	6
+Er	f	Gassenwissen	Fertigkeit	5
+Er	f	Geheimmechanismen öffnen	Fertigkeit	6
+Er	f	Schauspielern	Fertigkeit	8
+Er	f	Schlösser öffnen	Fertigkeit	8
+Er	f	Spurenlesen	Fertigkeit	6
+Er	f	Verbergen	Fertigkeit	8
+Er	f	Verkleiden	Fertigkeit	15
+Er	f	Wahrnehmung	Fertigkeit	4
+Gl	f	Dichten	Fertigkeit	12
+Gl	f	Erzählen	Fertigkeit	12
+Gl	f	Gassenwissen	Fertigkeit	5
+Gl	f	Gaukeln	Fertigkeit	12
+Gl	f	Geheimzeichen	Fertigkeit	12
+Gl	f	Glücksspiel	Fertigkeit	15
+Gl	f	Reiten	Fertigkeit	15
+Gl	f	Sprechen:Sprache	Fertigkeit	9
+Gl	f	Tanzen	Fertigkeit	15
+Gl	f	Akrobatik	Fertigkeit	15
+Gl	f	Fälschen	Fertigkeit	15
+Gl	f	Fechten	Fertigkeit	4
+Gl	f	Menschenkenntnis	Fertigkeit	5
+Gl	f	Schauspielern	Fertigkeit	8
+Gl	f	Sprechen: Sprache	Fertigkeit	12
+Gl	f	Verführen	Fertigkeit	8
+Gl	f	Verhören	Fertigkeit	8
+Gl	f	Zauberkunde	Fertigkeit	5
+Hä	f	Beredsamkeit	Fertigkeit	8
+Hä	f	Himmelskunde	Fertigkeit	5
+Hä	f	Landeskunde	Fertigkeit	5
+Hä	f	Menschenkenntnis	Fertigkeit	5
+Hä	f	Rechnen	Fertigkeit	8
+Hä	f	Schätzen	Fertigkeit	5
+Hä	f	Schreiben: Muttersprache	Fertigkeit	9
+Hä	f	Seemannsgang	Fertigkeit	15
+Hä	f	Sprechen: Sprache	Fertigkeit	12
+Hä	f	Wagenlenken	Fertigkeit	15
+Hä	f	Gassenwissen	Fertigkeit	5
+Hä	f	Naturkunde	Fertigkeit	5
+Hä	f	Reiten	Fertigkeit	15
+Hä	f	Schauspielern	Fertigkeit	8
+Hä	f	Schiffsführung	Fertigkeit	8
+Hä	f	Schreiben: Muttersprache	Fertigkeit	12
+Hä	f	Steuern	Fertigkeit	15
+Hä	f	Verhören	Fertigkeit	8
+Hä	f	Wahrnehmung	Fertigkeit	4
+Hä	f	Zeichensprache	Fertigkeit	6
+Kr	f	Kampf in Schlachtreihe	Fertigkeit	5
+Kr	f	Reiten	Fertigkeit	15
+Kr	f	Streitwagen lenken	Fertigkeit	15
+Kr	f	Wagenlenken	Fertigkeit	15
+Kr	f	Beidhändiger Kampf	Fertigkeit	3
+Kr	f	Bogenkampf zu Pferd	Fertigkeit	15
+Kr	f	Kampf zu Pferd	Fertigkeit	15
+Kr	f	Kampf vom Streitwagen	Fertigkeit	15
+Kr	f	Kampftaktik	Fertigkeit	8
+Kr	f	Schießen vom Streitwagen	Fertigkeit	15
+Kr	f	Schiffsführung	Fertigkeit	8
+Kr	f	Athletik	Fertigkeit	4
+Ku	f	Fallenstellen	Fertigkeit	4
+Ku	f	Himmelskunde	Fertigkeit	5
+Ku	f	Naturkunde	Fertigkeit	5
+Ku	f	Reiten	Fertigkeit	15
+Ku	f	Spurenlesen	Fertigkeit	6
+Ku	f	Überleben in Steppe oder Wüste	Fertigkeit	8
+Ku	f	Bogenkampf zu Pferd	Fertigkeit	15
+Ku	f	Kampf zu Pferd	Fertigkeit	15
+Ku	f	Klettern	Fertigkeit	15
+Ku	f	Schleichen	Fertigkeit	8
+Ku	f	Tarnen	Fertigkeit	8
+Ku	f	Tierkunde	Fertigkeit	5
+Ku	f	Wagenlenken	Fertigkeit	15
+Ku	f	Wahrnehmung	Fertigkeit	4
+Ku	f	Gassenwissen	Fertigkeit	5
+Or	f	Kampf in Schlachtreihe	Fertigkeit	5
+Or	f	Reiten	Fertigkeit	15
+Or	f	Schreiben: Muttersprache	Fertigkeit	12
+Or	f	Kampf zu Pferd	Fertigkeit	15
+Or	f	Kampf vom Streitwagen	Fertigkeit	15
+Or	f	Kampftaktik	Fertigkeit	8
+Or	f	Streitwagen lenken	Fertigkeit	15
+Or	f	Wagenlenken	Fertigkeit	15
+Or	f	Athletik	Fertigkeit	4
+Or	f	Meditieren	Fertigkeit	8
+Se	f	Himmelskunde	Fertigkeit	5
+Se	f	Erzählen	Fertigkeit	12
+Se	f	Landeskunde	Fertigkeit	5
+Se	f	Rudern	Fertigkeit	15
+Se	f	Schwimmen	Fertigkeit	15
+Se	f	Seemannsgang	Fertigkeit	15
+Se	f	Sprechen: Sprache	Fertigkeit	12
+Se	f	Steuern	Fertigkeit	15
+Se	f	Tauchen	Fertigkeit	15
+Se	f	Trinken	Fertigkeit	1
+Se	f	Balancieren	Fertigkeit	15
+Se	f	Fangen	Fertigkeit	15
+Se	f	Klettern	Fertigkeit	15
+Se	f	Rechnen	Fertigkeit	8
+Se	f	Schiffsführung	Fertigkeit	8
+Se	f	Seilkunst	Fertigkeit	8
+Se	f	Gassenwissen	Fertigkeit	5
+Sö	f	Kampf in Schlachtreihe	Fertigkeit	5
+Sö	f	Reiten	Fertigkeit	15
+Sö	f	Trinken	Fertigkeit	1
+Sö	f	Ballista bedienen	Fertigkeit	4
+Sö	f	Beidhändiger Kampf	Fertigkeit	3
+Sö	f	Glücksspiel	Fertigkeit	15
+Sö	f	Kampf zu Pferd	Fertigkeit	15
+Sö	f	Kampftaktik	Fertigkeit	8
+Sö	f	Katapult bedienen	Fertigkeit	4
+Sö	f	Wagenlenken	Fertigkeit	15
+Sö	f	Athletik	Fertigkeit	4
+Sp	f	Fallenmechanik	Fertigkeit	4
+Sp	f	Gaukeln	Fertigkeit	12
+Sp	f	Geheimzeichen	Fertigkeit	12
+Sp	f	Schlösser öffnen	Fertigkeit	8
+Sp	f	Stehlen	Fertigkeit	8
+Sp	f	Verbergen	Fertigkeit	8
+Sp	f	Zeichensprache	Fertigkeit	6
+Sp	f	Balancieren	Fertigkeit	15
+Sp	f	Fallen entdecken	Fertigkeit	6
+Sp	f	Gassenwissen	Fertigkeit	5
+Sp	f	Geheimmechanismen öffnen	Fertigkeit	6
+Sp	f	Klettern	Fertigkeit	15
+Sp	f	Schleichen	Fertigkeit	8
+Sp	f	Suchen	Fertigkeit	8
+Sp	f	Tarnen	Fertigkeit	8
+Sp	f	Winden	Fertigkeit	4
+Sp	f	Akrobatik	Fertigkeit	15
+Tm	f	Abrichten	Fertigkeit	8
+Tm	f	Geländelauf	Fertigkeit	15
+Tm	f	Tierkunde	Fertigkeit	5
+Tm	f	Fallenstellen	Fertigkeit	4
+Tm	f	Laufen	Fertigkeit	4
+Tm	f	Naturkunde	Fertigkeit	5
+Tm	f	Spurenlesen	Fertigkeit	6
+Tm	f	Meditieren	Fertigkeit	8
+Wa	f	Fallenstellen	Fertigkeit	4
+Wa	f	Laufen	Fertigkeit	4
+Wa	f	Pflanzenkunde	Fertigkeit	5
+Wa	f	Spurenlesen	Fertigkeit	6
+Wa	f	Tierkunde	Fertigkeit	5
+Wa	f	Überleben in Wald oder Gebirge	Fertigkeit	8
+Wa	f	Geländelauf	Fertigkeit	15
+Wa	f	Kampf in Dunkelheit	Fertigkeit	2
+Wa	f	Klettern	Fertigkeit	15
+Wa	f	Kräuterkunde	Fertigkeit	5
+Wa	f	Scharfschießen	Fertigkeit	5
+Wa	f	Schleichen	Fertigkeit	8
+Wa	f	Schwimmen	Fertigkeit	15
+Wa	f	Tarnen	Fertigkeit	8
+Wa	f	Wahrnehmung	Fertigkeit	4
+Wa	f	Abrichten	Fertigkeit	8
+Dr	f	Geheimzeichen	Fertigkeit	12
+Dr	f	Naturkunde	Fertigkeit	5
+Dr	f	Pflanzenkunde	Fertigkeit	5
+Dr	f	Sagenkunde	Fertigkeit	5
+Dr	f	Tierkunde	Fertigkeit	5
+Dr	f	Lesen von Zauberschrift	Fertigkeit	12
+Dr	f	Wahrnehmung	Fertigkeit	4
+Dr	f	Zauberkunde	Fertigkeit	5
+Dr	f	Abrichten	Fertigkeit	8
+Hl	f	Erste Hilfe	Fertigkeit	8
+Hl	f	Kräuterkunde	Fertigkeit	5
+Hl	f	Lesen von Zauberschrift	Fertigkeit	12
+Hl	f	Schreiben: Muttersprache	Fertigkeit	12
+Hl	f	Heilkunde	Fertigkeit	5
+Hl	f	Menschenkenntnis	Fertigkeit	5
+Hl	f	Zauberkunde	Fertigkeit	5
+wHx	f	Lesen von Zauberschrift	Fertigkeit	12
+wHx	f	Schreiben: Muttersprache	Fertigkeit	12
+wHx	f	Gassenwissen	Fertigkeit	5
+wHx	f	Giftmischen	Fertigkeit	5
+wHx	f	Kräuterkunde	Fertigkeit	5
+wHx	f	Verbergen	Fertigkeit	8
+gHx	f	Lesen von Zauberschrift	Fertigkeit	12
+gHx	f	Schreiben: Muttersprache	Fertigkeit	12
+gHx	f	Gassenwissen	Fertigkeit	5
+gHx	f	Giftmischen	Fertigkeit	5
+gHx	f	Kräuterkunde	Fertigkeit	5
+gHx	f	Verbergen	Fertigkeit	8
+sHx	f	Lesen von Zauberschrift	Fertigkeit	12
+sHx	f	Schreiben: Muttersprache	Fertigkeit	12
+sHx	f	Gassenwissen	Fertigkeit	5
+sHx	f	Giftmischen	Fertigkeit	5
+sHx	f	Kräuterkunde	Fertigkeit	5
+sHx	f	Verbergen	Fertigkeit	8
+Ma	f	Lesen von Zauberschrift	Fertigkeit	12
+Ma	f	Schreiben: Muttersprache	Fertigkeit	12
+Ma	f	Zauberkunde	Fertigkeit	5
+Ma	f	Alchimie	Fertigkeit	5
+Ma	f	Thaumatographie	Fertigkeit	6
+ScS	f	Reiten	Fertigkeit	15
+ScS	f	Sagenkunde	Fertigkeit	5
+ScS	f	Tanzen	Fertigkeit	15
+ScS	f	Überleben in Steppe oder Wüste	Fertigkeit	8
+ScS	f	Erste Hilfe	Fertigkeit	8
+ScS	f	Heilkunde	Fertigkeit	5
+ScS	f	Kräuterkunde	Fertigkeit	5
+ScS	f	Lesen von Zauberschrift	Fertigkeit	12
+ScS	f	Naturkunde	Fertigkeit	5
+ScS	f	Pflanzenkunde	Fertigkeit	5
+ScS	f	Tierkunde	Fertigkeit	5
+ScS	f	Meditieren	Fertigkeit	8
+ScW	f	Sagenkunde	Fertigkeit	5
+ScW	f	Schwimmen	Fertigkeit	15
+ScW	f	Tanzen	Fertigkeit	15
+ScW	f	Überleben in Wald	Fertigkeit	8
+ScW	f	Überleben in Dschungel	Fertigkeit	8
+ScW	f	Erste Hilfe	Fertigkeit	8
+ScW	f	Heilkunde	Fertigkeit	5
+ScW	f	Kräuterkunde	Fertigkeit	5
+ScW	f	Lesen von Zauberschrift	Fertigkeit	12
+ScW	f	Naturkunde	Fertigkeit	5
+ScW	f	Pflanzenkunde	Fertigkeit	5
+ScW	f	Tierkunde	Fertigkeit	5
+ScW	f	Meditieren	Fertigkeit	8
+ScN	f	Geländelauf	Fertigkeit	15
+ScN	f	Sagenkunde	Fertigkeit	5
+ScN	f	Tanzen	Fertigkeit	15
+ScN	f	Überleben in Schnee	Fertigkeit	8
+ScN	f	Erste Hilfe	Fertigkeit	8
+ScN	f	Heilkunde	Fertigkeit	5
+ScN	f	Kräuterkunde	Fertigkeit	5
+ScN	f	Lesen von Zauberschrift	Fertigkeit	12
+ScN	f	Naturkunde	Fertigkeit	5
+ScN	f	Pflanzenkunde	Fertigkeit	5
+ScN	f	Tierkunde	Fertigkeit	5
+ScN	f	Meditieren	Fertigkeit	8
+Th	f	Lesen von Zauberschrift	Fertigkeit	12
+Th	f	Schreiben: Muttersprache	Fertigkeit	12
+Th	f	Naturkunde	Fertigkeit	5
+Th	f	Zauberkunde	Fertigkeit	5
+Th	f	Alchimie	Fertigkeit	5
+Th	f	Thaumatographie	Fertigkeit	6
+PF	f	Schreiben: Alte Sprache	Fertigkeit	12
+PF	f	Sprechen: Alte Sprache	Fertigkeit	12
+PF	f	Erste Hilfe	Fertigkeit	8
+PF	f	Lesen von Zauberschrift	Fertigkeit	12
+PF	f	Schreiben: Muttersprache	Fertigkeit	12
+PF	f	Singen	Fertigkeit	12
+PF	f	Trinken	Fertigkeit	1
+PF	f	Kräuterkunde	Fertigkeit	5
+PF	f	Pflanzenkunde	Fertigkeit	5
+PF	f	Sagenkunde	Fertigkeit	5
+PF	f	Tierkunde	Fertigkeit	5
+PF	f	Meditieren	Fertigkeit	8
+PHa	f	Schreiben: Alte Sprache	Fertigkeit	12
+PHa	f	Sprechen: Alte Sprache	Fertigkeit	12
+PHa	f	Lesen von Zauberschrift	Fertigkeit	12
+PHa	f	Schreiben: Muttersprache	Fertigkeit	12
+PHa	f	Singen	Fertigkeit	12
+PHa	f	Baukunde	Fertigkeit	6
+PHa	f	Beredsamkeit	Fertigkeit	8
+PHa	f	Sagenkunde	Fertigkeit	5
+PHa	f	Schätzen	Fertigkeit	5
+PHa	f	Meditieren	Fertigkeit	8
+PHe	f	Schreiben: Alte Sprache	Fertigkeit	12
+PHe	f	Sprechen: Alte Sprache	Fertigkeit	12
+PHe	f	Landeskunde	Fertigkeit	10
+PHe	f	Lesen von Zauberschrift	Fertigkeit	12
+PHe	f	Schreiben: Muttersprache	Fertigkeit	12
+PHe	f	Singen	Fertigkeit	12
+PHe	f	Beredsamkeit	Fertigkeit	8
+PHe	f	Sagenkunde	Fertigkeit	5
+PHe	f	Verhören	Fertigkeit	8
+PHe	f	Meditieren	Fertigkeit	8
+PK	f	Schreiben: Alte Sprache	Fertigkeit	12
+PK	f	Sprechen: Alte Sprache	Fertigkeit	12
+PK	f	Lesen von Zauberschrift	Fertigkeit	12
+PK	f	Schreiben: Muttersprache	Fertigkeit	12
+PK	f	Singen	Fertigkeit	12
+PK	f	Reiten	Fertigkeit	15
+PK	f	Sagenkunde	Fertigkeit	5
+PK	f	Kampftaktik	Fertigkeit	8
+PK	f	Kampf zu Pferd	Fertigkeit	15
+PK	f	Meditieren	Fertigkeit	8
+PM	f	Schreiben: Alte Sprache	Fertigkeit	12
+PM	f	Sprechen: Alte Sprache	Fertigkeit	12
+PM	f	Lesen von Zauberschrift	Fertigkeit	12
+PM	f	Schreiben: Muttersprache	Fertigkeit	12
+PM	f	Singen	Fertigkeit	12
+PM	f	Sagenkunde	Fertigkeit	5
+PM	f	Schwimmen	Fertigkeit	15
+PM	f	Steuern	Fertigkeit	15
+PM	f	Tauchen	Fertigkeit	15
+PM	f	Meditieren	Fertigkeit	8
+PT	f	Schreiben: Alte Sprache	Fertigkeit	12
+PT	f	Sprechen: Alte Sprache	Fertigkeit	12
+PT	f	Lesen von Zauberschrift	Fertigkeit	12
+PT	f	Schreiben: Muttersprache	Fertigkeit	12
+PT	f	Singen	Fertigkeit	12
+PT	f	Giftmischen	Fertigkeit	5
+PT	f	Landeskunde	Fertigkeit	10
+PT	f	Sagenkunde	Fertigkeit	5
+PT	f	Verhören	Fertigkeit	8
+PT	f	Meditieren	Fertigkeit	8
+PW	f	Schreiben: Alte Sprache	Fertigkeit	12
+PW	f	Sprechen: Alte Sprache	Fertigkeit	12
+PW	f	Landeskunde	Fertigkeit	10
+PW	f	Lesen von Zauberschrift	Fertigkeit	12
+PW	f	Sagenkunde	Fertigkeit	5
+PW	f	Schreiben: Muttersprache	Fertigkeit	12
+PW	f	Singen	Fertigkeit	12
+PW	f	Erste Hilfe	Fertigkeit	8
+PW	f	Heilkunde	Fertigkeit	5
+PW	f	Landeskunde	Fertigkeit	5
+PW	f	Menschenkenntnis	Fertigkeit	5
+PW	f	Rechnen	Fertigkeit	8
+PW	f	Sprechen:Sprache	Fertigkeit	12
+PW	f	Zauberkunde	Fertigkeit	5
+PW	f	Meditieren	Fertigkeit	8
+PW	f	Schauspielern	Fertigkeit	8
+PC	f	Schreiben: Alte Sprache	Fertigkeit	12
+PC	f	Sprechen: Alte Sprache	Fertigkeit	12
+PC	f	Lesen von Zauberschrift	Fertigkeit	12
+PC	f	Schreiben: Muttersprache	Fertigkeit	12
+PC	f	Singen	Fertigkeit	12
+PC	f	Giftmischen	Fertigkeit	5
+PC	f	Schauspielern	Fertigkeit	8
+PC	f	Verbergen	Fertigkeit	8
+PC	f	Verkleiden	Fertigkeit	15
+PC	f	Meucheln	Fertigkeit	8
+Ba	f	Das Lied der Tapferkeit	Zauber	0
+Ba	f	Das Lied der Feier	Zauber	0
+Ba	f	Das Lied des Fesselns	Zauber	0
+Ba	f	Der einschläfernde Gesang	Zauber	0
+Ba	f	Der frohlockende Gesang	Zauber	0
+Ba	f	Der traurige Gesang	Zauber	0
+Ba	f	Das Lied der Ruhe	Zauber	0
+Ba	f	Das Lied des Spottes	Zauber	0
+Ba	f	Das Lied der Verführung	Zauber	0
+Ba	f	Das Lied der Tanzlust	Zauber	0
+Ba	f	Das Lied des Wagemuts	Zauber	0
+Ba	f	Das Loblied	Zauber	0
+Or	f	Göttlicher Schutz vor dem Bösen	Zauber	0
+Or	f	Hörnerklang	Zauber	0
+Or	f	Handauflegen	Zauber	0
+Or	f	Heiliger Zorn	Zauber	0
+Or	f	Wagemut	Zauber	0
+Or	f	Goldener Panzer	Zauber	0
+Or	f	Heilen von Wunden	Zauber	0
+Tm	f	Wundersame Tarnung	Zauber	0
+Tm	f	Zähmen	Zauber	0
+Tm	f	Bärenwut	Zauber	0
+Tm	f	Macht über die belebte Natur	Zauber	0
+Tm	f	Wagemut	Zauber	0
+Tm	f	Angst	Zauber	0
+Tm	f	Tiersprache	Zauber	0
+Dr	f	Liniensicht	Zauber	0
+Dr	f	Wandeln wie der Wind	Zauber	0
+Dr	f	Rindenhaut	Zauber	0
+Dr	f	Zähmen	Zauber	0
+Dr	f	Bärenwut	Zauber	0
+Dr	f	Tiersprache	Zauber	0
+Dr	f	Wundersame Tarnung	Zauber	0
+Dr	f	Baum	Zauber	0
+Dr	f	Macht über die belebte Natur	Zauber	0
+Hl	f	Erkennen von Krankheit	Zauber	0
+Hl	f	Handauflegen	Zauber	0
+Hl	f	Liniensicht	Zauber	0
+Hl	f	Heilen von Krankheit	Zauber	0
+Hl	f	Heilen von Wunden	Zauber	0
+Hl	f	Reinigen	Zauber	0
+Hl	f	Tiersprache	Zauber	0
+Hl	f	Zähmen	Zauber	0
+Hl	f	Macht über die belebte Natur	Zauber	0
+wHx	f	Binden des Vertrauten	Zauber	0
+wHx	f	Anziehen	Zauber	0
+wHx	f	Göttlicher Schutz vor Bösem	Zauber	0
+wHx	f	Macht über das Selbst	Zauber	0
+wHx	f	Beeinflussen	Zauber	0
+wHx	f	Schmerzen	Zauber	0
+wHx	f	Verwirren	Zauber	0
+wHx	f	Angst	Zauber	0
+gHx	f	Binden des Vertrauten	Zauber	0
+gHx	f	Anziehen	Zauber	0
+gHx	f	Dämonische Zaubermacht	Zauber	0
+gHx	f	Macht über das Selbst	Zauber	0
+gHx	f	Beeinflussen	Zauber	0
+gHx	f	Schmerzen	Zauber	0
+gHx	f	Verwirren	Zauber	0
+gHx	f	Angst	Zauber	0
+gHx	f	Böser Blick	Zauber	0
+sHx	f	Binden des Vertrauten	Zauber	0
+sHx	f	Anziehen	Zauber	0
+sHx	f	Dämonische Zaubermacht	Zauber	0
+sHx	f	Macht über das Selbst	Zauber	0
+sHx	f	Beeinflussen	Zauber	0
+sHx	f	Schmerzen	Zauber	0
+sHx	f	Verwirren	Zauber	0
+sHx	f	Angst	Zauber	0
+sHx	f	Böser Blick	Zauber	0
+Ma	f	Erkennen von Leben	Zauber	0
+Ma	f	 Heranholen	Zauber	0
+Ma	f	Hören von Fernem	Zauber	0
+Ma	f	Lauschen	Zauber	0
+Ma	f	Macht über das Selbst	Zauber	0
+Ma	f	Scharfblick	Zauber	0
+Ma	f	Sehen von Verborgenem	Zauber	0
+Ma	f	Macht über die Sinne	Zauber	0
+Ma	f	Macht über Unbelebtes	Zauber	0
+Ma	f	Sehen in Dunkelheit	Zauber	0
+Ma	f	Macht über die belebte Natur	Zauber	0
+Ma	f	Erkennen von Zauberei	Zauber	0
+Ma	f	Macht über Menschen	Zauber	0
+ScS	f	Schwäche	Zauber	0
+ScS	f	Hitzeschutz	Zauber	0
+ScS	f	Kälteschutz	Zauber	0
+ScS	f	Schwingenkeule	Zauber	0
+ScS	f	Segnen	Zauber	0
+ScS	f	Verfluchen	Zauber	0
+ScS	f	Vision	Zauber	0
+ScS	f	Macht über das Selbst	Zauber	0
+ScS	f	Verursachen von Krankheit	Zauber	0
+ScW	f	Schwäche	Zauber	0
+ScW	f	Hitzeschutz	Zauber	0
+ScW	f	Kälteschutz	Zauber	0
+ScW	f	Schwingenkeule	Zauber	0
+ScW	f	Segnen	Zauber	0
+ScW	f	Verfluchen	Zauber	0
+ScW	f	Vision	Zauber	0
+ScW	f	Macht über das Selbst	Zauber	0
+ScW	f	Verursachen von Krankheit	Zauber	0
+ScN	f	Schwäche	Zauber	0
+ScN	f	Hitzeschutz	Zauber	0
+ScN	f	Kälteschutz	Zauber	0
+ScN	f	Schwingenkeule	Zauber	0
+ScN	f	Segnen	Zauber	0
+ScN	f	Verfluchen	Zauber	0
+ScN	f	Vision	Zauber	0
+ScN	f	Macht über das Selbst	Zauber	0
+ScN	f	Verursachen von Krankheit	Zauber	0
+Th	f	Blicksalz	Zauber	0
+Th	f	Bittersalz	Zauber	0
+Th	f	Hitzsalz	Zauber	0
+Th	f	Kühlsalz	Zauber	0
+Th	f	Niessalz	Zauber	0
+Th	f	Stottersalz	Zauber	0
+Th	f	Wehsalz	Zauber	0
+Th	f	Befestigen	Zauber	0
+Th	f	Lichtrunen	Zauber	0
+Th	f	Durstsalz	Zauber	0
+Th	f	Funkensalz	Zauber	0
+Th	f	Hungersalz	Zauber	0
+Th	f	Jucksalz	Zauber	0
+Th	f	Löschsalz	Zauber	0
+Th	f	Wassersalz	Zauber	0
+Th	f	Lauschen	Zauber	0
+Th	f	Sehen von Verborgenem	Zauber	0
+Th	f	Bannen von Dunkelheit	Zauber	0
+Th	f	Heranholen	Zauber	0
+Th	f	Macht über das Selbst	Zauber	0
+Th	f	Sehen in Dunkelheit	Zauber	0
+PF	f	Bannen von Finsterwerk	Zauber	0
+PF	f	Brot und Wasser	Zauber	0
+PF	f	Handauflegen	Zauber	0
+PF	f	Bannen von Dunkelheit	Zauber	0
+PF	f	Erkennen der Aura	Zauber	0
+PF	f	Heilen von Wunden	Zauber	0
+PF	f	Austreibung des Bösen	Zauber	0
+PF	f	Heilen von Krankheit	Zauber	0
+PF	f	Segnen	Zauber	0
+PF	f	Göttlicher Schutz vor dem Bösen	Zauber	0
+PHa	f	Bannen von Finsterwerk	Zauber	0
+PHa	f	Feuerfinger	Zauber	0
+PHa	f	Handauflegen	Zauber	0
+PHa	f	Hitzeschutz 	Zauber	0
+PHa	f	Austreibung des Bösen	Zauber	0
+PHa	f	Bannen von Dunkelheit	Zauber	0
+PHa	f	Erkennen der Aura	Zauber	0
+PHa	f	Heiliger Zorn	Zauber	0
+PHa	f	Segnen	Zauber	0
+PHa	f	Zauberschmiede	Zauber	0
+PHa	f	Warnung	Zauber	0
+PHa	f	Heilen von Wunden	Zauber	0
+PHe	f	Bannen von Dunkelheit	Zauber	0
+PHe	f	Bannen von Finsterwerk	Zauber	0
+PHe	f	Handauflegen	Zauber	0
+PHe	f	Austreibung des Bösen	Zauber	0
+PHe	f	Erkennen der Aura	Zauber	0
+PHe	f	Feuerfinger	Zauber	0
+PHe	f	Heiliger Zorn	Zauber	0
+PHe	f	Göttlicher Schutz vor dem Bösen	Zauber	0
+PHe	f	Segnen	Zauber	0
+PHe	f	Heilen von Wunden	Zauber	0
+PK	f	Bannen von Finsterwerk	Zauber	0
+PK	f	Handauflegen	Zauber	0
+PK	f	Heiliger Zorn	Zauber	0
+PK	f	Hörnerklang	Zauber	0
+PK	f	Bannen von Dunkelheit	Zauber	0
+PK	f	Erkennen der Aura	Zauber	0
+PK	f	Segnen	Zauber	0
+PK	f	Austreibung des Bösen	Zauber	0
+PK	f	Heilen von Wunden	Zauber	0
+PK	f	Warnung	Zauber	0
+PK	f	Wagemut	Zauber	0
+PM	f	Bannen von Finsterwerk	Zauber	0
+PM	f	Heiliger Zorn	Zauber	0
+PM	f	Nebel wecken	Zauber	0
+PM	f	Austreibung des Bösen	Zauber	0
+PM	f	Erkennen der Aura	Zauber	0
+PM	f	Handauflegen	Zauber	0
+PM	f	Wasseratmen	Zauber	0
+PM	f	Segnen	Zauber	0
+PM	f	Warnung	Zauber	0
+PM	f	Heilen von Wunden	Zauber	0
+PT	f	Bannen von Licht	Zauber	0
+PT	f	Hauch des Winters	Zauber	0
+PT	f	Erkennen der Aura	Zauber	0
+PT	f	Handauflegen	Zauber	0
+PT	f	Heiliger Zorn	Zauber	0
+PT	f	Verfluchen	Zauber	0
+PT	f	Verursachen von Krankheit	Zauber	0
+PT	f	Göttlicher Schutz vor dem Bösen	Zauber	0
+PT	f	Heilen von Wunden	Zauber	0
+PW	f	Bannen von Dunkelheit	Zauber	0
+PW	f	Bannen von Finsterwerk	Zauber	0
+PW	f	Erkennen der Aura	Zauber	0
+PW	f	Austreibung des Bösen	Zauber	0
+PW	f	Handauflegen	Zauber	0
+PW	f	Segnen	Zauber	0
+PW	f	Windstoß	Zauber	0
+PW	f	Heilen von Krankheit	Zauber	0
+PW	f	Warnung	Zauber	0
+PW	f	Heilen von Wunden	Zauber	0
+PC	f	Dämonische Zaubermacht	Zauber	0
+PC	f	Kraft entziehen	Zauber	0
+PC	f	Bannen von Licht	Zauber	0
+PC	f	Erkennen der Aura	Zauber	0
+PC	f	Heiliger Zorn	Zauber	0
+PC	f	Verfluchen	Zauber	0
+PC	f	Verursachen von Wunden	Zauber	0
+PC	f	Warnung	Zauber	0
+PC	f	Verursachen von Krankheit	Zauber	0
+As	t	Meucheln	Fertigkeit	8
+Gl	t	Beidhändiger Kampf	Fertigkeit	3
+Hä	t	Geschäftstüchtigkeit	Fertigkeit	8
+Kr	t	Kampf in Vollrüstung	Fertigkeit	15
+Ku	t	Scharfschießen	Fertigkeit	5
+Sö	t	Kampf in Vollrüstung	Fertigkeit	15
+\.
+--
+-- TOC Entry ID 3 (OID 30113512)
+--
+-- Name: "lernschema_4_typ_name_wert" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "lernschema_4_typ_name_wert" on "lernschema_4" using btree ( "typ" "text_ops", "name" "text_ops", "wert" "int4_ops" );
+

@@ -4,7 +4,7 @@
 DROP INDEX "waffen_name";
 DROP TABLE "waffen";
 --
--- TOC Entry ID 2 (OID 9072048)
+-- TOC Entry ID 2 (OID 30117008)
 --
 -- Name: waffen Type: TABLE Owner: thoma
 --
@@ -31,73 +31,89 @@ CREATE TABLE "waffen" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9072048) TABLE DATA waffen
+-- Data for TOC Entry ID 4 (OID 30117008) TABLE DATA waffen
 --
 
 COPY "waffen"  FROM stdin;
-Anderthalbh‰nder	ZSchwert	5	Angriff	W6	2	Z	-1	0	-1	31	21	\N	\N	\N	\N	\N	\N
-Bih‰nder	ZSchwert	7	Angriff	2W6	0	Z	-2	1	-2	81	31	\N	\N	\N	\N	\N	\N
-Lasso	Lasso	8	Fern	0	0	E	\N	\N	\N	1	81	\N	\N	3	6	10	15
-Bola	Bola	8	Fern	W6	-2	W	\N	\N	\N	21	81	\N	\N	2	10	15	20
-Netz	Netz	8	Fern	W6	-1	W	\N	\N	\N	1	81	\N	\N	0	5	\N	\N
-Buckler	Schilde	1	Verteidigung	\N	-2	E	\N	\N	\N	1	61	\N	\N	\N	\N	\N	\N
-Dolch	Stichwaffe	2	Angriff	W6	-1	E	2	-2	2	1	1	\N	\N	\N	\N	\N	\N
-groﬂer Schild	Schilde	1	Verteidigung	\N	\N	E	\N	\N	\N	61	1	\N	\N	\N	\N	\N	\N
-Handaxt	ESchlagwaffe	3	Angriff	W6	0	E	\N	\N	\N	11	1	\N	\N	\N	\N	\N	\N
-Hellebarde	Stangenwaffe	6	Angriff	W6(W6+2/2W6-1)	0	Z	+1/-3	\N	+2/-2	61	61	\N	\N	\N	\N	\N	\N
-Kampfstab	Kampfstab	8	Angriff	W6	0	E	\N	0	+2	31	61	\N	\N	\N	\N	\N	\N
-Keule	ESchlagwaffe	2	Angriff	W6	-1	E	\N	0	+2	1	1	\N	\N	\N	\N	\N	\N
-kleiner Schild	Schilde	1	Verteidigung	\N	-1	E	\N	\N	\N	31	11	\N	\N	\N	\N	\N	\N
-Kriegsflegel	Kettenwaffe	6	Angriff	2W6	-1	Z	-3	+2	-2	61	31	\N	\N	\N	\N	\N	\N
-Kriegshammer	ESchlagwaffe	3	Angriff	W6	0	E	\N	\N	\N	61	21	\N	\N	\N	\N	\N	\N
-Krumms‰bel	ESchwert	4	Angriff	W6(+1)	0	E	\N	0/-2	0/0	31	11	\N	\N	\N	\N	\N	\N
-Kurzschwert	Stichwaffe	3	Angriff	W6	0	E	+2	\N	\N	1	1	\N	\N	\N	\N	\N	\N
-Kyu	Bˆgen	6	Fern	W6	0	S	\N	\N	\N	31	61	\N	K	0	30	100	180
-Langschwert	ESchwert	5	Angriff	W6	1	E	\N	\N	\N	31	21	\N	\N	\N	\N	\N	\N
-leichte Armbrust	Armbrust	4	Fern	W6	0	S	\N	\N	\N	1	31	\N	\N	0	30	120	220
-schwere Armbrust	Armbrust	4	Fern	2W6-1	0	S	\N	\N	\N	61	31	\N	\N	0	30	120	240
-leichter Speer	Spieﬂwaffe	3	Angriff	W6	-1	E	+1	-1	+1	1	1	\N	\N	\N	\N	\N	\N
-Morgenstern	Kettenwaffe	6	Angriff	W6	2	E	-2	+1	-1	61	61	\N	\N	\N	\N	\N	\N
-Schleuder	Schleuder	6	Fern	W6(W6-1)	0	S	\N	\N	\N	1	61	\N	\N	0	30	60	90
-Parierdolch	Parierdolch	1	Verteidigung	\N	-2	E	\N	\N	\N	1	61	Dolch	\N	\N	\N	\N	\N
-Peitsche	Peitsche	8	Angriff	W6	-3	E	-1	\N	\N	21	81	\N	\N	\N	\N	\N	\N
-Stockschleuder	Schleuder	6	Fern	2W6	-2	S	\N	\N	\N	31	81	\N	\N	21	30	100	180
-Rapier	Stichwaffe	5	Angriff	W6	0	E	+3	-2	+1	11	51	\N	\N	\N	\N	\N	\N
-Schlachtbeil	ZSchlagwaffe	4	Angriff	W6	3	Z	-2	+1	-2	61	31	\N	\N	\N	\N	\N	\N
-Wurfhammer	WSchlagwaffe	3	Fern	W6	0	W	\N	\N	\N	61	31	Kriegshammer	\N	0	10	20	30
-Wurfspeer	Wurfspieﬂ	2	Fern	W6	-1	W	\N	\N	\N	31	21	Leichter Speer	\N	0	10	30	50
-Pilum	Wurfspieﬂ	2	Fern	W6	0	W	\N	\N	\N	61	21	Leichter Speer	\N	0	10	20	30
-Stabkeule	ZSchlagwaffe	4	Angriff	2W6	-2	Z	-3	+2	-2	81	1	\N	\N	\N	\N	\N	\N
-Stielhammer	Stangenwaffe	5	Angriff	W6(W6+1/2W6)	0	Z	+1/-3	0/+2	0/-2	81	31	\N	\N	\N	\N	\N	\N
-Speerschleuder	Wurfspieﬂ	5	Fern	W6	0	W	\N	\N	\N	31	61	\N	\N	0	20	40	70
-Streitaxt	ESchlagwaffe	4	Angriff	W6	1	E	\N	\N	\N	61	11	\N	\N	\N	\N	\N	\N
-Streitkolben	ESchlagwaffe	3	Angriff	W6	0	E	\N	\N	\N	31	1	\N	\N	\N	\N	\N	\N
 waffenloser Kampf	waffenloser Kampf	7	Angriff	Speziell	0	\N	+2	-2	+2	21	21	\N	\N	\N	\N	\N	\N
-Wurfaxt	WSchlagwaffe	3	Fern	W6	0	W	\N	\N	\N	31	31	Handaxt	\N	0	10	20	30
-Wurfkeule	WSchlagwaffe	2	Fern	W6	-1	W	\N	\N	\N	31	31	Keule	\N	0	10	30	50
-Wurfmesser	Wurfmesser	3	Fern	W6	-1	W	\N	\N	\N	1	61	Dolch	\N	0	10	15	20
-Wurfpfeil	Wurfpfeil	4	Fern	W6	-2	W	\N	\N	\N	11	31	\N	\N	0	10	20	30
-Wurfstern	Wurfstern	6	Fern	W6	-3	W	\N	\N	\N	1	61	\N	\N	0	5	10	15
-Blasrohr	Blasrohr	6	Fern	Speziell	0	S	\N	\N	\N	1	61	\N	\N	0	10	15	20
-Lanze	Spieﬂwaffe	5	Angriff	W6(2W6+2/3W6+3)	0	E	+1/+3	0/0	0/-2	61	11	\N	\N	\N	\N	\N	\N
-Stoﬂspeer	Spieﬂwaffe	4	Angriff	1/2/3W6	0	E	+2/+2	0/0	0/-2	31	11	\N	\N	\N	\N	\N	\N
-Katana	ZSchwert	6	Angriff	W6	1	E	\N	\N	\N	31	21		K	\N	\N	\N	\N
-Sai	Stichwaffe	8	Angriff	W6	-3	E	\N	\N	\N	31	61	\N	K	\N	\N	\N	\N
 BuKasa	ESchlagwaffe	5	Angriff	W6	0	E	\N	\N	\N	31	61	\N	K	\N	\N	\N	\N
 GunSen	ESchlagwaffe	5	Angriff	W6	-1	E	\N	\N	\N	31	61	\N	K	\N	\N	\N	\N
 Tonfa	waffenloser Kampf	6	Angriff	W6	-2	E	\N	\N	\N	21	61	\N	K	\N	\N	\N	\N
-NunChaku	Kettenwaffe	8	Angriff	W6	-1	E	\N	\N	\N	31	61	\N	K	\N	\N	\N	\N
-KusariGama	Kettenwaffe	8	Angriff	W6-1/W6+2	0	Z	\N	\N	\N	61	81	\N	K	\N	\N	\N	\N
 TetsuBo	Kampfstab	8	Angriff	W6	1	E	\N	\N	+2	31	61	\N	K	\N	\N	\N	\N
-Naginata	Stangenwaffe	6	Angriff	W6	2	Z	+1/-3	\N	+2/-2	11	61	\N	K	\N	\N	\N	\N
 Namisritra	Namisritra	2	Angriff	W6	-1	E	\N	\N	\N	1	1	waffenloser Kampf	R	\N	\N	\N	\N
-Magierstab	Magierstab	4	Angriff	W6	0	E	\N	\N	\N	1	31	\N	\N	\N	\N	\N	\N
-Bogen	Bˆgen	5	Fern	W6	0	S	\N	\N	\N	31	31	\N	\N	0	30	100	180
-Langbogen	Bˆgen	6	Fern	W6	1	S	\N	\N	\N	61	61	\N	\N	0	30	120	200
-Kharrata	Kharrata	3	Angriff	2W6	\N	E	\N	\N	\N	21	61	\N	R	\N	\N	\N	\N
+schwere Armbrust	Armbrust	4	Schuﬂwaffe	2W6-1	0	S	\N	\N	\N	61	31	\N	\N	0	30	120	240
+Pilum	Wurfspieﬂ	2	Schuﬂwaffe	W6	0	W	\N	\N	\N	61	21	Leichter Speer	\N	0	10	20	30
+Kharrata	Kharrata	3	Angriff	2W6	\N	E	\N	\N	\N	21	81	\N		\N	\N	\N	\N
+Werfen	Werfen	7	Wurfwaffe	var	0		\N	\N	\N	1	21	\N	\N	\N	\N	\N	\N
+Wurfpfeil	Wurfpfeil	3	Wurfwaffe	W6	-2	W	\N	\N	\N	11	31	\N	\N	0	10	20	30
+Wurfmesser	Wurfmesser	2	Wurfwaffe	W6	-1	W	\N	\N	\N	1	61	Dolch	\N	0	10	15	20
+Wurfspeer	Wurfspieﬂ	1	Wurfwaffe	W6	-1	W	\N	\N	\N	31	21	Leichter Speer	\N	0	10	30	50
+Speerschleuder	Wurfspieﬂ	4	Wurfwaffe	W6	0	W	\N	\N	\N	31	61	\N	\N	0	20	40	70
+Wurfspieﬂ	Wurfspieﬂ	1	Wurfwaffe	W6	0	W	\N	\N	\N	61	21	\N	\N	0	10	20	30
+Skhallanta	Armbrust	4	Schuﬂwaffe	2*2W6	-3	S	\N	\N	\N	21	81	\N	\N	0	30	120	220
+Handarmbrust	Armbrust	3	Schuﬂwaffe	W6	-1	S	\N	\N	\N	1	31	\N	\N	0	20	40	70
+leichte Armbrust	Armbrust	3	Schuﬂwaffe	W6	0	S	\N	\N	\N	1	31	\N	\N	0	30	120	220
+Bogen	Bˆgen	4	Schuﬂwaffe	W6	0	S	\N	\N	\N	31	31	\N	\N	0	30	100	180
+Kyu	Bˆgen	5	Schuﬂwaffe	W6	0	S	\N	\N	\N	31	61	\N	K	0	30	100	180
+Langbogen	Bˆgen	5	Schuﬂwaffe	W6	1	S	\N	\N	\N	61	61	\N	\N	0	30	120	200
+Kompositbogen	Bˆgen	5	Schuﬂwaffe	W6	1	S	\N	\N	\N	61	31	\N	\N	0	30	120	200
+Kurzbogen	Bˆgen	3	Schuﬂwaffe	W6	-1	S	\N	\N	\N	11	31	\N	\N	0	0	80	120
+Schleuder	Schleuder	5	Schuﬂwaffe	W6(W6-1)	0	S	\N	\N	\N	1	61	\N	\N	0	30	60	90
+Stockschleuder	Schleuder	5	Schuﬂwaffe	2W6	-2	S	\N	\N	\N	31	81	\N	\N	21	30	100	180
+Blasrohr	Blasrohr	5	Schuﬂwaffe	Speziell	0	S	\N	\N	\N	1	61	\N	\N	0	10	15	20
+Anderthalbh‰nder	ZSchwert	4	Angriff	W6+1|2	0	Z	-1	0	-1	31	21	\N	\N	\N	\N	\N	\N
+Bih‰nder	ZSchwert	6	Angriff	2W6	0	Z	-2	1	-2	81	31	\N	\N	\N	\N	\N	\N
+Katana	ZSchwert	5	Angriff	W6	1	E	\N	\N	\N	31	21		K	\N	\N	\N	\N
+Krumms‰bel	ESchwert	3	Angriff	W6(+1)	0	E	\N	0/-2	0/0	31	11	\N	\N	\N	\N	\N	\N
+Langschwert	ESchwert	4	Angriff	W6	1	E	\N	\N	\N	31	21	\N	\N	\N	\N	\N	\N
+Handaxt	ESchlagwaffe	2	Angriff	W6	0	E	\N	\N	\N	11	1	\N	\N	\N	\N	\N	\N
+Keule	ESchlagwaffe	1	Angriff	W6	-1	E	\N	0	+2	1	1	\N	\N	\N	\N	\N	\N
+Kriegshammer	ESchlagwaffe	2	Angriff	W6	0	E	\N	\N	\N	61	21	\N	\N	\N	\N	\N	\N
+Streitaxt	ESchlagwaffe	3	Angriff	W6	1	E	\N	\N	\N	61	11	\N	\N	\N	\N	\N	\N
+Streitkolben	ESchlagwaffe	2	Angriff	W6	0	E	\N	\N	\N	31	1	\N	\N	\N	\N	\N	\N
+Lanze	Spieﬂwaffe	4	Angriff	W6(2W6+2/3W6+3)	0	E	+1/+3	0/0	0/-2	61	11	\N	\N	\N	\N	\N	\N
+leichter Speer	Spieﬂwaffe	2	Angriff	W6	-1	E	+1	-1	+1	1	1	\N	\N	\N	\N	\N	\N
+Stoﬂspeer	Spieﬂwaffe	3	Angriff	1/2/3W6	0	E	+2/+2	0/0	0/-2	31	11	\N	\N	\N	\N	\N	\N
+Stabkeule	ZSchlagwaffe	3	Angriff	2W6	-2	Z	-3	+2	-2	81	1	\N	\N	\N	\N	\N	\N
+Schlachtbeil	ZSchlagwaffe	4	Angriff	W6+3|1	0	Z	-2	+1	-2	61	31	\N	\N	\N	\N	\N	\N
+Ogerhammer	ZSchlagwaffe	4	Angriff	4W6+0|3	0	Z	\N	\N	\N	91	31	\N	\N	\N	\N	\N	\N
+Glefe	Stangenwaffe	5	Angriff	W6(+2)	0	E	\N	\N	\N	11	61	\N	\N	\N	\N	\N	\N
+Hellebarde	Stangenwaffe	5	Angriff	W6(W6+2/2W6-1)	0	Z	+1/-3	\N	+2/-2	61	61	\N	\N	\N	\N	\N	\N
+Naginata	Stangenwaffe	5	Angriff	W6	2	Z	+1/-3	\N	+2/-2	11	61	\N	K	\N	\N	\N	\N
+Stielhammer	Stangenwaffe	4	Angriff	W6(W6+1/2W6)	0	Z	+1/-3	0/+2	0/-2	81	31	\N	\N	\N	\N	\N	\N
+Kriegsflegel	Kettenwaffe	5	Angriff	2W6	-1	Z	-3	+2	-2	61	31	\N	\N	\N	\N	\N	\N
+KusariGama	Kettenwaffe	7	Angriff	W6-1/W6+2	0	Z	\N	\N	\N	61	81	\N	K	\N	\N	\N	\N
+Morgenstern	Kettenwaffe	5	Angriff	W6	2	E	-2	+1	-1	61	61	\N	\N	\N	\N	\N	\N
+NunChaku	Kettenwaffe	7	Angriff	W6	-1	E	\N	\N	\N	31	61	\N	K	\N	\N	\N	\N
+Faustkampf	waffenloser Kampf	6	Angriff	W6	-4	E	\N	\N	\N	31	21	\N	\N	\N	\N	\N	\N
+Kampfstab	Kampfstab	7	Angriff	W6	0	E	\N	0	+2	31	61	\N	\N	\N	\N	\N	\N
+Peitsche	Peitsche	7	Angriff	W6	-3	E	-1	\N	\N	21	81	\N	\N	\N	\N	\N	\N
+Wurfaxt	Stielwurfwaffe	2	Wurfwaffe	W6	0	W	\N	\N	\N	31	31	Handaxt	\N	0	10	20	30
+Wurfkeule	Stielwurfwaffe	1	Wurfwaffe	W6	-1	W	\N	\N	\N	31	31	Keule	\N	0	10	30	50
+Wurfeisen	Stielwurfwaffe	3	Wurfwaffe	W6	0	W	\N	\N	\N	61	61	\N	\N	0	10	30	50
+Wurfhammer	Stielwurfwaffe	2	Wurfwaffe	W6	0	W	\N	\N	\N	61	31	Kriegshammer	\N	0	10	20	30
+Buckler	Schilde	0	Verteidigung	\N	-2	E	\N	\N	\N	1	61	\N	\N	\N	\N	\N	\N
+groﬂer Schild	Schilde	0	Verteidigung	\N	\N	E	\N	\N	\N	61	1	\N	\N	\N	\N	\N	\N
+kleiner Schild	Schilde	0	Verteidigung	\N	-1	E	\N	\N	\N	31	11	\N	\N	\N	\N	\N	\N
+Dolch	Stichwaffe	1	Angriff	W6	-1	E	2	-2	2	1	1	\N	\N	\N	\N	\N	\N
+Kurzschwert	Stichwaffe	2	Angriff	W6	0	E	+2	\N	\N	1	1	\N	\N	\N	\N	\N	\N
+Rapier	Stichwaffe	4	Angriff	W6	0	E	+3	-2	+1	11	51	\N	\N	\N	\N	\N	\N
+Sai	Stichwaffe	7	Angriff	W6	-3	E	\N	\N	\N	31	61	\N	K	\N	\N	\N	\N
+Fuchtel	Stichwaffe	4	Angriff	W6	1	E	\N	\N	\N	61	31	\N	\N	\N	\N	\N	\N
+Ochsenzunge	Stichwaffe	2	Angriff	2W6	-4	E	\N	\N	\N	1	31	\N	\N	\N	\N	\N	\N
+Kampfgabeln	Parierwaffe	0	Verteidigung	\N	-2	E	\N	\N	\N	31	61	\N	\N	\N	\N	\N	\N
+Bola	Fesselwaffe	7	Wurfwaffe	W6	-2	W	\N	\N	\N	21	81	\N	\N	2	10	15	20
+Lasso	Fesselwaffe	7	Wurfwaffe	0	0	E	\N	\N	\N	1	81	\N		3	6	10	15
+Netz	Fesselwaffe	7	Wurfwaffe	W6	-1	W	\N	\N	\N	1	81	\N	\N	0	5	\N	\N
+Wurfstern	Wurfscheibe	5	Wurfwaffe	W6	-3	W	\N	\N	\N	1	61	\N	\N	0	5	10	15
+Wurfscheibe	Wurfscheibe	5	Wurfwaffe	W6	-2	W	\N	\N	\N	61	61	\N	\N	0	10	20	30
+Parierdolch	Parierwaffe	0	Verteidigung	\N	-2	E	\N	\N	\N	1	61	Dolch	\N	\N	\N	\N	\N
+Magierstab	Zauberstab	7	Angriff	W6	0	E	\N	\N	\N	1	31	\N	\N	\N	\N	\N	\N
+Magierstecken	Zauberstab	7	Angriff	W6	1	E	\N	\N	\N	31	61	\N	\N	\N	\N	\N	\N
+Garotte	Garotte	4	Angriff	Erw√ºrgen	0	E	\N	\N	\N	21	61	Meucheln	\N	\N	\N	\N	\N
 \.
 --
--- TOC Entry ID 3 (OID 9072048)
+-- TOC Entry ID 3 (OID 30117008)
 --
 -- Name: "waffen_name" Type: INDEX Owner: thoma
 --

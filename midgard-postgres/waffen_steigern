@@ -1,16 +1,16 @@
 --
 -- Selected TOC Entries:
 --
-DROP INDEX "waffen_steigern_name";
+DROP INDEX "waffen_steigern_schwierigkeit";
 DROP TABLE "waffen_steigern";
 --
--- TOC Entry ID 2 (OID 9072340)
+-- TOC Entry ID 2 (OID 30117440)
 --
 -- Name: waffen_steigern Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "waffen_steigern" (
-	"name" text,
+	"schwierigkeit" integer,
 	"p2" integer,
 	"p3" integer,
 	"p4" integer,
@@ -34,19 +34,24 @@ CREATE TABLE "waffen_steigern" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9072340) TABLE DATA waffen_steigern
+-- Data for TOC Entry ID 4 (OID 30117440) TABLE DATA waffen_steigern
 --
 
 COPY "waffen_steigern"  FROM stdin;
-Verteidigung	20	100	400	1000	2000	4000	6000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Angriff	0	0	0	6	6	6	10	20	40	80	160	300	500	1000	1000	1500	1500	2500	\N	\N
-Fern	0	0	0	6	6	6	10	20	40	80	160	300	500	1000	1000	1500	1500	2500	\N	\N
+0	20	100	400	1000	2000	4000	6000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+1	0	0	0	10	10	15	20	40	80	160	320	600	1000	2000	2000	3000	3000	5000	\N	\N
+2	0	0	0	15	15	25	30	60	120	240	480	900	1500	3000	3000	4500	4500	7500	\N	\N
+3	\N	\N	\N	20	20	30	40	80	160	320	640	1200	2000	4000	4000	6000	6000	10000	\N	\N
+4	\N	\N	\N	25	25	40	50	100	200	400	800	1500	2500	5000	5000	7500	75000	12500	\N	\N
+5	\N	\N	\N	30	30	50	60	120	240	480	960	1800	3000	6000	6000	9000	9000	15000	\N	\N
+6	\N	\N	\N	35	35	55	70	140	280	560	1120	2100	3500	7000	7000	10500	10500	17500	\N	\N
+7	\N	\N	\N	40	40	60	80	160	320	640	1280	2400	4000	8000	8000	12000	12000	20000	\N	\N
 \.
 --
--- TOC Entry ID 3 (OID 9072340)
+-- TOC Entry ID 3 (OID 30117440)
 --
--- Name: "waffen_steigern_name" Type: INDEX Owner: thoma
+-- Name: "waffen_steigern_schwierigkeit" Type: INDEX Owner: thoma
 --
 
-CREATE UNIQUE INDEX "waffen_steigern_name" on "waffen_steigern" using btree ( "name" "text_ops" );
+CREATE UNIQUE INDEX "waffen_steigern_schwierigkeit" on "waffen_steigern" using btree ( "schwierigkeit" "int4_ops" );
 

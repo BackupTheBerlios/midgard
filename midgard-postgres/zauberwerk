@@ -24,26 +24,6 @@ CREATE TABLE "zauberwerk" (
 --
 
 COPY "zauberwerk"  FROM stdin;
-Flohpulver aktivieren	400	AZ	2	3 Tage	70 GS	\N
-Heiltrunk (1W6) aktivieren	600	AZ	2	3 Tage	100 GS (70 GS)	\N
-Krafttrunk (1W6) aktivieren	400	AZ	1	1 Tag	50 GS (30 GS)	\N
-Krafttrunk (2W6) aktivieren	600	AZ	2	3 Tage	100 GS (60 GS)	\N
-Liebestrank aktivieren	800	AZ	3	1 Monat	300 GS 	\N
-Pulver der Panzerhaut aktivieren	800	AZ	3	5 Tage	100 GS (70 GS) 	\N
-Rauchperle aktivieren	800	AZ	3	5 Tage	100 GS (70 GS) 	\N
-Reckentrunk aktivieren	600	AZ	2	3 Tage	100 GS (60 GS) 	\N
-Salbe der Eisenhaut aktivieren	1200	AZ	4	7 Tage	200 GS (150 GS) 	\N
-Salbe der Krakenhände aktivieren	600	AZ	2	3 Tage	100 GS  	\N
-Trunk des Riesenwuchses aktivieren	800	AZ	4	7 Tage	500 GS 	\N
-Trunk des Schwerelosigkeit aktivieren	1200	AZ	4	15 Tage	500 GS 	\N
-Trunk des Unsichtbarkeit aktivieren	800	AZ	3	7 Tage	300 GS 	\N
-Trunk des Verwandlung aktivieren	2000	AZ	5	7 Tage	500 GS 	\N
-Trunk der Macht über Hunde aktivieren	400	AZ	2	7 Tage	200 GS 	\N
-Trunk der Macht über Orks aktivieren	600	AZ	3	7 Tage	300 GS 	\N
-Trunk der Macht über Menschen aktivieren	800	AZ	4	15 Tage	500 GS 	\N
-Berserkerpilz aktivieren	600	PZ	2	2 Tage	500 GS	\N
-Kraut der konzentrierten Energie	1200	PZ	4	1 Tag	500 GS	\N
-Schnellkraut aktivieren	800	PZ	3	3 Tage	200 GS	\N
 Wasser weihen	200	Weihwasser	1	1 Tag	30 GS	\N
 Zauberpergament beschriften	600	Zauberpergament	3	1 Monat/Stufe	variabel	\N
 Dämonenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N
@@ -178,6 +158,26 @@ Sehen von Verborgenem	150	Augensalbe	2		40 GS	\N
 Srimarameisterschaft	1000	Augensalbe	3		60 GS	\N
 Tierisches Handeln	3000	Augensalbe	5		100 GS	\N
 Wahrsehen	3000	Augensalbe	5		100 GS	\N
+Flohpulver aktivieren	400	Alchimistisches Zaubermittel	2	3 Tage	70 GS	\N
+Heiltrunk (1W6) aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (70 GS)	\N
+Krafttrunk (1W6) aktivieren	400	Alchimistisches Zaubermittel	1	1 Tag	50 GS (30 GS)	\N
+Krafttrunk (2W6) aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (60 GS)	\N
+Liebestrank aktivieren	800	Alchimistisches Zaubermittel	3	1 Monat	300 GS 	\N
+Pulver der Panzerhaut aktivieren	800	Alchimistisches Zaubermittel	3	5 Tage	100 GS (70 GS) 	\N
+Rauchperle aktivieren	800	Alchimistisches Zaubermittel	3	5 Tage	100 GS (70 GS) 	\N
+Reckentrunk aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (60 GS) 	\N
+Salbe der Eisenhaut aktivieren	1200	Alchimistisches Zaubermittel	4	7 Tage	200 GS (150 GS) 	\N
+Salbe der Krakenhände aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS  	\N
+Trunk des Riesenwuchses aktivieren	800	Alchimistisches Zaubermittel	4	7 Tage	500 GS 	\N
+Trunk des Schwerelosigkeit aktivieren	1200	Alchimistisches Zaubermittel	4	15 Tage	500 GS 	\N
+Trunk des Unsichtbarkeit aktivieren	800	Alchimistisches Zaubermittel	3	7 Tage	300 GS 	\N
+Trunk des Verwandlung aktivieren	2000	Alchimistisches Zaubermittel	5	7 Tage	500 GS 	\N
+Trunk der Macht über Hunde aktivieren	400	Alchimistisches Zaubermittel	2	7 Tage	200 GS 	\N
+Trunk der Macht über Orks aktivieren	600	Alchimistisches Zaubermittel	3	7 Tage	300 GS 	\N
+Trunk der Macht über Menschen aktivieren	800	Alchimistisches Zaubermittel	4	15 Tage	500 GS 	\N
+Berserkerpilz aktivieren	600	Pflanzliches Zaubermittel	2	2 Tage	500 GS	\N
+Kraut der konzentrierten Energie	1200	Pflanzliches Zaubermittel	4	1 Tag	500 GS	\N
+Schnellkraut aktivieren	800	Pflanzliches Zaubermittel	3	3 Tage	200 GS	\N
 \.
 --
 -- TOC Entry ID 3 (OID 26613699)

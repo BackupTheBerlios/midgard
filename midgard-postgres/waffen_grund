@@ -4,7 +4,7 @@
 DROP INDEX "waffen_grund_name";
 DROP TABLE "waffen_grund";
 --
--- TOC Entry ID 2 (OID 20006027)
+-- TOC Entry ID 2 (OID 30116948)
 --
 -- Name: waffen_grund Type: TABLE Owner: thoma
 --
@@ -16,12 +16,11 @@ CREATE TABLE "waffen_grund" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 20006027) TABLE DATA waffen_grund
+-- Data for TOC Entry ID 4 (OID 30116948) TABLE DATA waffen_grund
 --
 
 COPY "waffen_grund"  FROM stdin;
 ESchwert	600	\N
-Stichwaffe	400	\N
 ESchlagwaffe	400	\N
 Spießwaffe	400	\N
 ZSchwert	800	\N
@@ -29,28 +28,29 @@ ZSchlagwaffe	600	\N
 Stangenwaffe	800	\N
 Kettenwaffe	900	\N
 Kampfstab	700	\N
-Magierstab	400	\N
 waffenloser Kampf	800	\N
 Bögen	700	\N
 Armbrust	600	\N
 Schleuder	700	\N
 Wurfspieß	200	\N
-WSchlagwaffe	300	\N
 Wurfmesser	300	\N
 Wurfpfeil	400	\N
-Wurfstern	700	\N
 Blasrohr	700	\N
 Schilde	300	\N
-Parierdolch	300	\N
-Lasso	700	\N
-Bola	700	\N
-Netz	700	\N
 Peitsche	900	\N
 Namisritra	200	R
 Kharrata	200	R
+Garotte	200	\N
+Stielwurfwaffe	300	\N
+Wurfscheibe	700	\N
+Werfen	200	\N
+Fesselwaffe	700	\N
+Stichwaffe	400	\N
+Parierwaffe	300	\N
+Zauberstab	400	\N
 \.
 --
--- TOC Entry ID 3 (OID 20006027)
+-- TOC Entry ID 3 (OID 30116948)
 --
 -- Name: "waffen_grund_name" Type: INDEX Owner: thoma
 --
