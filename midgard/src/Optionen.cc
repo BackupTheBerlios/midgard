@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.22 2002/04/25 11:05:33 thoma Exp $
+// $Id: Optionen.cc,v 1.23 2002/04/25 13:08:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,8 +36,8 @@ Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
    Optionen_init();
    Hausregeln_init();
    Ober_init();
-   pdfViewer_init();
    Strings_init();
+   pdfViewer_init();
 }
 
 std::string Midgard_Optionen::Viewer()
@@ -64,7 +64,7 @@ std::string Midgard_Optionen::getString(StringIndex index)
 void Midgard_Optionen::setString(StringIndex index,std::string n)
 {
  for(std::list<st_strings>::iterator i=list_Strings.begin();i!=list_Strings.end();++i)
-   if(i->index==index) i->name=n;    
+   if(i->index==index) { i->name=n; return; }
 }
 
 Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi)
