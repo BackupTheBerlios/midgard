@@ -3176,15 +3176,85 @@ beschreibung</label>
 		  <child_name>Toolbar:button</child_name>
 		  <name>button_beruf_erfolgswert</name>
 		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>Linke Maustaste: Erfolgswert auswürfeln, rechte Maustaste: Erfolgswert eingeben</tooltip>
 		  <signal>
-		    <name>clicked</name>
-		    <handler>on_beruf_erfolgswert_clicked</handler>
-		    <last_modification_time>Sun, 01 Apr 2001 18:51:51 GMT</last_modification_time>
+		    <name>button_release_event</name>
+		    <handler>on_beruf_erfolgswert_release_event</handler>
+		    <last_modification_time>Sat, 18 Aug 2001 17:19:12 GMT</last_modification_time>
 		  </signal>
 		  <label>Erfolgswert würfeln</label>
 		  <icon>Dice-trans.xpm</icon>
 		  <child>
 		    <new_group>True</new_group>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkVBox</class>
+		<name>vbox_beruferfolgswert</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<homogeneous>False</homogeneous>
+		<spacing>0</spacing>
+		<child>
+		  <left_attach>2</left_attach>
+		  <right_attach>3</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>False</yfill>
+		</child>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_beruf_ew</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>Wert eingeben</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkSpinButton</class>
+		  <name>spinbutton_beruferfolgesert</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>activate</name>
+		    <handler>on_spinbutton_beruferfolgesert_activate</handler>
+		    <last_modification_time>Sat, 18 Aug 2001 17:21:47 GMT</last_modification_time>
+		  </signal>
+		  <climb_rate>1</climb_rate>
+		  <digits>0</digits>
+		  <numeric>False</numeric>
+		  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+		  <snap>False</snap>
+		  <wrap>False</wrap>
+		  <value>10</value>
+		  <lower>0</lower>
+		  <upper>20</upper>
+		  <step>1</step>
+		  <page>1</page>
+		  <page_size>1</page_size>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
 		  </child>
 		</widget>
 	      </widget>
@@ -15117,7 +15187,7 @@ Verlust</label>
   <widget>
     <class>GtkTable</class>
     <name>table49</name>
-    <rows>18</rows>
+    <rows>19</rows>
     <columns>3</columns>
     <homogeneous>False</homogeneous>
     <row_spacing>0</row_spacing>
@@ -15307,8 +15377,8 @@ Verlust</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>10</top_attach>
-	<bottom_attach>11</bottom_attach>
+	<top_attach>11</top_attach>
+	<bottom_attach>12</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>5</ypad>
 	<xexpand>False</xexpand>
@@ -15333,8 +15403,8 @@ Verlust</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>11</top_attach>
-	<bottom_attach>12</bottom_attach>
+	<top_attach>12</top_attach>
+	<bottom_attach>13</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15359,8 +15429,8 @@ Verlust</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>13</top_attach>
-	<bottom_attach>14</bottom_attach>
+	<top_attach>14</top_attach>
+	<bottom_attach>15</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15384,8 +15454,8 @@ Verlust</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>11</top_attach>
-	<bottom_attach>12</bottom_attach>
+	<top_attach>12</top_attach>
+	<bottom_attach>13</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15409,8 +15479,8 @@ Verlust</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>13</top_attach>
-	<bottom_attach>14</bottom_attach>
+	<top_attach>14</top_attach>
+	<bottom_attach>15</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15570,8 +15640,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>2</right_attach>
-	<top_attach>11</top_attach>
-	<bottom_attach>12</bottom_attach>
+	<top_attach>12</top_attach>
+	<bottom_attach>13</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15596,8 +15666,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>2</right_attach>
-	<top_attach>13</top_attach>
-	<bottom_attach>14</bottom_attach>
+	<top_attach>14</top_attach>
+	<bottom_attach>15</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15615,8 +15685,8 @@ Unterstützung</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>14</top_attach>
-	<bottom_attach>15</bottom_attach>
+	<top_attach>15</top_attach>
+	<bottom_attach>16</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15641,8 +15711,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>15</top_attach>
-	<bottom_attach>16</bottom_attach>
+	<top_attach>16</top_attach>
+	<bottom_attach>17</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>5</ypad>
 	<xexpand>False</xexpand>
@@ -15666,8 +15736,8 @@ Unterstützung</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>15</top_attach>
-	<bottom_attach>16</bottom_attach>
+	<top_attach>16</top_attach>
+	<bottom_attach>17</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15764,8 +15834,8 @@ Unterstützung</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>17</top_attach>
-	<bottom_attach>18</bottom_attach>
+	<top_attach>18</top_attach>
+	<bottom_attach>19</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15932,8 +16002,8 @@ Unterstützung</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>12</top_attach>
-	<bottom_attach>13</bottom_attach>
+	<top_attach>13</top_attach>
+	<bottom_attach>14</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15957,8 +16027,8 @@ Unterstützung</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>12</top_attach>
-	<bottom_attach>13</bottom_attach>
+	<top_attach>13</top_attach>
+	<bottom_attach>14</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16010,8 +16080,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>2</right_attach>
-	<top_attach>12</top_attach>
-	<bottom_attach>13</bottom_attach>
+	<top_attach>13</top_attach>
+	<bottom_attach>14</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16036,8 +16106,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>16</top_attach>
-	<bottom_attach>17</bottom_attach>
+	<top_attach>17</top_attach>
+	<bottom_attach>18</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16061,8 +16131,8 @@ Unterstützung</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>16</top_attach>
-	<bottom_attach>17</bottom_attach>
+	<top_attach>17</top_attach>
+	<bottom_attach>18</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16098,6 +16168,84 @@ einfügen, habe aber noch(?) keine Erlaubnis von Elsa :-(</label>
 	<yshrink>False</yshrink>
 	<xfill>False</xfill>
 	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label406</name>
+      <label>Christof Petig</label>
+      <justify>GTK_JUSTIFY_CENTER</justify>
+      <wrap>False</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>2</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>10</top_attach>
+	<bottom_attach>11</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label407</name>
+      <label>M$-Windows
+portierung</label>
+      <justify>GTK_JUSTIFY_CENTER</justify>
+      <wrap>False</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>2</right_attach>
+	<top_attach>10</top_attach>
+	<bottom_attach>11</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap60</name>
+      <filename>SchliessenIII-50.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>10</top_attach>
+	<bottom_attach>11</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
       </child>
     </widget>
   </widget>

@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.24 2001/07/07 10:39:43 christof Exp $
+// $Id: LaTeX_zauber.cc,v 1.25 2001/08/20 14:42:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,7 +37,7 @@ void midgard_CG::LaTeX_zauber()
      fout << (*i)->Wirkungsbereich() << " & ";
      fout << (*i)->Wirkungsdauer() << " & ";
      fout << (*i)->Ursprung() << " & " ;
-     fout << (*i)->Material() << " & " ;
+     fout << LaTeX_scale((*i)->Material(),20,"3cm") << " & " ;
      fout << (*i)->Agens() <<" " <<(*i)->Prozess() <<" "<<(*i)->Reagens() ;
      fout << "\\\\\n";
    }

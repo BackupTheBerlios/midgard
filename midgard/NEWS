@@ -1,4 +1,14 @@
 ##########################################################################
+NEWS IN VERSION 0.8beta1
+- Jetzt kann man die Erfolgswerte für die gelernten Berufe nicht nur
+   würfeln, sondern auch einstellen.
+- Aus mir unbekannten Gründen fehlten einige von Joachim abgetippte
+   H&D Zauber ich habe sie nochmal(?) eingefügt.
+- Bugs aus 'arkanum_zauber' Tabelle herausgeholt
+- Zaubermaterialen werden jetzt entsprechend der Tabellenbreite skaliert
+
+
+##########################################################################
 NEWS IN VERSION 0.8beta0
 - ... und wieder etwas an der Oberfläche gebastelt 
 - Damit die Erfahrungspunkte und das Geld verrechnet werden habe ich:
