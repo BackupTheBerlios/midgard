@@ -33,6 +33,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
   // in die LIste geschrieben.
   // eine Ausnamhe ist 'Landeskunde (Heimat)', das passiert unten
 // list_FertigkeitZusaetze.push_back(MBE->Name());
+  if(MBE->Lernpunkte()==0) // Sprache/Schrift für '0' Lernpunkte nur einmal lernen
+    list_FertigkeitZusaetze.push_back(MBE->Name());
   lernen_zusatz_titel(was,MBE);
   std::vector<cH_RowDataBase> datavec;
   connection.disconnect();
@@ -68,8 +70,16 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
       {
        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Sprache.begin();i!=hauptfenster->getDatabase().Sprache.end();++i)
          {
-            if(MBE->Name()=="Muttersprache" && cH_Sprache(*i)->Alte_Sprache()) continue ;
-            if(MBE->Name()=="Sprechen: Alte Sprache" && !cH_Sprache(*i)->Alte_Sprache()) continue ;
+            if(MBE->Name()=="Muttersprache" && cH_Sprache(*i)->Alte_Sprache()) 
+              {
+                list_FertigkeitZusaetze.push_back(MBE->Name());
+                continue ;
+              }
+            if(MBE->Name()=="Sprechen: Alte Sprache" && !cH_Sprache(*i)->Alte_Sprache())
+              {
+                list_FertigkeitZusaetze.push_back(MBE->Name());
+                continue ;
+              }
             datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
@@ -224,7 +234,7 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
 
 void table_lernschema::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
 {
-  tree_lernschema->set_sensitive(true);
+  if(tree_lernschema) tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   cH_MidgardBasicElement MBE=dt->getMBE();
   cH_MidgardBasicElement schrift(&*cH_Schrift(dt->getZusatz()));

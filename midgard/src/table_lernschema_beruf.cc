@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.1 2002/05/17 10:24:28 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.2 2002/05/17 12:23:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -152,6 +152,7 @@ void table_lernschema::showBerufsLernList()
 //  scrolledwindow_beruf->show();
   scrolledwindow_lernen->show();
 //  scrolledwindow_ange_fert->hide();
+  frame_lernpunkte->set_sensitive(false);
 }
 
 void table_lernschema::beruf_gewuerfelt(int wurf)
