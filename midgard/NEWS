@@ -6,6 +6,9 @@ NEWS IN VERSION 0.6delta5
 * Speichern von Abenteurern im Speicherpfad
 * Laden der Optionen VOR dem Laden der Datenbank
 * Abfangen von 'delete_event' damit Abenteurer noch gespeichert werden können
+* Acrobat Reader blockiert nicht mehr
+* Name und Version im pdf-Dateinamen
+* Datum auf Abenteurerdokument
 
 TODO:
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,

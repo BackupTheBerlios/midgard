@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.7 2002/05/22 17:00:44 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.8 2002/05/30 12:36:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,12 +41,23 @@ std::string utf82iso(const std::string &s);
 
 std::string LaTeX_drucken::get_latex_filename(const LaTeX_Filenames what)
 {
+  std::string name=hauptfenster->getCWerte().Name_Abenteurer();
+  std::string version=hauptfenster->getCWerte().Version();
+  std::string nv="_"+name+"__"+version+"_";
+  
+  while(true)
+   {
+    string::size_type s=nv.find(" ");
+    if(s==string::npos) break;
+    else nv.replace(s,1,"_");
+   }
+  
   switch (what)
     {
       case TeX_MainDocument : return "midgard_document_eingabe";
-      case TeX_MainWerte    : return "midgard_tmp_latexwerte";  
-      case TeX_Beschreibung : return "midgard_tmp_beschreibung";
-      case TeX_Ausruestung  : return "midgard_tmp_ausruestung"; 
+      case TeX_MainWerte    : return "magus"+nv+"latexwerte";  
+      case TeX_Beschreibung : return "magus"+nv+"beschreibung";
+      case TeX_Ausruestung  : return "magus"+nv+"ausruestung"; 
     }
   abort(); // never get here
 }
@@ -871,7 +882,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
 #endif
 
   system(("pdflatex --interaction scrollmode "+file+".tex").c_str());
-  system((hauptfenster->getOptionen()->Viewer()+" "+file+".pdf").c_str());
+  system((hauptfenster->getOptionen()->Viewer()+" "+file+".pdf &").c_str());
 
   unlink((file+".tex").c_str());
   unlink((file+".aux").c_str());
@@ -982,5 +993,3 @@ void LaTeX_drucken::LaTeX_kido_main(ostream &fout)
   fout << "\\end{tabular}\n";
   fout << "\\end{center}\n";
 }
-
-

@@ -135,7 +135,6 @@ int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::vec
 std::string Zauber::Agens(const std::vector<cH_Typen> &Typ) const
 {
    cH_Typen T=Typ[0];
-cout << "Agens\t"<<Typ[0]->Short()<<"\t=>"<<map_typ_agens[Typ[0]]<<'\n';
    if(map_typ_agens[Typ[0]]!="") return map_typ_agens[Typ[0]];
    if(map_typ_agens[Typ[1]]!="") return map_typ_agens[Typ[0]];
    return agens;
