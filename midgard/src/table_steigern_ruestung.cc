@@ -74,7 +74,7 @@ void table_steigern::fill_ruestung()
 {
 // show_label();
  RuestungStore->clear();
- std::vector<cH_Ruestung> VR=LL->getRuestung(hauptfenster->getAben());
+ std::vector<cH_Ruestung> VR=LernListen::getRuestung(hauptfenster->getAben());
  for(std::vector<cH_Ruestung>::const_iterator i=VR.begin();i!=VR.end();++i)
    { cH_Ruestung r(*i);
      Gtk::TreeModel::iterator iter = RuestungStore->append();

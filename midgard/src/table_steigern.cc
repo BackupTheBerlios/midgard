@@ -10,18 +10,13 @@
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include <libmagus/Ausgabe.hh>
 
-void table_steigern::init(midgard_CG *h)
+void table_steigern::refresh()
 {
-  hauptfenster=h;
-  if(LL) delete LL ;
-  LL = new LernListen();
   flashing_gradanstieg->set(MagusImage("Anpass-trans-50.xpm"),MagusImage("Anpass-trans-50_invers.xpm"),0);
   flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
 
   zeige_werte();
-  load_for_page(notebook_lernen->get_current_page());
   steigern_mit_EP_bool=true;
-//  checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
 
   if(SpruecheMitPP().empty())
       { radiobutton_pp_spezial->hide();
@@ -36,18 +31,33 @@ void table_steigern::init(midgard_CG *h)
         frame_pp_spezial->set_label(SpruecheMitPP());
      }
 
-  static bool only_once=false;
-  if(!only_once)
-  {
-   only_once=true;
-   bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(MagusImage("EP-Steigern-50.xpm"),"Mit EP/PP\nsteigern",false)));
-   _m->set_mode(false);
-   _m->signal_toggled().connect(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled),true);
-   eventbox_eppp_steigern->add(*_m);
-   eventbox_eppp_steigern->show_all();
-  }
+   fertigkeiten_zeigen();
+   waffen_zeigen();
+   on_zauber_laden_clicked();
+   on_kido_laden_clicked();
+   sprachen_zeigen();
+   schriften_zeigen();
+   init_waffenbesitz();
+
+     clist_ruestung->set_sensitive(false);
+     button_ruestung_1->set_active(false);
+     button_ruestung_2->set_active(false);
+
+  spinbutton_eigenschaften_grad_anstieg->hide();  
+  load_for_page(notebook_lernen->get_current_page());
 }
 
+void table_steigern::init(midgard_CG *h)
+{
+  hauptfenster=h;
+//  if(LL) delete LL ;
+//  LL = new LernListen();
+  vabenteurer->signal_anderer_abenteurer().connect(SigC::slot(*this,&table_steigern::refresh));
+  vabenteurer->proxies.undo_changed.connect(SigC::slot(*this,&table_steigern::refresh));
+//  vabenteurer->proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_steigern::wizard_changed));
+}
+
+#if 0
 void table_steigern::neuer_charakter()
 {
  label_EP->set_text("50%");  
@@ -58,51 +68,27 @@ void table_steigern::neuer_charakter()
  vbox_praxispunkte->hide();
  togglebutton_praxispunkte->set_active(false);
 }
-
+#endif
 
 
 void table_steigern::on_notebook_lernen_switch_page(GtkNotebookPage *page,guint pagenr)
 {
-  if(hauptfenster /*&& !hauptfenster->in_dtor*/) load_for_page(pagenr);
+//  if(hauptfenster /*&& !hauptfenster->in_dtor*/) load_for_page(pagenr);
 }
 
 void table_steigern::load_for_page(guint pagenr)
 {
-  if(pagenr==PAGE_FERTIGKEITEN)
-     fertigkeiten_zeigen();
-  if(pagenr==PAGE_WAFFEN)
-     waffen_zeigen();
-  if(pagenr==PAGE_ZAUBER)
-     on_zauber_laden_clicked();
-  if(pagenr==PAGE_KIDO)
-     on_kido_laden_clicked();
-  if(pagenr==PAGE_SPRACHE)
-   { sprachen_zeigen();
-     schriften_zeigen();
-   }
-
-  if(pagenr==PAGE_BESITZ)
-   {
-     init_waffenbesitz();
-     clist_ruestung->set_sensitive(false);
-     button_ruestung_1->set_active(false);
-     button_ruestung_2->set_active(false);
-   }
-
   // Sensitive & Show
   if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
    {
-     radiobutton_verlernen->set_active(true);
+     radiobutton_verlernen->set_active(true); // wieso das denn?
      if(pagenr==PAGE_ZAUBER) 
        { frame_zauber_zusatz->show();
-         if(MBEmlt(&*cH_Fertigkeit("Lesen von Zauberschrift"))->ist_gelernt(hauptfenster->getAben().List_Fertigkeit()))
-              togglebutton_spruchrolle->set_sensitive(true);
-         else togglebutton_spruchrolle->set_sensitive(false);
-       }
-     if(hauptfenster->getAben().Typ1()->SpruecheMitPP() || hauptfenster->getAben().Typ2()->SpruecheMitPP())
+     if(W.Typ1()->SpruecheMitPP() || W.Typ2()->SpruecheMitPP())
         radiobutton_praxis->set_sensitive(true);
      else
         radiobutton_praxis->set_sensitive(false);
+       }
    }
   else
    {
@@ -110,7 +96,6 @@ void table_steigern::load_for_page(guint pagenr)
      frame_zauber_zusatz->hide();
      radiobutton_praxis->set_sensitive(true);
    }
-  spinbutton_eigenschaften_grad_anstieg->hide();  
 }
 
 
@@ -154,7 +139,7 @@ void table_steigern::show_goldeingabe(bool b,int button)
 
 void table_steigern::zeige_werte()
 {
-   const Grundwerte &W=hauptfenster->getAben();
+   const Abenteurer &W=hauptfenster->getAben();
     LabelSpin_gfp->set_value(W.GFP());
 
    steigern_gtk();
@@ -174,7 +159,7 @@ void table_steigern::zeige_werte()
    label_grad_GFP->set_text(grad_GFP);
    if(grad_GFP=="erreicht") flashing_gradanstieg->setTime(1000);
    else                     flashing_gradanstieg->setTime(0);
-   if(hauptfenster->getAben().eigenschaften_steigern_erlaubt())
+   if(W.eigenschaften_steigern_erlaubt())
       flashing_eigenschaft->setTime(1000);
    else flashing_eigenschaft->setTime(0);
 
@@ -182,7 +167,7 @@ void table_steigern::zeige_werte()
    label_abwehr_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
    label_resistenz_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,W));
    std::string z=Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,W);
-   if(!hauptfenster->getAben().Typ1()->is_mage() && !hauptfenster->getAben().Typ2()->is_mage()) z="";
+   if(!W.Typ1()->is_mage() && !W.Typ2()->is_mage()) z="";
    label_zauber_GFP->set_text(z);
 
   show_goldeingabe(false);
@@ -191,38 +176,38 @@ void table_steigern::zeige_werte()
   checkbutton_gfp->set_active(false);
   LabelSpin_gfp->deaktivate();
 
-  steigern_typ->set_text(hauptfenster->getAben().Typ1()->Name(W.Geschlecht()));
-  if (hauptfenster->getAben().Typ2()->Name(W.Geschlecht())!="")
-      steigern_typ->set_text(hauptfenster->getAben().Typ1()->Name(W.Geschlecht())
-            +"/"+hauptfenster->getAben().Typ2()->Name(W.Geschlecht()));
+  if (!W.Typ2()->Name(W.Geschlecht()).empty())
+      steigern_typ->set_text(W.Typ1()->Name(W.Geschlecht())
+            +"/"+W.Typ2()->Name(W.Geschlecht()));
+  else
+     steigern_typ->set_text(W.Typ1()->Name(W.Geschlecht()));
 
   label_steigern_spezies->set_text(W.Spezies()->Name());
 
-  if (hauptfenster->getAben().is_mage())  table_magier_steigern->show() ;
-  else                 table_magier_steigern->hide() ;
-
-  if(MBEmlt(&*cH_Fertigkeit("KiDo"))->ist_gelernt(hauptfenster->getAben().List_Fertigkeit()))   
+  if(MBEmlt(cH_Fertigkeit("KiDo"))->ist_gelernt(W.List_Fertigkeit()))   
          table_kido_steigern->show();
   else   table_kido_steigern->hide();
 
-  if(!hauptfenster->getAben().getVTyp().empty() && hauptfenster->getAben().is_mage())
-  {
+  if(W.is_mage())
+  { table_magier_steigern->show() ;
     button_grad_zaubern->set_sensitive(true);
     frame_pp_zaubern->set_sensitive(true);
     radiobutton_pp_zauber->set_sensitive(true);
   }  
  else
-  {
+  { table_magier_steigern->hide() ;    
     button_grad_zaubern->set_sensitive(false);
     frame_pp_zaubern->set_sensitive(false);
     radiobutton_pp_zauber->set_sensitive(false);
   }
  show_label();
-
+     if(MBEmlt(cH_Fertigkeit("Lesen von Zauberschrift"))->ist_gelernt(W.List_Fertigkeit()))
+              togglebutton_spruchrolle->set_sensitive(true);
+         else togglebutton_spruchrolle->set_sensitive(false);
 }
 
 table_steigern::table_steigern(GlademmData *_data) 
-         : table_steigern_glade(_data),hauptfenster(0),LL(0),
+         : table_steigern_glade(_data),hauptfenster(),//LL(),
             steigern_mit_EP_bool(true) 
 {  clist_ruestung->set_model(RuestungStore);
    clist_ruestung->append_column("Rüstung",ruestung_columns.name);
@@ -232,4 +217,9 @@ table_steigern::table_steigern(GlademmData *_data)
    clist_ruestung->append_column("Gw\nVerlust",ruestung_columns.rw_verlust);
    clist_ruestung->append_column("B\nVerlust",ruestung_columns.b_verlust);
    clist_ruestung->get_selection()->signal_changed().connect(SigC::slot(*this,&table_steigern::on_ruestung_selection_changed));
+   bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(MagusImage("EP-Steigern-50.xpm"),"Mit EP/PP\nsteigern",false)));
+   _m->set_mode(false);
+   _m->signal_toggled().connect(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled),true);
+   eventbox_eppp_steigern->add(*_m);
+   eventbox_eppp_steigern->show_all();
 }

@@ -14,11 +14,10 @@ class LernListen;
 class table_steigern : public table_steigern_glade
 {  
         
-        friend class table_steigern_glade;
-        friend class midgard_CG;
-        friend class Magus_Optionen; // Zum Speichern der Handle-Fenster Positionen
+//        friend class midgard_CG;
+//        friend class Magus_Optionen; // Zum Speichern der Handle-Fenster Positionen
         midgard_CG *hauptfenster;
-        LernListen *LL;        
+//        LernListen LL;        
 
         std::list<MBEmlt> list_Fertigkeit_neu;
         std::list<MBEmlt> list_WaffenGrund_neu;
@@ -53,6 +52,7 @@ private:
         void load_for_page(guint pagenr);
         void zeige_werte();
         void neuer_charakter();
+        void refresh();
 
         // Main
         void fillClistZusatz(MBEmlt &MBE);
@@ -126,8 +126,6 @@ private:
 //        void lade_waffenbesitz();
         void show_neue_waffen();
         void show_alte_waffen();
-
-	void refresh();
 
          // Ab hier die automatischen Methoden von glade erzeugt
 private:
