@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.7 2002/01/21 23:24:08 christof Exp $               
+// $Id: Ruestung.hh,v 1.8 2002/01/22 07:46:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -61,7 +61,7 @@ class cH_Ruestung : public Handle<const Ruestung>
     cH_Ruestung() {}
   public:
 //   cH_Ruestung() {*this=new Ruestung();}
-   cH_Ruestung(const std::string& name);
+   cH_Ruestung(const std::string& name IF_XML(,bool create=false));
 #ifdef USE_XML
    cH_Ruestung(const Tag *tag);
 #endif

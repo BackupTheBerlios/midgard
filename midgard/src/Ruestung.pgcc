@@ -26,7 +26,7 @@ exec sql include sqlca;
 
 cH_Ruestung::cache_t cH_Ruestung::cache;
 
-cH_Ruestung::cH_Ruestung(const std::string& name)
+cH_Ruestung::cH_Ruestung(const std::string& name IF_XML(,bool create))
 {
  cH_Ruestung *cached(cache.lookup(name));
  if (cached) *this=*cached;
@@ -36,8 +36,17 @@ cH_Ruestung::cH_Ruestung(const std::string& name)
    *this=cH_Ruestung(new Ruestung(name));
    cache.Register(name,*this);
 #else
-   cerr << "Rüstung '" << name << "' nicht im Cache\n";
-   *this=cH_Ruestung(find_Tag("Rüstungen","Rüstung","Abkürzung",name));
+  cerr << "Spezies '" << name << "' nicht im Cache\n";
+  const Tag *t=find_Tag("Rüstungen","Rüstung","Abkürzung",name));
+  if (t) *this=cH_Ruestung(t);
+  else if (create)
+  {  static Tag t2("Ruestung"); 
+     // note that this Tag is shared ... works well for now
+     t2.setAttr("Abkürzung",name);
+     t2.setAttr("Name",name);
+     *this=cH_Ruestung(&t2);
+  }
+  else throw NotFound();
 #endif
   }
 }

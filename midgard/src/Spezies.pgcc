@@ -23,11 +23,11 @@
 exec sql include sqlca;
 #endif
 #include <gtk--/main.h>
-
+#include "MidgardBasicElement.hh" // für NotFound
 
 cH_Spezies::cache_t cH_Spezies::cache;
 
-cH_Spezies::cH_Spezies(const std::string& name)
+cH_Spezies::cH_Spezies(const std::string& name IF_XML(,bool create))
 {
  cH_Spezies *cached(cache.lookup(name));
  if (cached) *this=*cached;
@@ -37,8 +37,16 @@ cH_Spezies::cH_Spezies(const std::string& name)
    *this=cH_Spezies(new Spezies(name));
    cache.Register(name,*this);
 #else
-   cerr << "Spezies '" << name << "' nicht im Cache\n";
-   *this=cH_Spezies(find_Tag("SpeziesListe","Spezies","Name",name));
+  cerr << "Spezies '" << name << "' nicht im Cache\n";
+  const Tag *t=find_Tag("SpeziesListe","Spezies","Name",name));
+  if (t) *this=cH_Spezies(t);
+  else if (create)
+  {  static Tag t2("Spezies"); 
+     // note that this Tag is shared ... works well for now
+     t2.setAttr("Name",name);
+     *this=cH_Spezies(&t2);
+  }
+  else throw NotFound();
 #endif
   }
 }
