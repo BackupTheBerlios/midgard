@@ -1939,7 +1939,6 @@ Stefan Peschl, Sven Rey, Ottmar Zimmer und viele andere geholfen.</label>
 
 	<widget>
 	  <class>GtkVBox</class>
-	  <child_name>Notebook:tab</child_name>
 	  <name>vbox66</name>
 	  <homogeneous>False</homogeneous>
 	  <spacing>0</spacing>
