@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.18 2001/06/27 10:10:16 thoma Exp $
+// $Id: xmlexport.pgcc,v 1.19 2001/06/27 10:24:12 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -73,7 +73,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    exec sql allocate descriptor spalten;
    exec sql declare c cursor for
    	select charakter_name, spieler_name, version, grad, 
-   		spezies, geschlecht, Typ.Short(), typ_2_s, spezialisierung,
+   		spezies, geschlecht, typ_s, typ_2_s, spezialisierung,
    		st, ge, ko, inn, zt, au, pa,
    		sb, rw, hgw, b, kaw, wlw, abwehr, zaubern,
    		resistenz, gift, lpbasis, lp, ap, alter, gestalt,
