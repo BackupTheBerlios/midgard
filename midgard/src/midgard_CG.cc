@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.310 2003/10/13 06:33:02 christof Exp $
+// $Id: midgard_CG.cc,v 1.311 2003/10/13 10:18:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -218,7 +218,7 @@ void midgard_CG::on_schlie__en1_activate()
 {  Ausgabe(Ausgabe::Error,"Noch nicht programmiert!");
 }
 
-void midgard_CG::grundwerte_background()
+void midgard_CG::grundwerte_background_create()
 {  assert (get_window());
    {  Glib::RefPtr<Gdk::Pixbuf> pb=MagusImage("Gross_dfr4.light");
       Glib::RefPtr<Gdk::Pixmap> pm=Gdk::Pixmap::create(get_window(),pb->get_width(),pb->get_height(),get_window()->get_depth());

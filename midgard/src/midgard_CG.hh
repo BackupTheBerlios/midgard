@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.338 2003/10/13 06:33:03 christof Exp $
+// $Id: midgard_CG.hh,v 1.339 2003/10/13 10:18:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -162,7 +162,7 @@ private:
 
         void set_status(const std::string &s,bool autoclean=true);
         
-        void grundwerte_background(); // on_realize
+        void grundwerte_background_create(); // on_realize
 
 // besser in Einzelfunktionen zerlegen
 	void Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex index);
