@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.44 2004/03/31 07:16:08 christof Exp $
+# $Id: Makefile.am,v 1.45 2004/03/31 07:19:11 christof Exp $
 
 if WINDOWS
 PORT_FILES=registry.cc TeX.cc
@@ -13,14 +13,15 @@ endif
 libmagus_res.lo: libmagus.rc
 	WINDRES=i586-mingw32msvc-windres $(top_srcdir)/../ManuProC_Base/build/win32/lt-compile-resource $< $@
 
-AM_CPPFLAGS = @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I. -I.. \
+AM_CPPFLAGS = @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@ -Dlibmagus_COMPILATION
 
 AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
 
 CLEANFILES = *~
 
-EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter model_test model_test2 OptionenTest
+EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter model_test \
+	model_test2 OptionenTest model_test3
 
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
 registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
