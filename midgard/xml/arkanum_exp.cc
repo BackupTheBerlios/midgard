@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.2 2001/12/19 14:14:54 christof Exp $
+// $Id: arkanum_exp.cc,v 1.3 2001/12/19 15:44:49 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -99,7 +99,7 @@ void arkanum_speichern(std::ostream &o)
   {Query query("select name, region, art, stufe, zeitaufwand, kosten, kosten_gfp"
   	" from zauberwerk"
   	IF_REGION(" where coalesce(region,'')='"+region+"' ")
-  	" order by coalesce(region,''),name");
+  	" order by coalesce(region,''),name,art,stufe");
    FetchIStream is;
   while ((query>>is).good())
   {o << "  <Zauberwerk";

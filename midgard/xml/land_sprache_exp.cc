@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.1 2001/12/19 14:12:06 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.2 2001/12/19 15:44:49 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -31,7 +31,7 @@ void land_speichern(std::ostream &o)
   {o << " <Länder>\n";
   {Query query("select land, kontinent, sprache"
    	" from land"
-   	" order by kontinent,land");
+   	" order by kontinent,land,sprache");
   while ((query>>is).good())
   {o << "  <Land";
    fetch_and_write_string_attrib(is, o, "Name");
