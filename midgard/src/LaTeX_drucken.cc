@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.42 2002/07/08 14:52:23 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.43 2002/07/09 07:06:25 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -656,8 +656,12 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
   }
  std::string     drache="9.9cm", namensbox="7cm";
  if(!landscape) {drache="7cm" , namensbox="5cm";}
+ fout << "\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"
+ 	<< get_latex_pathname(TeX_Install) << "drache.png}}\n";
+#if 0
  fout << "\\IfFileExists{drache.png}{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{drache.png}}}\n";
  fout << "{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}\n";
+#endif 
  fout << "\\parbox[][][c]{"+namensbox+"}{\n";
  if(!landscape) fout << "\\scriptsize\n";
  fout << "\\LI\n";
@@ -669,8 +673,12 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
  fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
  fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
  fout <<"\\end{tabularx}\n}\n";
+ fout << "\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{"
+ 	<< get_latex_pathname(TeX_Install) << "drache.png}}}\n";
+#if 0
  fout <<"\\IfFileExists{drache.png}{\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{drache.png}}}}\n";
  fout <<"{\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}}\n";
+#endif 
  fout <<"\\vspace*{2ex}\n\n";
 }
 
