@@ -2,6 +2,7 @@
 NEWS IN VERSION 0.6delta3
 
 * Erain: Zaubertänze (Gildenbrief 46)
+* Der Windows Port verwendet den Explorer um Dateien auszuwählen
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
@@ -15,9 +16,6 @@ TODO:
 
 Windows TODO (bitte irgendwo erwähnen)
 
-* das Icon so generieren, dass es auch unter Windows transparent ist ...
-* AcroRead wird noch nicht gefunden
-* den Windows Filerequester (nennt sich ebenfalls Explorer) verwenden (ja es geht!)
 * Abenteurer in ISO 8859-1[5] speichern, dann können sie leichter editiert/gelesen werden.
 
 ##########################################################################
@@ -48,8 +46,6 @@ TODO:
 
 Windows TODO (bitte irgendwo erwähnen)
 
-* das Icon so generieren, dass es auch unter Windows transparent ist ...
-* AcroRead wird noch nicht gefunden
 * den Windows Filerequester (nennt sich ebenfalls Explorer) verwenden (ja es geht!)
 * Abenteurer in ISO 8859-1[5] speichern, dann können sie leichter editiert/gelesen werden.
 

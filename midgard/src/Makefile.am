@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.154 2002/05/02 10:12:02 thoma Exp $
+# $Id: Makefile.am,v 1.155 2002/05/03 14:30:19 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -7,7 +7,7 @@ noinst_PROGRAMS = text2c
 EXTRA_PROGRAMS = midgard_xmlexport
 
 if WINDOWS
-RC_FILES=magus.rc registry.cc
+PORT_FILES=magus.rc registry.cc
 LINK_OPTIONS=-mwindows
 LINK_OBJS=magus_res.o
 # sigh! local installation menace
@@ -16,7 +16,7 @@ WIN_INCLUDES=-I/usr/local/mingw/mingw32/include
 magus_res.o: magus.rc ; windres --include-dir /usr/local/mingw/mingw32/include  magus.rc magus_res.o
 
 else
-RC_FILES=
+PORT_FILES= xml_fileselection_glade.cc
 LINK_OPTIONS=
 LINK_OBJS=
 WIN_INCLUDES=
@@ -97,7 +97,7 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
-magus_SOURCES = $(RC_FILES) \
+magus_SOURCES = $(PORT_FILES) \
    midgard_CG_waffen.cc \
    Wizard.cc \
    frame_globale_optionen.cc \
@@ -153,7 +153,6 @@ magus_SOURCES = $(RC_FILES) \
    steigern_main.cc \
    steigern_EP.cc \
    xml_fileselection.cc \
-   xml_fileselection_glade.cc \
    LaTeX_header.cc \
 	LaTeX_out.cc \
    LaTeX_zauber.cc \

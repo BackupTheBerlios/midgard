@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,26 +17,20 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/5/24 12:36:04 CEST by thoma@Tiger.
-// using glademm V0.6.2_cvs
-//
-// newer (non customized) versions of this file go to xml-fileselection.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
-
 #ifndef _XML_FILESELECTION_HH
-#  include "xml_fileselection_glade.hh"
+#  ifndef __MINGW32__
+#    include "xml_fileselection_glade.hh"
+#    include "glademm_support.hh"
+#  endif
 #  define _XML_FILESELECTION_HH
-#include "glademm_support.hh"
 
 class midgard_CG;
 class Grundwerte;
 
-class xml_fileselection : public xml_fileselection_glade
+class xml_fileselection 
+#ifndef __MINGW32__
+			: public xml_fileselection_glade
+#endif
 {   
   public:
         enum eAction {Save,Load,Export,Pix};
@@ -43,10 +38,16 @@ class xml_fileselection : public xml_fileselection_glade
         midgard_CG* hauptfenster;        
         eAction ewas;
         Grundwerte* Werte;
-        
+
+#ifndef __MINGW32__        
         friend class xml_fileselection_glade;
-        void on_ok_button1_clicked();
         void on_cancel_button1_clicked();
+#else
+	std::string filename;
+	std::string get_filename() const { return filename; }
+	void set_filename(const std::string &s) { filename=s; }
+#endif        
+        void on_ok_button1_clicked();
    public:
         xml_fileselection(midgard_CG* h,eAction _was,Grundwerte *W=0);
 };
