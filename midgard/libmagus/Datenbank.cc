@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.5 2003/05/09 08:19:10 christof Exp $               
+// $Id: Datenbank.cc,v 1.6 2003/05/12 06:37:44 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -54,9 +54,23 @@ Datenbank::Datenbank() : tag_eigene_artikel("MAGUS-data")
 {
 }
 
+void Datenbank::load_one(const std::string &list, const Tag &t)
+{  if (t.Type()=="Spruch") Zauber_All::load(Zauber,t);
+}
+
+void Datenbank::load_list(const Tag &t)
+{  FOR_EACH_CONST_TAG(j,t)
+   {  if (j->Type()=="Zauber") 
+      {  FOR_EACH_CONST_TAG(k,*j)
+         {  load_one(j->Type(), *k);
+         }
+      }
+   }
+}
+
 void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen)
 {
-    xml_init(progress,meldungen);
+    xml_init(progress,meldungen,*this);
     Regionen = Regionen_All().get_All();
 //    MI->set_Regionen(Regionen);
     Laender = Laender_All().get_All();
@@ -68,7 +82,7 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
     WaffeGrund = WaffeGrund_All().get_All();
     Waffe = Waffe_All().get_All();
     Waffe_from_Alias = Waffe::fill_map_alias_waffe();
-    Zauber = Zauber_All().get_All();
+//    Zauber = Zauber_All().get_All();
     Zauberwerk = Zauberwerk_All().get_All();
     Kido = KiDo_All().get_All();
     Sprache = Sprachen_All().get_All();

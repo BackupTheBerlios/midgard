@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.3 2003/05/11 22:16:27 christof Exp $               
+// $Id: Zauber.hh,v 1.4 2003/05/12 06:37:44 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,8 @@
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 class cH_Zauber;
-#include <Tag.h>
+//#include <Tag.h>
+class Tag;
 //class Random;
 
 class Zauber : public MidgardBasicElement
@@ -87,8 +88,6 @@ class cH_Zauber : public Handle<const Zauber>
     cH_Zauber(){}
  public:
    cH_Zauber(const std::string& name, bool create=false) ;
-   cH_Zauber(const Tag *tag);
-
    cH_Zauber(const cH_MidgardBasicElement &x) : Handle<const Zauber> 
       (dynamic_cast<const Zauber *>(&*x)){}
    static cH_Zauber load(const Tag &t,bool &is_new);
@@ -113,6 +112,7 @@ class Zauber_All
   public:
    Zauber_All();
    void load(const Tag &t);
+   static void load(std::list<cH_MidgardBasicElement> &list, const Tag &t);
    const std::list<cH_MidgardBasicElement> &get_All() const {return list_All;}
 };
 

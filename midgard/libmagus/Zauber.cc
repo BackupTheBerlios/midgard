@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2002      Christof Petig 
+ *  Copyright (C) 2002-2003 Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -60,20 +60,15 @@ cH_Zauber::cH_Zauber(const std::string& name, bool create)
      t2.setAttr("Wirkungsziel","?");
      t2.setAttr("Wirkungsbereich","?");
      // Wirkungsdauer, Reichweite ???
-     *this=cH_Zauber(&t2);
+     *this=new Zauber(t2); // und wie f�gen wir den der Liste zu?
   }
   else throw NotFound();
   }
 }
 
-cH_Zauber::cH_Zauber(const Tag *tag)
-{*this=cH_Zauber(new Zauber(*tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
 void Zauber::get_Zauber(const Tag &t)
-{
-    ursprung=t.getAttr("Ursprung");
+{  if (t.hasAttr("Grad"))
+   {ursprung=t.getAttr("Ursprung");
     kosten=t.getIntAttr("Lernkosten");
     stufe=t.getAttr("Grad");
     spruchrolle=t.getBoolAttr("Spruchrolle");
@@ -93,9 +88,10 @@ void Zauber::get_Zauber(const Tag &t)
     prozess=t.getAttr("Prozess");
     reagens=t.getAttr("Reagens");
     nsc_only=t.getBoolAttr("NSC_only",false);
-    
-    enum_zusatz=MidgardBasicElement::eZusatz(t.getIntAttr("Zusätze",ZNone));
 
+    enum_zusatz=MidgardBasicElement::eZusatz(t.getIntAttr("Zusätze",ZNone));
+   }
+    
     FOR_EACH_CONST_TAG_OF(i,t,"Zusätze")
       Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
                          i->getAttr("Region"),i->getAttr("RegionZusatz"),""));
@@ -237,8 +233,13 @@ Zauber_All::Zauber_All()
 }
 
 void Zauber_All::load(const Tag &t)
+{  load(list_All,t);
+}
+
+void Zauber_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  bool is_new=false;
    cH_Zauber z=cH_Zauber::load(t,is_new);
    // das &* dient dazu um aus einem cH_Zauber ein cH_MBE zu machen
-   if (is_new) list_All.push_back(&*z);
+   if (is_new) list.push_back(&*z);
 }
+

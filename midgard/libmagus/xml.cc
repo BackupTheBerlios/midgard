@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.4 2003/05/09 08:19:10 christof Exp $
+// $Id: xml.cc,v 1.5 2003/05/12 06:37:44 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -25,6 +25,7 @@
 //#define PARANOIA
 #define VERBOSE
 #include <Misc/TagStream.h>
+#include "Datenbank.hh"
 
 static TagStream *top;
 const Tag *xml_data;
@@ -62,13 +63,13 @@ static void reserve(Tag *t)
    reserve(t,"Waffen-Grundkenntnisse",32);
    reserve(t,"Waffen-Steigern",16);
    reserve(t,"KI",32);
-   reserve(t,"Zauber",1024);
+//   reserve(t,"Zauber",1024);
    reserve(t,"Zauberwerke",512);
    reserve(t,"Spezialgebiete",32);
    reserve(t,"Kido-Fertigkeiten",64);
 }
 
-void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen)
+void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen, Datenbank &db)
 {  std::string filename=magus_paths::with_path("midgard.xml");
    if (top) return; // oder merge?
    {  std::ifstream in(filename.c_str());
@@ -117,8 +118,10 @@ reloop:
           }
           for (Tag::const_attiterator j=data2->attbegin();j!=data2->attend();++j)
              t2->setAttr(j->first,j->second);
+          db.load_list(*data2);
           FOR_EACH_CONST_TAG(j,*data2)
           {  if (j->Type().empty()) continue; // inter tag space
+             if (j->Type()=="Zauber") continue;
              Tag *merge_here;
              if ((merge_here=xml_data_mutable->find(j->Type())))
              {  // std::cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
