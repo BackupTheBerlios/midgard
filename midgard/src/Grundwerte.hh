@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.49 2002/08/19 06:34:08 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.50 2002/09/06 20:58:52 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,7 +45,7 @@ class Grundwerte
    int abwehr_wert,abwehr_pp,zaubern_wert,zauber_pp,pp_spezialzauber;
    int resistenz,resistenz_pp;
    int alter;
-   std::string geschlecht;
+   Enums::geschlecht geschlecht;
    int gewicht,groesse,grad;
    std::string stand,spezialisierung,hand,
       glaube,name_abenteurer,name_spieler,version,bezeichnung;
@@ -60,7 +60,7 @@ class Grundwerte
    vector<cH_Ruestung> ruestung; 
    cH_Spezies spezies;
    cH_Spezialgebiet spezialgebiet;
-   std::string stadt_land;
+   Enums::StadtLand stadt_land;
 
    int steigern_EP_prozent;  
    int grad_basiswerte; 
@@ -74,11 +74,11 @@ public:
              raufen(0),au(0),pa(0),sb(0), wk(0),
              b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
              zaubern_wert(0),zauber_pp(0),pp_spezialzauber(0),resistenz(0),resistenz_pp(0),
-             alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
+             alter(0),geschlecht(Enums::Mann),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_abenteurer(""),version("Erschaffung"),
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
              aep(0),kep(0),zep(0),spezies("Mensch"),
-             stadt_land("Stadt"), steigern_EP_prozent(50), grad_basiswerte(1)
+             stadt_land(Enums::Stadt), steigern_EP_prozent(50), grad_basiswerte(1)
              
          { reset(); }
    void resetSinne() ;
@@ -127,7 +127,8 @@ public:
    int Gift() const {if(Ko()) return 30 + Ko()/2; else return 0;}
    int Alter() const {return alter;}
    std::string Gestalt() const ;
-   std::string Geschlecht() const {return geschlecht;}
+   Enums::geschlecht Geschlecht() const {return geschlecht;}
+   std::string Geschlecht_str() const;
    std::string Hand() const {return hand;}
    int Gewicht() const {return gewicht;}
    int Groesse() const {return groesse;}
@@ -150,7 +151,8 @@ public:
    std::string BeschreibungPix() const {return beschreibung.file;}
    int BeschreibungPixSize() const {return beschreibung.size;}
    std::string Merkmale() const {return merkmale;}
-   std::string Stadt_Land() const {return stadt_land;}
+   std::string Stadt_Land_str() const ;
+   Enums::StadtLand Stadt_Land() const {return stadt_land;}
    cH_Ruestung Ruestung(unsigned int i=0) const;
    int GFP() const {return gfp;}
    float Steigertage() const {return steigertage;}
@@ -223,7 +225,8 @@ public:
    void add_SG(int i){sg+=i;}
    void setGG(int i){gg=i;}
    void setAlter(int _alter){alter=_alter;}
-   void setGeschlecht(const std::string& _geschlecht){geschlecht=_geschlecht;}
+   void setGeschlecht(const Enums::geschlecht& _geschlecht){geschlecht=_geschlecht;}
+   void setGeschlecht(const std::string& _geschlecht);
    void setSpezialisierung(const std::string& _spezialisierung){spezialisierung=_spezialisierung;}   
    void setSpezialgebiet(const cH_Spezialgebiet& s) {spezialgebiet=s;}
 //   void setSpezial(const std::string& _spezial,std::string _spezial2){spezial=_spezial;spezial2=_spezial2;}
@@ -246,7 +249,8 @@ public:
       {ruestung[0]=cH_Ruestung(r,force);}
    void setRuestung2(std::string r,bool force=false)
       {ruestung[1]=cH_Ruestung(r,force);}
-   void setStadt_Land(const std::string& sl) {stadt_land=sl;}
+   void setStadt_Land(const Enums::StadtLand& sl) {stadt_land=sl;}
+   void setStadt_Land(const std::string& sl);
    void setGFP(int _gfp){gfp=_gfp;}
    void addGFP(int _gfp){gfp += _gfp;}
    void setSteigertage(float i){steigertage=i;}

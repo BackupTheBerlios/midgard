@@ -101,19 +101,21 @@ void midgard_CG::load_for_mainpage(guint pagenr)
     show_undo_tree();
     fill_AbenteurerListe();
    }
+ else if(pagenr==PAGE_ZUFALL)
+   {
+     table_zufall->init(this);
+   }
 }
 
 
 void midgard_CG::menu_geschichte_selected()
 {
  notebook_main->set_page(PAGE_NEWS);
-// load_for_mainpage(PAGE_NEWS);
 }
 
 void midgard_CG::menu_einstellungen_aendern()
 {
  notebook_main->set_page(PAGE_OPTIONEN);
-// load_for_mainpage(PAGE_OPTIONEN);
 }
 
 
@@ -127,6 +129,8 @@ gint midgard_CG::on_eventbox_ausruestung_button_release_event(GdkEventButton *ev
 { notebook_main->set_page(PAGE_AUSRUESTUNG); return false;}
 gint midgard_CG::on_eventbox_optionen_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_OPTIONEN); return false;}
+gint midgard_CG::on_eventbox_zufall_button_release_event(GdkEventButton *event)
+{ notebook_main->set_page(PAGE_ZUFALL); return false;}
 gint midgard_CG::on_eventbox_beschreibung_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_BESCHREIBUNG); return false;}
 gint midgard_CG::on_eventbox_steigern_button_release_event(GdkEventButton *event)

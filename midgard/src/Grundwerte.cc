@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.37 2002/08/19 18:14:03 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.38 2002/09/06 20:58:52 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,7 @@ void Grundwerte::reset()
   resistenz=0;
   resistenz_pp=0;
   alter=0;
-  geschlecht="m";
+  geschlecht=Enums::Mann;
   gewicht=0;
   groesse=0;
   grad=1;
@@ -396,4 +396,41 @@ int Grundwerte::ep_kosten(int kosten) const
   int i =int(kosten * get_Steigern_EP_Prozent()/100. +0.5);
   return i;
 }
-      
+
+std::string Grundwerte::Geschlecht_str() const
+{
+  switch (geschlecht) {
+      case Enums::Mann: return "m";
+      case Enums::Frau: return "f";
+      case Enums::NoFM: 
+      default : return "";
+   }
+  abort();
+}
+
+void Grundwerte::setGeschlecht(const std::string& _g)
+{
+  if     (_g=="m") setGeschlecht(Enums::Mann);
+  else if(_g=="f") setGeschlecht(Enums::Frau);
+  else             setGeschlecht(Enums::NoFM);
+}
+
+std::string Grundwerte::Stadt_Land_str() const
+{
+  switch (stadt_land) {
+      case Enums::Stadt: return "Stadt";
+      case Enums::Land: return "Land";
+      case Enums::NoSL: 
+      default : return "";
+   }
+  abort();
+}
+
+void Grundwerte::setGeschlecht(const std::string& _g)
+{
+  if     (_g=="Stadt") setGeschlecht(Enums::Stadt);
+  else if(_g=="Land")  setGeschlecht(Enums::Land);
+  else                 setGeschlecht(Enums::NoSL);
+}
+
+  

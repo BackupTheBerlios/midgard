@@ -1,6 +1,5 @@
-/* $Id: zufall.h,v 1.18 2002/09/06 20:58:52 thoma Exp $ */
 /*  Midgard Character Generator
- *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2001-2002 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,15 +15,35 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-#ifndef _ZUFALL_H
-#  define _ZUFALL_H 
 
-// nicht übermäßig glücklich, das in einem h File zu machen ...
-#include <stdlib.h>
+#ifndef MAGUSZUFALL
+#define MAGUSZUFALL
 
-class Random {
-public:
-        int integer(int min, int max) const
-        {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
+#include "midgard_CG.hh" 
+#include "Enums.hh" 
+
+class Zufall
+{
+      midgard_CG *hauptfenster;
+      VAbenteurer *Aben;
+      Datenbank Database;
+      Random random;
+   
+   public:
+
+      Zufall(midgard_CG *h)
+        : hauptfenster(h), Aben(&(h->getChar())),
+          Database(h->getCDatabase()),random(h->random) {};
+      void Voll(); // kompletten Zufallsabenteruer erzeugen
+
+//      VAbenteurer Abenteurer() const {return Aben;}
+
+   private:
+      cH_Spezies getSpezies() const;
+      Enums::geschlecht getGeschlecht() const;
+      cH_Typen getTyp() const;
+      Enums::StadtLand getStadtLand() const;
+
 };
+
 #endif

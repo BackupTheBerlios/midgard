@@ -1,6 +1,5 @@
-/* $Id: zufall.h,v 1.18 2002/09/06 20:58:52 thoma Exp $ */
 /*  Midgard Character Generator
- *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2001-2002 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,15 +15,23 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-#ifndef _ZUFALL_H
-#  define _ZUFALL_H 
 
-// nicht übermäßig glücklich, das in einem h File zu machen ...
-#include <stdlib.h>
+// generated 2002/9/6 20:10:27 CEST by thoma@Tiger.(none)
+// using glademm V1.1.1c_cvs
+//
+// newer (non customized) versions of this file go to table_zufall.cc_new
 
-class Random {
-public:
-        int integer(int min, int max) const
-        {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
-};
-#endif
+// This file is for your program, I won't touch it again!
+
+#include "Zufall.hh"
+
+void Zufall::Voll()
+{
+   Aben->getWerte().setSpezies(getSpezies());
+   hauptfenster->table_grundwerte->Eigenschaften_variante(1);
+   Aben->getWerte().setGeschlecht(getGeschlecht());
+   Aben->setTyp1(getTyp());
+   hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
+}
+
+

@@ -1,4 +1,4 @@
-/* $Id: zufall.h,v 1.18 2002/09/06 20:58:52 thoma Exp $ */
+// $Id: Enums.hh,v 1.1 2002/09/06 20:58:52 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -16,15 +16,14 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-#ifndef _ZUFALL_H
-#  define _ZUFALL_H 
 
-// nicht übermäßig glücklich, das in einem h File zu machen ...
-#include <stdlib.h>
+#ifndef CLASS_ENUMS
+#define CLASS_ENUMS
 
-class Random {
-public:
-        int integer(int min, int max) const
-        {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
+namespace Enums
+{
+   enum geschlecht{NoFM,Mann,Frau};
+   enum StadtLand{NoSL,Stadt,Land};
 };
+
 #endif

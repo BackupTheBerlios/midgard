@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.191 2002/09/06 11:42:55 thoma Exp $
+# $Id: Makefile.am,v 1.192 2002/09/06 20:58:52 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -38,6 +38,8 @@ noinst_HEADERS = \
    LaTeX_drucken.hh \
    table_beschreibung.hh \
    table_beschreibung_glade.hh \
+   table_zufall.hh \
+   table_zufall_glade.hh \
    table_grundwerte.hh \
    table_grundwerte_glade.hh \
    table_ausruestung.hh \
@@ -101,6 +103,10 @@ registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 
 magus_SOURCES = $(PORT_FILES) \
+   Zufall.cc \
+   Zufall_Spezies_Typ.cc \
+   table_zufall.cc \
+   table_zufall_glade.cc \
    Windows_Linux.cc \
    customize_toolbars.cc \
    Abenteurer.cc \

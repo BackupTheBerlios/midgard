@@ -5,10 +5,10 @@
 // glade-- /home/thoma/rollenspiel/midgard/programme/gcc_3.0/midgard/midgard.glade
 // for gtk 1.2.10 and gtkmm 1.2.10
 //
-// Please modify the corresponding derived classes in ./src/frame_drucken.hh and./src/frame_drucken.cc
+// Please modify the corresponding derived classes in ./src/table_zufall.hh and./src/table_zufall.cc
 
-#ifndef _FRAME_DRUCKEN_GLADE_HH
-#  define _FRAME_DRUCKEN_GLADE_HH
+#ifndef _TABLE_ZUFALL_GLADE_HH
+#  define _TABLE_ZUFALL_GLADE_HH
 
 
 #if !defined(GLADEMM_DATA)
@@ -31,16 +31,16 @@ public:
 };
 #endif //GLADEMM_DATA
 
-#include <gtk--/frame.h>
+#include <gtk--/table.h>
 
-class frame_drucken_glade : public Gtk::Frame
+class table_zufall_glade : public Gtk::Table
 {  
 protected:
         
-        class Gtk::Frame *frame_drucken;
+        class Gtk::Table *table_zufall;
         
-        frame_drucken_glade(GlademmData *_data);
+        table_zufall_glade(GlademmData *_data);
         
-        ~frame_drucken_glade();
+        ~table_zufall_glade();
 };
 #endif

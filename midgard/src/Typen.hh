@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.26 2002/07/10 09:31:37 christof Exp $               
+// $Id: Typen.hh,v 1.27 2002/09/06 20:58:52 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,7 @@
 #include <string>
 #include <gtk--/progressbar.h>
 #include "xml.h"
+#include "Enums.hh"
 
 class Grundwerte;
 class cH_Typen;
@@ -58,8 +59,8 @@ public:
          stadt(true),land(true),nsc_only(false),
          min_st(0),min_gw(0),min_gs(0),min_in(0),min_pa(0) {}
    
-   std::string Name(const std::string& geschlecht) const 
-      { if (geschlecht=="m") return typl; else return typlw;}
+   std::string Name(const Enums::geschlecht& geschlecht) const 
+      { if (geschlecht==Enums::Mann) return typl; else return typlw;}
    std::string Typl() const {return typl;}
    std::string Typlw() const {return typlw;}
    std::string Short() const {return typs;}

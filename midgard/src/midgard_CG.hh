@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.273 2002/09/04 14:28:17 thoma Exp $
+// $Id: midgard_CG.hh,v 1.274 2002/09/06 20:58:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,7 @@ class midgard_CG : public midgard_CG_glade
         std::string magus_verzeichnis;
         bool in_dtor;
 /////////////////////////////////////////////////////////////////////////////
+        friend class Zufall;
         friend class LaTeX_drucken;
         friend class Window_Waffenbesitz;
         friend class Data_waffenbesitz;
@@ -58,6 +59,7 @@ class midgard_CG : public midgard_CG_glade
         friend class frame_ansicht;
         friend class frame_icons;
         friend class table_optionen;
+        friend class table_zufall;
         friend class table_beschreibung;
         friend class table_grundwerte;
         friend class table_lernschema;
@@ -178,12 +180,13 @@ class midgard_CG : public midgard_CG_glade
         // Oberfläche Notebook 
         enum enum_notebook_main{PAGE_INFO,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
                                 PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_OPTIONEN,
-                                PAGE_NEWS};
+                                PAGE_NEWS,PAGE_ZUFALL};
         void on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
         gint on_eventbox_ausruestung_button_release_event(GdkEventButton *event);
         gint on_eventbox_credits_button_release_event(GdkEventButton *event);
         gint on_eventbox_geschichte_button_release_event(GdkEventButton *event);
         gint on_eventbox_optionen_button_release_event(GdkEventButton *event);
+        gint on_eventbox_zufall_button_release_event(GdkEventButton *event);
         gint on_eventbox_beschreibung_button_release_event(GdkEventButton *event);
         gint on_eventbox_steigern_button_release_event(GdkEventButton *event);
         gint on_eventbox_lernen_button_release_event(GdkEventButton *event);

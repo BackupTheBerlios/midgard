@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.36 2002/08/27 12:58:35 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.37 2002/09/06 20:58:52 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -233,14 +233,14 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    
    Tag &Typ=datei.push_back(Tag("Typ"));
    Typ.setAttr_ne("Spezies", getWerte().Spezies()->Name());
-   Typ.setAttr_ne("Geschlecht", getWerte().Geschlecht());
+   Typ.setAttr_ne("Geschlecht", getWerte().Geschlecht_str());
    Typ.setAttr_ne("Abkürzung", Typ1()->Short());
    Typ.setAttr_ne("Abkürzung2", Typ2()->Short());
    Typ.setAttr_ne("Spezialgebiet", getWerte().Spezialgebiet()->Name());
    Typ.setAttr_ne("Spezialisierung", getWerte().Spezialisierung());
    Typ.setAttr_ne("Überleben",getWerte().Ueberleben()->Name());
    Typ.setAttr_ne("Muttersprache",Muttersprache());
-   Typ.setAttr("Stadt_Land", getWerte().Stadt_Land());
+   Typ.setAttr("Stadt_Land", getWerte().Stadt_Land_str());
    Typ.setAttr("Hand", getWerte().Hand());
    
    Tag &BE=datei.push_back(Tag("Basiseigenschaften"));

@@ -1,6 +1,5 @@
-/* $Id: zufall.h,v 1.18 2002/09/06 20:58:52 thoma Exp $ */
 /*  Midgard Character Generator
- *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2001-2002 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,15 +15,33 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-#ifndef _ZUFALL_H
-#  define _ZUFALL_H 
+ 
+#ifndef _TABLE_ZUFALL_HH
+#  include "table_ausruestung_glade.hh"
+#  define _TABLE_ZUFALL_HH
 
-// nicht übermäßig glücklich, das in einem h File zu machen ...
-#include <stdlib.h>
+class midgard_CG;
+#include "table_zufall_glade.hh"
 
-class Random {
-public:
-        int integer(int min, int max) const
-        {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
+
+class table_zufall : public table_zufall_glade
+{
+      friend class table_zufall_glade;
+      friend class midgard_CG;
+
+      midgard_CG *hauptfenster;
+
+   public:
+      table_zufall(GlademmData *_data)
+         : table_zufall_glade(_data) , hauptfenster(0) {}
+
+
+      void init(midgard_CG *hauptfenster);
+
+   private:
+      // automatisch von grale erzeugte Methoden
+      void on_button_zufall_voll_clicked();
+
 };
+
 #endif
