@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.201 2002/04/06 15:30:59 thoma Exp $
+// $Id: midgard_CG.hh,v 1.202 2002/04/08 14:05:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -405,7 +405,12 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
         void set_lernzeit(int kosten);
-        bool steigern_usp(int kosten,const cH_MidgardBasicElement *MBE,e_was_steigern was=Nichts);
+        bool steigern_usp(int kosten,cH_MidgardBasicElement *MBE,e_was_steigern was=Nichts);
+        int genug_geld(const int kosten);
+        int EP_kosten(const int kosten);
+        int PP_vorrat(const cH_MidgardBasicElement *MBE,e_was_steigern was);
+        bool genug_EP(const int ep_k,const bool bkep,const bool bzep,int &aep0,int &kep0,int &zep0);
+        void steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was);
         void desteigern(unsigned int kosten);
         void on_checkbutton_EP_Geld_toggled();
         void steigern_gtk();
@@ -571,7 +576,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void zeige_werte();
          void show_beschreibung();
  
-         void kaempfer_lernt_zaubern(cH_MidgardBasicElement);
+         void kaempfer_lernt_zaubern(cH_MidgardBasicElement& MBE);
+         void PraxisPunkt_to_AEP(const cH_MidgardBasicElement& MBE);
          void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);

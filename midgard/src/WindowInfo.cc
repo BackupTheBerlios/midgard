@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.31 2002/03/01 09:10:57 thoma Exp $
+// $Id: WindowInfo.cc,v 1.32 2002/04/08 14:05:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,12 +33,21 @@
 void WindowInfo::on_button_info_ok_clicked()
 {   
   if(Modus==Autoclean) des.disconnect();
+  MBE=0;
   hide();
 }
 
 void WindowInfo::on_button_bestaetigen_clicked()
 {
- if(Modus==ZaubernLernen) hauptfenster->kaempfer_lernt_zaubern(*MBE);
+ if(MBE)
+  {
+    if     (Modus==ZaubernLernen) hauptfenster->kaempfer_lernt_zaubern(*MBE);
+    else if(Modus==PraxisPunkte)  hauptfenster->PraxisPunkt_to_AEP(*MBE);
+  }
+ else
+  { cerr << "MBE existiert nicht\n";}
+ MBE=0;
+ hide();
 }
 
 WindowInfo::WindowInfo(midgard_CG* h)
@@ -56,29 +65,29 @@ WindowInfo::WindowInfo(midgard_CG* h)
     }
 */
   hide();
+  MBE=0;
 }
 
 void WindowInfo::AppendShow(const std::string& s, emodus modus)
-{
+{ 
   Modus=modus;
-//  (*mystream) << s;
   Gtk::OStream os(LogWin->get_list());
   os << s <<'\n';
   Flush();
 }
-void WindowInfo::AppendShow(const std::string& s, emodus modus, cH_MidgardBasicElement _MBE)
+
+void WindowInfo::AppendShow(const std::string& s, emodus modus,cH_MidgardBasicElement& _MBE)
 {
   MBE=&_MBE;
-  AppendShow(s,modus);
+  AppendShow(s,modus); 
 }
 
 void WindowInfo::AppendShow(int i, emodus modus)
 {
   Modus=modus;
-//  (*mystream) << i;
   Flush();
 }
-void WindowInfo::AppendShow(int i, emodus modus, cH_MidgardBasicElement _MBE)
+void WindowInfo::AppendShow(int i, emodus modus, cH_MidgardBasicElement& _MBE)
 {
   MBE=&_MBE;
   AppendShow(i,modus);
@@ -86,8 +95,6 @@ void WindowInfo::AppendShow(int i, emodus modus, cH_MidgardBasicElement _MBE)
 
 void WindowInfo::Flush()
 {
-//  (*mystream).flush();
-//mystream->flush();
   Gtk::OStream os(LogWin->get_list());
   os.flush();
   LogWin->scroll();
@@ -109,15 +116,13 @@ void WindowInfo::bestaetigen(bool b)
 {
   if(b)
    {
-      button_bestaetigen->show();
-      button_abbrechen->show();
-      button_info_ok->hide();
+     table_bestaetigen->show();
+     table_schliessen->hide();
    }
   else
    {
-      button_bestaetigen->hide();
-      button_abbrechen->hide();
-      button_info_ok->show();
+     table_bestaetigen->hide();
+     table_schliessen->show();
    }
 }
 
@@ -125,6 +130,7 @@ void WindowInfo::bestaetigen(bool b)
 gint WindowInfo::timeout() 
 { 
    hide();
+   MBE=0;
    return 0; 
 }
 

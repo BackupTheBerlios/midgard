@@ -108,7 +108,7 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
   fertigkeiten_zeigen();
 }
 
-void midgard_CG::kaempfer_lernt_zaubern(const cH_MidgardBasicElement MBE)
+void midgard_CG::kaempfer_lernt_zaubern(cH_MidgardBasicElement &MBE)
 {
    doppelcharaktere();
    InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
