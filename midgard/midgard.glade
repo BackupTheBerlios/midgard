@@ -15,6 +15,7 @@
 <widget>
   <class>GtkWindow</class>
   <name>midgard_CG</name>
+  <sensitive>False</sensitive>
   <signal>
     <name>delete_event</name>
     <handler>on_midgard_CG_delete_event</handler>
@@ -38,19 +39,515 @@
     </signal>
 
     <widget>
-      <class>GtkTable</class>
+      <class>GtkPacker</class>
       <name>table_9999</name>
-      <rows>4</rows>
-      <columns>1</columns>
-      <homogeneous>False</homogeneous>
-      <row_spacing>0</row_spacing>
-      <column_spacing>0</column_spacing>
+      <default_border_width>0</default_border_width>
+      <default_pad_x>0</default_pad_x>
+      <default_pad_y>0</default_pad_y>
+      <default_ipad_x>0</default_ipad_x>
+      <default_ipad_y>0</default_ipad_y>
+
+      <widget>
+	<class>GtkHandleBox</class>
+	<name>handlebox1</name>
+	<shadow_type>GTK_SHADOW_NONE</shadow_type>
+	<handle_position>GTK_POS_LEFT</handle_position>
+	<snap_edge>GTK_POS_TOP</snap_edge>
+	<child>
+	  <side>GTK_SIDE_TOP</side>
+	  <anchor>GTK_ANCHOR_NORTH</anchor>
+	  <expand>False</expand>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
+	  <use_default>True</use_default>
+	  <border_width>0</border_width>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xipad>0</xipad>
+	  <yipad>0</yipad>
+	</child>
+
+	<widget>
+	  <class>GtkMenuBar</class>
+	  <name>menubar1</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+	  <widget>
+	    <class>GtkMenuItem</class>
+	    <name>magus1</name>
+	    <label>Magus</label>
+	    <right_justify>False</right_justify>
+
+	    <widget>
+	      <class>GtkMenu</class>
+	      <name>magus1_menu</name>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>neuen_abenteurer1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_N</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_neuer_charakter_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		</signal>
+		<label>Neuen Abenteurer</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>laden1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_O</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>xml_import_auswahl</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 12:00:27 GMT</last_modification_time>
+		</signal>
+		<label>Laden</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>speichern1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_S</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>xml_export_auswahl</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 12:01:18 GMT</last_modification_time>
+		</signal>
+		<label>Speichern</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>trennlinie1</name>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>drucken1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_P</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_drucken_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 12:05:34 GMT</last_modification_time>
+		</signal>
+		<label>Drucken</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>trennlinie2</name>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>beenden1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_Q</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_schliessen_CG_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		</signal>
+		<label>Beenden</label>
+		<right_justify>False</right_justify>
+	      </widget>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkMenuItem</class>
+	    <name>bearbeiten1</name>
+	    <tooltip>tut noch nichts!</tooltip>
+	    <label>Bearbeiten</label>
+	    <right_justify>False</right_justify>
+
+	    <widget>
+	      <class>GtkMenu</class>
+	      <name>bearbeiten1_menu</name>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>rückgängig1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_Z</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_button_undo_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
+		</signal>
+		<label>Rückgängig</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>erneut_vorwärts1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_R</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_button_redo_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
+		</signal>
+		<label>Erneut/Vorwärts</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>geschichte</name>
+		<signal>
+		  <name>activate</name>
+		  <handler>menu_geschichte_selected</handler>
+		  <last_modification_time>Tue, 16 Apr 2002 10:30:16 GMT</last_modification_time>
+		</signal>
+		<label>Geschichte</label>
+		<right_justify>False</right_justify>
+	      </widget>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkMenuItem</class>
+	    <name>ansicht1</name>
+	    <tooltip>tut noch nichts!</tooltip>
+	    <label>Ansicht</label>
+	    <right_justify>False</right_justify>
+
+	    <widget>
+	      <class>GtkMenu</class>
+	      <name>ansicht1_menu</name>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>fenster1</name>
+		<label>Fenster</label>
+		<right_justify>False</right_justify>
+
+		<widget>
+		  <class>GtkMenu</class>
+		  <name>fenster1_menu</name>
+
+		  <widget>
+		    <class>GtkCheckMenuItem</class>
+		    <name>meldungen1</name>
+		    <label>Meldungen</label>
+		    <active>False</active>
+		    <always_show_toggle>True</always_show_toggle>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckMenuItem</class>
+		    <name>wizard1</name>
+		    <label>Wizard</label>
+		    <active>False</active>
+		    <always_show_toggle>True</always_show_toggle>
+		  </widget>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>gestaltung1</name>
+		<label>Gestaltung</label>
+		<right_justify>False</right_justify>
+
+		<widget>
+		  <class>GtkMenu</class>
+		  <name>gestaltung1_menu</name>
+
+		  <widget>
+		    <class>GtkCheckMenuItem</class>
+		    <name>bilder1</name>
+		    <label>Bilder</label>
+		    <active>True</active>
+		    <always_show_toggle>True</always_show_toggle>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckMenuItem</class>
+		    <name>menüleiste1</name>
+		    <label>Menüleiste</label>
+		    <active>True</active>
+		    <always_show_toggle>True</always_show_toggle>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckMenuItem</class>
+		    <name>äußere_knopfleiste1</name>
+		    <label>äußere Knopfleiste</label>
+		    <active>True</active>
+		    <always_show_toggle>True</always_show_toggle>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckMenuItem</class>
+		    <name>icons1</name>
+		    <label>Icons</label>
+		    <active>True</active>
+		    <always_show_toggle>True</always_show_toggle>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckMenuItem</class>
+		    <name>beschriftungen1</name>
+		    <label>Beschriftungen</label>
+		    <active>True</active>
+		    <always_show_toggle>True</always_show_toggle>
+		  </widget>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkMenuItem</class>
+	    <name>einstellungen1</name>
+	    <tooltip>tut noch nichts!</tooltip>
+	    <label>Einstellungen</label>
+	    <right_justify>False</right_justify>
+
+	    <widget>
+	      <class>GtkMenu</class>
+	      <name>einstellungen1_menu</name>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>aendern</name>
+		<signal>
+		  <name>activate</name>
+		  <handler>menu_einstellungen_aendern</handler>
+		  <last_modification_time>Tue, 16 Apr 2002 10:36:01 GMT</last_modification_time>
+		</signal>
+		<label>Ändern</label>
+		<right_justify>False</right_justify>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GtkHandleBox</class>
+	<name>griff_toolbar_top</name>
+	<cxx_visibility>protected</cxx_visibility>
+	<shadow_type>GTK_SHADOW_NONE</shadow_type>
+	<handle_position>GTK_POS_LEFT</handle_position>
+	<snap_edge>GTK_POS_TOP</snap_edge>
+	<child>
+	  <side>GTK_SIDE_TOP</side>
+	  <anchor>GTK_ANCHOR_WEST</anchor>
+	  <expand>False</expand>
+	  <xfill>False</xfill>
+	  <yfill>False</yfill>
+	  <use_default>True</use_default>
+	  <border_width>0</border_width>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xipad>0</xipad>
+	  <yipad>0</yipad>
+	</child>
+
+	<widget>
+	  <class>GtkToolbar</class>
+	  <name>toolbar_top</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	  <type>GTK_TOOLBAR_BOTH</type>
+	  <space_size>10</space_size>
+	  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
+	  <relief>GTK_RELIEF_NORMAL</relief>
+	  <tooltips>True</tooltips>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button7</name>
+	    <tooltip>Neuer Abenteurer</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_neuer_charakter_clicked</handler>
+	      <last_modification_time>Fri, 30 Mar 2001 19:45:24 GMT</last_modification_time>
+	    </signal>
+	    <label>Neu</label>
+	    <icon>NewChar-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button8</name>
+	    <tooltip>Linke Maustaste: Speichern unter ....           Rechte Maustaste: Speichern.</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_speichern_release_event</handler>
+	      <last_modification_time>Tue, 17 Apr 2001 18:50:09 GMT</last_modification_time>
+	    </signal>
+	    <label>Speichern</label>
+	    <icon>SaveChar-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button9</name>
+	    <tooltip>Abenteurer laden</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_laden_release_event</handler>
+	      <last_modification_time>Mon, 21 May 2001 19:02:36 GMT</last_modification_time>
+	    </signal>
+	    <label>Laden</label>
+	    <icon>LoadChar-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button10</name>
+	    <tooltip>LaTeX Abenteurerblatt drucken (pdf Datei)</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_latex_release_event</handler>
+	      <last_modification_time>Mon, 23 Apr 2001 06:07:57 GMT</last_modification_time>
+	    </signal>
+	    <label>Drucken</label>
+	    <icon>PrintChar-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_undo</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_undo_clicked</handler>
+	      <last_modification_time>Fri, 12 Apr 2002 11:23:41 GMT</last_modification_time>
+	    </signal>
+	    <label>Zurück</label>
+	    <icon>Undo.xpm</icon>
+	    <child>
+	      <new_group>True</new_group>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_redo</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_redo_clicked</handler>
+	      <last_modification_time>Fri, 12 Apr 2002 11:23:10 GMT</last_modification_time>
+	    </signal>
+	    <label>Vorwärts</label>
+	    <icon>redo.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_menu</name>
+	    <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_button_menu_button_release_event</handler>
+	      <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
+	    </signal>
+	    <label>Menü</label>
+	    <icon>wizzard-trans-50_2.xpm</icon>
+	    <child>
+	      <new_group>True</new_group>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_info</name>
+	    <tooltip>Info</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_info_clicked</handler>
+	      <last_modification_time>Sun, 01 Apr 2001 19:06:08 GMT</last_modification_time>
+	    </signal>
+	    <label>Info</label>
+	    <icon>Info-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button11</name>
+	    <tooltip>Hilfe</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_hilfe_clicked</handler>
+	      <last_modification_time>Fri, 30 Mar 2001 19:46:38 GMT</last_modification_time>
+	    </signal>
+	    <label>Hilfe</label>
+	    <icon>Help-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button12</name>
+	    <tooltip>Schließen</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_schliessen_CG_clicked</handler>
+	      <last_modification_time>Fri, 30 Mar 2001 19:47:22 GMT</last_modification_time>
+	    </signal>
+	    <label>Schließen</label>
+	    <icon>Exit-trans-50.xpm</icon>
+	    <child>
+	      <new_group>True</new_group>
+	    </child>
+	  </widget>
+	</widget>
+      </widget>
 
       <widget>
 	<class>GtkNotebook</class>
 	<name>notebook_main</name>
 	<cxx_visibility>protected</cxx_visibility>
-	<sensitive>False</sensitive>
 	<can_focus>True</can_focus>
 	<signal>
 	  <name>switch_page</name>
@@ -65,18 +562,17 @@
 	<tab_vborder>0</tab_vborder>
 	<popup_enable>False</popup_enable>
 	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>2</top_attach>
-	  <bottom_attach>3</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>True</xexpand>
-	  <yexpand>True</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
+	  <side>GTK_SIDE_RIGHT</side>
+	  <anchor>GTK_ANCHOR_CENTER</anchor>
+	  <expand>False</expand>
 	  <xfill>True</xfill>
 	  <yfill>True</yfill>
+	  <use_default>True</use_default>
+	  <border_width>0</border_width>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xipad>0</xipad>
+	  <yipad>0</yipad>
 	</child>
 
 	<widget>
@@ -4820,303 +5316,6 @@ setzen</label>
 		<xfill>True</xfill>
 		<yfill>True</yfill>
 	      </child>
-
-	      <widget>
-		<class>GtkHandleBox</class>
-		<name>handlebox2</name>
-		<shadow_type>GTK_SHADOW_NONE</shadow_type>
-		<handle_position>GTK_POS_LEFT</handle_position>
-		<snap_edge>GTK_POS_TOP</snap_edge>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkToolbar</class>
-		  <name>toolbar2</name>
-		  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-		  <type>GTK_TOOLBAR_BOTH</type>
-		  <space_size>17</space_size>
-		  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-		  <relief>GTK_RELIEF_NORMAL</relief>
-		  <tooltips>True</tooltips>
-
-		  <widget>
-		    <class>GtkOptionMenu</class>
-		    <name>optionmenu_spezies</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <can_focus>True</can_focus>
-		    <items>Spezies
-</items>
-		    <initial_choice>0</initial_choice>
-		  </widget>
-
-		  <widget>
-		    <class>GtkVBox</class>
-		    <name>vbox_gw_wuerfeln</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <homogeneous>True</homogeneous>
-		    <spacing>0</spacing>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_eigenschaften_standard</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.</tooltip>
-		      <can_focus>True</can_focus>
-		      <label>Standard</label>
-		      <active>True</active>
-		      <draw_indicator>False</draw_indicator>
-		      <group>Eigenschaften_wuerfeln</group>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_eigenschaften_zuweisen</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</tooltip>
-		      <can_focus>True</can_focus>
-		      <label>Zuweisen</label>
-		      <active>False</active>
-		      <draw_indicator>False</draw_indicator>
-		      <group>Eigenschaften_wuerfeln</group>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_eigenschaften_69</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>9x würfeln, die besten sechs Ergebnisse frei verteilen.</tooltip>
-		      <can_focus>True</can_focus>
-		      <label>6 von 9</label>
-		      <active>False</active>
-		      <draw_indicator>False</draw_indicator>
-		      <group>Eigenschaften_wuerfeln</group>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button_grundwerte</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt. Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaft zuweisen das ganze 6x wiederholen. Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen. ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.</tooltip>
-		    <signal>
-		      <name>button_release_event</name>
-		      <handler>on_button_grundwerte_button_release_event</handler>
-		      <last_modification_time>Thu, 13 Dec 2001 19:06:13 GMT</last_modification_time>
-		    </signal>
-		    <label>Eigen-
-schaften</label>
-		    <icon>Dice-W100-trans-50.xpm</icon>
-		  </widget>
-
-		  <widget>
-		    <class>GtkVBox</class>
-		    <name>vbox47</name>
-		    <homogeneous>False</homogeneous>
-		    <spacing>0</spacing>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_mann</name>
-		      <width>0</width>
-		      <height>0</height>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radiobutton_mann_toggled</handler>
-			<last_modification_time>Thu, 03 May 2001 20:43:35 GMT</last_modification_time>
-		      </signal>
-		      <label>männlich</label>
-		      <active>True</active>
-		      <draw_indicator>True</draw_indicator>
-		      <group>geschlecht</group>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_frau</name>
-		      <width>0</width>
-		      <height>0</height>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radiobutton_frau_toggled</handler>
-			<last_modification_time>Thu, 03 May 2001 20:43:27 GMT</last_modification_time>
-		      </signal>
-		      <label>weiblich</label>
-		      <active>False</active>
-		      <draw_indicator>True</draw_indicator>
-		      <group>geschlecht</group>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkVBox</class>
-		    <name>vbox46</name>
-		    <homogeneous>False</homogeneous>
-		    <spacing>0</spacing>
-
-		    <widget>
-		      <class>GtkOptionMenu</class>
-		      <name>typauswahl</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <items>Abenteurerklassen
-</items>
-		      <initial_choice>0</initial_choice>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkOptionMenu</class>
-		      <name>typauswahl_2</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <items>2. Abenteurerklasse
-</items>
-		      <initial_choice>0</initial_choice>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkVBox</class>
-		    <name>vbox48</name>
-		    <homogeneous>False</homogeneous>
-		    <spacing>0</spacing>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_stadt</name>
-		      <width>50</width>
-		      <height>24</height>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radiobutton_stadt_land_toggled</handler>
-			<last_modification_time>Fri, 21 Dec 2001 19:05:39 GMT</last_modification_time>
-		      </signal>
-		      <label>Stadt</label>
-		      <active>False</active>
-		      <draw_indicator>True</draw_indicator>
-		      <group>stadt_land</group>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_land</name>
-		      <width>50</width>
-		      <height>24</height>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radiobutton_stadt_land_toggled</handler>
-			<last_modification_time>Fri, 21 Dec 2001 19:05:57 GMT</last_modification_time>
-		      </signal>
-		      <label>Land</label>
-		      <active>False</active>
-		      <draw_indicator>True</draw_indicator>
-		      <group>stadt_land</group>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button_abg_werte</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <signal>
-		      <name>clicked</name>
-		      <handler>on_abge_werte_setzen_clicked</handler>
-		      <last_modification_time>Fri, 30 Mar 2001 20:04:05 GMT</last_modification_time>
-		    </signal>
-		    <label>Abgeleitete
-Werte</label>
-		    <icon>Dices2-trans-50.xpm</icon>
-		  </widget>
-
-		  <widget>
-		    <class>GtkToggleButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>togglebutton_edit_werte</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_togglebutton_edit_werte_toggled</handler>
-		      <last_modification_time>Sun, 13 Jan 2002 19:32:35 GMT</last_modification_time>
-		    </signal>
-		    <label>Werte
-editieren</label>
-		    <icon>EditChar-trans-50.xpm</icon>
-		    <active>False</active>
-		  </widget>
-
-		  <widget>
-		    <class>GtkFixed</class>
-		    <name>fixed5</name>
-		  </widget>
-		</widget>
-	      </widget>
 	    </widget>
 
 	    <widget>
@@ -6117,6 +6316,295 @@ Beidhänder
 		<xfill>True</xfill>
 		<yfill>False</yfill>
 	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkToolbar</class>
+	      <name>toolbar2</name>
+	      <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	      <type>GTK_TOOLBAR_BOTH</type>
+	      <space_size>17</space_size>
+	      <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
+	      <relief>GTK_RELIEF_NORMAL</relief>
+	      <tooltips>True</tooltips>
+	      <child>
+		<left_attach>0</left_attach>
+		<right_attach>1</right_attach>
+		<top_attach>1</top_attach>
+		<bottom_attach>2</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>False</yfill>
+	      </child>
+
+	      <widget>
+		<class>GtkOptionMenu</class>
+		<name>optionmenu_spezies</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<can_focus>True</can_focus>
+		<items>Spezies
+</items>
+		<initial_choice>0</initial_choice>
+	      </widget>
+
+	      <widget>
+		<class>GtkVBox</class>
+		<name>vbox_gw_wuerfeln</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<homogeneous>True</homogeneous>
+		<spacing>0</spacing>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_eigenschaften_standard</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.</tooltip>
+		  <can_focus>True</can_focus>
+		  <label>Standard</label>
+		  <active>True</active>
+		  <draw_indicator>False</draw_indicator>
+		  <group>Eigenschaften_wuerfeln</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_eigenschaften_zuweisen</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</tooltip>
+		  <can_focus>True</can_focus>
+		  <label>Zuweisen</label>
+		  <active>False</active>
+		  <draw_indicator>False</draw_indicator>
+		  <group>Eigenschaften_wuerfeln</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_eigenschaften_69</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>9x würfeln, die besten sechs Ergebnisse frei verteilen.</tooltip>
+		  <can_focus>True</can_focus>
+		  <label>6 von 9</label>
+		  <active>False</active>
+		  <draw_indicator>False</draw_indicator>
+		  <group>Eigenschaften_wuerfeln</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button_grundwerte</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<tooltip>Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt. Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaft zuweisen das ganze 6x wiederholen. Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen. ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.</tooltip>
+		<signal>
+		  <name>button_release_event</name>
+		  <handler>on_button_grundwerte_button_release_event</handler>
+		  <last_modification_time>Thu, 13 Dec 2001 19:06:13 GMT</last_modification_time>
+		</signal>
+		<label>Eigen-
+schaften</label>
+		<icon>Dice-W100-trans-50.xpm</icon>
+	      </widget>
+
+	      <widget>
+		<class>GtkVBox</class>
+		<name>vbox47</name>
+		<homogeneous>False</homogeneous>
+		<spacing>0</spacing>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_mann</name>
+		  <width>0</width>
+		  <height>0</height>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>toggled</name>
+		    <handler>on_radiobutton_mann_toggled</handler>
+		    <last_modification_time>Thu, 03 May 2001 20:43:35 GMT</last_modification_time>
+		  </signal>
+		  <label>männlich</label>
+		  <active>True</active>
+		  <draw_indicator>True</draw_indicator>
+		  <group>geschlecht</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_frau</name>
+		  <width>0</width>
+		  <height>0</height>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>toggled</name>
+		    <handler>on_radiobutton_frau_toggled</handler>
+		    <last_modification_time>Thu, 03 May 2001 20:43:27 GMT</last_modification_time>
+		  </signal>
+		  <label>weiblich</label>
+		  <active>False</active>
+		  <draw_indicator>True</draw_indicator>
+		  <group>geschlecht</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkVBox</class>
+		<name>vbox46</name>
+		<homogeneous>False</homogeneous>
+		<spacing>0</spacing>
+
+		<widget>
+		  <class>GtkOptionMenu</class>
+		  <name>typauswahl</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <items>Abenteurerklassen
+</items>
+		  <initial_choice>0</initial_choice>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkOptionMenu</class>
+		  <name>typauswahl_2</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <items>2. Abenteurerklasse
+</items>
+		  <initial_choice>0</initial_choice>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkVBox</class>
+		<name>vbox48</name>
+		<homogeneous>False</homogeneous>
+		<spacing>0</spacing>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_stadt</name>
+		  <width>50</width>
+		  <height>24</height>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>toggled</name>
+		    <handler>on_radiobutton_stadt_land_toggled</handler>
+		    <last_modification_time>Fri, 21 Dec 2001 19:05:39 GMT</last_modification_time>
+		  </signal>
+		  <label>Stadt</label>
+		  <active>False</active>
+		  <draw_indicator>True</draw_indicator>
+		  <group>stadt_land</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_land</name>
+		  <width>50</width>
+		  <height>24</height>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>toggled</name>
+		    <handler>on_radiobutton_stadt_land_toggled</handler>
+		    <last_modification_time>Fri, 21 Dec 2001 19:05:57 GMT</last_modification_time>
+		  </signal>
+		  <label>Land</label>
+		  <active>False</active>
+		  <draw_indicator>True</draw_indicator>
+		  <group>stadt_land</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button_abg_werte</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<signal>
+		  <name>clicked</name>
+		  <handler>on_abge_werte_setzen_clicked</handler>
+		  <last_modification_time>Fri, 30 Mar 2001 20:04:05 GMT</last_modification_time>
+		</signal>
+		<label>Abgeleitete
+Werte</label>
+		<icon>Dices2-trans-50.xpm</icon>
+	      </widget>
+
+	      <widget>
+		<class>GtkToggleButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>togglebutton_edit_werte</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<signal>
+		  <name>toggled</name>
+		  <handler>on_togglebutton_edit_werte_toggled</handler>
+		  <last_modification_time>Sun, 13 Jan 2002 19:32:35 GMT</last_modification_time>
+		</signal>
+		<label>Werte
+editieren</label>
+		<icon>EditChar-trans-50.xpm</icon>
+		<active>False</active>
+	      </widget>
+
+	      <widget>
+		<class>GtkFixed</class>
+		<name>fixed5</name>
+	      </widget>
 	    </widget>
 	  </widget>
 	</widget>
@@ -15168,505 +15656,6 @@ KS
 	  <yalign>0.5</yalign>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
-	</widget>
-      </widget>
-
-      <widget>
-	<class>GtkHandleBox</class>
-	<name>griff_toolbar_top</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<shadow_type>GTK_SHADOW_NONE</shadow_type>
-	<handle_position>GTK_POS_LEFT</handle_position>
-	<snap_edge>GTK_POS_TOP</snap_edge>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>2</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>True</yfill>
-	</child>
-
-	<widget>
-	  <class>GtkToolbar</class>
-	  <name>toolbar_top</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-	  <type>GTK_TOOLBAR_BOTH</type>
-	  <space_size>10</space_size>
-	  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-	  <relief>GTK_RELIEF_NORMAL</relief>
-	  <tooltips>True</tooltips>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button7</name>
-	    <tooltip>Neuer Abenteurer</tooltip>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_neuer_charakter_clicked</handler>
-	      <last_modification_time>Fri, 30 Mar 2001 19:45:24 GMT</last_modification_time>
-	    </signal>
-	    <label>Neu</label>
-	    <icon>NewChar-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button8</name>
-	    <tooltip>Linke Maustaste: Speichern unter ....           Rechte Maustaste: Speichern.</tooltip>
-	    <signal>
-	      <name>button_release_event</name>
-	      <handler>on_speichern_release_event</handler>
-	      <last_modification_time>Tue, 17 Apr 2001 18:50:09 GMT</last_modification_time>
-	    </signal>
-	    <label>Speichern</label>
-	    <icon>SaveChar-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button9</name>
-	    <tooltip>Abenteurer laden</tooltip>
-	    <signal>
-	      <name>button_release_event</name>
-	      <handler>on_laden_release_event</handler>
-	      <last_modification_time>Mon, 21 May 2001 19:02:36 GMT</last_modification_time>
-	    </signal>
-	    <label>Laden</label>
-	    <icon>LoadChar-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button10</name>
-	    <tooltip>LaTeX Abenteurerblatt drucken (pdf Datei)</tooltip>
-	    <signal>
-	      <name>button_release_event</name>
-	      <handler>on_latex_release_event</handler>
-	      <last_modification_time>Mon, 23 Apr 2001 06:07:57 GMT</last_modification_time>
-	    </signal>
-	    <label>Drucken</label>
-	    <icon>PrintChar-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_undo</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_undo_clicked</handler>
-	      <last_modification_time>Fri, 12 Apr 2002 11:23:41 GMT</last_modification_time>
-	    </signal>
-	    <label>Zurück</label>
-	    <icon>Undo.xpm</icon>
-	    <child>
-	      <new_group>True</new_group>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_redo</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_redo_clicked</handler>
-	      <last_modification_time>Fri, 12 Apr 2002 11:23:10 GMT</last_modification_time>
-	    </signal>
-	    <label>Vorwärts</label>
-	    <icon>redo.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_menu</name>
-	    <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
-	    <signal>
-	      <name>button_release_event</name>
-	      <handler>on_button_menu_button_release_event</handler>
-	      <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
-	    </signal>
-	    <label>Menü</label>
-	    <icon>wizzard-trans-50_2.xpm</icon>
-	    <child>
-	      <new_group>True</new_group>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_info</name>
-	    <tooltip>Info</tooltip>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_info_clicked</handler>
-	      <last_modification_time>Sun, 01 Apr 2001 19:06:08 GMT</last_modification_time>
-	    </signal>
-	    <label>Info</label>
-	    <icon>Info-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button11</name>
-	    <tooltip>Hilfe</tooltip>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_hilfe_clicked</handler>
-	      <last_modification_time>Fri, 30 Mar 2001 19:46:38 GMT</last_modification_time>
-	    </signal>
-	    <label>Hilfe</label>
-	    <icon>Help-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button12</name>
-	    <tooltip>Schließen</tooltip>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_schliessen_CG_clicked</handler>
-	      <last_modification_time>Fri, 30 Mar 2001 19:47:22 GMT</last_modification_time>
-	    </signal>
-	    <label>Schließen</label>
-	    <icon>Exit-trans-50.xpm</icon>
-	    <child>
-	      <new_group>True</new_group>
-	    </child>
-	  </widget>
-	</widget>
-      </widget>
-
-      <widget>
-	<class>GtkHandleBox</class>
-	<name>handlebox1</name>
-	<shadow_type>GTK_SHADOW_NONE</shadow_type>
-	<handle_position>GTK_POS_LEFT</handle_position>
-	<snap_edge>GTK_POS_TOP</snap_edge>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>True</yfill>
-	</child>
-
-	<widget>
-	  <class>GtkMenuBar</class>
-	  <name>menubar1</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-	  <widget>
-	    <class>GtkMenuItem</class>
-	    <name>magus1</name>
-	    <label>Magus</label>
-	    <right_justify>False</right_justify>
-
-	    <widget>
-	      <class>GtkMenu</class>
-	      <name>magus1_menu</name>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>neuen_abenteurer1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_N</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_neuer_charakter_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
-		</signal>
-		<label>Neuen Abenteurer</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>laden1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_O</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>xml_import_auswahl</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 12:00:27 GMT</last_modification_time>
-		</signal>
-		<label>Laden</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>speichern1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_S</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>xml_export_auswahl</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 12:01:18 GMT</last_modification_time>
-		</signal>
-		<label>Speichern</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>trennlinie1</name>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>drucken1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_P</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_drucken_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 12:05:34 GMT</last_modification_time>
-		</signal>
-		<label>Drucken</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>trennlinie2</name>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>beenden1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_Q</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_schliessen_CG_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
-		</signal>
-		<label>Beenden</label>
-		<right_justify>False</right_justify>
-	      </widget>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkMenuItem</class>
-	    <name>bearbeiten1</name>
-	    <tooltip>tut noch nichts!</tooltip>
-	    <label>Bearbeiten</label>
-	    <right_justify>False</right_justify>
-
-	    <widget>
-	      <class>GtkMenu</class>
-	      <name>bearbeiten1_menu</name>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>rückgängig1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_Z</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_button_undo_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
-		</signal>
-		<label>Rückgängig</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>erneut_vorwärts1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_R</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_button_redo_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
-		</signal>
-		<label>Erneut/Vorwärts</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>geschichte</name>
-		<signal>
-		  <name>activate</name>
-		  <handler>menu_geschichte_selected</handler>
-		  <last_modification_time>Tue, 16 Apr 2002 10:30:16 GMT</last_modification_time>
-		</signal>
-		<label>Geschichte</label>
-		<right_justify>False</right_justify>
-	      </widget>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkMenuItem</class>
-	    <name>ansicht1</name>
-	    <tooltip>tut noch nichts!</tooltip>
-	    <label>Ansicht</label>
-	    <right_justify>False</right_justify>
-
-	    <widget>
-	      <class>GtkMenu</class>
-	      <name>ansicht1_menu</name>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>fenster1</name>
-		<label>Fenster</label>
-		<right_justify>False</right_justify>
-
-		<widget>
-		  <class>GtkMenu</class>
-		  <name>fenster1_menu</name>
-
-		  <widget>
-		    <class>GtkCheckMenuItem</class>
-		    <name>meldungen1</name>
-		    <label>Meldungen</label>
-		    <active>False</active>
-		    <always_show_toggle>True</always_show_toggle>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckMenuItem</class>
-		    <name>wizard1</name>
-		    <label>Wizard</label>
-		    <active>False</active>
-		    <always_show_toggle>True</always_show_toggle>
-		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>gestaltung1</name>
-		<label>Gestaltung</label>
-		<right_justify>False</right_justify>
-
-		<widget>
-		  <class>GtkMenu</class>
-		  <name>gestaltung1_menu</name>
-
-		  <widget>
-		    <class>GtkCheckMenuItem</class>
-		    <name>bilder1</name>
-		    <label>Bilder</label>
-		    <active>True</active>
-		    <always_show_toggle>True</always_show_toggle>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckMenuItem</class>
-		    <name>menüleiste1</name>
-		    <label>Menüleiste</label>
-		    <active>True</active>
-		    <always_show_toggle>True</always_show_toggle>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckMenuItem</class>
-		    <name>äußere_knopfleiste1</name>
-		    <label>äußere Knopfleiste</label>
-		    <active>True</active>
-		    <always_show_toggle>True</always_show_toggle>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckMenuItem</class>
-		    <name>icons1</name>
-		    <label>Icons</label>
-		    <active>True</active>
-		    <always_show_toggle>True</always_show_toggle>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckMenuItem</class>
-		    <name>beschriftungen1</name>
-		    <label>Beschriftungen</label>
-		    <active>True</active>
-		    <always_show_toggle>True</always_show_toggle>
-		  </widget>
-		</widget>
-	      </widget>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkMenuItem</class>
-	    <name>einstellungen1</name>
-	    <tooltip>tut noch nichts!</tooltip>
-	    <label>Einstellungen</label>
-	    <right_justify>False</right_justify>
-
-	    <widget>
-	      <class>GtkMenu</class>
-	      <name>einstellungen1_menu</name>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>aendern</name>
-		<signal>
-		  <name>activate</name>
-		  <handler>menu_einstellungen_aendern</handler>
-		  <last_modification_time>Tue, 16 Apr 2002 10:36:01 GMT</last_modification_time>
-		</signal>
-		<label>Ändern</label>
-		<right_justify>False</right_justify>
-	      </widget>
-	    </widget>
-	  </widget>
 	</widget>
       </widget>
     </widget>

@@ -190,12 +190,14 @@ gint midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *eve
 
 void midgard_CG::menu_geschichte_selected()
 {
- load_for_mainpage(PAGE_NEWS);
+ notebook_main->set_page(PAGE_NEWS);
+// load_for_mainpage(PAGE_NEWS);
 }
 
 void midgard_CG::menu_einstellungen_aendern()
 {
- load_for_mainpage(PAGE_OPTIONEN);
+ notebook_main->set_page(PAGE_OPTIONEN);
+// load_for_mainpage(PAGE_OPTIONEN);
 }
 
 
