@@ -327,6 +327,50 @@ Garotte	eBe	A
 Garotte	gHx	A
 Garotte	sHx	A
 Garotte	wHx	A
+Kampf ohne Waffen	As	S
+Kampf ohne Waffen	BN	S
+Kampf ohne Waffen	BS	S
+Kampf ohne Waffen	BW	S
+Kampf ohne Waffen	Ba	S
+Kampf ohne Waffen	Dr	A
+Kampf ohne Waffen	Er	S
+Kampf ohne Waffen	Fi	S
+Kampf ohne Waffen	Gl	S
+Kampf ohne Waffen	Hl	A
+Kampf ohne Waffen	Hä	S
+Kampf ohne Waffen	Kd	S
+Kampf ohne Waffen	Kr	G
+Kampf ohne Waffen	Ku	S
+Kampf ohne Waffen	Ma	A
+Kampf ohne Waffen	Ny	S
+Kampf ohne Waffen	Or	S
+Kampf ohne Waffen	PC	A
+Kampf ohne Waffen	PF	A
+Kampf ohne Waffen	PHa	A
+Kampf ohne Waffen	PHe	A
+Kampf ohne Waffen	PK	S
+Kampf ohne Waffen	PM	A
+Kampf ohne Waffen	PT	A
+Kampf ohne Waffen	PW	A
+Kampf ohne Waffen	Ri	G
+Kampf ohne Waffen	Ru	S
+Kampf ohne Waffen	Sa	A
+Kampf ohne Waffen	ScN	S
+Kampf ohne Waffen	ScS	S
+Kampf ohne Waffen	ScW	S
+Kampf ohne Waffen	Se	S
+Kampf ohne Waffen	Sk	S
+Kampf ohne Waffen	Sp	S
+Kampf ohne Waffen	Sr	S
+Kampf ohne Waffen	Sö	G
+Kampf ohne Waffen	Th	A
+Kampf ohne Waffen	Tm	S
+Kampf ohne Waffen	Wa	S
+Kampf ohne Waffen	dBe	A
+Kampf ohne Waffen	eBe	A
+Kampf ohne Waffen	gHx	A
+Kampf ohne Waffen	sHx	A
+Kampf ohne Waffen	wHx	A
 Kampfstab	As	S
 Kampfstab	BN	S
 Kampfstab	BS	S
@@ -1267,50 +1311,6 @@ Zauberstäbe	eBe	S
 Zauberstäbe	gHx	S
 Zauberstäbe	sHx	S
 Zauberstäbe	wHx	S
-waffenloser Kampf	As	S
-waffenloser Kampf	BN	S
-waffenloser Kampf	BS	S
-waffenloser Kampf	BW	S
-waffenloser Kampf	Ba	S
-waffenloser Kampf	Dr	A
-waffenloser Kampf	Er	S
-waffenloser Kampf	Fi	S
-waffenloser Kampf	Gl	S
-waffenloser Kampf	Hl	A
-waffenloser Kampf	Hä	S
-waffenloser Kampf	Kd	S
-waffenloser Kampf	Kr	G
-waffenloser Kampf	Ku	S
-waffenloser Kampf	Ma	A
-waffenloser Kampf	Ny	S
-waffenloser Kampf	Or	S
-waffenloser Kampf	PC	A
-waffenloser Kampf	PF	A
-waffenloser Kampf	PHa	A
-waffenloser Kampf	PHe	A
-waffenloser Kampf	PK	S
-waffenloser Kampf	PM	A
-waffenloser Kampf	PT	A
-waffenloser Kampf	PW	A
-waffenloser Kampf	Ri	G
-waffenloser Kampf	Ru	S
-waffenloser Kampf	Sa	A
-waffenloser Kampf	ScN	S
-waffenloser Kampf	ScS	S
-waffenloser Kampf	ScW	S
-waffenloser Kampf	Se	S
-waffenloser Kampf	Sk	S
-waffenloser Kampf	Sp	S
-waffenloser Kampf	Sr	S
-waffenloser Kampf	Sö	G
-waffenloser Kampf	Th	A
-waffenloser Kampf	Tm	S
-waffenloser Kampf	Wa	S
-waffenloser Kampf	dBe	A
-waffenloser Kampf	eBe	A
-waffenloser Kampf	gHx	A
-waffenloser Kampf	sHx	A
-waffenloser Kampf	wHx	A
 \.
 --
 --
