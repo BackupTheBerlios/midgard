@@ -1,4 +1,9 @@
 ##########################################################################
+NEWS IN VERSION 0.6beta1
+- Umstellung der Steigern-Listen abgeschlossen
+- Einige Bugs beseitigt, die durch die Umstellung entstanden.
+
+##########################################################################
 NEWS IN VERSION 0.6beta0
 - Die Listen für die Fertigkeiten und Zauber (beim steigern)
    sind komplett (!!!) überartbeitet worden. Jetzt kann man diese nach 
