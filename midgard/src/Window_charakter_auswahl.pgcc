@@ -29,7 +29,7 @@ void Window_charakter_auswahl::on_clist_charakter_auswahl_select_row(gint row, g
     }
 }
 
-void Window_charakter_auswahl::charakter_loeschen(string name, string version)
+void Window_charakter_auswahl::charakter_loeschen(const string& name, const string& version)
 {
  checkbutton_loeschen->set_active(false);
  exec sql begin declare section;

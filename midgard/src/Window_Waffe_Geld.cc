@@ -62,7 +62,7 @@ void Window_Waffe_Geld::Waffe()
  manage (new Window_waffe(-1,hauptfenster,this,werte,vec_waffen));
 }
 
-void Window_Waffe_Geld::get_waffe(string waffe)
+void Window_Waffe_Geld::get_waffe(const string& waffe)
 {
   Gtk::OStream os(clist_gewaehlte_waffen);
   os << waffe<<"\n"; 

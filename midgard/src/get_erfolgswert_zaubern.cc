@@ -1,6 +1,6 @@
 #include "midgard_CG.hh"
 
-string midgard_CG::get_erfolgswert_zaubern(styp typ,string name)
+string midgard_CG::get_erfolgswert_zaubern(const styp& typ,const string& name)
 {
    double fac = midgard_CG::get_standard_zauber(typ.s,name);
    int ifac;

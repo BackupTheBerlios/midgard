@@ -23,6 +23,6 @@ class WindowInfo : public WindowInfo_glade
         gint timeout();
         SigC::Connection des;
    public:
-        WindowInfo(string s);
+        WindowInfo(const string& s);
 };
 #endif

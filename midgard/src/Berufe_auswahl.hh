@@ -40,10 +40,10 @@ class Berufe_auswahl : public Berufe_auswahl_glade
         void on_berufe_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_berufe_clicked();
-        bool berufe_voraussetzung(string beruf, st_werte werte, string typz);
-        bool btyp(string typ, string typz);
-        string Beruf_vorteile(string beruf);
+        bool berufe_voraussetzung(const string& beruf, const st_werte& werte, const string& typz);
+        bool btyp(const string& typ, const string& typz);
+        string Beruf_vorteile(const string& beruf);
    public:
-        Berufe_auswahl(midgard_CG* h,styp& typ, st_lernpunkte& l, st_werte& werte);
+        Berufe_auswahl(midgard_CG* h,const styp& typ, const st_lernpunkte& l, const st_werte& werte);
 };
 #endif

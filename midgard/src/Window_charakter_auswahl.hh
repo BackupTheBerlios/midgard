@@ -22,7 +22,7 @@ class Window_charakter_auswahl : public Window_charakter_auswahl_glade
         friend class Window_charakter_auswahl_glade;
         void on_clist_charakter_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_auswahl_abbruch_clicked();
-        void charakter_loeschen(string name, string version);
+        void charakter_loeschen(const string& name, const string& version);
         void Window_charakter_auswahl::show_charakter();
         midgard_CG* hauptfenster;
    public:

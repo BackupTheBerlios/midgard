@@ -12,7 +12,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-double midgard_CG::get_standard_zauber(string typ, string zauber)
+double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
 {
    double fac;
    // gibt es eine Ausnahmeregelung?

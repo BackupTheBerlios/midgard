@@ -6,7 +6,7 @@ exec sql include sqlca;
 int swk(vector<st_ausgewaehlte_waffen>& vec_waffen);
 
 
-string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,st_werte& werte, string mod)
+string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,const st_werte& werte, const string& mod)
 {
   exec sql begin declare section;
    char db_waffe[50];

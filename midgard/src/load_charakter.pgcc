@@ -13,7 +13,7 @@ void midgard_CG::on_laden_clicked()
   manage (new Window_charakter_auswahl(this));
 }
 
-void midgard_CG::select_charakter(string name, string version)
+void midgard_CG::select_charakter(const string& name, const string& version)
 {
   werte.name_charakter=name;
   werte.version=version;

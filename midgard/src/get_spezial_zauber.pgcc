@@ -12,7 +12,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-int midgard_CG::get_spezial_zauber(string typ, string zauber)
+int midgard_CG::get_spezial_zauber(const string& typ, const string& zauber)
 {
   exec sql begin declare section;
    char db_ergebnis[20];
@@ -44,5 +44,3 @@ int midgard_CG::get_spezial_zauber(string typ, string zauber)
 //cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<ispez<<"\n";
  return(ispez);
 }
-
-

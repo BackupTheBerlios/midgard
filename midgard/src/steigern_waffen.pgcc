@@ -306,7 +306,7 @@ void midgard_CG::on_radiobutton_praxis_auto_waffen_toggled()
 }
 
 
-bool midgard_CG::Waffen_Voraussetzung(const string waffe)
+bool midgard_CG::Waffen_Voraussetzung(const string& waffe)
 {
   exec sql begin declare section;
    int db_st,db_ge;

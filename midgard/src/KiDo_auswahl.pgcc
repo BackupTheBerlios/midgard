@@ -40,7 +40,7 @@ void KiDo_auswahl::on_button_close_clicked()
 }
 
 
-KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, st_werte werte)
+KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const st_werte& werte)
 : maxkido(m)
 {
    hauptfenster=h;

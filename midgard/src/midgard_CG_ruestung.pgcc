@@ -2,7 +2,7 @@
 #include <Aux/SQLerror.h>
 
 
-string midgard_CG::ruestung(string mod)
+string midgard_CG::ruestung(const string& mod)
 {
  exec sql begin declare section;
    char db_typ[5];
@@ -95,4 +95,5 @@ string midgard_CG::ruestung(string mod)
    manage(new WindowInfo(strinfo));
    return "";
   }
+ abort();
 }

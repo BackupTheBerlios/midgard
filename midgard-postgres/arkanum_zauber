@@ -393,16 +393,9 @@ Grüne Flöte (5. Urton Chüeh)	2000	1	Zauberlied	3				1 sec	0	Geist	30 m Uk	24 h		
 Schwarzes Horn (4. Urton Yü)	6000	1	Zauberlied	4				1 sec	0	Geist	15 m Uk	24 h							S																							K	\N
 PiYeúQuang	800	4	Geste	3				10 min	0	Geist	1 Ws	0			nicht												S								S							K	\N
 Weißer Jadeklangstein (3. Urton Schang)	10000	1	Zauberlied	5				1 sec	0	Geist	30 m Kegel	var							S																							K	\N
-Blutwandlung	150	4	Geste	2	Wasser	verändert	Holz	10 min	0	Umgebung	-	-	elementar		nicht								G	S			G	S				S	S		S	G					G	E	\N
-Cheprus Sendbote	1500	4	Geste	4	Mangan	beherrscht	Luft	30 min	0	Geist	1 Ws	1W6 h	dämonisch	Körperflüssigkeit des Opfers	nicht								S		S		S	G	S	S	S	S	S	G	G	S					S	E	\N
-Feuerspiel	200	2	Geste	2	Feuer	verändert	Feuer	5 s	10 m	Umgebung	1m Uk	2 min	elementar										S	S	S			S	G	G	S			S		S					S	E	G
-Hauch der Wüste	80	1	Geste	1	Feuer	verändert	Luft	1 s	0	Umgebung	12m Uk	10 min	elementar			Runenstab					S		S		S		S		G	G	A	A		A	S	S			G		S	E	G
-Incheper schaffen	6000	18	Geste	6	Feuer	beherrscht	Metall	6 h	0	Umgebung	1 Ob	-	göttlich	Statue	nicht					S		S			A			S	G	G	S	S	G	G				S				E	\N
-Luftspiegelung	600	3	Geste	3	Feuer	verändert	Luft	10 s	30 km	Umgebung	-	30 min	elementar	Quarz und Silberstaub							G		S	S	S		S	S	S	S	S	S	S	S	S	S					S	E	G
-Macht über Mumien	4000	12	Wort	6	Mangan	beherrscht	Mangan	1 h	0	Körper	1 Ws	-	dämonisch	Mumie	nicht					S			A		G		G								S	A		G			S	E	\N
-Manifestation des Ka	15000	18	Geste	groß	Wasser	beherrscht	Metall	6 h	3 m	Geist	1 Ws	-	dämonisch	Wachsbad mit seltenen Essenzen	nicht					G	S	G	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N
-Mumie erwecken	6000	18	Geste	6	Eis	verändert	Erde	6 h	0	Körper	1 Ws	-	dämonisch	Mumie	nicht					S		S	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N
-Sandmeisterschaft	6000	9	Geste	6	Wasser	bewegt	Erde	30 s	2 km	Umgebung	500m Uk	1 h	elementar	10g Sandwurmhaut							S		S	S	S		S	G	A	A	A	A	S	S	S	S					S	E	G
+Dau ed-Datin	800	3	Geste	3	Mangan	beherrscht	Wasser	15 min	0	Geist	15 m Uk	10 min	dämonisch		nicht								G					G							S	G					G	E	\N
+Ghussat el-Masin	1600	6	Geste	4	Eis	beherrscht	Wasser	5 min	0	Geist	15 m Uk	10 min	dämonisch		nicht								G												S	G					G	E	\N
+Blenden	2000	4	Geste	4	Feuer	beherrscht	Erde	1 s		Umgebung	9m Uk	1 min	elementar		nicht	Runenstab					S		S		S	G	S	G	G	G	G	G	S	G	G	S			G		S	E	G
 Sa rauben	250	5	Geste	2	Eis	beherrscht	Holz	1 s	0	Geist	1 Ws	-	schwarzmagisch		nicht						A		A				G								S	G						E	\N
 Sa spenden	1500	4 vom Max	Geste	4	Holz	erschafft	Holz	30 min	0	Körper	1 Ws	-	göttlich		nicht									S				G	G	G	G	G	G	G	S							E	S
 Schock	2000	4	Geste	4	Feuer	zerstört	Luft	15 s	15 m	Geist	1 Ws	var	druidisch								G		S	G	S		S	S	S	S	S	S	S	S	S	S					S	E	S
@@ -426,9 +419,59 @@ Saijidat el-Masin	600	6	Geste	3	Luft	beherrscht	Erde	10 min	0	Geist	15 m Uk	10 m
 Al-Tarka	800	3	Geste	3	Feuer	beherrscht	Luft	5 min	0	Geist	15 m Uk	-	göttlich		nicht								S												S	S					S	E	G
 Tibb al-Mumani	600	6	Geste	3	Mangan	bewegt	Feuer	20 min	15 m	Körper	1 Ws, 1Ob	-	göttlich		nicht								A												S						S	E	G
 Dalail ed-Dawahi	300	2	Geste	2	Mangan	beherrscht	Feuer	5 min	0	Geist	15 m Uk	30 min	dämonisch		nicht								G												S	G					G	E	\N
-Dau ed-Datin	800	3	Geste	3	Mangan	beherrscht	Wasser	15 min	0	Geist	15 m Uk	10 min	dämonisch		nicht								G					G							S	G					G	E	\N
-Ghussat el-Masin	1600	6	Geste	4	Eis	beherrscht	Wasser	5 min	0	Geist	15 m Uk	10 min	dämonisch		nicht								G												S	G					G	E	\N
-Blenden	2000	4	Geste	4	Feuer	beherrscht	Erde	1 s		Umgebung	9m Uk	1 min	elementar		nicht	Runenstab					S		S		S	G	S	G	G	G	G	G	S	G	G	S			G		S	E	G
+Blutwandlung	150	4	Geste	2	Wasser	verändert	Holz	10 min	0	Umgebung	-	-	elementar		nicht								G	S			G	S				S	S		S	G					G	E	\N
+Cheprus Sendbote	1500	4	Geste	4	Mangan	beherrscht	Luft	30 min	0	Geist	1 Ws	1W6 h	dämonisch	Körperflüssigkeit des Opfers	nicht								S		S		S	G	S	S	S	S	S	G	G	S					S	E	\N
+Feuerspiel	200	2	Geste	2	Feuer	verändert	Feuer	5 s	10 m	Umgebung	1m Uk	2 min	elementar										S	S	S			S	G	G	S			S		S					S	E	G
+Hauch der Wüste	80	1	Geste	1	Feuer	verändert	Luft	1 s	0	Umgebung	12m Uk	10 min	elementar			Runenstab					S		S		S		S		G	G	A	A		A	S	S			G		S	E	G
+Incheper schaffen	6000	18	Geste	6	Feuer	beherrscht	Metall	6 h	0	Umgebung	1 Ob	-	göttlich	Statue	nicht					S		S			A			S	G	G	S	S	G	G				S				E	\N
+Luftspiegelung	600	3	Geste	3	Feuer	verändert	Luft	10 s	30 km	Umgebung	-	30 min	elementar	Quarz und Silberstaub							G		S	S	S		S	S	S	S	S	S	S	S	S	S					S	E	G
+Macht über Mumien	4000	12	Wort	6	Mangan	beherrscht	Mangan	1 h	0	Körper	1 Ws	-	dämonisch	Mumie	nicht					S			A		G		G								S	A		G			S	E	\N
+Manifestation des Ka	15000	18	Geste	groß	Wasser	beherrscht	Metall	6 h	3 m	Geist	1 Ws	-	dämonisch	Wachsbad mit seltenen Essenzen	nicht					G	S	G	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N
+Mumie erwecken	6000	18	Geste	6	Eis	verändert	Erde	6 h	0	Körper	1 Ws	-	dämonisch	Mumie	nicht					S		S	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N
+Sandmeisterschaft	6000	9	Geste	6	Wasser	bewegt	Erde	30 s	2 km	Umgebung	500m Uk	1 h	elementar	10g Sandwurmhaut							S		S	S	S		S	G	A	A	A	A	S	S	S	S					S	E	G
+Schutzkreis gegen Dunebargen	160	#*2	Geste	2	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Schutzkreis gegen Dvergar	160	#*2	Geste	2	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Schutzkreis gegen Geisterwesen	1500	#*4	Geste	4	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Schutzkreis gegen Hrimfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Schutzkreis gegen Hyrfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Schutzkreis gegen Jördfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Schutzkreis gegen Kaobargen	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Schutzkreis gegen Untote	600	#*3	Geste	3	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Schutzkreis gegen Vindfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Schutzkreis gegen Wisfolk	40	#*1	Geste	1	Luft	beherrscht	Feuer	1 h 	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Bannen von Dunebargen	5000	4	Geste	3	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	 	dämonisch	 	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Bannen von Dvergar	140	3	Geste	2	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Bannen von Hrimfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Bannen von Hyrfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Bannen von Jördfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Bannen von Kaobargen	140	3	Geste	2	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	dämonisch	 	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Bannen von Vindfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Bannen von Wisfolk	60	2	Geste	1	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	 	elementar	 	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Dunkle Kämpfer beschwören 1	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Menschenblut	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Dunkle Kämpfer beschwören 2	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Menschenblut	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Dunkle Kämpfer beschwören 3	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	3l Menschenblut	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Kämpfer beschwören 1	100	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Dolch oder Kurzschwert	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Kämpfer beschwören 2	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	Streitkolben oder Axt	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Kämpfer beschwören 3	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Morgenstern	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Kämpfer beschwören 4	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	Hellebarde oder Stielhammer	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Kundschafter beschwören 1	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Kaninchen	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Kundschafter beschwören 2	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	schwarzes Huhn	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Kundschafter beschwören 3	500	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	7 Ratten	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Kundschafter beschwören 4	1200	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	schwarze Katze	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Träger beschwören 1	60	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Hundeblut	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Träger beschwören 2	140	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Vogelblut	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Träger beschwören 3	500	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Schafsblut	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Träger beschwören 4	1200	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Pferdeblut	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Lenker beschwören 1	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Lenker beschwören 2	1600	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Wächter beschwören 1	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Wächter beschwören 2	700	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Wächter beschwören 3	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 Monat	dämonisch	Schmuck	nicht					G	A	S	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Dvergar beschwören 	800	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Späfolk beschwören 1 	80	1	Geste	1	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Späfolk beschwören 2 	160	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Späfolk beschwören 3 	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
+Späfolk beschwören 4 	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	nicht					S	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N
 \.
 -- Enable triggers
 BEGIN TRANSACTION;

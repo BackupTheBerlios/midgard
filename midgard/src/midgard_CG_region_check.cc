@@ -1,6 +1,6 @@
 #include "midgard_CG.hh"
 
-bool midgard_CG::region_check(string region)
+bool midgard_CG::region_check(const string& region)
 {
 //cout << "region = "<<"\t"<<region<<"\n";
   if (region=="") return true;  

@@ -79,6 +79,8 @@ struct st_ausgewaehlte_zauber {string name; string ap;
 struct st_ausgewaehlte_berufe {string name; string vorteile; int erfolgswert; 
       st_ausgewaehlte_berufe(const string n, const string v, int e)
       : name(n), vorteile(v), erfolgswert(e) {} };
+struct st_spezialgebiet{string name;string spezial;
+       st_spezialgebiet(string n, string s):name(n),spezial(s){}};
 struct st_zauber{string ap; string name; string erfolgswert;string art; string stufe;
               string zauberdauer; string reichweite; string wirkungsziel;
               string wirkungsbereich; string wirkungsdauer; string ursprung;
@@ -124,6 +126,7 @@ class midgard_CG : public midgard_CG_glade
 {   
         friend class midgard_CG_glade;
         vector<string> typen_vector;
+        vector<st_spezialgebiet> vec_spezialgebiet;
         vector<string> spezies_vector;
         vector<st_ausgewaehlte_fertigkeiten> vec_fertigkeiten;
         vector<st_angeborene_fertigkeit> vec_an_fertigkeit;
@@ -180,12 +183,14 @@ class midgard_CG : public midgard_CG_glade
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
         void get_typ();
-        string ruestung(string mod);
+        string ruestung(const string& mod);
         void on_waffen_clist_select_row(gint row, gint column, GdkEvent *event);   
         void on_waffen_clist_unselect_row(gint row, gint column, GdkEvent *event);
         void on_fertigkeiten_wahl_clicked();
         void on_waffen_wahl_clicked();
         void spezialgebiet_button();
+        void spezialgebiet_button_fill();
+        void magier_spezialgebiet(const string& whattodo);
         void on_zauber_wahl_clicked();
         void on_berufe_wahl_clicked();
         void on_kido_wahl_clicked();
@@ -193,8 +198,8 @@ class midgard_CG : public midgard_CG_glade
         int get_erfolgswert_kido();
         void show_kido();
         void stil_optionmenue();
-        string  get_erfolgswert_zaubern(styp typ,string name);
-        int get_spezial_zauber(string typ,string name);
+        string  get_erfolgswert_zaubern(const styp& typ,const string& name);
+        int get_spezial_zauber(const string& typ,const string& name);
         void show_berufe();
         void show_waffen();
         void show_zauber();
@@ -231,7 +236,7 @@ class midgard_CG : public midgard_CG_glade
         void on_togglebutton_praxispunkte_fertigkeiten_toggled();
         void on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled();
         void on_radiobutton_praxis_auto_fertigkeiten_toggled();
-        int praxispunkte_wuerfeln(string fert,int alter_wert, string art,bool wuerfeln);
+        int praxispunkte_wuerfeln(const string& fert,int alter_wert, const string& art,bool wuerfeln);
         int attribut_check(string atr);
         bool kido_steigern_check(int wert);
    
@@ -264,8 +269,8 @@ class midgard_CG : public midgard_CG_glade
         void show_alte_zaubermittel();
         void show_neue_zaubermittel();
         void get_zaubermittel(vector<st_zaubermittel>& vec_zaubermittel);
-        float get_standard_zaubermittel(const string typs,const string name);
-        bool zauberwerk_voraussetzung(string name);
+        float get_standard_zaubermittel(const string& typs,const string& name);
+        bool zauberwerk_voraussetzung(const string& name);
 
         void on_kido_laden_clicked();
         void on_steigern_kido_clist_alt_select_row(gint row, gint column, GdkEvent *event);
@@ -295,10 +300,10 @@ class midgard_CG : public midgard_CG_glade
          void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
          void xml_export();
-         void charakter_beschreibung_uebernehmen(string b);
-         void charakter_beschreibung_drucken(string b);
-         void select_charakter(string name, string version);
-         void zeige_werte(const st_werte& w, const string welche);
+         void charakter_beschreibung_uebernehmen(const string& b);
+         void charakter_beschreibung_drucken(const string& b);
+         void select_charakter(const string& name, const string& version);
+         void zeige_werte(const st_werte& w, const string& welche);
          void setze_lernpunkte(st_lernpunkte& lernpunkte);
          void fertigkeiten_uebernehmen(vector<st_ausgewaehlte_fertigkeiten>& saf);
          void show_fertigkeiten();
@@ -307,20 +312,20 @@ class midgard_CG : public midgard_CG_glade
          void zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz);
          void berufe_uebernehmen(vector<st_ausgewaehlte_berufe>& sab);
          void kido_uebernehmen(vector<string>& technik);
-         double get_standard_zauber(string typ, string zauber);
-         double get_standard_waffen(string typ,string waffe);
-         double get_standard_fertigkeit(string typ, string fertigkeit);
-         string get_region_waffen(string waffe, string region,int mod);
-         void sprache_uebernehmen(string s, int wert);
-         void schrift_uebernehmen(string s, string t);
-         void herkunft_uebernehmen(string s);
-         string waffe_werte(const st_waffen_besitz& waffe,st_werte& werte, string mod);
+         double get_standard_zauber(const string& typ, const string& zauber);
+         double get_standard_waffen(const string& typ, const string& waffe);
+         double get_standard_fertigkeit(const string& typ, const string& fertigkeit);
+         string get_region_waffen(const string& waffe, const string& region,int mod);
+         void sprache_uebernehmen(const string& s, int wert);
+         void schrift_uebernehmen(const string& s, const string& t);
+         void herkunft_uebernehmen(const string& s);
+         string waffe_werte(const st_waffen_besitz& waffe,const st_werte& werte, const string& mod);
          vector<string> Berufs_Vorteile();
-         bool Fertigkeiten_Voraussetzung(const string fertigkeit);
-         bool Waffen_Voraussetzung(const string waffe);
-         bool region_check(string region);
-         bool Ausnahmen_bool(string name);
-         float Ausnahmen_float(string name);
-         string Ausnahmen_string(string name, string alt);
+         bool Fertigkeiten_Voraussetzung(const string& fertigkeit);
+         bool Waffen_Voraussetzung(const string& waffe);
+         bool region_check(const string& region);
+         bool Ausnahmen_bool(const string& name);
+         float Ausnahmen_float(const string& name);
+         string Ausnahmen_string(const string& name, const string& alt);
 };
 #endif

@@ -5,7 +5,7 @@
 #include <strstream>
 exec sql include sqlca;
 
-int midgard_CG::praxispunkte_wuerfeln(string fert,int alter_wert, string art, bool wuerfeln)
+int midgard_CG::praxispunkte_wuerfeln(const string& fert,int alter_wert, const string& art, bool wuerfeln)
 {
  Random random;
  exec sql begin declare section;

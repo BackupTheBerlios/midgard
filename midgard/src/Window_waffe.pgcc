@@ -110,7 +110,7 @@ void Window_waffe::wuerfeln()
 }
 
 
-void Window_waffe::get_art(string& aartE,string& aartS,string& aartW,string& aartZ,string& aartA)
+void Window_waffe::get_art(string& aartE,string& aartS, string& aartW, string& aartZ, string& aartA)
 {
         if (werte.stand == "Unfrei")
          {

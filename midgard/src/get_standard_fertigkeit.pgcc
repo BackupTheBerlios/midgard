@@ -12,7 +12,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-double midgard_CG::get_standard_fertigkeit(string typ, string fertigkeit)
+double midgard_CG::get_standard_fertigkeit(const string& typ, const string& fertigkeit)
 {
   exec sql begin declare section;
    char db_ergebnis[20];

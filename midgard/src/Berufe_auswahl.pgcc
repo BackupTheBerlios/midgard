@@ -14,7 +14,7 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 
 
-Berufe_auswahl::Berufe_auswahl(midgard_CG* h,styp& typ, st_lernpunkte& l, st_werte& werte)
+Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const styp& typ, const st_lernpunkte& l, const st_werte& werte)
 {
   hauptfenster=h;
   maxpunkte = l.beruf;
@@ -102,7 +102,7 @@ void Berufe_auswahl::on_close_berufe_clicked()
 
 }
 
-bool Berufe_auswahl::berufe_voraussetzung(string beruf, st_werte werte, string typz)
+bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& werte, const string& typz)
 {
   exec sql begin declare section;
    int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb;
@@ -135,7 +135,7 @@ bool Berufe_auswahl::berufe_voraussetzung(string beruf, st_werte werte, string t
   else return false ;
 }
 
-bool Berufe_auswahl::btyp(string typ, string typz)
+bool Berufe_auswahl::btyp(const string& typ, const string& typz)
 {
 //cout <<"\t"<<typz<<"\t";
  bool r;
@@ -148,7 +148,7 @@ bool Berufe_auswahl::btyp(string typ, string typz)
  return r;
 }
 
-string Berufe_auswahl::Beruf_vorteile(string beruf)
+string Berufe_auswahl::Beruf_vorteile(const string& beruf)
 {
   exec sql begin declare section;
    char db_beruf[30];

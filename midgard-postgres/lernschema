@@ -3,7 +3,7 @@
 --
 DROP TABLE "lernschema";
 --
--- TOC Entry ID 2 (OID 365502)
+-- TOC Entry ID 2 (OID 831411)
 --
 -- Name: lernschema Type: TABLE Owner: thoma
 --
@@ -18,7 +18,7 @@ CREATE TABLE "lernschema" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 365502) TABLE DATA lernschema
+-- Data for TOC Entry ID 3 (OID 831411) TABLE DATA lernschema
 --
 
 -- Disable triggers
@@ -912,10 +912,10 @@ sHx	Böser Blick	Zauber	\N	\N	4
 sHx	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
 sHx	Lesen/Schreiben	Fertigkeit	\N	\N	1
 sHx	Macht über das Selbst	Zauber	\N	\N	2
-eBe	Spaevolk bannen (s)	Zauber	\N	\N	4
-eBe	Spaevolk beschwören I (p)	Zauber	\N	\N	1
-eBe	Spaevolk beschwören I (s)	Zauber	\N	\N	2
-eBe	Spaevolk beschwören II (p)	Zauber	\N	\N	4
+eBe	Bannen von Spaevolk (s)	Zauber	\N	\N	4
+eBe	Spaevolk beschwören 1 (p)	Zauber	\N	\N	1
+eBe	Spaevolk beschwören 1 (s)	Zauber	\N	\N	2
+eBe	Spaevolk beschwören 2 (p)	Zauber	\N	\N	4
 eBe	Wissen von der Magie	Fertigkeit	\N	\N	1
 BN	Faustkampf	Fertigkeit	\N	\N	2
 BN	Himmelskunde	Fertigkeit	\N	\N	1
@@ -942,20 +942,20 @@ Ba	Lied der Tapferkeit	Zauber	\N	\N	1
 Ba	Lied des Spottes	Zauber	\N	\N	8
 Ba	Tanzen	Fertigkeit	\N	\N	1
 dBe	Dunebargen bannen	Zauber	\N	\N	4
-dBe	Dunkle Kämpfer beschwören I	Zauber	\N	\N	2
-dBe	Dunkle Kämpfer beschwören II	Zauber	\N	\N	4
-dBe	Kämpfer beschwören I	Zauber	\N	\N	3
+dBe	Dunkle Kämpfer beschwören 1	Zauber	\N	\N	2
+dBe	Dunkle Kämpfer beschwören 2	Zauber	\N	\N	4
+dBe	Kämpfer beschwören 1	Zauber	\N	\N	3
 dBe	Kaobargen bannen	Zauber	\N	\N	3
-dBe	Kundschafter beschwören I	Zauber	\N	\N	2
-dBe	Kundschafter beschwören II	Zauber	\N	\N	4
+dBe	Kundschafter beschwören 1	Zauber	\N	\N	2
+dBe	Kundschafter beschwören 2	Zauber	\N	\N	4
 dBe	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
 dBe	Lesen/Schreiben	Fertigkeit	\N	\N	1
 dBe	Schutzkreis gegen Dunebargen	Zauber	\N	\N	3
 dBe	Schutzkreis gegen Kaobargen	Zauber	\N	\N	2
-dBe	Träger beschwören I	Zauber	\N	\N	1
-dBe	Träger beschwören II	Zauber	\N	\N	3
+dBe	Träger beschwören 1	Zauber	\N	\N	1
+dBe	Träger beschwören 2	Zauber	\N	\N	3
 dBe	Wissen von der Magie	Fertigkeit	\N	\N	1
-eBe	Dvergar beschwören (p)	Zauber	\N	\N	2
+eBe	Dvergar beschwören	Zauber	\N	\N	2
 eBe	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
 eBe	Lesen/Schreiben	Fertigkeit	\N	\N	1
 eBe	Schutzkreis gegen Spaevolk (p)	Zauber	\N	\N	2

@@ -21,6 +21,49 @@ CREATE TABLE "zauber_beschreibung" (
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'zauber_beschreibung';
 COPY "zauber_beschreibung"  FROM stdin;
 Heilen von Wunden	Heilt W6 LP und AP, nur alle drei Tage möglich
+Schutzkreis gegen Dunebargen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dunebarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schutzkreis gegen Dvergar	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dvergar, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schutzkreis gegen Geisterwesen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 4AP pro Person im Schutzkreis. Jeder Geist, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schutzkreis gegen Hrimfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Hrimfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schutzkreis gegen Hyrfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Hyrfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schutzkreis gegen Jördfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jördfolk , der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schutzkreis gegen Kaobargen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jeder Kaobarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schutzkreis gegen Untote	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 3AP pro Person im Schutzkreis. Jeder Untote, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schutzkreis gegen Vindfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schutzkreis gegen Wisfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Bannen von Dunebargen	Bannt Dunebargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Dvergar	Bannt Dvergar von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Hrimfolk	Bannt Hrimfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Hyrfolk	Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Jördfolk	Bannt Jördfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Kaobargen	Bannt Kaobargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Vindfolk	Bannt Vindfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Wisfolk	Bannt Wisfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Dunkle Kämpfer beschwören 1	Beschören von Dunebargen. Beschwören 2 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
+Dunkle Kämpfer beschwören 2	Beschören von Dunebargen. Beschwören 3 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
+Dunkle Kämpfer beschwören 3	Beschören von Dunebargen. Beschwören 4 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
+Kämpfer beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
+Kämpfer beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
+Kämpfer beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Kämpfer beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Kundschafter beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
+Kundschafter beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
+Kundschafter beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Kundschafter beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Träger beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
+Träger beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
+Träger beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Träger beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Lenker beschwören 1	Beschören von Dunebargen. Beschwören 3 AP, Fesseln 2 AP und 1 LP, Verlängern 3 AP und 1 LP. 
+Lenker beschwören 2	Beschören von Dunebargen. Beschwören 4 AP, Fesseln 2 AP und 2 LP, Verlängern 4 AP und 2 LP. 
+Wächter beschwören 1	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
+Wächter beschwören 2	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Wächter beschwören 3	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Dvergar beschwören	Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Späfolk beschwören 1 	Beschwören 1 AP, Fesseln 1 AP, Verlängern 1 AP. 
+Späfolk beschwören 2 	Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
+Späfolk beschwören 3 	Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Späfolk beschwören 4 	Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
 \.
 -- Enable triggers
 BEGIN TRANSACTION;

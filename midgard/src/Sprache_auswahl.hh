@@ -23,6 +23,6 @@ class Sprache_auswahl : public Sprache_auswahl_glade
         friend class Sprache_auswahl_glade;
         void on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event);
    public:
-        Sprache_auswahl(midgard_CG* h, string mod);
+        Sprache_auswahl(midgard_CG* h, const string& mod);
 };
 #endif

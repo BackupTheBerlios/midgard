@@ -32,6 +32,6 @@ class KiDo_auswahl : public KiDo_auswahl_glade
         void on_clist_kido_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_button_close_clicked();
    public:
-        KiDo_auswahl(midgard_CG* h, int m,st_werte werte);
+        KiDo_auswahl(midgard_CG* h, int m,const st_werte& werte);
 };
 #endif

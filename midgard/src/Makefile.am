@@ -62,7 +62,7 @@ BUILT_SOURCES_CG = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    midgard_CG_typauswahl.cc  Window_mag_bonus.cc get_Verteidigungswaffe.cc \
 	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc get_kido.cc \
    midgard_CG_Ausnahmen.cc get_standard_zaubermittel.cc \
-   get_spezies_constraint.cc
+   get_spezies_constraint.cc midgard_CG_magier_spezialgebiet.cc
 
 BUILT_SOUCES_XML=xml.cc
 

@@ -12,7 +12,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-double midgard_CG::get_standard_waffen(string typ, string waffe)
+double midgard_CG::get_standard_waffen(const string& typ, const string& waffe)
 {
   string swaffe="Waffen";
   if (waffe=="Peitsche") swaffe="Peitsche";
@@ -47,7 +47,7 @@ double midgard_CG::get_standard_waffen(string typ, string waffe)
  return(fac);
 }
 
-string midgard_CG::get_region_waffen(string waffe, string region, int mod)
+string midgard_CG::get_region_waffen(const string& waffe, const string& region, int mod)
 {
   exec sql begin declare section;
    char db_waffe[50],db_region[10];

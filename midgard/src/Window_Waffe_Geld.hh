@@ -34,6 +34,6 @@ class Window_Waffe_Geld : public Window_Waffe_Geld_glade
    public:
         Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, vector<st_ausgewaehlte_waffen>& wa);
         void Geld();
-        void get_waffe(string waffe);
+        void get_waffe(const string& waffe);
 };
 #endif

@@ -169,10 +169,10 @@ COPY "fertigkeiten"  FROM stdin;
 1	4	Brettspiel	2	20	E	S	G	A	A	A	G	G	S	S	S	S	S	S	G	G	S	S	S	G	S	S	A	G	G	G	G	G	G	G	G	S	S	In
 4	\N	Dichten	\N	150	E	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	In
 4	\N	Erzählen	\N	150	E	A	G	S	S	S	G	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	In
+1	\N	Geomantie	\N	400	E	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	A	A	A	G	A	S	G	S	S	S	S	S	\N	\N	Zt
 3	15	Kamelreiten	12	100	E	S	S	S	G	S	G	G	G	G	S	G	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge
 8	\N	Kampf zu Kamel	\N	200	E	S	S	A	G	A	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	\N
 4	\N	Mumifizieren	\N	200	E	A	A	A	A	A	A	A	A	A	A	A	A	A	S	G	S	S	S	S	A	A	G	A	S	S	S	S	S	G	S	A	A	In
-1	\N	Geomantie	\N	400	E	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	A	A	A	G	A	S	G	S	S	S	S	S	\N	\N	Zt
 1	\N	Pyromantie	\N	400	E	S	S	S	S	S	S	S	S	A	S	S	S	S	S	S	S	S	S	A	A	A	G	A	G	S	S	S	S	S	S	\N	\N	Zt
 \.
 -- Enable triggers

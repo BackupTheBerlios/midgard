@@ -16,7 +16,7 @@ void WindowInfo::on_button_info_ok_clicked()
  destroy();
 }
 
-WindowInfo::WindowInfo(string s)
+WindowInfo::WindowInfo(const string& s)
 {
    if (Infobool) infotext->set_text(s.c_str());
    else destroy();

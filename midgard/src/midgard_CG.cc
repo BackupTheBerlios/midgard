@@ -58,8 +58,8 @@ void midgard_CG::show_gtk()
 
  // Magie anzeigen?
  if (typ.z=="j" || typ.z == "z") 
-   { if (typ.s=="Ma") option_magier_spezialgebiet->show();
-     else option_magier_spezialgebiet->hide();
+   { if (typ.s=="Ma") magier_spezialgebiet("show");
+     else magier_spezialgebiet("hide");
      table_magier_lernen->show();
      table_magier_steigern->show();
    }
@@ -96,7 +96,7 @@ void midgard_CG::on_herkunftsland_clicked()
 {
    manage (new Window_herkunft(this));
 }
-void midgard_CG::herkunft_uebernehmen(string s)
+void midgard_CG::herkunft_uebernehmen(const string& s)
 {
    werte.herkunft = s;
    midgard_CG::zeige_werte(werte,"alle");
@@ -114,11 +114,11 @@ void midgard_CG::on_charakter_beschreibung_clicked()
 {   
   manage(new Window_charakter_beschreibung(this,werte.beschreibung)); 
 }   
-void midgard_CG::charakter_beschreibung_uebernehmen(string b)
+void midgard_CG::charakter_beschreibung_uebernehmen(const string& b)
 {
   werte.beschreibung=b;  
 }
-void midgard_CG::charakter_beschreibung_drucken(string b)
+void midgard_CG::charakter_beschreibung_drucken(const string& b)
 {
   werte.beschreibung=b;  
   midgard_CG::latex_beschreibung_drucken();

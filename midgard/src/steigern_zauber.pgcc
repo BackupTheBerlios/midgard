@@ -308,7 +308,7 @@ void midgard_CG::get_zaubermittel(vector<st_zaubermittel>& vec_zaubermittel)
    }
 }
 
-bool midgard_CG::zauberwerk_voraussetzung(string name)
+bool midgard_CG::zauberwerk_voraussetzung(const string& name)
 {
  exec sql begin declare section;
    char db_name[50];

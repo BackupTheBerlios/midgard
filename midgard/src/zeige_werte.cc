@@ -1,6 +1,6 @@
 #include "midgard_CG.hh"
 
-void midgard_CG::zeige_werte(const st_werte& w, const string welche)
+void midgard_CG::zeige_werte(const st_werte& w, const string& welche)
 {
  werte=w; 
  if (welche == "grund" || welche == "alle")

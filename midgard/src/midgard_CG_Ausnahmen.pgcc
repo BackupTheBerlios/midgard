@@ -4,14 +4,14 @@
 exec sql include sqlca;
 
 
-bool midgard_CG::Ausnahmen_bool(string name)
+bool midgard_CG::Ausnahmen_bool(const string& name)
 {
 
 
 }
 
 
-float midgard_CG::Ausnahmen_float(string name)
+float midgard_CG::Ausnahmen_float(const string& name)
 {
  exec sql begin declare section;
    char db_name[50],db_typ[10],db_herkunft[50],db_spezies[50];
@@ -40,7 +40,7 @@ float midgard_CG::Ausnahmen_float(string name)
   return 1;
 }
 
-string midgard_CG::Ausnahmen_string(string name, string alt)
+string midgard_CG::Ausnahmen_string(const string& name, const string& alt)
 {
  exec sql begin declare section;
    char db_name[50],db_typ[10],db_herkunft[50],db_spezies[50],db_standard[10];

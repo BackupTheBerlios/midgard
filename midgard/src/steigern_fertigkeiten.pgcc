@@ -251,7 +251,7 @@ void midgard_CG::on_radiobutton_praxis_auto_fertigkeiten_toggled()
 {
 }
 
-bool midgard_CG::Fertigkeiten_Voraussetzung(const string fertigkeit)
+bool midgard_CG::Fertigkeiten_Voraussetzung(const string& fertigkeit)
 {
   exec sql begin declare section;
    int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb,db_rw;

@@ -5,7 +5,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-float midgard_CG::get_standard_zaubermittel(string typs, string name)
+float midgard_CG::get_standard_zaubermittel(const string& typs, const string& name)
 {
   exec sql begin declare section;
    char db_ergebnis[20];
