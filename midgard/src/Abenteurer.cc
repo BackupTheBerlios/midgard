@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.20 2002/06/19 15:03:56 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.21 2002/06/20 19:06:17 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -85,14 +85,14 @@ const std::list<Abenteurer::st_universell> Abenteurer::CList_Universell( const D
       {
         cH_Fertigkeit f(i->mbe);
         iwert = f->Ungelernt();
-        if (!f->Voraussetzungen(getCWerte(),CList_Fertigkeit())) 
+        if (!f->Voraussetzung(*this,false)) 
             {iwert-=2; i->voraussetzung=false;}
       }
      else if (i->mbe->What()==MidgardBasicElement::WAFFE)
       {
         cH_Waffe f(i->mbe);
         iwert = 4+getCWerte().bo_An();
-        if (!f->SG_Voraussetzung(getCWerte(),CList_Fertigkeit(),CList_Waffen()))
+        if (!f->Voraussetzung(*this,false))
             {iwert=0; i->voraussetzung=false;}
       }
      if (i->mbe.ist_gelernt(CList_Fertigkeit()) || i->mbe.ist_gelernt(CList_Waffen()))

@@ -130,10 +130,15 @@ bool Waffe::Grundkenntnis_vorhanden(const std::list<MidgardBasicElement_mutable>
 }
 
 
-bool Waffe::SG_Voraussetzung(const Grundwerte& Werte,const std::list<MidgardBasicElement_mutable> &list_Fertigkeit,const std::list<MidgardBasicElement_mutable> &list_Waffen) const
+bool Waffe::Voraussetzung(const Abenteurer &A,bool anzeigen) const
 {
+ const Grundwerte &Werte=A.getCWerte();
  if ( St()>Werte.St() || Gw()>Werte.Gw() || Gs()>Werte.Gs() ) return false;
+ if(anzeigen) return true;
+
  bool fert_ok=true,waffe_ok=true;
+ const std::list<MidgardBasicElement_mutable> &list_Fertigkeit=A.CList_Fertigkeit();
+ const std::list<MidgardBasicElement_mutable> &list_Waffen=A.CList_Waffen();
  std::vector<std::string> VF=vec_voraussetzung_F;
 FertEnd:
  for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)

@@ -101,10 +101,13 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
             }
          case VORAUSSETZUNGg :
            {  
+            return cH_EntryValueIntString(MBE->Voraussetzung());
+/*
             if ( MBE->What()==MidgardBasicElement::WAFFE)
                return cH_EntryValueIntString(cH_Waffe(MBE)->Voraussetzung()); 
             if ( MBE->What()==MidgardBasicElement::FERTIGKEIT)
                return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung()); 
+*/
            }
          case KOSTENg : 
             if ( MBE->What()==MidgardBasicElement::WAFFE)
@@ -159,10 +162,11 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case ART : return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
          case VORAUSSETZUNGEN : 
            {
-             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-               return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung());
-             else
-               return cH_EntryValueIntString("");
+               return cH_EntryValueIntString(MBE->Voraussetzung());
+//             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
+//               return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung());
+//             else
+//               return cH_EntryValueIntString("");
            }
          case REGIONn : return cH_EntryValueIntString(MBE->RegionString(hauptfenster->getCDatabase())); 
         }
@@ -170,7 +174,8 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
        switch ((Spalten_LONG_NEU_WAFFE)seqnr) {
          case NAMEnw : return cH_EntryValueIntString(MBE->Name());
          case ARTw : return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
-         case VORAUSSETZUNGENw : return cH_EntryValueIntString(cH_Waffe(MBE)->Voraussetzung());
+//         case VORAUSSETZUNGENw : return cH_EntryValueIntString(cH_Waffe(MBE)->Voraussetzung());
+         case VORAUSSETZUNGENw : return cH_EntryValueIntString(MBE->Voraussetzung());
          case REGIONnw : return cH_EntryValueIntString(MBE->RegionString(hauptfenster->getCDatabase())); 
         }
       else if (Variante==MidgardBasicTree::SPRACHE_NEU)

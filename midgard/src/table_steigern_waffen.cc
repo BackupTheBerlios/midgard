@@ -27,14 +27,15 @@ void table_steigern::on_waffen_laden_clicked()
  list_Waffen_neu.clear();
  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Waffe.begin();i!=hauptfenster->getCDatabase().Waffe.end();++i)
    { 
+     Abenteurer &A=hauptfenster->getChar().getAbenteurer();
      cH_Waffe w(*i);
      MidgardBasicElement_mutable M(*i);
-     if (M.ist_gelernt(hauptfenster->getCChar().CList_Waffen())) continue ;
-     if(hauptfenster->getCWerte().Spezies()->istVerboten(*i)) continue;
-     if (!w->Grundkenntnis_vorhanden(hauptfenster->getCChar().CList_WaffenGrund())) continue;
-     if (!w->ist_lernbar(hauptfenster->getCChar().getVTyp(),w->get_MapTyp())) continue;
+     if (M.ist_gelernt(A.CList_Waffen())) continue ;
+     if(A.getCWerte().Spezies()->istVerboten(*i)) continue;
+     if (!w->Grundkenntnis_vorhanden(A.CList_WaffenGrund())) continue;
+     if (!w->ist_lernbar(A.getVTyp(),w->get_MapTyp())) continue;
      if (!hauptfenster->region_check(w->Region(w->Name())) ) continue;
-     if (w->SG_Voraussetzung(hauptfenster->getCWerte(),hauptfenster->getCChar().CList_Fertigkeit(),hauptfenster->getCChar().CList_Waffen()))
+     if (w->Voraussetzung(A))
       {
         if(w->Art()=="Verteidigung") M.setErfolgswert(1);
         else M.setErfolgswert(4);

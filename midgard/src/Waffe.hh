@@ -25,7 +25,7 @@
 
 class cH_Waffe;
 class WaffeBesitz;
-//class H_WaffeBesitz;
+class Abenteurer;
 
 class Waffe : public MidgardBasicElement
 {
@@ -82,7 +82,7 @@ class Waffe : public MidgardBasicElement
      std::string Schwierigkeit_str() const;
      int Anfangswert() const {return anfangswert;}
      std::string Voraussetzung() const {return voraussetzung;}
-     bool SG_Voraussetzung(const Grundwerte& Werte,const std::list<MidgardBasicElement_mutable> &list_Fertigkeit,const std::list<MidgardBasicElement_mutable> &list_Waffen) const;
+     bool Voraussetzung(const Abenteurer &A,bool anzeigen=true) const;
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
 
      bool Grundkenntnis_vorhanden(const std::list<MidgardBasicElement_mutable>&) const;

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.18 2002/06/19 07:53:37 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.19 2002/06/20 19:06:17 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -157,7 +157,8 @@ class VAbenteurer
       
       const std::list<st_abenteurer> &getList() const {return VA;}
       std::list<st_abenteurer> &getList() {return VA;}
-      const Abenteurer getAbenteurer() const {return ai->abenteurer;}
+      const Abenteurer &getCAbenteurer() const {return ai->abenteurer;}
+      Abenteurer &getAbenteurer() const {return ai->abenteurer;}
       void sort_gw() {VA.sort(sort());}
       void push_back(Abenteurer A);
       void set_Abenteurer(const Abenteurer& A);

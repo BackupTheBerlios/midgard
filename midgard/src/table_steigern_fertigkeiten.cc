@@ -25,17 +25,18 @@
 
 void table_steigern::on_fertigkeiten_laden_clicked()
 {
+  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   list_Fertigkeit_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Fertigkeit.begin();i!=hauptfenster->getCDatabase().Fertigkeit.end();++i)
    { const cH_Fertigkeit f(*i);
-     if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()) && cH_Fertigkeit(*i)->ZusatzEnum(hauptfenster->getCChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
+     if (MidgardBasicElement_mutable(*i).ist_gelernt(A.CList_Fertigkeit()) && cH_Fertigkeit(*i)->ZusatzEnum(hauptfenster->getCChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
-//     if (hauptfenster->getCDatabase().pflicht.istVerboten(hauptfenster->getCWerte().Spezies()->Name(),hauptfenster->getCChar().getVTyp(),f->Name())) continue;
-     if(hauptfenster->getCWerte().Spezies()->istVerboten(*i)) continue;
-     if (f->Name()=="Zaubern" && hauptfenster->getCChar().is_mage() ) continue;
-     if (!(*i)->ist_lernbar(hauptfenster->getCChar().getVTyp(),f->get_MapTyp())) continue;
+//     if (hauptfenster->getCDatabase().pflicht.istVerboten(A.Spezies()->Name(),A.getVTyp(),f->Name())) continue;
+     if(A.getCWerte().Spezies()->istVerboten(*i)) continue;
+     if (f->Name()=="Zaubern" && A.is_mage() ) continue;
+     if (!(*i)->ist_lernbar(A.getVTyp(),f->get_MapTyp())) continue;
      if (!hauptfenster->region_check(f->Region()) ) continue;
-     if (f->Voraussetzungen(hauptfenster->getCWerte(),hauptfenster->getCChar().CList_Fertigkeit())) 
+     if (f->Voraussetzung(A)) 
        {
          MidgardBasicElement_mutable F(*i);
          F.setErfolgswert(f->Anfangswert());

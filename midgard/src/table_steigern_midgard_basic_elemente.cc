@@ -112,8 +112,16 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 
 void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 {
+ Abenteurer &A=hauptfenster->getChar().getAbenteurer();
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  MidgardBasicElement_mutable &MBE = const_cast<MidgardBasicElement_mutable&>(dt->getMBE());
+ if((MBE->What()==MidgardBasicElement::FERTIGKEIT ||  MBE->What()==MidgardBasicElement::WAFFE)
+   && !MBE->Voraussetzung(A,false))
+  {
+    hauptfenster->set_status("Erst muß "+MBE->Voraussetzung()+" gelernt werden");
+    return;
+  }
+
  // Neue Dinge können nur durch Unterweisung gelernt werden
  // es sei denn es handelt sich um Zaubersprüche
  if(MBE->What()!=MidgardBasicElement::ZAUBER)

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.5 2002/06/07 12:17:04 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.6 2002/06/20 19:06:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,7 +59,7 @@ void table_lernschema::on_angeborene_fertigkeit_clicked()
      wurf = hauptfenster->random.integer(1,100);
    }
   if(count100>0) 
-    { hauptfenster->set_info(itos(count100)+"x eine 100 gewürfelt, "+itos(count100)+" zusätzliche angeborende Fertigkeit nach Belieben wählen.");
+    { hauptfenster->set_info(itos(count100)+"x eine 100 gewürfelt, "+itos(count100)+" zusätzliche angeborende Fertigkeit nach Belieben wählen. Danach die 'Lernpunkte' auswürfeln.");
       on_angeborene_fertigkeit_right_clicked();      
     }
   hauptfenster->set_status("Für die Angeborene Fertigkeit wurde eine "

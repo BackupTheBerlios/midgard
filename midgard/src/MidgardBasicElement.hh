@@ -105,7 +105,8 @@ class MidgardBasicElement : public HandleContentCopyable
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<std::string>& L) const;
       virtual int FErfolgswert(const Abenteurer &abenteurer,const MidgardBasicElement_mutable &mbem) const;
-
+      virtual std::string Voraussetzung() const {return "B U G";}
+      virtual bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const {cerr<<"ERROR in Voraussetzung\n";return false;}
 
       int get_Steigern_Kosten(int erfolgswert) const;
       vector<std::string> Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 

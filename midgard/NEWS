@@ -1,6 +1,14 @@
 ##########################################################################
 NEWS IN VERSION 0.7delta2
 
+* kleinere Bugs beseitigt
+* Wenn ein Zusatz gewählt werden soll sind die anderen Fenster 
+   'desensibilisiert'
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* Eingabe von PP jetzt etwas einfacher und ohne Programmabbruch falls keine 
+   Ziele mehr gewählt sein sollte.
+* Steigern mit PP für Fertigkeiten geht wieder, man kann aber noch keine 
+   EP verschenken
 * PP Eingabe für Waffen/Sprachen/Schriften fixed ... und nochmal
 * Steigern mit PP: Punkte verfallen lassen (Wenn nur um eine Stufe gesteigert
    werden soll)
@@ -22,15 +30,15 @@ NEWS IN VERSION 0.7delta2
 * Spielleiterbogen: Waffen/Abwehr/Zaubern
 * Neue Sprachen mit PP auf +7/+9 lernen
 * Beim Laden werden gespeicherte Abenteurer ohne Namen aus der Liste entfernt
-* AbsturzBug beim MagierSpezialgebiet mit Wizard behoben
+* Absturz-Bug beim MagierSpezialgebiet mit Wizard behoben
 * Nur noch Abenteurer MIT Namen können abgespeichert werden.
    (Erstens macht nur das Sinn, zweitens verhindert das einen Absturz beim laden
     eines Abenteurers ohne Namen:-)
 * Lernen von Fertigkeiten Absturz beseitigt
+* Fertigkeiten mit Voraussetzungen werden anzeigen aber sind nicht lernbar
 
 
 TODO:
-* Voraussetzungen anzeigen aber nicht lernbar
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
@@ -38,30 +46,7 @@ links).
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
-##########################################################################
-NEWS IN VERSION 0.7delta2
 
-* kleinere Bugs beseitigt
-* Wenn ein Zusatz gewählt werden soll sind die anderen Fenster 
-   'desensibilisiert'
-* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
-* Eingabe von PP jetzt etwas einfacher und ohne Programmabbruch falls keine 
-   Ziele mehr gewählt sein sollte.
-* Steigern mit PP für Fertigkeiten geht wieder, man kann aber noch keine 
-   EP verschenken
-
-TODO:
-* Steigern mit PP sinnvoll implementieren
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
-in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
-links). 
-* H&D (Zauberlied) funktioniert nicht
-* Ausdruck für lange Listen
-* Spielleiterliste: Höchster Wert FETT
-* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
-* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
-  man etwas hinzufügen möchte, ist nicht gerade intuitiv
-  (vielleicht drag'n'drop oder CTree verschieben)
 
 ##########################################################################
 NEWS IN VERSION 0.7delta1

@@ -101,9 +101,10 @@ void Fertigkeit::get_Fertigkeit()
 
 }
 
-bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte,const std::list<MidgardBasicElement_mutable> &list_Fertigkeit) const 
-{
- // Mindsetwerte
+bool Fertigkeit::Voraussetzung(const Abenteurer &A,bool anzeigen) const 
+{ 
+ const Grundwerte &Werte=A.getCWerte();
+ // Mindestwerte
  if(voraussetzung.st > 0 && voraussetzung.st > Werte.St()) return false;
  if(voraussetzung.gw > 0 && voraussetzung.gw > Werte.Gw()) return false;
  if(voraussetzung.gs > 0 && voraussetzung.gs > Werte.Gs()) return false;
@@ -125,6 +126,9 @@ bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte,const std::list<Midgard
  if(voraussetzung.pa < 0 && -voraussetzung.pa < Werte.pA()) return false;
  if(voraussetzung.sb < 0 && -voraussetzung.sb < Werte.Sb()) return false;
 
+ if(anzeigen) return true;
+
+ const std::list<MidgardBasicElement_mutable> &list_Fertigkeit=A.CList_Fertigkeit();
  std::vector<std::string> VF=vec_voraussetzung;
 FertEnd:
  for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
