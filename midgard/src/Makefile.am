@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.120 2002/02/14 09:00:21 thoma Exp $
+# $Id: Makefile.am,v 1.122 2002/02/14 10:58:46 christof Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -84,7 +84,6 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 midgard_SOURCES = \
-   Wizard_window.cc \
    Wizard_window.cc \
    Wizard_window_glade.cc \
    midgard_CG_wizard.cc \
@@ -189,7 +188,7 @@ midgard_SOURCES = \
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
 
-midgard_LDADD = @LIBS@ @KOMPONENTEN_LIBS@
+midgard_LDADD = @LIBS@ @KOMPONENTEN_NODB_LIBS@
 
 midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
 
