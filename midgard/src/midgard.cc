@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.81 2004/02/28 07:01:28 christof Exp $
+// $Id: midgard.cc,v 1.82 2004/02/28 07:10:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,6 +28,7 @@
 #ifdef __MINGW32__
 #include <io.h>
 #include <windows.h>
+#include <cstdio>
 #endif
 #include <iostream>
 #include <libmagus/magus_paths.h>
@@ -83,6 +84,21 @@ int main(int argc, char **argv)
 {
 #ifdef __MINGW32__ // Dr MinGW als Exception Handle (debugging Ausgabe!)
    LoadLibrary("exchndl.dll");
+#endif
+#ifdef __MINGW32__ // exedebug bewirkt DEBUG=1 NOSPLASH=1
+   // vielleicht mit fstream realisieren?
+   {  FILE *f=fopen(argv[0],"rb");
+      if (f)
+      {  int flag=-1;
+         fseek(f,0xdc,SEEK_SET);
+         flag=fgetc(f);
+         fclose(f);
+         if (flag==3)
+         {  putenv("DEBUG=1");
+            putenv("NOSPLASH=1");
+         }
+      }
+   }
 #endif
    if (!getenv("DEBUG")) Magus_Ausgabe::register_Ausgabe();
    Ausgabe::setLogLevel(Ausgabe::Debug);
