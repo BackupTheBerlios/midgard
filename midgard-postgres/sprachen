@@ -41,7 +41,6 @@ Sirao	Tegarische Steppe	10	Tegarisch	4	Tegarisch	f	\N
 Sirao	Tegarische Steppe	10	Berekusch	4	Tegarisch	f	\N
 Sirao	Tegarische Steppe	10	Läinisch	4	Läinisch	f	\N
 Sirao	Aran	10	Aranisch	4	Seemeister	f	\N
-Sirao	Aran	10	Maralinga	4	Seemeister	f	\N
 Sirao	Rawindra	10	Rawindi	4	Rawindi	f	\N
 Sirao	KanThaiPan	10	KanThaiTun	4	KanThaiTun	f	\N
 Sirao	Minangpahit	10	Minangpahitisch	4	Rawindi	f	\N
@@ -65,4 +64,5 @@ Nichtmenschen	Elfen	10	Eldalyn	4	Coraniad	f	\N
 Sirao	Moravod	10	Moravisch	4	Tegarisch	f	\N
 Valian	Valian	10	Vallinga	4	Seemeister	f	\N
 Vesternesse	Alba	10	Dunathisch	4	Seemeister	t	A
+Sirao	Aran	10	Maralinga	4	Seemeister	t	\N
 \.

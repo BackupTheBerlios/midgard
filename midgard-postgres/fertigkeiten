@@ -91,7 +91,6 @@ COPY "fertigkeiten"  FROM stdin;
 4	4	Kräuterkunde	2	100		S	S	S	S	S	S	S	S	S	S	S	S	G	G	G	G	G	G	G	G	G	G	S	S	S	S	S	S	S	S	S	S	In	S	S	G	S	\N	\N	\N	\N	\N	\N	\N
 3	4	Menschenkenntnis	2	250		S	G	S	S	S	G	G	S	S	G	S	S	S	S	G	S	S	S	S	A	A	S	S	S	S	G	S	S	S	S	S	S	In	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 5	8	Meucheln	6	800		G	A	S	S	S	S	S	A	S	S	S	G	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	G	S	Ge	S	A	A	S	\N	\N	\N	\N	\N	\N	\N
-3	15	Reiten	12	100		A	A	A	A	A	A	A	A	A	G	A	A	A	S	S	S	S	S	S	S	S	G	S	S	S	S	S	G	S	S	S	A	Ge	A	A	G	A	\N	\N	\N	\N	\N	\N	\N
 4	4	Sagenkunde	2	100		S	G	S	S	S	S	S	S	S	S	S	S	S	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	S	S	In	S	S	G	S	\N	\N	\N	\N	\N	\N	\N
 3	4	Schleichen	2	400		G	S	G	G	G	G	S	S	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 4	4	Schlösser öffnen	2	400		S	S	A	A	A	S	S	A	S	S	A	G	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	Ge	S	A	A	S	\N	\N	\N	\N	\N	\N	\N
@@ -217,4 +216,5 @@ COPY "fertigkeiten"  FROM stdin;
 1	\N	Geomantie	\N	400	E	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	A	A	A	G	A	S	G	S	S	S	S	S	S	S	Zt	S	S	G	S	\N	\N	\N	\N	\N	\N	\N
 1	\N	Pyromantie	\N	400	E	S	S	S	S	S	S	S	S	A	S	S	S	S	S	S	S	S	S	A	A	A	G	A	G	S	S	S	S	S	S	S	A	Zt	A	S	S	A	\N	\N	\N	\N	\N	\N	\N
 5	\N	Kenntnis der fünf Klassiker	\N	2500	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	A	S	\N	\N	\N	\N	\N	\N	\N
+3	15	Reiten	12	100		G	G	G	G	G	G	G	G	G	S	G	G	G	S	S	S	S	S	S	S	S	G	S	S	S	S	S	G	S	S	S	A	Ge	A	A	G	A	\N	\N	\N	\N	\N	\N	\N
 \.
