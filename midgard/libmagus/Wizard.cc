@@ -55,7 +55,7 @@ void Wizard::done(esteps was,const Abenteurer &A)
 {  if (act_step.Value()==Inaktiv) return;
    // schauen ob das sinnvoll war - reicht das schon?
    if (was<act_step.Value()) set(was);
-   else next_step();
+   else if (was==act_step.Value()) next_step();
    skip_if_possible(A);
 }
 
