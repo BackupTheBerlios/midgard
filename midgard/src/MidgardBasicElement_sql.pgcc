@@ -220,7 +220,7 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
 */
   exec sql begin declare section;
     char db_name_ch[50], db_version[50];
-    char db_fertigkeit[50],db_magisch[100];
+    char db_fertigkeit[50],db_magisch[100],db_zauberwerk_stufe[10];
     int db_wert,db_praxispunkte;
     char db_what[30];
   exec sql end declare section;
@@ -228,20 +228,24 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
   strncpy(db_version,Werte.Version().c_str(),sizeof(db_version));
   strncpy(db_what, ((*b.begin())->What_str()).c_str(),sizeof(db_what));
   strncpy(db_magisch, "",sizeof(db_magisch));
+  strncpy(db_zauberwerk_stufe, "",sizeof(db_zauberwerk_stufe));
    
   for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
    {
      strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
      if ((*b.begin())->What()==ZAUBERWERK)
+      {
+        strncpy(db_zauberwerk_stufe, cH_Zauberwerk(*i)->Stufe().c_str(),sizeof(db_zauberwerk_stufe));
         strncpy(db_magisch, cH_Zauberwerk(*i)->Art().c_str(),sizeof(db_magisch));
+      }
      if ((*b.begin())->What()==FERTIGKEIT && (*i)->Name()=="Landeskunde")
         strncpy(db_magisch, cH_Fertigkeit(*i)->Zusatz().c_str(),sizeof(db_magisch));
      db_wert = (*i)->Erfolgswert();
      db_praxispunkte=(*i)->Praxispunkte();
      exec sql INSERT INTO charaktere_fertigkeiten
-         (charakter_name,version,fertigkeit,wert,av_bonus,art,magisch)
+         (charakter_name,version,fertigkeit,wert,av_bonus,art,magisch,zauberwerk_stufe)
        VALUES
-         (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_praxispunkte,:db_what,:db_magisch);
+         (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_praxispunkte,:db_what,:db_magisch,:db_zauberwerk_stufe);
      SQLerror::test(__FILELINE__);
    }
 }
