@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.31 2002/06/30 18:34:15 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.32 2002/06/30 18:34:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -811,7 +811,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   // LaTeX always writes to current dir first, so we change dir
 
   if (file.rfind(WinLux::dirsep())!=std::string::npos)
-  {  chdir((file.substr(0,file.rfind(dirsep))).c_str());
+  {  chdir((file.substr(0,file.rfind(WinLux::dirsep()))).c_str());
      file2=file.substr(file.rfind(WinLux::dirsep())+1);
   }
 

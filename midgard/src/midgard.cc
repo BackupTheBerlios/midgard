@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.44 2002/06/29 06:32:31 christof Exp $
+// $Id: midgard.cc,v 1.45 2002/06/30 18:34:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,7 @@
 #endif
 #include <sys/types.h>
 #include <sys/stat.h>
+#include "Windows_Linux.hh"
 
 int main(int argc, char **argv)
 {   
@@ -35,7 +36,7 @@ int main(int argc, char **argv)
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
    putenv("GTK_RC_FILES=gtkrc");
    
-   const char dirsep='\\';
+//   const char dirsep='\\';
    
   char buf[1024];
   reg_key r1(HKEY_CURRENT_USER, KEY_READ, "Software", "Microsoft", "Windows",
@@ -58,17 +59,17 @@ int main(int argc, char **argv)
   std::cout << "magus_verzeichnis: " << magus_verzeichnis << '\n';
 
 #else
-   const char dirsep='/';
+//   const char dirsep='/';
    magus_verzeichnis=string(getenv("HOME"))+"/.magus";
 #endif
 
    if(access(magus_verzeichnis.c_str(),R_OK)) 
        if(mkdir(magus_verzeichnis.c_str(),0777))
          { std::cerr << "Homeverzeichnis nicht schreibbar\n"; exit(1);}
-   magus_verzeichnis+=dirsep;
+   magus_verzeichnis+=WinLux::dirsep();
 
    // normalize argv0 (prepend current dir if relative)
-   if (argv0[0]!=dirsep 
+   if (argv0[0]!=WinLux::dirsep() 
 #ifdef __MINGW32__
 			|| argv0.find(':')==std::string::npos
 #endif
@@ -77,7 +78,7 @@ int main(int argc, char **argv)
       *buf=0;
       getcwd(buf,sizeof buf);
       cout << "cwd: " << buf << '\n';
-      argv0=buf+std::string(1,dirsep)+argv0;
+      argv0=buf+std::string(1,WinLux::dirsep())+argv0;
       cout << "argv0: " << argv0 << '\n';
    }
 

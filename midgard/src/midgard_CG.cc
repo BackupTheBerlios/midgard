@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.243 2002/06/29 06:32:31 christof Exp $
+// $Id: midgard_CG.cc,v 1.244 2002/06/30 18:34:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #ifdef __MINGW32__
 #include <time.h>
 #endif
+#include "Windows_Linux.hh"
 
 midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
                        const string &datei)
@@ -99,12 +100,7 @@ cout <<"Suche nach "<< n<<'\n';
 
 std::string midgard_CG::BinaryVerzeichnis() const
 {  
-#ifdef __MINGW32__
-   const char dirsep='\\';
-#else
-   const char dirsep='/';
-#endif
-   if (argv0.rfind(dirsep)!=std::string::npos) 
-      return argv0.substr(0,argv0.rfind(dirsep)+1);
+   if (argv0.rfind(WinLux::dirsep())!=std::string::npos) 
+      return argv0.substr(0,argv0.rfind(WinLux::dirsep())+1);
    else return "";
 }
