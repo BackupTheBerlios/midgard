@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.14 2002/07/18 15:50:03 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.15 2002/07/19 08:10:50 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -47,7 +47,7 @@ void LaTeX_drucken::Spielleiterbogen()
    fout << "c|"; // Anzahl der Spalten/Abenteurer
  fout << "||}\\hline\\hline\\hline\n";
 
- for(ewhat was=etyp;was<eMAX; was=ewhat(int(was)+1))
+ for(ewhat was=enamecharakter;was<eMAX; was=ewhat(int(was)+1))
    line(fout,was);
 
  fout << "\\end{tabular}\n";
@@ -60,59 +60,63 @@ void LaTeX_drucken::Spielleiterbogen()
 
 void LaTeX_drucken::line(ostream &fout,const ewhat &what)
 {
-  fout << "\\n ";
+  std::string S;
   switch(what)
    {
-     case enamespieler: fout << "Spieler"; break; 
-     case enamecharakter: fout << "Figur"; break; 
-     case espez: fout << "Spezies"; break; 
-     case etyp: fout << "Typ"; break; 
-     case egrad: fout << "Grad/GFP"; break; 
-     case eherkunft: fout << "Herkunft"; break; 
-     case estand: fout << "Stand"; break; 
-     case egestalt: fout << "Gestalt"; break; 
-     case ekoerpergroesse: fout << "Größe"; break; 
-     case egewicht: fout << "Gewicht"; break; 
-     case eBeruf: fout << "Beruf"; break; 
-     case eglaube: fout << "Glaube"; break; 
-     case est: fout << "St"; break; 
-     case egw: fout << "Gw"; break; 
-     case egs: fout << "Gs"; break; 
-     case eko: fout << "Ko"; break; 
-     case ein: fout << "In"; break; 
-     case ezt: fout << "Zt"; break; 
-     case eau: fout << "Au"; break; 
-     case epa: fout << "pA"; break; 
-     case ewk: fout << "Wk"; break; 
-     case esb: fout << "Sb"; break; 
-     case eb: fout << "B"; break; 
-     case ezauber: fout << "Zaubern"; break; 
-     case eabwehr: fout << "Abwehr"; break; 
-     case eres: fout << "Resistenz"; break; 
-     case esinnse: fout << "Sehen"; break; 
-     case esinnh: fout << "Hören"; break; 
-     case esinnr: fout << "Riechen"; break; 
-     case esinnsc: fout << "Schmecken"; break; 
-     case esinnt: fout << "Tasten"; break; 
-     case esinnss: fout << "Sechster Sinn"; break; 
-     case eWahrnehmung: fout << "Wahrnehmung"; break; 
-     case eSpurenlesen: fout << "Spurenlesen"; break; 
-     case eFallen_entdecken: fout << "Fallen entdecken"; break; 
-     case eSuchen: fout << "Suchen"; break; 
-     case eMenschenkenntnis: fout << "Menschenkenntnis"; break; 
-     case eSagenkunde: fout << "Sagenkunde"; break; 
-     case eZauberkunde: fout << "Zauberkunde"; break; 
-     case eGassenwissen: fout << "Gassenwissen"; break; 
-     case eHimmelskunde: fout << "Himmelskunde"; break; 
-     case eSchaetzen: fout << "Schätzen"; break; 
-     case eangFert: fout << "angeborene\\newline Fertigkeiten"; break; 
-     case eWaffen: fout << "Waffen"; break;
-     case eSprachen: fout << "Sprachen"; break; 
-     case eSchriften: fout << "Schriften"; break; 
+     case enamespieler: S="Spieler"; break; 
+     case enamecharakter: S="Figur"; break; 
+     case espez: S="Spezies"; break; 
+     case etyp: S="Typ"; break; 
+     case egrad: S="Grad/GFP"; break; 
+     case eherkunft: S="Herkunft"; break; 
+     case estand: S="Stand"; break; 
+     case egestalt: S="Gestalt"; break; 
+     case ekoerpergroesse: S="Größe"; break; 
+     case egewicht: S="Gewicht"; break; 
+     case eBeruf: S="Beruf"; break; 
+     case eglaube: S="Glaube"; break; 
+     case est: S="St"; break; 
+     case egw: S="Gw"; break; 
+     case egs: S="Gs"; break; 
+     case eko: S="Ko"; break; 
+     case ein: S="In"; break; 
+     case ezt: S="Zt"; break; 
+     case eau: S="Au"; break; 
+     case epa: S="pA"; break; 
+     case ewk: S="Wk"; break; 
+     case esb: S="Sb"; break; 
+     case eb: S="B"; break; 
+     case ezauber: S="Zaubern"; break; 
+     case eabwehr: S="Abwehr"; break; 
+     case eres: S="Resistenz"; break; 
+     case esinnse: S="Sehen"; break; 
+     case esinnh: S="Hören"; break; 
+     case esinnr: S="Riechen"; break; 
+     case esinnsc: S="Schmecken"; break; 
+     case esinnt: S="Tasten"; break; 
+     case esinnss: S="Sechster Sinn"; break; 
+     case eWahrnehmung: S="Wahrnehmung"; break; 
+     case eSpurenlesen: S="Spurenlesen"; break; 
+     case eFallen_entdecken: S="Fallen entdecken"; break; 
+     case eSuchen: S="Suchen"; break; 
+     case eMenschenkenntnis: S="Menschenkenntnis"; break; 
+     case eSagenkunde: S="Sagenkunde"; break; 
+     case eZauberkunde: S="Zauberkunde"; break; 
+     case eGassenwissen: S="Gassenwissen"; break; 
+     case eHimmelskunde: S="Himmelskunde"; break; 
+     case eSchaetzen: S="Schätzen"; break; 
+     case eangFert: S="angeborene\\newline Fertigkeiten"; break; 
+     case eWaffen: S="Waffen"; break;
+     case eSprachen: S="Sprachen"; break; 
+     case eSchriften: S="Schriften"; break; 
      default :break;
    }
-  for_each(fout,what);
-  fout << "\\\\\\hline\n";
+  if(S!="")
+   {
+     fout << "\\n "<<S;
+     for_each(fout,what);
+     fout << "\\\\\\hline\n";
+   }
 }
 
 struct st_is{int e;std::string s;
@@ -153,13 +157,13 @@ void LaTeX_drucken::for_each(ostream &fout,const ewhat& what)
        case epa: V.push_back(st_is(W.pA())); break;
        case ewk: V.push_back(st_is(W.Wk())); break;
        case esb: V.push_back(st_is(W.Sb())); break;
-/*
        case eb: {
-        int b=hauptfenster->getChar().Erfolgswert("Laufen",hauptfenster->getCDatabase()).first-2;
-        int bs=W.B()+b;
-        V.push_back(st_is(b)); break;
+           int b=hauptfenster->getChar().Erfolgswert("Laufen",hauptfenster->getCDatabase()).first;
+           if(b==-99) b=0;
+           else b-=2;
+           int bs= W.B() + b;
+           V.push_back(st_is(bs)); break;
           }
-*/
        case ezauber: V.push_back(st_is(W.Zaubern_wert())); break;
        case eabwehr:  V.push_back(st_is(W.Abwehr_wert())); break;
        case eres: fout << " & "<<W.Resistenzen_alle(hauptfenster->getChar().getVTyp()); break; 

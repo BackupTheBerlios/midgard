@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.11 2002/07/09 09:28:26 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.12 2002/07/19 08:10:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,18 +36,20 @@ class LaTeX_drucken
     enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung,TeX_Spielleiter};
     enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
  private:
-    enum ewhat{etyp,espez,emerk,est,egs,egw,eko,ein,ezt,eau,epa,esb,ewk,eb,ekaw,egsb,egn,esg,
+    enum ewhat{enamecharakter,enamespieler,egrad,etyp,espez,
+               espezialisierung,estand,eherkunft,eglaube,
+               egfp,eaep,ekep,ezep,egeld,eruestung,eruestunglp,
+               eruestungb,eruestunglpb,
+               emerk,est,
+               egs,egw,eko,ein,ezt,eau,epa,esb,ewk,eb,ekaw,egsb,egn,esg,
                elp,eap,eboau,ebosc,eboan,eboab,eboza,ebopsy,ebophs,ebophk,
                eres,epsy,ephs,ephk,egift,eabwehr,eabwehrfinal,eabwehrmitwaffe,
                eppresistenz,eppabwehr,eppzauber,ezauber,ehand,eraufen,
                ealter,egewicht,egestalt,ekoerpergroesse,
-               egrad,espezialisierung,estand,eherkunft,eglaube,enamecharakter,
-               enamespieler,egfp,eaep,ekep,ezep,egeld,eruestung,eruestunglp,
-               eruestungb,eruestunglpb,esinnse,esinnh,esinnr,esinnsc,esinnt,esinnss,
-               eMAX,
+               esinnse,esinnh,esinnr,esinnsc,esinnt,esinnss,
          eWahrnehmung,eSpurenlesen,eFallen_entdecken,eSuchen,eMenschenkenntnis,
          eSagenkunde,eZauberkunde,eGassenwissen,eHimmelskunde,eSchaetzen,eangFert,
-         eWaffen,eSprachen,eSchriften,eBeruf};
+         eWaffen,eSprachen,eSchriften,eBeruf,eMAX};
     static const unsigned int maxsprach=23;
     static const unsigned int maxfert=40;
     static const unsigned int maxwaffen=9;
