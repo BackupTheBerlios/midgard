@@ -193,6 +193,11 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
  if(What()==FERTIGKEIT ) assert(tag);
  else if(What()==WAFFE) 
  {  tag=find_Tag("Waffen","Waffe","Name",Name());
+//    assert(tag);
+if (!tag) 
+{ cerr << "get_Steigern_Kosten_map: nicht existente Waffe " << Name() << '\n'; 
+return; 
+}
     int schwierigkeit=tag->getIntAttr("Schwierigkeit");
     kosten=find_Tag("Waffen-Steigern","Kosten","Schwierigkeit",itos(schwierigkeit));
  }
@@ -208,8 +213,9 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
           steigern_wie_t=cH_Fertigkeit(steigern_wie)->tag;
        else
           steigern_wie_t=this->tag;
-       assert(steigern_wie_t);
-       kosten=steigern_wie_t->find("Kosten");
+       if (steigern_wie_t)
+          kosten=steigern_wie_t->find("Kosten");
+       else cerr << "!steigern_wie_t: " << Name() << ',' << What() << '\n';
     } catch (const NotFound &e) // keine Fertigkeit
     {  kosten=find_Tag("SteigernKosten","Kosten","Fertigkeit",steigern_wie);
     }
