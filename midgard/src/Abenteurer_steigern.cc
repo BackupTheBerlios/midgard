@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.27 2003/07/01 10:03:57 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.28 2003/07/02 07:08:59 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -129,8 +129,11 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
    }
  else if (!steigern_usp(wie,kosten,MBE,dummy,Enums::eMBEm,info,bool_steigern)) return false;
 
-
- getWerte().addGFP(kosten);
+ if(bool_steigern.Spruchrolle)
+    getWerte().addGFP((*MBE)->Kosten(*this)/10);
+ else  getWerte().addGFP(kosten);
+     
+     
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if     ((*MBE).What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle   

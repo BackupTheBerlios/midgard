@@ -125,7 +125,7 @@ void table_steigern::neu_lernen(MBEmlt &MBE,const int bonus)
 {
  std::string info;
  bool ok=hauptfenster->getChar()->neu_lernen(MBE,info,get_wie_steigern(),get_bool_steigern(),bonus);
- hauptfenster->set_status(info);
+ hauptfenster->set_status(info,false);
  if(!ok) return ;
 //ab hier neuer code:
  Abenteurer &A=hauptfenster->getAben();
