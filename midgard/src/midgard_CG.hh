@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.142 2002/01/23 10:00:56 thoma Exp $
+// $Id: midgard_CG.hh,v 1.143 2002/01/23 15:13:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -362,9 +362,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void zauber_zeigen();
         void on_spruchrolle_toggled();
         void on_checkbutton_zaubersalze_toggled();
-        void on_checkbutton_beschwoerungen_toggled();
         void on_checkbutton_alle_zauber_toggled();
-        void on_checkbutton_zaubermittel_toggled();
         bool spruchrolle_wuerfeln(const cH_MidgardBasicElement& zauber);
         void on_leaf_selected_alte_zauber(cH_RowDataBase d);
         void on_leaf_selected_neue_zauber(cH_RowDataBase d);

@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.8 2002/01/23 09:00:51 thoma Exp $               
+// $Id: Region.hh,v 1.9 2002/01/23 15:11:19 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -75,6 +75,7 @@ class Region  : public HandleContent
    bool operator==(const Region& b) const {return Name()==b.Name();}
 
    static bool setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active);
+   static bool isActive(const std::vector<cH_Region>& LR,const cH_Region& R);
 };
 
 class cH_Region : public Handle<const Region>

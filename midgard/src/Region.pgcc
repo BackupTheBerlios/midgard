@@ -132,6 +132,13 @@ bool Region::setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool 
  return false;
 }
 
+bool Region::isActive(const std::vector<cH_Region>& LR,const cH_Region& R)
+{
+ for(std::vector<cH_Region>::const_iterator i=LR.begin();i!=LR.end();++i)
+     if(R==*i)  return (*i)->Active();
+ return false;
+}
+
 
 Regionen_All::Regionen_All(Gtk::ProgressBar *progressbar)
 {
