@@ -1,0 +1,317 @@
+#include "Waffe.hh"
+#include "midgard_CG.hh"
+#include <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
+#include "class_typen.hh"
+exec sql include sqlca;
+
+cH_Waffe::cache_t cH_Waffe::cache;
+
+cH_Waffe::cH_Waffe(const std::string& name,const vector<H_Data_typen>& Typ,
+                  int lernpunkte,bool pflicht)
+{
+ st_index index(name,Typ,lernpunkte);
+ cH_Waffe *cached(cache.lookup(index));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_Waffe(new Waffe(name,Typ,lernpunkte,pflicht));  
+   cache.Register(index,*this);
+  }
+}
+
+void Waffe::get_Waffe()
+{
+  exec sql begin declare section;
+   int db_schwierigkeit,db_schaden_b, db_st,db_ge,
+      db_reichweite_0,db_reichweite_n,db_reichweite_m,
+      db_reichweite_f;
+   char query[1024],db_grundkenntnisse[50],db_art[50],db_art2,
+      db_region[10],db_schaden[30],db_angriffsrangmod,
+      db_wm_abwehr_leicht, db_wm_abwehr_schwer, db_voraussetzung[50];
+  exec sql end declare section; 
+  std::string squery ="select grundkenntnisse,schwierigkeit,art,coalesce(art_2,''),
+      coalesce(schaden,''),coalesce(schaden_b,''),
+      coalesce(angriffsrangmod,''),coalesce(wm_abwehr_leicht,''),
+      coalesce(wm_abwehr_schwer,''),st,ge,coalesce(zusatz,''),
+      coalesce(region,''),coalesce(reichweite_0,-1),
+      coalesce(reichweite_n,-1),coalesce(reichweite_m,-1),
+      coalesce(reichweite_f,-1)
+      from waffen
+      where name = '"+Name()+"'";
+  strncpy(query,squery.c_str(),sizeof(query));
+  Transaction tr;
+  exec sql prepare cl_waffen_ein_ from :query ;
+  exec sql declare cl_waffen_ein cursor for cl_waffen_ein_ ;
+
+//cout << query<<'\n';
+  exec sql open cl_waffen_ein;
+  SQLerror::test(__FILELINE__);
+  exec sql fetch cl_waffen_ein into 
+   :db_grundkenntnisse,:db_schwierigkeit,:db_art,:db_art2,:db_schaden,
+   :db_schaden_b,:db_angriffsrangmod,:db_wm_abwehr_leicht,:db_wm_abwehr_schwer,
+   :db_st,:db_ge,:db_voraussetzung,:db_region,:db_reichweite_0,:db_reichweite_n,
+   :db_reichweite_m,:db_reichweite_f;
+  SQLerror::test(__FILELINE__);
+   grundkenntnisse=db_grundkenntnisse;
+   schwierigkeit=db_schwierigkeit;
+   art=db_art;
+   art2=db_art2;
+   schaden=db_schaden;
+   schaden_bonus=db_schaden_b;
+   angriffsrangmod=db_angriffsrangmod;
+   wm_abwehr_leicht=db_wm_abwehr_leicht;
+   wm_abwehr_schwer=db_wm_abwehr_schwer;
+   st=db_st; ge=db_ge;
+   voraussetzung=db_voraussetzung;
+   region=db_region;
+   reichweite_0=db_reichweite_0;reichweite_n=db_reichweite_n;
+   reichweite_m=db_reichweite_m;reichweite_f=db_reichweite_f;
+
+  exec sql close cl_waffen_ein;
+  tr.close();
+}
+
+void Waffe::get_Alias() 
+{
+  exec sql begin declare section;
+   char query[1024], db_alias[50], db_region[10], db_schaden[30];
+   int db_schaden_b,db_angriffs_mod;
+  exec sql end declare section; 
+  std::string squery ="select alias,
+      coalesce(schaden,''),coalesce(schaden_b,''),
+      coalesce(angriffs_mod,''),region
+      from waffen_region_name where name = '"+Name()+"'";
+  strncpy(query,squery.c_str(),sizeof(query));
+  Transaction tr;
+  exec sql prepare cl_walias_ein_ from :query ;
+  exec sql declare cl_walias_ein cursor for cl_walias_ein_ ;
+
+//cout << query<<'\n';
+  exec sql open cl_walias_ein;
+  SQLerror::test(__FILELINE__);
+  while (true)
+   {
+     exec sql fetch cl_walias_ein into 
+      :db_alias,:db_schaden,:db_schaden_b,:db_angriffs_mod,:db_region;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break;
+     list_alias.push_back(st_alias( db_alias,db_region,db_schaden,db_schaden_b,db_angriffs_mod));
+   }
+  exec sql close cl_waffen_ein;
+  tr.close();
+//
+//for (list<Waffe::st_alias>::const_iterator j=list_alias.begin();j!=list_alias.end();++j)
+//cout << Name()<<'\t'<<(*j).name<<'\t'<<(*j).region<<'\n';
+
+}
+
+double Waffe::Standard_Faktor() const
+{
+  double fac;
+    if      (midgard_CG::standard_one_G(Standard()) ) fac = 0.5;
+    else if (midgard_CG::standard_all_S(Standard()) ) fac = 1.0;
+    else fac = 2.0; 
+ return fac;
+}
+
+void Waffe::set_Standard(const vector<H_Data_typen>& Typ)
+{
+  assert(Typ.size()==2);
+  std::string swaffe="Waffen";
+  if (Name()=="Peitsche") swaffe="Peitsche";
+  if (Name()=="Lasso") swaffe="Lasso";
+  if (Name()=="Netz") swaffe="Netz";
+  if (Name()=="Bola") swaffe="Bola";
+
+  exec sql begin declare section;
+   char db_ergebnis[20],db_ergebnis2[20];
+   char query[200];
+  exec sql end declare section;
+  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
+  std::string squery = "select "+Typ[0]->Short() ;
+  if (Typ[1]->Short()!="") squery += ", " + Typ[1]->Short() ;
+  squery += " from waffen_standard where fertigkeit  = '"+swaffe+"'";
+  strncpy(query,squery.c_str(),sizeof(query));  
+
+  Transaction tr;
+  exec sql prepare wafein_ from :query ;
+   exec sql declare wafein cursor for wafein_ ;
+   exec sql open wafein;
+   SQLerror::test(__FILELINE__);
+   if (Typ[1]->Short()!="") exec sql fetch wafein into  :db_ergebnis, :db_ergebnis2;
+   else exec sql fetch wafein into  :db_ergebnis;
+   SQLerror::test(__FILELINE__,100);
+   exec sql close wafein;
+   tr.close();
+   standard.clear();
+   standard.push_back(db_ergebnis);
+   standard.push_back(db_ergebnis2);
+}
+
+
+bool Waffe::SG_Voraussetzung(const Grundwerte& Werte) const
+{
+  if ( St()<=Werte.St() && Ge()<=Werte.Ge() ) return true;
+  else return false ;
+}
+
+std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name) const
+{
+  if (waffe->Art()=="Verteidigung") return "-"+itos(waffe->Schaden_Bonus(name))+"AP";
+  std::string s=waffe->Schaden(name);
+  int sb=waffe->Schaden_Bonus(name) + sl_Bonus();
+  if (Name()=="waffenloser Kampf") 
+      { s="W6";
+        int w = waffe->Erfolgswert();
+        if ( 4<=w && w <= 7) sb=-4;
+        if ( 8<=w && w <=11) sb=-3;
+        if (12<=w && w <=15) sb=-2;
+        if (16<=w)           sb=-1;
+      }
+  if (waffe->Art()!="Fern") sb += Werte.bo_Sc();
+  if(sb == 0) return s;
+  if(sb  > 0) return s+"+"+itos(sb);
+  if(sb  < 0) return s+"-"+itos(sb);
+  
+  abort(); //Never get here
+}
+
+
+
+std::string Waffe::Reichweite() const
+{  
+   if(reichweite_0==-1) return "";
+   return itos(reichweite_0)+"/"+itos(reichweite_n)+"/"+
+               itos(reichweite_m)+"/"+itos(reichweite_f);
+}
+
+std::string Waffe::WM_Abwehr() const
+{
+  std::string s1=wm_abwehr_leicht, s2 = wm_abwehr_schwer;
+  if (s1=="" && s2=="") return "";
+  if (s1=="") s1="0";
+  if (s2=="") s2="0";
+  return s1+"$|$"+s2;
+}
+
+
+int Waffe::WM_Angriff(const std::string& name) const 
+{
+  if(Name()==name) return 0;
+  for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+    if (name==(*i).name) return (*i).angriffs_mod;
+  assert(false);
+}
+
+std::string Waffe::Schaden(const std::string& name) const 
+{
+  if(Name()==name) return schaden;
+  for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+    if (name==(*i).name) return (*i).schaden;
+  assert(false);
+}
+
+int Waffe::Schaden_Bonus(const std::string& name) const 
+{
+  if(Name()==name) return schaden_bonus;
+  for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+    if (name==(*i).name) return (*i).schaden_bonus;
+  assert(false);
+}
+
+std::string Waffe::Region(const std::string& name) const
+{
+  if(Name()==name) return region;
+  for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+   if (name==(*i).name) return (*i).region;
+  assert(false);
+}
+
+
+std::string Waffe::get_waffe_from_alias(const std::string& alias, const std::string& region)
+{
+  exec sql begin declare section;
+   char db_alias[50],db_region[10];
+   char db_ergebnis[50];
+  exec sql end declare section;
+
+  strncpy(db_alias,alias.c_str(),sizeof(db_alias));
+  strncpy(db_region,region.c_str(),sizeof(db_region));
+  exec sql select name into :db_ergebnis from waffen_region_name
+         where alias = :db_alias and region = :db_region limit 1;  
+  SQLerror::test(__FILELINE__,100);
+  if (sqlca.sqlcode) return(alias); // waffe = alias
+  else return(db_ergebnis);
+}
+
+int Waffe::Maxwert() const
+{
+ int maxwert=0;
+ if (Art()== "Angriff" || Art() == "Fern")
+  {
+    maxwert = 17;
+    if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 19;
+    if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 14;
+  }
+ if (art == "Verteidigung")
+  {
+     maxwert = 7;
+     if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 8;
+     if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 6;
+  }
+ return maxwert;
+}
+
+
+std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
+   const std::list<cH_Waffe>& list_Waffen,
+   const std::list<H_WaffeBesitz>& list_Waffen_besitz,
+   const vector<H_Data_typen>& Typ,
+   const Grundwerte& Werte)
+{
+   std::list<H_WaffeBesitz> Verteidigungswaffen;
+   Verteidigungswaffen.push_back(new WaffeBesitz(
+      cH_Waffe("waffenloser Kampf",Typ),"waffenloser Kampf","",0,0,""));
+   for (std::list<H_WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
+         i!=list_Waffen_besitz.end();++i)
+     {
+       if ((*i)->Waffe()->Art()=="Verteidigung" || (*i)->Waffe()->Name()=="Kampfstab" || (*i)->Name()=="Sai" ||
+          (*i)->Name()=="Tonfa" || (*i)->Name()=="GunSen" || (*i)->Name()=="BuKasa" || 
+          (*i)->Name()=="KusariGama" || (*i)->Name()=="TetsuBo" ) 
+         Verteidigungswaffen.push_back(*i);
+     }
+   std::string Vwaffewert;
+   for(std::list<H_WaffeBesitz>::const_iterator i=Verteidigungswaffen.begin();
+         i!=Verteidigungswaffen.end();/*siehe unten*/)
+     {
+      std::vector<int> vwert;
+      for (std::list<cH_Waffe>::const_iterator j=list_Waffen.begin();
+            j!=list_Waffen.end();++j)      
+         {
+            if ((*i)->Name() == (*j)->Name()) 
+               { 
+                 int erf_wert;
+                 if ((*i)->Name()=="Kampfstab"||(*i)->Name()=="Sai"||(*i)->Name()=="Tonfa"||(*i)->Name()=="KusariGama") 
+                  {erf_wert = (*j)->Erfolgswert()-5; (erf_wert<=7)?:erf_wert=7; }
+                 else if ((*i)->Name()=="TetsuBo")
+                  {erf_wert = (*j)->Erfolgswert()-7; (erf_wert<=7)?:erf_wert=7; }
+                 else if ((*i)->Name()=="GunSen"||(*i)->Name()=="BuKasa")
+                  {erf_wert = (*j)->Erfolgswert(); (erf_wert<=10)?:erf_wert=10; }
+                 else if ((*i)->Name()=="waffenloser Kampf")
+                  {if ( (*j)->Erfolgswert()<8)              break       ;
+                   if ( 8<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<12) erf_wert = 1;
+                   if (12<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<16) erf_wert = 2;
+                   if (16<=(*j)->Erfolgswert())                    erf_wert = 3;
+                  }
+                 else erf_wert = (*j)->Erfolgswert();
+                 int ewert = Werte.Abwehr_wert()+Werte.bo_Ab() // Grundwerte
+                           + erf_wert + (*i)->av_Bonus() ;// Waffenwerte
+                 Vwaffewert += itos(ewert);
+               }
+         }
+       ++i;
+       if (i!=Verteidigungswaffen.end() && Vwaffewert!="") Vwaffewert += "$|$"; 
+     }
+   return Vwaffewert;
+}

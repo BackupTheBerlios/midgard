@@ -1,0 +1,96 @@
+#include "WaffeGrund.hh"
+#include "midgard_CG.hh"
+#include <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
+#include "class_typen.hh"
+exec sql include sqlca;
+
+cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
+
+cH_WaffeGrund::cH_WaffeGrund(const std::string& name,const vector<H_Data_typen>& Typ)
+{
+ st_index index(name,Typ);
+ cH_WaffeGrund *cached(cache.lookup(index));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_WaffeGrund(new WaffeGrund(name,Typ));  
+   cache.Register(index,*this);
+  }
+}
+
+void WaffeGrund::get_WaffeGrund()
+{
+  exec sql begin declare section;
+   int db_kosten;
+   char query[1024],db_region[10];
+  exec sql end declare section; 
+  std::string squery ="select fp,coalesce(region,'')
+      from waffen_grund where name = '"+Name()+"'";
+  strncpy(query,squery.c_str(),sizeof(query));
+  Transaction tr;
+  exec sql prepare cl_waffeng_ein_ from :query ;
+  exec sql declare cl_waffeng_ein cursor for cl_waffeng_ein_ ;
+
+  exec sql open cl_waffeng_ein;
+  SQLerror::test(__FILELINE__);
+  exec sql fetch cl_waffeng_ein into :db_kosten,:db_region;
+  SQLerror::test(__FILELINE__);
+   kosten=db_kosten;
+   region=db_region;
+
+  exec sql close cl_waffeng_ein;
+  tr.close();
+}
+
+double WaffeGrund::Standard_Faktor() const
+{
+  double fac;
+    if      (midgard_CG::standard_one_G(Standard()) ) fac = 0.5;
+    else if (midgard_CG::standard_all_S(Standard()) ) fac = 1.0;
+    else fac = 2.0; 
+ return fac;
+}
+
+void WaffeGrund::set_Standard(const vector<H_Data_typen>& Typ)
+{
+  assert(Typ.size()==2);
+  std::string swaffe="Waffen";
+  if (Name()=="Peitsche") swaffe="Peitsche";
+  if (Name()=="Lasso") swaffe="Lasso";
+  if (Name()=="Netz") swaffe="Netz";
+  if (Name()=="Bola") swaffe="Bola";
+
+  exec sql begin declare section;
+   char db_ergebnis[20],db_ergebnis2[20];
+   char query[200];
+  exec sql end declare section;
+  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
+  std::string squery = "select "+Typ[0]->Short() ;
+  if (Typ[1]->Short()!="") squery += ", " + Typ[1]->Short() ;
+  squery += " from waffen_standard where fertigkeit  = '"+swaffe+"'";
+  strncpy(query,squery.c_str(),sizeof(query));  
+
+  Transaction tr;
+  exec sql prepare wafein_ from :query ;
+   exec sql declare wafein cursor for wafein_ ;
+   exec sql open wafein;
+   SQLerror::test(__FILELINE__);
+   if (Typ[1]->Short()!="") exec sql fetch wafein into  :db_ergebnis, :db_ergebnis2;
+   else exec sql fetch wafein into  :db_ergebnis;
+   SQLerror::test(__FILELINE__,100);
+   exec sql close wafein;
+   tr.close();
+   standard.clear();
+   standard.push_back(db_ergebnis);
+   standard.push_back(db_ergebnis2);
+}
+
+/*
+std::string Is_Grund(const list<cH_WaffeGrund>& L,const std::string& name)
+{
+  for (list<cH_WaffeGrund>::const_iterator i=L.begin();i!=L.end();++i)
+   if ((*i)->Name()==name) return "x";
+  return "";
+}
+*/

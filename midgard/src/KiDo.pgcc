@@ -1,0 +1,84 @@
+/*  Midgard Character Generator
+ *  Copyright (C) 2001 Malte Thoma
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+// generated 2001/2/11 14:16:06 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "KiDo.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+
+cH_KiDo::cache_t cH_KiDo::cache;
+
+cH_KiDo::cH_KiDo(const std::string& name,const vector<H_Data_typen>& Typ, const Ausnahmen& ausnahmen)
+{
+ st_index index(name,Typ);
+ cH_KiDo *cached(cache.lookup(index));
+ if (cached) *this=*cached;
+ else
+  {
+//cout << "cH_"<<name<<'\n';
+   *this=cH_KiDo(new KiDo(name,Typ,ausnahmen));
+   cache.Register(index,*this);
+  }
+
+}
+
+
+
+void KiDo::get_KiDo()
+{
+  exec sql begin declare section;
+   char db_name_orig[50],db_name[50],db_stufe[20],db_stil[20],db_effekt[1024];
+   int db_fp,db_ap;
+  exec sql end declare section;
+
+  strncpy(db_name_orig,(Hoho()).c_str(),sizeof(db_name_orig));
+  exec sql select name,stufe,stil,fp,ap,effekt
+       into :db_name,:db_stufe,:db_stil,:db_fp,:db_ap,:db_effekt
+       from kido where name_orig = :db_name_orig;
+  SQLerror::test(__FILELINE__);
+  name = db_name;
+  stufe = db_stufe;
+  stil=db_stil;
+  kosten=db_fp;
+  ap=db_ap;
+  effekt=db_effekt;  
+}
+
+
+int KiDo::get_erfolgswert_kido(const std::list<cH_Fertigkeit>& L)
+{
+ for (std::list<cH_Fertigkeit>::const_iterator i= L.begin();i!=L.end();++i)
+   {
+      if ((*i)->Name() == "KiDo") return (*i)->Erfolgswert();
+   }
+// should never get here 
+// std::string strinfo="WARNUNG: Dieser Charakter beherrscht die Fertigkeit KiDo
+// manage (new WindowInfo(strinfo));
+// return 0; 
+  abort();
+}   

@@ -1,0 +1,103 @@
+#include "Fertigkeiten.hh"
+#include "midgard_CG.hh"
+#include <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
+#include "class_typen.hh"
+exec sql include sqlca;
+
+cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
+
+cH_Fertigkeit::cH_Fertigkeit(const std::string& name,const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen,int lernpunkte,bool pflicht)
+{
+ st_index index(name,Typ,lernpunkte);
+ cH_Fertigkeit *cached(cache.lookup(index));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_Fertigkeit(new Fertigkeit(name,Typ,ausnahmen,lernpunkte,pflicht));  
+   cache.Register(index,*this);
+  }
+}
+
+void Fertigkeit::get_Fertigkeit()
+{
+  exec sql begin declare section;
+   int db_lp,db_anfangswert0,db_anfangswert,db_kosten;
+   char query[1024],db_region[10],db_attribut[10],db_voraussetzung[50];
+  exec sql end declare section; 
+  std::string squery ="select lp,coalesce(anfangswert0,0),
+      coalesce(anfangswert,0),coalesce(fp,0),coalesce(region,''),
+      coalesce(attribut,''), coalesce(v.fertigkeit,'')
+      from fertigkeiten f, fertigkeiten_voraussetzung v
+      where f.fertigkeit = '"+Name()+"'
+      and f.fertigkeit = v.name";
+     strncpy(query,squery.c_str(),sizeof(query));
+  Transaction tr;
+  exec sql prepare cl_fertigkeit_ein_ from :query ;
+  exec sql declare cl_fertigkeit_ein cursor for cl_fertigkeit_ein_ ;
+
+//cout << query<<'\n';
+  exec sql open cl_fertigkeit_ein;
+  SQLerror::test(__FILELINE__);
+  exec sql fetch cl_fertigkeit_ein into :db_lp, 
+      :db_anfangswert0, :db_anfangswert, :db_kosten, :db_region,
+      :db_attribut,:db_voraussetzung;
+  SQLerror::test(__FILELINE__);
+  if (lernpunkte==0) lernpunkte=db_lp;
+  anfangswert0=db_anfangswert0;
+  anfangswert=db_anfangswert;
+  kosten=db_kosten;
+  region=db_region;
+  attribut=db_attribut;
+  voraussetzung=db_voraussetzung;
+  exec sql close cl_fertigkeit_ein;
+  tr.close();
+}
+
+
+double Fertigkeit::Standard_Faktor() const
+{
+  double fac = ausnahmen.Ausnahmen_float(Name());
+  if (fac!=0) return fac;
+  if      (midgard_CG::standard_one_G(Standard()) ) fac = 0.5;
+  else if (midgard_CG::standard_all_S(Standard()) ) fac = 1.0;
+  else fac = 2.0; 
+  return fac;
+}
+
+void Fertigkeit::set_Standard(const vector<H_Data_typen>& Typ)
+{
+  assert(Typ.size()==2);
+  exec sql begin declare section;
+   char db_ergebnis[20],db_ergebnis2[20];
+   char query[200];
+  exec sql end declare section;
+  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
+  std::string squery = "select "+Typ[0]->Short() ;
+  if (Typ[1]->Short()!="") squery += ", " + Typ[1]->Short() ;
+  squery += " from fertigkeiten where fertigkeit  = '"+Name()+"'";
+  strncpy(query,squery.c_str(),sizeof(query));  
+
+   Transaction tr;
+   exec sql prepare fert from :query ;
+   exec sql declare fertig cursor for fert ;
+   exec sql open fertig;
+   SQLerror::test(__FILELINE__);
+   if (Typ[1]->Short()!="") exec sql fetch fertig into  :db_ergebnis, :db_ergebnis2;
+   else exec sql fetch fertig into  :db_ergebnis;
+   SQLerror::test(__FILELINE__,100,-209);
+   exec sql close fertig;
+   tr.close();
+   standard.clear();
+   standard.push_back(db_ergebnis);
+   standard.push_back(db_ergebnis2);
+   ausnahmen.Ausnahmen_string(Name(),standard);
+}
+
+/*
+void Fertigkeit::set_Erfolgswert(std::list<cH_Fertigkeit> L,std::string name,int e)
+{
+  for (std::list<cH_Fertigkeit>::iterator i=L.begin();i!=L.end();++i)
+    if ((*i)->Name()==name) {(*i)->set_Erfolgswert(e) ;break;}
+}
+*/
