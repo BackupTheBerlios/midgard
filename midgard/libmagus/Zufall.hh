@@ -19,23 +19,17 @@
 #ifndef MAGUSZUFALL
 #define MAGUSZUFALL
 
-//#include "midgard_CG.hh" 
-
 #include "Enums.hh" 
 #include "LernListen.hh"
 
-class midgard_CG;
 class Lernpunkte;
 #include "Abenteurer.hh"
 #include "zufall.h"
 
 class Zufall
 {
-      midgard_CG *hauptfenster;
       Abenteurer &Aben;
       Abenteurer oldAben;
-      Datenbank Database;
-      Random random;
       LernListen LL;
       
       enum B_VORGABE_BITS{B_Spezies,B_Typ,B_Herkunft,B_AngeFert,B_St,B_Gs,B_Gw,
@@ -44,7 +38,7 @@ class Zufall
 
    public:
 
-      Zufall(midgard_CG *h) ;
+      Zufall() ;
 
       enum e_Vorgabe{eSpezies=1<<B_Spezies,eTyp=1<<B_Typ,
          eHerkunft=1<<B_Herkunft,eAngeFert=1<<B_AngeFert,

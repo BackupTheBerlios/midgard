@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.9 2003/07/18 06:38:00 christof Exp $               
+// $Id: Abenteurer.hh,v 1.10 2003/07/21 06:23:15 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -147,7 +147,9 @@ public:
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
    void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version);
    void load_regionen_optionen(const Tag *tag, int xml_version);
-
+   
+   Optionen &getOptionen() { return optionen; }
+   const Optionen &getOptionen() const { return optionen; }
 
    bool operator==(const Abenteurer& a) const
       {return getWerte().Name_Abenteurer()==a.getWerte().Name_Abenteurer() &&

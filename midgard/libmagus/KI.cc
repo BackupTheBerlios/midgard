@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,12 +17,13 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "midgard_CG.hh"
 #include "KI.hh"
 #include "zufall.h"
 #include <Misc/itos.h>
 #include "Zauber.hh"
 #include "Fertigkeiten.hh"
+#include <Ausgabe.hh>
+#include <iostream>
 
 void MagusKI::VerteileGFP(int gfp,const Prozente100 &p,
                           const Grund_Standard_Ausnahme_MBE &gsa)
@@ -75,7 +77,7 @@ void MagusKI::Verteile(int gfp)
   const int MAXCOUNT=100;
   while(gfp>0 && count<MAXCOUNT)
    {
-     int i=random.integer(1,100);
+     int i=Random::integer(1,100);
      const Enums::MBEListen was=Was();
      int spezial_allgemein=prozente100.getS(was);
 
@@ -95,7 +97,8 @@ void MagusKI::Verteile(int gfp)
      int kosten=teste_auf_gradanstieg();
      gfp-=kosten;
    }
-  if(count==MAXCOUNT) hauptfenster->set_status("Steigern abgebrochen, weil "+itos(MAXCOUNT)+" Versuche erfolglos blieben.");
+  if(count==MAXCOUNT) 
+     Ausgabe(Ausgabe::Error,"Steigern abgebrochen, weil "+itos(count)+" Versuche erfolglos blieben.");
   // Das Alter anpassen
   Aben.Steigertage2Alter();
 }
@@ -111,7 +114,7 @@ std::vector<MBEmlt> List_to_Vector(const std::list<MBEmlt> &L)
 
 const Enums::MBEListen MagusKI::Was() const
 {
-  int z=random.integer(1,100);
+  int z=Random::integer(1,100);
   const std::vector<Prozente100::st_was> V=prozente100.get100V();
   for(std::vector<Prozente100::st_was>::const_iterator i=V.begin();i!=V.end();++i)
     if( z <= i->prozent) return i->was; 
@@ -126,7 +129,7 @@ MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
   else             LL=KI_Prototypen_Liste(was,LL_,false);
   if(LL.empty()) return st_KI(EmptyList);
   std::vector<MBEmlt> V=List_to_Vector(LL);
-  int j=random.integer(0,V.size()-1);
+  int j=Random::integer(0,V.size()-1);
   MBEmlt M=V[j];
 
   if((*M)->Name()=="Geheimzeichen")   return st_KI((*M)->Name(),Geheimzeichen);
@@ -150,7 +153,7 @@ MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was)
   if(use_GSA_MBE) LL=KI_GSA_Liste(LL_);
   else            LL=KI_Prototypen_Liste(was,LL_,true);
   if(LL.empty()) return st_KI(EmptyList);
-  int j=random.integer(0,LL.size()-1);
+  int j=Random::integer(0,LL.size()-1);
   int x=0;
   for(std::list<MBEmlt>::iterator i=LL.begin();i!=LL.end();++i)
    {
@@ -175,8 +178,8 @@ MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was)
 
 std::list<MBEmlt> MagusKI::NeuLernenList(const Enums::MBEListen was,const int gfp) const
 {
-  LernListen LLD(Database);
-  bool nsc = hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active;
+  LernListen LLD;
+  bool nsc = Aben.getOptionen().OptionenCheck(Optionen::NSC_only).active;
    std::list<MBEmlt> LL;
   switch (was) {
      case Enums::sFert: 
@@ -239,7 +242,7 @@ std::list<MBEmlt> MagusKI::KI_GSA_Liste(const std::list<MBEmlt> &L)
      else if((*(*i))->Standardfertigkeit(Aben)) Standard.push_back(*i);
      else Ausnahme.push_back(*i);
    }
-  int z=random.integer(1,100);
+  int z=Random::integer(1,100);
   bool g=false,s=false,a=false;
   if     (z<GSA_MBE.getG()) g=true;
   else if(z<GSA_MBE.getG()+GSA_MBE.getS()) s=true;
@@ -269,19 +272,19 @@ std::list<MBEmlt> MagusKI::KI_GSA_Liste(const std::list<MBEmlt> &L)
 
 bool MagusKI::allowed_for_grad(const MBEmlt &M,eSL was)
 {
-  int maxkosten = int(0.5*Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1));
+  int maxkosten = int(0.5*Datenbank.GradAnstieg.getGFP(Aben.getWerte().Grad()+1));
   if(was==eNeuLernen && (*M)->Kosten(Aben)>maxkosten)
    {
 std::cerr << (*M)->Name() <<" wird nicht neu gelernt, weil es "<<(*M)->Kosten(Aben)
 <<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '
-<<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
+<<Datenbank.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
      return false;
    }
   else if(was==eSteigern && M->Steigern(Aben)>maxkosten)
    {
 std::cerr << (*M)->Name() <<" wird nicht gesteigert, weil es "<<(*M).Steigern(Aben)
 <<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '
-<<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
+<<Datenbank.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
      return false;
    }
   return true;
@@ -290,18 +293,19 @@ std::cerr << (*M)->Name() <<" wird nicht gesteigert, weil es "<<(*M).Steigern(Ab
 int MagusKI::teste_auf_gradanstieg()
 {
   int oldgrad=Aben.getWerte().Grad();
-  Aben.getWerte().setGrad(Database.GradAnstieg.get_Grad(Aben.getWerte().GFP()));
+  Aben.getWerte().setGrad(Datenbank.GradAnstieg.get_Grad(Aben.getWerte().GFP()));
   int kosten=0;
   if(oldgrad!=Aben.getWerte().Grad())
    {
      std::string info;
-     kosten+=Aben.get_ausdauer(Aben.getWerte().Grad(),Database,info,
+     kosten+=Aben.get_ausdauer(Aben.getWerte().Grad(),info,
                                 get_wie_steigern(eSpeziel),get_bool_steigern());
-     kosten+=Aben.get_ab_re_za(Enums::eAbwehr,get_wie_steigern(eSpeziel),true,Database,info,get_bool_steigern());
-     kosten+=Aben.get_ab_re_za(Enums::eResistenz,get_wie_steigern(eSpeziel),true,Database,info,get_bool_steigern());
-     kosten+=Aben.get_ab_re_za(Enums::eZaubern,get_wie_steigern(eSpeziel),true,Database,info,get_bool_steigern());
-     Aben.eigenschaften_steigern(info,Database);
-     hauptfenster->set_info(info);
+     kosten+=Aben.get_ab_re_za(Enums::eAbwehr,get_wie_steigern(eSpeziel),true,info,get_bool_steigern());
+     kosten+=Aben.get_ab_re_za(Enums::eResistenz,get_wie_steigern(eSpeziel),true,info,get_bool_steigern());
+     kosten+=Aben.get_ab_re_za(Enums::eZaubern,get_wie_steigern(eSpeziel),true,info,get_bool_steigern());
+     Aben.eigenschaften_steigern(info);
+     if (!info.empty())
+        Ausgabe(Ausgabe::Error,info);
    }  
   return kosten;
 }

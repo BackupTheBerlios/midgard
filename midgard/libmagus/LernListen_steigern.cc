@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.1 2003/07/18 06:38:01 christof Exp $
+// $Id: LernListen_steigern.cc,v 1.2 2003/07/21 06:23:15 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,13 +28,13 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBELi
 {
   std::list<cH_MidgardBasicElement> V_;
   switch(was) {
-     case Enums::sFert: V_=D.Fertigkeit; break;
-     case Enums::sWaff: V_=D.Waffe; break;
-     case Enums::sZaub: V_=D.Zauber; break;
-     case Enums::sSpra: V_=D.Sprache; break;
-     case Enums::sSchr: V_=D.Schrift; break;
-     case Enums::sWGru: V_=D.WaffeGrund; break;
-     case Enums::sZWerk:V_=D.Zauberwerk; break; 
+     case Enums::sFert: V_=Datenbank.Fertigkeit; break;
+     case Enums::sWaff: V_=Datenbank.Waffe; break;
+     case Enums::sZaub: V_=Datenbank.Zauber; break;
+     case Enums::sSpra: V_=Datenbank.Sprache; break;
+     case Enums::sSchr: V_=Datenbank.Schrift; break;
+     case Enums::sWGru: V_=Datenbank.WaffeGrund; break;
+     case Enums::sZWerk:V_=Datenbank.Zauberwerk; break; 
      default : assert(!"never get here\n");
    }
   std::list<MBEmlt> V;
@@ -65,7 +65,7 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBELi
           break;
          }
        case Enums::sWGru: {
-          if(!cH_WaffeGrund(*i)->is_sinnvoll(D.Waffe,A,*this)) continue;
+          if(!cH_WaffeGrund(*i)->is_sinnvoll(Datenbank.Waffe,A,*this)) continue;
           if (MBEm->ist_gelernt(A.List_WaffenGrund()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;

@@ -32,13 +32,13 @@
 cH_Spezies Zufall::getSpezies() const
 {
    std::vector<cH_Spezies> V=LL.getSpezies(true);
-   int i=random.integer(0,V.size()-1);
+   int i=Random::integer(0,V.size()-1);
    return V[i];   
 }
 
 Enums::geschlecht Zufall::getGeschlecht() const
 {
-  int i=random.integer(0,1);
+  int i=Random::integer(0,1);
   if     (i==0) return Enums::Mann;
   else if(i==1) return Enums::Frau;
   assert(!"never get here\n"); abort();
@@ -47,7 +47,7 @@ Enums::geschlecht Zufall::getGeschlecht() const
 cH_Typen Zufall::getTyp() const
 {
    std::vector<std::pair<cH_Typen,bool> > V=LL.getTypen(Aben,true);
-   int i=random.integer(0,V.size()-1);
+   int i=Random::integer(0,V.size()-1);
    return V[i].first;   
 }
 
@@ -57,7 +57,7 @@ Enums::StadtLand Zufall::getStadtLand() const
   else if(!hauptfenster->getChar()->Typ1()->Stadt())  return Enums::Land;
   else if(!hauptfenster->getChar()->Typ1()->Land()) return Enums::Stadt;
 
-  int i=random.integer(0,1);
+  int i=Random::integer(0,1);
   if     (i==0) return Enums::Stadt;
   else if(i==1) return Enums::Land;
   assert(!"never get here\n"); abort();
@@ -73,7 +73,7 @@ cH_Land Zufall::getLand() const
       if(i->second) V.push_back(i->first) ;
     }
    if(V.empty()){std::cerr << "Konnte kein Land wählen\n"; return cH_Land("Alba");}
-   int i=random.integer(0,V.size()-1);
+   int i=Random::integer(0,V.size()-1);
    return V[i];   
 }
 
@@ -86,7 +86,7 @@ MBEmlt Zufall::getMuttersprache() const
    {
       if((*i)->Erlaubt()) V.push_back(*i) ;
    }
-  int i=random.integer(0,V.size()-1);
+  int i=Random::integer(0,V.size()-1);
 
   MBEmlt sprache(&*cH_Sprache((*V[i])->Name()));
   Sprache::setErfolgswertMuttersprache(sprache,Aben.getWerte().In(),cH_Fertigkeit("Sprache")->AttributBonus(Aben.getWerte()));
@@ -97,7 +97,7 @@ MBEmlt Zufall::getMuttersprache() const
 MBEmlt Zufall::getUeberleben() const
 {
   std::vector<MidgardBasicElement::st_zusatz> V=LL.getUeberlebenZusatz();
-  int i=random.integer(0,V.size()-1);
+  int i=Random::integer(0,V.size()-1);
   MBEmlt M(&*cH_Fertigkeit(V[i].name));
   return M;
 }

@@ -29,7 +29,7 @@
 
 Zufall::Zufall(midgard_CG *h) 
 : hauptfenster(h),  Aben(h->getChar().getAbenteurer()),oldAben(Aben),
-          Database(h->getCDatabase()),random(h->random) ,
+          Database(h->getCDatabase()),Random::h->Random:: ,
           LL(Database)
           {};
 
@@ -109,7 +109,7 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
    setBeruf();
    hauptfenster->table_lernschema->geld_wuerfeln();
    setWaffenBesitz();
-   hauptfenster->table_lernschema->on_button_ruestung_clicked(random.integer(1,100));
+   hauptfenster->table_lernschema->on_button_ruestung_clicked(Random::integer(1,100));
    hauptfenster->table_lernschema->ausruestung_setzen();
    hauptfenster->table_grundwerte->zeige_werte();
    hauptfenster->table_lernschema->button_sensitive(true);
@@ -123,12 +123,12 @@ void Zufall::setAngebFert()
    Aben.setAngebFert();
    int wurf;
    do{
-      wurf=random.integer(0,100); 
+      wurf=Random::integer(0,100); 
       if(wurf==100) 
        { std::list<MBEmlt> L=LL.getMBEm(Aben,LernListen::lAngebFert);
          std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
          if(V.empty()) break;
-         int i=random.integer(0,V.size()-1);
+         int i=Random::integer(0,V.size()-1);
          cH_Fertigkeit_angeborene F(V[i]->getMBE());
          Aben.setAngebSinnFert(F->Min(),V[i]);
        }
@@ -151,24 +151,24 @@ void Zufall::setMuttersprache()
 // Würfeln
 ////////////////////////////////////////////////////////////////////////////
 
-void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A,Random &random)
+void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A,Random &Random::
 {
   //Speziesspezifische Fertigkeiten
   int lpspezies=0;
   A.List_Fertigkeit()=A.getWerte().Spezies()->getFertigkeiten(lpspezies,A.getWerte());
 
-  int fachlern=random.integer(1,6)+random.integer(1,6);
+  int fachlern=Random::integer(1,6)+Random::integer(1,6);
   lernpunkte.setFach(fachlern - lpspezies);
-  lernpunkte.setAllgemein(random.integer(1,6)+1);
-  lernpunkte.setUnge(random.integer(1,6));
-  lernpunkte.setWaffen(random.integer(1,6)+random.integer(1,6));  
-  if (A.Typ1()->is_mage()) lernpunkte.setZauber(random.integer(1,6)+random.integer(1,6));
+  lernpunkte.setAllgemein(Random::integer(1,6)+1);
+  lernpunkte.setUnge(Random::integer(1,6));
+  lernpunkte.setWaffen(Random::integer(1,6)+Random::integer(1,6));  
+  if (A.Typ1()->is_mage()) lernpunkte.setZauber(Random::integer(1,6)+Random::integer(1,6));
 
   // Doppelcharaktere
   if(A.Typ2()->Short()!="" || A.Typ1()->Short()=="To" )
    {
-      lernpunkte.setWaffen(random.integer(1,6)+1);
-      lernpunkte.setZauber(random.integer(1,6)+1);
+      lernpunkte.setWaffen(Random::integer(1,6)+1);
+      lernpunkte.setZauber(Random::integer(1,6)+1);
    }
 
   int age = (lernpunkte.Allgemein() + lernpunkte.Unge()

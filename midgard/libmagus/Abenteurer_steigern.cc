@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.2 2003/07/21 06:23:15 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.3 2003/07/21 06:27:10 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -363,8 +363,8 @@ int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
   std::pair<int,bool> gestu=Erfolgswert("Geschäftstüchtigkeit");
   if(gestu.second)
    {
-      Random random;
-      int iw=random.integer(1,20);
+      Random Random::
+      int iw=Random::integer(1,20);
       int erg=gestu.first+iw;
       info+= " EW:Geschäftstüchtigkeit = "+itos(gestu.first)+"+"+itos(iw)
                +"="+itos(erg);
@@ -505,7 +505,7 @@ void Abenteurer::desteigern(unsigned int kosten,const e_wie_steigern &wie,const 
 int Abenteurer::get_ausdauer(int grad, std::string &info,
                               const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
-   Random random;
+   Random Random::
    int bonus_K, bonus_aK, bonus_Z;
    int kosten = Datenbank.GradAnstieg.get_AP_Kosten(grad);
    if (grad == 1)  { bonus_K =  4, bonus_aK =  3; bonus_Z =  2; }
@@ -522,7 +522,7 @@ int Abenteurer::get_ausdauer(int grad, std::string &info,
    if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return 0;
    getWerte().addGFP(kosten);
    int ap=0;
-   for (int i=0;i<grad;++i) ap += random.integer(1,6);
+   for (int i=0;i<grad;++i) ap += Random::integer(1,6);
 
   int nab, nap;
   if      (Typ1()->Ausdauer() == "k" || Typ2()->Ausdauer() == "k")  nab = bonus_K ;
@@ -624,8 +624,8 @@ void Abenteurer::eigenschaften_steigern(std::string &info,int wurf)
     getWerte().add_SG(n);
   }
 
-  Random random;
-  if(wurf==-1) wurf=random.integer(1,100);
+  Random Random::
+  if(wurf==-1) wurf=Random::integer(1,100);
 
   int z=wurf;  
   info+="Beim WÃ¼rfeln zur ErhÃ¶hung einer Eigenschaft fÃ¼r Grad "
@@ -634,7 +634,7 @@ void Abenteurer::eigenschaften_steigern(std::string &info,int wurf)
   info +=" gewÃ¼rfelt ==> ";
   std::string was = "keine ErhÃ¶hung";
 
-  int erh = random.integer(1,6)+1;
+  int erh = Random::integer(1,6)+1;
   int awko= getWerte().Ko(); //alter_wert;
   int aapb = getWerte().bo_Au(); // alter Wert
   if     ( z<=76 ) ;//nichts steigern 

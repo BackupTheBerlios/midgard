@@ -19,17 +19,14 @@
 #ifndef MAGUSKI
 #define MAGUSKI
 
-class midgard_CG; 
 #include "LernListen.hh"
 #include<list>
-
+#include <Enums.hh>
+#include <Abenteurer.hh>
 
 class MagusKI
 {
-      midgard_CG *hauptfenster;
       Abenteurer &Aben;
-      Datenbank Database;
-      Random random;
       LernListen LL;
       Prozente100 prozente100;
       Grund_Standard_Ausnahme_MBE GSA_MBE;
@@ -64,10 +61,9 @@ class MagusKI
       
    public:
 
-      MagusKI(midgard_CG *h)
-        : hauptfenster(h),  Aben(h->getChar().getAbenteurer()),
-          Database(h->getCDatabase()),random(h->random) ,
-          LL(Database),use_GSA_MBE(true)
+      MagusKI(Abenteurer &a)
+        : Aben(a),
+          use_GSA_MBE(true)
           {};
 
       void VerteileGFP(int gfp,const Prozente100 &p,

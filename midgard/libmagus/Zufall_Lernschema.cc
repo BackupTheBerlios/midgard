@@ -35,12 +35,12 @@ enum Zufall::eFAUWZ &operator++(enum Zufall::eFAUWZ &s)
 void Zufall::Lernschema()
 {
   Lernpunkte lernpunkte;
-  Lernpunkte_wuerfeln(lernpunkte,Aben,random);
+  Lernpunkte_wuerfeln(lernpunkte,Aben,Random::;
   st_LL FAUWZ_Listen=getLernlisten();
 
   if(Aben.Typ1()->getLernpflichtSchrift() || Aben.Typ2()->getLernpflichtSchrift())
    {
-     int i=random.integer(1,2);
+     int i=Random::integer(1,2);
      if     (i==1) lernpunkte.set_schreiben_pflicht_allg(true);
      else if(i==2) lernpunkte.set_schreiben_pflicht_fach(true);
    }
@@ -65,7 +65,7 @@ void Zufall::setSpezialwaffe()
      V.push_back(*i);
    }
   if(V.empty()) return;
-  int i=random.integer(0,V.size()-1);
+  int i=Random::integer(0,V.size()-1);
   Aben.getWerte().setSpezialisierung((*V[i])->Name());      
   Waffe::setSpezialWaffe(Aben.getWerte().Spezialisierung(),Aben.List_Waffen());
 }
@@ -75,7 +75,7 @@ void Zufall::setSpezialgebiet()
   if (!Aben.Typ1()->Spezialgebiet() && !Aben.Typ2()->Spezialgebiet()) return;
   std::vector<std::string> V=LL.getSpezialgebiet(Aben);
   if(V.empty()) return;
-  int i=random.integer(0,V.size()-1);
+  int i=Random::integer(0,V.size()-1);
   Aben.getWerte().setSpezialgebiet(cH_Spezialgebiet(V[i]));
 }
 
@@ -146,8 +146,8 @@ reloop:
             }
 //cout << Aben.Typ1()->Name(Enums::Mann) <<" lernt Fach Sprache\n";
        }
-     else i=random.integer(0,V.size()-1);
-     }catch(std::exception &e){std::cerr << e.what()<<'\n';i=random.integer(0,V.size()-1);} 
+     else i=Random::integer(0,V.size()-1);
+     }catch(std::exception &e){std::cerr << e.what()<<'\n';i=Random::integer(0,V.size()-1);} 
 //if(i==0)
 //cout << V[0]->Name()<<'\t'<<V[0].Lernpunkte()<<'\t'<<V[0].Pflicht()<<'\n';
      MBEmlt M=V[0];
@@ -262,7 +262,7 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
    }
 */
   if(V.empty()) return MBE;
-  int i=random.integer(0,V.size()-1);
+  int i=Random::integer(0,V.size()-1);
 
   MBE->setZusatz(V[i]);
 
@@ -303,14 +303,14 @@ std::vector<H_WaffeBesitz> List_to_Vector(const std::list<H_WaffeBesitz>& L)
 void Zufall::setWaffenBesitz()
 {
   std::list<H_WaffeBesitz> L=LL.getWaffenBesitz(Aben);
-  WaffeBesitzLernen wbl=WaffenBesitz_wuerfeln(Aben,random.integer(1,100));
+  WaffeBesitzLernen wbl=WaffenBesitz_wuerfeln(Aben,Random::integer(1,100));
 
 reloop:
   if(wbl.AWaffe() == 0 && wbl.EWaffe() == 0) return;
   std::vector<H_WaffeBesitz> V=List_to_Vector(L);
   for(std::vector<H_WaffeBesitz>::const_iterator i=V.begin();i!=V.end();++i)
    {
-     int i=random.integer(0,V.size()-1);
+     int i=Random::integer(0,V.size()-1);
      H_WaffeBesitz WB=V[i];
      std::string art=cH_Waffe(WB->getMBE())->Art2();     
      if( (art=="E" || art=="W" || art=="V") && wbl.EWaffe()>0)
@@ -335,18 +335,18 @@ void Zufall::setBeruf()
   std::list<MBEmlt> L=LL.getBeruf(Aben);
   std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
   if(V.empty()) return;
-  int i=random.integer(0,V.size()-1);
+  int i=Random::integer(0,V.size()-1);
   hauptfenster->getChar()->List_Beruf().clear();
   hauptfenster->getChar()->List_Beruf().push_back(V[i]);
   
   BerufsKategorie BKat;
-  BKat.wuerfeln(random.integer(1,100));
+  BKat.wuerfeln(Random::integer(1,100));
   std::vector<Beruf::st_vorteil> F=LL.getBerufsVorteil(V[i],BKat,Aben);
   if(F.empty()) return;
 
   while(true)
    {
-     i=random.integer(0,F.size()-1);
+     i=Random::integer(0,F.size()-1);
      bool zusatz=Beruf::Berufsfertigkeit(Aben,F[i]);
      if(zusatz) 
       {

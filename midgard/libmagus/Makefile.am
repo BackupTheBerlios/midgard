@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.26 2003/07/18 16:02:55 christof Exp $
+# $Id: Makefile.am,v 1.27 2003/07/21 06:23:15 christof Exp $
 
 AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@SIGC_CFLAGS@ -DSIGC1_2 @XMLPP_CFLAGS@
@@ -24,8 +24,7 @@ readxml2_SOURCES=readxml2.cc
 
 noinst_LIBRARIES=libmagus.a
 
-EXTRA_QUELLEN=
-X=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
+EXTRA_QUELLEN=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
 	LaTeX_drucken_ausruestung.cc LaTeX_drucken.cc \
 	LaTeX_drucken_beschreibung.cc LaTeX_drucken_spielleiterbogen.cc \
 	Zufall.cc Zufall_Lernschema.cc Zufall_Spezies_Typ.cc \

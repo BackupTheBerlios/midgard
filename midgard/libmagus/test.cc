@@ -23,7 +23,7 @@ int main(int argc,char **argv)
    
    std::ifstream fi("../../charaktere/Christof Petig/Aneren.magus");
    Abenteurer a;
-   if (!a.xml_import_stream(fi,Datenbank)) 
+   if (!a.xml_import_stream(fi)) 
       Ausgabe(Ausgabe::Error, "Laden fehlgeschlagen");
  } catch (NotFound &e)
  {  Ausgabe(Ausgabe::Error, "NotFound "+ e.Name());  }
