@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.37 2003/09/04 12:17:40 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.38 2003/09/05 06:32:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -25,7 +25,6 @@
 #include "LernListen.hh"
 #include <libmagus/Random.hh>
 #include <libmagus/Ausgabe.hh>
-#include "Wizard.hh"
 
 void table_lernschema::on_button_lernschema_waffen()
 {
@@ -39,7 +38,7 @@ void table_lernschema::on_button_lernschema_waffen()
      else Ausgabe(Ausgabe::Error,"Keine Herkunftsnode gesetzt");
    }
   hauptfenster->getChar()->List_Waffen_besitz().clear();
-  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::WAFFEN);
+  hauptfenster->getChar().getWizard().done(Wizard::WAFFEN);
   if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernschema_waffen->set_sensitive(false);
 
@@ -185,6 +184,6 @@ void table_lernschema::on_togglebutton_spezialwaffe_toggled()
 {  if (togglebutton_spezialwaffe->get_active()) scrolledwindow_lernen->hide();
    else 
      { scrolledwindow_lernen->show();
-       if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::SPEZIALWAFFE);
+       hauptfenster->getChar().getWizard().done(Wizard::SPEZIALWAFFE);
      }
 }

@@ -19,7 +19,6 @@
 #include <glibmm/main.h>
 #include <unistd.h>
 #include "Windows_Linux.hh"
-#include "Wizard.hh"
 #include "MagusDialog.hh"
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/magus_paths.h>
@@ -98,11 +97,8 @@ void midgard_CG::load_for_mainpage(guint pagenr)
     table_grundwerte->init(this);
   }
  else if(pagenr==PAGE_LERNEN)
-  {
-   if(wizard.active && wizard.actual_step==Wizard::LERNSCHEMA_SEITE) 
-         wizard.next_step(Wizard::LERNSCHEMA_SEITE);
+  {hauptfenster->getChar().getWizard().done(Wizard::LERNSCHEMA_SEITE);
    table_lernschema->init(this);
-//   show_gelerntes();
   }
  else if(pagenr==PAGE_STEIGERN)
   {

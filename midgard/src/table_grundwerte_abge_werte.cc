@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.19 2003/09/04 12:17:40 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.20 2003/09/05 06:32:27 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,6 @@
 #include "table_grundwerte.hh"
 #include <Misc/Trace.h>
 #include <libmagus/Random.hh>
-#include "Wizard.hh"
 
 void table_grundwerte::on_abge_werte_setzen_clicked()
 {
@@ -31,7 +30,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
      combo_typ->set_sensitive(false);
      combo_typ2->set_sensitive(false);
    }   
-  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::ABGELEITETEWERTE);
+  hauptfenster->getChar().getWizard().done(Wizard::ABGELEITETEWERTE);
   if(!hauptfenster->getOptionen()->OptionenCheck(Optionen::NSC_only).active) 
       button_abg_werte->set_sensitive(false);
   hauptfenster->setGrad(1);

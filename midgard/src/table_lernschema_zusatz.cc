@@ -27,7 +27,6 @@
 #include <typeinfo> // for bad_cast
 static SigC::Connection connection;
 #include <libmagus/Ausgabe.hh>
-#include "Wizard.hh"
 #include <gdk/gdk.h>
 
 void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE)
@@ -276,7 +275,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
 void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
 {
   const Data_Herkunft *dt=dynamic_cast<const Data_Herkunft*>(&*d);
-  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::HERKUNFT);
+  hauptfenster->getChar().getWizard().done(Wizard::HERKUNFT);
   hauptfenster->getChar()->setHerkunft(dt->getLand());
   set_zusatz_sensitive(false);
   zeige_werte();  
@@ -290,7 +289,7 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
 
 void table_lernschema::on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d)
 {
-  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::UEBERLEBEN);
+  hauptfenster->getChar().getWizard().done(Wizard::UEBERLEBEN);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
 
   MBEmlt M(&*cH_Fertigkeit(dt->getZusatz().name));

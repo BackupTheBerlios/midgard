@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.301 2003/09/01 06:47:58 christof Exp $
+// $Id: midgard_CG.cc,v 1.302 2003/09/05 06:32:27 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,7 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
 midgard_CG::midgard_CG(
                        const std::string &datei)
 : InfoFenster(), news_columns(),
-	wizard(),undo_menu(),menu_kontext(),
+	undo_menu(),menu_kontext(),
 	schummeln(false)
 { news_columns.attach_to(*list_news);
 
@@ -114,7 +114,6 @@ midgard_CG::~midgard_CG()
 //cout << "~midgard_CG()\n\n\n\n";
 //   in_dtor=true;
    if (InfoFenster) delete InfoFenster;
-   if (wizard) delete wizard;
    if (menu_kontext) delete menu_kontext;
    if (undo_menu) delete undo_menu;
 }

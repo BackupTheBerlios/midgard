@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.20 2003/09/04 12:17:40 christof Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.21 2003/09/05 06:32:27 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,6 @@
 
 #include "table_grundwerte.hh"
 #include "midgard_CG.hh"
-#include "Wizard.hh"
 
 static bool oldtyp_bool;
 
@@ -51,11 +50,10 @@ void table_grundwerte::on_button_grda1setzen_clicked()
 
 void table_grundwerte::on_entry_nameC_activate()
 { 
-  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) 
+  if(hauptfenster->getChar().getWizard().aktiv()) 
    { 
      edit_werte=false;
-//     togglebutton_edit_werte->set_active(false);
-     hauptfenster->getWizard().next_step(Wizard::NAMEN);
+     hauptfenster->getChar().getWizard().done(Wizard::NAMEN);
    }
   else 
    {

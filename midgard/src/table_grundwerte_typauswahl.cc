@@ -21,7 +21,6 @@
 #include <SelectMatching.h>
 #include "LernListen.hh"
 #include <Misc/Trace.h>
-#include "Wizard.hh"
 
 void table_grundwerte::fill_typauswahl()
 {
@@ -89,7 +88,7 @@ void table_grundwerte::typauswahl_button()
  if(!Typen::get_Typ_from_long(Datenbank.Typen,typ))
    return;
 
- if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::TYP);
+ hauptfenster->getChar().getWizard().done(Wizard::TYP);
  hauptfenster->getChar()->setTyp1(cH_Typen(typ));
 
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
@@ -198,14 +197,14 @@ void table_grundwerte::spezieswahl_button()
  if (hauptfenster->Spezies()->Name()=="Elf")
    hauptfenster->InfoFenster->AppendShow("Soll dieser Elf ein Doppeltyp-Abenteurer sein?",WindowInfo::Elf_doppel);
    
- if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::SPEZIES);
+ hauptfenster->getChar().getWizard().done(Wizard::SPEZIES);
 }
 
 void table_grundwerte::on_radiobutton_stadt_land_toggled()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(block_changed) return;
-  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::STADTLAND);
+  hauptfenster->getChar().getWizard().done(Wizard::STADTLAND);
 
   if(radiobutton_stadt->get_active()) hauptfenster->setStadtLand(Enums::Stadt);   
   else                                hauptfenster->setStadtLand(Enums::Land);   
@@ -227,7 +226,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(block_changed) return;
-  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::GESCHLECHT);
+  hauptfenster->getChar().getWizard().done(Wizard::GESCHLECHT);
   Enums::geschlecht oldG=hauptfenster->Geschlecht();
   if (radiobutton_mann->get_active()) hauptfenster->setGeschlecht(Enums::Mann);
   else hauptfenster->setGeschlecht(Enums::Frau);

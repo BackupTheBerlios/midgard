@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.32 2003/09/04 12:17:40 christof Exp $
+// $Id: table_lernschema_beruf.cc,v 1.33 2003/09/05 06:32:28 christof Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -26,7 +26,6 @@
 #include "LernListen.hh"
 #include <libmagus/Random.hh>
 #include <libmagus/Ausgabe.hh>
-#include "Wizard.hh"
 
 void table_lernschema::on_button_beruf()
 {
@@ -39,7 +38,7 @@ void table_lernschema::on_button_beruf()
     }
   if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
       button_beruf->set_sensitive(false);
-  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::BERUF1);
+  hauptfenster->getChar().getWizard().done(Wizard::BERUF1);
   deleteBerufsFertigekeit();
   if (Programmoptionen.WerteEingebenModel().Value())
    {
@@ -161,7 +160,7 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
 //         hauptfenster->set_status("");
          scrolledwindow_lernen->hide();
          label_lernschma_titel->set_text("");
-         if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::BERUF);
+         hauptfenster->getChar().getWizard().done(Wizard::BERUF);
       }
     else
       {

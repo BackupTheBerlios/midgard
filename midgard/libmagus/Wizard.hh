@@ -23,6 +23,8 @@ public:
     operator esteps() { return act_step; }
     bool matches(const void *gp) const { return act_step.matches(gp); }
     
+    bool aktiv() const { return act_step.Value()!=Inaktiv; }
+    
     void set(esteps was);
     void next_step();
     
