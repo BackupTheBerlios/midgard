@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.25 2003/06/23 07:43:52 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.26 2003/06/25 08:39:03 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -289,6 +289,7 @@ void Abenteurer::move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu_,c
  else if((*MBE).What()==MidgardBasicElement::SPRACHE) 
    { MyList     = &List_Sprache();
      // eventuell höherer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
+// das entspricht wohl nicht den Regeln , oder doch???
      int ungelernterErfolgswert=cH_Sprache(MBE->getMBE())->getHoeherenErfolgswert(List_Sprache(),*alleSprachen/*hauptfenster->getCDatabase().Sprache*/);
      if (ungelernterErfolgswert > MBE->Erfolgswert()) MBE->setErfolgswert(ungelernterErfolgswert);
      // bis hier
