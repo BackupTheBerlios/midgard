@@ -1,7 +1,7 @@
-// $Id: magus_paths.h,v 1.6 2004/01/20 08:06:10 christof Exp $
+// $Id: magus_paths.h,v 1.7 2004/08/30 13:17:56 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -39,6 +39,13 @@ public:
          static std::string with_path(const std::string &name,bool path_only=false,bool noexit=false);
          static void append_dir(const std::string &name);
          static void prepend_dir(const std::string &name);
+         
+#ifdef __MINGW32__
+private:
+         static void register_magus(const std::string &argv0);
+public:
+         static void register_magus();
+#endif
 };
 
 #endif

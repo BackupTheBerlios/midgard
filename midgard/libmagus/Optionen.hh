@@ -1,7 +1,7 @@
-// $Id: Optionen.hh,v 1.7 2004/02/29 11:18:45 thoma Exp $
+// $Id: Optionen.hh,v 1.8 2004/08/30 13:17:56 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ class Optionen
    public:
       enum OptionenCheckIndex {Original,NSC_only,ZauberBeschreibungDrucken,
                                num_OptionenCheckIndex};
-      enum HausIndex {Gold,Werte100};
+      enum HausIndex {Gold,Werte100,num_HausIndex};
 
       struct st_OptionenCheck{OptionenCheckIndex index;std::string text;
                Model_copyable<bool> active;

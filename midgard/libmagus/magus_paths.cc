@@ -1,7 +1,7 @@
-// $Id: magus_paths.cc,v 1.15 2004/05/24 16:02:26 christof Exp $
+// $Id: magus_paths.cc,v 1.16 2004/08/30 13:17:56 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -193,3 +193,56 @@ void magus_paths::append_dir(const std::string &name)
 void magus_paths::prepend_dir(const std::string &name)
 {  paths.insert(paths.begin(),name);
 }
+
+#ifdef __MINGW32__
+void magus_paths::register_magus()
+{  register_magus(argv0);
+}
+
+void magus_paths::register_magus(const std::string &argv0)
+{  reg_key cl(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes",0);
+   char buf[10240];
+   
+   reg_key magusf(cl.get_key(), KEY_ALL_ACCESS, "magusfile",0);
+   if (magusf.get_string(0,buf,sizeof buf,"")!=ERROR_SUCCESS || !*buf)
+   {  magusf.set_string(0,"Midgard Abenteurer");
+      magusf.set_int("EditFlags",0);
+   }
+   
+   reg_key maguscmd(magusf.get_key(), KEY_ALL_ACCESS, "Shell", "Magus", "command", 0);
+   std::string command="\""+argv0+"\" %1";
+   if (maguscmd.get_string(0,buf,sizeof buf,"")!=ERROR_SUCCESS || buf!=command)
+      maguscmd.set_string(0,command.c_str());
+   
+   reg_key magusicon(magusf.get_key(), KEY_ALL_ACCESS, "DefaultIcon", 0);
+   if (magusicon.get_string(0,buf,sizeof buf,"")!=ERROR_SUCCESS || buf!=argv0+",0")
+      magusicon.set_string(0,(argv0+",0").c_str());
+   
+   reg_key magusextension(cl.get_key(), KEY_ALL_ACCESS, ".magus", 0);
+   if (magusextension.get_string(0,buf,sizeof buf,"")!=ERROR_SUCCESS || buf!="magusfile")
+      magusextension.set_string(0,"magusfile");
+}
+
+#endif
+
+#if 0 // Dateien mit magus verknüpfen
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile]
++@="Midgard Abenteurer"
++"EditFlags"=hex:00,00,00,00
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile\Shell]
++@=""
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile\Shell\Magus]
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile\Shell\Magus\command]
++@="E:\\magus\\magus2.exe %1"
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile\DefaultIcon]
++@="E:\\magus\\magus2.exe,0"
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.magus]
++@="magusfile"
++
+#endif
+

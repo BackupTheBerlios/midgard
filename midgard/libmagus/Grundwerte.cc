@@ -1,7 +1,7 @@
-// $Id: Grundwerte.cc,v 1.12 2004/06/28 08:44:10 christof Exp $               
+// $Id: Grundwerte.cc,v 1.13 2004/08/30 13:17:56 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

@@ -1,6 +1,6 @@
-// $Id: xml.h,v 1.11 2004/05/06 12:12:52 christof Exp $
+// $Id: xml.h,v 1.12 2004/08/30 13:17:56 christof Exp $
 /*  Midgard Character Generator
- *  Copyright (C) 2001-2003 Christof Petig
+ *  Copyright (C) 2001-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

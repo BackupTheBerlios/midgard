@@ -1,6 +1,6 @@
-// $Id: xml.cc,v 1.20 2004/04/01 06:25:29 christof Exp $
+// $Id: xml.cc,v 1.21 2004/08/30 13:17:56 christof Exp $
 /*  Midgard Roleplaying Character Generator
- *  Copyright (C) 2001-2003 Christof Petig
+ *  Copyright (C) 2001-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

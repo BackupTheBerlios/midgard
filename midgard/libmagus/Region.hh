@@ -1,7 +1,7 @@
-// $Id: Region.hh,v 1.9 2004/03/22 08:02:05 thoma Exp $               
+// $Id: Region.hh,v 1.10 2004/08/30 13:17:56 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

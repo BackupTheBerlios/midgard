@@ -1,6 +1,6 @@
-// $Id: Ausgabe.cc,v 1.7 2004/06/04 10:36:18 christof Exp $
+// $Id: Ausgabe.cc,v 1.8 2004/08/30 13:17:56 christof Exp $
 /*  Midgard Character Generator
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

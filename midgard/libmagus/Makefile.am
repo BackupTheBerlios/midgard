@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.49 2004/06/23 11:00:25 christof Exp $
+# $Id: Makefile.am,v 1.50 2004/08/30 13:17:56 christof Exp $
 
 SIGC_MAJOR=2
 
@@ -30,7 +30,7 @@ AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
 CLEANFILES = *~
 
 EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter model_test \
-	model_test2 OptionenTest model_test3 test_spec
+	model_test2 OptionenTest model_test3 test_spec test_Undo
 
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
 registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
@@ -44,6 +44,7 @@ model_test_SOURCES=model_test.cc
 model_test2_SOURCES=model_test2.cc
 model_test3_SOURCES=model_test3.cc
 test_spec_SOURCES=test_spec.cc
+test_Undo_SOURCES=test_Undo.cc
 
 lib_LTLIBRARIES=libmagus.la
 
@@ -79,6 +80,7 @@ model_test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 model_test2_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 model_test3_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 test_spec_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
+test_Undo_LDADD= libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 
 BUILT_SOURCES= registry.h TeX.cc libmagus_sigc$(SIGC_MAJOR).def
 
