@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.72 2001/12/31 16:06:34 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.73 2002/01/02 17:37:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -416,7 +416,6 @@ void midgard_CG::LaTeX_write_empty_values()
  fout << "\\newcommand{\\kaw}{}\n";
  fout << "\\newcommand{\\wlw}{}\n";
  fout << "\\newcommand{\\sg}{}\n";
- fout << "\\newcommand{\\gs}{}\n";
  fout << "\\newcommand{\\ggn}{}\n";
  fout << "\\newcommand{\\lp}{}\n";
  fout << "\\newcommand{\\ap}{}\n";
@@ -461,8 +460,9 @@ void midgard_CG::LaTeX_write_empty_values()
  fout << "\\newcommand{\\ruestunglp}{}\n";
 
  fout << "\\newcommand{\\raufen}{}\n";
- // SInne
- fout << "\\newcommand{\\sinse}{}\n";
+ // Sinne
+ // Sinne
+ fout << "\\newcommand{\\sinnse}{}\n";
  fout << "\\newcommand{\\sinnh}{}\n";
  fout << "\\newcommand{\\sinnr}{}\n";
  fout << "\\newcommand{\\sinnsc}{}\n";
@@ -518,35 +518,20 @@ void midgard_CG::LaTeX_write_empty_values()
     cH_Fertigkeit f(*i);
     std::string a = LaTeX_string(countunifert++);
     std::string wert;
-//    if      (f->Erfolgswert()>0) 
     wert = "+"+itos(f->Erfolgswert());
-//    else if (f->Erfolgswert()<0) wert = "--"+itos(abs(f->Erfolgswert()));
-//    wert = itos(f->Erfolgswert());
     std::string name = f->Name();
     if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
-    if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+Werte.Herkunft()->Name()+")";
+    if(name=="Landeskunde (Heimat)") name = "Landeskunde";
 
     f->set_Erfolgswert(f->Ungelernt());
 
-    if ((*i)->ist_gelernt(list_Fertigkeit))
-     {
-       fout <<"\\newcommand{\\uni"<<a<<"}{\\mygray\\tiny "<<name<< "}\t\t";
-       fout << "\\newcommand{\\uniw"<<a<<"}{\\mygray"  <<wert << "}\n";
-     }
-    else
-     {
-       fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
-       if (f->Voraussetzungen(Werte))
-          fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
-       else
-          fout << "\\newcommand{\\uniw"<<a<<"}{\\mygray"  <<wert << "}\n";
-     }
+    fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
+    fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
   } 
 
 
-
  unsigned int maxunifert=48;
- for (unsigned int i=0; i<maxunifert;++i)
+ for (unsigned int i=countunifert; i<maxunifert;++i)
    {
       std::string a = LaTeX_string(i);
       fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
