@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.7 2002/05/16 06:34:07 christof Exp $
+// $Id: customize_toolbars.cc,v 1.8 2002/05/16 06:35:35 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -29,24 +29,16 @@
 // bin + container sind schon dabei
 
 void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text)
-{  cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
+{  // cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
    if (Gtk::Button::isA(w))
    {  Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
       if (child && Gtk::Box::isA(child))
-      {  
-#if 1 // gtk-1.2 bug         
-         Gtk::Box_Helpers::BoxList &ch=dynamic_cast<Gtk::Box*>(child)->children();
+      {  Gtk::Box_Helpers::BoxList &ch=dynamic_cast<Gtk::Box*>(child)->children();
          Gtk::Box_Helpers::BoxList::iterator i=ch.begin(),j=i;
          
          if (i!=ch.end() && ++j!=ch.end() && (*i)->get_widget() && (*j)->get_widget())
          {  Gtk::Widget *w1=(*i)->get_widget();
             Gtk::Widget *w2=(*j)->get_widget();
-#else
-         GList *list=GTK_BOX(child->gtkobj())->children;
-         if (list && list->next && !list->next->next)
-         {  Gtk::Widget *w1=Gtk::wrap(((GtkBoxChild*)(list->data))->widget);
-            Gtk::Widget *w2=Gtk::wrap(((GtkBoxChild*)(list->next->data))->widget);
-#endif            
             
             if (Gtk::Pixmap::isA(w1) && Gtk::Label::isA(w2))
             {  if (show_icons) w1->show();
@@ -98,6 +90,6 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text)
    }
    else if (Gtk::Container::isA(w))
    {  // und nun ?
-      cout << typeid(*w).name() << '\n';
+//      cout << typeid(*w).name() << '\n';
    }
 }
