@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Midgard-Charakter Version="2">
+  <Name>Aneren</Name>
+  <Spieler>Christof Petig</Spieler>
+  <Zeitpunkt>Smaskrifter</Zeitpunkt>
+  <Grad>7</Grad>
+  <Typ Spezies="Mensch" Abkürzung="Hl"/>
+  <Basiseigenschaften St="59" Ge="82" Ko="92" In="100" Zt="93"/>
+  <abgeleiteteEigenschaften Au="40" pA="72" Sb="64" RW="78" HGW="78" B="25" KAW="2" WLW="80"/>
+  <Erfolgswerte Abwehr="13" Zaubern="17"/>
+  <Resistenzen psy="13" phs="13" phk="13" Gift="53"/>
+  <Gesundheit LP_Basis="12" LP="16" AP="39"/>
+  <Beschreibung Alter="28" Gestalt="breit" Gewicht="73" Größe="171" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
+  <Boni Ausdauer="3" Abwehr="1" Zaubern="2">
+    <Resistenzen psy="6" phs="4" phk="3" Gift="5"/>
+  </Boni>
+  <Vermoegen/>
+  <Rüstung>OR</Rüstung>
+  <Fertigkeiten>
+  </Fertigkeiten>
+</Midgard-Charakter>
