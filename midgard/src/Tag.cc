@@ -52,11 +52,13 @@ static std::string quote_nonprintable(const std::string &in)
 }
 
 void Tag::debug(int recursion_depth,int indent) const
-{  std::cout.write("                                                       ",indent);
-   std::cout << '"' << Type() << '"';
+{  std::cout << string(indent,' ') << '"' << Type() << '"';
    if (Value()[0]) std::cout << "=\"" << quote_nonprintable(Value()) << '"';
    else std::cout << " @" << this;
    std::cout << "\n";
+   for (attvec_t::const_iterator i=attributes.begin();i!=attend();++i)
+      std::cout << string(indent,' ') << '.' << i->first << "=\"" 
+      	<< quote_nonprintable(i->second) << "\"\n";
    if (recursion_depth>2 || (recursion_depth>0 && Type()!="widget"))
       for (const_iterator i=begin();i!=end();++i)
          (*i).debug(recursion_depth-1,indent+2);
@@ -66,34 +68,33 @@ bool Tag::hasTag(const std::string &typ) const throw()
 {  return find(begin(),typ)!=end();
 }
 
-bool Tag::parse_bool_value() const
-{  if (!strcasecmp(Value().c_str(),"true")) return true;
-   if (!strcasecmp(Value().c_str(),"false")) return false;
-   std::cerr << "strange bool value: <" << Type() << "> \"" << Value() << "\"\n";
-   return parse_int_value();
+bool Tag::parse_bool_value(const std::string &value, bool def)
+{  if (!strcasecmp(value.c_str(),"true")) return true;
+   if (!strcasecmp(value.c_str(),"false")) return false;
+   std::cerr << "strange bool value: \"" << value << "\"\n";
+   return parse_int_value(value, def);
 }
 
-int Tag::parse_int_value() const
+int Tag::parse_int_value(const std::string &value, int def)
 {  // 2do: check
-   return atoi(Value().c_str());
+   return atoi(value.c_str());
 }
 
-long Tag::parse_long_value() const
-{  return atol(Value().c_str());
+long Tag::parse_long_value(const std::string &value, long def)
+{  return atol(value.c_str());
 } 
 
-float Tag::parse_float_value() const
+float Tag::parse_float_value(const std::string &value, float def)
 {  // 2do: check
-   return atof(Value().c_str());
+   return atof(value.c_str());
 }
 
-double Tag::parse_double_value() const
-{  return atof(Value().c_str());
+double Tag::parse_double_value(const std::string &value, double def)
+{  return atof(value.c_str());
 }
 
 const std::string Tag::getString(const std::string &typ,const std::string &def) const throw()
 {  const_iterator t=find(begin(),typ);
-// XXX parse &gt; &auml; etc.
    if (t!=end()) return t->Value();
    return def;
 }
@@ -120,5 +121,45 @@ void Tag::mark(const std::string &tg,const std::string &value) throw()
 {  iterator t=find(begin(),tg);
    if (t==end()) push_back(Tag(tg,value));
    else (*t).Value(value);
+}
+
+bool operator==(const std::pair<std::string,std::string> &a,const std::string &b)
+{  return a.first==b;
+}
+
+Tag::attvec_t::iterator Tag::attfind(const std::string &name)
+{  return std::find(attributes.begin(),attend(),name); }
+
+Tag::attvec_t::const_iterator Tag::attfind(const std::string &name) const
+{  return std::find(attributes.begin(),attend(),name); }
+
+const std::string &Tag::getAttr(const std::string &name, const std::string &def) const throw()
+{  attvec_t::const_iterator i=attfind(name);
+   if (i!=attend()) return i->second;
+   return def;
+}
+
+void Tag::setAttr(const std::string &name, const std::string &value)
+{  attvec_t::iterator i=attfind(name);
+   if (i!=attend()) i->second=value;
+   attributes.push_back(std::pair<std::string,std::string>(name,value));
+}
+
+bool Tag::getBoolAttr(const std::string &typ,bool def) const throw()
+{  attvec_t::const_iterator i=attfind(typ);
+   if (i!=attend()) return parse_bool_value(i->second,def);
+   return def;
+}
+
+int Tag::getIntAttr(const std::string &typ,int def) const throw()
+{  attvec_t::const_iterator i=attfind(typ);
+   if (i!=attend()) return parse_int_value(i->second,def);
+   return def;
+}
+
+float Tag::getFloatAttr(const std::string &typ,float def) const throw()
+{  attvec_t::const_iterator i=attfind(typ);
+   if (i!=attend()) return parse_float_value(i->second,def);
+   return def;
 }
 

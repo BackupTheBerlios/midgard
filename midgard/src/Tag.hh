@@ -29,7 +29,15 @@
 class Tag {
     	std::string type;
     	std::string value;
+    	typedef std::vector <std::pair<std::string,std::string> > attvec_t;
+    	attvec_t attributes;
     	std::vector <Tag> sub_specifications;
+
+	static bool parse_bool_value(const std::string &val, bool def=false);
+	static int parse_int_value(const std::string &val, int def=0);
+	static long parse_long_value(const std::string &val, long def=0);
+	static float parse_float_value(const std::string &val, float def=0);
+	static double parse_double_value(const std::string &val, double def=0);
 public:
     	Tag(const std::string &t,const std::string &v="") throw()
 		: type(t), value(v)
@@ -55,11 +63,17 @@ public:
 	{  return value; }
 	void Value(const std::string &val) throw()
 	{  value=val; }
-	bool        parse_bool_value() const;
-	int         parse_int_value() const;
-	long        parse_long_value() const;
-	float       parse_float_value() const;
-	double      parse_double_value() const;
+	
+	bool        parse_bool_value() const
+	{  return parse_bool_value(Value()); }
+	int         parse_int_value() const
+	{  return parse_int_value(Value()); }
+	long        parse_long_value() const
+	{  return parse_long_value(Value()); }
+	float       parse_float_value() const
+	{  return parse_float_value(Value()); }
+	double      parse_double_value() const
+	{  return parse_double_value(Value()); }
 	
 	// slow variants
 	const Tag *find(const std::string &type) const;
@@ -69,6 +83,19 @@ public:
 	{  return ::find(it,end(),type); }
 	iterator find(iterator it,const std::string &type)
 	{  return ::find(it,end(),type); }
+
+	// values of attributes
+	attvec_t::iterator attend() { return attributes.end(); }
+	attvec_t::const_iterator attend() const { return attributes.end(); }
+	attvec_t::iterator attfind(const std::string &name);
+	attvec_t::const_iterator attfind(const std::string &name) const;
+	
+	const std::string &getAttr(const std::string &name, const std::string &def="") const throw();
+	void setAttr(const std::string &name, const std::string &value);
+	
+	bool getBoolAttr(const std::string &typ,bool def=false) const throw();
+	int getIntAttr(const std::string &typ,int def=-1) const throw();
+	float getFloatAttr(const std::string &typ,float def=0) const throw();
 	
 	// values of substructures
 	bool hasTag(const std::string &typ) const throw();

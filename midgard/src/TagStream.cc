@@ -160,8 +160,8 @@ char *TagStream::next_tag(Tag *parent)
                char *valuestart(attrend+2);
                char *valueend(find(valuestart,attrend[1]));
                if (valueend)
-               {  newtag->push_back(Tag(std::string(tagend,attrend-tagend),
-               		de_xml(std::string(valuestart,valueend-valuestart))));
+               {  newtag->setAttr(std::string(tagend,attrend-tagend),
+               		de_xml(std::string(valuestart,valueend-valuestart)));
                   tagend=valueend+1;
                }
                else ERROR2("value does not end",valuestart);
@@ -203,8 +203,8 @@ char *TagStream::next_tag(Tag *parent)
                char *valuestart(attrend+2);
                char *valueend(find(valuestart,attrend[1]));
                if (valueend)
-               {  newtag->push_back(Tag(std::string(tagend,attrend-tagend),
-               		de_xml(std::string(valuestart,valueend-valuestart))));
+               {  newtag->setAttr(std::string(tagend,attrend-tagend),
+               		de_xml(std::string(valuestart,valueend-valuestart)));
                   tagend=valueend+1;
                } else ERROR2("value does not end",valuestart);
             }
