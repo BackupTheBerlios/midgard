@@ -144,16 +144,33 @@ void Fertigkeit::get_Steigern_Kosten_map()
    map_erfolgswert_kosten[17] = P17;
    map_erfolgswert_kosten[18] = P18;
    map_erfolgswert_kosten[19] = P19;
-for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
- cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
+//for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
+// cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
 }
 
 int Fertigkeit::get_Steigern_Kosten(int erfolgswert) const
 {
-cout << erfolgswert<<'\t'<<const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert]<<'\t';
-cout << map_erfolgswert_kosten.size()<<'\n';
+//cout << erfolgswert<<'\t'<<const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert]<<'\t';
+//cout << map_erfolgswert_kosten.size()<<'\n';
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
+
+int Fertigkeit::Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const 
+{ 
+   return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()+1));
+}
+int Fertigkeit::Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const 
+{
+   return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()));
+}
+int Fertigkeit::Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+{
+   if(Reduzieren(Typ,ausnahmen)==0)
+      return Kosten(Typ,ausnahmen);
+   else return 0;
+}
+
+
 
 Fertigkeiten_All::Fertigkeiten_All(Gtk::Label *label)
 {

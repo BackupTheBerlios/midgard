@@ -9,29 +9,22 @@ class Schrift : public MidgardBasicElement
 {
      std::string name, art_der_schrift, region;
      int kosten;
-//     map<std::string,std::string> map_typ;
-//     cH_Fertigkeit *fertigkeit;
 
      void get_Schrift();
-//     void get_map_typ();
      int Grundkosten() const {return kosten;}
   
   public:
    Schrift(const std::string& n) : name(n)
       { get_Schrift();get_map_typ(); 
-//        fertigkeit = new Fertigkeit("Lesen/Schreiben");
       }
-//   map<std::string,std::string> get_MapTyp() const {return map_typ;}
    enum MBEE What() const {return MidgardBasicElement::SCHRIFT;}
    std::string What_str() const {return "Urschrift";}
 
    std::string Name() const   {return name; }
    std::string Region() const {return region;}
    std::string Art_der_Schrift() const   {return art_der_schrift; }
-//   int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
-//   void set_Erfolgswert(int e) const {erfolgswert=e;}
-//   void add_Erfolgswert(int e) const {erfolgswert+=e;}
 
+   bool kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const;
    int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
         { cH_Fertigkeit F("Lesen/Schreiben");
              return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; }

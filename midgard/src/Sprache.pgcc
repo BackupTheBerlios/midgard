@@ -54,17 +54,10 @@ void Sprache::get_Sprache()
   exec sql end declare section;
 
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-/*
-  exec sql select kontinent,land,fp,max_wert,schrift,alt,coalesce(region,'')
-       into :db_kontinent,:db_land,:db_fp,:db_maxwert,:db_schrift,:db_alt,:db_region
-       from sprachen where name = :db_name;
-*/
   exec sql select distinct fp,max_wert,schrift,alt,coalesce(region,'')
        into :db_fp,:db_maxwert,:db_schrift,:db_alt,:db_region
        from sprachen where name = :db_name;
   SQLerror::test(__FILELINE__);
-//  land=db_land;
-//  kontinent=db_kontinent;
   urschrift=db_schrift;
   region=db_region;
   alte_sprache=db_alt;
@@ -72,35 +65,36 @@ void Sprache::get_Sprache()
   kosten=db_fp;
 }
 
+int Sprache::Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+{ 
+  cH_Fertigkeit F("Sprache");
+  return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; 
+}
+int Sprache::Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+{ 
+   cH_Fertigkeit F("Sprache");
+//cout << F->Standard_Faktor(Typ,ausnahmen)<<'\t'<<Erfolgswert()<<'\t'<<F->get_Steigern_Kosten(Erfolgswert()+1)<<'\n';
+   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * F->get_Steigern_Kosten(Erfolgswert()+1));
+}
+int Sprache::Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+{ 
+   cH_Fertigkeit F("Sprache");
+   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * F->get_Steigern_Kosten(Erfolgswert()));
+}
+int Sprache::Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen&  ausnahmen) const
+{
+   if(Reduzieren(Typ,ausnahmen)==0)
+     return Kosten(Typ,ausnahmen);
+   else return 0;
+}
+
 
 /*
-void Sprache::get_map_typ()
-{
- exec sql begin declare section;
-   char query[1024], db_typ[10], db_standard[10];
- exec sql end declare section;
- std::string squery ="select typ,standard from fertigkeiten_typen where name ='Sprache'";
- strncpy(query,squery.c_str(),sizeof(query));
- Transaction tr;
- exec sql prepare SMein_ from :query ;
- exec sql declare SMein cursor for SMein_ ;
- exec sql open SMein;
- SQLerror::test(__FILELINE__);
- while(true)
-  {
-    exec sql fetch SMein into :db_typ,:db_standard;
-    SQLerror::test(__FILELINE__,100);
-    if (sqlca.sqlcode) break;
-    map_typ[db_typ]=db_standard;
-  } 
-}   
-*/
-
 void Sprache::get_Fertigkeit()
 {
 // cH_Fertigkeit("Sprache",,);
 }
-
+*/
 Sprachen_All::Sprachen_All(Gtk::Label *label)
 {
  exec sql begin declare section;

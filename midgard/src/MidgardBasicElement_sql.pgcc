@@ -17,7 +17,7 @@ void MidgardBasicElement::get_map_typ()
  if(What()==ZAUBER)
     squery ="select typ,standard from zauber_typen where name ='"+Name()+"'";
  if(What()==ZAUBERWERK)
-    squery ="select typ,standard from zauber_typen where name ='"+Name()
+    squery ="select typ,standard from zauberwerk_typen where name ='"+Name()
              +"' and stufe ='"+Stufe()+"'";
  if(What()==FERTIGKEIT )
     squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";

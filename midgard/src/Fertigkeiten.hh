@@ -44,9 +44,9 @@ class Fertigkeit : public MidgardBasicElement
      std::string Name() const {return name;}
      std::string Attribut() const {return attribut;}
      std::string Region() const {return region;}
-     int Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()+1));}
-     int Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()));}
-     int Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return Kosten(Typ,ausnahmen);}
+     int Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
+     int Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
+     int Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
      std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
 //     const vector<std::string>& Standard() const {return standard;}
      int Lernpunkte() const {return lernpunkte;}

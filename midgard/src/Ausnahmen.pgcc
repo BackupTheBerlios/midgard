@@ -113,15 +113,10 @@ void Ausnahmen::Ausnahmen_string(const std::string& name,
                 vector<std::string>& standard) const
 {
  assert(standard.size()==2);
-// for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
-//         i!=vec_Ausnahmen.end();++i)
-//cout << "Ausnahmen = "<<(*i)->Name()<<'-'<<name << (*i)->Standard()<<'\n';
  for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
          i!=vec_Ausnahmen.end();++i)
    if ((*i)->Name()==name) 
     { standard[0] = "*"+(*i)->Standard()+"*";
       standard[1] = "";
     }
-//   return alt;
-//  return alt+" "+alt2;
 }

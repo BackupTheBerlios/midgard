@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.17 2001/09/17 07:20:33 thoma Exp $
+// $Id: Midgard_Info.hh,v 1.18 2001/11/03 09:55:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,11 +40,12 @@ class Midgard_Info : public Midgard_Info_glade
         
         midgard_CG* hauptfenster;
         friend class Midgard_Info_glade;
-        void on_button_close_clicked();
         gint timeout();
         SigC::Connection des;
 
    public:
         Midgard_Info(bool selfclean=false,midgard_CG* h=NULL);
+        Gtk::Label *get_Label() const {return label_laden;}
+        void on_button_close_clicked();
 };
 #endif

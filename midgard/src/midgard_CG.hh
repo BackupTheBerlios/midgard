@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.81 2001/10/31 18:34:43 thoma Exp $
+// $Id: midgard_CG.hh,v 1.82 2001/11/03 09:55:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -111,16 +111,22 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_WaffeGrund> list_WaffenGrund;
         std::list<cH_WaffeGrund> list_WaffenGrund_neu;
         std::vector<H_Data_beruf> vec_Beruf;
+        std::list<cH_MidgardBasicElement> list_Fertigkeit_alle;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
+        std::list<cH_MidgardBasicElement> list_Zauber_alle;
         std::list<cH_MidgardBasicElement> list_Zauber;
         std::list<cH_MidgardBasicElement> list_Zauber_neu;
+        std::list<cH_MidgardBasicElement> list_Zauberwerk_alle;
         std::list<cH_MidgardBasicElement> list_Zauberwerk;
         std::list<cH_MidgardBasicElement> list_Zauberwerk_neu;
+        std::list<cH_MidgardBasicElement> list_Kido_alle;
         std::list<cH_MidgardBasicElement> list_Kido;
         std::list<cH_MidgardBasicElement> list_Kido_neu;
+        std::list<cH_MidgardBasicElement> list_Sprache_alle;
         std::list<cH_MidgardBasicElement> list_Sprache;
         std::list<cH_MidgardBasicElement> list_Sprache_neu;
+        std::list<cH_MidgardBasicElement> list_Schrift_alle;
         std::list<cH_MidgardBasicElement> list_Schrift;
         std::list<cH_MidgardBasicElement> list_Schrift_neu;
 
@@ -133,6 +139,7 @@ class midgard_CG : public midgard_CG_glade
         Lernpunkte lernpunkte;
         Data_spezies Spezies_constraint;
    
+        void get_Database();
         void regnot(std::string sadd);
         void fill_typauswahl();
         void fill_typauswahl_2();
@@ -328,6 +335,7 @@ class midgard_CG : public midgard_CG_glade
         void on_radio_sprache_steigern_toggled();
         void on_radio_sprache_reduzieren_toggled();
         void on_radio_sprache_verlernen_toggled();
+        void on_schrift_laden_clicked();
         void on_leaf_selected_alte_schrift(cH_RowDataBase d);
         void on_leaf_selected_neue_schrift(cH_RowDataBase d);
 //        void on_steigern_schrift_tree_alt_select(const std::string& name, int kosten);

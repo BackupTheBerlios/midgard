@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.71 2001/11/02 09:46:45 thoma Exp $
+// $Id: midgard_CG.cc,v 1.72 2001/11/03 09:55:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,16 +35,30 @@
 #include "Window_Waffenbesitz.hh"
 #include "Midgard_Info.hh"
 #include "Ausnahmen.hh"
+#include "Sprache.hh"
+#include "Schrift.hh"
 
 midgard_CG::midgard_CG(int argc,char **argv)
 :menu(0)
 {
 //  if (argc!=2) manage(new Midgard_Info(true,this));
+  get_Database();
   menu_init();
   on_neuer_charakter_clicked();
   set_tree_titles();
 }
 
+void midgard_CG::get_Database()
+{
+   Midgard_Info *MI = manage(new Midgard_Info(true,this));
+   list_Fertigkeit_alle=Fertigkeiten_All(MI->get_Label()).get_All();
+   list_Zauber_alle=Zauber_All(MI->get_Label()).get_All();
+   list_Zauberwerk_alle=Zauberwerk_All(MI->get_Label()).get_All();
+   list_Kido_alle=KiDo_All(MI->get_Label()).get_All();
+   list_Sprache_alle=Sprachen_All(MI->get_Label()).get_All();
+   list_Schrift_alle=Schriften_All(MI->get_Label()).get_All();
+   MI->on_button_close_clicked();
+}
 
 gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 
 { 

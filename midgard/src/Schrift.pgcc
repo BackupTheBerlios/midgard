@@ -26,6 +26,7 @@
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
 #include "Schrift.hh"
+#include "Sprache.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
 #include "itos.h"
@@ -61,29 +62,16 @@ void Schrift::get_Schrift()
   kosten=db_fp;
 }
 
-/*
-void Schrift::get_map_typ()
+bool Schrift::kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const
 {
- exec sql begin declare section;
-   char query[1024], db_typ[10], db_standard[10];
- exec sql end declare section;
- std::string squery ="select typ,standard from fertigkeiten_typen 
-      where name ='Lesen/Schreiben'";
- strncpy(query,squery.c_str(),sizeof(query));
- Transaction tr;
- exec sql prepare SCMein_ from :query ;
- exec sql declare SCMein cursor for SCMein_ ;
- exec sql open SCMein;
- SQLerror::test(__FILELINE__);
- while(true)
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=sprache.begin();i!=sprache.end();++i)
   {
-    exec sql fetch SCMein into :db_typ,:db_standard;
-    SQLerror::test(__FILELINE__,100);
-    if (sqlca.sqlcode) break;
-    map_typ[db_typ]=db_standard;
-  } 
-}   
-*/
+//cout << cH_Sprache(*i)->Urschrift()<<'\t'<<Name()<<'\n';
+   if(cH_Sprache(*i)->Urschrift() == Name() ) return true;
+  }  
+ return false;
+}
+
 
 Schriften_All::Schriften_All(Gtk::Label *label)
 {

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.61 2001/11/02 09:46:45 thoma Exp $
+# $Id: Makefile.am,v 1.62 2001/11/03 09:55:04 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -20,6 +20,7 @@ noinst_HEADERS = \
    Waffe.hh \
    KiDo.hh \
    Ausnahmen.hh \
+   Land.hh \
 WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
@@ -79,9 +80,11 @@ BUILT_SOURCES_CG =  \
    Schrift.cc \
    MidgardBasicElement_sql.cc \
    Pflicht.cc \
+   Ausnahmen.cc \
+   Land.cc \
    WaffeGrund.cc Fertigkeiten_angeboren.cc \
    steigern_waffen.cc \
-   get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
+   get_spezies_constraint.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  \
    Berufe_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \

@@ -23,28 +23,30 @@
 #include "Schrift.hh"
 
 
-void midgard_CG::on_sprache_laden_clicked()
+void midgard_CG::on_schrift_laden_clicked()
 {   
    list_Schrift_neu.clear();
-   Schriften_All SA(laden_label);
-   std::list<cH_MidgardBasicElement> list_tmp = SA.get_All();
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_tmp.begin();i!=list_tmp.end();++i)
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift_alle.begin();i!=list_Schrift_alle.end();++i)
     { cH_Schrift s(*i);
       if((*i)->ist_gelernt(list_Schrift)) continue;
-      if (region_check(s->Region()) )  list_Schrift_neu.push_back(*i) ;
+      if (region_check(s->Region()) )  
+         if(s->kann_Sprache(list_Sprache))
+            list_Schrift_neu.push_back(*i) ;
     }
+   schriften_zeigen();
+}
 
+void midgard_CG::on_sprache_laden_clicked()
+{   
    list_Sprache_neu.clear();
-   Sprachen_All SPA(laden_label);
-   std::list<cH_MidgardBasicElement> list_tmp2 = SPA.get_All();
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_tmp2.begin();i!=list_tmp2.end();++i)
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache_alle.begin();i!=list_Sprache_alle.end();++i)
     { cH_Sprache s(*i);
       if((*i)->ist_gelernt(list_Sprache)) continue;
-      if (region_check(s->Region()) )  list_Sprache_neu.push_back(*i) ;
+      if (region_check(s->Region()) )  
+          list_Sprache_neu.push_back(*i) ;
     }
-
-   schriften_zeigen();
    sprachen_zeigen();
+   on_schrift_laden_clicked();
 }   
 
 void midgard_CG::schriften_zeigen()
@@ -72,7 +74,8 @@ void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
    if (!steigern(dt->Kosten(),"Sprache")) return;
    Werte.add_GFP(dt->Kosten());
    MidgardBasicElement::move_element(list_Sprache_neu,list_Sprache,dt->Name());
-   on_sprache_laden_clicked();
+   sprachen_zeigen();
+   on_schrift_laden_clicked();
 }   
     
 void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)

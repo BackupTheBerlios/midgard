@@ -24,10 +24,8 @@
 void midgard_CG::on_fertigkeiten_laden_clicked()
 {
   list_Fertigkeit_neu.clear();
-  Fertigkeiten_All FA(laden_label);
-  std::list<cH_MidgardBasicElement> list_tmp = FA.get_All();
   cH_Pflicht pflicht(Werte.Spezies(),Typ);
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_tmp.begin();i!=list_tmp.end();++i)
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_alle.begin();i!=list_Fertigkeit_alle.end();++i)
    { cH_Fertigkeit f(*i);
      if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Lesen/Schreiben") continue;

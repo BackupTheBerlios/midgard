@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.48 2001/09/19 14:25:01 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.49 2001/11/03 09:55:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,12 +26,13 @@
 
 #include "config.h"
 #include "Midgard_Info.hh"
-#include <gtk--/main.h>
+//#include <gtk--/main.h>
 #include "midgard_CG.hh"
 
 void Midgard_Info::on_button_close_clicked()
 {   
-  des.disconnect();
+//  des.disconnect();
+  if(hauptfenster) hauptfenster->show();
   destroy();
 }
 
@@ -43,8 +44,8 @@ Midgard_Info::Midgard_Info(bool selfclean,midgard_CG* h)
    if (selfclean) 
     { toolbar_close->hide();
       if (hauptfenster) hauptfenster->hide();
-      des = Gtk::Main::timeout.connect(slot(this,&Midgard_Info::timeout),8000);
-      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+//      des = Gtk::Main::timeout.connect(slot(this,&Midgard_Info::timeout),8000);
+//      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
     }
 }
 
