@@ -1,3 +1,5 @@
+#ifndef CLASS_GRUND
+#define CLASS_GRUND
 #include "itos.h"
 
 class Grundwerte : public HandleContent
@@ -154,3 +156,4 @@ public:
  H_Grundwerte(Grundwerte *r) : Handle<Grundwerte>(r){}
 };
 */
+#endif

@@ -30,14 +30,15 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-void midgard_CG::get_kido(std::vector<H_Data_kido>& vec_Kido)
+void midgard_CG::get_kido(std::list<H_Data_kido>& vec_Kido)
 {
+  double fac = midgard_CG::get_standard_fertigkeit(Typ.Short(),Typ2.Short(),"KiDo");
   exec sql begin declare section;
    char db_name_orig[50],db_name[50],db_stufe[20],db_stil[20],db_effekt[1024];
    int db_fp,db_ap;
   exec sql end declare section;
 
-  for(std::vector<H_Data_kido>::iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
+  for(std::list<H_Data_kido>::iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
    { 
      strncpy(db_name_orig,((*i)->Hoho()).c_str(),sizeof(db_name_orig));
      exec sql select name,stufe,stil,fp,ap,effekt
@@ -47,7 +48,7 @@ void midgard_CG::get_kido(std::vector<H_Data_kido>& vec_Kido)
      (*i)->set_Name(db_name);
      (*i)->set_Stufe(db_stufe);
      (*i)->set_Stil(db_stil);
-     (*i)->set_Kosten (db_fp);
+     (*i)->set_Kosten (db_fp*fac);
      (*i)->set_Ap(db_ap);
      (*i)->set_Effekt(db_effekt);  
    }

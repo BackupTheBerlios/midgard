@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.36 2001/08/29 08:44:54 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.37 2001/10/02 06:39:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,11 +48,11 @@ void midgard_CG::on_latex_clicked(bool values=true)
  system("gv -seascape midgard_tmp_document_eingabe.ps &");
 
  // Zauber
- if (vec_Zauber.size()>0 || vec_Zaubermittel.size()>0)
+ if (list_Zauber.size()>0 || vec_Zaubermittel.size()>0)
  {
-    midgard_CG::LaTeX_zauber_main();
-    midgard_CG::LaTeX_zauber();
-    midgard_CG::LaTeX_zaubermittel();
+    LaTeX_zauber_main();
+    LaTeX_zauber();
+    LaTeX_zaubermittel();
     system("latex midgard_tmp_document_zauber.tex");
     system("dvips -t landscape midgard_tmp_document_zauber.dvi");
     system("gv -seascape midgard_tmp_document_zauber.ps &");
@@ -200,7 +200,7 @@ void midgard_CG::LaTeX_write_values()
    }
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten
- for(std::vector<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i) 
+ for(std::list<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i) 
    {
     std::string a = LaTeX_string(count);
     count++;

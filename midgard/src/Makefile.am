@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.45 2001/09/07 07:30:33 thoma Exp $
+# $Id: Makefile.am,v 1.46 2001/10/02 06:39:57 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -12,7 +12,8 @@ EXTRA_DIST = document_eingabe.tex.in \
    drache.ps dracher.ps
 
 
-noinst_HEADERS = itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
+noinst_HEADERS = Zauber.hh \
+itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
 Window_charakter_auswahl_glade.hh Window_charakter_auswahl.hh  \
@@ -64,7 +65,8 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
-BUILT_SOURCES_CG =   steigern_fertigkeiten.cc  steigern_zauber.cc steigern_waffen.cc \
+BUILT_SOURCES_CG =  Zauber.cc \
+   steigern_fertigkeiten.cc  steigern_zauber.cc steigern_waffen.cc \
    get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  Zauber_get_daten.cc get_standard_zauber.cc \
    get_standard_fertigkeit.cc get_standard_waffen.cc Berufe_auswahl.cc \

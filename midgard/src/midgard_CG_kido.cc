@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.19 2001/06/30 20:30:06 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.20 2001/10/02 06:39:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,7 +40,7 @@ void midgard_CG::show_kido()
 {
    clist_kido->clear();
    Gtk::OStream os(clist_kido);
-   for (std::vector<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
+   for (std::list<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
     {
       os << (*i)->Hoho()<<"\t"<<(*i)->Name()<<"\t"<<"\t"<<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
     }

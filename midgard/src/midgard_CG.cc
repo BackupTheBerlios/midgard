@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.61 2001/09/19 13:30:28 thoma Exp $
+// $Id: midgard_CG.cc,v 1.62 2001/10/02 06:39:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -354,7 +354,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    vec_Beruf.clear();
    vec_Sprachen.clear();
    vec_Schriften.clear();
-   vec_Zauber.clear();
+   list_Zauber.clear();
    vec_Zaubermittel.clear();
    Werte.clear();
    lernpunkte.clear();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.23 2001/06/30 20:30:06 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.24 2001/10/02 06:39:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@ void midgard_CG::show_fertigkeiten()
 {
    fertigkeiten_clist->clear();
    Gtk::OStream os(fertigkeiten_clist);
-   for(std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+   for(std::list<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
          i!=vec_Fertigkeiten.end();++i)
       {
          os << (*i)->Name();
@@ -53,14 +53,14 @@ void midgard_CG::show_fertigkeiten()
    fertigkeiten_clist->set_reorderable(true);
 }
 
-void midgard_CG::fertigkeiten_uebernehmen(const std::vector<H_Data_fert>& saf)
+void midgard_CG::fertigkeiten_uebernehmen(const std::list<H_Data_fert>& saf)
 {
    vec_Fertigkeiten = saf;
    maxkido=0;
    if (Typ.Short()=="Kd") maxkido=2;
 //XXX   std::vector<vector<st_ausgewaehlte_fertigkeiten>::iterator>  vi;
    int KD_tech=0; //XXX
-   for(std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+   for(std::list<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
          i!=vec_Fertigkeiten.end();++i)
       {
          int bonus = midgard_CG::attribut_check((*i)->Attribut());
@@ -70,7 +70,7 @@ void midgard_CG::fertigkeiten_uebernehmen(const std::vector<H_Data_fert>& saf)
       }
 
    for (int j=0;j<KD_tech;++j)
-     for(std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+     for(std::list<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
          i!=vec_Fertigkeiten.end();++i)
        if ((*i)->Name()=="KiDo-Technik") {vec_Fertigkeiten.erase(i);break;}
       

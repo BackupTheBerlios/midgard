@@ -103,11 +103,6 @@ Ausnahmen::Ausnahmen(const Grundwerte& Werte,const Data_typen& Typ,
 
 float Ausnahmen::Ausnahmen_float(const std::string& name)
 {
-//cout << "\n\nSize = "<< vec_Ausnahmen.size()<<"\n";
-// for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
-//         i!=vec_Ausnahmen.end();++i)
-//cout << (*i)->Name()<<"\t"<<(*i)->Fac()<<"\t"<<(*i)->Art()<<"\n";
-
  for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
          i!=vec_Ausnahmen.end();++i)
    if ((*i)->Name()==name) return (*i)->Fac();
@@ -120,5 +115,6 @@ std::string Ausnahmen::Ausnahmen_string(const std::string& name,
  for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
          i!=vec_Ausnahmen.end();++i)
    if ((*i)->Name()==name) return (*i)->Standard();
-  return alt+" "+alt2;
+   return alt;
+//  return alt+" "+alt2;
 }

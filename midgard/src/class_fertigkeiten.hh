@@ -10,7 +10,7 @@ class Data_fert : public RowDataBase
 {
    std::string name;
    int wert, lernkosten, steigern, reduzieren, verlernen;
-   std::string art, voraussetzungen, attribut, pflicht;
+   std::string standard, voraussetzungen, attribut, pflicht;
    int lernpunkte;
  public:
    Data_fert(const std::string& n, int w) : name(n),wert(w),lernkosten(0),steigern(0),reduzieren(0),verlernen(0),lernpunkte(0) {}
@@ -18,7 +18,7 @@ class Data_fert : public RowDataBase
    Data_fert(const std::string& n, int w,int s,int r,int v )
       :name(n),wert(w),lernkosten(0),steigern(s),reduzieren(r),verlernen(v),lernpunkte(0) {}
    Data_fert(const std::string& n, int w,int l,const std::string& a, const std::string& v )
-      :name(n),wert(w),lernkosten(l),steigern(0),reduzieren(0),verlernen(0),art(a),voraussetzungen(v),lernpunkte(0) {}   
+      :name(n),wert(w),lernkosten(l),steigern(0),reduzieren(0),verlernen(0),standard(a),voraussetzungen(v),lernpunkte(0) {}   
    Data_fert(const std::string &n,int w,int fp, const std::string& v, const std::string& a,const std::string &p, int L)
       :name(n),wert(w),lernkosten(fp),steigern(0),reduzieren(0),verlernen(0),voraussetzungen(v),attribut(a),pflicht(p),lernpunkte(L) {}   
 
@@ -41,12 +41,13 @@ class Data_fert : public RowDataBase
          case NAMEn : return cH_EntryValueIntString(name);
          case WERTn : return cH_EntryValueEmptyInt(wert); 
          case LERNKOSTEN : return cH_EntryValueEmptyInt(lernkosten);
-         case ART : return cH_EntryValueIntString(art);
+         case ART : return cH_EntryValueIntString(standard);
          case VORAUSSETZUNGEN : return cH_EntryValueIntString(voraussetzungen);
         }
       return cH_EntryValueIntString("?");
     }
  std::string Name() const {  return name; }
+ std::string Standard() const {  return standard; }
  int  Erfolgswert() const {  return wert; }  
 // cH_EntryValue  Empty_Erfolgswert() const {  return cH_EntryValueEmptyInt(wert); }  
  int  Lernkosten() const {  return lernkosten; }
@@ -54,7 +55,6 @@ class Data_fert : public RowDataBase
  int  Reduzieren() const {  return reduzieren; }
  int  Verlernen() const {  return verlernen; }  
  std::string  Attribut() const {  return attribut; }
-// std::string  Art() const {  return art; }
  std::string  Voraussetzung() const {  return voraussetzungen; }
  std::string  Pflicht() const {  return pflicht; }
  int  Lernpunkte() const {  return lernpunkte; }
@@ -62,14 +62,6 @@ class Data_fert : public RowDataBase
  void set_Erfolgswert(int i) {wert=i;}
  void set_Lernpunkte(int i) {lernpunkte=i;}
 
-/*
- // Prädikate
-//  Data_fert_sort_name(const Data_fert& d) : name(d.Name()) {}
-      bool operator == (const Data_fert& b) const
-         {return Name()==b.Name();}
-      bool operator < (const Data_fert& b) const
-         {return Name()<b.Name();}
-*/
 };
 
 class H_Data_fert : public Handle<Data_fert>

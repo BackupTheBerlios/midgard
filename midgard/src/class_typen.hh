@@ -1,3 +1,6 @@
+#ifndef CLASS_TYPEN
+#define CLASS_TYPEN
+
 
 class Data_typen : public HandleContent
 {
@@ -45,3 +48,4 @@ public:
  cH_Data_typen(Data_typen *r) : const_Handle<Data_typen>(r){}
 };
 
+#endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.26 2001/06/30 20:30:06 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.27 2001/10/02 06:39:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,10 +36,9 @@ void midgard_CG::on_zauber_wahl_clicked()
 void midgard_CG::show_zauber()
 {
    zauber_clist->clear();
-   midgard_CG::Zauber_get_Daten(vec_Zauber);
+//   midgard_CG::Zauber_get_Daten(list_Zauber);
    Gtk::OStream os(zauber_clist);
-   for(std::vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();
-         i!=vec_Zauber.end();++i)
+   for(std::list<H_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
       {
          os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
       }
@@ -48,23 +47,24 @@ void midgard_CG::show_zauber()
    zauber_clist->set_reorderable(true);
 }
 
-void midgard_CG::zauber_uebernehmen(const std::vector<H_Data_zauber>& saz)
+void midgard_CG::zauber_uebernehmen(const std::list<H_Zauber>& saz)
 {
-   vec_Zauber=saz;
+   list_Zauber=saz;
    angeborene_zauber();
-   for(std::vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();
-         i!=vec_Zauber.end();++i)
+   for(std::list<H_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
       {
-         int erf = midgard_CG::get_erfolgswert_zaubern(Typ,Typ2,(*i)->Name());
+         int erf = get_erfolgswert_zaubern(Typ,Typ2,(*i)->Name());
          (*i)->set_Erfolgswert(erf);
       }
-   midgard_CG::show_zauber();
+   show_zauber();
 }
 
 void midgard_CG::angeborene_zauber()
 {
  if (Typ.Short()=="eBe" || Typ2.Short()=="eBe" || Typ.Short()=="dBe" || Typ2.Short()=="dBe" ) 
-    vec_Zauber.push_back(new Data_zauber("Lehrersuche"));
+    list_Zauber.push_back(H_Zauber("Lehrersuche"));
+//    vec_Zauber.push_back(new Data_zauber("Lehrersuche"));
  if (Werte.Spezies()=="Elf") 
-    vec_Zauber.push_back(new Data_zauber("Erkennen der Aura"));
+//    vec_Zauber.push_back(H_Zauber("Erkennen der Aura"));
+    list_Zauber.push_back(H_Zauber("Erkennen der Aura"));
 }

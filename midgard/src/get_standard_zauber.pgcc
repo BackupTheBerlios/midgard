@@ -101,7 +101,6 @@ double midgard_CG::get_standard_zauber_(const std::string& ergebnis,const std::s
    Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
    double fac;
    // gibt es eine Ausnahmeregelung?
-//   fac = midgard_CG::Ausnahmen_float(zauber);
    fac = ausnahmen.Ausnahmen_float(zauber);
    if (fac!=0) return fac;
 

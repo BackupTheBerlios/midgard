@@ -8,7 +8,7 @@ class Data_zauber : public RowDataBase
 {
      std::string ap, name;
      int erfolgswert;
-     std::string  art, stufe, zauberdauer, reichweite,
+     std::string  standard,art, stufe, zauberdauer, reichweite,
        wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
        material, agens, prozess, reagens, beschreibung; 
      int kosten,lernpunkte;
@@ -18,11 +18,11 @@ class Data_zauber : public RowDataBase
          :ap(a),name(n),erfolgswert(0),kosten(k),lernpunkte(l) {}
 //      Data_zauber (const std::string& n, const std::string& u, int k)
 //         :name(n),erfolgswert(0),ursprung(u),kosten(k),lernpunkte(0) {}
-      Data_zauber (const std::string& n, const std::string& s, const std::string& u, int k)
-         :name(n),erfolgswert(0),stufe(s),ursprung(u),kosten(k),lernpunkte(0) {}
-      Data_zauber(const std::string& s,const std::string& n, const std::string& u, int k,
-           const std::string& a)
-        :name(n),erfolgswert(0),art(a),stufe(s),ursprung(u),kosten(k),lernpunkte(0) {}
+//      Data_zauber (const std::string& n, const std::string& s, const std::string& u, int k)
+//         :name(n),erfolgswert(0),stufe(s),ursprung(u),kosten(k),lernpunkte(0) {}
+      Data_zauber(const std::string& n,const std::string& s, 
+            const std::string& u, int k, const std::string& st)
+        :name(n),erfolgswert(0),standard(st),stufe(s),ursprung(u),kosten(k),lernpunkte(0) {}
 
       Data_zauber (const std::string& n, int e)
          :name(n),erfolgswert(e),kosten(0) {}
@@ -42,7 +42,7 @@ class Data_zauber : public RowDataBase
          beschreibung(bes), kosten(ko) {};
 */
    enum Spalten_A {NAMEa,STUFEa,URSPRUNGa,KOSTENa} ;
-   enum Spalten_N {NAMEn,STUFEn,URSPRUNGn,KOSTENn,ARTn};
+   enum Spalten_N {NAMEn,STUFEn,URSPRUNGn,KOSTENn,STANDARDn};
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
  { 
 //   if (!strcmp(reinterpret_cast<const char*>(gp),"alte_zauber"))
@@ -59,13 +59,14 @@ class Data_zauber : public RowDataBase
          case NAMEn : return cH_EntryValueIntString(name);
          case URSPRUNGn : return cH_EntryValueIntString(ursprung);
          case KOSTENn : return cH_EntryValueEmptyInt(kosten);
-         case ARTn : return cH_EntryValueIntString(art);
+         case STANDARDn : return cH_EntryValueIntString(standard);
         }
    return cH_EntryValueIntString("?");
  }
  std::string Ap() const { return ap;}
  std::string Name() const {  return name; }
  int Erfolgswert() const {return erfolgswert; }
+ std::string Standard() const { return standard;}
  std::string Art() const { return art;}
  std::string Stufe() const {  return stufe; }
  std::string Zauberdauer() const { return zauberdauer;}
@@ -111,6 +112,7 @@ public:
  H_Data_zauber(Data_zauber *r) : Handle<Data_zauber>(r){}
 };
 
+/*
 class Data_zauber_sort_name
 { public: bool operator() (H_Data_zauber x,H_Data_zauber y) const
    {return x->Name() < y->Name(); }};
@@ -123,7 +125,7 @@ class Data_zauber_sort_stufe
 class Data_zauber_sort_ursprung
 { public: bool operator() (H_Data_zauber x,H_Data_zauber y) const
    {return x->Ursprung()<y->Ursprung(); }};
-
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 class Data_zaubermittel : public RowDataBase

@@ -244,7 +244,7 @@ try{
 
 void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
 {
-   std::vector<H_Data_fert> saf;
+   std::list<H_Data_fert> saf;
    for (Gtk::CList::SelectionList::iterator i=fertigkeiten_clist_auswahl->selection().begin();
          i!=fertigkeiten_clist_auswahl->selection().end();++i)
      {  

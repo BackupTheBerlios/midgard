@@ -31,106 +31,7 @@ exec sql include sqlca;
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
 {
-  midgard_CG::on_speichern_clicked();
-  midgard_CG::show_alte_fertigkeiten();
-  midgard_CG::show_neue_fertigkeiten();
-}
-
-
-void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
-{  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
-   on_steigern_fert_tree_alt_select(dt->Name(),dt->Erfolgswert(),dt->Steigern(),
-      dt->Reduzieren(),dt->Verlernen());
-}
- 
-
-void midgard_CG::show_alte_fertigkeiten()
-{
-   std::vector<cH_RowDataBase> datavec;
-   for ( std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
-      {
-        exec sql begin declare section;
-          int db_steigern=0, db_reduzieren=0, db_verlernen;
-          char query[1024];
-          char db_standard[5],db_standard2[5];
-        exec sql end declare section;
-        std::string squery;
-
-        if ((*i)->Erfolgswert() != 0) // Fertigkeiten MIT Erfolgswert
-         {
-           squery = "SELECT coalesce(p"+itos(abs((*i)->Erfolgswert()))
-               +",0),coalesce(p"+itos(abs((*i)->Erfolgswert()+1))+",0),fp,f."+Typ.Short();
-           if (Typ2.Short()!="") squery += ", "+Typ2.Short();
-           squery +=" FROM steigern_fertigkeiten s, steigern_fertigkeiten_werte w, \
-               fertigkeiten f WHERE s.name = '"+(*i)->Name()+"' AND w.name = s.wie \
-               AND f.fertigkeit = '"+(*i)->Name()+"'";
-         }
-        else // Fertigkeiten OHNE Erfolgswert
-         {
-           squery = "SELECT fp,f."+Typ.Short();
-           if (Typ2.Short()!="") squery += ", "+Typ2.Short();
-           squery  +=" FROM steigern_fertigkeiten s, fertigkeiten f \
-               WHERE s.name = '"+(*i)->Name()+"' \
-               AND f.fertigkeit = '"+(*i)->Name()+"'";
-         }
-        strncpy(query,squery.c_str(),sizeof(query));
-
-        Transaction tr;
-        exec sql prepare kosten_ein_ from :query ;  
-        exec sql declare kosten_ein cursor for kosten_ein_ ;  
-        exec sql open kosten_ein;
-        if(Typ2.Short()!="")      
-         {
-           if ((*i)->Erfolgswert() != 0) // Fertigkeiten MIT Erfolgswert
-               exec sql fetch kosten_ein into :db_reduzieren, 
-                    :db_steigern, :db_verlernen, :db_standard,:db_standard2;
-           else // Fertigkeiten OHNE Erfolgswert
-               exec sql fetch kosten_ein into :db_verlernen, :db_standard,:db_standard2;
-         }
-        else
-         {
-           if ((*i)->Erfolgswert() != 0) // Fertigkeiten MIT Erfolgswert
-               exec sql fetch kosten_ein into :db_reduzieren, 
-                    :db_steigern, :db_verlernen, :db_standard;
-           else // Fertigkeiten OHNE Erfolgswert
-               exec sql fetch kosten_ein into :db_verlernen, :db_standard;
-         }
-        SQLerror::test(__FILELINE__);
-        exec sql close kosten_ein;
-        tr.close();
-
-        double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,(*i)->Name());
-        if (db_reduzieren !=0) db_verlernen = 0 ;
-        datavec.push_back(new Data_fert((*i)->Name(),
-                  (*i)->Erfolgswert(),db_steigern*fac,
-                  db_reduzieren*fac,db_verlernen * fac));
-      }
- alte_fert_tree->setDataVec(datavec);  
-}
-
-void midgard_CG::on_button_fertigkeiten_sort_clicked()
-{
-  std::deque<guint> seq = alte_fert_tree->get_seq();
-  std::vector<H_Data_fert>::iterator IB=vec_Fertigkeiten.begin();
-  std::vector<H_Data_fert>::iterator IE=vec_Fertigkeiten.end();
-  switch((Data_fert::Spalten_A)seq[0]) {
-      case Data_fert::NAMEa : stable_sort(IB,IE,Data_fert_sort_name()); ;break;
-      case Data_fert::WERTa : stable_sort(IB,IE,Data_fert_sort_wert()); ;break;
-      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
-   }
-}
-
-
-
-void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
-{  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
-   on_steigern_fert_tree_neu_select(dt->Name(),dt->Erfolgswert(),dt->Lernkosten());
-}
-
-
-void midgard_CG::show_neue_fertigkeiten()
-{
-  std::vector<cH_RowDataBase> datavec;
+  vec_Fertigkeiten_neu.clear();
   exec sql begin declare section;
    char db_fertigkeiten[100];
    int db_erfolgswert; 
@@ -155,7 +56,8 @@ void midgard_CG::show_neue_fertigkeiten()
    AND fp is not null
    ORDER BY f.fertigkeit";
 
-  strncpy(query,squery.c_str(),sizeof(query));
+ strncpy(query,squery.c_str(),sizeof(query));
+ strncpy(db_standard2,"",sizeof(db_standard2));
 
  Transaction tr;  
  exec sql prepare fert_ein_ from :query ;  
@@ -185,14 +87,127 @@ void midgard_CG::show_neue_fertigkeiten()
         &&midgard_CG::region_check(db_region) 
         && (s1!="" || s2!="") )
        {
-          std::string st=(std::string)db_standard+" "+(std::string)db_standard2;
-          datavec.push_back(new Data_fert(db_fertigkeiten,db_erfolgswert,
-               db_fp*fac,st,db_voraussetzung));
+          std::string standard=(std::string)db_standard+" "+(std::string)db_standard2;
+          vec_Fertigkeiten_neu.push_back(new Data_fert(db_fertigkeiten,db_erfolgswert,
+               db_fp*fac,standard,db_voraussetzung));
        }
    }
  exec sql close fert_ein;
- neue_fert_tree->setDataVec(datavec);
  tr.commit();
+ fertigkeiten_zeigen();
+}
+
+void midgard_CG::fertigkeiten_zeigen()
+{
+ zeige_werte(Werte);
+ on_speichern_clicked();
+ show_alte_fertigkeiten();
+ show_neue_fertigkeiten();
+}
+
+
+void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
+{  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+   on_steigern_fert_tree_alt_select(dt->Name(),dt->Erfolgswert(),dt->Steigern(),
+      dt->Reduzieren(),dt->Verlernen());
+}
+
+void midgard_CG::get_srv_kosten(const std::string& name, int erfolgswert,int &steigern,int &reduzieren,int &verlernen)
+{
+  exec sql begin declare section;
+    int db_steigern=0, db_reduzieren=0, db_verlernen;
+    char query[1024];
+    char db_standard[5],db_standard2[5];
+  exec sql end declare section;
+  std::string squery;
+
+  if (erfolgswert != 0) // Fertigkeiten MIT Erfolgswert
+     {
+       squery = "SELECT coalesce(p"+itos(abs(erfolgswert))
+          +",0),coalesce(p"+itos(abs(erfolgswert+1))+",0),fp,f."+Typ.Short();
+       if (Typ2.Short()!="") squery += ", "+Typ2.Short();
+       squery +=" FROM steigern_fertigkeiten s, steigern_fertigkeiten_werte w, \
+          fertigkeiten f WHERE s.name = '"+name+"' AND w.name = s.wie \
+             AND f.fertigkeit = '"+name+"'";
+     }
+  else // Fertigkeiten OHNE Erfolgswert
+     {
+       squery = "SELECT fp,f."+Typ.Short();
+       if (Typ2.Short()!="") squery += ", "+Typ2.Short();
+       squery  +=" FROM steigern_fertigkeiten s, fertigkeiten f \
+          WHERE s.name = '"+name+"' \
+            AND f.fertigkeit = '"+name+"'";
+     }
+  strncpy(query,squery.c_str(),sizeof(query));
+
+  Transaction tr;
+  exec sql prepare kosten_ein_ from :query ;  
+  exec sql declare kosten_ein cursor for kosten_ein_ ;  
+  exec sql open kosten_ein;
+  if(Typ2.Short()!="")      
+    {
+      if (erfolgswert != 0) // Fertigkeiten MIT Erfolgswert
+         exec sql fetch kosten_ein into :db_reduzieren, 
+             :db_steigern, :db_verlernen, :db_standard,:db_standard2;
+      else // Fertigkeiten OHNE Erfolgswert
+          exec sql fetch kosten_ein into :db_verlernen, :db_standard,:db_standard2;
+    }
+  else
+    {
+      if (erfolgswert != 0) // Fertigkeiten MIT Erfolgswert
+         exec sql fetch kosten_ein into :db_reduzieren, 
+            :db_steigern, :db_verlernen, :db_standard;
+      else // Fertigkeiten OHNE Erfolgswert
+          exec sql fetch kosten_ein into :db_verlernen, :db_standard;
+    }
+  SQLerror::test(__FILELINE__);
+  exec sql close kosten_ein;
+  tr.close();
+
+  double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,name);
+  steigern = db_steigern * fac;
+  reduzieren=db_reduzieren * fac;
+  if (db_reduzieren !=0) verlernen = 0 ;
+  else  verlernen=db_verlernen *fac;
+}
+
+void midgard_CG::show_alte_fertigkeiten()
+{
+   std::vector<cH_RowDataBase> datavec;
+   for ( std::list<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
+    {
+      int steigern, reduzieren, verlernen;
+      get_srv_kosten((*i)->Name(),(*i)->Erfolgswert(),steigern,reduzieren,verlernen);
+      datavec.push_back(new Data_fert((*i)->Name(),(*i)->Erfolgswert(),steigern,reduzieren,verlernen));
+    }
+ alte_fert_tree->setDataVec(datavec);  
+}
+
+void midgard_CG::on_button_fertigkeiten_sort_clicked()
+{
+  std::deque<guint> seq = alte_fert_tree->get_seq();
+  switch((Data_fert::Spalten_A)seq[0]) {
+      case Data_fert::NAMEa : vec_Fertigkeiten.sort(Data_fert_sort_name()); ;break;
+      case Data_fert::WERTa : vec_Fertigkeiten.sort(Data_fert_sort_wert()); ;break;
+      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+   }
+}
+
+void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
+{  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+   on_steigern_fert_tree_neu_select(dt->Name(),dt->Erfolgswert(),dt->Lernkosten());
+}
+
+
+void midgard_CG::show_neue_fertigkeiten()
+{
+ std::vector<cH_RowDataBase> datavec;
+ for(std::list<H_Data_fert>::const_iterator i=vec_Fertigkeiten_neu.begin();i!=vec_Fertigkeiten_neu.end();++i)
+  {
+   datavec.push_back(new Data_fert((*i)->Name(),(*i)->Erfolgswert(),
+               (*i)->Lernkosten(),(*i)->Standard(),(*i)->Voraussetzung()));
+  }
+ neue_fert_tree->setDataVec(datavec);
 }
 
 bool midgard_CG::kido_steigern_check(int wert)
@@ -217,7 +232,7 @@ void midgard_CG::on_steigern_fert_tree_alt_select(const std::string& fertigkeit,
          {
             if (!midgard_CG::steigern(steigern,fertigkeit)) return;
             Werte.add_GFP(steigern);
-            for (std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+            for (std::list<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
                      i!= vec_Fertigkeiten.end();++i )
                if ( (*i)->Name() == fertigkeit) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
          }
@@ -230,7 +245,7 @@ void midgard_CG::on_steigern_fert_tree_alt_select(const std::string& fertigkeit,
             if (gelungen)
                {
                   Werte.add_GFP(steigern/2);
-                  for (std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+                  for (std::list<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
                         i!= vec_Fertigkeiten.end();++i )
                      if ( (*i)->Name() == fertigkeit) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
                }
@@ -240,7 +255,7 @@ void midgard_CG::on_steigern_fert_tree_alt_select(const std::string& fertigkeit,
          {
             if (steigern_bool) desteigern(reduzieren);
             Werte.add_GFP(-reduzieren);
-            for (std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
+            for (std::list<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
                      i!= vec_Fertigkeiten.end();++i )
                if ( (*i)->Name() == fertigkeit) (*i)->set_Erfolgswert((*i)->Erfolgswert()-1); 
          }
@@ -248,22 +263,25 @@ void midgard_CG::on_steigern_fert_tree_alt_select(const std::string& fertigkeit,
          {
             if (steigern_bool) desteigern(verlernen);
             Werte.add_GFP(-verlernen);
-            for (std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
-                     i!= vec_Fertigkeiten.end();++i )
-               if ( (*i)->Name() == fertigkeit) {vec_Fertigkeiten.erase(i);break;}; 
+            move_fertigkeiten(vec_Fertigkeiten,vec_Fertigkeiten_neu,fertigkeit);
          }
-   midgard_CG::zeige_werte(Werte);
-   midgard_CG::on_speichern_clicked();
-   midgard_CG::show_alte_fertigkeiten();
-   midgard_CG::show_neue_fertigkeiten();
+   fertigkeiten_zeigen();
+}
+
+void midgard_CG::move_fertigkeiten(std::list<H_Data_fert>& von,std::list<H_Data_fert>& nach,std::string name)
+{
+ for (std::list<H_Data_fert>::iterator i=von.begin();i!= von.end();++i)
+     if ((*i)->Name()==name) 
+       {nach.splice(nach.begin(),von,i);break;}
 }
 
 void midgard_CG::on_steigern_fert_tree_neu_select(const std::string& fertigkeit, int wert, int lernkosten)
 {
   if (!steigern(lernkosten,fertigkeit)) return;
   Werte.add_GFP(lernkosten);
-  midgard_CG::zeige_werte(Werte);
-  vec_Fertigkeiten.push_back(new Data_fert(fertigkeit,wert));
+//cout << vec_Fertigkeiten_neu.size()<<' '<<vec_Fertigkeiten.size()<<'\n';
+  move_fertigkeiten(vec_Fertigkeiten_neu,vec_Fertigkeiten,fertigkeit);
+//cout << vec_Fertigkeiten_neu.size()<<' '<<vec_Fertigkeiten.size()<<'\n';
 
   if (fertigkeit=="KiDo") {kido_bool=true;show_gtk();
       std::string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
@@ -271,17 +289,13 @@ void midgard_CG::on_steigern_fert_tree_neu_select(const std::string& fertigkeit,
   if (fertigkeit=="Wissen von der Magie") 
       {  midgard_CG::doppelcharaktere();
          std::string strinfo ="Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n";
+         strinfo += " und anschließend 'Fertigkeiten neu laden' klicken\n";
          manage (new WindowInfo(strinfo,true));
          // Resistenzboni für Zauberer setzten:
          Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
          if (Werte.Zaubern_wert()==0) Werte.set_Zaubern_wert(10);
       }
-
-  midgard_CG::show_fertigkeiten();
-  midgard_CG::on_speichern_clicked();
-  midgard_CG::show_alte_fertigkeiten();
-  midgard_CG::show_neue_fertigkeiten();
-
+  fertigkeiten_zeigen();
 }
 
 void midgard_CG::on_radio_fert_steigern_toggled()

@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.21 2001/07/07 10:39:43 christof Exp $
+// $Id: LaTeX_kido.cc,v 1.22 2001/10/02 06:39:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@ void midgard_CG::LaTeX_kido()
   std::string name = "midgard_tmp_mykido.tex";
   ofstream fout(name.c_str());
 //  for (unsigned int i=0;i<vec_kido.size();++i)
-  for (std::vector<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
+  for (std::list<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
    {
      std::string ap = itos((*i)->Ap());
      if (ap=="0") ap="";

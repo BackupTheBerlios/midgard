@@ -87,7 +87,7 @@ void midgard_CG::spielleiter_export()
     fout << ", ";
    }
  // Fertigkeiten
- for(std::vector<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
+ for(std::list<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
 // for (unsigned int i=0;i<vec_fertigkeiten.size();++i)
    {
     std::string wert = "+"+itos((*i)->Erfolgswert());
@@ -104,15 +104,15 @@ void midgard_CG::spielleiter_export()
       if (i!=vec_Sprachen.end()) fout <<", ";
    }
   // Zauber
- if (vec_Zauber.size()!=0)
+ if (list_Zauber.size()!=0)
    {
      fout << "\n\n";
      fout << "Zaubern+"<<Werte.Zaubern_wert()+Werte.bo_Za()<<": ";
-     for (std::vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();i!=vec_Zauber.end();)
+     for (std::list<H_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();)
       {
         fout << (*i)->Name() ;
 //        if (i!=zauber.size()-1) fout << ", ";
-        if (i!=vec_Zauber.end()) fout << ", ";
+        if (i!=list_Zauber.end()) fout << ", ";
         ++i;
       }
    }  

@@ -367,7 +367,8 @@ void midgard_CG::load_charakter()
          exec sql fetch zauber into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_Zauber.push_back(new Data_zauber(db_fertigkeit,db_wert));
+//         list_Zauber.push_back(new Data_zauber(db_fertigkeit,db_wert));
+         list_Zauber.push_back(H_Zauber(db_fertigkeit));
       } 
    exec sql close zauber;
 
