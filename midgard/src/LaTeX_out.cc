@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.40 2001/10/08 12:53:01 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.41 2001/10/09 09:03:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,7 +59,7 @@ void midgard_CG::on_latex_clicked(bool values=true)
  }
 
  // KiDo
- if (vec_Kido.size()>0)
+ if (list_Kido.size()>0)
  {
     midgard_CG::LaTeX_kido_main();
     midgard_CG::LaTeX_kido();

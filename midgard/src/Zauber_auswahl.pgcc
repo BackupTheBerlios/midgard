@@ -71,6 +71,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
 
     exec sql close zauber;
     Gtk::OStream os(zauber_clist_auswahl);
+    zauber_clist_auswahl->freeze();
     for(std::list<cH_Zauber>::iterator i=list_zauber.begin();i!=list_zauber.end();++i)
       {
 //         double fac=hauptfenster->get_standard_zauber(Typ,Typ2,(*i)->Name());
@@ -83,6 +84,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
 
     zauber_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
     zauber_clist_auswahl->set_reorderable(true);
+    zauber_clist_auswahl->thaw();
 }
 
 

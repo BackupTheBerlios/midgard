@@ -47,13 +47,14 @@ class Data_kido : public RowDataBase
  int Ap() const {  return ap; }
  std::string Stil() const {  return stil; }
  std::string Effekt() const {  return effekt; }
-
+/*
  void set_Kosten(int i) {  kosten=i; }
  void set_Name(const std::string& s)  {  name=s; }
  void set_Stufe(const std::string& s)  {  stufe=s; }
  void set_Ap(int i) {   ap=i; }
  void set_Stil(const std::string& s) { stil=s; }
  void set_Effekt(const std::string& s) { effekt=s; }
+*/
 }; 
 
 

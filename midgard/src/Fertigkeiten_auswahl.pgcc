@@ -103,6 +103,7 @@ try{
    exec sql close cfertigkeiten;
   
    Gtk::OStream os(fertigkeiten_clist_auswahl);
+   fertigkeiten_clist_auswahl->freeze();
    for(std::list<cH_Fertigkeit>::iterator i=list_Fert.begin();i!=list_Fert.end();++i)
       {
         int v=0;
@@ -166,6 +167,8 @@ try{
 
    fertigkeiten_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
    fertigkeiten_clist_auswahl->set_reorderable(true);
+   fertigkeiten_clist_auswahl->thaw();
+
 } catch (SQLerror &e)
 { cerr << e << '\n';
 }

@@ -1,4 +1,10 @@
 ##########################################################################
+NEWS IN VERSION 0.9beta0
+- Gründeliche Umstellung auf Klassen
+- Zahlreiche Datenbank Bugs entsorgt
+- Alten Bug sei 0.7beta0 bei KiDo Stilen beseitigt
+
+##########################################################################
 NEWS IN VERSION 0.8beta4
 - Körperbemalung und Kriegsbemalung sind nun 'Ramwindi' Zauberwerk
 - Umarbeiten der Steigern - Darstellung mit dem Ziel wesentlich weniger

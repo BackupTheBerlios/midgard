@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.22 2001/10/02 06:39:57 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.23 2001/10/09 09:03:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,8 +24,7 @@ void midgard_CG::LaTeX_kido()
 {
   std::string name = "midgard_tmp_mykido.tex";
   ofstream fout(name.c_str());
-//  for (unsigned int i=0;i<vec_kido.size();++i)
-  for (std::list<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
+  for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
    {
      std::string ap = itos((*i)->Ap());
      if (ap=="0") ap="";
@@ -80,7 +79,7 @@ void midgard_CG::LaTeX_kido_main(void)
    fout <<"\\vspace*{2ex}\n";
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
-         <<get_erfolgswert_kido()+Werte.bo_Za()<<"}\\\\\\hline\n";
+         <<KiDo::get_erfolgswert_kido(list_Fertigkeiten)+Werte.bo_Za()<<"}\\\\\\hline\n";
   fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
   fout << "\\input{midgard_tmp_mykido.tex}\n";
   fout << "\\end{tabular}\n";

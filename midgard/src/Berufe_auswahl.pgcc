@@ -92,6 +92,7 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const std::string& TypZ,
     exec sql close beruf;
     tr.close();
     Gtk::OStream os(berufe_clist_auswahl);
+    berufe_clist_auswahl->freeze();
     for(std::vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
       {
          if (Berufe_auswahl::berufe_voraussetzung((*i)->Name(),Werte,TypZ,Typ2Z)||Werte.Spezies()!="Mensch")
@@ -106,6 +107,7 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const std::string& TypZ,
 
     berufe_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
     berufe_clist_auswahl->set_reorderable(true);
+    berufe_clist_auswahl->thaw();
 
 }
 

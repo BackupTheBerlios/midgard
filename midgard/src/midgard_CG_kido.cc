@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.20 2001/10/02 06:39:57 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.21 2001/10/09 09:03:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,38 +32,38 @@ void midgard_CG::on_kido_wahl_clicked()
       manage(new WindowInfo(strinfo));
       return;
     }
-   vec_Kido.clear();
-   manage(new KiDo_auswahl(this,maxkido,Werte));
+   list_Kido.clear();
+   manage(new KiDo_auswahl(this,maxkido,Werte,Typ,vec_Beruf));
 }
 
 void midgard_CG::show_kido()
 {
    clist_kido->clear();
    Gtk::OStream os(clist_kido);
-   for (std::list<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
+   for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
     {
-      os << (*i)->Hoho()<<"\t"<<(*i)->Name()<<"\t"<<"\t"<<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
+      os << (*i)->Hoho()<<"\t"<<(*i)->Name()<<"\t"<<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
     }
    for (unsigned int i=0;i<clist_kido->columns().size();++i)
       clist_kido->set_column_auto_resize(i,true);
 }
 
-void midgard_CG::kido_uebernehmen(std::vector<string>& technik)
+void midgard_CG::kido_uebernehmen(const std::list<cH_KiDo>& technik)
 {
    clist_kido->clear();
-   for (std::vector<string>::const_iterator i=technik.begin();i!=technik.end();++i)
-      vec_Kido.push_back(new Data_kido(*i));
-   get_kido(vec_Kido);
-   midgard_CG::show_kido();
+//   for (std::vector<string>::const_iterator i=technik.begin();i!=technik.end();++i)
+//      vec_Kido.push_back(new Data_kido(*i));
+   list_Kido=technik;
+   show_kido();
 }
 
 void midgard_CG::stil_optionmenue()
 {
-  static bool block=false;
-  if (block==true) return;
+//  static bool block=false;
+//  if (block==true) return;
   int ityp = int(optionmenu_KiDo_Stile->get_menu()->get_active()->get_user_data());
-  if (ityp==optionmenu_KiDo_Stile::sanft) Werte.Spezialisierung()="Sanfte Techniken";
-  if (ityp==optionmenu_KiDo_Stile::hart) Werte.Spezialisierung()="Harte Techniken";
-  if (ityp==optionmenu_KiDo_Stile::gemischt) Werte.Spezialisierung()="Gemischte Techniken";
+  if (ityp==optionmenu_KiDo_Stile::sanft) Werte.set_Spezialisierung("Sanfte Techniken");
+  if (ityp==optionmenu_KiDo_Stile::hart) Werte.set_Spezialisierung("Harte Techniken");
+  if (ityp==optionmenu_KiDo_Stile::gemischt) Werte.set_Spezialisierung("Gemischte Techniken");
   button_kido_auswahl->set_sensitive(true);
 }

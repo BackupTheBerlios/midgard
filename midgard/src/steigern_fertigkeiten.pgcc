@@ -332,8 +332,9 @@ bool midgard_CG::Fertigkeiten_Voraussetzung(const std::string& fertigkeit)
    into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
          :db_sb,:db_rw,:db_fert
    from fertigkeiten_voraussetzung where name= :db_fertigkeit;
-//  SQLerror::test(__FILELINE__,100);
-  SQLerror::test(__FILELINE__);
+  SQLerror::test(__FILELINE__,100);
+  if (sqlca.sqlcode) return true;
+//  SQLerror::test(__FILELINE__);
     if ( db_st<=Werte.St() &&
          db_ge<=Werte.Ge() &&
          db_ko<=Werte.Ko() &&

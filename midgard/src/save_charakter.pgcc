@@ -297,8 +297,7 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Zaubermittel') ;         
             SQLerror::test(__FILELINE__);
       }
-   for (std::list<H_Data_kido>::const_iterator i=vec_Kido.begin();
-         i!=vec_Kido.end();++i)
+   for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
       {
          strncpy(db_fertigkeit, ((*i)->Hoho()).c_str(),sizeof(db_fertigkeit));
 //         strncpy(db_wert_str,"0",sizeof(db_wert_str)) ;

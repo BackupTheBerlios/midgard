@@ -31,7 +31,7 @@ exec sql include sqlca;
 #include "midgard_CG.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
-
+#include <KiDo.hh>
 
 void KiDo_auswahl::on_clist_kido_auswahl_select_row(gint row, gint column, GdkEvent *event)
 {   
@@ -46,32 +46,39 @@ void KiDo_auswahl::on_clist_kido_auswahl_unselect_row(gint row, gint column, Gdk
 
 void KiDo_auswahl::on_button_close_clicked()
 {
-  std::vector<string> technik;
+  std::list<cH_KiDo> technik;
   for(Gtk::CList::SelectionList::iterator i=clist_kido_auswahl->selection().begin();
       i!=clist_kido_auswahl->selection().end();++i)
    {
-     H_Data_kido *ptr = static_cast<H_Data_kido*>(i->get_data());
-     technik.push_back((*ptr)->Hoho());
+//cout << '1'<<' ' ;
+     cH_KiDo *ptr = static_cast<cH_KiDo*>(i->get_data());
+//     std::string *ptr = static_cast<std::string*>(i->get_data());
+//cout << '2'<<' ';
+//cout << *ptr<<'\t';
+//cout << '3'<<' ';
+//     technik.push_back((*ptr)->Hoho());
+     technik.push_back(*ptr);
+//cout << '4'<<'\n';
+
    }
   hauptfenster->kido_uebernehmen(technik);
   destroy();
 }
 
 
-KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte)
+KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
+   const vector<H_Data_typen>& Typ,const std::vector<H_Data_beruf>& vec_Beruf)
 : maxkido(m)
 {
    hauptfenster=h;
    label_kido_techniken->set_text("Noch "+itos(maxkido)+" Techniken auswählen");
 
    exec sql begin declare section;
-    char db_name_orig[50], db_name[50];
-    int db_fp, db_ap;
+    char db_name_orig[50];
     char query[1024];
    exec sql end declare section;
    std::string squery;
-   squery = "select name_orig, name, fp, ap from kido \
-         where stufe='Schüler' ";
+   squery = "select name_orig from kido where stufe='Schüler' ";
    if (Werte.Spezialisierung() != "Gemischte Techniken")
       squery += "and (stil = 'beide' or stil = '"+Werte.Spezialisierung() +"') ";
    squery +=  " order by 1";
@@ -81,25 +88,28 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte)
    exec sql declare ein cursor for ein_;
    exec sql open ein;
    SQLerror::test(__FILELINE__);
-   std::vector<H_Data_kido> kido_technik;
+   std::list<cH_KiDo> kido_technik;
    while (true)
      {
-      exec sql fetch ein into :db_name_orig, :db_name, :db_fp, :db_ap;
+      exec sql fetch ein into :db_name_orig;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
 //      kido_technik.push_back(st_kido_(db_name_orig,db_name,db_ap,db_fp));
-      kido_technik.push_back(new Data_kido(db_name_orig,db_name,"",db_ap,db_fp,""));
+      kido_technik.push_back(cH_KiDo(db_name_orig,Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
      }
    exec sql close ein;
    Gtk::OStream os(clist_kido_auswahl);
-   for (std::vector<H_Data_kido>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
+   clist_kido_auswahl->freeze();
+   for (std::list<cH_KiDo>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
     {
       os << (*i)->Hoho() <<"\t"<<(*i)->Name()<<"\t"<<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
       os.flush(&*i);
+//      os.flush((*i)->Hoho());
     }
    for (unsigned int i=0;i<clist_kido_auswahl->columns().size();++i)
       clist_kido_auswahl->set_column_auto_resize(i,true);
    clist_kido_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
    clist_kido_auswahl->set_reorderable(true);
+   clist_kido_auswahl->thaw();
 }
 

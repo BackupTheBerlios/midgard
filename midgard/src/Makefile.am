@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.50 2001/10/08 12:53:01 thoma Exp $
+# $Id: Makefile.am,v 1.51 2001/10/09 09:03:43 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -12,7 +12,7 @@ EXTRA_DIST = document_eingabe.tex.in \
    drache.ps dracher.ps
 
 
-noinst_HEADERS = Zauber.hh Zauberwerk.hh Fertigkeiten.hh Waffe.hh \
+noinst_HEADERS = Zauber.hh Zauberwerk.hh Fertigkeiten.hh Waffe.hh KiDo.hh \
 itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
@@ -65,7 +65,7 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
-BUILT_SOURCES_CG =  Zauber.cc Zauberwerk.cc Fertigkeiten.cc Waffe.cc \
+BUILT_SOURCES_CG =  Zauber.cc Zauberwerk.cc Fertigkeiten.cc Waffe.cc KiDo.cc \
    steigern_fertigkeiten.cc  steigern_zauber.cc steigern_waffen.cc \
    get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  \
@@ -77,7 +77,7 @@ BUILT_SOURCES_CG =  Zauber.cc Zauberwerk.cc Fertigkeiten.cc Waffe.cc \
 	Window_ruestung.cc Window_waffe.cc Window_Waffenbesitz.cc \
    midgard_CG_waffe_werte.cc get_berufs_vorteile.cc \
    midgard_CG_typauswahl.cc  Window_mag_bonus.cc get_Verteidigungswaffe.cc \
-	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc get_kido.cc \
+	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc \
    midgard_CG_magier_spezialgebiet.cc \
    steigern_EP_sql.cc \
    midgard_CG_grad_anstieg_sql.cc \

@@ -25,6 +25,7 @@ exec sql include sqlca;
 #include "WindowInfo.hh"
 #include <Aux/EntryValueIntString.h>
 #include <Aux/EntryValueEmptyInt.h> 
+#include "class_kido.hh"
 
 #ifdef __MINGW32__
 extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
@@ -33,7 +34,7 @@ extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
 
 void midgard_CG::on_kido_laden_clicked()
 {   
-  vec_Kido_neu.clear();
+  list_Kido_neu.clear();
   exec sql begin declare section;
    char db_hoho[50];
    char query[1024];
@@ -41,35 +42,16 @@ void midgard_CG::on_kido_laden_clicked()
   std::string stufe_constraint ="";
 
   // Stufe
-  if (Werte.Grad()<=4 || get_erfolgswert_kido()+Werte.bo_Za() <=15)
+  int erfolgswert_kido = KiDo::get_erfolgswert_kido(list_Fertigkeiten);
+  if (Werte.Grad()<4 || erfolgswert_kido+Werte.bo_Za() <15)
       stufe_constraint += " and stufe != 'Eingeweihter' ";
-  if (Werte.Grad()<=6 || get_erfolgswert_kido()+Werte.bo_Za() <=18)
+  if (Werte.Grad()<6 || erfolgswert_kido+Werte.bo_Za() <18)
       stufe_constraint += " and stufe != 'Meister' ";
   // Stil
   if (Werte.Spezialisierung()=="Harte Techniken")
       stufe_constraint += " and stil != 'Sanfte Techniken' ";
   if (Werte.Spezialisierung()=="Sanfte Techniken")
       stufe_constraint += " and stil != 'Harte Techniken' ";
-  // Maximale mögliche Techniken einer Stufe erreicht
-  if (Werte.Spezialisierung()=="Harte Techniken" || Werte.Spezialisierung()=="Sanfte Techniken")
-   {
-     if (maxkidostil("Schüler") >= 12 )
-         stufe_constraint += " and stufe != 'Schüler' ";
-     if (maxkidostil("Eingeweihter") >= 7 )
-         stufe_constraint += " and stufe != 'Eingeweihter' ";
-     if (maxkidostil("Meister") >= 3 )
-         stufe_constraint += " and stufe != 'Meister' ";
-   }
-  else
-   {
-     if (maxkidostil("Schüler") >= 11 )
-         stufe_constraint += " and stufe != 'Schüler' ";
-     if (maxkidostil("Eingeweihter") >= 6 )
-         stufe_constraint += " and stufe != 'Eingeweihter' ";
-     if (maxkidostil("Meister") >= 2 )
-         stufe_constraint += " and stufe != 'Meister' ";
-   }
-
   std::string squery = "SELECT name_orig from kido \
    where name_orig not in (SELECT fertigkeit FROM charaktere_fertigkeiten \
    WHERE charakter_name = '"+Werte.Name_Charakter()+"' AND version = '"+
@@ -81,24 +63,28 @@ void midgard_CG::on_kido_laden_clicked()
   exec sql declare kido_ein cursor for kido_ein_ ;
   exec sql open kido_ein;
   SQLerror::test(__FILELINE__);
+  int count=0;
+  laden_label->show();
   while (true)
     {
        exec sql fetch kido_ein into :db_hoho;
-         SQLerror::test(__FILELINE__,100);  
-         if (sqlca.sqlcode) break;
-         vec_Kido_neu.push_back(new Data_kido(db_hoho));
-      }
-   exec sql close kido_ein;
-   tr.commit();
-  midgard_CG::get_kido(vec_Kido_neu);
+       SQLerror::test(__FILELINE__,100);  
+       if (sqlca.sqlcode) break;
+       laden_label->set_text(itos(++count)+" Zauber geladen");
+       list_Kido_neu.push_back(cH_KiDo(db_hoho,Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
+    }
+ laden_label->hide();
+ exec sql close kido_ein;
+ tr.commit();
+ kido_zeigen();
 }
 
 void midgard_CG::kido_zeigen()
 {
- midgard_CG::zeige_werte(Werte);
- midgard_CG::on_speichern_clicked();
- midgard_CG::show_alte_kido();
- midgard_CG::show_neue_kido();
+ zeige_werte(Werte);
+ on_speichern_clicked();
+ show_alte_kido();
+ show_neue_kido();
 }
 
 void midgard_CG::on_leaf_selected_alte_kido(cH_RowDataBase d)
@@ -115,11 +101,11 @@ void midgard_CG::on_button_kido_sort_clicked()
 {
   std::deque<guint> seq = alte_kido_tree->get_seq();
   switch((Data_kido::Spalten_A)seq[0]) {
-      case Data_kido::HOHOa  : vec_Kido.sort(Data_kido_sort_hoho()); ;break;
-      case Data_kido::NAMEa  : vec_Kido.sort(Data_kido_sort_name()); ;break;
-      case Data_kido::STUFEa : vec_Kido.sort(Data_kido_sort_stufe()); ;break;
-      case Data_kido::APa    : vec_Kido.sort(Data_kido_sort_ap()); ;break;
-      case Data_kido::STILa  : vec_Kido.sort(Data_kido_sort_stil()); ;break;
+      case Data_kido::HOHOa  : list_Kido.sort(KiDo_sort_hoho()); ;break;
+      case Data_kido::NAMEa  : list_Kido.sort(KiDo_sort_name()); ;break;
+      case Data_kido::STUFEa : list_Kido.sort(KiDo_sort_stufe()); ;break;
+      case Data_kido::APa    : list_Kido.sort(KiDo_sort_ap()); ;break;
+      case Data_kido::STILa  : list_Kido.sort(KiDo_sort_stil()); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
@@ -127,29 +113,25 @@ void midgard_CG::on_button_kido_sort_clicked()
 void midgard_CG::show_alte_kido()
 {
    std::vector<cH_RowDataBase> datavec;
-   for (std::list<H_Data_kido>::iterator i=vec_Kido.begin(); i!=vec_Kido.end();++i)
+   for (std::list<cH_KiDo>::iterator i=list_Kido.begin(); i!=list_Kido.end();++i)
       datavec.push_back(new Data_kido((*i)->Hoho(),(*i)->Name(),(*i)->Stufe(),(*i)->Ap(),(*i)->Kosten(),(*i)->Stil()));
    alte_kido_tree->setDataVec(datavec);
-}
-
-int midgard_CG::get_erfolgswert_kido()
-{
- for (std::list<cH_Fertigkeit>::const_iterator
-      i= list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i)
-   {
-      if ((*i)->Name() == "KiDo") return (*i)->Erfolgswert(); 
-   }
- // should never get here 
- std::string strinfo="WARNUNG: Dieser Charakter beherrscht die Fertigkeit KiDo nicht.";
- manage (new WindowInfo(strinfo));
- return 0; 
 }
 
 void midgard_CG::show_neue_kido()
 {
   std::vector<cH_RowDataBase> datavec;
-  for (std::list<H_Data_kido>::iterator i=vec_Kido_neu.begin();i!=vec_Kido_neu.end();++i)
+  bool gem_technik = (Werte.Spezialisierung()=="Gemischte Techniken");
+  for (std::list<cH_KiDo>::iterator i=list_Kido_neu.begin();i!=list_Kido_neu.end();++i)
+   {
+    if(((*i)->Stufe()=="Schüler"     && gem_technik && maxkidostil("Schüler")<11)||
+       ((*i)->Stufe()=="Schüler"     &&!gem_technik && maxkidostil("Schüler")<12)||
+       ((*i)->Stufe()=="Eingeweihter"&& gem_technik && maxkidostil("Eingeweihter")< 6)||
+       ((*i)->Stufe()=="Eingeweihter"&&!gem_technik && maxkidostil("Eingeweihter")< 7)||
+       ((*i)->Stufe()=="Meister"     && gem_technik && maxkidostil("Meister")< 2)||
+       ((*i)->Stufe()=="Meister"     &&!gem_technik && maxkidostil("Meister")< 3))
       datavec.push_back(new Data_kido((*i)->Hoho(),(*i)->Name(),(*i)->Stufe(),(*i)->Ap(),(*i)->Kosten(),(*i)->Stil()));
+   }
   neue_kido_tree->setDataVec(datavec);
 }
 
@@ -158,29 +140,28 @@ void midgard_CG::on_steigern_kido_tree_alt_select(const std::string& name,int ko
 {   
    if (steigern_bool) desteigern(kosten);
    Werte.add_GFP(-kosten);
-   move_kido(vec_Kido,vec_Kido_neu,name);
-   kido_zeigen();
+   move_kido(list_Kido,list_Kido_neu,name);
 }
 
 void midgard_CG::on_steigern_kido_tree_neu_select(const std::string& name, int kosten)
 {   
   if (!steigern(kosten,"KiDo")) return;
   Werte.add_GFP(kosten);
-  move_kido(vec_Kido_neu,vec_Kido,name);
-  kido_zeigen();
+  move_kido(list_Kido_neu,list_Kido,name);
 }
 
-void midgard_CG::move_kido(std::list<H_Data_kido>& von,std::list<H_Data_kido>& nach,std::string name)
+void midgard_CG::move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,std::string name)
 {
- for (std::list<H_Data_kido>::iterator i=von.begin();i!= von.end();++i)
-     if ((*i)->Name()==name) 
+ for (std::list<cH_KiDo>::iterator i=von.begin();i!= von.end();++i)
+     if ((*i)->Hoho()==name) 
        {nach.splice(nach.begin(),von,i);break;}
+ kido_zeigen();
 }
 
 int midgard_CG::maxkidostil(const std::string& stufe)
 {
   int count=0;
-  for (std::list<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
+  for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
      if ((*i)->Stufe()==stufe) ++count;
   return count;
 }

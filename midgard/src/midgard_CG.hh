@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.71 2001/10/08 12:53:01 thoma Exp $
+// $Id: midgard_CG.hh,v 1.72 2001/10/09 09:03:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,11 +48,12 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
+#include "KiDo.hh"
 //#include "class_zauber.hh"
 #include "class_fertigkeiten.hh"
 #include "class_berufe.hh"
 #include "class_waffen.hh"
-#include "class_kido.hh"
+//#include "class_kido.hh"
 #include "class_sprache_schrift.hh"
 #include "class_lernpunkte.hh"
 #include "class_typen.hh"
@@ -114,8 +115,8 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_Zauber> list_Zauber_neu;
         std::list<cH_Zauberwerk> list_Zauberwerk;
         std::list<cH_Zauberwerk> list_Zauberwerk_neu;
-        std::list<H_Data_kido> vec_Kido;
-        std::list<H_Data_kido> vec_Kido_neu;
+        std::list<cH_KiDo> list_Kido;
+        std::list<cH_KiDo> list_Kido_neu;
 
         bool kido_bool;
         int maxkido;
@@ -192,8 +193,6 @@ class midgard_CG : public midgard_CG_glade
         void on_zauber_wahl_clicked();
         void on_berufe_wahl_clicked();
         void on_kido_wahl_clicked();
-        void get_kido(std::list<H_Data_kido>& vec_Kido);
-        int get_erfolgswert_kido();
         int maxkidostil(const std::string& stufe);
         void show_kido();
         void stil_optionmenue();
@@ -328,7 +327,7 @@ class midgard_CG : public midgard_CG_glade
 
         void on_kido_laden_clicked();
         void kido_zeigen();
-        void move_kido(std::list<H_Data_kido>& von,std::list<H_Data_kido>& nach,std::string name);
+        void move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,std::string name);
         void on_leaf_selected_alte_kido(cH_RowDataBase d);
         void on_leaf_selected_neue_kido(cH_RowDataBase d);
         void on_steigern_kido_tree_alt_select(const std::string& name,int kosten);
@@ -383,7 +382,7 @@ class midgard_CG : public midgard_CG_glade
          void waffe_besitz_uebernehmen(const std::vector<H_Data_waffen>& wbu);
          void zauber_uebernehmen(const std::list<cH_Zauber>& saz);
          void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
-         void kido_uebernehmen(std::vector<string>& technik);
+         void kido_uebernehmen(const std::list<cH_KiDo>& technik);
          double get_standard_waffen(const std::string& typ, const std::string& typ2,const std::string& waffe);
 //         double get_standard_fertigkeit(const std::string& typ, const std::string& typ_2,const std::string& fertigkeit);
 //         double get_standard_fertigkeit_(const std::string& ergebnis,const std::string& ergebnis2,const std::string& fertigkeiten);

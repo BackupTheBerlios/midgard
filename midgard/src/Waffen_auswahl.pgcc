@@ -84,6 +84,7 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::
       }
     exec sql close waffen;
     Gtk::OStream os(waffen_clist_auswahl);
+    waffen_clist_auswahl->freeze();
     for(std::vector<H_Data_waffen>::iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
       {
         for (std::vector<string>::const_iterator j=vorteile.begin();
@@ -102,6 +103,7 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::
 
     waffen_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
     waffen_clist_auswahl->set_reorderable(true);
+    waffen_clist_auswahl->thaw();
 
 }
 
