@@ -16,13 +16,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/11/25 15:17:30 CET by thoma@Tiger.
-// using glademm V0.6.2b_cvs
-//
-// newer (non customized) versions of this file go to window_Ausruestung.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "config.h"
 #include "window_Ausruestung.hh"
 #include <Gtk_OStream.h>
@@ -45,12 +38,12 @@ void window_Ausruestung::on_clist_preisliste_select_row(gint row, gint column, G
 
 void window_Ausruestung::fill_preisliste()
 {
-  cH_PreiseMod *art=static_cast<cH_PreiseMod*>(optionmenu_art->get_menu()->get_active()->get_user_data());
+  cH_PreiseMod art=static_cast<PreiseMod*>(optionmenu_art->get_menu()->get_active()->get_user_data());
   PreiseMod::st_vec *modi=static_cast<PreiseMod::st_vec*>(optionmenu_typ->get_menu()->get_active()->get_user_data());
   Gtk::OStream os(clist_preisliste);
   for(std::list<cH_Preise>::const_iterator i=Database.preise.begin();i!=Database.preise.end();++i)
    {
-     if((*art)->Art()==(*i)->Art())
+     if(art->Art()==(*i)->Art())
       os << (*i)->Name() 
          << (*i)->Kosten()
          << (*i)->Einheit()
@@ -71,7 +64,7 @@ void window_Ausruestung::fill_optionmenu_art()
   for(std::list<cH_PreiseMod>::iterator i=Database.preisemod.begin();i!=Database.preisemod.end();++i)
    {
      os << (*i)->Art();
-     os.flush((gpointer)&*i);
+     os.flush((*i)->ref(),&HandleContent::unref);
    }  
 }
 
@@ -83,9 +76,9 @@ void window_Ausruestung::opt_typ()
 
 void window_Ausruestung::fill_optionmenu_typ()
 {
-  cH_PreiseMod *art=static_cast<cH_PreiseMod*>(optionmenu_art->get_menu()->get_active()->get_user_data());
+  cH_PreiseMod art=static_cast<PreiseMod*>(optionmenu_art->get_menu()->get_active()->get_user_data());
   Gtk::OStream os(optionmenu_typ);
-  for(vector<PreiseMod::st_vec>::const_iterator i=(*art)->getVec().begin();i!=(*art)->getVec().end();++i)
+  for(vector<PreiseMod::st_vec>::const_iterator i=art->getVec().begin();i!=art->getVec().end();++i)
    {
      os << i->typ;
      os.flush((gpointer)&*i);

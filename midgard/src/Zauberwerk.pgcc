@@ -30,7 +30,8 @@ exec sql include sqlca;
 
 cH_Zauberwerk::cache_t cH_Zauberwerk::cache;
 
-cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,const std::string& stufe)
+cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
+		const std::string& stufe IF_XML(,bool create))
 {
  st_index index(name,art,stufe);
  cH_Zauberwerk *cached(cache.lookup(index));
@@ -42,7 +43,17 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,cons
    cache.Register(index,*this);
   }
 #else
-   assert(!"Zauberwerk im Cache");
+  cerr << "Zauberwerk '" << name << "' nicht im Cache\n";
+  if (create)
+  {  static Tag t2("Zauberwerk"); 
+     // note that this Tag is shared ... works well for now
+     t2.setAttr("Name",name);
+     t2.setAttr("Art",art);
+     t2.setAttr("Stufe",stufe);
+     *this=cH_Zauberwerk(&t2);
+  }
+  else throw NotFound();
+//  assert(!"Zauberwerk im Cache");
 #endif
 }
 

@@ -155,5 +155,5 @@ Typen_All::Typen_All(Gtk::ProgressBar *progressbar)
 }
 
 bool operator==(gpointer data,const cH_Typen &t)
-{  return *(reinterpret_cast<const Typen*>(data))==*t;
+{  return *(static_cast<Typen*>(data))==*t;
 }

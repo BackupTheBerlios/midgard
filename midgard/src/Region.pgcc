@@ -21,6 +21,8 @@
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
+#else
+#include "MidgardBasicElement.hh" // nur für NotFound
 #endif
 #include <gtk--/main.h>
 
@@ -59,7 +61,9 @@ cH_Region::cH_Region(const std::string& name)
    cache.Register(name,*this);
   }
 #else
-  assert(!"Region im Cache");
+  cerr << "Region '" << name << "' nicht im Cache\n";
+  throw NotFound();
+//  assert(!"Region im Cache");
 #endif  
 }
 

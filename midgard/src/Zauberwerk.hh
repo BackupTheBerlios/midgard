@@ -85,7 +85,7 @@ class cH_Zauberwerk : public Handle<const Zauberwerk>
     friend class std::map<st_index,cH_Zauberwerk>;
     cH_Zauberwerk(){};
  public:
-    cH_Zauberwerk(const std::string& name, const std::string& art,const std::string& stufe);
+    cH_Zauberwerk(const std::string& name, const std::string& art,const std::string& stufe IF_XML(,bool create=false));
 #ifdef USE_XML
     cH_Zauberwerk(const Tag *tag);
 #endif

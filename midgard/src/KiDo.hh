@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.16 2002/01/21 08:45:00 thoma Exp $               
+// $Id: KiDo.hh,v 1.17 2002/01/21 23:24:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,7 +69,7 @@ class cH_KiDo : public Handle<const KiDo>
     friend class std::map<std::string,cH_KiDo>;
     cH_KiDo(){};
  public:
-    cH_KiDo(const std::string& name);
+    cH_KiDo(const std::string& name IF_XML(,bool create=false));
 #ifdef USE_XML
     cH_KiDo(const Tag *tag);
 #endif    

@@ -19,31 +19,34 @@
 #include "midgard_CG.hh"
 #include "Window_doppelcharaktere.hh"
 #include <Gtk_OStream.h>
+#include <SelectMatching.h>
 
 void midgard_CG::fill_typauswahl()
 {
   fill_typauswahl_fill(1);
-  typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
+  typauswahl->get_menu()->deactivate.connect(SigC::slot(this, &midgard_CG::typauswahl_button));
+  Gtk::Menu_Helpers::SelectMatching(*typauswahl,Typ[0]);
 }
 
 void midgard_CG::fill_typauswahl_2()
 {
   fill_typauswahl_fill(2);
-  typauswahl_2->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button));
+  typauswahl_2->get_menu()->deactivate.connect(SigC::slot(this, &midgard_CG::typauswahl_2_button));
+  Gtk::Menu_Helpers::SelectMatching(*typauswahl_2,Typ[1]);
 }
 
 void midgard_CG::fill_typauswahl_fill(int typ_1_2)
 {
   Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
-  int count=0;
+//  int count=0;
   for(std::vector<cH_Typen>::iterator i=Database.Typen.begin();i!=Database.Typen.end();++i)
     {
      if (Werte.Spezies()->Name()=="Mensch" || Werte.Spezies()->Typ_erlaubt((*i)->Short()))
        if (region_check((*i)->Region()))
          {
            t_ << (*i)->Name(Werte.Geschlecht());
-           t_.flush((gpointer)&*i);
-           (*i)->set_opionmenu_nr(count++);
+           t_.flush((*i)->ref(),&HandleContent::unref);
+//           (*i)->set_opionmenu_nr(count++);  unnötig !!!
          }
    }
 }
@@ -51,8 +54,8 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
 
 void midgard_CG::typauswahl_button()
 {
- cH_Typen *ptr = static_cast<cH_Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
- Typ[0]=*ptr;
+ cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
+ Typ[0]=ptr;
  clear_listen();
  clear_gtk();
  show_gtk();
@@ -85,8 +88,8 @@ void midgard_CG::typauswahl_button()
 }
 void midgard_CG::typauswahl_2_button()
 {
- cH_Typen *ptr = static_cast<cH_Typen*>(typauswahl_2->get_menu()->get_active()->get_user_data());
- Typ[1]=*ptr;
+ cH_Typen ptr = static_cast<Typen*>(typauswahl_2->get_menu()->get_active()->get_user_data());
+ Typ[1]=ptr;
  show_gtk();
  Database.ausnahmen.set_Typ(Typ);
  if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
@@ -102,16 +105,18 @@ void midgard_CG::fill_spezies()
       _mi = manage(new Gtk::MenuItem((*i)->Name()));
       _m->append(*_mi);
       _mi->show();
-      _mi->set_user_data((gpointer)&*i);
+      _mi->set_user_data(0); // dummy, see Gtk_OStream for reason
+      _mi->set_data_full("user_data", (*i)->ref(), &HandleContent::unref);
     }
   optionmenu_spezies->set_menu(*_m);
   optionmenu_spezies->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezieswahl_button));
+   Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
 }
 
 void midgard_CG::spezieswahl_button()
 {
- cH_Spezies *ptr = static_cast<cH_Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
- Werte.setSpezies(*ptr);
+ cH_Spezies ptr = static_cast<Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
+ Werte.setSpezies(ptr);
 
  fill_typauswahl();
  typauswahl_button();

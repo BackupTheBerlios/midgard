@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.9 2002/01/21 16:39:58 christof Exp $               
+// $Id: Typen.hh,v 1.10 2002/01/21 23:24:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,7 @@ class Typen : public HandleContent
    std::string typl,typlw,typz;
    std::string zaubern,ausdauer,region,beruf;
    int stand,sb,ruestung,geld;
-   mutable int opionmenu_nr;
+//   mutable int opionmenu_nr;
    bool stadt,land;
    bool sprueche_mit_pp;
 
@@ -46,10 +46,10 @@ public:
    Typen(const Tag *tag);
 #endif   
    Typen() : typnr(0),stand(0),sb(0),ruestung(0),geld(0),
-         opionmenu_nr(0),stadt(true),land(true) {}
+         stadt(true),land(true) {}
    
-   int Nr() const {return opionmenu_nr;}
-   void set_opionmenu_nr(int o) const {opionmenu_nr=o;}
+//   int Nr() const {return opionmenu_nr;}
+//   void set_opionmenu_nr(int o) const {opionmenu_nr=o;}
    std::string Name(const std::string& geschlecht) const 
       {
 //cout << "Geschlect im Typ = "<<geschlecht<<'\n';
@@ -79,7 +79,6 @@ class cH_Typen : public Handle<const Typen>
 {
     typedef CacheStatic<std::string,cH_Typen> cache_t;
     static cache_t cache;
-    cH_Typen(Typen *s) : Handle<const Typen>(s) {};
     friend class std::map<std::string,cH_Typen>;
 ///    cH_Typen(){};
   public:
@@ -88,6 +87,7 @@ class cH_Typen : public Handle<const Typen>
 #ifdef USE_XML   
    cH_Typen(const Tag *tag);
 #endif   
+    cH_Typen(Typen *s) : Handle<const Typen>(s) {};
 };
  
 class Typen_All

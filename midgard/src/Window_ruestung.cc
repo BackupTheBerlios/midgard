@@ -16,13 +16,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/3/12 19:57:20 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Window_ruestung.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "config.h"
 #include "Window_ruestung.hh"
 //#include <Aux/Transaction.h>
@@ -34,11 +27,11 @@
 
 void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event)
 {   
-  cH_Ruestung *R=static_cast<cH_Ruestung*>(clist_ruestung->selection().begin()->get_data());
+  cH_Ruestung R=static_cast<Ruestung*>(clist_ruestung->selection().begin()->get_data());
 //  Werte.set_Ruestung(clist_ruestung->get_text(row,1));
-  if((*R)->Min_Staerke()<=Werte.St())
+  if(R->Min_Staerke()<=Werte.St())
    {
-     Werte.setRuestung(*R);
+     Werte.setRuestung(R);
      destroy();
    }
   else 
@@ -56,7 +49,7 @@ Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const Datenbank& D
      if (hauptfenster->region_check(r->Region()))
         os << r->Long() <<"\t"<<r->Name()<<"\t"<<r->LP_Verlust()<<"\t"
             <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust()<<"\n";
-     os.flush(&const_cast<cH_Ruestung&>(*i));
+     os.flush(r->ref());
    } 
  for (unsigned int i=0;i<clist_ruestung->columns().size();++i)
    clist_ruestung->set_column_auto_resize(i,true);  

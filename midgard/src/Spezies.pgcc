@@ -219,3 +219,6 @@ bool Spezies::Typ_erlaubt(std::string typ) const
   return false;
 }
 
+bool operator==(gpointer data,const cH_Spezies &s)
+{  return *(static_cast<Spezies*>(data))==*s;
+}

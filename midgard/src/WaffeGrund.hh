@@ -1,4 +1,4 @@
-// $Id: WaffeGrund.hh,v 1.10 2002/01/19 14:28:11 christof Exp $               
+// $Id: WaffeGrund.hh,v 1.11 2002/01/21 23:24:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -56,7 +56,7 @@ class cH_WaffeGrund : public Handle<const WaffeGrund>
     cH_WaffeGrund(WaffeGrund *s) : Handle<const WaffeGrund>(s) {};
     friend class std::map<std::string,cH_WaffeGrund>;
  public:
-    cH_WaffeGrund(const std::string& n);
+    cH_WaffeGrund(const std::string& n IF_XML(,bool create=false));
 #ifdef USE_XML
     cH_WaffeGrund(const Tag *tag);
 #endif

@@ -29,7 +29,7 @@ exec sql include sqlca;
 
 cH_Beruf::cache_t cH_Beruf::cache;
 
-cH_Beruf::cH_Beruf(const std::string& name)
+cH_Beruf::cH_Beruf(const std::string& name IF_XML(,bool create))
 {
  cH_Beruf *cached(cache.lookup(name));
  if (cached) *this=*cached;
@@ -40,7 +40,15 @@ cH_Beruf::cH_Beruf(const std::string& name)
    cache.Register(name,*this);
   }
 #else
-  assert(!"Beruf im Cache");
+  cerr << "Beruf '" << name << "' nicht im Cache\n";
+  if (create)
+  {  static Tag t2("Beruf"); 
+     // note that this Tag is shared ... works well for now
+     t2.setAttr("Name",name);
+     *this=cH_Beruf(&t2);
+  }
+  else throw NotFound();
+//  assert(!"Beruf im Cache");
 #endif  
 }
 
@@ -103,7 +111,7 @@ void Beruf::get_Beruf()
 #else
    assert(tag);
    const Tag *Voraussetzungen=tag->find("Voraussetzungen");
-   assert(Voraussetzungen);
+   if (!Voraussetzungen) Voraussetzungen=tag; // might as well be empty
    const Tag *Stand=tag->find("Stand");
      region=tag->getAttr("Region");
      geschlecht=Voraussetzungen->getAttr("Geschlecht");

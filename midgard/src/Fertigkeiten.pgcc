@@ -29,7 +29,7 @@ exec sql include sqlca;
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
-cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
+cH_Fertigkeit::cH_Fertigkeit(const std::string& name IF_XML(, bool create))
 {
  cH_Fertigkeit *cached(cache.lookup(name));
  if (cached) *this=*cached;
@@ -40,15 +40,23 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
    cache.Register(name,*this);
 #else
   cerr << "Fertigkeit '" << name << "' nicht im Cache\n";
-  *this=cH_Fertigkeit(find_Tag("Fertigkeiten","Fertigkeit","Name",name));
+  const Tag *t=find_Tag("Fertigkeiten","Fertigkeit","Name",name);
+  if (t) *this=cH_Fertigkeit(t);
+  else if (create)
+  {  static Tag t2("Fertigkeit"); 
+     // note that this Tag is shared ... works well for now
+     t2.setAttr("Name",name);
+     *this=cH_Fertigkeit(&t2);
+  }
+  else throw NotFound();
+  // assert(!"Fertigkeit nicht gefunden");
 #endif
   }
 }
 
 #ifdef USE_XML
 cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
-{if (!tag) throw NotFound();
-//assert(tag);
+{assert(tag);
  *this=cH_Fertigkeit(new Fertigkeit(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }

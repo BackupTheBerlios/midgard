@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.32 2002/01/19 17:07:32 christof Exp $
+// $Id: midgard.cc,v 1.33 2002/01/21 23:24:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,14 +28,17 @@
 int main(int argc, char **argv)
 {   
    Gtk::Main m(&argc, &argv);
-   xml_init();
-
-#ifndef USE_XML   
+   xml_init(); // könnte Gtk verwenden ...
+   
+   std::string datei;
+#ifdef USE_XML
+   if (argc==2) datei=argv[1];
+#else // !XML
    try {
       Petig::dbconnect(Petig::Connection("","midgard"));
 #endif      
       Datenbank Database;
-      manage(new midgard_CG(Database));
+      manage(new midgard_CG(Database,datei));
       m.run();
       
 #ifndef USE_XML   

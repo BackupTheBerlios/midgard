@@ -82,7 +82,7 @@ class cH_Beruf : public Handle<const Beruf>
     friend class std::map<std::string,cH_Beruf>;
     cH_Beruf(){};
  public:
-    cH_Beruf(const std::string& n);
+    cH_Beruf(const std::string& n IF_XML(,bool create=false));
 #ifdef USE_XML    
     cH_Beruf(const Tag *tag);
 #endif

@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.6 2002/01/19 14:28:11 christof Exp $               
+// $Id: Spezies.hh,v 1.7 2002/01/21 23:24:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -82,13 +82,15 @@ public:
 //   std::vector<st_spez> get_Vec_Typen() const {return vec_typen;}
    bool Typ_erlaubt(std::string typ) const;
    bool Land() const {return land;}
+   
+   bool operator==(const Spezies &b) const
+   {  return Name()==b.Name(); }
 };
 
 class cH_Spezies : public Handle<const Spezies>
 {
     typedef CacheStatic<std::string,cH_Spezies> cache_t;
     static cache_t cache;
-    cH_Spezies(Spezies *s) : Handle<const Spezies>(s) {};
     friend class std::map<std::string,cH_Spezies>; 
     cH_Spezies(){};
   public:
@@ -97,6 +99,7 @@ class cH_Spezies : public Handle<const Spezies>
 #ifdef USE_XML
    cH_Spezies(const Tag *tag);
 #endif
+    cH_Spezies(Spezies *s) : Handle<const Spezies>(s) {};
 };
 
 
@@ -107,5 +110,7 @@ class Spezies_All
       Spezies_All(Gtk::ProgressBar *progressbar);
       std::vector<cH_Spezies> get_All() const {return list_All;}
 };
+
+bool operator==(gpointer data, const cH_Spezies &s);
 
 #endif

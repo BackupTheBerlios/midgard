@@ -30,7 +30,7 @@ exec sql include sqlca;
 
 cH_Waffe::cache_t cH_Waffe::cache;
 
-cH_Waffe::cH_Waffe(const std::string& name)
+cH_Waffe::cH_Waffe(const std::string& name IF_XML(, bool create))
 {
  cH_Waffe *cached(cache.lookup(name));
  if (cached) *this=*cached;
@@ -41,7 +41,15 @@ cH_Waffe::cH_Waffe(const std::string& name)
    cache.Register(name,*this);
   }
 #else
-  assert(!"Waffe im Cache");
+  cerr << "Waffe '" << name << "' nicht im Cache\n";
+  if (create)
+  {  static Tag t2("Waffe"); 
+     // note that this Tag is shared ... works well for now
+     t2.setAttr("Name",name);
+     *this=cH_Waffe(&t2);
+  }
+  else throw NotFound();
+//  assert(!"Waffe im Cache");
 #endif
 }
 

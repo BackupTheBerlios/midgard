@@ -571,12 +571,12 @@ void midgard_CG::on_spinbutton_gewicht_activate()
 
 #ifndef USE_XML
  try{
+#endif 
   Preise::saveArtikel(art,art2,name,preis,einheit,gewicht);
   Database.preise.push_back(cH_Preise(name));
   ausruestung_laden();
+#ifndef USE_XML
    } catch(SQLerror &e) {manage (new WindowInfo(e.what(),false));}
-// table_artikel->hide();
-#else
-#warning Preise::saveArtikel noch nicht implementiert!
 #endif
+// table_artikel->hide();
 }

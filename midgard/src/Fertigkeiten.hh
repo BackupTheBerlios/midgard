@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.29 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.30 2002/01/21 23:24:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,16 +59,6 @@ class Fertigkeit : public MidgardBasicElement
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
 #endif
-/*
-    Fertigkeit(const Fertigkeit &F)
-       : attribut(F.attribut),zusatz(F.zusatz),lern_unge(F.lern_unge),lern_land(F.lern_land),
-         lern_stadt(F.lern_stadt),anfangswert0(F.anfangswert0),
-         anfangswert(F.anfangswert),ungelernt(F.ungelernt),
-         berufskategorie(F.berufskategorie),voraussetzung(F.voraussetzung)
-         pflicht(F.pflicht)
-       {}
-*/
-
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
      std::string What_str() const {return "Fertigkeit";}
 
@@ -111,7 +101,7 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
     cH_Fertigkeit(){};
  public:
     cH_Fertigkeit(Fertigkeit *s) : Handle<const Fertigkeit>(s) {};
-    cH_Fertigkeit(const std::string& n);
+    cH_Fertigkeit(const std::string& n IF_XML(,bool create=false));
 #ifdef USE_XML    
     cH_Fertigkeit(const Tag *tag);
 #endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.120 2002/01/20 19:09:36 christof Exp $
+// $Id: midgard_CG.cc,v 1.121 2002/01/21 23:24:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,7 +29,7 @@
 #include "Midgard_Info.hh"
 
 //midgard_CG::midgard_CG(int argc,char **argv)
-midgard_CG::midgard_CG(Datenbank& _Database)
+midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
 : menu(0),Database(_Database)
 {
   srand(time(0));
@@ -53,6 +53,7 @@ midgard_CG::midgard_CG(Datenbank& _Database)
   on_neuer_charakter_clicked();
   set_tree_titles();
 
+  if (!datei.empty()) xml_import(datei);
 }
 
 gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 
@@ -101,17 +102,17 @@ void midgard_CG::on_radiobutton_mann_toggled()
    else Werte.setGeschlecht("w");
   fill_typauswahl();
   fill_typauswahl_2();
-  typauswahl->set_history(Typ[0]->Nr());
-  typauswahl_2->set_history(Typ[1]->Nr());
+//  typauswahl->set_history(Typ[0]->Nr());
+//  typauswahl_2->set_history(Typ[1]->Nr());
 }
 
 void midgard_CG::show_gtk()
 {
-  typauswahl->set_history(Typ[0]->Nr());
+//  typauswahl->set_history(Typ[0]->Nr());
   if (Typ[1]->Short()=="") typauswahl_2->hide();
   else
    { typauswahl_2->show(); 
-     typauswahl_2->set_history(Typ[1]->Nr());
+//     typauswahl_2->set_history(Typ[1]->Nr());
    }
 //cout << "Geschlecht = " <<Werte.Geschlecht()<<'\n';
  fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Charakterklasse im Lernfenster

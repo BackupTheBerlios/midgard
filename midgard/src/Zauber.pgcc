@@ -30,7 +30,7 @@ exec sql include sqlca;
 
 cH_Zauber::cache_t cH_Zauber::cache;
 
-cH_Zauber::cH_Zauber(const std::string& name)
+cH_Zauber::cH_Zauber(const std::string& name IF_XML(,bool create))
 {
  cH_Zauber *cached(cache.lookup(name));
  if (cached) *this=*cached;
@@ -41,7 +41,15 @@ cH_Zauber::cH_Zauber(const std::string& name)
    cache.Register(name,*this);
   }
 #else
-  assert(!"Zauber im Cache");
+  cerr << "Zauber '" << name << "' nicht im Cache\n";
+  if (create)
+  {  static Tag t2("Spruch"); 
+     // note that this Tag is shared ... works well for now
+     t2.setAttr("Name",name);
+     *this=cH_Zauber(&t2);
+  }
+  else throw NotFound();
+//  assert(!"Zauber im Cache");
 #endif  
 }
 

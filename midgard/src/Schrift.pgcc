@@ -31,7 +31,7 @@ exec sql include sqlca;
 
 cH_Schrift::cache_t cH_Schrift::cache;
 
-cH_Schrift::cH_Schrift(const std::string& name)
+cH_Schrift::cH_Schrift(const std::string& name IF_XML(,bool create))
 {
  cH_Schrift *cached(cache.lookup(name));
  if (cached) *this=*cached;
@@ -42,7 +42,15 @@ cH_Schrift::cH_Schrift(const std::string& name)
    cache.Register(name,*this);
   }
 #else
- assert(!"Schrift im Cache");
+ cerr << "Schrift '" << name << "' nicht im Cache\n";
+  if (create)
+  {  static Tag t2("Schrift"); 
+     // note that this Tag is shared ... works well for now
+     t2.setAttr("Name",name);
+     *this=cH_Schrift(name, &t2);
+  }
+  else throw NotFound();
+//  assert(!"Schrift im Cache");
 #endif
 }
 

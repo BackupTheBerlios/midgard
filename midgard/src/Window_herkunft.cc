@@ -16,24 +16,14 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/3/7 10:18:12 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Window_herkunft.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "config.h"
 #include "Window_herkunft.hh"
-//#include "midgard_CG.hh"
 #include <Gtk_OStream.h>
-//#include "Land.hh"
 
 void Window_herkunft::on_clist_herkunftsland_select_row(gint row, gint column, GdkEvent *event)
 {   
-//   std::string land = clist_herkunftsland->get_text(row,1);
-   cH_Land *land=static_cast<cH_Land*>(clist_herkunftsland->selection().begin()->get_data());
-   hauptfenster->herkunft_uebernehmen(*land);
+   cH_Land land=static_cast<Land*>(clist_herkunftsland->selection().begin()->get_data());
+   hauptfenster->herkunft_uebernehmen(land);
    destroy();
 }
 
@@ -44,6 +34,6 @@ Window_herkunft::Window_herkunft(midgard_CG* h,const Datenbank& Database)
  for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
   {
    os << (*i)->Name()<<'\t'<<(*i)->Kontinent()<<'\n';
-   os.flush(&const_cast<cH_Land&>(*i));
+   os.flush((*i)->ref(),&HandleContent::unref);
   }   
 }

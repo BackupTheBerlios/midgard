@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.136 2002/01/21 08:45:00 thoma Exp $
+// $Id: midgard_CG.hh,v 1.137 2002/01/21 23:24:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -434,12 +434,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_spinbutton_gewicht_activate();
         void on_checkbutton_ausruestung_geld_toggled();
 
-   public:
-//         midgard_CG(int argc,char **argv);
-         midgard_CG(Datenbank& _Database);
-         void doppelcharaktere();
-         Grundwerte Werte;
-         void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
          void grundwerte_speichern(IF_XML(ostream &));
 #ifndef USE_XML
@@ -450,26 +444,35 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void load_ausruestung_C(int parent, AusruestungBaum *AB);
 #else
          void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
-         void load_ausruestung(const Tag *tag, list<AusruestungBaum> &AB);
+         void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
 #endif         
          gint on_laden_release_event(GdkEventButton *ev);
-         void xml_export(const std::string& datei);
-         void xml_import(const std::string& datei);
          void xml_export_auswahl();
          void xml_import_auswahl();
+         void zeige_werte(const Grundwerte& w);
+         void show_sinne();
+         bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
+         void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);
+         // Werte in der Oberfläche setzen (z.B. nach laden)
+         void Typ_Geschlecht_Spezies_setzen(); // uvm.
+
+   public:
+//         midgard_CG(int argc,char **argv);
+         midgard_CG(Datenbank& _Database, const string &datei="");
+         Grundwerte Werte;
+
+	// werden von anderen Fenstern aufgerufen
+         void doppelcharaktere();
+         void xml_export(const std::string& datei);
+         void xml_import(const std::string& datei);
          void charakter_beschreibung_uebernehmen(const std::string& b);
          void charakter_beschreibung_drucken(const std::string& b);
          void select_charakter(const std::string& name, const std::string& version);
-         void zeige_werte(const Grundwerte& w);
-//         void setze_lernpunkte(const Lernpunkte& _lernpunkte);
          void show_fertigkeiten();
-         void show_sinne();
          void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe);
-         bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
-         void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);
          void herkunft_uebernehmen(const cH_Land& s);
          bool region_check(const std::string& region);
          void EP_uebernehmen();
@@ -481,5 +484,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          {  frame_steigern->set_sensitive(true);
             on_radio_steigern_all();
          }
+         void on_speichern_clicked();
 };
 #endif

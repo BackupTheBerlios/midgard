@@ -16,13 +16,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/3/7 7:55:50 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Sprache_auswahl.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "config.h"
 #include "Sprache_auswahl.hh"
 #include "midgard_CG.hh"

@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.12 2002/01/19 20:33:46 christof Exp $
+// $Id: Preise.hh,v 1.13 2002/01/21 23:24:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,6 +33,7 @@ class Preise : public HandleContent
    double kosten,gewicht;
 #ifdef USE_XML
    const Tag *tag;
+   static Tag eigenerArtikel;
 #endif
 
    void get_Preise();
@@ -55,6 +56,9 @@ class Preise : public HandleContent
  double Kosten() const { return kosten ; }
  double Gewicht() const { return gewicht ; }
  std::string Einheit()  const {  return einheit; }
+#ifdef USE_XML
+ bool ist_eigener_Artikel() const { return tag==&eigenerArtikel; }
+#endif
 
  static void saveArtikel(std::string art,std::string art2,
       std::string name,double preis, std::string einheit,double gewicht);
@@ -68,7 +72,7 @@ class cH_Preise : public Handle<const Preise>
     friend class std::map<std::string,cH_Preise>;
     cH_Preise(){};
  public:
-    cH_Preise(const std::string& name);
+    cH_Preise(const std::string& name IF_XML(,bool create=false));
 #ifdef USE_XML
     cH_Preise(const Tag *tag);
     cH_Preise(const std::string& name, const std::string& art, const Tag *tag);
@@ -147,7 +151,6 @@ class cH_PreiseMod : public Handle<const PreiseMod>
 
     typedef CacheStatic<st_index,cH_PreiseMod> cache_t;
     static cache_t cache;
-    cH_PreiseMod(PreiseMod *s) : Handle<const PreiseMod>(s) {};
     friend class std::map<st_index,cH_PreiseMod>;
     cH_PreiseMod(){};
  public:
@@ -155,6 +158,7 @@ class cH_PreiseMod : public Handle<const PreiseMod>
 #ifdef USE_XML
     cH_PreiseMod(const Tag *tag);
 #endif
+    cH_PreiseMod(PreiseMod *s) : Handle<const PreiseMod>(s) {};
 };
 
 class PreiseMod_All

@@ -111,7 +111,7 @@ class cH_Waffe : public Handle<const Waffe>
     cH_Waffe(Waffe *s) : Handle<const Waffe>(s) {};
     friend class std::map<std::string,cH_Waffe>;
  public:
-    cH_Waffe(const std::string& n);
+    cH_Waffe(const std::string& n IF_XML(,bool create=false));
 #ifdef USE_XML
     cH_Waffe(const Tag *tag);
 #endif

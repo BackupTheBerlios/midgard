@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.16 2002/01/19 14:28:11 christof Exp $               
+// $Id: Sprache.hh,v 1.17 2002/01/21 23:24:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -76,7 +76,7 @@ class cH_Sprache : public Handle<const Sprache>
     friend class std::map<std::string,cH_Sprache>;
     cH_Sprache(){};
   public:
-   cH_Sprache(const std::string& name);
+   cH_Sprache(const std::string& name IF_XML(,bool create=false));
 #ifdef USE_XML
    cH_Sprache(const Tag *tag);
 #endif

@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.6 2002/01/19 14:28:11 christof Exp $               
+// $Id: Ruestung.hh,v 1.7 2002/01/21 23:24:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,7 +57,6 @@ class cH_Ruestung : public Handle<const Ruestung>
 {
     typedef CacheStatic<std::string,cH_Ruestung> cache_t;
     static cache_t cache;
-    cH_Ruestung(Ruestung *s) : Handle<const Ruestung>(s) {};
     friend class std::map<std::string,cH_Ruestung>;
     cH_Ruestung() {}
   public:
@@ -66,6 +65,7 @@ class cH_Ruestung : public Handle<const Ruestung>
 #ifdef USE_XML
    cH_Ruestung(const Tag *tag);
 #endif
+    cH_Ruestung(Ruestung *s) : Handle<const Ruestung>(s) {};
 };
 
 class Ruestung_All

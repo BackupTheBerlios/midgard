@@ -47,8 +47,8 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 }
 
 void midgard_CG::xml_export_auswahl()
-{
-  manage (new xml_fileselection(this,"save"));
+{ manage (new xml_fileselection(this,"save"/*"Abenteurer speichern"*/))
+	->set_filename(filename);
   steigern_aktivieren();
 }
 
@@ -76,6 +76,21 @@ void midgard_CG::xml_export(const std::string& dateiname)
 
 // Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien
 // oder ganz unten?
+   datei << " <Preise>\n";
+   for (std::list<cH_Preise>::const_iterator i=Database.preise.begin();
+   		i!=Database.preise.end();++i)
+   {  if ((*i)->ist_eigener_Artikel())
+      {  datei << "  <Kaufpreis";
+         write_string_attrib(datei, "Ware", (*i)->Name());
+         write_string_attrib(datei, "Art", (*i)->Art());
+         write_string_attrib(datei, "Art2", (*i)->Art2());
+         write_float_attrib(datei, "Preis", (*i)->Kosten());
+         write_string_attrib(datei, "Währung", (*i)->Einheit());
+         write_float_attrib(datei, "Gewicht", (*i)->Gewicht());
+         datei << "/>\n";
+      }
+   }
+   datei << " </Preise>\n\n";
    
    datei << " <Midgard-Charakter";
    write_int_attrib(datei,"Version",9);
