@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.16 2002/06/12 13:10:10 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.17 2002/06/12 18:06:12 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -164,11 +164,12 @@ void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const M
       {  
          Tag &w=Ausruestung.push_back(Tag("Waffe"));
          w.setIntAttr("Erfolgswert", i->Erfolgswert());
-         w.setAttr("Bezeichnung", (*i)->Name());
+         w.setAttr("Bezeichnung", i->AliasName());
          w.setIntAttr_nn("AngriffVerteidigung_Bonus", i->av_Bonus());
          w.setIntAttr_nn("SchadenLebenspunkte_Bonus", i->sl_Bonus());
          w.setAttr_ne("Region", i->Region());
-         if (i->Magisch().empty()) w.Value(i->Magisch());
+         if (!i->Magisch().empty()) w.Value(i->Magisch());
+//         if (!i->Magisch().empty()) w.setAttr("Magisch",i->Magisch());
       }
    save_ausruestung(Ausruestung, getCBesitz().getChildren());
    
@@ -609,7 +610,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
     {   std::string wn = Database.Waffe_from_Alias[i->getAttr("Bezeichnung")];
         if (wn=="") wn=i->getAttr("Bezeichnung"); 
          WaffeBesitz WB(cH_Waffe(wn,true),
-                        i->getIntAttr("Erfolgswert"),
+//                        i->getIntAttr("Erfolgswert"),
                         i->getAttr("Bezeichnung"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),
                         i->getIntAttr("SchadenLebenspunkte_Bonus"),

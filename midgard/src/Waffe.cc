@@ -335,7 +335,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
 //   Verteidigungswaffen.push_back(new WaffeBesitz(
 //      cH_Waffe("waffenloser Kampf"),0,"waffenloser Kampf",0,0,""));
    MidgardBasicElement_mutable wl(&*cH_Waffe("waffenloser Kampf"));
-   Verteidigungswaffen.push_back(WaffeBesitz(wl,0,wl->Name(),0,0,"",""));
+   Verteidigungswaffen.push_back(WaffeBesitz(wl,wl->Name(),0,0,"",""));
    for (std::list<WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
      {

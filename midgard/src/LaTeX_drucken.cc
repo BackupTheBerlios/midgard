@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.20 2002/06/12 11:05:13 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.21 2002/06/12 18:06:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -300,8 +300,8 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     count++;
     std::string wert = itos((*i).Erfolgswert());
     if (wert == "0") wert = "";
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<LATIN(f->Name())<<
-      ' '<<LATIN((*i).Zusatz()) << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  
+      <<LATIN(LaTeX_scale(f->Name()+" "+i->Zusatz(),33,"4cm")) << "}\t\t";
     // Praxispunkte
     std::string pp = itos((*i).Praxispunkte());
     if (pp == "0") pp = "";
@@ -344,7 +344,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
          waffenname = WB.AliasName();
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
          if (WB.Magisch()!="" || 
-            (WB.av_Bonus()!=0 && WB.sl_Bonus()!=0)) waffenname+="$^*$ "+WB.Bonus() ;
+             WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) waffenname+="$^*$ "+WB.Bonus() ;
          fout <<LaTeX_scalemag(LATIN(waffenname),20,"3cm",WB.Magisch(),WB.Waffe()->Reichweite())<< "}\n";
          
          // Erfolgswert für einen Verteidigungswaffen
@@ -419,7 +419,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
       fout << "\\newcommand{\\wert"<<a<<"}{\\scriptsize }\n";
    }
  // Waffen auffüllen
- unsigned int maxwaffen=8;
+ unsigned int maxwaffen=9;
  for (unsigned int i=countwaffen; i<maxwaffen;++i)
    {
       std::string a = LaTeX_string(i);

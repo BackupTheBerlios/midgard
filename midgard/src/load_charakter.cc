@@ -58,10 +58,10 @@ void midgard_CG::xml_import_history(const std::string datei)
 
 void midgard_CG::xml_import(const std::string& datei)
 {
-   int page=notebook_main->get_current_page_num();
+//   int page=notebook_main->get_current_page_num();
    ifstream fi(datei.c_str());
    Char.push_back(Abenteurer());
-//   on_neuer_charakter_clicked();
+   on_neuer_charakter_clicked();
    frame_steigern->set_sensitive(true);
    if(!(Char.xml_import_stream(fi,getDatabase(),getOptionen())))
      {
@@ -70,9 +70,8 @@ void midgard_CG::xml_import(const std::string& datei)
      }
    Char.setFilename(datei);
    set_title(getWerte().Name_Abenteurer());
-   load_for_mainpage(page);
-//   if(getWerte().Stadt_Land()=="Stadt") table_grundwerte->radiobutton_stadt->set_active(true);
-//   if(getWerte().Stadt_Land()=="Land")  table_grundwerte->radiobutton_land->set_active(true);
+   notebook_main->set_page(PAGE_GRUNDWERTE);
+//   load_for_mainpage(page);
    Char.safed();
    push_back_LDateien(datei);
 }

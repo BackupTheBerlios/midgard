@@ -148,11 +148,11 @@ void  table_steigern::lade_waffenbesitz()
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
       if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_Waffen()))
        {
-        WaffeBesitz W(w,0,w->Name(),0,0,"","");
+        WaffeBesitz W(w,w->Name(),0,0,"","");
         Waffe_Besitz_neu.push_back(W);
         for (list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
          {
-           WaffeBesitz W(w,0,(*j).name,0,0,"",j->region);
+           WaffeBesitz W(w,(*j).name,0,0,"",j->region);
            if(hauptfenster->region_check(j->region))
               Waffe_Besitz_neu.push_back(W);
          }

@@ -154,14 +154,11 @@ class WaffeBesitz : public MidgardBasicElement_mutable
      std::string magisch,region;
 
   public:
-     WaffeBesitz(const cH_Waffe& w, int e,std::string b,
+     WaffeBesitz(const cH_Waffe& w,std::string b,
                   int a,int s,const std::string &m,const std::string &r)
       :MidgardBasicElement_mutable(&*w),
          waffe(w), alias_name(b),av_bonus(a),sl_bonus(s),magisch(m),region(r)
-            {setErfolgswert(e);}
-
-//     WaffeBesitz(const MidgardBasicElement_mutable &b)
-//       : MidgardBasicElement_mutable(b),waffe(b),av_bonus(0),sl_bonus(0) {}
+            {}
 
      enum MidgardBasicElement::MBEE What() const {return MidgardBasicElement::WAFFEBESITZ;}
      std::string What_str() const {return "WaffeBesitz";}
