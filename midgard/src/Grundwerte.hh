@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.21 2002/01/29 10:45:28 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.22 2002/01/30 12:04:05 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -104,7 +104,7 @@ public:
    int KAW() const {return St()/10;}
    int WLW() const {return 40+Ko()/2;}
    int Geistesblitz() const {return In()/10;}
-   int Gift() const {if(Ko()) return 30 + Ko()/10; else return 0;}
+   int Gift() const {if(Ko()) return (30 + Ko())/2; else return 0;}
    int Alter() const {return alter;}
    std::string Gestalt() const ;
    std::string Geschlecht() const {return geschlecht;}
@@ -123,7 +123,7 @@ public:
    std::string Glaube() const {return glaube;}
    std::string Name_Abenteurer() const {return name_abenteurer;}
    std::string Name_Spieler() const {return name_spieler;}
-   std::string Version(bool b) const;
+   std::string Version() const;
    std::string Beschreibung() const {return beschreibung;}
    std::string Stadt_Land() const {return stadt_land;}
    cH_Ruestung Ruestung() const {return ruestung;}

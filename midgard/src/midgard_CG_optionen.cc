@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.40 2002/01/29 16:02:24 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.41 2002/01/30 12:04:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,12 +19,26 @@
 
 #include "midgard_CG.hh"
 
-void midgard_CG::on_checkbutton_original_menu()
+void midgard_CG::on_checkbutton_optionen_menu(st_Optionen O)
 {
-  if (OptionMenu.menu_original->get_active()) OptionBool.Original=true;
-  else OptionBool.Original=false;
+  if (O.menuitem->get_active()) O.active=true;
+  else O.active=false;
+  
+  if(O.index==Original) checkbutton_original(O.active);
+  if(O.index==LernschemaSensitive) lernschema_sensitive(true);
+  if(O.index==showPics) Pics(O.active);
+}
 
-  if(OptionBool.Original) 
+void midgard_CG::checkbutton_original(bool active)
+{
+//  if (OptionMenu.menu_original->get_active()) OptionBool.Original=true;
+//  else OptionBool.Original=false;
+//  st_Optionen O=OptionCheck(Original);
+//  if (O.menuitem->get_active()) O.active=true;
+//  else O.active=false;
+  
+
+  if(active) 
     { togglebutton_alle_zauber->set_sensitive(false); 
       if(haus_menuitem)
        {
@@ -38,9 +52,9 @@ void midgard_CG::on_checkbutton_original_menu()
       pixmap_logo->hide();
       if(haus_menuitem) haus_menuitem->set_sensitive(true);
     }      
-//  menu_init(); //wg. Hausregeln
 }
 
+/*
 void midgard_CG::on_checkbutton_info_fenster_menu()
 {
   if (OptionMenu.menu_info->get_active()) OptionBool.Info=true;
@@ -55,8 +69,9 @@ void midgard_CG::on_checkbutton_pics_menu()
   OptionMenu.menu_pics->set_active(OptionBool.Pics);
   Pics(OptionBool.Pics);
 }
+*/
 
-void midgard_CG::on_lernschema_sensitive_menu()
+void midgard_CG::lernschema_sensitive(bool active)
 {
    button_beschreibung->set_sensitive(true);
    frame_steigern->set_sensitive(true);
@@ -80,14 +95,14 @@ void midgard_CG::on_lernschema_sensitive_menu()
 }
 
 
-
+/*
 void midgard_CG::on_checkbutton_version_menu()
 {
   if (OptionMenu.menu_version->get_active()) OptionBool.version=true;
   else OptionBool.version=false;
   OptionMenu.menu_version->set_active(OptionBool.version);
 }
-
+*/
 
 
 void midgard_CG::Pics(bool b)
@@ -134,6 +149,29 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
      }
   }
 }
+
+midgard_CG::st_Optionen midgard_CG::OptionenCheck(OptionenIndex oi)
+{
+ for(std::list<st_Optionen>::const_iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   if(i->index==oi) return *i;
+ assert(!"OptionenCheck: nicht gefunden");
+ abort();
+}
+midgard_CG::st_Optionen midgard_CG::OptionenCheck(std::string os)
+{
+ for(std::list<st_Optionen>::const_iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   if(i->text==os) return *i;
+ throw NotFound();
+}
+
+midgard_CG::st_Haus midgard_CG::HausregelCheck(HausIndex hi)
+{
+ for(std::list<st_Haus>::const_iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+   if(i->index==hi) return *i;
+ assert(!"HausregelCheck: nicht gefunden");
+ abort();
+}
+
 
 void midgard_CG::Hausregeln_setzen_from_menu()
 {

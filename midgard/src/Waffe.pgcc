@@ -252,7 +252,9 @@ std::string WaffeBesitz::Bonus() const
 
 std::string Waffe::Reichweite() const
 {  
-   if(reichweite_0==-1) return "";
+   if(reichweite_0==-1) return ""; // postgres
+   else if (reichweite_0==0 && reichweite_n==0 && 
+            reichweite_m==0 && reichweite_n==0) return ""; // xml
    return itos(reichweite_0)+"/"+itos(reichweite_n)+"/"+
                itos(reichweite_m)+"/"+itos(reichweite_f);
 }

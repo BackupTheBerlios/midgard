@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.5 2002/01/27 09:01:25 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.6 2002/01/30 12:04:05 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -172,8 +172,9 @@ void Grundwerte::resetSinne()
 }
 
 
-std::string Grundwerte::Version(bool b) const
+std::string Grundwerte::Version() const
 {
- if(!b) return version;
- return "Grad "+itos(grad);
+  return version;
+// if(!b) return version;
+// return "Grad "+itos(grad);
 }

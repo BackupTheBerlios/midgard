@@ -75,7 +75,6 @@ void midgard_CG::menu_init()
    {
      if((*i)->Nr()<=0) continue;
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
-     // _mi->remove(); // CP: was soll das denn ??? es ist doch ganz neu
 
      std::string labeltext=(*i)->Name();
      if (labeltext.size()>11)
@@ -101,7 +100,8 @@ void midgard_CG::menu_init()
      regionen_menu->append(*_mi);
      _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      _mi->set_active((*i)->Active());
-     if(!OptionBool.Original && (*i)->Offiziell() )
+//     if(!OptionBool.Original && (*i)->Offiziell() )
+     if(!OptionenCheck(Original).active && (*i)->Offiziell() )
         _mi->set_sensitive(false);
    }
   menu->append(*regionen);
@@ -111,8 +111,21 @@ void midgard_CG::menu_init()
   Gtk::Menu *optionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Optionen")); 
   optionen->set_submenu(*optionen_menu);
- 
-//  OptionMenu.menu_original=manage(new Gtk::CheckMenuItem("Originalregeln"));
+
+  for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   {
+    Gtk::Label *_l=manage (new Gtk::Label(i->text));
+    Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
+    Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
+    _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
+    _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
+    i->menuitem=manage(new Gtk::CheckMenuItem());
+    i->menuitem->add(*_tab);    
+    i->menuitem->activate.connect(SigC::bind(SigC::slot(this,i->funktion),*i));
+    i->menuitem->set_active(i->active);
+    optionen_menu->append(*(i->menuitem));
+   } 
+/*
   OptionMenu.menu_original=manage(new Gtk::CheckMenuItem());
   Gtk::Label *_l=manage (new Gtk::Label("Originalregeln"));
   Gtk::Pixmap *_o=manage(new Gtk::Pixmap(midgard_logo_tiny_xpm));
@@ -143,7 +156,7 @@ void midgard_CG::menu_init()
   optionen_menu->append(*OptionMenu.menu_version);
   OptionMenu.menu_version->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_version_menu));
   OptionMenu.menu_version->set_active(OptionBool.version);
-
+*/
   menu->append(*optionen);
 
 //Hausregeln////////////////////////////////////////////////////////////////
@@ -170,7 +183,7 @@ void midgard_CG::menu_init()
 
   haus_menuitem->add(*_tabhaus);
   menu->append(*haus_menuitem);
-  if(OptionBool.Original) haus_menuitem->set_sensitive(false);
+  if(OptionenCheck(Original).active) haus_menuitem->set_sensitive(false);
 ///////////////////////////////////////////////////////////////////////////////
 //Import/Export////////////////////////////////////////////////////////////////
   Gtk::Menu *im_ex_menu = manage(new class Gtk::Menu());
@@ -256,10 +269,39 @@ void midgard_CG::menu_gradanstieg_init()
   menu_gradanstieg->show_all();
 }
 
+
+//#include "../pixmaps/midgard_logo_tiny.xpm"
+
+void midgard_CG::Optionen_init()
+{
+  Gtk::CheckMenuItem *menu_original;
+  list_Optionen.push_back(st_Optionen(Original,menu_original,
+                           "Originalregeln",
+                           true,midgard_logo_tiny_xpm,
+                           &midgard_CG::on_checkbutton_optionen_menu));
+  Gtk::CheckMenuItem *menu_info;
+  list_Optionen.push_back(st_Optionen(Info,menu_info,
+                           "Info Fenster anzeigen",true,0,
+                           &midgard_CG::on_checkbutton_optionen_menu));
+  Gtk::CheckMenuItem *menu_pics;
+  list_Optionen.push_back(st_Optionen(showPics,menu_pics,
+                           "Bilder anzeigen",true,0,
+                           &midgard_CG::on_checkbutton_optionen_menu));
+  Gtk::CheckMenuItem *menu_lernschema_sensitive;
+  list_Optionen.push_back(st_Optionen(LernschemaSensitive,
+                           menu_lernschema_sensitive,
+                           "Lernschema auswählbar machen",true,0,
+                           &midgard_CG::on_checkbutton_optionen_menu));
+}
+
+
 void midgard_CG::Hausregeln_init()
 {
  list_Hausregeln.clear();
  Gtk::CheckMenuItem *gold; 
-// list_Hausregeln.push_back(st_Haus("Gold",Gtk::CheckMenuItem *gold,"1 GS entspricht 1 GFP"));
- list_Hausregeln.push_back(st_Haus("Gold",gold,"1 GS entspricht 1 GFP"));
+// list_Hausregeln.push_back(st_Haus(Gold,Gtk::CheckMenuItem *gold,"1 GS entspricht 1 GFP"));
+ list_Hausregeln.push_back(st_Haus(Gold,gold,"1 GS entspricht 1 GFP",false));
+ Gtk::CheckMenuItem *ep_steigern; 
+ list_Hausregeln.push_back(st_Haus(EPsteigern,ep_steigern,"Steigern mit Erfahrungspunkten",true));
 }
+

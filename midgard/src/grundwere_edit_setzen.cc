@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.24 2002/01/26 09:17:41 christof Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.25 2002/01/30 12:04:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -135,7 +135,8 @@ void midgard_CG::on_spinbutton_ko_activate()
 void midgard_CG::on_spinbutton_in_activate()
 { set_all_entrys(); spinbutton_zt->grab_focus();}     
 void midgard_CG::on_spinbutton_zt_activate()
-{ set_all_entrys(); spinbutton_au->grab_focus();}     
+{ set_all_entrys(); spinbutton_au->grab_focus();
+  Werte.setSinn("Sechster Sinn",Werte.Zt()/25); }     
 void midgard_CG::on_spinbutton_sb_activate()
 { set_all_entrys(); spinbutton_wk->grab_focus();}
 void midgard_CG::on_spinbutton_wk_activate()
@@ -195,7 +196,9 @@ gint midgard_CG::on_spinbutton_ko_focus_out_event(GdkEventFocus *ev)
 gint midgard_CG::on_spinbutton_in_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}     
 gint midgard_CG::on_spinbutton_zt_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}     
+{ set_all_entrys(); 
+  Werte.setSinn("Sechster Sinn",Werte.Zt()/25);
+  return false;}     
 gint midgard_CG::on_spinbutton_sb_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
 gint midgard_CG::on_spinbutton_wk_focus_out_event(GdkEventFocus *ev)

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.95 2002/01/29 15:57:12 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.96 2002/01/30 12:04:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -80,8 +80,10 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<Werte.St() << "}\n";
  fout << "\\newcommand{\\gs}{" <<Werte.Gs() << "}\n";
- int reaktionswert = Werte.Gw() - Werte.Ruestung()->RW_Verlust();
- fout << "\\newcommand{\\gw}{"  << Werte.Gw() << "\\scriptsize ("<<reaktionswert<<")}\n";
+ fout << "\\newcommand{\\gw}{"  << Werte.Gw() ;
+  if( Werte.Ruestung()->RW_Verlust() )
+    fout << "\\scriptsize ("<<Werte.Gw()-Werte.Ruestung()->RW_Verlust()<<")";
+ fout << "}\n";
  fout << "\\newcommand{\\ko}{"  <<Werte.Ko()<< "}\n";
  fout << "\\newcommand{\\inn}{" <<Werte.In() << "}\n";
  fout << "\\newcommand{\\zt}{"  <<Werte.Zt() << "}\n";
@@ -89,16 +91,14 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\pa}{"  <<Werte.pA() << "}\n";
  fout << "\\newcommand{\\sbb}{"  <<Werte.Sb() << "}\n";
  fout << "\\newcommand{\\wk}{"  <<Werte.Wk() << "}\n";
-// int reaktionswert = Werte.RW() - atoi(ruestung("RW").c_str());
-// fout << "\\newcommand{\\rw}{"  << Werte.RW() << "\\scriptsize ("<<reaktionswert<<")}\n";
-// fout << "\\newcommand{\\hgw}{"  <<Werte.HGW() << "}\n";
  fout << "\\newcommand{\\rw}{ X }\n";
  fout << "\\newcommand{\\hgw}{ X }\n";
- int bewegungsweite = Werte.B() - Werte.Ruestung()->B_Verlust();
- fout << "\\newcommand{\\bb}{"  <<Werte.B() << "\\scriptsize ("<<bewegungsweite<<")}\n";
+ fout << "\\newcommand{\\bb}{"  <<Werte.B() ;
+ if(Werte.Ruestung()->B_Verlust())
+   fout << "\\scriptsize ("<<Werte.B() - Werte.Ruestung()->B_Verlust()<<")";
+ fout << "}\n";
  fout << "\\newcommand{\\kaw}{"  <<Werte.KAW() << "}\n";
  fout << "\\newcommand{\\geistesblitz}{"  <<Werte.Geistesblitz() << "}\n";
-// fout << "\\newcommand{\\wlw}{"  <<Werte.WLW() << "}\n";
  fout << "\\newcommand{\\ggn}{"  <<Werte.GG() << "}\n";
  fout << "\\newcommand{\\sg}{"  <<Werte.SG() << "}\n";
  fout << "\\newcommand{\\lp}{"  <<Werte.LP() << "}\n";

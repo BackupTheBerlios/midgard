@@ -225,8 +225,7 @@ void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
 			   const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
                            const vector<cH_Typen>& Typ,
-                           const Ausnahmen& ausnahmen,
-                           bool versionbool )
+                           const Ausnahmen& ausnahmen)
 {
   if(b.size()==0) return;
 #ifndef USE_XML
@@ -243,7 +242,7 @@ void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
     char db_what[30];
   exec sql end declare section;
   strncpy(db_name_ch,Werte.Name_Abenteurer().c_str(),sizeof(db_name_ch));
-  strncpy(db_version,Werte.Version(versionbool).c_str(),sizeof(db_version));
+  strncpy(db_version,Werte.Version().c_str(),sizeof(db_version));
   strncpy(db_what, ((*b.begin())->What_str()).c_str(),sizeof(db_what));
   strncpy(db_magisch, "",sizeof(db_magisch));
   strncpy(db_zauberwerk_stufe, "",sizeof(db_zauberwerk_stufe));

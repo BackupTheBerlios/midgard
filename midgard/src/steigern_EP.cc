@@ -45,6 +45,8 @@ void midgard_CG::steigern_gtk()
 
 void midgard_CG::on_checkbutton_EP_Geld_toggled()
 {
+#warning was ist 'steigern'? MAT
+
    if (checkbutton_EP_Geld->get_active()) 
       { steigern=true;
         frame_lernen_mit->set_sensitive(true);

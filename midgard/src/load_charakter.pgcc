@@ -477,12 +477,12 @@ void midgard_CG::load_ausruestung()
     char query[1024];
   exec sql end declare section;
   strncpy(adb_name,Werte.Name_Abenteurer().c_str(),sizeof(adb_name));
-  strncpy(adb_vers,Werte.Version(OptionBool.version).c_str(),sizeof(adb_vers));
+  strncpy(adb_vers,Werte.Version().c_str(),sizeof(adb_vers));
   strncpy(adb_art,"Ausruestung",sizeof(adb_art));
   std::string squery = "select fertigkeit,wert,magisch,sl_bonus
       from charaktere_fertigkeiten
       where charakter_name='"+Werte.Name_Abenteurer()+"' and 
-            version ='"+Werte.Version(OptionBool.version)+"' and art='Ausruestung'
+            version ='"+Werte.Version()+"' and art='Ausruestung'
             and av_bonus="+itos(0);
   strncpy(query,squery.c_str(),sizeof(query));
   exec sql prepare AFEIN_ from :query;
@@ -516,12 +516,12 @@ void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum *AB)
     char cquery[1024];
   exec sql end declare section;
   strncpy(acdb_name,Werte.Name_Abenteurer().c_str(),sizeof(acdb_name));
-  strncpy(acdb_vers,Werte.Version(OptionBool.version).c_str(),sizeof(acdb_vers));
+  strncpy(acdb_vers,Werte.Version().c_str(),sizeof(acdb_vers));
   strncpy(acdb_art,"Ausruestung",sizeof(acdb_art));
   std::string squery = "select fertigkeit,wert,magisch,sl_bonus "
       "from charaktere_fertigkeiten "
       "where charakter_name='"+Werte.Name_Abenteurer()+"' and "
-            "version ='"+Werte.Version(OptionBool.version)+"' and art='Ausruestung' "
+            "version ='"+Werte.Version()+"' and art='Ausruestung' "
             "and av_bonus="+itos(parent);
   strncpy(cquery,squery.c_str(),sizeof(cquery));
 //cout << cquery<<'\n'<<parent<<'\n';
@@ -583,7 +583,7 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
       coalesce(magisch,''),coalesce(zauberwerk_stufe,'')
       from charaktere_fertigkeiten
       where charakter_name='"+Werte.Name_Abenteurer()+"' and 
-            version ='"+Werte.Version(OptionBool.version)+"' and art!='Ausruestung'";
+            version ='"+Werte.Version()+"' and art!='Ausruestung'";
   strncpy(query,squery.c_str(),sizeof(query));
   exec sql prepare LFEIN_ from :query;
   exec sql declare LFEIN cursor for LFEIN_;
@@ -662,12 +662,14 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
         }
       if(sart=="bool")
         {
+/*
          std::string reg=db_region;
          if (reg=="ORIG") {OptionBool.Original=false ; }
          else if (reg=="INFO") {OptionBool.Info=false ;}
          else if (reg=="PICS") {OptionBool.Info=false ;}
          else if (reg=="VERS") {OptionBool.version=false ;}
-         else if (reg=="STEI") {OptionBool.steigern=false ;}
+         else if (reg=="STEI") {HausregelCheck(EPsteigern).active=false ;}
+*/
         }
       if(sart=="Region")
         {
@@ -682,8 +684,8 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
 
 #warning wer löscht die Listen? (Fertigkeiten etc.)
 // alle bools an
-    OptionBool.Original=OptionBool.Info=OptionBool.Info=
-    	OptionBool.version=OptionBool.steigern=true;
+//    OptionBool.Original=OptionBool.Info=OptionBool.Info=
+//    	OptionBool.version=HausregelCheck(EPsteigern).active=true;
 // alle Regionen aus
     for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();
     			i!=Database.Regionen.end();++i)
@@ -767,14 +769,13 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
          schrift->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
          list_Schrift.push_back(schrift);
         }
-      else if(sart=="bool" && i->attbegin()!=i->attend())
+      else if(sart=="bool")
         {
-         std::string reg=i->attbegin()->first;
-         if (reg=="ORIG") {OptionBool.Original=false ; }
-         else if (reg=="INFO") {OptionBool.Info=false ;}
-         else if (reg=="PICS") {OptionBool.Info=false ;}
-         else if (reg=="VERS") {OptionBool.version=false ;}
-         else if (reg=="STEI") {OptionBool.steigern=false ;}
+         try{
+         OptionenCheck(i->getAttr("Name")).active=i->getBoolAttr("Wert");
+         }
+         catch (const NotFound &e)
+         {}
         }
       else if(sart=="Region")
         {

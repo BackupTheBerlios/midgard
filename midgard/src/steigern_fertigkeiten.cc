@@ -111,7 +111,7 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
       std::string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
       manage (new WindowInfo(strinfo,false)); 
       MidgardBasicElement_leaf_neu(d);      
-      on_lernschema_sensitive_menu();
+      lernschema_sensitive(true);
     }
   else if (MBE->Name()=="Zaubern") 
       {  doppelcharaktere();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.150 2002/01/29 15:57:12 thoma Exp $
+// $Id: midgard_CG.hh,v 1.151 2002/01/30 12:04:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,11 +59,15 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         Gtk::Menu *menu, *menu_gradanstieg;
         void menu_init();
         void menu_gradanstieg_init();
+        void Optionen_init();
+        enum OptionenIndex {Original,Info,showPics,LernschemaSensitive};
+        enum HausIndex {Gold,EPsteigern};
+
         void Hausregeln_init();
         void Hausregeln_setzen_from_menu();
         void Hausregeln_setzen(bool b);
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
-
+/*
         struct st_OptionBool{bool Original; bool Info; bool Pics; 
                      bool steigern;bool version;
                void reset() {*this=st_OptionBool();}
@@ -77,16 +81,23 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                              Gtk::MenuItem      *menu_sensitive;
                              Gtk::CheckMenuItem *menu_version;};
         st_OptionMenu OptionMenu;
-
-/*        struct st_HausBool{bool Gold;
-               st_HausBool() : Gold(false) {}
-               void reset() {*this=st_HausBool();} };
-        st_HausBool HausBool;
 */
+        struct st_Optionen{OptionenIndex index;Gtk::CheckMenuItem *menuitem; 
+                           std::string text;
+                           bool active;const char * const *bild;
+                           void (midgard_CG::* funktion)(st_Optionen O);
+               st_Optionen(OptionenIndex i,Gtk::CheckMenuItem *m,
+                           std::string t,
+                           bool a, const char * const * const b,
+                           void (midgard_CG::* const f)(st_Optionen _O))
+                  :index(i),menuitem(m),text(t),active(a),bild(b),funktion(f) 
+                  {}};
+        
+
         Gtk::MenuItem *haus_menuitem;
-        struct st_Haus{std::string index; Gtk::CheckMenuItem *menu;std::string text;bool active;
-               st_Haus(std::string i,Gtk::CheckMenuItem *m,std::string t)
-                      :index(i),menu(m),text(t),active(false) {}
+        struct st_Haus{HausIndex index; Gtk::CheckMenuItem *menu;std::string text;bool active;
+               st_Haus(HausIndex i,Gtk::CheckMenuItem *m,std::string t,bool a)
+                      :index(i),menu(m),text(t),active(a) {}
                       };
 
         void set_tree_titles();
@@ -114,6 +125,12 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<cH_MidgardBasicElement> list_Schrift_neu;
 
         std::list<st_Haus> list_Hausregeln;
+        std::list<st_Optionen> list_Optionen;
+        st_Optionen OptionenCheck(OptionenIndex oi);
+        st_Optionen OptionenCheck(std::string os);
+        st_Haus HausregelCheck(HausIndex hi);
+
+        void on_checkbutton_optionen_menu(st_Optionen O);
         bool kido_bool;
         int maxkido;
         bool magie_bool;
@@ -295,11 +312,15 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_angeborene_fertigkeit_right_clicked();
         void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
-        void on_checkbutton_original_menu();
+        void checkbutton_original(bool active);
+/*
         void on_checkbutton_info_fenster_menu();
         void on_checkbutton_pics_menu();
-        void on_lernschema_sensitive_menu();
+*/
+        void lernschema_sensitive(bool active);
+/*
         void on_checkbutton_version_menu();
+*/
         void Pics(bool b);
         void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);
 
