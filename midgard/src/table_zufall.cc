@@ -202,7 +202,7 @@ void table_zufall::fill_combos()
    std::vector<pair<cH_Land,bool> > H=LL.getHerkunft(hauptfenster->getChar());
   for(vector<pair<cH_Land,bool> >::const_iterator i=H.begin();i!=H.end();++i)
      L.push_back(i->first->Name());
- combo_spezies->set_popdown_strings(L);
+ combo_herkunft->set_popdown_strings(L);
 }
 
 
