@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.38 2002/10/02 13:09:38 christof Exp $
+// $Id: xml.cc,v 1.39 2002/10/02 13:12:05 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -108,7 +108,7 @@ reloop:
        goto reloop;
     }
     
-#if 1
+#if 0
     for (fastfind_t::const_iterator i=fastfind_cache.begin();i!=fastfind_cache.end();++i)
        std::cout << i->first << '@' << i->second << '\n';
 #endif    
