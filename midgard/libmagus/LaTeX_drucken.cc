@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.19 2004/05/18 16:43:07 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.20 2004/08/24 12:40:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -529,6 +529,8 @@ void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,c
      if ((*i)->Magisch()!="" || (*i)->av_Bonus()!=0 || (*i)->sl_Bonus()!=0) 
          waffenname+="$^*$ "+(*i)->Bonus() ;
      std::string swert;
+
+std::cout << "VERWAFFE:\t"<<waffenname<<'\t'<<(*i)->Waffe()->Verteidigung()<<'\n'; 
      if ((*i)->Waffe()->Verteidigung()) // Erfolgswert für Verteidigungswaffen
       {
         int wert = (*i)->Erfolgswert()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
