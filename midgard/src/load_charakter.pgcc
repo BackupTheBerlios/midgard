@@ -413,7 +413,7 @@ void midgard_CG::load_fertigkeiten()
         }
       if(sart=="ang.Fertigkeit")
        {
-         cH_MidgardBasicElement fert_an(new Fertigkeit_angeborene(db_fert));
+         cH_MidgardBasicElement fert_an(&*cH_Fertigkeit_angeborene(db_fert));
          cH_Fertigkeit_angeborene(fert_an)->set_Erfolgswert(db_wert);
          list_Fertigkeit_ang.push_back(fert_an);
        }    
