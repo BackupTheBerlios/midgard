@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.6 2003/05/08 16:58:23 christof Exp $               
+// $Id: Region.hh,v 1.7 2003/06/15 15:07:09 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -51,20 +51,20 @@ class Region  : public HandleContent
 //   mutable Model<bool> active;
 
   public:
-   Region(const Tag *tag);
+   Region(const Tag &tag, const std::string &file=std::string());
 
    int Nr()  const {return nr;}
-   std::string Name() const   {return name; }
-   std::string Titel() const   {return titel; }
+   const std::string &Name() const   {return name; }
+   const std::string &Titel() const   {return titel; }
 //   Model<bool> &Active() const {return active; }
 //   void setActive(bool a) const {active=a; }
-   std::string Abkuerzung() const {return abkuerzung;}
-   std::string File() const {return file;}
-   std::string Url() const {return url;}
-   std::string Maintainer() const {return maintainer;}
-   std::string Version() const {return version;}
-   std::string Copyright() const {return copyright;}
-   std::string Jahr() const {return jahr;}
+   const std::string &Abkuerzung() const {return abkuerzung;}
+   const std::string &File() const {return file;}
+   const std::string &Url() const {return url;}
+   const std::string &Maintainer() const {return maintainer;}
+   const std::string &Version() const {return version;}
+   const std::string &Copyright() const {return copyright;}
+   const std::string &Jahr() const {return jahr;}
    bool Offiziell() const {return offiziell;}
    RegionenPic_enum::epic Pic() const {return pic;}
 
@@ -85,16 +85,11 @@ class cH_Region : public Handle<const Region>
   public:
    cH_Region(const Region *s) : Handle<const Region>(s) {}
    cH_Region(const std::string& name,bool create=false);
-   cH_Region(const Tag *name);
+   static cH_Region load(const Tag &name, const std::string &file);
 };
 
-class Regionen_All
-{
-   std::vector<cH_Region> list_All;
-  public:
-   Regionen_All();
-   std::vector<cH_Region> get_All() const {return list_All;}
-   static cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const std::string &r);
+namespace Regionen_All
+{  void load(std::vector<cH_Region> &list, const Tag &t, const std::string &file);
+   cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const std::string &r);
 };
-
 #endif

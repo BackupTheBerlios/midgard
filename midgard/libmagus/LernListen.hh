@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.3 2003/06/03 16:39:02 christof Exp $
+// $Id: LernListen.hh,v 1.4 2003/06/15 15:05:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,14 +29,15 @@ class H_WaffeBesitz;
 
 class LernListen
 {
-      const Datenbank D;
+      const Datenbank &D;
   public:
       enum eMBE{MutterSprache,GastlandSprache,NachbarlandSprache,AlteSprache,
                 lFach,lAllg,lUnge,lWaff,lZaub,lAngebFert};
 //                sFert,sWaff,sZaub,sSpra,sSchr,sWGru,sZWerk};
 
+	// VORSICHT: die Datenbank muss länger leben als die LernListe
       LernListen(const Datenbank& d) : D(d){}   
-      LernListen() {}   
+//      LernListen() {}   
 
       bool nsc_check(bool nsc_allowed,bool nsc_only) const ;
       bool region_check(const std::string& region) const;

@@ -1,4 +1,4 @@
-// $Id: Lernschema.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Lernschema.hh,v 1.2 2003/06/15 15:06:27 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,9 +57,9 @@ class Lernschema
 
    public:
       Lernschema() {}; //der andere ctor war mal mit Progressbar
-      Lernschema(bool t);
+      
+      void load(const Tag &t,const std::string &art);
 
-//      void getLernschema();
       bool get_Pflicht(const std::vector<st_index>& VI) const ;
       int get_Lernpunkte(const  std::vector<st_index>& VI) const ;
       std::list<MBEmlt> get_List(const std::string& art, 

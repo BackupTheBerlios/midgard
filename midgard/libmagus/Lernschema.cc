@@ -25,29 +25,13 @@
 #include "Fertigkeiten.hh"
 #include <Misc/Tag.h>
 
-void Lernschema::StoreLernschema(const std::string &slist,const std::string &element,
-		const std::string &typ, std::map<Lernschema::st_index,Lernschema::st_wert> &lern_map)
-{const Tag *liste=xml_data->find(slist);
- if (liste)
- {  Tag::const_iterator b=liste->begin(),e=liste->end();
-//    double size=(e-b)*3;
-    FOR_EACH_CONST_TAG_OF_5(i,*liste,b,e,element)
-    {  //ProgressBar::set_percentage(progressbar,(i-b)/size+base);
-       FOR_EACH_CONST_TAG_OF(j,*i,"Lernschema")
-       {  if (j->getAttr("Typ").empty()) continue; // Spezies ??
-          lern_map[Lernschema::st_index(j->getAttr("Typ"),typ,i->getAttr("Name"))] 
-             = Lernschema::st_wert(j->getBoolAttr("Pflicht"),j->getIntAttr("Erfolgswert")
+void Lernschema::load(const Tag &t,const std::string &art)
+{  FOR_EACH_CONST_TAG_OF(j,t,"Lernschema")
+   {  if (j->getAttr("Typ").empty()) continue; // Spezies ??
+      lern_map[st_index(j->getAttr("Typ"),art,t.getAttr("Name"))] 
+             = st_wert(j->getBoolAttr("Pflicht"),j->getIntAttr("Erfolgswert")
              		,"",j->getIntAttr("Lernpunkte"),"","");
-       }
-    }
- }
-}
-
-Lernschema::Lernschema(bool t)
-{
- StoreLernschema("Zauber","Spruch","Zauberkünste",lern_map);
- StoreLernschema("Fertigkeiten","Fertigkeit","Fachkenntnisse",lern_map);
- StoreLernschema("Waffen","Waffe","Waffenfertigkeiten",lern_map);
+   }
 }
 
 std::list<MBEmlt> Lernschema::get_List(const std::string& art, 

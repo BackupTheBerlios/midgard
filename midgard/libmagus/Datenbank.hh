@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.9 2003/05/21 07:02:14 christof Exp $               
+// $Id: Datenbank.hh,v 1.10 2003/06/15 15:05:42 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,6 +79,7 @@ class Datenbank
   {  return Waffe::WaffeVonBezeichnung(name);
   }
   
+  void load_region(const Tag &t,const std::string &file);
   void load_one(const std::string&, const Tag&);
   void load_list(const Tag&);
 };

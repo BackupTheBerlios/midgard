@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.13 2003/06/03 16:39:02 christof Exp $
+// $Id: xml.cc,v 1.14 2003/06/15 15:07:19 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2003 Christof Petig
  *
@@ -30,26 +30,24 @@ void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::stri
    TagStream ts=TagStream(const_cast<std::istream&>
    	(static_cast<const std::istream&>(std::ifstream(filename.c_str()))));
    try
-   {  Tag &xml_data_mutable=ts.getContent();
+   {  Tag &main_file=ts.getContent();
    
    double anzdateien=1;
-   FOR_EACH_CONST_TAG(i,xml_data_mutable)
+   FOR_EACH_CONST_TAG(i,main_file)
    {  if (i->Type()!="MAGUS-include" && i->Type()!="MCG-include") continue;
       if (!i->getBoolAttr("inactive",false)) 
          ++anzdateien;
    }
    int count=0;
-    FOR_EACH_TAG(i,xml_data_mutable)
+    FOR_EACH_TAG(i,main_file)
     {  if (i->Type()!="MAGUS-include" && i->Type()!="MCG-include") continue;
        std::string file=magus_paths::with_path(i->getAttr("File"),false,true);
        if (i->getBoolAttr("inactive",false))
           continue;
        progress(++count/anzdateien);
-//       t2->Type("Region"); // change Type of Tag "MAGUS-include" -> "Region"
        
        std::ifstream in2(file.c_str());
        // wenn nicht, URL holen?
-       // ab hier sollte man nicht mehr auf i, t2 zugreifen (push_back) !!!
        if (in2.good()) 
        {  TagStream ts2(in2);
           try
@@ -57,9 +55,10 @@ void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::stri
              if (data.Type()!="MAGUS-data")
              {  std::cerr << file << " ist keine Magus Datei\n";
              }
-             // Region laden
-             // Region_All::load(data);
-             db.load_list(data);
+             else
+             {  db.load_region(data,file);
+                db.load_list(data);
+             }
           } catch (std::exception &e)
           {  std::cerr << file << " ist keine gültige XML Datei\n";
           }

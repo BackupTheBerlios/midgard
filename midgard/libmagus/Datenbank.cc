@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.14 2003/06/15 12:58:16 christof Exp $               
+// $Id: Datenbank.cc,v 1.15 2003/06/15 15:05:17 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig
@@ -19,11 +19,9 @@
  */
 
 #include "Datenbank.hh"
-
 #include <MidgardBasicElement.hh>
 #include <vector>
 #include <string>
-//#include <gtkmm/main.h>
 #include "Grundwerte.hh"
 #include "Land.hh"   
 //#include "Pflicht.hh"
@@ -34,7 +32,6 @@
 #include "Beruf.hh" 
 #include "Preise.hh"
 #include "Ausruestung.hh"
-//#include "class_lernpunkte.hh"
 #include "Zauber.hh"
 #include "Zauberwerk.hh"  
 #include "Fertigkeiten.hh"
@@ -44,7 +41,6 @@
 #include "Region.hh"  
 #include "Ruestung.hh"
 #include "Fertigkeiten_angeboren.hh"
-//#include "Midgard_Info.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
 #include "magus_paths.h"
@@ -134,31 +130,6 @@ void Datenbank::load_list(const Tag &t)
 void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen)
 {
     xml_init(progress,meldungen,*this);
-//    Regionen = Regionen_All().get_All();
-//    MI->set_Regionen(Regionen);
-//    Laender = Laender_All().get_All();
-//    Ruestung = Ruestung_All().get_All();
-//    lernschema = Lernschema(true);
-//    Beruf = Beruf_All().get_All();
-//    Fertigkeit_ang = Fertigkeiten_angeborene_All().get_All();
-//    Fertigkeit = Fertigkeiten_All().get_All();
-//    WaffeGrund = WaffeGrund_All().get_All();
-//    Waffe = Waffe_All().get_All();
-//    Zauber = Zauber_All().get_All();
-//    Zauberwerk = Zauberwerk_All().get_All();
-//    Kido = KiDo_All().get_All();
-//    Sprache = Sprachen_All().get_All();
-//    Schrift = Schriften_All().get_All();
-//    Spezies = Spezies_All().get_All();
-//    Typen = Typen_All().get_All();
-//    GradAnstieg = Grad_anstieg(true);
-//    Spezialgebiet = Spezialgebiet_All().get_All();
-//    preise = Preise_All(magus_paths::with_path("magus_preise.xml",false,true),tag_eigene_artikel).get_All();
-//    preisenewmod = PreiseNewMod_All().get_All();
-//    prototyp = Prototyp_All().get_All();
-//    prototyp2 = Prototyp2_All().get_All();
-//    MI->database_hide();  // can't do this yet
-//    Waffe_from_Alias = Waffe::fill_map_alias_waffe();
    GradAnstieg.init_after_load();
 }
 

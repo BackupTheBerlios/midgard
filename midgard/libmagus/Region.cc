@@ -30,8 +30,9 @@ cH_Region::cH_Region(const std::string& name,bool create)
  if (cached) *this=*cached;
  else if (create)
   { Tag t2("Region");
+    t2.setAttr("Name",name);
     t2.setAttr("Region",name);
-    *this=cH_Region(t2);
+    *this=new Region(t2);
   }
  else
   {
@@ -40,13 +41,13 @@ cH_Region::cH_Region(const std::string& name,bool create)
   }
 }
 
-Region::Region(const Tag &tag) 
+Region::Region(const Tag &tag, const std::string &_file) 
 : name(tag.getAttr("Name"))
 {
   nr=tag.getIntAttr("MAGUS-Index");
   titel=tag.getAttr("Titel");
   abkuerzung=tag.getAttr("Region");
-  file=tag.getAttr("Dateiname");
+  file=_file;
   url=tag.getAttr("URL");
   maintainer=tag.getAttr("Maintainer");
   version=tag.getAttr("Version");
@@ -71,3 +72,14 @@ cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const s
 // abort(); // never get here
 }
 
+cH_Region cH_Region::load(const Tag &t, const std::string &file)
+{  cH_Region *res=cache.lookup(t.getAttr("Name"));
+   assert (!res);
+      cH_Region r2=new Region(t,file);
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+}
+
+void Regionen_All::load(std::vector<cH_Region> &list,const Tag &t, const std::string &file)
+{  list.push_back(cH_Region::load(t,file));
+}

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.2 2003/05/08 06:35:40 christof Exp $
+// $Id: Optionen.cc,v 1.3 2003/06/15 15:06:47 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -20,6 +20,7 @@
 
 #include "Optionen.hh"
 #include <iostream>
+#include <cassert>
 
 Optionen::Optionen()
 {
