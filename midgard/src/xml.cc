@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.1 2001/11/21 07:21:01 christof Exp $
+// $Id: xml.cc,v 1.2 2001/11/21 10:44:21 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -21,14 +21,14 @@
 
 #ifdef USE_XML
 static TagStream *top;
-Tag *xml_data;
+const Tag *xml_data;
 
 void xml_init(const std::string &filename="midgard.xml")
 {  if (top) return; // oder merge?
-   {  ifstream in(filename);
+   {  ifstream in(filename.c_str());
       top=new TagStream(in);
    }
-   xml_data=top.find("MidgardCG-data");
+   xml_data=top->find("MidgardCG-data");
    if (!xml_data) cerr << "Ladefehler XML Datei " << filename << "\n";
 }
 

@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.1 2001/11/21 07:21:01 christof Exp $
+// $Id: xml.h,v 1.2 2001/11/21 10:44:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -23,7 +23,7 @@
 #ifdef USE_XML
 #include "TagStream.hh"
 
-extern Tag *xml_data;
+extern const Tag *xml_data;
 #else
 #include <string>
 #endif
