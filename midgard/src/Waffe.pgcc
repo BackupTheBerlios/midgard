@@ -107,6 +107,7 @@ void Waffe::get_Alias()
 
 }
 
+
 bool Waffe::Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>& list_WaffenGrund) const
 {
  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
@@ -114,67 +115,6 @@ bool Waffe::Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>& lis
  return false;
 }
 
-
-/*
-double Waffe::Standard_Faktor() const
-{
-  double fac;
-    if      (standard_one_G(Standard()) ) fac = 0.5;
-    else if (standard_all_S(Standard()) ) fac = 1.0;
-    else fac = 2.0; 
- return fac;
-}
-bool Waffe::standard_one_G(const vector<std::string>& s) const 
-{
- assert(s.size()==2);
- if (s[0] == "G" || s[1] =="G" ) return true;
- return false;
-}
-
-bool Waffe::standard_all_S(const vector<std::string>& s) const
-{
- assert(s.size()==2);
- if (s[0] == "S" && (s[1] =="S" || s[1]=="" )) return true;
- if (s[1] == "S" && (s[0] =="S" || s[0]=="" )) return true;
- return false;
-}
-*/
-
-/*
-void Waffe::set_Standard(const vector<cH_Typen>& Typ)
-{
-  assert(Typ.size()==2);
-  std::string swaffe="Waffen";
-  if (Name()=="Peitsche") swaffe="Peitsche";
-  if (Name()=="Lasso") swaffe="Lasso";
-  if (Name()=="Netz") swaffe="Netz";
-  if (Name()=="Bola") swaffe="Bola";
-
-  exec sql begin declare section;
-   char db_ergebnis[20],db_ergebnis2[20];
-   char query[200];
-  exec sql end declare section;
-  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
-  std::string squery = "select "+Typ[0]->Short() ;
-  if (Typ[1]->Short()!="") squery += ", " + Typ[1]->Short() ;
-  squery += " from waffen_standard where fertigkeit  = '"+swaffe+"'";
-  strncpy(query,squery.c_str(),sizeof(query));  
-
-  Transaction tr;
-  exec sql prepare wafein_ from :query ;
-   exec sql declare wafein cursor for wafein_ ;
-   exec sql open wafein;
-   SQLerror::test(__FILELINE__);
-   if (Typ[1]->Short()!="") exec sql fetch wafein into  :db_ergebnis, :db_ergebnis2;
-   else exec sql fetch wafein into  :db_ergebnis;
-   SQLerror::test(__FILELINE__,100);
-   exec sql close wafein;
-   tr.close();
-   standard.clear();
-   standard.push_back(db_ergebnis);
-   standard.push_back(db_ergebnis2);
-}
-*/
 
 bool Waffe::SG_Voraussetzung(const Grundwerte& Werte) const
 {

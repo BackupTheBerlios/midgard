@@ -10,20 +10,18 @@ class cH_Zauber;
 class Zauber : public MidgardBasicElement
 {
    std::string ap, name;
-//   int erfolgswert;
    std::string  art, stufe, zauberdauer, reichweite,
       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
       material, agens, prozess, reagens, beschreibung,spruchrolle,
       zauberart,p_element,s_element,region; 
-//   int kosten;
    int lernpunkte;
+//   mutable bool spruchrolle;
 
    void get_Zauber();
-//   int GrundKosten() const {  return kosten; }
-//   vector<std::string> Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const ;
  public: 
    Zauber(const std::string& n,int l=0) 
-      : name(n),lernpunkte(l){get_Zauber();get_map_typ();EP_steigern("Zauber");} 
+      : name(n),lernpunkte(l)
+   {get_Zauber();get_map_typ();EP_steigern("Zauber");} 
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
    std::string What_str() const {return "Zauber";}
@@ -31,7 +29,6 @@ class Zauber : public MidgardBasicElement
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
 
-//   std::string Standard__(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }
    int iStufe() const {  if (Stufe()=="groﬂ") return 6; else return atoi(Stufe().c_str()); }
@@ -50,7 +47,8 @@ class Zauber : public MidgardBasicElement
    std::string P_Element() const {return p_element;}
    std::string S_Element() const {return s_element;}
    std::string Region() const {return region;}
-//   int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
+//   bool Spruchrolle() const {return spruchrolle;}
+//   void set_Spruchrolle(bool s) const {spruchrolle=s;}
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
    int Lernpunkte() const {  return lernpunkte; }
    bool Spruchrolle() const 
@@ -59,6 +57,7 @@ class Zauber : public MidgardBasicElement
    int Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
    int get_spezial_zauber_for_magier(const Grundwerte& Werte) const;
 
+//   static void set_Spruchrolle(std::list<cH_MidgardBasicElement>&,bool sp) const;
 };
 
 class cH_Zauber : public Handle<const Zauber>

@@ -1,4 +1,4 @@
-/* $Id: zufall.h,v 1.14 2001/06/12 09:31:06 thoma Exp $ */
+/* $Id: zufall.h,v 1.15 2001/11/09 12:43:45 thoma Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,17 +17,22 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <iomanip.h>
-#include <time.h>
-#include <limits.h>
+//#include <iomanip.h>
+//#include <time.h>
+//#include <limits.h>
+#include <stdlib.h>
 
 class Random {
 public:
-        Random(long seed=0) { _seed =( seed ? seed : time(NULL) ); }
-        void seed(long seed=0)   { _seed =( seed ? seed : time(NULL) ); }
-        int integer() { return _next(); }
-        int integer(int min, int max) {return min+_next()%(max-min+1); }
-        double real() {return double(_next())/double(INT_MAX); }
+//        Random(long seed=0) { _seed =( seed ? seed : time(NULL) ); }
+//        void seed(long seed=0)   { _seed =( seed ? seed : time(NULL) ); }
+//        int integer() { return _next(); }
+        int integer(int min, int max) {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
+//        int integer(int min, int max) {return min+ (int)(10 * rand()/(RAND_MAX)); }
+//        double real() {return double(_next())/double(INT_MAX); }
+//        double real() {return double(rand())/double(RAND_MAX); }
+//        int integer(int min, int max) {return min+_next()%(max-min+1); }
+/*
 private:
         unsigned long _seed;
         void _randomize() { _seed = (314159265*_seed + 13579) % ULONG_MAX;}
@@ -36,4 +41,5 @@ private:
            for (int i=0;i<= iterations; ++i) _randomize(); 
            return int(_seed/2);
          }
+*/
 };

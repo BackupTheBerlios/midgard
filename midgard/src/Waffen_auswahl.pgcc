@@ -70,25 +70,25 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::
             :db_erfolgswert, :db_lernpunkte;
        SQLerror::test(__FILELINE__,100);
        if (sqlca.sqlcode) break;
-       cH_Waffe waffe(db_fertigkeiten,db_lernpunkte);
-       waffe->set_Erfolgswert(db_erfolgswert);
-       if (hauptfenster->region_check(waffe->Region(waffe->Name())))
+       cH_MidgardBasicElement waffe(new Waffe(db_fertigkeiten,db_lernpunkte));
+       cH_Waffe(waffe)->set_Erfolgswert(db_erfolgswert);
+       if (hauptfenster->region_check(cH_Waffe(waffe)->Region(waffe->Name())))
          list_Waffen.push_back(waffe);
       }
     exec sql close waffen;
     Gtk::OStream os(waffen_clist_auswahl);
     waffen_clist_auswahl->freeze();
-    for(std::list<cH_Waffe>::iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+    for(std::list<cH_MidgardBasicElement>::iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
       {
+        cH_Waffe w(*i);
         int v=0;
-        for (std::vector<string>::const_iterator j=vorteile.begin();
-               j!=vorteile.end();++j)
-           if ((*j)==(*i)->Name()) v=1;
-        if ((*i)->SG_Voraussetzung(Werte))
+        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
+           if ((*j)==w->Name()) v=1;
+        if (w->SG_Voraussetzung(Werte))
          {
-            os << (*i)->Lernpunkte()-v <<"\t"<<(*i)->Voraussetzung()<<"\t"
-               << (*i)->Name() <<"\t"
-               << (*i)->Erfolgswert() <<"\t"<<(*i)->Grundkenntnis()<<"\n";
+            os << w->Lernpunkte()-v <<"\t"<<w->Voraussetzung()<<"\t"
+               << w->Name() <<"\t"
+               << w->Erfolgswert() <<"\t"<<w->Grundkenntnis()<<"\n";
             os.flush(&*i);
          }
       }

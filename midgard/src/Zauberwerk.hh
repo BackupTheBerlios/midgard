@@ -10,40 +10,26 @@ class cH_Zauberwerk;
 class Zauberwerk : public MidgardBasicElement
 {
    std::string stufe, name,art;
-//   int kosten;
    std::string preis, zeitaufwand,region; 
-//   vector<std::string> Standard(const vector<cH_Typen>& Typ) const ;   
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBERWERK;}
    std::string What_str() const {return "Zauberwerk";}
 
 
-//   map<std::string,std::string> map_typ;
-
    void get_Zauberwerk();
-//   void get_map_typ();
-//   int GrundKosten() const {  return kosten; }
  public: 
    Zauberwerk(const std::string& n) 
       : name(n) {get_Zauberwerk();get_map_typ();} 
 
-//   bool ist_lernbar(const vector<cH_Typen>& Typ) const;
-//   bool ist_gelernt(const std::list<cH_Zauberwerk>& L) const;
-//   map<std::string,std::string> get_MapTyp() const {return map_typ;}
-
    std::string Name() const {  return name; }
-//   std::string Standard__(const vector<cH_Typen>& Typ) const;
    std::string Art() const 
       { if (art=="AZ") return "Alchimistisches Zaubermittel";
         if (art=="PZ") return "Zaubermittel";
         return art; }
    std::string Stufe() const {  return stufe; }
    int iStufe() const {  if (Stufe()=="groﬂ") return 6; else return atoi(Stufe().c_str()); }
-//   int Erfolgswert() const {return 0;} 
    std::string Zeitaufwand() const { return zeitaufwand;}
-//   std::string Beschreibung() const { return beschreibung;}
    std::string Region() const {return region;}
-//   int Kosten(const vector<cH_Typen>& Typ) const;
    std::string Preis() const { return preis; }
 
    static bool zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte);

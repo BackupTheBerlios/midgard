@@ -208,3 +208,13 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
  tr.close();
  progressbar->set_percentage(1);
 }
+
+/*
+void Zauber::set_Spruchrolle(std::list<cH_MidgardBasicElement>& L,bool sp) const
+{
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
+  {
+   (*i)->set_Spruchrolle(sp);
+  }
+}
+*/

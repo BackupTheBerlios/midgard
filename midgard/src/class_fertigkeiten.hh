@@ -37,7 +37,8 @@ class Data_fert : public RowDataBase
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
-      if (reinterpret_cast<string&>(gp)=="FA")
+      string name = (char*)(gp);
+      if (name=="FA")
        switch((Spalten_FA)seqnr) {
          case NAMEa : return cH_EntryValueIntString(MBE->Name());
          case WERTa : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
@@ -45,7 +46,7 @@ class Data_fert : public RowDataBase
          case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
          case VERLERNEN : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen)); 
         }
-      if (reinterpret_cast<string&>(gp)=="FN")
+      if (name=="FN")
        switch ((Spalten_FN)seqnr) {
          case NAMEn : return cH_EntryValueIntString(MBE->Name());
          case WERTn : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
@@ -53,36 +54,36 @@ class Data_fert : public RowDataBase
          case ART : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
          case VORAUSSETZUNGEN : return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung());
         }
-      if (reinterpret_cast<string&>(gp)=="WA")
+      if (name=="WA")
        switch((Spalten_WA)seqnr) {
          case NAMEa_W : return cH_EntryValueIntString(MBE->Name());
          case WERTa_W : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
          case STEIGERN_W : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
          case REDUZIEREN_W : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
         }
-      if (reinterpret_cast<string&>(gp)=="WN")
+      if (name=="WN")
        switch ((Spalten_WN)seqnr) {
          case NAMEn_W : return cH_EntryValueIntString(MBE->Name());
          case WERTn_W : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
-         case VORAUSSETZUNGEN_W : return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung());
+         case VORAUSSETZUNGEN_W : return cH_EntryValueIntString(cH_Waffe(MBE)->Voraussetzung());
         }
-      if (reinterpret_cast<string&>(gp)=="GA")
+      if (name=="GA")
        switch((Spalten_GA)seqnr) {
          case NAMEa_G : return cH_EntryValueIntString(MBE->Name());
         }
-      if (reinterpret_cast<string&>(gp)=="GN")
+      if (name=="GN")
        switch ((Spalten_GN)seqnr) {
          case NAMEn_G : return cH_EntryValueIntString(MBE->Name());
          case KOSTEN_G : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen)); 
         }
-      if (reinterpret_cast<string&>(gp)=="ZA")
+      if (name=="ZA")
        switch ((Spalten_ZA)seqnr) {
          case NAMEa_Z : return cH_EntryValueIntString(MBE->Name());
          case STUFEa_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Stufe());
          case URSPRUNGa_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Ursprung());
          case KOSTENa_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
-      if (reinterpret_cast<string&>(gp)=="ZN")
+      if (name=="ZN")
       switch ((Spalten_ZN)seqnr) {
          case STUFEn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Stufe());
          case NAMEn_Z : return cH_EntryValueIntString(MBE->Name());  
@@ -90,14 +91,14 @@ class Data_fert : public RowDataBase
          case KOSTENn_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
          case STANDARDn_Z : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
         }
-      if (reinterpret_cast<string&>(gp)=="ZWA")
+      if (name=="ZWA")
         switch (seqnr) {
          case STUFEa_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Stufe());
          case NAMEa_ZW : return cH_EntryValueIntString(MBE->Name());  
          case ARTa_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Art());    
          case KOSTENa_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
-     if (reinterpret_cast<string&>(gp)=="ZWN")
+     if (name=="ZWN")
        switch (seqnr) {
          case STUFEn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Stufe());
          case NAMEn_ZW : return cH_EntryValueIntString(MBE->Name());  
@@ -106,7 +107,7 @@ class Data_fert : public RowDataBase
          case PREISn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Preis()); 
          case ZEITAUFWANDn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Zeitaufwand());
         }
-      if (reinterpret_cast<string&>(gp)=="KA")
+      if (name=="KA")
         switch (seqnr) {
          case HOHOa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Hoho());
          case NAMEa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Name_D());
@@ -115,7 +116,7 @@ class Data_fert : public RowDataBase
          case KOSTENa_K  : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
          case STILa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Stil()); 
         }
-      if (reinterpret_cast<string&>(gp)=="KN")
+      if (name=="KN")
       switch (seqnr) {
          case HOHOa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Hoho());
          case NAMEa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Name_D());
@@ -124,7 +125,7 @@ class Data_fert : public RowDataBase
          case KOSTENa_K  : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
          case STILa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Stil()); 
         }
-     if (reinterpret_cast<string&>(gp)=="SPA")
+     if (name=="SPA")
       switch (seqnr) {
          case NAMEa_SP : return cH_EntryValueIntString(MBE->Name());
          case WERTa_SP : return cH_EntryValueEmptyInt(MBE->Erfolgswert());
@@ -132,19 +133,19 @@ class Data_fert : public RowDataBase
          case REDUZIEREN_SP : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
          case VERLERNEN_SP : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen));
         }
-     if (reinterpret_cast<string&>(gp)=="SPN")
+     if (name=="SPN")
       switch (seqnr) {
          case NAMEn_SP : return cH_EntryValueIntString(MBE->Name());
          case URSCHRIFT_SP : return cH_EntryValueIntString(cH_Sprache(MBE)->Urschrift());
          case KOSTEN_SP : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
-     if (reinterpret_cast<string&>(gp)=="SCA")
+     if (name=="SCA")
       switch (seqnr) {
          case NAMEa_SC : return cH_EntryValueIntString(MBE->Name());
          case WERTa_SC : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
          case KOSTENa_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
-     if (reinterpret_cast<string&>(gp)=="SCN")
+     if (name=="SCN")
       switch (seqnr) {
          case NAMEa_SC : return cH_EntryValueIntString(MBE->Name());
          case WERTa_SC : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());

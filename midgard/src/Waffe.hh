@@ -1,11 +1,8 @@
 #ifndef _WAFFE_HH
 #  define _WAFFE_HH
-//#include <vector>
-//#include <list>
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 #include "Grundwerte.hh"
-//#include "itos.h"
 #include <gtk--/progressbar.h>
 
 class cH_Waffe;
@@ -27,13 +24,12 @@ class Waffe : public MidgardBasicElement
      std::string angriffsrangmod, wm_abwehr_leicht, wm_abwehr_schwer,
          voraussetzung;
      std::string region;
-     int schwierigkeit, st,ge,reichweite_0,reichweite_n,
+     int schwierigkeit,st,ge,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f;
-     int lernpunkte, anfangswert;//, kosten;
+     int lernpunkte, anfangswert;
      int schaden_bonus;
      bool pflicht;
      list<st_alias> list_alias;
-//     map<std::string,std::string> map_alias_waffe;
 
      void get_Waffe();
      void get_Alias();
@@ -42,7 +38,8 @@ class Waffe : public MidgardBasicElement
   public:
      Waffe(const std::string& n,int l=0,bool p=false)
       :name(n),lernpunkte(l),pflicht(p)
-     {get_Waffe(); get_Alias(); get_map_typ();EP_steigern("Waffen"); }
+     {get_Waffe(); get_Alias(); get_map_typ();get_Steigern_Kosten_map();
+      EP_steigern("Waffen"); }
 
      enum MBEE What() const {return MidgardBasicElement::WAFFE;}
      std::string What_str() const {return "Waffe";}
@@ -61,6 +58,7 @@ class Waffe : public MidgardBasicElement
      int WM_Angriff(const std::string& name) const;
      std::string Reichweite() const ;
 
+     int Schwierigkeit() const {return schwierigkeit;}
      int Lernpunkte() const {return lernpunkte;}
      int Anfangswert() const {return anfangswert;}
      int Erfolgswert() const {return erfolgswert;};

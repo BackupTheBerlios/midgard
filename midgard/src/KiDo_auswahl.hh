@@ -1,4 +1,4 @@
-// $Id: KiDo_auswahl.hh,v 1.20 2001/11/08 10:15:43 thoma Exp $
+// $Id: KiDo_auswahl.hh,v 1.21 2001/11/09 12:43:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,6 +49,7 @@ class KiDo_auswahl : public KiDo_auswahl_glade
         midgard_CG* hauptfenster;
         int maxkido;
         friend class KiDo_auswahl_glade;
+        std::list<cH_MidgardBasicElement> kido_technik;
         void on_clist_kido_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_clist_kido_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_button_close_clicked();

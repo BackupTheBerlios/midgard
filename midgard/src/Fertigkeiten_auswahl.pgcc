@@ -157,8 +157,7 @@ try{
            if ((*j)==f->Name()) v=1;
         std::string serfolgswert=itos(f->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
-        if ( //hauptfenster->Fertigkeiten_Voraussetzung(f->Name()) &&
-            f->Voraussetzungen(Werte) && Fertigkeiten_spezies_voraussetzung(f->Name(),Werte.Spezies()->Name()))
+        if ( f->Voraussetzungen(Werte) && Fertigkeiten_spezies_voraussetzung(f->Name(),Werte.Spezies()->Name()))
          { os << f->Lernpunkte()-v<<"\t"<<f->Voraussetzung()<<"\t"<<""<<"\t"<<f->Name()<<"\t"
               << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
            os.flush(&*i);
@@ -183,7 +182,6 @@ void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
    for (Gtk::CList::SelectionList::iterator i=fertigkeiten_clist_auswahl->selection().begin();
          i!=fertigkeiten_clist_auswahl->selection().end();++i)
      {  
-//      cH_Fertigkeit *ptr = static_cast<cH_Fertigkeit*>(i->get_data());
       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
       saf.push_back(*ptr);
      }

@@ -9,11 +9,7 @@
 #include "Zauberwerk.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-//#include "class_kido.hh"
-//#include "class_zauber.hh"
 #include "class_fertigkeiten.hh"
-//#include "class_sprache_schrift.hh"
-//#include "class_waffen.hh"
 #include "SimpleTree.hh"
 
 /*
@@ -35,66 +31,13 @@ void MidgardBasicElement::show_list_in_tree(
   const std::list<cH_MidgardBasicElement>& BasicList,
   SimpleTree *Tree,
   const Grundwerte& Werte, 
-  const vector<cH_Typen>& Typ, const Ausnahmen& ausnahmen,
-  char variante, bool _bool_)
+  const vector<cH_Typen>& Typ, const Ausnahmen& ausnahmen)
 {
   if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {
       datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
-/*
-    switch((*BasicList.begin())->What())
-     {
-       case(FERTIGKEIT) : {
-         break; }
-       case(FERTIGKEIT_ANG)      : break;
-       case(WAFFEGRUND)  : {
-            datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
-         if(variante=='O')  
-            datavec.push_back(new Data_grund(w->Name()));
-         if(variante=='N')  
-            datavec.push_back(new Data_grund(w->Name(),w->Kosten(Typ,ausnahmen)));
-          break; }
-       case(WAFFE)      : {
-            datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
-         if(variante=='O')  
-            datavec.push_back(new Data_waffen(w->Name(),w->Erfolgswert(),w->Steigern(Typ,ausnahmen),w->Reduzieren(Typ,ausnahmen),w->Verlernen(Typ,ausnahmen)));
-         if(variante=='N')  
-            datavec.push_back(new Data_waffen(w->Name(),w->Erfolgswert(),w->Voraussetzung()));
-          break; }
-       case(ZAUBER)      : {cH_Zauber z(*i);
-          datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
-          if (!_bool_ || (_bool_ &&  z->Spruchrolle())) 
-           {int kosten=z->Kosten(Typ,ausnahmen);
-            if(_bool_) kosten/=10; 
-              datavec.push_back(new Data_zauber(z->Name(),z->Stufe(),z->Ursprung(),kosten,z->Standard__(Typ,ausnahmen)));   
-           }
-          break; }
-       case(ZAUBERWERK)  : {cH_Zauberwerk z(*i); 
-          datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
-          if(variante=='O')  
-              { if(_bool_) continue;
-                datavec.push_back(new Data_zaubermittel(z->Stufe(),z->Name(),z->Art(),z->Kosten(Typ,ausnahmen)));
-              }
-          if(variante=='N')
-                datavec.push_back(new Data_zaubermittel(z->Stufe(),z->Name(),z->Art(),z->Kosten(Typ,ausnahmen),z->Preis(),z->Zeitaufwand()));
-          break; }
-       case(KIDO)        : {cH_KiDo kd(*i);
-               datavec.push_back(new Data_kido(kd->Hoho(),kd->Name(),kd->Stufe(),
-                  kd->Ap(),kd->Kosten(Typ,ausnahmen),kd->Stil()));
-          break; }
-         case(SPRACHE)     : {cH_Sprache s(*i);
-             if(variante=='O')
-               datavec.push_back(new Data_sprache(s->Name(),s->Erfolgswert(),s->Steigern(Typ,ausnahmen),s->Reduzieren(Typ,ausnahmen),s->Verlernen(Typ,ausnahmen)));
-             if(variante=='N')
-               datavec.push_back(new Data_sprache(s->Name(),s->Urschrift(),0,s->Kosten(Typ,ausnahmen)));
-          break; }
-         case(SCHRIFT)     : {cH_Schrift s(*i);
-               datavec.push_back(new Data_schrift(s->Name(),s->Art_der_Schrift(),s->Kosten(Typ,ausnahmen)));
-          break; }
-      }
-*/
    }
     Tree->setDataVec(datavec);
 }
@@ -176,21 +119,44 @@ int MidgardBasicElement::get_Steigern_Kosten(int erfolgswert) const
 {
 //cout << erfolgswert<<'\t'<<const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert]<<'\t';
 //cout << map_erfolgswert_kosten.size()<<'\n';
+//for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
+//{
+//cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
+//}
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
 
 int MidgardBasicElement::Steigern(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
 { 
-   return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()+1));
+   int kosten=0;
+   if(Erfolgswert()>0)
+      kosten = get_Steigern_Kosten(Erfolgswert()+1);
+   else 
+      kosten = get_Steigern_Kosten(abs(Erfolgswert())-1);
+   int back = int(Standard_Faktor(Typ,ausnahmen)*kosten);
+   if (What()==WAFFE) back *= cH_Waffe(this)->Schwierigkeit();
+   return back;
 }
 int MidgardBasicElement::Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
 {
-   return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()));
+   int kosten=0;
+//   if(Erfolgswert()>0)
+//      kosten = get_Steigern_Kosten(Erfolgswert());
+//   else 
+      kosten = get_Steigern_Kosten(abs(Erfolgswert()));
+   int back = int(Standard_Faktor(Typ,ausnahmen)*kosten);
+   if (What()==WAFFE) back *= cH_Waffe(this)->Schwierigkeit();
+   return back;
 }
 int MidgardBasicElement::Verlernen(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
    if(Reduzieren(Typ,ausnahmen)==0)
-      return Kosten(Typ,ausnahmen);
+    {
+      if(What()!=WAFFE)
+        return Kosten(Typ,ausnahmen);
+      else 
+        return Kosten(Typ,ausnahmen)*cH_Waffe(this)->Schwierigkeit();
+    }      
    else return 0;
 }
 

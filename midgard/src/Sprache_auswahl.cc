@@ -27,16 +27,14 @@
 #include "Sprache_auswahl.hh"
 #include "midgard_CG.hh"
 #include <Gtk_OStream.h>
-//exec sql include sqlca;
-//#include <Aux/Transaction.h>
-//#include <Aux/SQLerror.h>
 #include "Schrift.hh"
 #include "Sprache.hh"
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
   cH_MidgardBasicElement *s=static_cast<cH_MidgardBasicElement*>(clist_sp_sc->selection().begin()->get_data());
-  cH_Sprache(*s)->set_Erfolgswert(cH_Sprache(*s)->Maxwert());
+  if((*s)->What()==MidgardBasicElement::SPRACHE)
+     cH_Sprache(*s)->set_Erfolgswert(cH_Sprache(*s)->Maxwert());
   hauptfenster->MidgardBasicElement_uebernehmen(*s);
 
   destroy();
@@ -63,7 +61,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
          for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Schrift.begin();i!=Database.Schrift.end();++i)
           { 
             cH_Schrift s(*i);
-            os << s->Name()<<s->Art_der_Schrift()<<'\n';
+            os << s->Name()<<'\t'<<s->Art_der_Schrift()<<'\n';
             os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
           }
       }

@@ -1,4 +1,4 @@
-// $Id: Waffen_auswahl.hh,v 1.25 2001/11/08 10:15:43 thoma Exp $
+// $Id: Waffen_auswahl.hh,v 1.26 2001/11/09 12:43:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,9 +34,7 @@
 
 #include <list>
 #include <vector>
-//#include <map>
 class midgard_CG;
-//class H_Data_waffen;
 class Grundwerte;
 class cH_Waffe;
 class cH_WaffeGrund;
@@ -50,7 +48,7 @@ class Waffen_auswahl : public Waffen_auswahl_glade
         midgard_CG* hauptfenster;
         vector<cH_Typen> Typ; 
         friend class Waffen_auswahl_glade;
-        std::list<cH_Waffe> list_Waffen;
+        std::list<cH_MidgardBasicElement> list_Waffen;
         void on_waffen_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_waffen_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_waffen_clicked();

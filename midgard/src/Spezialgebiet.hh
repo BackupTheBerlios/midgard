@@ -38,6 +38,8 @@ class cH_Spezialgebiet : public Handle<const Spezialgebiet>
   public:
    cH_Spezialgebiet() {*this=new Spezialgebiet();}
    cH_Spezialgebiet(const std::string& name);
+
+   static bool is_cached(const std::string s);
 };
  
 class Spezialgebiet_All

@@ -36,6 +36,12 @@ cH_Spezialgebiet::cH_Spezialgebiet(const std::string& name)
   }
 }
 
+bool cH_Spezialgebiet::is_cached(const std::string s)
+{
+  cH_Spezialgebiet *cached(cache.lookup(s));
+  if(cached) return true;
+  return false;
+}
 
 Spezialgebiet::Spezialgebiet(const std::string& _name)
 : nr(0),name(_name)

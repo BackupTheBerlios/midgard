@@ -76,8 +76,12 @@ int Grad_anstieg::get_Resistenz_Kosten(int grad)
 
 int Grad_anstieg::get_Grad(int gfp) 
 {
- for(map<int,st_grad>::const_iterator i=map_grad.begin();i!=map_grad.end();++i)
-    if( i->second.gfp > gfp) 
+ map<int,st_grad>::const_reverse_iterator e=map_grad.rend();
+ for(map<int,st_grad>::const_reverse_iterator i=map_grad.rbegin();i!=e;++i)
+{ 
+//cout<<gfp<<'\t'<< i->second.gfp<<'\t'<<i->first<<'\n';
+   if( i->second.gfp <= gfp) 
       return i->first;
- abort();
+}
+ assert(0);
 }

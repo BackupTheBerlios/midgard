@@ -1,0 +1,54 @@
+#include "Praxispunkte.hh"
+#include <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
+exec sql include sqlca;
+#include <gtk--/main.h>
+
+
+Praxispunkte::Praxispunkte(Gtk::ProgressBar *progressbar)
+{
+  exec sql begin declare section;
+   char NAME[50];
+   int MAX,FAK;
+   int db_size;
+  exec sql end declare section; 
+  exec sql select count(name) into :db_size from praxispunkte;
+  std::string squery="select typ, coalesce(pflicht,''), coalesce(lernpunkte,0),
+      coalesce(verboten,''),coalesce(spielbegin,''),coalesce(erfolgswert,0)
+      from pflicht_lernen order by typ";
+      
+  strncpy(query,squery.c_str(),sizeof(query));
+  Transaction tr;
+  exec sql prepare cl_pflicht_ein_ from :query ;
+  exec sql declare cl_pflicht_ein cursor for cl_pflicht_ein_ ;
+
+  exec sql open cl_pflicht_ein;
+  SQLerror::test(__FILELINE__);
+  std::list<pf> list_pflicht;
+  std::string typmem="";
+  double count=0;
+  while (true)
+   {
+     progressbar->set_percentage(count/db_size);
+     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+     exec sql fetch cl_pflicht_ein into :TYP, :PFLICHT, :LERNPUNKTE, :VERBOTEN,
+         :SPIELBEGINN,:ERFOLGSWERT;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break;
+     if(typmem==std::string(TYP) || typmem=="")
+      {
+        list_pflicht.push_back(pf(PFLICHT,VERBOTEN,LERNPUNKTE,ERFOLGSWERT,SPIELBEGINN));
+      }      
+     else
+      {
+        pflicht_map[TYP] = list_pflicht;
+        list_pflicht.clear();
+      }
+     typmem=TYP;
+     ++count;
+   }
+ exec sql close cl_pflicht_ein;
+ tr.close();
+ progressbar->set_percentage(1);
+}
+

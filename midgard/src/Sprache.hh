@@ -17,7 +17,8 @@ class Sprache : public MidgardBasicElement
   
   public:
    Sprache(const std::string& n) : name(n)
-      {get_Sprache();get_map_typ();EP_steigern("Sprache");}
+      {get_Sprache();get_map_typ();get_Steigern_Kosten_map();
+         EP_steigern("Sprache");}
    enum MBEE What() const {return MidgardBasicElement::SPRACHE;}
    std::string What_str() const {return "Sprache";}
 

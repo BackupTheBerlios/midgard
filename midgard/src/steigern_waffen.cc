@@ -49,10 +49,10 @@ void midgard_CG::waffen_zeigen()
 {
    zeige_werte(Werte);
    on_speichern_clicked();
-   MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,Werte,Typ,Database.ausnahmen,'N');
-   MidgardBasicElement::show_list_in_tree(list_WaffenGrund    ,alte_grund_tree,Werte,Typ,Database.ausnahmen,'O');
-   MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,Werte,Typ,Database.ausnahmen,'N');
-   MidgardBasicElement::show_list_in_tree(list_Waffen    ,alte_waffen_tree,Werte,Typ,Database.ausnahmen,'O');
+   MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::show_list_in_tree(list_WaffenGrund    ,alte_grund_tree,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::show_list_in_tree(list_Waffen    ,alte_waffen_tree,Werte,Typ,Database.ausnahmen);
 }
 
 
@@ -62,7 +62,7 @@ void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
 //  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
-  if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),MBE)) return;
+  if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
   MidgardBasicElement::move_element(list_WaffenGrund_neu,list_WaffenGrund,MBE->Name());
   on_waffen_laden_clicked();
@@ -110,7 +110,7 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (radio_waffen_steigern->get_active())
       {
-       if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),MBE)) return;
+       if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
        if (!togglebutton_praxispunkte_waffen->get_active()) // normal Lernen
         {
           if (MBE->Erfolgswert() >=  cH_Waffe(MBE)->Maxwert(Typ)) 

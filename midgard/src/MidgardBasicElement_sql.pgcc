@@ -47,8 +47,64 @@ void MidgardBasicElement::get_map_typ()
     if (sqlca.sqlcode) break;
     map_typ[db_typ]=db_standard;
   } 
+//cout << What()<<'\t'<<map_typ.size()<<'\n';
 }
  
+
+void MidgardBasicElement::get_Steigern_Kosten_map()
+{
+  exec sql begin declare section;
+   char query[1024];
+   int P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19;
+  exec sql end declare section;
+  std::string squery ="select coalesce(p1,0),coalesce(p2,0),coalesce(p3,0),
+   coalesce(p4,0),
+   coalesce(p5,0),coalesce(p6,0),coalesce(p7,0),coalesce(p8,0),
+   coalesce(p9,0),coalesce(p10,0),coalesce(p11,0),coalesce(p12,0),
+   coalesce(p13,0),coalesce(p14,0),coalesce(p15,0),coalesce(p16,0)
+   ,coalesce(p17,0),coalesce(p18,0),coalesce(p19,0) from ";
+  if(What()==FERTIGKEIT) 
+   squery += "steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
+               s.wie = w.name and s.name = '"+Name()+"'"; 
+  if(What()==SPRACHE) 
+   squery += "steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
+               s.wie = w.name and s.name = 'Sprache'"; 
+  if(What()==WAFFE) 
+   squery += "waffen_steigern w, waffen s where 
+               s.art = w.name and s.name = '"+Name()+"'"; 
+  strncpy(query,squery.c_str(),sizeof(query));
+  exec sql prepare SKM_ein_ from :query;
+  exec sql declare SKM_ein cursor for SKM_ein_;
+  Transaction tr;
+  exec sql open SKM_ein;
+  exec sql fetch SKM_ein into :P1,:P2,:P3,:P4,:P5,:P6,:P7,:P8,:P9,
+   :P10,:P11,:P12,:P13,:P14,:P15,:P16,:P17,:P18,:P19;
+   map_erfolgswert_kosten[1] = P1;
+   map_erfolgswert_kosten[2] = P2;
+   map_erfolgswert_kosten[3] = P3;
+   map_erfolgswert_kosten[4] = P4;
+   map_erfolgswert_kosten[5] = P5;
+   map_erfolgswert_kosten[6] = P6;
+   map_erfolgswert_kosten[7] = P7;
+   map_erfolgswert_kosten[8] = P8;
+   map_erfolgswert_kosten[9] = P9;
+   map_erfolgswert_kosten[10] = P10;
+   map_erfolgswert_kosten[11] = P11;
+   map_erfolgswert_kosten[12] = P12;
+   map_erfolgswert_kosten[13] = P13;
+   map_erfolgswert_kosten[14] = P14;
+   map_erfolgswert_kosten[15] = P15;
+   map_erfolgswert_kosten[16] = P16;
+   map_erfolgswert_kosten[17] = P17;
+   map_erfolgswert_kosten[18] = P18;
+   map_erfolgswert_kosten[19] = P19;
+  exec sql close SKM_ein;
+  tr.close();
+//for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
+// cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
+}
+
+
 void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
                            const vector<cH_Typen>& Typ,

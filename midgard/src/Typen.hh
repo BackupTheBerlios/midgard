@@ -8,7 +8,6 @@
 #include <string>
 #include <gtk--/progressbar.h>
 
-
 class Typen : public HandleContent
 {
    std::string typs;
@@ -16,12 +15,14 @@ class Typen : public HandleContent
    std::string typl,typlw,typz;
    std::string zaubern,ausdauer,region;
    int stand,sb,ruestung;
+   mutable int opionmenu_nr;
 
 public:
    Typen(const std::string& n);
-   Typen() : typnr(0),stand(0),sb(0),ruestung(0){}
+   Typen() : typnr(0),stand(0),sb(0),ruestung(0),opionmenu_nr(0){}
    
-   int Nr() const {return typnr-1;}
+   int Nr() const {return opionmenu_nr;}
+   void set_opionmenu_nr(int o) const {opionmenu_nr=o;}
    std::string Name(const std::string& geschlecht) const 
       {
 //cout << "Geschlect im Typ = "<<geschlecht<<'\n';

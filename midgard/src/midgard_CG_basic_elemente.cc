@@ -3,7 +3,6 @@
 void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,const std::list<cH_MidgardBasicElement>& mbe2)
 {
   if(mbe.begin()==mbe.end()) return;
-
   if((*mbe.begin())->What()==MidgardBasicElement::FERTIGKEIT)
    {
     list_Fertigkeit = mbe;
@@ -24,7 +23,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     hbox_waffen->set_sensitive(true);
     table_waffen->set_sensitive(true);
    }
-  if((*mbe.begin())->What()==MidgardBasicElement::WAFFE);
+  if((*mbe.begin())->What()==MidgardBasicElement::WAFFE)
    {
     list_Waffen=mbe;
     list_WaffenGrund=mbe2;
@@ -37,13 +36,14 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     hbox_kido->set_sensitive(true);
     table_kido_lernen->set_sensitive(true);
    }
-  if((*mbe.begin())->What()==MidgardBasicElement::ZAUBER);
+  if((*mbe.begin())->What()==MidgardBasicElement::ZAUBER)
    {
     list_Zauber=mbe;
     angeborene_zauber();
     show_zauber();
    }
-  if((*mbe.begin())->What()==MidgardBasicElement::KIDO);
+//cout << (*mbe.begin())->What()<<'\t'<<MidgardBasicElement::KIDO<<'\n';
+  if((*mbe.begin())->What()==MidgardBasicElement::KIDO)
    {
     clist_kido->clear();
     list_Kido=mbe;

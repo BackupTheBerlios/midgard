@@ -76,7 +76,7 @@ bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const
  else return false ;
 }
 
-
+/*
 void Fertigkeit::get_Steigern_Kosten_map()
 {
   exec sql begin declare section;
@@ -115,8 +115,7 @@ void Fertigkeit::get_Steigern_Kosten_map()
 //for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
 // cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
 }
-
-
+*/
 
 Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
 {

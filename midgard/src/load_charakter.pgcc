@@ -250,23 +250,21 @@ void midgard_CG::load_charakter()
    Database.GradAnstieg.set_Grad_Anstieg(db_steigern_EP,db_grad_basiswerte);
 //////////////////////////////////////////////////////////////////////////////
 
-   
    // Geschlecht setzen ////////////////////////////////////////////////
    if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
    if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
    // Charakterklasse setzen und anzeigen 
-//   Typ[0]->set_Short(db_typ_s);
-//   Typ[1]->set_Short(db_typ_2_s);
    Typ[0]=cH_Typen(db_typ_s);
-   Typ[1]=cH_Typen(db_typ_2_s);
    fill_typauswahl();
-   if(Typ[1]->Short()!="") fill_typauswahl_2();
-
-//   get_typ_after_load();
-//   get_optionmenu_typ_nr();
    typauswahl->set_history(Typ[0]->Nr());
-   typauswahl_2->set_history(Typ[1]->Nr());
 
+   { std::string s = db_typ_2_s;
+     if(s!="") 
+      { Typ[1]=cH_Typen(s);
+        fill_typauswahl_2();
+        typauswahl_2->set_history(Typ[1]->Nr());
+      }
+   }
    if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord" ||
        Typ[1]->Zaubern()=="n" || Typ[1]->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nSelektieren auswählen");
    else label_spezialwaffe->set_text("");
@@ -278,19 +276,11 @@ void midgard_CG::load_charakter()
    Database.ausnahmen.set_Beruf(vec_Beruf);
 
    // Spezies setzen ////////////////////////////////////////////
-/*
-   exec sql begin declare section;   
-    int db_nr;
-   exec sql end declare section;   
-   strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
-   exec sql select nr into :db_nr from spezies where spezies = :db_spezies;
-   optionmenu_spezies->set_history(db_nr); // Spezies
-*/
    optionmenu_spezies->set_history(Werte.Spezies()->Nr());
    //////////////////////////////////////////////////////////////
    show_gtk();
-//   get_spezial_from_spezialgebiet();
-   Werte.set_Spezialgebiet(cH_Spezialgebiet(Werte.Spezialisierung()));
+   if(cH_Spezialgebiet::is_cached(Werte.Spezialisierung()))
+      Werte.set_Spezialgebiet(cH_Spezialgebiet(Werte.Spezialisierung()));
 }
 
 

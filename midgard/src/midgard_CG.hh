@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.91 2001/11/08 10:15:43 thoma Exp $
+// $Id: midgard_CG.hh,v 1.92 2001/11/09 12:43:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -303,7 +303,7 @@ class midgard_CG : public midgard_CG_glade
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
 //        bool steigern(unsigned int kosten,const std::string& fert);
-        bool steigern(unsigned int kosten,const cH_MidgardBasicElement& fert=0);
+        bool steigern(unsigned int kosten,const cH_MidgardBasicElement *fert=0);
         void desteigern(unsigned int kosten);
         void on_checkbutton_EP_Geld_toggled();
         void steigern_gtk();
@@ -355,7 +355,7 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_beschwoerungen_toggled();
         void on_checkbutton_alle_zauber_toggled();
         void on_checkbutton_zaubermittel_toggled();
-        int spruchrolle_wuerfeln(std::string zauber);
+        bool spruchrolle_wuerfeln(const cH_MidgardBasicElement& zauber);
         void on_leaf_selected_alte_zauber(cH_RowDataBase d);
         void on_leaf_selected_neue_zauber(cH_RowDataBase d);
         void on_leaf_selected_alte_zauberwerk(cH_RowDataBase d);

@@ -27,7 +27,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
      if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
-     if (f->Name()=="Sprache" || f->Name()=="Lesen/Schreiben") continue;
+     if (f->Name()=="Sprache" || f->Name()=="Lesen/Schreiben" || f->Name()=="KiDo-Technik") continue;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
        if (region_check(f->Region()) )
@@ -41,8 +41,8 @@ void midgard_CG::fertigkeiten_zeigen()
 {
  zeige_werte(Werte);
  on_speichern_clicked();
- MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,Werte,Typ,Database.ausnahmen,'N');
- MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,Werte,Typ,Database.ausnahmen,'O');
+ MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,Werte,Typ,Database.ausnahmen);
+ MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,Werte,Typ,Database.ausnahmen);
 }
 
 
@@ -57,7 +57,7 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
       // Steigern mit lernen
       if (!togglebutton_praxispunkte_fertigkeiten->get_active()) 
          {
-            if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),MBE)) return;
+            if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
             Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
             for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
                if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(1); 
@@ -120,12 +120,15 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
 
-  if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),MBE)) return;
+  if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
   MidgardBasicElement::move_element(list_Fertigkeit_neu,list_Fertigkeit,MBE->Name());
   fertigkeiten_zeigen();
 
   if (MBE->Name()=="KiDo") {kido_bool=true;show_gtk();
+      optionmenu_KiDo_Stile->set_sensitive(true);
+      table_kido_lernen->set_sensitive(true);
+      button_kido_auswahl->set_sensitive(false);
       std::string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
       manage (new WindowInfo(strinfo,true)); }
   if (MBE->Name()=="Wissen von der Magie") 

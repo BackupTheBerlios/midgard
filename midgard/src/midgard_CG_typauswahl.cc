@@ -17,22 +17,17 @@
  */
 
 #include "midgard_CG.hh"
-//#include <Aux/Transaction.h>
-//#include <Aux/SQLerror.h>
 #include "Window_doppelcharaktere.hh"
 #include <Gtk_OStream.h>
-//exec sql include sqlca;
 
 void midgard_CG::fill_typauswahl()
 {
-//  vec_Typen.clear();
   fill_typauswahl_fill(1);
   typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
 }
 
 void midgard_CG::fill_typauswahl_2()
 {
-//  vec_Typen_2.clear();
   fill_typauswahl_fill(2);
   typauswahl_2->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button));
 }
@@ -40,77 +35,47 @@ void midgard_CG::fill_typauswahl_2()
 void midgard_CG::fill_typauswahl_fill(int typ_1_2)
 {
   Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
-
-//cout << "Typen = "<<Database.Typen.size()<<'\n';
-   for(std::vector<cH_Typen>::iterator i=Database.Typen.begin();i!=Database.Typen.end();++i)
+  int count=0;
+  for(std::vector<cH_Typen>::iterator i=Database.Typen.begin();i!=Database.Typen.end();++i)
     {
      if (Werte.Spezies()->Name()=="Mensch" || Werte.Spezies()->Typ_erlaubt((*i)->Short()))
        if (region_check((*i)->Region()))
          {
            t_ << (*i)->Name(Werte.Geschlecht());
            t_.flush((gpointer)&*i);
+           (*i)->set_opionmenu_nr(count++);
          }
    }
-//cout << "FERTIG\n";
 }
 
 
 void midgard_CG::typauswahl_button()
 {
  cH_Typen *ptr = static_cast<cH_Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
-
  Typ[0]=*ptr;
-
-// int ityp = int(typauswahl->get_menu()->get_active()->get_user_data());
-// Typ[0] = vec_Typen[ityp];
-//cout << "Typ1"<<"\t"<<ityp<<"\t"<<Typ.Name()<<"\n";
  show_gtk();
  Database.ausnahmen.set_Typ(Typ);
  if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 }
-
 void midgard_CG::typauswahl_2_button()
 {
  cH_Typen *ptr = static_cast<cH_Typen*>(typauswahl_2->get_menu()->get_active()->get_user_data());
  Typ[1]=*ptr;
-
-// int ityp = int(typauswahl_2->get_menu()->get_active()->get_user_data());
-// Typ[1] = vec_Typen_2[ityp];
-//cout << "Typ1"<<"\t"<<ityp<<"\t"<<Typ.Name()<<"\n";
- Database.ausnahmen.set_Typ(Typ);
  show_gtk();
+ Database.ausnahmen.set_Typ(Typ);
  if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }
 
 
 void midgard_CG::fill_spezies()
 {
-//  spezies_vector.clear();
-//  exec sql begin declare section;
-//   char db_spezies[50];
-//   int db_nr;
-//  exec sql end declare section;
-//  Transaction tr;
-//  exec sql declare ein_r cursor for 
-//      select nr,spezies from spezies order by nr ;
-//  exec sql open ein_r;
-//  SQLerror::test(__FILELINE__);
   Gtk::Menu *_m(manage(new Gtk::Menu()));
   Gtk::MenuItem *_mi;
-//  while (true)
   for(vector<cH_Spezies>::iterator i=Database.Spezies.begin();i!=Database.Spezies.end();++i)
    {
-//      exec sql fetch ein_r into :db_nr, :db_spezies;
-//      SQLerror::test(__FILELINE__,100);
-//      if (sqlca.sqlcode) break;   
-//      spezies_vector.push_back(db_spezies);
-//      _mi = manage(new Gtk::MenuItem(db_spezies));
       _mi = manage(new Gtk::MenuItem((*i)->Name()));
       _m->append(*_mi);
       _mi->show();
-//      _mi->set_user_data((gpointer)db_nr);
-//      _mi->set_user_data((gpointer)(*(*i)->Name()));
-//kann ich nicht wiederhohlen :-(   
       _mi->set_user_data((gpointer)&*i);
     }
   optionmenu_spezies->set_menu(*_m);
@@ -119,16 +84,8 @@ void midgard_CG::fill_spezies()
 
 void midgard_CG::spezieswahl_button()
 {
-// int ityp = int(optionmenu_spezies->get_menu()->get_active()->get_user_data());
-   cH_Spezies *ptr = static_cast<cH_Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
-   Werte.set_Spezies(*ptr);
-
-//s.o.  Werte.set_Spezies(cH_Spezies(optionmenu_spezies->get_menu()->get_active()->get_user_data()));
-///*   Werte.set_Spezies*/(std::string(optionmenu_spezies->get_menu()->get_active()->get_user_data()));
-// Werte.set_Spezies(spezies_vector[ityp]);
-
-//cout << "Spezies"<<"\t"<<ityp<<"\t"<<Werte.Spezies()<<"\n";
-
+ cH_Spezies *ptr = static_cast<cH_Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
+ Werte.set_Spezies(*ptr);
 
  fill_typauswahl();
  typauswahl_button();
@@ -136,6 +93,12 @@ void midgard_CG::spezieswahl_button()
  if (Werte.Spezies()->Name()=="Elf")
    { manage (new Window_doppelcharaktere(this));
      angeborene_zauber();
+   }
+ else
+   {
+     typauswahl_2->hide();
+     magie_bool=false;
+     Typ[1]=cH_Typen();
    }
 }
 

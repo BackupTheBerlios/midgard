@@ -61,7 +61,7 @@ void midgard_CG::desteigern(unsigned int kosten)
   EP_uebernehmen();
 }
 
-bool midgard_CG::steigern(unsigned int kosten,const cH_MidgardBasicElement& fert)
+bool midgard_CG::steigern(unsigned int kosten,const cH_MidgardBasicElement* fert)
 {
   if (!steigern_bool) return true;
   // genug Geld? 
@@ -72,7 +72,7 @@ bool midgard_CG::steigern(unsigned int kosten,const cH_MidgardBasicElement& fert
   // genug EP?
   bool bkep=false,bzep=false;
   int womit;
-  if(fert==0) womit = fert->Steigern_mit_EP();
+  if(fert) womit = (*fert)->Steigern_mit_EP();
   else womit=3;
   if(womit==1 || womit==3) bkep=true;
   if(womit==2 || womit==3) bzep=true;

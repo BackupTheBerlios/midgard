@@ -23,7 +23,7 @@ class Fertigkeit : public MidgardBasicElement
      mutable bool pflicht;
 
      void get_Fertigkeit();
-     void get_Steigern_Kosten_map();
+//     void get_Steigern_Kosten_map();
 
   public:
      Fertigkeit(const std::string& n,int l=0,bool p=false)

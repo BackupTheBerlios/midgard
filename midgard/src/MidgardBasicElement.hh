@@ -10,7 +10,6 @@ class cH_Typen;
 class Grundwerte;
 class Ausnahmen;
 class H_Data_beruf;
-//class cH_Zauber;
 class cH_MidgardBasicElement;
 class SimpleTree;
 
@@ -25,6 +24,7 @@ class MidgardBasicElement : public HandleContent
       std::map<std::string,std::string> map_typ;
       std::map<int,int> map_erfolgswert_kosten;
       void get_map_typ();
+      void get_Steigern_Kosten_map();
       vector<std::string> Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
       int GrundKosten() const {  return kosten; }
 
@@ -35,6 +35,7 @@ class MidgardBasicElement : public HandleContent
       enum TREE {OLD,NEW};
 
       map<std::string,std::string> get_MapTyp() const {return map_typ;}
+      
       void EP_steigern(const std::string fert);
       virtual std::string Name() const=0;
 //      virtual int Erfolgswert(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const {return 99;}
@@ -67,8 +68,7 @@ class MidgardBasicElement : public HandleContent
             const std::list<cH_MidgardBasicElement>& BasicList,
             SimpleTree *Tree, 
             const Grundwerte& Werte, const vector<cH_Typen>& Typ,
-            const Ausnahmen& ausnahmen, 
-            char variante='0', bool b=false);
+            const Ausnahmen& ausnahmen);
       static void saveElementliste(const std::list<cH_MidgardBasicElement>& b,
                                    const Grundwerte& Werte,
                                    const vector<cH_Typen>& Typ,
