@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.10 2001/12/12 10:30:01 christof Exp $
+// $Id: export_common.h,v 1.11 2001/12/12 15:56:20 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -67,8 +67,8 @@ void lernschema(ostream &o, const std::string &art, const std::string &name,
 	bool nur_region=false);
 void ausnahmen(ostream &o, const std::string &art, const std::string &name,
 	bool nur_region=false);
-void pflicht_lernen(ostream &o, const std::string &name);
-void verbot_lernen(ostream &o, const std::string &name);
+void pflicht_lernen(ostream &o, const std::string &name, bool nur_region=false);
+void verbot_lernen(ostream &o, const std::string &name, bool nur_region=false);
 
 std::string RegionErgaenzungQuery(const std::string &attribute, 
 	const std::string &typtable, const std::string &lernsch_art,

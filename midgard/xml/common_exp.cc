@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.5 2001/12/12 10:30:01 christof Exp $
+// $Id: common_exp.cc,v 1.6 2001/12/12 15:56:20 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -102,7 +102,7 @@ void ausnahmen(ostream &o, const std::string &art, const std::string &name, bool
    {  constraint=" and (exists (select true from typen where typ=typs and coalesce(region,'')='"
    	+region+"') or herkunft"+Herkunft()+") ";
    }
-#endif   
+#endif
 
    Query query("select spezies, herkunft, typ, beruf, stand, standard"
 	" from ausnahmen where name='"+name+"' and art='"+art+"'"
@@ -121,11 +121,20 @@ void ausnahmen(ostream &o, const std::string &art, const std::string &name, bool
    }
 }
 
-#warning FIXME Region
-void pflicht_lernen(ostream &o, const std::string &name)
-{  Query query("select typ,coalesce(lernpunkte,0),coalesce(erfolgswert,0)"
+void pflicht_lernen(ostream &o, const std::string &name, bool nur_region)
+{  std::string constraint;
+#ifdef REGION   
+   if (nur_region || region.empty())
+   {  constraint=" and exists (select true from typen where typ=typs and coalesce(region,'')='"
+   	+region+"')"; 
+   }
+#endif
+
+   Query query("select typ,coalesce(lernpunkte,0),coalesce(erfolgswert,0)"
 	" from pflicht_lernen"
-	" where pflicht='"+name+"' order by typ");
+	" where pflicht='"+name+"' "
+	+constraint+
+	" order by typ");
    FetchIStream is2;
    while ((query>>is2).good())
    {  o << "    <Lernschema";
@@ -137,11 +146,20 @@ void pflicht_lernen(ostream &o, const std::string &name)
    }
 }
 
-#warning FIXME Region
-void verbot_lernen(ostream &o, const std::string &name)
-{  Query query("select typ,coalesce(spielbegin,'')"
+void verbot_lernen(ostream &o, const std::string &name, bool nur_region)
+{  std::string constraint;
+#ifdef REGION   
+   if (nur_region || region.empty())
+   {  constraint=" and exists (select true from typen where typ=typs and coalesce(region,'')='"
+   	+region+"')"; 
+   }
+#endif
+
+   Query query("select typ,coalesce(spielbegin,'')"
 	" from pflicht_lernen"
-	" where verboten='"+name+"' order by typ");
+	" where verboten='"+name+"' "
+	+constraint+
+	" order by typ");
    FetchIStream is2;
    while ((query>>is2).good())
    {  o << "    <Verbot";
@@ -185,8 +203,11 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    	" and art='"+lernsch_art+"'"
    	" and "+attribute+"=lernschema.fertigkeit) ";
    	
-   	// pflicht_lernen lasse ich mal außen vor ??
-   	
+   result+="or exists (select true from pflicht_lernen join typen"
+   	" on typ=typs where region='"+region+"'"
+   	" and ("+attribute+"=pflicht_lernen.verboten"
+   	" or "+attribute+"=pflicht_lernen.pflicht)) ";
+
    result+="or exists (select true from ausnahmen join typen"
    	" on typ=typs"
    	" where (region='"+region+"' or herkunft"+herkunft+")"

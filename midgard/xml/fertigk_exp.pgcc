@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.31 2001/12/10 16:14:30 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.32 2001/12/12 15:56:20 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -27,11 +27,12 @@ void fert_speichern(std::ostream &o)
 {  
    Transaction t;
    
+   o << " <Fertigkeiten>\n";
   {Query query("select fertigkeit, region, lp as lernpunkte, anfangswert0,"
   	" fp, anfangswert, attribut"
   	" from fertigkeiten"
+  	" where coalesce(region,'')='"+region+"'"
   	" order by region,fertigkeit");
-   o << " <Fertigkeiten>\n";
    FetchIStream is;
   while ((query>>is).good())
   {o << "  <Fertigkeit";
@@ -137,11 +138,33 @@ void fert_speichern(std::ostream &o)
    
    o << "  </Fertigkeit>\n";
   }
-   o << " </Fertigkeiten>\n";
   }
+#ifdef REGION // Lernschema für Typen dieser Region
+  if (region!="")
+ { FetchIStream is;
+   Query q("select name, region from fertigkeiten "
+   	+ RegionErgaenzungQuery("fertigkeiten.name","fertigkeiten_typen","Fertigkeit","f")
+   	+ "order by coalesce(region,''),name");
+  while ((q >> is).good())
+  {o << "  <Fertigkeit";
+   std::string fert=fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_string_attrib(is, o, "Region");
+   o << ">\n";
+
+   grund_standard_ausnahme(o, "Fertigkeit_typen",fert,"",true);
+   lernschema(o, "Fertigkeit",fert,true);
+   pflicht_lernen(o, fert, true);
+   verbot_lernen(o, fert, true);
+   ausnahmen(o, "f", fert,true);
+   o << "  </Fertigkeit>\n";
+  }
+ }
+#endif
+   o << " </Fertigkeiten>\n";
 
 //********************* angeborene Fertigkeiten ********************
-   o << " <angeboreneFertigkeiten>\n";
+  if (region=="")
+  {o << " <angeboreneFertigkeiten>\n";
   {Query query("select name, min, max, wert"
   	" from angeborene_fertigkeiten"
   	" order by name");
@@ -156,6 +179,7 @@ void fert_speichern(std::ostream &o)
   }
    o << " </angeboreneFertigkeiten>\n";
   }
+  }
 
 //********************* Berufe ********************
    o << " <Berufe>\n";
@@ -164,6 +188,7 @@ void fert_speichern(std::ostream &o)
   	MIDGARD3_4("ge,","ge as gw, ge as gs,")
   	" ko, \"in\", zt, pa, au, sb, typ, geschlecht"
    	" from berufe_voraussetzung"
+  	" where coalesce(region,'')='"+region+"'"
    	" order by region, beruf");
    FetchIStream is;
    while ((query>>is).good())
@@ -217,10 +242,11 @@ void fert_speichern(std::ostream &o)
    verbot_lernen(o, beruf);
    o << "  </Beruf>\n";
   }
-   o << " </Berufe>\n";
   }
+   o << " </Berufe>\n";
 
 //********************* Pflicht + verboten ********************
+  if (region=="")
   {o << " <Typ-Pflichten>\n";
    o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten/Berufe sind -->\n";
    Query query("select pflicht, typ, lernpunkte, verboten, spielbegin, erfolgswert"
@@ -257,6 +283,7 @@ void fert_speichern(std::ostream &o)
  }
 
 //********************* praxispunkte ********************
+  if (region=="")
   {o << " <Praxispunkte>\n";
    Query query("select name, max_wert, lernfaktor"
    	" from praxispunkte"
@@ -274,6 +301,7 @@ void fert_speichern(std::ostream &o)
   }
 
 //********************* ZEP oder KEP oder beides? ********************
+  if (region=="")
   {o << " <verwendbareEP>\n";
    o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten sind -->\n";
    Query query("select name, ep"
@@ -300,8 +328,9 @@ void fert_speichern(std::ostream &o)
    o << " </verwendbareEP>\n";
 
 //*************************** Steigerungstabelle *******************
-   o << " <SteigernKosten>\n";
-  {Query query("select name,"
+  if (region=="")
+  {o << " <SteigernKosten>\n";
+   Query query("select name,"
       	    " coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),"
       	    " coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),"
       	    " coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),"
