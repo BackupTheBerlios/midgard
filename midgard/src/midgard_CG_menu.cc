@@ -283,7 +283,7 @@ void midgard_CG::Optionen_init()
   Gtk::MenuItem *menu_lernschema_sensitive;
   list_OptionenM.push_back(st_OptionenM(LernschemaSensitive,
                            menu_lernschema_sensitive,
-                           "Lernschema auswählbar machen",0));
+                           "Lernschema/Steigern auswählbar machen",0));
   Gtk::MenuItem *menu_show_info_window;
   list_OptionenM.push_back(st_OptionenM(show_InfoWindow,
                            menu_show_info_window,

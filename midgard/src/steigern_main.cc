@@ -134,13 +134,13 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
   const_cast<MidgardBasicElement&>(*MBE).set_Praxispunkte(PPanz);
 
   if(pagenr==PAGE_FERTIGKEITEN)
-     MidgardBasicElement::show_list_in_tree(list_Fertigkeit,alte_fert_tree,Werte,Typ,Database); 
+     MidgardBasicElement::show_list_in_tree(list_Fertigkeit,alte_fert_tree,this); 
   if(pagenr==PAGE_WAFFEN)
-     MidgardBasicElement::show_list_in_tree(list_Waffen,alte_waffen_tree,Werte,Typ,Database); 
+     MidgardBasicElement::show_list_in_tree(list_Waffen,alte_waffen_tree,this); 
   if(pagenr==PAGE_SPRACHE)
    {
-     MidgardBasicElement::show_list_in_tree(list_Sprache,alte_sprache_tree,Werte,Typ,Database); 
-     MidgardBasicElement::show_list_in_tree(list_Schrift,alte_schrift_tree,Werte,Typ,Database); 
+     MidgardBasicElement::show_list_in_tree(list_Sprache,alte_sprache_tree,this); 
+     MidgardBasicElement::show_list_in_tree(list_Schrift,alte_schrift_tree,this); 
    }
 
   }catch(std::exception &e) {cerr << e.what()<<'\n';}

@@ -24,7 +24,7 @@
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
-cH_Fertigkeit::cH_Fertigkeit(const std::string& name IF_XML(, bool create))
+cH_Fertigkeit::cH_Fertigkeit(const std::string& name, bool create)
 {
  cH_Fertigkeit *cached(cache.lookup(name));
  if (cached) *this=*cached;

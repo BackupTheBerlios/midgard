@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.43 2002/03/04 08:08:36 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.44 2002/03/05 08:12:38 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -102,10 +102,8 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
     cH_Fertigkeit(){};
  public:
     cH_Fertigkeit(const Fertigkeit *s) : Handle<const Fertigkeit>(s) {};
-    cH_Fertigkeit(const std::string& n IF_XML(,bool create=false));
-#ifdef USE_XML    
+    cH_Fertigkeit(const std::string& n,bool create=false);
     cH_Fertigkeit(const Tag *tag);
-#endif
 
     cH_Fertigkeit(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit>
       (dynamic_cast<const Fertigkeit *>(&*x)){}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.88 2002/03/04 12:39:57 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.89 2002/03/05 08:12:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -180,7 +180,7 @@ gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton
      manage (new Window_waffe(wurf,this,Werte,Typ,Database,list_Waffen));
    }
   else if (ev->button==3) 
-     manage (new Window_Waffenbesitz(this,Database,list_Waffen,list_Waffen_besitz,Werte,Typ));
+     manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
   return 0;
 }
 
@@ -464,7 +464,7 @@ void midgard_CG::show_gelerntes()
   for(std::list<std::list<cH_MidgardBasicElement> >::const_iterator i=LL.begin();i!=LL.end();++i)
     for (std::list<cH_MidgardBasicElement>::const_iterator j=i->begin();j!=i->end();++j)
       FL.push_back(*j);
-  MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,Werte,Typ,Database);
+  MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,this);
   tree_gelerntes->Expand_recursively();
 }
 
@@ -595,7 +595,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
          newlist.push_back(*i);
         }
      }
-  MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,Werte,Typ,Database);
+  MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,this);
   setTitels_for_Lernschema(what,fert);
   tree_lernschema->Expand_recursively();
   scrolledwindow_beruf->hide();

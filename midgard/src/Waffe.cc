@@ -126,15 +126,16 @@ bool Waffe::SG_Voraussetzung(const Grundwerte& Werte) const
   else return false ;
 }
 
-
+///////////////////////////////////////////////////////////////////
 
 std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name) const
 {
   if (waffe->Art()=="Verteidigung") return "-"+itos(waffe->Schaden_Bonus(name))+"AP";
   std::string s=waffe->Schaden(name);
   int sb=waffe->Schaden_Bonus(name) + sl_Bonus();
-//cout << "WAFFE = "<<waffe->Name()<<'\t'<<waffe->Erfolgswert()<<'\n';
-  if (Name()=="waffenloser Kampf" || Name()=="Faustkampf" ) 
+//cout << "WAFFEBesitz Schaden = "<<waffe->Name()<<' '<<s<<' '
+//<<waffe->Erfolgswert()<<' '<<waffe->Schaden_Bonus(name)<<'\n';
+  if ( waffe->Grundkenntnis() == "Kampf ohne Waffen" ) 
       { s="W6";
         int w = waffe->Erfolgswert();
 //cout << "Erfolgswert WAFFENLOS = "<<itos(w)<<'\n';
@@ -188,9 +189,11 @@ int Waffe::WM_Angriff(const std::string& name) const
 
 std::string Waffe::Schaden(const std::string& name) const 
 {
+//cout << "Schaden: "<<name<<' '<<schaden<<'\n';
   if(Name()==name) return schaden;
   for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
-    if (name==(*i).name) return (*i).schaden;
+    if (name==(*i).name) 
+      return (*i).schaden;
   assert(false);
 }
 
@@ -289,7 +292,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
 {
    std::list<cH_MidgardBasicElement> Verteidigungswaffen;
    Verteidigungswaffen.push_back(new WaffeBesitz(
-      cH_Waffe("waffenloser Kampf"),"waffenloser Kampf","",0,0,""));
+      cH_Waffe("waffenloser Kampf"),"waffenloser Kampf",0,0,""));
    for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
      {

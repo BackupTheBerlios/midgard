@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.188 2002/03/02 16:24:38 thoma Exp $
+// $Id: midgard_CG.hh,v 1.189 2002/03/05 08:12:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,6 +65,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         friend class Wizard_window;
         friend class Midgard_Info;
         Wizard_window *wizard;
+        Grundwerte Werte;
 
         Gtk::Menu *menu, *menu_gradanstieg;
         void menu_init();
@@ -548,13 +549,15 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          // Werte in der Oberfläche setzen (z.B. nach laden)
          void Typ_Geschlecht_Spezies_setzen(); // uvm.
 
-         Grundwerte Werte; // public?
         bool SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert=0,bool auswahl=false);
    public:
          midgard_CG(const string &datei="");
 
 	// werden von anderen Fenstern aufgerufen
-         vector<cH_Typen> getVTyp() const {return Typ;}
+         const vector<cH_Typen> &getVTyp() const {return Typ;}
+         const Datenbank &getDatabase() const {return Database;}
+         const Grundwerte &getWerte() const {return Werte;}
+ 
          void kaempfer_lernt_zaubern(cH_MidgardBasicElement);
          void doppelcharaktere();
          void xml_export(const std::string& datei);

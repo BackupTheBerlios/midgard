@@ -323,7 +323,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         list_Waffen_besitz.push_back(new 
 	        WaffeBesitz(cH_Waffe(wn,true),
                         i->getAttr("Bezeichnung"),
-                        i->getAttr("Region"),
+//                        i->getAttr("Region"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),
                         i->getIntAttr("SchadenLebenspunkte_Bonus"),
                         i->Value()));

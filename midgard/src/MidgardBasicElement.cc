@@ -59,14 +59,13 @@ std::string MidgardBasicElement::RegionString(const Datenbank &D) const
 void MidgardBasicElement::show_list_in_tree(
   const std::list<cH_MidgardBasicElement>& BasicList,
   SimpleTree *Tree,
-  const Grundwerte& Werte, 
-  const vector<cH_Typen>& Typ,const Datenbank &Datenbank,bool clear_me)
+  const midgard_CG *hauptfenster, bool clear_me)
 {
   if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {
-      datavec.push_back(new Data_SimpleTree(*i,Typ,Werte,Datenbank));
+      datavec.push_back(new Data_SimpleTree(*i,hauptfenster));
    }
   Tree->setDataVec(datavec,clear_me);
 }

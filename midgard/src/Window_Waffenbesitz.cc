@@ -19,7 +19,7 @@
 #include "config.h"
 #include "Window_Waffenbesitz.hh"
 #include "midgard_CG.hh"
-#include "Typen.hh"
+//#include "Typen.hh"
 
 void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
 {  
@@ -49,13 +49,14 @@ void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
      spinbutton_sl_bonus->set_value(WB->sl_Bonus());
      entry_magisch->set_text(WB->Magisch());
      spinbutton_av_bonus->grab_focus();
+     spinbutton_av_bonus->select_region(0,-1);
     }
 }
 
 void Window_Waffenbesitz::on_spinbutton_av_bonus_activate()
-{ spinbutton_sl_bonus->grab_focus(); }
+{ spinbutton_sl_bonus->grab_focus(); spinbutton_sl_bonus->select_region(0,-1);}
 void Window_Waffenbesitz::on_spinbutton_sl_bonus_activate()
-{ entry_magisch->grab_focus(); }
+{ entry_magisch->grab_focus(); entry_magisch->select_region(0,-1);}
 
 void Window_Waffenbesitz::on_entry_magisch_activate()
 {
@@ -72,7 +73,6 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
         WB->set_Magisch(entry_magisch->get_text());
      table_magbonus->hide();
   } catch(std::exception &e) {cerr<<e.what()<<'\n';
-//      manage (new WindowInfo("Keine Waffe selektiert"));
       hauptfenster->InfoFenster->AppendShow("Keine Waffe selektiert");
      };
   zeige_waffen();
@@ -82,20 +82,16 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
 void Window_Waffenbesitz::on_leaf_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-
   cH_MidgardBasicElement MBE=new WaffeBesitz(*cH_WaffeBesitz(dt->get_Waffe()));
 
-//  MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe());
   MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,MBE);
   zeige_waffen();
 }
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
-      const Datenbank& _Database,
       const std::list<cH_MidgardBasicElement>& vw,
-      std::list<cH_MidgardBasicElement>& wb,Grundwerte& We,
-      const vector<cH_Typen>& T )
-: Database(_Database), list_Waffen(vw), Waffe_Besitz(wb), Werte(We),Typ(T)
+      std::list<cH_MidgardBasicElement>& wb)
+: list_Waffen(vw), Waffe_Besitz(wb)
 {
   table_magbonus->hide();
   hauptfenster=h;
@@ -115,7 +111,6 @@ Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
 
 void Window_Waffenbesitz::on_button_close_clicked()
 {
-//   hauptfenster->waffe_besitz_uebernehmen(Waffe_Besitz);
    hauptfenster->MidgardBasicElement_uebernehmen(Waffe_Besitz);
    destroy();
 }
@@ -132,7 +127,7 @@ void  Window_Waffenbesitz::show_alte_waffen()
 //cout <<"Alte größe = " <<Waffe_Besitz.size()<<'\n';
 
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Waffe_Besitz.begin();i!=Waffe_Besitz.end();++i)
-     datavec.push_back(new Data_waffenbesitz(*i,Werte));
+     datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_alt_tree->setDataVec(datavec);
 }
 
@@ -141,7 +136,7 @@ void  Window_Waffenbesitz::show_neue_waffen()
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
      if (hauptfenster->region_check(cH_WaffeBesitz(*i)->Waffe()->Region(cH_WaffeBesitz(*i)->Name())))
-        datavec.push_back(new Data_waffenbesitz(*i,Werte));
+        datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_neu_tree->setDataVec(datavec);
 }
 
@@ -154,16 +149,17 @@ void Window_Waffenbesitz::on_button_neuladen_clicked()
 void  Window_Waffenbesitz::lade_waffen()
 {
   Waffe_Besitz_neu.clear();
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
+  std::list<cH_MidgardBasicElement> L=hauptfenster->getDatabase().Waffe;
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
    {
      cH_Waffe w(*i);
-     if (w->Name() == "waffenloser Kampf") continue;
+     if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
       if ((*i)->ist_gelernt(list_Waffen))
        {
-        Waffe_Besitz_neu.push_back(new WaffeBesitz(w,w->Name(),"",0,0,""));
+        Waffe_Besitz_neu.push_back(new WaffeBesitz(w,w->Name(),0,0,""));
         for (list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
          {
-          Waffe_Besitz_neu.push_back(new WaffeBesitz(w,(*j).name,"",0,0,""));
+          Waffe_Besitz_neu.push_back(new WaffeBesitz(w,(*j).name,0,0,""));
          }
        }
    }

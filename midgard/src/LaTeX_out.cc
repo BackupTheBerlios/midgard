@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.106 2002/03/04 18:25:33 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.107 2002/03/05 08:12:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -337,7 +337,7 @@ void midgard_CG::LaTeX_write_values()
      }
    }
  // waffenloser Kampf:
- cH_MidgardBasicElement waffenlos(new WaffeBesitz(cH_Waffe("waffenloser Kampf"),"waffenloser Kampf","",0,0,""));
+ cH_MidgardBasicElement waffenlos(new WaffeBesitz(cH_Waffe("waffenloser Kampf"),"waffenloser Kampf",0,0,""));
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+Werte.bo_An() << "}\n";
  std::string schaden= cH_WaffeBesitz(waffenlos)->Schaden(Werte, waffenlos->Name());
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";

@@ -53,10 +53,15 @@ Gtk::Pixmap *RegionenPic::Pic(epic typ)
 
 cH_Region::cache_t cH_Region::cache;
 
-cH_Region::cH_Region(const std::string& name)
+cH_Region::cH_Region(const std::string& name,bool create)
 {
  cH_Region *cached(cache.lookup(name));
  if (cached) *this=*cached;
+ else if (create)
+  { static Tag t2("Region");
+    t2.setAttr("Region",name);
+    *this=cH_Region(&t2);
+  }
  else
   {
   cerr << "Region '" << name << "' nicht im Cache\n";
@@ -119,11 +124,15 @@ Regionen_All::Regionen_All(Gtk::ProgressBar *progressbar)
 }
 
 
-cH_Region Regionen_All::getRegionfromAbk(std::vector<cH_Region> V,std::string r)
+cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const std::string& r)
 {
  for(std::vector<cH_Region>::const_iterator i=V.begin();i!=V.end();++i)
   {
-   if(r==(*i)->Abkuerzung()) return (*i);
+   if(r==(*i)->Abkuerzung()) 
+    {
+      if((*i)->Nr()<0) return cH_Region("",true); // DFR und Arkanum gelten NICHT als Regionen
+      return (*i);
+    }
   }
  assert(!"Region nicht gefunden\n");
 }

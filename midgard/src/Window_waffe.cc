@@ -91,7 +91,8 @@ void Window_waffe::wuerfeln()
  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
   {  
     cH_Waffe w(*i);
-    cH_MidgardBasicElement WB= new WaffeBesitz(cH_Waffe(*i),"",w->Region(w->Name()),0,0,"");
+//    cH_MidgardBasicElement WB= new WaffeBesitz(cH_Waffe(*i),"",w->Region(w->Name()),0,0,"");
+    cH_MidgardBasicElement WB= new WaffeBesitz(cH_Waffe(*i),"",0,0,"");
     if (w->Name() == "waffenloser Kampf") continue;
     if ((*i)->ist_gelernt(list_Waffen))
       {

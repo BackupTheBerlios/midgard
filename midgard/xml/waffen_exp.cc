@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.14 2002/03/02 18:55:21 thoma Exp $
+// $Id: waffen_exp.cc,v 1.15 2002/03/05 08:12:38 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -111,11 +111,13 @@ void waffen_speichern(std::ostream &o)
    o << "\n";
 
  //************************* waffen_region_name ************************  
-   {  Query query2("select alias,region,schaden,schaden_b,angriffs_mod"
-      	" from waffen_region_name"
+   {  Query query2("select r.alias,r.region,coalesce(r.schaden,w.schaden),"
+         " coalesce(r.schaden_b,w.schaden_b),"
+         " r.angriffs_mod"
+      	" from waffen_region_name r join waffen w using (name) "
       	" where name='"+waffe+"'"
-   	" and coalesce(region,'')='"+region+"'"
-      	" order by region,alias");
+   	" and coalesce(r.region,'')='"+region+"'"
+      	" order by r.region,r.alias");
       FetchIStream is2;
       while ((query2>>is2).good()) 
       {  o << "    <regionaleVariante";
@@ -158,11 +160,13 @@ void waffen_speichern(std::ostream &o)
    o << ">\n";
 
  //************************* waffen_region_name ************************  
-   {  Query query2("select alias,region,schaden,schaden_b,angriffs_mod"
-      	" from waffen_region_name"
+   {  Query query2("select r.alias,r.region,coalesce(r.schaden,w.schaden),"
+         " coalesce(r.schaden_b,w.schaden_b),"
+         " r.angriffs_mod"
+      	" from waffen_region_name r join waffen w using (name) "
       	" where name='"+waffe+"'"
-   	" and coalesce(region,'')='"+region+"'"
-      	" order by region,alias");
+   	" and coalesce(r.region,'')='"+region+"'"
+      	" order by r.region,r.alias");
       FetchIStream is2;
       while ((query2>>is2).good()) 
       {  o << "    <regionaleVariante";

@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.33 2002/02/25 10:04:26 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.34 2002/03/05 08:12:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,13 +34,10 @@ class Typen;
 
 class Window_Waffenbesitz : public Window_Waffenbesitz_glade
 {   
-        Datenbank Database;
         midgard_CG* hauptfenster;
         std::list<cH_MidgardBasicElement> list_Waffen;
         std::list<cH_MidgardBasicElement> Waffe_Besitz;
         std::list<cH_MidgardBasicElement> Waffe_Besitz_neu;
-        Grundwerte& Werte;
-        vector<cH_Typen> Typ;
         friend class Window_Waffenbesitz_glade;
         void on_leaf_selected_alt(cH_RowDataBase d);
         void on_leaf_selected_neu(cH_RowDataBase d);
@@ -57,29 +54,32 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         void on_entry_magisch_activate();
    public:
         Window_Waffenbesitz(midgard_CG* h,
-            const Datenbank& Database,
             const std::list<cH_MidgardBasicElement>& vw,
-            std::list<cH_MidgardBasicElement>& wb,
-            Grundwerte& We,const vector<cH_Typen>& T);
+            std::list<cH_MidgardBasicElement>& wb);
 };
+
 
 class Data_waffenbesitz :  public RowDataBase
 {
       cH_MidgardBasicElement waffe;
-      Grundwerte Werte; // eine Kopie? in jeder Zeile? wenig sinnvoll CP
+//      Grundwerte Werte; // eine Kopie? in jeder Zeile? wenig sinnvoll CP
+//      Datenbank Database;
+      const midgard_CG *hauptfenster;
   public:
-      Data_waffenbesitz(const cH_MidgardBasicElement& w,const Grundwerte& g)
-         : waffe(w), Werte(g) {}
+      Data_waffenbesitz(const cH_MidgardBasicElement& w,const midgard_CG *h)
+         : waffe(w), hauptfenster(h) {}
 
       enum SPALTEN_A {NAME_A,SCHADEN_A,REGION,MAGBONUS,MAGTEXT};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
+         cH_WaffeBesitz W(waffe);
           switch(seqnr) {
-            case NAME_A : return cH_EntryValueIntString(waffe->Name());
-            case SCHADEN_A : return cH_EntryValueIntString(cH_WaffeBesitz(waffe)->Schaden(Werte,waffe->Name()));
-            case REGION : return cH_EntryValueIntString(cH_WaffeBesitz(waffe)->Region());
-            case MAGBONUS : return cH_EntryValueIntString(cH_WaffeBesitz(waffe)->Bonus());
-            case MAGTEXT : return cH_EntryValueIntString(cH_WaffeBesitz(waffe)->Magisch());
+            case NAME_A : return cH_EntryValueIntString(W->Name());
+            case SCHADEN_A : return cH_EntryValueIntString(W->Schaden(hauptfenster->getWerte(),waffe->Name()));
+//            case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(Database.Regionen,W->Waffe()->Region(W->Name()))->Name());
+            case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(hauptfenster->getDatabase().Regionen,W->Waffe()->Region(W->Name()))->Name());
+            case MAGBONUS : return cH_EntryValueIntString(W->Bonus());
+            case MAGTEXT : return cH_EntryValueIntString(W->Magisch());
            }
          return cH_EntryValueIntString("?");
        }

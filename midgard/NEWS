@@ -46,10 +46,11 @@ NEWS IN VERSION 0.4delta5
 * Tooltips Farbe -> Änderung der Datei 'gtkrc' nötig, das kann jeder 
    selber machen
 * leeres Dokument ausdrucken geht wieder.
+* Grundkenntnis 'waffenloser Kampf' -> 'Kampf ohne Waffen'
+* Magische Waffen eingeben funktioniert
+* Waffen-alias-namen für die Regionen funktioniert beid er Waffenbesitzauswahl
 
 TODO:
-* Testen von Alias Waffennamen
-* Testen von Magischen Waffen
 * Waeland: Zauber
 * Nahuathlan: Komplett
 * Eschar: Derwisch

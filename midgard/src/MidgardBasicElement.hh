@@ -27,11 +27,11 @@
 
 class cH_Typen;
 class Grundwerte;
-//class Ausnahmen;
 class H_Data_beruf;
 class cH_MidgardBasicElement;
 class SimpleTree;
 class Datenbank;
+class midgard_CG;
 
 #ifdef USE_XML
 class NotFound : public std::exception
@@ -151,9 +151,7 @@ public:
                                const cH_MidgardBasicElement& MBE);
       static void show_list_in_tree(
             const std::list<cH_MidgardBasicElement>& BasicList,
-            SimpleTree *Tree, 
-            const Grundwerte& Werte, const vector<cH_Typen>& Typ,
-            const Datenbank &D,
+            SimpleTree *Tree, const midgard_CG *hauptfenster,
             bool clear_me=true);
       static void saveElementliste(IF_XML(ostream &datei,)
       				const std::list<cH_MidgardBasicElement>& b,

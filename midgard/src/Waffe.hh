@@ -53,17 +53,10 @@ class Waffe : public MidgardBasicElement
      int Gw() const {return gw;}
      int Gs() const {return gs;}
   public:
-#ifndef USE_XML
-     Waffe(const std::string& n)
-      :MidgardBasicElement(n),lern_land(0),lern_stadt(0)
-     {get_Waffe(); get_Alias(); get_map_typ();get_Steigern_Kosten_map();
-      EP_steigern("Waffen"); }
-#else
      Waffe(const Tag *t)
       :MidgardBasicElement(t,t->getAttr("Name")),lern_land(0),lern_stadt(0)
      {get_Waffe(); get_Alias(); get_map_typ();get_Steigern_Kosten_map();
       EP_steigern("Waffen"); }
-#endif
 
      enum MBEE What() const {return MidgardBasicElement::WAFFE;}
      std::string What_str() const {return "Waffe";}
@@ -72,7 +65,7 @@ class Waffe : public MidgardBasicElement
      std::string Grundkenntnis() const {return grundkenntnisse;}
      int LernLand() const {return lern_land;}
      int LernStadt() const {return lern_stadt;}
-      std::string Region(const std::string& name) const ;
+     std::string Region(const std::string& name) const ;
 
      std::string Art() const {return art;}
      std::string Art2() const {return art2;}
@@ -112,10 +105,8 @@ class cH_Waffe : public Handle<const Waffe>
     cH_Waffe(const Waffe *s) : Handle<const Waffe>(s) {};
     friend class std::map<std::string,cH_Waffe>;
  public:
-    cH_Waffe(const std::string& n IF_XML(,bool create=false));
-#ifdef USE_XML
+    cH_Waffe(const std::string& n,bool create=false);
     cH_Waffe(const Tag *tag);
-#endif
 
     cH_Waffe(const cH_MidgardBasicElement &x) : Handle<const Waffe>
       (dynamic_cast<const Waffe *>(&*x)){}
@@ -143,7 +134,7 @@ class WaffeBesitz : public MidgardBasicElement
 
   public:
      WaffeBesitz(const cH_Waffe& w, std::string b,
-                  std::string r,int a,int s, std::string m)
+                  int a,int s, std::string m)
       :MidgardBasicElement(b), 
          waffe(w),alias_name(b),av_bonus(a),sl_bonus(s),magisch(m) 
          {}
@@ -153,7 +144,6 @@ class WaffeBesitz : public MidgardBasicElement
 
      cH_Waffe Waffe() const {return waffe;}
      std::string AliasName() const {return alias_name;}
-//     std::string Region() const {return region;}
      int av_Bonus() const {return av_bonus;}
      int sl_Bonus() const {return sl_bonus;}
      std::string Bonus() const;

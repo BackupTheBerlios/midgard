@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.172 2002/03/01 09:10:57 thoma Exp $
+// $Id: midgard_CG.cc,v 1.173 2002/03/05 08:12:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -250,7 +250,7 @@ void midgard_CG::on_button_ruestung_s_clicked()
 }
 void midgard_CG::on_button_waffen_s_clicked()
 {
-  manage (new Window_Waffenbesitz(this,Database,list_Waffen,list_Waffen_besitz,Werte,Typ));
+  manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
 }
 
 

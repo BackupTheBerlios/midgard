@@ -14654,6 +14654,7 @@ KS
 <widget>
   <class>GtkWindow</class>
   <name>WindowInfo</name>
+  <visible>False</visible>
   <title>Info</title>
   <type>GTK_WINDOW_DIALOG</type>
   <position>GTK_WIN_POS_NONE</position>
