@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.4 2003/07/15 06:12:00 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.1 2003/07/22 06:27:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -149,4 +149,5 @@ class Magus_Optionen
       Model_ref<bool> WerteEingebenModel() { return werte_eingeben; }
 };
 
+extern Magus_Optionen Programmoptionen;
 #endif

@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.2 2003/07/15 06:12:00 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.1 2003/07/22 06:27:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -520,3 +520,4 @@ void Magus_Optionen::save_options(const std::string &filename)
   ts.write(datei);
 }
                                                    
+Magus_Optionen Programmoptionen;

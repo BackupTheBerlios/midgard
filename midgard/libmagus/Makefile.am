@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.28 2003/07/22 06:26:40 christof Exp $
+# $Id: Makefile.am,v 1.29 2003/07/22 06:27:12 christof Exp $
 
 AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@SIGC_CFLAGS@ -DSIGC1_2 @XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@
@@ -28,7 +28,7 @@ EXTRA_QUELLEN=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
 	LaTeX_drucken_ausruestung.cc LaTeX_drucken.cc \
 	LaTeX_drucken_beschreibung.cc LaTeX_drucken_spielleiterbogen.cc \
 	Zufall.cc Zufall_Lernschema.cc Zufall_Spezies_Typ.cc \
-	spielleiter_export.cc 
+	spielleiter_export.cc Magus_Optionen.cc
 
 libmagus_a_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Zauberwerk.cc Land.cc Waffe.cc WaffeGrund.cc Sinne.cc \

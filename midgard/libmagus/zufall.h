@@ -1,4 +1,4 @@
-/* $Id: zufall.h,v 1.2 2003/07/21 06:23:15 christof Exp $ */
+/* $Id: zufall.h,v 1.3 2003/07/22 06:26:40 christof Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,9 +22,8 @@
 // nicht übermäßig glücklich, das in einem h File zu machen ...
 #include <stdlib.h>
 
-class Random {
-public:
-        static int integer(int min, int max)
+namespace Random {
+        int integer(int min, int max)
         {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
 };
 #endif

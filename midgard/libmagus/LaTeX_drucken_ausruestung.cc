@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.1 2003/07/18 06:38:01 christof Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.2 2003/07/22 06:26:40 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,16 +17,16 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */  
 
-
 #include "LaTeX_drucken.hh"
-#include "midgard_CG.hh"
 #include "dtos1.h"
 #include "itos.h"
 #include "recodestream.h"
 #include <TeX.h>
 //#include <Gtk2TeX.h>
+#include <Abenteurer.hh>
+#include <fstream>
 
-void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
+void LaTeX_drucken::on_ausruestung_druck(const Abenteurer &A,bool unsichtbar)
 {
  std::string filename=get_latex_pathname(LaTeX_drucken::TeX_tmp)+get_latex_filename(LaTeX_drucken::TeX_Ausruestung);
  std::ofstream fout2((filename+".tex").c_str());
@@ -38,7 +38,6 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
  std::string hbreiteb="8.5cm";
  std::string aboxhoehe="26cm";
 
- const Abenteurer &A=hauptfenster->getAben();
  fout <<"\\parbox{"+breite+"}{\\parbox{"+hbreitea+"}{";
  fout << "Normallast: "<<itos(A.getNormallast())<<"\\,kg\\qquad\n"
       << "Höchstlast: "<<itos(A.getHoechstlast())<<"\\,kg\\qquad\n"
@@ -48,7 +47,7 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
  {
   bool ew1=false; bool ew2=false;
   double ueberlast=A.getUeberlast();
-  const Grundwerte &W=hauptfenster->getWerte();
+  const Grundwerte &W=A.getWerte();
   cH_Ruestung R1=W.Ruestung(0);
   cH_Ruestung R2=W.Ruestung(1);
   int v1=R1->B_Verlust(ueberlast,W,ew1);
@@ -70,7 +69,7 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
 
  fout << "%\\raggedright\n\\renewcommand{\\arraystretch}{1.0}\n"
       << "\\begin{longtable}{|lp{"+breite+"}|}\n\\hline\n";
- const AusruestungBaum besitz=hauptfenster->getChar()->getBesitz();
+ const AusruestungBaum besitz=A.getBesitz();
  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
   {
    if(i->getAusruestung().Sichtbar() || unsichtbar )
@@ -78,10 +77,10 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
       fout << "\\multicolumn{2}{|l|}{\\bf ";
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
-      if(i->getAusruestung().Sichtbar())  fout << Gtk2TeX::string2TeX(name) ;
-      else                                fout <<"\\textcolor{mygray}{"<< Gtk2TeX::string2TeX(name)<<"}" ;
-      double last=hauptfenster->getAben().getBelastung(name);
-      fout << " \\footnotesize ("<<dtos1(last)<<"\,kg)";
+      if(i->getAusruestung().Sichtbar())  fout << TeX::string2TeX(name) ;
+      else                                fout <<"\\textcolor{mygray}{"<< TeX::string2TeX(name)<<"}" ;
+      double last=A.getBelastung(name);
+      fout << " \\footnotesize ("<<dtos1(last)<<"\\,kg)";
       fout << "}\\\\\n"; // end of multicolumn and line
       ausruestung_druck(fout,unsichtbar,i->getChildren(),1);
      }

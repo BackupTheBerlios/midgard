@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.1 2003/07/18 06:38:00 christof Exp $
+// $Id: LaTeX_drucken.hh,v 1.2 2003/07/22 06:26:40 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,17 +20,18 @@
 #ifndef _LATEXDRUCKEN_HH
 #  define _LATEXDRUCKEN_HH
 
-class midgard_CG;
 //class cH_MidgardBasicElement;
 #include "MidgardBasicElement.hh"
 #include "Waffe.hh"
 #include "Sprache.hh"
 class AusruestungBaum;
+class VAbenteurer;
 #include <iostream>
 #include <string>
 #include <list>
-#include <fstream>
+//#include <fstream>
 
+// Abenteurer als Argument oder als Member Variable?
 
 class LaTeX_drucken
 {
@@ -57,7 +58,6 @@ class LaTeX_drucken
     static const unsigned int maxwaffen=12;
     static const unsigned int maxunifert=48;
    
-    const midgard_CG *hauptfenster;
     bool bool_sprach,bool_fert,bool_waffen;
 
     void LaTeX_write_values(std::ostream &fout,const std::string &install_latex_file);
@@ -98,14 +98,14 @@ class LaTeX_drucken
     void for_each(std::ostream &fout,const ewhat &what);
     void list_for_each(std::ostream &fout,const std::list<MBEmlt>& L,const int &maxlength,const std::string& cm);
  public:
-    LaTeX_drucken(const midgard_CG* h)
-      : hauptfenster(h),bool_sprach(false),bool_fert(false),bool_waffen(false)
+    LaTeX_drucken()
+      : bool_sprach(),bool_fert(),bool_waffen()
        {}
 
-    void on_latex_clicked(bool values=true);
-    void on_ausruestung_druck(bool unsichtbar);
-    void latex_beschreibung_drucken();      
-    void Spielleiterbogen();
+//    void on_latex_clicked(bool values=true);
+    void on_ausruestung_druck(const Abenteurer &a,bool unsichtbar);
+    void latex_beschreibung_drucken(const Abenteurer &a);      
+    void Spielleiterbogen(const VAbenteurer &a);
 
 };
 
