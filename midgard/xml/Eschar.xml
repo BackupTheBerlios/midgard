@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.21 $" Copyright="Stephanie Lammers" MAGUS-Bild="4" MAGUS-Index="4" Maintainer="Malte Thoma" Name="Eschar" Region="E" Titel="Die Pyramiden von Eschar" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.22 $" Copyright="Stephanie Lammers" MAGUS-Bild="4" MAGUS-Index="4" Maintainer="Malte Thoma" Name="Eschar" Region="E" Titel="Die Pyramiden von Eschar" Version="1.0" offiziell="true">
  <Fertigkeiten>
   <Fertigkeit Anfangswert="4" Attribut="In" Erfolgswert="2" Lernkosten="20" Lernpunkte="1" MaximalMitUnterweisung="18" Maximalwert="18" Name="Brettspiel" Region="E">
    <Grund Typ="Ba"/>
@@ -1121,6 +1121,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Vater des Sturms, Sandsturm, wenige Meter Sichtweite, unbefestigte Gegenstände werden mit 10&#x25; fortgeweht. Eine Fortbewegung mit B/2 kostet 1AP/10min.</Beschreibung>
   </Spruch>
   <Spruch AP="4" Agens="Luft" Grad="4" Lernkosten="1500" Name="Ain es-Samum" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="elementar" Wirkungsbereich="30 m Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
@@ -1131,6 +1132,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Auge des Sturms, erzeugt um den Zauberer herum eine unbewegte Zone im Sandsturm</Beschreibung>
   </Spruch>
   <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Name="Akbar fil-Ghadban" Prozess="verändert" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="3 min">
    <Grund Typ="De"/>
@@ -1143,6 +1145,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="3" Typ="De"/>
+   <Beschreibung>Gro�&#x9F; im Zorn, WM+2 auf Angriff und Schaden, auch ohne AP keine Abzüge. WM+4 gegen finstere Gegner, WM-4 gegen Glaubensbrüder</Beschreibung>
   </Spruch>
   <Spruch AP="6" Agens="Eis" Grad="4" Lernkosten="2000" Name="Al-Ghussat" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
@@ -1152,6 +1155,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Das Entsetzen, Namenloses Grauen auf Dämonen und Elementarwesen</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Al-Karama" Prozess="erkennt" Reagens="Luft" Region="E" Reichweite="5 m" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
@@ -1164,6 +1168,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="3" Typ="De"/>
+   <Beschreibung>Die Gabe der Weissagung, wie Vision, aber nur für den nächsten Tag</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Luft" Grad="2" Lernkosten="400" Name="Al-Mahram" Prozess="beherrscht" Reagens="Eis" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="6 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
@@ -1184,6 +1189,7 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Lernschema Lernpunkte="2" Typ="De"/>
+   <Beschreibung>Dem Ormut hilft, Bannsphäre gegen Dämonen, Elementarwesen, Untote und Geisterwesen</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Al-Tarka" Prozess="beherrscht" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
@@ -1196,6 +1202,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="4" Typ="De"/>
+   <Beschreibung>Das Netz, wirkt wie Beeinflussen ohne nachteilige Wirkungen bei Misslingen.</Beschreibung>
   </Spruch>
   <Spruch AP="4" Agens="Feuer" Grad="4" Lernkosten="2000" Name="Blenden" Prozess="erschafft" Reagens="Feuer" Region="E" Thaumagramm="Runenstab" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="9m Uk" Wirkungsdauer="1 min" Wirkungsziel="Umgebung" Zauberdauer="1 s">
    <Grund Typ="De"/>
@@ -1223,6 +1230,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Ein glei�&#x9F;endes Licht blendet alle Wesen im Wirkungsbereich. WM-6 auf Erfolg- und Widerstandswürfe und Fertigkeiten, die die Augen erfordern. Gelingt die Resistenz nur WM-2.</Beschreibung>
   </Spruch>
   <Spruch AP="4" Agens="Wasser" Grad="2" Lernkosten="150" Name="Blutwandlung" Prozess="verwandelt" Reagens="Erde" Region="E" Reichweite="0 m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="-" Wirkungsdauer="-" Wirkungsziel="Umgebung" Zauberdauer="10 min">
    <Grund Typ="PC"/>
@@ -1237,6 +1245,7 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
+   <Beschreibung>Umwandlung von bis zu 5l Tier- oder Menschenblut in Trinkwasser; der Zauberer muss das Blut mit den Händen umrühren können.</Beschreibung>
   </Spruch>
   <Spruch AP="4" Agens="Magan" Grad="4" Lernkosten="1500" Material="Körperflüssigkeit des Opfers" Name="Cheprus Sendbote" Prozess="erschafft" Reagens="Erde" Region="E" Reichweite="0" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="1W6 h" Wirkungsziel="Geist" Zauberdauer="30 min">
    <Grund Typ="De"/>
@@ -1260,6 +1269,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Erzeugt eine faustgro�&#x9F;e erdfarbene Kröte, die sich mit B6 auf das Opfer zubewegt und anspuckt+6 (Verwirren &amp; Eingebung), bis es dem Zauber erliegt.</Beschreibung>
   </Spruch>
   <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Name="Dalail al-Khairat" Prozess="verändert" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
@@ -1272,6 +1282,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="3" Typ="De"/>
+   <Beschreibung>Zeichen des Segens, Gläubige erhalten WM+1 auf Erfolgs- und Widerstandswürfe und WM-5 auf Prüfwürfe.</Beschreibung>
   </Spruch>
   <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="300" Name="Dalail ed-Dawahi" Prozess="verändert" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="dämonisch" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="PF"/>
@@ -1283,6 +1294,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
+   <Beschreibung>Zeichen des Unheils, sieht aus wie Zeichen des Segens, wirkt wie Verwirren, WM-1 auf Erfolgs- und Widerstandswürfe, WM+5 auf Prüfwürfe</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="800" Name="Dau ed-Datin" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="dämonisch" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="15 min">
    <Grund Typ="PF"/>
@@ -1294,6 +1306,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
+   <Beschreibung>Licht der Fruchbarkeit, Orgie, Versuchungen haben Warnfaktor 0 und -grad 1W6x10</Beschreibung>
   </Spruch>
   <Spruch AP="6" Agens="Metall" Grad="5" Lernkosten="2500" Name="Dau ed-Din" Prozess="zerstört" Reagens="Magan" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
@@ -1303,6 +1316,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Licht des Glaubens, wie Heiliges Wort</Beschreibung>
   </Spruch>
   <Spruch AP="2" Agens="Feuer" Grad="2" Lernkosten="200" Name="Feuerspiel" Prozess="verändert" Reagens="Feuer" Region="E" Reichweite="10 m" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="1m Uk" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberdauer="5 s">
    <Grund Typ="De"/>
@@ -1318,6 +1332,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="MMa"/>
+   <Beschreibung>Entzünden von brennbaren Materialien und löschen von maximal Lagerfeuer. Heller oder Dunkler machen von Flammen, Rauchen lassen.</Beschreibung>
   </Spruch>
   <Spruch AP="6" Agens="Eis" Grad="4" Lernkosten="1600" Name="Ghussat el-Masin" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="dämonisch" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="PF"/>
@@ -1329,6 +1344,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
+   <Beschreibung>Entsetzen der Menschen, wie Namenloses Grauen</Beschreibung>
   </Spruch>
   <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="100" Name="Haram fil-Din" Prozess="verwandelt" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="elementar" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="2 min">
    <Grund Typ="De"/>
@@ -1341,6 +1357,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="1" Typ="De"/>
+   <Beschreibung>Unverletzbar im Glauben, Immun gegen Feuer und Hitze, magisches Feuer richtet nur halben Schaden an. (Schützt keine Ausrüstung)</Beschreibung>
   </Spruch>
   <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="80" Name="Hauch der Wüste" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="0" Spruchrolle="true" Thaumagramm="Runenstab" Typ="Geste" Ursprung="elementar" Wirkungsbereich="12m Uk" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="1 s">
    <Grund Typ="PHa"/>
@@ -1364,6 +1381,7 @@
    <Ausnahme Typ="PM"/>
    <Ausnahme Typ="PW"/>
    <Ausnahme Typ="To"/>
+   <Beschreibung>Die Lufttemperatur erhöht sich um 30°C. Nach der Wirkungsdauer gleicht sich die Temperatur langsam wieder an.</Beschreibung>
   </Spruch>
   <Spruch AP="18" Agens="Holz" Grad="6" Lernkosten="6000" Material="Statue" Name="Incheper schaffen" Prozess="verändert" Reagens="Erde" Region="E" Reichweite="0" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ob" Wirkungsdauer="-" Wirkungsziel="Umgebung" Zauberdauer="6 h">
    <Grund Typ="Dt"/>
@@ -1380,6 +1398,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Beschreibung>Erwecken einer Statue aus dem richtigen roten Sandstein.</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Feuer" Grad="3" Lernkosten="600" Material="Quarz und Silberstaub" Name="Luftspiegelung" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="30 km" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="-" Wirkungsdauer="30 min" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="De"/>
@@ -1404,6 +1423,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Nur an hei�&#x9F;en Tagen unter blauem Himmel kann die Luftspiegelung weit entfernte Dinge erscheinen lassen. (mindestens 1km Abstand)</Beschreibung>
   </Spruch>
   <Spruch AP="12" Agens="Eis" Grad="6" Lernkosten="4000" Material="Mumie" Name="Macht über Mumien" Prozess="verändert" Reagens="Erde" Region="E" Reichweite="0" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberdauer="1 h">
    <Grund Typ="Km"/>
@@ -1419,6 +1439,7 @@
    <Standard Typ="wHx"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Beschreibung>Der Zauberer kann aus einem mumifizierten Leichnam eine Schu-Imumet (Mumie ohne Eigenintelligenz) schaffen. (Erfordert Macht über den Tod)</Beschreibung>
   </Spruch>
   <Spruch AP="18" Agens="Magan" Grad="G" Lernkosten="15000" Material="Wachsbad mit seltenen Essenzen" Name="Manifestation des Ka" Prozess="erschafft" Reagens="Erde" Region="E" Reichweite="3 m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="6 h">
    <Grund Typ="Dt"/>
@@ -1443,6 +1464,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Der Zauberer erschafft einen Doppelgänger eines Menschen, den er leicht beeinflussen kann.</Beschreibung>
   </Spruch>
   <Spruch AP="18" Agens="Eis" Grad="6" Lernkosten="6000" Material="Mumie" Name="Mumie erwecken" Prozess="verändert" Reagens="Erde" Region="E" Reichweite="0" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberdauer="6 h">
    <Grund Typ="Dt"/>
@@ -1466,6 +1488,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Der Zauberer erweckt eine Ib-Imumet oder eine Ankh-Imumet. Das Herz der Mumie darf nicht entnommen sein.</Beschreibung>
   </Spruch>
   <Spruch AP="5" Agens="Eis" Grad="2" Lernkosten="250" Name="Sa rauben" Prozess="zerstört" Reagens="Holz" Region="E" Reichweite="0" Typ="Geste" Ursprung="schwarzmagisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="1 s">
    <Grund Typ="PC"/>
@@ -1477,6 +1500,7 @@
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
+   <Beschreibung>Der Zauberer entzieht seinem Opfer 2W6 AP für sich selbst.</Beschreibung>
   </Spruch>
   <Spruch AP="4 vom Max" Agens="Holz" Grad="4" Lernkosten="1500" Name="Sa spenden" Prozess="zerstört" Reagens="Holz" Region="E" Reichweite="0" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberdauer="30 min">
    <Grund Typ="Dt"/>
@@ -1493,6 +1517,7 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
+   <Beschreibung>Der Zauber überträgt 1W6 permanente AP auf den Empfänger.</Beschreibung>
   </Spruch>
   <Spruch AP="4" Agens="Luft" Grad="2" Lernkosten="400" Name="Sadik es-Sidiki" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
@@ -1505,6 +1530,7 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Lernschema Lernpunkte="4" Typ="De"/>
+   <Beschreibung>Freund der Wahrheit, Alle Opfer müssen die Wahrheit sagen oder schweigen.</Beschreibung>
   </Spruch>
   <Spruch AP="6" Agens="Luft" Grad="3" Lernkosten="600" Name="Saijidat el-Masin" Prozess="beherrscht" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
@@ -1516,6 +1542,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="4" Typ="De"/>
+   <Beschreibung>Herrin der Menschen, Verzauberte tanzen bis zur Erschöpfung (1AP/Runde). Gläubige können Visionen erhalten.</Beschreibung>
   </Spruch>
   <Spruch AP="9" Agens="Luft" Grad="6" Lernkosten="6000" Material="10g Sandwurmhaut" Name="Sandmeisterschaft" Prozess="bewegt" Reagens="Erde" Region="E" Reichweite="2 km" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="500m Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberdauer="30 s">
    <Grund Typ="De"/>
@@ -1540,6 +1567,7 @@
    <Ausnahme Typ="PHe"/>
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PM"/>
+   <Beschreibung>Bis zu 1km lange Düne wandern lassen, Treibsand spuckt Verschlungene wieder aus. Menschen können nicht vergraben werden, solange sie bei Bewusstsein sind.</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="1000" Name="Schadd wa-Tarka" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="15 m" Typ="Tanz" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="15 min">
    <Grund Typ="PF"/>
@@ -1550,6 +1578,7 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
+   <Beschreibung>Schleier und Netz, verbindet Anziehen und Beeinflussen, WM+4 auf Verführen oder Versuchungsgrad +20&#x25;</Beschreibung>
   </Spruch>
   <Spruch AP="18" Agens="Magan" Grad="G" Lernkosten="12000" Name="Seelenraub" Prozess="bewegt" Reagens="Luft" Region="E" Reichweite="0" Typ="Geste" Ursprung="schwarzmagisch" Wirkungsbereich="bis 12 Ws" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberdauer="30 min">
    <Grund Typ="dBe"/>
@@ -1562,6 +1591,7 @@
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="gHx"/>
+   <Beschreibung>Der Zauber trennt die Seele vom Körper. Der Körper wird zum Marab, die Seele verbleibt in einer Bleiflasche.</Beschreibung>
   </Spruch>
   <Spruch AP="4" Agens="Holz" Grad="4" Lernkosten="2000" Name="Seelenschock" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="15 m" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="15 s">
    <Grund Typ="Dr"/>
@@ -1587,6 +1617,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>[eigentlich Schock] Ein Schock macht das Opfer wehr- und teilnahmslos.</Beschreibung>
   </Spruch>
   <Spruch AP="6" Agens="Magan" Grad="5" Lernkosten="5000" Material="Haare oder Nägel des Opfers" Name="Serkefs Todesbote" Prozess="erschafft" Reagens="Erde" Region="E" Reichweite="0" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="1W6 h" Wirkungsziel="Umgebung" Zauberdauer="30 min">
    <Grund Typ="De"/>
@@ -1610,6 +1641,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Erzeugt einen Handgro�&#x9F;en roten Skorpion, der das Opfer mit B6 aufspürt und mit einem Stich+6 (5W6 Gift) tötet.</Beschreibung>
   </Spruch>
   <Spruch AP="12" Agens="Luft" Grad="3" Lernkosten="600" Name="Sutechs Heer" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="2 km" Spruchrolle="true" Typ="Wort" Ursprung="göttlich" Wirkungsbereich="4W6 Ws" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberdauer="10 sec">
    <Grund Typ="PK"/>
@@ -1631,6 +1663,7 @@
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PW"/>
+   <Beschreibung>Der Zauberer ruft 4W6 Krokodile zu sich und kontrolliert sie.</Beschreibung>
   </Spruch>
   <Spruch AP="18" Agens="Magan" Grad="G" Lernkosten="20000" Material="Silberdraht" Name="Tausch des Ba" Prozess="bewegt" Reagens="Luft" Region="E" Reichweite="15 m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="2 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="3 h">
    <Grund Typ="De"/>
@@ -1655,6 +1688,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Beschreibung>Der Zauberer wechselt mit dem Opfer den Körper.</Beschreibung>
   </Spruch>
   <Spruch AP="6" Agens="Magan" Grad="3" Lernkosten="600" Name="Tibb al-Mumani" Prozess="bewegt" Reagens="Feuer" Region="E" Reichweite="15 m" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="1 Ws, 1Ob" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="20 min">
    <Grund Typ="De"/>
@@ -1666,6 +1700,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="2" Typ="De"/>
+   <Beschreibung>Heilkunst der Gläubigen, wie Austreibung des Bösen</Beschreibung>
   </Spruch>
   <Spruch AP="1" Agens="Wasser" Grad="1" Lernkosten="100" Name="Wasser spüren" Prozess="erkennt" Reagens="Wasser" Region="E" Reichweite="0" Thaumagramm="Siegel" Typ="Gedanke" Ursprung="elementar" Wirkungsbereich="500 m Ke" Wirkungsdauer="10 s" Wirkungsziel="Körper" Zauberdauer="10 s">
    <Grund Typ="De"/>
@@ -1689,6 +1724,7 @@
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PT"/>
+   <Beschreibung>Der Zauberer spürt, wieviel Wasser sich im Bereich befindet. (5m Tiefe in Sand)</Beschreibung>
   </Spruch>
   <Spruch AP="18" Agens="Feuer" Grad="G" Lernkosten="15000" Material="Vulkansche, Wüstensand,Diamantstaub" Name="Wind des Todes" Prozess="zerstört" Reagens="Wasser" Region="E" Reichweite="0" Spruchrolle="true" Typ="Geste" Ursprung="schwarzmagisch" Wirkungsbereich="100 m Ke" Wirkungsdauer="2 min" Wirkungsziel="Körper" Zauberdauer="30 s">
    <Grund Typ="PC"/>
@@ -1699,6 +1735,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Ausnahme Typ="gHx"/>
+   <Beschreibung>Ein vom Zauberer ausgehender Hei�&#x9F;er Wind trocknet alle Lebewesen aus: 2W6/Runde wenn der Widerstandswurf (WM+4 in Deckung) scheitert. (2W6+2 in Metallrüstung). </Beschreibung>
   </Spruch>
   <Spruch Name="Allheilung">
    <Standard Typ="De"/>

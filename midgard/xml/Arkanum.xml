@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.21 $" Copyright="Jürgen E. Franke" Jahr="2000" MAGUS-Bild="9" MAGUS-Index="-1" Maintainer="Malte Thoma" Name="Arkanum" Region="Arkanum" Titel="Das Arkanum" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.22 $" Copyright="Jürgen E. Franke" Jahr="2000" MAGUS-Bild="9" MAGUS-Index="-1" Maintainer="Malte Thoma" Name="Arkanum" Region="Arkanum" Titel="Das Arkanum" Version="1.0" offiziell="true">
  <Zauber>
   <Spruch AP="6" Agens="Holz" Grad="5" Lernkosten="2500" Name="Allheilung" Prozess="erschafft" Reagens="Erde" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="30 min">
    <Grund Typ="Hl"/>
@@ -5144,7 +5144,7 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzung Zauber="Silberne Bannsphäre"/>
+   <Voraussetzung Zauber="Bannsphäre, Silberne"/>
   </Zauberwerk>
   <Zauberwerk Art="Gro�&#x9F;es Siegel" Geldaufwand="10 GS" Kosten="250" Name="Eisiger Nebel" Stufe="2" Zeitaufwand="Stufe*10 min">
    <Grund Typ="Th"/>
@@ -5168,7 +5168,7 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzung Zauber="Silberne Bannsphäre"/>
+   <Voraussetzung Zauber="Bannsphäre, Silberne"/>
   </Zauberwerk>
   <Zauberwerk Art="Augensalbe" Geldaufwand="40 GS" Kosten="300" Name="Erkennen von Zauberei" Stufe="2">
    <Grund Typ="Th"/>
@@ -5248,7 +5248,7 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzung Zauber="Silberne Bannsphäre"/>
+   <Voraussetzung Zauber="Bannsphäre, Silberne"/>
   </Zauberwerk>
   <Zauberwerk Art="magische Letter" Geldaufwand="4 GS" Kosten="200" Name="Geräuschletter (Donnern)" Stufe="1">
    <Grund Typ="Th"/>
@@ -5557,8 +5557,8 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
+   <Voraussetzung Verbindung="or" Zauber="Bannsphäre, Silberne"/>
    <Voraussetzung Verbindung="or" Zauber="Flammenkreis"/>
-   <Voraussetzung Verbindung="or" Zauber="Silberne Bannsphäre"/>
   </Zauberwerk>
   <Zauberwerk Art="Amulett" Geldaufwand="3000 GS/ABW" Kosten="200" Name="Schildamulett verzaubern" Stufe="2" Zeitaufwand="1 Monat">
    <Grund Typ="Th"/>
@@ -5579,8 +5579,8 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
+   <Voraussetzung Verbindung="or" Zauber="Bannsphäre, Silberne"/>
    <Voraussetzung Verbindung="or" Zauber="Flammenkreis"/>
-   <Voraussetzung Verbindung="or" Zauber="Silberne Bannsphäre"/>
   </Zauberwerk>
   <Zauberwerk Art="Amulett" Geldaufwand="4000 GS/ABW" Kosten="300" Name="Schildamulett verzaubern" Stufe="3" Zeitaufwand="1 Monat">
    <Grund Typ="Th"/>
@@ -5601,8 +5601,8 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
+   <Voraussetzung Verbindung="or" Zauber="Bannsphäre, Silberne"/>
    <Voraussetzung Verbindung="or" Zauber="Flammenkreis"/>
-   <Voraussetzung Verbindung="or" Zauber="Silberne Bannsphäre"/>
   </Zauberwerk>
   <Zauberwerk Art="Amulett" Geldaufwand="5000 GS/ABW" Kosten="400" Name="Schildamulett verzaubern" Stufe="4" Zeitaufwand="1 Monat">
    <Grund Typ="Th"/>
@@ -5623,8 +5623,8 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
+   <Voraussetzung Verbindung="or" Zauber="Bannsphäre, Silberne"/>
    <Voraussetzung Verbindung="or" Zauber="Flammenkreis"/>
-   <Voraussetzung Verbindung="or" Zauber="Silberne Bannsphäre"/>
   </Zauberwerk>
   <Zauberwerk Art="Amulett" Geldaufwand="6000 GS/ABW" Kosten="500" Name="Schildamulett verzaubern" Stufe="5" Zeitaufwand="1 Monat">
    <Grund Typ="Th"/>
@@ -5645,8 +5645,8 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
+   <Voraussetzung Verbindung="or" Zauber="Bannsphäre, Silberne"/>
    <Voraussetzung Verbindung="or" Zauber="Flammenkreis"/>
-   <Voraussetzung Verbindung="or" Zauber="Silberne Bannsphäre"/>
   </Zauberwerk>
   <Zauberwerk Art="Amulett" Geldaufwand="7000 GS/ABW" Kosten="600" Name="Schildamulett verzaubern" Stufe="6" Zeitaufwand="1 Monat">
    <Grund Typ="Th"/>
@@ -5667,8 +5667,8 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
+   <Voraussetzung Verbindung="or" Zauber="Bannsphäre, Silberne"/>
    <Voraussetzung Verbindung="or" Zauber="Flammenkreis"/>
-   <Voraussetzung Verbindung="or" Zauber="Silberne Bannsphäre"/>
   </Zauberwerk>
   <Zauberwerk Art="Gro�&#x9F;es Siegel" Geldaufwand="10 GS" Kosten="200" Name="Schlaf" Stufe="1" Zeitaufwand="Stufe*10 min">
    <Grund Typ="Th"/>
@@ -6230,7 +6230,7 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzung Zauber="Blaue Bannsphäre or"/>
+   <Voraussetzung Verbindung="or" Zauber="Bannsphäre, Blaue"/>
    <Voraussetzung Verbindung="or" Zauber="Ring des Lebens"/>
   </Zauberwerk>
   <Zauberwerk Art="Gro�&#x9F;es Siegel" Geldaufwand="10 GS" Kosten="1000" Name="Verdorren" Stufe="3" Zeitaufwand="Stufe*10 min">
