@@ -1,0 +1,70 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "fz_zusaetze";
+--
+--
+--
+
+CREATE TABLE "fz_zusaetze" (
+	"art" text NOT NULL,
+	"name" text NOT NULL,
+	"typ" text
+);
+
+--
+--
+--
+
+
+COPY "fz_zusaetze" FROM stdin;
+Abrichten	Affen	\N
+Abrichten	Bären	\N
+Abrichten	Elefanten	\N
+Abrichten	Greifvögel	\N
+Abrichten	Hunde	\N
+Abrichten	Katzen	\N
+Abrichten	Mardertiere	\N
+Abrichten	Nagetiere	\N
+Abrichten	Papageien	\N
+Abrichten	Pferde	\N
+Abrichten	Rabenvögel	\N
+Geheimzeichen	KanThaiPan und Minangpahit	\N
+Geheimzeichen	Moravische Runen	\N
+Geheimzeichen	Nahuatlan	\N
+Geheimzeichen	Ogam-Ritzungen	\N
+Geheimzeichen	Zinken (Meer der fünf Winde)	\N
+Musizieren	Becken	Rhythmusinstrument
+Musizieren	Brettzither (Psalter)	Zupfinstrument
+Musizieren	Doppelflöte	Flöte
+Musizieren	Dornfiedel	Streichinstrument
+Musizieren	Drehleier	Streichinstrument
+Musizieren	Dudelsack	Flöte
+Musizieren	Fiedel	Streichinstrument
+Musizieren	Gitarre	Zupfinstrument
+Musizieren	Glocken	Rhythmusinstrument
+Musizieren	Handtrommel	Rhythmusinstrument
+Musizieren	Harfe	Zupfinstrument
+Musizieren	Horn	Blasinstrumente
+Musizieren	Krummhorn	Blasinstrumente
+Musizieren	Laute	Zupfinstrument
+Musizieren	Leier	Zupfinstrument
+Musizieren	Längsflöte	Flöte
+Musizieren	Panflöte	Flöte
+Musizieren	Pauke	Rhythmusinstrument
+Musizieren	Pfeife	Flöte
+Musizieren	Posaune	Blasinstrument
+Musizieren	Querflöte	Flöte
+Musizieren	Rasseln	Rhythmusinstrument
+Musizieren	Rebec	Streichinstrument
+Musizieren	Schalmei	Blasinstrumente
+Musizieren	Stabzitter (Kithara)	Zupfinstrument
+Musizieren	Tamburin	Rhythmusinstrument
+Musizieren	Trompete	Blasinstrumente
+Musizieren	Trumscheit	Streichinstrument
+Musizieren	Zimbeln	Rhythmusinstrument
+Tiersprache	Fische	\N
+Tiersprache	Repilien	\N
+Tiersprache	Säugetiere	\N
+Tiersprache	Vögel	\N
+\.
