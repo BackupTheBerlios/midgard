@@ -23,25 +23,36 @@
 #include "Waffe.hh"       
 #include "LernListen.hh"
 
-void table_steigern::on_fertigkeiten_laden_clicked()
+void table_steigern::fertigkeiten_zeigen()
+{
+  alte_fertigkeiten_zeigen();
+  neue_fertigkeiten_zeigen();
+  zeige_werte();
+}
+
+void table_steigern::neue_fertigkeiten_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
   list_Fertigkeit_neu=LL->get_steigern_MBEm(A,Enums::sFert, 
-   hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active);  
- fertigkeiten_zeigen();
+     hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active);  
+ MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,hauptfenster);
 }
 
-void table_steigern::fertigkeiten_zeigen()
+void table_steigern::alte_fertigkeiten_zeigen()
 {
- zeige_werte();
- MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,hauptfenster);
- MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit()    ,alte_fert_tree,hauptfenster);
+ MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,hauptfenster);
 }
 
 
 void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
- if (MidgardBasicElement_leaf_alt(d)) on_fertigkeiten_laden_clicked()  ;
+ if (MidgardBasicElement_leaf_alt(d)) 
+   {  
+      dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_fert_tree);
+      neue_fertigkeiten_zeigen();
+      if(radiobutton_verlernen->get_active()) alte_fertigkeiten_zeigen();
+   }
+ alte_fert_tree->unselect_all();
 }
 
 void table_steigern::on_alte_fert_reorder()
@@ -72,6 +83,6 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
     }
   else 
      MidgardBasicElement_leaf_neu(d);
-   on_fertigkeiten_laden_clicked();
+  fertigkeiten_zeigen();
 }
 

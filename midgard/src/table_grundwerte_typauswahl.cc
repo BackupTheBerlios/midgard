@@ -75,6 +75,7 @@ void table_grundwerte::on_combo_typ__changed()
 
 gint table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
 {
+  hauptfenster->undosave("Typ gewählt");
   typauswahl_button();
   return false;
 }
@@ -85,7 +86,6 @@ void table_grundwerte::typauswahl_button()
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;
 
- hauptfenster->undosave("Typ gewählt");
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);
  hauptfenster->getChar()->setTyp1(cH_Typen(typ));
 
@@ -129,6 +129,7 @@ void table_grundwerte::on_combo_typ2__changed()
 
 gint table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
 {
+  hauptfenster->undosave("zweiter Typ gewählt");
   typauswahl_2_button();
   return false;
 }
@@ -139,7 +140,6 @@ void table_grundwerte::typauswahl_2_button()
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;
 
- hauptfenster->undosave("zweiter Typ gewählt");
  hauptfenster->getChar()->setTyp2(cH_Typen(typ));
 
 // if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
@@ -186,19 +186,6 @@ void table_grundwerte::spezieswahl_button()
  hauptfenster->getWerte() = Grundwerte();
  hauptfenster->getWerte().setSpezies(Spezies::getSpezies(spezies,hauptfenster->getDatabase().Spezies));
 
-/*
- bool ok=false;
- for(std::vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
-   {
-     if((*i)->Name()==spezies)
-      {
-        ok=true;
-        hauptfenster->getWerte() = Grundwerte();
-        hauptfenster->getWerte().setSpezies(*i);
-      }
-   }
- if(!ok) return;
-*/
 // hauptfenster->undosave("Spezies gewählt");
  fill_typauswahl();
 

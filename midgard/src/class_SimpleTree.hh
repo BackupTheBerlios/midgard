@@ -58,6 +58,7 @@ class Data_SimpleTree : public RowDataBase
              FUrsprung,FArtderSchrift};
    const cH_EntryValue retEV(const WEV &what) const;
    const MBEmlt &getMBE() const {return MBE;}
+   void redisplay(SimpleTree *tree) const;
 };
 
 class H_Data_SimpleTree : public Handle<Data_SimpleTree>

@@ -11751,7 +11751,7 @@ eingeben</label>
 
 		  <widget>
 		    <class>GtkScrolledWindow</class>
-		    <name>scrolledwindow53</name>
+		    <name>scrolledwindow_fert_alt</name>
 		    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
 		    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 		    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
@@ -11926,7 +11926,7 @@ eingeben</label>
 
 		    <widget>
 		      <class>GtkScrolledWindow</class>
-		      <name>scrolledwindow70</name>
+		      <name>scrolledwindow_waffen_alt</name>
 		      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
 		      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
@@ -12636,7 +12636,7 @@ eingeben</label>
 
 		    <widget>
 		      <class>GtkScrolledWindow</class>
-		      <name>scrolledwindow26</name>
+		      <name>scrolledwindow_sprache_alt</name>
 		      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
 		      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
@@ -12851,7 +12851,7 @@ PP lernen</label>
 
 		    <widget>
 		      <class>GtkScrolledWindow</class>
-		      <name>scrolledwindow27</name>
+		      <name>scrolledwindow_schrift_alt</name>
 		      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
 		      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>

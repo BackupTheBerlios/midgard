@@ -213,3 +213,12 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
        }
       return cH_EntryValueIntString("?");
 }
+
+
+void Data_SimpleTree::redisplay(SimpleTree *tree) const
+{
+  tree->redisplay(this,Data_SimpleTree::WERTa);
+  tree->redisplay(this,Data_SimpleTree::STEIGERN);
+  tree->redisplay(this,Data_SimpleTree::REDUZIEREN);
+  tree->redisplay(this,Data_SimpleTree::VERLERNEN);
+}

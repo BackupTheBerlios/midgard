@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.12 2002/11/07 09:41:23 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.13 2002/11/08 07:26:49 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -46,9 +46,7 @@ bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie
          return false;
   getWerte().addGFP(steigerkosten); 
 
-  std::list<MBEmlt> &MyList=get_known_list(MBE);
-  for (std::list<MBEmlt>::iterator i=MyList.begin();i!= MyList.end();++i )
-     if ( (*i) == MBE) { (*i)->addErfolgswert(stufen) ; break;}
+  MBE->addErfolgswert(stufen);
   return true;
 }
 
@@ -60,8 +58,9 @@ void Abenteurer::reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_s
 
   std::list<MBEmlt> &MyList=get_known_list(MBE);
 
-  for (std::list<MBEmlt>::iterator i=MyList.begin();i!= MyList.end();++i )
-       if ( (*i) == MBE) { (*i)->addErfolgswert(-1) ; break;}
+  MBE->addErfolgswert(-1);
+//  for (std::list<MBEmlt>::iterator i=MyList.begin();i!= MyList.end();++i )
+//       if ( (*i) == MBE) { (*i)->addErfolgswert(-1) ; break;}
 }
 
 void Abenteurer::verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)

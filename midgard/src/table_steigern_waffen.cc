@@ -23,22 +23,33 @@
 #include "Waffe.hh"
 #include "LernListen.hh"
 
-void table_steigern::on_waffen_laden_clicked()
+void table_steigern::waffen_zeigen()
+{
+   alte_waffen_zeigen();
+   neue_waffen_zeigen();
+   waffengrund_zeigen();
+   zeige_werte();
+}
+
+void table_steigern::neue_waffen_zeigen()
+{
+   Abenteurer &A=hauptfenster->getAben();
+   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
+   list_Waffen_neu=LL->get_steigern_MBEm(A,Enums::sWaff,nsc);
+   MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,hauptfenster);
+}
+
+void table_steigern::waffengrund_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
-  list_Waffen_neu=LL->get_steigern_MBEm(A,Enums::sWaff,nsc);
-  on_waffengrund_laden_clicked();
-  waffen_zeigen();
+  list_WaffenGrund_neu=LL->get_steigern_MBEm(A,Enums::sWGru,nsc);
+  MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,hauptfenster);
+  MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_WaffenGrund()    ,alte_grund_tree,hauptfenster);
 }
 
-
-void table_steigern::waffen_zeigen()
+void table_steigern::alte_waffen_zeigen()
 {
-   zeige_werte();
-   MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,hauptfenster);
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_WaffenGrund()    ,alte_grund_tree,hauptfenster);
-   MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,hauptfenster);
    MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Waffen()    ,alte_waffen_tree,hauptfenster);
 }
 
@@ -47,22 +58,14 @@ void table_steigern::waffen_zeigen()
 void table_steigern::on_leaf_selected_neue_grund(cH_RowDataBase d)
 {  
   MidgardBasicElement_leaf_neu(d);
-  on_waffen_laden_clicked();
+  neue_waffen_zeigen();
 }
 
-
-void table_steigern::on_waffengrund_laden_clicked()
-{
-  Abenteurer &A=hauptfenster->getAben();
-  bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
-  list_WaffenGrund_neu=LL->get_steigern_MBEm(A,Enums::sWGru,nsc);
-}
 
 void table_steigern::on_leaf_selected_neue_waffen(cH_RowDataBase d)
 {  
    MidgardBasicElement_leaf_neu(d);
-//   waffen_zeigen();
-   on_waffen_laden_clicked();
+   waffen_zeigen();
 }
  
 void table_steigern::on_leaf_selected_alte_grund(cH_RowDataBase d)
@@ -74,14 +77,19 @@ void table_steigern::on_leaf_selected_alte_grund(cH_RowDataBase d)
      strinfo +="Grundkenntnis gehöhren, NICHT verlernt\n";
      hauptfenster->set_info(strinfo);
      MidgardBasicElement_leaf_alt(d);
-     on_waffen_laden_clicked();
+     neue_waffen_zeigen();
    }
 }
 
 void table_steigern::on_leaf_selected_alte_waffen(cH_RowDataBase d)
 {  
   if (MidgardBasicElement_leaf_alt(d))
-    waffen_zeigen();
+   {
+     dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_waffen_tree);
+     neue_waffen_zeigen();
+     if(radiobutton_verlernen->get_active()) alte_waffen_zeigen();
+   }
+  alte_waffen_tree->unselect_all(); 
 }
 
 void table_steigern::on_alte_waffen_reorder()

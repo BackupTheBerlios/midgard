@@ -75,53 +75,35 @@ private:
         const Enums::st_bool_steigern get_bool_steigern();
 
         void get_grundwerte(int wurf);
-//        void get_ausdauer(int grad);
         void get_ab_re_za(Enums::e_was_steigern was);//,bool verschenke_pp=false);
 
 
         // EP
         void steigern_gtk();
-/*
-        int steigern_womit(const std::string& fert);
-        void desteigern(unsigned int kosten);
-        void set_lernzeit(int kosten,e_was_steigern was,bool no_pp=false);
-        bool steigern_usp(int &kosten,MBEmlt *MBE,int &stufen,e_was_steigern was=Nichts);
-        int genug_geld(const int kosten);
-        int EP_kosten(const int kosten);
-        int PP_vorrat(const MBEmlt *MBE,e_was_steigern was);
-        bool genug_EP(const int ep_k,const bool bkep,const bool bzep,int &aep0,int &kep0,int &zep0);
-//        void steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was);
-        void steigern_mit(bool &bkep,bool &bzep,const MBEmlt *MBE,e_was_steigern was);
-public:
-//        void PraxisPunkt_to_AEP(MBEmlt& MBE,bool verfallen,bool alle_pp);
-//        void PraxisPunkt_fuer_Was(e_was_steigern was);
-private:
-         int stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int &aep);
 
-*/
         // Fertigkeiten
-        void on_fertigkeiten_laden_clicked();
         void fertigkeiten_zeigen();
-        void show_alte_fertigkeiten();
-        void show_neue_fertigkeiten();
+        void alte_fertigkeiten_zeigen();
+        void neue_fertigkeiten_zeigen();
         
         // Waffen
         void on_waffen_laden_clicked();
-        void on_waffengrund_laden_clicked();
+        void neue_waffen_zeigen();
+        void alte_waffen_zeigen();
         void waffen_zeigen();
+        void waffengrund_zeigen();
 
         // Zauber
         void on_zauber_laden_clicked();
         void zauber_zeigen();
-//        bool spruchrolle_wuerfeln(const cH_MidgardBasicElement& zauber,std::string &info);
         void zauberwerk_laden();
         void zauberwerk_zeigen();
 
         // Sprache
-        void on_sprache_laden_clicked();
-        void on_schrift_laden_clicked();
-        void schriften_zeigen();
-        void sprachen_zeigen(); 
+        void on_sprache_laden_clicked(bool load_old=false);
+        void on_schrift_laden_clicked(bool load_old=false);
+        void schriften_zeigen(bool load_old=false);
+        void sprachen_zeigen(bool load_old=false); 
         void neue_schrift_wegen_sprache();
         int andereSprache_gleicheSchriftart(std::string art);
 

@@ -23,35 +23,36 @@
 #include "LernListen.hh"
 #include "class_SimpleTree.hh"
 
-void table_steigern::on_schrift_laden_clicked()
+void table_steigern::on_schrift_laden_clicked(bool load_old)
 {   
   Abenteurer &A=hauptfenster->getAben();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
   list_Schrift_neu=LL->get_steigern_MBEm(A,Enums::sSchr,nsc);
-   schriften_zeigen();
+   schriften_zeigen(load_old);
 }
 
-void table_steigern::on_sprache_laden_clicked()
+void table_steigern::on_sprache_laden_clicked(bool load_old)
 {   
   Abenteurer &A=hauptfenster->getAben();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
   list_Sprache_neu=LL->get_steigern_MBEm(A,Enums::sSpra,nsc);
-  sprachen_zeigen();
-         
+  sprachen_zeigen(load_old);
   on_schrift_laden_clicked();
 }   
 
-void table_steigern::schriften_zeigen()
+void table_steigern::schriften_zeigen(bool load_old)
 {
    zeige_werte();
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Schrift()    ,alte_schrift_tree,hauptfenster);
+   if(load_old)
+      MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Schrift()    ,alte_schrift_tree,hauptfenster);
    MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,hauptfenster);
 }
 
-void table_steigern::sprachen_zeigen()
+void table_steigern::sprachen_zeigen(bool load_old)
 {
    zeige_werte();
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Sprache()    ,alte_sprache_tree,hauptfenster);
+//   if(load_old)
+      MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Sprache()    ,alte_sprache_tree,hauptfenster);
    MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,hauptfenster);
 }
 
@@ -68,7 +69,8 @@ void table_steigern::on_leaf_selected_alte_sprache(cH_RowDataBase d)
   if(MidgardBasicElement_leaf_alt(d))
    {
      neue_schrift_wegen_sprache();
-     on_sprache_laden_clicked();
+     on_sprache_laden_clicked(false);
+     dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_sprache_tree);
    }
 }
     
