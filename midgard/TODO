@@ -1,6 +1,5 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 - beim Laden wird nicht alles richtig angezeigt
-- nicht-Refresh der aktuellen Zeile nach anklicken (lernen)
 - Praxispunkte/Scroll nicht richtig aktiv/inaktiv
 ? funktionieren Verzeichnisse unter Windows? (z.B. tmp)
 - Wizard
@@ -12,6 +11,7 @@
 - Baum klappt nicht bis zu gewählter Tiefe auf !!!
 - Icons in Statusleiste im falschen Zustand (NSC, Original)
 - Menü bewirkt gar nichts (?)
+- Zeilen verdoppeln sich beim Lernen (?)
 
 Bugreport Sanni:
 Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
