@@ -27,8 +27,9 @@ void midgard_CG::menu_init()
   table_optionen->init();
   menubar_init();
 
-  if (menu) { menu->destroy(); menu=0; }
-  menu=manage(new Gtk::Menu());
+  if (menu_kontext) { menu_kontext->destroy(); menu_kontext=0; }
+  menu_kontext=manage(new Gtk::Menu());
+
 
 //Drucken ///////////////////////////////////////////////////////////////////
   Gtk::Menu *drucken_menu = manage(new class Gtk::Menu());
@@ -53,8 +54,8 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *latex_empty = manage(new class Gtk::MenuItem("Leeres Abenteurerdokument drucken"));
   drucken_menu->append(*latex_empty);
   latex_empty->activate.connect(SigC::slot(this,&midgard_CG::on_leeres_abenteurerdokument_drucken));
-  menu->append(*drucken);
 
+  menu_kontext->append(*drucken);
 //Regionen/////////////////////////////////////////////////////////////////////
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *regionen = manage(new class Gtk::MenuItem("Regionen")); 
@@ -93,12 +94,15 @@ void midgard_CG::menu_init()
          !(*i)->Offiziell() )
         _mi->set_sensitive(false);
    }
-  menu->append(*regionen);
+  menu_kontext->append(*regionen);
+  
 
 //Optionen/////////////////////////////////////////////////////////////////////
   Gtk::Menu *optionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Ansicht & Fenster")); 
   optionen->set_submenu(*optionen_menu);
+//  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Ansicht & Fenster","<Control>A", *optionen_menu));
+//  Gtk::MenuItem *optionen = (Gtk::MenuItem *)main_menubar->items().back();
 
   std::list<Midgard_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
   for(std::list<Midgard_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
@@ -116,36 +120,27 @@ void midgard_CG::menu_init()
     mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
     optionen_menu->append(*mi);
    } 
-
-  menu->append(*optionen);
+  menu_kontext->append(*optionen);
 ///////////////////////////////////////////////////////////////////////////////
-//Import/Export////////////////////////////////////////////////////////////////
-/*
-  Gtk::Menu *im_ex_menu = manage(new class Gtk::Menu());
-  Gtk::MenuItem *im_ex = manage(new class Gtk::MenuItem("Import/Export"));
-  im_ex->set_submenu(*im_ex_menu);
-
-  Gtk::MenuItem *Elsa_export = manage(new class Gtk::MenuItem("Export im Format für gedruckte Abenteuer"));
-  im_ex_menu->append(*Elsa_export);
-  Elsa_export->activate.connect(SigC::slot(this,&midgard_CG::spielleiter_export));
-  Elsa_export->show();
-  
-  menu->append(*im_ex);
-*/
-///////////////////////////////////////////////////////////////////////////////
-
-  menu->show_all();
+  menu_kontext->show_all();
 }
 
 void midgard_CG::menubar_init()
 {
-  Gtk::Menu *menu0 = manage(new class Gtk::Menu());
+reloop:
+  for(unsigned int i=2;i<main_menubar->items().size();++i)
+    {  main_menubar->items().pop_back(); goto reloop;}
+
+  // Ansicht
+  Gtk::Menu *ansicht_menu = manage(new class Gtk::Menu());
+  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Ansicht & Fenster","<Control>A", *ansicht_menu));
+
   Gtk::Menu *menu1 = manage(new class Gtk::Menu());
   Gtk::Menu *menu2 = manage(new class Gtk::Menu());
 
   Gtk::MenuItem *mi0 = manage(new class Gtk::MenuItem("Optionen"));
   mi0->activate.connect(SigC::slot(this,&midgard_CG::menu_einstellungen_aendern));
-  menu0->add(*mi0);
+  ansicht_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(*mi0));
 
 
   Gtk::MenuItem *mi1 = manage(new class Gtk::MenuItem("Ansicht & Fenster"));
@@ -176,18 +171,16 @@ void midgard_CG::menubar_init()
     menu2->append(*mi);
    } 
   mi1->set_submenu(*menu1);
-//  mi1->show();
-
   mi2->set_submenu(*menu2);
-//  mi2->show();
-  menu0->add(*mi1);
-  menu0->add(*mi2);
-  ansicht_menu->set_submenu(*menu0);
+  ansicht_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(*mi1));
+  ansicht_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(*mi2));
   ansicht_menu->show_all();   
 
   ///////////////////////////////////////////////////////////////////
   // Regionen
-  Gtk::Menu *menur = manage(new class Gtk::Menu());
+  Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
+  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Regionen","<Control>R", *regionen_menu));
+
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
      if((*i)->Nr()<=0) continue;
@@ -213,15 +206,14 @@ void midgard_CG::menubar_init()
      _tab->set_col_spacings(10);
 
      _mi->add(*_tab);
-     menur->append(*_mi);
+     regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*_mi));
      _mi->set_active((*i)->Active());
      _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      if(MOptionen->OptionenCheck(Midgard_Optionen::Original).active && 
          !(*i)->Offiziell() )
         _mi->set_sensitive(false);
    }
- region_menu->set_submenu(*menur);
- region_menu->show_all();
+ regionen_menu->show_all();
 }
 
 

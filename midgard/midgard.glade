@@ -277,7 +277,12 @@
 	<widget>
 	  <class>GtkMenuItem</class>
 	  <name>magus1</name>
-	  <label>Datei</label>
+	  <accelerator>
+	    <modifiers>GDK_CONTROL_MASK</modifiers>
+	    <key>GDK_D</key>
+	    <signal>activate</signal>
+	  </accelerator>
+	  <label>_Datei</label>
 	  <right_justify>False</right_justify>
 
 	  <widget>
@@ -613,7 +618,12 @@
 	<widget>
 	  <class>GtkMenuItem</class>
 	  <name>bearbeiten1</name>
-	  <label>Bearbeiten</label>
+	  <accelerator>
+	    <modifiers>GDK_CONTROL_MASK</modifiers>
+	    <key>GDK_B</key>
+	    <signal>activate</signal>
+	  </accelerator>
+	  <label>_Bearbeiten</label>
 	  <right_justify>False</right_justify>
 
 	  <widget>

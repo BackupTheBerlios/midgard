@@ -5,6 +5,7 @@ NEWS IN VERSION 0.7.6
 * Oberfläche überarbeitet
 * Endlich ist das Fenster wieder verkleinerbar -> 800x600 geht
 * xml export von Zusätzen zu Fertigkeiten in der richtigen Region
+* Accelerators (Tastaturabkürzungen) für Menü eingebaut
 
 TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,

@@ -59,7 +59,7 @@ void midgard_CG::on_button_info_clicked()
 gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 
 { 
    if (event->button == 3) 
-   {  menu->popup(event->button,event->time);
+   {  menu_kontext->popup(event->button,event->time);
       return true;
    }
    return false;
@@ -67,7 +67,7 @@ gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event)
 
 gint midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
 {
-  menu->popup(event->button,event->time);
+  menu_kontext->popup(event->button,event->time);
   return true;
 }
  
