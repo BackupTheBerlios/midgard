@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.8 2002/01/08 09:40:51 christof Exp $
+// $Id: export_common.cc,v 1.9 2002/01/27 15:14:46 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -23,6 +23,10 @@
 std::string region;
 #endif
 
+#ifdef __MINGW32__
+#define NO_SQL
+#endif
+
 static const char HEX[]="0123456789ABCDEF";
 
 std::string toXML(const std::string &s)
@@ -40,6 +44,7 @@ std::string toXML(const std::string &s)
    return res;
 }
 
+#ifndef NO_SQL
 std::string toSQL(const std::string &s)
 {  std::string res;
    for (std::string::const_iterator i=s.begin();i!=s.end();++i)
@@ -55,17 +60,6 @@ int fetch_int(FetchIStream &is,int standard=0)
    
    is >> FetchIStream::MapNull<int>(val,standard);
    return val;
-}
-
- void write_int(std::ostream &o,const std::string &wert,int val, int indent=0)
-{  if (!val) return;
-   for (int i=0;i<indent;++i) o << ' ';
-   o << '<' << wert << '>' << val << "</" << wert << ">\n";
-}
-
- void write_int_attrib(std::ostream &o,const std::string &wert,int val, int standard=0)
-{  if (val==standard) return;
-   o << ' ' << wert << "=\"" << val << '\"';
 }
 
  int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
@@ -87,17 +81,6 @@ double fetch_float(FetchIStream &is,double standard=0)
    return val;
 }
 
-void write_float(std::ostream &o,const std::string &wert,double val, int indent=0)
-{  if (!val) return;
-   for (double i=0;i<indent;++i) o << ' ';
-   o << '<' << wert << '>' << val << "</" << wert << ">\n";
-}
-
-void write_float_attrib(std::ostream &o,const std::string &wert,double val, double standard=0)
-{  if (val==standard) return;
-   o << ' ' << wert << "=\"" << val << '\"';
-}
-
 double fetch_and_write_float(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
 {  double val=fetch_float(is);
    write_float(o,wert,val,indent);
@@ -117,17 +100,6 @@ double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::
    return val;
 }
 
- void write_string(std::ostream &o,const std::string &wert,const std::string &val,int indent=0)
-{  if (!val.size()) return;
-   for (int i=0;i<indent;++i) o << ' ';
-   o << '<' << wert << '>' << toXML(val) << "</" << wert << ">\n";
-}
-
- void write_string_attrib(std::ostream &o,const std::string &wert,const std::string &val,const std::string &standard="")
-{  if (val==standard) return;
-   o << ' ' << wert << "=\"" << toXML(val) << '\"';
-}
-
  std::string fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
 {  std::string val=fetch_string(is);
    write_string(o,wert,val,indent);
@@ -145,11 +117,6 @@ double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::
    
    is >> FetchIStream::MapNull<bool>(val,standard); 
    return val;
-}
-
- void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false)
-{  if (val==standard) return;
-   o << ' ' << wert << "=\"" << (val?"true":"false") << '\"';
 }
 
  bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const bool &standard=false)
@@ -172,5 +139,45 @@ double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::
 {  std::string val=fetch_typ(is,standard);
    write_string_attrib(o,wert,val,standard);
    return val;
+}
+
+#endif
+
+ void write_int(std::ostream &o,const std::string &wert,int val, int indent=0)
+{  if (!val) return;
+   for (int i=0;i<indent;++i) o << ' ';
+   o << '<' << wert << '>' << val << "</" << wert << ">\n";
+}
+
+ void write_int_attrib(std::ostream &o,const std::string &wert,int val, int standard=0)
+{  if (val==standard) return;
+   o << ' ' << wert << "=\"" << val << '\"';
+}
+
+void write_float(std::ostream &o,const std::string &wert,double val, int indent=0)
+{  if (!val) return;
+   for (double i=0;i<indent;++i) o << ' ';
+   o << '<' << wert << '>' << val << "</" << wert << ">\n";
+}
+
+void write_float_attrib(std::ostream &o,const std::string &wert,double val, double standard=0)
+{  if (val==standard) return;
+   o << ' ' << wert << "=\"" << val << '\"';
+}
+
+ void write_string(std::ostream &o,const std::string &wert,const std::string &val,int indent=0)
+{  if (!val.size()) return;
+   for (int i=0;i<indent;++i) o << ' ';
+   o << '<' << wert << '>' << toXML(val) << "</" << wert << ">\n";
+}
+
+ void write_string_attrib(std::ostream &o,const std::string &wert,const std::string &val,const std::string &standard="")
+{  if (val==standard) return;
+   o << ' ' << wert << "=\"" << toXML(val) << '\"';
+}
+
+ void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false)
+{  if (val==standard) return;
+   o << ' ' << wert << "=\"" << (val?"true":"false") << '\"';
 }
 

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.99 2002/01/23 16:16:21 thoma Exp $
+# $Id: Makefile.am,v 1.100 2002/01/27 15:14:46 christof Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -100,7 +100,7 @@ BUILT_SOURCES_CG =  \
    Grad_anstieg.cc \
    Spezialgebiet.cc \
    save_charakter.cc  load_charakter.cc  \
-   Window_charakter_auswahl.cc
+   Window_charakter_auswahl.cc 
 
 BUILT_SOUCES_XMLI=xmlimport.cc
 
@@ -195,7 +195,7 @@ midgard_SOURCES = \
    Window_doppelcharaktere.cc \
    Window_doppelcharaktere_glade.cc \
    Datenbank.cc class_SimpleTree.cc \
-   dtos1.cc \
+   dtos1.cc snprintf.c \
    Tag.cc TagStream.cc xml.cc export_common.cc
 
 

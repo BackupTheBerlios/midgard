@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.126 2002/01/27 09:01:25 thoma Exp $
+// $Id: midgard_CG.cc,v 1.127 2002/01/27 15:14:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,9 @@
 #include <gtk--/notebook.h>
 #include <gtk--/main.h>
 #include "Midgard_Info.hh"
+#ifdef __MINGW32__
+#include <time.h>
+#endif
 
 //midgard_CG::midgard_CG(int argc,char **argv)
 midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
