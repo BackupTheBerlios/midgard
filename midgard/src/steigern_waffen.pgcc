@@ -100,7 +100,7 @@ db_alter_erfolgswert,db_neuer_erfolgswert,db_waffe);
          exec sql close w_ein;
          tr.close();
          
-         double fac = midgard_CG::get_standard_waffen(Typ->Short(),Typ2->Short(),(*i)->Name());
+         double fac = midgard_CG::get_standard_waffen(Typ[0]->Short(),Typ[1]->Short(),(*i)->Name());
          int kosten_steigern = db_schwierigkeit*db_erfolgsfaktor_s*fac;
          int kosten_reduzieren = db_schwierigkeit*db_erfolgsfaktor_r*fac;
          datavec.push_back(new Data_waffen((*i)->Name(),(*i)->Erfolgswert(),
@@ -145,7 +145,7 @@ void midgard_CG::show_neue_grund()
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
 
-      double fac = midgard_CG::get_standard_waffen(Typ->Short(),Typ2->Short(),db_name);
+      double fac = midgard_CG::get_standard_waffen(Typ[0]->Short(),Typ[1]->Short(),db_name);
       if (midgard_CG::region_check(db_region))
          datavec.push_back(new Data_grund(db_name,db_fp*fac));
    }
@@ -257,14 +257,14 @@ void midgard_CG::on_steigern_waffen_tree_alt_select(const std::string& waffe, in
           if (art == "Angriff" || art == "Fern" )
             {
              maxwert = 17;
-             if ((Typ->Short() == "Kr" || Typ->Short() == "Sö") && Typ2->Short()=="") maxwert = 19;
-             if (Typ->Zaubern() == "z" && Typ2->Zaubern() == "z") maxwert = 14;
+             if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 19;
+             if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 14;
             }
           if (art == "Verteidigung")
             {
              maxwert = 7;
-             if ((Typ->Short() == "Kr" || Typ->Short() == "Sö") && Typ2->Short()=="") maxwert = 8;
-             if (Typ->Zaubern() == "z" && Typ2->Zaubern() == "z") maxwert = 6;
+             if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 8;
+             if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 6;
             }
           if (erfolgswert >=maxwert) 
             {  

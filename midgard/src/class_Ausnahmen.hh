@@ -27,12 +27,12 @@ public:
 
 };
 
-class cH_Data_Ausnahmen : public const_Handle<Data_Ausnahmen>    
+class cH_Data_Ausnahmen : public Handle<const Data_Ausnahmen>    
 {
 protected:
  cH_Data_Ausnahmen() {}
 public:
- cH_Data_Ausnahmen(Data_Ausnahmen *r) : const_Handle<Data_Ausnahmen>(r){}
+ cH_Data_Ausnahmen(Data_Ausnahmen *r) : Handle<const Data_Ausnahmen>(r){}
 };
 
 class Ausnahmen : public cH_Data_Ausnahmen
@@ -53,8 +53,8 @@ class Ausnahmen : public cH_Data_Ausnahmen
 
 
  public:
-   Ausnahmen(const Grundwerte& Werte,const H_Data_typen& Typ, 
-      const H_Data_typen& Typ2, std::vector<H_Data_beruf>& vec_Beruf);
+   Ausnahmen(const Grundwerte& Werte,const vector<H_Data_typen>& Typ, 
+      std::vector<H_Data_beruf>& vec_Beruf);
 
    static void clear(){cache.clear();}
 

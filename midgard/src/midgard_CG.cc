@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.63 2001/10/05 09:54:37 thoma Exp $
+// $Id: midgard_CG.cc,v 1.64 2001/10/07 08:05:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -176,8 +176,8 @@ void midgard_CG::on_radiobutton_frau_toggled()
    else Werte.set_Geschlecht("m");
   midgard_CG::fill_typauswahl();
   midgard_CG::fill_typauswahl_2();
-  typauswahl->set_history(Typ->Nr_Optionmenu());
-  typauswahl_2->set_history(Typ2->Nr_Optionmenu());
+  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
+  typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
 }
 
 void midgard_CG::on_radiobutton_mann_toggled()
@@ -186,22 +186,22 @@ void midgard_CG::on_radiobutton_mann_toggled()
    else Werte.set_Geschlecht("w");
   midgard_CG::fill_typauswahl();
   midgard_CG::fill_typauswahl_2();
-  typauswahl->set_history(Typ->Nr_Optionmenu());
-  typauswahl_2->set_history(Typ2->Nr_Optionmenu());
+  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
+  typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
 }
 
 void midgard_CG::show_gtk()
 {
-  typauswahl->set_history(Typ->Nr_Optionmenu());
-  if (Typ2->Short()=="") typauswahl_2->hide();
+  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
+  if (Typ[1]->Short()=="") typauswahl_2->hide();
   else
    { typauswahl_2->show(); 
-     typauswahl_2->set_history(Typ2->Nr_Optionmenu());
+     typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
    }
- fertig_typ->set_text(Typ->Name());     // Charakterklasse im Lernfenster
- if (Typ2->Name()!="") fertig_typ->set_text(Typ->Name()+"/"+Typ2->Name());
- steigern_typ->set_text(Typ->Name());     // Charakterklasse im Lernfenster
- if (Typ2->Name()!="") steigern_typ->set_text(Typ->Name()+"/"+Typ2->Name());
+ fertig_typ->set_text(Typ[0]->Name());     // Charakterklasse im Lernfenster
+ if (Typ[1]->Name()!="") fertig_typ->set_text(Typ[0]->Name()+"/"+Typ[1]->Name());
+ steigern_typ->set_text(Typ[0]->Name());     // Charakterklasse im Lernfenster
+ if (Typ[1]->Name()!="") steigern_typ->set_text(Typ[0]->Name()+"/"+Typ[1]->Name());
  
    midgard_CG::zeige_werte(Werte);
    midgard_CG::show_berufe();
@@ -214,12 +214,12 @@ void midgard_CG::show_gtk()
  steigern_gtk();
 
  // Spezialwaffe anzeigen?
- if (Typ->Zaubern()=="n" || Typ->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
+ if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
  else label_spezialwaffe->set_text("");
 
  // Magie anzeigen?
- if (Typ->Zaubern()=="j" || Typ->Zaubern() == "z" || magie_bool) 
-   { if (Typ->Short()=="Ma" || Typ->Short() == "eBe") magier_spezialgebiet("show");
+ if (Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
+   { if (Typ[0]->Short()=="Ma" || Typ[0]->Short() == "eBe") magier_spezialgebiet("show");
      else magier_spezialgebiet("hide");
      table_magier_lernen->show();
      table_magier_steigern->show();
@@ -229,7 +229,7 @@ void midgard_CG::show_gtk()
      table_magier_steigern->hide();
    }
  // KiDo anzeigen?
-// if (Typ->Short()=="Kd" || Typ->Short() == "Ny" ) 
+// if (Typ[0]->Short()=="Kd" || Typ[0]->Short() == "Ny" ) 
  if (kido_bool) 
    { optionmenu_KiDo_Stile->show();
      table_kido_lernen->show();
@@ -355,11 +355,11 @@ void midgard_CG::on_neuer_charakter_clicked()
    vec_Sprachen.clear();
    vec_Schriften.clear();
    list_Zauber.clear();
-   vec_Zaubermittel.clear();
+   list_Zauberwerk.clear();
    Werte.clear();
    lernpunkte.clear();
-   Typ->clear();
-   Typ2->clear();
+   Typ.clear();
+   Typ.resize(2);
    vec_Typen.clear();
    vec_Typen_2.clear();
    waffen_grundkenntnisse.clear();
@@ -421,10 +421,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 
 void midgard_CG::clear_Ausnahmen()
 {
-//  Ausnahmen A(werte,Typ,Typ2,vec_Beruf);
   Ausnahmen::clear();
-
-//  vec_Ausnahmen=A.get_Ausnahmen(werte,Typ,Typ2,vec_Beruf); 
 }
 
 void midgard_CG::on_schliessen_CG_clicked()

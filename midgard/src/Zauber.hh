@@ -11,32 +11,33 @@
 class Zauber : public HandleContent
 {
    std::string ap, name;
-   mutable int erfolgswert;
-   mutable std::string  standard, standard2;
+   int erfolgswert;
+   vector<std::string> standard;
    std::string  art, stufe, zauberdauer, reichweite,
       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
       material, agens, prozess, reagens, beschreibung,spruchrolle,
       zauberart,p_element,s_element,region; 
-   mutable int kosten,lernpunkte;
-      
+   int kosten;
+   int lernpunkte;
 
    void get_Zauber();
+   int GrundKosten() const {  return kosten; }
+   void set_Standard(const vector<H_Data_typen>& Typ) ;
  public: 
-   Zauber(const std::string& n) : name(n) {get_Zauber();} 
+//   Zauber(const std::string& n) : name(n) {get_Zauber();} 
+   Zauber(const std::string& n,const vector<H_Data_typen>& Typ,int l=0) 
+      : name(n),lernpunkte(l) {get_Zauber();set_Standard(Typ);} 
 
-   void set_Kosten(int k) const {kosten=k;}
-   void set_Standard(const std::string& s ) const {standard=s;}
-   void set_Standard2(const std::string& s ) const {standard2=s;}
-   void set_Erfolgswert(int e) const {erfolgswert=e;}
-   void set_Lernpunkte(int l) const {lernpunkte=l;}
-
+//   void set_Standard(const vector<std::string>& s ) const 
+//         {assert(s.size()==2); standard.clear(); standard.push_back(s[0]); standard.push_back(s[1]);}
+//   void set_Lernpunkte(int l) const {lernpunkte=l;}
 
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
-   int Erfolgswert() const {return erfolgswert; }
-   std::string Standard__() const { return standard+' '+standard2;}
+   std::string Standard__() const { return standard[0]+' '+standard[1];}
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }
+   int iStufe() const {  if (Stufe()=="groß") return 6; else return atoi(Stufe().c_str()); }
    std::string Zauberdauer() const { return zauberdauer;}
    std::string Zauberart() const { return zauberart;}
    std::string Reichweite() const {return reichweite;}   
@@ -51,26 +52,41 @@ class Zauber : public HandleContent
    std::string Beschreibung() const { return beschreibung;}
    std::string P_Element() const {return p_element;}
    std::string S_Element() const {return s_element;}
-   std::string Standard() const {return standard;}
-   std::string Standard2() const {return standard2;}
+   vector<std::string> Standard() const {return standard;}
    std::string Region() const {return region;}
-   int Kosten() const {  return kosten; }
+   int Kosten() const;
+   int Kosten_eBe(const std::string& pe,const std::string& se) const;
    int Lernpunkte() const {  return lernpunkte; }
-   std::string Spruchrolle() const {return spruchrolle; }
-
-   double get_Faktor(const vector<H_Data_typen>& Typen,const Grundwerte& Werte) const;
+   bool Spruchrolle() const 
+      { if (spruchrolle=="nicht") return false; 
+        else return true; }
+   int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte) const;
+   int get_spezial_zauber_for_magier(const Grundwerte& Werte) const;
 
 };
 
-class cH_Zauber : public const_Handle<Zauber>
+class cH_Zauber : public Handle<const Zauber>
 {
-    typedef CacheStatic<std::string,cH_Zauber> cache_t;
+   struct st_index {std::string name; vector<H_Data_typen> Typ; int lernpunkte;
+      bool operator == (const st_index& b) const
+         {return (name==b.name && Typ[0]->Short() == b.Typ[0]->Short() && lernpunkte==b.lernpunkte);}
+      bool operator <  (const st_index& b) const
+         { return name < b.name || 
+             (name==b.name && Typ[0]->Short()<b.Typ[0]->Short()) ||
+             (name==b.name && Typ[0]->Short()==b.Typ[0]->Short() &&
+               lernpunkte<b.lernpunkte ); }
+      st_index(std::string n, vector<H_Data_typen> T,int l):name(n),Typ(T),lernpunkte(l){}
+      st_index(){}
+      };
+
+    typedef CacheStatic<st_index,cH_Zauber> cache_t;
     static cache_t cache;
-    cH_Zauber(Zauber *s) : const_Handle<Zauber>(s) {};
-    friend class std::map<std::string,cH_Zauber>;
+    cH_Zauber(Zauber *s) : Handle<const Zauber>(s) {};
+    friend class std::map<st_index,cH_Zauber>;
     cH_Zauber(){};
  public:
-    cH_Zauber(const std::string& name);
+   cH_Zauber(const std::string& name,const vector<H_Data_typen>& Typ,int lernpunkte=0) ;
+//    cH_Zauber(const std::string& name);
 };
 
 class Zauber_sort_name
@@ -85,6 +101,5 @@ class Zauber_sort_stufe
 class Zauber_sort_ursprung
 { public: bool operator() (cH_Zauber x,cH_Zauber y) const
    {return x->Ursprung()<y->Ursprung(); }};
-
 
 #endif

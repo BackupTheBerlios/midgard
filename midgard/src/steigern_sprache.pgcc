@@ -161,7 +161,7 @@ void midgard_CG::on_steigern_schrift_tree_neu_select(const std::string& name, co
 void midgard_CG::show_alte_sprachen()
 {
    std::vector<cH_RowDataBase> datavec;
-   double fac = midgard_CG::get_standard_fertigkeit(Typ->Short(),Typ2->Short(),"Sprache");
+   double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Sprache");
    for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();
             i!=vec_Sprachen.end();++i)
       {
@@ -227,7 +227,7 @@ void midgard_CG::show_neue_sprachen()
    AND charakter_name = :db_cname AND version = :db_version) order by name;
   SQLerror::test(__FILELINE__);
  exec sql open ein;
- double fac = midgard_CG::get_standard_fertigkeit(Typ->Short(),Typ2->Short(),"Sprache");
+ double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Sprache");
   while (true)
    {
       exec sql fetch ein into :db_name, :db_fp, :db_urschrift;
@@ -249,7 +249,7 @@ void midgard_CG::show_alte_schriften()
    char db_typ[20], db_name[20];
    int db_kosten;
   exec sql end declare section;
-  double fac = midgard_CG::get_standard_fertigkeit(Typ->Short(),Typ2->Short(),"Lesen/Schreiben");
+  double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Lesen/Schreiben");
   for (std::vector<H_Data_schrift>::const_iterator i=vec_Schriften.begin();
       i!=vec_Schriften.end();++i)
    {
@@ -279,7 +279,7 @@ void midgard_CG::show_neue_schriften()
    AND charakter_name = :db_cname AND version = :db_version) order by name, typ;
   SQLerror::test(__FILELINE__);
  exec sql open ein2;
- double fac = midgard_CG::get_standard_fertigkeit(Typ->Short(),Typ2->Short(),"Lesen/Schreiben");
+ double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Lesen/Schreiben");
   while (true)
    {
       exec sql fetch ein2 into :db_name, :db_fp, :db_typ;

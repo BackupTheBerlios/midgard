@@ -29,6 +29,9 @@ public:
    int Stand() const {return stand;}
    int Sb() const {return sb;}
    int Ruestung() const {return ruestung;}
+   bool is_mage() const 
+    { if(Zaubern()=="z" || Zaubern()=="j") return true; else return false; } 
+
 
 //   int Nr() const {return nr;}
    void set_Nr_Optionmenu(int i) {nr_in_optionmenu = i;}

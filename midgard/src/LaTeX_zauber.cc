@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.27 2001/10/02 07:25:01 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.28 2001/10/07 08:05:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,9 +28,7 @@ void midgard_CG::LaTeX_zauber()
   for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
    {
      fout << (*i)->Name() << " & ";
-//     fout << (*i)->Erfolgswert() <<" & ";
-     int erf = get_erfolgswert_zaubern(Typ,Typ2,(*i)->Name());
-     fout << erf <<" & ";
+     fout << (*i)->Erfolgswert(Typ,Werte) <<" & ";
      fout << Gtk2TeX::string2TeX((*i)->Ap()) << " & ";
      fout << (*i)->Art() << " & ";
      fout << (*i)->Stufe() << " & ";
@@ -50,20 +48,16 @@ void midgard_CG::LaTeX_zaubermittel()
 {
   std::string name = "midgard_tmp_myzaubermittel.tex";
   ofstream fout(name.c_str());
-  for (std::vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin();
-         i!=vec_Zaubermittel.end();++i)
+  for (std::list<cH_Zauberwerk>::iterator i=list_Zauberwerk.begin();
+         i!=list_Zauberwerk.end();++i)
    {
-     std::string wert ;//= itos(*i->Wert());
-     std::string art = (*i)->Art();
-     if (wert=="0") wert ="";
-     if (art=="AZ") art ="Alchimistisches Zaubermittel";
-     if (art=="PZ") art ="Pflanzliches Zaubermittel";
-     fout << wert <<" & ";
+//     std::string wert ;//= itos((*i)->Wert());
+//     fout << wert <<" & ";
      fout << (*i)->Name()  <<" & ";
-     fout << art   <<" & ";
+     fout << (*i)->Art()   <<" & ";
      fout << (*i)->Stufe()   <<" & ";
      fout << (*i)->Zeitaufwand()  <<" & ";
-     fout << (*i)->Kosten()   <<" & ";
+     fout << (*i)->Preis()   <<" \\\\\n ";
    }
 }
 
@@ -114,10 +108,10 @@ void midgard_CG::LaTeX_zauber_main(void)
   fout << "\\end{tabular}\n";
 
  
-  if (vec_Zaubermittel.size()!=0)
+  if (list_Zauberwerk.size()!=0)
    {
-     fout << "\\begin{tabular}{llllll}\\hline\n";
-     fout << "Stufe&Name&Art&Stufe&\\scriptsize Zeitaufwand&Kosten\\\\\\hline\n";
+     fout << "\\begin{tabular}{lllll}\\hline\n";
+     fout << "Name&Art&Stufe&\\scriptsize Zeitaufwand&Kosten\\\\\\hline\n";
      fout << "\\input{midgard_tmp_myzaubermittel.tex}\n";
      fout << "\\end{tabular}\n";
    }

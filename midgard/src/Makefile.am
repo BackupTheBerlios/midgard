@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.48 2001/10/02 14:52:11 christof Exp $
+# $Id: Makefile.am,v 1.49 2001/10/07 08:05:31 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -12,7 +12,7 @@ EXTRA_DIST = document_eingabe.tex.in \
    drache.ps dracher.ps
 
 
-noinst_HEADERS = Zauber.hh \
+noinst_HEADERS = Zauber.hh Zauberwerk.hh \
 itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
@@ -65,20 +65,19 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
-BUILT_SOURCES_CG =  Zauber.cc \
+BUILT_SOURCES_CG =  Zauber.cc Zauberwerk.cc \
    steigern_fertigkeiten.cc  steigern_zauber.cc steigern_waffen.cc \
    get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
-   Zauber_auswahl.cc  Zauber_get_daten.cc get_standard_zauber.cc \
+   Zauber_auswahl.cc  \
    get_standard_fertigkeit.cc get_standard_waffen.cc Berufe_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \
-   get_typ.cc get_spezial_zauber.cc  Window_charakter_auswahl.cc \
+   get_typ.cc  Window_charakter_auswahl.cc \
    praxispunkte_wuerfeln.cc steigern_sprache.cc sprachen_schrift.cc \
    Sprache_auswahl.cc Window_herkunft.cc midgard_CG_ruestung.cc \
 	Window_ruestung.cc Window_waffe.cc Window_Waffenbesitz.cc \
    midgard_CG_waffe_werte.cc get_berufs_vorteile.cc \
    midgard_CG_typauswahl.cc  Window_mag_bonus.cc get_Verteidigungswaffe.cc \
 	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc get_kido.cc \
-   get_standard_zaubermittel.cc \
    midgard_CG_magier_spezialgebiet.cc \
    steigern_EP_sql.cc \
    midgard_CG_grad_anstieg_sql.cc \
@@ -97,10 +96,10 @@ midgard_SOURCES = \
    Window_Erfahrungspunkte.cc \
    Window_Erfahrungspunkte_glade.cc \
    steigern_EP.cc \
+   midgard_CG_standard.cc \
    $(BUILT_SOURCES_CG) \
    xml_fileselection.cc \
    xml_fileselection_glade.cc \
-   midgard_CG_typ_2.cc \
 	LaTeX_out.cc \
    LaTeX_zauber.cc \
    LaTeX_kido.cc \
@@ -138,7 +137,6 @@ midgard_SOURCES = \
 	midgard_CG.cc \
 	Window_werte_editieren_glade.cc \
 	Window_werte_editieren.cc \
-   get_erfolgswert_zaubern.cc \
 	abge_werte_setzen.cc \
 	gw_wuerfeln.cc \
    zeige_werte.cc \

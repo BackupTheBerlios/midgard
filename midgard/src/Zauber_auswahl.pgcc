@@ -30,25 +30,26 @@ exec sql include sqlca;
 #include "midgard_CG.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
+#include <class_zauber.hh>
 
-Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, const H_Data_typen& Typ, const H_Data_typen& Typ2, int lernpunkte)
+Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, const vector<H_Data_typen>& _Typ, int lernpunkte)
+: Typ(_Typ)
 {
+  assert (Typ.size()==2);
   hauptfenster=h;
   maxpunkte = lernpunkte;
   zauber_auswahl_lernpunkte->set_text(itos(maxpunkte));
   exec sql begin declare section;
    int db_lernpunkte;
-   char db_fertigkeiten[100];
-   char db_ap[20];
-   int db_kosten;
+   char db_zauber[100];
    char query[1024];
   exec sql end declare section;
 
-   std::string squery = "select distinct l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
-      from lernschema l, arkanum_zauber a \
-      where (l.typ = '"+Typ->Short()+"' or l.typ = '"+Typ2->Short()+"') \
-      and l.art = 'Zauber' and a.name = l.fertigkeit ";
-   if (Typ->Short() == "eBe") squery += "and (l.p_element = '"+Werte.Spezial()+"' or l.s_element = '"+Werte.Spezial2()+"') ";
+   std::string squery = "select distinct l.fertigkeit, l.lernpunkte \
+      from lernschema l \
+      where (l.typ = '"+Typ[0]->Short()+"' or l.typ = '"+Typ[1]->Short()+"') \
+      and l.art = 'Zauber' ";
+   if (Typ[0]->Short() == "eBe") squery += "and (l.p_element = '"+Werte.Spezial()+"' or l.s_element = '"+Werte.Spezial2()+"') ";
    squery += " order by lernpunkte";      
   
    strncpy(query,squery.c_str(),sizeof(query));
@@ -60,22 +61,20 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, const H_Da
     SQLerror::test(__FILELINE__);
     while (true)
       {
-         exec sql fetch zauber into :db_fertigkeiten, :db_lernpunkte, :db_ap, :db_kosten;
+         exec sql fetch zauber into :db_zauber, :db_lernpunkte;
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
-//         vec_zauber.push_back(new Data_zauber(db_fertigkeiten,db_ap,db_kosten,db_lernpunkte));
-         cH_Zauber zauber(db_fertigkeiten);
-         zauber->set_Lernpunkte(db_lernpunkte);
-         list_zauber.push_back(zauber);
+//cout << db_zauber<<' '<<db_lernpunkte<<'\n';
+         list_zauber.push_back(cH_Zauber(db_zauber,Typ,db_lernpunkte));
       }
 
     exec sql close zauber;
     Gtk::OStream os(zauber_clist_auswahl);
     for(std::list<cH_Zauber>::iterator i=list_zauber.begin();i!=list_zauber.end();++i)
       {
-         double fac=hauptfenster->get_standard_zauber(Typ,Typ2,(*i)->Name());
+//         double fac=hauptfenster->get_standard_zauber(Typ,Typ2,(*i)->Name());
          os << (*i)->Lernpunkte() <<"\t"<< (*i)->Name() <<"\t"
-            <<(*i)->Ap()<<"\t"<<(*i)->Kosten()*fac<<"\n";
+            <<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
          os.flush(&*i);
       }
     for (unsigned int i=0;i<zauber_clist_auswahl->columns().size();++i)
@@ -112,7 +111,7 @@ void Zauber_auswahl::on_close_zauber_clicked()
          H_Data_zauber *ptr = static_cast<H_Data_zauber*>(i->get_data());
 //         cH_Zauber *ptr = static_cast<cH_Zauber*>(i->get_data());
 //       saz.push_back(new Data_zauber((*ptr)->Name()));
-       saz.push_back(cH_Zauber((*ptr)->Name()));
+       saz.push_back(cH_Zauber((*ptr)->Name(),Typ));
      }
   hauptfenster->zauber_uebernehmen(saz);
   destroy();

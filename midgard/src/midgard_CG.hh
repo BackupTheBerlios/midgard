@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.69 2001/10/05 09:54:37 thoma Exp $
+// $Id: midgard_CG.hh,v 1.70 2001/10/07 08:05:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,7 +46,8 @@
 #include <list>
 #include <map>
 #include "Zauber.hh"
-#include "class_zauber.hh"
+#include "Zauberwerk.hh"
+//#include "class_zauber.hh"
 #include "class_fertigkeiten.hh"
 #include "class_berufe.hh"
 #include "class_waffen.hh"
@@ -108,11 +109,10 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_waffen> vec_Waffen;
         std::vector<H_Data_waffen> vec_Waffen_besitz;
         std::vector<H_Data_beruf> vec_Beruf;
-//        std::list<H_Data_zauber> vec_Zauber;
-//        std::list<H_Data_zauber> vec_Zauber_neu;
         std::list<cH_Zauber> list_Zauber;
         std::list<cH_Zauber> list_Zauber_neu;
-        std::vector<H_Data_zaubermittel> vec_Zaubermittel;
+        std::list<cH_Zauberwerk> list_Zauberwerk;
+        std::list<cH_Zauberwerk> list_Zauberwerk_neu;
         std::list<H_Data_kido> vec_Kido;
         std::list<H_Data_kido> vec_Kido_neu;
 
@@ -127,8 +127,7 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_sprache> vec_Sprachen;
         std::vector<H_Data_schrift> vec_Schriften;
         map<std::string,string> waffen_grundkenntnisse;
-        H_Data_typen Typ;
-        H_Data_typen Typ2;
+        vector<H_Data_typen> Typ;
         Lernpunkte lernpunkte;
         Data_spezies Spezies_constraint;
    
@@ -199,14 +198,11 @@ class midgard_CG : public midgard_CG_glade
         int maxkidostil(const std::string& stufe);
         void show_kido();
         void stil_optionmenue();
-        int  get_erfolgswert_zaubern(const H_Data_typen& Typ,const H_Data_typen& Typ2,const std::string& name);
-        int get_spezial_zauber(const std::string& typ,const std::string& name);
         void show_berufe();
         void show_waffen();
         void show_zauber();
         void zeige_lernpunkte();
         void zeige_notebook();
-        void Zauber_get_Daten(std::list<H_Data_zauber>& zauber);
         void on_beruf_erfolgswert_clicked();
         gint on_beruf_erfolgswert_release_event(GdkEventButton *ev);
         void on_spinbutton_beruferfolgesert_activate();
@@ -310,21 +306,24 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_beschwoerungen_toggled();
         void on_checkbutton_alle_zauber_toggled();
         void on_checkbutton_zaubermittel_toggled();
-        int spruchrolle_wuerfeln(int istufe, std::string art, std::string zauber);
+        int spruchrolle_wuerfeln(std::string zauber);
         void on_leaf_selected_alte_zauber(cH_RowDataBase d);
         void on_steigern_zauber_tree_alt_select(const std::string& zauber, int kosten);
         void on_leaf_selected_neue_zauber(cH_RowDataBase d);
         void on_steigern_zauber_tree_neu_select(const std::string& zauber, int kosten, const std::string& stufe, const std::string& art);
         void show_alte_zauber();
         void show_neue_zauber();
-        void on_steigern_zaubermittel_tree_alt_select(const std::string& name, int kosten);
-        void on_steigern_zaubermittel_tree_neu_select(const std::string& name, const std::string& stufe, int kosten);
-        void on_leaf_selected_alte_zaubermittel(cH_RowDataBase d);
-        void on_leaf_selected_neue_zaubermittel(cH_RowDataBase d);
-        void show_alte_zaubermittel();
-        void show_neue_zaubermittel();
-        void get_Zaubermittel(std::vector<H_Data_zaubermittel>& vec_Zaubermittel);
-        float get_standard_zaubermittel(const H_Data_typen& Typ,const H_Data_typen& Typ2,const std::string& name);
+        void on_steigern_zauberwerk_tree_alt_select(const std::string& name, int kosten);
+        void on_steigern_zauberwerk_tree_neu_select(const std::string& name, const std::string& stufe, int kosten);
+        void on_leaf_selected_alte_zauberwerk(cH_RowDataBase d);
+        void on_leaf_selected_neue_zauberwerk(cH_RowDataBase d);
+        void show_altes_zauberwerk();
+        void show_neues_zauberwerk();
+        void move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,std::string name);
+        void zauberwerk_laden();
+        void zauberwerk_zeigen();
+//        void get_Zaubermittel(std::vector<H_Data_zaubermittel>& vec_Zaubermittel);
+//        float get_standard_zaubermittel(const vector<H_Data_typen>& Typ,const std::string& name);
         bool zauberwerk_voraussetzung(const std::string& name);
         void on_button_zauber_sort_clicked();
         void on_button_zaubermittel_sort_clicked();
@@ -363,7 +362,6 @@ class midgard_CG : public midgard_CG_glade
         void show_gtk();
         void get_typ_after_load();
         void get_optionmenu_typ_nr();
-        bool get_typ_s(const std::string& mod,const H_Data_typen& t);
    
    public:
          midgard_CG(int argc,char **argv);
@@ -388,8 +386,6 @@ class midgard_CG : public midgard_CG_glade
          void zauber_uebernehmen(const std::list<cH_Zauber>& saz);
          void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
          void kido_uebernehmen(std::vector<string>& technik);
-         double get_standard_zauber(const H_Data_typen& typ,const H_Data_typen& typ2, const std::string& zauber);
-         double get_standard_zauber_(const std::string& ergebnis, const std::string& ergebnis2, const std::string& p_element, const std::string& s_element, const std::string& zauber);
          double get_standard_waffen(const std::string& typ, const std::string& typ2,const std::string& waffe);
          double get_standard_fertigkeit(const std::string& typ, const std::string& typ_2,const std::string& fertigkeit);
          double get_standard_fertigkeit_(const std::string& ergebnis,const std::string& ergebnis2,const std::string& fertigkeiten);
@@ -405,6 +401,7 @@ class midgard_CG : public midgard_CG_glade
          void clear_Ausnahmen();
          void EP_uebernehmen();
          void Geld_uebernehmen();
-
+         static bool standard_one_G(const vector<std::string>& s);
+         static bool standard_all_S(const vector<std::string>& s);
 };
 #endif

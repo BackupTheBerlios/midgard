@@ -138,8 +138,8 @@ void midgard_CG::on_speichern_clicked()
    strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
    strncpy(db_name_sp,(Werte.Name_Spieler()).c_str(),sizeof(db_name_sp));
    strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
-   strncpy(db_typ_s,Typ->Short().c_str(),sizeof(db_typ_s));
-   strncpy(db_typ_2_s,Typ2->Short().c_str(),sizeof(db_typ_2_s));
+   strncpy(db_typ_s,Typ[0]->Short().c_str(),sizeof(db_typ_s));
+   strncpy(db_typ_2_s,Typ[1]->Short().c_str(),sizeof(db_typ_2_s));
    strncpy(db_ruestung,(Werte.Ruestung()).c_str(),sizeof(db_ruestung));
    strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
    
@@ -278,15 +278,15 @@ void midgard_CG::on_speichern_clicked()
          i!=list_Zauber.end();++i)
       {
          strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         strncpy(db_wert_str,itos((*i)->Erfolgswert()).c_str(),sizeof(db_wert_str)) ;
+         strncpy(db_wert_str,itos((*i)->Erfolgswert(Typ,Werte)).c_str(),sizeof(db_wert_str)) ;
          exec sql INSERT INTO charaktere_fertigkeiten
             (charakter_name,version,fertigkeit,wert,art)
          VALUES
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert_str,'Zauber') ;         
             SQLerror::test(__FILELINE__);
       }
-   for (std::vector<H_Data_zaubermittel>::const_iterator i=vec_Zaubermittel.begin();
-         i!=vec_Zaubermittel.end();++i)
+   for (std::list<cH_Zauberwerk>::const_iterator i=list_Zauberwerk.begin();
+         i!=list_Zauberwerk.end();++i)
       {
          strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
          db_wert = atoi((*i)->Stufe().c_str()) ;

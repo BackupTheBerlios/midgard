@@ -45,11 +45,11 @@ public:
 
 };
 /*
-class cH_Spezies : public const_Handle<Data_spezies>
+class cH_Spezies : public Handle<const Data_spezies>
 {
 protected:
  cH_Spezies() {}
 public:
- cH_Spezies(Data_spezies *r) : const_Handle<Data_spezies>(r){}
+ cH_Spezies(Data_spezies *r) : Handle<const Data_spezies>(r){}
 };
 */

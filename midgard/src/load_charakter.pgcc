@@ -252,6 +252,36 @@ void midgard_CG::load_charakter()
 //   grad_basiswerte=db_grad_basiswerte;
    Grad_Anstieg.set_Grad_Anstieg(db_grad,db_steigern_EP,db_grad_basiswerte);
 //////////////////////////////////////////////////////////////////////////////
+
+   
+   // Geschlecht setzen ////////////////////////////////////////////////
+   if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
+   if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
+   // Charakterklasse setzen und anzeigen 
+   Typ[0]->set_Short(db_typ_s);
+   Typ[1]->set_Short(db_typ_2_s);
+   fill_typauswahl();
+   if(Typ[1]->Short()!="") fill_typauswahl_2();
+
+   get_typ_after_load();
+   get_optionmenu_typ_nr();
+
+   if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord" ||
+       Typ[1]->Zaubern()=="n" || Typ[1]->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
+   else label_spezialwaffe->set_text("");
+
+
+
+
+
+
+
+
+
+
+
+
+
    ///////////////////////////////////////////////////////////////////////   
    // Berufe, Fertigkeiten, Waffen und Zauber (KiDo)
    // Grundkenntnisse (Waffen)
@@ -367,8 +397,7 @@ void midgard_CG::load_charakter()
          exec sql fetch zauber into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-//         list_Zauber.push_back(new Data_zauber(db_fertigkeit,db_wert));
-         list_Zauber.push_back(cH_Zauber(db_fertigkeit));
+         list_Zauber.push_back(cH_Zauber(db_fertigkeit,Typ));
       } 
    exec sql close zauber;
 
@@ -388,7 +417,8 @@ void midgard_CG::load_charakter()
          if (sqlca.sqlcode) break;
          std::string stufe = itos(db_wert); 
          if (db_wert==99) stufe = "G";
-         vec_Zaubermittel.push_back(new Data_zaubermittel(stufe,db_fertigkeit));
+//         vec_Zaubermittel.push_back(new Data_zaubermittel(stufe,db_fertigkeit));
+         list_Zauberwerk.push_back(cH_Zauberwerk(db_fertigkeit,Typ));
       } 
    exec sql close zauberm;
 //   get_Zaubermittel(vec_Zaubermittel);
@@ -496,22 +526,6 @@ void midgard_CG::load_charakter()
    exec sql close r_ein;
    tr.close();
 
-
-   // Geschlecht setzen ////////////////////////////////////////////////
-   if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
-   if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
-   // Charakterklasse setzen und anzeigen 
-   Typ->set_Short(db_typ_s);
-   Typ2->set_Short(db_typ_2_s);
-   fill_typauswahl();
-   if(Typ2->Short()!="") fill_typauswahl_2();
-
-   get_typ_after_load();
-   get_optionmenu_typ_nr();
-
-   if (Typ->Zaubern()=="n" || Typ->Short() == "Ord" ||
-       Typ2->Zaubern()=="n" || Typ2->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
-   else label_spezialwaffe->set_text("");
 
    // Spezies setzen ////////////////////////////////////////////
    exec sql begin declare section;   

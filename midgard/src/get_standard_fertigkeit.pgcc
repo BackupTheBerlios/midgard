@@ -33,7 +33,7 @@ exec sql include sqlca;
 
 double midgard_CG::get_standard_fertigkeit(const std::string& typ, const std::string& typ_2, const std::string& fertigkeit)
 {
-   Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
+   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
    double fac;
    // gibt es eine Ausnahmeregelung?
    fac = ausnahmen.Ausnahmen_float(fertigkeit);
@@ -65,7 +65,7 @@ double midgard_CG::get_standard_fertigkeit(const std::string& typ, const std::st
 
 double midgard_CG::get_standard_fertigkeit_(const std::string& ergebnis,const std::string& ergebnis2,const std::string& fertigkeit)
 {
-   Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
+   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
    double fac;
    // gibt es eine Ausnahmeregelung?
    fac = ausnahmen.Ausnahmen_float(fertigkeit);

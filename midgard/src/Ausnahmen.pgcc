@@ -25,8 +25,8 @@ exec sql include sqlca;
 
 Ausnahmen::cache_t Ausnahmen::cache;
 
-Ausnahmen::Ausnahmen(const Grundwerte& Werte,const H_Data_typen& Typ, 
-   const H_Data_typen& Typ2, std::vector<H_Data_beruf>& vec_Beruf)
+Ausnahmen::Ausnahmen(const Grundwerte& Werte,const vector<H_Data_typen>& Typ, 
+   std::vector<H_Data_beruf>& vec_Beruf)
 {
   st_index index(Werte.Name_Charakter(),Werte.Version());
   vector<cH_Data_Ausnahmen> *cached(cache.lookup(index));
@@ -47,8 +47,8 @@ Ausnahmen::Ausnahmen(const Grundwerte& Werte,const H_Data_typen& Typ,
        squery = "select name, art, standard from ausnahmen \
          where (spezies = '"+Werte.Spezies()+"' or spezies=null) \
          and (herkunft = '"+Werte.Herkunft()+"' or herkunft = null) \
-         and typ = '"+Typ->Short()+"'";
-         if (Typ2->Short()!="") squery += "or typ = '"+Typ2->Short()+"'";
+         and typ = '"+Typ[0]->Short()+"'";
+         if (Typ[1]->Short()!="") squery += "or typ = '"+Typ[1]->Short()+"'";
       }
      else if (n==1)
       { 
@@ -112,6 +112,9 @@ float Ausnahmen::Ausnahmen_float(const std::string& name)
 std::string Ausnahmen::Ausnahmen_string(const std::string& name, 
                const std::string& alt,const std::string& alt2)
 {
+// for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
+//         i!=vec_Ausnahmen.end();++i)
+//cout << "Ausnahmen = "<<(*i)->Name()<<'-'<<name << (*i)->Standard()<<'\n';
  for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
          i!=vec_Ausnahmen.end();++i)
    if ((*i)->Name()==name) return (*i)->Standard();

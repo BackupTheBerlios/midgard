@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.38 2001/10/05 09:54:37 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.39 2001/10/07 08:05:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,7 +48,7 @@ void midgard_CG::on_latex_clicked(bool values=true)
  system("gv -seascape midgard_tmp_document_eingabe.ps &");
 
  // Zauber
- if (list_Zauber.size()>0 || vec_Zaubermittel.size()>0)
+ if (list_Zauber.size()>0 || list_Zauberwerk.size()>0)
  {
     LaTeX_zauber_main();
     LaTeX_zauber();
@@ -72,8 +72,8 @@ void midgard_CG::on_latex_clicked(bool values=true)
 void midgard_CG::LaTeX_write_values()
 {
  ofstream fout("midgard_tmp_latexwerte.tex");
- std::string styp = Typ->Name();
- if (Typ2->Name()!="") styp += "/"+Typ2->Name();
+ std::string styp = Typ[0]->Name();
+ if (Typ[1]->Name()!="") styp += "/"+Typ[1]->Name();
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<Werte.St() << "}\n";
  fout << "\\newcommand{\\gee}{" <<Werte.Ge() << "}\n";

@@ -42,8 +42,8 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
    char db_region[10];
   exec sql end declare section;
   std::string squery = "SELECT f.fertigkeit, f.fp, coalesce(f.anfangswert,''), \
-   coalesce(f."+Typ->Short()+",''), ";
-  if (Typ2->Short()!="") squery += " coalesce(f."+Typ2->Short()+",''), ";
+   coalesce(f."+Typ[0]->Short()+",''), ";
+  if (Typ[1]->Short()!="") squery += " coalesce(f."+Typ[1]->Short()+",''), ";
   squery += "coalesce(v.fertigkeit,''), coalesce(f.region,'') \
    FROM fertigkeiten f, fertigkeiten_voraussetzung v WHERE \
    v.name = f.fertigkeit \
@@ -66,7 +66,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
  SQLerror::test(__FILELINE__);
  while (true)
    {
-      if (Typ2->Short()!="")
+      if (Typ[1]->Short()!="")
          exec sql fetch fert_ein into :db_fertigkeiten, :db_fp, 
             :db_erfolgswert, :db_standard, :db_standard2, :db_voraussetzung, 
             :db_region;
@@ -78,7 +78,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
       if (sqlca.sqlcode) break;
       double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,db_fertigkeiten);
       std::string s1 = db_standard, s2 = db_standard2;
-      Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
+      Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
       s1 = ausnahmen.Ausnahmen_string(db_fertigkeiten,db_standard,"");
 //std::cout << "\t\t"<<s1<<"\t"<<fac<<"\n";
 //std::cout << db_fertigkeiten<<"\t"<<Fertigkeiten_Voraussetzung(db_fertigkeiten)
@@ -124,16 +124,16 @@ void midgard_CG::get_srv_kosten(const std::string& name, int erfolgswert,int &st
   if (erfolgswert != 0) // Fertigkeiten MIT Erfolgswert
      {
        squery = "SELECT coalesce(p"+itos(abs(erfolgswert))
-          +",0),coalesce(p"+itos(abs(erfolgswert+1))+",0),fp,f."+Typ->Short();
-       if (Typ2->Short()!="") squery += ", "+Typ2->Short();
+          +",0),coalesce(p"+itos(abs(erfolgswert+1))+",0),fp,f."+Typ[0]->Short();
+       if (Typ[1]->Short()!="") squery += ", "+Typ[1]->Short();
        squery +=" FROM steigern_fertigkeiten s, steigern_fertigkeiten_werte w, \
           fertigkeiten f WHERE s.name = '"+name+"' AND w.name = s.wie \
              AND f.fertigkeit = '"+name+"'";
      }
   else // Fertigkeiten OHNE Erfolgswert
      {
-       squery = "SELECT fp,f."+Typ->Short();
-       if (Typ2->Short()!="") squery += ", "+Typ2->Short();
+       squery = "SELECT fp,f."+Typ[0]->Short();
+       if (Typ[1]->Short()!="") squery += ", "+Typ[1]->Short();
        squery  +=" FROM steigern_fertigkeiten s, fertigkeiten f \
           WHERE s.name = '"+name+"' \
             AND f.fertigkeit = '"+name+"'";
@@ -144,7 +144,7 @@ void midgard_CG::get_srv_kosten(const std::string& name, int erfolgswert,int &st
   exec sql prepare kosten_ein_ from :query ;  
   exec sql declare kosten_ein cursor for kosten_ein_ ;  
   exec sql open kosten_ein;
-  if(Typ2->Short()!="")      
+  if(Typ[1]->Short()!="")      
     {
       if (erfolgswert != 0) // Fertigkeiten MIT Erfolgswert
          exec sql fetch kosten_ein into :db_reduzieren, 
