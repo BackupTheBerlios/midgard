@@ -451,14 +451,14 @@ void midgard_CG::load_fertigkeiten()
       if(sart=="Grundkenntnis") list_WaffenGrund.push_back(new WaffeGrund(db_fert)) ;
       if(sart=="Sprache")
         {
-         cH_MidgardBasicElement sprache(new Sprache(db_fert));
+         cH_MidgardBasicElement sprache(&*cH_Sprache(db_fert));
          sprache->set_Erfolgswert(db_wert);
          sprache->set_Praxispunkte(db_av_bonus);
          list_Sprache.push_back(sprache);
         }
       if(sart=="Urschrift") 
         {
-         cH_MidgardBasicElement schrift(new Schrift(db_fert));
+         cH_MidgardBasicElement schrift(&*cH_Schrift(db_fert));
          schrift->set_Erfolgswert(db_wert);
          schrift->set_Praxispunkte(db_av_bonus);
          list_Schrift.push_back(schrift);
