@@ -305,6 +305,9 @@ gint table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 
 void table_zufall::on_combo_spezies_changed()
 {  
+  LernListen LL(hauptfenster->getCDatabase());
+  bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
+  fill_combo_typen(LL,nsc_allowed);
 }
 
 void table_zufall::on_combo_typ_activate()

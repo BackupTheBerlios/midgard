@@ -69,6 +69,8 @@ bool WaffeGrund::is_sinnvoll(const std::list<cH_MidgardBasicElement> &WL,
    {
      if(cH_Waffe(*i)->Grundkenntnis()==Name())
       {
+//cout << (*i)->Name()<<'\t'<<cH_Waffe(*i)->Grundkenntnis()<<'\t'<<Name()<<'\t'
+//<<(*i)->Voraussetzung(A,false)<<'\n';
         if((*i)->Voraussetzung(A,false)) return true;
       }
    }
