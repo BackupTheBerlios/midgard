@@ -31,7 +31,6 @@ void Window_angeb_fert::fertigkeiten_zeigen()
 
 void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
-//  static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
   cH_MidgardBasicElement MBE=static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
   MidgardBasicElement::move_element(list_Fertigkeit_ang,list_Fertigkeit_ang_neu,MBE);
   show_alte_afert();
@@ -40,11 +39,13 @@ void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, 
 
 void Window_angeb_fert::on_clist_ang_fert_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
-  std::string newf = clist_ang_fert_neu->get_text(row,1);
   cH_MidgardBasicElement MBE=static_cast<MidgardBasicElement*>(clist_ang_fert_neu->selection().begin()->get_data());
-  if(!Sinn(wurf,atoi(clist_ang_fert_neu->get_text(row,2).c_str())))
+cout << "Befor Move: "<<list_Fertigkeit_ang_neu.size()<<' '<<list_Fertigkeit_ang.size()<<'\n';
+  if(!Sinn(cH_Fertigkeit_angeborene(MBE)->Min(),MBE->Erfolgswert()))
      MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,MBE);
+  else list_Fertigkeit_ang_neu.remove(MBE);
   if (wurf==100) { on_button_close_clicked(); return;}
+cout << "After Move: "<<list_Fertigkeit_ang_neu.size()<<' '<<list_Fertigkeit_ang.size()<<'\n';
   show_alte_afert();
   show_neue_afert();
 }
@@ -53,12 +54,17 @@ void Window_angeb_fert::show_alte_afert()
 {
   clist_ang_fert_alt->clear();
   Gtk::OStream os(clist_ang_fert_alt);
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang.begin();
-         i!=list_Fertigkeit_ang.end();++i)
-   { cH_Fertigkeit_angeborene f(*i);
-     os << f->Name();
-     if (f->Erfolgswert()!=0) os <<"\t"<<f->Erfolgswert();
-     os <<"\n"; 
+cout <<"Show: "<< list_Fertigkeit_ang_neu.size()<<' '<<list_Fertigkeit_ang.size()<<'\n';
+
+  std::map<std::string,int> SM=Werte.Sinne();
+  for(std::map<std::string,int>::const_iterator i=SM.begin();i!=SM.end();++i)
+   {
+     os<<i->first<<'\t'<<i->second<<'\n';
+   }
+  os <<'\n';
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang.begin();i!=list_Fertigkeit_ang.end();++i)
+   { 
+     os << (*i)->Name()<<'\t'<<(*i)->Erfolgswert()<<'\n'; 
      os.flush((*i)->ref(),&HandleContent::unref);
    }
   for (unsigned int i=0;i<clist_ang_fert_alt->columns().size();++i)
@@ -72,10 +78,8 @@ void Window_angeb_fert::show_neue_afert()
   for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang_neu.begin();
          i!=list_Fertigkeit_ang_neu.end();++i)
    { cH_Fertigkeit_angeborene f(*i);
-     os << f->Min() <<"-"<<f->Max()<<"\t"<<f->Name();
-     if (f->Erfolgswert()!=0) os <<"\t"<<f->Erfolgswert();
-     os <<"\n"; 
-//cout << "Angehängte Adresse: "<<(*i)->ref()<<'\n';
+     os << f->Min() <<'-'<<f->Max()<<'\t'<<f->Name()<<'\t'
+        <<f->Erfolgswert()<<'\n'; 
      os.flush((*i)->ref(),&HandleContent::unref);
    }
   for (unsigned int i=0;i<clist_ang_fert_neu->columns().size();++i)
@@ -113,7 +117,7 @@ Window_angeb_fert::Window_angeb_fert(midgard_CG* h,
 
 void Window_angeb_fert::on_button_close_clicked()
 {   
-//  hauptfenster->show_fertigkeiten();
+//  hauptfenster->zeige_werte(Werte);
   destroy();
 }
 
