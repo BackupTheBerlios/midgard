@@ -41,10 +41,11 @@ bool Wizard::can_skip(const Abenteurer &A)
 {  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,act_step.Value());
    switch (act_step.Value())
    {  case SPEZIALWAFFE:
-   	 return !A.Typ1()->Spezialwaffe() && !A.Typ2()->Spezialwaffe();
+   	 return (!A.Typ1()->Spezialwaffe() && !A.Typ2()->Spezialwaffe())
+   	     || !A.Spezialisierung().empty();
       case SPEZIALGEBIET:
-         return !A.Typ1()->Spezialgebiet() && !A.Typ2()->Spezialgebiet();
-//      case START:
+         return (!A.Typ1()->Spezialgebiet() && !A.Typ2()->Spezialgebiet())
+             || !A.Spezialgebiet()->Name().empty;
       case LERNSCHEMA_SEITE:
          return true;
       case SPEZIES:
@@ -59,7 +60,7 @@ bool Wizard::can_skip(const Abenteurer &A)
       case ABGELEITETEWERTE:
          return A.Sb()>1 || A.Wk()>1 || A.B()>0; // A.Au()>1 || A.pA()>1;
       case HERKUNFT:
-         return !!A.Herkunft(); // @@
+         return !A.Herkunft()->Name().empty();
       case KIDO_STIL:
 #warning KiDo fehlt noch      
 	 { // KiDo_Stile kido_stil;
@@ -67,14 +68,15 @@ bool Wizard::can_skip(const Abenteurer &A)
 	 }
          return false;
 #warning ...
-      case BERUF: // @@
-      case GELD: // @@@
-      case WAFFEN: // @@
-      case RUESTUNG: // @@
+      case BERUF: return !A.List_Beruf().empty();
+      case GELD: return A.Gold() || A.Silber() || A.Kupfer();
+      case WAFFEN: return !A.List_Waffen_besitz().empty();
+      case RUESTUNG: return A.Ruestung(0)->Name()!="OR";
       case AUSRUESTUNG: // @@
-      case NAMEN: // @@
-      case SPEICHERN: // @@
-      case ZWEITER_TYP: // @@
+         return false;
+      case NAMEN: return A.Name().substr(0,4)!="Neu ";
+      case SPEICHERN: return false;
+      case ZWEITER_TYP: return A.Typ2()->Valid();
       default:
          return false;
    }

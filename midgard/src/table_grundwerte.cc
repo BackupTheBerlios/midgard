@@ -163,7 +163,8 @@ void table_grundwerte::sync_wizard(gpointer x)
    	|| between(pr.wizard.Value(),Wizard::SPEZIES,Wizard::GRUNDWERTE));
    button_grundwerte->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::SPEZIES,Wizard::GRUNDWERTE)
-   	|| false /* Wert unter 350 */ );
+   	|| // !check_350()
+   	false /* Wert unter 350 */ );
    combo_typ->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));
    combo_typ2->set_sensitive(always_sens 

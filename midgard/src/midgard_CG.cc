@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.345 2004/07/16 08:36:36 christof Exp $
+// $Id: midgard_CG.cc,v 1.346 2004/07/19 12:16:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -112,8 +112,8 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
         (ManuProC::Association(*eventbox_wizard_aktiv,*pixmap_status_wizard));
    mwc.set_tooltips(&_tooltips);
    mwc.add_entry(Wizard::Aus,MagusImage("Wizard_off.png"),"alle Funktionen anwählbar");
-   mwc.add_entry(Wizard::Sensitive,MagusImage("MAGUS_Logo_Tiny.xpm"),"doppeltes Würfeln verhindern");
-   mwc.add_entry(Wizard::Aktiv,MagusImage("MAGUS_Logo_Tiny.light"),"Magus hilft beim Erstellen");
+   mwc.add_entry(Wizard::Sensitive,MagusImage("MAGUS_Logo_Tiny.light"),"doppeltes Würfeln verhindern");
+   mwc.add_entry(Wizard::Aktiv,MagusImage("MAGUS_Logo_Tiny.xpm"),"Magus hilft beim Erstellen");
    // black magic: aus einem enum Model ein int Model machen
    Model_ref<int> mref_int(static_cast<int*>(getChar().proxies.wizard_mode.Id()),
                getChar().proxies.wizard_mode.signal_changed());

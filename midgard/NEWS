@@ -35,7 +35,7 @@ Version 0.9.4
 - Eingebaute Debugging Funktion (Dr MinGW) unter Windows
 - Ausgabe von PP für Abwehr, Zaubern & Resistenz
 - Ausgabe von Zauberbeschreibungen (Option)
-- (² bug, Optionen bug) behoben
+- (^2 bug, Optionen bug) behoben
 - Gtk stil hat eigene Icons
 - Ausgabe der PP für Spezial-Zauber (Dweomer, Wunder, etc.)
 - StandardRegionen implementiert

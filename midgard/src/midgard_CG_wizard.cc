@@ -72,8 +72,8 @@ static void fill_texte()
                           "Lernpunkte auswürfeln";
    wizard_beschreibung[Wizard::WAEHLEN]=
                           "Jetzt Fertigkeiten, Waffen und ev. Zauber in beliebiger"
-                          " Reinfolge lernen (anklicken) bis alle Lernpunkte"
-                          " verbraucht sind und anschließend den Beruf wählen.";
+                          " Reihenfolge lernen (anklicken) bis alle Lernpunkte"
+                          " verbraucht sind; anschließend den Beruf wählen.";
    wizard_beschreibung[Wizard::BERUF1]=
                           "Fertigkeit auswählen, die aufgrund der Berufswahl"
                           " gelernt werden kann, danach das Geld auswürfeln.";
@@ -94,7 +94,7 @@ static void fill_texte()
    wizard_beschreibung[Wizard::NAMEN]=
                           "Namen vergeben (Eingabe mit 'Enter' abschließen)";
    wizard_beschreibung[Wizard::SPEICHERN]=
-                          "Bitte neu erwürfelten Abenteurer abspeichern";
+                          "Bitte fertigen Abenteurer zuerst abspeichern";
    for (unsigned i=0;i<Wizard::MAXSTEPS;++i)
       wizard_page[i]=midgard_CG::NOPAGE;
    wizard_page[Wizard::SPEZIES]=midgard_CG::PAGE_GRUNDWERTE;
