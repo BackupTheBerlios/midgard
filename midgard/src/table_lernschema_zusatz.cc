@@ -54,16 +54,11 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
        if(MBE->Name()=="Landeskunde (Heimat)")
          {
            list_FertigkeitZusaetze.push_back(MBE->Name());
-/*
-           cH_MidgardBasicElement MBE=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
-           MidgardBasicElement_mutable M(MBE);
-           M.setZusatz(hauptfenster->getCWerte().Herkunft()->Name());
-           M.setErfolgswert(MBE->Erfolgswert());
-           M.setLernpunkte(MBE->Lernpunkte());
-*/
            cH_MidgardBasicElement MBE_=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
            MidgardBasicElement_mutable M(&*MBE_);
            M.setZusatz(hauptfenster->getCWerte().Herkunft()->Name());
+           M.setErfolgswert(MBE.Erfolgswert());
+           M.setLernpunkte(MBE.Lernpunkte());
            hauptfenster->getChar().List_Fertigkeit().push_back(M);
            return;
          }

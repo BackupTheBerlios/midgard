@@ -215,6 +215,8 @@ private:
         void on_spinbutton_av_bonus_activate();
         void on_spinbutton_sl_bonus_activate();
         void on_entry_magisch_activate();
+        void on_togglebutton_pp_verfallen_toggled();
+        void on_togglebutton_pp_aep_fuellen_toggled();
 
 };
 #endif

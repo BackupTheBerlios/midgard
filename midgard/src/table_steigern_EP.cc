@@ -154,12 +154,28 @@ bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,i
       stufen=stufen_auf_einmal_steigern_fuer_aep(*MBE,ppkosten,aep);
       rest_aep=aep;
       kosten=ppkosten;
+      if(togglebutton_pp_verfallen->get_active() && rest_aep!=0)
+       { 
+         --use_pp;
+//         ep_k = 0;
+//         kosten=rest_aep;
+//         rest_aep=0;
+cout << use_pp<<' '<<kosten<<' '<<rest_aep<<' '<<ep_k<<'\n';
+hauptfenster->set_status("Nicht implementiert"); return false; 
+return false;
+       }
     }
    else // genau EINE Stufe steigern
     {
       stufen=1;
       rest_aep = ep_k%40;
       use_pp   = ep_k/40;
+      if(togglebutton_pp_verfallen->get_active())
+       {
+         ep_k = 0;
+         kosten=rest_aep;
+         rest_aep=0;
+       }
     }
 
    if(togglebutton_pp_aep_fuellen->get_active())
@@ -169,8 +185,8 @@ bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,i
     }
    else
     {
-      if(rest_aep!=0) {hauptfenster->set_status("Es müßten "+itos(rest_aep)+" EP verwendet werden um "+itos(stufen)+" Stufe(n) zu steigern"); return false; }
       if(pp<use_pp )  {hauptfenster->set_status("Nicht genug PP zum steigern vorhanden"); return false; }
+      if(rest_aep!=0) {hauptfenster->set_status("Es müßten "+itos(rest_aep)+" EP verwendet werden um "+itos(stufen)+" Stufe(n) zu steigern"); return false; }
       ep_k=0;
     }
    pp=use_pp;
@@ -184,7 +200,12 @@ bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,i
   hauptfenster->getWerte().addGold(-gold_k);  
   
   if(radiobutton_praxis->get_active())
-   { set_lernzeit(kosten-ep_k,was); set_lernzeit(ep_k,was,true); }
+   {
+     if(togglebutton_pp_verfallen->get_active())
+       set_lernzeit(kosten,was); 
+     else   
+      { set_lernzeit(kosten-ep_k,was); set_lernzeit(ep_k,was,true); }
+   }
   else set_lernzeit(kosten,was);
 
   if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) modify(PP,*MBE,"",MBE->Praxispunkte()-pp) ;
@@ -313,3 +334,17 @@ int table_steigern::genug_geld(const int kosten)
    return gold_k;
 }
 
+
+void table_steigern::on_togglebutton_pp_verfallen_toggled()
+{
+  if(togglebutton_pp_verfallen->get_active())
+   togglebutton_pp_aep_fuellen->set_active(false);  
+}
+
+void table_steigern::on_togglebutton_pp_aep_fuellen_toggled()
+{
+  if(togglebutton_pp_aep_fuellen->get_active())
+   togglebutton_pp_verfallen->set_active(false);  
+}
+
+        

@@ -303,14 +303,14 @@ void table_steigern::modify(modi_modus modus,const MidgardBasicElement_mutable &
   int c=0;
   while(true)
    {
-     std::list<MidgardBasicElement_mutable> &L=hauptfenster->getChar().List_Fertigkeit();
-     if(c==0) L=hauptfenster->getChar().List_Fertigkeit();
-     else if(c==1) L=hauptfenster->getChar().List_Zauber();
-     else if(c==2) L=hauptfenster->getChar().List_Waffen();
-     else if(c==3) L=hauptfenster->getChar().List_Sprache();
-     else if(c==4) L=hauptfenster->getChar().List_Schrift();
+     std::list<MidgardBasicElement_mutable> *L;
+     if(c==0) L=&hauptfenster->getChar().List_Fertigkeit();
+     else if(c==1) L=&hauptfenster->getChar().List_Zauber();
+     else if(c==2) L=&hauptfenster->getChar().List_Waffen();
+     else if(c==3) L=&hauptfenster->getChar().List_Sprache();
+     else if(c==4) L=&hauptfenster->getChar().List_Schrift();
      else assert(!"never get here\n");
-     for(std::list<MidgardBasicElement_mutable>::iterator i=L.begin();i!=L.end();++i)
+     for(std::list<MidgardBasicElement_mutable>::iterator i=L->begin();i!=L->end();++i)
       {
         if( i->Zusatz().empty() && (*i)->Name() == M->Name())       
          {
