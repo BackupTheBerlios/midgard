@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.18 2002/01/18 10:04:34 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.19 2002/01/18 10:55:02 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -185,11 +185,9 @@ void land_speichern(std::ostream &o)
       FetchIStream is2;
       std::string typen;
       while ((query2>>is2).good()) 
-      {  if (!typen.empty()) typen+=",";
-         typen+=fetch_typ(is2);
-      }
-      if (!typen.empty()) 
-      {  o << "    <Typen>" << typen << "</Typen>\n";
+      {  o << "    <Typ";
+         fetch_and_write_string_attrib(is2, o, "Name");
+         o << "/>\n";
       }
    }
    o << "  </Spezies>\n";
@@ -223,8 +221,9 @@ void land_speichern(std::ostream &o)
 
 //********************** typen ****************************************
    o << " <Typen>\n";
-  {Query query("select typs, region, typnr, typl, typlw, typz,"
-   		" ausdauer, stand, sb, ruestung"
+  {Query query("select typs, region, typnr, typl, typlw, "
+  		"typz, sprueche_mit_pp, beruf, "
+  		"stadt_land, ausdauer, stand, sb, ruestung, geld "
    	" from typen"
    	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),typs");
@@ -235,14 +234,21 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "MCG-Index");
    fetch_and_write_string_attrib(is, o, "Bezeichnung-Mann");
    fetch_and_write_string_attrib(is, o, "Bezeichnung-Frau");
+   o << "\n       ";
    char zauberer=fetch_string(is,"n")[0];
    write_bool_attrib(o, "Zauberer",zauberer=='z');
    write_bool_attrib(o, "kannZaubern",zauberer=='z'||zauberer=='j');
+   fetch_and_write_bool_attrib(is, o, "SprücheMitPraxisPunkten");
+   fetch_and_write_string_attrib(is, o, "Berufswahl");
+   string stadt_land=fetch_string(is);
+   if (stadt_land=="s") write_bool_attrib(o, "Land", false, true);
+   else if (stadt_land=="l") write_bool_attrib(o, "Stadt", false, true);
    fetch_and_write_string_attrib(is, o, "Ausdauer");
-   o << "><Modifikation";
+   o << ">\n    <Modifikation";
    fetch_and_write_int_attrib(is, o, "Stand");
    fetch_and_write_int_attrib(is, o, "Sb");
    fetch_and_write_int_attrib(is, o, "Rüstung");
+   fetch_and_write_int_attrib(is, o, "Geld");
    o << "/></Typ>\n";
   }
   }
