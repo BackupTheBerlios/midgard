@@ -59,7 +59,6 @@ void midgard_CG::menu_init()
   regionen->set_submenu(*regionen_menu);
 
   
-  RegionenPic RPics;
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem((*i)->Name()));         
