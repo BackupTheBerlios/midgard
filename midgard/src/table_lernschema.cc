@@ -644,8 +644,6 @@ void table_lernschema::show_lernschema()
         }
       if(!hauptfenster->region_check((*i)->Region())) continue;
       if(!f->Voraussetzungen(hauptfenster->getCWerte(),hauptfenster->list_Fertigkeit)) continue;
-      // Fertigkeiten mit Zusätzen dürfen wiederholt gelernt werden, daher 'false'
-      // statt 'true'
       if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true);
       else {(*i)->setGelernt(false);(*i)->setZusatz("");}
       if((*i)->Name()=="Landeskunde (Heimat)" && (*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true);
@@ -666,8 +664,13 @@ void table_lernschema::show_lernschema()
       {
        cH_Fertigkeit(*i)->setLernArt("Fach");
        bool gelernt=false;
+       bool zuteuer=false;
        if ((*i)->ist_gelernt(hauptfenster->list_Fertigkeit)) gelernt=true;
        if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
+       if((*i)->Lernpunkte() > lernpunkte.Fach() ) zuteuer=true;
+       if(zuteuer && !togglebutton_teure_anzeigen->get_active()) continue;
+       if(gelernt && !togglebutton_gelernte_anzeigen->get_active()) continue;
+       if(gelernt) (*i)->setGelernt(true); 
        newlist.push_back(*i);
      }
    }

@@ -80,6 +80,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
                 list_FertigkeitZusaetze.push_back(MBE->Name());
                 continue ;
               }
+            if((*i)->ist_gelernt(hauptfenster->list_Sprache)) continue;
             datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));

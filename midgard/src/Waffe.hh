@@ -168,7 +168,7 @@ class WaffeBesitz : public MidgardBasicElement
      int sl_Bonus() const {return sl_bonus;}
      std::string Bonus() const;
      std::string Magisch() const {return magisch;}
-     std::string Schaden(const Grundwerte& Werte,const std::string& name) const;
+     std::string Schaden(const Grundwerte& Werte,const std::string& name,bool latex=false) const;
       
      void set_av_Bonus(int a) const {av_bonus=a;}
      void set_sl_Bonus(int a) const {sl_bonus=a;}

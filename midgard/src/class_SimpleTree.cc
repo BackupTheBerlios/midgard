@@ -240,7 +240,8 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case NAME_WL    : return cH_EntryValueIntString(MBE->Name());
          case GRUND_WL   : return cH_EntryValueIntString(w->Grundkenntnis());
          case ART_WL     : return cH_EntryValueIntString(w->Art2());
-         case SCHADEN_WL : return cH_EntryValueIntString(w->Schaden(w->Name())+"+"+itos(w->Schaden_Bonus(w->Name())));
+//         case SCHADEN_WL : return cH_EntryValueIntString(w->Schaden(w->Name())+"+"+itos(w->Schaden_Bonus(w->Name())));
+         case SCHADEN_WL : return cH_EntryValueIntString(wb->Schaden(hauptfenster->getCWerte(),MBE->Name()));
         }  
        }
       return cH_EntryValueIntString("?");

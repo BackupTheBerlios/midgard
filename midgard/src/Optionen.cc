@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.36 2002/05/17 10:24:28 thoma Exp $
+// $Id: Optionen.cc,v 1.37 2002/05/18 06:49:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -259,8 +259,8 @@ void Midgard_Optionen::Optionen_init()
 //  list_OptionenExecute.push_back(st_OptionenExecute(WizardStarten,"Wizard starten",0));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
                            "Lernschema/Steigern auswählbar machen",0));
-  list_OptionenExecute.push_back(st_OptionenExecute(LernschemaZusaetzeLoeschen,
-                           "Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen",0));
+//  list_OptionenExecute.push_back(st_OptionenExecute(LernschemaZusaetzeLoeschen,
+//                           "Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen",0));
 }
 
 

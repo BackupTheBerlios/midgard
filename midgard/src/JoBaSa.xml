@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise>
+ </Preise>
+
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="JoBaSa" Spieler="Thomas Stein" Zeitpunkt="Grosse Gier" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Harte Techniken" Stadt_Land="Stadt"/>
+  <Basiseigenschaften St="100" Gw="96" Gs="99" Ko="94" In="82" Zt="63"/>
+  <abgeleiteteEigenschaften Au="79" pA="88" Wk="99" Sb="99" B="23" SG="3"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="18" AP="50"/>
+  <Beschreibung Gestalt="breit" Gewicht="117" Größe="193" Glaube="Plenydd"/>
+  <Vermögen/>
+  <Steigern GFP="7025" benötigte_Tage="743"><Praxispunkte/></Steigern>
+  <Ausrüstung>
+    <Rüstung>OR</Rüstung>
+  </Ausrüstung>
+  <Fertigkeiten>
+    <Sinn Bezeichnung="Riechen" Wert="8"/>
+    <Sinn Bezeichnung="Tasten" Wert="8"/>
+    <Fertigkeit Bezeichnung="Athletik" Wert="4"/>
+    <Fertigkeit Bezeichnung="Beredsamkeit" Wert="6"/>
+    <Fertigkeit Bezeichnung="Dichten" Wert="8"/>
+    <Fertigkeit Bezeichnung="Geländelauf" Wert="10"/>
+    <Fertigkeit Bezeichnung="Kampf in Schlachtreihe" Wert="4"/>
+    <Fertigkeit Bezeichnung="Kampf in Vollrüstung" Wert="10"/>
+    <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="10"/>
+    <Fertigkeit Bezeichnung="Kampftaktik" Wert="6"/>
+    <Fertigkeit Bezeichnung="Katapult bedienen" Wert="4"/>
+    <Fertigkeit Bezeichnung="KiDo" Wert="10"/>
+    <Fertigkeit Bezeichnung="Klettern" Wert="10"/>
+    <Fertigkeit Bezeichnung="Landeskunde" Wert="4" Zusatz="KanThaiPan"/>
+    <Fertigkeit Bezeichnung="Meditieren" Wert="6"/>
+    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="4"/>
+    <Fertigkeit Bezeichnung="Meucheln" Wert="6"/>
+    <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
+    <Fertigkeit Bezeichnung="Rudern" Wert="10"/>
+    <Fertigkeit Bezeichnung="Sagenkunde" Wert="4"/>
+    <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
+    <Fertigkeit Bezeichnung="TaiTschi"/>
+    <Fertigkeit Bezeichnung="Wagenlenken" Wert="10"/>
+    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="4"/>
+    <Fertigkeit Bezeichnung="Winden" Wert="4"/>
+    <Fertigkeit Bezeichnung="Überleben im Schnee" Wert="6"/>
+    <Fertigkeit Bezeichnung="Überleben in der Steppe" Wert="6"/>
+    <Region Name="KanThaiPan" Region="K"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>

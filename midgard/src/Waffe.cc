@@ -162,17 +162,19 @@ WaffEnd:
 
 ///////////////////////////////////////////////////////////////////
 
-std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name) const
+std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name,bool latex=false) const
 {
-  if (waffe->Art()=="Verteidigung") return "-"+itos(waffe->Schaden_Bonus(name))+"AP";
+  if (waffe->Art()=="Verteidigung") 
+   {
+     std::string s=itos(waffe->Schaden_Bonus(name))+"AP";
+     if(latex) return "-"+s;
+     else return s;
+   }
   std::string s=waffe->Schaden(name);
   int sb=waffe->Schaden_Bonus(name) + sl_Bonus();
-//cout << "WAFFEBesitz Schaden = "<<waffe->Name()<<' '<<s<<' '
-//<<waffe->Erfolgswert()<<' '<<waffe->Schaden_Bonus(name)<<'\n';
   if ( waffe->Grundkenntnis() == "Kampf ohne Waffen" ) 
       { s="W6";
         int w = waffe->Erfolgswert();
-//cout << "Erfolgswert WAFFENLOS = "<<itos(w)<<'\n';
         if (         w <= 7) sb=-4;
         if ( 8<=w && w <=11) sb=-3;
         if (12<=w && w <=15) sb=-2;
@@ -182,7 +184,8 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
       sb += Werte.bo_Sc();
   if     (sb == 0) return s;
   else if(sb  > 0) return s+"+"+itos(sb);
-  else if(sb  < 0) return s+"-"+itos(sb);
+  else if(sb  < 0 &&  latex) return s+"-"+itos(sb);
+  else if(sb  < 0 && !latex) return s+itos(sb);
   abort(); //Never get here
 }
 

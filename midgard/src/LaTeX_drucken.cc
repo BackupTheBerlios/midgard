@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.5 2002/05/17 10:24:28 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.6 2002/05/18 06:49:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -348,7 +348,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
            // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
            fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert<<angriffsverlust_string<<"}\n";
           }
-         std::string schaden=WB->Schaden(hauptfenster->getCWerte(),WB->Name());
+         std::string schaden=WB->Schaden(hauptfenster->getCWerte(),WB->Name(),true);
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
          std::string anm = WB->Waffe()->Waffenrang();
          fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
@@ -360,7 +360,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  // waffenloser Kampf:
  cH_MidgardBasicElement waffenlos(new WaffeBesitz(cH_Waffe("waffenloser Kampf"),"waffenloser Kampf",0,0,""));
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+hauptfenster->getCWerte().bo_An() << "}\n";
- std::string schaden= cH_WaffeBesitz(waffenlos)->Schaden(hauptfenster->getCWerte(), waffenlos->Name());
+ std::string schaden= cH_WaffeBesitz(waffenlos)->Schaden(hauptfenster->getCWerte(), waffenlos->Name(),true);
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
  std::string anm = cH_WaffeBesitz(waffenlos)->Waffe()->Waffenrang();
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";

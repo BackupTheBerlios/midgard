@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MidgardCG-data>
+<Midgard-Charakter Version="8">
+  <Figur Name="Stürmender Dachs" Spieler="Malte Thoma" Zeitpunkt="Grad 1" Grad="7"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Wa" Spezialisierung="Handaxt" Stadt_Land="Stadt"/>
+  <Basiseigenschaften St="103" Gw="90" Gs="98" Ko="95" In="62" Zt="22"/>
+  <abgeleiteteEigenschaften Au="83" pA="97" Wk="43" Sb="79" B="26"/>
+  <Erfolgswerte Abwehr="14" Zaubern="2"/>
+  <Resistenzen Zauber="13"/>
+  <Gesundheit LP_Basis="142056456" LP="17" AP="52"/>
+  <Beschreibung Alter="28" Gewicht="115" Größe="195" Stand="Mittelschicht" Herkunft="Ikenga Becken" Glaube="Schamanistisch"/>
+  <Boni>
+    <Resistenzen/>
+  </Boni>
+  <GFP>8573</GFP>
+  <Vermögen GS="124"/>
+  <Steigern AEP="19" ZEP="5" Basiswerte="1"><Praxispunkte/></Steigern>
+  <Ausrüstung>
+    <Rüstung>TR</Rüstung>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Handaxt"/>
+    <Waffe Bezeichnung="Kriegshammer">W6-2 Feuerschaden bei schw. Treffer ABW3</Waffe>
+    <Waffe Bezeichnung="Stoßspeer" AngriffVerteidigung_Bonus="1">Horn einer Donnerechse</Waffe>
+    <Waffe Bezeichnung="Wurfaxt"/>
+    <Waffe Bezeichnung="kleiner Schild"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+    <Fertigkeit Bezeichnung="Akrobatik" Wert="8"/>
+    <Fertigkeit Bezeichnung="Balancieren" Wert="8"/>
+    <Fertigkeit Bezeichnung="Fallenstellen" Wert="1"/>
+    <Fertigkeit Bezeichnung="Geländelauf" Wert="8"/>
+    <Fertigkeit Bezeichnung="Himmelskunde" Wert="4"/>
+    <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="10"/>
+    <Fertigkeit Bezeichnung="Klettern" Wert="8"/>
+    <Fertigkeit Bezeichnung="Laufen" Wert="7"/>
+    <Fertigkeit Bezeichnung="Naturkunde" Wert="9"/>
+    <Fertigkeit Bezeichnung="Pflanzenkunde"/>
+    <Fertigkeit Bezeichnung="Reiten" Wert="5"/>
+    <Fertigkeit Bezeichnung="Scharfschießen" Wert="9"/>
+    <Fertigkeit Bezeichnung="Schleichen" Wert="3"/>
+    <Fertigkeit Bezeichnung="Schwimmen" Wert="3"/>
+    <Fertigkeit Bezeichnung="Seilkunst" Wert="4"/>
+    <Fertigkeit Bezeichnung="Springen" Wert="8"/>
+    <Fertigkeit Bezeichnung="Spurenlesen"/>
+    <Fertigkeit Bezeichnung="Stimmen nachahmen" Wert="15"/>
+    <Fertigkeit Bezeichnung="Tarnen" Wert="3"/>
+    <Fertigkeit Bezeichnung="Tauchen" Wert="9"/>
+    <Fertigkeit Bezeichnung="Tierkunde"/>
+    <Fertigkeit Bezeichnung="Überleben im Dschungel" Wert="10"/>
+    <Fertigkeit Bezeichnung="Überleben im Wald" Wert="12"/>
+    <Grundkenntnis Bezeichnung="ESchlagwaffe"/>
+    <Grundkenntnis Bezeichnung="Schilde"/>
+    <Grundkenntnis Bezeichnung="Spießwaffe"/>
+    <Grundkenntnis Bezeichnung="Stichwaffe"/>
+    <Grundkenntnis Bezeichnung="Stielwurfwaffe"/>
+    <Grundkenntnis Bezeichnung="waffenloser Kampf"/>
+    <Region/>
+    <Region/>
+    <Region/>
+    <Region/>
+    <Region/>
+    <Region/>
+    <Region/>
+    <Region/>
+    <Sinn Bezeichnung="Hören" Wert="8"/>
+    <Sinn Bezeichnung="Riechen" Wert="8"/>
+    <Sinn Bezeichnung="Schmecken" Wert="8"/>
+    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+    <Sinn Bezeichnung="Sehen" Wert="8"/>
+    <Sinn Bezeichnung="Tasten" Wert="8"/>
+    <Sprache Bezeichnung="Albisch" Wert="6"/>
+    <Sprache Bezeichnung="Chryseisch" Wert="6"/>
+    <Sprache Bezeichnung="Ikengadialekte" Wert="18"/>
+    <Sprache Bezeichnung="Moravisch" Wert="6"/>
+    <Sprache Bezeichnung="Neu Vallinga" Wert="10"/>
+    <Sprache Bezeichnung="Rawindi" Wert="6"/>
+    <Sprache Bezeichnung="Scharidisch" Wert="6"/>
+    <Waffe Bezeichnung="Dolch" Wert="10"/>
+    <Waffe Bezeichnung="Handaxt" Wert="12" Praxispunkte="1"/>
+    <Waffe Bezeichnung="Kriegshammer" Wert="11" Praxispunkte="2"/>
+    <Waffe Bezeichnung="Stoßspeer" Wert="10" Praxispunkte="2"/>
+    <Waffe Bezeichnung="Wurfaxt" Wert="11"/>
+    <Waffe Bezeichnung="kleiner Schild" Wert="4"/>
+    <Waffe Bezeichnung="waffenloser Kampf" Wert="10" Praxispunkte="1"/>
+    <ang.Fertigkeit Bezeichnung="Berserkergang" Wert="18"/>
+    <bool Region="VERS"/>
+  </Fertigkeiten>
+</Midgard-Charakter>
+</MidgardCG-data>

@@ -7,27 +7,25 @@ NEWS IN VERSION 0.6delta4
 * Lernshcema in eigene Klasse umgewandelt
 * Diverse Bugs behoben
 * Datenbnakkorrekturen
-* 0 Lernpunkte Fertigkeiten nur EINMAL lernen
+* '0 Lernpunkte' Fertigkeiten nur EINMAL lernen
+* freiwillige Speziesfertigkeiten die zu teuer sind oder schon gelernt sind
+   werden berücksichtigt. (Trinken für Zwerg) 
+* Verbote der Waffen-Grundkenntnisse für Spezies werden berücksichtigt
+* In der Waffenauswahl wird der Dolch nicht mehr angezeigt mit W6+-1. 
+* Gleiche Sprache kann nicht mehrmals gelernt werden
 
 TODO:
-* Gleiche Sprache kann mehrmals gelernt werden
-* In der Waffenauswahl wird der Dolch angezeigt mit W6+-1. Sollte es W6-1
-heißen? Anderes Beispiel Parierdolch +-2.
-* Wieso bleibt beim Zwerg die Eigenschaft Trinken mit 1 Lernpunkt stehen,
-obwohl ich keine LP mehr habe? Oder in einem anderen Fall, wenn ich es
-bereits gelernt habe?
 * Ist gedacht für die Priester die Kultwaffen (DFR S. 49 rechts) zu
 implementieren? (Auch die Schenkungsregel für Fertigkeitspunkte?)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
-links). (Hat eigentlich irgendwer mal behauptet, dass es leicht sei, die
-ganzen Sonderregeln zu programmieren ;-) ?) Auch die ganzen verbotenen
-Waffen (DFR S.49/50) sind nicht ausgeschlossen, bzw. die speziellen
+links). 
+* Auch die ganzen verbotenen Waffen (DFR S.49/50) sind nicht ausgeschlossen,
+ bzw. die speziellen
 Listen (DFR S. 50 rechts) werden nicht berücksichtigt. Beispiel: Meine
 Zwergenkriegerin könnte Krummsäbel und Parierdolch lernen.
-* Option LernschemaZusaetzeLoeschen löschen
-* Fockus im Zustazfenster einfrieren
-* Gleiche SPrache nur einmal lernen
+* Fokus im Zusatzfenster einfrieren
+* Gleiche Sprache nur einmal lernen
 * xml-speicherpfad
 * Ausdruck für Lange Listen
 * Searchcombo für Typen
