@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.27 2002/07/03 16:58:51 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.28 2002/07/03 17:25:20 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -77,6 +77,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
   cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen"));
   UF.push_back(MidgardBasicElement_mutable(werfen));
   UF.push_back(getWerte().Ueberleben());
+cout << getWerte().Ueberleben()->Name()<<'\t'<<getWerte().Ueberleben().Erfolgswert()<<'\n';
   UF.sort(sort_universell());
 
   for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)

@@ -110,6 +110,11 @@ void Wizard::fill_vecwiz()
                           "Herkunftsland wählen",
                           "Herkunftsland",
                           &midgard_CG::wizard_do_something));
+   //UEBERLEBEN
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "In welchem Geländetyp wird 'Überleben' als universelle Fertigkeit beherrscht?",
+                          "Überleben",
+                          &midgard_CG::wizard_do_something));
    //ANGEBORENEFERTIGKEITEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Angeborenen Fertigkeiten würfeln",
