@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.4 2002/05/31 11:37:50 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.5 2002/06/04 07:31:44 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -478,7 +478,14 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="KiDo")
           List_Kido().push_back(&*cH_KiDo(i->getAttr("Bezeichnung"),true)) ;
       else if(sart=="Grundkenntnis")
-          List_WaffenGrund().push_back(&*cH_WaffeGrund(i->getAttr("Bezeichnung"),true));
+        {  std::string bez=i->getAttr("Bezeichnung");
+           if (bez=="ESchwert") bez="Einhandschwert";
+           else if (bez=="ZSchwert") bez="Zweihandschwert";
+           else if (bez=="ESchlagwaffe") bez="Einhandschlagwaffe";
+           else if (bez=="ZSchlagwaffe") bez="Zweihandschlagwaffe";
+           else if (bez=="Schilde") bez="Schild";
+           List_WaffenGrund().push_back(&*cH_WaffeGrund(bez,true));
+        }
       else if(sart=="Sprache")
         {
          cH_MidgardBasicElement sprache(&*cH_Sprache(i->getAttr("Bezeichnung"),true));

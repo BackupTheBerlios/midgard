@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.13 2002/06/03 21:29:07 christof Exp $
+// $Id: zauber_exp.cc,v 1.14 2002/06/04 07:31:45 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -106,7 +106,6 @@ void arkanum_speichern(Tag &o)
   {Tag &spruch=zauber.push_back(Tag("Spruch"));
    std::string zauber=fetch_and_set_string_attrib(is, spruch, "Name");
    fetch_and_set_string_attrib(is, spruch, "Region");
-   fetch_and_set_string_attrib(is, spruch, "RegionZusatz");
 
    grund_standard_ausnahme(spruch, "zauber_typen",zauber,"",true);
    lernschema(spruch, MIDGARD3_4("Zauber","Zauberkünste"), zauber,true);
@@ -167,7 +166,6 @@ void arkanum_speichern(Tag &o)
   {Tag &zw=zauberwerke.push_back(Tag("Zauberwerk"));
    std::string zauberwerk=fetch_and_set_string_attrib(is, zw, "Name");
    fetch_and_set_string_attrib(is, zw, "Region");
-   fetch_and_set_string_attrib(is, zw, "RegionZusatz");
    std::string art=fetch_and_set_string_attrib(is, zw, "Art");
    std::string stufe=fetch_and_set_string_attrib(is, zw, "Stufe");
 
@@ -289,7 +287,6 @@ void arkanum_speichern(std::ostream &o)
   {o << "  <Spruch";
    std::string zauber=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_string_attrib(is, o, "RegionZusatz");
    o << ">\n";
 
    grund_standard_ausnahme(o, "zauber_typen",zauber,"",true);
@@ -360,7 +357,6 @@ void arkanum_speichern(std::ostream &o)
   {o << "  <Zauberwerk";
    std::string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_string_attrib(is, o, "RegionZusatz");
    std::string art=fetch_and_write_string_attrib(is, o, "Art");
    std::string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
    o << ">\n";
