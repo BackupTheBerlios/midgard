@@ -107,13 +107,13 @@ class MidgardBasicElement : public HandleContent
       std::string Region() const {return region;}
       std::string RegionString(const Datenbank &D) const;
       int Lernpunkte() const {return lernpunkte;};
-      void set_Lernpunkte(int l) const {lernpunkte=l;}
+      void setLernpunkte(int l) const {lernpunkte=l;}
       int Erfolgswert() const {return erfolgswert;};
-      void set_Erfolgswert(int e) const {erfolgswert=e;}
-      void add_Erfolgswert(int e) const {erfolgswert+=e;}
+      void setErfolgswert(int e) const {erfolgswert=e;}
+      void addErfolgswert(int e) const {erfolgswert+=e;}
       int Praxispunkte() const {return praxispunkte;};
-      void set_Praxispunkte(int e) const {praxispunkte=e;}
-      void add_Praxispunkte(int e) const {praxispunkte+=e;}
+      void setPraxispunkte(int e) const {praxispunkte=e;}
+      void addPraxispunkte(int e) const {praxispunkte+=e;}
       int Steigern_mit_EP() const {return steigern_mit_EP;}
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.61 2002/04/14 15:32:14 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.62 2002/04/17 09:04:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,7 +69,7 @@ void midgard_CG::deleteBerufsFertigekeit()
       }
      else if(f->LernArt()=="Beruf+") 
       {
-        (*i)->add_Erfolgswert(-1);
+        (*i)->addErfolgswert(-1);
         f->setLernArt("");
         break;
       }
@@ -168,7 +168,7 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
       for (std::list<cH_MidgardBasicElement>::const_iterator k=list_Fertigkeit.begin();k!=list_Fertigkeit.end();++k)
         {
           if((*k)->Name()==dt->Fert())
-           { (*k)->add_Erfolgswert(1);
+           { (*k)->addErfolgswert(1);
              if((*k)->What()==MidgardBasicElement::FERTIGKEIT)
                 cH_Fertigkeit(*k)->setLernArt("Beruf+");
            }

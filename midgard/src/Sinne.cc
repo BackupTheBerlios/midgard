@@ -46,16 +46,24 @@ cH_Sinne::cH_Sinne(const Tag *tag)
 void Sinne::get_Sinne()
 {
  if(Name()=="Sechster Sinn") erfolgswert=0;
- else                      erfolgswert=8;
+ else                        erfolgswert=8;
 }
 
 
 Sinne_All::Sinne_All()
 {
+  list_All.clear();
   list_All.push_back(&*(cH_Sinne("Sehen",true)));
   list_All.push_back(&*(cH_Sinne("Hören",true)));
   list_All.push_back(&*(cH_Sinne("Riechen",true)));
   list_All.push_back(&*(cH_Sinne("Schmecken",true)));
   list_All.push_back(&*(cH_Sinne("Tasten",true)));
   list_All.push_back(&*(cH_Sinne("Sechster Sinn",true)));
+  // Weil die Sinne gechached sind müssen die Werte explizit gesetzt werden:
+  cH_Sinne("Sehen")->setErfolgswert(8);
+  cH_Sinne("Hören")->setErfolgswert(8);
+  cH_Sinne("Riechen")->setErfolgswert(8);
+  cH_Sinne("Schmecken")->setErfolgswert(8);
+  cH_Sinne("Tasten")->setErfolgswert(8);
+  cH_Sinne("Sechster Sinn")->setErfolgswert(0);
 }

@@ -36,7 +36,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
        if (region_check(f->Region()) )
         if (f->Voraussetzungen(Werte)) 
          {
-            f->set_Erfolgswert(f->Anfangswert());
+            f->setErfolgswert(f->Anfangswert());
             list_Fertigkeit_neu.push_back(*i);
 //Kopie            list_Fertigkeit_neu.push_back(new Fertigkeit(*f));
          }
@@ -179,7 +179,7 @@ void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
   MBE->setZusatz(zusatz);
   // Erhöter Erfolgswert für Landeskunde Heimat:
-  if(zusatz==Werte.Herkunft()->Name()) MBE->set_Erfolgswert(9);
+  if(zusatz==Werte.Herkunft()->Name()) MBE->setErfolgswert(9);
   scrolledwindow_landauswahl->hide();
   on_fertigkeiten_laden_clicked();
   neue_fert_tree->set_sensitive(true);

@@ -233,20 +233,20 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Beruf")
         {
          cH_MidgardBasicElement beruf(&*cH_Beruf(i->getAttr("Bezeichnung"),true));
-         cH_Beruf(beruf)->set_Erfolgswert(i->getIntAttr("Wert"));
+         cH_Beruf(beruf)->setErfolgswert(i->getIntAttr("Wert"));
          list_Beruf.push_back(beruf);
         }
       else if(sart=="ang-Fertigkeit" || sart=="ang.Fertigkeit")
        {
          cH_MidgardBasicElement fert_an(&*cH_Fertigkeit_angeborene(i->getAttr("Bezeichnung"),true));
-         cH_Fertigkeit_angeborene(fert_an)->set_Erfolgswert(i->getIntAttr("Wert"));
+         cH_Fertigkeit_angeborene(fert_an)->setErfolgswert(i->getIntAttr("Wert"));
          list_Fertigkeit_ang.push_back(fert_an);
        }    
       else if(sart=="Fertigkeit")
        {
          cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->getAttr("Bezeichnung"),true));
-         fert->set_Erfolgswert(i->getIntAttr("Wert"));
-         fert->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
+         fert->setErfolgswert(i->getIntAttr("Wert"));
+         fert->setPraxispunkte(i->getIntAttr("Praxispunkte"));
          if(cH_Fertigkeit(fert)->ZusatzEnum(Typ))
          {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
             if(fert->Name()=="Landeskunde") cH_Land(i->getAttr("Zusatz"),true);
@@ -260,8 +260,8 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Waffe")
         {
          cH_MidgardBasicElement waffe(&*cH_Waffe(i->getAttr("Bezeichnung"),true));
-         waffe->set_Erfolgswert(i->getIntAttr("Wert"));
-         waffe->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
+         waffe->setErfolgswert(i->getIntAttr("Wert"));
+         waffe->setPraxispunkte(i->getIntAttr("Praxispunkte"));
          list_Waffen.push_back(waffe);
         }
 #if 0 // andere Liste       
@@ -294,8 +294,8 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
                case 4: wert=13; break;
             }
          }
-         sprache->set_Erfolgswert(wert);
-         sprache->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
+         sprache->setErfolgswert(wert);
+         sprache->setPraxispunkte(i->getIntAttr("Praxispunkte"));
          list_Sprache.push_back(sprache);
         }
       else if(sart=="Urschrift") 
@@ -303,8 +303,8 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          cH_MidgardBasicElement schrift(&*cH_Schrift(i->getAttr("Bezeichnung"),true));
          int wert=i->getIntAttr("Wert");
          if (xml_version<8 && !wert) wert=12;
-         schrift->set_Erfolgswert(wert);
-         schrift->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
+         schrift->setErfolgswert(wert);
+         schrift->setPraxispunkte(i->getIntAttr("Praxispunkte"));
          list_Schrift.push_back(schrift);
         }
       else if(sart=="Optionen")

@@ -67,7 +67,7 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
            cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
            if(!fert->ist_gelernt(Gelerntes))
-              cH_Fertigkeit(fert)->set_Erfolgswert(i->second.erfolgswert);
+              cH_Fertigkeit(fert)->setErfolgswert(i->second.erfolgswert);
            L.push_back(fert); 
          }
       if(art=="Waffenfertigkeiten") 
@@ -75,7 +75,7 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
            cH_MidgardBasicElement waffe(&*cH_Waffe(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
            if(!waffe->ist_gelernt(Gelerntes))
-              cH_Waffe(waffe)->set_Erfolgswert(i->second.erfolgswert);
+              cH_Waffe(waffe)->setErfolgswert(i->second.erfolgswert);
            L.push_back(waffe); 
          }
       if(art=="Zauberkünste") 

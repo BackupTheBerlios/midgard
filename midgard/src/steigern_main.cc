@@ -114,7 +114,7 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
   }   
  
  guint pagenr = notebook_lernen->get_current_page_num();
- getSelectedNotebookLernen()->set_Praxispunkte(PPanz);
+ getSelectedNotebookLernen()->setPraxispunkte(PPanz);
 
 
   if(pagenr==PAGE_FERTIGKEITEN)

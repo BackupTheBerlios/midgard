@@ -175,7 +175,7 @@ bool midgard_CG::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_stei
   // jetzt darf gesteigert werden ...
   Werte.addGold(-gold_k);  
   set_lernzeit(kosten);
-  if (MBE)                 (*MBE)->add_Praxispunkte(-pp) ;
+  if (MBE)                 (*MBE)->addPraxispunkte(-pp) ;
   else if(was==Resistenz)  Werte.addResistenzPP(-pp) ;
   else if(was==Abwehr)     Werte.addAbwehrPP(-pp) ;
   else if(was==Zaubern)    Werte.addZaubernPP(-pp) ;
@@ -280,10 +280,10 @@ void midgard_CG::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,b
   int aep=40;
   if(alle_pp) 
      { aep=40*MBE->Praxispunkte();
-       MBE->set_Praxispunkte(0);
+       MBE->setPraxispunkte(0);
      }
   else 
-       MBE->add_Praxispunkte(-1);
+       MBE->addPraxispunkte(-1);
      
   int kosten=0;
   stufen_auf_einmal_steigern_fuer_aep(false,MBE,kosten,aep);
@@ -301,7 +301,7 @@ void midgard_CG::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,b
         Werte.addAEP(-aep_kosten);
         EP_uebernehmen();
         Werte.addGFP(steiger_kosten);
-        MBE->add_Erfolgswert(1);
+        MBE->addErfolgswert(1);
 
         set_lernzeit(steiger_kosten-aep_kosten); // Lernzeit für PP
         radiobutton_selbst->set_active(true);
@@ -322,13 +322,13 @@ int midgard_CG::stufen_auf_einmal_steigern_fuer_aep(bool info,cH_MidgardBasicEle
      kosten+=steiger_kosten;
      ++stufen;
      aep-=steiger_kosten;
-     MBE->add_Erfolgswert(1);
+     MBE->addErfolgswert(1);
      steiger_kosten = MBE->Steigern(Werte,Typ);
    }      
   if(info)
    {
      kosten=MBE->Steigern(Werte,Typ) ; // kosten für die nächste Stufe
-     MBE->set_Erfolgswert(erfolgswert_mem);
+     MBE->setErfolgswert(erfolgswert_mem);
    }
   else
    {

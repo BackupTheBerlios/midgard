@@ -173,7 +173,7 @@ std::list<cH_MidgardBasicElement> Spezies::getAngFertigkeiten() const
    {
     if(!(i->art=="af")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit_angeborene(i->name)); 
-    f->set_Erfolgswert(i->erfolgswert);
+    f->setErfolgswert(i->erfolgswert);
     L.push_back(f);
    }
  return L;
@@ -186,7 +186,7 @@ std::list<cH_MidgardBasicElement> Spezies::getFertigkeiten(int &lp,const Grundwe
    {
     if(!(i->art=="f")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
-    f->set_Erfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte) );
+    f->setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte) );
     lp+=i->lp;
     L.push_back(f);
    }
@@ -200,9 +200,9 @@ std::list<cH_MidgardBasicElement> Spezies::getFreiwilligeFertigkeiten(const Grun
    {
     if(!(i->art=="ff")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
-    f->set_Erfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte));
+    f->setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte));
 //cout << i->erfolgswert<<' '<<cH_Fertigkeit(f)->AttributBonus(Werte)<<'\n';
-    f->set_Lernpunkte(i->lp);
+    f->setLernpunkte(i->lp);
     L.push_back(f);
    }
  return L;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.102 2002/04/16 10:59:36 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.103 2002/04/17 09:04:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -416,9 +416,6 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
             tree_lernschema->unselect_all();
             return;
           }
-        // Das hat hier keinen Sinn, da der Erfolgswert bein Anzeigen des
-        // Lernschemas nocheinmal nocheinmal gesetzt wird.
-        // MBE->set_Erfolgswert(cH_Fertigkeit(MBE)->FErfolgswert(Werte)+cH_Fertigkeit(MBE)->AttributBonus(Werte));
         if(!SpracheSchrift(MBE)) 
           { if(MBE->Name()!="Landeskunde (Heimat)") // Das macht 'lernen_zusatz' automatisch
                list_Fertigkeit.push_back(MBE); 
@@ -499,7 +496,7 @@ void midgard_CG::show_lernschema()
 
   std::list<cH_MidgardBasicElement> newlist;
   std::list<cH_MidgardBasicElement> LW;
-  if(fert=="Unge" || fert=="Allg"/* || fert=="Fach"*/) // 'Fach' wg. Spezies
+  if(fert=="Unge" || fert=="Allg") 
    {
     for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
      {
@@ -522,20 +519,24 @@ void midgard_CG::show_lernschema()
         }
       if(lp == 99  ) continue;
 
-      if     (f->Name()=="Muttersprache"   && 30<Werte.In()&&Werte.In()<=60) f->set_Erfolgswert(14);
-      else if(f->Name()=="Muttersprache"   && Werte.In()>60) f->set_Erfolgswert(18+f->AttributBonus(Werte));
-      else if(f->Name()=="Gastlandsprache" && Werte.In()>30) f->set_Erfolgswert(12);
-      else f->set_Erfolgswert(f->Anfangswert()+f->AttributBonus(Werte));
-      f->set_Lernpunkte(lp);
-
+      
+      if(!(*i)->ist_gelernt(list_Fertigkeit))
+        {
+         if     (f->Name()=="Muttersprache"   && 30<Werte.In()&&Werte.In()<=60) f->setErfolgswert(14);
+         else if(f->Name()=="Muttersprache"   && Werte.In()>60) f->setErfolgswert(18+f->AttributBonus(Werte));
+         else if(f->Name()=="Gastlandsprache" && Werte.In()>30) f->setErfolgswert(12);
+         else f->setErfolgswert(f->Anfangswert()+f->AttributBonus(Werte));
+         f->setLernpunkte(lp);
+        }
       if(!region_check((*i)->Region())) continue;
       if(!f->Voraussetzungen(Werte)) continue;
+      if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true);
+      else {(*i)->setGelernt(false);(*i)->setZusatz("");}
       if ((*i)->ist_gelernt(list_Fertigkeit)) 
         {
          if (!togglebutton_gelernte_anzeigen->get_active()) continue;
          else (*i)->setGelernt(true); 
         }
-      if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true); //continue ;
       if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
       newlist.push_back(*i);
      }
@@ -594,10 +595,10 @@ void midgard_CG::show_lernschema()
              if ((*i)->ist_gelernt(list_Fertigkeit)) gelernt=true;
              if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
              VI=Lernschema::getIndex(Typ,"Fachkenntnisse",(*i)->Name());
-             cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(Werte));
+             cH_Fertigkeit(*i)->setErfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(Werte));
              cH_Fertigkeit(*i)->setPflicht(Database.lernschema.get_Pflicht(VI));
            }
-        (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(VI));
+        (*i)->setLernpunkte(Database.lernschema.get_Lernpunkte(VI));
 
         bool zuteuer=false;
          if(what==MidgardBasicElement::WAFFE)  

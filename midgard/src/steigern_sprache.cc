@@ -29,7 +29,7 @@ void midgard_CG::on_schrift_laden_clicked()
       if((*i)->ist_gelernt(list_Schrift)) continue;
       if (region_check(s->Region()) )  
          if(s->kann_Sprache(list_Sprache))
-           { s->set_Erfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
+           { s->setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
              list_Schrift_neu.push_back(*i) ;
            }
     }
@@ -43,7 +43,7 @@ void midgard_CG::on_sprache_laden_clicked()
     { cH_Sprache s(*i);
       if((*i)->ist_gelernt(list_Sprache)) continue;
       if (region_check(s->Region()) )  
-        {  s->set_Erfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
+        {  s->setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
            list_Sprache_neu.push_back(*i) ;
         }
     }
@@ -157,7 +157,7 @@ void midgard_CG::neue_schrift_wegen_sprache()
            int e=andereSprache_gleicheSchriftart(s->Art_der_Schrift());
            if(e>=12) 
             {
-              (*k)->set_Erfolgswert(8);   
+              (*k)->setErfolgswert(8);   
               list_Schrift.push_back(*k); 
             }
          }

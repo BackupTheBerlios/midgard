@@ -47,7 +47,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
          {
            cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
            M->setZusatz(Werte.Herkunft()->Name());
-           M->set_Erfolgswert(MBE->Erfolgswert());
+           M->setErfolgswert(MBE->Erfolgswert());
            list_Fertigkeit.push_back(M);
            return;
          }
@@ -198,8 +198,8 @@ void midgard_CG::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   cH_MidgardBasicElement MBE=dt->getMBE();
   cH_MidgardBasicElement schrift(&*cH_Schrift(dt->getZusatz()));
-  schrift->set_Erfolgswert(MBE->Erfolgswert());
-  schrift->set_Lernpunkte(MBE->Lernpunkte());
+  schrift->setErfolgswert(MBE->Erfolgswert());
+  schrift->setLernpunkte(MBE->Lernpunkte());
   list_Schrift.push_back(schrift);
   frame_lernschema_zusatz->hide();
   zeige_werte();  
@@ -212,8 +212,8 @@ void midgard_CG::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   cH_MidgardBasicElement MBE=dt->getMBE();
   cH_MidgardBasicElement sprache(&*cH_Sprache(dt->getZusatz()));
-  sprache->set_Erfolgswert(MBE->Erfolgswert());
-  sprache->set_Lernpunkte(MBE->Lernpunkte());
+  sprache->setErfolgswert(MBE->Erfolgswert());
+  sprache->setLernpunkte(MBE->Lernpunkte());
   list_Sprache.push_back(sprache);
   frame_lernschema_zusatz->hide();
   zeige_werte();  

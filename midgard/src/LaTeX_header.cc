@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.25 2002/04/17 07:06:08 christof Exp $
+// $Id: LaTeX_header.cc,v 1.26 2002/04/17 09:04:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ std::string midgard_CG::get_latex_pathname(const LaTeX_Pathnames what)
 {
   switch (what)
     {
-      case TeX_tmp : return "";
+      case TeX_tmp : return MOptionen->getString(Midgard_Optionen::tmppfad);
       case TeX_Install : return ""; //PACKAGE_DATA_DIR;
     }
   abort(); // never get here

@@ -138,7 +138,7 @@ std::list<cH_MidgardBasicElement> Sprache::VerwandteSprachen(const std::list<cH_
         Sprachgruppe(cH_Sprache(*i)->getVSprachgruppe())) 
       {
          cH_MidgardBasicElement MBE=new Sprache(*cH_Sprache(*i)); // Kopie anlegen
-         MBE->set_Erfolgswert(Erfolgswert()-10);
+         MBE->setErfolgswert(Erfolgswert()-10);
          VS.push_back(MBE) ;
       }
  return VS;
@@ -157,7 +157,7 @@ std::list<cH_MidgardBasicElement> Sprache::cleanVerwandteSprachen(std::list<cH_M
   for(std::map<std::string,int>::const_iterator i=M.begin();i!=M.end();++i)
    {
      const cH_Sprache s(i->first);
-     s->set_Erfolgswert(i->second);
+     s->setErfolgswert(i->second);
      N.push_back(&*s);
    }
  return N;

@@ -66,7 +66,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       Werte.addGFP(MBE->Steigern(Werte,Typ));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name()) 
-            (*i)->add_Erfolgswert(1); 
+            (*i)->addErfolgswert(1); 
     }
  else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Werte,Typ))
     {
@@ -74,7 +74,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       Werte.addGFP(-MBE->Reduzieren(Werte,Typ));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name())  
-            (*i)->add_Erfolgswert(-1); 
+            (*i)->addErfolgswert(-1); 
     }
  else if (radiobutton_verlernen->get_active() && MBE->Verlernen(Werte,Typ))
     {

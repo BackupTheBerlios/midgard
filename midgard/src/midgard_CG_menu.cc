@@ -83,8 +83,9 @@ void midgard_CG::menu_init()
      i->radio_menu_item->activate.connect(SigC::bind(SigC::slot(this,&Midgard_Optionen::pdfViewer_setzen_from_menu),i->index));
      drucken_menu->append(*(i->radio_menu_item));
    }
-  menu->append(*drucken);
 */
+  menu->append(*drucken);
+
 //Regionen/////////////////////////////////////////////////////////////////////
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *regionen = manage(new class Gtk::MenuItem("Regionen")); 

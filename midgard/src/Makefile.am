@@ -1,6 +1,6 @@
-# $Id: Makefile.am,v 1.144 2002/04/17 07:06:08 christof Exp $
+# $Id: Makefile.am,v 1.145 2002/04/17 09:04:02 thoma Exp $
 
-bin_PROGRAMS = midgard 
+bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
 
 # völlig veraltet!!!
@@ -92,7 +92,7 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
-midgard_SOURCES = \
+magus_SOURCES = \
    frame_globale_optionen.cc \
    Optionen.cc \
    table_optionen.cc \
@@ -195,7 +195,7 @@ midgard_SOURCES = \
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
 
-midgard_LDADD = @LIBS@ @KOMPONENTEN_NODB_LIBS@
+magus_LDADD = @LIBS@ @KOMPONENTEN_NODB_LIBS@
 
 midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
 

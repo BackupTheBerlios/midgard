@@ -34,8 +34,8 @@ void midgard_CG::on_waffen_laden_clicked()
          if (region_check(w->Region(w->Name())) )
            if (w->SG_Voraussetzung(Werte))
              {
-//              if(w->Art()=="Verteidigung") w->set_Erfolgswert(1);
-//              else w->set_Erfolgswert(10);
+//              if(w->Art()=="Verteidigung") w->setErfolgswert(1);
+//              else w->setErfolgswert(10);
               list_Waffen_neu.push_back(*i);
              }
    }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.193 2002/04/16 10:59:36 thoma Exp $
+// $Id: midgard_CG.cc,v 1.194 2002/04/17 09:04:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -337,7 +337,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_kido_auswahl->set_sensitive(false);       
    button_angeborene_fert->set_sensitive(false);
 
-   Werte.clear();
+// Das macht 'Spezies.clear()' automatisch   Werte.clear();
 
    lernpunkte.clear();
    Typ.clear();
