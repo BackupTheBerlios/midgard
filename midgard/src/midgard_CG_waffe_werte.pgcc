@@ -82,6 +82,7 @@ string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,const st_werte& wer
      if (ibonus > 0 ) schaden += "+"+itos(ibonus);
      return schaden;
    }
+ abort();
 }
 
 int swk(vector<st_ausgewaehlte_waffen>& vec_waffen) 

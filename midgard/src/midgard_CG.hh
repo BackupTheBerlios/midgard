@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.18 2001/04/19 13:49:20 thoma Exp $
+// $Id: midgard_CG.hh,v 1.19 2001/04/21 07:21:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -282,6 +282,9 @@ class midgard_CG : public midgard_CG_glade
 
         void on_zauber_laden_clicked();
         void on_spruchrolle_toggled();
+        void on_checkbutton_zaubersalze_toggled();
+        void on_checkbutton_beschwoerungen_toggled();
+        void on_checkbutton_alle_zauber_toggled();
         int spruchrolle_wuerfeln(int istufe, string art, string zauber);
         void on_steigern_zauber_clist_alt_select_row(gint row, gint column, GdkEvent *event);
         void on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event);

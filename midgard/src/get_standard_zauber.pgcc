@@ -40,23 +40,40 @@ double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
    //sonst
   exec sql begin declare section;
    char db_ergebnis[20];
+   char db_p_element[50],db_s_element[50];
    char query[200];
   exec sql end declare section;
-  snprintf(query,sizeof(query),"select %s from arkanum_zauber where name = '%s'",
+  if (typ!="eBe")
+     snprintf(query,sizeof(query),"select coalesce(%s,'') from arkanum_zauber where name = '%s'",
+               typ.c_str(), zauber.c_str());
+  if (typ=="eBe")
+     snprintf(query,sizeof(query),"select coalesce(%s,'') coalesce(p_element,''),
+               coalesce(s_element,'') from arkanum_zauber where name = '%s'",
                typ.c_str(), zauber.c_str());
    Transaction tr;
    exec sql prepare zaub from :query ;    
    exec sql declare zauber cursor for zaub ;
    exec sql open zauber;
    SQLerror::test(__FILELINE__);
-   exec sql fetch zauber into  :db_ergebnis;
+   if (typ !="eBe") exec sql fetch zauber into  :db_ergebnis;
+   if (typ =="eBe") exec sql fetch zauber into  :db_ergebnis,:db_p_element,:db_s_element;
    SQLerror::test(__FILELINE__);  
 
-   
-   if (!strcmp(db_ergebnis,"G")) fac = 0.5; 
-   if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
-   if (!strcmp(db_ergebnis,"A")) fac = 5.0; 
-
+   string p_element = db_p_element;
+   string s_element = db_s_element;
+   if (typ != "eBe" || (p_element=="" && s_element==""))
+      {
+         if (!strcmp(db_ergebnis,"G")) fac = 0.5; 
+         if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
+         if (!strcmp(db_ergebnis,"A")) fac = 5.0; 
+         if (!strcmp(db_ergebnis,""))  fac = 5.0; // Eigentlich unlernbarer Zauber
+      }
+   else
+      {
+         if (p_element==werte.spezial)  fac = 0.5;
+         if (s_element==werte.spezial2) fac = 1;
+         else fac = 0;
+      }
 //cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
    return(fac);
 }

@@ -1,10 +1,20 @@
 ##########################################################################
 NEWS IN VERSION 0.4beta2
 - Umstellung der Spezialgebiete von Magiern auf die Datanbankebene.
-   dadurch wird es möglich sein auch Elemenetarbeschwörer ein Spezialgebiet
+   dadurch wird es möglich auch Elemenetarbeschwörer ein Spezialgebiet
    (bzw.) Primär und Sekundärelement wählen zu lassen.
-- Beschwörungen sind in der Datenbank. Damit ist es möglich Beschwörungen 
-   über das 'steigern' zu lernen.
+- Beschwörungen können jetzt gelernt werden, allerdings stimmen die Lernkosten 
+   (noch) nicht.
+- Abspeichern der Spezialgebiete von Magieren und Beschwörern funktionierte
+   jetzt (hoffentlich!) so, daß auch NACH dem Laden die Spezialisierung 
+   berücksichtigt werden.
+- Optionales Anzeigen von Zaubersalzen und Beschwörungen beim 
+   lernen von Zaubern
+- Da es in unserer Runde ab und zu vorkommt, daß ein Zauberer einen Spruch
+   lernen darf, der eigentlich nicht für seine Charakterklasse vorgesehen ist,
+   gibt es jetzt
+   eine Möglichkeit sich ALLE Zauber zur Auswahl anzeigen zu lassen.
+   (Die Kosten für diese Zauber werden wie für Ausnahmezauber berechnet)
 
 ##########################################################################
 NEWS IN VERSION 0.4beta1

@@ -31,30 +31,37 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l)
+Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const string& typ, st_lernpunkte& l)
 {
-
   hauptfenster=h;
   maxpunkte = l.zauber;
   zauber_auswahl_lernpunkte->set_text(itos(maxpunkte));
   exec sql begin declare section;
-   char db_typ[5];
    int db_lernpunkte;
    char db_fertigkeiten[100];
    char db_ap[20];
    int db_kosten;
+   char query[1024];
   exec sql end declare section;
-   strncpy(db_typ,typ.c_str(),sizeof(db_typ));
-   
-   Transaction tr;
-    exec sql declare zauber cursor for
-      select lernschema.fertigkeit, lernschema.lernpunkte,
-             arkanum_zauber.ap, arkanum_zauber.kosten
-      from lernschema, arkanum_zauber where lernschema.typ = :db_typ
-      and lernschema.art = 'Zauber' and 
-      arkanum_zauber.name = lernschema.fertigkeit 
-      order by lernpunkte ;
 
+   string squery;
+   if (typ != "eBe")
+    squery ="select l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
+      from lernschema l, arkanum_zauber a where l.typ = '"+typ+"'\
+      and l.art = 'Zauber' and a.name = l.fertigkeit \
+      order by lernpunkte ";
+   if (typ == "eBe")
+    squery ="select distinct l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
+      from lernschema l, arkanum_zauber a where l.typ = '"+typ+"'\
+      and l.art = 'Zauber' and a.name = l.fertigkeit \
+      and (l.p_element = '"+werte.spezial+"' or l.s_element = '"+werte.spezial2+"') \
+      order by lernpunkte ";
+
+   strncpy(query,squery.c_str(),sizeof(query));
+cout <<  query<<"\n";
+   Transaction tr;
+    exec sql prepare zauber_ from :query;
+    exec sql declare zauber cursor for zauber_;
     exec sql open zauber;
     SQLerror::test(__FILELINE__);
     while (true)
@@ -64,10 +71,12 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l
          if (sqlca.sqlcode) break;
          zauber.push_back(db_struct_zauber(db_lernpunkte,db_fertigkeiten,db_ap,db_kosten));
       }
+
     exec sql close zauber;
     Gtk::OStream os(zauber_clist_auswahl);
     for(vector<db_struct_zauber>::iterator i=zauber.begin();i!=zauber.end();++i)
       {
+//double fac =1;
          double fac=hauptfenster->get_standard_zauber(typ,i->zauber);
          os << i->lernpunkte <<"\t"<< i->zauber <<"\t"
             <<i->ap<<"\t"<<i->kosten*fac<<"\n";

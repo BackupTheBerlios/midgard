@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.7 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.8 2001/04/21 07:21:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 void midgard_CG::on_zauber_wahl_clicked()
 {
   zauber_clist->clear();
-  manage(new Zauber_auswahl(this,typ.s,lernpunkte));
+  manage(new Zauber_auswahl(this,werte,typ.s,lernpunkte));
 }
 
 void midgard_CG::show_zauber()
