@@ -4,6 +4,8 @@
 #include <Aux/Transaction.h>
 #include "class_typen.hh"
 exec sql include sqlca;
+#include <gtk--/main.h>
+
 
 cH_Zauberwerk::cache_t cH_Zauberwerk::cache;
 
@@ -80,15 +82,17 @@ void Zauberwerk::get_map_typ()
 }
 */
 
+/*
 int Zauberwerk::Kosten(const vector<H_Data_typen>& Typ) const
 {
   double fac; 
-  if      (midgard_CG::standard_one_G(Standard(Typ)) ) fac = 0.5;
-  else if (midgard_CG::standard_all_S(Standard(Typ)) ) fac = 1.0;
+  if      (standard_one_G(Standard(Typ)) ) fac = 0.5;
+  else if (standard_all_S(Standard(Typ)) ) fac = 1.0;
   else fac = 5.0; 
   return (int)(fac*GrundKosten());
 }
-
+*/
+/*
 vector<std::string> Zauberwerk::Standard(const vector<H_Data_typen>& Typ) const
 {
  assert(Typ.size()==2);
@@ -99,7 +103,8 @@ vector<std::string> Zauberwerk::Standard(const vector<H_Data_typen>& Typ) const
    if(Typ[1]->Short()==i->first) {s[1]=i->second; break;}
  return s;
 }
-
+*/
+/*
 std::string Zauberwerk::Standard__(const vector<H_Data_typen>& Typ) const
 {
  vector<std::string> s = Standard(Typ);
@@ -108,7 +113,7 @@ std::string Zauberwerk::Standard__(const vector<H_Data_typen>& Typ) const
  if(Typ[1]->Short()!="") s2+=s[1];
  return s2;
 }
-
+*/
 
 bool Zauberwerk::zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte)
 {
@@ -166,29 +171,31 @@ bool Zauberwerk::zauberwerk_voraussetzung(const std::string& name,const Grundwer
 
 
 
-Zauberwerk_All::Zauberwerk_All(Gtk::Label *label)
+Zauberwerk_All::Zauberwerk_All(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;
    char db_name[100]; 
+   int db_size;
  exec sql end declare section;
+ exec sql select count(name) into :db_size from zauberwerk;
  exec sql declare ZAWein cursor for select distinct name from zauberwerk;
  Transaction tr;
  exec sql open ZAWein;
  SQLerror::test(__FILELINE__);
- int count=0;
- label->show();
+ double count=0;
  while(true)
   {
-   label->set_text(itos(++count)+" Zauberwerk geladen");
+   progressbar->set_percentage(count/db_size);
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    exec sql fetch ZAWein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
    list_All.push_back(new Zauberwerk(db_name));
+   ++count;
   }
  exec sql close ZAWein;
  tr.close();
- label->hide();
+ progressbar->set_percentage(1);
 }
 
 

@@ -4,41 +4,34 @@
 #include "class_typen.hh"
 #include "Ausnahmen.hh"
 class cH_Zauber;
-#include <gtk--/label.h>
+#include <gtk--/progressbar.h>
+
 
 class Zauber : public MidgardBasicElement
 {
    std::string ap, name;
-   int erfolgswert;
+//   int erfolgswert;
    std::string  art, stufe, zauberdauer, reichweite,
       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
       material, agens, prozess, reagens, beschreibung,spruchrolle,
       zauberart,p_element,s_element,region; 
-   int kosten;
+//   int kosten;
    int lernpunkte;
 
-//   map<std::string,std::string> map_typ;
-
    void get_Zauber();
-//   void get_map_typ();
-   int GrundKosten() const {  return kosten; }
-   vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
+//   int GrundKosten() const {  return kosten; }
+//   vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
  public: 
    Zauber(const std::string& n,int l=0) 
       : name(n),lernpunkte(l){get_Zauber();get_map_typ();} 
-
-//   map<std::string,std::string> get_MapTyp() const {return map_typ;}
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
    std::string What_str() const {return "Zauber";}
 
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
-//   bool ist_lernbar(const vector<H_Data_typen>& Typ) const;
-//   bool ist_gelernt(const std::list<cH_Zauber>& L) const;
-//   bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
 
-   std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
+//   std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }
    int iStufe() const {  if (Stufe()=="groﬂ") return 6; else return atoi(Stufe().c_str()); }
@@ -57,13 +50,13 @@ class Zauber : public MidgardBasicElement
    std::string P_Element() const {return p_element;}
    std::string S_Element() const {return s_element;}
    std::string Region() const {return region;}
-   int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
+//   int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
    int Lernpunkte() const {  return lernpunkte; }
    bool Spruchrolle() const 
       { if (spruchrolle=="nicht") return false; 
         else return true; }
-   int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
+   int Erfolgswert_Z(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
    int get_spezial_zauber_for_magier(const Grundwerte& Werte) const;
 
 };
@@ -112,7 +105,7 @@ class Zauber_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Zauber_All(Gtk::Label *label);
+   Zauber_All(Gtk::ProgressBar *progressbar);
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

@@ -21,6 +21,15 @@ void MidgardBasicElement::get_map_typ()
              +"' and stufe ='"+Stufe()+"'";
  if(What()==FERTIGKEIT )
     squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
+ if(What()==WAFFEGRUND)
+   {
+    std::string name = "Waffen";
+    if (Name()=="Peitsche") name="Peitsche";
+    if (Name()=="Lasso") name="Lasso";
+    if (Name()=="Netz") name="Netz";
+    if (Name()=="Bola") name="Bola";
+    squery ="select typ,standard from waffen_typen where name ='"+name+"'";
+   }
  if(What()==SPRACHE)
     squery ="select typ,standard from fertigkeiten_typen where name ='Sprache'";
  if(What()==SCHRIFT)
@@ -68,7 +77,8 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
   for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
    {
      strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-     db_wert = (*i)->Erfolgswert(Typ,Werte,ausnahmen);
+//     db_wert = (*i)->Erfolgswert(Typ,Werte,ausnahmen);
+     db_wert = (*i)->Erfolgswert();
      exec sql INSERT INTO charaktere_fertigkeiten
          (charakter_name,version,fertigkeit,wert,art)
        VALUES

@@ -4,6 +4,8 @@
 #include <Aux/CacheStatic.h>
 #include <vector>
 #include <string>
+#include <gtk--/progressbar.h>
+
 
 class Ruestung  : public HandleContent
 {
@@ -40,7 +42,7 @@ class Ruestung_All
 {
    std::vector<cH_Ruestung> list_All;
   public:
-   Ruestung_All();
+   Ruestung_All(Gtk::ProgressBar *progressbar);
    std::vector<cH_Ruestung> get_All() const {return list_All;}
 };
 

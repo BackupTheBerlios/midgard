@@ -107,14 +107,31 @@ void Waffe::get_Alias()
 
 }
 
+
 double Waffe::Standard_Faktor() const
 {
   double fac;
-    if      (midgard_CG::standard_one_G(Standard()) ) fac = 0.5;
-    else if (midgard_CG::standard_all_S(Standard()) ) fac = 1.0;
+    if      (standard_one_G(Standard()) ) fac = 0.5;
+    else if (standard_all_S(Standard()) ) fac = 1.0;
     else fac = 2.0; 
  return fac;
 }
+bool Waffe::standard_one_G(const vector<std::string>& s) const 
+{
+ assert(s.size()==2);
+ if (s[0] == "G" || s[1] =="G" ) return true;
+ return false;
+}
+
+bool Waffe::standard_all_S(const vector<std::string>& s) const
+{
+ assert(s.size()==2);
+ if (s[0] == "S" && (s[1] =="S" || s[1]=="" )) return true;
+ if (s[1] == "S" && (s[0] =="S" || s[0]=="" )) return true;
+ return false;
+}
+
+
 
 void Waffe::set_Standard(const vector<H_Data_typen>& Typ)
 {

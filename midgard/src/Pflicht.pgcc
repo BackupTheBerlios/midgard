@@ -1,0 +1,68 @@
+#include "Pflicht.hh"
+#include <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
+exec sql include sqlca;
+
+cH_Pflicht::cache_t cH_Pflicht::cache;
+
+cH_Pflicht::cH_Pflicht(const std::string& spezies,const vector<H_Data_typen>& Typ)
+{
+ st_index index(spezies,Typ);
+ cH_Pflicht *cached(cache.lookup(index));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_Pflicht(new Pflicht(spezies,Typ));
+   cache.Register(index,*this);
+  }
+}
+
+Pflicht::Pflicht(const std::string& spezies,const vector<H_Data_typen>& Typ)
+{
+  assert(Typ.size()==2);
+  exec sql begin declare section;
+   char PFLICHT[50],VERBOTEN[50];
+   int LERNPUNKTE,ERFOLGSWERT;
+   char SPIELBEGINN[10];
+   char query[1024];
+  exec sql end declare section; 
+  std::string squery="select coalesce(pflicht,''), coalesce(lernpunkte,0),
+      coalesce(verboten,''),coalesce(spielbegin,''),coalesce(erfolgswert,0)
+      from pflicht_lernen where typ ='"+spezies+"' or typ='"+Typ[0]->Short()
+      +"' or typ='"+Typ[1]->Short()+"'";
+      
+  strncpy(query,squery.c_str(),sizeof(query));
+  Transaction tr;
+  exec sql prepare cl_pflicht_ein_ from :query ;
+  exec sql declare cl_pflicht_ein cursor for cl_pflicht_ein_ ;
+
+  exec sql open cl_pflicht_ein;
+  SQLerror::test(__FILELINE__);
+  while (true)
+   {
+     exec sql fetch cl_pflicht_ein into :PFLICHT, :LERNPUNKTE, :VERBOTEN,
+         :SPIELBEGINN,:ERFOLGSWERT;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break;
+     vec_pflicht.push_back(pf(PFLICHT,VERBOTEN,LERNPUNKTE,ERFOLGSWERT,SPIELBEGINN));
+   }
+}
+
+int Pflicht::istPflicht(const std::string& name,LE le) const
+{
+  for(vector<pf>::const_iterator i=vec_pflicht.begin();i!=vec_pflicht.end();++i)
+   if(i->pflicht==name) 
+      { if (le==LERNPUNKTE)  return  i->lernpunkte;
+        if (le==ERFOLGSWERT) return i->erfolgswert;
+      }
+  return 0; 
+}
+
+bool Pflicht::istVerboten(const std::string& name,bool spielbeginn) const
+{
+  for(vector<pf>::const_iterator i=vec_pflicht.begin();i!=vec_pflicht.end();++i)
+   {  if(spielbeginn && i->verboten==name && i->spielbeginn!="") return true;
+      if(i->verboten==name) return true;
+   }
+  return false; 
+}

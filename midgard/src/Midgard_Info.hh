@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.18 2001/11/03 09:55:04 thoma Exp $
+// $Id: Midgard_Info.hh,v 1.19 2001/11/05 11:08:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,7 +45,16 @@ class Midgard_Info : public Midgard_Info_glade
 
    public:
         Midgard_Info(bool selfclean=false,midgard_CG* h=NULL);
-        Gtk::Label *get_Label() const {return label_laden;}
+        Gtk::ProgressBar *get_progressbar_laender() const {return progressbar_laender;}
+        Gtk::ProgressBar *get_progressbar_ruestung() const {return progressbar_ruestung;}
+        Gtk::ProgressBar *get_progressbar_ang_fert() const {return progressbar_ang_Fert;}
+        Gtk::ProgressBar *get_progressbar_fertigkeiten() const {return progressbar_fertigkeiten;}
+        Gtk::ProgressBar *get_progressbar_grundkenntnisse() const {return progressbar_grundkenntnisse;}
+        Gtk::ProgressBar *get_progressbar_zauber() const {return progressbar_zauber;}
+        Gtk::ProgressBar *get_progressbar_zauberwerk() const {return progressbar_zauberwerk;}
+        Gtk::ProgressBar *get_progressbar_kido() const {return progressbar_kido;}
+        Gtk::ProgressBar *get_progressbar_sprache() const {return progressbar_sprache;}
+        Gtk::ProgressBar *get_progressbar_schrift() const {return progressbar_schrift;}
         void on_button_close_clicked();
 };
 #endif

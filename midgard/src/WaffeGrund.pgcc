@@ -7,15 +7,14 @@ exec sql include sqlca;
 
 cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
 
-cH_WaffeGrund::cH_WaffeGrund(const std::string& name,const vector<H_Data_typen>& Typ)
+cH_WaffeGrund::cH_WaffeGrund(const std::string& name)
 {
- st_index index(name,Typ);
- cH_WaffeGrund *cached(cache.lookup(index));
+ cH_WaffeGrund *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
   {
-   *this=cH_WaffeGrund(new WaffeGrund(name,Typ));  
-   cache.Register(index,*this);
+   *this=cH_WaffeGrund(new WaffeGrund(name));  
+   cache.Register(name,*this);
   }
 }
 
@@ -42,16 +41,30 @@ void WaffeGrund::get_WaffeGrund()
   exec sql close cl_waffeng_ein;
   tr.close();
 }
-
-double WaffeGrund::Standard_Faktor() const
+/*
+double WaffeGrund::Standard_Faktor(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
 {
   double fac;
-    if      (midgard_CG::standard_one_G(Standard()) ) fac = 0.5;
-    else if (midgard_CG::standard_all_S(Standard()) ) fac = 1.0;
+    if      (standard_one_G(Standard(Typ,ausnahmen)) ) fac = 0.5;
+    else if (standard_all_S(Standard(Typ,ausnahmen)) ) fac = 1.0;
     else fac = 2.0; 
  return fac;
 }
 
+vector<std::string> Fertigkeit::Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+{
+ assert(Typ.size()==2);
+ vector<std::string> s(2);
+ for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
+   if(Typ[0]->Short()==i->first) {s[0]=i->second; break;}
+ for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
+   if(Typ[1]->Short()==i->first) {s[1]=i->second; break;}
+ ausnahmen.Ausnahmen_string(Name(),s);
+ return s;
+}
+ 
+*/
+/*
 void WaffeGrund::set_Standard(const vector<H_Data_typen>& Typ)
 {
   assert(Typ.size()==2);
@@ -85,7 +98,7 @@ void WaffeGrund::set_Standard(const vector<H_Data_typen>& Typ)
    standard.push_back(db_ergebnis);
    standard.push_back(db_ergebnis2);
 }
-
+*/
 /*
 std::string Is_Grund(const list<cH_WaffeGrund>& L,const std::string& name)
 {
@@ -94,3 +107,29 @@ std::string Is_Grund(const list<cH_WaffeGrund>& L,const std::string& name)
   return "";
 }
 */
+WaffeGrund_All::WaffeGrund_All(Gtk::ProgressBar *progressbar)
+{
+ exec sql begin declare section;
+   char db_name[100];
+   int db_size;
+ exec sql end declare section;
+ exec sql select count(name) into :db_size from waffen_grund;
+ exec sql declare WGein cursor for select distinct name from waffen_grund;
+ Transaction tr;
+ exec sql open WGein;
+ SQLerror::test(__FILELINE__);
+ double count=0;
+ while(true)
+  {
+   progressbar->set_percentage(count/db_size);
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+   exec sql fetch WGein into :db_name;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   list_All.push_back(new WaffeGrund(db_name));
+   ++count;
+  }
+ exec sql close WGAein;
+ tr.close();
+ progressbar->set_percentage(1);
+}

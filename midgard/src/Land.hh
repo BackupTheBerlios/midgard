@@ -4,6 +4,7 @@
 #include <Aux/CacheStatic.h>
 #include <vector>
 #include <string>
+#include <gtk--/progressbar.h>
 
 class Land  : public HandleContent
 {
@@ -37,7 +38,7 @@ class Laender_All
 {
    std::vector<cH_Land> list_All;
   public:
-   Laender_All();
+   Laender_All(Gtk::ProgressBar *progressbar);
    std::vector<cH_Land> get_All() const {return list_All;}
 };
 

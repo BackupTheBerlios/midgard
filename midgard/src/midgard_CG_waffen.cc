@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.24 2001/10/16 08:59:23 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.25 2001/11/05 11:08:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,7 +43,7 @@ void midgard_CG::show_waffen()
 
 }
 
-void midgard_CG::waffen_uebernehmen(const std::list<cH_Waffe>& saw,std::list<cH_WaffeGrund> list_WaffenG)
+void midgard_CG::waffen_uebernehmen(const std::list<cH_Waffe>& saw,std::list<cH_MidgardBasicElement> list_WaffenG)
 {
    list_Waffen = saw;
    list_WaffenGrund = list_WaffenG;

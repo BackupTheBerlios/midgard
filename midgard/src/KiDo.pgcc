@@ -115,27 +115,29 @@ void KiDo::get_map_typ()
 
 */
 
-KiDo_All::KiDo_All(Gtk::Label *label)
+KiDo_All::KiDo_All(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;
    char db_name[100];
+   int db_size;
  exec sql end declare section;
+ exec sql select count(name_orig) into :db_size from kido;
  exec sql declare KIein cursor for select distinct name_orig from kido;
  Transaction tr;
  exec sql open KIein; 
  SQLerror::test(__FILELINE__);
- int count=0;  
- label->show();
+ double count=0;  
  while(true)
   {
-   label->set_text(itos(++count)+" Zauber geladen");
+   progressbar->set_percentage(count/db_size);
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    exec sql fetch KIein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
    list_All.push_back(new KiDo(db_name));
+   ++count;
   }
  exec sql close KIein;
  tr.close();
- label->hide();
+ progressbar->set_percentage(1);
 }  

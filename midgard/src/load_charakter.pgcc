@@ -452,8 +452,7 @@ void midgard_CG::load_charakter()
          exec sql fetch grund into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         list_WaffenGrund.push_back(cH_WaffeGrund(db_fertigkeit,Typ));
-//         waffen_grundkenntnisse[db_fertigkeit]="X"; 
+         list_WaffenGrund.push_back(new WaffeGrund(db_fertigkeit));
       } 
    exec sql close grund;
 
@@ -471,7 +470,6 @@ void midgard_CG::load_charakter()
          exec sql fetch sprache into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-//         vec_Sprachen.push_back(new Data_sprache(db_fertigkeit,"",db_wert,0));
          list_Sprache.push_back(new Sprache(db_fertigkeit));
       } 
    exec sql close sprache;
@@ -538,3 +536,33 @@ void midgard_CG::load_charakter()
    show_gtk();
    get_spezial_from_spezialgebiet();
 }
+
+/*
+void midgard_CG::load_fertigkeiten()
+{
+  exec sql begin declare section;
+   char db_fert,db_art;
+   int db_wert;
+   char query[1024];
+  exec sql end declare section;
+  std::string query = "select fertigkeit,wert,art from charaktere_fertigkeiten
+      where charakter_name='"+Werte.Name_Charakter()+"' and 
+            version ='"+Werte.Version()+"'";
+  strncpy(query,squery.c_str(),sizeof(query));
+  exec sql prepare LFEIN_ from :query;
+  exec sql declare LFEIN cursor for LFEIN_;
+  Transaction tr;
+  exec sql open LFEIN;
+  SQLerror::test(__FILELINE__);
+  while(true)
+    {
+      exec sql fetch LFEIN into :db_fertigkeit, :db_wert, db_art;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;
+//         vec_Beruf.push_back(new Data_beruf(db_fertigkeit,"",db_wert));
+    } 
+  exec sql close LFEIN;
+  tr.close();
+}
+
+*/

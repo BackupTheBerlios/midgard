@@ -4,14 +4,14 @@
 //#include <vector>
 #include "class_typen.hh"
 #include "Ausnahmen.hh"
-#include <gtk--/label.h>
+//#include <gtk--/label.h>
+#include <gtk--/progressbar.h>
 
 
 class Fertigkeit : public MidgardBasicElement
 {
      std::string name, region, attribut;
-     int lernpunkte, anfangswert0, anfangswert, kosten;
-     int mutable erfolgswert;
+     int lernpunkte, anfangswert0, anfangswert;//, kosten;
 //     vector<std::string> standard;
      struct st_Voraussetzung {int st;int ge;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
@@ -25,16 +25,14 @@ class Fertigkeit : public MidgardBasicElement
      st_Voraussetzung voraussetzung;
      mutable bool pflicht;
      Ausnahmen ausnahmen;
-     std::map<int,int> map_erfolgswert_kosten;
 
      void get_Fertigkeit();
      void get_Steigern_Kosten_map();
-     int GrundKosten() const {  return kosten; }
-     vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
+//     typedef MidgardBasicElement MBE;
 
   public:
      Fertigkeit(const std::string& n,int l=0,bool p=false)
-      :name(n),lernpunkte(l),erfolgswert(0),pflicht(p) 
+      :name(n),lernpunkte(l),pflicht(p) 
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();}
 
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
@@ -44,18 +42,9 @@ class Fertigkeit : public MidgardBasicElement
      std::string Name() const {return name;}
      std::string Attribut() const {return attribut;}
      std::string Region() const {return region;}
-     int Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
-     int Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
-     int Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
-     std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
-//     const vector<std::string>& Standard() const {return standard;}
      int Lernpunkte() const {return lernpunkte;}
      int Anfangswert0() const {return anfangswert0;}
      int Anfangswert() const {return anfangswert;}
-     int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return (int)(Standard_Faktor(Typ,ausnahmen)*GrundKosten());};
-     int get_Steigern_Kosten(int erfolgswert) const;
-     double Standard_Faktor(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
-     int Erfolgswert() const {return erfolgswert;};
      std::string Voraussetzung() const {return voraussetzung.fert;}
      bool Voraussetzungen(const Grundwerte& Werte) const;
      std::string Pflicht() const {if (pflicht) return "*"; return "";}
@@ -106,7 +95,7 @@ class Fertigkeiten_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Fertigkeiten_All(Gtk::Label *label);
+   Fertigkeiten_All(Gtk::ProgressBar *progressbar);
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

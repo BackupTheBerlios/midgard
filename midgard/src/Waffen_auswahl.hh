@@ -1,4 +1,4 @@
-// $Id: Waffen_auswahl.hh,v 1.23 2001/10/16 08:59:23 thoma Exp $
+// $Id: Waffen_auswahl.hh,v 1.24 2001/11/05 11:08:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,11 +41,12 @@ class Grundwerte;
 class cH_Waffe;
 class cH_WaffeGrund;
 class H_Data_typen;
+#include "MidgardBasicElement.hh"
 
 class Waffen_auswahl : public Waffen_auswahl_glade
 {   
         int maxpunkte;
-        std::list<cH_WaffeGrund> list_WaffenGrund;
+        std::list<cH_MidgardBasicElement> list_WaffenGrund;
         midgard_CG* hauptfenster;
         vector<H_Data_typen> Typ; 
         friend class Waffen_auswahl_glade;

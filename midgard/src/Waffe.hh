@@ -83,6 +83,10 @@ class Waffe : public HandleContent
          const std::list<H_WaffeBesitz>& list_Waffen_besitz,
          const vector<H_Data_typen>& Typ,
          const Grundwerte& Werte);
+
+
+ bool standard_all_S(const vector<std::string>& s) const ;
+ bool standard_one_G(const vector<std::string>& s) const ;
 };
 
 class cH_Waffe : public Handle<const Waffe>

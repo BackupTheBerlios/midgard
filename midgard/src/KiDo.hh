@@ -4,12 +4,12 @@
 #include "class_typen.hh"
 #include "Ausnahmen.hh"
 #include "Fertigkeiten.hh"
-#include <gtk--/label.h>
+#include <gtk--/progressbar.h>
 
 class KiDo : public MidgardBasicElement
 {
    std::string hoho,name,stufe;
-   int ap,kosten;
+   int ap;//,kosten;
    std::string stil, effekt;
 
 //   map<std::string,std::string> map_typ; 
@@ -81,7 +81,7 @@ class KiDo_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   KiDo_All(Gtk::Label *label);
+   KiDo_All(Gtk::ProgressBar *progressbar);
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

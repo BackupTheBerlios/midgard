@@ -32,6 +32,7 @@ exec sql include sqlca;
 #include "itos.h"
 #include <gtk--/main.h>
 
+
 cH_Schrift::cache_t cH_Schrift::cache;
 
 cH_Schrift::cH_Schrift(const std::string& name)
@@ -73,27 +74,29 @@ bool Schrift::kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) con
 }
 
 
-Schriften_All::Schriften_All(Gtk::Label *label)
+Schriften_All::Schriften_All(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;
    char db_name[100];
+   int db_size;
  exec sql end declare section;
+ exec sql select count(name) into :db_size from schrift;
  exec sql declare SCIein cursor for select distinct name from schrift;
  Transaction tr;
  exec sql open SCIein; 
  SQLerror::test(__FILELINE__);
- int count=0;  
- label->show();
+ double count=0;  
  while(true)
   {
-   label->set_text(itos(++count)+" Schriften geladen");
+   progressbar->set_percentage(count/db_size);
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    exec sql fetch SCIein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
    list_All.push_back(new Schrift(db_name));
+   ++count;
   }
  exec sql close SCIein;
  tr.close();
- label->hide();
+ progressbar->set_percentage(1);
 }  

@@ -4,11 +4,13 @@
 #include "class_typen.hh"
 #include "Ausnahmen.hh"
 #include "Fertigkeiten.hh"
+#include <gtk--/progressbar.h>
+
 
 class Schrift : public MidgardBasicElement
 {
      std::string name, art_der_schrift, region;
-     int kosten;
+//     int kosten;
 
      void get_Schrift();
      int Grundkosten() const {return kosten;}
@@ -63,7 +65,7 @@ class Schriften_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Schriften_All(Gtk::Label *label);
+   Schriften_All(Gtk::ProgressBar *progressbar);
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.50 2001/11/04 16:57:23 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.51 2001/11/05 11:08:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -166,9 +166,7 @@ void midgard_CG::LaTeX_write_values()
 
  /////////////////////////////////////////////////////////////////////////////
  // Grundfertigkeiten (Waffen)
-// for (map<std::string,string>::const_iterator i=waffen_grundkenntnisse.begin();
-//         i!=waffen_grundkenntnisse.end();++i)
-   for (std::list<cH_WaffeGrund>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
+ for (std::list<cH_MidgardBasicElement>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
    {
       std::string sout = (*i)->Name();
       if (sout =="Bögen") sout = "Bogen";

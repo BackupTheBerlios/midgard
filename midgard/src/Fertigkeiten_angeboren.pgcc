@@ -2,6 +2,7 @@
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
+#include <gtk--/main.h>
 
 cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;
 
@@ -33,22 +34,29 @@ void Fertigkeit_angeborene::get_Fertigkeit()
  max=db_max;
 }
 
-Fertigkeiten_angeborene_All::Fertigkeiten_angeborene_All()
+Fertigkeiten_angeborene_All::Fertigkeiten_angeborene_All(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;
    char db_name[50];
+   int db_size;
  exec sql end declare section;
+ exec sql select count(name) into :db_size from angeborene_fertigkeiten;
  exec sql declare FAein cursor for select name from angeborene_fertigkeiten;
  Transaction tr;
  exec sql open FAein;
  SQLerror::test(__FILELINE__);
+ double count=0;
  while(true)
   {
+   progressbar->set_percentage(count/db_size);
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    exec sql fetch FAein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
    list_All.push_back(new Fertigkeit_angeborene(db_name));
+   ++count;
   }
  exec sql close FAein;
  tr.close();
+ progressbar->set_percentage(1);
 }

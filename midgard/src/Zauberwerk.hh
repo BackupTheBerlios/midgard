@@ -4,14 +4,15 @@
 #include "MidgardBasicElement.hh"
 #include "class_typen.hh"
 class cH_Zauberwerk;
-#include <gtk--/label.h>
+#include <gtk--/progressbar.h>
+
 
 class Zauberwerk : public MidgardBasicElement
 {
    std::string stufe, name,art;
-   int kosten;
+//   int kosten;
    std::string preis, zeitaufwand,region; 
-   vector<std::string> Standard(const vector<H_Data_typen>& Typ) const ;   
+//   vector<std::string> Standard(const vector<H_Data_typen>& Typ) const ;   
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBERWERK;}
    std::string What_str() const {return "Zauberwerk";}
@@ -21,7 +22,7 @@ class Zauberwerk : public MidgardBasicElement
 
    void get_Zauberwerk();
 //   void get_map_typ();
-   int GrundKosten() const {  return kosten; }
+//   int GrundKosten() const {  return kosten; }
  public: 
    Zauberwerk(const std::string& n) 
       : name(n) {get_Zauberwerk();get_map_typ();} 
@@ -31,7 +32,7 @@ class Zauberwerk : public MidgardBasicElement
 //   map<std::string,std::string> get_MapTyp() const {return map_typ;}
 
    std::string Name() const {  return name; }
-   std::string Standard__(const vector<H_Data_typen>& Typ) const;
+//   std::string Standard__(const vector<H_Data_typen>& Typ) const;
    std::string Art() const 
       { if (art=="AZ") return "Alchimistisches Zaubermittel";
         if (art=="PZ") return "Zaubermittel";
@@ -42,7 +43,7 @@ class Zauberwerk : public MidgardBasicElement
    std::string Zeitaufwand() const { return zeitaufwand;}
 //   std::string Beschreibung() const { return beschreibung;}
    std::string Region() const {return region;}
-   int Kosten(const vector<H_Data_typen>& Typ) const;
+//   int Kosten(const vector<H_Data_typen>& Typ) const;
    std::string Preis() const { return preis; }
 
    static bool zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte);
@@ -83,11 +84,8 @@ class Zauberwerk_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Zauberwerk_All(Gtk::Label *label);
+   Zauberwerk_All(Gtk::ProgressBar *progressbar);
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
-
-
-
 
 #endif

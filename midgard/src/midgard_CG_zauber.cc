@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.33 2001/10/26 16:07:30 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.34 2001/11/05 11:08:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,7 +40,7 @@ void midgard_CG::show_zauber()
    for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
       {
          cH_Zauber z(*i);
-         os << z->Name()<<"\t"<<z->Erfolgswert(Typ,Werte,Ausnahmen(Werte,Typ,vec_Beruf))<<"\n";
+         os << z->Name()<<"\t"<<z->Erfolgswert_Z(Typ,Werte,Ausnahmen(Werte,Typ,vec_Beruf))<<"\n";
       }
    for (unsigned int i=0;i<zauber_clist->columns().size();++i)
       zauber_clist->set_column_auto_resize(i,true);

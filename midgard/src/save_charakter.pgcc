@@ -86,33 +86,7 @@ void midgard_CG::on_speichern_clicked()
       }
    Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
    MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,ausnahmen);
-/*
-   for (std::list<cH_Fertigkeit_angeborene>::const_iterator i=list_an_Fertigkeit.begin();
-         i!=list_an_Fertigkeit.end();++i)
-      {
-         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
-         db_wert =  (*i)->Erfolgswert() ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'ang.Fertigkeit') ;         
-            SQLerror::test(__FILELINE__);
-      }
-*/
    MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,ausnahmen);
-/*
-   for (std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();
-         i!=list_Fertigkeiten.end();++i)
-      {
-         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
-         db_wert =  (*i)->Erfolgswert() ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Fertigkeit') ;         
-            SQLerror::test(__FILELINE__);
-      }
-*/
    for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();
          i!=list_Waffen.end();++i)
       {
@@ -138,64 +112,11 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region,:db_magisch) ;
             SQLerror::test(__FILELINE__);
       }
-/*
-   for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();
-         i!=list_Zauber.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         strncpy(db_wert_str,itos((*i)->Erfolgswert(Typ,Werte,Ausnahmen(Werte,Typ,vec_Beruf))).c_str(),sizeof(db_wert_str)) ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert_str,'Zauber') ;         
-            SQLerror::test(__FILELINE__);
-      }
-*/
-//   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
    MidgardBasicElement::saveElementliste(list_Zauber,Werte,Typ,ausnahmen);
-/*
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();
-         i!=list_Zauber.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         strncpy(db_wert_str,itos((*i)->Erfolgswert(Typ,Werte,Ausnahmen(Werte,Typ,vec_Beruf))).c_str(),sizeof(db_wert_str)) ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert_str,'Zauber') ;         
-            SQLerror::test(__FILELINE__);
-      }
-*/
    MidgardBasicElement::saveElementliste(list_Zauberwerk,Werte,Typ,ausnahmen);
-/*
-   for (std::list<cH_Zauberwerk>::const_iterator i=list_Zauberwerk.begin();
-         i!=list_Zauberwerk.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         db_wert = atoi((*i)->Stufe().c_str()) ;
-         if ((*i)->Stufe()=="G") db_wert = 99;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Zaubermittel') ;         
-            SQLerror::test(__FILELINE__);
-      }
-*/
    MidgardBasicElement::saveElementliste(list_Kido,Werte,Typ,ausnahmen);
+   MidgardBasicElement::saveElementliste(list_WaffenGrund,Werte,Typ,ausnahmen);
 /*
-   for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Hoho()).c_str(),sizeof(db_fertigkeit));
-//         strncpy(db_wert_str,"0",sizeof(db_wert_str)) ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,0,'KiDo') ;         
-            SQLerror::test(__FILELINE__);
-      }
-*/
-//   for (map<std::string,string>::const_iterator i=waffen_grundkenntnisse.begin();
-//            i!=waffen_grundkenntnisse.end();++i)
    for (std::list<cH_WaffeGrund>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
       {
          strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
@@ -204,30 +125,9 @@ void midgard_CG::on_speichern_clicked()
          VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Grundkenntnis');
             SQLerror::test(__FILELINE__);
       }
-cout << list_Sprache.size()<<'\t'<<list_Schrift.size()<<'\n';
+*/
    MidgardBasicElement::saveElementliste(list_Sprache,Werte,Typ,ausnahmen);
    MidgardBasicElement::saveElementliste(list_Schrift,Werte,Typ,ausnahmen);
-/*
-   for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();
-         i!=vec_Sprachen.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         db_wert = (*i)->Wert();
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES(:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Sprache');
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::vector<H_Data_schrift>::const_iterator i=vec_Schriften.begin();
-         i!=vec_Schriften.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Urschrift()).c_str(),sizeof(db_fertigkeit));
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Urschrift');
-            SQLerror::test(__FILELINE__);
-      }
-*/
    // Regionen & Ähnliches
    if (!Originalbool) 
     {  

@@ -70,6 +70,7 @@ int Sprache::Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) 
   cH_Fertigkeit F("Sprache");
   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; 
 }
+/*
 int Sprache::Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
 { 
    cH_Fertigkeit F("Sprache");
@@ -87,6 +88,7 @@ int Sprache::Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen&  ausnahm
      return Kosten(Typ,ausnahmen);
    else return 0;
 }
+*/
 
 std::string Sprache::Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const 
 {
@@ -99,27 +101,29 @@ std::string Sprache::Urschrift(const  std::list<cH_MidgardBasicElement>& list_Sc
 }
 
 
-Sprachen_All::Sprachen_All(Gtk::Label *label)
+Sprachen_All::Sprachen_All(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;
    char db_name[100];
+   int db_size;
  exec sql end declare section;
+ exec sql select count(name) into :db_size from sprachen;
  exec sql declare SIein cursor for select distinct name from sprachen;
  Transaction tr;
  exec sql open SIein; 
  SQLerror::test(__FILELINE__);
- int count=0;  
- label->show();
+ double count=0;  
  while(true)
   {
-   label->set_text(itos(++count)+" Sprachen geladen");
+   progressbar->set_percentage(count/db_size);
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    exec sql fetch SIein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
    list_All.push_back(new Sprache(db_name));
+   ++count;
   }
  exec sql close SIein;
  tr.close();
- label->hide();
+ progressbar->set_percentage(1);
 }  

@@ -24,10 +24,8 @@ exec sql include sqlca;
 #include "zufall.h"
 #include "WaffeGrund.hh"
 #include "class_waffen.hh"
+#include "Pflicht.hh"
 
-#ifdef __MINGW32__
-extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
-#endif
 
 void midgard_CG::on_waffen_laden_clicked()
 {
@@ -74,8 +72,9 @@ void midgard_CG::waffen_zeigen()
 {
    zeige_werte(Werte);
    on_speichern_clicked();
-   show_alte_grund();
-   show_neue_grund();
+   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
+   MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,Werte,Typ,ausnahmen,'N');
+   MidgardBasicElement::show_list_in_tree(list_WaffenGrund    ,alte_grund_tree,Werte,Typ,ausnahmen,'N');
    show_alte_waffen();
    show_neue_waffen();
 }
@@ -88,7 +87,7 @@ void midgard_CG::move_waffe(std::list<cH_Waffe>& von,std::list<cH_Waffe>& nach,c
        {nach.splice(nach.begin(),von,i);break;}
   waffen_zeigen();
 }
-
+/*
 void midgard_CG::move_waffegrund(std::list<cH_WaffeGrund>& von,std::list<cH_WaffeGrund>& nach,const std::string& name)
 {
   for (std::list<cH_WaffeGrund>::iterator i=von.begin();i!= von.end();++i)
@@ -100,7 +99,8 @@ void midgard_CG::move_waffegrund(std::list<cH_WaffeGrund>& von,std::list<cH_Waff
   waffen_zeigen();
 }
 
-
+*/
+/*
 void midgard_CG::show_alte_grund()
 {
  std::vector<cH_RowDataBase> datavec;
@@ -110,7 +110,7 @@ void midgard_CG::show_alte_grund()
    }
  alte_grund_tree->setDataVec(datavec);
 }
-
+*/
 
 
 void midgard_CG::get_srv_kosten(const cH_Waffe& waffe, int &steigern,int &reduzieren,int &verlernen) const
@@ -161,12 +161,24 @@ void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
   const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
   if (!steigern(dt->Kosten(),"Waffen")) return;
   Werte.add_GFP(dt->Kosten());
-  move_waffegrund(list_WaffenGrund_neu,list_WaffenGrund,dt->Name());
+//  move_waffegrund(list_WaffenGrund_neu,list_WaffenGrund,dt->Name());
+  MidgardBasicElement::move_element(list_WaffenGrund_neu,list_WaffenGrund,dt->Name());
+  waffen_zeigen();
 }
 
 
 void midgard_CG::on_waffengrund_laden_clicked()
 {
+  list_WaffenGrund_neu.clear();
+  cH_Pflicht pflicht(Werte.Spezies(),Typ);
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.WaffeGrund.begin();i!=Database.WaffeGrund.end();++i)
+   { cH_WaffeGrund w(*i);
+     if ((*i)->ist_gelernt(list_WaffenGrund)) continue ;
+     if (pflicht->istVerboten(w->Name())) continue;
+     if (region_check(w->Region()) )
+      list_WaffenGrund_neu.push_back(*i);
+   }
+/*
   exec sql begin declare section;
    char db_name[50];
    char db_cname[50],db_version[50];
@@ -194,8 +206,10 @@ void midgard_CG::on_waffengrund_laden_clicked()
    }
  exec sql close grund_ein;
  tr.close();
+*/
 }
 
+/*
 void midgard_CG::show_neue_grund()
 {
   std::vector<cH_RowDataBase> datavec;
@@ -204,7 +218,7 @@ void midgard_CG::show_neue_grund()
     datavec.push_back(new Data_grund((*i)->Name(),(*i)->Kosten()));
   neue_grund_tree->setDataVec(datavec);
 }
-
+*/
 void midgard_CG::on_leaf_selected_neue_waffen(cH_RowDataBase d)
 {  const Data_waffen *dt=dynamic_cast<const Data_waffen*>(&*d);
    move_waffe(list_Waffen_neu,list_Waffen,dt->Name());
@@ -228,8 +242,9 @@ void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
  if (radiobutton_grundkenntnisse_verlernen->get_active())
    {
-      radiobutton_grundkenntnisse_verlernen->set_active(false);
-      move_waffegrund(list_WaffenGrund,list_WaffenGrund_neu,dt->Name());
+     radiobutton_grundkenntnisse_verlernen->set_active(false);
+     MidgardBasicElement::move_element(list_WaffenGrund,list_WaffenGrund_neu,dt->Name());
+     waffen_zeigen();
    }
 }
 

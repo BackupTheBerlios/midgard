@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.74 2001/11/04 16:57:23 thoma Exp $
+// $Id: midgard_CG.cc,v 1.75 2001/11/05 11:08:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,15 +51,16 @@ midgard_CG::midgard_CG(int argc,char **argv)
 void midgard_CG::get_Database()
 {
    Midgard_Info *MI = manage(new Midgard_Info(true,this));
-   Database = st_Database( Laender_All().get_All(),
-                           Ruestung_All().get_All(),
-                           Fertigkeiten_angeborene_All().get_All(),
-                           Fertigkeiten_All(MI->get_Label()).get_All(),
-                           Zauber_All(MI->get_Label()).get_All(),
-                           Zauberwerk_All(MI->get_Label()).get_All(),
-                           KiDo_All(MI->get_Label()).get_All(),
-                           Sprachen_All(MI->get_Label()).get_All(),
-                           Schriften_All(MI->get_Label()).get_All() );
+   Database = st_Database( Laender_All(MI->get_progressbar_laender()).get_All(),
+                           Ruestung_All(MI->get_progressbar_ruestung()).get_All(),
+                           Fertigkeiten_angeborene_All(MI->get_progressbar_ang_fert()).get_All(),
+                           Fertigkeiten_All(MI->get_progressbar_fertigkeiten()).get_All(),
+                           WaffeGrund_All(MI->get_progressbar_grundkenntnisse()).get_All(),
+                           Zauber_All(MI->get_progressbar_zauber()).get_All(),
+                           Zauberwerk_All(MI->get_progressbar_zauberwerk()).get_All(),
+                           KiDo_All(MI->get_progressbar_kido()).get_All(),
+                           Sprachen_All(MI->get_progressbar_sprache()).get_All(),
+                           Schriften_All(MI->get_progressbar_schrift()).get_All() );
    MI->on_button_close_clicked();
 }
 

@@ -76,7 +76,7 @@ extern		"C"
 
 #line 4 "Ruestung.pgcc"
 
-
+#include <gtk--/main.h>
 
 
 cH_Ruestung::cache_t cH_Ruestung::cache;
@@ -100,7 +100,7 @@ Ruestung::Ruestung(const std::string& n)
        
   
 #line 25 "Ruestung.pgcc"
-   char  db_name [ 50 ]   ,  db_long [ 10 ]   ,  db_region [ 50 ]   ;
+   char  db_name [ 50 ]   ,  db_long [ 50 ]   ,  db_region [ 50 ]   ;
  
 #line 26 "Ruestung.pgcc"
    int  db_lp_verlust   ,  db_min_staerke   ,  db_rw_verlust   ,  db_b_verlust   ;
@@ -122,7 +122,7 @@ Ruestung::Ruestung(const std::string& n)
   SQLerror::test(__FILELINE__);
   
 { ECPGdo(__LINE__, NULL, "fetch R1Iein", ECPGt_EOIT, 
-	ECPGt_char,(db_long),10L,1L,10*sizeof(char), 
+	ECPGt_char,(db_long),50L,1L,50*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, 
 	ECPGt_char,(db_region),50L,1L,50*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, 
@@ -145,37 +145,51 @@ Ruestung::Ruestung(const std::string& n)
   b_verlust=db_b_verlust;
 }
 
-Ruestung_All::Ruestung_All()
+Ruestung_All::Ruestung_All(Gtk::ProgressBar *progressbar)
 {
  /* exec sql begin declare section */
+    
     
  
 #line 49 "Ruestung.pgcc"
    char  db_name [ 100 ]   ;
-/* exec sql end declare section */
+ 
 #line 50 "Ruestung.pgcc"
+   int  db_size   ;
+/* exec sql end declare section */
+#line 51 "Ruestung.pgcc"
+
+ { ECPGdo(__LINE__, NULL, "select  count ( ruestung_s  )  from ruestung   ", ECPGt_EOIT, 
+	ECPGt_int,&(db_size),1L,1L,sizeof(int), 
+	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EORT);}
+#line 52 "Ruestung.pgcc"
 
  /* declare RIein  cursor for select distinct ruestung_s   from ruestung    */
-#line 51 "Ruestung.pgcc"
+#line 53 "Ruestung.pgcc"
 
  Transaction tr;
  { ECPGdo(__LINE__, NULL, "declare RIein  cursor for select distinct ruestung_s   from ruestung   ", ECPGt_EOIT, ECPGt_EORT);}
-#line 53 "Ruestung.pgcc"
+#line 55 "Ruestung.pgcc"
 
  SQLerror::test(__FILELINE__);
+ double count=0;
  while(true)
   {
+   progressbar->set_percentage(count/db_size);
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    { ECPGdo(__LINE__, NULL, "fetch RIein", ECPGt_EOIT, 
 	ECPGt_char,(db_name),100L,1L,100*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EORT);}
-#line 57 "Ruestung.pgcc"
+#line 62 "Ruestung.pgcc"
 
    SQLerror::test(__FILELINE__,100);  
    if (sqlca.sqlcode) break;
    list_All.push_back(cH_Ruestung(db_name));
+   ++count;
   }
  { ECPGdo(__LINE__, NULL, "close RIein", ECPGt_EOIT, ECPGt_EORT);}
-#line 62 "Ruestung.pgcc"
+#line 68 "Ruestung.pgcc"
 
  tr.close();
+ progressbar->set_percentage(1);
 }

@@ -93,67 +93,6 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
    fertigkeiten_zeigen();
 }
 
-/*
-void midgard_CG::get_srv_kosten(const cH_Fertigkeit& fertigkeit, int &steigern,int &reduzieren,int &verlernen) const
-{
-  exec sql begin declare section;
-    int db_steigern=0, db_reduzieren=0, db_verlernen;
-    char query[1024];
-    char db_standard[5],db_standard2[5];
-  exec sql end declare section;
-  std::string squery;
-
-  if (fertigkeit->Erfolgswert() != 0) // Fertigkeiten MIT Erfolgswert
-     {
-       squery = "SELECT coalesce(p"+itos(abs(fertigkeit->Erfolgswert()))
-          +",0),coalesce(p"+itos(abs(fertigkeit->Erfolgswert()+1))+",0),fp,f."+Typ[0]->Short();
-       if (Typ[1]->Short()!="") squery += ", "+Typ[1]->Short();
-       squery +=" FROM steigern_fertigkeiten s, steigern_fertigkeiten_werte w, \
-          fertigkeiten f WHERE s.name = '"+fertigkeit->Name()+"' AND w.name = s.wie \
-             AND f.fertigkeit = '"+fertigkeit->Name()+"'";
-     }
-  else // Fertigkeiten OHNE Erfolgswert
-     {
-       squery = "SELECT fp,f."+Typ[0]->Short();
-       if (Typ[1]->Short()!="") squery += ", "+Typ[1]->Short();
-       squery  +=" FROM steigern_fertigkeiten s, fertigkeiten f \
-          WHERE s.name = '"+fertigkeit->Name()+"' \
-            AND f.fertigkeit = '"+fertigkeit->Name()+"'";
-     }
-  strncpy(query,squery.c_str(),sizeof(query));
-
-  Transaction tr;
-  exec sql prepare kosten_ein_ from :query ;  
-  exec sql declare kosten_ein cursor for kosten_ein_ ;  
-  exec sql open kosten_ein;
-  if(Typ[1]->Short()!="")      
-    {
-      if (fertigkeit->Erfolgswert() != 0) // Fertigkeiten MIT Erfolgswert
-         exec sql fetch kosten_ein into :db_reduzieren, 
-             :db_steigern, :db_verlernen, :db_standard,:db_standard2;
-      else // Fertigkeiten OHNE Erfolgswert
-          exec sql fetch kosten_ein into :db_verlernen, :db_standard,:db_standard2;
-    }
-  else
-    {
-      if (fertigkeit->Erfolgswert() != 0) // Fertigkeiten MIT Erfolgswert
-         exec sql fetch kosten_ein into :db_reduzieren, 
-            :db_steigern, :db_verlernen, :db_standard;
-      else // Fertigkeiten OHNE Erfolgswert
-          exec sql fetch kosten_ein into :db_verlernen, :db_standard;
-    }
-  SQLerror::test(__FILELINE__);
-  exec sql close kosten_ein;
-  tr.close();
-
-//  double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,name);
-  double fac = fertigkeit->Standard_Faktor();
-  steigern = (int)(db_steigern * fac);
-  reduzieren=(int)(db_reduzieren * fac);
-  if (db_reduzieren !=0) verlernen = 0 ;
-  else  verlernen=(int)(db_verlernen *fac);
-}
-*/
 
 void midgard_CG::on_button_fertigkeiten_sort_clicked()
 {
@@ -166,20 +105,6 @@ void midgard_CG::on_button_fertigkeiten_sort_clicked()
 }
 
 
-/*
-void midgard_CG::show_neue_fertigkeiten()
-{
- std::vector<cH_RowDataBase> datavec;
- for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_neu.begin();i!=list_Fertigkeit_neu.end();++i)
-  { cH_Fertigkeit f(*i);
-// wieso dies??????? TESTEN!!!!!!!!!
-   f->set_Erfolgswert(f->Anfangswert());   
-   datavec.push_back(new Data_fert(f->Name(),f->Anfangswert(),
-               f->Kosten(),f->Standard__(),f->Voraussetzung()));
-  }
- neue_fert_tree->setDataVec(datavec);
-}
-*/
 bool midgard_CG::kido_steigern_check(int wert)
 {
   if (Werte.Grad()+10 > wert) return false;
@@ -244,36 +169,3 @@ void midgard_CG::on_radiobutton_praxis_auto_fertigkeiten_toggled()
 {
 }
 
-/*
-bool midgard_CG::Fertigkeiten_Voraussetzung(const std::string& fertigkeit)
-{
-  exec sql begin declare section;
-   int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb,db_rw;
-   char db_fertigkeit[30], db_fert[30];
-  exec sql end declare section;
-  strncpy(db_fertigkeit,fertigkeit.c_str(),sizeof(db_fertigkeit));
-
-  exec sql select distinct coalesce(st,0), coalesce(ge,'0'),
-   coalesce(ko,0),  coalesce("in",0), coalesce(zt,'0'),
-   coalesce(au,0), coalesce(pa,'0'), 
-   coalesce(sb,0), coalesce(rw,'0'), coalesce(fertigkeit,'')
-   into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
-         :db_sb,:db_rw,:db_fert
-   from fertigkeiten_voraussetzung where name= :db_fertigkeit;
-  SQLerror::test(__FILELINE__,100);
-  if (sqlca.sqlcode) return true;
-//  SQLerror::test(__FILELINE__);
-    if ( db_st<=Werte.St() &&
-         db_ge<=Werte.Ge() &&
-         db_ko<=Werte.Ko() &&
-         db_in<=Werte.In() &&
-         db_zt<=Werte.Zt() &&
-         db_au<=Werte.Au() &&
-         db_pa<=Werte.pA() &&
-         db_sb<=Werte.Sb() &&
-         db_rw<=Werte.RW()
-       )   
-     return true;
-  else return false ;
-}
-*/

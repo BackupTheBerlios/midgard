@@ -1,3 +1,4 @@
+/*
 #include "midgard_CG.hh"
 
 bool midgard_CG::standard_one_G(const vector<std::string>& s)
@@ -14,4 +15,4 @@ bool midgard_CG::standard_all_S(const vector<std::string>& s)
  if (s[1] == "S" && (s[0] =="S" || s[0]=="" )) return true;
  return false;
 }
-     
+ */    
