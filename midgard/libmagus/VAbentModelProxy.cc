@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.cc,v 1.14 2004/06/28 08:44:10 christof Exp $               
+// $Id: VAbentModelProxy.cc,v 1.15 2004/07/12 13:34:38 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -24,8 +24,8 @@
 #include <Misc/TraceNV.h>
 #if MPC_SIGC_VERSION>=0x200
 #include <sigc++/compatibility.h>
-#include <sigc++/bind.h>
 #endif
+#include <sigc++/bind.h>
 
 void VAbentModelProxy::disconnect()
 {  while (!sg_conns.empty()) 
