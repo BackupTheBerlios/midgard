@@ -56,7 +56,10 @@ void midgard_CG::on_neuer_charakter_clicked()
    table_lernschema->lernpunkte.clear();
    table_lernschema->list_FertigkeitZusaetze.clear();
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+     {
       (*i)->setActive(false);
+      set_region_statusbar((*i)->Pic,false);
+     }
 
   table_steigern->neuer_charakter();
 

@@ -35,7 +35,7 @@
 //#include "../pixmaps/Arkanum-50.xpm"
 #include "../pixmaps/pinguin.xpm"
 
-Gtk::Pixmap *RegionenPic::Pic(epic typ)
+Gtk::Pixmap *RegionenPic::Pic(epic typ,bool tiny=false)
 {  
    if      (typ==Eschar)     return manage(new Gtk::Pixmap(Eschar_trans_50_xpm));
    else if (typ==KanThaiPan) return manage(new Gtk::Pixmap(KiDo_trans_50_xpm));

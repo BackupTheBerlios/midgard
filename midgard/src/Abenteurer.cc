@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.29 2002/07/04 06:39:51 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.30 2002/07/08 07:19:51 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -626,6 +626,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          try
          {  cH_Region R(i->getAttr("Name",i->getAttr("Region")));
             Region::setActive(Database.Regionen,R,true);
+            set_region_statusbar(R->Pic,true);
          }
          catch (const NotFound &e)
          {}

@@ -5,6 +5,8 @@ NEWS IN VERSION 0.7delta5
 * Drucken weiter überarbeitet
 * Fertigkeiten mit Zusatz getrennt steigern/reduzieren (==operator)
 * Zaubern lernen geht wieder
+* Beruf mit Zusatz (z.B. Falkner) ohne Absturz
+* Ausgewählte Regionen in der Statusleiste anzeigen (PIXMAPS verkleinern!!!)
 
 TODO: ('-' zeigt CP an)
 * Alte Sprachen für Magister im Lernschema für Magister

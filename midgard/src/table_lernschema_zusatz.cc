@@ -325,7 +325,8 @@ void table_lernschema::on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d)
 
 void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
 {
-  tree_lernschema->set_sensitive(true);
+  if(tree_lernschema)
+     tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   MidgardBasicElement_mutable MBE=dt->getMBE();
 

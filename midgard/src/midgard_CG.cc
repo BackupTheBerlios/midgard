@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.253 2002/07/08 06:15:02 thoma Exp $
+// $Id: midgard_CG.cc,v 1.254 2002/07/08 07:19:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -88,7 +88,8 @@ void midgard_CG::init_statusbar()
      if((*i)->Active()) p->show();
      vec_region_status.push_back(st_reg_status((*i)->Pic(),p));
    }
-  frame_regionen_status->add(hb_regionen_status);
+  hb_regionen_status->show();
+  frame_regionen_status->add(*hb_regionen_status);
 }
 
 void midgard_CG::set_region_statusbar(RegionenPic::epic pic,bool active)
