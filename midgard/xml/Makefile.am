@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.39 2002/10/23 16:26:48 christof Exp $
+# $Id: Makefile.am,v 1.40 2002/10/23 16:30:51 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
 
@@ -27,8 +27,8 @@ XMLDIR=.
 
 export: all_exp arkanum_exp
 	./all_exp A $(XMLDIR)/Alba.xml
-	./all_exp ""  $(XMLDIR)/Regelwerk4.xml
-	./arkanum_exp $(XMLDIR)/Arkanum.xml
+	./all_exp     ""  $(XMLDIR)/Regelwerk4.xml
+	./arkanum_exp "" $(XMLDIR)/Arkanum.xml
 	./all_exp MdS $(XMLDIR)/MeisterDerSphaeren.xml
 	./all_exp K $(XMLDIR)/KanThaiPan.xml
 	./all_exp R $(XMLDIR)/Rawindra.xml
