@@ -42,7 +42,6 @@ void table_grundwerte::fill_typauswahl_2()
 
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 {
-//  const std::vector<cH_Typen> T=hauptfenster->getCDatabase().Typen;
   bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
   const std::vector<pair<cH_Typen,bool> > T=LernListen(hauptfenster->getCDatabase()).getTypen(hauptfenster->getChar(),nsc_allowed);
   std::list<std::string> L;
@@ -50,10 +49,7 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
    {
      if(combo_typ2->is_visible() && typ_1_2==1 && i->first->Zaubern()=="z") continue;
      if(typ_1_2==2 && i->first->Zaubern()!="z") continue;
-//     if (hauptfenster->getWerte().Spezies()->Name()=="Mensch" || hauptfenster->getWerte().Spezies()->Typ_erlaubt((*i)->Short()))
-//       if (hauptfenster->region_check((*i)->Region()) && hauptfenster->nsc_check((*i)->NSC_only()))
          {
-//           if((*i)->Mindestwerte(hauptfenster->getWerte())) 
            if(i->second)
               L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
            else

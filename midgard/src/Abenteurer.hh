@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.27 2002/09/12 15:01:14 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.28 2002/09/17 14:01:09 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -58,6 +58,8 @@ public:
              list_Sprache.clear();list_Schrift.clear(); 
              Typ.clear(); Typ.resize(2);
              }
+
+   bool Valid() const;
 
    Grundwerte &getWerte() {return Werte;}
    const Grundwerte &getWerte() const {return Werte;}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.279 2002/09/17 05:39:33 thoma Exp $
+// $Id: midgard_CG.hh,v 1.280 2002/09/17 14:01:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -190,11 +190,13 @@ class midgard_CG : public midgard_CG_glade
         bool region_check(const std::string& region) const;
 
         // Oberfläche
-   private:
+//   private:
+   public:
         // Oberfläche Notebook 
         enum enum_notebook_main{PAGE_INFO,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
                                 PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_OPTIONEN,
                                 PAGE_NEWS,PAGE_ZUFALL};
+   private:
         void on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
         gint on_eventbox_ausruestung_button_release_event(GdkEventButton *event);
         gint on_eventbox_credits_button_release_event(GdkEventButton *event);
@@ -208,7 +210,6 @@ class midgard_CG : public midgard_CG_glade
         void load_for_mainpage(guint pagenr);
 
         // Oberfläche Menü
-//        Gtk::MenuItem *ansicht_menu,*region_menu;
         Gtk::Menu *menu_kontext;
         gint on_button_menu_button_release_event(GdkEventButton *ev);
         void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);

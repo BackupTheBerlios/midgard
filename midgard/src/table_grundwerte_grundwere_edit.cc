@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.8 2002/06/26 14:01:18 christof Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.9 2002/09/17 14:01:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,9 +20,17 @@
 #include "table_grundwerte.hh"
 #include "midgard_CG.hh"
 
+static bool oldtyp_bool;
+
 void table_grundwerte::on_togglebutton_edit_werte_toggled()
 {
-  if(togglebutton_edit_werte->get_active()) edit_sensitive(true);
+  if(togglebutton_edit_werte->get_active()) 
+   { 
+     bool m=combo_typ->is_sensitive();
+     oldtyp_bool=true;
+     edit_sensitive(true);
+     oldtyp_bool=m;
+   }
   else 
     {
 //     set_all_entrys(); // eigentlich überflüssig (wg. focus_leaf_event)
@@ -319,7 +327,8 @@ void table_grundwerte::edit_sensitive(bool b)
 {
   if(b)   button_grda1setzen->show();
   else    button_grda1setzen->hide();
-  combo_typ->set_sensitive(b);  
+  combo_typ->set_sensitive(oldtyp_bool);  
+  combo_typ2->set_sensitive(oldtyp_bool);  
   entry_nameC->set_sensitive(b);
   entry_nameS->set_sensitive(b);
   entry_version->set_sensitive(b);

@@ -96,6 +96,10 @@ void midgard_CG::load_for_mainpage(guint pagenr)
    }
  else if(pagenr==PAGE_AUSRUESTUNG)
     table_ausruestung->init(this);
+ else if(pagenr==PAGE_OPTIONEN)
+   {
+     table_optionen->set_values();
+   }
  else if(pagenr==PAGE_NEWS)
    {
     show_undo_tree();

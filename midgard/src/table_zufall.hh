@@ -30,7 +30,9 @@ class table_zufall : public table_zufall_glade
       friend class midgard_CG;
 
       midgard_CG *hauptfenster;
-
+      
+      void zeige_werte();
+      void fill_combos();
    public:
       table_zufall(GlademmData *_data)
          : table_zufall_glade(_data) , hauptfenster(0) {}
@@ -40,11 +42,34 @@ class table_zufall : public table_zufall_glade
 
    private:
       // automatisch von glade erzeugte Methoden
-      void on_button_zufall_voll_clicked();
-      void on_togglebutton_vorgaben_toggled();
-      void on_checkbutton_werte_toggled();
 
-      void on_button_steigern_clicked();
+        void on_checkbutton_spezies_toggled();
+        void on_checkbutton_herkunft_toggled();
+        void on_checkbutton_typ_toggled();
+        void on_checkbutton_werte_toggled();
+        void on_checkbutton_st_toggled();
+        void on_checkbutton_gs_toggled();
+        void on_checkbutton_gw_toggled();
+        void on_checkbutton_ko_toggled();
+        void on_checkbutton_in_toggled();
+        void on_checkbutton_zt_toggled();
+        void on_checkbutton_au_toggled();
+        void on_checkbutton_pa_toggled();
+        void on_checkbutton_wk_toggled();
+        void on_checkbutton_sb_toggled();
+        void on_checkbutton_b_toggled();
+        void on_combo_spezies_activate();
+        gint on_combo_spezies_focus_out_event(GdkEventFocus *ev);
+        void on_combo_spezies_changed();
+        void on_combo_typ_activate();
+        gint on_combo_typ__focus_out_event(GdkEventFocus *ev);
+        void on_combo_typ__changed();
+        void on_button_zufall_voll_clicked();
+        void on_togglebutton_vorgaben_toggled();
+        void on_button_steigern_clicked();
+
+        void on_radiobutton_steigern_grad_toggled();
+        void on_radiobutton_steigern_gfp_toggled();
 };
 
 #endif

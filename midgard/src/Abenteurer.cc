@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.39 2002/09/12 15:01:13 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.40 2002/09/17 14:01:09 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -32,6 +32,14 @@
 #include "Zauberwerk.hh"
 #include "KiDo.hh"
 #include "Beruf.hh"
+
+
+bool Abenteurer::Valid() const
+{
+  if(Typ.size()!=2) return false;
+  return Typ1()->Valid();
+}
+
 
 std::string Abenteurer::STyp() const
 {
@@ -238,7 +246,7 @@ void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const M
       r.setAttr("Region", (*i)->Abkuerzung());
    }
    // Optionen
-   const std::list<Midgard_Optionen::st_OptionenCheck> LO=Optionen->getOptionenCheck();
+   std::list<Midgard_Optionen::st_OptionenCheck> LO=const_cast<Midgard_Optionen*>(Optionen)->getOptionenCheck();
    for(std::list<Midgard_Optionen::st_OptionenCheck>::const_iterator i=LO.begin();i!=LO.end();++i)
    {
      // Option, die mit dem C. gespeichert werden müssen
@@ -646,7 +654,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Optionen")
         {
          try{
-           Optionen->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
+           Optionen->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getBoolAttr("Page"));
          }
          catch (const NotFound &e)
          {}

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.7 2002/09/07 07:15:56 thoma Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.8 2002/09/17 14:01:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,12 +22,12 @@
 
 void table_grundwerte::on_abge_werte_setzen_clicked()
 {
+  combo_typ->set_sensitive(false);
+  combo_typ2->set_sensitive(false);
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ABGELEITETEWERTE);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active) 
       button_abg_werte->set_sensitive(false);
   hauptfenster->getWerte().setGrad(1);
-//  Werte.setAu( constraint_aw(Werte.Spezies()->Au()) );
-//  Werte.setpA( random.integer(1,100)-30 + 3*(Werte.In()/10 + Werte.Au()/10) );
   { //Bewegungsweite
     int b = hauptfenster->getWerte().Spezies()->B_Bonus();
     for (int i=0;i<hauptfenster->getWerte().Spezies()->B_Wanz();++i) b+=hauptfenster->random.integer(1,3);

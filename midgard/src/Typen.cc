@@ -46,6 +46,15 @@ cH_Typen::cH_Typen(const Tag *tag)
  cache.Register(tag->getAttr("Abkürzung"),*this);
 }
 
+
+bool Typen::Valid() const
+{
+  if(typnr==0) return false;
+  return true;
+}
+
+
+
 Typen::Typen(const Tag *tag)
 : typs(tag->getAttr("Abkürzung"))
   ,typnr(tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index")))

@@ -28,7 +28,7 @@
 
 void Zufall::Voll()
 {
-  Teil(e_Vorgabe(0));
+  Teil(e_Vorgabe(0),oldAben);
 }
 
 
@@ -51,8 +51,9 @@ struct st_vor{bool spezies; bool typ; bool herkunft; bool angefert;
               };
       
 
-void Zufall::Teil(e_Vorgabe vorgabe)
+void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
 {
+  oldAben=A;
   st_vor sv;
   for(B_VORGABE_BITS i=B_VORGABE_BITS(0);i<B_MAX;++i)
    {
@@ -84,7 +85,7 @@ void Zufall::Teil(e_Vorgabe vorgabe)
    if(!sv.in)       Aben->getWerte().setIn(oldAben.getWerte().In());
    if(!sv.zt)       Aben->getWerte().setZt(oldAben.getWerte().Zt());
    Aben->getWerte().setGeschlecht(getGeschlecht());
-   if(sv.typ)      Aben->setTyp1(getTyp());
+   if(sv.typ || !oldAben.Valid())      Aben->setTyp1(getTyp());
    else            Aben->setTyp1(oldAben.Typ1());     
    hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
    if(!sv.au)       Aben->getWerte().setAu(oldAben.getWerte().Au());

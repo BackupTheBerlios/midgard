@@ -29,7 +29,7 @@ class Zufall
 {
       midgard_CG *hauptfenster;
       VAbenteurer Aben;
-      const Abenteurer oldAben;
+      Abenteurer oldAben;
       Datenbank Database;
       Random random;
       LernListen LL;
@@ -39,8 +39,8 @@ class Zufall
    
    public:
 
-      Zufall(midgard_CG *h,const Abenteurer &oa)
-        : hauptfenster(h),  Aben(h->getChar()),oldAben(oa),
+      Zufall(midgard_CG *h)
+        : hauptfenster(h),  Aben(h->getChar()),oldAben(Aben.getAbenteurer()),
           Database(h->getCDatabase()),random(h->random) ,
           LL(Database)
           {};
@@ -54,7 +54,7 @@ class Zufall
         };
 
       void Voll(); // kompletten Zufallsabenteruer erzeugen
-      void Teil(e_Vorgabe vorgabe);
+      void Teil(e_Vorgabe vorgabe,const Abenteurer &A);
 
 //      VAbenteurer Abenteurer() const {return Aben;}
 

@@ -18,22 +18,49 @@ void frame_globale_optionen::set_Hauptfenster(midgard_CG *h)
  hauptfenster=h;
 }
 
+void frame_globale_optionen::set_values()
+{
+  hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).spin
+      ->set_value(hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).wert);
+}
+
+
 void frame_globale_optionen::init()
 {
+#if 1
+      static bool ini=false;
+      if(ini) return;
+      ini=true;
+#endif
  remove();
  if(!hauptfenster) assert(!"");
  if(!(hauptfenster->getOptionen())) assert(!"");
  Gtk::Table *table=manage(new Gtk::Table(0,0,false));
- std::list<Midgard_Optionen::st_OptionenCheck> L=hauptfenster->getOptionen()->getOptionenCheck();
+ std::list<Midgard_Optionen::st_OptionenCheck> &L=hauptfenster->getOptionen()->getOptionenCheck();
  int count=0;
- for(std::list<Midgard_Optionen::st_OptionenCheck>::const_iterator i=L.begin();i!=L.end();++i)
+ for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=L.begin();i!=L.end();++i)
   {
    Gtk::CheckButton *cb=manage(new Gtk::CheckButton(i->text,0,0.5));
    cb->set_active(i->active);
    cb->toggled.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_C),cb,i->index));
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
    t->attach(*cb,0,1,0,1,GTK_FILL,0,0,0);
-   if(i->bild)
+   if(i->wert!=-1) 
+    {
+cout << "A: "<<i->spin<<'\n';
+      if(i->spin) i->spin->destroy();
+      int min=hauptfenster->PAGE_INFO;
+      int max=hauptfenster->PAGE_ZUFALL-1;
+      Gtk::Adjustment *spa = manage(new class Gtk::Adjustment(i->wert, min+1, max+1, 1, 10, 10)); 
+cout << "B: "<<i->spin<<'\n';
+      i->spin= manage(new class Gtk::SpinButton(*spa, 1, 0));
+cout << "C: "<<i->spin<<'\n';
+
+      i->spin->set_value(i->wert);
+      i->spin->changed.connect(SigC::bind(SigC::slot(static_cast<class frame_globale_optionen*>(this), &frame_globale_optionen::on_spinbutton_notebookpage_changed),i->index));
+      t->attach(*i->spin,1,2,0,1,GTK_FILL,0,0,0);
+    }
+   else if(i->bild)
     {
       Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
       t->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
@@ -72,7 +99,20 @@ void frame_globale_optionen::init()
   } 
  add(*table);
  show_all();
+ 
+ if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).active) // für 'hide'
+ hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(Midgard_Optionen::Notebook_start,false);
 }
+
+void frame_globale_optionen::on_spinbutton_notebookpage_changed(Midgard_Optionen::OptionenCheckIndex index)
+{
+  Midgard_Optionen::st_OptionenCheck S=hauptfenster->getOptionen()->OptionenCheck(index);
+  if(!S.spin) {cerr << "Spinbutten nicht definiert\n"; return;}
+  S.spin->update();
+  int wert = S.spin->get_value_as_int();
+  hauptfenster->getOptionen()->OptionenCheck(index,wert);
+}
+
 
 void frame_globale_optionen::element_activate_C(Gtk::CheckButton *cb,Midgard_Optionen::OptionenCheckIndex index)
 {

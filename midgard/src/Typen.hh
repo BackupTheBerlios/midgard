@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.29 2002/09/15 09:47:17 thoma Exp $               
+// $Id: Typen.hh,v 1.30 2002/09/17 14:01:09 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -61,6 +61,7 @@ public:
          min_st(0),min_gw(0),min_gs(0),min_in(0),min_pa(0),
          lernpflicht_schrift(false) {}
    
+   bool Valid() const;
    std::string Name(const Enums::geschlecht& geschlecht) const 
       { if (geschlecht==Enums::Mann) return typl; else return typlw;}
    std::string Typl() const {return typl;}

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.78 2002/09/16 08:29:13 thoma Exp $
+// $Id: Optionen.cc,v 1.79 2002/09/17 14:01:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -96,10 +96,13 @@ void Midgard_Optionen::setString(StringIndex index,std::string n)
    if(i->index==index) { i->name=n; return; }
 }
 
-Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi) const
+Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi,int wert=-1) const
 {
  for(std::list<st_OptionenCheck>::const_iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
-   if(i->index==oi) return *i;
+   if(i->index==oi) 
+     { if(wert!=-1) const_cast<st_OptionenCheck&>(*i).wert=wert;
+       return *i;
+     }
  assert(!"OptionenCheck: nicht gefunden");
  abort();
 }
@@ -146,11 +149,12 @@ Midgard_Optionen::st_pdfViewer Midgard_Optionen::pdfViewerCheck(pdfViewerIndex p
  abort();
 }
  
-void Midgard_Optionen::setOptionCheck(std::string os,bool b)
+void Midgard_Optionen::setOptionCheck(std::string os,bool b,int wert)
 {
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->text==os) 
-     { OptionenCheck_setzen_from_menu(i->index,b);
+     {  
+       OptionenCheck_setzen_from_menu(i->index,b,wert);
        return; 
      }
  std::cerr << "Option "<<os<<" unbekannt\n";
@@ -180,7 +184,8 @@ void Midgard_Optionen::setOber(std::string hs,bool b)
 {
   for(list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
     if(i->text==hs)  
-      { Ober_setzen_from_menu(i->index,b);
+      { 
+        Ober_setzen_from_menu(i->index,b);
         return;
       }
  std::cerr << "Option "<<hs<<" unbekannt\n";
@@ -212,7 +217,7 @@ void Midgard_Optionen::setpdfViewer(std::string is,bool b)
 }   
     
 
-void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,bool b)
+void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,bool b,int wert=-1)
 {
 //  if(!hauptfenster->fire_enabled) return;
 //  hauptfenster->fire_enabled=false;
@@ -226,6 +231,13 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
                                   hauptfenster->table_grundwerte->fill_typauswahl();
                                   hauptfenster->table_grundwerte->fill_typauswahl_2();} // zum Neuaufbau des Typmenüs
      else if(i->index==Wizard_immer_starten) hauptfenster->show_wizard_active(i->active);
+     else if(i->index==Notebook_start)  
+      { i->wert=wert;
+        if(!i->spin) return;
+cout << "Option: "<<i->spin<<'\n';
+        if(b) i->spin->show();
+        else i->spin->hide();
+      }
    }
 //  hauptfenster->fire_enabled=true;
 }
@@ -337,6 +349,8 @@ void Midgard_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(Drei_Tasten_Maus,
                            "3-Tasten Maus",
                            false,Cyan_Dice_trans_50_xpm));
+  list_OptionenCheck.push_back(st_OptionenCheck(Notebook_start, 
+                           "MAGUS mit bestimmter Seite starten",false,0,1));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true,0));
 
@@ -440,9 +454,9 @@ void Midgard_Optionen::load_options(const std::string &filename)
   const Tag *options=data->find("Optionen");
   if (!options) options=data; // compat
   FOR_EACH_CONST_TAG_OF(i,*options,"Optionen") // compat
-     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Option")
-     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Ansicht")
      setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Icon")
@@ -474,7 +488,7 @@ void Midgard_Optionen::load_options(const std::string &filename)
      FOR_EACH_CONST_TAG_OF(i,*data3,"Datei")
        hauptfenster->push_back_LDateien(i->getAttr("Name"));
    }
-  hauptfenster->menu_init();
+//  hauptfenster->menu_init();
  } catch (std::exception &e) { cerr << e.what() << '\n'; }
 }
 
@@ -516,6 +530,7 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
    { Tag &opt=optionen.push_back(Tag("Option"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
+     if(i->wert!=-1)  opt.setIntAttr("Page",i->wert);
    }
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    { Tag &opt=optionen.push_back(Tag("Ansicht"));
