@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.236 2002/05/11 06:51:31 thoma Exp $
+// $Id: midgard_CG.hh,v 1.237 2002/05/12 08:58:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -208,7 +208,6 @@ private:
         int  wuerfeln_best_of_two();
         void on_togglebutton_edit_werte_toggled();
         void on_button_grda1setzen_clicked();
-        void set_all_entrys();
         void on_entry_nameC_activate();
         void on_entry_nameS_activate();
         void on_entry_version_activate();

@@ -36,9 +36,21 @@ NEWS IN VERSION 0.6delta3
 * Neue Option: Abspeichern und Laden der Position und Größe des Fensters
 * Automatisches selektieren bei 'focus_in_event'
 * Gewichtsbug beseitigt
+* Tabtaste beim Werteeditieren springt ins 'richtige' Feld.
 
 TODO:
 * Gildenbrief funktioniert nicht
+* Waffenbesitz: Neuladen: Knopf weg
+* Druckenmenü im Dateimenü:
+> - Drucken - Abenteurerdokument
+>           - Magiedokument 
+>           - Ausrüstungsdokument
+>             - nur sichtbar
+>             - alles
+>           - Abenteurerbeschreibung
+>           - Alles
+>           - leeres Dokument
+* > Der Import/Export sollte ebenfalls in das Datei-Menü?
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Destruktor wird nicht aufgerufen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 

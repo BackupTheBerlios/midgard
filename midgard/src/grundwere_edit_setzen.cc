@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.37 2002/05/11 06:51:31 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.38 2002/05/12 08:58:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@ void midgard_CG::on_togglebutton_edit_werte_toggled()
   if(togglebutton_edit_werte->get_active()) edit_sensitive(true);
   else 
     {
-     set_all_entrys(); // eigentlich überflüssig (wg. focus_leaf_event)
+//     set_all_entrys(); // eigentlich überflüssig (wg. focus_leaf_event)
      edit_sensitive(false);
      fill_typauswahl();
     }
@@ -36,6 +36,7 @@ void midgard_CG::on_button_grda1setzen_clicked()
   zeige_werte();
 }
 
+/*
 void midgard_CG::set_all_entrys()
 {
   Werte.setNameC(entry_nameC->get_text());
@@ -46,7 +47,6 @@ void midgard_CG::set_all_entrys()
   Werte.setSpezialisierung(entry_spezialisierung->get_text());
   Werte.setGlaube(entry_glaube->get_text());
   Werte.setHerkunft(cH_Land(entry_herkunft->get_text(),true));
-
   spinbutton_grad->update();  
   if(spinbutton_grad->get_value_as_int() !=0)
    {
@@ -83,7 +83,7 @@ void midgard_CG::set_all_entrys()
 
   zeige_werte();
 }
-
+*/
 
 
 void midgard_CG::on_entry_nameC_activate()
@@ -95,134 +95,176 @@ void midgard_CG::on_entry_nameC_activate()
    }
   else 
    {
-     set_all_entrys(); 
      entry_nameS->grab_focus();
    }
 }
+gint midgard_CG::on_entry_nameC_focus_out_event(GdkEventFocus *ev)
+{ Werte.setNameC(entry_nameC->get_text());  return false; }
+
 void midgard_CG::on_entry_nameS_activate()
-{ set_all_entrys(); entry_version->grab_focus();}
+{ entry_version->grab_focus(); }
+gint midgard_CG::on_entry_nameS_focus_out_event(GdkEventFocus *ev)
+{ Werte.setNameS(entry_nameS->get_text()); return false;}
+
 void midgard_CG::on_entry_version_activate()
-{ set_all_entrys(); entry_bezeichnung->grab_focus();}
+{  entry_bezeichnung->grab_focus();}
+gint midgard_CG::on_entry_version_focus_out_event(GdkEventFocus *ev)
+{  Werte.setVersion(entry_version->get_text()); return false;}
+
 void midgard_CG::on_entry_bezeichnung_activate()
-{ set_all_entrys(); entry_herkunft->grab_focus();}
+{ entry_herkunft->grab_focus();}
+gint midgard_CG::on_entry_bezeichnung_focus_out_event(GdkEventFocus *ev)
+{  Werte.setBezeichnung(entry_bezeichnung->get_text());return false;}
+
 void midgard_CG::on_entry_spezialisierung_activate()
-{ set_all_entrys(); entry_merkmale->grab_focus();}
+{ entry_merkmale->grab_focus();}
+gint midgard_CG::on_entry_spezialisierung_focus_out_event(GdkEventFocus *ev)
+{  Werte.setSpezialisierung(entry_spezialisierung->get_text());return false;}
+
 void midgard_CG::on_entry_merkmale_activate()
-{ set_all_entrys(); spinbutton_grad->grab_focus();}
+{ spinbutton_grad->grab_focus();}
+gint midgard_CG::on_entry_merkmale_focus_out_event(GdkEventFocus *ev)
+{  Werte.setMerkmale(entry_merkmale->get_text());return false;}
+
 void midgard_CG::on_entry_glaube_activate()
-{ set_all_entrys(); entry_spezialisierung->grab_focus();}
+{ entry_spezialisierung->grab_focus();}
+gint midgard_CG::on_entry_glaube_focus_out_event(GdkEventFocus *ev)
+{  Werte.setGlaube(entry_glaube->get_text());return false;}
+
 void midgard_CG::on_entry_herkunft_activate()
-{ set_all_entrys(); entry_glaube->grab_focus();}
+{ entry_glaube->grab_focus();}
+gint midgard_CG::on_entry_herkunft_focus_out_event(GdkEventFocus *ev)
+{  Werte.setHerkunft(cH_Land(entry_herkunft->get_text(),true)); return false;}
+
+
+
 void midgard_CG::on_spinbutton_grad_activate()
 { 
-//  spinbutton_grad->update();
-//  Database.GradAnstieg.set_Grad_Basiswerte(spinbutton_grad->get_value_as_int());
-  set_all_entrys(); spinbutton_lp->grab_focus();
+  spinbutton_lp->grab_focus();
 }
-void midgard_CG::on_spinbutton_lp_activate()
-{ set_all_entrys(); spinbutton_ap->grab_focus();}
-void midgard_CG::on_spinbutton_ap_activate()
-{ set_all_entrys(); spinbutton_alter->grab_focus();}
-void midgard_CG::on_spinbutton_Cgewicht_activate()
-{ set_all_entrys(); spinbutton_groesse->grab_focus();}
-void midgard_CG::on_spinbutton_groesse_activate()
-{ set_all_entrys(); spinbutton_tage->grab_focus();}
-void midgard_CG::on_spinbutton_alter_activate()
-{ set_all_entrys(); spinbutton_Cgewicht->grab_focus();}
-void midgard_CG::on_spinbutton_tage_activate()
-{ set_all_entrys(); spinbutton_gg->grab_focus();}
-void midgard_CG::on_spinbutton_gg_activate()
-{ set_all_entrys(); spinbutton_sg->grab_focus();}
-void midgard_CG::on_spinbutton_sg_activate()
-{ set_all_entrys(); spinbutton_gfp->grab_focus();}
-void midgard_CG::on_spinbutton_gfp_activate()
-{ set_all_entrys(); spinbutton_st->grab_focus();}
-void midgard_CG::on_spinbutton_st_activate()
-{ set_all_entrys(); spinbutton_gs->grab_focus();}     
-void midgard_CG::on_spinbutton_gw_activate()
-{ set_all_entrys(); spinbutton_ko->grab_focus();}     
-void midgard_CG::on_spinbutton_gs_activate()
-{ set_all_entrys(); spinbutton_gw->grab_focus();}     
-void midgard_CG::on_spinbutton_ko_activate()
-{ set_all_entrys(); spinbutton_in->grab_focus();}     
-void midgard_CG::on_spinbutton_in_activate()
-{ set_all_entrys(); spinbutton_zt->grab_focus();}     
-void midgard_CG::on_spinbutton_zt_activate()
-{ set_all_entrys(); spinbutton_au->grab_focus();
-  Werte.setSinn("Sechster Sinn",Werte.Zt()/25); }     
-void midgard_CG::on_spinbutton_sb_activate()
-{ set_all_entrys(); spinbutton_wk->grab_focus();}
-void midgard_CG::on_spinbutton_wk_activate()
-{ set_all_entrys(); spinbutton_b->grab_focus();}
-void midgard_CG::on_spinbutton_au_activate()
-{ set_all_entrys(); spinbutton_pa->grab_focus();}
-void midgard_CG::on_spinbutton_pa_activate()
-{ set_all_entrys(); spinbutton_sb->grab_focus();}   
-void midgard_CG::on_spinbutton_b_activate()
-{ set_all_entrys(); button_grda1setzen->grab_focus();} 
-
-gint midgard_CG::on_entry_nameC_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
-gint midgard_CG::on_entry_nameS_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
-gint midgard_CG::on_entry_version_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
-gint midgard_CG::on_entry_bezeichnung_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
-gint midgard_CG::on_entry_merkmale_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
-gint midgard_CG::on_entry_spezialisierung_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
-gint midgard_CG::on_entry_glaube_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
-gint midgard_CG::on_entry_herkunft_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
 gint midgard_CG::on_spinbutton_grad_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;
-//  spinbutton_grad->update();
-//  Database.GradAnstieg.set_Grad_Basiswerte(spinbutton_grad->get_value_as_int());
-//  set_all_entrys(); return false;
+{  spinbutton_grad->update(); 
+   Werte.setGrad(spinbutton_grad->get_value_as_int()); 
+   Database.GradAnstieg.set_Grad_Basiswerte(Werte.Grad());
+   int mingfp=Database.GradAnstieg.getGFP_for(Grad_anstieg::Grad_,Werte);
+   spinbutton_gfp->update();
+   if (mingfp>spinbutton_gfp->get_value_as_int()) { Werte.setGFP(mingfp); }
+   return false; 
 }
+
+void midgard_CG::on_spinbutton_lp_activate()
+{ spinbutton_ap->grab_focus();}
 gint midgard_CG::on_spinbutton_lp_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_lp->update();  Werte.setLP(spinbutton_lp->get_value_as_int()); return false;}
+
+void midgard_CG::on_spinbutton_ap_activate()
+{ spinbutton_alter->grab_focus();}
 gint midgard_CG::on_spinbutton_ap_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{  spinbutton_ap->update();  Werte.setAP(spinbutton_ap->get_value_as_int()); return false;}
+
+
+void midgard_CG::on_spinbutton_Cgewicht_activate()
+{ spinbutton_groesse->grab_focus();}
 gint midgard_CG::on_spinbutton_Cgewicht_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_Cgewicht->update();  Werte.setGewicht(spinbutton_Cgewicht->get_value_as_int()); zeige_werte();return false;}
+
+void midgard_CG::on_spinbutton_groesse_activate()
+{ spinbutton_tage->grab_focus();}
 gint midgard_CG::on_spinbutton_groesse_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_groesse->update();   Werte.setGroesse(spinbutton_groesse->get_value_as_int()); zeige_werte();return false;}
+
+void midgard_CG::on_spinbutton_alter_activate()
+{ spinbutton_Cgewicht->grab_focus();}
 gint midgard_CG::on_spinbutton_alter_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_alter->update();  Werte.setAlter(spinbutton_alter->get_value_as_int()); return false;}
+
+void midgard_CG::on_spinbutton_tage_activate()
+{ spinbutton_gg->grab_focus();}
 gint midgard_CG::on_spinbutton_tage_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_tage->update(); Werte.setSteigertage(spinbutton_tage->get_value_as_int()); return false;}
+
+void midgard_CG::on_spinbutton_gg_activate()
+{ spinbutton_sg->grab_focus();}
 gint midgard_CG::on_spinbutton_gg_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_gg->update();  Werte.setGG(spinbutton_gg->get_value_as_int()); return false;}
+
+void midgard_CG::on_spinbutton_sg_activate()
+{ spinbutton_gfp->grab_focus();}
 gint midgard_CG::on_spinbutton_sg_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_sg->update();  Werte.setSG(spinbutton_sg->get_value_as_int()); return false;}
+
+void midgard_CG::on_spinbutton_gfp_activate()
+{ spinbutton_st->grab_focus();}
 gint midgard_CG::on_spinbutton_gfp_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ 
+  int mingfp=Database.GradAnstieg.getGFP_for(Grad_anstieg::Grad_,Werte);
+  spinbutton_gfp->update();
+  int gfp = spinbutton_gfp->get_value_as_int();
+  gfp = ( gfp>mingfp) ? gfp : mingfp ;
+  Werte.setGFP(gfp); 
+  return false;
+}
+
+void midgard_CG::on_spinbutton_st_activate()
+{ spinbutton_gs->grab_focus();}     
 gint midgard_CG::on_spinbutton_st_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}     
+{ spinbutton_st->update();  Werte.setSt(spinbutton_st->get_value_as_int()); zeige_werte();return false;}     
+
+void midgard_CG::on_spinbutton_gw_activate()
+{ spinbutton_ko->grab_focus();}     
 gint midgard_CG::on_spinbutton_gw_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}     
+{ spinbutton_gw->update();  Werte.setGw(spinbutton_gw->get_value_as_int()); zeige_werte();return false;}     
+
+void midgard_CG::on_spinbutton_gs_activate()
+{ spinbutton_gw->grab_focus();}     
 gint midgard_CG::on_spinbutton_gs_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}     
+{ spinbutton_gs->update();  Werte.setGs(spinbutton_gs->get_value_as_int()); zeige_werte();return false;}     
+
+void midgard_CG::on_spinbutton_ko_activate()
+{ spinbutton_in->grab_focus();}     
 gint midgard_CG::on_spinbutton_ko_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}     
+{ spinbutton_ko->update();  Werte.setKo(spinbutton_ko->get_value_as_int()); zeige_werte();return false;}     
+
+void midgard_CG::on_spinbutton_in_activate()
+{ spinbutton_zt->grab_focus();}     
 gint midgard_CG::on_spinbutton_in_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}     
+{ spinbutton_in->update();  Werte.setIn(spinbutton_in->get_value_as_int()); zeige_werte();return false;}     
+
+void midgard_CG::on_spinbutton_zt_activate()
+{ spinbutton_au->grab_focus(); }     
 gint midgard_CG::on_spinbutton_zt_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}     
+{  spinbutton_zt->update();  Werte.setZt(spinbutton_zt->get_value_as_int());
+   Werte.setSinn("Sechster Sinn",Werte.Zt()/25);   
+   zeige_werte();
+   return false;
+}     
+
+void midgard_CG::on_spinbutton_sb_activate()
+{ spinbutton_wk->grab_focus();}
 gint midgard_CG::on_spinbutton_sb_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_sb->update();  Werte.setSb(spinbutton_sb->get_value_as_int()); return false;}
+
+void midgard_CG::on_spinbutton_wk_activate()
+{ spinbutton_b->grab_focus();}
 gint midgard_CG::on_spinbutton_wk_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_wk->update();  Werte.setWk(spinbutton_wk->get_value_as_int()); return false;}
+
+void midgard_CG::on_spinbutton_au_activate()
+{ spinbutton_pa->grab_focus();}
 gint midgard_CG::on_spinbutton_au_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ spinbutton_au->update();  Werte.setAu(spinbutton_au->get_value_as_int()); return false;}
+
+void midgard_CG::on_spinbutton_pa_activate()
+{ spinbutton_sb->grab_focus();}   
 gint midgard_CG::on_spinbutton_pa_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}   
+{ spinbutton_pa->update();  Werte.setpA(spinbutton_pa->get_value_as_int()); return false;}   
+
+void midgard_CG::on_spinbutton_b_activate()
+{ button_grda1setzen->grab_focus();} 
 gint midgard_CG::on_spinbutton_b_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;} 
+{ spinbutton_b->update();   Werte.setB(spinbutton_b->get_value_as_int()); return false;} 
+
+
 
 gint midgard_CG::on_entry_nameC_focus_in_event(GdkEventFocus *ev)
 { entry_nameC->select_region(0,-1); return false;}
