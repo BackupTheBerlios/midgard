@@ -17365,7 +17365,7 @@ Verlust</label>
 	  <widget>
 	    <class>GtkPixmap</class>
 	    <name>pixmap141</name>
-	    <filename>wizzard-trans-50_2.xpm</filename>
+	    <filename>Waf_Mag_bon-50.xpm</filename>
 	    <xalign>0.5</xalign>
 	    <yalign>0.5</yalign>
 	    <xpad>0</xpad>

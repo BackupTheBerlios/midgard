@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.32 2002/05/09 08:05:27 thoma Exp $
+// $Id: Optionen.cc,v 1.33 2002/05/10 06:02:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -388,7 +388,8 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
     gint width,height,x,y;
     Gdk_Window fenster=hauptfenster->get_window();
     fenster.get_size(width,height);
-    fenster.get_root_origin(x,y);
+//    fenster.get_root_origin(x,y);
+    fenster.get_position(x,y);
     datei << "  <Groesse";
     write_int_attrib_force(datei, "Width" ,width);
     write_int_attrib_force(datei, "Height" ,height);
