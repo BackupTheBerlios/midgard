@@ -37,6 +37,7 @@ Beeinflussen	3	Th	G	Augensalbe
 Berserkerpilz aktivieren	2	De	G	Pflanzliches Zaubermittel
 Berserkerpilz aktivieren	2	Dr	S	Pflanzliches Zaubermittel
 Berserkerpilz aktivieren	2	Hl	S	Pflanzliches Zaubermittel
+Berserkerpilz aktivieren	2	Km	S	Pflanzliches Zaubermittel
 Berserkerpilz aktivieren	2	Ma	S	Pflanzliches Zaubermittel
 Berserkerpilz aktivieren	2	PC	S	Pflanzliches Zaubermittel
 Berserkerpilz aktivieren	2	PF	S	Pflanzliches Zaubermittel
@@ -55,6 +56,7 @@ Berserkerpilz aktivieren	2	wHx	S	Pflanzliches Zaubermittel
 Binden	G	De	A	
 Binden	G	Dr	A	
 Binden	G	Hl	A	
+Binden	G	Km	S	
 Binden	G	Ma	S	
 Binden	G	PC	A	
 Binden	G	PF	A	
@@ -77,6 +79,7 @@ Binden	G	wHx	A
 Dämonenamulett verzaubern	3	De	S	Amulett
 Dämonenamulett verzaubern	3	Dr	A	Amulett
 Dämonenamulett verzaubern	3	Hl	A	Amulett
+Dämonenamulett verzaubern	3	Km	A	Amulett
 Dämonenamulett verzaubern	3	Ma	A	Amulett
 Dämonenamulett verzaubern	3	PC	S	Amulett
 Dämonenamulett verzaubern	3	PF	A	Amulett
@@ -102,6 +105,7 @@ Eisiger Nebel	2	Th	G	Großes Siegel
 Elementaramulett verzaubern	3	De	S	Amulett
 Elementaramulett verzaubern	3	Dr	A	Amulett
 Elementaramulett verzaubern	3	Hl	A	Amulett
+Elementaramulett verzaubern	3	Km	A	Amulett
 Elementaramulett verzaubern	3	Ma	A	Amulett
 Elementaramulett verzaubern	3	PC	A	Amulett
 Elementaramulett verzaubern	3	PF	A	Amulett
@@ -169,6 +173,7 @@ Funkenregen	2	Th	G	Großes Siegel
 Geisteramulett verzaubern	4	De	S	Amulett
 Geisteramulett verzaubern	4	Dr	A	Amulett
 Geisteramulett verzaubern	4	Hl	A	Amulett
+Geisteramulett verzaubern	4	Km	A	Amulett
 Geisteramulett verzaubern	4	Ma	A	Amulett
 Geisteramulett verzaubern	4	PC	A	Amulett
 Geisteramulett verzaubern	4	PF	A	Amulett
@@ -259,6 +264,7 @@ Krafttrunk (2W6) aktivieren	2	wHx	S	Alchimistisches Zaubermittel
 Kraut der konzentrierten Energie	4	De	S	Pflanzliches Zaubermittel
 Kraut der konzentrierten Energie	4	Dr	S	Pflanzliches Zaubermittel
 Kraut der konzentrierten Energie	4	Hl	G	Pflanzliches Zaubermittel
+Kraut der konzentrierten Energie	4	Km	S	Pflanzliches Zaubermittel
 Kraut der konzentrierten Energie	4	Ma	S	Pflanzliches Zaubermittel
 Kraut der konzentrierten Energie	4	PC	S	Pflanzliches Zaubermittel
 Kraut der konzentrierten Energie	4	PF	S	Pflanzliches Zaubermittel
@@ -277,6 +283,7 @@ Kraut der konzentrierten Energie	4	tBe	S	Pflanzliches Zaubermittel
 Kraut der konzentrierten Energie	4	wHx	S	Pflanzliches Zaubermittel
 Liebestrank aktivieren	3	Dr	S	Alchimistisches Zaubermittel
 Liebestrank aktivieren	3	Hl	S	Alchimistisches Zaubermittel
+Liebestrank aktivieren	3	Km	S	Alchimistisches Zaubermittel
 Liebestrank aktivieren	3	Ma	S	Alchimistisches Zaubermittel
 Liebestrank aktivieren	3	PC	S	Alchimistisches Zaubermittel
 Liebestrank aktivieren	3	PF	S	Alchimistisches Zaubermittel
@@ -340,6 +347,7 @@ Opferletter (Zwerge)	4	Th	G	magische Letter
 Pulver der Panzerhaut aktivieren	3	De	S	Alchimistisches Zaubermittel
 Pulver der Panzerhaut aktivieren	3	Dr	S	Alchimistisches Zaubermittel
 Pulver der Panzerhaut aktivieren	3	Hl	S	Alchimistisches Zaubermittel
+Pulver der Panzerhaut aktivieren	3	Km	S	Alchimistisches Zaubermittel
 Pulver der Panzerhaut aktivieren	3	Ma	S	Alchimistisches Zaubermittel
 Pulver der Panzerhaut aktivieren	3	PC	S	Alchimistisches Zaubermittel
 Pulver der Panzerhaut aktivieren	3	PF	S	Alchimistisches Zaubermittel
@@ -359,6 +367,7 @@ Pulver der Panzerhaut aktivieren	3	sHx	S	Alchimistisches Zaubermittel
 Pulver der Panzerhaut aktivieren	3	wHx	S	Alchimistisches Zaubermittel
 Rauchperle aktivieren	3	Dr	S	Alchimistisches Zaubermittel
 Rauchperle aktivieren	3	Hl	S	Alchimistisches Zaubermittel
+Rauchperle aktivieren	3	Km	S	Alchimistisches Zaubermittel
 Rauchperle aktivieren	3	Ma	S	Alchimistisches Zaubermittel
 Rauchperle aktivieren	3	PC	S	Alchimistisches Zaubermittel
 Rauchperle aktivieren	3	PF	S	Alchimistisches Zaubermittel
@@ -379,6 +388,7 @@ Rauchperle aktivieren	3	wHx	S	Alchimistisches Zaubermittel
 Reckentrunk aktivieren	2	De	S	Alchimistisches Zaubermittel
 Reckentrunk aktivieren	2	Dr	S	Alchimistisches Zaubermittel
 Reckentrunk aktivieren	2	Hl	S	Alchimistisches Zaubermittel
+Reckentrunk aktivieren	2	Km	S	Alchimistisches Zaubermittel
 Reckentrunk aktivieren	2	Ma	S	Alchimistisches Zaubermittel
 Reckentrunk aktivieren	2	PC	S	Alchimistisches Zaubermittel
 Reckentrunk aktivieren	2	PF	S	Alchimistisches Zaubermittel
@@ -398,6 +408,7 @@ Reckentrunk aktivieren	2	sHx	S	Alchimistisches Zaubermittel
 Reckentrunk aktivieren	2	wHx	S	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	De	S	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	Hl	S	Alchimistisches Zaubermittel
+Salbe der Eisenhaut aktivieren	4	Km	S	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	Ma	S	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	PC	S	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	PF	S	Alchimistisches Zaubermittel
@@ -415,6 +426,7 @@ Salbe der Eisenhaut aktivieren	4	Th	G	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	gHx	S	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	sHx	S	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	wHx	S	Alchimistisches Zaubermittel
+Salbe der Krakenhände aktivieren	2	Km	S	Alchimistisches Zaubermittel
 Salbe der Krakenhände aktivieren	2	Ma	S	Alchimistisches Zaubermittel
 Salbe der Krakenhände aktivieren	2	Sw	G	Alchimistisches Zaubermittel
 Salbe der Krakenhände aktivieren	2	Th	G	Alchimistisches Zaubermittel
@@ -428,6 +440,7 @@ Schamanentrommel herstellen	G	Tm	G
 Schildamulett verzaubern	1	De	S	Amulett
 Schildamulett verzaubern	1	Dr	A	Amulett
 Schildamulett verzaubern	1	Hl	A	Amulett
+Schildamulett verzaubern	1	Km	A	Amulett
 Schildamulett verzaubern	1	Ma	A	Amulett
 Schildamulett verzaubern	1	PC	S	Amulett
 Schildamulett verzaubern	1	PF	S	Amulett
@@ -451,6 +464,7 @@ Schildamulett verzaubern	1	wHx	A	Amulett
 Schildamulett verzaubern	2	De	S	Amulett
 Schildamulett verzaubern	2	Dr	A	Amulett
 Schildamulett verzaubern	2	Hl	A	Amulett
+Schildamulett verzaubern	2	Km	A	Amulett
 Schildamulett verzaubern	2	Ma	A	Amulett
 Schildamulett verzaubern	2	PC	S	Amulett
 Schildamulett verzaubern	2	PF	S	Amulett
@@ -474,6 +488,7 @@ Schildamulett verzaubern	2	wHx	A	Amulett
 Schildamulett verzaubern	3	De	S	Amulett
 Schildamulett verzaubern	3	Dr	A	Amulett
 Schildamulett verzaubern	3	Hl	A	Amulett
+Schildamulett verzaubern	3	Km	A	Amulett
 Schildamulett verzaubern	3	Ma	A	Amulett
 Schildamulett verzaubern	3	PC	S	Amulett
 Schildamulett verzaubern	3	PF	S	Amulett
@@ -497,6 +512,7 @@ Schildamulett verzaubern	3	wHx	A	Amulett
 Schildamulett verzaubern	4	De	S	Amulett
 Schildamulett verzaubern	4	Dr	A	Amulett
 Schildamulett verzaubern	4	Hl	A	Amulett
+Schildamulett verzaubern	4	Km	A	Amulett
 Schildamulett verzaubern	4	Ma	A	Amulett
 Schildamulett verzaubern	4	PC	S	Amulett
 Schildamulett verzaubern	4	PF	S	Amulett
@@ -520,6 +536,7 @@ Schildamulett verzaubern	4	wHx	A	Amulett
 Schildamulett verzaubern	5	De	S	Amulett
 Schildamulett verzaubern	5	Dr	A	Amulett
 Schildamulett verzaubern	5	Hl	A	Amulett
+Schildamulett verzaubern	5	Km	A	Amulett
 Schildamulett verzaubern	5	Ma	A	Amulett
 Schildamulett verzaubern	5	PC	S	Amulett
 Schildamulett verzaubern	5	PF	S	Amulett
@@ -543,6 +560,7 @@ Schildamulett verzaubern	5	wHx	A	Amulett
 Schildamulett verzaubern	6	De	S	Amulett
 Schildamulett verzaubern	6	Dr	A	Amulett
 Schildamulett verzaubern	6	Hl	A	Amulett
+Schildamulett verzaubern	6	Km	A	Amulett
 Schildamulett verzaubern	6	Ma	A	Amulett
 Schildamulett verzaubern	6	PC	S	Amulett
 Schildamulett verzaubern	6	PF	S	Amulett
@@ -576,6 +594,7 @@ Schmerzen	2	To	S	Schutzrune
 Schnellkraut aktivieren	3	De	S	Pflanzliches Zaubermittel
 Schnellkraut aktivieren	3	Dr	S	Pflanzliches Zaubermittel
 Schnellkraut aktivieren	3	Hl	S	Pflanzliches Zaubermittel
+Schnellkraut aktivieren	3	Km	S	Pflanzliches Zaubermittel
 Schnellkraut aktivieren	3	Ma	S	Pflanzliches Zaubermittel
 Schnellkraut aktivieren	3	PC	S	Pflanzliches Zaubermittel
 Schnellkraut aktivieren	3	PF	S	Pflanzliches Zaubermittel
@@ -595,6 +614,7 @@ Schnellkraut aktivieren	3	wHx	S	Pflanzliches Zaubermittel
 Schutzamulett verzaubern	1	De	A	Amulett
 Schutzamulett verzaubern	1	Dr	A	Amulett
 Schutzamulett verzaubern	1	Hl	A	Amulett
+Schutzamulett verzaubern	1	Km	S	Amulett
 Schutzamulett verzaubern	1	Ma	S	Amulett
 Schutzamulett verzaubern	1	PC	A	Amulett
 Schutzamulett verzaubern	1	PF	A	Amulett
@@ -615,6 +635,7 @@ Schutzamulett verzaubern	1	wHx	A	Amulett
 Schutzamulett verzaubern	2	De	A	Amulett
 Schutzamulett verzaubern	2	Dr	A	Amulett
 Schutzamulett verzaubern	2	Hl	A	Amulett
+Schutzamulett verzaubern	2	Km	S	Amulett
 Schutzamulett verzaubern	2	Ma	S	Amulett
 Schutzamulett verzaubern	2	PC	A	Amulett
 Schutzamulett verzaubern	2	PF	A	Amulett
@@ -635,6 +656,7 @@ Schutzamulett verzaubern	2	wHx	A	Amulett
 Schutzamulett verzaubern	3	De	A	Amulett
 Schutzamulett verzaubern	3	Dr	A	Amulett
 Schutzamulett verzaubern	3	Hl	A	Amulett
+Schutzamulett verzaubern	3	Km	S	Amulett
 Schutzamulett verzaubern	3	Ma	S	Amulett
 Schutzamulett verzaubern	3	PC	A	Amulett
 Schutzamulett verzaubern	3	PF	A	Amulett
@@ -655,6 +677,7 @@ Schutzamulett verzaubern	3	wHx	A	Amulett
 Schutzamulett verzaubern	4	De	A	Amulett
 Schutzamulett verzaubern	4	Dr	A	Amulett
 Schutzamulett verzaubern	4	Hl	A	Amulett
+Schutzamulett verzaubern	4	Km	S	Amulett
 Schutzamulett verzaubern	4	Ma	S	Amulett
 Schutzamulett verzaubern	4	PC	A	Amulett
 Schutzamulett verzaubern	4	PF	A	Amulett
@@ -675,6 +698,7 @@ Schutzamulett verzaubern	4	wHx	A	Amulett
 Schutzamulett verzaubern	5	De	A	Amulett
 Schutzamulett verzaubern	5	Dr	A	Amulett
 Schutzamulett verzaubern	5	Hl	A	Amulett
+Schutzamulett verzaubern	5	Km	S	Amulett
 Schutzamulett verzaubern	5	Ma	S	Amulett
 Schutzamulett verzaubern	5	PC	A	Amulett
 Schutzamulett verzaubern	5	PF	A	Amulett
@@ -695,6 +719,7 @@ Schutzamulett verzaubern	5	wHx	A	Amulett
 Schutzamulett verzaubern	6	De	A	Amulett
 Schutzamulett verzaubern	6	Dr	A	Amulett
 Schutzamulett verzaubern	6	Hl	A	Amulett
+Schutzamulett verzaubern	6	Km	S	Amulett
 Schutzamulett verzaubern	6	Ma	S	Amulett
 Schutzamulett verzaubern	6	PC	A	Amulett
 Schutzamulett verzaubern	6	PF	A	Amulett
@@ -719,6 +744,7 @@ Sehen von Verborgenem	2	Th	G	Augensalbe
 Spiegelamulett verzaubern	1	De	A	Amulett
 Spiegelamulett verzaubern	1	Dr	A	Amulett
 Spiegelamulett verzaubern	1	Hl	A	Amulett
+Spiegelamulett verzaubern	1	Km	S	Amulett
 Spiegelamulett verzaubern	1	Ma	S	Amulett
 Spiegelamulett verzaubern	1	PC	A	Amulett
 Spiegelamulett verzaubern	1	PF	A	Amulett
@@ -739,6 +765,7 @@ Spiegelamulett verzaubern	1	wHx	A	Amulett
 Spiegelamulett verzaubern	2	De	A	Amulett
 Spiegelamulett verzaubern	2	Dr	A	Amulett
 Spiegelamulett verzaubern	2	Hl	A	Amulett
+Spiegelamulett verzaubern	2	Km	S	Amulett
 Spiegelamulett verzaubern	2	Ma	S	Amulett
 Spiegelamulett verzaubern	2	PC	A	Amulett
 Spiegelamulett verzaubern	2	PF	A	Amulett
@@ -759,6 +786,7 @@ Spiegelamulett verzaubern	2	wHx	A	Amulett
 Spiegelamulett verzaubern	3	De	A	Amulett
 Spiegelamulett verzaubern	3	Dr	A	Amulett
 Spiegelamulett verzaubern	3	Hl	A	Amulett
+Spiegelamulett verzaubern	3	Km	S	Amulett
 Spiegelamulett verzaubern	3	Ma	S	Amulett
 Spiegelamulett verzaubern	3	PC	A	Amulett
 Spiegelamulett verzaubern	3	PF	A	Amulett
@@ -779,6 +807,7 @@ Spiegelamulett verzaubern	3	wHx	A	Amulett
 Spiegelamulett verzaubern	4	De	A	Amulett
 Spiegelamulett verzaubern	4	Dr	A	Amulett
 Spiegelamulett verzaubern	4	Hl	A	Amulett
+Spiegelamulett verzaubern	4	Km	S	Amulett
 Spiegelamulett verzaubern	4	Ma	S	Amulett
 Spiegelamulett verzaubern	4	PC	A	Amulett
 Spiegelamulett verzaubern	4	PF	A	Amulett
@@ -799,6 +828,7 @@ Spiegelamulett verzaubern	4	wHx	A	Amulett
 Spiegelamulett verzaubern	5	De	A	Amulett
 Spiegelamulett verzaubern	5	Dr	A	Amulett
 Spiegelamulett verzaubern	5	Hl	A	Amulett
+Spiegelamulett verzaubern	5	Km	S	Amulett
 Spiegelamulett verzaubern	5	Ma	S	Amulett
 Spiegelamulett verzaubern	5	PC	A	Amulett
 Spiegelamulett verzaubern	5	PF	A	Amulett
@@ -819,6 +849,7 @@ Spiegelamulett verzaubern	5	wHx	A	Amulett
 Spiegelamulett verzaubern	6	De	A	Amulett
 Spiegelamulett verzaubern	6	Dr	A	Amulett
 Spiegelamulett verzaubern	6	Hl	A	Amulett
+Spiegelamulett verzaubern	6	Km	S	Amulett
 Spiegelamulett verzaubern	6	Ma	S	Amulett
 Spiegelamulett verzaubern	6	PC	A	Amulett
 Spiegelamulett verzaubern	6	PF	A	Amulett
@@ -845,6 +876,7 @@ Talisman verzaubern	1	De	S	Talisman
 Talisman verzaubern	1	Dr	A	Talisman
 Talisman verzaubern	1	Hj	G	Talisman
 Talisman verzaubern	1	Hl	A	Talisman
+Talisman verzaubern	1	Km	A	Talisman
 Talisman verzaubern	1	Ma	A	Talisman
 Talisman verzaubern	1	PC	S	Talisman
 Talisman verzaubern	1	PF	S	Talisman
@@ -866,6 +898,7 @@ Talisman verzaubern	2	De	S	Talisman
 Talisman verzaubern	2	Dr	A	Talisman
 Talisman verzaubern	2	Hj	G	Talisman
 Talisman verzaubern	2	Hl	A	Talisman
+Talisman verzaubern	2	Km	A	Talisman
 Talisman verzaubern	2	Ma	A	Talisman
 Talisman verzaubern	2	PC	S	Talisman
 Talisman verzaubern	2	PF	S	Talisman
@@ -887,6 +920,7 @@ Talisman verzaubern	3	De	S	Talisman
 Talisman verzaubern	3	Dr	A	Talisman
 Talisman verzaubern	3	Hj	G	Talisman
 Talisman verzaubern	3	Hl	A	Talisman
+Talisman verzaubern	3	Km	A	Talisman
 Talisman verzaubern	3	Ma	A	Talisman
 Talisman verzaubern	3	PC	S	Talisman
 Talisman verzaubern	3	PF	S	Talisman
@@ -908,6 +942,7 @@ Talisman verzaubern	4	De	S	Talisman
 Talisman verzaubern	4	Dr	A	Talisman
 Talisman verzaubern	4	Hj	G	Talisman
 Talisman verzaubern	4	Hl	A	Talisman
+Talisman verzaubern	4	Km	A	Talisman
 Talisman verzaubern	4	Ma	A	Talisman
 Talisman verzaubern	4	PC	S	Talisman
 Talisman verzaubern	4	PF	S	Talisman
@@ -936,6 +971,7 @@ Todeshauch	3	To	S	Schutzrune
 Trunk der Macht über Hunde aktivieren	2	De	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	Dr	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	Hl	S	Alchimistisches Zaubermittel
+Trunk der Macht über Hunde aktivieren	2	Km	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	Ma	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	PF	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	ScN	S	Alchimistisches Zaubermittel
@@ -952,6 +988,7 @@ Trunk der Macht über Hunde aktivieren	2	wHx	S	Alchimistisches Zaubermittel
 Trunk der Macht über Menschen aktivieren	4	De	S	Alchimistisches Zaubermittel
 Trunk der Macht über Menschen aktivieren	4	Dr	S	Alchimistisches Zaubermittel
 Trunk der Macht über Menschen aktivieren	4	Hl	S	Alchimistisches Zaubermittel
+Trunk der Macht über Menschen aktivieren	4	Km	S	Alchimistisches Zaubermittel
 Trunk der Macht über Menschen aktivieren	4	Ma	S	Alchimistisches Zaubermittel
 Trunk der Macht über Menschen aktivieren	4	PF	S	Alchimistisches Zaubermittel
 Trunk der Macht über Menschen aktivieren	4	ScN	S	Alchimistisches Zaubermittel
@@ -966,6 +1003,7 @@ Trunk der Macht über Menschen aktivieren	4	sHx	S	Alchimistisches Zaubermittel
 Trunk der Macht über Menschen aktivieren	4	tBe	S	Alchimistisches Zaubermittel
 Trunk der Macht über Menschen aktivieren	4	wHx	S	Alchimistisches Zaubermittel
 Trunk der Macht über Orks aktivieren	3	De	S	Alchimistisches Zaubermittel
+Trunk der Macht über Orks aktivieren	3	Km	S	Alchimistisches Zaubermittel
 Trunk der Macht über Orks aktivieren	3	Ma	S	Alchimistisches Zaubermittel
 Trunk der Macht über Orks aktivieren	3	PC	S	Alchimistisches Zaubermittel
 Trunk der Macht über Orks aktivieren	3	PHe	S	Alchimistisches Zaubermittel
@@ -983,6 +1021,7 @@ Trunk der Macht über Orks aktivieren	3	wHx	S	Alchimistisches Zaubermittel
 Trunk des Riesenwuchses aktivieren	4	De	S	Alchimistisches Zaubermittel
 Trunk des Riesenwuchses aktivieren	4	Dr	S	Alchimistisches Zaubermittel
 Trunk des Riesenwuchses aktivieren	4	Hl	S	Alchimistisches Zaubermittel
+Trunk des Riesenwuchses aktivieren	4	Km	S	Alchimistisches Zaubermittel
 Trunk des Riesenwuchses aktivieren	4	Ma	S	Alchimistisches Zaubermittel
 Trunk des Riesenwuchses aktivieren	4	PC	S	Alchimistisches Zaubermittel
 Trunk des Riesenwuchses aktivieren	4	PF	S	Alchimistisches Zaubermittel
@@ -1003,6 +1042,7 @@ Trunk des Riesenwuchses aktivieren	4	wHx	S	Alchimistisches Zaubermittel
 Trunk des Schwerelosigkeit aktivieren	4	De	S	Alchimistisches Zaubermittel
 Trunk des Schwerelosigkeit aktivieren	4	Dr	S	Alchimistisches Zaubermittel
 Trunk des Schwerelosigkeit aktivieren	4	Hl	S	Alchimistisches Zaubermittel
+Trunk des Schwerelosigkeit aktivieren	4	Km	S	Alchimistisches Zaubermittel
 Trunk des Schwerelosigkeit aktivieren	4	Ma	S	Alchimistisches Zaubermittel
 Trunk des Schwerelosigkeit aktivieren	4	PC	S	Alchimistisches Zaubermittel
 Trunk des Schwerelosigkeit aktivieren	4	PF	S	Alchimistisches Zaubermittel
@@ -1023,6 +1063,7 @@ Trunk des Schwerelosigkeit aktivieren	4	wHx	S	Alchimistisches Zaubermittel
 Trunk des Unsichtbarkeit aktivieren	3	De	S	Alchimistisches Zaubermittel
 Trunk des Unsichtbarkeit aktivieren	3	Dr	S	Alchimistisches Zaubermittel
 Trunk des Unsichtbarkeit aktivieren	3	Hl	S	Alchimistisches Zaubermittel
+Trunk des Unsichtbarkeit aktivieren	3	Km	S	Alchimistisches Zaubermittel
 Trunk des Unsichtbarkeit aktivieren	3	Ma	S	Alchimistisches Zaubermittel
 Trunk des Unsichtbarkeit aktivieren	3	PC	S	Alchimistisches Zaubermittel
 Trunk des Unsichtbarkeit aktivieren	3	PF	S	Alchimistisches Zaubermittel
@@ -1043,6 +1084,7 @@ Trunk des Unsichtbarkeit aktivieren	3	wHx	S	Alchimistisches Zaubermittel
 Trunk des Verwandlung aktivieren	5	De	S	Alchimistisches Zaubermittel
 Trunk des Verwandlung aktivieren	5	Dr	S	Alchimistisches Zaubermittel
 Trunk des Verwandlung aktivieren	5	Hl	S	Alchimistisches Zaubermittel
+Trunk des Verwandlung aktivieren	5	Km	S	Alchimistisches Zaubermittel
 Trunk des Verwandlung aktivieren	5	Ma	S	Alchimistisches Zaubermittel
 Trunk des Verwandlung aktivieren	5	PC	S	Alchimistisches Zaubermittel
 Trunk des Verwandlung aktivieren	5	PF	S	Alchimistisches Zaubermittel
@@ -1063,6 +1105,7 @@ Trunk des Verwandlung aktivieren	5	wHx	S	Alchimistisches Zaubermittel
 Untotenamulett verzaubern	3	De	S	Amulett
 Untotenamulett verzaubern	3	Dr	S	Amulett
 Untotenamulett verzaubern	3	Hl	S	Amulett
+Untotenamulett verzaubern	3	Km	S	Amulett
 Untotenamulett verzaubern	3	Ma	S	Amulett
 Untotenamulett verzaubern	3	PC	A	Amulett
 Untotenamulett verzaubern	3	PF	S	Amulett
@@ -1139,6 +1182,7 @@ Weihen	G	ScW	S
 Werwesenamulett verzaubern	3	De	S	Amulett
 Werwesenamulett verzaubern	3	Dr	S	Amulett
 Werwesenamulett verzaubern	3	Hl	S	Amulett
+Werwesenamulett verzaubern	3	Km	S	Amulett
 Werwesenamulett verzaubern	3	Ma	S	Amulett
 Werwesenamulett verzaubern	3	PC	A	Amulett
 Werwesenamulett verzaubern	3	PF	S	Amulett
@@ -1187,6 +1231,7 @@ Zahlenletter (8)	1	Sw	G	magische Letter
 Zahlenletter (8)	1	Th	G	magische Letter
 Zahlenletter (9)	1	Sw	G	magische Letter
 Zahlenletter (9)	1	Th	G	magische Letter
+Zauberpergament beschriften	3	Km	G	Zauberpergament
 Zauberpergament beschriften	3	Ma	G	Zauberpergament
 Zauberpergament beschriften	3	PC	S	Zauberpergament
 Zauberpergament beschriften	3	PF	S	Zauberpergament

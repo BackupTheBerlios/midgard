@@ -249,6 +249,35 @@ COPY "lernschema_4" FROM stdin;
 1	Kd	f	YangScheng	Fachkenntnisse	1
 1	Kd	f	waffenloser Kampf	Waffenfertigkeiten	5
 1	Kd	t	KiDo	Fachkenntnisse	10
+1	Km	f	Dolch	Waffenfertigkeiten	5
+1	Km	f	Erkennen von Leben	Zauberkünste	0
+1	Km	f	Handaxt	Waffenfertigkeiten	5
+1	Km	f	Heranholen	Zauberkünste	0
+1	Km	f	Hören von Fernem	Zauberkünste	0
+1	Km	f	Keule	Waffenfertigkeiten	5
+1	Km	f	Kurzschwert	Waffenfertigkeiten	5
+1	Km	f	Langschwert	Waffenfertigkeiten	5
+1	Km	f	Lanze	Waffenfertigkeiten	5
+1	Km	f	Lauschen	Zauberkünste	0
+1	Km	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	Km	f	Macht über das Selbst	Zauberkünste	0
+1	Km	f	Reiten	Fachkenntnisse	15
+1	Km	f	Scharfblick	Zauberkünste	0
+1	Km	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	5
+1	Km	f	Sehen von Verborgenem	Zauberkünste	0
+1	Km	f	Stoßspeer	Waffenfertigkeiten	5
+1	Km	f	Streitkolben	Waffenfertigkeiten	5
+1	Km	f	Wurfaxt	Waffenfertigkeiten	5
+1	Km	f	Wurfkeule	Waffenfertigkeiten	5
+1	Km	f	Wurfmesser	Waffenfertigkeiten	5
+1	Km	f	Wurfspeer	Waffenfertigkeiten	5
+1	Km	f	großer Schild	Waffenfertigkeiten	1
+1	Km	f	kleiner Schild	Waffenfertigkeiten	1
+1	Km	f	leichter Speer	Waffenfertigkeiten	5
+1	Km	t	Schleichen	Fachkenntnisse	8
+1	Km	t	Spurenlesen	Fachkenntnisse	6
+1	Km	t	Tarnen	Fachkenntnisse	8
+1	Km	t	Wahrnehmung	Fachkenntnisse	4
 1	Kr	f	Buckler	Waffenfertigkeiten	1
 1	Kr	f	Dolch	Waffenfertigkeiten	5
 1	Kr	f	Handaxt	Waffenfertigkeiten	5
@@ -610,6 +639,22 @@ COPY "lernschema_4" FROM stdin;
 1	Tm	f	kleiner Schild	Waffenfertigkeiten	1
 1	Tm	f	leichter Speer	Waffenfertigkeiten	5
 1	Tm	t	Abrichten	Fachkenntnisse	8
+1	To	f	Dolch	Waffenfertigkeiten	5
+1	To	f	Fallenmechanik	Fachkenntnisse	4
+1	To	f	Geheimzeichen	Fachkenntnisse	12
+1	To	f	Giftmischen	Fachkenntnisse	5
+1	To	f	Keule	Waffenfertigkeiten	5
+1	To	f	Kurzschwert	Waffenfertigkeiten	5
+1	To	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	To	f	Parierdolch	Waffenfertigkeiten	1
+1	To	f	Rapier	Waffenfertigkeiten	5
+1	To	f	Schleichen	Fachkenntnisse	8
+1	To	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	To	f	Schwäche	Zauberkünste	0
+1	To	f	Stimmen nachahmen	Fachkenntnisse	15
+1	To	f	Tarnen	Fachkenntnisse	8
+1	To	f	Wurfmesser	Waffenfertigkeiten	5
+1	To	t	Meucheln	Fachkenntnisse	8
 1	Tr	f	Dolch	Waffenfertigkeiten	5
 1	Tr	f	Federflechten	Fachkenntnisse	\N
 1	Tr	f	Geschenke machen	Fachkenntnisse	\N
@@ -901,6 +946,20 @@ COPY "lernschema_4" FROM stdin;
 2	Kd	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 2	Kd	f	Teezeremonie	Fachkenntnisse	8
 2	Kd	f	Wurfstern	Waffenfertigkeiten	5
+2	Km	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	Km	f	Beidhändiger Kampf	Fachkenntnisse	3
+2	Km	f	Bihänder	Waffenfertigkeiten	5
+2	Km	f	Bogen	Waffenfertigkeiten	5
+2	Km	f	Kampf zu Pferd	Fachkenntnisse	15
+2	Km	f	Kampfstab	Waffenfertigkeiten	5
+2	Km	f	Kampftaktik	Fachkenntnisse	8
+2	Km	f	Kurzbogen	Waffenfertigkeiten	5
+2	Km	f	Langbogen	Waffenfertigkeiten	5
+2	Km	f	Macht über Unbelebtes	Zauberkünste	0
+2	Km	f	Macht über die Sinne	Zauberkünste	0
+2	Km	f	Schleuder	Waffenfertigkeiten	5
+2	Km	f	Zauberkunde	Fachkenntnisse	5
+2	Km	f	waffenloser Kampf	Waffenfertigkeiten	5
 2	Kr	f	Anderthalbhänder	Waffenfertigkeiten	5
 2	Kr	f	Beidhändiger Kampf	Fachkenntnisse	3
 2	Kr	f	Bihänder	Waffenfertigkeiten	5
@@ -1315,6 +1374,35 @@ COPY "lernschema_4" FROM stdin;
 2	Tm	f	Wurfpfeil	Waffenfertigkeiten	5
 2	Tm	f	Zähmen	Zauberkünste	0
 2	Tm	f	großer Schild	Waffenfertigkeiten	1
+2	To	f	Bannen von Licht	Zauberkünste	0
+2	To	f	Beschatten	Fachkenntnisse	8
+2	To	f	Blasrohr	Waffenfertigkeiten	5
+2	To	f	Bogen	Waffenfertigkeiten	5
+2	To	f	Bärenwut	Zauberkünste	0
+2	To	f	Fallen entdecken	Fachkenntnisse	6
+2	To	f	Fälschen	Fachkenntnisse	15
+2	To	f	Garotte	Waffenfertigkeiten	5
+2	To	f	Gassenwissen	Fachkenntnisse	5
+2	To	f	Handaxt	Waffenfertigkeiten	5
+2	To	f	Kampf in Dunkelheit	Fachkenntnisse	2
+2	To	f	Kurzbogen	Waffenfertigkeiten	5
+2	To	f	Landeskunde (Heimat)	Fachkenntnisse	10
+2	To	f	Langschwert	Waffenfertigkeiten	5
+2	To	f	Lippenlesen	Fachkenntnisse	6
+2	To	f	Ochsenzunge	Waffenfertigkeiten	5
+2	To	f	Stimmenwerfen	Zauberkünste	0
+2	To	f	Streitkolben	Waffenfertigkeiten	5
+2	To	f	Suchen	Fachkenntnisse	8
+2	To	f	Verbergen	Fachkenntnisse	8
+2	To	f	Verkleiden	Fachkenntnisse	15
+2	To	f	Werfen	Waffenfertigkeiten	5
+2	To	f	Wurfaxt	Waffenfertigkeiten	5
+2	To	f	Wurfpfeil	Waffenfertigkeiten	5
+2	To	f	Wurfspeer	Waffenfertigkeiten	5
+2	To	f	Zauberkunde	Fachkenntnisse	5
+2	To	f	leichte Armbrust	Waffenfertigkeiten	5
+2	To	f	leichter Speer	Waffenfertigkeiten	5
+2	To	f	waffenloser Kampf	Waffenfertigkeiten	5
 2	Tr	f	Balancieren	Fachkenntnisse	15
 2	Tr	f	Ballbalance	Zauberkünste	\N
 2	Tr	f	Blumen herbeizaubern	Zauberkünste	\N
@@ -1520,6 +1608,10 @@ COPY "lernschema_4" FROM stdin;
 3	Kd	f	NinJutsu	Fachkenntnisse	4
 3	Kd	f	Wahrnehmung	Fachkenntnisse	4
 3	Kd	f	leichte Armbrust	Waffenfertigkeiten	5
+3	Km	f	Alchimie	Fachkenntnisse	5
+3	Km	f	Athletik	Fachkenntnisse	4
+3	Km	f	Macht über die belebte Natur	Zauberkünste	0
+3	Km	f	Wagemut	Zauberkünste	0
 3	Kr	f	Athletik	Fachkenntnisse	4
 3	Ku	f	Gassenwissen	Fachkenntnisse	5
 3	Ku	f	Morgenstern	Waffenfertigkeiten	5
@@ -1684,7 +1776,7 @@ COPY "lernschema_4" FROM stdin;
 3	Sw	f	Schatten verstärken	Zauberkünste	0
 3	Sw	f	Schleuder	Waffenfertigkeiten	5
 3	Sw	f	Wurfpfeil	Waffenfertigkeiten	5
-3	Sw	t	Thaumatographi	Fachkenntnisse	6
+3	Sw	t	Thaumatographie	Fachkenntnisse	6
 3	Sö	f	Athletik	Fachkenntnisse	4
 3	Th	f	Alchimie	Fachkenntnisse	5
 3	Th	f	Bannen von Dunkelheit	Zauberkünste	0
@@ -1694,6 +1786,21 @@ COPY "lernschema_4" FROM stdin;
 3	Tm	f	Schlachtbeil	Waffenfertigkeiten	5
 3	Tm	f	Stabkeule	Waffenfertigkeiten	5
 3	Tm	f	Wurfmesser	Waffenfertigkeiten	5
+3	To	f	Anderthalbhänder	Waffenfertigkeiten	5
+3	To	f	Bihänder	Waffenfertigkeiten	5
+3	To	f	Buckler	Waffenfertigkeiten	1
+3	To	f	Fuchtel	Waffenfertigkeiten	5
+3	To	f	Hellebarde	Waffenfertigkeiten	5
+3	To	f	Kampfstab	Waffenfertigkeiten	5
+3	To	f	Macht über das Selbst	Zauberkünste	0
+3	To	f	Magierstab	Waffenfertigkeiten	5
+3	To	f	Morgenstern	Waffenfertigkeiten	5
+3	To	f	Schleuder	Waffenfertigkeiten	5
+3	To	f	Schmerzen	Zauberkünste	0
+3	To	f	Stoßspeer	Waffenfertigkeiten	5
+3	To	f	Wurfkeule	Waffenfertigkeiten	5
+3	To	f	kleiner Schild	Waffenfertigkeiten	1
+3	To	f	schwere Armbrust	Waffenfertigkeiten	5
 3	Tr	f	Langschwert	Waffenfertigkeiten	5
 3	Tr	f	Steinaxt	Waffenfertigkeiten	5
 3	Tt	f	Ixtantzutuhs Ekstase	Zauberkünste	\N
@@ -1783,6 +1890,10 @@ COPY "lernschema_4" FROM stdin;
 4	Hä	f	Kurzbogen	Waffenfertigkeiten	5
 4	Hä	f	Langbogen	Waffenfertigkeiten	5
 4	Hä	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	Km	f	Erkennen von Zauberei	Zauberkünste	0
+4	Km	f	Macht über Menschen	Zauberkünste	0
+4	Km	f	Magierstab	Waffenfertigkeiten	5
+4	Km	f	Magierstecken	Waffenfertigkeiten	5
 4	Ku	f	Bola	Waffenfertigkeiten	5
 4	Ku	f	Lanze	Waffenfertigkeiten	5
 4	Ku	f	Lasso	Waffenfertigkeiten	5
@@ -1863,6 +1974,8 @@ COPY "lernschema_4" FROM stdin;
 4	Tm	f	Macht über die belebte Natur	Zauberkünste	0
 4	Tm	f	Wagemut	Zauberkünste	0
 4	Tm	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	To	f	Angst	Zauberkünste	0
+4	To	f	Stille	Zauberkünste	0
 4	Tr	f	Farbenspiel	Zauberkünste	\N
 4	Tr	f	Keule	Waffenfertigkeiten	5
 4	Tr	f	Scharade	Zauberkünste	\N

@@ -30,6 +30,7 @@ Abu es-Samum	sHx	S	\N
 Abu es-Samum	wHx	S	\N
 Abwenden von Blicken	Dt	G	\N
 Abwenden von Blicken	Hl	G	\N
+Abwenden von Blicken	Km	S	\N
 Abwenden von Blicken	Ma	S	\N
 Abwenden von Blicken	Or	G	\N
 Abwenden von Blicken	PHe	S	\N
@@ -46,6 +47,7 @@ Abwenden von Blicken	gHx	A	\N
 Abwenden von Blicken	sHx	A	\N
 Abwenden von Blicken	wHx	A	\N
 Aggression	De	S	\N
+Aggression	Km	A	\N
 Aggression	Ma	A	\N
 Aggression	PC	S	\N
 Aggression	Sa	S	\N
@@ -151,6 +153,7 @@ Angst	Dr	G	Holz
 Angst	Dt	G	\N
 Angst	Hj	G	\N
 Angst	Hl	S	Holz
+Angst	Km	S	\N
 Angst	Ma	S	\N
 Angst	Mg	S	\N
 Angst	PC	S	\N
@@ -176,6 +179,7 @@ Angst	tBe	S	\N
 Angst	wHx	G	\N
 Anziehen	Dr	A	\N
 Anziehen	Hl	A	\N
+Anziehen	Km	S	\N
 Anziehen	Ma	A	\N
 Anziehen	PF	S	\N
 Anziehen	PHe	S	\N
@@ -198,6 +202,7 @@ Aufladen	tBe	G	\N
 Auflösung	De	S	\N
 Auflösung	Dr	A	\N
 Auflösung	Hl	A	\N
+Auflösung	Km	S	\N
 Auflösung	Ma	S	\N
 Auflösung	PC	G	\N
 Auflösung	PF	A	\N
@@ -219,6 +224,7 @@ Auflösung	wHx	S	\N
 Augenschleier	De	A	\N
 Augenschleier	Dr	A	\N
 Augenschleier	Hl	S	\N
+Augenschleier	Km	S	\N
 Augenschleier	Ma	S	\N
 Augenschleier	PK	S	\N
 Augenschleier	PT	S	\N
@@ -263,6 +269,7 @@ Austreibung des Guten	ScS	S	\N
 Austreibung des Guten	ScW	S	\N
 Austreibung des Guten	Sr	G	\N
 Automat schaffen	Dt	S	\N
+Automat schaffen	Km	A	\N
 Automat schaffen	Ma	S	\N
 Automat schaffen	PHa	S	\N
 Automat schaffen	PHe	A	\N
@@ -277,6 +284,7 @@ Ballader der besiegten Gier	Ba	G	\N
 Ballader der besiegten Gier	Sk	S	\N
 Ballbalance	Tr	G	\N
 Bann der wahren Eigentümerschaft	Dt	S	\N
+Bann der wahren Eigentümerschaft	Km	S	\N
 Bann der wahren Eigentümerschaft	Ma	S	\N
 Bann der wahren Eigentümerschaft	PC	S	\N
 Bann der wahren Eigentümerschaft	PF	A	\N
@@ -311,6 +319,7 @@ Bannen von Dunebargen	De	A	\N
 Bannen von Dunebargen	Dr	A	\N
 Bannen von Dunebargen	Dt	A	\N
 Bannen von Dunebargen	Hl	A	\N
+Bannen von Dunebargen	Km	A	\N
 Bannen von Dunebargen	Ma	A	\N
 Bannen von Dunebargen	PC	A	\N
 Bannen von Dunebargen	PF	A	\N
@@ -336,6 +345,7 @@ Bannen von Dunkelheit	De	G	\N
 Bannen von Dunkelheit	Dr	A	\N
 Bannen von Dunkelheit	Dt	G	\N
 Bannen von Dunkelheit	Hl	G	\N
+Bannen von Dunkelheit	Km	A	\N
 Bannen von Dunkelheit	Ma	A	\N
 Bannen von Dunkelheit	Or	G	\N
 Bannen von Dunkelheit	PC	A	\N
@@ -362,6 +372,7 @@ Bannen von Dvergar	De	A	\N
 Bannen von Dvergar	Dr	A	\N
 Bannen von Dvergar	Dt	A	\N
 Bannen von Dvergar	Hl	A	\N
+Bannen von Dvergar	Km	A	\N
 Bannen von Dvergar	Ma	A	\N
 Bannen von Dvergar	PC	A	\N
 Bannen von Dvergar	PF	A	\N
@@ -401,6 +412,7 @@ Bannen von Fäulnis	De	A	\N
 Bannen von Fäulnis	Dr	A	\N
 Bannen von Fäulnis	Dt	S	\N
 Bannen von Fäulnis	Hl	G	\N
+Bannen von Fäulnis	Km	A	\N
 Bannen von Fäulnis	Ma	A	\N
 Bannen von Fäulnis	PF	G	\N
 Bannen von Fäulnis	PHe	G	\N
@@ -440,6 +452,7 @@ Bannen von Hrimfolk	De	A	\N
 Bannen von Hrimfolk	Dr	A	\N
 Bannen von Hrimfolk	Dt	A	\N
 Bannen von Hrimfolk	Hl	A	\N
+Bannen von Hrimfolk	Km	A	\N
 Bannen von Hrimfolk	Ma	A	\N
 Bannen von Hrimfolk	PC	A	\N
 Bannen von Hrimfolk	PF	A	\N
@@ -465,6 +478,7 @@ Bannen von Hrimkin	De	A	\N
 Bannen von Hrimkin	Dr	A	\N
 Bannen von Hrimkin	Dt	A	\N
 Bannen von Hrimkin	Hl	A	\N
+Bannen von Hrimkin	Km	A	\N
 Bannen von Hrimkin	Ma	A	\N
 Bannen von Hrimkin	PC	A	\N
 Bannen von Hrimkin	PF	A	\N
@@ -490,6 +504,7 @@ Bannen von Hunar	De	A	\N
 Bannen von Hunar	Dr	A	\N
 Bannen von Hunar	Dt	A	\N
 Bannen von Hunar	Hl	A	\N
+Bannen von Hunar	Km	A	\N
 Bannen von Hunar	Ma	A	\N
 Bannen von Hunar	PC	A	\N
 Bannen von Hunar	PF	A	\N
@@ -515,6 +530,7 @@ Bannen von Hyrrfolk	De	A	\N
 Bannen von Hyrrfolk	Dr	A	\N
 Bannen von Hyrrfolk	Dt	A	\N
 Bannen von Hyrrfolk	Hl	A	\N
+Bannen von Hyrrfolk	Km	A	\N
 Bannen von Hyrrfolk	Ma	A	\N
 Bannen von Hyrrfolk	PC	A	\N
 Bannen von Hyrrfolk	PF	A	\N
@@ -540,6 +556,7 @@ Bannen von Hyrrkin	De	A	\N
 Bannen von Hyrrkin	Dr	A	\N
 Bannen von Hyrrkin	Dt	A	\N
 Bannen von Hyrrkin	Hl	A	\N
+Bannen von Hyrrkin	Km	A	\N
 Bannen von Hyrrkin	Ma	A	\N
 Bannen von Hyrrkin	PC	A	\N
 Bannen von Hyrrkin	PF	A	\N
@@ -565,6 +582,7 @@ Bannen von Jördfolk	De	A	\N
 Bannen von Jördfolk	Dr	A	\N
 Bannen von Jördfolk	Dt	A	\N
 Bannen von Jördfolk	Hl	A	\N
+Bannen von Jördfolk	Km	A	\N
 Bannen von Jördfolk	Ma	A	\N
 Bannen von Jördfolk	PC	A	\N
 Bannen von Jördfolk	PF	A	\N
@@ -590,6 +608,7 @@ Bannen von Jördkin	De	A	\N
 Bannen von Jördkin	Dr	A	\N
 Bannen von Jördkin	Dt	A	\N
 Bannen von Jördkin	Hl	A	\N
+Bannen von Jördkin	Km	A	\N
 Bannen von Jördkin	Ma	A	\N
 Bannen von Jördkin	PC	A	\N
 Bannen von Jördkin	PF	A	\N
@@ -615,6 +634,7 @@ Bannen von Kaobargen	De	A	\N
 Bannen von Kaobargen	Dr	A	\N
 Bannen von Kaobargen	Dt	A	\N
 Bannen von Kaobargen	Hl	A	\N
+Bannen von Kaobargen	Km	A	\N
 Bannen von Kaobargen	Ma	A	\N
 Bannen von Kaobargen	PC	A	\N
 Bannen von Kaobargen	PF	A	\N
@@ -640,6 +660,7 @@ Bannen von Kälte	De	S	\N
 Bannen von Kälte	Dr	S	\N
 Bannen von Kälte	Dt	A	\N
 Bannen von Kälte	Hl	A	\N
+Bannen von Kälte	Km	A	\N
 Bannen von Kälte	Ma	A	\N
 Bannen von Kälte	PM	S	\N
 Bannen von Kälte	PT	S	\N
@@ -654,6 +675,7 @@ Bannen von Kälte	wHx	S	\N
 Bannen von Licht	De	G	\N
 Bannen von Licht	Dr	A	\N
 Bannen von Licht	Dt	A	\N
+Bannen von Licht	Km	A	\N
 Bannen von Licht	Ma	A	\N
 Bannen von Licht	Or	G	\N
 Bannen von Licht	PC	G	\N
@@ -675,6 +697,7 @@ Bannen von Vindfolk	De	A	\N
 Bannen von Vindfolk	Dr	A	\N
 Bannen von Vindfolk	Dt	A	\N
 Bannen von Vindfolk	Hl	A	\N
+Bannen von Vindfolk	Km	A	\N
 Bannen von Vindfolk	Ma	A	\N
 Bannen von Vindfolk	PC	A	\N
 Bannen von Vindfolk	PF	A	\N
@@ -700,6 +723,7 @@ Bannen von Vindskin	De	A	\N
 Bannen von Vindskin	Dr	A	\N
 Bannen von Vindskin	Dt	A	\N
 Bannen von Vindskin	Hl	A	\N
+Bannen von Vindskin	Km	A	\N
 Bannen von Vindskin	Ma	A	\N
 Bannen von Vindskin	PC	A	\N
 Bannen von Vindskin	PF	A	\N
@@ -725,6 +749,7 @@ Bannen von Wisfolk	De	A	\N
 Bannen von Wisfolk	Dr	A	\N
 Bannen von Wisfolk	Dt	A	\N
 Bannen von Wisfolk	Hl	A	\N
+Bannen von Wisfolk	Km	A	\N
 Bannen von Wisfolk	Ma	A	\N
 Bannen von Wisfolk	PC	A	\N
 Bannen von Wisfolk	PF	A	\N
@@ -750,6 +775,7 @@ Bannen von Wiskin	De	A	\N
 Bannen von Wiskin	Dr	A	\N
 Bannen von Wiskin	Dt	A	\N
 Bannen von Wiskin	Hl	A	\N
+Bannen von Wiskin	Km	A	\N
 Bannen von Wiskin	Ma	A	\N
 Bannen von Wiskin	PC	A	\N
 Bannen von Wiskin	PF	A	\N
@@ -775,6 +801,7 @@ Bannen von Zauberwerk	Dr	A	\N
 Bannen von Zauberwerk	Dt	S	\N
 Bannen von Zauberwerk	Hj	G	\N
 Bannen von Zauberwerk	Hl	S	\N
+Bannen von Zauberwerk	Km	S	\N
 Bannen von Zauberwerk	Ma	S	\N
 Bannen von Zauberwerk	Or	G	\N
 Bannen von Zauberwerk	PC	G	\N
@@ -803,6 +830,7 @@ Bannsphäre, Blaue	Dr	A	\N
 Bannsphäre, Blaue	Dt	S	\N
 Bannsphäre, Blaue	Hj	G	\N
 Bannsphäre, Blaue	Hl	A	\N
+Bannsphäre, Blaue	Km	S	\N
 Bannsphäre, Blaue	Ma	S	\N
 Bannsphäre, Blaue	Or	G	\N
 Bannsphäre, Blaue	PC	S	\N
@@ -830,6 +858,7 @@ Bannsphäre, Goldene	De	S	\N
 Bannsphäre, Goldene	Dr	A	\N
 Bannsphäre, Goldene	Dt	S	\N
 Bannsphäre, Goldene	Hl	A	\N
+Bannsphäre, Goldene	Km	S	\N
 Bannsphäre, Goldene	Ma	S	\N
 Bannsphäre, Goldene	Or	G	\N
 Bannsphäre, Goldene	PC	S	\N
@@ -856,6 +885,7 @@ Bannsphäre, Schwarze	Dr	S	\N
 Bannsphäre, Schwarze	Dt	S	\N
 Bannsphäre, Schwarze	Hj	G	\N
 Bannsphäre, Schwarze	Hl	S	\N
+Bannsphäre, Schwarze	Km	G	\N
 Bannsphäre, Schwarze	Ma	G	\N
 Bannsphäre, Schwarze	PC	S	\N
 Bannsphäre, Schwarze	PF	S	\N
@@ -882,6 +912,7 @@ Bannsphäre, Silberne	Dr	A	\N
 Bannsphäre, Silberne	Dt	S	\N
 Bannsphäre, Silberne	Hj	G	\N
 Bannsphäre, Silberne	Hl	A	\N
+Bannsphäre, Silberne	Km	S	\N
 Bannsphäre, Silberne	Ma	S	\N
 Bannsphäre, Silberne	Or	G	\N
 Bannsphäre, Silberne	PC	G	\N
@@ -908,6 +939,7 @@ Bannsphäre, Silberne	wHx	S	\N
 Bannspäre, Goldene	Hj	G	\N
 Baum	Dr	G	\N
 Baum	Dt	G	\N
+Baum	Km	A	\N
 Baum	Ma	A	\N
 Baum	PF	A	\N
 Baum	To	A	\N
@@ -917,6 +949,7 @@ Baum	wHx	A	\N
 Baumkämpfer	Dr	G	\N
 Baumkämpfer	Dt	G	\N
 Baumkämpfer	Hl	S	\N
+Baumkämpfer	Km	S	\N
 Baumkämpfer	PF	S	\N
 Baumkämpfer	Sa	S	\N
 Baumkämpfer	ScN	S	\N
@@ -933,6 +966,7 @@ Baumtor	ScS	G	\N
 Baumtor	ScW	G	\N
 Baumwächter	Dr	G	\N
 Baumwächter	Hl	S	\N
+Baumwächter	Km	A	\N
 Baumwächter	PF	S	\N
 Baumwächter	Sa	S	\N
 Baumwächter	ScN	S	\N
@@ -947,6 +981,7 @@ Beeinflussen	De	S	\N
 Beeinflussen	Dr	S	\N
 Beeinflussen	Dt	G	\N
 Beeinflussen	Hj	G	\N
+Beeinflussen	Km	S	\N
 Beeinflussen	Ma	S	\N
 Beeinflussen	Mg	S	\N
 Beeinflussen	PC	S	\N
@@ -970,6 +1005,7 @@ Beeinflussen	gHx	G	\N
 Beeinflussen	sHx	G	\N
 Beeinflussen	tBe	S	\N
 Beeinflussen	wHx	G	\N
+Befestigen	Km	S	\N
 Befestigen	Ma	S	\N
 Befestigen	Sw	G	\N
 Befestigen	Th	G	\N
@@ -979,6 +1015,7 @@ Befestigen	sHx	S	\N
 Befestigen	wHx	S	\N
 Belebungshauch	De	A	\N
 Belebungshauch	Dt	S	\N
+Belebungshauch	Km	S	\N
 Belebungshauch	Ma	S	\N
 Belebungshauch	PC	S	\N
 Belebungshauch	PF	S	\N
@@ -1005,6 +1042,7 @@ Bergeist beschwören	De	A	\N
 Bergeist beschwören	Dr	A	\N
 Bergeist beschwören	Dt	A	\N
 Bergeist beschwören	Hl	A	\N
+Bergeist beschwören	Km	A	\N
 Bergeist beschwören	Ma	A	\N
 Bergeist beschwören	PC	A	\N
 Bergeist beschwören	PF	A	\N
@@ -1030,6 +1068,7 @@ Bergeist rufen	De	A	\N
 Bergeist rufen	Dr	A	\N
 Bergeist rufen	Dt	A	\N
 Bergeist rufen	Hl	A	\N
+Bergeist rufen	Km	A	\N
 Bergeist rufen	Ma	A	\N
 Bergeist rufen	PC	A	\N
 Bergeist rufen	PF	A	\N
@@ -1058,6 +1097,7 @@ Beschleunigen	Dr	S	\N
 Beschleunigen	Dt	S	\N
 Beschleunigen	Fi	G	\N
 Beschleunigen	Hl	G	\N
+Beschleunigen	Km	S	\N
 Beschleunigen	Ma	S	\N
 Beschleunigen	Or	G	\N
 Beschleunigen	PC	S	\N
@@ -1143,6 +1183,7 @@ Bittersalz	wHx	S	\N
 Blenden	De	G	\N
 Blenden	Dr	S	\N
 Blenden	Dt	S	\N
+Blenden	Km	S	\N
 Blenden	Ma	S	\N
 Blenden	Or	G	\N
 Blenden	PC	S	\N
@@ -1167,6 +1208,7 @@ Blendwerk	De	A	\N
 Blendwerk	Dr	A	\N
 Blendwerk	Dt	S	\N
 Blendwerk	Hl	S	\N
+Blendwerk	Km	S	\N
 Blendwerk	Ma	S	\N
 Blendwerk	PC	S	\N
 Blendwerk	PF	S	\N
@@ -1241,6 +1283,7 @@ Blindsalz	sHx	S	\N
 Blindsalz	wHx	S	\N
 Blitze schleudern	Dr	S	\N
 Blitze schleudern	Dt	S	\N
+Blitze schleudern	Km	S	\N
 Blitze schleudern	Ma	S	\N
 Blitze schleudern	PC	S	\N
 Blitze schleudern	PF	S	\N
@@ -1259,6 +1302,7 @@ Blitze schleudern	wHx	S	\N
 Blumen erschaffen	Dr	S	\N
 Blumen erschaffen	Dt	A	\N
 Blumen erschaffen	Hl	S	\N
+Blumen erschaffen	Km	A	\N
 Blumen erschaffen	Ma	A	\N
 Blumen erschaffen	PC	A	\N
 Blumen erschaffen	PF	G	\N
@@ -1333,6 +1377,7 @@ Brechsalz	sHx	S	\N
 Brechsalz	wHx	S	\N
 Brot und Wasser	De	S	\N
 Brot und Wasser	Dt	S	\N
+Brot und Wasser	Km	S	\N
 Brot und Wasser	Ma	S	\N
 Brot und Wasser	PF	G	\N
 Brot und Wasser	PHa	S	\N
@@ -1350,6 +1395,7 @@ Brot und Wasser	wHx	S	\N
 Bruchbann	Dr	A	\N
 Bruchbann	Dt	S	\N
 Bruchbann	Hl	A	\N
+Bruchbann	Km	G	\N
 Bruchbann	Ma	G	\N
 Bruchbann	PC	S	\N
 Bruchbann	PF	S	\N
@@ -1369,6 +1415,7 @@ Bruchbann	gHx	G	\N
 Bruchbann	sHx	G	\N
 Bruchbann	wHx	G	\N
 Bärenstärke	Dr	S	\N
+Bärenstärke	Km	A	\N
 Bärenstärke	Ma	A	\N
 Bärenstärke	PK	A	\N
 Bärenstärke	Sa	G	\N
@@ -1402,6 +1449,7 @@ Böser Blick	tBe	S	\N
 Charivari Klänge	Ba	G	\N
 Cheprus Sendbote	De	G	\N
 Cheprus Sendbote	Dt	G	\N
+Cheprus Sendbote	Km	S	\N
 Cheprus Sendbote	Ma	S	\N
 Cheprus Sendbote	PC	S	\N
 Cheprus Sendbote	PF	G	\N
@@ -1423,6 +1471,7 @@ Coluscar 1 beschwören	De	A	\N
 Coluscar 1 beschwören	Dr	A	\N
 Coluscar 1 beschwören	Dt	A	\N
 Coluscar 1 beschwören	Hl	A	\N
+Coluscar 1 beschwören	Km	A	\N
 Coluscar 1 beschwören	Ma	A	\N
 Coluscar 1 beschwören	PC	A	\N
 Coluscar 1 beschwören	PF	A	\N
@@ -1448,6 +1497,7 @@ Coluscar 2 beschwören	De	A	\N
 Coluscar 2 beschwören	Dr	A	\N
 Coluscar 2 beschwören	Dt	A	\N
 Coluscar 2 beschwören	Hl	A	\N
+Coluscar 2 beschwören	Km	A	\N
 Coluscar 2 beschwören	Ma	A	\N
 Coluscar 2 beschwören	PC	A	\N
 Coluscar 2 beschwören	PF	A	\N
@@ -1473,6 +1523,7 @@ Coluscar 3 beschwören	De	A	\N
 Coluscar 3 beschwören	Dr	A	\N
 Coluscar 3 beschwören	Dt	A	\N
 Coluscar 3 beschwören	Hl	A	\N
+Coluscar 3 beschwören	Km	A	\N
 Coluscar 3 beschwören	Ma	A	\N
 Coluscar 3 beschwören	PC	A	\N
 Coluscar 3 beschwören	PF	A	\N
@@ -1498,6 +1549,7 @@ Coluscar 4 beschwören	De	A	\N
 Coluscar 4 beschwören	Dr	A	\N
 Coluscar 4 beschwören	Dt	A	\N
 Coluscar 4 beschwören	Hl	A	\N
+Coluscar 4 beschwören	Km	A	\N
 Coluscar 4 beschwören	Ma	A	\N
 Coluscar 4 beschwören	PC	A	\N
 Coluscar 4 beschwören	PF	A	\N
@@ -1628,6 +1680,7 @@ Deckmantel	De	A	\N
 Deckmantel	Dr	A	\N
 Deckmantel	Dt	S	\N
 Deckmantel	Hl	A	\N
+Deckmantel	Km	S	\N
 Deckmantel	Ma	S	\N
 Deckmantel	PC	S	\N
 Deckmantel	PF	S	\N
@@ -1651,6 +1704,7 @@ Der Gesang Crescendis	Ba	G	\N
 Der Gesang Crescendis	Sk	S	\N
 Der Große Knall	De	A	\N
 Der Große Knall	Dr	A	\N
+Der Große Knall	Km	G	\N
 Der Große Knall	Ma	G	\N
 Der Große Knall	PHe	S	\N
 Der Große Knall	PK	G	\N
@@ -1666,6 +1720,7 @@ Der einschläfernde Gesang	Sk	S	\N
 Der frohlockende Gesang	Ba	G	\N
 Der frohlockende Gesang	Sk	S	\N
 Der große Seiltrick	Ba	G	\N
+Der große Seiltrick	Km	A	\N
 Der große Seiltrick	Ma	A	\N
 Der große Seiltrick	Sa	G	\N
 Der große Seiltrick	To	S	\N
@@ -1673,6 +1728,7 @@ Der große Seiltrick	gHx	S	\N
 Der große Seiltrick	sHx	S	\N
 Der große Seiltrick	wHx	S	\N
 Der kleine Seiltrick	Ba	G	\N
+Der kleine Seiltrick	Km	A	\N
 Der kleine Seiltrick	Ma	A	\N
 Der kleine Seiltrick	Sa	G	\N
 Der kleine Seiltrick	To	S	\N
@@ -1696,6 +1752,7 @@ Die Wiesenheuschrecke zirpt...	wHx	G	\N
 Die überzeugende Stimme	Ba	G	\N
 Die überzeugende Stimme	Sk	G	\N
 Dinge aufspüren	Tr	G	\N
+Dinge rufen	Km	S	\N
 Dinge rufen	Ma	S	\N
 Dinge rufen	Sw	G	\N
 Dinge rufen	Th	G	\N
@@ -1706,6 +1763,7 @@ Dinge rufen	gHx	S	\N
 Dinge rufen	sHx	S	\N
 Dinge rufen	wHx	S	\N
 Dinge verbergen	Dt	S	\N
+Dinge verbergen	Km	S	\N
 Dinge verbergen	Ma	S	\N
 Dinge verbergen	PC	S	\N
 Dinge verbergen	PF	S	\N
@@ -1722,6 +1780,7 @@ Dinge verbergen	gHx	S	\N
 Dinge verbergen	sHx	S	\N
 Dinge verbergen	wHx	S	\N
 Dinge wiederfinden	Dt	S	\N
+Dinge wiederfinden	Km	S	\N
 Dinge wiederfinden	Ma	S	\N
 Dinge wiederfinden	PC	S	\N
 Dinge wiederfinden	PF	S	\N
@@ -1741,6 +1800,7 @@ Donnerkeil	De	A	\N
 Donnerkeil	Dr	S	\N
 Donnerkeil	Dt	S	\N
 Donnerkeil	Hl	A	\N
+Donnerkeil	Km	S	\N
 Donnerkeil	Ma	S	\N
 Donnerkeil	PC	S	\N
 Donnerkeil	PF	S	\N
@@ -1761,6 +1821,7 @@ Donnerkeil	gHx	S	\N
 Donnerkeil	sHx	S	\N
 Donnerkeil	wHx	S	\N
 Doppelgänger schaffen	De	S	\N
+Doppelgänger schaffen	Km	G	\N
 Doppelgänger schaffen	Ma	G	\N
 Doppelgänger schaffen	PC	G	\N
 Doppelgänger schaffen	Sa	S	\N
@@ -1776,6 +1837,7 @@ Dschinn beschwören	De	A	\N
 Dschinn beschwören	Dr	A	\N
 Dschinn beschwören	Dt	A	\N
 Dschinn beschwören	Hl	A	\N
+Dschinn beschwören	Km	A	\N
 Dschinn beschwören	Ma	A	\N
 Dschinn beschwören	PC	A	\N
 Dschinn beschwören	PF	A	\N
@@ -1801,6 +1863,7 @@ Dschinn rufen	De	A	\N
 Dschinn rufen	Dr	A	\N
 Dschinn rufen	Dt	A	\N
 Dschinn rufen	Hl	A	\N
+Dschinn rufen	Km	A	\N
 Dschinn rufen	Ma	A	\N
 Dschinn rufen	PC	A	\N
 Dschinn rufen	PF	A	\N
@@ -1824,6 +1887,7 @@ Dschinn rufen	sHx	A	\N
 Dschinn rufen	wHx	A	\N
 Dschinni-Auge	Dt	S	\N
 Dschinni-Auge	Hj	G	\N
+Dschinni-Auge	Km	S	\N
 Dschinni-Auge	Ma	S	\N
 Dschinni-Auge	PC	S	\N
 Dschinni-Auge	PF	S	\N
@@ -1842,6 +1906,7 @@ Dschinni-Auge	tBe	G	\N
 Dschinni-Auge	wHx	S	\N
 Dschinni-Horn	Dt	S	\N
 Dschinni-Horn	Hj	G	\N
+Dschinni-Horn	Km	S	\N
 Dschinni-Horn	Ma	S	\N
 Dschinni-Horn	PC	S	\N
 Dschinni-Horn	PF	S	\N
@@ -1860,6 +1925,7 @@ Dschinni-Horn	tBe	A	\N
 Dschinni-Horn	wHx	S	\N
 Dschinni-Ohr	Dt	S	\N
 Dschinni-Ohr	Hj	S	\N
+Dschinni-Ohr	Km	S	\N
 Dschinni-Ohr	Ma	S	\N
 Dschinni-Ohr	PC	S	\N
 Dschinni-Ohr	PF	S	\N
@@ -1876,6 +1942,7 @@ Dschungelwand	De	A	\N
 Dschungelwand	Dr	G	\N
 Dschungelwand	Dt	G	\N
 Dschungelwand	Hl	S	\N
+Dschungelwand	Km	S	\N
 Dschungelwand	Ma	S	\N
 Dschungelwand	PC	S	\N
 Dschungelwand	PF	G	\N
@@ -1897,6 +1964,7 @@ Dunebrast 1 beschwören	De	A	\N
 Dunebrast 1 beschwören	Dr	A	\N
 Dunebrast 1 beschwören	Dt	A	\N
 Dunebrast 1 beschwören	Hl	A	\N
+Dunebrast 1 beschwören	Km	A	\N
 Dunebrast 1 beschwören	Ma	A	\N
 Dunebrast 1 beschwören	PC	A	\N
 Dunebrast 1 beschwören	PF	A	\N
@@ -1922,6 +1990,7 @@ Dunebrast 2 beschwören	De	A	\N
 Dunebrast 2 beschwören	Dr	A	\N
 Dunebrast 2 beschwören	Dt	A	\N
 Dunebrast 2 beschwören	Hl	A	\N
+Dunebrast 2 beschwören	Km	A	\N
 Dunebrast 2 beschwören	Ma	A	\N
 Dunebrast 2 beschwören	PC	A	\N
 Dunebrast 2 beschwören	PF	A	\N
@@ -1947,6 +2016,7 @@ Dunebrast 3 beschwören	De	A	\N
 Dunebrast 3 beschwören	Dr	A	\N
 Dunebrast 3 beschwören	Dt	A	\N
 Dunebrast 3 beschwören	Hl	A	\N
+Dunebrast 3 beschwören	Km	A	\N
 Dunebrast 3 beschwören	Ma	A	\N
 Dunebrast 3 beschwören	PC	A	\N
 Dunebrast 3 beschwören	PF	A	\N
@@ -1972,6 +2042,7 @@ Dunebrast 4 beschwören	De	A	\N
 Dunebrast 4 beschwören	Dr	A	\N
 Dunebrast 4 beschwören	Dt	A	\N
 Dunebrast 4 beschwören	Hl	A	\N
+Dunebrast 4 beschwören	Km	A	\N
 Dunebrast 4 beschwören	Ma	A	\N
 Dunebrast 4 beschwören	PC	A	\N
 Dunebrast 4 beschwören	PF	A	\N
@@ -1997,6 +2068,7 @@ Dunkle Horde beschwören	De	A	\N
 Dunkle Horde beschwören	Dr	A	\N
 Dunkle Horde beschwören	Dt	A	\N
 Dunkle Horde beschwören	Hl	A	\N
+Dunkle Horde beschwören	Km	A	\N
 Dunkle Horde beschwören	Ma	A	\N
 Dunkle Horde beschwören	PC	A	\N
 Dunkle Horde beschwören	PF	A	\N
@@ -2022,6 +2094,7 @@ Dunskrat beschwören	De	A	\N
 Dunskrat beschwören	Dr	A	\N
 Dunskrat beschwören	Dt	A	\N
 Dunskrat beschwören	Hl	A	\N
+Dunskrat beschwören	Km	A	\N
 Dunskrat beschwören	Ma	A	\N
 Dunskrat beschwören	PC	A	\N
 Dunskrat beschwören	PF	A	\N
@@ -2074,6 +2147,7 @@ Dämonen binden	De	A	\N
 Dämonen binden	Dr	A	\N
 Dämonen binden	Dt	A	\N
 Dämonen binden	Hl	A	\N
+Dämonen binden	Km	A	\N
 Dämonen binden	Ma	A	\N
 Dämonen binden	PC	A	\N
 Dämonen binden	PF	A	\N
@@ -2098,6 +2172,7 @@ Dämonenbann	De	A	\N
 Dämonenbann	Dr	A	\N
 Dämonenbann	Dt	A	\N
 Dämonenbann	Hl	A	\N
+Dämonenbann	Km	A	\N
 Dämonenbann	Ma	A	\N
 Dämonenbann	PC	A	\N
 Dämonenbann	PF	A	\N
@@ -2120,6 +2195,7 @@ Dämonenbann	sHx	A	\N
 Dämonenbann	wHx	A	\N
 Dämonenfeuer	De	A	\N
 Dämonenfeuer	Dr	A	\N
+Dämonenfeuer	Km	S	\N
 Dämonenfeuer	Ma	A	\N
 Dämonenfeuer	PC	G	\N
 Dämonenfeuer	Sa	S	\N
@@ -2140,6 +2216,7 @@ Dämonenschar beschwören	De	A	\N
 Dämonenschar beschwören	Dr	A	\N
 Dämonenschar beschwören	Dt	A	\N
 Dämonenschar beschwören	Hl	A	\N
+Dämonenschar beschwören	Km	A	\N
 Dämonenschar beschwören	Ma	A	\N
 Dämonenschar beschwören	PC	A	\N
 Dämonenschar beschwören	PF	A	\N
@@ -2182,6 +2259,7 @@ Eifersucht	tBe	S	\N
 Eiselementargeist beschwören	Dr	A	\N
 Eiselementargeist beschwören	Dt	A	\N
 Eiselementargeist beschwören	Hl	A	\N
+Eiselementargeist beschwören	Km	A	\N
 Eiselementargeist beschwören	Ma	A	\N
 Eiselementargeist beschwören	PC	A	\N
 Eiselementargeist beschwören	PF	A	\N
@@ -2206,6 +2284,7 @@ Eiselementargeist beschwören	wHx	A	\N
 Eisenhaut	De	S	\N
 Eisenhaut	Dt	S	\N
 Eisenhaut	Hl	A	\N
+Eisenhaut	Km	S	\N
 Eisenhaut	Ma	S	\N
 Eisenhaut	Or	G	\N
 Eisenhaut	PC	S	\N
@@ -2231,6 +2310,7 @@ Eisiger Nebel	De	A	\N
 Eisiger Nebel	Dr	S	\N
 Eisiger Nebel	Dt	S	\N
 Eisiger Nebel	Hl	A	\N
+Eisiger Nebel	Km	S	\N
 Eisiger Nebel	Ma	S	\N
 Eisiger Nebel	PC	S	\N
 Eisiger Nebel	PF	S	\N
@@ -2253,6 +2333,7 @@ Eismeisterschaft	De	A	\N
 Eismeisterschaft	Dr	A	\N
 Eismeisterschaft	Dt	S	\N
 Eismeisterschaft	Hl	A	\N
+Eismeisterschaft	Km	S	\N
 Eismeisterschaft	Ma	S	\N
 Eismeisterschaft	PC	S	\N
 Eismeisterschaft	PF	A	\N
@@ -2272,6 +2353,7 @@ Eismeisterschaft	wHx	S	\N
 Eiswand	Dr	A	\N
 Eiswand	Dt	G	\N
 Eiswand	Hl	A	\N
+Eiswand	Km	S	\N
 Eiswand	Ma	S	\N
 Eiswand	PC	S	\N
 Eiswand	PF	S	\N
@@ -2294,6 +2376,7 @@ Eiswandlung	De	S	\N
 Eiswandlung	Dr	S	\N
 Eiswandlung	Dt	S	\N
 Eiswandlung	Hl	S	\N
+Eiswandlung	Km	A	\N
 Eiswandlung	Ma	S	\N
 Eiswandlung	PC	A	\N
 Eiswandlung	PF	A	\N
@@ -2316,6 +2399,7 @@ Eldring beschwören	De	A	\N
 Eldring beschwören	Dr	A	\N
 Eldring beschwören	Dt	A	\N
 Eldring beschwören	Hl	A	\N
+Eldring beschwören	Km	A	\N
 Eldring beschwören	Ma	A	\N
 Eldring beschwören	PC	A	\N
 Eldring beschwören	PF	A	\N
@@ -2341,6 +2425,7 @@ Elementarbann	De	A	\N
 Elementarbann	Dr	A	\N
 Elementarbann	Dt	A	\N
 Elementarbann	Hl	A	\N
+Elementarbann	Km	A	\N
 Elementarbann	Ma	A	\N
 Elementarbann	PC	A	\N
 Elementarbann	PF	A	\N
@@ -2364,6 +2449,7 @@ Elementarbann	wHx	A	\N
 Elementarwesen binden	Dr	A	\N
 Elementarwesen binden	Dt	A	\N
 Elementarwesen binden	Hl	A	\N
+Elementarwesen binden	Km	A	\N
 Elementarwesen binden	Ma	A	\N
 Elementarwesen binden	PC	A	\N
 Elementarwesen binden	PF	A	\N
@@ -2389,6 +2475,7 @@ Elementenwandlung	De	S	\N
 Elementenwandlung	Dr	S	\N
 Elementenwandlung	Dt	S	\N
 Elementenwandlung	Hl	A	\N
+Elementenwandlung	Km	S	\N
 Elementenwandlung	Ma	S	\N
 Elementenwandlung	PC	S	\N
 Elementenwandlung	PF	A	\N
@@ -2412,6 +2499,7 @@ Elfenfeuer	Dr	G	\N
 Elfenfeuer	Dt	S	\N
 Elfenfeuer	Fi	A	\N
 Elfenfeuer	Hl	S	\N
+Elfenfeuer	Km	S	\N
 Elfenfeuer	Ma	S	\N
 Elfenfeuer	Or	G	\N
 Elfenfeuer	PC	A	\N
@@ -2497,6 +2585,7 @@ Erdbeben	De	G	\N
 Erdbeben	Dr	S	\N
 Erdbeben	Dt	A	\N
 Erdbeben	Hl	A	\N
+Erdbeben	Km	A	\N
 Erdbeben	Ma	A	\N
 Erdbeben	PC	A	\N
 Erdbeben	PF	S	\N
@@ -2518,6 +2607,7 @@ Erdeelementargeist beschwören	De	A	\N
 Erdeelementargeist beschwören	Dr	A	\N
 Erdeelementargeist beschwören	Dt	A	\N
 Erdeelementargeist beschwören	Hl	A	\N
+Erdeelementargeist beschwören	Km	A	\N
 Erdeelementargeist beschwören	Ma	A	\N
 Erdeelementargeist beschwören	PC	A	\N
 Erdeelementargeist beschwören	PF	A	\N
@@ -2543,6 +2633,7 @@ Erdfessel	De	S	\N
 Erdfessel	Dr	S	\N
 Erdfessel	Dt	A	\N
 Erdfessel	Hl	S	\N
+Erdfessel	Km	S	\N
 Erdfessel	Ma	S	\N
 Erdfessel	PC	S	\N
 Erdfessel	PF	G	\N
@@ -2565,6 +2656,7 @@ Erdmeisterschaft	De	S	\N
 Erdmeisterschaft	Dr	G	\N
 Erdmeisterschaft	Dt	S	\N
 Erdmeisterschaft	Hl	S	\N
+Erdmeisterschaft	Km	S	\N
 Erdmeisterschaft	Ma	S	\N
 Erdmeisterschaft	PC	S	\N
 Erdmeisterschaft	PF	G	\N
@@ -2587,6 +2679,7 @@ Erdwandlung	De	S	\N
 Erdwandlung	Dr	S	\N
 Erdwandlung	Dt	S	\N
 Erdwandlung	Hl	A	\N
+Erdwandlung	Km	S	\N
 Erdwandlung	Ma	S	\N
 Erdwandlung	PC	S	\N
 Erdwandlung	PF	S	\N
@@ -2655,6 +2748,7 @@ Erkennen von Besessenheit	eBe	S	\N
 Erkennen von Besessenheit	tBe	S	\N
 Erkennen von Gift	Dr	G	\N
 Erkennen von Gift	Hl	A	\N
+Erkennen von Gift	Km	S	\N
 Erkennen von Gift	Ma	S	\N
 Erkennen von Gift	Or	A	\N
 Erkennen von Gift	PC	A	\N
@@ -2690,6 +2784,7 @@ Erkennen von Leben	Dr	S	\N
 Erkennen von Leben	Dt	G	\N
 Erkennen von Leben	Fi	G	\N
 Erkennen von Leben	Hl	S	\N
+Erkennen von Leben	Km	G	\N
 Erkennen von Leben	Ma	G	\N
 Erkennen von Leben	Mg	G	\N
 Erkennen von Leben	PC	A	\N
@@ -2712,6 +2807,7 @@ Erkennen von Leben	Wi	A	\N
 Erkennen von Leben	gHx	A	\N
 Erkennen von Leben	sHx	A	\N
 Erkennen von Leben	wHx	A	\N
+Erkennen von Metall	Km	A	\N
 Erkennen von Metall	Ma	A	\N
 Erkennen von Metall	PHe	G	\N
 Erkennen von Metall	Sw	S	\N
@@ -2719,12 +2815,14 @@ Erkennen von Metall	Th	S	\N
 Erkennen von Metall	gHx	A	\N
 Erkennen von Metall	sHx	A	\N
 Erkennen von Metall	wHx	A	\N
+Erkennen von Verdammten	Km	A	\N
 Erkennen von Verdammten	Ma	A	\N
 Erkennen von Verdammten	Or	G	\N
 Erkennen von Verdammten	PT	S	\N
 Erkennen von Zauberei	De	A	\N
 Erkennen von Zauberei	Dt	A	\N
 Erkennen von Zauberei	Hj	G	\N
+Erkennen von Zauberei	Km	G	\N
 Erkennen von Zauberei	Ma	G	\N
 Erkennen von Zauberei	Mg	G	\N
 Erkennen von Zauberei	PW	A	\N
@@ -2742,6 +2840,7 @@ Erkurku beschwören	De	A	\N
 Erkurku beschwören	Dr	A	\N
 Erkurku beschwören	Dt	A	\N
 Erkurku beschwören	Hl	A	\N
+Erkurku beschwören	Km	A	\N
 Erkurku beschwören	Ma	A	\N
 Erkurku beschwören	PC	A	\N
 Erkurku beschwören	PF	A	\N
@@ -2767,6 +2866,7 @@ Erkurku rufen	De	A	\N
 Erkurku rufen	Dr	A	\N
 Erkurku rufen	Dt	A	\N
 Erkurku rufen	Hl	A	\N
+Erkurku rufen	Km	A	\N
 Erkurku rufen	Ma	A	\N
 Erkurku rufen	PC	A	\N
 Erkurku rufen	PF	A	\N
@@ -2792,6 +2892,7 @@ Erscheinungen	De	S	\N
 Erscheinungen	Dr	S	\N
 Erscheinungen	Dt	S	\N
 Erscheinungen	Hl	S	\N
+Erscheinungen	Km	S	\N
 Erscheinungen	Ma	S	\N
 Erscheinungen	PC	S	\N
 Erscheinungen	PF	S	\N
@@ -2848,6 +2949,7 @@ Feenfluch	De	A	\N
 Feenfluch	Dr	S	\N
 Feenfluch	Dt	A	\N
 Feenfluch	Hl	S	\N
+Feenfluch	Km	S	\N
 Feenfluch	Ma	S	\N
 Feenfluch	PC	A	\N
 Feenfluch	PF	A	\N
@@ -2870,6 +2972,7 @@ Feenzauber	De	A	\N
 Feenzauber	Dr	A	\N
 Feenzauber	Dt	A	\N
 Feenzauber	Hl	S	\N
+Feenzauber	Km	S	\N
 Feenzauber	Ma	S	\N
 Feenzauber	PC	A	\N
 Feenzauber	PF	A	\N
@@ -2892,6 +2995,7 @@ Felldvegar beschwören	De	A	\N
 Felldvegar beschwören	Dr	A	\N
 Felldvegar beschwören	Dt	A	\N
 Felldvegar beschwören	Hl	A	\N
+Felldvegar beschwören	Km	A	\N
 Felldvegar beschwören	Ma	A	\N
 Felldvegar beschwören	PC	A	\N
 Felldvegar beschwören	PF	A	\N
@@ -2917,6 +3021,7 @@ Felldverg beschwören	De	A	\N
 Felldverg beschwören	Dr	A	\N
 Felldverg beschwören	Dt	A	\N
 Felldverg beschwören	Hl	A	\N
+Felldverg beschwören	Km	A	\N
 Felldverg beschwören	Ma	A	\N
 Felldverg beschwören	PC	A	\N
 Felldverg beschwören	PF	A	\N
@@ -2942,6 +3047,7 @@ Felsenfaust	De	S	\N
 Felsenfaust	Dr	A	\N
 Felsenfaust	Dt	S	\N
 Felsenfaust	Hl	A	\N
+Felsenfaust	Km	A	\N
 Felsenfaust	Ma	A	\N
 Felsenfaust	Or	S	\N
 Felsenfaust	PC	S	\N
@@ -2966,6 +3072,7 @@ Fengrip beschwören	De	A	\N
 Fengrip beschwören	Dr	A	\N
 Fengrip beschwören	Dt	A	\N
 Fengrip beschwören	Hl	A	\N
+Fengrip beschwören	Km	A	\N
 Fengrip beschwören	Ma	A	\N
 Fengrip beschwören	PC	A	\N
 Fengrip beschwören	PF	A	\N
@@ -2991,6 +3098,7 @@ Fesselbann	De	S	\N
 Fesselbann	Dr	S	\N
 Fesselbann	Dt	S	\N
 Fesselbann	Hl	S	\N
+Fesselbann	Km	S	\N
 Fesselbann	Ma	S	\N
 Fesselbann	PC	S	\N
 Fesselbann	PF	S	\N
@@ -3016,6 +3124,7 @@ Feuerelementargeist beschwören	De	A	\N
 Feuerelementargeist beschwören	Dr	A	\N
 Feuerelementargeist beschwören	Dt	A	\N
 Feuerelementargeist beschwören	Hl	A	\N
+Feuerelementargeist beschwören	Km	A	\N
 Feuerelementargeist beschwören	Ma	A	\N
 Feuerelementargeist beschwören	PC	A	\N
 Feuerelementargeist beschwören	PF	A	\N
@@ -3041,6 +3150,7 @@ Feuerfinger	De	G	\N
 Feuerfinger	Dt	S	\N
 Feuerfinger	Fi	G	\N
 Feuerfinger	Hl	S	\N
+Feuerfinger	Km	S	\N
 Feuerfinger	Ma	S	\N
 Feuerfinger	PC	S	\N
 Feuerfinger	PF	S	\N
@@ -3060,6 +3170,7 @@ Feuerfinger	wHx	S	\N
 Feuerkugel	De	S	\N
 Feuerkugel	Dt	S	\N
 Feuerkugel	Hl	A	\N
+Feuerkugel	Km	S	\N
 Feuerkugel	Ma	S	\N
 Feuerkugel	PC	S	\N
 Feuerkugel	PF	S	\N
@@ -3083,6 +3194,7 @@ Feuerkugel	wHx	S	\N
 Feuerlanze	De	S	\N
 Feuerlanze	Dt	S	\N
 Feuerlanze	Hl	A	\N
+Feuerlanze	Km	S	\N
 Feuerlanze	Ma	S	\N
 Feuerlanze	PC	S	\N
 Feuerlanze	PF	S	\N
@@ -3107,6 +3219,7 @@ Feuerlauf	De	G	\N
 Feuerlauf	Dr	S	\N
 Feuerlauf	Dt	A	\N
 Feuerlauf	Hl	A	\N
+Feuerlauf	Km	A	\N
 Feuerlauf	Ma	A	\N
 Feuerlauf	PC	A	\N
 Feuerlauf	PF	A	\N
@@ -3130,6 +3243,7 @@ Feuerlauf	wHx	A	\N
 Feuermeisterschaft	De	G	\N
 Feuermeisterschaft	Dr	S	\N
 Feuermeisterschaft	Dt	S	\N
+Feuermeisterschaft	Km	S	\N
 Feuermeisterschaft	Ma	S	\N
 Feuermeisterschaft	PC	A	\N
 Feuermeisterschaft	PF	S	\N
@@ -3150,6 +3264,7 @@ Feuermeisterschaft	sHx	S	\N
 Feuermeisterschaft	wHx	S	\N
 Feuerregen	De	G	\N
 Feuerregen	Dt	S	\N
+Feuerregen	Km	S	\N
 Feuerregen	Ma	S	\N
 Feuerregen	PC	A	\N
 Feuerregen	PF	A	\N
@@ -3170,6 +3285,7 @@ Feuerregen	wHx	S	\N
 Feuerring	De	G	\N
 Feuerring	Dr	S	\N
 Feuerring	Dt	S	\N
+Feuerring	Km	S	\N
 Feuerring	Ma	S	\N
 Feuerring	PC	A	\N
 Feuerring	PF	A	\N
@@ -3189,6 +3305,7 @@ Feuerschild	De	A	\N
 Feuerschild	Dr	G	\N
 Feuerschild	Dt	S	\N
 Feuerschild	Hl	S	\N
+Feuerschild	Km	G	\N
 Feuerschild	Ma	G	\N
 Feuerschild	PC	S	\N
 Feuerschild	PF	S	\N
@@ -3225,6 +3342,7 @@ Feuerwand	De	S	\N
 Feuerwand	Dr	A	\N
 Feuerwand	Dt	G	\N
 Feuerwand	Hl	A	\N
+Feuerwand	Km	S	\N
 Feuerwand	Ma	S	\N
 Feuerwand	PC	S	\N
 Feuerwand	PF	S	\N
@@ -3277,6 +3395,7 @@ Fjalhune beschwören	De	A	\N
 Fjalhune beschwören	Dr	A	\N
 Fjalhune beschwören	Dt	A	\N
 Fjalhune beschwören	Hl	A	\N
+Fjalhune beschwören	Km	A	\N
 Fjalhune beschwören	Ma	A	\N
 Fjalhune beschwören	PC	A	\N
 Fjalhune beschwören	PF	A	\N
@@ -3301,6 +3420,7 @@ Fjalhune beschwören	wHx	A	\N
 Flammende Hand	De	G	\N
 Flammende Hand	Dt	S	\N
 Flammende Hand	Hl	S	\N
+Flammende Hand	Km	S	\N
 Flammende Hand	Ma	S	\N
 Flammende Hand	PF	S	\N
 Flammende Hand	PHa	G	\N
@@ -3317,6 +3437,7 @@ Flammende Hand	wHx	S	\N
 Flammenklinge	De	G	\N
 Flammenklinge	Dt	S	\N
 Flammenklinge	Hj	G	\N
+Flammenklinge	Km	S	\N
 Flammenklinge	Ma	S	\N
 Flammenklinge	Or	S	\N
 Flammenklinge	PC	S	\N
@@ -3339,6 +3460,7 @@ Flammenkreis	Dr	S	\N
 Flammenkreis	Dt	S	\N
 Flammenkreis	Hj	G	\N
 Flammenkreis	Hl	S	\N
+Flammenkreis	Km	S	\N
 Flammenkreis	Ma	S	\N
 Flammenkreis	Or	S	\N
 Flammenkreis	PC	A	\N
@@ -3368,6 +3490,7 @@ Fliegen	De	S	\N
 Fliegen	Dr	S	\N
 Fliegen	Dt	S	\N
 Fliegen	Hl	S	\N
+Fliegen	Km	S	\N
 Fliegen	Ma	S	\N
 Fliegen	PC	S	\N
 Fliegen	PF	S	\N
@@ -3438,6 +3561,7 @@ Fossemand beschwören	De	A	\N
 Fossemand beschwören	Dr	A	\N
 Fossemand beschwören	Dt	A	\N
 Fossemand beschwören	Hl	A	\N
+Fossemand beschwören	Km	A	\N
 Fossemand beschwören	Ma	A	\N
 Fossemand beschwören	PC	A	\N
 Fossemand beschwören	PF	A	\N
@@ -3462,6 +3586,7 @@ Fossemand beschwören	wHx	A	\N
 Freundesauge	Dr	S	\N
 Freundesauge	Dt	G	\N
 Freundesauge	Hl	G	\N
+Freundesauge	Km	S	\N
 Freundesauge	Ma	S	\N
 Freundesauge	PC	S	\N
 Freundesauge	PF	S	\N
@@ -3487,6 +3612,7 @@ Friedensrune	Sk	G	\N
 Frostball	Dr	A	\N
 Frostball	Dt	S	\N
 Frostball	Hl	A	\N
+Frostball	Km	S	\N
 Frostball	Ma	S	\N
 Frostball	PC	S	\N
 Frostball	PF	S	\N
@@ -3524,6 +3650,7 @@ Funkenregen	De	S	\N
 Funkenregen	Dr	A	\N
 Funkenregen	Dt	S	\N
 Funkenregen	Hl	G	\N
+Funkenregen	Km	S	\N
 Funkenregen	Ma	S	\N
 Funkenregen	PC	S	\N
 Funkenregen	PF	S	\N
@@ -3637,6 +3764,7 @@ Geist beschwören	De	A	\N
 Geist beschwören	Dr	A	\N
 Geist beschwören	Dt	A	\N
 Geist beschwören	Hl	A	\N
+Geist beschwören	Km	A	\N
 Geist beschwören	Ma	A	\N
 Geist beschwören	PC	A	\N
 Geist beschwören	PF	A	\N
@@ -3674,6 +3802,7 @@ Geistesschild	Dt	S	\N
 Geistesschild	Fi	S	\N
 Geistesschild	Hj	S	\N
 Geistesschild	Hl	G	\N
+Geistesschild	Km	G	\N
 Geistesschild	Ma	G	\N
 Geistesschild	PC	S	\N
 Geistesschild	PF	S	\N
@@ -3703,6 +3832,7 @@ Geruchsverlust	De	S	\N
 Geruchsverlust	Dr	G	\N
 Geruchsverlust	Dt	A	\N
 Geruchsverlust	Hl	A	\N
+Geruchsverlust	Km	S	\N
 Geruchsverlust	Ma	S	\N
 Geruchsverlust	PC	A	\N
 Geruchsverlust	PF	A	\N
@@ -3761,6 +3891,7 @@ Gjornhune beschwören	De	A	\N
 Gjornhune beschwören	Dr	A	\N
 Gjornhune beschwören	Dt	A	\N
 Gjornhune beschwören	Hl	A	\N
+Gjornhune beschwören	Km	A	\N
 Gjornhune beschwören	Ma	A	\N
 Gjornhune beschwören	PC	A	\N
 Gjornhune beschwören	PF	A	\N
@@ -3786,6 +3917,7 @@ Gletschergnom beschwören	De	A	\N
 Gletschergnom beschwören	Dr	A	\N
 Gletschergnom beschwören	Dt	A	\N
 Gletschergnom beschwören	Hl	A	\N
+Gletschergnom beschwören	Km	A	\N
 Gletschergnom beschwören	Ma	A	\N
 Gletschergnom beschwören	PC	A	\N
 Gletschergnom beschwören	PF	A	\N
@@ -3811,6 +3943,7 @@ Gletschergnom rufen	De	A	\N
 Gletschergnom rufen	Dr	A	\N
 Gletschergnom rufen	Dt	A	\N
 Gletschergnom rufen	Hl	A	\N
+Gletschergnom rufen	Km	A	\N
 Gletschergnom rufen	Ma	A	\N
 Gletschergnom rufen	PC	A	\N
 Gletschergnom rufen	PF	A	\N
@@ -3838,6 +3971,7 @@ Gloddvegar beschwören	De	A	\N
 Gloddvegar beschwören	Dr	A	\N
 Gloddvegar beschwören	Dt	A	\N
 Gloddvegar beschwören	Hl	A	\N
+Gloddvegar beschwören	Km	A	\N
 Gloddvegar beschwören	Ma	A	\N
 Gloddvegar beschwören	PC	A	\N
 Gloddvegar beschwören	PF	A	\N
@@ -3863,6 +3997,7 @@ Gloddverg beschwören	De	A	\N
 Gloddverg beschwören	Dr	A	\N
 Gloddverg beschwören	Dt	A	\N
 Gloddverg beschwören	Hl	A	\N
+Gloddverg beschwören	Km	A	\N
 Gloddverg beschwören	Ma	A	\N
 Gloddverg beschwören	PC	A	\N
 Gloddverg beschwören	PF	A	\N
@@ -3909,6 +4044,7 @@ Glühsalz	gHx	S	\N
 Glühsalz	sHx	S	\N
 Glühsalz	wHx	S	\N
 Goldener Panzer	Dt	S	\N
+Goldener Panzer	Km	A	\N
 Goldener Panzer	Ma	S	\N
 Goldener Panzer	Or	G	\N
 Goldener Panzer	PC	S	\N
@@ -3954,6 +4090,7 @@ Graue Hand	sHx	S	\N
 Graue Hand	tBe	S	\N
 Grenzenlose Freude	De	S	\N
 Grenzenlose Freude	Hl	S	\N
+Grenzenlose Freude	Km	A	\N
 Grenzenlose Freude	Ma	A	\N
 Grenzenlose Freude	PF	G	\N
 Grenzenlose Freude	ScN	S	\N
@@ -3979,6 +4116,7 @@ Grüne Hand	De	A	\N
 Grüne Hand	Dr	G	\N
 Grüne Hand	Dt	G	\N
 Grüne Hand	Hl	G	\N
+Grüne Hand	Km	S	\N
 Grüne Hand	Ma	A	\N
 Grüne Hand	PC	A	\N
 Grüne Hand	PF	G	\N
@@ -4094,6 +4232,7 @@ Hagel	De	A	\N
 Hagel	Dr	S	\N
 Hagel	Dt	A	\N
 Hagel	Hl	A	\N
+Hagel	Km	S	\N
 Hagel	PC	A	\N
 Hagel	PF	A	\N
 Hagel	PHa	A	\N
@@ -4116,6 +4255,7 @@ Halebant 1 beschwören	De	A	\N
 Halebant 1 beschwören	Dr	A	\N
 Halebant 1 beschwören	Dt	A	\N
 Halebant 1 beschwören	Hl	A	\N
+Halebant 1 beschwören	Km	A	\N
 Halebant 1 beschwören	Ma	A	\N
 Halebant 1 beschwören	PC	A	\N
 Halebant 1 beschwören	PF	A	\N
@@ -4141,6 +4281,7 @@ Halebant 2 beschwören	De	A	\N
 Halebant 2 beschwören	Dr	A	\N
 Halebant 2 beschwören	Dt	A	\N
 Halebant 2 beschwören	Hl	A	\N
+Halebant 2 beschwören	Km	A	\N
 Halebant 2 beschwören	Ma	A	\N
 Halebant 2 beschwören	PC	A	\N
 Halebant 2 beschwören	PF	A	\N
@@ -4166,6 +4307,7 @@ Halebant 3 beschwören	De	A	\N
 Halebant 3 beschwören	Dr	A	\N
 Halebant 3 beschwören	Dt	A	\N
 Halebant 3 beschwören	Hl	A	\N
+Halebant 3 beschwören	Km	A	\N
 Halebant 3 beschwören	Ma	A	\N
 Halebant 3 beschwören	PC	A	\N
 Halebant 3 beschwören	PF	A	\N
@@ -4191,6 +4333,7 @@ Halebant 4 beschwören	De	A	\N
 Halebant 4 beschwören	Dr	A	\N
 Halebant 4 beschwören	Dt	A	\N
 Halebant 4 beschwören	Hl	A	\N
+Halebant 4 beschwören	Km	A	\N
 Halebant 4 beschwören	Ma	A	\N
 Halebant 4 beschwören	PC	A	\N
 Halebant 4 beschwören	PF	A	\N
@@ -4213,6 +4356,7 @@ Halebant 4 beschwören	gHx	A	\N
 Halebant 4 beschwören	sHx	A	\N
 Halebant 4 beschwören	wHx	A	\N
 Hammerhand	De	S	\N
+Hammerhand	Km	G	\N
 Hammerhand	Ma	G	\N
 Hammerhand	Or	A	\N
 Hammerhand	PC	S	\N
@@ -4267,6 +4411,7 @@ Hardlogi beschwören	De	A	\N
 Hardlogi beschwören	Dr	A	\N
 Hardlogi beschwören	Dt	A	\N
 Hardlogi beschwören	Hl	A	\N
+Hardlogi beschwören	Km	A	\N
 Hardlogi beschwören	Ma	A	\N
 Hardlogi beschwören	PC	A	\N
 Hardlogi beschwören	PF	A	\N
@@ -4292,6 +4437,7 @@ Harkarhune beschwören	De	A	\N
 Harkarhune beschwören	Dr	A	\N
 Harkarhune beschwören	Dt	A	\N
 Harkarhune beschwören	Hl	A	\N
+Harkarhune beschwören	Km	A	\N
 Harkarhune beschwören	Ma	A	\N
 Harkarhune beschwören	PC	A	\N
 Harkarhune beschwören	PF	A	\N
@@ -4317,6 +4463,7 @@ Harkbuar beschwören	De	A	\N
 Harkbuar beschwören	Dr	A	\N
 Harkbuar beschwören	Dt	A	\N
 Harkbuar beschwören	Hl	A	\N
+Harkbuar beschwören	Km	A	\N
 Harkbuar beschwören	Ma	A	\N
 Harkbuar beschwören	PC	A	\N
 Harkbuar beschwören	PF	A	\N
@@ -4359,8 +4506,10 @@ Hauch der Betäubung	To	S	\N
 Hauch der Betäubung	gHx	S	\N
 Hauch der Betäubung	sHx	S	\N
 Hauch der Betäubung	wHx	S	\N
+Hauch der Betäubung_	Km	S	\N
 Hauch der Verwesung	De	A	\N
 Hauch der Verwesung	Dt	S	\N
+Hauch der Verwesung	Km	S	\N
 Hauch der Verwesung	Ma	S	\N
 Hauch der Verwesung	PC	S	\N
 Hauch der Verwesung	PF	A	\N
@@ -4383,6 +4532,7 @@ Hauch der Verwesung	tBe	S	\N
 Hauch der Verwesung	wHx	S	\N
 Hauch der Wüste	Dr	S	\N
 Hauch der Wüste	Dt	A	\N
+Hauch der Wüste	Km	S	\N
 Hauch der Wüste	Ma	S	\N
 Hauch der Wüste	PC	S	\N
 Hauch der Wüste	PHa	G	\N
@@ -4402,6 +4552,7 @@ Hauch der Wüste	sHx	S	\N
 Hauch der Wüste	wHx	S	\N
 Hauch des Frühlings	Dr	G	\N
 Hauch des Frühlings	Dt	S	\N
+Hauch des Frühlings	Km	S	\N
 Hauch des Frühlings	Ma	S	\N
 Hauch des Frühlings	PC	A	\N
 Hauch des Frühlings	PF	A	\N
@@ -4421,6 +4572,7 @@ Hauch des Frühlings	gHx	S	\N
 Hauch des Winters	De	S	\N
 Hauch des Winters	Dr	S	\N
 Hauch des Winters	Dt	A	\N
+Hauch des Winters	Km	S	\N
 Hauch des Winters	Ma	S	\N
 Hauch des Winters	PC	S	\N
 Hauch des Winters	PK	A	\N
@@ -4442,6 +4594,7 @@ Haugskadi beschwören	De	A	\N
 Haugskadi beschwören	Dr	A	\N
 Haugskadi beschwören	Dt	A	\N
 Haugskadi beschwören	Hl	A	\N
+Haugskadi beschwören	Km	A	\N
 Haugskadi beschwören	Ma	A	\N
 Haugskadi beschwören	PC	A	\N
 Haugskadi beschwören	PF	A	\N
@@ -4573,6 +4726,7 @@ Heranholen	De	S	\N
 Heranholen	Dr	S	\N
 Heranholen	Dt	S	\N
 Heranholen	Hl	G	\N
+Heranholen	Km	G	\N
 Heranholen	Ma	G	\N
 Heranholen	Or	A	\N
 Heranholen	PC	S	\N
@@ -4600,6 +4754,7 @@ Herbeizwingen	De	A	\N
 Herbeizwingen	Dr	A	\N
 Herbeizwingen	Dt	A	\N
 Herbeizwingen	Hl	A	\N
+Herbeizwingen	Km	A	\N
 Herbeizwingen	Ma	A	\N
 Herbeizwingen	PC	A	\N
 Herbeizwingen	PF	A	\N
@@ -4621,6 +4776,7 @@ Herbeizwingen	eBe	S	\N
 Herbeizwingen	gHx	A	\N
 Herbeizwingen	sHx	A	\N
 Herbeizwingen	wHx	A	\N
+Hexenhand	Km	S	\N
 Hexenhand	Ma	S	\N
 Hexenhand	PC	G	\N
 Hexenhand	dBe	A	\N
@@ -4647,6 +4803,7 @@ Hexenspüren	De	A	\N
 Hexenspüren	Dr	A	\N
 Hexenspüren	Dt	A	\N
 Hexenspüren	Hl	A	\N
+Hexenspüren	Km	A	\N
 Hexenspüren	Ma	A	\N
 Hexenspüren	Nb	A	\N
 Hexenspüren	PF	S	\N
@@ -4680,6 +4837,7 @@ Hexenwirbel	dBe	S	\N
 Hexenwirbel	eBe	G	\N
 Himmelsleiter	De	S	\N
 Himmelsleiter	Dt	S	\N
+Himmelsleiter	Km	S	\N
 Himmelsleiter	Ma	S	\N
 Himmelsleiter	PF	S	\N
 Himmelsleiter	PHa	G	\N
@@ -4695,6 +4853,7 @@ Himmelsleiter	wHx	S	\N
 Hitzeschutz	De	G	\N
 Hitzeschutz	Dt	A	\N
 Hitzeschutz	Hl	A	\N
+Hitzeschutz	Km	A	\N
 Hitzeschutz	Ma	A	\N
 Hitzeschutz	Mg	S	\N
 Hitzeschutz	PHa	S	\N
@@ -4740,6 +4899,7 @@ Hitzsalz	wHx	S	\N
 Hort der Natur	De	G	\N
 Hort der Natur	Dr	G	\N
 Hort der Natur	Hl	S	\N
+Hort der Natur	Km	G	\N
 Hort der Natur	Sa	G	\N
 Hort der Natur	ScN	G	\N
 Hort der Natur	ScS	G	\N
@@ -4751,6 +4911,7 @@ Hrimdvegar beschwören	De	A	\N
 Hrimdvegar beschwören	Dr	A	\N
 Hrimdvegar beschwören	Dt	A	\N
 Hrimdvegar beschwören	Hl	A	\N
+Hrimdvegar beschwören	Km	A	\N
 Hrimdvegar beschwören	Ma	A	\N
 Hrimdvegar beschwören	PC	A	\N
 Hrimdvegar beschwören	PF	A	\N
@@ -4776,6 +4937,7 @@ Hrimdverg beschwören	De	A	\N
 Hrimdverg beschwören	Dr	A	\N
 Hrimdverg beschwören	Dt	A	\N
 Hrimdverg beschwören	Hl	A	\N
+Hrimdverg beschwören	Km	A	\N
 Hrimdverg beschwören	Ma	A	\N
 Hrimdverg beschwören	PC	A	\N
 Hrimdverg beschwören	PF	A	\N
@@ -4801,6 +4963,7 @@ Hrimhune beschwören	De	A	\N
 Hrimhune beschwören	Dr	A	\N
 Hrimhune beschwören	Dt	A	\N
 Hrimhune beschwören	Hl	A	\N
+Hrimhune beschwören	Km	A	\N
 Hrimhune beschwören	Ma	A	\N
 Hrimhune beschwören	PC	A	\N
 Hrimhune beschwören	PF	A	\N
@@ -4855,6 +5018,7 @@ Hyrrbauti beschwören	De	A	\N
 Hyrrbauti beschwören	Dr	A	\N
 Hyrrbauti beschwören	Dt	A	\N
 Hyrrbauti beschwören	Hl	A	\N
+Hyrrbauti beschwören	Km	A	\N
 Hyrrbauti beschwören	Ma	A	\N
 Hyrrbauti beschwören	PC	A	\N
 Hyrrbauti beschwören	PF	A	\N
@@ -4885,6 +5049,7 @@ Höllenglocke	sHx	S	\N
 Hören der Geister	De	G	\N
 Hören der Geister	Dt	G	\N
 Hören der Geister	Hj	G	\N
+Hören der Geister	Km	G	\N
 Hören der Geister	Ma	G	\N
 Hören der Geister	Mg	G	\N
 Hören der Geister	PC	A	\N
@@ -4901,6 +5066,7 @@ Hören von Fernem	De	S	\N
 Hören von Fernem	Dr	S	\N
 Hören von Fernem	Fi	S	\N
 Hören von Fernem	Hl	S	\N
+Hören von Fernem	Km	G	\N
 Hören von Fernem	Ma	G	\N
 Hören von Fernem	Mg	G	\N
 Hören von Fernem	Sa	S	\N
@@ -4917,6 +5083,7 @@ Hörnerklang	De	A	\N
 Hörnerklang	Dr	A	\N
 Hörnerklang	Dt	S	\N
 Hörnerklang	Hl	A	\N
+Hörnerklang	Km	S	\N
 Hörnerklang	Ma	S	\N
 Hörnerklang	Or	G	\N
 Hörnerklang	PC	S	\N
@@ -4941,6 +5108,7 @@ Ifrit beschwören	De	A	\N
 Ifrit beschwören	Dr	A	\N
 Ifrit beschwören	Dt	A	\N
 Ifrit beschwören	Hl	A	\N
+Ifrit beschwören	Km	A	\N
 Ifrit beschwören	Ma	A	\N
 Ifrit beschwören	PC	A	\N
 Ifrit beschwören	PF	A	\N
@@ -4966,6 +5134,7 @@ Ifrit rufen	De	A	\N
 Ifrit rufen	Dr	A	\N
 Ifrit rufen	Dt	A	\N
 Ifrit rufen	Hl	A	\N
+Ifrit rufen	Km	A	\N
 Ifrit rufen	Ma	A	\N
 Ifrit rufen	PC	A	\N
 Ifrit rufen	PF	A	\N
@@ -4988,6 +5157,7 @@ Ifrit rufen	gHx	A	\N
 Ifrit rufen	sHx	A	\N
 Ifrit rufen	wHx	A	\N
 Incheper schaffen	Dt	G	\N
+Incheper schaffen	Km	A	\N
 Incheper schaffen	Ma	A	\N
 Incheper schaffen	PF	S	\N
 Incheper schaffen	PHa	G	\N
@@ -5003,6 +5173,7 @@ Indruwal 1 beschwören	De	A	\N
 Indruwal 1 beschwören	Dr	A	\N
 Indruwal 1 beschwören	Dt	A	\N
 Indruwal 1 beschwören	Hl	A	\N
+Indruwal 1 beschwören	Km	A	\N
 Indruwal 1 beschwören	Ma	A	\N
 Indruwal 1 beschwören	PC	A	\N
 Indruwal 1 beschwören	PF	A	\N
@@ -5028,6 +5199,7 @@ Indruwal 2 beschwören	De	A	\N
 Indruwal 2 beschwören	Dr	A	\N
 Indruwal 2 beschwören	Dt	A	\N
 Indruwal 2 beschwören	Hl	A	\N
+Indruwal 2 beschwören	Km	A	\N
 Indruwal 2 beschwören	Ma	A	\N
 Indruwal 2 beschwören	PC	A	\N
 Indruwal 2 beschwören	PF	A	\N
@@ -5053,6 +5225,7 @@ Indruwal 3 beschwören	De	A	\N
 Indruwal 3 beschwören	Dr	A	\N
 Indruwal 3 beschwören	Dt	A	\N
 Indruwal 3 beschwören	Hl	A	\N
+Indruwal 3 beschwören	Km	A	\N
 Indruwal 3 beschwören	Ma	A	\N
 Indruwal 3 beschwören	PC	A	\N
 Indruwal 3 beschwören	PF	A	\N
@@ -5078,6 +5251,7 @@ Indruwal 4 beschwören	De	A	\N
 Indruwal 4 beschwören	Dr	A	\N
 Indruwal 4 beschwören	Dt	A	\N
 Indruwal 4 beschwören	Hl	A	\N
+Indruwal 4 beschwören	Km	A	\N
 Indruwal 4 beschwören	Ma	A	\N
 Indruwal 4 beschwören	PC	A	\N
 Indruwal 4 beschwören	PF	A	\N
@@ -5131,6 +5305,7 @@ Ising beschwören	De	A	\N
 Ising beschwören	Dr	A	\N
 Ising beschwören	Dt	A	\N
 Ising beschwören	Hl	A	\N
+Ising beschwören	Km	A	\N
 Ising beschwören	Ma	A	\N
 Ising beschwören	PC	A	\N
 Ising beschwören	PF	A	\N
@@ -5183,6 +5358,7 @@ Jambani beschwören	De	A	\N
 Jambani beschwören	Dr	A	\N
 Jambani beschwören	Dt	A	\N
 Jambani beschwören	Hl	A	\N
+Jambani beschwören	Km	A	\N
 Jambani beschwören	Ma	A	\N
 Jambani beschwören	PC	A	\N
 Jambani beschwören	PF	A	\N
@@ -5208,6 +5384,7 @@ Jokulskadi beschwören	De	A	\N
 Jokulskadi beschwören	Dr	A	\N
 Jokulskadi beschwören	Dt	A	\N
 Jokulskadi beschwören	Hl	A	\N
+Jokulskadi beschwören	Km	A	\N
 Jokulskadi beschwören	Ma	A	\N
 Jokulskadi beschwören	PC	A	\N
 Jokulskadi beschwören	PF	A	\N
@@ -5260,6 +5437,7 @@ Jurugu beschwören	De	A	\N
 Jurugu beschwören	Dr	A	\N
 Jurugu beschwören	Dt	A	\N
 Jurugu beschwören	Hl	A	\N
+Jurugu beschwören	Km	A	\N
 Jurugu beschwören	Ma	A	\N
 Jurugu beschwören	PC	A	\N
 Jurugu beschwören	PF	A	\N
@@ -5285,6 +5463,7 @@ Jurugu rufen	De	A	\N
 Jurugu rufen	Dr	A	\N
 Jurugu rufen	Dt	A	\N
 Jurugu rufen	Hl	A	\N
+Jurugu rufen	Km	A	\N
 Jurugu rufen	Ma	A	\N
 Jurugu rufen	PC	A	\N
 Jurugu rufen	PF	A	\N
@@ -5309,6 +5488,7 @@ Jurugu rufen	wHx	A	\N
 Juwelenauge	De	A	\N
 Juwelenauge	Dt	S	\N
 Juwelenauge	Hj	S	\N
+Juwelenauge	Km	G	\N
 Juwelenauge	Ma	G	\N
 Juwelenauge	PC	S	\N
 Juwelenauge	PF	S	\N
@@ -5332,6 +5512,7 @@ Jördmand beschwören	De	A	\N
 Jördmand beschwören	Dr	A	\N
 Jördmand beschwören	Dt	A	\N
 Jördmand beschwören	Hl	A	\N
+Jördmand beschwören	Km	A	\N
 Jördmand beschwören	Ma	A	\N
 Jördmand beschwören	PC	A	\N
 Jördmand beschwören	PF	A	\N
@@ -5357,6 +5538,7 @@ Kaligin 1 beschwören	De	A	\N
 Kaligin 1 beschwören	Dr	A	\N
 Kaligin 1 beschwören	Dt	A	\N
 Kaligin 1 beschwören	Hl	A	\N
+Kaligin 1 beschwören	Km	A	\N
 Kaligin 1 beschwören	Ma	A	\N
 Kaligin 1 beschwören	PC	A	\N
 Kaligin 1 beschwören	PF	A	\N
@@ -5382,6 +5564,7 @@ Kaligin 2 beschwören	De	A	\N
 Kaligin 2 beschwören	Dr	A	\N
 Kaligin 2 beschwören	Dt	A	\N
 Kaligin 2 beschwören	Hl	A	\N
+Kaligin 2 beschwören	Km	A	\N
 Kaligin 2 beschwören	Ma	A	\N
 Kaligin 2 beschwören	PC	A	\N
 Kaligin 2 beschwören	PF	A	\N
@@ -5407,6 +5590,7 @@ Kaligin 3 beschwören	De	A	\N
 Kaligin 3 beschwören	Dr	A	\N
 Kaligin 3 beschwören	Dt	A	\N
 Kaligin 3 beschwören	Hl	A	\N
+Kaligin 3 beschwören	Km	A	\N
 Kaligin 3 beschwören	Ma	A	\N
 Kaligin 3 beschwören	PC	A	\N
 Kaligin 3 beschwören	PF	A	\N
@@ -5432,6 +5616,7 @@ Kaligin 4 beschwören	De	A	\N
 Kaligin 4 beschwören	Dr	A	\N
 Kaligin 4 beschwören	Dt	A	\N
 Kaligin 4 beschwören	Hl	A	\N
+Kaligin 4 beschwören	Km	A	\N
 Kaligin 4 beschwören	Ma	A	\N
 Kaligin 4 beschwören	PC	A	\N
 Kaligin 4 beschwören	PF	A	\N
@@ -5457,6 +5642,7 @@ Kallbjargi beschwören	De	A	\N
 Kallbjargi beschwören	Dr	A	\N
 Kallbjargi beschwören	Dt	A	\N
 Kallbjargi beschwören	Hl	A	\N
+Kallbjargi beschwören	Km	A	\N
 Kallbjargi beschwören	Ma	A	\N
 Kallbjargi beschwören	PC	A	\N
 Kallbjargi beschwören	PF	A	\N
@@ -5482,6 +5668,7 @@ Kallrani beschwören	De	A	\N
 Kallrani beschwören	Dr	A	\N
 Kallrani beschwören	Dt	A	\N
 Kallrani beschwören	Hl	A	\N
+Kallrani beschwören	Km	A	\N
 Kallrani beschwören	Ma	A	\N
 Kallrani beschwören	PC	A	\N
 Kallrani beschwören	PF	A	\N
@@ -5505,6 +5692,7 @@ Kallrani beschwören	sHx	A	\N
 Kallrani beschwören	wHx	A	\N
 Kammerdiener beschwören	Dt	S	\N
 Kammerdiener beschwören	Hl	G	\N
+Kammerdiener beschwören	Km	S	\N
 Kammerdiener beschwören	Ma	S	\N
 Kammerdiener beschwören	PC	A	\N
 Kammerdiener beschwören	PF	A	\N
@@ -5524,6 +5712,7 @@ Karing beschwören	De	A	\N
 Karing beschwören	Dr	A	\N
 Karing beschwören	Dt	A	\N
 Karing beschwören	Hl	A	\N
+Karing beschwören	Km	A	\N
 Karing beschwören	Ma	A	\N
 Karing beschwören	PC	A	\N
 Karing beschwören	PF	A	\N
@@ -5615,6 +5804,7 @@ Konvulsion	PC	S	\N
 Konvulsion	sHx	S	\N
 Kopieren	Dt	S	\N
 Kopieren	Hl	S	\N
+Kopieren	Km	S	\N
 Kopieren	Ma	S	\N
 Kopieren	PC	G	\N
 Kopieren	PF	G	\N
@@ -5642,6 +5832,7 @@ Kraft entziehen	sHx	A	\N
 Kravyad-Schrei	Ba	S	\N
 Kravyad-Schrei	Dr	S	\N
 Kravyad-Schrei	Dt	S	\N
+Kravyad-Schrei	Km	S	\N
 Kravyad-Schrei	Ma	S	\N
 Kravyad-Schrei	Or	S	\N
 Kravyad-Schrei	PC	S	\N
@@ -5662,6 +5853,7 @@ Kreatur erschaffen	De	A	\N
 Kreatur erschaffen	Dr	A	\N
 Kreatur erschaffen	Dt	A	\N
 Kreatur erschaffen	Hl	A	\N
+Kreatur erschaffen	Km	A	\N
 Kreatur erschaffen	Ma	A	\N
 Kreatur erschaffen	PC	A	\N
 Kreatur erschaffen	PF	A	\N
@@ -5685,6 +5877,7 @@ Kreatur erschaffen	sHx	A	\N
 Kreatur erschaffen	wHx	A	\N
 Kuß des Schlafes	De	G	\N
 Kuß des Schlafes	Dt	A	\N
+Kuß des Schlafes	Km	S	\N
 Kuß des Schlafes	Ma	S	\N
 Kuß des Schlafes	PC	S	\N
 Kuß des Schlafes	PF	S	\N
@@ -5705,6 +5898,7 @@ Kälteschutz	Dr	S	\N
 Kälteschutz	Dt	A	\N
 Kälteschutz	Fi	G	\N
 Kälteschutz	Hl	A	\N
+Kälteschutz	Km	A	\N
 Kälteschutz	Ma	A	\N
 Kälteschutz	Mg	S	\N
 Kälteschutz	PM	S	\N
@@ -5815,7 +6009,9 @@ Laufen wie der Wind	Wi	G	\N
 Laufen wie der Wind	gHx	A	\N
 Laufen wie der Wind	sHx	A	\N
 Laufen wie der Wind	wHx	A	\N
+Laufen wie der Wind_	Km	S	\N
 Lauschen	Hj	S	\N
+Lauschen	Km	G	\N
 Lauschen	Ma	G	\N
 Lauschen	Sw	G	\N
 Lauschen	Th	G	\N
@@ -5832,6 +6028,7 @@ Lebenskeule	wHx	A	\N
 Lehrersuche	Dr	S	\N
 Lehrersuche	Dt	S	\N
 Lehrersuche	Hl	S	\N
+Lehrersuche	Km	S	\N
 Lehrersuche	Ma	S	\N
 Lehrersuche	PC	S	\N
 Lehrersuche	PF	S	\N
@@ -5854,6 +6051,7 @@ Lehrersuche	sHx	S	\N
 Lehrersuche	wHx	S	\N
 Leomies Birneneis	Dt	A	\N
 Leomies Birneneis	Hl	A	\N
+Leomies Birneneis	Km	A	\N
 Leomies Birneneis	Ma	A	\N
 Leomies Birneneis	Or	A	\N
 Leomies Birneneis	PC	A	\N
@@ -5874,6 +6072,7 @@ Lergris beschwören	De	A	\N
 Lergris beschwören	Dr	A	\N
 Lergris beschwören	Dt	A	\N
 Lergris beschwören	Hl	A	\N
+Lergris beschwören	Km	A	\N
 Lergris beschwören	Ma	A	\N
 Lergris beschwören	PC	A	\N
 Lergris beschwören	PF	A	\N
@@ -5923,6 +6122,7 @@ Levitation	De	S	\N
 Levitation	Dr	S	\N
 Levitation	Dt	S	\N
 Levitation	Hl	S	\N
+Levitation	Km	S	\N
 Levitation	Ma	S	\N
 Levitation	PC	S	\N
 Levitation	PF	S	\N
@@ -5947,6 +6147,7 @@ Levitation	tBe	S	\N
 Levitation	wHx	S	\N
 Lichtbrücke	De	S	\N
 Lichtbrücke	Dt	S	\N
+Lichtbrücke	Km	S	\N
 Lichtbrücke	Ma	S	\N
 Lichtbrücke	PF	S	\N
 Lichtbrücke	PHa	G	\N
@@ -5962,6 +6163,7 @@ Lichtbrücke	wHx	S	\N
 Lichtrunen	Dr	A	\N
 Lichtrunen	Dt	S	\N
 Lichtrunen	Hl	A	\N
+Lichtrunen	Km	G	\N
 Lichtrunen	Ma	G	\N
 Lichtrunen	PC	S	\N
 Lichtrunen	PF	S	\N
@@ -5982,6 +6184,7 @@ Liebesrune	Sk	S	\N
 Liebeszauber	Dr	A	\N
 Liebeszauber	Dt	S	\N
 Liebeszauber	Hl	S	\N
+Liebeszauber	Km	A	\N
 Liebeszauber	Ma	A	\N
 Liebeszauber	PF	G	\N
 Liebeszauber	PHa	A	\N
@@ -6027,6 +6230,7 @@ Liniensicht	De	S	\N
 Liniensicht	Dr	G	\N
 Liniensicht	Dt	A	\N
 Liniensicht	Hl	G	\N
+Liniensicht	Km	S	\N
 Liniensicht	Ma	S	\N
 Liniensicht	Nb	G	\N
 Liniensicht	PC	A	\N
@@ -6058,6 +6262,7 @@ Ljosfang beschwören	De	A	\N
 Ljosfang beschwören	Dr	A	\N
 Ljosfang beschwören	Dt	A	\N
 Ljosfang beschwören	Hl	A	\N
+Ljosfang beschwören	Km	A	\N
 Ljosfang beschwören	Ma	A	\N
 Ljosfang beschwören	PC	A	\N
 Ljosfang beschwören	PF	A	\N
@@ -6085,6 +6290,7 @@ Luftelementargeist beschwören	De	A	\N
 Luftelementargeist beschwören	Dr	A	\N
 Luftelementargeist beschwören	Dt	A	\N
 Luftelementargeist beschwören	Hl	A	\N
+Luftelementargeist beschwören	Km	A	\N
 Luftelementargeist beschwören	Ma	A	\N
 Luftelementargeist beschwören	PC	A	\N
 Luftelementargeist beschwören	PF	A	\N
@@ -6109,6 +6315,7 @@ Luftelementargeist beschwören	wHx	A	\N
 Luftlauf	Dr	S	\N
 Luftlauf	Dt	S	\N
 Luftlauf	Hl	A	\N
+Luftlauf	Km	A	\N
 Luftlauf	Ma	A	\N
 Luftlauf	PC	A	\N
 Luftlauf	PF	A	\N
@@ -6126,6 +6333,7 @@ Luftlauf	sHx	A	\N
 Luftlauf	wHx	A	\N
 Luftsphäre	Dt	S	\N
 Luftsphäre	Hl	S	\N
+Luftsphäre	Km	S	\N
 Luftsphäre	Ma	S	\N
 Luftsphäre	PC	S	\N
 Luftsphäre	PF	S	\N
@@ -6143,6 +6351,7 @@ Luftspiegelung	De	G	\N
 Luftspiegelung	Dr	G	\N
 Luftspiegelung	Dt	S	\N
 Luftspiegelung	Hl	S	\N
+Luftspiegelung	Km	S	\N
 Luftspiegelung	Ma	S	\N
 Luftspiegelung	PC	S	\N
 Luftspiegelung	PF	S	\N
@@ -6189,6 +6398,7 @@ Lähmung	De	S	\N
 Lähmung	Dr	S	\N
 Lähmung	Dt	G	\N
 Lähmung	Hl	G	\N
+Lähmung	Km	S	\N
 Lähmung	Ma	S	\N
 Lähmung	PC	S	\N
 Lähmung	PF	S	\N
@@ -6236,6 +6446,7 @@ Löschsalz	wHx	S	\N
 Lösen	Dr	S	\N
 Lösen	Dt	S	\N
 Lösen	Hl	S	\N
+Lösen	Km	S	\N
 Lösen	Ma	S	\N
 Lösen	PC	S	\N
 Lösen	PF	S	\N
@@ -6261,6 +6472,7 @@ Macht der Finsternis	sHx	S	\N
 Macht des Netzes	Dr	S	\N
 Macht des Netzes	Nb	G	\N
 Macht über Leben	De	A	\N
+Macht über Leben	Km	S	\N
 Macht über Leben	Ma	G	\N
 Macht über Leben	PC	S	\N
 Macht über Leben	PT	A	\N
@@ -6275,6 +6487,7 @@ Macht über Leben	tBe	A	\N
 Macht über Leben	wHx	A	\N
 Macht über Menschen	De	A	\N
 Macht über Menschen	Hj	G	\N
+Macht über Menschen	Km	G	\N
 Macht über Menschen	Ma	G	\N
 Macht über Menschen	PC	S	\N
 Macht über Menschen	PHe	S	\N
@@ -6292,6 +6505,7 @@ Macht über Menschen	sHx	A	\N
 Macht über Menschen	tBe	A	\N
 Macht über Menschen	wHx	A	\N
 Macht über Mumien	De	S	\N
+Macht über Mumien	Km	G	\N
 Macht über Mumien	Ma	G	\N
 Macht über Mumien	PC	G	\N
 Macht über Mumien	Sa	S	\N
@@ -6304,6 +6518,7 @@ Macht über Mumien	sHx	A	\N
 Macht über Mumien	tBe	G	\N
 Macht über Mumien	wHx	S	\N
 Macht über Unbelebtes	De	S	\N
+Macht über Unbelebtes	Km	G	\N
 Macht über Unbelebtes	Ma	G	\N
 Macht über Unbelebtes	PHa	A	\N
 Macht über Unbelebtes	Sa	G	\N
@@ -6319,6 +6534,7 @@ Macht über das Selbst	Dr	S	\N
 Macht über das Selbst	Dt	G	\N
 Macht über das Selbst	Fi	G	\N
 Macht über das Selbst	Hl	S	\N
+Macht über das Selbst	Km	G	\N
 Macht über das Selbst	Ma	G	\N
 Macht über das Selbst	Mg	S	\N
 Macht über das Selbst	Or	S	\N
@@ -6337,6 +6553,7 @@ Macht über das Selbst	gHx	S	\N
 Macht über das Selbst	sHx	S	\N
 Macht über das Selbst	tBe	S	\N
 Macht über das Selbst	wHx	S	\N
+Macht über den Tod	Km	A	\N
 Macht über den Tod	Ma	G	\N
 Macht über den Tod	PC	G	\N
 Macht über den Tod	Sa	S	\N
@@ -6352,6 +6569,7 @@ Macht über den Tod	tBe	G	\N
 Macht über den Tod	wHx	A	\N
 Macht über die Sinne	De	S	\N
 Macht über die Sinne	Dt	A	\N
+Macht über die Sinne	Km	G	\N
 Macht über die Sinne	Ma	G	\N
 Macht über die Sinne	PW	A	\N
 Macht über die Sinne	Sa	G	\N
@@ -6364,6 +6582,7 @@ Macht über die Sinne	sHx	S	\N
 Macht über die Sinne	wHx	S	\N
 Macht über die Zeit	Dr	S	Holz
 Macht über die Zeit	Hl	A	Holz
+Macht über die Zeit	Km	G	\N
 Macht über die Zeit	Ma	G	\N
 Macht über die Zeit	To	A	\N
 Macht über die Zeit	gHx	A	\N
@@ -6373,6 +6592,7 @@ Macht über die belebte Natur	De	A	\N
 Macht über die belebte Natur	Dr	G	Holz
 Macht über die belebte Natur	Fi	G	\N
 Macht über die belebte Natur	Hl	G	Holz
+Macht über die belebte Natur	Km	G	\N
 Macht über die belebte Natur	Ma	G	\N
 Macht über die belebte Natur	PF	S	\N
 Macht über die belebte Natur	PM	S	\N
@@ -6393,6 +6613,7 @@ Macht über die belebte Natur	wHx	S	\N
 Macht über magische Wesen	De	S	\N
 Macht über magische Wesen	Dt	A	\N
 Macht über magische Wesen	Hj	G	\N
+Macht über magische Wesen	Km	G	\N
 Macht über magische Wesen	Ma	G	\N
 Macht über magische Wesen	PC	S	\N
 Macht über magische Wesen	PHe	A	\N
@@ -6410,6 +6631,7 @@ Macht über magische Wesen	tBe	S	\N
 Macht über magische Wesen	wHx	S	\N
 Magische Aura	De	S	\N
 Magische Aura	Dt	A	\N
+Magische Aura	Km	G	\N
 Magische Aura	Ma	G	\N
 Magische Aura	PC	A	\N
 Magische Aura	PHe	S	\N
@@ -6423,6 +6645,7 @@ Magische Aura	sHx	G	\N
 Magische Aura	wHx	G	\N
 Magischer Kreis des Bewachens	Dt	S	\N
 Magischer Kreis des Bewachens	Hl	A	\N
+Magischer Kreis des Bewachens	Km	S	\N
 Magischer Kreis des Bewachens	Ma	S	\N
 Magischer Kreis des Bewachens	PC	S	\N
 Magischer Kreis des Bewachens	PF	S	\N
@@ -6442,6 +6665,7 @@ Magischer Kreis des Bewachens	tBe	S	\N
 Magischer Kreis des Bewachens	wHx	A	\N
 Magischer Kreis des Verschleierns	Dt	S	\N
 Magischer Kreis des Verschleierns	Hl	A	\N
+Magischer Kreis des Verschleierns	Km	S	\N
 Magischer Kreis des Verschleierns	Ma	S	\N
 Magischer Kreis des Verschleierns	PC	S	\N
 Magischer Kreis des Verschleierns	PF	S	\N
@@ -6462,6 +6686,7 @@ Magischer Kreis des Verschleierns	wHx	A	\N
 Magischer Kreis des Widerstehens	De	S	\N
 Magischer Kreis des Widerstehens	Dt	S	\N
 Magischer Kreis des Widerstehens	Hl	A	\N
+Magischer Kreis des Widerstehens	Km	S	\N
 Magischer Kreis des Widerstehens	Ma	S	\N
 Magischer Kreis des Widerstehens	PC	S	\N
 Magischer Kreis des Widerstehens	PF	S	\N
@@ -6488,6 +6713,7 @@ Magischer Kreis, klein	De	S	\N
 Magischer Kreis, klein	Dr	G	Holz
 Magischer Kreis, klein	Dt	S	\N
 Magischer Kreis, klein	Hl	S	Holz
+Magischer Kreis, klein	Km	S	\N
 Magischer Kreis, klein	Ma	S	\N
 Magischer Kreis, klein	PC	S	\N
 Magischer Kreis, klein	PF	S	\N
@@ -6545,6 +6771,7 @@ Marhune beschwören	De	A	\N
 Marhune beschwören	Dr	A	\N
 Marhune beschwören	Dt	A	\N
 Marhune beschwören	Hl	A	\N
+Marhune beschwören	Km	A	\N
 Marhune beschwören	Ma	A	\N
 Marhune beschwören	PC	A	\N
 Marhune beschwören	PF	A	\N
@@ -6570,6 +6797,7 @@ Marid beschwören	De	A	\N
 Marid beschwören	Dr	A	\N
 Marid beschwören	Dt	A	\N
 Marid beschwören	Hl	A	\N
+Marid beschwören	Km	A	\N
 Marid beschwören	Ma	A	\N
 Marid beschwören	PC	A	\N
 Marid beschwören	PF	A	\N
@@ -6595,6 +6823,7 @@ Marid rufen	De	A	\N
 Marid rufen	Dr	A	\N
 Marid rufen	Dt	A	\N
 Marid rufen	Hl	A	\N
+Marid rufen	Km	A	\N
 Marid rufen	Ma	A	\N
 Marid rufen	PC	A	\N
 Marid rufen	PF	A	\N
@@ -6620,6 +6849,7 @@ Marmennil beschwören	De	A	\N
 Marmennil beschwören	Dr	A	\N
 Marmennil beschwören	Dt	A	\N
 Marmennil beschwören	Hl	A	\N
+Marmennil beschwören	Km	A	\N
 Marmennil beschwören	Ma	A	\N
 Marmennil beschwören	PC	A	\N
 Marmennil beschwören	PF	A	\N
@@ -6645,6 +6875,7 @@ Marmorhaut	De	S	\N
 Marmorhaut	Dt	S	\N
 Marmorhaut	Fi	S	\N
 Marmorhaut	Hl	A	\N
+Marmorhaut	Km	S	\N
 Marmorhaut	Ma	S	\N
 Marmorhaut	Or	G	\N
 Marmorhaut	PC	S	\N
@@ -6673,6 +6904,7 @@ Megant 1 beschwören	De	A	\N
 Megant 1 beschwören	Dr	A	\N
 Megant 1 beschwören	Dt	A	\N
 Megant 1 beschwören	Hl	A	\N
+Megant 1 beschwören	Km	A	\N
 Megant 1 beschwören	Ma	A	\N
 Megant 1 beschwören	PC	A	\N
 Megant 1 beschwören	PF	A	\N
@@ -6698,6 +6930,7 @@ Megant 2 beschwören	De	A	\N
 Megant 2 beschwören	Dr	A	\N
 Megant 2 beschwören	Dt	A	\N
 Megant 2 beschwören	Hl	A	\N
+Megant 2 beschwören	Km	A	\N
 Megant 2 beschwören	Ma	A	\N
 Megant 2 beschwören	PC	A	\N
 Megant 2 beschwören	PF	A	\N
@@ -6723,6 +6956,7 @@ Megant 3 beschwören	De	A	\N
 Megant 3 beschwören	Dr	A	\N
 Megant 3 beschwören	Dt	A	\N
 Megant 3 beschwören	Hl	A	\N
+Megant 3 beschwören	Km	A	\N
 Megant 3 beschwören	Ma	A	\N
 Megant 3 beschwören	PC	A	\N
 Megant 3 beschwören	PF	A	\N
@@ -6748,6 +6982,7 @@ Megant 4 beschwören	De	A	\N
 Megant 4 beschwören	Dr	A	\N
 Megant 4 beschwören	Dt	A	\N
 Megant 4 beschwören	Hl	A	\N
+Megant 4 beschwören	Km	A	\N
 Megant 4 beschwören	Ma	A	\N
 Megant 4 beschwören	PC	A	\N
 Megant 4 beschwören	PF	A	\N
@@ -6773,6 +7008,7 @@ Meisterbann	De	A	\N
 Meisterbann	Dr	A	\N
 Meisterbann	Dt	A	\N
 Meisterbann	Hl	A	\N
+Meisterbann	Km	A	\N
 Meisterbann	Ma	A	\N
 Meisterbann	PC	A	\N
 Meisterbann	PF	A	\N
@@ -6797,6 +7033,7 @@ Meisterbann	wHx	A	\N
 Metallmeisterschaft	De	A	\N
 Metallmeisterschaft	Dt	S	\N
 Metallmeisterschaft	Hl	A	\N
+Metallmeisterschaft	Km	S	\N
 Metallmeisterschaft	Ma	S	\N
 Metallmeisterschaft	PC	S	\N
 Metallmeisterschaft	PF	S	\N
@@ -6818,6 +7055,7 @@ Mokkurbjargi beschwören	De	A	\N
 Mokkurbjargi beschwören	Dr	A	\N
 Mokkurbjargi beschwören	Dt	A	\N
 Mokkurbjargi beschwören	Hl	A	\N
+Mokkurbjargi beschwören	Km	A	\N
 Mokkurbjargi beschwören	Ma	A	\N
 Mokkurbjargi beschwören	PC	A	\N
 Mokkurbjargi beschwören	PF	A	\N
@@ -6864,6 +7102,7 @@ Myrknir beschwören	De	A	\N
 Myrknir beschwören	Dr	A	\N
 Myrknir beschwören	Dt	A	\N
 Myrknir beschwören	Hl	A	\N
+Myrknir beschwören	Km	A	\N
 Myrknir beschwören	Ma	A	\N
 Myrknir beschwören	PC	A	\N
 Myrknir beschwören	PF	A	\N
@@ -6906,6 +7145,7 @@ Namenloses Grauen	De	S	\N
 Namenloses Grauen	Dr	S	\N
 Namenloses Grauen	Dt	S	\N
 Namenloses Grauen	Hl	S	\N
+Namenloses Grauen	Km	S	\N
 Namenloses Grauen	Ma	S	\N
 Namenloses Grauen	Mg	S	\N
 Namenloses Grauen	PC	G	\N
@@ -6936,6 +7176,7 @@ Nebel schaffen	De	A	\N
 Nebel schaffen	Dr	G	\N
 Nebel schaffen	Dt	G	\N
 Nebel schaffen	Hl	S	\N
+Nebel schaffen	Km	S	\N
 Nebel schaffen	Ma	S	\N
 Nebel schaffen	PC	S	\N
 Nebel schaffen	PF	S	\N
@@ -6958,6 +7199,7 @@ Nebel wecken	De	S	\N
 Nebel wecken	Dr	G	\N
 Nebel wecken	Dt	G	\N
 Nebel wecken	Hl	A	\N
+Nebel wecken	Km	A	\N
 Nebel wecken	Ma	A	\N
 Nebel wecken	PC	A	\N
 Nebel wecken	PF	S	\N
@@ -7006,6 +7248,7 @@ Nefling beschwören	De	A	\N
 Nefling beschwören	Dr	A	\N
 Nefling beschwören	Dt	A	\N
 Nefling beschwören	Hl	A	\N
+Nefling beschwören	Km	A	\N
 Nefling beschwören	Ma	A	\N
 Nefling beschwören	PC	A	\N
 Nefling beschwören	PF	A	\N
@@ -7033,6 +7276,7 @@ Netzfeuer	Nb	G	\N
 Netzkontakt	Dr	S	\N
 Netzkontakt	Dt	S	\N
 Netzkontakt	Hl	A	\N
+Netzkontakt	Km	A	\N
 Netzkontakt	Ma	A	\N
 Netzkontakt	Nb	G	\N
 Netzkontakt	PC	A	\N
@@ -7119,6 +7363,7 @@ Person beschwören	De	A	\N
 Person beschwören	Dr	A	\N
 Person beschwören	Dt	A	\N
 Person beschwören	Hl	A	\N
+Person beschwören	Km	A	\N
 Person beschwören	Ma	A	\N
 Person beschwören	PC	A	\N
 Person beschwören	PF	A	\N
@@ -7181,6 +7426,7 @@ Pfeilrune	Sk	S	\N
 Pflanzenfessel	Dr	G	\N
 Pflanzenfessel	Dt	G	\N
 Pflanzenfessel	Hl	S	\N
+Pflanzenfessel	Km	A	\N
 Pflanzenfessel	Ma	A	\N
 Pflanzenfessel	PF	A	\N
 Pflanzenfessel	To	S	\N
@@ -7260,6 +7506,7 @@ Rauchwolke	De	S	\N
 Rauchwolke	Dr	S	\N
 Rauchwolke	Dt	S	\N
 Rauchwolke	Hl	S	\N
+Rauchwolke	Km	S	\N
 Rauchwolke	Ma	S	\N
 Rauchwolke	PC	S	\N
 Rauchwolke	PF	S	\N
@@ -7313,6 +7560,7 @@ Regenzauber	De	G	\N
 Regenzauber	Dr	S	\N
 Regenzauber	Dt	S	\N
 Regenzauber	Hl	S	\N
+Regenzauber	Km	S	\N
 Regenzauber	Ma	S	\N
 Regenzauber	PC	S	\N
 Regenzauber	PF	G	\N
@@ -7334,6 +7582,7 @@ Reinigen	Dr	A	\N
 Reinigen	Dt	G	\N
 Reinigen	Fi	G	\N
 Reinigen	Hl	G	\N
+Reinigen	Km	A	\N
 Reinigen	Ma	A	\N
 Reinigen	Mg	S	\N
 Reinigen	PF	S	\N
@@ -7350,6 +7599,7 @@ Reinigen	ScW	A	\N
 Reise der Seele	De	S	\N
 Reise der Seele	Dr	S	\N
 Reise der Seele	Hl	S	\N
+Reise der Seele	Km	G	\N
 Reise der Seele	Ma	G	\N
 Reise der Seele	Sa	S	\N
 Reise der Seele	ScN	S	\N
@@ -7359,6 +7609,7 @@ Reise der Seele	gHx	A	\N
 Reise der Seele	sHx	A	\N
 Reise der Seele	wHx	A	\N
 Reise in die Zeit	De	A	\N
+Reise in die Zeit	Km	G	\N
 Reise in die Zeit	Ma	G	\N
 Reise in die Zeit	Sa	A	\N
 Reise in die Zeit	ScN	A	\N
@@ -7370,6 +7621,7 @@ Reise in die Zeit	wHx	A	\N
 Reise zu den Sphären	De	A	\N
 Reise zu den Sphären	Dr	S	\N
 Reise zu den Sphären	Dt	S	\N
+Reise zu den Sphären	Km	G	\N
 Reise zu den Sphären	Ma	G	\N
 Reise zu den Sphären	PC	A	\N
 Reise zu den Sphären	PW	S	\N
@@ -7398,6 +7650,7 @@ Reizen	eBe	S	\N
 Reptilien rufen	De	S	\N
 Reptilien rufen	Dr	G	\N
 Reptilien rufen	Hl	G	\N
+Reptilien rufen	Km	A	\N
 Reptilien rufen	Ma	A	\N
 Reptilien rufen	PT	A	\N
 Reptilien rufen	ScN	S	\N
@@ -7446,6 +7699,7 @@ Rince na Daoine Maithe (Reigen des Feenvolks)	Tm	S	\N
 Rindenhaut	De	S	\N
 Rindenhaut	Dr	G	\N
 Rindenhaut	Fi	S	\N
+Rindenhaut	Km	A	\N
 Rindenhaut	Ma	A	\N
 Rindenhaut	PF	A	\N
 Rindenhaut	Sa	S	\N
@@ -7471,6 +7725,7 @@ Ring des Lebens	ScS	S	\N
 Ring des Lebens	ScW	S	\N
 Rost	Dr	S	\N
 Rost	Dt	S	\N
+Rost	Km	S	\N
 Rost	Ma	S	\N
 Rost	PC	S	\N
 Rost	PF	S	\N
@@ -7575,6 +7830,7 @@ Saeldvegar beschwören	De	A	\N
 Saeldvegar beschwören	Dr	A	\N
 Saeldvegar beschwören	Dt	A	\N
 Saeldvegar beschwören	Hl	A	\N
+Saeldvegar beschwören	Km	A	\N
 Saeldvegar beschwören	Ma	A	\N
 Saeldvegar beschwören	PC	A	\N
 Saeldvegar beschwören	PF	A	\N
@@ -7600,6 +7856,7 @@ Saeldverg beschwören	De	A	\N
 Saeldverg beschwören	Dr	A	\N
 Saeldverg beschwören	Dt	A	\N
 Saeldverg beschwören	Hl	A	\N
+Saeldverg beschwören	Km	A	\N
 Saeldverg beschwören	Ma	A	\N
 Saeldverg beschwören	PC	A	\N
 Saeldverg beschwören	PF	A	\N
@@ -7633,6 +7890,7 @@ Sandmeisterschaft	De	G	\N
 Sandmeisterschaft	Dr	S	\N
 Sandmeisterschaft	Dt	S	\N
 Sandmeisterschaft	Hl	S	\N
+Sandmeisterschaft	Km	S	\N
 Sandmeisterschaft	Ma	S	\N
 Sandmeisterschaft	PC	S	\N
 Sandmeisterschaft	PF	G	\N
@@ -7662,6 +7920,7 @@ Scharfblick	Dr	S	\N
 Scharfblick	Dt	S	\N
 Scharfblick	Fi	S	\N
 Scharfblick	Hl	S	\N
+Scharfblick	Km	G	\N
 Scharfblick	Ma	G	\N
 Scharfblick	Mg	G	\N
 Scharfblick	PC	A	\N
@@ -7701,6 +7960,7 @@ Schatten verstärken	sHx	S	\N
 Schatten verstärken	wHx	S	\N
 Schattenbruder	De	A	\N
 Schattenbruder	Hl	A	\N
+Schattenbruder	Km	S	\N
 Schattenbruder	Ma	S	\N
 Schattenbruder	PC	G	\N
 Schattenbruder	ScN	A	\N
@@ -7714,6 +7974,7 @@ Schattenbruder	wHx	G	\N
 Schattenjaguar	Dr	G	\N
 Schattenjaguar	Dt	S	\N
 Schattenjaguar	Hl	A	\N
+Schattenjaguar	Km	S	\N
 Schattenjaguar	Ma	S	\N
 Schattenjaguar	Nb	G	\N
 Schattenjaguar	Or	G	\N
@@ -7769,6 +8030,7 @@ Scheintod	De	G	\N
 Scheintod	Dr	A	\N
 Scheintod	Dt	A	\N
 Scheintod	Hl	G	\N
+Scheintod	Km	S	\N
 Scheintod	Ma	S	\N
 Scheintod	PC	A	\N
 Scheintod	PF	A	\N
@@ -7805,6 +8067,7 @@ Schlaf	De	S	\N
 Schlaf	Dr	S	\N
 Schlaf	Dt	G	\N
 Schlaf	Hl	G	\N
+Schlaf	Km	S	\N
 Schlaf	Ma	S	\N
 Schlaf	PC	S	\N
 Schlaf	PF	S	\N
@@ -7896,6 +8159,7 @@ Schmerzen	De	S	\N
 Schmerzen	Dr	S	\N
 Schmerzen	Dt	S	\N
 Schmerzen	Hl	G	\N
+Schmerzen	Km	S	\N
 Schmerzen	Ma	S	\N
 Schmerzen	PC	S	\N
 Schmerzen	PF	S	\N
@@ -7935,6 +8199,7 @@ Schmerzen spüren	gHx	G	\N
 Schminken	Ba	G	\N
 Schminken	De	S	\N
 Schminken	Hl	S	\N
+Schminken	Km	S	\N
 Schminken	Ma	S	\N
 Schminken	PF	S	\N
 Schminken	PT	A	\N
@@ -7950,6 +8215,7 @@ Schnellrune	Ru	G	\N
 Schnellrune	Sk	S	\N
 Schreiber beschwören	Dt	S	\N
 Schreiber beschwören	Hl	A	\N
+Schreiber beschwören	Km	S	\N
 Schreiber beschwören	Ma	S	\N
 Schreiber beschwören	PHe	A	\N
 Schreiber beschwören	PW	S	\N
@@ -7962,6 +8228,7 @@ Schrumpfen	De	S	\N
 Schrumpfen	Dr	S	\N
 Schrumpfen	Dt	S	\N
 Schrumpfen	Hl	S	\N
+Schrumpfen	Km	S	\N
 Schrumpfen	Ma	S	\N
 Schrumpfen	PC	S	\N
 Schrumpfen	PF	S	\N
@@ -8021,6 +8288,7 @@ Schutzkreis gegen Dunebargen	De	A	\N
 Schutzkreis gegen Dunebargen	Dr	A	\N
 Schutzkreis gegen Dunebargen	Dt	A	\N
 Schutzkreis gegen Dunebargen	Hl	A	\N
+Schutzkreis gegen Dunebargen	Km	A	\N
 Schutzkreis gegen Dunebargen	Ma	A	\N
 Schutzkreis gegen Dunebargen	PC	A	\N
 Schutzkreis gegen Dunebargen	PF	A	\N
@@ -8046,6 +8314,7 @@ Schutzkreis gegen Dvergar	De	A	\N
 Schutzkreis gegen Dvergar	Dr	A	\N
 Schutzkreis gegen Dvergar	Dt	A	\N
 Schutzkreis gegen Dvergar	Hl	A	\N
+Schutzkreis gegen Dvergar	Km	A	\N
 Schutzkreis gegen Dvergar	Ma	A	\N
 Schutzkreis gegen Dvergar	PC	A	\N
 Schutzkreis gegen Dvergar	PF	A	\N
@@ -8071,6 +8340,7 @@ Schutzkreis gegen Dämonen	De	A	\N
 Schutzkreis gegen Dämonen	Dr	A	\N
 Schutzkreis gegen Dämonen	Dt	A	\N
 Schutzkreis gegen Dämonen	Hl	A	\N
+Schutzkreis gegen Dämonen	Km	A	\N
 Schutzkreis gegen Dämonen	Ma	A	\N
 Schutzkreis gegen Dämonen	PC	A	\N
 Schutzkreis gegen Dämonen	PF	A	\N
@@ -8096,6 +8366,7 @@ Schutzkreis gegen Elementarwesen	De	A	\N
 Schutzkreis gegen Elementarwesen	Dr	A	\N
 Schutzkreis gegen Elementarwesen	Dt	A	\N
 Schutzkreis gegen Elementarwesen	Hl	A	\N
+Schutzkreis gegen Elementarwesen	Km	A	\N
 Schutzkreis gegen Elementarwesen	Ma	A	\N
 Schutzkreis gegen Elementarwesen	PC	A	\N
 Schutzkreis gegen Elementarwesen	PF	A	\N
@@ -8121,6 +8392,7 @@ Schutzkreis gegen Geisterwesen	De	A	\N
 Schutzkreis gegen Geisterwesen	Dr	A	\N
 Schutzkreis gegen Geisterwesen	Dt	A	\N
 Schutzkreis gegen Geisterwesen	Hl	A	\N
+Schutzkreis gegen Geisterwesen	Km	A	\N
 Schutzkreis gegen Geisterwesen	Ma	A	\N
 Schutzkreis gegen Geisterwesen	PC	A	\N
 Schutzkreis gegen Geisterwesen	PF	A	\N
@@ -8146,6 +8418,7 @@ Schutzkreis gegen Hrimfolk	De	A	\N
 Schutzkreis gegen Hrimfolk	Dr	A	\N
 Schutzkreis gegen Hrimfolk	Dt	A	\N
 Schutzkreis gegen Hrimfolk	Hl	A	\N
+Schutzkreis gegen Hrimfolk	Km	A	\N
 Schutzkreis gegen Hrimfolk	Ma	A	\N
 Schutzkreis gegen Hrimfolk	PC	A	\N
 Schutzkreis gegen Hrimfolk	PF	A	\N
@@ -8171,6 +8444,7 @@ Schutzkreis gegen Hunar	De	A	\N
 Schutzkreis gegen Hunar	Dr	A	\N
 Schutzkreis gegen Hunar	Dt	A	\N
 Schutzkreis gegen Hunar	Hl	A	\N
+Schutzkreis gegen Hunar	Km	A	\N
 Schutzkreis gegen Hunar	Ma	A	\N
 Schutzkreis gegen Hunar	PC	A	\N
 Schutzkreis gegen Hunar	PF	A	\N
@@ -8196,6 +8470,7 @@ Schutzkreis gegen Hyrrfolk	De	A	\N
 Schutzkreis gegen Hyrrfolk	Dr	A	\N
 Schutzkreis gegen Hyrrfolk	Dt	A	\N
 Schutzkreis gegen Hyrrfolk	Hl	A	\N
+Schutzkreis gegen Hyrrfolk	Km	A	\N
 Schutzkreis gegen Hyrrfolk	Ma	A	\N
 Schutzkreis gegen Hyrrfolk	PC	A	\N
 Schutzkreis gegen Hyrrfolk	PF	A	\N
@@ -8221,6 +8496,7 @@ Schutzkreis gegen Jördfolk	De	A	\N
 Schutzkreis gegen Jördfolk	Dr	A	\N
 Schutzkreis gegen Jördfolk	Dt	A	\N
 Schutzkreis gegen Jördfolk	Hl	A	\N
+Schutzkreis gegen Jördfolk	Km	A	\N
 Schutzkreis gegen Jördfolk	Ma	A	\N
 Schutzkreis gegen Jördfolk	PC	A	\N
 Schutzkreis gegen Jördfolk	PF	A	\N
@@ -8246,6 +8522,7 @@ Schutzkreis gegen Kaobargen	De	A	\N
 Schutzkreis gegen Kaobargen	Dr	A	\N
 Schutzkreis gegen Kaobargen	Dt	A	\N
 Schutzkreis gegen Kaobargen	Hl	A	\N
+Schutzkreis gegen Kaobargen	Km	A	\N
 Schutzkreis gegen Kaobargen	Ma	A	\N
 Schutzkreis gegen Kaobargen	PC	A	\N
 Schutzkreis gegen Kaobargen	PF	A	\N
@@ -8271,6 +8548,7 @@ Schutzkreis gegen Untote	De	A	\N
 Schutzkreis gegen Untote	Dr	A	\N
 Schutzkreis gegen Untote	Dt	A	\N
 Schutzkreis gegen Untote	Hl	A	\N
+Schutzkreis gegen Untote	Km	A	\N
 Schutzkreis gegen Untote	Ma	A	\N
 Schutzkreis gegen Untote	PC	A	\N
 Schutzkreis gegen Untote	PF	A	\N
@@ -8296,6 +8574,7 @@ Schutzkreis gegen Vindfolk	De	A	\N
 Schutzkreis gegen Vindfolk	Dr	A	\N
 Schutzkreis gegen Vindfolk	Dt	A	\N
 Schutzkreis gegen Vindfolk	Hl	A	\N
+Schutzkreis gegen Vindfolk	Km	A	\N
 Schutzkreis gegen Vindfolk	Ma	A	\N
 Schutzkreis gegen Vindfolk	PC	A	\N
 Schutzkreis gegen Vindfolk	PF	A	\N
@@ -8321,6 +8600,7 @@ Schutzkreis gegen Wisfolk	De	A	\N
 Schutzkreis gegen Wisfolk	Dr	A	\N
 Schutzkreis gegen Wisfolk	Dt	A	\N
 Schutzkreis gegen Wisfolk	Hl	A	\N
+Schutzkreis gegen Wisfolk	Km	A	\N
 Schutzkreis gegen Wisfolk	Ma	A	\N
 Schutzkreis gegen Wisfolk	PC	A	\N
 Schutzkreis gegen Wisfolk	PF	A	\N
@@ -8346,6 +8626,7 @@ Schutzrune	Ru	G	\N
 Schutzrune	Sk	S	\N
 Schwarm	Dr	G	\N
 Schwarm	Hl	S	\N
+Schwarm	Km	A	\N
 Schwarm	Ma	A	\N
 Schwarm	PC	A	\N
 Schwarm	PF	A	\N
@@ -8361,6 +8642,7 @@ Schwarze Zone	Dt	S	\N
 Schwarze Zone	Fi	S	\N
 Schwarze Zone	Hj	S	\N
 Schwarze Zone	Hl	S	\N
+Schwarze Zone	Km	G	\N
 Schwarze Zone	Ma	G	\N
 Schwarze Zone	PC	S	\N
 Schwarze Zone	PF	S	\N
@@ -8384,6 +8666,7 @@ Schweben	De	S	\N
 Schweben	Dr	S	\N
 Schweben	Dt	S	\N
 Schweben	Hl	S	\N
+Schweben	Km	S	\N
 Schweben	Ma	S	\N
 Schweben	PC	S	\N
 Schweben	PF	S	\N
@@ -8425,6 +8708,7 @@ Schwäche	De	G	\N
 Schwäche	Dr	S	\N
 Schwäche	Dt	S	\N
 Schwäche	Hl	G	\N
+Schwäche	Km	S	\N
 Schwäche	Ma	S	\N
 Schwäche	PC	S	\N
 Schwäche	PF	S	\N
@@ -8445,6 +8729,7 @@ Schwäche	wHx	S	\N
 Schöne Leiche	De	S	\N
 Schöne Leiche	Dt	A	\N
 Schöne Leiche	Hl	G	\N
+Schöne Leiche	Km	A	\N
 Schöne Leiche	Ma	A	\N
 Schöne Leiche	PC	A	\N
 Schöne Leiche	PF	A	\N
@@ -8466,6 +8751,7 @@ Schöne Leiche	sHx	S	\N
 Schöne Leiche	wHx	S	\N
 Seance	De	G	\N
 Seance	Dr	S	\N
+Seance	Km	A	\N
 Seance	Ma	A	\N
 Seance	ScN	G	\N
 Seance	ScS	G	\N
@@ -8509,6 +8795,7 @@ Seelenkompaß	De	S	\N
 Seelenkompaß	Dr	A	\N
 Seelenkompaß	Dt	S	\N
 Seelenkompaß	Hl	S	\N
+Seelenkompaß	Km	S	\N
 Seelenkompaß	Ma	S	\N
 Seelenkompaß	PC	S	\N
 Seelenkompaß	PF	S	\N
@@ -8540,6 +8827,7 @@ Seelenschock	De	S	\N
 Seelenschock	Dr	G	\N
 Seelenschock	Dt	S	\N
 Seelenschock	Hl	G	\N
+Seelenschock	Km	S	\N
 Seelenschock	Ma	S	\N
 Seelenschock	PC	S	\N
 Seelenschock	PF	S	\N
@@ -8577,6 +8865,7 @@ Sehen in Dunkelheit	De	S	\N
 Sehen in Dunkelheit	Dr	S	\N
 Sehen in Dunkelheit	Dt	S	\N
 Sehen in Dunkelheit	Fi	S	\N
+Sehen in Dunkelheit	Km	G	\N
 Sehen in Dunkelheit	Ma	G	\N
 Sehen in Dunkelheit	Mg	S	\N
 Sehen in Dunkelheit	Sa	A	\N
@@ -8592,6 +8881,7 @@ Sehen in Dunkelheit	gHx	S	\N
 Sehen in Dunkelheit	sHx	S	\N
 Sehen in Dunkelheit	wHx	S	\N
 Sehen von Verborgenem	Hj	S	\N
+Sehen von Verborgenem	Km	G	\N
 Sehen von Verborgenem	Ma	G	\N
 Sehen von Verborgenem	Sw	G	\N
 Sehen von Verborgenem	Th	G	\N
@@ -8601,6 +8891,7 @@ Sehen von Verborgenem	sHx	S	\N
 Sehen von Verborgenem	wHx	S	\N
 Serkefs Todesbote	De	G	\N
 Serkefs Todesbote	Dt	S	\N
+Serkefs Todesbote	Km	S	\N
 Serkefs Todesbote	Ma	S	\N
 Serkefs Todesbote	PC	S	\N
 Serkefs Todesbote	PF	S	\N
@@ -8619,6 +8910,7 @@ Serkefs Todesbote	gHx	S	\N
 Serkefs Todesbote	sHx	S	\N
 Serkefs Todesbote	wHx	S	\N
 Signalkugel	Hl	S	\N
+Signalkugel	Km	S	\N
 Signalkugel	Ma	S	\N
 Signalkugel	PHe	S	\N
 Signalkugel	PM	S	\N
@@ -8632,6 +8924,7 @@ Silberstaub	Dr	S	\N
 Silberstaub	Dt	S	\N
 Silberstaub	Hj	S	\N
 Silberstaub	Hl	S	\N
+Silberstaub	Km	S	\N
 Silberstaub	Ma	S	\N
 Silberstaub	PC	S	\N
 Silberstaub	PF	S	\N
@@ -8657,6 +8950,7 @@ Snaerhamir beschwören	De	A	\N
 Snaerhamir beschwören	Dr	A	\N
 Snaerhamir beschwören	Dt	A	\N
 Snaerhamir beschwören	Hl	A	\N
+Snaerhamir beschwören	Km	A	\N
 Snaerhamir beschwören	Ma	A	\N
 Snaerhamir beschwören	PC	A	\N
 Snaerhamir beschwören	PF	A	\N
@@ -8681,6 +8975,7 @@ Snaerhamir beschwören	wHx	A	\N
 Sprachlähmung	De	A	\N
 Sprachlähmung	Dt	S	\N
 Sprachlähmung	Hl	G	\N
+Sprachlähmung	Km	S	\N
 Sprachlähmung	Ma	S	\N
 Sprachlähmung	PW	S	\N
 Sprachlähmung	ScN	A	\N
@@ -8693,6 +8988,7 @@ Spruch intensivieren	De	S	\N
 Spruch intensivieren	Dr	S	\N
 Spruch intensivieren	Dt	S	\N
 Spruch intensivieren	Hl	S	\N
+Spruch intensivieren	Km	G	\N
 Spruch intensivieren	Ma	G	\N
 Spruch intensivieren	PC	S	\N
 Spruch intensivieren	PF	S	\N
@@ -8714,6 +9010,7 @@ Spruch intensivieren	sHx	S	\N
 Spruch intensivieren	wHx	S	\N
 Srimarameisterschaft I	Dr	S	\N
 Srimarameisterschaft I	Hl	S	\N
+Srimarameisterschaft I	Km	S	\N
 Srimarameisterschaft I	Ma	S	\N
 Srimarameisterschaft I	Sr	G	\N
 Srimarameisterschaft I	To	A	\N
@@ -8722,6 +9019,7 @@ Srimarameisterschaft I	sHx	S	\N
 Srimarameisterschaft I	wHx	A	\N
 Srimarameisterschaft II	Dr	S	\N
 Srimarameisterschaft II	Hl	S	\N
+Srimarameisterschaft II	Km	S	\N
 Srimarameisterschaft II	Ma	S	\N
 Srimarameisterschaft II	Sr	G	\N
 Srimarameisterschaft II	To	A	\N
@@ -8731,6 +9029,7 @@ Srimarameisterschaft II	wHx	A	\N
 Staubkämpfer	De	S	\N
 Staubkämpfer	Dt	S	\N
 Staubkämpfer	Hl	A	\N
+Staubkämpfer	Km	S	\N
 Staubkämpfer	Ma	S	\N
 Staubkämpfer	PC	S	\N
 Staubkämpfer	PF	S	\N
@@ -8755,6 +9054,7 @@ Steinkugel	De	A	\N
 Steinkugel	Dr	S	\N
 Steinkugel	Dt	S	\N
 Steinkugel	Hl	A	\N
+Steinkugel	Km	S	\N
 Steinkugel	Ma	S	\N
 Steinkugel	PC	S	\N
 Steinkugel	PF	S	\N
@@ -8777,6 +9077,7 @@ Steinwand	De	A	\N
 Steinwand	Dr	A	\N
 Steinwand	Dt	S	\N
 Steinwand	Hl	A	\N
+Steinwand	Km	S	\N
 Steinwand	Ma	S	\N
 Steinwand	PC	S	\N
 Steinwand	PF	S	\N
@@ -8801,6 +9102,7 @@ Stille	De	S	\N
 Stille	Dr	S	\N
 Stille	Dt	G	\N
 Stille	Hl	S	\N
+Stille	Km	S	\N
 Stille	Ma	S	\N
 Stille	PC	S	\N
 Stille	PF	S	\N
@@ -8824,6 +9126,7 @@ Stimmenwerfen	De	A	\N
 Stimmenwerfen	Dr	A	\N
 Stimmenwerfen	Dt	S	\N
 Stimmenwerfen	Hl	S	\N
+Stimmenwerfen	Km	S	\N
 Stimmenwerfen	Ma	S	\N
 Stimmenwerfen	PC	S	\N
 Stimmenwerfen	PF	S	\N
@@ -8881,6 +9184,7 @@ Sturmflut	De	A	\N
 Sturmflut	Dr	S	\N
 Sturmflut	Dt	S	\N
 Sturmflut	Hl	S	\N
+Sturmflut	Km	S	\N
 Sturmflut	Ma	S	\N
 Sturmflut	PC	S	\N
 Sturmflut	PF	S	\N
@@ -8901,6 +9205,7 @@ Sturmhand	De	S	\N
 Sturmhand	Dr	S	\N
 Sturmhand	Dt	S	\N
 Sturmhand	Hl	S	\N
+Sturmhand	Km	S	\N
 Sturmhand	Ma	S	\N
 Sturmhand	PC	S	\N
 Sturmhand	PF	S	\N
@@ -8922,6 +9227,7 @@ Sturmwind	De	G	\N
 Sturmwind	Dr	G	\N
 Sturmwind	Dt	S	\N
 Sturmwind	Hl	S	\N
+Sturmwind	Km	S	\N
 Sturmwind	Ma	S	\N
 Sturmwind	PC	S	\N
 Sturmwind	PF	S	\N
@@ -8946,6 +9252,7 @@ Stärke	De	S	\N
 Stärke	Dr	S	\N
 Stärke	Dt	S	\N
 Stärke	Hl	G	\N
+Stärke	Km	S	\N
 Stärke	Ma	S	\N
 Stärke	PC	S	\N
 Stärke	PF	S	\N
@@ -8972,6 +9279,7 @@ Sumpfboden	De	A	\N
 Sumpfboden	Dr	G	\N
 Sumpfboden	Dt	S	\N
 Sumpfboden	Hl	A	\N
+Sumpfboden	Km	S	\N
 Sumpfboden	Ma	S	\N
 Sumpfboden	PC	S	\N
 Sumpfboden	PF	S	\N
@@ -8995,6 +9303,7 @@ Sutechs Heer	De	S	\N
 Sutechs Heer	Dr	S	\N
 Sutechs Heer	Dt	A	\N
 Sutechs Heer	Hl	S	\N
+Sutechs Heer	Km	A	\N
 Sutechs Heer	Ma	A	\N
 Sutechs Heer	PC	A	\N
 Sutechs Heer	PF	A	\N
@@ -9012,6 +9321,7 @@ Svalgrim beschwören	De	A	\N
 Svalgrim beschwören	Dr	A	\N
 Svalgrim beschwören	Dt	A	\N
 Svalgrim beschwören	Hl	A	\N
+Svalgrim beschwören	Km	A	\N
 Svalgrim beschwören	Ma	A	\N
 Svalgrim beschwören	PC	A	\N
 Svalgrim beschwören	PF	A	\N
@@ -9064,6 +9374,7 @@ Thrymbar beschwören	De	A	\N
 Thrymbar beschwören	Dr	A	\N
 Thrymbar beschwören	Dt	A	\N
 Thrymbar beschwören	Hl	A	\N
+Thrymbar beschwören	Km	A	\N
 Thrymbar beschwören	Ma	A	\N
 Thrymbar beschwören	PC	A	\N
 Thrymbar beschwören	PF	A	\N
@@ -9089,6 +9400,7 @@ Thrymbar eschwören	De	A	\N
 Thrymbar eschwören	Dr	A	\N
 Thrymbar eschwören	Dt	A	\N
 Thrymbar eschwören	Hl	A	\N
+Thrymbar eschwören	Km	A	\N
 Thrymbar eschwören	Ma	A	\N
 Thrymbar eschwören	PC	A	\N
 Thrymbar eschwören	PF	A	\N
@@ -9114,6 +9426,7 @@ Thursenstein	De	S	\N
 Thursenstein	Dr	G	\N
 Thursenstein	Dt	A	\N
 Thursenstein	Hl	A	\N
+Thursenstein	Km	S	\N
 Thursenstein	Ma	A	\N
 Thursenstein	PC	A	\N
 Thursenstein	PF	A	\N
@@ -9144,6 +9457,7 @@ Tiefschlaf	De	S	\N
 Tiefschlaf	Dr	S	\N
 Tiefschlaf	Dt	S	\N
 Tiefschlaf	Hl	G	\N
+Tiefschlaf	Km	S	\N
 Tiefschlaf	Ma	S	\N
 Tiefschlaf	PC	S	\N
 Tiefschlaf	PF	S	\N
@@ -9165,6 +9479,7 @@ Tiere rufen	De	A	\N
 Tiere rufen	Dr	G	Holz
 Tiere rufen	Dt	S	\N
 Tiere rufen	Hl	G	Holz
+Tiere rufen	Km	A	\N
 Tiere rufen	Ma	A	\N
 Tiere rufen	PF	S	\N
 Tiere rufen	PM	S	\N
@@ -9182,6 +9497,7 @@ Tiere rufen	wHx	S	\N
 Tiergestalt	Dr	G	\N
 Tiergestalt	Fi	G	\N
 Tiergestalt	Hl	G	\N
+Tiergestalt	Km	G	\N
 Tiergestalt	Ma	A	\N
 Tiergestalt	Sa	G	\N
 Tiergestalt	ScN	G	\N
@@ -9196,6 +9512,7 @@ Tierisches Handeln	De	S	\N
 Tierisches Handeln	Dr	S	\N
 Tierisches Handeln	Dt	S	\N
 Tierisches Handeln	Hl	S	\N
+Tierisches Handeln	Km	S	\N
 Tierisches Handeln	Ma	S	\N
 Tierisches Handeln	PC	S	\N
 Tierisches Handeln	PF	S	\N
@@ -9222,6 +9539,7 @@ Tiersprache	Dr	G	\N
 Tiersprache	Dt	G	\N
 Tiersprache	Fi	G	\N
 Tiersprache	Hl	G	\N
+Tiersprache	Km	G	\N
 Tiersprache	Ma	S	\N
 Tiersprache	Mg	G	\N
 Tiersprache	PC	A	\N
@@ -9242,6 +9560,7 @@ Tiersprache	gHx	G	\N
 Tiersprache	sHx	G	\N
 Tiersprache	wHx	G	\N
 Todeshauch	Dt	S	\N
+Todeshauch	Km	A	\N
 Todeshauch	Ma	S	\N
 Todeshauch	PC	S	\N
 Todeshauch	PF	A	\N
@@ -9305,6 +9624,7 @@ Tor schaffen	De	A	\N
 Tor schaffen	Dr	A	\N
 Tor schaffen	Dt	A	\N
 Tor schaffen	Hl	A	\N
+Tor schaffen	Km	A	\N
 Tor schaffen	Ma	A	\N
 Tor schaffen	PC	A	\N
 Tor schaffen	PF	A	\N
@@ -9334,6 +9654,7 @@ Torwandeln	To	S	\N
 Torwandeln	gHx	S	\N
 Torwandeln	sHx	S	\N
 Torwandeln	wHx	S	\N
+Torwandeln_	Km	A	\N
 Totenrune	Ru	G	\N
 Totenrune	Sk	A	\N
 Trampelsalz	De	A	\N
@@ -9393,6 +9714,7 @@ Trockensalz	sHx	S	\N
 Trockensalz	wHx	S	\N
 Trunk des Lebens	De	A	\N
 Trunk des Lebens	Hl	G	\N
+Trunk des Lebens	Km	S	\N
 Trunk des Lebens	Ma	S	\N
 Trunk des Lebens	PF	S	\N
 Trunk des Lebens	PHe	A	\N
@@ -9406,6 +9728,7 @@ Truscan 1 beschwören	De	A	\N
 Truscan 1 beschwören	Dr	A	\N
 Truscan 1 beschwören	Dt	A	\N
 Truscan 1 beschwören	Hl	A	\N
+Truscan 1 beschwören	Km	A	\N
 Truscan 1 beschwören	Ma	A	\N
 Truscan 1 beschwören	PC	A	\N
 Truscan 1 beschwören	PF	A	\N
@@ -9431,6 +9754,7 @@ Truscan 2 beschwören	De	A	\N
 Truscan 2 beschwören	Dr	A	\N
 Truscan 2 beschwören	Dt	A	\N
 Truscan 2 beschwören	Hl	A	\N
+Truscan 2 beschwören	Km	A	\N
 Truscan 2 beschwören	Ma	A	\N
 Truscan 2 beschwören	PC	A	\N
 Truscan 2 beschwören	PF	A	\N
@@ -9456,6 +9780,7 @@ Truscan 3 beschwören	De	A	\N
 Truscan 3 beschwören	Dr	A	\N
 Truscan 3 beschwören	Dt	A	\N
 Truscan 3 beschwören	Hl	A	\N
+Truscan 3 beschwören	Km	A	\N
 Truscan 3 beschwören	Ma	A	\N
 Truscan 3 beschwören	PC	A	\N
 Truscan 3 beschwören	PF	A	\N
@@ -9481,6 +9806,7 @@ Truscan 4 beschwören	De	A	\N
 Truscan 4 beschwören	Dr	A	\N
 Truscan 4 beschwören	Dt	A	\N
 Truscan 4 beschwören	Hl	A	\N
+Truscan 4 beschwören	Km	A	\N
 Truscan 4 beschwören	Ma	A	\N
 Truscan 4 beschwören	PC	A	\N
 Truscan 4 beschwören	PF	A	\N
@@ -9507,6 +9833,7 @@ Umkehrschild	Dr	A	\N
 Umkehrschild	Dt	A	\N
 Umkehrschild	Hj	S	\N
 Umkehrschild	Hl	A	\N
+Umkehrschild	Km	S	\N
 Umkehrschild	Ma	S	\N
 Umkehrschild	Or	A	\N
 Umkehrschild	PC	A	\N
@@ -9552,6 +9879,7 @@ Ungeziefer bannen	De	S	\N
 Ungeziefer bannen	Dr	G	\N
 Ungeziefer bannen	Dt	A	\N
 Ungeziefer bannen	Hl	S	\N
+Ungeziefer bannen	Km	A	\N
 Ungeziefer bannen	Ma	A	\N
 Ungeziefer bannen	PF	G	\N
 Ungeziefer bannen	PHa	A	\N
@@ -9572,6 +9900,7 @@ Ungeziefer rufen	De	A	\N
 Ungeziefer rufen	Dr	G	\N
 Ungeziefer rufen	Dt	A	\N
 Ungeziefer rufen	Hl	S	\N
+Ungeziefer rufen	Km	A	\N
 Ungeziefer rufen	Ma	A	\N
 Ungeziefer rufen	Nb	A	\N
 Ungeziefer rufen	PC	S	\N
@@ -9603,6 +9932,7 @@ Unsichtbarkeit	Dr	S	\N
 Unsichtbarkeit	Dt	S	\N
 Unsichtbarkeit	Fi	S	\N
 Unsichtbarkeit	Hl	S	\N
+Unsichtbarkeit	Km	S	\N
 Unsichtbarkeit	Ma	S	\N
 Unsichtbarkeit	Or	S	\N
 Unsichtbarkeit	PC	S	\N
@@ -9646,6 +9976,7 @@ Verdorren	tBe	S	\N
 Vereisen	De	A	\N
 Vereisen	Dr	S	\N
 Vereisen	Dt	S	\N
+Vereisen	Km	S	\N
 Vereisen	Ma	S	\N
 Vereisen	PC	S	\N
 Vereisen	PF	S	\N
@@ -9688,6 +10019,7 @@ Vergangenheit beschwören	De	A	\N
 Vergangenheit beschwören	Dr	A	\N
 Vergangenheit beschwören	Dt	A	\N
 Vergangenheit beschwören	Hl	A	\N
+Vergangenheit beschwören	Km	A	\N
 Vergangenheit beschwören	Ma	A	\N
 Vergangenheit beschwören	PC	A	\N
 Vergangenheit beschwören	PF	A	\N
@@ -9722,6 +10054,7 @@ Vergrößern	De	S	\N
 Vergrößern	Dr	S	\N
 Vergrößern	Dt	S	\N
 Vergrößern	Hl	S	\N
+Vergrößern	Km	S	\N
 Vergrößern	Ma	S	\N
 Vergrößern	PC	S	\N
 Vergrößern	PF	S	\N
@@ -9765,6 +10098,7 @@ Verkleinern	De	S	\N
 Verkleinern	Dr	S	\N
 Verkleinern	Dt	S	\N
 Verkleinern	Hl	S	\N
+Verkleinern	Km	S	\N
 Verkleinern	Ma	S	\N
 Verkleinern	PC	S	\N
 Verkleinern	PF	S	\N
@@ -9788,6 +10122,7 @@ Verlangsamen	De	S	\N
 Verlangsamen	Dr	S	\N
 Verlangsamen	Dt	S	\N
 Verlangsamen	Hl	G	\N
+Verlangsamen	Km	S	\N
 Verlangsamen	Ma	S	\N
 Verlangsamen	PC	S	\N
 Verlangsamen	PF	S	\N
@@ -9816,6 +10151,7 @@ Verletzung	sHx	A	\N
 Versetzen	Dr	A	\N
 Versetzen	Dt	S	\N
 Versetzen	Hl	A	\N
+Versetzen	Km	S	\N
 Versetzen	Ma	S	\N
 Versetzen	PC	S	\N
 Versetzen	PF	S	\N
@@ -9852,6 +10188,7 @@ Vertieren	De	A	\N
 Vertieren	Dr	S	\N
 Vertieren	Dt	A	\N
 Vertieren	Hl	S	\N
+Vertieren	Km	S	\N
 Vertieren	Ma	S	\N
 Vertieren	PC	S	\N
 Vertieren	PF	S	\N
@@ -9902,6 +10239,7 @@ Verwandlung	De	S	\N
 Verwandlung	Dr	G	\N
 Verwandlung	Dt	S	\N
 Verwandlung	Hl	S	\N
+Verwandlung	Km	S	\N
 Verwandlung	Ma	S	\N
 Verwandlung	PC	S	\N
 Verwandlung	PF	S	\N
@@ -9925,6 +10263,7 @@ Verwirren	De	A	\N
 Verwirren	Dr	A	\N
 Verwirren	Dt	S	\N
 Verwirren	Hl	A	\N
+Verwirren	Km	S	\N
 Verwirren	Ma	S	\N
 Verwirren	Mg	G	\N
 Verwirren	PW	S	\N
@@ -9942,6 +10281,7 @@ Verzweiflung	De	S	\N
 Verzweiflung	Dr	A	\N
 Verzweiflung	Dt	S	\N
 Verzweiflung	Hl	G	\N
+Verzweiflung	Km	S	\N
 Verzweiflung	Ma	S	\N
 Verzweiflung	PC	S	\N
 Verzweiflung	PF	S	\N
@@ -9963,6 +10303,7 @@ Vinddvegar beschwören	De	A	\N
 Vinddvegar beschwören	Dr	A	\N
 Vinddvegar beschwören	Dt	A	\N
 Vinddvegar beschwören	Hl	A	\N
+Vinddvegar beschwören	Km	A	\N
 Vinddvegar beschwören	Ma	A	\N
 Vinddvegar beschwören	PC	A	\N
 Vinddvegar beschwören	PF	A	\N
@@ -9988,6 +10329,7 @@ Vinddverg beschwören	De	A	\N
 Vinddverg beschwören	Dr	A	\N
 Vinddverg beschwören	Dt	A	\N
 Vinddverg beschwören	Hl	A	\N
+Vinddverg beschwören	Km	A	\N
 Vinddverg beschwören	Ma	A	\N
 Vinddverg beschwören	PC	A	\N
 Vinddverg beschwören	PF	A	\N
@@ -10013,6 +10355,7 @@ Vindmand beschwören	De	A	\N
 Vindmand beschwören	Dr	A	\N
 Vindmand beschwören	Dt	A	\N
 Vindmand beschwören	Hl	A	\N
+Vindmand beschwören	Km	A	\N
 Vindmand beschwören	Ma	A	\N
 Vindmand beschwören	PC	A	\N
 Vindmand beschwören	PF	A	\N
@@ -10045,6 +10388,7 @@ Wachsen	De	S	\N
 Wachsen	Dr	S	\N
 Wachsen	Dt	S	\N
 Wachsen	Hl	S	\N
+Wachsen	Km	S	\N
 Wachsen	Ma	S	\N
 Wachsen	PC	S	\N
 Wachsen	PF	S	\N
@@ -10068,6 +10412,7 @@ Wagemut	Dr	S	\N
 Wagemut	Dt	S	\N
 Wagemut	Fi	G	\N
 Wagemut	Hl	S	\N
+Wagemut	Km	A	\N
 Wagemut	Ma	A	\N
 Wagemut	Or	G	\N
 Wagemut	PC	G	\N
@@ -10093,6 +10438,7 @@ Wahnsinn	De	S	\N
 Wahnsinn	Dr	S	\N
 Wahnsinn	Dt	S	\N
 Wahnsinn	Hl	S	\N
+Wahnsinn	Km	S	\N
 Wahnsinn	Ma	S	\N
 Wahnsinn	PC	S	\N
 Wahnsinn	PF	S	\N
@@ -10118,6 +10464,7 @@ Wahrsehen	Dt	S	\N
 Wahrsehen	Fi	S	\N
 Wahrsehen	Hj	G	\N
 Wahrsehen	Hl	S	\N
+Wahrsehen	Km	S	\N
 Wahrsehen	Ma	S	\N
 Wahrsehen	Mg	G	\N
 Wahrsehen	Or	A	\N
@@ -10148,6 +10495,7 @@ Waldluft	De	G	\N
 Waldluft	Dr	G	\N
 Waldluft	Dt	A	\N
 Waldluft	Hl	G	\N
+Waldluft	Km	S	\N
 Waldluft	Ma	S	\N
 Waldluft	PF	G	\N
 Waldluft	PHa	A	\N
@@ -10163,6 +10511,7 @@ Waldluft	gHx	S	\N
 Waldluft	sHx	S	\N
 Waldluft	wHx	S	\N
 Wandelhand	De	S	\N
+Wandelhand	Km	S	\N
 Wandelhand	Ma	S	\N
 Wandelhand	PC	G	\N
 Wandelhand	Sa	S	\N
@@ -10232,6 +10581,7 @@ Warnung	Dr	A	\N
 Warnung	Dt	S	\N
 Warnung	Fi	A	\N
 Warnung	Hl	S	\N
+Warnung	Km	S	\N
 Warnung	Ma	S	\N
 Warnung	Or	S	\N
 Warnung	PC	G	\N
@@ -10258,6 +10608,7 @@ Wasser befreien	De	S	\N
 Wasser befreien	Dr	G	\N
 Wasser befreien	Dt	S	\N
 Wasser befreien	Hl	S	\N
+Wasser befreien	Km	S	\N
 Wasser befreien	Ma	S	\N
 Wasser befreien	PC	A	\N
 Wasser befreien	PF	G	\N
@@ -10276,6 +10627,7 @@ Wasser spüren	De	G	\N
 Wasser spüren	Dr	G	\N
 Wasser spüren	Dt	S	\N
 Wasser spüren	Hl	S	\N
+Wasser spüren	Km	A	\N
 Wasser spüren	Ma	A	\N
 Wasser spüren	PF	G	\N
 Wasser spüren	PK	A	\N
@@ -10296,6 +10648,7 @@ Wasseratmen	Dr	S	\N
 Wasseratmen	Dt	A	\N
 Wasseratmen	Fi	S	\N
 Wasseratmen	Hl	A	\N
+Wasseratmen	Km	A	\N
 Wasseratmen	Ma	A	\N
 Wasseratmen	PC	A	\N
 Wasseratmen	PF	A	\N
@@ -10319,6 +10672,7 @@ Wasseratmen	wHx	A	\N
 Wasserelementargeist beschwören	Dr	A	\N
 Wasserelementargeist beschwören	Dt	A	\N
 Wasserelementargeist beschwören	Hl	A	\N
+Wasserelementargeist beschwören	Km	A	\N
 Wasserelementargeist beschwören	Ma	A	\N
 Wasserelementargeist beschwören	PC	A	\N
 Wasserelementargeist beschwören	PF	A	\N
@@ -10343,6 +10697,7 @@ Wasserelementargeist beschwören	wHx	A	\N
 Wasserlauf	Dr	S	\N
 Wasserlauf	Dt	A	\N
 Wasserlauf	Hl	A	\N
+Wasserlauf	Km	A	\N
 Wasserlauf	Ma	A	\N
 Wasserlauf	PC	A	\N
 Wasserlauf	PF	A	\N
@@ -10363,6 +10718,7 @@ Wassermeisterschaft	De	A	\N
 Wassermeisterschaft	Dr	A	\N
 Wassermeisterschaft	Dt	S	\N
 Wassermeisterschaft	Hl	S	\N
+Wassermeisterschaft	Km	S	\N
 Wassermeisterschaft	Ma	S	\N
 Wassermeisterschaft	PC	A	\N
 Wassermeisterschaft	PF	S	\N
@@ -10410,6 +10766,7 @@ Wassersalz	wHx	S	\N
 Wasserstrahl	De	S	\N
 Wasserstrahl	Dr	S	\N
 Wasserstrahl	Hl	S	\N
+Wasserstrahl	Km	S	\N
 Wasserstrahl	Ma	S	\N
 Wasserstrahl	PK	S	\N
 Wasserstrahl	PM	G	\N
@@ -10429,6 +10786,7 @@ Wasserwandlung	De	A	\N
 Wasserwandlung	Dr	S	\N
 Wasserwandlung	Dt	S	\N
 Wasserwandlung	Hl	S	\N
+Wasserwandlung	Km	S	\N
 Wasserwandlung	Ma	S	\N
 Wasserwandlung	PC	A	\N
 Wasserwandlung	PF	A	\N
@@ -10482,6 +10840,7 @@ Weltentor schaffen	De	A	\N
 Weltentor schaffen	Dr	A	\N
 Weltentor schaffen	Dt	A	\N
 Weltentor schaffen	Hl	A	\N
+Weltentor schaffen	Km	A	\N
 Weltentor schaffen	Ma	A	\N
 Weltentor schaffen	PC	A	\N
 Weltentor schaffen	PF	A	\N
@@ -10509,6 +10868,7 @@ Wetterzauber	De	G	\N
 Wetterzauber	Dr	S	\N
 Wetterzauber	Dt	G	\N
 Wetterzauber	Hl	S	\N
+Wetterzauber	Km	S	\N
 Wetterzauber	Ma	S	\N
 Wetterzauber	PC	S	\N
 Wetterzauber	PF	G	\N
@@ -10529,6 +10889,7 @@ Wiederkehr	De	A	\N
 Wiederkehr	Dr	S	\N
 Wiederkehr	Dt	S	\N
 Wiederkehr	Hl	S	\N
+Wiederkehr	Km	A	\N
 Wiederkehr	Ma	S	\N
 Wiederkehr	PC	S	\N
 Wiederkehr	PF	S	\N
@@ -10560,6 +10921,7 @@ Windmeisterschaft	De	S	\N
 Windmeisterschaft	Dr	S	\N
 Windmeisterschaft	Dt	S	\N
 Windmeisterschaft	Hl	S	\N
+Windmeisterschaft	Km	S	\N
 Windmeisterschaft	Ma	S	\N
 Windmeisterschaft	PC	S	\N
 Windmeisterschaft	PF	S	\N
@@ -10581,6 +10943,7 @@ Windstoß	De	S	\N
 Windstoß	Dr	S	\N
 Windstoß	Dt	S	\N
 Windstoß	Hl	A	\N
+Windstoß	Km	A	\N
 Windstoß	Ma	A	\N
 Windstoß	PC	A	\N
 Windstoß	PF	S	\N
@@ -10605,6 +10968,7 @@ Wirbelwind	De	S	\N
 Wirbelwind	Dr	G	\N
 Wirbelwind	Dt	S	\N
 Wirbelwind	Hl	S	\N
+Wirbelwind	Km	S	\N
 Wirbelwind	Ma	S	\N
 Wirbelwind	PC	S	\N
 Wirbelwind	PF	S	\N
@@ -10645,6 +11009,7 @@ Wolkenbruch	De	G	\N
 Wolkenbruch	Dr	S	\N
 Wolkenbruch	Dt	S	\N
 Wolkenbruch	Hl	S	\N
+Wolkenbruch	Km	S	\N
 Wolkenbruch	Ma	S	\N
 Wolkenbruch	PC	S	\N
 Wolkenbruch	PF	S	\N
@@ -10717,6 +11082,7 @@ Wundrune	Sk	S	\N
 Wüstenwind	De	G	\N
 Wüstenwind	Dr	S	\N
 Wüstenwind	Dt	S	\N
+Wüstenwind	Km	S	\N
 Wüstenwind	Ma	S	\N
 Wüstenwind	PC	S	\N
 Wüstenwind	PF	S	\N
@@ -10749,6 +11115,7 @@ YehKiQuang	ScW	S	\N
 YehKiQuang	Tt	S	\N
 Zauberauge	Dt	S	\N
 Zauberauge	Hj	G	\N
+Zauberauge	Km	S	\N
 Zauberauge	Ma	S	\N
 Zauberauge	Mg	G	\N
 Zauberauge	PC	S	\N
@@ -10767,6 +11134,7 @@ Zauberhand	De	S	\N
 Zauberhand	Dr	A	\N
 Zauberhand	Dt	S	\N
 Zauberhand	Hl	A	\N
+Zauberhand	Km	S	\N
 Zauberhand	Ma	S	\N
 Zauberhand	PC	S	\N
 Zauberhand	PF	S	\N
@@ -10787,6 +11155,7 @@ Zaubermacht	De	S	\N
 Zaubermacht	Dr	S	\N
 Zaubermacht	Dt	G	\N
 Zaubermacht	Hl	S	\N
+Zaubermacht	Km	G	\N
 Zaubermacht	Ma	G	\N
 Zaubermacht	Or	S	\N
 Zaubermacht	PC	S	\N
@@ -10815,6 +11184,7 @@ Zauberschild	Dr	A	\N
 Zauberschild	Dt	S	\N
 Zauberschild	Hj	S	\N
 Zauberschild	Hl	A	\N
+Zauberschild	Km	S	\N
 Zauberschild	Ma	S	\N
 Zauberschild	Or	S	\N
 Zauberschild	PC	S	\N
@@ -10837,6 +11207,7 @@ Zauberschild	gHx	S	\N
 Zauberschild	sHx	S	\N
 Zauberschild	wHx	S	\N
 Zauberschloß	Dt	S	\N
+Zauberschloß	Km	A	\N
 Zauberschloß	Ma	S	\N
 Zauberschloß	PC	S	\N
 Zauberschloß	PF	S	\N
@@ -10854,6 +11225,7 @@ Zauberschloß	sHx	S	\N
 Zauberschloß	wHx	S	\N
 Zauberschlüssel	Dt	S	\N
 Zauberschlüssel	Hj	S	\N
+Zauberschlüssel	Km	A	\N
 Zauberschlüssel	Ma	S	\N
 Zauberschlüssel	PC	S	\N
 Zauberschlüssel	PF	S	\N
@@ -10872,6 +11244,7 @@ Zauberschlüssel	wHx	S	\N
 Zauberschmiede	De	S	\N
 Zauberschmiede	Dt	S	\N
 Zauberschmiede	Hj	G	\N
+Zauberschmiede	Km	S	\N
 Zauberschmiede	Ma	S	\N
 Zauberschmiede	Or	S	\N
 Zauberschmiede	PC	S	\N
@@ -10906,6 +11279,7 @@ Zauberstimme	De	S	\N
 Zauberstimme	Dr	S	\N
 Zauberstimme	Dt	S	\N
 Zauberstimme	Hl	S	\N
+Zauberstimme	Km	S	\N
 Zauberstimme	Ma	S	\N
 Zauberstimme	PC	S	\N
 Zauberstimme	PF	S	\N
@@ -10925,6 +11299,7 @@ Zauberstimme	To	S	\N
 Zauberstimme	gHx	S	\N
 Zauberstimme	sHx	S	\N
 Zauberstimme	wHx	S	\N
+Zaubertür	Km	S	\N
 Zaubertür	Ma	S	\N
 Zaubertür	Sw	G	\N
 Zaubertür	Th	G	\N
@@ -10935,6 +11310,7 @@ Zauberwirklichkeit	De	A	\N
 Zauberwirklichkeit	Dr	S	\N
 Zauberwirklichkeit	Dt	S	\N
 Zauberwirklichkeit	Hl	A	\N
+Zauberwirklichkeit	Km	S	\N
 Zauberwirklichkeit	Ma	S	\N
 Zauberwirklichkeit	PC	S	\N
 Zauberwirklichkeit	PF	S	\N
@@ -10956,6 +11332,7 @@ Zauberzunge	De	S	\N
 Zauberzunge	Dr	S	\N
 Zauberzunge	Dt	S	\N
 Zauberzunge	Hl	S	\N
+Zauberzunge	Km	S	\N
 Zauberzunge	Ma	S	\N
 Zauberzunge	PC	S	\N
 Zauberzunge	PF	S	\N
@@ -10978,6 +11355,7 @@ Zeichen des Chaos	sHx	S	\N
 Zielsuche	De	G	\N
 Zielsuche	Dr	G	\N
 Zielsuche	Fi	G	\N
+Zielsuche	Km	S	\N
 Zielsuche	Ma	S	\N
 Zielsuche	PK	G	\N
 Zielsuche	Sa	G	\N
@@ -11019,6 +11397,7 @@ Zucksalz	sHx	S	\N
 Zucksalz	wHx	S	\N
 Zurückführen	De	S	\N
 Zurückführen	Dr	G	\N
+Zurückführen	Km	S	\N
 Zurückführen	Ma	S	\N
 Zurückführen	ScN	S	\N
 Zurückführen	ScS	S	\N
@@ -11036,6 +11415,7 @@ Zweite Haut	Dt	S	\N
 Zweite Haut	Fi	G	\N
 Zweite Haut	Hj	S	\N
 Zweite Haut	Hl	G	\N
+Zweite Haut	Km	G	\N
 Zweite Haut	Ma	G	\N
 Zweite Haut	PC	S	\N
 Zweite Haut	PF	S	\N
@@ -11059,6 +11439,7 @@ Zwiesprache	De	S	\N
 Zwiesprache	Dr	A	\N
 Zwiesprache	Dt	S	\N
 Zwiesprache	Hl	S	\N
+Zwiesprache	Km	S	\N
 Zwiesprache	Ma	S	\N
 Zwiesprache	PC	S	\N
 Zwiesprache	PF	S	\N

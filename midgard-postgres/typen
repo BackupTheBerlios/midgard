@@ -94,7 +94,8 @@ COPY "typen" FROM stdin;
 53	Hj	Hexenjäger	Hexenjägerin	j	ak	0	30	2	TuT	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	Nur Dolch, Kurzschwert, Streitkolben oder Kriegshammer als Spezialwaffe möglich.	\N
 54	Sw	Schattenweber	Schattenweberin	j	ak	10	-20	1	TuT	4	\N	s	\N	\N	\N	\N	\N	\N	\N	\N	Nur Dolch, Keule, Wurfaxt oder Wurfmesser kann als Spezialwaffe gewählt werden. Schreiben: Muttersprache +9 muß gelernt werden	t
 55	Wi	Wildläufer	Wildläuferin	j	ak	0	0	1	TuT	2	\N	l	Dweomer	\N	\N	\N	\N	\N	\N	\N	\N	\N
-56	To	Todeswirker	Todeswirkerin	j	ak	-10	30	1	TuT	3	\N	s	\N	\N	\N	\N	\N	\N	\N	\N	Als Spezialwaffe kann nur Dolch, Kurzschwert, Rapier, Wurfmesser oder leichte ARmbrust gewählt werden.	\N
+56	To	Todeswirker	Todeswirkerin	j	ak	-10	30	1	TuT	3	\N	s	\N	\N	\N	\N	\N	\N	\N	\N	Als Spezialwaffe kann nur Dolch, Kurzschwert, Rapier, Wurfmesser oder leichte Armbrust gewählt werden.	\N
+57	Km	Klingenmagier	Klingenmagierin	j	k	10	0	3	TuT	3	\N	l	\N	\N	\N	\N	\N	\N	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	\N
 \.
 --
 --
