@@ -1,4 +1,4 @@
-// $Id: Sprache_auswahl.hh,v 1.20 2001/12/18 13:14:48 thoma Exp $
+// $Id: Sprache_auswahl.hh,v 1.21 2002/01/05 15:35:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,15 +38,17 @@
 class Sprache_auswahl : public Sprache_auswahl_glade
 {   
    public:
-        enum modus {SPRACHE,NEUESPRACHE,ALTESPRACHE,SCHRIFT,LAND};
+        enum modus {SPRACHE,MUTTERSPRACHE,NEUESPRACHE,ALTESPRACHE,SCHRIFT,LAND};
    private:
         modus mod;
         midgard_CG* hauptfenster;        
+        const Grundwerte Werte;
         friend class Sprache_auswahl_glade;
         void on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event);
         int wert;
    public:
         Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& Database,
+             const Grundwerte& Werte,
              modus mod,int wert,const std::list<cH_MidgardBasicElement> *Sp,
                                 const std::list<cH_MidgardBasicElement> &Sc,
                                 const std::list<cH_MidgardBasicElement> &L);

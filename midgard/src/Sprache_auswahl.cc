@@ -56,10 +56,11 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
 
 
 Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& Database, 
+   const Grundwerte& _Werte,
    const modus _mod,int _wert,const std::list<cH_MidgardBasicElement> *Sp,
                              const std::list<cH_MidgardBasicElement> &Sc,
                              const std::list<cH_MidgardBasicElement> &L)
- : mod(_mod),hauptfenster(h),wert(_wert)
+ :mod(_mod),hauptfenster(h),Werte(_Werte) ,wert(_wert)
 {
   {
    Gtk::OStream os(clist_sp_sc);
@@ -69,45 +70,31 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
          for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
           { 
             os << (*i)->Name()<<'\t'<<wert<<'\n';
-//            os.flush(&const_cast<cH_Land&>(*i));
             os.flush((*i)->ref(),&HandleContent::unref);
           }
       }
-   if (mod == SPRACHE)
+   if (mod == SPRACHE || mod == MUTTERSPRACHE ||
+       mod == NEUESPRACHE || mod == ALTESPRACHE)
       {
-         sp_sc_label->set_text("Sprache wählen");
+         if(mod == MUTTERSPRACHE)
+           {
+             vector<std::string> V=Werte.Herkunft()->Sprachen();
+             std::string s;
+             for(vector<std::string>::const_iterator i=V.begin();i!=V.end();)
+               { s+=*i; if(++i!=V.end()) s+=", ";}
+             if(V.size()==1) 
+               sp_sc_label->set_text("Muttersprache ("+s+") wählen") ;
+             else
+               sp_sc_label->set_text("Eine Muttersprache wählen\n("+s+")") ;
+           } 
+         else  sp_sc_label->set_text("Sprache wählen")  ;
          for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
           { 
             if((*i)->ist_gelernt(*Sp)) continue;
             cH_Sprache s(*i);
+            if(mod == NEUESPRACHE &&  s->Alte_Sprache()) continue;
+            if(mod == ALTESPRACHE && !s->Alte_Sprache()) continue;
             os << s->Name()<<'\t'<<wert<<'\n';
-//            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
-            os.flush((*i)->ref(),&HandleContent::unref);
-          }
-      }
-   if (mod == ALTESPRACHE)
-      {
-         sp_sc_label->set_text("Sprache wählen");
-         for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
-          { 
-            if((*i)->ist_gelernt(*Sp)) continue;
-            cH_Sprache s(*i);
-            if(!s->Alte_Sprache()) continue;
-            os << s->Name()<<'\t'<<wert<<'\n';
-//            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
-            os.flush((*i)->ref(),&HandleContent::unref);
-           }
-      }
-   if (mod == NEUESPRACHE)
-      {
-         sp_sc_label->set_text("Sprache wählen");
-         for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
-          { 
-            if((*i)->ist_gelernt(*Sp)) continue;
-            cH_Sprache s(*i);
-            if(s->Alte_Sprache()) continue;
-            os << s->Name()<<'\t'<<wert<<'\n';
-//            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
             os.flush((*i)->ref(),&HandleContent::unref);
           }
       }

@@ -55,8 +55,8 @@ void Window_angeb_fert::on_clist_ang_fert_neu_select_row(gint row, gint column, 
   std::string newf = clist_ang_fert_neu->get_text(row,1);
 cout << newf<<'\n';
 cout << "1\n";
-cout << clist_ang_fert_alt->selection().begin()->get_data()<<'\n';
-  cH_MidgardBasicElement MBE=static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
+cout << clist_ang_fert_neu->selection().begin()->get_data()<<'\n';
+  cH_MidgardBasicElement MBE=static_cast<MidgardBasicElement*>(clist_ang_fert_neu->selection().begin()->get_data());
 cout << "2\n";
   if(!Sinn(wurf,atoi(clist_ang_fert_neu->get_text(row,2).c_str())))
      MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,MBE);

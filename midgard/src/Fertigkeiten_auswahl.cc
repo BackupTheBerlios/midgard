@@ -119,15 +119,6 @@ void Fertigkeiten_auswahl::Allgemeinwissen()
 
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    {
-/*
-    bool fachkenntnis=false;
-    for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Fert_Fach.begin();j!=list_Fert_Fach.end();++j)
-       if((*j)->Name()==(*i)->Name()) { fachkenntnis=true; break; }
-    bool spezieskenntnis=false;
-    for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Fert_spez.begin();j!=list_Fert_spez.end();++j)
-       if((*j)->Name()==(*i)->Name()) { spezieskenntnis=true; break; }
-*/    
-//    if(!fachkenntnis && !spezieskenntnis)
      if(cH_Fertigkeit(*i)->LernLand() <= maxpunkte_A && Werte.Stadt_Land()=="Land")
        {
         cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert());
@@ -156,7 +147,6 @@ void Fertigkeiten_auswahl::Allgemeinwissen()
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
             { os << lernpunkte<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
                 << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
-//              os.flush(&*i);
               os.flush(f->ref(),&HandleContent::unref);
             }
       }
@@ -171,22 +161,10 @@ void Fertigkeiten_auswahl::Unge()
   unge_lernpunkte->set_text(itos(maxpunkte_U));
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    {
-/*
-    bool fachkenntnis=false;
-    for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Fert_Fach.begin();j!=list_Fert_Fach.end();++j)
-       if((*j)->Name()==(*i)->Name()) { fachkenntnis=true; break; }
-    bool spezieskenntnis=false;
-    for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Fert_spez.begin();j!=list_Fert_spez.end();++j)
-       if((*j)->Name()==(*i)->Name()) { spezieskenntnis=true; break; }
-*/    
-//    if(!fachkenntnis && !spezieskenntnis)
-       {
-        cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert());
-        list_Fert_Unge.push_back(*i);
-       }
+     cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert());
+     list_Fert_Unge.push_back(*i);
    }
    list_Fert_Unge.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
-//   list_Fert_Unge.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
    Gtk::OStream os(unge_clist_auswahl);
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_Unge.begin();i!=list_Fert_Unge.end();++i)
       { cH_Fertigkeit f(*i);
@@ -197,7 +175,6 @@ void Fertigkeiten_auswahl::Unge()
                !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
            { os << f->LernUnge()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
                 << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
-//             os.flush(&*i);
              os.flush(f->ref(),&HandleContent::unref);
            }
       }
@@ -274,8 +251,9 @@ bool Fertigkeiten_auswahl::SpracheSchrift(const std::string& fert,int wert,bool 
          fert=="Schreiben: Alte Sprache(+12)" ||
          fert=="Schreiben" )
     { launch=true;  mod=Sprache_auswahl::SCHRIFT; }
- else if(fert=="Muttersprache" ||
-         fert=="Gastlandsprache" ||
+ else if(fert=="Muttersprache")
+    { launch=true;  mod=Sprache_auswahl::MUTTERSPRACHE; }
+ else if(fert=="Gastlandsprache" ||
          fert=="Sprechen: Sprache(+4)" ||
          fert=="Sprechen: Sprache(+9)" ||
          fert=="Sprechen: Sprache(+12)")
@@ -284,7 +262,7 @@ bool Fertigkeiten_auswahl::SpracheSchrift(const std::string& fert,int wert,bool 
     { launch=true;  mod=Sprache_auswahl::ALTESPRACHE; }
 
  if(auswahl && launch)
-     manage (new Sprache_auswahl(hauptfenster,Database,mod,wert,
+     manage (new Sprache_auswahl(hauptfenster,Database,Werte,mod,wert,
                                  list_Sprache,list_Schrift,list_Fertigkeit));
  return launch;
 }
