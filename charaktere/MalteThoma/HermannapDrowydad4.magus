@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Hermann ap Drowydad" Spieler="Markus" Zeitpunkt="Grad 9" Grad="9"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Hl" Überleben="Überleben Heimat" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="71" Gw="75" Gs="96" Ko="41" In="71" Zt="100"/>
+  <abgeleiteteEigenschaften Au="99" pA="100" Wk="64" Sb="100" B="23" GG="1" SG="9"/>
+  <Erfolgswerte Abwehr="15" Zaubern="19" ZauberResistenz="14"/>
+  <Gesundheit LP="15" AP="51"/>
+  <Beschreibung Alter="41" Gestalt="normal" Gewicht="64" Größe="163" Stand="Mittelschicht" Herkunft="Clangardan" Glaube="Henwen"/>
+  <Vermögen GS="19155"/>
+  <Steigern GFP="45349" AEP="4757" KEP="1257" ZEP="1711" EPproGFP="33" Basiswerte="1" benötigte_Tage="294">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Gegenstand Bezeichnung="Körper" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="4"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="12"/>
+   <Fertigkeit Bezeichnung="Gassenwissen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Geheimmechanismen öffnen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="15"/>
+   <Fertigkeit Bezeichnung="Heilkunde" Wert="12"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="17"/>
+   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="12"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="9" Zusatz="Clanngadarn"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="15"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="11"/>
+   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="11"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="15"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="12"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="16"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Wert="11"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="5"/>
+   <Fertigkeit Bezeichnung="Überleben im Dschungel" Wert="11"/>
+   <Fertigkeit Bezeichnung="Überleben im Gebirge" Wert="12"/>
+   <Fertigkeit Bezeichnung="Überleben im Schnee" Wert="12"/>
+   <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
+   <Waffe Bezeichnung="Dolch" Wert="12"/>
+   <Waffe Bezeichnung="Kurzschwert" Wert="8"/>
+   <Waffe Bezeichnung="Langschwert" Wert="11"/>
+   <Waffe Bezeichnung="Magierstab" Wert="10"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="4"/>
+   <Zauber Bezeichnung="Allheilung"/>
+   <Zauber Bezeichnung="Angst"/>
+   <Zauber Bezeichnung="Austreibung des Bösen"/>
+   <Zauber Bezeichnung="Bannen von Dunkelheit"/>
+   <Zauber Bezeichnung="Bannen von Gift"/>
+   <Zauber Bezeichnung="Bannen von Zauberwerk"/>
+   <Zauber Bezeichnung="Beschleunigen"/>
+   <Zauber Bezeichnung="Besänftigen"/>
+   <Zauber Bezeichnung="Binden des Vertrauten"/>
+   <Zauber Bezeichnung="Blutmeisterschaft"/>
+   <Zauber Bezeichnung="Dschungelwand"/>
+   <Zauber Bezeichnung="Entgiften"/>
+   <Zauber Bezeichnung="Erkennen von Besessenheit"/>
+   <Zauber Bezeichnung="Erkennen von Krankheit"/>
+   <Zauber Bezeichnung="Erkennen von Leben"/>
+   <Zauber Bezeichnung="Erscheinungen"/>
+   <Zauber Bezeichnung="Flammenkreis"/>
+   <Zauber Bezeichnung="Freundesauge"/>
+   <Zauber Bezeichnung="Funkenregen"/>
+   <Zauber Bezeichnung="Fährtenduft"/>
+   <Zauber Bezeichnung="Geas"/>
+   <Zauber Bezeichnung="Geräusche dämpfen"/>
+   <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Heilen schwerer Wunden"/>
+   <Zauber Bezeichnung="Heilen von Krankheit"/>
+   <Zauber Bezeichnung="Heilen von Wunden"/>
+   <Zauber Bezeichnung="Heranholen"/>
+   <Zauber Bezeichnung="Hitzeschutz"/>
+   <Zauber Bezeichnung="Kälteschutz"/>
+   <Zauber Bezeichnung="Laufen wie der Wind"/>
+   <Zauber Bezeichnung="Liniensicht"/>
+   <Zauber Bezeichnung="Lähmung"/>
+   <Zauber Bezeichnung="Macht über das Selbst"/>
+   <Zauber Bezeichnung="Macht über die belebte Natur"/>
+   <Zauber Bezeichnung="Namenloses Grauen"/>
+   <Zauber Bezeichnung="Person wiederfinden"/>
+   <Zauber Bezeichnung="Reinigen"/>
+   <Zauber Bezeichnung="Reise der Seele"/>
+   <Zauber Bezeichnung="Ring des Lebens"/>
+   <Zauber Bezeichnung="Schlaf"/>
+   <Zauber Bezeichnung="Schmerzen"/>
+   <Zauber Bezeichnung="Schwarm"/>
+   <Zauber Bezeichnung="Schwäche"/>
+   <Zauber Bezeichnung="Seelenheilung"/>
+   <Zauber Bezeichnung="Silberstaub"/>
+   <Zauber Bezeichnung="Stille"/>
+   <Zauber Bezeichnung="Stärke"/>
+   <Zauber Bezeichnung="Tiere rufen" Zusatz=""/>
+   <Zauber Bezeichnung="Tiergestalt"/>
+   <Zauber Bezeichnung="Tiersprache" Zusatz="Vögel"/>
+   <Zauber Bezeichnung="Unsichtbarkeit"/>
+   <Zauber Bezeichnung="Verlangsamen"/>
+   <Zauber Bezeichnung="Wandeln wie der Wind"/>
+   <Zauber Bezeichnung="Warnung"/>
+   <Zauber Bezeichnung="Windstoß"/>
+   <Zauber Bezeichnung="Wittern"/>
+   <Zauber Bezeichnung="Zaubermacht"/>
+   <Zauber Bezeichnung="Zaubersprung"/>
+   <Zauber Bezeichnung="Zweite Haut"/>
+   <Zauber Bezeichnung="Zwiesprache"/>
+   <Zauber Bezeichnung="Zähmen"/>
+   <Grundkenntnis Bezeichnung="Zauberstäbe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Sprache Bezeichnung="Albisch" Wert="13"/>
+   <Sprache Bezeichnung="Aranisch" Wert="13"/>
+   <Sprache Bezeichnung="Chryseisch" Wert="12"/>
+   <Sprache Bezeichnung="Comentang" Wert="10"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="13"/>
+   <Sprache Bezeichnung="Maralinga" Wert="12"/>
+   <Sprache Bezeichnung="Moravisch" Wert="7"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="13"/>
+   <Sprache Bezeichnung="Rawindi" Wert="10"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="12"/>
+   <Sprache Bezeichnung="Twyneddisch" Wert="18"/>
+   <Urschrift Bezeichnung="Rawindi" Wert="8"/>
+   <Urschrift Bezeichnung="Aranisch" Wert="12"/>
+   <Urschrift Bezeichnung="Twyneddisch" Wert="14"/>
+   <Urschrift Bezeichnung="Albisch" Wert="12"/>
+   <Urschrift Bezeichnung="Chryseisch" Wert="12"/>
+   <Urschrift Bezeichnung="Comentang" Wert="8"/>
+   <Urschrift Bezeichnung="Erainnisch" Wert="12"/>
+   <Urschrift Bezeichnung="Maralinga" Wert="12"/>
+   <Urschrift Bezeichnung="Neu-Vallinga" Wert="12"/>
+   <Urschrift Bezeichnung="Scharidisch" Wert="12"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Kompendium" Region="TuT"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
