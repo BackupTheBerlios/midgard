@@ -81,3 +81,40 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
   }
  return L;
 }
+
+// Doppelklassen
+std::vector<Lernschema::st_index> Lernschema::getIndex(const std::vector<cH_Typen>& Typ,const std::string& art,const std::string& name)
+{
+  assert(Typ.size()==2);
+  std::vector<st_index> VI;
+  for(std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
+   {
+     if((*i)->Short()!="")
+         VI.push_back(st_index((*i)->Short(),art,name));
+   }
+  return VI;
+}
+
+bool Lernschema::get_Pflicht(const std::vector<st_index>& VI) const
+{
+  for(std::vector<st_index>::const_iterator i=VI.begin();i!=VI.end();++i)
+   {
+//cout <<"Lernschema::get_Pflicht:  "<< i->typ<<' '<<i->art<<' '<<i->fertigkeit<<'\n';
+     bool b=const_cast<std::map<st_index,st_wert>&>(lern_map)[*i].pflicht; 
+     if(b) return true;
+   }
+  return false;
+}
+
+int Lernschema::get_Lernpunkte(const std::vector<st_index>& VI) const
+{
+  int lernp=99;
+  for(std::vector<st_index>::const_iterator i=VI.begin();i!=VI.end();++i)
+   {
+     int l=const_cast<std::map<st_index,st_wert>&>(lern_map)[*i].lernpunkte; 
+     (l<lernp) ? (lernp=l) : 1 ;
+   }
+  return lernp;
+}
+
+ 

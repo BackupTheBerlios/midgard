@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.94 2002/03/12 14:57:34 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.95 2002/03/25 15:12:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -562,18 +562,21 @@ void midgard_CG::show_lernschema()
 
           if((*i)->Lernpunkte() == 99  ) continue;
 
-          Lernschema::st_index I;
+//          Lernschema::st_index I;
+          std::vector<Lernschema::st_index> VI;
           if(what==MidgardBasicElement::WAFFE)  
            {
              if ((*i)->ist_gelernt(list_Waffen)) gelernt=true; 
              if (!cH_Waffe(*i)->SG_Voraussetzung(Werte)) continue ;
-             I= Lernschema::st_index(Typ[0]->Short(),"Waffenfertigkeiten",(*i)->Name());
+//             I= Lernschema::st_index(Typ[0]->Short(),"Waffenfertigkeiten",(*i)->Name());
+             VI=Lernschema::getIndex(Typ,"Waffenfertigkeiten",(*i)->Name());
             }
            else if(what==MidgardBasicElement::ZAUBER)
             {
              if ((*i)->ist_gelernt(list_Zauber) )  gelernt=true;
              if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
-             I=Lernschema::st_index(Typ[0]->Short(),"Zauberkünste",(*i)->Name());
+//             I=Lernschema::st_index(Typ[0]->Short(),"Zauberkünste",(*i)->Name());
+             VI=Lernschema::getIndex(Typ,"Zauberkünste",(*i)->Name());
             }
            else if(what==MidgardBasicElement::FERTIGKEIT)
             {
@@ -583,11 +586,12 @@ void midgard_CG::show_lernschema()
 //             if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
              if ((*i)->ist_gelernt(list_Fertigkeit)) gelernt=true;
              if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
-             I=Lernschema::st_index(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
+//             I=Lernschema::st_index(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
+             VI=Lernschema::getIndex(Typ,"Fachkenntnisse",(*i)->Name());
              cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(Werte));
-             cH_Fertigkeit(*i)->setPflicht(Database.lernschema.get_Pflicht(I));
+             cH_Fertigkeit(*i)->setPflicht(Database.lernschema.get_Pflicht(VI));
            }
-         (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
+         (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(VI));
 
         bool zuteuer=false;
          if(what==MidgardBasicElement::WAFFE)  
