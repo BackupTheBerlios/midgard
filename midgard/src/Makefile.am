@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.108 2002/01/31 17:44:18 christof Exp $
+# $Id: Makefile.am,v 1.109 2002/01/31 17:46:07 christof Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -220,6 +220,8 @@ midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	$(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
 	$(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
+
+#black magic to make it cross compile with MinGW under Linux
 
 midgard_exe_LIBS=-lManuProC_Widgets -lManuProC_Base -lGtkmmAddons \
 	 -lgtkmm -lgdkmm -lsigc \
