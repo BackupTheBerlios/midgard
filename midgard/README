@@ -14,10 +14,14 @@ INHALT:
 
 ##########################################################################
 TODO
+*** Bugs nach dem Umbau ***
+* Spezialgebiete Zauber
+* Beschwörer testen
+
+***Längerfristig***
 * Quellenbuch Waeland
 * Quellenbuch Nahuatlan
 * Lernschema 'Derwisch', Derwisch als Charakterklasse
-* Gildenbrief-Erweiterungen
 * Doppelklassen durch 'Zauberer lernen Waffen hochgenug' 
    (Braucht das eingentlich wirklich jemand? *zweifel*
     Wenn sich keiner meldet schiebe ich das mal auf die lange Bank)
@@ -36,18 +40,18 @@ a) Neue Charakterklassen:
       - lernschema
       - pflicht_lernen
       - typen
-      - arkanum_zauber (wenn es ein Zauberer ist)
-      - fertigkeiten
+      - zauber_typen (wenn es ein Zauberer ist)
+      - fertigkeiten_typen
       - waffen_standard
 
 b) Anderes
    * neue Zauber
-      -> arkanum_zauber
+      -> zauber,zauber_typen
    * neue Berufe
       -> berufe_voraussetzung, berufe_stand, berufe_vorteile
    * neue Fertigkeiten
-      -> fertigkeiten, steigern_fertigkeiten, steigern_fertigkeiten_werte,
-         fertigkeiten_voraussetzung
+      -> fertigkeiten, fertigkeiten_typen,steigern_fertigkeiten, 
+         steigern_fertigkeiten_werte, fertigkeiten_voraussetzung
    * neue Waffen
       -> waffen, waffen_grund
 

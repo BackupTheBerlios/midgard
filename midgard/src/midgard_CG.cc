@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.85 2001/11/13 15:26:57 thoma Exp $
+// $Id: midgard_CG.cc,v 1.86 2001/11/21 09:45:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,7 +55,7 @@ midgard_CG::midgard_CG(int argc,char **argv)
 
 void midgard_CG::get_Database()
 {
-   Midgard_Info *MI = manage(new Midgard_Info(true,this));
+   Midgard_Info *MI = manage(new Midgard_Info(this,true));
    Database = st_Database( Laender_All(MI->get_progressbar_laender()).get_All(),
                            Ruestung_All(MI->get_progressbar_ruestung()).get_All(),
                            Lernschema(MI->get_progressbar_lernschema()),
@@ -210,8 +210,6 @@ void midgard_CG::on_radiobutton_frau_toggled()
    else Werte.set_Geschlecht("m");
   fill_typauswahl();
   fill_typauswahl_2();
-//  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
-//  typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
   typauswahl->set_history(Typ[0]->Nr());
   typauswahl_2->set_history(Typ[1]->Nr());
 }
@@ -222,8 +220,6 @@ void midgard_CG::on_radiobutton_mann_toggled()
    else Werte.set_Geschlecht("w");
   fill_typauswahl();
   fill_typauswahl_2();
-//  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
-//  typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
   typauswahl->set_history(Typ[0]->Nr());
   typauswahl_2->set_history(Typ[1]->Nr());
 }
@@ -270,7 +266,6 @@ void midgard_CG::show_gtk()
      table_magier_steigern->hide();
    }
  // KiDo anzeigen?
-// if (Typ[0]->Short()=="Kd" || Typ[0]->Short() == "Ny" ) 
  if (kido_bool) 
    { optionmenu_KiDo_Stile->show();
      table_kido_lernen->show();
@@ -302,7 +297,6 @@ void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
 {
    Werte.set_Herkunft(s);
    zeige_werte(Werte);
-//   clear_Ausnahmen();
 }
 
 
@@ -354,6 +348,54 @@ void midgard_CG::on_button_waffen_s_clicked()
 
 /*****************************************************************/
 
+void midgard_CG::clear_listen()
+{
+   list_Fertigkeit.clear();
+   list_Fertigkeit_neu.clear();
+   list_Fertigkeit_ang.clear();
+   list_Waffen.clear();
+   list_Waffen_neu.clear();
+   list_WaffenGrund.clear();
+   list_WaffenGrund_neu.clear();
+   list_Waffen_besitz.clear();
+   list_Kido.clear();
+   list_Kido_neu.clear();
+   list_Beruf.clear();
+   list_Sprache.clear();
+   list_Schrift.clear();
+   list_Sprache_neu.clear();
+   list_Schrift_neu.clear();
+   list_Zauber.clear();
+   list_Zauberwerk.clear();
+   list_Zauber_neu.clear();
+   list_Zauberwerk_neu.clear();
+}
+
+void midgard_CG::clear_gtk()
+{
+   berufe_clist->clear();
+   waffen_clist->clear();
+   fertigkeiten_clist->clear();
+   zauber_clist->clear();
+   clist_kido->clear();
+   alte_fert_tree->clear();
+   neue_fert_tree->clear();
+   alte_waffen_tree->clear();
+   neue_waffen_tree->clear();
+   alte_grund_tree->clear();
+   neue_grund_tree->clear();
+   alte_zauber_tree->clear();
+   neue_zauber_tree->clear();
+   alte_zaubermittel_tree->clear();
+   neue_zaubermittel_tree->clear();
+   alte_kido_tree->clear();
+   neue_kido_tree->clear();
+   alte_sprache_tree->clear();
+   neue_sprache_tree->clear();
+   alte_schrift_tree->clear();
+   neue_schrift_tree->clear();
+}
+
 void midgard_CG::on_neuer_charakter_clicked()
 {
    button_abg_werte->set_sensitive(false);
@@ -376,7 +418,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    hbox_waffen->set_sensitive(false);
    table_waffen->set_sensitive(false);
    hbox_zauber->set_sensitive(false);
-   table_magier_lernen->set_sensitive(false);
+//XXX   table_magier_lernen->set_sensitive(false);
    hbox_kido->set_sensitive(false);
    table_kido_lernen->set_sensitive(false);
 
@@ -385,52 +427,12 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_fertigkeiten->set_sensitive(false);
    button_kido_auswahl->set_sensitive(false);       
 
-   list_Fertigkeit.clear();
-   list_Fertigkeit_neu.clear();
-   list_Fertigkeit_ang.clear();
-   list_Waffen.clear();
-   list_Waffen_neu.clear();
-   list_WaffenGrund.clear();
-   list_WaffenGrund_neu.clear();
-   list_Waffen_besitz.clear();
-   list_Kido.clear();
-   list_Kido_neu.clear();
-   list_Beruf.clear();
-   list_Sprache.clear();
-   list_Schrift.clear();
-   list_Sprache_neu.clear();
-   list_Schrift_neu.clear();
-   list_Zauber.clear();
-   list_Zauberwerk.clear();
-   list_Zauber_neu.clear();
-   list_Zauberwerk_neu.clear();
    Werte.clear();
    lernpunkte.clear();
    Typ.clear();
    Typ.resize(2);
    zeige_lernpunkte();
    zeige_werte(Werte);
-   berufe_clist->clear();
-   waffen_clist->clear();
-   fertigkeiten_clist->clear();
-   zauber_clist->clear();
-   clist_kido->clear();
-   alte_fert_tree->clear();
-   neue_fert_tree->clear();
-   alte_waffen_tree->clear();
-   neue_waffen_tree->clear();
-   alte_grund_tree->clear();
-   neue_grund_tree->clear();
-   alte_zauber_tree->clear();
-   neue_zauber_tree->clear();
-   alte_zaubermittel_tree->clear();
-   neue_zaubermittel_tree->clear();
-   alte_kido_tree->clear();
-   neue_kido_tree->clear();
-   alte_sprache_tree->clear();
-   neue_sprache_tree->clear();
-   alte_schrift_tree->clear();
-   neue_schrift_tree->clear();
    
    Originalbool=true;  checkbutton_original->set_active(true);
    Infobool=true;      checkbutton_original->set_active(true);
@@ -451,17 +453,16 @@ void midgard_CG::on_neuer_charakter_clicked()
  on_checkbutton_original_toggled();
  kido_bool=false;
  magie_bool=false;
- midgard_CG::fill_typauswahl();
- midgard_CG::fill_spezies();
- midgard_CG::spezieswahl_button();
- midgard_CG::typauswahl_button();
+ fill_typauswahl();
+ fill_spezies();
+ spezieswahl_button();
+ typauswahl_button(); // ruft clear_listen() und clear_gtk() auf
  show_gtk();
 
  // Verschwindet irgendwann
  checkbutton_Kuestenstaaten->set_sensitive(false);
  checkbutton_Nahuatlan->set_sensitive(false);
  checkbutton_Waeland->set_sensitive(false);
-
 }
 
 void midgard_CG::on_schliessen_CG_clicked()

@@ -12550,8 +12550,8 @@ Charakters</label>
 	  <handler>on_berufe_clist_auswahl_unselect_row</handler>
 	  <last_modification_time>Mon, 12 Feb 2001 13:14:34 GMT</last_modification_time>
 	</signal>
-	<columns>4</columns>
-	<column_widths>80,80,80,80</column_widths>
+	<columns>3</columns>
+	<column_widths>80,80,80</column_widths>
 	<selection_mode>GTK_SELECTION_SINGLE</selection_mode>
 	<show_titles>True</show_titles>
 	<shadow_type>GTK_SHADOW_IN</shadow_type>
@@ -12560,23 +12560,8 @@ Charakters</label>
 	  <class>GtkLabel</class>
 	  <child_name>CList:title</child_name>
 	  <name>label151</name>
-	  <label>Lern-
-punkte</label>
+	  <label>Lernpunkte</label>
 	  <justify>GTK_JUSTIFY_RIGHT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label152</name>
-	  <label>Voraus-
-setzung</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
 	  <wrap>False</wrap>
 	  <xalign>0.5</xalign>
 	  <yalign>0.5</yalign>
@@ -17657,8 +17642,8 @@ portierung</label>
 
 	<widget>
 	  <class>GtkLabel</class>
-	  <name>label431</name>
-	  <label>Berufe</label>
+	  <name>label432</name>
+	  <label>Lernschema</label>
 	  <justify>GTK_JUSTIFY_CENTER</justify>
 	  <wrap>False</wrap>
 	  <xalign>0</xalign>
@@ -17682,8 +17667,34 @@ portierung</label>
 	</widget>
 
 	<widget>
+	  <class>GtkLabel</class>
+	  <name>label431</name>
+	  <label>Berufe</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <left_attach>0</left_attach>
+	    <right_attach>1</right_attach>
+	    <top_attach>3</top_attach>
+	    <bottom_attach>4</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
 	  <class>GtkProgressBar</class>
-	  <name>progressbar_beruf</name>
+	  <name>progressbar_lernschema</name>
 	  <cxx_visibility>protected</cxx_visibility>
 	  <value>0</value>
 	  <lower>0</lower>
@@ -17712,34 +17723,8 @@ portierung</label>
 	</widget>
 
 	<widget>
-	  <class>GtkLabel</class>
-	  <name>label432</name>
-	  <label>Lernschema</label>
-	  <justify>GTK_JUSTIFY_CENTER</justify>
-	  <wrap>False</wrap>
-	  <xalign>0</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <child>
-	    <left_attach>0</left_attach>
-	    <right_attach>1</right_attach>
-	    <top_attach>3</top_attach>
-	    <bottom_attach>4</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>False</yfill>
-	  </child>
-	</widget>
-
-	<widget>
 	  <class>GtkProgressBar</class>
-	  <name>progressbar_lernschema</name>
+	  <name>progressbar_beruf</name>
 	  <cxx_visibility>protected</cxx_visibility>
 	  <value>0</value>
 	  <lower>0</lower>

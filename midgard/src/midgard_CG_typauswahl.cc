@@ -53,6 +53,8 @@ void midgard_CG::typauswahl_button()
 {
  cH_Typen *ptr = static_cast<cH_Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
  Typ[0]=*ptr;
+ clear_listen();
+ clear_gtk();
  show_gtk();
  Database.ausnahmen.set_Typ(Typ);
  if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();

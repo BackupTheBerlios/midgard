@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.96 2001/11/18 09:38:40 thoma Exp $
+// $Id: midgard_CG.hh,v 1.97 2001/11/21 09:45:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -209,6 +209,8 @@ class midgard_CG : public midgard_CG_glade
         void original_midgard_check();
         void grundwerte_boni_setzen();
         void on_neuer_charakter_clicked();
+        void clear_gtk();
+        void clear_listen();
         void on_button_hilfe_clicked();
         void on_charakter_beschreibung_clicked();
         void charakter_db_anlegen();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.37 2001/11/13 15:26:57 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.38 2001/11/21 09:45:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,7 @@ void midgard_CG::show_zauber()
       }
    for (unsigned int i=0;i<zauber_clist->columns().size();++i)
       zauber_clist->set_column_auto_resize(i,true);
-   zauber_clist->set_reorderable(true);
+//   zauber_clist->set_reorderable(true);
 }
 
 
@@ -67,18 +67,16 @@ void midgard_CG::magier_spezialgebiet(const std::string& whattodo)
 
 void midgard_CG::spezialgebiet_button_fill()
 {
-  Gtk::Menu *_m(manage(new Gtk::Menu()));
-  Gtk::MenuItem *_mi;
+ {
+  Gtk::OStream t_(option_magier_spezialgebiet);
   for(std::vector<cH_Spezialgebiet>::iterator i=Database.Spezialgebiet.begin();i!=Database.Spezialgebiet.end();++i)
    {
-      if((*i)->Typ() != Typ[0]->Short() && (*i)->Typ() != Typ[1]->Short() ) continue;
-      _mi = manage(new Gtk::MenuItem((*i)->Name()));
-      _m->append(*_mi);
-      _mi->show();
-      _mi->set_user_data((gpointer)&*i);
-    }
-  option_magier_spezialgebiet->set_menu(*_m);
+    if((*i)->Typ() != Typ[0]->Short() && (*i)->Typ() != Typ[1]->Short() ) continue;
+    t_ << (*i)->Name();
+    t_.flush((gpointer)&*i);
+   }  
   option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezialgebiet_button));
+ } 
 }
 
 void midgard_CG::spezialgebiet_button()

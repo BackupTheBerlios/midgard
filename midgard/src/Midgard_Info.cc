@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.50 2001/11/05 11:08:31 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.51 2001/11/21 09:45:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,17 +26,15 @@
 
 #include "config.h"
 #include "Midgard_Info.hh"
-//#include <gtk--/main.h>
 #include "midgard_CG.hh"
 
 void Midgard_Info::on_button_close_clicked()
 {   
-//  des.disconnect();
   if(hauptfenster) hauptfenster->show();
   destroy();
 }
 
-Midgard_Info::Midgard_Info(bool selfclean,midgard_CG* h)
+Midgard_Info::Midgard_Info(midgard_CG* h,bool selfclean)
 :hauptfenster(h)
 {
    versionsnummer->set_text("Version: "+(std::string)VERSION);
@@ -45,8 +43,6 @@ Midgard_Info::Midgard_Info(bool selfclean,midgard_CG* h)
     { toolbar_close->hide();
       frame_datenbank->show();
       if (hauptfenster) hauptfenster->hide();
-//      des = Gtk::Main::timeout.connect(slot(this,&Midgard_Info::timeout),8000);
-//      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
     }
    else
     {
@@ -54,10 +50,3 @@ Midgard_Info::Midgard_Info(bool selfclean,midgard_CG* h)
     }
 }
 
-gint Midgard_Info::timeout()
-{ 
- destroy();
- if(hauptfenster) hauptfenster->show();
- return 0; 
-}
-      
