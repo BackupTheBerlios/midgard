@@ -1,4 +1,4 @@
-// $Id: Region_GUI.hh,v 1.4 2003/09/08 08:10:59 christof Exp $               
+// $Id: Region_GUI.hh,v 1.5 2003/09/08 08:54:16 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig
@@ -27,10 +27,8 @@
 class RegionenPic
 {
  public:
-   using namespace RegionenPic_enum;
-   
-   __deprecated static Gtk::Image* Pic(epic e,bool tiny=false) ;
-   static Glib::RefPtr<Gdk::Pixbuf> PicModel(epic e,bool tiny=false) ;
+   __deprecated static Gtk::Image* Pic(RegionenPic_enum::epic e,bool tiny=false);
+   static Glib::RefPtr<Gdk::Pixbuf> PicModel(RegionenPic_enum::epic e,bool tiny=false) ;
 };
 
 // class Regionen_GUI
