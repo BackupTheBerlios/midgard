@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.25 2001/12/03 15:30:35 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.26 2001/12/04 11:24:47 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -31,22 +31,17 @@ void arkanum_speichern(std::ostream &o)
    o << " <Zauber>\n";
    Transaction t;
    exec sql allocate descriptor spalten;
-   exec sql declare zauber_curs cursor for
-   	select name, region, stufe, kosten, ap, art, 
-   	ursprung, agens, prozess, reagens,
-   	zauberdauer, reichweite, wirkungsziel, wirkungsbereich,
-   	wirkungsdauer, material, 
-   	zauberart, element, spruchrolle, thaumagram
-   	from zauber
-   	order by coalesce(region,''),name;
-   exec sql open zauber_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch zauber_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Spruch";
+
+ { FetchIStream is;
+   Query q("select name, region, stufe, kosten, ap, art, "
+   	"ursprung, agens, prozess, reagens, "
+   	"zauberdauer, reichweite, wirkungsziel, wirkungsbereich, "
+   	"wirkungsdauer, material, "
+   	"zauberart, element, spruchrolle, thaumagram "
+   	"from zauber "
+   	"order by coalesce(region,''),name");
+  while ((q >> is).good())
+  {o << "  <Spruch";
    string zauber=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_string_attrib(is, o, "Grad");
@@ -166,9 +161,8 @@ void arkanum_speichern(std::ostream &o)
    }
    o << "  </Spruch>\n";
   }
-   exec sql close zauber_curs;
-   SQLerror::test(__FILELINE__);
    o << " </Zauber>\n";
+ }
    
    //***************** Zauberwerk ********************************
 
