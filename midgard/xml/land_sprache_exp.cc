@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.8 2002/01/03 08:20:58 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.9 2002/01/08 08:40:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -71,16 +71,26 @@ void land_speichern(std::ostream &o)
    	" order by coalesce(region,''),name");
   while ((query>>is).good())
   {o << "  <Sprache";
-   fetch_and_write_string_attrib(is, o, "Name");
+   std::string sprache=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_int_attrib(is, o, "Kosten");
    fetch_and_write_int_attrib(is, o, "Maximalwert");
 //   fetch_and_write_string_attrib(is, o, "Schrift");
-   fetch_and_write_bool_attrib(is, o, "alteSchrift");
-   fetch_and_write_int_attrib(is, o, "Gruppe_1"); // ??
-   fetch_and_write_int_attrib(is, o, "Gruppe_2"); // ??
+   fetch_and_write_bool_attrib(is, o, "alteSprache");
+   fetch_and_write_int_attrib(is, o, "Gruppe");
+   fetch_and_write_int_attrib(is, o, "Gruppe2");
    fetch_and_write_bool_attrib(is, o, "Minderheit");
-   o << "/>\n";
+   o << ">";
+   Query query2("select art_der_schrift, schrift from sprache_schrift"
+   	" where sprache='"+sprache+"' order by art_der_schrift");
+   FetchIStream is2;
+   while ((query>>is2).good())
+   {  o << "\n    <Schrift";
+      fetch_and_write_string_attrib(is2, o, "Name");
+      fetch_and_write_string_attrib(is2, o, "Bezeichnung", sprache);
+      o << "/>";
+   }
+   o << "</Sprache>\n";
   }
   }
    o << " </Sprachen>\n";
@@ -228,7 +238,7 @@ void land_speichern(std::ostream &o)
    fetch_and_write_float_attrib(is, o, "Preis");
    fetch_and_write_string_attrib(is, o, "Währung");
 #ifndef MIDGARD3   
-   fetch_and_write_int_attrib(is, o, "Gewicht");
+   fetch_and_write_float_attrib(is, o, "Gewicht");
 #endif
    o << "/>\n";
   }

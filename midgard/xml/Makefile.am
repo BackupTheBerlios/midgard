@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.20 2002/01/02 15:21:43 christof Exp $
+# $Id: Makefile.am,v 1.21 2002/01/08 08:40:27 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
 
@@ -31,14 +31,16 @@ LIBS=@LIBS@ @COMMONXX_LIBS@
 #	./all_exp >../src/midgard.xml
 # upps, das ist von früher übrig geblieben
 
+XMLDIR=../../midgard-xml
+
 export: $(EXTRA_PROGRAMS)
-	./arkanum_exp >../../midgard-xml/Arkanum.xml
-	./all_exp K >../../midgard-xml/KanThaiPan.xml
-	./all_exp R >../../midgard-xml/Rawindra.xml
-	./all_exp A >../../midgard-xml/Alba.xml
-	./all_exp "B&R" >../../midgard-xml/BarbarenWutRitterEhre.xml
-	./all_exp "H&D" >../../midgard-xml/HexenzauberDruidenkraft.xml
-	./all_exp G >../../midgard-xml/Gildenbrief.xml
-	./all_exp   >../../midgard-xml/Regelwerk4.xml
-	./all_exp 3 >../../midgard-xml/Regelwerk3.xml
-#	./all_exp 2 >../../midgard-xml/Regelwerk2.xml
+	./arkanum_exp >$(XMLDIR)/Arkanum.xml
+	./all_exp K >$(XMLDIR)/KanThaiPan.xml
+	./all_exp R >$(XMLDIR)/Rawindra.xml
+	./all_exp A >$(XMLDIR)/Alba.xml
+	./all_exp "B&R" >$(XMLDIR)/BarbarenWutRitterEhre.xml
+	./all_exp "H&D" >$(XMLDIR)/HexenzauberDruidenkraft.xml
+	./all_exp G >$(XMLDIR)/Gildenbrief.xml
+	./all_exp   >$(XMLDIR)/Regelwerk4.xml
+	./all_exp 3 >$(XMLDIR)/Regelwerk3.xml
+#	./all_exp 2 >$(XMLDIR)/Regelwerk2.xml
