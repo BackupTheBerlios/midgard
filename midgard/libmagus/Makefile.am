@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.53 2004/12/16 08:24:52 christof Exp $
+# $Id: Makefile.am,v 1.54 2004/12/16 08:26:28 christof Exp $
 
 SIGC_MAJOR=2
 
@@ -87,7 +87,7 @@ BUILT_SOURCES= registry.h TeX.cc libmagus_sigc$(SIGC_MAJOR).def
 TeX.cc: ../../GtkmmAddons/src/TeX.cc
 	ln -sf $^ $@
 
-def:
+def: libmagus.la
 	OBJS=`for i in $(libmagus_la_SOURCES) ; do case $$i in \
 		*.cc) echo .libs/$$i.o | sed -e 's/\.cc//' ;; esac ; done` ; \
 	i586-mingw32msvc-dlltool $$OBJS --export-all-symbols --output-def /dev/stdout \
