@@ -6,7 +6,7 @@
     <Standard>Sc</Standard>
     <Ausnahme>Tm</Ausnahme>
   </Spruch>
-  <Spruch Name="Angst" Grad="1" Lernkosten="120" AP="&#X23;Ws" Typ="Wort" Ursprung="druidisch" Agens="Feuer" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 10 Ws" Wirkungsdauer="10 min">
+  <Spruch Name="Angst" Grad="1" Lernkosten="120" AP="#Ws" Typ="Wort" Ursprung="druidisch" Agens="Feuer" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 10 Ws" Wirkungsdauer="10 min">
     <Grund>Dr,Sa,Sc,gHx,sHx,wHx</Grund>
     <Standard>Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Tm,dBe,eBe,tBe</Standard>
   </Spruch>
@@ -210,7 +210,7 @@
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe,tBe</Ausnahme>
   </Spruch>
-  <Spruch Name="Blitze schleudern" Grad="3" Lernkosten="1000" AP="&#X23;*3" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="erschafft" Reagens="Feuer" Zauberdauer="10 s" Reichweite="200 m" Wirkungsziel="Umgebung" Wirkungsbereich="max 10 Blitze" Wirkungsdauer="0" Material="Zitterallherz">
+  <Spruch Name="Blitze schleudern" Grad="3" Lernkosten="1000" AP="#*3" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="erschafft" Reagens="Feuer" Zauberdauer="10 s" Reichweite="200 m" Wirkungsziel="Umgebung" Wirkungsbereich="max 10 Blitze" Wirkungsdauer="0" Material="Zitterallherz">
     <Grund>PK,Th</Grund>
     <Standard>Dr,Ma,PC,PF,PHa,PHe,PM,PT,PW,gHx,sHx,wHx</Standard>
   </Spruch>
@@ -362,7 +362,7 @@
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Dämonenbann" Grad="5" Lernkosten="3000" AP="&#X23;*6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Dämonenbann" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
@@ -414,7 +414,7 @@
   <Spruch Name="Eldring beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Elementarbann" Grad="5" Lernkosten="3000" AP="&#X23;*6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Elementarbann" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
@@ -640,7 +640,7 @@
     <Standard>dBe,eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Geisterlauf" Grad="4" Lernkosten="1500" AP="&#X23;Ws*4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="30 min" Reichweite="3 m" Wirkungsziel="Körper" Wirkungsbereich="max 7 Ws" Wirkungsdauer="var" Material="Gewänder, Toten- oder Ahnensymbole, Feuer, Kräuter">
+  <Spruch Name="Geisterlauf" Grad="4" Lernkosten="1500" AP="#Ws*4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="30 min" Reichweite="3 m" Wirkungsziel="Körper" Wirkungsbereich="max 7 Ws" Wirkungsdauer="var" Material="Gewänder, Toten- oder Ahnensymbole, Feuer, Kräuter">
     <Grund>Sa,Sc</Grund>
     <Standard>Tm</Standard>
   </Spruch>
@@ -1052,7 +1052,7 @@
     <Standard>Or,Sr,Tm</Standard>
     <Ausnahme>Dr,PC,PF,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Liniensicht" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="druidisch" Agens="Holz" Prozess="erkennt" Reagens="Holz" Zauberdauer="1 s" Reichweite="&lt;&#X3D;5km" Wirkungsziel="Geist" Wirkungsbereich="selbst" Wirkungsdauer="10 s">
+  <Spruch Name="Liniensicht" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="druidisch" Agens="Holz" Prozess="erkennt" Reagens="Holz" Zauberdauer="1 s" Reichweite="&lt;=5km" Wirkungsziel="Geist" Wirkungsbereich="selbst" Wirkungsdauer="10 s">
     <Grund>Dr,Hl</Grund>
     <Standard>Ma,Sa,Sc,gHx,sHx,wHx</Standard>
     <Ausnahme>PC,PF,PHa,PHe,PK,PM,PT,PW,Th,dBe,eBe,tBe</Ausnahme>
@@ -1198,7 +1198,7 @@
   <Spruch Name="Myrknir beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Namenloses Grauen" Grad="4" Lernkosten="2000" AP="&#X23;Ws*4" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 3 Ws" Wirkungsdauer="2 min" Material="Schweiß von Alpträumern">
+  <Spruch Name="Namenloses Grauen" Grad="4" Lernkosten="2000" AP="#Ws*4" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 3 Ws" Wirkungsdauer="2 min" Material="Schweiß von Alpträumern">
     <Grund>PC</Grund>
     <Standard>Dr,Hl,Ma,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,gHx,sHx,wHx</Standard>
   </Spruch>
@@ -1348,59 +1348,59 @@
     <Grund>Or,Sr,Tm</Grund>
     <Standard>Dr,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,wHx</Standard>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dunebargen" Grad="2" Lernkosten="160" AP="&#X23;*2" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Dunebargen" Grad="2" Lernkosten="160" AP="#*2" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>dBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dunebarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dvergar" Grad="2" Lernkosten="160" AP="&#X23;*2" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h  " Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Dvergar" Grad="2" Lernkosten="160" AP="#*2" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h  " Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dvergar, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dämonen" Grad="5" Lernkosten="2000" AP="&#X23;*6" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Dämonen" Grad="5" Lernkosten="2000" AP="#*6" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Elementarwesen" Grad="5" Lernkosten="2000" AP="&#X23;*6" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Elementarwesen" Grad="5" Lernkosten="2000" AP="#*6" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Geisterwesen" Grad="4" Lernkosten="1500" AP="&#X23;*4" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Geisterwesen" Grad="4" Lernkosten="1500" AP="#*4" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Standard>dBe,eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 4AP pro Person im Schutzkreis. Jeder Geist, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hrimfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Eis">
+  <Spruch Name="Schutzkreis gegen Hrimfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Hrimfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hunar" Grad="4" Lernkosten="600" AP="&#X23;*4" Typ="Geste" Ursprung="elemtar" Agens="Luft" Prozess="beherrscht" Reagens="Element" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="1 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Hunar" Grad="4" Lernkosten="600" AP="#*4" Typ="Geste" Ursprung="elemtar" Agens="Luft" Prozess="beherrscht" Reagens="Element" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="1 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hyrrfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Feuer">
+  <Spruch Name="Schutzkreis gegen Hyrrfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Jördfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Erde">
+  <Spruch Name="Schutzkreis gegen Jördfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jördfolk , der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Kaobargen" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Kaobargen" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>dBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jeder Kaobarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Untote" Grad="3" Lernkosten="600" AP="&#X23;*3" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Untote" Grad="3" Lernkosten="600" AP="#*3" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Standard>dBe,eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 3AP pro Person im Schutzkreis. Jeder Untote, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Vindfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Luft">
+  <Spruch Name="Schutzkreis gegen Vindfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Wisfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h " Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Wasser">
+  <Spruch Name="Schutzkreis gegen Wisfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h " Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
@@ -1422,7 +1422,7 @@
     <Standard>PF,PHa,PK,Tm</Standard>
     <Ausnahme>PC,PHe,PM,PT,PW,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schwäche" Grad="1" Lernkosten="80" AP="&#X23;Ws" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="max 10 Ws" Wirkungsdauer="2 min" Material="Eschenrinde">
+  <Spruch Name="Schwäche" Grad="1" Lernkosten="80" AP="#Ws" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="max 10 Ws" Wirkungsdauer="2 min" Material="Eschenrinde">
     <Grund>Hl,Sa,Sc</Grund>
     <Standard>Dr,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Standard>
   </Spruch>
@@ -1461,7 +1461,7 @@
     <Grund>Ma</Grund>
     <Standard>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Staubkämpfer" Grad="3" Lernkosten="900" AP="&#X23;*3" Typ="Geste" Ursprung="dämonisch" Agens="Erde" Prozess="beherrscht" Reagens="Holz" Zauberdauer="10 s" Reichweite="12 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="2 min" Material="Wilder Thymian, Erde">
+  <Spruch Name="Staubkämpfer" Grad="3" Lernkosten="900" AP="#*3" Typ="Geste" Ursprung="dämonisch" Agens="Erde" Prozess="beherrscht" Reagens="Holz" Zauberdauer="10 s" Reichweite="12 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="2 min" Material="Wilder Thymian, Erde">
     <Standard>Ma,PC,PF,PHa,PK,PM,PT,PW,dBe,eBe,gHx,sHx,tBe,wHx</Standard>
     <Ausnahme>Hl,PHe,Sa,Sc</Ausnahme>
   </Spruch>
@@ -1530,7 +1530,7 @@
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Ma</Ausnahme>
   </Spruch>
-  <Spruch Name="Tierisches Handeln" Grad="5" Lernkosten="3000" AP="&#X23;Ws*6" Typ="Geste" Ursprung="dämonisch" Agens="Wasser" Prozess="beherrscht" Reagens="Luft" Zauberdauer="20 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 3 Ws" Wirkungsdauer="var" Material="Tierblutmischung">
+  <Spruch Name="Tierisches Handeln" Grad="5" Lernkosten="3000" AP="#Ws*6" Typ="Geste" Ursprung="dämonisch" Agens="Wasser" Prozess="beherrscht" Reagens="Luft" Zauberdauer="20 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 3 Ws" Wirkungsdauer="var" Material="Tierblutmischung">
     <Grund>Th,gHx,sHx,wHx</Grund>
     <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc</Standard>
   </Spruch>
@@ -1579,7 +1579,7 @@
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Umkehrschild" Grad="5" Lernkosten="3000" AP="&#X23;*6" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="erschafft" Reagens="Magan" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min" Material="versilberte Drachenschuppe">
+  <Spruch Name="Umkehrschild" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="erschafft" Reagens="Magan" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min" Material="versilberte Drachenschuppe">
     <Grund>Th</Grund>
     <Standard>Ma,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Or,PC,PF,PHa,PHe,PK,PM,PT,PW,Sr</Ausnahme>
@@ -1637,7 +1637,7 @@
     <Grund>PC</Grund>
     <Ausnahme>Sa,Sc,gHx,sHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Versetzen" Grad="4" Lernkosten="2000" AP="&#X23;Ws*2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="15 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="max 6 Ws" Wirkungsdauer="24 h" Material="Phosphorkreide">
+  <Spruch Name="Versetzen" Grad="4" Lernkosten="2000" AP="#Ws*2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="15 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="max 6 Ws" Wirkungsdauer="24 h" Material="Phosphorkreide">
     <Grund>Th</Grund>
     <Standard>Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl</Ausnahme>
@@ -1664,7 +1664,7 @@
     <Standard>Sa,Sc</Standard>
     <Ausnahme>Dr,gHx,sHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Verwandlung" Grad="6" Lernkosten="8000" AP="&gt;&#X3D;9" Typ="Geste" Ursprung="dämonisch" Agens="Holz" Prozess="verwandelt" Reagens="Erde" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Kern des Großen Kürbis">
+  <Spruch Name="Verwandlung" Grad="6" Lernkosten="8000" AP="&gt;=9" Typ="Geste" Ursprung="dämonisch" Agens="Holz" Prozess="verwandelt" Reagens="Erde" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Kern des Großen Kürbis">
     <Grund>Dr,Th</Grund>
     <Standard>Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,gHx,sHx,wHx</Standard>
   </Spruch>
@@ -1824,7 +1824,7 @@
     <Grund>Ma,PW,Th</Grund>
     <Standard>Dr,Hl,Or,PC,PF,PHa,PHe,PK,PM,PT,Sa,Sc,Sr,Tm,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Zauberschild" Grad="4" Lernkosten="1500" AP="&#X23;*4" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="erschafft" Reagens="Magan" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min" Material="Drachenschuppe">
+  <Spruch Name="Zauberschild" Grad="4" Lernkosten="1500" AP="#*4" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="erschafft" Reagens="Magan" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min" Material="Drachenschuppe">
     <Grund>Th</Grund>
     <Standard>Ma,Or,PC,PF,PHa,PHe,PK,PM,PT,PW,Sr,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Sa,Sc</Ausnahme>
@@ -2100,7 +2100,7 @@
   </Spruch>
   <Spruch Name="Baumtor" Region="H&amp;D" Grad="G" Lernkosten="10000" AP="9" Typ="Gedanke" Ursprung="druidisch" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min">
     <Grund>Dr,Sa,Sc</Grund>
-    <Beschreibung>Der Zauberer kann mit Kleidung in einen Baum treten und auch auf einen anderen überwechseln. Wenn er nicht vor dem Ende der Wirkungsdauer wieder herauskommt, stirbt er. Mit 10&#X25; bleibt die Seele im Baum zurück und der Baum verwandelt sich in 7 Wochen in einen Baumhirte. Wenn ein Druide die vorsätzlich tut, um am Ende seines Lebens mit der Natur zu verschmelzen, ist die Wahrscheinlichkeit 90&#X25;.</Beschreibung>
+    <Beschreibung>Der Zauberer kann mit Kleidung in einen Baum treten und auch auf einen anderen überwechseln. Wenn er nicht vor dem Ende der Wirkungsdauer wieder herauskommt, stirbt er. Mit 10&#x25; bleibt die Seele im Baum zurück und der Baum verwandelt sich in 7 Wochen in einen Baumhirte. Wenn ein Druide die vorsätzlich tut, um am Ende seines Lebens mit der Natur zu verschmelzen, ist die Wahrscheinlichkeit 90&#x25;.</Beschreibung>
   </Spruch>
   <Spruch Name="Blindsalz" Region="H&amp;D" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 s" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
@@ -2165,12 +2165,12 @@
   </Spruch>
   <Spruch Name="Dämonenhand" Region="H&amp;D" Grad="G" Lernkosten="10000" AP="alle" Typ="Wort" Ursprung="finster" Agens="Feuer" Prozess="bewegt" Reagens="Metall" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var">
     <Standard>PC,sHx</Standard>
-    <Beschreibung>GZ 20. Der Zauberer beschwört eine riesige Dämonenhand, die das Opfer ergreift und in seine Dimension zieht. Das Opfer kann mit einenm PW-(5*Grad):RW ausweichen. Dann 20&#X25; Chance, dass der ganze Dämon erscheint.</Beschreibung>
+    <Beschreibung>GZ 20. Der Zauberer beschwört eine riesige Dämonenhand, die das Opfer ergreift und in seine Dimension zieht. Das Opfer kann mit einenm PW-(5*Grad):RW ausweichen. Dann 20&#x25; Chance, dass der ganze Dämon erscheint.</Beschreibung>
   </Spruch>
   <Spruch Name="Dämonenkreis" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="finster" Agens="Feuer" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="20 s" Reichweite="50 m" Wirkungsziel="Körper" Wirkungsbereich="1m Uk" Wirkungsdauer="2 h" Material="Giftige Waldpilze">
     <Standard>PC,sHx</Standard>
   </Spruch>
-  <Spruch Name="Eifersucht" Region="H&amp;D" Grad="3" Lernkosten="800" AP="1AP*&#X23;" Typ="Wort" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Geist   Grad Ws" Wirkungsbereich="2 min" Wirkungsdauer="dämonisch               ">
+  <Spruch Name="Eifersucht" Region="H&amp;D" Grad="3" Lernkosten="800" AP="1AP*#" Typ="Wort" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Geist   Grad Ws" Wirkungsbereich="2 min" Wirkungsdauer="dämonisch               ">
     <Grund>PT,dBe</Grund>
     <Standard>Hl,tBe</Standard>
     <Ausnahme>eBe</Ausnahme>
@@ -2211,7 +2211,7 @@
   </Spruch>
   <Spruch Name="Firzars Zorn" Region="H&amp;D" Grad="6" Lernkosten="5000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min">
     <Standard>PC,sHx</Standard>
-    <Beschreibung>GZ 20. Erzeugt Flammensäule(5m Höhe und 2m Durchmesser). Bei erfolgreichem WW:phk 3W6 AP, sonst 4W6 Schaden(Rüstung hilft). Mit gelungenem PW:HGW/2 kann das Opfer die Säule verlassen und erleidet weitere 2W6 AP. Wenn das Opfer mehr als 1/3 der LPs verliert, erblindet jedes Auge mit 20&#X25; und 2W6 Punkte Au und pA. Im Falle eines kritischen Fehlers des Zauberers umhüllt die Säule den Finstermagier.</Beschreibung>
+    <Beschreibung>GZ 20. Erzeugt Flammensäule(5m Höhe und 2m Durchmesser). Bei erfolgreichem WW:phk 3W6 AP, sonst 4W6 Schaden(Rüstung hilft). Mit gelungenem PW:HGW/2 kann das Opfer die Säule verlassen und erleidet weitere 2W6 AP. Wenn das Opfer mehr als 1/3 der LPs verliert, erblindet jedes Auge mit 20&#x25; und 2W6 Punkte Au und pA. Im Falle eines kritischen Fehlers des Zauberers umhüllt die Säule den Finstermagier.</Beschreibung>
   </Spruch>
   <Spruch Name="Flucht des Geistes" Region="H&amp;D" Grad="5" Lernkosten="4000" AP="9" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="selbst" Wirkungsdauer="var">
     <Standard>PC,sHx</Standard>
@@ -2269,13 +2269,13 @@
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 15.Der Zauber muss eine Stunde nach Mitternacht gewirkt werden. Ruft einen Höllenboten herbei. Der Magier muss den Aufenthaltsort des Opfers angeben(max 100 km weg, mit 500m Genauigkeit). Der Höllenbote macht dann sofort Jagd auf das Opfer. Wenn er es nicht finden kann(wonanders, tot), kommt es zurueck und greift den Finstermagier an.</Beschreibung>
   </Spruch>
-  <Spruch Name="Höllenfeuer" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="4*&#X23;" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="15 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="0" Material="Pech und Schwefel">
+  <Spruch Name="Höllenfeuer" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="4*#" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="15 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="0" Material="Pech und Schwefel">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 3. Der Magier kann von bis zu Grad Fingerspitzen Flammenzungen schwarzen Feuers aussenden. Bei gelungenem WW:phk 1W6 AP, sonst 2W6+2 AP und 1W6 LP. Rüstung schützt nicht. Körperlose, gute Priester und andere vergleichbare Wesen sind immun gegen den Zauber.</Beschreibung>
   </Spruch>
   <Spruch Name="Höllenglocke" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="alle(mind 9)" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 km" Wirkungsdauer="0">
     <Standard>PC,sHx</Standard>
-    <Beschreibung>GZ 5. Über dem Kopf des Finstermagiers erscheint eine Glocke, die läutet. Alle Wesen in Reichweite verlieren bei mislungenem WW:phk 2W6 LP und AP, sonst 1W6 AP. Andere Finstermagier werden mit Grad*5&#X25; in die Hölle versetzt. Gute Priester und vergleichbare übernatürliche Wesen sind immun.</Beschreibung>
+    <Beschreibung>GZ 5. Über dem Kopf des Finstermagiers erscheint eine Glocke, die läutet. Alle Wesen in Reichweite verlieren bei mislungenem WW:phk 2W6 LP und AP, sonst 1W6 AP. Andere Finstermagier werden mit Grad*5&#x25; in die Hölle versetzt. Gute Priester und vergleichbare übernatürliche Wesen sind immun.</Beschreibung>
   </Spruch>
   <Spruch Name="Kammerdiener beschwören" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Wort" Ursprung="elementar" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Spielzeug">
     <Grund>Hl,dBe,eBe</Grund>
@@ -2298,7 +2298,7 @@
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 8. Misslingt ein WW.phs des Opfers, sinkt es unter konvulsivischen Zuckungen wehr und bewegungslos zu Boden. Am Ende jeder Runde ein WW möglich. In jeder Runde verliert es 2 LP. Nach gelungenem WW ist es noch 2 Runden bewegungslos, dann 2 Runden WM-4/WM-2, bis es nach 5 Runden voll erholt ist.  </Beschreibung>
   </Spruch>
-  <Spruch Name="Kopieren" Region="H&amp;D" Grad="3" Lernkosten="800" AP="1&#X23;Seite" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 min pro Seite" Reichweite="1m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Material="Schreibmaterial">
+  <Spruch Name="Kopieren" Region="H&amp;D" Grad="3" Lernkosten="800" AP="1#Seite" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 min pro Seite" Reichweite="1m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Material="Schreibmaterial">
     <Grund>PC,PF,PHa,PHe,PK,PM,PT,PW,Th</Grund>
     <Standard>Hl,Ma,gHx,sHx,wHx</Standard>
   </Spruch>
@@ -2306,7 +2306,7 @@
     <Grund>Sk</Grund>
     <Standard>Ba,Dr,Ma,Or,PC,PF,PHa,PHe,PK,PM,PT,PW,Th,eBe,gHx</Standard>
   </Spruch>
-  <Spruch Name="Kuß des Schlafes" Region="H&amp;D" Grad="2" Lernkosten="200" AP="1AP&#X23;Gr" Typ="Geist" Ursprung="druidisch" Zauberdauer="5 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h">
+  <Spruch Name="Kuß des Schlafes" Region="H&amp;D" Grad="2" Lernkosten="200" AP="1AP#Gr" Typ="Geist" Ursprung="druidisch" Zauberdauer="5 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h">
     <Grund>Sc,gHx,sHx,wHx</Grund>
     <Standard>Ma,PC,PF</Standard>
     <Ausnahme>PHe,PM,PT,PW</Ausnahme>
