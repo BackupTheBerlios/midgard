@@ -141,6 +141,8 @@ public:
    void add_Kupfer(int k) {kupfer+=k;}
    void set_EP(int a, int k, int z) {aep=a;kep=k;zep=z;}
    void add_AEP(int a) {aep+=a;}
+   void add_KEP(int a) {kep+=a;}
+   void add_ZEP(int a) {zep+=a;}
 
 };
 /*
