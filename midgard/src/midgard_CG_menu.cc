@@ -237,7 +237,7 @@ void midgard_CG::menu_history_init(int oldsize)
    {
      L.push_back(Gtk::Menu_Helpers::MenuElem(*i, "<Control>"+itos(x)));
      Gtk::MenuItem *mi=(Gtk::MenuItem *)L.back();
-     mi->activate.connect(SigC::bind(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::xml_import),*i));
+     mi->activate.connect(SigC::bind(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::xml_import_history),*i));
      ++x;
    }
 }

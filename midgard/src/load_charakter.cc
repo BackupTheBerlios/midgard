@@ -51,11 +51,14 @@ void midgard_CG::xml_import_auswahl()
   (new xml_fileselection(this,xml_fileselection::Load));
 }
 
+void midgard_CG::xml_import_history(const std::string datei)
+{
+ xml_import(datei);
+}
 
 void midgard_CG::xml_import(const std::string& datei)
 {
    int page=notebook_main->get_current_page_num();
-cout << datei<<'\n';
    ifstream fi(datei.c_str());
    Char.push_back(Abenteurer());
    on_neuer_charakter_clicked();

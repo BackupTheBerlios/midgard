@@ -53,10 +53,20 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   fout << LATIN(Char.getCWerte().Stand())<<", "<<LATIN(Char.getCWerte().Glaube())<<" - ("<<Char.getCWerte().Groesse()<<"cm) - "
        << Char.getCWerte().Alter()<<" Jahre\n";
   fout << "\n";
-  fout << "St "<<Char.getCWerte().St()<<", Ge"<<Char.getCWerte().Gw()<<", Gs"<<Char.getCWerte().Gs()<<", Ko"<<Char.getCWerte().Ko()<<", In"<<Char.getCWerte().In()
-       << ", Zt"<<Char.getCWerte().Zt()<<", Au"<<Char.getCWerte().Au()<<", pA"<<Char.getCWerte().pA()<<", Sb"<<Char.getCWerte().Sb()<<"\n";
-  fout << Char.getCWerte().LP()<<"LP, "<<Char.getCWerte().AP()<<"AP - "<<LATIN(Char.getCWerte().Ruestung()->Name())<<" - RW "
-       <<", HGW "<<", B " << Char.getCWerte().B() ;
+  fout << "St "<<Char.getCWerte().St()
+       <<", Gw"<<Char.getCWerte().Gw()
+       <<", Gs"<<Char.getCWerte().Gs()
+       <<", Ko"<<Char.getCWerte().Ko()
+       <<", In"<<Char.getCWerte().In()
+       <<", Zt"<<Char.getCWerte().Zt()
+       <<", Au"<<Char.getCWerte().Au()
+       <<", pA"<<Char.getCWerte().pA()
+       <<", Wk"<<Char.getCWerte().Wk()
+       <<", Sb"<<Char.getCWerte().Sb()<<"\n";
+  fout <<Char.getCWerte().LP()<<"LP, "
+       <<Char.getCWerte().AP()<<"AP - "
+       <<LATIN(Char.getCWerte().Ruestung()->Name())<<" -  "
+       << ", B " << Char.getCWerte().B() ;
   if (Char.getCWerte().bo_Sc() != 0 || Char.getCWerte().bo_Ab() != 0 || Char.getCWerte().bo_An() != 0) fout <<" - ";
   if (Char.getCWerte().bo_Sc() != 0) fout << "SchB+"<<Char.getCWerte().bo_Sc();
   if (Char.getCWerte().bo_Sc() != 0 || Char.getCWerte().bo_Ab() != 0 ) fout <<", ";

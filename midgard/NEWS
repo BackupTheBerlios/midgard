@@ -4,9 +4,13 @@ NEWS IN VERSION 0.6delta6
 * Fenster aufpoppen, wenn nicht alle Abenteurer gespeichert beim beenden
 * Neuer Abenteurer gilt als 'gespeichert'
 * Destruktor wird aufgerufen
+* Kleinere Bugs beseitigt
+* Überarbeitung der 'Spielleiterexport-Funktion'
+* History für geladene Abenteurer 
 
 TODO:
-* History für geladene Abenteurer (callback stürzt ab)
+* History abspeichern
+* automatisch verkleinern Option
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
