@@ -224,7 +224,7 @@ Erkurku rufen	2000	3	Geste	5	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebu
 Erscheinungen	4000	6	Geste	5	\N	\N	\N	\N	Magan	beherrscht	Feuer	20 s	30 m	Geist	3x3x3 m	2 min	dämonisch	Blütenstaub vom blauen Mohn	t	Siegel	\N	\N
 Fainne ghuairne (Der wirbelnde Kreis)	1000	6	Tanz	3	G	46	\N	Tanz	Wasser	erkennt	Luft	10 min	-	Geist	Mittänzer	1 h	druidisch	Gruppentanz (min 3)	f	\N	\N	\N
 Farbensalz	60	1	Gedanke	1	H&Df	\N	\N	\N	Magan	verändert	Holz	1 s	500 m	Umgebung	50x50cm	3 h	finster		t		\N	t
-Farbenspiel	300	1-10	Geste	2	N	\N	\N	\N	Magan	verändert	Metall	1 sec	B	Umgebung	1 Objekt	0	dämonisch	\N	f	Tricksen	\N	\N
+Farbenspiel	300	1-10	Geste	2	N	\N	\N	\N	Magan	verändert	Metall	1 sec	B	Umgebung	1 Objekt	0	dämonisch	\N	f	Trickser	\N	\N
 Feenfluch	700	3	Geste	3	\N	\N	\N	\N	Holz	verändert	Erde	10 s	15 m	Körper	1 Ws	perm	druidisch		f		\N	\N
 Feenzauber	800	1-4	Geste	3	\N	\N	\N	\N	Magan	verändert	Metall	10 s	15 m	Umgebung	1 Ob	w+10 min	dämonisch		f		\N	\N
 Fehlleistung	600	3	Geste	3	N	\N	\N	\N	Magan	beherrscht	Luft	1 sec	9 m	Geist	1 Ws	0	dämonisch	\N	f	Trickser	\N	\N

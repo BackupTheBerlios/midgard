@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.230 2002/05/03 14:36:18 christof Exp $
+// $Id: midgard_CG.hh,v 1.231 2002/05/05 20:38:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -546,6 +546,7 @@ private:
          void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export_auswahl();
+         void save_existing_filename();
          void xml_import_auswahl();
          void checkAngeboreneSinne();
          void speicherstream(ostream &datei);

@@ -37,10 +37,8 @@ std::string iso2utf8(const std::string &s);
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {
-  if (ev->button==3 && !filename.empty())
-     xml_export(filename);
-  else //(ev->button == 1)
-     xml_export_auswahl();
+  if (ev->button==3)  save_existing_filename();
+  else xml_export_auswahl();
   return false;
 }
 
@@ -54,6 +52,13 @@ void midgard_CG::xml_export_auswahl()
 #endif
  (new xml_fileselection(this,xml_fileselection::Save/*"Abenteurer speichern"*/));
 }
+
+void midgard_CG::save_existing_filename()
+{
+  if(!filename.empty()) xml_export(filename);
+  else                  xml_export_auswahl();
+}
+
 
 void midgard_CG::xml_export(const std::string& dateiname)
 {  

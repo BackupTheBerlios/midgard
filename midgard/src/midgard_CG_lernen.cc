@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.117 2002/05/05 20:38:46 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.118 2002/05/05 20:39:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -74,7 +74,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   button_waffen->set_sensitive(true);
   if(Typ[1]->is_mage() || Typ[1]->is_mage() || magie_bool) 
       button_zauber->set_sensitive(true);
-  button_beruf->set_sensitiv(true);
+  button_beruf->set_sensitive(true);
   button_lernschema_geld->set_sensitive(true);
   button_lernschema_waffen->set_sensitive(true);
   button_ruestung->set_sensitive(true);

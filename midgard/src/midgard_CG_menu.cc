@@ -19,9 +19,7 @@
 #include "midgard_CG.hh"
 #include <gtk--/box.h>
 #include <gtk--/pixmap.h>
-//#include <gtk--/radiomenuitem.h>
 #include "../pixmaps/midgard_logo_tiny.xpm"
-//#include "../pixmaps/Regio_Hausregel_small.xpm"
 
 void midgard_CG::menu_init()
 {
@@ -223,6 +221,11 @@ void midgard_CG::menubar_init()
   Gtk::Menu *menu1 = manage(new class Gtk::Menu());
   Gtk::Menu *menu2 = manage(new class Gtk::Menu());
 
+  Gtk::MenuItem *mi0 = manage(new class Gtk::MenuItem("Optionen"));
+  mi0->activate.connect(SigC::slot(this,&midgard_CG::menu_einstellungen_aendern));
+  menu0->add(*mi0);
+
+
   Gtk::MenuItem *mi1 = manage(new class Gtk::MenuItem("Ansicht & Fenster"));
   Gtk::MenuItem *mi2 = manage(new class Gtk::MenuItem("Gestaltung"));
   
@@ -251,10 +254,10 @@ void midgard_CG::menubar_init()
     menu2->append(*mi);
    } 
   mi1->set_submenu(*menu1);
-  mi1->show();
+//  mi1->show();
 
   mi2->set_submenu(*menu2);
-  mi2->show();
+//  mi2->show();
   menu0->add(*mi1);
   menu0->add(*mi2);
   ansicht_menu->set_submenu(*menu0);
