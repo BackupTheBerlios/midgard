@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.13 2002/06/05 07:31:22 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.14 2002/06/06 08:12:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -380,53 +380,26 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
  /////////////////////////////////////////////////////////////////////////
  // Universelle Fertigkeiten
- std::list<cH_MidgardBasicElement> UF;
- for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Fertigkeit.begin();i!=hauptfenster->getCDatabase().Fertigkeit.end();++i)
-  {
-    cH_Fertigkeit f(*i);
-    if(f->Ungelernt()!=-99)
-       UF.push_back(*i);
-  }
- cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen")); 
- UF.push_back(werfen);
- UF.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
+
+ std::list<Abenteurer::st_universell> UF=hauptfenster->getCChar().CList_Universell(hauptfenster->getCDatabase());
  int countunifert=0;
- for(std::list<cH_MidgardBasicElement>::iterator i=UF.begin();i!=UF.end();++i)
+ for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
   {
     std::string a = LaTeX_string(countunifert);
-    std::string name = (*i)->Name();
+    std::string name = i->mbe->Name();
     std::string wert;
-    bool voraussetzung=true;
-    if ((*i)->What()==MidgardBasicElement::FERTIGKEIT) 
-      { cH_Fertigkeit f(*i);
-        int iwert = f->Ungelernt();
-        if (!f->Voraussetzungen(hauptfenster->getCWerte(),hauptfenster->getCChar().CList_Fertigkeit())) {iwert-=2; voraussetzung=false;}
-        if   (iwert>=0) wert = "+"+itos(iwert);
-        else            wert = "--"+itos(abs(iwert));
+    int iwert= i->mbe->Erfolgswert();
+    if   (iwert>=0) wert = "+"+itos(iwert);
+    else            wert = "--"+itos(abs(iwert));
+    
+    if     (name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
+    else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+hauptfenster->getCWerte().Herkunft()->Name()+")";
 
-        if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
-        if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+hauptfenster->getCWerte().Herkunft()->Name()+")";
-      }
-    else if ((*i)->What()==MidgardBasicElement::WAFFE)    
-      { cH_Waffe f(*i);
-        int iwert = 4+hauptfenster->getCWerte().bo_An();
-        if (!f->SG_Voraussetzung(hauptfenster->getCWerte(),hauptfenster->getCChar().CList_Fertigkeit(),hauptfenster->getCChar().CList_Waffen()))
-             {iwert=0; voraussetzung=false;}
-        if   (iwert>=0) wert = "+"+itos(iwert);
-        else            wert = "--"+itos(abs(iwert));
-      }
-
-    if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()) || 
-        (*i)->ist_gelernt(hauptfenster->getCChar().CList_Waffen()))
-     {
-//       fout <<"\\newcommand{\\uni"<<a<<"}{("<<name<< "}\t\t";
-//       fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << ")}\n";
-     }
-    else
+    if (!i->gelernt)
      {
        ++countunifert;
        fout <<"\\newcommand{\\uni"<<a<<"}{"<<LATIN(name)<< "}\t\t";
-       if (voraussetzung)
+       if (i->voraussetzung)
           fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
        else
           fout << "\\newcommand{\\uniw"<<a<<"}{$^*\\!$("<<wert << ")}\n";

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.8 2002/06/04 13:56:11 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.9 2002/06/06 08:12:23 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -44,23 +44,24 @@ std::string Abenteurer::STyp() const
 
 const std::string Abenteurer::SErfolgswert(std::string name,const Datenbank &Database) const
 {
-  int w=Erfolgswert(name,Database);
-  if(w==-99) return "";
-  return itos(w);
+  pair<int,bool> w=Erfolgswert(name,Database);
+  if(w.first==-99) return "";
+  if(w.second) return itos(w.first);
+  if(!w.second) return "("+itos(w.first)+")";
 }
 
-const int Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
+const pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
 {
   for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
    {
-     if(name==(*i)->Name()) return (*i)->Erfolgswert(); 
+     if(name==(*i)->Name()) return pair<int,bool>((*i)->Erfolgswert(),true); 
    }   
   std::list<st_universell> UF=CList_Universell(Database);
   for(std::list<st_universell>::const_iterator i=UF.begin();i!=UF.end();++i)
    {
-     if(name==i->mbe->Name()) return i->mbe->Erfolgswert(); 
+     if(name==i->mbe->Name()) return pair<int,bool>(i->mbe->Erfolgswert(),false); 
    }   
-  return -99;
+  return pair<int,bool>(-99,false);
 }
 
 
@@ -75,7 +76,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::CList_Universell( const D
    }
   cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen"));
   UF.push_back(werfen);
-//  UF.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
+  UF.sort(sort_universell());
 
   for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
    {
@@ -94,9 +95,10 @@ const std::list<Abenteurer::st_universell> Abenteurer::CList_Universell( const D
         if (!f->SG_Voraussetzung(getCWerte(),CList_Fertigkeit(),CList_Waffen()))
             {iwert=0; i->voraussetzung=false;}
       }
-     i->mbe->setErfolgswert(iwert);
      if (i->mbe->ist_gelernt(CList_Fertigkeit()) || i->mbe->ist_gelernt(CList_Waffen()))
           i->gelernt=true;
+     else // Erfolgswert nur dann setzen, wenn die Fertigkeit NICHT gelernt ist
+          i->mbe->setErfolgswert(iwert);
    }
   return UF;
 }

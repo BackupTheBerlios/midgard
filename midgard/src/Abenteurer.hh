@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.11 2002/06/04 13:56:11 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.12 2002/06/06 08:12:23 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -90,6 +90,15 @@ public:
             : mbe(m),voraussetzung(true),gelernt(false) {}};
    const std::list<st_universell> CList_Universell( const Datenbank &Database) const;
 
+private:
+      class sort_universell {
+        public: sort_universell() {}
+        bool operator()(st_universell x,st_universell y) const
+          { return x.mbe->Name() < y.mbe->Name() ;
+          }
+      };
+public:
+
    std::list<cH_MidgardBasicElement>& List_Beruf() {return list_Beruf;}
    std::list<cH_MidgardBasicElement>& List_Fertigkeit_ang() {return list_Fertigkeit_ang;}
    std::list<cH_MidgardBasicElement>& List_Fertigkeit()  {return list_Fertigkeit;}
@@ -116,7 +125,8 @@ public:
               getCWerte().Version() == a.getCWerte().Version() ;}
 
 
-   const int Erfolgswert(std::string name,const Datenbank &Database) const;
+   // (bool==true) => gelernt ; (bool==false) => universell(oder garnicht)
+   const pair<int,bool> Erfolgswert(std::string name,const Datenbank &Database) const;
    const std::string SErfolgswert(std::string name,const Datenbank &Database) const;
 };
 
@@ -134,11 +144,20 @@ class VAbenteurer
    private:
       std::list<st_abenteurer> VA;
       std::list<st_abenteurer>::iterator ai;
+
+      class sort {
+        public: sort() {}
+        bool operator()(st_abenteurer x,st_abenteurer y) const
+          { return x.abenteurer.getCWerte().Gw() < y.abenteurer.getCWerte().Gw() ;
+          }
+      };
+
    public:
       VAbenteurer() {}
       
       const std::list<st_abenteurer> &getList() const {return VA;}
       std::list<st_abenteurer> &getList() {return VA;}
+      void sort_gw() {VA.sort(sort());}
       void push_back(Abenteurer A);
       void set_Abenteurer(const Abenteurer& A);
       void modified() {ai->gespeichert=false;}
@@ -210,7 +229,7 @@ public:
    std::list<cH_MidgardBasicElement>& List_Sprache()  {return ai->abenteurer.List_Sprache();} 
    std::list<cH_MidgardBasicElement>& List_Schrift()  {return ai->abenteurer.List_Schrift();}
 
-   const int Erfolgswert(std::string name,const Datenbank &Database) const {return ai->abenteurer.Erfolgswert(name,Database);};
+   const pair<int,bool> Erfolgswert(std::string name,const Datenbank &Database) const {return ai->abenteurer.Erfolgswert(name,Database);};
 };
 
 

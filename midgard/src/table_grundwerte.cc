@@ -109,6 +109,7 @@ void table_grundwerte::neuer_charakter()
 {
    if(!hauptfenster) return;
    button_grundwerte->set_sensitive(true);
+   combo_typ->set_sensitive(false);
    button_abg_werte->set_sensitive(false);
    table_werte_wuerfeln->hide();
    table_bw_wurf->hide();

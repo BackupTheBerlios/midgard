@@ -169,8 +169,6 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
    public:
       cH_MidgardBasicElement(const MidgardBasicElement *r) 
             : Handle<const MidgardBasicElement>(r){}
-//      bool operator== (const cH_MidgardBasicElement b) 
-//         {return b==(*this);)
 
    class sort {
       public:
@@ -178,13 +176,10 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
       private:
          esort es;
       public:
-         sort(enum esort _es):es(_es) {}
+         sort(esort _es):es(_es) {}
          bool operator() (cH_MidgardBasicElement x,cH_MidgardBasicElement y) const
            { switch(es) {
                case(LERNPUNKTE) : return x->Lernpunkte() < y->Lernpunkte()  ;
-//               case(LERN_L) : return cH_Fertigkeit(x)->LernLand() < cH_Fertigkeit(y)->LernLand()  ;
-//               case(LERN_S) : return cH_Fertigkeit(x)->LernStadt() < cH_Fertigkeit(y)->LernStadt()  ;
-//               case(LERN_U) : return x->Lernpunkte() < y->Lernpunkte()  ;
                case(NAME) : return x->Name() < y->Name()  ;
                case(ERFOLGSWERT): return x->Erfolgswert() > y->Erfolgswert();
            }}

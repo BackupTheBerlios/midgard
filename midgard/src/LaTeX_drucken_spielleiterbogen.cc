@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.5 2002/06/05 09:58:59 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.6 2002/06/06 08:12:23 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -25,6 +25,7 @@
 
 void LaTeX_drucken::Spielleiterbogen()
 {
+ const_cast<midgard_CG*>(hauptfenster)->Char.sort_gw(); // sortieren nach Gw
  std::string filename=get_latex_pathname(LaTeX_drucken::TeX_tmp)+get_latex_filename(LaTeX_drucken::TeX_Spielleiter);
  ofstream fout((filename+".tex").c_str());
  LaTeX_header(fout,false,false);           
