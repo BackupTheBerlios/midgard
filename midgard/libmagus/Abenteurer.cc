@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.4 2003/05/08 06:15:30 christof Exp $            
+// $Id: Abenteurer.cc,v 1.5 2003/05/08 13:40:01 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -60,7 +60,7 @@ const std::string Abenteurer::SErfolgswert(std::string name,const Datenbank &Dat
   std::pair<int,bool> w=Erfolgswert(name,Database);
   if(w.first==-99) return "";
   if(w.second) return itos(w.first);
-  if(!w.second) return "("+itos(w.first)+")";
+  else return "("+itos(w.first)+")";
 }
 
 const std::pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
@@ -251,14 +251,14 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database)
 
    // Regionen & Optionen
    Tag &Opt=Abenteurer.push_back(Tag("Optionen"));
-  for(std::map<cH_Region,Model<bool> >::const_iterator i=regionen.begin();i!=regionen.end();++i)
-   {  if (!(*i)->second.Value()) continue;
+  for(std::map<cH_Region,Model_copyable<bool> >::const_iterator i=regionen.begin();i!=regionen.end();++i)
+   {  if (!i->second.Value()) continue;
       Tag &r=Opt.push_back(Tag("Region"));
-      r.setAttr("Name", (*i)->first->Name());
-      r.setAttr("Region", (*i)->first->Abkuerzung());
+      r.setAttr("Name", i->first->Name());
+      r.setAttr("Region", i->first->Abkuerzung());
    }
    // Optionen
-   std::list<Optionen::st_OptionenCheck> LO=const_cast<Optionen*>(optionen)->getOptionenCheck();
+   std::list<Optionen::st_OptionenCheck> LO=optionen.getOptionenCheck();
    for(std::list<Optionen::st_OptionenCheck>::const_iterator i=LO.begin();i!=LO.end();++i)
    {
      // Option, die mit dem C. gespeichert werden müssen
@@ -267,7 +267,7 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database)
      o.setAttr("Name", i->text);
      o.setBoolAttr("Wert", i->active);
    }
-   std::list<Optionen::st_Haus> LH=const_cast<Optionen*>(optionen)->getHausregeln();
+   std::list<Optionen::st_Haus> LH=optionen.getHausregeln();
    for(std::list<Optionen::st_Haus>::const_iterator i=LH.begin();i!=LH.end();++i)
    {
      Tag &o=Opt.push_back(Tag("Hausregeln"));
@@ -553,8 +553,8 @@ bool Abenteurer::xml_import_stream(std::istream& datei, const Datenbank &Databas
          setTyp2(cH_Typen(Typ->getAttr("Abkürzung2"),true));
    }
 
-   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Database,Optionen,hauptfenster);
-   load_regionen_optionen(Opt,xml_version,Database,Optionen,hauptfenster);
+   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Database);
+   load_regionen_optionen(Opt,xml_version,Database);
    load_ausruestung(Ausruestung,&(getBesitz()));
    return true;
 }
