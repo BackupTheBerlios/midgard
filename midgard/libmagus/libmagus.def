@@ -67,8 +67,8 @@ EXPORTS
 	_ZN10Abenteurer9reduziereER29H_MidgardBasicElement_mutable 
 	_ZN10AbenteureraSERKS_ 
 	_ZN10AbenteurerC1ERKS_ 
-	_ZN10AbenteurerC1Ev 
-	_ZN10AbenteurerC2Ev 
+	_ZN10AbenteurerC1Eb 
+	_ZN10AbenteurerC2Eb 
 	_ZN10AbenteurerD1Ev 
 	_ZN10cH_Schrift4loadERKSsRK3Tag 
 	_ZN10cH_Schrift5cacheE  DATA
@@ -105,9 +105,9 @@ EXPORTS
 	_ZN10Grundwerte6VstandE  DATA
 	_ZN10Grundwerte7setSinnERKSsi 
 	_ZN10Grundwerte7setTyp1E8cH_Typen 
-	_ZN10GrundwerteC1Ev 
+	_ZN10GrundwerteC1Eb 
 	_ZN10GrundwerteC2ERKS_ 
-	_ZN10GrundwerteC2Ev 
+	_ZN10GrundwerteC2Eb 
 	_ZN10GrundwerteD2Ev 
 	_ZN10KiDo_Stile11ist_gelerntESs 
 	_ZN10KiDo_Stile12ist_gemischtESs 
@@ -238,7 +238,6 @@ EXPORTS
 	_ZN13LaTeX_drucken10AusdruckenEv 
 	_ZN13LaTeX_drucken10LaTeX_kidoERK10AbenteurerRSo 
 	_ZN13LaTeX_drucken10pdf_viewerERKSsb 
-	_ZN13LaTeX_drucken11LaTeX_scaleERKSsjS1_ 
 	_ZN13LaTeX_drucken12LaTeX_footerERSo 
 	_ZN13LaTeX_drucken12LaTeX_headerERK10AbenteurerRSobb 
 	_ZN13LaTeX_drucken12LaTeX_stringEi 
@@ -413,7 +412,6 @@ EXPORTS
 	_ZN3TagC1ERKS_ 
 	_ZN3TagC1ERKSsS1_ 
 	_ZN3TeX10string2TeXERKSsRKNS_11StringFlagsE 
-	_ZN3TeX5scaleERKSsjS1_ 
 	_ZN3TeX6FooterERSo 
 	_ZN3TeX6HeaderERSoNS_11HeaderFlagsE 
 	_ZN4KiDo11maxkidostilERKSt4listI29H_MidgardBasicElement_mutableSaIS1_EE 
