@@ -27,11 +27,15 @@
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/Datenbank.hh>
 
+enum { Button_Steigern, Button_Verlernen, Button_PP_eingeben };
+
 bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE());
- if(togglebutton_praxispunkte->get_active() && radiobutton_pp_fertigkeit->get_active()) 
+ if (button_was_tun->get_index()==Button_PP_eingeben
+     || (togglebutton_praxispunkte->get_active()
+     && radiobutton_pp_fertigkeit->get_active())) 
   {
    spinbutton_pp_eingeben->set_value(MBE->Praxispunkte());
    spinbutton_pp_eingeben->select_region(0,-1);
@@ -41,7 +45,7 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
   }
 
  ////////////////////////////////////////////////////////////////////////
- hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" von "+itos(MBE->Erfolgswert())+" gesteigert(?)");
+ AbenteurerAuswahl::LocalUndoRememberer undo(hauptfenster->getChar().actualIterator());
 
  if((*MBE).What()==MidgardBasicElement::FERTIGKEIT 
     && (*MBE)->Name()=="KiDo" 
@@ -53,47 +57,38 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 // Abenteurer::st_bool_steigern bool_steigern=get_bool_steigern();
  
  if (!hauptfenster->getAben().reduzieren && MBE->Steigern(hauptfenster->getAben()))
-    {
-      if (!hauptfenster->getAben().Steigern(MBE))
-        return false;
+    { bool result=false;
+      getKnownTree((*MBE).What())->getModel().about_to_change(d);
+      if (hauptfenster->getAben().Steigern(MBE)) result=true;
+      getKnownTree((*MBE).What())->getModel().has_changed(d);
+      if (result) 
+      { refresh_gesteigert();
+        undo.finish((*MBE)->What_str()+" "+(*MBE)->Name()+" auf "+itos(MBE->Erfolgswert())+" gesteigert");
+      }
+      return result;
     }
  else if (hauptfenster->getAben().reduzieren)
-    { bool verlernt=false;
-      if (!hauptfenster->getAben().ReduzierenVerlernen(MBE,verlernt))
-        return false;
-      if (verlernt) 
+    { bool result=false;
+      getKnownTree((*MBE).What())->getModel().remove_line(d);
+      bool verlernt=false;
+      if (hauptfenster->getAben().ReduzierenVerlernen(MBE,verlernt)) 
+        result=true;
+      if (result && verlernt) 
       { std::list<MBEmlt> *MyList=&hauptfenster->getAben().getList((*MBE).What()),
                *MyList_neu=&getLearnList((*MBE).What());
         Abenteurer::move_element(*MyList,*MyList_neu,MBE);
         getLearnTree((*MBE).What())->getModel().append_line(d);
-        getKnownTree((*MBE).What())->getModel().remove_line(d);
       }
+      else getKnownTree((*MBE).What())->getModel().append_line(d);
+      
+      if (result) 
+      { refresh_gesteigert();
+        undo.finish((*MBE)->What_str()+" "+(*MBE)->Name()+" auf "+itos(MBE->Erfolgswert())+" verlernt");
+      }
+      return result;
     }
- return true;
+ return false;
 }
-
-#if 0
-const Enums::e_wie_steigern table_steigern::get_wie_steigern()
-{
- if     (radiobutton_unterweisung->get_active()) return Enums::eUnterweisung; 
- else if(radiobutton_selbst->get_active()) return Enums::eSelbststudium; 
- else if(radiobutton_praxis->get_active()) return Enums::ePraxis; 
- assert (!"never get here"); abort();
-}
-
-const Enums::st_bool_steigern table_steigern::get_bool_steigern()
-{
- return Enums::st_bool_steigern(steigern_mit_EP_bool,
-         hauptfenster->getAben().getOptionen().HausregelCheck(Optionen::Gold).active,
-         togglebutton_spruchrolle->get_active(),
-         !radio_spruchrolle_wuerfeln->get_active(),
-         radiobutton_pp_hoch_wie_geht->get_active(),
-         togglebutton_pp_verfallen->get_active(),
-         togglebutton_pp_aep_fuellen->get_active(),
-         togglebutton_neue_sprache_pp->get_active()
-      );
-}
-#endif
 
 void table_steigern::lernen_von_spruchrolle_fragen(const int bonus)
 {
@@ -112,6 +107,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      getLearnTree((*MBE).What())->getModel().remove_line(d);
 #warning ist das das richtige Element?
    getKnownTree((*MBE).What())->getModel().append_line(d);
+   refresh_gesteigert();
  }
 }
 
@@ -150,6 +146,7 @@ std::list<MBEmlt> &table_steigern::getLearnList(MidgardBasicElement::MBEE was)
     case MidgardBasicElement::SCHRIFT: return list_Schrift_neu;
     default: assert(!"getLearnList: invalid arg");
   }
+  abort();
 }
 
 MidgardBasicTree *table_steigern::getKnownTree(MidgardBasicElement::MBEE was)
@@ -165,6 +162,7 @@ MidgardBasicTree *table_steigern::getKnownTree(MidgardBasicElement::MBEE was)
     default: assert(!"getKnownTree: invalid arg");
     // WAFFEBESITZ: waffenbesitz_alt_tree
   }
+  abort();
 }
 
 MidgardBasicTree *table_steigern::getLearnTree(MidgardBasicElement::MBEE was)
@@ -180,4 +178,5 @@ MidgardBasicTree *table_steigern::getLearnTree(MidgardBasicElement::MBEE was)
     default: assert(!"getLearnTree: invalid arg");
     // WAFFEBESITZ: waffenbesitz_neu_tree
   }
+  abort();
 }

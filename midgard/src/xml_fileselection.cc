@@ -39,22 +39,6 @@ void xml_fileselection::on_ok_button1_clicked(const std::string &filename)
        spielleiter_export_save(hauptfenster->getAben(),filename);
      else if (ewas==ExportFull)
        spielleiter_export_save(hauptfenster->getAben(),filename,true); 
-#warning hier fehlts   
-#if 0   
-     else if (ewas==Pix)
-       {
-        VA->setBeschreibungPix(filename);
-        hauptfenster->table_beschreibung->init(hauptfenster);
-       }
-     else if (ewas==html)
-       hauptfenster->table_optionen->html_browser_selected(filename);
-     else if (ewas==temp)
-       hauptfenster->table_optionen->tmp_selected(filename);
-     else if (ewas==speichern)
-       hauptfenster->table_optionen->speicherplatz_selected(filename);
-     else if (ewas==pdfviewer)
-       hauptfenster->table_optionen->frame_drucken->pdf_viewer_selected(filename);
-#endif   
     }catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());}
   }
 #ifndef __MINGW32__  
@@ -88,11 +72,7 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
  if (!path.empty() && path[path.size()-1]!=WinLux::dirsep) 
     path+=WinLux::dirsep;
 
- if(ewas==Pix) 
- {  fname=VA->getAbenteurer().BeschreibungPix();
-    if (fname.empty()) fname=path;
- }
- else if (ewas==Save) 
+ if (ewas==Save) 
  {  fname=VA->getFilename();
     if (fname.empty()) 
        fname=path+defFileName(VA->getAbenteurer().Name_Abenteurer())+".magus";
@@ -114,12 +94,10 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
    // TODO path erzeugen?
    const char *filter=0;
    if (ewas==Export) filter = "Textdateien (*.txt)\0*.txt\0Alle Dateien (*.*)\0*.*\0";
-   else if (ewas==Pix) filter = "Bilder (*.png,*.jpg,*.tif)\0*.png;*.jpg;*.tif\0Alle Dateien (*.*)\0*.*\0";
    else filter = "Midgard Abenteurer (*.magus)\0*.magus\0Alle Dateien (*.*)\0*.*\0";
    
-   const char *extension= ewas==Export ? "txt" : ewas==Pix ? "" : "magus";
+   const char *extension= ewas==Export ? "txt" : "magus";
    const char *title = ewas==Export ? "Abenteurer exportieren" :
-   		ewas==Pix ? "Bild einfügen" :
    		ewas==Load ? "Abenteurer laden" : "Abenteurer speichern";
    const bool pass_cancel=
 #ifdef __MINGW32__
@@ -130,7 +108,7 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
               ;
 
   WinFileReq::create(SigC::slot(*this,&xml_fileselection::on_ok_button1_clicked),
-        fname,filter,extension,title,(ewas==Pix||ewas==Load),h,pass_cancel);
+        fname,filter,extension,title,ewas==Load,h,pass_cancel);
 }
 
 void xml_fileselection::create(midgard_CG* h, eAction _was)

@@ -1,4 +1,4 @@
-// $Id: AbenteurerAuswahl.h,v 1.9 2004/12/13 15:51:45 christof Exp $               
+// $Id: AbenteurerAuswahl.h,v 1.10 2004/12/15 08:11:29 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -29,6 +29,7 @@ class AbenteurerAuswahl : public SigC::Object // um signale zu empfangen
       SigC::Signal0<void> sig_anderer;
       // _lokaler_ Kompromiss zwischen Spaghetti Code und vollem MVC
       SigC::Signal0<void> _gesteigert,_werte_geaendert,_faehigk_geaendert;
+      SigC::Signal0<void> _andere_regionen;
 
       void divert_proxy();
 public:
@@ -72,6 +73,8 @@ public:
    { return _werte_geaendert; }
    SigC::Signal0<void> &signal_faehigkeiten_geaendert()
    { return _faehigk_geaendert; }
+   SigC::Signal0<void> &signal_andere_regionen()
+   { return _andere_regionen; }
 };
 
 // Klasse um einfach undos zu verwalten
@@ -80,6 +83,7 @@ class AbenteurerAuswahl::LocalUndoRememberer
   bool rollback;
  public:
   LocalUndoRememberer(const VAbenteurer::iterator &i);
+  LocalUndoRememberer(AbenteurerAuswahl &aa);
   ~LocalUndoRememberer();
   void finish(const std::string &s);
 };

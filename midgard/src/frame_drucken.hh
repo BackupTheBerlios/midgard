@@ -48,6 +48,7 @@ class frame_drucken : public frame_drucken_glade
         Gtk::Entry *entry;
         bool bool_changed;
         void on_button_pdf_viewer_clicked();
+      void pdf_viewer_selected(const std::string& dateiname);
 
 public:
         frame_drucken(GlademmData *_data) : frame_drucken_glade(_data)
@@ -55,7 +56,5 @@ public:
         }
       void init();
       void set_Hauptfenster(midgard_CG *h);
-      void pdf_viewer_selected(const std::string& dateiname);
-
 };
 #endif

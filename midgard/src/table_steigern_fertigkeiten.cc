@@ -65,10 +65,12 @@ void table_steigern::on_leaf_selected_alte_fert2(const MBEmlt &d)
 {cH_RowDataBase rdb=new Data_SimpleTree(d,hauptfenster->getChar().actualIterator());
  if (MidgardBasicElement_leaf_alt(rdb))
    {  
+#if 0 // automatisch?
       rdb.cast_dynamic<const Data_SimpleTree>()->redisplay(alte_fert_tree);
       neue_fertigkeiten_zeigen();
       zeige_werte();
       if(hauptfenster->getAben().reduzieren) alte_fertigkeiten_zeigen();
+#endif      
    }
 }
 
@@ -175,9 +177,11 @@ bool table_steigern::fert_col_changed(cH_RowDataBase row,unsigned idx,const std:
 {  Handle <const Data_SimpleTree> dst=row.cast_dynamic<const Data_SimpleTree>();
    MBEmlt mbe=dst->getMBE();
    if (idx==Data_SimpleTree::PPa && ManuProC::parse<int>(newval)!=(*mbe).Praxispunkte())
-   {  mbe->setPraxispunkte(ManuProC::parse<int>(newval));
+   {  getKnownTree((*mbe).What())->getModel().about_to_change(row);
+      mbe->setPraxispunkte(ManuProC::parse<int>(newval));
       // Fertigkeiten neu darstellen:
-      refresh();
+//      refresh();
+      getKnownTree((*mbe).What())->getModel().has_changed(row);
       return true;
    }
    return false;

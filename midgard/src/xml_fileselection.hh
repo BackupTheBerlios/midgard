@@ -32,8 +32,7 @@ class WinFileReq;
 class xml_fileselection : public SigC::Object
 {   
   public:
-        enum eAction {Save,Load,Export,ExportFull,
-                      Pix,html,temp,speichern,pdfviewer};
+        enum eAction {Save,Load,Export,ExportFull};
   private:
         midgard_CG* hauptfenster;        
         eAction ewas;

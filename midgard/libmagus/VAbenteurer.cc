@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.18 2004/12/13 15:51:45 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.19 2004/12/15 08:11:30 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -238,6 +238,11 @@ VAbenteurer::const_iterator AbenteurerAuswahl::actualIterator() const
 
 AbenteurerAuswahl::LocalUndoRememberer::LocalUndoRememberer(const VAbenteurer::iterator &i)
  : gehoert_zu(i), rollback(true)
+{ gehoert_zu->begin_undo();
+}
+
+AbenteurerAuswahl::LocalUndoRememberer::LocalUndoRememberer(AbenteurerAuswahl &aa)
+ : gehoert_zu(aa.actualIterator()), rollback(true)
 { gehoert_zu->begin_undo();
 }
 

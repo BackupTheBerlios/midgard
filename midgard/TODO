@@ -1,10 +1,11 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 - beim Laden wird nicht alles richtig angezeigt
 - nicht-Refresh der aktuellen Zeile nach anklicken (lernen)
-- man kann keine Verzeichnisse im Requester auswählen
+- Praxispunkte/Scroll nicht richtig aktiv/inaktiv
+? funktionieren Verzeichnisse unter Windows? (z.B. tmp)
 - Wizard
 - Zusatz etc in Dialog tun
-- ChoiceButtons überprüfen
+? ChoiceButtons überprüfen
 - GFP, Steigertage, nocht X GFP werden bei Neulernen nicht aktualisiert
 	(zuviel Refresh bei Gradanstieg etc?)
 - Umsortieren des oberen Baumes nicht möglich (häh?)
@@ -15,9 +16,6 @@
 Bugreport Sanni:
 Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
 mit dem Wert +0
-
-Waffen (Grundfertigkeiten) steigern (außer Buckler) kostet jeweils 1000 FP, 
-reduzieren bringt 500 FP und lassen sich nicht auf Werte >8 Steigern 
 
 Dazu kommen sporadische Segfaults.
 
@@ -39,13 +37,10 @@ Dazu kommen sporadische Segfaults.
 
 #### das finde ich (CP) beunruhigend #################################
 - irgendwie werden ziemlich oft neue Abenteurer erzeugt (die Nummern gehen
-	hoch) [vermutlich in Undo]
+	hoch) [vermutlich in Undo, durch push_back]
+	=> 
 ######################################################################
 
-- Schrift sollte auf dem Ausdruck als "Albisch +10 | Seemeister +8"
-	erscheinen (die Sprache ist ja logisch)
-	dazu muss Sprache::SchriftWert (evtl. Sprache_und_Schrift::st_sus)
-	entsprechend erweitert werden
 - WinFileReq sollte gtk 2.4 Requester nehmen
 - LICENSE.pdf
 - undosave _vor_ jeder Änderung (am Besten in libmagus selbst)
@@ -54,8 +49,8 @@ Dazu kommen sporadische Segfaults.
 * Setzen der Handle-Fenster-Positionen :-(
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
 * Ausrüstung: Expandieren
-- Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? :
+? Würfelvarianten für Nichtmenschen!
+? verschwinden alle Icons? :
    Unter "Lernschema" bleibt noch 
    einiges stehen. Bei "Steigern" 
    und "Optionen" sind auch noch bunte Bildchen, und bei 
@@ -86,7 +81,7 @@ was bedeutet:
 
 ---
 
-- forward port of flashing_eigenschaft, frame_spezielles, frame119, frame120 
+- forward port of frame_spezielles, frame119, frame120 
 
 - Probleme Zufallsabenteurer: Verteidigungswaffen werden nicht als solche erkannt
 	Export: Waffen immer mit $$

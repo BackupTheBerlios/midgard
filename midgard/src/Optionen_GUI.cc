@@ -1,4 +1,4 @@
-// $Id: Optionen_GUI.cc,v 1.9 2004/05/18 13:26:57 christof Exp $
+// $Id: Optionen_GUI.cc,v 1.10 2004/12/15 08:11:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,34 +45,6 @@ Glib::RefPtr<Gdk::Pixbuf> Optionen_GUI::Haus_bild(Optionen::HausIndex i)
    }
 }
 
-#if 0
-//#include <gdkmm.h>
-
-void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index)
-{
-//  if(!hauptfenster->fire_enabled) return;
-//  hauptfenster->fire_enabled=false;
-  for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
-   {
-     if(i->index!=index) continue;
-     if     (i->index==Original) hauptfenster->checkbutton_original(i->active);
-     else if(i->index==Drei_Tasten_Maus) hauptfenster->show_3_Tasten_Maus(i->active);
-     else if(i->index==NSC_only) {hauptfenster->show_NSC_active(i->active);
-                                  hauptfenster->table_grundwerte->fill_typauswahl();
-                                  hauptfenster->table_grundwerte->fill_typauswahl_2();} // zum Neuaufbau des Typmenüs
-     else if(i->index==Wizard_immer_starten) hauptfenster->show_wizard_active(i->active);
-     else if(i->index==Notebook_start)  
-      { //i->wert=wert;
-//        if(!i->spin) return;
-//cout << "Option: "<<i->spin<<'\n';
-//        if(i->active) i->spin->show();
-//        else i->spin->hide();
-      }
-   }
-//  hauptfenster->fire_enabled=true;
-}
-#endif
- 
 #include "midgard_CG.hh"
 #include "customize_toolbars.h"
 #include "Windows_Linux.hh"
@@ -130,22 +102,3 @@ void midgard_CG::Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex inde
       }
    }
 }   
-
-#if 0
-#include <gtk/gtkhandlebox.h>
-
-void detachHB(Gtk::HandleBox &HB,int x,int y,int b,int h)
-{
-  HB.gobj()->child_detached = true;
-  Glib::RefPtr<Gdk::Window> w=HB.get_float_window();
-  HB.get_bin_window()->reparent(w,0,0);
-
-//  HB.get_float_window().set_hints(x, y, 50, 50, 0, 0, GDK_HINT_POS); 
-//  HB.get_float_window()->set_hints(x, y, 50, 50, 100, 100, GDK_HINT_MAX_SIZE); 
-  HB.get_float_window()->move_resize(x,y,b,h);
-  HB.get_float_window()->show();
-//  HB.gobj()->float_window_mapped = true;
-  HB.queue_resize();
-}
-                                                   
-#endif

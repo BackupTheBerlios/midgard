@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.23 2004/08/30 13:17:56 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.24 2004/12/15 08:11:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -38,54 +38,55 @@ class Magus_Optionen
       enum pdfViewerIndex {gv,acroread,xpdf,anderer};
       enum OptionenCheckIndex {Info,//RegionenAuswahlSpeichern,
                             Wizard_immer_starten,Drei_Tasten_Maus,
-                            Notebook_start};
+                            Notebook_start, Hintergrund_Kontrast};
       enum OptionenExecuteIndex {LernschemaSensitive,show_InfoWindow};
       enum OberIndex {AutoShrink,SaveFenster,Bilder,Menueleiste,Knopfleiste,
                Icons,Beschriftungen,Customize_Icons,Customize_Text,
-               Customize_Tab,Status,NoInfoFenster,BegruessungsFenster};
+               Customize_Tab,Status,NoInfoFenster,BegruessungsFenster,
+               UTF8TeX};
       enum IconIndex{Self,Ulf,Gtk2};
 
-      struct st_strings{StringIndex index; std::string text; Model_copyable<std::string> name;
-             st_strings(StringIndex i,std::string t,std::string n)
-               : index(i),text(t),name(n) {} };
-
-      struct st_OptionenExecute{OptionenExecuteIndex index;std::string text;
-               st_OptionenExecute(OptionenExecuteIndex i,std::string t)
-                  :index(i),text(t) {} };
-
-      struct st_pdfViewer{pdfViewerIndex index;std::string text;Model_copyable<bool> active;
-             st_pdfViewer(pdfViewerIndex i,std::string t, bool a) 
-                  : index(i),text(t),active(a) {}
-             st_pdfViewer(const st_pdfViewer &b) 
-                      :index(b.index),text(b.text),active(b.active.get_value()) {}
-                   };
+      template <class X>
+      struct st_base 
+      { X index; std::string text;
+        st_base(const X &i, const std::string &t) : index(i), text(t) {}
+      };
+      struct st_strings : st_base<StringIndex>
+      { Model_copyable<std::string> name;
+             st_strings(StringIndex i,const std::string &t,const std::string &n)
+               : st_base<StringIndex>(i,t),name(n) {} 
+      };
+      typedef st_base<OptionenExecuteIndex> st_OptionenExecute;
+      template <class X>
+      struct st_base_bool : st_base<X>
+      { Model_copyable<bool> active;
+        st_base_bool(const X &i, const std::string &t, bool a)
+        : st_base<X>(i,t), active(a) {}
+        st_base_bool(const st_base_bool<X> &b)
+        : st_base<X>(b.index,b.text), active(b.active.get_value()) {}
+      };
+      typedef st_base_bool<pdfViewerIndex> st_pdfViewer;
       // mit Wert!!!
-      struct st_OptionenCheck
-      {		OptionenCheckIndex index;
-      		std::string text;
-      		Model_copyable<bool> active;
-      		Model_copyable<int> wert; 
+      struct st_OptionenCheck : st_base_bool<OptionenCheckIndex>
+      {	Model_copyable<int> wert; 
 
-               st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a,int w=-1)
-                  :index(i),text(t),active(a),wert(w)
-                  {}
-               // this is only sensible for push_back!
-               st_OptionenCheck(const st_OptionenCheck &b)
-               	  : index(b.index), text(b.text), active(b.active.get_value()), 
-               	  	wert(b.wert.get_value()) {}
-              };
-      struct st_Ober{OberIndex index;std::string text;Model_copyable<bool> active;bool show;
-               st_Ober(OberIndex i,std::string t,bool a,bool s=true) // show=false => Wird nicht angezeigt
-                      :index(i),text(t),active(a),show(s) {}
-               st_Ober(const st_Ober &b) 
-                      :index(b.index),text(b.text),active(b.active.get_value()),show(b.show) {}
-                       };
-      struct st_Icon{IconIndex index;std::string text;Model_copyable<bool> active;
-               st_Icon(IconIndex i,std::string t,bool a)
-                      :index(i),text(t),active(a) {}
-               st_Icon(const st_Icon &b)
-                     :index(b.index),text(b.text),active(b.active.get_value()){}
-                };
+        st_OptionenCheck(OptionenCheckIndex i,const std::string &t,bool a,int w=-1)
+        : st_base_bool<OptionenCheckIndex>(i,t,a),wert(w)
+        {}
+        // this is only sensible for push_back!
+        st_OptionenCheck(const st_OptionenCheck &b)
+        : st_base_bool<OptionenCheckIndex>(b.index,b.text,b.active.get_value()), 
+            wert(b.wert.get_value()) {}
+      };
+      struct st_Ober : st_base_bool<OberIndex>
+      { bool show;
+        st_Ober(OberIndex i,const std::string &t,bool a,bool s=true) // show=false => Wird nicht angezeigt
+        : st_base_bool<OberIndex>(i,t,a),show(s) {}
+        st_Ober(const st_Ober &b) 
+        : st_base_bool<OberIndex>(b.index,b.text,b.active.get_value()),show(b.show) 
+        {}
+      };
+      typedef st_base_bool<IconIndex> st_Icon;
 	struct st_WindowPosition
 	{	std::string name;
 		unsigned width,height;

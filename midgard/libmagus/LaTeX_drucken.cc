@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.24 2004/10/27 10:42:11 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.25 2004/12/15 08:11:29 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -69,22 +69,15 @@ std::string LaTeX_drucken::get_latex_filename(const Abenteurer &A, const LaTeX_F
 }
  
 std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
-{
-  switch (what)
-    {
-      case TeX_tmp : return Programmoptionen->getString(Magus_Optionen::tmppfad);
-      case TeX_Install : 
-      {  std::string result=magus_paths::with_path("MAGUS-Logo-grey2.png",true);
-         return WinLux::recodePathForTeX(result);
-      }
-    }
-  abort(); // never get here
+{ std::string path=Programmoptionen->getString(Magus_Optionen::tmppfad);
+  if (!path.empty() && path[path.size()-1]!=WinLux::dirsep) 
+    path+=WinLux::dirsep;
+  return path;
 }
 
 #if 1
 void LaTeX_drucken::Ausdrucken(const Abenteurer &A,bool values)
 {   
-// std::string installfile=get_latex_pathname(TeX_Install)+get_latex_filename(TeX_MainDocument);
  std::string installfile=magus_paths::with_path(get_latex_filename(A,TeX_MainDocument)+".tex");
  std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(A,TeX_MainWerte);
  
@@ -114,7 +107,6 @@ void LaTeX_drucken::Ausdrucken(const Abenteurer &A,bool values)
 void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
-// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
  LaTeX_newsavebox(A,fout);
 
  write_grundwerte(A,fout);
@@ -217,7 +209,6 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
 void LaTeX_drucken::LaTeX_write_empty_values(std::ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
-// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
  LaTeX_newsavebox(Abenteurer(),fout);
  write_grundwerte(Abenteurer(),fout,true);
  
@@ -765,9 +756,6 @@ void LaTeX_drucken::LaTeX_Bildboxen(std::ostream &fout,const std::string &file,c
 
 void LaTeX_drucken::LaTeX_newsavebox(const Abenteurer &A,std::ostream &fout)
 {
-// fout << WinLux::normal_tilde;
-// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
-// fout << WinLux::active_tilde; 
  fout << "\\usepackage{german}\n";
  fout << "\\usepackage[latin1]{inputenc}\n";
  fout << "\\usepackage[pdftex]{graphicx}\n";

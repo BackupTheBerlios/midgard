@@ -30,26 +30,40 @@
 #include "class_SimpleTree.hh"
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
-void table_steigern::refresh()
-{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__);
-  if (hauptfenster->get_current_page()!=midgard_CG::PAGE_STEIGERN) return;
+void table_steigern::refresh_moeglich()
+{
+}
 
-  zeige_werte();
-//  steigern_mit_EP_bool=true;
+void table_steigern::refresh_werte()
+{ const Abenteurer &W=hauptfenster->getAben();
+   label_s_grad->set_text(itos(W.Grad()));
+   label_s_ap->set_text(itos(W.AP()));
+   label_s_abwehr->set_text(itos(W.Abwehr_wert()));
+   label_s_zaubern->set_text(itos(W.Zaubern_wert()));
+   label_s_resistenz->set_text(itos(W.Resistenz()));
+   label_pp_abwehr->set_text(itos(W.AbwehrPP()));
+   label_pp_zaubern->set_text(itos(W.ZaubernPP()));
+   label_pp_spezial->set_text(itos(W.SpezialPP()));
+   label_pp_resistenz->set_text(itos(W.ResistenzPP()));
+   label_alter->set_text(itos(W.Alter()));
 
-  if(SpruecheMitPP().empty())
-      { radiobutton_pp_spezial->hide();
-        frame_pp_spezial->hide();
-      }
-  else
-     { 
-        radiobutton_pp_spezial->remove();
-        Gtk::Label *l=manage(new class Gtk::Label(SpruecheMitPP(),0));
-        l->show();
-        radiobutton_pp_spezial->add(*l);
-        frame_pp_spezial->set_label(SpruecheMitPP());
-     }
+   if(W.eigenschaften_steigern_erlaubt())
+      flashing_eigenschaft->setTime(1000);
+   else flashing_eigenschaft->setTime(0);
 
+   label_ausdauer_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,W));
+   label_abwehr_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
+   label_resistenz_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,W));
+
+   std::string z=Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,W);
+   if(!W.Typ1()->is_mage() && !W.Typ2()->is_mage()) z="";
+   label_zauber_GFP->set_text(z);
+
+
+}
+
+void table_steigern::refresh_faehigkeiten()
+{
    fertigkeiten_zeigen();
    waffen_zeigen();
    on_zauber_laden_clicked();
@@ -57,12 +71,51 @@ void table_steigern::refresh()
    sprachen_zeigen();
    schriften_zeigen();
    init_waffenbesitz();
+}
 
+void table_steigern::refresh_gesteigert()
+{ const Abenteurer &W=hauptfenster->getAben();
+   LabelSpin_gfp->set_value(W.GFP());
+   label_steigertage->set_text(dtos1(W.Steigertage()));
+   std::string grad_GFP=Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,W);
+   label_grad_GFP->set_text(grad_GFP);
+   if(grad_GFP=="erreicht") flashing_gradanstieg->setTime(1000);
+   else                     flashing_gradanstieg->setTime(0);
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+   if (grad_GFP=="erreicht") 
+      handlebox_steigern_4->set_label("neuer Grad erreicht");
+   else if (W.eigenschaften_steigern_erlaubt())
+      handlebox_steigern_4->set_label("Eigenschaftsanstieg möglich");
+   else 
+      handlebox_steigern_4->set_label(grad_GFP);
+#endif
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+  handlebox_steigern_1->set_label(W.Spezies()->Name()+" "+W.Typ1()->Short()
+      + "," + W.Typ2()->Short() + " Grad "+itos(W.Grad()));
+#endif
+  LabelSpin_silber->set_value(W.Silber());
+  LabelSpin_kupfer->set_value(W.Kupfer());
+  LabelSpin_gold->set_value(W.Gold());
+
+  LabelSpin_aep->set_value(W.AEP());
+  LabelSpin_kep->set_value(W.KEP());
+  LabelSpin_zep->set_value(W.ZEP());
+}
+
+void table_steigern::refresh()
+{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__);
+  if (hauptfenster->get_current_page()!=midgard_CG::PAGE_STEIGERN) return;
+
+  zeige_werte();
+//  steigern_mit_EP_bool=true;
+
+  refresh_faehigkeiten();
      clist_ruestung->set_sensitive(false);
      button_ruestung_1->set_active(false);
      button_ruestung_2->set_active(false);
 
   spinbutton_eigenschaften_grad_anstieg->hide();  
+  // welche buttons sind möglich
   load_for_page(notebook_lernen->get_current_page());
  togglebutton_praxispunkte->set_active(false);
 }
@@ -129,50 +182,8 @@ void table_steigern::zeige_werte()
    clean_up();
    const Abenteurer &W=hauptfenster->getAben();
 
-   LabelSpin_gfp->set_value(W.GFP());
-
-   label_s_grad->set_text(itos(W.Grad()));
-   label_s_ap->set_text(itos(W.AP()));
-   label_s_abwehr->set_text(itos(W.Abwehr_wert()));
-   label_s_zaubern->set_text(itos(W.Zaubern_wert()));
-   label_s_resistenz->set_text(itos(W.Resistenz()));
-   label_pp_abwehr->set_text(itos(W.AbwehrPP()));
-   label_pp_zaubern->set_text(itos(W.ZaubernPP()));
-   label_pp_spezial->set_text(itos(W.SpezialPP()));
-   label_pp_resistenz->set_text(itos(W.ResistenzPP()));
-   label_steigertage->set_text(dtos1(W.Steigertage()));
-   label_alter->set_text(itos(W.Alter()));
-
-   std::string grad_GFP=Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,W);
-   label_grad_GFP->set_text(grad_GFP);
-   if(grad_GFP=="erreicht") flashing_gradanstieg->setTime(1000);
-   else                     flashing_gradanstieg->setTime(0);
-   if(W.eigenschaften_steigern_erlaubt())
-      flashing_eigenschaft->setTime(1000);
-   else flashing_eigenschaft->setTime(0);
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
-   if (grad_GFP=="erreicht") 
-      handlebox_steigern_4->set_label("neuer Grad erreicht");
-   else if (W.eigenschaften_steigern_erlaubt())
-      handlebox_steigern_4->set_label("Eigenschaftsanstieg möglich");
-   else 
-      handlebox_steigern_4->set_label(grad_GFP);
-#endif
-
-   label_ausdauer_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,W));
-   label_abwehr_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
-   label_resistenz_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,W));
-   std::string z=Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,W);
-   if(!W.Typ1()->is_mage() && !W.Typ2()->is_mage()) z="";
-   label_zauber_GFP->set_text(z);
-
-  if (!W.Typ2()->Name(W.Geschlecht()).empty())
-      steigern_typ->set_text(W.Typ1()->Name(W.Geschlecht())
-            +"/"+W.Typ2()->Name(W.Geschlecht()));
-  else
-     steigern_typ->set_text(W.Typ1()->Name(W.Geschlecht()));
-
-  label_steigern_spezies->set_text(W.Spezies()->Name());
+   refresh_gesteigert();
+   refresh_werte();
 
   if(MBEmlt(cH_Fertigkeit("KiDo"))->ist_gelernt(W.List_Fertigkeit()))   
          table_kido_steigern->show();
@@ -190,18 +201,26 @@ void table_steigern::zeige_werte()
     frame_pp_zaubern->set_sensitive(false);
     radiobutton_pp_zauber->set_sensitive(false);
   }
- show_label();
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
-  handlebox_steigern_1->set_label(W.Spezies()->Name()+" "+W.Typ1()->Short()
-      + "," + W.Typ2()->Short() + " Grad "+itos(W.Grad()));
-#endif
-  LabelSpin_silber->set_value(W.Silber());
-  LabelSpin_kupfer->set_value(W.Kupfer());
-  LabelSpin_gold->set_value(W.Gold());
+  if (!W.Typ2()->Name(W.Geschlecht()).empty())
+      steigern_typ->set_text(W.Typ1()->Name(W.Geschlecht())
+            +"/"+W.Typ2()->Name(W.Geschlecht()));
+  else
+     steigern_typ->set_text(W.Typ1()->Name(W.Geschlecht()));
+  if(SpruecheMitPP().empty())
+      { radiobutton_pp_spezial->hide();
+        frame_pp_spezial->hide();
+      }
+  else
+     { 
+        radiobutton_pp_spezial->remove();
+        Gtk::Label *l=manage(new class Gtk::Label(SpruecheMitPP(),0));
+        l->show();
+        radiobutton_pp_spezial->add(*l);
+        frame_pp_spezial->set_label(SpruecheMitPP());
+     }
 
-  LabelSpin_aep->set_value(W.AEP());
-  LabelSpin_kep->set_value(W.KEP());
-  LabelSpin_zep->set_value(W.ZEP());
+  label_steigern_spezies->set_text(W.Spezies()->Name());
+ show_label();
    Abenteurer2Window();
 }
 
@@ -218,14 +237,6 @@ table_steigern::table_steigern(GlademmData *_data)
    clist_ruestung->append_column("B\nVerlust",ruestung_columns.b_verlust);
    clist_ruestung->get_selection()->signal_changed().connect(SigC::slot(*this,&table_steigern::on_ruestung_selection_changed));
 
-#if 0
-   bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(MagusImage("EP-Steigern-50.xpm"),"Mit EP/PP\nsteigern",false)));
-   _m->set_mode(false);
-   _m->signal_toggled().connect(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled),true);
-   _m->show();
-   eventbox_eppp_steigern->add(*_m);
-   eventbox_eppp_steigern->show();
-#endif
 // die drei Zeilen können auch noch weg
      vbox_praxispunkte->hide();
      spinbutton_pp_eingeben->hide();

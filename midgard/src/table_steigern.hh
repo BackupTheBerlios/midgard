@@ -74,6 +74,11 @@ private:
         void zeige_werte();
         void neuer_charakter();
         void refresh();
+        // subparts
+        void refresh_moeglich();
+        void refresh_werte();
+        void refresh_faehigkeiten();
+        void refresh_gesteigert();
 
         // neu: passende Widgets
         MidgardBasicTree *getKnownTree(MidgardBasicElement::MBEE was);

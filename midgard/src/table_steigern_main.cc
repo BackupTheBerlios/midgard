@@ -70,37 +70,6 @@ std::string table_steigern::SpruecheMitPP()
 
 /////////////////////////////////////////////////////////
 
-#if 0
-void table_steigern::on_radio_unterweisung_toggled()
-{ Window2Abenteurer();
- if(radiobutton_unterweisung->get_active())
-  {
-    steigern_gtk();
-    vscale_EP_Gold->set_sensitive(true);
-    label_EP->set_sensitive(true);
-    label_Gold->set_sensitive(true);
-  }
- else
-  {
-    label_EP->set_text("100%");
-    label_Gold->set_text("0%");
-    vscale_EP_Gold->set_sensitive(false);
-    label_EP->set_sensitive(false);
-    label_Gold->set_sensitive(false);
-  }
-}
-void table_steigern::on_radio_selbst_toggled()
-{  Window2Abenteurer();
-}
-void table_steigern::on_radio_praxis_toggled()
-{  Window2Abenteurer();
-  if(radiobutton_praxis->get_active())
-     table_pp_einstellungen->show();//set_sensitive(true);
-  else
-     table_pp_einstellungen->hide();//set_sensitive(false);
-}
-#endif
-
 void table_steigern::on_radiobutton_pp_fertigkeit_toggled()
 { 
    spinbutton_pp_eingeben->hide();

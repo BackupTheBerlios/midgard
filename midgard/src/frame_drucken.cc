@@ -23,7 +23,7 @@
 
 #include<list>
 #include "midgard_CG.hh"
-#include "xml_fileselection.hh"
+#include <WinFileReq.hh>
 #include <Association.h>
 #include <string_Entry.hh>
 
@@ -63,39 +63,12 @@ void frame_drucken::init()
  add(*table);
 }
 
-#if 0
-void frame_drucken::element_activate(Gtk::RadioButton *rb,Magus_Optionen::pdfViewerIndex index)
-{
- if(rb->get_active())
-  {
-   Programmoptionen->pdfViewer_setzen_from_menu(index);       
-   if(index==Magus_Optionen::anderer) 
-       Programmoptionen->setString(Magus_Optionen::pdf_viewer,entry->get_text());
-  }
-}
-#endif
-
-#if 0
-void frame_drucken::entry_changed()
-{
-  bool_changed=true;
-  Programmoptionen->pdfViewer_setzen_from_menu(Magus_Optionen::anderer); 
-  Programmoptionen->setString(Magus_Optionen::pdf_viewer,entry->get_text());    
-}
-
-bool frame_drucken::entry_focus_out(GdkEventFocus *ev)
-{
-  if(bool_changed) init();
-  return 0;
-}
-#endif
-
 void frame_drucken::on_button_pdf_viewer_clicked()
-{
- xml_fileselection::create(hauptfenster,xml_fileselection::pdfviewer);
+{WinFileReq::create(SigC::slot(*this,&frame_drucken::pdf_viewer_selected),
+      entry->get_text(),"Programme (*.exe,*.bat)\0*.exe;*.bat\0",std::string(),
+      "Welches Programm soll PDF-Dateien anzeigen?",true,
+      hauptfenster);
 }
 
-#if 0
 void frame_drucken::pdf_viewer_selected(const std::string& dateiname)
 {entry->set_text(dateiname);}
-#endif

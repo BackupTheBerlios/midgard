@@ -21,7 +21,7 @@
 #include "config.h"
 #include "table_beschreibung.hh"
 #include "midgard_CG.hh"
-#include "xml_fileselection.hh"
+#include "WinFileReq.hh"
 #include "Windows_Linux.hh"
 
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
@@ -35,11 +35,12 @@ void table_beschreibung::init(midgard_CG *h)
 
 void table_beschreibung::save_beschreibung()
 {
+  hauptfenster->getChar()->begin_undo();
   std::string b=text_charakter_beschreibung->get_buffer()->get_text(
   	text_charakter_beschreibung->get_buffer()->begin(),
   	text_charakter_beschreibung->get_buffer()->end());
   hauptfenster->getAben().setBeschreibung(b);
-  hauptfenster->getChar().undosave("Beschreibung geändert");
+  hauptfenster->getChar()->name_undo("Beschreibung geändert");
 }
 
 bool table_beschreibung::on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev)
@@ -65,17 +66,27 @@ void table_beschreibung::on_button_grafik()
 #endif  
 }
 
+void table_beschreibung::setBeschreibungPix(const std::string &s)
+{ hauptfenster->getChar()->begin_undo();
+  hauptfenster->getAben().setBeschreibungPix(s);
+  hauptfenster->getChar()->name_undo(s.empty()?"Bild gelöscht":"Bild geändert");
+}
 
 void table_beschreibung::on_button_grafik_clicked()
-{  
-  (new xml_fileselection(hauptfenster,xml_fileselection::Pix));
-  hauptfenster->getChar().undosave("Bild geändert");
+{ hauptfenster->getChar()->begin_undo();
+  WinFileReq::create(SigC::slot(*this,&table_beschreibung::setBeschreibungPix),
+      hauptfenster->getAben().BeschreibungPix().empty() 
+      ? Programmoptionen->getString(Magus_Optionen::speicherpfad)
+      : hauptfenster->getAben().BeschreibungPix(),
+      "Bilder (*.png,*.jpg,*.tif)\0*.png;*.jpg;*.tif\0Alle Dateien (*.*)\0*.*\0",
+      std::string(),"Welche Grafik soll auf dem Ausdruck erscheinen?",true,
+      hauptfenster,true);
 }
 
 bool table_beschreibung::on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev)
-{ 
+{hauptfenster->getChar()->begin_undo();
  hauptfenster->getAben().setBeschreibungPixSize(spinbutton_pix_breite->get_value_as_int());
- hauptfenster->getChar().undosave("Bildgröße geändert");
+ hauptfenster->getChar()->name_undo("Bildgröße geändert");
  return 0;
 }
 

@@ -10,6 +10,8 @@ Version 0.9.8
 - Die Icons der Regionen passen wieder (jemand hatte GildenbriefBerufe 
 	mittendrin eingefügt, so dass sich die Numerierung verschob)
 - Kontext-Menü ist wieder da
+- Optionen sind nun hierarchisch aufgebaut (und aus templates abgeleitet)
+- neue Optionen: LaTeX ucs (Unicode) und Hintergrundkontrast
 
 -------------- TODO ----------------
 
