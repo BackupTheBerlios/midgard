@@ -23,12 +23,11 @@ Alba	Vesternesse	Albisch
 Alba	Vesternesse	Altoqua
 Alba	Vesternesse	Dunathisch
 Aran	Sirao	Aranisch
-Aran	Sirao	Maralinga
 Buluga	Lamaran	Bulugi
 Chryseia	Vesternesse	Chryseisch
 Chryseia	Vesternesse	Maralinga
+Chryseia	Vesternesse	Tuskisch
 Clanngadarn	Vesternesse	Twyneddisch
-Dvarheim	Nichtmenschen	Dvarskar
 Elfen	Nichtmenschen	Eldalyn
 Erainn	Vesternesse	Erainnisch
 Erainn	Vesternesse	Hochcoraniaid
@@ -38,11 +37,12 @@ Eschar	Lamaran	Scharidisch
 Feuerinseln	Huaxal	Stammesdialekte
 Fuardain	Vesternesse	Twyneddisch
 Gnome	Nichtmenschen	Gnomenon
-Halfdal	Nichtmenschen	Halftan
+Halblinge	Nichtmenschen	Halftan
 Ikenga Becken	Lamaran	Stammesdialekte
 Inseln unter dem Westwind	Huaxal	Nahuatlanisch
 Inseln unter dem Westwind	Huaxal	Trll
 KanThaiPan	Sirao	KanThaiTun
+KÃ¼stenstaaten	Sirao	Maralinga
 Küstenstaaten	Lamaran	Neu Vallinga
 Medjis	Sirao	Medjisisch
 Minangpahit	Sirao	Minangpahitisch
@@ -60,6 +60,7 @@ Vesternesse	Vesternesse	Comentang
 Waeland	Sirao	Waelska
 Ywerdon	Vesternesse	Erainnisch
 Ywerdon	Vesternesse	Twyneddisch
+Zwerge	Nichtmenschen	Dvarskar
 \.
 --
 --
