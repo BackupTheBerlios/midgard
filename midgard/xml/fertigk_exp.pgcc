@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.7 2001/11/14 15:28:32 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.8 2001/11/14 16:53:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -200,6 +200,41 @@ void fert_speichern(std::ostream &o)
    o << "  </Beruf>\n";
   }
    exec sql close beruf_curs;
+   SQLerror::test(__FILELINE__);
+
+//********************* Pflicht + verboten ********************
+   exec sql declare pflicht_curs cursor for
+   	select pflicht, typ, lernpunkte, verboten, spielbegin, erfolgswert
+   	from pflicht_lernen
+   	order by typ,coalesce(pflicht,''),verboten;
+   exec sql open pflicht_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch pflicht_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   std::string pflicht=fetch_string(is);
+   if (pflicht.size())
+   {  o << "  <Pflicht";
+      fetch_and_write_string_attrib(is, o, "Typ");
+      write_string_attrib(o, "Fertigkeit", pflicht);
+      fetch_and_write_int_attrib(is, o, "Lernpunkte");
+      fetch_string(is);
+      fetch_and_write_string_attrib(is, o, "Spielbeginn");
+      fetch_and_write_int_attrib(is, o, "Erfolgswert");
+      o << "/>\n";
+   }
+   else
+   {  o << "  <Verbot";
+      fetch_and_write_string_attrib(is, o, "Typ");
+      fetch_int(is);
+      fetch_and_write_string_attrib(is, o, "Fertigkeit");
+      fetch_and_write_string_attrib(is, o, "Spielbeginn");
+      o << "/>\n";
+   }
+  }
+   exec sql close pflicht_curs;
    SQLerror::test(__FILELINE__);
 
 //******************************************************************
