@@ -1,4 +1,16 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta4
+- Thaumaturgen können jetzt auch 'Schutzrunen', 'Große Siegel' und 
+   'magische Lettern' lernen.
+- Das mit dem Alter funktioniert erst jetzt (ich hab bei dem Vergleich ein 
+   '=' vergessen ...).
+- KanThai CHaraktere in der Tabelle 'waffen_standard' ergänzt -> führte 
+   beim steigern von Waffen zum Absturz.
+- Noch ein subtiler Bug beseitigt: Wenn man eine KiDo Fertigkeit gelernt hatte
+   dann funktionierte die Anzeige des Charaktertyps nicht. 
+- Ausdruck des KiDo Dokumentes funktionierte nicht richtig.
+
+##########################################################################
 NEWS IN VERSION 0.4beta3
 - 'Waffen verzaubern' in die Datenbank eingetragen -> kann gelernt werden 
    wenn die Voraussetzugen dafür erfüllt sind.

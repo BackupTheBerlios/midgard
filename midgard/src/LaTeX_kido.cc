@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.4 2001/04/19 13:29:11 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.5 2001/04/23 19:02:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,8 +60,8 @@ void midgard_CG::LaTeX_kido_main(void)
    fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
    fout << "\\setlength{\\doublerulesep}{0mm}\n";
   fout << "\\begin{document}\n";
-//   fout << "\\input{./midgard_tmp_latexwertedef}\n";
-   fout << "\\input{./midgard_tmp_latexwerte}\n";
+   fout << "\\newcommand{\\namecharakter}{"  <<werte.name_charakter << "}\n";
+   fout << "\\newcommand{\\namespieler}{"  <<werte.name_spieler << "}\n";
    fout << "\\begin{center}\n";
    fout << "\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}\n";
    fout << "\\parbox[][][c]{7cm}{\n";

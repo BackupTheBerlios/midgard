@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.17 2001/04/23 10:55:32 thoma Exp $
+// $Id: midgard_CG.cc,v 1.18 2001/04/23 19:02:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,8 +39,8 @@ midgard_CG::midgard_CG()
 {
  midgard_CG::fill_typauswahl();
  midgard_CG::fill_spezies();
- midgard_CG::typauswahl_button();
  midgard_CG::spezieswahl_button();
+ midgard_CG::typauswahl_button();
  werte.version="Erschaffung";
 }
 
@@ -61,6 +61,7 @@ void midgard_CG::typauswahl_button()
 
 void midgard_CG::show_gtk(int tnr)
 {
+//cout << tnr<<"\n";
  typauswahl->set_history(tnr); // Charakterklasse
  fertig_typ->set_text(typ.l);     // Charakterklasse im Lernfenster
 

@@ -71,6 +71,7 @@ void midgard_CG::fill_typauswahl()
    }  
   typauswahl->set_menu(*_m);
   typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
+  typauswahl->set_history(get_typ_nr());
 }
 
 void midgard_CG::fill_spezies()

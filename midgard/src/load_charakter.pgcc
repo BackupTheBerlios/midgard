@@ -512,9 +512,7 @@ void midgard_CG::load_charakter()
    exec sql close r_ein;
    tr.close();
 
-//   typ.l = db_typ_l;
    typ.s = db_typ_s;
-//   typ.nr = db_typ_i;
    get_typ(-1);
    if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
    else label_spezialwaffe->set_text("");
@@ -528,6 +526,5 @@ void midgard_CG::load_charakter()
    midgard_CG::fill_typauswahl();
    optionmenu_spezies->set_history(db_nr); // Spezies
    midgard_CG::show_gtk(get_typ_nr());
-
    midgard_CG::get_spezial_from_spezialgebiet();
 }

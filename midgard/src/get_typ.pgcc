@@ -18,7 +18,7 @@
 
 #include "midgard_CG.hh"
 #include <Aux/SQLerror.h>
-
+exec sql include sqlca;
 
 void midgard_CG::get_typ(int nr)
 {
@@ -59,6 +59,7 @@ int midgard_CG::get_typ_nr()
  exec sql end declare section ; 
  strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
  exec sql select typnr into :db_typnr from typen where typs = :db_typs;
- SQLerror::test(__FILELINE__); 
+ SQLerror::test(__FILELINE__,100); 
+ if (sqlca.sqlcode) return 0; // Kein Charakter gewählt
  return db_typnr-1; 
 }
