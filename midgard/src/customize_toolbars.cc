@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.30 2003/11/14 07:32:09 christof Exp $
+// $Id: customize_toolbars.cc,v 1.31 2003/11/25 10:53:12 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -103,7 +103,9 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
       {  if (i->get_type()==TOOLBAR_CHILD_WIDGET)
          {  CustomizeToolbars(i->get_widget(),show_icons,show_text,tab_text);
          }
-         else std::cout << "skipping tb child " << i->get_widget()->get_name() << ' ' << i->get_type() << '\n';
+         else std::cout << "skipping tb child " 
+         	<< (i->get_widget()?i->get_widget()->get_name():"<NULL>")
+         	<< ' ' << i->get_type() << '\n';
       }
    }
    else if (dynamic_cast<Gtk::Bin*>(w))
