@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.98 2002/07/08 06:15:02 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.99 2002/07/10 07:55:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -138,10 +138,26 @@ void midgard_CG::show_Beschriftungen(bool b)
  else if(!b &&!i) toolbar_top->hide();
 }
 
-void midgard_CG::show_gw_wuerfeln(bool b)
+void midgard_CG::show_3_Tasten_Maus(bool b)
 {
-  if(b) table_grundwerte->vbox_gw_wuerfeln->hide();
-  else table_grundwerte->vbox_gw_wuerfeln->show();
+  if(b) 
+   { table_grundwerte->vbox_gw_wuerfeln->hide();
+     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt.\n"
+                  "Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaftzuweisen das ganze 6x wiederholen.\n"
+                  "Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen.\n"
+                  "ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.");
+     _tooltips.set_tip(*button_main_drucken,"Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei).\n"
+                  "Mittlere Maustaste: Charakterbeschreibung drucken.\n"
+                  "Rechte Maustaste: Ausrüstung drucken.");
+   }
+  else 
+   { table_grundwerte->vbox_gw_wuerfeln->show();
+     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt."
+                  "Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen.\n"
+                  "ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.\n");
+     _tooltips.set_tip(*button_main_drucken,"Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei).\n"
+                  "Rechte Maustaste: Ausrüstung drucken.");
+   }
 }
 
 void midgard_CG::show_NSC_active(bool b)

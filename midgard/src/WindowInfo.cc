@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.45 2002/06/24 10:51:30 christof Exp $
+// $Id: WindowInfo.cc,v 1.46 2002/07/10 07:55:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,7 +51,8 @@ gint WindowInfo::on_WindowInfo_delete_event(GdkEventAny *ev)
 
 void WindowInfo::on_button_bestaetigen_clicked()
 {
- if (Modus==ZaubernLernen)    hauptfenster->table_grundwerte->kaempfer_lernt_zaubern();
+ if (Modus==Elf_doppel)    hauptfenster->table_grundwerte->doppelcharaktere();
+ else if (Modus==ZaubernLernen)    hauptfenster->table_grundwerte->kaempfer_lernt_zaubern();
  else if (Modus==Exit_ohne_speichern)  hauptfenster->on_button_quit_confirm_clicked();
  else assert(!"never get here");
 }

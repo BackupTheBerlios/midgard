@@ -163,7 +163,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  guint pagenr = notebook_lernen->get_current_page_num();
  try{
  MidgardBasicElement_mutable M=getSelectedNotebookLernen();
- modify(PP,M,"",PPanz);
+ modify(PP,M,MidgardBasicElement::st_zusatz(""),PPanz);
  }catch(TreeBase::noRowSelected &e) {cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
@@ -230,7 +230,7 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
         title.push_back("Land auswählen");
         for (std::vector<cH_Land>::const_iterator i=hauptfenster->getCDatabase().Laender.begin();i!=hauptfenster->getCDatabase().Laender.end();++i)
          {
-           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true));
+           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true,hauptfenster->getCDatabase()));
          }
         break;
       }
@@ -241,7 +241,7 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
          {
            if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
             {
-              datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true));
+              datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true,hauptfenster->getCDatabase()));
             }
          }
         break;
@@ -249,11 +249,13 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
      case MidgardBasicElement::ZTabelle : 
       {
         title.push_back(MBE->Name()+" auswählen");
+        title.push_back("Typ");
+        title.push_back("Region");
         std::vector<MidgardBasicElement::st_zusatz> VZ=MBE->VZusatz();
         for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VZ.begin();i!=VZ.end();++i)
            {
              if(hauptfenster->region_check(i->region))
-               datavec.push_back(new Data_Zusatz(MBE,i->name,true));
+               datavec.push_back(new Data_Zusatz(MBE,*i,true,hauptfenster->getCDatabase()));
            }
         break; 
        }
@@ -298,7 +300,7 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
   neue_fert_tree->set_sensitive(true);
 }
 
-void table_steigern::modify(modi_modus modus,const MidgardBasicElement_mutable &M,const std::string &zusatz,int praxispunkte)
+void table_steigern::modify(modi_modus modus,const MidgardBasicElement_mutable &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte)
 {
   bool found=false;
   int c=0;
@@ -321,7 +323,7 @@ void table_steigern::modify(modi_modus modus,const MidgardBasicElement_mutable &
            else if(modus==Zusatz)
             {
               i->setZusatz(zusatz);
-              if(zusatz==hauptfenster->getWerte().Herkunft()->Name()) 
+              if(zusatz.name==hauptfenster->getWerte().Herkunft()->Name()) 
                 i->setErfolgswert(9);
             }
          }

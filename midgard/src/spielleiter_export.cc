@@ -85,28 +85,28 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 
   std::string angriff;
   for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Waffen().begin();i!=Char.List_Waffen().end();++i)
-   {cH_Waffe w(*i);
-//    std::string wert = itos(i->Erfolgswert());
+   {
+    cH_Waffe w(*i);
+    std::string name = i->Name();
+    int anbo = Char.getWerte().bo_An();
+    if (WB.Waffe()->Verteidigung())
+        anbo = 0;
+    int wert = i->Erfolgswert() + anbo;
+    std::string schaden;
+    bool besitz=false;
     for(std::list<WaffeBesitz>::const_iterator j=Char.List_Waffen_besitz().begin();j!=Char.List_Waffen_besitz().end();++j)
      {
       WaffeBesitz WB=*j;
       if (WB.Waffe()->Name()==w->Name())
        {
-         std::string waffenname ;
-         waffenname = WB->Name();
-         angriff +=waffenname;
-         if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) angriff +="$^*$";
-         int mag_schadensbonus = WB.av_Bonus();
-         int ang_mod = WB.Waffe()->WM_Angriff((*j)->Name());
-         int anbo = Char.getWerte().bo_An();
-         if (WB.Waffe()->Verteidigung())
-            anbo = 0;
-         int wert = i->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
-         angriff+="+"+itos(wert) + "(";
-         std::string schaden=WB.Schaden(Char.getWerte(),WB->Name());
-         angriff+= schaden+ "), ";
+         besitz=true;
+         name = WB->AliasName();
+         if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) name +="$^*$";
+         wert += WB.av_Bonus() + WB.Waffe()->WM_Angriff((*j)->Name());
+         schaden=WB.Schaden(Char.getWerte(),WB->Name());
        }
      }
+    angriff += i->Name()+"+"+itos(wert)+"("+schaden+"), ";
    }
   std::string::size_type st2=angriff.find_last_of(",");
   if(st2!=std::string::npos) angriff.erase(st2,2);

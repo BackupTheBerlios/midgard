@@ -17,7 +17,7 @@
  */
 
 #include "midgard_CG.hh"
-#include "Window_doppelcharaktere.hh"
+//#include "Window_doppelcharaktere.hh"
 #include <Gtk_OStream.h>
 #include <SelectMatching.h>
 
@@ -178,7 +178,9 @@ void table_grundwerte::spezieswahl_button()
  typauswahl_button();
 
  if (hauptfenster->getWerte().Spezies()->Name()=="Elf")
-   manage (new Window_doppelcharaktere(this));
+   hauptfenster->InfoFenster->AppendShow("Soll dieser Elf ein Doppeltyp-Abenteurer sein?",WindowInfo::Elf_doppel);
+   
+//   manage (new Window_doppelcharaktere(this));
 
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIES);
 }

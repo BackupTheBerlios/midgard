@@ -757,7 +757,7 @@ void table_lernschema::show_lernschema()
       if(!hauptfenster->region_check((*i)->Region())) continue;
       if(!(*i)->Voraussetzung(A)) continue;
       if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) f.setGelernt(true);
-      else {f.setGelernt(false);f.setZusatz("");}
+      else {f.setGelernt(false);f.setZusatz(MidgardBasicElement::st_zusatz(""));}
       if((*i)->Name()=="Landeskunde (Heimat)" && (*i)->ist_gelernt(list_FertigkeitZusaetze)) f.setGelernt(true);
       if (f.ist_gelernt(A.List_Fertigkeit())) f.setGelernt(true); 
       if(f.Gelernt()&&!togglebutton_gelernte_anzeigen->get_active()) continue;

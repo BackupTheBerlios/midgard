@@ -23,6 +23,8 @@
 #include "Land.hh"
 #include <Misc/EntryValueIntString.h>
 #include "MidgardBasicElement.hh"
+#include "Region.hh"
+#include "Datenbank.hh"
 
 class Data_Herkunft : public RowDataBase
 {
@@ -64,24 +66,31 @@ public:
 class Data_Zusatz : public RowDataBase
 {
       MidgardBasicElement_mutable MBE;
-      std::string zusatz;
+      MidgardBasicElement::st_zusatz zusatz;
       bool erlaubt;
+      Datenbank Database;
    public:
-      Data_Zusatz(const MidgardBasicElement_mutable &mbe,std::string z,bool e)
-         : MBE(mbe),zusatz(z),erlaubt(e) {}
+      Data_Zusatz(const MidgardBasicElement_mutable &mbe,MidgardBasicElement::st_zusatz z,bool e,const Datenbank &D)
+         : MBE(mbe),zusatz(z),erlaubt(e),Database(D) {}
 
-      enum Spalten {NAME};
+      Data_Zusatz(const MidgardBasicElement_mutable &mbe,std::string z,bool e,const Datenbank &D)
+         : MBE(mbe),zusatz(z),erlaubt(e),Database(D) {}
+
+      enum Spalten {NAME,TYP,REGION};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
         {
          switch((Spalten)seqnr) 
            {
-            case NAME : return cH_EntryValueIntString(zusatz);
+            case NAME : return cH_EntryValueIntString(zusatz.name);
+            case TYP : return cH_EntryValueIntString(zusatz.typ);
+            case REGION : return cH_EntryValueIntString(
+               Regionen_All::getRegionfromAbk(Database.Regionen,zusatz.region)->Name()+" "+zusatz.region_zusatz);
             default : return cH_EntryValueIntString("");
            }
           return cH_EntryValueIntString();
         }
       const MidgardBasicElement_mutable &getMBE() const {return MBE;}
-      std::string getZusatz() const {return zusatz;}
+      MidgardBasicElement::st_zusatz getZusatz() const {return zusatz;}
       bool Erlaubt() const {return erlaubt;}
 };
 

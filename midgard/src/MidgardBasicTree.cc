@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.19 2002/07/09 12:23:31 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.20 2002/07/10 07:55:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@ MidgardBasicTree::MidgardBasicTree(variante V)
 int MidgardBasicTree::Cols(variante V)
 {
   switch(V) {
-     case (STEIGERNZUSATZ)  : return 1;
+     case (STEIGERNZUSATZ)  : return 3;
      case (ANGEBFERT):  
      case (LERNSCHEMAZUSATZ): return 3;
      case (GELERNTES):      

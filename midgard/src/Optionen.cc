@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.66 2002/07/03 17:01:27 thoma Exp $
+// $Id: Optionen.cc,v 1.67 2002/07/10 07:55:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -192,7 +192,7 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
      if(i->index!=index) continue;
      i->active = b;
      if     (i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
-     else if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
+     else if(i->index==Drei_Tasten_Maus) hauptfenster->show_3_Tasten_Maus(i->active);
      else if(i->index==NSC_only) {hauptfenster->show_NSC_active(i->active);
                                   hauptfenster->table_grundwerte->fill_typauswahl();
                                   hauptfenster->table_grundwerte->fill_typauswahl_2();} // zum Neuaufbau des Typmenüs
@@ -287,7 +287,7 @@ void Midgard_Optionen::Optionen_init()
                            true,midgard_logo_tiny_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
                            false,NSC_Mode_32_xpm));
-  list_OptionenCheck.push_back(st_OptionenCheck(gw_wuerfeln,
+  list_OptionenCheck.push_back(st_OptionenCheck(Drei_Tasten_Maus,
                            "3-Tasten Maus",
                            false,Cyan_Dice_trans_50_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 

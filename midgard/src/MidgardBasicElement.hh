@@ -55,6 +55,8 @@ class MidgardBasicElement : public HandleContentCopyable
       enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,
                     ZHerkunft=4,ZSprache=5,ZSchrift=6,ZUeberleben=7};
       struct st_zusatz{std::string name;std::string typ;std::string region; std::string region_zusatz;
+             st_zusatz() {}
+             st_zusatz(std::string n):name(n) {}
              st_zusatz(std::string n,std::string t,std::string r,std::string rz)
                :name(n),typ(t),region(r),region_zusatz(rz){}};
    protected:
@@ -167,7 +169,7 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
 {
  private:
       int praxispunkte,erfolgswert,lernpunkte;
-      std::string zusatz; // Für Zusätze bei Fertigkeiten 
+      MidgardBasicElement::st_zusatz zusatz; // Für Zusätze bei Fertigkeiten 
                               // (z.B. Abrichten, Sprache, Geheimzeichen...)
                               // und Zauber (Tiersprache)
       bool gelernt; // Fürs Lernschema
@@ -200,8 +202,8 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
       void setGelernt(bool b)  {gelernt=b;}
       bool Gelernt() const {return gelernt;}
   
-      std::string Zusatz() const {return zusatz;}
-      void setZusatz(std::string z) {zusatz=z;}
+      std::string Zusatz() const {return zusatz.name;}
+      void setZusatz(MidgardBasicElement::st_zusatz z) {zusatz=z;}
 
      std::string LernArt() const {return lernart;}
      void setLernArt(std::string z)  {lernart=z;}   

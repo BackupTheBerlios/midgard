@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.183 2002/07/08 16:35:56 christof Exp $
+# $Id: Makefile.am,v 1.184 2002/07/10 07:55:24 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -78,8 +78,6 @@ WindowInfo_glade.hh WindowInfo.hh \
 	Midgard_Info_glade.hh \
 	Midgard_Info.hh \
    Tag.hh TagStream.hh \
-   Window_doppelcharaktere.hh \
-   Window_doppelcharaktere_glade.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh \
    class_lernpunkte.hh \
@@ -197,8 +195,6 @@ magus_SOURCES = $(PORT_FILES) \
    table_grundwerte_grundwere_edit.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \
-   Window_doppelcharaktere.cc \
-   Window_doppelcharaktere_glade.cc \
    Datenbank.cc class_SimpleTree.cc \
    dtos1.cc snprintf.c \
    Midgard_Undo.cc \
