@@ -9,8 +9,8 @@
   <Erfolgswerte Abwehr="15" Zaubern="17" ZauberResistenz="14"/>
   <Gesundheit LP="16" AP="34"/>
   <Beschreibung Alter="29" Gestalt="schlank" Gewicht="69" Größe="161" Stand="Mittelschicht" Merkmale="weiße Haare, permanent -4AP" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Vermögen GS="1827" SS="4"/>
-  <Steigern GFP="16393" AEP="603" EPproGFP="0" benötigte_Tage="195.24">
+  <Vermögen GS="1668" SS="4"/>
+  <Steigern GFP="16633" AEP="522" EPproGFP="33" benötigte_Tage="211.24">
    <Praxispunkte Zaubern="2" Spezial="3" Resistenz="1"/>
   </Steigern>
   <Text/>
@@ -64,7 +64,6 @@
    <Fertigkeit Bezeichnung="Zauberkunde" Wert="10" Praxispunkte="4"/>
    <Fertigkeit Bezeichnung="Zaubern"/>
    <Waffe Bezeichnung="Magierstab" Wert="9"/>
-   <Zauber Bezeichnung="Person wiederfinden"/>
    <Zauber Bezeichnung="Allheilung"/>
    <Zauber Bezeichnung="Austreibung des Bösen"/>
    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
@@ -95,6 +94,7 @@
    <Zauber Bezeichnung="Liniensicht"/>
    <Zauber Bezeichnung="Macht über das Selbst"/>
    <Zauber Bezeichnung="Macht über die belebte Natur"/>
+   <Zauber Bezeichnung="Person wiederfinden"/>
    <Zauber Bezeichnung="Reinigen"/>
    <Zauber Bezeichnung="Rost"/>
    <Zauber Bezeichnung="Scharfblick"/>
@@ -115,15 +115,16 @@
    <Zauber Bezeichnung="Zwiesprache"/>
    <Grundkenntnis Bezeichnung="Zauberstäbe"/>
    <Sprache Bezeichnung="Albisch" Wert="13"/>
-   <Sprache Bezeichnung="Aranisch" Wert="6"/>
+   <Sprache Bezeichnung="Aranisch" Wert="10"/>
    <Sprache Bezeichnung="Chryseisch" Wert="13"/>
    <Sprache Bezeichnung="Comentang" Wert="10"/>
+   <Sprache Bezeichnung="Dunkle Sprache" Wert="12"/>
    <Sprache Bezeichnung="Dvarskar" Wert="10"/>
    <Sprache Bezeichnung="Eldalyn" Wert="12"/>
    <Sprache Bezeichnung="Erainnisch" Wert="20"/>
    <Sprache Bezeichnung="Gnomenon" Wert="10"/>
    <Sprache Bezeichnung="KanThaiTun" Wert="13"/>
-   <Sprache Bezeichnung="Maralinga" Wert="6"/>
+   <Sprache Bezeichnung="Maralinga" Wert="10"/>
    <Sprache Bezeichnung="Meketisch" Wert="13"/>
    <Sprache Bezeichnung="Moravisch" Wert="13"/>
    <Sprache Bezeichnung="Nahuatlanisch" Wert="6"/>
@@ -131,6 +132,8 @@
    <Sprache Bezeichnung="Scharidisch" Wert="10"/>
    <Sprache Bezeichnung="Sritrasprache" Wert="16"/>
    <Sprache Bezeichnung="Twyneddisch" Wert="4"/>
+   <Urschrift Bezeichnung="Scharidisch" Wert="8"/>
+   <Urschrift Bezeichnung="Dunkle Sprache" Wert="10"/>
    <Urschrift Bezeichnung="Dvarskar" Wert="12"/>
    <Urschrift Bezeichnung="KanThaiTun(1)" Wert="12"/>
    <Urschrift Bezeichnung="KanThaiTun(2)" Wert="12"/>
@@ -144,6 +147,7 @@
    <Urschrift Bezeichnung="Zwergenrunen Futhark" Wert="8"/>
    <Urschrift Bezeichnung="Eldalyn" Wert="8"/>
    <Urschrift Bezeichnung="Neu-Vallinga" Wert="8"/>
+   <Urschrift Bezeichnung="Maralinga" Wert="8"/>
   </Fertigkeiten>
   <Optionen>
    <Region Name="Kompendium" Region="TuT"/>
