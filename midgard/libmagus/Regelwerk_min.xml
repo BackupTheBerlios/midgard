@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.1 $">
+ <Fertigkeiten>
+  <Fertigkeit Name="Akrobatik" Lernpunkte="5" Anfangswert="15" Lernkosten="120" Erfolgswert="10" Erfolgswert-ungelernt="8" Attribut="Gw" Berufskategorie="2" Maximalwert="18" MaximalMitUnterweisung="16">
+   <Grund Typ="As"/>
+   <Voraussetzungen Gw="61"/>
+   <Kosten Wert11="100" Wert12="100" Wert13="200" Wert14="200" Wert15="400" Wert16="800" Wert17="800" Wert18="800" Wert19="800" Wert20="800"/>
+   <EP-Typ KEP="true"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben" Lernpunkte="3" Anfangswert="9" Lernkosten="20" Erfolgswert="4" Attribut="In" Maximalwert="20" MaximalMitUnterweisung="17" Zusätze="6">
+   <Standard Typ="As"/>
+   <Voraussetzungen In="21"/>
+   <Kosten Wert5="10" Wert6="10" Wert7="10" Wert8="10" Wert9="10" Wert10="10" Wert11="10" Wert12="10" Wert13="20" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="400" Wert19="400" Wert20="400" Wert21="400" Wert22="400"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprache" Anfangswert="12" Lernkosten="10" Erfolgswert="4" Attribut="In" Berufskategorie="2" Maximalwert="20" MaximalMitUnterweisung="17" Zusätze="5">
+   <Grund Typ="As"/>
+   <Voraussetzungen/>
+   <Kosten Wert5="10" Wert6="10" Wert7="10" Wert8="20" Wert9="20" Wert10="20" Wert11="50" Wert12="50" Wert13="100" Wert14="100" Wert15="200" Wert16="200" Wert17="400" Wert18="400" Wert19="400" Wert20="400" Wert21="400" Wert22="400"/>
+  </Fertigkeit>
+ </Fertigkeiten>
+ <angeboreneFertigkeiten>
+  <angeboreneFertigkeit Name="Berserkergang" Min="66" Max="70" Wert="18"/>
+ </angeboreneFertigkeiten>
+ <Berufe>
+  <Beruf Name="Akrobat">
+   <Voraussetzungen Stadt="true" Kämpfer="true" Zauberer="true"/>
+   <Stand Unfrei="true" Volk="true"/>
+   <Vorteil>
+    <Fertigkeit Name="Akrobatik" Wert="10"/>
+   </Vorteil>
+  </Beruf>
+ </Berufe>
+ <verwendbareEP>
+  <EP-Typ Fertigkeit="Abwehr" KEP="true"/>
+  <EP-Typ Fertigkeit="Ausdauer" KEP="true" ZEP="true"/>
+  <EP-Typ Fertigkeit="Waffen" KEP="true"/>
+  <EP-Typ Fertigkeit="Zauber" ZEP="true"/>
+ </verwendbareEP>
+ <Länder>
+  <Kontinent Name="Vesternesse">
+   <Land Name="Alba" Region="A">
+    <Sprache Name="Albisch"/>
+   </Land>
+  </Kontinent>
+ </Länder>
+ <Schriften>
+  <Schrift Name="Valianisches Alphabet" Typ="Buchstaben" Kosten="20">
+   <Variante Name="Albisch"/>
+  </Schrift>
+ </Schriften>
+ <Sprachen>
+  <Sprache Name="Albisch" Kosten="10" Maximalwert="20" Gruppe="1" Gruppe2="2">
+   <Schrift/>
+  </Sprache>
+ </Sprachen>
+ <SpeziesListe>
+  <Spezies Name="Mensch">
+   <Alter Faktor="1"/>
+   <Größe AnzahlWürfel="2" Würfel="20" Addiere="150"/>
+   <Gewicht AnzahlWürfel="4" Addiere="-120"/>
+   <Normgestalt Wert="-100"/>
+   <Bewegungsweite AnzahlWürfel="4" Addiere="16"/>
+   <Modifikation>
+    <Resistenzen/>
+    <Grundwerte/>
+   </Modifikation>
+   <Typ Name="-Km"/>
+   <Typ Name="-Sw"/>
+   <Typ Name="-Wi"/>
+  </Spezies>
+ </SpeziesListe>
+ <Gradanstieg>
+  <Grad Grad="1" Abwehr="11" Resistenz="10" Zaubern="11">
+   <Kosten Ausdauer="20" Zaubern="10"/>
+  </Grad>
+ </Gradanstieg>
+ <Typen>
+  <Typ Abkürzung="As" MAGUS-Index="1" Bezeichnung-Mann="Assassine" Bezeichnung-Frau="Assassinin" MinGw="61" MinGs="61" Berufswahl="k" Ausdauer="ak">
+   <Modifikation Stand="-10" Sb="30" Rüstung="1" Geld="1"/>
+   <Herkunft Land="Alba"/>
+   <Gruppe Name="KÄM"/>
+  </Typ>
+ </Typen>
+ <PreiseNeu>
+ </PreiseNeu>
+ <PreiseNeuMod>
+ </PreiseNeuMod>
+ <Rüstungen>
+  <Rüstung Name="Ohne Rüstung" Abkürzung="OR">
+   <Verlust BehinderungWie="OR"/>
+  </Rüstung>
+ </Rüstungen>
+ <Waffen>
+  <Waffe Name="Anderthalbhänder" Grundkenntnisse="Zweihandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="2" Text="(Einhändig|Beidhändig)" ZweiteGrundkenntnis="Einhandschwert">
+   <Modifikationen Waffenrang="-1" Abwehr-leicht="0" Abwehr-schwer="-1"/>
+   <Voraussetzungen St="31" Gs="21" Min_St_Einhand="81"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Standard Typ="As"/>
+   <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Werfen" Grundkenntnisse="Werfen" Schwierigkeit="7" Kategorie="Wurfwaffe" Schaden="variabel">
+   <Modifikationen/>
+   <Voraussetzungen Gs="21"/>
+   <Reichweite/>
+   <Lernkosten/>
+   <Grund Typ="As"/>
+   <Lernschema Typ="As" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+ </Waffen>
+ <Waffen-Grundkenntnisse>
+  <Waffen-Grundkenntnis Name="Zweihandschwert" Kosten="800">
+   <Standard Typ="As"/>
+  </Waffen-Grundkenntnis>
+ </Waffen-Grundkenntnisse>
+ <Waffen-Steigern>
+  <Kosten Schwierigkeit="0" Wert2="20" Wert3="100" Wert4="400" Wert5="1000" Wert6="2000" Wert7="4000" Wert8="6000"/>
+  <Kosten Schwierigkeit="1" Wert5="10" Wert6="10" Wert7="15" Wert8="20" Wert9="40" Wert10="80" Wert11="160" Wert12="320" Wert13="600" Wert14="1000" Wert15="2000" Wert16="2000" Wert17="3000" Wert18="3000" Wert19="5000"/>
+  <Kosten Schwierigkeit="2" Wert5="15" Wert6="15" Wert7="25" Wert8="30" Wert9="60" Wert10="120" Wert11="240" Wert12="480" Wert13="900" Wert14="1500" Wert15="3000" Wert16="3000" Wert17="4500" Wert18="4500" Wert19="7500"/>
+  <Kosten Schwierigkeit="3" Wert5="20" Wert6="20" Wert7="30" Wert8="40" Wert9="80" Wert10="160" Wert11="320" Wert12="640" Wert13="1200" Wert14="2000" Wert15="4000" Wert16="4000" Wert17="6000" Wert18="6000" Wert19="10000"/>
+  <Kosten Schwierigkeit="4" Wert5="25" Wert6="25" Wert7="40" Wert8="50" Wert9="100" Wert10="200" Wert11="400" Wert12="800" Wert13="1500" Wert14="2500" Wert15="5000" Wert16="5000" Wert17="7500" Wert18="7500" Wert19="12500"/>
+  <Kosten Schwierigkeit="5" Wert5="30" Wert6="30" Wert7="50" Wert8="60" Wert9="120" Wert10="240" Wert11="480" Wert12="960" Wert13="1800" Wert14="3000" Wert15="6000" Wert16="6000" Wert17="9000" Wert18="9000" Wert19="15000"/>
+  <Kosten Schwierigkeit="6" Wert5="35" Wert6="35" Wert7="55" Wert8="70" Wert9="140" Wert10="280" Wert11="560" Wert12="1120" Wert13="2100" Wert14="3500" Wert15="7000" Wert16="7000" Wert17="10500" Wert18="10500" Wert19="17500"/>
+  <Kosten Schwierigkeit="7" Wert5="40" Wert6="40" Wert7="60" Wert8="80" Wert9="160" Wert10="320" Wert11="640" Wert12="1280" Wert13="2400" Wert14="4000" Wert15="8000" Wert16="8000" Wert17="12000" Wert18="12000" Wert19="20000"/>
+ </Waffen-Steigern>
+ <KI>
+  <Prototyp Name="Test" Fertigkeit="50" Waffen="50" FertSpezialist="50" WaffSpezialist="95" SpraSpezialist="50" SchrSpezialist="50"/>
+ </KI>
+</MAGUS-data>
