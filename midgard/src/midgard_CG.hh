@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.119 2002/01/05 15:01:37 thoma Exp $
+// $Id: midgard_CG.hh,v 1.120 2002/01/06 21:20:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,7 +84,6 @@ extern bool BRbool;//B&R
 extern bool Gildenbriefbool;//G
 extern bool Kuestenstaatenbool;//S
 
-//extern Grad_anstieg Grad_Anstieg;
 
 class midgard_CG : public midgard_CG_glade
 {   
@@ -209,7 +208,6 @@ class midgard_CG : public midgard_CG_glade
         void fill_spezies();
         void typauswahl_button();
         void typauswahl_2_button();
-//        void on_optionmenu_land_deactivate();
         void on_radiobutton_stadt_land_toggled();
         void angeborene_zauber();
         void angeborene_fertigkeiten();
@@ -217,7 +215,6 @@ class midgard_CG : public midgard_CG_glade
         void on_radiobutton_mann_toggled();
         void spezieswahl_button();
         void on_herkunftsland_clicked();
-//        void on_muttersprache_clicked();
         gint on_button_menu_button_release_event(GdkEventButton *ev);
         void gw_wuerfeln_2x();
         gint on_button_grundwerte_button_release_event(GdkEventButton *ev);
@@ -293,8 +290,6 @@ class midgard_CG : public midgard_CG_glade
         void show_zauber();
         void zeige_lernpunkte();
         void zeige_notebook();
-//        void on_beruf_erfolgswert_clicked();
-//        void beruf_erfolgswert_eingeben();
         gint on_beruf_erfolgswert_release_event(GdkEventButton *ev);
         void on_spinbutton_beruferfolgesert_activate();
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
@@ -425,7 +420,9 @@ class midgard_CG : public midgard_CG_glade
         void sprachen_zeigen();
         void on_alte_sprache_reorder();
         void on_button_sprache_sort_clicked();
-//        void on_button_schrift_sort_clicked();
+        void neue_schrift_wegen_sprache();
+        int andereSprache_gleicheSchriftart(std::string art);
+
         void show_gtk();
 
         void ausruestung_laden();
@@ -469,7 +466,6 @@ class midgard_CG : public midgard_CG_glade
          gint on_speichern_release_event(GdkEventButton *ev);
          void grundwerte_speichern();
          void save_ausruestung();
-//         int ausruestung_tree_nr;         
          void save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB);
          void load_ausruestung();
          void load_ausruestung_C(int parent, AusruestungBaum *AB);
@@ -492,7 +488,6 @@ class midgard_CG : public midgard_CG_glade
          bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
          void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);
          void herkunft_uebernehmen(const cH_Land& s);
-//         std::vector<string> Berufs_Vorteile();
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();

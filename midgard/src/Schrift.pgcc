@@ -55,10 +55,11 @@ void Schrift::get_Schrift()
   exec sql end declare section;
 
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select typ,kosten,coalesce(region,''),
-       coalesce(alt,'f'),coalesce(kult,'f')
-       into :db_art,:db_fp,:db_region,:db_alt,:db_kult
-       from schrift where name = :db_name;
+  exec sql select s.kosten,coalesce(s.region,''),
+       coalesce(s.alt,'f'),coalesce(s.kult,'f'),ss.art_der_schrift
+       into :db_fp,:db_region,:db_alt,:db_kult,:db_art
+       from schrift s,sprache_schrift ss 
+       where s.name=ss.art_der_schrift and ss.schrift = :db_name;
   SQLerror::test(__FILELINE__);
   art_der_schrift=db_art;
   region=db_region;
@@ -84,6 +85,14 @@ int Schrift::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) con
   else return 20;
 }
 
+std::list<cH_MidgardBasicElement> Schrift::gleicheSchrift(const std::list<cH_MidgardBasicElement>& listSchrift) const
+{
+  std::list<cH_MidgardBasicElement> LS;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=listSchrift.begin();i!=listSchrift.end();++i)
+     if(cH_Schrift(*i)->Art_der_Schrift()==Art_der_Schrift()) 
+        LS.push_back(*i);
+  return LS;
+}
 
 Schriften_All::Schriften_All(Gtk::ProgressBar *progressbar)
 {
@@ -91,8 +100,8 @@ Schriften_All::Schriften_All(Gtk::ProgressBar *progressbar)
    char db_name[100];
    int db_size;
  exec sql end declare section;
- exec sql select count(name) into :db_size from schrift;
- exec sql declare SCIein cursor for select distinct name from schrift;
+ exec sql select count(schrift) into :db_size from sprache_schrift;
+ exec sql declare SCIein cursor for select distinct schrift from sprache_schrift;
  Transaction tr;
  exec sql open SCIein; 
  SQLerror::test(__FILELINE__);

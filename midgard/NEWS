@@ -2,6 +2,8 @@
 NEWS IN VERSION 0.1delta3
 
 * Sprachen und Schrift funktionieren richtig (hoffentlich)
+* Sprechen von verwandten Sprachen mit erniedrigtem Erfolgswert 
+   (im Charakterdokument)
 * Zahlreiche Bugs (Datenbank und Programm) beseitigt
 * Und nochmehr Bugs, Bugs, Bugs .... beseitigt
 * Praxispunkte für Abwehr/Zauber/Resistenz: speichern, laden, setzen, anzeigen

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.77 2002/01/04 23:35:13 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.78 2002/01/06 21:20:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -180,12 +180,15 @@ void midgard_CG::LaTeX_write_values()
  // Sprachen und Schriften
  unsigned int sprachanz=0;
  unsigned int maxsprach=19;
+ std::list<cH_MidgardBasicElement> verwandteSprachen;
  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
-   { cH_Sprache s(*i);
-      std::string a = LaTeX_string(sprachanz);
-      ++sprachanz;
+   {  cH_Sprache s(*i);
+      std::list<cH_MidgardBasicElement> tmplist=s->VerwandteSprachen(Database.Sprache);
+      verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
+//geth nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(Database.Sprache));
+      std::string a = LaTeX_string(sprachanz++);
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(s->Name(),20,"2.6cm") <<"}\n";
-      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< s->Erfolgswert() <<"}\n";
+      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize +"<< s->Erfolgswert() <<"}\n";
       vector<pair<std::string,int> > vs=s->SchriftWert(list_Schrift);
       std::string ss;
       for(vector<pair<std::string,int> >::const_iterator j=vs.begin();j!=vs.end();)
@@ -194,7 +197,15 @@ void midgard_CG::LaTeX_write_values()
          if(++j!=vs.end())  ss+=", ";
        }
       fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale(ss,20,"2.6cm") <<"}\n";
-//      fout << "\\newcommand{\\schrw"<<a<<"}{\\scriptsize "<< si <<"}\n";
+   }
+ verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
+   { cH_Sprache s(*i);
+     if(s->ist_gelernt(list_Sprache)) continue;
+     std::string a = LaTeX_string(sprachanz++);
+     fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(s->Name(),20,"2.6cm") <<"}\n";
+     fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize (+"<< s->Erfolgswert() <<")}\n";
+     fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale("",20,"2.6cm") <<"}\n";
    }
  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
    {

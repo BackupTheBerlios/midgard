@@ -31,6 +31,7 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 #include "itos.h"
 #include <gtk--/main.h>
+#include "Schrift.hh"
 
 cH_Sprache::cache_t cH_Sprache::cache;
 
@@ -110,30 +111,71 @@ std::string Sprache::Schriften() const
 
 
 
-const vector<pair<std::string,int> > Sprache::SchriftWert(const  std::list<cH_MidgardBasicElement>& list_Schrift) const 
+//const vector<pair<std::string,int> > Sprache::SchriftWert(const std::list<cH_MidgardBasicElement>& list_Schrift,const std::list<cH_MidgardBasicElement>& list_AllSchrift) const 
+const vector<pair<std::string,int> > Sprache::SchriftWert(const std::list<cH_MidgardBasicElement>& list_Schrift) const 
 {
  vector<pair<std::string,int> > vs;
  for(vector<std::string>::const_iterator i=VSchrift.begin();i!=VSchrift.end();++i)
   {  
    for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Schrift.begin();j!=list_Schrift.end();++j)
     {
-      if(*i == (*j)->Name())
+      if(*i == (*j)->Name()) // Schrift ist gelernt
         vs.push_back(pair<std::string,int>(*i,(*j)->Erfolgswert()));
+/*
+      else // Schrift nicht gelernt, aber vielleicht ist dieselbe Schrift gelernt?
+        {
+          cH_Schrift schrift(*i);
+          std::list<cH_MidgardBasicElement> LM=schrift->gleicheSchrift(list_AllSchrift);
+          for(std::list<cH_MidgardBasicElement>::const_iterator l=LM.begin();l!=LM.end();++l)
+            {
+              if((*l)->Name()==*i)
+                 vs.push_back(pair<std::string,int>(*i,+8));
+            }
+        }
+*/
     }
   }
  return vs;
 }
 
-bool Sprache::Sprachgruppe(const list<cH_MidgardBasicElement>& listSprache) const
+bool Sprache::Sprachgruppe(const std::vector<int>& V2) const
 {
-  for(list<cH_MidgardBasicElement>::const_iterator i=listSprache.begin();i!=listSprache.end();++i)
-   {
-     vector<int> V= cH_Sprache(*i)->getVSprachgruppe();
-     for(vector<int>::const_iterator j=V.begin();j!=V.end();++j)
-       for(vector<int>::const_iterator k=V_sprachgruppe.begin();k!=V_sprachgruppe.end();++k)
-         if(*j==*k) return true;
-   }
+  for(vector<int>::const_iterator j=V_sprachgruppe.begin();j!=V_sprachgruppe.end();++j)
+    for(vector<int>::const_iterator k=V2.begin();k!=V2.end();++k)
+      if(*j==*k) return true;
   return false;
+}
+
+std::list<cH_MidgardBasicElement> Sprache::VerwandteSprachen(const std::list<cH_MidgardBasicElement>& listSprache) const
+{
+  std::list<cH_MidgardBasicElement> VS;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=listSprache.begin();i!=listSprache.end();++i)
+     if(Erfolgswert()>=10 && Sprachgruppe(cH_Sprache(*i)->getVSprachgruppe())) 
+      {
+         cH_MidgardBasicElement MBE=new Sprache(*cH_Sprache(*i)); // Kopie anlegen
+         MBE->set_Erfolgswert(Erfolgswert()-10);
+         VS.push_back(MBE) ;
+      }
+ return VS;
+}
+
+std::list<cH_MidgardBasicElement> Sprache::cleanVerwandteSprachen(std::list<cH_MidgardBasicElement> L)
+{
+  // Aus der Liste die Sprache mit dem höchsten Erfolgswert nehmen.
+  std::map<std::string,int> M;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
+   {
+     if(M[(*i)->Name()] < (*i)->Erfolgswert()) 
+         M[(*i)->Name()] = (*i)->Erfolgswert();
+   }
+  std::list<cH_MidgardBasicElement> N;
+  for(std::map<std::string,int>::const_iterator i=M.begin();i!=M.end();++i)
+   {
+     const cH_Sprache s(i->first);
+     s->set_Erfolgswert(i->second);
+     N.push_back(&*s);
+   }
+ return N;
 }
 
 
@@ -163,3 +205,5 @@ Sprachen_All::Sprachen_All(Gtk::ProgressBar *progressbar)
  tr.close();
  progressbar->set_percentage(1);
 }  
+
+

@@ -78,7 +78,10 @@ void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
   if(MidgardBasicElement_leaf_alt(d))
-    on_sprache_laden_clicked();
+   {
+     neue_schrift_wegen_sprache();
+     on_sprache_laden_clicked();
+   }
 }
     
 void midgard_CG::on_alte_sprache_reorder()
@@ -99,15 +102,11 @@ void midgard_CG::on_button_sprache_sort_clicked()
 
 void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 {  
-/*
-   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
-   cH_MidgardBasicElement MBE = dt->getMBE();
-   if (steigern_bool) desteigern(MBE->Kosten(Typ,Database.ausnahmen));
-   Werte.add_GFP(-MBE->Kosten(Typ,Database.ausnahmen));
-   MidgardBasicElement::move_element(list_Schrift,list_Schrift_neu,MBE->Name());
-*/
   if(MidgardBasicElement_leaf_alt(d))
-   on_sprache_laden_clicked();
+   {
+     neue_schrift_wegen_sprache();
+     on_sprache_laden_clicked();
+   }
 }   
     
 void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
@@ -116,3 +115,46 @@ void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
   on_sprache_laden_clicked();
 }   
 
+
+
+void midgard_CG::neue_schrift_wegen_sprache()
+{
+  // Alle gelernten Sprachen testen
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
+   {
+cout <<"gelernte Sprache: "<< (*i)->Name()<<' '<<(*i)->Erfolgswert()<<'\n';
+     if((*i)->Erfolgswert()<10) continue;
+     // welche Schriften gehören zu dieser Sprache?
+     std::vector<std::string> VS=cH_Sprache(*i)->Schrift();
+     for(std::vector<std::string>::const_iterator j=VS.begin();j!=VS.end();++j)
+      {
+        cH_Schrift s(*j);
+cout <<"benötigte Schrift: "<< s->Name() <<" ist gelernt: ";
+cout << s->ist_gelernt(list_Schrift)<<" Erfolgsert= "<<s->Erfolgswert()<<'\n';
+        if(s->ist_gelernt(list_Schrift)) continue;
+//        std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(list_Schrift);
+        std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(Database.Schrift);
+        for(std::list<cH_MidgardBasicElement>::const_iterator k=gS.begin();k!=gS.end();++k)
+         {
+            
+           if(s->Name()!=(*k)->Name()) continue;
+           int e=andereSprache_gleicheSchriftart(s->Art_der_Schrift());
+cout << "gleiche Schrift: "<<(*k)->Name()<<' '<<e<<'\n';
+           if(e>12) list_Schrift.push_back(*k);           
+         }
+      }
+   }  
+}
+
+int midgard_CG::andereSprache_gleicheSchriftart(std::string art)
+{
+  int e=0;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
+   {
+cout << art<<' '<<(*i)->Name()<<' '<<cH_Schrift(*i)->Art_der_Schrift()<<' '<<'\n';
+     if (cH_Schrift(*i)->Art_der_Schrift()==art)
+        if( (*i)->Erfolgswert() > e ) 
+           e = (*i)->Erfolgswert();
+   }
+  return e;
+}

@@ -9,8 +9,7 @@
 
 class Schrift : public MidgardBasicElement
 {
-     std::string art_der_schrift;
-//     int kosten;
+    std::string art_der_schrift;
     bool alt,kult;
 
      void get_Schrift();
@@ -33,6 +32,7 @@ class Schrift : public MidgardBasicElement
    int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
         { cH_Fertigkeit F("Lesen/Schreiben");
              return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; }
+   std::list<cH_MidgardBasicElement> gleicheSchrift(const std::list<cH_MidgardBasicElement>& listSchrift) const;
 };
 
 class cH_Schrift : public Handle<const Schrift>

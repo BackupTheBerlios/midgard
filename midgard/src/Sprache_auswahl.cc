@@ -79,10 +79,13 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
          if(mod == MUTTERSPRACHE)
            {
              vector<std::string> V=Werte.Herkunft()->Sprachen();
-             std::string s;
+             vector<std::string> W;
              for(vector<std::string>::const_iterator i=V.begin();i!=V.end();)
-               { if(!cH_Sprache(*i)->Alte_Sprache()) s+=*i; if(++i!=V.end()) s+=", ";}
-             if(V.size()==1) 
+                if(!cH_Sprache(*i)->Alte_Sprache()) W.push_back(*i) ;
+             std::string s;
+             for(vector<std::string>::const_iterator i=W.begin();i!=W.end();)
+               { s+=*i; if(++i!=W.end()) s+=", ";}
+             if(W.size()==1) 
                sp_sc_label->set_text("Muttersprache ("+s+") wählen") ;
              else
                sp_sc_label->set_text("Eine Muttersprache wählen\n("+s+")") ;
