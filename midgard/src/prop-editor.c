@@ -24,6 +24,7 @@
 #include <gtk/gtk.h>
 
 #include "prop-editor.h"
+#if GTK_CHECK_VERSION(2,4,0)
 //#include <gtk/gtkcontainer.h>
 #include <assert.h>
 
@@ -802,12 +803,14 @@ static void child_cb(GtkWidget *button,GObject *object)
       create_prop_editor(G_OBJECT(children->data),0);
    g_list_free(children);
 }
+#endif
 
 /* Pass zero for type if you want all properties */
 GtkWidget*
 create_prop_editor (GObject   *object,
 		    GType      type)
 {
+#if GTK_CHECK_VERSION(2,4,0)
   GtkWidget *win;
   GtkWidget *notebook;
   GtkTooltips *tips;
@@ -904,5 +907,8 @@ create_prop_editor (GObject   *object,
   gtk_widget_show_all (win);
 
   return win;
+#else
+  return 0;
+#endif
 }
 

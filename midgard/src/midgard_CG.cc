@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.343 2004/05/18 13:26:58 christof Exp $
+// $Id: midgard_CG.cc,v 1.344 2004/07/16 07:13:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,7 +66,7 @@ void midgard_CG::call_any_wizard_change(void *p)
 
 midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 : news_columns(), undo_menu(),menu_kontext(),
-	InfoFenster(info), toolview(_tooltips)
+	InfoFenster(info)
 { news_columns.attach_to(*list_news);
   aktiver.setAbenteurer(i);
 
@@ -99,11 +99,20 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 // Statusbar MVC
   bool_ImageButton *wuerfelt_butt = new bool_ImageButton(aktiver.proxies.werte_eingeben,
   	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
-  toolview.Associate(*wuerfelt_butt,aktiver.proxies.werte_eingeben,
+  wuerfelt_butt->set_tooltips(_tooltips,
   		"Werte werden ausgewürfelt. (Hier klicken zum eingeben)",
   		"Werte werden eingegeben. (Hier klicken zum auswürfeln)");
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   wuerfelt_butt->show();
+  
+  {ModelWidgetConnection<int,Gtk::Image> &mwc
+      =ManuProC::Association(*pixmap_status_wizard);
+   mwc.set_tooltips(_tooltips);
+   mwc.add_entry(Wizard::Aus,MagusIcons("Wizard_off.png"),"alle Funktionen anwählbar");
+   mwc.add_entry(Wizard::Sensitive,MagusIcons("MAGUS_Logo_Tiny.xpm"),"doppeltes Würfeln verhindern");
+   mwc.add_entry(Wizard::Aktiv,MagusIcons("MAGUS_Logo_Tiny.light"),"Magus hilft beim Erstellen");
+   mwc.set_model(getChar().proxies.wizard_mode);
+  }
 
   set_sensitive(true);
 
