@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.24 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.25 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -5399,7 +5399,7 @@
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Seemannsgang" Lernpunkte="6" Anfangswert="15" Lernkosten="100" Erfolgswert="15" Attribut="Gw" Berufskategorie="2" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Name="Seemannsgang" Lernpunkte="6" Anfangswert="15" Lernkosten="100" Erfolgswert="10" Attribut="Gw" Berufskategorie="2" Maximalwert="18" MaximalMitUnterweisung="18">
    <Grund Typ="Hä"/>
    <Grund Typ="PM"/>
    <Grund Typ="Se"/>
