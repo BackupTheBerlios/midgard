@@ -30,16 +30,26 @@ cH_Typen::cH_Typen(const std::string& name)
  cH_Typen *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
+#ifndef USE_XML 
   {
    *this=cH_Typen(new Typen(name));
    cache.Register(name,*this);
   }
+#else
+  assert(!"Typ im Cache");
 }
 
 
+#ifndef USE_XML
 Typen::Typen(const std::string& n)
 : typs(n),typnr(0),stand(0),sb(0),ruestung(0),geld(0)
+#else
+Typen::Typen(const Tag *tag)
+: typs(tag->getAttr("Abkürzung"),typnr(tag->getIntAttr("MCG-Index")),
+  stand(0),sb(0),ruestung(0),geld(0)
+#endif
 {
+#ifndef USE_XML
  exec sql begin declare section;
    int db_typnr;
    char  db_typs[10],db_typl[50],db_typlw[50],db_typz[5],db_ausdauer[5],
@@ -72,11 +82,30 @@ Typen::Typen(const std::string& n)
  else if(sl=="l"){ land=true; stadt=false; }
  else {land=true;stadt=true;}
  sprueche_mit_pp=db_sprueche_mit_pp;
+#else
+ typl=tag->getAttr("Bezeichnung-Mann");
+ typlw=tag->getAttr("Bezeichnung-Frau");
+ typz=tag->getBoolAttr("Zauberer")?"z":(tag->getBoolAttr("kannZaubern")?"j":"n");
+ ausdauer=tag->getAttr("Ausdauer");
+ const Tag *Modifikation=tag->find("Modifikation");
+ if (Modifikation)
+ {  stand=Modifikation->getIntAttr("Stand");
+    sb=Modifikation->getIntAttr("Sb");
+    ruestung=Modifikation->getIntAttr("Rüstung");
+    geld=Modifikation->getIntAttr("Geld");
+ }
+ region=tag->getAttr("Region");
+ beruf=tag->getAttr("Berufswahl");
+ land=tag->getBoolAttr("Land",true);
+ stadt=tag->getBoolAttr("Stadt",true);
+ sprueche_mit_pp=tag->getBoolAttr("SprücheMitPraxisPunkten");
+#endif
 }
 
 
 Typen_All::Typen_All(Gtk::ProgressBar *progressbar)
 {
+#ifndef USE_XML
   exec sql begin declare section;
    char db_name[100];
    int db_size,db_dummy;
@@ -101,6 +130,18 @@ Typen_All::Typen_All(Gtk::ProgressBar *progressbar)
   }
  exec sql close T_EIN;
  tr.close();
+#else
+ const Tag *typen=xml_data->find("Typen");
+ if (typen)
+ {  Tag::const_iterator b=typen->begin(),e=typen->end();
+    double size=e-b;
+    FOR_EACH_CONST_TAG_OF_5(i,*typen,b,e,"Typ")
+    {  progressbar->set_percentage((i-b)/size);   
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       list_All.push_back(cH_Typen(&*i));
+    }
+ }   
+#endif
  progressbar->set_percentage(1);
 }
 

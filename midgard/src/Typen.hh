@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.7 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Typen.hh,v 1.8 2002/01/18 10:55:23 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #include <vector>
 #include <string>
 #include <gtk--/progressbar.h>
+#include "xml.h"
 
 class Typen : public HandleContent
 {
@@ -39,7 +40,11 @@ class Typen : public HandleContent
    bool sprueche_mit_pp;
 
 public:
+#ifndef USE_XML
    Typen(const std::string& n);
+#else
+   Typen(const Tag *tag);
+#endif   
    Typen() : typnr(0),stand(0),sb(0),ruestung(0),geld(0),
          opionmenu_nr(0),stadt(true),land(true) {}
    
@@ -76,6 +81,9 @@ class cH_Typen : public Handle<const Typen>
   public:
    cH_Typen() {*this=new Typen();}
    cH_Typen(const std::string& name);
+#ifdef USE_XML   
+   cH_Typen(const Tag *tag);
+#endif   
 };
  
 class Typen_All
