@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.232 2002/05/30 06:19:20 thoma Exp $
+// $Id: midgard_CG.cc,v 1.233 2002/06/03 08:06:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,7 @@ midgard_CG::midgard_CG(const string &datei)
 }
 
 midgard_CG::~midgard_CG()
-{  cout << "~midgard_CG()\n";
+{  cout << "~midgard_CG()\n\n\n\n";
    delete MOptionen;
 //   if (menu) delete menu;
 //   if (table_steigern->menu_gradanstieg) table_steigern->delete menu_gradanstieg;

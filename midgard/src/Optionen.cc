@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.40 2002/06/01 08:39:17 thoma Exp $
+// $Id: Optionen.cc,v 1.41 2002/06/03 08:06:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -269,7 +269,11 @@ void Midgard_Optionen::Strings_init()
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",""));
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer","mozilla"));
   list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad","$TEMP"));
+#ifdef __MINGW32__
+  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis","C:\Eigene Dateien\magus\"));
+#else
   list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis","~/magus/"));
+#endif
 }
 
 
@@ -365,6 +369,13 @@ void Midgard_Optionen::load_options()
      FOR_EACH_CONST_TAG_OF(i,*data2,"Groesse")
         hauptfenster->setWindowSize(i->getIntAttr("Width"),i->getIntAttr("Height"));
    }
+  const Tag *data3=ts.find("MAGUS-history");
+  if(data3)
+   {
+     FOR_EACH_CONST_TAG_OF(i,*data3,"Datei")
+      hauptfenster->push_back_LDateien(i->getAttr("Name"));
+   }
+
   hauptfenster->menu_init();
  } catch (std::exception &e) { cerr << e.what() << '\n'; }
 }
@@ -383,13 +394,22 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
  write_string_attrib(datei, "encoding", TagStream::host_encoding);
  datei << "?>\n\n";
 
+
+ datei <<"<MAGUS-history>\n";
+ for(std::list<std::string>::const_iterator i=hauptfenster->LDateien.begin();i!=hauptfenster->LDateien.end();++i)
+  {
+    datei <<"  <Datei";
+    write_string_attrib(datei, "Name", *i);
+    datei <<"/>\n";
+  }
+ datei << "</MAGUS-history>\n\n";
+
  if(OberCheck(SaveFenster).active)
   {
     datei << "<MAGUS-fenster>\n";
     gint width,height,x,y;
     Gdk_Window fenster=hauptfenster->get_window();
     fenster.get_size(width,height);
-//    fenster.get_root_origin(x,y);
     fenster.get_position(x,y);
     datei << "  <Groesse";
     write_int_attrib_force(datei, "Width" ,width);
