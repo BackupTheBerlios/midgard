@@ -1,6 +1,49 @@
+Schutz	Abwenden von Blicken	Z	0.5
+Schutz	Flammenkreis	Z	0.5
+Schutz	Goldener Panzer	Z	0.5
+Schutz	Geistesschild	Z	0.5
+Schutz	Heimstein	Z	0.5
+Schutz	Hitzeschutz	Z	0.5
+Schutz	Kälteschutz	Z	0.5
+Schutz	Luftsphäre	Z	0.7
+Schutz	Magischer Kreis, klein	Z	0.5
+Schutz	Marmorhaut	Z	0.5
+Schutz	Netzschutz	Z	0.5
+Schutz	Reinigen	Z	0.5
+Schutz	Schildrune	Z	0.5
+Schutz	Schutzgeste	Z	0.5
+Schutz	Schutzrune	Z	0.5
+Schutz	Schwarze Zone	Z	0.5
+Schutz	Stille	Z	0.6
+Schutz	Umkehrschild	Z	0.5
+Schutz	Unsichtbarkeit	Z	0.7
+Schutz	Warnung	Z	0.5
+Schutz	Zauberschild	Z	0.5
+Schutz	Ungeziefer bannen	Z	0.5
+Schutz	Bruchbann	Z	0.5
+Schutz	Dschinni-Auge	Z	0.5
+Schutz	Dschinni-Ohr	Z	0.5
+Schutz	Entgiften	Z	0.5
+Schutz	Göttlicher Schutz vor Magie	Z	0.5
+Schutz	Göttlicher Schutz vor dem Bösen	Z	0.5
+Schutz	Magischer Kreis des Widerstehens	Z	0.5
+Schutz	Magischer Kreis des Bewachens	Z	0.5
+Schutz	Schutzgeist	Z	0.5
+Schutz	Schutzkreis gegen Dunebargen	Z	0.5
+Schutz	Schutzkreis gegen Dvergar	Z	0.5
+Schutz	Schutzkreis gegen Dämonen	Z	0.5
+Schutz	Schutzkreis gegen Elementarwesen	Z	0.5
+Schutz	Schutzkreis gegen Geisterwesen	Z	0.5
+Schutz	Schutzkreis gegen Hrimfolk	Z	0.5
+Schutz	Schutzkreis gegen Hunar	Z	0.5
+Schutz	Schutzkreis gegen Hyrrfolk	Z	0.5
+Schutz	Schutzkreis gegen Jördfolk	Z	0.5
+Schutz	Schutzkreis gegen Kaobargen	Z	0.5
+Schutz	Schutzkreis gegen Untote	Z	0.5
+Schutz	Schutzkreis gegen Vindfolk	Z	0.5
+Schutz	Schutzkreis gegen Wisfolk	Z	0.5
+Schutz	Zweite Haut	Z	0.5
 
-#Zauber
-Schutz
 Kampf
 Information
 Heilung
@@ -15,6 +58,7 @@ Elemente
 Verschleiern
 Nekromantie
 Genuss
+Verwandlung
 
 jedes Agens,Reagens,Prozess,Ursprung
 jedes Element?
