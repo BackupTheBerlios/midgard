@@ -95,7 +95,6 @@ void midgard_CG::menu_init()
    }
   menu->append(*regionen);
 
-
 //Optionen/////////////////////////////////////////////////////////////////////
   Gtk::Menu *optionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Ansicht & Fenster")); 

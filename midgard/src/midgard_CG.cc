@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.252 2002/07/05 07:07:13 christof Exp $
+// $Id: midgard_CG.cc,v 1.253 2002/07/08 06:15:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,6 +59,8 @@ midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
        on_wizard_starten_activate();
   else on_neuer_charakter_clicked();
 
+
+  init_statusbar();
   // für die NEWS
   Gtk::OStream os(list_news);
   os << 
@@ -74,6 +76,32 @@ midgard_CG::~midgard_CG()
 //   if (table_steigern->menu_gradanstieg) table_steigern->delete menu_gradanstieg;
 //   InfoFenster->destroy(); 
    if(wizard) delete wizard;
+}
+
+void midgard_CG::init_statusbar()
+{
+  Gtk::HBox *hb_regionen_status=manage(new class Gtk::HBox(false, 0));
+  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+   {
+     Gtk::Pixmap *p=RegionenPic::Pic((*i)->Pic());
+     hb_regionen_status->pack_start(*p);
+     if((*i)->Active()) p->show();
+     vec_region_status.push_back(st_reg_status((*i)->Pic(),p));
+   }
+  frame_regionen_status->add(hb_regionen_status);
+}
+
+void midgard_CG::set_region_statusbar(RegionenPic::epic pic,bool active)
+{
+  for(std::vector<st_reg_status>::const_iterator i=vec_region_status.begin();i!=vec_region_status.end();++i)
+   {
+     if(i->name==pic)
+      {
+        if(active) i->pix->show();
+        else i->pix->hide();
+        return;
+      }
+   }
 }
 
 

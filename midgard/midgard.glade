@@ -726,6 +726,23 @@
 	  </widget>
 
 	  <widget>
+	    <class>GtkFrame</class>
+	    <name>frame_regionen_status</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <label_xalign>0</label_xalign>
+	    <shadow_type>GTK_SHADOW_NONE</shadow_type>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+
+	    <widget>
+	      <class>Placeholder</class>
+	    </widget>
+	  </widget>
+
+	  <widget>
 	    <class>GtkEventBox</class>
 	    <name>eventbox_NSC_aktiv</name>
 	    <cxx_visibility>protected</cxx_visibility>
@@ -13159,6 +13176,52 @@ eingeben</label>
 	  </widget>
 
 	  <widget>
+	    <class>GtkScrolledWindow</class>
+	    <name>scrolledwindow_landauswahl</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+	    <child>
+	      <left_attach>2</left_attach>
+	      <right_attach>3</right_attach>
+	      <top_attach>0</top_attach>
+	      <bottom_attach>1</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>True</xexpand>
+	      <yexpand>False</yexpand>
+	      <xshrink>False</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>True</yfill>
+	    </child>
+
+	    <widget>
+	      <class>GtkViewport</class>
+	      <name>viewport24</name>
+	      <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+	      <widget>
+		<class>Custom</class>
+		<name>tree_steigern_zusatz</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<events>GDK_LEAVE_NOTIFY_MASK</events>
+		<signal>
+		  <name>leaf_selected</name>
+		  <handler>on_steigern_zusatz_leaf_selected</handler>
+		  <last_modification_time>Sun, 09 Jun 2002 13:32:12 GMT</last_modification_time>
+		</signal>
+		<creation_function>MidgardBasicTree(MidgardBasicTree::STEIGERNZUSATZ)</creation_function>
+		<int1>0</int1>
+		<int2>0</int2>
+		<last_modification_time>Sun, 09 Jun 2002 05:59:58 GMT</last_modification_time>
+	      </widget>
+	    </widget>
+	  </widget>
+
+	  <widget>
 	    <class>GtkNotebook</class>
 	    <name>notebook_lernen</name>
 	    <cxx_visibility>protected</cxx_visibility>
@@ -13177,7 +13240,7 @@ eingeben</label>
 	    <popup_enable>False</popup_enable>
 	    <child>
 	      <left_attach>0</left_attach>
-	      <right_attach>1</right_attach>
+	      <right_attach>3</right_attach>
 	      <top_attach>2</top_attach>
 	      <bottom_attach>3</bottom_attach>
 	      <xpad>0</xpad>
@@ -15308,52 +15371,6 @@ eingeben</label>
 		  <expand>True</expand>
 		  <fill>True</fill>
 		</child>
-	      </widget>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkScrolledWindow</class>
-	    <name>scrolledwindow_landauswahl</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-	    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-	    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-	    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-	    <child>
-	      <left_attach>2</left_attach>
-	      <right_attach>3</right_attach>
-	      <top_attach>0</top_attach>
-	      <bottom_attach>1</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>True</xexpand>
-	      <yexpand>False</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>True</yfill>
-	    </child>
-
-	    <widget>
-	      <class>GtkViewport</class>
-	      <name>viewport24</name>
-	      <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-	      <widget>
-		<class>Custom</class>
-		<name>tree_steigern_zusatz</name>
-		<cxx_visibility>protected</cxx_visibility>
-		<events>GDK_LEAVE_NOTIFY_MASK</events>
-		<signal>
-		  <name>leaf_selected</name>
-		  <handler>on_steigern_zusatz_leaf_selected</handler>
-		  <last_modification_time>Sun, 09 Jun 2002 13:32:12 GMT</last_modification_time>
-		</signal>
-		<creation_function>MidgardBasicTree(MidgardBasicTree::STEIGERNZUSATZ)</creation_function>
-		<int1>0</int1>
-		<int2>0</int2>
-		<last_modification_time>Sun, 09 Jun 2002 05:59:58 GMT</last_modification_time>
 	      </widget>
 	    </widget>
 	  </widget>

@@ -3,9 +3,11 @@ NEWS IN VERSION 0.7delta5
 
 * kleinere Bugs beseitigt
 * Drucken weiter überarbeitet
+* Fertigkeiten mit Zusatz getrennt steigern/reduzieren (==operator)
+* Zaubern lernen geht wieder
 
 TODO: ('-' zeigt CP an)
-* Alte Sprachen für Magister im Lernschema
+* Alte Sprachen für Magister im Lernschema für Magister
 * Kultwaffe (Namentlich) für Priester ins Info Fenster
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50

@@ -129,7 +129,6 @@ public:
                  (Name()==b.Name() && What()<=b.What());  
          }
 
-
       static void show_list_in_tree(
             const std::list<MidgardBasicElement_mutable>& BasicList,
             SimpleTree *Tree, const midgard_CG *hauptfenster,
@@ -177,6 +176,13 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
          : cH_MidgardBasicElement(mbe),praxispunkte(0),erfolgswert(0),
             lernpunkte(0),gelernt(false),pflicht(false) 
            {setErfolgswert(mbe->Anfangswert());}
+      bool operator == (const MidgardBasicElement_mutable& b) const 
+         {return (*this)->What()==b->What() && (*this)->Name()==b->Name() 
+           && Zusatz()==b.Zusatz();}
+      bool operator < (const MidgardBasicElement_mutable& b) const 
+         {return  (*this)->Name()<b->Name() ||
+                 ((*this)->Name()==b->Name() && Zusatz()<b.Zusatz());  
+         }
 
       int Lernpunkte() const {return lernpunkte;};
       void setLernpunkte(int l) {lernpunkte=l;}

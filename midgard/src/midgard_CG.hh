@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.265 2002/07/05 07:07:13 christof Exp $
+// $Id: midgard_CG.hh,v 1.266 2002/07/08 06:15:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #include <string>
 #include <gtk--/menu.h>
 #include <gtk--/menuitem.h>
+#include <gtk--/pixmap.h>
 
 #include <vector>
 #include <list>
@@ -39,6 +40,7 @@ class Random;
 #include "Optionen.hh"
 #include "Waffe.hh"
 #include "Abenteurer.hh"
+//#include "Region.hh"
 
 class midgard_CG : public midgard_CG_glade
 {   
@@ -191,6 +193,13 @@ class midgard_CG : public midgard_CG_glade
         void menu_einstellungen_aendern();
         std::list<std::string> LDateien;
         void push_back_LDateien(std::string s);
+
+        // Oberfläche Statusbar
+        void init_statusbar();
+        struct st_reg_status{RegionenPic::epic name; Gtk::Pixmap *pix;
+               st_reg_status(RegionenPic::epic n, Gtk::Pixmap *p):name(n),pix(p){}};
+        std::vector<st_reg_status> vec_region_status;
+        void set_region_statusbar(RegionenPic::epic pic,bool active);
 
         // Oberfläche Diverses
         void setWindowPosition(int x,int y);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.97 2002/07/07 08:31:58 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.98 2002/07/08 06:15:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -172,15 +172,14 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
  if(notebook_main->get_current_page_num()==PAGE_STEIGERN)
     table_steigern->load_for_page(table_steigern->notebook_lernen->get_current_page_num());
 
-// pixmap_logo->show();
  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
   {
    if(!(*i)->Offiziell() && (*i)->Active()) 
      { 
-//       checkbutton_original(false);
        pixmap_logo->hide();
        break;
      }
   }
  menu_init();
+ set_region_statusbar(region->Pic(),region->Active());
 }

@@ -226,6 +226,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
 void table_grundwerte::kaempfer_lernt_zaubern()
 {
   if(!hauptfenster) return;
+  hauptfenster->notebook_main->set_page(midgard_CG::PAGE_GRUNDWERTE);
   doppelcharaktere();
   hauptfenster->InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
   if (hauptfenster->getWerte().Zaubern_wert()==2) 

@@ -34,7 +34,7 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
     for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();
          i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
      {
-       if(*i==MBE)
+       if(cH_MidgardBasicElement(*i)==MBE)
          {
             hauptfenster->getChar().List_Waffen_besitz().remove(*i);
             break;

@@ -57,22 +57,7 @@ void table_steigern::fertigkeiten_zeigen()
 
 void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
-// const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-// cH_Fertigkeit F(cH_Fertigkeit(dt->getMBE()));
- 
-/*
- if( radiobutton_unterweisung->get_active() && 
-     dt->getMBE().Erfolgswert() >= F->MaxUnterweisung())
-   {
-     hauptfenster->set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
-     return ;
-   }
-*/
- if (MidgardBasicElement_leaf_alt(d))
-  {
-   on_fertigkeiten_laden_clicked();
-//    fertigkeiten_zeigen();
-  }
+ if (MidgardBasicElement_leaf_alt(d)) on_fertigkeiten_laden_clicked()  ;
 }
 
 void table_steigern::on_alte_fert_reorder()
