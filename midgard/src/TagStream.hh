@@ -1,6 +1,6 @@
 // $Id: TagStream.hh,v 1.12 2001/04/25 07:59:16 christof Exp $
 /*  glade--: C++ frontend for glade (Gtk+ User Interface Builder)
- *  Copyright (C) 1998  Christof Petig
+ *  Copyright (C) 1998-2002  Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
