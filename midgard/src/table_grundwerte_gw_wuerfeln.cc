@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.20 2002/11/08 21:11:01 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.21 2002/11/11 09:29:47 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,14 +64,14 @@ void table_grundwerte::Eigenschaften_variante(int i)
      check_350();
    }
   else 
-   {
+   { cH_Spezies spez=hauptfenster->getWerte().Spezies();
      Veigenschaften.clear();
-     Veigenschaften.push_back(st_eigen(est,"die Stärke","St"));
-     Veigenschaften.push_back(st_eigen(egs,"die Geschicklichkeit","Gs"));
-     Veigenschaften.push_back(st_eigen(egw,"die Gewandheit","Gw"));
-     Veigenschaften.push_back(st_eigen(eko,"die Konstitution","Ko"));
-     Veigenschaften.push_back(st_eigen(ein,"die Intelligenz","In"));
-     Veigenschaften.push_back(st_eigen(ezt,"das Zaubertalent","Zt"));
+     Veigenschaften.push_back(st_eigen(est,"die Stärke","St",spez->St()));
+     Veigenschaften.push_back(st_eigen(egs,"die Geschicklichkeit","Gs",spez->Gs()));
+     Veigenschaften.push_back(st_eigen(egw,"die Gewandheit","Gw",spez->Gw()));
+     Veigenschaften.push_back(st_eigen(eko,"die Konstitution","Ko",spez->Ko()));
+     Veigenschaften.push_back(st_eigen(ein,"die Intelligenz","In",spez->In()));
+     Veigenschaften.push_back(st_eigen(ezt,"das Zaubertalent","Zt",spez->Zt()));
      actual_eigen=est;
 
      if      (i==2)  gw_variante_2();
@@ -156,12 +156,21 @@ int table_grundwerte::wuerfeln_best_of_two()
 
 ///////////////////////////////////////////////////////////////
 
+void table_grundwerte::Schwachpunkt_wuerfeln()
+{  for (std::vector<st_eigen>::iterator i=Veigenschaften.begin();i!=Veigenschaften.end();)
+   {  if (i->spezies_mod<0)
+      {   set_Grundwerte(i->eigenschaft,constraint_gw(i->spezies_mod));
+          i=Veigenschaften.erase(i);
+      }
+      else ++i;
+   }
+}
 
 void table_grundwerte::gw_variante_2()
-{
+{ Schwachpunkt_wuerfeln();
   frame_wuerfelvariante->remove();  
   Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
-  Gtk::Label *lab = manage(new class Gtk::Label("6x gewürfelt, jetzt die Werte zuordnen."));  
+  Gtk::Label *lab = manage(new class Gtk::Label(itos(Veigenschaften.size())+"x gewürfelt, jetzt die Werte zuordnen."));
   tab->attach(*lab, 0, int(eMAX), 0, 1, GTK_FILL, 0, 0, 0);
   int count=0;
   for(std::vector<st_eigen>::const_iterator i=Veigenschaften.begin();i!=Veigenschaften.end();++i)
@@ -207,14 +216,15 @@ void table_grundwerte::gw_variante_2_next()
 ///////////////////////////////////////////////////////////////////////////
 
 void table_grundwerte::gw_variante_3()
-{
+{ Schwachpunkt_wuerfeln();
+  int anz_wuerfe=3+Veigenschaften.size();
   frame_wuerfelvariante->remove();  
   std::vector<int> V;
-  for(int i=0;i<9;++i) V.push_back(hauptfenster->random.integer(1,100)) ;
+  for(int i=0;i<anz_wuerfe;++i) V.push_back(hauptfenster->random.integer(1,100)) ;
   sort(V.rbegin(),V.rend());
             
   Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
-  Gtk::Label *lab = manage(new class Gtk::Label("9x gewürfelt, jetzt die Werte den Eigenschaften zuordnen."));  
+  Gtk::Label *lab = manage(new class Gtk::Label(itos(anz_wuerfe)+"x gewürfelt, jetzt die Werte den Eigenschaften zuordnen."));  
   tab->attach(*lab, 0, 9, 0, 1, GTK_FILL, 0, 0, 0);
   int count=0;
   for(std::vector<int>::const_iterator i=V.begin();i!=V.end();++i)

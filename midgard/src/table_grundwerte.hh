@@ -64,14 +64,16 @@ private:
         friend e_eigen &operator++(e_eigen &s);
         e_eigen actual_eigen;
         Gtk::Label *label;
-        struct st_eigen{e_eigen eigenschaft;std::string lang;std::string kurz; 
-               st_eigen(e_eigen e,std::string l,std::string k)  
+        struct st_eigen{e_eigen eigenschaft;std::string lang;std::string kurz;
+        		int spezies_mod; 
+               st_eigen(e_eigen e,std::string l,std::string k,int spezies_m=0)  
                    : eigenschaft(e),lang(l),kurz(k){}
                bool operator==(const e_eigen& b) const 
                            {return eigenschaft== b;}
                     };
         std::vector<st_eigen> Veigenschaften;
         void set_Grundwerte(e_eigen eigenschaft,int wert);
+        void Schwachpunkt_wuerfeln();
 
         // Für Variante 2
         int actual_wurf;
