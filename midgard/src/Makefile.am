@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.35 2001/06/20 15:42:52 thoma Exp $
+# $Id: Makefile.am,v 1.36 2001/06/22 09:12:12 christof Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -46,7 +46,6 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Tag.hh TagStream.hh \
    Window_doppelcharaktere.hh \
    Window_doppelcharaktere_glade.hh \
-   SimpleTree.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh
 
