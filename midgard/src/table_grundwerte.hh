@@ -28,8 +28,8 @@ class table_grundwerte : public table_grundwerte_glade
         midgard_CG *hauptfenster; // oder nur VAbenteurer
 
         bool block_changed;
-        Model<bool> edit_werte;
 public:
+        Model<bool> edit_werte;
         
         table_grundwerte(GlademmData *_data) 
             : table_grundwerte_glade(_data), hauptfenster(0),
@@ -39,6 +39,9 @@ public:
         void fill_typauswahl_2();
         void neuer_charakter();
         void doppelcharaktere();
+
+	// noch in .cc tun        
+        void NamenEingeben() { edit_werte=true; entry_nameC->grab_focus(); }
 
         static const UniqueValue::value_t trace_channel;
 

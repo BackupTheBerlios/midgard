@@ -6,7 +6,7 @@ class midgard_CG;
 #include <list>
 class LernListen;
 #include "Enums.hh"
-#include <Model.h>
+#include <BaseObjects/Model.h>
 #include <gtkmm/liststore.h>
 #include "Ruestung.hh"
 #include "Waffe.hh"

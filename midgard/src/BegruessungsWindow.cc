@@ -26,8 +26,7 @@ BegruessungsWindow::BegruessungsWindow(midgard_CG* h)
 
 void BegruessungsWindow::on_button_eingabe_clicked()
 {  
-   hauptfenster->table_grundwerte->edit_werte=true;
-   hauptfenster->table_grundwerte->entry_nameC->grab_focus();
+   hauptfenster->table_grundwerte->NamenEingeben();
    end();
 }
 
@@ -47,7 +46,7 @@ void BegruessungsWindow::on_button_zufall_clicked()
 
 void BegruessungsWindow::on_button_load_clicked()
 {  
-  hauptfenster->xml_import_auswahl();
+   hauptfenster->xml_import_auswahl();
    end();
 }
 

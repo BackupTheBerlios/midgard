@@ -31,6 +31,7 @@
 #include "Optionen.hh"
 #include "Prototyp2.hh"
 #include "Data_Prototyp.hh"
+#include "Datenbank.hh"
 
 void table_zufall::init(midgard_CG *h)
 {
@@ -44,7 +45,7 @@ void table_zufall::init(midgard_CG *h)
 
 void table_zufall::fill_prototyp2_list()
 {
-  std::list<cH_Prototyp2> L=hauptfenster->getCDatabase().prototyp2;
+  std::list<cH_Prototyp2> L=Datenbank.prototyp2;
   std::vector<cH_RowDataBase> datavec;
   for(std::list<cH_Prototyp2>::const_iterator i=L.begin();i!=L.end();++i)
    {

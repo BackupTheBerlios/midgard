@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.324 2003/08/11 06:19:56 christof Exp $
+// $Id: midgard_CG.hh,v 1.325 2003/08/12 06:19:29 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -139,11 +139,11 @@ class midgard_CG : public midgard_CG_glade
         void on_exportieren_ranas_pdf_dokumente_activate();
         void on_speichern();
         void on_laden();
-        void xml_export_auswahl();
         void save_existing_filename();
-        void xml_import_auswahl();
         void xml_import_history(const std::string datei);
+        void xml_export_auswahl();
    public:
+        void xml_import_auswahl();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
          void spielleiter_export_save(const std::string& dateiname,const bool full);
