@@ -45,18 +45,10 @@ private:
       mutable std::map<int,int> map_Resistenz_kosten; 
       mutable std::map<int,int> map_Zaubern_kosten; 
 
-
-//      int steigern_EP_prozent;
-//      int grad_basiswerte; 
-
       void fill_kosten_maps();
    public:
-      Grad_anstieg() {} //: steigern_EP_prozent(50), grad_basiswerte(1){}
+      Grad_anstieg() {}
       Grad_anstieg(Gtk::ProgressBar *progressbar) ;
-//      void clear() {*this=Grad_anstieg();}
-
-//      int get_Steigern_EP_Prozent() const {return steigern_EP_prozent;}
-//      int get_Grad_Basiswerte() const {return grad_basiswerte;}
 
       int get_AP_Kosten(int grad) const;
       int get_MaxAbwehr(int grad) const;
@@ -70,14 +62,6 @@ private:
       int get_Schicksalsgunst(int grad) const ;
       int getGFP_for(ewas e,const Grundwerte& Werte) const ;
       std::string getGFP_for_str(ewas e,const Grundwerte& Werte) const ;
-//      int getGFP_forGrad(int g);
 
-
-/*
-      void set_Grad_Anstieg(int p,int b) 
-              { steigern_EP_prozent=p; grad_basiswerte=b; }
-      void set_Steigern_EP_Prozent(int i) {steigern_EP_prozent=i;}
-      void set_Grad_Basiswerte(int i) {grad_basiswerte=i;}
-*/
 };  
 #endif

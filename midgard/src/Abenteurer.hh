@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.6 2002/05/29 13:53:46 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.7 2002/05/30 06:19:20 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -23,6 +23,8 @@
 #include "Grundwerte.hh"
 #include "Typen.hh"
 #include <vector>
+#include "Datenbank.hh"
+#include "Optionen.hh"
 
 
 
@@ -94,13 +96,13 @@ public:
    std::list<cH_MidgardBasicElement>& List_Sprache()  {return list_Sprache;} 
    std::list<cH_MidgardBasicElement>& List_Schrift()  {return list_Schrift;}
 
-   void speicherstream(ostream &datei,midgard_CG* hauptfenster);
+   void speicherstream(ostream &datei, const Datenbank &Database,const Midgard_Optionen *Optionen);
    void grundwerte_speichern(ostream &);
    void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
 
-   void xml_import_stream(istream &datei,midgard_CG* hauptfenster);
+   void xml_import_stream(istream &datei, Datenbank &Database,Midgard_Optionen *Optionen);
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
-   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,midgard_CG* hauptfenster);
+   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen);
 
 
    bool operator==(const Abenteurer& a) const
@@ -142,12 +144,15 @@ private:
       {ai->abenteurer.save_ausruestung(datei,AB,indent);}
    
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB) {ai->abenteurer.load_ausruestung(tag,AB);}
-   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,midgard_CG* hauptfenster){ai->abenteurer.load_fertigkeiten(tag,waffen_b,xml_version,hauptfenster);}
+   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen)
+         {ai->abenteurer.load_fertigkeiten(tag,waffen_b,xml_version,Database,Optionen);}
 
 
 public:
-   void speicherstream(ostream &datei,midgard_CG* hauptfenster) {ai->abenteurer.speicherstream(datei,hauptfenster);}
-   void xml_import_stream(istream &datei,midgard_CG* hauptfenster) {ai->abenteurer.xml_import_stream(datei,hauptfenster);}
+   void speicherstream(ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen) 
+         {ai->abenteurer.speicherstream(datei,Database,Optionen);}
+   void xml_import_stream(istream &datei,Datenbank &Database,Midgard_Optionen *Optionen) 
+         {ai->abenteurer.xml_import_stream(datei,Database,Optionen);}
 
    Grundwerte &getWerte() {return ai->abenteurer.getWerte();}
    const Grundwerte &getCWerte() const {return ai->abenteurer.getCWerte();}

@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.9 2002/03/04 08:08:36 thoma Exp $               
+// $Id: Datenbank.hh,v 1.10 2002/05/30 06:19:20 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,7 +54,6 @@ class Datenbank
   std::list<cH_MidgardBasicElement> Kido;
   std::list<cH_MidgardBasicElement> Sprache;
   std::list<cH_MidgardBasicElement> Schrift;
-//  Ausnahmen ausnahmen;
   std::vector<cH_Spezies> Spezies;
   std::vector<cH_Typen> Typen;
   Grad_anstieg GradAnstieg;
@@ -63,7 +62,8 @@ class Datenbank
   std::list<cH_PreiseMod> preisemod;
   
    //Konstruktor
-  Datenbank(Midgard_Info* MI);
+  Datenbank();
+  void load(Midgard_Info* MI);
 };
 
 #endif

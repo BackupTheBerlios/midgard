@@ -26,6 +26,7 @@
 
 static SigC::Connection connection;
 
+#include <gdk/gdk.h>
 
 void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE)
 {
@@ -131,7 +132,13 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
  Tree_Lernschema_Zusatz->setDataVec(datavec);
  frame_lernschema_zusatz->show();
 // Tree_Lernschema_Zusatz->grab_focus();
-// Gdk_Window fra=frame_lernschema_zusatz->get_window();
+/*
+ Gdk_Window W_to=frame_lernschema_zusatz->get_window();
+ GdkEventMask eventmask = gdk_window_get_events(W_to);
+ GdkCursor *cursor=0;
+ GdkWindow *Wto(Gdk_Window);
+ gdk_pointer_grab(Wto,0,eventmask,Wto,cursor,0);
+*/
 // fra->pointer_grab();
 }
 

@@ -37,13 +37,6 @@ std::string iso2utf8(const std::string &s);
  
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
-/*
-   if(getCWerte().Name_Abenteurer()=="")
-    {
-      no_name();   
-      return false;
-    }
-*/
   xml_import_auswahl();
   return false;
 }
@@ -61,14 +54,17 @@ void midgard_CG::xml_import_auswahl()
 
 void midgard_CG::xml_import(const std::string& datei)
 {
+   int page=notebook_main->get_current_page_num();
    ifstream fi(datei.c_str());
+   Char.push_back(Abenteurer());
    on_neuer_charakter_clicked();
    frame_steigern->set_sensitive(true);
-   Char.xml_import_stream(fi,this);
+   Char.xml_import_stream(fi,getDatabase(),getOptionen());
    Char.setFilename(datei);
    set_title(getWerte().Name_Abenteurer());
-   load_for_mainpage(notebook_main->get_current_page_num());
+   load_for_mainpage(page);
 //   if(getWerte().Stadt_Land()=="Stadt") table_grundwerte->radiobutton_stadt->set_active(true);
 //   if(getWerte().Stadt_Land()=="Land")  table_grundwerte->radiobutton_land->set_active(true);
+   Char.safed();
 }
 

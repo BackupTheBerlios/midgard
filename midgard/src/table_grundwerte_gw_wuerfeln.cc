@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.5 2002/05/27 20:36:46 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.6 2002/05/30 06:19:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,6 +54,7 @@ void table_grundwerte::grundwerte_wuerfeln()
      Eigenschaften_variante(2);
   else if(radiobutton_eigenschaften_69->get_active())
      Eigenschaften_variante(3);
+  hauptfenster->undosave("Grundwerte gewürfelt");
 }
 
 void table_grundwerte::Eigenschaften_variante(int i)
@@ -141,9 +142,6 @@ void table_grundwerte::check_350(const std::vector<int>& a)
   if(sum<350)
    {  hauptfenster->set_status("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muß aber nicht) noch einmal gewürfelt werden.",false);
       button_grundwerte->set_sensitive(true);
-//      button_abg_werte->set_sensitive(false);
-//      Werte.clear();            
-//      Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,hauptfenster->getCWerte().Spezies());
    }
 }
 

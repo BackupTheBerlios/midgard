@@ -1,14 +1,17 @@
-cvs add Abenteurer.cc
 ##########################################################################
 NEWS IN VERSION 0.6delta5
-* Mehrere Abenteurer in EINER Session bearbeiten
+* Mehrere Abenteurer in EINER Session bearbeiten 
+   (dafür war mal wieder ein Redisign fällig, ohne C++ 
+    wäre es undenkbar gewesen :-)
+* Speichern von Abenteurern im Speicherpfad
+* Laden der Optionen VOR dem Laden der Datenbank
+* Abfangen von 'delete_event' damit Abenteurer noch gespeichert werden können
 
 TODO:
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
 * Fokus im Zusatzfenster einfrieren
-* xml-speicherpfad
 * Ausdruck für Lange Listen
 * Gildenbrief funktioniert nicht
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen

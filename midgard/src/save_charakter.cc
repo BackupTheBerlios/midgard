@@ -19,28 +19,19 @@
 #include "midgard_CG.hh"
 #include <fstream>
 #include "Waffe.hh"
-// for XML export
 #include "xml_fileselection.hh"
 #include <Aux/itos.h>
 
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {
-/*
-   if(getCWerte().Name_Abenteurer()=="")
-    {
-      no_name();   
-      return false;
-    }
-*/
   if (ev->button==1)  save_existing_filename();
-  else xml_export_auswahl();
+  else                xml_export_auswahl();
   return false;
 }
 
 void midgard_CG::xml_export_auswahl()
 { 
-// modify_bool=false;
 #ifndef __MINGW32__ 
  manage 
 #else
@@ -67,12 +58,9 @@ void midgard_CG::xml_export(const std::string& dateiname)
       set_info("Ich kann die Datei '"+dateiname+"' nicht beschreiben");
       return;
    }
-  Char.speicherstream(datei,this);
-
-  set_title(getCWerte().Name_Abenteurer());
+  Char.speicherstream(datei,getCDatabase(),getCOptionen());
   Char.safed();   
+  if(notebook_main->get_current_page_num() == PAGE_NEWS)
+      load_for_mainpage(PAGE_NEWS);
 }
-
-
-
 

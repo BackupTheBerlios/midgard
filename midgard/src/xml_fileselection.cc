@@ -57,14 +57,17 @@ void xml_fileselection::on_cancel_button1_clicked()
 xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
 : hauptfenster(h),ewas(_was),Werte(W)
 {
+ std::string path=hauptfenster->getOptionen()->getString(Midgard_Optionen::speicherpfad);
  if(ewas==Pix) set_filename(hauptfenster->getWerte().BeschreibungPix());
- else if (ewas!=Export) set_filename(hauptfenster->Char.getFilename());
+ else if (ewas!=Export) set_filename(path+hauptfenster->Char.getFilename());
  
 #ifdef __MINGW32__
    OPENFILENAME ofn;
    char buf[10240];
 
-   strncpy(buf,filename.c_str(),sizeof buf);
+//   strncpy(buf,filename.c_str(),sizeof buf);
+   strncpy(buf,(path+hauptfenster->Char.getFilename()).c_str(),sizeof buf);
+
    ZeroMemory(&ofn, sizeof (OPENFILENAME));
    ofn.lStructSize = sizeof (OPENFILENAME);
    		// (GTK_WIDGET(h->gtkobj())->window )

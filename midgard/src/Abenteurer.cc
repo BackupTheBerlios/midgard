@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.1 2002/05/29 13:53:46 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.2 2002/05/30 06:19:20 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -67,7 +67,7 @@ std::string iso2utf8(const std::string &s);
 # define Internal2Latin(x) (x)
 #endif
 
-void Abenteurer::speicherstream(ostream &datei,midgard_CG* hauptfenster)
+void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen)
 {
    datei << "<?xml";
    write_string_attrib(datei, "version", "1.0");
@@ -78,8 +78,7 @@ void Abenteurer::speicherstream(ostream &datei,midgard_CG* hauptfenster)
 // Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien
 // oder ganz unten?
    datei << " <Preise>\n";
-   for (std::list<cH_Preise>::const_iterator i=hauptfenster->getCDatabase().preise.begin();
-   		i!=hauptfenster->getCDatabase().preise.end();++i)
+   for (std::list<cH_Preise>::const_iterator i=Database.preise.begin();i!=Database.preise.end();++i)
    {  if ((*i)->ist_eigener_Artikel())
       {  datei << "  <Kaufpreis";
          write_string_attrib(datei, "Ware", Internal2Latin((*i)->Name()));
@@ -131,7 +130,7 @@ void Abenteurer::speicherstream(ostream &datei,midgard_CG* hauptfenster)
    MidgardBasicElement::saveElementliste(datei,CList_Schrift(),getCWerte(),getVTyp());
 
    // Regionen & Ähnliches
-  for(std::vector<cH_Region>::const_iterator i=hauptfenster->getCDatabase().Regionen.begin();i!=hauptfenster->getCDatabase().Regionen.end();++i)
+  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {  if (!(*i)->Active()) continue;
       datei << "    <Region";
       write_string_attrib(datei, "Name", Internal2Latin((*i)->Name()));
@@ -139,8 +138,8 @@ void Abenteurer::speicherstream(ostream &datei,midgard_CG* hauptfenster)
       datei << "/>\n";
    }
    // Optionen
-   std::list<Midgard_Optionen::st_OptionenCheck> LO=hauptfenster->getOptionen()->getOptionenCheck();
-   for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=LO.begin();i!=LO.end();++i)
+   const std::list<Midgard_Optionen::st_OptionenCheck> LO=Optionen->getOptionenCheck();
+   for(std::list<Midgard_Optionen::st_OptionenCheck>::const_iterator i=LO.begin();i!=LO.end();++i)
    {
      // Option, die mit dem C. gespeichert werden müssen
      if(i->index!=Midgard_Optionen::Original && i->index!=Midgard_Optionen::NSC_only) continue; 
@@ -254,7 +253,7 @@ void Abenteurer::save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB
 
 ///////////////////////////////////////////////////////////////////////////////
 
-void Abenteurer::xml_import_stream(istream& datei,midgard_CG* hauptfenster)
+void Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,Midgard_Optionen *Optionen)
 {
 
    TagStream ts(datei);
@@ -268,18 +267,20 @@ void Abenteurer::xml_import_stream(istream& datei,midgard_CG* hauptfenster)
          if (!top) top=data->find("Midgard-Abenteurer");
       }
    }
-      if (!top)
+/*
+  if (!top)
    {  hauptfenster->InfoFenster->AppendShow("(Abenteurer in) Datei "//'"+Latin2Screen(datei)
       " nicht gefunden.");
       return;
    }
-   
+*/   
    const int xml_version=top->getIntAttr("Version");
+/*
    if (xml_version<3 || xml_version>10)
    {         hauptfenster->InfoFenster->AppendShow("XML Version "+itos(xml_version)
           +" wird noch nicht unterstützt");
    }
-
+*/
    if (data)
    {  const Tag *Preise=data->find("Preise");
       if (Preise)
@@ -287,15 +288,15 @@ void Abenteurer::xml_import_stream(istream& datei,midgard_CG* hauptfenster)
          {  std::string name=i->getAttr("Ware");
          
             std::list<cH_Preise>::iterator iter;
-            while ((iter=std::find(hauptfenster->getDatabase().preise.begin(),hauptfenster->getDatabase().preise.end(),name))
-            		!=hauptfenster->getDatabase().preise.end())
-            {  iter=hauptfenster->getDatabase().preise.erase(iter);
+            while ((iter=std::find(Database.preise.begin(),Database.preise.end(),name))
+            		!=Database.preise.end())
+            {  iter=Database.preise.erase(iter);
             }
             
             Preise::saveArtikel(i->getAttr("Art"),i->getAttr("Art2"),name,
             		i->getFloatAttr("Preis"),i->getAttr("Währung"),
             		i->getFloatAttr("Gewicht"));
-            hauptfenster->getDatabase().preise.push_back(cH_Preise(name));
+            Database.preise.push_back(cH_Preise(name));
          }
       }
    }
@@ -398,11 +399,8 @@ void Abenteurer::xml_import_stream(istream& datei,midgard_CG* hauptfenster)
          setTyp2(cH_Typen(Typ->getAttr("Abkürzung2"),true));
    }
 
-   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,hauptfenster);
+   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Database,Optionen);
    load_ausruestung(Ausruestung,&(getBesitz()));
-   
-//   set_title(getWerte().Name_Abenteurer());
-//   hauptfenster->load_for_mainpage(notebook_main->get_current_page_num());
 }
 
 void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
@@ -415,12 +413,12 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
    }
 }
 
-void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,midgard_CG* hauptfenster)
+void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen)
 {
 
-    for(std::vector<cH_Region>::const_iterator i=hauptfenster->getDatabase().Regionen.begin();
-    			i!=hauptfenster->getDatabase().Regionen.end();++i)
-    {  Region::setActive(hauptfenster->getDatabase().Regionen,(*i),false);
+    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();
+    			i!=Database.Regionen.end();++i)
+    {  Region::setActive(Database.Regionen,(*i),false);
     }
     FOR_EACH_CONST_TAG(i,*tag)
     {
@@ -507,7 +505,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Optionen")
         {
          try{
-           hauptfenster->getOptionen()->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
+           Optionen->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
          {}
@@ -516,14 +514,14 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         {
          try
          {  cH_Region R(i->getAttr("Name",i->getAttr("Region")));
-            Region::setActive(hauptfenster->getDatabase().Regionen,R,true);
+            Region::setActive(Database.Regionen,R,true);
          }
          catch (const NotFound &e)
          {}
         }
     } 
     FOR_EACH_CONST_TAG_OF(i,*waffen_b,"Waffe")
-    {   std::string wn = hauptfenster->getDatabase().Waffe_from_Alias[i->getAttr("Bezeichnung")];
+    {   std::string wn = Database.Waffe_from_Alias[i->getAttr("Bezeichnung")];
         if (wn=="") wn=i->getAttr("Bezeichnung"); 
         List_Waffen_besitz().push_back(new 
 	        WaffeBesitz(cH_Waffe(wn,true),

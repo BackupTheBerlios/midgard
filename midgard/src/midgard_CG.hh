@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.251 2002/05/29 12:09:24 thoma Exp $
+// $Id: midgard_CG.hh,v 1.252 2002/05/30 06:19:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -99,6 +99,7 @@ class midgard_CG : public midgard_CG_glade
         void show_gw_wuerfeln(bool b);
    protected:
         Midgard_Optionen* getOptionen() const {return MOptionen;};
+        const Midgard_Optionen* getCOptionen() const {return MOptionen;};
 
         // Wizard
    private:
@@ -111,23 +112,15 @@ class midgard_CG : public midgard_CG_glade
 
         // Load & Save
    private:
-//     	  std::string filename;
         void on_exportieren_activate();
-//        void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version);
         gint on_speichern_release_event(GdkEventButton *ev);
-//        void grundwerte_speichern(ostream &);
-//        void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
-//        void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
         gint on_laden_release_event(GdkEventButton *ev);
         void xml_export_auswahl();
         void save_existing_filename();
         void xml_import_auswahl();
-//        void speicherstream(ostream &datei);
    public:
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
-//         void xml_import_stream(istream &datei);
-//         const std::string get_filename() const { return filename; }
          void spielleiter_export_save(const std::string& dateiname);
 
         // Undo
@@ -147,9 +140,7 @@ class midgard_CG : public midgard_CG_glade
         gint on_neuer_charakter_release_event(GdkEventButton *ev);
         void fill_AbenteurerListe();
         void on_AbenteurerListe_leaf(cH_RowDataBase d);
-//        void insert_into_CharList(Abenteurer &A);
         void set_AbenteurerListe_Title();
-//        void no_name();
         void on_button_quit_abbrechen_clicked();
         void on_button_quit_confirm_clicked();
         

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.231 2002/05/28 10:06:17 thoma Exp $
+// $Id: midgard_CG.cc,v 1.232 2002/05/30 06:19:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,12 +18,7 @@
  */
 
 #include "midgard_CG.hh"
-//#include "Window_hilfe.hh"
-//#include "Window_Geld_eingeben.hh"
-//#include "Window_ruestung.hh"
-//#include "Window_Waffenbesitz.hh"
 #include <gtk--/notebook.h>
-//#include <gtk--/main.h>
 #include "Midgard_Info.hh"
 #include "Fertigkeiten.hh"
 #include <unistd.h>
@@ -33,30 +28,32 @@
 
 midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0), MOptionen(0),wizard(0),
-  Database(Midgard_Info), ansicht_menu(0),region_menu(0),menu(0)
+  ansicht_menu(0),region_menu(0),menu(0)
 {
+  set_sensitive(true); //???
+
+  InfoFenster = manage(new WindowInfo(this));
+  // Menüs initialisieren
   ansicht_menu = manage(new Gtk::MenuItem("Ansicht"));
   region_menu = manage(new Gtk::MenuItem("Regionen"));
   main_menubar->append(*ansicht_menu);
   main_menubar->append(*region_menu);
   ansicht_menu->show();
   region_menu->show();
-  
-  set_sensitive(true);  
-//  notebook_main->set_sensitive(true); // solange die Datenbank nicht geladen ist
-                                      // stürzt das Programm ab
-  srand(time(0));
-//  Typ.resize(2);
-  InfoFenster = manage(new WindowInfo(this));
+
+  // Optionen laden
   MOptionen = new Midgard_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
-
   MOptionen->load_options();
-//  Midgard_Info->database_hide();
-  on_neuer_charakter_clicked();
 
+  srand(time(0));
+  Database.load(Midgard_Info);
+
+
+  on_neuer_charakter_clicked();
   if (!datei.empty()) xml_import(datei); // Charakter laden
-  else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) on_wizard_starten_activate();
+  else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) 
+       on_wizard_starten_activate();
   // für die NEWS
   Gtk::OStream os(list_news);
   os << 

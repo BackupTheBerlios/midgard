@@ -677,7 +677,6 @@ void table_lernschema::show_lernschema()
         }
       if(lp == 99  ) continue;
 
-
       if(!(*i)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
         {
          if     (f->Name()=="Muttersprache"   && 30<hauptfenster->getCWerte().In()&&hauptfenster->getCWerte().In()<=60) f->setErfolgswert(14);
@@ -763,7 +762,8 @@ void table_lernschema::show_lernschema()
              if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit())) gelernt=true;   
              if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
              VI=Lernschema::getIndex(hauptfenster->getCChar().getVTyp(),"Fachkenntnisse",(*i)->Name());  
-             cH_Fertigkeit(*i)->setErfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(hauptfenster->getCWerte()));
+             if(!(*i)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
+                cH_Fertigkeit(*i)->setErfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(hauptfenster->getCWerte()));
              cH_Fertigkeit(*i)->setPflicht(hauptfenster->getDatabase().lernschema.get_Pflicht(VI));
            }
         (*i)->setLernpunkte(hauptfenster->getDatabase().lernschema.get_Lernpunkte(VI));

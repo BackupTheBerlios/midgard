@@ -83,6 +83,7 @@ void table_grundwerte::on_combo_typ_activate()
 gint table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
 {
   typauswahl_button();
+  hauptfenster->undosave("Typ gewählt");
   return false;
 }
 
@@ -91,13 +92,8 @@ void table_grundwerte::typauswahl_button()
  std::string typ=combo_typ->get_entry()->get_text();
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;
-//??? hauptfenster->Char.reset();
-// hauptfenster->clear_gtk();
 
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);
-// cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
-
-// cH_Typen ptr = cH_Typen(Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,combo_typ->get_entry()->get_text()));
  hauptfenster->getChar().setTyp1(cH_Typen(typ));
 
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
@@ -125,22 +121,18 @@ void table_grundwerte::typauswahl_button()
      radiobutton_stadt->set_sensitive(true);
      radiobutton_land->set_sensitive(true);
    }
-// if(radiobutton_stadt->sensitive() && radiobutton_land->sensitive())
-//      radiobutton_stadt->grab_focus();
-// else 
-//  button_abg_werte->grab_focus();
 }
 
 
 void table_grundwerte::on_combo_typ2_activate()
 {
   button_abg_werte->grab_focus();
-//  typauswahl_2_button();
 }
 
 gint table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
 {
   typauswahl_2_button();
+  hauptfenster->undosave("zweiter Typ gewählt");
   return false;
 }
 
@@ -161,21 +153,12 @@ void table_grundwerte::typauswahl_2_button()
 void table_grundwerte::fill_spezies()
 {
   std::vector<std::string> L;
-//  { Gtk::OStream t_(optionmenu_spezies);
     for(vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
      {
        if (!hauptfenster->nsc_check((*i)->NSC_only())) continue;
-//       t_ << (*i)->Name();
-//       t_.flush((*i)->ref(),&HandleContent::unref);
        L.push_back((*i)->Name());
      }
-//  }
-//  optionmenu_spezies->get_menu()->deactivate.connect(SigC::slot(static_cast<class table_grundwerte*>(this), &table_grundwerte::spezieswahl_button));
-//  Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,hauptfenster->getCWerte().Spezies());
-//  combo_typ2->hide();
-
   combo_spezies->set_popdown_strings(L);
-
 }
 
 void table_grundwerte::on_combo_spezies_activate()
@@ -186,10 +169,9 @@ void table_grundwerte::on_combo_spezies_activate()
 gint table_grundwerte::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 {
   spezieswahl_button();
+  hauptfenster->undosave("Spezies gewählt");
   return false;
 }
-
-
 
 void table_grundwerte::spezieswahl_button()
 {
@@ -200,16 +182,11 @@ void table_grundwerte::spezieswahl_button()
      if((*i)->Name()==spezies)
       {
         ok=true;
-//        hauptfenster->getWerte().clear();
         hauptfenster->getWerte() = Grundwerte();
         hauptfenster->getWerte().setSpezies(*i);
       }
    }
  if(!ok) return;
-// hauptfenster->getWerte().clear();
-// hauptfenster->zeige_werte();
-// cH_Spezies ptr = static_cast<Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
-// hauptfenster->getWerte().setSpezies(ptr);
 
  fill_typauswahl();
  typauswahl_button();
@@ -217,9 +194,6 @@ void table_grundwerte::spezieswahl_button()
  if (hauptfenster->getCWerte().Spezies()->Name()=="Elf")
    manage (new Window_doppelcharaktere(this));
 
-// typauswahl_2->hide();
-// combo_typ2->hide();
-// hauptfenster->getChar().setTyp2(cH_Typen());
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIES);
 }
 
@@ -236,10 +210,7 @@ void table_grundwerte::doppelcharaktere()
 {
    if(!hauptfenster) return;
    fill_typauswahl_2();
-//   typauswahl_2->show();
    combo_typ2->show();
-//   typauswahl_2_button();
-//   magie_bool=true;
 }
 
 void table_grundwerte::on_radiobutton_frau_toggled()
@@ -262,7 +233,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
    }
   fill_typauswahl();
   fill_typauswahl_2();
-//  hauptfenster->zeige_werte();
+  hauptfenster->undosave("Geschlecht gewählt");
 }
 
 void table_grundwerte::kaempfer_lernt_zaubern()

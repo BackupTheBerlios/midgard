@@ -34,7 +34,11 @@ class Data_AbenteurerListe : public RowDataBase
        {
          switch(spalten(seqnr))
           {
-            case SAVE: return cH_EntryValueIntString(saved);
+            case SAVE: 
+              { 
+                if(saved) return cH_EntryValueIntString("");
+                else      return cH_EntryValueIntString("Nein");
+              }
             case NAMEA: return cH_EntryValueIntString(Char.getCWerte().Name_Abenteurer());
             case SPIELER: return cH_EntryValueIntString(Char.getCWerte().Name_Spieler());
             case BEZEICHNUNG: return cH_EntryValueIntString(Char.getCWerte().Bezeichnung());

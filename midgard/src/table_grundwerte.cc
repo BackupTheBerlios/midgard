@@ -81,26 +81,12 @@ void table_grundwerte::zeige_werte(bool typ2_hide=true)
    spinbutton_groesse->set_value(hauptfenster->getCWerte().Groesse());
    spinbutton_grad->set_value(hauptfenster->getCWerte().Grad());      
    entry_spezialisierung->set_text(hauptfenster->getCWerte().Spezialisierung());
-/*
-   {
-    int inr=0;
-    for (unsigned int i=0; i<Vstand.size();++i)
-    if (Vstand[i]==hauptfenster->getCWerte().Stand()) inr=i;
-     optionmenu_stand->set_history(inr);
-   }
-*/
+
    combo_stand->set_popdown_strings(Vstand);
    combo_stand->get_entry()->set_text(hauptfenster->getCWerte().Stand());
    combo_hand->set_popdown_strings(Vhand);
    combo_hand->get_entry()->set_text(hauptfenster->getCWerte().Hand());
-/*
-   {
-    int inr=0;
-    for (unsigned int i=0; i<Vhand.size();++i)
-     if (Vhand[i]==hauptfenster->getCWerte().Hand()) inr=i;
-       optionmenu_hand->set_history(inr);
-   }
-*/
+
    entry_herkunft->set_text(hauptfenster->getCWerte().Herkunft()->Name());
    entry_glaube->set_text(hauptfenster->getCWerte().Glaube());
    entry_nameC->set_text(hauptfenster->getCWerte().Name_Abenteurer());
@@ -109,7 +95,6 @@ void table_grundwerte::zeige_werte(bool typ2_hide=true)
 
    if (hauptfenster->getCWerte().Geschlecht()=="w") radiobutton_frau->set_active(true); 
    else radiobutton_mann->set_active(true); 
-
    
    if(typ2_hide)
     {
@@ -117,11 +102,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide=true)
          combo_typ2->hide();
       else  combo_typ2->show();
     }
-
-//   if(optionmenu_spezies->get_menu()->items().size()==1) fill_spezies();
-//   Gtk::Menu_Helpers::SelectMatching(*(optionmenu_spezies),hauptfenster->getCWerte().Spezies());
    combo_spezies->get_entry()->set_text(hauptfenster->getCWerte().Spezies()->Name());
-   
 }
 
 void table_grundwerte::neuer_charakter()

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.7 2002/05/29 07:49:16 thoma Exp $
+// $Id: midgard_CG_undo.cc,v 1.8 2002/05/30 06:19:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@ void midgard_CG::undosave(std::string s)
   Char.modified();
 //  modify_bool=true;
   strstream ss;
-  Char.speicherstream(ss,this);
+  Char.speicherstream(ss,getCDatabase(),getCOptionen());
   ss<<char(0);
   MidgardUndo.push_back(s,ss.str());
   ss.freeze();
@@ -46,7 +46,7 @@ void midgard_CG::on_undo_leaf_selected(cH_RowDataBase d)
   strstream s;
   s<<MidgardUndo.get(dt->getIndex())<<char(0);
 //  xml_import(MidgardUndo.get(dt->getIndex()));
-  Char.xml_import_stream(s,this);
+  Char.xml_import_stream(s,getDatabase(),getOptionen());
   s.freeze();
 }
 
@@ -54,9 +54,8 @@ void midgard_CG::on_button_redo_clicked()
 {
   strstream s;
   s<<MidgardUndo.get_next()<<char(0);
-  Char.xml_import_stream(s,this);
+  Char.xml_import_stream(s,getDatabase(),getOptionen());
   s.freeze();
-//  xml_import(MidgardUndo.get_next());
 }
 
 
@@ -64,8 +63,7 @@ void midgard_CG::on_button_undo_clicked()
 {
   strstream s;
   s<<MidgardUndo.get_last()<<char(0);
-  Char.xml_import_stream(s,this);
+  Char.xml_import_stream(s,getDatabase(),getOptionen());
   s.freeze();
-//  xml_import(MidgardUndo.get_last());
 }
 

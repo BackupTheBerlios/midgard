@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.38 2002/05/25 08:38:40 thoma Exp $
+// $Id: Optionen.cc,v 1.39 2002/05/30 06:19:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -269,7 +269,7 @@ void Midgard_Optionen::Strings_init()
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",""));
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer","mozilla"));
   list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad","$TEMP"));
-  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis","$HOME/magus"));
+  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis","~/magus/"));
 }
 
 
