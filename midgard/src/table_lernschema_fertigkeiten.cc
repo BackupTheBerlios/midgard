@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.9 2002/07/01 19:11:33 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.10 2002/07/04 08:43:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -156,8 +156,7 @@ void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
      for(std::vector<Fertigkeit::st_besitz>::const_iterator j=VB.begin();j!=VB.end();++j)
       {
         int wurf=hauptfenster->random.integer(1,100);
-cout << (*i)->Name()<<'\t'<<j->name<<'\n';
-        if(wurf<j->min)
+        if(wurf>=j->min)
          {
            AusruestungBaum *A;
            if(j->position == Fertigkeit::Besitz)
