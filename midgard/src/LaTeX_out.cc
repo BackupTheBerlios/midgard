@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.78 2002/01/06 21:20:32 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.79 2002/01/07 18:59:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -179,13 +179,13 @@ void midgard_CG::LaTeX_write_values()
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
  unsigned int sprachanz=0;
- unsigned int maxsprach=19;
+ unsigned int maxsprach=23;
  std::list<cH_MidgardBasicElement> verwandteSprachen;
  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
    {  cH_Sprache s(*i);
       std::list<cH_MidgardBasicElement> tmplist=s->VerwandteSprachen(Database.Sprache);
       verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
-//geth nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(Database.Sprache));
+//geht nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(Database.Sprache));
       std::string a = LaTeX_string(sprachanz++);
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(s->Name(),20,"2.6cm") <<"}\n";
       fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize +"<< s->Erfolgswert() <<"}\n";
@@ -482,10 +482,8 @@ void midgard_CG::LaTeX_write_empty_values()
  fout << "\\newcommand{\\sinnss}{}\n";
  
 
- unsigned int sprachanz=0;
- unsigned int maxsprach=19;
-
- for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
+ unsigned int maxsprach=23;
+ for (unsigned int i=0; i<maxsprach;++i) // Bis zum Ende auffüllen
    {
       std::string a = LaTeX_string(i);
       fout << "\\newcommand{\\spra"<<a<<"}{}\n";

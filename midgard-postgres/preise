@@ -12,7 +12,7 @@ CREATE TABLE "preise" (
 	"kosten" double precision NOT NULL,
 	"einheit" text NOT NULL,
 	"art" text NOT NULL,
-	"gewicht" integer,
+	"gewicht" double precision,
 	Constraint "Preise_pkey" Primary Key ("name")
 );
 
@@ -260,12 +260,16 @@ Wurfpfeil	4	SS	Waffen	\N
 Wurfspeer	8	SS	Waffen	\N
 Wurfstern	1	SS	Waffen	\N
 Wurst	4	KS	Lebensmittel	\N
+XXX	100	GS	Kleidung	22.4
+XXXTEST	1.1	GS	Waffen	1.1
+XXY	0.6	GS	Kleidung	2.66
 Zaumzeug	3	SS	Tiere	\N
 Zeichenkohle	1	KS	Ausrüstung	\N
 Zinnbecher	2	SS	Ausrüstung	\N
 Zugochse	15	GS	Tiere	\N
 Zugpferd	10	GS	Tiere	\N
 Zweipersonenzelt	2	GS	Ausrüstung	\N
+_TEST	1.1	GS	Waffen	1.01
 beschlagener Helm	20	SS	Rüstungen	\N
 beschlagenes Leder	4	GS	Rüstungen	\N
 billiger Eintopf	2	KS	Gasthaus	\N

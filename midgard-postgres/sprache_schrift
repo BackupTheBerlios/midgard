@@ -8,7 +8,8 @@ DROP TABLE "sprache_schrift";
 
 CREATE TABLE "sprache_schrift" (
 	"sprache" text NOT NULL,
-	"schrift" text NOT NULL
+	"art_der_schrift" text NOT NULL,
+	"schrift" text
 );
 
 --
@@ -17,46 +18,46 @@ CREATE TABLE "sprache_schrift" (
 
 
 COPY "sprache_schrift" FROM stdin;
-Albisch	Valianisches Alphabet
-Altoqua	Valianisches Alphabet
-Aranisch	Aranische Silbenschrift
-Asadi	Hurritische Keilschrift
-Bulugi	Bulugische Bilderschrift
-Chryseisch	Valianisches Alphabet
-Comentang	Valianisches Alphabet
-Dunathisch	Valianisches Alphabet
-Dunkle Sprache	Arracht-Versalien
-Dvarskar	Futhark
-Eldalyn	Beth-Luis-Nion
-Erainnisch	Valianisches Alphabet
-Gnomenon	Beth-Luis-Nion
-Gnomenon	Futhark
-Halftan	Valianisches Alphabet
-Hochcoraniaid	Coraniaid-Alphabet
-Hurritisch	Hurritische Keilschrift
-KanThaiTun	KanThaiTun(1)
-KanThaiTun	KanThaiTun(2)
-KanThaiTun	KanThaiTun(3)
-KanThaiTun	KanThaiTun(4)
-KanThaiTun	KanThaiTun(5)
-KanThaiTun	KanThaiTun(6)
-Kelwisch	Hurritische Keilschrift
-Luwisch	Hurritische Keilschrift
-Läinisch	Läinisch
-Maralinga	Valianisches Alphabet
-Medjisisch	Tegarisch
-Meketische	Meketische Bilderschrift
-Minangpahitisch	Rawindisches Alphabet
-Moravisch	Valianisches Alphabet
-Nahuatlanisch	Nahuatlanische Bilderschrift
-Nahuatlanisch	Nahuatlanische Knotenschrift Quipu
-Neu Vallinga	Aranische Silbenschrift
-Rawindi	Rawindisches Alphabet
-Scharidisch	Aranische Silbenschrift
-Tegarisch	Tegarisch
-Toquinisch	Toquiische Keilschrift
-Tuskisch	Tuskische Keilschrift
-Twyneddisch	Valianisches Alphabet
-Vallinga	Valianisches Alphabet
-Waelska	Waelska
+Albisch	Valianisches Alphabet	Albisch
+Altoqua	Valianisches Alphabet	Altoqua
+Aranisch	Aranische Silbenschrift	Aranisch
+Asadi	Hurritische Keilschrift	Asadi
+Bulugi	Bulugische Bilderschrift	Bulugi
+Chryseisch	Valianisches Alphabet	Chryseisch
+Comentang	Valianisches Alphabet	Comentang
+Dunathisch	Valianisches Alphabet	Dunathisch
+Dunkle Sprache	Arracht-Versalien	Dunkle Sprache
+Dvarskar	Zwergenrunen Futhark	Dvarskar
+Eldalyn	Baumrunen Beth-Luis-Nion	Eldalyn
+Erainnisch	Valianisches Alphabet	Erainnisch
+Gnomenon	Baumrunen Beth-Luis-Nion	Waldgnome
+Gnomenon	Zwergenrunen Futhark	Berggnome
+Halftan	Valianisches Alphabet	Halftan
+Hochcoraniaid	Coraniaid-Alphabet	Hochcoraniaid
+Hurritisch	Hurritische Keilschrift	Hurritisch
+KanThaiTun	KanThaiTun(1)	KanThaiTun(1)
+KanThaiTun	KanThaiTun(2)	KanThaiTun(2)
+KanThaiTun	KanThaiTun(3)	KanThaiTun(3)
+KanThaiTun	KanThaiTun(4)	KanThaiTun(4)
+KanThaiTun	KanThaiTun(5)	KanThaiTun(5)
+KanThaiTun	KanThaiTun(6)	KanThaiTun(6)
+Kelwisch	Hurritische Keilschrift	Kelwisch
+Luwisch	Hurritische Keilschrift	Luwisch
+Läinisch	Läinisch	Läinisch
+Maralinga	Valianisches Alphabet	Maralinga
+Medjisisch	Tegarisch	Medjisisch
+Meketische	Meketische Bilderschrift	Meketische
+Minangpahitisch	Rawindisches Alphabet	Minangpahitisch
+Moravisch	Valianisches Alphabet	Moravisch
+Nahuatlanisch	Nahuatlanische Bilderschrift	Nahuatlanische Bilderschrift
+Nahuatlanisch	Nahuatlanische Knotenschrift Quipu	Nahuatlanische Knotenschrift Quipu
+Neu Vallinga	Valianisches Alphabet	Neu Vallinga
+Rawindi	Rawindisches Alphabet	Rawindi
+Scharidisch	Aranische Silbenschrift	Scharidisch
+Tegarisch	Tegarisch	Tegarisch
+Toquinisch	Toquinische Keilschrift	Toquinisch
+Tuskisch	Tuskische Keilschrift	Tuskisch
+Twyneddisch	Valianisches Alphabet	Twyneddisch
+Vallinga	Valianisches Alphabet	Vallinga
+Waelska	Waelska	Waelska
 \.

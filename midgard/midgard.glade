@@ -9608,14 +9608,14 @@ eingeben</label>
 		    <last_modification_time>Wed, 26 Dec 2001 18:29:38 GMT</last_modification_time>
 		  </signal>
 		  <climb_rate>1</climb_rate>
-		  <digits>0</digits>
+		  <digits>1</digits>
 		  <numeric>False</numeric>
 		  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
 		  <snap>False</snap>
 		  <wrap>False</wrap>
 		  <value>1</value>
 		  <lower>0</lower>
-		  <upper>100</upper>
+		  <upper>1000</upper>
 		  <step>1</step>
 		  <page>10</page>
 		  <page_size>10</page_size>
@@ -9828,7 +9828,7 @@ KS
 	      <widget>
 		<class>GtkTable</class>
 		<name>table92</name>
-		<rows>1</rows>
+		<rows>2</rows>
 		<columns>3</columns>
 		<homogeneous>True</homogeneous>
 		<row_spacing>0</row_spacing>
@@ -9857,8 +9857,8 @@ KS
 		  <child>
 		    <left_attach>0</left_attach>
 		    <right_attach>1</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
 		    <xexpand>True</xexpand>
@@ -9892,8 +9892,8 @@ KS
 		  <child>
 		    <left_attach>1</left_attach>
 		    <right_attach>2</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
 		    <xexpand>True</xexpand>
@@ -9927,8 +9927,8 @@ KS
 		  <child>
 		    <left_attach>2</left_attach>
 		    <right_attach>3</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
 		    <xexpand>True</xexpand>
@@ -9950,6 +9950,74 @@ KS
 		    <yalign>0.5</yalign>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkCheckButton</class>
+		  <name>checkbutton_ausruestung_geld</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>toggled</name>
+		    <handler>on_checkbutton_ausruestung_geld_toggled</handler>
+		    <last_modification_time>Mon, 07 Jan 2002 12:16:41 GMT</last_modification_time>
+		  </signal>
+		  <active>True</active>
+		  <draw_indicator>False</draw_indicator>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>3</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkHBox</class>
+		    <name>hbox46</name>
+		    <homogeneous>False</homogeneous>
+		    <spacing>0</spacing>
+
+		    <widget>
+		      <class>GtkPixmap</class>
+		      <name>pixmap83</name>
+		      <filename>Money-50.xpm</filename>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <build_insensitive>True</build_insensitive>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>False</fill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label526</name>
+		      <label>Mit Geld ausrüsten</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>False</fill>
+		      </child>
+		    </widget>
 		  </widget>
 		</widget>
 	      </widget>

@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.2 2002/01/07 09:12:16 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.3 2002/01/07 18:59:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,7 @@ int MidgardBasicTree::Cols(variante V)
      case (LONG_NEU):       return 5;
      case (SPRACHE_NEU):    return 3;
      case (SCHRIFT_ALT):    return 8;
-     case (SCHRIFT_NEU):    return 2;
+     case (SCHRIFT_NEU):    return 3;
      case (WAFFEGRUND):     return 3;
      case (ZAUBER):     return 5;
      case (ZAUBERWERK):     return 6;
@@ -81,9 +81,21 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Schrift");
       vs.push_back("Lernkosten");  
    }
+  if(V==SCHRIFT_ALT)
+   {
+      vs.push_back("Fertigkeit");
+      vs.push_back("Art");
+      vs.push_back("Wert");
+      vs.push_back("PP");  
+      vs.push_back("");    
+      vs.push_back("Steigern\n(nächste Stufe)");
+      vs.push_back("Reduzieren\n(eine Stufe)"); 
+      vs.push_back("Verlernen");
+   }
   if(V==SCHRIFT_NEU)
    {
       vs.push_back("Schrift");
+      vs.push_back("Art");
       vs.push_back("Lernkosten");  
    }
   if(V==ZAUBER)

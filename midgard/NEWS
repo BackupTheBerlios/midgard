@@ -1,4 +1,22 @@
 ##########################################################################
+NEWS IN VERSION 0.2delta1
+
+* Neue angelegte Ausrüstungsgegenstände werden sofort übernommen
+* späteres Lernen von 'Landeskunde Heimat' mit erhötem Erfolgswert +9.
+* Ausrüsten ohne Geld ist möglich
+* LaTeX Charakterdokument überarbeitet: 23 Schriften können jetzt 
+   angezeigt werden
+* Bugs in der Oberfläche (Schriften) beseitigt
+
+TODO:
+* Spezielgebiete für Magier stürzt ab
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+
+
+
+##########################################################################
 NEWS IN VERSION 0.1delta3
 
 * Sprachen und Schrift funktionieren richtig (hoffentlich)

@@ -123,7 +123,6 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
   for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
    {
      os <<(*i)->Name()<<'\n';
-//     os.flush(const_cast<cH_MidgardBasicElement*>(&MBE));
      os.flush(MBE->ref(),&HandleContent::unref);
    }
   scrolledwindow_landauswahl->show();
@@ -134,6 +133,7 @@ void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent
   std::string land = clist_landauswahl->get_text(row,0);
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
   cH_Fertigkeit(MBE)->setZusatz(land);
+  if(land==Werte.Herkunft()->Name()) MBE->set_Erfolgswert(9);
   scrolledwindow_landauswahl->hide();
   on_fertigkeiten_laden_clicked();
 }

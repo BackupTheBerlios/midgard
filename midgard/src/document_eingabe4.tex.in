@@ -216,10 +216,12 @@ Sechster Sinn  & \sinnss   &Geistmagie    & \bopsy &Umgebungsmagie & \phk \\
 {\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=@PACKAGE_DATA_DIR@saebel.ps}}}
 \hfill
 
+\parbox{6cm}
+{
 \vspace{1ex}\LI
-\begin{tabularx}{13cm}{|p{0.5cm}|c|X|}\hline
-\makebox[0.5cm]{LP}&\makebox[0.5cm]{{\lp}}&\\\hline
-\makebox[0.5cm]{AP}&\makebox[0.5cm]{{\ap}}&\\\hline
+\begin{tabularx}{5.9cm}{|p{0.5cm}|c|X|}\hline
+\makebox[0.4cm]{LP}&\makebox[0.4cm]{{\lp}}&\\\hline
+\makebox[0.4cm]{AP}&\makebox[0.4cm]{{\ap}}&\\\hline
 \end{tabularx}
 
 \li
@@ -248,8 +250,10 @@ Datum\hspace*{2.5em}&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
 &&&&&\\\hline
 &&&&&\\\hline
 \end{tabular}
-\hfill
-\setlength{\tabcolsep}{0.5em}
+}}
+\parbox[t]{7cm}
+{\setlength{\tabcolsep}{0.5em}
+\scriptsize
 \begin{tabular}{|p{2.6cm}|c|p{2.6cm}|}
   \hline
 Sprache&Wert&Schrift\\\hline\hline
@@ -272,6 +276,10 @@ Sprache&Wert&Schrift\\\hline\hline
 {\spraq}&{\sprawq}&{\schrq}\\\hline
 {\sprar}&{\sprawr}&{\schrr}\\\hline
 {\spras}&{\spraws}&{\schrs}\\\hline
+{\sprat}&{\sprawt}&{\schrt}\\\hline
+{\sprau}&{\sprawu}&{\schru}\\\hline
+{\sprav}&{\sprawv}&{\schrv}\\\hline
+{\spraw}&{\spraww}&{\schrw}\\\hline
 \end{tabular} 
 }
 \end{minipage}

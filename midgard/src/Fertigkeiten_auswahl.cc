@@ -243,8 +243,10 @@ bool Fertigkeiten_auswahl::SpracheSchrift(const std::string& fert,int wert,bool 
  bool launch=false;
  Sprache_auswahl::modus mod;
 
- if(fert=="Landeskunde" || fert=="Landeskunde (Heimat)")
+ if      (fert=="Landeskunde") 
     { launch=true;  mod=Sprache_auswahl::LAND; }
+ else if (fert=="Landeskunde (Heimat)")
+    { launch=true;  mod=Sprache_auswahl::HEIMATLAND; }
  else if(fert=="Schreiben: Muttersprache(+12)" ||
          fert=="Schreiben: Muttersprache(+9)" ||        
          fert=="Schreiben: Muttersprache(+4)" ||

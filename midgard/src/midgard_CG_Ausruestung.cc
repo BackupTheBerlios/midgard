@@ -244,6 +244,10 @@ cout <<"Cell: " <<cell.get_text()<<'\n';
   showAusruestung();
 }
 
+void midgard_CG::on_checkbutton_ausruestung_geld_toggled()
+{
+}
+
 
 void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event)
 {
@@ -255,15 +259,17 @@ void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent 
   std::string kosten =clist_preisliste->get_text(row,1);
   std::string einheit=clist_preisliste->get_text(row,2);
 
-  int g=0,s=0,k=0;
-  if(einheit=="GS") g=atoi(kosten.c_str());
-  if(einheit=="SS") s=atoi(kosten.c_str());
-  if(einheit=="KS") k=atoi(kosten.c_str());
-  Werte.add_Gold(-g);
-  Werte.add_Silber(-s);
-  Werte.add_Kupfer(-k);
-  Geld_uebernehmen();
-
+  if(checkbutton_ausruestung_geld->get_active())
+   {
+     int g=0,s=0,k=0;
+     if(einheit=="GS") g=atoi(kosten.c_str());
+     if(einheit=="SS") s=atoi(kosten.c_str());
+     if(einheit=="KS") k=atoi(kosten.c_str());
+     Werte.add_Gold(-g);
+     Werte.add_Silber(-s);
+     Werte.add_Kupfer(-k);
+     Geld_uebernehmen();
+   }
  std::string bez;
  for (std::map<pair<std::string,std::string>,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();)
    {
@@ -294,7 +300,8 @@ void midgard_CG::fill_preisliste()
     if(modimap.begin()->first.first==(*i)->Art())
       os << (*i)->Name() <<'\t'
          << (*i)->Kosten() * fak <<'\t'
-         << (*i)->Einheit()
+         << (*i)->Einheit() <<'\t'
+         << (*i)->Gewicht()
          <<'\n';
    }  
   for (unsigned int i=0;i<clist_preisliste->columns().size();++i)
@@ -500,7 +507,7 @@ void midgard_CG::on_entry_eigenschaft_activate()
 // bis hier ist es nicht implementiert
 
 
-
+//Neueingeben eines Artikels:
 void midgard_CG::on_entry_artikel_art_activate()
 {
  entry_name->grab_focus();
@@ -526,11 +533,13 @@ void midgard_CG::on_spinbutton_gewicht_activate()
  if(ieinheit==optionmenu_einheit::GS) einheit="GS";
  if(ieinheit==optionmenu_einheit::SS) einheit="SS";
  if(ieinheit==optionmenu_einheit::KS) einheit="KS";
- int preis = atoi( spinbutton_preis->get_text().c_str());
- int gewicht = atoi( spinbutton_gewicht->get_text().c_str());
+ double preis = atof( spinbutton_preis->get_text().c_str());
+ double gewicht = atof( spinbutton_gewicht->get_text().c_str());
 
  try{
   Preise::saveArtikel(art,name,preis,einheit,gewicht);
+  Database.preise.push_back(cH_Preise(name));
+  ausruestung_laden();
    } catch(SQLerror &e) {manage (new WindowInfo(e.what()));}
  table_artikel->hide();
 }

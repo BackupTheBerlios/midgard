@@ -10,7 +10,7 @@
 class Preise : public HandleContent
 {
    std::string name,einheit,art;
-   float kosten,gewicht;
+   double kosten,gewicht;
 
    void get_Preise();
  public:
@@ -19,11 +19,11 @@ class Preise : public HandleContent
 
  std::string Art() const {  return art; }
  std::string Name()  const {  return name; }
- float Kosten() const { return kosten ; }
- float Gewicht() const { return gewicht ; }
+ double Kosten() const { return kosten ; }
+ double Gewicht() const { return gewicht ; }
  std::string Einheit()  const {  return einheit; }
 
- static void saveArtikel(std::string art,std::string name,int preis, std::string einheit,int gewicht);
+ static void saveArtikel(std::string art,std::string name,double preis, std::string einheit,double gewicht);
 };
 
 

@@ -34,7 +34,7 @@
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
-  if (mod == LAND)
+  if (mod == LAND || mod == HEIMATLAND)
    {
      cH_Land s=static_cast<Land*>(clist_sp_sc->selection().begin()->get_data());
      cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Landeskunde")));
@@ -64,11 +64,12 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
 {
   {
    Gtk::OStream os(clist_sp_sc);
-   if (mod == LAND)
+   if (mod == LAND || mod == HEIMATLAND)
       {
          sp_sc_label->set_text("Land wählen");
          for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
           { 
+            if(mod!=HEIMATLAND || (*i)->Name()==Werte.Herkunft()->Name())
             os << (*i)->Name()<<'\t'<<wert<<'\n';
             os.flush((*i)->ref(),&HandleContent::unref);
           }

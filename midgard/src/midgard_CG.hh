@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.120 2002/01/06 21:20:32 thoma Exp $
+// $Id: midgard_CG.hh,v 1.121 2002/01/07 18:59:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -457,6 +457,7 @@ class midgard_CG : public midgard_CG_glade
         void on_spinbutton_preis_activate();
         void on_optionmenu_einheit_deactivate();
         void on_spinbutton_gewicht_activate();
+        void on_checkbutton_ausruestung_geld_toggled();
    
    public:
          midgard_CG(int argc,char **argv);
