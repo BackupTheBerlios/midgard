@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.224 2003/09/16 08:36:15 christof Exp $
+# $Id: Makefile.am,v 1.225 2003/09/16 22:00:29 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -11,7 +11,8 @@ LINK_OBJS=magus_res.o
 # sigh! local installation menace
 WIN_INCLUDES=-I/usr/local/mingw/mingw32/include -I/usr/local/mingw/local/include/gdk
 
-magus_res.o: magus.rc ; windres --include-dir /usr/local/mingw/mingw32/include  magus.rc magus_res.o
+#magus_res.o: magus.rc ; i386-mingw32msvc-windres --include-dir /usr/local/mingw2/include  magus.rc magus_res.o
+magus_res.o: magus.rc ; i386-mingw32msvc-windres magus.rc magus_res.o
 
 else
 PORT_FILES= xml_fileselection_glade.cc
