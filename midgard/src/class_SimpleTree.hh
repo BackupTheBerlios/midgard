@@ -48,7 +48,7 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_ZAUBERWERK {NAMEn_ZW,STUFEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW};
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
- const cH_MidgardBasicElement &getMBE() const {return MBE;}
+ const cH_MidgardBasicElement getMBE() const {return MBE;}
 
 };
 

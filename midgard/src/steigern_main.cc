@@ -114,7 +114,7 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
   }   
  
  guint pagenr = notebook_lernen->get_current_page_num();
- cH_MidgardBasicElement *MBE;
+// cH_MidgardBasicElement MBE;
 // cH_RowDataBase rdb;
  const Data_SimpleTree *dt;
  try{
@@ -130,8 +130,8 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
           catch (std::exception &e) {}
     }
 //  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&**rdb);
-  MBE=&const_cast<cH_MidgardBasicElement&>(dt->getMBE());
-  (*MBE)->set_Praxispunkte(PPanz);
+  cH_MidgardBasicElement MBE(dt->getMBE());
+  const_cast<MidgardBasicElement&>(*MBE).set_Praxispunkte(PPanz);
 
   if(pagenr==PAGE_FERTIGKEITEN)
      MidgardBasicElement::show_list_in_tree(list_Fertigkeit,alte_fert_tree,Werte,Typ,Database.ausnahmen); 

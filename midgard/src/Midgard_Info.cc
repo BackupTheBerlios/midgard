@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.63 2002/02/06 11:33:11 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.64 2002/02/07 14:15:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,6 +47,10 @@ Midgard_Info::Midgard_Info(bool selfclean)
 
 #include "../pixmaps/pdolch_.xpm"
 #include "../pixmaps/Money-50.xpm"
+#include "../pixmaps/Dfr3-50.xpm"
+//#include "../pixmaps/Dfr4-50.xpm"
+#include "../pixmaps/Kurai-50.xpm"
+//#include "../pixmaps/Arkanum-50.xpm"
 
 void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
 {
@@ -64,7 +68,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
    }
   std::string illutxt2="Abenteurergruppe (DFR3) von Josef Ochmann\ncopyright 1985 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
   Gtk::Label *_li2=manage (new Gtk::Label(illutxt2,0,0));
-  Gtk::Pixmap *_pi2=manage(new Gtk::Pixmap(pdolch__xpm));
+  Gtk::Pixmap *_pi2=manage(new Gtk::Pixmap(Dfr3_50_xpm));
   _li2->set_justify(GTK_JUSTIFY_LEFT);
   _tab->attach(*_pi2,0,1,row,row+1,GTK_FILL,0,0,0);
   _tab->attach(*_li2,1,3,row,row+1,GTK_FILL,0,0,0);
@@ -72,7 +76,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
 
   std::string illutxt3="Kan Thai Krieger von Hank Wolf\ncopyright 1992 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
   Gtk::Label *_li3=manage (new Gtk::Label(illutxt3,0,0));
-  Gtk::Pixmap *_pi3=manage(new Gtk::Pixmap(pdolch__xpm));
+  Gtk::Pixmap *_pi3=manage(new Gtk::Pixmap(Kurai_50_xpm));
   _li3->set_justify(GTK_JUSTIFY_LEFT);
   _tab->attach(*_pi3,0,1,row,row+1,GTK_FILL,0,0,0);
   _tab->attach(*_li3,1,3,row,row+1,GTK_FILL,0,0,0);
