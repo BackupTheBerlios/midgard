@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.23 2002/07/10 09:31:37 christof Exp $               
+// $Id: Region.hh,v 1.24 2002/09/16 08:29:13 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -27,6 +27,7 @@
 #include <gtk--/progressbar.h>
 #include <gtk--/pixmap.h>
 #include "xml.h"
+#include "Optionen.hh"
 
 class cH_Region;
 
@@ -36,7 +37,7 @@ class RegionenPic
    enum epic {None, Rawindra,KanThaiPan,Alba,Eschar,Gildenbrief,HD,Waeland,
               Nahuatlan,Arkanum,DFR,Meister_der_Sphaeren,Tipps_und_Tricks,
               Abenteuer,HD_finster,Kuestenstaaten};
-   static Gtk::Pixmap* Pic(epic e,bool tiny=false) ;
+   static Gtk::Pixmap* Pic(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
 };
 
 

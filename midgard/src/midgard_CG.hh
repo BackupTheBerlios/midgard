@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.277 2002/09/13 07:34:35 thoma Exp $
+// $Id: midgard_CG.hh,v 1.278 2002/09/16 08:29:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -111,18 +111,22 @@ class midgard_CG : public midgard_CG_glade
         enum e_icon {iNew,iOpen,iClose,iPrint,iBack,iForward,iMenu,iInfo,iHelp,
                      iInstruction,iExit,iJa,iNein,iEigenschaften,iAbgeleitet,
                      iEditGrund,iLernpunkte,iLernEdit,iBeruf,iGeld,iWaffen,
-                     iRuestung,iAusruestung,iEigenschaft};
+                     iRuestung,iAusruestung,iEigenschaft,iBildeinfuegen,
+                     iStatusWizard};
+                     
         struct st_icons{std::string text;char **icon;
                st_icons(std::string t,char **i):text(t),icon(i){}};
         struct st_buttons{Gtk::Widget *widget; e_icon icon;
                st_buttons(Gtk::Widget *w, e_icon i)
                   : widget(w),icon(i) {}};
 
-        std::vector<st_buttons> IconVec;
+        std::vector<st_buttons> IconVec;    // Für Gtk::Box
+        std::vector<st_buttons> IconVecBin; // Für Gtk::Bin
         void fill_IconVec();
         st_icons StyleIcon(e_icon typ) const;
         void Icons_setzen();
         void Box_setzen(Gtk::Widget *child,st_icons I);
+        void Bin_setzen(Gtk::Widget *child,st_icons I);
    protected:
         Midgard_Optionen* getOptionen() const {return MOptionen;};
         const Midgard_Optionen* getCOptionen() const {return MOptionen;};

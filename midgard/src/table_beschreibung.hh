@@ -19,6 +19,7 @@ class table_beschreibung : public table_beschreibung_glade
 {  
         
         friend class table_beschreibung_glade;
+        friend class midgard_CG;
         midgard_CG *hauptfenster;
 public:
         

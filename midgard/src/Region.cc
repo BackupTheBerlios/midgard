@@ -49,10 +49,41 @@
 #include "../pixmaps/TuT_26.xpm"
 #include "../pixmaps/pinguin.xpm"
 
+// Ulfs Icons
+#include "../pixmaps/Ulf/ulf_regionen_16_abenteuer.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_alba.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_eschar.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_finstermagier.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_gildenbrief.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_hexenzauber.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_kanthaipan.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_kompendium.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_nahuatlan.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_rawindra.xpm"
+#include "../pixmaps/Ulf/ulf_regionen_16_waeland.xpm"
 
 
-Gtk::Pixmap *RegionenPic::Pic(epic typ,bool tiny=false)
+
+Gtk::Pixmap *RegionenPic::Pic(epic typ,Midgard_Optionen::IconIndex ii,bool tiny=false)
 {  
+ if(ii==Midgard_Optionen::Ulf)
+ {
+   if      (typ==Eschar)     return manage(new Gtk::Pixmap(ulf_regionen_16_eschar_xpm));
+   else if (typ==KanThaiPan) return manage(new Gtk::Pixmap(ulf_regionen_16_kanthaipan_xpm));
+   else if (typ==DFR)        return manage(new Gtk::Pixmap(Regio_DFR_4_26_xpm));
+   else if (typ==Rawindra)   return manage(new Gtk::Pixmap(ulf_regionen_16_rawindra_xpm));
+   else if (typ==Alba)       return manage(new Gtk::Pixmap(ulf_regionen_16_alba_xpm));
+   else if (typ==Waeland)    return manage(new Gtk::Pixmap(ulf_regionen_16_waeland_xpm));
+   else if (typ==Nahuatlan)  return manage(new Gtk::Pixmap(ulf_regionen_16_nahuatlan_xpm));
+   else if (typ==Arkanum)    return manage(new Gtk::Pixmap(Regio_Arkanum_26_xpm));
+   else if (typ==Gildenbrief)return manage(new Gtk::Pixmap(ulf_regionen_16_gildenbrief_xpm));
+   else if (typ==HD)         return manage(new Gtk::Pixmap(ulf_regionen_16_hexenzauber_xpm));
+   else if (typ==HD_finster) return manage(new Gtk::Pixmap(ulf_regionen_16_finstermagier_xpm));
+   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Pixmap(ulf_regionen_16_kompendium_xpm));
+   else if (typ==Abenteuer)  return manage(new Gtk::Pixmap(ulf_regionen_16_abenteuer_xpm));
+ }
+ else 
+ {
  if(!tiny)
   {
    if      (typ==Eschar)     return manage(new Gtk::Pixmap(Eschar_trans_50_xpm));
@@ -85,6 +116,7 @@ Gtk::Pixmap *RegionenPic::Pic(epic typ,bool tiny=false)
    else if (typ==Tipps_und_Tricks) return manage(new Gtk::Pixmap(TuT_26_xpm));
    else if (typ==Abenteuer)  return manage(new Gtk::Pixmap(Abwehr_26_xpm));
   }
+ }
  return manage(new Gtk::Pixmap(pinguin_xpm));
 }
 
@@ -173,7 +205,7 @@ cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const s
       return (*i);
     }
   }
-  return cH_Region("???",true);
+ return cH_Region("???",true);
 // assert(!"Region nicht gefunden\n");
 // abort(); // never get here
 }

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.77 2002/09/10 19:55:46 thoma Exp $
+// $Id: Optionen.cc,v 1.78 2002/09/16 08:29:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -127,6 +127,16 @@ Midgard_Optionen::st_Icon Midgard_Optionen::IconCheck(IconIndex hi) const
  assert(!"IconCheck: nicht gefunden");
  abort();
 }
+
+Midgard_Optionen::IconIndex Midgard_Optionen::getIconIndex() const
+{
+ for(std::list<st_Icon>::const_iterator i=list_Icon.begin();i!=list_Icon.end();++i)
+   if(i->active) return i->index;
+ assert(!"IconIndex: nicht gefunden");
+ abort();
+}
+
+
 
 Midgard_Optionen::st_pdfViewer Midgard_Optionen::pdfViewerCheck(pdfViewerIndex pi) const 
 {
@@ -301,10 +311,10 @@ void Midgard_Optionen::Icon_setzen_from_menu(IconIndex index,bool b)
       { i->active = b;
         if     (index==Self) ;
         else if(index==Ulf) ;
-        hauptfenster->Icons_setzen();
       }
      else i->active = false;
    }
+  hauptfenster->Icons_setzen();
 }   
 
 

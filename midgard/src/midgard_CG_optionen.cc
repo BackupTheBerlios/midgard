@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.104 2002/09/03 10:34:55 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.105 2002/09/16 08:29:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -85,8 +85,6 @@ void midgard_CG::show_Pics(bool b)
 //    pixmap_dfr3->show();
     table_lernschema->scrolledwindow_dfr3->show(); 
     table_steigern->pixmap_kurai->show();
-//    table_steigern->table_gradsteigern_lang->show();
-//    table_steigern->button_steigern_kurz->hide();
   }
  else
   {
@@ -94,8 +92,6 @@ void midgard_CG::show_Pics(bool b)
 //    pixmap_dfr3->hide();
     table_lernschema->scrolledwindow_dfr3->hide(); 
     table_steigern->pixmap_kurai->hide();
-//    table_steigern->table_gradsteigern_lang->hide();
-//    table_steigern->button_steigern_kurz->show();
   }
 }
 

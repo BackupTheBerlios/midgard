@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.260 2002/09/13 07:34:35 thoma Exp $
+// $Id: midgard_CG.cc,v 1.261 2002/09/16 08:29:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,10 +73,13 @@ midgard_CG::~midgard_CG()
 
 void midgard_CG::init_statusbar()
 {
+  frame_regionen_status->remove();
+  vec_region_status.clear();
   Gtk::HBox *hb_regionen_status=manage(new class Gtk::HBox(false, 0));
+  Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     Gtk::Pixmap *p=RegionenPic::Pic((*i)->Pic(),true);
+     Gtk::Pixmap *p=RegionenPic::Pic((*i)->Pic(),II,true);
      hb_regionen_status->pack_start(*p);
      if((*i)->Active()) p->show();
      vec_region_status.push_back(st_reg_status((*i)->Pic(),p));
@@ -163,6 +166,11 @@ void midgard_CG::fill_IconVec()
   IconVec.push_back(st_buttons(table_lernschema->button_ausruestung,iAusruestung));
   // Steigern
   IconVec.push_back(st_buttons(table_steigern->button_grad_basiswerte,iEigenschaft));
+  // Beschreibung
+  IconVec.push_back(st_buttons(table_beschreibung->button_grafik,iBildeinfuegen));
+  IconVec.push_back(st_buttons(table_beschreibung->button_beschreibung_drucken,iPrint));
 
+  //////////////////////////////////////////////////////////////////////////
+  IconVecBin.push_back(st_buttons(eventbox_wizard_aktiv,iStatusWizard));
 }
 

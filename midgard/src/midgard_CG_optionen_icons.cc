@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.10 2002/09/13 07:34:35 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.11 2002/09/16 08:29:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 
 void midgard_CG::Icons_setzen()
 {
+  menu_init();
   e_icon icon_counter=iNew;
   // toplevel toolbar
   for(Gtk::Toolbar_Helpers::ToolList::iterator i=toolbar_top->tools().begin();i!=toolbar_top->tools().end();++i)
@@ -40,26 +41,12 @@ void midgard_CG::Icons_setzen()
      Gtk::Widget *child = dynamic_cast<Gtk::Bin*>(i->widget)->get_child();     
      Box_setzen(child,StyleIcon(i->icon));
    }
-/*
-  // InfoFenster
-  Gtk::Widget *child = dynamic_cast<Gtk::Bin*>(InfoFenster->button_bestaetigen)->get_child();
-  Box_setzen(child,StyleIcon(iJa));
-  child = dynamic_cast<Gtk::Bin*>(InfoFenster->button_abbrechen)->get_child();
-  Box_setzen(child,StyleIcon(iNein));
-
-  // Grundwerte
-  child = dynamic_cast<Gtk::Bin*>(table_grundwerte->button_grundwerte)->get_child();
-  Box_setzen(child,StyleIcon(iEigenschaften));
-  child = dynamic_cast<Gtk::Bin*>(table_grundwerte->button_abg_werte)->get_child();
-  Box_setzen(child,StyleIcon(iAbgeleitet));
-  child = dynamic_cast<Gtk::Bin*>(table_grundwerte->togglebutton_edit_werte)->get_child();
-  Box_setzen(child,StyleIcon(iEditGrund));
-  // Lernschema
-  child = dynamic_cast<Gtk::Bin*>(table_lernschema->button_lernpunkte)->get_child();
-  Box_setzen(child,StyleIcon(iLernpunkte));
-  child = dynamic_cast<Gtk::Bin*>(table_lernschema->togglebutton_lernpunkte_edit)->get_child();
-  Box_setzen(child,StyleIcon(iLernEdit));
-*/
+  for(std::vector<st_buttons>::iterator i=IconVecBin.begin();i!=IconVecBin.end();++i)
+   {
+     Gtk::Widget *child = dynamic_cast<Gtk::Bin*>(i->widget)->get_child();     
+     Bin_setzen(child,StyleIcon(i->icon));
+   }
+  init_statusbar();
 }
 
 void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
@@ -74,6 +61,16 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
         if(Gtk::Label::isA((*i)->get_widget()) )
             dynamic_cast<Gtk::Label*>((*i)->get_widget())->set_text(I.text);
       }
+   }
+}
+
+void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
+{
+  if(child && Gtk::EventBox::isA(child)) 
+   {
+     Gtk::Widget *w=dynamic_cast<Gtk::Bin*>(child)->get_child();
+     if(Gtk::Pixmap::isA(w)) 
+         dynamic_cast<Gtk::Pixmap*>(w)->set(I.icon);
    }
 }
 
@@ -101,24 +98,30 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Weapon-trans-50.xpm" 
 #include "../pixmaps/Dice_Armor-trans-50.xpm" 
 #include "../pixmaps/Dice-Ausruest-50.xpm" 
+#include "../pixmaps/MAGUS_Logo_Small.xpm" 
+#include "../pixmaps/MAGUS_Logo_Tiny.xpm" 
 
 
 // Ulfs 24-Icons
-#include "../pixmaps/Ulf/ulf_24_anleitung.xpm"
-#include "../pixmaps/Ulf/ulf_24_drucken.xpm"
-#include "../pixmaps/Ulf/ulf_24_hilfe.xpm"
-#include "../pixmaps/Ulf/ulf_24_info.xpm"
-#include "../pixmaps/Ulf/ulf_24_menue.xpm"
-#include "../pixmaps/Ulf/ulf_24_neu.xpm"
-#include "../pixmaps/Ulf/ulf_24_oeffnen.xpm"
-#include "../pixmaps/Ulf/ulf_24_schliessen.xpm"
-#include "../pixmaps/Ulf/ulf_24_speichern.xpm"
-#include "../pixmaps/Ulf/ulf_24_vorwaerts.xpm"
-#include "../pixmaps/Ulf/ulf_24_zurueck.xpm"
-#include "../pixmaps/Ulf/ulf_24_ja.xpm"
-#include "../pixmaps/Ulf/ulf_24_nein.xpm"
-#include "../pixmaps/Ulf/ulf_24_editieren.xpm"
-#include "../pixmaps/Ulf/ulf_24_wuerfel.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_anleitung.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_drucken.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_hilfe.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_info.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_menue.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_neu.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_oeffnen.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_schliessen.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_speichern.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_vorwaerts.xpm"
+#include "../pixmaps/Ulf/ulf_knopfleiste_24_zurueck.xpm"
+#include "../pixmaps/Ulf/ulf_notebook_24_bildeinfuegen.xpm"
+#include "../pixmaps/Ulf/ulf_notebook_24_wuerfel.xpm"
+#include "../pixmaps/Ulf/ulf_notebook_24_editieren.xpm"
+#include "../pixmaps/Ulf/ulf_auswahl_16_ja.xpm"
+#include "../pixmaps/Ulf/ulf_auswahl_16_nein.xpm"
+//#include "../pixmaps/Ulf/ulf_24_editieren.xpm"
+//#include "../pixmaps/Ulf/ulf_24_wuerfel.xpm"
+#include "../pixmaps/Ulf/ulf_statusleiste_16_wizard.xpm"
 
 midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
 {
@@ -148,33 +151,38 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iWaffen)     return st_icons("Waffen"  ,Weapon_trans_50_xpm);
      else if(typ==iRuestung)   return st_icons("Rüstung"  ,Dice_Armor_trans_50_xpm);
      else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,Dice_Ausruest_50_xpm);
+     else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,MAGUS_Logo_Small_xpm);
+     else if(typ==iStatusWizard)return st_icons(""  ,MAGUS_Logo_Tiny_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
    {
-     if     (typ==iNew)        return st_icons("Neu"         ,ulf_24_neu_xpm   );
-     else if(typ==iOpen)       return st_icons("Öffnen"      ,ulf_24_oeffnen_xpm  );
-     else if(typ==iClose)      return st_icons("Speichern"   ,ulf_24_speichern_xpm  );
-     else if(typ==iPrint)      return st_icons("Drucken"     ,ulf_24_drucken_xpm );
-     else if(typ==iBack)       return st_icons("Zurück"      ,ulf_24_zurueck_xpm               );
-     else if(typ==iForward)    return st_icons("Vorwärts"    ,ulf_24_vorwaerts_xpm               );
-     else if(typ==iMenu)       return st_icons("Menü"        ,ulf_24_menue_xpm );
-     else if(typ==iInfo)       return st_icons("Info"        ,ulf_24_info_xpm      );
-     else if(typ==iHelp)       return st_icons("Hilfe"       ,ulf_24_hilfe_xpm    );
-     else if(typ==iInstruction)return st_icons("Anleitung"   ,ulf_24_anleitung_xpm    );
-     else if(typ==iExit)       return st_icons("Schließen"   ,ulf_24_schliessen_xpm      );
-     else if(typ==iJa)         return st_icons("Ja"          ,ulf_24_ja_xpm);
-     else if(typ==iNein)       return st_icons("Nein"        ,ulf_24_nein_xpm);
-     else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",ulf_24_wuerfel_xpm);
-     else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",ulf_24_wuerfel_xpm);
-     else if(typ==iEditGrund)  return st_icons("Werte\neditieren",ulf_24_editieren_xpm);
-     else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,ulf_24_wuerfel_xpm);
-     else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,ulf_24_editieren_xpm);
-     else if(typ==iEigenschaft)return st_icons("Eigensch."  ,ulf_24_wuerfel_xpm);
-     else if(typ==iBeruf)      return st_icons("Beruf"  ,ulf_24_wuerfel_xpm);
-     else if(typ==iGeld)       return st_icons("Geld"  ,ulf_24_wuerfel_xpm);
-     else if(typ==iWaffen)     return st_icons("Waffen"  ,ulf_24_wuerfel_xpm);
-     else if(typ==iRuestung)   return st_icons("Rüstung"  ,ulf_24_wuerfel_xpm);
-     else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,ulf_24_wuerfel_xpm);
+     if     (typ==iNew)        return st_icons("Neu"         ,ulf_knopfleiste_24_neu_XPM   );
+     else if(typ==iOpen)       return st_icons("Öffnen"      ,ulf_knopfleiste_24_oeffnen_xpm  );
+     else if(typ==iClose)      return st_icons("Speichern"   ,ulf_knopfleiste_24_speichern_xpm  );
+     else if(typ==iPrint)      return st_icons("Drucken"     ,ulf_knopfleiste_24_drucken_xpm );
+     else if(typ==iBack)       return st_icons("Zurück"      ,ulf_knopfleiste_24_zurueck_xpm               );
+     else if(typ==iForward)    return st_icons("Vorwärts"    ,ulf_knopfleiste_24_vorwaerts_xpm               );
+     else if(typ==iMenu)       return st_icons("Menü"        ,ulf_knopfleiste_24_menue_xpm );
+     else if(typ==iInfo)       return st_icons("Info"        ,ulf_knopfleiste_24_info_xpm      );
+     else if(typ==iHelp)       return st_icons("Hilfe"       ,ulf_knopfleiste_24_hilfe_xpm    );
+     else if(typ==iInstruction)return st_icons("Anleitung"   ,ulf_knopfleiste_24_anleitung_xpm    );
+     else if(typ==iExit)       return st_icons("Schließen"   ,ulf_knopfleiste_24_schliessen_xpm      );
+     else if(typ==iJa)         return st_icons("Ja"          ,ulf_auswahl_16_ja_xpm);
+     else if(typ==iNein)       return st_icons("Nein"        ,ulf_auswahl_16_nein_xpm);
+     else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iEditGrund)  return st_icons("Werte\neditieren",ulf_notebook_24_editieren_xpm);
+     else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,ulf_notebook_24_editieren_xpm);
+     else if(typ==iEigenschaft)return st_icons("Eigensch."  ,ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iBeruf)      return st_icons("Beruf"  ,ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iGeld)       return st_icons("Geld"  ,ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iWaffen)     return st_icons("Waffen"  ,ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iRuestung)   return st_icons("Rüstung"  ,ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,ulf_notebook_24_bildeinfuegen_xpm);
+     else if(typ==iStatusWizard)return st_icons(""  ,ulf_statusleiste_16_wizard_xpm);
+     
    }
   assert(!"never get here");
   abort();

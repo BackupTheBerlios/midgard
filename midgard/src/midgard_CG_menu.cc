@@ -60,6 +60,7 @@ void midgard_CG::menu_init()
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *regionen = manage(new class Gtk::MenuItem("Regionen")); 
   regionen->set_submenu(*regionen_menu);
+  Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
 
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
@@ -85,7 +86,7 @@ void midgard_CG::menu_init()
        }
      Gtk::Label *_l=manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,0,0,0,0);
-     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,0,0,0,0);
+     _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
      _mi->add(*_tab);
@@ -180,6 +181,7 @@ reloop:
   // Regionen
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
   main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Regionen","<Control>R", *regionen_menu));
+  Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
 
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
@@ -204,7 +206,7 @@ reloop:
        }
      Gtk::Label *_l=manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,0,0,0,0);
-     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,0,0,0,0);
+     _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
      _mi->add(*_tab);
