@@ -25,7 +25,7 @@
 #include <libmagus/LernListen.hh>
 
 void table_steigern::waffen_zeigen()
-{
+{  if (notebook_lernen->get_current_page()!=PAGE_WAFFEN) return;
    alte_waffen_zeigen();
    neue_waffen_zeigen();
    waffengrund_zeigen();

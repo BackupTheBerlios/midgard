@@ -26,7 +26,7 @@
 #include <libmagus/Datenbank.hh>
 
 void table_steigern::fertigkeiten_zeigen()
-{
+{ if (notebook_lernen->get_current_page()!=PAGE_FERTIGKEITEN) return;
   alte_fertigkeiten_zeigen();
   neue_fertigkeiten_zeigen();
   zeige_werte();

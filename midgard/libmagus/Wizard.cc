@@ -69,3 +69,6 @@ void Wizard::skip_if_possible(const Abenteurer &A)
 {  while (can_skip(A)) next_step();
 }
 
+Wizard::Wizard()
+ : act_step(Inaktiv), act_mode(Sensitive)
+{}

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.36 2003/12/10 07:30:25 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.37 2004/01/22 07:40:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,11 +38,6 @@ void table_lernschema::on_button_angeborene_fertigkeit()
   else on_angeborene_fertigkeit_clicked() ;
   zeige_werte();
   show_gelerntes();
-
-  button_lernpunkte->set_sensitive(true);
-  togglebutton_lernpunkte_edit->set_sensitive(true);
-  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
-     button_angeborene_fert->set_sensitive(false);
 }
 
 void table_lernschema::on_angeborene_fertigkeit_clicked()

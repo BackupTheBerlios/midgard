@@ -5169,6 +5169,7 @@ auswählen</property>
 			    <widget class="button" id="button_herkunft">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Herkunft, Muttersprache etc.</property>
 			      <property name="can_focus">True</property>
 			      <property name="label" translatable="yes">Herkunft</property>
 			      <property name="use_underline">True</property>
@@ -5237,34 +5238,21 @@ auswählen</property>
 			  </child>
 
 			  <child>
-			    <widget class="button" id="button_lernpunkte">
+			    <widget class="toggle" id="togglebutton_lernpunkte_edit">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">Lernpunkte würfeln</property>
+			      <property name="tooltip" translatable="yes">Lernpunkte würfeln/eingeben (und %Wurf für Berufswahl)</property>
 			      <property name="can_focus">True</property>
 			      <property name="label" translatable="yes">Lernpunkte</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Dice-2W6-trans-50.xpm</property>
-			      <signal name="clicked" handler="on_lernpunkte_wuerfeln_clicked"/>
-			    </widget>
-			    <packing>
-			      <property name="new_group">True</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="toggle" id="togglebutton_lernpunkte_edit">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">Lernpunkte editieren und/oder %Wurf für Berufswahl eingeben.</property>
-			      <property name="can_focus">True</property>
-			      <property name="label" translatable="yes">Lernpunkte</property>
-			      <property name="use_underline">True</property>
-			      <property name="icon">Edit-trans-50.xpm</property>
 			      <property name="active">False</property>
 			      <property name="inconsistent">False</property>
 			      <signal name="toggled" handler="on_togglebutton_lernpunkte_edit_toggled"/>
 			    </widget>
+			    <packing>
+			      <property name="new_group">True</property>
+			    </packing>
 			  </child>
 
 			  <child>
@@ -5595,6 +5583,7 @@ eingeben</property>
 			      <child>
 				<widget class="GtkButton" id="button_waffe_trans">
 				  <property name="visible">True</property>
+				  <property name="tooltip" translatable="yes">Restpunkte übertragen</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NONE</property>
 				  <signal name="clicked" handler="on_button_waffe_trans_clicked"/>
@@ -5623,6 +5612,7 @@ eingeben</property>
 			      <child>
 				<widget class="GtkButton" id="button_fach_trans">
 				  <property name="visible">True</property>
+				  <property name="tooltip" translatable="yes">Restpunkte übertragen</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NONE</property>
 				  <signal name="clicked" handler="on_button_fach_trans_clicked"/>
@@ -9911,6 +9901,7 @@ eingeben</property>
 				<widget class="GtkCheckButton" id="button_gold_eingeben">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
+				  <property name="tooltip" translatable="yes">Geld eingeben/ändern</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <property name="active">False</property>
@@ -9978,7 +9969,7 @@ eing.</property>
 				<widget class="GtkCheckButton" id="checkbutton_gfp">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">GFP eingeben (Rechte Maustaste: ändern)</property>
+				  <property name="tooltip" translatable="yes">GFP eingeben/ändern</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <property name="active">False</property>
@@ -10046,7 +10037,7 @@ eing.</property>
 				<widget class="GtkCheckButton" id="button_EP">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">Erfahrungspunkte eingeben (Rechte Maustaste: ändern)</property>
+				  <property name="tooltip" translatable="yes">Erfahrungspunkte eingeben/ändern</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
@@ -10424,6 +10415,7 @@ eing.</property>
 				    <widget class="GtkButton" id="button_grad_zaubern">
 				      <property agent="glademm" name="cxx_visibility">protected</property>
 				      <property name="visible">True</property>
+				      <property name="tooltip" translatable="yes">Zaubern steigern</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
 				      <signal name="clicked" handler="on_button_grad_zaubern_clicked"/>
 
@@ -10653,7 +10645,7 @@ eing.</property>
 				    <widget class="GtkButton" id="button_grad_basiswerte">
 				      <property agent="glademm" name="cxx_visibility">protected</property>
 				      <property name="visible">True</property>
-				      <property name="tooltip" translatable="yes">Linke Maustaste: Würfeln, ob sich die Basiswerte beim Gradanstieg erhöhen         Rechte Maustaste: Würfelwurf direkt eingeben. In beiden Fällen wird zusätzlich die Schicksalsgunst erhöht.</property>
+				      <property name="tooltip" translatable="yes">Würfeln/Eingeben ob sich die Basiswerte beim Gradanstieg erhöhen. Zusätzlich wird die Schicksalsgunst erhöht.</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
 				      <signal name="clicked" handler="on_button_grad_basiswerte"/>
 
@@ -10879,6 +10871,7 @@ eing.</property>
 					<widget class="GtkToggleButton" id="togglebutton_spruchrolle">
 					  <property agent="glademm" name="cxx_visibility">protected</property>
 					  <property name="visible">True</property>
+					  <property name="tooltip" translatable="yes">Lernen von Spruchrolle</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_HALF</property>
 					  <property name="active">False</property>
@@ -11786,6 +11779,7 @@ anzeigen</property>
 					<widget class="GtkToggleButton" id="togglebutton_praxispunkte">
 					  <property agent="glademm" name="cxx_visibility">protected</property>
 					  <property name="visible">True</property>
+					  <property name="tooltip" translatable="yes">Praxispunkte eingeben</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
 					  <property name="active">False</property>

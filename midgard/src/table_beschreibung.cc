@@ -67,7 +67,7 @@ bool table_beschreibung::on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *
 }
 
 void table_beschreibung::show_beschreibung()
-{
+{ if (hauptfenster->get_current_page()!=midgard_CG::PAGE_BESCHREIBUNG) return;
   text_charakter_beschreibung->get_buffer()->erase(
   	text_charakter_beschreibung->get_buffer()->begin(),
   	text_charakter_beschreibung->get_buffer()->end());

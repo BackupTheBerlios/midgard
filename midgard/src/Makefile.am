@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.231 2004/01/20 10:55:09 christof Exp $
+# $Id: Makefile.am,v 1.232 2004/01/22 07:40:17 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -73,7 +73,10 @@ WindowInfo_glade.hh WindowInfo.hh \
 
 BUILT_SOURCES= text2c NEWS.h
 
-NEWS.h: ../NEWS ; ./text2c <../NEWS | ./iso2utf8 >NEWS.h
+NEWS.h: ../NEWS ../TODO text2c
+	csplit --prefix tmp_news. ../NEWS '/<<<TODO>>>/'
+	cat tmp_news.00 ../TODO tmp_news.0[1-9] | ./text2c | ./iso2utf8 >NEWS.h
+	rm tmp_news.??
 
 magus_SOURCES = $(PORT_FILES) \
    BegruessungsWindow.cc \

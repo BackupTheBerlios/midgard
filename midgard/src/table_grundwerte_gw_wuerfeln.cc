@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.46 2003/11/28 08:49:05 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.47 2004/01/22 07:40:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,14 +31,17 @@
 void table_grundwerte::on_button_grundwerte()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active) 
-      button_grundwerte->set_sensitive(false);
-  if (hauptfenster->getChar().proxies.werte_eingeben.Value()) on_togglebutton_edit_werte_toggled();
-  else grundwerte_wuerfeln();
-  hauptfenster->getChar().getWizard().done(Wizard::GRUNDWERTE,hauptfenster->getAben());
+//  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active) 
+//      button_grundwerte->set_sensitive(false);
+  if (hauptfenster->getChar().proxies.werte_eingeben.Value()) 
+     on_togglebutton_edit_werte_toggled();
+  else 
+  {  grundwerte_wuerfeln();
+     hauptfenster->getChar().getWizard().done(Wizard::GRUNDWERTE,hauptfenster->getAben());
+  }
 
-  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
-      combo_spezies->set_sensitive(false);
+//  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
+//      combo_spezies->set_sensitive(false);
 }
 
 void table_grundwerte::grundwerte_wuerfeln()
@@ -57,6 +60,7 @@ void table_grundwerte::grundwerte_wuerfeln()
 void table_grundwerte::Eigenschaften_variante(int i)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+#warning weg  
   button_abg_werte->set_sensitive(true);
   combo_typ->set_sensitive(true);
   combo_typ2->set_sensitive(true);
@@ -171,14 +175,6 @@ struct spezies_mod_comp
 	}
 };
 
-#if 0
-std::ostream &operator<<(std::ostream &o,const table_grundwerte::st_eigen &a)
-{  o << '{' << int(a.eigenschaft) << ',' << a.lang << ',' << a.kurz
-	<< ',' << a.spezies_mod << '}';
-   return o;
-}
-#endif
-
 void table_grundwerte::Schwachpunkt_wuerfeln()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -217,13 +213,6 @@ void table_grundwerte::gw_variante_2()
   frame_wuerfelvariante->show_all();
   gw_variante_2_next();
 }
-
-#if 0
-enum table_grundwerte::e_eigen &operator++(enum table_grundwerte::e_eigen &s)
-{  ++(int&)s;
-   return s;
-}
-#endif
 
 void table_grundwerte::on_button_variante_2_clicked(Gtk::Button *button,e_eigen eigenschaft)
 {

@@ -27,7 +27,7 @@
 #include <libmagus/Datenbank.hh>
 
 void table_steigern::schriften_zeigen()
-{
+{  if (notebook_lernen->get_current_page()!=PAGE_SPRACHE) return;
    alte_schrift_zeigen();
    neue_schrift_zeigen();   
    zeige_werte();
@@ -46,7 +46,7 @@ void table_steigern::neue_schrift_zeigen()
 }
 
 void table_steigern::sprachen_zeigen()
-{
+{  if (notebook_lernen->get_current_page()!=PAGE_SPRACHE) return;
    neue_sprache_zeigen();
    alte_sprache_zeigen();
    zeige_werte();

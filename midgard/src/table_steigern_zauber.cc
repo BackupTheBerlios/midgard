@@ -28,7 +28,7 @@
 #include <libmagus/LernListen.hh>
 
 void table_steigern::on_zauber_laden_clicked()
-{   
+{ if (notebook_lernen->get_current_page()!=PAGE_ZAUBER) return;
  try{
   list_Zauber_neu=LernListen::get_steigern_Zauberliste(hauptfenster->getAben(),togglebutton_zaubersalze->get_active(),
   					   LernListen::region_check(hauptfenster->getAben(),"MdS"),

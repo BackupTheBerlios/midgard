@@ -12,6 +12,7 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 void table_steigern::refresh()
 {
+  if (hauptfenster->get_current_page()!=midgard_CG::PAGE_STEIGERN) return;
   flashing_gradanstieg->set(MagusImage("Anpass-trans-50.xpm"),MagusImage("Anpass-trans-50_invers.xpm"),0);
   flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
 
@@ -73,10 +74,11 @@ void table_steigern::neuer_charakter()
 void table_steigern::on_notebook_lernen_switch_page(GtkNotebookPage *page,guint pagenr)
 {
 //  if(hauptfenster /*&& !hauptfenster->in_dtor*/) load_for_page(pagenr);
+   refresh();
 }
 
 void table_steigern::load_for_page(guint pagenr)
-{
+{ 
   // Sensitive & Show
   if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
    {
@@ -89,6 +91,7 @@ void table_steigern::load_for_page(guint pagenr)
          else
             radiobutton_praxis->set_sensitive(false);
        }
+       else frame_zauber_zusatz->hide();
    }
   else
    {

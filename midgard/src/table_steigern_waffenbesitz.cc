@@ -123,7 +123,7 @@ std::vector<std::string> list_vector(std::list<std::string> L)
 }
 
 void table_steigern::init_waffenbesitz()
-{
+{ if (notebook_lernen->get_current_page()!=PAGE_BESITZ) return;
   table_magbonus->hide();
 
   std::list<std::string> alte_waffen;

@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.77 2004/01/02 09:22:50 christof Exp $
+// $Id: midgard.cc,v 1.78 2004/01/22 07:40:17 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -130,12 +130,17 @@ int main(int argc, char **argv)
    }
 
 //   setlocale(LC_ALL, "de_DE");
+   if(!Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active
+      && AbenteurerAuswahl::Chars.empty())
+         AbenteurerAuswahl::Chars.push_back();
    midgard_CG *magus=new midgard_CG(info,AbenteurerAuswahl::Chars.begin());
    // darf nicht eher geschehen wegen realize (background) als virtuellem callback
    magus->show();
    if (progresswin) { delete progresswin; progresswin=0; imag=0; }
-   if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
-     manage(new BegruessungsWindow(magus));
+   if (argc>1)
+   {  if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
+         manage(new BegruessungsWindow(magus));
+   }
    m.run(*magus);
 #warning nur wenn geändert ...
    Programmoptionen.save_options(magus_paths::MagusVerzeichnis()+"magus_optionen.xml");

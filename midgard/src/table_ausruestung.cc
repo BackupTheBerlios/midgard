@@ -36,7 +36,8 @@ void table_ausruestung::init(midgard_CG *h)
 }
 
 void table_ausruestung::refresh()
-{  zeige_werte();
+{  if (hauptfenster->get_current_page()!=midgard_CG::PAGE_AUSRUESTUNG) return;
+   zeige_werte();
    showAusruestung();
 //   togglebutton_gruppe_neu->hide();//
    label_normallast->set_text(itos(hauptfenster->getAben().getNormallast())+" kg");

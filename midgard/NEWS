@@ -1,3 +1,13 @@
+Version 0.9.4
+
+- TODO unter NEWS lesbar
+
+-------------- TODO ----------------
+
+<<<TODO>>>
+
+------------------------------------
+
 NEU in Version 0.9.3
 
 - Abenteurer wechseln/Undo geht jetzt (fast)
@@ -48,22 +58,3 @@ durch merge:
 * Verursachen von Krankheit PT nicht erlernbar (Lernpunkte)
 * min 50% bei lernen von PP müssen durch PP bestritten werden.
 - Verschiedenes von Version 0.8.14-0.8.18
-
-TODO
-
-* Mehrseitige Ausrüstungen
-* Setzen der Handle-Fenster-Positionen :-(
-* KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
-* Ausrüstung: Expandieren
-- Ausrüstung mit drag & drop
-- Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? :
-   Unter "Lernschema" bleibt noch 
-   einiges stehen. Bei "Steigern" 
-   und "Optionen" sind auch noch bunte Bildchen, und bei 
-   "Ausrüstung" verweigern die Icons von "Modifikatoren 
-   entfernen" und "mit Geld ausrüsten" das Verschwinden.
-- alle Ausdrucke unter Windows testen
-- wrapfig for Windows für Grafik in Beschreibung
-- abspeichern der Reihenfolge/Wahl in ChoiceButtons
-- GlobalOptions nach xml portieren

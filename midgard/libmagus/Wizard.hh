@@ -20,6 +20,8 @@ private:
 
 public:
     // mimic a model
+    Wizard();
+    
     operator Model_ref<esteps>() { return act_step; }
     operator Model_ref<mode>() { return act_mode; }
     esteps Value() const { return act_step; }

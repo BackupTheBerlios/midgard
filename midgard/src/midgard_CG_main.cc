@@ -118,6 +118,28 @@ void midgard_CG::on_news_menu_activate()
 void midgard_CG::on_notebook_main_switch_page(GtkNotebookPage *page,guint pagenr)
 {
 //   if(Char.empty()) Char.push_back();
+#if 0
+ if(pagenr==PAGE_GRUNDWERTE)
+  {
+    table_grundwerte->zeige_werte(false);
+  }
+ else if(pagenr==PAGE_LERNEN)
+  {
+   table_lernschema->init(this);
+//   show_gelerntes();
+  }
+ else if(pagenr==PAGE_STEIGERN)
+  {
+    table_steigern->refresh();
+  }
+ else if(pagenr==PAGE_BESCHREIBUNG)
+   {
+     table_beschreibung->show_beschreibung();
+   }
+ else if(pagenr==PAGE_AUSRUESTUNG)
+    table_ausruestung->show_ausruestung();
+#endif   
+ getChar().signal_anderer_abenteurer()();
  if(pagenr==PAGE_LERNEN)
   {getChar().getWizard().done(Wizard::LERNSCHEMA_SEITE,getAben());
   }
@@ -187,3 +209,4 @@ void midgard_CG::on_exportieren_ranas_pdf_dokumente_activate()
 {
   Ausgabe(Ausgabe::Error,"Noch nicht implementiert");
 }
+

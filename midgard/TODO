@@ -1,3 +1,18 @@
+* Mehrseitige Ausrüstungen
+* Setzen der Handle-Fenster-Positionen :-(
+* KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
+* Ausrüstung: Expandieren
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? :
+   Unter "Lernschema" bleibt noch 
+   einiges stehen. Bei "Steigern" 
+   und "Optionen" sind auch noch bunte Bildchen, und bei 
+   "Ausrüstung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrüsten" das Verschwinden.
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+- abspeichern der Reihenfolge/Wahl in ChoiceButtons
+
 - Beim 'make install' waere es nett ein $PREFIX/share/midgard anzulegen, und
 alle xml dateien dort automatisch hinzukopieren.
 
@@ -30,7 +45,8 @@ was bedeutet:
 
 - Dialoge, anlegen von neuen Artikeln ...
 
-- Schummeln in Abenteurer?
+- Schummeln in Abenteurer? 
+	: Wizard auf off, NSC an, einige Auswahlen an
 
 - Preise und Lernschema sind Regionenäbhangig ... ??? Ein Wechsel der Region
   ändert das aber noch nicht
@@ -54,7 +70,8 @@ was bedeutet:
 - Komponenten: Entries/Spinbuttons mit many_changed+activate (wie MVC)
 	und dann in Grundwerte ersetzen (Werte ändern ...)
 
-- Spezies wird nicht gesetzt
+- Spezies wird nicht gesetzt (liegt vermutlich an nicht gesetztem
+       Abenteurer)
 
 - Lizenz
 
@@ -82,7 +99,5 @@ was bedeutet:
 - Lernschema: Würfeln/Eingeben Button noch getrennt
 
 - hide 4: Beschreibung des Artikels (optional) ??
-
-- Absturz bei Landauswahl
 
 - Zufall: steigern inaktiv?

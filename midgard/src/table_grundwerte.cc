@@ -10,6 +10,7 @@
 #include <gtkmm/box.h>
 #include <bool_CheckButton.hh>
 #include <libmagus/Ausgabe.hh>
+#include <Misc/inbetween.h>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 void table_grundwerte::init(midgard_CG *h)
@@ -62,7 +63,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    
    block_changed=true;
   fill_typauswahl();
-   fill_spezies(); // sobald Mann/Frau interessant wird
+//   fill_spezies(); // sobald Mann/Frau interessant wird
    midgard_check_werte100();
    
    Abenteurer &A=abentaus->getAbenteurer();
@@ -150,12 +151,22 @@ const UniqueValue::value_t table_grundwerte::trace_channel
 
 void table_grundwerte::sync_wizard(gpointer x)
 {  //edit_sensitive();
-#warning wizard!
-   button_grundwerte->set_sensitive(true);
-   combo_typ->set_sensitive(false);
-   combo_typ2->set_sensitive(false);
-   combo_spezies->set_sensitive(true);
-   button_abg_werte->set_sensitive(false);
-   radiobutton_stadt->set_sensitive(true);
-   radiobutton_land->set_sensitive(true);
+   VAbentModelProxy &pr=hauptfenster->getChar().proxies;
+   bool always_sens=pr.wizard_mode.Value()<=Wizard::Hints
+   	|| hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active;
+   combo_spezies->set_sensitive(always_sens 
+   	|| between(pr.wizard.Value(),Wizard::START,Wizard::GRUNDWERTE));
+   button_grundwerte->set_sensitive(always_sens 
+   	|| between(pr.wizard.Value(),Wizard::START,Wizard::GRUNDWERTE)
+   	|| false /* Wert unter 350 */ );
+   combo_typ->set_sensitive(always_sens 
+   	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));
+   combo_typ2->set_sensitive(always_sens 
+   	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));
+   radiobutton_stadt->set_sensitive(always_sens 
+   	|| between(pr.wizard.Value(),Wizard::STADTLAND,Wizard::ABGELEITETEWERTE));
+   radiobutton_land->set_sensitive(always_sens 
+   	|| between(pr.wizard.Value(),Wizard::STADTLAND,Wizard::ABGELEITETEWERTE));
+   button_abg_werte->set_sensitive(always_sens 
+   	|| between(pr.wizard.Value(),Wizard::STADTLAND,Wizard::ABGELEITETEWERTE));
 }

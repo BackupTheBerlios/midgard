@@ -25,7 +25,7 @@
 #include <libmagus/NotFound.h>
 
 void table_steigern::on_kido_laden_clicked()
-{   
+{ if (notebook_lernen->get_current_page()!=PAGE_KIDO) return;
   list_Kido_neu.clear();
   try {
   int erfolgswert_kido = KiDo::get_erfolgswert_kido(hauptfenster->getAben().List_Fertigkeit());

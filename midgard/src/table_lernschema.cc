@@ -14,7 +14,8 @@
 #include <libmagus/Ausgabe.hh>
 
 void table_lernschema::refresh()
-{
+{ 
+   if (hauptfenster->get_current_page()!=midgard_CG::PAGE_LERNEN) return;
   show_gelerntes();
   zeige_werte();
 }
@@ -30,17 +31,18 @@ void table_lernschema::wizard_changed(gpointer p)
         button_beruf->grab_focus();
   }
   
-  if (vabenteurer->proxies.wizard.Value()!=Wizard::KIDO_STIL
-          && vabenteurer->proxies.wizard_mode.Value()>Wizard::Hints)
-     button_kido_auswahl->set_sensitive(false);
-  else 
-     button_kido_auswahl->set_sensitive(true);
-
-  if (vabenteurer->proxies.wizard.Value()!=Wizard::ANGEBORENEFERTIGKEITEN 
-          && vabenteurer->proxies.wizard_mode.Value()>Wizard::Hints)
-     button_angeborene_fert->set_sensitive(false);
-  else 
-     button_angeborene_fert->set_sensitive(true);
+  bool always_sens=vabenteurer->proxies.wizard_mode.Value()<=Wizard::Hints
+       || bool(vabenteurer->getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active);
+  button_angeborene_fert->set_sensitive(always_sens 
+  	|| vabenteurer->proxies.wizard.Value()==Wizard::ANGEBORENEFERTIGKEITEN);
+  button_kido_auswahl->set_sensitive(always_sens 
+  	|| vabenteurer->proxies.wizard.Value()==Wizard::KIDO_STIL);
+  togglebutton_lernpunkte_edit->set_sensitive(always_sens
+  	|| vabenteurer->proxies.wizard.Value()==Wizard::LERNPUNKTE);
+  button_angeborene_fert->set_sensitive(always_sens
+  	|| vabenteurer->proxies.wizard.Value()==Wizard::ANGEBORENEFERTIGKEITEN);
+  button_sensitive(always_sens
+  	|| vabenteurer->proxies.wizard.Value()==Wizard::WAEHLEN);
 }
 
 void table_lernschema::init(midgard_CG *h)
@@ -408,19 +410,12 @@ void table_lernschema::lernpflichten_info()
 
 #include "Zufall.hh"
 void table_lernschema::on_lernpunkte_wuerfeln_clicked()
-{ if (hauptfenster->getChar().proxies.werte_eingeben.Value()) 
-  {  togglebutton_lernpunkte_edit->set_active(true);
-     return;
-  }
-  lernpflichten_info();
-  hauptfenster->getChar().getWizard().done(Wizard::LERNPUNKTE,hauptfenster->getAben());
+{ lernpflichten_info();
   Zufall::Lernpunkte_wuerfeln(vabenteurer->getLernpunkte().getLernpunkte(),hauptfenster->getAben());
+  hauptfenster->getChar().getWizard().done(Wizard::LERNPUNKTE,hauptfenster->getAben());
   show_gelerntes();
 
   zeige_lernpunkte();
-
-  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
-     button_lernpunkte->set_sensitive(false);
 
   button_sensitive(true);
   on_lernliste_wahl_toggled();
@@ -432,8 +427,8 @@ void table_lernschema::button_sensitive(bool b)
   button_allgemeinwissen->set_sensitive(b);
   button_untyp_fertigkeiten->set_sensitive(b);
   button_waffen->set_sensitive(b);
-#warning Christof: Warum stürzt das Programm ab, wenn man das 'b &&' wegnimmt?
-  if(b && hauptfenster->getAben().is_mage())
+//#warning Christof: Warum stürzt das Programm ab, wenn man das 'b &&' wegnimmt?
+  if(hauptfenster && hauptfenster->getAben().is_mage())
       button_zauber->set_sensitive(b);
   button_beruf->set_sensitive(b);
   button_lernschema_geld->set_sensitive(b);
@@ -445,8 +440,9 @@ void table_lernschema::button_sensitive(bool b)
 
 
 void table_lernschema::on_togglebutton_lernpunkte_edit_toggled()
-{  
-  edit_lernpunkte(togglebutton_lernpunkte_edit->get_active());
+{  if (!hauptfenster->getChar().proxies.werte_eingeben.Value())
+      on_lernpunkte_wuerfeln_clicked();
+   else edit_lernpunkte(togglebutton_lernpunkte_edit->get_active());
 }
 
 void table_lernschema::edit_lernpunkte(bool b)
