@@ -1,5 +1,4 @@
 #include "midgard_CG.hh"
-#include "zufall.h"
 #include "WindowInfo.hh"
 
 void midgard_CG::on_grad_anstieg_clicked()
@@ -106,12 +105,17 @@ void midgard_CG::get_ausdauer(int grad)
   if (typ.ausdauer == "k")  nab = bonus_K ;
   if (typ.ausdauer == "ak") nab = bonus_aK ;
   if (typ.ausdauer == "z")  nab = bonus_Z ;
-  nap = ap + nab + werte.bo_au;
-//  cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<werte.bo_au<<" = "<<nap<<"\n";
-  string stinfo="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus\n";
+  nap = ap + nab + werte.bo_au ;
+  int nspez = werte.grad*spezies_constraint.ap_grad;
+  nap += nspez;
+//  cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<werte.bo_au<<" + "<<nspez<<" = "<<nap<<"\n";
+  string stinfo="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
    stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
    stinfo+="+";stinfo+=itos(werte.bo_au);stinfo+="=";stinfo+=itos(nap);
   manage(new WindowInfo(stinfo));
+   // Für alle ist die AP-anzahel mind. = Grad
+  if (werte.ap<werte.grad) werte.ap=werte.grad; 
+   // Neue AP höher als alte?
   (nap>werte.ap)?werte.ap=nap:0 ;
 }
 

@@ -19,18 +19,26 @@ INHALT:
 4) Beschreibung der Datenbank
 5) Erweiterung des Charaktergenerators
 
+
+
 ##########################################################################
 TODO
+* Vorraussetzungen bei Fertigkeiten, Waffen und Berufen werden angegeben, 
+   aber nicht kontrolliert, der Benutzer muß selber darauf achten, daß 
+   sein Charakter die Vorraussetzungen erfüllt.
+* Rüstung bei Spielbeginn
+* Waffen + Geld bei Spielbeginn
+* Vorteile, die ein Beruf gewährt werden nicht automatisch berücksichtigt.
+   Werden entsprechende Fertigkeiten gelernt, muß die Lernpunktezahl entsprechend
+   nach oben korrigiert werden.
+* Lernen mit Praxispunkten 
+* Spezialisierung für Magier einbauen (Spruchrollen und Erfolgswert)
 * Datenbank: 'arkanum_zauber' um  Sprüche für Beschwörer ergänzen.
 * Andere Rassen (Zwerg, Halbling, Ork, ...)
-* Charakterklassen aus den Quellenbüchern (siehe unten),
+* Eingeben einer Charakterbeschreibung
 
 ##########################################################################
 1. Abschnitt: Installation
-
-Eventuell neuere Versionen dieses Abschnittes findet man unter
-http://midgard.berlios.de/
-
 Vorraussetzungen:
 * C++ Compiler (gcc version 2.95.2 19991024)
 * Gtk+ (1.2.8)
@@ -39,7 +47,7 @@ Vorraussetzungen:
       ('glib-1.2.8.tar.gz' und 'gtk+1.2.3.tar.gz')
 * Gtk-- (1.2.4) [ heißt manchmal auch Gtkmm ]
    ## http://gtkmm.sourceforge.net/
-* Postgress Datenbank (psql 7.1beta4) <-- jetzt reicht auch 7.0 !!!!
+* Postgress Datenbank (psql 7.1beta4)
    ## http:/www.postgresql.org/
    ## ftp://ftpgreatbridge.com/pub/postgres/dev
 * LaTeX 
@@ -52,45 +60,55 @@ Vorraussetzungen:
    - glademm (V0.5_11e glade to Gtk-- converter)
       ## http://home.wtal.de/petig/Gtk
 
-Nun zum eigentlichen Charaktergenerator:
-Man benötigt die beiden Bibliotheken
-   -> 'ManuProC_Base-0.2.tar.gz'
-   -> 'gtkmmaddons-0.5.0.tar.gz'
-von Christof Petig, die Angeben zur Datenbank
-   -> 'midgard.postgres.gz'
-und das eigentliche Programm:
-   -> 'midgard-x.xx.tar.gz'
-wobei die 'x'se für die Versionsnummer stehen.
-Diese Pakete kopiert man in ein Installationsverzeichnis (z.B. /tmp)
-Dann packt man die Pakete aus:
-   'tar xcvz ________.tar.gz'
-Die beiden Bibliotheken werden jeweils mit
-   'configure --prefix=$HOME/midgard'
-   'make all'
-   'make install'
-übersetzt und installiert, wird die prefixopiton weggelassen installieren
- sich die Pakete global in /usr/local (dazu benötigt man aber root-Rechte).
-Nach dem Auspacken der Datenbank erhält man die Datei 'midgard.postgres'.
-Um diese in die Datenbank zu kopieren muß
-a) Die Datenbank Infrastruktur muß bereitgestellt werden:
-   als user 'postgress' (als root 'su postgres' eingeben) muß der 
-   Befehl: 'initdb' eingeben werden.
-b) Der Datenbankserver gestartet werden: 'pg_ctl start' (als user 'postgres') 
-   (Bei SuSE geht das auch als root mit 'rcpostgres start')
-c) Dann muß ein ein Benutzer angelegt werden: 'createuser' (auch als user 'postgres')
-   Hier gibt man den eigenen Benutzernamen (und andere Dinge) an.
-d) Die Datenbank 'midgard' muß angelegt werden :'createdb midgard'
-   ALS USER, den man bei c) angegeben hat.
-e) Die Datei ALS USER in die Datenbank kopieren:
-   'psql midgard < midgard.postgres'
+##########################################################################
+2. Abschnitt: Generierung eines neuen Charakters
 
-Nun muß nur :-) noch der eigentliche Charaktergenerator übersetzt und 
-installiert werden:
-   './configure --prefix=$HOME/midgard'
-   'make'
-   'make install'
+* Grundwerte würfeln (eventuell editieren)
+* Charaktertyp wählen
+* Abgeleitete Werte würfeln (eventuell editieren)
+* Werte editieren: 'Name des Charakters' und 'Version' eintragen, unter diesen 
+   beiden Angaben wird der Charakter in der Datenbank gespeichert.
+* Lernschema
+* Lernpunkte würfeln (eventuell editieren)
+* Beruf wählen
+* Erfolgswert für Beruf würfeln
+* Fertigkeiten auswählen
+* Angeborene Fertigkeit auswürfeln
+* Waffen auswählen 
+* Spezialwaffe wählen (nicht für Zauberer und Barden)
+* Zauber auswählen (nicht für Kämpfer außer Barde und Ordenskrieger)
+* Charakter speichern (in der Datenbank unter dem Schlüssel 
+   'Charaktername und Version'
+* Charakter drucken (Es wird ein druckfertiges Postscriptdokument mit 'gv' 
+   angezeigt, der Ausdruck kann dann aus diesem Programm heraus erfolgen.
 
-(Das prefix muß mit den prefix der Bibliotheken (s.o) übereinstimmen) 
+##########################################################################
+3. Abschnitt: Steigerung
+
+* Werte editieren: Charaktername und Version eintragen
+* Charakter laden
+* Steigern
+* Fertigkeiten (Fertigkeiten laden)
+   Im linken Fenster sind die Fertigkeiten, die der Charakter kann mit
+   dem jeweiligen Erfolgswert angegeben. Außerdem ist angegeben, wieviele
+   GFP die nächste Stufe (nach oben bzw nach unten) kostet. Beherrscht ein
+   Charakter eine Fertigkeit auf dem niedrigsten Erfolgswert, so kannn er
+   diese auch 'verlernen'.
+   Im rechten Fenster sind die lernbaren Fertigkeiten angegeben, und was
+   diese den Charakter kosten.
+* Waffen (Waffen laden)
+   Im unteren Bereich sind die Grundkenntnisse der Waffen aufgeführt.
+   Links die, die der Charakter bereits kann, rechts die, die er lernen kann
+   (mit Lernkosten in GFP).
+   Im oberen Bereich stehen links die Waffen, die der Charakter bei Spielbeginn
+   ausgewählt hat (mit Erfolgswert und Kosten für die nächst höhere bzw. 
+   niedirgere Stufe), rechts stehen die Waffen, die der Charakter mit dem
+   Erfolgswert +4 beherrscht, weil er die Grundkenntnisse in der jeweiligen 
+   Waffenart besitzt.
+* Zauber
+   Links die Zauber, die Ein Charakter kann, rechts die, die er lernen darf
+   (mit Kosten). Wählt man einen Zauber aus der linken Liste, so wird dieser
+   'verlernt'.
 
 ##########################################################################
 4. Abschnitt: Datenbank
@@ -123,25 +141,41 @@ installiert werden:
 4. Abschnitt: Erweiterung des Charaktergenerators
 
 a) Neue Charakterklassen:
+   * Eintag der neuen Charakterkasse in das Optionmenu (mit 'glade')
+      oder direkt in das Quellfile 'midgard_CG_glade.cc'
+   * Eintrag in 'get_typ.pgcc' wobei die Variable 'typs' mit dem 
+      entsprechenden Einträgen in der Datenbank 'typen' übereinstimmen muß.
    * Erweiterung der Datenbank:
       - lernschema
       - pflicht_lernen
       - typen
-      - arkanum_zauber (wenn es ein Zauberer ist)
+      - arkanum_zauber
       - fertigkeiten
       - waffen_standard
 
 b) Anderes
    * neue Zauber
       -> arkanum_zauber
-   * neue Berufe
-      -> berufe_voraussetzung, berufe_stand, berufe_vorteile
+   * neue berufe
+      -> berufe
    * neue Fertigkeiten
-      -> fertigkeiten, steigern_fertigkeiten, steigern_fertigkeiten_werte,
-         fertigkeiten_voraussetzung
+      -> fertigkeiten, steigern_fertigkeiten, steigern_fertigkeiten_werte
    * neue Waffen
       -> waffen, waffen_grund
 
 ##########################################################################
+Verteiler:
+jordanj@s.netic.de
+malte@knoerr.escape.de
+Fabian.Wagner@01019freenet.de
+klaus@caldera.de
+bernward_kett@hp.com
+HChristsen@aol.com
+Lynx@chello.at
+filippetti@wtal.de 
+aneren@wtal.de
+skeeve@gmx.de
+kraehe@copyleft.de
+robert.wenner@smail.inf.fh-rhein-sieg.de
+corelltd@rbg.informatik.tu-darmstadt.de
 
-pg_dump -O -x -c [-d|-D] midgard > midgard-postgres-0.2betha1

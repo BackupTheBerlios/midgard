@@ -33,8 +33,12 @@ void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, G
 {   
  string waffe = clist_waffe_neu->get_text(row,0);
  string region = clist_waffe_neu->get_text(row,2);
- if (region!="") waffe = hauptfenster->get_region_waffen(waffe,region,2);
- waffe_besitz.push_back(st_waffen_besitz(waffe,region,0,0));
+ if (region!="") 
+   { string wwaffe = hauptfenster->get_region_waffen(waffe,region,2);
+     waffe_besitz.push_back(st_waffen_besitz(wwaffe,waffe,region,0,0));
+   }
+ if (region=="") 
+     waffe_besitz.push_back(st_waffen_besitz(waffe,waffe,region,0,0));
   hauptfenster->on_speichern_clicked();
   show_alte_waffen();   
   show_neue_waffen();   

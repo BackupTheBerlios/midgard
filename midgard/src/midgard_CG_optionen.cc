@@ -20,14 +20,14 @@ void midgard_CG::on_checkbutton_Eschar_toggled()
 {   
   if (checkbutton_Eschar->get_active()) Escharbool=true;
   else Escharbool=false;
-  midgard_CG::regnot("");
+  midgard_CG::regnot("Der Derwisch hat leider noch kein Lernschema :-( ");
 }
 
 void midgard_CG::on_checkbutton_Rawindra_toggled()
 {   
   if (checkbutton_Rawindra->get_active()) Rawindrabool=true;
   else Rawindrabool=false;
-  midgard_CG::regnot("");
+  midgard_CG::regnot("Region noch in Arbeit: Fabian Wagner, Fabian.Wagner@01019freenet.de");
 }
 
 void midgard_CG::on_checkbutton_KanThaiPan_toggled()
@@ -41,14 +41,14 @@ void midgard_CG::on_checkbutton_Nahuatlan_toggled()
 {   
   if (checkbutton_Nahuatlan->get_active()) Nahuatlanbool=true;
   else Nahuatlanbool=false;
-  midgard_CG::regnot("");
+  midgard_CG::regnot("Region noch in Arbeit: Nils Richter, anarion@uni-muenster.de");
 }
 
 void midgard_CG::on_checkbutton_Waeland_toggled()
 {   
   if (checkbutton_Waeland->get_active()) Waelandbool=true;
   else Waelandbool=false;
-  midgard_CG::regnot("");
+  midgard_CG::regnot("Region noch in Arbeit: Stefan ????,   midgard-site@t-online.de");
 }
 
 void midgard_CG::on_checkbutton_Alba_toggled()
@@ -59,10 +59,5 @@ void midgard_CG::on_checkbutton_Alba_toggled()
 
 void midgard_CG::regnot(string sadd)
 {
-   string strinfo ="Region noch nicht implementiert\n";
-   strinfo += "da sich noch keiner gefunden hat, die Fertigkeiten abzutipppen.\n";
-   strinfo += "Freiwiliege sind immer willkommen :-). Meldet euch einfach bei mir:\n";
-   strinfo += "thoma@uni-muenster.de";
-   strinfo += sadd;
-   manage(new WindowInfo(strinfo));
+  manage(new WindowInfo(sadd));
 }

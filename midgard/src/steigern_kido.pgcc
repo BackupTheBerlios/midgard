@@ -4,7 +4,6 @@
 exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
-//#include "zufall.h"
 #include <strstream>
 #include "WindowInfo.hh"
 

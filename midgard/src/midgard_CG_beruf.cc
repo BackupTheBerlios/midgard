@@ -1,7 +1,6 @@
 #include "midgard_CG.hh"
 #include "Berufe_auswahl.hh"
 #include <Gtk_OStream.h>
-#include "zufall.h"
 
 void midgard_CG::on_berufe_wahl_clicked()
 {

@@ -7,23 +7,46 @@
 
 #include "midgard_CG.hh"
 #include <strstream>
-#include "zufall.h"
 
 void midgard_CG::gw_wuerfeln()
 {   
- get_spezies_constraint();
- werte.st = wuerfeln_best_of_two();
- werte.ge = wuerfeln_best_of_two();
- werte.ko = wuerfeln_best_of_two();
- werte.in = wuerfeln_best_of_two();
- werte.zt = wuerfeln_best_of_two();
+ Random random;
+ werte.st = constraint_gw(random,spezies_constraint.st);
+ werte.ge = constraint_gw(random,spezies_constraint.ge);
+ werte.ko = constraint_gw(random,spezies_constraint.ko);
+ werte.in = constraint_gw(random,spezies_constraint.in);
+ werte.zt = constraint_gw(random,spezies_constraint.zt);
 
  midgard_CG::zeige_werte(werte,"grund");
 }
 
-int midgard_CG::wuerfeln_best_of_two()
+int midgard_CG::constraint_gw(Random& random,int constraint)
 {
- Random random;
+ int wert;
+ if      (constraint==0) wert = wuerfeln_best_of_two(random);
+ else if (constraint<0) 
+   do wert = random.integer(1,100);
+   while (wert > -constraint);
+ else if (constraint > 0) 
+   { wert = wuerfeln_best_of_two(random);
+     while (wert < constraint) wert = random.integer(1,100);
+   }
+ return wert;
+}
+
+int midgard_CG::constraint_aw(Random& random,int constraint)
+{
+ int wert = random.integer(1,100);
+ if      (constraint==0) return wert;
+ else if (constraint<0) 
+   while (wert > -constraint);
+ else if (constraint > 0) 
+   while (wert < constraint) wert = random.integer(1,100);
+ return wert;
+}
+
+int midgard_CG::wuerfeln_best_of_two(Random& random)
+{
  int ran  = random.integer(1,100);
  int ran2 = random.integer(1,100);
  (ran > ran2) ? : ran=ran2;

@@ -15,5 +15,5 @@ void Midgard_Info::on_button_close_clicked()
 
 Midgard_Info::Midgard_Info()
 {
-   versionsnummer->set_text("Version: 0.3beta6");
+   versionsnummer->set_text("Version: 0.4beta0");
 }

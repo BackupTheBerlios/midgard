@@ -1,5 +1,4 @@
 #include "midgard_CG.hh"
-#include "zufall.h"
 
 void midgard_CG::on_abge_werte_setzen_clicked()
 {
@@ -8,18 +7,21 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   //////////////////////////////////////////////////////////////////////
   // Übrige Werte würfeln //////////////////////////////////////////////
   // Aussehn
-  werte.au = random.integer(1,100);
+//  werte.au = random.integer(1,100);
+  werte.au = constraint_aw(random,spezies_constraint.au);
   // pers. Ausstrahlung
   werte.pa = random.integer(1,100)-40 + werte.in/2. + werte.au/4. ;
   // Selbstbeherrschung
-  werte.sb = random.integer(1,100);
+//  werte.sb = random.integer(1,100);
+  werte.sb = constraint_aw(random,spezies_constraint.sb);
+
   // Reaktionswert
   werte.rw = random.integer(1,20)+10 + werte.ge/2. + werte.in/4.;
   // Handgemengewert
   werte.hgw = random.integer(1,20)+10+ werte.st/2. + werte.ge/4.;
   // Bewegungsweite
-  werte.b= random.integer(1,3)+random.integer(1,3)
-         + random.integer(1,3)+random.integer(1,3)+16;
+  werte.b = spezies_constraint.b_s;
+  for (int i=0;i<spezies_constraint.b_f;++i) werte.b+=random.integer(1,3);
   //////////////////////////////////////////////////////////////////////
   // Boni 
   // Assassine, Beschwörer & Druide
@@ -35,8 +37,9 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   if (typ.ausdauer == "z" ) werte.bo_au_typ = 2 ;
 //cout << werte.bo_au_typ<<"\n";
   // Werte würfeln und setzen
-  werte.lp = random.integer(1,6)+werte.lpbasis ;
-  werte.ap = random.integer(1,6)+werte.bo_au+werte.bo_au_typ ;
+  werte.lp = random.integer(1,6)+werte.lpbasis+spezies_constraint.lpbasis ;
+  werte.ap = random.integer(1,6)+werte.bo_au+werte.bo_au_typ + werte.grad*spezies_constraint.ap_grad ;
+  if (werte.ap<1) werte.ap=1;
   werte.abwehr_wert= 11 ;
   //Barde,Ordenskrieger,Zauberer
   if (typ.z == "j" || typ.z == "z") werte.zaubern_wert = "10" ;
@@ -44,11 +47,13 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   werte.psyZR_wert = 10;
   werte.phsZR_wert = 10;
   werte.phkZR_wert = 10;
-  werte.gift_wert = 3*werte.lp;
+  werte.gift_wert = 3*werte.lp + spezies_constraint.gift ;
   // Körper und Stand
-  werte.groesse = random.integer(1,20)+random.integer(1,20)+145+werte.st/10.;
-  
-  int ges=random.integer(1,6);
+  werte.groesse = spezies_constraint.groesse_s + werte.st/10.;
+  for (int i=0;i<spezies_constraint.groesse_f;++i) 
+      werte.groesse += random.integer(1,spezies_constraint.groesse_w) ;
+   
+  int ges=random.integer(1,6) + spezies_constraint.gestalt;
   int gin=werte.groesse-100;
   if (werte.st >= 81) ges++;
   if (werte.st >= 96) ges++;
@@ -137,4 +142,11 @@ void midgard_CG::grundwerte_boni_setzen()
       { werte.bo_phs+=3; werte.bo_psy+=3; werte.bo_phk+=3; }
   else
       { werte.bo_phs+=2; }
+
+  // Speziesspezifische Boni
+  if (werte.bo_ab <spezies_constraint.m_abb) werte.bo_ab =spezies_constraint.m_abb;
+  if (werte.bo_psy<spezies_constraint.m_psy) werte.bo_psy=spezies_constraint.m_psy;
+  if (werte.bo_phs<spezies_constraint.m_phs) werte.bo_phs=spezies_constraint.m_phs;
+  if (werte.bo_phk<spezies_constraint.m_phk) werte.bo_phk=spezies_constraint.m_phk;
+
 }

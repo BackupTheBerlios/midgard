@@ -1,5 +1,4 @@
 #include "midgard_CG.hh"
-#include "zufall.h"
 #include "Fertigkeiten_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Window_angeb_fert.hh"

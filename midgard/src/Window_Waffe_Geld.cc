@@ -8,7 +8,6 @@
 #include "config.h"
 #include "Window_Waffe_Geld.hh"
 #include "Window_Geld_eingeben.hh"
-#include "zufall.h"
 #include "itos.h"
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
@@ -40,7 +39,8 @@ void Window_Waffe_Geld::on_button_close_clicked()
   vector<st_waffen_besitz> waffe;
   for (unsigned int i=0;i<clist_gewaehlte_waffen->rows().size();++i)
    {
-     waffe.push_back(st_waffen_besitz(clist_gewaehlte_waffen->get_text(i,0),"",0,0));
+     string waffe=clist_gewaehlte_waffen->get_text(i,0);
+     waffe.push_back(st_waffen_besitz(waffe,waffe,"",0,0));
    }
   hauptfenster->waffe_besitz_uebernehmen(waffe);
   destroy();

@@ -60,12 +60,12 @@ string midgard_CG::get_region_waffen(string waffe, string region, int mod)
   if (mod==1) // get alias from waffe
    {
      exec sql select alias into :db_ergebnis from waffen_region_name 
-         where name = :db_waffe and region = :db_region;
+         where name = :db_waffe and region = :db_region limit 1;
    }
   if (mod==2) // get waffe from alias
    {
      exec sql select name into :db_ergebnis from waffen_region_name
-         where alias = :db_waffe and region = :db_region;
+         where alias = :db_waffe and region = :db_region limit 1;
    }
   SQLerror::test(__FILELINE__,100);
   if (sqlca.sqlcode) return(waffe);

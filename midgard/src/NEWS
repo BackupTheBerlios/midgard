@@ -1,13 +1,20 @@
 ##########################################################################
-NEWS IN VERSION 0.3beta7
-Es können nur noch die Charterklassen gewählt werden, die die Rasse zuläßt.
-Tabelle für die Spezies fertiggestellt.
-Zauberwerk:
-Alchimistische und pflanzliche Zaubermittel können jetzt gelernt werden 
-und die jeweiligen Vorraussetzungen werden kontrolliert (Puh!) 
-Wasser weihen und Zauberpergament beschriften geht auch.
-Amulette und Talismane jetzt auch ...
-
+NEWS IN VERSION 0.4beta0
+- Es können nur noch die Charterklassen gewählt werden, die die Spezies zuläßt.
+- Modifikationen der Grundwerte anderer Spezies werden korrekt berechnet
+- Modifikationen abgeleitete Werte anderer Spezies werden berücksichtigt
+- Alchimistische und pflanzliche Zaubermittel, Talismane und Amulette 
+   herstellen kann jetzt gelernt (und ausgedruckt werden). Die jeweiligen
+   Voraussetzungen werden kontrolliert. Wasser weihen und Zauberpergament 
+   beschriften kann ebenfalls gelernt werden.
+- Eschar ist eingearbeitet, mir fehlt nur noch ein Lernschema für den 
+   Derwisch :-(
+- Durch die Einarbeitung von Eschar war es nötig sich nocheinmal mit dem 
+   Waffenbesitz zu beschäftigen: Es ist jetzt möglich, daß für eine Region
+   mehrere Aliasnamen für die selbe Waffenart existieren (Bsp.: Jamblya
+   = Dolch und Jarid = Dolch)
+- Zahllose Bugs beseitigt (Ich befürchte nur, daß durch die vielen Neuerungen
+   auch wieder einige hinzugekommen sind :-(Ich bitte um Rückmeldung)
 
 ##########################################################################
 NEWS IN VERSION 0.3beta6

@@ -24,6 +24,7 @@
 #include <vector>
 #include <map>
 #include "itos.h"
+#include "zufall.h"
 
 struct st_werte{int st; int ge;int ko;int in;int zt;
              int au;int pa;int sb;int rw;int hgw;
@@ -68,10 +69,10 @@ struct st_angeborene_fertigkeit {string name; int erfolgswert;
 struct st_ausgewaehlte_waffen {string name; int erfolgswert; 
       st_ausgewaehlte_waffen(const string n,int e)
       : name(n),erfolgswert(e) {} };
-struct st_waffen_besitz {string name; string region ;int av_bonus; int sl_bonus;
-   st_waffen_besitz(string n, string r,int a, int s) 
-   : name(n), region(r),av_bonus(a),sl_bonus(s) {}
-   st_waffen_besitz() : name(""), region(""), av_bonus(0), sl_bonus(0) {} };
+struct st_waffen_besitz {string name; string alias; string region ;int av_bonus; int sl_bonus;
+   st_waffen_besitz(string n, string na, string r,int a, int s) 
+   : name(n), alias(na), region(r),av_bonus(a),sl_bonus(s) {}
+   st_waffen_besitz() : name(""), alias(""), region(""), av_bonus(0), sl_bonus(0) {} };
 struct st_ausgewaehlte_zauber {string name; string ap; 
       st_ausgewaehlte_zauber(const string n, const string a)
       : name(n), ap(a) {} };
@@ -149,7 +150,9 @@ class midgard_CG : public midgard_CG_glade
         void on_muttersprache_clicked();
         void gw_wuerfeln();
         void get_spezies_constraint();
-        int  wuerfeln_best_of_two();
+        int  constraint_gw(Random& random,int constraint);
+        int  constraint_aw(Random& random,int constraint);
+        int  wuerfeln_best_of_two(Random& random);
         void werte_editieren();
         void on_abge_werte_setzen_clicked();
         void grundwerte_boni_setzen();

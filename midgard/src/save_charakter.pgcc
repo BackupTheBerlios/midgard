@@ -198,7 +198,7 @@ void midgard_CG::on_speichern_clicked()
    for (vector<st_waffen_besitz>::iterator i=waffe_besitz.begin();
          i!=waffe_besitz.end();++i)
       {
-         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
+         strncpy(db_fertigkeit, i->alias.c_str(),sizeof(db_fertigkeit));
          db_av_bonus = i->av_bonus;
          db_sl_bonus = i->sl_bonus;
          strncpy(db_region,i->region.c_str(),sizeof(db_region));

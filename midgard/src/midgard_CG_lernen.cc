@@ -1,7 +1,6 @@
 #include "midgard_CG.hh"
 #include "Window_lernpunkte_editieren.hh"
 #include "Window_Waffe_Geld.hh"
-#include "zufall.h"
 
 
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
@@ -15,8 +14,11 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   int age = lernpunkte.beruf + lernpunkte.fertigkeiten 
           + lernpunkte.waffen + lernpunkte.zauber;
 
-  if (typ.z=="z" ) alter->set_text(itos(age/4+19));
-  if (typ.z=="n" || typ.z=="j") alter->set_text(itos(age/4+16));
+  if (typ.z=="z" ) werte.alter = age/4+19;
+  if (typ.z=="n" || typ.z=="j") werte.alter = age/4+16;
+  werte.alter *= spezies_constraint.alter;
+  alter->set_text(itos(werte.alter));
+  
   midgard_CG::zeige_lernpunkte();
 }
 

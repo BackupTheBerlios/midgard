@@ -3,7 +3,6 @@
 #include <Aux/SQLerror.h>
 #include "WindowInfo.hh"
 #include <strstream>
-#include "zufall.h"
 exec sql include sqlca;
 
 int midgard_CG::praxispunkte_wuerfeln(string fert,int alter_wert, string art, bool wuerfeln)

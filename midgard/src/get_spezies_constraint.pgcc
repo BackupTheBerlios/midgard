@@ -1,19 +1,48 @@
-include "midgard_CG.hh"
+#include "midgard_CG.hh"
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
 
 
-midgard_CG::get_spezies_constraint()
+void midgard_CG::get_spezies_constraint()
 {
  exec sql begin declare section;
-   int ST,GE,KO,IN,ZT,STM,GES,KOM,INM,ZTM;
+   int ST,GE,KO,IN,ZT;
+   int SB,AU,LPBASIS,AP_GRAD,GIFT,ABB,PSY,PHS,PHK,ALTER,GF,GW,GS,
+      GESTALT,BF,BS;
    char SPEZIES[50];
  exec sql end declare section;
  strncpy(SPEZIES,werte.spezies.c_str(),sizeof(SPEZIES));
- exec sql select coalesce(-m_st,h_st) into ST
+ exec sql select coalesce(m_st,-h_st), coalesce(m_ge,-h_ge),
+      coalesce(m_ko,-h_ko), coalesce(m_in,-h_in), coalesce(m_zt,-h_zt) ,
+      coalesce(m_sb,-h_sb), coalesce(m_au,-h_au), lpbasis, ap_grad,
+      coalesce(gift,0), coalesce(m_abb,0), coalesce(m_psy,0), coalesce(m_phs,0), 
+      coalesce(m_phk,0),alter,groesse_f,groesse_w,groesse_s,
+      coalesce(gestalt,0),b_f,b_s
+      into :ST,:GE,:KO,:IN,:ZT,:SB,:AU,:LPBASIS,:AP_GRAD,:GIFT,
+         :ABB,:PSY,:PHS,:PHK,:ALTER,:GF,:GW,:GS,:GESTALT,:BF,:BS
    from spezies where spezies = :SPEZIES;
  SQLerror::test(__FILELINE__); 
  spezies_constraint.st=ST;
+ spezies_constraint.ge=GE;
+ spezies_constraint.ko=KO;
+ spezies_constraint.in=IN;
+ spezies_constraint.zt=ZT;
 
-cerr<< spezies_constraint.st<<"<--\n";
+ spezies_constraint.sb=SB;
+ spezies_constraint.au=AU;
+ spezies_constraint.lpbasis=LPBASIS;
+ spezies_constraint.ap_grad=AP_GRAD;
+ spezies_constraint.gift=GIFT;
+ spezies_constraint.m_abb=ABB;
+ spezies_constraint.m_psy=PSY;
+ spezies_constraint.m_phs=PHS;
+ spezies_constraint.m_phk=PHK;
+ spezies_constraint.alter=ALTER;
+ spezies_constraint.groesse_f=GF;
+ spezies_constraint.groesse_w=GW;
+ spezies_constraint.groesse_s=GS;
+ spezies_constraint.gestalt=GESTALT;
+ spezies_constraint.b_f=BF;
+ spezies_constraint.b_s=BS;
+
 }
