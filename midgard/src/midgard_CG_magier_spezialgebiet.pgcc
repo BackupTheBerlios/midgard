@@ -72,3 +72,6 @@ void midgard_CG::spezialgebiet_button()
  werte.spezial2=vec_spezialgebiet[i].spezial2;
 } 
 
+void midgard_CG::get_spezial_from_spezialgebiet()
+{
+}

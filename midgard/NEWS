@@ -1,5 +1,10 @@
 ##########################################################################
 NEWS IN VERSION 0.4beta2
+- Umstellung der Spezialgebiete von Magiern auf die Datanbankebene.
+   dadurch wird es möglich sein auch Elemenetarbeschwörer ein Spezialgebiet
+   (bzw.) Primär und Sekundärelement wählen zu lassen.
+- Beschwörungen sind in der Datenbank. Damit ist es möglich Beschwörungen 
+   über das 'steigern' zu lernen.
 
 ##########################################################################
 NEWS IN VERSION 0.4beta1

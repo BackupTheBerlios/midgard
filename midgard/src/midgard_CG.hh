@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.15 2001/04/19 11:45:35 christof Exp $
+// $Id: midgard_CG.hh,v 1.16 2001/04/19 11:46:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -183,7 +183,7 @@ class midgard_CG : public midgard_CG_glade
         void on_neuer_charakter_clicked();
         void on_button_hilfe_clicked();
         void on_charakter_beschreibung_clicked();
-        void midgard_CG::charakter_db_anlegen();
+        void charakter_db_anlegen();
         void on_laden_clicked();
         void load_charakter();
         void on_latex_clicked();
@@ -212,6 +212,7 @@ class midgard_CG : public midgard_CG_glade
         void spezialgebiet_button();
         void spezialgebiet_button_fill();
         void magier_spezialgebiet(const string& whattodo);
+        void get_spezial_from_spezialgebiet();
         void on_zauber_wahl_clicked();
         void on_berufe_wahl_clicked();
         void on_kido_wahl_clicked();
@@ -280,7 +281,7 @@ class midgard_CG : public midgard_CG_glade
 
         void on_zauber_laden_clicked();
         void on_spruchrolle_toggled();
-        int midgard_CG::spruchrolle_wuerfeln(int istufe, string art, string zauber);
+        int spruchrolle_wuerfeln(int istufe, string art, string zauber);
         void on_steigern_zauber_clist_alt_select_row(gint row, gint column, GdkEvent *event);
         void on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event);
         void show_alte_zauber();
