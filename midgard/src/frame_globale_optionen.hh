@@ -14,18 +14,14 @@
 #  define _FRAME_GLOBALE_OPTIONEN_HH
 
 class midgard_CG;
-#include "Optionen.hh"
+#include "Magus_Optionen.hh"
 #include <gtkmm/checkbutton.h>
 
-
 class frame_globale_optionen : public frame_globale_optionen_glade
-{  
-        
-        friend class frame_globale_optionen_glade;
-        midgard_CG *hauptfenster;
+{	midgard_CG *hauptfenster;
 
-        void element_activate_C(gpointer gp,Midgard_Optionen::OptionenCheckIndex index);         
-        void element_activate_H(gpointer gp,Midgard_Optionen::HausIndex index);         
+        void element_activate_C(gpointer gp,Midgard_Optionen::OptionenCheckIndex index);
+        void element_activate_H(gpointer gp,Midgard_Optionen::HausIndex index);
         void element_show_or_hide(gpointer gp,Gtk::Widget *widget,Model<int> *wert);
 
         void on_spinbutton_notebookpage_changed(Midgard_Optionen::OptionenCheckIndex index);
@@ -36,6 +32,5 @@ public:
         }
         void init();
         void set_Hauptfenster(midgard_CG *h);
-              
 };
 #endif
