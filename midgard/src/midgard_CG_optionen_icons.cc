@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.3 2002/08/28 13:11:45 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.4 2002/09/04 14:28:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,8 @@
 #include "../pixmaps/Info-trans-50.xpm"
 #include "../pixmaps/Help-trans-50.xpm"
 #include "../pixmaps/Exit-trans-50.xpm"
+#include "../pixmaps/Excl-32.xpm"
+#include "../pixmaps/Erase-50.xpm"
 // Ulfs Icons
 #include "../pixmaps/Anleitung.xpm"
 #include "../pixmaps/Drucken.xpm"
@@ -58,6 +60,8 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iHelp)       return st_icons("Hilfe"       ,Help_trans_new1_xpm    );
      else if(typ==iInstruction)return st_icons("Anleitung"   ,Help_trans_new1_xpm    );
      else if(typ==iExit)       return st_icons("Schließen"   ,Exit_trans_50_xpm      );
+     else if(typ==iJa)         return st_icons("Ja"          ,Excl_32_xpm);
+     else if(typ==iNein)       return st_icons("Nein"        ,Erase_50_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
    {
@@ -72,6 +76,8 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iHelp)       return st_icons("Hilfe"       ,Hilfe_xpm    );
      else if(typ==iInstruction)return st_icons("Anleitung"   ,Anleitung_xpm    );
      else if(typ==iExit)       return st_icons("Schließen"   ,Schliessen_xpm      );
+     else if(typ==iJa)         return st_icons("Ja"          ,Neu_xpm);
+     else if(typ==iNein)       return st_icons("Nein"        ,Schliessen_xpm);
    }
   assert(!"never get here");
   abort();
@@ -80,6 +86,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
 void midgard_CG::Icons_setzen()
 {
   e_icon icon_counter=iNew;
+  // toplevel toolbar
   for(Gtk::Toolbar_Helpers::ToolList::iterator i=toolbar_top->tools().begin();i!=toolbar_top->tools().end();++i)
    {
      if((*i)->get_type()==GTK_TOOLBAR_CHILD_SPACE) continue;      
@@ -91,4 +98,25 @@ void midgard_CG::Icons_setzen()
      if(Gtk::Label::isA((*i)->get_label())) 
         (*i)->get_label()->set_text(I.text);
    }
+  // InfoFenster
+  Gtk::Widget *child = dynamic_cast<Gtk::Bin*>(InfoFenster->button_bestaetigen)->get_child();
+  Box_setzen(child,StyleIcon(iJa));
+  child = dynamic_cast<Gtk::Bin*>(InfoFenster->button_abbrechen)->get_child();
+  Box_setzen(child,StyleIcon(iNein));
 }
+
+void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
+{
+  if(child && Gtk::Box::isA(child)) 
+   {
+     Gtk::Box_Helpers::BoxList &ch=dynamic_cast<Gtk::Box*>(child)->children();
+     for(Gtk::Box_Helpers::BoxList::iterator i=ch.begin();i!=ch.end();++i)
+      {
+        if(Gtk::Pixmap::isA((*i)->get_widget())) 
+            dynamic_cast<Gtk::Pixmap*>((*i)->get_widget())->set(I.icon);
+        if(Gtk::Label::isA((*i)->get_widget()) )
+            dynamic_cast<Gtk::Label*>((*i)->get_widget())->set_text(I.text);
+      }
+   }
+}
+

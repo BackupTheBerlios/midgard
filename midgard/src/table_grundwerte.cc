@@ -14,6 +14,7 @@
 void table_grundwerte::init(midgard_CG *h)
 {
   hauptfenster=h;
+  label=0;
 
   Vstand.resize(5);
   Vstand[1]="Unfrei";
@@ -119,8 +120,7 @@ void table_grundwerte::neuer_charakter()
    button_abg_werte->set_sensitive(false);
    radiobutton_stadt->set_sensitive(true);
    radiobutton_land->set_sensitive(true);
-   table_werte_wuerfeln->hide();
-   table_bw_wurf->hide();
+   frame_wuerfelvariante->hide();
    if(hauptfenster->getWerte().Stadt_Land()=="Land")  radiobutton_land->set_active(true);
    if(hauptfenster->getWerte().Stadt_Land()=="Stadt")  radiobutton_stadt->set_active(true);
    fill_typauswahl();

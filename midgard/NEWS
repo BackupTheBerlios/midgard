@@ -1,4 +1,26 @@
 ##########################################################################
+NEWS IN VERSION 0.8.1
+
+* Icons für Ja/Nein Auswahl von Ulf im M$-Stil (wenn sie denn da wären :-)
+* Gründliche Überarbeitung des Codes für 'Würfelvarianten' (kürzer, klarer)
+
+TODO: ('-' zeigt CP an)
+* Schwarzer Balken im Lernschema bei Maximierung
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
+  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
+* Ausrüstungsauswahl stürzt ab
+- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? (Nein:-)
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+- .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
+- xml laden beschleunigen (merge with map, reservate on vectors)
+
+
+##########################################################################
 NEWS IN VERSION 0.8
 # Eigentlich ist dies keine neue Version, aber nach Christofs und meinem
    Uraub hat sich viel an MAGUS getan, daher spendiere ich ihm jetzt eine 

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.12 2002/06/30 07:55:31 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.13 2002/09/04 14:28:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,9 +41,6 @@ gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton 
                                  + 3*(hauptfenster->getWerte().In()/10 
                                       + hauptfenster->getWerte().Au()/10) );
   combo_spezies->set_sensitive(false);
-  zeige_werte(false);
-  fill_typauswahl();
-  fill_typauswahl_2();
   return false;
 }
 
@@ -64,70 +61,25 @@ void table_grundwerte::Eigenschaften_variante(int i)
   button_abg_werte->set_sensitive(true);
   combo_typ->set_sensitive(true);
   combo_typ->grab_focus();
-  std::vector<int> a350;
   if (i==1) 
    { gw_wuerfeln_2x();
-     table_werte_wuerfeln->hide();
-     std::vector<int> dummy;
-     check_350(dummy);
+     frame_wuerfelvariante->hide();
+     check_350();
+     return;
    }
-  else if (i==2)
-   {
-     set_werte_label_2();
-     werte_label_count=0;
-     gw_setzen();
-     button_wert_1->set_sensitive(true);
-     button_wert_2->set_sensitive(true);
-     button_wert_3->set_sensitive(true);
-     button_wert_4->set_sensitive(true);
-     button_wert_5->set_sensitive(true);
-     button_wert_6->set_sensitive(true);
-     button_wert_7->hide();
-     button_wert_8->hide();
-     button_wert_9->hide();
-     table_werte_wuerfeln->show();
-     table_bw_wurf->show();
-   }
-  else if (i==3)
-   {
-     std::vector<int> V;
-     for(int i=0;i<9;++i) V.push_back(hauptfenster->random.integer(1,100)) ;
-     sort(V.rbegin(),V.rend());
-     button_wert_1->remove();
-     button_wert_1->add_label(itos(V[0]));
-     button_wert_2->remove();
-     button_wert_2->add_label(itos(V[1]));
-     button_wert_3->remove();
-     button_wert_3->add_label(itos(V[2]));
-     button_wert_4->remove();
-     button_wert_4->add_label(itos(V[3]));
-     button_wert_5->remove();
-     button_wert_5->add_label(itos(V[4]));
-     button_wert_6->remove();
-     button_wert_6->add_label(itos(V[5]));
-     button_wert_7->remove();
-     button_wert_7->add_label(itos(V[6]));
-     button_wert_8->remove();
-     button_wert_8->add_label(itos(V[7]));
-     button_wert_9->remove();
-     button_wert_9->add_label(itos(V[8]));
-     werte_label_count=0;
-     set_werte_label_3();
-     button_wert_1->set_sensitive(true);
-     button_wert_2->set_sensitive(true);
-     button_wert_3->set_sensitive(true);
-     button_wert_4->set_sensitive(true);
-     button_wert_5->set_sensitive(true);
-     button_wert_6->set_sensitive(true);
-     button_wert_7->set_sensitive(false);
-     button_wert_8->set_sensitive(false);
-     button_wert_9->set_sensitive(false);
-     button_wert_7->show();
-     button_wert_8->show();
-     button_wert_9->show();
-     table_werte_wuerfeln->show();
-     for(int i=0;i<6;++i) a350.push_back(V[i]) ;
-   }
+
+  Veigenschaften.clear();
+  Veigenschaften.push_back(st_eigen(est,"die Stärke","St"));
+  Veigenschaften.push_back(st_eigen(egs,"die Geschicklichkeit","Gs"));
+  Veigenschaften.push_back(st_eigen(egw,"die Gewandheit","Gw"));
+  Veigenschaften.push_back(st_eigen(eko,"die Konstitution","Ko"));
+  Veigenschaften.push_back(st_eigen(ein,"die Intelligenz","In"));
+  Veigenschaften.push_back(st_eigen(ezt,"das Zaubertalent","Zt"));
+  actual_eigen=est;
+
+  if      (i==2)  gw_variante_2();
+  else if (i==3)  gw_variante_3();
+  frame_wuerfelvariante->show();
 }
 
 void table_grundwerte::check_350(const std::vector<int>& a)
@@ -147,147 +99,12 @@ void table_grundwerte::check_350(const std::vector<int>& a)
    {  hauptfenster->set_status("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muß aber nicht) noch einmal gewürfelt werden.",false);
       button_grundwerte->set_sensitive(true);
    }
+  zeige_werte(false);
+  fill_typauswahl();
+  fill_typauswahl_2();
 }
 
 
-
-//////////////////////////////////////////////////////////////////////////
-void table_grundwerte::gw_setzen(Gtk::Label *L,int button)
-{
-  if(L) 
-   {
-     int w=atoi(label_besserer_wurf->get_text().c_str());
-     if(L->get_text()=="St") {hauptfenster->getWerte().setSt(w); spinbutton_st->set_value(w);}
-     else if(L->get_text()=="Gs") {hauptfenster->getWerte().setGs(w); spinbutton_gs->set_value(w);}
-     else if(L->get_text()=="Gw") {hauptfenster->getWerte().setGw(w); spinbutton_gw->set_value(w);}
-     else if(L->get_text()=="Ko") {hauptfenster->getWerte().setKo(w); spinbutton_ko->set_value(w);}
-     else if(L->get_text()=="In") {hauptfenster->getWerte().setIn(w); spinbutton_in->set_value(w);}
-     else if(L->get_text()=="Zt") {hauptfenster->getWerte().setZt(w); spinbutton_zt->set_value(w);}
-   }
-  if(++werte_label_count==7)
-   {
-    table_werte_wuerfeln->hide();
-    table_bw_wurf->hide();
-    std::vector<int> dummy;
-    check_350(dummy);
-    return;
-   }
-
-  vector<int> V;
-  for(int j=0;j<2;++j) V.push_back(hauptfenster->random.integer(1,100)) ;
-  sort(V.rbegin(),V.rend());
-
-  label_werte->set_text("Für welche Basiseigenschaft soll der Wurf verwendet werden?") ;
-  label_besserer_wurf->set_text(itos(V[0]));
-  label_schlechterer_wurf->set_text("("+itos(V[1])+")");
-}
-
-
-void table_grundwerte::set_werte_label_2()
-{
-  button_wert_1->remove();
-  button_wert_1->add_label("St");
-  button_wert_2->remove();
-  button_wert_2->add_label("Gs");
-  button_wert_3->remove();
-  button_wert_3->add_label("Gw");
-  button_wert_4->remove();
-  button_wert_4->add_label("Ko");
-  button_wert_5->remove();
-  button_wert_5->add_label("In");
-  button_wert_6->remove();
-  button_wert_6->add_label("Zt");
-}
-
-//////////////////////////////////////////////////////////////////////////
-
-void table_grundwerte::set_werte_label_3(Gtk::Label *L)
-{
-  if(werte_label_count==0)
-     label_werte->set_text("Welcher Wert soll für die  Stärke (St) verwendet werden?") ;
-  else
-   {
-     int w=atoi(L->get_text().c_str());
-     switch(werte_label_count) {
-      case 1 : 
-            spinbutton_st->set_value(w);
-            hauptfenster->getWerte().setSt(w);
-            label_werte->set_text("Welcher Wert soll für die  Geschicklichkeit (Gs) verwendet werden?");
-            break;
-      case 2 :
-            spinbutton_gs->set_value(w);
-            hauptfenster->getWerte().setGs(w);
-            label_werte->set_text("Welcher Wert soll für die  Gewandheit (Gw) verwendet werden?");
-            break;
-      case 3 : 
-            spinbutton_gw->set_value(w);
-            hauptfenster->getWerte().setGw(w);
-            label_werte->set_text("Welcher Wert soll für die  Konstitution (Ko) verwendet werden?");
-            break;
-      case 4 : 
-            spinbutton_ko->set_value(w);
-            hauptfenster->getWerte().setKo(w);
-            label_werte->set_text("Welcher Wert soll für die  Intelligenz (In) verwendet werden?");
-            break;
-      case 5 : 
-            spinbutton_in->set_value(w);
-            hauptfenster->getWerte().setIn(w);
-            label_werte->set_text("Welcher Wert soll für das  Zaubertalent (Zt) verwendet werden?");
-            break;
-      default: 
-            spinbutton_zt->set_value(w);
-            hauptfenster->getWerte().setZt(w);
-            table_werte_wuerfeln->hide();
-            table_bw_wurf->hide();
-        } 
-   }
-  ++werte_label_count;
-}
-
-//////////////////////////////////////////////////////////////////////////
-
-void table_grundwerte::on_button_wert_1_clicked()
-{
-  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_1->get_child());
-  button_wert_1->set_sensitive(false);
-  if(l->get_text()=="St") gw_setzen(l,1);
-  else  set_werte_label_3(l);
-}
-void table_grundwerte::on_button_wert_2_clicked()
-{
-  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_2->get_child());
-  button_wert_2->set_sensitive(false);
-  if(l->get_text()=="Gs") gw_setzen(l,2);
-  else  set_werte_label_3(l);
-}
-void table_grundwerte::on_button_wert_3_clicked()
-{
-  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_3->get_child());
-  button_wert_3->set_sensitive(false);
-  if(l->get_text()=="Gw") gw_setzen(l,3);
-  else  set_werte_label_3(l);
-}
-void table_grundwerte::on_button_wert_4_clicked()
-{
-  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_4->get_child());
-  button_wert_4->set_sensitive(false);
-  if(l->get_text()=="Ko") gw_setzen(l,4);
-  else  set_werte_label_3(l);
-}
-void table_grundwerte::on_button_wert_5_clicked()
-{
-  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_5->get_child());
-  button_wert_5->set_sensitive(false);
-  if(l->get_text()=="In") gw_setzen(l,5);
-  else  set_werte_label_3(l);
-}
-void table_grundwerte::on_button_wert_6_clicked()
-{
-  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_6->get_child());
-  button_wert_6->set_sensitive(false);
-  if(l->get_text()=="Zt") gw_setzen(l,6);
-  else  set_werte_label_3(l);
-}
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -299,8 +116,6 @@ void table_grundwerte::gw_wuerfeln_2x()
      constraint_gw(hauptfenster->getWerte().Spezies()->Ko()),
      constraint_gw(hauptfenster->getWerte().Spezies()->In()),
      constraint_gw(hauptfenster->getWerte().Spezies()->Zt()));
-// zeige_werte(false);
-// hauptfenster->zeige_werte();
 }
 
 //static inline int max(int a,int b) { return a>b?a:b; }
@@ -333,4 +148,130 @@ int table_grundwerte::wuerfeln_best_of_two()
  int ran2 = hauptfenster->random.integer(1,100);
  (ran > ran2) ? : ran=ran2;
  return ran;
+}
+
+///////////////////////////////////////////////////////////////
+
+
+void table_grundwerte::gw_variante_2()
+{
+  
+  Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
+  Gtk::Label *lab = manage(new class Gtk::Label("6x gewürfelt, jetzt die Werte zuordnen."));  
+  tab->attach(*lab, 0, int(eMAX), 0, 1, GTK_FILL, 0, 0, 0);
+  int count=0;
+  for(std::vector<st_eigen>::const_iterator i=Veigenschaften.begin();i!=Veigenschaften.end();++i)
+   {
+     Gtk::Button *b = manage(new class Gtk::Button(i->kurz));
+     tab->attach(*b, count, count+1, 2, 3, GTK_FILL, 0, 0, 0);
+     b->clicked.connect(SigC::bind(SigC::slot(static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_2_clicked),b,i->eigenschaft));
+     ++count;     
+   }
+  if(label) delete label;
+  label = manage(new class Gtk::Label("XXX"));  
+  tab->attach(*label, 0, int(eMAX), 1, 2, GTK_FILL, 0, 0, 0);
+  frame_wuerfelvariante->add(*tab);
+  frame_wuerfelvariante->show_all();
+  gw_variante_2_next();
+}
+
+enum table_grundwerte::e_eigen &operator++(enum table_grundwerte::e_eigen &s)
+{  return (enum table_grundwerte::e_eigen)(++(int&)s);
+}
+
+
+void table_grundwerte::on_button_variante_2_clicked(Gtk::Button *button,e_eigen eigenschaft)
+{
+  button->set_sensitive(false);
+  set_Grundwerte(eigenschaft,actual_wurf);
+  gw_variante_2_next();
+}
+
+
+void table_grundwerte::gw_variante_2_next()
+{
+  if(!label) return;
+  vector<int> V;
+  for(int j=0;j<2;++j) V.push_back(hauptfenster->random.integer(1,100)) ;
+  sort(V.rbegin(),V.rend());
+  std::string W=itos(V[0])+"("+itos(V[1])+")";
+  label->set_text("Wurf: "+W+"   Für welche Eigenschaft soll dieser Wurf verwendet werden?");  
+  actual_wurf=V[0];
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+void table_grundwerte::gw_variante_3()
+{
+  std::vector<int> V;
+  for(int i=0;i<9;++i) V.push_back(hauptfenster->random.integer(1,100)) ;
+  sort(V.rbegin(),V.rend());
+            
+  Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
+  Gtk::Label *lab = manage(new class Gtk::Label("9x gewürfelt, jetzt die Werte den Eigenschaften zuordnen."));  
+  tab->attach(*lab, 0, 9, 0, 1, GTK_FILL, 0, 0, 0);
+  int count=0;
+  for(std::vector<int>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     Gtk::Button *b = manage(new class Gtk::Button(itos(*i)));
+     tab->attach(*b, count, count+1, 2, 3, GTK_FILL, 0, 0, 0);
+     b->clicked.connect(SigC::bind(SigC::slot(static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_3_clicked),b,*i));
+     if(count>5) b->set_sensitive(false);
+     ++count;     
+   }
+  if(label) delete label;
+  label = manage(new class Gtk::Label("XXX"));  
+  tab->attach(*label, 0, 9, 1, 2, GTK_FILL, 0, 0, 0);
+  frame_wuerfelvariante->add(*tab);
+  frame_wuerfelvariante->show_all();
+  gw_variante_3_next();
+}
+
+
+void table_grundwerte::gw_variante_3_next()
+{
+  std::vector<st_eigen>::const_iterator i=find(Veigenschaften.begin(),Veigenschaften.end(),actual_eigen);
+  if(label)
+     label->set_text("Welcher Wert soll für "+i->lang+" ("+i->kurz+") verwendet werden?");  
+}
+
+void table_grundwerte::on_button_variante_3_clicked(Gtk::Button *button,int wert)
+{
+  button->set_sensitive(false);
+  set_Grundwerte(actual_eigen,wert);
+  gw_variante_3_next();
+}
+
+//#include<gtk--/table.h>
+
+void table_grundwerte::set_Grundwerte(e_eigen eigenschaft,int wert)
+{
+  switch(eigenschaft) {
+     case est : hauptfenster->getWerte().setSt(wert); break;
+     case egw : hauptfenster->getWerte().setGw(wert); break;
+     case egs : hauptfenster->getWerte().setGs(wert); break;
+     case eko : hauptfenster->getWerte().setKo(wert); break;
+     case ein : hauptfenster->getWerte().setIn(wert); break;
+     case ezt : hauptfenster->getWerte().setZt(wert); break;
+     case eMAX : assert(!"never get here");
+   }
+  ++actual_eigen;
+  zeige_werte(false);
+
+  Gtk::Table *tab = dynamic_cast<Gtk::Table*>(frame_wuerfelvariante->get_child());
+  bool all_insensitive=true;
+//  Gtk::Table_Helpers::TableList &ch=tab->children();
+//  for(Gtk::Table_Helpers::TableList::iterator i=ch.begin();i!=ch.end();++i)
+  for(GList *list=GTK_TABLE(tab->gtkobj())->children;list;list=list->next)
+   {
+     Gtk::Widget *x=Gtk::wrap(((GtkTableChild*)(list->data))->widget);
+     if(Gtk::Button::isA(x) && x->is_sensitive()) all_insensitive=false;
+   }
+  if(all_insensitive)
+   { 
+    check_350();
+    frame_wuerfelvariante->hide();
+    frame_wuerfelvariante->remove();
+    label=0;
+   }
 }
