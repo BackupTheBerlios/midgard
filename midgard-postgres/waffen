@@ -107,7 +107,7 @@ Peitsche	21	\N	81	Peitsche	7	Angriff	W6	-3	\N	E	-1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Pilum	61	\N	21	Wurfspieﬂ	2	Wurfwaffe	W6	0	\N	W	\N	\N	\N	leichter Speer	3	0	10	20	30	\N	\N	2	8	\N	\N	\N
 Rapier	11	\N	51	Stichwaffe	4	Angriff	W6	0	\N	E	+3	-2	+1	\N	\N	\N	\N	\N	\N	\N	\N	1.5	70	\N	\N	\N
 Schlachtbeil	61	\N	31	Zweihandschlagwaffe	3	Angriff	W6	1	3	Z	-2	+1	-2	\N	\N	\N	\N	\N	\N	\N	\N	5	25	(Einh‰ndig|Beidh‰ndig)	91	Einhandschlagwaffe
-Anderthalbh‰nder	31	\N	21	Zweihandschwert	4	Angriff	W6	1	2	Z	-1	0	-1	\N	\N	\N	\N	\N	\N	\N	\N	4	200	(Einh‰ndig|Beidh‰ndig)	91	Einhandschwert
+Anderthalbh‰nder	31	\N	21	Zweihandschwert	4	Angriff	W6	1	2	Z	-1	0	-1	\N	\N	\N	\N	\N	\N	\N	\N	4	200	(Einh‰ndig|Beidh‰ndig)	81	Einhandschwert
 Stabkeule	81	\N	\N	Zweihandschlagwaffe	3	Angriff	2W6	-2	\N	Z	-3	+2	-2	\N	\N	\N	\N	\N	\N	\N	\N	5	15	\N	\N	\N
 Stielhammer	81	\N	31	Stangenwaffe	4	Angriff	W6|W6+1|2W6	0	\N	Z	+1/-3	0/+2	0/-2	\N	\N	\N	\N	\N	\N	\N	\N	7.5	50	(Stechend|Sturmangriff|Schlagend)	\N	\N
 Stockschleuder	31	\N	81	Schleuder	5	Schuﬂwaffe	2W6	-2	\N	S	\N	\N	\N	\N	\N	21	30	100	180	\N	\N	2	7	\N	\N	\N

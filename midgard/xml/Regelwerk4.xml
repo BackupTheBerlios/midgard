@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.27 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.28 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -7152,7 +7152,7 @@
  <Waffen>
   <Waffe Name="Anderthalbhänder" Grundkenntnisse="Zweihandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="2" Text="(Einhändig|Beidhändig)" ZweiteGrundkenntnis="Einhandschwert">
    <Modifikationen Waffenrang="-1" Abwehr-leicht="0" Abwehr-schwer="-1"/>
-   <Voraussetzungen St="31" Gs="21" Min_St_Einhand="91"/>
+   <Voraussetzungen St="31" Gs="21" Min_St_Einhand="81"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
