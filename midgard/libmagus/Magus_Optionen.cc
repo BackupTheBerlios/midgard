@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.16 2004/03/08 19:06:57 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.17 2004/03/08 20:44:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -349,8 +349,10 @@ void Magus_Optionen::load_options(const std::string &filename)
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Einstellungen")
      setString(i->getAttr("Name"),i->getAttr("Wert"));
+
   const Tag *regionen=data->find("Regionen");
-  FOR_EACH_CONST_TAG_OF(i,*options,"Region")
+std::cout << regionen<<'\n';
+  FOR_EACH_CONST_TAG_OF(i,*regionen,"Region")
    {
      standard_regionen[i->getAttr("Name")]=i->getBoolAttr("Wert");
 std::cout << i->getAttr("Name")<<'\t'<<standard_regionen[i->getAttr("Name")]<<'\n';
