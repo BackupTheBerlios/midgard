@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.4 $">
+<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.5 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
