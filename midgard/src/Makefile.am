@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.129 2002/02/26 08:30:44 christof Exp $
+# $Id: Makefile.am,v 1.130 2002/02/28 12:05:13 christof Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -204,10 +204,10 @@ midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	echo > .deps/$(*F).P
 
 # libtool does not work when cross compiling, so link directly
-midgard$(EXEEXT): $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
-	@rm -f midgard$(EXEEXT)
-	$(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) \
-	  -o $@ $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_LDADD)
+#midgard$(EXEEXT): $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
+#	@rm -f midgard$(EXEEXT)
+#	$(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) \
+#	  -o $@ $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_LDADD)
 
 else
 
