@@ -23,6 +23,7 @@
 #include "midgard_CG.hh"
 #include "Windows_Linux.hh"
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/spielleiter_export.hh>
 
 #ifdef __MINGW32__
 # include <windows.h>
@@ -39,9 +40,9 @@ try{
  { hauptfenster->xml_export(this->get_filename());
  }
  else if (ewas==Export)
-   hauptfenster->spielleiter_export_save(this->get_filename(),false);
+   spielleiter_export_save(hauptfenster->getAben(),this->get_filename());
  else if (ewas==ExportFull)
-   hauptfenster->spielleiter_export_save(this->get_filename(),true); 
+   spielleiter_export_save(hauptfenster->getAben(),this->get_filename(),true); 
 #warning hier fehlts   
 #if 0   
  else if (ewas==Pix)

@@ -1,4 +1,4 @@
-// $Id: spielleiter_export.hh,v 1.2 2003/09/01 06:47:57 christof Exp $               
+// $Id: spielleiter_export.hh,v 1.3 2003/09/12 10:00:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -23,6 +23,6 @@
 class Abenteurer;
 #include <iosfwd>
 
-void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname);
+void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname,bool full=true);
 
 #endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.304 2003/09/10 07:15:43 christof Exp $
+// $Id: midgard_CG.cc,v 1.305 2003/09/12 10:00:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -212,4 +212,14 @@ void midgard_CG::AndererAbenteurer()
 void midgard_CG::LernschemaSteigern(bool l,bool s)
 {  this->frame_lernschema->set_sensitive(l);
    this->frame_steigern->set_sensitive(s);
+}
+
+void midgard_CG::on_exportieren_activate()
+{
+   (new xml_fileselection(this,xml_fileselection::Export));
+}
+
+void midgard_CG::on_kompletter_export_activate()
+{
+   (new xml_fileselection(this,xml_fileselection::ExportFull));
 }

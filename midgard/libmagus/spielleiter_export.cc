@@ -29,26 +29,13 @@
 #include "Abenteurer.hh"
 #include "Datenbank.hh"
 #include "spielleiter_export.hh"
+#include "Zauberwerk.hh"
 
-#if 0
-void midgard_CG::on_exportieren_activate()
+static void spielleiter_export_save_zauber(const Abenteurer &Char, std::ostream& fout, bool full);
+static void spielleiter_export_save_ausruestung(const Abenteurer &A, std::ostream &fout);
+
+void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname,bool full)
 {
-   (new xml_fileselection(this,xml_fileselection::Export));
-}
-
-void midgard_CG::on_kompletter_export_activate()
-{
-   (new xml_fileselection(this,xml_fileselection::ExportFull));
-}
-#endif
-
-static void spielleiter_export_save_zauber(const Abenteurer &Char, std::ostream& fout);
-
-void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname)
-{
-  std::string strinfo = "Datei '"+dateiname+"' enthÃ¤lt nun die Daten des "
-     "Abenteurers im Format fÃ¼r Midgard Publikationen";
-  Ausgabe(Ausgabe::Log,strinfo);
   std::ofstream fout2(dateiname.c_str());
   orecodestream fout(fout2);
   const Grundwerte &W=Char;
@@ -62,6 +49,13 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
        <<W.Gestalt()<<" - "
        << W.Alter()<<" Jahre\n";
   fout << "\n";
+  if(full)
+  {  fout <<  W.Gewicht()+ "kg, "<<W.Hand()<<'\n'
+          <<  W.Herkunft()->Name()<<", "<<W.Spezialisierung()<<'\n'
+          <<  "Göttliche Gnade: "<<W.GG()<<", Schicksalsgunst: "<<W.SG()<<'\n'
+          <<  "GFP: "<<W.GFP()<<", AEP: "<<W.AEP()<<", KEP: "<<W.KEP()<<", ZEP:"<<W.ZEP()<<'\n';
+  }
+                                             
   fout <<"St " <<W.St()
        <<", Gs "<<W.Gs()
        <<", Gw "<<W.Gw()
@@ -83,6 +77,19 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
   else if(W.bo_Ab()<0) boni+="AbB" +itos(W.bo_Ab())+", ";
   if     (W.bo_An()>0) boni+="AnB+"+itos(W.bo_An())+", ";
   else if(W.bo_An()<0) boni+="AnB" +itos(W.bo_An())+", ";
+  if (full)
+   {
+     if     (W.bo_Au()>0) boni+="AuB+"+itos(W.bo_Au())+", ";
+     else if(W.bo_Au()<0) boni+="AuB" +itos(W.bo_Au())+", ";
+     if     (W.bo_Za()>0) boni+="ZauB+"+itos(W.bo_Za())+", ";
+     else if(W.bo_Za()<0) boni+="ZauB" +itos(W.bo_Za())+", ";
+     if     (W.bo_Psy()>0) boni+="GeistB+"+itos(W.bo_Psy())+", ";
+     else if(W.bo_Psy()<0) boni+="GeistB" +itos(W.bo_Psy())+", ";
+     if     (W.bo_Phs()>0) boni+="KörperB+"+itos(W.bo_Phs())+", ";
+     else if(W.bo_Phs()<0) boni+="KörperB" +itos(W.bo_Phs())+", ";
+     if     (W.bo_Phk()>0) boni+="UmgebungB+"+itos(W.bo_Phk())+", ";
+     else if(W.bo_Phk()<0) boni+="UmgebungB" +itos(W.bo_Phk())+", ";
+   }
   ManuProC::remove_last_from(boni,", ");
   if(!boni.empty()) fout <<" - "<<boni<<'\n';
 
@@ -179,14 +186,35 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
  ManuProC::remove_last_from(schreiben,",");
  fout << "Schreiben: "<<schreiben<<"\n\n";
 
+ // WaffenGrundfertigkeiten:
+ if(full)
+  {
+    std::string waffengrund;
+    for(std::list<MBEmlt>::const_iterator i=Char.List_WaffenGrund().begin();i!=Char.List_WaffenGrund().end();++i)
+     { waffengrund+=(*(*i))->Name()+", ";
+     }
+    ManuProC::remove_last_from(waffengrund,",");
+    fout << "Waffen Grundkenntnisse: "<<waffengrund<<"\n\n";
+  }  
 
  // Zauber
  if (Char.List_Zauber().size()!=0)
-    spielleiter_export_save_zauber(Char,fout);
+    spielleiter_export_save_zauber(Char,fout,full);
+
+ if(full)
+  {
+    spielleiter_export_save_ausruestung(Char,fout);
+    fout <<"Geld: "<<W.Gold()<<" GS, "<<W.Silber()<<" SS, "<<W.Kupfer()<<" KS\n\n";
+  }
+
  fout << W.Beschreibung()<<'\n';
+  if(!full)  Ausgabe(Ausgabe::Log,"Datei '"+dateiname+"' enthält nun die Daten des "
+                       "Abenteurers im Format für Midgard Publikationen");
+  else Ausgabe(Ausgabe::Log,"Datei '"+dateiname+"' enthält nun die kompletten Daten des "
+                   "Abenteurers");
 }
 
-static void spielleiter_export_save_zauber(const Abenteurer &Char, std::ostream& fout)
+static void spielleiter_export_save_zauber(const Abenteurer &Char, std::ostream& fout,bool full)
 {
 //  Grundwerte &W=Char;
   std::map<int,std::list<MBEmlt> > ZL;
@@ -203,4 +231,41 @@ static void spielleiter_export_save_zauber(const Abenteurer &Char, std::ostream&
      fout << z<<"\n";
    }
   fout << "\n";
+
+// Zaubermittel
+  if(full)
+   {
+     std::map<std::string,std::list<MBEmlt> > ZM;
+     for (std::list<MBEmlt>::const_iterator i=Char.List_Zauberwerk().begin();i!=Char.List_Zauberwerk().end();++i)
+        ZM[cH_Zauberwerk((*i)->getMBE())->Art()].push_back(*i);
+
+     for(std::map<std::string,std::list<MBEmlt> >::const_iterator i=ZM.begin();i!=ZM.end();++i)
+      {
+        std::string z=i->first+": ";
+        if(i->first.empty()) z="Zauberwerk: ";
+        for (std::list<MBEmlt>::const_iterator j=i->second.begin();j!=i->second.end();++j)
+           z += (*(*j))->Name()+", ";
+        ManuProC::remove_last_from(z,",");
+        fout << z<<"\n";
+      }
+     fout << "\n";
+   }
 }
+
+static void spielleiter_export_save_ausruestung(const Abenteurer &A, std::ostream &fout)
+{
+   std::string w="Waffenbesitz: ";
+   for (std::list<H_WaffeBesitz>::const_iterator i=A.List_Waffen_besitz().begin();i!=A.List_Waffen_besitz().end();++i)
+    {
+      w+= (*i)->AliasName();
+      if ((*i)->Magisch()!="" || (*i)->av_Bonus()!=0 || (*i)->sl_Bonus()!=0)
+           w+="* "+(*i)->Bonus() ;
+      w+= (*i)->Waffe()->Text();
+      w+=" ("+(*i)->Schaden(A,(*i)->AliasName())+")";  
+//      std::string ws = (*i)->Schaden(A,(*i)->AliasName());
+      w+=", ";
+    }
+    ManuProC::remove_last_from(w,",");
+    fout << w<<"\n\n";
+}
+
