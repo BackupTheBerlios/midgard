@@ -52,7 +52,6 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
      *this=cH_Zauberwerk(&t2);
   }
   else throw NotFound();
-//  assert(!"Zauberwerk im Cache");
 #endif
   }
 }

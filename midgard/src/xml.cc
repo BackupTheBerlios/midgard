@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.25 2002/01/22 17:06:58 christof Exp $
+// $Id: xml.cc,v 1.26 2002/01/22 20:13:32 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -22,6 +22,7 @@
 #ifdef USE_XML
 
 //#define PARANOIA
+#define VERBOSE
 #include "TagStream.hh"
 #include "gtk--/progressbar.h"
 #include "gtk--/main.h"
@@ -106,12 +107,21 @@ void xml_free()
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 		const vector<pair<std::string,std::string> > &anforderungen)
 {
-#ifdef PARANOIA
+   if (!xml_data)
+   {  cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
+      for (vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
+         cerr << '\'' << i->first << "'='" << i->second << "' ";
+      cerr << ") ohne Daten!\n";
+      return 0;
+   }
+   
+#ifdef VERBOSE
 cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
 for (vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
 cerr << '\'' << i->first << "'='" << i->second << "' ";
 cerr << ")\n";
-
+#endif
+#ifdef PARANOIA
 {const xml_liste *list=suche_Tageigenschaften(listtag,elementtag);
  if (!list) cerr << "find_Tag " << listtag << ',' << elementtag << ": unbekannt\n";
  else
@@ -128,7 +138,7 @@ cerr << ")\n";
  }
 }
 #endif
- const Tag *liste=xml_data_mutable->find(listtag);
+ const Tag *liste=xml_data->find(listtag);
  if (!liste)
     cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
  else

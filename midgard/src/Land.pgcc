@@ -46,7 +46,6 @@ cH_Land::cH_Land(const std::string& name IF_XML(,bool create))
      *this=cH_Land("?",&t2);
   }
   else throw NotFound();
-//  assert(!"Land im Cache"); 
 #endif
   }
 }

@@ -46,7 +46,6 @@ cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name IF_XM
      *this=cH_Fertigkeit_angeborene(&t2);
   }
   else throw NotFound();
-//  assert(!"angeborene Fertigkeit im Cache");
 #endif
   }
 }

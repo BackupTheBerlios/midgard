@@ -49,7 +49,6 @@ cH_Typen::cH_Typen(const std::string& name IF_XML(,bool create))
   }
   else throw NotFound();
  }
-//  assert(!"Typ im Cache");
 #endif  
 }
 

@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.2 2002/01/22 17:06:58 christof Exp $               
+// $Id: Datenbank.cc,v 1.3 2002/01/22 20:13:32 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -49,10 +49,13 @@
 #include "Midgard_Info.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
+#include <gtk--/main.h>
 
 Datenbank::Datenbank()
 {
     Midgard_Info *MI = manage(new Midgard_Info(true));
+    // wait for Window to appear
+    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 #ifndef USE_XML    
     try{
     Transaction tr;

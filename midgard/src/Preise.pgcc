@@ -49,7 +49,6 @@ cH_Preise::cH_Preise(const std::string& name IF_XML(,bool create))
      *this=cH_Preise(&t2);
   }
   else throw NotFound();
-//  assert(!"Preise im Cache");
 #endif
   }
 }

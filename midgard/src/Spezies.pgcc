@@ -40,7 +40,7 @@ cH_Spezies::cH_Spezies(const std::string& name IF_XML(,bool create))
   cerr << "Spezies '" << name << "' nicht im Cache\n";
   const Tag *t=find_Tag("SpeziesListe","Spezies","Name",name);
   if (t) *this=cH_Spezies(t);
-  else if (create)
+  else if (create || !xml_data) // !xml_data = vor Einlesen der Daten
   {  static Tag t2("Spezies"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
@@ -157,20 +157,26 @@ Spezies::Spezies(const Tag *tag)
 
  const Tag *Alter=tag->find("Alter");
  if (Alter) alter=Alter->getIntAttr("AnzahlWürfel");
- else alter=0;
+ else alter=1;
 
  const Tag *Groesse=tag->find("Größe");
- if (!Groesse) Groesse=tag;
- groesse_f=Groesse->getIntAttr("AnzahlWürfel");
- groesse_w=Groesse->getIntAttr("ArtWürfel");
- groesse_s=Groesse->getIntAttr("Addiere");
+ if (!Groesse)
+ {  groesse_f=2;
+    groesse_w=20;
+    groesse_s=150;
+ }
+ else
+ {  groesse_f=Groesse->getIntAttr("AnzahlWürfel");
+    groesse_w=Groesse->getIntAttr("ArtWürfel");
+    groesse_s=Groesse->getIntAttr("Addiere");
+ }
  
  const Tag *Bewegungsweite=tag->find("Bewegungsweite");
  if (Bewegungsweite) 
  {  b_f=Bewegungsweite->getIntAttr("AnzahlWürfel");
     b_s=Bewegungsweite->getIntAttr("Addiere");
  }
- else b_f=b_s=0;
+ else { b_f=4; b_s=16; }
  
  FOR_EACH_CONST_TAG_OF(i,*tag,"Typ")
     vec_typen.push_back(st_spez(i->getAttr("Name"),i->getIntAttr("MaximalerGrad")));
