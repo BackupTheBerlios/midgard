@@ -41,14 +41,14 @@ void midgard_CG::on_zauber_laden_clicked()
   std::string alle_zauber;
   if (!checkbutton_alle_zauber->get_active() )
     {
-      if (get_typ_s("Magie",Typ)) alle_zauber += "("+Typ.Short()+" = 'G' OR "+Typ.Short()+" = 'S' OR "+Typ.Short()+" = 'A') ";
+      if (get_typ_s("Magie",Typ)) alle_zauber += "("+Typ->Short()+" = 'G' OR "+Typ->Short()+" = 'S' OR "+Typ->Short()+" = 'A') ";
       if (get_typ_s("Magie",Typ) && get_typ_s("Magie",Typ2)) alle_zauber += " OR ";
       if (get_typ_s("Magie",Typ) && !get_typ_s("Magie",Typ2)) alle_zauber += " AND ";
-      if (get_typ_s("Magie",Typ2)) alle_zauber += "("+Typ2.Short()+" = 'G' OR "+Typ2.Short()+" = 'S' OR "+Typ2.Short()+" = 'A') AND ";
+      if (get_typ_s("Magie",Typ2)) alle_zauber += "("+Typ2->Short()+" = 'G' OR "+Typ2->Short()+" = 'S' OR "+Typ2->Short()+" = 'A') AND ";
     }
   std::string squery = "SELECT distinct z.name, "; 
-  if (get_typ_s("Magie",Typ)) squery+= "coalesce(z."+Typ.Short()+",'') " ;
-  if (Typ2.Short()!="" && get_typ_s("Magie",Typ2)) squery += "coalesce(z."+Typ2.Short()+",'') ";
+  if (get_typ_s("Magie",Typ)) squery+= "coalesce(z."+Typ->Short()+",'') " ;
+  if (Typ2->Short()!="" && get_typ_s("Magie",Typ2)) squery += "coalesce(z."+Typ2->Short()+",'') ";
   squery +=" FROM arkanum_zauber z WHERE "+alle_zauber+"\
       z.name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
       WHERE charakter_name = '"+Werte.Name_Charakter()+"' \
@@ -77,7 +77,7 @@ void midgard_CG::on_zauber_laden_clicked()
          zauber->set_Standard(db_standard);
          zauber->set_Standard2(db_standard2);
 
-         vector<Data_typen> Typen; Typen.push_back(Typ); Typen.push_back(Typ2); 
+         vector<H_Data_typen> Typen; Typen.push_back(Typ); Typen.push_back(Typ2); 
          double fac;
          fac = ausnahmen.Ausnahmen_float(zauber->Name());
          if(fac!=0) fac = zauber->get_Faktor(Typen,Werte);
@@ -106,7 +106,7 @@ void midgard_CG::on_zauber_laden_clicked()
 
 void midgard_CG::zauber_zeigen()
 {
- if (Typ.Zaubern()=="n" && Typ2.Zaubern()=="n") return;
+ if (Typ->Zaubern()=="n" && Typ2->Zaubern()=="n") return;
  zeige_werte(Werte);
  on_speichern_clicked();
  show_alte_zauber();
@@ -225,14 +225,14 @@ int midgard_CG::spruchrolle_wuerfeln(int istufe, std::string art, std::string za
  int xr=random.integer(1,20);
  int iaus=0;
  
- if (Typ.Short() != "Ma" && Typ2.Short() != "Ma")
+ if (Typ->Short() != "Ma" && Typ2->Short() != "Ma")
    {
       if (art=="A")  iaus=-2;
    }
- else if (Typ.Short() == "Ma" || Typ2.Short() == "Ma" ) 
+ else if (Typ->Short() == "Ma" || Typ2->Short() == "Ma" ) 
    {
-    if (Typ.Short()=="Ma") iaus = midgard_CG::get_spezial_zauber(Typ.Short(),zauber);
-    if (Typ2.Short()=="Ma") iaus = midgard_CG::get_spezial_zauber(Typ2.Short(),zauber);
+    if (Typ->Short()=="Ma") iaus = midgard_CG::get_spezial_zauber(Typ->Short(),zauber);
+    if (Typ2->Short()=="Ma") iaus = midgard_CG::get_spezial_zauber(Typ2->Short(),zauber);
     if (!iaus)
      {
        if (art=="S")  iaus=+1;
@@ -341,14 +341,14 @@ void midgard_CG::show_neue_zaubermittel()
  std::string alle_zauber="";
  if (!checkbutton_alle_zauber->get_active() )
    {
-    if (get_typ_s("Magie",Typ)) alle_zauber += " ("+Typ.Short()+" = 'G' OR "+Typ.Short()+" = 'S' OR "+Typ.Short()+" = 'A') AND ";
-    if (get_typ_s("Magie",Typ2)) alle_zauber += " ("+Typ2.Short()+" = 'G' OR "+Typ2.Short()+" = 'S' OR "+Typ2.Short()+" = 'A') AND ";
+    if (get_typ_s("Magie",Typ)) alle_zauber += " ("+Typ->Short()+" = 'G' OR "+Typ->Short()+" = 'S' OR "+Typ->Short()+" = 'A') AND ";
+    if (get_typ_s("Magie",Typ2)) alle_zauber += " ("+Typ2->Short()+" = 'G' OR "+Typ2->Short()+" = 'S' OR "+Typ2->Short()+" = 'A') AND ";
    }
 
  std::string squery = "select z.name, z.kosten_gfp, z.stufe, coalesce(z.art,''),
    z.zeitaufwand, z.kosten, ";
- if (get_typ_s("Magie",Typ)) squery += " coalesce(z."+Typ.Short()+",'A'), " ;
- if (get_typ_s("Magie",Typ2)) squery += " coalesce(z."+Typ2.Short()+",'A'), " ;
+ if (get_typ_s("Magie",Typ)) squery += " coalesce(z."+Typ->Short()+",'A'), " ;
+ if (get_typ_s("Magie",Typ2)) squery += " coalesce(z."+Typ2->Short()+",'A'), " ;
  squery += " coalesce(z.region,'') from zauberwerk z \
    where "+alle_zauber+" name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
    WHERE charakter_name = '"+Werte.Name_Charakter()+"' \

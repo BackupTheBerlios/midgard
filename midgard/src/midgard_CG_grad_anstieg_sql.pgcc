@@ -16,8 +16,8 @@ void midgard_CG::get_ab_re_za(const string& was)
     { max_wert = Grad_Anstieg.get_Grad_Resistenz();
       alter_wert = Werte.Resistenz(); } 
   else if (was=="Zaubern") 
-    { if ( Typ.Zaubern()  == "z" || Typ.Zaubern()  == "j" ||
-           Typ2.Zaubern() == "z" || Typ2.Zaubern() == "j" ) 
+    { if ( Typ->Zaubern()  == "z" || Typ->Zaubern()  == "j" ||
+           Typ2->Zaubern() == "z" || Typ2->Zaubern() == "j" ) 
         { max_wert = Grad_Anstieg.get_Grad_Zaubern();
           alter_wert = Werte.Zaubern_wert(); } 
       else return; }

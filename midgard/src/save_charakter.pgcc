@@ -138,8 +138,8 @@ void midgard_CG::on_speichern_clicked()
    strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
    strncpy(db_name_sp,(Werte.Name_Spieler()).c_str(),sizeof(db_name_sp));
    strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
-   strncpy(db_typ_s,Typ.Short().c_str(),sizeof(db_typ_s));
-   strncpy(db_typ_2_s,Typ2.Short().c_str(),sizeof(db_typ_2_s));
+   strncpy(db_typ_s,Typ->Short().c_str(),sizeof(db_typ_s));
+   strncpy(db_typ_2_s,Typ2->Short().c_str(),sizeof(db_typ_2_s));
    strncpy(db_ruestung,(Werte.Ruestung()).c_str(),sizeof(db_ruestung));
    strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
    

@@ -1,4 +1,4 @@
-/* Processed by ecpg (2.8.0) */
+/* Processed by ecpg (2.9.0) */
 /* These three include files are added by the preprocessor */
 #include <ecpgtype.h>
 #include <ecpglib.h>
@@ -12,6 +12,14 @@
 #line 1 "/usr/local/pgsql/include/sqlca.h"
 #ifndef POSTGRES_SQLCA_H
 #define POSTGRES_SQLCA_H
+
+#ifndef DLLIMPORT
+#ifdef __CYGWIN__
+#define DLLIMPORT __declspec (dllimport)
+#else
+#define DLLIMPORT
+#endif /* __CYGWIN__ */
+#endif /* DLLIMPORT */
 
 #define SQLERRMC_LEN	70
 
@@ -57,7 +65,7 @@ extern		"C"
 		char		sqlext[8];
 	};
 
-	extern struct sqlca sqlca;
+	extern DLLIMPORT struct sqlca sqlca;
 
 
 #ifdef __cplusplus
@@ -67,7 +75,7 @@ extern		"C"
 
 #endif
 
-#line 4 "Zauber.pgcc"
+#line 5 "Zauber.pgcc"
 
 
 cH_Zauber::cache_t cH_Zauber::cache;
@@ -100,34 +108,34 @@ void Zauber::get_Zauber()
            
           
   
-#line 23 "Zauber.pgcc"
+#line 24 "Zauber.pgcc"
    char  db_ursprung [ 50 ]   ;
  
-#line 24 "Zauber.pgcc"
+#line 25 "Zauber.pgcc"
    int  db_kosten   ;
  
-#line 25 "Zauber.pgcc"
+#line 26 "Zauber.pgcc"
    char  db_stufe [ 10 ]   ;
  
-#line 26 "Zauber.pgcc"
+#line 27 "Zauber.pgcc"
    char  db_spruchrolle [ 10 ]   ;
  
-#line 27 "Zauber.pgcc"
+#line 28 "Zauber.pgcc"
    char  query [ 1000 ]   ;
  
-#line 28 "Zauber.pgcc"
+#line 29 "Zauber.pgcc"
    char  db_region [ 10 ]   ;
  
-#line 29 "Zauber.pgcc"
+#line 30 "Zauber.pgcc"
    char  db_zauberart [ 30 ]   ;
  
-#line 30 "Zauber.pgcc"
+#line 31 "Zauber.pgcc"
    char  db_p_element [ 30 ]   ,  db_s_element [ 30 ]   ;
  
-#line 31 "Zauber.pgcc"
+#line 32 "Zauber.pgcc"
    char  db_ap [ 10 ]   ,  db_art [ 20 ]   ,  db_agens [ 30 ]   ,  db_prozess [ 30 ]   ,  db_reagens [ 30 ]   ,  db_zauberdauer [ 30 ]   ,  db_reichweite [ 10 ]   ,  db_wirkungsziel [ 30 ]   ,  db_wirkungsbereich [ 30 ]   ,  db_wirkungsdauer [ 20 ]   ,  db_material [ 50 ]   ,  db_thaumagram [ 10 ]   ,  db_effekt [ 1024 ]   ;
 /* exec sql end declare section */
-#line 35 "Zauber.pgcc"
+#line 36 "Zauber.pgcc"
 
   
   std::string squery = "SELECT coalesce(z.ursprung,''), 
@@ -142,16 +150,16 @@ void Zauber::get_Zauber()
    strncpy(query,squery.c_str(),sizeof(query));
    Transaction tr;
    { ECPGprepare(__LINE__, "zauber_ein_", query);}
-#line 50 "Zauber.pgcc"
+#line 51 "Zauber.pgcc"
 
    /* declare zauber_ein  cursor for ? */
-#line 51 "Zauber.pgcc"
+#line 52 "Zauber.pgcc"
 
 
    { ECPGdo(__LINE__, NULL, "declare zauber_ein  cursor for ?", 
 	ECPGt_char_variable,(ECPGprepared_statement("zauber_ein_")),1L,1L,1*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EOIT, ECPGt_EORT);}
-#line 53 "Zauber.pgcc"
+#line 54 "Zauber.pgcc"
 
    SQLerror::test(__FILELINE__);
    
@@ -202,7 +210,7 @@ void Zauber::get_Zauber()
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, 
 	ECPGt_char,(db_effekt),1024L,1L,1024*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EORT);}
-#line 60 "Zauber.pgcc"
+#line 61 "Zauber.pgcc"
 
 
    ursprung=db_ursprung;   
@@ -229,10 +237,10 @@ void Zauber::get_Zauber()
    beschreibung=db_effekt;
 }
 
-double Zauber::get_Faktor(const vector<Data_typen>& Typen,const Grundwerte& Werte) const
+double Zauber::get_Faktor(const vector<H_Data_typen>& Typen,const Grundwerte& Werte) const
 {
   double fac;
-  if (Typen[0].Short() != "eBe" || (P_Element()=="" && S_Element()==""))
+  if (Typen[0]->Short() != "eBe" || (P_Element()=="" && S_Element()==""))
    {
     if      (Standard()=="G" || Standard2()=="G") fac = 0.5;
     else if (Standard()=="S" && ( Standard2()=="S" || Standard2()=="" )) fac = 1.0;

@@ -31,7 +31,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, const Data_typen& Typ, const Data_typen& Typ2, int lernpunkte)
+Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, const H_Data_typen& Typ, const H_Data_typen& Typ2, int lernpunkte)
 {
   hauptfenster=h;
   maxpunkte = lernpunkte;
@@ -46,9 +46,9 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, const Data
 
    std::string squery = "select distinct l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
       from lernschema l, arkanum_zauber a \
-      where (l.typ = '"+Typ.Short()+"' or l.typ = '"+Typ2.Short()+"') \
+      where (l.typ = '"+Typ->Short()+"' or l.typ = '"+Typ2->Short()+"') \
       and l.art = 'Zauber' and a.name = l.fertigkeit ";
-   if (Typ.Short() == "eBe") squery += "and (l.p_element = '"+Werte.Spezial()+"' or l.s_element = '"+Werte.Spezial2()+"') ";
+   if (Typ->Short() == "eBe") squery += "and (l.p_element = '"+Werte.Spezial()+"' or l.s_element = '"+Werte.Spezial2()+"') ";
    squery += " order by lernpunkte";      
   
    strncpy(query,squery.c_str(),sizeof(query));

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.22 2001/07/05 09:17:28 thoma Exp $
+// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.23 2001/10/05 09:54:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ void midgard_CG::spezialgebiet_button_fill()
    char db_spezial[50],db_spezialgebiet[50],db_spezial2[50];
   exec sql end declare section;
   Transaction tr;
-  strncpy(db_typ,Typ.Short().c_str(),sizeof(db_typ));
+  strncpy(db_typ,Typ->Short().c_str(),sizeof(db_typ));
   exec sql declare ein cursor for 
      select nr,spezialgebiet,coalesce(spezial,''),coalesce(spezial2,'') 
        from spezialgebiete where typ = :db_typ order by nr;
@@ -84,7 +84,7 @@ void midgard_CG::get_spezial_from_spezialgebiet()
    char db_spezial[50],db_spezialgebiet[50],db_spezial2[50];
   exec sql end declare section;
   Transaction tr;
-  strncpy(db_typ,Typ.Short().c_str(),sizeof(db_typ));
+  strncpy(db_typ,Typ->Short().c_str(),sizeof(db_typ));
   strncpy(db_spezialgebiet,(Werte.Spezialisierung()).c_str(),sizeof(db_spezialgebiet));
   exec sql select spezial,coalesce(spezial2,'') 
       into :db_spezial, :db_spezial2

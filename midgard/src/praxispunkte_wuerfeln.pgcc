@@ -42,12 +42,12 @@ int midgard_CG::praxispunkte_wuerfeln(const std::string& fert,int alter_wert, co
    from praxispunkte p,waffen w where p.name=w.art and w.name = :db_fert;
    SQLerror::test(__FILELINE__);
    std::string sdb_art = db_art;
-   if (Typ.Short() == "Kr" || Typ.Short() == "Sö" ) 
+   if (Typ->Short() == "Kr" || Typ->Short() == "Sö" ) 
       {
         if (sdb_art == "Angriff" || sdb_art == "Fern") db_max_wert = 19;
         if (sdb_art == "Verteidigung")             db_max_wert = 8;
       }
-   if (Typ.Zaubern() == "z" ) 
+   if (Typ->Zaubern() == "z" ) 
       {
         if (sdb_art == "Angriff" || sdb_art == "Fern") db_max_wert = 14;
         if (sdb_art == "Verteidigung")             db_max_wert = 6;

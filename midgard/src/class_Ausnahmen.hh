@@ -5,6 +5,7 @@
 #include <Aux/Handles.h>
 #include <vector.h>
 #include <Aux/CacheStatic.h>
+#include "class_typen.hh"
 
 class Grundwerte;
 class H_Data_beruf;
@@ -52,8 +53,8 @@ class Ausnahmen : public cH_Data_Ausnahmen
 
 
  public:
-   Ausnahmen(const Grundwerte& Werte,const Data_typen& Typ, 
-      const Data_typen& Typ2, std::vector<H_Data_beruf>& vec_Beruf);
+   Ausnahmen(const Grundwerte& Werte,const H_Data_typen& Typ, 
+      const H_Data_typen& Typ2, std::vector<H_Data_beruf>& vec_Beruf);
 
    static void clear(){cache.clear();}
 

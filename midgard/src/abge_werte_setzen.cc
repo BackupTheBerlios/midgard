@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.24 2001/07/29 20:29:59 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.25 2001/10/05 09:54:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,19 +44,19 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   //////////////////////////////////////////////////////////////////////
   // Boni 
   // Assassine, Beschwörer & Druide
-  if (Typ.Sb() == 20 || Typ2.Sb() ) sb += random.integer(1,20); 
+  if (Typ->Sb() == 20 || Typ2->Sb() ) sb += random.integer(1,20); 
   // Spitzbube
-  if (Typ.Sb() == -20&& Typ2.Sb() == -20) sb -= random.integer(1,20); 
+  if (Typ->Sb() == -20&& Typ2->Sb() == -20) sb -= random.integer(1,20); 
   // Saddhu
-  if (Typ.Short() == "Sa") sb = 80+random.integer(1,20);
+  if (Typ->Short() == "Sa") sb = 80+random.integer(1,20);
 
   midgard_CG::grundwerte_boni_setzen();
 
   int bo_au_typ;  
 
   // Ausdauerbonus für Typen
-  if      (Typ.Ausdauer() == "k" || Typ2.Ausdauer() == "k" ) bo_au_typ = 4 ;
-  else if (Typ.Ausdauer() == "ak"|| Typ2.Ausdauer() == "ak" ) bo_au_typ = 3 ;
+  if      (Typ->Ausdauer() == "k" || Typ2->Ausdauer() == "k" ) bo_au_typ = 4 ;
+  else if (Typ->Ausdauer() == "ak"|| Typ2->Ausdauer() == "ak" ) bo_au_typ = 3 ;
   else bo_au_typ = 2 ;
   
   // Werte würfeln und setzen
@@ -67,7 +67,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   int abwehr_wert= 11 ;
   //Barde,Ordenskrieger,Zauberer
   int zaubern_wert=0;
-  if (Typ.Zaubern() == "j" || Typ.Zaubern() == "z" || Typ2.Zaubern() == "j" || Typ2.Zaubern() == "z" ) zaubern_wert = 10 ;
+  if (Typ->Zaubern() == "j" || Typ->Zaubern() == "z" || Typ2->Zaubern() == "j" || Typ2->Zaubern() == "z" ) zaubern_wert = 10 ;
 
   int resistenz = 10;
 
@@ -92,8 +92,8 @@ void midgard_CG::on_abge_werte_setzen_clicked()
    { gestalt = "breit";
      gewicht =  gin+(int)(gin*0.2) ; }
   int istand=random.integer(1,100);
-  int typstand = Typ.Stand();
-  (typstand<Typ2.Stand())?typstand=Typ2.Stand():
+  int typstand = Typ->Stand();
+  (typstand<Typ2->Stand())?typstand=Typ2->Stand():
   istand += typstand;
 //std::cout << "typstand\t"<<typstand<<"\n";
   std::string stand;  
@@ -180,7 +180,7 @@ void midgard_CG::grundwerte_boni_setzen()
 
   // Höhere Resistenz zählt + Resistenzen für Kämpfer|Zauberer
   (bo_psy >= ibo_psy2) ? : bo_psy=ibo_psy2 ;
-  if (Typ.Zaubern()=="z" || Typ2.Zaubern()=="z" ) 
+  if (Typ->Zaubern()=="z" || Typ2->Zaubern()=="z" ) 
       { bo_phs+=3; bo_psy+=3; bo_phk+=3; }
   else
       { bo_phs+=2; }

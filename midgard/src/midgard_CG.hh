@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.68 2001/10/02 07:25:01 thoma Exp $
+// $Id: midgard_CG.hh,v 1.69 2001/10/05 09:54:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -98,8 +98,8 @@ class midgard_CG : public midgard_CG_glade
 
         void set_tree_titles();
 
-        std::vector<cH_Data_typen> vec_Typen;
-        std::vector<cH_Data_typen> vec_Typen_2;
+        std::vector<H_Data_typen> vec_Typen;
+        std::vector<H_Data_typen> vec_Typen_2;
         std::vector<std::string> vec_spezialgebiet;
         std::vector<std::string> spezies_vector;
         std::list<H_Data_fert> vec_Fertigkeiten;
@@ -127,8 +127,8 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_sprache> vec_Sprachen;
         std::vector<H_Data_schrift> vec_Schriften;
         map<std::string,string> waffen_grundkenntnisse;
-        Data_typen Typ;
-        Data_typen Typ2;
+        H_Data_typen Typ;
+        H_Data_typen Typ2;
         Lernpunkte lernpunkte;
         Data_spezies Spezies_constraint;
    
@@ -199,7 +199,7 @@ class midgard_CG : public midgard_CG_glade
         int maxkidostil(const std::string& stufe);
         void show_kido();
         void stil_optionmenue();
-        int  get_erfolgswert_zaubern(const Data_typen& Typ,const Data_typen& Typ2,const std::string& name);
+        int  get_erfolgswert_zaubern(const H_Data_typen& Typ,const H_Data_typen& Typ2,const std::string& name);
         int get_spezial_zauber(const std::string& typ,const std::string& name);
         void show_berufe();
         void show_waffen();
@@ -324,7 +324,7 @@ class midgard_CG : public midgard_CG_glade
         void show_alte_zaubermittel();
         void show_neue_zaubermittel();
         void get_Zaubermittel(std::vector<H_Data_zaubermittel>& vec_Zaubermittel);
-        float get_standard_zaubermittel(const Data_typen& Typ,const Data_typen& Typ2,const std::string& name);
+        float get_standard_zaubermittel(const H_Data_typen& Typ,const H_Data_typen& Typ2,const std::string& name);
         bool zauberwerk_voraussetzung(const std::string& name);
         void on_button_zauber_sort_clicked();
         void on_button_zaubermittel_sort_clicked();
@@ -363,7 +363,7 @@ class midgard_CG : public midgard_CG_glade
         void show_gtk();
         void get_typ_after_load();
         void get_optionmenu_typ_nr();
-        bool get_typ_s(const std::string& mod,const Data_typen& t);
+        bool get_typ_s(const std::string& mod,const H_Data_typen& t);
    
    public:
          midgard_CG(int argc,char **argv);
@@ -388,7 +388,7 @@ class midgard_CG : public midgard_CG_glade
          void zauber_uebernehmen(const std::list<cH_Zauber>& saz);
          void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
          void kido_uebernehmen(std::vector<string>& technik);
-         double get_standard_zauber(const Data_typen& typ,const Data_typen& typ2, const std::string& zauber);
+         double get_standard_zauber(const H_Data_typen& typ,const H_Data_typen& typ2, const std::string& zauber);
          double get_standard_zauber_(const std::string& ergebnis, const std::string& ergebnis2, const std::string& p_element, const std::string& s_element, const std::string& zauber);
          double get_standard_waffen(const std::string& typ, const std::string& typ2,const std::string& waffe);
          double get_standard_fertigkeit(const std::string& typ, const std::string& typ_2,const std::string& fertigkeit);

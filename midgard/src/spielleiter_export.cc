@@ -26,7 +26,7 @@ void midgard_CG::spielleiter_export()
   strinfo +="Charakters im Format für Midgard Publikationen\n";
   manage (new WindowInfo(strinfo));
   ofstream fout("spielleiter_export.txt");
-  fout << Werte.Name_Charakter()<<", "<<Typ.Name()<<",   Grad "<<Werte.Grad()<<"\n";
+  fout << Werte.Name_Charakter()<<", "<<Typ->Name()<<",   Grad "<<Werte.Grad()<<"\n";
   fout << Werte.Stand()<<", "<<Werte.Glaube()<<" - ("<<Werte.Groesse()<<"cm) - "
        << Werte.Alter()<<" Jahre\n";
   fout << "\n";

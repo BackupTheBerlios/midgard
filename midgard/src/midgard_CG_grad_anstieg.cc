@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.25 2001/09/07 07:30:33 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.26 2001/10/05 09:54:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -127,8 +127,8 @@ void midgard_CG::get_ausdauer(int grad)
    for (int i=0;i<grad;++i) ap += random.integer(1,6);
 
   int nab, nap;
-  if      (Typ.Ausdauer() == "k" || Typ2.Ausdauer() == "k")  nab = bonus_K ;
-  else if (Typ.Ausdauer() == "ak"|| Typ2.Ausdauer() == "ak") nab = bonus_aK ;
+  if      (Typ->Ausdauer() == "k" || Typ2->Ausdauer() == "k")  nab = bonus_K ;
+  else if (Typ->Ausdauer() == "ak"|| Typ2->Ausdauer() == "ak") nab = bonus_aK ;
   else  nab = bonus_Z ;
   nap = ap + nab + Werte.bo_Au() ;
   int nspez = Werte.Grad()*Spezies_constraint.AP_Grad();

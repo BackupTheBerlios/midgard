@@ -1,4 +1,4 @@
-// $Id: Zauber_auswahl.hh,v 1.22 2001/10/02 07:25:01 thoma Exp $
+// $Id: Zauber_auswahl.hh,v 1.23 2001/10/05 09:54:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,7 +49,7 @@ class Zauber_auswahl : public Zauber_auswahl_glade
         void on_zauber_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_zauber_clicked();
   public:
-        Zauber_auswahl(midgard_CG* h, const Grundwerte& Werte, const Data_typen& Typ, const Data_typen& Typ2, 
+        Zauber_auswahl(midgard_CG* h, const Grundwerte& Werte, const H_Data_typen& Typ, const H_Data_typen& Typ2, 
             int lernpunkte);
 
 };

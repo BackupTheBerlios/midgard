@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.28 2001/10/02 07:25:01 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.29 2001/10/05 09:54:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 void midgard_CG::on_zauber_wahl_clicked()
 {
   zauber_clist->clear();
-  if (Werte.Spezial2()=="" && Typ.Short()=="eBe")
+  if (Werte.Spezial2()=="" && Typ->Short()=="eBe")
    {
       std::string strinfo="Erst Primär- und Sekundärelement wählen\n";
       manage(new WindowInfo(strinfo));
@@ -61,7 +61,7 @@ void midgard_CG::zauber_uebernehmen(const std::list<cH_Zauber>& saz)
 
 void midgard_CG::angeborene_zauber()
 {
- if (Typ.Short()=="eBe" || Typ2.Short()=="eBe" || Typ.Short()=="dBe" || Typ2.Short()=="dBe" ) 
+ if (Typ->Short()=="eBe" || Typ2->Short()=="eBe" || Typ->Short()=="dBe" || Typ2->Short()=="dBe" ) 
     list_Zauber.push_back(cH_Zauber("Lehrersuche"));
 //    vec_Zauber.push_back(new Data_zauber("Lehrersuche"));
  if (Werte.Spezies()=="Elf") 

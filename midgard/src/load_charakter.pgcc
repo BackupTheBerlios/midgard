@@ -501,16 +501,16 @@ void midgard_CG::load_charakter()
    if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
    if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
    // Charakterklasse setzen und anzeigen 
-   Typ.set_Short(db_typ_s);
-   Typ2.set_Short(db_typ_2_s);
+   Typ->set_Short(db_typ_s);
+   Typ2->set_Short(db_typ_2_s);
    fill_typauswahl();
-   if(Typ2.Short()!="") fill_typauswahl_2();
+   if(Typ2->Short()!="") fill_typauswahl_2();
 
    get_typ_after_load();
    get_optionmenu_typ_nr();
 
-   if (Typ.Zaubern()=="n" || Typ.Short() == "Ord" ||
-       Typ2.Zaubern()=="n" || Typ2.Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
+   if (Typ->Zaubern()=="n" || Typ->Short() == "Ord" ||
+       Typ2->Zaubern()=="n" || Typ2->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
    else label_spezialwaffe->set_text("");
 
    // Spezies setzen ////////////////////////////////////////////

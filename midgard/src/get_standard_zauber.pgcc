@@ -36,7 +36,7 @@ exec sql include sqlca;
 extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
 #endif
 
-double midgard_CG::get_standard_zauber(const Data_typen& Typ, const Data_typen& Typ2, const std::string& zauber)
+double midgard_CG::get_standard_zauber(const H_Data_typen& Typ, const H_Data_typen& Typ2, const std::string& zauber)
 {
    Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
    double fac;
@@ -56,10 +56,10 @@ double midgard_CG::get_standard_zauber(const Data_typen& Typ, const Data_typen& 
   strncpy(db_s_element,"",sizeof(db_s_element));
  
   std::string squery = "select ";
-  if (get_typ_s("Magie",Typ)) squery += " coalesce("+Typ.Short()+",'A')"; 
+  if (get_typ_s("Magie",Typ)) squery += " coalesce("+Typ->Short()+",'A')"; 
   if (get_typ_s("Magie",Typ) && get_typ_s("Magie",Typ2)) squery += ", ";
-  if (get_typ_s("Magie",Typ2)) squery += " coalesce("+Typ2.Short()+",'A')";
-  if (Typ.Short()=="eBe" || Typ2.Short()=="eBe") squery += " , coalesce(p_element,'') , coalesce(s_element,'') "; 
+  if (get_typ_s("Magie",Typ2)) squery += " coalesce("+Typ2->Short()+",'A')";
+  if (Typ->Short()=="eBe" || Typ2->Short()=="eBe") squery += " , coalesce(p_element,'') , coalesce(s_element,'') "; 
   squery += " from arkanum_zauber where name = '"+zauber+"'";
   strncpy(query,squery.c_str(),sizeof(query));  
 
@@ -79,14 +79,14 @@ double midgard_CG::get_standard_zauber(const Data_typen& Typ, const Data_typen& 
    exec sql declare zauber cursor for zaub ;
    exec sql open zauber;
    SQLerror::test(__FILELINE__);
-//std::cout << Typ.Short()<<"\t"<<Typ2.Short()<<"\n";
+//std::cout << Typ->Short()<<"\t"<<Typ2->Short()<<"\n";
    if(get_typ_s("Magie",Typ) && get_typ_s("Magie",Typ2) ) 
-    { if (Typ.Short() !="eBe" && Typ2.Short() !="eBe") exec sql fetch zauber into  :db_ergebnis,:db_ergebnis2;
+    { if (Typ->Short() !="eBe" && Typ2->Short() !="eBe") exec sql fetch zauber into  :db_ergebnis,:db_ergebnis2;
       else exec sql fetch zauber into  :db_ergebnis,:db_ergebnis2,:db_p_element,:db_s_element;
     }
    else 
-    { if (Typ.Short() !="eBe" &&  Typ2.Short() !="eBe") exec sql fetch zauber into  :db_ergebnis;
-      if (Typ.Short() =="eBe" ||  Typ2.Short() =="eBe") exec sql fetch zauber into  :db_ergebnis,:db_p_element,:db_s_element;
+    { if (Typ->Short() !="eBe" &&  Typ2->Short() !="eBe") exec sql fetch zauber into  :db_ergebnis;
+      if (Typ->Short() =="eBe" ||  Typ2->Short() =="eBe") exec sql fetch zauber into  :db_ergebnis,:db_p_element,:db_s_element;
     }
    SQLerror::test(__FILELINE__);  
 
@@ -104,7 +104,7 @@ double midgard_CG::get_standard_zauber_(const std::string& ergebnis,const std::s
    fac = ausnahmen.Ausnahmen_float(zauber);
    if (fac!=0) return fac;
 
-   if (Typ.Short() != "eBe" || (p_element=="" && s_element==""))
+   if (Typ->Short() != "eBe" || (p_element=="" && s_element==""))
       {
          if      (ergebnis=="G" || ergebnis2=="G") fac = 0.5; 
          else if (ergebnis=="S" && ( ergebnis2=="S" || ergebnis2=="" )) fac = 1.0; 

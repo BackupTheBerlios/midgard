@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.25 2001/06/30 20:30:06 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.26 2001/10/05 09:54:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,11 +27,11 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   Random random;
   lernpunkte.set_Fertigkeit(random.integer(1,6)+random.integer(1,6));
   lernpunkte.set_Beruf(random.integer(1,6)+random.integer(1,6));
-  if (Typ2.Short()=="") lernpunkte.set_Waffen(random.integer(1,6)+random.integer(1,6));
+  if (Typ2->Short()=="") lernpunkte.set_Waffen(random.integer(1,6)+random.integer(1,6));
   else                  lernpunkte.set_Waffen(random.integer(1,6)+1); // Doppelcharakter
-  if (Typ.Zaubern()=="j" || Typ.Zaubern() == "z" && Typ2.Short()=="") 
+  if (Typ->Zaubern()=="j" || Typ->Zaubern() == "z" && Typ2->Short()=="") 
       lernpunkte.set_Zauber(random.integer(1,6)+random.integer(1,6));
-  if (Typ2.Zaubern()=="j" || Typ2.Zaubern() == "z" && Typ2.Short()!="") 
+  if (Typ2->Zaubern()=="j" || Typ2->Zaubern() == "z" && Typ2->Short()!="") 
       lernpunkte.set_Zauber(random.integer(1,6)+1);
 
   if (Werte.Alter()==0)
@@ -39,8 +39,8 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
      int age = lernpunkte.Beruf() + lernpunkte.Fertigkeiten() 
              + lernpunkte.Waffen() + lernpunkte.Zauber();
 
-     if (Typ.Zaubern()=="z" ) age = age/4+19;
-     if (Typ.Zaubern()=="n" || Typ.Zaubern()=="j") age = age/4+16;
+     if (Typ->Zaubern()=="z" ) age = age/4+19;
+     if (Typ->Zaubern()=="n" || Typ->Zaubern()=="j") age = age/4+16;
      Werte.set_Alter( age * Spezies_constraint.Alter());
      alter->set_text(itos(Werte.Alter()));
    }

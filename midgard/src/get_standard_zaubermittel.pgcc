@@ -27,7 +27,7 @@ exec sql include sqlca;
 extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
 #endif
 
-float midgard_CG::get_standard_zaubermittel(const Data_typen& Typ, const Data_typen& Typ2, const std::string& name)
+float midgard_CG::get_standard_zaubermittel(const H_Data_typen& Typ, const H_Data_typen& Typ2, const std::string& name)
 {
   exec sql begin declare section;
    char db_ergebnis[20],db_ergebnis2[20];
@@ -35,9 +35,9 @@ float midgard_CG::get_standard_zaubermittel(const Data_typen& Typ, const Data_ty
   exec sql end declare section;
   strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
   std::string squery = "select ";
-  if (get_typ_s("Magie",Typ)) squery += " coalesce("+Typ.Short()+",'A') ";
+  if (get_typ_s("Magie",Typ)) squery += " coalesce("+Typ->Short()+",'A') ";
   if (get_typ_s("Magie",Typ) && get_typ_s("Magie",Typ2)) squery +", ";
-  if (get_typ_s("Magie",Typ2)) squery += " coalesce("+Typ2.Short()+",'A')";
+  if (get_typ_s("Magie",Typ2)) squery += " coalesce("+Typ2->Short()+",'A')";
   squery += " from zauberwerk where  name = '"+name+"'";
   strncpy(query,squery.c_str(),sizeof(query));
 
@@ -61,7 +61,7 @@ float midgard_CG::get_standard_zaubermittel(const Data_typen& Typ, const Data_ty
    std::string e1=db_ergebnis;
    std::string e2=db_ergebnis2;
    float fac;
-   if (Typ2.Short()!="")
+   if (Typ2->Short()!="")
     { if      (e1=="G" || e2=="G") fac = 0.5;
       else if (e1=="S" && e2=="S") fac = 1.0;
       else fac = 5.0;

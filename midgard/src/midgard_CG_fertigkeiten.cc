@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.24 2001/10/02 06:39:57 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.25 2001/10/05 09:54:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,8 +26,8 @@
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
-//  manage(new Fertigkeiten_auswahl(this,Typ.Short(),werte,lernpunkte,vec_beruf));
-  manage(new Fertigkeiten_auswahl(this,Typ.Short(),Typ2.Short(),lernpunkte.Fertigkeiten(),Werte));
+//  manage(new Fertigkeiten_auswahl(this,Typ->Short(),werte,lernpunkte,vec_beruf));
+  manage(new Fertigkeiten_auswahl(this,Typ->Short(),Typ2->Short(),lernpunkte.Fertigkeiten(),Werte));
 }
 
 void midgard_CG::show_fertigkeiten()
@@ -57,7 +57,7 @@ void midgard_CG::fertigkeiten_uebernehmen(const std::list<H_Data_fert>& saf)
 {
    vec_Fertigkeiten = saf;
    maxkido=0;
-   if (Typ.Short()=="Kd") maxkido=2;
+   if (Typ->Short()=="Kd") maxkido=2;
 //XXX   std::vector<vector<st_ausgewaehlte_fertigkeiten>::iterator>  vi;
    int KD_tech=0; //XXX
    for(std::list<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();

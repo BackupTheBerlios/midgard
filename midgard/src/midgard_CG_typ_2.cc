@@ -1,4 +1,4 @@
-// $Id: midgard_CG_typ_2.cc,v 1.13 2001/06/27 11:24:35 thoma Exp $
+// $Id: midgard_CG_typ_2.cc,v 1.14 2001/10/05 09:54:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,11 +20,11 @@
                 
 #include "midgard_CG.hh"
 
-bool midgard_CG::get_typ_s(const std::string& mod,const Data_typen& t)
+bool midgard_CG::get_typ_s(const std::string& mod,const H_Data_typen& t)
 {
   if (mod=="Magie")
    {
-     if (t.Zaubern()=="z" || t.Zaubern()=="j") return true;
+     if (t->Zaubern()=="z" || t->Zaubern()=="j") return true;
      else return false;
    }
   else abort();
