@@ -25,10 +25,10 @@
   <Fertigkeiten>
     <Beruf Bezeichnung="Einbrecher" Wert="11"/>
     <Fertigkeit Bezeichnung="Balancieren" Wert="17"/>
-    <Fertigkeit Bezeichnung="Fallen stellen" Wert="6"/>
+    <Fertigkeit Bezeichnung="Fallen entschärfen" Wert="6"/>
     <Fertigkeit Bezeichnung="Geheimzeichen"/>
     <Fertigkeit Bezeichnung="Klettern" Wert="17"/>
-    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="4"/>
+    <Fertigkeit Bezeichnung="Gassenwissen" Wert="4"/>
     <Fertigkeit Bezeichnung="Schleichen" Wert="6"/>
     <Fertigkeit Bezeichnung="Schlösser öffnen" Wert="6"/>
     <Fertigkeit Bezeichnung="Stehlen" Wert="10"/>

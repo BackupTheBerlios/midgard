@@ -8,7 +8,7 @@
   <Erfolgswerte Abwehr="13"/>
   <Resistenzen Zauber="12"/>
   <Gesundheit LP="16" AP="37"/>
-  <Beschreibung Alter="42" Gestalt="breit" Größe="138" Stand="Mittelschicht" Herkunft="Corrammassiv" Glaube="(Krieg)"/>
+  <Beschreibung Alter="42" Gestalt="breit" Größe="138" Stand="Adel" Herkunft="Corrammassiv" Glaube="(Krieg)"/>
   <Boni Ausdauer="6" Schaden="2" Abwehr="1" Zaubern="2">
     <Resistenzen psy="4" phs="4" Gift="20"/>
   </Boni>
@@ -35,6 +35,7 @@
     <Fertigkeit Bezeichnung="Klettern" Wert="14"/>
     <Fertigkeit Bezeichnung="Laufen" Wert="2"/>
     <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
+    <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
     <Fertigkeit Bezeichnung="Springen" Wert="12"/>
     <Fertigkeit Bezeichnung="Streitwagen lenken" Wert="16"/>
     <Fertigkeit Bezeichnung="Wagenlenken" Wert="16"/>

@@ -36,7 +36,7 @@ void midgard_CG::get_abwehr_resistenz(const string& was)
   FetchIStream is("mydesc");
   is >> FetchIStream::MapNull<int>(wert,0) >> FetchIStream::MapNull<int>(kosten,0);
   SQLerror::test(__FILELINE__);
-  if (wert=="")
+  if (!wert)
     {manage(new WindowInfo(was+" kann nur für gerade Grade gesteigert werden!")) ;return;}
   exec sql close grad_an_ein;
   tr.close();
