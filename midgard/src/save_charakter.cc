@@ -17,31 +17,22 @@
  */
 
 #include "midgard_CG.hh"
-#include "export_common.h"
 #include <fstream>
 #include "Waffe.hh"
 // for XML export
 #include "xml_fileselection.hh"
-#include "TagStream.hh"
 #include <Aux/itos.h>
 
-#ifdef __MINGW__
-std::string utf82iso(const std::string &s);
-std::string iso2utf8(const std::string &s);
-# define Latin2Screen(x) iso2utf8(x)
-# define Internal2Latin(x) utf82iso(x)
-#else
-# define Latin2Screen(x) (x)
-# define Internal2Latin(x) (x)
-#endif
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {
+/*
    if(getCWerte().Name_Abenteurer()=="")
     {
       no_name();   
       return false;
     }
+*/
   if (ev->button==1)  save_existing_filename();
   else xml_export_auswahl();
   return false;
@@ -49,7 +40,7 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_export_auswahl()
 { 
- modify_bool=false;
+// modify_bool=false;
 #ifndef __MINGW32__ 
  manage 
 #else
@@ -76,194 +67,12 @@ void midgard_CG::xml_export(const std::string& dateiname)
       set_info("Ich kann die Datei '"+dateiname+"' nicht beschreiben");
       return;
    }
-  speicherstream(datei);
+  Char.speicherstream(datei,this);
+
+  set_title(getCWerte().Name_Abenteurer());
+  Char.safed();   
 }
 
 
-void midgard_CG::speicherstream(ostream &datei)
-{
-   datei << "<?xml";
-   write_string_attrib(datei, "version", "1.0");
-   write_string_attrib(datei, "encoding", "ISO-8859-1"); // TagStream::host_encoding);
-   datei << "?>\n\n";
-   datei << "<MAGUS-data>\n";
 
-// Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien
-// oder ganz unten?
-   datei << " <Preise>\n";
-   for (std::list<cH_Preise>::const_iterator i=Database.preise.begin();
-   		i!=Database.preise.end();++i)
-   {  if ((*i)->ist_eigener_Artikel())
-      {  datei << "  <Kaufpreis";
-         write_string_attrib(datei, "Ware", Internal2Latin((*i)->Name()));
-         write_string_attrib(datei, "Art", Internal2Latin((*i)->Art()));
-         write_string_attrib(datei, "Art2", Internal2Latin((*i)->Art2()));
-         write_float_attrib(datei, "Preis", (*i)->Kosten());
-         write_string_attrib(datei, "Währung", Internal2Latin((*i)->Einheit()));
-         write_float_attrib(datei, "Gewicht", (*i)->Gewicht());
-         datei << "/>\n";
-      }
-   }
-   datei << " </Preise>\n\n";
-   
-   datei << " <Midgard-Abenteurer";
-   write_int_attrib(datei,"Version",10);
-   datei << ">\n";
-
-   grundwerte_speichern(datei);
-   datei << Internal2Latin("  <Ausrüstung>\n");
-   write_string(datei, Internal2Latin("Rüstung"), getCWerte().Ruestung()->Name(), 4);
-   write_string(datei, Internal2Latin("Rüstung2"), getCWerte().Ruestung(1)->Name(), 4);
-   // Waffen Besitz
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=Char.CList_Waffen_besitz().begin();
-         i!=Char.CList_Waffen_besitz().end();++i)
-      {  cH_WaffeBesitz WB(*i);
-         datei << "    <Waffe";
-         write_string_attrib(datei, "Bezeichnung", Internal2Latin(WB->Name()));
-         write_int_attrib(datei, "AngriffVerteidigung_Bonus", WB->av_Bonus());
-         write_int_attrib(datei, "SchadenLebenspunkte_Bonus", WB->sl_Bonus());
-         write_string_attrib(datei, "Region", Internal2Latin(WB->Region()));
-         if (WB->Magisch().empty()) datei << "/>\n";
-         else datei << '>' << Internal2Latin(WB->Magisch()) << "</Waffe>\n";
-      }
-   save_ausruestung(datei, Char.getCBesitz().getChildren());
-   datei << Internal2Latin("  </Ausrüstung>\n");
-   
-   datei << "  <Fertigkeiten>\n";   
-
-   MidgardBasicElement::saveElementliste(datei,getCWerte().Sinne(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_Beruf(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_Fertigkeit_ang(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_Fertigkeit(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_Waffen(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_Zauber(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_Zauberwerk(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_Kido(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_WaffenGrund(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_Sprache(),getCWerte(),Char.getVTyp());
-   MidgardBasicElement::saveElementliste(datei,Char.CList_Schrift(),getCWerte(),Char.getVTyp());
-
-   // Regionen & Ähnliches
-  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
-   {  if (!(*i)->Active()) continue;
-      datei << "    <Region";
-      write_string_attrib(datei, "Name", Internal2Latin((*i)->Name()));
-      write_string_attrib(datei, "Region", Internal2Latin((*i)->Abkuerzung()));
-      datei << "/>\n";
-   }
-   // Optionen
-   std::list<Midgard_Optionen::st_OptionenCheck> LO=MOptionen->getOptionenCheck();
-   for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=LO.begin();i!=LO.end();++i)
-   {
-     // Option, die mit dem C. gespeichert werden müssen
-     if(i->index!=Midgard_Optionen::Original && i->index!=Midgard_Optionen::NSC_only) continue; 
-     datei << "    <Optionen";
-     write_string_attrib(datei, "Name", Internal2Latin(i->text));
-     write_bool_attrib_force(datei, "Wert", Internal2Latin(i->active));
-     datei << "/>\n";
-   }
-   datei << "  </Fertigkeiten>\n";   
-   datei << " </Midgard-Abenteurer>\n";
-   datei << "</MAGUS-data>\n";
-   set_title(getCWerte().Name_Abenteurer());
-}
-
-
-void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
-{
-   datei << "  <Figur";
-   write_string_attrib(datei, "Name", Internal2Latin(getCWerte().Name_Abenteurer()));
-   write_string_attrib(datei, "Spieler", Internal2Latin(getCWerte().Name_Spieler()));
-   write_string_attrib(datei, "Zeitpunkt", Internal2Latin(getCWerte().Version()));
-   write_int_attrib(datei, "Grad", getCWerte().Grad());
-   datei << "/>\n";
-   datei << "  <Typ";
-   write_string_attrib(datei, "Spezies", Internal2Latin(getCWerte().Spezies()->Name()));
-   write_string_attrib(datei, "Geschlecht", Internal2Latin(getCWerte().Geschlecht()));
-   write_string_attrib(datei, Internal2Latin("Abkürzung"), Internal2Latin(Char.CTyp1()->Short()));
-   write_string_attrib(datei, Internal2Latin("Abkürzung2"), Internal2Latin(Char.CTyp2()->Short()));
-   write_string_attrib(datei, "Spezialgebiet", Internal2Latin(getCWerte().Spezialgebiet()->Name()));
-   write_string_attrib(datei, "Spezialisierung", Internal2Latin(getCWerte().Spezialisierung()));
-   write_string_attrib(datei, "Stadt_Land", Internal2Latin(getCWerte().Stadt_Land()));
-   write_string_attrib(datei, "Hand", Internal2Latin(getCWerte().Hand()));
-   datei << "/>\n";
-   datei << "  <Basiseigenschaften";
-   write_int_attrib(datei, "St", getCWerte().St());
-   write_int_attrib(datei, "Gw", getCWerte().Gw());
-   write_int_attrib(datei, "Gs", getCWerte().Gs());
-   write_int_attrib(datei, "Ko", getCWerte().Ko());
-   write_int_attrib(datei, "In", getCWerte().In());
-   write_int_attrib(datei, "Zt", getCWerte().Zt());
-   datei << "/>\n";
-   datei << "  <abgeleiteteEigenschaften";
-   write_int_attrib(datei, "Au", getCWerte().Au());
-   write_int_attrib(datei, "pA", getCWerte().pA());
-   write_int_attrib(datei, "Wk", getCWerte().Wk());
-   write_int_attrib(datei, "Sb", getCWerte().Sb());
-   write_int_attrib(datei, "B", getCWerte().B());
-//   write_int_attrib(datei, "KAW", getCWerte().St());
-//   write_int_attrib(datei, "WLW", getCWerte().St());
-   write_int_attrib(datei, "GG", getCWerte().GG());
-   write_int_attrib(datei, "SG", getCWerte().SG());
-   datei << "/>\n";
-   datei << "  <Erfolgswerte";
-   write_int_attrib(datei, "Abwehr", getCWerte().Abwehr_wert());
-   write_int_attrib(datei, "Zaubern", getCWerte().Zaubern_wert());
-   write_int_attrib(datei, "ZauberResistenz", getCWerte().Resistenz());
-   datei << "/>\n";
-   datei << "  <Gesundheit"; // schlechter Name ?
-//   write_int_attrib(datei, "LP_Basis");
-   write_int_attrib(datei, "LP", getCWerte().LP());
-   write_int_attrib(datei, "AP", getCWerte().AP());
-   datei << "/>\n";
-   datei << "  <Beschreibung"; // soziale?
-   write_int_attrib(datei, "Alter", getCWerte().Alter());
-   write_string_attrib(datei, "Gestalt", Internal2Latin(getCWerte().Gestalt()));
-   write_int_attrib(datei, "Gewicht", getCWerte().Gewicht());
-   write_int_attrib(datei, Internal2Latin("Größe"), getCWerte().Groesse());
-   write_string_attrib(datei, "Stand", Internal2Latin(getCWerte().Stand()));
-   write_string_attrib(datei, "Bezeichnung", Internal2Latin(getCWerte().Bezeichnung()));
-   write_string_attrib(datei, "Herkunft", Internal2Latin(getCWerte().Herkunft()->Name()));
-   write_string_attrib(datei, "Glaube", Internal2Latin(getCWerte().Glaube()));
-   datei << "/>\n";
-   datei << Internal2Latin("  <Vermögen");
-   write_int_attrib(datei, "GS", getCWerte().Gold());
-   write_int_attrib(datei, "SS", getCWerte().Silber());
-   write_int_attrib(datei, "KS", getCWerte().Kupfer());
-   datei << "/>\n";
-   datei << "  <Steigern";
-   write_int_attrib(datei, "GFP", getCWerte().GFP());
-   write_int_attrib(datei, "AEP", getCWerte().AEP());
-   write_int_attrib(datei, "KEP", getCWerte().KEP());
-   write_int_attrib(datei, "ZEP", getCWerte().ZEP());
-   write_int_attrib(datei, "EPproGFP", getCWerte().get_Steigern_EP_Prozent(), 50);
-   write_int_attrib(datei, "Basiswerte", getCWerte().get_Grad_Basiswerte(), getCWerte().Grad());
-   write_float_attrib(datei, Internal2Latin("benötigte_Tage"), getCWerte().Steigertage());
-   datei << "><Praxispunkte";
-   write_int_attrib(datei, "Abwehr", getCWerte().AbwehrPP());
-   write_int_attrib(datei, "Zaubern", getCWerte().ZaubernPP());
-   write_int_attrib(datei, "Spezial", getCWerte().SpezialPP());
-   write_int_attrib(datei, "Resistenz", getCWerte().ResistenzPP());
-   datei << "/></Steigern>\n";
-   write_string(datei, "Text", Internal2Latin(getCWerte().Beschreibung()), 2);
-   write_string(datei, "TextPix", Internal2Latin(getCWerte().BeschreibungPix()), 2);
-   write_string(datei, "TextPixSize", itos(getCWerte().BeschreibungPixSize()), 2);
-}
-
-
-void midgard_CG::save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB, const int indent)
-{  
-  for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
-   {  datei << string(indent,' ') << "<Gegenstand";
-      write_string_attrib(datei, "Bezeichnung", Internal2Latin(i->getAusruestung().Name()));
-      write_string_attrib(datei, "Besonderheit", Internal2Latin(i->getAusruestung().Material()));
-      write_bool_attrib(datei, "sichtbar", i->getAusruestung().Sichtbar());
-      if (i->empty()) datei << "/>\n";
-      else
-      {  datei << ">\n";
-         save_ausruestung(datei, i->getChildren(), indent+2);
-         datei << string(indent,' ') << "</Gegenstand>\n";
-      }
-   }
-}
 

@@ -16,7 +16,7 @@
  */
 
 #include "midgard_CG.hh"
-
+/*
 void midgard_CG::no_name()
 {
   set_status("Bevor der alte Abenteurer keinen Namen bekommen hat, ist diese Aktion nicht möglich.",false);
@@ -26,15 +26,11 @@ void midgard_CG::no_name()
 //  table_grundwerte->togglebutton_edit_werte->set_active(true);
 //  table_grundwerte->entry_nameC->grab_focus();
 }
-
+*/
 
 gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 {
-   if(getCWerte().Name_Abenteurer()=="") 
-    {
-      no_name();
-      return false;
-    }
+   Char.push_back(Abenteurer());
    on_neuer_charakter_clicked();
    if (ev->button==1)  on_wizard_starten_activate();
    return false;
@@ -47,7 +43,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 
 //X   getWerte().clear(); 
 //X   Char.reset();
-   Char.push_back(Abenteurer());
+   if(Char.empty()) Char.push_back(Abenteurer());
    table_lernschema->label_lernschma_titel->set_text("");
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);

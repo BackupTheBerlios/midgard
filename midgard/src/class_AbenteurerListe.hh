@@ -23,15 +23,18 @@
 class Data_AbenteurerListe : public RowDataBase
 {
       Abenteurer Char;
+      bool saved;
 
-      enum spalten{NAMEA,TYP,BEZEICHNUNG,SPEZIES,SPIELER,VER};
+      enum spalten{NAMEA,SAVE,TYP,BEZEICHNUNG,SPEZIES,SPIELER,VER};
    public:
-      Data_AbenteurerListe(const Abenteurer& c) : Char(c) {}
+      Data_AbenteurerListe(const VAbenteurer::st_abenteurer& c) 
+         : Char(c.abenteurer), saved(c.gespeichert) {}
 
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
          switch(spalten(seqnr))
           {
+            case SAVE: return cH_EntryValueIntString(saved);
             case NAMEA: return cH_EntryValueIntString(Char.getCWerte().Name_Abenteurer());
             case SPIELER: return cH_EntryValueIntString(Char.getCWerte().Name_Spieler());
             case BEZEICHNUNG: return cH_EntryValueIntString(Char.getCWerte().Bezeichnung());

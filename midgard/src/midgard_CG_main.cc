@@ -142,16 +142,28 @@ gint midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *eve
 
 void midgard_CG::on_schliessen_CG_clicked()
 {
-     MOptionen->save_options(InfoFenster);
-  if(modify_bool)
+  MOptionen->save_options(InfoFenster);
+  if(Char.unsaved_exist())
    {
-     MOptionen->save_options(InfoFenster);
-     xml_export_auswahl();
+     load_for_mainpage(PAGE_NEWS);
+     set_status("Es existieren nichtgespeicherte Abenteurer",false);
+     table_confirm_quit->show();
      return;
    }
+  on_button_quit_confirm_clicked();
+}
+
+void midgard_CG::on_button_quit_abbrechen_clicked()
+{
+  table_confirm_quit->hide();
+}
+
+void midgard_CG::on_button_quit_confirm_clicked()
+{
   connection_status.disconnect();
   Gtk::Main::instance()->quit();
 }
+
 
 gint midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
 {
