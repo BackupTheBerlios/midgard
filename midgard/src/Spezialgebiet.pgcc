@@ -60,7 +60,8 @@ Spezialgebiet::Spezialgebiet(const std::string& _name)
 : nr(0),name(_name)
 #else
 Spezialgebiet::Spezialgebiet(const Tag *tag) 
-: nr(tag->getIntAttr("MCG-Index")), name(tag->getAttr("Name"))
+: nr(tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index")))
+	, name(tag->getAttr("Name"))
 #endif
 {
 #ifndef USE_XML

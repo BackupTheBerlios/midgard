@@ -75,7 +75,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
    }
 
    datei << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
-   datei << "<MidgardCG-data>\n";
+   datei << "<MAGUS-data>\n";
 
 // Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien
 // oder ganz unten?
@@ -155,7 +155,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
    }
    datei << "  </Fertigkeiten>\n";   
    datei << " </Midgard-Abenteurer>\n";
-   datei << "</MidgardCG-data>\n";
+   datei << "</MAGUS-data>\n";
 #endif
 }
 

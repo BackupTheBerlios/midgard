@@ -126,7 +126,7 @@ Spezies::Spezies(const Tag *tag)
  exec sql close SPEIN2;
  tr.close();
 #else
- nr=tag->getIntAttr("MCG-Index");
+ nr=tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index"));
  land=tag->getBoolAttr("Land");
  
  const Tag *Minima=tag->find("Minima");

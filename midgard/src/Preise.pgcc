@@ -188,7 +188,8 @@ cH_PreiseMod::cH_PreiseMod(const Tag *tag)
 {*this=cH_PreiseMod(new PreiseMod(tag));
 	// art,art2,typ,nr
  cache.Register(st_index(tag->getAttr("Art"),tag->getAttr("Art2"),
- 		tag->getAttr("Typ"),tag->getIntAttr("MCG-Nr")),*this);
+ 		tag->getAttr("Typ"),
+ 		tag->getIntAttr("MAGUS-Nr",tag->getIntAttr("MCG-Nr"))),*this);
 }
 #endif
 
@@ -214,7 +215,7 @@ void PreiseMod::get_PreiseMod()
   payload=st_payload(db_name,db_faktor);
 #else
   assert(tag);
-  nr=tag->getIntAttr("MCG-Nr");
+  nr=tag->getIntAttr("MAGUS-Nr",tag->getIntAttr("MCG-Nr"));
   art=tag->getAttr("Art");
   art2=tag->getAttr("Art2");
   typ=tag->getAttr("Typ");
