@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Zeitpunkt="Erschaffung" Grad="10"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Langschwert" Überleben="Überleben im Sumpf" Muttersprache="KanThaiTun" Stadt_Land="Stadt" Hand="Linkshänder"/>
+  <Basiseigenschaften St="81" Gw="54" Gs="28" Ko="100" In="55" Zt="76"/>
+  <abgeleiteteEigenschaften Au="11" pA="63" Wk="21" Sb="58" B="25" SG="12"/>
+  <Erfolgswerte Abwehr="16" Zaubern="2" ZauberResistenz="15"/>
+  <Gesundheit LP="19" AP="77"/>
+  <Beschreibung Alter="49" Gestalt="normal" Gewicht="72" Größe="170" Stand="Adel" Herkunft="KanThaiPan"/>
+  <Vermögen GS="16"/>
+  <Steigern GFP="56874" benötigte_Tage="48.7998">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Handaxt"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Stoßspeer"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Stabkeule"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Langschwert"/>
+   <Waffe Erfolgswert="0" Bezeichnung="leichter Speer"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+   <Gegenstand Anzahl="1" Bezeichnung="Reitpferd" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="10"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Kaufmann"/>
+   <Fertigkeit Bezeichnung="Kampf in Schlachtreihe" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kampf vom Streitwagen" Wert="17"/>
+   <Fertigkeit Bezeichnung="Streitwagen lenken" Wert="18"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+   <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="18"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Geheimzeichen" Wert="7" Zusatz="Weißer Lotus"/>
+   <Fertigkeit Bezeichnung="Tanzen" Wert="15"/>
+   <Fertigkeit Bezeichnung="KujKuri" Wert="1"/>
+   <Fertigkeit Bezeichnung="+1 KiDo-Technik " Wert="1"/>
+   <Fertigkeit Bezeichnung="TaiTschi" Wert="5"/>
+   <Fertigkeit Bezeichnung="KentoYobu"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="14"/>
+   <Fertigkeit Bezeichnung="Athletik" Wert="6"/>
+   <Fertigkeit Bezeichnung="SchiyoKi" Wert="3"/>
+   <Fertigkeit Bezeichnung="Wagenlenken" Wert="10"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="6"/>
+   <Fertigkeit Bezeichnung="Teezeremonie" Wert="6"/>
+   <Fertigkeit Bezeichnung="Singen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Überleben im Schnee" Wert="6"/>
+   <Fertigkeit Bezeichnung="Lesen von Geisterschrift" Wert="6"/>
+   <Fertigkeit Bezeichnung="Kampftaktik" Wert="7"/>
+   <Fertigkeit Bezeichnung="Kampf in Vollrüstung" Wert="11"/>
+   <Fertigkeit Bezeichnung="Schiffsführung" Wert="7"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Verhören" Wert="7"/>
+   <Fertigkeit Bezeichnung="Trinken" Wert="1"/>
+   <Fertigkeit Bezeichnung="Seemannsgang" Wert="11"/>
+   <Fertigkeit Bezeichnung="Tarnen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Rudern" Wert="10"/>
+   <Fertigkeit Bezeichnung="KujNoIu" Wert="1"/>
+   <Fertigkeit Bezeichnung="Baukunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Überleben im Dschungel" Wert="6"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Schlittenfahren" Wert="11"/>
+   <Fertigkeit Bezeichnung="Skifahren" Wert="12"/>
+   <Fertigkeit Bezeichnung="KiDo" Wert="10"/>
+   <Fertigkeit Bezeichnung="Springen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Überleben im Sumpf" Wert="7"/>
+   <Fertigkeit Bezeichnung="Lippenlesen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Überleben in der Steppe" Wert="6"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="4" Zusatz=""/>
+   <Fertigkeit Bezeichnung="Überleben im Wald" Wert="6"/>
+   <Fertigkeit Bezeichnung="Tauchen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Geschäftstüchtigkeit" Wert="6"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="4"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="4" Zusatz=""/>
+   <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="6"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="10"/>
+   <Fertigkeit Bezeichnung="Überleben im Gebirge" Wert="6"/>
+   <Fertigkeit Bezeichnung="Kenntnis der fünf Klassiker"/>
+   <Fertigkeit Bezeichnung="Meditieren" Wert="6"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="4" Zusatz=""/>
+   <Fertigkeit Bezeichnung="Erzählen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Abrichten" Wert="6" Zusatz=""/>
+   <Waffe Bezeichnung="Lanze" Wert="11"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="13"/>
+   <Waffe Bezeichnung="Stoßspeer" Wert="14"/>
+   <Waffe Bezeichnung="großer Schild" Wert="9"/>
+   <Waffe Bezeichnung="Handaxt" Wert="18"/>
+   <Waffe Bezeichnung="Buckler" Wert="8"/>
+   <Waffe Bezeichnung="Stabkeule" Wert="11"/>
+   <Waffe Bezeichnung="Langschwert" Wert="14"/>
+   <Waffe Bezeichnung="leichter Speer" Wert="11"/>
+   <Waffe Bezeichnung="Wurfspieß" Wert="18"/>
+   <Waffe Bezeichnung="Dolch" Wert="10"/>
+   <Waffe Bezeichnung="Krummsäbel" Wert="9"/>
+   <Waffe Bezeichnung="Wurfspeer" Wert="5"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Wurfspieß"/>
+   <Grundkenntnis Bezeichnung="Zweihandschlagwaffe"/>
+   <Sprache Bezeichnung="KanThaiTun" Wert="15"/>
+   <Sprache Bezeichnung="Aranisch" Wert="14"/>
+   <Sprache Bezeichnung="Toquinisch" Wert="15"/>
+   <Sprache Bezeichnung="Ffomorisch" Wert="5"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="6"/>
+   <Sprache Bezeichnung="Ikengadialekte" Wert="6"/>
+   <Sprache Bezeichnung="Nahuatlanisch" Wert="5"/>
+   <Sprache Bezeichnung="Tuskisch" Wert="4"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="5"/>
+   <Sprache Bezeichnung="Medjisisch" Wert="5"/>
+   <Sprache Bezeichnung="Waelska" Wert="4"/>
+   <Sprache Bezeichnung="Feuerinseldialekte" Wert="4"/>
+   <Urschrift Bezeichnung="KanThaiTun(3)" Wert="12"/>
+   <Urschrift Bezeichnung="KanThaiTun(5)" Wert="5"/>
+   <Urschrift Bezeichnung="Erainnisch" Wert="5"/>
+   <Urschrift Bezeichnung="Nahuatlanische Knotenschrift Quipu" Wert="4"/>
+   <Urschrift Bezeichnung="Nahuatlanische Bilderschrift" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="KanThaiPan" Region="K"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
