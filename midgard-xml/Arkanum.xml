@@ -6,7 +6,7 @@
     <Standard>Sc</Standard>
     <Ausnahme>Tm</Ausnahme>
   </Spruch>
-  <Spruch Name="Angst" Grad="1" Lernkosten="120" AP="#Ws" Typ="Wort" Ursprung="druidisch" Agens="Feuer" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 10 Ws" Wirkungsdauer="10 min">
+  <Spruch Name="Angst" Grad="1" Lernkosten="120" AP="&#X23;Ws" Typ="Wort" Ursprung="druidisch" Agens="Feuer" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 10 Ws" Wirkungsdauer="10 min">
     <Grund>Dr,Sa,Sc,gHx,sHx,wHx</Grund>
     <Standard>Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Tm,dBe,eBe,tBe</Standard>
   </Spruch>
@@ -65,11 +65,7 @@
   <Spruch Name="Bannen von Götterwerk" Grad="2" Lernkosten="300" AP="4" Typ="Wort" Ursprung="schwarzmagisch" Agens="Magan" Prozess="zerstört" Reagens="Magan" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="0">
     <Grund>Or,PC,Sr,sHx</Grund>
   </Spruch>
-  <Spruch Name="Bannen von Hrimfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Eis" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Primärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Bannt Hrimfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
-  </Spruch>
-  <Spruch Name="Bannen von Hrimfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Eis" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Sekundärelement="Eis">
+  <Spruch Name="Bannen von Hrimfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Eis" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Bannt Hrimfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
@@ -81,11 +77,7 @@
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Bannen von Hyrfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Primärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
-  </Spruch>
-  <Spruch Name="Bannen von Hyrfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Sekundärelement="Feuer">
+  <Spruch Name="Bannen von Hyrfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
@@ -93,12 +85,7 @@
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Bannen von Jördfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Primärelement="Erde">
-    <Standard>eBe</Standard>
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Bannt Jördfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
-  </Spruch>
-  <Spruch Name="Bannen von Jördfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Bannen von Jördfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Erde">
     <Standard>eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Bannt Jördfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
@@ -122,12 +109,7 @@
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Ma,PF,PK,PM,PW</Ausnahme>
   </Spruch>
-  <Spruch Name="Bannen von Vindfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Primärelement="Luft">
-    <Standard>eBe</Standard>
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Bannt Vindfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
-  </Spruch>
-  <Spruch Name="Bannen von Vindfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Sekundärelement="Luft">
+  <Spruch Name="Bannen von Vindfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Luft">
     <Standard>eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Bannt Vindfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
@@ -136,11 +118,7 @@
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Bannen von Wisfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Wasser" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Material=" " Zauberart="Beschwörung" Primärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Bannt Wisfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
-  </Spruch>
-  <Spruch Name="Bannen von Wisfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Wasser" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Material=" " Zauberart="Beschwörung" Sekundärelement="Wasser">
+  <Spruch Name="Bannen von Wisfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Wasser" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Material=" " Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Bannt Wisfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
@@ -198,16 +176,10 @@
     <Standard>Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Standard>
     <Ausnahme>Sa,Sc</Ausnahme>
   </Spruch>
-  <Spruch Name="Bergeist beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Erde">
+  <Spruch Name="Bergeist beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Bergeist beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Bergeist rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Bergeist rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Bergeist rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Beschleunigen" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min">
@@ -238,7 +210,7 @@
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe,tBe</Ausnahme>
   </Spruch>
-  <Spruch Name="Blitze schleudern" Grad="3" Lernkosten="1000" AP="#*3" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="erschafft" Reagens="Feuer" Zauberdauer="10 s" Reichweite="200 m" Wirkungsziel="Umgebung" Wirkungsbereich="max 10 Blitze" Wirkungsdauer="0" Material="Zitterallherz">
+  <Spruch Name="Blitze schleudern" Grad="3" Lernkosten="1000" AP="&#X23;*3" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="erschafft" Reagens="Feuer" Zauberdauer="10 s" Reichweite="200 m" Wirkungsziel="Umgebung" Wirkungsbereich="max 10 Blitze" Wirkungsdauer="0" Material="Zitterallherz">
     <Grund>PK,Th</Grund>
     <Standard>Dr,Ma,PC,PF,PHa,PHe,PM,PT,PW,gHx,sHx,wHx</Standard>
   </Spruch>
@@ -334,16 +306,10 @@
     <Standard>Dr,Ma,PC,PF,PHa,PHe,PM,PT,PW,gHx,sHx,wHx</Standard>
     <Ausnahme>Hl,Sa,Sc</Ausnahme>
   </Spruch>
-  <Spruch Name="Dschinn beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Luft">
+  <Spruch Name="Dschinn beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Dschinn beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Dschinn rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Dschinn rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Luft">
+  <Spruch Name="Dschinn rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Dschinni-Auge" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="erkennt" Reagens="Feuer" Zauberdauer="5 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="100 m Uk" Wirkungsdauer="10 min" Material="Kristtallauge">
@@ -384,10 +350,7 @@
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Dunskrat beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Dunskrat beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Dunskrat beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Durstsalz" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Wasser" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Zauberart="Zaubersalz">
@@ -399,7 +362,7 @@
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Dämonenbann" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Dämonenbann" Grad="5" Lernkosten="3000" AP="&#X23;*6" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
@@ -420,10 +383,7 @@
     <Grund>PC,sHx</Grund>
     <Standard>dBe,gHx,tBe</Standard>
   </Spruch>
-  <Spruch Name="Eiselementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Eiselementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Eis">
+  <Spruch Name="Eiselementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Eisenhaut" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="verändert" Reagens="Erde" Zauberdauer="15 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Material="Eisenpulver">
@@ -451,13 +411,10 @@
     <Standard>Dr,Hl,Ma,PW,Sa,Sc,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>PC,PF,PHa,PHe,PK</Ausnahme>
   </Spruch>
-  <Spruch Name="Eldring beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Primärelement="Feuer">
+  <Spruch Name="Eldring beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Eldring beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Sekundärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Elementarbann" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
+  <Spruch Name="Elementarbann" Grad="5" Lernkosten="3000" AP="&#X23;*6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
@@ -487,10 +444,7 @@
     <Standard>Dr,PF,eBe</Standard>
     <Ausnahme>Hl,Ma,PC,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Erdeelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Erdeelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Erdeelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Erdfessel" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Erde" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Material="Honig-Erd-Gemisch">
@@ -554,16 +508,10 @@
     <Standard>Hl,Ma</Standard>
     <Ausnahme>Dr,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc</Ausnahme>
   </Spruch>
-  <Spruch Name="Felldvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Erde">
+  <Spruch Name="Felldvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Felldvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Felldverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Primärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Felldverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Felldverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Felsenfaust" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="elementar" Agens="Erde" Prozess="verwandelt" Reagens="Holz" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Material="Kieselstein">
@@ -571,20 +519,14 @@
     <Standard>Or,PC,PF,PHe,PM,PT,PW,Sr,Tm,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma</Ausnahme>
   </Spruch>
-  <Spruch Name="Fengrip beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Primärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Fengrip beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Fengrip beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Fesselbann" Grad="2" Lernkosten="400" AP="Gr*2" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="erschafft" Reagens="Magan" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Faden einer Riesenspinne">
     <Grund>PW</Grund>
     <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,Sa,Sc,Th,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Feuerelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Feuerelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Feuer">
+  <Spruch Name="Feuerelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Feuerfinger" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Feuer" Prozess="erschafft" Reagens="Feuer" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min">
@@ -632,10 +574,7 @@
     <Standard>Ma,PC,PF,PHa,PM,PT,PW,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Sa,Sc</Ausnahme>
   </Spruch>
-  <Spruch Name="Fjalhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Fjalhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Fjalhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Flammende Hand" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="elementar" Agens="Feuer" Prozess="erschafft" Reagens="Feuer" Zauberdauer="5 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min">
@@ -666,10 +605,7 @@
     <Standard>Hl,Or,dBe</Standard>
     <Ausnahme>PC,PF,PHa,PHe,PK,PM,PT</Ausnahme>
   </Spruch>
-  <Spruch Name="Fossemand beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Fossemand beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Wasser">
+  <Spruch Name="Fossemand beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Freundesauge" Grad="4" Lernkosten="1200" AP="4" Typ="Gedanke" Ursprung="dämonisch" Agens="Wasser" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="10 s" Reichweite="500 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="30 min">
@@ -704,7 +640,7 @@
     <Standard>dBe,eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Geisterlauf" Grad="4" Lernkosten="1500" AP="#Ws*4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="30 min" Reichweite="3 m" Wirkungsziel="Körper" Wirkungsbereich="max 7 Ws" Wirkungsdauer="var" Material="Gewänder, Toten- oder Ahnensymbole, Feuer, Kräuter">
+  <Spruch Name="Geisterlauf" Grad="4" Lernkosten="1500" AP="&#X23;Ws*4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="30 min" Reichweite="3 m" Wirkungsziel="Körper" Wirkungsbereich="max 7 Ws" Wirkungsdauer="var" Material="Gewänder, Toten- oder Ahnensymbole, Feuer, Kräuter">
     <Grund>Sa,Sc</Grund>
     <Standard>Tm</Standard>
   </Spruch>
@@ -712,34 +648,19 @@
     <Grund>Hl,Ma</Grund>
     <Standard>Dr,Fi,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Gjornhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Luft">
+  <Spruch Name="Gjornhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Gjornhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Luft">
+  <Spruch Name="Gletschergnom beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Gletschergnom beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Eis">
+  <Spruch Name="Gletschergnom rufen" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Gletschergnom beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Eis">
+  <Spruch Name="Gloddvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Gletschergnom rufen" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Gletschergnom rufen" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Gloddvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Gloddvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Gloddverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Primärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Gloddverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Sekundärelement="Feuer">
+  <Spruch Name="Gloddverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Goldener Panzer" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="verändert" Reagens="Metall" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Material="Goldstaub">
@@ -811,22 +732,13 @@
     <Standard>PC,Sa,Sc,Tm</Standard>
     <Ausnahme>Dr,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Hardlogi beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Primärelement="Feuer">
+  <Spruch Name="Hardlogi beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Hardlogi beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Sekundärelement="Feuer">
+  <Spruch Name="Harkarhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Harkarhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Harkarhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Harkbuar beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Harkbuar beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Feuer">
+  <Spruch Name="Harkbuar beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Hauch der Verwesung" Grad="2" Lernkosten="400" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="erschafft" Reagens="Erde" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="3 m Uk/R" Wirkungsdauer="1 min" Material="Stinkmorchelasche">
@@ -839,10 +751,7 @@
     <Standard>Dr,Ma,PC,Sa,Sc,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>PK,PM,PW</Ausnahme>
   </Spruch>
-  <Spruch Name="Haugskadi beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Primärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Haugskadi beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Haugskadi beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Heilen schwerer Wunden" Grad="3" Lernkosten="900" AP="4" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="erschafft" Reagens="Erde" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
@@ -882,7 +791,7 @@
     <Standard>dBe,eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Hexenritt" Grad="4" Lernkosten="1600" AP="Gr*4" Typ="Geste" Ursprung="schwarzmagisch" Agens="Eis" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="Zaumzeug aus passenden Knochen & Leder, rec.">
+  <Spruch Name="Hexenritt" Grad="4" Lernkosten="1600" AP="Gr*4" Typ="Geste" Ursprung="schwarzmagisch" Agens="Eis" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="Zaumzeug aus passenden Knochen &amp; Leder, rec.">
     <Grund>PC,gHx,sHx</Grund>
     <Standard>Sa,Sc</Standard>
     <Ausnahme>Dr</Ausnahme>
@@ -906,22 +815,13 @@
     <Standard>Hl</Standard>
     <Ausnahme>gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Hrimdvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Eis">
+  <Spruch Name="Hrimdvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Hrimdvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Eis">
+  <Spruch Name="Hrimdverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Hrimdverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Primärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Hrimdverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Sekundärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Hrimhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Hrimhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Eis">
+  <Spruch Name="Hrimhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Hungersalz" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Zauberart="Zaubersalz">
@@ -932,10 +832,7 @@
   <Spruch Name="Hymne der Ordnung" Grad="3" Lernkosten="1000" AP="2" Typ="Zauberlied" Ursprung="druidisch" Agens="Metall" Prozess="zerstört" Reagens="Magan" Zauberdauer="-" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="15 m Uk" Wirkungsdauer="1 min">
     <Grund>Ba,Sk</Grund>
   </Spruch>
-  <Spruch Name="Hyrrbauti beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Primärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Hyrrbauti beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Sekundärelement="Feuer">
+  <Spruch Name="Hyrrbauti beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Hören der Geister" Grad="3" Lernkosten="500" AP="2" Typ="Gedanke" Ursprung="dämonisch" Agens="Eis" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="6 m Uk" Wirkungsdauer="Grad*20 s">
@@ -952,16 +849,10 @@
     <Standard>Ma,PC,PF,PHa,PHe,PM,PT,PW,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Sa,Sc</Ausnahme>
   </Spruch>
-  <Spruch Name="Ifrit beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Feuer">
+  <Spruch Name="Ifrit beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Ifrit beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Ifrit rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Ifrit rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Feuer">
+  <Spruch Name="Ifrit rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Indruwal 1 beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="LP" Zauberart="Beschwörung">
@@ -980,22 +871,13 @@
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Ising beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Eis">
+  <Spruch Name="Ising beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Ising beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Eis">
+  <Spruch Name="Jambani beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Jambani beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Primärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Jambani beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Sekundärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Jokulskadi beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Primärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Jokulskadi beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Sekundärelement="Eis">
+  <Spruch Name="Jokulskadi beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Jucksalz" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="Zaubersalz">
@@ -1016,10 +898,7 @@
     <Standard>PT,gHx,sHx,wHx</Standard>
     <Ausnahme>Sa,Sc</Ausnahme>
   </Spruch>
-  <Spruch Name="Jördmand beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Primärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Jördmand beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Jördmand beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Kaligin 1 beschwören" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Dolch oder Kurzschwert" Zauberart="Beschwörung">
@@ -1038,22 +917,13 @@
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Kallbjargi beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Primärelement="Eis">
+  <Spruch Name="Kallbjargi beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Kallbjargi beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Sekundärelement="Eis">
+  <Spruch Name="Kallrani beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Kallrani beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Primärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Kallrani beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Sekundärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Karing beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Primärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Karing beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Sekundärelement="Luft">
+  <Spruch Name="Karing beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Knochenbestie" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="schwarzmagisch" Agens="Eis" Prozess="beherrscht" Reagens="Holz" Zauberdauer="20 s" Reichweite="1 km" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="30 min" Material="Tierschädel, -knochen und -shnen, Fellstücke">
@@ -1100,10 +970,7 @@
     <Grund>dBe,eBe</Grund>
     <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Lergris beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Primärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Lergris beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Sekundärelement="Erde">
+  <Spruch Name="Lergris beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Lichtbrücke" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="erschafft" Reagens="Feuer" Zauberdauer="1 min" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="10 min">
@@ -1185,7 +1052,7 @@
     <Standard>Or,Sr,Tm</Standard>
     <Ausnahme>Dr,PC,PF,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Liniensicht" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="druidisch" Agens="Holz" Prozess="erkennt" Reagens="Holz" Zauberdauer="1 s" Reichweite="<=5km" Wirkungsziel="Geist" Wirkungsbereich="selbst" Wirkungsdauer="10 s">
+  <Spruch Name="Liniensicht" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="druidisch" Agens="Holz" Prozess="erkennt" Reagens="Holz" Zauberdauer="1 s" Reichweite="&lt;&#X3D;5km" Wirkungsziel="Geist" Wirkungsbereich="selbst" Wirkungsdauer="10 s">
     <Grund>Dr,Hl</Grund>
     <Standard>Ma,Sa,Sc,gHx,sHx,wHx</Standard>
     <Ausnahme>PC,PF,PHa,PHe,PK,PM,PT,PW,Th,dBe,eBe,tBe</Ausnahme>
@@ -1194,19 +1061,13 @@
     <Grund>Dr</Grund>
     <Standard>Hl</Standard>
   </Spruch>
-  <Spruch Name="Ljosfang beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Primärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Ljosfang beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Sekundärelement="Feuer">
+  <Spruch Name="Ljosfang beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Loblied" Grad="2" Lernkosten="200" AP="2" Typ="Zauberlied" Ursprung="druidisch" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="-" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="1-3 d">
     <Grund>Ba,Sk</Grund>
   </Spruch>
-  <Spruch Name="Luftelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Luftelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Luft">
+  <Spruch Name="Luftelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Luftlauf" Grad="4" Lernkosten="1500" AP="4" Typ="Gedanke" Ursprung="elementar" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="15 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="selbst" Wirkungsdauer="2 min">
@@ -1293,28 +1154,16 @@
     <Standard>Ma,PW</Standard>
     <Ausnahme>dBe,eBe</Ausnahme>
   </Spruch>
-  <Spruch Name="Marhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Wasser">
+  <Spruch Name="Marhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Marhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Wasser">
+  <Spruch Name="Marid beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Marid beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Wasser">
+  <Spruch Name="Marid rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Marid beschwören" Grad="G" Lernkosten="7000" AP="18" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="5,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Marid rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Primärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Marid rufen" Grad="6" Lernkosten="3000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 500 GS" Zauberart="Beschwörung" Sekundärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Marmennil beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Primärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Marmennil beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Sekundärelement="Wasser">
+  <Spruch Name="Marmennil beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Marmorhaut" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Erde" Prozess="verändert" Reagens="Erde" Zauberdauer="15 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Marmorstaub">
@@ -1343,19 +1192,13 @@
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Mokkurbjargi beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Primärelement="Wasser">
+  <Spruch Name="Mokkurbjargi beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Mokkurbjargi beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Sekundärelement="Wasser">
+  <Spruch Name="Myrknir beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Myrknir beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Primärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Myrknir beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Sekundärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Namenloses Grauen" Grad="4" Lernkosten="2000" AP="#Ws*4" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 3 Ws" Wirkungsdauer="2 min" Material="Schweiß von Alpträumern">
+  <Spruch Name="Namenloses Grauen" Grad="4" Lernkosten="2000" AP="&#X23;Ws*4" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 3 Ws" Wirkungsdauer="2 min" Material="Schweiß von Alpträumern">
     <Grund>PC</Grund>
     <Standard>Dr,Hl,Ma,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,gHx,sHx,wHx</Standard>
   </Spruch>
@@ -1372,10 +1215,7 @@
     <Standard>PF,Sa,Sc,gHx,sHx,wHx</Standard>
     <Ausnahme>Hl,Ma,PC,PHa,PHe,PK,PT,PW</Ausnahme>
   </Spruch>
-  <Spruch Name="Nefling beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Primärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Nefling beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Sekundärelement="Luft">
+  <Spruch Name="Nefling beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Niessalz" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Zauberart="Zaubersalz">
@@ -1463,16 +1303,10 @@
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe,tBe</Ausnahme>
   </Spruch>
-  <Spruch Name="Saeldvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Wasser">
+  <Spruch Name="Saeldvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Saeldvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Saeldverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Primärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Saeldverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Sekundärelement="Wasser">
+  <Spruch Name="Saeldverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Scharfblick" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Feuer" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min">
@@ -1514,78 +1348,59 @@
     <Grund>Or,Sr,Tm</Grund>
     <Standard>Dr,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,wHx</Standard>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dunebargen" Grad="2" Lernkosten="160" AP="#*2" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Dunebargen" Grad="2" Lernkosten="160" AP="&#X23;*2" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>dBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dunebarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dvergar" Grad="2" Lernkosten="160" AP="#*2" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h  " Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Dvergar" Grad="2" Lernkosten="160" AP="&#X23;*2" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h  " Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dvergar, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Dämonen" Grad="5" Lernkosten="2000" AP="#*6" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Dämonen" Grad="5" Lernkosten="2000" AP="&#X23;*6" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Elementarwesen" Grad="5" Lernkosten="2000" AP="#*6" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Elementarwesen" Grad="5" Lernkosten="2000" AP="&#X23;*6" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Geisterwesen" Grad="4" Lernkosten="1500" AP="#*4" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Geisterwesen" Grad="4" Lernkosten="1500" AP="&#X23;*4" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Standard>dBe,eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 4AP pro Person im Schutzkreis. Jeder Geist, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hrimfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Primärelement="Eis">
+  <Spruch Name="Schutzkreis gegen Hrimfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Hrimfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hrimfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Sekundärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Hrimfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
-  </Spruch>
-  <Spruch Name="Schutzkreis gegen Hunar" Grad="4" Lernkosten="600" AP="#*4" Typ="Geste" Ursprung="elemtar" Agens="Luft" Prozess="beherrscht" Reagens="Element" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="1 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Hunar" Grad="4" Lernkosten="600" AP="&#X23;*4" Typ="Geste" Ursprung="elemtar" Agens="Luft" Prozess="beherrscht" Reagens="Element" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="1 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hyrrfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Primärelement="Feuer">
+  <Spruch Name="Schutzkreis gegen Hyrrfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Hyrrfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Sekundärelement="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Schutzkreis gegen Jördfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Primärelement="Erde">
+  <Spruch Name="Schutzkreis gegen Jördfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jördfolk , der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Jördfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Sekundärelement="Erde">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jördfolk , der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
-  </Spruch>
-  <Spruch Name="Schutzkreis gegen Kaobargen" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Kaobargen" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Grund>dBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jeder Kaobarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Untote" Grad="3" Lernkosten="600" AP="#*3" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
+  <Spruch Name="Schutzkreis gegen Untote" Grad="3" Lernkosten="600" AP="&#X23;*3" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
     <Standard>dBe,eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 3AP pro Person im Schutzkreis. Jeder Untote, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Vindfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Primärelement="Luft">
+  <Spruch Name="Schutzkreis gegen Vindfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Schutzkreis gegen Vindfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Sekundärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
-  </Spruch>
-  <Spruch Name="Schutzkreis gegen Wisfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h " Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Primärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
-  </Spruch>
-  <Spruch Name="Schutzkreis gegen Wisfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h " Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Sekundärelement="Wasser">
+  <Spruch Name="Schutzkreis gegen Wisfolk" Grad="1" Lernkosten="40" AP="&#X23;*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h " Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
@@ -1607,7 +1422,7 @@
     <Standard>PF,PHa,PK,Tm</Standard>
     <Ausnahme>PC,PHe,PM,PT,PW,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Schwäche" Grad="1" Lernkosten="80" AP="#Ws" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="max 10 Ws" Wirkungsdauer="2 min" Material="Eschenrinde">
+  <Spruch Name="Schwäche" Grad="1" Lernkosten="80" AP="&#X23;Ws" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="max 10 Ws" Wirkungsdauer="2 min" Material="Eschenrinde">
     <Grund>Hl,Sa,Sc</Grund>
     <Standard>Dr,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Standard>
   </Spruch>
@@ -1639,17 +1454,14 @@
     <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,gHx,sHx,wHx</Standard>
     <Ausnahme>dBe,eBe,tBe</Ausnahme>
   </Spruch>
-  <Spruch Name="Snaerhamir beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Primärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Snaerhamir beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Sekundärelement="Eis">
+  <Spruch Name="Snaerhamir beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Spruch intensivieren" Grad="5" Lernkosten="2000" AP="6" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Magan" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="-" Wirkungsdauer="30 s">
     <Grund>Ma</Grund>
     <Standard>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Staubkämpfer" Grad="3" Lernkosten="900" AP="#*3" Typ="Geste" Ursprung="dämonisch" Agens="Erde" Prozess="beherrscht" Reagens="Holz" Zauberdauer="10 s" Reichweite="12 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="2 min" Material="Wilder Thymian, Erde">
+  <Spruch Name="Staubkämpfer" Grad="3" Lernkosten="900" AP="&#X23;*3" Typ="Geste" Ursprung="dämonisch" Agens="Erde" Prozess="beherrscht" Reagens="Holz" Zauberdauer="10 s" Reichweite="12 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="2 min" Material="Wilder Thymian, Erde">
     <Standard>Ma,PC,PF,PHa,PK,PM,PT,PW,dBe,eBe,gHx,sHx,tBe,wHx</Standard>
     <Ausnahme>Hl,PHe,Sa,Sc</Ausnahme>
   </Spruch>
@@ -1697,17 +1509,10 @@
     <Standard>Ma,PC,PF,PHa,PK,PT,PW,Sa,Sc,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>Hl,PHe</Ausnahme>
   </Spruch>
-  <Spruch Name="Svalgrim beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Primärelement="Eis">
+  <Spruch Name="Svalgrim beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Svalgrim beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Sekundärelement="Eis">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Thrymbar beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Primärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Thrymbar eschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Sekundärelement="Luft">
-    <Standard>eBe</Standard>
+  <Spruch Name="Thrymbar beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Thursenstein" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="druidisch" Agens="Erde" Prozess="verwandelt" Reagens="Erde" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="10 s" Material="Zauberkiesel">
@@ -1725,7 +1530,7 @@
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Ma</Ausnahme>
   </Spruch>
-  <Spruch Name="Tierisches Handeln" Grad="5" Lernkosten="3000" AP="#Ws*6" Typ="Geste" Ursprung="dämonisch" Agens="Wasser" Prozess="beherrscht" Reagens="Luft" Zauberdauer="20 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 3 Ws" Wirkungsdauer="var" Material="Tierblutmischung">
+  <Spruch Name="Tierisches Handeln" Grad="5" Lernkosten="3000" AP="&#X23;Ws*6" Typ="Geste" Ursprung="dämonisch" Agens="Wasser" Prozess="beherrscht" Reagens="Luft" Zauberdauer="20 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="max 3 Ws" Wirkungsdauer="var" Material="Tierblutmischung">
     <Grund>Th,gHx,sHx,wHx</Grund>
     <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc</Standard>
   </Spruch>
@@ -1774,7 +1579,7 @@
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Umkehrschild" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="erschafft" Reagens="Magan" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min" Material="versilberte Drachenschuppe">
+  <Spruch Name="Umkehrschild" Grad="5" Lernkosten="3000" AP="&#X23;*6" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="erschafft" Reagens="Magan" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min" Material="versilberte Drachenschuppe">
     <Grund>Th</Grund>
     <Standard>Ma,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Or,PC,PF,PHa,PHe,PK,PM,PT,PW,Sr</Ausnahme>
@@ -1832,7 +1637,7 @@
     <Grund>PC</Grund>
     <Ausnahme>Sa,Sc,gHx,sHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Versetzen" Grad="4" Lernkosten="2000" AP="#Ws*2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="15 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="max 6 Ws" Wirkungsdauer="24 h" Material="Phosphorkreide">
+  <Spruch Name="Versetzen" Grad="4" Lernkosten="2000" AP="&#X23;Ws*2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="15 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="max 6 Ws" Wirkungsdauer="24 h" Material="Phosphorkreide">
     <Grund>Th</Grund>
     <Standard>Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl</Ausnahme>
@@ -1859,7 +1664,7 @@
     <Standard>Sa,Sc</Standard>
     <Ausnahme>Dr,gHx,sHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Verwandlung" Grad="6" Lernkosten="8000" AP=">=9" Typ="Geste" Ursprung="dämonisch" Agens="Holz" Prozess="verwandelt" Reagens="Erde" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Kern des Großen Kürbis">
+  <Spruch Name="Verwandlung" Grad="6" Lernkosten="8000" AP="&gt;&#X3D;9" Typ="Geste" Ursprung="dämonisch" Agens="Holz" Prozess="verwandelt" Reagens="Erde" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Kern des Großen Kürbis">
     <Grund>Dr,Th</Grund>
     <Standard>Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,gHx,sHx,wHx</Standard>
   </Spruch>
@@ -1873,22 +1678,13 @@
     <Standard>Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr</Ausnahme>
   </Spruch>
-  <Spruch Name="Vinddvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Luft">
+  <Spruch Name="Vinddvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Vinddvegar beschwören" Grad="5" Lernkosten="4000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="3 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="5 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Luft">
+  <Spruch Name="Vinddverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Vinddverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Primärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Vinddverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Sekundärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Vindmand beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Primärelement="Luft">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Vindmand beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Sekundärelement="Luft">
+  <Spruch Name="Vindmand beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Vision" Grad="3" Lernkosten="1000" AP="alle (min 2)" Typ="Geste" Ursprung="göttlich" Agens="Wasser" Prozess="erkennt" Reagens="Luft" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="selbst" Wirkungsdauer="1 h" Material="Lebensmittel, Kräuter, Pulver">
@@ -1938,10 +1734,7 @@
     <Standard>Dr,Fi,Sa,Sc,eBe</Standard>
     <Ausnahme>Hl,Ma,PC,PF,PHa,PHe,PK,PT,PW,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Wasserelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Primärelement="Wasser">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
-  </Spruch>
-  <Spruch Name="Wasserelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Sekundärelement="Wasser">
+  <Spruch Name="Wasserelementargeist beschwören" Grad="6" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 200 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Wasserlauf" Grad="3" Lernkosten="800" AP="3" Typ="Gedanke" Ursprung="elementar" Agens="Wasser" Prozess="bewegt" Reagens="Erde" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="selbst" Wirkungsdauer="10 min">
@@ -2031,7 +1824,7 @@
     <Grund>Ma,PW,Th</Grund>
     <Standard>Dr,Hl,Or,PC,PF,PHa,PHe,PK,PM,PT,Sa,Sc,Sr,Tm,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Zauberschild" Grad="4" Lernkosten="1500" AP="#*4" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="erschafft" Reagens="Magan" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min" Material="Drachenschuppe">
+  <Spruch Name="Zauberschild" Grad="4" Lernkosten="1500" AP="&#X23;*4" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="erschafft" Reagens="Magan" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min" Material="Drachenschuppe">
     <Grund>Th</Grund>
     <Standard>Ma,Or,PC,PF,PHa,PHe,PK,PM,PT,PW,Sr,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Sa,Sc</Ausnahme>
@@ -2258,419 +2051,419 @@
     <Grund>Dr</Grund>
     <Standard>Hl</Standard>
   </Spruch>
-  <Spruch Name="Aggression" Region="H&D" Grad="4" Lernkosten="2000" AP="Gr*2" Typ="Wort" Ursprung="dämonisch" Agens=" " Prozess=" " Reagens=" " Zauberdauer="5 s" Reichweite="10 m" Wirkungsziel="1 Ws" Wirkungsbereich="Geist" Wirkungsdauer="1 min">
+  <Spruch Name="Aggression" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="Gr*2" Typ="Wort" Ursprung="dämonisch" Agens=" " Prozess=" " Reagens=" " Zauberdauer="5 s" Reichweite="10 m" Wirkungsziel="1 Ws" Wirkungsbereich="Geist" Wirkungsdauer="1 min">
     <Grund>gHx,sHx,wHx</Grund>
     <Standard>PC,Sa,Sc</Standard>
     <Ausnahme>Ma</Ausnahme>
     <Beschreibung>Das Opfer fängt mit den umgebenden Streit an, nicht aber mit dem Zauberer. Bei einem kritischen Fehler beim Zaubern fängt er Streit mit dem Zauberer an.</Beschreibung>
   </Spruch>
-  <Spruch Name="Alpträume" Region="H&D" Grad="4" Lernkosten="1500" AP="2*Gr" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 min" Reichweite="500 m" Wirkungsziel="Geist" Wirkungsbereich="1-4 Ws" Wirkungsdauer="var">
+  <Spruch Name="Alpträume" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="2*Gr" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 min" Reichweite="500 m" Wirkungsziel="Geist" Wirkungsbereich="1-4 Ws" Wirkungsdauer="var">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 2 je Ws. Das Opfer hat Alpträume. Jeden Tag einen WW:psy möglich. Solange der Zauber wirkt, werden keine AP regeneriert. Nach mehr Tagen als Grad Opfer siehe Entbehrungsregeln.</Beschreibung>
   </Spruch>
-  <Spruch Name="Altern" Region="H&D" Grad="6" Lernkosten="5000" AP="var" Typ="Geste" Ursprung="finster" Agens="Eis" Prozess="verändert" Reagens="Erde" Zauberdauer="2 min" Reichweite="10 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Tag" Material="Zu Staub zerfallene Schädelknochen">
+  <Spruch Name="Altern" Region="H&amp;D" Grad="6" Lernkosten="5000" AP="var" Typ="Geste" Ursprung="finster" Agens="Eis" Prozess="verändert" Reagens="Erde" Zauberdauer="2 min" Reichweite="10 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Tag" Material="Zu Staub zerfallene Schädelknochen">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 30. Der Zauber läßt das Opfer schnell altern. Benötigt einen persönlichen Gegenstand des Opfers und muß ihn für die Dauer des Zaubers auf der Haut tragen. Für 1/5/20 Jahre muß der Zauberer 2/10/40 AP aufwenden. Pro Tag der Wirkung sind weitere 5 AP notwendig. Dagegen wirkt Bannen von Zauberwerk und Allheilung/Austreibung des Bösen. Beides muß innerhalb einer Stunde erfolgreich sein. Bannen von Zauberwerk beendet den Alterungsprozess. Weitere Moglichskeiten sind eigenhändiges Töten des Finstermagiers, der Magier hebt den Spruch freiwillig auf oder der Hautkontakt des Gegenstandes wird beendet.</Beschreibung>
   </Spruch>
-  <Spruch Name="Aufladen" Region="H&D" Grad="G" Lernkosten="15000" AP="alle" Typ="Geste" Ursprung="dämonisch" Zauberdauer="7*6 Tage" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Material="Einhornpulver und Essenzen">
+  <Spruch Name="Aufladen" Region="H&amp;D" Grad="G" Lernkosten="15000" AP="alle" Typ="Geste" Ursprung="dämonisch" Zauberdauer="7*6 Tage" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Material="Einhornpulver und Essenzen">
     <Grund>tBe</Grund>
     <Standard>Hl,PT</Standard>
     <Ausnahme>Sa,Sc,Tm,eBe</Ausnahme>
     <Beschreibung>Damit kann ein magisches Artefakt wieder neu aufgeladen werden. Bei normalen Erfolg verdoppelt sich die ABW, bei kritischen Erfolg bleibt sie gleich und bei kritischen Fehler wird das Artefakt vollkommen zerstört. </Beschreibung>
   </Spruch>
-  <Spruch Name="Augenschleier" Region="H&D" Grad="2" Lernkosten="200" AP="1*Gr" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 s" Reichweite="50 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min">
+  <Spruch Name="Augenschleier" Region="H&amp;D" Grad="2" Lernkosten="200" AP="1*Gr" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 s" Reichweite="50 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min">
     <Grund>gHx,sHx,wHx</Grund>
     <Standard>Hl,Ma,PK,PT</Standard>
     <Ausnahme>Dr,Sa,Sc</Ausnahme>
     <Beschreibung>Das Opfer sieht einen illusionären Lichtblitz und ist geblendet. Währdend der Wirkungsdauer hat es WM-4 auf alle EW und WW, zu denen Augen benötigt werden. Dazu BW-8.</Beschreibung>
   </Spruch>
-  <Spruch Name="Ballade der Begierde" Region="H&D" Grad="3" Lernkosten="300" AP="1" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Harfe oder Laute">
+  <Spruch Name="Ballade der Begierde" Region="H&amp;D" Grad="3" Lernkosten="300" AP="1" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Harfe oder Laute">
     <Grund>Ba</Grund>
     <Standard>Sk</Standard>
     <Beschreibung>Das Opfer will unbedingt eine Begierde erfüllen. Es können keine Begierden sein, die die Verletzung anderer verursachen oder absurd sind. Ballade muss auf Opfer abgestimmt sein und wirkt nur, wenn WW-(Grad Barde):psy und PW+(5*Grad Barde) mißglücken.</Beschreibung>
   </Spruch>
-  <Spruch Name="Ballader der besiegten Gier" Region="H&D" Grad="4" Lernkosten="1500" AP="1" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Harfe oder Laute">
+  <Spruch Name="Ballader der besiegten Gier" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="1" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Harfe oder Laute">
     <Grund>Ba</Grund>
     <Standard>Sk</Standard>
   </Spruch>
-  <Spruch Name="Bann der wahren Eigentümerschaft" Region="H&D" Grad="G" Lernkosten="10000" AP="alle(mind 18)" Typ="Geste" Ursprung="dämonisch" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ob" Material="Halsband eines bis zum Tode treuen Hundes">
+  <Spruch Name="Bann der wahren Eigentümerschaft" Region="H&amp;D" Grad="G" Lernkosten="10000" AP="alle(mind 18)" Typ="Geste" Ursprung="dämonisch" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ob" Material="Halsband eines bis zum Tode treuen Hundes">
     <Grund>Th</Grund>
     <Standard>Ma,PC,PHa,PHe,PK,PT,PW</Standard>
     <Ausnahme>PF,PM,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Mit diesem Zauber wird ein Gegenstand bis max 5 kg an eine Person gebunden. Wird dieser Gegenstand länger als 3 Tage aus der Umgebung(50m) entfernt, wird er mittels von "Zufällen" innerhalb von 7 Tagen wieder zu seinem Besizert zurueckkehren. Priester beherrschen auch eine Abwandlung, bei der das Objekt an eine geweihte Stätte gebunden wird.</Beschreibung>
+    <Beschreibung>Mit diesem Zauber wird ein Gegenstand bis max 5 kg an eine Person gebunden. Wird dieser Gegenstand länger als 3 Tage aus der Umgebung(50m) entfernt, wird er mittels von &quot;Zufällen&quot; innerhalb von 7 Tagen wieder zu seinem Besizert zurueckkehren. Priester beherrschen auch eine Abwandlung, bei der das Objekt an eine geweihte Stätte gebunden wird.</Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Fäulnis" Region="H&D" Grad="3" Lernkosten="800" AP="4" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob(3m*3m)" Wirkungsdauer="Gr*Monat">
+  <Spruch Name="Bannen von Fäulnis" Region="H&amp;D" Grad="3" Lernkosten="800" AP="4" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob(3m*3m)" Wirkungsdauer="Gr*Monat">
     <Grund>Hl,PF,PHe,PT</Grund>
     <Standard>PK,PM,PW</Standard>
     <Ausnahme>Dr,Ma,Sa,Sc,gHx,sHx,wHx</Ausnahme>
     <Beschreibung>Das Objekt wird von Schimmel, Pilzen und Pflanzen befreit.</Beschreibung>
   </Spruch>
-  <Spruch Name="Baumtor" Region="H&D" Grad="G" Lernkosten="10000" AP="9" Typ="Gedanke" Ursprung="druidisch" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min">
+  <Spruch Name="Baumtor" Region="H&amp;D" Grad="G" Lernkosten="10000" AP="9" Typ="Gedanke" Ursprung="druidisch" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="selbst" Wirkungsdauer="2 min">
     <Grund>Dr,Sa,Sc</Grund>
-    <Beschreibung>Der Zauberer kann mit Kleidung in einen Baum treten und auch auf einen anderen überwechseln. Wenn er nicht vor dem Ende der Wirkungsdauer wieder herauskommt, stirbt er. Mit 10% bleibt die Seele im Baum zurück und der Baum verwandelt sich in 7 Wochen in einen Baumhirte. Wenn ein Druide die vorsätzlich tut, um am Ende seines Lebens mit der Natur zu verschmelzen, ist die Wahrscheinlichkeit 90%.</Beschreibung>
+    <Beschreibung>Der Zauberer kann mit Kleidung in einen Baum treten und auch auf einen anderen überwechseln. Wenn er nicht vor dem Ende der Wirkungsdauer wieder herauskommt, stirbt er. Mit 10&#X25; bleibt die Seele im Baum zurück und der Baum verwandelt sich in 7 Wochen in einen Baumhirte. Wenn ein Druide die vorsätzlich tut, um am Ende seines Lebens mit der Natur zu verschmelzen, ist die Wahrscheinlichkeit 90&#X25;.</Beschreibung>
   </Spruch>
-  <Spruch Name="Blindsalz" Region="H&D" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 s" Zauberart="Zaubersalz">
+  <Spruch Name="Blindsalz" Region="H&amp;D" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 s" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Das Opfer sieht eine Runde nichts. Zauber werden unterbrochen, wenn der Zauber Blickkontakt benötigt.</Beschreibung>
   </Spruch>
-  <Spruch Name="Brechsalz" Region="H&D" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Zauberart="Zaubersalz">
+  <Spruch Name="Brechsalz" Region="H&amp;D" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Dem Opfer wird eine Minute übel. In jeder Runde ist ein PW:Sb (hektische Bewegungen ergeben WM+10) notwendig, um sich nicht um übergeben.</Beschreibung>
   </Spruch>
-  <Spruch Name="Bruchbann" Region="H&D" Grad="2" Lernkosten="200" AP="var" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="var" Wirkungsdauer="Gr*h">
+  <Spruch Name="Bruchbann" Region="H&amp;D" Grad="2" Lernkosten="200" AP="var" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="var" Wirkungsdauer="Gr*h">
     <Grund>Ma,Th,gHx,sHx,wHx</Grund>
     <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW</Standard>
     <Ausnahme>Dr,Hl,Sa,Sc</Ausnahme>
     <Beschreibung>Der Zauberer macht Gegenstände gegen mechanische Einwirkung unepfindlich. AP Kosten richten sich nach Gesamtgewicht: 1kg 2AP, 10 kg 8AP, 100 kg 32 AP. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bärenstärke" Region="H&D" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="druidisch" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="selbst" Wirkungsdauer="1 min" Material="Bärenfett">
+  <Spruch Name="Bärenstärke" Region="H&amp;D" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="druidisch" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="selbst" Wirkungsdauer="1 min" Material="Bärenfett">
     <Grund>Sa,Sc</Grund>
     <Standard>Dr,gHx,sHx,wHx</Standard>
     <Ausnahme>Ma,PK</Ausnahme>
     <Beschreibung>Der Zauberer wird bärenstark. Tragfähigkeit +40 kg, Kraftakt +25. WM-2 auf alle EW wie Angriff, aber WM+3 auf Schaden. Keine Zauber möglich. Am Ende PW:St, falls mißlungen 1W3 AP verloren.</Beschreibung>
   </Spruch>
-  <Spruch Name="Das Lied der Erinnerung" Region="H&D" Grad="6" Lernkosten="5000" AP="2" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="0" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30m Uk" Wirkungsdauer="5 min+" Material="Harfe oder Laute">
+  <Spruch Name="Das Lied der Erinnerung" Region="H&amp;D" Grad="6" Lernkosten="5000" AP="2" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="0" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30m Uk" Wirkungsdauer="5 min+" Material="Harfe oder Laute">
     <Grund>Ba</Grund>
     <Standard>Sk</Standard>
   </Spruch>
-  <Spruch Name="Das Lied der Feier" Region="H&D" Grad="1" Lernkosten="60" AP="1" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="0" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="20m Uk" Wirkungsdauer="2 min+" Material="Flöte, Harfe oder Laute">
+  <Spruch Name="Das Lied der Feier" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="0" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="20m Uk" Wirkungsdauer="2 min+" Material="Flöte, Harfe oder Laute">
     <Grund>Ba</Grund>
     <Standard>Sk</Standard>
     <Beschreibung>Versetzt die Zuhörenden in freundliche, feiernde Stimmung und lässt über Unhöflichkeiten hinwegsehen.</Beschreibung>
   </Spruch>
-  <Spruch Name="Das Lied der Macht" Region="H&D" Grad="G" Lernkosten="7500" AP="2*min" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30m Uk" Wirkungsdauer="var" Material="Flöte">
+  <Spruch Name="Das Lied der Macht" Region="H&amp;D" Grad="G" Lernkosten="7500" AP="2*min" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30m Uk" Wirkungsdauer="var" Material="Flöte">
     <Grund>Ba</Grund>
     <Standard>Sk</Standard>
     <Beschreibung>Der Barde hat Gewalt über alle Säugetiere und Vögel, die ihm zugehört haben. Nach 3/6/12 Minuten Spiel dauert die Wirkung 2 Minuten/1 Stunde/1 Tag an.</Beschreibung>
   </Spruch>
-  <Spruch Name="Das Lied der Magie" Region="H&D" Grad="5" Lernkosten="3000" AP="2" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="verändert" Reagens="Magan" Zauberdauer="0" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="10m Uk" Wirkungsdauer="var" Material="Harfe">
+  <Spruch Name="Das Lied der Magie" Region="H&amp;D" Grad="5" Lernkosten="3000" AP="2" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="verändert" Reagens="Magan" Zauberdauer="0" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="10m Uk" Wirkungsdauer="var" Material="Harfe">
     <Grund>Ba</Grund>
     <Standard>Sk</Standard>
     <Beschreibung>Durch dieses Lied wird der Fluß der Magie innerhalb des Wirkungsbereiches verändert. Entweder wird er erleichtert (WM+1 auf EW:Zaubern und WM-4 auf WW:res) auf Zauber und Artefakte, oder erschwert (WM-1 auf EW:Zaubern und Wm+4 auf WW:res).</Beschreibung>
   </Spruch>
-  <Spruch Name="Das Lied des Verstehens" Region="H&D" Grad="5" Lernkosten="1000" AP="2" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30m Uk" Wirkungsdauer="30 min" Material="Harfe oder Laute">
+  <Spruch Name="Das Lied des Verstehens" Region="H&amp;D" Grad="5" Lernkosten="1000" AP="2" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30m Uk" Wirkungsdauer="30 min" Material="Harfe oder Laute">
     <Grund>Ba</Grund>
     <Standard>Sk</Standard>
     <Beschreibung>Der Zauber ist ein Universalübersetzer. Alle betroffenen Personen können sich gegenseitig verstehen, auch wenn sie nicht die gleiche Sprachen sprechen.</Beschreibung>
   </Spruch>
-  <Spruch Name="Der Gesang Crescendis" Region="H&D" Grad="1" Lernkosten="120" AP="2*h" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="verändert" Reagens="Erde" Zauberdauer="0" Reichweite="100m Uk" Wirkungsziel="Körper" Wirkungsbereich="var" Wirkungsdauer="var" Material="Gesang plus Instrument(beliebig)">
+  <Spruch Name="Der Gesang Crescendis" Region="H&amp;D" Grad="1" Lernkosten="120" AP="2*h" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="verändert" Reagens="Erde" Zauberdauer="0" Reichweite="100m Uk" Wirkungsziel="Körper" Wirkungsbereich="var" Wirkungsdauer="var" Material="Gesang plus Instrument(beliebig)">
     <Grund>Ba</Grund>
     <Standard>Sk</Standard>
   </Spruch>
-  <Spruch Name="Die Stimme der Gerechten" Region="H&D" Grad="G" Lernkosten="8000" AP="alle AP(mind18)" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="verändert" Reagens="Magan" Zauberdauer="20 sec" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="50m Uk" Wirkungsdauer="0" Material="Chimäron">
+  <Spruch Name="Die Stimme der Gerechten" Region="H&amp;D" Grad="G" Lernkosten="8000" AP="alle AP(mind18)" Typ="Zauberlied" Ursprung="druidisch" Agens="Magan" Prozess="verändert" Reagens="Magan" Zauberdauer="20 sec" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="50m Uk" Wirkungsdauer="0" Material="Chimäron">
     <Grund>Ba</Grund>
     <Standard>Sk</Standard>
-    <Beschreibung>Durch das Spielen des Chimäron werden "die Gerechten" herbeigerufen. Im Wirkungsbereich wird die Ordung der Ebenen wiederhergestellt. Weltentore nach verlorenen Zauberduell werden geschlossen und Wesen von anderen Ebenen nach einem mißlungenen WW-4:phs in diese zurückgeschleudert (Im Fallen von kontrollierten Wesen nach einem verlorenen Zauberduell). Dazu muss der Barde alle, aber mindestens 18 AP aufbringen. Es dauert 2 min, bevor die Wirkung einsetzt und Wesen mit mindestens Int:m80 können nach einem gelungenen PW:In dem Wirkungsbereich verlassen. </Beschreibung>
+    <Beschreibung>Durch das Spielen des Chimäron werden &quot;die Gerechten&quot; herbeigerufen. Im Wirkungsbereich wird die Ordung der Ebenen wiederhergestellt. Weltentore nach verlorenen Zauberduell werden geschlossen und Wesen von anderen Ebenen nach einem mißlungenen WW-4:phs in diese zurückgeschleudert (Im Fallen von kontrollierten Wesen nach einem verlorenen Zauberduell). Dazu muss der Barde alle, aber mindestens 18 AP aufbringen. Es dauert 2 min, bevor die Wirkung einsetzt und Wesen mit mindestens Int:m80 können nach einem gelungenen PW:In dem Wirkungsbereich verlassen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Dinge rufen" Region="H&D" Grad="4" Lernkosten="1500" AP="2x4" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 h" Reichweite="50 km" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="1 Monat" Material="Spinnenblut">
+  <Spruch Name="Dinge rufen" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="2x4" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 h" Reichweite="50 km" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="1 Monat" Material="Spinnenblut">
     <Grund>Th</Grund>
     <Standard>Ma,dBe,eBe,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Dämonenhand" Region="H&D" Grad="G" Lernkosten="10000" AP="alle" Typ="Wort" Ursprung="finster" Agens="Feuer" Prozess="bewegt" Reagens="Metall" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var">
+  <Spruch Name="Dämonenhand" Region="H&amp;D" Grad="G" Lernkosten="10000" AP="alle" Typ="Wort" Ursprung="finster" Agens="Feuer" Prozess="bewegt" Reagens="Metall" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var">
     <Standard>PC,sHx</Standard>
-    <Beschreibung>GZ 20. Der Zauberer beschwört eine riesige Dämonenhand, die das Opfer ergreift und in seine Dimension zieht. Das Opfer kann mit einenm PW-(5*Grad):RW ausweichen. Dann 20% Chance, dass der ganze Dämon erscheint.</Beschreibung>
+    <Beschreibung>GZ 20. Der Zauberer beschwört eine riesige Dämonenhand, die das Opfer ergreift und in seine Dimension zieht. Das Opfer kann mit einenm PW-(5*Grad):RW ausweichen. Dann 20&#X25; Chance, dass der ganze Dämon erscheint.</Beschreibung>
   </Spruch>
-  <Spruch Name="Dämonenkreis" Region="H&D" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="finster" Agens="Feuer" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="20 s" Reichweite="50 m" Wirkungsziel="Körper" Wirkungsbereich="1m Uk" Wirkungsdauer="2 h" Material="Giftige Waldpilze">
+  <Spruch Name="Dämonenkreis" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="finster" Agens="Feuer" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="20 s" Reichweite="50 m" Wirkungsziel="Körper" Wirkungsbereich="1m Uk" Wirkungsdauer="2 h" Material="Giftige Waldpilze">
     <Standard>PC,sHx</Standard>
   </Spruch>
-  <Spruch Name="Eifersucht" Region="H&D" Grad="3" Lernkosten="800" AP="1AP*#" Typ="Wort" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Geist   Grad Ws" Wirkungsbereich="2 min" Wirkungsdauer="dämonisch               ">
+  <Spruch Name="Eifersucht" Region="H&amp;D" Grad="3" Lernkosten="800" AP="1AP*&#X23;" Typ="Wort" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Geist   Grad Ws" Wirkungsbereich="2 min" Wirkungsdauer="dämonisch               ">
     <Grund>PT,dBe</Grund>
     <Standard>Hl,tBe</Standard>
     <Ausnahme>eBe</Ausnahme>
   </Spruch>
-  <Spruch Name="Entfesseln" Region="H&D" Grad="2" Lernkosten="240" AP="2" Typ="Wort" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung        1 Ob" Wirkungsbereich="0" Wirkungsdauer="dämonisch">
+  <Spruch Name="Entfesseln" Region="H&amp;D" Grad="2" Lernkosten="240" AP="2" Typ="Wort" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung        1 Ob" Wirkungsbereich="0" Wirkungsdauer="dämonisch">
     <Grund>Sc,Tm,eBe,tBe</Grund>
     <Standard>Hl,PK,PT</Standard>
     <Ausnahme>PW,dBe,gHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Erdrosseln" Region="H&D" Grad="3" Lernkosten="500" AP="1*Runde" Typ="Geste" Ursprung="finster" Agens="Luft" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="50 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var">
+  <Spruch Name="Erdrosseln" Region="H&amp;D" Grad="3" Lernkosten="500" AP="1*Runde" Typ="Geste" Ursprung="finster" Agens="Luft" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="50 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 3. Das Opfer spürt einen eisernen Griff um seine Kehle und kann nicht mehr atmen. 3 AP pro Runde. Ab er vierten Runde ein EW:Tauchen, falls mißlungen, verliert das Opfer das Bewußtsein und 2 LP pro Runde. Dem Opfer stehen alle zwei Runden ein WW:phs zu.</Beschreibung>
   </Spruch>
-  <Spruch Name="Erkennen von Gift" Region="H&D" Grad="3" Lernkosten="1000" AP="3" Typ="Gedanke" Agens="3" Prozess="0" Reagens="Umgebung" Zauberdauer="10m Kegel" Reichweite="30 s" Wirkungsziel="druidisch" Wirkungsdauer="nicht">
+  <Spruch Name="Erkennen von Gift" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="3" Typ="Gedanke" Agens="3" Prozess="0" Reagens="Umgebung" Zauberdauer="10m Kegel" Reichweite="30 s" Wirkungsziel="druidisch" Wirkungsdauer="nicht">
     <Grund>Dr</Grund>
     <Standard>Ma,PK,PM,PT,dBe,tBe</Standard>
     <Ausnahme>Hl,Or,PC,PF,PHa,PHe</Ausnahme>
   </Spruch>
-  <Spruch Name="Erkennen von Verdammten" Region="H&D" Grad="1" Lernkosten="200" AP="1" Typ="Gedanke" Ursprung="göttlich" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="30m Kegel" Wirkungsdauer="10 s">
+  <Spruch Name="Erkennen von Verdammten" Region="H&amp;D" Grad="1" Lernkosten="200" AP="1" Typ="Gedanke" Ursprung="göttlich" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="30m Kegel" Wirkungsdauer="10 s">
     <Grund>Or</Grund>
     <Standard>PT</Standard>
     <Ausnahme>Ma</Ausnahme>
   </Spruch>
-  <Spruch Name="Farbensalz" Region="H&D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="finster" Agens="Magan" Prozess="verändert" Reagens="Holz" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="50x50cm" Wirkungsdauer="3 h">
+  <Spruch Name="Farbensalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="finster" Agens="Magan" Prozess="verändert" Reagens="Holz" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="50x50cm" Wirkungsdauer="3 h">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe</Ausnahme>
   </Spruch>
-  <Spruch Name="Fiebersalz" Region="H&D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="zerstört" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="Zaubersalz">
+  <Spruch Name="Fiebersalz" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="zerstört" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Das Opfer hat Fieber, WM-1 auf alle EW.</Beschreibung>
   </Spruch>
-  <Spruch Name="Finsterer Blick" Region="H&D" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 s" Reichweite="12 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h">
+  <Spruch Name="Finsterer Blick" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 s" Reichweite="12 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 0. Das Oper hat fuer 1 h WM-4 auf alle EW und WW. Wenn das Oper eine geringere Int als der Finstermagier hat und im Augenblick des Zauber dem Finstermagier in die Augen schaut, muss es auch einen WW:psy gegen Angst machen.</Beschreibung>
   </Spruch>
-  <Spruch Name="Firzars Zorn" Region="H&D" Grad="6" Lernkosten="5000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min">
+  <Spruch Name="Firzars Zorn" Region="H&amp;D" Grad="6" Lernkosten="5000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min">
     <Standard>PC,sHx</Standard>
-    <Beschreibung>GZ 20. Erzeugt Flammensäule(5m Höhe und 2m Durchmesser). Bei erfolgreichem WW:phk 3W6 AP, sonst 4W6 Schaden(Rüstung hilft). Mit gelungenem PW:HGW/2 kann das Opfer die Säule verlassen und erleidet weitere 2W6 AP. Wenn das Opfer mehr als 1/3 der LPs verliert, erblindet jedes Auge mit 20% und 2W6 Punkte Au und pA. Im Falle eines kritischen Fehlers des Zauberers umhüllt die Säule den Finstermagier.</Beschreibung>
+    <Beschreibung>GZ 20. Erzeugt Flammensäule(5m Höhe und 2m Durchmesser). Bei erfolgreichem WW:phk 3W6 AP, sonst 4W6 Schaden(Rüstung hilft). Mit gelungenem PW:HGW/2 kann das Opfer die Säule verlassen und erleidet weitere 2W6 AP. Wenn das Opfer mehr als 1/3 der LPs verliert, erblindet jedes Auge mit 20&#X25; und 2W6 Punkte Au und pA. Im Falle eines kritischen Fehlers des Zauberers umhüllt die Säule den Finstermagier.</Beschreibung>
   </Spruch>
-  <Spruch Name="Flucht des Geistes" Region="H&D" Grad="5" Lernkosten="4000" AP="9" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="selbst" Wirkungsdauer="var">
+  <Spruch Name="Flucht des Geistes" Region="H&amp;D" Grad="5" Lernkosten="4000" AP="9" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="selbst" Wirkungsdauer="var">
     <Standard>PC,sHx</Standard>
   </Spruch>
-  <Spruch Name="Fährtenduft" Region="H&D" Grad="2" Lernkosten="200" AP="1" Typ="Geste" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Körper  Z       30 min" Wirkungsbereich="druidisch" Wirkungsdauer="Tierkot">
+  <Spruch Name="Fährtenduft" Region="H&amp;D" Grad="2" Lernkosten="200" AP="1" Typ="Geste" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Körper  Z       30 min" Wirkungsbereich="druidisch" Wirkungsdauer="Tierkot">
     <Grund>Ba,eBe</Grund>
     <Standard>PT</Standard>
     <Ausnahme>Dr,Hl,PW,Th,gHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Fäulnis" Region="H&D" Grad="2" Lernkosten="1500" AP="2" Typ="Geste" Ursprung="finster" Agens="Magan" Prozess="zerstört" Reagens="Erde" Zauberdauer="10 s" Reichweite="24 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="var" Material="Faules Holz">
+  <Spruch Name="Fäulnis" Region="H&amp;D" Grad="2" Lernkosten="1500" AP="2" Typ="Geste" Ursprung="finster" Agens="Magan" Prozess="zerstört" Reagens="Erde" Zauberdauer="10 s" Reichweite="24 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="var" Material="Faules Holz">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 1. Totes organisches Material verfault rapide. Obst in 2 min, eine Eichentuür in 2 h. Der Zauberer kann nur 3 kg * Grad verfaulen lassen.</Beschreibung>
   </Spruch>
-  <Spruch Name="Geister der Finsternis" Region="H&D" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="200 m" Wirkungsziel="Geist" Wirkungsbereich="0" Wirkungsdauer="10 min" Material="Marder- oder Fledermaus-schädel">
+  <Spruch Name="Geister der Finsternis" Region="H&amp;D" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="200 m" Wirkungsziel="Geist" Wirkungsbereich="0" Wirkungsdauer="10 min" Material="Marder- oder Fledermaus-schädel">
     <Standard>PC,sHx</Standard>
   </Spruch>
-  <Spruch Name="Geistesschlüssel" Region="H&D" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
+  <Spruch Name="Geistesschlüssel" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 8. Dem Opfer können mehrere Befehle, max 8x8 Worte, denen es sich nicht bewusst ist, aufgetragen werden. Wird mit Schlüsselwort ausgelöst. Maximale Dauer 8x8 h. Mit Bannen von Finsterwerk kann der Zauber aufgehoben werden.</Beschreibung>
   </Spruch>
-  <Spruch Name="Geruchsverlust" Region="H&D" Grad="3" Lernkosten="400" AP="3" Typ="Wort" Ursprung="druidisch" Zauberdauer="20 s" Reichweite="1m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h">
+  <Spruch Name="Geruchsverlust" Region="H&amp;D" Grad="3" Lernkosten="400" AP="3" Typ="Wort" Ursprung="druidisch" Zauberdauer="20 s" Reichweite="1m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h">
     <Grund>Dr,Th</Grund>
     <Standard>Ma,Sc,gHx,sHx,wHx</Standard>
     <Ausnahme>Hl,PC,PF,PHa,PHe,PK,PM,PT,PW</Ausnahme>
   </Spruch>
-  <Spruch Name="Globus der Finsternis" Region="H&D" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="10 min" Material="Ebenholzkugel, Obsidiankugel, schwarze Perle">
+  <Spruch Name="Globus der Finsternis" Region="H&amp;D" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="10 min" Material="Ebenholzkugel, Obsidiankugel, schwarze Perle">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 2. Um den Finstermagier ensteht eine 6m durchmessende schwarze Späre. Der Magier kann ungehindert hinaussehen, ist selbst aber nicht sichtbar. Maximal B4. Wenn ein Wesen die Sphäre betritt, muss es 3 WW:psy machen. Wenn ein WW gelingt, müssen die weiteren nicht gemacht werden. WM 0/+2/+4 fuer Ebenholzkugel, WM -2/0/+2 Obidiankugel und WM -4/-2/0 fuer schwarze Perle. Gute Wesen haben WM+4. Die Zauber der 3 WW sind Angst, Namenloses Grauen und Wahnsinn.</Beschreibung>
   </Spruch>
-  <Spruch Name="Glühsalz" Region="H&D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="finster" Agens="Feuer" Prozess="erschafft" Reagens="Feuer" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsdauer="10 s">
+  <Spruch Name="Glühsalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="finster" Agens="Feuer" Prozess="erschafft" Reagens="Feuer" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsdauer="10 s">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe</Ausnahme>
   </Spruch>
-  <Spruch Name="Grenzenlose Freude" Region="H&D" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Material="Schweiss von Liebenden">
+  <Spruch Name="Grenzenlose Freude" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Material="Schweiss von Liebenden">
     <Grund>PF</Grund>
     <Standard>Hl,Sc,gHx,sHx,wHx</Standard>
     <Ausnahme>Ma</Ausnahme>
   </Spruch>
-  <Spruch Name="Hammerhand" Region="H&D" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="2 min" Material="Ginseng">
+  <Spruch Name="Hammerhand" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="2 min" Material="Ginseng">
     <Grund>Ma,PK</Grund>
     <Standard>PC,Sc,gHx,sHx,wHx</Standard>
     <Ausnahme>Or,PF,PHa,PHe,PM,PT</Ausnahme>
   </Spruch>
-  <Spruch Name="Hexenhand" Region="H&D" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="dämonisch" Zauberdauer="30 min" Reichweite="30m" Wirkungsziel="Körper" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Material="abgeschlagene Hand eines Diebes">
+  <Spruch Name="Hexenhand" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="dämonisch" Zauberdauer="30 min" Reichweite="30m" Wirkungsziel="Körper" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Material="abgeschlagene Hand eines Diebes">
     <Grund>PC,gHx,sHx</Grund>
     <Standard>Ma</Standard>
     <Ausnahme>dBe,eBe,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Hexenwirbel" Region="H&D" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="dämonischj" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ort" Wirkungsdauer="0" Material="eigenes Haar    nicht">
+  <Spruch Name="Hexenwirbel" Region="H&amp;D" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="dämonischj" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ort" Wirkungsdauer="0" Material="eigenes Haar    nicht">
     <Grund>Sc,Tm,eBe</Grund>
     <Standard>PW,dBe</Standard>
   </Spruch>
-  <Spruch Name="Höllenbote rufen" Region="H&D" Grad="5" Lernkosten="3500" AP="alle(mind 9)" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 h" Reichweite="100 km" Wirkungsziel="umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var">
+  <Spruch Name="Höllenbote rufen" Region="H&amp;D" Grad="5" Lernkosten="3500" AP="alle(mind 9)" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 h" Reichweite="100 km" Wirkungsziel="umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 15.Der Zauber muss eine Stunde nach Mitternacht gewirkt werden. Ruft einen Höllenboten herbei. Der Magier muss den Aufenthaltsort des Opfers angeben(max 100 km weg, mit 500m Genauigkeit). Der Höllenbote macht dann sofort Jagd auf das Opfer. Wenn er es nicht finden kann(wonanders, tot), kommt es zurueck und greift den Finstermagier an.</Beschreibung>
   </Spruch>
-  <Spruch Name="Höllenfeuer" Region="H&D" Grad="4" Lernkosten="2000" AP="4*#" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="15 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="0" Material="Pech und Schwefel">
+  <Spruch Name="Höllenfeuer" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="4*&#X23;" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="15 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="0" Material="Pech und Schwefel">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 3. Der Magier kann von bis zu Grad Fingerspitzen Flammenzungen schwarzen Feuers aussenden. Bei gelungenem WW:phk 1W6 AP, sonst 2W6+2 AP und 1W6 LP. Rüstung schützt nicht. Körperlose, gute Priester und andere vergleichbare Wesen sind immun gegen den Zauber.</Beschreibung>
   </Spruch>
-  <Spruch Name="Höllenglocke" Region="H&D" Grad="4" Lernkosten="2000" AP="alle(mind 9)" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 km" Wirkungsdauer="0">
+  <Spruch Name="Höllenglocke" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="alle(mind 9)" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 km" Wirkungsdauer="0">
     <Standard>PC,sHx</Standard>
-    <Beschreibung>GZ 5. Über dem Kopf des Finstermagiers erscheint eine Glocke, die läutet. Alle Wesen in Reichweite verlieren bei mislungenem WW:phk 2W6 LP und AP, sonst 1W6 AP. Andere Finstermagier werden mit Grad*5% in die Hölle versetzt. Gute Priester und vergleichbare übernatürliche Wesen sind immun.</Beschreibung>
+    <Beschreibung>GZ 5. Über dem Kopf des Finstermagiers erscheint eine Glocke, die läutet. Alle Wesen in Reichweite verlieren bei mislungenem WW:phk 2W6 LP und AP, sonst 1W6 AP. Andere Finstermagier werden mit Grad*5&#X25; in die Hölle versetzt. Gute Priester und vergleichbare übernatürliche Wesen sind immun.</Beschreibung>
   </Spruch>
-  <Spruch Name="Kammerdiener beschwören" Region="H&D" Grad="2" Lernkosten="200" AP="2" Typ="Wort" Ursprung="elementar" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Spielzeug">
+  <Spruch Name="Kammerdiener beschwören" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Wort" Ursprung="elementar" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Spielzeug">
     <Grund>Hl,dBe,eBe</Grund>
     <Standard>Ma,PW,gHx,sHx,wHx</Standard>
     <Ausnahme>PC,PF,PHa,PHe,PK,PM,PT</Ausnahme>
   </Spruch>
-  <Spruch Name="Klebesalz" Region="H&D" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="1 Ws" Wirkungsbereich="Umgebung" Wirkungsdauer="10 min" Zauberart="Zaubersalz">
+  <Spruch Name="Klebesalz" Region="H&amp;D" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="1 Ws" Wirkungsbereich="Umgebung" Wirkungsdauer="10 min" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Das Salz wird auf zwei möglichst glatte(sonst WM-2) Oberflächen aufgebracht und aneinandergehalten. Danach nur mit einem Kraftakt zu trennen.</Beschreibung>
   </Spruch>
-  <Spruch Name="Knallsalz" Region="H&D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsdauer="2 min" Zauberart="Zaubersalz">
+  <Spruch Name="Knallsalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsdauer="2 min" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Das Salz knallt und kracht.</Beschreibung>
   </Spruch>
-  <Spruch Name="Konvulsion" Region="H&D" Grad="4" Lernkosten="1500" AP="6" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="24 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Wackelpudding">
+  <Spruch Name="Konvulsion" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="6" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="24 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Wackelpudding">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 8. Misslingt ein WW.phs des Opfers, sinkt es unter konvulsivischen Zuckungen wehr und bewegungslos zu Boden. Am Ende jeder Runde ein WW möglich. In jeder Runde verliert es 2 LP. Nach gelungenem WW ist es noch 2 Runden bewegungslos, dann 2 Runden WM-4/WM-2, bis es nach 5 Runden voll erholt ist.  </Beschreibung>
   </Spruch>
-  <Spruch Name="Kopieren" Region="H&D" Grad="3" Lernkosten="800" AP="1#Seite" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 min pro Seite" Reichweite="1m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Material="Schreibmaterial">
+  <Spruch Name="Kopieren" Region="H&amp;D" Grad="3" Lernkosten="800" AP="1&#X23;Seite" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 min pro Seite" Reichweite="1m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Material="Schreibmaterial">
     <Grund>PC,PF,PHa,PHe,PK,PM,PT,PW,Th</Grund>
     <Standard>Hl,Ma,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Kravyad-Schrei" Region="H&D" Grad="1" Lernkosten="100" AP="2" Typ="Geste" Zauberdauer="1 s     0" Reichweite="Körper  Z" Wirkungsziel="1 min" Wirkungsbereich="druidisch" Wirkungsdauer="Stimmband eines Kravyad-Sauriers" Material="Siegel">
+  <Spruch Name="Kravyad-Schrei" Region="H&amp;D" Grad="1" Lernkosten="100" AP="2" Typ="Geste" Zauberdauer="1 s     0" Reichweite="Körper  Z" Wirkungsziel="1 min" Wirkungsbereich="druidisch" Wirkungsdauer="Stimmband eines Kravyad-Sauriers" Material="Siegel">
     <Grund>Sk</Grund>
     <Standard>Ba,Dr,Ma,Or,PC,PF,PHa,PHe,PK,PM,PT,PW,Th,eBe,gHx</Standard>
   </Spruch>
-  <Spruch Name="Kuß des Schlafes" Region="H&D" Grad="2" Lernkosten="200" AP="1AP#Gr" Typ="Geist" Ursprung="druidisch" Zauberdauer="5 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h">
+  <Spruch Name="Kuß des Schlafes" Region="H&amp;D" Grad="2" Lernkosten="200" AP="1AP&#X23;Gr" Typ="Geist" Ursprung="druidisch" Zauberdauer="5 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h">
     <Grund>Sc,gHx,sHx,wHx</Grund>
     <Standard>Ma,PC,PF</Standard>
     <Ausnahme>PHe,PM,PT,PW</Ausnahme>
   </Spruch>
-  <Spruch Name="Lahmsalz" Region="H&D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Zauberart="Zaubersalz">
+  <Spruch Name="Lahmsalz" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Dem Opfer schlafen die Beine ein. WM-6 auf Springen, Geländelauf und ähnliches.</Beschreibung>
   </Spruch>
-  <Spruch Name="Lustsalz" Region="H&D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Mangan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Zauberart="Zaubersalz">
+  <Spruch Name="Lustsalz" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Mangan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Das Opfer hat unwiderstehliche Lust auf Sex. Nur schwerwiegende Gründe können sie davon abhalten, Kampfeshandlungen, Erziehung, Standesunterschiede usw.</Beschreibung>
   </Spruch>
-  <Spruch Name="Macht der Finsternis" Region="H&D" Grad="6" Lernkosten="6000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="selbst" Wirkungsdauer="1 h">
+  <Spruch Name="Macht der Finsternis" Region="H&amp;D" Grad="6" Lernkosten="6000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="selbst" Wirkungsdauer="1 h">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ var. Damit kann der Finstermagier eines der folgenden: eine Eigenschaft auf 100 steigern(GZ 5), eine Eigenschaft um 10 auch über 100 steigern(GZ 10), die Form eines Elementargeistes/Geist/Gespenst/Mumie/Manticora/Niederer Dämon/Riesenschlange/Thurse/Troll annehmen. In der Gestalt hat der die jeweils maximalen Werte. Nach der Verwandlung hat der dieselben LP und AP wie vorher.</Beschreibung>
   </Spruch>
-  <Spruch Name="Magische Aura" Region="H&D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Zauberdauer="30 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1h/1 Monat" Material="Alchimistenmetallstaub">
+  <Spruch Name="Magische Aura" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Zauberdauer="30 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1h/1 Monat" Material="Alchimistenmetallstaub">
     <Grund>Ma,gHx,sHx,wHx</Grund>
     <Standard>PHe,Sc</Standard>
     <Ausnahme>PC,PK,PW</Ausnahme>
   </Spruch>
-  <Spruch Name="Nebelsalz" Region="H&D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Wasser" Prozess="verwandelt" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="2m Uk" Wirkungsdauer="3 h" Zauberart="Zaubersalz">
+  <Spruch Name="Nebelsalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Wasser" Prozess="verwandelt" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="2m Uk" Wirkungsdauer="3 h" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Es entsteht eine dichte kleine Nebelwolke.</Beschreibung>
   </Spruch>
-  <Spruch Name="Reizen" Region="H&D" Grad="1" Lernkosten="120" AP="1AP*Gr" Typ="Wort" Zauberdauer="5 s     30 m" Reichweite="Geist" Wirkungsziel="1 Ws:Gr" Wirkungsbereich="2 h" Wirkungsdauer="dämonisch">
+  <Spruch Name="Reizen" Region="H&amp;D" Grad="1" Lernkosten="120" AP="1AP*Gr" Typ="Wort" Zauberdauer="5 s     30 m" Reichweite="Geist" Wirkungsziel="1 Ws:Gr" Wirkungsbereich="2 h" Wirkungsdauer="dämonisch">
     <Grund>PW,dBe</Grund>
     <Standard>Or,Sc,Tm,eBe</Standard>
     <Ausnahme>Hl</Ausnahme>
   </Spruch>
-  <Spruch Name="Reptilien rufen" Region="H&D" Grad="3" Lernkosten="600" AP="3-9 AP" Typ="Wort" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="2 km" Wirkungsziel="Geist" Wirkungsbereich="var" Wirkungsdauer="10 min">
+  <Spruch Name="Reptilien rufen" Region="H&amp;D" Grad="3" Lernkosten="600" AP="3-9 AP" Typ="Wort" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="2 km" Wirkungsziel="Geist" Wirkungsbereich="var" Wirkungsdauer="10 min">
     <Grund>Dr,Hl</Grund>
     <Standard>Sc,gHx,sHx,wHx</Standard>
     <Ausnahme>Ma,PT</Ausnahme>
   </Spruch>
-  <Spruch Name="Schattenbruder" Region="H&D" Grad="4" Lernkosten="1500" AP="6" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12m Uk" Wirkungsdauer="2 min">
+  <Spruch Name="Schattenbruder" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="6" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12m Uk" Wirkungsdauer="2 min">
     <Grund>PC,gHx,sHx,wHx</Grund>
     <Standard>Ma,Th</Standard>
     <Ausnahme>Hl,Sc</Ausnahme>
   </Spruch>
-  <Spruch Name="Schattenroß" Region="H&D" Grad="4" Lernkosten="2000" AP="12" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="0" Wirkungsdauer="var">
+  <Spruch Name="Schattenroß" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="12" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="0" Wirkungsdauer="var">
     <Standard>Dr,PC,sHx</Standard>
   </Spruch>
-  <Spruch Name="Schleichende Verderbnis" Region="H&D" Grad="4" Lernkosten="2000" AP="8" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="12 h" Reichweite="2 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Material="Pergament">
+  <Spruch Name="Schleichende Verderbnis" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="8" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="12 h" Reichweite="2 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Material="Pergament">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 15. Zauberzutat ist Pergament gemacht aus der Haut eines gehängten/geräderten Mörders. Das mit Runen versehene Pergament muß 2 m um die augenblickliche Wohnstatt des Opfers vergraben werden. Dann sinken die Basiswerte des Opfers pro Tag um 1, es hat Alpträume(keine AP Regeneration). LPmax sinkt um 2 pro Woche. Das Opfer hat jede Woche einen WW:phs, auf den aber kumulativ WM-2 dazu kommen. Das Opfer stirbt bei 0 LP oder eine Basiseigenschaft 0. Der Zauber kann gebrochen werden, wenn das Opfer die Wohnstatt verlässt oder das Pergament findet und zerstört.</Beschreibung>
   </Spruch>
-  <Spruch Name="Schmerzen spüren" Region="H&D" Grad="3" Lernkosten="600" AP="3" Typ="Gedanke" Zauberdauer="15 s" Reichweite="500 m" Wirkungsziel="Geist   1 Ws" Wirkungsbereich="30 s" Wirkungsdauer="druidisch">
+  <Spruch Name="Schmerzen spüren" Region="H&amp;D" Grad="3" Lernkosten="600" AP="3" Typ="Gedanke" Zauberdauer="15 s" Reichweite="500 m" Wirkungsziel="Geist   1 Ws" Wirkungsbereich="30 s" Wirkungsdauer="druidisch">
     <Grund>Sc,Tm,eBe,gHx</Grund>
     <Standard>Hl,Or,PM,PW</Standard>
     <Ausnahme>PC,PF,PHa,PHe,PK,PT,dBe</Ausnahme>
   </Spruch>
-  <Spruch Name="Schminken" Region="H&D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="4 h" Material="Papageienfeder">
+  <Spruch Name="Schminken" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="4 h" Material="Papageienfeder">
     <Grund>Ba,gHx,sHx,wHx</Grund>
     <Standard>Hl,Ma,PF,Sc</Standard>
     <Ausnahme>PT</Ausnahme>
   </Spruch>
-  <Spruch Name="Schreiber beschwören" Region="H&D" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Pergament">
+  <Spruch Name="Schreiber beschwören" Region="H&amp;D" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Pergament">
     <Grund>dBe,eBe</Grund>
     <Standard>Ma,PW,gHx,sHx,wHx</Standard>
     <Ausnahme>Hl,PHe</Ausnahme>
   </Spruch>
-  <Spruch Name="Seance" Region="H&D" Grad="3" Lernkosten="1000" AP="alle" Typ="Geste" Ursprung="dämonisch" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="10 min" Material="Schwarze Kerzen, Weihrauch, Totenschädel">
+  <Spruch Name="Seance" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="alle" Typ="Geste" Ursprung="dämonisch" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="10 min" Material="Schwarze Kerzen, Weihrauch, Totenschädel">
     <Grund>Sc</Grund>
     <Standard>Dr,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>Ma</Ausnahme>
   </Spruch>
-  <Spruch Name="Signalkugel" Region="H&D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="elementar" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="0" Wirkungsdauer="20 s" Material="Eulenfeder und Zunder">
+  <Spruch Name="Signalkugel" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="elementar" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="0" Wirkungsdauer="20 s" Material="Eulenfeder und Zunder">
     <Grund>Th,gHx,sHx,wHx</Grund>
     <Standard>Hl,Ma,PHe,PM</Standard>
   </Spruch>
-  <Spruch Name="Sprachlähmung" Region="H&D" Grad="4" Lernkosten="1500" AP="1AP*Gr" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 h" Material="Schnur mit Knoten">
+  <Spruch Name="Sprachlähmung" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="1AP*Gr" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 h" Material="Schnur mit Knoten">
     <Grund>Hl</Grund>
     <Standard>Ma,PW,gHx,sHx,wHx</Standard>
     <Ausnahme>Sc</Ausnahme>
   </Spruch>
-  <Spruch Name="Tiefschlaf" Region="H&D" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h">
+  <Spruch Name="Tiefschlaf" Region="H&amp;D" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h">
     <Grund>Hl,Th</Grund>
     <Standard>Dr,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Trockensalz" Region="H&D" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="bewegt" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Zauberart="Zaubersalz">
+  <Spruch Name="Trockensalz" Region="H&amp;D" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="bewegt" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Das Salz saugt bis zu 1l Flüssigkeit auf.</Beschreibung>
   </Spruch>
-  <Spruch Name="Trunk des Lebens" Region="H&D" Grad="1" Lernkosten="100" AP="1/2" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="0" Material="Honig">
+  <Spruch Name="Trunk des Lebens" Region="H&amp;D" Grad="1" Lernkosten="100" AP="1/2" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="0" Material="Honig">
     <Grund>Hl</Grund>
     <Standard>Ma,PF,gHx,sHx,wHx</Standard>
     <Ausnahme>PHe,Sc</Ausnahme>
   </Spruch>
-  <Spruch Name="Ungeziefer bannen" Region="H&D" Grad="3" Lernkosten="1000" AP="3-9 AP" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="6m Uk" Wirkungsdauer="8 h" Material="Schädel">
+  <Spruch Name="Ungeziefer bannen" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="3-9 AP" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="6m Uk" Wirkungsdauer="8 h" Material="Schädel">
     <Grund>Dr,PF,Th</Grund>
     <Standard>Hl,Sc,dBe,eBe,sHx,wHx</Standard>
     <Ausnahme>Ma,PHa,PHe,PW,gHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Ungeziefer bannen" Region="H&D" Grad="3" Lernkosten="1000" AP="3-9 AP" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="6m Uk" Wirkungsdauer="8 h" Material="Schädel">
+  <Spruch Name="Ungeziefer bannen" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="3-9 AP" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="6m Uk" Wirkungsdauer="8 h" Material="Schädel">
     <Grund>Dr,PF,Th</Grund>
     <Standard>Hl,Sc,dBe,eBe,sHx,wHx</Standard>
     <Ausnahme>Ma,PHa,PHe,PW,gHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Unwetter rufen" Region="H&D" Grad="4" Lernkosten="2000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="150m Uk" Wirkungsdauer="15 min">
+  <Spruch Name="Unwetter rufen" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="9" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="150m Uk" Wirkungsdauer="15 min">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 5. Dadurch wird ein sehr starkes Gewitter gerufen, das sich innerhalb von 5 Minuten bildet und dann 15 Minuten anhält. Massive Wirkungen. Lebewesen mit weniger als LP, die nicht rechtzeitig einen Unterschlupf finden, sterben.</Beschreibung>
   </Spruch>
-  <Spruch Name="Verglasen" Region="H&D" Grad="5" Lernkosten="3500" AP="6" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
+  <Spruch Name="Verglasen" Region="H&amp;D" Grad="5" Lernkosten="3500" AP="6" Typ="Gedanke" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 5. Mißlingt der WW:phs, verwandelt sich der Körper des Opfers innerhalb von 4 Runden in Glas. Kann mit Bannen von Zauberwerk/Bannen von Finsterwerk aufgehoben werden, wenn PW:WLW gelingt.</Beschreibung>
   </Spruch>
-  <Spruch Name="Verwüstung" Region="H&D" Grad="2" Lernkosten="250" AP="2" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="10m Uk" Wirkungsdauer="0" Material="Wüstensand">
+  <Spruch Name="Verwüstung" Region="H&amp;D" Grad="2" Lernkosten="250" AP="2" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="10m Uk" Wirkungsdauer="0" Material="Wüstensand">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 1. Pflanzen innerhalb des Wirkungsbereiches verdorren innerhalb von Sekunden. Das Gelände bleibt (Grad Fm)^2 unfruchtbar.</Beschreibung>
   </Spruch>
-  <Spruch Name="Waldluft" Region="H&D" Grad="1" Lernkosten="80" AP="1" Typ="Wort" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12m Uk" Wirkungsdauer="8 h">
+  <Spruch Name="Waldluft" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Wort" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12m Uk" Wirkungsdauer="8 h">
     <Grund>Dr,Hl,PF,Sc</Grund>
     <Standard>Ma,gHx,sHx,wHx</Standard>
     <Ausnahme>PHa,PHe,PK,PM,PT,PW</Ausnahme>
   </Spruch>
-  <Spruch Name="Wittern" Region="H&D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="25m Uk" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="10 min" Material="Spürhundhaare">
+  <Spruch Name="Wittern" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="25m Uk" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="10 min" Material="Spürhundhaare">
     <Grund>Dr,Sc,Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Ma</Ausnahme>
   </Spruch>
-  <Spruch Name="Wolkenbruch" Region="H&D" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="5m Uk" Wirkungsdauer="10 min" Material="Regenwasser">
+  <Spruch Name="Wolkenbruch" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="5m Uk" Wirkungsdauer="10 min" Material="Regenwasser">
     <Grund>PM,Sc</Grund>
     <Standard>Dr,Hl,Ma,PC,PF,PT,PW,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Wüstenwind" Region="H&D" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="druidisch" Zauberdauer="19 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="30m Uk Kegel" Wirkungsdauer="2 min" Material="Wüstensand">
+  <Spruch Name="Wüstenwind" Region="H&amp;D" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="druidisch" Zauberdauer="19 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="30m Uk Kegel" Wirkungsdauer="2 min" Material="Wüstensand">
     <Grund>De,PM,PW,Th,gHx,sHx,wHx</Grund>
     <Standard>Dr,Ma,PC,PF,PHa,PHe,PK,PT,Sc</Standard>
   </Spruch>
-  <Spruch Name="Zaubertür" Region="H&D" Grad="6" Lernkosten="10000" AP="9" Typ="Geste" Ursprung="dämonisch" Zauberdauer="30 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1x2m Wand" Wirkungsdauer="2 min">
+  <Spruch Name="Zaubertür" Region="H&amp;D" Grad="6" Lernkosten="10000" AP="9" Typ="Geste" Ursprung="dämonisch" Zauberdauer="30 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1x2m Wand" Wirkungsdauer="2 min">
     <Grund>Th</Grund>
     <Standard>Ma</Standard>
     <Ausnahme>gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Zeichen des Chaos" Region="H&D" Grad="4" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="10 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
+  <Spruch Name="Zeichen des Chaos" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="10 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
     <Standard>PC,sHx</Standard>
     <Beschreibung>GZ 4. Mißlingt dem Opfer ein WW:phs(weiße Hexer, Priester und Ordenskriegen haben WM+4), wächst ihm ein leicht zu bemerkendes Chaoszeichen: Schwarz verfärbte Körperteile, glühende Augen, Klauen, Hörner usw. Die Wirkung des Zaubers dauert (Gr Fm)*(Gr Opfer). </Beschreibung>
   </Spruch>
-  <Spruch Name="Zucksalz" Region="H&D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Mangan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Zauberart="Zaubersalz">
+  <Spruch Name="Zucksalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Mangan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Zauberart="Zaubersalz">
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe</Ausnahme>
     <Beschreibung>Das Opfer leidet unter nervösen Zuckungen, was WM-4 auf alle EW bedeutet, auch Angriff und Zaubern. pA sinkt auf ein Viertel.</Beschreibung>
   </Spruch>
-  <Spruch Name="Zurückführen" Region="H&D" Grad="6" Lernkosten="6000" AP="var" Typ="Wort" Ursprung="druidisch" Zauberdauer="6 h" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0">
+  <Spruch Name="Zurückführen" Region="H&amp;D" Grad="6" Lernkosten="6000" AP="var" Typ="Wort" Ursprung="druidisch" Zauberdauer="6 h" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0">
     <Grund>Dr,Th</Grund>
     <Standard>Ma,Sc,gHx,sHx,wHx</Standard>
   </Spruch>
-  <Spruch Name="Zwingkreis" Region="H&D" Grad="5" Lernkosten="4000" AP="6" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="30m" Wirkungsziel="Umgebung" Wirkungsbereich="6m Uk" Wirkungsdauer="6 h" Material="Kupferarmband">
+  <Spruch Name="Zwingkreis" Region="H&amp;D" Grad="5" Lernkosten="4000" AP="6" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="30m" Wirkungsziel="Umgebung" Wirkungsbereich="6m Uk" Wirkungsdauer="6 h" Material="Kupferarmband">
     <Grund>PHa,PW,dBe</Grund>
     <Standard>Ba,Dr,Hl,Or,PC,PF,PHe,PK,PM,PT,Sc,Tm,eBe,gHx,tBe</Standard>
   </Spruch>

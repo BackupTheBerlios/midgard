@@ -12,18 +12,18 @@
   <KiDo Name="FengYetsi" Übersetzung="Wind und Blatt" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="60" AP="0">weiter Wurf gegen Gegner die im Sturm angreifen oder mehr als B/2 gelaufen sind. KiDoka stürzt. Gegner stürzt automatisch (1W6-3 AP) mißlingt der WW:Abwehr, Flug 1W6m, 1W6LP/AP</KiDo>
   <KiDo Name="GinZjang" Übersetzung="Opfer des Kranichs" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="80" AP="3">Sturmangriff ab 6m. KiDoka stürzt und WM-4 auf Abwehr. 1x Angriff vs Abwehr SchB+5, 1x KiDo vs Abwehr wie Wurf.</KiDo>
   <KiDo Name="HaschiBami" Übersetzung="Zweig der Haselnuß" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Aufstehen. Gilt nicht als Aktion.</KiDo>
-  <KiDo Name="HiaBatta" Übersetzung="Sprung der Heuschrecke" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Verbessert Sprungweiten und - höhen um 50%</KiDo>
+  <KiDo Name="HiaBatta" Übersetzung="Sprung der Heuschrecke" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Verbessert Sprungweiten und - höhen um 50&#X25;</KiDo>
   <KiDo Name="HiaFei" Übersetzung="Sprung des Tigers" Stufe="Meister" Stil="Harte Techniken" Lernkosten="800" AP="5">Sturmangriff nach 6 bis B Meter. SchB +7 bzw KAW 50</KiDo>
   <KiDo Name="HiaPao" Übersetzung="Sprung des Leoparden" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="1">Sturmangriff nach 6 bis B Metern. SchB + 2 bzw KAW 15</KiDo>
   <KiDo Name="HyoKobe" Übersetzung="Hagel von Fäusten" Stufe="Eingeweihter" Stil="Harte Techniken" Lernkosten="400" AP="3">6 Angriffe auch verschiedene Gegner</KiDo>
-  <KiDo Name="ItaSone" Übersetzung="Schmerzlicher Verlust" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="0">Entwaffnen. Gegner muß letzte Runde angegriffen haben. KiDo vs Abwehr : 1W6 AP + Waffenverlust. krit.=krit.Armtreffer. Nur Einhandwaffen.</KiDo>
+  <KiDo Name="ItaSone" Übersetzung="Schmerzlicher Verlust" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="0">Entwaffnen. Gegner muß letzte Runde angegriffen haben. KiDo vs Abwehr : 1W6 AP + Waffenverlust. krit.&#X3D;krit.Armtreffer. Nur Einhandwaffen.</KiDo>
   <KiDo Name="KaHiko" Übersetzung="Mückenflug" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="3">Verwirren der Nahkampfgegner. KiDo vs psyZR. WM+4 auf Angriff gegen einen Verwirrten. Verwirrte handeln nicht, wehren aber ab.</KiDo>
   <KiDo Name="KamaKusa" Übersetzung="Sichel und Gras" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="0">Wurf durch Tritt</KiDo>
   <KiDo Name="KanaUchi" Übersetzung="Hammerschlag" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="40" AP="0">Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.</KiDo>
   <KiDo Name="KansiTeko" Übersetzung="Zange und Hebel" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="40" AP="0">Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.</KiDo>
   <KiDo Name="KawaSui" Übersetzung="Austrocknen der Quelle" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="3">Heilt 1W6 LP/AP des KiDokas. Wirkt exakt wie Heilen von Wunden.</KiDo>
   <KiDo Name="KentoYobu" Übersetzung="Kampfschrei" Stufe="Schüler" Stil="beide" Lernkosten="60" AP="1">Der Kampfschrei gibt WM+1 auf Angriff und Abwehr für 10 min. Gelingt der KentoYubo nicht, darf er erst beim nächsten Kampf wieder eingesetzt werden. Der KentoYubo ist die erste Technik in einem Kampf, es sei denn ein PW:Sb gelingt.</KiDo>
-  <KiDo Name="KoéLong" Übersetzung="Stimme des Drachen" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="4">"Schrei, ""Schmerzen"" auf 30m Kegel, phsZR oder 1W6 AP und 1min WM-4"</KiDo>
+  <KiDo Name="KoéLong" Übersetzung="Stimme des Drachen" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="4">&quot;Schrei, &quot;&quot;Schmerzen&quot;&quot; auf 30m Kegel, phsZR oder 1W6 AP und 1min WM-4&quot;</KiDo>
   <KiDo Name="LingHia" Übersetzung="Göttlicher Sprung" Stufe="Meister" Stil="beide" Lernkosten="800" AP="5">Springen: bis 20m weit, 5m hoch, 10m tief, über Angreifer + Angriff</KiDo>
   <KiDo Name="MiChen" Übersetzung="Biene und Nadel" Stufe="Eingeweihter" Stil="beide" Lernkosten="400" AP="0">Gezielter Hieb, WW+2 auf 2.Abwehr, nur leichter Schaden dafür PW:Ko (bzw. 5*LPmax) oder 1W6 Runden Ohnmacht</KiDo>
   <KiDo Name="MingHa" Übersetzung="Leuchtende Klinge" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="1">Verwirren. KiDo vs phsZR. Nur mit Dolch oder Sai und helle Lichtquelle. Lichtreflexe blenden einen Gegner. WM+4 auf Angriff</KiDo>
@@ -33,7 +33,7 @@
   <KiDo Name="NiNintai" Übersetzung="Zweite Ausdauer" Stufe="Eingeweihter" Stil="beide" Lernkosten="400" AP="3">Regeneriert sofort alle AP. Nach einer Stunde: Verlust aller AP und von 3 LP. Während dieser Zeit kann die Technik nicht erneut angewendet werden.</KiDo>
   <KiDo Name="NiuTsuke" Übersetzung="Ochsentritt" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="1">SchB +2</KiDo>
   <KiDo Name="OchiFuku" Übersetzung="Fallender Sack" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="60" AP="0">Wurf</KiDo>
-  <KiDo Name="OjuKiba" Übersetzung="Verjagen der Wespe" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="80" AP="0">Entwaffnen. Nur Einhandwaffen. Waffe fliegt 1W6m. krit.=krit.Armtreffer</KiDo>
+  <KiDo Name="OjuKiba" Übersetzung="Verjagen der Wespe" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="80" AP="0">Entwaffnen. Nur Einhandwaffen. Waffe fliegt 1W6m. krit.&#X3D;krit.Armtreffer</KiDo>
   <KiDo Name="SchanScha" Übersetzung="Mörderischer Berg" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="1">Eisenhaut. 1 Runde. Verringert Verluste um 5 LP oder AP. RW-xx</KiDo>
   <KiDo Name="SchindoKu" Übersetzung="Schwingungen der Alten" Stufe="Meister" Stil="Sanfte Techniken" Lernkosten="1600" AP="6">Handfläche schwingt. KiDo vs phsZR. leichter Schaden: 1W6+1 LP/AP schwerer Schaden: 3W6+1 LP/AP. Kein Treffer: selbst phsZR für 1W6-1 bzw 3W6-3 LP/AP</KiDo>
   <KiDo Name="SosaYaku" Übersetzung="Suche die Schwäche" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Angriff WM+2, Angriff erst am Ende der Runde</KiDo>
