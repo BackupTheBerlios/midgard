@@ -6,14 +6,12 @@ NEWS IN VERSION 0.8.13
    dadurch wird der 'verstärkte Langbogen' (ohne region;-) möglich
 * Neue Pixmap von Alessandro
 * Eingebe neuer Ausrüstungs-Arten möglich
+* Region-Icons im Menü wechseln
 
 TODO
 
 ** Setzen der Handle-Fenster-Positionen :-(
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
-* Region-Icons im Menü wechseln
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
-  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Deutsche Sortierung (Bärenwut vor Beschleunigen, erst mit gcc3.2 !!!)
 - Ausrüstung mit drag & drop
 - Würfelvarianten für Nichtmenschen!

@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.45 2002/11/04 08:00:25 christof Exp $               
+// $Id: Zauber.hh,v 1.46 2002/12/05 10:30:08 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -77,6 +77,8 @@ class Zauber : public MidgardBasicElement
 //   static void set_Spruchrolle(std::list<cH_MidgardBasicElement>&,bool sp) const;
 };
 
+
+#include <Misc/germanstring.h>
 class cH_Zauber : public Handle<const Zauber>
 {
     typedef CacheStatic<std::string,cH_Zauber> cache_t;
@@ -104,9 +106,9 @@ class cH_Zauber : public Handle<const Zauber>
             cH_Zauber x(_x->getMBE());
             cH_Zauber y(_y->getMBE());
             switch(es) {
-               case(NAME) : return x->Name() < y->Name()  ;
+               case(NAME) : return germanstring(x->Name()) < germanstring(y->Name())  ;
                case(STUFE): return x->Stufe() < y->Stufe();
-               case(URSPRUNG): return x->Ursprung() < y->Ursprung() ;
+               case(URSPRUNG): return germanstring(x->Ursprung()) < germanstring(y->Ursprung()) ;
            }}
     };
 

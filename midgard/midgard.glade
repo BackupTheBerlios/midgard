@@ -14153,7 +14153,7 @@ Drucken</label>
 		  <last_modification_time>Thu, 10 Jan 2002 18:11:21 GMT</last_modification_time>
 		</signal>
 		<label>Neue Art</label>
-		<icon>pinguin.xpm</icon>
+		<icon>New_Art-50.xpm</icon>
 		<active>False</active>
 		<child>
 		  <new_group>True</new_group>

@@ -19,6 +19,7 @@
 #include "class_SimpleTree.hh"
 #include <Misc/EntryValueEmptyInt.h>
 #include <Misc/EntryValueIntString.h>
+#include <Misc/EntryValueIntGermanString.h>
 #include <MidgardBasicTree.hh>
 #include <Sprache.hh>
 #include <Fertigkeiten.hh>
@@ -33,7 +34,8 @@
 const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
 {
   switch (what) {
-      case FName: return cH_EntryValueIntString((*MBE)->Name()+" "+(*MBE).Zusatz());
+//      case FName: return cH_EntryValueIntString((*MBE)->Name()+" "+(*MBE).Zusatz());
+      case FName: return cH_EntryValueIntGermanString((*MBE)->Name()+" "+(*MBE).Zusatz());
       case FErfolgswert: { if((*MBE).What()==MidgardBasicElement::FERTIGKEIT)
                                return cH_EntryValueEmptyInt((*MBE)->FErfolgswert(hauptfenster->getAben(),MBE)); 
                            else return cH_EntryValueEmptyInt((*MBE).Erfolgswert()); }

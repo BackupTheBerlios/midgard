@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.103 2002/11/30 08:18:08 thoma Exp $
+// $Id: Optionen.cc,v 1.104 2002/12/05 10:30:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -478,6 +478,20 @@ void Midgard_Optionen::Icon_init()
  list_Icon.push_back(st_Icon(Ulf,"Win32-Stil",false));
 }
 
+
+void detachHB(Gtk::HandleBox &HB,int x,int y,int b,int h)
+{
+  HB.gtkobj()->child_detached = true;
+  HB.get_float_window().move_resize(x,y,b,h);
+  Gdk_Window w=HB.get_float_window();
+  HB.get_bin_window().reparent(w,0,0);
+
+//  HB.get_float_window().set_hints(x, y, 0, 0, 0, 0, GDK_HINT_POS); 
+  HB.get_float_window().show();
+  HB.gtkobj()->float_window_mapped = true;
+  HB.queue_resize();
+}
+
 // Lines marked with 'compat' are to maintain compatibility
 void Midgard_Optionen::load_options(const std::string &filename)
 {try {
@@ -522,28 +536,22 @@ void Midgard_Optionen::load_options(const std::string &filename)
      FOR_EACH_CONST_TAG_OF(i,*data2,"WindowPositions")
        {
          std::string name=i->getAttr("Name");
-cout << "\n\n\n"<<name<<"\n\n\n";
          int x=i->getIntAttr("X");
          int y=i->getIntAttr("Y");
          int breite=i->getIntAttr("Breite");
          int hoehe=i->getIntAttr("Höhe");
-         Gdk_Window W;
-//         Gtk::Window *W;
+         Gtk::HandleBox *HB;
          if     (name=="handlebox_steigern_1")
-//            W=hauptfenster->table_steigern->handlebox_steigern_1->get_toplevel();
-            W=hauptfenster->table_steigern->handlebox_steigern_1->get_float_window();
+            HB=hauptfenster->table_steigern->handlebox_steigern_1;
          else if(name=="handlebox_steigern_2")
-            W=hauptfenster->table_steigern->handlebox_steigern_2->get_float_window();
+            HB=hauptfenster->table_steigern->handlebox_steigern_2;
          else if(name=="handlebox_steigern_3")
-            W=hauptfenster->table_steigern->handlebox_steigern_3->get_float_window();
+            HB=hauptfenster->table_steigern->handlebox_steigern_3;
          else if(name=="handlebox_steigern_4")
-            W=hauptfenster->table_steigern->handlebox_steigern_4->get_float_window();
+            HB=hauptfenster->table_steigern->handlebox_steigern_4;
          else continue;
-        
-         W.move(x,y);
 cout << "SETZEN: "<<name<<' '<<x<<' '<<y<<"\n\n\n\n";
-//         W.get_toplevel().(x,y);
-//         W->set_default_size(breite,hoehe);
+         detachHB(*HB,x,y,breite,hoehe);
        }
    }
 
