@@ -1,14 +1,11 @@
-XML todo
-
-Region
+XML todo: 10 + 5
 
 load_charakter.o
 save_charakter.o
-MidgardBasicElement_sql.o
+(MidgardBasicElement_sql.o) saveElement
 xmlimport.o
 Window_charakter_auswahl.o
 
-Pflicht.o
 Praxispunkte.o
 Preise.o
 Region.o
@@ -19,3 +16,19 @@ Spezies.o
 Sprache.o
 Typen.o
 WaffeGrund.o
+
+XML done: 13
+
+Ausnahmen.o
+Beruf.o
+Fertigkeiten_angeboren.o
+Fertigkeiten.o
+Grad_anstieg.o
+KiDo.o
+Land.o
+Lernschema.o
+MidgardBasicElement_sql.o
+Pflicht.o
+WaffeGrund.o
+Zauber.o
+Zauberwerk.o
