@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.2 2002/06/14 07:14:08 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.3 2002/06/14 19:54:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -129,17 +129,18 @@ void table_steigern::get_ausdauer(int grad)
    int bonus_K, bonus_aK, bonus_Z;
    int kosten = hauptfenster->getCDatabase().GradAnstieg.get_AP_Kosten(grad);
    if (grad == 1)  { bonus_K =  4, bonus_aK =  3; bonus_Z =  2; }
-   if (grad == 2)  { bonus_K =  6, bonus_aK =  4; bonus_Z =  2; }
-   if (grad == 3)  { bonus_K =  9, bonus_aK =  6; bonus_Z =  3; }
-   if (grad == 4)  { bonus_K = 12, bonus_aK =  8; bonus_Z =  4; }
-   if (grad == 5)  { bonus_K = 15, bonus_aK = 10; bonus_Z =  5; }
-   if (grad == 6)  { bonus_K = 18, bonus_aK = 12; bonus_Z =  6; }
-   if (grad == 7)  { bonus_K = 21, bonus_aK = 14; bonus_Z =  7; }
-   if (grad == 8)  { bonus_K = 24, bonus_aK = 16; bonus_Z =  8; }
-   if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; }
-   if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
-   if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
-   if (!steigern_usp(kosten,0,Ausdauer)) return;
+   else if (grad == 2)  { bonus_K =  6, bonus_aK =  4; bonus_Z =  2; }
+   else if (grad == 3)  { bonus_K =  9, bonus_aK =  6; bonus_Z =  3; }
+   else if (grad == 4)  { bonus_K = 12, bonus_aK =  8; bonus_Z =  4; }
+   else if (grad == 5)  { bonus_K = 15, bonus_aK = 10; bonus_Z =  5; }
+   else if (grad == 6)  { bonus_K = 18, bonus_aK = 12; bonus_Z =  6; }
+   else if (grad == 7)  { bonus_K = 21, bonus_aK = 14; bonus_Z =  7; }
+   else if (grad == 8)  { bonus_K = 24, bonus_aK = 16; bonus_Z =  8; }
+   else if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; }
+   else if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
+   else if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
+   int dummy=1;
+   if (!steigern_usp(kosten,0,dummy,Ausdauer)) return;
    hauptfenster->getWerte().addGFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += hauptfenster->random.integer(1,6);
@@ -164,7 +165,7 @@ void table_steigern::get_ausdauer(int grad)
   hauptfenster->getWerte().addSteigertage(Grad_anstieg::AP_Maximum_Tage);
 }
 
-void table_steigern::get_ab_re_za(e_was_steigern was,bool verschenke_pp=false)
+void table_steigern::get_ab_re_za(e_was_steigern was)
 {
   int alter_wert, max_wert;
   int kosten;
@@ -199,7 +200,8 @@ void table_steigern::get_ab_re_za(e_was_steigern was,bool verschenke_pp=false)
 
   if(radiobutton_steigern->get_active())
    {
-     if(!steigern_usp(kosten,0,was,verschenke_pp) && !verschenke_pp) return; 
+     int dummy=1;
+     if(!steigern_usp(kosten,0,dummy,was) ) return; 
      hauptfenster->getWerte().addGFP(kosten);
      if      (was==Abwehr)    hauptfenster->getWerte().setAbwehr_wert(alter_wert+1);
      else if (was==Resistenz) hauptfenster->getWerte().setResistenz(alter_wert+1); 

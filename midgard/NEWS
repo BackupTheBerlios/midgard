@@ -5,6 +5,10 @@ NEWS IN VERSION 0.7delta2
 * Wenn ein Zusatz gewählt werden soll sind die anderen Fenster 
    'desensibilisiert'
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* Eingabe von PP jetzt etwas einfacher und ohne Programmabbruch falls keine 
+   Ziele mehr gewählt sein sollte.
+* Steigern mit PP für Fertigkeiten geht wieder, man kann aber noch keine 
+   EP verschenken
 
 TODO:
 * Steigern mit PP sinnvoll implementieren

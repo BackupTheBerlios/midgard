@@ -46,7 +46,7 @@ public:
         void init(midgard_CG *hauptfenster);
 
 private:
-        const MidgardBasicElement_mutable &getSelectedNotebookLernen();
+        const MidgardBasicElement_mutable &getSelectedNotebookLernen() throw(TreeBase::noRowSelected); 
         void load_for_page(guint pagenr);
         void zeige_werte();
         void neuer_charakter();
@@ -68,24 +68,24 @@ public:
 private:
         void get_grundwerte();
         void get_ausdauer(int grad);
-        void get_ab_re_za(e_was_steigern was,bool verschenke_pp=false);
+        void get_ab_re_za(e_was_steigern was);//,bool verschenke_pp=false);
          
         // EP
         void steigern_gtk();
         int steigern_womit(const std::string& fert);
         void desteigern(unsigned int kosten);
-        void set_lernzeit(int kosten);
-        bool steigern_usp(int kosten,MidgardBasicElement_mutable *MBE,e_was_steigern was=Nichts,bool verschenke_pp=false);
+        void set_lernzeit(int kosten,bool no_pp=false);
+        bool steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,int &stufen,e_was_steigern was=Nichts);
         int genug_geld(const int kosten);
         int EP_kosten(const int kosten);
         int PP_vorrat(const MidgardBasicElement_mutable *MBE,e_was_steigern was);
         bool genug_EP(const int ep_k,const bool bkep,const bool bzep,int &aep0,int &kep0,int &zep0);
         void steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was);
 public:
-        void PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp);
-        void PraxisPunkt_fuer_Was(e_was_steigern was);
+//        void PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp);
+//        void PraxisPunkt_fuer_Was(e_was_steigern was);
 private:
-        int stufen_auf_einmal_steigern_fuer_aep(bool info,MidgardBasicElement_mutable& MBE,int &kosten,int &aep);
+        int stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_mutable& MBE,int &kosten,int &aep);
 
 
         // Fertigkeiten

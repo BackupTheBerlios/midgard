@@ -200,10 +200,9 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
      std::string Pflicht_str() const; 
 
      bool ist_gelernt(const std::list<MidgardBasicElement_mutable>& L) const;
-      int Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
-      int Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
-      int Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
-
+     int Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
+     int Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
+     int Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
 
    class sort {
       public:

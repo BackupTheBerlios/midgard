@@ -61,14 +61,16 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 
  if (radiobutton_steigern->get_active() && MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
     {
-      if (!steigern_usp(MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()),&MBE)) return false;
+      int stufen=1;
+      int steigerkosten=MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp());
+      if (!steigern_usp(steigerkosten,&MBE,stufen)) return false;
       if ( MBE.Erfolgswert() >= MBE->MaxErfolgswert(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp())) 
           { hauptfenster->set_status("Maximal möglicher Erfolgswert erreicht");
             return false; }
-      hauptfenster->getChar().getWerte().addGFP(MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
+      hauptfenster->getChar().getWerte().addGFP(steigerkosten);
       for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name()) 
-            (*i).addErfolgswert(1); 
+            (*i).addErfolgswert(stufen); 
     }
  else if (radiobutton_reduzieren->get_active() && MBE.Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
     {
@@ -136,7 +138,8 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      togglebutton_spruchrolle->get_active() ) kosten/=10;
  /////////////////////////////////////////////////////////////////////////
  
- if (!steigern_usp(kosten,&MBE)) return;
+ int dummy=1;
+ if (!steigern_usp(kosten,&MBE,dummy)) return;
  hauptfenster->getChar().getWerte().addGFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////

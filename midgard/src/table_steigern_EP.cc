@@ -151,7 +151,7 @@ bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,i
     {
       use_pp=pp;
       int ppkosten=0,aep=40*pp;
-      stufen=stufen_auf_einmal_steigern_fuer_aep(true,*MBE,ppkosten,aep);
+      stufen=stufen_auf_einmal_steigern_fuer_aep(*MBE,ppkosten,aep);
       rest_aep=aep;
       kosten=ppkosten;
     }
@@ -325,7 +325,7 @@ void table_steigern::PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool ve
        MBE.addPraxispunkte(-1);
      
   int kosten=0;
-  stufen_auf_einmal_steigern_fuer_aep(false,MBE,kosten,aep);
+  stufen_auf_einmal_steigern_fuer_aep(false ,MBE,kosten,aep);
   // Die übrigbleibenden Punkte in AEP umwandeln
   if(!verfallen && aep>0)
    {

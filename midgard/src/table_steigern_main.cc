@@ -40,9 +40,15 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
      radiobutton_pp_fertigkeit->set_active(true);
      vbox_praxispunkte->show();
      if(hauptfenster->getCChar().CTyp1()->is_mage() || hauptfenster->getCChar().CTyp2()->is_mage()) 
-         radiobutton_pp_zauber->set_sensitive(true);//show();
+         radiobutton_pp_zauber->set_sensitive(true);
      else
-         radiobutton_pp_zauber->set_sensitive(true);//hide();
+         radiobutton_pp_zauber->set_sensitive(true);
+
+     try{
+      MidgardBasicElement_mutable M=getSelectedNotebookLernen();
+      spinbutton_pp_eingeben->set_value(M.Praxispunkte());
+      spinbutton_pp_eingeben->show();
+     }catch(TreeBase::noRowSelected &e) {cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
    }
   else
    {
@@ -86,6 +92,10 @@ void table_steigern::on_radio_selbst_toggled()
 }
 void table_steigern::on_radio_praxis_toggled()
 {
+  if(radiobutton_praxis->get_active())
+     table_pp_einstellungen->set_sensitive(true);
+  else
+     table_pp_einstellungen->set_sensitive(false);
 }
 
 void table_steigern::on_radiobutton_pp_fertigkeit_toggled()
@@ -151,11 +161,10 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   }   
  
  guint pagenr = notebook_lernen->get_current_page_num();
+ try{
  MidgardBasicElement_mutable M=getSelectedNotebookLernen();
  modify(PP,M,"",PPanz);
-
-// const_cast<MidgardBasicElement_mutable&>(getSelectedNotebookLernen()).setPraxispunkte(PPanz);
-
+ }catch(TreeBase::noRowSelected &e) {cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
      MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Fertigkeit(),alte_fert_tree,hauptfenster); 
@@ -169,11 +178,10 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   spinbutton_pp_eingeben->hide();
 }
 
-const MidgardBasicElement_mutable &table_steigern::getSelectedNotebookLernen()
+const MidgardBasicElement_mutable &table_steigern::getSelectedNotebookLernen() throw(TreeBase::noRowSelected)
 {
  const Data_SimpleTree *dt;
  guint pagenr = notebook_lernen->get_current_page_num();
- try{
    if(pagenr==PAGE_FERTIGKEITEN)
       dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_fert_tree->getSelectedRowDataBase())); 
    if(pagenr==PAGE_WAFFEN)
@@ -185,12 +193,10 @@ const MidgardBasicElement_mutable &table_steigern::getSelectedNotebookLernen()
    if(pagenr==PAGE_SPRACHE)
     {
       try{ dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_sprache_tree->getSelectedRowDataBase())); }
-          catch (std::exception &e) {}
-      try {dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_schrift_tree->getSelectedRowDataBase())); }
-          catch (std::exception &e) {}
+      catch (std::exception &e)
+       { dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_schrift_tree->getSelectedRowDataBase())); }
     }
-  }catch(std::exception &e) {cerr << e.what()<<'\n'; assert(!"Fehler");}
- return dt->getMBE();
+  return dt->getMBE();
 // cH_MidgardBasicElement MBE(dt->getMBE());
 // return (const_cast<MidgardBasicElement*>(MBE));
 }
