@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.39 2002/05/30 06:19:20 thoma Exp $
+// $Id: Optionen.cc,v 1.40 2002/06/01 08:39:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -253,7 +253,7 @@ void Midgard_Optionen::Optionen_init()
                            false,Cyan_Dice_trans_50_xpm));
 //  list_OptionenCheck.push_back(st_OptionenCheck(showPics,"Bilder anzeigen",true,0));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
-                           "Wizard bei jedem Programmstart zeigen",true,0));
+                           "Wizard bei jedem Programmstart starten",true,0));
 
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",0));
 //  list_OptionenExecute.push_back(st_OptionenExecute(WizardStarten,"Wizard starten",0));
