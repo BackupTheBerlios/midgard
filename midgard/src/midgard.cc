@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.21 2001/09/19 13:30:28 thoma Exp $
+// $Id: midgard.cc,v 1.22 2001/09/19 13:36:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,13 +31,14 @@
 #include "Window_lernpunkte_editieren.hh"
 #include <Aux/dbconnect.h>
 #include "Midgard_Info.hh"
+#include <unistd.h>
 
 int main(int argc, char **argv)
 {   
    Gtk::Main m(&argc, &argv);
    manage(new Midgard_Info(true));
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-
+   if (argc==1) sleep(5);
    try {
       Petig::dbconnect(Petig::Connection("","midgard"));
       manage(new midgard_CG(argc,argv));

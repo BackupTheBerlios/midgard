@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.45 2001/09/19 13:30:28 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.46 2001/09/19 13:36:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,6 @@ void Midgard_Info::on_button_close_clicked()
 Midgard_Info::Midgard_Info(bool selfclean,midgard_CG* h)
 :hauptfenster(h)
 {
-//   versionsnummer->set_text("Version: 0.8beta3");
    versionsnummer->set_text("Version: "+(std::string)VERSION);
    if (selfclean) 
     { toolbar_close->hide();
