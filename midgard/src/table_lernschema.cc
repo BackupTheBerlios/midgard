@@ -319,7 +319,6 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         if((*MBE)->ZusatzEnum(A.getVTyp())) 
           lernen_zusatz((*MBE)->ZusatzEnum(A.getVTyp()),MBE);
 
-
         if(MBE->LernArt().find("Fach")!=std::string::npos)
            lernpunkte.addFach(-MBE->Lernpunkte());
         else if(MBE->LernArt().find("Allg")!=std::string::npos)
@@ -830,6 +829,7 @@ void table_lernschema::show_lernschema()
           if (!(*(*i))->Voraussetzung(A)) continue ;
           if ((*i)->ist_gelernt(hauptfenster->getChar()->List_Fertigkeit())) gelernt=true;
           if ((*(*i))->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
+         (*i)->setLernArt("Fach");
         }
 
        bool zuteuer=false;

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.16 2002/10/01 08:44:27 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.17 2002/10/02 06:45:33 thoma Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -107,7 +107,8 @@ void table_lernschema::showBerufsLernList()
       std::vector<Beruf::st_vorteil> V=LernListen(hauptfenster->getDatabase()).getBerufsVorteil(*i,BKategorie,hauptfenster->getAben());
       for(std::vector<Beruf::st_vorteil>::const_iterator j=V.begin();j!=V.end();++j)
        {
-         if(!(cH_Fertigkeit(j->name))->Voraussetzung(hauptfenster->getAben())) continue;
+         if(j->name!="Schmecken+10")         
+            if(!(cH_Fertigkeit(j->name))->Voraussetzung(hauptfenster->getAben())) continue;
          datavec.push_back(new Beruf_Data((*(*i))->Name(),*j));
          if(j->gelernt) gelerntes=true;
        }
