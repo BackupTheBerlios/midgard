@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.cc,v 1.4 2003/11/24 16:21:42 christof Exp $               
+// $Id: VAbentModelProxy.cc,v 1.5 2003/11/25 07:29:51 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -21,13 +21,12 @@
 #include "VAbenteurer.hh"
 #include "Datenbank.hh"
 
-void VAbentModelProxy::divert(divert_base &new_one)
-{  VAbenteurer::st_abenteurer &A=static_cast<VAbenteurer::st_abenteurer &>(new_one);
-   for (std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();
+void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
+{  for (std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();
 		i!=Datenbank.Regionen.end();++i)
-      regionen[*i]=Model_ref<bool>(A.getAbenteurer().getRegion(*i));
+      regionen[*i]=Model_ref<bool>(A.abenteurer.getRegion(*i));
    
-   Optionen &o=A.getAbenteurer().getOptionen();
+   Optionen &o=A.abenteurer.getOptionen();
    for (std::list<Optionen::st_Haus>::iterator i=o.getHausregeln().begin();
    		i!=o.getHausregeln().end();++i)
       hausregeln[i->index]=Model_ref<bool>(i->active);
@@ -35,5 +34,15 @@ void VAbentModelProxy::divert(divert_base &new_one)
    		i!=o.getOptionenCheck().end();++i)
       checks[i->index]=Model_ref<bool>(i->active);
       
-   wizard=Model_ref<Wizard::esteps>(A.getWizard());
+   wizard=Model_ref<Wizard::esteps>(A.wizard);
+}
+
+void VAbentModelProxy::divert(VAbenteurer::Item &A)
+{  for (regionen_t::iterator i=A.proxies.regionen.begin();i!=A.proxies.regionen.end();++i)
+      regionen[i->first].set_model(i->second);
+   for (check_t::iterator i=A.proxies.checks.begin();i!=A.proxies.checks.end();++i)
+      checks[i->first].set_model(i->second);
+   for (haus_t::iterator i=A.proxies.hausregeln.begin();i!=A.proxies.hausregeln.end();++i)
+      hausregeln[i->first].set_model(i->second);
+   wizard.set_model(A.proxies.wizard);
 }

@@ -60,6 +60,9 @@ class MagusKI
       const Abenteurer::e_wie_steigern get_wie_steigern(const eSL e);
       const Enums::st_bool_steigern get_bool_steigern();
       
+      void operator=(const MagusKI &);
+      MagusKI(const MagusKI &);
+      
    public:
 
       MagusKI(Abenteurer &a)

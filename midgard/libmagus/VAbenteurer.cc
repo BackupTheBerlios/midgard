@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.4 2003/11/24 16:21:42 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.5 2003/11/25 07:29:51 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,6 +23,21 @@
 #include <Misc/Trace.h>
 #include "magustrace.h"
 #include <sigc++/object_slot.h>
+
+void VAbenteurer::Item::init()
+{  current_undo=--undos.end();
+   _signal_undo_changed.connect(SigC::slot(*this,&Item::divert_proxy));
+   divert_proxy();
+}
+
+VAbenteurer::Item::Item(const Abenteurer &A,bool g) 
+	: bgespeichert(g) 
+{  undos.push_back(st_undo(A)); init(); }
+		
+VAbenteurer::Item::Item(const Item &i) 
+	: undos(i.undos), filename(i.filename), bgespeichert(i.bgespeichert)
+{  init(); }
+
 
 static VAbenteurer::Item::iterator unconstify(const VAbenteurer::Item::const_iterator &i)
 {  return reinterpret_cast<const VAbenteurer::Item::iterator &>(i);
@@ -105,6 +120,6 @@ void AbenteurerAuswahl::divert_proxy()
 {  proxies.divert(*actualIterator());
 }
 
-void VAbenteurer::st_abenteurer::divert_proxy()
-{  // proxies.divert(*actualIterator()); ??
+void VAbenteurer::Item::divert_proxy()
+{  proxies.divert(*current_undo);
 }

@@ -34,6 +34,9 @@ class Zufall
       AbenteurerLernpunkte lernpunkte;
       
 //      friend enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s);
+      void operator=(const Zufall &);
+      // möglich aber besser verbieten
+      Zufall(const Zufall &);
 
    public:
 

@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.9 2003/11/24 16:21:42 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.10 2003/11/25 07:29:51 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -27,10 +27,9 @@
 #include <sigc++/object.h>
 #include "VAbentModelProxy.hh"
 
-class VAbenteurer // : public SigC::Object // um signale zu empfangen
+namespace AbenteurerListe
 {
-   public:
-	struct st_undo : VAbentModelProxy::divert_base
+	struct st_undo
 	{	std::string text; // Bezeichnung des UndoSchrittes
 		Abenteurer abenteurer;
        		AbenteurerLernpunkte ab_lp;
@@ -41,7 +40,7 @@ class VAbenteurer // : public SigC::Object // um signale zu empfangen
        			abenteurer(a)
        			{}
 	};
-	class Item : public VAbentModelProxy::divert_base, public SigC::Object
+	class Item : public SigC::Object
 	{	std::vector<st_undo> undos;
 		// Einfügen und löschen können den Iterator gerne ungültig machen,
 		// er muss so oder so neu gesetzt werden
@@ -52,6 +51,8 @@ class VAbenteurer // : public SigC::Object // um signale zu empfangen
 		bool bgespeichert;
 
 		void divert_proxy();
+		void operator=(const Item &);
+		void init(); // iterator setzen, connect
 	public:
 		typedef std::vector<st_undo>::const_iterator const_iterator;
 		typedef std::vector<st_undo>::iterator iterator;
@@ -64,8 +65,8 @@ class VAbenteurer // : public SigC::Object // um signale zu empfangen
 		VAbentModelProxy proxies; // proxy ist erforderlich um mit dem richtigen
 			// Model in den Undoschritten zu arbeiten
 		
-		Item(const Abenteurer &A=Abenteurer(),bool g=true) : bgespeichert(g) 
-		{  undos.push_back(st_undo(A)); current_undo=undos.begin(); }
+		Item(const Abenteurer &A=Abenteurer(),bool g=true);
+		Item(const Item &i);
 		
 		Abenteurer &getAbenteurer() { return current_undo->abenteurer; }
 		AbenteurerLernpunkte &getLernpunkte() { return current_undo->ab_lp; }
@@ -83,7 +84,13 @@ class VAbenteurer // : public SigC::Object // um signale zu empfangen
 		SigC::Signal0<void> &signal_undo_changed()
 		{  return _signal_undo_changed; }
 	};
-	
+}
+
+class VAbenteurer // : public SigC::Object // um signale zu empfangen
+{
+   public:
+	typedef AbenteurerListe::Item Item;
+	typedef AbenteurerListe::st_undo st_undo;
 	typedef Item st_abenteurer; // old name
 	typedef std::list<Item>::const_iterator const_iterator;
 	typedef std::list<Item>::iterator iterator;

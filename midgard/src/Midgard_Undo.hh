@@ -1,4 +1,4 @@
-// $Id: Midgard_Undo.hh,v 1.7 2003/09/01 06:47:58 christof Exp $
+// $Id: Midgard_Undo.hh,v 1.8 2003/11/25 07:29:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -16,6 +16,8 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
+
+#error obsolete file
 
 #ifndef _MIDGARD_UNDO_HH
 #  define _MIDGARD_UNDO_HH
