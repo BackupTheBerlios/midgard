@@ -270,7 +270,6 @@ Laienprediger	Lesen/Schreiben
 Laienprediger	Beredsamkeit
 Lebensmittelhändler	Beredsamkeit
 Lebensmittelhändler	Pflanzenkunde
-Märchenerzähler	Geschichten erzählen 
 Märchenerzähler	Sagenkunde
 Märchenerzähler	Beredsamkeit
 Maurer	Klettern
@@ -443,7 +442,6 @@ Vorarbeiter	Menschenkenntnis
 Vorarbeiter	Athletik
 Vorkoster	Giftmischen
 Vorkoster	Trinken
-Wächter	Hellebarde 
 Wächter	Langschwert
 Wächter	Gassenwissen
 Wächter	Menschenkenntnis
@@ -496,4 +494,6 @@ Pagin	Etikette
 Pagin	Heraldik
 Knappe	Lanzenstechen
 Pagin	Lanzenstechen
+Wächter	Hellebarde
+Märchenerzähler	Geschichten erzählen
 \.
