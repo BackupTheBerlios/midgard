@@ -55,7 +55,7 @@ void Wizard::evaluate_step(esteps step)
   os << vecwiz[step].text<<'\n';
   os.flush();
   hauptfenster->LogWinWizard->scroll();
-  hauptfenster->*(vecwiz[step].callback)();
+  (hauptfenster->*(vecwiz[step].callback))();
 }
 
 
