@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.66 2004/01/30 23:29:46 christof Exp $
+// $Id: WindowInfo.cc,v 1.67 2004/02/02 07:27:17 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,12 +47,12 @@ WindowInfo::WindowInfo()
 void WindowInfo::AppendShow(const std::string& s,Ausgabe::Level l)
 { Gdk::Color c;
   switch(l)
-  {  case Ausgabe::Debug: c.set_rgb_p(.5,.5,.5); break;
-     case Ausgabe::Log: c.set_rgb_p(0,0,0); break;
-     case Ausgabe::Warning: c.set_rgb_p(1,1,0); break;
-     case Ausgabe::ActionNeeded: c.set_rgb_p(1,0,.7); break;
+  {  case Ausgabe::Debug: c.set_rgb_p(.5,.1,.5); break;
+     case Ausgabe::Log: c.set_rgb_p(0,1,0); break;
+     case Ausgabe::Warning: c.set_rgb_p(.9,.6,0); break;
+     case Ausgabe::ActionNeeded: c.set_rgb_p(0,0,0); break;
      case Ausgabe::Error: c.set_rgb_p(1,.2,0); break;
-     case Ausgabe::Fatal: c.set_rgb_p(.9,0,0); break;
+     case Ausgabe::Fatal: c.set_rgb_p(.9,0,.7); break;
   }
   LogWin->append(s,c);
   LogWin->scroll();
