@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.1 2003/08/11 06:26:55 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.2 2003/08/12 06:17:49 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -34,8 +34,8 @@ class VAbenteurer
              st_abenteurer(const Abenteurer &A,bool g) : abenteurer(A),ab_lp(abenteurer),gespeichert(g) {}
              st_abenteurer() : abenteurer(Abenteurer()),ab_lp(abenteurer),gespeichert(true){} 
              bool operator==(const st_abenteurer& a) const 
-               {return abenteurer.getWerte().Name_Abenteurer()==a.abenteurer.getWerte().Name_Abenteurer() &&
-                       abenteurer.getWerte().Version() == a.abenteurer.getWerte().Version() ;}
+               {return abenteurer.Name_Abenteurer()==a.abenteurer.Name_Abenteurer() &&
+                       abenteurer.Version() == a.abenteurer.Version() ;}
              };
    private:
       std::list<st_abenteurer> VA;
@@ -44,7 +44,7 @@ class VAbenteurer
       class sort {
         public: sort() {}
         bool operator()(st_abenteurer x,st_abenteurer y) const
-          { return x.abenteurer.getWerte().Gw() < y.abenteurer.getWerte().Gw() ;
+          { return x.abenteurer.Gw() < y.abenteurer.Gw() ;
           }
       };
       
