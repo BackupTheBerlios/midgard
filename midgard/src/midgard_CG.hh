@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.323 2003/07/16 06:29:34 christof Exp $
+// $Id: midgard_CG.hh,v 1.324 2003/08/11 06:19:56 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,6 @@
 #include <list>
 #include "zufall.h"
 #include "Datenbank.hh"
-class Random;
 #include <fstream>
 #include "WindowInfo.hh"
 #include "Wizard.hh"
@@ -44,40 +43,12 @@ class Random;
 #include <config.h>
 #include "Magus_Optionen.hh"
 
+#include <libmagus/VAbenteurer.hh>
+
 class midgard_CG : public midgard_CG_glade
 {   
-        bool in_dtor;
+//        bool in_dtor;
 /////////////////////////////////////////////////////////////////////////////
-        friend class Preise;
-        friend class BegruessungsWindow;
-        friend class Zufall;
-        friend class MagusKI;
-        friend class LernListen;
-        friend class LaTeX_drucken;
-        friend class Window_Waffenbesitz;
-        friend class Data_waffenbesitz;
-        friend class Data_SimpleTree;
-        friend class WindowInfo;      
-        friend class xml_fileselection;
-        friend class frame_globale_optionen;
-        friend class frame_ansicht;
-        friend class frame_icons;
-        friend class table_optionen;
-        friend class table_zufall;
-        friend class table_beschreibung;
-        friend class table_grundwerte;
-        friend class table_lernschema;
-        friend class table_steigern;
-        friend class table_ausruestung;
-        friend class Window_Erfahrungspunkte;
-        friend class Fertigkeit;
-        friend class midgard_CG_glade;
-        friend class Wizard;
-        friend class Magus_Optionen;
-        friend class Midgard_Info;
-        friend class frame_drucken;
-        friend class Abenteurer;
-
         // Drucken
    private:
         void on_alles_drucken();
@@ -98,11 +69,11 @@ class midgard_CG : public midgard_CG_glade
         
         TreeViewUtility::CListEmulator news_columns;
    protected:
+#warning Noch in Ausgabe packen ...
         void set_info(const std::string& sadd);
 
         // Optionen
    private:
-        Magus_Optionen *MOptionen;
         void OptionenExecute_setzen_from_menu(Magus_Optionen::OptionenExecuteIndex index);
         void Ober_element_activate(gpointer gp,Magus_Optionen::OberIndex index);
         void autoshrink(bool b);
@@ -116,6 +87,7 @@ class midgard_CG : public midgard_CG_glade
         void show_NSC_active(bool b);
         void show_Hausregeln_active();
 
+#if 0
         enum e_icon {iNew,iOpen,iClose,iPrint,iBack,iForward,iMenu,iInfo,
                      iInstruction,iExit,iJa,iNein,iOK,iErase,
                      iEigenschaften,iAbgeleitet,
@@ -136,7 +108,7 @@ class midgard_CG : public midgard_CG_glade
                st_icons(std::string t,Glib::RefPtr<Gdk::Pixbuf> i):text(t),icon(i){}};
         struct st_buttons{Gtk::Widget *widget; e_icon icon;
                st_buttons(Gtk::Widget *w, e_icon i)
-                  : widget(w),icon(i) {}};
+                  : widget(w),icon(i) {}};                  
 
         std::vector<st_buttons> IconVec;    // Für Gtk::Box
         std::vector<st_buttons> IconVecBin; // Für Gtk::Bin
@@ -145,9 +117,10 @@ class midgard_CG : public midgard_CG_glade
         void Icons_setzen();
         void Box_setzen(Gtk::Widget *child,st_icons I);
         void Bin_setzen(Gtk::Widget *child,st_icons I);
+#endif        
    protected:
-        Magus_Optionen* getOptionen() const {return MOptionen;};
-        const Magus_Optionen* getCOptionen() const {return MOptionen;};
+//        Magus_Optionen* getOptionen() const {return MOptionen;};
+//        const Magus_Optionen* getCOptionen() const {return MOptionen;};
 
         // Wizard
    private:
@@ -191,7 +164,6 @@ class midgard_CG : public midgard_CG_glade
         // Charaktere
    private:
         VAbenteurer Char;
-        Datenbank Database;
         void on_neuer_charakter();
         void fill_AbenteurerListe();
         void on_AbenteurerListe_leaf(cH_RowDataBase d);
@@ -200,14 +172,12 @@ class midgard_CG : public midgard_CG_glade
         void on_togglebutton_delete_abenteurer_aus_liste_toggled();
         
    protected:
-        const Datenbank &getCDatabase() const {return Database;}
-        Datenbank &getDatabase() {return Database;}
-        Grundwerte &getWerte() {return Char->getWerte();}
-        const Grundwerte &getWerte() const {return Char->getWerte();}
+//        Grundwerte &getWerte() {return Char->getWerte();}
+//        const Grundwerte &getWerte() const {return Char->getWerte();}
         const VAbenteurer &getChar() const {return Char;}
         VAbenteurer &getChar() {return Char;}
-        const Abenteurer &getAben() const {return Char.getCAbenteurer();}
-        Abenteurer &getAben() {return Char.getAbenteurer();}
+//        const Abenteurer &getAben() const {return Char.getCAbenteurer();}
+//        Abenteurer &getAben() {return Char.getAbenteurer();}
         void Eigenschaften_variante(int i);
         void on_neuer_charakter_clicked();
         // Oberfläche
@@ -273,14 +243,10 @@ class midgard_CG : public midgard_CG_glade
    private:
 //        SigC::signal_Connection().connection_status;
         bool timeout_status();
-        friend class Datenbank;
-        Tag tag_eigene_artikel;
    protected:
-        Random random;   
-
         void set_status(const std::string &s,bool autoclean=true);
    public:
-        midgard_CG(Magus_Optionen *op,const std::string &datei="");
+        midgard_CG(const std::vector<std::string> &dateien);
          ~midgard_CG();
 };
 #endif

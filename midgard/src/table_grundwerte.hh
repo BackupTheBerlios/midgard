@@ -15,19 +15,17 @@
 
 class midgard_CG;
 #include <vector>
-#include <Model.h>
+#include <BaseObjects/Model.h>
 #include <Misc/UniqueValue.h>
 
 
 class table_grundwerte : public table_grundwerte_glade
 {  
-        
-        friend class table_grundwerte_glade;
-        friend class midgard_CG;
-        friend class Zufall;
-        friend class table_zufall;
-        friend class BegruessungsWindow;
-        midgard_CG *hauptfenster;
+//        friend class midgard_CG;
+//        friend class Zufall;
+//        friend class table_zufall;
+//        friend class BegruessungsWindow;
+        midgard_CG *hauptfenster; // oder nur VAbenteurer
 
         bool block_changed;
         Model<bool> edit_werte;

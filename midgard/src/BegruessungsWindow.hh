@@ -17,10 +17,7 @@ class midgard_CG;
 
 class BegruessungsWindow : public BegruessungsWindow_glade
 {  
-        
-        friend class BegruessungsWindow_glade;
         midgard_CG* hauptfenster;
-
 
         void on_button_eingabe_clicked();
         void on_button_neu_clicked();

@@ -15,10 +15,11 @@
 
 #include "class_lernpunkte.hh"
 #include "MidgardBasicElement.hh"
-class midgard_CG;
+class VAbenteurer;
 class AusruestungBaum;
-#include "Waffe.hh"
-#include "Beruf.hh"
+//#include "Waffe.hh"
+//#include "Beruf.hh"
+#include <libmagus/AbenteurerLernpunkte.hh>
 
 class table_lernschema : public table_lernschema_glade
 {  
@@ -28,8 +29,9 @@ class table_lernschema : public table_lernschema_glade
         friend class Zufall;
 
 
-        midgard_CG *hauptfenster; 
-        Lernpunkte lernpunkte;
+        VAbenteurer *hauptfenster; 
+        // AbenteurerLernpunkte abent_lernpunkte;
+        
         std::list<std::string> list_FertigkeitZusaetze;
         WaffeBesitzLernen waffebesitzlernen;
         MidgardBasicTree *tree_lernschema;
@@ -37,12 +39,8 @@ class table_lernschema : public table_lernschema_glade
         MidgardBasicTree *tree_angeb_fert;
         MidgardBasicTree *tree_kido_lernschema;
         MidgardBasicTree *tree_waffen_lernschema;
-        int maxkido;
-        BerufsKategorie BKategorie;
         std::list<MBEmlt> list_Fertigkeit_ang_neu;                                        
-        enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
-        GWR_Auswahl gwr_auswahl;
-        std::vector<int> VGeldwurf;
+        AbenteurerLernpunkte::GWR_Auswahl gwr_auswahl;
         std::vector<cH_RowDataBase> datavec_zusatz;
         
 private:
@@ -109,10 +107,10 @@ private:
 public:
         
         table_lernschema(GlademmData *_data) 
-          : table_lernschema_glade(_data), hauptfenster(0),
-          tree_lernschema(0),Beruf_tree(0),tree_angeb_fert(0),tree_kido_lernschema(0),
-            tree_waffen_lernschema(0),maxkido(0) {}
-        void init(midgard_CG *hauptfenster);
+          : table_lernschema_glade(_data), hauptfenster(),
+          tree_lernschema(),Beruf_tree(),tree_angeb_fert(),tree_kido_lernschema(),
+            tree_waffen_lernschema() {}
+        void init(VAbenteurer *hauptfenster);
 
       // Ab hier die automatischen Methoden von glade erzeugt
 private:

@@ -58,7 +58,7 @@ public:
 #include <gtkmm/box.h>
 
 class midgard_CG_glade : public Gtk::Window
-{  
+{	friend class BegruessungsWindow;
         
         GlademmData *gmm_data;
 protected:

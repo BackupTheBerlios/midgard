@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.55 2003/07/15 06:12:00 christof Exp $
+// $Id: midgard.cc,v 1.56 2003/08/11 06:19:56 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,39 +19,37 @@
 
 #include <gtkmm/main.h>
 #include "midgard_CG.hh"
-#include <unistd.h>
-#include "xml.h"
+//#include <unistd.h>
+//#include "xml.h"
 #ifdef __MINGW32__
 #include <io.h>
-#include "registry.h"
+#include <libmagus/Ausgabe.hh>
 #endif
-#include <sys/types.h>
-#include <sys/stat.h>
-#include "Windows_Linux.hh"
-#include "Magus_Optionen.hh"
+//#include <sys/types.h>
+//#include <sys/stat.h>
+//#include "Windows_Linux.hh"
+//#include "Magus_Optionen.hh"
+#include <libmagus/libmagus.hh>
 
 //#include <locale>
 
 int main(int argc, char **argv)
-{   
-   magus_paths::init(argv[0],"");
-
+{  libmagus_init0(argc,argv);
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
-   std::string gtkrc="Gtk::RC_FILES="
-   	+magus_paths::with_path("gtkrc");
-   std::cout << gtkrc << '\n';
-   putenv(gtkrc.c_str());
+   std::string gtkrc;
+   if (!getenv("GTK_RC_FILES"))
+   {  gtkrc="GTK_RC_FILES="+magus_paths::with_path("gtkrc");
+      Ausgabe(Ausgabe::Debug,gtkrc);
+      putenv(gtkrc.c_str());
+   }
 #endif
    Gtk::Main m(&argc, &argv,true); 
 
-   // und mehrere Dateien ? CP   
-   std::string datei;
-   if (argc==2) datei=argv[1];
+   std::vector<std::string> dateien;
+   for (i=1;i<argc;++i) dateien.push_back(argv[i]);
 
 //   setlocale(LC_ALL, "de_DE");
-   Magus_Optionen magus_optionen;
-   magus_optionen.load_options(magus_paths::with_path("magus_optionen.xml",false,true));
-   midgard_CG *magus=new midgard_CG(datei,magus_optionen);
+   midgard_CG *magus=new midgard_CG(dateien);
    m.run(*magus);
    delete magus;
    return 0;
