@@ -104,6 +104,7 @@ TagStream::~TagStream()
 
 void TagStream::load_project_file(Tag *top)
 {  while (good() && next_tag(top));
+   encoding=top->getAttr("encoding");
 }
 
 bool TagStream::good()

@@ -24,7 +24,7 @@
 
 void midgard_CG::menu_init()
 {
-  if (menu) {menu->destroy();menu=0;}
+  if (menu) { menu->destroy(); menu=0; haus_menuitem=0; }
   menu=manage(new Gtk::Menu());
 
   Gtk::MenuItem *save = manage(new class Gtk::MenuItem("Charakter speichern"));
@@ -75,7 +75,7 @@ void midgard_CG::menu_init()
    {
      if((*i)->Nr()<=0) continue;
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
-     _mi->remove();
+     // _mi->remove(); // CP: was soll das denn ??? es ist doch ganz neu
 
      std::string labeltext=(*i)->Name();
      if (labeltext.size()>11)
@@ -84,15 +84,15 @@ void midgard_CG::menu_init()
         {  labeltext.replace(pos,1,'\n');
         }
      }
-     Gtk::Label *_l=manage (new Gtk::Label(labeltext,0,0));
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
-     Gtk::Pixmap *_o=manage(new Gtk::Pixmap(midgard_logo_tiny_xpm));
      int row=1;
      if((*i)->Offiziell()) 
        {
+        Gtk::Pixmap *_o=manage(new Gtk::Pixmap(midgard_logo_tiny_xpm));
         _tab->attach(*_o,1,2,1,2,0,0,0,0);
         row=2;
        }
+     Gtk::Label *_l=manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,0,0,0,0);
      _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
@@ -148,7 +148,8 @@ void midgard_CG::menu_init()
 
 //Hausregeln////////////////////////////////////////////////////////////////
   Gtk::Menu *haus_menu = manage(new class Gtk::Menu());
-  if(haus_menuitem) {haus_menuitem->destroy();haus_menuitem=0;}
+//  if(haus_menuitem) {haus_menuitem->destroy();haus_menuitem=0;}
+// heh, das ist managed!!! das gibt es schon gar nicht mehr!
   haus_menuitem = manage(new class Gtk::MenuItem());
 
   Gtk::Label *_lhaus = manage(new class Gtk::Label("Hausregeln"));

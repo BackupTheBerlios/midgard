@@ -748,10 +748,10 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
          int wert=i->getIntAttr("Wert");
          if (xml_version<8) // 3. Auflage
          {  switch (wert)
-            {  case 1: wert=4;
-               case 2: wert=6;
-               case 3: wert=10;
-               case 4: wert=13;
+            {  case 1: wert=4; break;
+               case 2: wert=6; break;
+               case 3: wert=10; break;
+               case 4: wert=13; break;
             }
          }
          sprache->set_Erfolgswert(wert);
