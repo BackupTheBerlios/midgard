@@ -14,7 +14,7 @@
   </Boni>
   <GFP>110</GFP>
   <Vermögen GS="368"/>
-  <Steigern AEP="5" steigern="t" EPproGFP="34" Basiswerte="0"/>
+  <Steigern AEP="5" EPabziehen="True" EPproGFP="34" Basiswerte="0"/>
   <Ausrüstung>
     <Rüstung>LR</Rüstung>
     <Waffe Bezeichnung="Dolch"/>

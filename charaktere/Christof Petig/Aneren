@@ -1,101 +1,123 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<Midgard-Charakter Version="7">
-  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Haut des Bruders" Grad="7"/>
-  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl"/>
-  <Basiseigenschaften St="59" Ge="82" Ko="92" In="100" Zt="93"/>
-  <abgeleiteteEigenschaften Au="40" pA="72" Sb="64" RW="78" HGW="78" B="25" KAW="2" WLW="80"/>
-  <Erfolgswerte Abwehr="13" Zaubern="17"/>
-  <Resistenzen Zauber="13"/>
-  <Gesundheit LP_Basis="12" LP="16" AP="39"/>
-  <Beschreibung Alter="28" Gestalt="breit" Gewicht="73" Größe="171" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Boni Ausdauer="3" Abwehr="1" Zaubern="2">
-    <Resistenzen psy="9" phs="5" phk="6" Gift="5"/>
-  </Boni>
-  <GFP>8353</GFP>
-  <Vermögen GS="382"/>
-  <Steigern AEP="141" EPproGFP="34" Basiswerte="1"/>
+<MAGUS-data>
+ <Preise>
+ </Preise>
+
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Grad 7" Grad="7"/>
+  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl" Stadt_Land="Stadt"/>
+  <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
+  <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="99" B="25" SG="4"/>
+  <Erfolgswerte Abwehr="13" Zaubern="17" ZauberResistenz="13"/>
+  <Gesundheit LP="16" AP="39"/>
+  <Beschreibung Alter="28" Gestalt="normal" Gewicht="73" Größe="171" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
+  <Vermögen GS="80"/>
+  <Steigern GFP="10428" AEP="78" EPproGFP="34"><Praxispunkte/></Steigern>
   <Ausrüstung>
     <Rüstung>TR</Rüstung>
     <Waffe Bezeichnung="Magierstab"/>
+    <Gegenstand Bezeichnung="Körper" sichtbar="true">
+      <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Gürtel" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Schuhe" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+        <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+        <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true"/>
+        <Gegenstand Bezeichnung="Geld"/>
+      </Gegenstand>
+    </Gegenstand>
   </Ausrüstung>
   <Fertigkeiten>
-    <Beruf Bezeichnung="Gelehrter" Wert="14"/>
-    <Fertigkeit Bezeichnung="Erste Hilfe"/>
+    <Sinn Bezeichnung="Riechen" Wert="8"/>
+    <Sinn Bezeichnung="Tasten" Wert="8"/>
+    <Beruf Bezeichnung="Gelehrte" Wert="14"/>
+    <ang-Fertigkeit Bezeichnung="Geschmacksschwäche"/>
+    <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
     <Fertigkeit Bezeichnung="Kamelreiten" Wert="12"/>
     <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
     <Fertigkeit Bezeichnung="Kräuterkunde" Wert="11"/>
-    <Fertigkeit Bezeichnung="Lesen von Zauberschrift"/>
+    <Fertigkeit Bezeichnung="Landeskunde" Wert="8" Land="KanThaiPan"/>
+    <Fertigkeit Bezeichnung="Landeskunde" Wert="4" Land="Eschar"/>
+    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="10"/>
     <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="4"/>
     <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
+    <Fertigkeit Bezeichnung="Suchen" Wert="8"/>
     <Fertigkeit Bezeichnung="TaiTschi"/>
-    <Fertigkeit Bezeichnung="Tierkunde" Wert="3"/>
+    <Fertigkeit Bezeichnung="Tierkunde" Wert="4"/>
     <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
-    <Fertigkeit Bezeichnung="Wissen von der Magie"/>
     <Fertigkeit Bezeichnung="YangScheng" Wert="2"/>
     <Fertigkeit Bezeichnung="Zauberkunde" Wert="10"/>
+    <Fertigkeit Bezeichnung="Zaubern"/>
     <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
-    <Grundkenntnis Bezeichnung="Magierstab"/>
-    <Region Region="ORIG"/>
-    <Region Region="INFO"/>
-    <Region Region="E"/>
-    <Region Region="K"/>
-    <Region Region="HD"/>
-    <Region Region="G"/>
-    <Sprache Bezeichnung="Albisch" Wert="4"/>
-    <Sprache Bezeichnung="Chryseisch" Wert="4"/>
-    <Sprache Bezeichnung="Comentang" Wert="2"/>
-    <Sprache Bezeichnung="Dvarskar" Wert="3"/>
-    <Sprache Bezeichnung="Eldalyn" Wert="2"/>
-    <Sprache Bezeichnung="Erainnisch" Wert="4"/>
-    <Sprache Bezeichnung="Gnomenon" Wert="3"/>
-    <Sprache Bezeichnung="KanThaiTun" Wert="4"/>
-    <Sprache Bezeichnung="Maralinga" Wert="2"/>
-    <Sprache Bezeichnung="Meketisch" Wert="4"/>
-    <Sprache Bezeichnung="Moravisch" Wert="4"/>
-    <Sprache Bezeichnung="Scharidisch" Wert="3"/>
-    <Sprache Bezeichnung="Twyneddisch" Wert="1"/>
-    <Urschrift Bezeichnung="Dvarskar"/>
-    <Urschrift Bezeichnung="KanThaiTun(1)"/>
-    <Urschrift Bezeichnung="KanThaiTun(2)"/>
-    <Urschrift Bezeichnung="Meketisch"/>
-    <Urschrift Bezeichnung="Seemeister"/>
-    <Urschrift Bezeichnung="Tegarisch"/>
     <Waffe Bezeichnung="Magierstab" Wert="6"/>
-    <Zauber Bezeichnung="Allheilung" Wert="19"/>
-    <Zauber Bezeichnung="Austreibung des Bösen" Wert="17"/>
-    <Zauber Bezeichnung="Bannen von Dunkelheit" Wert="19"/>
-    <Zauber Bezeichnung="Bannen von Finsterwerk" Wert="17"/>
-    <Zauber Bezeichnung="Bannen von Gift" Wert="19"/>
-    <Zauber Bezeichnung="Bannen von Zauberwerk" Wert="17"/>
-    <Zauber Bezeichnung="Beschleunigen" Wert="19"/>
-    <Zauber Bezeichnung="Besänftigen" Wert="19"/>
-    <Zauber Bezeichnung="Erkennen von Krankheit" Wert="19"/>
-    <Zauber Bezeichnung="Erkennen von Leben" Wert="17"/>
-    <Zauber Bezeichnung="Freundesauge" Wert="19"/>
-    <Zauber Bezeichnung="Funkenregen" Wert="19"/>
-    <Zauber Bezeichnung="Grüne Hand" Wert="19"/>
-    <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen" Wert="17"/>
-    <Zauber Bezeichnung="Handauflegen" Wert="19"/>
-    <Zauber Bezeichnung="Heilen von Krankheit" Wert="19"/>
-    <Zauber Bezeichnung="Heilen von Wunden" Wert="19"/>
+    <Zauber Bezeichnung="Allheilung"/>
+    <Zauber Bezeichnung="Austreibung des Bösen"/>
+    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
+    <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+    <Zauber Bezeichnung="Bannen von Gift"/>
+    <Zauber Bezeichnung="Bannen von Zauberwerk"/>
+    <Zauber Bezeichnung="Beschleunigen"/>
+    <Zauber Bezeichnung="Besänftigen"/>
+    <Zauber Bezeichnung="Entgiften"/>
+    <Zauber Bezeichnung="Erkennen von Krankheit"/>
+    <Zauber Bezeichnung="Erkennen von Leben"/>
+    <Zauber Bezeichnung="Freundesauge"/>
+    <Zauber Bezeichnung="Funkenregen"/>
+    <Zauber Bezeichnung="Grüne Hand"/>
+    <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
+    <Zauber Bezeichnung="Handauflegen"/>
+    <Zauber Bezeichnung="Heilen von Krankheit"/>
+    <Zauber Bezeichnung="Heilen von Wunden"/>
     <Zauber Bezeichnung="Lehrersuche"/>
-    <Zauber Bezeichnung="Liniensicht" Wert="19"/>
-    <Zauber Bezeichnung="Lähmung" Wert="19"/>
-    <Zauber Bezeichnung="Macht über das Selbst" Wert="17"/>
-    <Zauber Bezeichnung="Macht über die belebte Natur" Wert="19"/>
-    <Zauber Bezeichnung="Reinigen" Wert="19"/>
-    <Zauber Bezeichnung="Rost" Wert="17"/>
-    <Zauber Bezeichnung="Schmerzen" Wert="19"/>
-    <Zauber Bezeichnung="Seelenheilung" Wert="19"/>
-    <Zauber Bezeichnung="Stille" Wert="17"/>
-    <Zauber Bezeichnung="Stärke" Wert="19"/>
-    <Zauber Bezeichnung="Tiere rufen" Wert="19"/>
-    <Zauber Bezeichnung="Tiersprache" Wert="19"/>
-    <Zauber Bezeichnung="Trunk des Lebens" Wert="19"/>
-    <Zauber Bezeichnung="Unsichtbarkeit" Wert="17"/>
-    <Zauber Bezeichnung="Vision" Wert="17"/>
-    <Zauber Bezeichnung="Wasser spüren" Wert="17"/>
-    <Zauber Bezeichnung="Zwiesprache" Wert="17"/>
+    <Zauber Bezeichnung="Liniensicht"/>
+    <Zauber Bezeichnung="Lähmung"/>
+    <Zauber Bezeichnung="Macht über das Selbst"/>
+    <Zauber Bezeichnung="Macht über die belebte Natur"/>
+    <Zauber Bezeichnung="Reinigen"/>
+    <Zauber Bezeichnung="Rost"/>
+    <Zauber Bezeichnung="Schmerzen"/>
+    <Zauber Bezeichnung="Seelenheilung"/>
+    <Zauber Bezeichnung="Stille"/>
+    <Zauber Bezeichnung="Stärke"/>
+    <Zauber Bezeichnung="Tiere rufen"/>
+    <Zauber Bezeichnung="Tiersprache"/>
+    <Zauber Bezeichnung="Trunk des Lebens"/>
+    <Zauber Bezeichnung="Unfruchtbarkeit"/>
+    <Zauber Bezeichnung="Unsichtbarkeit"/>
+    <Zauber Bezeichnung="Vision"/>
+    <Zauber Bezeichnung="Wasser spüren"/>
+    <Zauber Bezeichnung="Wort des Lebens"/>
+    <Zauber Bezeichnung="Zwiesprache"/>
+    <Grundkenntnis Bezeichnung="Zauberstab"/>
+    <Sprache Bezeichnung="Albisch" Wert="13"/>
+    <Sprache Bezeichnung="Aranisch" Wert="6"/>
+    <Sprache Bezeichnung="Chryseisch" Wert="13"/>
+    <Sprache Bezeichnung="Comentang" Wert="10"/>
+    <Sprache Bezeichnung="Dvarskar" Wert="10"/>
+    <Sprache Bezeichnung="Eldalyn" Wert="6"/>
+    <Sprache Bezeichnung="Erainnisch" Wert="13"/>
+    <Sprache Bezeichnung="Gnomenon" Wert="10"/>
+    <Sprache Bezeichnung="KanThaiTun" Wert="13"/>
+    <Sprache Bezeichnung="Maralinga" Wert="6"/>
+    <Sprache Bezeichnung="Meketisch" Wert="13"/>
+    <Sprache Bezeichnung="Moravisch" Wert="13"/>
+    <Sprache Bezeichnung="Nahuatlanisch" Wert="6"/>
+    <Sprache Bezeichnung="Scharidisch" Wert="10"/>
+    <Sprache Bezeichnung="Twyneddisch" Wert="4"/>
+    <Urschrift Bezeichnung="Dvarskar" Wert="12"/>
+    <Urschrift Bezeichnung="KanThaiTun(1)" Wert="12"/>
+    <Urschrift Bezeichnung="KanThaiTun(2)" Wert="12"/>
+    <Urschrift Bezeichnung="Meketisch" Wert="12"/>
+    <Urschrift Bezeichnung="Erainnisch" Wert="12"/>
+    <Urschrift Bezeichnung="Waldgnome" Wert="12"/>
+    <Urschrift Bezeichnung="Albisch" Wert="8"/>
+    <Urschrift Bezeichnung="Chryseisch" Wert="8"/>
+    <Urschrift Bezeichnung="Moravisch" Wert="8"/>
+    <Urschrift Bezeichnung="Comentang" Wert="8"/>
+    <Urschrift Bezeichnung="Berggnome" Wert="8"/>
+    <bool ORIG="false"/>
   </Fertigkeiten>
-</Midgard-Charakter>
+ </Midgard-Abenteurer>
+</MAGUS-data>
