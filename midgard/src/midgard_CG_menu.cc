@@ -247,7 +247,7 @@ void midgard_CG::menubar_init()
    {
     Gtk::CheckMenuItem *mi=manage(new Gtk::CheckMenuItem(i->text));
     mi->set_active(i->active);
-    mi->toggle.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_setzen_from_menu),mi,i->index));
+    mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_setzen_from_menu),mi,i->index));
     menu2->append(*mi);
    } 
   mi1->set_submenu(*menu1);
@@ -321,70 +321,3 @@ void midgard_CG::menu_gradanstieg_init()
   menu_gradanstieg->show_all();
 }
 
-/*
-//#include "../pixmaps/midgard_logo_tiny.xpm"
-#include "../pixmaps/Cyan-Dice-trans-50.xpm"
-
-void midgard_CG::Optionen_init()
-{
-  Gtk::CheckMenuItem *menu_original;
-  list_Optionen.push_back(st_Optionen(Original,menu_original,
-                           "Originalregeln",
-                           true,midgard_logo_tiny_xpm));
-  Gtk::CheckMenuItem *menu_nsc_only;
-  list_Optionen.push_back(st_Optionen(NSC_only,menu_nsc_only,
-                           "NSCs zulassen",
-                           false,0));
-  Gtk::CheckMenuItem *menu_gw_wuerfeln;
-  list_Optionen.push_back(st_Optionen(gw_wuerfeln,menu_gw_wuerfeln,
-                           "Grundwerte nur mit einer Maustaste auswürfelbar machen",
-                           false,Cyan_Dice_trans_50_xpm));
-  Gtk::CheckMenuItem *menu_pics;
-  list_Optionen.push_back(st_Optionen(showPics,menu_pics,
-                           "Bilder anzeigen",true,0));
-  Gtk::CheckMenuItem *menu_wizallways;
-  list_Optionen.push_back(st_Optionen(Wizard_immer_starten,menu_wizallways,
-                           "Wizard bei jedem Programmstart zeigen",true,0));
-
-  Gtk::MenuItem *menu_lernschema_sensitive;
-  list_OptionenM.push_back(st_OptionenM(LernschemaSensitive,
-                           menu_lernschema_sensitive,
-                           "Lernschema/Steigern auswählbar machen",0));
-  Gtk::MenuItem *menu_show_info_window;
-  list_OptionenM.push_back(st_OptionenM(show_InfoWindow,
-                           menu_show_info_window,
-                           "Info Fenster zeigen",0));
-  Gtk::MenuItem *menu_wizard_starten;
-  list_OptionenM.push_back(st_OptionenM(WizardStarten,
-                           menu_wizard_starten,
-                           "Wizard starten",0));
-  Gtk::MenuItem *menu_lernschema_fertzusaetze_loeschen;
-  list_OptionenM.push_back(st_OptionenM(LernschemaZusaetzeLoeschen,
-                           menu_lernschema_fertzusaetze_loeschen,
-                           "Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen",0));
-}
-
-
-void midgard_CG::Hausregeln_init()
-{
- list_Hausregeln.clear();
- Gtk::CheckMenuItem *gold; 
- list_Hausregeln.push_back(st_Haus(Gold,gold,"1 GS entspricht 1 GFP",false));
-}
-
-void midgard_CG::pdfViewer_init()
-{
-  Gtk::RadioMenuItem *menu_xpdf;
-  list_pdfViewer.push_back(Midgard_Optionen::st_pdfViewer(xpdf,menu_xpdf,
-                           "pdf Dokument mit 'xpdf' betrachten",
-                           false));
-  Gtk::RadioMenuItem *menu_acroread;
-  list_pdfViewer.push_back(Midgard_Optionen::st_pdfViewer(acroread,menu_acroread,
-                           "pdf Dokument mit 'acroread' betrachten",
-                           true));
-  Gtk::RadioMenuItem *menu_gv;
-  list_pdfViewer.push_back(Midgard_Optionen::st_pdfViewer(gv,menu_gv,
-                           "pdf Dokument mit 'gv' betrachten",
-                           false));
-}
-*/

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.7 2002/04/19 06:21:57 thoma Exp $
+// $Id: Optionen.hh,v 1.8 2002/04/22 08:51:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ class Midgard_Optionen
    public:
       enum StringIndex{pdf_viewer,html_viewer,tmppfad,speicherpfad};
       enum pdfViewerIndex {gv,acroread,xpdf,anderer};
-      enum OptionenCheckIndex {Original,Info,showPics,
+      enum OptionenCheckIndex {Original,Info,//showPics,
                             Wizard_immer_starten,gw_wuerfeln,
                             NSC_only};
       enum OptionenExecuteIndex {LernschemaSensitive,

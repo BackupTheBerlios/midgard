@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.17 2002/04/22 07:48:53 christof Exp $
+// $Id: Optionen.cc,v 1.18 2002/04/22 08:51:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -164,7 +164,7 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
      if(i->index!=index) continue;
      i->active = b;
      if     (i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
-     else if(i->index==showPics) hauptfenster->Pics(i->active);
+//     else if(i->index==showPics) hauptfenster->Pics(i->active);
      else if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
      else if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
    }
@@ -225,7 +225,7 @@ void Midgard_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(gw_wuerfeln,
                            "Grundwerte nur mit einer Maustaste auswürfelbar machen",
                            false,Cyan_Dice_trans_50_xpm));
-  list_OptionenCheck.push_back(st_OptionenCheck(showPics,"Bilder anzeigen",true,0));
+//  list_OptionenCheck.push_back(st_OptionenCheck(showPics,"Bilder anzeigen",true,0));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart zeigen",true,0));
 
