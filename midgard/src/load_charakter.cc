@@ -70,9 +70,9 @@ void midgard_CG::xml_import(const std::string& datei)
      }
    Char.setFilename(datei);
    set_title(getWerte().Name_Abenteurer());
-   notebook_main->set_page(PAGE_GRUNDWERTE);
    Char.safed();
    Char.delete_empty();
    push_back_LDateien(datei);
+   load_for_mainpage(PAGE_GRUNDWERTE);
 }
 

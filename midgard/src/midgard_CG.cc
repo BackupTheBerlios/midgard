@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.237 2002/06/25 07:48:43 thoma Exp $
+// $Id: midgard_CG.cc,v 1.238 2002/06/26 14:56:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,6 @@ midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0), MOptionen(0),wizard(0),
   ansicht_menu(0),region_menu(0),menu(0)
 {
-
   InfoFenster = manage(new WindowInfo(this));
   // Menüs initialisieren
   ansicht_menu = manage(new Gtk::MenuItem("Ansicht"));
@@ -54,6 +53,7 @@ midgard_CG::midgard_CG(const string &datei)
   else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) 
        on_wizard_starten_activate();
   else on_neuer_charakter_clicked();
+
   // für die NEWS
   Gtk::OStream os(list_news);
   os << 

@@ -143,8 +143,10 @@ gint midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *eve
 void midgard_CG::on_schliessen_CG_clicked()
 {
   MOptionen->save_options(InfoFenster);
+cout <<"A "<< Char.size()<<'\n';
   if(Char.unsaved_exist())
    {
+cout <<"B "<< Char.size()<<'\n';
      notebook_main->set_page(PAGE_NEWS);
      set_status("Es existieren nichtgespeicherte Abenteurer",false);
      InfoFenster->AppendShow("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?",WindowInfo::Exit_ohne_speichern);
@@ -155,8 +157,11 @@ void midgard_CG::on_schliessen_CG_clicked()
 
 void midgard_CG::on_button_quit_confirm_clicked()
 {
+cout <<"C "<< Char.size()<<'\n';
+
   connection_status.disconnect();
   Gtk::Main::instance()->quit();
+cout <<"D "<< Char.size()<<'\n';
 }
 
 gint midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
