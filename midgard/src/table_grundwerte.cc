@@ -12,6 +12,8 @@
 #include <bool_CheckButton.hh>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
+#include <libmagus/Ausgabe.hh>
+
 void table_grundwerte::init(midgard_CG *h)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
@@ -114,6 +116,8 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    combo_hand->set_popdown_strings(Vhand);
    combo_hand->get_entry()->set_text(hauptfenster->getChar()->Hand());
 
+Ausgabe(Ausgabe::Debug,"Herkunft");
+Ausgabe(Ausgabe::Debug,hauptfenster->getChar()->Herkunft()->Name());
    entry_herkunft->set_text(hauptfenster->getChar()->Herkunft()->Name());
    entry_glaube->set_text(hauptfenster->getChar()->Glaube());
    entry_nameC->set_text(hauptfenster->getChar()->Name_Abenteurer());
