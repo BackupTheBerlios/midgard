@@ -9,10 +9,10 @@
  <MAGUS-include File="Eschar.xml"/>
  <MAGUS-include File="KanThaiPan.xml"/>
  <MAGUS-include File="Nahuatlan.xml"/>
- <MAGUS-include File="Waeland.xml"/>
  <MAGUS-include File="Rawindra.xml"/>
- <MAGUS-include File="Gildenbrief.xml"/>
+ <MAGUS-include File="Waeland.xml"/>
  <MAGUS-include File="AbenteuerBaende.xml"/>
+ <MAGUS-include File="Gildenbrief.xml"/>
  <MAGUS-include File="HexenzauberDruidenkraft.xml" />
  <MAGUS-include File="HexenzauberDruidenkraftFinster.xml" />
  <MAGUS-include File="BarbarenWutRitterEhre.xml" inactive="true"/>

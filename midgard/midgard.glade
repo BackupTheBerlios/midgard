@@ -2147,44 +2147,51 @@ andere geholfen.</label>
 	</widget>
 
 	<widget>
-	  <class>GtkHBox</class>
+	  <class>GtkEventBox</class>
 	  <child_name>Notebook:tab</child_name>
-	  <name>hbox64</name>
-	  <homogeneous>False</homogeneous>
-	  <spacing>0</spacing>
+	  <name>eventbox16</name>
+	  <tooltip>Info &amp; Credits</tooltip>
 
 	  <widget>
-	    <class>GtkPixmap</class>
-	    <name>pixmap_logo</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <filename>midgard_logo_small.xpm</filename>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <build_insensitive>True</build_insensitive>
-	    <child>
-	      <padding>0</padding>
-	      <expand>True</expand>
-	      <fill>True</fill>
-	    </child>
-	  </widget>
+	    <class>GtkHBox</class>
+	    <child_name>Notebook:tab</child_name>
+	    <name>hbox64</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
 
-	  <widget>
-	    <class>GtkPixmap</class>
-	    <name>pixmap_original_tux</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <filename>MAGUS_Logo_Small.xpm</filename>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <build_insensitive>True</build_insensitive>
-	    <child>
-	      <padding>0</padding>
-	      <expand>True</expand>
-	      <fill>True</fill>
-	    </child>
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap_logo</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <filename>midgard_logo_small.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap_original_tux</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <filename>MAGUS_Logo_Small.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
 	  </widget>
 	</widget>
 
@@ -5871,7 +5878,7 @@ Beidhänder
 		  <can_focus>True</can_focus>
 		  <label>Standard</label>
 		  <active>True</active>
-		  <draw_indicator>False</draw_indicator>
+		  <draw_indicator>True</draw_indicator>
 		  <group>Eigenschaften_wuerfeln</group>
 		  <child>
 		    <padding>0</padding>
@@ -5888,7 +5895,7 @@ Beidhänder
 		  <can_focus>True</can_focus>
 		  <label>Zuweisen</label>
 		  <active>False</active>
-		  <draw_indicator>False</draw_indicator>
+		  <draw_indicator>True</draw_indicator>
 		  <group>Eigenschaften_wuerfeln</group>
 		  <child>
 		    <padding>0</padding>
@@ -5905,7 +5912,7 @@ Beidhänder
 		  <can_focus>True</can_focus>
 		  <label>6 von 9</label>
 		  <active>False</active>
-		  <draw_indicator>False</draw_indicator>
+		  <draw_indicator>True</draw_indicator>
 		  <group>Eigenschaften_wuerfeln</group>
 		  <child>
 		    <padding>0</padding>
