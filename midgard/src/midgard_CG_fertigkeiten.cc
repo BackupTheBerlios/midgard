@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.54 2002/02/08 14:34:18 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.55 2002/02/08 14:48:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,7 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
   Window_angeb_fert *W = manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
   std::string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";
   stinfo+=itos(wurf);stinfo+=" gewürfelt: "+W->Name()+"\n";
-  manage(new WindowInfo(stinfo));
+  InfoFenster->AppendShow(stinfo);
 }
 
 
