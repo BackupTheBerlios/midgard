@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.25 2003/02/25 21:53:09 christof Exp $
+// $Id: customize_toolbars.cc,v 1.26 2003/02/26 13:32:31 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -121,41 +121,39 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
    }
 }
 
-void Gtk::rec_hide(Gtk::Widget *w)
-{  // std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
+// bail out once a widget is hidden
+
+bool Gtk::rec_hide(Gtk::Widget *w)
+{  if (!w->is_visible()) return false;
+   // std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
    if (dynamic_cast<Gtk::Bin*>(w))
    {  Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
-      if (!child->is_visible()) w->hide();
-      else rec_hide(child);
+      if (child->is_visible() && rec_hide(child)) 
+            return true;
    }
    else if (dynamic_cast<Gtk::Table*>(w))
    {  
       Gtk::Table_Helpers::TableList &ch=dynamic_cast<Gtk::Table*>(w)->children();
       for (Gtk::Table_Helpers::TableList::const_iterator i=ch.begin();
       		i!=ch.end();++i)
-      {  if ((*i).get_widget()->is_visible()) 
-         {  rec_hide((*i).get_widget());
-            return;
-         }
+      {  if ((*i).get_widget()->is_visible() && rec_hide((*i).get_widget()))
+            return true;
       }
-      w->hide();
    }
    else if (dynamic_cast<Gtk::Notebook*>(w))
    {  Gtk::Notebook_Helpers::PageList &ch=dynamic_cast<Gtk::Notebook*>(w)->pages();
       Gtk::Notebook_Helpers::PageIterator e=ch.end();
       for (Gtk::Notebook_Helpers::PageIterator i=ch.begin();
       		i!=e;++i)
-      {  if ((*i).get_child()->is_visible())
-         {  rec_hide((*i).get_child());
-            return;
-         }
+      {  if ((*i).get_child()->is_visible() && rec_hide((*i).get_child()))
+            return true;
       }
-      w->hide();
    }
    else if (dynamic_cast<Gtk::Container*>(w))
    {  // und nun ?
       std::cout << typeid(*w).name() << '\n';
-      w->hide();
    }
-   else w->hide();
+   std::cout << "hiding " << w->get_name() << '\n';
+   w->hide();
+   return true;
 }
