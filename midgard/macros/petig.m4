@@ -1,4 +1,4 @@
-dnl $Id: petig.m4,v 1.7 2002/04/19 15:59:20 christof Exp $
+dnl $Id: petig.m4,v 1.8 2002/11/06 08:24:13 christof Exp $
 
 dnl Configure paths for some libraries
 dnl derived from kde's acinclude.m4
@@ -158,6 +158,8 @@ then
      ECPG_LIBS=""
      ECPG_INCLUDES=""
      ECPG_LDFLAGS=""
+     dnl fake it
+     ECPG="/bin/touch --" 
   else     
     AC_MSG_RESULT($ECPG)
     
@@ -167,16 +169,24 @@ then
     for i in $ECPG_PATH
     do
       if test -r $i/ecpgerrno.h ; then ECPG_PATH_OK=1 ; fi
-      if (echo $i | fgrep -q include )
-      then
-        LDIR=`echo $i | sed s+/include+/lib+`
-        if test -d $LDIR
-        then
-        	 dnl perhaps test for libpq etc.
-           ECPG_LDFLAGS="$ECPG_LDFLAGS -L$LDIR"
-        fi
+      omit=0
+dnl omit these standard paths even though ecpg mentions them
+      if test "$i" = "/usr/include" ; then omit=1
+      elif test "$i" = "/usr/local/include" ; then omit=1
       fi
-      ECPG_INCLUDES="$ECPG_INCLUDES -I$i"
+      if test $omit -eq 0
+      then 
+        if (echo $i | fgrep -q include )
+        then
+          LDIR=`echo $i | sed s+/include+/lib+`
+          if test -d $LDIR
+          then
+          	 dnl perhaps test for libpq etc.
+             ECPG_LDFLAGS="$ECPG_LDFLAGS -L$LDIR"
+          fi
+        fi
+        ECPG_INCLUDES="$ECPG_INCLUDES -I$i"
+      fi
     done
     if test $ECPG_PATH_OK = 0
     then
@@ -189,7 +199,7 @@ then
   
   AC_SUBST(ECPG)
   AC_SUBST(ECPG_INCLUDES)
-  ECPG_CFLAGS=$ECPG_INCLUDES
+  ECPG_CFLAGS="$ECPG_INCLUDES"
   AC_SUBST(ECPG_CFLAGS)
   AC_SUBST(ECPG_LDFLAGS)
   AC_SUBST(ECPG_LIBS)
@@ -297,10 +307,21 @@ if test "x$GTKMM_CFLAGS" == "x"
 then
   AM_PATH_GTKMM(1.2.0,,AC_MSG_ERROR(Cannot find Gtk-- Version 1.2.x))
 fi
-GTKMM_INCLUDES=$GTKMM_CFLAGS
+GTKMM_INCLUDES="$GTKMM_CFLAGS"
 AC_SUBST(GTKMM_INCLUDES)
-GTKMM_NODB_LIBS=$GTKMM_LIBS
+GTKMM_NODB_LIBS="$GTKMM_LIBS"
 AC_SUBST(GTKMM_NODB_LIBS)
+])
+
+AC_DEFUN(PETIG_CHECK_GTKMM2,
+[
+PKG_CHECK_MODULES(GTKMM2,[gtkmm-2.0 >= 1.3.20])
+GTKMM2_CFLAGS="$GTKMM2_CFLAGS -DSIGC1_2"
+AC_SUBST(GTKMM2_CFLAGS)
+GTKMM2_INCLUDES="$GTKMM2_CFLAGS"
+AC_SUBST(GTKMM2_INCLUDES)
+GTKMM2_NODB_LIBS="$GTKMM2_LIBS"
+AC_SUBST(GTKMM2_NODB_LIBS)
 ])
 
 AC_DEFUN(PETIG_CHECK_COMMONXX,
@@ -316,6 +337,11 @@ PETIG_CHECK_LIB(Komponenten,Komponenten,KOMPONENTEN,ManuProC_Widgets,COMMONXX,CO
 AC_DEFUN(PETIG_CHECK_COMMONGTK,
 [
 PETIG_CHECK_LIB(commongtk,gtk,COMMONGTK,GtkmmAddons,GTKMM)
+])
+
+AC_DEFUN(PETIG_CHECK_COMMONGTK2,
+[
+PETIG_CHECK_LIB(GtkmmAddons,gtk2,COMMONGTK2,GtkmmAddons,GTKMM2)
 ])
 
 AC_DEFUN(PETIG_CHECK_BARCOLIB,
