@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.8 2003/09/30 07:13:36 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.9 2003/11/03 10:54:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -29,6 +29,7 @@
 #include <Ausgabe.hh>
 #include <magus_paths.h>
 //#include <libmagusicons/magusicons.h>
+#include <Misc/Global_Settings.h>
 
 #ifdef __MINGW32__
 static std::string CommandByExtension(const std::string &ext)
@@ -64,6 +65,7 @@ void Magus_Optionen::init_all()
 
 void Magus_Optionen::init()
 {  Programmoptionen.init_all();
+   Global_Settings::set_impl(&global_settings_load,&global_settings_save);
 }
 
 std::string Magus_Optionen::Viewer() const
@@ -325,17 +327,16 @@ void Magus_Optionen::load_options(const std::string &filename)
   FOR_EACH_CONST_TAG_OF(i,*options,"Optionen") // compat
      setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",NOPAGE));
   FOR_EACH_CONST_TAG_OF(i,*options,"Option")
-     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",NOPAGE));
+  {  if (i->hasAttr("Programm"))
+        my_global_settings[st_Global_Settings_key(i->getIntAttr("Benutzer",0),i->getAttr("Programm"),i->getAttr("Name"))]
+     		= i->getAttr("Wert");
+     else
+        setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",NOPAGE));
+  }
   FOR_EACH_CONST_TAG_OF(i,*options,"Ansicht")
      setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Icon")
      setIcon(i->getAttr("Name"),i->getBoolAttr("Wert"));
-#if 0     
-  if (IconCheck(Magus_Optionen::Self).active) MagusIcons::set_icon_style(MagusIcons::Alessandro);
-  else if (IconCheck(Magus_Optionen::Ulf).active) MagusIcons::set_icon_style(MagusIcons::Ulf);
-  else if (IconCheck(Magus_Optionen::Gtk2).active) MagusIcons::set_icon_style(MagusIcons::Gtk);
-  else MagusIcons::set_icon_style(MagusIcons::Any);
-#endif  
   FOR_EACH_CONST_TAG_OF(i,*options,"pdfViewer")
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Einstellungen")
@@ -369,6 +370,7 @@ void Magus_Optionen::load_options(const std::string &filename)
  } catch (std::exception &e) 
  {  Ausgabe(Ausgabe::Error,"Optionen konnten nicht geladen werden: "+ std::string(e.what()));
  }
+ geaendert=false;
 }
 
                                                    
@@ -405,12 +407,20 @@ void Magus_Optionen::save_options(const std::string &filename)
   }
 
  Tag &optionen=data.push_back(Tag("Optionen"));
- for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
+ for(std::list<st_OptionenCheck>::const_iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    { Tag &opt=optionen.push_back(Tag("Option"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
      if(i->wert!=-1 && i->active)  opt.setIntAttr("Page",i->wert);
 //     if(i->index==Notebook_start && i->active) opt.setIntAttr("Page",i->wert);
+   }
+ for(std::map<st_Global_Settings_key,std::string>::const_iterator i=my_global_settings.begin();i!=my_global_settings.end();++i)
+   { if (i->second.empty()) continue;
+     Tag &opt=optionen.push_back(Tag("Option"));
+     if (i->first.userid) opt.setAttr("Benutzer",i->first.userid);
+     opt.setAttr("Programm",i->first.program);
+     opt.setAttr("Name",i->first.name);
+     opt.setBoolAttr("Wert", i->second);
    }
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    { Tag &opt=optionen.push_back(Tag("Ansicht"));
@@ -439,6 +449,7 @@ void Magus_Optionen::save_options(const std::string &filename)
      opt.setAttr("Wert", i->name);
    }
   ts.write(datei);
+  geaendert=false;
 }
                                                    
 Magus_Optionen Programmoptionen;
@@ -454,4 +465,14 @@ void Magus_Optionen::setWindowPosition(const std::string &name,int x,int y,unsig
    {  i->x=x; i->y=y; i->width=w; i->height=h;
    }
    else list_Windows.push_back(st_WindowPosition(name,x,y,w,h));
+}
+
+void global_settings_save(int userid,const std::string& program,
+      		const std::string& name, const std::string& value)
+{  my_global_settings[st_Global_Settings_key(userid,program,name)]=value;
+   geaendert=true;
+}
+std::string global_settings_load(int userid,const std::string& program,
+      		const std::string& name)
+{  return my_global_settings[st_Global_Settings_key(userid,program,name)];
 }

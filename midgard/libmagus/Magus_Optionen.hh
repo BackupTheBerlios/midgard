@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.10 2003/09/17 07:44:31 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.11 2003/11/03 10:54:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -90,6 +90,20 @@ class Magus_Optionen
 		 : name(n), width(w), height(h), x(_x), y(_y) {}
 	};
 	
+	struct st_Global_Settings_key
+	{	unsigned userid;
+		std::string program;
+		std::string name;
+		
+		st_Global_Settings_key(unsigned u,const std::string &p, const std::string &n)
+		: userid(u), program(p), name(n) {}
+		bool operator<(const st_Global_Settings_key &b)
+		{  return userid<b.userid || (userid==b.userid 
+			&& (program<b.program || (program==b.program 
+			&& name<b.name)));
+		}
+	};
+	
 	static const int NOPAGE=-1;
    private:
       int datei_history;
@@ -102,6 +116,8 @@ class Magus_Optionen
       std::list<st_WindowPosition> list_Windows;
       Model<bool> werte_eingeben;
       std::list<std::string> LDateien;
+      std::map<st_Global_Settings_key,std::string> my_global_settings;
+      bool geaendert;
       
       std::list<RadioModel> ausschluesse;
 
@@ -111,8 +127,15 @@ class Magus_Optionen
       void Icon_init();
       void pdfViewer_init();
       void init_all();
+      
+      static void global_settings_save(int userid,const std::string& program,
+      		const std::string& name, const std::string& value);
+      static std::string global_settings_load(int userid,const std::string& program,
+      		const std::string& name);
 
    public: 
+      Magus_Optionen() : geaendert() {}
+      
       // erst nachdem magus_paths initialisiert ist
       static void init();
 
