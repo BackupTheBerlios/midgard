@@ -1201,6 +1201,58 @@ Parierwaffe	ScN	A
 Schleuder	ScN	A
 Stichwaffe	ScN	A
 Zauberstab	ScN	S
+Stichwaffe	PHa	A
+Stichwaffe	PHe	A
+ESchwert	PHa	A
+ESchwert	PHe	A
+ESchlagwaffe	PHa	A
+ESchlagwaffe	PHe	A
+Spießwaffe	PHa	A
+Spießwaffe	PHe	A
+ZSchwert	PHa	A
+ZSchwert	PHe	A
+ZSchlagwaffe	PHa	A
+ZSchlagwaffe	PHe	A
+Stangenwaffe	PHa	A
+Stangenwaffe	PHe	A
+Kettenwaffe	PHa	A
+Kettenwaffe	PHe	A
+waffenloser Kampf	PHa	A
+waffenloser Kampf	PHe	A
+Zauberstab	PHa	S
+Zauberstab	PHe	S
+Kampfstab	PHa	A
+Kampfstab	PHe	A
+Peitsche	PHa	A
+Peitsche	PHe	A
+Garotte	PHa	A
+Garotte	PHe	A
+Wurfspieß	PHa	A
+Wurfspieß	PHe	A
+Wurfmesser	PHa	A
+Wurfmesser	PHe	A
+Stielwurfwaffe	PHa	A
+Stielwurfwaffe	PHe	A
+Wurfpfeil	PHa	A
+Wurfpfeil	PHe	A
+Wurfscheibe	PHa	A
+Wurfscheibe	PHe	A
+Werfen	PHa	A
+Werfen	PHe	A
+Fesselwaffe	PHa	A
+Fesselwaffe	PHe	A
+Armbrust	PHa	A
+Armbrust	PHe	A
+Bögen	PHa	A
+Bögen	PHe	A
+Schleuder	PHa	A
+Schleuder	PHe	A
+Blasrohr	PHa	A
+Blasrohr	PHe	A
+Schilde	PHa	A
+Schilde	PHe	A
+Parierwaffe	PHa	A
+Parierwaffe	PHe	A
 \.
 --
 -- TOC Entry ID 3 (OID 26591586)
