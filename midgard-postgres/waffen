@@ -45,7 +45,7 @@ Bola	21	\N	81	Fesselwaffe	7	Wurfwaffe	W6	-2	W	\N	\N	\N	\N	\N	2	10	15	20	\N	\N
 BuKasa	31	\N	61	Einhandschlagwaffe	5	Angriff	W6	0	E	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N
 Buckler	\N	\N	\N	Schild	0	Verteidigung	\N	-2	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Dolch	\N	\N	\N	Stichwaffe	1	Angriff	W6	-1	E	2	-2	2	\N	\N	\N	\N	\N	\N	2	2
-Dreizackspeer	31	\N	51	Wurfspieﬂ	4	Angriff	W6	4	W	\N	\N	\N	Leichter Speer	N	\N	\N	\N	\N	\N	\N
+Dreizackspeer	31	\N	51	Wurfspieﬂ	4	Angriff	W6	4	W	\N	\N	\N	leichter Speer	N	\N	\N	\N	\N	\N	\N
 Faustkampf	31	21	\N	Kampf ohne Waffen	6	Angriff	W6	-4	E	2	-2	2	\N	\N	\N	\N	\N	\N	\N	\N
 Fuchtel	61	\N	31	Stichwaffe	4	Angriff	W6	1	E	2	-1	0	\N	\N	\N	\N	\N	\N	\N	\N
 Garotte	21	\N	61	Garotte	4	Angriff	Erw¸rgen	0	E	\N	\N	\N	Meucheln	\N	\N	\N	\N	\N	\N	\N
@@ -82,7 +82,7 @@ Ochsenzunge	\N	\N	31	Stichwaffe	2	Angriff	2W6	-4	E	+2	-1	+1	\N	\N	\N	\N	\N	\N	\N
 Ogerhammer	91	\N	31	Zweihandschlagwaffe	4	Angriff	4W6+0|3	0	Z	-4	+2	-3	\N	\N	\N	\N	\N	\N	\N	\N
 Parierdolch	\N	\N	\N	Parierwaffe	0	Verteidigung	\N	-2	V	\N	\N	\N	Dolch	\N	\N	\N	\N	\N	\N	\N
 Peitsche	21	\N	81	Peitsche	7	Angriff	W6	-3	E	-1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Pilum	61	\N	21	Wurfspieﬂ	2	Wurfwaffe	W6	0	W	\N	\N	\N	Leichter Speer	3	0	10	20	30	\N	\N
+Pilum	61	\N	21	Wurfspieﬂ	2	Wurfwaffe	W6	0	W	\N	\N	\N	leichter Speer	3	0	10	20	30	\N	\N
 Rapier	11	\N	51	Stichwaffe	4	Angriff	W6	0	E	+3	-2	+1	\N	\N	\N	\N	\N	\N	\N	\N
 Sai	31	\N	61	Stichwaffe	7	Angriff	W6	-3	E	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N
 Schlachtbeil	61	\N	31	Zweihandschlagwaffe	4	Angriff	W6+3|1	0	Z	-2	+1	-2	\N	\N	\N	\N	\N	\N	\N	\N
@@ -105,7 +105,7 @@ Wurfkeule	31	\N	31	Stielwurfwaffe	1	Wurfwaffe	W6	-1	W	\N	\N	\N	Keule	\N	0	10	30	
 Wurfmesser	\N	\N	61	Wurfmesser	2	Wurfwaffe	W6	-1	W	\N	\N	\N	Dolch	\N	0	10	15	20	\N	\N
 Wurfpfeil	11	\N	31	Wurfpfeil	3	Wurfwaffe	W6	-2	W	\N	\N	\N	\N	\N	0	10	20	30	\N	\N
 Wurfscheibe	61	\N	61	Wurfscheibe	5	Wurfwaffe	W6	-2	W	\N	\N	\N	\N	\N	0	10	20	30	\N	\N
-Wurfspeer	31	\N	21	Wurfspieﬂ	1	Wurfwaffe	W6	-1	W	\N	\N	\N	Leichter Speer	\N	0	10	30	50	\N	\N
+Wurfspeer	31	\N	21	Wurfspieﬂ	1	Wurfwaffe	W6	-1	W	\N	\N	\N	leichter Speer	\N	0	10	30	50	\N	\N
 Wurfspieﬂ	61	\N	21	Wurfspieﬂ	1	Wurfwaffe	W6	0	W	\N	\N	\N	\N	\N	0	10	20	30	\N	\N
 Wurfstern	\N	\N	61	Wurfscheibe	5	Wurfwaffe	W6	-3	W	\N	\N	\N	\N	\N	0	5	10	15	\N	\N
 groﬂer Schild	61	\N	\N	Schild	0	Verteidigung	\N	\N	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N

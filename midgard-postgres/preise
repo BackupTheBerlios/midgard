@@ -141,7 +141,6 @@ Rüstung		Lederhelm	0.5	5	GS
 Ausrüstung	Behälter	Lederrucksack für 25	0.5	4	GS
 Rüstung		Lederrüstung	12.5	30	GS
 Waffenzubehör		Ledertasche für 50 Bleikugeln	0.2	3	GS
-Waffen		Leichter Speer	1.5	6	GS
 Waffen		Magierstab	1.5	15	GS
 Waffen		Magierstecken	2	20	GS
 Ausrüstung	Tiere	Maultier (90 kg)	0	60	GS
@@ -235,6 +234,7 @@ Ausrüstung	Behälter	kleiner Sack für 25	0.05	2	SS
 Waffen		kleiner Schild	2	10	GS
 Ausrüstung	Präzisionsinstrumente	kleines Bronzeglöckchen	0.05	2	GS
 Waffen		leichte Armbrust	2.5	40	GS
+Waffen		leichter Speer	1.5	6	GS
 Ausrüstung	Behälter	metallbeschl. 20 Liter-Holztruhe	10	5	GS
 Ausrüstung	Heiler- und Priesterbedarf	religiöses Symbol an Kette (Edelmetall)	0	10	GS
 Ausrüstung	Heiler- und Priesterbedarf	religiöses Symbol an Kette (unedles Metall)	0	5	SS

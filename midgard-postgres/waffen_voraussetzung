@@ -18,15 +18,15 @@ CREATE TABLE "waffen_voraussetzung" (
 
 
 COPY "waffen_voraussetzung" FROM stdin;
-Dreizackspeer	Leichter Speer	W
+Dreizackspeer	leichter Speer	W
 Garotte	Meucheln	F
 Namisritra	waffenloser Kampf	W
 Parierdolch	Dolch	W
-Pilum	Leichter Speer	W
+Pilum	leichter Speer	W
 Wurfaxt	Handaxt	W
 Wurfhammer	Kriegshammer	W
 Wurfkeule	Keule	W
 Wurfmesser	Dolch	W
-Wurfspeer	Leichter Speer	W
-Wurfspieﬂ	Leichter Speer	W
+Wurfspeer	leichter Speer	W
+Wurfspieﬂ	leichter Speer	W
 \.
