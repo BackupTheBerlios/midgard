@@ -21,6 +21,203 @@ CREATE TABLE "zauberwerk_typen" (
 --
 
 COPY "zauberwerk_typen"  FROM stdin;
+Spiegelamulett verzaubern	2	wHx	A
+Spiegelamulett verzaubern	3	wHx	A
+Spiegelamulett verzaubern	4	wHx	A
+Spiegelamulett verzaubern	5	wHx	A
+Spiegelamulett verzaubern	6	wHx	A
+Talisman verzaubern	1	wHx	A
+Talisman verzaubern	2	wHx	A
+Talisman verzaubern	3	wHx	A
+Talisman verzaubern	4	wHx	A
+Trunk der Macht über Hunde aktivieren	2	wHx	S
+Trunk der Macht über Menschen aktivieren	4	wHx	S
+Trunk der Macht über Orks aktivieren	3	wHx	S
+Trunk des Riesenwuchses aktivieren	4	wHx	S
+Trunk des Schwerelosigkeit aktivieren	4	wHx	S
+Trunk des Unsichtbarkeit aktivieren	3	wHx	S
+Trunk des Verwandlung aktivieren	5	wHx	S
+Untotenamulett verzaubern	3	wHx	A
+Werwesenamulett verzaubern	3	wHx	A
+Spiegelamulett verzaubern	5	Th	G
+Spiegelamulett verzaubern	6	Th	G
+Srimarameisterschaft	3	Th	G
+Staubkämpfer	3	Th	G
+Stille	2	Th	G
+Talisman verzaubern	1	Th	G
+Talisman verzaubern	2	Th	G
+Talisman verzaubern	3	Th	G
+Talisman verzaubern	4	Th	G
+Tierisches Handeln	5	Th	G
+Todeshauch	3	Th	G
+Trunk der Macht über Hunde aktivieren	2	Th	G
+Trunk der Macht über Menschen aktivieren	4	Th	G
+Trunk der Macht über Orks aktivieren	3	Th	G
+Trunk des Riesenwuchses aktivieren	4	Th	G
+Trunk des Schwerelosigkeit aktivieren	4	Th	G
+Trunk des Unsichtbarkeit aktivieren	3	Th	G
+Trunk des Verwandlung aktivieren	5	Th	G
+Untotenamulett verzaubern	3	Th	G
+Verdorren	3	Th	G
+Vereisen	4	Th	G
+Verlangsamen	3	Th	G
+Versetzen	4	Th	G
+Versteinern	5	Th	G
+Verwandeln	6	Th	G
+Verwandlung	6	Th	G
+Waffen verzaubern (2)	2	Th	G
+Waffen verzaubern (4)	4	Th	G
+Waffen verzaubern (6)	6	Th	G
+Wahnsinn	6	Th	G
+Wahrsehen	5	Th	G
+Werwesenamulett verzaubern	3	Th	G
+Windstoß	1	Th	G
+Zahlenletter (1)	1	Th	G
+Zahlenletter (10)	1	Th	G
+Zahlenletter (11)	1	Th	G
+Zahlenletter (12)	1	Th	G
+Zahlenletter (13)	1	Th	G
+Zahlenletter (2)	1	Th	G
+Zahlenletter (3)	1	Th	G
+Zahlenletter (4)	1	Th	G
+Zahlenletter (5)	1	Th	G
+Zahlenletter (6)	1	Th	G
+Zahlenletter (7)	1	Th	G
+Zahlenletter (8)	1	Th	G
+Zahlenletter (9)	1	Th	G
+Zauberpergament beschriften	3	Th	G
+Zauberstimme	2	Th	G
+Zeitletter (Jahr)	2	Th	G
+Zeitletter (Mond)	2	Th	G
+Zeitletter (Stunde)	2	Th	G
+Zeitletter (Tag)	2	Th	G
+Zeitletter (Trideade)	2	Th	G
+Zündletter (Bereich)	3	Th	G
+Zündletter (Berührung)	3	Th	G
+Zündletter (Schlüsselwort)	3	Th	G
+Schamanentrommel herstellen	G	Tm	G
+Berserkerpilz aktivieren	2	wHx	S
+Binden	G	wHx	A
+Dämonenamulett verzaubern	3	wHx	A
+Elementaramulett verzaubern	3	wHx	A
+Flohpulver aktivieren	2	wHx	S
+Geisteramulett verzaubern	4	wHx	A
+Heiltrunk (1W6) aktivieren	2	wHx	S
+Krafttrunk (1W6) aktivieren	1	wHx	S
+Krafttrunk (2W6) aktivieren	2	wHx	S
+Kraut der konzentrierten Energie	4	wHx	S
+Kriegsbemalung	1	wHx	A
+Kriegsbemalung	2	wHx	A
+Kriegsbemalung	3	wHx	A
+Kriegsbemalung	4	wHx	A
+Körperbemalung	1	wHx	A
+Körperbemalung	2	wHx	A
+Körperbemalung	3	wHx	A
+Körperbemalung	4	wHx	A
+Liebestrank aktivieren	3	wHx	G
+Pulver der Panzerhaut aktivieren	3	wHx	S
+Rauchperle aktivieren	3	wHx	S
+Reckentrunk aktivieren	2	wHx	S
+Salbe der Eisenhaut aktivieren	4	wHx	S
+Salbe der Krakenhände aktivieren	2	wHx	S
+Schildamulett verzaubern	1	wHx	A
+Schildamulett verzaubern	2	wHx	A
+Schildamulett verzaubern	3	wHx	A
+Schildamulett verzaubern	4	wHx	A
+Schildamulett verzaubern	5	wHx	A
+Schildamulett verzaubern	6	wHx	A
+Schnellkraut aktivieren	3	wHx	S
+Schutzamulett verzaubern	1	wHx	A
+Schutzamulett verzaubern	2	wHx	A
+Schutzamulett verzaubern	3	wHx	A
+Schutzamulett verzaubern	4	wHx	A
+Schutzamulett verzaubern	5	wHx	A
+Schutzamulett verzaubern	6	wHx	A
+Spiegelamulett verzaubern	1	wHx	A
+Schildamulett verzaubern	6	tBe	S
+Trunk der Macht über Hunde aktivieren	2	tBe	S
+Trunk der Macht über Menschen aktivieren	4	tBe	S
+Trunk der Macht über Orks aktivieren	3	tBe	S
+Untotenamulett verzaubern	3	tBe	S
+Werwesenamulett verzaubern	3	tBe	S
+Alarm	4	Th	G
+Angst	1	Th	G
+Anziehen	1	Th	G
+Auslösen	1	Th	G
+Bannen von Dunkelheit	1	Th	G
+Bannen von Licht	1	Th	G
+Beeinflussen	3	Th	G
+Binden	G	Th	G
+Dämonenamulett verzaubern	3	Th	G
+Eisiger Nebel	2	Th	G
+Elementaramulett verzaubern	3	Th	G
+Erkennen von Zauberei	2	Th	G
+Farbletter (Blau)	1	Th	G
+Farbletter (Gelb)	1	Th	G
+Farbletter (Grün)	1	Th	G
+Farbletter (Infrarot)	1	Th	G
+Farbletter (Orange)	1	Th	G
+Farbletter (Rot)	1	Th	G
+Farbletter (Ultraviolett)	1	Th	G
+Farbletter (Violett)	1	Th	G
+Feuerkugel	2	Th	G
+Feuerring	4	Th	G
+Flohpulver aktivieren	2	Th	G
+Funkenregen	2	Th	G
+Geisteramulett verzaubern	4	Th	G
+Geräuschletter (Donnern)	1	Th	G
+Geräuschletter (Knarren)	1	Th	G
+Geräuschletter (Knistern)	1	Th	G
+Geräuschletter (Pfeifen)	1	Th	G
+Graue Hand	6	Th	G
+Hauch des Winters	1	Th	G
+Krafttrunk (1W6) aktivieren	1	Th	G
+Krafttrunk (2W6) aktivieren	2	Th	G
+Kraut der konzentrierten Energie	4	Th	G
+Kriegsbemalung	1	Th	G
+Kriegsbemalung	2	Th	G
+Kriegsbemalung	3	Th	G
+Kriegsbemalung	4	Th	G
+Körperbemalung	1	Th	G
+Körperbemalung	2	Th	G
+Körperbemalung	3	Th	G
+Körperbemalung	4	Th	G
+Liebestrank aktivieren	3	Th	G
+Liebeszauber	4	Th	G
+Lähmung	5	Th	G
+Macht über Menschen	3	Th	G
+Macht über die belebte Natur	2	Th	G
+Namenloses Grauen	4	Th	G
+Nebel	4	Th	G
+Opferletter (Dämonen)	4	Th	G
+Opferletter (Elemetarwesen)	4	Th	G
+Opferletter (Elfen)	4	Th	G
+Opferletter (Geisterwesen)	4	Th	G
+Opferletter (Lebewesen)	4	Th	G
+Opferletter (Magische Wesen)	4	Th	G
+Opferletter (Menschen)	4	Th	G
+Opferletter (Menschenähnliche)	4	Th	G
+Opferletter (Orcs)	4	Th	G
+Opferletter (Tiere)	4	Th	G
+Opferletter (Tiermenschen)	4	Th	G
+Opferletter (Untote)	4	Th	G
+Opferletter (Zwerge)	4	Th	G
+Pulver der Panzerhaut aktivieren	3	Th	G
+Rauchperle aktivieren	3	Th	G
+Reckentrunk aktivieren	2	Th	G
+Salbe der Eisenhaut aktivieren	4	Th	G
+Salbe der Krakenhände aktivieren	2	Th	G
+Schildamulett verzaubern	1	Th	G
+Schildamulett verzaubern	2	Th	G
+Schildamulett verzaubern	3	Th	G
+Schildamulett verzaubern	4	Th	G
+Schildamulett verzaubern	5	Th	G
+Schildamulett verzaubern	6	Th	G
+Schlaf	1	Th	G
+Schmerzen	2	Th	G
+Schnellkraut aktivieren	3	Th	G
+Schutzamulett verzaubern	1	Th	G
+Schutzamulett verzaubern	2	Th	G
 Binden	G	dBe	A
 Dämonenamulett verzaubern	3	dBe	S
 Elementaramulett verzaubern	3	dBe	S
@@ -836,90 +1033,6 @@ Schildamulett verzaubern	2	tBe	S
 Schildamulett verzaubern	3	tBe	S
 Schildamulett verzaubern	4	tBe	S
 Schildamulett verzaubern	5	tBe	S
-Schildamulett verzaubern	6	tBe	S
-Trunk der Macht über Hunde aktivieren	2	tBe	S
-Trunk der Macht über Menschen aktivieren	4	tBe	S
-Trunk der Macht über Orks aktivieren	3	tBe	S
-Untotenamulett verzaubern	3	tBe	S
-Werwesenamulett verzaubern	3	tBe	S
-Alarm	4	Th	G
-Angst	1	Th	G
-Anziehen	1	Th	G
-Auslösen	1	Th	G
-Bannen von Dunkelheit	1	Th	G
-Bannen von Licht	1	Th	G
-Beeinflussen	3	Th	G
-Binden	G	Th	G
-Dämonenamulett verzaubern	3	Th	G
-Eisiger Nebel	2	Th	G
-Elementaramulett verzaubern	3	Th	G
-Erkennen von Zauberei	2	Th	G
-Farbletter (Blau)	1	Th	G
-Farbletter (Gelb)	1	Th	G
-Farbletter (Grün)	1	Th	G
-Farbletter (Infrarot)	1	Th	G
-Farbletter (Orange)	1	Th	G
-Farbletter (Rot)	1	Th	G
-Farbletter (Ultraviolett)	1	Th	G
-Farbletter (Violett)	1	Th	G
-Feuerkugel	2	Th	G
-Feuerring	4	Th	G
-Flohpulver aktivieren	2	Th	G
-Funkenregen	2	Th	G
-Geisteramulett verzaubern	4	Th	G
-Geräuschletter (Donnern)	1	Th	G
-Geräuschletter (Knarren)	1	Th	G
-Geräuschletter (Knistern)	1	Th	G
-Geräuschletter (Pfeifen)	1	Th	G
-Graue Hand	6	Th	G
-Hauch des Winters	1	Th	G
-Krafttrunk (1W6) aktivieren	1	Th	G
-Krafttrunk (2W6) aktivieren	2	Th	G
-Kraut der konzentrierten Energie	4	Th	G
-Kriegsbemalung	1	Th	G
-Kriegsbemalung	2	Th	G
-Kriegsbemalung	3	Th	G
-Kriegsbemalung	4	Th	G
-Körperbemalung	1	Th	G
-Körperbemalung	2	Th	G
-Körperbemalung	3	Th	G
-Körperbemalung	4	Th	G
-Liebestrank aktivieren	3	Th	G
-Liebeszauber	4	Th	G
-Lähmung	5	Th	G
-Macht über Menschen	3	Th	G
-Macht über die belebte Natur	2	Th	G
-Namenloses Grauen	4	Th	G
-Nebel	4	Th	G
-Opferletter (Dämonen)	4	Th	G
-Opferletter (Elemetarwesen)	4	Th	G
-Opferletter (Elfen)	4	Th	G
-Opferletter (Geisterwesen)	4	Th	G
-Opferletter (Lebewesen)	4	Th	G
-Opferletter (Magische Wesen)	4	Th	G
-Opferletter (Menschen)	4	Th	G
-Opferletter (Menschenähnliche)	4	Th	G
-Opferletter (Orcs)	4	Th	G
-Opferletter (Tiere)	4	Th	G
-Opferletter (Tiermenschen)	4	Th	G
-Opferletter (Untote)	4	Th	G
-Opferletter (Zwerge)	4	Th	G
-Pulver der Panzerhaut aktivieren	3	Th	G
-Rauchperle aktivieren	3	Th	G
-Reckentrunk aktivieren	2	Th	G
-Salbe der Eisenhaut aktivieren	4	Th	G
-Salbe der Krakenhände aktivieren	2	Th	G
-Schildamulett verzaubern	1	Th	G
-Schildamulett verzaubern	2	Th	G
-Schildamulett verzaubern	3	Th	G
-Schildamulett verzaubern	4	Th	G
-Schildamulett verzaubern	5	Th	G
-Schildamulett verzaubern	6	Th	G
-Schlaf	1	Th	G
-Schmerzen	2	Th	G
-Schnellkraut aktivieren	3	Th	G
-Schutzamulett verzaubern	1	Th	G
-Schutzamulett verzaubern	2	Th	G
 Schutzamulett verzaubern	3	Th	G
 Schutzamulett verzaubern	4	Th	G
 Schutzamulett verzaubern	5	Th	G
@@ -931,119 +1044,6 @@ Spiegelamulett verzaubern	1	Th	G
 Spiegelamulett verzaubern	2	Th	G
 Spiegelamulett verzaubern	3	Th	G
 Spiegelamulett verzaubern	4	Th	G
-Spiegelamulett verzaubern	5	Th	G
-Spiegelamulett verzaubern	6	Th	G
-Srimarameisterschaft	3	Th	G
-Staubkämpfer	3	Th	G
-Stille	2	Th	G
-Talisman verzaubern	1	Th	G
-Talisman verzaubern	2	Th	G
-Talisman verzaubern	3	Th	G
-Talisman verzaubern	4	Th	G
-Tierisches Handeln	5	Th	G
-Todeshauch	3	Th	G
-Trunk der Macht über Hunde aktivieren	2	Th	G
-Trunk der Macht über Menschen aktivieren	4	Th	G
-Trunk der Macht über Orks aktivieren	3	Th	G
-Trunk des Riesenwuchses aktivieren	4	Th	G
-Trunk des Schwerelosigkeit aktivieren	4	Th	G
-Trunk des Unsichtbarkeit aktivieren	3	Th	G
-Trunk des Verwandlung aktivieren	5	Th	G
-Untotenamulett verzaubern	3	Th	G
-Verdorren	3	Th	G
-Vereisen	4	Th	G
-Verlangsamen	3	Th	G
-Versetzen	4	Th	G
-Versteinern	5	Th	G
-Verwandeln	6	Th	G
-Verwandlung	6	Th	G
-Waffen verzaubern (2)	2	Th	G
-Waffen verzaubern (4)	4	Th	G
-Waffen verzaubern (6)	6	Th	G
-Wahnsinn	6	Th	G
-Wahrsehen	5	Th	G
-Werwesenamulett verzaubern	3	Th	G
-Windstoß	1	Th	G
-Zahlenletter (1)	1	Th	G
-Zahlenletter (10)	1	Th	G
-Zahlenletter (11)	1	Th	G
-Zahlenletter (12)	1	Th	G
-Zahlenletter (13)	1	Th	G
-Zahlenletter (2)	1	Th	G
-Zahlenletter (3)	1	Th	G
-Zahlenletter (4)	1	Th	G
-Zahlenletter (5)	1	Th	G
-Zahlenletter (6)	1	Th	G
-Zahlenletter (7)	1	Th	G
-Zahlenletter (8)	1	Th	G
-Zahlenletter (9)	1	Th	G
-Zauberpergament beschriften	3	Th	G
-Zauberstimme	2	Th	G
-Zeitletter (Jahr)	2	Th	G
-Zeitletter (Mond)	2	Th	G
-Zeitletter (Stunde)	2	Th	G
-Zeitletter (Tag)	2	Th	G
-Zeitletter (Trideade)	2	Th	G
-Zündletter (Bereich)	3	Th	G
-Zündletter (Berührung)	3	Th	G
-Zündletter (Schlüsselwort)	3	Th	G
-Schamanentrommel herstellen	G	Tm	G
-Berserkerpilz aktivieren	2	wHx	S
-Binden	G	wHx	A
-Dämonenamulett verzaubern	3	wHx	A
-Elementaramulett verzaubern	3	wHx	A
-Flohpulver aktivieren	2	wHx	S
-Geisteramulett verzaubern	4	wHx	A
-Heiltrunk (1W6) aktivieren	2	wHx	S
-Krafttrunk (1W6) aktivieren	1	wHx	S
-Krafttrunk (2W6) aktivieren	2	wHx	S
-Kraut der konzentrierten Energie	4	wHx	S
-Kriegsbemalung	1	wHx	A
-Kriegsbemalung	2	wHx	A
-Kriegsbemalung	3	wHx	A
-Kriegsbemalung	4	wHx	A
-Körperbemalung	1	wHx	A
-Körperbemalung	2	wHx	A
-Körperbemalung	3	wHx	A
-Körperbemalung	4	wHx	A
-Liebestrank aktivieren	3	wHx	G
-Pulver der Panzerhaut aktivieren	3	wHx	S
-Rauchperle aktivieren	3	wHx	S
-Reckentrunk aktivieren	2	wHx	S
-Salbe der Eisenhaut aktivieren	4	wHx	S
-Salbe der Krakenhände aktivieren	2	wHx	S
-Schildamulett verzaubern	1	wHx	A
-Schildamulett verzaubern	2	wHx	A
-Schildamulett verzaubern	3	wHx	A
-Schildamulett verzaubern	4	wHx	A
-Schildamulett verzaubern	5	wHx	A
-Schildamulett verzaubern	6	wHx	A
-Schnellkraut aktivieren	3	wHx	S
-Schutzamulett verzaubern	1	wHx	A
-Schutzamulett verzaubern	2	wHx	A
-Schutzamulett verzaubern	3	wHx	A
-Schutzamulett verzaubern	4	wHx	A
-Schutzamulett verzaubern	5	wHx	A
-Schutzamulett verzaubern	6	wHx	A
-Spiegelamulett verzaubern	1	wHx	A
-Spiegelamulett verzaubern	2	wHx	A
-Spiegelamulett verzaubern	3	wHx	A
-Spiegelamulett verzaubern	4	wHx	A
-Spiegelamulett verzaubern	5	wHx	A
-Spiegelamulett verzaubern	6	wHx	A
-Talisman verzaubern	1	wHx	A
-Talisman verzaubern	2	wHx	A
-Talisman verzaubern	3	wHx	A
-Talisman verzaubern	4	wHx	A
-Trunk der Macht über Hunde aktivieren	2	wHx	S
-Trunk der Macht über Menschen aktivieren	4	wHx	S
-Trunk der Macht über Orks aktivieren	3	wHx	S
-Trunk des Riesenwuchses aktivieren	4	wHx	S
-Trunk des Schwerelosigkeit aktivieren	4	wHx	S
-Trunk des Unsichtbarkeit aktivieren	3	wHx	S
-Trunk des Verwandlung aktivieren	5	wHx	S
-Untotenamulett verzaubern	3	wHx	A
-Werwesenamulett verzaubern	3	wHx	A
 \.
 --
 -- TOC Entry ID 3 (OID 23238585)

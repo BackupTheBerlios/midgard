@@ -104,10 +104,12 @@ Se	f	Wurfaxt	Waffe	5	\N	2	\N	\N
 Se	f	Wurfmesser	Waffe	5	\N	2	\N	\N
 Se	f	Wurfspeer	Waffe	5	\N	2	\N	\N
 Sk	f	Bogen	Waffe	5	\N	4	\N	\N
+Ma	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Sk	f	Dolch	Waffe	5	\N	1	\N	\N
 Sö	f	waffenloser Kampf	Waffe	5	\N	2	\N	\N
 Sk	f	Langschwert	Waffe	5	\N	2	\N	\N
 Sk	f	leichter Speer	Waffe	5	\N	2	\N	\N
+Ny	t	NinJutsu	Fertigkeit	4	Ge	1	\N	\N
 Sk	f	Schlachtbeil	Waffe	5	\N	4	\N	\N
 Sk	f	Streitaxt	Waffe	5	\N	2	\N	\N
 Sk	f	Wurfspeer	Waffe	5	\N	2	\N	\N
@@ -272,6 +274,7 @@ Ny	f	Bogen	Waffe	5	\N	2	\N	\N
 Ny	f	Dolch	Waffe	5	\N	1	\N	\N
 Ny	f	Kampfstab	Waffe	5	\N	2	\N	\N
 Ny	f	Krummsäbel	Waffe	5	\N	2	\N	\N
+Ny	t	KujKuri	Fertigkeit	1	\N	0	\N	\N
 Ny	f	KusariGama	Waffe	5	\N	3	\N	\N
 Ny	f	Langbogen	Waffe	5	\N	3	\N	\N
 Ny	f	Langschwert	Waffe	5	\N	2	\N	\N
@@ -525,6 +528,7 @@ Ba	f	Langschwert	Waffe	5	\N	2	\N	\N
 Ba	f	Lanze	Waffe	5	\N	4	\N	\N
 Ba	f	leichte Armbrust	Waffe	5	\N	4	\N	\N
 Ba	f	leichter Speer	Waffe	5	\N	2	\N	\N
+PF	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Ba	f	Parierdolch	Waffe	1	\N	1	\N	\N
 Ba	f	Rapier	Waffe	5	\N	2	\N	\N
 Ba	f	Schlachtbeil	Waffe	5	\N	4	\N	\N
@@ -591,6 +595,7 @@ Wa	f	Pflanzenkunde	Fertigkeit	4	In	1	\N	\N
 Wa	f	Spurenlesen	Fertigkeit	4	In	1	\N	\N
 Wa	f	Tierkunde	Fertigkeit	4	In	1	\N	\N
 Wa	f	Wahrnehmung	Fertigkeit	4	In	2	\N	\N
+PF	t	Erste Hilfe	Fertigkeit	\N	\N	1	\N	\N
 Se	f	Tauchen	Fertigkeit	15	Ko	1	\N	\N
 BW	f	Geländelauf	Fertigkeit	15	RW	2	\N	\N
 Ny	f	Beschatten	Fertigkeit	8	RW	2	\N	\N
@@ -622,9 +627,11 @@ Kr	f	Wagenlenken	Fertigkeit	15	Ge	1	\N	\N
 Ny	f	Balancieren	Fertigkeit	15	Ge	1	\N	\N
 Ny	f	KarumiJutsu	Fertigkeit	15	Ge	1	\N	\N
 Ny	f	Klettern	Fertigkeit	15	Ge	1	\N	\N
+PH	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Ny	f	Scharfschießen	Fertigkeit	5	Ge	3	\N	\N
 PK	f	Reiten	Fertigkeit	15	Ge	1	\N	\N
 PM	f	Schwimmen	Fertigkeit	15	Ge	2	\N	\N
+PF	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
 Sc	f	Reiten	Fertigkeit	15	Ge	1	\N	\N
 Sc	f	Schwimmen	Fertigkeit	15	Ge	1	\N	\N
 Se	f	Balancieren	Fertigkeit	15	Ge	2	\N	\N
@@ -663,6 +670,7 @@ Tr	f	Klettern	Fertigkeit	15	Ge	2	\N	\N
 Tr	f	Schleichen	Fertigkeit	4	Ge	2	\N	\N
 Tr	f	Stehlen	Fertigkeit	8	Ge	1	\N	\N
 Tr	f	Tarnen	Fertigkeit	4	Ge	1	\N	\N
+PK	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Wa	f	Klettern	Fertigkeit	15	Ge	2	\N	\N
 Wa	f	Scharfschießen	Fertigkeit	5	Ge	2	\N	\N
 Wa	f	Schleichen	Fertigkeit	4	Ge	2	\N	\N
@@ -673,6 +681,7 @@ Ba	f	Sagenkunde	Fertigkeit	4	In	1	\N	\N
 Ba	f	Singen	Fertigkeit	10	In	1	\N	\N
 Ba	f	Stimmen nachahmen	Fertigkeit	15	In	2	\N	\N
 dBe	f	Sagenkunde	Fertigkeit	4	In	1	\N	\N
+PM	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 dBe	f	Zauberkunde	Fertigkeit	4	In	2	\N	\N
 eBe	f	Sagenkunde	Fertigkeit	4	In	1	\N	\N
 BN	f	Überleben im Schnee	Fertigkeit	8	In	1	\N	\N
@@ -720,6 +729,7 @@ BN	f	Segeln	Fertigkeit	15	Ge	2	\N	\N
 BN	f	Skifahren	Fertigkeit	15	Ge	2	\N	\N
 BS	f	Reiten	Fertigkeit	15	Ge	1	\N	\N
 BS	f	Wagenlenken	Fertigkeit	15	Ge	2	\N	\N
+PT	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 BW	f	Kanufahren	Fertigkeit	15	Ge	2	\N	\N
 BW	f	Klettern	Fertigkeit	15	Ge	2	\N	\N
 BW	f	Schwimmen	Fertigkeit	15	Ge	1	\N	\N
@@ -743,6 +753,7 @@ Th	f	Hungersalz	Zauber	\N	\N	2	\N	\N
 Th	f	Jucksalz	Zauber	\N	\N	2	\N	\N
 Th	f	Kühlsalz	Zauber	\N	\N	1	\N	\N
 Th	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+PW	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Th	f	Macht über das Selbst	Zauber	\N	\N	4	\N	\N
 Th	f	Niessalz	Zauber	\N	\N	1	\N	\N
 Th	f	Sehen in Dunkelheit	Zauber	\N	\N	4	\N	\N
@@ -750,9 +761,12 @@ Th	f	Sehen von Verborgenem	Zauber	\N	\N	3	\N	\N
 Th	f	Wassersalz	Zauber	\N	\N	2	\N	\N
 Th	f	Wehsalz	Zauber	\N	\N	1	\N	\N
 Th	f	Windstoß	Zauber	\N	\N	2	\N	\N
+Ri	t	Reiten	Fertigkeit	15	Ge	1	\N	\N
+Ri	t	Kampf in Vollrüstung	Fertigkeit	\N	\N	1	\N	\N
 Tr	f	Geheimzeichen	Fertigkeit	\N	\N	2	\N	\N
 Tr	f	Geschenke machen	Fertigkeit	\N	\N	1	\N	\N
 Se	f	Rechnen	Fertigkeit	\N	\N	2	\N	\N
+Ri	t	Kampf zu Pferd	Fertigkeit	\N	\N	1	\N	\N
 Sk	f	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Sk	f	Lied der Ruhe	Zauber	\N	\N	8	\N	\N
 Sk	f	Lied der Tapferkeit	Zauber	\N	\N	1	\N	\N
@@ -761,6 +775,7 @@ Sk	f	Reiserune	Zauber	\N	\N	4	\N	\N
 Sk	f	Stärkerune	Zauber	\N	\N	6	\N	\N
 Sk	f	Wahrheitsrune	Zauber	\N	\N	4	\N	\N
 Sö	f	Ballista bedienen	Fertigkeit	\N	\N	2	\N	\N
+Sk	t	Dichten	Fertigkeit	1	\N	1	\N	\N
 Sö	f	Kampf zu Pferd	Fertigkeit	\N	\N	2	\N	\N
 Sö	f	Katapult bedienen	Fertigkeit	\N	\N	2	\N	\N
 Sp	f	Geheimzeichen	Fertigkeit	\N	\N	1	\N	\N
@@ -769,10 +784,14 @@ PW	f	Handauflegen	Zauber	\N	\N	2	\N	\N
 PW	f	Heilen von Krankheit	Zauber	\N	\N	3	\N	\N
 PW	f	Heilen von Wunden	Zauber	\N	\N	4	\N	\N
 PW	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+Sk	t	Musizieren	Fertigkeit	1	\N	1	\N	\N
 PW	f	Rechnen	Fertigkeit	\N	\N	2	\N	\N
 PW	f	Segnen	Zauber	\N	\N	2	\N	\N
 PW	f	Windstoß	Zauber	\N	\N	2	\N	\N
+Sp	t	Stehlen	Fertigkeit	8	Ge	1	\N	\N
 Ri	f	Heraldik	Fertigkeit	\N	\N	1	\N	\N
+Sp	t	Schlösser öffnen	Fertigkeit	4	Ge	1	\N	\N
+Sö	t	Kampf in Vollrüstung	Fertigkeit	\N	\N	1	\N	\N
 Ri	f	Lesen/Schreiben	Fertigkeit	\N	\N	2	\N	\N
 Ri	f	Trinken	Fertigkeit	\N	\N	2	\N	\N
 Sa	f	Erste Hilfe	Fertigkeit	\N	\N	2	\N	\N
@@ -788,6 +807,7 @@ Sa	f	Segnen	Zauber	\N	\N	3	\N	\N
 Sa	f	Verfluchen	Zauber	\N	\N	3	\N	\N
 Sa	f	Verursachen von Krankheit	Zauber	\N	\N	4	\N	\N
 Sa	f	Vision	Zauber	\N	\N	3	\N	\N
+Th	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Sc	f	Erste Hilfe	Fertigkeit	\N	\N	2	\N	\N
 Sc	f	Hitzeschutz	Zauber	\N	\N	2	\N	\N
 Sc	f	Kälteschutz	Zauber	\N	\N	2	\N	\N
@@ -798,9 +818,12 @@ Sc	f	Segnen	Zauber	\N	\N	3	\N	\N
 Sc	f	Verfluchen	Zauber	\N	\N	3	\N	\N
 Sc	f	Verursachen von Krankheit	Zauber	\N	\N	4	\N	\N
 Sc	f	Vision	Zauber	\N	\N	3	\N	\N
+dBe	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Se	f	Himmelskunde	Fertigkeit	\N	\N	1	\N	\N
 PH	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+eBe	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 PH	f	Segnen	Zauber	\N	\N	3	\N	\N
+Wa	f	Fallenstellen	Fertigkeit	4	Ge	1	\N	\N
 PK	f	Austreibung des Bösen	Zauber	\N	\N	4	\N	\N
 PK	f	Bannen von Dunkelheit	Zauber	\N	\N	2	\N	\N
 PK	f	Erkennen der Wesen der Dinge	Zauber	\N	\N	2	\N	\N
@@ -808,7 +831,9 @@ PK	f	Handauflegen	Zauber	\N	\N	1	\N	\N
 PK	f	Heilen von Wunden	Zauber	\N	\N	3	\N	\N
 PK	f	Heiliger Zorn	Zauber	\N	\N	1	\N	\N
 PK	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+BW	f	Fallenstellen	Fertigkeit	4	Ge	1	\N	\N
 PK	f	Segnen	Zauber	\N	\N	2	\N	\N
+PH	f	großer Schild	Waffe	1	\N	3	\N	\N
 PK	f	Zauberschmiede	Zauber	\N	\N	3	\N	\N
 PM	f	Austreibung des Bösen	Zauber	\N	\N	3	\N	\N
 PM	f	Erkennen der Wesen der Dinge	Zauber	\N	\N	2	\N	\N
@@ -816,15 +841,18 @@ PM	f	Handauflegen	Zauber	\N	\N	2	\N	\N
 PM	f	Heilen von Wunden	Zauber	\N	\N	4	\N	\N
 PM	f	Heiliger Zorn	Zauber	\N	\N	1	\N	\N
 PM	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+Kr	f	großer Schild	Waffe	1	\N	1	\N	\N
 PM	f	Nebel	Zauber	\N	\N	1	\N	\N
 PM	f	Segnen	Zauber	\N	\N	3	\N	\N
 PM	f	Wasseratmen	Zauber	\N	\N	2	\N	\N
+Gl	f	großer Schild	Waffe	1	\N	1	\N	\N
 PT	f	Bannen von Licht	Zauber	\N	\N	1	\N	\N
 PT	f	Erkennen der Wesen der Dinge	Zauber	\N	\N	2	\N	\N
 PT	f	Hauch des Winters	Zauber	\N	\N	1	\N	\N
 PT	f	Heilen von Wunden	Zauber	\N	\N	4	\N	\N
 PT	f	Heiliger Zorn	Zauber	\N	\N	2	\N	\N
 PT	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+Hä	f	großer Schild	Waffe	1	\N	2	\N	\N
 PT	f	Verfluchen	Zauber	\N	\N	3	\N	\N
 PT	f	Verursachen von Krankheit	Zauber	\N	\N	3	\N	\N
 PW	f	Austreibung des Bösen	Zauber	\N	\N	3	\N	\N
@@ -835,25 +863,34 @@ PF	f	Austreibung des Bösen	Zauber	\N	\N	4	\N	\N
 PF	f	Bannen von Dunkelheit	Zauber	\N	\N	2	\N	\N
 PF	f	Brot und Wasser	Zauber	\N	\N	1	\N	\N
 PF	f	Erkennen der Wesen der Dinge	Zauber	\N	\N	2	\N	\N
+BN	f	großer Schild	Waffe	1	\N	1	\N	\N
 PF	f	Handauflegen	Zauber	\N	\N	1	\N	\N
 PF	f	Heilen von Krankheit	Zauber	\N	\N	3	\N	\N
 PF	f	Heilen von Wunden	Zauber	\N	\N	2	\N	\N
+BS	f	großer Schild	Waffe	1	\N	3	\N	\N
+BW	f	großer Schild	Waffe	1	\N	2	\N	\N
 PF	f	Segnen	Zauber	\N	\N	3	\N	\N
+Ba	f	großer Schild	Waffe	1	\N	2	\N	\N
 PH	f	Heilen von Wunden	Zauber	\N	\N	4	\N	\N
 wHx	f	Schmerzen	Zauber	\N	\N	3	\N	\N
 wHx	f	Verwirren	Zauber	\N	\N	3	\N	\N
+Ord	f	großer Schild	Waffe	1	\N	1	\N	\N
 gHx	f	Schmerzen	Zauber	\N	\N	3	\N	\N
 gHx	f	Verwirren	Zauber	\N	\N	3	\N	\N
+Tr	f	kleiner Schild	Waffe	1	\N	4	\N	\N
 sHx	f	Schmerzen	Zauber	\N	\N	3	\N	\N
 sHx	f	Verwirren	Zauber	\N	\N	3	\N	\N
+Wa	f	kleiner Schild	Waffe	1	\N	2	\N	\N
 Kd	f	Erste Hilfe	Fertigkeit	\N	\N	1	\N	\N
 Kd	f	Kenntnis der fünf Klassiker	Fertigkeit	\N	\N	1	\N	\N
+Sö	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Kr	f	Kampf vom Streitwagen	Fertigkeit	\N	\N	2	\N	\N
 Kr	f	Kampf zu Pferd	Fertigkeit	\N	\N	2	\N	\N
 Ma	f	Erkennen von Leben	Zauber	\N	\N	1	\N	\N
 Ma	f	Erkennen von Zauberei	Zauber	\N	\N	4	\N	\N
 Ma	f	Hören von Fernem	Zauber	\N	\N	2	\N	\N
 Ma	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+Sp	f	kleiner Schild	Waffe	1	\N	2	\N	\N
 Ma	f	Macht über das Selbst	Zauber	\N	\N	1	\N	\N
 Ma	f	Macht über die belebte Natur	Zauber	\N	\N	3	\N	\N
 Ma	f	Macht über die Sinne	Zauber	\N	\N	2	\N	\N
@@ -861,18 +898,23 @@ Ma	f	Macht über Menschen	Zauber	\N	\N	4	\N	\N
 Ma	f	Macht über Unbelebtes	Zauber	\N	\N	2	\N	\N
 Ma	f	Sehen in Dunkelheit	Zauber	\N	\N	3	\N	\N
 Ma	f	Sehen von Verborgenem	Zauber	\N	\N	2	\N	\N
+Ri	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Gl	f	Geheimzeichen	Fertigkeit	\N	\N	2	\N	\N
 Gl	f	Tanzen	Fertigkeit	\N	\N	1	\N	\N
+Se	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Hä	f	Himmelskunde	Fertigkeit	\N	\N	1	\N	\N
 Hä	f	Lesen/Schreiben	Fertigkeit	\N	\N	2	\N	\N
 Hä	f	Rechnen	Fertigkeit	\N	\N	1	\N	\N
 Hl	f	Erkennen von Krankheit	Zauber	\N	\N	1	\N	\N
+PK	f	kleiner Schild	Waffe	1	\N	3	\N	\N
 Hl	f	Handauflegen	Zauber	\N	\N	1	\N	\N
 Hl	f	Heilen von Krankheit	Zauber	\N	\N	2	\N	\N
 Hl	f	Heilen von Wunden	Zauber	\N	\N	2	\N	\N
 Hl	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+PM	f	kleiner Schild	Waffe	1	\N	3	\N	\N
 Hl	f	Macht über die belebte Natur	Zauber	\N	\N	4	\N	\N
 Hl	f	Tiersprache	Zauber	\N	\N	3	\N	\N
+PF	f	kleiner Schild	Waffe	1	\N	3	\N	\N
 Hl	f	Zähmen	Zauber	\N	\N	3	\N	\N
 wHx	f	Angst	Zauber	\N	\N	4	\N	\N
 wHx	f	Anziehen	Zauber	\N	\N	2	\N	\N
@@ -940,6 +982,7 @@ eBe	f	Bannen von Vindfolk	Zauber	\N	\N	4		Luft
 eBe	f	Bannen von Wisfolk	Zauber	\N	\N	3	Wasser	\N
 eBe	f	Bannen von Wisfolk	Zauber	\N	\N	4		Wasser
 eBe	f	Lehrersuche	Zauber	\N	\N	0	\N	\N
+PH	f	kleiner Schild	Waffe	1	\N	3	\N	\N
 BN	f	Faustkampf	Fertigkeit	\N	\N	2	\N	\N
 BN	f	Himmelskunde	Fertigkeit	\N	\N	1	\N	\N
 BS	f	Faustkampf	Fertigkeit	\N	\N	2	\N	\N
@@ -959,6 +1002,7 @@ Dr	f	Rindenhaut	Zauber	\N	\N	2	\N	\N
 Dr	f	Tiersprache	Zauber	\N	\N	3	\N	\N
 Dr	f	Wandeln wie der Wind	Zauber	\N	\N	1	\N	\N
 Fi	f	Wandeln wie der Wind	Zauber	\N	\N	1	\N	\N
+Kr	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Dr	f	Wundersame Tarnung	Zauber	\N	\N	3	\N	\N
 Fi	f	Wundersame Tarnung	Zauber	\N	\N	1	\N	\N
 Dr	f	Zähmen	Zauber	\N	\N	2	\N	\N
@@ -978,12 +1022,16 @@ dBe	f	Bannen von Kaobargen	Zauber	\N	\N	3	\N	\N
 dBe	f	Coluscar 1 beschwören	Zauber	\N	\N	2	\N	\N
 dBe	f	Coluscar 2 beschwören	Zauber	\N	\N	4	\N	\N
 dBe	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+Gl	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 dBe	f	Schutzkreis gegen Dunebargen	Zauber	\N	\N	3	\N	\N
 dBe	f	Schutzkreis gegen Kaobargen	Zauber	\N	\N	2	\N	\N
 dBe	f	Lehrersuche	Zauber	\N	 \\N	0	\N	\N
 dBe	f	Halebant 1 beschwören	Zauber	\N	\N	1	\N	\N
 dBe	f	Halebant 2 beschwören	Zauber	\N	\N	3	\N	\N
+Hä	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 eBe	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
+BN	f	kleiner Schild	Waffe	1	\N	1	\N	\N
+BS	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Ass	f	Bihänder	Waffe	5	\N	3	\N	\N
 Ass	f	Dolch	Waffe	5	\N	1	\N	\N
 Ass	f	Handaxt	Waffe	5	\N	2	\N	\N
@@ -1027,8 +1075,10 @@ Ass	f	Stimmen nachahmen	Fertigkeit	15	In	1	\N	\N
 Ass	f	Verkleiden	Fertigkeit	15	In	2	\N	\N
 Ass	f	Fallenmechanik	Fertigkeit	4	Ge	1	\N	\N
 Ass	f	Scharfschießen	Fertigkeit	5	Ge	2	\N	\N
+BW	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Ass	f	Tarnen	Fertigkeit	4	Ge	1	\N	\N
 Ass	f	Geheimzeichen	Fertigkeit	\N	\N	1	\N	\N
+Dr	f	kleiner Schild	Waffe	1	\N	3	\N	\N
 Ord	f	Anderthalbhänder	Waffe	5	\N	2	\N	\N
 Ord	f	Bihänder	Waffe	5	\N	3	\N	\N
 Ord	f	Bogen	Waffe	5	\N	3	\N	\N
@@ -1051,6 +1101,7 @@ Ord	f	Lanze	Waffe	5	\N	2	\N	\N
 Ord	f	Lanzenstechen	Fertigkeit	1	\N	2	\N	\N
 Ord	f	leichte Armbrust	Waffe	5	\N	3	\N	\N
 Ord	f	leichter Speer	Waffe	5	\N	1	\N	\N
+Ba	f	kleiner Schild	Waffe	1	\N	2	\N	\N
 Ri	f	Bogen zu Pferd	Fertigkeit	\N	\N	2	\N	\N
 Kr	f	Bogen zu Pferd	Fertigkeit	\N	\N	2	\N	\N
 BS	f	Bogen zu Pferd	Fertigkeit	\N	\N	1	\N	\N
@@ -1071,6 +1122,7 @@ Ny	f	KiDo-Technik	Fertigkeit	\N	\N	1	\N	\N
 Ny	f	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Ny	f	TaiTschi	Fertigkeit	\N	\N	2	\N	\N
 Kd	f	TaiTschi	Fertigkeit	\N	\N	1	\N	\N
+Ass	f	kleiner Schild	Waffe	1	\N	3	\N	\N
 Kd	f	KiDo-Technik	Fertigkeit	\N	\N	1	\N	\N
 Kd	f	KiDo-Technik	Fertigkeit	\N	\N	1	\N	\N
 Kd	f	KiDo-Technik	Fertigkeit	\N	\N	1	\N	\N
@@ -1085,34 +1137,6 @@ Se	f	großer Schild	Waffe	1	\N	2	\N	\N
 PK	f	großer Schild	Waffe	1	\N	3	\N	\N
 PM	f	großer Schild	Waffe	1	\N	3	\N	\N
 PF	f	großer Schild	Waffe	1	\N	3	\N	\N
-PH	f	großer Schild	Waffe	1	\N	3	\N	\N
-Kr	f	großer Schild	Waffe	1	\N	1	\N	\N
-Gl	f	großer Schild	Waffe	1	\N	1	\N	\N
-Hä	f	großer Schild	Waffe	1	\N	2	\N	\N
-BN	f	großer Schild	Waffe	1	\N	1	\N	\N
-BS	f	großer Schild	Waffe	1	\N	3	\N	\N
-BW	f	großer Schild	Waffe	1	\N	2	\N	\N
-Ba	f	großer Schild	Waffe	1	\N	2	\N	\N
-Ord	f	großer Schild	Waffe	1	\N	1	\N	\N
-Tr	f	kleiner Schild	Waffe	1	\N	4	\N	\N
-Wa	f	kleiner Schild	Waffe	1	\N	2	\N	\N
-Sö	f	kleiner Schild	Waffe	1	\N	1	\N	\N
-Sp	f	kleiner Schild	Waffe	1	\N	2	\N	\N
-Ri	f	kleiner Schild	Waffe	1	\N	1	\N	\N
-Se	f	kleiner Schild	Waffe	1	\N	1	\N	\N
-PK	f	kleiner Schild	Waffe	1	\N	3	\N	\N
-PM	f	kleiner Schild	Waffe	1	\N	3	\N	\N
-PF	f	kleiner Schild	Waffe	1	\N	3	\N	\N
-PH	f	kleiner Schild	Waffe	1	\N	3	\N	\N
-Kr	f	kleiner Schild	Waffe	1	\N	1	\N	\N
-Gl	f	kleiner Schild	Waffe	1	\N	1	\N	\N
-Hä	f	kleiner Schild	Waffe	1	\N	1	\N	\N
-BN	f	kleiner Schild	Waffe	1	\N	1	\N	\N
-BS	f	kleiner Schild	Waffe	1	\N	1	\N	\N
-BW	f	kleiner Schild	Waffe	1	\N	1	\N	\N
-Dr	f	kleiner Schild	Waffe	1	\N	3	\N	\N
-Ba	f	kleiner Schild	Waffe	1	\N	2	\N	\N
-Ass	f	kleiner Schild	Waffe	1	\N	3	\N	\N
 Ord	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Sc	f	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
 Th	f	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
@@ -1171,28 +1195,4 @@ Hl	t	Wissen von der Magie	Fertigkeit	\N	\N	1	\N	\N
 Hä	t	Geschäftstüchtigkeit	Fertigkeit	\N	\N	1	\N	\N
 Kd	t	KiDo	Fertigkeit	10	Zt	1	\N	\N
 Kr	t	Kampf in Vollrüstung	Fertigkeit	\N	\N	1	\N	\N
-Ma	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-Ny	t	NinJutsu	Fertigkeit	4	Ge	1	\N	\N
-Ny	t	KujKuri	Fertigkeit	1	\N	0	\N	\N
-PF	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-PF	t	Erste Hilfe	Fertigkeit	\N	\N	1	\N	\N
-PH	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-PF	f	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
-PK	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-PM	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-PT	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-PW	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-Ri	t	Reiten	Fertigkeit	15	Ge	1	\N	\N
-Ri	t	Kampf in Vollrüstung	Fertigkeit	\N	\N	1	\N	\N
-Ri	t	Kampf zu Pferd	Fertigkeit	\N	\N	1	\N	\N
-Sk	t	Dichten	Fertigkeit	1	\N	1	\N	\N
-Sk	t	Musizieren	Fertigkeit	1	\N	1	\N	\N
-Sp	t	Stehlen	Fertigkeit	8	Ge	1	\N	\N
-Sp	t	Schlösser öffnen	Fertigkeit	4	Ge	1	\N	\N
-Sö	t	Kampf in Vollrüstung	Fertigkeit	\N	\N	1	\N	\N
-Th	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-dBe	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-eBe	t	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
-Wa	f	Fallenstellen	Fertigkeit	4	Ge	1	\N	\N
-BW	f	Fallenstellen	Fertigkeit	4	Ge	1	\N	\N
 \.

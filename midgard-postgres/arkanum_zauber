@@ -673,6 +673,8 @@ Levitation	1500	4	Gedanke	4	Luft	bewegt	Erde	20 s	-	Körper	Z	30 min	göttlich		ni
 Paschuyana, der Weg des Tieres	5000	6	Geste	5	Luft	bewegt	Luft	30 min	B	Geist	1 Ws	-	göttlich		nicht		\N	\N	\N	\N	A	\N	\N	\N	\N	\N	A	A	A	A	A	A	A	S	S	\N	\N	\N	\N	\N	\N	R	\N	\N	\N	\N	\N	\N	\N
 Rückführung	1800	4	Geste	4	Magan	erkennt	Luft	10 min	B	Geist	1 Ws	2 h	göttlich		nicht		\N	\N	\N	\N	A	\N	\N	S	\N	\N	A	A	A	A	A	A	S	A	S	\N	\N	\N	\N	\N	\N	R	\N	\N	\N	\N	\N	\N	G
 Seele finden	600	3	Geste	3	Luft	erkennt	Luft	1 min	-	Geist	1 Ws	0	göttlich	Haare des Toten	nicht		\N	\N	\N	\N	\N	\N	A	G	\N	\N	G	G	G	G	G	G	G	G	\N	A	\N	\N	\N	\N	A	R	\N	\N	\N	\N	\N	\N	G
+Charivari Klänge	400	2	Zauberlied	2	\N	\N	\N	-	-	Geist	15m Uk	var	\N	Flöte oder Laute	nicht	\N	\N	\N	G	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N	\N	\N	\N	\N
+Eichenzauber	15000	5	Geste	G	\N	\N	\N	30min	B	Umgebung	1 Eichel	var	\N	Silbereichel	nicht	\N	\N	\N	\N	\N	G	\N	\N	S	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N	\N	\N	\N	\N
 Srimarameisterschaft I	400	SGr*2	Wort	2	Magan	beherrscht	Wasser	10 s	30 m	Geist	Gr Ws	var h	dämonisch		nicht	Siegel					S		A	S	S											S					A	R	\N	\N	\N	\N		G	
 Srimarameisterschaft II	600	SGr*3	Wort	3	Magan	beherrscht	Luft	20 s	30 m	Geist	Gr Ws	var	dämonisch		nicht	Siegel					S		A	S	S											S					A	R	\N	\N	\N	\N	\N	G	
 Wasserlauf	800	3	Gedanke	3	Wasser	bewegt	Erde	20 s	0	Körper	selbst	10 min	elementar			Siegel					S		A	A	A		A	A	A	A	A	S	A	A		A			G		A	\N	\N	\N	\N	\N	\N		G
@@ -693,6 +695,7 @@ Wüstenwind	800	3	Geste	3				19 s	0	Umgebung	30m Uk Kegel	2 min	druidisch	Wüstens
 Dinge rufen	1500	2x4	Geste	4				1 h	50 km	Umgebung	1 Ob	1 Monat	dämonisch	Spinnenblut		Siegel				S		S	S		S											S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
 Eifersucht	800	1AP*#	Wort	3				10 s	15 m	Geist   Grad Ws	2 min	dämonisch               								G		A		S									G					S	\N	\N	\N	H&D	\N	\N	\N	\N	\N	\N	\N
 Entfesseln	240	2	Wort	2				20 s	0	Umgebung        1 Ob	0	dämonisch			Rune					A		G	A	S							S		S	A	G			G		G	\N	H&D	\N	\N	\N	\N	\N	\N	\N
+Abwenden von Blicken	120	1	Geist	1	\N	\N	\N	1s	-	Geist	Z	10min	\N			\N	\N	\N	\N	A	\N	A	A	G	S	G	\N	\N	\N	S	A	\N	A	G	S	A	\N	\N	\N	\N	A	G	\N	\N	\N	\N	\N	\N	\N
 Erkennen von Verdammten	200	1	Gedanke	1				1 s	0	Umgebung	30m Kegel	10 s	göttlich		nicht										A	G							S	\N	\N	\N	\N	\N	\N	\N	\N	H&D	\N	\N	\N	\N	\N	\N	\N
 Fährtenduft	200	1	Geste	2				1 min	0	Körper  Z       30 min	druidisch	Tierkot							G		A	G	A	A									S	A					A	\N	\N	H&D	\N	\N	\N	\N	\N	\N	\N
 Geruchsverlust	400	3	Wort	3				20 s	1m	Körper	1 Ws	1 h	druidisch			Siegel					G		S	A	S		A	A	A	A	A	A	A	A	S	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
@@ -716,9 +719,6 @@ Seance	1000	alle	Geste	3				2 h	0	Geist	Z	10 min	dämonisch	Schwarze Kerzen, Weih
 Signalkugel	200	2	Geste	2				10 s	0	Umgebung	0	20 s	elementar	Eulenfeder und Zunder		Rune							G	S	S					S		S				G			G		G	H&D	\N	\N	\N	\N	\N	\N	\N
 Sprachlähmung	1500	1AP*Gr	Geste	4				10 s	30 m	Körper	1 Ws	2 h	druidisch	Schnur mit Knoten									S	G	S									S	A	S					S	H&D	\N	\N	\N	\N	\N	\N	\N
 Tiefschlaf	3000	6	Geste	5				10 s	B	Körper	1 Ws	6 h	druidisch		nicht	Siegel					S		S	G	S		S	S	S	S	S	S	S	S	S	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
-Charivari Klänge	400	2	Zauberlied	2	\N	\N	\N	-	-	Geist	15m Uk	var	\N	Flöte oder Laute	nicht	\N	\N	\N	G	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N	\N	\N	\N	\N
-Eichenzauber	15000	5	Geste	G	\N	\N	\N	30min	B	Umgebung	1 Eichel	var	\N	Silbereichel	nicht	\N	\N	\N	\N	\N	G	\N	\N	S	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N	\N	\N	\N	\N
-Abwenden von Blicken	120	1	Geist	1	\N	\N	\N	1s	-	Geist	Z	10min	\N			\N	\N	\N	\N	A	\N	A	A	G	S	G	\N	\N	\N	S	A	\N	A	G	S	A	\N	\N	\N	\N	A	G	\N	\N	\N	\N	\N	\N	\N
 Zaubertür	10000	9	Geste	6				30 s	B	Umgebung	1x2m Wand	2 min	dämonisch			Siegel							A		S											A			G		A	H&D	\N	\N	\N	\N	\N	\N	\N
 Zurückführen	6000	var	Wort	6				6 h	B	Umgebung	1 Ob	0	druidisch		nicht	Siegel					G		S		S										S	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
 Zwingkreis	4000	6	Geste	5				10 s	30m	Umgebung	6m Uk	6 h	druidisch	Kupferarmband	Siegel				S	G	S	S	S	S		S	S	S	G	S	S	S	S	G	S			S		S	\N	H&D	\N	\N	\N	\N	\N	\N	\N

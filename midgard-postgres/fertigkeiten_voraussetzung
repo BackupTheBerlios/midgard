@@ -38,6 +38,7 @@ Springen	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Balancieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Ballista bedienen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Beidhändiger Kampf	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
+Jonglieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Glücksspiel	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf vom Streitwagen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
 Musizieren	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
@@ -119,6 +120,7 @@ FengTsu	\N	61	\N	\N	\N	\N	\N	61	\N
 Geschenke machen	\N	\N	\N	61	\N	\N	61	\N	\N	
 IaiJutsu	\N	31	\N	\N	\N	\N	\N	\N	\N	Einhandschwert
 KarumiJutsu	61	61	\N	\N	\N	\N	\N	\N	\N	Klettern
+Kampf in Dunkelheit	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 KentoYobu	\N	\N	\N	\N	21	\N	\N	\N	\N	
 KujKuri	\N	21	\N	31	\N	\N	\N	\N	\N	
 KujNoIu	\N	31	\N	\N	\N	\N	\N	\N	\N	Th
@@ -150,8 +152,6 @@ Dichten	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
 Etikette	\N	31	\N	31	\N	\N	31	\N	\N	\N
 Fangen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
 Heraldik	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Jonglieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Kampf in Dunkelheit	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Lanzenstechen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kampf zu Pferd, Lanze
 Luftkampf	\N	61	\N	\N	\N	\N	\N	\N	\N	Reiten
 Malen/Zeichen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
