@@ -7,12 +7,13 @@ NEWS IN VERSION 0.8.13
 * Neue Pixmap von Alessandro
 * Eingebe neuer Ausrüstungs-Arten möglich
 * Region-Icons im Menü wechseln
+* Deutsche Sortierung (Bärenwut vor Beschleunigen)
 
 TODO
 
 ** Setzen der Handle-Fenster-Positionen :-(
+* Ausrüstung: Etwas zum 'Root-Tree' hinzufügen
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
-* Deutsche Sortierung (Bärenwut vor Beschleunigen, erst mit gcc3.2 !!!)
 - Ausrüstung mit drag & drop
 - Würfelvarianten für Nichtmenschen!
 - verschwinden alle Icons? :

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.105 2002/12/05 13:45:19 thoma Exp $
+// $Id: Optionen.cc,v 1.106 2002/12/09 07:09:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -480,13 +480,14 @@ void Midgard_Optionen::Icon_init()
 void detachHB(Gtk::HandleBox &HB,int x,int y,int b,int h)
 {
   HB.gtkobj()->child_detached = true;
-  HB.get_float_window().move_resize(x,y,b,h);
   Gdk_Window w=HB.get_float_window();
   HB.get_bin_window().reparent(w,0,0);
 
-//  HB.get_float_window().set_hints(x, y, 0, 0, 0, 0, GDK_HINT_POS); 
+//  HB.get_float_window().set_hints(x, y, 50, 50, 0, 0, GDK_HINT_POS); 
+  HB.get_float_window().set_hints(x, y, 50, 50, 100, 100, GDK_HINT_MAX_SIZE); 
+  HB.get_float_window().move_resize(x,y,b,h);
   HB.get_float_window().show();
-  HB.gtkobj()->float_window_mapped = true;
+//  HB.gtkobj()->float_window_mapped = true;
   HB.queue_resize();
 }
 

@@ -14733,7 +14733,7 @@ KS
 		<wrap>False</wrap>
 		<value>1</value>
 		<lower>0</lower>
-		<upper>1000</upper>
+		<upper>100000</upper>
 		<step>1</step>
 		<page>10</page>
 		<page_size>10</page_size>
