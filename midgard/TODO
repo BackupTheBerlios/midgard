@@ -3,6 +3,13 @@
 * Wizard aktiv
 * Lernpunkte werden nie aktiv, angeb. Fertigkeiten bleiben aktiv
 ######################################################################
+
+#### das finde ich (CP) beunruhigend #################################
+- gtk2 icons sind nicht da
+- irgendwie werden ziemlich oft neue Abenteurer erzeugt (die Nummern gehen
+	hoch)
+######################################################################
+
 * Mehrseitige Ausrüstungen
 * Setzen der Handle-Fenster-Positionen :-(
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
