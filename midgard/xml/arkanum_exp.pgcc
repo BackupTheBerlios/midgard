@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.19 2001/11/19 07:33:51 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.20 2001/11/19 07:43:38 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -151,7 +151,7 @@ void arkanum_speichern(std::ostream &o)
       }
       exec sql close cursor_ausn;
 
-/* 7.2      ex ec sql select beschreibung into descriptor spalten 
+/* 7.2      ex ec sql select beschreibung into sql descriptor spalten 
       	from zauber_beschreibung where name=:ZAUBER 
       	and beschreibung is not null and beschreibung!=''; */
 //****************** Beschreibung *************************
