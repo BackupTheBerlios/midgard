@@ -4,6 +4,7 @@ NEWS IN VERSION 0.8.1
 * Icons für Ja/Nein Auswahl von Ulf im M$-Stil (wenn sie denn da wären :-)
 * Gründliche Überarbeitung des Codes für 'Würfelvarianten' (kürzer, klarer)
 * Elfen Doppelcharakter: Abfrage nur einmal
+* Fehler im Ausdruck behoben
 
 TODO: ('-' zeigt CP an)
 * Schwarzer Balken im Lernschema bei Maximierung

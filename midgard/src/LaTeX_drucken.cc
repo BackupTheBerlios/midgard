@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.59 2002/08/21 09:03:57 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.60 2002/09/06 11:42:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -317,7 +317,7 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
         sfout += LaTeX_scale(styp,10,"2.2cm") ; 
         break;
       }      
-     case espezies : sfout += LaTeX_scale(W.Spezies()->Name(),10,"2cm") ;
+     case espezies : sfout += LaTeX_scale(W.Spezies()->Name(),10,"2cm") ; break;
      case emerk :    sfout +=W.Merkmale(); break;
      case est   : sfout += itos(W.St()); break ;
      case egs   : sfout += itos(W.Gs()); break ;
