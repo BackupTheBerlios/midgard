@@ -19,6 +19,7 @@
 #include "Typen.hh"
 #include "MidgardBasicElement.hh" // für NotFound
 #include "Grundwerte.hh"
+#include <iostream>
 
 cH_Typen::cache_t cH_Typen::cache;
 

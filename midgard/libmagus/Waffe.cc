@@ -20,6 +20,8 @@
 #include "Waffe.hh"
 #include "Typen.hh"
 #include <Misc/itos.h>
+#include <iostream>
+#include "Abenteurer.hh"
 
 cH_Waffe::cache_t cH_Waffe::cache;
 

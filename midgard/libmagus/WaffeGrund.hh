@@ -1,4 +1,4 @@
-// $Id: WaffeGrund.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: WaffeGrund.hh,v 1.2 2003/05/07 08:26:31 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -24,6 +24,7 @@
 #include <list>
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
+#include <Misc/Tag.h>
 
 class cH_WaffeGrund;
 class LernListen;

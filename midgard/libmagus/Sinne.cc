@@ -18,6 +18,7 @@
  */
 
 #include "Sinne.hh"
+#include <iostream>
 
 cH_Sinne::cache_t cH_Sinne::cache;
 

@@ -20,7 +20,7 @@
 #  define _SINNE_HH
 
 #include "MidgardBasicElement.hh"
-
+#include <Misc/Tag.h>
 
 class Sinne : public MidgardBasicElement
 {

@@ -19,6 +19,8 @@
 #include "WaffeGrund.hh"
 #include "Typen.hh"
 #include "LernListen.hh"
+#include <iostream>
+#include "Waffe.hh"
 
 cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
 
