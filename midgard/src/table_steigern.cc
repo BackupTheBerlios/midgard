@@ -49,9 +49,9 @@ void table_steigern::refresh()
 void table_steigern::init(midgard_CG *h)
 {
   hauptfenster=h;
-  vabenteurer->signal_anderer_abenteurer().connect(SigC::slot(*this,&table_steigern::refresh));
-  vabenteurer->proxies.undo_changed.connect(SigC::slot(*this,&table_steigern::refresh));
-//  vabenteurer->proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_steigern::wizard_changed));
+  hauptfenster->getChar().signal_anderer_abenteurer().connect(SigC::slot(*this,&table_steigern::refresh));
+  hauptfenster->getChar().proxies.undo_changed.connect(SigC::slot(*this,&table_steigern::refresh));
+//  hauptfenster->getChar().proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_steigern::wizard_changed));
 }
 
 #if 0
@@ -81,10 +81,11 @@ void table_steigern::load_for_page(guint pagenr)
      radiobutton_verlernen->set_active(true); // wieso das denn?
      if(pagenr==PAGE_ZAUBER) 
        { frame_zauber_zusatz->show();
-     if(W.Typ1()->SpruecheMitPP() || W.Typ2()->SpruecheMitPP())
-        radiobutton_praxis->set_sensitive(true);
-     else
-        radiobutton_praxis->set_sensitive(false);
+         const Abenteurer &W=hauptfenster->getAben();
+         if(W.Typ1()->SpruecheMitPP() || W.Typ2()->SpruecheMitPP())
+            radiobutton_praxis->set_sensitive(true);
+         else
+            radiobutton_praxis->set_sensitive(false);
        }
    }
   else
