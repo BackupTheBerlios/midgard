@@ -19,7 +19,52 @@ CREATE TABLE "land_nachbarland" (
 
 COPY "land_nachbarland" FROM stdin;
 Alba	Chryseia
+Alba	Clanngadarn
 Alba	Erainn
+Alba	Halfdal
+Alba	Valian
+Alba	Waeland
+Alba	Ywerddon
+Aran	Eschar
+Aran	KanThaiPan
+Aran	Rawindra
+Aran	Tegarische Steppe
+Aran	Valian
+Buluga	Urruti
+Buluga	Ikengabecken
+Buluga	Irsirraland
+Chryseia	Erainn
+Chryseia	Küstenstaaten
+Chryseia	Valian
+Clanngadarn	Fuardain
+Clanngadarn	Waeland
+Clanngadarn	Ywerddon
+Dvarheim	Waeland
+Erainn	Küstenstaaten
+Erainn	Ywerddon
+Eschar	Ikengabecken
+Eschar	Küstenstaaten
+Eschar	Urruti
+Eschar	Valian
+Feuerinseln	Nahuatlan
+Inseln unter dem Westwind	Nahuatlan
+Irsirraland	Eschar
+Irsirraland	Urruti
+KanThaiPan	Medjis
+KanThaiPan	Minangpahit
+KanThaiPan	Rawindra
+KanThaiPan	Tegarische Steppe
+Küstenstaaten	Valian
+Läina-Land	Medjis
+Läina-Land	Moravod
+Läina-Land	Waeland
+Medjis	Tegarische Steppe
+Medjis	Moravod
+Minangpahit	Rawindra
+Moravod	Tegarische Steppe
+Moravod	Waeland
+Moravod	Valian
+Tegarische Steppe	Valian
 \.
 --
 --
