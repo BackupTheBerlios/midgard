@@ -37,23 +37,8 @@ void midgard_CG::on_waffen_laden_clicked()
 }
 
 
-class Data_alt_grund : public RowDataBase
-{
-   std::string name;
- public:
-   Data_alt_grund(const std::string& n) :name(n) {}
-
-   virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
- { switch (seqnr) {
-      case 0 : return cH_EntryValueIntString(name);
-   }
-   return cH_EntryValueIntString("?");
- }
- std::string Name() const {  return name; }
-};
-
 void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
-{  const Data_alt_grund *dt=dynamic_cast<const Data_alt_grund*>(&*d);
+{  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
    on_steigern_grund_tree_alt_select(dt->Name());
 }
 
@@ -64,7 +49,7 @@ void midgard_CG::show_alte_grund()
  for (map<std::string,string>::const_iterator i=waffen_grundkenntnisse.begin();
       i!=waffen_grundkenntnisse.end();++i)
    {
-      datavec.push_back(new Data_alt_grund(i->first));
+      datavec.push_back(new Data_grund(i->first));
    }
  alte_grund_tree->setDataVec(datavec);
 }
@@ -122,27 +107,9 @@ db_alter_erfolgswert,db_neuer_erfolgswert,db_waffe);
 }
 
 
-class Data_neu_grund : public RowDataBase
-{
-   std::string name;
-   int kosten;
- public:
-   Data_neu_grund(const std::string& n, int k) :name(n),kosten(k) {}
-
-   virtual const cH_EntryValue Value(guint seqnr, gpointer gp) const
- { switch (seqnr) {
-      case 0 : return cH_EntryValueIntString(name);
-      case 1 : return cH_EntryValueEmptyInt(kosten);
-   }
-   return cH_EntryValueIntString("?");
- }
- std::string Name() const {  return name; }
- int Kosten() const {  return kosten; }
-};
-
 
 void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
-{  const Data_neu_grund *dt=dynamic_cast<const Data_neu_grund*>(&*d);
+{  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
    on_steigern_grund_tree_neu_select(dt->Name(),dt->Kosten());
 }
 
@@ -177,7 +144,7 @@ void midgard_CG::show_neue_grund()
 
       double fac = midgard_CG::get_standard_waffen(Typ.Short(),Typ2.Short(),db_name);
       if (midgard_CG::region_check(db_region))
-      datavec.push_back(new Data_neu_grund(db_name,db_fp*fac));
+      datavec.push_back(new Data_grund(db_name,db_fp*fac));
    }
  exec sql close grund_ein;
  tr.close();

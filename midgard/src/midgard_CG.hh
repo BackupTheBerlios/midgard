@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.52 2001/06/30 20:30:06 thoma Exp $
+// $Id: midgard_CG.hh,v 1.53 2001/07/05 09:17:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,7 +78,7 @@ class midgard_CG : public midgard_CG_glade
 
         std::vector<cH_Data_typen> vec_Typen;
         std::vector<cH_Data_typen> vec_Typen_2;
-//        std::vector<std::string> vec_spezialgebiet;
+        std::vector<std::string> vec_spezialgebiet;
         std::vector<std::string> spezies_vector;
         std::vector<H_Data_fert> vec_Fertigkeiten;
         std::vector<H_Data_fert> vec_an_Fertigkeit;

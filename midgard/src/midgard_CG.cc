@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.46 2001/06/30 20:30:06 thoma Exp $
+// $Id: midgard_CG.cc,v 1.47 2001/07/05 09:17:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,9 +78,11 @@ void midgard_CG::set_tree_titles()
  std::vector<string> alte_grund;
  alte_grund.push_back("Grundkenntnisse");
  alte_grund_tree->setTitles(alte_grund);
+ alte_grund_tree->set_value_data(reinterpret_cast<gpointer>('A'));
  std::vector<string> neue_grund;
  neue_grund.push_back("Grundkenntnisse");
  neue_grund.push_back("Kosten");
+ alte_grund_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_grund_tree->setTitles(neue_grund);
  
  std::vector<string> alte_zauber;

@@ -78,4 +78,32 @@ public:
 };
 
 
+ 
+class Data_grund : public RowDataBase
+{
+   std::string name;
+   int kosten;
+ public:
+   Data_grund(const std::string& n) :name(n),kosten(0) {}
+   Data_grund(const std::string& n, int k) :name(n),kosten(k) {}
+
+   virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
+ { 
+    if (reinterpret_cast<int>(gp)=='A')
+      switch (seqnr) {
+         case 0 : return cH_EntryValueIntString(name); }
+    if (reinterpret_cast<int>(gp)=='N')
+      switch (seqnr) {
+         case 0 : return cH_EntryValueIntString(name);
+         case 1 : return cH_EntryValueEmptyInt(kosten);
+        }
+   return cH_EntryValueIntString("?");
+  }
+ std::string Name() const {  return name; }
+ int Kosten() const {  return kosten; }
+};
+
+
+
+
 #endif

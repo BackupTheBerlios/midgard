@@ -1,4 +1,4 @@
-// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.21 2001/06/30 20:30:06 thoma Exp $
+// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.22 2001/07/05 09:17:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,12 +54,12 @@ void midgard_CG::spezialgebiet_button_fill()
       exec sql fetch ein into :db_nr, :db_spezialgebiet, :db_spezial, :db_spezial2;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;   
-//      vec_spezialgebiet.push_back(db_spezialgebiet);
+      vec_spezialgebiet.push_back(db_spezialgebiet);
       _mi = manage(new Gtk::MenuItem(db_spezialgebiet));
       _m->append(*_mi);
       _mi->show();
-//      _mi->set_user_data((gpointer)db_nr);
-      _mi->set_user_data((gpointer)db_spezialgebiet);
+      _mi->set_user_data((gpointer)db_nr);
+//      _mi->set_user_data((gpointer)&vec_spezialgebiet[db_nr]);
     }
   option_magier_spezialgebiet->set_menu(*_m);
   option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezialgebiet_button));;
@@ -67,22 +67,14 @@ void midgard_CG::spezialgebiet_button_fill()
 
 void midgard_CG::spezialgebiet_button()
 {
-// int i = int(option_magier_spezialgebiet->get_menu()->get_active()->get_user_data());
-// if (i==0) return ;
-cout << "1\n";
- std::string *s = static_cast<std::string*>(option_magier_spezialgebiet->get_menu()->get_active()->get_user_data());
-cout << "2\n";
-#warning
-#warning Christof, kannst Du den Cast bitte einmal überprüfen, 
-#warning der entstand durch 'Trial&Error' führt aber zum Absturz :-(
-#warning
-cout << s<<"\n";
- if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
-//std::cout << i<<"\n";
-// Werte.set_Spezialisierung(vec_spezialgebiet[i]);
- Werte.set_Spezialisierung(s);
+ int i = int(option_magier_spezialgebiet->get_menu()->get_active()->get_user_data());
+ if (i==0) return ;
+// string s = *static_cast<const std::string*>(option_magier_spezialgebiet->get_menu()->get_active()->get_user_data());
+// if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
+// Werte.set_Spezialisierung(s);
+ Werte.set_Spezialisierung(vec_spezialgebiet[i]);
  get_spezial_from_spezialgebiet();
-cout << Werte.Spezialisierung()<<"\t"<<Werte.Spezial()<<"\t"<<Werte.Spezial2()<<"\n";;
+//cout << Werte.Spezialisierung()<<"\t"<<Werte.Spezial()<<"\t"<<Werte.Spezial2()<<"\n";;
 } 
 
 void midgard_CG::get_spezial_from_spezialgebiet()
