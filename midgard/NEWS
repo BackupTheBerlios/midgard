@@ -1,24 +1,9 @@
 ##########################################################################
-NEWS IN VERSION 0.7delta5
+NEWS IN VERSION 0.7.6
 
-* kleinere Bugs beseitigt
-* Drucken weiter überarbeitet
-* Fertigkeiten mit Zusatz getrennt steigern/reduzieren (==operator)
-* Zaubern lernen geht wieder
-* Beruf mit Zusatz (z.B. Falkner) ohne Absturz
-* Ausgewählte Regionen in der Statusleiste anzeigen
-* Herkunftsländer für Priester (Dank an Ottmar Zimmer fürs abtippen)a
-* Kultwaffe für Priester werden im Infofenster angegeben
-* Alte Sprachen für Magister im Lernschema für Magister
-* Absturz beim Ausdrucken von magischen Waffen beseitigt
-* Ausdruck für lange Listen
-* gelernt/ungelernt in die Überschrift der steigern Tabellen
+* Auf Christofs(!) Wunsch hin ist das 'delta' verschwunden :-(
 * Oberfläche überarbeitet
-* Export von Waffen mit richtigem Erfolgswert
-* 'Lernen von Spruchrolle' nur noch wenn 'Lesen von Zauberschrift' gelernt ist
-* Zusätze mit Regionen
-* Elfen-Doppelabenteurerfenster ist ersetzt
-* nicht-3TastenMaus: richtiges Tooltip setzen
+* Endlich ist das Fenster wieder verkleinerbar -> 800x600 geht
 
 TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
@@ -34,6 +19,30 @@ links).
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
 - xml laden beschleunigen (merge with map, reservate on vectors)
 - xml export von Zusätzen zu Fertigkeiten in der richtigen Region
+
+
+##########################################################################
+NEWS IN VERSION 0.7delta5
+
+* kleinere Bugs beseitigt
+* Drucken weiter überarbeitet
+* Fertigkeiten mit Zusatz getrennt steigern/reduzieren (==operator)
+* Zaubern lernen geht wieder
+* Beruf mit Zusatz (z.B. Falkner) ohne Absturz
+* Ausgewählte Regionen in der Statusleiste anzeigen
+* Herkunftsländer für Priester (Dank an Ottmar Zimmer fürs abtippen)
+* Kultwaffe für Priester werden im Infofenster angegeben
+* Alte Sprachen für Magister im Lernschema für Magister
+* Absturz beim Ausdrucken von magischen Waffen beseitigt
+* Ausdruck für lange Listen
+* gelernt/ungelernt in die Überschrift der steigern Tabellen
+* Oberfläche überarbeitet
+* Export von Waffen mit richtigem Erfolgswert
+* 'Lernen von Spruchrolle' nur noch wenn 'Lesen von Zauberschrift' gelernt ist
+* Zusätze mit Regionen
+* Elfen-Doppelabenteurerfenster ist ersetzt
+* nicht-3-TastenMaus: richtige Tooltips setzen
+
 
 ##########################################################################
 NEWS IN VERSION 0.7delta4

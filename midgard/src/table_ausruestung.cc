@@ -121,19 +121,19 @@ void table_ausruestung::show_modi()
   Gtk::Label *l=manage (new Gtk::Label("Kosten"));
   l->set_alignment(0, 0.5);
   l->show();
-  table_modi->attach(*l,1,2,0,1,GTK_FILL,0,0,0);
+  table_modi->attach(*l,1,2,0,1,GTK_FILL|GTK_SHRINK,GTK_FILL|GTK_SHRINK,0,0);
   int row=1;
   for (std::map<st_modimap_index,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();++i)
    {
      Gtk::Label *l=manage (new Gtk::Label(i->second.name));
      l->set_alignment(0, 0.5);
      l->show();
-     table_modi->attach(*l,0,1,row,row+1,GTK_FILL,0,0,0);
+     table_modi->attach(*l,0,1,row,row+1,GTK_FILL|GTK_SHRINK,GTK_FILL|GTK_SHRINK,0,0);
      Gtk::Label *l2=manage (new Gtk::Label("x "+dtos1(i->second.faktor)));
      l2->set_alignment(0, 0.5);
      l2->show();
 //cout << i->second.name<<' '<<i->second.faktor<<'\n';
-     table_modi->attach(*l2,1,2,row,row+1,GTK_FILL,0,0,0);
+     table_modi->attach(*l2,1,2,row,row+1,GTK_FILL|GTK_SHRINK,GTK_FILL|GTK_SHRINK,0,0);
      ++row;
    }
   table_modi->set_col_spacings(5);
