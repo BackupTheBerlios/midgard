@@ -36,7 +36,6 @@ COPY "fertigkeiten" FROM stdin;
 1	\N	\N	\N	Pyromantie	\N	400	E	Zt	\N	1	18	18
 2	1	1	5	Himmelskunde	4	50		In	\N	1	16	14
 2	2	2	9	Sprechen: Sprache(+9)	9	0	\N	In	\N	\N	18	17
-2	\N	\N	\N	Heraldik	0	100	B&R	In	\N	\N	18	18
 3	2	2	15	Reiten	10	60		Gw	5	1	18	18
 3	2	2	15	Wagenlenken	10	60		Gs	3	1	18	18
 3	2	\N	4	Fallenstellen	4	200		Gs	1	3	16	12
@@ -60,7 +59,6 @@ COPY "fertigkeiten" FROM stdin;
 3	\N	2	12	Geheimzeichen	6	20		In	\N	1	14	12
 3	\N	3	5	Gassenwissen	4	200		In	\N	3	16	12
 3	\N	3	5	Menschenkenntnis	4	250		In	3	3	16	11
-3	\N	\N	1	Kalligraphie	1	150	B&R	Gs	\N	1	18	18
 3	\N	\N	1	Malen/Zeichnen	1	150	B&R	Gs	\N	\N	18	18
 3	\N	\N	1	Trinken	1	100		Ko	0	2	6	1
 3	\N	\N	4	Etikette	2	200	B&R	In	\N	\N	18	18
@@ -89,9 +87,7 @@ COPY "fertigkeiten" FROM stdin;
 4	\N	\N	4	Fallenmechanik	4	600		Gs	0	\N	16	12
 4	\N	\N	4	FengSchui	4	100	K	In	\N	\N	18	18
 4	\N	\N	4	NinJutsu	2	600	K	Gw	\N	\N	18	18
-4	\N	\N	4	Siegelkunde	2	100	B&R	In	\N	\N	18	18
 4	\N	\N	4	Wahrnehmung	4	300		In	2	\N	6	6
-4	\N	\N	4	Wetterkunde	2	25	B&R	In	\N	\N	18	18
 4	\N	\N	4	Winden	4	250		Gw	0	3	8	7
 4	\N	\N	5	Kräuterkunde	4	100		In	\N	2	16	13
 4	\N	\N	5	Zauberkunde	4	100		In	0	2	16	13
@@ -111,7 +107,6 @@ COPY "fertigkeiten" FROM stdin;
 4	\N	\N	12	Dichten	8	80		In	\N	1	20	16
 4	\N	\N	15	Stimmen nachahmen	12	50		In	\N	1	20	18
 4	\N	\N	\N	Mumifizieren	\N	200	E	In	\N	\N	18	18
-4	\N	\N	\N	Siegelfälschung	\N	100	B&R	Gs	\N	\N	18	18
 4	\N	\N	\N	Steinabreibungen machen	\N	60	K	\N	\N	1	18	18
 5	\N	3	5	Heilkunde	4	100	\N	In	\N	2	16	13
 5	\N	3	8	Schauspielern	6	50	\N	pA	\N	1	18	13

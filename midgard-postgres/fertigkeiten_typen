@@ -548,43 +548,6 @@ Beschatten	eBe	S
 Beschatten	gHx	S
 Beschatten	sHx	S
 Beschatten	wHx	S
-Bogen vom Streitwagen	As	S
-Bogen vom Streitwagen	BN	S
-Bogen vom Streitwagen	BS	G
-Bogen vom Streitwagen	BW	S
-Bogen vom Streitwagen	Ba	S
-Bogen vom Streitwagen	Dr	A
-Bogen vom Streitwagen	Fi	S
-Bogen vom Streitwagen	Gl	S
-Bogen vom Streitwagen	Hl	A
-Bogen vom Streitwagen	Hä	S
-Bogen vom Streitwagen	Kd	S
-Bogen vom Streitwagen	Kr	G
-Bogen vom Streitwagen	Ma	A
-Bogen vom Streitwagen	Ny	S
-Bogen vom Streitwagen	Or	S
-Bogen vom Streitwagen	PC	A
-Bogen vom Streitwagen	PF	A
-Bogen vom Streitwagen	PK	A
-Bogen vom Streitwagen	PM	A
-Bogen vom Streitwagen	PT	A
-Bogen vom Streitwagen	PW	A
-Bogen vom Streitwagen	Ri	G
-Bogen vom Streitwagen	Sa	A
-Bogen vom Streitwagen	ScN	A
-Bogen vom Streitwagen	ScS	A
-Bogen vom Streitwagen	ScW	A
-Bogen vom Streitwagen	Se	S
-Bogen vom Streitwagen	Sp	S
-Bogen vom Streitwagen	Sr	S
-Bogen vom Streitwagen	Sö	G
-Bogen vom Streitwagen	Th	A
-Bogen vom Streitwagen	Wa	S
-Bogen vom Streitwagen	dBe	A
-Bogen vom Streitwagen	eBe	A
-Bogen vom Streitwagen	gHx	A
-Bogen vom Streitwagen	sHx	A
-Bogen vom Streitwagen	wHx	A
 Bogenkampf zu Pferd	As	S
 Bogenkampf zu Pferd	BN	S
 Bogenkampf zu Pferd	BS	G
@@ -1101,43 +1064,6 @@ Fangen	eBe	S
 Fangen	gHx	S
 Fangen	sHx	S
 Fangen	wHx	S
-Faustkampf	As	S
-Faustkampf	BN	G
-Faustkampf	BS	G
-Faustkampf	BW	S
-Faustkampf	Ba	S
-Faustkampf	Dr	A
-Faustkampf	Fi	S
-Faustkampf	Gl	S
-Faustkampf	Hl	A
-Faustkampf	Hä	S
-Faustkampf	Kd	S
-Faustkampf	Kr	S
-Faustkampf	Ma	A
-Faustkampf	Ny	S
-Faustkampf	Or	S
-Faustkampf	PC	A
-Faustkampf	PF	A
-Faustkampf	PK	A
-Faustkampf	PM	A
-Faustkampf	PT	A
-Faustkampf	PW	A
-Faustkampf	Ri	S
-Faustkampf	Sa	S
-Faustkampf	ScN	S
-Faustkampf	ScS	S
-Faustkampf	ScW	S
-Faustkampf	Se	G
-Faustkampf	Sp	S
-Faustkampf	Sr	S
-Faustkampf	Sö	G
-Faustkampf	Th	A
-Faustkampf	Wa	S
-Faustkampf	dBe	A
-Faustkampf	eBe	A
-Faustkampf	gHx	A
-Faustkampf	sHx	A
-Faustkampf	wHx	A
 Fechten	As	G
 Fechten	BN	S
 Fechten	BS	S
@@ -1772,43 +1698,6 @@ Heilkunde	Tm	A
 Heilkunde	gHx	A
 Heilkunde	sHx	A
 Heilkunde	wHx	A
-Heraldik	As	A
-Heraldik	BN	A
-Heraldik	BS	A
-Heraldik	BW	A
-Heraldik	Ba	A
-Heraldik	Dr	A
-Heraldik	Fi	A
-Heraldik	Gl	A
-Heraldik	Hl	A
-Heraldik	Hä	A
-Heraldik	Kd	A
-Heraldik	Kr	A
-Heraldik	Ma	A
-Heraldik	Ny	A
-Heraldik	Or	A
-Heraldik	PC	A
-Heraldik	PF	A
-Heraldik	PK	A
-Heraldik	PM	A
-Heraldik	PT	A
-Heraldik	PW	A
-Heraldik	Ri	G
-Heraldik	Sa	S
-Heraldik	ScN	A
-Heraldik	ScS	A
-Heraldik	ScW	A
-Heraldik	Se	A
-Heraldik	Sp	A
-Heraldik	Sr	A
-Heraldik	Sö	A
-Heraldik	Th	A
-Heraldik	Wa	A
-Heraldik	dBe	A
-Heraldik	eBe	A
-Heraldik	gHx	A
-Heraldik	sHx	A
-Heraldik	wHx	A
 Himmelskunde	As	S
 Himmelskunde	BN	G
 Himmelskunde	BS	G
@@ -1888,80 +1777,6 @@ IaiJutsu	eBe	A
 IaiJutsu	gHx	A
 IaiJutsu	sHx	A
 IaiJutsu	wHx	A
-Jonglieren	As	S
-Jonglieren	BN	S
-Jonglieren	BS	S
-Jonglieren	BW	S
-Jonglieren	Ba	G
-Jonglieren	Dr	A
-Jonglieren	Fi	A
-Jonglieren	Gl	G
-Jonglieren	Hl	A
-Jonglieren	Hä	S
-Jonglieren	Kd	A
-Jonglieren	Kr	S
-Jonglieren	Ma	A
-Jonglieren	Ny	A
-Jonglieren	Or	S
-Jonglieren	PC	A
-Jonglieren	PF	A
-Jonglieren	PK	A
-Jonglieren	PM	A
-Jonglieren	PT	A
-Jonglieren	PW	A
-Jonglieren	Ri	A
-Jonglieren	Sa	A
-Jonglieren	ScN	S
-Jonglieren	ScS	S
-Jonglieren	ScW	S
-Jonglieren	Se	G
-Jonglieren	Sp	G
-Jonglieren	Sr	S
-Jonglieren	Sö	S
-Jonglieren	Th	A
-Jonglieren	Wa	S
-Jonglieren	dBe	A
-Jonglieren	eBe	A
-Jonglieren	gHx	S
-Jonglieren	sHx	S
-Jonglieren	wHx	S
-Kalligraphie	As	A
-Kalligraphie	BN	A
-Kalligraphie	BS	A
-Kalligraphie	BW	A
-Kalligraphie	Ba	A
-Kalligraphie	Dr	A
-Kalligraphie	Fi	A
-Kalligraphie	Gl	A
-Kalligraphie	Hl	S
-Kalligraphie	Hä	S
-Kalligraphie	Kd	A
-Kalligraphie	Kr	A
-Kalligraphie	Ma	G
-Kalligraphie	Ny	A
-Kalligraphie	Or	S
-Kalligraphie	PC	G
-Kalligraphie	PF	G
-Kalligraphie	PK	A
-Kalligraphie	PM	G
-Kalligraphie	PT	G
-Kalligraphie	PW	G
-Kalligraphie	Ri	A
-Kalligraphie	Sa	A
-Kalligraphie	ScN	A
-Kalligraphie	ScS	A
-Kalligraphie	ScW	A
-Kalligraphie	Se	A
-Kalligraphie	Sp	A
-Kalligraphie	Sr	S
-Kalligraphie	Sö	A
-Kalligraphie	Th	G
-Kalligraphie	Wa	A
-Kalligraphie	dBe	S
-Kalligraphie	eBe	S
-Kalligraphie	gHx	S
-Kalligraphie	sHx	S
-Kalligraphie	wHx	S
 Kamelreiten	As	S
 Kamelreiten	BN	S
 Kamelreiten	BS	G
@@ -2362,43 +2177,6 @@ Kampftaktik	eBe	A
 Kampftaktik	gHx	A
 Kampftaktik	sHx	A
 Kampftaktik	wHx	A
-Kanufahren	As	S
-Kanufahren	BN	S
-Kanufahren	BS	S
-Kanufahren	BW	G
-Kanufahren	Ba	S
-Kanufahren	Dr	S
-Kanufahren	Fi	S
-Kanufahren	Gl	S
-Kanufahren	Hl	S
-Kanufahren	Hä	G
-Kanufahren	Kd	S
-Kanufahren	Kr	S
-Kanufahren	Ma	S
-Kanufahren	Ny	S
-Kanufahren	Or	S
-Kanufahren	PC	S
-Kanufahren	PF	S
-Kanufahren	PK	S
-Kanufahren	PM	S
-Kanufahren	PT	S
-Kanufahren	PW	S
-Kanufahren	Ri	S
-Kanufahren	Sa	S
-Kanufahren	ScN	S
-Kanufahren	ScS	S
-Kanufahren	ScW	S
-Kanufahren	Se	G
-Kanufahren	Sp	S
-Kanufahren	Sr	S
-Kanufahren	Sö	S
-Kanufahren	Th	S
-Kanufahren	Wa	G
-Kanufahren	dBe	S
-Kanufahren	eBe	S
-Kanufahren	gHx	S
-Kanufahren	sHx	S
-Kanufahren	wHx	S
 KarumiJutsu	As	S
 KarumiJutsu	BN	A
 KarumiJutsu	BS	A
@@ -4506,43 +4284,6 @@ Seemannsgang	eBe	A
 Seemannsgang	gHx	A
 Seemannsgang	sHx	A
 Seemannsgang	wHx	A
-Segeln	As	S
-Segeln	BN	S
-Segeln	BS	S
-Segeln	BW	S
-Segeln	Ba	S
-Segeln	Dr	S
-Segeln	Fi	S
-Segeln	Gl	S
-Segeln	Hl	S
-Segeln	Hä	G
-Segeln	Kd	S
-Segeln	Kr	S
-Segeln	Ma	S
-Segeln	Ny	S
-Segeln	Or	S
-Segeln	PC	S
-Segeln	PF	S
-Segeln	PK	S
-Segeln	PM	S
-Segeln	PT	S
-Segeln	PW	S
-Segeln	Ri	S
-Segeln	Sa	S
-Segeln	ScN	S
-Segeln	ScS	S
-Segeln	ScW	S
-Segeln	Se	G
-Segeln	Sp	S
-Segeln	Sr	S
-Segeln	Sö	S
-Segeln	Th	S
-Segeln	Wa	S
-Segeln	dBe	S
-Segeln	eBe	S
-Segeln	gHx	S
-Segeln	sHx	S
-Segeln	wHx	S
 Seilkunst	As	S
 Seilkunst	BN	S
 Seilkunst	BS	S
@@ -4585,80 +4326,6 @@ Seilkunst	eBe	S
 Seilkunst	gHx	S
 Seilkunst	sHx	S
 Seilkunst	wHx	S
-Siegelfälschung	As	G
-Siegelfälschung	BN	A
-Siegelfälschung	BS	A
-Siegelfälschung	BW	A
-Siegelfälschung	Ba	S
-Siegelfälschung	Dr	A
-Siegelfälschung	Fi	S
-Siegelfälschung	Gl	S
-Siegelfälschung	Hl	A
-Siegelfälschung	Hä	S
-Siegelfälschung	Kd	S
-Siegelfälschung	Kr	A
-Siegelfälschung	Ma	S
-Siegelfälschung	Ny	S
-Siegelfälschung	Or	A
-Siegelfälschung	PC	S
-Siegelfälschung	PF	S
-Siegelfälschung	PK	S
-Siegelfälschung	PM	S
-Siegelfälschung	PT	S
-Siegelfälschung	PW	S
-Siegelfälschung	Ri	S
-Siegelfälschung	Sa	A
-Siegelfälschung	ScN	A
-Siegelfälschung	ScS	A
-Siegelfälschung	ScW	A
-Siegelfälschung	Se	S
-Siegelfälschung	Sp	G
-Siegelfälschung	Sr	A
-Siegelfälschung	Sö	A
-Siegelfälschung	Th	S
-Siegelfälschung	Wa	A
-Siegelfälschung	dBe	S
-Siegelfälschung	eBe	S
-Siegelfälschung	gHx	S
-Siegelfälschung	sHx	S
-Siegelfälschung	wHx	S
-Siegelkunde	As	S
-Siegelkunde	BN	A
-Siegelkunde	BS	A
-Siegelkunde	BW	A
-Siegelkunde	Ba	A
-Siegelkunde	Dr	S
-Siegelkunde	Fi	A
-Siegelkunde	Gl	A
-Siegelkunde	Hl	S
-Siegelkunde	Hä	G
-Siegelkunde	Kd	S
-Siegelkunde	Kr	S
-Siegelkunde	Ma	S
-Siegelkunde	Ny	S
-Siegelkunde	Or	S
-Siegelkunde	PC	S
-Siegelkunde	PF	S
-Siegelkunde	PK	S
-Siegelkunde	PM	S
-Siegelkunde	PT	S
-Siegelkunde	PW	S
-Siegelkunde	Ri	S
-Siegelkunde	Sa	S
-Siegelkunde	ScN	A
-Siegelkunde	ScS	A
-Siegelkunde	ScW	A
-Siegelkunde	Se	A
-Siegelkunde	Sp	S
-Siegelkunde	Sr	S
-Siegelkunde	Sö	A
-Siegelkunde	Th	G
-Siegelkunde	Wa	A
-Siegelkunde	dBe	S
-Siegelkunde	eBe	S
-Siegelkunde	gHx	S
-Siegelkunde	sHx	S
-Siegelkunde	wHx	S
 Singen	As	S
 Singen	BN	S
 Singen	BS	S
@@ -5839,43 +5506,6 @@ Werfen	eBe	S
 Werfen	gHx	S
 Werfen	sHx	S
 Werfen	wHx	S
-Wetterkunde	As	A
-Wetterkunde	BN	S
-Wetterkunde	BS	S
-Wetterkunde	BW	S
-Wetterkunde	Ba	G
-Wetterkunde	Dr	G
-Wetterkunde	Fi	S
-Wetterkunde	Gl	S
-Wetterkunde	Hl	S
-Wetterkunde	Hä	S
-Wetterkunde	Kd	S
-Wetterkunde	Kr	A
-Wetterkunde	Ma	A
-Wetterkunde	Ny	S
-Wetterkunde	Or	A
-Wetterkunde	PC	S
-Wetterkunde	PF	G
-Wetterkunde	PK	S
-Wetterkunde	PM	G
-Wetterkunde	PT	S
-Wetterkunde	PW	S
-Wetterkunde	Ri	S
-Wetterkunde	Sa	S
-Wetterkunde	ScN	G
-Wetterkunde	ScS	G
-Wetterkunde	ScW	G
-Wetterkunde	Se	G
-Wetterkunde	Sp	S
-Wetterkunde	Sr	A
-Wetterkunde	Sö	A
-Wetterkunde	Th	A
-Wetterkunde	Wa	G
-Wetterkunde	dBe	S
-Wetterkunde	eBe	S
-Wetterkunde	gHx	S
-Wetterkunde	sHx	S
-Wetterkunde	wHx	S
 Winden	As	G
 Winden	BN	S
 Winden	BS	S
@@ -5918,43 +5548,6 @@ Winden	eBe	A
 Winden	gHx	A
 Winden	sHx	A
 Winden	wHx	A
-Wissen von der Magie	As	S
-Wissen von der Magie	BN	S
-Wissen von der Magie	BS	S
-Wissen von der Magie	BW	S
-Wissen von der Magie	Ba	S
-Wissen von der Magie	Dr	G
-Wissen von der Magie	Fi	S
-Wissen von der Magie	Gl	S
-Wissen von der Magie	Hl	G
-Wissen von der Magie	Hä	S
-Wissen von der Magie	Kd	S
-Wissen von der Magie	Kr	A
-Wissen von der Magie	Ma	G
-Wissen von der Magie	Ny	S
-Wissen von der Magie	Or	S
-Wissen von der Magie	PC	G
-Wissen von der Magie	PF	G
-Wissen von der Magie	PK	G
-Wissen von der Magie	PM	G
-Wissen von der Magie	PT	G
-Wissen von der Magie	PW	G
-Wissen von der Magie	Ri	A
-Wissen von der Magie	Sa	G
-Wissen von der Magie	ScN	G
-Wissen von der Magie	ScS	G
-Wissen von der Magie	ScW	G
-Wissen von der Magie	Se	S
-Wissen von der Magie	Sp	S
-Wissen von der Magie	Sr	S
-Wissen von der Magie	Sö	A
-Wissen von der Magie	Th	G
-Wissen von der Magie	Wa	S
-Wissen von der Magie	dBe	G
-Wissen von der Magie	eBe	G
-Wissen von der Magie	gHx	G
-Wissen von der Magie	sHx	G
-Wissen von der Magie	wHx	G
 YangScheng	As	S
 YangScheng	BN	A
 YangScheng	BS	A
