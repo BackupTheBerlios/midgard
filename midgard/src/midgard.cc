@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.47 2002/07/03 06:33:55 christof Exp $
+// $Id: midgard.cc,v 1.48 2002/07/05 09:32:17 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,18 +41,30 @@ int main(int argc, char **argv)
   char buf[1024];
   reg_key r1(HKEY_CURRENT_USER, KEY_READ, "Software", "Microsoft", "Windows",
   	"CurrentVersion", "Explorer", "User Shell Folders", NULL); // "AppData");?
-  if (r1.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) magus_verzeichnis=buf;
+  if (r1.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
+  {  magus_verzeichnis=buf;
+     std::cout << magus_verzeichnis << " from HKEY_CURRENT_USER\n";
+  }
   else
   {  reg_key r2(HKEY_USERS, KEY_READ, ".Default", "Software", "Microsoft", "Windows",
   	"CurrentVersion", "Explorer", "User Shell Folders", NULL);
-     if (r2.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) magus_verzeichnis=buf;
+     if (r2.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
+     {	magus_verzeichnis=buf;
+        std::cout << magus_verzeichnis << " from HKEY_USERS\n";
+     }
      else
      {  reg_key r3(HKEY_LOCAL_MACHINE, KEY_READ, "Software", "Microsoft", "Windows",
      		"CurrentVersion", "Explorer", "User Shell Folders", NULL);
-        if (r3.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) magus_verzeichnis=buf;
+        if (r3.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
+        {  magus_verzeichnis=buf;
+           std::cout << magus_verzeichnis << " from HKEY_LOCAL_MACHINE\n";
+        }
 
         // %USERPROFILE%\Anwendungsdaten\Magus ???
-        else magus_verzeichnis="C:\\Eigene Dateien";
+        else 
+        {  magus_verzeichnis="C:\\Eigene Dateien";
+           std::cout << magus_verzeichnis << " by hand\n";
+        }
      }
   }
   magus_verzeichnis+="\\Magus";
@@ -63,8 +75,25 @@ int main(int argc, char **argv)
 #endif
 
    if(access(magus_verzeichnis.c_str(),R_OK)) 
-       if(mkdir(magus_verzeichnis.c_str() NUR_LINUX(,0777) ))
-         { std::cerr << "Homeverzeichnis nicht schreibbar\n"; exit(1);}
+      if(mkdir(magus_verzeichnis.c_str() NUR_LINUX(,0777) ))
+      { 
+#ifndef __MINGW32__      
+         std::cerr << "Homeverzeichnis nicht schreibbar\n"; exit(1);
+#else
+	 // eigentlich ist es krank den ganzen Baum zu erzeugen, 
+	 // aber wir haben keine Wahl außer aufgeben
+	 for (std::string::size_type i=magus_verzeichnis.find(WinLux::dirsep);
+	 	i!=std::string::npos;i=magus_verzeichnis.find(WinLux::dirsep,i+1))
+	 {  if (i && access(magus_verzeichnis.substr(0,i).c_str,R_OK))
+	    {  if (mkdir(magus_verzeichnis.substr(0,i).c_str))
+	       {  magus_verzeichnis="C:"; // last ressort
+	          break;
+	       }
+	    }
+	 }
+	 mkdir(magus_verzeichnis.c_str() NUR_LINUX(,0777));
+#endif         
+      }
    magus_verzeichnis+=WinLux::dirsep;
 
    // normalize argv0 (prepend current dir if relative)
