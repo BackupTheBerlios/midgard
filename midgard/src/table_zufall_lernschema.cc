@@ -297,7 +297,7 @@ bool table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 void table_zufall::on_combo_spezies_changed()
 {  
   bool nsc_allowed = hauptfenster
-  	?hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active
+  	?bool(hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
   	:true;
   fill_combo_typen(nsc_allowed);
 }
