@@ -15137,8 +15137,8 @@ KS
 		</accelerator>
 		<signal>
 		  <name>activate</name>
-		  <handler>on_laden_release_event</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		  <handler>xml_import_auswahl</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 12:00:27 GMT</last_modification_time>
 		</signal>
 		<label>Laden</label>
 		<right_justify>False</right_justify>
@@ -15154,8 +15154,8 @@ KS
 		</accelerator>
 		<signal>
 		  <name>activate</name>
-		  <handler>on_speichern_release_event</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		  <handler>xml_export_auswahl</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 12:01:18 GMT</last_modification_time>
 		</signal>
 		<label>Speichern</label>
 		<right_justify>False</right_justify>
@@ -15177,8 +15177,8 @@ KS
 		</accelerator>
 		<signal>
 		  <name>activate</name>
-		  <handler>on_speichern_release_event</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		  <handler>on_drucken_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 12:05:34 GMT</last_modification_time>
 		</signal>
 		<label>Drucken</label>
 		<right_justify>False</right_justify>
@@ -15334,11 +15334,6 @@ KS
 		  <widget>
 		    <class>GtkCheckMenuItem</class>
 		    <name>bilder1</name>
-		    <signal>
-		      <name>activate</name>
-		      <handler>on_bilder1_activate</handler>
-		      <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
-		    </signal>
 		    <label>Bilder</label>
 		    <active>True</active>
 		    <always_show_toggle>True</always_show_toggle>

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.208 2002/04/12 11:26:54 thoma Exp $
+// $Id: midgard_CG.hh,v 1.209 2002/04/12 12:07:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -304,7 +304,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, int xml_version));
         void on_latex_clicked(bool values=true);
         // needed for menu connection, you can't pass any data or default args
-        void on_latex_clicked0() { on_latex_clicked(); }
+        void on_drucken_clicked();
         void LaTeX_newsavebox(ostream &fout);
         void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
         void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
