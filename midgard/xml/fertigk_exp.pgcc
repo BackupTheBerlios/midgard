@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.10 2001/11/15 10:20:46 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.11 2001/11/16 09:20:39 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -22,6 +22,7 @@
 #include <Aux/dbconnect.h>
 exec sql include sqlca;
 #include "export_common.h"
+#include <Aux/itos.h>
 
 // wegen eines bugs in epcg <=V6.1
 #define GARNIX 
@@ -92,7 +93,7 @@ void fert_speichern(std::ostream &o)
          o << "</Ausnahme>\n";
       }
 
-      //********** Lernschema      
+      //********** Lernschema **********************************
       // wert, attribut, [p+s]_element 
       exec sql declare cursor_lp cursor for 
       	select typ,lernpunkte,pflicht from lernschema 
@@ -111,6 +112,42 @@ void fert_speichern(std::ostream &o)
       }
       exec sql close cursor_lp;
 
+      //********** Pflicht ****************
+     {exec sql begin declare section;
+      	 int LERNPKTE[40], ERFWERT[40];
+         exec sql end declare section;
+         
+      exec sql select typ,coalesce(lernpunkte,0),coalesce(erfolgswert,0) 
+      	into :TYPEN,:LERNPKTE,:ERFWERT from pflicht_lernen 
+      	where pflicht=:FERTIGK order by typ;
+      if (!sqlca.sqlcode) 
+      {  for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << "    <Lernschema";
+            write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
+            write_int_attrib(o,"Lernpunkte",LERNPKTE[i]);
+            write_int_attrib(o,"Anfangswert",ERFWERT[i]);
+            write_bool_attrib(o,"Pflicht",true);
+            o << "/>\n";
+         }
+      }
+     }
+      //********** Verbot ****************
+     {exec sql begin declare section;
+      	 char SPIELBEGINN[40][2];
+         exec sql end declare section;
+         
+      exec sql select typ,coalesce(spielbegin,'') 
+      	into :TYPEN,:SPIELBEGINN from pflicht_lernen 
+      	where verboten=:FERTIGK order by typ;
+      if (!sqlca.sqlcode) 
+      {  for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << "    <Verbot";
+            write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
+            write_string_attrib(o,"Spielbeginn",SPIELBEGINN[i]);
+            o << "/>\n";
+         }
+      }
+     }
 // ************************* Steigern wie *****************************
       {  exec sql begin declare section;
       	 char STEIGERN_WIE[100];
@@ -122,6 +159,61 @@ void fert_speichern(std::ostream &o)
          if (!sqlca.sqlcode && fert!=STEIGERN_WIE)
             o << "    <steigern_wie Fertigkeit=\"" << toXML(STEIGERN_WIE) << "\"/>\n";
       }
+//********************* praxispunkte ********************
+      { exec sql begin declare section;
+      	 int MAX_WERT,LERNFAKTOR;
+         exec sql end declare section;
+         
+       exec sql select coalesce(max_wert,0), coalesce(lernfaktor,0)
+       	into :MAX_WERT, :LERNFAKTOR
+       	from praxispunkte
+       	where name=:FERTIGK;
+       if (!sqlca.sqlcode && (MAX_WERT || LERNFAKTOR))
+       {  o << "    <Praxispunkte";
+          write_int_attrib(o, "MaximalWert", MAX_WERT);
+          write_int_attrib(o, "Lernfaktor", LERNFAKTOR);
+          o << "/>\n";
+       }
+      }
+
+//********************* steigern_fertigkeiten_werte ********************
+      {  exec sql select 
+      	    coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),
+      	    coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),
+      	    coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),
+      	    coalesce(p12,0), coalesce(p13,0), coalesce(p14,0), coalesce(p15,0),
+      	    coalesce(p16,0), coalesce(p17,0), coalesce(p18,0), coalesce(p19,0),
+      	    coalesce(p20,0), coalesce(p21,0), coalesce(p22,0), coalesce(p23,0),
+      	    coalesce(p24,0), coalesce(p25,0), coalesce(p26,0), coalesce(p27,0),
+      	    coalesce(p28,0)
+	    	into descriptor spalten
+       		from steigern_fertigkeiten_werte
+       		where name=:FERTIGK;
+       if (!sqlca.sqlcode)
+       {  o << "    <Kosten";
+          FetchIStream is("spalten");
+          for (int i=0;i<=28;++i) 
+             fetch_and_write_int_attrib(is, o, "Wert"+itos(i));
+          o << "/>\n";
+       }
+      }
+
+      //********** ZEP oder KEP ? ****************
+     {   exec sql begin declare section;
+      	 char EP[4][8];
+         exec sql end declare section;
+         
+      exec sql select ep into :EP from steigern_fertigkeiten_mit 
+      	where name=:FERTIGK order by ep;
+      if (!sqlca.sqlcode) 
+      {  o << "    <EP-Typ Typ=\""; 
+         for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << EP[i];
+            if (i+1 < sqlca.sqlerrd[2]) o << ',';
+         }
+         o << "\"/>\n";
+      }
+     }
    }
    
    o << "  </Fertigkeit>\n";
@@ -214,6 +306,44 @@ void fert_speichern(std::ostream &o)
          }
          o << "</Vorteil>\n";
       }
+      //********** Pflicht ****************
+     {exec sql begin declare section;
+      	 int LERNPKTE[40], ERFWERT[40];
+      	 char TYPEN[40][40];
+         exec sql end declare section;
+         
+      exec sql select typ,coalesce(lernpunkte,0),coalesce(erfolgswert,0) 
+      	into :TYPEN,:LERNPKTE,:ERFWERT from pflicht_lernen 
+      	where pflicht=:BERUF order by typ;
+      if (!sqlca.sqlcode) 
+      {  for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << "    <Lernschema";
+            write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
+            write_int_attrib(o,"Lernpunkte",LERNPKTE[i]);
+            write_int_attrib(o,"Anfangswert",ERFWERT[i]);
+            write_bool_attrib(o,"Pflicht",true);
+            o << "/>\n";
+         }
+      }
+     }
+      //********** Verbot ****************
+     {exec sql begin declare section;
+      	 char SPIELBEGINN[40][2];
+      	 char TYPEN[40][40];
+         exec sql end declare section;
+         
+      exec sql select typ,coalesce(spielbegin,'') 
+      	into :TYPEN,:SPIELBEGINN from pflicht_lernen 
+      	where verboten=:BERUF order by typ;
+      if (!sqlca.sqlcode) 
+      {  for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << "    <Verbot";
+            write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
+            write_string_attrib(o,"Spielbeginn",SPIELBEGINN[i]);
+            o << "/>\n";
+         }
+      }
+     }
    }
    o << "  </Beruf>\n";
   }
@@ -223,9 +353,14 @@ void fert_speichern(std::ostream &o)
 
 //********************* Pflicht + verboten ********************
    o << " <Typ-Pflichten>\n";
+   o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten/Berufe sind -->\n";
    exec sql declare pflicht_curs cursor for
    	select pflicht, typ, lernpunkte, verboten, spielbegin, erfolgswert
    	from pflicht_lernen
+   	where not exists (select true from fertigkeiten 
+   		where pflicht=fertigkeit or verboten=fertigkeit)
+   	and not exists (select true from berufe_voraussetzung 
+   		where pflicht=beruf or verboten=beruf)
    	order by typ,coalesce(pflicht,''),verboten;
    exec sql open pflicht_curs;
    SQLerror::test(__FILELINE__);
@@ -263,6 +398,7 @@ void fert_speichern(std::ostream &o)
    exec sql declare praxis_curs cursor for
    	select name, max_wert, lernfaktor
    	from praxispunkte
+   	where not exists (select true from fertigkeiten where name=fertigkeit)
    	order by name;
    exec sql open praxis_curs;
    SQLerror::test(__FILELINE__);
@@ -280,6 +416,76 @@ void fert_speichern(std::ostream &o)
    exec sql close praxis_curs;
    SQLerror::test(__FILELINE__);
    o << " </Praxispunkte>\n";
+
+//********************* ZEP oder KEP oder beides? ********************
+  {o << " <verwendbareEP>\n";
+   o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten sind -->\n";
+   exec sql declare mit_curs cursor for
+   	select name, ep
+   	from steigern_fertigkeiten_mit
+   	where not exists (select true from fertigkeiten where name=fertigkeit)
+   	order by name,ep;
+   exec sql open mit_curs;
+   SQLerror::test(__FILELINE__);
+   std::string fert,ep;
+  while (true)
+  {exec sql begin declare section;
+   char NAME[100];
+   char EP[8];
+   exec sql end declare section;
+   
+   exec sql fetch mit_curs into :NAME, :EP;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   if (fert!=NAME)
+   {  if (ep.size())
+         o << "  <EP-Typ Fertigkeit=\"" << toXML(fert) 
+      		<< "\" Typ=\"" << toXML(ep.substr(1)) << "\"/>\n";
+      fert=NAME;
+      ep="";
+   }
+   ep+=string(",")+EP;
+  }
+  if (ep.size()) 
+         o << "  <EP-Typ Fertigkeit=\"" << toXML(fert) 
+      		<< "\" Typ=\"" << toXML(ep.substr(1)) << "\"/>\n";
+ }
+   exec sql close mit_curs;
+   SQLerror::test(__FILELINE__);
+   o << " </verwendbareEP>\n";
+
+//*************************** Steigerungstabelle *******************
+   o << " <SteigernKosten/>\n";
+   exec sql declare curs_steig cursor for
+      		select name,
+      	    coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),
+      	    coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),
+      	    coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),
+      	    coalesce(p12,0), coalesce(p13,0), coalesce(p14,0), coalesce(p15,0),
+      	    coalesce(p16,0), coalesce(p17,0), coalesce(p18,0), coalesce(p19,0),
+      	    coalesce(p20,0), coalesce(p21,0), coalesce(p22,0), coalesce(p23,0),
+      	    coalesce(p24,0), coalesce(p25,0), coalesce(p26,0), coalesce(p27,0),
+      	    coalesce(p28,0)
+       		from steigern_fertigkeiten_werte
+   	where not exists (select true from fertigkeiten where name=fertigkeit)
+       		order by name;
+   exec sql open curs_steig;
+   SQLerror::test(__FILELINE__);
+   std::string fert,ep;
+  while (true)
+       {  exec sql fetch curs_steig into sql descriptor spalten;
+          SQLerror::test(__FILELINE__,100);
+          if (sqlca.sqlcode) break;
+          FetchIStream is("spalten");
+          o << "    <Kosten";
+          fetch_and_write_string_attrib(is, o, "Fertigkeit");
+          for (int i=0;i<=28;++i) 
+             fetch_and_write_int_attrib(is, o, "Wert"+itos(i));
+          o << "/>\n";
+       }
+    exec sql close curs_steig;
+    SQLerror::test(__FILELINE__);
+   o << " </SteigernKosten/>\n";
 
 //******************************************************************
    o << "</MidgardCG-data>\n";
