@@ -48,30 +48,36 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   strinfo +="Abenteurers im Format für Midgard Publikationen\n";
   InfoFenster->AppendShow(strinfo);
   ofstream fout(dateiname.c_str());
-  fout << LATIN(Char.getCWerte().Name_Abenteurer())<<", "
-      <<LATIN(Char.CTyp1()->Name(Char.getCWerte().Geschlecht()))<<",   Grad "<<Char.getCWerte().Grad()<<"\n";
-  fout << LATIN(Char.getCWerte().Stand())<<", "<<LATIN(Char.getCWerte().Glaube())<<" - ("<<Char.getCWerte().Groesse()<<"cm) - "
-       << Char.getCWerte().Alter()<<" Jahre\n";
+  Grundwerte W=Char.getCWerte();
+  fout << LATIN(W.Name_Abenteurer())<<", "
+      <<LATIN(Char.CTyp1()->Name(W.Geschlecht()))
+      <<"               Grad "<<W.Grad()<<"\n";
+  fout << LATIN(W.Stand())<<", "
+       <<LATIN(W.Glaube())<<" - "
+       <<W.GroesseBez() <<"("
+       <<W.Groesse()<<"cm), "
+       <<W.Gestalt()<<" - "
+       << W.Alter()<<" Jahre\n";
   fout << "\n";
-  fout << "St "<<Char.getCWerte().St()
-       <<", Gw"<<Char.getCWerte().Gw()
-       <<", Gs"<<Char.getCWerte().Gs()
-       <<", Ko"<<Char.getCWerte().Ko()
-       <<", In"<<Char.getCWerte().In()
-       <<", Zt"<<Char.getCWerte().Zt()
-       <<", Au"<<Char.getCWerte().Au()
-       <<", pA"<<Char.getCWerte().pA()
-       <<", Wk"<<Char.getCWerte().Wk()
-       <<", Sb"<<Char.getCWerte().Sb()<<"\n";
-  fout <<Char.getCWerte().LP()<<"LP, "
-       <<Char.getCWerte().AP()<<"AP - "
-       <<LATIN(Char.getCWerte().Ruestung()->Name())<<" -  "
-       << ", B " << Char.getCWerte().B() ;
-  if (Char.getCWerte().bo_Sc() != 0 || Char.getCWerte().bo_Ab() != 0 || Char.getCWerte().bo_An() != 0) fout <<" - ";
-  if (Char.getCWerte().bo_Sc() != 0) fout << "SchB+"<<Char.getCWerte().bo_Sc();
-  if (Char.getCWerte().bo_Sc() != 0 || Char.getCWerte().bo_Ab() != 0 ) fout <<", ";
-  if (Char.getCWerte().bo_Ab() != 0) fout << "AbB+"<<Char.getCWerte().bo_Ab();
-  if (Char.getCWerte().bo_An() != 0) fout <<", AnB+" << Char.getCWerte().bo_Sc();
+  fout <<"St " <<W.St()
+       <<", Gs"<<W.Gs()
+       <<", Gw"<<W.Gw()
+       <<", Ko"<<W.Ko()
+       <<", In"<<W.In()
+       <<", Zt"<<W.Zt()<<'\n'
+       <<"Au"<<W.Au()
+       <<", pA"<<W.pA()
+       <<", Wk"<<W.Wk()
+       <<", Sb"<<W.Sb()<<"\n";
+  fout <<W.LP()<<"LP, "
+       <<W.AP()<<"AP - "
+       <<LATIN(W.Ruestung()->Name())<<" -  "
+       << " B " << W.B() ;
+  if (W.bo_Sc() != 0 || W.bo_Ab() != 0 || W.bo_An() != 0) fout <<" - ";
+  if (W.bo_Sc() != 0) fout << "SchB+"<<W.bo_Sc();
+  if (W.bo_Sc() != 0 || W.bo_Ab() != 0 ) fout <<", ";
+  if (W.bo_Ab() != 0) fout << "AbB+"<<W.bo_Ab();
+  if (W.bo_An() != 0) fout <<", AnB+" << W.bo_Sc();
   fout << "\n\n";
   fout << "Angriff: ";
 
