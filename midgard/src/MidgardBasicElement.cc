@@ -332,6 +332,13 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
     map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0/*??*/);
 }
 
+#ifdef __MINGW__
+std::string utf82iso(const std::string &s);
+# define Internal2Latin(x) utf82iso(x)
+#else
+# define Internal2Latin(x) (x)
+#endif
+
 void MidgardBasicElement::saveElementliste(ostream &datei,
 			   const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
@@ -344,19 +351,18 @@ void MidgardBasicElement::saveElementliste(ostream &datei,
       std::string type=(*i)->What_str();
       if (type.find('.')!=string::npos)
          type.replace(type.find('.'),1,"-");
-      datei << "    <" << type;
-      write_string_attrib(datei, "Bezeichnung", (*i)->Name());
+      datei << "    <" << Internal2Latin(type);
+      write_string_attrib(datei, "Bezeichnung", Internal2Latin((*i)->Name()));
       write_int_attrib(datei, "Wert", (*i)->Erfolgswert());
-//      write_string_attrib(datei, "Region", (*i)->Region());
       write_int_attrib(datei, "Praxispunkte", (*i)->Praxispunkte());
 
       if ((*i)->What()==ZAUBERWERK)
       {  
-        write_string_attrib(datei, "Art", cH_Zauberwerk(*i)->Art());
-        write_string_attrib(datei, "Stufe", cH_Zauberwerk(*i)->Stufe());
+        write_string_attrib(datei, "Art", Internal2Latin(cH_Zauberwerk(*i)->Art()));
+        write_string_attrib(datei, "Stufe", Internal2Latin(cH_Zauberwerk(*i)->Stufe()));
       }
       if ((*i)->ZusatzEnum(Typ))
-         write_string_attrib(datei, "Zusatz", (*i)->Zusatz());
+         write_string_attrib(datei, "Zusatz", Internal2Latin((*i)->Zusatz()));
       datei << "/>\n";
    }
 }
