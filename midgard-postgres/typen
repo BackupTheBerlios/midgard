@@ -33,18 +33,15 @@ COPY "typen"  FROM stdin;
 5	Er	Ermittler	Ermittlerin	n	ak	0	0	0	\N
 7	Hä	Händler	Händlerin	n	ak	-10	0	2	\N
 8	Kr	Krieger	Kriegerin	n	k	0	0	3	\N
-9	Ku	Kundschafter	Kundschafterin	n	k	0	0	0	\N
 10	Se	Seefahrer	Seefahrerin	n	ak	0	0	2	\N
 11	Sö	Söldner	Söldnerin	n	k	0	0	3	\N
 12	Sp	Spitzbube	Spitzbübin	n	ak	-20	-20	1	\N
 13	Wa	Waldläufer	Waldläuferin	n	k	-10	0	1	\N
 14	Ba	Barde	Bardin	j	ak	20	0	1	\N
 16	Tm	Tiermeister	Tiermeisterin	j	ak	0	0	0	\N
-20	Hl	Heiler	Heilerin	z	z	0	0	4	\N
 21	gHx	grauer Hexer	graue Hexe	z	z	0	0	4	\N
 22	sHx	schwarzer Hexer	schwarze Hexe	z	z	0	0	4	\N
 23	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N
-24	Ma	Magier	Magierin	z	z	0	0	4	\N
 25	PF	Fruchtbarkeitspriester	Fruchtberkeitspriesterin	z	z	20	0	4	\N
 26	PHa	Priester Handel/Handwerk	Priesterin Handel/Handwerk	z	z	20	0	1	\N
 27	PHe	Herrschaftspriester	Herrschaftspriesterin	z	z	20	0	1	\N
@@ -58,16 +55,19 @@ COPY "typen"  FROM stdin;
 41	Ri	Ritter	Ritterin	n	k	0	0	3	B&R
 32	ScN	Schamane (Nordland)	Schamanin (Nordland)	z	ak	0	0	1	\N
 33	ScS	Schamane (Steppe)	Schamanin (Steppe)	z	ak	0	0	1	\N
-34	ScW	Schamane (Waldland)	Schamanin (Waldland)	z	ak	0	0	1	\N
-35	Th	Thaumaturge	Thaumaturgin	z	z	0	0	1	\N
 38	Sa	Saddhu	Saddhu	z	z	0	0	4	R
 6	Gl	Glücksritter	Glücksritterin	n	ak	0	-20	3	\N
 17	eBe	Elementarbeschwörer	Elementarbeschwörerin	z	z	20	30	4	\N
 18	dBe	Dämonenbeschwörer	Dämonenbeschwörerin	z	z	20	30	4	\N
-19	Dr	Druide	Druidin	z	z	0	30	1	\N
 36	Ny	Ninya	Ninya	n	ak	0	30	1	K
-1	As	Assassine	Assassinin	n	ak	0	30	1	\N
 15	Or	Ordeskrieger	Ordenskriegerin	j	ak	0	0	3	\N
+9	Ku	Kundschafter	Kundschafterin	n	k	-10	0	0	\N
+1	As	Assassine	Assassinin	n	ak	-10	30	1	\N
+35	Th	Thaumaturge	Thaumaturgin	z	z	10	0	1	\N
+19	Dr	Druide	Druidin	z	z	10	30	1	\N
+24	Ma	Magier	Magierin	z	z	10	0	4	\N
+20	Hl	Heiler	Heilerin	z	z	10	0	4	\N
+34	ScW	Schamane (Waldland)	Schamanin (Waldland)	z	ak	0	0	1	\N
 \.
 --
 -- TOC Entry ID 3 (OID 9071979)

@@ -4,7 +4,7 @@
 DROP INDEX "pflicht_lernen_typ";
 DROP TABLE "pflicht_lernen";
 --
--- TOC Entry ID 2 (OID 19989498)
+-- TOC Entry ID 2 (OID 30136045)
 --
 -- Name: pflicht_lernen Type: TABLE Owner: thoma
 --
@@ -19,7 +19,7 @@ CREATE TABLE "pflicht_lernen" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 19989498) TABLE DATA pflicht_lernen
+-- Data for TOC Entry ID 4 (OID 30136045) TABLE DATA pflicht_lernen
 --
 
 COPY "pflicht_lernen"  FROM stdin;
@@ -61,12 +61,13 @@ Halbling	\N	\N	Peitsche	\N	\N
 Halbling	\N	\N	Langbogen	\N	\N
 Halbling	\N	\N	schwere Armbrust	\N	\N
 Halbling	\N	\N	Stockschleuder	\N	\N
+Elf	\N	\N	Fälschen	\N	\N
+Elf	\N	\N	Meucheln	\N	\N
 Elf	\N	\N	Gassenwissen	\N	\N
 Elf	\N	\N	Giftmischen	\N	\N
 Elf	\N	\N	Glücksspiel	\N	\N
 Elf	\N	\N	Schlösser öffnen	\N	\N
 Elf	\N	\N	Stehlen	\N	\N
-Elf		0	Kampf in Vollrüstung	S	\N
 Halbling		0	Überleben im Dschungel	S	\N
 Halbling		0	Überleben im Schnee	S	\N
 Halbling		0	Überleben in der Steppe	S	\N
@@ -74,6 +75,14 @@ Halbling		0	Überleben im Sumpf	S	\N
 Halbling		0	Überleben im Wald	S	\N
 Halbling		0	Überleben in der Wüste	S	\N
 Halbling		0	Überleben im Gebirge	S	\N
+Elf		0	Bogen zu Pferd	S	\N
+Elf		0	Fechten	S	\N
+Elf		0	Katapult bedienen	S	\N
+Elf		0	Trinken	S	\N
+Elf		0	Fechten tevarrischer Stil	S	\N
+Elf		0	Geschäftstüchtigkeit	S	\N
+Elf		0	Kampf in Vollrüstung	S	\N
+Elf		0	Ballista bedienen	S	\N
 Elf		0	Überleben im Dschungel	S	\N
 Elf		0	Überleben im Schnee	S	\N
 Elf		0	Überleben in der Steppe	S	\N
@@ -103,9 +112,6 @@ Elf	Tarnen	1			8
 Elf	Wahrnehmung	1			4
 Halbling	Schleichen	1			10
 Halbling	Tarnen	1			10
-Berggnom	Geheimmechanismen öffnen	1	\N	\N	4
-Waldgnom	Spurenlesen	1	\N	\N	4
-Waldgnom	Tarnen	1	\N	\N	4
 Ri	\N	\N	Beschatten	\N	\N
 Ri	\N	\N	Gassenwissen	\N	\N
 Ri	\N	\N	Giftmischen	\N	\N
@@ -116,9 +122,16 @@ Ri	\N	\N	Stehlen	\N	\N
 Ri	\N	\N	Fälschen	\N	\N
 Ri	\N	\N	Streitwagen lenken	\N	\N
 Ri	\N	\N	Tarnen	\N	\N
+Berggnom	Geheimmechanismen öffnen	1	\N	\N	6
+Waldgnom	Spurenlesen	1	\N	\N	6
+Waldgnom	Tarnen	1	\N	\N	8
+Berggnom	Fallen entdecken	1	\N	\N	6
+Waldgnom	Fallenstellen	1	\N	\N	4
+Zwerg	Baukunde	1	\N	\N	8
+Zwerk	Trinken	1	\N	\N	12
 \.
 --
--- TOC Entry ID 3 (OID 19989498)
+-- TOC Entry ID 3 (OID 30136045)
 --
 -- Name: "pflicht_lernen_typ" Type: INDEX Owner: thoma
 --
