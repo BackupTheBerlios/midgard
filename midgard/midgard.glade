@@ -3756,6 +3756,64 @@ Abenteurerblatt</label>
 	      </child>
 
 	      <widget>
+		<class>GtkVBox</class>
+		<name>vbox44</name>
+		<homogeneous>True</homogeneous>
+		<spacing>0</spacing>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_eigenschaften_standard</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.</tooltip>
+		  <can_focus>True</can_focus>
+		  <label>Standard</label>
+		  <active>True</active>
+		  <draw_indicator>False</draw_indicator>
+		  <group>Eigenschaften_wuerfeln</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_eigenschaften_zuweisen</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</tooltip>
+		  <can_focus>True</can_focus>
+		  <label>Zuweisen</label>
+		  <active>False</active>
+		  <draw_indicator>False</draw_indicator>
+		  <group>Eigenschaften_wuerfeln</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkRadioButton</class>
+		  <name>radiobutton_eigenschaften_69</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>9x würfeln, die besten sech Ergebnisse frei verteilen.</tooltip>
+		  <can_focus>True</can_focus>
+		  <label>6 von 9</label>
+		  <active>False</active>
+		  <draw_indicator>False</draw_indicator>
+		  <group>Eigenschaften_wuerfeln</group>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
 		<name>button_grundwerte</name>
@@ -13512,7 +13570,7 @@ KS
     <widget>
       <class>GtkTable</class>
       <name>table69</name>
-      <rows>2</rows>
+      <rows>3</rows>
       <columns>2</columns>
       <homogeneous>False</homogeneous>
       <row_spacing>0</row_spacing>
@@ -13539,8 +13597,8 @@ KS
 	<child>
 	  <left_attach>0</left_attach>
 	  <right_attach>1</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>2</bottom_attach>
+	  <top_attach>2</top_attach>
+	  <bottom_attach>3</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -13564,8 +13622,8 @@ KS
 	<child>
 	  <left_attach>1</left_attach>
 	  <right_attach>2</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>2</bottom_attach>
+	  <top_attach>1</top_attach>
+	  <bottom_attach>3</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -13592,14 +13650,38 @@ KS
 	<child>
 	  <left_attach>0</left_attach>
 	  <right_attach>1</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
+	  <top_attach>1</top_attach>
+	  <bottom_attach>2</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>True</xexpand>
 	  <yexpand>True</yexpand>
 	  <xshrink>True</xshrink>
 	  <yshrink>True</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>True</yfill>
+	</child>
+      </widget>
+
+      <widget>
+	<class>Custom</class>
+	<name>LogWin</name>
+	<cxx_visibility>protected</cxx_visibility>
+	<creation_function>logwin</creation_function>
+	<int1>0</int1>
+	<int2>0</int2>
+	<last_modification_time>Fri, 08 Feb 2002 13:21:42 GMT</last_modification_time>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>0</top_attach>
+	  <bottom_attach>1</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>False</xexpand>
+	  <yexpand>True</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
 	  <xfill>True</xfill>
 	  <yfill>True</yfill>
 	</child>
