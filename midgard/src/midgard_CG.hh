@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.205 2002/04/11 14:11:41 thoma Exp $
+// $Id: midgard_CG.hh,v 1.206 2002/04/12 07:02:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,7 @@ class Random;
 #include <fstream>
 #include "WindowInfo.hh"
 #include "Wizard_window.hh"
+#include "Midgard_Undo.hh"
 
 class GeldFenster 
 {public:
@@ -65,6 +66,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         friend class midgard_CG_glade;
         friend class Wizard_window;
         friend class Midgard_Info;
+        Midgard_Undo MidgardUndo;
         Wizard_window *wizard;
         Grundwerte Werte;
 
@@ -558,8 +560,11 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void xml_export_auswahl();
          void xml_import_auswahl();
          void checkAngeboreneSinne();
-
-
+         void speicherstream(ostream &datei);
+         void undosave(std::string s); 
+         void show_undo_tree();
+         void on_undo_leaf_selected(cH_RowDataBase d);
+         
          bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
          void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);
          // Werte in der Oberfläche setzen (z.B. nach laden)

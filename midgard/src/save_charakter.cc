@@ -62,7 +62,12 @@ void midgard_CG::xml_export(const std::string& dateiname)
                                +"' nicht beschreiben");
       return;
    }
+  speicherstream(datei);
+}
 
+
+void midgard_CG::speicherstream(ostream &datei)
+{
    datei << "<?xml";
    write_string_attrib(datei, "version", "1.0");
    write_string_attrib(datei, "encoding", TagStream::host_encoding);

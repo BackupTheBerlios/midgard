@@ -213,6 +213,8 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
    }
  else if(pagenr==PAGE_AUSRUESTUNG)
     ausruestung_laden();
+ else if(pagenr==PAGE_NEWS)
+    show_undo_tree();
 }
 
 void midgard_CG::on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)

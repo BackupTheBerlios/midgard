@@ -20,6 +20,7 @@
 #include "class_SimpleTree.hh"
 #include "Fertigkeiten.hh"
 #include "Zauber.hh"
+#include <Aux/itos.h>
 
 bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
@@ -88,6 +89,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
     {
       MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
     }
+ undosave(MBE->Name()+" auf "+itos(MBE->Erfolgswert())+" gesteigert");
  return true;
 }
 
@@ -185,6 +187,8 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 
 //cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
  MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE);
+ undosave(MBE->Name()+" gelernt");
+
 //cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
 }
 
