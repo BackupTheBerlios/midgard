@@ -24,12 +24,11 @@
 void midgard_CG::on_fertigkeiten_laden_clicked()
 {
   list_Fertigkeit_neu.clear();
-//  cH_Pflicht pflicht(Werte.Spezies(),Typ);
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
      if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Lesen/Schreiben") continue;
-     if (Database.pflicht->istVerboten(Werte.Spezies(),Typ,f->Name())) continue;
+     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
        if (region_check(f->Region()) )
         if (f->Voraussetzungen(Werte)) 
@@ -42,7 +41,6 @@ void midgard_CG::fertigkeiten_zeigen()
 {
  zeige_werte(Werte);
  on_speichern_clicked();
-// Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,Werte,Typ,Database.ausnahmen,'N');
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,Werte,Typ,Database.ausnahmen,'O');
 }
@@ -51,44 +49,45 @@ void midgard_CG::fertigkeiten_zeigen()
 void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+ cH_MidgardBasicElement MBE = dt->getMBE();
 
- if (dt->Name()=="KiDo" && kido_steigern_check(dt->Erfolgswert())) return;
- if (radio_fert_steigern->get_active() && dt->Steigern())
+ if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
+ if (radio_fert_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
       // Steigern mit lernen
       if (!togglebutton_praxispunkte_fertigkeiten->get_active()) 
          {
-            if (!steigern(dt->Steigern(),dt->Name())) return;
-            Werte.add_GFP(dt->Steigern());
+            if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),MBE)) return;
+            Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
             for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
-               if ( cH_Fertigkeit(*i)->Name() == dt->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(1); 
+               if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(1); 
          }
       else  // Lernen mit Praxispunkten 
          {
             bool wuerfeln;
             if (radiobutton_praxis_wuerfeln_fertigkeiten->get_active()) wuerfeln = true;
             if (radiobutton_praxis_auto_fertigkeiten->get_active()) wuerfeln = false;
-            int gelungen = praxispunkte_wuerfeln(dt->Name(),dt->Erfolgswert(),"Fertigkeit",wuerfeln);
+            int gelungen = praxispunkte_wuerfeln(MBE->Name(),MBE->Erfolgswert(),"Fertigkeit",wuerfeln);
             if (gelungen)
                {
-                  Werte.add_GFP(dt->Steigern()/2);
+                  Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen)/2);
                   for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
-                     if ( cH_Fertigkeit(*i)->Name() == dt->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(1); 
+                     if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(1); 
                }
          }     
     }
-   if (radio_fert_reduzieren->get_active() && dt->Reduzieren())
+   if (radio_fert_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
          {
-            if (steigern_bool) desteigern(dt->Reduzieren());
-            Werte.add_GFP(-dt->Reduzieren());
+            if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
+            Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
             for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
-               if ( cH_Fertigkeit(*i)->Name() == dt->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(-1); 
+               if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(-1); 
          }
-   if (radio_fert_verlernen->get_active() && dt->Verlernen())
+   if (radio_fert_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
          {
-            if (steigern_bool) desteigern(dt->Verlernen());
-            Werte.add_GFP(-dt->Verlernen());
-            MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,dt->Name());
+            if (steigern_bool) desteigern(MBE->Verlernen(Typ,Database.ausnahmen));
+            Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));
+            MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,MBE->Name());
          }
    fertigkeiten_zeigen();
 }
@@ -97,7 +96,7 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 void midgard_CG::on_button_fertigkeiten_sort_clicked()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
-  switch((Data_fert::Spalten_A)seq[0]) {
+  switch((Data_fert::Spalten_FA)seq[0]) {
       case Data_fert::NAMEa : list_Fertigkeit.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::NAME)); ;break;
       case Data_fert::WERTa : list_Fertigkeit.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
@@ -117,16 +116,19 @@ bool midgard_CG::kido_steigern_check(int wert)
 
 
 void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
-{  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
-  if (!steigern(dt->Lernkosten(),dt->Name())) return;
-  Werte.add_GFP(dt->Lernkosten());
-  MidgardBasicElement::move_element(list_Fertigkeit_neu,list_Fertigkeit,dt->Name());
+{  
+  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+  cH_MidgardBasicElement MBE = dt->getMBE();
+
+  if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),MBE)) return;
+  Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
+  MidgardBasicElement::move_element(list_Fertigkeit_neu,list_Fertigkeit,MBE->Name());
   fertigkeiten_zeigen();
 
-  if (dt->Name()=="KiDo") {kido_bool=true;show_gtk();
+  if (MBE->Name()=="KiDo") {kido_bool=true;show_gtk();
       std::string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
       manage (new WindowInfo(strinfo,true)); }
-  if (dt->Name()=="Wissen von der Magie") 
+  if (MBE->Name()=="Wissen von der Magie") 
       {  doppelcharaktere();
          std::string strinfo ="Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n";
          strinfo += " und anschließend 'Fertigkeiten neu laden' klicken\n";

@@ -2,7 +2,7 @@
 #include "midgard_CG.hh"
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
-#include "class_typen.hh"
+#include "Typen.hh"
 exec sql include sqlca;
 
 cH_Waffe::cache_t cH_Waffe::cache;
@@ -141,7 +141,7 @@ bool Waffe::standard_all_S(const vector<std::string>& s) const
 */
 
 /*
-void Waffe::set_Standard(const vector<H_Data_typen>& Typ)
+void Waffe::set_Standard(const vector<cH_Typen>& Typ)
 {
   assert(Typ.size()==2);
   std::string swaffe="Waffen";
@@ -285,7 +285,7 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe()
 }
 
 
-int Waffe::Maxwert(const vector<H_Data_typen>& Typ) const
+int Waffe::Maxwert(const vector<cH_Typen>& Typ) const
 {
  assert(Typ.size()==2);
  int maxwert=0;
@@ -308,7 +308,7 @@ int Waffe::Maxwert(const vector<H_Data_typen>& Typ) const
 std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
    const std::list<cH_MidgardBasicElement>& list_Waffen,
    const std::list<H_WaffeBesitz>& list_Waffen_besitz,
-   const vector<H_Data_typen>& Typ,
+   const vector<cH_Typen>& Typ,
    const Grundwerte& Werte)
 {
    std::list<H_WaffeBesitz> Verteidigungswaffen;

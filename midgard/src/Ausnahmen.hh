@@ -3,7 +3,7 @@
 
 #include <vector.h>
 #include <map.h>
-#include "class_typen.hh"
+#include "Typen.hh"
 #include "Grundwerte.hh"
 #include "class_berufe.hh"
 #include <gtk--/progressbar.h>
@@ -18,7 +18,7 @@ public:
 
    std::string Name() const {return name;}
    std::string Art() const {return art;}
-   std::string Standard(vector<std::string>& vstandard) const
+   void Standard(vector<std::string>& vstandard) const
       {vstandard[0] = "*"+standard+"*"; vstandard[1] = "";}
    double Fac() const;
 
@@ -38,14 +38,14 @@ class Ausnahmen
    std::map<st_index1,Data_Ausnahmen> map_ausnahmen;
    std::vector<H_Data_beruf> vec_Beruf;
    Grundwerte Werte;
-   vector<H_Data_typen> Typ;
+   vector<cH_Typen> Typ;
 
  public:
    Ausnahmen() {}
    Ausnahmen(Gtk::ProgressBar *progressbar);
    void set_Beruf (const std::vector<H_Data_beruf>& vB) {vec_Beruf = vB;}
    void set_Werte (const Grundwerte& W) {Werte=W;}
-   void set_Typ   (const vector<H_Data_typen>& T) {Typ=T;}
+   void set_Typ   (const vector<cH_Typen>& T) {Typ=T;}
 
    double Ausnahmen_float(const std::string& name) const;
    void Ausnahmen_string(const std::string& name, vector<std::string>& standard) const;

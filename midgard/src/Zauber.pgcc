@@ -2,7 +2,7 @@
 #include "midgard_CG.hh"
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
-#include "class_typen.hh"
+#include "Typen.hh"
 exec sql include sqlca;
 
 cH_Zauber::cache_t cH_Zauber::cache;
@@ -90,7 +90,7 @@ void Zauber::get_Zauber()
 }
 
 /*
-int Zauber::Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+int Zauber::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
   double fac = ausnahmen.Ausnahmen_float(Name()); 
   if (fac!=0) return (int)(fac*GrundKosten());
@@ -113,7 +113,7 @@ int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const
   return (int)(fac*GrundKosten());
 }
 
-int Zauber::Erfolgswert_Z(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const
+int Zauber::Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const
 {
    assert(Typ.size()==2);
    int ifac=-2;
@@ -149,13 +149,13 @@ int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte) const
  std::string agens=db_agens;
  std::string prozess=db_prozess;
 
- if (ergebnis!="G" && agens==Werte.Spezial()) ispez = 2;
- if (ergebnis!="G" && prozess==Werte.Spezial()) ispez = 2;
+ if (ergebnis!="G" && agens==Werte.Spezialgebiet()->Spezial()) ispez = 2;
+ if (ergebnis!="G" && prozess==Werte.Spezialgebiet()->Spezial()) ispez = 2;
  return ispez;
 }
 
 /*
-vector<std::string> Zauber::Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+vector<std::string> Zauber::Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
  assert(Typ.size()==2);
  vector<std::string> s(2);
@@ -168,7 +168,7 @@ vector<std::string> Zauber::Standard(const vector<H_Data_typen>& Typ,const Ausna
 }
 */
 /*
-std::string Zauber::Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& a) const
+std::string Zauber::Standard__(const vector<cH_Typen>& Typ,const Ausnahmen& a) const
 {
  vector<std::string> s = Standard(Typ,a);
  std::string s2=s[0];

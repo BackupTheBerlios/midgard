@@ -84,23 +84,9 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Beruf') ;         
             SQLerror::test(__FILELINE__);
       }
-   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
-   MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Waffen,Werte,Typ,ausnahmen);
-/*
-   for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();
-         i!=list_Waffen.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         db_wert =  (*i)->Erfolgswert() ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Waffe') ;         
-            SQLerror::test(__FILELINE__);
-      }
-*/
+   MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Waffen,Werte,Typ,Database.ausnahmen);
    for (std::list<H_WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
       {
@@ -115,22 +101,12 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region,:db_magisch) ;
             SQLerror::test(__FILELINE__);
       }
-   MidgardBasicElement::saveElementliste(list_Zauber,Werte,Typ,ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Zauberwerk,Werte,Typ,ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Kido,Werte,Typ,ausnahmen);
-   MidgardBasicElement::saveElementliste(list_WaffenGrund,Werte,Typ,ausnahmen);
-/*
-   for (std::list<cH_WaffeGrund>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
-      {
-         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
-         exec sql INSERT INTO charaktere_fertigkeiten 
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Grundkenntnis');
-            SQLerror::test(__FILELINE__);
-      }
-*/
-   MidgardBasicElement::saveElementliste(list_Sprache,Werte,Typ,ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Schrift,Werte,Typ,ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Zauber,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Zauberwerk,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Kido,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(list_WaffenGrund,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Sprache,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Schrift,Werte,Typ,Database.ausnahmen);
    // Regionen & Ähnliches
    if (!Originalbool) 
     {  
@@ -290,8 +266,8 @@ void midgard_CG::grundwerte_speichern()
       db_kep = Werte.KEP();
       db_zep = Werte.ZEP();
       db_steigern_bool = steigern_bool;
-      db_steigern_EP = Grad_Anstieg.get_Steigern_EP_Prozent();
-      db_grad_basiswerte = Grad_Anstieg.get_Grad_Basiswerte();
+      db_steigern_EP = Database.GradAnstieg.get_Steigern_EP_Prozent();
+      db_grad_basiswerte = Database.GradAnstieg.get_Grad_Basiswerte();
 
    db_beschreibung = (char *) (Werte.Beschreibung()).c_str();
    strncpy(db_gestalt,(Werte.Gestalt()).c_str(),sizeof(db_gestalt));
@@ -306,7 +282,7 @@ void midgard_CG::grundwerte_speichern()
    strncpy(db_typ_s,Typ[0]->Short().c_str(),sizeof(db_typ_s));
    strncpy(db_typ_2_s,Typ[1]->Short().c_str(),sizeof(db_typ_2_s));
    strncpy(db_ruestung,(Werte.Ruestung()->Name()).c_str(),sizeof(db_ruestung));
-   strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
+   strncpy(db_spezies,(Werte.Spezies()->Name()).c_str(),sizeof(db_spezies));
    
    exec sql UPDATE charaktere SET 
       charakter_name = :db_name_ch  , 

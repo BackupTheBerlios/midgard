@@ -33,7 +33,7 @@ exec sql include sqlca;
 
 
 Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::string& typ_2,
-   int lernpunkte, const Grundwerte& Werte,const vector<H_Data_typen>& _Typ)
+   int lernpunkte, const Grundwerte& Werte,const vector<cH_Typen>& _Typ)
 :Typ(_Typ)
 {
   hauptfenster=h;
@@ -53,9 +53,9 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::
    else           squery += "  l.typ = '"+typ+"' ";
    squery += " and l.art = 'Waffe' and w.name = l.fertigkeit \
       and  l.fertigkeit not in  \
-         (select verboten from pflicht_lernen where typ='"+Werte.Spezies()+"' and verboten is not null) \
+         (select verboten from pflicht_lernen where typ='"+Werte.Spezies()->Name()+"' and verboten is not null) \
       and  w.grundkenntnisse not in  \
-         (select verboten from pflicht_lernen where typ='"+Werte.Spezies()+"' and verboten is not null) \
+         (select verboten from pflicht_lernen where typ='"+Werte.Spezies()->Name()+"' and verboten is not null) \
       group by fertigkeit  order by min(lernpunkte)" ;
 
    strncpy(query,squery.c_str(),sizeof(query));

@@ -30,11 +30,12 @@ exec sql include sqlca;
 #include "midgard_CG.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
-#include <class_zauber.hh>
+//#include <class_zauber.hh>
 
 Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, 
+   const midgard_CG::st_Database& Database,
    const std::vector<H_Data_beruf>& vec_Beruf,
-   const vector<H_Data_typen>& Typ, int lernpunkte)
+   const vector<cH_Typen>& Typ, int lernpunkte)
 {
   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
   assert (Typ.size()==2);
@@ -51,7 +52,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
       from lernschema l \
       where (l.typ = '"+Typ[0]->Short()+"' or l.typ = '"+Typ[1]->Short()+"') \
       and l.art = 'Zauber' ";
-   if (Typ[0]->Short() == "eBe") squery += "and (l.p_element = '"+Werte.Spezial()+"' or l.s_element = '"+Werte.Spezial2()+"') ";
+   if (Typ[0]->Short() == "eBe") squery += "and (l.p_element = '"+Werte.Spezialgebiet()->Spezial()+"' or l.s_element = '"+Werte.Spezialgebiet()->Spezial2()+"') ";
    squery += " order by lernpunkte";      
   
    strncpy(query,squery.c_str(),sizeof(query));
@@ -78,7 +79,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
          cH_Zauber z(*i);
 //         double fac=hauptfenster->get_standard_zauber(Typ,Typ2,z->Name());
          os << z->Lernpunkte() <<"\t"<< z->Name() <<"\t"
-            <<z->Ap()<<"\t"<<z->Kosten(Typ,Ausnahmen(Werte,Typ,vec_Beruf))<<"\n";
+            <<z->Ap()<<"\t"<<z->Kosten(Typ,Database.ausnahmen)<<"\n";
          os.flush(&*i);
       }
     for (unsigned int i=0;i<zauber_clist_auswahl->columns().size();++i)

@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.26 2001/11/06 10:42:52 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.27 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,7 +43,7 @@ class midgard_CG;
 //class cH_Waffe;
 #include "MidgardBasicElement.hh"
 class Grundwerte;
-class H_Data_typen;
+class Typen;
 
 class Window_Waffenbesitz : public Window_Waffenbesitz_glade
 {   
@@ -52,7 +52,7 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         std::list<H_WaffeBesitz> Waffe_Besitz;
         std::list<H_WaffeBesitz> Waffe_Besitz_neu;
         Grundwerte& Werte;
-        vector<H_Data_typen> Typ;
+        vector<cH_Typen> Typ;
         H_WaffeBesitz selected_weapon;
         friend class Window_Waffenbesitz_glade;
         void on_leaf_selected_alt(cH_RowDataBase d);
@@ -71,7 +71,7 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         void on_entry_magisch_activate();
    public:
         Window_Waffenbesitz(midgard_CG* h,const std::list<cH_MidgardBasicElement>& vw,std::list<H_WaffeBesitz>& wb,
-            Grundwerte& We,const vector<H_Data_typen>& T);
+            Grundwerte& We,const vector<cH_Typen>& T);
 };
 
 class Data_waffenbesitz :  public RowDataBase

@@ -1,7 +1,7 @@
 #ifndef SCHRIFTCLASS
 #define SCHRIFTCLASS
 #include "MidgardBasicElement.hh"
-#include "class_typen.hh"
+#include "Typen.hh"
 #include "Ausnahmen.hh"
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
@@ -17,7 +17,7 @@ class Schrift : public MidgardBasicElement
   
   public:
    Schrift(const std::string& n) : name(n)
-      { get_Schrift();get_map_typ(); 
+      { get_Schrift();get_map_typ(); EP_steigern("Lesen/Schreiben");
       }
    enum MBEE What() const {return MidgardBasicElement::SCHRIFT;}
    std::string What_str() const {return "Urschrift";}
@@ -27,7 +27,7 @@ class Schrift : public MidgardBasicElement
    std::string Art_der_Schrift() const   {return art_der_schrift; }
 
    bool kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const;
-   int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+   int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
         { cH_Fertigkeit F("Lesen/Schreiben");
              return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; }
 };

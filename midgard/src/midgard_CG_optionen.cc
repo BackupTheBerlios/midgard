@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.25 2001/08/24 13:33:06 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.26 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -85,7 +85,7 @@ void midgard_CG::on_checkbutton_Eschar_toggled()
   else Escharbool=false;
   if (Escharbool)
      midgard_CG::regnot("Der Derwisch hat leider noch kein Lernschema :-( ");
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   menu_Eschar->set_active(Escharbool);
 }
 
@@ -98,7 +98,7 @@ void midgard_CG::on_checkbutton_HD_toggled()
 {   
   if (checkbutton_HD->get_active()) HDbool=true;
   else HDbool=false;
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   menu_HD->set_active(HDbool);
 }
 
@@ -112,7 +112,7 @@ void midgard_CG::on_checkbutton_BR_toggled()
   if (checkbutton_BR->get_active()) BRbool=true;
   else BRbool=false;
   midgard_CG::fill_typauswahl();
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   menu_BR->set_active(BRbool);
 }
 
@@ -127,7 +127,7 @@ void midgard_CG::on_checkbutton_Kuestenstaaten_toggled()
   else Kuestenstaatenbool=false;
   midgard_CG::regnot("Region noch nicht publiziert");
 //  midgard_CG::fill_typauswahl();
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   menu_Kuestenstaaten->set_active(Kuestenstaatenbool);
 }
 
@@ -142,7 +142,7 @@ void midgard_CG::on_checkbutton_Gildenbrief_toggled()
   else Gildenbriefbool=false;
   midgard_CG::regnot("nicht implementiert");
 //  midgard_CG::fill_typauswahl();
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
  menu_Gildenbrief->set_active(Gildenbriefbool);
 }
 
@@ -157,7 +157,7 @@ void midgard_CG::on_checkbutton_Rawindra_toggled()
   else Rawindrabool=false;
 //  midgard_CG::regnot("Region noch in Arbeit: Fabian Wagner,\n Fabian.Wagner@01019freenet.de");
   midgard_CG::fill_typauswahl();
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   menu_Rawindra->set_active(Rawindrabool);
 }
 
@@ -171,7 +171,7 @@ void midgard_CG::on_checkbutton_KanThaiPan_toggled()
   if (checkbutton_KanThaiPan->get_active()) KanThaiPanbool=true;
   else KanThaiPanbool=false;
   midgard_CG::fill_typauswahl();
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   menu_KanThaiPan->set_active(KanThaiPanbool);
 }
 
@@ -185,7 +185,7 @@ void midgard_CG::on_checkbutton_Nahuatlan_toggled()
   if (checkbutton_Nahuatlan->get_active()) Nahuatlanbool=true;
   else Nahuatlanbool=false;
   midgard_CG::regnot("Region noch in Arbeit: Nils Richter,\n anarion@uni-muenster.de");
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   menu_Nahuatlan->set_active(Nahuatlanbool);
 }
 
@@ -199,7 +199,7 @@ void midgard_CG::on_checkbutton_Waeland_toggled()
   if (checkbutton_Waeland->get_active()) Waelandbool=true;
   else Waelandbool=false;
   midgard_CG::regnot("Region noch in Arbeit: Stefan Brutscher,\n   midgard-site@t-online.de");
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   menu_Waeland->set_active(Waelandbool);
 }
 
@@ -212,7 +212,7 @@ void midgard_CG::on_checkbutton_Alba_toggled()
 {   
   if (checkbutton_Alba->get_active()) Albabool=true;
   else Albabool=false;
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   menu_Alba->set_active(Albabool);
 }
 

@@ -1,7 +1,7 @@
 #ifndef SPRACHECLASS
 #define SPRACHECLASS
 #include "MidgardBasicElement.hh"
-#include "class_typen.hh"
+#include "Typen.hh"
 #include "Ausnahmen.hh"
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
@@ -9,8 +9,7 @@
 class Sprache : public MidgardBasicElement
 {
      std::string name, urschrift, region;
-     int /*kosten,*/maxwert;
-//     mutable int erfolgswert;
+     int maxwert;
      bool alte_sprache;
 
      void get_Sprache();
@@ -18,7 +17,7 @@ class Sprache : public MidgardBasicElement
   
   public:
    Sprache(const std::string& n) : name(n)
-      {get_Sprache();get_map_typ();}
+      {get_Sprache();get_map_typ();EP_steigern("Sprache");}
    enum MBEE What() const {return MidgardBasicElement::SPRACHE;}
    std::string What_str() const {return "Sprache";}
 
@@ -26,17 +25,10 @@ class Sprache : public MidgardBasicElement
    std::string Region() const {return region;}
    std::string Urschrift() const   {return urschrift; }
    std::string Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const ; 
-//   int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
-//   int Erfolgswert() const {return erfolgswert;}
-//   void set_Erfolgswert(int e) const { erfolgswert=e; }
-//   void add_Erfolgswert(int e) const {erfolgswert+=e;}
 
    bool Alte_Sprache() const {return alte_sprache;}    
    int Maxwert() const {return maxwert;}
-   int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
-//   int Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
-//   int Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
-//   int Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
+   int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
 };
 
 class cH_Sprache : public Handle<const Sprache>

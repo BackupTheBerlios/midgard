@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.30 2001/11/04 16:57:23 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.31 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 
      if (Typ[0]->Zaubern()=="z" ) age = age/4+19;
      if (Typ[0]->Zaubern()=="n" || Typ[0]->Zaubern()=="j") age = age/4+16;
-     Werte.set_Alter( age * Spezies_constraint.Alter());
+     Werte.set_Alter( age * Werte.Spezies()->Alter());
      alter->set_text(itos(Werte.Alter()));
    }
   midgard_CG::zeige_lernpunkte();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.78 2001/11/06 14:26:21 thoma Exp $
+// $Id: midgard_CG.cc,v 1.79 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,6 +37,9 @@
 #include "Ausnahmen.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
+#include "Grad_anstieg.hh"
+//#include "Spezies.hh"
+//#include "Typen.hh"
 
 midgard_CG::midgard_CG(int argc,char **argv)
 :menu(0)
@@ -64,7 +67,11 @@ void midgard_CG::get_Database()
                            Sprachen_All(MI->get_progressbar_sprache()).get_All(),
                            Schriften_All(MI->get_progressbar_schrift()).get_All(),
                            Pflicht(MI->get_progressbar_pflicht()),
-                           Ausnahmen(MI->get_progressbar_ausnahmen()));
+                           Ausnahmen(MI->get_progressbar_ausnahmen()),
+                           Spezies_All(MI->get_progressbar_spezies()).get_All(),
+                           Typen_All(MI->get_progressbar_typen()).get_All(),
+                           Grad_anstieg(MI->get_progressbar_grad()),
+                           Spezialgebiet_All(MI->get_progressbar_spezial()).get_All());
    MI->on_button_close_clicked();
 }
 
@@ -86,7 +93,7 @@ void midgard_CG::set_tree_titles()
  alte_fert.push_back("Steigern\n(nächste Stufe)");
  alte_fert.push_back("Reduzieren\n(eine Stufe)");
  alte_fert.push_back("Verlernen");
- alte_fert_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+ alte_fert_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("FA")));
  alte_fert_tree->setTitles(alte_fert);
  std::vector<string> neue_fert;
  neue_fert.push_back("Fertigkeit");
@@ -94,7 +101,7 @@ void midgard_CG::set_tree_titles()
  neue_fert.push_back("Lernkosten");
  neue_fert.push_back("Art");
  neue_fert.push_back("Voraussetzungen");
- neue_fert_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+ neue_fert_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("FN")));
  neue_fert_tree->setTitles(neue_fert);
 
  std::vector<string> alte_waffen;
@@ -102,23 +109,23 @@ void midgard_CG::set_tree_titles()
  alte_waffen.push_back("Wert");
  alte_waffen.push_back("Steigern\n(nächste Stufe)");
  alte_waffen.push_back("Reduzieren\n(eine Stufe)");
- alte_waffen_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+ alte_waffen_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("WA")));
  alte_waffen_tree->setTitles(alte_waffen);
  std::vector<string> neue_waffen;
  neue_waffen.push_back("Waffe");
  neue_waffen.push_back("Wert");
  neue_waffen.push_back("Voraussetzung");
- neue_waffen_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+ neue_waffen_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("WN")));
  neue_waffen_tree->setTitles(neue_waffen);
 
  std::vector<string> alte_grund;
  alte_grund.push_back("Grundkenntnisse");
  alte_grund_tree->setTitles(alte_grund);
- alte_grund_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+ alte_grund_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("GA")));
  std::vector<string> neue_grund;
  neue_grund.push_back("Grundkenntnisse");
  neue_grund.push_back("Kosten");
- neue_grund_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+ neue_grund_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("GN")));
  neue_grund_tree->setTitles(neue_grund);
  
  std::vector<string> alte_zauber;
@@ -127,14 +134,14 @@ void midgard_CG::set_tree_titles()
  alte_zauber.push_back("Ursprung");
  alte_zauber.push_back("Lernkosten");
  alte_zauber_tree->setTitles(alte_zauber);
- alte_zauber_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+ alte_zauber_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("ZA")));
  std::vector<string> neue_zauber;
  neue_zauber.push_back("Name");
  neue_zauber.push_back("Stufe");
  neue_zauber.push_back("Ursprung");
  neue_zauber.push_back("Lernkosten");
  neue_zauber.push_back("Art");
- neue_zauber_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+ neue_zauber_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("ZN")));
  neue_zauber_tree->setTitles(neue_zauber);
 
  std::vector<string> alte_zaubermittel;
@@ -142,7 +149,7 @@ void midgard_CG::set_tree_titles()
  alte_zaubermittel.push_back("Name");
  alte_zaubermittel.push_back("Art");
  alte_zaubermittel.push_back("Kosten");
- alte_zaubermittel_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+ alte_zaubermittel_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("ZWA")));
  alte_zaubermittel_tree->setTitles(alte_zaubermittel); 
  std::vector<string> neue_zaubermittel;
  neue_zaubermittel.push_back("Stufe");
@@ -151,7 +158,7 @@ void midgard_CG::set_tree_titles()
  neue_zaubermittel.push_back("Kosten");
  neue_zaubermittel.push_back("Preis");
  neue_zaubermittel.push_back("Zeitaufwand");
- neue_zaubermittel_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+ neue_zaubermittel_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("ZWN")));
  neue_zaubermittel_tree->setTitles(neue_zaubermittel); 
 
  std::vector<string> kido;
@@ -161,9 +168,9 @@ void midgard_CG::set_tree_titles()
  kido.push_back("AP");
  kido.push_back("Kosten");
  kido.push_back("Stil");
- alte_kido_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+ alte_kido_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("KA")));
  alte_kido_tree->setTitles(kido);
- neue_kido_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+ neue_kido_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("KN")));
  neue_kido_tree->setTitles(kido);
 
  std::vector<string> alte_sprachen;
@@ -172,22 +179,22 @@ void midgard_CG::set_tree_titles()
  alte_sprachen.push_back("Steigern\n(nächste Stufe)");
  alte_sprachen.push_back("Reduzieren\n(eine Stufe)");
  alte_sprachen.push_back("Verlernen");
- alte_sprache_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+ alte_sprache_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("SPA")));
  alte_sprache_tree->setTitles(alte_sprachen);
  std::vector<string> neue_sprachen;
  neue_sprachen.push_back("Sprache");
  neue_sprachen.push_back("Urschrift");
  neue_sprachen.push_back("Lernkosten");
- neue_sprache_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+ neue_sprache_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("SPN")));
  neue_sprache_tree->setTitles(neue_sprachen);
 
  std::vector<string> schrift;
  schrift.push_back("Urschrift");
  schrift.push_back("Art der Schrift");
  schrift.push_back("Kosten");
- alte_schrift_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+ alte_schrift_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("SCA")));
  alte_schrift_tree->setTitles(schrift);
- neue_schrift_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+ neue_schrift_tree->set_value_data(reinterpret_cast<gpointer>(const_cast<char*>("SCN")));
  neue_schrift_tree->setTitles(schrift);
 
 }
@@ -196,40 +203,48 @@ void midgard_CG::on_radiobutton_frau_toggled()
 {   
   if (radiobutton_frau->get_active()) Werte.Geschlecht()="w";
    else Werte.set_Geschlecht("m");
-  midgard_CG::fill_typauswahl();
-  midgard_CG::fill_typauswahl_2();
-  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
-  typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
+  fill_typauswahl();
+  fill_typauswahl_2();
+//  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
+//  typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
+  typauswahl->set_history(Typ[0]->Nr());
+  typauswahl_2->set_history(Typ[1]->Nr());
 }
 
 void midgard_CG::on_radiobutton_mann_toggled()
 {
   if (radiobutton_mann->get_active()) Werte.Geschlecht()="m";
    else Werte.set_Geschlecht("w");
-  midgard_CG::fill_typauswahl();
-  midgard_CG::fill_typauswahl_2();
-  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
-  typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
+  fill_typauswahl();
+  fill_typauswahl_2();
+//  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
+//  typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
+  typauswahl->set_history(Typ[0]->Nr());
+  typauswahl_2->set_history(Typ[1]->Nr());
 }
 
 void midgard_CG::show_gtk()
 {
-  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
+//  typauswahl->set_history(Typ[0]->Nr_Optionmenu());
+  typauswahl->set_history(Typ[0]->Nr());
   if (Typ[1]->Short()=="") typauswahl_2->hide();
   else
    { typauswahl_2->show(); 
-     typauswahl_2->set_history(Typ[1]->Nr_Optionmenu());
+     typauswahl_2->set_history(Typ[1]->Nr());
    }
- fertig_typ->set_text(Typ[0]->Name());     // Charakterklasse im Lernfenster
- if (Typ[1]->Name()!="") fertig_typ->set_text(Typ[0]->Name()+"/"+Typ[1]->Name());
- steigern_typ->set_text(Typ[0]->Name());     // Charakterklasse im Lernfenster
- if (Typ[1]->Name()!="") steigern_typ->set_text(Typ[0]->Name()+"/"+Typ[1]->Name());
+//cout << "Geschlecht = " <<Werte.Geschlecht()<<'\n';
+ fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Charakterklasse im Lernfenster
+ if (Typ[1]->Name(Werte.Geschlecht())!="") 
+   fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
+ steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Charakterklasse im Lernfenster
+ if (Typ[1]->Name(Werte.Geschlecht())!="") 
+   steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
  
-   midgard_CG::zeige_werte(Werte);
-   midgard_CG::show_berufe();
-   midgard_CG::show_fertigkeiten();
-   midgard_CG::show_waffen();
-   midgard_CG::show_zauber();
+ zeige_werte(Werte);
+ show_berufe();
+ show_fertigkeiten();
+ show_waffen();
+ show_zauber();
 
  EP_uebernehmen();
  Geld_uebernehmen();
@@ -283,7 +298,7 @@ void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
 {
    Werte.set_Herkunft(s);
    zeige_werte(Werte);
-   clear_Ausnahmen();
+//   clear_Ausnahmen();
 }
 
 
@@ -390,8 +405,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    lernpunkte.clear();
    Typ.clear();
    Typ.resize(2);
-   vec_Typen.clear();
-   vec_Typen_2.clear();
+//   vec_Typen.clear();
+//   vec_Typen_2.clear();
    zeige_lernpunkte();
    zeige_werte(Werte);
    berufe_clist->clear();
@@ -427,8 +442,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    HDbool=false;             checkbutton_HD->set_active(false);
    BRbool=false;             checkbutton_BR->set_active(false);
 
-   Grad_Anstieg.clear();
-   vscale_EP_Gold->set_digits(Grad_Anstieg.get_Steigern_EP_Prozent());
+//   Grad_Anstieg.clear();
+   vscale_EP_Gold->set_digits(Database.GradAnstieg.get_Steigern_EP_Prozent());
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
@@ -448,11 +463,12 @@ void midgard_CG::on_neuer_charakter_clicked()
 
 }
 
+/*
 void midgard_CG::clear_Ausnahmen()
 {
-  Ausnahmen::clear();
+//  Ausnahmen::clear();
 }
-
+*/
 void midgard_CG::on_schliessen_CG_clicked()
 {
   system("rm midgard_tmp_*");

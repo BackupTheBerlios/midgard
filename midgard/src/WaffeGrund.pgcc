@@ -2,7 +2,7 @@
 #include "midgard_CG.hh"
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
-#include "class_typen.hh"
+#include "Typen.hh"
 exec sql include sqlca;
 
 cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
@@ -42,7 +42,7 @@ void WaffeGrund::get_WaffeGrund()
   tr.close();
 }
 /*
-double WaffeGrund::Standard_Faktor(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+double WaffeGrund::Standard_Faktor(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
   double fac;
     if      (standard_one_G(Standard(Typ,ausnahmen)) ) fac = 0.5;
@@ -51,7 +51,7 @@ double WaffeGrund::Standard_Faktor(const vector<H_Data_typen>& Typ,const Ausnahm
  return fac;
 }
 
-vector<std::string> Fertigkeit::Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+vector<std::string> Fertigkeit::Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
  assert(Typ.size()==2);
  vector<std::string> s(2);
@@ -65,7 +65,7 @@ vector<std::string> Fertigkeit::Standard(const vector<H_Data_typen>& Typ,const A
  
 */
 /*
-void WaffeGrund::set_Standard(const vector<H_Data_typen>& Typ)
+void WaffeGrund::set_Standard(const vector<cH_Typen>& Typ)
 {
   assert(Typ.size()==2);
   std::string swaffe="Waffen";

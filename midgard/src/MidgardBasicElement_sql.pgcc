@@ -6,8 +6,6 @@
 exec sql include sqlca;
 
 
-
-
 void MidgardBasicElement::get_map_typ()
 {  
  exec sql begin declare section;
@@ -53,7 +51,7 @@ void MidgardBasicElement::get_map_typ()
  
 void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
-                           const vector<H_Data_typen>& Typ,
+                           const vector<cH_Typen>& Typ,
                            const Ausnahmen& ausnahmen
                            )
 {
@@ -87,3 +85,30 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
    }
 }
 
+  //////////////////////////////////////////////////////////////////////
+  //Steigern von Fertigkeiten  
+void MidgardBasicElement::EP_steigern(const std::string fert)
+{
+  exec sql begin declare section;
+   char db_fert[50],db_w[50];
+  exec sql end declare section;
+  strncpy(db_fert,fert.c_str(),sizeof(db_fert));
+  exec sql declare fwein cursor for SELECT ep from steigern_fertigkeiten_mit
+      where name = :db_fert;
+  Transaction tr;  
+  exec sql open fwein;
+  SQLerror::test(__FILELINE__);
+  int back=0;
+  while (true)
+   {
+     exec sql fetch fwein into :db_w;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break; 
+     std::string w=db_w;
+     if(w=="KEP") back+=1;
+     if(w=="ZEP") back+=2;  
+   }
+  exec sql close fwein;
+  tr.close();
+  steigern_mit_EP=back;
+}

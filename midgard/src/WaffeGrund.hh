@@ -3,7 +3,7 @@
 #include <vector>
 #include <list>
 #include "MidgardBasicElement.hh"
-#include "class_typen.hh"
+#include "Typen.hh"
 //#include "Ausnahmen.hh"
 #include <gtk--/progressbar.h>
 
@@ -27,9 +27,9 @@ class WaffeGrund : public MidgardBasicElement
 
      std::string Name() const {return name;}
      std::string Region() const {return region;}
-//     int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const 
+//     int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
 //         {return (int)(Standard_Faktor(Typ,ausnahmen)*GrundKosten());};
-//     double Standard_Faktor(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
+//     double Standard_Faktor(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
 };
 
 class cH_WaffeGrund : public Handle<const WaffeGrund>

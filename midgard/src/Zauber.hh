@@ -1,7 +1,7 @@
 #ifndef ZAUBERCLASS
 #define ZAUBERCLASS
 #include "MidgardBasicElement.hh"
-#include "class_typen.hh"
+#include "Typen.hh"
 #include "Ausnahmen.hh"
 class cH_Zauber;
 #include <gtk--/progressbar.h>
@@ -20,10 +20,10 @@ class Zauber : public MidgardBasicElement
 
    void get_Zauber();
 //   int GrundKosten() const {  return kosten; }
-//   vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
+//   vector<std::string> Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const ;
  public: 
    Zauber(const std::string& n,int l=0) 
-      : name(n),lernpunkte(l){get_Zauber();get_map_typ();} 
+      : name(n),lernpunkte(l){get_Zauber();get_map_typ();EP_steigern("Zauber");} 
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
    std::string What_str() const {return "Zauber";}
@@ -31,7 +31,7 @@ class Zauber : public MidgardBasicElement
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
 
-//   std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
+//   std::string Standard__(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }
    int iStufe() const {  if (Stufe()=="groﬂ") return 6; else return atoi(Stufe().c_str()); }
@@ -50,13 +50,13 @@ class Zauber : public MidgardBasicElement
    std::string P_Element() const {return p_element;}
    std::string S_Element() const {return s_element;}
    std::string Region() const {return region;}
-//   int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
+//   int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
    int Lernpunkte() const {  return lernpunkte; }
    bool Spruchrolle() const 
       { if (spruchrolle=="nicht") return false; 
         else return true; }
-   int Erfolgswert_Z(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
+   int Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
    int get_spezial_zauber_for_magier(const Grundwerte& Werte) const;
 
 };

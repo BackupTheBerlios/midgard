@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.30 2001/11/04 16:57:23 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.31 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,7 +53,7 @@ void midgard_CG::show_fertigkeiten()
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
   list_Fertigkeit_ang.clear();
-  if (Werte.Spezies()=="Zwerg" || Werte.Spezies()=="Elf") 
+  if (Werte.Spezies()->Name()=="Zwerg" || Werte.Spezies()->Name()=="Elf") 
       list_Fertigkeit_ang.push_back(new Fertigkeit_angeborene("Nachtsicht",0));
   if (event->button==1) on_angeborene_fertigkeit_clicked() ;
   if (event->button==3) on_angeborene_fertigkeit_right_clicked() ;

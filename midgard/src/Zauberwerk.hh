@@ -2,7 +2,7 @@
 #define ZAUBERWERKCLASS
 #include "Grundwerte.hh"
 #include "MidgardBasicElement.hh"
-#include "class_typen.hh"
+#include "Typen.hh"
 class cH_Zauberwerk;
 #include <gtk--/progressbar.h>
 
@@ -12,7 +12,7 @@ class Zauberwerk : public MidgardBasicElement
    std::string stufe, name,art;
 //   int kosten;
    std::string preis, zeitaufwand,region; 
-//   vector<std::string> Standard(const vector<H_Data_typen>& Typ) const ;   
+//   vector<std::string> Standard(const vector<cH_Typen>& Typ) const ;   
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBERWERK;}
    std::string What_str() const {return "Zauberwerk";}
@@ -27,12 +27,12 @@ class Zauberwerk : public MidgardBasicElement
    Zauberwerk(const std::string& n) 
       : name(n) {get_Zauberwerk();get_map_typ();} 
 
-//   bool ist_lernbar(const vector<H_Data_typen>& Typ) const;
+//   bool ist_lernbar(const vector<cH_Typen>& Typ) const;
 //   bool ist_gelernt(const std::list<cH_Zauberwerk>& L) const;
 //   map<std::string,std::string> get_MapTyp() const {return map_typ;}
 
    std::string Name() const {  return name; }
-//   std::string Standard__(const vector<H_Data_typen>& Typ) const;
+//   std::string Standard__(const vector<cH_Typen>& Typ) const;
    std::string Art() const 
       { if (art=="AZ") return "Alchimistisches Zaubermittel";
         if (art=="PZ") return "Zaubermittel";
@@ -43,7 +43,7 @@ class Zauberwerk : public MidgardBasicElement
    std::string Zeitaufwand() const { return zeitaufwand;}
 //   std::string Beschreibung() const { return beschreibung;}
    std::string Region() const {return region;}
-//   int Kosten(const vector<H_Data_typen>& Typ) const;
+//   int Kosten(const vector<cH_Typen>& Typ) const;
    std::string Preis() const { return preis; }
 
    static bool zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte);

@@ -2,7 +2,7 @@
 #include "midgard_CG.hh"
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
-#include "class_typen.hh"
+#include "Typen.hh"
 exec sql include sqlca;
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
@@ -58,7 +58,6 @@ void Fertigkeit::get_Fertigkeit()
   voraussetzung = st_Voraussetzung(db_st,db_ge,db_ko,db_in,db_zt,db_au,db_pa,
                                    db_sb,db_rw,db_voraussetzung);
   exec sql close cl_fertigkeit_ein;
-  tr.close();
 }
 
 bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 

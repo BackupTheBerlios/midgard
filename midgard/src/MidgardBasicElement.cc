@@ -1,5 +1,5 @@
 #include "MidgardBasicElement.hh"
-#include "class_typen.hh"
+#include "Typen.hh"
 #include "Grundwerte.hh"
 #include "Fertigkeiten.hh"
 #include "Waffe.hh"
@@ -9,11 +9,11 @@
 #include "Zauberwerk.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-#include "class_kido.hh"
-#include "class_zauber.hh"
+//#include "class_kido.hh"
+//#include "class_zauber.hh"
 #include "class_fertigkeiten.hh"
-#include "class_sprache_schrift.hh"
-#include "class_waffen.hh"
+//#include "class_sprache_schrift.hh"
+//#include "class_waffen.hh"
 #include "SimpleTree.hh"
 
 /*
@@ -35,35 +35,36 @@ void MidgardBasicElement::show_list_in_tree(
   const std::list<cH_MidgardBasicElement>& BasicList,
   SimpleTree *Tree,
   const Grundwerte& Werte, 
-  const vector<H_Data_typen>& Typ, const Ausnahmen& ausnahmen,
+  const vector<cH_Typen>& Typ, const Ausnahmen& ausnahmen,
   char variante, bool _bool_)
 {
   if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {
+      datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
+/*
     switch((*BasicList.begin())->What())
      {
-       case(FERTIGKEIT) : {cH_Fertigkeit f(*i);
-         if(variante=='O')  
-            datavec.push_back(new Data_fert(f->Name(),f->Erfolgswert(),f->Steigern(Typ,ausnahmen),f->Reduzieren(Typ,ausnahmen),f->Verlernen(Typ,ausnahmen)));
-         if(variante=='N')  
-            datavec.push_back(new Data_fert(f->Name(),f->Erfolgswert(),f->Kosten(Typ,ausnahmen),f->Standard__(Typ,ausnahmen),f->Voraussetzung()));
+       case(FERTIGKEIT) : {
          break; }
        case(FERTIGKEIT_ANG)      : break;
-       case(WAFFEGRUND)  : {cH_WaffeGrund w(*i);
+       case(WAFFEGRUND)  : {
+            datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
          if(variante=='O')  
             datavec.push_back(new Data_grund(w->Name()));
          if(variante=='N')  
             datavec.push_back(new Data_grund(w->Name(),w->Kosten(Typ,ausnahmen)));
           break; }
-       case(WAFFE)      : {cH_Waffe w(*i);
+       case(WAFFE)      : {
+            datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
          if(variante=='O')  
             datavec.push_back(new Data_waffen(w->Name(),w->Erfolgswert(),w->Steigern(Typ,ausnahmen),w->Reduzieren(Typ,ausnahmen),w->Verlernen(Typ,ausnahmen)));
          if(variante=='N')  
             datavec.push_back(new Data_waffen(w->Name(),w->Erfolgswert(),w->Voraussetzung()));
           break; }
        case(ZAUBER)      : {cH_Zauber z(*i);
+          datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
           if (!_bool_ || (_bool_ &&  z->Spruchrolle())) 
            {int kosten=z->Kosten(Typ,ausnahmen);
             if(_bool_) kosten/=10; 
@@ -71,6 +72,7 @@ void MidgardBasicElement::show_list_in_tree(
            }
           break; }
        case(ZAUBERWERK)  : {cH_Zauberwerk z(*i); 
+          datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
           if(variante=='O')  
               { if(_bool_) continue;
                 datavec.push_back(new Data_zaubermittel(z->Stufe(),z->Name(),z->Art(),z->Kosten(Typ,ausnahmen)));
@@ -92,6 +94,7 @@ void MidgardBasicElement::show_list_in_tree(
                datavec.push_back(new Data_schrift(s->Name(),s->Art_der_Schrift(),s->Kosten(Typ,ausnahmen)));
           break; }
       }
+*/
    }
     Tree->setDataVec(datavec);
 }
@@ -103,9 +106,9 @@ void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,st
      { nach.splice(nach.begin(),von,i);break; }
 }
 
-bool MidgardBasicElement::ist_lernbar(const vector<H_Data_typen>& Typ,const map<std::string,std::string>& map_typ) const
+bool MidgardBasicElement::ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const
 {
-  for (std::vector<H_Data_typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
+  for (std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
     if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") 
       return true;
   return false;
@@ -118,7 +121,7 @@ bool MidgardBasicElement::ist_gelernt(const std::list<cH_MidgardBasicElement>& L
  return false;
 }
 
-std::string MidgardBasicElement::Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& a) const
+std::string MidgardBasicElement::Standard__(const vector<cH_Typen>& Typ,const Ausnahmen& a) const
 {
  vector<std::string> s = Standard(Typ,a);
  std::string s2=s[0];
@@ -127,7 +130,7 @@ std::string MidgardBasicElement::Standard__(const vector<H_Data_typen>& Typ,cons
  return s2;
 }
 
-vector<std::string> MidgardBasicElement::Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+vector<std::string> MidgardBasicElement::Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
  assert(Typ.size()==2);
  vector<std::string> s(2);
@@ -139,7 +142,7 @@ vector<std::string> MidgardBasicElement::Standard(const vector<H_Data_typen>& Ty
  return s;
 }
 
-double MidgardBasicElement::Standard_Faktor(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+double MidgardBasicElement::Standard_Faktor(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
   double fac = ausnahmen.Ausnahmen_float(Name());
   if (fac!=0) return fac;
@@ -176,15 +179,15 @@ int MidgardBasicElement::get_Steigern_Kosten(int erfolgswert) const
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
 
-int MidgardBasicElement::Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const 
+int MidgardBasicElement::Steigern(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
 { 
    return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()+1));
 }
-int MidgardBasicElement::Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const 
+int MidgardBasicElement::Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
 {
    return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()));
 }
-int MidgardBasicElement::Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+int MidgardBasicElement::Verlernen(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
    if(Reduzieren(Typ,ausnahmen)==0)
       return Kosten(Typ,ausnahmen);

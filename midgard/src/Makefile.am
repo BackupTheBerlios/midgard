@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.67 2001/11/06 10:42:52 thoma Exp $
+# $Id: Makefile.am,v 1.68 2001/11/08 10:15:43 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -13,6 +13,7 @@ EXTRA_DIST = document_eingabe.tex.in \
 
 
 noinst_HEADERS = \
+   Grad_anstieg.hh \
    MidgardBasicElement.hh \
    Zauber.hh \
    Zauberwerk.hh \
@@ -23,6 +24,7 @@ noinst_HEADERS = \
    Land.hh \
    Grundwerte.hh \
    Ruestung.hh \
+   Spezialgebiet.hh \
 WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
@@ -57,21 +59,21 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_doppelcharaktere_glade.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh \
-   class_kido.hh \
-   class_waffen.hh \
    class_berufe.hh \
    class_lernpunkte.hh \
-   class_zauber.hh \
    class_fertigkeiten.hh \
-   class_sprache_schrift.hh \
-   class_spezies.hh \
-   class_typen.hh \
+   Spezies.hh \
+   Typen.hh \
    Window_Erfahrungspunkte.hh \
    Window_Erfahrungspunkte_glade.hh
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
 BUILT_SOURCES_CG =  \
+   Spezies.cc \
+   Typen.cc \
+   Pflicht.cc \
+   Ausnahmen.cc \
    Zauber.cc \
    Zauberwerk.cc \
    Fertigkeiten.cc \
@@ -80,26 +82,24 @@ BUILT_SOURCES_CG =  \
    Sprache.cc \
    Schrift.cc \
    MidgardBasicElement_sql.cc \
-   Pflicht.cc \
-   Ausnahmen.cc \
    Land.cc \
    Ruestung.cc \
    WaffeGrund.cc \
    Fertigkeiten_angeboren.cc \
-   get_spezies_constraint.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
+   Grad_anstieg.cc \
+   Spezialgebiet.cc \
+   \
+   Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  \
    Berufe_auswahl.cc \
+	KiDo_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \
-   get_typ.cc  Window_charakter_auswahl.cc \
+   Window_charakter_auswahl.cc \
    praxispunkte_wuerfeln.cc \
 	Window_waffe.cc Window_Waffenbesitz.cc \
-   get_berufs_vorteile.cc \
-   midgard_CG_typauswahl.cc \
-	KiDo_auswahl.cc \
-   midgard_CG_magier_spezialgebiet.cc \
-   steigern_EP_sql.cc \
-   midgard_CG_grad_anstieg_sql.cc \
-   class_grad_anstieg_sql.cc
+   get_berufs_vorteile.cc
+
+#   midgard_CG_magier_spezialgebiet.cc
 
 BUILT_SOUCES_XMLE=xmlexport.cc
 BUILT_SOUCES_XMLI=xmlimport.cc
@@ -111,6 +111,7 @@ midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 
 midgard_SOURCES = \
+   midgard_CG_typauswahl.cc \
    MidgardBasicElement.cc \
    midgard_CG_basic_elemente.cc \
    $(BUILT_SOURCES_CG) \

@@ -2,7 +2,7 @@
 #  define _FERTIGKEITEN_A_HH
 #include <list>
 #include "MidgardBasicElement.hh"
-//#include "class_typen.hh"
+//#include "Typen.hh"
 //#include "Ausnahmen.hh"
 #include <gtk--/progressbar.h>
 

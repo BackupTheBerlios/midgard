@@ -21,22 +21,26 @@
 exec sql include sqlca;
 #include <Ausnahmen.hh>
 #include <midgard_CG.hh>
+//#include <gtk--/progressbar.h>
 
 
-Ausnahmen(Gtk::ProgressBar *progressbar)
+Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;
    char db_name[50], db_art[5], db_standard[5];
    char db_spezies[50], db_herkunft[50], db_typ[50], db_stand[50], db_beruf[50];
    char query[1024];
+   int db_size;
  exec sql end declare section;
+ exec sql select count(name) into :db_size from ausnahmen;
+ SQLerror::test(__FILELINE__);
  std::string squery = "select name,art,standard,
       coalesce(spezies,''),coalesce(herkunft,''),coalesce(typ,''),
       coalesce(beruf,''), coalesce(stand,'') from ausnahmen";
  strncpy (query,squery.c_str(),sizeof(query));
  Transaction tr;
  exec sql prepare ein_aus_ from :query;
- exec sql declare ein_aus cursor for ein_aus;
+ exec sql declare ein_aus cursor for ein_aus_;
  exec sql open ein_aus;
  SQLerror::test(__FILELINE__);
  double count=0;
@@ -48,7 +52,7 @@ Ausnahmen(Gtk::ProgressBar *progressbar)
        :db_spezies, :db_herkunft, :db_typ, :db_beruf, :db_stand;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     st_index index(db_typ,db_herkunft,db_spezies,db_beruf,db_stand);
+     st_index1 index(db_typ,db_herkunft,db_spezies,db_beruf,db_stand);
      Data_Ausnahmen DA(db_name,db_art,db_standard);
    }
  exec sql close ein_aus;
@@ -56,31 +60,29 @@ Ausnahmen(Gtk::ProgressBar *progressbar)
  progressbar->set_percentage(1);
 }
 
-float Ausnahmen::Ausnahmen_float(const Grundwerte& Werte,const vector<H_Data_typen>& Typ,
-      const std::vector<H_Data_beruf>& vec_Beruf,const std::string& name) const
+double Ausnahmen::Ausnahmen_float(const std::string& name) const
 {
   assert(Typ.size()==2);
   for(std::map<st_index1,Data_Ausnahmen>::const_iterator i=map_ausnahmen.begin();i!=map_ausnahmen.end();++i)
    {
      if (i->second.Name()!=name) continue;
-     if (i->first.typ == Typ[0] || (Typ[1]!= "" && i->first.typ == Typ[1])
+     if (i->first.typ == Typ[0]->Short() || (Typ[1]->Short()!= "" && i->first.typ == Typ[1]->Short()))
       {
-        if ( (i->first.spezies  !="" && i->first.spezies  == Werte.Spezies() ) || 
-             (i->first.herkunft !="" && i->first.herkunft == Werte.Herkunft() )) 
+        if ( (i->first.spezies  !="" && i->first.spezies  == Werte.Spezies()->Name() ) || 
+             (i->first.herkunft !="" && i->first.herkunft == Werte.Herkunft()->Name() )) 
           return i->second.Fac();
       }
      if (i->first.stand != "" && i->first.stand==Werte.Stand() )
           return i->second.Fac();
-     if (i->first.herkunft != "" && i->first.Herkunft==Werte.Herkunft() )
+     if (i->first.herkunft != "" && i->first.herkunft==Werte.Herkunft()->Name() )
           return i->second.Fac();
      for(std::vector<H_Data_beruf>::const_iterator j=vec_Beruf.begin();j!=vec_Beruf.end();++j)
-      if(i->first.beruf==j->Name())  return i->second.Fac() ;
+      if(i->first.beruf==(*j)->Name())  return i->second.Fac() ;
    }
  return 0;
 }
 
-void Ausnahmen::Ausnahmen_string(const Grundwerte& Werte,const vector<H_Data_typen>& Typ,
-      const std::vector<H_Data_beruf>& vec_Beruf,const std::string& name, 
+void Ausnahmen::Ausnahmen_string(const std::string& name, 
                 vector<std::string>& standard) const
 {
   assert(Typ.size()==2);
@@ -88,28 +90,28 @@ void Ausnahmen::Ausnahmen_string(const Grundwerte& Werte,const vector<H_Data_typ
   for(std::map<st_index1,Data_Ausnahmen>::const_iterator i=map_ausnahmen.begin();i!=map_ausnahmen.end();++i)
    {
      if (i->second.Name()!=name) continue;
-     if (i->first.typ == Typ[0] || (Typ[1]!= "" && i->first.typ == Typ[1])
+     if (i->first.typ == Typ[0]->Short() || (Typ[1]->Short()!= "" && i->first.typ == Typ[1]->Short()))
       {
-        if ( (i->first.spezies  !="" && i->first.spezies  == Werte.Spezies() ) || 
-             (i->first.herkunft !="" && i->first.herkunft == Werte.Herkunft() )) 
-          return i->second.Standard(standard);
+        if ( (i->first.spezies  !="" && i->first.spezies  == Werte.Spezies()->Name() ) || 
+             (i->first.herkunft !="" && i->first.herkunft == Werte.Herkunft()->Name() )) 
+          i->second.Standard(standard);
       }
      if (i->first.stand != "" && i->first.stand==Werte.Stand() )
-          return i->second.Standard(standard);
-     if (i->first.herkunft != "" && i->first.Herkunft==Werte.Herkunft() )
-          return i->second.Standard(standard);
+          i->second.Standard(standard);
+     if (i->first.herkunft != "" && i->first.herkunft==Werte.Herkunft()->Name() )
+          i->second.Standard(standard);
      for(std::vector<H_Data_beruf>::const_iterator j=vec_Beruf.begin();j!=vec_Beruf.end();++j)
-      if(i->first.beruf==j->Name())  return i->second.Standard(standard);
+      if(i->first.beruf==(*j)->Name())  i->second.Standard(standard);
    }
 }
 
 double Data_Ausnahmen::Fac() const
 {
   double fac;
-  if (Standard() == "G" )                       fac = 0.5;
-  else if (Standard() == "S" )                  fac = 1.0;
-  else if (Standard() == "A" && Art()=="f" )    fac = 2.0;
-  else if (Standard() == "A" && Art()=="z" )    fac = 5.0;
+  if (standard == "G" )                       fac = 0.5;
+  else if (standard == "S" )                  fac = 1.0;
+  else if (standard == "A" && Art()=="f" )    fac = 2.0;
+  else if (standard == "A" && Art()=="z" )    fac = 5.0;
   else abort();
   return fac;
 }

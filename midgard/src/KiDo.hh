@@ -1,7 +1,7 @@
 #ifndef KIDOCLASS
 #define KIDOCLASS
 #include "MidgardBasicElement.hh"
-#include "class_typen.hh"
+#include "Typen.hh"
 //#include "Ausnahmen.hh"
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
@@ -12,25 +12,17 @@ class KiDo : public MidgardBasicElement
    int ap;//,kosten;
    std::string stil, effekt;
 
-//   map<std::string,std::string> map_typ; 
-
    void get_KiDo();
-//   void get_map_typ();
-//   int GrundKosten() const {  return kosten; }
-//   void set_Standard(const vector<H_Data_typen>& Typ) ;
-//   const vector<H_Data_typen> Typ;
-//   const Ausnahmen ausnahmen;
  public:
    KiDo(const std::string& n)
-     :hoho(n) {get_KiDo();get_map_typ();}
+     :hoho(n) {get_KiDo();get_map_typ();EP_steigern("KiDo");}
 
-// map<std::string,std::string> get_MapTyp() const {return map_typ;}
  enum MBEE What() const {return MidgardBasicElement::KIDO;}
  std::string What_str() const {return "KiDo";}
 
  std::string Hoho() const {  return hoho; }
  std::string Name()  const {  return hoho; }
- int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const 
+ int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
          { cH_Fertigkeit F("KiDo");
                       return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; }
  std::string Name_D()  const {  return name; }

@@ -8,7 +8,7 @@ exec sql include sqlca;
 /*
 cH_Pflicht::cache_t cH_Pflicht::cache;
 
-cH_Pflicht::cH_Pflicht(const std::string& spezies,const vector<H_Data_typen>& Typ)
+cH_Pflicht::cH_Pflicht(const std::string& spezies,const vector<cH_Typen>& Typ)
 {
  st_index index(spezies,Typ);
  cH_Pflicht *cached(cache.lookup(index));
@@ -21,7 +21,7 @@ cH_Pflicht::cH_Pflicht(const std::string& spezies,const vector<H_Data_typen>& Ty
 }
 */
 
-Pflicht::Pflicht(Gtk::ProgressBar *progressbar)//const std::string& spezies,const vector<H_Data_typen>& Typ)
+Pflicht::Pflicht(Gtk::ProgressBar *progressbar)//const std::string& spezies,const vector<cH_Typen>& Typ)
 {
   exec sql begin declare section;
    char TYP[50],PFLICHT[50],VERBOTEN[50];
@@ -70,7 +70,7 @@ Pflicht::Pflicht(Gtk::ProgressBar *progressbar)//const std::string& spezies,cons
  progressbar->set_percentage(1);
 }
 
-int Pflicht::istPflicht(const std::string& spezies,const vector<H_Data_typen>& Typ,
+int Pflicht::istPflicht(const std::string& spezies,const vector<cH_Typen>& Typ,
                         const std::string& name,LE le) const
 {
   assert (Typ.size()==2);
@@ -87,7 +87,7 @@ int Pflicht::istPflicht(const std::string& spezies,const vector<H_Data_typen>& T
   return 0; 
 }
 
-bool Pflicht::istVerboten(const std::string& spezies,const vector<H_Data_typen>& Typ,
+bool Pflicht::istVerboten(const std::string& spezies,const vector<cH_Typen>& Typ,
                           const std::string& name,bool spielbeginn) const
 {
   assert (Typ.size()==2);

@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.22 2001/11/06 14:26:21 thoma Exp $
+// $Id: zeige_werte.cc,v 1.23 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,7 +42,7 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        kaw->set_text(itos(w.KAW()));
        wlw->set_text(itos(w.WLW()));
        resistenz->set_text(itos(w.Resistenz()));
-       gift_wert->set_text(itos( 3*w.LP() + w.bo_Gift() + Spezies_constraint.Gift() ));
+       gift_wert->set_text(itos( 3*w.LP() + w.bo_Gift() + Werte.Spezies()->Gift() ));
        bo_au->set_text(itos(w.bo_Au())) ;
        bo_sc->set_text(itos(w.bo_Sc())) ;
        bo_an->set_text(itos(w.bo_An())) ;

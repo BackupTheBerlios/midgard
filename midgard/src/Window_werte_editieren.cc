@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.24 2001/11/04 07:22:20 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.25 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -75,7 +75,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
    Werte.set_Namen(name_charakter_ein->get_text(),name_spieler_ein->get_text(),
                version_ein->get_text());
 
-   hauptfenster->clear_Ausnahmen();
+//   hauptfenster->clear_Ausnahmen();
    hauptfenster->zeige_werte(Werte);
    destroy();
 }

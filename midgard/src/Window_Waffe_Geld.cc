@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.29 2001/11/06 10:42:52 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.30 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,7 +72,7 @@ void Window_Waffe_Geld::on_button_close_clicked()
 }
 
 Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w,
-      const vector<H_Data_typen>& T, const std::list<cH_MidgardBasicElement>& wa)
+      const vector<cH_Typen>& T, const std::list<cH_MidgardBasicElement>& wa)
 : Werte(w), Typ(T), list_Waffen(wa)
 {
    hauptfenster = h;

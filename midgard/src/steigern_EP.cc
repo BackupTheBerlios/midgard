@@ -9,17 +9,17 @@ gint midgard_CG::vscale_value_changed(GdkEventButton *ev)
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
   int Av=(int)A->get_value();
 //  steigern_EP_prozent = 100-Av;
-  Grad_Anstieg.set_Steigern_EP_Prozent(100-Av);
+  Database.GradAnstieg.set_Steigern_EP_Prozent(100-Av);
   steigern_gtk();
   return false;
 }
 
 void midgard_CG::steigern_gtk()
 {
-  label_EP->set_text(itos(Grad_Anstieg.get_Steigern_EP_Prozent())+"%");
-  label_Gold->set_text(itos(100-Grad_Anstieg.get_Steigern_EP_Prozent())+"%");
+  label_EP->set_text(itos(Database.GradAnstieg.get_Steigern_EP_Prozent())+"%");
+  label_Gold->set_text(itos(100-Database.GradAnstieg.get_Steigern_EP_Prozent())+"%");
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
-  A->set_value(100-Grad_Anstieg.get_Steigern_EP_Prozent());
+  A->set_value(100-Database.GradAnstieg.get_Steigern_EP_Prozent());
   if (steigern_bool) checkbutton_EP_Geld->set_active(true);
   else               checkbutton_EP_Geld->set_active(false);
 }
@@ -53,29 +53,31 @@ void midgard_CG::Geld_uebernehmen()
 void midgard_CG::desteigern(unsigned int kosten)
 {
   guint gold_k = (guint)(kosten 
-               * ((100-Grad_Anstieg.get_Steigern_EP_Prozent())/100.));
-  guint ep_k = (guint)(kosten * (Grad_Anstieg.get_Steigern_EP_Prozent()/100.));
+               * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
+  guint ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
   Werte.add_Gold(gold_k);
   Werte.add_AEP(ep_k);
   Geld_uebernehmen();
   EP_uebernehmen();
 }
 
-bool midgard_CG::steigern(unsigned int kosten,const std::string& fert)
+bool midgard_CG::steigern(unsigned int kosten,const cH_MidgardBasicElement& fert)
 {
   if (!steigern_bool) return true;
   // genug Geld? 
-  guint gold_k = (guint)(kosten * ((100-Grad_Anstieg.get_Steigern_EP_Prozent())/100.));
+  guint gold_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
   guint geld = Werte.Gold();// +Werte.Silber()/10.+Werte.Kupfer()/100.;
   if (gold_k > geld) { regnot("Zu wenig Geld um zu steigern,\n es fehlen "+itos(gold_k-geld)+" GS."); return false;}
   
   // genug EP?
   bool bkep=false,bzep=false;
-  int womit = steigern_womit(fert);
+  int womit;
+  if(fert==0) womit = fert->Steigern_mit_EP();
+  else womit=3;
   if(womit==1 || womit==3) bkep=true;
   if(womit==2 || womit==3) bzep=true;
 
-  guint ep_k = (guint)(kosten * (Grad_Anstieg.get_Steigern_EP_Prozent()/100.));
+  guint ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
   guint aep=Werte.AEP();  
   guint kep=Werte.KEP();  
   guint zep=Werte.ZEP();  

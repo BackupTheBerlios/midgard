@@ -2,7 +2,7 @@
 #include "midgard_CG.hh"
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
-#include "class_typen.hh"
+#include "Typen.hh"
 exec sql include sqlca;
 #include <gtk--/main.h>
 
@@ -83,7 +83,7 @@ void Zauberwerk::get_map_typ()
 */
 
 /*
-int Zauberwerk::Kosten(const vector<H_Data_typen>& Typ) const
+int Zauberwerk::Kosten(const vector<cH_Typen>& Typ) const
 {
   double fac; 
   if      (standard_one_G(Standard(Typ)) ) fac = 0.5;
@@ -93,7 +93,7 @@ int Zauberwerk::Kosten(const vector<H_Data_typen>& Typ) const
 }
 */
 /*
-vector<std::string> Zauberwerk::Standard(const vector<H_Data_typen>& Typ) const
+vector<std::string> Zauberwerk::Standard(const vector<cH_Typen>& Typ) const
 {
  assert(Typ.size()==2);
  vector<std::string> s(2);
@@ -105,7 +105,7 @@ vector<std::string> Zauberwerk::Standard(const vector<H_Data_typen>& Typ) const
 }
 */
 /*
-std::string Zauberwerk::Standard__(const vector<H_Data_typen>& Typ) const
+std::string Zauberwerk::Standard__(const vector<cH_Typen>& Typ) const
 {
  vector<std::string> s = Standard(Typ);
  std::string s2=s[0];

@@ -4,7 +4,7 @@
 #include <vector>
 #include <list>
 #include <map>
-#include "class_typen.hh"
+#include "Typen.hh"
 #include <gtk--/progressbar.h>
 
 
@@ -23,9 +23,9 @@ class Pflicht //: public HandleContent
       Pflicht(Gtk::ProgressBar *progressbar);
       enum LE {LERNPUNKTE,ERFOLGSWERT};
 
-      int istPflicht(const std::string& spezies,const vector<H_Data_typen>& Typ,
+      int istPflicht(const std::string& spezies,const vector<cH_Typen>& Typ,
                      const std::string& s,LE le) const ;
-      bool istVerboten(const std::string& spezies,const vector<H_Data_typen>& Typ,
+      bool istVerboten(const std::string& spezies,const vector<cH_Typen>& Typ,
                        const std::string& s,bool spielbeginn=false) const;
          
 };

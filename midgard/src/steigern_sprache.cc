@@ -18,10 +18,10 @@
 
 #include "midgard_CG.hh"
 //#include "Ausnahmen.hh"
-#include "class_zauber.hh"
+//#include "class_zauber.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-
+#include "class_fertigkeiten.hh"
 
 void midgard_CG::on_schrift_laden_clicked()
 {   
@@ -72,36 +72,38 @@ void midgard_CG::sprachen_zeigen()
 
 void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 {  
-   const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
-   if (!steigern(dt->Kosten(),"Sprache")) return;
-   Werte.add_GFP(dt->Kosten());
-   MidgardBasicElement::move_element(list_Sprache_neu,list_Sprache,dt->Name());
+   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);  
+   cH_MidgardBasicElement MBE = dt->getMBE();
+   if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),MBE)) return;
+   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
+   MidgardBasicElement::move_element(list_Sprache_neu,list_Sprache,MBE->Name());
    sprachen_zeigen();
    on_schrift_laden_clicked();
 }   
     
 void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
-   const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
-   if (radio_sprache_steigern->get_active() && dt->Steigern())
+   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);  
+   cH_MidgardBasicElement MBE = dt->getMBE();
+   if (radio_sprache_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
-      if (!steigern(dt->Steigern(),"Sprache")) return;
-      Werte.add_GFP(dt->Steigern());
+      if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),MBE)) return;
+      Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
-         if ( cH_Sprache(*i)->Name() == dt->Name()) cH_Sprache(*i)->add_Erfolgswert(1);
+         if ( cH_Sprache(*i)->Name() == MBE->Name()) cH_Sprache(*i)->add_Erfolgswert(1);
     }
-   if (radio_sprache_reduzieren->get_active() && dt->Reduzieren() )
+   if (radio_sprache_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen) )
     {
-      if (steigern_bool) desteigern(dt->Reduzieren());
-      Werte.add_GFP(-dt->Reduzieren());
+      if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
+      Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
-         if ( cH_Sprache(*i)->Name() == dt->Name()) cH_Sprache(*i)->add_Erfolgswert(-1);
+         if ( cH_Sprache(*i)->Name() == MBE->Name()) cH_Sprache(*i)->add_Erfolgswert(-1);
     }
-   if (radio_sprache_verlernen->get_active() && dt->Verlernen() )
+   if (radio_sprache_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen) )
     {
-      if (steigern_bool) desteigern(dt->Verlernen());
-      Werte.add_GFP(-dt->Verlernen());
-      MidgardBasicElement::move_element(list_Sprache,list_Sprache_neu,dt->Name());
+      if (steigern_bool) desteigern(MBE->Verlernen(Typ,Database.ausnahmen));
+      Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));
+      MidgardBasicElement::move_element(list_Sprache,list_Sprache_neu,MBE->Name());
     }
    on_sprache_laden_clicked();
 }
@@ -121,9 +123,9 @@ void midgard_CG::on_radio_sprache_verlernen_toggled()
 void midgard_CG::on_button_sprache_sort_clicked()
 {
   std::deque<guint> seq = alte_sprache_tree->get_seq();
-  switch((Data_sprache::Spalten_A)seq[0]) {
-      case Data_sprache::NAMEa : list_Sprache.sort(cH_Sprache::sort(cH_Sprache::sort::NAME)); ;break;
-      case Data_sprache::WERTa : list_Sprache.sort(cH_Sprache::sort(cH_Sprache::sort::ERFOLGSWERT)); ;break;
+  switch((Data_fert::Spalten_SPA)seq[0]) {
+      case Data_fert::NAMEa_SP : list_Sprache.sort(cH_Sprache::sort(cH_Sprache::sort::NAME)); ;break;
+      case Data_fert::WERTa_SP : list_Sprache.sort(cH_Sprache::sort(cH_Sprache::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
@@ -131,19 +133,21 @@ void midgard_CG::on_button_sprache_sort_clicked()
 
 void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 {  
-   const Data_schrift *dt=dynamic_cast<const Data_schrift*>(&*d);  
-   if (steigern_bool) desteigern(dt->Kosten());
-   Werte.add_GFP(-dt->Kosten());
-   MidgardBasicElement::move_element(list_Schrift,list_Schrift_neu,dt->Name());
+   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);  
+   cH_MidgardBasicElement MBE = dt->getMBE();
+   if (steigern_bool) desteigern(MBE->Kosten(Typ,Database.ausnahmen));
+   Werte.add_GFP(-MBE->Kosten(Typ,Database.ausnahmen));
+   MidgardBasicElement::move_element(list_Schrift,list_Schrift_neu,MBE->Name());
    on_sprache_laden_clicked();
 }   
     
 void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  
-   const Data_schrift *dt=dynamic_cast<const Data_schrift*>(&*d);  
-   if (!steigern(dt->Kosten(),"Lesen/Schreiben")) return;
-   Werte.add_GFP(dt->Kosten());
-   MidgardBasicElement::move_element(list_Schrift_neu,list_Schrift,dt->Name());
+   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);  
+   cH_MidgardBasicElement MBE = dt->getMBE();
+   if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),MBE)) return;
+   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
+   MidgardBasicElement::move_element(list_Schrift_neu,list_Schrift,MBE->Name());
    on_sprache_laden_clicked();
 }   
 

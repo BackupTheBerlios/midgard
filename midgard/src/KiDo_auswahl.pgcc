@@ -50,26 +50,18 @@ void KiDo_auswahl::on_button_close_clicked()
   for(Gtk::CList::SelectionList::iterator i=clist_kido_auswahl->selection().begin();
       i!=clist_kido_auswahl->selection().end();++i)
    {
-//cout << '1'<<' ' ;
-//     cH_KiDo *ptr = static_cast<cH_KiDo*>(i->get_data());
      cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-//     std::string *ptr = static_cast<std::string*>(i->get_data());
-//cout << '2'<<' ';
-//cout << *ptr<<'\t';
-//cout << '3'<<' ';
-//     technik.push_back((*ptr)->Hoho());
      technik.push_back(*ptr);
-//cout << '4'<<'\n';
 
    }
-//  hauptfenster->kido_uebernehmen(technik);
   hauptfenster->MidgardBasicElement_uebernehmen(technik);
   destroy();
 }
 
 
 KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
-   const vector<H_Data_typen>& Typ,const std::vector<H_Data_beruf>& vec_Beruf)
+   const midgard_CG::st_Database& Database,
+   const vector<cH_Typen>& Typ,const std::vector<H_Data_beruf>& vec_Beruf)
 : maxkido(m)
 {
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
@@ -97,8 +89,6 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
       exec sql fetch ein into :db_name_orig;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
-//      kido_technik.push_back(st_kido_(db_name_orig,db_name,db_ap,db_fp));
-//      kido_technik.push_back(cH_KiDo(db_name_orig,Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
       kido_technik.push_back(new KiDo(db_name_orig));
      }
    exec sql close ein;
@@ -107,9 +97,8 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
    for (std::list<cH_MidgardBasicElement>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
     {
       cH_KiDo kd(*i);
-      os << kd->Hoho() <<"\t"<<kd->Name()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Typ,Ausnahmen(Werte,Typ,vec_Beruf))<<"\n";
+      os << kd->Hoho() <<"\t"<<kd->Name()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Typ,Database.ausnahmen)<<"\n";
       os.flush(&*i);
-//      os.flush((*i)->Hoho());
     }
    for (unsigned int i=0;i<clist_kido_auswahl->columns().size();++i)
       clist_kido_auswahl->set_column_auto_resize(i,true);

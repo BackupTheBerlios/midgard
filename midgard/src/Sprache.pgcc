@@ -65,24 +65,24 @@ void Sprache::get_Sprache()
   kosten=db_fp;
 }
 
-int Sprache::Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 { 
   cH_Fertigkeit F("Sprache");
   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; 
 }
 /*
-int Sprache::Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+int Sprache::Steigern(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 { 
    cH_Fertigkeit F("Sprache");
 //cout << F->Standard_Faktor(Typ,ausnahmen)<<'\t'<<Erfolgswert()<<'\t'<<F->get_Steigern_Kosten(Erfolgswert()+1)<<'\n';
    return  (int)(F->Standard_Faktor(Typ,ausnahmen) * F->get_Steigern_Kosten(Erfolgswert()+1));
 }
-int Sprache::Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+int Sprache::Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 { 
    cH_Fertigkeit F("Sprache");
    return  (int)(F->Standard_Faktor(Typ,ausnahmen) * F->get_Steigern_Kosten(Erfolgswert()));
 }
-int Sprache::Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen&  ausnahmen) const
+int Sprache::Verlernen(const vector<cH_Typen>& Typ,const Ausnahmen&  ausnahmen) const
 {
    if(Reduzieren(Typ,ausnahmen)==0)
      return Kosten(Typ,ausnahmen);

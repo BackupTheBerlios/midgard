@@ -34,7 +34,7 @@ exec sql include sqlca;
 
 cH_KiDo::cache_t cH_KiDo::cache;
 
-//cH_KiDo::cH_KiDo(const std::string& name,const vector<H_Data_typen>& Typ, const Ausnahmen& ausnahmen)
+//cH_KiDo::cH_KiDo(const std::string& name,const vector<cH_Typen>& Typ, const Ausnahmen& ausnahmen)
 cH_KiDo::cH_KiDo(const std::string& name)
 {
 // st_index index(name,Typ);

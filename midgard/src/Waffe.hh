@@ -3,7 +3,7 @@
 //#include <vector>
 //#include <list>
 #include "MidgardBasicElement.hh"
-#include "class_typen.hh"
+#include "Typen.hh"
 #include "Grundwerte.hh"
 //#include "itos.h"
 #include <gtk--/progressbar.h>
@@ -42,7 +42,7 @@ class Waffe : public MidgardBasicElement
   public:
      Waffe(const std::string& n,int l=0,bool p=false)
       :name(n),lernpunkte(l),pflicht(p)
-     {get_Waffe(); get_Alias(); get_map_typ(); }
+     {get_Waffe(); get_Alias(); get_map_typ();EP_steigern("Waffen"); }
 
      enum MBEE What() const {return MidgardBasicElement::WAFFE;}
      std::string What_str() const {return "Waffe";}
@@ -70,14 +70,14 @@ class Waffe : public MidgardBasicElement
 
      bool SG_Voraussetzung(const Grundwerte& Werte) const;
      bool Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>&) const;
-     int Maxwert(const vector<H_Data_typen>& Typ) const;
+     int Maxwert(const vector<cH_Typen>& Typ) const;
 
 //     static std::string get_waffe_from_alias(const std::string& waffe);
      static std::map<std::string,std::string> fill_map_alias_waffe();
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<cH_MidgardBasicElement>& list_Waffen,
          const std::list<H_WaffeBesitz>& list_Waffen_besitz,
-         const vector<H_Data_typen>& Typ,
+         const vector<cH_Typen>& Typ,
          const Grundwerte& Werte);
 };
 

@@ -1,4 +1,4 @@
-// $Id: KiDo_auswahl.hh,v 1.19 2001/10/09 09:03:43 thoma Exp $
+// $Id: KiDo_auswahl.hh,v 1.20 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,9 +38,11 @@
 #include <vector>
 class midgard_CG;
 class Grundwerte;
-class H_Data_typen;
+class Typen;
 class H_Data_beruf;
 //class H_Data_kido;
+#include "midgard_CG.hh"
+
 
 class KiDo_auswahl : public KiDo_auswahl_glade
 {   
@@ -52,6 +54,7 @@ class KiDo_auswahl : public KiDo_auswahl_glade
         void on_button_close_clicked();
    public:
         KiDo_auswahl(midgard_CG* h, int m,const Grundwerte& Werte,
-            const vector<H_Data_typen>& Typ,const std::vector<H_Data_beruf>& vec_Beruf);
+            const midgard_CG::st_Database& Database,
+            const vector<cH_Typen>& Typ,const std::vector<H_Data_beruf>& vec_Beruf);
 };
 #endif

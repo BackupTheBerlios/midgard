@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.52 2001/11/06 10:42:52 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.53 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,8 +73,9 @@ void midgard_CG::on_latex_clicked(bool values=true)
 void midgard_CG::LaTeX_write_values()
 {
  ofstream fout("midgard_tmp_latexwerte.tex");
- std::string styp = Typ[0]->Name();
- if (Typ[1]->Name()!="") styp += "/"+Typ[1]->Name();
+ std::string styp = Typ[0]->Name(Werte.Geschlecht());
+ if (Typ[1]->Name(Werte.Geschlecht())!="") 
+      styp += "/"+Typ[1]->Name(Werte.Geschlecht());
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<Werte.St() << "}\n";
  fout << "\\newcommand{\\gee}{" <<Werte.Ge() << "}\n";
@@ -108,7 +109,8 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\psy}{"<<Werte.Resistenz()+Werte.bo_Psy()<<"}\n";
  fout << "\\newcommand{\\phs}{"<<Werte.Resistenz()+Werte.bo_Phs()<<"}\n";
  fout << "\\newcommand{\\phk}{"<<Werte.Resistenz()+Werte.bo_Phk()<<"}\n";
- fout << "\\newcommand{\\gift}{"<<3*Werte.LP()+Werte.bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
+// fout << "\\newcommand{\\gift}{"<<3*Werte.LP()+Werte.bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
+ fout << "\\newcommand{\\gift}{"<<3*Werte.LP()+Werte.bo_Gift()+ Werte.Spezies()->Gift()<<"}\n";
 
  fout << "\\newcommand{\\abwehr}{"<<Werte.Abwehr_wert()<< "}\n";
  fout << "\\newcommand{\\abwehrfinal}{"<<Werte.Abwehr_wert()+Werte.bo_Ab()<< "}\n";

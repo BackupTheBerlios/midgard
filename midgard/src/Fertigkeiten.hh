@@ -1,7 +1,7 @@
 #ifndef _FERTIGKEITEN_HH
 #  define _FERTIGKEITEN_HH
 #include "MidgardBasicElement.hh"
-#include "class_typen.hh"
+#include "Typen.hh"
 //#include "Ausnahmen.hh"
 #include <gtk--/progressbar.h>
 
@@ -9,8 +9,7 @@
 class Fertigkeit : public MidgardBasicElement
 {
      std::string name, region, attribut;
-     int lernpunkte, anfangswert0, anfangswert;//, kosten;
-//     vector<std::string> standard;
+     int lernpunkte, anfangswert0, anfangswert;
      struct st_Voraussetzung {int st;int ge;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
          st_Voraussetzung()
@@ -22,16 +21,15 @@ class Fertigkeit : public MidgardBasicElement
               sb(_sb),rw(_rw),fert(_fert) {} };
      st_Voraussetzung voraussetzung;
      mutable bool pflicht;
-//     Ausnahmen ausnahmen;
 
      void get_Fertigkeit();
      void get_Steigern_Kosten_map();
-//     typedef MidgardBasicElement MBE;
 
   public:
      Fertigkeit(const std::string& n,int l=0,bool p=false)
       :name(n),lernpunkte(l),pflicht(p) 
-      {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();}
+      {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
+       EP_steigern(Name());}
 
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
      std::string What_str() const {return "Fertigkeit";}

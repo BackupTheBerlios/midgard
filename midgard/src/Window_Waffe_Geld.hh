@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.hh,v 1.22 2001/11/06 10:42:52 thoma Exp $
+// $Id: Window_Waffe_Geld.hh,v 1.23 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,14 +37,14 @@
 class midgard_CG;
 class cH_MidgardBasicElement;
 class Grundwerte;
-class H_Data_typen;
+class cH_Typen;
 
 class Window_Waffe_Geld : public Window_Waffe_Geld_glade
 {   
         
         midgard_CG* hauptfenster;        
         Grundwerte& Werte;
-        std::vector<H_Data_typen> Typ;
+        std::vector<cH_Typen> Typ;
         const std::list<cH_MidgardBasicElement>& list_Waffen;
         friend class Window_Waffe_Geld_glade;
         void on_button_wuerfeln_clicked();
@@ -53,7 +53,7 @@ class Window_Waffe_Geld : public Window_Waffe_Geld_glade
         void Geld(int wurf);
    public:
         Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w, 
-            const vector<H_Data_typen>& T, const std::list<cH_MidgardBasicElement>& wa);
+            const vector<cH_Typen>& T, const std::list<cH_MidgardBasicElement>& wa);
         void show_Geld();
         void get_waffe(const std::string& waffe);
 };

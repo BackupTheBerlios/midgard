@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.26 2001/10/07 08:05:31 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.27 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   //////////////////////////////////////////////////////////////////////
   // Übrige Werte würfeln //////////////////////////////////////////////
   // Aussehn
-  int au = constraint_aw(random,Spezies_constraint.Au());
+  int au = constraint_aw(random,Werte.Spezies()->Au());
   // pers. Ausstrahlung
   int pa = random.integer(1,100)-40 + Werte.In()/2. + Werte.Au()/4. ;
   // Reaktionswert
@@ -35,11 +35,11 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   // Handgemengewert
   int hgw = random.integer(1,20)+10+ Werte.St()/2. + Werte.Ge()/4.;
   // Bewegungsweite
-  int b = Spezies_constraint.B_s();
-  for (int i=0;i<Spezies_constraint.B_f();++i) b+=random.integer(1,3);
+  int b = Werte.Spezies()->B_s();
+  for (int i=0;i<Werte.Spezies()->B_f();++i) b+=random.integer(1,3);
 
   // Selbstbeherrschung
-  int sb = constraint_aw(random,Spezies_constraint.Sb());
+  int sb = constraint_aw(random,Werte.Spezies()->Sb());
 
   //////////////////////////////////////////////////////////////////////
   // Boni 
@@ -60,8 +60,8 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   else bo_au_typ = 2 ;
   
   // Werte würfeln und setzen
-  int lp = random.integer(1,6)+Werte.LPBasis()+Spezies_constraint.LPBasis() ;
-  int ap = random.integer(1,6)+Werte.bo_Au()+bo_au_typ + Werte.Grad()*Spezies_constraint.AP_Grad() ;
+  int lp = random.integer(1,6)+Werte.LPBasis()+Werte.Spezies()->LPBasis() ;
+  int ap = random.integer(1,6)+Werte.bo_Au()+bo_au_typ + Werte.Grad()*Werte.Spezies()->AP_Grad() ;
   if (ap<1) ap=1;
 
   int abwehr_wert= 11 ;
@@ -72,11 +72,11 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   int resistenz = 10;
 
   // Körper und Stand
-  int groesse = Spezies_constraint.Groesse_s() + Werte.St()/10.;
-  for (int i=0;i<Spezies_constraint.Groesse_f();++i) 
-      groesse += random.integer(1,Spezies_constraint.Groesse_w()) ;
+  int groesse = Werte.Spezies()->Groesse_s() + Werte.St()/10.;
+  for (int i=0;i<Werte.Spezies()->Groesse_f();++i) 
+      groesse += random.integer(1,Werte.Spezies()->Groesse_w()) ;
 
-  int ges=random.integer(1,6) + Spezies_constraint.Gestalt();
+  int ges=random.integer(1,6) + Werte.Spezies()->Gestalt();
   int gin=groesse-100;
   std::string gestalt;
   int gewicht=0;
@@ -105,7 +105,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
    resistenz,gestalt,gewicht,groesse,grad,stand);
 
   if (Originalbool) original_midgard_check() ;
-  clear_Ausnahmen();
+//  clear_Ausnahmen();
   midgard_CG::zeige_werte(Werte);
   button_herkunft->set_sensitive(true);
   button_sprache->set_sensitive(true);
@@ -186,10 +186,10 @@ void midgard_CG::grundwerte_boni_setzen()
       { bo_phs+=2; }
 
   // Speziesspezifische Boni
-  if (bo_ab <Spezies_constraint.m_Abb()) bo_ab =Spezies_constraint.m_Abb();
-  if (bo_psy<Spezies_constraint.m_Psy()) bo_psy=Spezies_constraint.m_Psy();
-  if (bo_phs<Spezies_constraint.m_Phs()) bo_phs=Spezies_constraint.m_Phs();
-  if (bo_phk<Spezies_constraint.m_Phk()) bo_phk=Spezies_constraint.m_Phk();
+  if (bo_ab <Werte.Spezies()->Abb()) bo_ab =Werte.Spezies()->Abb();
+  if (bo_psy<Werte.Spezies()->Psy()) bo_psy=Werte.Spezies()->Psy();
+  if (bo_phs<Werte.Spezies()->Phs()) bo_phs=Werte.Spezies()->Phs();
+  if (bo_phk<Werte.Spezies()->Phk()) bo_phk=Werte.Spezies()->Phk();
 
   Werte.set_Abgeleitetewerte_Boni(bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,
    bo_phk,bo_gi,kaw,wlw,lpbasis);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.27 2001/10/07 08:05:31 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.28 2001/11/08 10:15:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 void midgard_CG::on_grad_anstieg_clicked()
 {
  int old_grad=Werte.Grad();
- get_grad(Werte.GFP());
+ Database.GradAnstieg.get_Grad(Werte.GFP());
  get_ausdauer(Werte.Grad());
  get_ab_re_za("Abwehr");
  get_ab_re_za("Resistenz");
@@ -38,7 +38,7 @@ void midgard_CG::on_grad_anstieg_clicked()
 
 void midgard_CG::on_button_grad_clicked()
 {   
-  get_grad(Werte.GFP());
+  Database.GradAnstieg.get_Grad(Werte.GFP());
   zeige_werte(Werte);
 }
 void midgard_CG::on_button_grad_ausdauer_clicked()
@@ -70,16 +70,16 @@ void midgard_CG::on_button_grad_basiswerte_clicked()
 
 void midgard_CG::get_grundwerte()
 {
-  if(Werte.Grad() <= Grad_Anstieg.get_Grad_Basiswerte()) 
+  if(Werte.Grad() <= Database.GradAnstieg.get_Grad_Basiswerte()) 
    {
-      std::string strinfo = "Für Grad "+itos(Grad_Anstieg.get_Grad_Basiswerte())+" wurde schon gewürfelt";
+      std::string strinfo = "Für Grad "+itos(Database.GradAnstieg.get_Grad_Basiswerte())+" wurde schon gewürfelt";
       manage(new WindowInfo(strinfo));
       return;
    }
   Random random;
   int z=random.integer(1,100);
   std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nfür Grad "
-      + itos(Grad_Anstieg.get_Grad_Basiswerte()+1) + " wurde eine ";
+      + itos(Database.GradAnstieg.get_Grad_Basiswerte()+1) + " wurde eine ";
   stinfo += itos(z);
   stinfo +=" gewürfelt --> ";
   std::string was = "keine Erhöhung";
@@ -104,7 +104,7 @@ void midgard_CG::get_grundwerte()
     }
   manage(new WindowInfo(stinfo,true));
   if (Originalbool) original_midgard_check() ;
-  Grad_Anstieg.set_Grad_Basiswerte(1+Grad_Anstieg.get_Grad_Basiswerte());
+  Database.GradAnstieg.set_Grad_Basiswerte(1+Database.GradAnstieg.get_Grad_Basiswerte());
 }
 
 void midgard_CG::get_ausdauer(int grad)
@@ -120,7 +120,8 @@ void midgard_CG::get_ausdauer(int grad)
    if (grad == 8)  { bonus_K = 24, bonus_aK = 16; bonus_Z =  8; kosten =  1200;}
    if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; kosten =  1500;}
    if (grad >= 10) { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  2000;}
-   if (!steigern(kosten,"Ausdauer")) return;
+//   if (!steigern(kosten,"Ausdauer")) return;
+   if (!steigern(kosten)) return;
    Werte.add_GFP(kosten);
    int ap=0;
    Random random;
@@ -131,7 +132,7 @@ void midgard_CG::get_ausdauer(int grad)
   else if (Typ[0]->Ausdauer() == "ak"|| Typ[1]->Ausdauer() == "ak") nab = bonus_aK ;
   else  nab = bonus_Z ;
   nap = ap + nab + Werte.bo_Au() ;
-  int nspez = Werte.Grad()*Spezies_constraint.AP_Grad();
+  int nspez = Werte.Grad()*Werte.Spezies()->AP_Grad();
   nap += nspez;
 //  std::cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<Werte.bo()_au<<" + "<<nspez<<" = "<<nap<<"\n";
   std::string stinfo="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
@@ -144,3 +145,40 @@ void midgard_CG::get_ausdauer(int grad)
   if (nap>Werte.AP())  Werte.set_AP(nap)  ;
 }
 
+void midgard_CG::get_ab_re_za(const string& was)
+{
+  int alter_wert, max_wert;
+  int kosten;
+  int grad=Werte.Grad();
+  if      (was=="Abwehr")    
+    { 
+      max_wert = Database.GradAnstieg.get_Abwehr(grad); 
+      kosten   = Database.GradAnstieg.get_Abwehr_Kosten(grad+1);
+      alter_wert = Werte.Abwehr_wert(); 
+    } 
+  else if (was=="Resistenz") 
+    { 
+      max_wert = Database.GradAnstieg.get_Resistenz(grad);
+      kosten   = Database.GradAnstieg.get_Resistenz_Kosten(grad+1);
+      alter_wert = Werte.Resistenz(); 
+    } 
+  else if (was=="Zaubern") 
+    { 
+      if ( Typ[0]->Zaubern()  == "z" || Typ[0]->Zaubern()  == "j" ||
+           Typ[1]->Zaubern() == "z" || Typ[1]->Zaubern() == "j" ) 
+       { 
+         max_wert = Database.GradAnstieg.get_Zauber(grad);
+         kosten   = Database.GradAnstieg.get_Zauber_Kosten(grad+1);
+         alter_wert = Werte.Zaubern_wert(); 
+       } 
+      else return; }
+  else abort();
+  if (alter_wert >= max_wert)
+      {manage(new WindowInfo("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!")) ;return;}
+  
+  Werte.add_GFP(kosten);
+  if (was=="Abwehr") Werte.set_Abwehr_wert(alter_wert+1);
+  if (was=="Resistenz") Werte.set_Resistenz(alter_wert+1); 
+  if (was=="Zaubern") Werte.set_Zaubern_wert(alter_wert+1); 
+
+}

@@ -41,7 +41,7 @@ void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *ev
 }
 
 Window_waffe::Window_waffe(int we, 
-      Window_Waffe_Geld* o, Grundwerte& W,const vector<H_Data_typen>& T, const std::list<cH_MidgardBasicElement>& wa)
+      Window_Waffe_Geld* o, Grundwerte& W,const vector<cH_Typen>& T, const std::list<cH_MidgardBasicElement>& wa)
 :list_Waffen(wa) ,Werte(W), Typ(T)
 {
   wurf=we;
