@@ -299,7 +299,7 @@ void table_zufall::on_combo_spezies_activate()
 {  
 }
 
-gint table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
+bool table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 {  return false;
 }
 
@@ -314,7 +314,7 @@ void table_zufall::on_combo_typ_activate()
 {  
 }
 
-gint table_zufall::on_combo_typ__focus_out_event(GdkEventFocus *ev)
+bool table_zufall::on_combo_typ__focus_out_event(GdkEventFocus *ev)
 {  return 0;
 }
 

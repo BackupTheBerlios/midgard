@@ -75,7 +75,7 @@ void table_grundwerte::on_combo_typ__changed()
  if(!block_changed) typauswahl_button();
 }
 
-gint table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
+bool table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
 {
   hauptfenster->undosave("Typ gewählt");
   typauswahl_button();
@@ -130,7 +130,7 @@ void table_grundwerte::on_combo_typ2__changed()
  if(!block_changed)typauswahl_2_button();
 }
 
-gint table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
+bool table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
 {
   hauptfenster->undosave("zweiter Typ gewählt");
   typauswahl_2_button();
@@ -176,7 +176,7 @@ void table_grundwerte::on_combo_spezies_changed()
 }
 
 
-gint table_grundwerte::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
+bool table_grundwerte::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 {
 //cout << "Fokus out\n";
 //  spezieswahl_button();

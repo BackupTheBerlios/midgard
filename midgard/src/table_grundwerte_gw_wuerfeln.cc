@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.27 2002/12/12 11:00:50 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.28 2002/12/12 11:20:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,7 @@
 #include <SelectMatching.h>
 #include <Misc/Trace.h>
 
-gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton *ev)
+bool table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton *ev)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active) 

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.20 2002/12/11 18:18:50 christof Exp $
+// $Id: table_lernschema_beruf.cc,v 1.21 2002/12/12 11:20:14 christof Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -26,7 +26,7 @@
 #include "midgard_CG.hh"
 #include "LernListen.hh"
 
-gint table_lernschema::on_button_beruf_release_event(GdkEventButton *ev)
+bool table_lernschema::on_button_beruf_release_event(GdkEventButton *ev)
 {
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
       button_beruf->set_sensitive(false);
@@ -53,7 +53,7 @@ void table_lernschema::on_entry_berufsname_activate()
   show_gelerntes();
 }
 
-gint table_lernschema::on_spinbutton_beruf_focus_in(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_beruf_focus_in(GdkEventFocus *ev)
 { spinbutton_beruf->select_region(0,-1); return false;}
 
 void table_lernschema::on_spinbutton_beruf_activate()

@@ -20,7 +20,7 @@
 #include "table_steigern.hh"
 #include <Misc/itos.h>
 
-gint table_steigern::on_checkbutton_gfp_button_release_event(GdkEventButton *ev)
+bool table_steigern::on_checkbutton_gfp_button_release_event(GdkEventButton *ev)
 {
  if(ev->button==3) checkbutton_gfp->set_active(!checkbutton_gfp->get_active()); 
  if(checkbutton_gfp->get_active())
@@ -42,7 +42,7 @@ void table_steigern::on_LabelSpin_gfp_activate()
 
 //////////////////////////////////////////////////////////////////////////
 
-gint table_steigern::on_button_gold_eingeben_button_release_event(GdkEventButton *ev)
+bool table_steigern::on_button_gold_eingeben_button_release_event(GdkEventButton *ev)
 {
  if(ev->button==3) button_gold_eingeben->set_active(!button_gold_eingeben->get_active()); 
  show_goldeingabe(button_gold_eingeben->get_active(),ev->button);
@@ -57,14 +57,14 @@ void table_steigern::on_LabelSpin_gold_activate()
 }
 
 /*
-gint table_steigern::on_spinbutton_gold_focus_out_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_gold_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_gold->update();
  hauptfenster->getWerte().setGold(spinbutton_gold->get_value());
  return false;
 }
 
-gint table_steigern::on_spinbutton_gold_focus_in_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_gold_focus_in_event(GdkEventFocus *ev)
 {
  spinbutton_gold->select_region(0,-1);
  return false;
@@ -76,14 +76,14 @@ void table_steigern::on_LabelSpin_silber_activate()
  LabelSpin_kupfer->grab_focus();
 }
 /*
-gint table_steigern::on_spinbutton_silber_focus_out_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_silber_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_silber->update();
  hauptfenster->getWerte().setSilber(spinbutton_silber->get_value_as_int());
  return false;
 }
 
-gint table_steigern::on_spinbutton_silber_focus_in_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_silber_focus_in_event(GdkEventFocus *ev)
 {
  spinbutton_silber->select_region(0,-1);
  return false;
@@ -98,14 +98,14 @@ void table_steigern::on_LabelSpin_kupfer_activate()
 }
 
 /*
-gint table_steigern::on_spinbutton_kupfer_focus_out_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_kupfer_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_kupfer->update();
  hauptfenster->getWerte().setKupfer(spinbutton_kupfer->get_value_as_int());
  return false;
 }
 
-gint table_steigern::on_spinbutton_kupfer_focus_in_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_kupfer_focus_in_event(GdkEventFocus *ev)
 {
  spinbutton_kupfer->select_region(0,-1);
  return false;
@@ -120,14 +120,14 @@ void table_steigern::on_LabelSpin_aep_activate()
  LabelSpin_kep->grab_focus();
 }
 /*
-gint table_steigern::on_spinbutton_aep_focus_out_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_aep_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_aep->update();
  hauptfenster->getWerte().setAEP(spinbutton_aep->get_value_as_int());
  return false;
 }
 
-gint table_steigern::on_spinbutton_aep_focus_in_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_aep_focus_in_event(GdkEventFocus *ev)
 {
  spinbutton_aep->select_region(0,-1);
  return false;
@@ -140,14 +140,14 @@ void table_steigern::on_LabelSpin_kep_activate()
 }
 
 /*
-gint table_steigern::on_spinbutton_kep_focus_out_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_kep_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_kep->update();
  hauptfenster->getWerte().setKEP(spinbutton_kep->get_value_as_int());
  return false;
 }
 
-gint table_steigern::on_spinbutton_kep_focus_in_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_kep_focus_in_event(GdkEventFocus *ev)
 {
  spinbutton_kep->select_region(0,-1);
  return false;
@@ -160,14 +160,14 @@ void table_steigern::on_LabelSpin_zep_activate()
  button_EP->set_active(false);  
 }
 /*
-gint table_steigern::on_spinbutton_zep_focus_out_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_zep_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_zep->update();
  hauptfenster->getWerte().setZEP(spinbutton_zep->get_value_as_int());
  return false;
 }
 
-gint table_steigern::on_spinbutton_zep_focus_in_event(GdkEventFocus *ev)
+bool table_steigern::on_spinbutton_zep_focus_in_event(GdkEventFocus *ev)
 {
  spinbutton_zep->select_region(0,-1);
  return false;

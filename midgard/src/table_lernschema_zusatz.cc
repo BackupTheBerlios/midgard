@@ -364,7 +364,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
    }
 }
 
-gint table_lernschema::on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev)
+bool table_lernschema::on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev)
 {
   std::cout << "leave out\n";
   return false;

@@ -49,7 +49,7 @@ void midgard_CG::on_button_info_clicked()
 }
 
 
-gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 
+bool midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 
 { 
    if (event->button == 3) 
    {  menu_kontext->popup(event->button,event->time);
@@ -70,7 +70,7 @@ void show_window(Gdk_Window &W)
 }
 */
 
-gint midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
 {
 /*
 Gtk::HandleBox *HB=table_steigern->handlebox_steigern_1;
@@ -166,23 +166,23 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
 }
 
 
-gint midgard_CG::on_eventbox_ausruestung_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_eventbox_ausruestung_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_AUSRUESTUNG); return false;}
-gint midgard_CG::on_eventbox_optionen_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_eventbox_optionen_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_OPTIONEN); return false;}
-gint midgard_CG::on_eventbox_zufall_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_eventbox_zufall_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_ZUFALL); return false;}
-gint midgard_CG::on_eventbox_beschreibung_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_eventbox_beschreibung_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_BESCHREIBUNG); return false;}
-gint midgard_CG::on_eventbox_steigern_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_eventbox_steigern_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_STEIGERN); return false;}
-gint midgard_CG::on_eventbox_lernen_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_eventbox_lernen_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_LERNEN); return false;}
-gint midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_GRUNDWERTE); return false;}
-gint midgard_CG::on_eventbox_credits_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_eventbox_credits_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_INFO); return false;}
-gint midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *event)
+bool midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_NEWS); return false;}
 
 
@@ -211,7 +211,7 @@ void midgard_CG::on_button_quit_confirm_clicked()
   Gtk::Main::instance()->quit();
 }
 
-gint midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
+bool midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
 {
   on_schliessen_CG_clicked();
   return true;

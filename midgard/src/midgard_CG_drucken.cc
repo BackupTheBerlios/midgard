@@ -1,4 +1,4 @@
-// $Id: midgard_CG_drucken.cc,v 1.4 2002/12/11 18:18:50 christof Exp $   
+// $Id: midgard_CG_drucken.cc,v 1.5 2002/12/12 11:20:14 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,7 +54,7 @@ void midgard_CG::on_alles_drucken()
 }
 
 
-gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
+bool midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) on_abenteurerdokument_drucken();
   if (ev->button==2) on_beschreibung_drucken();

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.21 2002/12/11 18:18:50 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.22 2002/12/12 11:20:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@
 #include "class_SimpleTree.hh"
 #include "midgard_CG.hh"
 
-gint table_lernschema::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
+bool table_lernschema::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ANGEBORENEFERTIGKEITEN);
   hauptfenster->getChar()->setAngebFert();

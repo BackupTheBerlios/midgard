@@ -19,7 +19,7 @@
 #include <Misc/Trace.h>
 
 
-gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
+bool midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 {
    ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
    Char.push_back();

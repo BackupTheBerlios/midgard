@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.54 2002/12/12 08:35:34 christof Exp $
+// $Id: WindowInfo.cc,v 1.55 2002/12/12 11:20:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,7 +42,7 @@ void WindowInfo::on_button_abbrechen_clicked()
   hide();
 }
 
-gint WindowInfo::on_WindowInfo_delete_event(GdkEventAny *ev)
+bool WindowInfo::on_WindowInfo_delete_event(GdkEventAny *ev)
 {
  on_button_abbrechen_clicked();
  return true; // verhindert das zerstören des Objektes

@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.15 2002/11/20 08:40:48 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.16 2002/12/12 11:20:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -82,7 +82,7 @@ void table_steigern::on_button_grad_basiswerte_clicked()
   zeige_werte();
 }
 
-gint table_steigern::on_button_grad_basiswerte_button_release_event(GdkEventButton *ev)
+bool table_steigern::on_button_grad_basiswerte_button_release_event(GdkEventButton *ev)
 {
   if (ev->button == 1) on_button_grad_basiswerte_clicked();
   else if (ev->button == 3) 

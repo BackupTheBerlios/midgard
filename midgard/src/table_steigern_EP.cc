@@ -21,7 +21,7 @@
 #include <gtkmm/adjustment.h>
 #include <Misc/itos.h>
 
-gint table_steigern::vscale_value_changed(GdkEventButton *ev)
+bool table_steigern::vscale_value_changed(GdkEventButton *ev)
 {
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
   int Av=(int)A->get_value();
@@ -52,7 +52,7 @@ void table_steigern::on_button_EP_toggled()
 }
 */
 
-gint table_steigern::on_button_EP_eingeben_button_release_event(GdkEventButton *ev)
+bool table_steigern::on_button_EP_eingeben_button_release_event(GdkEventButton *ev)
 { 
  if(ev->button==3) button_EP->set_active(!button_EP->get_active());
  show_EPeingabe(button_EP->get_active(),ev->button);

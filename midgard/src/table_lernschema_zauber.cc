@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.10 2002/12/11 18:18:50 christof Exp $
+// $Id: table_lernschema_zauber.cc,v 1.11 2002/12/12 11:20:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,7 @@ void table_lernschema::on_combo_magier_spezialgebiet_activate()
  button_zauber->grab_focus();
 }
 
-gint table_lernschema::on_combo_magier_spezialgebiet_focus_out_event(GdkEventFocus *ev)
+bool table_lernschema::on_combo_magier_spezialgebiet_focus_out_event(GdkEventFocus *ev)
 {
   for(std::vector<cH_Spezialgebiet>::const_iterator i=hauptfenster->getDatabase().Spezialgebiet.begin();i!=hauptfenster->getDatabase().Spezialgebiet.end();++i)
    {

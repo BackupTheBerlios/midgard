@@ -119,7 +119,7 @@ void table_zufall::on_combo_prototyp_activate()
 {
 }
 
-gint table_zufall::on_combo_prototyp_focus_out_event(GdkEventFocus *ev)
+bool table_zufall::on_combo_prototyp_focus_out_event(GdkEventFocus *ev)
 {
   return 0;
 }

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.15 2002/12/11 18:18:50 christof Exp $
+// $Id: table_lernschema_kido.cc,v 1.16 2002/12/12 11:20:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,7 +84,7 @@ void table_lernschema::on_combo_kido_stil_activate()
   button_kido_auswahl->grab_focus();
 }
 
-gint table_lernschema::on_combo_kido_stil_focus_out_event(GdkEventFocus *ev)
+bool table_lernschema::on_combo_kido_stil_focus_out_event(GdkEventFocus *ev)
 {
   KiDo_Stile ks;
   std::vector<std::string> V=ks.getVStile();
