@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.43 2002/06/03 21:52:14 christof Exp $
+// $Id: Optionen.cc,v 1.44 2002/06/04 09:46:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -314,7 +314,6 @@ void Midgard_Optionen::pdfViewer_init()
 std::cout << "Found Acrobat Reader @" << path << '\n';
      setString(pdf_viewer,path);
    }
-  
 #endif
 }
 
@@ -393,9 +392,9 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
   ts.setEncoding("ISO-8859-1");
 
   Tag &hist=ts.push_back(Tag("MAGUS-history"));
- for(std::list<std::string>::const_iterator i=hauptfenster->LDateien.begin();i!=hauptfenster->LDateien.end();++i)
-  { hist.push_back(Tag("Datei")).setAttr("Name",*i);
-  }
+  for(std::list<std::string>::const_iterator i=hauptfenster->LDateien.begin();i!=hauptfenster->LDateien.end();++i)
+   { hist.push_back(Tag("Datei")).setAttr("Name",*i);
+   }
 
  if(OberCheck(SaveFenster).active)
   { Tag &fenstert=ts.push_back(Tag("MAGUS-fenster"));
@@ -411,7 +410,7 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
     position.setIntAttr("Y", y);
   }
 
-  Tag &optionen=ts.push_back(Tag("MAGUS-optionen"));
+ Tag &optionen=ts.push_back(Tag("MAGUS-optionen"));
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    { Tag &opt=optionen.push_back(Tag("Optionen"));
      opt.setAttr("Name",i->text);

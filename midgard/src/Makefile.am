@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.170 2002/05/30 14:35:24 christof Exp $
+# $Id: Makefile.am,v 1.171 2002/06/04 09:46:01 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -133,6 +133,7 @@ magus_SOURCES = $(PORT_FILES) \
    LaTeX_drucken.cc \
    LaTeX_drucken_ausruestung.cc \
    LaTeX_drucken_beschreibung.cc \
+   LaTeX_drucken_spielleiterbogen.cc \
    table_beschreibung.cc \
    table_beschreibung_glade.cc \
    midgard_CG_oberflaeche.cc \

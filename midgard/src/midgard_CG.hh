@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.255 2002/06/02 07:24:56 thoma Exp $
+// $Id: midgard_CG.hh,v 1.256 2002/06/04 09:46:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -75,6 +75,7 @@ class midgard_CG : public midgard_CG_glade
         void on_beschreibung_drucken();
         void on_nur_sichtbares_drucken();
         void on_auch_unsichtbares_drucken();
+        void on_spielleiterbogen_drucken_activate();
         
         // Info Fenster
    private: 
@@ -143,6 +144,7 @@ class midgard_CG : public midgard_CG_glade
         void on_AbenteurerListe_leaf(cH_RowDataBase d);
         void set_AbenteurerListe_Title();
         void on_button_quit_confirm_clicked();
+        void on_togglebutton_delete_abenteurer_aus_liste_toggled();
         
    protected:
         const Datenbank &getCDatabase() const {return Database;}

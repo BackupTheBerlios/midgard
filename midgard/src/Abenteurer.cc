@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.5 2002/06/04 07:31:44 christof Exp $            
+// $Id: Abenteurer.cc,v 1.6 2002/06/04 09:46:01 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -33,28 +33,36 @@
 #include "KiDo.hh"
 #include "Beruf.hh"
 
+std::string Abenteurer::STyp() const
+{
+  if(CTyp2()->Name(getCWerte().Geschlecht())!="")
+   return CTyp1()->Name(getCWerte().Geschlecht())+"/"+CTyp2()->Name(getCWerte().Geschlecht());
+  else return CTyp1()->Name(getCWerte().Geschlecht());
+  abort(); //never get here
+}
+
 
 void VAbenteurer::push_back(Abenteurer A)
 { 
    VA.push_back(st_abenteurer(A,true)); 
-   ai=VA.end()-1; 
+   ai=--VA.end(); 
 }
 
 
 void VAbenteurer::set_Abenteurer(const Abenteurer& A)
 { 
-   for(std::vector<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
+   for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
       if(i->abenteurer==A) ai=i;
 }
 
 
 bool VAbenteurer::unsaved_exist()
 { 
-   for(std::vector<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
+   for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
        if(!i->gespeichert) return true;
    return false;
 }
-                                             
+
 
 ///////////////////////////////////////////////////////////////////
 #ifdef __MINGW__
@@ -249,6 +257,13 @@ void Abenteurer::save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB
          datei << string(indent,' ') << "</Gegenstand>\n";
       }
    }
+}
+
+const std::string Abenteurer::Beruf() const
+{
+ if(list_Beruf.empty()) return "";
+ return (*(list_Beruf.begin()))->Name();
+ abort(); //never get here
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.1 2002/05/15 05:11:36 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.2 2002/06/04 09:46:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,10 +25,11 @@ class AusruestungBaum;
 #include <iostream>
 #include <string>
 #include <list>
+#include <fstream>
 
 class LaTeX_drucken
 {
-    enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung};
+    enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung,TeX_Spielleiter};
     enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
  private:
     const midgard_CG *hauptfenster;
@@ -57,7 +58,12 @@ class LaTeX_drucken
     void ausruestung_druck(ostream &fout,bool unsichtbar,const std::list<AusruestungBaum> &AB,int deep);
     void pdf_viewer(const std::string& file);
     
-
+    enum ewhat{SName,AName,Spezies,Typ,Grad,Herkunft,Stand,Gestalt,Groesse,
+               Gewicht,Beruf,Glaube,Sprachen,Schriften,St,Gw,Gs,Ko,In,Zt,
+               Au,pA,Wk,Sb,B,Resistenz,Sehen,Hoeren,Riechen,Schmecken,Tasten,
+               SechsterSinn,Wahrnehmung,Spuren_lesen,Fallen_entdecken};
+    void line(ofstream &fout,const ewhat &what);
+    void for_each(ofstream &fout,const ewhat &what);
  public:
     LaTeX_drucken(const midgard_CG* h)
       : hauptfenster(h) {}
@@ -65,6 +71,7 @@ class LaTeX_drucken
     void on_latex_clicked(bool values=true);
     void on_ausruestung_druck(bool unsichtbar);
     void latex_beschreibung_drucken();      
+    void Spielleiterbogen();
 
 };
 

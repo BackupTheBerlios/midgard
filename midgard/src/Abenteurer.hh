@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.8 2002/05/31 11:37:50 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.9 2002/06/04 09:46:01 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -66,12 +66,14 @@ public:
 
    const cH_Typen &CTyp1() const {return Typ[0];}
    const cH_Typen &CTyp2() const {return Typ[1];}
+   std::string STyp() const ;
    void setTyp1(cH_Typen t) {Typ[0]=t;}
    void setTyp2(cH_Typen t) {Typ[1]=t;}
    const vector<cH_Typen> &getVTyp() const {return Typ;}
    bool is_mage() const {if(CTyp1()->is_mage() || CTyp2()->is_mage()) return true;
                          else return false;}
 
+   const std::string Beruf() const;
    const std::list<cH_MidgardBasicElement>& CList_Beruf() const {return list_Beruf;}
    const std::list<cH_MidgardBasicElement>& CList_Fertigkeit_ang() const {return list_Fertigkeit_ang;}
    const std::list<cH_MidgardBasicElement>& CList_Fertigkeit() const {return list_Fertigkeit;}
@@ -116,14 +118,19 @@ class VAbenteurer
       struct st_abenteurer{Abenteurer abenteurer;std::string filename;
                            bool gespeichert;
              st_abenteurer(Abenteurer A,bool g) : abenteurer(A),gespeichert(g) {}
-             st_abenteurer() : abenteurer(Abenteurer()),gespeichert(true){} };
+             st_abenteurer() : abenteurer(Abenteurer()),gespeichert(true){} 
+             bool operator==(const st_abenteurer& a) const 
+               {return abenteurer.getCWerte().Name_Abenteurer()==a.abenteurer.getCWerte().Name_Abenteurer() &&
+                       abenteurer.getCWerte().Version() == a.abenteurer.getCWerte().Version() ;}
+             };
    private:
-      std::vector<st_abenteurer> VA;
-      std::vector<st_abenteurer>::iterator ai;
+      std::list<st_abenteurer> VA;
+      std::list<st_abenteurer>::iterator ai;
    public:
       VAbenteurer() {}
       
-      const std::vector<st_abenteurer> &getList() const {return VA;}
+      const std::list<st_abenteurer> &getList() const {return VA;}
+      std::list<st_abenteurer> &getList() {return VA;}
       void push_back(Abenteurer A);
       void set_Abenteurer(const Abenteurer& A);
       void modified() {ai->gespeichert=false;}
@@ -162,6 +169,7 @@ public:
 
    const cH_Typen &CTyp1() const {return ai->abenteurer.CTyp1();}
    const cH_Typen &CTyp2() const {return ai->abenteurer.CTyp2();}
+   std::string STyp() const {return ai->abenteurer.STyp();}
    void setTyp1(cH_Typen t) {ai->abenteurer.setTyp1(t);}
    void setTyp2(cH_Typen t) {ai->abenteurer.setTyp2(t);}
    const vector<cH_Typen> &getVTyp() const {return ai->abenteurer.getVTyp();}
@@ -192,6 +200,7 @@ public:
    std::list<cH_MidgardBasicElement>& List_Kido()  {return ai->abenteurer.List_Kido();}
    std::list<cH_MidgardBasicElement>& List_Sprache()  {return ai->abenteurer.List_Sprache();} 
    std::list<cH_MidgardBasicElement>& List_Schrift()  {return ai->abenteurer.List_Schrift();}
+
 };
 
 

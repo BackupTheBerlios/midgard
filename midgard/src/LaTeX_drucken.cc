@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.10 2002/05/31 06:48:18 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.11 2002/06/04 09:46:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,6 +58,7 @@ std::string LaTeX_drucken::get_latex_filename(const LaTeX_Filenames what)
       case TeX_MainWerte    : return "magus"+nv+"latexwerte";  
       case TeX_Beschreibung : return "magus"+nv+"beschreibung";
       case TeX_Ausruestung  : return "magus"+nv+"ausruestung"; 
+      case TeX_Spielleiter  : return "magus_spielleiter"; 
     }
   abort(); // never get here
 }
@@ -884,7 +885,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   system(("pdflatex --interaction scrollmode "+file+".tex").c_str());
   system((hauptfenster->getOptionen()->Viewer()+" "+file+".pdf &").c_str());
 
-  unlink((file+".tex").c_str());
+//  unlink((file+".tex").c_str());
   unlink((file+".aux").c_str());
   unlink((file+".log").c_str());
 //  unlink((file+".pdf").c_str());

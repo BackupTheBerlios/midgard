@@ -1,4 +1,4 @@
-// $Id: midgard_CG_drucken.cc,v 1.2 2002/05/20 20:44:09 thoma Exp $   
+// $Id: midgard_CG_drucken.cc,v 1.3 2002/06/04 09:46:01 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,4 +84,10 @@ void midgard_CG::on_auch_unsichtbares_drucken()
   L.on_ausruestung_druck(true);
 }
         
-        
+// Spielleiterbogen ///////////////////////////////////////////////////////////
+void midgard_CG::on_spielleiterbogen_drucken_activate()
+{
+  LaTeX_drucken L(this);
+  L.Spielleiterbogen();
+}
+ 

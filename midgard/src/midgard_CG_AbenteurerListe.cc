@@ -1,4 +1,4 @@
-// $Id: midgard_CG_AbenteurerListe.cc,v 1.4 2002/05/29 07:49:15 thoma Exp $
+// $Id: midgard_CG_AbenteurerListe.cc,v 1.5 2002/06/04 09:46:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,12 +19,13 @@
 
 #include "midgard_CG.hh"
 #include "class_AbenteurerListe.hh"
+#include <algorithm>
 
 void midgard_CG::fill_AbenteurerListe()
 {
   set_AbenteurerListe_Title();
   std::vector<cH_RowDataBase> datavec;
-  for(std::vector<VAbenteurer::st_abenteurer>::const_iterator i=Char.getList().begin();i!=Char.getList().end();++i)
+  for(std::list<VAbenteurer::st_abenteurer>::const_iterator i=Char.getList().begin();i!=Char.getList().end();++i)
    {
 //     if(i->abenteurer.getCWerte().Name_Abenteurer()!="")
         datavec.push_back(new Data_AbenteurerListe(*i));
@@ -35,26 +36,25 @@ void midgard_CG::fill_AbenteurerListe()
 void midgard_CG::on_AbenteurerListe_leaf(cH_RowDataBase d)
 {
   const Data_AbenteurerListe *dt=dynamic_cast<const Data_AbenteurerListe*>(&*d);
-  Char.set_Abenteurer(dt->getAbenteurer());
-  set_title(getWerte().Name_Abenteurer());
+  if(togglebutton_delete_abenteurer_aus_liste->get_active())
+   {
+     VAbenteurer::st_abenteurer A(dt->getAbenteurer(),false);
+     Char.getList().erase(find(Char.getList().begin(),Char.getList().end(),A));
+//     std::remove(Char.getList().begin(),Char.getList().end(),A);
+     togglebutton_delete_abenteurer_aus_liste->set_active(false);
+     load_for_mainpage(PAGE_NEWS);
+   }
+  else
+   {
+     Char.set_Abenteurer(dt->getAbenteurer());
+     set_title(getWerte().Name_Abenteurer());
+   }
 }
 
-/*
-void midgard_CG::insert_into_CharList(Abenteurer &A)
+void midgard_CG::on_togglebutton_delete_abenteurer_aus_liste_toggled()
 {
-  bool push_back=true;
-  for(std::vector<Abenteurer>::iterator i=CharList.begin();i!=CharList.end();++i)
-   {
-     if(i->getCWerte().Name_Abenteurer()==A.getCWerte().Name_Abenteurer() &&
-        i->getCWerte().Version() == A.getCWerte().Version() )
-       {
-         *i=A;
-         push_back=false;
-       }
-   }
-  if(push_back) CharList.push_back(A);
+  
 }
-*/
 
 void midgard_CG::set_AbenteurerListe_Title()
 {

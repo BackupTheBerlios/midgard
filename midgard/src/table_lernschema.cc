@@ -538,9 +538,10 @@ void table_lernschema::zeige_werte()
   zeige_lernpunkte();
   label_ruestung_lernschema->set_text(hauptfenster->getCWerte().Ruestung()->Long()); 
   label_herkunft_lernschema->set_text(hauptfenster->getCWerte().Herkunft()->Name());
-  fertig_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht()));
-  if (hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht())!="")
-   fertig_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht())+"/"+hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht()));
+  fertig_typ->set_text(hauptfenster->getCChar().STyp());
+//  fertig_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht()));
+//  if (hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht())!="")
+//   fertig_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht())+"/"+hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht()));
 
   // Spezialwaffe anzeigen?
  if (hauptfenster->getCChar().CTyp1()->Spezialwaffe() || hauptfenster->getCChar().CTyp2()->Spezialwaffe())
