@@ -3,6 +3,35 @@
 #include <algorithm>
 #include <Misc/dbconnect.h>
 
+/* Notizen zum Algorithmus:
+
+Grund, Standard, Ausnahme, Nicht = vector<typ>
+('Nicht' notwendig?)
+
+Gruppen
+erst expandieren, nicht nicht notwendig
+nicht vorkommende Typen in Nicht eintragen
+mit größten Gruppen beginnen
+
+Anzahl für GSAN in dieser Gruppe
+-> größtes Vorkommen, mehrere continue
+-> sollte Vereinfachung bringen: mindestens 2 Typen erledigen
+dann ersetzen (alle Typen in dieser Gruppe weg, Gruppe hinzu)
+
+fortfahren
+- für alle Typen testen ob ungeändert
+- speichern
+
+kleinste Gruppe zuerst speichern
+
+-------
+- Liste von Typen
+- Liste von Gruppen (mit Liste von Mitgliedern)
+  sortiert nach größter Gruppe
+KÄM = Nicht bei Zaubern weglassen (ist doch klar)
+
+*/
+
 class Gruppe
 {  std::vector<std::string> typen;
    std::string name;
