@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.13 2003/05/07 12:42:08 christof Exp $
+# $Id: Makefile.am,v 1.14 2003/05/07 13:11:26 christof Exp $
 
 AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@COMMONGTK2_INCLUDES@
@@ -19,8 +19,8 @@ libmagus_a_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Fertigkeiten.cc Sprache.cc Spezies.cc Abenteurer_besitz.cc \
 	Ausruestung.cc dtos1.cc Windows_Linux.cc magus_paths.cc \
 	Datenbank.cc Grad_anstieg.cc \
-	Grundwerte.cc LernListen.cc Lernschema.cc 
+	Grundwerte.cc LernListen.cc Lernschema.cc Preise.cc Prototyp2.cc \
+	Prototyp.cc Prozente100.cc 
 
-dummy_SOURCES=Preise.cc Prototyp2.cc \
-	Prototyp.cc Prozente100.cc Region.cc Ruestung.cc Spezialgebiet.cc \
-	xml.cc Abenteurer.cc 
+dummy_SOURCES=Ruestung.cc Spezialgebiet.cc \
+	xml.cc Abenteurer.cc Region.cc 
