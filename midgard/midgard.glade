@@ -15270,7 +15270,7 @@ anschlieﬂend unten einen neuen Gegenstand ausw‰hlen.</label>
 		  <label>kg</label>
 		  <justify>GTK_JUSTIFY_CENTER</justify>
 		  <wrap>False</wrap>
-		  <xalign>0</xalign>
+		  <xalign>1</xalign>
 		  <yalign>0.5</yalign>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
@@ -15297,7 +15297,7 @@ anschlieﬂend unten einen neuen Gegenstand ausw‰hlen.</label>
 		  <label>kg</label>
 		  <justify>GTK_JUSTIFY_CENTER</justify>
 		  <wrap>False</wrap>
-		  <xalign>0</xalign>
+		  <xalign>1</xalign>
 		  <yalign>0.5</yalign>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
@@ -15324,7 +15324,7 @@ anschlieﬂend unten einen neuen Gegenstand ausw‰hlen.</label>
 		  <label>kg</label>
 		  <justify>GTK_JUSTIFY_CENTER</justify>
 		  <wrap>False</wrap>
-		  <xalign>0</xalign>
+		  <xalign>1</xalign>
 		  <yalign>0.5</yalign>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
