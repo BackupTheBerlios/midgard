@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.20 2002/10/24 07:24:02 christof Exp $
+// $Id: all_exp.cc,v 1.21 2003/01/24 08:50:46 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -23,7 +23,7 @@
 #include <Misc/exception.h>
 #include <Misc/FetchIStream.h>
 #include <Misc/Transaction.h>
-#include "TagStream.hh"
+#include <Misc/TagStream.h>
 
 int main(int argc, char *argv[])
 {  ManuProC::PrintUncaughtExceptions();
