@@ -92,7 +92,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
                              const std::list<cH_MidgardBasicElement> &Sp,
                              const std::list<cH_MidgardBasicElement> &Sc,
                              const std::list<cH_MidgardBasicElement> &L)
- :mod(_mod),hauptfenster(h),Werte(_Werte) , MBE(&_MBE), wert(_wert)
+ :mod(_mod),hauptfenster(h),Werte(_Werte) , MBE(_MBE), wert(_wert)
 {
   {
    Gtk::OStream os(clist_sp_sc);
@@ -102,7 +102,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
          if(mod == MUSIZIEREN) sp_sc_label->set_text("Musikinstrument wählen");
          if(mod == TIERSPRACHE) sp_sc_label->set_text("Tierart wählen");
          if(mod == ABRICHTEN) sp_sc_label->set_text("Tierart wählen");
-         std::vector<std::string> VG=(*MBE)->VZusatz();
+         std::vector<std::string> VG=MBE->VZusatz();
          for (std::vector<std::string>::const_iterator i=VG.begin();i!=VG.end();++i)
           { 
             os << (*i)<<'\t'<<wert<<'\n';

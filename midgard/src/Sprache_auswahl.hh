@@ -1,4 +1,4 @@
-// $Id: Sprache_auswahl.hh,v 1.28 2002/02/14 16:04:35 thoma Exp $
+// $Id: Sprache_auswahl.hh,v 1.29 2002/02/14 16:54:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,7 +47,7 @@ class Sprache_auswahl : public Sprache_auswahl_glade
         const Grundwerte Werte;
         friend class Sprache_auswahl_glade;
         void on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event);
-        const cH_MidgardBasicElement *MBE;
+        cH_MidgardBasicElement MBE;
         int wert;
    public:
         Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
