@@ -42,9 +42,9 @@ void midgard_CG::on_button_hilfe_clicked()
 void midgard_CG::on_button_html_hilfe_clicked()
 {
   std::string pfad="file://"+with_path("index.html",false,false);
-  std::string s =MOptionen->getString(Midgard_Optionen::html_viewer)+" \""+pfad+"\" "
+  std::string s =MOptionen->getString(Midgard_Optionen::html_viewer)+" \""+pfad+"\""
 #ifndef __MINGW32__  
-							  "&"
+							  " &"
 #endif  
 							  	;
   system(s.c_str());

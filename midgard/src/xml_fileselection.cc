@@ -35,7 +35,8 @@ try{
  if (ewas==Load)
    hauptfenster->xml_import(this->get_filename());
  else if (ewas==Save)
-   hauptfenster->xml_export(this->get_filename());
+ { hauptfenster->xml_export(this->get_filename());
+ }
  else if (ewas==Export)
    hauptfenster->spielleiter_export_save(this->get_filename());
  else if (ewas==Pix)
@@ -67,19 +68,26 @@ static std::string defFileName(const std::string &s)
 
 static void register_magus(const std::string &argv0)
 {  reg_key cl(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes",0);
+   char buf[10240];
    
    reg_key magusf(cl.get_key(), KEY_ALL_ACCESS, "magusfile",0);
-   magusf.set_string(0,"Midgard Abenteurer");
-   magusf.set_int("EditFlags",0);
+   if (magusf.get_string(0,buf,sizeof buf,"")!=ERROR_SUCCESS || !*buf)
+   {  magusf.set_string(0,"Midgard Abenteurer");
+      magusf.set_int("EditFlags",0);
+   }
    
    reg_key maguscmd(magusf.get_key(), KEY_ALL_ACCESS, "Shell", "Magus", "command", 0);
-   maguscmd.set_string(0,("\""+argv0+"\" %1").c_str());
+   std::string command="\""+argv0+"\" %1";
+   if (maguscmd.get_string(0,buf,sizeof buf,"")!=ERROR_SUCCESS || buf!=command)
+      maguscmd.set_string(0,command.c_str());
    
    reg_key magusicon(magusf.get_key(), KEY_ALL_ACCESS, "DefaultIcon", 0);
-   magusicon.set_string(0,(argv0+",0").c_str());
+   if (magusicon.get_string(0,buf,sizeof buf,"")!=ERROR_SUCCESS || buf!=argv0+",0")
+      magusicon.set_string(0,(argv0+",0").c_str());
    
    reg_key magusextension(cl.get_key(), KEY_ALL_ACCESS, ".magus", 0);
-   magusextension.set_string(0,"magusfile");
+   if (magusextension.get_string(0,buf,sizeof buf,"")!=ERROR_SUCCESS || buf!="magusfile")
+      magusextension.set_string(0,"magusfile");
 }
 
 #endif
@@ -123,6 +131,9 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
  {  fname=VA.getFilename();
     if (fname.empty()) 
        fname=path+defFileName(VA->getWerte().Name_Abenteurer())+".magus";
+#ifdef __MINGW32__
+    register_magus(h->argv0);
+#endif 
  }
  else if (ewas==Load) 
  {  // path is ok
@@ -167,7 +178,7 @@ std::cout << "Dateiname " << fname << "->" << get_filename() << '\n';
    bool res=false;
    if (ewas==Pix||ewas==Load) res=GetOpenFileName(&ofn);
    else res=GetSaveFileName(&ofn);
-   
+
    if (res) 
    {  set_filename(buf);
       on_ok_button1_clicked();

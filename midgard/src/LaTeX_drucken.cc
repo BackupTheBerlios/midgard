@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.50 2002/07/11 06:29:08 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.51 2002/07/17 08:18:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -817,19 +817,11 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   *currentwd=0;
   getcwd(currentwd,sizeof currentwd);
   
+  std::string pdflatex="pdflatex";
+  
 #ifdef __MINGW32__ // oder direkt mit Pfad aufrufen?
-  const char * const subpath="\\texmf\\miktex\\bin";
-  static std::string newpath;
-  const char *e=getenv("PATH");
-  if (!e) e="";
-  if (!strstr(e,subpath))
-  {  newpath="PATH="+hauptfenster->BinaryVerzeichnis()
-  	+subpath+std::string(1,WinLux::psep)+ e;
-     putenv((char*)(newpath.c_str()));
-  }
-  // GetTempPath ?
+  pdflatex="\""+hauptfenster->BinaryVerzeichnis()+"texmf\\miktex\\bin\\"+pdflatex+"\"";
 #define unlink(a) _unlink(a)
-
 #endif
 
   // LaTeX always writes to current dir first, so we change dir
@@ -842,10 +834,10 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   }
 
 // oder batchmode?
-  system(("pdflatex --interaction scrollmode "+file2+".tex").c_str());
-  system((hauptfenster->getOptionen()->Viewer()+" \""+file2+".pdf\" "
+  system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
+  system((hauptfenster->getOptionen()->Viewer()+" "+file2+".pdf"
 #ifndef __MINGW32__  
-						  		"&"
+						  		" &"
 #endif  		
   								).c_str());
 
