@@ -74,6 +74,7 @@ cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const s
 
 cH_Region cH_Region::load(const Tag &t, const std::string &file)
 {  cH_Region *res=cache.lookup(t.getAttr("Name"));
+//std::cout << file << ':'; t.debug(3);
    assert (!res);
       cH_Region r2=new Region(t,file);
       cache.Register(t.getAttr("Name"),r2);

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.14 2003/06/15 15:07:19 christof Exp $
+// $Id: xml.cc,v 1.15 2003/06/27 06:17:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2003 Christof Petig
  *
@@ -51,7 +51,7 @@ void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::stri
        if (in2.good()) 
        {  TagStream ts2(in2);
           try
-          {  Tag &data=ts.getContent();
+          {  Tag &data=ts2.getContent();
              if (data.Type()!="MAGUS-data")
              {  std::cerr << file << " ist keine Magus Datei\n";
              }
