@@ -8,10 +8,10 @@ DROP TABLE "land";
 --
 
 CREATE TABLE "land" (
-	"land" text,
+	"land" text NOT NULL,
 	"kontinent" text,
-	"sprache" text,
-   Constraint "land_pkey" Primary Key ("land","sprache")
+	"sprache" text NOT NULL,
+	Constraint "land_pkey" Primary Key ("land", "sprache")
 );
 
 --

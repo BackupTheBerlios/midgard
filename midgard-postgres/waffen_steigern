@@ -8,7 +8,7 @@ DROP TABLE "waffen_steigern";
 --
 
 CREATE TABLE "waffen_steigern" (
-	"schwierigkeit" integer,
+	"schwierigkeit" integer NOT NULL,
 	"p2" integer,
 	"p3" integer,
 	"p4" integer,
@@ -31,7 +31,7 @@ CREATE TABLE "waffen_steigern" (
 	"p20" integer,
 	"p21" integer,
 	"p22" integer,
-   Constraint "waffen_steigern_pkey" Primary Key ("schwierigkeit")
+	Constraint "waffen_steigern_pkey" Primary Key ("schwierigkeit")
 );
 
 --

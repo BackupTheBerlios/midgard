@@ -9,8 +9,8 @@ DROP TABLE "sprache_schrift";
 CREATE TABLE "sprache_schrift" (
 	"sprache" text NOT NULL,
 	"art_der_schrift" text NOT NULL,
-	"schrift" text,
-   Constraint "sprache_schrift_pkey" Primary Key ("sprache", "schrift")
+	"schrift" text NOT NULL,
+	Constraint "sprache_schrift_pkey" Primary Key ("sprache", "schrift")
 );
 
 --

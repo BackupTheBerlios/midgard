@@ -8,7 +8,7 @@ DROP TABLE "steigern_fertigkeiten_werte";
 --
 
 CREATE TABLE "steigern_fertigkeiten_werte" (
-	"name" text,
+	"name" text NOT NULL,
 	"p1" integer,
 	"p2" integer,
 	"p3" integer,
@@ -38,7 +38,7 @@ CREATE TABLE "steigern_fertigkeiten_werte" (
 	"p26" integer,
 	"p27" integer,
 	"p28" integer,
-    Constraint "steigern_fertigkeiten_werte_pkey" Primary Key ("name")
+	Constraint "steigern_fertigkeiten_werte_pke" Primary Key ("name")
 );
 
 --

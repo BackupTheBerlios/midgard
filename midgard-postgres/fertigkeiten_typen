@@ -12,7 +12,7 @@ CREATE TABLE "fertigkeiten_typen" (
 	"name" text NOT NULL,
 	"typ" text NOT NULL,
 	"standard" text NOT NULL,
-   Constraint "fertigkeiten_typen_pkey" Primary Key ("name","typ")
+	Constraint "fertigkeiten_typen_pkey" Primary Key ("name", "typ")
 );
 
 --

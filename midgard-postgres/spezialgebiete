@@ -8,12 +8,12 @@ DROP TABLE "spezialgebiete";
 --
 
 CREATE TABLE "spezialgebiete" (
-	"typ" text,
-	"nr" integer,
+	"typ" text NOT NULL,
+	"nr" integer NOT NULL,
 	"spezialgebiet" text,
 	"spezial" text,
 	"spezial2" text,
-   Constraint "spezialgebiete_pkey" Primary Key ("typ", "nr")
+	Constraint "spezialgebiete_pkey" Primary Key ("typ", "nr")
 );
 
 --

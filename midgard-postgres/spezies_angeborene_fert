@@ -8,12 +8,12 @@ DROP TABLE "spezies_angeborene_fert";
 --
 
 CREATE TABLE "spezies_angeborene_fert" (
-	"spezies" text,
-	"art" text,
-	"name" text,
+	"spezies" text NOT NULL,
+	"art" text NOT NULL,
+	"name" text NOT NULL,
 	"erfolgswert" integer,
 	"lp" integer,
-   Constraint "spezies_angeborene_fert_pkey" Primary Key ("spezies","art", "name")
+	Constraint "spezies_angeborene_fert_pkey" Primary Key ("spezies", "art", "name")
 );
 
 --

@@ -8,7 +8,7 @@ DROP TABLE "fertigkeiten_voraussetzung";
 --
 
 CREATE TABLE "fertigkeiten_voraussetzung" (
-	"name" text,
+	"name" text NOT NULL,
 	"st" integer,
 	"gw" integer,
 	"ko" integer,
@@ -20,7 +20,7 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 	"rw" integer,
 	"fertigkeit" text,
 	"gs" integer,
-   Constraint "fertigkeiten_voraussetzung_pkey" Primary Key ("name")
+	Constraint "fertigkeiten_voraussetzung_pkey" Primary Key ("name")
 );
 
 --

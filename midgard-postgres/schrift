@@ -8,14 +8,14 @@ DROP TABLE "schrift";
 --
 
 CREATE TABLE "schrift" (
-	"name" text,
+	"name" text NOT NULL,
 	"typ" text,
 	"kosten" integer,
 	"region" text,
 	"alt" boolean,
 	"kult" boolean,
 	"region_zusatz" text,
-   Constraint "schrift_pkey" Primary Key ("name")
+	Constraint "schrift_pkey" Primary Key ("name")
 );
 
 --

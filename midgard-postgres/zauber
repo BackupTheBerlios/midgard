@@ -30,7 +30,7 @@ CREATE TABLE "zauber" (
 	"thaumagram" text,
 	"zusaetze" integer,
 	"nsc_only" boolean,
-   Constraint "zauber_pkey" Primary Key ("name")
+	Constraint "zauber_pkey" Primary Key ("name")
 );
 
 --

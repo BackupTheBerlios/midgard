@@ -10,7 +10,7 @@ DROP TABLE "typen";
 
 CREATE TABLE "typen" (
 	"typnr" integer,
-	"typs" text,
+	"typs" text NOT NULL,
 	"typl" text,
 	"typlw" text,
 	"typz" text,
@@ -32,7 +32,7 @@ CREATE TABLE "typen" (
 	"kultwaffe" boolean,
 	"lernpflichten" text,
 	"schreiben_pflicht" boolean,
-   Constraint "typen_pkey" Primary Key ("typs")
+	Constraint "typen_pkey" Primary Key ("typs")
 );
 
 --
@@ -45,27 +45,25 @@ COPY "typen" FROM stdin;
 2	BN	Nordlandbarbar	Nordlandbarbarin	n	k	0	0	2	\N	2	\N	l	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 3	BS	Steppenbarbar	Steppenbarbarin	n	k	0	0	2	\N	2	\N	l	\N	\N	31	\N	31	\N	\N	\N	\N	\N
 4	BW	Waldlandbarbar	Waldlandbarbarin	n	k	0	0	4	\N	2	\N	l	\N	\N	31	31	31	\N	\N	\N	\N	\N
+14	Ba	Barde	Bardin	j	ak	20	0	1	\N	4	\N	\N	Lieder	\N	\N	\N	31	61	61	\N	\N	\N
+46	De	Derwisch	Derwisch	z	ak	0	0	1	E	4	\N	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N	\N
+20	Dr	Druide	Druidin	z	z	10	30	1	\N	3	z	\N	Dweomer	\N	\N	\N	\N	21	\N	\N	\N	\N
+47	Dt	Deuter	Deuterin	z	z	20	0	1	N	4	z	\N	null	\N	\N	\N	\N	\N	\N	\N	\N	\N
 5	Er	Ermittler	Ermittlerin	n	ak	0	0	1	\N	4	\N	s	\N	\N	\N	\N	31	61	\N	\N	\N	\N
+41	Fi	Fian	Fiana	j	ak	10	0	1	TuT	2	\N	l	Dweomer	\N	\N	\N	\N	\N	\N	t	\N	\N
 6	Gl	Glücksritter	Glücksritterin	n	ak	0	-20	3	\N	2	\N	\N	\N	\N	\N	61	31	\N	61	\N	\N	\N
+53	Hj	Hexenjäger	Hexenjägerin	j	ak	0	30	2	TuT	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	Nur Dolch, Kurzschwert, Streitkolben oder Kriegshammer als Spezialwaffe möglich.	\N
+21	Hl	Heiler	Heilerin	z	z	10	0	4	\N	3	\N	\N	Dweomer	\N	\N	\N	31	31	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 7	Hä	Händler	Händlerin	n	ak	-10	0	2	\N	4	\N	s	\N	\N	\N	\N	31	31	61	\N	\N	\N
+38	Kd	KiDoka	KiDoka	n	k	0	0	1	K	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+57	Km	Klingenmagier	Klingenmagierin	j	k	10	0	3	TuT	3	\N	l	\N	\N	\N	\N	\N	\N	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	\N
 8	Kr	Krieger	Kriegerin	n	k	0	0	3	\N	1	k	\N	\N	\N	61	\N	31	\N	\N	\N	\N	\N
 9	Ku	Kundschafter	Kundschafterin	n	k	-10	0	1	\N	2	\N	l	\N	\N	\N	\N	61	61	\N	\N	\N	\N
-10	Se	Seefahrer	Seefahrerin	n	ak	0	0	2	\N	2	\N	\N	\N	\N	61	\N	31	\N	\N	\N	\N	\N
-11	Sö	Söldner	Söldnerin	n	k	0	0	3	\N	1	k	\N	\N	\N	61	\N	31	\N	\N	\N	\N	\N
-12	Sp	Spitzbube	Spitzbübin	n	ak	-20	-20	1	\N	4	\N	s	\N	\N	\N	\N	61	61	\N	\N	\N	\N
-13	Wa	Waldläufer	Waldläuferin	n	k	-10	0	1	\N	2	\N	l	\N	\N	\N	61	31	31	\N	\N	\N	\N
-14	Ba	Barde	Bardin	j	ak	20	0	1	\N	4	\N	\N	Lieder	\N	\N	\N	31	61	61	\N	\N	\N
-15	Or	Ordenskrieger	Ordenskriegerin	j	ak	0	0	3	\N	3	k	\N	Wunder	\N	31	\N	31	\N	\N	\N	\N	\N
-16	Tm	Tiermeister	Tiermeisterin	j	ak	0	0	1	\N	2	\N	l	\N	\N	\N	\N	31	31	61	\N	\N	\N
-17	eBe	Elementarbeschwörer	Elementarbeschwörerin	z	z	20	30	4	3	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
-18	dBe	Dämonenbeschwörer	Dämonenbeschwörerin	z	z	20	30	4	3	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
-19	tBe	Totenbeschwörer	Totenbeschwörerin	z	z	20	30	4	3	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
-20	Dr	Druide	Druidin	z	z	10	30	1	\N	3	z	\N	Dweomer	\N	\N	\N	\N	21	\N	\N	\N	\N
-21	Hl	Heiler	Heilerin	z	z	10	0	4	\N	3	\N	\N	Dweomer	\N	\N	\N	31	31	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
-22	gHx	grauer Hexer	graue Hexe	z	z	0	0	4	\N	3	\N	\N	\N	\N	\N	\N	\N	21	\N	\N	\N	\N
-23	sHx	schwarzer Hexer	schwarze Hexe	z	z	0	0	4	\N	3	\N	\N	\N	\N	\N	\N	\N	21	\N	\N	\N	\N
-24	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N	3	\N	\N	\N	\N	\N	\N	\N	21	\N	\N	\N	\N
 25	Ma	Magier	Magierin	z	z	10	0	4	\N	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
+50	Mg	Magister	Magisterin	j	ak	20	0	1	TuT	4	\N	\N	\N	\N	\N	\N	31	61	61	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
+37	Ny	Ninya	Ninya	n	ak	0	30	1	K	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+15	Or	Ordenskrieger	Ordenskriegerin	j	ak	0	0	3	\N	3	k	\N	Wunder	\N	31	\N	31	\N	\N	\N	\N	\N
+45	PC	Chaospriester	Chaosprieserin	z	z	20	0	4	\N	3	z	\N	Wunder	t	\N	\N	\N	\N	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 26	PF	Fruchtbarkeitspriester	Fruchtbarkeitspriesterin	z	z	20	0	4	\N	3	z	\N	Wunder	\N	\N	\N	\N	21	\N	t	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 27	PHa	Priester Handel/Handwerk	Priesterin Handel/Handwerk	z	z	20	0	1	\N	4	z	\N	Wunder	\N	\N	\N	\N	21	\N	t	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 28	PHe	Herrschaftspriester	Herrschaftspriesterin	z	z	20	0	1	\N	4	z	\N	Wunder	\N	\N	\N	\N	21	\N	t	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
@@ -73,30 +71,32 @@ COPY "typen" FROM stdin;
 30	PM	Meerespriester	Meerespriesterin	z	z	20	0	1	\N	4	z	\N	Wunder	\N	\N	\N	\N	21	\N	t	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 31	PT	Todespriester	Todespriesterin	z	z	20	0	4	\N	3	z	\N	Wunder	\N	\N	\N	\N	21	\N	t	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 32	PW	Weisheitspriester	Weisheitspriesterin	z	z	20	0	4	\N	3	z	\N	Wunder	\N	\N	\N	\N	21	\N	t	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
+51	RiN	Ritter [Alba, Küstenstaaten]	Ritterin [Alba, Küstenstaaten]	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	Ritter aus Alba dürfen weder Rapier, Buckler noch Parierdolch wählen. Ritter aus den Küstenstaaten dürfen weder Kampf in Schlachtreihe noch das Schlachtbeil lernen.	\N
+52	RiS	Ritter [Aran,Eschar]	Ritterin [Aran,Eschar]	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+44	Ru	Runenschneider	Runenschneiderin	j	ak	0	0	3	W	3	k	\N	Runen	\N	\N	\N	\N	\N	\N	\N	\N	\N
+39	Sa	Saddhu	Saddhu	z	z	0	0	4	R	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 33	ScN	Nordlandschamane	Nordlandschamanin	z	ak	0	0	1	\N	4	\N	l	Wunder	\N	31	\N	31	31	\N	\N	\N	\N
 34	ScS	Steppenschamane	Steppenschamanin	z	ak	0	0	1	\N	4	\N	l	Wunder	\N	31	\N	31	31	\N	\N	\N	\N
 35	ScW	Waldlandschamane	Waldlandschamanin	z	ak	0	0	1	\N	4	\N	l	Wunder	\N	31	\N	31	31	\N	\N	\N	\N
-36	Th	Thaumaturg	Thaumaturgin	z	z	10	0	1	\N	4	z	s	\N	\N	\N	\N	31	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
-37	Ny	Ninya	Ninya	n	ak	0	30	1	K	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-38	Kd	KiDoka	KiDoka	n	k	0	0	1	K	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-39	Sa	Saddhu	Saddhu	z	z	0	0	4	R	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-40	Sr	Srikumara	Srikumara	j	ak	0	0	3	R	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-41	Fi	Fian	Fiana	j	ak	10	0	1	TuT	2	\N	l	Dweomer	\N	\N	\N	\N	\N	\N	t	\N	\N
+10	Se	Seefahrer	Seefahrerin	n	ak	0	0	2	\N	2	\N	\N	\N	\N	61	\N	31	\N	\N	\N	\N	\N
 43	Sk	Skalde	Skaldin	j	ak	20	0	1	W	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-44	Ru	Runenschneider	Runenschneiderin	j	ak	0	0	3	W	3	k	\N	Runen	\N	\N	\N	\N	\N	\N	\N	\N	\N
-45	PC	Chaospriester	Chaosprieserin	z	z	20	0	4	\N	3	z	\N	Wunder	t	\N	\N	\N	\N	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
-46	De	Derwisch	Derwisch	z	ak	0	0	1	E	4	\N	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N	\N
-47	Dt	Deuter	Deuterin	z	z	20	0	1	N	4	z	\N	null	\N	\N	\N	\N	\N	\N	\N	\N	\N
-48	Tt	Tempeltänzer	Tempeltänzerin	z	ak	0	0	1	N	3	z	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N	\N
-49	Tr	Trickser	Trickserin	j	ak	-20	-20	1	N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-50	Mg	Magister	Magisterin	j	ak	20	0	1	TuT	4	\N	\N	\N	\N	\N	\N	31	61	61	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
-51	RiN	Ritter [Alba, Küstenstaaten]	Ritterin [Alba, Küstenstaaten]	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	Ritter aus Alba dürfen weder Rapier, Buckler noch Parierdolch wählen. Ritter aus den Küstenstaaten dürfen weder Kampf in Schlachtreihe noch das Schlachtbeil lernen.	\N
-52	RiS	Ritter [Aran,Eschar]	Ritterin [Aran,Eschar]	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-53	Hj	Hexenjäger	Hexenjägerin	j	ak	0	30	2	TuT	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	Nur Dolch, Kurzschwert, Streitkolben oder Kriegshammer als Spezialwaffe möglich.	\N
+12	Sp	Spitzbube	Spitzbübin	n	ak	-20	-20	1	\N	4	\N	s	\N	\N	\N	\N	61	61	\N	\N	\N	\N
+40	Sr	Srikumara	Srikumara	j	ak	0	0	3	R	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 54	Sw	Schattenweber	Schattenweberin	j	ak	10	-20	1	TuT	4	\N	s	\N	\N	\N	\N	\N	\N	\N	\N	Nur Dolch, Keule, Wurfaxt oder Wurfmesser kann als Spezialwaffe gewählt werden. Schreiben: Muttersprache +9 muß gelernt werden	t
-55	Wi	Wildläufer	Wildläuferin	j	ak	0	0	1	TuT	2	\N	l	Dweomer	\N	\N	\N	\N	\N	\N	\N	\N	\N
+11	Sö	Söldner	Söldnerin	n	k	0	0	3	\N	1	k	\N	\N	\N	61	\N	31	\N	\N	\N	\N	\N
+36	Th	Thaumaturg	Thaumaturgin	z	z	10	0	1	\N	4	z	s	\N	\N	\N	\N	31	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
+16	Tm	Tiermeister	Tiermeisterin	j	ak	0	0	1	\N	2	\N	l	\N	\N	\N	\N	31	31	61	\N	\N	\N
 56	To	Todeswirker	Todeswirkerin	j	ak	-10	30	1	TuT	3	\N	s	\N	\N	\N	\N	\N	\N	\N	\N	Als Spezialwaffe kann nur Dolch, Kurzschwert, Rapier, Wurfmesser oder leichte Armbrust gewählt werden.	\N
-57	Km	Klingenmagier	Klingenmagierin	j	k	10	0	3	TuT	3	\N	l	\N	\N	\N	\N	\N	\N	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	\N
+49	Tr	Trickser	Trickserin	j	ak	-20	-20	1	N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+48	Tt	Tempeltänzer	Tempeltänzerin	z	ak	0	0	1	N	3	z	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N	\N
+13	Wa	Waldläufer	Waldläuferin	n	k	-10	0	1	\N	2	\N	l	\N	\N	\N	61	31	31	\N	\N	\N	\N
+55	Wi	Wildläufer	Wildläuferin	j	ak	0	0	1	TuT	2	\N	l	Dweomer	\N	\N	\N	\N	\N	\N	\N	\N	\N
+18	dBe	Dämonenbeschwörer	Dämonenbeschwörerin	z	z	20	30	4	3	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
+17	eBe	Elementarbeschwörer	Elementarbeschwörerin	z	z	20	30	4	3	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
+22	gHx	grauer Hexer	graue Hexe	z	z	0	0	4	\N	3	\N	\N	\N	\N	\N	\N	\N	21	\N	\N	\N	\N
+23	sHx	schwarzer Hexer	schwarze Hexe	z	z	0	0	4	\N	3	\N	\N	\N	\N	\N	\N	\N	21	\N	\N	\N	\N
+19	tBe	Totenbeschwörer	Totenbeschwörerin	z	z	20	30	4	3	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
+24	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N	3	\N	\N	\N	\N	\N	\N	\N	21	\N	\N	\N	\N
 \.
 --
 --

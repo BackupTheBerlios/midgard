@@ -8,7 +8,7 @@ DROP TABLE "berufe_voraussetzung_4";
 --
 
 CREATE TABLE "berufe_voraussetzung_4" (
-	"beruf" text,
+	"beruf" text NOT NULL,
 	"land" boolean,
 	"stadt" boolean,
 	"u" boolean,
@@ -20,7 +20,7 @@ CREATE TABLE "berufe_voraussetzung_4" (
 	"region" text,
 	"region_zusatz" text,
 	"geschlecht" text,
-   Constraint "berufe_voraussetzung_4_pkey" Primary Key ("beruf")
+	Constraint "berufe_voraussetzung_4_pkey" Primary Key ("beruf")
 );
 
 --

@@ -10,7 +10,7 @@ CREATE TABLE "waffen_voraussetzung" (
 	"name" text NOT NULL,
 	"voraussetzung" text NOT NULL,
 	"art" text NOT NULL,
-   Constraint "waffen_voraussetzung_pkey" Primary Key ("name")
+	Constraint "waffen_voraussetzung_pkey" Primary Key ("name")
 );
 
 --

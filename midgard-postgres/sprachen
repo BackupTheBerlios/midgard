@@ -9,7 +9,7 @@ DROP TABLE "sprachen";
 
 CREATE TABLE "sprachen" (
 	"fp" integer,
-	"name" text,
+	"name" text NOT NULL,
 	"max_wert" integer,
 	"alt" boolean,
 	"region" text,
@@ -17,7 +17,7 @@ CREATE TABLE "sprachen" (
 	"gruppe_2" integer,
 	"minderheit" boolean,
 	"region_zusatz" text,
-   Constraint "sprachen_pkey" Primary Key ("name")
+	Constraint "sprachen_pkey" Primary Key ("name")
 );
 
 --

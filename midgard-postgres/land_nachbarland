@@ -10,7 +10,7 @@ DROP TABLE "land_nachbarland";
 CREATE TABLE "land_nachbarland" (
 	"land_1" text NOT NULL,
 	"land_2" text NOT NULL,
-   Constraint "land_nachbarland_pkey" Primary Key ("land_1", "land_2")
+	Constraint "land_nachbarland_pkey" Primary Key ("land_1", "land_2")
 );
 
 --

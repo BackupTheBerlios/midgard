@@ -11,7 +11,7 @@ CREATE TABLE "waffen_typen" (
 	"name" text NOT NULL,
 	"typ" text NOT NULL,
 	"standard" text NOT NULL,
-   Constraint "waffen_typen_pkey" Primary Key ("name","typ")
+	Constraint "waffen_typen_pkey" Primary Key ("name", "typ")
 );
 
 --

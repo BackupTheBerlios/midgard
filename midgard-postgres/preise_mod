@@ -1,0 +1,25 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "preise_mod";
+--
+--
+--
+
+CREATE TABLE "preise_mod" (
+	"art1" text NOT NULL,
+	"art2" text,
+	"modi_art" text NOT NULL
+);
+
+--
+--
+--
+
+
+COPY "preise_mod" FROM stdin;
+Kleidung		Farbe
+Kleidung		Stand
+Kleidung	\N	Material_K
+Waffen		Material_W
+\.

@@ -10,7 +10,7 @@ DROP TABLE "zauber_beschreibung";
 CREATE TABLE "zauber_beschreibung" (
 	"name" text NOT NULL,
 	"beschreibung" text,
-   Constraint "zauber_beschreibung_pkey" Primary Key ("name")
+	Constraint "zauber_beschreibung_pkey" Primary Key ("name")
 );
 
 --

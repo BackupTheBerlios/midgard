@@ -1,0 +1,38 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "preise_mod_spez";
+--
+--
+--
+
+CREATE TABLE "preise_mod_spez" (
+	"modi_art" text NOT NULL,
+	"spezifikation" text NOT NULL,
+	"preis_faktor" double precision NOT NULL
+);
+
+--
+--
+--
+
+
+COPY "preise_mod_spez" FROM stdin;
+Farbe	blau	3
+Farbe	gelb	2
+Farbe	grün	2
+Farbe	purpur	20
+Farbe	rot	4
+Farbe	ungefärbt	1
+Material_K	Baumwolle	2
+Material_K	Leder	2
+Material_K	Leinen	1
+Material_K	Pelz	4.5
+Material_K	Seide	8
+Material_W	Alchimistenmetall	50
+Material_W	standard	1
+Material_W	versilbert	10
+Stand	Adel	5
+Stand	Mittelschicht	1
+Stand	Volk	0.33333
+\.
