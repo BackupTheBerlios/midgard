@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.4 2002/09/27 07:05:27 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.5 2002/09/27 19:56:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -25,23 +25,23 @@
 bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie,
                           const st_bool_steigern &bool_steigern)
 {
-  if ( MBE.Erfolgswert() >= MBE->MaxErfolgswert(*this))
+  if ( MBE->Erfolgswert() >= (*MBE)->MaxErfolgswert(*this))
       { info+= "Maximal möglicher Erfolgswert erreicht";
         return false; }
   if(wie==Enums::eUnterweisung)
     {  
-     if( (MBE->What()==MidgardBasicElement::FERTIGKEIT &&
-            MBE.Erfolgswert() >= cH_Fertigkeit(MBE.getMBE())->MaxUnterweisung()) ||
-           (MBE->What()==MidgardBasicElement::SPRACHE &&
-            MBE.Erfolgswert() >= cH_Fertigkeit("Sprache")->MaxUnterweisung()) ||
-           (MBE->What()==MidgardBasicElement::SCHRIFT &&
-            MBE.Erfolgswert() >= cH_Fertigkeit("Schreiben")->MaxUnterweisung())
+     if( ((*MBE)->What()==MidgardBasicElement::FERTIGKEIT &&
+            MBE->Erfolgswert() >= cH_Fertigkeit(MBE->getMBE())->MaxUnterweisung()) ||
+           ((*MBE)->What()==MidgardBasicElement::SPRACHE &&
+            MBE->Erfolgswert() >= cH_Fertigkeit("Sprache")->MaxUnterweisung()) ||
+           ((*MBE)->What()==MidgardBasicElement::SCHRIFT &&
+            MBE->Erfolgswert() >= cH_Fertigkeit("Schreiben")->MaxUnterweisung())
           )
          { info+= "Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.";
            return false; }
      }      
   int stufen=1;
-  int steigerkosten=MBE.Steigern(*this);
+  int steigerkosten=MBE->Steigern(*this);
   if(!steigern_usp(wie,steigerkosten,MBE,stufen,Enums::eMBEm,info,bool_steigern)) 
          return false;
   getWerte().addGFP(steigerkosten); 
@@ -49,8 +49,8 @@ bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie
   std::list<MBEmlt> &MyList=get_known_list(MBE);
   for (std::list<MBEmlt>::iterator i=MyList.begin();i!= MyList.end();++i )
 {
-//cout << MBE->Name()<<' '<<(*i)->Name()<<' '<<stufen<<'\n';
-     if ( (*i) == MBE) { (*i).addErfolgswert(stufen) ; break;}
+//cout << (*MBE)->Name()<<' '<<(*i)->Name()<<' '<<stufen<<'\n';
+     if ( (*i) == MBE) { (*i)->addErfolgswert(stufen) ; break;}
 }
   return true;
 }
@@ -58,21 +58,21 @@ bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie
 
 void Abenteurer::reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
-  if (bool_steigern.mitEP) desteigern(MBE.Reduzieren(*this),wie,bool_steigern);
-      getWerte().addGFP(-MBE.Reduzieren(*this));
+  if (bool_steigern.mitEP) desteigern(MBE->Reduzieren(*this),wie,bool_steigern);
+      getWerte().addGFP(-MBE->Reduzieren(*this));
 
   std::list<MBEmlt> &MyList=get_known_list(MBE);
 
   for (std::list<MBEmlt>::iterator i=MyList.begin();i!= MyList.end();++i )
-       if ( (*i) == MBE) { (*i).addErfolgswert(-1) ; break;}
+       if ( (*i) == MBE) { (*i)->addErfolgswert(-1) ; break;}
 
-//  MBE.addErfolgswert(-1) ;
+//  MBE->addErfolgswert(-1) ;
 }
 
 void Abenteurer::verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
-  guint verlernen = MBE.Verlernen(*this);
-  if( MBE->What()==MidgardBasicElement::ZAUBER && 
+  guint verlernen = MBE->Verlernen(*this);
+  if( (*MBE)->What()==MidgardBasicElement::ZAUBER && 
       bool_steigern.Spruchrolle)    verlernen/=5  ;
   if (bool_steigern.mitEP) desteigern(verlernen,wie,bool_steigern);  
       getWerte().addGFP(-verlernen);
@@ -81,22 +81,22 @@ void Abenteurer::verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_st
 
 bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
- if((MBE->What()==MidgardBasicElement::FERTIGKEIT ||  MBE->What()==MidgardBasicElement::WAFFE)
-      && !MBE->Voraussetzung(*this,false))
+ if(((*MBE)->What()==MidgardBasicElement::FERTIGKEIT ||  (*MBE)->What()==MidgardBasicElement::WAFFE)
+      && !(*MBE)->Voraussetzung(*this,false))
   {
-    info+="Erst muß "+MBE->Voraussetzung()+" gelernt werden";
+    info+="Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden";
     return false;
   }
 
  // Neue Dinge können nur durch Unterweisung gelernt werden
  // es sei denn es handelt sich um Zaubersprüche
- if(MBE->What()!=MidgardBasicElement::ZAUBER)   
+ if((*MBE)->What()!=MidgardBasicElement::ZAUBER)   
   { if (wie!=Enums::eUnterweisung)
      { info+="Neue Fertigkeiten, Waffen, Sprachen und Schriften können nur durch 'Unterweisung' gelernt werden";
        return false;
      }
   }   
- else // ==> MBE->What()==MidgardBasicElement::ZAUBER
+ else // ==> (*MBE)->What()==MidgardBasicElement::ZAUBER
   {
 /* 
     if(radiobutton_selbst->get_active() )
@@ -111,31 +111,31 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
                      +" nicht durch Praxispunkte gelernt werden";
              return false;
            }
-        else if(MBE->Standard__(*this)!="G")
+        else if((*MBE)->Standard__(*this)!="G")
            { info +="Nur Grundzauber können von "+Typ1()->Name(getWerte().Geschlecht())
                      +" mit Praxispunkten gelernt werden";
              return false;
            }
       }
   }
- int kosten=MBE->Kosten(*this);
+ int kosten=(*MBE)->Kosten(*this);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
- if( MBE->What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle ) 
+ if( (*MBE)->What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle ) 
       kosten/=10;
  /////////////////////////////////////////////////////////////////////////
  // Lernern neuer Sprache mit PP: /////////////////////////////////////// 
  bool neue_sprache_mit_pp=false;
- if(MBE->What()==MidgardBasicElement::SPRACHE &&bool_steigern.neue_sprache_pp)
+ if((*MBE)->What()==MidgardBasicElement::SPRACHE &&bool_steigern.neue_sprache_pp)
    { neue_sprache_mit_pp=true;  kosten=40;}
  /////////////////////////////////////////////////////////////////////////
  
  int dummy=1;
  if(neue_sprache_mit_pp)
    { set_lernzeit(wie,kosten,Enums::eMBEm);
-     if(MBE->Grundfertigkeit(*this))
-          MBE.setErfolgswert(9);
-     else MBE.setErfolgswert(7);
+     if((*MBE)->Grundfertigkeit(*this))
+          MBE->setErfolgswert(9);
+     else MBE->setErfolgswert(7);
    }
  else if (!steigern_usp(wie,kosten,MBE,dummy,Enums::eMBEm,info,bool_steigern)) return false;
 
@@ -143,12 +143,12 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
  getWerte().addGFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
- if     (MBE->What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle &&  
+ if     ((*MBE)->What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle &&  
      bool_steigern.SpruchrolleAuto)    getWerte().addGFP(kosten);
- else if(MBE->What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle &&
+ else if((*MBE)->What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle &&
      !bool_steigern.SpruchrolleAuto)
    {
-     bool x=cH_Zauber(MBE.getMBE())->spruchrolle_wuerfeln(*this,info);
+     bool x=cH_Zauber(MBE->getMBE())->spruchrolle_wuerfeln(*this,info);
      if(!x) return false;
      else getWerte().addGFP(kosten);
    } 
@@ -247,8 +247,8 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
 
   if(pp)
    {
-     if     (was==Enums::eMBEm && MBE->What()!=MidgardBasicElement::ZAUBER) modify(PPmodus,MBE,MidgardBasicElement::st_zusatz(),MBE.Praxispunkte()-pp) ;
-     else if(was==Enums::eMBEm && MBE->What()==MidgardBasicElement::ZAUBER) getWerte().addSpezialPP(-pp) ;
+     if     (was==Enums::eMBEm && (*MBE)->What()!=MidgardBasicElement::ZAUBER) modify(PPmodus,MBE,MidgardBasicElement::st_zusatz(),MBE->Praxispunkte()-pp) ;
+     else if(was==Enums::eMBEm && (*MBE)->What()==MidgardBasicElement::ZAUBER) getWerte().addSpezialPP(-pp) ;
      else if(was==Enums::eResistenz)  getWerte().addResistenzPP(-pp) ;
      else if(was==Enums::eAbwehr)     getWerte().addAbwehrPP(-pp) ;   
      else if(was==Enums::eZaubern)    getWerte().addZaubernPP(-pp) ;  
@@ -289,12 +289,12 @@ void Abenteurer::steigern_mit(bool &bkep,bool &bzep,const MBEmlt MBE,e_was_steig
   int womit;
   if(was==Enums::eMBEm)
    {
-     if     (MBE.getMBE()->What()==MidgardBasicElement::WAFFE) womit = 1;
-     else if(MBE.getMBE()->What()==MidgardBasicElement::WAFFEGRUND) womit = 1;
-     else if(MBE.getMBE()->What()==MidgardBasicElement::ZAUBER) womit = 2;
-     else if(MBE.getMBE()->What()==MidgardBasicElement::ZAUBERWERK) womit = 2;
-     else if(MBE.getMBE()->What()==MidgardBasicElement::KIDO) womit = 3;
-     else womit = MBE.getMBE()->Steigern_mit_EP();
+     if     (MBE->getMBE()->What()==MidgardBasicElement::WAFFE) womit = 1;
+     else if(MBE->getMBE()->What()==MidgardBasicElement::WAFFEGRUND) womit = 1;
+     else if(MBE->getMBE()->What()==MidgardBasicElement::ZAUBER) womit = 2;
+     else if(MBE->getMBE()->What()==MidgardBasicElement::ZAUBERWERK) womit = 2;
+     else if(MBE->getMBE()->What()==MidgardBasicElement::KIDO) womit = 3;
+     else womit = MBE->getMBE()->Steigern_mit_EP();
    }
   else if (was==Enums::eAusdauer) womit=3; 
   else if (was==Enums::eZaubern) womit=2;  
@@ -351,8 +351,8 @@ int Abenteurer::PP_vorrat(const MBEmlt &MBE,const e_was_steigern was,
   guint pp=0;
   if(wie==Enums::ePraxis)
    {
-     if     (was==Enums::eMBEm && MBE->What()!=MidgardBasicElement::ZAUBER) pp=MBE.Praxispunkte();
-     else if(was==Enums::eMBEm && MBE->What()==MidgardBasicElement::ZAUBER) pp=getWerte().SpezialPP();
+     if     (was==Enums::eMBEm && (*MBE)->What()!=MidgardBasicElement::ZAUBER) pp=MBE->Praxispunkte();
+     else if(was==Enums::eMBEm && (*MBE)->What()==MidgardBasicElement::ZAUBER) pp=getWerte().SpezialPP();
      else if(was==Enums::eResistenz) pp=getWerte().ResistenzPP() ;
      else if(was==Enums::eAbwehr)    pp=getWerte().AbwehrPP() ;
      else if(was==Enums::eZaubern)   pp=getWerte().ZaubernPP() ;
@@ -364,16 +364,16 @@ int Abenteurer::PP_vorrat(const MBEmlt &MBE,const e_was_steigern was,
 
 int Abenteurer::stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int &aep)
 {
-  int steiger_kosten = MBE.Steigern(*this);
+  int steiger_kosten = MBE->Steigern(*this);
   int stufen=0;
-  int erfolgswert_mem=MBE.Erfolgswert();
+  int erfolgswert_mem=MBE->Erfolgswert();
   while(steiger_kosten<=aep)
    {   
      kosten+=steiger_kosten;
      ++stufen;
      aep-=steiger_kosten;
-     MBE.addErfolgswert(1);
-     steiger_kosten = MBE.Steigern(*this);
+     MBE->addErfolgswert(1);
+     steiger_kosten = MBE->Steigern(*this);
    }      
   if(aep>0)
    {
@@ -383,7 +383,7 @@ int Abenteurer::stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int 
      aep*=-1;
    }
     
-  MBE.setErfolgswert(erfolgswert_mem);
+  MBE->setErfolgswert(erfolgswert_mem);
   return stufen;
 }
 
@@ -402,16 +402,16 @@ void Abenteurer::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicEleme
      else assert(!"never get here\n");
      for(std::list<MBEmlt>::iterator i=L->begin();i!=L->end();++i)
       {
-        if( i->Zusatz().empty() && (*i)->Name() == M->Name())
+        if( (*i)->Zusatz().empty() && (*(*i))->Name() == (*M)->Name())
          {
            found=true;
            if(modus==PPmodus)
-             i->setPraxispunkte(praxispunkte);
+             (*i)->setPraxispunkte(praxispunkte);
            else if(modus==Zusatzmodus)
             {
-              i->setZusatz(zusatz);
+              (*i)->setZusatz(zusatz);
               if(zusatz.name==getWerte().Herkunft()->Name())
-                i->setErfolgswert(9);
+                (*i)->setErfolgswert(9);
             }
          }   
       }      

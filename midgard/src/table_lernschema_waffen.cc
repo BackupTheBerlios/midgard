@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.16 2002/09/23 06:34:08 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.17 2002/09/27 19:56:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -95,9 +95,10 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   tree_waffen_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
   label_lernschma_titel->set_text("Waffenbesitz wählen");
   std::list<WaffeBesitz> L1=LernListen(hauptfenster->getDatabase()).getWaffenBesitz(hauptfenster->getChar());
-  std::list<MBEmlt> L;
-  for(std::list<WaffeBesitz>::const_iterator i=L1.begin();i!=L1.end();++i) L.push_back(*i);
-  MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
+#warning TODO
+//  std::list<MBEmlt> L;
+//  for(std::list<WaffeBesitz>::const_iterator i=L1.begin();i!=L1.end();++i) L.push_back(*i);
+//  MidgardBasicElement::show_list_in_tree(L1,tree_waffen_lernschema,hauptfenster);
   tree_waffen_lernschema->show();
   tree_waffen_lernschema->Expand_recursively();
   Gtk::Table *table=manage(new Gtk::Table(0,0,false));
@@ -122,9 +123,9 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
  try{
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
    MBEmlt MBE = dt->getMBE();
-   cH_Waffe W(MBE.getMBE());
+   cH_Waffe W(MBE->getMBE());
    std::string art=W->Art2();
-   WaffeBesitz WB(W,MBE->Name(),0,0,"","");
+   WaffeBesitz WB(W,(*MBE)->Name(),0,0,"","");
    if( (art=="E" || art=="W" || art=="V") && waffebesitzlernen.EWaffe()>0)
     {
       waffebesitzlernen.add_EWaffe(-1);

@@ -55,14 +55,14 @@ void Zufall::setSpezialwaffe()
   std::vector<MBEmlt> V;
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     if(cH_Waffe(i->getMBE())->Verteidigung()) continue;
-     if(cH_Waffe(i->getMBE())->Reichweite().empty() && i->Lernpunkte() > 1) continue;
-     if(!cH_Waffe(i->getMBE())->Reichweite().empty() && i->Lernpunkte() > 2) continue; 
+     if(cH_Waffe((*i)->getMBE())->Verteidigung()) continue;
+     if(cH_Waffe((*i)->getMBE())->Reichweite().empty() && (*i)->Lernpunkte() > 1) continue;
+     if(!cH_Waffe((*i)->getMBE())->Reichweite().empty() && (*i)->Lernpunkte() > 2) continue; 
      V.push_back(*i);
    }
   if(V.empty()) return;
   int i=random.integer(0,V.size()-1);
-  Aben->getWerte().setSpezialisierung(V[i]->Name());      
+  Aben->getWerte().setSpezialisierung((*V[i])->Name());      
   Waffe::setSpezialWaffe(Aben->getWerte().Spezialisierung(),Aben->List_Waffen());
 }
 
@@ -83,9 +83,9 @@ std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const VAbenteurer& Aben,i
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
    {
      // Vorraussetzungen?
-     if(((*i)->What()==MidgardBasicElement::FERTIGKEIT || (*i)->What()==MidgardBasicElement::WAFFE)
-          && !(*i)->Voraussetzung(Aben.getAbenteurer(),false))  continue;
-     if(i->Lernpunkte()<=lp)   V.push_back(*i);
+     if(((*(*i))->What()==MidgardBasicElement::FERTIGKEIT || (*(*i))->What()==MidgardBasicElement::WAFFE)
+          && !(*(*i))->Voraussetzung(Aben.getAbenteurer(),false))  continue;
+     if((*i)->Lernpunkte()<=lp)   V.push_back(*i);
    }
   return V;
 }
@@ -106,7 +106,7 @@ void Zufall:: Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte
   }
   std::list<MBEmlt> List_gelerntes;
 reloop:
-  L.sort(MBEmlt::sort(MidgardBasicElement_mutable::sort::LERNPUNKTEPFLICHT));
+  L.sort(MBEmlt::sort(MBEmlt::sort::LERNPUNKTEPFLICHT));
   std::vector<MBEmlt> V=List_to_Vector(L,Aben,lp); // Lernpunkte und Vorraussetzungen
   while(lp>0)
    {
@@ -115,8 +115,8 @@ reloop:
      int i;
      std::vector<MBEmlt>::const_iterator ci;
      try{
-     if(V[0].Lernpunkte()==0) i=0;  // Fertigkeiten mit '0' Lernpunkten 
-     else if(V[0].Pflicht()) i=0;   // Pflichtfertigkeiten 
+     if(V[0]->Lernpunkte()==0) i=0;  // Fertigkeiten mit '0' Lernpunkten 
+     else if(V[0]->Pflicht()) i=0;   // Pflichtfertigkeiten 
      else if(was==eAllg && mutter_9) 
        { 
          i=-1;
@@ -150,57 +150,57 @@ reloop:
      if(i==-1)  M=*ci;
      else       M=V[i];
 
-     if     (was==eFach) M.setLernArt("Fach");
-     else if(was==eAllg) M.setLernArt("Allg");
-     else if(was==eAllg) M.setLernArt("Unge");
+     if     (was==eFach) M->setLernArt("Fach");
+     else if(was==eAllg) M->setLernArt("Allg");
+     else if(was==eAllg) M->setLernArt("Unge");
 
 
 //cout << '\t'<<L.size()<<' '<<M->Name()<<'\n';
      L.remove(M); // Die nächste Methode ändert 'M' daher muß es HIER entfernt werden
 
-     if(M->What()==MidgardBasicElement::FERTIGKEIT) 
-       {  cH_Fertigkeit(M.getMBE())->get_region_lp(lp,hauptfenster); 
-          if (M->Name()=="Muttersprache")
-             Sprache::setErfolgswertMuttersprache(M,Aben->getWerte().In(),cH_Fertigkeit(M.getMBE())->AttributBonus(Aben->getWerte()));
-          else if(M->Name()=="Gastlandsprache")
+     if((*M)->What()==MidgardBasicElement::FERTIGKEIT) 
+       {  cH_Fertigkeit((*M).getMBE())->get_region_lp(lp,hauptfenster); 
+          if ((*M)->Name()=="Muttersprache")
+             Sprache::setErfolgswertMuttersprache(M,Aben->getWerte().In(),cH_Fertigkeit(M->getMBE())->AttributBonus(Aben->getWerte()));
+          else if((*M)->Name()=="Gastlandsprache")
              Sprache::setErfolgswertGastlandsprache(M,Aben->getWerte().In());
        }
 
      // Fertigkeit/Zauber mit Zusätzen
-     if(M->ZusatzEnum(Aben->getVTyp())) 
-          M=getZusatz(M->ZusatzEnum(Aben->getVTyp()),M,nachbarland);
+     if((*M)->ZusatzEnum(Aben->getVTyp())) 
+          M=getZusatz((*M)->ZusatzEnum(Aben->getVTyp()),M,nachbarland);
 
-     if(M.Lernpunkte()<=lp)
+     if(M->Lernpunkte()<=lp)
       {
-       if(M->What()==MidgardBasicElement::FERTIGKEIT)
+       if((*M)->What()==MidgardBasicElement::FERTIGKEIT)
         {
-          if(M.ist_gelernt(Aben->List_Fertigkeit())) {List_gelerntes.push_back(M);goto reloop;}
+          if(M->ist_gelernt(Aben->List_Fertigkeit())) {List_gelerntes.push_back(M);goto reloop;}
           Aben->List_Fertigkeit().push_back(M);
         }
-       else if(M->What()==MidgardBasicElement::SPRACHE)
+       else if((*M)->What()==MidgardBasicElement::SPRACHE)
         {
-          if(M.ist_gelernt(Aben->List_Sprache())) {List_gelerntes.push_back(M);goto reloop;}
+          if(M->ist_gelernt(Aben->List_Sprache())) {List_gelerntes.push_back(M);goto reloop;}
           Aben->List_Sprache().push_back(M);
         }
-       else if(M->What()==MidgardBasicElement::SCHRIFT)
+       else if((*M)->What()==MidgardBasicElement::SCHRIFT)
         {
-          if(M.ist_gelernt(Aben->List_Schrift())) {List_gelerntes.push_back(M);goto reloop;}
+          if(M->ist_gelernt(Aben->List_Schrift())) {List_gelerntes.push_back(M);goto reloop;}
           Aben->List_Schrift().push_back(M);
         }
-       else if(M->What()==MidgardBasicElement::WAFFE)
+       else if((*M)->What()==MidgardBasicElement::WAFFE)
         {
-          if(M.ist_gelernt(Aben->List_Waffen())) {List_gelerntes.push_back(M);goto reloop;}
+          if(M->ist_gelernt(Aben->List_Waffen())) {List_gelerntes.push_back(M);goto reloop;}
           Aben->List_Waffen().push_back(M);
-          Aben->List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(cH_Waffe(M.getMBE())->Grundkenntnis())));
-          Aben->List_WaffenGrund().sort(MBEmlt::sort(MidgardBasicElement_mutable::sort::NAME));
+          Aben->List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(cH_Waffe(M->getMBE())->Grundkenntnis())));
+          Aben->List_WaffenGrund().sort(MBEmlt::sort(MBEmlt::sort::NAME));
           Aben->List_WaffenGrund().unique();
         }
-       else if(M->What()==MidgardBasicElement::ZAUBER)
+       else if((*M)->What()==MidgardBasicElement::ZAUBER)
         {
-          if(M.ist_gelernt(Aben->List_Zauber())) {List_gelerntes.push_back(M);goto reloop;}
+          if(M->ist_gelernt(Aben->List_Zauber())) {List_gelerntes.push_back(M);goto reloop;}
           Aben->List_Zauber().push_back(M);
         }
-       lp-=M.Lernpunkte();
+       lp-=M->Lernpunkte();
        goto reloop;
       }
    }  
@@ -247,7 +247,7 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
      case MidgardBasicElement::ZSprache:    VG=LL.getSprachenZusatz(MBE,Aben,nachbarland); break;
      case MidgardBasicElement::ZSchrift:    VG=LL.getSchriftenZusatz(MBE,Aben); break;
      case MidgardBasicElement::ZWaffe:      VG=LL.getWaffenZusatz(Aben->List_Waffen()); break;
-     case MidgardBasicElement::ZTabelle:    VG=MBE->VZusatz(); break;
+     case MidgardBasicElement::ZTabelle:    VG=(*MBE)->VZusatz(); break;
      default: assert(!"never get here");
    }
   std::vector<MidgardBasicElement::st_zusatz> V;    
@@ -258,15 +258,15 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
   if(V.empty()) return MBE;
   int i=random.integer(0,V.size()-1);
 
-  MBE.setZusatz(V[i]);
+  MBE->setZusatz(V[i]);
 
   MBEmlt Mtmp=MBE;
 
-  if(was==MidgardBasicElement::ZLand && MBE->Name()=="Landeskunde (Heimat)")
+  if(was==MidgardBasicElement::ZLand && (*MBE)->Name()=="Landeskunde (Heimat)")
    {
      Mtmp=MBEmlt(&*cH_Fertigkeit("Landeskunde"));
-     Mtmp.setZusatz(Aben->getWerte().Herkunft()->Name());
-     MBE.setLernArt(MBE.LernArt()+"_Heimat");
+     Mtmp->setZusatz(Aben->getWerte().Herkunft()->Name());
+     MBE->setLernArt(MBE->LernArt()+"_Heimat");
    }
   if(was==MidgardBasicElement::ZSprache)
        Mtmp=MBEmlt(&*cH_Sprache(V[i].name));
@@ -276,9 +276,9 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
 
   if(MBE != Mtmp)
    {
-     Mtmp.setErfolgswert(MBE.Erfolgswert());
-     Mtmp.setLernpunkte(MBE.Lernpunkte());
-     Mtmp.setLernArt(MBE.LernArt());
+     Mtmp->setErfolgswert(MBE->Erfolgswert());
+     Mtmp->setLernpunkte(MBE->Lernpunkte());
+     Mtmp->setLernArt(MBE->LernArt());
      MBE=Mtmp;
    }
   return MBE;
@@ -345,7 +345,7 @@ void Zufall::setBeruf()
      if(zusatz) 
       {
          MBEmlt M(&*cH_Fertigkeit(F[i].name));
-         getZusatz(M->ZusatzEnum(Aben->getVTyp()),M);
+         getZusatz((*M)->ZusatzEnum(Aben->getVTyp()),M);
       }
      if(F[i].kat==3 || F[i].kat==4) break;
      if(!BKat.kat_IV) break;

@@ -28,12 +28,12 @@ class midgard_CG;
 class Data_SimpleTree : public RowDataBase
 {
  private:
-//   MBEmlt MBE;
-   WaffeBesitz MBE;
+   MBEmlt MBE;
+//   WaffeBesitz MBE;
    const midgard_CG *hauptfenster; 
  public:
-   Data_SimpleTree(const WaffeBesitz& _MBE, const midgard_CG *h) 
-   : MBE(_MBE),hauptfenster(h) {}
+//   Data_SimpleTree(const WaffeBesitz& _MBE, const midgard_CG *h) 
+//   : MBE(_MBE),hauptfenster(h) {}
    Data_SimpleTree(const MBEmlt& _MBE, const midgard_CG *h) 
    : MBE(_MBE),hauptfenster(h) {}
 

@@ -69,7 +69,7 @@ bool MidgardBasicElement_mutable::ist_gelernt(const std::list<MBEmlt>& L) const
 {
  for (std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     if(*i==*this) return true;
+     if(**i==*this) return true;
 /*
      if((*i)->What()==MidgardBasicElement::ZAUBERWERK)
       {
@@ -324,21 +324,21 @@ void MidgardBasicElement::saveElementliste(Tag &datei,
   for (std::list<MBEmlt>::const_iterator i=b.begin();i!=b.end();++i)
    {
       // oder <Beruf Wert=12>Arzt</Beruf> ?
-      std::string type=(*i)->What_str();
+      std::string type=(*(*i))->What_str();
       if (type.find('.')!=string::npos)
          type.replace(type.find('.'),1,"-");
       Tag &t=datei.push_back(Tag(type));
-      t.setAttr("Bezeichnung", (*i)->Name());
-      t.setIntAttr_nn("Wert", (*i).Erfolgswert());
-      t.setIntAttr_nn("Praxispunkte", (*i).Praxispunkte());
+      t.setAttr("Bezeichnung", (*(*i))->Name());
+      t.setIntAttr_nn("Wert", (*i)->Erfolgswert());
+      t.setIntAttr_nn("Praxispunkte", (*i)->Praxispunkte());
 
-      if ((*i)->What()==ZAUBERWERK)
+      if ((*(*i))->What()==ZAUBERWERK)
       {  
-        t.setAttr("Art", cH_Zauberwerk(i->getMBE())->Art());
-        t.setAttr("Stufe", cH_Zauberwerk(i->getMBE())->Stufe());
+        t.setAttr("Art", cH_Zauberwerk((*i)->getMBE())->Art());
+        t.setAttr("Stufe", cH_Zauberwerk((*i)->getMBE())->Stufe());
       }
-      if ((*i)->ZusatzEnum(Typ))
-         t.setAttr("Zusatz", (*i).Zusatz());
+      if ((*(*i))->ZusatzEnum(Typ))
+         t.setAttr("Zusatz", (*i)->Zusatz());
    }
 }
 

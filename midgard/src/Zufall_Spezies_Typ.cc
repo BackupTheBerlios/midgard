@@ -82,11 +82,11 @@ MBEmlt Zufall::getMuttersprache() const
   std::vector<MBEmlt> V;
   for(std::list<MBEmlt>::const_iterator i=V_.begin();i!=V_.end();++i)
    {
-      if(i->Erlaubt()) V.push_back(*i) ;
+      if((*i)->Erlaubt()) V.push_back(*i) ;
    }
   int i=random.integer(0,V.size()-1);
 
-  MBEmlt sprache(&*cH_Sprache(V[i]->Name()));
+  MBEmlt sprache(&*cH_Sprache((*V[i])->Name()));
   Sprache::setErfolgswertMuttersprache(sprache,Aben->getWerte().In(),cH_Fertigkeit("Sprache")->AttributBonus(Aben->getWerte()));
         
   return sprache;   

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.87 2002/09/21 20:03:52 thoma Exp $
+// $Id: Optionen.cc,v 1.88 2002/09/27 19:56:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -187,6 +187,7 @@ void Midgard_Optionen::setHausregeln(std::string hs,bool b)
 void Midgard_Optionen::setOber(std::string hs,bool b)
 {
   for(list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
+   {
     if(i->text==hs)  
       { 
         i->active=b;
@@ -194,6 +195,7 @@ void Midgard_Optionen::setOber(std::string hs,bool b)
         Ober_setzen_from_menu(i->index);
         return;
       }
+   }
  std::cerr << "Option "<<hs<<" unbekannt\n";
 }
 

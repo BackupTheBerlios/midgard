@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.34 2002/09/27 06:28:25 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.35 2002/09/27 19:56:20 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -101,7 +101,8 @@ private:
       class sort_universell {
         public: sort_universell() {}
         bool operator()(st_universell x,st_universell y) const
-          { return (x.mbe)->Name() < (y.mbe)->Name() ;
+//          { return (x.mbe)->Name() < (y.mbe)->Name() ;
+          { return (*(x.mbe))->Name() < (*(y.mbe))->Name() ;
           }
       };
 public:
@@ -162,7 +163,7 @@ public:
                      const e_was_steigern was,
                      std::string &info,const st_bool_steigern &bool_steigern)
        { int d=1; 
-         MBEmlt mbe=MidgardBasicElement_mutable(&*cH_Fertigkeit("",true));
+         MBEmlt mbe=MBEmlt(&*cH_Fertigkeit("",true));
          return steigern_usp(wie,kosten,mbe,d,was,info,bool_steigern);}
    bool steigern_usp(const e_wie_steigern wie,int &kosten,MBEmlt MBE,
                      int &stufen,const e_was_steigern was,

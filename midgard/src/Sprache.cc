@@ -101,14 +101,14 @@ std::string Sprache::Schriften() const
 const Sprache_und_Schrift Sprache::SchriftWert(int erfolgswert,bool gelernt,const std::list<MBEmlt>& list_Schrift) const 
 {
  MBEmlt mbe(&*this);
- mbe.setErfolgswert(erfolgswert);
+ mbe->setErfolgswert(erfolgswert);
  Sprache_und_Schrift sus(mbe,gelernt);
  for(vector<std::string>::const_iterator i=VSchrift.begin();i!=VSchrift.end();++i)
   {  
    for(std::list<MBEmlt>::const_iterator j=list_Schrift.begin();j!=list_Schrift.end();++j)
     {
-      if(*i == (*j)->Name()) // Schrift ist gelernt
-         sus.push_back(*i,j->Erfolgswert());
+      if(*i == (*(*j))->Name()) // Schrift ist gelernt
+         sus.push_back(*i,(*j)->Erfolgswert());
     }
   }
   return sus;
@@ -127,7 +127,7 @@ std::list<MBEmlt> Sprache::getVerwandteSprachen(const std::list<MBEmlt>& gekonnt
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=gekonnteSprachen.begin();i!=gekonnteSprachen.end();++i)
    {
-     std::list<MBEmlt> tmplist=cH_Sprache(i->getMBE())->VerwandteSprachen(i->Erfolgswert(),gekonnteSprachen,alleSprachen);
+     std::list<MBEmlt> tmplist=cH_Sprache((*i)->getMBE())->VerwandteSprachen((*i)->Erfolgswert(),gekonnteSprachen,alleSprachen);
      L.splice(L.end(),tmplist);
    }
   L=Sprache::cleanVerwandteSprachen(L);
@@ -141,11 +141,11 @@ std::list<MBEmlt> Sprache::VerwandteSprachen(const int erfolgswert,const std::li
   std::list<MBEmlt> VS;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=listSprache.begin();i!=listSprache.end();++i)
    {
-     if(erfolgswert>=10 && !MBEmlt(*i).ist_gelernt(gelernte_listSprache) &&
+     if(erfolgswert>=10 && !MBEmlt(*i)->ist_gelernt(gelernte_listSprache) &&
         Sprachgruppe(cH_Sprache(*i)->getVSprachgruppe())) 
       {
         MBEmlt M(*i);
-        M.setErfolgswert(erfolgswert-10);
+        M->setErfolgswert(erfolgswert-10);
         VS.push_back(M);
       }
    }
@@ -158,15 +158,15 @@ std::list<MBEmlt> Sprache::cleanVerwandteSprachen(std::list<MBEmlt> L)
   std::map<std::string,int> M;
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     if(M[(*i)->Name()] < (*i).Erfolgswert()) 
-         M[(*i)->Name()] = (*i).Erfolgswert();
+     if(M[(*(*i))->Name()] < (*i)->Erfolgswert()) 
+         M[(*(*i))->Name()] = (*i)->Erfolgswert();
    }
   std::list<MBEmlt> N;
   for(std::map<std::string,int>::const_iterator i=M.begin();i!=M.end();++i)
    {
      const cH_Sprache s(i->first);
      MBEmlt m(&*s);
-     m.setErfolgswert(i->second);
+     m->setErfolgswert(i->second);
      N.push_back(m);
    }
  return N;
@@ -177,11 +177,11 @@ int Sprache::getHoeherenErfolgswert(const std::list<MBEmlt>& gelernte_listSprach
  int e=0;
  for(std::list<MBEmlt>::const_iterator i=gelernte_listSprache.begin();i!=gelernte_listSprache.end();++i)
   {
-    assert(Name()!=(*i)->Name());
-    std::list<MBEmlt> tmplist=cH_Sprache(i->getMBE())->VerwandteSprachen((*i).Erfolgswert(),gelernte_listSprache,listSprache);
+    assert(Name()!=(*(*i))->Name());
+    std::list<MBEmlt> tmplist=cH_Sprache((*i)->getMBE())->VerwandteSprachen((*i)->Erfolgswert(),gelernte_listSprache,listSprache);
     for(std::list<MBEmlt>::const_iterator j=tmplist.begin();j!=tmplist.end();++j)
      {
-       if(Name()==(*j)->Name() && j->Erfolgswert()>e) e=j->Erfolgswert();
+       if(Name()==(*(*j))->Name() && (*j)->Erfolgswert()>e) e=(*j)->Erfolgswert();
      }
   }
  return e;
@@ -214,14 +214,14 @@ void Sprache::setErfolgswertMutterGastlandsprache(MBEmlt &M,std::string mode,int
 {
   if(mode=="Muttersprache")
    {
-     if(in<=30) M.setErfolgswert(10);
-     else if (30<in && in<=60) M.setErfolgswert(14);
-     else if (in>60) M.setErfolgswert(18+bonus);
+     if(in<=30) M->setErfolgswert(10);
+     else if (30<in && in<=60) M->setErfolgswert(14);
+     else if (in>60) M->setErfolgswert(18+bonus);
    }
   else if(mode=="Gastlandsprache")
    {
-     if(in>30) M.setErfolgswert(12);
-     else M.setErfolgswert(9);
+     if(in>30) M->setErfolgswert(12);
+     else M->setErfolgswert(9);
    }
   else assert(!"never get here\n");
 }

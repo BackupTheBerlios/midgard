@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.15 2002/09/23 06:34:08 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.16 2002/09/27 19:56:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,7 +81,7 @@ void table_lernschema::on_ang_fert_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MBEmlt MBE = dt->getMBE();
-  cH_Fertigkeit_angeborene F(MBE.getMBE());
+  cH_Fertigkeit_angeborene F(MBE->getMBE());
 
   hauptfenster->getChar()->setAngebSinnFert(F->Min(),MBE);  
   list_Fertigkeit_ang_neu.remove(MBE);
@@ -110,7 +110,7 @@ void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
   AusruestungBaum &besitz=hauptfenster->getChar()->getBesitz();
   for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Fertigkeit().begin();i!=hauptfenster->getChar()->List_Fertigkeit().end();++i)
    {
-     const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit(i->getMBE())->get_vec_Besitz();
+     const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit((*i)->getMBE())->get_vec_Besitz();
      for(std::vector<Fertigkeit::st_besitz>::const_iterator j=VB.begin();j!=VB.end();++j)
       {
         int wurf=hauptfenster->random.integer(1,100);
@@ -128,7 +128,7 @@ void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
               A->setParent(&Rucksack); 
             }
          }
-        InfoFensterAusruestung((*i)->Name(),j->name,wurf,j->min);
+        InfoFensterAusruestung((*(*i))->Name(),j->name,wurf,j->min);
       }
    }
 }

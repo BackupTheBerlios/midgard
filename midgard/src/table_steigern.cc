@@ -86,7 +86,7 @@ void table_steigern::load_for_page(guint pagenr)
      radiobutton_verlernen->set_active(true);
      if(pagenr==PAGE_ZAUBER) 
        { frame_zauber_zusatz->show();
-         if(MBEmlt(&*cH_Fertigkeit("Lesen von Zauberschrift")).ist_gelernt(hauptfenster->getChar()->List_Fertigkeit()))
+         if(MBEmlt(&*cH_Fertigkeit("Lesen von Zauberschrift"))->ist_gelernt(hauptfenster->getChar()->List_Fertigkeit()))
               togglebutton_spruchrolle->set_sensitive(true);
          else togglebutton_spruchrolle->set_sensitive(false);
        }
@@ -184,7 +184,7 @@ void table_steigern::zeige_werte()
   if (hauptfenster->getChar()->is_mage())  table_magier_steigern->show() ;
   else                 table_magier_steigern->hide() ;
 
-  if(MBEmlt(&*cH_Fertigkeit("KiDo")).ist_gelernt(hauptfenster->getChar()->List_Fertigkeit()))   
+  if(MBEmlt(&*cH_Fertigkeit("KiDo"))->ist_gelernt(hauptfenster->getChar()->List_Fertigkeit()))   
          table_kido_steigern->show();
   else   table_kido_steigern->hide();
 

@@ -101,7 +101,7 @@ void KiDo::get_KiDo()
 int KiDo::get_erfolgswert_kido(const std::list<MBEmlt>& L)
 {
  for (std::list<MBEmlt>::const_iterator i= L.begin();i!=L.end();++i)
-   if ((*i)->Name() == "KiDo") return (*i).Erfolgswert();
+   if ((*(*i))->Name() == "KiDo") return (*i)->Erfolgswert();
  abort();
 }   
 
@@ -109,7 +109,7 @@ std::map<std::string,int> KiDo::maxkidostil(const std::list<MBEmlt>& list_Kido)
 {
   std::map<std::string,int> MK;
   for (std::list<MBEmlt>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
-     MK[cH_KiDo(i->getMBE())->Stufe()]++;
+     MK[cH_KiDo((*i)->getMBE())->Stufe()]++;
   return MK;
 }
 

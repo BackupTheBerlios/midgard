@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.17 2002/09/23 06:34:08 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.18 2002/09/27 19:56:21 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -209,7 +209,7 @@ void LaTeX_drucken::list_for_each(ostream &fout,const std::list<MBEmlt>& L,const
   fout << " & \\parbox{"<<cm<<"}{";
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();)
    {
-     std::string s=(*i)->Name()+" (+"+itos((*i).Erfolgswert())+")";
+     std::string s=(*(*i))->Name()+" (+"+itos((*i)->Erfolgswert())+")";
      fout << LaTeX_scale(s,maxlength,cm);
      ++i;
      if(i!=L.end()) fout<<"\\newline ";

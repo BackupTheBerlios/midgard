@@ -100,11 +100,11 @@ bool Zauberwerk::Voraussetzungen(const std::list<MBEmlt>& listZauber) const
     for(std::list<MBEmlt>::const_iterator j=listZauber.begin();j!=listZauber.end();++j)
      {
       // Nur EINE Voraussetzung
-      if((*j)->Name()==i->voraussetzung && vec_vor.size()==1) return true;
+      if((*(*j))->Name()==i->voraussetzung && vec_vor.size()==1) return true;
       // Nur EINE von mehreren Voraussetzung nötig
-      else if((*j)->Name()==i->voraussetzung && i->op=="or") return true;
+      else if((*(*j))->Name()==i->voraussetzung && i->op=="or") return true;
       // Mehrere Voraussetzungen nötig
-      else if ((*j)->Name()==i->voraussetzung) mapB[i->voraussetzung]=true;
+      else if ((*(*j))->Name()==i->voraussetzung) mapB[i->voraussetzung]=true;
      }
   }
  for(std::map<std::string,bool>::const_iterator i=mapB.begin();i!=mapB.end();++i)
@@ -122,11 +122,11 @@ bool Zauberwerk::Voraussetzungen_Fertigkeit(const std::list<MBEmlt>& listFert) c
     for(std::list<MBEmlt>::const_iterator j=listFert.begin();j!=listFert.end();++j)
      {
       // Nur EINE Voraussetzung
-      if((*j)->Name()==i->voraussetzung && vec_vorF.size()==1) return true;
+      if((*(*j))->Name()==i->voraussetzung && vec_vorF.size()==1) return true;
       // Nur EINE von mehreren Voraussetzung nötig
-      else if((*j)->Name()==i->voraussetzung && i->op=="or") return true;
+      else if((*(*j))->Name()==i->voraussetzung && i->op=="or") return true;
       // Mehrere Voraussetzungen nötig
-      else if ((*j)->Name()==i->voraussetzung) mapB[i->voraussetzung]=true;
+      else if ((*(*j))->Name()==i->voraussetzung) mapB[i->voraussetzung]=true;
      }
   }
  for(std::map<std::string,bool>::const_iterator i=mapB.begin();i!=mapB.end();++i)

@@ -119,7 +119,7 @@ void Zufall::setAngebFert()
          std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
          if(V.empty()) break;
          int i=random.integer(0,V.size()-1);
-         cH_Fertigkeit_angeborene F(V[i].getMBE());
+         cH_Fertigkeit_angeborene F(V[i]->getMBE());
          Aben->setAngebSinnFert(F->Min(),V[i]);
        }
       else hauptfenster->table_lernschema->AngebFert_gewuerfelt(wurf);
@@ -133,7 +133,7 @@ void Zufall::setMuttersprache()
 {
   MBEmlt sprache=getMuttersprache();
   Aben->List_Sprache().push_back(sprache);
-  Aben->setMuttersprache(sprache->Name());  
+  Aben->setMuttersprache((*sprache)->Name());  
 }
 
 

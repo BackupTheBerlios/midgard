@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.5 2002/09/25 06:33:02 thoma Exp $
+// $Id: LernListen_steigern.cc,v 1.6 2002/09/27 19:56:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,46 +50,46 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBELi
      MBEmlt MBEm(*i);
      switch(was) {
        case Enums::sFert: { const cH_Fertigkeit f(*i);
-          if (MBEmlt(*i).ist_gelernt(A.List_Fertigkeit()) && 
+          if (MBEmlt(*i)->ist_gelernt(A.List_Fertigkeit()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!f->Voraussetzung(A)) continue;
-          MBEm.setErfolgswert(f->Anfangswert());
+          MBEm->setErfolgswert(f->Anfangswert());
           break;
          }
        case Enums::sWaff: { const cH_Waffe w(*i);
-          if (MBEm.ist_gelernt(A.List_Waffen()) && 
+          if (MBEm->ist_gelernt(A.List_Waffen()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!w->Grundkenntnis_vorhanden(A.List_WaffenGrund())) continue;
           if (!w->Voraussetzung(A)) continue;
-          if (w->Art()=="Verteidigung") MBEm.setErfolgswert(1);
-          else MBEm.setErfolgswert(4);
+          if (w->Art()=="Verteidigung") MBEm->setErfolgswert(1);
+          else MBEm->setErfolgswert(4);
           break;
          }
        case Enums::sWGru: {
-          if (MBEm.ist_gelernt(A.List_WaffenGrund()) && 
+          if (MBEm->ist_gelernt(A.List_WaffenGrund()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
          }
        case Enums::sSpra: {
-          if (MBEm.ist_gelernt(A.List_Sprache()) && 
+          if (MBEm->ist_gelernt(A.List_Sprache()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
-          MBEm.setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
+          MBEm->setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
           break;
          }
        case Enums::sSchr: {
-          if (MBEm.ist_gelernt(A.List_Schrift()) && 
+          if (MBEm->ist_gelernt(A.List_Schrift()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!cH_Schrift(*i)->kann_Sprache(A.List_Sprache())) continue;
-          MBEm.setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
+          MBEm->setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
           break;
          }
        case Enums::sZaub: { 
-          if (MBEm.ist_gelernt(A.List_Zauber()) && 
+          if (MBEm->ist_gelernt(A.List_Zauber()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
          }
        case Enums::sZWerk: { 
-          if (MBEm.ist_gelernt(A.List_Zauberwerk()) && 
+          if (MBEm->ist_gelernt(A.List_Zauberwerk()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
          }
@@ -107,7 +107,7 @@ std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
    {
-     cH_Zauber z(i->getMBE());
+     cH_Zauber z((*i)->getMBE());
      if (z->Spruchrolle()) z->setSpruchrolleFaktor(0.1);
      else z->setSpruchrolleFaktor(1);
      if(alle) L.push_back(*i);
@@ -128,7 +128,7 @@ std::list<MBEmlt> LernListen::get_steigern_ZauberWerkliste(const Abenteurer& A,
   std::list<MBEmlt> L_=get_steigern_MBEm(A,Enums::sZWerk,nsc);
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
-   { const cH_Zauberwerk z(i->getMBE());
+   { const cH_Zauberwerk z((*i)->getMBE());
      if(alle) L.push_back(*i); 
      else
       {  if (!z->Voraussetzungen(A.List_Zauber())) continue;
@@ -145,7 +145,7 @@ void LernListen::shorten_for_GFP(std::list<MBEmlt> &L_,const Abenteurer& A,const
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
    {
-     if((*i)->Kosten(A) > gfp) continue;
+     if((*(*i))->Kosten(A) > gfp) continue;
      L.push_back(*i);
    }
   L_=L;

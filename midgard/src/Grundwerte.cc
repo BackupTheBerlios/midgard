@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.40 2002/09/21 18:00:13 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.41 2002/09/27 19:56:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -243,9 +243,9 @@ void Grundwerte::setSinn(const std::string &name,int wert)
 {
   for(std::list<MBEmlt>::iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
    {
-     if((*i)->Name()==name) 
+     if((*(*i))->Name()==name) 
       {
-        (*i).setErfolgswert(wert);
+        (*i)->setErfolgswert(wert);
         return;
       }
    }
@@ -256,11 +256,11 @@ int Grundwerte::getSinn(const std::string &name) const
 {
   for(std::list<MBEmlt>::const_iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
    {
-     if((*i)->Name()==name) 
+     if((*(*i))->Name()==name) 
       {
-        if(name=="SechsterSinn" && (*i).Erfolgswert()==0)
+        if(name=="SechsterSinn" && (*i)->Erfolgswert()==0)
             return Zt()/25;
-        return (*i).Erfolgswert();
+        return (*i)->Erfolgswert();
       }
    }
   assert(!"Sinn nicht gefunden\n");
@@ -349,7 +349,7 @@ std::string Grundwerte::Ruestung_Abwehr_Verlust(const std::list<MBEmlt>& list_Fe
  int v1 = Ruestung(1)->AbwehrBonus_Verlust(bo_Ab());
  // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung")).ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung"))->ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
@@ -368,7 +368,7 @@ std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_F
  int v1 = Ruestung(1)->AngriffsBonus_Verlust(bo_An());
  // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung")).ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung"))->ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)

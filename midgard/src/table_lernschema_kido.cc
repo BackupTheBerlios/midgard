@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.11 2002/09/23 06:34:08 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.12 2002/09/27 19:56:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,7 +58,7 @@ void table_lernschema::fill_kido_lernschema()
          if(kido_stil.ist_sanft(kd->Stil())) continue;
      if (kido_stil.ist_sanft(hauptfenster->getWerte().Spezialisierung()))
          if(kido_stil.ist_hart(kd->Stil())) continue;
-     if (MBEmlt(&*kd).ist_gelernt(hauptfenster->getChar()->List_Kido())) continue ;
+     if (MBEmlt(&*kd)->ist_gelernt(hauptfenster->getChar()->List_Kido())) continue ;
      newlist.push_back(MBEmlt(*i));                                     
    }
 
@@ -71,28 +71,13 @@ void table_lernschema::fill_kido_lernschema()
 void table_lernschema::on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-  cH_MidgardBasicElement MBE = dt->getMBE().getMBE();
+  cH_MidgardBasicElement MBE = dt->getMBE()->getMBE();
   hauptfenster->getChar()->List_Kido().push_back(MBE);
   --maxkido;
   hauptfenster->undosave(MBE->Name()+" gelernt");
   fill_kido_lernschema();
   show_gelerntes();      
 }
-
-/*
-void table_lernschema::kido_stil_optionmenue()
-{
-//  static bool block=false;
-//  if (block==true) return;
-  KiDo_Stile kido_stil;
-  int ityp = int(optionmenu_KiDo_Stile->get_menu()->get_active()->get_user_data());
-  if (ityp==optionmenu_KiDo_Stile::sanft) hauptfenster->getWerte().setSpezialisierung(kido_stil.sanft());
-  if (ityp==optionmenu_KiDo_Stile::hart) hauptfenster->getWerte().setSpezialisierung(kido_stil.hart());
-  if (ityp==optionmenu_KiDo_Stile::gemischt) hauptfenster->getWerte().setSpezialisierung(kido_stil.gemischt());
-  // NUR sensetiv setzen, wenn Abenteurerrschaffung also Grad=1
-  if(hauptfenster->getWerte().Grad()==1) button_kido_auswahl->set_sensitive(true);
-}
-*/
 
 void table_lernschema::on_combo_kido_stil_activate()
 {

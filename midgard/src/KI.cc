@@ -76,7 +76,7 @@ void MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
   std::string info;
   bool ok=Aben.neu_lernen(M,info,get_wie_steigern(),get_bool_steigern());
   if(ok) 
-   { gfp-=M->Kosten(Aben);
+   { gfp-=(*M)->Kosten(Aben);
      get_known_list(was).push_back(M);
    }
 }
@@ -96,7 +96,7 @@ void MagusKI::Steigern(int &gfp,const Enums::MBEListen was)
 
          std::string info;
          bool ok=Aben.steigere(*i,info,get_wie_steigern(),get_bool_steigern());        
-         if(ok) gfp-=i->Steigern(Aben);
+         if(ok) gfp-=(*i)->Steigern(Aben);
       }
    }
 }
@@ -136,16 +136,16 @@ std::list<MBEmlt> &MagusKI::get_known_list(const Enums::MBEListen was)
 bool MagusKI::allowed_for_grad(const MBEmlt &M,eSL was)
 {
   int maxkosten = int(0.5*Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1));
-  if(was==eNeuLernen && M->Kosten(Aben)>maxkosten)
+  if(was==eNeuLernen && (*M)->Kosten(Aben)>maxkosten)
    {
-cerr << M->Name() <<" wird nicht neu gelernt, weil es "<<M->Kosten(Aben)
+cerr << (*M)->Name() <<" wird nicht neu gelernt, weil es "<<(*M)->Kosten(Aben)
 <<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '
 <<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
      return false;
    }
-  if(was==eSteigern && M.Steigern(Aben)>maxkosten)
+  if(was==eSteigern && M->Steigern(Aben)>maxkosten)
    {
-cerr << M->Name() <<" wird nicht gesteigert, weil es "<<M.Steigern(Aben)
+cerr << (*M)->Name() <<" wird nicht gesteigert, weil es "<<(*M).Steigern(Aben)
 <<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '
 <<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
      return false;

@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.25 2002/09/21 18:00:13 thoma Exp $               
+// $Id: KiDo.hh,v 1.26 2002/09/27 19:56:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -97,8 +97,8 @@ class cH_KiDo : public Handle<const KiDo>
 //         bool operator() (cH_KiDo x,cH_KiDo y) const
          bool operator() (MBEmlt _x,MBEmlt _y) const
            { 
-             cH_KiDo x(_x.getMBE());
-             cH_KiDo y(_y.getMBE());
+             cH_KiDo x(_x->getMBE());
+             cH_KiDo y(_y->getMBE());
              switch(es) {
                case(HOHO) : return x->HoHo() < y->HoHo()  ;
                case(NAME) : return x->Deutsch() < y->Deutsch()  ;

@@ -1,4 +1,4 @@
-// $Id: Enums.hh,v 1.3 2002/09/25 06:33:02 thoma Exp $               
+// $Id: Enums.hh,v 1.4 2002/09/27 19:56:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,9 +43,9 @@ namespace Enums
 
 
 
-class MidgardBasicElement_mutable;
+class H_MidgardBasicElement_mutable;
 
-typedef MidgardBasicElement_mutable MBEmlt;
+typedef H_MidgardBasicElement_mutable MBEmlt;
 
 
 

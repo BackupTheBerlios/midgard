@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.42 2002/09/25 06:33:02 thoma Exp $               
+// $Id: Zauber.hh,v 1.43 2002/09/27 19:56:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -102,8 +102,8 @@ class cH_Zauber : public Handle<const Zauber>
 //         bool operator() (cH_Zauber x,cH_Zauber y) const
          bool operator() (MBEmlt _x,MBEmlt _y) const
            { 
-            cH_Zauber x(_x.getMBE());
-            cH_Zauber y(_y.getMBE());
+            cH_Zauber x(_x->getMBE());
+            cH_Zauber y(_y->getMBE());
             switch(es) {
                case(NAME) : return x->Name() < y->Name()  ;
                case(STUFE): return x->Stufe() < y->Stufe();

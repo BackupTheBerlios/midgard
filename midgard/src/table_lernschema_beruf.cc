@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.13 2002/09/23 06:34:08 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.14 2002/09/27 19:56:21 thoma Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -68,15 +68,15 @@ void table_lernschema::deleteBerufsFertigekeit()
 {
   for(std::list<MBEmlt>::iterator i=hauptfenster->getChar()->List_Fertigkeit().begin();i!=hauptfenster->getChar()->List_Fertigkeit().end();++i)
    {
-     if((*i).LernArt()=="Beruf") 
+     if((*i)->LernArt()=="Beruf") 
       {
         hauptfenster->getChar()->List_Fertigkeit().erase(i);
         break;
       }
-     else if((*i).LernArt()=="Beruf+") 
+     else if((*i)->LernArt()=="Beruf+") 
       {
-        (*i).addErfolgswert(-1);
-        (*i).setLernArt("");
+        (*i)->addErfolgswert(-1);
+        (*i)->setLernArt("");
         break;
       }
    }
@@ -107,7 +107,7 @@ void table_lernschema::showBerufsLernList()
       std::vector<Beruf::st_vorteil> V=LernListen(hauptfenster->getDatabase()).getBerufsVorteil(*i,BKategorie,hauptfenster->getChar());
       for(std::vector<Beruf::st_vorteil>::const_iterator j=V.begin();j!=V.end();++j)
        {
-         datavec.push_back(new Beruf_Data((*i)->Name(),*j));
+         datavec.push_back(new Beruf_Data((*(*i))->Name(),*j));
          if(j->gelernt) gelerntes=true;
        }
     }
@@ -146,7 +146,7 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
     if(zusatz) 
      { cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(dt->getVorteil().name));
        MBEmlt MBE(cMBE);
-       lernen_zusatz(MBE->ZusatzEnum(hauptfenster->getChar()->getVTyp()),MBE);
+       lernen_zusatz((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()),MBE);
      }
 
     if (!BKategorie.kat_IV || (dt->getVorteil().kat==3 || dt->getVorteil().kat==4))

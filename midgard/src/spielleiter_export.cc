@@ -88,12 +88,12 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   std::string angriff;
   for(std::list<MBEmlt>::const_iterator i=Char->List_Waffen().begin();i!=Char->List_Waffen().end();++i)
    {
-    cH_Waffe w(i->getMBE());
-    std::string name = (*i)->Name();
+    cH_Waffe w((*i)->getMBE());
+    std::string name = (*(*i))->Name();
     int anbo = Char->getWerte().bo_An();
     if (w->Verteidigung())
         anbo = 0;
-    int wert = i->Erfolgswert() + anbo;
+    int wert = (*i)->Erfolgswert() + anbo;
     std::string schaden;
     bool besitz=false;
     {WaffeBesitz WB(w,w->Name(),0,0,"","");
@@ -132,16 +132,16 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  std::string fert;
  for(std::list<MBEmlt>::const_iterator i=Char->List_Fertigkeit_ang().begin();i!=Char->List_Fertigkeit_ang().end();++i)
    {//cH_Fertigkeit_angeborene f(i->getMBE());
-    std::string wert = "+"+itos(i->Erfolgswert());
+    std::string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
-    fert+=(*i)->Name()+wert+", ";
+    fert+=(*(*i))->Name()+wert+", ";
    }
  // Fertigkeiten
  for(std::list<MBEmlt>::const_iterator i=Char->List_Fertigkeit().begin();i!=Char->List_Fertigkeit().end();++i)
-   { //cH_Fertigkeit f(i->getMBE());
-    std::string wert = "+"+itos(i->Erfolgswert());
+   { //cH_Fertigkeit f((*i)->getMBE());
+    std::string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
-    fert+=(*i)->Name()+wert+", " ;
+    fert+=(*(*i))->Name()+wert+", " ;
    }
  ManuProC::remove_last_from(fert,",");
 // std::string::size_type st3=fert.find_last_of(",");
@@ -152,7 +152,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  std::list<MBEmlt> vsinne=getWerte().Sinne() ;
  for (std::list<MBEmlt>::const_iterator i=vsinne.begin();i!=vsinne.end();++i)
   {
-      sinne += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
+      sinne += (*(*i))->Name()+"+"+itos((*i)->Erfolgswert())+", ";
   }
  ManuProC::remove_last_from(sinne,",");
  fout << sinne<<"\n";
@@ -160,12 +160,12 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  std::string sprache;
  for (std::list<MBEmlt>::const_iterator i=Char->List_Sprache().begin();i!=Char->List_Sprache().end();++i)
    {
-      sprache += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
+      sprache += (*(*i))->Name()+"+"+itos((*i)->Erfolgswert())+", ";
    }
  std::list<MBEmlt> verwandteSprachen=Sprache::getVerwandteSprachen(getChar()->List_Sprache(),getCDatabase().Sprache);
  for (std::list<MBEmlt>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    {
-      sprache += (*i)->Name()+"+("+itos(i->Erfolgswert())+"), ";
+      sprache += (*(*i))->Name()+"+("+itos((*i)->Erfolgswert())+"), ";
    }
  ManuProC::remove_last_from(sprache,",");
 // std::string::size_type st4=sprache.find_last_of(",");
@@ -176,7 +176,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  std::string schreiben;
  for (std::list<MBEmlt>::const_iterator i=Char->List_Schrift().begin();i!=Char->List_Schrift().end();++i)
    {
-      schreiben += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
+      schreiben += (*(*i))->Name()+"+"+itos((*i)->Erfolgswert())+", ";
    }
  ManuProC::remove_last_from(schreiben,",");
  fout << "Schreiben: "<<schreiben<<"\n\n";
@@ -188,7 +188,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
      std::string zauber;
      zauber+="Zaubern+"+itos(W.Zaubern_wert()+Char->getWerte().bo_Za())+": ";
      for (std::list<MBEmlt>::const_iterator i=Char->List_Zauber().begin();i!=Char->List_Zauber().end();++i)
-        zauber += (*i)->Name()+", ";
+        zauber += (*(*i))->Name()+", ";
      ManuProC::remove_last_from(zauber,",");
 //     std::string::size_type st=zauber.find_last_of(",");
 //     if(st!=std::string::npos) zauber.erase(st,1);

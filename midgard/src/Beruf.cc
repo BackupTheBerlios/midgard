@@ -171,17 +171,17 @@ bool Beruf::Berufsfertigkeit(VAbenteurer& A,st_vorteil F)
     if(F.name=="Schreiben: Muttersprache(+12)")
      {for(std::list<MBEmlt>::iterator k=A->List_Schrift().begin();k!=A->List_Schrift().end();++k)
        {
-         if((*k)->Name()==A->Muttersprache() ) 
-            { (*k).addErfolgswert(1); break  ;  }
+         if((*(*k))->Name()==A->Muttersprache() ) 
+            { (*k)->addErfolgswert(1); break  ;  }
        }
      }  
     else
      {for (std::list<MBEmlt>::iterator k=A->List_Fertigkeit().begin();k!=A->List_Fertigkeit().end();++k)
        {
-         if((*k)->Name()==F.name)
-           { (*k).addErfolgswert(1);
-             if((*k)->What()==MidgardBasicElement::FERTIGKEIT)
-                (*k).setLernArt("Beruf+");
+         if((*(*k))->Name()==F.name)
+           { (*k)->addErfolgswert(1);
+             if((*(*k))->What()==MidgardBasicElement::FERTIGKEIT)
+                (*k)->setLernArt("Beruf+");
              break;
            }
        }  
@@ -191,11 +191,11 @@ bool Beruf::Berufsfertigkeit(VAbenteurer& A,st_vorteil F)
    {
      cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(F.name));
      MBEmlt MBE(cMBE);
-     MBE.setLernArt("Beruf");
-     MBE.setErfolgswert(F.wert);
-     if(MBE->ZusatzEnum(A->getVTyp())) return true;
+     MBE->setLernArt("Beruf");
+     MBE->setErfolgswert(F.wert);
+     if((*MBE)->ZusatzEnum(A->getVTyp())) return true;
 //         lernen_zusatz(MBE->ZusatzEnum(A->getVTyp()),MBE);
-     if(MBE->Name()!="Landeskunde (Heimat)")
+     if((*MBE)->Name()!="Landeskunde (Heimat)")
           A->List_Fertigkeit().push_back(MBE);
    }
  return false;

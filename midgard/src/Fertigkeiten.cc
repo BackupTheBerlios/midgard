@@ -152,7 +152,7 @@ FertEnd:
   {
     for(std::list<MBEmlt>::const_iterator j=L.begin();j!=L.end();++j)
      {
-      if((*i)==(*j)->Name()) 
+      if((*i)==(*(*j))->Name()) 
        { VF.erase(i); 
          goto FertEnd;
        }
@@ -174,9 +174,9 @@ MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const vector<cH_Typen>& Typ)
 int Fertigkeit::FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) const
 {
   if(Name()=="Trinken" && a.getWerte().Spezies()->Name()!="Zwerg") 
-      return mbem.Erfolgswert()+a.getWerte().Ko()/10;
-  if(Name()=="Berserkergang") return mbem.Erfolgswert()-a.getWerte().Wk()/5;
-  else return mbem.Erfolgswert();
+      return mbem->Erfolgswert()+a.getWerte().Ko()/10;
+  if(Name()=="Berserkergang") return mbem->Erfolgswert()-a.getWerte().Wk()/5;
+  else return mbem->Erfolgswert();
 }
 
 //int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const

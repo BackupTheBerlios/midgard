@@ -118,7 +118,7 @@ void Waffe::get_Alias()
 bool Waffe::Grundkenntnis_vorhanden(const std::list<MBEmlt>& list_WaffenGrund) const
 {
  for (std::list<MBEmlt>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
-   if (Grundkenntnis()==(*i)->Name()) return true;
+   if (Grundkenntnis()==(*(*i))->Name()) return true;
  return false;
 }
 
@@ -144,7 +144,7 @@ FertEnd:
    {
     for(std::list<MBEmlt>::const_iterator j=L.begin();j!=L.end();++j)
       {
-        if((*i)==(*j)->Name()) 
+        if((*i)==(*(*j))->Name()) 
           { VF.erase(i);
             goto FertEnd;
           }
@@ -158,15 +158,15 @@ FertEnd:
 
 std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name,bool latex=false) const
 {
-  if (waffe->Art()=="Verteidigung") 
+  if (Waffe()->Art()=="Verteidigung") 
    {
-     std::string s=itos(waffe->Schaden_Bonus(name))+"AP";
+     std::string s=itos(Waffe()->Schaden_Bonus(name))+"AP";
      if(latex) return "-"+s;
      else return s;
    }
-  std::string s=waffe->Schaden(name);
-  int sb=waffe->Schaden_Bonus(name) + sl_Bonus();
-  if ( waffe->Grundkenntnis() == "Kampf ohne Waffen" ) 
+  std::string s=Waffe()->Schaden(name);
+  int sb=Waffe()->Schaden_Bonus(name) + sl_Bonus();
+  if ( Waffe()->Grundkenntnis() == "Kampf ohne Waffen" ) 
       { s="W6";
         int w = Erfolgswert();
         if (         w <= 7) sb=-4;
@@ -175,7 +175,7 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
         if (16<=w)           sb=-1;
         if(name=="Kampfriemen") sb+=1;
       }
-  if (waffe->Art()!="Schußwaffe" && waffe->Art()!="Wurfwaffe") 
+  if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe") 
       sb += Werte.bo_Sc();
   if     (sb == 0) return s;
   else if(sb  > 0) return s+"+"+itos(sb);
@@ -345,23 +345,23 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
       WaffeBesitz WB=*i;
       std::vector<int> vwert;
       for (std::list<MBEmlt>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)      
-         { cH_Waffe w(j->getMBE());
+         { cH_Waffe w((*j)->getMBE());
             if (WB->Name() == w->Name()) 
                { 
                  int erf_wert;
                  if (WB->Name()=="Kampfstab"||WB->Name()=="Sai"||WB->Name()=="Tonfa"||WB->Name()=="KusariGama") 
-                  {erf_wert = j->Erfolgswert()-5; (erf_wert<=7)?:erf_wert=7; }
+                  {erf_wert = (*j)->Erfolgswert()-5; (erf_wert<=7)?:erf_wert=7; }
                  else if (WB->Name()=="TetsuBo")
-                  {erf_wert = j->Erfolgswert()-7; (erf_wert<=7)?:erf_wert=7; }
+                  {erf_wert = (*j)->Erfolgswert()-7; (erf_wert<=7)?:erf_wert=7; }
                  else if (WB->Name()=="GunSen"||WB->Name()=="BuKasa")
-                  {erf_wert = j->Erfolgswert(); (erf_wert<=10)?:erf_wert=10; }
+                  {erf_wert = (*j)->Erfolgswert(); (erf_wert<=10)?:erf_wert=10; }
                  else if (WB->Name()=="waffenloser Kampf")
-                  {if ( j->Erfolgswert()<8)              break       ;
-                   if ( 8<=j->Erfolgswert()&&j->Erfolgswert()<12) erf_wert = 1;
-                   if (12<=j->Erfolgswert()&&j->Erfolgswert()<16) erf_wert = 2;
-                   if (16<=j->Erfolgswert())                      erf_wert = 3;
+                  {if ( (*j)->Erfolgswert()<8)              break       ;
+                   if ( 8<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<12) erf_wert = 1;
+                   if (12<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<16) erf_wert = 2;
+                   if (16<=(*j)->Erfolgswert())                      erf_wert = 3;
                   }
-                 else erf_wert = j->Erfolgswert();
+                 else erf_wert = (*j)->Erfolgswert();
                  int ewert = A.getWerte().Abwehr_wert()+A.getWerte().bo_Ab() // Grundwerte
                            + erf_wert + WB.av_Bonus() ;// Waffenwerte
                  Vwaffewert += itos(ewert);
@@ -379,11 +379,11 @@ void Waffe::setSpezialWaffe(const std::string& name,std::list<MBEmlt>& list_Waff
 {
   for(std::list<MBEmlt>::iterator i=list_Waffen_gelernt.begin();i!=list_Waffen_gelernt.end();++i)
    {
-    if(name==(*i)->Name()) 
-        (*i).setErfolgswert(7);
-    else if(cH_Waffe(i->getMBE())->Verteidigung())
-         (*i).setErfolgswert(1);
-    else (*i).setErfolgswert(5);
+    if(name==(*(*i))->Name()) 
+        (*i)->setErfolgswert(7);
+    else if(cH_Waffe((*i)->getMBE())->Verteidigung())
+         (*i)->setErfolgswert(1);
+    else (*i)->setErfolgswert(5);
    }
 }
 

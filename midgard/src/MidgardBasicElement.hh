@@ -244,6 +244,27 @@ class H_MidgardBasicElement_mutable : public Handle<MidgardBasicElement_mutable>
    public:
       H_MidgardBasicElement_mutable(MidgardBasicElement_mutable *r) 
             : Handle<MidgardBasicElement_mutable>(r){}
+      H_MidgardBasicElement_mutable(const cH_MidgardBasicElement  &_mbe)
+         : Handle<MidgardBasicElement_mutable>(new MidgardBasicElement_mutable(_mbe))
+               {}
+
+   class sort {
+      public:
+         enum esort {LERNPUNKTEPFLICHT,NAME,ERFOLGSWERT};
+      private:
+         esort es;
+      public:
+         sort(esort _es):es(_es) {}
+         bool operator() (H_MidgardBasicElement_mutable x,H_MidgardBasicElement_mutable y) const
+           { switch(es) {
+               case(LERNPUNKTEPFLICHT) : return x->Pflicht() > y->Pflicht() ||
+                  (x->Pflicht() == y->Pflicht()  &&  x->Lernpunkte() < y->Lernpunkte() ) ;
+               case(NAME) : return (*x)->Name() < (*y)->Name()  ;
+               case(ERFOLGSWERT): return x->Erfolgswert() > y->Erfolgswert();
+           }}
+    };
+
+
 };
 
 

@@ -66,16 +66,16 @@ std::list<MBEmlt> Lernschema::get_List(const std::string& art,
          { 
            MBEmlt fert(&*cH_Fertigkeit(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
-           if(!fert.ist_gelernt(Gelerntes))
-              fert.setErfolgswert(i->second.erfolgswert);
+           if(!fert->ist_gelernt(Gelerntes))
+              fert->setErfolgswert(i->second.erfolgswert);
            L.push_back(fert); 
          }
       if(art=="Waffenfertigkeiten") 
          { 
            MBEmlt waffe(&*cH_Waffe(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
-           if(!waffe.ist_gelernt(Gelerntes))
-              waffe.setErfolgswert(i->second.erfolgswert);
+           if(!waffe->ist_gelernt(Gelerntes))
+              waffe->setErfolgswert(i->second.erfolgswert);
            L.push_back(waffe); 
          }
       if(art=="Zauberkünste") 

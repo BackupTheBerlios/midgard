@@ -100,8 +100,8 @@ class cH_Zauberwerk : public Handle<const Zauberwerk>
          sort(enum esort _es):es(_es) {}
          bool operator() (MBEmlt _x,MBEmlt _y) const
            { 
-            cH_Zauberwerk x(_x.getMBE());
-            cH_Zauberwerk y(_y.getMBE());
+            cH_Zauberwerk x(_x->getMBE());
+            cH_Zauberwerk y(_y->getMBE());
             switch(es) {
                case(NAME) : return x->Name() < y->Name()  ;
                case(STUFE): return x->Stufe() < y->Stufe();

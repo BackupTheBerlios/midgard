@@ -33,36 +33,36 @@
 const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
 {
   switch (what) {
-      case FName: return cH_EntryValueIntString(MBE->Name()+" "+MBE.Zusatz());
-      case FErfolgswert: { if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                               return cH_EntryValueEmptyInt(MBE->FErfolgswert(hauptfenster->getChar().getAbenteurer(),MBE)); 
-                           else return cH_EntryValueEmptyInt(MBE.Erfolgswert()); }
-      case FWurf: {cH_Fertigkeit_angeborene F(MBE.getMBE()); return cH_EntryValueIntString(itos(F->Min())+"-"+itos(F->Max()));}
-      case FWhat:  return cH_EntryValueIntString(MBE->What_str());
-      case FLernpunkte: return cH_EntryValueEmptyInt(MBE.Lernpunkte());
-      case FLernart: return cH_EntryValueIntString(MBE.LernArt());
-      case FPflicht: return cH_EntryValueIntString(MBE.Pflicht_str());
-      case FGrundkenntnis: return cH_EntryValueIntString(cH_Waffe(MBE.getMBE())->Grundkenntnis());
-      case FErfolgswerBonus: { int AB = cH_Fertigkeit(MBE.getMBE())->AttributBonus(hauptfenster->getWerte());
-                               const int EW=MBE->FErfolgswert(hauptfenster->getChar().getAbenteurer(),MBE);
+      case FName: return cH_EntryValueIntString((*MBE)->Name()+" "+(*MBE).Zusatz());
+      case FErfolgswert: { if((*MBE)->What()==MidgardBasicElement::FERTIGKEIT)
+                               return cH_EntryValueEmptyInt((*MBE)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),MBE)); 
+                           else return cH_EntryValueEmptyInt((*MBE).Erfolgswert()); }
+      case FWurf: {cH_Fertigkeit_angeborene F((*MBE).getMBE()); return cH_EntryValueIntString(itos(F->Min())+"-"+itos(F->Max()));}
+      case FWhat:  return cH_EntryValueIntString((*MBE)->What_str());
+      case FLernpunkte: return cH_EntryValueEmptyInt((*MBE).Lernpunkte());
+      case FLernart: return cH_EntryValueIntString((*MBE).LernArt());
+      case FPflicht: return cH_EntryValueIntString((*MBE).Pflicht_str());
+      case FGrundkenntnis: return cH_EntryValueIntString(cH_Waffe((*MBE).getMBE())->Grundkenntnis());
+      case FErfolgswerBonus: { int AB = cH_Fertigkeit((*MBE).getMBE())->AttributBonus(hauptfenster->getWerte());
+                               const int EW=(*MBE)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),MBE);
                                if(!AB) return cH_EntryValueEmptyInt(EW);
                                else { std::string s=itos(EW-AB)+"+"+itos(AB);
                                       return cH_EntryValueIntString(s); } }
-      case FZauberAP: return cH_EntryValueIntString(cH_Zauber(MBE.getMBE())->Ap());
-      case FAttribut: return cH_EntryValueIntString(cH_Fertigkeit(MBE.getMBE())->Attribut());
-      case FVoraussetung: return cH_EntryValueIntString(MBE->Voraussetzung());
-      case FSchwierigkeit: return cH_EntryValueIntString(cH_Waffe(MBE.getMBE())->Schwierigkeit_str());
-      case FKosten: return cH_EntryValueEmptyInt(MBE->Kosten(hauptfenster->getChar().getAbenteurer()));
-      case FStandard: return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getChar().getAbenteurer()));
-      case FGelernt: if (MBE.Gelernt()) return cH_EntryValueIntString("*"); 
+      case FZauberAP: return cH_EntryValueIntString(cH_Zauber((*MBE).getMBE())->Ap());
+      case FAttribut: return cH_EntryValueIntString(cH_Fertigkeit((*MBE).getMBE())->Attribut());
+      case FVoraussetung: return cH_EntryValueIntString((*MBE)->Voraussetzung());
+      case FSchwierigkeit: return cH_EntryValueIntString(cH_Waffe((*MBE).getMBE())->Schwierigkeit_str());
+      case FKosten: return cH_EntryValueEmptyInt((*MBE)->Kosten(hauptfenster->getChar().getAbenteurer()));
+      case FStandard: return cH_EntryValueIntString((*MBE)->Standard__(hauptfenster->getChar().getAbenteurer()));
+      case FGelernt: if ((*MBE).Gelernt()) return cH_EntryValueIntString("*"); 
                      else return cH_EntryValueIntString("");
-      case FPraxispunkt: return cH_EntryValueEmptyInt(MBE.Praxispunkte());
-      case FSteigern: return cH_EntryValueEmptyInt(MBE.Steigern(hauptfenster->getChar().getAbenteurer()));
-      case FReduzieren: return cH_EntryValueEmptyInt(MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()));
-      case FVerlernen: return cH_EntryValueEmptyInt(MBE.Verlernen(hauptfenster->getChar().getAbenteurer()));
-      case FRegion: return cH_EntryValueIntString(MBE->RegionString(hauptfenster->getCDatabase()));
-      case FUrsprung: return cH_EntryValueIntString(cH_Zauber(MBE.getMBE())->Ursprung());
-      case FArtderSchrift: return cH_EntryValueIntString(cH_Schrift(MBE.getMBE())->Art_der_Schrift());
+      case FPraxispunkt: return cH_EntryValueEmptyInt((*MBE).Praxispunkte());
+      case FSteigern: return cH_EntryValueEmptyInt((*MBE).Steigern(hauptfenster->getChar().getAbenteurer()));
+      case FReduzieren: return cH_EntryValueEmptyInt((*MBE).Reduzieren(hauptfenster->getChar().getAbenteurer()));
+      case FVerlernen: return cH_EntryValueEmptyInt((*MBE).Verlernen(hauptfenster->getChar().getAbenteurer()));
+      case FRegion: return cH_EntryValueIntString((*MBE)->RegionString(hauptfenster->getCDatabase()));
+      case FUrsprung: return cH_EntryValueIntString(cH_Zauber((*MBE).getMBE())->Ursprung());
+      case FArtderSchrift: return cH_EntryValueIntString(cH_Schrift((*MBE).getMBE())->Art_der_Schrift());
    }
  return cH_EntryValueIntString();
 }
@@ -89,20 +89,20 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
       else if (Variante==MidgardBasicTree::LERNSCHEMA)
        switch((Spalten_LERNSCHEMA)seqnr) {
          case LERNPUNKTEg : return retEV(FLernpunkte);
-         case PFLICHTg : { if ( MBE->What()==MidgardBasicElement::FERTIGKEIT)
+         case PFLICHTg : { if ( (*MBE)->What()==MidgardBasicElement::FERTIGKEIT)
                                 return retEV(FPflicht); 
-                           if ( MBE->What()==MidgardBasicElement::WAFFE)
+                           if ( (*MBE)->What()==MidgardBasicElement::WAFFE)
                                 return retEV(FGrundkenntnis);}
          case NAMEg : return retEV(FName);
          case WERTg : 
-             if(MBE->What()==MidgardBasicElement::FERTIGKEIT) return retEV(FErfolgswerBonus);
-             else if(MBE->What()==MidgardBasicElement::WAFFE) return retEV(FErfolgswert);
-             else if(MBE->What()==MidgardBasicElement::ZAUBER)return retEV(FZauberAP);
+             if((*MBE)->What()==MidgardBasicElement::FERTIGKEIT) return retEV(FErfolgswerBonus);
+             else if((*MBE)->What()==MidgardBasicElement::WAFFE) return retEV(FErfolgswert);
+             else if((*MBE)->What()==MidgardBasicElement::ZAUBER)return retEV(FZauberAP);
          case EIGENSCHAFTg : 
-             if ( MBE->What()==MidgardBasicElement::FERTIGKEIT) return retEV(FAttribut);
+             if ( (*MBE)->What()==MidgardBasicElement::FERTIGKEIT) return retEV(FAttribut);
          case VORAUSSETZUNGg : return retEV(FVoraussetung);
          case KOSTENg : 
-            if ( MBE->What()==MidgardBasicElement::WAFFE) return retEV(FSchwierigkeit);
+            if ( (*MBE)->What()==MidgardBasicElement::WAFFE) return retEV(FSchwierigkeit);
             return  retEV(FKosten);
          case ARTg : return retEV(FStandard);
          case GELERNTg : return retEV(FGelernt);
@@ -139,7 +139,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
       else if (Variante==MidgardBasicTree::SPRACHE_NEU)
        switch ((Spalten_SPRACHE_NEU)seqnr) {
          case NAMEsn    : return retEV(FName);
-         case SCHRIFTsn : return cH_EntryValueIntString(cH_Sprache(MBE.getMBE())->Schriften()); 
+         case SCHRIFTsn : return cH_EntryValueIntString(cH_Sprache((*MBE).getMBE())->Schriften()); 
          case LERNKOSTENsn : return retEV(FKosten);
          case REGIONsn : return retEV(FRegion);
         }
@@ -163,7 +163,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case REGIONrsn  : return retEV(FRegion);
         }
       else if (Variante==MidgardBasicTree::KIDO_ALT || Variante==MidgardBasicTree::KIDO_NEU)
-       {cH_KiDo k(MBE.getMBE());
+       {cH_KiDo k((*MBE).getMBE());
         switch ((Spalten_KIDO)seqnr) {
          case HOHOa_K    : return cH_EntryValueIntString(k->HoHo());
          case NAMEa_K    : return cH_EntryValueIntString(k->Deutsch());
@@ -180,7 +180,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case REGION_G : return retEV(FRegion);
         }
       else if (Variante==MidgardBasicTree::ZAUBER_NEU || Variante==MidgardBasicTree::ZAUBER_ALT )
-       { cH_Zauber z(MBE.getMBE());
+       { cH_Zauber z((*MBE).getMBE());
        switch ((Spalten_ZAUBER)seqnr) {
          case STUFEn_Z : return cH_EntryValueIntString(z->Stufe());
          case NAMEn_Z : return retEV(FName);
@@ -190,7 +190,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case REGIONn_Z : return retEV(FRegion);
         }}
       else if (Variante==MidgardBasicTree::ZAUBERWERK_NEU || Variante==MidgardBasicTree::ZAUBERWERK_ALT)
-       {cH_Zauberwerk z(MBE.getMBE());
+       {cH_Zauberwerk z((*MBE).getMBE());
         switch ((Spalten_ZAUBERWERK)seqnr) {
          case STUFEn_ZW : return cH_EntryValueIntString(z->Stufe());
          case NAMEn_ZW : return retEV(FName);
@@ -202,7 +202,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
         }}
       else if (Variante==MidgardBasicTree::WAFFE_LERNSCHEMA)
        {
-        cH_Waffe w(MBE.getMBE());
+        cH_Waffe w((*MBE).getMBE());
         switch ((Spalten_WAFFE_LERNSCHEMA)seqnr) {
          case NAME_WL    : return retEV(FName);
          case GRUND_WL   : return retEV(FGrundkenntnis);

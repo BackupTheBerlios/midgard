@@ -46,7 +46,7 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
 
      try{
       MBEmlt M=getSelectedNotebookLernen();
-      spinbutton_pp_eingeben->set_value(M.Praxispunkte());
+      spinbutton_pp_eingeben->set_value(M->Praxispunkte());
       spinbutton_pp_eingeben->show();
      }catch(TreeBase::noRowSelected &e) {/*cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");*/}
    }
@@ -225,7 +225,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
   std::vector<std::string> title;
   std::vector<MidgardBasicElement::st_zusatz> VZusatz;
   LernListen LL(hauptfenster->getCDatabase());
-  switch (MBE->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
+  switch ((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
    {
      case MidgardBasicElement::ZLand :
       {        
@@ -241,7 +241,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
       }
      case MidgardBasicElement::ZTabelle : 
       {
-        title.push_back(MBE->Name()+" auswählen");
+        title.push_back((*MBE)->Name()+" auswählen");
         title.push_back("Typ");
         title.push_back("Region");
         VZusatz=LL.getMBEZusatz(MBE);
@@ -305,16 +305,16 @@ void table_steigern::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicE
      else assert(!"never get here\n");
      for(std::list<MBEmlt>::iterator i=L->begin();i!=L->end();++i)
       {
-        if( i->Zusatz().empty() && (*i)->Name() == M->Name())       
+        if( (*i)->Zusatz().empty() && (*(*i))->Name() == (*M)->Name())       
          {
            found=true;
            if(modus==PP)
-             i->setPraxispunkte(praxispunkte);
+             (*i)->setPraxispunkte(praxispunkte);
            else if(modus==Zusatz)
             {
-              i->setZusatz(zusatz);
+              (*i)->setZusatz(zusatz);
               if(zusatz.name==hauptfenster->getWerte().Herkunft()->Name()) 
-                i->setErfolgswert(9);
+                (*i)->setErfolgswert(9);
             }
          }
       }

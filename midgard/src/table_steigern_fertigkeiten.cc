@@ -48,8 +48,8 @@ void table_steigern::on_alte_fert_reorder()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
-      case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Fertigkeit().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME)); ;break;
-      case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Fertigkeit().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::ERFOLGSWERT)); ;break;
+      case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::ERFOLGSWERT)); ;break;
       default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
@@ -60,13 +60,13 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MBEmlt MBE = dt->getMBE();
-  if (MBE->Name()=="KiDo") 
+  if ((*MBE)->Name()=="KiDo") 
     { zeige_werte();
       hauptfenster->InfoFenster->AppendShow("Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!",WindowInfo::None);
       hauptfenster->load_for_mainpage(midgard_CG::PAGE_LERNEN);
       MidgardBasicElement_leaf_neu(d);      
     }
-  else if (MBE->Name()=="Zaubern") 
+  else if ((*MBE)->Name()=="Zaubern") 
     {  
      hauptfenster->InfoFenster->AppendShow("Sicher, daß dieser Kämpfer Zaubern lernen soll?\nDiese Entscheidung kann nicht mehr Rückgängig gemacht werden.",WindowInfo::ZaubernLernen,&MBE);
     }
