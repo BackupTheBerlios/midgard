@@ -173,6 +173,7 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
         if ( 8<=w && w <=11) sb=-3;
         if (12<=w && w <=15) sb=-2;
         if (16<=w)           sb=-1;
+        if(name=="Kampfriemen") sb+=1;
       }
   if (waffe->Art()!="Schußwaffe" && waffe->Art()!="Wurfwaffe") 
       sb += Werte.bo_Sc();

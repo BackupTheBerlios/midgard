@@ -102,10 +102,8 @@ void table_steigern::on_leaf_waffenbesitz_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
   WaffeBesitz MBE=dt->get_Waffe();
-
-//cout << MBE->Name()<<'\t'<<MBE.AliasName()<<'\n';
+  
   hauptfenster->getChar().List_Waffen_besitz().push_back(MBE);
-//  zeige_waffen();
   show_alte_waffen();
 }
 
@@ -143,11 +141,14 @@ void  table_steigern::lade_waffenbesitz()
   for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
    {
      cH_Waffe w(*i);
-     if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
-      if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getChar().List_Waffen()))
+     MidgardBasicElement_mutable Mm(*i);
+     if (Mm.ist_gelernt(hauptfenster->getChar().List_Waffen()))
        {
-        WaffeBesitz W(w,w->Name(),0,0,"","");
-        Waffe_Besitz_neu.push_back(W);
+        if(w->Grundkenntnis() != "Kampf ohne Waffen")
+         {
+           WaffeBesitz W(w,w->Name(),0,0,"","");
+           Waffe_Besitz_neu.push_back(W);
+         }
         for (list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
          {
            WaffeBesitz W(w,(*j).name,0,0,"",j->region);

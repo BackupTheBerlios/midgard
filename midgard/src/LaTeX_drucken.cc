@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.36 2002/07/02 08:57:51 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.37 2002/07/02 11:06:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -315,7 +315,6 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
 
  /////////////////////////////////////////////////////////////////////////////
  // Waffen + Waffen/Besitz
-//WL int  i_waffenlos = 4;
  unsigned int countwaffen=0;
  std::string angriffsverlust_string = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar().List_Fertigkeit());
  std::list<WaffeBesitz> WBesitz=hauptfenster->getChar().List_Waffen_besitz();
@@ -341,6 +340,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     for (std::list<WaffeBesitz>::const_iterator j=WBesitz.begin();j!=WBesitz.end();++j)
      {
       WaffeBesitz WB=*j;
+      WB.setErfolgswert(i->Erfolgswert());
       if (WB.Waffe()->Name()==w->Name())
        {
          std::string b = LaTeX_string(countwaffen++);
@@ -361,11 +361,12 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
          // Erfolgswert für Angriffswaffen
          else 
           {
-           int wert = (*i).Erfolgswert() + hauptfenster->getWerte().bo_An() + WB.av_Bonus() + WB.Waffe()->WM_Angriff(WB->Name()) ;
+//           int wert = (*i).Erfolgswert() + hauptfenster->getWerte().bo_An() + WB.av_Bonus() + WB.Waffe()->WM_Angriff(WB->Name()) ;
+           int wert = (*i).Erfolgswert() + hauptfenster->getWerte().bo_An() + WB.av_Bonus() + WB.Waffe()->WM_Angriff(waffenname) ;
            // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
            fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert<<angriffsverlust_string<<"}\n";
           }
-         std::string schaden=WB.Schaden(hauptfenster->getWerte(),WB->Name(),true);
+         std::string schaden=WB.Schaden(hauptfenster->getWerte(),waffenname,true);
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
          std::string anm = WB.Waffe()->Waffenrang();
          fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
@@ -374,18 +375,6 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
        }
      }
    }
- // waffenloser Kampf:
-/*
- WaffeBesitz waffenlos(cH_Waffe("waffenloser Kampf"));
- 
- fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+hauptfenster->getWerte().bo_An() << "}\n";
- std::string schaden= waffenlos.Schaden(hauptfenster->getWerte(), waffenlos->Name(),true);
- fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- std::string anm = waffenlos.Waffe()->Waffenrang();
- fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- std::string abm = waffenlos.Waffe()->WM_Abwehr();
- fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
-*/
  /////////////////////////////////////////////////////////////////////////
  // Universelle Fertigkeiten
 

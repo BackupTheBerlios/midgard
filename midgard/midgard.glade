@@ -14760,7 +14760,7 @@ Stärke</label>
 			  <class>GtkLabel</class>
 			  <child_name>CList:title</child_name>
 			  <name>label591</name>
-			  <label>RW
+			  <label>Gw
 Verlust</label>
 			  <justify>GTK_JUSTIFY_CENTER</justify>
 			  <wrap>False</wrap>
