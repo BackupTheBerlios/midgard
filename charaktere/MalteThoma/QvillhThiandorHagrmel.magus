@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MAGUS-data>
- <Preise/>
  <Midgard-Abenteurer Version="10">
   <Figur Name="Qvillh Thiandor Hagrûmel" Spieler="Thorsten Bartusel" Zeitpunkt="Erschaffung" Grad="4"/>
   <Typ Spezies="Berggnom" Geschlecht="m" Abkürzung="Th" Überleben="Überleben im Gebirge" Stadt_Land="Stadt" Hand="Beidhändig"/>
   <Basiseigenschaften St="51" Gw="86" Gs="99" Ko="41" In="63" Zt="99"/>
-  <abgeleiteteEigenschaften Au="36" pA="64" Wk="63" Sb="31" B="12"/>
+  <abgeleiteteEigenschaften Au="36" pA="64" Wk="63" Sb="31" B="12" SG="3"/>
   <Erfolgswerte Abwehr="13" Zaubern="14" ZauberResistenz="12"/>
   <Gesundheit LP="10" AP="11"/>
   <Beschreibung Alter="104" Gestalt="schlank" Gewicht="24" Größe="100" Stand="Mittelschicht" Herkunft="Waeland" Glaube="druidisch"/>
   <Vermögen GS="25"/>
-  <Steigern GFP="1219" AEP="81" Basiswerte="1" benötigte_Tage="204">
+  <Steigern GFP="1899" AEP="14" benötigte_Tage="264.16">
    <Praxispunkte/>
   </Steigern>
   <Text Größe="8"/>
@@ -21,15 +20,15 @@
    <Waffe Erfolgswert="0" Bezeichnung="Blasrohr"/>
    <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
    <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
-   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
     </Gegenstand>
    </Gegenstand>
   </Ausrüstung>
@@ -56,7 +55,7 @@
    <Fertigkeit Bezeichnung="Thaumatographie" Wert="6"/>
    <Fertigkeit Bezeichnung="Zauberkunde" Wert="7"/>
    <Waffe Bezeichnung="Blasrohr" Wert="7"/>
-   <Waffe Bezeichnung="Dolch" Wert="8"/>
+   <Waffe Bezeichnung="Dolch" Wert="9"/>
    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
    <Zauber Bezeichnung="Bittersalz"/>
    <Zauber Bezeichnung="Blicksalz"/>
@@ -69,6 +68,7 @@
    <Zauber Bezeichnung="Macht über das Selbst"/>
    <Zauber Bezeichnung="Rost"/>
    <Zauber Bezeichnung="Sehen von Verborgenem"/>
+   <Zauber Bezeichnung="Todeshauch"/>
    <Zauber Bezeichnung="Trampelsalz"/>
    <Zauber Bezeichnung="Zauberschloß"/>
    <Zauber Bezeichnung="Zauberschlüssel"/>
@@ -78,11 +78,16 @@
    <Sprache Bezeichnung="Chryseisch" Wert="9"/>
    <Sprache Bezeichnung="Erainnisch" Wert="7"/>
    <Sprache Bezeichnung="Gnomenon" Wert="18"/>
+   <Sprache Bezeichnung="KanThaiTun" Wert="12"/>
    <Sprache Bezeichnung="Moravisch" Wert="4"/>
    <Sprache Bezeichnung="Waelska" Wert="12"/>
    <Urschrift Bezeichnung="Zwergenrunen Futhark" Wert="12"/>
-   <Optionen Name="Originalregeln" Wert="true"/>
-   <Optionen Name="NSC zulassen" Wert="false"/>
   </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>

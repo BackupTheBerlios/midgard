@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MAGUS-data>
- <Preise/>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Morley MacConuilh" Spieler="Malte Thoma" Zeitpunkt="Erschaffung" Grad="2"/>
+  <Figur Name="Morley MacConuilh" Spieler="Malte Thoma" Zeitpunkt="Erschaffung" Grad="3"/>
   <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ma" Spezialgebiet="Adept des formbaren Chaos" Spezialisierung="Adept des formbaren Chaos" Überleben="Überleben im Wald" Muttersprache="Comentang" Stadt_Land="Stadt" Hand="Rechtshänder"/>
   <Basiseigenschaften St="62" Gw="56" Gs="32" Ko="95" In="97" Zt="98"/>
   <abgeleiteteEigenschaften Au="33" pA="48" Wk="18" Sb="44" B="22"/>
-  <Erfolgswerte Abwehr="12" Zaubern="12" ZauberResistenz="10"/>
-  <Gesundheit LP="19" AP="13"/>
-  <Beschreibung Alter="25" Gestalt="normal" Gewicht="83" Größe="187" Stand="Adel" Herkunft="Alba" Glaube="Dheis Albi"/>
-  <Vermögen GS="270" SS="31" KS="50"/>
-  <Steigern GFP="220" AEP="2" EPproGFP="33" benötigte_Tage="103">
-   <Praxispunkte/>
+  <Erfolgswerte Abwehr="12" Zaubern="13" ZauberResistenz="11"/>
+  <Gesundheit LP="19" AP="21"/>
+  <Beschreibung Alter="25" Gestalt="normal" Gewicht="83" Größe="187" Stand="Adel" Merkmale="Mit Zwicker Sehen+6" Herkunft="Alba" Glaube="Dheis Albi"/>
+  <Vermögen GS="266" SS="31" KS="50"/>
+  <Steigern GFP="870" AEP="1" EPproGFP="33" benötigte_Tage="237.2">
+   <Praxispunkte Zaubern="1"/>
   </Steigern>
   <Text Größe="7" Bild="/home/thoma/magus/charaktere/MalteThoma/morley_menkalinan_resized_to_100_.jpg">Morleys Eltern sind Ärzte, doch aufgrund seiner Ungeschicklichkeit war er für diesen Berunf nicht besonders geeignet. Also wurde er für viel Geld auf eine Magierakademie geschickt um dort zu lernen. Er erwies sich als äußerst talentiert und fleißig. Doch sein Mentor Colin MacMurdil und der Clan kamen überein, daß Morley ein wenig zu sehr an den Büchern klebt und beschloß ihn auf Abenteuer zu schicken, damit er auch etwas von der Welt sehen sollte. Der Clan hätte auch gerne einen fähigen und welterfahrenen Magier, der vielleicht einmal Berater des Lairds wird oder sogar noch weiter. So würde man seinen Einfluß auf die albische Politik verstärken. Ein Bücherwurm, der von der Welt nichts gesehen hat, ist für so einen Posten allerdings nicht geeignet und daher heißt es: Wenn Morley es überlebt, dann wird er ein ganz großer ...&#x0A;&#x0A;&#x0A;Morley glaubt an die Dehis Albi und auch Vraidos hat da bestimmt seinen Platz, aber er ist viel zu beschäftigt um sich da ernsthafte Gedanken drüber zu machen.&#x0A;Auch die große Politik interessiert ihn nicht wirklich.&#x0A;Immerhin hat der Laird Donuhil MacConuhil einigen Einfluß im Reich und der aufstrebende 'Thronerbe' Elrohir MacConuilh braucht bestimmt fähige Magier an seiner Seite.&#x0A;Camrane NiConuilh ist schon sehr alt und die Kaja NiConuilh ist nur bedingt vertrauesnwürdig...&#x0A;Vielleicht kann das dieser Morley mal ein guter Hofmagier werden wenn wir ihm die richtige Ausbildung angedeihen lassen.&#x0A;Das er ein machtpolitisches Instrument für den Clan Conuilh werden soll ist ihm nicht bewußt und es würde ihn zum gegenwärtigen Zeitpunkt auch völlig überfordern sich mit soetwas Gedanken zu machen.&#x0A;&#x0A;Dein Lehrmeister, Colin MacMurdil, schickt dich also nach Thame zur dortigen Gilde, &#x0A;genauer zu einem seiner Freunde Aodhan Toibin, Magier der Gilde des Weißen Steins und Errainer,&#x0A;der dort als Dozent tätig ist. Den genauen Wortlaut des &#x0A;Empfehlungssschreiben kennst du nicht, aber dein Lehrmeister hat dir gesagt, dass du dort deine &#x0A;Ausbildung vervollständigen sollst.&#x0A;Es ist übrigens tiefster Winter und du bist ganz froh, dass du ein Pferd hast, weil du so nicht selber durch &#x0A;den tiefen Schnee stapfen musst.&#x0A;&#x5C;vspace*{2ex}&#x0A;&#x0A;&#x5C;begin{tabular}{|l|p{10cm}|}&#x5C;hline&#x0A;&#x5C;multicolumn{2}{|l|}{&#x5C;bf Wichtige Personen:}&#x5C;&#x5C;&#x0A;Brian MacConuhil &amp; fähiger Arzt und Vater&#x5C;&#x5C;&#x0A;Faine NiConuhil &amp; Mutter mit erainischem Blut in den Adern&#x5C;&#x5C;&#x0A;Colin MacMurdil &amp; Lehrmeister &#x5C;&amp; Mentor&#x5C;&#x5C;&#x0A;Donuhil MacConuhil &amp; Laird in Dungarvaon, Großvater&#x5C;&#x5C;&#x5C;hline&#x0A;&#x5C;multicolumn{2}{|l|}{&#x5C;bf Personen in Thame:}&#x5C;&#x5C;&#x0A;Aodhan Toibin &amp; Magier der Gilde des Weißen Steins und Errainer, Kontaktperson für mich in der Gilde&#x5C;&#x5C;&#x0A;Arlena NiConuilh &amp; Oberhaupt der Magiergilde&#x5C;&#x5C;&#x0A;Fiona NiConuilh &amp; Syress up Vanashold und Verwalterin der Besitztümer des Laird&#x0A;zudem enge Vertraute von Donuilh, da seine Ziehschwester&#x5C;&#x5C;&#x0A;Kenrik MacRathgar &amp; Stadtvogt von Thame &#x5C;&#x5C;&#x0A;Ledwin MacAelfin &amp; Bürgermeister&#x5C;&#x5C;&#x0A;Marwyn MacConhuilh &amp; Kräuterhändler, Hauptlieferant meines Lehrmeisters für Zaubermaterialien&#x5C;&#x5C;&#x0A;Kelda Glitzerfels &amp; Berggnomin und Thaumaturgin, Bekannte meines Lehrmeisters&#x5C;&#x5C;&#x5C;hline&#x0A;&#x5C;end{tabular}&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;</Text>
   <Ausrüstung>
@@ -20,70 +19,17 @@
    <Rüstung2>OR</Rüstung2>
    <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
    <Waffe Erfolgswert="0" Bezeichnung="Magierstab"/>
-   <Gegenstand Bezeichnung="Körper" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="QQQQQQQ" Beschreibung="EIn Text" Region="EE" Gewicht="1.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
     </Gegenstand>
-   </Gegenstand>
-   <Gegenstand Bezeichnung="Körper" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
-    </Gegenstand>
-   </Gegenstand>
-   <Gegenstand Bezeichnung="Körper" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
-    </Gegenstand>
-   </Gegenstand>
-   <Gegenstand Bezeichnung="Körper" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
-    </Gegenstand>
-   </Gegenstand>
-   <Gegenstand Bezeichnung="Körper" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
-    </Gegenstand>
-   </Gegenstand>
-   <Gegenstand Bezeichnung="Körper" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
     </Gegenstand>
    </Gegenstand>
   </Ausrüstung>
@@ -95,38 +41,45 @@
    <Sinn Bezeichnung="Tasten" Wert="8"/>
    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
    <Beruf Bezeichnung="Arzt"/>
-   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8" Praxispunkte="2"/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
-   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="5"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="5" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
-   <Fertigkeit Bezeichnung="Thaumatographie" Wert="7"/>
-   <Fertigkeit Bezeichnung="Zauberkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Thaumatographie" Wert="7" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="8"/>
    <Waffe Bezeichnung="Dolch" Wert="4"/>
    <Waffe Bezeichnung="Magierstab" Wert="6"/>
+   <Zauber Bezeichnung="Erkennen von Leben"/>
+   <Zauber Bezeichnung="Erkennen von Zauberei"/>
    <Zauber Bezeichnung="Heranholen"/>
    <Zauber Bezeichnung="Hören von Fernem"/>
+   <Zauber Bezeichnung="Macht über das Selbst"/>
+   <Zauber Bezeichnung="Macht über die belebte Natur"/>
+   <Zauber Bezeichnung="Macht über die Sinne"/>
    <Zauber Bezeichnung="Macht über Menschen"/>
    <Zauber Bezeichnung="Macht über Unbelebtes"/>
-   <Zauber Bezeichnung="Macht über das Selbst"/>
-   <Zauber Bezeichnung="Macht über die Sinne"/>
-   <Zauber Bezeichnung="Macht über die belebte Natur"/>
    <Zauber Bezeichnung="Scharfblick"/>
    <Zauber Bezeichnung="Sehen von Verborgenem"/>
+   <Zauber Bezeichnung="Unsichtbarkeit"/>
    <Grundkenntnis Bezeichnung="Stichwaffe"/>
    <Grundkenntnis Bezeichnung="Zauberstäbe"/>
-   <Sprache Bezeichnung="Albisch" Wert="19"/>
+   <Sprache Bezeichnung="Albisch" Wert="19" Praxispunkte="2"/>
+   <Sprache Bezeichnung="Altoqua" Wert="9"/>
    <Sprache Bezeichnung="Comentang" Wert="12"/>
+   <Sprache Bezeichnung="Eldalyn" Wert="6"/>
    <Sprache Bezeichnung="Erainnisch" Wert="12"/>
    <Sprache Bezeichnung="Maralinga" Wert="5"/>
    <Sprache Bezeichnung="Vallinga" Wert="5"/>
+   <Urschrift Bezeichnung="Eldalyn" Wert="4"/>
+   <Urschrift Bezeichnung="Altoqua" Wert="4"/>
    <Urschrift Bezeichnung="Albisch" Wert="13"/>
    <Urschrift Bezeichnung="Comentang" Wert="8"/>
    <Urschrift Bezeichnung="Erainnisch" Wert="8"/>
   </Fertigkeiten>
   <Optionen>
-   <CheckOptions Name="Originalregeln" Wert="true"/>
-   <CheckOptions Name="NSC zulassen" Wert="true"/>
-   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
    <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MAGUS-data>
- <Preise>
-  <Kaufpreis Ware="Silberbecher" Art="Ausrüstung" Art2="Behälter" Preis="5" Währung="GS" Gewicht="0"/>
-  <Kaufpreis Ware="kleiner Silbertopf" Art="Ausrüstung" Art2="Behälter" Preis="10" Währung="GS" Gewicht="2"/>
-  <Kaufpreis Ware="Mörser und Stößel" Art="Ausrüstung" Art2="Werkzeug" Preis="3" Währung="GS" Gewicht="0"/>
- </Preise>
  <Midgard-Abenteurer Version="10">
   <Figur Name="ChiLi" Spieler="Malte Thoma" Zeitpunkt="Grad 7" Grad="7"/>
   <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ny" Spezialisierung="Harte Techniken" Überleben="Überleben im Wald" Stadt_Land="Stadt" Hand="Linkshänder"/>
   <Basiseigenschaften St="68" Gw="97" Gs="97" Ko="87" In="82" Zt="99"/>
-  <abgeleiteteEigenschaften Au="62" pA="92" Wk="81" Sb="95" B="25" SG="5"/>
+  <abgeleiteteEigenschaften Au="62" pA="92" Wk="81" Sb="95" B="25" SG="17"/>
   <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="50"/>
   <Beschreibung Alter="29" Gestalt="schlank" Gewicht="53" Größe="160" Stand="Mittelschicht" Herkunft="KanThaiPan" Glaube="ChenMen"/>
-  <Vermögen GS="40"/>
-  <Steigern GFP="7966" AEP="41" EPproGFP="67" Basiswerte="1" benötigte_Tage="35">
+  <Vermögen GS="240"/>
+  <Steigern GFP="7966" AEP="191" EPproGFP="67" benötigte_Tage="35">
    <Praxispunkte/>
   </Steigern>
   <Text/>
@@ -27,15 +22,15 @@
    <Waffe Erfolgswert="0" Bezeichnung="Dolch">GW+4</Waffe>
    <Waffe Erfolgswert="0" Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="2">Schwarzer Steindolch, Zaubern+20 'Kraftentzug' ABW 8</Waffe>
    <Waffe Erfolgswert="0" Bezeichnung="leichte Armbrust"/>
-   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
     </Gegenstand>
    </Gegenstand>
   </Ausrüstung>
@@ -102,9 +97,12 @@
    <Urschrift Bezeichnung="Neu-Vallinga" Wert="12"/>
    <Urschrift Bezeichnung="Comentang" Wert="12"/>
    <Urschrift Bezeichnung="Moravisch" Wert="8"/>
-   <Region Name="KanThaiPan" Region="K"/>
-   <Optionen Name="Originalregeln" Wert="false"/>
-   <Optionen Name="NSC zulassen" Wert="false"/>
   </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
