@@ -14950,8 +14950,8 @@ KS
     <widget>
       <class>GtkTable</class>
       <name>table125</name>
-      <rows>2</rows>
-      <columns>3</columns>
+      <rows>3</rows>
+      <columns>4</columns>
       <homogeneous>False</homogeneous>
       <row_spacing>0</row_spacing>
       <column_spacing>0</column_spacing>
@@ -15287,6 +15287,32 @@ löschen</label>
 	      </child>
 	    </widget>
 	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GtkFrame</class>
+	<name>frame_auswahl</name>
+	<cxx_visibility>protected</cxx_visibility>
+	<label_xalign>0</label_xalign>
+	<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>2</top_attach>
+	  <bottom_attach>3</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>False</xexpand>
+	  <yexpand>True</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>True</yfill>
+	</child>
+
+	<widget>
+	  <class>Placeholder</class>
 	</widget>
       </widget>
     </widget>

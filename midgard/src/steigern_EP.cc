@@ -132,13 +132,18 @@ bool midgard_CG::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_stei
    {
      if(MBE)
       {
+        int kosten=0;
+        int aep=40;
+        int stufen=stufen_auf_einmal_steigern_fuer_aep(true,*MBE,kosten,aep);
         std::string str ="ACHTUNG: Kosten ("+itos(ep_k)+") geringer als ein Praxispunkt wert (40GFP) ist.\n"
-            "Es wird kein Praxispunkt verwendet.\n"
-            "Soll trotzdem mit Praxispunkten gelernt werden\n(um z.B. den Erfolgswert"
-            " um mehrere Stufen auf einmal zu erhöhen),\n so kann ein Praxispunkt "
-            "in AEP umgewandelt werden. Soll das geschehen?";
-//         InfoFenster->AppendShow(str,WindowInfo::PraxisPunkte,const_cast<cH_MidgardBasicElement*>(MBE));
-         InfoFenster->AppendShow(str,WindowInfo::PraxisPunkte,*MBE);
+            "Nun gibt es drei Möglichkeiten:\n"
+            " 1. Es wird nicht gesteigert.\n"
+            " 2. Es wird mit einem PP um "+itos(stufen)+" Stufen gesteigert.\n"
+            "    Die restlichen Punkte ("+itos(aep)+") verfallen\n"
+            " 3. Es wird mit PP und "+itos(kosten-aep)+" AEP um "+itos(stufen+1)+" Stufen gesteigert\n"
+            "    (Damit verfallen dann keine Punkte. Die Lernzeit für die verwendeten AEP\n."
+            "     wird wie bei 'Selbststudium' angenommen)\n";
+         InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,*MBE);
          return false;
       }
    }
@@ -256,13 +261,62 @@ int midgard_CG::genug_geld(const int kosten)
 }
 
 
-void midgard_CG::PraxisPunkt_to_AEP(const cH_MidgardBasicElement& MBE)
+void midgard_CG::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen)
 {
-  Werte.addAEP(40);
-  EP_uebernehmen();
   MBE->add_Praxispunkte(-1);
+  int aep=40;
+  int kosten=0;
+  stufen_auf_einmal_steigern_fuer_aep(false,MBE,kosten,aep);
+
+  // Die übrigbleibenden Punkte in AEP umwandeln
+  if(!verfallen && aep>0)
+   {
+     int steiger_kosten = MBE->Steigern(Werte,Typ);
+     int aep_kosten = steiger_kosten-aep;
+     if(aep_kosten>Werte.AEP())
+      {
+        regnot("Zu wenig AEP, die restlichen Punkte verfallen.");
+      }
+     else
+      {
+        Werte.addAEP(-aep_kosten);
+        EP_uebernehmen();
+        Werte.addGFP(steiger_kosten);
+        MBE->add_Erfolgswert(1);
+
+        set_lernzeit(steiger_kosten-aep_kosten);
+        radiobutton_selbst->set_active(true);
+        set_lernzeit(aep_kosten);
+        radiobutton_praxis->set_active(true);
+      }  
+   }
   load_for_page(notebook_lernen->get_current_page_num());
-  radiobutton_selbst->set_active(true);
-  #warning was ist mit den Tagen?
 }
+
+int midgard_CG::stufen_auf_einmal_steigern_fuer_aep(bool info,cH_MidgardBasicElement& MBE,int &kosten,int &aep)
+{
+  int steiger_kosten = MBE->Steigern(Werte,Typ);
+  int stufen=0;
+  int erfolgswert_mem=MBE->Erfolgswert();
+  while(steiger_kosten<=aep)
+   {   
+     kosten+=steiger_kosten;
+     ++stufen;
+     aep-=steiger_kosten;
+     MBE->add_Erfolgswert(1);
+     steiger_kosten = MBE->Steigern(Werte,Typ);
+   }      
+  if(info)
+   {
+     kosten=MBE->Steigern(Werte,Typ) ; // kosten für die nächste Stufe
+     MBE->set_Erfolgswert(erfolgswert_mem);
+   }
+  else
+   {
+     Werte.addGFP(kosten);
+     set_lernzeit(kosten);
+   }
+  return stufen;
+}
+
 

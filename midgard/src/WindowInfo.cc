@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.32 2002/04/08 14:05:38 thoma Exp $
+// $Id: WindowInfo.cc,v 1.33 2002/04/10 08:38:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,30 +28,40 @@
 #include "WindowInfo.hh"
 #include <gtk--/main.h>
 #include "midgard_CG.hh"
-
+#include "Fertigkeiten.hh"
+#include "../pixmaps/Excl-32.xpm"
+#include <gtk--/button.h>
+#include <gtk--/table.h>   
+#include <gtk--/label.h>
+#include <gtk--/box.h>
 
 void WindowInfo::on_button_info_ok_clicked()
 {   
   if(Modus==Autoclean) des.disconnect();
-  MBE=0;
   hide();
 }
 
 void WindowInfo::on_button_bestaetigen_clicked()
 {
- if(MBE)
-  {
-    if     (Modus==ZaubernLernen) hauptfenster->kaempfer_lernt_zaubern(*MBE);
-    else if(Modus==PraxisPunkte)  hauptfenster->PraxisPunkt_to_AEP(*MBE);
-  }
- else
-  { cerr << "MBE existiert nicht\n";}
- MBE=0;
- hide();
+ if      (Modus==ZaubernLernen)   hauptfenster->kaempfer_lernt_zaubern(MBE);
+ else assert(!"never get here");
+// else if (Modus==PraxisPunkteMBE) hauptfenster->PraxisPunkt_to_AEP(MBE);
 }
 
+
+void WindowInfo::on_button_auswahl_clicked(int connect)
+{
+ assert(Modus==PraxisPunkteMBE);
+  if       (connect==1) on_button_info_ok_clicked();
+  else if  (connect==2) hauptfenster->PraxisPunkt_to_AEP(MBE,true);
+  else if  (connect==3) hauptfenster->PraxisPunkt_to_AEP(MBE,false);
+  frame_auswahl->remove();
+  hide();
+}
+
+
 WindowInfo::WindowInfo(midgard_CG* h)
-: mystream(0), hauptfenster(h)
+: mystream(0), hauptfenster(h), MBE(new Fertigkeit(*cH_Fertigkeit("",true)))
 {
    if (mystream) delete mystream;
    Gtk::OStream *mystream = new Gtk::OStream(LogWin->get_list());
@@ -65,7 +75,6 @@ WindowInfo::WindowInfo(midgard_CG* h)
     }
 */
   hide();
-  MBE=0;
 }
 
 void WindowInfo::AppendShow(const std::string& s, emodus modus)
@@ -78,19 +87,8 @@ void WindowInfo::AppendShow(const std::string& s, emodus modus)
 
 void WindowInfo::AppendShow(const std::string& s, emodus modus,cH_MidgardBasicElement& _MBE)
 {
-  MBE=&_MBE;
+  MBE=_MBE;
   AppendShow(s,modus); 
-}
-
-void WindowInfo::AppendShow(int i, emodus modus)
-{
-  Modus=modus;
-  Flush();
-}
-void WindowInfo::AppendShow(int i, emodus modus, cH_MidgardBasicElement& _MBE)
-{
-  MBE=&_MBE;
-  AppendShow(i,modus);
 }
 
 void WindowInfo::Flush()
@@ -101,6 +99,7 @@ void WindowInfo::Flush()
 
   show();
   if (Modus==None || Modus==Autoclean) bestaetigen(false) ;
+  else if (Modus==PraxisPunkteMBE) auswahl();
   else bestaetigen(true);
 
 /*
@@ -110,6 +109,46 @@ void WindowInfo::Flush()
 //      button_info_ok->hide();
     }
 */
+}
+
+
+void WindowInfo::auswahl()
+{
+  table_bestaetigen->hide();
+  table_schliessen->hide();
+  
+  Gtk::Pixmap *p1 = manage(new class Gtk::Pixmap(Excl_32_xpm));
+  Gtk::Label  *l1 = manage(new class Gtk::Label("1."));
+  Gtk::Pixmap *p2 = manage(new class Gtk::Pixmap(Excl_32_xpm));
+  Gtk::Label  *l2 = manage(new class Gtk::Label("2."));
+  Gtk::Pixmap *p3 = manage(new class Gtk::Pixmap(Excl_32_xpm));
+  Gtk::Label  *l3 = manage(new class Gtk::Label("3."));
+
+  Gtk::Table *table_auswahl = manage(new class Gtk::Table(1, 3, true));
+  Gtk::Button *b1 = auswahl_button(p1,l1,1);
+  Gtk::Button *b2 = auswahl_button(p2,l2,2);
+  Gtk::Button *b3 = auswahl_button(p3,l3,3);
+  table_auswahl->attach(*b1, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
+  table_auswahl->attach(*b2, 1, 2, 0, 1, GTK_FILL, 0, 0, 0);
+  table_auswahl->attach(*b3, 2, 3, 0, 1, GTK_FILL, 0, 0, 0);
+  table_auswahl->show_all();
+  frame_auswahl->add(*table_auswahl);
+}
+
+Gtk::Button* WindowInfo::auswahl_button(Gtk::Pixmap *p,Gtk::Label *l,int connect)
+{
+  p->set_alignment(0.5, 0.5);
+  p->set_padding(0.5, 0.5);
+  l->set_alignment(0.5, 0.5);
+  l->set_padding(0, 0);
+  Gtk::HBox *hbox = manage(new class Gtk::HBox(false, 0));
+  Gtk::Button *button = manage(new class Gtk::Button()); 
+  hbox->pack_start(*p);
+  hbox->pack_start(*l);
+  button->set_flags(GTK_CAN_FOCUS);
+  button->add(*hbox);
+  button->clicked.connect(SigC::bind(SigC::slot(static_cast<class WindowInfo*>(this), &WindowInfo::on_button_auswahl_clicked),connect));
+  return button;
 }
 
 void WindowInfo::bestaetigen(bool b)
@@ -130,7 +169,6 @@ void WindowInfo::bestaetigen(bool b)
 gint WindowInfo::timeout() 
 { 
    hide();
-   MBE=0;
    return 0; 
 }
 

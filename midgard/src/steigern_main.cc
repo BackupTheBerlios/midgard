@@ -114,24 +114,8 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
   }   
  
  guint pagenr = notebook_lernen->get_current_page_num();
-// cH_MidgardBasicElement MBE;
-// cH_RowDataBase rdb;
- const Data_SimpleTree *dt;
- try{
-   if(pagenr==PAGE_FERTIGKEITEN)
-      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_fert_tree->getSelectedRowDataBase())); 
-   if(pagenr==PAGE_WAFFEN)
-      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_waffen_tree->getSelectedRowDataBase())); 
-   if(pagenr==PAGE_SPRACHE)
-    {
-      try{ dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_sprache_tree->getSelectedRowDataBase())); }
-          catch (std::exception &e) {}
-      try {dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_schrift_tree->getSelectedRowDataBase())); }
-          catch (std::exception &e) {}
-    }
-//  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&**rdb);
-  cH_MidgardBasicElement MBE(dt->getMBE());
-  const_cast<MidgardBasicElement&>(*MBE).set_Praxispunkte(PPanz);
+ getSelectedNotebookLernen()->set_Praxispunkte(PPanz);
+
 
   if(pagenr==PAGE_FERTIGKEITEN)
      MidgardBasicElement::show_list_in_tree(list_Fertigkeit,alte_fert_tree,this); 
@@ -143,9 +127,35 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
      MidgardBasicElement::show_list_in_tree(list_Schrift,alte_schrift_tree,this); 
    }
 
-  }catch(std::exception &e) {cerr << e.what()<<'\n';}
   spinbutton_pp_eingeben->hide();
 }
+
+cH_MidgardBasicElement midgard_CG::getSelectedNotebookLernen()
+{
+ const Data_SimpleTree *dt;
+ guint pagenr = notebook_lernen->get_current_page_num();
+ try{
+   if(pagenr==PAGE_FERTIGKEITEN)
+      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_fert_tree->getSelectedRowDataBase())); 
+   if(pagenr==PAGE_WAFFEN)
+      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_waffen_tree->getSelectedRowDataBase())); 
+   if(pagenr==PAGE_ZAUBER)
+      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_zauber_tree->getSelectedRowDataBase())); 
+   if(pagenr==PAGE_KIDO)
+      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_kido_tree->getSelectedRowDataBase())); 
+   if(pagenr==PAGE_SPRACHE)
+    {
+      try{ dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_sprache_tree->getSelectedRowDataBase())); }
+          catch (std::exception &e) {}
+      try {dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_schrift_tree->getSelectedRowDataBase())); }
+          catch (std::exception &e) {}
+    }
+  }catch(std::exception &e) {cerr << e.what()<<'\n'; assert(!"Fehler");}
+ return dt->getMBE();
+// cH_MidgardBasicElement MBE(dt->getMBE());
+// return (const_cast<MidgardBasicElement*>(MBE));
+}
+
 
 
 void midgard_CG::on_button_alter_clicked()

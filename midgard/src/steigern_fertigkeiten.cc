@@ -101,7 +101,7 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
     }
   else if (MBE->Name()=="Zaubern") 
     {  
-     InfoFenster->AppendShow("Sicher?\nDiese Entscheidung kann nicht Rückgängig gemacht werden.",WindowInfo::ZaubernLernen,MBE);
+     InfoFenster->AppendShow("Sicher, daß dieser Kämpfer Zaubern lernen soll?\nDiese Entscheidung kann nicht mehr Rückgängig gemacht werden.",WindowInfo::ZaubernLernen,MBE);
     }
   else 
      MidgardBasicElement_leaf_neu(d);
@@ -112,12 +112,10 @@ void midgard_CG::kaempfer_lernt_zaubern(cH_MidgardBasicElement &MBE)
 {
    doppelcharaktere();
    InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
-   // Resistenzboni für Zauberer setzten:
-//         Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
    if (Werte.Zaubern_wert()==2) Werte.setZaubern_wert(10);
 //   cH_MidgardBasicElement MBE=new Fertigkeit(*cH_Fertigkeit("Zaubern"));
-   MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,MBE);
-  fertigkeiten_zeigen();
+//  MidgardBasicElement::move_element(list_Fertigkeit_neu,list_Fertigkeit,MBE);
+//  fertigkeiten_zeigen();
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.202 2002/04/08 14:05:38 thoma Exp $
+// $Id: midgard_CG.hh,v 1.203 2002/04/10 08:38:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -576,8 +576,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void zeige_werte();
          void show_beschreibung();
  
+         cH_MidgardBasicElement getSelectedNotebookLernen();
          void kaempfer_lernt_zaubern(cH_MidgardBasicElement& MBE);
-         void PraxisPunkt_to_AEP(const cH_MidgardBasicElement& MBE);
+         void PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen);
+         int stufen_auf_einmal_steigern_fuer_aep(bool info,cH_MidgardBasicElement& MBE,int &kosten,int &aep);
          void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.26 2002/04/08 14:05:38 thoma Exp $
+// $Id: WindowInfo.hh,v 1.27 2002/04/10 08:38:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,15 +34,16 @@
 #include "glademm_support.hh"
 #include <sigc++/slot.h>
 #include <Gtk_OStream.h>
+#include <gtk--/pixmap.h>
+
 
 class midgard_CG;
-class cH_MidgardBasicElement;
-//#include "MidgardBasicElement.hh"
+#include "MidgardBasicElement.hh"
 
 class WindowInfo : public WindowInfo_glade
 {   
    public:
-        enum emodus {None,Autoclean,ZaubernLernen,PraxisPunkte};
+        enum emodus {None,Autoclean,ZaubernLernen,PraxisPunkteMBE,PraxisPunkteAnderes};
    private:
         friend class WindowInfo_glade;
         void on_button_info_ok_clicked();
@@ -55,15 +56,16 @@ class WindowInfo : public WindowInfo_glade
         void bestaetigen(bool b);
         void Flush();
         void on_button_erase_clicked();
+        void auswahl();
+        Gtk::Button *WindowInfo::auswahl_button(Gtk::Pixmap *p,Gtk::Label *l,int connect);
+        void on_button_auswahl_clicked(int connect);
         emodus Modus;
         midgard_CG* hauptfenster;
-        cH_MidgardBasicElement *MBE;
+        cH_MidgardBasicElement MBE;
    public:
         WindowInfo(midgard_CG* h);
         void AppendShow(const std::string& s,emodus modus, cH_MidgardBasicElement &MBE);
-        void AppendShow(int i,emodus modus, cH_MidgardBasicElement &MBE);
         void AppendShow(const std::string& s, emodus modus=Autoclean);
-        void AppendShow(int i, emodus modus=Autoclean);
         void Show() {show();}
 };
 #endif
