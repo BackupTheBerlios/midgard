@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="H&amp;D" Name="Hexenzauber &amp; Druidenkraft" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="10" MAGUS-Bild="6" CVS="$Revision: 1.12 $">
+<MAGUS-data Region="H&amp;D" Name="Hexenzauber &amp; Druidenkraft" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="10" MAGUS-Bild="6" CVS="$Revision: 1.13 $">
  <Fertigkeiten>
   <Fertigkeit Name="Wetterkunde" Region="H&amp;D" Anfangswert="5" Lernkosten="50" Erfolgswert="4" Attribut="In" Maximalwert="16" MaximalMitUnterweisung="14">
    <Grund Typ="De"/>
@@ -83,7 +83,7 @@
  <Waffen/>
  <Waffen-Grundkenntnisse/>
  <Zauber>
-  <Spruch Name="Aggression" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="Gr*2" Typ="Wort" Ursprung="dämonisch" Agens=" " Prozess=" " Reagens=" " Zauberdauer="5 s" Reichweite="10 m" Wirkungsziel="1 Ws" Wirkungsbereich="Geist" Wirkungsdauer="1 min">
+  <Spruch Name="Aggression" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="Gr*2" Typ="Wort" Ursprung="dämonisch" Zauberdauer="5 s" Reichweite="10 m" Wirkungsziel="1 Ws" Wirkungsbereich="Geist" Wirkungsdauer="1 min">
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
@@ -351,7 +351,7 @@
    <Standard Typ="tBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Entfesseln" Region="H&amp;D" Grad="2" Lernkosten="240" AP="2" Typ="Wort" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung        1 Ob" Wirkungsbereich="0" Wirkungsdauer="dämonisch" Spruchrolle="true">
+  <Spruch Name="Entfesseln" Region="H&amp;D" Grad="2" Lernkosten="240" AP="2" Typ="Wort" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="0" Wirkungsdauer="dämonisch" Spruchrolle="true">
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
@@ -628,7 +628,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="gHx"/>
   </Spruch>
-  <Spruch Name="Kuß des Schlafes" Region="H&amp;D" Grad="2" Lernkosten="200" AP="1AP#Gr" Typ="Geist" Ursprung="druidisch" Zauberdauer="5 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h">
+  <Spruch Name="Kuß des Schlafes" Region="H&amp;D" Grad="2" Lernkosten="200" AP="1AP#Gr" Typ="Gedanke" Ursprung="druidisch" Zauberdauer="5 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h">
    <Grund Typ="De"/>
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
@@ -677,7 +677,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Dem Opfer schlafen die Beine ein. WM-6 auf Springen, Geländelauf und ähnliches.</Beschreibung>
   </Spruch>
-  <Spruch Name="Lustsalz" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Mangan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Zauberart="Zaubersalz">
+  <Spruch Name="Lustsalz" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Zauberart="Zaubersalz">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -1075,7 +1075,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Zucksalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Mangan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Zauberart="Zaubersalz">
+  <Spruch Name="Zucksalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Zauberart="Zaubersalz">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>

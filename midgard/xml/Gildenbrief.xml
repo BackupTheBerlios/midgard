@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.14 $">
+<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.15 $">
  <Fertigkeiten>
   <Fertigkeit Name="Abrichten">
    <Ausnahme Typ="MMa"/>
@@ -925,7 +925,7 @@
   </Waffen-Grundkenntnis>
  </Waffen-Grundkenntnisse>
  <Zauber>
-  <Spruch Name="Abwenden von Blicken" Region="G" RegionZusatz="?" Grad="1" Lernkosten="120" AP="1" Typ="Geist" Zauberdauer="1s" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="10min" Spruchrolle="true">
+  <Spruch Name="Abwenden von Blicken" Region="G" RegionZusatz="?" Grad="1" Lernkosten="120" AP="1" Typ="Gedanke" Zauberdauer="1s" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="10min" Spruchrolle="true">
    <Grund Typ="Dt"/>
    <Grund Typ="Hl"/>
    <Grund Typ="Or"/>

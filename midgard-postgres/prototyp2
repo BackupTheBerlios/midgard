@@ -225,6 +225,10 @@ Wissen	Baukunde	F	0.70
 Wissen	Dämonenkunde	F	0.70
 Wissen	Gassenwissen	F	0.90
 Wissen	Geheimzeichen	F	0.80
+Wissen	Geomantie	F	0.50
+Wissen	Giftmischen	F	0.90
+Wissen	Heilkunde	F	0.50
+Wissen	Himmelskunde	F	0.50
 Wissen	Kenntnis der fünf Klassiker	F	0.50
 Wissen	Kräuterkunde	F	0.50
 Wissen	Landeskunde	F	0.50
@@ -239,6 +243,7 @@ Wissen	Pflanzenkunde	F	0.50
 Wissen	Pyromantie	F	0.80
 Wissen	Rechnen	F	0.50
 Wissen	Sagenkunde	F	0.50
+Wissen	Schätzen	F	0.80
 Wissen	Steinabreibungen machen	F	0.90
 Wissen	Teezeremonie	F	0.80
 Wissen	Thaumatographie	F	0.80
@@ -248,11 +253,6 @@ Wissen	Wetterkunde	F	0.60
 Wissen	YangScheng	F	0.80
 Wissen	Zauberkunde	F	0.50
 Wissen	Zeichensprache	F	0.60
-Wissen 	Geomantie	F	0.50
-Wissen 	Giftmischen	F	0.90
-Wissen 	Heilkunde	F	0.50
-Wissen 	Himmelskunde	F	0.50
-Wissen 	Schätzen	F	0.80
 \.
 --
 --

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.34 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.35 $">
  <SteigernKosten>
   <Kosten Fertigkeit="Bewegung" Wert11="20" Wert12="20" Wert13="50" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="800" Wert19="800" Wert20="800"/>
   <Kosten Fertigkeit="Lanzenstechen" Wert2="100" Wert3="100" Wert4="150" Wert5="150" Wert6="200" Wert7="200" Wert8="400"/>
@@ -11301,5 +11301,257 @@
   <Prototyp Name="Kampfprofi" Fertigkeit="30" Waffen="60" WaffenGrund="5" Sprache="5" FertSpezialist="50" WaffSpezialist="80" SpraSpezialist="50" SchrSpezialist="50"/>
   <Prototyp Name="Test" Fertigkeit="50" Waffen="50" FertSpezialist="50" WaffSpezialist="95" SpraSpezialist="50" SchrSpezialist="50"/>
   <Prototyp Name="Wissenschaftler" Fertigkeit="50" Waffen="10" Sprache="25" Schrift="15" FertSpezialist="50" WaffSpezialist="100" SpraSpezialist="50" SchrSpezialist="50"/>
+  <Prototyp2 Name="Abenteurer">
+   <Fertigkeit Name="Akrobatik" Faktor="0.8"/>
+   <Fertigkeit Name="Balancieren" Faktor="0.7"/>
+   <Fertigkeit Name="Baukunde" Faktor="0.8"/>
+   <Fertigkeit Name="Erste Hilfe" Faktor="0.8"/>
+   <Fertigkeit Name="Fallen entdecken" Faktor="0.8"/>
+   <Fertigkeit Name="Fangen" Faktor="0.9"/>
+   <Fertigkeit Name="Gassenwissen" Faktor="0.9"/>
+   <Fertigkeit Name="Geheimmechanismen öffnen" Faktor="0.8"/>
+   <Fertigkeit Name="Geländelauf" Faktor="0.7"/>
+   <Fertigkeit Name="Klettern" Faktor="0.7"/>
+   <Fertigkeit Name="Menschenkenntnis" Faktor="0.7"/>
+   <Fertigkeit Name="Reiten" Faktor="0.7"/>
+   <Fertigkeit Name="Schleichen" Faktor="0.6"/>
+   <Fertigkeit Name="Schwimmen" Faktor="0.6"/>
+   <Fertigkeit Name="Schätzen" Faktor="0.9"/>
+   <Fertigkeit Name="Seilkunst" Faktor="0.8"/>
+   <Fertigkeit Name="Spurenlesen" Faktor="0.9"/>
+   <Fertigkeit Name="Suchen" Faktor="0.8"/>
+   <Fertigkeit Name="Tarnen" Faktor="0.8"/>
+   <Fertigkeit Name="Tauchen" Faktor="0.9"/>
+   <Fertigkeit Name="Verhören" Faktor="0.9"/>
+   <Fertigkeit Name="Wahrnehmung" Faktor="0.6"/>
+   <Fertigkeit Name="Winden" Faktor="0.9"/>
+   <Fertigkeit Name="Zauberkunde" Faktor="0.8"/>
+  </Prototyp2>
+  <Prototyp2 Name="Halbseidenes">
+   <Fertigkeit Name="Beschatten" Faktor="0.7"/>
+   <Fertigkeit Name="Betäuben" Faktor="0.6"/>
+   <Fertigkeit Name="Fallenmechanik" Faktor="0.6"/>
+   <Fertigkeit Name="Fallenstellen" Faktor="0.6"/>
+   <Fertigkeit Name="Fälschen" Faktor="0.6"/>
+   <Fertigkeit Name="Gassenwissen" Faktor="0.5"/>
+   <Fertigkeit Name="Geheimmechanismen öffnen" Faktor="0.5"/>
+   <Fertigkeit Name="Geheimzeichen" Faktor="0.5"/>
+   <Fertigkeit Name="Giftmischen" Faktor="0.5"/>
+   <Fertigkeit Name="Glücksspiel" Faktor="0.5"/>
+   <Fertigkeit Name="Klettern" Faktor="0.9"/>
+   <Fertigkeit Name="Lippenlesen" Faktor="0.9"/>
+   <Fertigkeit Name="Menschenkenntnis" Faktor="0.8"/>
+   <Fertigkeit Name="Meucheln" Faktor="0.6"/>
+   <Fertigkeit Name="Schauspielern" Faktor="0.9"/>
+   <Fertigkeit Name="Schleichen" Faktor="0.7"/>
+   <Fertigkeit Name="Schlösser öffnen" Faktor="0.5"/>
+   <Fertigkeit Name="Schätzen" Faktor="0.7"/>
+   <Fertigkeit Name="Seilkunst" Faktor="0.7"/>
+   <Fertigkeit Name="Stehlen" Faktor="0.5"/>
+   <Fertigkeit Name="Stimmen nachahmen" Faktor="0.9"/>
+   <Fertigkeit Name="Suchen" Faktor="0.7"/>
+   <Fertigkeit Name="Tarnen" Faktor="0.6"/>
+   <Fertigkeit Name="Verbergen" Faktor="0.5"/>
+   <Fertigkeit Name="Verführen" Faktor="0.8"/>
+   <Fertigkeit Name="Verhören" Faktor="0.8"/>
+   <Fertigkeit Name="Verkleiden" Faktor="0.8"/>
+   <Fertigkeit Name="Winden" Faktor="0.9"/>
+   <Fertigkeit Name="Zeichensprache" Faktor="0.8"/>
+   <Fertigkeit Name="Zunge verschlucken" Faktor="0.7"/>
+  </Prototyp2>
+  <Prototyp2 Name="Heilung">
+   <Fertigkeit Name="Erste Hilfe" Faktor="0.5"/>
+   <Fertigkeit Name="FengSchui" Faktor="0.6"/>
+   <Fertigkeit Name="Giftmischen" Faktor="0.9"/>
+   <Fertigkeit Name="Heilkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Kräuterkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Meditieren" Faktor="0.8"/>
+   <Fertigkeit Name="Pflanzenkunde" Faktor="0.8"/>
+   <Fertigkeit Name="TaiTschi" Faktor="0.6"/>
+   <Fertigkeit Name="Tierkunde" Faktor="0.8"/>
+   <Fertigkeit Name="YangScheng" Faktor="0.9"/>
+   <Fertigkeit Name="Zauberkunde" Faktor="0.8"/>
+  </Prototyp2>
+  <Prototyp2 Name="Kampf">
+   <Fertigkeit Name="Akrobatik" Faktor="0.9"/>
+   <Fertigkeit Name="Ballista bedienen" Faktor="0.8"/>
+   <Fertigkeit Name="Beidhändiger Kampf" Faktor="0.6"/>
+   <Fertigkeit Name="Bogenkampf zu Pferd" Faktor="0.5"/>
+   <Fertigkeit Name="Fechten" Faktor="0.5"/>
+   <Fertigkeit Name="Fechten tevarrischer Stil" Faktor="0.7"/>
+   <Fertigkeit Name="Geländelauf" Faktor="0.7"/>
+   <Fertigkeit Name="IaiJutsu" Faktor="0.6"/>
+   <Fertigkeit Name="Kamelreiten" Faktor="0.6"/>
+   <Fertigkeit Name="Kampf in Dunkelheit" Faktor="0.6"/>
+   <Fertigkeit Name="Kampf in Schlachtreihe" Faktor="0.6"/>
+   <Fertigkeit Name="Kampf in Vollrüstung" Faktor="0.6"/>
+   <Fertigkeit Name="Kampf vom Streitwagen" Faktor="0.7"/>
+   <Fertigkeit Name="Kampf zu Elefant" Faktor="0.6"/>
+   <Fertigkeit Name="Kampf zu Kamel" Faktor="0.6"/>
+   <Fertigkeit Name="Kampf zu Pferd" Faktor="0.6"/>
+   <Fertigkeit Name="Kampftaktik" Faktor="0.5"/>
+   <Fertigkeit Name="Katapult bedienen" Faktor="0.6"/>
+   <Fertigkeit Name="Reiten" Faktor="0.7"/>
+   <Fertigkeit Name="Schießen vom Streitwagen" Faktor="0.7"/>
+   <Fertigkeit Name="Schlachtruf" Faktor="0.7"/>
+   <Fertigkeit Name="Schwerttanz" Faktor="0.7"/>
+   <Fertigkeit Name="Srimara lenken" Faktor="0.7"/>
+   <Fertigkeit Name="Streitwagen lenken" Faktor="0.7"/>
+  </Prototyp2>
+  <Prototyp2 Name="Körper">
+   <Fertigkeit Name="Adlersprung" Faktor="0.6"/>
+   <Fertigkeit Name="Akrobatik" Faktor="0.5"/>
+   <Fertigkeit Name="Askese" Faktor="0.6"/>
+   <Fertigkeit Name="Athletik" Faktor="0.6"/>
+   <Fertigkeit Name="Balancieren" Faktor="0.5"/>
+   <Fertigkeit Name="Ballspiel" Faktor="0.6"/>
+   <Fertigkeit Name="Fangen" Faktor="0.6"/>
+   <Fertigkeit Name="Gaukeln" Faktor="0.8"/>
+   <Fertigkeit Name="Geländelauf" Faktor="0.6"/>
+   <Fertigkeit Name="Klettern" Faktor="0.5"/>
+   <Fertigkeit Name="Körperkontrolle" Faktor="0.6"/>
+   <Fertigkeit Name="Laufen" Faktor="0.5"/>
+   <Fertigkeit Name="Meditieren" Faktor="0.9"/>
+   <Fertigkeit Name="Reiten" Faktor="0.7"/>
+   <Fertigkeit Name="Rudern" Faktor="0.9"/>
+   <Fertigkeit Name="Schleichen" Faktor="0.9"/>
+   <Fertigkeit Name="Schlittenfahren" Faktor="0.8"/>
+   <Fertigkeit Name="Schlittschuhlaufen" Faktor="0.8"/>
+   <Fertigkeit Name="Schmerzen ertragen" Faktor="0.7"/>
+   <Fertigkeit Name="Schwimmen" Faktor="0.6"/>
+   <Fertigkeit Name="Seemannsgang" Faktor="0.6"/>
+   <Fertigkeit Name="Skifahren" Faktor="0.7"/>
+   <Fertigkeit Name="Springen" Faktor="0.5"/>
+   <Fertigkeit Name="TaiTschi" Faktor="0.6"/>
+   <Fertigkeit Name="Tanzen" Faktor="0.7"/>
+   <Fertigkeit Name="Tauchen" Faktor="0.7"/>
+   <Fertigkeit Name="Trinken" Faktor="0.7"/>
+   <Fertigkeit Name="Wagenlenken" Faktor="0.8"/>
+   <Fertigkeit Name="Winden" Faktor="0.6"/>
+   <Fertigkeit Name="YangScheng" Faktor="0.8"/>
+  </Prototyp2>
+  <Prototyp2 Name="Natur">
+   <Fertigkeit Name="Abrichten" Faktor="0.6"/>
+   <Fertigkeit Name="Elefanten lenken" Faktor="0.8"/>
+   <Fertigkeit Name="Fallenstellen" Faktor="0.6"/>
+   <Fertigkeit Name="FengSchui" Faktor="0.6"/>
+   <Fertigkeit Name="Geomantie" Faktor="0.6"/>
+   <Fertigkeit Name="Himmelskunde" Faktor="0.5"/>
+   <Fertigkeit Name="Kamelreiten" Faktor="0.8"/>
+   <Fertigkeit Name="Klettern" Faktor="0.6"/>
+   <Fertigkeit Name="Kräuterkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Naturkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Pflanzenkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Reiten" Faktor="0.6"/>
+   <Fertigkeit Name="Schlangen beschwören" Faktor="0.9"/>
+   <Fertigkeit Name="Schleichen" Faktor="0.7"/>
+   <Fertigkeit Name="Schwimmen" Faktor="0.7"/>
+   <Fertigkeit Name="Spurenlesen" Faktor="0.6"/>
+   <Fertigkeit Name="Tarnen" Faktor="0.7"/>
+   <Fertigkeit Name="Tauchen" Faktor="0.7"/>
+   <Fertigkeit Name="Tierkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Wahrnehmung" Faktor="0.7"/>
+   <Fertigkeit Name="Wetterkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Überleben im Dschungel" Faktor="0.5"/>
+   <Fertigkeit Name="Überleben im Gebirge" Faktor="0.5"/>
+   <Fertigkeit Name="Überleben im Schnee" Faktor="0.5"/>
+   <Fertigkeit Name="Überleben im Sumpf" Faktor="0.5"/>
+   <Fertigkeit Name="Überleben im Wald" Faktor="0.5"/>
+   <Fertigkeit Name="Überleben in der Steppe" Faktor="0.5"/>
+   <Fertigkeit Name="Überleben in der Wüste" Faktor="0.5"/>
+  </Prototyp2>
+  <Prototyp2 Name="Soziales">
+   <Fertigkeit Name="Ballspiel" Faktor="0.7"/>
+   <Fertigkeit Name="Beredsamkeit" Faktor="0.5"/>
+   <Fertigkeit Name="Beschatten" Faktor="0.6"/>
+   <Fertigkeit Name="Brettspiel" Faktor="0.6"/>
+   <Fertigkeit Name="Dichten" Faktor="0.6"/>
+   <Fertigkeit Name="Erzählen" Faktor="0.5"/>
+   <Fertigkeit Name="Gassenwissen" Faktor="0.5"/>
+   <Fertigkeit Name="Gaukeln" Faktor="0.6"/>
+   <Fertigkeit Name="Geheimzeichen" Faktor="0.6"/>
+   <Fertigkeit Name="Geschenke machen" Faktor="0.6"/>
+   <Fertigkeit Name="Geschäftstüchtigkeit" Faktor="0.6"/>
+   <Fertigkeit Name="Glücksspiel" Faktor="0.6"/>
+   <Fertigkeit Name="Lippenlesen" Faktor="0.8"/>
+   <Fertigkeit Name="Menschenkenntnis" Faktor="0.4"/>
+   <Fertigkeit Name="Musizieren" Faktor="0.6"/>
+   <Fertigkeit Name="Schauspielern" Faktor="0.6"/>
+   <Fertigkeit Name="Singen" Faktor="0.6"/>
+   <Fertigkeit Name="Stimmen nachahmen" Faktor="0.9"/>
+   <Fertigkeit Name="Tanzen" Faktor="0.6"/>
+   <Fertigkeit Name="Teezeremonie" Faktor="0.6"/>
+   <Fertigkeit Name="Trinken" Faktor="0.7"/>
+   <Fertigkeit Name="Verführen" Faktor="0.5"/>
+   <Fertigkeit Name="Verhören" Faktor="0.6"/>
+   <Fertigkeit Name="Verkleiden" Faktor="0.6"/>
+   <Fertigkeit Name="Zeichensprache" Faktor="0.9"/>
+  </Prototyp2>
+  <Prototyp2 Name="Untersuchen">
+   <Fertigkeit Name="Alchimie" Faktor="0.7"/>
+   <Fertigkeit Name="Baukunde" Faktor="0.7"/>
+   <Fertigkeit Name="Beschatten" Faktor="0.7"/>
+   <Fertigkeit Name="Fallen entdecken" Faktor="0.6"/>
+   <Fertigkeit Name="Gassenwissen" Faktor="0.7"/>
+   <Fertigkeit Name="Geheimzeichen" Faktor="0.7"/>
+   <Fertigkeit Name="Giftmischen" Faktor="0.9"/>
+   <Fertigkeit Name="Heilkunde" Faktor="0.9"/>
+   <Fertigkeit Name="Kräuterkunde" Faktor="0.9"/>
+   <Fertigkeit Name="Lesen von Zauberschrift" Faktor="0.9"/>
+   <Fertigkeit Name="Lippenlesen" Faktor="0.9"/>
+   <Fertigkeit Name="Menschenkenntnis" Faktor="0.6"/>
+   <Fertigkeit Name="Naturkunde" Faktor="0.6"/>
+   <Fertigkeit Name="Pflanzenkunde" Faktor="0.7"/>
+   <Fertigkeit Name="Schleichen" Faktor="0.7"/>
+   <Fertigkeit Name="Schlösser öffnen" Faktor="0.7"/>
+   <Fertigkeit Name="Schätzen" Faktor="0.9"/>
+   <Fertigkeit Name="Spurenlesen" Faktor="0.5"/>
+   <Fertigkeit Name="Suchen" Faktor="0.5"/>
+   <Fertigkeit Name="Tierkunde" Faktor="0.7"/>
+   <Fertigkeit Name="Verführen" Faktor="0.8"/>
+   <Fertigkeit Name="Verhören" Faktor="0.6"/>
+   <Fertigkeit Name="Verkleiden" Faktor="0.8"/>
+   <Fertigkeit Name="Wahrnehmung" Faktor="0.5"/>
+   <Fertigkeit Name="Zauberkunde" Faktor="0.8"/>
+   <Fertigkeit Name="Zeichensprache" Faktor="0.8"/>
+  </Prototyp2>
+  <Prototyp2 Name="Wissen">
+   <Fertigkeit Name="Alchimie" Faktor="0.5"/>
+   <Fertigkeit Name="Astrologie" Faktor="0.7"/>
+   <Fertigkeit Name="Baukunde" Faktor="0.7"/>
+   <Fertigkeit Name="Dämonenkunde" Faktor="0.7"/>
+   <Fertigkeit Name="Gassenwissen" Faktor="0.9"/>
+   <Fertigkeit Name="Geheimzeichen" Faktor="0.8"/>
+   <Fertigkeit Name="Kenntnis der fünf Klassiker" Faktor="0.5"/>
+   <Fertigkeit Name="Kräuterkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Landeskunde" Faktor="0.5"/>
+   <Fertigkeit Name="Lesen von Geisterschrift" Faktor="0.9"/>
+   <Fertigkeit Name="Lesen von Zauberrunen" Faktor="0.5"/>
+   <Fertigkeit Name="Lesen von Zauberschrift" Faktor="0.5"/>
+   <Fertigkeit Name="Menschenkenntnis" Faktor="0.8"/>
+   <Fertigkeit Name="Mumifizieren" Faktor="0.8"/>
+   <Fertigkeit Name="Naturkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Orakelkunst" Faktor="0.8"/>
+   <Fertigkeit Name="Pflanzenkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Pyromantie" Faktor="0.8"/>
+   <Fertigkeit Name="Rechnen" Faktor="0.5"/>
+   <Fertigkeit Name="Sagenkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Steinabreibungen machen" Faktor="0.9"/>
+   <Fertigkeit Name="Teezeremonie" Faktor="0.8"/>
+   <Fertigkeit Name="Thaumatographie" Faktor="0.8"/>
+   <Fertigkeit Name="Tierkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Wahrsagekalender führen" Faktor="0.5"/>
+   <Fertigkeit Name="Wetterkunde" Faktor="0.6"/>
+   <Fertigkeit Name="YangScheng" Faktor="0.8"/>
+   <Fertigkeit Name="Zauberkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Zeichensprache" Faktor="0.6"/>
+  </Prototyp2>
+  <Prototyp2 Name="Wissen ">
+   <Fertigkeit Name="Geomantie" Faktor="0.5"/>
+   <Fertigkeit Name="Giftmischen" Faktor="0.9"/>
+   <Fertigkeit Name="Heilkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Himmelskunde" Faktor="0.5"/>
+   <Fertigkeit Name="Schätzen" Faktor="0.8"/>
+  </Prototyp2>
  </KI>
 </MAGUS-data>

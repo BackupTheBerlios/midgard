@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="H&amp;Df" Name="H&amp;D (Finstere Magie)" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes" Jahr="1994" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="11" MAGUS-Bild="14" CVS="$Revision: 1.11 $">
+<MAGUS-data Region="H&amp;Df" Name="H&amp;D (Finstere Magie)" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes" Jahr="1994" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="11" MAGUS-Bild="14" CVS="$Revision: 1.12 $">
  <Fertigkeiten/>
  <Berufe/>
  <Schriften/>
@@ -121,7 +121,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Höllenbote rufen" Region="H&amp;Df" Grad="5" Lernkosten="3500" AP="alle(mind 9)" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 h" Reichweite="100 km" Wirkungsziel="umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Element="Eis" NSC_only="true">
+  <Spruch Name="Höllenbote rufen" Region="H&amp;Df" Grad="5" Lernkosten="3500" AP="alle(mind 9)" Typ="Wort" Ursprung="finster" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 h" Reichweite="100 km" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Element="Eis" NSC_only="true">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
    <Beschreibung>GZ 15.Der Zauber muss eine Stunde nach Mitternacht gewirkt werden. Ruft einen Höllenboten herbei. Der Magier muss den Aufenthaltsort des Opfers angeben(max 100 km weg, mit 500m Genauigkeit). Der Höllenbote macht dann sofort Jagd auf das Opfer. Wenn er es nicht finden kann(wonanders, tot), kommt es zurueck und greift den Finstermagier an.</Beschreibung>

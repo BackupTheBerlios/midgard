@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.18 $">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.19 $">
  <Fertigkeiten>
   <Fertigkeit Name="Geomantie" Region="TuT" Lernpunkte="4" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
    <Grund Typ="De"/>
@@ -3288,7 +3288,7 @@
    <Ausnahme Typ="Wi"/>
    <Lernschema Typ="Sw" Lernpunkte="2"/>
   </Spruch>
-  <Spruch Name="Hauch der Betäubung" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="erschafft" Reagens="Hulz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="bis 18 m UK" Wirkungsdauer="1 min" Material="getr. Vamirmoos (1 Gs)" Thaumagramm="Runenstab">
+  <Spruch Name="Hauch der Betäubung" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="erschafft" Reagens="Holz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="bis 18 m UK" Wirkungsdauer="1 min" Material="getr. Vamirmoos (1 Gs)" Thaumagramm="Runenstab">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Km"/>

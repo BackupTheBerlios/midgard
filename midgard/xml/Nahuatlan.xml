@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.17 $">
+<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.18 $">
  <Fertigkeiten>
   <Fertigkeit Name="Adlersprung" Region="N" Lernkosten="200" Attribut="Ge">
    <Grund Typ="Sw"/>
@@ -1784,7 +1784,7 @@
   <Spruch Name="Wegzauber" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="10 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="10 min" Element="null" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Wesen aufspüren" Region="N" Grad="4" Lernkosten="1400" AP="6" Typ="Gedanken" Ursprung="dämonisch" Agens="Magan" Prozess="erkennt" Reagens="Wasser" Zauberdauer="30 sec" Reichweite="9 km" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch Name="Wesen aufspüren" Region="N" Grad="4" Lernkosten="1400" AP="6" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erkennt" Reagens="Wasser" Zauberdauer="30 sec" Reichweite="9 km" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
    <Grund Typ="Tr"/>
   </Spruch>
   <Spruch Name="Wunden schließen" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
