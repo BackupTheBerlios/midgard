@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.240 2002/06/27 15:19:09 thoma Exp $
+// $Id: midgard_CG.cc,v 1.241 2002/06/28 07:36:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,13 +22,15 @@
 #include "Midgard_Info.hh"
 #include "Fertigkeiten.hh"
 #include <unistd.h>
+//#include <stdlib.h>
 #ifdef __MINGW32__
 #include <time.h>
 #endif
 
-midgard_CG::midgard_CG(const string &_argv0,const string &datei)
-: argv0(_argv0),InfoFenster(0), MOptionen(0),wizard(0),
-  ansicht_menu(0),region_menu(0),menu(0)
+midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
+                       const string &datei)
+: argv0(_argv0),magus_verzeichnis(_magus_verzeichnis),InfoFenster(0),
+    MOptionen(0),wizard(0),ansicht_menu(0),region_menu(0),menu(0)
 {
   InfoFenster = manage(new WindowInfo(this));
   // Menüs initialisieren
@@ -42,10 +44,11 @@ midgard_CG::midgard_CG(const string &_argv0,const string &datei)
   // Optionen laden
   MOptionen = new Midgard_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
-  MOptionen->load_options();
+  MOptionen->load_options(with_path("magus_optionen.xml",false,true));
+  setenv("TEXMFOUTPUT",MOptionen->getString(Midgard_Optionen::tmppfad).c_str(),1);
 
   srand(time(0));
-  Database.load(Midgard_Info);
+  Database.load(Midgard_Info,with_path("midgard.xml"));
 
   set_sensitive(true);
 
@@ -59,16 +62,37 @@ midgard_CG::midgard_CG(const string &_argv0,const string &datei)
   os << 
 #include"NEWS.h" 
    <<'\n';
-
-cout << argv0<<'\t'<<PACKAGE_DATA_DIR<<'\n';
 }
 
 midgard_CG::~midgard_CG()
 {  //cout << "~midgard_CG()\n\n\n\n";
+   unsetenv("TEXMFOUTPUT");
    delete MOptionen;
 //   if (menu) delete menu;
 //   if (table_steigern->menu_gradanstieg) table_steigern->delete menu_gradanstieg;
 //   InfoFenster->destroy(); 
    if(wizard) delete wizard;
+}
+
+
+std::string midgard_CG::with_path(const std::string &name,bool path_only,bool noexit) const
+{
+  std::vector<std::string> V;
+  V.push_back("./");
+  V.push_back(magus_verzeichnis);
+  V.push_back("../xml/");
+  V.push_back(PACKAGE_DATA_DIR);
+  std::string ntmp;
+  for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     std::string n=*i+name;
+cout <<"Suche nach "<< n<<'\n';
+     if(!access(n.c_str(),R_OK)) 
+      { if(path_only) return *i;
+        else return n;
+      }
+   }
+  cout << "File "+name+" nowhere found\n";
+  if(!noexit) exit(1);
 }
 

@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.10 2002/05/30 06:19:20 thoma Exp $               
+// $Id: Datenbank.hh,v 1.11 2002/06/28 07:36:51 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,7 +63,7 @@ class Datenbank
   
    //Konstruktor
   Datenbank();
-  void load(Midgard_Info* MI);
+  void load(Midgard_Info* MI,const std::string &midgard_xml_datei);
 };
 
 #endif

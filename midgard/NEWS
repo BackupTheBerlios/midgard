@@ -1,3 +1,6 @@
+cvs delete midgard.xml midgard_optionen.xml midgard_document_eingabe.tex.in 
+cvs add ../xml/midgard.xml ../xml/magus_optionen.xml magus_document_eingabe.tex
+
 ##########################################################################
 NEWS IN VERSION 0.7delta3
 - Spezialwaffe versteckt nun die ungelernten Waffen ;-)
@@ -11,6 +14,7 @@ NEWS IN VERSION 0.7delta3
 * Datenbankkorrekturen
 * Fertigkeiten berücksichtigen jetzt auch Waffen als Voraussetzungen
 * Zahlreiche kleinere Bugs beseitigt
+* Pfade für pngs, tex, xml, etc gesetzt
 
 
 TODO: ('-' zeigt CP an)

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.32 2002/04/15 05:57:12 christof Exp $
+// $Id: xml.cc,v 1.33 2002/06/28 07:36:51 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -45,11 +45,15 @@ void xml_init(Gtk::ProgressBar *progressbar, const std::string &filename)
    {  cerr << "Ladefehler XML Datei " << filename << "\n";
       exit(2);
    }
-   std::string dir=xml_data_mutable->getAttr("XML-Verzeichnis",".");
+//   std::string dir=xml_data_mutable->getAttr("XML-Verzeichnis",".");
+   std::string dir=filename;
+   dir.replace(dir.rfind("midgard.xml"),string("midgard.xml").size(),"");
+#if 0
 #ifdef __MINGW32__
    dir+='\\'; // Windows
 #else
    dir+='/'; // Unix
+#endif
 #endif
    double anzdateien=1;
    FOR_EACH_CONST_TAG(i,*xml_data_mutable)

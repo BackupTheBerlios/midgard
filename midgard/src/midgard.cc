@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.42 2002/06/27 14:51:26 thoma Exp $
+// $Id: midgard.cc,v 1.43 2002/06/28 07:36:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,14 +19,17 @@
 
 #include <gtk--/main.h>
 #include "midgard_CG.hh"
-//#include <unistd.h>
+#include <unistd.h>
 #include "xml.h"
 #ifdef __MINGW32__
 #include <io.h>
 #endif
+#include <sys/types.h>
+#include <sys/stat.h>
 
 int main(int argc, char **argv)
 {   
+   std::string magus_verzeichnis;
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
    putenv("GTK_RC_FILES=gtkrc");
    {  char buf[10240];
@@ -41,13 +44,19 @@ int main(int argc, char **argv)
          chdir(d.c_str());
       }
    }
+#else
+   magus_verzeichnis=string(getenv("HOME"))+"/.magus/";
 #endif
+   if(access(magus_verzeichnis.c_str(),R_OK)) 
+       if(mkdir(magus_verzeichnis.c_str(),0777))
+         { cerr << "Homeverzeichnis nicht schreibbar\n"; exit(1);}
+
    Gtk::Main m(&argc, &argv,true); 
    
    std::string datei;
    if (argc==2) datei=argv[1];
 
-   midgard_CG *magus=manage(new midgard_CG(argv[0],datei));
+   midgard_CG *magus=manage(new midgard_CG(argv[0],magus_verzeichnis,datei));
    m.run();
    magus->destroy();
       

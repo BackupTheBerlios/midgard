@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.18 2002/06/12 13:03:27 thoma Exp $
+// $Id: Optionen.hh,v 1.19 2002/06/28 07:36:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -91,8 +91,8 @@ class Midgard_Optionen
       std::list<st_pdfViewer> getPDF() const {return list_pdfViewer;}
       int DateiHistory() const {return datei_history;}
 
-      void save_options(WindowInfo *InfoFenster);
-      void load_options();
+      void save_options(const std::string &filename,WindowInfo *InfoFenster);
+      void load_options(const std::string &filename);
 
       void setString(std::string os,std::string name);
       void setOptionCheck(std::string os,bool b);

@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.53 2002/06/13 14:55:46 christof Exp $
+// $Id: Optionen.cc,v 1.54 2002/06/28 07:36:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -300,8 +300,8 @@ void Midgard_Optionen::Strings_init()
 #ifndef __MINGW32__
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",""));
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer","mozilla"));
-  list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad","/tmp"));
-  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis","~/magus/"));
+  list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad","/tmp/"));
+  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",hauptfenster->MagusVerzeichnis()));
 #else
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",CommandByExtension(".pdf")));
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer",CommandByExtension(".htm")));
@@ -379,10 +379,10 @@ void Midgard_Optionen::Ober_init()
 }
 
 // Lines marked with 'compat' are to maintain compatibility
-void Midgard_Optionen::load_options()
+void Midgard_Optionen::load_options(const std::string &filename)
 {try {
-  ifstream f("midgard_optionen.xml");
-  if (!f.good()) cout << "Cannot open " << "midgard_optionen.xml" << '\n';
+  ifstream f(filename.c_str());
+  if (!f.good()) cout << "Cannot open " << filename << '\n';
   TagStream ts(f);
   // we should use ts.getContent once compatibility is not needed !
   const Tag *data=ts.find("MAGUS-optionen"); // compat
@@ -432,9 +432,9 @@ void Midgard_Optionen::load_options()
 }
 
                                                    
-void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
+void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *InfoFenster)
 {
-  ofstream datei("midgard_optionen.xml");
+  ofstream datei(filename.c_str());
   if (!datei.good())
    { 
     hauptfenster->set_status("Ich kann die Optionen nicht speichern");

@@ -152,8 +152,8 @@ void table_ausruestung::on_button_modi_clicked()
 
 void table_ausruestung::showAusruestung()
 {
-  if(besitz.empty()) 
-      setStandardAusruestung();
+//  if(besitz.empty()) 
+//      setStandardAusruestung();
   std::vector<std::string> title;
   title.push_back("Titel");
   title.push_back("Material");

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.23 2002/06/26 14:01:18 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.24 2002/06/28 07:36:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,7 +54,7 @@ std::string LaTeX_drucken::get_latex_filename(const LaTeX_Filenames what)
   
   switch (what)
     {
-      case TeX_MainDocument : return "midgard_document_eingabe";
+      case TeX_MainDocument : return "magus_document_eingabe";
       case TeX_MainWerte    : return "magus"+nv+"latexwerte";  
       case TeX_Beschreibung : return "magus"+nv+"beschreibung";
       case TeX_Ausruestung  : return "magus"+nv+"ausruestung"; 
@@ -67,8 +67,8 @@ std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
 {
   switch (what)
     {
-      case TeX_tmp : return "";//MOptionen->getString(Midgard_Optionen::tmppfad);
-      case TeX_Install : return ""; //PACKAGE_DATA_DIR;
+      case TeX_tmp : return hauptfenster->getOptionen()->getString(Midgard_Optionen::tmppfad);
+      case TeX_Install : return hauptfenster->with_path("MAGUS-Logo-grey2.png",true);
     }
   abort(); // never get here
 }
@@ -76,7 +76,8 @@ std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
 
 void LaTeX_drucken::on_latex_clicked(bool values=true)
 {   
- std::string installfile=get_latex_pathname(TeX_Install)+get_latex_filename(TeX_MainDocument);
+// std::string installfile=get_latex_pathname(TeX_Install)+get_latex_filename(TeX_MainDocument);
+ std::string installfile=hauptfenster->with_path(get_latex_filename(TeX_MainDocument)+".tex");
  std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_MainWerte);
  
 /*
@@ -85,8 +86,9 @@ void LaTeX_drucken::on_latex_clicked(bool values=true)
  else
     system("cp "PACKAGE_DATA_DIR"document_eingabe4.tex midgard_tmp_document_eingabe.tex");
 */
-
+cout <<"LaTeX: "<< filename<<'\n';
  ofstream fout((filename+".tex").c_str());
+// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
  if (values) LaTeX_write_values(fout,installfile);
  else LaTeX_write_empty_values(fout,installfile);
 
@@ -106,6 +108,7 @@ void LaTeX_drucken::on_latex_clicked(bool values=true)
 void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
+// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
  LaTeX_newsavebox(fout);
  std::string styp;
  if(hauptfenster->getWerte().Bezeichnung().size())
@@ -132,7 +135,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\newcommand{\\rw}{ X }\n";
  fout << "\\newcommand{\\hgw}{ X }\n";
  fout << "\\newcommand{\\bb}{"  <<hauptfenster->getWerte().B()<<hauptfenster->getWerte().Ruestung_B_Verlust()<<"}\n";
- fout << "}\n";
+// fout << "\n";
  fout << "\\newcommand{\\kaw}{"  <<hauptfenster->getWerte().KAW() << "}\n";
  fout << "\\newcommand{\\geistesblitz}{"  <<hauptfenster->getWerte().Geistesblitz() << "}\n";
  fout << "\\newcommand{\\ggn}{"  <<hauptfenster->getWerte().GG() << "}\n";
@@ -445,6 +448,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
 void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
+// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
  LaTeX_newsavebox(fout);
  fout << "\\newcommand{\\typ}{}\n";
  fout << "\\newcommand{\\merkmale}{}" ;
@@ -690,6 +694,7 @@ std::string LaTeX_drucken::LaTeX_string(int i)
 
 void LaTeX_drucken::LaTeX_newsavebox(ostream &fout)
 {
+ fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
  fout << "\\usepackage{german}\n";
  fout << "\\usepackage[latin1]{inputenc}\n";
  fout << "\\newsavebox{\\Einhandschwert}    \n";
@@ -837,6 +842,8 @@ void LaTeX_drucken::LaTeX_footer(ostream &fout)
  
 void LaTeX_drucken::pdf_viewer(const std::string& file)
 {
+   
+
 #ifdef __MINGW32__
   const char * const subpath="\\texmf\\miktex\\bin";
   char buffer[1024];
@@ -859,12 +866,21 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
 #endif
 
   system(("pdflatex --interaction scrollmode "+file+".tex").c_str());
-  system((hauptfenster->getOptionen()->Viewer()+" "+file+".pdf &").c_str());
+
+#warning This is a hack because pdflatex trys FIRST to write to the local dir
+  std::string pfile=file;
+  if(access((file+".pdf").c_str(),R_OK))
+   {
+     pfile.replace(0,pfile.rfind("/")+1,"");
+   }
+cout << "\n\nPDF VIEWER="<<file<<'\n'<<pfile<<'\n';
+
+  system((hauptfenster->getOptionen()->Viewer()+" "+pfile+".pdf &").c_str());
 
 //  unlink((file+".tex").c_str());
-  unlink((file+".aux").c_str());
-  unlink((file+".log").c_str());
-//  unlink((file+".pdf").c_str());
+  unlink((pfile+".aux").c_str());
+  unlink((pfile+".log").c_str());
+//  unlink((pfile+".pdf").c_str());
 }
 
 ///////////////////////////////////////////////////////////////
@@ -911,6 +927,7 @@ void LaTeX_drucken::LaTeX_zaubermittel(ostream &fout)
 
 void LaTeX_drucken::LaTeX_zauber_main(ostream &fout)
 {
+  fout << "\\begin{center}\n";
   LaTeX_kopfzeile(fout,true,false);
   fout << "\\scriptsize\n";
   fout << "\\begin{tabular}{lcclccclcclp{3cm}l}\\hline\n";
@@ -960,6 +977,7 @@ void LaTeX_drucken::LaTeX_kido(ostream &fout)
 
 void LaTeX_drucken::LaTeX_kido_main(ostream &fout)
 {
+  fout << "\\end{center}\n";
   LaTeX_kopfzeile(fout,true,false);
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "

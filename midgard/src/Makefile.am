@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.178 2002/06/27 06:17:56 christof Exp $
+# $Id: Makefile.am,v 1.179 2002/06/28 07:36:51 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -19,7 +19,7 @@ LINK_OBJS=
 WIN_INCLUDES=
 endif
 
-pkgdata_DATA = midgard_document_eingabe.tex \
+pkgdata_DATA = magus_document_eingabe.tex \
     drache.png schwert.png wurfbeil.png MAGUS-Logo-grey2.png
 
 EXTRA_DIST = midgard_document_eingabe.tex.in \
@@ -203,8 +203,7 @@ magus_SOURCES = $(PORT_FILES) \
    ProgressBar.cc 
 
 CXXFLAGS = @CXXFLAGS@ 
-CPPFLAGS = @CPPFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
-           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(WIN_INCLUDES) -I..
+CPPFLAGS = @CPPFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML $(WIN_INCLUDES) -I..
 
 magus_LDADD = $(LINK_OBJS) @LIBS@ @KOMPONENTEN_NODB_LIBS@
 

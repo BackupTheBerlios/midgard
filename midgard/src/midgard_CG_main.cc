@@ -21,7 +21,7 @@
 #include <unistd.h>
 
 
-void midgard_CG::set_status(std::string s,bool autoclean)
+void midgard_CG::set_status(const std::string &s,bool autoclean)
 {
   label_status->set_text(s);
   if(autoclean)
@@ -142,7 +142,11 @@ gint midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *eve
 
 void midgard_CG::on_schliessen_CG_clicked()
 {
-  MOptionen->save_options(InfoFenster);
+  std::string filename="magus_optionen.xml";
+  if(access(filename.c_str(),W_OK)) 
+      filename=magus_verzeichnis+"magus_optionen.xml";
+
+  MOptionen->save_options(filename,InfoFenster);
   if(Char.unsaved_exist())
    {
      notebook_main->set_page(PAGE_NEWS);

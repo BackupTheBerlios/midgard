@@ -45,5 +45,5 @@ AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR,"$PACKAGE_DATA_DIR",[install path])
 
 
 
-AC_OUTPUT(Makefile src/Makefile src/midgard_document_eingabe.tex pixmaps/Makefile \
+AC_OUTPUT(Makefile src/Makefile pixmaps/Makefile \
 	xml/Makefile )
