@@ -133,12 +133,11 @@ bool Waffe::Grundkenntnis_vorhanden(const std::list<MBEmlt>& list_WaffenGrund) c
  return false;
 }
 
-bool Waffe::Min_St_Einhand(const Abenteurer &A) const
+bool Waffe::Min_St_Einhand(const Grundwerte &W) const
 {
-   if(A.getWerte().St() >= min_st_einhand) return true;
+   if(W.St() >= min_st_einhand) return true;
    return false;
 }
-      
 
 bool Waffe::Voraussetzung(const Abenteurer &A,bool anzeigen) const
 {
@@ -189,6 +188,10 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
   std::string s=Waffe()->Schaden(name);
   int sb =Waffe()->Schaden_Bonus(name) + sl_Bonus();
   int sb2=Waffe()->Schaden_Bonus2(name) + sl_Bonus();
+  // Nicht stark genug fürs Einhändige Tragen dieser Waffe?
+  if(Waffe()->Text().find("Einhändig")!=std::string::npos &&
+       !Waffe()->Min_St_Einhand(Werte)) sb2=sb;
+
   if ( Waffe()->Grundkenntnis() == "Kampf ohne Waffen" ) 
       { s="W6";
         int w = Erfolgswert();
@@ -198,7 +201,7 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
         else             sb=-1;
         if(name=="Kampfriemen") sb+=1;
       }
-  if (Waffe()->Art()!="SchuÃŸwaffe" && Waffe()->Art()!="Wurfwaffe") 
+  if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe") 
     {  sb += Werte.bo_Sc(); sb2 += Werte.bo_Sc();}
   if(sb==sb2)  return add_plus_or_minus(s,sb); 
   else         return add_plus_or_minus(s,sb)+"|"+itos(sb2);

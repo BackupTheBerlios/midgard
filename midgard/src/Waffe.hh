@@ -89,7 +89,7 @@ class Waffe : public MidgardBasicElement
      bool Grundkenntnis_vorhanden(const std::list<MBEmlt>&) const;
 //     int Maxwert(const std::vector<cH_Typen>& Typ) const;
      int MaxErfolgswert(const Abenteurer &A) const; 
-     bool Min_St_Einhand(const Abenteurer &A) const;
+     bool Min_St_Einhand(const Grundwerte &A) const;
 
      static std::map<std::string,std::string> fill_map_alias_waffe();
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
