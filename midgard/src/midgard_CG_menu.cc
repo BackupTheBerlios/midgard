@@ -21,7 +21,7 @@
 #include <gtkmm/image.h>
 #include <Misc/itos.h>
 #include <bool_CheckMenuItem.hh>
-#include <RefPtr_Pixmap.hh>
+//#include <RefPtr_Pixmap.hh>
 #include "Region_GUI.hh"
 #include "Optionen_GUI.hh"
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
@@ -118,7 +118,7 @@ void midgard_CG::menu_init()
        }
      Gtk::Label *_l=Gtk::manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
-     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap(RegionenPic_enum::PicModel((*i)->Pic())));
+     Gtk::Image *_pix=Gtk::manage(new Gtk::Image(RegionenPic::PicModel((*i)->Pic())));
      _tab->attach(*_pix,0,1,0,row,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->set_col_spacings(10);
 
@@ -231,7 +231,7 @@ void midgard_CG::menubar_init()
        }
      Gtk::Label *_l=Gtk::manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
-     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap(RegionenPic_enum::PicModel((*i)->Pic())));
+     Gtk::Image *_pix=Gtk::manage(new Gtk::Image(RegionenPic::PicModel((*i)->Pic())));
      _tab->attach(*_pix,0,1,0,row,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->set_col_spacings(10);
 
@@ -255,7 +255,7 @@ void midgard_CG::menu_history_init(int oldsize)
   Gtk::Menu::MenuList L=M->items();
   for(int i=0;i<oldsize;++i) L.pop_back();
   int x=1;
-  for(std::list<std::string>::const_iterator i=LetzteDateien().begin();i!=LetzteDateien().end();++i)
+  for(std::list<std::string>::const_iterator i=Programmoptionen.LetzteDateien().begin();i!=Programmoptionen.LetzteDateien().end();++i)
    {
      L.push_back(Gtk::Menu_Helpers::MenuElem(*i, Gtk::Menu_Helpers::AccelKey("<Control>"+itos(x))));
      Gtk::MenuItem *mi=(Gtk::MenuItem *)&L.back();
@@ -266,14 +266,14 @@ void midgard_CG::menu_history_init(int oldsize)
 
 void midgard_CG::push_back_LDateien(std::string s)
 {
-  int oldsize=LetzteDateien().size();
-  std::list<std::string>::iterator i=find(LetzteDateien().begin(),LetzteDateien().end(),s);
+  int oldsize=Programmoptionen.LetzteDateien().size();
+  std::list<std::string>::iterator i=find(Programmoptionen.LetzteDateien().begin(),Programmoptionen.LetzteDateien().end(),s);
 
-  if (i!=LetzteDateien().end()) LetzteDateien().remove(*i);
+  if (i!=Programmoptionen.LetzteDateien().end()) Programmoptionen.LetzteDateien().remove(*i);
   else 
-   { if(oldsize>Programmoptionen.DateiHistory()) LetzteDateien().pop_back(); 
+   { if(oldsize>Programmoptionen.DateiHistory()) Programmoptionen.LetzteDateien().pop_back(); 
    }
 
-  LetzteDateien().push_front(s);
+  Programmoptionen.LetzteDateien().push_front(s);
   menu_history_init(oldsize);
 }
