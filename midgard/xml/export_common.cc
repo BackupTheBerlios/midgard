@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.20 2002/06/24 07:46:23 christof Exp $
+// $Id: export_common.cc,v 1.21 2002/11/22 08:13:01 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -82,7 +82,7 @@ double fetch_and_set_float_attrib(FetchIStream &is,Tag &o,const std::string &wer
    return val;
 }
 
- bool fetch_bool(FetchIStream &is,const bool &standard=false)
+ bool fetch_bool(FetchIStream &is,const bool &standard)
 {  bool val;
    
    is >> FetchIStream::MapNull<bool>(val,standard); 
