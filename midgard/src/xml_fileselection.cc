@@ -57,7 +57,7 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
 : hauptfenster(h),ewas(_was),Werte(W)
 {
  if(ewas==Pix) set_filename(hauptfenster->getWerte().BeschreibungPix());
- else if (ewas!=Export) set_filename(hauptfenster->
+ else if (ewas!=Export) set_filename(hauptfenster->get_filename());
  
 #ifdef __MINGW32__
    OPENFILENAME ofn;

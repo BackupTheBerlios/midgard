@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.229 2002/05/02 15:00:30 thoma Exp $
+// $Id: midgard_CG.hh,v 1.230 2002/05/03 14:36:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -581,6 +581,7 @@ private:
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
          void xml_import_stream(istream &datei);
+         const std::string get_filename() const { return filename; }
          void spielleiter_export_save(const std::string& dateiname);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
