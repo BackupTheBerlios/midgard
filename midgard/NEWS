@@ -33,6 +33,7 @@ links).
 - alle Ausdrucke unter Windows testen
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
 - xml laden beschleunigen (merge with map, reservate on vectors)
+- xml export von Zusätzen zu Fertigkeiten in der richtigen Region
 
 ##########################################################################
 NEWS IN VERSION 0.7delta4
