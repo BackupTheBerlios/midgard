@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.12 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.13 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -1761,8 +1761,53 @@
   <Dinge Art="Waffen" Ware="Ud al-Khal" Gewicht="2.5" Preis="40" Währung="GS" Region="E"/>
   <Dinge Art="Waffen" Ware="Yari" Gewicht="2.5" Preis="8" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="YariNage" Gewicht="1.5" Preis="6" Währung="GS" Region="K"/>
+  <Dinge Art="Rüstung" Ware="Baumwollharnisch" Währung="GS" Region="N"/>
+  <Dinge Art="Rüstung" Ware="Baumwollrüstung" Währung="GS" Region="N"/>
+  <Dinge Art="Rüstung" Ware="Dhunaka" Währung="GS" Region="R"/>
+  <Dinge Art="Rüstung" Ware="Kettenrüstung" Gewicht="20" Preis="100" Währung="GS"/>
+  <Dinge Art="Rüstung" Ware="Lederrüstung" Gewicht="12.5" Preis="30" Währung="GS"/>
+  <Dinge Art="Rüstung" Ware="Papierrüstung" Währung="GS" Region="K"/>
+  <Dinge Art="Rüstung" Ware="Plattenrüstung" Gewicht="35" Preis="500" Währung="GS"/>
+  <Dinge Art="Rüstung" Ware="RitterRüstung" Gewicht="60" Preis="2000" Währung="GS"/>
+  <Dinge Art="Rüstung" Ware="SaMurai-Rüstung" Währung="GS" Region="K"/>
+  <Dinge Art="Rüstung" Ware="SaMurai-Rüstung" Währung="GS" Region="K"/>
+  <Dinge Art="Rüstung" Ware="Sritrahaut" Währung="GS" Region="R"/>
+  <Dinge Art="Rüstung" Ware="Textilrüstung" Gewicht="7.5" Preis="20" Währung="GS"/>
+  <Dinge Art="Rüstung" Ware="Tschahaatha" Währung="GS" Region="R"/>
+  <Dinge Art="Rüstung" Ware="Tschahaatha(VR)" Währung="GS" Region="R"/>
+  <Dinge Art="Rüstung" Ware="Vollrüstung" Gewicht="45" Preis="600" Währung="GS"/>
  </PreiseNeu>
- <PreiseNeuMod/>
+ <PreiseNeuMod>
+  <Art Name="Kleidung">
+   <Variante Name="Farbe">
+    <Farbe Spezifikation="blau" PreisFaktor="3"/>
+    <Farbe Spezifikation="gelb" PreisFaktor="2"/>
+    <Farbe Spezifikation="grün" PreisFaktor="2"/>
+    <Farbe Spezifikation="purpur" PreisFaktor="20"/>
+    <Farbe Spezifikation="rot" PreisFaktor="4"/>
+    <Farbe Spezifikation="ungefärbt" PreisFaktor="1"/>
+   </Variante>
+   <Variante Name="Material_K">
+    <Material_K Spezifikation="Baumwolle" PreisFaktor="2"/>
+    <Material_K Spezifikation="Leder" PreisFaktor="2"/>
+    <Material_K Spezifikation="Leinen" PreisFaktor="1"/>
+    <Material_K Spezifikation="Pelz" PreisFaktor="4.5"/>
+    <Material_K Spezifikation="Seide" PreisFaktor="8"/>
+   </Variante>
+   <Variante Name="Stand">
+    <Stand Spezifikation="Adel" PreisFaktor="5"/>
+    <Stand Spezifikation="Mittelschicht" PreisFaktor="1"/>
+    <Stand Spezifikation="Volk" PreisFaktor="0.33333"/>
+   </Variante>
+  </Art>
+  <Art Name="Waffen">
+   <Variante Name="Material_W">
+    <Material_W Spezifikation="Alchimistenmetall" PreisFaktor="50"/>
+    <Material_W Spezifikation="standard" PreisFaktor="1"/>
+    <Material_W Spezifikation="versilbert" PreisFaktor="10"/>
+   </Variante>
+  </Art>
+ </PreiseNeuMod>
  <Fertigkeiten>
   <Fertigkeit Name="Abrichten" Lernpunkte="6" Lernpunkte-Land="4" Anfangswert="8" Lernkosten="400" Erfolgswert="6" Attribut="pA" Berufskategorie="3" Maximalwert="18" MaximalMitUnterweisung="13" Zusätze="1">
    <Grund Typ="Dr"/>
