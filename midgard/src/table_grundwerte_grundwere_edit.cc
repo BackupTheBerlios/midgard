@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.3 2002/05/22 17:00:45 thoma Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.4 2002/05/27 13:56:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -275,26 +275,41 @@ gint table_grundwerte::on_spinbutton_b_focus_in_event(GdkEventFocus *ev)
 { spinbutton_b->select_region(0,-1); return false;} 
 
 
-
-void table_grundwerte::optionmenu_stand_deactivate()
+void table_grundwerte::on_combo_stand_activate()
 {
-  int ityp = int(optionmenu_stand->get_menu()->get_active()->get_user_data());
-  if (ityp==optionmenu_stand::Unfrei)        hauptfenster->getWerte().setStand(Vstand[1]);
-  if (ityp==optionmenu_stand::Volk)          hauptfenster->getWerte().setStand(Vstand[2]);
-  if (ityp==optionmenu_stand::Mittelschicht) hauptfenster->getWerte().setStand(Vstand[3]);
-  if (ityp==optionmenu_stand::Adel)          hauptfenster->getWerte().setStand(Vstand[4]);
+ combo_hand->grab_focus();
 }
 
-void table_grundwerte::optionmenu_hand_deactivate()
+gint table_grundwerte::on_combo_stand_focus_out_event(GdkEventFocus *ev)
 {
-  int ityp = int(optionmenu_hand->get_menu()->get_active()->get_user_data());
-  if (ityp==optionmenu_hand::Rechtsh_nder) hauptfenster->getWerte().setHand(Vhand[0]);
-  if (ityp==optionmenu_hand::Linksh_nder)  hauptfenster->getWerte().setHand(Vhand[1]);
-  if (ityp==optionmenu_hand::Beidh_nder)   hauptfenster->getWerte().setHand(Vhand[2]);
+  for(std::vector<std::string>::const_iterator i=Vstand.begin();i!=Vstand.end();++i)
+   {
+    if(*i==combo_stand->get_entry()->get_text())
+      {  hauptfenster->getWerte().setStand(*i);
+         break;
+      }
+   }
+  return false;
 }
-
                 
+void table_grundwerte::on_combo_hand_activate()
+{
+ spinbutton_gfp->grab_focus();
+}
 
+gint table_grundwerte::on_combo_hand_focus_out_event(GdkEventFocus *ev)
+{
+  for(std::vector<std::string>::const_iterator i=Vhand.begin();i!=Vhand.end();++i)
+   {
+    if(*i==combo_hand->get_entry()->get_text())
+     {
+        hauptfenster->getWerte().setHand(*i);
+        break;
+     }
+   }
+ return false;
+}
+                
 
 void table_grundwerte::edit_sensitive(bool b)
 {
@@ -312,8 +327,8 @@ void table_grundwerte::edit_sensitive(bool b)
   spinbutton_tage->set_sensitive(b);
   spinbutton_gg->set_sensitive(b);
   spinbutton_sg->set_sensitive(b);
-  optionmenu_stand->set_sensitive(b);
-  optionmenu_hand->set_sensitive(b);
+//  optionmenu_stand->set_sensitive(b);
+//  optionmenu_hand->set_sensitive(b);
   spinbutton_groesse->set_sensitive(b);
   spinbutton_grad->set_sensitive(b);
   entry_herkunft->set_sensitive(b); 

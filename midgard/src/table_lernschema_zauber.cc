@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.2 2002/05/22 17:00:45 thoma Exp $
+// $Id: table_lernschema_zauber.cc,v 1.3 2002/05/27 13:56:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,26 +36,50 @@ void table_lernschema::show_magier_spezialgebiet(bool show)
 {
  if (show)
    { spezialgebiet_button_fill();
-     option_magier_spezialgebiet->show();
+     combo_magier_spezialgebiet->show();
    }
- else option_magier_spezialgebiet->hide();
+ else combo_magier_spezialgebiet->hide();
 }
 
 void table_lernschema::spezialgebiet_button_fill()
 {
+ vector<std::string> L;
  {
-  Gtk::OStream t_(option_magier_spezialgebiet);
+//  Gtk::OStream t_(option_magier_spezialgebiet);
   for(std::vector<cH_Spezialgebiet>::const_iterator i=hauptfenster->getDatabase().Spezialgebiet.begin();i!=hauptfenster->getDatabase().Spezialgebiet.end();++i)
    {
     if((*i)->Typ() != hauptfenster->getCChar().CTyp1()->Short() && 
        (*i)->Typ() != hauptfenster->getCChar().CTyp2()->Short() ) continue;
-    t_ << (*i)->Name();
-    t_.flush((*i)->ref(),&HandleContent::unref);
+//    t_ << (*i)->Name();
+//    t_.flush((*i)->ref(),&HandleContent::unref);
+    L.push_back((*i)->Name());
    }  
  }
- option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::spezialgebiet_button));
+// option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::spezialgebiet_button));
+ combo_magier_spezialgebiet->set_popdown_strings(L);
 }
 
+void table_lernschema::on_combo_magier_spezialgebiet_activate()
+{
+ button_zauber->grab_focus();
+}
+
+gint table_lernschema::on_combo_magier_spezialgebiet_focus_out_event(GdkEventFocus *ev)
+{
+  for(std::vector<cH_Spezialgebiet>::const_iterator i=hauptfenster->getDatabase().Spezialgebiet.begin();i!=hauptfenster->getDatabase().Spezialgebiet.end();++i)
+   {
+     if((*i)->Name()==combo_magier_spezialgebiet->get_entry()->get_text())
+      {
+        hauptfenster->getWerte().setSpezialgebiet(*i);
+// if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
+        if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALGEBIET);
+        break;
+      }
+   }
+  return false;
+}
+
+/*
 void table_lernschema::spezialgebiet_button()
 {
  gpointer user_data=option_magier_spezialgebiet->get_menu()->get_active()->get_user_data();
@@ -65,5 +89,5 @@ void table_lernschema::spezialgebiet_button()
 //cout << hauptfenster->getCWerte().Spezialisierung()<<"\t"<<hauptfenster->getCWerte().Spezial()<<"\t"<<hauptfenster->getCWerte().Spezial2(
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALGEBIET);
 } 
-
+*/
               

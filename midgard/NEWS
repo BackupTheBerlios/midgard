@@ -19,11 +19,12 @@ NEWS IN VERSION 0.6delta4
 * Redesign: Abenteurerklasse, Lernschema und Steigern in eigener 
    Oberflächenklasse, Geld eingeben, EP eingeben, Rüstung, Waffenbesitz
 * KiDo Stil nach dem laden setzten
-* Fenster frü Geldeingeben, Waffenbesitz, Erfahrungspunkteeingabe und
+* Fenster für Geldeingeben, Waffenbesitz, Erfahrungspunkteingabe und
    Rüstung sind weg
 * Konsequenters 'eingeben' von Rüstung, Wafen, Geld im Lernschema
 * pdf Dokument abspeichern -> kann der neuste Acroreader
 * Spezielle Allgemeine-Fertigkeiten-Lernpunkte für Regionen implementiert
+* Optionmenus durch ComboBoxen ersetzt (Extra für Ulf :-)
 
 
 TODO:
@@ -33,7 +34,6 @@ links).
 * Fokus im Zusatzfenster einfrieren
 * xml-speicherpfad
 * Ausdruck für Lange Listen
-* Searchcombo für Typen
 * Gildenbrief funktioniert nicht
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Destruktor wird nicht aufgerufen

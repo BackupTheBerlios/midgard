@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.3 2002/05/25 07:21:48 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.4 2002/05/27 13:56:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,7 +79,7 @@ void table_lernschema::on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d)
   show_gelerntes();      
 }
 
-
+/*
 void table_lernschema::kido_stil_optionmenue()
 {
 //  static bool block=false;
@@ -92,3 +92,28 @@ void table_lernschema::kido_stil_optionmenue()
   // NUR sensetiv setzen, wenn Abenteurerrschaffung also Grad=1
   if(hauptfenster->getCWerte().Grad()==1) button_kido_auswahl->set_sensitive(true);
 }
+*/
+
+void table_lernschema::on_combo_kido_stil_activate()
+{
+  button_kido_auswahl->grab_focus();
+}
+
+gint table_lernschema::on_combo_kido_stil_focus_out_event(GdkEventFocus *ev)
+{
+  KiDo_Stile ks;
+  std::vector<std::string> V=ks.getVStile();
+  for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     if(*i==combo_kido_stil->get_entry()->get_text())
+      {
+        hauptfenster->getWerte().setSpezialisierung(*i);                
+        if(hauptfenster->getCWerte().Grad()==1) button_kido_auswahl->set_sensitive(true);
+        break;
+      }
+   }
+  return false;
+}
+
+        
+

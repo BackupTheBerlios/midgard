@@ -216,7 +216,7 @@ void midgard_CG::xml_import_stream(istream& datei)
    }
 
    load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version);
-   Typ_Geschlecht_Spezies_setzen();
+//   Typ_Geschlecht_Spezies_setzen();
 //   load_ausruestung(Ausruestung,&besitz);
    load_ausruestung(Ausruestung,&(Char.getBesitz()));
    
@@ -227,11 +227,11 @@ void midgard_CG::xml_import_stream(istream& datei)
 
 void midgard_CG::Typ_Geschlecht_Spezies_setzen() 
 {  
-   if (getWerte().Geschlecht()=="w") table_grundwerte->radiobutton_frau->set_active(true);
-   if (getWerte().Geschlecht()=="m") table_grundwerte->radiobutton_mann->set_active(true);
+//   if (getWerte().Geschlecht()=="w") table_grundwerte->radiobutton_frau->set_active(true);
+//   if (getWerte().Geschlecht()=="m") table_grundwerte->radiobutton_mann->set_active(true);
 
-   table_grundwerte->fill_typauswahl();
-   if(!Char.CTyp2()->Short().empty()) table_grundwerte->fill_typauswahl_2();
+//   table_grundwerte->fill_typauswahl();
+//   if(!Char.CTyp2()->Short().empty()) table_grundwerte->fill_typauswahl_2();
    
 /*
    if (this->Typ[0]->Spezialwaffe() ||  this->Typ[1]->Spezialwaffe() )

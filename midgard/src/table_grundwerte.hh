@@ -56,10 +56,20 @@ private:
         void typauswahl_button();  
         void typauswahl_2_button();
         void spezieswahl_button();
-        void zeige_werte();
+        void zeige_werte(bool typ2_hide=true);
         
         // Ab hier die automatischen Methoden von glade erzeugt        
    private:
+        void on_combo_spezies_activate();
+        gint on_combo_spezies_focus_out_event(GdkEventFocus *ev);
+        void on_combo_typ_activate();
+        void on_combo_typ2_activate();
+        gint on_combo_typ__focus_out_event(GdkEventFocus *ev);
+        gint on_combo_typ2_focus_out_event(GdkEventFocus *ev);
+        void on_combo_stand_activate();
+        gint on_combo_stand_focus_out_event(GdkEventFocus *ev);
+        void on_combo_hand_activate();
+        gint on_combo_hand_focus_out_event(GdkEventFocus *ev);
         void on_button_wert_1_clicked();
         void on_button_wert_2_clicked();
         void on_button_wert_3_clicked();
@@ -130,7 +140,6 @@ private:
         void on_entry_herkunft_activate();
         gint on_entry_herkunft_focus_out_event(GdkEventFocus *ev);
         gint on_entry_herkunft_focus_in_event(GdkEventFocus *ev);
-        void optionmenu_stand_deactivate();
         void on_entry_glaube_activate();
         gint on_entry_glaube_focus_out_event(GdkEventFocus *ev);
         gint on_entry_glaube_focus_in_event(GdkEventFocus *ev);
@@ -149,7 +158,6 @@ private:
         void on_spinbutton_gfp_activate();
         gint on_spinbutton_gfp_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_gfp_focus_in_event(GdkEventFocus *ev);
-        void optionmenu_hand_deactivate();
         void on_entry_bezeichnung_activate();
         gint on_entry_bezeichnung_focus_out_event(GdkEventFocus *ev);
         gint on_entry_bezeichnung_focus_in_event(GdkEventFocus *ev);

@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.20 2002/05/17 10:24:28 thoma Exp $               
+// $Id: KiDo.hh,v 1.21 2002/05/27 13:56:06 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,6 +37,7 @@ class KiDo_Stile
       std::string sanft() {return Vkido[1];}
       std::string hart() {return Vkido[2];}
       std::string gemischt() {return Vkido[3];}
+      std::vector<std::string> getVStile() const {return Vkido;}
 };
 
 

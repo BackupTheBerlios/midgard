@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.3 2002/05/23 09:03:16 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.4 2002/05/27 13:56:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,8 +40,9 @@ gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton 
   hauptfenster->getWerte().setpA( hauptfenster->random.integer(1,100)-30 
                                  + 3*(hauptfenster->getCWerte().In()/10 
                                       + hauptfenster->getCWerte().Au()/10) );
-  zeige_werte();
+  zeige_werte(false);
   fill_typauswahl();
+  fill_typauswahl_2();
   return false;
 }
 
@@ -142,7 +143,7 @@ void table_grundwerte::check_350(const std::vector<int>& a)
       button_grundwerte->set_sensitive(true);
 //      button_abg_werte->set_sensitive(false);
 //      Werte.clear();            
-      Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,hauptfenster->getCWerte().Spezies());
+//      Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,hauptfenster->getCWerte().Spezies());
    }
 }
 

@@ -104,6 +104,24 @@ bool Typen::Mindestwerte(const Grundwerte& Werte) const
   abort(); 
 }
 
+bool Typen::get_Typ_from_long(const std::vector<cH_Typen>& V,
+                                    std::string& name)
+{
+  string::size_type s1=name.find_first_of("(");
+  if(s1!=string::npos) name.erase(s1,1);
+  string::size_type s2=name.find_last_of(")");
+  if(s2!=string::npos) name.erase(s2,1);
+  for(std::vector<cH_Typen>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     if((*i)->Typl()==name || (*i)->Typlw()==name) 
+      {
+        name = (*i)->Short();
+        return true;
+      }
+   }
+  return false;
+}
+
 
 Typen_All::Typen_All(Gtk::ProgressBar *progressbar)
 {

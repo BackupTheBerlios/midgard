@@ -86,7 +86,7 @@ private:
        // Zauber
        void show_magier_spezialgebiet(bool show);
        void spezialgebiet_button_fill();
-       void spezialgebiet_button();
+//       void spezialgebiet_button();
        
        // KiDo
        void fill_kido_lernschema();
@@ -103,6 +103,10 @@ public:
 
       // Ab hier die automatischen Methoden von glade erzeugt
 private:
+        void on_combo_kido_stil_activate();
+        gint on_combo_kido_stil_focus_out_event(GdkEventFocus *ev);
+        void on_combo_magier_spezialgebiet_activate();
+        gint on_combo_magier_spezialgebiet_focus_out_event(GdkEventFocus *ev);
         void on_button_waffe_trans_clicked();
         void on_button_fach_trans_clicked();
         void on_spinbutton_fach_activate();
@@ -122,7 +126,7 @@ private:
         void on_spinbutton_unge_activate();
         gint on_spinbutton_unge_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_unge_focus_in_event(GdkEventFocus *ev);
-        void kido_stil_optionmenue();
+//        void kido_stil_optionmenue();
         void on_kido_wahl_clicked();
         void on_tree_gelerntes_leaf_selected(cH_RowDataBase d);
         void on_herkunftsland_clicked();

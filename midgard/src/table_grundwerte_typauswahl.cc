@@ -21,48 +21,85 @@
 #include <Gtk_OStream.h>
 #include <SelectMatching.h>
 
+static bool block;
+
 void table_grundwerte::fill_typauswahl()
 {
   if(!hauptfenster) return;
   fill_typauswahl_fill(1);
-  typauswahl->get_menu()->deactivate.connect(SigC::slot(this, &table_grundwerte::typauswahl_button));
-  if (!hauptfenster->getCChar().getVTyp().empty()) Gtk::Menu_Helpers::SelectMatching(*typauswahl,hauptfenster->getCChar().CTyp1());
+//  typauswahl->get_menu()->deactivate.connect(SigC::slot(this, &table_grundwerte::typauswahl_button));
+  if (!hauptfenster->getCChar().getVTyp().empty()) 
+   {
+//     Gtk::Menu_Helpers::SelectMatching(*typauswahl,hauptfenster->getCChar().CTyp1());
+     combo_typ->get_entry()->set_text(hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht()));
+   }
 }
 
 void table_grundwerte::fill_typauswahl_2()
 {
   if(!hauptfenster) return;
   fill_typauswahl_fill(2);
-  typauswahl_2->get_menu()->deactivate.connect(SigC::slot(this, &table_grundwerte::typauswahl_2_button));
-  if (hauptfenster->getCChar().getVTyp().size()>1) Gtk::Menu_Helpers::SelectMatching(*typauswahl_2,hauptfenster->getCChar().CTyp2());
+//  typauswahl_2->get_menu()->deactivate.connect(SigC::slot(this, &table_grundwerte::typauswahl_2_button));
+//  if (hauptfenster->getCChar().getVTyp().size()>1) Gtk::Menu_Helpers::SelectMatching(*typauswahl_2,hauptfenster->getCChar().CTyp2());
+  combo_typ2->get_entry()->set_text(hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht()));
 }
 
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 {
-  Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
-  std::vector<cH_Typen> T=hauptfenster->getDatabase().Typen;
+//  Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
+  const std::vector<cH_Typen> T=hauptfenster->getCDatabase().Typen;
 //  t_<<"Typauswahl\n";
+  std::list<std::string> L;
+//  L.push_back("Typ wählen");
   for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
    {
      if (hauptfenster->getCWerte().Spezies()->Name()=="Mensch" || hauptfenster->getCWerte().Spezies()->Typ_erlaubt((*i)->Short()))
        if (hauptfenster->region_check((*i)->Region()) && hauptfenster->nsc_check((*i)->NSC_only()))
          {
-           if((*i)->Mindestwerte(hauptfenster->getCWerte())) t_ << (*i)->Name(hauptfenster->getCWerte().Geschlecht());
+/*
+           if((*i)->Mindestwerte(hauptfenster->getCWerte())) 
+                  t_ << (*i)->Name(hauptfenster->getCWerte().Geschlecht());
            else   t_ << "("<<(*i)->Name(hauptfenster->getCWerte().Geschlecht())<<")";
            t_.flush((*i)->ref(),&HandleContent::unref);
+*/         
+           if((*i)->Mindestwerte(hauptfenster->getCWerte())) 
+              L.push_back((*i)->Name(hauptfenster->getCWerte().Geschlecht()));
+           else
+              L.push_back("("+(*i)->Name(hauptfenster->getCWerte().Geschlecht())+")");
          }
    }
+ block=true;
+ if(typ_1_2==1) combo_typ->set_popdown_strings(L);
+ else           combo_typ2->set_popdown_strings(L);
+ block=false;
 }
 
+void table_grundwerte::on_combo_typ_activate()
+{
+  button_abg_werte->grab_focus();
+//  typauswahl_button();
+}
+
+gint table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
+{
+  typauswahl_button();
+  return false;
+}
 
 void table_grundwerte::typauswahl_button()
 {
+ std::string typ=combo_typ->get_entry()->get_text();
+ if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
+   return;
  hauptfenster->Char.reset();
  hauptfenster->clear_gtk();
 
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);
- cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
- hauptfenster->getChar().setTyp1(ptr);
+// cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
+
+// cH_Typen ptr = cH_Typen(Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,combo_typ->get_entry()->get_text()));
+ hauptfenster->getChar().setTyp1(cH_Typen(typ));
+
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 
  if(hauptfenster->getCWerte().Spezies()->Land()) 
@@ -88,12 +125,34 @@ void table_grundwerte::typauswahl_button()
      radiobutton_stadt->set_sensitive(true);
      radiobutton_land->set_sensitive(true);
    }
+// if(radiobutton_stadt->sensitive() && radiobutton_land->sensitive())
+//      radiobutton_stadt->grab_focus();
+// else 
+//  button_abg_werte->grab_focus();
+}
+
+
+void table_grundwerte::on_combo_typ2_activate()
+{
+  button_abg_werte->grab_focus();
+//  typauswahl_2_button();
+}
+
+gint table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
+{
+  typauswahl_2_button();
+  return false;
 }
 
 void table_grundwerte::typauswahl_2_button()
 {
- cH_Typen ptr = static_cast<Typen*>(typauswahl_2->get_menu()->get_active()->get_user_data());
- hauptfenster->getChar().setTyp2(ptr);
+ std::string typ=combo_typ2->get_entry()->get_text();
+ if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
+   return;
+// cH_Typen ptr = static_cast<Typen*>(typauswahl_2->get_menu()->get_active()->get_user_data());
+// hauptfenster->getChar().setTyp2(ptr);
+ hauptfenster->getChar().setTyp2(cH_Typen(typ));
+
 // hauptfenster->show_gtk();
 // if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }
@@ -101,24 +160,55 @@ void table_grundwerte::typauswahl_2_button()
 
 void table_grundwerte::fill_spezies()
 {
-  { Gtk::OStream t_(optionmenu_spezies);
+  std::vector<std::string> L;
+//  { Gtk::OStream t_(optionmenu_spezies);
     for(vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
      {
        if (!hauptfenster->nsc_check((*i)->NSC_only())) continue;
-       t_ << (*i)->Name();
-       t_.flush((*i)->ref(),&HandleContent::unref);
+//       t_ << (*i)->Name();
+//       t_.flush((*i)->ref(),&HandleContent::unref);
+       L.push_back((*i)->Name());
      }
-  }
-  optionmenu_spezies->get_menu()->deactivate.connect(SigC::slot(static_cast<class table_grundwerte*>(this), &table_grundwerte::spezieswahl_button));
-  Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,hauptfenster->getCWerte().Spezies());
+//  }
+//  optionmenu_spezies->get_menu()->deactivate.connect(SigC::slot(static_cast<class table_grundwerte*>(this), &table_grundwerte::spezieswahl_button));
+//  Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,hauptfenster->getCWerte().Spezies());
+//  combo_typ2->hide();
+
+  combo_spezies->set_popdown_strings(L);
+
 }
+
+void table_grundwerte::on_combo_spezies_activate()
+{
+ button_grundwerte->grab_focus();
+}
+
+gint table_grundwerte::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
+{
+  spezieswahl_button();
+  return false;
+}
+
+
 
 void table_grundwerte::spezieswahl_button()
 {
- hauptfenster->getWerte().clear();
- hauptfenster->zeige_werte();
- cH_Spezies ptr = static_cast<Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
- hauptfenster->getWerte().setSpezies(ptr);
+ std::string spezies=combo_spezies->get_entry()->get_text();
+ bool ok=false;
+ for(vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
+   {
+     if((*i)->Name()==spezies)
+      {
+        ok=true;
+        hauptfenster->getWerte().clear();
+        hauptfenster->getWerte().setSpezies(*i);
+      }
+   }
+ if(!ok) return;
+// hauptfenster->getWerte().clear();
+// hauptfenster->zeige_werte();
+// cH_Spezies ptr = static_cast<Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
+// hauptfenster->getWerte().setSpezies(ptr);
 
  fill_typauswahl();
  typauswahl_button();
@@ -126,7 +216,8 @@ void table_grundwerte::spezieswahl_button()
  if (hauptfenster->getCWerte().Spezies()->Name()=="Elf")
    manage (new Window_doppelcharaktere(this));
 
- typauswahl_2->hide();
+// typauswahl_2->hide();
+// combo_typ2->hide();
 // hauptfenster->getChar().setTyp2(cH_Typen());
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIES);
 }
@@ -144,8 +235,9 @@ void table_grundwerte::doppelcharaktere()
 {
    if(!hauptfenster) return;
    fill_typauswahl_2();
-   typauswahl_2->show();
-   typauswahl_2_button();
+//   typauswahl_2->show();
+   combo_typ2->show();
+//   typauswahl_2_button();
 //   magie_bool=true;
 }
 

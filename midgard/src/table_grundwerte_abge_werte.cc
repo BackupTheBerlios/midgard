@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.3 2002/05/22 17:00:45 thoma Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.4 2002/05/27 13:56:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,6 +22,7 @@
 
 void table_grundwerte::on_abge_werte_setzen_clicked()
 {
+//  button_abg_werte->grab_focus(); // Fokus muß aus der Typauswahl heraus, damit der Typ gesetzt wird
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ABGELEITETEWERTE);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active) 
       button_abg_werte->set_sensitive(false);
@@ -127,9 +128,9 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
    }
   hauptfenster->getWerte().setGrad1Werte(hauptfenster->getCChar().getVTyp());
 
-  zeige_werte();
   hauptfenster->table_lernschema->button_herkunft->set_sensitive(true);
   hauptfenster->frame_lernschema->set_sensitive(true);
+  zeige_werte();
 }
 
 

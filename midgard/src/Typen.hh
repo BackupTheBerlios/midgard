@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.19 2002/05/23 09:03:16 thoma Exp $               
+// $Id: Typen.hh,v 1.20 2002/05/27 13:56:06 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,7 @@
 #include "xml.h"
 
 class Grundwerte;
+class cH_Typen;
 
 class Typen : public HandleContent
 {
@@ -50,6 +51,8 @@ public:
    
    std::string Name(const std::string& geschlecht) const 
       { if (geschlecht=="m") return typl; else return typlw;}
+   std::string Typl() const {return typl;}
+   std::string Typlw() const {return typlw;}
    std::string Short() const {return typs;}
    std::string Zaubern() const {return typz;}
    std::string Ausdauer() const {return ausdauer;}
@@ -78,6 +81,9 @@ public:
    bool operator<(const Typen &b) const
    {  return typs<b.typs;
    }
+
+   static bool get_Typ_from_long(const std::vector<cH_Typen>& V,
+                                        std::string& name);
 };
 
 class cH_Typen : public Handle<const Typen>    
