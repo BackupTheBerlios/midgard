@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.97 2003/06/20 14:38:17 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.98 2003/06/23 07:43:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -321,7 +321,7 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case eko   : sfout += itos(W.Ko()); break ;
      case ein   : sfout += itos(W.In()); break ;
      case ezt   : sfout += itos(W.Zt()); break ;
-     case eau   : { int ia=hauptfenster->getChar()->Erfolgswert("Athletik",hauptfenster->getCDatabase()).first;
+     case eau   : { int ia=hauptfenster->getChar()->Erfolgswert("Athletik",&(hauptfenster->getCDatabase())).first;
          ia/=3;
          std::string sa; if(ia>0) sa="^{+"+itos(ia)+"}"  ;
          sfout += LaTeX_scale("$"+itos(W.Au())+sa+"$",8,"0.9cm"); break ;
@@ -330,7 +330,7 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case esb   : sfout += itos(W.Sb()); break ;
      case ewk   : sfout += itos(W.Wk()); break ;
      case eb    : {
-        int b=hauptfenster->getChar()->Erfolgswert("Laufen",hauptfenster->getCDatabase()).first-2; 
+        int b=hauptfenster->getChar()->Erfolgswert("Laufen",&(hauptfenster->getCDatabase())).first-2; 
         std::string bs;  if(b>0) bs="^{+"+itos(b)+"}"  ;
         sfout += LaTeX_scale("$"+itos(W.B())+hauptfenster->getAben().Ruestung_B_Verlust(false)+bs+"$",8,"0.9cm"); break ;
       }
@@ -512,10 +512,10 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_Waff
         int wert = (*i)->Erfolgswert()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
         swert=itos(wert);
       }
-     else  // Erfolgswert fÃ¼r Angriffswaffen
+     else  // Erfolgswert für Angriffswaffen
       {
         int wert = (*i)->Erfolgswert()+hauptfenster->getWerte().bo_An()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
-        // Angriffsbonus subtrahieren, wenn schwere RÃ¼stung getragen wird:
+        // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
         swert = itos(wert)+angriffsverlust;
       }
      std::string schaden=(*i)->Schaden(hauptfenster->getWerte(),(*i)->AliasName());
@@ -523,7 +523,9 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_Waff
      std::string abm = (*i)->Waffe()->WM_Abwehr();
      std::string text=(*i)->Waffe()->Text();
      
-     bool grund_ist_gelernt = MBEmlt(&*cH_WaffeGrund((*i)->Waffe()->ZweiteGrundkenntnis()))
+     bool grund_ist_gelernt = false;
+     if( !(*i)->Waffe()->ZweiteGrundkenntnis().empty() )
+        grund_ist_gelernt=MBEmlt(&*cH_WaffeGrund((*i)->Waffe()->ZweiteGrundkenntnis()))
            ->ist_gelernt(hauptfenster->getAben().List_WaffenGrund());
                     
      if(text.find("Einhändig")!=std::string::npos)

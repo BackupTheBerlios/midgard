@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.22 2002/12/26 21:24:31 christof Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.23 2003/06/23 07:43:52 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -154,7 +154,7 @@ void LaTeX_drucken::for_each(std::ostream &fout,const ewhat& what)
        case ewk: V.push_back(st_is(W.Wk())); break;
        case esb: V.push_back(st_is(W.Sb())); break;
        case eb: {
-           int b=hauptfenster->getChar()->Erfolgswert("Laufen",hauptfenster->getCDatabase()).first;
+           int b=hauptfenster->getChar()->Erfolgswert("Laufen",&(hauptfenster->getCDatabase())).first;
            if(b==-99) b=0;
            else b-=2;
            int bs= W.B() + b;
@@ -169,16 +169,16 @@ void LaTeX_drucken::for_each(std::ostream &fout,const ewhat& what)
        case esinnsc: V.push_back(st_is(W.Schmecken())); break;
        case esinnt: V.push_back(st_is(W.Tasten())); break;
        case esinnss: V.push_back(st_is(W.SechsterSinn())); break;
-       case eWahrnehmung:  V.push_back(st_is(A.Erfolgswert("Wahrnehmung",Database),A.SErfolgswert("Wahrnehmung",Database))); break;
-       case eSpurenlesen: V.push_back(st_is(A.Erfolgswert("Spurenlesen",Database),A.SErfolgswert("Spurenlesen",Database))); break;
-       case eFallen_entdecken: V.push_back(st_is(A.Erfolgswert("Fallen entdecken",Database),A.SErfolgswert("Fallen entdecken",Database))); break;
-       case eSuchen: V.push_back(st_is(A.Erfolgswert("Suchen",Database),A.SErfolgswert("Suchen",Database))); break;
-       case eMenschenkenntnis: V.push_back(st_is(A.Erfolgswert("Menschenkenntnis",Database),A.SErfolgswert("Menschenkenntnis",Database))); break;
-       case eSagenkunde: V.push_back(st_is(A.Erfolgswert("Sagenkunde",Database),A.SErfolgswert("Sagenkunde",Database))); break;
-       case eZauberkunde: V.push_back(st_is(A.Erfolgswert("Zauberkunde",Database),A.SErfolgswert("Zauberkunde",Database))); break;
-       case eGassenwissen: V.push_back(st_is(A.Erfolgswert("Gassenwissen",Database),A.SErfolgswert("Gassenwissen",Database))); break;
-       case eHimmelskunde: V.push_back(st_is(A.Erfolgswert("Himmelskunde",Database),A.SErfolgswert("Himmelskunde",Database))); break;
-       case eSchaetzen: V.push_back(st_is(A.Erfolgswert("Schaetzen",Database),A.SErfolgswert("Schaetzen",Database))); break;
+       case eWahrnehmung:  V.push_back(st_is(A.Erfolgswert("Wahrnehmung",&Database),A.SErfolgswert("Wahrnehmung",&Database))); break;
+       case eSpurenlesen: V.push_back(st_is(A.Erfolgswert("Spurenlesen",&Database),A.SErfolgswert("Spurenlesen",&Database))); break;
+       case eFallen_entdecken: V.push_back(st_is(A.Erfolgswert("Fallen entdecken",&Database),A.SErfolgswert("Fallen entdecken",&Database))); break;
+       case eSuchen: V.push_back(st_is(A.Erfolgswert("Suchen",&Database),A.SErfolgswert("Suchen",&Database))); break;
+       case eMenschenkenntnis: V.push_back(st_is(A.Erfolgswert("Menschenkenntnis",&Database),A.SErfolgswert("Menschenkenntnis",&Database))); break;
+       case eSagenkunde: V.push_back(st_is(A.Erfolgswert("Sagenkunde",&Database),A.SErfolgswert("Sagenkunde",&Database))); break;
+       case eZauberkunde: V.push_back(st_is(A.Erfolgswert("Zauberkunde",&Database),A.SErfolgswert("Zauberkunde",&Database))); break;
+       case eGassenwissen: V.push_back(st_is(A.Erfolgswert("Gassenwissen",&Database),A.SErfolgswert("Gassenwissen",&Database))); break;
+       case eHimmelskunde: V.push_back(st_is(A.Erfolgswert("Himmelskunde",&Database),A.SErfolgswert("Himmelskunde",&Database))); break;
+       case eSchaetzen: V.push_back(st_is(A.Erfolgswert("Schaetzen",&Database),A.SErfolgswert("Schaetzen",&Database))); break;
        case eangFert: list_for_each(fout,A.List_Fertigkeit_ang(),maxlength,cm); break;
        case eWaffen: list_for_each(fout,A.List_Waffen(),maxlength,cm); break;
        case eSprachen: list_for_each(fout,A.List_Sprache(),maxlength,cm); break;

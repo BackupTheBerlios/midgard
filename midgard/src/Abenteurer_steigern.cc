@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.24 2003/04/28 13:13:23 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.25 2003/06/23 07:43:52 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -354,6 +354,20 @@ int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
   if(bool_steigern.Spruchrolle) return 0;
   int gold_k = getWerte().gold_kosten(kosten);
   if( !bool_steigern.HausG1 ) gold_k*=10;
+
+  std::pair<int,bool> gestu=Erfolgswert("Geschäftstüchtigkeit");
+  if(gestu.second)
+   {
+      Random random;
+      int iw=random.integer(1,20);
+      int erg=gestu.first+iw;
+      info+= " EW:Geschäftstüchtigkeit = "+itos(gestu.first)+"+"+itos(iw)
+               +"="+itos(erg);
+      int gold_gespart = int(gold_k*0.9);
+      if(erg>=20) info+=" => "+itos(gold_gespart)+" gespart";
+      gold_k-=gold_gespart;
+   }
+
   if (gold_k > getWerte().Gold())
     { info+= "Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-getWerte().Gold())+" Gold.";
       return -1;
