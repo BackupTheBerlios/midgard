@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.14 2004/03/08 14:48:12 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.15 2004/03/08 18:26:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -458,14 +458,14 @@ void Magus_Optionen::save_options(const std::string &filename)
      opt.setAttr("Name",i->text);
      opt.setAttr("Wert", i->name);
    }
-std::cout << "SAVE OPTIONEN\n";
   if(OptionenCheck(RegionenAuswahlSpeichern).active) 
    {
      Tag &reg=data.push_back(Tag("Regionen"));
      for(regionen_t::const_iterator i=standard_regionen.begin();i!=standard_regionen.end();++i)
       {
-        reg.setAttr("Name",i->first->Name());
-        reg.setBoolAttr("Wert",i->second);
+        Tag &r=reg.push_back(Tag("Regionen"));
+        r.setAttr("Name",i->first->Name());
+        r.setBoolAttr("Wert",i->second);
       }
    }
   ts.write(datei);
