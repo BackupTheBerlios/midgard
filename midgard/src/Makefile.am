@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.100 2002/01/27 15:14:46 christof Exp $
+# $Id: Makefile.am,v 1.101 2002/01/28 23:21:29 christof Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -218,3 +218,8 @@ midgard_CG_glade.o: midgard_CG_glade.cc ../config.h midgard_CG.hh \
 		midgard_CG_glade.hh   # und vieles mehr !!!
 	$(CXXCOMPILE) -O0 -c $<
 	echo > .deps/$(*F).P
+
+# nur für MinGW (wegen UTF8)
+%.o: %.cc ; $(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
+	$(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
