@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.27 2001/10/16 08:59:23 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.28 2001/10/21 21:21:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,13 +46,16 @@ void Window_Waffe_Geld::on_button_wuerfeln_clicked()
    Random random;
    int wurf = random.integer(1,100);
    if (radio_geld->get_active()) Geld(wurf);
-   if (radio_waffe->get_active()) Waffe_(wurf);
+   if (radio_waffe->get_active())
+      manage (new Window_waffe(wurf,this,Werte,Typ,list_Waffen));
 }
 
 void Window_Waffe_Geld::on_button_auswaehlen_clicked()
 {   
- if (radio_geld->get_active()) manage (new Window_Geld_eingeben::Window_Geld_eingeben(this,Werte));
- if (radio_waffe->get_active()) Waffe_();
+ if (radio_geld->get_active()) 
+   manage (new Window_Geld_eingeben(this,Werte));
+ if (radio_waffe->get_active()) 
+   manage (new Window_waffe(-1,this,Werte,Typ,list_Waffen));
 }
 
 void Window_Waffe_Geld::on_button_close_clicked()
@@ -75,23 +78,13 @@ Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w,
    hauptfenster = h;
 }
 
-void Window_Waffe_Geld::Waffe_(int wurf)
-{
- manage (new Window_waffe(wurf,hauptfenster,this,Werte,Typ,list_Waffen));
-}
- 
-void Window_Waffe_Geld::Waffe_()
-{
- manage (new Window_waffe(-1,hauptfenster,this,Werte,Typ,list_Waffen));
-}
-
 void Window_Waffe_Geld::get_waffe(const std::string& waffe)
 {
   Gtk::OStream os(clist_gewaehlte_waffen);
   os << waffe<<"\n"; 
 }
 
-void Window_Waffe_Geld::Geld()
+void Window_Waffe_Geld::show_Geld()
 {
  gold->set_text(itos(Werte.Gold()));
  silber->set_text(itos(Werte.Silber()));

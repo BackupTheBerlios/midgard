@@ -17,69 +17,28 @@
  */
 
 #include "midgard_CG.hh"
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-//#include <cstring>
 #include "WindowInfo.hh"
 #include "class_Ausnahmen.hh"
 #include "class_zauber.hh"
 #include "zufall.h"
 
-#ifdef __MINGW32__
-extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
-#endif
-
 void midgard_CG::on_zauber_laden_clicked()
 {   
   list_Zauber_neu.clear();
-  exec sql begin declare section;
-   char db_name[100];
-   char query[1000];
-  exec sql end declare section;
-  std::string alle_zauber;
-  if (!checkbutton_alle_zauber->get_active() )
+  Zauber_All ZA;
+  std::list<cH_Zauber> list_tmp=ZA.get_All();
+  for (std::list<cH_Zauber>::const_iterator i=list_tmp.begin();i!=list_tmp.end();++i)
     {
-      if (Typ[0]->is_mage()) alle_zauber += "("+Typ[0]->Short()+" = 'G' OR "+Typ[0]->Short()+" = 'S' OR "+Typ[0]->Short()+" = 'A') ";
-      if (Typ[0]->is_mage() && Typ[1]->is_mage()) alle_zauber += " OR ";
-      if (Typ[0]->is_mage() && !Typ[1]->is_mage()) alle_zauber += " AND ";
-      if (Typ[1]->is_mage()) alle_zauber += "("+Typ[1]->Short()+" = 'G' OR "+Typ[1]->Short()+" = 'S' OR "+Typ[1]->Short()+" = 'A') AND ";
+      if ((*i)->ist_gelernt(list_Zauber)) continue ;
+      if ((*i)->Zauberart()=="Zaubersalz" && !checkbutton_zaubersalze->get_active())
+         continue;
+      if ((*i)->Zauberart()=="Beschwörung" && !checkbutton_beschwoerungen->get_active())
+         continue;
+      if ((*i)->ist_lernbar(Typ) || checkbutton_alle_zauber->get_active() )
+       if (region_check((*i)->Region()) )
+         list_Zauber_neu.push_back(*i);            
     }
-  std::string squery = "SELECT distinct name ";
-  squery +=" FROM arkanum_zauber WHERE "+alle_zauber+"\
-      name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
-      WHERE charakter_name = '"+Werte.Name_Charakter()+"' \
-      AND version = '"+Werte.Version()+"') \
-      ORDER BY name ";
-
-   strncpy(query,squery.c_str(),sizeof(query));
-   Transaction tr;
-   exec sql prepare zauber_ein_ from :query ;
-   exec sql declare zauber_ein cursor for zauber_ein_ ;
-
-   exec sql open zauber_ein;
-   SQLerror::test(__FILELINE__);
-   int count=0;
-   laden_label->show();
-   while (true)
-      {
-       exec sql fetch zauber_ein into :db_name;
-       SQLerror::test(__FILELINE__,100);  
-       if (sqlca.sqlcode) break;
-       laden_label->set_text(itos(++count)+" Zauber geladen");
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-       cH_Zauber zauber(db_name);  
-       if (zauber->Zauberart()=="Zaubersalz" && !checkbutton_zaubersalze->get_active())
-          continue;
-       if (zauber->Zauberart()=="Beschwörung" && !checkbutton_beschwoerungen->get_active())
-          continue;
-       if (region_check(zauber->Region()))
-          list_Zauber_neu.push_back(zauber);            
-      }
-   laden_label->hide();
-   exec sql close zauber_ein;
-   tr.commit();
-   zauber_zeigen();
+  zauber_zeigen();
 }
 
 void midgard_CG::zauber_zeigen()
@@ -271,9 +230,6 @@ void midgard_CG::move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zaub
  zauberwerk_zeigen();
 }
 
-
-
-
 void midgard_CG::on_leaf_selected_alte_zauberwerk(cH_RowDataBase d)
 {  
   const Data_zaubermittel *dt=dynamic_cast<const Data_zaubermittel*>(&*d);
@@ -322,48 +278,15 @@ void midgard_CG::show_neues_zauberwerk()
 void midgard_CG::zauberwerk_laden()
 {
  list_Zauberwerk_neu.clear();
- if (!checkbutton_zaubermittel->get_active()) return ;
- exec sql begin declare section;
-   char db_name[50];
-   char query[1024];
- exec sql end declare section;
- std::string alle_zauber="";
- if (!checkbutton_alle_zauber->get_active() )
-   {
-    if (Typ[0]->is_mage()) alle_zauber += " ("+Typ[0]->Short()+" = 'G' OR "+Typ[0]->Short()+" = 'S' OR "+Typ[0]->Short()+" = 'A') AND ";
-    if (Typ[1]->is_mage()) alle_zauber += " ("+Typ[1]->Short()+" = 'G' OR "+Typ[1]->Short()+" = 'S' OR "+Typ[1]->Short()+" = 'A') AND ";
-   }
-
- std::string squery = "select name from zauberwerk \
-   where "+alle_zauber+" name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
-   WHERE charakter_name = '"+Werte.Name_Charakter()+"' \
-   AND version = '"+Werte.Version()+"') order by name";
-
- strncpy(query,squery.c_str(),sizeof(query));
-//cout << query<<"\n";
- Transaction tr;
- exec sql prepare zauberm_ein_ from :query ;
- exec sql declare zauberm_ein cursor for zauberm_ein_ ;
- exec sql open zauberm_ein;
- SQLerror::test(__FILELINE__);
- int count=0;
- laden_label->show();
- while (true)
-   {
-     exec sql fetch zauberm_ein into :db_name;
-     SQLerror::test(__FILELINE__,100);  
-     if (sqlca.sqlcode) break;
-     laden_label->set_text(itos(++count)+" Zauberwerk geladen");
-     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-
-     cH_Zauberwerk zauberwerk(db_name,Typ);
-     if ( (Zauber::zauberwerk_voraussetzung(db_name,Werte) || checkbutton_alle_zauber->get_active() )
-         && region_check(zauberwerk->Region()))
-       {
-         list_Zauberwerk_neu.push_back(zauberwerk);
-       }
-   }
- laden_label->hide();
- exec sql close zauberm_ein;
- tr.commit();
+ Zauberwerk_All ZWA;
+ std::list<cH_Zauberwerk> list_tmp=ZWA.get_All();
+ for (std::list<cH_Zauberwerk>::const_iterator i=list_tmp.begin();i!=list_tmp.end();++i)
+  {
+   if ((*i)->ist_gelernt(list_Zauberwerk)) continue ;
+   if (((*i)->ist_lernbar(Typ) 
+         && Zauberwerk::zauberwerk_voraussetzung((*i)->Name(),Werte)) 
+         || checkbutton_alle_zauber->get_active() )
+    if (region_check((*i)->Region()) )
+      list_Zauberwerk_neu.push_back(*i);
+  }
 }

@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.cc,v 1.19 2001/08/17 14:31:09 thoma Exp $
+// $Id: Window_Geld_eingeben.cc,v 1.20 2001/10/21 21:21:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,14 +32,13 @@
 
 void Window_Geld_eingeben::on_button_close_clicked()
 {   
-#warning DAS finde ich blöd MAT
   gtk_spin_button_update(spinbutton_gold->gtkobj());
   gtk_spin_button_update(spinbutton_silber->gtkobj());
   gtk_spin_button_update(spinbutton_kupfer->gtkobj());
    Werte.set_Geld(atoi(spinbutton_gold->get_text().c_str()),
                   atoi(spinbutton_silber->get_text().c_str()),
                   atoi(spinbutton_kupfer->get_text().c_str()));
-   if (back == true) oberfenster->Geld();
+   if (back == true) oberfenster->show_Geld();
    else hauptfenster->Geld_uebernehmen();
    destroy();
 }
@@ -52,9 +51,7 @@ Window_Geld_eingeben::Window_Geld_eingeben(Window_Waffe_Geld* h,Grundwerte& w)
 {
   oberfenster = h;
   back = true;
-  spinbutton_gold->set_text(itos(Werte.Gold()));
-  spinbutton_silber->set_text(itos(Werte.Silber()));
-  spinbutton_kupfer->set_text(itos(Werte.Kupfer()));
+  show_Geld();
 }
 
 Window_Geld_eingeben::Window_Geld_eingeben(midgard_CG* h,Grundwerte& w)
@@ -62,6 +59,11 @@ Window_Geld_eingeben::Window_Geld_eingeben(midgard_CG* h,Grundwerte& w)
 {
   hauptfenster = h;
   back = false;
+  show_Geld();
+}
+
+void Window_Geld_eingeben::show_Geld()
+{
   spinbutton_gold->set_text(itos(Werte.Gold()));
   spinbutton_silber->set_text(itos(Werte.Silber()));
   spinbutton_kupfer->set_text(itos(Werte.Kupfer()));

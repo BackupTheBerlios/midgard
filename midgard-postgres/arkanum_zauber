@@ -673,8 +673,6 @@ Levitation	1500	4	Gedanke	4	Luft	bewegt	Erde	20 s	-	Körper	Z	30 min	göttlich		ni
 Paschuyana, der Weg des Tieres	5000	6	Geste	5	Luft	bewegt	Luft	30 min	B	Geist	1 Ws	-	göttlich		nicht		\N	\N	\N	\N	A	\N	\N	\N	\N	\N	A	A	A	A	A	A	A	S	S	\N	\N	\N	\N	\N	\N	R	\N	\N	\N	\N	\N	\N	\N
 Rückführung	1800	4	Geste	4	Magan	erkennt	Luft	10 min	B	Geist	1 Ws	2 h	göttlich		nicht		\N	\N	\N	\N	A	\N	\N	S	\N	\N	A	A	A	A	A	A	S	A	S	\N	\N	\N	\N	\N	\N	R	\N	\N	\N	\N	\N	\N	G
 Seele finden	600	3	Geste	3	Luft	erkennt	Luft	1 min	-	Geist	1 Ws	0	göttlich	Haare des Toten	nicht		\N	\N	\N	\N	\N	\N	A	G	\N	\N	G	G	G	G	G	G	G	G	\N	A	\N	\N	\N	\N	A	R	\N	\N	\N	\N	\N	\N	G
-Der große Seiltrick	6000	6	Geste	5	Magan	bewegt	Erde	-	0	Umgebung	1 Ws	6 h	göttlich		nicht				S				S		A											S					S	R	\N	\N	\N	\N	\N		G
-Der kleine Seiltrick	1600	4	Geste	4	Magan	bewegt	Erde	-	500 m	Umgebung	1 Ws	5 min	göttlich		nicht				S				S		A											S					S	R	\N	\N	\N	\N	\N		G
 Srimarameisterschaft I	400	SGr*2	Wort	2	Magan	beherrscht	Wasser	10 s	30 m	Geist	Gr Ws	var h	dämonisch		nicht	Siegel					S		A	S	S											S					A	R	\N	\N	\N	\N		G	
 Srimarameisterschaft II	600	SGr*3	Wort	3	Magan	beherrscht	Luft	20 s	30 m	Geist	Gr Ws	var	dämonisch		nicht	Siegel					S		A	S	S											S					A	R	\N	\N	\N	\N	\N	G	
 Wasserlauf	800	3	Gedanke	3	Wasser	bewegt	Erde	20 s	0	Körper	selbst	10 min	elementar			Siegel					S		A	A	A		A	A	A	A	A	S	A	A		A			G		A	\N	\N	\N	\N	\N	\N		G
@@ -736,4 +734,6 @@ Verjüngen	15000	alle (min 8)	Geste	G	Holz	verändert	Erde	6 h	1 m	Körper	1 Ws	0	d
 Manifestation des Ka	15000	18	Geste	G	Magan	erschafft	Erde	6 h	3 m	Geist	1 Ws	-	dämonisch	Wachsbad mit seltenen Essenzen	nicht					G	S	G	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N	\N	\N	\N	\N		S
 Seelenraub	12000	18	Geste	G	Magan	bewegt	Luft	30 min	0	Körper	bis 12 Ws	-	schwarzmagisch		nicht					G	S	A	A												S	G						E	\N	\N	\N	\N	\N		S
 Tausch des Ba	20000	18	Geste	G	Magan	bewegt	Luft	3 h	15 m	Geist	2 Ws	-	dämonisch	Silberdraht	nicht					G	S	G	S				G	S	S	S	S	S	S	S	G	S		G			S	E	\N	\N	\N	\N	\N		G
+Der große Seiltrick	6000	6	Geste	5	Magan	bewegt	Erde	-	0	Umgebung	1 Ws	6 h	göttlich		nicht								S		A											S					S	R	\N	\N	\N	\N	\N		G
+Der kleine Seiltrick	1600	4	Geste	4	Magan	bewegt	Erde	-	500 m	Umgebung	1 Ws	5 min	göttlich		nicht								S		A											S					S	R	\N	\N	\N	\N	\N		G
 \.

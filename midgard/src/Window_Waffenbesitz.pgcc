@@ -79,7 +79,7 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
 
 //  cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
 
-cout << Waffe_Besitz.size()<<'\n';
+//cout << Waffe_Besitz.size()<<'\n';
   for (std::list<H_WaffeBesitz>::iterator i=Waffe_Besitz.begin();i!=Waffe_Besitz.end();++i)
    { 
 //     if ((*i)==dt)
@@ -146,7 +146,7 @@ void Window_Waffenbesitz::zeige_waffen()
 void  Window_Waffenbesitz::show_alte_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
-cout <<"Alte größe = " <<Waffe_Besitz.size()<<'\n';
+//cout <<"Alte größe = " <<Waffe_Besitz.size()<<'\n';
 
   for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz.begin();i!=Waffe_Besitz.end();++i)
      datavec.push_back(new Data_waffenbesitz(*i,Werte));

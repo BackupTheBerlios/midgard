@@ -1,0 +1,7903 @@
+--
+-- Selected TOC Entries:
+--
+DROP INDEX "zauber_typen_name_typ";
+DROP TABLE "zauber_typen";
+--
+-- TOC Entry ID 2 (OID 23222786)
+--
+-- Name: zauber_typen Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "zauber_typen" (
+	"name" text NOT NULL,
+	"typ" text NOT NULL,
+	"standard" text NOT NULL
+);
+
+--
+-- Data for TOC Entry ID 4 (OID 23222786) TABLE DATA zauber_typen
+--
+
+COPY "zauber_typen"  FROM stdin;
+Abwenden von Blicken	Ma	S
+Aggression	Ma	A
+Angst	Ma	S
+Anziehen	Ma	A
+Auflösung	Ma	S
+Augenschleier	Ma	S
+Automat schaffen	Ma	S
+Bann der wahren Eigentümerschaft	Ma	S
+Bannen des Todes	Ma	S
+Bannen von Dunebargen	Ma	A
+Bannen von Dunkelheit	Ma	A
+Bannen von Dvergar	Ma	A
+Bannen von Fäulnis	Ma	A
+Bannen von Hrimfolk	Ma	A
+Bannen von Hrimkin	Ma	A
+Bannen von Hunar	Ma	A
+Bannen von Hyrfolk	Ma	A
+Bannen von Hyrrkin	Ma	A
+Bannen von Jördfolk	Ma	A
+Bannen von Jördkin	Ma	A
+Bannen von Kaobargen	Ma	A
+Bannen von Kälte	Ma	A
+Bannen von Licht	Ma	A
+Bannen von Vindfolk	Ma	A
+Bannen von Vindskin	Ma	A
+Bannen von Wisfolk	Ma	A
+Bannen von Wiskin	Ma	A
+Bannen von Zauberwerk	Ma	S
+Bannsphäre, Blaue	Ma	S
+Bannsphäre, Goldene	Ma	S
+Bannsphäre, Schwarze	Ma	G
+Bannsphäre, Silberne	Ma	S
+Baum	Ma	A
+Beeinflussen	Ma	S
+Befestigen	Ma	S
+Belebungshauch	Ma	S
+Bergeist beschwören	Ma	A
+Bergeist rufen	Ma	A
+Beschleunigen	Ma	S
+Bittersalz	Ma	A
+Blenden	Ma	S
+Blendwerk	Ma	S
+Blicksalz	Ma	A
+Blindsalz	Ma	A
+Blitze schleudern	Ma	S
+Brechsalz	Ma	A
+Brot und Wasser	Ma	S
+Bruchbann	Ma	G
+Bärenstärke	Ma	A
+Cheprus Sendbote	Ma	S
+Coluscar 1 beschwören	Ma	A
+Coluscar 2 beschwören	Ma	A
+Coluscar 3 beschwören	Ma	A
+Coluscar 4 beschwören	Ma	A
+Deckmantel	Ma	S
+Der Große Knall	Ma	G
+Der große Seiltrick	Ma	A
+Der kleine Seiltrick	Ma	A
+Dinge rufen	Ma	S
+Dinge verbergen	Ma	S
+Dinge wiederfinden	Ma	S
+Donnerkeil	Ma	S
+Doppelgänger schaffen	Ma	G
+Dschinn beschwören	Ma	A
+Dschinn rufen	Ma	A
+Dschinni-Auge	Ma	S
+Dschinni-Horn	Ma	S
+Dschinni-Ohr	Ma	S
+Dschungelwand	Ma	S
+Dunebrast 1 beschwören	Ma	A
+Dunebrast 2 beschwören	Ma	A
+Dunebrast 3 beschwören	Ma	A
+Dunebrast 4 beschwören	Ma	A
+Dunkle Horde beschwören	Ma	A
+Dunskrat beschwören	Ma	A
+Durstsalz	Ma	A
+Dämonen binden	Ma	A
+Dämonenbann	Ma	A
+Dämonenfeuer	Ma	A
+Dämonenschar beschwören	Ma	A
+Eiselementargeist beschwören	Ma	A
+Eisenhaut	Ma	S
+Eisiger Nebel	Ma	S
+Eismeisterschaft	Ma	S
+Eiswand	Ma	S
+Eiswandlung	Ma	S
+Eldring beschwören	Ma	A
+Elementarbann	Ma	A
+Elementarwesen binden	Ma	A
+Elementenwandlung	Ma	S
+Elfenfeuer	Ma	S
+Erdbeben	Ma	A
+Erdeelementargeist beschwören	Ma	A
+Erdfessel	Ma	S
+Erdmeisterschaft	Ma	S
+Erdwandlung	Ma	S
+Erkennen von Gift	Ma	S
+Erkennen von Leben	Ma	G
+Erkennen von Metall	Ma	A
+Erkennen von Verdammten	Ma	A
+Erkennen von Zauberei	Ma	G
+Erkurku beschwören	Ma	A
+Erkurku rufen	Ma	A
+Erscheinungen	Ma	S
+Farbensalz	Ma	A
+Feenfluch	Ma	S
+Feenzauber	Ma	S
+Felldvegar beschwören	Ma	A
+Felldverg beschwören	Ma	A
+Felsenfaust	Ma	A
+Fengrip beschwören	Ma	A
+Fesselbann	Ma	S
+Feuerelementargeist beschwören	Ma	A
+Feuerfinger	Ma	S
+Feuerkugel	Ma	S
+Feuerlanze	Ma	S
+Feuerlauf	Ma	A
+Feuermeisterschaft	Ma	S
+Feuerregen	Ma	S
+Feuerring	Ma	S
+Feuerschild	Ma	G
+Feuerspiel	Ma	S
+Feuerwand	Ma	S
+Fiebersalz	Ma	A
+Fjalhune beschwören	Ma	A
+Flammende Hand	Ma	S
+Flammenklinge	Ma	S
+Flammenkreis	Ma	S
+Fliegen	Ma	S
+Fliegensalz	Ma	A
+Fossemand beschwören	Ma	A
+Freundesauge	Ma	S
+Frostball	Ma	S
+Funkenregen	Ma	S
+Funkensalz	Ma	A
+Färbersalz	Ma	A
+Geist beschwören	Ma	A
+Geistesschild	Ma	G
+Geruchsverlust	Ma	S
+Gjornhune beschwören	Ma	A
+Gletschergnom beschwören	Ma	A
+Gletschergnom rufen	Ma	A
+Gloddvegar beschwören	Ma	A
+Gloddverg beschwören	Ma	A
+Glühsalz	Ma	A
+Goldener Panzer	Ma	S
+Golem schaffen	Ma	A
+Graue Hand	Ma	S
+Grenzenlose Freude	Ma	A
+Grüne Hand	Ma	A
+Haarsalz	Ma	A
+Halebant 1 beschwören	Ma	A
+Halebant 2 beschwören	Ma	A
+Halebant 3 beschwören	Ma	A
+Halebant 4 beschwören	Ma	A
+Hammerhand	Ma	G
+Hardlogi beschwören	Ma	A
+Harkarhune beschwören	Ma	A
+Harkbuar beschwören	Ma	A
+Hauch der Verwesung	Ma	S
+Hauch der Wüste	Ma	S
+Hauch des Frühlings	Ma	S
+Hauch des Winters	Ma	S
+Haugskadi beschwören	Ma	A
+Heimstein	Ma	G
+Heranholen	Ma	G
+Herbeizwingen	Ma	A
+Hexenhand	Ma	S
+Himmelsleiter	Ma	S
+Hitzeschutz	Ma	A
+Hitzsalz	Ma	A
+Hrimdvegar beschwören	Ma	A
+Hrimdverg beschwören	Ma	A
+Hrimhune beschwören	Ma	A
+Hungersalz	Ma	A
+Hyrrbauti beschwören	Ma	A
+Hören der Geister	Ma	G
+Hören von Fernem	Ma	G
+Hörnerklang	Ma	S
+Ifrit beschwören	Ma	A
+Ifrit rufen	Ma	A
+Incheper schaffen	Ma	A
+Indruwal 1 beschwören	Ma	A
+Indruwal 2 beschwören	Ma	A
+Indruwal 3 beschwören	Ma	A
+Indruwal 4 beschwören	Ma	A
+Ising beschwören	Ma	A
+Jambani beschwören	Ma	A
+Jokulskadi beschwören	Ma	A
+Jucksalz	Ma	A
+Jurugu beschwören	Ma	A
+Jurugu rufen	Ma	A
+Juwelenauge	Ma	G
+Jördmand beschwören	Ma	A
+Kaligin 1 beschwören	Ma	A
+Kaligin 2 beschwören	Ma	A
+Kaligin 3 beschwören	Ma	A
+Kaligin 4 beschwören	Ma	A
+Kallbjargi beschwören	Ma	A
+Kallrani beschwören	Ma	A
+Kammerdiener beschwören	Ma	S
+Karing beschwören	Ma	A
+Klebesalz	Ma	A
+Knallsalz	Ma	A
+Knochenbestie	Ma	A
+Kopieren	Ma	S
+Kravyad-Schrei	Ma	S
+Kreatur erschaffen	Ma	A
+Kuß des Schlafes	Ma	S
+Kälteschutz	Ma	A
+Kühlsalz	Ma	A
+Lachsalz	Ma	A
+Lahmsalz	Ma	A
+Lauschen	Ma	G
+Lehrersuche	Ma	S
+Leomies Birneneis	Ma	A
+Lergris beschwören	Ma	A
+Levitation	Ma	S
+Lichtbrücke	Ma	S
+Lichtrunen	Ma	G
+Liebeszauber	Ma	A
+Liniensicht	Ma	S
+Ljosfang beschwören	Ma	A
+Luftelementargeist beschwören	Ma	A
+Luftlauf	Ma	A
+Luftsphäre	Ma	S
+Luftspiegelung	Ma	S
+Lustsalz	Ma	A
+Lähmung	Ma	S
+Löschsalz	Ma	A
+Macht über Leben	Ma	G
+Macht über Menschen	Ma	G
+Macht über Mumien	Ma	G
+Macht über Unbelebtes	Ma	G
+Macht über das Selbst	Ma	G
+Macht über den Tod	Ma	G
+Macht über die Sinne	Ma	G
+Macht über die Zeit	Ma	G
+Macht über die belebte Natur	Ma	G
+Macht über magische Wesen	Ma	G
+Magische Aura	Ma	G
+Magischer Kreis des Bewachens	Ma	S
+Magischer Kreis des Verschleierns	Ma	S
+Magischer Kreis des Widerstehens	Ma	S
+Magischer Kreis, klein	Ma	S
+Magischer Spion	Ma	S
+Marhune beschwören	Ma	A
+Marid beschwören	Ma	A
+Marid rufen	Ma	A
+Marmennil beschwören	Ma	A
+Marmorhaut	Ma	S
+Megant 1 beschwören	Ma	A
+Megant 2 beschwören	Ma	A
+Megant 3 beschwören	Ma	A
+Megant 4 beschwören	Ma	A
+Meisterbann	Ma	A
+Metallmeisterschaft	Ma	S
+Mokkurbjargi beschwören	Ma	A
+Myrknir beschwören	Ma	A
+Namenloses Grauen	Ma	S
+Nebel schaffen	Ma	S
+Nebel wecken	Ma	A
+Nebelsalz	Ma	A
+Nefling beschwören	Ma	A
+Niessalz	Ma	A
+Person beschwören	Ma	A
+Person wiederfinden	Ma	S
+Pestklaue	Ma	S
+Pflanzenfessel	Ma	A
+Pflanzenmann	Ma	A
+Rauchsalz	Ma	A
+Rauchwolke	Ma	S
+Rauschsalz	Ma	A
+Regenzauber	Ma	S
+Reinigen	Ma	A
+Reise der Seele	Ma	G
+Reise in die Zeit	Ma	G
+Reise zu den Sphären	Ma	G
+Reptilien rufen	Ma	A
+Riechsalz	Ma	A
+Rindenhaut	Ma	A
+Rost	Ma	S
+Rutschsalz	Ma	A
+Saeldvegar beschwören	Ma	A
+Saeldverg beschwören	Ma	A
+Sandmeisterschaft	Ma	S
+Scharfblick	Ma	G
+Schattenbruder	Ma	S
+Scheintod	Ma	S
+Schlaf	Ma	S
+Schlafsalz	Ma	A
+Schleichsalz	Ma	A
+Schmerzen	Ma	S
+Schminken	Ma	S
+Schreiber beschwören	Ma	S
+Schrumpfen	Ma	S
+Schutzkreis gegen Dunebargen	Ma	A
+Schutzkreis gegen Dvergar	Ma	A
+Schutzkreis gegen Dämonen	Ma	A
+Schutzkreis gegen Elementarwesen	Ma	A
+Schutzkreis gegen Geisterwesen	Ma	A
+Schutzkreis gegen Hrimfolk	Ma	A
+Schutzkreis gegen Hunar	Ma	A
+Schutzkreis gegen Hyrrfolk	Ma	A
+Schutzkreis gegen Jördfolk	Ma	A
+Schutzkreis gegen Kaobargen	Ma	A
+Schutzkreis gegen Untote	Ma	A
+Schutzkreis gegen Vindfolk	Ma	A
+Schutzkreis gegen Wisfolk	Ma	A
+Schwarm	Ma	A
+Schwarze Zone	Ma	G
+Schweben	Ma	S
+Schwäche	Ma	S
+Schöne Leiche	Ma	A
+Seance	Ma	A
+Seelenkompaß	Ma	S
+Seelenschock	Ma	S
+Sehen in Dunkelheit	Ma	G
+Sehen von Verborgenem	Ma	G
+Serkefs Todesbote	Ma	S
+Signalkugel	Ma	S
+Silberstaub	Ma	S
+Snaerhamir beschwören	Ma	A
+Sprachlähmung	Ma	S
+Spruch intensivieren	Ma	G
+Srimarameisterschaft I	Ma	S
+Srimarameisterschaft II	Ma	S
+Staubkämpfer	Ma	S
+Steinkugel	Ma	S
+Steinwand	Ma	S
+Stille	Ma	S
+Stimmenwerfen	Ma	S
+Stottersalz	Ma	A
+Sturmflut	Ma	S
+Sturmhand	Ma	S
+Sturmwind	Ma	S
+Stärke	Ma	S
+Sumpfboden	Ma	S
+Sutechs Heer	Ma	A
+Svalgrim beschwören	Ma	A
+Thrymbar beschwören	Ma	A
+Thrymbar eschwören	Ma	A
+Thursenstein	Ma	A
+Tiefschlaf	Ma	S
+Tiere rufen	Ma	A
+Tiergestalt	Ma	A
+Tierisches Handeln	Ma	S
+Tiersprache	Ma	S
+Todeshauch	Ma	S
+Todeszauber	Ma	S
+Tor schaffen	Ma	A
+Trampelsalz	Ma	A
+Trockensalz	Ma	A
+Trunk des Lebens	Ma	S
+Truscan 1 beschwören	Ma	A
+Truscan 2 beschwören	Ma	A
+Truscan 3 beschwören	Ma	A
+Truscan 4 beschwören	Ma	A
+Umkehrschild	Ma	S
+Ungeheuer rufen	Ma	S
+Ungeziefer bannen	Ma	A
+Unsichtbarkeit	Ma	S
+Verdorren	Ma	S
+Vereisen	Ma	S
+Vergangenheit beschwören	Ma	A
+Vergrößern	Ma	S
+Verjüngen	Ma	S
+Verkleinern	Ma	S
+Verlangsamen	Ma	S
+Versetzen	Ma	S
+Versteinern	Ma	S
+Vertieren	Ma	S
+Verwandlung	Ma	S
+Verwirren	Ma	S
+Verzweiflung	Ma	S
+Vinddvegar beschwören	Ma	A
+Vinddverg beschwören	Ma	A
+Vindmand beschwören	Ma	A
+Wachsen	Ma	S
+Wagemut	Ma	A
+Wahnsinn	Ma	S
+Wahrsehen	Ma	S
+Waldluft	Ma	S
+Wandelhand	Ma	S
+Wandelsalz	Ma	A
+Warnung	Ma	S
+Wasser befreien	Ma	S
+Wasser spüren	Ma	A
+Wasseratmen	Ma	A
+Wasserelementargeist beschwören	Ma	A
+Wasserlauf	Ma	A
+Wassermeisterschaft	Ma	S
+Wassersalz	Ma	A
+Wasserstrahl	Ma	S
+Wasserwandlung	Ma	S
+Wehsalz	Ma	A
+Weltentor schaffen	Ma	A
+Wetterzauber	Ma	S
+Wiederkehr	Ma	S
+Windmeisterschaft	Ma	S
+Windstoß	Ma	A
+Wirbelwind	Ma	S
+Wittern	Ma	A
+Wolkenbruch	Ma	S
+Wort des Todes	Ma	A
+Wüstenwind	Ma	S
+Zauberauge	Ma	S
+Zauberhand	Ma	S
+Zaubermacht	Ma	G
+Zauberschild	Ma	S
+Zauberschloß	Ma	S
+Zauberschlüssel	Ma	S
+Zauberschmiede	Ma	S
+Zauberstimme	Ma	S
+Zaubertür	Ma	S
+Zauberwirklichkeit	Ma	S
+Zauberzunge	Ma	S
+Zielsuche	Ma	S
+Zucksalz	Ma	A
+Zurückführen	Ma	S
+Zweite Haut	Ma	G
+Zwiesprache	Ma	S
+Zündersalz	Ma	A
+Abwenden von Blicken	PT	A
+Allheilung	PT	G
+Angst	PT	S
+Aufladen	PT	S
+Auflösung	PT	G
+Augenschleier	PT	S
+Austreibung des Bösen	PT	G
+Austreibung des Guten	PT	S
+Bann der wahren Eigentümerschaft	PT	S
+Bannen des Todes	PT	S
+Bannen von Dunebargen	PT	A
+Bannen von Dunkelheit	PT	A
+Bannen von Dvergar	PT	A
+Bannen von Finsterwerk	PT	G
+Bannen von Fäulnis	PT	G
+Bannen von Hrimfolk	PT	A
+Bannen von Hrimkin	PT	A
+Bannen von Hunar	PT	A
+Bannen von Hyrfolk	PT	A
+Bannen von Hyrrkin	PT	A
+Bannen von Jördfolk	PT	A
+Bannen von Jördkin	PT	A
+Bannen von Kaobargen	PT	A
+Bannen von Kälte	PT	S
+Bannen von Licht	PT	G
+Bannen von Vindfolk	PT	A
+Bannen von Vindskin	PT	A
+Bannen von Wisfolk	PT	A
+Bannen von Wiskin	PT	A
+Bannen von Zauberwerk	PT	G
+Bannsphäre, Blaue	PT	G
+Bannsphäre, Goldene	PT	G
+Bannsphäre, Schwarze	PT	S
+Bannsphäre, Silberne	PT	S
+Beeinflussen	PT	S
+Belebungshauch	PT	S
+Bergeist beschwören	PT	A
+Bergeist rufen	PT	A
+Beschleunigen	PT	S
+Besänftigen	PT	S
+Bittersalz	PT	A
+Blenden	PT	S
+Blendwerk	PT	S
+Blicksalz	PT	A
+Blindsalz	PT	A
+Blitze schleudern	PT	S
+Blutwandlung	PT	S
+Brechsalz	PT	A
+Brot und Wasser	PT	A
+Bruchbann	PT	S
+Cheprus Sendbote	PT	S
+Coluscar 1 beschwören	PT	A
+Coluscar 2 beschwören	PT	A
+Coluscar 3 beschwören	PT	A
+Coluscar 4 beschwören	PT	A
+Deckmantel	PT	S
+Dinge verbergen	PT	S
+Dinge wiederfinden	PT	S
+Donnerkeil	PT	S
+Dschinn beschwören	PT	A
+Dschinn rufen	PT	A
+Dschinni-Auge	PT	S
+Dschinni-Horn	PT	G
+Dschinni-Ohr	PT	S
+Dschungelwand	PT	S
+Dunebrast 1 beschwören	PT	A
+Dunebrast 2 beschwören	PT	A
+Dunebrast 3 beschwören	PT	A
+Dunebrast 4 beschwören	PT	A
+Dunkle Horde beschwören	PT	A
+Dunskrat beschwören	PT	A
+Durstsalz	PT	A
+Dämonen binden	PT	A
+Dämonenbann	PT	A
+Dämonenschar beschwören	PT	A
+Eifersucht	PT	G
+Eiselementargeist beschwören	PT	A
+Eisenhaut	PT	S
+Eisiger Nebel	PT	G
+Eismeisterschaft	PT	G
+Eiswand	PT	G
+Eiswandlung	PT	G
+Eldring beschwören	PT	A
+Elementarbann	PT	A
+Elementarwesen binden	PT	A
+Elementenwandlung	PT	A
+Elfenfeuer	PT	A
+Entfesseln	PT	S
+Entgiften	PT	S
+Erdbeben	PT	A
+Erdeelementargeist beschwören	PT	A
+Erdfessel	PT	S
+Erdmeisterschaft	PT	S
+Erkennen der Aura	PT	G
+Erkennen von Gift	PT	S
+Erkennen von Krankheit	PT	S
+Erkennen von Leben	PT	A
+Erkennen von Verdammten	PT	S
+Erkurku beschwören	PT	A
+Erkurku rufen	PT	A
+Erscheinungen	PT	S
+Farbensalz	PT	A
+Feenfluch	PT	A
+Feenzauber	PT	A
+Felldvegar beschwören	PT	A
+Felldverg beschwören	PT	A
+Felsenfaust	PT	S
+Fengrip beschwören	PT	A
+Fesselbann	PT	S
+Feuerelementargeist beschwören	PT	A
+Feuerfinger	PT	A
+Feuerkugel	PT	S
+Feuerlanze	PT	S
+Feuerlauf	PT	A
+Feuermeisterschaft	PT	A
+Feuerregen	PT	A
+Feuerring	PT	A
+Feuerschild	PT	G
+Feuerwand	PT	S
+Fiebersalz	PT	A
+Fjalhune beschwören	PT	A
+Flammenklinge	PT	S
+Flammenkreis	PT	S
+Fliegen	PT	S
+Fliegensalz	PT	A
+Fluch des Hundes	PT	A
+Fossemand beschwören	PT	A
+Freundesauge	PT	S
+Frostball	PT	G
+Funkenregen	PT	S
+Funkensalz	PT	A
+Fährtenduft	PT	S
+Färbersalz	PT	A
+Geas	PT	S
+Geist beschwören	PT	A
+Geistesschild	PT	S
+Geruchsverlust	PT	A
+Gjornhune beschwören	PT	A
+Gletschergnom beschwören	PT	A
+Gletschergnom rufen	PT	A
+Gloddvegar beschwören	PT	A
+Gloddverg beschwören	PT	A
+Glühsalz	PT	A
+Goldener Panzer	PT	S
+Golem schaffen	PT	S
+Graue Hand	PT	S
+Großer Hitzeschutz	PT	S
+Grüne Hand	PT	A
+Göttliche Eingebung	PT	G
+Göttliche Strafe	PT	G
+Göttlicher Blitz	PT	G
+Göttlicher Schutz vor Magie	PT	G
+Göttlicher Schutz vor dem Bösen	PT	G
+Haarsalz	PT	A
+Hagel	PT	G
+Halebant 1 beschwören	PT	A
+Halebant 2 beschwören	PT	A
+Halebant 3 beschwören	PT	A
+Halebant 4 beschwören	PT	A
+Hammerhand	PT	A
+Handauflegen	PT	G
+Hardlogi beschwören	PT	A
+Harkarhune beschwören	PT	A
+Harkbuar beschwören	PT	A
+Hauch der Verwesung	PT	S
+Hauch des Winters	PT	G
+Haugskadi beschwören	PT	A
+Heilen schwerer Wunden	PT	G
+Heilen von Krankheit	PT	G
+Heilen von Wunden	PT	G
+Heiliger Zorn	PT	G
+Heiliges Wort	PT	G
+Heimstein	PT	G
+Heranholen	PT	S
+Herbeizwingen	PT	A
+Himmelsleiter	PT	S
+Hitzsalz	PT	A
+Hrimdvegar beschwören	PT	A
+Hrimdverg beschwören	PT	A
+Hrimhune beschwören	PT	A
+Hungersalz	PT	A
+Hyrrbauti beschwören	PT	A
+Hören der Geister	PT	A
+Hörnerklang	PT	S
+Ifrit beschwören	PT	A
+Ifrit rufen	PT	A
+Incheper schaffen	PT	G
+Indruwal 1 beschwören	PT	A
+Indruwal 2 beschwören	PT	A
+Indruwal 3 beschwören	PT	A
+Indruwal 4 beschwören	PT	A
+Ising beschwören	PT	A
+Jambani beschwören	PT	A
+Jokulskadi beschwören	PT	A
+Jucksalz	PT	A
+Jurugu beschwören	PT	A
+Jurugu rufen	PT	A
+Juwelenauge	PT	S
+Jördmand beschwören	PT	A
+Kaligin 1 beschwören	PT	A
+Kaligin 2 beschwören	PT	A
+Kaligin 3 beschwören	PT	A
+Kaligin 4 beschwören	PT	A
+Kallbjargi beschwören	PT	A
+Kallrani beschwören	PT	A
+Kammerdiener beschwören	PT	A
+Karing beschwören	PT	A
+Klebesalz	PT	A
+Knallsalz	PT	A
+Kopieren	PT	G
+Kravyad-Schrei	PT	S
+Kreatur erschaffen	PT	A
+Kuß des Schlafes	PT	A
+Kälteschutz	PT	S
+Kühlsalz	PT	A
+Lachsalz	PT	A
+Lahmsalz	PT	A
+Lehrersuche	PT	S
+Leomies Birneneis	PT	A
+Lergris beschwören	PT	A
+Levitation	PT	S
+Lichtbrücke	PT	S
+Lichtrunen	PT	S
+Lindern von Entkräftung	PT	A
+Liniensicht	PT	A
+Ljosfang beschwören	PT	A
+Luftelementargeist beschwören	PT	A
+Luftlauf	PT	A
+Luftsphäre	PT	S
+Luftspiegelung	PT	S
+Lustsalz	PT	A
+Lähmung	PT	S
+Löschsalz	PT	A
+Macht über Leben	PT	A
+Magischer Kreis des Bewachens	PT	S
+Magischer Kreis des Verschleierns	PT	S
+Magischer Kreis des Widerstehens	PT	S
+Magischer Kreis, klein	PT	S
+Manifestation des Ka	PT	G
+Marhune beschwören	PT	A
+Marid beschwören	PT	A
+Marid rufen	PT	A
+Marmennil beschwören	PT	A
+Marmorhaut	PT	S
+Megant 1 beschwören	PT	A
+Megant 2 beschwören	PT	A
+Megant 3 beschwören	PT	A
+Megant 4 beschwören	PT	A
+Meisterbann	PT	A
+Metallmeisterschaft	PT	S
+Mokkurbjargi beschwören	PT	A
+Mumie erwecken	PT	G
+Myrknir beschwören	PT	A
+Namenloses Grauen	PT	S
+Nebel schaffen	PT	S
+Nebel wecken	PT	A
+Nebelsalz	PT	A
+Nefling beschwören	PT	A
+Niessalz	PT	A
+Paschuyana, der Weg des Tieres	PT	A
+Person beschwören	PT	A
+Person wiederfinden	PT	S
+Pestklaue	PT	S
+Rauchsalz	PT	A
+Rauchwolke	PT	S
+Rauschsalz	PT	A
+Regenzauber	PT	S
+Reinigen	PT	S
+Reptilien rufen	PT	A
+Riechsalz	PT	A
+Ring des Lebens	PT	A
+Rost	PT	S
+Rutschsalz	PT	A
+Rückführung	PT	S
+Sa spenden	PT	G
+Saeldvegar beschwören	PT	A
+Saeldverg beschwören	PT	A
+Sandmeisterschaft	PT	S
+Scharfblick	PT	A
+Scheintod	PT	A
+Schlaf	PT	S
+Schlafsalz	PT	A
+Schlangenbiß	PT	G
+Schleichsalz	PT	A
+Schmerzen	PT	S
+Schmerzen spüren	PT	A
+Schminken	PT	A
+Schrumpfen	PT	S
+Schutzgeist	PT	S
+Schutzkreis gegen Dunebargen	PT	A
+Schutzkreis gegen Dvergar	PT	A
+Schutzkreis gegen Dämonen	PT	A
+Schutzkreis gegen Elementarwesen	PT	A
+Schutzkreis gegen Geisterwesen	PT	A
+Schutzkreis gegen Hrimfolk	PT	A
+Schutzkreis gegen Hunar	PT	A
+Schutzkreis gegen Hyrrfolk	PT	A
+Schutzkreis gegen Jördfolk	PT	A
+Schutzkreis gegen Kaobargen	PT	A
+Schutzkreis gegen Untote	PT	A
+Schutzkreis gegen Vindfolk	PT	A
+Schutzkreis gegen Wisfolk	PT	A
+Schwarze Zone	PT	S
+Schweben	PT	S
+Schwingenkeule	PT	A
+Schwäche	PT	S
+Schöne Leiche	PT	G
+Seele finden	PT	G
+Seelenheilung	PT	S
+Seelenkompaß	PT	S
+Seelenschock	PT	S
+Segnen	PT	G
+Serkefs Todesbote	PT	G
+Silberstaub	PT	S
+Snaerhamir beschwören	PT	A
+Spruch intensivieren	PT	S
+Staubkämpfer	PT	S
+Steinkugel	PT	S
+Steinwand	PT	S
+Stille	PT	G
+Stimmenwerfen	PT	S
+Stottersalz	PT	A
+Sturmflut	PT	S
+Sturmhand	PT	S
+Sturmwind	PT	S
+Stärke	PT	S
+Sumpfboden	PT	S
+Svalgrim beschwören	PT	A
+Tausch des Ba	PT	S
+Thrymbar beschwören	PT	A
+Thrymbar eschwören	PT	A
+Thursenstein	PT	A
+Tiefschlaf	PT	S
+Tierisches Handeln	PT	S
+Tiersprache	PT	A
+Todeshauch	PT	S
+Todeszauber	PT	G
+Tor schaffen	PT	A
+Trampelsalz	PT	A
+Trockensalz	PT	A
+Truscan 1 beschwören	PT	A
+Truscan 2 beschwören	PT	A
+Truscan 3 beschwören	PT	A
+Truscan 4 beschwören	PT	A
+Umkehrschild	PT	A
+Unsichtbarkeit	PT	S
+Vereisen	PT	G
+Verfluchen	PT	G
+Vergangenheit beschwören	PT	A
+Vergiften	PT	G
+Vergrößern	PT	S
+Verjüngen	PT	A
+Verkleinern	PT	S
+Verlangsamen	PT	S
+Versetzen	PT	S
+Versteinern	PT	S
+Vertieren	PT	A
+Verwandlung	PT	S
+Verzweiflung	PT	S
+Vinddvegar beschwören	PT	A
+Vinddverg beschwören	PT	A
+Vindmand beschwören	PT	A
+Wachsen	PT	S
+Wagemut	PT	G
+Wahnsinn	PT	S
+Wahrsehen	PT	G
+Waldluft	PT	A
+Wandelsalz	PT	A
+Warnung	PT	G
+Wasser befreien	PT	A
+Wasser spüren	PT	A
+Wasseratmen	PT	A
+Wasserelementargeist beschwören	PT	A
+Wasserlauf	PT	A
+Wassermeisterschaft	PT	A
+Wassersalz	PT	A
+Wasserstrahl	PT	S
+Wasserwandlung	PT	G
+Wehsalz	PT	A
+Weltentor schaffen	PT	A
+Wetterzauber	PT	S
+Wiederkehr	PT	S
+Windmeisterschaft	PT	S
+Windstoß	PT	S
+Wirbelwind	PT	S
+Wolkenbruch	PT	S
+Wort der Trauer	PT	G
+Wort des Lebens	PT	G
+Wort des Todes	PT	S
+Wüstenwind	PT	S
+Zauberauge	PT	S
+Zauberhand	PT	S
+Zaubermacht	PT	S
+Zauberschild	PT	S
+Zauberschloß	PT	S
+Zauberschlüssel	PT	S
+Zauberschmiede	PT	S
+Zauberstimme	PT	S
+Zauberwirklichkeit	PT	S
+Zauberzunge	PT	S
+Zucksalz	PT	A
+Zweite Haut	PT	S
+Zwiesprache	PT	S
+Zwingkreis	PT	S
+Zündersalz	PT	A
+Abu es-Samum	Sc	S
+Abwenden von Blicken	Sc	S
+Aggression	Sc	S
+Ahnengeist beschwören	Sc	S
+Ain es-Samum	Sc	S
+Akbar fil-Ghadban	Sc	S
+Al-Ghussat	Sc	S
+Al-Karama	Sc	S
+Al-Mutadid	Sc	S
+Al-Tarka	Sc	S
+Allheilung	Sc	S
+Angst	Sc	G
+Aufladen	Sc	A
+Auflösung	Sc	A
+Augenschleier	Sc	A
+Austreibung des Bösen	Sc	S
+Austreibung des Guten	Sc	S
+Bannen des Todes	Sc	A
+Bannen von Dunebargen	Sc	A
+Bannen von Dunkelheit	Sc	G
+Bannen von Dvergar	Sc	A
+Bannen von Fäulnis	Sc	A
+Bannen von Gift	Sc	S
+Bannen von Hrimfolk	Sc	A
+Bannen von Hrimkin	Sc	A
+Bannen von Hunar	Sc	A
+Bannen von Hyrfolk	Sc	A
+Bannen von Hyrrkin	Sc	A
+Bannen von Jördfolk	Sc	A
+Bannen von Jördkin	Sc	A
+Bannen von Kaobargen	Sc	A
+Bannen von Kälte	Sc	G
+Bannen von Licht	Sc	G
+Bannen von Vindfolk	Sc	A
+Bannen von Vindskin	Sc	A
+Bannen von Wisfolk	Sc	A
+Bannen von Wiskin	Sc	A
+Bannen von Zauberwerk	Sc	A
+Bannsphäre, Blaue	Sc	S
+Bannsphäre, Goldene	Sc	A
+Bannsphäre, Schwarze	Sc	S
+Bannsphäre, Silberne	Sc	A
+Baumkämpfer	Sc	S
+Baumtor	Sc	G
+Baumwächter	Sc	S
+Beeinflussen	Sc	S
+Belebungshauch	Sc	A
+Bergeist beschwören	Sc	A
+Bergeist rufen	Sc	A
+Beschleunigen	Sc	S
+Besänftigen	Sc	A
+Binden von Srimara	Sc	A
+Bittersalz	Sc	A
+Blenden	Sc	G
+Blendwerk	Sc	A
+Blicksalz	Sc	A
+Blindsalz	Sc	A
+Blutmeisterschaft	Sc	A
+Blutsbrüderschaft stiften	Sc	G
+Blutwandlung	Sc	S
+Brechsalz	Sc	A
+Brot und Wasser	Sc	S
+Bruchbann	Sc	A
+Bärenstärke	Sc	G
+Bärenwut	Sc	G
+Böser Blick	Sc	A
+Cheprus Sendbote	Sc	G
+Coluscar 1 beschwören	Sc	A
+Coluscar 2 beschwören	Sc	A
+Coluscar 3 beschwören	Sc	A
+Coluscar 4 beschwören	Sc	A
+Dalail al-Khairat	Sc	S
+Dalail ed-Dawahi	Sc	S
+Das Essen nährt...	Sc	S
+Dau ed-Datin	Sc	S
+Dau ed-Din	Sc	S
+Deckmantel	Sc	A
+Der Große Knall	Sc	A
+Die Wiesenheuschrecke zirpt...	Sc	S
+Donnerkeil	Sc	A
+Doppelgänger schaffen	Sc	S
+Dschinn beschwören	Sc	A
+Dschinn rufen	Sc	A
+Dschungelwand	Sc	S
+Dunebrast 1 beschwören	Sc	A
+Dunebrast 2 beschwören	Sc	A
+Dunebrast 3 beschwören	Sc	A
+Dunebrast 4 beschwören	Sc	A
+Dunkle Horde beschwören	Sc	A
+Dunskrat beschwören	Sc	A
+Durstsalz	Sc	A
+Dämonen binden	Sc	A
+Dämonenbann	Sc	A
+Dämonenfeuer	Sc	S
+Dämonenschar beschwören	Sc	A
+Eiselementargeist beschwören	Sc	A
+Eisenhaut	Sc	A
+Eisiger Nebel	Sc	A
+Eismeisterschaft	Sc	S
+Eiswand	Sc	A
+Eiswandlung	Sc	S
+Eldring beschwören	Sc	A
+Elementarbann	Sc	A
+Elementarwesen binden	Sc	A
+Elementenwandlung	Sc	A
+Elfenfeuer	Sc	S
+Entfesseln	Sc	G
+Entgiften	Sc	A
+Erdbeben	Sc	G
+Erdeelementargeist beschwören	Sc	A
+Erdfessel	Sc	A
+Erdmeisterschaft	Sc	S
+Erdwandlung	Sc	S
+Erkennen der Aura	Sc	A
+Erkennen von Krankheit	Sc	S
+Erkennen von Leben	Sc	A
+Erkennen von Zauberei	Sc	A
+Erkurku beschwören	Sc	A
+Erkurku rufen	Sc	A
+Erscheinungen	Sc	S
+Farbensalz	Sc	A
+Feenfluch	Sc	A
+Feenzauber	Sc	A
+Felldvegar beschwören	Sc	A
+Felldverg beschwören	Sc	A
+Felsenfaust	Sc	G
+Fengrip beschwören	Sc	A
+Fesselbann	Sc	S
+Feuerelementargeist beschwören	Sc	A
+Feuerkugel	Sc	A
+Feuerlanze	Sc	A
+Feuerlauf	Sc	G
+Feuermeisterschaft	Sc	G
+Feuerregen	Sc	S
+Feuerschild	Sc	A
+Feuerwand	Sc	A
+Fiebersalz	Sc	A
+Fjalhune beschwören	Sc	A
+Flammenkreis	Sc	A
+Fliegen	Sc	S
+Fliegensalz	Sc	A
+Fluch des Hundes	Sc	G
+Fossemand beschwören	Sc	A
+Freundesauge	Sc	G
+Frostball	Sc	S
+Funkenregen	Sc	A
+Funkensalz	Sc	A
+Färbersalz	Sc	A
+Geas	Sc	S
+Geist beschwören	Sc	A
+Geisterlauf	Sc	G
+Geistesschild	Sc	S
+Geruchsverlust	Sc	S
+Ghussat el-Masin	Sc	S
+Gjornhune beschwören	Sc	A
+Gletschergnom beschwören	Sc	A
+Gletschergnom rufen	Sc	A
+Gloddvegar beschwören	Sc	A
+Gloddverg beschwören	Sc	A
+Glühsalz	Sc	A
+Graue Hand	Sc	S
+Grenzenlose Freude	Sc	S
+Grüne Hand	Sc	A
+Göttliche Strafe	Sc	G
+Haarsalz	Sc	A
+Hagel	Sc	G
+Halebant 1 beschwören	Sc	A
+Halebant 2 beschwören	Sc	A
+Halebant 3 beschwören	Sc	A
+Halebant 4 beschwören	Sc	A
+Hammerhand	Sc	S
+Handauflegen	Sc	S
+Haram fil-Din	Sc	S
+Hardlogi beschwören	Sc	A
+Harkarhune beschwören	Sc	A
+Harkbuar beschwören	Sc	A
+Hauch der Verwesung	Sc	S
+Hauch der Wüste	Sc	S
+Hauch des Frühlings	Sc	G
+Hauch des Winters	Sc	S
+Haugskadi beschwören	Sc	A
+Heilen schwerer Wunden	Sc	S
+Heilen von Krankheit	Sc	G
+Heilen von Wunden	Sc	G
+Heiliger Zorn	Sc	S
+Heiliges Wort	Sc	A
+Heranholen	Sc	S
+Herbeizwingen	Sc	A
+Hexenritt	Sc	S
+Hexenwirbel	Sc	G
+Hitzeschutz	Sc	G
+Hitzsalz	Sc	A
+Hort der Natur	Sc	G
+Hrimdvegar beschwören	Sc	A
+Hrimdverg beschwören	Sc	A
+Hrimhune beschwören	Sc	A
+Hungersalz	Sc	A
+Hyrrbauti beschwören	Sc	A
+Hören der Geister	Sc	G
+Hören von Fernem	Sc	S
+Hörnerklang	Sc	A
+Ifrit beschwören	Sc	A
+Ifrit rufen	Sc	A
+Indruwal 1 beschwören	Sc	A
+Indruwal 2 beschwören	Sc	A
+Indruwal 3 beschwören	Sc	A
+Indruwal 4 beschwören	Sc	A
+Ising beschwören	Sc	A
+Jambani beschwören	Sc	A
+Jokulskadi beschwören	Sc	A
+Jucksalz	Sc	A
+Jurugu beschwören	Sc	A
+Jurugu rufen	Sc	A
+Juwelenauge	Sc	A
+Jördmand beschwören	Sc	A
+Kaligin 1 beschwören	Sc	A
+Kaligin 2 beschwören	Sc	A
+Kaligin 3 beschwören	Sc	A
+Kaligin 4 beschwören	Sc	A
+Kallbjargi beschwören	Sc	A
+Kallrani beschwören	Sc	A
+Karing beschwören	Sc	A
+Klebesalz	Sc	A
+Knallsalz	Sc	A
+Knochenbestie	Sc	G
+Kraft entziehen	Sc	S
+Kreatur erschaffen	Sc	A
+Kuß des Schlafes	Sc	G
+Kälteschutz	Sc	G
+Kühlsalz	Sc	A
+Lachsalz	Sc	A
+Lahmsalz	Sc	A
+Lehrersuche	Sc	S
+Lergris beschwören	Sc	A
+Levitation	Sc	S
+Liebeszauber	Sc	G
+Lindern von Entkräftung	Sc	G
+Liniensicht	Sc	S
+Ljosfang beschwören	Sc	A
+Luftelementargeist beschwören	Sc	A
+Luftspiegelung	Sc	S
+Lustsalz	Sc	A
+Lähmung	Sc	A
+Löschsalz	Sc	A
+Macht über Leben	Sc	A
+Macht über Menschen	Sc	A
+Macht über Mumien	Sc	S
+Macht über Unbelebtes	Sc	A
+Macht über das Selbst	Sc	G
+Macht über den Tod	Sc	S
+Macht über die Sinne	Sc	S
+Macht über die belebte Natur	Sc	S
+Macht über magische Wesen	Sc	A
+Magische Aura	Sc	S
+Magischer Kreis des Widerstehens	Sc	S
+Magischer Kreis, klein	Sc	S
+Manifestation des Ka	Sc	S
+Marhune beschwören	Sc	A
+Marid beschwören	Sc	A
+Marid rufen	Sc	A
+Marmennil beschwören	Sc	A
+Marmorhaut	Sc	S
+Megant 1 beschwören	Sc	A
+Megant 2 beschwören	Sc	A
+Megant 3 beschwören	Sc	A
+Megant 4 beschwören	Sc	A
+Meisterbann	Sc	A
+Metallmeisterschaft	Sc	A
+Mokkurbjargi beschwören	Sc	A
+Mumie erwecken	Sc	S
+Myrknir beschwören	Sc	A
+Namenloses Grauen	Sc	S
+Naturgeist rufen	Sc	G
+Nebel schaffen	Sc	S
+Nebel wecken	Sc	S
+Nebelsalz	Sc	A
+Nefling beschwören	Sc	A
+Niessalz	Sc	A
+NüQuang	Sc	S
+Paschuyana, der Weg des Tieres	Sc	S
+Person beschwören	Sc	A
+Person wiederfinden	Sc	G
+Pestklaue	Sc	S
+PiPingQuang	Sc	S
+PiYeúQuang	Sc	S
+Rauchsalz	Sc	A
+Rauchwolke	Sc	S
+Rauschsalz	Sc	A
+Regenzauber	Sc	G
+Reinigen	Sc	A
+Reise der Seele	Sc	S
+Reise in die Zeit	Sc	A
+Reise zu den Sphären	Sc	A
+Reizen	Sc	S
+Reptilien rufen	Sc	S
+Riechsalz	Sc	A
+Rindenhaut	Sc	S
+Ring des Lebens	Sc	S
+Rutschsalz	Sc	A
+Rückführung	Sc	S
+Sa rauben	Sc	S
+Sa spenden	Sc	S
+Sadik es-Sidiki	Sc	S
+Saeldvegar beschwören	Sc	A
+Saeldverg beschwören	Sc	A
+Saijidat el-Masin	Sc	S
+Sandmeisterschaft	Sc	S
+Schattenbruder	Sc	A
+Scheintod	Sc	G
+Schlaf	Sc	S
+Schlafsalz	Sc	A
+Schlangenbiß	Sc	G
+Schleichsalz	Sc	A
+Schmerzen	Sc	S
+Schmerzen spüren	Sc	G
+Schminken	Sc	S
+Schrumpfen	Sc	S
+Schutzgeist	Sc	S
+Schutzkreis gegen Dunebargen	Sc	A
+Schutzkreis gegen Dvergar	Sc	A
+Schutzkreis gegen Dämonen	Sc	A
+Schutzkreis gegen Elementarwesen	Sc	A
+Schutzkreis gegen Geisterwesen	Sc	A
+Schutzkreis gegen Hrimfolk	Sc	A
+Schutzkreis gegen Hunar	Sc	A
+Schutzkreis gegen Hyrrfolk	Sc	A
+Schutzkreis gegen Jördfolk	Sc	A
+Schutzkreis gegen Kaobargen	Sc	A
+Schutzkreis gegen Untote	Sc	A
+Schutzkreis gegen Vindfolk	Sc	A
+Schutzkreis gegen Wisfolk	Sc	A
+Schwarze Zone	Sc	S
+Schweben	Sc	S
+Schwingenkeule	Sc	G
+Schwäche	Sc	G
+Schöne Leiche	Sc	S
+Seance	Sc	G
+Seelenheilung	Sc	G
+Seelenkompaß	Sc	G
+Seelenraub	Sc	S
+Seelenschock	Sc	S
+Segnen	Sc	G
+Sehen in Dunkelheit	Sc	A
+Serkefs Todesbote	Sc	G
+Silberstaub	Sc	S
+Snaerhamir beschwören	Sc	A
+Sprachlähmung	Sc	A
+Spruch intensivieren	Sc	S
+Staubkämpfer	Sc	A
+Steinkugel	Sc	A
+Steinwand	Sc	A
+Stille	Sc	S
+Stimmenwerfen	Sc	A
+Stolz zieht der Krieger...	Sc	S
+Stottersalz	Sc	A
+Sturmflut	Sc	G
+Sturmhand	Sc	S
+Sturmwind	Sc	G
+Stärke	Sc	G
+Sumpfboden	Sc	S
+Sutechs Heer	Sc	S
+Svalgrim beschwören	Sc	A
+Tausch des Ba	Sc	G
+Thrymbar beschwören	Sc	A
+Thrymbar eschwören	Sc	A
+Thursenstein	Sc	S
+Tibb al-Mumani	Sc	S
+Tiefschlaf	Sc	S
+Tiere rufen	Sc	S
+Tiergestalt	Sc	G
+Tierisches Handeln	Sc	S
+Tiersprache	Sc	S
+Todeshauch	Sc	A
+Todeskeule	Sc	G
+Todeszauber	Sc	S
+Tor schaffen	Sc	A
+Trampelsalz	Sc	A
+Trockensalz	Sc	A
+Trunk des Lebens	Sc	A
+Truscan 1 beschwören	Sc	A
+Truscan 2 beschwören	Sc	A
+Truscan 3 beschwören	Sc	A
+Truscan 4 beschwören	Sc	A
+Ungeheuer rufen	Sc	S
+Ungeziefer bannen	Sc	S
+Unsichtbarkeit	Sc	S
+Verbotenes Wort	Sc	A
+Verdorren	Sc	S
+Vereisen	Sc	S
+Verfluchen	Sc	G
+Vergangenheit beschwören	Sc	A
+Vergiften	Sc	S
+Vergrößern	Sc	S
+Verjüngen	Sc	A
+Verkleinern	Sc	S
+Verlangsamen	Sc	S
+Verletzung	Sc	A
+Versteinern	Sc	A
+Vertieren	Sc	G
+Verursachen schwerer Wunden	Sc	A
+Verursachen von Krankheit	Sc	S
+Verursachen von Wunden	Sc	S
+Verwandlung	Sc	S
+Verwirren	Sc	A
+Verzweiflung	Sc	G
+Vinddvegar beschwören	Sc	A
+Vinddverg beschwören	Sc	A
+Vindmand beschwören	Sc	A
+Vision	Sc	G
+Wachsen	Sc	S
+Wagemut	Sc	G
+Wahnsinn	Sc	S
+Wahrsehen	Sc	S
+Waldluft	Sc	G
+Wandelhand	Sc	S
+Wandeln wie der Wind	Sc	A
+Wandelsalz	Sc	A
+Warnung	Sc	S
+Wasser befreien	Sc	S
+Wasser spüren	Sc	S
+Wasseratmen	Sc	S
+Wasserelementargeist beschwören	Sc	A
+Wassermeisterschaft	Sc	S
+Wassersalz	Sc	A
+Wasserstrahl	Sc	S
+Wasserwandlung	Sc	S
+Wehsalz	Sc	A
+Weltentor schaffen	Sc	A
+Wetterzauber	Sc	G
+Wiederkehr	Sc	G
+Wind des Todes	Sc	S
+Windmeisterschaft	Sc	S
+Windstoß	Sc	S
+Wirbelwind	Sc	S
+Wittern	Sc	G
+Wolkenbruch	Sc	G
+Wort der Trauer	Sc	S
+Wort des Lebens	Sc	A
+Wundersame Tarnung	Sc	S
+Wüstenwind	Sc	S
+XiengBaQuang	Sc	S
+YehKiQuang	Sc	S
+Zaubermacht	Sc	S
+Zauberschild	Sc	A
+Zauberstimme	Sc	S
+Zauberwirklichkeit	Sc	A
+Zauberzunge	Sc	S
+Zielsuche	Sc	G
+Zucksalz	Sc	A
+Zurückführen	Sc	S
+Zweite Haut	Sc	S
+Zwiesprache	Sc	S
+Zwingkreis	Sc	S
+Zähmen	Sc	S
+Zündersalz	Sc	A
+Anziehen	Th	G
+Auflösung	Th	G
+Automat schaffen	Th	G
+Bann der wahren Eigentümerschaft	Th	G
+Bannen von Dunebargen	Th	A
+Bannen von Dunkelheit	Th	G
+Bannen von Dvergar	Th	A
+Bannen von Hrimfolk	Th	A
+Bannen von Hrimkin	Th	A
+Bannen von Hunar	Th	A
+Bannen von Hyrfolk	Th	A
+Bannen von Hyrrkin	Th	A
+Bannen von Jördfolk	Th	A
+Bannen von Jördkin	Th	A
+Bannen von Kaobargen	Th	A
+Bannen von Vindfolk	Th	A
+Bannen von Vindskin	Th	A
+Bannen von Wisfolk	Th	A
+Bannen von Wiskin	Th	A
+Bannen von Zauberwerk	Th	G
+Bannsphäre, Blaue	Th	G
+Bannsphäre, Schwarze	Th	S
+Bannsphäre, Silberne	Th	G
+Beeinflussen	Th	G
+Befestigen	Th	G
+Belebungshauch	Th	G
+Bergeist beschwören	Th	A
+Bergeist rufen	Th	A
+Beschleunigen	Th	G
+Bittersalz	Th	G
+Blenden	Th	G
+Blendwerk	Th	G
+Blicksalz	Th	G
+Blindsalz	Th	G
+Blitze schleudern	Th	G
+Brechsalz	Th	G
+Bruchbann	Th	G
+Coluscar 1 beschwören	Th	A
+Coluscar 2 beschwören	Th	A
+Coluscar 3 beschwören	Th	A
+Coluscar 4 beschwören	Th	A
+Deckmantel	Th	G
+Dinge rufen	Th	G
+Dinge verbergen	Th	G
+Dinge wiederfinden	Th	G
+Donnerkeil	Th	G
+Dschinn beschwören	Th	A
+Dschinn rufen	Th	A
+Dunebrast 1 beschwören	Th	A
+Dunebrast 2 beschwören	Th	A
+Dunebrast 3 beschwören	Th	A
+Dunebrast 4 beschwören	Th	A
+Dunkle Horde beschwören	Th	A
+Dunskrat beschwören	Th	A
+Durstsalz	Th	G
+Dämonen binden	Th	A
+Dämonenbann	Th	A
+Dämonenfeuer	Th	G
+Dämonenschar beschwören	Th	A
+Eiselementargeist beschwören	Th	A
+Eisenhaut	Th	G
+Eldring beschwören	Th	A
+Elementarbann	Th	A
+Elementarwesen binden	Th	A
+Elfenfeuer	Th	G
+Erdeelementargeist beschwören	Th	A
+Erkennen von Leben	Th	G
+Erkennen von Metall	Th	S
+Erkennen von Zauberei	Th	G
+Erkurku beschwören	Th	A
+Erkurku rufen	Th	A
+Erscheinungen	Th	G
+Farbensalz	Th	G
+Felldvegar beschwören	Th	A
+Felldverg beschwören	Th	A
+Fengrip beschwören	Th	A
+Fesselbann	Th	S
+Feuerelementargeist beschwören	Th	A
+Feuerfinger	Th	G
+Feuerkugel	Th	G
+Feuerlanze	Th	G
+Feuerlauf	Th	G
+Feuerring	Th	G
+Feuerschild	Th	G
+Fiebersalz	Th	G
+Fjalhune beschwören	Th	A
+Flammende Hand	Th	G
+Flammenklinge	Th	G
+Flammenkreis	Th	G
+Fliegen	Th	G
+Fliegensalz	Th	G
+Fossemand beschwören	Th	A
+Freundesauge	Th	G
+Frostball	Th	G
+Funkensalz	Th	G
+Fährtenduft	Th	A
+Färbersalz	Th	G
+Geist beschwören	Th	A
+Geistesschild	Th	S
+Geruchsverlust	Th	G
+Gjornhune beschwören	Th	A
+Gletschergnom beschwören	Th	A
+Gletschergnom rufen	Th	A
+Gloddvegar beschwören	Th	A
+Gloddverg beschwören	Th	A
+Glühsalz	Th	G
+Goldener Panzer	Th	G
+Haarsalz	Th	G
+Halebant 1 beschwören	Th	A
+Halebant 2 beschwören	Th	A
+Halebant 3 beschwören	Th	A
+Halebant 4 beschwören	Th	A
+Handauflegen	Th	G
+Hardlogi beschwören	Th	A
+Harkarhune beschwören	Th	A
+Harkbuar beschwören	Th	A
+Hauch der Verwesung	Th	G
+Hauch der Wüste	Th	G
+Hauch des Frühlings	Th	S
+Hauch des Winters	Th	G
+Haugskadi beschwören	Th	A
+Heimstein	Th	G
+Heranholen	Th	G
+Herbeizwingen	Th	A
+Hitzeschutz	Th	G
+Hitzsalz	Th	G
+Hrimdvegar beschwören	Th	A
+Hrimdverg beschwören	Th	A
+Hrimhune beschwören	Th	A
+Hungersalz	Th	G
+Hyrrbauti beschwören	Th	A
+Hörnerklang	Th	G
+Ifrit beschwören	Th	A
+Ifrit rufen	Th	A
+Indruwal 1 beschwören	Th	A
+Indruwal 2 beschwören	Th	A
+Indruwal 3 beschwören	Th	A
+Indruwal 4 beschwören	Th	A
+Ising beschwören	Th	A
+Jambani beschwören	Th	A
+Jokulskadi beschwören	Th	A
+Jucksalz	Th	G
+Jurugu beschwören	Th	A
+Jurugu rufen	Th	A
+Juwelenauge	Th	G
+Jördmand beschwören	Th	A
+Kaligin 1 beschwören	Th	A
+Kaligin 2 beschwören	Th	A
+Kaligin 3 beschwören	Th	A
+Kaligin 4 beschwören	Th	A
+Kallbjargi beschwören	Th	A
+Kallrani beschwören	Th	A
+Karing beschwören	Th	A
+Klebesalz	Th	G
+Knallsalz	Th	G
+Kopieren	Th	G
+Kravyad-Schrei	Th	S
+Kreatur erschaffen	Th	A
+Kälteschutz	Th	G
+Kühlsalz	Th	G
+Lachsalz	Th	G
+Lahmsalz	Th	G
+Lauschen	Th	G
+Lehrersuche	Th	S
+Lergris beschwören	Th	A
+Levitation	Th	S
+Lichtrunen	Th	G
+Lindern von Entkräftung	Th	G
+Liniensicht	Th	A
+Ljosfang beschwören	Th	A
+Luftelementargeist beschwören	Th	A
+Luftlauf	Th	G
+Lustsalz	Th	G
+Löschsalz	Th	G
+Macht über Menschen	Th	G
+Macht über das Selbst	Th	G
+Macht über die belebte Natur	Th	G
+Magischer Kreis des Bewachens	Th	S
+Magischer Kreis des Verschleierns	Th	S
+Magischer Kreis des Widerstehens	Th	S
+Magischer Kreis, klein	Th	S
+Magischer Spion	Th	G
+Marhune beschwören	Th	A
+Marid beschwören	Th	A
+Marid rufen	Th	A
+Marmennil beschwören	Th	A
+Marmorhaut	Th	G
+Megant 1 beschwören	Th	A
+Megant 2 beschwören	Th	A
+Megant 3 beschwören	Th	A
+Megant 4 beschwören	Th	A
+Meisterbann	Th	A
+Mokkurbjargi beschwören	Th	A
+Myrknir beschwören	Th	A
+Nebelsalz	Th	G
+Nefling beschwören	Th	A
+Niessalz	Th	G
+Person beschwören	Th	A
+Person wiederfinden	Th	G
+Rauchsalz	Th	G
+Rauchwolke	Th	G
+Rauschsalz	Th	G
+Riechsalz	Th	G
+Rost	Th	G
+Rutschsalz	Th	G
+Saeldvegar beschwören	Th	A
+Saeldverg beschwören	Th	A
+Schattenbruder	Th	S
+Schlafsalz	Th	G
+Schleichsalz	Th	G
+Schrumpfen	Th	G
+Schutzkreis gegen Dunebargen	Th	A
+Schutzkreis gegen Dvergar	Th	A
+Schutzkreis gegen Dämonen	Th	A
+Schutzkreis gegen Elementarwesen	Th	A
+Schutzkreis gegen Geisterwesen	Th	A
+Schutzkreis gegen Hrimfolk	Th	A
+Schutzkreis gegen Hunar	Th	A
+Schutzkreis gegen Hyrrfolk	Th	A
+Schutzkreis gegen Jördfolk	Th	A
+Schutzkreis gegen Kaobargen	Th	A
+Schutzkreis gegen Untote	Th	A
+Schutzkreis gegen Vindfolk	Th	A
+Schutzkreis gegen Wisfolk	Th	A
+Schwarze Zone	Th	S
+Schweben	Th	G
+Schöne Leiche	Th	S
+Sehen in Dunkelheit	Th	G
+Sehen von Verborgenem	Th	G
+Signalkugel	Th	G
+Silberstaub	Th	G
+Snaerhamir beschwören	Th	A
+Spruch intensivieren	Th	S
+Stille	Th	G
+Stottersalz	Th	G
+Sturmwind	Th	G
+Stärke	Th	G
+Svalgrim beschwören	Th	A
+Thrymbar beschwören	Th	A
+Thrymbar eschwören	Th	A
+Tiefschlaf	Th	G
+Tierisches Handeln	Th	G
+Todeshauch	Th	G
+Tor schaffen	Th	A
+Trampelsalz	Th	G
+Trockensalz	Th	G
+Truscan 1 beschwören	Th	A
+Truscan 2 beschwören	Th	A
+Truscan 3 beschwören	Th	A
+Truscan 4 beschwören	Th	A
+Umkehrschild	Th	G
+Ungeziefer bannen	Th	G
+Unsichtbarkeit	Th	G
+Vereisen	Th	G
+Vergangenheit beschwören	Th	A
+Vergrößern	Th	G
+Verkleinern	Th	G
+Versetzen	Th	G
+Vertieren	Th	G
+Verwandlung	Th	G
+Vinddvegar beschwören	Th	A
+Vinddverg beschwören	Th	A
+Vindmand beschwören	Th	A
+Wachsen	Th	G
+Wahrsehen	Th	S
+Wandelsalz	Th	G
+Warnung	Th	G
+Wasser spüren	Th	G
+Wasseratmen	Th	G
+Wasserelementargeist beschwören	Th	A
+Wasserlauf	Th	G
+Wassersalz	Th	G
+Wasserstrahl	Th	G
+Wehsalz	Th	G
+Weltentor schaffen	Th	A
+Windstoß	Th	G
+Wittern	Th	G
+Wüstenwind	Th	G
+Zaubermacht	Th	G
+Zauberschild	Th	G
+Zauberschloß	Th	G
+Zauberschlüssel	Th	G
+Zauberschmiede	Th	G
+Zauberstimme	Th	G
+Zaubertür	Th	G
+Zielsuche	Th	G
+Zucksalz	Th	G
+Zurückführen	Th	G
+Zweite Haut	Th	S
+Zwiesprache	Th	G
+Zündersalz	Th	G
+Abwenden von Blicken	dBe	A
+Angst	dBe	S
+Bannen von Dunebargen	dBe	S
+Bannen von Dvergar	dBe	A
+Bannen von Hrimfolk	dBe	A
+Bannen von Hrimkin	dBe	A
+Bannen von Hunar	dBe	A
+Bannen von Hyrfolk	dBe	A
+Bannen von Hyrrkin	dBe	A
+Bannen von Jördfolk	dBe	A
+Bannen von Jördkin	dBe	A
+Bannen von Kaobargen	dBe	S
+Bannen von Vindfolk	dBe	A
+Bannen von Vindskin	dBe	A
+Bannen von Wisfolk	dBe	A
+Bannen von Wiskin	dBe	A
+Bannsphäre, Blaue	dBe	G
+Bannsphäre, Goldene	dBe	A
+Bannsphäre, Schwarze	dBe	S
+Bannsphäre, Silberne	dBe	G
+Beeinflussen	dBe	S
+Belebungshauch	dBe	G
+Bergeist beschwören	dBe	A
+Bergeist rufen	dBe	A
+Binden des Vertrauten	dBe	S
+Bittersalz	dBe	A
+Blicksalz	dBe	A
+Blindsalz	dBe	A
+Brechsalz	dBe	A
+Coluscar 1 beschwören	dBe	S
+Coluscar 2 beschwören	dBe	S
+Coluscar 3 beschwören	dBe	S
+Coluscar 4 beschwören	dBe	S
+Dinge rufen	dBe	S
+Doppelgänger schaffen	dBe	S
+Dschinn beschwören	dBe	A
+Dschinn rufen	dBe	A
+Dschinni-Auge	dBe	A
+Dschinni-Horn	dBe	A
+Dunebrast 1 beschwören	dBe	S
+Dunebrast 2 beschwören	dBe	S
+Dunebrast 3 beschwören	dBe	S
+Dunebrast 4 beschwören	dBe	S
+Dunkle Horde beschwören	dBe	S
+Dunskrat beschwören	dBe	A
+Durstsalz	dBe	A
+Dämonen binden	dBe	S
+Dämonenbann	dBe	S
+Dämonenschar beschwören	dBe	S
+Dämonische Eingebung	dBe	G
+Dämonische Zaubermacht	dBe	S
+Eifersucht	dBe	G
+Eiselementargeist beschwören	dBe	A
+Eldring beschwören	dBe	A
+Elementarbann	dBe	S
+Elementarwesen binden	dBe	A
+Entfesseln	dBe	A
+Erdeelementargeist beschwören	dBe	A
+Erkennen von Gift	dBe	S
+Erkurku beschwören	dBe	S
+Erkurku rufen	dBe	S
+Farbensalz	dBe	A
+Felldvegar beschwören	dBe	A
+Felldverg beschwören	dBe	A
+Fengrip beschwören	dBe	A
+Feuerelementargeist beschwören	dBe	A
+Fiebersalz	dBe	A
+Fjalhune beschwören	dBe	A
+Flammenkreis	dBe	A
+Fliegensalz	dBe	A
+Fluch des Hundes	dBe	S
+Fossemand beschwören	dBe	A
+Funkensalz	dBe	A
+Färbersalz	dBe	A
+Geist beschwören	dBe	S
+Gjornhune beschwören	dBe	A
+Gletschergnom beschwören	dBe	A
+Gletschergnom rufen	dBe	A
+Gloddvegar beschwören	dBe	A
+Gloddverg beschwören	dBe	A
+Glühsalz	dBe	A
+Golem schaffen	dBe	S
+Haarsalz	dBe	A
+Halebant 1 beschwören	dBe	S
+Halebant 2 beschwören	dBe	S
+Halebant 3 beschwören	dBe	S
+Halebant 4 beschwören	dBe	S
+Hardlogi beschwören	dBe	A
+Harkarhune beschwören	dBe	A
+Harkbuar beschwören	dBe	A
+Haugskadi beschwören	dBe	A
+Herbeizwingen	dBe	S
+Hexenhand	dBe	A
+Hexenwirbel	dBe	S
+Hitzsalz	dBe	A
+Hrimdvegar beschwören	dBe	A
+Hrimdverg beschwören	dBe	A
+Hrimhune beschwören	dBe	A
+Hungersalz	dBe	A
+Hyrrbauti beschwören	dBe	A
+Ifrit beschwören	dBe	A
+Ifrit rufen	dBe	A
+Incheper schaffen	dBe	S
+Indruwal 1 beschwören	dBe	S
+Indruwal 2 beschwören	dBe	S
+Indruwal 3 beschwören	dBe	S
+Indruwal 4 beschwören	dBe	S
+Ising beschwören	dBe	A
+Jambani beschwören	dBe	A
+Jokulskadi beschwören	dBe	A
+Jucksalz	dBe	A
+Jurugu beschwören	dBe	S
+Jurugu rufen	dBe	S
+Jördmand beschwören	dBe	A
+Kaligin 1 beschwören	dBe	S
+Kaligin 2 beschwören	dBe	S
+Kaligin 3 beschwören	dBe	S
+Kaligin 4 beschwören	dBe	S
+Kallbjargi beschwören	dBe	A
+Kallrani beschwören	dBe	A
+Kammerdiener beschwören	dBe	G
+Karing beschwören	dBe	A
+Klebesalz	dBe	A
+Knallsalz	dBe	A
+Kreatur erschaffen	dBe	S
+Kühlsalz	dBe	A
+Lachsalz	dBe	A
+Lahmsalz	dBe	A
+Lehrersuche	dBe	G
+Lergris beschwören	dBe	A
+Levitation	dBe	S
+Liniensicht	dBe	A
+Ljosfang beschwören	dBe	A
+Luftelementargeist beschwören	dBe	A
+Lustsalz	dBe	A
+Löschsalz	dBe	A
+Macht über Menschen	dBe	A
+Macht über Mumien	dBe	S
+Macht über das Selbst	dBe	S
+Macht über den Tod	dBe	S
+Macht über die belebte Natur	dBe	A
+Macht über magische Wesen	dBe	S
+Magischer Kreis des Bewachens	dBe	S
+Magischer Kreis des Verschleierns	dBe	S
+Magischer Kreis des Widerstehens	dBe	S
+Magischer Kreis, klein	dBe	G
+Magischer Spion	dBe	A
+Manifestation des Ka	dBe	G
+Marhune beschwören	dBe	A
+Marid beschwören	dBe	A
+Marid rufen	dBe	A
+Marmennil beschwören	dBe	A
+Megant 1 beschwören	dBe	S
+Megant 2 beschwören	dBe	S
+Megant 3 beschwören	dBe	S
+Megant 4 beschwören	dBe	S
+Meisterbann	dBe	S
+Mokkurbjargi beschwören	dBe	A
+Mumie erwecken	dBe	S
+Myrknir beschwören	dBe	A
+Nebelsalz	dBe	A
+Nefling beschwören	dBe	A
+Niessalz	dBe	A
+Person beschwören	dBe	S
+Rauchsalz	dBe	A
+Rauschsalz	dBe	A
+Reise zu den Sphären	dBe	S
+Reizen	dBe	G
+Riechsalz	dBe	A
+Rutschsalz	dBe	A
+Saeldvegar beschwören	dBe	A
+Saeldverg beschwören	dBe	A
+Schlafsalz	dBe	A
+Schleichsalz	dBe	A
+Schmerzen spüren	dBe	A
+Schreiber beschwören	dBe	G
+Schutzkreis gegen Dunebargen	dBe	G
+Schutzkreis gegen Dvergar	dBe	A
+Schutzkreis gegen Dämonen	dBe	S
+Schutzkreis gegen Elementarwesen	dBe	A
+Schutzkreis gegen Geisterwesen	dBe	S
+Schutzkreis gegen Hrimfolk	dBe	A
+Schutzkreis gegen Hunar	dBe	A
+Schutzkreis gegen Hyrrfolk	dBe	A
+Schutzkreis gegen Jördfolk	dBe	A
+Schutzkreis gegen Kaobargen	dBe	G
+Schutzkreis gegen Untote	dBe	S
+Schutzkreis gegen Vindfolk	dBe	A
+Schutzkreis gegen Wisfolk	dBe	A
+Seance	dBe	S
+Seelenraub	dBe	G
+Silberstaub	dBe	A
+Snaerhamir beschwören	dBe	A
+Staubkämpfer	dBe	S
+Stottersalz	dBe	A
+Svalgrim beschwören	dBe	A
+Tausch des Ba	dBe	G
+Thrymbar beschwören	dBe	A
+Thrymbar eschwören	dBe	A
+Tor schaffen	dBe	S
+Trampelsalz	dBe	A
+Trockensalz	dBe	A
+Truscan 1 beschwören	dBe	S
+Truscan 2 beschwören	dBe	S
+Truscan 3 beschwören	dBe	S
+Truscan 4 beschwören	dBe	S
+Ungeheuer rufen	dBe	S
+Ungeziefer bannen	dBe	S
+Vergangenheit beschwören	dBe	S
+Vinddvegar beschwören	dBe	A
+Vinddverg beschwören	dBe	A
+Vindmand beschwören	dBe	A
+Wahrsehen	dBe	S
+Wandelhand	dBe	S
+Wandelsalz	dBe	A
+Wasserelementargeist beschwören	dBe	A
+Wassersalz	dBe	A
+Wehsalz	dBe	A
+Weltentor schaffen	dBe	S
+Wiederkehr	dBe	S
+Zucksalz	dBe	A
+Zwiesprache	dBe	S
+Zwingkreis	dBe	G
+Zündersalz	dBe	A
+Angst	Dr	G
+Anziehen	Dr	A
+Auflösung	Dr	A
+Augenschleier	Dr	A
+Bannen von Dunebargen	Dr	A
+Bannen von Dunkelheit	Dr	A
+Bannen von Dvergar	Dr	A
+Bannen von Fäulnis	Dr	A
+Bannen von Hrimfolk	Dr	A
+Bannen von Hrimkin	Dr	A
+Bannen von Hunar	Dr	A
+Bannen von Hyrfolk	Dr	A
+Bannen von Hyrrkin	Dr	A
+Bannen von Jördfolk	Dr	A
+Bannen von Jördkin	Dr	A
+Bannen von Kaobargen	Dr	A
+Bannen von Kälte	Dr	S
+Bannen von Licht	Dr	A
+Bannen von Vindfolk	Dr	A
+Bannen von Vindskin	Dr	A
+Bannen von Wisfolk	Dr	A
+Bannen von Wiskin	Dr	A
+Bannen von Zauberwerk	Dr	A
+Bannsphäre, Blaue	Dr	A
+Bannsphäre, Goldene	Dr	A
+Bannsphäre, Schwarze	Dr	S
+Bannsphäre, Silberne	Dr	A
+Baum	Dr	G
+Baumkämpfer	Dr	G
+Baumtor	Dr	G
+Baumwächter	Dr	G
+Beeinflussen	Dr	S
+Bergeist beschwören	Dr	A
+Bergeist rufen	Dr	A
+Beschleunigen	Dr	S
+Binden des Vertrauten	Dr	S
+Bittersalz	Dr	A
+Blenden	Dr	S
+Blendwerk	Dr	A
+Blicksalz	Dr	A
+Blindsalz	Dr	A
+Blitze schleudern	Dr	S
+Blutmeisterschaft	Dr	A
+Brechsalz	Dr	A
+Bruchbann	Dr	A
+Bärenstärke	Dr	S
+Bärenwut	Dr	G
+Coluscar 1 beschwören	Dr	A
+Coluscar 2 beschwören	Dr	A
+Coluscar 3 beschwören	Dr	A
+Coluscar 4 beschwören	Dr	A
+Deckmantel	Dr	A
+Der Große Knall	Dr	A
+Donnerkeil	Dr	S
+Dschinn beschwören	Dr	A
+Dschinn rufen	Dr	A
+Dschungelwand	Dr	G
+Dunebrast 1 beschwören	Dr	A
+Dunebrast 2 beschwören	Dr	A
+Dunebrast 3 beschwören	Dr	A
+Dunebrast 4 beschwören	Dr	A
+Dunkle Horde beschwören	Dr	A
+Dunskrat beschwören	Dr	A
+Durstsalz	Dr	A
+Dämonen binden	Dr	A
+Dämonenbann	Dr	A
+Dämonenfeuer	Dr	A
+Dämonenschar beschwören	Dr	A
+Eichenzauber	Dr	G
+Eiselementargeist beschwören	Dr	A
+Eisiger Nebel	Dr	S
+Eismeisterschaft	Dr	A
+Eiswand	Dr	A
+Eiswandlung	Dr	S
+Eldring beschwören	Dr	A
+Elementarbann	Dr	A
+Elementarwesen binden	Dr	A
+Elementenwandlung	Dr	S
+Elfenfeuer	Dr	G
+Entgiften	Dr	S
+Erdbeben	Dr	S
+Erdeelementargeist beschwören	Dr	A
+Erdfessel	Dr	S
+Erdmeisterschaft	Dr	G
+Erdwandlung	Dr	S
+Erkennen der Aura	Dr	S
+Erkennen von Gift	Dr	G
+Erkennen von Krankheit	Dr	A
+Erkennen von Leben	Dr	S
+Erkurku beschwören	Dr	A
+Erkurku rufen	Dr	A
+Erscheinungen	Dr	S
+Farbensalz	Dr	A
+Feenfluch	Dr	S
+Feenzauber	Dr	A
+Felldvegar beschwören	Dr	A
+Felldverg beschwören	Dr	A
+Felsenfaust	Dr	A
+Fengrip beschwören	Dr	A
+Fesselbann	Dr	S
+Feuerelementargeist beschwören	Dr	A
+Feuerlauf	Dr	S
+Feuermeisterschaft	Dr	S
+Feuerring	Dr	S
+Feuerschild	Dr	G
+Feuerwand	Dr	A
+Fiebersalz	Dr	A
+Fjalhune beschwören	Dr	A
+Flammenkreis	Dr	S
+Fliegen	Dr	S
+Fliegensalz	Dr	A
+Fossemand beschwören	Dr	A
+Freundesauge	Dr	S
+Frostball	Dr	A
+Funkenregen	Dr	A
+Funkensalz	Dr	A
+Fährtenduft	Dr	A
+Färbersalz	Dr	A
+Geas	Dr	G
+Geist beschwören	Dr	A
+Geistesschild	Dr	S
+Geruchsverlust	Dr	G
+Gjornhune beschwören	Dr	A
+Gletschergnom beschwören	Dr	A
+Gletschergnom rufen	Dr	A
+Gloddvegar beschwören	Dr	A
+Gloddverg beschwören	Dr	A
+Glühsalz	Dr	A
+Graue Hand	Dr	A
+Grüne Hand	Dr	G
+Haarsalz	Dr	A
+Hagel	Dr	S
+Halebant 1 beschwören	Dr	A
+Halebant 2 beschwören	Dr	A
+Halebant 3 beschwören	Dr	A
+Halebant 4 beschwören	Dr	A
+Handauflegen	Dr	A
+Hardlogi beschwören	Dr	A
+Harkarhune beschwören	Dr	A
+Harkbuar beschwören	Dr	A
+Hauch der Wüste	Dr	S
+Hauch des Frühlings	Dr	G
+Hauch des Winters	Dr	S
+Haugskadi beschwören	Dr	A
+Heilen schwerer Wunden	Dr	A
+Heilen von Wunden	Dr	S
+Heranholen	Dr	S
+Herbeizwingen	Dr	A
+Hexenritt	Dr	A
+Hitzsalz	Dr	A
+Hort der Natur	Dr	G
+Hrimdvegar beschwören	Dr	A
+Hrimdverg beschwören	Dr	A
+Hrimhune beschwören	Dr	A
+Hungersalz	Dr	A
+Hyrrbauti beschwören	Dr	A
+Hören von Fernem	Dr	S
+Hörnerklang	Dr	A
+Ifrit beschwören	Dr	A
+Ifrit rufen	Dr	A
+Indruwal 1 beschwören	Dr	A
+Indruwal 2 beschwören	Dr	A
+Indruwal 3 beschwören	Dr	A
+Indruwal 4 beschwören	Dr	A
+Ising beschwören	Dr	A
+Jambani beschwören	Dr	A
+Jokulskadi beschwören	Dr	A
+Jucksalz	Dr	A
+Jurugu beschwören	Dr	A
+Jurugu rufen	Dr	A
+Jördmand beschwören	Dr	A
+Kaligin 1 beschwören	Dr	A
+Kaligin 2 beschwören	Dr	A
+Kaligin 3 beschwören	Dr	A
+Kaligin 4 beschwören	Dr	A
+Kallbjargi beschwören	Dr	A
+Kallrani beschwören	Dr	A
+Karing beschwören	Dr	A
+Klebesalz	Dr	A
+Knallsalz	Dr	A
+Kraft entziehen	Dr	A
+Kravyad-Schrei	Dr	S
+Kreatur erschaffen	Dr	A
+Kälteschutz	Dr	S
+Kühlsalz	Dr	A
+Lachsalz	Dr	A
+Lahmsalz	Dr	A
+Lebenskeule	Dr	G
+Lehrersuche	Dr	S
+Lergris beschwören	Dr	A
+Levitation	Dr	S
+Lichtrunen	Dr	A
+Liebeszauber	Dr	A
+Lindern von Entkräftung	Dr	A
+Liniensicht	Dr	G
+Linienwanderung	Dr	G
+Ljosfang beschwören	Dr	A
+Luftelementargeist beschwören	Dr	A
+Luftlauf	Dr	S
+Luftspiegelung	Dr	G
+Lustsalz	Dr	A
+Lähmung	Dr	S
+Löschsalz	Dr	A
+Macht über das Selbst	Dr	S
+Macht über die Zeit	Dr	S
+Macht über die belebte Natur	Dr	G
+Magischer Kreis, klein	Dr	G
+Manifestation des Ka	Dr	S
+Marhune beschwören	Dr	A
+Marid beschwören	Dr	A
+Marid rufen	Dr	A
+Marmennil beschwören	Dr	A
+Megant 1 beschwören	Dr	A
+Megant 2 beschwören	Dr	A
+Megant 3 beschwören	Dr	A
+Megant 4 beschwören	Dr	A
+Meisterbann	Dr	A
+Mokkurbjargi beschwören	Dr	A
+Myrknir beschwören	Dr	A
+Namenloses Grauen	Dr	S
+Naturgeist rufen	Dr	S
+Nebel schaffen	Dr	G
+Nebel wecken	Dr	G
+Nebelsalz	Dr	A
+Nefling beschwören	Dr	A
+Niessalz	Dr	A
+Paschuyana, der Weg des Tieres	Dr	A
+Person beschwören	Dr	A
+Pflanzenfessel	Dr	G
+Pflanzenmann	Dr	G
+Rauchsalz	Dr	A
+Rauchwolke	Dr	S
+Rauschsalz	Dr	A
+Regenzauber	Dr	S
+Reinigen	Dr	A
+Reise der Seele	Dr	S
+Reise zu den Sphären	Dr	S
+Reptilien rufen	Dr	G
+Riechsalz	Dr	A
+Rindenhaut	Dr	G
+Ring des Lebens	Dr	G
+Rost	Dr	S
+Rutschsalz	Dr	A
+Rückführung	Dr	A
+Sa rauben	Dr	A
+Saeldvegar beschwören	Dr	A
+Saeldverg beschwören	Dr	A
+Sandmeisterschaft	Dr	S
+Scharfblick	Dr	S
+Schattenroß	Dr	S
+Scheintod	Dr	A
+Schlaf	Dr	S
+Schlafsalz	Dr	A
+Schleichsalz	Dr	A
+Schmerzen	Dr	S
+Schrumpfen	Dr	S
+Schutzgeist	Dr	S
+Schutzkreis gegen Dunebargen	Dr	A
+Schutzkreis gegen Dvergar	Dr	A
+Schutzkreis gegen Dämonen	Dr	A
+Schutzkreis gegen Elementarwesen	Dr	A
+Schutzkreis gegen Geisterwesen	Dr	A
+Schutzkreis gegen Hrimfolk	Dr	A
+Schutzkreis gegen Hunar	Dr	A
+Schutzkreis gegen Hyrrfolk	Dr	A
+Schutzkreis gegen Jördfolk	Dr	A
+Schutzkreis gegen Kaobargen	Dr	A
+Schutzkreis gegen Untote	Dr	A
+Schutzkreis gegen Vindfolk	Dr	A
+Schutzkreis gegen Wisfolk	Dr	A
+Schwarm	Dr	G
+Schwarze Zone	Dr	S
+Schweben	Dr	S
+Schwäche	Dr	S
+Seance	Dr	S
+Seelenkompaß	Dr	A
+Seelenraub	Dr	S
+Seelenschock	Dr	G
+Sehen in Dunkelheit	Dr	S
+Silberstaub	Dr	S
+Snaerhamir beschwören	Dr	A
+Spruch intensivieren	Dr	S
+Srimarameisterschaft I	Dr	S
+Srimarameisterschaft II	Dr	S
+Steinkugel	Dr	S
+Steinwand	Dr	A
+Stille	Dr	S
+Stimmenwerfen	Dr	A
+Stottersalz	Dr	A
+Sturmflut	Dr	S
+Sturmhand	Dr	S
+Sturmwind	Dr	G
+Stärke	Dr	S
+Sumpfboden	Dr	G
+Sutechs Heer	Dr	S
+Svalgrim beschwören	Dr	A
+Tausch des Ba	Dr	S
+Thrymbar beschwören	Dr	A
+Thrymbar eschwören	Dr	A
+Thursenstein	Dr	G
+Tiefschlaf	Dr	S
+Tiere rufen	Dr	G
+Tiergestalt	Dr	G
+Tierisches Handeln	Dr	S
+Tiersprache	Dr	G
+Todeszauber	Dr	S
+Tor schaffen	Dr	A
+Trampelsalz	Dr	A
+Trockensalz	Dr	A
+Truscan 1 beschwören	Dr	A
+Truscan 2 beschwören	Dr	A
+Truscan 3 beschwören	Dr	A
+Truscan 4 beschwören	Dr	A
+Umkehrschild	Dr	A
+Ungeziefer bannen	Dr	G
+Unsichtbarkeit	Dr	S
+Verbotenes Wort	Dr	A
+Vereisen	Dr	S
+Vergangenheit beschwören	Dr	A
+Vergrößern	Dr	S
+Verjüngen	Dr	S
+Verkleinern	Dr	S
+Verlangsamen	Dr	S
+Versetzen	Dr	A
+Vertieren	Dr	S
+Verursachen schwerer Wunden	Dr	A
+Verursachen von Wunden	Dr	A
+Verwandlung	Dr	G
+Verwirren	Dr	A
+Verzweiflung	Dr	A
+Vinddvegar beschwören	Dr	A
+Vinddverg beschwören	Dr	A
+Vindmand beschwören	Dr	A
+Wachsen	Dr	S
+Wagemut	Dr	S
+Wahnsinn	Dr	S
+Wahrsehen	Dr	S
+Waldluft	Dr	G
+Wandeln wie der Wind	Dr	G
+Wandelsalz	Dr	A
+Warnung	Dr	A
+Wasser befreien	Dr	G
+Wasser spüren	Dr	G
+Wasseratmen	Dr	S
+Wasserelementargeist beschwören	Dr	A
+Wasserlauf	Dr	S
+Wassermeisterschaft	Dr	A
+Wassersalz	Dr	A
+Wasserstrahl	Dr	S
+Wasserwandlung	Dr	S
+Wehsalz	Dr	A
+Weltentor schaffen	Dr	A
+Wetterzauber	Dr	S
+Wiederkehr	Dr	S
+Wind des Todes	Dr	S
+Windmeisterschaft	Dr	S
+Windstoß	Dr	S
+Wirbelwind	Dr	G
+Wittern	Dr	G
+Wolkenbruch	Dr	S
+Wort der Trauer	Dr	A
+Wort des Lebens	Dr	S
+Wundersame Tarnung	Dr	G
+Wüstenwind	Dr	S
+Zauberhand	Dr	A
+Zaubermacht	Dr	S
+Zauberschild	Dr	A
+Zauberstimme	Dr	S
+Zauberwirklichkeit	Dr	S
+Zauberzunge	Dr	S
+Zielsuche	Dr	G
+Zucksalz	Dr	A
+Zurückführen	Dr	G
+Zweite Haut	Dr	S
+Zwiesprache	Dr	A
+Zwingkreis	Dr	S
+Zähmen	Dr	G
+Zündersalz	Dr	A
+Allheilung	PHa	G
+Angst	PHa	S
+Auflösung	PHa	S
+Austreibung des Bösen	PHa	G
+Austreibung des Guten	PHa	S
+Automat schaffen	PHa	S
+Bann der wahren Eigentümerschaft	PHa	S
+Bannen des Todes	PHa	A
+Bannen von Dunebargen	PHa	A
+Bannen von Dunkelheit	PHa	G
+Bannen von Dvergar	PHa	A
+Bannen von Finsterwerk	PHa	G
+Bannen von Gift	PHa	G
+Bannen von Hrimfolk	PHa	A
+Bannen von Hrimkin	PHa	A
+Bannen von Hunar	PHa	A
+Bannen von Hyrfolk	PHa	A
+Bannen von Hyrrkin	PHa	A
+Bannen von Jördfolk	PHa	A
+Bannen von Jördkin	PHa	A
+Bannen von Kaobargen	PHa	A
+Bannen von Vindfolk	PHa	A
+Bannen von Vindskin	PHa	A
+Bannen von Wisfolk	PHa	A
+Bannen von Wiskin	PHa	A
+Bannen von Zauberwerk	PHa	G
+Bannsphäre, Blaue	PHa	S
+Bannsphäre, Goldene	PHa	G
+Bannsphäre, Schwarze	PHa	S
+Bannsphäre, Silberne	PHa	S
+Beeinflussen	PHa	G
+Belebungshauch	PHa	S
+Bergeist beschwören	PHa	A
+Bergeist rufen	PHa	A
+Beschleunigen	PHa	S
+Besänftigen	PHa	S
+Bittersalz	PHa	A
+Blenden	PHa	G
+Blendwerk	PHa	S
+Blicksalz	PHa	A
+Blindsalz	PHa	A
+Blitze schleudern	PHa	S
+Brechsalz	PHa	A
+Brot und Wasser	PHa	S
+Bruchbann	PHa	S
+Cheprus Sendbote	PHa	S
+Coluscar 1 beschwören	PHa	A
+Coluscar 2 beschwören	PHa	A
+Coluscar 3 beschwören	PHa	A
+Coluscar 4 beschwören	PHa	A
+Deckmantel	PHa	S
+Dinge verbergen	PHa	S
+Dinge wiederfinden	PHa	S
+Donnerkeil	PHa	S
+Dschinn beschwören	PHa	A
+Dschinn rufen	PHa	A
+Dschinni-Auge	PHa	S
+Dschinni-Horn	PHa	S
+Dschinni-Ohr	PHa	S
+Dschungelwand	PHa	S
+Dunebrast 1 beschwören	PHa	A
+Dunebrast 2 beschwören	PHa	A
+Dunebrast 3 beschwören	PHa	A
+Dunebrast 4 beschwören	PHa	A
+Dunkle Horde beschwören	PHa	A
+Dunskrat beschwören	PHa	A
+Durstsalz	PHa	A
+Dämonen binden	PHa	A
+Dämonenbann	PHa	A
+Dämonenschar beschwören	PHa	A
+Eiselementargeist beschwören	PHa	A
+Eisenhaut	PHa	S
+Eisiger Nebel	PHa	S
+Eismeisterschaft	PHa	S
+Eiswand	PHa	S
+Eiswandlung	PHa	A
+Eldring beschwören	PHa	A
+Elementarbann	PHa	A
+Elementarwesen binden	PHa	A
+Elementenwandlung	PHa	A
+Elfenfeuer	PHa	S
+Entgiften	PHa	S
+Erdbeben	PHa	A
+Erdeelementargeist beschwören	PHa	A
+Erdfessel	PHa	S
+Erdmeisterschaft	PHa	S
+Erdwandlung	PHa	A
+Erheben der Toten	PHa	A
+Erkennen der Aura	PHa	G
+Erkennen von Gift	PHa	A
+Erkennen von Krankheit	PHa	S
+Erkennen von Leben	PHa	A
+Erkurku beschwören	PHa	A
+Erkurku rufen	PHa	A
+Erscheinungen	PHa	S
+Farbensalz	PHa	A
+Feenfluch	PHa	A
+Feenzauber	PHa	A
+Felldvegar beschwören	PHa	A
+Felldverg beschwören	PHa	A
+Felsenfaust	PHa	G
+Fengrip beschwören	PHa	A
+Fesselbann	PHa	S
+Feuerelementargeist beschwören	PHa	A
+Feuerfinger	PHa	G
+Feuerkugel	PHa	S
+Feuerlanze	PHa	S
+Feuerlauf	PHa	S
+Feuermeisterschaft	PHa	G
+Feuerregen	PHa	A
+Feuerring	PHa	A
+Feuerschild	PHa	S
+Feuerspiel	PHa	G
+Feuerwand	PHa	S
+Fiebersalz	PHa	A
+Fjalhune beschwören	PHa	A
+Flammende Hand	PHa	G
+Flammenklinge	PHa	S
+Flammenkreis	PHa	S
+Fliegen	PHa	S
+Fliegensalz	PHa	A
+Fluch des Hundes	PHa	A
+Fossemand beschwören	PHa	A
+Freundesauge	PHa	S
+Frostball	PHa	A
+Funkenregen	PHa	S
+Funkensalz	PHa	A
+Färbersalz	PHa	A
+Geas	PHa	S
+Geist beschwören	PHa	A
+Geistesschild	PHa	S
+Geruchsverlust	PHa	A
+Gjornhune beschwören	PHa	A
+Gletschergnom beschwören	PHa	A
+Gletschergnom rufen	PHa	A
+Gloddvegar beschwören	PHa	A
+Gloddverg beschwören	PHa	A
+Glühsalz	PHa	A
+Goldener Panzer	PHa	S
+Golem schaffen	PHa	G
+Großer Hitzeschutz	PHa	A
+Grüne Hand	PHa	A
+Göttliche Eingebung	PHa	G
+Göttliche Strafe	PHa	G
+Göttlicher Blitz	PHa	G
+Göttlicher Schutz vor Magie	PHa	G
+Göttlicher Schutz vor dem Bösen	PHa	G
+Haarsalz	PHa	A
+Hagel	PHa	A
+Halebant 1 beschwören	PHa	A
+Halebant 2 beschwören	PHa	A
+Halebant 3 beschwören	PHa	A
+Halebant 4 beschwören	PHa	A
+Hammerhand	PHa	A
+Handauflegen	PHa	G
+Hardlogi beschwören	PHa	A
+Harkarhune beschwören	PHa	A
+Harkbuar beschwören	PHa	A
+Hauch der Verwesung	PHa	S
+Hauch der Wüste	PHa	G
+Hauch des Frühlings	PHa	A
+Haugskadi beschwören	PHa	A
+Heilen schwerer Wunden	PHa	G
+Heilen von Krankheit	PHa	G
+Heilen von Wunden	PHa	G
+Heiliger Zorn	PHa	G
+Heiliges Wort	PHa	G
+Heimstein	PHa	G
+Heranholen	PHa	S
+Herbeizwingen	PHa	A
+Himmelsleiter	PHa	G
+Hitzeschutz	PHa	S
+Hitzsalz	PHa	A
+Hrimdvegar beschwören	PHa	A
+Hrimdverg beschwören	PHa	A
+Hrimhune beschwören	PHa	A
+Hungersalz	PHa	A
+Hyrrbauti beschwören	PHa	A
+Hörnerklang	PHa	S
+Ifrit beschwören	PHa	A
+Ifrit rufen	PHa	A
+Incheper schaffen	PHa	G
+Indruwal 1 beschwören	PHa	A
+Indruwal 2 beschwören	PHa	A
+Indruwal 3 beschwören	PHa	A
+Indruwal 4 beschwören	PHa	A
+Ising beschwören	PHa	A
+Jambani beschwören	PHa	A
+Jokulskadi beschwören	PHa	A
+Jucksalz	PHa	A
+Jurugu beschwören	PHa	A
+Jurugu rufen	PHa	A
+Jördmand beschwören	PHa	A
+Kaligin 1 beschwören	PHa	A
+Kaligin 2 beschwören	PHa	A
+Kaligin 3 beschwören	PHa	A
+Kaligin 4 beschwören	PHa	A
+Kallbjargi beschwören	PHa	A
+Kallrani beschwören	PHa	A
+Kammerdiener beschwören	PHa	A
+Karing beschwören	PHa	A
+Klebesalz	PHa	A
+Knallsalz	PHa	A
+Kopieren	PHa	G
+Kravyad-Schrei	PHa	S
+Kreatur erschaffen	PHa	A
+Kühlsalz	PHa	A
+Lachsalz	PHa	A
+Lahmsalz	PHa	A
+Lehrersuche	PHa	S
+Leomies Birneneis	PHa	A
+Lergris beschwören	PHa	A
+Levitation	PHa	S
+Lichtbrücke	PHa	G
+Lichtrunen	PHa	S
+Liebeszauber	PHa	A
+Lindern von Entkräftung	PHa	A
+Liniensicht	PHa	A
+Ljosfang beschwören	PHa	A
+Luftelementargeist beschwören	PHa	A
+Luftlauf	PHa	A
+Luftsphäre	PHa	S
+Luftspiegelung	PHa	S
+Lustsalz	PHa	A
+Lähmung	PHa	S
+Löschsalz	PHa	A
+Macht über Unbelebtes	PHa	A
+Magischer Kreis des Bewachens	PHa	S
+Magischer Kreis des Verschleierns	PHa	S
+Magischer Kreis des Widerstehens	PHa	S
+Magischer Kreis, klein	PHa	S
+Manifestation des Ka	PHa	G
+Marhune beschwören	PHa	A
+Marid beschwören	PHa	A
+Marid rufen	PHa	A
+Marmennil beschwören	PHa	A
+Marmorhaut	PHa	S
+Megant 1 beschwören	PHa	A
+Megant 2 beschwören	PHa	A
+Megant 3 beschwören	PHa	A
+Megant 4 beschwören	PHa	A
+Meisterbann	PHa	A
+Metallmeisterschaft	PHa	S
+Mokkurbjargi beschwören	PHa	A
+Mumie erwecken	PHa	G
+Myrknir beschwören	PHa	A
+Namenloses Grauen	PHa	S
+Nebel schaffen	PHa	S
+Nebel wecken	PHa	A
+Nebelsalz	PHa	A
+Nefling beschwören	PHa	A
+Niessalz	PHa	A
+Paschuyana, der Weg des Tieres	PHa	A
+Person beschwören	PHa	A
+Person wiederfinden	PHa	S
+Rauchsalz	PHa	A
+Rauchwolke	PHa	S
+Rauschsalz	PHa	A
+Regenzauber	PHa	S
+Reinigen	PHa	S
+Riechsalz	PHa	A
+Ring des Lebens	PHa	A
+Rost	PHa	S
+Rutschsalz	PHa	A
+Rückführung	PHa	A
+Sa spenden	PHa	G
+Saeldvegar beschwören	PHa	A
+Saeldverg beschwören	PHa	A
+Sandmeisterschaft	PHa	A
+Scharfblick	PHa	A
+Scheintod	PHa	A
+Schlaf	PHa	S
+Schlafsalz	PHa	A
+Schleichsalz	PHa	A
+Schmerzen	PHa	S
+Schmerzen spüren	PHa	A
+Schrumpfen	PHa	S
+Schutzgeist	PHa	S
+Schutzkreis gegen Dunebargen	PHa	A
+Schutzkreis gegen Dvergar	PHa	A
+Schutzkreis gegen Dämonen	PHa	A
+Schutzkreis gegen Elementarwesen	PHa	A
+Schutzkreis gegen Geisterwesen	PHa	A
+Schutzkreis gegen Hrimfolk	PHa	A
+Schutzkreis gegen Hunar	PHa	A
+Schutzkreis gegen Hyrrfolk	PHa	A
+Schutzkreis gegen Jördfolk	PHa	A
+Schutzkreis gegen Kaobargen	PHa	A
+Schutzkreis gegen Untote	PHa	A
+Schutzkreis gegen Vindfolk	PHa	A
+Schutzkreis gegen Wisfolk	PHa	A
+Schwarze Zone	PHa	S
+Schweben	PHa	S
+Schwingenkeule	PHa	S
+Schwäche	PHa	S
+Schöne Leiche	PHa	A
+Seele finden	PHa	G
+Seelenheilung	PHa	S
+Seelenkompaß	PHa	S
+Seelenschock	PHa	S
+Segnen	PHa	G
+Serkefs Todesbote	PHa	G
+Silberstaub	PHa	S
+Snaerhamir beschwören	PHa	A
+Spruch intensivieren	PHa	S
+Staubkämpfer	PHa	S
+Steinkugel	PHa	G
+Steinwand	PHa	S
+Stille	PHa	S
+Stimmenwerfen	PHa	S
+Stottersalz	PHa	A
+Sturmflut	PHa	S
+Sturmhand	PHa	S
+Sturmwind	PHa	S
+Stärke	PHa	S
+Sumpfboden	PHa	S
+Svalgrim beschwören	PHa	A
+Tausch des Ba	PHa	S
+Thrymbar beschwören	PHa	A
+Thrymbar eschwören	PHa	A
+Thursenstein	PHa	S
+Tiefschlaf	PHa	S
+Tierisches Handeln	PHa	S
+Tiersprache	PHa	S
+Todeshauch	PHa	S
+Todeszauber	PHa	A
+Tor schaffen	PHa	A
+Trampelsalz	PHa	A
+Trockensalz	PHa	A
+Truscan 1 beschwören	PHa	A
+Truscan 2 beschwören	PHa	A
+Truscan 3 beschwören	PHa	A
+Truscan 4 beschwören	PHa	A
+Umkehrschild	PHa	A
+Ungeziefer bannen	PHa	A
+Unsichtbarkeit	PHa	S
+Vereisen	PHa	S
+Verfluchen	PHa	G
+Vergangenheit beschwören	PHa	A
+Vergrößern	PHa	S
+Verjüngen	PHa	A
+Verkleinern	PHa	S
+Verlangsamen	PHa	S
+Versetzen	PHa	S
+Versteinern	PHa	S
+Vertieren	PHa	A
+Verwandlung	PHa	S
+Verzweiflung	PHa	S
+Vinddvegar beschwören	PHa	A
+Vinddverg beschwören	PHa	A
+Vindmand beschwören	PHa	A
+Wachsen	PHa	S
+Wagemut	PHa	G
+Wahnsinn	PHa	S
+Wahrsehen	PHa	G
+Waldluft	PHa	A
+Wandelsalz	PHa	A
+Warnung	PHa	G
+Wasseratmen	PHa	A
+Wasserelementargeist beschwören	PHa	A
+Wasserlauf	PHa	A
+Wassermeisterschaft	PHa	S
+Wassersalz	PHa	A
+Wasserwandlung	PHa	A
+Wehsalz	PHa	A
+Weltentor schaffen	PHa	A
+Wetterzauber	PHa	S
+Wiederkehr	PHa	S
+Windmeisterschaft	PHa	S
+Windstoß	PHa	S
+Wirbelwind	PHa	S
+Wort der Trauer	PHa	G
+Wort des Lebens	PHa	G
+Wüstenwind	PHa	S
+Zauberauge	PHa	S
+Zauberhand	PHa	S
+Zaubermacht	PHa	S
+Zauberschild	PHa	S
+Zauberschloß	PHa	S
+Zauberschlüssel	PHa	S
+Zauberschmiede	PHa	G
+Zauberstimme	PHa	S
+Zauberwirklichkeit	PHa	S
+Zauberzunge	PHa	S
+Zucksalz	PHa	A
+Zweite Haut	PHa	S
+Zwiesprache	PHa	S
+Zwingkreis	PHa	G
+Zündersalz	PHa	A
+Abwenden von Blicken	PHe	S
+Allheilung	PHe	G
+Angst	PHe	S
+Anziehen	PHe	S
+Auflösung	PHe	S
+Austreibung des Bösen	PHe	G
+Austreibung des Guten	PHe	S
+Automat schaffen	PHe	A
+Bann der wahren Eigentümerschaft	PHe	S
+Bannen des Todes	PHe	A
+Bannen von Dunebargen	PHe	A
+Bannen von Dunkelheit	PHe	G
+Bannen von Dvergar	PHe	A
+Bannen von Finsterwerk	PHe	G
+Bannen von Fäulnis	PHe	G
+Bannen von Gift	PHe	G
+Bannen von Hrimfolk	PHe	A
+Bannen von Hrimkin	PHe	A
+Bannen von Hunar	PHe	A
+Bannen von Hyrfolk	PHe	A
+Bannen von Hyrrkin	PHe	A
+Bannen von Jördfolk	PHe	A
+Bannen von Jördkin	PHe	A
+Bannen von Kaobargen	PHe	A
+Bannen von Vindfolk	PHe	A
+Bannen von Vindskin	PHe	A
+Bannen von Wisfolk	PHe	A
+Bannen von Wiskin	PHe	A
+Bannen von Zauberwerk	PHe	G
+Bannsphäre, Blaue	PHe	S
+Bannsphäre, Goldene	PHe	G
+Bannsphäre, Schwarze	PHe	S
+Bannsphäre, Silberne	PHe	S
+Beeinflussen	PHe	S
+Belebungshauch	PHe	S
+Bergeist beschwören	PHe	A
+Bergeist rufen	PHe	A
+Beschleunigen	PHe	S
+Besänftigen	PHe	G
+Bittersalz	PHe	A
+Blenden	PHe	G
+Blendwerk	PHe	S
+Blicksalz	PHe	A
+Blindsalz	PHe	A
+Blitze schleudern	PHe	S
+Brechsalz	PHe	A
+Brot und Wasser	PHe	S
+Bruchbann	PHe	S
+Cheprus Sendbote	PHe	S
+Coluscar 1 beschwören	PHe	A
+Coluscar 2 beschwören	PHe	A
+Coluscar 3 beschwören	PHe	A
+Coluscar 4 beschwören	PHe	A
+Deckmantel	PHe	S
+Der Große Knall	PHe	S
+Dinge verbergen	PHe	S
+Dinge wiederfinden	PHe	S
+Donnerkeil	PHe	S
+Dschinn beschwören	PHe	A
+Dschinn rufen	PHe	A
+Dschinni-Auge	PHe	S
+Dschinni-Horn	PHe	S
+Dschinni-Ohr	PHe	S
+Dschungelwand	PHe	S
+Dunebrast 1 beschwören	PHe	A
+Dunebrast 2 beschwören	PHe	A
+Dunebrast 3 beschwören	PHe	A
+Dunebrast 4 beschwören	PHe	A
+Dunkle Horde beschwören	PHe	A
+Dunskrat beschwören	PHe	A
+Durstsalz	PHe	A
+Dämonen binden	PHe	A
+Dämonenbann	PHe	A
+Dämonenschar beschwören	PHe	A
+Eiselementargeist beschwören	PHe	A
+Eisenhaut	PHe	S
+Eisiger Nebel	PHe	S
+Eismeisterschaft	PHe	A
+Eiswand	PHe	S
+Eiswandlung	PHe	A
+Eldring beschwören	PHe	A
+Elementarbann	PHe	A
+Elementarwesen binden	PHe	A
+Elementenwandlung	PHe	A
+Elfenfeuer	PHe	S
+Entgiften	PHe	S
+Erdbeben	PHe	A
+Erdeelementargeist beschwören	PHe	A
+Erdfessel	PHe	S
+Erdmeisterschaft	PHe	A
+Erdwandlung	PHe	A
+Erheben der Toten	PHe	G
+Erkennen der Aura	PHe	G
+Erkennen von Gift	PHe	A
+Erkennen von Krankheit	PHe	S
+Erkennen von Leben	PHe	A
+Erkennen von Metall	PHe	G
+Erkurku beschwören	PHe	A
+Erkurku rufen	PHe	A
+Erscheinungen	PHe	S
+Farbensalz	PHe	A
+Feenfluch	PHe	A
+Feenzauber	PHe	A
+Felldvegar beschwören	PHe	A
+Felldverg beschwören	PHe	A
+Felsenfaust	PHe	S
+Fengrip beschwören	PHe	A
+Fesselbann	PHe	S
+Feuerelementargeist beschwören	PHe	A
+Feuerfinger	PHe	G
+Feuerkugel	PHe	G
+Feuerlanze	PHe	G
+Feuerlauf	PHe	S
+Feuermeisterschaft	PHe	G
+Feuerregen	PHe	G
+Feuerring	PHe	G
+Feuerschild	PHe	A
+Feuerspiel	PHe	G
+Feuerwand	PHe	G
+Fiebersalz	PHe	A
+Fjalhune beschwören	PHe	A
+Flammende Hand	PHe	G
+Flammenklinge	PHe	G
+Flammenkreis	PHe	S
+Fliegen	PHe	S
+Fliegensalz	PHe	A
+Fluch des Hundes	PHe	A
+Fossemand beschwören	PHe	A
+Freundesauge	PHe	S
+Frostball	PHe	A
+Funkenregen	PHe	S
+Funkensalz	PHe	A
+Färbersalz	PHe	A
+Geas	PHe	S
+Geist beschwören	PHe	A
+Geistesschild	PHe	S
+Geruchsverlust	PHe	A
+Gjornhune beschwören	PHe	A
+Gletschergnom beschwören	PHe	A
+Gletschergnom rufen	PHe	A
+Gloddvegar beschwören	PHe	A
+Gloddverg beschwören	PHe	A
+Glühsalz	PHe	A
+Goldener Panzer	PHe	S
+Golem schaffen	PHe	G
+Graue Hand	PHe	A
+Großer Hitzeschutz	PHe	A
+Grüne Hand	PHe	A
+Göttliche Eingebung	PHe	G
+Göttliche Strafe	PHe	G
+Göttlicher Blitz	PHe	G
+Göttlicher Schutz vor Magie	PHe	G
+Göttlicher Schutz vor dem Bösen	PHe	G
+Haarsalz	PHe	A
+Hagel	PHe	A
+Halebant 1 beschwören	PHe	A
+Halebant 2 beschwören	PHe	A
+Halebant 3 beschwören	PHe	A
+Halebant 4 beschwören	PHe	A
+Hammerhand	PHe	A
+Handauflegen	PHe	G
+Hardlogi beschwören	PHe	A
+Harkarhune beschwören	PHe	A
+Harkbuar beschwören	PHe	A
+Hauch der Verwesung	PHe	S
+Hauch der Wüste	PHe	G
+Hauch des Frühlings	PHe	A
+Haugskadi beschwören	PHe	A
+Heilen schwerer Wunden	PHe	G
+Heilen von Krankheit	PHe	G
+Heilen von Wunden	PHe	G
+Heiliger Zorn	PHe	G
+Heiliges Wort	PHe	G
+Heimstein	PHe	G
+Heranholen	PHe	S
+Herbeizwingen	PHe	A
+Himmelsleiter	PHe	G
+Hitzeschutz	PHe	S
+Hitzsalz	PHe	A
+Hrimdvegar beschwören	PHe	A
+Hrimdverg beschwören	PHe	A
+Hrimhune beschwören	PHe	A
+Hungersalz	PHe	A
+Hyrrbauti beschwören	PHe	A
+Hörnerklang	PHe	S
+Ifrit beschwören	PHe	A
+Ifrit rufen	PHe	A
+Incheper schaffen	PHe	G
+Indruwal 1 beschwören	PHe	A
+Indruwal 2 beschwören	PHe	A
+Indruwal 3 beschwören	PHe	A
+Indruwal 4 beschwören	PHe	A
+Ising beschwören	PHe	A
+Jambani beschwören	PHe	A
+Jokulskadi beschwören	PHe	A
+Jucksalz	PHe	A
+Jurugu beschwören	PHe	A
+Jurugu rufen	PHe	A
+Jördmand beschwören	PHe	A
+Kaligin 1 beschwören	PHe	A
+Kaligin 2 beschwören	PHe	A
+Kaligin 3 beschwören	PHe	A
+Kaligin 4 beschwören	PHe	A
+Kallbjargi beschwören	PHe	A
+Kallrani beschwören	PHe	A
+Kammerdiener beschwören	PHe	A
+Karing beschwören	PHe	A
+Klebesalz	PHe	A
+Knallsalz	PHe	A
+Kopieren	PHe	G
+Kravyad-Schrei	PHe	S
+Kreatur erschaffen	PHe	A
+Kuß des Schlafes	PHe	A
+Kühlsalz	PHe	A
+Lachsalz	PHe	A
+Lahmsalz	PHe	A
+Lehrersuche	PHe	S
+Leomies Birneneis	PHe	A
+Lergris beschwören	PHe	A
+Levitation	PHe	S
+Lichtbrücke	PHe	G
+Lichtrunen	PHe	S
+Liebeszauber	PHe	S
+Lindern von Entkräftung	PHe	A
+Liniensicht	PHe	A
+Ljosfang beschwören	PHe	A
+Luftelementargeist beschwören	PHe	A
+Luftlauf	PHe	A
+Luftsphäre	PHe	S
+Luftspiegelung	PHe	S
+Lustsalz	PHe	A
+Lähmung	PHe	S
+Löschsalz	PHe	A
+Macht über Menschen	PHe	S
+Macht über magische Wesen	PHe	A
+Magische Aura	PHe	S
+Magischer Kreis des Bewachens	PHe	S
+Magischer Kreis des Verschleierns	PHe	S
+Magischer Kreis des Widerstehens	PHe	S
+Magischer Kreis, klein	PHe	S
+Manifestation des Ka	PHe	G
+Marhune beschwören	PHe	A
+Marid beschwören	PHe	A
+Marid rufen	PHe	A
+Marmennil beschwören	PHe	A
+Marmorhaut	PHe	S
+Megant 1 beschwören	PHe	A
+Megant 2 beschwören	PHe	A
+Megant 3 beschwören	PHe	A
+Megant 4 beschwören	PHe	A
+Meisterbann	PHe	A
+Metallmeisterschaft	PHe	G
+Mokkurbjargi beschwören	PHe	A
+Mumie erwecken	PHe	G
+Myrknir beschwören	PHe	A
+Namenloses Grauen	PHe	S
+Nebel schaffen	PHe	S
+Nebel wecken	PHe	A
+Nebelsalz	PHe	A
+Nefling beschwören	PHe	A
+Niessalz	PHe	A
+Paschuyana, der Weg des Tieres	PHe	A
+Person beschwören	PHe	A
+Person wiederfinden	PHe	S
+Pestklaue	PHe	A
+Rauchsalz	PHe	A
+Rauchwolke	PHe	S
+Rauschsalz	PHe	A
+Regenzauber	PHe	S
+Reinigen	PHe	S
+Riechsalz	PHe	A
+Ring des Lebens	PHe	A
+Rost	PHe	S
+Rutschsalz	PHe	A
+Rückführung	PHe	A
+Sa spenden	PHe	G
+Saeldvegar beschwören	PHe	A
+Saeldverg beschwören	PHe	A
+Sandmeisterschaft	PHe	A
+Scharfblick	PHe	A
+Scheintod	PHe	A
+Schlaf	PHe	S
+Schlafsalz	PHe	A
+Schleichsalz	PHe	A
+Schmerzen	PHe	S
+Schmerzen spüren	PHe	A
+Schreiber beschwören	PHe	A
+Schrumpfen	PHe	S
+Schutzgeist	PHe	S
+Schutzkreis gegen Dunebargen	PHe	A
+Schutzkreis gegen Dvergar	PHe	A
+Schutzkreis gegen Dämonen	PHe	A
+Schutzkreis gegen Elementarwesen	PHe	A
+Schutzkreis gegen Geisterwesen	PHe	A
+Schutzkreis gegen Hrimfolk	PHe	A
+Schutzkreis gegen Hunar	PHe	A
+Schutzkreis gegen Hyrrfolk	PHe	A
+Schutzkreis gegen Jördfolk	PHe	A
+Schutzkreis gegen Kaobargen	PHe	A
+Schutzkreis gegen Untote	PHe	A
+Schutzkreis gegen Vindfolk	PHe	A
+Schutzkreis gegen Wisfolk	PHe	A
+Schwarze Zone	PHe	S
+Schweben	PHe	S
+Schwingenkeule	PHe	A
+Schwäche	PHe	S
+Schöne Leiche	PHe	A
+Seele finden	PHe	G
+Seelenheilung	PHe	S
+Seelenkompaß	PHe	S
+Seelenschock	PHe	S
+Segnen	PHe	G
+Serkefs Todesbote	PHe	G
+Signalkugel	PHe	S
+Silberstaub	PHe	S
+Snaerhamir beschwören	PHe	A
+Spruch intensivieren	PHe	S
+Staubkämpfer	PHe	A
+Steinkugel	PHe	S
+Steinwand	PHe	S
+Stille	PHe	S
+Stimmenwerfen	PHe	S
+Stottersalz	PHe	A
+Sturmflut	PHe	A
+Sturmhand	PHe	S
+Sturmwind	PHe	S
+Stärke	PHe	S
+Sumpfboden	PHe	A
+Svalgrim beschwören	PHe	A
+Tausch des Ba	PHe	S
+Thrymbar beschwören	PHe	A
+Thrymbar eschwören	PHe	A
+Thursenstein	PHe	A
+Tiefschlaf	PHe	S
+Tierisches Handeln	PHe	S
+Tiersprache	PHe	S
+Todeshauch	PHe	S
+Todeszauber	PHe	A
+Tor schaffen	PHe	A
+Trampelsalz	PHe	A
+Trockensalz	PHe	A
+Trunk des Lebens	PHe	A
+Truscan 1 beschwören	PHe	A
+Truscan 2 beschwören	PHe	A
+Truscan 3 beschwören	PHe	A
+Truscan 4 beschwören	PHe	A
+Umkehrschild	PHe	A
+Ungeziefer bannen	PHe	A
+Unsichtbarkeit	PHe	S
+Vereisen	PHe	S
+Verfluchen	PHe	G
+Vergangenheit beschwören	PHe	A
+Vergrößern	PHe	S
+Verjüngen	PHe	A
+Verkleinern	PHe	S
+Verlangsamen	PHe	S
+Versetzen	PHe	S
+Versteinern	PHe	S
+Vertieren	PHe	A
+Verwandlung	PHe	S
+Verzweiflung	PHe	S
+Vinddvegar beschwören	PHe	A
+Vinddverg beschwören	PHe	A
+Vindmand beschwören	PHe	A
+Wachsen	PHe	S
+Wagemut	PHe	G
+Wahnsinn	PHe	S
+Wahrsehen	PHe	G
+Waldluft	PHe	A
+Wandelsalz	PHe	A
+Warnung	PHe	G
+Wasseratmen	PHe	A
+Wasserelementargeist beschwören	PHe	A
+Wasserlauf	PHe	A
+Wassermeisterschaft	PHe	A
+Wassersalz	PHe	A
+Wasserwandlung	PHe	A
+Wehsalz	PHe	A
+Weltentor schaffen	PHe	A
+Wetterzauber	PHe	S
+Wiederkehr	PHe	S
+Windmeisterschaft	PHe	S
+Windstoß	PHe	S
+Wirbelwind	PHe	S
+Wort der Trauer	PHe	G
+Wort des Lebens	PHe	G
+Wüstenwind	PHe	S
+Zauberauge	PHe	S
+Zauberhand	PHe	S
+Zaubermacht	PHe	S
+Zauberschild	PHe	S
+Zauberschloß	PHe	S
+Zauberschlüssel	PHe	S
+Zauberschmiede	PHe	S
+Zauberstimme	PHe	S
+Zauberwirklichkeit	PHe	S
+Zauberzunge	PHe	S
+Zucksalz	PHe	A
+Zweite Haut	PHe	S
+Zwiesprache	PHe	S
+Zwingkreis	PHe	S
+Zündersalz	PHe	A
+Abwenden von Blicken	Hl	G
+Allheilung	Hl	G
+Angst	Hl	S
+Anziehen	Hl	A
+Aufladen	Hl	S
+Auflösung	Hl	A
+Augenschleier	Hl	S
+Austreibung des Bösen	Hl	S
+Bannen von Dunebargen	Hl	A
+Bannen von Dunkelheit	Hl	G
+Bannen von Dvergar	Hl	A
+Bannen von Finsterwerk	Hl	S
+Bannen von Fäulnis	Hl	G
+Bannen von Gift	Hl	G
+Bannen von Hrimfolk	Hl	A
+Bannen von Hrimkin	Hl	A
+Bannen von Hunar	Hl	A
+Bannen von Hyrfolk	Hl	A
+Bannen von Hyrrkin	Hl	A
+Bannen von Jördfolk	Hl	A
+Bannen von Jördkin	Hl	A
+Bannen von Kaobargen	Hl	A
+Bannen von Kälte	Hl	A
+Bannen von Vindfolk	Hl	A
+Bannen von Vindskin	Hl	A
+Bannen von Wisfolk	Hl	A
+Bannen von Wiskin	Hl	A
+Bannen von Zauberwerk	Hl	S
+Bannsphäre, Blaue	Hl	A
+Bannsphäre, Goldene	Hl	A
+Bannsphäre, Schwarze	Hl	S
+Bannsphäre, Silberne	Hl	A
+Baumkämpfer	Hl	S
+Baumwächter	Hl	S
+Bergeist beschwören	Hl	A
+Bergeist rufen	Hl	A
+Beschleunigen	Hl	G
+Besänftigen	Hl	G
+Binden des Vertrauten	Hl	S
+Bittersalz	Hl	A
+Blendwerk	Hl	S
+Blicksalz	Hl	A
+Blindsalz	Hl	A
+Blutmeisterschaft	Hl	S
+Blutwandlung	Hl	S
+Brechsalz	Hl	A
+Bruchbann	Hl	A
+Bärenwut	Hl	S
+Coluscar 1 beschwören	Hl	A
+Coluscar 2 beschwören	Hl	A
+Coluscar 3 beschwören	Hl	A
+Coluscar 4 beschwören	Hl	A
+Deckmantel	Hl	A
+Donnerkeil	Hl	A
+Dschinn beschwören	Hl	A
+Dschinn rufen	Hl	A
+Dschungelwand	Hl	S
+Dunebrast 1 beschwören	Hl	A
+Dunebrast 2 beschwören	Hl	A
+Dunebrast 3 beschwören	Hl	A
+Dunebrast 4 beschwören	Hl	A
+Dunkle Horde beschwören	Hl	A
+Dunskrat beschwören	Hl	A
+Durstsalz	Hl	A
+Dämonen binden	Hl	A
+Dämonenbann	Hl	A
+Dämonenschar beschwören	Hl	A
+Eichenzauber	Hl	S
+Eifersucht	Hl	S
+Eiselementargeist beschwören	Hl	A
+Eisenhaut	Hl	A
+Eisiger Nebel	Hl	A
+Eismeisterschaft	Hl	A
+Eiswand	Hl	A
+Eiswandlung	Hl	S
+Eldring beschwören	Hl	A
+Elementarbann	Hl	A
+Elementarwesen binden	Hl	A
+Elementenwandlung	Hl	A
+Elfenfeuer	Hl	S
+Entfesseln	Hl	S
+Entgiften	Hl	G
+Erdbeben	Hl	A
+Erdeelementargeist beschwören	Hl	A
+Erdfessel	Hl	S
+Erdmeisterschaft	Hl	S
+Erdwandlung	Hl	A
+Erheben der Toten	Hl	G
+Erkennen von Gift	Hl	A
+Erkennen von Krankheit	Hl	G
+Erkennen von Leben	Hl	S
+Erkurku beschwören	Hl	A
+Erkurku rufen	Hl	A
+Erscheinungen	Hl	S
+Farbensalz	Hl	A
+Feenfluch	Hl	S
+Feenzauber	Hl	S
+Felldvegar beschwören	Hl	A
+Felldverg beschwören	Hl	A
+Felsenfaust	Hl	A
+Fengrip beschwören	Hl	A
+Fesselbann	Hl	S
+Feuerelementargeist beschwören	Hl	A
+Feuerfinger	Hl	S
+Feuerkugel	Hl	A
+Feuerlanze	Hl	A
+Feuerlauf	Hl	A
+Feuerschild	Hl	S
+Feuerspiel	Hl	S
+Feuerwand	Hl	A
+Fiebersalz	Hl	A
+Fjalhune beschwören	Hl	A
+Flammende Hand	Hl	S
+Flammenkreis	Hl	S
+Fliegen	Hl	S
+Fliegensalz	Hl	A
+Fluch des Hundes	Hl	S
+Fossemand beschwören	Hl	A
+Freundesauge	Hl	G
+Frostball	Hl	A
+Funkenregen	Hl	G
+Funkensalz	Hl	A
+Fährtenduft	Hl	A
+Färbersalz	Hl	A
+Geas	Hl	G
+Geist beschwören	Hl	A
+Geistesschild	Hl	G
+Geruchsverlust	Hl	A
+Gjornhune beschwören	Hl	A
+Gletschergnom beschwören	Hl	A
+Gletschergnom rufen	Hl	A
+Gloddvegar beschwören	Hl	A
+Gloddverg beschwören	Hl	A
+Glühsalz	Hl	A
+Grenzenlose Freude	Hl	S
+Grüne Hand	Hl	G
+Götterarme	Hl	A
+Göttlicher Schutz vor dem Bösen	Hl	S
+Haarsalz	Hl	A
+Hagel	Hl	A
+Halebant 1 beschwören	Hl	A
+Halebant 2 beschwören	Hl	A
+Halebant 3 beschwören	Hl	A
+Halebant 4 beschwören	Hl	A
+Handauflegen	Hl	G
+Hardlogi beschwören	Hl	A
+Harkarhune beschwören	Hl	A
+Harkbuar beschwören	Hl	A
+Haugskadi beschwören	Hl	A
+Heilen schwerer Wunden	Hl	G
+Heilen von Krankheit	Hl	G
+Heilen von Wunden	Hl	G
+Heimstein	Hl	S
+Heranholen	Hl	G
+Herbeizwingen	Hl	A
+Hitzeschutz	Hl	A
+Hitzsalz	Hl	A
+Hort der Natur	Hl	S
+Hrimdvegar beschwören	Hl	A
+Hrimdverg beschwören	Hl	A
+Hrimhune beschwören	Hl	A
+Hungersalz	Hl	A
+Hyrrbauti beschwören	Hl	A
+Hören von Fernem	Hl	S
+Hörnerklang	Hl	A
+Ifrit beschwören	Hl	A
+Ifrit rufen	Hl	A
+Indruwal 1 beschwören	Hl	A
+Indruwal 2 beschwören	Hl	A
+Indruwal 3 beschwören	Hl	A
+Indruwal 4 beschwören	Hl	A
+Ising beschwören	Hl	A
+Jambani beschwören	Hl	A
+Jokulskadi beschwören	Hl	A
+Jucksalz	Hl	A
+Jurugu beschwören	Hl	A
+Jurugu rufen	Hl	A
+Jördmand beschwören	Hl	A
+Kaligin 1 beschwören	Hl	A
+Kaligin 2 beschwören	Hl	A
+Kaligin 3 beschwören	Hl	A
+Kaligin 4 beschwören	Hl	A
+Kallbjargi beschwören	Hl	A
+Kallrani beschwören	Hl	A
+Kammerdiener beschwören	Hl	G
+Karing beschwören	Hl	A
+Klebesalz	Hl	A
+Knallsalz	Hl	A
+Kopieren	Hl	S
+Kreatur erschaffen	Hl	A
+Kälteschutz	Hl	A
+Kühlsalz	Hl	A
+Lachsalz	Hl	A
+Lahmsalz	Hl	A
+Lebenskeule	Hl	S
+Lehrersuche	Hl	S
+Leomies Birneneis	Hl	A
+Lergris beschwören	Hl	A
+Levitation	Hl	S
+Lichtrunen	Hl	A
+Liebeszauber	Hl	S
+Lindern von Entkräftung	Hl	G
+Liniensicht	Hl	G
+Linienwanderung	Hl	S
+Ljosfang beschwören	Hl	A
+Luftelementargeist beschwören	Hl	A
+Luftlauf	Hl	A
+Luftsphäre	Hl	S
+Luftspiegelung	Hl	S
+Lustsalz	Hl	A
+Lähmung	Hl	G
+Löschsalz	Hl	A
+Macht über das Selbst	Hl	S
+Macht über die Zeit	Hl	A
+Macht über die belebte Natur	Hl	G
+Magischer Kreis des Bewachens	Hl	A
+Magischer Kreis des Verschleierns	Hl	A
+Magischer Kreis des Widerstehens	Hl	A
+Magischer Kreis, klein	Hl	S
+Marhune beschwören	Hl	A
+Marid beschwören	Hl	A
+Marid rufen	Hl	A
+Marmennil beschwören	Hl	A
+Marmorhaut	Hl	A
+Megant 1 beschwören	Hl	A
+Megant 2 beschwören	Hl	A
+Megant 3 beschwören	Hl	A
+Megant 4 beschwören	Hl	A
+Meisterbann	Hl	A
+Metallmeisterschaft	Hl	A
+Mokkurbjargi beschwören	Hl	A
+Myrknir beschwören	Hl	A
+Namenloses Grauen	Hl	S
+Nebel schaffen	Hl	S
+Nebel wecken	Hl	A
+Nebelsalz	Hl	A
+Nefling beschwören	Hl	A
+Niessalz	Hl	A
+Person beschwören	Hl	A
+Person wiederfinden	Hl	G
+Pflanzenfessel	Hl	S
+Rauchsalz	Hl	A
+Rauchwolke	Hl	S
+Rauschsalz	Hl	A
+Regenzauber	Hl	S
+Reinigen	Hl	G
+Reise der Seele	Hl	S
+Reizen	Hl	A
+Reptilien rufen	Hl	G
+Riechsalz	Hl	A
+Ring des Lebens	Hl	S
+Rutschsalz	Hl	A
+Rückführung	Hl	S
+Sa spenden	Hl	S
+Saeldvegar beschwören	Hl	A
+Saeldverg beschwören	Hl	A
+Sandmeisterschaft	Hl	S
+Scharfblick	Hl	S
+Schattenbruder	Hl	A
+Scheintod	Hl	G
+Schlaf	Hl	G
+Schlafsalz	Hl	A
+Schleichsalz	Hl	A
+Schmerzen	Hl	G
+Schmerzen spüren	Hl	S
+Schminken	Hl	S
+Schreiber beschwören	Hl	A
+Schrumpfen	Hl	S
+Schutzkreis gegen Dunebargen	Hl	A
+Schutzkreis gegen Dvergar	Hl	A
+Schutzkreis gegen Dämonen	Hl	A
+Schutzkreis gegen Elementarwesen	Hl	A
+Schutzkreis gegen Geisterwesen	Hl	A
+Schutzkreis gegen Hrimfolk	Hl	A
+Schutzkreis gegen Hunar	Hl	A
+Schutzkreis gegen Hyrrfolk	Hl	A
+Schutzkreis gegen Jördfolk	Hl	A
+Schutzkreis gegen Kaobargen	Hl	A
+Schutzkreis gegen Untote	Hl	A
+Schutzkreis gegen Vindfolk	Hl	A
+Schutzkreis gegen Wisfolk	Hl	A
+Schwarm	Hl	S
+Schwarze Zone	Hl	S
+Schweben	Hl	S
+Schwäche	Hl	G
+Schöne Leiche	Hl	G
+Seele finden	Hl	G
+Seelenheilung	Hl	G
+Seelenkompaß	Hl	S
+Seelenschock	Hl	G
+Signalkugel	Hl	S
+Silberstaub	Hl	S
+Snaerhamir beschwören	Hl	A
+Sprachlähmung	Hl	G
+Spruch intensivieren	Hl	S
+Srimarameisterschaft I	Hl	S
+Srimarameisterschaft II	Hl	S
+Staubkämpfer	Hl	A
+Steinkugel	Hl	A
+Steinwand	Hl	A
+Stille	Hl	S
+Stimmenwerfen	Hl	S
+Stottersalz	Hl	A
+Sturmflut	Hl	S
+Sturmhand	Hl	S
+Sturmwind	Hl	S
+Stärke	Hl	G
+Sumpfboden	Hl	A
+Sutechs Heer	Hl	S
+Svalgrim beschwören	Hl	A
+Thrymbar beschwören	Hl	A
+Thrymbar eschwören	Hl	A
+Thursenstein	Hl	A
+Tiefschlaf	Hl	G
+Tiere rufen	Hl	G
+Tiergestalt	Hl	G
+Tierisches Handeln	Hl	S
+Tiersprache	Hl	G
+Todeszauber	Hl	A
+Tor schaffen	Hl	A
+Trampelsalz	Hl	A
+Trockensalz	Hl	A
+Trunk des Lebens	Hl	G
+Truscan 1 beschwören	Hl	A
+Truscan 2 beschwören	Hl	A
+Truscan 3 beschwören	Hl	A
+Truscan 4 beschwören	Hl	A
+Umkehrschild	Hl	A
+Ungeziefer bannen	Hl	S
+Unsichtbarkeit	Hl	S
+Vergangenheit beschwören	Hl	A
+Vergrößern	Hl	S
+Verjüngen	Hl	G
+Verkleinern	Hl	S
+Verlangsamen	Hl	G
+Versetzen	Hl	A
+Vertieren	Hl	S
+Verwandlung	Hl	S
+Verwirren	Hl	A
+Verzweiflung	Hl	G
+Vinddvegar beschwören	Hl	A
+Vinddverg beschwören	Hl	A
+Vindmand beschwören	Hl	A
+Wachsen	Hl	S
+Wagemut	Hl	S
+Wahnsinn	Hl	S
+Wahrsehen	Hl	S
+Waldluft	Hl	G
+Wandeln wie der Wind	Hl	S
+Wandelsalz	Hl	A
+Wandlung	Hl	S
+Warnung	Hl	S
+Wasser befreien	Hl	S
+Wasser spüren	Hl	S
+Wasseratmen	Hl	A
+Wasserelementargeist beschwören	Hl	A
+Wasserlauf	Hl	A
+Wassermeisterschaft	Hl	S
+Wassersalz	Hl	A
+Wasserstrahl	Hl	S
+Wasserwandlung	Hl	S
+Wehsalz	Hl	A
+Weltentor schaffen	Hl	A
+Wetterzauber	Hl	S
+Wiederkehr	Hl	S
+Windmeisterschaft	Hl	S
+Windstoß	Hl	A
+Wirbelwind	Hl	S
+Wolkenbruch	Hl	S
+Wort der Trauer	Hl	S
+Wort des Lebens	Hl	S
+Zauberhand	Hl	A
+Zaubermacht	Hl	S
+Zauberschild	Hl	A
+Zauberstimme	Hl	S
+Zauberwirklichkeit	Hl	A
+Zauberzunge	Hl	S
+Zucksalz	Hl	A
+Zweite Haut	Hl	G
+Zwiesprache	Hl	S
+Zwingkreis	Hl	S
+Zähmen	Hl	G
+Zündersalz	Hl	A
+Abu es-Samum	wHx	S
+Abwenden von Blicken	wHx	A
+Aggression	wHx	G
+Ain es-Samum	wHx	S
+Akbar fil-Ghadban	wHx	S
+Al-Ghussat	wHx	S
+Al-Karama	wHx	S
+Al-Mutadid	wHx	S
+Al-Tarka	wHx	S
+Angst	wHx	G
+Anziehen	wHx	G
+Auflösung	wHx	S
+Augenschleier	wHx	G
+Bann der wahren Eigentümerschaft	wHx	A
+Bannen von Dunebargen	wHx	A
+Bannen von Dunkelheit	wHx	A
+Bannen von Dvergar	wHx	A
+Bannen von Finsterwerk	wHx	G
+Bannen von Fäulnis	wHx	A
+Bannen von Hrimfolk	wHx	A
+Bannen von Hrimkin	wHx	A
+Bannen von Hunar	wHx	A
+Bannen von Hyrfolk	wHx	A
+Bannen von Hyrrkin	wHx	A
+Bannen von Jördfolk	wHx	A
+Bannen von Jördkin	wHx	A
+Bannen von Kaobargen	wHx	A
+Bannen von Kälte	wHx	S
+Bannen von Licht	wHx	S
+Bannen von Vindfolk	wHx	A
+Bannen von Vindskin	wHx	A
+Bannen von Wisfolk	wHx	A
+Bannen von Wiskin	wHx	A
+Bannen von Zauberwerk	wHx	S
+Bannsphäre, Blaue	wHx	S
+Bannsphäre, Goldene	wHx	S
+Bannsphäre, Schwarze	wHx	S
+Bannsphäre, Silberne	wHx	S
+Baum	wHx	A
+Baumkämpfer	wHx	A
+Baumwächter	wHx	A
+Beeinflussen	wHx	G
+Befestigen	wHx	S
+Belebungshauch	wHx	S
+Bergeist beschwören	wHx	A
+Bergeist rufen	wHx	A
+Beschleunigen	wHx	S
+Besänftigen	wHx	S
+Binden des Vertrauten	wHx	G
+Bittersalz	wHx	S
+Blenden	wHx	S
+Blendwerk	wHx	G
+Blicksalz	wHx	S
+Blindsalz	wHx	S
+Blitze schleudern	wHx	S
+Blutwandlung	wHx	G
+Brechsalz	wHx	S
+Brot und Wasser	wHx	S
+Bruchbann	wHx	G
+Bärenstärke	wHx	S
+Bärenwut	wHx	A
+Cheprus Sendbote	wHx	S
+Coluscar 1 beschwören	wHx	A
+Coluscar 2 beschwören	wHx	A
+Coluscar 3 beschwören	wHx	A
+Coluscar 4 beschwören	wHx	A
+Dalail al-Khairat	wHx	S
+Dalail ed-Dawahi	wHx	G
+Das Essen nährt...	wHx	G
+Dau ed-Datin	wHx	G
+Dau ed-Din	wHx	S
+Deckmantel	wHx	S
+Der Große Knall	wHx	S
+Der große Seiltrick	wHx	S
+Der kleine Seiltrick	wHx	S
+Die Wiesenheuschrecke zirpt...	wHx	G
+Dinge rufen	wHx	S
+Dinge verbergen	wHx	S
+Dinge wiederfinden	wHx	S
+Donnerkeil	wHx	S
+Dschinn beschwören	wHx	A
+Dschinn rufen	wHx	A
+Dschinni-Auge	wHx	S
+Dschinni-Horn	wHx	S
+Dschinni-Ohr	wHx	S
+Dschungelwand	wHx	S
+Dunebrast 1 beschwören	wHx	A
+Dunebrast 2 beschwören	wHx	A
+Dunebrast 3 beschwören	wHx	A
+Dunebrast 4 beschwören	wHx	A
+Dunkle Horde beschwören	wHx	A
+Dunskrat beschwören	wHx	A
+Durstsalz	wHx	S
+Dämonen binden	wHx	A
+Dämonenbann	wHx	A
+Dämonenfeuer	wHx	G
+Dämonenschar beschwören	wHx	A
+Eiselementargeist beschwören	wHx	A
+Eisenhaut	wHx	S
+Eisiger Nebel	wHx	S
+Eismeisterschaft	wHx	S
+Eiswand	wHx	S
+Eiswandlung	wHx	S
+Eldring beschwören	wHx	A
+Elementarbann	wHx	A
+Elementarwesen binden	wHx	A
+Elementenwandlung	wHx	S
+Elfenfeuer	wHx	S
+Entgiften	wHx	S
+Erdbeben	wHx	A
+Erdeelementargeist beschwören	wHx	A
+Erdfessel	wHx	S
+Erdmeisterschaft	wHx	S
+Erdwandlung	wHx	S
+Erkennen von Leben	wHx	A
+Erkennen von Metall	wHx	A
+Erkennen von Zauberei	wHx	S
+Erkurku beschwören	wHx	A
+Erkurku rufen	wHx	A
+Erscheinungen	wHx	S
+Farbensalz	wHx	S
+Feenfluch	wHx	G
+Feenzauber	wHx	G
+Felldvegar beschwören	wHx	A
+Felldverg beschwören	wHx	A
+Felsenfaust	wHx	S
+Fengrip beschwören	wHx	A
+Fesselbann	wHx	S
+Feuerelementargeist beschwören	wHx	A
+Feuerfinger	wHx	S
+Feuerkugel	wHx	S
+Feuerlanze	wHx	S
+Feuerlauf	wHx	A
+Feuermeisterschaft	wHx	S
+Feuerregen	wHx	S
+Feuerring	wHx	S
+Feuerschild	wHx	S
+Feuerspiel	wHx	S
+Feuerwand	wHx	S
+Fiebersalz	wHx	S
+Fjalhune beschwören	wHx	A
+Flammende Hand	wHx	S
+Flammenklinge	wHx	A
+Flammenkreis	wHx	S
+Fliegen	wHx	S
+Fliegensalz	wHx	S
+Fossemand beschwören	wHx	A
+Freundesauge	wHx	S
+Frostball	wHx	S
+Funkenregen	wHx	S
+Funkensalz	wHx	S
+Färbersalz	wHx	S
+Geas	wHx	S
+Geist beschwören	wHx	A
+Geistesschild	wHx	S
+Geruchsverlust	wHx	S
+Ghussat el-Masin	wHx	G
+Gjornhune beschwören	wHx	A
+Gletschergnom beschwören	wHx	A
+Gletschergnom rufen	wHx	A
+Gloddvegar beschwören	wHx	A
+Gloddverg beschwören	wHx	A
+Glühsalz	wHx	S
+Goldener Panzer	wHx	S
+Grenzenlose Freude	wHx	S
+Grüne Hand	wHx	S
+Göttliche Eingebung	wHx	G
+Göttliche Strafe	wHx	G
+Göttlicher Schutz vor dem Bösen	wHx	G
+Haarsalz	wHx	S
+Hagel	wHx	S
+Halebant 1 beschwören	wHx	A
+Halebant 2 beschwören	wHx	A
+Halebant 3 beschwören	wHx	A
+Halebant 4 beschwören	wHx	A
+Hammerhand	wHx	S
+Handauflegen	wHx	A
+Haram fil-Din	wHx	S
+Hardlogi beschwören	wHx	A
+Harkarhune beschwören	wHx	A
+Harkbuar beschwören	wHx	A
+Hauch der Verwesung	wHx	S
+Hauch der Wüste	wHx	S
+Hauch des Winters	wHx	S
+Haugskadi beschwören	wHx	A
+Heilen schwerer Wunden	wHx	A
+Heilen von Wunden	wHx	A
+Heiliges Wort	wHx	G
+Heimstein	wHx	A
+Heranholen	wHx	S
+Herbeizwingen	wHx	A
+Hexenhand	wHx	A
+Himmelsleiter	wHx	S
+Hitzeschutz	wHx	S
+Hitzsalz	wHx	S
+Hort der Natur	wHx	A
+Hrimdvegar beschwören	wHx	A
+Hrimdverg beschwören	wHx	A
+Hrimhune beschwören	wHx	A
+Hungersalz	wHx	S
+Hyrrbauti beschwören	wHx	A
+Hören der Geister	wHx	S
+Hören von Fernem	wHx	S
+Hörnerklang	wHx	S
+Ifrit beschwören	wHx	A
+Ifrit rufen	wHx	A
+Indruwal 1 beschwören	wHx	A
+Indruwal 2 beschwören	wHx	A
+Indruwal 3 beschwören	wHx	A
+Indruwal 4 beschwören	wHx	A
+Ising beschwören	wHx	A
+Jambani beschwören	wHx	A
+Jokulskadi beschwören	wHx	A
+Jucksalz	wHx	S
+Jurugu beschwören	wHx	A
+Jurugu rufen	wHx	A
+Juwelenauge	wHx	S
+Jördmand beschwören	wHx	A
+Kaligin 1 beschwören	wHx	A
+Kaligin 2 beschwören	wHx	A
+Kaligin 3 beschwören	wHx	A
+Kaligin 4 beschwören	wHx	A
+Kallbjargi beschwören	wHx	A
+Kallrani beschwören	wHx	A
+Kammerdiener beschwören	wHx	S
+Karing beschwören	wHx	A
+Klebesalz	wHx	S
+Knallsalz	wHx	S
+Kopieren	wHx	S
+Kreatur erschaffen	wHx	A
+Kuß des Schlafes	wHx	G
+Kälteschutz	wHx	S
+Kühlsalz	wHx	S
+Lachsalz	wHx	S
+Lahmsalz	wHx	S
+Lauschen	wHx	S
+Lebenskeule	wHx	S
+Lehrersuche	wHx	S
+Leomies Birneneis	wHx	A
+Lergris beschwören	wHx	A
+Levitation	wHx	S
+Lichtbrücke	wHx	S
+Lichtrunen	wHx	S
+Liebeszauber	wHx	G
+Lindern von Entkräftung	wHx	A
+Liniensicht	wHx	S
+Ljosfang beschwören	wHx	A
+Luftelementargeist beschwören	wHx	A
+Luftlauf	wHx	A
+Luftsphäre	wHx	S
+Luftspiegelung	wHx	S
+Lustsalz	wHx	S
+Lähmung	wHx	S
+Löschsalz	wHx	S
+Macht über Leben	wHx	A
+Macht über Menschen	wHx	A
+Macht über Mumien	wHx	S
+Macht über Unbelebtes	wHx	S
+Macht über das Selbst	wHx	S
+Macht über den Tod	wHx	A
+Macht über die Sinne	wHx	S
+Macht über die Zeit	wHx	A
+Macht über die belebte Natur	wHx	S
+Macht über magische Wesen	wHx	S
+Magische Aura	wHx	G
+Magischer Kreis des Bewachens	wHx	A
+Magischer Kreis des Verschleierns	wHx	A
+Magischer Kreis des Widerstehens	wHx	A
+Magischer Kreis, klein	wHx	S
+Magischer Spion	wHx	G
+Manifestation des Ka	wHx	S
+Marhune beschwören	wHx	A
+Marid beschwören	wHx	A
+Marid rufen	wHx	A
+Marmennil beschwören	wHx	A
+Marmorhaut	wHx	S
+Megant 1 beschwören	wHx	A
+Megant 2 beschwören	wHx	A
+Megant 3 beschwören	wHx	A
+Megant 4 beschwören	wHx	A
+Meisterbann	wHx	A
+Metallmeisterschaft	wHx	S
+Mokkurbjargi beschwören	wHx	A
+Mumie erwecken	wHx	S
+Myrknir beschwören	wHx	A
+Namenloses Grauen	wHx	S
+Nebel schaffen	wHx	S
+Nebel wecken	wHx	S
+Nebelsalz	wHx	S
+Nefling beschwören	wHx	A
+Niessalz	wHx	S
+Person beschwören	wHx	A
+Person wiederfinden	wHx	S
+Pflanzenfessel	wHx	A
+Rauchsalz	wHx	S
+Rauchwolke	wHx	G
+Rauschsalz	wHx	S
+Regenzauber	wHx	S
+Reise der Seele	wHx	A
+Reise in die Zeit	wHx	A
+Reise zu den Sphären	wHx	A
+Reptilien rufen	wHx	S
+Riechsalz	wHx	S
+Rost	wHx	S
+Rutschsalz	wHx	S
+Sadik es-Sidiki	wHx	S
+Saeldvegar beschwören	wHx	A
+Saeldverg beschwören	wHx	A
+Saijidat el-Masin	wHx	S
+Sandmeisterschaft	wHx	S
+Scharfblick	wHx	S
+Schattenbruder	wHx	G
+Scheintod	wHx	S
+Schlaf	wHx	S
+Schlafsalz	wHx	S
+Schlangenbiß	wHx	S
+Schleichsalz	wHx	S
+Schmerzen	wHx	G
+Schminken	wHx	G
+Schreiber beschwören	wHx	S
+Schrumpfen	wHx	S
+Schutzgeist	wHx	S
+Schutzkreis gegen Dunebargen	wHx	A
+Schutzkreis gegen Dvergar	wHx	A
+Schutzkreis gegen Dämonen	wHx	A
+Schutzkreis gegen Elementarwesen	wHx	A
+Schutzkreis gegen Geisterwesen	wHx	A
+Schutzkreis gegen Hrimfolk	wHx	A
+Schutzkreis gegen Hunar	wHx	A
+Schutzkreis gegen Hyrrfolk	wHx	A
+Schutzkreis gegen Jördfolk	wHx	A
+Schutzkreis gegen Kaobargen	wHx	A
+Schutzkreis gegen Untote	wHx	A
+Schutzkreis gegen Vindfolk	wHx	A
+Schutzkreis gegen Wisfolk	wHx	A
+Schwarm	wHx	S
+Schwarze Zone	wHx	S
+Schweben	wHx	S
+Schwingenkeule	wHx	A
+Schwäche	wHx	S
+Schöne Leiche	wHx	S
+Seance	wHx	S
+Seele finden	wHx	A
+Seelenkompaß	wHx	G
+Seelenschock	wHx	S
+Sehen in Dunkelheit	wHx	S
+Sehen von Verborgenem	wHx	S
+Serkefs Todesbote	wHx	S
+Signalkugel	wHx	G
+Silberstaub	wHx	S
+Snaerhamir beschwören	wHx	A
+Sprachlähmung	wHx	S
+Spruch intensivieren	wHx	S
+Srimarameisterschaft I	wHx	A
+Srimarameisterschaft II	wHx	A
+Staubkämpfer	wHx	S
+Steinkugel	wHx	S
+Steinwand	wHx	S
+Stille	wHx	S
+Stimmenwerfen	wHx	S
+Stolz zieht der Krieger...	wHx	G
+Stottersalz	wHx	S
+Sturmflut	wHx	S
+Sturmhand	wHx	S
+Sturmwind	wHx	S
+Stärke	wHx	S
+Sumpfboden	wHx	S
+Sutechs Heer	wHx	S
+Svalgrim beschwören	wHx	A
+Tausch des Ba	wHx	S
+Thrymbar beschwören	wHx	A
+Thrymbar eschwören	wHx	A
+Thursenstein	wHx	S
+Tibb al-Mumani	wHx	S
+Tiefschlaf	wHx	S
+Tiere rufen	wHx	S
+Tiergestalt	wHx	S
+Tierisches Handeln	wHx	G
+Tiersprache	wHx	G
+Todeshauch	wHx	S
+Todeszauber	wHx	S
+Tor schaffen	wHx	A
+Trampelsalz	wHx	S
+Trockensalz	wHx	S
+Trunk des Lebens	wHx	S
+Truscan 1 beschwören	wHx	A
+Truscan 2 beschwören	wHx	A
+Truscan 3 beschwören	wHx	A
+Truscan 4 beschwören	wHx	A
+Umkehrschild	wHx	S
+Ungeziefer bannen	wHx	S
+Unsichtbarkeit	wHx	S
+Vereisen	wHx	S
+Verfluchen	wHx	S
+Vergangenheit beschwören	wHx	A
+Vergrößern	wHx	S
+Verjüngen	wHx	A
+Verkleinern	wHx	S
+Verlangsamen	wHx	S
+Versetzen	wHx	S
+Vertieren	wHx	S
+Verwandlung	wHx	S
+Verwirren	wHx	G
+Verzweiflung	wHx	S
+Vinddvegar beschwören	wHx	A
+Vinddverg beschwören	wHx	A
+Vindmand beschwören	wHx	A
+Wachsen	wHx	S
+Wagemut	wHx	A
+Wahnsinn	wHx	G
+Wahrsehen	wHx	S
+Waldluft	wHx	S
+Wandelhand	wHx	A
+Wandeln wie der Wind	wHx	A
+Wandelsalz	wHx	S
+Warnung	wHx	S
+Wasser befreien	wHx	S
+Wasser spüren	wHx	S
+Wasseratmen	wHx	A
+Wasserelementargeist beschwören	wHx	A
+Wasserlauf	wHx	A
+Wassermeisterschaft	wHx	S
+Wassersalz	wHx	S
+Wasserstrahl	wHx	S
+Wasserwandlung	wHx	S
+Wehsalz	wHx	S
+Weltentor schaffen	wHx	A
+Wetterzauber	wHx	S
+Wiederkehr	wHx	S
+Windmeisterschaft	wHx	S
+Windstoß	wHx	A
+Wirbelwind	wHx	S
+Wittern	wHx	S
+Wolkenbruch	wHx	S
+Wort der Trauer	wHx	G
+Wort des Lebens	wHx	G
+Wundersame Tarnung	wHx	A
+Wüstenwind	wHx	G
+Zauberauge	wHx	G
+Zauberhand	wHx	G
+Zaubermacht	wHx	S
+Zauberschild	wHx	S
+Zauberschloß	wHx	S
+Zauberschlüssel	wHx	S
+Zauberschmiede	wHx	A
+Zauberstimme	wHx	S
+Zaubertür	wHx	A
+Zauberwirklichkeit	wHx	S
+Zauberzunge	wHx	S
+Zielsuche	wHx	S
+Zucksalz	wHx	S
+Zurückführen	wHx	S
+Zweite Haut	wHx	S
+Zwiesprache	wHx	S
+Zähmen	wHx	A
+Zündersalz	wHx	S
+Abu es-Samum	gHx	S
+Abwenden von Blicken	gHx	A
+Aggression	gHx	G
+Ain es-Samum	gHx	S
+Akbar fil-Ghadban	gHx	S
+Al-Karama	gHx	S
+Al-Mutadid	gHx	A
+Al-Tarka	gHx	S
+Angst	gHx	G
+Anziehen	gHx	G
+Auflösung	gHx	S
+Augenschleier	gHx	G
+Bann der wahren Eigentümerschaft	gHx	A
+Bannen des Todes	gHx	G
+Bannen von Dunebargen	gHx	A
+Bannen von Dunkelheit	gHx	A
+Bannen von Dvergar	gHx	A
+Bannen von Fäulnis	gHx	A
+Bannen von Hrimfolk	gHx	A
+Bannen von Hrimkin	gHx	A
+Bannen von Hunar	gHx	A
+Bannen von Hyrfolk	gHx	A
+Bannen von Hyrrkin	gHx	A
+Bannen von Jördfolk	gHx	A
+Bannen von Jördkin	gHx	A
+Bannen von Kaobargen	gHx	A
+Bannen von Kälte	gHx	S
+Bannen von Licht	gHx	S
+Bannen von Vindfolk	gHx	A
+Bannen von Vindskin	gHx	A
+Bannen von Wisfolk	gHx	A
+Bannen von Wiskin	gHx	A
+Bannen von Zauberwerk	gHx	S
+Bannsphäre, Blaue	gHx	S
+Bannsphäre, Goldene	gHx	S
+Bannsphäre, Schwarze	gHx	S
+Bannsphäre, Silberne	gHx	S
+Baum	gHx	A
+Baumkämpfer	gHx	A
+Baumwächter	gHx	A
+Beeinflussen	gHx	G
+Befestigen	gHx	S
+Belebungshauch	gHx	S
+Bergeist beschwören	gHx	A
+Bergeist rufen	gHx	A
+Beschleunigen	gHx	S
+Besänftigen	gHx	S
+Binden des Vertrauten	gHx	G
+Bittersalz	gHx	S
+Blenden	gHx	S
+Blendwerk	gHx	G
+Blicksalz	gHx	S
+Blindsalz	gHx	S
+Blitze schleudern	gHx	S
+Blutwandlung	gHx	G
+Brechsalz	gHx	S
+Brot und Wasser	gHx	S
+Bruchbann	gHx	G
+Bärenstärke	gHx	S
+Bärenwut	gHx	A
+Böser Blick	gHx	G
+Cheprus Sendbote	gHx	S
+Coluscar 1 beschwören	gHx	A
+Coluscar 2 beschwören	gHx	A
+Coluscar 3 beschwören	gHx	A
+Coluscar 4 beschwören	gHx	A
+Dalail al-Khairat	gHx	S
+Dalail ed-Dawahi	gHx	G
+Das Essen nährt...	gHx	G
+Dau ed-Datin	gHx	G
+Deckmantel	gHx	S
+Der Große Knall	gHx	S
+Der große Seiltrick	gHx	S
+Der kleine Seiltrick	gHx	S
+Die Wiesenheuschrecke zirpt...	gHx	G
+Dinge rufen	gHx	S
+Dinge verbergen	gHx	S
+Dinge wiederfinden	gHx	S
+Donnerkeil	gHx	S
+Doppelgänger schaffen	gHx	A
+Dschinn beschwören	gHx	A
+Dschinn rufen	gHx	A
+Dschinni-Auge	gHx	S
+Dschinni-Horn	gHx	S
+Dschinni-Ohr	gHx	S
+Dschungelwand	gHx	S
+Dunebrast 1 beschwören	gHx	A
+Dunebrast 2 beschwören	gHx	A
+Dunebrast 3 beschwören	gHx	A
+Dunebrast 4 beschwören	gHx	A
+Dunkle Horde beschwören	gHx	A
+Dunskrat beschwören	gHx	A
+Durstsalz	gHx	S
+Dämonen binden	gHx	A
+Dämonenbann	gHx	A
+Dämonenfeuer	gHx	G
+Dämonenschar beschwören	gHx	A
+Dämonische Eingebung	gHx	S
+Dämonische Zaubermacht	gHx	S
+Eiselementargeist beschwören	gHx	A
+Eisenhaut	gHx	S
+Eisiger Nebel	gHx	S
+Eismeisterschaft	gHx	S
+Eiswand	gHx	S
+Eiswandlung	gHx	S
+Eldring beschwören	gHx	A
+Elementarbann	gHx	A
+Elementarwesen binden	gHx	A
+Elementenwandlung	gHx	S
+Elfenfeuer	gHx	S
+Entfesseln	gHx	A
+Entgiften	gHx	S
+Erdbeben	gHx	A
+Erdeelementargeist beschwören	gHx	A
+Erdfessel	gHx	S
+Erdmeisterschaft	gHx	S
+Erdwandlung	gHx	S
+Erkennen von Leben	gHx	A
+Erkennen von Metall	gHx	A
+Erkennen von Zauberei	gHx	S
+Erkurku beschwören	gHx	A
+Erkurku rufen	gHx	A
+Erscheinungen	gHx	S
+Farbensalz	gHx	S
+Feenfluch	gHx	G
+Feenzauber	gHx	G
+Felldvegar beschwören	gHx	A
+Felldverg beschwören	gHx	A
+Felsenfaust	gHx	S
+Fengrip beschwören	gHx	A
+Fesselbann	gHx	S
+Feuerelementargeist beschwören	gHx	A
+Feuerfinger	gHx	S
+Feuerkugel	gHx	S
+Feuerlanze	gHx	S
+Feuerlauf	gHx	A
+Feuermeisterschaft	gHx	S
+Feuerregen	gHx	S
+Feuerring	gHx	S
+Feuerschild	gHx	S
+Feuerspiel	gHx	S
+Feuerwand	gHx	S
+Fiebersalz	gHx	S
+Fjalhune beschwören	gHx	A
+Flammende Hand	gHx	S
+Flammenklinge	gHx	A
+Flammenkreis	gHx	S
+Fliegen	gHx	S
+Fliegensalz	gHx	S
+Fossemand beschwören	gHx	A
+Freundesauge	gHx	S
+Frostball	gHx	S
+Funkenregen	gHx	S
+Funkensalz	gHx	S
+Fährtenduft	gHx	A
+Färbersalz	gHx	S
+Geist beschwören	gHx	A
+Geistesschild	gHx	S
+Geruchsverlust	gHx	S
+Ghussat el-Masin	gHx	G
+Gjornhune beschwören	gHx	A
+Gletschergnom beschwören	gHx	A
+Gletschergnom rufen	gHx	A
+Gloddvegar beschwören	gHx	A
+Gloddverg beschwören	gHx	A
+Glühsalz	gHx	S
+Goldener Panzer	gHx	S
+Graue Hand	gHx	S
+Grenzenlose Freude	gHx	S
+Grüne Hand	gHx	S
+Haarsalz	gHx	S
+Hagel	gHx	S
+Halebant 1 beschwören	gHx	A
+Halebant 2 beschwören	gHx	A
+Halebant 3 beschwören	gHx	A
+Halebant 4 beschwören	gHx	A
+Hammerhand	gHx	S
+Handauflegen	gHx	A
+Haram fil-Din	gHx	S
+Hardlogi beschwören	gHx	A
+Harkarhune beschwören	gHx	A
+Harkbuar beschwören	gHx	A
+Hauch der Verwesung	gHx	S
+Hauch der Wüste	gHx	S
+Hauch des Frühlings	gHx	S
+Hauch des Winters	gHx	S
+Haugskadi beschwören	gHx	A
+Heilen schwerer Wunden	gHx	A
+Heilen von Wunden	gHx	A
+Heimstein	gHx	A
+Heranholen	gHx	S
+Herbeizwingen	gHx	A
+Hexenhand	gHx	G
+Hexenritt	gHx	G
+Himmelsleiter	gHx	S
+Hitzeschutz	gHx	S
+Hitzsalz	gHx	S
+Hort der Natur	gHx	A
+Hrimdvegar beschwören	gHx	A
+Hrimdverg beschwören	gHx	A
+Hrimhune beschwören	gHx	A
+Hungersalz	gHx	S
+Hyrrbauti beschwören	gHx	A
+Hören der Geister	gHx	S
+Hören von Fernem	gHx	S
+Hörnerklang	gHx	S
+Ifrit beschwören	gHx	A
+Ifrit rufen	gHx	A
+Indruwal 1 beschwören	gHx	A
+Indruwal 2 beschwören	gHx	A
+Indruwal 3 beschwören	gHx	A
+Indruwal 4 beschwören	gHx	A
+Ising beschwören	gHx	A
+Jambani beschwören	gHx	A
+Jokulskadi beschwören	gHx	A
+Jucksalz	gHx	S
+Jurugu beschwören	gHx	A
+Jurugu rufen	gHx	A
+Juwelenauge	gHx	S
+Jördmand beschwören	gHx	A
+Kaligin 1 beschwören	gHx	A
+Kaligin 2 beschwören	gHx	A
+Kaligin 3 beschwören	gHx	A
+Kaligin 4 beschwören	gHx	A
+Kallbjargi beschwören	gHx	A
+Kallrani beschwören	gHx	A
+Kammerdiener beschwören	gHx	S
+Karing beschwören	gHx	A
+Klebesalz	gHx	S
+Knallsalz	gHx	S
+Knochenbestie	gHx	A
+Kopieren	gHx	S
+Kraft entziehen	gHx	A
+Kravyad-Schrei	gHx	S
+Kreatur erschaffen	gHx	A
+Kuß des Schlafes	gHx	G
+Kälteschutz	gHx	S
+Kühlsalz	gHx	S
+Lachsalz	gHx	S
+Lahmsalz	gHx	S
+Lauschen	gHx	S
+Lebenskeule	gHx	S
+Lehrersuche	gHx	S
+Leomies Birneneis	gHx	A
+Lergris beschwören	gHx	A
+Levitation	gHx	S
+Lichtbrücke	gHx	S
+Lichtrunen	gHx	S
+Liebeszauber	gHx	G
+Lindern von Entkräftung	gHx	A
+Liniensicht	gHx	S
+Ljosfang beschwören	gHx	A
+Luftelementargeist beschwören	gHx	A
+Luftlauf	gHx	A
+Luftsphäre	gHx	S
+Luftspiegelung	gHx	S
+Lustsalz	gHx	S
+Lähmung	gHx	S
+Löschsalz	gHx	S
+Macht über Leben	gHx	A
+Macht über Menschen	gHx	A
+Macht über Mumien	gHx	A
+Macht über Unbelebtes	gHx	S
+Macht über das Selbst	gHx	S
+Macht über den Tod	gHx	A
+Macht über die Sinne	gHx	S
+Macht über die Zeit	gHx	A
+Macht über die belebte Natur	gHx	S
+Macht über magische Wesen	gHx	S
+Magische Aura	gHx	G
+Magischer Kreis des Bewachens	gHx	A
+Magischer Kreis des Verschleierns	gHx	A
+Magischer Kreis des Widerstehens	gHx	A
+Magischer Kreis, klein	gHx	S
+Magischer Spion	gHx	G
+Manifestation des Ka	gHx	S
+Marhune beschwören	gHx	A
+Marid beschwören	gHx	A
+Marid rufen	gHx	A
+Marmennil beschwören	gHx	A
+Marmorhaut	gHx	S
+Megant 1 beschwören	gHx	A
+Megant 2 beschwören	gHx	A
+Megant 3 beschwören	gHx	A
+Megant 4 beschwören	gHx	A
+Meisterbann	gHx	A
+Metallmeisterschaft	gHx	S
+Mokkurbjargi beschwören	gHx	A
+Mumie erwecken	gHx	S
+Myrknir beschwören	gHx	A
+Namenloses Grauen	gHx	S
+Nebel schaffen	gHx	S
+Nebel wecken	gHx	S
+Nebelsalz	gHx	S
+Nefling beschwören	gHx	A
+Niessalz	gHx	S
+Person beschwören	gHx	A
+Person wiederfinden	gHx	S
+Pestklaue	gHx	G
+Pflanzenfessel	gHx	A
+Pflanzenmann	gHx	A
+Rauchsalz	gHx	S
+Rauchwolke	gHx	G
+Rauschsalz	gHx	S
+Regenzauber	gHx	S
+Reise der Seele	gHx	A
+Reise in die Zeit	gHx	A
+Reise zu den Sphären	gHx	A
+Reptilien rufen	gHx	S
+Riechsalz	gHx	S
+Rost	gHx	S
+Rutschsalz	gHx	S
+Sa rauben	gHx	A
+Sadik es-Sidiki	gHx	A
+Saeldvegar beschwören	gHx	A
+Saeldverg beschwören	gHx	A
+Saijidat el-Masin	gHx	S
+Sandmeisterschaft	gHx	S
+Scharfblick	gHx	S
+Schattenbruder	gHx	G
+Scheintod	gHx	S
+Schlaf	gHx	S
+Schlafsalz	gHx	S
+Schlangenbiß	gHx	S
+Schleichsalz	gHx	S
+Schmerzen	gHx	G
+Schmerzen spüren	gHx	G
+Schminken	gHx	G
+Schreiber beschwören	gHx	S
+Schrumpfen	gHx	S
+Schutzkreis gegen Dunebargen	gHx	A
+Schutzkreis gegen Dvergar	gHx	A
+Schutzkreis gegen Dämonen	gHx	A
+Schutzkreis gegen Elementarwesen	gHx	A
+Schutzkreis gegen Geisterwesen	gHx	A
+Schutzkreis gegen Hrimfolk	gHx	A
+Schutzkreis gegen Hunar	gHx	A
+Schutzkreis gegen Hyrrfolk	gHx	A
+Schutzkreis gegen Jördfolk	gHx	A
+Schutzkreis gegen Kaobargen	gHx	A
+Schutzkreis gegen Untote	gHx	A
+Schutzkreis gegen Vindfolk	gHx	A
+Schutzkreis gegen Wisfolk	gHx	A
+Schwarm	gHx	S
+Schwarze Zone	gHx	S
+Schweben	gHx	S
+Schwingenkeule	gHx	A
+Schwäche	gHx	S
+Schöne Leiche	gHx	S
+Seance	gHx	S
+Seele finden	gHx	A
+Seelenkompaß	gHx	G
+Seelenraub	gHx	A
+Seelenschock	gHx	S
+Sehen in Dunkelheit	gHx	S
+Sehen von Verborgenem	gHx	S
+Serkefs Todesbote	gHx	S
+Signalkugel	gHx	G
+Silberstaub	gHx	S
+Snaerhamir beschwören	gHx	A
+Sprachlähmung	gHx	S
+Spruch intensivieren	gHx	S
+Srimarameisterschaft I	gHx	A
+Srimarameisterschaft II	gHx	A
+Staubkämpfer	gHx	S
+Steinkugel	gHx	S
+Steinwand	gHx	S
+Stille	gHx	S
+Stimmenwerfen	gHx	S
+Stolz zieht der Krieger...	gHx	G
+Stottersalz	gHx	S
+Sturmflut	gHx	S
+Sturmhand	gHx	S
+Sturmwind	gHx	S
+Stärke	gHx	S
+Sumpfboden	gHx	S
+Sutechs Heer	gHx	S
+Svalgrim beschwören	gHx	A
+Tausch des Ba	gHx	S
+Thrymbar beschwören	gHx	A
+Thrymbar eschwören	gHx	A
+Thursenstein	gHx	S
+Tibb al-Mumani	gHx	A
+Tiefschlaf	gHx	S
+Tiere rufen	gHx	S
+Tiergestalt	gHx	S
+Tierisches Handeln	gHx	G
+Tiersprache	gHx	G
+Todeshauch	gHx	S
+Todeskeule	gHx	S
+Todeszauber	gHx	S
+Tor schaffen	gHx	A
+Trampelsalz	gHx	S
+Trockensalz	gHx	S
+Trunk des Lebens	gHx	S
+Truscan 1 beschwören	gHx	A
+Truscan 2 beschwören	gHx	A
+Truscan 3 beschwören	gHx	A
+Truscan 4 beschwören	gHx	A
+Umkehrschild	gHx	S
+Ungeheuer rufen	gHx	S
+Ungeziefer bannen	gHx	A
+Unsichtbarkeit	gHx	S
+Verdorren	gHx	G
+Vereisen	gHx	S
+Verfluchen	gHx	S
+Vergangenheit beschwören	gHx	A
+Vergrößern	gHx	S
+Verjüngen	gHx	A
+Verkleinern	gHx	S
+Verlangsamen	gHx	S
+Verletzung	gHx	A
+Versetzen	gHx	S
+Versteinern	gHx	S
+Vertieren	gHx	S
+Verursachen schwerer Wunden	gHx	A
+Verursachen von Wunden	gHx	A
+Verwandlung	gHx	S
+Verwirren	gHx	G
+Verzweiflung	gHx	S
+Vinddvegar beschwören	gHx	A
+Vinddverg beschwören	gHx	A
+Vindmand beschwören	gHx	A
+Wachsen	gHx	S
+Wagemut	gHx	A
+Wahnsinn	gHx	G
+Wahrsehen	gHx	S
+Waldluft	gHx	S
+Wandelhand	gHx	A
+Wandeln wie der Wind	gHx	A
+Wandelsalz	gHx	S
+Warnung	gHx	S
+Wasser befreien	gHx	S
+Wasser spüren	gHx	S
+Wasseratmen	gHx	A
+Wasserelementargeist beschwören	gHx	A
+Wasserlauf	gHx	A
+Wassermeisterschaft	gHx	S
+Wassersalz	gHx	S
+Wasserstrahl	gHx	S
+Wasserwandlung	gHx	S
+Wehsalz	gHx	S
+Weltentor schaffen	gHx	A
+Wetterzauber	gHx	S
+Wiederkehr	gHx	S
+Wind des Todes	gHx	A
+Windmeisterschaft	gHx	S
+Windstoß	gHx	A
+Wirbelwind	gHx	S
+Wittern	gHx	S
+Wolkenbruch	gHx	S
+Wort des Todes	gHx	A
+Wundersame Tarnung	gHx	A
+Wüstenwind	gHx	G
+Zauberauge	gHx	G
+Zauberhand	gHx	G
+Zaubermacht	gHx	S
+Zauberschild	gHx	S
+Zauberschloß	gHx	S
+Zauberschlüssel	gHx	S
+Zauberschmiede	gHx	A
+Zauberstimme	gHx	S
+Zaubertür	gHx	A
+Zauberwirklichkeit	gHx	S
+Zauberzunge	gHx	S
+Zielsuche	gHx	S
+Zucksalz	gHx	S
+Zurückführen	gHx	S
+Zweite Haut	gHx	S
+Zwiesprache	gHx	S
+Zwingkreis	gHx	S
+Zähmen	gHx	A
+Zündersalz	gHx	S
+Abu es-Samum	sHx	S
+Abwenden von Blicken	sHx	A
+Aggression	sHx	G
+Ain es-Samum	sHx	S
+Akbar fil-Ghadban	sHx	S
+Al-Karama	sHx	S
+Al-Mutadid	sHx	A
+Al-Tarka	sHx	S
+Alpträume	sHx	S
+Altern	sHx	S
+Angst	sHx	G
+Anziehen	sHx	G
+Auflösung	sHx	S
+Augenschleier	sHx	G
+Bann der wahren Eigentümerschaft	sHx	A
+Bannen des Todes	sHx	G
+Bannen von Dunebargen	sHx	A
+Bannen von Dunkelheit	sHx	A
+Bannen von Dvergar	sHx	A
+Bannen von Fäulnis	sHx	A
+Bannen von Götterwerk	sHx	G
+Bannen von Hrimfolk	sHx	A
+Bannen von Hrimkin	sHx	A
+Bannen von Hunar	sHx	A
+Bannen von Hyrfolk	sHx	A
+Bannen von Hyrrkin	sHx	A
+Bannen von Jördfolk	sHx	A
+Bannen von Jördkin	sHx	A
+Bannen von Kaobargen	sHx	A
+Bannen von Kälte	sHx	S
+Bannen von Licht	sHx	S
+Bannen von Vindfolk	sHx	A
+Bannen von Vindskin	sHx	A
+Bannen von Wisfolk	sHx	A
+Bannen von Wiskin	sHx	A
+Bannen von Zauberwerk	sHx	S
+Bannsphäre, Blaue	sHx	S
+Bannsphäre, Goldene	sHx	S
+Bannsphäre, Schwarze	sHx	S
+Bannsphäre, Silberne	sHx	S
+Baum	sHx	A
+Baumkämpfer	sHx	A
+Baumwächter	sHx	A
+Beeinflussen	sHx	G
+Befestigen	sHx	S
+Belebungshauch	sHx	S
+Bergeist beschwören	sHx	A
+Bergeist rufen	sHx	A
+Beschleunigen	sHx	S
+Besänftigen	sHx	S
+Binden des Vertrauten	sHx	G
+Bittersalz	sHx	S
+Blenden	sHx	S
+Blendwerk	sHx	G
+Blicksalz	sHx	S
+Blindsalz	sHx	S
+Blitze schleudern	sHx	S
+Blutwandlung	sHx	G
+Brechsalz	sHx	S
+Brot und Wasser	sHx	S
+Bruchbann	sHx	G
+Bärenstärke	sHx	S
+Bärenwut	sHx	A
+Böser Blick	sHx	G
+Cheprus Sendbote	sHx	S
+Coluscar 1 beschwören	sHx	A
+Coluscar 2 beschwören	sHx	A
+Coluscar 3 beschwören	sHx	A
+Coluscar 4 beschwören	sHx	A
+Dalail al-Khairat	sHx	S
+Dalail ed-Dawahi	sHx	G
+Das Essen nährt...	sHx	G
+Dau ed-Datin	sHx	G
+Deckmantel	sHx	S
+Der Große Knall	sHx	S
+Der große Seiltrick	sHx	S
+Der kleine Seiltrick	sHx	S
+Die Wiesenheuschrecke zirpt...	sHx	G
+Dinge rufen	sHx	S
+Dinge verbergen	sHx	S
+Dinge wiederfinden	sHx	S
+Donnerkeil	sHx	S
+Dschinn beschwören	sHx	A
+Dschinn rufen	sHx	A
+Dschinni-Auge	sHx	S
+Dschinni-Horn	sHx	S
+Dschinni-Ohr	sHx	S
+Dschungelwand	sHx	S
+Dunebrast 1 beschwören	sHx	A
+Dunebrast 2 beschwören	sHx	A
+Dunebrast 3 beschwören	sHx	A
+Dunebrast 4 beschwören	sHx	A
+Dunkle Horde beschwören	sHx	A
+Dunskrat beschwören	sHx	A
+Durstsalz	sHx	S
+Dämonen binden	sHx	A
+Dämonenbann	sHx	A
+Dämonenfeuer	sHx	G
+Dämonenhand	sHx	S
+Dämonenkreis	sHx	S
+Dämonenschar beschwören	sHx	A
+Dämonische Eingebung	sHx	G
+Dämonische Zaubermacht	sHx	G
+Eiselementargeist beschwören	sHx	A
+Eisenhaut	sHx	S
+Eisiger Nebel	sHx	S
+Eismeisterschaft	sHx	S
+Eiswand	sHx	S
+Eiswandlung	sHx	S
+Eldring beschwören	sHx	A
+Elementarbann	sHx	A
+Elementarwesen binden	sHx	A
+Elementenwandlung	sHx	S
+Elfenfeuer	sHx	S
+Entgiften	sHx	S
+Erdbeben	sHx	A
+Erdeelementargeist beschwören	sHx	A
+Erdfessel	sHx	S
+Erdmeisterschaft	sHx	S
+Erdrosseln	sHx	S
+Erdwandlung	sHx	S
+Erkennen von Leben	sHx	A
+Erkennen von Metall	sHx	A
+Erkennen von Zauberei	sHx	S
+Erkurku beschwören	sHx	A
+Erkurku rufen	sHx	A
+Erscheinungen	sHx	S
+Farbensalz	sHx	S
+Feenfluch	sHx	G
+Feenzauber	sHx	G
+Felldvegar beschwören	sHx	A
+Felldverg beschwören	sHx	A
+Felsenfaust	sHx	S
+Fengrip beschwören	sHx	A
+Fesselbann	sHx	S
+Feuerelementargeist beschwören	sHx	A
+Feuerfinger	sHx	S
+Feuerkugel	sHx	S
+Feuerlanze	sHx	S
+Feuerlauf	sHx	A
+Feuermeisterschaft	sHx	S
+Feuerregen	sHx	S
+Feuerring	sHx	S
+Feuerschild	sHx	S
+Feuerspiel	sHx	S
+Feuerwand	sHx	S
+Fiebersalz	sHx	S
+Finsterer Blick	sHx	S
+Firzars Zorn	sHx	S
+Fjalhune beschwören	sHx	A
+Flammende Hand	sHx	S
+Flammenklinge	sHx	A
+Flammenkreis	sHx	S
+Fliegen	sHx	S
+Fliegensalz	sHx	S
+Flucht des Geistes	sHx	S
+Fossemand beschwören	sHx	A
+Freundesauge	sHx	S
+Frostball	sHx	S
+Funkenregen	sHx	S
+Funkensalz	sHx	S
+Färbersalz	sHx	S
+Fäulnis	sHx	S
+Geist beschwören	sHx	A
+Geister der Finsternis	sHx	S
+Geistesschild	sHx	S
+Geistesschlüssel	sHx	S
+Geruchsverlust	sHx	S
+Ghussat el-Masin	sHx	G
+Gjornhune beschwören	sHx	A
+Gletschergnom beschwören	sHx	A
+Gletschergnom rufen	sHx	A
+Globus der Finsternis	sHx	S
+Gloddvegar beschwören	sHx	A
+Gloddverg beschwören	sHx	A
+Glühsalz	sHx	S
+Goldener Panzer	sHx	S
+Graue Hand	sHx	S
+Grenzenlose Freude	sHx	S
+Grüne Hand	sHx	S
+Haarsalz	sHx	S
+Hagel	sHx	S
+Halebant 1 beschwören	sHx	A
+Halebant 2 beschwören	sHx	A
+Halebant 3 beschwören	sHx	A
+Halebant 4 beschwören	sHx	A
+Hammerhand	sHx	S
+Handauflegen	sHx	A
+Haram fil-Din	sHx	S
+Hardlogi beschwören	sHx	A
+Harkarhune beschwören	sHx	A
+Harkbuar beschwören	sHx	A
+Hauch der Verwesung	sHx	S
+Hauch der Wüste	sHx	S
+Hauch des Winters	sHx	S
+Haugskadi beschwören	sHx	A
+Heilen schwerer Wunden	sHx	A
+Heilen von Wunden	sHx	A
+Heimstein	sHx	A
+Heranholen	sHx	S
+Herbeizwingen	sHx	A
+Hexenhand	sHx	G
+Hexenritt	sHx	G
+Himmelsleiter	sHx	S
+Hitzeschutz	sHx	S
+Hitzsalz	sHx	S
+Hort der Natur	sHx	A
+Hrimdvegar beschwören	sHx	A
+Hrimdverg beschwören	sHx	A
+Hrimhune beschwören	sHx	A
+Hungersalz	sHx	S
+Hyrrbauti beschwören	sHx	A
+Höllenbote rufen	sHx	S
+Höllenfeuer	sHx	S
+Höllenglocke	sHx	S
+Hören der Geister	sHx	S
+Hören von Fernem	sHx	S
+Hörnerklang	sHx	S
+Ifrit beschwören	sHx	A
+Ifrit rufen	sHx	A
+Indruwal 1 beschwören	sHx	A
+Indruwal 2 beschwören	sHx	A
+Indruwal 3 beschwören	sHx	A
+Indruwal 4 beschwören	sHx	A
+Ising beschwören	sHx	A
+Jambani beschwören	sHx	A
+Jokulskadi beschwören	sHx	A
+Jucksalz	sHx	S
+Jurugu beschwören	sHx	A
+Jurugu rufen	sHx	A
+Juwelenauge	sHx	S
+Jördmand beschwören	sHx	A
+Kaligin 1 beschwören	sHx	A
+Kaligin 2 beschwören	sHx	A
+Kaligin 3 beschwören	sHx	A
+Kaligin 4 beschwören	sHx	A
+Kallbjargi beschwören	sHx	A
+Kallrani beschwören	sHx	A
+Kammerdiener beschwören	sHx	S
+Karing beschwören	sHx	A
+Klebesalz	sHx	S
+Knallsalz	sHx	S
+Knochenbestie	sHx	A
+Konvulsion	sHx	S
+Kopieren	sHx	S
+Kraft entziehen	sHx	A
+Kreatur erschaffen	sHx	A
+Kuß des Schlafes	sHx	G
+Kälteschutz	sHx	S
+Kühlsalz	sHx	S
+Lachsalz	sHx	S
+Lahmsalz	sHx	S
+Lauschen	sHx	S
+Lebenskeule	sHx	S
+Lehrersuche	sHx	S
+Leomies Birneneis	sHx	A
+Lergris beschwören	sHx	A
+Levitation	sHx	S
+Lichtbrücke	sHx	S
+Lichtrunen	sHx	S
+Liebeszauber	sHx	G
+Lindern von Entkräftung	sHx	A
+Liniensicht	sHx	S
+Ljosfang beschwören	sHx	A
+Luftelementargeist beschwören	sHx	A
+Luftlauf	sHx	A
+Luftsphäre	sHx	S
+Luftspiegelung	sHx	S
+Lustsalz	sHx	S
+Lähmung	sHx	S
+Löschsalz	sHx	S
+Macht der Finsternis	sHx	S
+Macht über Leben	sHx	A
+Macht über Menschen	sHx	A
+Macht über Mumien	sHx	A
+Macht über Unbelebtes	sHx	S
+Macht über das Selbst	sHx	S
+Macht über den Tod	sHx	A
+Macht über die Sinne	sHx	S
+Macht über die Zeit	sHx	A
+Macht über die belebte Natur	sHx	S
+Macht über magische Wesen	sHx	S
+Magische Aura	sHx	G
+Magischer Kreis des Bewachens	sHx	A
+Magischer Kreis des Verschleierns	sHx	A
+Magischer Kreis des Widerstehens	sHx	A
+Magischer Kreis, klein	sHx	S
+Magischer Spion	sHx	G
+Manifestation des Ka	sHx	S
+Marhune beschwören	sHx	A
+Marid beschwören	sHx	A
+Marid rufen	sHx	A
+Marmennil beschwören	sHx	A
+Marmorhaut	sHx	S
+Megant 1 beschwören	sHx	A
+Megant 2 beschwören	sHx	A
+Megant 3 beschwören	sHx	A
+Megant 4 beschwören	sHx	A
+Meisterbann	sHx	A
+Metallmeisterschaft	sHx	S
+Mokkurbjargi beschwören	sHx	A
+Mumie erwecken	sHx	S
+Myrknir beschwören	sHx	A
+Namenloses Grauen	sHx	S
+Nebel schaffen	sHx	S
+Nebel wecken	sHx	S
+Nebelsalz	sHx	S
+Nefling beschwören	sHx	A
+Niessalz	sHx	S
+Person beschwören	sHx	A
+Person wiederfinden	sHx	S
+Pestklaue	sHx	G
+Pflanzenfessel	sHx	A
+Pflanzenmann	sHx	A
+Rauchsalz	sHx	S
+Rauchwolke	sHx	G
+Rauschsalz	sHx	S
+Regenzauber	sHx	S
+Reise der Seele	sHx	A
+Reise in die Zeit	sHx	A
+Reise zu den Sphären	sHx	A
+Reptilien rufen	sHx	S
+Riechsalz	sHx	S
+Rost	sHx	S
+Rutschsalz	sHx	S
+Sa rauben	sHx	G
+Sadik es-Sidiki	sHx	A
+Saeldvegar beschwören	sHx	A
+Saeldverg beschwören	sHx	A
+Saijidat el-Masin	sHx	S
+Sandmeisterschaft	sHx	S
+Scharfblick	sHx	S
+Schattenbruder	sHx	G
+Schattenroß	sHx	S
+Scheintod	sHx	S
+Schlaf	sHx	S
+Schlafsalz	sHx	S
+Schlangenbiß	sHx	S
+Schleichende Verderbnis	sHx	S
+Schleichsalz	sHx	S
+Schmerzen	sHx	G
+Schminken	sHx	G
+Schreiber beschwören	sHx	S
+Schrumpfen	sHx	S
+Schutzkreis gegen Dunebargen	sHx	A
+Schutzkreis gegen Dvergar	sHx	A
+Schutzkreis gegen Dämonen	sHx	A
+Schutzkreis gegen Elementarwesen	sHx	A
+Schutzkreis gegen Geisterwesen	sHx	A
+Schutzkreis gegen Hrimfolk	sHx	A
+Schutzkreis gegen Hunar	sHx	A
+Schutzkreis gegen Hyrrfolk	sHx	A
+Schutzkreis gegen Jördfolk	sHx	A
+Schutzkreis gegen Kaobargen	sHx	A
+Schutzkreis gegen Untote	sHx	A
+Schutzkreis gegen Vindfolk	sHx	A
+Schutzkreis gegen Wisfolk	sHx	A
+Schwarm	sHx	S
+Schwarze Zone	sHx	S
+Schweben	sHx	S
+Schwingenkeule	sHx	A
+Schwäche	sHx	S
+Schöne Leiche	sHx	S
+Seance	sHx	S
+Seele finden	sHx	A
+Seelenkompaß	sHx	G
+Seelenraub	sHx	G
+Seelenschock	sHx	S
+Sehen in Dunkelheit	sHx	S
+Sehen von Verborgenem	sHx	S
+Serkefs Todesbote	sHx	S
+Signalkugel	sHx	G
+Silberstaub	sHx	S
+Snaerhamir beschwören	sHx	A
+Sprachlähmung	sHx	S
+Spruch intensivieren	sHx	S
+Srimarameisterschaft I	sHx	S
+Srimarameisterschaft II	sHx	S
+Staubkämpfer	sHx	S
+Steinkugel	sHx	S
+Steinwand	sHx	S
+Stille	sHx	S
+Stimmenwerfen	sHx	S
+Stolz zieht der Krieger...	sHx	G
+Stottersalz	sHx	S
+Sturmflut	sHx	S
+Sturmhand	sHx	S
+Sturmwind	sHx	S
+Stärke	sHx	S
+Sumpfboden	sHx	S
+Sutechs Heer	sHx	S
+Svalgrim beschwören	sHx	A
+Tausch des Ba	sHx	S
+Thrymbar beschwören	sHx	A
+Thrymbar eschwören	sHx	A
+Thursenstein	sHx	S
+Tiefschlaf	sHx	S
+Tiere rufen	sHx	S
+Tiergestalt	sHx	S
+Tierisches Handeln	sHx	G
+Tiersprache	sHx	G
+Todeshauch	sHx	S
+Todeskeule	sHx	G
+Todeszauber	sHx	S
+Tor schaffen	sHx	A
+Trampelsalz	sHx	S
+Trockensalz	sHx	S
+Trunk des Lebens	sHx	S
+Truscan 1 beschwören	sHx	A
+Truscan 2 beschwören	sHx	A
+Truscan 3 beschwören	sHx	A
+Truscan 4 beschwören	sHx	A
+Umkehrschild	sHx	S
+Ungeheuer rufen	sHx	S
+Ungeziefer bannen	sHx	S
+Unsichtbarkeit	sHx	S
+Unwetter rufen	sHx	S
+Verbotenes Wort	sHx	G
+Verdorren	sHx	G
+Vereisen	sHx	S
+Verfluchen	sHx	S
+Vergangenheit beschwören	sHx	A
+Verglasen	sHx	S
+Vergrößern	sHx	S
+Verjüngen	sHx	A
+Verkleinern	sHx	S
+Verlangsamen	sHx	S
+Verletzung	sHx	A
+Versetzen	sHx	S
+Versteinern	sHx	S
+Vertieren	sHx	S
+Verursachen schwerer Wunden	sHx	A
+Verursachen von Krankheit	sHx	S
+Verursachen von Wunden	sHx	A
+Verwandlung	sHx	S
+Verwirren	sHx	G
+Verwüstung	sHx	S
+Verzweiflung	sHx	S
+Vinddvegar beschwören	sHx	A
+Vinddverg beschwören	sHx	A
+Vindmand beschwören	sHx	A
+Wachsen	sHx	S
+Wagemut	sHx	A
+Wahnsinn	sHx	G
+Wahrsehen	sHx	S
+Waldluft	sHx	S
+Wandelhand	sHx	A
+Wandeln wie der Wind	sHx	A
+Wandelsalz	sHx	S
+Warnung	sHx	S
+Wasser befreien	sHx	S
+Wasser spüren	sHx	S
+Wasseratmen	sHx	A
+Wasserelementargeist beschwören	sHx	A
+Wasserlauf	sHx	A
+Wassermeisterschaft	sHx	S
+Wassersalz	sHx	S
+Wasserstrahl	sHx	S
+Wasserwandlung	sHx	S
+Wehsalz	sHx	S
+Weltentor schaffen	sHx	A
+Wetterzauber	sHx	S
+Wiederkehr	sHx	S
+Wind des Todes	sHx	G
+Windmeisterschaft	sHx	S
+Windstoß	sHx	A
+Wirbelwind	sHx	S
+Wittern	sHx	S
+Wolkenbruch	sHx	S
+Wort des Todes	sHx	G
+Wundersame Tarnung	sHx	A
+Wüstenwind	sHx	G
+Zauberauge	sHx	G
+Zauberhand	sHx	G
+Zaubermacht	sHx	S
+Zauberschild	sHx	S
+Zauberschloß	sHx	S
+Zauberschlüssel	sHx	S
+Zauberschmiede	sHx	A
+Zauberstimme	sHx	S
+Zaubertür	sHx	A
+Zauberwirklichkeit	sHx	S
+Zauberzunge	sHx	S
+Zeichen des Chaos	sHx	S
+Zielsuche	sHx	S
+Zucksalz	sHx	S
+Zurückführen	sHx	S
+Zweite Haut	sHx	S
+Zwiesprache	sHx	S
+Zähmen	sHx	A
+Zündersalz	sHx	S
+Allheilung	PF	G
+Angst	PF	S
+Anziehen	PF	S
+Auflösung	PF	A
+Austreibung des Bösen	PF	G
+Austreibung des Guten	PF	S
+Bann der wahren Eigentümerschaft	PF	A
+Bannen von Dunebargen	PF	A
+Bannen von Dunkelheit	PF	G
+Bannen von Dvergar	PF	A
+Bannen von Finsterwerk	PF	G
+Bannen von Fäulnis	PF	G
+Bannen von Gift	PF	G
+Bannen von Hrimfolk	PF	A
+Bannen von Hrimkin	PF	A
+Bannen von Hunar	PF	A
+Bannen von Hyrfolk	PF	A
+Bannen von Hyrrkin	PF	A
+Bannen von Jördfolk	PF	A
+Bannen von Jördkin	PF	A
+Bannen von Kaobargen	PF	A
+Bannen von Licht	PF	A
+Bannen von Vindfolk	PF	A
+Bannen von Vindskin	PF	A
+Bannen von Wisfolk	PF	A
+Bannen von Wiskin	PF	A
+Bannen von Zauberwerk	PF	G
+Bannsphäre, Blaue	PF	S
+Bannsphäre, Goldene	PF	G
+Bannsphäre, Schwarze	PF	S
+Bannsphäre, Silberne	PF	S
+Baum	PF	A
+Baumkämpfer	PF	S
+Baumwächter	PF	S
+Beeinflussen	PF	S
+Belebungshauch	PF	S
+Bergeist beschwören	PF	A
+Bergeist rufen	PF	A
+Beschleunigen	PF	S
+Besänftigen	PF	S
+Bittersalz	PF	A
+Blenden	PF	G
+Blendwerk	PF	S
+Blicksalz	PF	A
+Blindsalz	PF	A
+Blitze schleudern	PF	S
+Blutwandlung	PF	S
+Brechsalz	PF	A
+Brot und Wasser	PF	G
+Bruchbann	PF	S
+Cheprus Sendbote	PF	G
+Coluscar 1 beschwören	PF	A
+Coluscar 2 beschwören	PF	A
+Coluscar 3 beschwören	PF	A
+Coluscar 4 beschwören	PF	A
+Dau ed-Datin	PF	G
+Deckmantel	PF	S
+Dinge verbergen	PF	S
+Dinge wiederfinden	PF	S
+Donnerkeil	PF	S
+Dschinn beschwören	PF	A
+Dschinn rufen	PF	A
+Dschinni-Auge	PF	S
+Dschinni-Horn	PF	S
+Dschinni-Ohr	PF	S
+Dschungelwand	PF	G
+Dunebrast 1 beschwören	PF	A
+Dunebrast 2 beschwören	PF	A
+Dunebrast 3 beschwören	PF	A
+Dunebrast 4 beschwören	PF	A
+Dunkle Horde beschwören	PF	A
+Dunskrat beschwören	PF	A
+Durstsalz	PF	A
+Dämonen binden	PF	A
+Dämonenbann	PF	A
+Dämonenschar beschwören	PF	A
+Eiselementargeist beschwören	PF	A
+Eisenhaut	PF	S
+Eisiger Nebel	PF	S
+Eismeisterschaft	PF	A
+Eiswand	PF	S
+Eiswandlung	PF	A
+Eldring beschwören	PF	A
+Elementarbann	PF	A
+Elementarwesen binden	PF	A
+Elementenwandlung	PF	A
+Elfenfeuer	PF	S
+Entgiften	PF	S
+Erdbeben	PF	S
+Erdeelementargeist beschwören	PF	A
+Erdfessel	PF	G
+Erdmeisterschaft	PF	G
+Erdwandlung	PF	S
+Erheben der Toten	PF	G
+Erkennen der Aura	PF	G
+Erkennen von Gift	PF	A
+Erkennen von Krankheit	PF	S
+Erkennen von Leben	PF	S
+Erkurku beschwören	PF	A
+Erkurku rufen	PF	A
+Erscheinungen	PF	S
+Farbensalz	PF	A
+Feenfluch	PF	A
+Feenzauber	PF	A
+Felldvegar beschwören	PF	A
+Felldverg beschwören	PF	A
+Felsenfaust	PF	S
+Fengrip beschwören	PF	A
+Fesselbann	PF	S
+Feuerelementargeist beschwören	PF	A
+Feuerfinger	PF	S
+Feuerkugel	PF	S
+Feuerlanze	PF	S
+Feuerlauf	PF	A
+Feuermeisterschaft	PF	S
+Feuerregen	PF	A
+Feuerring	PF	A
+Feuerschild	PF	S
+Feuerspiel	PF	S
+Feuerwand	PF	S
+Fiebersalz	PF	A
+Fjalhune beschwören	PF	A
+Flammende Hand	PF	S
+Flammenklinge	PF	S
+Flammenkreis	PF	S
+Fliegen	PF	S
+Fliegensalz	PF	A
+Fluch des Hundes	PF	A
+Fossemand beschwören	PF	A
+Freundesauge	PF	S
+Frostball	PF	S
+Funkenregen	PF	S
+Funkensalz	PF	A
+Färbersalz	PF	A
+Geas	PF	S
+Geist beschwören	PF	A
+Geistesschild	PF	S
+Geruchsverlust	PF	A
+Gjornhune beschwören	PF	A
+Gletschergnom beschwören	PF	A
+Gletschergnom rufen	PF	A
+Gloddvegar beschwören	PF	A
+Gloddverg beschwören	PF	A
+Glühsalz	PF	A
+Goldener Panzer	PF	S
+Grenzenlose Freude	PF	G
+Großer Hitzeschutz	PF	A
+Grüne Hand	PF	G
+Göttliche Eingebung	PF	G
+Göttliche Strafe	PF	G
+Göttlicher Blitz	PF	G
+Göttlicher Schutz vor Magie	PF	G
+Göttlicher Schutz vor dem Bösen	PF	G
+Haarsalz	PF	A
+Hagel	PF	A
+Halebant 1 beschwören	PF	A
+Halebant 2 beschwören	PF	A
+Halebant 3 beschwören	PF	A
+Halebant 4 beschwören	PF	A
+Hammerhand	PF	A
+Handauflegen	PF	G
+Hardlogi beschwören	PF	A
+Harkarhune beschwören	PF	A
+Harkbuar beschwören	PF	A
+Hauch der Verwesung	PF	A
+Hauch des Frühlings	PF	A
+Haugskadi beschwören	PF	A
+Heilen schwerer Wunden	PF	G
+Heilen von Krankheit	PF	G
+Heilen von Wunden	PF	G
+Heiliger Zorn	PF	G
+Heiliges Wort	PF	G
+Heimstein	PF	G
+Heranholen	PF	S
+Herbeizwingen	PF	A
+Himmelsleiter	PF	S
+Hitzsalz	PF	A
+Hrimdvegar beschwören	PF	A
+Hrimdverg beschwören	PF	A
+Hrimhune beschwören	PF	A
+Hungersalz	PF	A
+Hyrrbauti beschwören	PF	A
+Hörnerklang	PF	S
+Ifrit beschwören	PF	A
+Ifrit rufen	PF	A
+Incheper schaffen	PF	S
+Indruwal 1 beschwören	PF	A
+Indruwal 2 beschwören	PF	A
+Indruwal 3 beschwören	PF	A
+Indruwal 4 beschwören	PF	A
+Ising beschwören	PF	A
+Jambani beschwören	PF	A
+Jokulskadi beschwören	PF	A
+Jucksalz	PF	A
+Jurugu beschwören	PF	A
+Jurugu rufen	PF	A
+Jördmand beschwören	PF	A
+Kaligin 1 beschwören	PF	A
+Kaligin 2 beschwören	PF	A
+Kaligin 3 beschwören	PF	A
+Kaligin 4 beschwören	PF	A
+Kallbjargi beschwören	PF	A
+Kallrani beschwören	PF	A
+Kammerdiener beschwören	PF	A
+Karing beschwören	PF	A
+Klebesalz	PF	A
+Knallsalz	PF	A
+Kopieren	PF	G
+Kravyad-Schrei	PF	S
+Kreatur erschaffen	PF	A
+Kuß des Schlafes	PF	S
+Kühlsalz	PF	A
+Lachsalz	PF	A
+Lahmsalz	PF	A
+Lehrersuche	PF	S
+Leomies Birneneis	PF	A
+Lergris beschwören	PF	A
+Levitation	PF	S
+Lichtbrücke	PF	S
+Lichtrunen	PF	S
+Liebeszauber	PF	G
+Lindern von Entkräftung	PF	A
+Liniensicht	PF	A
+Ljosfang beschwören	PF	A
+Luftelementargeist beschwören	PF	A
+Luftlauf	PF	A
+Luftsphäre	PF	S
+Luftspiegelung	PF	S
+Lustsalz	PF	A
+Lähmung	PF	S
+Löschsalz	PF	A
+Macht über die belebte Natur	PF	S
+Magischer Kreis des Bewachens	PF	S
+Magischer Kreis des Verschleierns	PF	S
+Magischer Kreis des Widerstehens	PF	S
+Magischer Kreis, klein	PF	S
+Manifestation des Ka	PF	G
+Marhune beschwören	PF	A
+Marid beschwören	PF	A
+Marid rufen	PF	A
+Marmennil beschwören	PF	A
+Marmorhaut	PF	S
+Megant 1 beschwören	PF	A
+Megant 2 beschwören	PF	A
+Megant 3 beschwören	PF	A
+Megant 4 beschwören	PF	A
+Meisterbann	PF	A
+Metallmeisterschaft	PF	S
+Mokkurbjargi beschwören	PF	A
+Mumie erwecken	PF	G
+Myrknir beschwören	PF	A
+Namenloses Grauen	PF	S
+Nebel schaffen	PF	S
+Nebel wecken	PF	S
+Nebelsalz	PF	A
+Nefling beschwören	PF	A
+Niessalz	PF	A
+Paschuyana, der Weg des Tieres	PF	A
+Person beschwören	PF	A
+Person wiederfinden	PF	S
+Pflanzenfessel	PF	A
+Rauchsalz	PF	A
+Rauchwolke	PF	S
+Rauschsalz	PF	A
+Regenzauber	PF	G
+Reinigen	PF	S
+Riechsalz	PF	A
+Rindenhaut	PF	A
+Ring des Lebens	PF	S
+Rost	PF	S
+Rutschsalz	PF	A
+Rückführung	PF	A
+Sa spenden	PF	G
+Saeldvegar beschwören	PF	A
+Saeldverg beschwören	PF	A
+Sandmeisterschaft	PF	G
+Scharfblick	PF	A
+Scheintod	PF	A
+Schlaf	PF	S
+Schlafsalz	PF	A
+Schleichsalz	PF	A
+Schmerzen	PF	S
+Schmerzen spüren	PF	A
+Schminken	PF	S
+Schrumpfen	PF	S
+Schutzgeist	PF	S
+Schutzkreis gegen Dunebargen	PF	A
+Schutzkreis gegen Dvergar	PF	A
+Schutzkreis gegen Dämonen	PF	A
+Schutzkreis gegen Elementarwesen	PF	A
+Schutzkreis gegen Geisterwesen	PF	A
+Schutzkreis gegen Hrimfolk	PF	A
+Schutzkreis gegen Hunar	PF	A
+Schutzkreis gegen Hyrrfolk	PF	A
+Schutzkreis gegen Jördfolk	PF	A
+Schutzkreis gegen Kaobargen	PF	A
+Schutzkreis gegen Untote	PF	A
+Schutzkreis gegen Vindfolk	PF	A
+Schutzkreis gegen Wisfolk	PF	A
+Schwarze Zone	PF	S
+Schweben	PF	S
+Schwingenkeule	PF	S
+Schwäche	PF	S
+Schöne Leiche	PF	A
+Seele finden	PF	G
+Seelenheilung	PF	G
+Seelenkompaß	PF	S
+Seelenschock	PF	S
+Segnen	PF	G
+Serkefs Todesbote	PF	S
+Silberstaub	PF	S
+Snaerhamir beschwören	PF	A
+Spruch intensivieren	PF	S
+Staubkämpfer	PF	S
+Steinkugel	PF	S
+Steinwand	PF	S
+Stille	PF	S
+Stimmenwerfen	PF	S
+Stottersalz	PF	A
+Sturmflut	PF	S
+Sturmhand	PF	S
+Sturmwind	PF	S
+Stärke	PF	S
+Sumpfboden	PF	S
+Sutechs Heer	PF	A
+Svalgrim beschwören	PF	A
+Tausch des Ba	PF	S
+Thrymbar beschwören	PF	A
+Thrymbar eschwören	PF	A
+Thursenstein	PF	A
+Tiefschlaf	PF	S
+Tiere rufen	PF	S
+Tierisches Handeln	PF	S
+Tiersprache	PF	G
+Todeshauch	PF	A
+Tor schaffen	PF	A
+Trampelsalz	PF	A
+Trockensalz	PF	A
+Trunk des Lebens	PF	S
+Truscan 1 beschwören	PF	A
+Truscan 2 beschwören	PF	A
+Truscan 3 beschwören	PF	A
+Truscan 4 beschwören	PF	A
+Umkehrschild	PF	A
+Ungeziefer bannen	PF	G
+Unsichtbarkeit	PF	S
+Vereisen	PF	S
+Verfluchen	PF	G
+Vergangenheit beschwören	PF	A
+Vergrößern	PF	S
+Verjüngen	PF	S
+Verkleinern	PF	S
+Verlangsamen	PF	S
+Versetzen	PF	S
+Versteinern	PF	S
+Vertieren	PF	S
+Verwandlung	PF	S
+Verzweiflung	PF	S
+Vinddvegar beschwören	PF	A
+Vinddverg beschwören	PF	A
+Vindmand beschwören	PF	A
+Wachsen	PF	S
+Wagemut	PF	G
+Wahnsinn	PF	S
+Wahrsehen	PF	G
+Waldluft	PF	G
+Wandelsalz	PF	A
+Warnung	PF	G
+Wasser befreien	PF	G
+Wasser spüren	PF	G
+Wasseratmen	PF	A
+Wasserelementargeist beschwören	PF	A
+Wasserlauf	PF	A
+Wassermeisterschaft	PF	S
+Wassersalz	PF	A
+Wasserwandlung	PF	A
+Wehsalz	PF	A
+Weltentor schaffen	PF	A
+Wetterzauber	PF	G
+Wiederkehr	PF	S
+Windmeisterschaft	PF	S
+Windstoß	PF	S
+Wirbelwind	PF	S
+Wolkenbruch	PF	S
+Wort der Trauer	PF	G
+Wort des Lebens	PF	G
+Wüstenwind	PF	S
+Zauberauge	PF	S
+Zauberhand	PF	S
+Zaubermacht	PF	S
+Zauberschild	PF	S
+Zauberschloß	PF	S
+Zauberschlüssel	PF	S
+Zauberschmiede	PF	S
+Zauberstimme	PF	S
+Zauberwirklichkeit	PF	S
+Zauberzunge	PF	S
+Zucksalz	PF	A
+Zweite Haut	PF	S
+Zwiesprache	PF	S
+Zwingkreis	PF	S
+Zähmen	PF	S
+Zündersalz	PF	A
+Abwenden von Blicken	PW	G
+Allheilung	PW	G
+Angst	PW	S
+Austreibung des Bösen	PW	G
+Austreibung des Guten	PW	S
+Automat schaffen	PW	S
+Bann der wahren Eigentümerschaft	PW	S
+Bannen des Todes	PW	A
+Bannen von Dunebargen	PW	A
+Bannen von Dunkelheit	PW	G
+Bannen von Dvergar	PW	A
+Bannen von Finsterwerk	PW	G
+Bannen von Fäulnis	PW	S
+Bannen von Gift	PW	G
+Bannen von Hrimfolk	PW	A
+Bannen von Hrimkin	PW	A
+Bannen von Hunar	PW	A
+Bannen von Hyrfolk	PW	A
+Bannen von Hyrrkin	PW	A
+Bannen von Jördfolk	PW	A
+Bannen von Jördkin	PW	A
+Bannen von Kaobargen	PW	A
+Bannen von Kälte	PW	A
+Bannen von Licht	PW	A
+Bannen von Vindfolk	PW	A
+Bannen von Vindskin	PW	A
+Bannen von Wisfolk	PW	A
+Bannen von Wiskin	PW	A
+Bannen von Zauberwerk	PW	G
+Bannsphäre, Blaue	PW	S
+Bannsphäre, Goldene	PW	G
+Bannsphäre, Schwarze	PW	S
+Bannsphäre, Silberne	PW	S
+Beeinflussen	PW	G
+Belebungshauch	PW	S
+Bergeist beschwören	PW	A
+Bergeist rufen	PW	A
+Beschleunigen	PW	S
+Besänftigen	PW	G
+Bittersalz	PW	A
+Blenden	PW	G
+Blendwerk	PW	S
+Blicksalz	PW	A
+Blindsalz	PW	A
+Blitze schleudern	PW	S
+Brechsalz	PW	A
+Brot und Wasser	PW	G
+Bruchbann	PW	S
+Cheprus Sendbote	PW	G
+Coluscar 1 beschwören	PW	A
+Coluscar 2 beschwören	PW	A
+Coluscar 3 beschwören	PW	A
+Coluscar 4 beschwören	PW	A
+Deckmantel	PW	G
+Dinge verbergen	PW	S
+Dinge wiederfinden	PW	S
+Donnerkeil	PW	S
+Dschinn beschwören	PW	A
+Dschinn rufen	PW	A
+Dschinni-Auge	PW	G
+Dschinni-Horn	PW	S
+Dschinni-Ohr	PW	G
+Dschungelwand	PW	S
+Dunebrast 1 beschwören	PW	A
+Dunebrast 2 beschwören	PW	A
+Dunebrast 3 beschwören	PW	A
+Dunebrast 4 beschwören	PW	A
+Dunkle Horde beschwören	PW	A
+Dunskrat beschwören	PW	A
+Durstsalz	PW	A
+Dämonen binden	PW	A
+Dämonenbann	PW	A
+Dämonenschar beschwören	PW	A
+Eiselementargeist beschwören	PW	A
+Eisenhaut	PW	S
+Eisiger Nebel	PW	S
+Eismeisterschaft	PW	S
+Eiswand	PW	S
+Eiswandlung	PW	S
+Eldring beschwören	PW	A
+Elementarbann	PW	A
+Elementarwesen binden	PW	A
+Elementenwandlung	PW	S
+Elfenfeuer	PW	S
+Entfesseln	PW	A
+Erdbeben	PW	A
+Erdeelementargeist beschwören	PW	A
+Erdfessel	PW	A
+Erdmeisterschaft	PW	S
+Erdwandlung	PW	S
+Erheben der Toten	PW	G
+Erkennen der Aura	PW	G
+Erkennen von Krankheit	PW	S
+Erkennen von Leben	PW	A
+Erkennen von Zauberei	PW	A
+Erkurku beschwören	PW	A
+Erkurku rufen	PW	A
+Erscheinungen	PW	S
+Farbensalz	PW	A
+Feenfluch	PW	A
+Feenzauber	PW	A
+Felldvegar beschwören	PW	A
+Felldverg beschwören	PW	A
+Felsenfaust	PW	S
+Fengrip beschwören	PW	A
+Fesselbann	PW	G
+Feuerelementargeist beschwören	PW	A
+Feuerfinger	PW	S
+Feuerkugel	PW	S
+Feuerlanze	PW	S
+Feuerlauf	PW	A
+Feuermeisterschaft	PW	S
+Feuerregen	PW	S
+Feuerring	PW	S
+Feuerschild	PW	S
+Feuerspiel	PW	S
+Feuerwand	PW	S
+Fiebersalz	PW	A
+Fjalhune beschwören	PW	A
+Flammende Hand	PW	S
+Flammenklinge	PW	S
+Flammenkreis	PW	S
+Fliegen	PW	S
+Fliegensalz	PW	A
+Fluch des Hundes	PW	G
+Fossemand beschwören	PW	A
+Freundesauge	PW	S
+Frostball	PW	S
+Funkenregen	PW	S
+Funkensalz	PW	A
+Fährtenduft	PW	A
+Färbersalz	PW	A
+Geas	PW	S
+Geist beschwören	PW	A
+Geistesschild	PW	S
+Geruchsverlust	PW	A
+Gjornhune beschwören	PW	A
+Gletschergnom beschwören	PW	A
+Gletschergnom rufen	PW	A
+Gloddvegar beschwören	PW	A
+Gloddverg beschwören	PW	A
+Glühsalz	PW	A
+Goldener Panzer	PW	S
+Golem schaffen	PW	S
+Großer Hitzeschutz	PW	S
+Grüne Hand	PW	A
+Göttliche Eingebung	PW	G
+Göttliche Strafe	PW	G
+Göttlicher Blitz	PW	G
+Göttlicher Schutz vor Magie	PW	G
+Göttlicher Schutz vor dem Bösen	PW	G
+Haarsalz	PW	A
+Hagel	PW	A
+Halebant 1 beschwören	PW	A
+Halebant 2 beschwören	PW	A
+Halebant 3 beschwören	PW	A
+Halebant 4 beschwören	PW	A
+Handauflegen	PW	G
+Hardlogi beschwören	PW	A
+Harkarhune beschwören	PW	A
+Harkbuar beschwören	PW	A
+Hauch der Verwesung	PW	S
+Hauch der Wüste	PW	A
+Hauch des Frühlings	PW	S
+Hauch des Winters	PW	A
+Haugskadi beschwören	PW	A
+Heilen schwerer Wunden	PW	G
+Heilen von Krankheit	PW	G
+Heilen von Wunden	PW	G
+Heiliger Zorn	PW	G
+Heiliges Wort	PW	G
+Heimstein	PW	G
+Heranholen	PW	S
+Herbeizwingen	PW	A
+Hexenwirbel	PW	S
+Himmelsleiter	PW	G
+Hitzeschutz	PW	A
+Hitzsalz	PW	A
+Hrimdvegar beschwören	PW	A
+Hrimdverg beschwören	PW	A
+Hrimhune beschwören	PW	A
+Hungersalz	PW	A
+Hyrrbauti beschwören	PW	A
+Hörnerklang	PW	S
+Ifrit beschwören	PW	A
+Ifrit rufen	PW	A
+Incheper schaffen	PW	G
+Indruwal 1 beschwören	PW	A
+Indruwal 2 beschwören	PW	A
+Indruwal 3 beschwören	PW	A
+Indruwal 4 beschwören	PW	A
+Ising beschwören	PW	A
+Jambani beschwören	PW	A
+Jokulskadi beschwören	PW	A
+Jucksalz	PW	A
+Jurugu beschwören	PW	A
+Jurugu rufen	PW	A
+Jördmand beschwören	PW	A
+Kaligin 1 beschwören	PW	A
+Kaligin 2 beschwören	PW	A
+Kaligin 3 beschwören	PW	A
+Kaligin 4 beschwören	PW	A
+Kallbjargi beschwören	PW	A
+Kallrani beschwören	PW	A
+Kammerdiener beschwören	PW	S
+Karing beschwören	PW	A
+Klebesalz	PW	A
+Knallsalz	PW	A
+Kopieren	PW	G
+Kravyad-Schrei	PW	S
+Kreatur erschaffen	PW	A
+Kuß des Schlafes	PW	A
+Kälteschutz	PW	A
+Kühlsalz	PW	A
+Lachsalz	PW	A
+Lahmsalz	PW	A
+Lehrersuche	PW	S
+Leomies Birneneis	PW	A
+Lergris beschwören	PW	A
+Levitation	PW	S
+Lichtbrücke	PW	G
+Lichtrunen	PW	S
+Liebeszauber	PW	S
+Lindern von Entkräftung	PW	A
+Liniensicht	PW	A
+Ljosfang beschwören	PW	A
+Luftelementargeist beschwören	PW	A
+Luftlauf	PW	S
+Luftsphäre	PW	G
+Luftspiegelung	PW	S
+Lustsalz	PW	A
+Lähmung	PW	S
+Löschsalz	PW	A
+Macht über die Sinne	PW	A
+Macht über magische Wesen	PW	A
+Magische Aura	PW	A
+Magischer Kreis des Bewachens	PW	S
+Magischer Kreis des Verschleierns	PW	S
+Magischer Kreis des Widerstehens	PW	S
+Magischer Kreis, klein	PW	S
+Magischer Spion	PW	S
+Manifestation des Ka	PW	G
+Marhune beschwören	PW	A
+Marid beschwören	PW	A
+Marid rufen	PW	A
+Marmennil beschwören	PW	A
+Marmorhaut	PW	S
+Megant 1 beschwören	PW	A
+Megant 2 beschwören	PW	A
+Megant 3 beschwören	PW	A
+Megant 4 beschwören	PW	A
+Meisterbann	PW	A
+Metallmeisterschaft	PW	S
+Mokkurbjargi beschwören	PW	A
+Mumie erwecken	PW	G
+Myrknir beschwören	PW	A
+Namenloses Grauen	PW	S
+Nebel schaffen	PW	S
+Nebel wecken	PW	A
+Nebelsalz	PW	A
+Nefling beschwören	PW	A
+Niessalz	PW	A
+Paschuyana, der Weg des Tieres	PW	S
+Person beschwören	PW	A
+Person wiederfinden	PW	S
+Rauchsalz	PW	A
+Rauchwolke	PW	S
+Rauschsalz	PW	A
+Regenzauber	PW	S
+Reinigen	PW	S
+Reise zu den Sphären	PW	S
+Reizen	PW	G
+Riechsalz	PW	A
+Ring des Lebens	PW	A
+Rost	PW	S
+Rutschsalz	PW	A
+Rückführung	PW	A
+Sa spenden	PW	G
+Saeldvegar beschwören	PW	A
+Saeldverg beschwören	PW	A
+Sandmeisterschaft	PW	S
+Scharfblick	PW	S
+Scheintod	PW	A
+Schlaf	PW	S
+Schlafsalz	PW	A
+Schleichsalz	PW	A
+Schmerzen	PW	S
+Schmerzen spüren	PW	S
+Schreiber beschwören	PW	S
+Schrumpfen	PW	S
+Schutzgeist	PW	S
+Schutzkreis gegen Dunebargen	PW	A
+Schutzkreis gegen Dvergar	PW	A
+Schutzkreis gegen Dämonen	PW	A
+Schutzkreis gegen Elementarwesen	PW	A
+Schutzkreis gegen Geisterwesen	PW	A
+Schutzkreis gegen Hrimfolk	PW	A
+Schutzkreis gegen Hunar	PW	A
+Schutzkreis gegen Hyrrfolk	PW	A
+Schutzkreis gegen Jördfolk	PW	A
+Schutzkreis gegen Kaobargen	PW	A
+Schutzkreis gegen Untote	PW	A
+Schutzkreis gegen Vindfolk	PW	A
+Schutzkreis gegen Wisfolk	PW	A
+Schwarze Zone	PW	S
+Schweben	PW	S
+Schwingenkeule	PW	A
+Schwäche	PW	S
+Schöne Leiche	PW	A
+Seele finden	PW	G
+Seelenheilung	PW	G
+Seelenkompaß	PW	G
+Seelenschock	PW	S
+Segnen	PW	G
+Serkefs Todesbote	PW	S
+Silberstaub	PW	S
+Snaerhamir beschwören	PW	A
+Sprachlähmung	PW	S
+Spruch intensivieren	PW	S
+Staubkämpfer	PW	S
+Steinkugel	PW	S
+Steinwand	PW	S
+Stille	PW	S
+Stimmenwerfen	PW	S
+Stottersalz	PW	A
+Sturmflut	PW	S
+Sturmhand	PW	G
+Sturmwind	PW	G
+Stärke	PW	S
+Sumpfboden	PW	S
+Sutechs Heer	PW	A
+Svalgrim beschwören	PW	A
+Tausch des Ba	PW	S
+Thrymbar beschwören	PW	A
+Thrymbar eschwören	PW	A
+Thursenstein	PW	A
+Tiefschlaf	PW	S
+Tiere rufen	PW	S
+Tierisches Handeln	PW	S
+Tiersprache	PW	S
+Todeshauch	PW	S
+Todeszauber	PW	A
+Tor schaffen	PW	A
+Trampelsalz	PW	A
+Trockensalz	PW	A
+Truscan 1 beschwören	PW	A
+Truscan 2 beschwören	PW	A
+Truscan 3 beschwören	PW	A
+Truscan 4 beschwören	PW	A
+Umkehrschild	PW	A
+Ungeziefer bannen	PW	A
+Unsichtbarkeit	PW	S
+Vereisen	PW	S
+Verfluchen	PW	G
+Vergangenheit beschwören	PW	A
+Vergrößern	PW	S
+Verjüngen	PW	A
+Verkleinern	PW	S
+Verlangsamen	PW	S
+Versetzen	PW	S
+Versteinern	PW	S
+Vertieren	PW	A
+Verwandlung	PW	S
+Verwirren	PW	S
+Verzweiflung	PW	S
+Vinddvegar beschwören	PW	A
+Vinddverg beschwören	PW	A
+Vindmand beschwören	PW	A
+Wachsen	PW	S
+Wagemut	PW	G
+Wahnsinn	PW	S
+Wahrsehen	PW	G
+Waldluft	PW	A
+Wandelsalz	PW	A
+Warnung	PW	G
+Wasser befreien	PW	S
+Wasser spüren	PW	S
+Wasseratmen	PW	A
+Wasserelementargeist beschwören	PW	A
+Wasserlauf	PW	A
+Wassermeisterschaft	PW	S
+Wassersalz	PW	A
+Wasserwandlung	PW	S
+Wehsalz	PW	A
+Weltentor schaffen	PW	A
+Wetterzauber	PW	S
+Wiederkehr	PW	S
+Windmeisterschaft	PW	G
+Windstoß	PW	G
+Wirbelwind	PW	S
+Wolkenbruch	PW	S
+Wort der Trauer	PW	G
+Wort des Lebens	PW	G
+Wüstenwind	PW	G
+Zauberauge	PW	S
+Zauberhand	PW	S
+Zaubermacht	PW	G
+Zauberschild	PW	S
+Zauberschloß	PW	S
+Zauberschlüssel	PW	S
+Zauberschmiede	PW	S
+Zauberstimme	PW	S
+Zauberwirklichkeit	PW	S
+Zauberzunge	PW	G
+Zucksalz	PW	A
+Zweite Haut	PW	S
+Zwiesprache	PW	S
+Zwingkreis	PW	G
+Zündersalz	PW	A
+Allheilung	PM	G
+Angst	PM	S
+Auflösung	PM	S
+Austreibung des Bösen	PM	G
+Austreibung des Guten	PM	S
+Automat schaffen	PM	A
+Bann der wahren Eigentümerschaft	PM	A
+Bannen des Todes	PM	A
+Bannen von Dunebargen	PM	A
+Bannen von Dunkelheit	PM	G
+Bannen von Dvergar	PM	A
+Bannen von Finsterwerk	PM	G
+Bannen von Fäulnis	PM	S
+Bannen von Gift	PM	G
+Bannen von Hrimfolk	PM	A
+Bannen von Hrimkin	PM	A
+Bannen von Hunar	PM	A
+Bannen von Hyrfolk	PM	A
+Bannen von Hyrrkin	PM	A
+Bannen von Jördfolk	PM	A
+Bannen von Jördkin	PM	A
+Bannen von Kaobargen	PM	A
+Bannen von Kälte	PM	S
+Bannen von Licht	PM	A
+Bannen von Vindfolk	PM	A
+Bannen von Vindskin	PM	A
+Bannen von Wisfolk	PM	A
+Bannen von Wiskin	PM	A
+Bannen von Zauberwerk	PM	G
+Bannsphäre, Blaue	PM	S
+Bannsphäre, Goldene	PM	G
+Bannsphäre, Schwarze	PM	S
+Bannsphäre, Silberne	PM	S
+Beeinflussen	PM	S
+Belebungshauch	PM	S
+Bergeist beschwören	PM	A
+Bergeist rufen	PM	A
+Beschleunigen	PM	S
+Besänftigen	PM	S
+Bittersalz	PM	A
+Blenden	PM	G
+Blendwerk	PM	S
+Blicksalz	PM	A
+Blindsalz	PM	A
+Blitze schleudern	PM	S
+Blutwandlung	PM	S
+Brechsalz	PM	A
+Brot und Wasser	PM	S
+Bruchbann	PM	S
+Cheprus Sendbote	PM	S
+Coluscar 1 beschwören	PM	A
+Coluscar 2 beschwören	PM	A
+Coluscar 3 beschwören	PM	A
+Coluscar 4 beschwören	PM	A
+Deckmantel	PM	S
+Dinge verbergen	PM	S
+Dinge wiederfinden	PM	S
+Donnerkeil	PM	S
+Dschinn beschwören	PM	A
+Dschinn rufen	PM	A
+Dschinni-Auge	PM	S
+Dschinni-Horn	PM	S
+Dschinni-Ohr	PM	S
+Dschungelwand	PM	S
+Dunebrast 1 beschwören	PM	A
+Dunebrast 2 beschwören	PM	A
+Dunebrast 3 beschwören	PM	A
+Dunebrast 4 beschwören	PM	A
+Dunkle Horde beschwören	PM	A
+Dunskrat beschwören	PM	A
+Durstsalz	PM	A
+Dämonen binden	PM	A
+Dämonenbann	PM	A
+Dämonenschar beschwören	PM	A
+Eiselementargeist beschwören	PM	A
+Eisenhaut	PM	S
+Eisiger Nebel	PM	S
+Eismeisterschaft	PM	S
+Eiswand	PM	S
+Eiswandlung	PM	G
+Eldring beschwören	PM	A
+Elementarbann	PM	A
+Elementarwesen binden	PM	A
+Elementenwandlung	PM	A
+Elfenfeuer	PM	A
+Entgiften	PM	S
+Erdbeben	PM	A
+Erdeelementargeist beschwören	PM	A
+Erdfessel	PM	S
+Erdmeisterschaft	PM	A
+Erdwandlung	PM	A
+Erheben der Toten	PM	S
+Erkennen der Aura	PM	G
+Erkennen von Gift	PM	S
+Erkennen von Krankheit	PM	S
+Erkennen von Leben	PM	A
+Erkurku beschwören	PM	A
+Erkurku rufen	PM	A
+Erscheinungen	PM	S
+Farbensalz	PM	A
+Feenfluch	PM	A
+Feenzauber	PM	A
+Felldvegar beschwören	PM	A
+Felldverg beschwören	PM	A
+Felsenfaust	PM	S
+Fengrip beschwören	PM	A
+Fesselbann	PM	S
+Feuerelementargeist beschwören	PM	A
+Feuerfinger	PM	A
+Feuerkugel	PM	A
+Feuerlanze	PM	A
+Feuerlauf	PM	A
+Feuermeisterschaft	PM	A
+Feuerregen	PM	A
+Feuerring	PM	A
+Feuerschild	PM	S
+Feuerwand	PM	S
+Fiebersalz	PM	A
+Fjalhune beschwören	PM	A
+Flammenklinge	PM	S
+Flammenkreis	PM	S
+Fliegen	PM	S
+Fliegensalz	PM	A
+Fluch des Hundes	PM	A
+Fossemand beschwören	PM	A
+Freundesauge	PM	S
+Frostball	PM	S
+Funkenregen	PM	S
+Funkensalz	PM	A
+Färbersalz	PM	A
+Geas	PM	S
+Geist beschwören	PM	A
+Geistesschild	PM	S
+Geruchsverlust	PM	A
+Gjornhune beschwören	PM	A
+Gletschergnom beschwören	PM	A
+Gletschergnom rufen	PM	A
+Gloddvegar beschwören	PM	A
+Gloddverg beschwören	PM	A
+Glühsalz	PM	A
+Goldener Panzer	PM	S
+Golem schaffen	PM	S
+Großer Hitzeschutz	PM	A
+Grüne Hand	PM	A
+Göttliche Eingebung	PM	G
+Göttliche Strafe	PM	G
+Göttlicher Blitz	PM	G
+Göttlicher Schutz vor Magie	PM	G
+Göttlicher Schutz vor dem Bösen	PM	G
+Haarsalz	PM	A
+Hagel	PM	S
+Halebant 1 beschwören	PM	A
+Halebant 2 beschwören	PM	A
+Halebant 3 beschwören	PM	A
+Halebant 4 beschwören	PM	A
+Hammerhand	PM	A
+Handauflegen	PM	G
+Hardlogi beschwören	PM	A
+Harkarhune beschwören	PM	A
+Harkbuar beschwören	PM	A
+Hauch der Verwesung	PM	S
+Hauch der Wüste	PM	A
+Hauch des Frühlings	PM	A
+Hauch des Winters	PM	A
+Haugskadi beschwören	PM	A
+Heilen schwerer Wunden	PM	G
+Heilen von Krankheit	PM	G
+Heilen von Wunden	PM	G
+Heiliger Zorn	PM	G
+Heiliges Wort	PM	G
+Heimstein	PM	G
+Heranholen	PM	S
+Herbeizwingen	PM	A
+Himmelsleiter	PM	S
+Hitzsalz	PM	A
+Hrimdvegar beschwören	PM	A
+Hrimdverg beschwören	PM	A
+Hrimhune beschwören	PM	A
+Hungersalz	PM	A
+Hyrrbauti beschwören	PM	A
+Hörnerklang	PM	S
+Ifrit beschwören	PM	A
+Ifrit rufen	PM	A
+Incheper schaffen	PM	S
+Indruwal 1 beschwören	PM	A
+Indruwal 2 beschwören	PM	A
+Indruwal 3 beschwören	PM	A
+Indruwal 4 beschwören	PM	A
+Ising beschwören	PM	A
+Jambani beschwören	PM	A
+Jokulskadi beschwören	PM	A
+Jucksalz	PM	A
+Jurugu beschwören	PM	A
+Jurugu rufen	PM	A
+Jördmand beschwören	PM	A
+Kaligin 1 beschwören	PM	A
+Kaligin 2 beschwören	PM	A
+Kaligin 3 beschwören	PM	A
+Kaligin 4 beschwören	PM	A
+Kallbjargi beschwören	PM	A
+Kallrani beschwören	PM	A
+Kammerdiener beschwören	PM	A
+Karing beschwören	PM	A
+Klebesalz	PM	A
+Knallsalz	PM	A
+Kopieren	PM	G
+Kravyad-Schrei	PM	S
+Kreatur erschaffen	PM	A
+Kuß des Schlafes	PM	A
+Kälteschutz	PM	S
+Kühlsalz	PM	A
+Lachsalz	PM	A
+Lahmsalz	PM	A
+Lehrersuche	PM	S
+Leomies Birneneis	PM	A
+Lergris beschwören	PM	A
+Levitation	PM	S
+Lichtbrücke	PM	S
+Lichtrunen	PM	S
+Liebeszauber	PM	S
+Lindern von Entkräftung	PM	A
+Liniensicht	PM	A
+Ljosfang beschwören	PM	A
+Luftelementargeist beschwören	PM	A
+Luftlauf	PM	A
+Luftsphäre	PM	G
+Luftspiegelung	PM	S
+Lustsalz	PM	A
+Lähmung	PM	S
+Löschsalz	PM	A
+Macht über die belebte Natur	PM	S
+Magischer Kreis des Bewachens	PM	S
+Magischer Kreis des Verschleierns	PM	S
+Magischer Kreis des Widerstehens	PM	S
+Magischer Kreis, klein	PM	S
+Manifestation des Ka	PM	G
+Marhune beschwören	PM	A
+Marid beschwören	PM	A
+Marid rufen	PM	A
+Marmennil beschwören	PM	A
+Marmorhaut	PM	S
+Megant 1 beschwören	PM	A
+Megant 2 beschwören	PM	A
+Megant 3 beschwören	PM	A
+Megant 4 beschwören	PM	A
+Meisterbann	PM	A
+Metallmeisterschaft	PM	S
+Mokkurbjargi beschwören	PM	A
+Mumie erwecken	PM	G
+Myrknir beschwören	PM	A
+Namenloses Grauen	PM	S
+Nebel schaffen	PM	G
+Nebel wecken	PM	G
+Nebelsalz	PM	A
+Nefling beschwören	PM	A
+Niessalz	PM	A
+Paschuyana, der Weg des Tieres	PM	A
+Person beschwören	PM	A
+Person wiederfinden	PM	S
+Rauchsalz	PM	A
+Rauchwolke	PM	S
+Rauschsalz	PM	A
+Regenzauber	PM	G
+Reinigen	PM	S
+Riechsalz	PM	A
+Ring des Lebens	PM	A
+Rost	PM	S
+Rutschsalz	PM	A
+Rückführung	PM	A
+Sa spenden	PM	G
+Saeldvegar beschwören	PM	A
+Saeldverg beschwören	PM	A
+Sandmeisterschaft	PM	A
+Scharfblick	PM	A
+Scheintod	PM	A
+Schlaf	PM	S
+Schlafsalz	PM	A
+Schlangenbiß	PM	A
+Schleichsalz	PM	A
+Schmerzen	PM	S
+Schmerzen spüren	PM	S
+Schrumpfen	PM	S
+Schutzgeist	PM	S
+Schutzkreis gegen Dunebargen	PM	A
+Schutzkreis gegen Dvergar	PM	A
+Schutzkreis gegen Dämonen	PM	A
+Schutzkreis gegen Elementarwesen	PM	A
+Schutzkreis gegen Geisterwesen	PM	A
+Schutzkreis gegen Hrimfolk	PM	A
+Schutzkreis gegen Hunar	PM	A
+Schutzkreis gegen Hyrrfolk	PM	A
+Schutzkreis gegen Jördfolk	PM	A
+Schutzkreis gegen Kaobargen	PM	A
+Schutzkreis gegen Untote	PM	A
+Schutzkreis gegen Vindfolk	PM	A
+Schutzkreis gegen Wisfolk	PM	A
+Schwarze Zone	PM	S
+Schweben	PM	S
+Schwingenkeule	PM	A
+Schwäche	PM	S
+Schöne Leiche	PM	A
+Seele finden	PM	G
+Seelenheilung	PM	S
+Seelenkompaß	PM	S
+Seelenschock	PM	S
+Segnen	PM	G
+Serkefs Todesbote	PM	S
+Signalkugel	PM	S
+Silberstaub	PM	S
+Snaerhamir beschwören	PM	A
+Spruch intensivieren	PM	S
+Staubkämpfer	PM	S
+Steinkugel	PM	S
+Steinwand	PM	S
+Stille	PM	S
+Stimmenwerfen	PM	S
+Stottersalz	PM	A
+Sturmflut	PM	G
+Sturmhand	PM	S
+Sturmwind	PM	S
+Stärke	PM	S
+Sumpfboden	PM	G
+Svalgrim beschwören	PM	A
+Tausch des Ba	PM	S
+Thrymbar beschwören	PM	A
+Thrymbar eschwören	PM	A
+Thursenstein	PM	A
+Tiefschlaf	PM	S
+Tiere rufen	PM	S
+Tierisches Handeln	PM	S
+Tiersprache	PM	G
+Todeshauch	PM	S
+Todeszauber	PM	A
+Tor schaffen	PM	A
+Trampelsalz	PM	A
+Trockensalz	PM	A
+Truscan 1 beschwören	PM	A
+Truscan 2 beschwören	PM	A
+Truscan 3 beschwören	PM	A
+Truscan 4 beschwören	PM	A
+Umkehrschild	PM	A
+Unsichtbarkeit	PM	S
+Vereisen	PM	S
+Verfluchen	PM	G
+Vergangenheit beschwören	PM	A
+Vergrößern	PM	S
+Verjüngen	PM	A
+Verkleinern	PM	S
+Verlangsamen	PM	S
+Versetzen	PM	S
+Versteinern	PM	S
+Vertieren	PM	A
+Verwandlung	PM	S
+Verzweiflung	PM	S
+Vinddvegar beschwören	PM	A
+Vinddverg beschwören	PM	A
+Vindmand beschwören	PM	A
+Wachsen	PM	S
+Wagemut	PM	G
+Wahnsinn	PM	S
+Wahrsehen	PM	G
+Waldluft	PM	A
+Wandelsalz	PM	A
+Warnung	PM	G
+Wasser befreien	PM	G
+Wasser spüren	PM	G
+Wasseratmen	PM	G
+Wasserelementargeist beschwören	PM	A
+Wasserlauf	PM	S
+Wassermeisterschaft	PM	G
+Wassersalz	PM	A
+Wasserstrahl	PM	G
+Wasserwandlung	PM	G
+Wehsalz	PM	A
+Weltentor schaffen	PM	A
+Wetterzauber	PM	G
+Wiederkehr	PM	S
+Windmeisterschaft	PM	S
+Windstoß	PM	S
+Wirbelwind	PM	S
+Wolkenbruch	PM	G
+Wort der Trauer	PM	G
+Wort des Lebens	PM	G
+Wüstenwind	PM	G
+Zauberauge	PM	S
+Zauberhand	PM	S
+Zaubermacht	PM	S
+Zauberschild	PM	S
+Zauberschloß	PM	S
+Zauberschlüssel	PM	S
+Zauberschmiede	PM	S
+Zauberstimme	PM	S
+Zauberwirklichkeit	PM	S
+Zauberzunge	PM	S
+Zucksalz	PM	A
+Zweite Haut	PM	S
+Zwiesprache	PM	S
+Zwingkreis	PM	S
+Zähmen	PM	S
+Zündersalz	PM	A
+Abwenden von Blicken	PK	A
+Allheilung	PK	G
+Angst	PK	S
+Auflösung	PK	S
+Augenschleier	PK	S
+Austreibung des Bösen	PK	G
+Austreibung des Guten	PK	S
+Automat schaffen	PK	A
+Bann der wahren Eigentümerschaft	PK	S
+Bannen des Todes	PK	A
+Bannen von Dunebargen	PK	A
+Bannen von Dunkelheit	PK	G
+Bannen von Dvergar	PK	A
+Bannen von Finsterwerk	PK	G
+Bannen von Fäulnis	PK	S
+Bannen von Gift	PK	G
+Bannen von Hrimfolk	PK	A
+Bannen von Hrimkin	PK	A
+Bannen von Hunar	PK	A
+Bannen von Hyrfolk	PK	A
+Bannen von Hyrrkin	PK	A
+Bannen von Jördfolk	PK	A
+Bannen von Jördkin	PK	A
+Bannen von Kaobargen	PK	A
+Bannen von Licht	PK	A
+Bannen von Vindfolk	PK	A
+Bannen von Vindskin	PK	A
+Bannen von Wisfolk	PK	A
+Bannen von Wiskin	PK	A
+Bannen von Zauberwerk	PK	G
+Bannsphäre, Blaue	PK	S
+Bannsphäre, Goldene	PK	G
+Bannsphäre, Schwarze	PK	S
+Bannsphäre, Silberne	PK	S
+Beeinflussen	PK	S
+Belebungshauch	PK	S
+Bergeist beschwören	PK	A
+Bergeist rufen	PK	A
+Beschleunigen	PK	S
+Besänftigen	PK	A
+Bittersalz	PK	A
+Blenden	PK	G
+Blendwerk	PK	S
+Blicksalz	PK	A
+Blindsalz	PK	A
+Blitze schleudern	PK	G
+Blutsbrüderschaft stiften	PK	S
+Brechsalz	PK	A
+Brot und Wasser	PK	S
+Bruchbann	PK	S
+Bärenstärke	PK	A
+Cheprus Sendbote	PK	S
+Coluscar 1 beschwören	PK	A
+Coluscar 2 beschwören	PK	A
+Coluscar 3 beschwören	PK	A
+Coluscar 4 beschwören	PK	A
+Deckmantel	PK	S
+Der Große Knall	PK	G
+Dinge verbergen	PK	S
+Dinge wiederfinden	PK	S
+Donnerkeil	PK	G
+Dschinn beschwören	PK	A
+Dschinn rufen	PK	A
+Dschinni-Auge	PK	S
+Dschinni-Horn	PK	S
+Dschinni-Ohr	PK	S
+Dschungelwand	PK	S
+Dunebrast 1 beschwören	PK	A
+Dunebrast 2 beschwören	PK	A
+Dunebrast 3 beschwören	PK	A
+Dunebrast 4 beschwören	PK	A
+Dunkle Horde beschwören	PK	A
+Dunskrat beschwören	PK	A
+Durstsalz	PK	A
+Dämonen binden	PK	A
+Dämonenbann	PK	A
+Dämonenschar beschwören	PK	A
+Eiselementargeist beschwören	PK	A
+Eisenhaut	PK	G
+Eisiger Nebel	PK	S
+Eismeisterschaft	PK	A
+Eiswand	PK	S
+Eiswandlung	PK	A
+Eldring beschwören	PK	A
+Elementarbann	PK	A
+Elementarwesen binden	PK	A
+Elementenwandlung	PK	S
+Elfenfeuer	PK	G
+Entfesseln	PK	S
+Entgiften	PK	S
+Erdbeben	PK	A
+Erdeelementargeist beschwören	PK	A
+Erdfessel	PK	S
+Erdmeisterschaft	PK	A
+Erdwandlung	PK	A
+Erheben der Toten	PK	A
+Erkennen der Aura	PK	G
+Erkennen von Gift	PK	S
+Erkennen von Krankheit	PK	S
+Erkurku beschwören	PK	A
+Erkurku rufen	PK	A
+Erscheinungen	PK	S
+Farbensalz	PK	A
+Feenfluch	PK	A
+Feenzauber	PK	A
+Felldvegar beschwören	PK	A
+Felldverg beschwören	PK	A
+Felsenfaust	PK	G
+Fengrip beschwören	PK	A
+Fesselbann	PK	S
+Feuerelementargeist beschwören	PK	A
+Feuerfinger	PK	S
+Feuerkugel	PK	S
+Feuerlanze	PK	S
+Feuerlauf	PK	A
+Feuermeisterschaft	PK	S
+Feuerregen	PK	S
+Feuerring	PK	S
+Feuerschild	PK	S
+Feuerspiel	PK	S
+Feuerwand	PK	G
+Fiebersalz	PK	A
+Fjalhune beschwören	PK	A
+Flammende Hand	PK	S
+Flammenklinge	PK	S
+Flammenkreis	PK	S
+Fliegen	PK	S
+Fliegensalz	PK	A
+Fluch des Hundes	PK	A
+Fossemand beschwören	PK	A
+Freundesauge	PK	S
+Frostball	PK	S
+Funkenregen	PK	S
+Funkensalz	PK	A
+Färbersalz	PK	A
+Geas	PK	S
+Geist beschwören	PK	A
+Geistesschild	PK	S
+Geruchsverlust	PK	A
+Gjornhune beschwören	PK	A
+Gletschergnom beschwören	PK	A
+Gletschergnom rufen	PK	A
+Gloddvegar beschwören	PK	A
+Gloddverg beschwören	PK	A
+Glühsalz	PK	A
+Goldener Panzer	PK	S
+Golem schaffen	PK	S
+Graue Hand	PK	A
+Großer Hitzeschutz	PK	A
+Grüne Hand	PK	A
+Göttliche Eingebung	PK	G
+Göttliche Strafe	PK	G
+Göttlicher Blitz	PK	G
+Göttlicher Schutz vor Magie	PK	G
+Göttlicher Schutz vor dem Bösen	PK	G
+Haarsalz	PK	A
+Hagel	PK	S
+Halebant 1 beschwören	PK	A
+Halebant 2 beschwören	PK	A
+Halebant 3 beschwören	PK	A
+Halebant 4 beschwören	PK	A
+Hammerhand	PK	G
+Handauflegen	PK	G
+Hardlogi beschwören	PK	A
+Harkarhune beschwören	PK	A
+Harkbuar beschwören	PK	A
+Hauch der Verwesung	PK	S
+Hauch der Wüste	PK	A
+Hauch des Frühlings	PK	A
+Hauch des Winters	PK	A
+Haugskadi beschwören	PK	A
+Heilen schwerer Wunden	PK	G
+Heilen von Krankheit	PK	G
+Heilen von Wunden	PK	G
+Heiliger Zorn	PK	G
+Heiliges Wort	PK	G
+Heimstein	PK	G
+Heranholen	PK	S
+Herbeizwingen	PK	A
+Himmelsleiter	PK	S
+Hitzsalz	PK	A
+Hrimdvegar beschwören	PK	A
+Hrimdverg beschwören	PK	A
+Hrimhune beschwören	PK	A
+Hungersalz	PK	A
+Hyrrbauti beschwören	PK	A
+Hörnerklang	PK	G
+Ifrit beschwören	PK	A
+Ifrit rufen	PK	A
+Incheper schaffen	PK	S
+Indruwal 1 beschwören	PK	A
+Indruwal 2 beschwören	PK	A
+Indruwal 3 beschwören	PK	A
+Indruwal 4 beschwören	PK	A
+Ising beschwören	PK	A
+Jambani beschwören	PK	A
+Jokulskadi beschwören	PK	A
+Jucksalz	PK	A
+Jurugu beschwören	PK	A
+Jurugu rufen	PK	A
+Jördmand beschwören	PK	A
+Kaligin 1 beschwören	PK	A
+Kaligin 2 beschwören	PK	A
+Kaligin 3 beschwören	PK	A
+Kaligin 4 beschwören	PK	A
+Kallbjargi beschwören	PK	A
+Kallrani beschwören	PK	A
+Kammerdiener beschwören	PK	A
+Karing beschwören	PK	A
+Klebesalz	PK	A
+Knallsalz	PK	A
+Kopieren	PK	G
+Kravyad-Schrei	PK	S
+Kreatur erschaffen	PK	A
+Kühlsalz	PK	A
+Lachsalz	PK	A
+Lahmsalz	PK	A
+Lehrersuche	PK	S
+Leomies Birneneis	PK	A
+Lergris beschwören	PK	A
+Levitation	PK	S
+Lichtbrücke	PK	S
+Lichtrunen	PK	S
+Liebeszauber	PK	A
+Lindern von Entkräftung	PK	A
+Liniensicht	PK	A
+Ljosfang beschwören	PK	A
+Luftelementargeist beschwören	PK	A
+Luftlauf	PK	A
+Luftsphäre	PK	S
+Luftspiegelung	PK	S
+Lustsalz	PK	A
+Lähmung	PK	S
+Löschsalz	PK	A
+Magische Aura	PK	A
+Magischer Kreis des Bewachens	PK	S
+Magischer Kreis des Verschleierns	PK	S
+Magischer Kreis des Widerstehens	PK	S
+Magischer Kreis, klein	PK	S
+Manifestation des Ka	PK	G
+Marhune beschwören	PK	A
+Marid beschwören	PK	A
+Marid rufen	PK	A
+Marmennil beschwören	PK	A
+Marmorhaut	PK	G
+Megant 1 beschwören	PK	A
+Megant 2 beschwören	PK	A
+Megant 3 beschwören	PK	A
+Megant 4 beschwören	PK	A
+Meisterbann	PK	A
+Metallmeisterschaft	PK	S
+Mokkurbjargi beschwören	PK	A
+Mumie erwecken	PK	G
+Myrknir beschwören	PK	A
+Namenloses Grauen	PK	S
+Nebel schaffen	PK	S
+Nebel wecken	PK	A
+Nebelsalz	PK	A
+Nefling beschwören	PK	A
+Niessalz	PK	A
+Paschuyana, der Weg des Tieres	PK	A
+Person beschwören	PK	A
+Person wiederfinden	PK	S
+Pestklaue	PK	A
+Rauchsalz	PK	A
+Rauchwolke	PK	S
+Rauschsalz	PK	A
+Regenzauber	PK	S
+Reinigen	PK	S
+Riechsalz	PK	A
+Ring des Lebens	PK	A
+Rost	PK	S
+Rutschsalz	PK	A
+Rückführung	PK	A
+Sa spenden	PK	G
+Saeldvegar beschwören	PK	A
+Saeldverg beschwören	PK	A
+Sandmeisterschaft	PK	A
+Scharfblick	PK	A
+Scheintod	PK	A
+Schlaf	PK	S
+Schlafsalz	PK	A
+Schlangenbiß	PK	A
+Schleichsalz	PK	A
+Schmerzen	PK	S
+Schmerzen spüren	PK	A
+Schrumpfen	PK	S
+Schutzgeist	PK	S
+Schutzkreis gegen Dunebargen	PK	A
+Schutzkreis gegen Dvergar	PK	A
+Schutzkreis gegen Dämonen	PK	A
+Schutzkreis gegen Elementarwesen	PK	A
+Schutzkreis gegen Geisterwesen	PK	A
+Schutzkreis gegen Hrimfolk	PK	A
+Schutzkreis gegen Hunar	PK	A
+Schutzkreis gegen Hyrrfolk	PK	A
+Schutzkreis gegen Jördfolk	PK	A
+Schutzkreis gegen Kaobargen	PK	A
+Schutzkreis gegen Untote	PK	A
+Schutzkreis gegen Vindfolk	PK	A
+Schutzkreis gegen Wisfolk	PK	A
+Schwarze Zone	PK	S
+Schweben	PK	S
+Schwingenkeule	PK	S
+Schwäche	PK	S
+Schöne Leiche	PK	A
+Seele finden	PK	G
+Seelenheilung	PK	S
+Seelenkompaß	PK	S
+Seelenschock	PK	S
+Segnen	PK	G
+Serkefs Todesbote	PK	S
+Silberstaub	PK	S
+Snaerhamir beschwören	PK	A
+Spruch intensivieren	PK	S
+Staubkämpfer	PK	S
+Steinkugel	PK	S
+Steinwand	PK	S
+Stille	PK	S
+Stimmenwerfen	PK	S
+Stottersalz	PK	A
+Sturmflut	PK	S
+Sturmhand	PK	S
+Sturmwind	PK	G
+Stärke	PK	S
+Sumpfboden	PK	S
+Sutechs Heer	PK	G
+Svalgrim beschwören	PK	A
+Tausch des Ba	PK	S
+Thrymbar beschwören	PK	A
+Thrymbar eschwören	PK	A
+Thursenstein	PK	S
+Tiefschlaf	PK	S
+Tierisches Handeln	PK	S
+Tiersprache	PK	S
+Todeshauch	PK	S
+Todeszauber	PK	S
+Tor schaffen	PK	A
+Trampelsalz	PK	A
+Trockensalz	PK	A
+Truscan 1 beschwören	PK	A
+Truscan 2 beschwören	PK	A
+Truscan 3 beschwören	PK	A
+Truscan 4 beschwören	PK	A
+Umkehrschild	PK	A
+Unsichtbarkeit	PK	S
+Vereisen	PK	S
+Verfluchen	PK	G
+Vergangenheit beschwören	PK	A
+Vergrößern	PK	S
+Verjüngen	PK	A
+Verkleinern	PK	S
+Verlangsamen	PK	S
+Versetzen	PK	S
+Versteinern	PK	S
+Vertieren	PK	A
+Verwandlung	PK	S
+Verzweiflung	PK	S
+Vinddvegar beschwören	PK	A
+Vinddverg beschwören	PK	A
+Vindmand beschwören	PK	A
+Wachsen	PK	S
+Wagemut	PK	G
+Wahnsinn	PK	S
+Wahrsehen	PK	G
+Waldluft	PK	A
+Wandelsalz	PK	A
+Warnung	PK	G
+Wasser befreien	PK	A
+Wasser spüren	PK	A
+Wasseratmen	PK	A
+Wasserelementargeist beschwören	PK	A
+Wasserlauf	PK	A
+Wassermeisterschaft	PK	A
+Wassersalz	PK	A
+Wasserstrahl	PK	S
+Wasserwandlung	PK	A
+Wehsalz	PK	A
+Weltentor schaffen	PK	A
+Wetterzauber	PK	S
+Wiederkehr	PK	S
+Windmeisterschaft	PK	S
+Windstoß	PK	S
+Wirbelwind	PK	G
+Wort der Trauer	PK	G
+Wort des Lebens	PK	G
+Wüstenwind	PK	S
+Zauberauge	PK	S
+Zauberhand	PK	S
+Zaubermacht	PK	S
+Zauberschild	PK	S
+Zauberschloß	PK	S
+Zauberschlüssel	PK	S
+Zauberschmiede	PK	S
+Zauberstimme	PK	S
+Zauberwirklichkeit	PK	S
+Zauberzunge	PK	S
+Zielsuche	PK	G
+Zucksalz	PK	A
+Zweite Haut	PK	S
+Zwiesprache	PK	S
+Zwingkreis	PK	S
+Zündersalz	PK	A
+Abwenden von Blicken	Ord	G
+Allheilung	Ord	G
+Austreibung des Bösen	Ord	G
+Austreibung des Guten	Ord	G
+Bannen von Dunkelheit	Ord	G
+Bannen von Finsterwerk	Ord	G
+Bannen von Gift	Ord	G
+Bannen von Götterwerk	Ord	G
+Bannen von Licht	Ord	G
+Bannen von Zauberwerk	Ord	G
+Bannsphäre, Blaue	Ord	G
+Bannsphäre, Goldene	Ord	G
+Bannsphäre, Silberne	Ord	G
+Beschleunigen	Ord	G
+Blenden	Ord	G
+Blutsbrüderschaft stiften	Ord	S
+Eisenhaut	Ord	G
+Elfenfeuer	Ord	G
+Entgiften	Ord	G
+Erheben der Toten	Ord	A
+Erkennen der Aura	Ord	G
+Erkennen von Gift	Ord	A
+Erkennen von Verdammten	Ord	G
+Felsenfaust	Ord	S
+Flammenklinge	Ord	S
+Flammenkreis	Ord	S
+Fluch des Hundes	Ord	S
+Goldener Panzer	Ord	G
+Großer Hitzeschutz	Ord	S
+Göttliche Eingebung	Ord	G
+Göttliche Strafe	Ord	S
+Göttlicher Blitz	Ord	G
+Göttlicher Schutz vor Magie	Ord	G
+Göttlicher Schutz vor dem Bösen	Ord	G
+Hammerhand	Ord	A
+Handauflegen	Ord	G
+Heilen schwerer Wunden	Ord	G
+Heilen von Krankheit	Ord	G
+Heilen von Wunden	Ord	G
+Heiliger Zorn	Ord	G
+Heiliges Wort	Ord	G
+Heranholen	Ord	A
+Hörnerklang	Ord	G
+Kravyad-Schrei	Ord	S
+Leomies Birneneis	Ord	A
+Lindern von Entkräftung	Ord	S
+Macht über das Selbst	Ord	S
+Marmorhaut	Ord	G
+Reizen	Ord	S
+Schmerzen spüren	Ord	S
+Schutzgeist	Ord	G
+Seelenheilung	Ord	A
+Segnen	Ord	G
+Umkehrschild	Ord	A
+Unsichtbarkeit	Ord	S
+Verfluchen	Ord	G
+Wagemut	Ord	G
+Wahrsehen	Ord	A
+Warnung	Ord	S
+Wort der Trauer	Ord	G
+Wort des Lebens	Ord	G
+Zaubermacht	Ord	S
+Zauberschild	Ord	S
+Zauberschmiede	Ord	S
+Zwingkreis	Ord	S
+Aggression	PC	S
+Alpträume	PC	S
+Altern	PC	S
+Angst	PC	S
+Auflösung	PC	G
+Austreibung des Guten	PC	G
+Bann der wahren Eigentümerschaft	PC	S
+Bannen des Todes	PC	G
+Bannen von Dunebargen	PC	A
+Bannen von Dunkelheit	PC	A
+Bannen von Dvergar	PC	A
+Bannen von Götterwerk	PC	G
+Bannen von Hrimfolk	PC	A
+Bannen von Hrimkin	PC	A
+Bannen von Hunar	PC	A
+Bannen von Hyrfolk	PC	A
+Bannen von Hyrrkin	PC	A
+Bannen von Jördfolk	PC	A
+Bannen von Jördkin	PC	A
+Bannen von Kaobargen	PC	A
+Bannen von Licht	PC	G
+Bannen von Vindfolk	PC	A
+Bannen von Vindskin	PC	A
+Bannen von Wisfolk	PC	A
+Bannen von Wiskin	PC	A
+Bannen von Zauberwerk	PC	G
+Bannsphäre, Blaue	PC	S
+Bannsphäre, Goldene	PC	S
+Bannsphäre, Schwarze	PC	S
+Bannsphäre, Silberne	PC	G
+Beeinflussen	PC	S
+Belebungshauch	PC	S
+Bergeist beschwören	PC	A
+Bergeist rufen	PC	A
+Beschleunigen	PC	S
+Bittersalz	PC	A
+Blenden	PC	S
+Blendwerk	PC	S
+Blicksalz	PC	A
+Blindsalz	PC	A
+Blitze schleudern	PC	S
+Blutwandlung	PC	G
+Brechsalz	PC	A
+Bruchbann	PC	S
+Böser Blick	PC	S
+Cheprus Sendbote	PC	S
+Coluscar 1 beschwören	PC	A
+Coluscar 2 beschwören	PC	A
+Coluscar 3 beschwören	PC	A
+Coluscar 4 beschwören	PC	A
+Deckmantel	PC	S
+Dinge verbergen	PC	S
+Dinge wiederfinden	PC	S
+Donnerkeil	PC	S
+Doppelgänger schaffen	PC	G
+Dschinn beschwören	PC	A
+Dschinn rufen	PC	A
+Dschinni-Auge	PC	S
+Dschinni-Horn	PC	S
+Dschinni-Ohr	PC	S
+Dschungelwand	PC	S
+Dunebrast 1 beschwören	PC	A
+Dunebrast 2 beschwören	PC	A
+Dunebrast 3 beschwören	PC	A
+Dunebrast 4 beschwören	PC	A
+Dunkle Horde beschwören	PC	A
+Dunskrat beschwören	PC	A
+Durstsalz	PC	A
+Dämonen binden	PC	A
+Dämonenbann	PC	A
+Dämonenfeuer	PC	G
+Dämonenhand	PC	S
+Dämonenkreis	PC	S
+Dämonenschar beschwören	PC	A
+Dämonische Zaubermacht	PC	G
+Eiselementargeist beschwören	PC	A
+Eisenhaut	PC	S
+Eisiger Nebel	PC	S
+Eismeisterschaft	PC	S
+Eiswand	PC	S
+Eiswandlung	PC	A
+Eldring beschwören	PC	A
+Elementarbann	PC	A
+Elementarwesen binden	PC	A
+Elementenwandlung	PC	S
+Elfenfeuer	PC	A
+Erdbeben	PC	A
+Erdeelementargeist beschwören	PC	A
+Erdfessel	PC	S
+Erdmeisterschaft	PC	S
+Erdrosseln	PC	S
+Erdwandlung	PC	S
+Erkennen der Aura	PC	G
+Erkennen von Gift	PC	A
+Erkennen von Krankheit	PC	S
+Erkennen von Leben	PC	A
+Erkurku beschwören	PC	A
+Erkurku rufen	PC	A
+Erscheinungen	PC	S
+Farbensalz	PC	A
+Feenfluch	PC	A
+Feenzauber	PC	A
+Felldvegar beschwören	PC	A
+Felldverg beschwören	PC	A
+Felsenfaust	PC	S
+Fengrip beschwören	PC	A
+Fesselbann	PC	S
+Feuerelementargeist beschwören	PC	A
+Feuerfinger	PC	S
+Feuerkugel	PC	S
+Feuerlanze	PC	S
+Feuerlauf	PC	A
+Feuermeisterschaft	PC	A
+Feuerregen	PC	A
+Feuerring	PC	A
+Feuerschild	PC	S
+Feuerwand	PC	S
+Fiebersalz	PC	A
+Finsterer Blick	PC	S
+Firzars Zorn	PC	S
+Fjalhune beschwören	PC	A
+Flammenklinge	PC	S
+Flammenkreis	PC	A
+Fliegen	PC	S
+Fliegensalz	PC	A
+Fluch des Hundes	PC	A
+Flucht des Geistes	PC	S
+Fossemand beschwören	PC	A
+Freundesauge	PC	S
+Frostball	PC	S
+Funkenregen	PC	S
+Funkensalz	PC	A
+Färbersalz	PC	A
+Fäulnis	PC	S
+Geas	PC	S
+Geist beschwören	PC	A
+Geister der Finsternis	PC	S
+Geistesschild	PC	S
+Geistesschlüssel	PC	S
+Geruchsverlust	PC	A
+Gjornhune beschwören	PC	A
+Gletschergnom beschwören	PC	A
+Gletschergnom rufen	PC	A
+Globus der Finsternis	PC	S
+Gloddvegar beschwören	PC	A
+Gloddverg beschwören	PC	A
+Glühsalz	PC	A
+Goldener Panzer	PC	S
+Golem schaffen	PC	S
+Graue Hand	PC	G
+Großer Hitzeschutz	PC	A
+Grüne Hand	PC	A
+Göttliche Eingebung	PC	G
+Göttliche Strafe	PC	G
+Göttlicher Blitz	PC	S
+Göttlicher Schutz vor Magie	PC	S
+Haarsalz	PC	A
+Hagel	PC	A
+Halebant 1 beschwören	PC	A
+Halebant 2 beschwören	PC	A
+Halebant 3 beschwören	PC	A
+Halebant 4 beschwören	PC	A
+Hammerhand	PC	S
+Handauflegen	PC	S
+Hardlogi beschwören	PC	A
+Harkarhune beschwören	PC	A
+Harkbuar beschwören	PC	A
+Hauch der Verwesung	PC	S
+Hauch der Wüste	PC	S
+Hauch des Frühlings	PC	A
+Hauch des Winters	PC	S
+Haugskadi beschwören	PC	A
+Heilen schwerer Wunden	PC	S
+Heilen von Krankheit	PC	S
+Heilen von Wunden	PC	S
+Heiliger Zorn	PC	G
+Heimstein	PC	G
+Heranholen	PC	S
+Herbeizwingen	PC	A
+Hexenhand	PC	G
+Hexenritt	PC	G
+Hitzsalz	PC	A
+Hrimdvegar beschwören	PC	A
+Hrimdverg beschwören	PC	A
+Hrimhune beschwören	PC	A
+Hungersalz	PC	A
+Hyrrbauti beschwören	PC	A
+Höllenbote rufen	PC	S
+Höllenfeuer	PC	S
+Höllenglocke	PC	S
+Hören der Geister	PC	A
+Hörnerklang	PC	S
+Ifrit beschwören	PC	A
+Ifrit rufen	PC	A
+Indruwal 1 beschwören	PC	A
+Indruwal 2 beschwören	PC	A
+Indruwal 3 beschwören	PC	A
+Indruwal 4 beschwören	PC	A
+Ising beschwören	PC	A
+Jambani beschwören	PC	A
+Jokulskadi beschwören	PC	A
+Jucksalz	PC	A
+Jurugu beschwören	PC	A
+Jurugu rufen	PC	A
+Jördmand beschwören	PC	A
+Kaligin 1 beschwören	PC	A
+Kaligin 2 beschwören	PC	A
+Kaligin 3 beschwören	PC	A
+Kaligin 4 beschwören	PC	A
+Kallbjargi beschwören	PC	A
+Kallrani beschwören	PC	A
+Kammerdiener beschwören	PC	A
+Karing beschwören	PC	A
+Klebesalz	PC	A
+Knallsalz	PC	A
+Knochenbestie	PC	S
+Konvulsion	PC	S
+Kopieren	PC	G
+Kraft entziehen	PC	G
+Kravyad-Schrei	PC	S
+Kreatur erschaffen	PC	A
+Kuß des Schlafes	PC	S
+Kühlsalz	PC	A
+Lachsalz	PC	A
+Lahmsalz	PC	A
+Lehrersuche	PC	S
+Leomies Birneneis	PC	A
+Lergris beschwören	PC	A
+Levitation	PC	S
+Lichtrunen	PC	S
+Lindern von Entkräftung	PC	A
+Liniensicht	PC	A
+Ljosfang beschwören	PC	A
+Luftelementargeist beschwören	PC	A
+Luftlauf	PC	A
+Luftsphäre	PC	S
+Luftspiegelung	PC	S
+Lustsalz	PC	A
+Lähmung	PC	S
+Löschsalz	PC	A
+Macht der Finsternis	PC	S
+Macht über Leben	PC	S
+Macht über Menschen	PC	S
+Macht über Mumien	PC	G
+Macht über den Tod	PC	G
+Macht über magische Wesen	PC	S
+Magische Aura	PC	A
+Magischer Kreis des Bewachens	PC	S
+Magischer Kreis des Verschleierns	PC	S
+Magischer Kreis des Widerstehens	PC	S
+Magischer Kreis, klein	PC	S
+Manifestation des Ka	PC	G
+Marhune beschwören	PC	A
+Marid beschwören	PC	A
+Marid rufen	PC	A
+Marmennil beschwören	PC	A
+Marmorhaut	PC	S
+Megant 1 beschwören	PC	A
+Megant 2 beschwören	PC	A
+Megant 3 beschwören	PC	A
+Megant 4 beschwören	PC	A
+Meisterbann	PC	A
+Metallmeisterschaft	PC	S
+Mokkurbjargi beschwören	PC	A
+Mumie erwecken	PC	G
+Myrknir beschwören	PC	A
+Namenloses Grauen	PC	G
+Nebel schaffen	PC	S
+Nebel wecken	PC	A
+Nebelsalz	PC	A
+Nefling beschwören	PC	A
+Niessalz	PC	A
+Paschuyana, der Weg des Tieres	PC	A
+Person beschwören	PC	A
+Person wiederfinden	PC	S
+Pestklaue	PC	G
+Pflanzenmann	PC	S
+PiYeúQuang	PC	S
+Rauchsalz	PC	A
+Rauchwolke	PC	S
+Rauschsalz	PC	A
+Regenzauber	PC	S
+Reise zu den Sphären	PC	A
+Riechsalz	PC	A
+Rost	PC	S
+Rutschsalz	PC	A
+Rückführung	PC	A
+Sa rauben	PC	G
+Saeldvegar beschwören	PC	A
+Saeldverg beschwören	PC	A
+Sandmeisterschaft	PC	S
+Scharfblick	PC	A
+Schattenbruder	PC	G
+Schattenroß	PC	S
+Scheintod	PC	A
+Schlaf	PC	S
+Schlafsalz	PC	A
+Schlangenbiß	PC	G
+Schleichende Verderbnis	PC	S
+Schleichsalz	PC	A
+Schmerzen	PC	S
+Schmerzen spüren	PC	A
+Schrumpfen	PC	S
+Schutzgeist	PC	S
+Schutzkreis gegen Dunebargen	PC	A
+Schutzkreis gegen Dvergar	PC	A
+Schutzkreis gegen Dämonen	PC	A
+Schutzkreis gegen Elementarwesen	PC	A
+Schutzkreis gegen Geisterwesen	PC	A
+Schutzkreis gegen Hrimfolk	PC	A
+Schutzkreis gegen Hunar	PC	A
+Schutzkreis gegen Hyrrfolk	PC	A
+Schutzkreis gegen Jördfolk	PC	A
+Schutzkreis gegen Kaobargen	PC	A
+Schutzkreis gegen Untote	PC	A
+Schutzkreis gegen Vindfolk	PC	A
+Schutzkreis gegen Wisfolk	PC	A
+Schwarm	PC	A
+Schwarze Zone	PC	S
+Schweben	PC	S
+Schwingenkeule	PC	A
+Schwäche	PC	S
+Schöne Leiche	PC	A
+Seele finden	PC	G
+Seelenkompaß	PC	S
+Seelenschock	PC	S
+Segnen	PC	S
+Serkefs Todesbote	PC	S
+Silberstaub	PC	S
+Snaerhamir beschwören	PC	A
+Spruch intensivieren	PC	S
+Staubkämpfer	PC	S
+Steinkugel	PC	S
+Steinwand	PC	S
+Stille	PC	S
+Stimmenwerfen	PC	S
+Stottersalz	PC	A
+Sturmflut	PC	S
+Sturmhand	PC	S
+Sturmwind	PC	S
+Stärke	PC	S
+Sumpfboden	PC	S
+Sutechs Heer	PC	A
+Svalgrim beschwören	PC	A
+Tausch des Ba	PC	G
+Thrymbar beschwören	PC	A
+Thrymbar eschwören	PC	A
+Thursenstein	PC	A
+Tiefschlaf	PC	S
+Tierisches Handeln	PC	S
+Tiersprache	PC	A
+Todeshauch	PC	S
+Todeskeule	PC	S
+Tor schaffen	PC	A
+Trampelsalz	PC	A
+Trockensalz	PC	A
+Truscan 1 beschwören	PC	A
+Truscan 2 beschwören	PC	A
+Truscan 3 beschwören	PC	A
+Truscan 4 beschwören	PC	A
+Umkehrschild	PC	A
+Ungeheuer rufen	PC	G
+Unsichtbarkeit	PC	S
+Unwetter rufen	PC	S
+Verbotenes Wort	PC	G
+Verdorren	PC	G
+Vereisen	PC	S
+Verfluchen	PC	G
+Vergangenheit beschwören	PC	A
+Vergiften	PC	G
+Verglasen	PC	S
+Vergrößern	PC	S
+Verjüngen	PC	A
+Verkleinern	PC	S
+Verlangsamen	PC	S
+Verletzung	PC	G
+Versetzen	PC	S
+Versteinern	PC	S
+Vertieren	PC	S
+Verursachen schwerer Wunden	PC	G
+Verursachen von Krankheit	PC	G
+Verursachen von Wunden	PC	G
+Verwandlung	PC	S
+Verwüstung	PC	S
+Verzweiflung	PC	S
+Vinddvegar beschwören	PC	A
+Vinddverg beschwören	PC	A
+Vindmand beschwören	PC	A
+Wachsen	PC	S
+Wagemut	PC	G
+Wahnsinn	PC	S
+Wahrsehen	PC	G
+Wandelhand	PC	G
+Wandelsalz	PC	A
+Warnung	PC	G
+Wasser befreien	PC	A
+Wasseratmen	PC	A
+Wasserelementargeist beschwören	PC	A
+Wasserlauf	PC	A
+Wassermeisterschaft	PC	A
+Wassersalz	PC	A
+Wasserwandlung	PC	A
+Wehsalz	PC	A
+Weltentor schaffen	PC	A
+Wetterzauber	PC	S
+Wiederkehr	PC	S
+Wind des Todes	PC	G
+Windmeisterschaft	PC	S
+Windstoß	PC	A
+Wirbelwind	PC	S
+Wolkenbruch	PC	S
+Wort des Todes	PC	G
+Wüstenwind	PC	S
+Zauberauge	PC	S
+Zauberhand	PC	S
+Zaubermacht	PC	S
+Zauberschild	PC	S
+Zauberschloß	PC	S
+Zauberschlüssel	PC	S
+Zauberschmiede	PC	S
+Zauberstimme	PC	S
+Zauberwirklichkeit	PC	S
+Zauberzunge	PC	S
+Zeichen des Chaos	PC	S
+Zucksalz	PC	A
+Zweite Haut	PC	S
+Zwiesprache	PC	S
+Zwingkreis	PC	S
+Zündersalz	PC	A
+Ballade der Begierde	Sk	S
+Ballader der besiegten Gier	Sk	S
+Das Lied der Erinnerung	Sk	S
+Das Lied der Feier	Sk	S
+Das Lied der Macht	Sk	S
+Das Lied der Magie	Sk	S
+Das Lied des Verstehens	Sk	S
+Der Gesang Crescendis	Sk	S
+Der einschläfernde Gesang	Sk	S
+Der frohlockende Gesang	Sk	S
+Der traurige Gesang	Sk	S
+Die Klänge der Genesung	Sk	G
+Die Stimme der Gerechten	Sk	S
+Die überzeugende Stimme	Sk	G
+Hymne der Ordnung	Sk	G
+Kravyad-Schrei	Sk	G
+Lied der Feier	Sk	S
+Lied der Liebe	Sk	G
+Lied der Ruhe	Sk	G
+Lied der Tapferkeit	Sk	G
+Lied der Verführung	Sk	S
+Lied der verborgenen Kraft	Sk	G
+Lied des Erinnerns	Sk	G
+Lied des Fesselns	Sk	G
+Lied des Friedens	Sk	S
+Lied des Spottes	Sk	G
+Lied des Vergessens	Sk	G
+Lied des Wagemuts	Sk	G
+Loblied	Sk	G
+Angst	tBe	S
+Aufladen	tBe	G
+Bannsphäre, Blaue	tBe	G
+Bannsphäre, Goldene	tBe	A
+Bannsphäre, Schwarze	tBe	S
+Bannsphäre, Silberne	tBe	G
+Beeinflussen	tBe	S
+Belebungshauch	tBe	G
+Binden des Vertrauten	tBe	S
+Bittersalz	tBe	A
+Blicksalz	tBe	A
+Böser Blick	tBe	S
+Dschinni-Auge	tBe	G
+Dschinni-Horn	tBe	A
+Durstsalz	tBe	A
+Dämonische Eingebung	tBe	G
+Dämonische Zaubermacht	tBe	S
+Eifersucht	tBe	S
+Entfesseln	tBe	G
+Erkennen von Gift	tBe	S
+Flammenkreis	tBe	A
+Fliegensalz	tBe	A
+Funkensalz	tBe	A
+Färbersalz	tBe	A
+Golem schaffen	tBe	S
+Graue Hand	tBe	S
+Haarsalz	tBe	A
+Hauch der Verwesung	tBe	S
+Hitzsalz	tBe	A
+Hungersalz	tBe	A
+Hören der Geister	tBe	G
+Incheper schaffen	tBe	S
+Jucksalz	tBe	A
+Knochenbestie	tBe	S
+Kühlsalz	tBe	A
+Lachsalz	tBe	A
+Leomies Birneneis	tBe	A
+Levitation	tBe	S
+Liniensicht	tBe	A
+Löschsalz	tBe	A
+Macht über Leben	tBe	A
+Macht über Menschen	tBe	A
+Macht über Mumien	tBe	G
+Macht über das Selbst	tBe	S
+Macht über den Tod	tBe	G
+Macht über die belebte Natur	tBe	A
+Macht über magische Wesen	tBe	S
+Magischer Kreis des Bewachens	tBe	S
+Magischer Kreis des Verschleierns	tBe	S
+Magischer Kreis des Widerstehens	tBe	S
+Magischer Kreis, klein	tBe	G
+Manifestation des Ka	tBe	G
+Mumie erwecken	tBe	G
+Niessalz	tBe	A
+Pestklaue	tBe	S
+Pflanzenmann	tBe	S
+Rauchsalz	tBe	A
+Rauschsalz	tBe	A
+Reise zu den Sphären	tBe	S
+Riechsalz	tBe	A
+Rutschsalz	tBe	A
+Schlafsalz	tBe	A
+Schleichsalz	tBe	A
+Silberstaub	tBe	A
+Staubkämpfer	tBe	S
+Stottersalz	tBe	A
+Tausch des Ba	tBe	G
+Todeshauch	tBe	S
+Todeskeule	tBe	G
+Trampelsalz	tBe	A
+Ungeheuer rufen	tBe	S
+Verdorren	tBe	S
+Verursachen von Krankheit	tBe	S
+Wahrsehen	tBe	S
+Wandelhand	tBe	G
+Wandelsalz	tBe	A
+Wassersalz	tBe	A
+Wehsalz	tBe	A
+Wiederkehr	tBe	S
+Zwiesprache	tBe	S
+Zwingkreis	tBe	S
+Zündersalz	tBe	A
+Abu es-Samum	De	G
+Ain es-Samum	De	G
+Akbar fil-Ghadban	De	G
+Al-Ghussat	De	G
+Al-Karama	De	G
+Al-Mutadid	De	G
+Al-Tarka	De	G
+Blenden	De	G
+Blutwandlung	De	G
+Dalail al-Khairat	De	G
+Dau ed-Din	De	G
+Feuerspiel	De	G
+Haram fil-Din	De	G
+Hauch der Wüste	De	G
+Levitation	De	S
+Luftspiegelung	De	G
+Sa spenden	De	S
+Sadik es-Sidiki	De	G
+Saijidat el-Masin	De	G
+Sandmeisterschaft	De	G
+Seelenschock	De	S
+Serkefs Todesbote	De	G
+Tibb al-Mumani	De	G
+Wasser spüren	De	G
+Wüstenwind	De	G
+Beschleunigen	Fi	G
+Elfenfeuer	Fi	A
+Elfenklinge	Fi	G
+Erkennen von Leben	Fi	G
+Feuerfinger	Fi	G
+Geas	Fi	G
+Geistesschild	Fi	S
+Handauflegen	Fi	G
+Heilen von Wunden	Fi	G
+Heiliger Zorn	Fi	G
+Kälteschutz	Fi	G
+Laufen wie der Wind	Fi	G
+Lindern von Entkräftung	Fi	G
+Macht über das Selbst	Fi	G
+Macht über die belebte Natur	Fi	G
+Reinigen	Fi	G
+Schlachtenwahnsinn	Fi	G
+Schwarze Zone	Fi	S
+Sehen in Dunkelheit	Fi	S
+Tiergestalt	Fi	G
+Tiersprache	Fi	G
+Unsichtbarkeit	Fi	S
+Wahrsehen	Fi	S
+Wandeln wie der Wind	Fi	G
+Wasseratmen	Fi	S
+Wundersame Tarnung	Fi	G
+Zaubersprung	Fi	G
+Zweite Haut	Fi	G
+Zähmen	Fi	G
+Austreibung des Bösen	Sr	G
+Austreibung des Guten	Sr	G
+Bannen von Dunkelheit	Sr	G
+Bannen von Finsterwerk	Sr	G
+Bannen von Gift	Sr	G
+Bannen von Götterwerk	Sr	G
+Bannen von Licht	Sr	G
+Bannen von Zauberwerk	Sr	G
+Bannsphäre, Blaue	Sr	G
+Bannsphäre, Goldene	Sr	G
+Bannsphäre, Silberne	Sr	G
+Beschleunigen	Sr	G
+Binden von Srimara	Sr	S
+Blenden	Sr	G
+Blutsbrüderschaft stiften	Sr	S
+Eisenhaut	Sr	G
+Elfenfeuer	Sr	G
+Entgiften	Sr	G
+Erheben der Toten	Sr	A
+Erkennen der Aura	Sr	G
+Felsenfaust	Sr	S
+Flammenklinge	Sr	S
+Flammenkreis	Sr	S
+Goldener Panzer	Sr	G
+Großer Hitzeschutz	Sr	S
+Göttliche Eingebung	Sr	G
+Göttliche Strafe	Sr	S
+Göttlicher Blitz	Sr	G
+Göttlicher Schutz vor Magie	Sr	G
+Göttlicher Schutz vor dem Bösen	Sr	G
+Handauflegen	Sr	G
+Heiliger Zorn	Sr	G
+Heiliges Wort	Sr	G
+Heranholen	Sr	A
+Hörnerklang	Sr	G
+Leomies Birneneis	Sr	A
+Lindern von Entkräftung	Sr	S
+Macht über das Selbst	Sr	S
+Marmorhaut	Sr	G
+Schutzgeist	Sr	G
+Segnen	Sr	G
+Srimarameisterschaft I	Sr	G
+Srimarameisterschaft II	Sr	G
+Umkehrschild	Sr	A
+Verfluchen	Sr	G
+Wagemut	Sr	G
+Wahrsehen	Sr	A
+Warnung	Sr	S
+Wort der Trauer	Sr	G
+Wort des Lebens	Sr	G
+Zaubermacht	Sr	S
+Zauberschild	Sr	S
+Zauberschmiede	Sr	S
+Ballade der Begierde	Ba	G
+Ballader der besiegten Gier	Ba	G
+Charivari Klänge	Ba	G
+Das Lied der Erinnerung	Ba	G
+Das Lied der Feier	Ba	G
+Das Lied der Macht	Ba	G
+Das Lied der Magie	Ba	G
+Das Lied des Verstehens	Ba	G
+Der Gesang Crescendis	Ba	G
+Der einschläfernde Gesang	Ba	G
+Der frohlockende Gesang	Ba	G
+Der große Seiltrick	Ba	G
+Der kleine Seiltrick	Ba	G
+Der traurige Gesang	Ba	G
+Die Klänge der Genesung	Ba	G
+Die Stimme der Gerechten	Ba	G
+Die überzeugende Stimme	Ba	G
+Fährtenduft	Ba	G
+Gelbe Glocke (1. Urton Kung)	Ba	S
+Grüne Flöte (5. Urton Chüeh)	Ba	S
+Hymne der Ordnung	Ba	G
+Kravyad-Schrei	Ba	S
+Lied der Feier	Ba	G
+Lied der Liebe	Ba	G
+Lied der Lockung	Ba	G
+Lied der Ruhe	Ba	G
+Lied der Tanzlust	Ba	G
+Lied der Tapferkeit	Ba	G
+Lied der Verführung	Ba	G
+Lied der Verzweiflung	Ba	G
+Lied der Zwietracht	Ba	G
+Lied der verborgenen Kraft	Ba	G
+Lied des Erinnerns	Ba	G
+Lied des Fesselns	Ba	G
+Lied des Friedens	Ba	G
+Lied des Grauens	Ba	G
+Lied des Spottes	Ba	G
+Lied des Vergessens	Ba	G
+Lied des Wagemuts	Ba	G
+Lied des Wahnsinns	Ba	G
+Lied des Zorns	Ba	G
+Loblied	Ba	G
+Roter Pirol (2. Urton Chih)	Ba	S
+Schminken	Ba	G
+Schwarzes Horn (4. Urton Yü)	Ba	S
+Weißer Jadeklangstein (3. Urton Schang)	Ba	S
+Zwingkreis	Ba	S
+Abwenden von Blicken	eBe	A
+Angst	eBe	S
+Aufladen	eBe	A
+Bannen von Dunebargen	eBe	A
+Bannen von Dvergar	eBe	G
+Bannen von Hunar	eBe	G
+Bannen von Hyrrkin	eBe	G
+Bannen von Jördfolk	eBe	S
+Bannen von Jördkin	eBe	G
+Bannen von Kaobargen	eBe	A
+Bannen von Vindfolk	eBe	S
+Bannen von Vindskin	eBe	G
+Bannsphäre, Blaue	eBe	G
+Bannsphäre, Goldene	eBe	A
+Bannsphäre, Schwarze	eBe	S
+Bannsphäre, Silberne	eBe	G
+Beeinflussen	eBe	S
+Belebungshauch	eBe	G
+Binden des Vertrauten	eBe	S
+Bittersalz	eBe	A
+Blicksalz	eBe	A
+Blindsalz	eBe	A
+Brechsalz	eBe	A
+Coluscar 1 beschwören	eBe	A
+Coluscar 2 beschwören	eBe	A
+Coluscar 3 beschwören	eBe	A
+Coluscar 4 beschwören	eBe	A
+Dinge rufen	eBe	S
+Doppelgänger schaffen	eBe	S
+Dschinni-Auge	eBe	A
+Dschinni-Horn	eBe	A
+Dunebrast 1 beschwören	eBe	A
+Dunebrast 2 beschwören	eBe	A
+Dunebrast 3 beschwören	eBe	A
+Dunebrast 4 beschwören	eBe	A
+Dunkle Horde beschwören	eBe	A
+Durstsalz	eBe	A
+Dämonen binden	eBe	A
+Dämonenbann	eBe	A
+Dämonenschar beschwören	eBe	A
+Dämonische Eingebung	eBe	S
+Eifersucht	eBe	A
+Eisiger Nebel	eBe	S
+Eiswand	eBe	S
+Eiswandlung	eBe	S
+Elementarbann	eBe	A
+Elementarwesen binden	eBe	G
+Elementenwandlung	eBe	S
+Entfesseln	eBe	G
+Erdbeben	eBe	S
+Erdfessel	eBe	G
+Erdwandlung	eBe	S
+Erkurku beschwören	eBe	A
+Erkurku rufen	eBe	A
+Farbensalz	eBe	A
+Feuerfinger	eBe	S
+Feuerkugel	eBe	S
+Feuerlanze	eBe	S
+Feuermeisterschaft	eBe	S
+Feuerregen	eBe	S
+Feuerring	eBe	S
+Feuerschild	eBe	S
+Feuerwand	eBe	S
+Fiebersalz	eBe	A
+Flammende Hand	eBe	S
+Flammenkreis	eBe	A
+Fliegensalz	eBe	A
+Fluch des Hundes	eBe	G
+Frostball	eBe	S
+Funkensalz	eBe	A
+Fährtenduft	eBe	G
+Färbersalz	eBe	A
+Geist beschwören	eBe	S
+Glühsalz	eBe	A
+Golem schaffen	eBe	S
+Haarsalz	eBe	A
+Hagel	eBe	S
+Halebant 1 beschwören	eBe	A
+Halebant 2 beschwören	eBe	A
+Halebant 3 beschwören	eBe	A
+Halebant 4 beschwören	eBe	A
+Hauch des Winters	eBe	S
+Herbeizwingen	eBe	S
+Hexenhand	eBe	A
+Hexenwirbel	eBe	G
+Hitzsalz	eBe	A
+Hungersalz	eBe	A
+Incheper schaffen	eBe	S
+Indruwal 1 beschwören	eBe	A
+Indruwal 2 beschwören	eBe	A
+Indruwal 3 beschwören	eBe	A
+Indruwal 4 beschwören	eBe	A
+Jucksalz	eBe	A
+Jurugu beschwören	eBe	A
+Jurugu rufen	eBe	A
+Kaligin 1 beschwören	eBe	A
+Kaligin 2 beschwören	eBe	A
+Kaligin 3 beschwören	eBe	A
+Kaligin 4 beschwören	eBe	A
+Kammerdiener beschwören	eBe	G
+Klebesalz	eBe	A
+Knallsalz	eBe	A
+Kravyad-Schrei	eBe	S
+Kreatur erschaffen	eBe	S
+Kühlsalz	eBe	A
+Lachsalz	eBe	A
+Lahmsalz	eBe	A
+Lehrersuche	eBe	G
+Leomies Birneneis	eBe	A
+Levitation	eBe	S
+Liniensicht	eBe	A
+Luftsphäre	eBe	S
+Lustsalz	eBe	A
+Löschsalz	eBe	A
+Macht über Menschen	eBe	A
+Macht über das Selbst	eBe	S
+Macht über den Tod	eBe	S
+Macht über die belebte Natur	eBe	A
+Macht über magische Wesen	eBe	S
+Magischer Kreis des Bewachens	eBe	S
+Magischer Kreis des Verschleierns	eBe	S
+Magischer Kreis des Widerstehens	eBe	S
+Magischer Kreis, klein	eBe	G
+Magischer Spion	eBe	A
+Manifestation des Ka	eBe	G
+Megant 1 beschwören	eBe	A
+Megant 2 beschwören	eBe	A
+Megant 3 beschwören	eBe	A
+Megant 4 beschwören	eBe	A
+Meisterbann	eBe	G
+Mumie erwecken	eBe	S
+Nebelsalz	eBe	A
+Niessalz	eBe	A
+Person beschwören	eBe	S
+Rauchsalz	eBe	A
+Rauchwolke	eBe	S
+Rauschsalz	eBe	A
+Reise zu den Sphären	eBe	S
+Reizen	eBe	S
+Riechsalz	eBe	A
+Rutschsalz	eBe	A
+Schlafsalz	eBe	A
+Schleichsalz	eBe	A
+Schmerzen spüren	eBe	G
+Schreiber beschwören	eBe	G
+Schutzkreis gegen Dunebargen	eBe	A
+Schutzkreis gegen Dvergar	eBe	G
+Schutzkreis gegen Dämonen	eBe	A
+Schutzkreis gegen Elementarwesen	eBe	G
+Schutzkreis gegen Geisterwesen	eBe	S
+Schutzkreis gegen Hunar	eBe	G
+Schutzkreis gegen Kaobargen	eBe	A
+Schutzkreis gegen Untote	eBe	S
+Seance	eBe	S
+Seelenraub	eBe	A
+Silberstaub	eBe	A
+Staubkämpfer	eBe	S
+Steinkugel	eBe	S
+Steinwand	eBe	S
+Stottersalz	eBe	A
+Sturmwind	eBe	S
+Sumpfboden	eBe	S
+Tausch des Ba	eBe	G
+Thrymbar eschwören	eBe	S
+Thursenstein	eBe	S
+Tor schaffen	eBe	S
+Trampelsalz	eBe	A
+Trockensalz	eBe	A
+Truscan 1 beschwören	eBe	A
+Truscan 2 beschwören	eBe	A
+Truscan 3 beschwören	eBe	A
+Truscan 4 beschwören	eBe	A
+Ungeheuer rufen	eBe	S
+Ungeziefer bannen	eBe	S
+Vergangenheit beschwören	eBe	S
+Wahrsehen	eBe	S
+Wandelhand	eBe	S
+Wandelsalz	eBe	A
+Wasseratmen	eBe	S
+Wassersalz	eBe	A
+Wasserstrahl	eBe	S
+Wasserwandlung	eBe	S
+Wehsalz	eBe	A
+Weltentor schaffen	eBe	S
+Wiederkehr	eBe	S
+Windstoß	eBe	S
+Wirbelwind	eBe	S
+Zucksalz	eBe	A
+Zwiesprache	eBe	S
+Zwingkreis	eBe	S
+Zündersalz	eBe	A
+Bannen von Wisfolk	eBe	Wasser
+Schutzkreis gegen Wisfolk	eBe	Wasser
+Bannen von Hrimfolk	eBe	Eis
+Bannen von Hrimkin	eBe	G
+Hrimdvegar beschwören	eBe	Eis
+Hrimdverg beschwören	eBe	Eis
+Hrimhune beschwören	eBe	Eis
+Schutzkreis gegen Hrimfolk	eBe	Eis
+Bannen von Hyrfolk	eBe	Feuer
+Hyrrbauti beschwören	eBe	Feuer
+Schutzkreis gegen Hyrrfolk	eBe	Feuer
+Bergeist beschwören	eBe	Erde
+Bergeist rufen	eBe	Erde
+Dschinn beschwören	eBe	Luft
+Dschinn rufen	eBe	Luft
+Dunskrat beschwören	eBe	Erde
+Felldvegar beschwören	eBe	Erde
+Felldverg beschwören	eBe	Erde
+Fossemand beschwören	eBe	Wasser
+Gletschergnom beschwören	eBe	Eis
+Gletschergnom rufen	eBe	Eis
+Gloddvegar beschwören	eBe	Feuer
+Gloddverg beschwören	eBe	Feuer
+Hardlogi beschwören	eBe	Feuer
+Harkbuar beschwören	eBe	Feuer
+Harkarhune beschwören	eBe	Feuer
+Eiselementargeist beschwören	eBe	Eis
+Eldring beschwören	eBe	Feuer
+Erdeelementargeist beschwören	eBe	Erde
+Fengrip beschwören	eBe	Erde
+Feuerelementargeist beschwören	eBe	Feuer
+Fjalhune beschwören	eBe	Erde
+Gjornhune beschwören	eBe	Luft
+Haugskadi beschwören	eBe	Erde
+Ifrit beschwören	eBe	Feuer
+Ising beschwören	eBe	Eis
+Jambani beschwören	eBe	Wasser
+Jokulskadi beschwören	eBe	Eis
+Jördmand beschwören	eBe	Erde
+Kallbjargi beschwören	eBe	Eis
+Kallrani beschwören	eBe	Wasser
+Karing beschwören	eBe	Luft
+Lergris beschwören	eBe	Erde
+Ljosfang beschwören	eBe	Feuer
+Luftelementargeist beschwören	eBe	Luft
+Marhune beschwören	eBe	Wasser
+Marid beschwören	eBe	Wasser
+Marmennil beschwören	eBe	Wasser
+Mokkurbjargi beschwören	eBe	Wasser
+Myrknir beschwören	eBe	Luft
+Nefling beschwören	eBe	Luft
+Saeldvegar beschwören	eBe	Wasser
+Saeldverg beschwören	eBe	Wasser
+Snaerhamir beschwören	eBe	Eis
+Svalgrim beschwören	eBe	Eis
+Thrymbar beschwören	eBe	Luft
+Vinddvegar beschwören	eBe	Luft
+Vinddverg beschwören	eBe	Luft
+Vindmand beschwören	eBe	Luft
+Wasserelementargeist beschwören	eBe	Wasser
+Ifrit rufen	eBe	Feuer
+Marid rufen	eBe	Wasser
+Schutzkreis gegen Jördfolk	eBe	Erde
+Schutzkreis gegen Vindfolk	eBe	Luft
+Abu es-Samum	Sa	S
+Aggression	Sa	S
+Ahnengeist beschwören	Sa	S
+Ain es-Samum	Sa	S
+Akbar fil-Ghadban	Sa	S
+Al-Ghussat	Sa	S
+Al-Karama	Sa	S
+Al-Mutadid	Sa	S
+Al-Tarka	Sa	S
+Angst	Sa	G
+Aufladen	Sa	A
+Auflösung	Sa	A
+Augenschleier	Sa	A
+Austreibung des Bösen	Sa	S
+Austreibung des Guten	Sa	S
+Bannen des Todes	Sa	A
+Bannen von Dunebargen	Sa	A
+Bannen von Dunkelheit	Sa	G
+Bannen von Dvergar	Sa	A
+Bannen von Fäulnis	Sa	A
+Bannen von Gift	Sa	S
+Bannen von Hrimfolk	Sa	A
+Bannen von Hrimkin	Sa	A
+Bannen von Hunar	Sa	A
+Bannen von Hyrfolk	Sa	A
+Bannen von Hyrrkin	Sa	A
+Bannen von Jördfolk	Sa	A
+Bannen von Jördkin	Sa	A
+Bannen von Kaobargen	Sa	A
+Bannen von Kälte	Sa	G
+Bannen von Licht	Sa	G
+Bannen von Vindfolk	Sa	A
+Bannen von Vindskin	Sa	A
+Bannen von Wisfolk	Sa	A
+Bannen von Wiskin	Sa	A
+Bannen von Zauberwerk	Sa	A
+Bannsphäre, Blaue	Sa	S
+Bannsphäre, Goldene	Sa	A
+Bannsphäre, Schwarze	Sa	S
+Bannsphäre, Silberne	Sa	A
+Baumkämpfer	Sa	S
+Baumtor	Sa	G
+Baumwächter	Sa	S
+Beeinflussen	Sa	S
+Belebungshauch	Sa	A
+Bergeist beschwören	Sa	A
+Bergeist rufen	Sa	A
+Beschleunigen	Sa	S
+Besänftigen	Sa	A
+Bittersalz	Sa	A
+Blenden	Sa	G
+Blendwerk	Sa	A
+Blicksalz	Sa	A
+Blindsalz	Sa	A
+Blutmeisterschaft	Sa	G
+Blutsbrüderschaft stiften	Sa	G
+Blutwandlung	Sa	S
+Brechsalz	Sa	A
+Bruchbann	Sa	A
+Bärenstärke	Sa	G
+Bärenwut	Sa	G
+Böser Blick	Sa	A
+Cheprus Sendbote	Sa	G
+Coluscar 1 beschwören	Sa	A
+Coluscar 2 beschwören	Sa	A
+Coluscar 3 beschwören	Sa	A
+Coluscar 4 beschwören	Sa	A
+Dalail al-Khairat	Sa	S
+Dalail ed-Dawahi	Sa	S
+Das Essen nährt...	Sa	S
+Dau ed-Datin	Sa	S
+Dau ed-Din	Sa	S
+Deckmantel	Sa	A
+Der große Seiltrick	Sa	G
+Der kleine Seiltrick	Sa	G
+Die Wiesenheuschrecke zirpt...	Sa	S
+Donnerkeil	Sa	A
+Doppelgänger schaffen	Sa	S
+Dschinn beschwören	Sa	A
+Dschinn rufen	Sa	A
+Dschungelwand	Sa	S
+Dunebrast 1 beschwören	Sa	A
+Dunebrast 2 beschwören	Sa	A
+Dunebrast 3 beschwören	Sa	A
+Dunebrast 4 beschwören	Sa	A
+Dunkle Horde beschwören	Sa	A
+Dunskrat beschwören	Sa	A
+Durstsalz	Sa	A
+Dämonen binden	Sa	A
+Dämonenbann	Sa	A
+Dämonenfeuer	Sa	S
+Dämonenschar beschwören	Sa	A
+Eiselementargeist beschwören	Sa	A
+Eisenhaut	Sa	A
+Eisiger Nebel	Sa	A
+Eismeisterschaft	Sa	S
+Eiswand	Sa	A
+Eiswandlung	Sa	S
+Eldring beschwören	Sa	A
+Elementarbann	Sa	A
+Elementarwesen binden	Sa	A
+Elementenwandlung	Sa	A
+Elfenfeuer	Sa	S
+Entgiften	Sa	A
+Erdbeben	Sa	G
+Erdeelementargeist beschwören	Sa	A
+Erdfessel	Sa	A
+Erdmeisterschaft	Sa	S
+Erdwandlung	Sa	S
+Erkennen der Aura	Sa	A
+Erkennen von Krankheit	Sa	S
+Erkennen von Leben	Sa	A
+Erkennen von Zauberei	Sa	A
+Erkurku beschwören	Sa	A
+Erkurku rufen	Sa	A
+Erscheinungen	Sa	S
+Feenfluch	Sa	A
+Feenzauber	Sa	A
+Felldvegar beschwören	Sa	A
+Felldverg beschwören	Sa	A
+Felsenfaust	Sa	G
+Fengrip beschwören	Sa	A
+Fesselbann	Sa	S
+Feuerelementargeist beschwören	Sa	A
+Feuerkugel	Sa	A
+Feuerlanze	Sa	A
+Feuerlauf	Sa	G
+Feuermeisterschaft	Sa	G
+Feuerregen	Sa	S
+Feuerschild	Sa	A
+Feuerwand	Sa	A
+Fiebersalz	Sa	A
+Fjalhune beschwören	Sa	A
+Flammenkreis	Sa	A
+Fliegen	Sa	S
+Fliegensalz	Sa	A
+Fossemand beschwören	Sa	A
+Freundesauge	Sa	G
+Frostball	Sa	S
+Funkenregen	Sa	A
+Funkensalz	Sa	A
+Färbersalz	Sa	A
+Geas	Sa	S
+Geist beschwören	Sa	A
+Geisterlauf	Sa	G
+Geistesschild	Sa	S
+Ghussat el-Masin	Sa	S
+Gjornhune beschwören	Sa	A
+Gletschergnom beschwören	Sa	A
+Gletschergnom rufen	Sa	A
+Gloddvegar beschwören	Sa	A
+Gloddverg beschwören	Sa	A
+Graue Hand	Sa	S
+Grüne Hand	Sa	A
+Götterarme	Sa	S
+Göttliche Strafe	Sa	G
+Haarsalz	Sa	A
+Hagel	Sa	G
+Halebant 1 beschwören	Sa	A
+Halebant 2 beschwören	Sa	A
+Halebant 3 beschwören	Sa	A
+Halebant 4 beschwören	Sa	A
+Handauflegen	Sa	S
+Haram fil-Din	Sa	S
+Hardlogi beschwören	Sa	A
+Harkarhune beschwören	Sa	A
+Harkbuar beschwören	Sa	A
+Hauch der Verwesung	Sa	S
+Hauch der Wüste	Sa	S
+Hauch des Frühlings	Sa	G
+Hauch des Winters	Sa	S
+Haugskadi beschwören	Sa	A
+Heiliges Wort	Sa	A
+Heranholen	Sa	S
+Herbeizwingen	Sa	A
+Hexenritt	Sa	S
+Hitzeschutz	Sa	G
+Hitzsalz	Sa	A
+Hort der Natur	Sa	G
+Hrimdvegar beschwören	Sa	A
+Hrimdverg beschwören	Sa	A
+Hrimhune beschwören	Sa	A
+Hungersalz	Sa	A
+Hyrrbauti beschwören	Sa	A
+Hören der Geister	Sa	G
+Hören von Fernem	Sa	S
+Hörnerklang	Sa	A
+Ifrit beschwören	Sa	A
+Ifrit rufen	Sa	A
+Indruwal 1 beschwören	Sa	A
+Indruwal 2 beschwören	Sa	A
+Indruwal 3 beschwören	Sa	A
+Indruwal 4 beschwören	Sa	A
+Ising beschwören	Sa	A
+Jambani beschwören	Sa	A
+Jokulskadi beschwören	Sa	A
+Jucksalz	Sa	A
+Jurugu beschwören	Sa	A
+Jurugu rufen	Sa	A
+Juwelenauge	Sa	A
+Jördmand beschwören	Sa	A
+Kaligin 1 beschwören	Sa	A
+Kaligin 2 beschwören	Sa	A
+Kaligin 3 beschwören	Sa	A
+Kaligin 4 beschwören	Sa	A
+Kallbjargi beschwören	Sa	A
+Kallrani beschwören	Sa	A
+Karing beschwören	Sa	A
+Klebesalz	Sa	A
+Knallsalz	Sa	A
+Knochenbestie	Sa	G
+Kraft entziehen	Sa	S
+Kreatur erschaffen	Sa	A
+Kälteschutz	Sa	G
+Kühlsalz	Sa	A
+Lachsalz	Sa	A
+Lahmsalz	Sa	A
+Lehrersuche	Sa	S
+Lergris beschwören	Sa	A
+Levitation	Sa	G
+Liebeszauber	Sa	G
+Lindern von Entkräftung	Sa	G
+Liniensicht	Sa	S
+Ljosfang beschwören	Sa	A
+Luftelementargeist beschwören	Sa	A
+Luftspiegelung	Sa	S
+Lustsalz	Sa	A
+Lähmung	Sa	A
+Löschsalz	Sa	A
+Macht über Leben	Sa	A
+Macht über Menschen	Sa	A
+Macht über Mumien	Sa	S
+Macht über Unbelebtes	Sa	G
+Macht über den Tod	Sa	S
+Macht über die Sinne	Sa	G
+Macht über die belebte Natur	Sa	S
+Macht über magische Wesen	Sa	A
+Magischer Kreis des Widerstehens	Sa	S
+Magischer Kreis, klein	Sa	S
+Manifestation des Ka	Sa	S
+Marhune beschwören	Sa	A
+Marid beschwören	Sa	A
+Marid rufen	Sa	A
+Marmennil beschwören	Sa	A
+Marmorhaut	Sa	S
+Megant 1 beschwören	Sa	A
+Megant 2 beschwören	Sa	A
+Megant 3 beschwören	Sa	A
+Megant 4 beschwören	Sa	A
+Meisterbann	Sa	A
+Metallmeisterschaft	Sa	A
+Mokkurbjargi beschwören	Sa	A
+Mumie erwecken	Sa	S
+Myrknir beschwören	Sa	A
+Namenloses Grauen	Sa	S
+Naturgeist rufen	Sa	G
+Nebel schaffen	Sa	S
+Nebel wecken	Sa	S
+Nebelsalz	Sa	A
+Nefling beschwören	Sa	A
+Niessalz	Sa	A
+NüQuang	Sa	S
+Person beschwören	Sa	A
+Person wiederfinden	Sa	G
+Pestklaue	Sa	S
+PiPingQuang	Sa	S
+PiYeúQuang	Sa	S
+Rauchsalz	Sa	A
+Rauchwolke	Sa	S
+Rauschsalz	Sa	A
+Regenzauber	Sa	G
+Reinigen	Sa	A
+Reise der Seele	Sa	S
+Reise in die Zeit	Sa	A
+Reise zu den Sphären	Sa	A
+Riechsalz	Sa	A
+Rindenhaut	Sa	S
+Ring des Lebens	Sa	S
+Rutschsalz	Sa	A
+Rückführung	Sa	G
+Sa rauben	Sa	S
+Sa spenden	Sa	S
+Sadik es-Sidiki	Sa	S
+Saeldvegar beschwören	Sa	A
+Saeldverg beschwören	Sa	A
+Saijidat el-Masin	Sa	S
+Sandmeisterschaft	Sa	S
+Scheintod	Sa	G
+Schlaf	Sa	S
+Schlafsalz	Sa	A
+Schlangenbiß	Sa	G
+Schleichsalz	Sa	A
+Schmerzen	Sa	S
+Schrumpfen	Sa	S
+Schutzgeist	Sa	S
+Schutzkreis gegen Dunebargen	Sa	A
+Schutzkreis gegen Dvergar	Sa	A
+Schutzkreis gegen Dämonen	Sa	A
+Schutzkreis gegen Elementarwesen	Sa	A
+Schutzkreis gegen Geisterwesen	Sa	A
+Schutzkreis gegen Hrimfolk	Sa	A
+Schutzkreis gegen Hunar	Sa	A
+Schutzkreis gegen Hyrrfolk	Sa	A
+Schutzkreis gegen Jördfolk	Sa	A
+Schutzkreis gegen Kaobargen	Sa	A
+Schutzkreis gegen Untote	Sa	A
+Schutzkreis gegen Vindfolk	Sa	A
+Schutzkreis gegen Wisfolk	Sa	A
+Schwarze Zone	Sa	S
+Schweben	Sa	S
+Schwingenkeule	Sa	G
+Schwäche	Sa	G
+Schöne Leiche	Sa	S
+Seele finden	Sa	G
+Seelenkompaß	Sa	G
+Seelenraub	Sa	S
+Seelenschock	Sa	S
+Segnen	Sa	G
+Sehen in Dunkelheit	Sa	A
+Serkefs Todesbote	Sa	G
+Silberstaub	Sa	S
+Snaerhamir beschwören	Sa	A
+Spruch intensivieren	Sa	S
+Staubkämpfer	Sa	A
+Steinkugel	Sa	A
+Steinwand	Sa	A
+Stille	Sa	S
+Stimmenwerfen	Sa	A
+Stolz zieht der Krieger...	Sa	S
+Stottersalz	Sa	A
+Sturmflut	Sa	G
+Sturmhand	Sa	S
+Sturmwind	Sa	G
+Stärke	Sa	G
+Sumpfboden	Sa	S
+Sutechs Heer	Sa	S
+Svalgrim beschwören	Sa	A
+Tausch des Ba	Sa	G
+Thrymbar beschwören	Sa	A
+Thrymbar eschwören	Sa	A
+Thursenstein	Sa	S
+Tibb al-Mumani	Sa	S
+Tiere rufen	Sa	S
+Tiergestalt	Sa	G
+Tierisches Handeln	Sa	S
+Tiersprache	Sa	S
+Todeshauch	Sa	A
+Todeskeule	Sa	G
+Todeszauber	Sa	S
+Tor schaffen	Sa	A
+Trampelsalz	Sa	A
+Trockensalz	Sa	A
+Truscan 1 beschwören	Sa	A
+Truscan 2 beschwören	Sa	A
+Truscan 3 beschwören	Sa	A
+Truscan 4 beschwören	Sa	A
+Ungeheuer rufen	Sa	S
+Unsichtbarkeit	Sa	S
+Verbotenes Wort	Sa	A
+Verdorren	Sa	S
+Vereisen	Sa	S
+Verfluchen	Sa	G
+Vergangenheit beschwören	Sa	A
+Vergiften	Sa	S
+Vergrößern	Sa	S
+Verjüngen	Sa	A
+Verkleinern	Sa	S
+Verlangsamen	Sa	S
+Verletzung	Sa	A
+Versteinern	Sa	A
+Vertieren	Sa	G
+Verursachen schwerer Wunden	Sa	A
+Verursachen von Krankheit	Sa	S
+Verursachen von Wunden	Sa	S
+Verwandlung	Sa	S
+Verwirren	Sa	A
+Verzweiflung	Sa	G
+Vinddvegar beschwören	Sa	A
+Vinddverg beschwören	Sa	A
+Vindmand beschwören	Sa	A
+Vision	Sa	G
+Wachsen	Sa	S
+Wagemut	Sa	G
+Wahnsinn	Sa	S
+Wahrsehen	Sa	S
+Wandelhand	Sa	S
+Wandeln wie der Wind	Sa	A
+Wandelsalz	Sa	A
+Wandlung	Sa	G
+Warnung	Sa	S
+Wasser befreien	Sa	S
+Wasser spüren	Sa	S
+Wasseratmen	Sa	S
+Wasserelementargeist beschwören	Sa	A
+Wasserlauf	Sa	G
+Wassermeisterschaft	Sa	S
+Wassersalz	Sa	A
+Wasserstrahl	Sa	S
+Wasserwandlung	Sa	S
+Wehsalz	Sa	A
+Weltentor schaffen	Sa	A
+Wetterzauber	Sa	G
+Wiederkehr	Sa	G
+Wind des Todes	Sa	S
+Windmeisterschaft	Sa	S
+Windstoß	Sa	S
+Wirbelwind	Sa	S
+Wort der Trauer	Sa	S
+Wort des Lebens	Sa	A
+Wundersame Tarnung	Sa	S
+XiengBaQuang	Sa	S
+YehKiQuang	Sa	S
+Zaubermacht	Sa	S
+Zauberschild	Sa	A
+Zauberstimme	Sa	S
+Zauberwirklichkeit	Sa	A
+Zauberzunge	Sa	S
+Zielsuche	Sa	G
+Zucksalz	Sa	A
+Zweite Haut	Sa	S
+Zwiesprache	Sa	S
+Zähmen	Sa	G
+Zündersalz	Sa	A
+Allheilung	Tm	A
+Angst	Tm	S
+Aufladen	Tm	A
+Bannen von Dunkelheit	Tm	S
+Bannen von Gift	Tm	A
+Binden von Srimara	Tm	S
+Blutsbrüderschaft stiften	Tm	G
+Bärenwut	Tm	S
+Entfesseln	Tm	G
+Erkennen von Krankheit	Tm	S
+Erkennen von Leben	Tm	A
+Felsenfaust	Tm	S
+Feuerlauf	Tm	S
+Fluch des Hundes	Tm	G
+Freundesauge	Tm	G
+Geisterlauf	Tm	S
+Handauflegen	Tm	S
+Heilen von Wunden	Tm	S
+Heranholen	Tm	A
+Hexenwirbel	Tm	G
+Hören von Fernem	Tm	S
+Knochenbestie	Tm	S
+Kälteschutz	Tm	S
+Lindern von Entkräftung	Tm	S
+Macht über das Selbst	Tm	S
+Macht über die belebte Natur	Tm	G
+Marmorhaut	Tm	A
+Naturgeist rufen	Tm	S
+Reizen	Tm	S
+Rindenhaut	Tm	S
+Scharfblick	Tm	S
+Schlangenbiß	Tm	S
+Schmerzen spüren	Tm	G
+Schutzgeist	Tm	G
+Schwarm	Tm	S
+Schwingenkeule	Tm	S
+Sehen in Dunkelheit	Tm	S
+Stärke	Tm	G
+Tiere rufen	Tm	S
+Tiergestalt	Tm	G
+Tiersprache	Tm	G
+Todeskeule	Tm	A
+Vision	Tm	S
+Wagemut	Tm	G
+Wandeln wie der Wind	Tm	A
+Warnung	Tm	A
+Wundersame Tarnung	Tm	S
+Zaubermacht	Tm	S
+Zwingkreis	Tm	S
+Zähmen	Tm	G
+\.
+--
+-- TOC Entry ID 3 (OID 23222786)
+--
+-- Name: "zauber_typen_name_typ" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "zauber_typen_name_typ" on "zauber_typen" using btree ( "name" "text_ops", "typ" "text_ops" );
+

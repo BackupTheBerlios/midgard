@@ -110,6 +110,19 @@ void Zauber::get_map_typ()
   } 
 }
 
+bool Zauber::ist_lernbar(const vector<H_Data_typen>& Typ) const
+{
+  for (std::vector<H_Data_typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
+    if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") return true;
+  return false;
+}
+
+bool Zauber::ist_gelernt(const std::list<cH_Zauber>& L) const
+{
+ for (std::list<cH_Zauber>::const_iterator i=L.begin();i!=L.end();++i)
+    if((*i)->Name()==Name()) return true;
+ return false;
+}
 
 int Zauber::Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
 {
@@ -174,7 +187,7 @@ int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte) const
  return ispez;
 }
 
-vector<std::string> Zauber::set_Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+vector<std::string> Zauber::Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
 {
  assert(Typ.size()==2);
  vector<std::string> s(2);
@@ -188,15 +201,11 @@ vector<std::string> Zauber::set_Standard(const vector<H_Data_typen>& Typ,const A
 
 std::string Zauber::Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& a) const
 {
- vector<std::string> s = set_Standard(Typ,a);
+ vector<std::string> s = Standard(Typ,a);
  std::string s2=s[0];
- if(Typ[1]->Short()!="") s2+="/"+s[1];
+ if(Typ[0]->Short()!="" && Typ[1]->Short()!="") s2+="/";
+ if(Typ[1]->Short()!="") s2+=s[1];
  return s2;
-}
-
-vector<std::string> Zauber::Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& a) const
-{
- return set_Standard(Typ,a);
 }
 
 //Q
@@ -230,57 +239,6 @@ void Zauber::set_Standard(const vector<H_Data_typen>& Typ)
   ausnahmen.Ausnahmen_string(Name(),standard);
 }
 //Q*/
-
-bool Zauber::zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte)
-{
- exec sql begin declare section;
-   char db_name[50];
-   char db_voraus[10][50];
-   char db_operator[10][50];
- exec sql end declare section;
- strncpy(db_name,name.c_str(),sizeof(db_name));
- exec sql select voraussetzung, coalesce(verbindung,'') into :db_voraus, :db_operator 
-   from zauberwerk_voraussetzung where name = :db_name;
- SQLerror::test(__FILELINE__,100);    
- if (sqlca.sqlcode) return true; // KEINE VORAUSSETZUNG
- int vanz=sqlca.sqlerrd[2];
- 
- exec sql begin declare section;
-   char query[1024]; 
-   int db_erg;
- exec sql end declare section;
- std::vector<bool> vb;
- for (int i=0;i<vanz;++i)
-   {
-    snprintf(query,sizeof(query),"select count(fertigkeit)\
-      from charaktere_fertigkeiten \
-      where charakter_name = '%s' and version = '%s' and fertigkeit = '%s'",
-      (Werte.Name_Charakter()).c_str(),(Werte.Version()).c_str(),db_voraus[i]);
-    exec sql prepare qein_ from :query ;
-    exec sql declare qein cursor for qein_;
-    exec sql open qein;
-    SQLerror::test(__FILELINE__);
-    exec sql fetch qein into :db_erg;
-    exec sql close qein;
-    SQLerror::test(__FILELINE__);    
-    if (db_erg==0) vb.push_back(false);
-    else vb.push_back(true);
-   }
- bool back ;
- for (int i=0;i<vanz;++i)
-   {
-     std::string op = db_operator[i];     
-//std::cout <<name <<"\t"<< db_voraus[i]<<"\t"<<vb[i]<<"\t"<<op<<"\n";
-     // EINE VORAUSSETZUNG
-     if (op==""    && vb[i]==true ) return true;
-     if (op==""    && vb[i]==false) return false;
-     // MEHRERE VORAUSSETZUNGEN
-     if (op=="or"  && vb[i]==true) return true; // EINE BELIEBIGE
-     if (op=="and" && vb[i]==true) back = true; // ALLE NÖTIG
-     else { back=false;break;}               
-   }
- return back;
-}
 
 
 Zauber_All::Zauber_All()

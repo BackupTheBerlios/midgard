@@ -7,16 +7,14 @@ exec sql include sqlca;
 
 cH_Zauberwerk::cache_t cH_Zauberwerk::cache;
 
-cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const vector<H_Data_typen>& Typ)
+cH_Zauberwerk::cH_Zauberwerk(const std::string& name)
 {
- st_index index(name,Typ);
- cH_Zauberwerk *cached(cache.lookup(index));
+ cH_Zauberwerk *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
   {
-//cout << "cH_"<<name<<'\n';
-   *this=cH_Zauberwerk(new Zauberwerk(name,Typ));
-   cache.Register(index,*this);
+   *this=cH_Zauberwerk(new Zauberwerk(name));
+   cache.Register(name,*this);
   }
 
 }
@@ -58,24 +56,74 @@ void Zauberwerk::get_Zauberwerk()
    tr.close();
 }
 
+void Zauberwerk::get_map_typ()
+{
+ exec sql begin declare section;
+   char query[1024], db_typ[10], db_standard[10];
+ exec sql end declare section;
+ std::string squery ="select typ,standard from zauberwerk_typen 
+      where name ='"+Name()+"' and stufe ='"+Stufe()+"'";
+ strncpy(query,squery.c_str(),sizeof(query));
+ Transaction tr;
+ exec sql prepare ZTein_ from :query ;
+ exec sql declare ZTein cursor for ZTein_ ;
+ exec sql open ZTein;
+ SQLerror::test(__FILELINE__);
+ while(true)
+  {
+    exec sql fetch ZTein into :db_typ,:db_standard;
+    SQLerror::test(__FILELINE__,100);
+    if (sqlca.sqlcode) break;
+    map_typ[db_typ]=db_standard;
+  } 
+}
+
+bool Zauberwerk::ist_lernbar(const vector<H_Data_typen>& Typ) const
+{
+  for (std::vector<H_Data_typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
+    if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") return true;
+  return false;
+}
+
+bool Zauberwerk::ist_gelernt(const std::list<cH_Zauberwerk>& L) const
+{
+ for (std::list<cH_Zauberwerk>::const_iterator i=L.begin();i!=L.end();++i)
+    if((*i)->Name()==Name()) return true;
+ return false;
+}
+
 
 int Zauberwerk::Kosten(const vector<H_Data_typen>& Typ) const
 {
   double fac; 
-  if (Typ[1]->Short()!="")
-  { if      (midgard_CG::standard_one_G(Standard()) ) fac = 0.5;
-    else if (midgard_CG::standard_all_S(Standard()) ) fac = 1.0;
-    else fac = 5.0; 
-  }
-  else
-  { if (standard[0]=="G") fac = 0.5;
-    else if (standard[0]=="S") fac = 1.0;
-    else fac = 5.0;
-  }   
-
+  if      (midgard_CG::standard_one_G(Standard(Typ)) ) fac = 0.5;
+  else if (midgard_CG::standard_all_S(Standard(Typ)) ) fac = 1.0;
+  else fac = 5.0; 
   return (int)(fac*GrundKosten());
 }
 
+vector<std::string> Zauberwerk::Standard(const vector<H_Data_typen>& Typ) const
+{
+ assert(Typ.size()==2);
+ vector<std::string> s(2);
+ for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
+   if(Typ[0]->Short()==i->first) {s[0]=i->second; break;}
+ for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
+   if(Typ[1]->Short()==i->first) {s[1]=i->second; break;}
+ return s;
+}
+
+std::string Zauberwerk::Standard__(const vector<H_Data_typen>& Typ) const
+{
+ vector<std::string> s = Standard(Typ);
+ std::string s2=s[0];
+ if(Typ[0]->Short()!="" && Typ[1]->Short()!="") s2+="/";
+ if(Typ[1]->Short()!="") s2+=s[1];
+ return s2;
+}
+
+
+/*
 void Zauberwerk::set_Standard(const vector<H_Data_typen>& Typ)
 {
   exec sql begin declare section;
@@ -104,54 +152,82 @@ void Zauberwerk::set_Standard(const vector<H_Data_typen>& Typ)
   standard.push_back(db_ergebnis);
   standard.push_back(db_ergebnis2);
 }
+*/
 
-
-/*
-int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const
-{
-  double fac; 
-    if      (P_Element() == pe ) fac = 0.5;
-    else if (S_Element() == se ) fac = 1.0;
-    else fac = 5.0;  // oder vielleicht null?
-
-  return (int)(fac*GrundKosten());
-}
-
-int Zauber::Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte) const
-{
-   assert(Typ.size()==2);
-   int ifac=-2;
-   if (standard[0]=="G" || standard[1]=="G") ifac=0;
-
-   int ispez=0;
-   if (Typ[0]->Short()=="Ma" || Typ[1]->Short()=="Ma") 
-      ispez = get_spezial_zauber_for_magier(Werte);
-
-   int erf = Werte.Zaubern_wert()+Werte.bo_Za() + ifac + ispez ;
-   return erf;
-}
-
-int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte) const
+bool Zauberwerk::zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte)
 {
  exec sql begin declare section;
-   char db_ergebnis[20];
-   char db_agens[20];   
-   char db_prozess[20]; 
-   char db_zauber[100];
+   char db_name[50];
+   char db_voraus[10][50];
+   char db_operator[10][50];
  exec sql end declare section;
- strncpy(db_zauber,Name().c_str(),sizeof(db_zauber));
- exec sql select ma,agens,prozess 
-   into :db_ergebnis, :db_agens, :db_prozess
-   from arkanum_zauber where name = :db_zauber;
- SQLerror::test(__FILELINE__);
-
- int ispez=0;
- std::string ergebnis = db_ergebnis;
- std::string agens=db_agens;
- std::string prozess=db_prozess;
-
- if (ergebnis!="G" && agens==Werte.Spezial()) ispez = 2;
- if (ergebnis!="G" && prozess==Werte.Spezial()) ispez = 2;
- return ispez;
+ strncpy(db_name,name.c_str(),sizeof(db_name));
+ exec sql select voraussetzung, coalesce(verbindung,'') into :db_voraus, :db_operator 
+   from zauberwerk_voraussetzung where name = :db_name;
+ SQLerror::test(__FILELINE__,100);    
+ if (sqlca.sqlcode) return true; // KEINE VORAUSSETZUNG
+ int vanz=sqlca.sqlerrd[2];
+ 
+ exec sql begin declare section;
+   char query[1024]; 
+   int db_erg;
+ exec sql end declare section;
+ std::vector<bool> vb;
+ Transaction tr;
+ for (int i=0;i<vanz;++i)
+   {
+    snprintf(query,sizeof(query),"select count(fertigkeit)\
+      from charaktere_fertigkeiten \
+      where charakter_name = '%s' and version = '%s' and fertigkeit = '%s'",
+      (Werte.Name_Charakter()).c_str(),(Werte.Version()).c_str(),db_voraus[i]);
+    exec sql prepare qein_ from :query ;
+    exec sql declare qein cursor for qein_;
+    exec sql open qein;
+    SQLerror::test(__FILELINE__);
+    exec sql fetch qein into :db_erg;
+    exec sql close qein;
+    SQLerror::test(__FILELINE__);    
+    if (db_erg==0) vb.push_back(false);
+    else vb.push_back(true);
+   }
+ tr.close();
+ bool back ;
+ for (int i=0;i<vanz;++i)
+   {
+     std::string op = db_operator[i];     
+//std::cout <<name <<"\t"<< db_voraus[i]<<"\t"<<vb[i]<<"\t"<<op<<"\n";
+     // EINE VORAUSSETZUNG
+     if (op==""    && vb[i]==true ) return true;
+     if (op==""    && vb[i]==false) return false;
+     // MEHRERE VORAUSSETZUNGEN
+     if (op=="or"  && vb[i]==true) return true; // EINE BELIEBIGE
+     if (op=="and" && vb[i]==true) back = true; // ALLE NÖTIG
+     else { back=false;break;}               
+   }
+ return back;
 }
-*/
+
+
+
+
+Zauberwerk_All::Zauberwerk_All()
+{
+ exec sql begin declare section;
+   char db_name[100]; 
+ exec sql end declare section;
+ exec sql declare ZAWein cursor for select distinct name from zauberwerk;
+ Transaction tr;
+ exec sql open ZAWein;
+ SQLerror::test(__FILELINE__);
+ while(true)
+  {
+   exec sql fetch ZAWein into :db_name;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   list_All.push_back(cH_Zauberwerk(db_name));
+  }
+ exec sql close ZAWein;
+ tr.close();
+}
+
+

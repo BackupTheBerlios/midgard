@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.28 2001/10/16 08:59:23 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.29 2001/10/21 21:21:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -76,6 +76,7 @@ void midgard_CG::on_button_ruestung_clicked()
 void midgard_CG::on_button_geld_waffen_clicked()
 {   
   Werte.set_Geld(0,0,0);
+  on_speichern_clicked();
   manage(new Window_Waffe_Geld(this,Werte,Typ,list_Waffen));
 }
 

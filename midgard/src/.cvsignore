@@ -18,7 +18,6 @@ document_eingabe.ps
 myzauber.tex
 .deps
 midgard
-steigern_zauber.cc
 steigern_waffen.cc
 get_standard_waffen.cc
 steigern_fertigkeiten.ccBerufe_auswahl.cc

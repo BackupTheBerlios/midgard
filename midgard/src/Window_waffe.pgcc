@@ -36,29 +36,16 @@ exec sql include sqlca;
 
 void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *event)
 {   
-  std::string waffe = clist_waffe->get_text(row,0);
-  oberfenster->get_waffe(waffe);
+  oberfenster->get_waffe(clist_waffe->get_text(row,0));
   destroy();
 }
 
-Window_waffe::Window_waffe(int we,midgard_CG* h, 
+Window_waffe::Window_waffe(int we, 
       Window_Waffe_Geld* o, Grundwerte& W,const vector<H_Data_typen>& T, const std::list<cH_Waffe>& wa)
 :list_Waffen(wa) ,Werte(W), Typ(T)
 {
   wurf=we;
-  hauptfenster=h;
   oberfenster=o;
-//  hauptfenster->on_speichern_clicked();
-  wuerfeln();
-}
-
-Window_waffe::Window_waffe(int we,midgard_CG* h, 
-      Grundwerte& W,const vector<H_Data_typen>& T, const std::list<cH_Waffe>& wa)
-:list_Waffen(wa) ,Werte(W), Typ(T)
-{
-  wurf=we;
-  hauptfenster=h;
-//  hauptfenster->on_speichern_clicked();
   wuerfeln();
 }
 
@@ -70,7 +57,7 @@ void Window_waffe::wuerfeln()
    {
        Werte.add_Kupfer(10);  strinfo+="10 Kupferstücke";
        manage(new WindowInfo(strinfo));      
-       oberfenster->Geld();
+       oberfenster->show_Geld();
        destroy();
        return;
    }

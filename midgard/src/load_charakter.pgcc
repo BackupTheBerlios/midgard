@@ -411,7 +411,7 @@ void midgard_CG::load_charakter()
          std::string stufe = itos(db_wert); 
          if (db_wert==99) stufe = "G";
 //         vec_Zaubermittel.push_back(new Data_zaubermittel(stufe,db_fertigkeit));
-         list_Zauberwerk.push_back(cH_Zauberwerk(db_fertigkeit,Typ));
+         list_Zauberwerk.push_back(cH_Zauberwerk(db_fertigkeit));
       } 
    exec sql close zauberm;
 //   get_Zaubermittel(vec_Zaubermittel);

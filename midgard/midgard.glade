@@ -2152,7 +2152,7 @@ laden</label>
 		    <last_modification_time>Mon, 23 Apr 2001 06:07:57 GMT</last_modification_time>
 		  </signal>
 		  <label>LaTeX
-Charakterblattt</label>
+Charakterblatt</label>
 		  <icon>PrintChar-trans-50.xpm</icon>
 		  <child>
 		    <new_group>True</new_group>
@@ -5089,120 +5089,6 @@ würfeln</label>
 		    <label>   Grad, Ausdauer, Abwehr, Zaubern, Resistenz an Grad anpassen   </label>
 		    <icon>Anpass-trans-50.xpm</icon>
 		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkTable</class>
-		<name>table42</name>
-		<rows>2</rows>
-		<columns>2</columns>
-		<homogeneous>False</homogeneous>
-		<row_spacing>0</row_spacing>
-		<column_spacing>0</column_spacing>
-		<child>
-		  <left_attach>5</left_attach>
-		  <right_attach>6</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>False</xfill>
-		  <yfill>False</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkToolbar</class>
-		  <name>toolbar5</name>
-		  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-		  <type>GTK_TOOLBAR_BOTH</type>
-		  <space_size>19</space_size>
-		  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-		  <relief>GTK_RELIEF_NORMAL</relief>
-		  <tooltips>True</tooltips>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>2</right_attach>
-		    <top_attach>1</top_attach>
-		    <bottom_attach>2</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>False</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button24</name>
-		    <signal>
-		      <name>clicked</name>
-		      <handler>on_button_geld_s_clicked</handler>
-		      <last_modification_time>Sun, 01 Apr 2001 18:30:17 GMT</last_modification_time>
-		    </signal>
-		    <label>Geld</label>
-		    <icon>Money-50.xpm</icon>
-		  </widget>
-
-		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button25</name>
-		    <signal>
-		      <name>clicked</name>
-		      <handler>on_button_waffen_s_clicked</handler>
-		      <last_modification_time>Sun, 01 Apr 2001 18:30:41 GMT</last_modification_time>
-		    </signal>
-		    <label>Waffen</label>
-		    <icon>Weapon-trans-50.xpm</icon>
-		  </widget>
-
-		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button26</name>
-		    <signal>
-		      <name>clicked</name>
-		      <handler>on_button_ruestung_s_clicked</handler>
-		      <last_modification_time>Sun, 01 Apr 2001 18:31:02 GMT</last_modification_time>
-		    </signal>
-		    <label>Rüstung</label>
-		    <icon>Armor-trans-50.xpm</icon>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkLabel</class>
-		  <name>label308</name>
-		  <label>Besitztümer</label>
-		  <justify>GTK_JUSTIFY_CENTER</justify>
-		  <wrap>False</wrap>
-		  <xalign>0</xalign>
-		  <yalign>0</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>2</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>3</xpad>
-		    <ypad>3</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
 		</widget>
 	      </widget>
 
@@ -8365,6 +8251,245 @@ sortieren</label>
 		  <xfill>True</xfill>
 		  <yfill>False</yfill>
 		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkFrame</class>
+		<name>frame78</name>
+		<label>Besitztümer</label>
+		<label_xalign>0</label_xalign>
+		<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		<child>
+		  <left_attach>5</left_attach>
+		  <right_attach>6</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>5</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>True</yfill>
+		</child>
+
+		<widget>
+		  <class>GtkTable</class>
+		  <name>table42</name>
+		  <rows>3</rows>
+		  <columns>1</columns>
+		  <homogeneous>False</homogeneous>
+		  <row_spacing>0</row_spacing>
+		  <column_spacing>0</column_spacing>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <name>button66</name>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_button_geld_s_clicked</handler>
+		      <last_modification_time>Fri, 19 Oct 2001 06:36:35 GMT</last_modification_time>
+		    </signal>
+		    <relief>GTK_RELIEF_NORMAL</relief>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>1</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>1</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkHBox</class>
+		      <name>hbox32</name>
+		      <homogeneous>False</homogeneous>
+		      <spacing>0</spacing>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap62</name>
+			<filename>Money-50.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>True</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkLabel</class>
+			<name>label408</name>
+			<label>Geld</label>
+			<justify>GTK_JUSTIFY_CENTER</justify>
+			<wrap>False</wrap>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <name>button67</name>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_button_waffen_s_clicked</handler>
+		      <last_modification_time>Fri, 19 Oct 2001 06:38:10 GMT</last_modification_time>
+		    </signal>
+		    <relief>GTK_RELIEF_NORMAL</relief>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>1</right_attach>
+		      <top_attach>1</top_attach>
+		      <bottom_attach>2</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkHBox</class>
+		      <name>hbox33</name>
+		      <homogeneous>False</homogeneous>
+		      <spacing>0</spacing>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap63</name>
+			<filename>Weapon-trans-50.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>True</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkLabel</class>
+			<name>label409</name>
+			<label>Waffen</label>
+			<justify>GTK_JUSTIFY_CENTER</justify>
+			<wrap>False</wrap>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkAlignment</class>
+		    <name>alignment1</name>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xscale>1</xscale>
+		    <yscale>1</yscale>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>1</right_attach>
+		      <top_attach>2</top_attach>
+		      <bottom_attach>3</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkButton</class>
+		      <name>button68</name>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>clicked</name>
+			<handler>on_button_ruestung_s_clicked</handler>
+			<last_modification_time>Fri, 19 Oct 2001 06:38:34 GMT</last_modification_time>
+		      </signal>
+		      <relief>GTK_RELIEF_NORMAL</relief>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox34</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap64</name>
+			  <filename>Armor-trans-50.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label410</name>
+			  <label>Rüstung</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+		  </widget>
+		</widget>
 	      </widget>
 	    </widget>
 	  </widget>

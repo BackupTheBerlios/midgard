@@ -6,16 +6,16 @@
 #include <Aux/Handles.h>
 //Y#include "MidgardBasic.hh"
 #include <Aux/CacheStatic.h>
-#include "class_Grundwerte.hh"
+//#include "class_Grundwerte.hh"
 #include "class_typen.hh"
 #include "class_Ausnahmen.hh"
+class cH_Zauber;
 
 class Zauber : public HandleContent
 //Yclass Zauber : public MidgardBasic
 {
    std::string ap, name;
    int erfolgswert;
-//   vector<std::string> standard;
    std::string  art, stufe, zauberdauer, reichweite,
       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
       material, agens, prozess, reagens, beschreibung,spruchrolle,
@@ -29,11 +29,8 @@ class Zauber : public HandleContent
    void get_Zauber();
    void get_map_typ();
    int GrundKosten() const {  return kosten; }
-   vector<std::string> set_Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;   
-//Q   void set_Standard(const vector<H_Data_typen>& Typ) ;
+   vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;   
  public: 
-//Q   Zauber(const std::string& n,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int l=0) 
-//Q      : name(n),lernpunkte(l), ausnahmen(a) {get_Zauber();get_map_typ();set_Standard(Typ);} 
    Zauber(const std::string& n,int l=0) 
       : name(n),lernpunkte(l){get_Zauber();get_map_typ();} 
 
@@ -44,6 +41,9 @@ class Zauber : public HandleContent
 
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
+   bool ist_lernbar(const vector<H_Data_typen>& Typ) const;
+   bool ist_gelernt(const std::list<cH_Zauber>& L) const;
+
    std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }
@@ -62,7 +62,6 @@ class Zauber : public HandleContent
    std::string Beschreibung() const { return beschreibung;}
    std::string P_Element() const {return p_element;}
    std::string S_Element() const {return s_element;}
-   vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
    std::string Region() const {return region;}
    int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
@@ -73,7 +72,6 @@ class Zauber : public HandleContent
    int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
    int get_spezial_zauber_for_magier(const Grundwerte& Werte) const;
 
-   static bool zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte);
 };
 
 class cH_Zauber : public Handle<const Zauber>
@@ -107,6 +105,7 @@ class cH_Zauber : public Handle<const Zauber>
     cH_Zauber(){};
  public:
    cH_Zauber(const std::string& name,int lernpunkte=0) ;
+
 //Y   cH_Zauber(const cH_MidgardBasic &x) : Handle<const Zauber> 
 //Y (dynamic_cast<const Zauber *>(&*x)){}
 };
