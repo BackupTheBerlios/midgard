@@ -1,8 +1,8 @@
 #include <winver.h>
 
 VS_VERSION_INFO VERSIONINFO
-  FILEVERSION 0,1,1,BUILDNUMBER
-  PRODUCTVERSION 0,9,0,0
+  FILEVERSION 0,1,2,BUILDNUMBER
+  PRODUCTVERSION 0,9,3,0
   FILEFLAGSMASK 0
   FILEFLAGS 0
   FILEOS VOS__WINDOWS32
@@ -14,12 +14,12 @@ VS_VERSION_INFO VERSIONINFO
       BLOCK "040904B0"
       BEGIN
 	VALUE "FileDescription", "MAGuS Hauptbibliothek"
-	VALUE "FileVersion", "0.1.1.BUILDNUMBER"
+	VALUE "FileVersion", "0.1.2.BUILDNUMBER"
 	VALUE "LegalCopyright", "Copyright © 2003 Christof Petig"
 	VALUE "InternalName", "libmagus"
 	VALUE "OriginalFilename", "libmagus-0.dll"
 	VALUE "ProductName", "MAGuS: Midgard Abenteurer Generieren und Steigern"
-	VALUE "ProductVersion", "0.9.0"
+	VALUE "ProductVersion", "0.9.3"
       END
     END
     BLOCK "VarFileInfo"
