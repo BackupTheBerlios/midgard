@@ -219,7 +219,6 @@ void midgard_CG::menu_init()
 
 void midgard_CG::menubar_init()
 {
-  ansicht_menu->remove();
   Gtk::Menu *menu0 = manage(new class Gtk::Menu());
   Gtk::Menu *menu1 = manage(new class Gtk::Menu());
   Gtk::Menu *menu2 = manage(new class Gtk::Menu());
