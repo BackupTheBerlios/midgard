@@ -69,6 +69,6 @@ void midgard_CG::on_wizard_starten_activate()
 void midgard_CG::on_wizard_beenden_activate()
 {
 // label_wizard->hide();
- show_wizard_active(false);
+// show_wizard_active(false);
 }
 

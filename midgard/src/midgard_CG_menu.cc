@@ -124,7 +124,7 @@ void midgard_CG::menu_init()
 
      bool_CheckMenuItem *mi = Gtk::manage(new bool_CheckMenuItem(getChar().proxies.regionen[*i],*_tab));
      regionen_menu->append(*mi);
-     getChar().proxies.regionen[*i].signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
+//     getChar().proxies.regionen[*i].signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
          mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
    }
@@ -203,7 +203,7 @@ void midgard_CG::menubar_init()
    {
     if(!i->show) continue;
     bool_CheckMenuItem *mi = Gtk::manage(new bool_CheckMenuItem(i->active,i->text));
-    i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::Ober_element_activate),i->index));
+    i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::Ober_setzen_from_menu),i->index));
     menu2->append(*mi);
    } 
   mi1->set_submenu(*menu1);
@@ -238,7 +238,7 @@ void midgard_CG::menubar_init()
      bool_CheckMenuItem *mi = (new bool_CheckMenuItem(getChar().proxies.regionen[*i],*_tab));
      regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*mi));
      // Gtk::manage(mi);
-     getChar().proxies.regionen[*i].signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
+//     getChar().proxies.regionen[*i].signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
         mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
    }
@@ -277,3 +277,10 @@ void midgard_CG::push_back_LDateien(std::string s)
   Programmoptionen.LetzteDateien().push_front(s);
   menu_history_init(oldsize);
 }
+
+void midgard_CG::OptionenExecute_setzen_from_menu(Magus_Optionen::OptionenExecuteIndex index)
+{  if(index==Magus_Optionen::LernschemaSensitive) lernschema_sensitive(true);
+#warning fehlt
+//   else if(index==Magus_Optionen::show_InfoWindow) InfoFenster->Show();
+}
+

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.125 2003/09/08 14:36:40 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.126 2003/09/15 15:53:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -183,9 +183,10 @@ void midgard_CG::on_checkbutton_Regionen_menu(gpointer gp,cH_Region region)
 }
 #endif
 
-#if 0
 void midgard_CG::Schummeln()
 {
+#warning fehlt
+#if 0
   if(schummeln)
    {
      MOptionen->set_Original(true,Magus_Optionen::Original);
@@ -201,5 +202,5 @@ void midgard_CG::Schummeln()
      MOptionen->set_Original(false,Optionen::NSC_only);
      table_grundwerte->edit_werte=false;
    }
+#endif   
 }
-#endif
