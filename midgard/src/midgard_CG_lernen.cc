@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.103 2002/04/17 09:04:02 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.104 2002/04/25 11:05:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -168,7 +168,7 @@ void midgard_CG::zeige_lernpunkte()
  if(lernpunkte.Fach()==0 && lernpunkte.Allgemein()==0 &&
     lernpunkte.Unge()==0 && lernpunkte.Waffen()==0 &&
     lernpunkte.Zauber()==0 )
- table_berufswahl->set_sensitive(true);
+ frame_berufswahl->set_sensitive(true);
 }
 
 
