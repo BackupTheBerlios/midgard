@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.29 2001/12/07 16:10:23 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.30 2001/12/10 15:48:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -83,7 +83,7 @@ void fert_speichern(std::ostream &o)
        FetchIStream is2=query2.Fetch();
        if (is2.good())
        {  o << "    <steigern_wie";
-          fetch_and_write_string_attrib(is2, o, "Fertigkeit");
+          fetch_and_write_string_attrib(is2, o, "Fertigkeit",fert);
           o << "/>\n";
        }
     }
@@ -159,7 +159,7 @@ void fert_speichern(std::ostream &o)
    o << " <Berufe>\n";
 #warning hier noch ge durch gs,gw ersetzen
   {Query query("select beruf, region, lernpunkte, st, "
-  	MIDGARD3_4("ge","ge as gw, ge as gs,")
+  	MIDGARD3_4("ge,","ge as gw, ge as gs,")
   	" ko, \"in\", zt, pa, au, sb, typ, geschlecht"
    	" from berufe_voraussetzung"
    	" order by region, beruf");
