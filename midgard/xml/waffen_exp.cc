@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.8 2002/01/18 07:07:04 christof Exp $
+// $Id: waffen_exp.cc,v 1.9 2002/01/18 08:09:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -75,7 +75,7 @@ void waffen_speichern(std::ostream &o)
   {o << "  <Waffe";
    std::string waffe=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   std::string grund=fetch_and_write_string_attrib(is, o, "Grundkenntnisse",waffe);
+   std::string grund=fetch_and_write_string_attrib(is, o, "Grundkenntnisse");
    fetch_and_write_int_attrib(is, o, "Schwierigkeit",-1);
    fetch_and_write_string_attrib(is, o, "Kategorie");
    fetch_and_write_string_attrib(is, o, "Klasse");
@@ -135,6 +135,7 @@ void waffen_speichern(std::ostream &o)
 //*************** Waffen Typen ***************************
       grund_standard_ausnahme(o, "waffen_typen", waffe);
 
+#if 0 // verwirrend, nur noch getrennt
       if (grund==waffe)
       {  Query query2("select fp from waffen_grund where name='"+waffe+"'");
          FetchIStream is2=query2.Fetch();
@@ -146,6 +147,7 @@ void waffen_speichern(std::ostream &o)
             o << "    </Waffen-Grundkenntnis>\n";
          }
      }
+#endif     
       //********** Lernschema **********************************
       // wert, attribut, [p+s]_element 
       lernschema(o, MIDGARD3_4("Waffe","Waffenfertigkeiten"), waffe);
@@ -169,7 +171,7 @@ void waffen_speichern(std::ostream &o)
   }
  }
 #ifdef REGION
-  if (region!="")
+  if (!region.empty())
   {FetchIStream is;
    Query q("select name, region from waffen "
    	+ RegionErgaenzungQuery("waffen.name","waffen_typen","Waffe","w")
@@ -211,20 +213,20 @@ void waffen_speichern(std::ostream &o)
 
 //******************waffen_grund************************************************
 
- if (region=="")
- { o << " <Waffen-Grundkenntnisse>\n";
-   o << "   <-- direkte Grundkenntnisse stehen bei den Waffen -->\n";
-  {Query query("select name, region, fp"
-   	" from waffen_grund where not exists"
-   	" (select true from waffen where waffen.name=waffen_grund.name)"
-   	" order by coalesce(region,''),name");
+  o << " <Waffen-Grundkenntnisse>\n";
+  {string query_str;
+   if (region.empty())
+      query_str="select name, region, fp from waffen_grund"
+   	" where coalesce(region,'')=='"+region+"'"
+   	" order by name"
+   Query query(query_str);
   while ((query>>is).good())
   {o << "  <Waffen-Grundkenntnis";
    std::string grund=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_int_attrib(is, o, "Kosten");
    o << ">\n";
-//*************** Waffen Typen ***************************
+//*************** Waffen Grund Typen ***************************
 
    // nicht erforderlich für Grundkenntnisse?
       grund_standard_ausnahme(o, "waffen_grund_typen", grund);
@@ -234,11 +236,28 @@ void waffen_speichern(std::ostream &o)
 //      ausnahmen(o, "w", grund);
    o << "  </Waffen-Grundkenntnis>\n";
   }
+
+//*************** andere Regionen ***************************
+   if (!region.empty())
+   { FetchIStream is;
+     Query q("select name, region from waffen_grund "
+       	+ RegionErgaenzungQuery("waffen_grund.name","waffen_grund_typen","Waffengrund","g")
+       	+ "order by coalesce(region,''),name");
+      while ((q >> is).good())
+      {o << "  <Waffen-Grundkenntnis";
+       std::string grund=fetch_and_write_string_attrib(is, o, "Name");
+       fetch_and_write_string_attrib(is, o, "Region");
+       o << ">\n";
+          grund_standard_ausnahme(o, "waffen_grund_typen", grund, true);
+       o << "  </Waffen-Grundkenntnis>\n";
+      }
+   }
    o << " </Waffen-Grundkenntnisse>\n";
   }
 
 //********************* steigern_fertigkeiten_werte ********************
-   o << " <Waffen-Steigern>\n";
+ if (region.empty())
+ {o << " <Waffen-Steigern>\n";
   {Query query("select " MIDGARD3_4("name,","schwierigkeit,")
       	    "coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),"
       	    "coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),"
