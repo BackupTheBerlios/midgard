@@ -38,12 +38,10 @@ void Zufall::Voll()
    Aben->List_Fertigkeit_ang().clear();
    hauptfenster->table_lernschema->on_angeborene_fertigkeit_clicked();
    Lernschema();
-// Lücke
-   
+// Lücke Beruf
    hauptfenster->table_lernschema->geld_wuerfeln();
-// Lücke
-
-   hauptfenster->table_lernschema->on_button_ruestung_clicked(random(1,100));
+// Lücke Waffen
+   hauptfenster->table_lernschema->on_button_ruestung_clicked(random.integer(1,100));
    hauptfenster->table_lernschema->ausruestung_setzen();
 }
 
