@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
+// $Id: Region.hh,v 1.3 2003/05/07 10:57:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -90,7 +90,7 @@ class Regionen_All
 {
    std::vector<cH_Region> list_All;
   public:
-   Regionen_All(SigC::Slot1<void,double> progress);
+   Regionen_All();
    std::vector<cH_Region> get_All() const {return list_All;}
    static cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const std::string &r);
 };

@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
+// $Id: Datenbank.hh,v 1.3 2003/05/07 10:57:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -70,7 +70,7 @@ class Datenbank
   
    //Konstruktor
   Datenbank();
-  void load(); // other arguments ! Midgard_Info* MI,midgard_CG *hauptfenster);
+  void load(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::string> meldungen);
 };
 
 #endif

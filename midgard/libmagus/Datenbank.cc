@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.2 2003/05/07 07:25:18 christof Exp $               
+// $Id: Datenbank.cc,v 1.3 2003/05/07 10:57:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -24,7 +24,7 @@
 #include <MidgardBasicElement.hh>
 #include <vector>
 #include <string>
-#include <gtkmm/main.h>
+//#include <gtkmm/main.h>
 #include "Grundwerte.hh"
 #include "Land.hh"   
 //#include "Pflicht.hh"
@@ -35,7 +35,7 @@
 #include "Beruf.hh" 
 #include "Preise.hh"
 #include "Ausruestung.hh"
-#include "class_lernpunkte.hh"
+//#include "class_lernpunkte.hh"
 #include "Zauber.hh"
 #include "Zauberwerk.hh"  
 #include "Fertigkeiten.hh"
@@ -45,7 +45,7 @@
 #include "Region.hh"  
 #include "Ruestung.hh"
 #include "Fertigkeiten_angeboren.hh"
-#include "Midgard_Info.hh"
+//#include "Midgard_Info.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
 
@@ -53,12 +53,11 @@ Datenbank::Datenbank()
 {
 }
 
-
-void Datenbank::load() //Midgard_Info* MI, midgard_CG *hauptfenster)
+void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::string> meldungen)
 {
-    xml_init(MI->get_progressbar_regionen(),hauptfenster);
-    Regionen = Regionen_All(MI->get_progressbar_regionen()).get_All();
-    MI->set_Regionen(Regionen);
+    xml_init(progress,meldungen);
+    Regionen = Regionen_All();
+//    MI->set_Regionen(Regionen);
     Laender = Laender_All().get_All();
     Ruestung = Ruestung_All().get_All();
     lernschema = Lernschema(true);
@@ -81,5 +80,5 @@ void Datenbank::load() //Midgard_Info* MI, midgard_CG *hauptfenster)
     preisenewmod = PreiseNewMod_All().get_All();
     prototyp = Prototyp_All().get_All();
     prototyp2 = Prototyp2_All().get_All();
-    MI->database_hide();  // can't do this yet
+//    MI->database_hide();  // can't do this yet
 }

@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.1 2003/05/06 07:12:04 christof Exp $
+// $Id: xml.h,v 1.2 2003/05/07 10:57:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -21,7 +21,7 @@
 #define MCG_XML_H
 
 #include <Misc/Tag.h>
-
+#include <Misc/Model.h> // for easily getting SigC::Slot*
 
 extern const Tag *xml_data;
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
@@ -39,9 +39,7 @@ extern const struct xml_liste xml_tags[];
 // suche nach elementtag
 const xml_liste *suche_Tageigenschaften(const std::string &liste,const std::string &elem);
 
-namespace Gtk { class ProgressBar; }
-class midgard_CG;
-void xml_init(Gtk::ProgressBar *pb, midgard_CG *hauptfenster);
+void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::string> meldungen);
 
 void xml_free();
 #endif
