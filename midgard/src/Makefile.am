@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.98 2002/01/22 15:34:40 thoma Exp $
+# $Id: Makefile.am,v 1.99 2002/01/23 16:16:21 thoma Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -199,7 +199,7 @@ midgard_SOURCES = \
    Tag.cc TagStream.cc xml.cc export_common.cc
 
 
-CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
+CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
 
 midgard_LDADD = @LIBS@ @KOMPONENTEN_LIBS@
