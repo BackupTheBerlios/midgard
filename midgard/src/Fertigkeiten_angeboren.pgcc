@@ -41,7 +41,7 @@ Fertigkeiten_angeborene_All::Fertigkeiten_angeborene_All(Gtk::ProgressBar *progr
    int db_size;
  exec sql end declare section;
  exec sql select count(name) into :db_size from angeborene_fertigkeiten;
- exec sql declare FAein cursor for select name from angeborene_fertigkeiten;
+ exec sql declare FAein cursor for select name from angeborene_fertigkeiten order by min;
  Transaction tr;
  exec sql open FAein;
  SQLerror::test(__FILELINE__);

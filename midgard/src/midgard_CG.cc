@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.88 2001/11/27 12:31:58 thoma Exp $
+// $Id: midgard_CG.cc,v 1.89 2001/12/04 13:07:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -249,6 +249,7 @@ void midgard_CG::show_gtk()
  zeige_werte(Werte);
  show_berufe();
  show_fertigkeiten();
+ show_sinne();
  show_waffen();
  show_zauber();
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.100 2001/12/03 08:08:06 thoma Exp $
+// $Id: midgard_CG.hh,v 1.101 2001/12/04 13:07:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -419,6 +419,7 @@ class midgard_CG : public midgard_CG_glade
          void zeige_werte(const Grundwerte& w);
          void setze_lernpunkte(const Lernpunkte& _lernpunkte);
          void show_fertigkeiten();
+         void show_sinne();
          void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());

@@ -1,4 +1,35 @@
 ##########################################################################
+NEWS IN VERSION 0.1delta0
+
+Vieleicht sollte man den MCG nun in MNG umbennennen, denn
+es ist soweit, die neune Midgard Regeln sind (soweit ich sie habe)
+eingearbeitet. Ich habe beschlossen die Versionsnummern wieder von 
+vorne anfangen zu lassen, dafür habe ich das 'beta' durch ein 
+'delta' ersetzt (Konsequenterweise hätte ich bisher ein 'gamma' nehmen müssen, 
+aber lassen wir das :-)
+Wer das neue Programm testet, der sollte noch nicht zu viel erwarten, hier 
+eine (unvollständige) Mängelliste:
+
+* Berufe fehlen noch (Elsa hat mir noch nicht geschrieben was die 
+   Römischen Ziffern in der Tabelle gehören)
+* Das (ausdruckbare) Charakterdokument ist noch nicht an die neuen Regeln
+   angepaßt worden
+* Die Ausrüstung ist noch eine Baustelle, das Programm stürzt in diesem 
+   Teil mit 100% Sicherheit ab.
+* Spezielgebiete für Magier stürzt noch ab
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+* Sprachen und Schriften sind noch nicht an die neuen Regeln angepaßt worden
+* Die Oberfläche ist noch im Umbau begriffen, z.B. Ziegt sie noch 'LPBasis' an
+   auch wenn der Wert weggefallen ist.
+
+Sollte sich jetzt jemand fragen, was denn überhaupt funktioniert, so sei 
+ihm gesagt: Fertigkeiten, Waffen, Zauber, Sinne, Grundwerte
+
+Es handelt sich also um eine Rumpfversion, aber für die gaaaanz neugierigen
+lohnt es sich vielleicht:-)
+
+##########################################################################
 NEWS IN VERSION 0.9beta1
 Mich an dieser Stelle über Bugs auszulassen wäre vermessen, das Programm ist
  SO gündlich umgearbeitet worden, daß (fast) nichts mehr ist, wie es war.

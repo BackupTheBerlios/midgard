@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.34 2001/12/03 08:08:06 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.35 2001/12/04 13:07:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -75,11 +75,13 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
   manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
   std::string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";stinfo+=itos(wurf);stinfo+=" gewürfelt.\n";
   manage(new WindowInfo(stinfo));
-  midgard_CG::show_fertigkeiten();
+  show_fertigkeiten();
+  show_sinne();
 }
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()
 {
+  Werte.resetSinne();
   manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,-1));
   show_fertigkeiten();
 }
@@ -97,3 +99,16 @@ void midgard_CG::universal_Fertigkeiten()
 }
 
 
+void midgard_CG::show_sinne()
+{
+   clist_sinne->clear();
+   Gtk::OStream os(clist_sinne);
+   std::map<std::string,int> Sinnmap=Werte.Sinne();
+   for(std::map<std::string,int>::const_iterator i=Sinnmap.begin();i!=Sinnmap.end();++i)
+      { 
+         os << i->first<<'\t'<<i->second<<'\n';
+      }
+   for (unsigned int i=0;i<clist_sinne->columns().size();++i)
+      fertigkeiten_clist->set_column_auto_resize(i,true);
+   clist_sinne->set_reorderable(true);
+}

@@ -78,7 +78,6 @@ Kampftaktik	\N	\N	\N	31	\N	\N	61	\N	\N	\N	\N
 Verhören	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
 Fallen	\N	\N	\N	\N	\N	\N	\N	\N	81	\N	\N
 Fechten	\N	\N	\N	\N	\N	\N	\N	\N	\N	Rapier	\N
-Fechten tevarischer Stil	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fechten	\N
 Kampf in Schlachtreihe	\N	\N	\N	\N	\N	\N	\N	\N	\N	Waffe	\N
 FengSchui	\N	\N	\N	81	\N	\N	\N	\N	\N		\N
 FengTsu	\N	61	\N	\N	\N	\N	\N	61	\N		\N
@@ -186,6 +185,7 @@ Winden	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zeichensprache	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
 Malen/Zeichnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	\N	\N	\N
+Fechten tevarrischer Stil	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fechten	\N
 \.
 --
 -- TOC Entry ID 3 (OID 30118263)

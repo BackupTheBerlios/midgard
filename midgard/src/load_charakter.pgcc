@@ -318,6 +318,10 @@ void midgard_CG::load_fertigkeiten()
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;
       std::string sart=db_art;
+      if(sart=="Sinn")
+        {
+         Werte.set_Sinn(db_fert,db_wert);
+        }
       if(sart=="Beruf")
         {
          cH_MidgardBasicElement beruf(new Beruf(db_fert));

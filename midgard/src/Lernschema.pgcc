@@ -19,7 +19,7 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
   exec sql end declare section;
   exec sql select count(typ) into :db_size from lernschema;
   exec sql declare LEin cursor for select
-   typ, pflicht, name, art, wert, lernpunkte
+   typ, pflicht, name, art, coalesce(wert,0), lernpunkte
    from lernschema_4 
    order by lernpunkte;
  Transaction tr;
@@ -31,7 +31,7 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
      progressbar->set_percentage(count/db_size);
      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
      exec sql fetch LEin into :TYP,:PFLICHT,:FERTIGKEIT,:ART,
-      :WERT,:LERNPUNKTE,:ATTR,:PE,:SE;
+      :WERT,:LERNPUNKTE;//,:ATTR,:PE,:SE;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break; 
      lern_map[st_index(TYP,ART,FERTIGKEIT)] 

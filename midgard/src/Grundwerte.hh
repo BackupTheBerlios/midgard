@@ -5,6 +5,8 @@
 #include "Ruestung.hh"
 #include "Spezies.hh"
 #include "Spezialgebiet.hh"
+//#include <map>
+//#include <string>
 
 class Grundwerte
 {
@@ -13,16 +15,8 @@ class Grundwerte
           st_grund(int _st,int _gw,int _gs,int _ko,int _in,int _zt)
              :  st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt) {}
          };         
-   struct st_sinne {int sehen;int hoeren;int riechen;
-                    int schmecken;int tasten;int sechster_sinn;
-          st_sinne() : sehen(8), hoeren(8), riechen(8), schmecken(8),
-                tasten(8), sechster_sinn(0) {} 
-//          st_sinne(int s1,int s2,int s3,int s4,int s5,int s6)
-//            :sehen(s1), hoeren(s2), riechen(s3), schmecken(s4),
-//               tasten(s5), sechster_sinn(5) {}
-            };
    st_grund grund;
-   st_sinne sinne;
+   std::map<std::string,int> sinnmap;
    int raufen;
 
    int au,pa,sb,wk,rw,hgw,b,lp,ap;
@@ -48,8 +42,14 @@ public:
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_charakter(""),version("Erschaffung"),
              gfp(0),gold(0), silber(0), kupfer(0),
-             aep(0),kep(0),zep(0),ruestung("OR"),spezies("Mensch") {}
+             aep(0),kep(0),zep(0),ruestung("OR"),spezies("Mensch") 
+         { resetSinne(); }
    void clear() {*this=Grundwerte();}
+   void resetSinne() {sinnmap["Sehen"]=8;
+                      sinnmap["Hören"]=8;
+                      sinnmap["Riechen"]=8;
+                      sinnmap["Schmecken"]=8;
+                      sinnmap["Tasten"]=8; }
 
    int St() const {return grund.st;}
    int Gw() const {return grund.gw;}
@@ -66,7 +66,7 @@ public:
    int B() const {return b;}
    int LP() const {return lp;}
    int AP() const {return ap;}
-   st_sinne Sinne() const {return sinne;}
+   std::map<std::string,int> Sinne() const {return sinnmap;}
    int Raufen() const {return raufen;}
    int Abwehr_wert() const {return abwehr_wert;}
    int Zaubern_wert() const { return zaubern_wert;}
@@ -146,12 +146,15 @@ public:
          bo_phk=_bo_phk ;
       }
 
+   void set_Sinn(std::string name,int wert) {sinnmap[name]=wert;}
+/*
    void set_Sinne_Sehen(int s) {sinne.sehen=s;}
    void set_Sinne_Hoeren(int s) {sinne.hoeren=s;}
    void set_Sinne_Riechen(int s) {sinne.riechen=s;}
    void set_Sinne_Schmecken(int s) {sinne.schmecken=s;}
    void set_Sinne_Tasten(int s) {sinne.tasten=s;}
    void set_Sinne_SechserSinn(int s) {sinne.sechster_sinn=s;}
+*/
    void set_Raufen(int r) {raufen=r;}
 
    void set_magBoni(int psy,int phs,int phk) {bo_psy=psy;bo_phs=phs;bo_phk=phk;}
