@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.28 2001/11/20 22:18:06 christof Exp $
+// $Id: xmlexport.pgcc,v 1.29 2001/12/11 08:05:19 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -39,7 +39,7 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    exec sql declare c cursor for
    	select charakter_name, spieler_name, version, grad, 
    		spezies, geschlecht, typ_s, typ_2_s, spezialisierung,
-   		st, ge, ko, inn, zt, au, pa,
+   		st, gw, gs, ko, inn, zt, au, pa, wk,
    		sb, rw, hgw, b, kaw, wlw, abwehr, zaubern,
    		resistenz, lpbasis, lp, ap, alter, gestalt,
    		gewicht, groesse, stand, herkunft,
@@ -74,7 +74,8 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    o << "/>\n";
    o << "  <Basiseigenschaften";
    fetch_and_write_int_attrib(is, o, "St");
-   fetch_and_write_int_attrib(is, o, "Ge");
+   fetch_and_write_int_attrib(is, o, "Gw");
+   fetch_and_write_int_attrib(is, o, "Gs");
    fetch_and_write_int_attrib(is, o, "Ko");
    fetch_and_write_int_attrib(is, o, "In");
    fetch_and_write_int_attrib(is, o, "Zt");
@@ -82,6 +83,7 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    o << "  <abgeleiteteEigenschaften";
    fetch_and_write_int_attrib(is, o, "Au");
    fetch_and_write_int_attrib(is, o, "pA");
+   fetch_and_write_int_attrib(is, o, "Wk");
    fetch_and_write_int_attrib(is, o, "Sb");
    fetch_and_write_int_attrib(is, o, "RW");
    fetch_and_write_int_attrib(is, o, "HGW");
