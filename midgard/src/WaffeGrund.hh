@@ -1,6 +1,7 @@
-// $Id: WaffeGrund.hh,v 1.9 2002/01/12 08:12:25 thoma Exp $               
+// $Id: WaffeGrund.hh,v 1.10 2002/01/19 14:28:11 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -32,8 +33,14 @@ class WaffeGrund : public MidgardBasicElement
 {
      void get_WaffeGrund();
   public:
+#ifndef USE_XML
      WaffeGrund(const std::string& n)
        :MidgardBasicElement(n)  {get_WaffeGrund();get_map_typ();}
+#else
+     WaffeGrund(const Tag *t)
+       : MidgardBasicElement(t,t->getAttr("Name"))
+       {get_WaffeGrund();get_map_typ();}
+#endif
 
      enum MBEE What() const {return MidgardBasicElement::WAFFEGRUND;}
      std::string What_str() const {return "Grundkenntnis";}
@@ -50,6 +57,9 @@ class cH_WaffeGrund : public Handle<const WaffeGrund>
     friend class std::map<std::string,cH_WaffeGrund>;
  public:
     cH_WaffeGrund(const std::string& n);
+#ifdef USE_XML
+    cH_WaffeGrund(const Tag *tag);
+#endif
 
     cH_WaffeGrund(const cH_MidgardBasicElement &x) : Handle<const WaffeGrund>
       (dynamic_cast<const WaffeGrund *>(&*x)){}   

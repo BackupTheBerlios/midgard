@@ -72,9 +72,7 @@ void MidgardBasicElement::get_map_typ()
 
  const Tag *tag=this->tag;
  
- if(What()==WAFFEGRUND)
-    tag=find_Tag("Waffen-Grundkenntnisse","Waffen-Grundkenntnis","Name",Name());
- else if(What()==SPRACHE) 
+ if(What()==SPRACHE) 
     tag=cH_Fertigkeit("Sprache")->tag;
  else if(What()==SCHRIFT)
     tag=cH_Fertigkeit("Schreiben")->tag;
@@ -83,13 +81,11 @@ void MidgardBasicElement::get_map_typ()
  else assert(tag);
 
  if (tag)
- {  
-    FOR_EACH_CONST_TAG(i,*tag)
+ {  FOR_EACH_CONST_TAG(i,*tag)
     {  if (i->Type()=="Grund") map_typ[i->getAttr("Typ")]="G";
        else if (i->Type()=="Standard") map_typ[i->getAttr("Typ")]="S";
        else if (i->Type()=="Ausnahme") map_typ[i->getAttr("Typ")]="A";
     }
-    return;
  }
 #endif    
 }
@@ -195,14 +191,13 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
 #endif
 }
 
-
+#ifndef USE_XML
 void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
                            const vector<cH_Typen>& Typ,
                            const Ausnahmen& ausnahmen,
                            bool versionbool )
 {
-#ifndef USE_XML
   if(b.size()==0) return;
 /*
     int db_sl_bonus;
@@ -240,10 +235,8 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
          (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_praxispunkte,:db_what,:db_magisch,:db_zauberwerk_stufe);
      SQLerror::test(__FILELINE__);
    }
-#else
-   cout << "MidgardBasicElement::saveElementliste nicht implementiert\n";
-#endif
 }
+#endif
 
   //////////////////////////////////////////////////////////////////////
   //Steigern von Fertigkeiten  

@@ -48,6 +48,13 @@ cH_Preise::cH_Preise(const Tag *tag)
 }
 #endif
 
+#ifdef USE_XML
+cH_Preise::cH_Preise(const std::string& _name, const std::string& _art, const Tag *tag)
+{*this=cH_Preise(new Preise(_name,_art,tag));
+ cache.Register(_name,*this);
+}
+#endif
+
 void Preise::get_Preise()
 {
 #ifndef USE_XML
@@ -67,7 +74,6 @@ void Preise::get_Preise()
   kosten=db_kosten;
   gewicht=db_gewicht;
 #else
-  art=tag->getAttr("Art");
   art2=tag->getAttr("Art2");
   einheit=tag->getAttr("Währung");
   kosten=tag->getFloatAttr("Preis");
@@ -104,11 +110,42 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
  const Tag *preise=xml_data->find("Preise");
  if (preise)
  {  Tag::const_iterator b=preise->begin(),e=preise->end();
-    double size=e-b;
+    double size=(e-b)*3;
     FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Kaufpreis")
     {  progressbar->set_percentage((i-b)/size);   
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
        list_All.push_back(cH_Preise(&*i));
+    }
+ }   
+ const Tag *waffen=xml_data->find("Waffen");
+ if (waffen)
+ {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
+    double size=(e-b)*3;
+    FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
+    {  progressbar->set_percentage((i-b)/size+.33);   
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       {  const Tag *preis=i->find("Kaufpreis");
+          if (preis) 
+             list_All.push_back(cH_Preise(i->getAttr("Name"),"Waffen",&*i));
+       }
+       FOR_EACH_CONST_TAG_OF(j,*i,"regionaleVariante")
+       {  const Tag *preis=i->find("Kaufpreis");
+          if (preis)
+             list_All.push_back(cH_Preise(j->getAttr("Name"),"Waffen",&*i));
+       }
+    }
+ }   
+ const Tag *ruestungen=xml_data->find("Rüstungen");
+ if (ruestungen)
+ {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();
+    double size=(e-b)*3;
+    FOR_EACH_CONST_TAG_OF_5(i,*ruestungen,b,e,"Rüstung")
+    {  progressbar->set_percentage((i-b)/size+.66);   
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       {  const Tag *preis=i->find("Kaufpreis");
+          if (preis) 
+             list_All.push_back(cH_Preise(i->getAttr("Name"),"Rüstung",&*i));
+       }
     }
  }   
 #endif 

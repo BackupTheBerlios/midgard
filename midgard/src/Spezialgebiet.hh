@@ -1,6 +1,7 @@
-// $Id: Spezialgebiet.hh,v 1.5 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Spezialgebiet.hh,v 1.6 2002/01/19 14:28:11 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -26,7 +27,7 @@
 #include <vector>
 #include <string>
 #include <gtk--/progressbar.h>
-
+#include "xml.h"
 
 class Spezialgebiet : public HandleContent
 {
@@ -37,7 +38,11 @@ class Spezialgebiet : public HandleContent
    std::string spezial2;
 
 public:
+#ifndef USE_XML
    Spezialgebiet(const std::string& _name);
+#else
+   Spezialgebiet(const Tag *tag);
+#endif   
    Spezialgebiet() : nr(0) {}
 
    std::string Typ() const {return typ;}   
@@ -57,6 +62,9 @@ class cH_Spezialgebiet : public Handle<const Spezialgebiet>
   public:
    cH_Spezialgebiet() {*this=new Spezialgebiet();}
    cH_Spezialgebiet(const std::string& name);
+#ifdef USE_XML
+   cH_Spezialgebiet(const Tag *tag);
+#endif
    cH_Spezialgebiet(const Spezialgebiet *s) : Handle<const Spezialgebiet>(s) {};
 
    static bool is_cached(const std::string s);

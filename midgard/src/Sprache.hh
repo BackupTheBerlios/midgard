@@ -1,6 +1,7 @@
-// $Id: Sprache.hh,v 1.15 2002/01/18 22:08:00 thoma Exp $               
+// $Id: Sprache.hh,v 1.16 2002/01/19 14:28:11 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -40,9 +41,15 @@ class Sprache : public MidgardBasicElement
 
   
   public:
+#ifndef USE_XML
    Sprache(const std::string& n) : MidgardBasicElement(n)
       {get_Sprache();get_map_typ();get_Steigern_Kosten_map();
          EP_steigern("Sprache");}
+#else
+   Sprache(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
+      {get_Sprache();get_map_typ();get_Steigern_Kosten_map();
+         EP_steigern("Sprache");}
+#endif
    enum MBEE What() const {return MidgardBasicElement::SPRACHE;}
    std::string What_str() const {return "Sprache";}
 
@@ -70,6 +77,9 @@ class cH_Sprache : public Handle<const Sprache>
     cH_Sprache(){};
   public:
    cH_Sprache(const std::string& name);
+#ifdef USE_XML
+   cH_Sprache(const Tag *tag);
+#endif
 
    cH_Sprache(const cH_MidgardBasicElement &x) : Handle<const Sprache>
       (dynamic_cast<const Sprache *>(&*x)){}

@@ -17,18 +17,24 @@
  */
 
 #include "midgard_CG.hh"
+#ifndef USE_XML
 exec sql include sqlca;
-#include <cstring>
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
+#endif
+#include <cstring>
 #include "xml_fileselection.hh"
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {
+#ifndef USE_XML
   if (ev->button==1) on_speichern_clicked();
 //  if (ev->button==3) midgard_CG::xml_export();
 //  if (ev->button==3) xml_export_auswahl();
 //  frame_steigern->show();
+#else
+  xml_export_auswahl();
+#endif
   return false;
 }
 
@@ -38,20 +44,20 @@ void midgard_CG::xml_export_auswahl()
   frame_steigern->show();
   on_radio_steigern_all();
 }
- 
-
-
 
 void midgard_CG::xml_export(const std::string& datei)
 {
+#ifndef USE_XML
   std::string cname   = Werte.Name_Charakter();
   std::string version = Werte.Version(OptionBool.version);
   std::string command = "midgard_xmlexport '"+cname+"' '"+version+"' > '"+datei+"'";
   system(command.c_str());
   std::string strinfo = "Charakter "+cname+" exportiert\n";
   manage (new WindowInfo(strinfo));
+#endif
 }
 
+#ifndef USE_XML
 void midgard_CG::on_speichern_clicked()
 {
     frame_steigern->set_sensitive(true);
@@ -372,3 +378,4 @@ void midgard_CG::charakter_db_anlegen()
      values (:db_name_ch,:db_version);
    on_speichern_clicked();   
 }
+#endif

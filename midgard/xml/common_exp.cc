@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.16 2002/01/19 11:21:37 christof Exp $
+// $Id: common_exp.cc,v 1.17 2002/01/19 14:28:11 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -284,5 +284,20 @@ void region_tags(std::ostream &os, const string &region)
       fetch_and_write_int_attrib(is, std::cout, "MCG-Bild");
    }
 }
+
+void kaufpreis(std::ostream &o, const string &art, const string &name)
+//***** preise ******
+{  Query query2("select art2, kosten, einheit, gewicht"
+   		" from preise where name='"+name+"' and art='"+art+"'");
+   FetchIStream is2=query2.Fetch();
+   if (is2.good())
+   {  o << "    <Kaufpreis";
+      fetch_and_write_string_attrib(is2, o, "Art2");
+      fetch_and_write_float_attrib(is2, o, "Preis");
+      fetch_and_write_string_attrib(is2, o, "Währung");
+      fetch_and_write_float_attrib(is2, o, "Gewicht");
+      o << "/>\n";
+   }
+}   
 
 #endif

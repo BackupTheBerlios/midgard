@@ -16,13 +16,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/2/28 7:47:05 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Window_charakter_auswahl.cc_new
-
-// This file is for your program, I won't touch it again!
-
+#ifndef USE_XML
 #include "config.h"
 #include "Window_charakter_auswahl.hh"
 #include "midgard_CG.hh"
@@ -101,3 +95,17 @@ void Window_charakter_auswahl::show_charakter()
  for (unsigned int i=0;i<clist_charakter_auswahl->columns().size();++i)
     clist_charakter_auswahl->set_column_auto_resize(i,true);
 }
+
+#else
+
+void Window_charakter_auswahl::on_clist_charakter_auswahl_select_row(gint row, gint column, GdkEvent *event)
+{   }
+void Window_charakter_auswahl::charakter_loeschen(const std::string& name, const std::string& version)
+{}
+void Window_charakter_auswahl::on_auswahl_abbruch_clicked()
+{   }
+Window_charakter_auswahl::Window_charakter_auswahl(midgard_CG* h)
+{}
+void Window_charakter_auswahl::show_charakter()
+{}
+#endif

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.20 2002/01/19 11:21:37 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.21 2002/01/19 14:28:11 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -124,7 +124,7 @@ void land_speichern(std::ostream &o)
 //******************************************************************
   if (region.empty())
   {o << " <SpeziesListe>\n";
-   Query query("select spezies, nr,"
+   Query query("select spezies, nr, land, "
    		" ap_wert, alter, groesse_f, groesse_w, groesse_s, b_f, b_s,"
    		" lpbasis, ap_grad, gestalt, m_abb,"
    		" m_psy, m_phs, m_phk, gift," 
@@ -136,7 +136,8 @@ void land_speichern(std::ostream &o)
   {o << "  <Spezies";
    std::string name=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_int_attrib(is, o, "MCG-Index");
-   fetch_and_write_int_attrib(is, o, "MCG-AP_wert");
+   fetch_and_write_int_attrib(is, o, "MCG-AP_wert"); // erforderlich ???
+   fetch_and_write_bool_attrib(is, o, "Land");
    o << ">\n";
    o << "    <Alter";
    fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
@@ -179,7 +180,7 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Sb");
    fetch_and_write_int_attrib(is, o, "Au");
    o << "/>\n";
-   {  Query query2("select typen from spezies_typen"
+   {  Query query2("select typen,maxgrad from spezies_typen"
       	" where spezies='"+name+"'"
       	" order by spezies,typen");
       FetchIStream is2;
@@ -187,6 +188,7 @@ void land_speichern(std::ostream &o)
       while ((query2>>is2).good()) 
       {  o << "    <Typ";
          fetch_and_write_string_attrib(is2, o, "Name");
+         fetch_and_int_string_attrib(is2, o, "MaximalerGrad");
          o << "/>\n";
       }
    }

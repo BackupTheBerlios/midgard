@@ -1,37 +1,3 @@
-XML todo: 5 + 5
-
-load_charakter.o
-save_charakter.o
-(MidgardBasicElement_sql.o) saveElement
-xmlimport.o
-Window_charakter_auswahl.o
-
-Ruestung.o
-Spezialgebiet.o
-Spezies.o
-Sprache.o
-WaffeGrund.o
-
-XML done: 17
-
-Ausnahmen.o
-Beruf.o
-Fertigkeiten_angeboren.o
-Fertigkeiten.o
-Grad_anstieg.o
-KiDo.o
-Land.o
-Lernschema.o
-MidgardBasicElement_sql.o
-Pflicht.o
-Preise.o
-Region.o
-Schrift.o
-Typen.o
-Waffe.o
-Zauber.o
-Zauberwerk.o
-
-------------------------
+xml im+export
 
 MidgardCG-data -> MAGUS-data

@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.12 2002/01/19 11:21:37 christof Exp $
+// $Id: waffen_exp.cc,v 1.13 2002/01/19 14:28:11 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -30,7 +30,8 @@ void waffen_speichern(std::ostream &o)
    Transaction t;
    FetchIStream is;
   {Query query("select ruestung, region, ruestung_s, lp_verlust,"
-   		" min_staerke,rw_verlust,b_verlust"
+   		" min_staerke,rw_verlust,b_verlust, abwehr_bonus_verlust,"
+   		" angriffs_bonus_verlust, vollruestung"
    	" from ruestung"
    	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),lp_verlust");
@@ -41,18 +42,15 @@ void waffen_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Abkürzung");
    fetch_and_write_int_attrib(is, o, "schütztLP");
    fetch_and_write_int_attrib(is, o, "minimaleStärke");
-   fetch_and_write_int_attrib(is, o, "RW-Verlust");
-   fetch_and_write_int_attrib(is, o, "B-Verlust");
-   //***** preise ******
-   {  Query query2("select kosten, einheit"
-   		" from preise where name='"+ruestung+"' and art='Rüstungen'");
-      FetchIStream is2=query2.Fetch();
-      if (is2.good())
-      {  fetch_and_write_float_attrib(is2, o, "Preis");
-         fetch_and_write_string_attrib(is2, o, "Währung");
-      }
-   }   
+   fetch_and_write_int_attrib(is, o, "Vollrüstung");
+   o << ">\n    <Verlust";
+   fetch_and_write_int_attrib(is, o, "RW");
+   fetch_and_write_int_attrib(is, o, "B");
+   fetch_and_write_int_attrib(is, o, "Abwehrbonus");
+   fetch_and_write_int_attrib(is, o, "Angriffsbonus");
    o << "/>\n";
+   kaufpreis(o, "Rüstungen", ruestung);
+   o << "  </Rüstung>\n";
   }
   }
    o << " </Rüstungen>\n";
@@ -121,13 +119,15 @@ void waffen_speichern(std::ostream &o)
       FetchIStream is2;
       while ((query2>>is2).good()) 
       {  o << "    <regionaleVariante";
-         fetch_and_write_string_attrib(is2, o, "Name");
+         std::string varian=fetch_and_write_string_attrib(is2, o, "Name");
          fetch_and_write_string_attrib(is2, o, "Region");
          fetch_and_write_string_attrib(is2, o, "Schaden");
          fetch_and_write_int_attrib(is2, o, "Schadensbonus");
 	 o << "><Modifikationen";
          fetch_and_write_int_attrib(is2, o, "Angriff");
-         o << "/></regionaleVariante>\n";
+         o << "/>\n";
+         kaufpreis(o, "Waffen", varian);
+         o << "    </regionaleVariante>\n";
 // Preis? wäre nett!
       }
      }
@@ -135,38 +135,13 @@ void waffen_speichern(std::ostream &o)
 //*************** Waffen Typen ***************************
       grund_standard_ausnahme(o, "waffen_typen", waffe);
 
-#if 0 // verwirrend, nur noch getrennt
-      if (grund==waffe)
-      {  Query query2("select fp from waffen_grund where name='"+waffe+"'");
-         FetchIStream is2=query2.Fetch();
-         if (is2.good())
-         {  o << "    <Waffen-Grundkenntnis";
-            fetch_and_write_int_attrib(is2, o, "Kosten");
-            o << ">\n";
-            grund_standard_ausnahme(o, "waffen_grund_typen", waffe);
-            o << "    </Waffen-Grundkenntnis>\n";
-         }
-     }
-#endif     
       //********** Lernschema **********************************
       // wert, attribut, [p+s]_element 
       lernschema(o, MIDGARD3_4("Waffe","Waffenfertigkeiten"), waffe);
       pflicht_lernen(o, waffe);
       verbot_lernen(o, waffe);
 //      ausnahmen(o, "w", waffe);
-
-   //***** preise ******
-   {  Query query2("select kosten, einheit"
-   		" from preise where name='"+waffe+"' and art='Waffen'");
-      FetchIStream is2=query2.Fetch();
-      if (is2.good())
-      {  o << "    <Kaufpreis";
-         fetch_and_write_float_attrib(is2, o, "Preis");
-         fetch_and_write_string_attrib(is2, o, "Währung");
-         o << "/>\n";
-      }
-   }   
-      
+      kaufpreis(o, "Waffen", waffe);
    o << "  </Waffe>\n";
   }
  }
@@ -191,14 +166,15 @@ void waffen_speichern(std::ostream &o)
       FetchIStream is2;
       while ((query2>>is2).good()) 
       {  o << "    <regionaleVariante";
-         fetch_and_write_string_attrib(is2, o, "Name");
+         std::string varian=fetch_and_write_string_attrib(is2, o, "Name");
          fetch_and_write_string_attrib(is2, o, "Region");
          fetch_and_write_string_attrib(is2, o, "Schaden");
          fetch_and_write_int_attrib(is2, o, "Schadensbonus");
 	 o << "><Modifikationen";
          fetch_and_write_int_attrib(is2, o, "Angriff");
-         o << "/></regionaleVariante>\n";
-// Preis? wäre nett!
+         o << "/>\n";
+         kaufpreis(o, "Waffen", varian);
+         o << "    </regionaleVariante>\n";
       }
      }
 

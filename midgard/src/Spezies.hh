@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.5 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Spezies.hh,v 1.6 2002/01/19 14:28:11 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@
 #include <Aux/Handles.h>
 #include <Aux/CacheStatic.h>
 #include <string>
-
+#include "xml.h"
 
 class Spezies : public HandleContent
 {
@@ -50,7 +50,11 @@ public:
        m_psy(0),m_phs(0),m_phk(0),alter(0), 
        groesse_f(0),groesse_w(0), groesse_s(0),
        gestalt(0),b_f(0),b_s(0)  {}
+#ifndef USE_XML
    Spezies(const std::string& n); 
+#else
+   Spezies(const Tag *tag);
+#endif
 
    std::string Name() const {return name;}
    int Nr() const {return nr;}
@@ -90,6 +94,9 @@ class cH_Spezies : public Handle<const Spezies>
   public:
 //   cH_Spezies() {*this=new Spezies();}
    cH_Spezies(const std::string& name);
+#ifdef USE_XML
+   cH_Spezies(const Tag *tag);
+#endif
 };
 
 

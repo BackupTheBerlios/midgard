@@ -1,4 +1,4 @@
-// $Id: Window_charakter_auswahl.hh,v 1.16 2001/06/27 11:24:35 thoma Exp $
+// $Id: Window_charakter_auswahl.hh,v 1.17 2002/01/19 14:28:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -16,17 +16,6 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-// generated 2001/2/28 7:47:05 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Window_charakter_auswahl.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
 
 #ifndef _WINDOW_CHARAKTER_AUSWAHL_HH
 #  include "Window_charakter_auswahl_glade.hh"
