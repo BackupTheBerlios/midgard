@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.128 2002/02/26 08:28:38 christof Exp $
+# $Id: Makefile.am,v 1.129 2002/02/26 08:30:44 christof Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -193,14 +193,14 @@ if UTF8
 
 # convert to utf8 between preprocessing and compilation
 %.o: %.cc
-	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
-	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
-	$(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
+	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) $*.cc \
+	| ./iso2utf8 \
+	| $(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
 	echo > .deps/$(*F).P
 midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
-	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
-	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
-	$(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
+	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) $*.cc \
+	| ./iso2utf8 \
+	| $(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
 	echo > .deps/$(*F).P
 
 # libtool does not work when cross compiling, so link directly
