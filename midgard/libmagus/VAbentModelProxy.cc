@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.cc,v 1.10 2004/03/09 11:40:57 thoma Exp $               
+// $Id: VAbentModelProxy.cc,v 1.11 2004/03/31 07:00:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -37,7 +37,7 @@ void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
    		i!=o.getOptionenCheck().end();++i)
       checks[i->index].set_model(Model_ref<bool>(i->active));
       
-   wizard=Model_ref<Wizard::esteps>(A.wizard);
+   wizard.set_model(Model_ref<Wizard::esteps>(A.wizard));
    wizard_mode=Model_ref<Wizard::mode>(A.wizard);
 }
 

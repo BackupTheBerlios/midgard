@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.42 2004/03/10 11:35:42 thoma Exp $
+# $Id: Makefile.am,v 1.43 2004/03/31 07:00:08 christof Exp $
 
 if WINDOWS
 PORT_FILES=registry.cc TeX.cc
@@ -32,6 +32,7 @@ readxml_SOURCES=readxml.cc
 readxml2_SOURCES=readxml2.cc
 model_test_SOURCES=model_test.cc
 model_test2_SOURCES=model_test2.cc
+model_test3_SOURCES=model_test3.cc
 
 lib_LTLIBRARIES=libmagus.la
 
@@ -65,6 +66,7 @@ readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
 readxml2_LDADD = @XMLPP_LIBS@
 model_test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 model_test2_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
+model_test3_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 
 BUILT_SOURCES= registry.h TeX.cc
 
