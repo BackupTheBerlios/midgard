@@ -14737,7 +14737,7 @@ KS
 
 	    <widget>
 	      <class>GtkLabel</class>
-	      <name>label585</name>
+	      <name>label_notebook_ausruestung</name>
 	      <cxx_visibility>protected</cxx_visibility>
 	      <label>Ausrüstung</label>
 	      <justify>GTK_JUSTIFY_CENTER</justify>

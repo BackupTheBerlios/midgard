@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.83 2002/05/06 12:03:01 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.84 2002/05/06 12:27:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -136,7 +136,7 @@ void midgard_CG::show_Beschriftungen(bool b)
 
 void midgard_CG::show_NIcons(bool i)
 {
- bool b=MOptionen->OberCheck(Midgard_Optionen::NBeschriftungen).active;
+// bool b=MOptionen->OberCheck(Midgard_Optionen::NBeschriftungen).active;
  if(i)
   {
    pixmap_notebook_grundwerte->show();
@@ -159,8 +159,8 @@ void midgard_CG::show_NIcons(bool i)
 
 void midgard_CG::show_NBeschriftungen(bool b)
 {
- bool i=MOptionen->OberCheck(Midgard_Optionen::NIcons).active;
- if(i)
+// bool i=MOptionen->OberCheck(Midgard_Optionen::NIcons).active;
+ if(b)
   {
    label_notebook_grundwerte->show();
    label_notebook_lernen->show();
