@@ -558,7 +558,6 @@ void table_lernschema::zeige_werte()
      else show_magier_spezialgebiet(false);
      if(hauptfenster->getCWerte().Spezialgebiet()->Name()!="")
        combo_magier_spezialgebiet->get_entry()->set_text(hauptfenster->getCWerte().Spezialgebiet()->Name());
-//        Gtk::Menu_Helpers::SelectMatching(*option_magier_spezialgebiet,hauptfenster->getCWerte().Spezialgebiet());
      button_zauber->set_sensitive(true);   
    }
  else
@@ -569,32 +568,15 @@ void table_lernschema::zeige_werte()
  // KiDo anzeigen?
  if(cH_Fertigkeit("KiDo")->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
    { 
-//     optionmenu_KiDo_Stile->show();
-//     combo_kido_stil->show();
+     KiDo_Stile kd;
+     combo_kido_stil->set_popdown_strings(kd.getVStile());
      frame_KiDo_lernschema->show();
-//     Gtk::Menu_Helpers::SelectMatching(*optionmenu_KiDo_Stile,hauptfenster->getCWerte().Spezialisierung());
-    }  
+   }  
  else 
    { 
-//     optionmenu_KiDo_Stile->hide();
-//     combo_kido_stil->hide();
      frame_KiDo_lernschema->hide();
-//     table_kido_steigern->hide();
    }
  // KiDo Stil setzen
-// Gtk::Menu_Helpers::SelectMatching(*optionmenu_KiDo_Stile,hauptfenster->getCWerte().Spezialisierung());
- 
-/*
- KiDo_Stile kido_stil;
- int kido_stil_nr=0;
- if (hauptfenster->getCWerte().Spezialisierung()==kido_stil.hart()) kido_stil_nr = 1;
- if (hauptfenster->getCWerte().Spezialisierung()==kido_stil.sanft()) kido_stil_nr = 2;
- if (hauptfenster->getCWerte().Spezialisierung()==kido_stil.gemischt()) kido_stil_nr = 3;
- if (kido_stil_nr!=0)
-  {   
-    optionmenu_KiDo_Stile->set_history(kido_stil_nr);
-  }
-*/
  combo_kido_stil->get_entry()->set_text(hauptfenster->getCWerte().Spezialisierung());
 }
 
