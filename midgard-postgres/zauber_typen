@@ -1330,7 +1330,7 @@ Dalail al-Khairat	ScW	S
 Dalail al-Khairat	gHx	S
 Dalail al-Khairat	sHx	S
 Dalail al-Khairat	wHx	S
-Dalail ed-Dawahi	De	S
+Dalail ed-Dawahi	PF	G
 Dalail ed-Dawahi	Sa	S
 Dalail ed-Dawahi	ScN	S
 Dalail ed-Dawahi	ScS	S
@@ -1356,7 +1356,6 @@ Das Lied der Magie	Ba	G
 Das Lied der Magie	Sk	S
 Das Lied des Verstehens	Ba	G
 Das Lied des Verstehens	Sk	S
-Dau ed-Datin	De	S
 Dau ed-Datin	PF	G
 Dau ed-Datin	Sa	S
 Dau ed-Datin	ScN	S
@@ -3159,7 +3158,7 @@ Geruchsverlust	sHx	S
 Geruchsverlust	wHx	S
 Gesichtsrune	Ru	G
 Gesichtsrune	Sk	S
-Ghussat el-Masin	De	S
+Ghussat el-Masin	PF	G
 Ghussat el-Masin	Sa	S
 Ghussat el-Masin	ScN	S
 Ghussat el-Masin	ScS	S
@@ -7608,7 +7607,8 @@ Tibb al-Mumani	Sa	S
 Tibb al-Mumani	ScN	S
 Tibb al-Mumani	ScS	S
 Tibb al-Mumani	ScW	S
-Tibb al-Mumani	gHx	A
+Tibb al-Mumani	gHx	S
+Tibb al-Mumani	sHx	S
 Tibb al-Mumani	wHx	S
 Tiefschlaf	De	S
 Tiefschlaf	Dr	S
