@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.64 2003/09/29 10:44:24 christof Exp $
+// $Id: midgard.cc,v 1.65 2003/09/29 11:36:59 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,7 @@
 #ifdef __MINGW32__
 #include <io.h>
 #endif
+#include <iostream>
 
 static const unsigned steps=8;
 static Gtk::Window *progresswin;
@@ -63,6 +64,7 @@ static void progress(double d)
          dest_line+=rowstride;
       }
       imag->set(Load_current);
+      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
       current_n=n;
    }
 //Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
@@ -82,13 +84,15 @@ int main(int argc, char **argv)
 
 #warning Zeitmessung wegen Anzahl der Zwischenschritte?
    Gtk::Main m(&argc, &argv,true); 
+std::cerr << "composing images\n";
   {Load0=MagusImage("MAGUS-Logo.png")->copy();
    Load1=MagusImage("MAGUS-Logo.png")->copy();
    MagusImage("Loading.png")->composite(Load0,0,0,Load0->get_width(),Load0->get_height(),
-   		0,0,1,1,Gdk::INTERP_NEAREST,0);
+   		0,0,1,1,Gdk::INTERP_NEAREST,255);
    MagusImage("Version.png")->composite(Load1,0,0,Load1->get_width(),Load1->get_height(),
-   		0,0,1,1,Gdk::INTERP_NEAREST,0);
+   		0,0,1,1,Gdk::INTERP_NEAREST,255);
    Load_current=Load0->copy();
+std::cerr << "displaying images\n";
    progresswin=new Gtk::Window(Gtk::WINDOW_POPUP);
    progresswin->set_position(Gtk::WIN_POS_CENTER_ALWAYS);
    progresswin->set_type_hint(Gdk::WINDOW_TYPE_HINT_SPLASHSCREEN);
@@ -97,6 +101,7 @@ int main(int argc, char **argv)
    progresswin->add(*imag);
    imag->show();
    progresswin->show();
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    libmagus_init1(progress);
    delete progresswin;
   }
