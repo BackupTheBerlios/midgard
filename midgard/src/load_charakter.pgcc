@@ -421,10 +421,13 @@ void midgard_CG::load_fertigkeiten()
        }    
       if(sart=="Fertigkeit")
        {
-         cH_MidgardBasicElement fert(new Fertigkeit(db_fert));
+         cH_MidgardBasicElement fert(&*cH_Fertigkeit(db_fert));
          fert->set_Erfolgswert(db_wert);
          fert->set_Praxispunkte(db_av_bonus);
-         if(fert->Name()=="Landeskunde") cH_Fertigkeit(fert)->setZusatz(db_magisch);
+         if(fert->Name()=="Landeskunde") 
+         {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
+            cH_Fertigkeit(fert)->setZusatz(db_magisch);
+         }
          list_Fertigkeit.push_back(fert);
          if      (fert->Name()=="KiDo") kido_bool=true;
          else if (fert->Name()=="Zaubern") magie_bool=true;
