@@ -1,4 +1,4 @@
-// $Id: TCListRow.h,v 1.8 2002/03/20 07:49:18 christof Exp $
+// $Id: TCListRow.h,v 1.9 2002/06/28 07:15:06 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -41,6 +41,8 @@ class TCListRow : public TCListRow_API
         std::vector <std::string> columns;
         std::vector <const Picture2 *> pics;
         gpointer user_data;
+        Gdk_Color color;
+        bool color_set;
         static const int unspecified_lineno=-2;
 
         /// ??? is called by parent->show() !!!
@@ -67,7 +69,7 @@ class TCListRow : public TCListRow_API
 #endif
         }
         
-        TCListRow(TCList &_root) : root(_root)
+        TCListRow(TCList &_root) : root(_root), color_set(false)
         {}
 
 //        void construct(iterator next,const std::vector <const std::string> &cols,gint exp_column=-1,bool expand=false);
@@ -163,6 +165,8 @@ class TCListRow : public TCListRow_API
             pics[column]=pic;
             if (root.expanded) redraw_column_imp(get_lineno(),column);
         }
+        
+        void set_color(const Gdk_Color &col);
 
         friend std::ostream &operator<<(std::ostream &out,const TCListRow &lr);
 };

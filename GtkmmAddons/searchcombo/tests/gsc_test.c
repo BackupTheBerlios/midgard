@@ -1,9 +1,11 @@
-/* $Id: gsc_test.c,v 1.5 2000/07/05 12:35:35 christof Exp $ */
+/* $Id: gsc_test.c,v 1.6 2002/05/16 14:47:12 christof Exp $ */
 
 #include <gtk/gtk.h>
 #include "gtksearchcombo.h"
 #include <string.h>
 #include <assert.h>
+
+//#define SLOW_DOWN
 
 const char *names[]=
   {
@@ -83,9 +85,18 @@ void search_cb_names(GtkSearchCombo *sc, gboolean *continue_, GtkSCContext new, 
     {   if (!strncasecmp(prefix,names[nextval],strlen(prefix)))
         {   gtk_searchcombo_add_item(sc,names[nextval]);
             added++;
-            if (added>10) 
+            if (added>
+#ifdef SLOW_DOWN
+            		0
+#else   
+            		10
+#endif            		
+            			) 
             { nextval++; 
               *continue_=1;
+#ifdef SLOW_DOWN
+              sleep(1);
+#endif
               return;
             }
         }

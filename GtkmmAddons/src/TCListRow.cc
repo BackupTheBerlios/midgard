@@ -1,4 +1,4 @@
-// $Id: TCListRow.cc,v 1.12 2002/03/20 07:49:18 christof Exp $
+// $Id: TCListRow.cc,v 1.13 2002/06/28 07:15:06 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -107,17 +107,18 @@ void TCListRow::expand_imp()
     // expand direct children
     for (iterator i=begin();i!=end();i++)
     {
-        const std::vector <std::string> &v=(*i).get_columns();
+        const std::vector <std::string> &v=i->get_columns();
 
         root.insert_row(lineno,v);
         root.set_row_data(lineno,&*i);
-        (*i).redraw_pics_imp(lineno);
+        i->redraw_pics_imp(lineno);
+        if (i->color_set) root.set_background(lineno,i->color);
         lineno++;
     }
     // now expand grandchildren
     for (iterator i=begin();i!=end();i++)
     {
-        if ((*i).expanded) (*i).expand_imp();
+        if (i->expanded) i->expand_imp();
     }
 }
 
@@ -136,7 +137,7 @@ void TCListRow::collapse_imp()
     if (!root.expanded) return;
     for (iterator i=begin();i!=end();i++)
     {
-        (*i).remove_imp();
+        i->remove_imp();
     }
     redraw_column_imp(get_lineno(),expanding_column);
 }
@@ -155,7 +156,7 @@ void TCListRow::remove_imp()
         // remove children
         if (expanded) for (iterator i=begin();i!=end();i++)
             {
-                (*i).remove_imp();
+                i->remove_imp();
             }
     }
 }
@@ -237,7 +238,7 @@ int TCListRow::visible_size() const
     if (expanded)
     {
         for (const_iterator i=begin();i!=end();i++)
-            res+=(*i).expanded ? (*i).visible_size() : 1;
+            res+=i->expanded ? i->visible_size() : 1;
         // this '?:' avoids one depth of recursion
     }
     return res;
@@ -368,9 +369,17 @@ void TCListRow::append_imp()
     gint lineno=root.append(columns);
     root.set_row_data(lineno,this);
     redraw_pics_imp(lineno);
+    if (color_set) root.set_background(lineno,color);
 
     if (expanded) for (iterator i=begin();i!=end();++i)
         {
-            (*i).append_imp();
+            i->append_imp();
         }
+}
+
+void TCListRow::set_color(const Gdk_Color &col)
+{  color=col;
+   int lineno=get_lineno();
+   if (lineno!=-1) root.set_background(lineno,col);
+   color_set=true;
 }

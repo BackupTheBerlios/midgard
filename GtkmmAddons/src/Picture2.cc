@@ -1,4 +1,4 @@
-// $Id: Picture2.cc,v 1.1 2002/04/23 20:51:05 christof Exp $
+// $Id: Picture2.cc,v 1.3 2002/06/28 07:15:06 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>

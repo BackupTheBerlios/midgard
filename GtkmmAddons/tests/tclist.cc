@@ -1,4 +1,4 @@
-/* $Id: tclist.cc,v 1.8 2002/01/21 17:17:54 christof Exp $ */
+/* $Id: tclist.cc,v 1.9 2002/06/28 07:15:07 christof Exp $ */
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -48,6 +48,7 @@ class testwindow : public Gtk::Window
                 TCListRow &r1=*(liste->push_back(v)); v.erase(v.begin(),v.end());
                 r1.expand();
                 r1.set_expanding_column(1);
+                r1.set_color(Gdk_Color("red"));
                 r1.set_user_data((gpointer)0x700323);
 
                 const gchar *a00[]={ "","1","","12",0};
@@ -62,6 +63,7 @@ class testwindow : public Gtk::Window
 
                 const gchar *a01[]={ "","2","","8",0 };
                 TCListRow &r4=*(r1.push_back(a01,2,true));
+                r4.set_color(Gdk_Color("blue"));
                 r4.set_user_data((gpointer)0x951229);
                 const gchar *a10[]={ "","","2","3",0 };
                 r4.push_back(a10);

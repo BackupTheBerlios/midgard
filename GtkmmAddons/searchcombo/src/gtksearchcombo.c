@@ -615,7 +615,8 @@ gtk_searchcombo_new_selection (GtkList       *list,
    label=(GtkLabel*)(gtk_container_children(GTK_CONTAINER(li))->data);
    g_assert(label != NULL);
    g_assert(GTK_IS_LABEL(label));
-   // gtk_searchcombo_stop_if_running(searchcombo); done in activate
+   // done in activate but perhaps a good idea to do it earlier
+   gtk_searchcombo_stop_if_running(searchcombo); 
    gtk_signal_handler_block (GTK_OBJECT (searchcombo->entry), searchcombo->entry_change_id);
    gtk_entry_set_text(GTK_ENTRY (searchcombo->entry), label->label);
    gtk_signal_handler_unblock (GTK_OBJECT (searchcombo->entry), searchcombo->entry_change_id);

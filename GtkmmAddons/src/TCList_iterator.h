@@ -16,7 +16,7 @@
  *  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-// $Id: TCList_iterator.h,v 1.3 2001/11/09 10:38:27 christof Exp $
+// $Id: TCList_iterator.h,v 1.4 2002/06/28 07:15:06 christof Exp $
 
 class TCListRow;
 class TCList;
@@ -78,6 +78,13 @@ class TCListRow_constiterator : public TCListRow_baseiterator
             assert(current_index<current_vector->size());
 #endif
             return *((*current_vector)[current_index]);
+        }
+        const T *operator->() const
+        {
+#ifdef BE_CAREFUL
+            assert(current_index<current_vector->size());
+#endif
+            return &*((*current_vector)[current_index]);
         }
         operator std::vector<T*>::const_iterator() const
         {  return current_vector->begin()+current_index;
@@ -144,6 +151,13 @@ class TCListRow_iterator : public TCListRow_baseiterator
             assert(current_index<current_vector->size());
 #endif
             return *((*current_vector)[current_index]);
+        }
+        T *operator->() const
+        {
+#ifdef BE_CAREFUL
+            assert(current_index<current_vector->size());
+#endif
+            return &*((*current_vector)[current_index]);
         }
         operator std::vector<T*>::iterator()
         {

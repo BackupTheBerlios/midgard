@@ -1,4 +1,4 @@
-// $Id: TCList.h,v 1.11 2001/10/26 08:29:59 christof Exp $
+// $Id: TCList.h,v 1.12 2002/06/28 07:15:06 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -97,6 +97,8 @@ public:
         /// specify the expanding column (the one with the (+)-sign)
         virtual void set_expanding_column(gint col)
         {  expanding_column=col; }
+        
+        virtual void set_color(const Gdk_Color &col) {}
 	
 protected: // to make gcc happy	
 	virtual ~TCListRow_API() {}
