@@ -1,10 +1,10 @@
-# $Id: Makefile,v 1.36 2001/12/12 11:49:24 christof Exp $
+# $Id: Makefile,v 1.37 2001/12/17 13:51:13 christof Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten zauber ausnahmen \
 	berufe_voraussetzung_4 berufe_vorteile_4 \
 	fertigkeiten fertigkeiten_voraussetzung \
-	fertigkeiten_typen kido land lernschema lernschema_4 \
+	fertigkeiten_typen kido land lernschema_4 \
 	pflicht_lernen praxispunkte preise preise_modifikation \
 	spezies spezies_typen ruestung schrift sprachen \
 	steigern_fertigkeiten steigern_fertigkeiten_mit \
@@ -13,6 +13,10 @@ SYSTEM_TABLES=angeborene_fertigkeiten zauber ausnahmen \
 	waffen_steigern waffen_typen \
 	zauber_beschreibung zauberwerk zauberwerk_typen \
 	zauberwerk_voraussetzung spezialgebiete grad_anstieg zauber_typen
+
+OBSELETE_TABLES=berufe_voraussetzung berufe_vorteile berufe_stand \
+	arkanum_zauber lernschema
+
 USER_TABLES=charaktere charaktere_fertigkeiten
 TABLES=$(SYSTEM_TABLES) $(USER_TABLES)
 
@@ -29,6 +33,7 @@ all:
 	@echo "make dist: make a .tar.gz"
 	@echo "make install: install tables (preserving user data)"
 	@echo "make diff: compare your tables with these files"
+	@echo "make dbclean: drop tables from old versions"
 	@echo
 	@echo "make fulldump: dump with user data (not for dist or cvs, please)"
 	@echo "make fullinstall: overwrite user data - DO YOU REALLY WANT THIS?"
@@ -100,3 +105,9 @@ diff:
 	  pg_dump $(PGDUMP_FLAGS) -s -t "$$i" midgard | ./drop_all_varying | \
 		diff -B -I '-- .*' -u - "$$i" ; \
 	done ; true
+dbclean:
+	@for i in $(OBSELETE_TABLES) ; \
+	do \
+	  psql midgard -c "drop table $$i;" ; \
+	done ; true
+	
