@@ -19,7 +19,9 @@
 
 #ifndef TAG_HH
 #define TAG_HH
-//#include <config.h>
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <string>
 #include <vector>
 #include <algo.h> // for find
