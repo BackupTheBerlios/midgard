@@ -2158,4 +2158,100 @@
     <Stand>Mittelschicht,Volk</Stand>
     <Vorteil>Kampf zu Pferd,Reiten</Vorteil>
   </Beruf>
+  <Verbot Typ="Berggnom" Fertigkeit="Kampfstab"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Kriegsflegel"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Langbogen"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Lanze"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Netz"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Peitsche"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Stangenwaffe"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Stockschleuder"/>
+  <Verbot Typ="Berggnom" Fertigkeit="ZSchlagwaffe"/>
+  <Verbot Typ="Berggnom" Fertigkeit="ZSchwert"/>
+  <Verbot Typ="Berggnom" Fertigkeit="schwere Armbrust"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Überleben im Schnee" Spielbeginn="S"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Überleben im Wald" Spielbeginn="S"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
+  <Verbot Typ="Berggnom" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
+  <Pflicht Typ="Berggnom" Fertigkeit="Bergmann" Lernpunkte="3"/>
+  <Pflicht Typ="Berggnom" Fertigkeit="Geheimmechanismen öffnen" Lernpunkte="1" Erfolgswert="4"/>
+  <Pflicht Typ="Berggnom" Fertigkeit="Steinmetz" Lernpunkte="3"/>
+  <Verbot Typ="Elf" Fertigkeit="Gassenwissen"/>
+  <Verbot Typ="Elf" Fertigkeit="Giftmischen"/>
+  <Verbot Typ="Elf" Fertigkeit="Glücksspiel"/>
+  <Verbot Typ="Elf" Fertigkeit="Kampf in Vollrüstung" Spielbeginn="S"/>
+  <Verbot Typ="Elf" Fertigkeit="Schlösser öffnen"/>
+  <Verbot Typ="Elf" Fertigkeit="Stehlen"/>
+  <Verbot Typ="Elf" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
+  <Verbot Typ="Elf" Fertigkeit="Überleben im Gebirge" Spielbeginn="S"/>
+  <Verbot Typ="Elf" Fertigkeit="Überleben im Schnee" Spielbeginn="S"/>
+  <Verbot Typ="Elf" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
+  <Verbot Typ="Elf" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
+  <Verbot Typ="Elf" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
+  <Pflicht Typ="Elf" Fertigkeit="Schleichen" Lernpunkte="1" Erfolgswert="8"/>
+  <Pflicht Typ="Elf" Fertigkeit="Spurenlesen" Lernpunkte="1" Erfolgswert="6"/>
+  <Pflicht Typ="Elf" Fertigkeit="Tarnen" Lernpunkte="1" Erfolgswert="8"/>
+  <Pflicht Typ="Elf" Fertigkeit="Wahrnehmung" Lernpunkte="1" Erfolgswert="4"/>
+  <Verbot Typ="Halbling" Fertigkeit="Kampfstab"/>
+  <Verbot Typ="Halbling" Fertigkeit="Kriegsflegel"/>
+  <Verbot Typ="Halbling" Fertigkeit="Langbogen"/>
+  <Verbot Typ="Halbling" Fertigkeit="Lanze"/>
+  <Verbot Typ="Halbling" Fertigkeit="Netz"/>
+  <Verbot Typ="Halbling" Fertigkeit="Peitsche"/>
+  <Verbot Typ="Halbling" Fertigkeit="Stangenwaffe"/>
+  <Verbot Typ="Halbling" Fertigkeit="Stockschleuder"/>
+  <Verbot Typ="Halbling" Fertigkeit="ZSchlagwaffe"/>
+  <Verbot Typ="Halbling" Fertigkeit="ZSchwert"/>
+  <Verbot Typ="Halbling" Fertigkeit="schwere Armbrust"/>
+  <Verbot Typ="Halbling" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
+  <Verbot Typ="Halbling" Fertigkeit="Überleben im Gebirge" Spielbeginn="S"/>
+  <Verbot Typ="Halbling" Fertigkeit="Überleben im Schnee" Spielbeginn="S"/>
+  <Verbot Typ="Halbling" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
+  <Verbot Typ="Halbling" Fertigkeit="Überleben im Wald" Spielbeginn="S"/>
+  <Verbot Typ="Halbling" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
+  <Verbot Typ="Halbling" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
+  <Pflicht Typ="Halbling" Fertigkeit="Schleichen" Lernpunkte="1" Erfolgswert="10"/>
+  <Pflicht Typ="Halbling" Fertigkeit="Tarnen" Lernpunkte="1" Erfolgswert="10"/>
+  <Verbot Typ="Ri" Fertigkeit="Beschatten"/>
+  <Verbot Typ="Ri" Fertigkeit="Fallenstellen"/>
+  <Verbot Typ="Ri" Fertigkeit="Fälschen"/>
+  <Verbot Typ="Ri" Fertigkeit="Gassenwissen"/>
+  <Verbot Typ="Ri" Fertigkeit="Giftmischen"/>
+  <Verbot Typ="Ri" Fertigkeit="Kampf vom Streitwagen"/>
+  <Verbot Typ="Ri" Fertigkeit="Meucheln"/>
+  <Verbot Typ="Ri" Fertigkeit="Stehlen"/>
+  <Verbot Typ="Ri" Fertigkeit="Streitwagen lenken"/>
+  <Verbot Typ="Ri" Fertigkeit="Tarnen"/>
+  <Pflicht Typ="Ri" Fertigkeit="Lanze"/>
+  <Pflicht Typ="Ri" Fertigkeit="großer Schild"/>
+  <Pflicht Typ="Ri" Fertigkeit="kleiner Schild"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Kampfstab"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Kriegsflegel"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Langbogen"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Lanze"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Netz"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Peitsche"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Stangenwaffe"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Stockschleuder"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="ZSchlagwaffe"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="ZSchwert"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="schwere Armbrust"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Überleben im Gebirge" Spielbeginn="S"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Überleben im Schnee" Spielbeginn="S"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
+  <Verbot Typ="Waldgnom" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
+  <Pflicht Typ="Waldgnom" Fertigkeit="Spurenlesen" Lernpunkte="1" Erfolgswert="4"/>
+  <Pflicht Typ="Waldgnom" Fertigkeit="Tarnen" Lernpunkte="1" Erfolgswert="4"/>
+  <Verbot Typ="Zwerg" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
+  <Verbot Typ="Zwerg" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
+  <Verbot Typ="Zwerg" Fertigkeit="Überleben im Wald" Spielbeginn="S"/>
+  <Verbot Typ="Zwerg" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
+  <Verbot Typ="Zwerg" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
+  <Pflicht Typ="Zwerg" Fertigkeit="Bergmann" Lernpunkte="3"/>
+  <Pflicht Typ="Zwerg" Fertigkeit="Steinmetz" Lernpunkte="3"/>
+  <Pflicht Typ="Zwerg" Fertigkeit="Zimmermann" Lernpunkte="3"/>
 </MidgardCG-data>

@@ -84,8 +84,8 @@
   </Spruch>
   <Spruch Name="Bannen von Hrimfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Eis" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="3"/>
-    <Lernschema Typ="eBe" Lernpunkte="4"/>
+    <Lernschema Typ="eBe" Lernpunkte="3" Primärelement="Eis"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Sekundärelement="Eis"/>
     <Beschreibung>Bannt Hrimfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
   <Spruch Name="Bannen von Hrimkin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung" Element="Eis">
@@ -104,8 +104,8 @@
   </Spruch>
   <Spruch Name="Bannen von Jördfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="3"/>
-    <Lernschema Typ="eBe" Lernpunkte="4"/>
+    <Lernschema Typ="eBe" Lernpunkte="3" Primärelement="Erde"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Sekundärelement="Erde"/>
     <Beschreibung>Bannt Jördfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
   <Spruch Name="Bannen von Jördkin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
@@ -130,8 +130,8 @@
   </Spruch>
   <Spruch Name="Bannen von Vindfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="3"/>
-    <Lernschema Typ="eBe" Lernpunkte="4"/>
+    <Lernschema Typ="eBe" Lernpunkte="3" Primärelement="Luft"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Sekundärelement="Luft"/>
     <Beschreibung>Bannt Vindfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
   <Spruch Name="Bannen von Vindskin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
@@ -139,8 +139,8 @@
   </Spruch>
   <Spruch Name="Bannen von Wisfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Wasser" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Material=" " Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="3"/>
-    <Lernschema Typ="eBe" Lernpunkte="4"/>
+    <Lernschema Typ="eBe" Lernpunkte="3" Primärelement="Wasser"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Sekundärelement="Wasser"/>
     <Beschreibung>Bannt Wisfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
   <Spruch Name="Bannen von Wiskin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
@@ -442,7 +442,7 @@
   </Spruch>
   <Spruch Name="Eldring beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="4"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Primärelement="Feuer"/>
   </Spruch>
   <Spruch Name="Elementarbann" Grad="5" Lernkosten="3000" AP="#*6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="var" Material=" " Zauberart="Beschwörung">
     <Standard>dBe</Standard>
@@ -547,7 +547,7 @@
   </Spruch>
   <Spruch Name="Felldverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Erde"/>
   </Spruch>
   <Spruch Name="Felsenfaust" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="elementar" Agens="Erde" Prozess="verwandelt" Reagens="Holz" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Material="Kieselstein">
     <Grund>PHa,PK,Sa,Sc</Grund>
@@ -699,7 +699,7 @@
   </Spruch>
   <Spruch Name="Gloddverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Feuer"/>
   </Spruch>
   <Spruch Name="Goldener Panzer" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="verändert" Reagens="Metall" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Material="Goldstaub" Spruchrolle="True" Thaumagramm="Siegel">
     <Grund>Or,Sr,Th</Grund>
@@ -806,7 +806,7 @@
   </Spruch>
   <Spruch Name="Haugskadi beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="4"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Primärelement="Erde"/>
   </Spruch>
   <Spruch Name="Heilen schwerer Wunden" Grad="3" Lernkosten="900" AP="4" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="erschafft" Reagens="Erde" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
     <Grund>Hl,Or,PF,PHa,PHe,PK,PM,PT,PW</Grund>
@@ -895,7 +895,7 @@
   </Spruch>
   <Spruch Name="Hrimdverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Eis"/>
   </Spruch>
   <Spruch Name="Hrimhune beschwören" Grad="6" Lernkosten="7000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="4,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
@@ -955,7 +955,7 @@
   </Spruch>
   <Spruch Name="Jambani beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="4"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Primärelement="Wasser"/>
   </Spruch>
   <Spruch Name="Jokulskadi beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
@@ -1001,16 +1001,16 @@
   </Spruch>
   <Spruch Name="Kallbjargi beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="1"/>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="1" Primärelement="Eis"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Sekundärelement="Eis"/>
   </Spruch>
   <Spruch Name="Kallrani beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Karing beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="1"/>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="1" Primärelement="Luft"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Sekundärelement="Luft"/>
   </Spruch>
   <Spruch Name="Knochenbestie" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="schwarzmagisch" Agens="Eis" Prozess="beherrscht" Reagens="Holz" Zauberdauer="20 s" Reichweite="1 km" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="30 min" Material="Tierschädel, -knochen und -shnen, Fellstücke">
     <Grund>Sa,Sc</Grund>
@@ -1063,8 +1063,8 @@
   </Spruch>
   <Spruch Name="Lergris beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Erde">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="1"/>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="1" Primärelement="Erde"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Sekundärelement="Erde"/>
   </Spruch>
   <Spruch Name="Lichtbrücke" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="erschafft" Reagens="Feuer" Zauberdauer="1 min" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="10 min" Spruchrolle="True">
     <Grund>PHa,PHe,PW</Grund>
@@ -1163,8 +1163,8 @@
   </Spruch>
   <Spruch Name="Ljosfang beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="1"/>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="1" Primärelement="Feuer"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Sekundärelement="Feuer"/>
   </Spruch>
   <Spruch Name="Loblied" Grad="2" Lernkosten="200" AP="2" Typ="Zauberlied" Ursprung="druidisch" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="-" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="1-3 d">
     <Grund>Ba,Sk</Grund>
@@ -1312,8 +1312,8 @@
   </Spruch>
   <Spruch Name="Mokkurbjargi beschwören" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="0,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 2 GS " Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="1"/>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="1" Primärelement="Wasser"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Sekundärelement="Wasser"/>
   </Spruch>
   <Spruch Name="Myrknir beschwören" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 100 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
@@ -1337,7 +1337,7 @@
   </Spruch>
   <Spruch Name="Nefling beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="4"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Primärelement="Luft"/>
   </Spruch>
   <Spruch Name="Niessalz" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Zauberart="Zaubersalz" Spruchrolle="True">
     <Grund>Th</Grund>
@@ -1432,7 +1432,7 @@
   </Spruch>
   <Spruch Name="Saeldverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Wasser"/>
   </Spruch>
   <Spruch Name="Scharfblick" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Feuer" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min">
     <Grund>Ma</Grund>
@@ -1502,8 +1502,8 @@
   </Spruch>
   <Spruch Name="Schutzkreis gegen Hrimfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
-    <Lernschema Typ="eBe" Lernpunkte="3"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Eis"/>
+    <Lernschema Typ="eBe" Lernpunkte="3" Sekundärelement="Eis"/>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Hrimfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Hunar" Grad="4" Lernkosten="600" AP="#*4" Typ="Geste" Ursprung="elemtar" Agens="Luft" Prozess="beherrscht" Reagens="Element" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="1 h" Material="magische Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
@@ -1512,13 +1512,13 @@
   </Spruch>
   <Spruch Name="Schutzkreis gegen Hyrrfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
-    <Lernschema Typ="eBe" Lernpunkte="3"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Feuer"/>
+    <Lernschema Typ="eBe" Lernpunkte="3" Sekundärelement="Feuer"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Jördfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
-    <Lernschema Typ="eBe" Lernpunkte="3"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Erde"/>
+    <Lernschema Typ="eBe" Lernpunkte="3" Sekundärelement="Erde"/>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Jördfolk , der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Kaobargen" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung">
@@ -1534,14 +1534,14 @@
   </Spruch>
   <Spruch Name="Schutzkreis gegen Vindfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
-    <Lernschema Typ="eBe" Lernpunkte="3"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Luft"/>
+    <Lernschema Typ="eBe" Lernpunkte="3" Sekundärelement="Luft"/>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Wisfolk" Grad="1" Lernkosten="40" AP="#*1" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 h " Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="24 h" Material="mag Farbe, Kreide und Zutaten" Zauberart="Beschwörung" Element="Wasser">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
-    <Lernschema Typ="eBe" Lernpunkte="3"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Wasser"/>
+    <Lernschema Typ="eBe" Lernpunkte="3" Sekundärelement="Wasser"/>
     <Beschreibung>Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. </Beschreibung>
   </Spruch>
   <Spruch Name="Schwarm" Grad="2" Lernkosten="300" AP="2" Typ="Wort" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="1 min">
@@ -1663,7 +1663,7 @@
   </Spruch>
   <Spruch Name="Svalgrim beschwören" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 5 GS" Zauberart="Beschwörung" Element="Eis">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="4"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Primärelement="Eis"/>
   </Spruch>
   <Spruch Name="Thrymbar beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 20 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
@@ -1847,7 +1847,7 @@
   </Spruch>
   <Spruch Name="Vinddverg beschwören" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 40 GS " Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Lernschema Typ="eBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="2" Primärelement="Luft"/>
   </Spruch>
   <Spruch Name="Vindmand beschwören" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h " Material="Edelstein 50 GS" Zauberart="Beschwörung" Element="Luft">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
