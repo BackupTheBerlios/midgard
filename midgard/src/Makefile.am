@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.114 2002/02/09 16:14:06 thoma Exp $
+# $Id: Makefile.am,v 1.115 2002/02/10 14:55:56 thoma Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -34,7 +34,6 @@ noinst_HEADERS = \
    Spezialgebiet.hh \
    Lernschema.hh \
    Preise.hh dtos1.h \
-   Geheimzeichen.hh \
 WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
@@ -112,7 +111,6 @@ export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 midgard_SOURCES = \
-   Geheimzeichen.cc \
    Grundwerte.cc \
 	gw_wuerfeln.cc \
    midgard_CG_Ausruestung.cc \

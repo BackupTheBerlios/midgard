@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.29 2002/02/09 16:13:29 thoma Exp $
+# $Id: Makefile.am,v 1.30 2002/02/10 14:55:56 thoma Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
 
@@ -9,7 +9,7 @@ CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ $(MIDGARD3) -DREGION
 common_sources = export_common.cc common_exp.cc zauber_exp.cc
 arkanum_exp_SOURCES= arkanum_exp.cc $(common_sources)
 all_exp_SOURCES=all_exp.cc $(common_sources) \
-	kido_exp.cc fertigk_exp.cc zusaetze_exp.cc land_sprache_exp.cc waffen_exp.cc
+	kido_exp.cc fertigk_exp.cc land_sprache_exp.cc waffen_exp.cc
 
 LDFLAGS = @KOMPONENTEN_LDFLAGS@
 CLEANFILES = *~ $(BUILT_SOURCES) 

@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.8 2002/02/09 16:14:06 thoma Exp $               
+// $Id: Datenbank.cc,v 1.9 2002/02/10 14:55:56 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -65,7 +65,6 @@ Datenbank::Datenbank()
     Regionen = Regionen_All(MI->get_progressbar_regionen()).get_All();
     MI->set_Regionen(Regionen);
     Laender = Laender_All(MI->get_progressbar_laender()).get_All();
-    Geheimzeichen = Geheimzeichen_All(MI->get_progressbar_laender()).get_All();
     Ruestung = Ruestung_All(MI->get_progressbar_ruestung()).get_All();
     lernschema = Lernschema(MI->get_progressbar_lernschema());
     Beruf = Beruf_All(MI->get_progressbar_beruf()).get_All();

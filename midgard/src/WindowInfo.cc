@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.27 2002/02/09 21:45:39 thoma Exp $
+// $Id: WindowInfo.cc,v 1.28 2002/02/10 14:55:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,8 +32,7 @@
 
 void WindowInfo::on_button_info_ok_clicked()
 {   
- if(Modus==Autoclean) des.disconnect();
-// destroy();
+  if(Modus==Autoclean) des.disconnect();
   hide();
 }
 
@@ -45,8 +44,6 @@ void WindowInfo::on_button_bestaetigen_clicked()
 WindowInfo::WindowInfo(midgard_CG* h)
 : mystream(0), hauptfenster(h)
 {
-//   infotext->set_text(s.c_str());
-
    if (mystream) delete mystream;
    Gtk::OStream *mystream = new Gtk::OStream(LogWin->get_list());
    ((Gtk::OStream*)mystream)->flushed.connect(SigC::slot(LogWin,&logwin::scroll));
@@ -54,7 +51,7 @@ WindowInfo::WindowInfo(midgard_CG* h)
    if(autoclean)
     {
       des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
-//      button_info_ok->hide();
+      button_info_ok->hide();
     }
   hide();
 }
@@ -85,14 +82,13 @@ void WindowInfo::AppendShow(int i, emodus modus, cH_MidgardBasicElement _MBE)
   AppendShow(i,modus);
 }
 
-
-
 void WindowInfo::Flush()
 {
 //  (*mystream).flush();
 //mystream->flush();
   Gtk::OStream os(LogWin->get_list());
   os.flush();
+  LogWin->scroll();
 
   show();
   if (Modus==None || Modus==Autoclean) bestaetigen(false) ;
@@ -124,7 +120,6 @@ void WindowInfo::bestaetigen(bool b)
 
 gint WindowInfo::timeout() 
 { 
-//   destroy();
    hide();
    return 0; 
 }

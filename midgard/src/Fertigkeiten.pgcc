@@ -142,6 +142,17 @@ void Fertigkeit::get_Fertigkeit()
                 Voraussetzungen->getIntAttr("Sb"),
                 Voraussetzungen->getIntAttr("RW"),
                 Voraussetzungen->getAttr("Fertigkeit"));
+
+ const Tag *Zusaetze=tag->find("Zusaetze");
+ if (Zusaetze)
+   {
+cout << "\n\n\nZusaätze laden für "<<Name()<<"\n";
+     FOR_EACH_CONST_TAG_OF(i,*Zusaetze,"Zusaetze")
+{
+cout << "Name : "<<i->getAttr("Name");
+      Vzusatz.push_back(i->getAttr("Name"));
+}
+   }
 #endif  
 }
 

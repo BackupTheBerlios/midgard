@@ -747,7 +747,6 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
          if(cH_Fertigkeit(fert)->ZusatzBool())
          {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
             if(fert->Name()=="Landeskunde") cH_Land(i->getAttr("Zusatz"),true);
-            if(fert->Name()=="Geheimzeichen") cH_Geheimzeichen(i->getAttr("Zusatz"),true);
             cH_Fertigkeit(fert)->setZusatz(i->getAttr("Zusatz"));
          }
          list_Fertigkeit.push_back(fert);

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.18 2002/02/09 16:13:29 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.19 2002/02/10 14:55:56 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -86,6 +86,17 @@ void fert_speichern(std::ostream &o)
          fetch_and_write_int_attrib(is2, o, "Sb");
          fetch_and_write_int_attrib(is2, o, "RW");
          fetch_and_write_string_attrib(is2, o, "Fertigkeit");
+         o << "/>\n";
+      }
+    }
+
+      //********** fertigkeiten_zusätze **********************************
+   {  Query queryZu("select name from fertigkeiten_zusaetze "
+   	" where art='"+fert+"' order by name");
+      FetchIStream isZu;
+      while ((queryZu>>isZu).good()) 
+      {  o << "    <Zusaetze ";
+         fetch_and_write_string_attrib(isZu, o, "Name");
          o << "/>\n";
       }
     }

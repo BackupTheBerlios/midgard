@@ -1,0 +1,25 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "fertigkeiten_zusaetze";
+--
+--
+--
+
+CREATE TABLE "fertigkeiten_zusaetze" (
+	"art" text NOT NULL,
+	"name" text NOT NULL
+);
+
+--
+--
+--
+
+
+COPY "fertigkeiten_zusaetze" FROM stdin;
+Geheimzeichen	KanThaiPan und Minangpahit
+Geheimzeichen	Moravische Runen
+Geheimzeichen	Nahuatlan
+Geheimzeichen	Ogam-Ritzungen
+Geheimzeichen	Zinken (Meer der fünf Winde)
+\.

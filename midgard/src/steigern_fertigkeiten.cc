@@ -127,6 +127,7 @@ void midgard_CG::kaempfer_lernt_zaubern(const cH_MidgardBasicElement MBE)
    if (Werte.Zaubern_wert()==2) Werte.setZaubern_wert(10);
 //   cH_MidgardBasicElement MBE=new Fertigkeit(*cH_Fertigkeit("Zaubern"));
    MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,MBE);
+  fertigkeiten_zeigen();
 }
 
 
@@ -141,11 +142,14 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
         os.flush(MBE->ref(),&HandleContent::unref);
       }
   else if(MBE->Name()=="Geheimzeichen")
-     for (std::vector<cH_Geheimzeichen>::const_iterator i=Database.Geheimzeichen.begin();i!=Database.Geheimzeichen.end();++i)
+   {
+     std::vector<std::string> VZ=cH_Fertigkeit(MBE)->VZusatz();
+     for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)
       {
-        os <<(*i)->Name()<<'\n';
+        os << *i <<'\n';
         os.flush(MBE->ref(),&HandleContent::unref);
       }
+   }
   scrolledwindow_landauswahl->show();
 }
 

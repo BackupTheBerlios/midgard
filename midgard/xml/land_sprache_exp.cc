@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.25 2002/02/09 07:45:08 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.26 2002/02/10 14:55:56 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -229,7 +229,7 @@ void land_speichern(std::ostream &o)
   		"stadt_land, ausdauer, stand, sb, ruestung, geld "
    	" from typen"
    	" where coalesce(region,'')='"+region+"'"
-   	" order by coalesce(region,''),typs");
+   	" order by typnr,coalesce(region,''),typs");
   while ((query>>is).good())
   {o << "  <Typ";
    fetch_and_write_typ_attrib(is, o, "Abkürzung");
