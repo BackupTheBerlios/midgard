@@ -47,7 +47,9 @@ void frame_globale_optionen::init()
  Gtk::HSeparator *hseparator = manage(new class Gtk::HSeparator());
  table->attach(*hseparator, 0, 1, count, count+1, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
  ++count;
- 
+
+#warning das geht so noch nicht!!!
+#if 1 
  std::list<Optionen::st_OptionenCheck> &L2=hauptfenster->getAben().getOptionen().getOptionenCheck();
  for(std::list<Optionen::st_OptionenCheck>::iterator i=L2.begin();i!=L2.end();++i)
   {
@@ -83,6 +85,7 @@ void frame_globale_optionen::init()
    table->attach(*t,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
    ++count;
   } 
+#endif
  add(*table);
  show_all();
 }
