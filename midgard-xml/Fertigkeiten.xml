@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MidgardCG-data>
+ <Fertigkeiten>
   <Fertigkeit Name="Alchemie" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2">
     <Grund>Ma,Th,dBe,eBe</Grund>
     <Standard>Dr,Hl,PC,PF,PK,PM,PT,PW,Sa,Sc,gHx,sHx,wHx</Standard>
@@ -1063,6 +1064,8 @@
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sr" Lernpunkte="1"/>
   </Fertigkeit>
+ </Fertigkeiten>
+ <angeboreneFertigkeiten>
   <angeboreneFertigkeit Name="Beidhändigkeit" Min="86" Max="87"/>
   <angeboreneFertigkeit Name="Berserkergang" Min="88" Max="89"/>
   <angeboreneFertigkeit Name="Gefahr spüren" Min="92" Max="93" Wert="1"/>
@@ -1070,6 +1073,8 @@
   <angeboreneFertigkeit Name="Nachtsicht" Min="96" Max="97"/>
   <angeboreneFertigkeit Name="Richtungssinn" Min="90" Max="91" Wert="12"/>
   <angeboreneFertigkeit Name="Wachgabe" Min="98" Max="99"/>
+ </angeboreneFertigkeiten>
+ <Berufe>
   <Beruf Name="Knappe" Region="B&amp;R" Lernpunkte="9">
     <Voraussetzungen Typ="k" Geschlecht="m"/>
     <Stand>Adel</Stand>
@@ -2158,6 +2163,8 @@
     <Stand>Mittelschicht,Volk</Stand>
     <Vorteil>Kampf zu Pferd,Reiten</Vorteil>
   </Beruf>
+ </Berufe>
+ <Typ-Pflichten>
   <Verbot Typ="Berggnom" Fertigkeit="Kampfstab"/>
   <Verbot Typ="Berggnom" Fertigkeit="Kriegsflegel"/>
   <Verbot Typ="Berggnom" Fertigkeit="Langbogen"/>
@@ -2254,4 +2261,35 @@
   <Pflicht Typ="Zwerg" Fertigkeit="Bergmann" Lernpunkte="3"/>
   <Pflicht Typ="Zwerg" Fertigkeit="Steinmetz" Lernpunkte="3"/>
   <Pflicht Typ="Zwerg" Fertigkeit="Zimmermann" Lernpunkte="3"/>
+ </Typ-Pflichten>
+ <Praxispunkte>
+  <Steigern Name="Abenteuer" MaximalWert="16" Lernfaktor="5"/>
+  <Steigern Name="Abwehr" MaximalWert="18" Lernfaktor="5"/>
+  <Steigern Name="Angriff" MaximalWert="17" Lernfaktor="7"/>
+  <Steigern Name="Beredsamkeit" MaximalWert="14" Lernfaktor="10"/>
+  <Steigern Name="Beschatten" MaximalWert="16" Lernfaktor="10"/>
+  <Steigern Name="Bewegung" MaximalWert="18" Lernfaktor="2"/>
+  <Steigern Name="Fechten" MaximalWert="16" Lernfaktor="10"/>
+  <Steigern Name="Fern" MaximalWert="17" Lernfaktor="7"/>
+  <Steigern Name="Gassenwissen" MaximalWert="16" Lernfaktor="5"/>
+  <Steigern Name="Glückspiel" MaximalWert="18" Lernfaktor="2"/>
+  <Steigern Name="Lippenlesen" MaximalWert="14" Lernfaktor="10"/>
+  <Steigern Name="Menschenkenntnis" MaximalWert="14" Lernfaktor="10"/>
+  <Steigern Name="Meucheln" MaximalWert="20" Lernfaktor="10"/>
+  <Steigern Name="Resistenz" MaximalWert="17" Lernfaktor="5"/>
+  <Steigern Name="Scharfschießen" MaximalWert="16" Lernfaktor="10"/>
+  <Steigern Name="Seilkunst" MaximalWert="16" Lernfaktor="5"/>
+  <Steigern Name="Stehlen" MaximalWert="25" Lernfaktor="10"/>
+  <Steigern Name="Stimmen nachahmen" MaximalWert="20" Lernfaktor="5"/>
+  <Steigern Name="Tauchen" MaximalWert="14" Lernfaktor="2"/>
+  <Steigern Name="Verführen" MaximalWert="16" Lernfaktor="2"/>
+  <Steigern Name="Verhören" MaximalWert="16" Lernfaktor="5"/>
+  <Steigern Name="Verkleiden" MaximalWert="20" Lernfaktor="10"/>
+  <Steigern Name="Verteidigung" MaximalWert="7" Lernfaktor="15"/>
+  <Steigern Name="Wahrnehmung" MaximalWert="6" Lernfaktor="15"/>
+  <Steigern Name="Winden" MaximalWert="8" Lernfaktor="15"/>
+  <Steigern Name="Wissen" MaximalWert="16" Lernfaktor="2"/>
+  <Steigern Name="Zaubern" MaximalWert="19" Lernfaktor="5"/>
+  <Steigern Name="Überleben" MaximalWert="16" Lernfaktor="5"/>
+ </Praxispunkte>
 </MidgardCG-data>

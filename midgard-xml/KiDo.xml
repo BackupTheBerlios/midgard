@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MidgardCG-data>
+ <Kido-Fertigkeiten>
   <KiDo Name="ChochoInu" Übersetzung="Schmetterling und Hund" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Sich aus einem Kontrollbereich entfernen, wenn PW+60:RW des Gegners mißlingt. Danach ist eine freie Bewegung möglich.</KiDo>
   <KiDo Name="DageIki" Übersetzung="Hauch eines Hiebes" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Finte. Kein eigener Angriff. Mißlingt PW+30:In/bzw RW bei In:t, so erhält der Gegner in der nächsten Runde WM-4 auf die Abwehr. (max. WM-8)</KiDo>
   <KiDo Name="DaiUchi" Übersetzung="Großer Schlag" Stufe="Eingeweihter" Stil="Harte Techniken" Lernkosten="120" AP="0">Erlaubt Gezielten Hieb mit Todesfolge.</KiDo>
@@ -49,4 +50,5 @@
   <KiDo Name="YoroYoschi" Übersetzung="Schwankendes Schilf" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="40" AP="0">Geschossen ausweichen und Angreifen. Fernkämpfer WM-2. KiDoka WM+4 Abwehr/phkZR(!)</KiDo>
   <KiDo Name="YubeChian" Übersetzung="Finger des Friedens" Stufe="Eingeweihter" Stil="Sanfte Techniken" Lernkosten="200" AP="0">Im Handgemenge festgehaltene werden gelähmt. Der Griff kann max. 2min aufrecht erhalten werden.</KiDo>
   <KiDo Name="YuehSchu" Übersetzung="Axt und Baum" Stufe="Schüler" Stil="beide" Lernkosten="60" AP="0">Blockade und Angriff. Mißlingt der EW.KiDo: Nur Blockade.</KiDo>
+ </Kido-Fertigkeiten>
 </MidgardCG-data>
