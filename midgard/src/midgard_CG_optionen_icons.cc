@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.9 2002/09/09 06:48:02 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.10 2002/09/13 07:34:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,6 +34,13 @@ void midgard_CG::Icons_setzen()
      if(Gtk::Label::isA((*i)->get_label())) 
         (*i)->get_label()->set_text(I.text);
    }
+
+  for(std::vector<st_buttons>::iterator i=IconVec.begin();i!=IconVec.end();++i)
+   {
+     Gtk::Widget *child = dynamic_cast<Gtk::Bin*>(i->widget)->get_child();     
+     Box_setzen(child,StyleIcon(i->icon));
+   }
+/*
   // InfoFenster
   Gtk::Widget *child = dynamic_cast<Gtk::Bin*>(InfoFenster->button_bestaetigen)->get_child();
   Box_setzen(child,StyleIcon(iJa));
@@ -52,6 +59,7 @@ void midgard_CG::Icons_setzen()
   Box_setzen(child,StyleIcon(iLernpunkte));
   child = dynamic_cast<Gtk::Bin*>(table_lernschema->togglebutton_lernpunkte_edit)->get_child();
   Box_setzen(child,StyleIcon(iLernEdit));
+*/
 }
 
 void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
@@ -87,6 +95,13 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/EditChar-trans-50.xpm" 
 #include "../pixmaps/Dice-2W6-trans-50.xpm" 
 #include "../pixmaps/Edit-trans-50.xpm" 
+#include "../pixmaps/Red-Dice-trans-50.xpm" 
+#include "../pixmaps/Job-trans-50.xpm" 
+#include "../pixmaps/Money-50.xpm" 
+#include "../pixmaps/Weapon-trans-50.xpm" 
+#include "../pixmaps/Dice_Armor-trans-50.xpm" 
+#include "../pixmaps/Dice-Ausruest-50.xpm" 
+
 
 // Ulfs 24-Icons
 #include "../pixmaps/Ulf/ulf_24_anleitung.xpm"
@@ -127,6 +142,12 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iEditGrund)  return st_icons("Werte\neditieren",EditChar_trans_50_xpm);
      else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,Dice_2W6_trans_50_xpm);
      else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,Edit_trans_50_xpm);
+     else if(typ==iEigenschaft)return st_icons("Eigensch."  ,Red_Dice_trans_50_xpm);
+     else if(typ==iBeruf)      return st_icons("Beruf"  ,Job_trans_50_xpm);
+     else if(typ==iGeld)       return st_icons("Geld"  ,Money_50_xpm);
+     else if(typ==iWaffen)     return st_icons("Waffen"  ,Weapon_trans_50_xpm);
+     else if(typ==iRuestung)   return st_icons("Rüstung"  ,Dice_Armor_trans_50_xpm);
+     else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,Dice_Ausruest_50_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
    {
@@ -148,6 +169,12 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iEditGrund)  return st_icons("Werte\neditieren",ulf_24_editieren_xpm);
      else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,ulf_24_wuerfel_xpm);
      else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,ulf_24_editieren_xpm);
+     else if(typ==iEigenschaft)return st_icons("Eigensch."  ,ulf_24_wuerfel_xpm);
+     else if(typ==iBeruf)      return st_icons("Beruf"  ,ulf_24_wuerfel_xpm);
+     else if(typ==iGeld)       return st_icons("Geld"  ,ulf_24_wuerfel_xpm);
+     else if(typ==iWaffen)     return st_icons("Waffen"  ,ulf_24_wuerfel_xpm);
+     else if(typ==iRuestung)   return st_icons("Rüstung"  ,ulf_24_wuerfel_xpm);
+     else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,ulf_24_wuerfel_xpm);
    }
   assert(!"never get here");
   abort();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.259 2002/07/17 17:05:52 thoma Exp $
+// $Id: midgard_CG.cc,v 1.260 2002/09/13 07:34:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,6 +37,7 @@ midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
   InfoFenster = manage(new WindowInfo(this));
 
   // Optionen laden
+  fill_IconVec();
   MOptionen = new Midgard_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
   MOptionen->load_options(with_path("magus_optionen.xml",false,true));
@@ -142,3 +143,26 @@ std::string midgard_CG::BinaryVerzeichnis() const
       return argv0.substr(0,argv0.rfind(WinLux::dirsep)+1);
    else return "";
 }
+
+void midgard_CG::fill_IconVec()
+{
+  // InfoFenster
+  IconVec.push_back(st_buttons(InfoFenster->button_bestaetigen,iJa));
+  IconVec.push_back(st_buttons(InfoFenster->button_abbrechen,iNein));
+  // Grundwerte
+  IconVec.push_back(st_buttons(table_grundwerte->button_grundwerte,iEigenschaften));
+  IconVec.push_back(st_buttons(table_grundwerte->button_abg_werte,iAbgeleitet));
+  IconVec.push_back(st_buttons(table_grundwerte->togglebutton_edit_werte,iEditGrund));
+  // Lernschema
+  IconVec.push_back(st_buttons(table_lernschema->button_lernpunkte,iLernpunkte));
+  IconVec.push_back(st_buttons(table_lernschema->togglebutton_lernpunkte_edit,iLernEdit));
+  IconVec.push_back(st_buttons(table_lernschema->button_beruf,iBeruf));
+  IconVec.push_back(st_buttons(table_lernschema->button_lernschema_geld,iGeld));
+  IconVec.push_back(st_buttons(table_lernschema->button_lernschema_waffen,iWaffen));
+  IconVec.push_back(st_buttons(table_lernschema->button_ruestung,iRuestung));
+  IconVec.push_back(st_buttons(table_lernschema->button_ausruestung,iAusruestung));
+  // Steigern
+  IconVec.push_back(st_buttons(table_steigern->button_grad_basiswerte,iEigenschaft));
+
+}
+

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.276 2002/09/09 06:48:02 thoma Exp $
+// $Id: midgard_CG.hh,v 1.277 2002/09/13 07:34:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -110,9 +110,16 @@ class midgard_CG : public midgard_CG_glade
 
         enum e_icon {iNew,iOpen,iClose,iPrint,iBack,iForward,iMenu,iInfo,iHelp,
                      iInstruction,iExit,iJa,iNein,iEigenschaften,iAbgeleitet,
-                     iEditGrund,iLernpunkte,iLernEdit};
+                     iEditGrund,iLernpunkte,iLernEdit,iBeruf,iGeld,iWaffen,
+                     iRuestung,iAusruestung,iEigenschaft};
         struct st_icons{std::string text;char **icon;
                st_icons(std::string t,char **i):text(t),icon(i){}};
+        struct st_buttons{Gtk::Widget *widget; e_icon icon;
+               st_buttons(Gtk::Widget *w, e_icon i)
+                  : widget(w),icon(i) {}};
+
+        std::vector<st_buttons> IconVec;
+        void fill_IconVec();
         st_icons StyleIcon(e_icon typ) const;
         void Icons_setzen();
         void Box_setzen(Gtk::Widget *child,st_icons I);

@@ -11311,6 +11311,7 @@ steigern</label>
 		  <widget>
 		    <class>GtkButton</class>
 		    <name>button_grad_basiswerte</name>
+		    <cxx_visibility>protected</cxx_visibility>
 		    <tooltip>Linke Maustaste: Würfeln, ob sich die Basiswerte beim Gradanstieg erhöhen         Rechte Maustaste: Würfelwurf direkt eingeben. In beiden Fällen wird zusätzlich die Schicksalsgunst erhöht.</tooltip>
 		    <signal>
 		      <name>button_release_event</name>
