@@ -52,7 +52,8 @@ void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
       neue_fertigkeiten_zeigen();
       if(radiobutton_verlernen->get_active()) alte_fertigkeiten_zeigen();
    }
- alte_fert_tree->unselect_all();
+ if(!spinbutton_pp_eingeben->is_visible())
+    alte_fert_tree->unselect_all();
 }
 
 void table_steigern::on_alte_fert_reorder()

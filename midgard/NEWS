@@ -17,6 +17,7 @@ NEWS IN VERSION 0.8.9
 * '--' im Ausdruck bei PP  für ang. Fertigkeiten
 * Direkte Addition der Schadensboni im Ausdruck bei Waffen mit unterschiedlichen
    Schadensboni
+* PP eingeben geht wieder
 
 TODO: ('-' zeigt CP an)
 

@@ -159,7 +159,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
     zeige_werte();
     return;
   }   
- 
+
  guint pagenr = notebook_lernen->get_current_page_num();
  try{
  MBEmlt M=getSelectedNotebookLernen();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.10 $">
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.11 $">
  <Schriften>
   <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
    <Variante Name="KanThaiTun(1)"/>
@@ -1976,7 +1976,7 @@
    <Reichweite/>
    <Lernkosten/>
   </Waffe>
-  <Waffe Name="KusariGama" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="Z" Schaden="W6-1/W6+2">
+  <Waffe Name="KusariGama" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="-1" Schadensbonus2="2">
    <Modifikationen/>
    <Voraussetzungen St="61" Gs="81"/>
    <Reichweite/>
@@ -2592,7 +2592,7 @@
    <Standard Typ="Ny"/>
   </Waffe>
   <Waffe Name="Stoßspeer">
-   <regionaleVariante Name="Yari" Region="K" Schaden="1/2/3W6"/>
+   <regionaleVariante Name="Yari" Region="K" Schaden="1|2|3W6"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
   </Waffe>
@@ -2671,7 +2671,7 @@
    <Standard Typ="Ny"/>
   </Waffe>
   <Waffe Name="schwere Armbrust">
-   <regionaleVariante Name="SangMiau" Region="K" Schaden="2W6-1"/>
+   <regionaleVariante Name="SangMiau" Region="K" Schaden="2W6" Schadensbonus="-1"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
   </Waffe>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.17 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.18 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -7408,7 +7408,7 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="As" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Glefe" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6(+2)">
+  <Waffe Name="Glefe" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus2="2">
    <Modifikationen Waffenrang="+1/-2" Abwehr-leicht="0/0" Abwehr-schwer="0/-1"/>
    <Voraussetzungen St="11" Gs="61"/>
    <Reichweite/>
@@ -7508,7 +7508,7 @@
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Hellebarde" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6(W6+2/2W6-1)">
+  <Waffe Name="Hellebarde" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6|W6+2|2W6-1">
    <Modifikationen Waffenrang="+1/-3" Abwehr-leicht="0/+2" Abwehr-schwer="0/-2"/>
    <Voraussetzungen St="61" Gs="51"/>
    <Reichweite/>
@@ -7815,7 +7815,7 @@
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Krummsäbel" Grundkenntnisse="Einhandschwert" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6(+1)">
+  <Waffe Name="Krummsäbel" Grundkenntnisse="Einhandschwert" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus2="1">
    <Modifikationen Abwehr-leicht="0/-2" Abwehr-schwer="0/0"/>
    <Voraussetzungen St="31" Gs="11"/>
    <Reichweite/>
@@ -7986,7 +7986,7 @@
    <Lernschema Typ="Er" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Lanze" Grundkenntnisse="Spießwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6(2W6+2/3W6+3)">
+  <Waffe Name="Lanze" Grundkenntnisse="Spießwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6|2W6+2|3W6+3">
    <Modifikationen Waffenrang="+1/+3" Abwehr-leicht="0/0" Abwehr-schwer="0/-2"/>
    <Voraussetzungen St="61" Gs="11"/>
    <Reichweite/>
@@ -8438,7 +8438,7 @@
    <Lernschema Typ="ScS" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="ScW" Lernpunkte="4" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Stielhammer" Grundkenntnisse="Stangenwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6(W6+1/2W6)">
+  <Waffe Name="Stielhammer" Grundkenntnisse="Stangenwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6|W6+1|2W6">
    <Modifikationen Waffenrang="+1/-3" Abwehr-leicht="0/+2" Abwehr-schwer="0/-2"/>
    <Voraussetzungen St="81" Gs="31"/>
    <Reichweite/>
@@ -8482,7 +8482,7 @@
    <Lernschema Typ="Gl" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Or" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Stoßspeer" Grundkenntnisse="Spießwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="1/2/3W6">
+  <Waffe Name="Stoßspeer" Grundkenntnisse="Spießwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="1|2|3W6">
    <Modifikationen Waffenrang="+2/+2" Abwehr-leicht="0/0" Abwehr-schwer="0/-2"/>
    <Voraussetzungen St="31" Gs="11"/>
    <Reichweite/>
@@ -8715,12 +8715,12 @@
    <Lernschema Typ="Hä" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="waffenloser Kampf" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="7" Kategorie="Angriff" Schaden="Speziell">
+  <Waffe Name="waffenloser Kampf" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="7" Kategorie="Angriff" Schaden="speziell">
    <Modifikationen Waffenrang="+2" Abwehr-leicht="-2" Abwehr-schwer="+2"/>
    <Voraussetzungen St="21" Gw="21"/>
    <Reichweite/>
    <Lernkosten/>
-   <regionaleVariante Name="Kampfriemen" Schaden="Speziell"/>
+   <regionaleVariante Name="Kampfriemen" Schaden="speziell"/>
    <Grund Typ="Kr"/>
    <Grund Typ="Sö"/>
    <Standard Typ="As"/>
@@ -9069,7 +9069,7 @@
    <Lernschema Typ="Ba" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Schleuder" Grundkenntnisse="Schleuder" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="W6(W6-1)">
+  <Waffe Name="Schleuder" Grundkenntnisse="Schleuder" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus2="-1">
    <Modifikationen/>
    <Voraussetzungen Gs="61"/>
    <Reichweite nah="30" mittel="60" fern="90"/>
@@ -9260,7 +9260,7 @@
    <Lernschema Typ="Sp" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Th" Lernpunkte="6" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="schwere Armbrust" Grundkenntnisse="Armbrust" Schwierigkeit="4" Kategorie="Schußwaffe" Klasse="S" Schaden="2W6-1">
+  <Waffe Name="schwere Armbrust" Grundkenntnisse="Armbrust" Schwierigkeit="4" Kategorie="Schußwaffe" Klasse="S" Schaden="2W6" Schadensbonus="-1" Schadensbonus2="-1">
    <Modifikationen/>
    <Voraussetzungen St="61" Gs="31"/>
    <Reichweite nah="30" mittel="120" fern="240"/>
@@ -9613,7 +9613,7 @@
    <Lernschema Typ="Ku" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Tm" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Lasso" Grundkenntnisse="Fesselwaffe" Schwierigkeit="7" Kategorie="Wurfwaffe" Klasse="E" Schaden="0">
+  <Waffe Name="Lasso" Grundkenntnisse="Fesselwaffe" Schwierigkeit="7" Kategorie="Wurfwaffe" Klasse="E" Schaden="speziell">
    <Modifikationen/>
    <Voraussetzungen Gs="81"/>
    <Reichweite null="3" nah="6" mittel="10" fern="15"/>

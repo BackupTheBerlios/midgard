@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.8 $">
+<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.9 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -917,7 +917,7 @@
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Stoßspeer">
-   <regionaleVariante Name="Rumeh" Region="E" Schaden="1/2/3W6"/>
+   <regionaleVariante Name="Rumeh" Region="E" Schaden="1|2|3W6"/>
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Streitaxt">
