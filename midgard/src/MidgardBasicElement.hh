@@ -133,8 +133,8 @@ public:
       virtual bool operator == (const MidgardBasicElement& b) const 
          {return What()==b.What() && Name()==b.Name();}
       bool operator < (const MidgardBasicElement& b) const 
-         {return  Name()<b.Name() ||
-                 (Name()==b.Name() && What()<=b.What());  
+         {return  What()<b.What() || (What()==b.What() 
+			&& Name()<b.Name());
          }
 
       static void show_list_in_tree(
@@ -183,9 +183,11 @@ class MidgardBasicElement_mutable : public HandleContentCopyable
       const MidgardBasicElement *operator->() const
          {return &*mbe;}
       bool operator == (const MidgardBasicElement_mutable& b) const 
-         {return mbe==b.mbe && Zusatz()==b.Zusatz();}
+         {return What()==n.What() && mbe==b.mbe && Zusatz()==b.Zusatz();}
       bool operator < (const MidgardBasicElement_mutable& b) const 
-         {return mbe<b.mbe || (mbe==b.mbe && Zusatz()<b.Zusatz());
+         {return What()<b.What() || (What()==b.What() 
+                   && (mbe<b.mbe || (mbe==b.mbe 
+                   && Zusatz()<b.Zusatz()));
          }
       const MidgardBasicElement *getMBE() const {return &*mbe;}
 
