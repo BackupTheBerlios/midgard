@@ -27,30 +27,61 @@ Alchimist	Alchimie	4
 Alchimist	Giftmischen	4
 Alchimist	Kräuterkunde	4
 Alchimist	Zauberkunde	4
+Angestellter	Rechnen	6
+Angestellter	Schreiben: Muttersprache(+12)	12
+Anstreicher	Klettern	10
+Apotheker	Giftmischen	4
+Apotheker	Kräuterkunde	4
+Apotheker	Rechnen	6
+Apotheker	Schreiben: Muttersprache(+12)	12
+Arbeiter	Athletik	4
 Arzt	Erste Hilfe	8
 Arzt	Heilkunde	4
 Arzt	Kräuterkunde	4
 Astrologe	Rechnen	6
 Astrologe	Sagenkunde	4
+Athlet	Athletik	4
+Athlet	Geländelauf	10
+Athlet	Laufen	4
+Athlet	Springen	10
 Aufseher	Menschenkenntnis	4
+Auktionator	Beredsamkeit	6
+Auktionator	Menschenkenntnis	4
+Auktionator	Schätzen	4
 Barbier	Beredsamkeit	6
 Barbier	Menschenkenntnis	4
 Bauer	Pflanzenkunde	4
 Bauer	Tierkunde	4
+Baumeister	Baukunde	4
+Baumeister	Rechnen	6
+Baumeister	Schreiben: Muttersprache(+12)	12
+Beamter	Rechnen	6
+Beamter	Schreiben: Muttersprache(+12)	12
+Bergführer	Klettern	10
+Bergführer	Seilkunst	6
+Bergführer	Springen	10
+Bergführer	Überleben im Gebirge	6
 Bergmann	Baukunde	4
 Bergmann	Kampf in Dunkelheit	2
 Bettler	Gassenwissen	4
 Bettler	Geheimzeichen	6
 Bettler	Schauspielern	6
 Bettler	Verkleiden	12
+Bildhauer	Sagenkunde	4
 Bootsbauer	Rudern	10
 Bootsbauer	Steuern	10
+Botaniker	Pflanzenkunde	4
+Botaniker	Schreiben: Muttersprache(+12)	12
 Bote	Laufen	4
 Bote	Reiten	10
 Brauer	Schmecken+10	\N
 Brauer	Trinken	1
 Brenner	Schmecken+10	\N
 Brenner	Trinken	1
+Bäcker	Pflanzenkunde	4
+Dachdecker	Balancieren	10
+Dachdecker	Baukunde	4
+Dachdecker	Klettern	10
 Dewadasi	Natya	\N
 Dewadasi	Tanzen	10
 Dewadasi	Verführen	6
@@ -58,6 +89,15 @@ Dieb	Gassenwissen	4
 Dieb	Geheimzeichen	6
 Dieb	Stehlen	8
 Dieb	Verbergen	6
+Diener	Menschenkenntnis	4
+Diplomat	Beredsamkeit	6
+Diplomat	Schauspielern	6
+Diplomat	Schreiben: Muttersprache(+12)	12
+Diplomat	Sprechen: Sprache(+12)	12
+Dolmetscher	Schreiben: Muttersprache(+12)	12
+Dolmetscher	Sprechen: Sprache(+12)	12
+Duellist	Fechten	4
+Duellist	Schauspielern	6
 Einbrecher	Gassenwissen	4
 Einbrecher	Klettern	10
 Einbrecher	Schlösser öffnen	6
@@ -72,25 +112,99 @@ Fischer	Steuern	10
 Flußschiffer	Rudern	10
 Flußschiffer	Schwimmen	10
 Flußschiffer	Seemannsgang	15
+Flößer	Rudern	10
+Flößer	Schwimmen	10
+Folterknecht	Trinken	1
+Folterknecht	Verhören	6
 Fuhrmann	Streitwagen lenken	10
 Fuhrmann	Wagenlenken	10
+Färber	Pflanzenkunde	4
 Gaukler	Gassenwissen	4
 Gaukler	Gaukeln	8
 Gaukler	Stehlen	8
 Gaukler	Stimmen nachahmen	12
+Gefängniswärter	Trinken	1
+Geldeintreiber	Menschenkenntnis	4
+Geldeintreiber	Schätzen	4
+Geldeintreiber	Verhören	6
+Geldverleiher	Menschenkenntnis	4
+Geldverleiher	Rechnen	6
+Geldverleiher	Schreiben: Muttersprache(+12)	12
+Geldverleiher	Schätzen	4
+Gelehrter	Landeskunde	4
+Gelehrter	Sagenkunde	4
+Gelehrter	Schreiben: Muttersprache(+12)	12
+Gelehrter	Sprechen: Sprache(+12)	12
+Gerber	Pflanzenkunde	4
+Geschützexperte	Ballista bedienen	4
+Geschützexperte	Katapult bedienen	4
+Geschützexperte	Rechnen	6
+Gladiator	Athletik	4
+Gladiator	Beidhändiger Kampf	3
+Gladiator	Kampftaktik	6
+Gladiator	Schauspielern	6
+Glöckner	Klettern	10
 Goldschmied	Schlösser öffnen	6
 Goldschmied	Schätzen	4
+Goldsucher	Naturkunde	4
+Goldsucher	Suchen	6
+Goldsucher	Überleben im Dschungel	6
+Goldsucher	Überleben im Gebirge	6
+Goldsucher	Überleben im Schnee	6
+Goldsucher	Überleben im Sumpf	6
+Goldsucher	Überleben im Wald	6
+Goldsucher	Überleben in der Steppe	6
+Goldsucher	Überleben in der Wüste	6
+Grabräuber	Fallen entdecken	4
+Grabräuber	Sagenkunde	4
+Grabräuber	Suchen	6
+Graveur	Schreiben: Muttersprache(+12)	12
+Graveur	Tasten+10	\N
 Grobschmied	Athletik	4
+Gärtner	Kräuterkunde	4
+Gärtner	Pflanzenkunde	4
+Hafenarbeiter	Athletik	4
+Hafenarbeiter	Rudern	10
+Harpunier	Balancieren	10
+Harpunier	Ballista bedienen	4
+Harpunier	Seemannsgang	10
+Hebamme	Erste Hilfe	6
+Hebamme	Heilkunde	4
+Hebamme	Kräuterkunde	4
+Hehler	Gassenwissen	4
+Hehler	Menschenkenntnis	4
+Hehler	Schätzen	4
+Herold	Landeskunde	4
+Herold	Sagenkunde	4
+Herold	Schreiben: Muttersprache(+12)	12
 Hirte	Tierkunde	4
 Hirte	Überleben im Gebirge	6
 Hirte	Überleben im Wald	6
 Hirte	Überleben in der Steppe	6
 Hirte	Überleben in der Wüste	6
+Hofnarr	Gaukeln	8
+Hofnarr	Menschenkenntnis	4
+Hofnarr	Schauspielern	6
+Hofnarr	Stimmen nachahmen	12
 Hundeführer	Abrichten	6
+Höfling	Beredsamkeit	6
+Höfling	Schreiben: Muttersprache(+12)	12
+Höfling	Tanzen	10
+Imker	Tierkunde	4
+Instrumentenbauer	Hören+10	\N
+Instrumentenbauer	Musizieren	8
+Jurist	Beredsamkeit	6
+Jurist	Landeskunde	4
+Jurist	Schreiben: Muttersprache(+12)	12
 Jäger	Fallenstellen	4
 Jäger	Schleichen	6
 Jäger	Spurenlesen	4
 Jäger	Tarnen	6
+Kammerjäger	Giftmischen	4
+Kammerjäger	Suchen	6
+Kapitän	Schiffsführung	6
+Kapitän	Seemannsgang	10
+Kapitän	Steuern	10
 Karawanenführer	Himmelskunde	4
 Karawanenführer	Landeskunde	4
 Karawanenführer	Reiten	10
@@ -101,30 +215,143 @@ Karawanenführer	Überleben im Sumpf	6
 Karawanenführer	Überleben im Wald	6
 Karawanenführer	Überleben in der Steppe	6
 Karawanenführer	Überleben in der Wüste	6
+Kartograph	Himmelskunde	4
+Kartograph	Landeskunde	4
+Kartograph	Schreiben: Muttersprache(+12)	12
 Kaufmann	Beredsamkeit	6
 Kaufmann	Geschäftstüchtigkeit	6
 Kaufmann	Landeskunde (Heimat)	9
 Kaufmann	Rechnen	6
 Kaufmann	Schätzen	4
+Knappe	Reiten	10
+Knappe	Schreiben: Muttersprache(+12)	12
+Knappe	Tierkunde	4
 Koch	Kräuterkunde	4
 Koch	Schmecken+10	\N
+Kopfgeldjäger	Beschatten	6
+Kopfgeldjäger	Gassenwissen	4
+Kopfgeldjäger	Meucheln	6
+Kopfgeldjäger	Scharfschießen	4
+Kopfgeldjäger	Spurenlesen	4
+Korbflechter	Seilkunst	6
 Krämer	Geschäftstüchtigkeit	6
 Krämer	Menschenkenntnis	4
+Kräuterhändler	Kräuterkunde	4
+Kräuterhändler	Pflanzenkunde	4
+Kräutersammler	Kräuterkunde	4
+Kräutersammler	Pflanzenkunde	4
+Kupferschmied	Geschäftstüchtigkeit	6
 Kurtisane	Menschenkenntnis	4
 Kurtisane	Schauspielern	6
 Kurtisane	Verführen	6
+Kutscher	Tierkunde	4
+Kutscher	Wagenlenken	10
 Köhler	Fallenstellen	4
 Köhler	Überleben im Sumpf	6
 Köhler	Überleben im Wald	6
+Kürschner	Geschäftstüchtigkeit	6
+Laienprediger	Beredsamkeit	6
+Laienprediger	Schreiben: Muttersprache(+12)	12
+Lebensmittelhändler	Beredsamkeit	6
+Lebensmittelhändler	Pflanzenkunde	4
+Leibwächter	Athletik	4
+Leibwächter	Wahrnehmung	4
+Linsenschleifer	Sehen+10	\N
+Lotse	Himmelskunde	4
+Lotse	Rudern	10
+Lotse	Überleben im Dschungel	6
+Lotse	Überleben im Gebirge	6
+Lotse	Überleben im Schnee	6
+Lotse	Überleben im Sumpf	6
+Lotse	Überleben im Wald	6
+Lotse	Überleben in der Steppe	6
+Lotse	Überleben in der Wüste	6
+Masseur	Athletik	4
+Masseur	Kräuterkunde	4
+Masseur	Tasten+10	\N
+Mathematiker	Rechnen	6
+Mathematiker	Schreiben: Muttersprache(+12)	12
+Mechaniker	Fallenmechanik	4
+Mechaniker	Geheimmechanismen öffnen	4
 Musikant	Musizieren	8
 Musikant	Tanzen	10
 Märchenerzähler	Dichten	8
 Märchenerzähler	Erzählen	8
 Märchenerzähler	Sagenkunde	4
 Müller	Wagenlenken	10
+Münzfälscher	Fälschen	12
+Münzfälscher	Schreiben: Muttersprache(+12)	12
+Nachtwächter	Gassenwissen	4
+Navigator	Himmelskunde	4
+Navigator	Landeskunde	4
+Navigator	Rechnen	6
+Navigator	Schiffsführung	6
+Navigator	Steuern	10
+Offizier	Kampf zu Pferd	10
+Offizier	Kampftaktik	6
+Offizier	Reiten	10
+Offizier	Schreiben: Muttersprache(+12)	12
+Ortskundiger	Gassenwissen	4
+Ortskundiger	Geheimzeichen	6
+Parfümhersteller	Pflanzenkunde	4
+Parfümhersteller	Riechen+10	\N
+Pelzhändler	Geschäftstüchtigkeit	6
+Pelzhändler	Tierkunde	4
+Pelzhändler	Überleben im Dschungel	6
+Pelzhändler	Überleben im Gebirge	6
+Pelzhändler	Überleben im Schnee	6
+Pelzhändler	Überleben im Sumpf	6
+Pelzhändler	Überleben im Wald	6
+Pelzhändler	Überleben in der Steppe	6
+Pelzhändler	Überleben in der Wüste	6
+Pfandleiher	Menschenkenntnis	4
+Pfandleiher	Schätzen	4
+Pferdedieb	Reiten	10
+Pferdedieb	Überleben im Dschungel	6
+Pferdedieb	Überleben im Gebirge	6
+Pferdedieb	Überleben im Schnee	6
+Pferdedieb	Überleben im Sumpf	6
+Pferdedieb	Überleben im Wald	6
+Pferdedieb	Überleben in der Steppe	6
+Pferdedieb	Überleben in der Wüste	6
+Pferdehändler	Geschäftstüchtigkeit	6
+Pferdehändler	Reiten	10
+Pferdehändler	Tierkunde	4
+Philosoph	Beredsamkeit	6
+Philosoph	Menschenkenntnis	4
+Philosoph	Schreiben: Muttersprache(+12)	12
+Pirat	Seemannsgang	10
+Pirat	Springen	10
+Rechtsgelehrter	Landeskunde	4
+Rechtsgelehrter	Schreiben: Muttersprache(+12)	12
+Rechtsgelehrter	Verhören	6
+Redner	Beredsamkeit	6
+Redner	Menschenkenntnis	4
+Redner	Schauspielern	6
+Reeder	Geschäftstüchtigkeit	6
+Reeder	Landeskunde	4
+Reeder	Rechnen	6
+Reeder	Schreiben: Muttersprache(+12)	12
 Räuber	Tarnen	6
+Rüstungshändler	Geschäftstüchtigkeit	6
+Rüstungshändler	Kampf in Vollrüstung	10
 Sattler	Reiten	10
+Schankmaid	Menschenkenntnis	4
+Schankmaid	Trinken	1
+Schankmaid	Verführen	6
 Scharfrichter	Seilkunst	6
+Scharfschütze	Scharfschießen	4
+Scharfschütze	Tarnen	6
+Scharlatan	Beredsamkeit	6
+Scharlatan	Menschenkenntnis	4
+Scharlatan	Schauspielern	6
+Schauspieler	Beredsamkeit	6
+Schauspieler	Schauspielern	6
+Schauspieler	Stimmen nachahmen	12
+Schauspieler	Verkleiden	12
+Schilterer	Landeskunde	4
+Schilterer	Sagenkunde	4
+Schilterer	Schreiben: Muttersprache(+12)	12
 Schlachter	Meucheln	6
 Schlangenbeschwörer	Musizieren	8
 Schlangenbeschwörer	Schlangen beschwören	8
@@ -132,41 +359,152 @@ Schlosser	Schlösser öffnen	6
 Schmuggler	Rudern	10
 Schmuggler	Schleichen	6
 Schmuggler	Steuern	10
+Schneider	Verkleiden	12
 Schreiber	Fälschen	12
 Schreiber	Schreiben: Muttersprache(+12)	12
 Schreiber	Sprechen: Sprache(+12)	12
 Schreiner	Suchen	6
+Schwarzbrenner	Trinken	1
+Schwerarbeiter	Athletik	4
 Seemann	Klettern	10
 Seemann	Rudern	10
 Seemann	Seemannsgang	15
+Segelmacher	Klettern	10
+Segelmacher	Steuern	10
 Seiler	Seilkunst	6
+Siegelfälscher	Fälschen	12
+Siegelfälscher	Landeskunde	4
+Siegelfälscher	Schreiben: Muttersprache(+12)	12
 Sklavenhändler	Menschenkenntnis	4
+Spieler	Glücksspiel	15
+Spieler	Schauspielern	6
+Spieler	Verbergen	6
+Späher	Geländelauf	10
+Späher	Spurenlesen	4
+Späher	Überleben im Dschungel	6
+Späher	Überleben im Gebirge	6
+Späher	Überleben im Schnee	6
+Späher	Überleben im Sumpf	6
+Späher	Überleben im Wald	6
+Späher	Überleben in der Steppe	6
+Späher	Überleben in der Wüste	6
 Srimahaut	Srimara lenken	12
 Stadtwache	Suchen	6
 Stadtwache	Verhören	6
+Steinbrucharbeiter	Athletik	4
+Steinbrucharbeiter	Klettern	10
+Steinmetz	Baukunde	4
+Stellmacher	Wagenlenken	10
+Stempelschneider	Schreiben: Muttersprache(+12)	12
+Steuereintreiber	Menschenkenntnis	4
+Steuereintreiber	Schätzen	4
+Steuereintreiber	Verhören	6
 Steuermann	Himmelskunde	4
 Steuermann	Rechnen	6
 Steuermann	Seemannsgang	15
 Steuermann	Steuern	10
+Strandräuber	Rudern	10
+Strandräuber	Tarnen	6
+Straßenräuber	Reiten	10
+Straßenräuber	Tarnen	6
+Theologe	Landeskunde	4
+Theologe	Sagenkunde	4
+Theologe	Schreiben: Muttersprache(+12)	12
+Tierarzt	Schreiben: Muttersprache(+12)	12
+Tierarzt	Tierkunde	4
+Tierausbilder	Abrichten	6
+Tierausbilder	Tierkunde	4
+Tierhändler	Geschäftstüchtigkeit	6
+Tierhändler	Tierkunde	4
+Tierpfleger	Tierkunde	4
+Torfstecher	Fallenstellen	4
+Torfstecher	Überleben im Sumpf	6
+Torfstecher	Überleben im Wald	6
+Totengräber	Sagenkunde	4
 Träger	Athletik	4
+Tänzer	Balancieren	10
+Tänzer	Tanzen	10
+Tätowierer	Sagenkunde	4
+Unteroffizier	Gassenwissen	4
+Unteroffizier	Kampftaktik	6
+Unteroffizier	Überleben im Dschungel	6
+Unteroffizier	Überleben im Gebirge	6
+Unteroffizier	Überleben im Schnee	6
+Unteroffizier	Überleben im Sumpf	6
+Unteroffizier	Überleben im Wald	6
+Unteroffizier	Überleben in der Steppe	6
+Unteroffizier	Überleben in der Wüste	6
+Untersuchungsbeamter	Gassenwissen	4
+Untersuchungsbeamter	Menschenkenntnis	4
+Untersuchungsbeamter	Schreiben: Muttersprache(+12)	12
+Untersuchungsbeamter	Verhören	6
+Urkundenfälscher	Fälschen	12
+Urkundenfälscher	Landeskunde	4
+Urkundenfälscher	Schreiben: Muttersprache(+12)	12
 Verwalter	Landeskunde (Heimat)	9
 Verwalter	Menschenkenntnis	4
 Verwalter	Rechnen	6
 Verwalter	Schreiben: Muttersprache(+12)	12
+Viehdieb	Geländelauf	10
+Viehdieb	Überleben im Dschungel	6
+Viehdieb	Überleben im Gebirge	6
+Viehdieb	Überleben im Schnee	6
+Viehdieb	Überleben im Sumpf	6
+Viehdieb	Überleben im Wald	6
+Viehdieb	Überleben in der Steppe	6
+Viehdieb	Überleben in der Wüste	6
+Viehtreiber	Kampf zu Pferd	10
+Viehtreiber	Reiten	10
+Viehtreiber	Überleben im Dschungel	6
+Viehtreiber	Überleben im Gebirge	6
+Viehtreiber	Überleben im Schnee	6
+Viehtreiber	Überleben im Sumpf	6
+Viehtreiber	Überleben im Wald	6
+Viehtreiber	Überleben in der Steppe	6
+Viehtreiber	Überleben in der Wüste	6
+Viehzüchter	Tierkunde	4
+Viehzüchter	Überleben im Gebirge	6
+Viehzüchter	Überleben im Wald	6
+Viehzüchter	Überleben in der Steppe	6
+Viehzüchter	Überleben in der Wüste	6
 Vorarbeiter	Athletik	4
 Vorarbeiter	Menschenkenntnis	4
 Vorkoster	Giftmischen	4
 Vorkoster	Trinken	1
+Waffenhändler	Geschäftstüchtigkeit	6
+Waffenhändler	Schätzen	4
 Waffenschmied	Athletik	4
 Waffenschmied	Schätzen	4
 Wagner	Wagenlenken	10
 Waldarbeiter	Geländelauf	10
+Weinhändler	Geschäftstüchtigkeit	6
+Weinhändler	Schmecken+10	\N
+Weinhändler	Trinken	1
+Werkzeugmacher	Fallenmechanik	4
+Wilderer	Fallenstellen	4
+Wilderer	Überleben im Dschungel	6
+Wilderer	Überleben im Gebirge	6
+Wilderer	Überleben im Schnee	6
+Wilderer	Überleben im Sumpf	6
+Wilderer	Überleben im Wald	6
+Wilderer	Überleben in der Steppe	6
+Wilderer	Überleben in der Wüste	6
+Wildhüter	Geländelauf	10
+Wildhüter	Spurenlesen	4
+Wildhüter	Tierkunde	4
 Winzer	Schmecken+10	\N
 Winzer	Trinken	1
 Wirt	Beredsamkeit	6
 Wirt	Menschenkenntnis	4
 Wundheiler	Erste Hilfe	6
+Wächter	Gassenwissen	4
+Wächter	Menschenkenntnis	4
+Zahnausreißer	Erste Hilfe	6
+Zahnausreißer	Kräuterkunde	4
 Zimmermann	Baukunde	4
+Zollpächter	Menschenkenntnis	4
+Zollpächter	Rechnen	6
+Zollpächter	Schreiben: Muttersprache(+12)	12
 Zureiter	Abrichten	6
 Zureiter	Kampf zu Pferd	10
 Zureiter	Reiten	10

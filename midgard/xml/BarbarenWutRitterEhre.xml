@@ -2,14 +2,7 @@
 
 <MAGUS-data Region="B&amp;R">
  <Fertigkeiten/>
- <Berufe>
-  <Beruf Name="Knappe" Region="B&amp;R">
-   <Voraussetzungen Geschlecht="m"/>
-  </Beruf>
-  <Beruf Name="Pagin" Region="B&amp;R">
-   <Voraussetzungen Geschlecht="w"/>
-  </Beruf>
- </Berufe>
+ <Berufe/>
  <Schriften/>
  <Sprachen/>
  <Typen/>
