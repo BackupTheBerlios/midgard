@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.15 2001/05/15 15:08:01 thoma Exp $
+# $Id: Makefile,v 1.16 2001/05/19 21:11:32 christof Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten arkanum_zauber ausnahmen berufe_stand \
@@ -23,6 +23,7 @@ all:
 	@echo "make dump: make a dump of your database (without user data)"
 	@echo "make dist: make a .tar.gz"
 	@echo "make install: install tables (preserving user data)"
+	@echo "make diff: compare your tables with these files"
 	@echo
 	@echo "make fulldump: dump with user data (not for dist or cvs, please)"
 	@echo "make fullinstall: overwrite user data - DO YOU REALLY WANT THIS?"
@@ -81,3 +82,16 @@ fullinstall:
 
 clean:
 	rm *~
+
+# compare your tables with these files
+diff:
+	@for i in $(SYSTEM_TABLES) ; \
+	do \
+	  pg_dump $(PGDUMP_FLAGS) -t "$$i" midgard | \
+		diff -I '-- .*' -u - "$$i" ; \
+	done ; true
+	@for i in $(USER_TABLES) ; \
+	do \
+	  pg_dump $(PGDUMP_FLAGS) -s -t "$$i" midgard | \
+		diff -I '-- .*' -u - "$$i" ; \
+	done ; true
