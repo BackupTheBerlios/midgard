@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.133 2002/03/09 22:06:57 thoma Exp $
+# $Id: Makefile.am,v 1.134 2002/03/29 07:02:59 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -6,13 +6,11 @@ noinst_PROGRAMS = text2c
 # völlig veraltet!!!
 EXTRA_PROGRAMS = midgard_xmlexport
 
-pkgdata_DATA = document_eingabe.tex document_eingabe4.tex \
-   charakter_beschreibung.tex axt1.ps \
-   drache.ps drache.ps
+pkgdata_DATA = midgard_document_eingabe.tex \
+    drache.png dracher.png schwert.png wurfbeil.png MAGUS-Logo-grey2.png
 
-EXTRA_DIST = document_eingabe.tex.in document_eingabe4.tex.in \
-    charakter_beschreibung.tex axt1.ps \
-   drache.ps
+EXTRA_DIST = midgard_document_eingabe.tex.in \
+      drache.png  dracher.png schwert.png wurfbeil.png MAGUS-Logo-grey2.png
 
 
 noinst_HEADERS = \

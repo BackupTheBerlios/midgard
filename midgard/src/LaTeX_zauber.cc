@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.45 2002/03/12 14:57:34 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.46 2002/03/29 07:02:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,12 +21,9 @@
 #include <Gtk2TeX.h>
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
-#include <fstream>
 
-void midgard_CG::LaTeX_zauber()
+void midgard_CG::LaTeX_zauber(ofstream &fout)
 {
-  std::string name = "midgard_tmp_myzauber.tex";
-  ofstream fout(name.c_str());
   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
    {
      cH_Zauber z(*i);
@@ -49,10 +46,8 @@ void midgard_CG::LaTeX_zauber()
    }
 }
 
-void midgard_CG::LaTeX_zaubermittel()
+void midgard_CG::LaTeX_zaubermittel(ofstream &fout)
 {
-  std::string name = "midgard_tmp_myzaubermittel.tex";
-  ofstream fout(name.c_str());
   for (std::list<cH_MidgardBasicElement>::iterator i=list_Zauberwerk.begin();i!=list_Zauberwerk.end();++i)
    {
      cH_Zauberwerk z(*i);
@@ -67,9 +62,8 @@ void midgard_CG::LaTeX_zaubermittel()
 }
 
 
-void midgard_CG::LaTeX_zauber_main(void)
+void midgard_CG::LaTeX_zauber_main(ofstream &fout)
 {
-  ofstream fout ("midgard_tmp_document_zauber.tex");
   LaTeX_kopfzeile(fout,true,false);
   fout << "\\scriptsize\n";
   fout << "\\begin{tabular}{lcclccclcclp{3cm}l}\\hline\n";
@@ -79,7 +73,7 @@ void midgard_CG::LaTeX_zauber_main(void)
        << "\\raisebox{1.5ex}[-1.5ex]{AP} & \\multicolumn{1}{c}{\\raisebox{1.5ex}[-1.5ex]{Art}}"
        << " & \\raisebox{1.5ex}[-1.5ex]{Stufe} & -dauer & weite&\\multicolumn{1}{c}{ziel}&bereich&"
        << "dauer&\\multicolumn{1}{c}{sprung}\\\\\\hline\n";
-  fout << "\\input{midgard_tmp_myzauber.tex}\n";
+  LaTeX_zauber(fout);
   fout << "\\end{tabular}\n";
 
  
@@ -87,10 +81,8 @@ void midgard_CG::LaTeX_zauber_main(void)
    {
      fout << "\\begin{tabular}{lllll}\\hline\n";
      fout << "Name&Art&Stufe&\\scriptsize Zeitaufwand&Kosten\\\\\\hline\n";
-     fout << "\\input{midgard_tmp_myzaubermittel.tex}\n";
+     LaTeX_zaubermittel(fout);
      fout << "\\end{tabular}\n";
    }
   fout << "\\end{center}\n";
-  
-//  LaTeX_footer(fout);
 }

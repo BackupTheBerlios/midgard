@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.37 2002/02/24 14:31:17 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.38 2002/03/29 07:02:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,13 +20,10 @@
 #include "midgard_CG.hh"
 #include <Gtk2TeX.h>
 #include "KiDo.hh"
-#include <fstream>
 #include <Aux/itos.h>
 
-void midgard_CG::LaTeX_kido()
+void midgard_CG::LaTeX_kido(ofstream &fout)
 {
-  std::string name = "midgard_tmp_mykido.tex";
-  ofstream fout(name.c_str());
   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
    {
      cH_KiDo kd(*i);
@@ -46,17 +43,15 @@ void midgard_CG::LaTeX_kido()
 }
 
 
-void midgard_CG::LaTeX_kido_main(void)
+void midgard_CG::LaTeX_kido_main(ofstream &fout)
 {
-  ofstream fout ("midgard_tmp_document_kido.tex");
   LaTeX_kopfzeile(fout,true,false);
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
          <<KiDo::get_erfolgswert_kido(list_Fertigkeit)+Werte.bo_Za()<<"}\\\\\\hline\n";
   fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
-  fout << "\\input{midgard_tmp_mykido.tex}\n";
+
+  LaTeX_kido(fout);
   fout << "\\end{tabular}\n";
   fout << "\\end{center}\n";
-  
-//  LaTeX_footer(fout);
 }

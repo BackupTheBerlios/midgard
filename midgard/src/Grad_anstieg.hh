@@ -25,7 +25,7 @@
 class Grad_anstieg{
 public:
       static const int AP_Maximum_Tage=28;
-      enum ewas{Grad,Abwehr,Zaubern,Resistenz,Ausdauer};
+      enum ewas{Grad_,Grad_fehlt,Abwehr,Zaubern,Resistenz,Ausdauer};
 private:
 
       struct st_grad{int abwehr;int abwehr_kosten;int resistenz;
@@ -40,12 +40,16 @@ private:
                    resistenz_kosten(rk),zaubern(z),zaubern_kosten(zk),
                    gfp(g),schicksalsgunst(s),ap_kosten(apk) {}
                };
-      map<int,st_grad> map_grad;
+      std::map<int,st_grad> map_grad;
+      std::map<int,int> map_Abwehr_kosten;  // Index = Erfolgsewert
+      std::map<int,int> map_Resistenz_kosten; 
+      std::map<int,int> map_Zaubern_kosten; 
+
 
       int steigern_EP_prozent;
       int grad_basiswerte; 
 
-
+      void fill_kosten_maps();
    public:
       Grad_anstieg(): steigern_EP_prozent(50), grad_basiswerte(1){}
       Grad_anstieg(Gtk::ProgressBar *progressbar) ;
@@ -55,18 +59,18 @@ private:
       int get_Grad_Basiswerte() const {return grad_basiswerte;}
 
       int get_AP_Kosten(int grad);
-      int get_Abwehr(int grad) ;
-      int get_Abwehr_Kosten(int grad);
-      int get_Resistenz(int grad)  ;
-      int get_Resistenz_Kosten(int grad) ;
-      int get_Zauber(int grad) ;
-      int get_Zauber_Kosten(int grad);
+      int get_MaxAbwehr(int grad) ;
+      int get_Abwehr_Kosten(int erfolgswert);
+      int get_MaxResistenz(int grad)  ;
+      int get_Resistenz_Kosten(int erfolgswert) ;
+      int get_MaxZauber(int grad) ;
+      int get_Zauber_Kosten(int erfolgswert);
 
       int get_Grad(int gfp) ;
       int get_Schicksalsgunst(int grad) ;
       int getGFP_for(ewas e,const Grundwerte& Werte);
       std::string getGFP_for_str(ewas e,const Grundwerte& Werte);
-      int getGFP_forGrad(int g);
+//      int getGFP_forGrad(int g);
 
 
       void set_Grad_Anstieg(int p,int b) 

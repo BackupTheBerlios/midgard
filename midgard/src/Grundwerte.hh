@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.27 2002/03/11 20:49:37 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.28 2002/03/29 07:02:59 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,7 @@ class Grundwerte
    std::string geschlecht;
    int gewicht,groesse,grad;
    std::string stand,spezialisierung,hand,
-      glaube,name_abenteurer,name_spieler,version;
+      glaube,name_abenteurer,name_spieler,version,bezeichnung;
    struct st_beschreibung{std::string text;std::string file;int size;
             st_beschreibung():size(8){} };
    st_beschreibung beschreibung;
@@ -128,6 +128,7 @@ public:
    std::string Name_Abenteurer() const {return name_abenteurer;}
    std::string Name_Spieler() const {return name_spieler;}
    std::string Version() const;
+   std::string Bezeichnung() const {return bezeichnung;}
    std::string Beschreibung() const {return beschreibung.text;}
    std::string BeschreibungPix() const {return beschreibung.file;}
    int BeschreibungPixSize() const {return beschreibung.size;}
@@ -205,6 +206,7 @@ public:
    void setAbenteurername(const std::string& s) {name_abenteurer=s;}
    void setNamen(const std::string& _name_abenteurer,std::string _name_spieler, std::string _version)
       {name_abenteurer=_name_abenteurer;name_spieler=_name_spieler;version=_version;}
+   void setBezeichnung(const std::string& s) {bezeichnung=s;}
    void setNameC(const std::string& s) {name_abenteurer=s;}
    void setNameS(const std::string& s) { name_spieler=s;}
    void setVersion(const std::string& s) { version=s;}

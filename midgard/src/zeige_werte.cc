@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.50 2002/03/06 17:06:27 thoma Exp $
+// $Id: zeige_werte.cc,v 1.51 2002/03/29 07:02:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -109,7 +109,7 @@ void midgard_CG::zeige_werte()
        label_alter->set_text(itos(Werte.Alter()));
 
    
-   label_grad_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Grad,Werte));
+   label_grad_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,Werte));
    label_ausdauer_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,Werte));
    label_abwehr_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,Werte));
    label_resistenz_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,Werte));

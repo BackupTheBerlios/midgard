@@ -206,6 +206,7 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
    write_int_attrib(datei, "Gewicht", Werte.Gewicht());
    write_int_attrib(datei, "Größe", Werte.Groesse());
    write_string_attrib(datei, "Stand", Werte.Stand());
+   write_string_attrib(datei, "Bezeichnung", Werte.Bezeichnung());
    write_string_attrib(datei, "Herkunft", Werte.Herkunft()->Name());
    write_string_attrib(datei, "Glaube", Werte.Glaube());
    datei << "/>\n";

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.197 2002/03/26 08:56:32 thoma Exp $
+// $Id: midgard_CG.hh,v 1.198 2002/03/29 07:02:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,6 +35,7 @@
 #include "class_lernpunkte.hh"
 #include "Ausruestung.hh"
 class Random;
+#include <fstream>
 #include "WindowInfo.hh"
 #include "Wizard_window.hh"
 
@@ -232,6 +233,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_entry_nameC_activate();
         void on_entry_nameS_activate();
         void on_entry_version_activate();
+        void on_entry_bezeichnung_activate();
         void on_entry_spezialisierung_activate();
         void on_entry_glaube_activate();
         void on_entry_herkunft_activate();
@@ -259,6 +261,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_entry_nameC_focus_out_event(GdkEventFocus *ev);
         gint on_entry_nameS_focus_out_event(GdkEventFocus *ev);
         gint on_entry_version_focus_out_event(GdkEventFocus *ev);
+        gint on_entry_bezeichnung_focus_out_event(GdkEventFocus *ev);
         gint on_entry_spezialisierung_focus_out_event(GdkEventFocus *ev);
         gint on_entry_glaube_focus_out_event(GdkEventFocus *ev);
         gint on_entry_herkunft_focus_out_event(GdkEventFocus *ev);
@@ -298,20 +301,20 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, int xml_version));
         void on_latex_clicked(bool values=true);
-        void LaTeX_write_values();
-        void LaTeX_write_empty_values();
+        void LaTeX_write_values(ofstream &fout,const std::string &install_latex_file);
+        void LaTeX_write_empty_values(ofstream &fout,const std::string &install_latex_file);
         gint on_latex_release_event(GdkEventButton *ev);
         void spielleiter_export();
         void latex_beschreibung_drucken();
         void on_button_info_clicked();
-        void LaTeX_zauber_main();
+        void LaTeX_zauber_main(ofstream &fout);
         std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale);
         std::string LaTeX_scalemag(const std::string& is, unsigned int maxlength, const std::string& scale,
             const std::string& magisch,const std::string& reichweite);
-        void LaTeX_zauber();
-        void LaTeX_zaubermittel();
-        void LaTeX_kido_main();
-        void LaTeX_kido();
+        void LaTeX_zauber(ofstream &fout);
+        void LaTeX_zaubermittel(ofstream &fout);
+        void LaTeX_kido_main(ofstream &fout);
+        void LaTeX_kido(ofstream &fout);
         void LaTeX_header(ostream &fout,bool landscape=true);
         void LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc=true);
         void LaTeX_footer(ostream &fout);

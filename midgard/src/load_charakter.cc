@@ -142,6 +142,7 @@ void midgard_CG::xml_import(const std::string& datei)
    Werte.setAlter(Beschreibung->getIntAttr("Alter")); 
    Werte.setGeschlecht(Typ->getAttr("Geschlecht","m"));
    Werte.setSpezialisierung(Typ->getAttr("Spezialisierung"));
+   Werte.setBezeichnung(Beschreibung->getAttr("Bezeichnung"));
    Werte.setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft"),true));
    Werte.setGlaube(Beschreibung->getAttr("Glaube"));
    Werte.setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));

@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.42 2002/03/25 15:12:36 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.43 2002/03/29 07:02:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -127,10 +127,10 @@ void midgard_CG::check_350(const std::vector<int>& a)
        sum += *i;
    }   
   if(sum<350)
-   {  regnot("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Nochmal würfeln.");
+   {  regnot("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muß aber nicht) noch einmal gewürfelt werden.");
       button_grundwerte->set_sensitive(true);
-      button_abg_werte->set_sensitive(false);
-      Werte.clear();            
+//      button_abg_werte->set_sensitive(false);
+//      Werte.clear();            
       Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
    }
 }

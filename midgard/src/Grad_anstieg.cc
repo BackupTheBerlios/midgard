@@ -41,6 +41,17 @@ Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
     }
  }
  ProgressBar::set_percentage(progressbar,1);
+ fill_kosten_maps();
+}
+
+void Grad_anstieg::fill_kosten_maps()
+{
+  for(std::map<int,st_grad>::const_iterator i=map_grad.begin();i!=map_grad.end();++i)
+   {
+     map_Abwehr_kosten[i->second.abwehr]=i->second.abwehr_kosten;
+     map_Resistenz_kosten[i->second.resistenz]=i->second.resistenz_kosten;
+     map_Zaubern_kosten[i->second.zaubern]=i->second.zaubern_kosten;
+   }
 }
 
 int Grad_anstieg::get_AP_Kosten(int grad)  
@@ -49,42 +60,43 @@ int Grad_anstieg::get_AP_Kosten(int grad)
   while(x==0)   x = map_grad[grad--].ap_kosten;
   return x;
 }
-int Grad_anstieg::get_Abwehr(int grad)  
+
+int Grad_anstieg::get_MaxAbwehr(int grad)  
 {
   int x=0; 
   while(x==0)   x = map_grad[grad--].abwehr;
   return x;
 }
-int Grad_anstieg::get_Abwehr_Kosten(int grad)  
+
+int Grad_anstieg::get_Abwehr_Kosten(int erfolgswert)
 {
-  int x=0; 
-  while(x==0)   x = map_grad[grad--].abwehr_kosten;
-  return x;
+  return map_Abwehr_kosten[erfolgswert]; 
 }
-int Grad_anstieg::get_Zauber(int grad)  
+
+int Grad_anstieg::get_MaxZauber(int grad)  
 {
   int x=0; 
   while(x==0)   x = map_grad[grad--].zaubern;
   return x;
 }
-int Grad_anstieg::get_Zauber_Kosten(int grad)  
+
+int Grad_anstieg::get_Zauber_Kosten(int erfolgswert)  
 {
-  int x=0; 
-  while(x==0)   x = map_grad[grad--].zaubern_kosten;
-  return x;
+  return map_Zaubern_kosten[erfolgswert]; 
 }
-int Grad_anstieg::get_Resistenz(int grad)  
+
+int Grad_anstieg::get_MaxResistenz(int grad)  
 {
   int x=0; 
   while(x==0)   x = map_grad[grad--].resistenz;
   return x;
 }
-int Grad_anstieg::get_Resistenz_Kosten(int grad)   
+
+int Grad_anstieg::get_Resistenz_Kosten(int erfolgswert)   
 {
-  int x=0; 
-  while(x==0)   x = map_grad[grad--].resistenz_kosten;
-  return x;
+  return map_Resistenz_kosten[erfolgswert]; 
 }
+
 int Grad_anstieg::get_Schicksalsgunst(int grad)   
 {
   return map_grad[grad].schicksalsgunst;
@@ -106,7 +118,7 @@ int Grad_anstieg::get_Grad(int gfp)
 std::string Grad_anstieg::getGFP_for_str(ewas ew,const Grundwerte& Werte)
 {
  int back=getGFP_for(ew,Werte);
- if(ew==Grad)
+ if(ew==Grad_fehlt)
   {
    if(back==0)  return "erreicht";
    else return "Noch "+itos(back)+" GFP";;
@@ -123,21 +135,21 @@ int Grad_anstieg::getGFP_for(ewas ew,const Grundwerte& Werte)
   int wert, maxwert, kosten;
   int maxgrad=get_Grad(Werte.GFP());
   switch(ew) {
-    case Grad     : 
+    case Grad_    :  return map_grad[Werte.Grad()].gfp ;
+    case Grad_fehlt : 
                     if(maxgrad>Werte.Grad()) return 0;
                     else return map_grad[Werte.Grad()+1].gfp-Werte.GFP();      
-                    break ;
-    case Abwehr   : maxwert=get_Abwehr(Werte.Grad()); 
+    case Abwehr   : maxwert=get_MaxAbwehr(Werte.Grad()); 
                     wert=Werte.Abwehr_wert();
-                    kosten= map_grad[Werte.Grad()].abwehr_kosten;
+                    kosten = map_Abwehr_kosten[Werte.Abwehr_wert()+1];
                     break;
-    case Zaubern  : maxwert=get_Zauber(Werte.Grad()); 
+    case Zaubern  : maxwert=get_MaxZauber(Werte.Grad()); 
                     wert=Werte.Zaubern_wert();
-                    kosten=map_grad[Werte.Grad()].zaubern_kosten;
+                    kosten = map_Zaubern_kosten[Werte.Zaubern_wert()+1];
                     break;
-    case Resistenz: maxwert=get_Resistenz(Werte.Grad()); 
+    case Resistenz: maxwert=get_MaxResistenz(Werte.Grad()); 
                     wert=Werte.Resistenz();
-                    kosten=map_grad[Werte.Grad()].resistenz_kosten;
+                    kosten = map_Resistenz_kosten[Werte.Resistenz()+1];
                     break;
     case Ausdauer : maxwert=999; 
                     wert=Werte.AP();
@@ -148,7 +160,3 @@ int Grad_anstieg::getGFP_for(ewas ew,const Grundwerte& Werte)
    else return kosten;
 }
 
-int Grad_anstieg::getGFP_forGrad(int grad)
-{
-  return map_grad[grad].gfp;
-}

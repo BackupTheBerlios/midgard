@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.55 2002/03/27 09:08:36 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.56 2002/03/29 07:02:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -189,24 +189,24 @@ void midgard_CG::get_ab_re_za(e_was_steigern was)
   if(!radiobutton_steigern->get_active()) grad=--grad;
   if      (was==Abwehr)
     { 
-      max_wert = Database.GradAnstieg.get_Abwehr(grad); 
-      kosten   = Database.GradAnstieg.get_Abwehr_Kosten(grad+1);
+      max_wert = Database.GradAnstieg.get_MaxAbwehr(grad); 
       alter_wert = Werte.Abwehr_wert(); 
+      kosten   = Database.GradAnstieg.get_Abwehr_Kosten(alter_wert+1);
     } 
   else if (was==Resistenz) 
     { 
-      max_wert = Database.GradAnstieg.get_Resistenz(grad);
-      kosten   = Database.GradAnstieg.get_Resistenz_Kosten(grad+1);
+      max_wert = Database.GradAnstieg.get_MaxResistenz(grad);
       alter_wert = Werte.Resistenz(); 
+      kosten   = Database.GradAnstieg.get_Resistenz_Kosten(alter_wert+1);
     } 
   else if (was==Zaubern) 
     { 
       if ( Typ[0]->Zaubern()  == "z" || Typ[0]->Zaubern()  == "j" ||
            Typ[1]->Zaubern() == "z" || Typ[1]->Zaubern() == "j" ) 
        { 
-         max_wert = Database.GradAnstieg.get_Zauber(grad);
-         kosten   = Database.GradAnstieg.get_Zauber_Kosten(grad+1);
+         max_wert = Database.GradAnstieg.get_MaxZauber(grad);
          alter_wert = Werte.Zaubern_wert(); 
+         kosten   = Database.GradAnstieg.get_Zauber_Kosten(alter_wert+1);
        } 
       else return; 
     }

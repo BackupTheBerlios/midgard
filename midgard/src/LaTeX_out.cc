@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.108 2002/03/13 09:32:35 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.109 2002/03/29 07:02:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,6 @@
 #include <Aux/EmptyInt_4TeX.h>
 #include "Sprache.hh"
 #include "Waffe.hh"
-#include <fstream>
 #include "Fertigkeiten_angeboren.hh"
 
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
@@ -35,36 +34,52 @@ gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_latex_clicked(bool values=true)
 {   
- system("rm midgard_tmp_myzauber.tex midgard_tmp_mykido.tex");
+ std::string tmppath=""; 
+ std::string installpath=""; //PACKAGE_DATA_DIR; 
+ std::string installfile=installpath+"midgard_document_eingabe";
+ std::string tmpname=tmppath+"midgard_tmp_latexwerte";
+ 
+ system(("rm "+tmpname+".tex").c_str());
+
+/*
  if (!access("document_eingabe4.tex",R_OK)) // Files im aktuellen Verzeichnis?
     system("cp document_eingabe4.tex midgard_tmp_document_eingabe.tex");
  else
     system("cp "PACKAGE_DATA_DIR"document_eingabe4.tex midgard_tmp_document_eingabe.tex");
+*/
 
- if (values) LaTeX_write_values();
- else LaTeX_write_empty_values();
+ ofstream fout((tmpname+".tex").c_str());
+ if (values) LaTeX_write_values(fout,installfile);
+ else LaTeX_write_empty_values(fout,installfile);
 
  if (list_Zauber.size()>0 || list_Zauberwerk.size()>0)  // Zauber
   {
-    LaTeX_zauber_main();
-    LaTeX_zauber();
-    LaTeX_zaubermittel();
+    LaTeX_zauber_main(fout);
   }
  if (list_Kido.size()>0) // KiDo
   {
-    LaTeX_kido_main();
-    LaTeX_kido();
+    LaTeX_kido_main(fout);
   }
-
- pdf_viewer("midgard_tmp_document_eingabe");
+ fout << "\\end{document}\n";
+ fout.close();
+ pdf_viewer(tmpname);
+ system(("rm "+tmpname+".tex").c_str());
 }      
 
-void midgard_CG::LaTeX_write_values()
+void midgard_CG::LaTeX_write_values(ofstream &fout,const std::string &install_latex_file)
 {
- ofstream fout("midgard_tmp_latexwerte.tex");
- std::string styp = Typ[0]->Name(Werte.Geschlecht());
- if (Typ[1]->Name(Werte.Geschlecht())!="") 
+ fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
+ std::string styp;
+ if(Werte.Bezeichnung().size())
+  {  styp=Werte.Bezeichnung()+" ("+Typ[0]->Short();
+     if(Typ[1]->Short().size()) styp +="/"+Typ[1]->Short();
+     styp+=")";
+  }
+ else 
+  { styp = Typ[0]->Name(Werte.Geschlecht());
+    if (Typ[1]->Name(Werte.Geschlecht())!="") 
       styp += "/"+Typ[1]->Name(Werte.Geschlecht());
+  }
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<Werte.St() << "}\n";
  fout << "\\newcommand{\\gs}{" <<Werte.Gs() << "}\n";
@@ -422,14 +437,14 @@ void midgard_CG::LaTeX_write_values()
       fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
    }
- fout.close();
-
+ fout << "\\input{"+install_latex_file+"}\n";
+// fout.close();
 }
 
 
-void midgard_CG::LaTeX_write_empty_values()
+void midgard_CG::LaTeX_write_empty_values(ofstream &fout,const std::string &install_latex_file)
 {
- ofstream fout("midgard_tmp_latexwerte.tex");
+ fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
  fout << "\\newcommand{\\typ}{}\n";
  fout << "\\newcommand{\\merkmale}{}" ;
  fout << "\\newcommand{\\hand}{""}\n";
@@ -583,7 +598,8 @@ void midgard_CG::LaTeX_write_empty_values()
       fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
    }
- fout.close();
+ fout << "\\input{"+install_latex_file+"}\n";
+// fout.close();
 }
 
 

@@ -63,10 +63,10 @@ void midgard_CG::menu_init()
   latex_empty->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),false));
 
   Gtk::RadioMenuItem::Group _RadioMGroup_pdfViewer;
-cout << "SIZE:  "<<list_pdfViewer.size()<<'\n';
   for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    {
-cout << i->text<<'\n';
+#warning Christof: warum wird das dritte Element nicht angezeigt?
+//cout << i->text<<'\n';
      Gtk::Label *_l=manage (new Gtk::Label(i->text));
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
