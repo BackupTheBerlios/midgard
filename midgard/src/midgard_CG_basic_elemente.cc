@@ -24,7 +24,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
- if(radiobutton_pp_eingeben->get_active()) 
+ if(togglebutton_praxispunkte->get_active()) 
   {
    spinbutton_pp_eingeben->set_value(MBE->Praxispunkte());
    spinbutton_pp_eingeben->show();

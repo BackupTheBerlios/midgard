@@ -43,7 +43,7 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_SCHRIFT_NEU {NAMErsn,ARTrsn,KOSTENn_SC};
    enum Spalten_KIDO {HOHOa_K,NAMEa_K,STUFEa_K,APa_K,KOSTENa_K,STILa_K,} ;
    enum Spalten_ZAUBER {NAMEn_Z,STUFEn_Z,URSPRUNGn_Z,KOSTENn_Z,STANDARDn_Z};
-   enum Spalten_ZAUBERWERK {STUFEn_ZW,NAMEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW};
+   enum Spalten_ZAUBERWERK {NAMEn_ZW,STUFEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW};
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
  const cH_MidgardBasicElement &getMBE() const {return MBE;}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.124 2002/01/23 09:00:51 thoma Exp $
+// $Id: midgard_CG.cc,v 1.125 2002/01/25 09:19:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -296,6 +296,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    table_werte_wuerfeln->hide();
    table_bw_wurf->hide();
    spinbutton_pp_eingeben->hide();
+   vbox_praxispunkte->hide();
    table_gruppe->hide();
    table_artikel->hide();
    togglebutton_gruppe_neu->hide(); // nicht implementiert
@@ -316,7 +317,7 @@ void midgard_CG::on_neuer_charakter_clicked()
       (*i)->setActive(false);
    menu_init();
    menu_gradanstieg_init();
-
+cout << "OptionBool.steigern "<<OptionBool.steigern<<'\n';
    checkbutton_EP_Geld->set_active(OptionBool.steigern);
 
    Database.GradAnstieg.set_Grad_Basiswerte(1);

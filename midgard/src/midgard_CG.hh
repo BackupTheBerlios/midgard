@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.143 2002/01/23 15:13:41 thoma Exp $
+// $Id: midgard_CG.hh,v 1.144 2002/01/25 09:19:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,7 +65,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                      bool steigern;bool version;
                void reset() {*this=st_OptionBool();}
                st_OptionBool() : Original(true), Info(true),
-                                 Pics(true), steigern(true),
+                                 Pics(true), steigern(false),
                                   version(true) {}};
         st_OptionBool OptionBool;
         struct st_OptionMenu{Gtk::CheckMenuItem *menu_original;
@@ -77,7 +77,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void set_tree_titles();
 
-//        st_Database Database;
         Datenbank Database;
         std::list<cH_MidgardBasicElement> list_Beruf;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
@@ -322,8 +321,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_radio_steigern_toggled();
         void on_radio_reduzieren_toggled();
         void on_radio_verlernen_toggled();
-        void on_radiobutton_pp_eingeben_toggled();
         void on_radio_steigern_all();
+        void on_togglebutton_praxispunkte_toggled();
         void on_radio_unterweisung_toggled();
         void on_radio_selbst_toggled();
         void on_radio_praxis_toggled();
@@ -361,8 +360,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_alte_zauber_reorder();
         void zauber_zeigen();
         void on_spruchrolle_toggled();
-        void on_checkbutton_zaubersalze_toggled();
-        void on_checkbutton_alle_zauber_toggled();
+        void on_togglebutton_zaubersalze_toggled();
+        void on_togglebutton_alle_zauber_toggled();
         bool spruchrolle_wuerfeln(const cH_MidgardBasicElement& zauber);
         void on_leaf_selected_alte_zauber(cH_RowDataBase d);
         void on_leaf_selected_neue_zauber(cH_RowDataBase d);

@@ -29,11 +29,11 @@ void midgard_CG::on_zauber_laden_clicked()
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Zauber.begin();i!=Database.Zauber.end();++i)
     { cH_Zauber z(*i);
       if ((*i)->ist_gelernt(list_Zauber)) continue ;
-      if (z->Zauberart()=="Zaubersalz" && !checkbutton_zaubersalze->get_active())
+      if (z->Zauberart()=="Zaubersalz" && !togglebutton_zaubersalze->get_active())
          continue;
       if (z->Zauberart()=="Beschwörung" && !Region::isActive(Database.Regionen,cH_Region("MdS")))
          continue;
-      if ((*i)->ist_lernbar(Typ,z->get_MapTyp()) || checkbutton_alle_zauber->get_active() )
+      if ((*i)->ist_lernbar(Typ,z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
        if (region_check(z->Region()) )
          list_Zauber_neu.push_back(*i);            
     }
@@ -75,20 +75,16 @@ void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
   zauberwerk_zeigen();
 }
 
-void midgard_CG::on_checkbutton_zaubersalze_toggled()
+void midgard_CG::on_togglebutton_zaubersalze_toggled()
 {
  on_zauber_laden_clicked();
 }
-void midgard_CG::on_checkbutton_beschwoerungen_toggled()
+void midgard_CG::on_togglebutton_alle_zauber_toggled()
 {
  on_zauber_laden_clicked();
 }
-void midgard_CG::on_checkbutton_alle_zauber_toggled()
-{
- on_zauber_laden_clicked();
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
-}
+
+/*
 void midgard_CG::on_checkbutton_zaubermittel_toggled()
 {
  zauberwerk_laden();
@@ -101,6 +97,7 @@ void midgard_CG::on_checkbutton_zaubermittel_toggled()
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
 }
+*/
 
 void midgard_CG::on_spruchrolle_toggled()
 {
@@ -227,7 +224,7 @@ void midgard_CG::zauberwerk_laden()
    if (((*i)->ist_lernbar(Typ,z->get_MapTyp()) 
          && z->Voraussetzungen(list_Zauber)
          && z->Voraussetzungen_Fertigkeit(list_Fertigkeit)) 
-         || checkbutton_alle_zauber->get_active() )
+         || togglebutton_alle_zauber->get_active() )
      if (region_check(z->Region()) )
        list_Zauberwerk_neu.push_back(*i);
   }

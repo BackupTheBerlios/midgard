@@ -89,7 +89,7 @@ void midgard_CG::menu_init()
      regionen_menu->append(*_mi);
      _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      _mi->set_active((*i)->Active());
-     if(!OptionBool.Original && ((*i)->Abkuerzung()=="H&D" ||(*i)->Abkuerzung()=="G"))
+     if(!OptionBool.Original && (*i)->Offiziell() )
         _mi->set_sensitive(false);
    }
   menu->append(*regionen);

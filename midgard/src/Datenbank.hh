@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.2 2002/01/19 17:07:32 christof Exp $               
+// $Id: Datenbank.hh,v 1.3 2002/01/25 09:19:23 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,6 @@
 #include <string>
 #include <list>
 
-// #include "Grundwerte.hh"
 #include "Land.hh"   
 #include "Pflicht.hh"
 #include "Ausnahmen.hh"
@@ -34,8 +33,6 @@
 #include "Grad_anstieg.hh"
 #include "Lernschema.hh"
 #include "Preise.hh"
-// #include "Ausruestung.hh"
-// #include "class_lernpunkte.hh"
 #include "Region.hh"  
 #include "Ruestung.hh"
 

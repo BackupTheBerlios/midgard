@@ -27,8 +27,6 @@ void midgard_CG::on_radio_reduzieren_toggled()
 { on_radio_steigern_all();}
 void midgard_CG::on_radio_verlernen_toggled()
 { on_radio_steigern_all();}
-void midgard_CG::on_radiobutton_pp_eingeben_toggled()
-{ on_radio_steigern_all();}
 void midgard_CG::on_radio_steigern_all()
 {
   if (radiobutton_steigern->get_active() && checkbutton_EP_Geld->get_active())
@@ -36,13 +34,17 @@ void midgard_CG::on_radio_steigern_all()
   else
      frame_lernen_mit->set_sensitive(false); 
 
-  if(radiobutton_pp_eingeben->get_active())
+}
+
+void midgard_CG::on_togglebutton_praxispunkte_toggled()
+{
+  if(togglebutton_praxispunkte->get_active())
    {
      vbox_praxispunkte->show();
      if(Typ[0]->is_mage() || Typ[1]->is_mage()) 
-         radiobutton_pp_zauber->show();
+         radiobutton_pp_zauber->set_sensitive(true);//show();
      else
-         radiobutton_pp_zauber->hide();
+         radiobutton_pp_zauber->set_sensitive(true);//hide();
    }
   else
      vbox_praxispunkte->hide();
