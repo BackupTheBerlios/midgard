@@ -2,6 +2,20 @@
 #include "config.h"
 #include "Wizard.hh"
 
+namespace Wizard
+{  
+     struct st_wiz
+     {  int page;
+        std::string text;
+        st_wiz(int p,std::string t)
+            : page(p),text(t){}
+     };
+
+      static std::vector<st_wiz> vecwiz;
+      static void fill_vecwiz();
+
+      void evaluate_step(esteps step);
+}
 
 #include "midgard_CG.hh"
 
@@ -12,14 +26,6 @@ Wizard::esteps &operator++(Wizard::esteps &a)
    return a;
 }
 
-Wizard::Wizard(midgard_CG* h)
-: hauptfenster(h), actual_step(START)
-{
-  fill_vecwiz();
-//  hauptfenster->show_wizard_active(true);
-}
-
-
 void Wizard::next_step(esteps e)
 {
   actual_step=++e;
@@ -27,8 +33,7 @@ void Wizard::next_step(esteps e)
 }
 
 void Wizard::restart()
-{active=true;
- actual_step=START;
+{actual_step=START;
  evaluate_step(++actual_step);
 }
 
@@ -59,6 +64,9 @@ void Wizard::evaluate_step(esteps step)
 
 void Wizard::fill_vecwiz()
 {  if (!vecwiz.empty()) return;
+   // Inaktiv
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
+   			  "Wizard inaktiv"));
    //START
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
                           "Hier erscheint jeweils der nächste Schritt für einen neuen Abenteurer."));
@@ -134,6 +142,7 @@ void Wizard::fill_vecwiz()
    //FERTIG
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
                           "Fertig"));
+   assert(vecwiz.size()==int(FERTIG)+1);
 }
 
 

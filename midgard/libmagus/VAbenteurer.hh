@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.4 2003/09/04 07:41:32 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.5 2003/09/04 08:02:01 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -26,12 +26,17 @@
 #include "Undo.hh"
 #include "VAbentModelProxy.hh"
 #include <sigc++/object.h>
+#include "Wizard.hh"
 
 class VAbenteurer : public SigC::Object // um signale zu empfangen
 {
    public:
-      struct st_abenteurer{Abenteurer abenteurer;
-       			   AbenteurerLernpunkte ab_lp;
+      struct st_abenteurer{// für Undo wichtig (mehrfach vorhanden)
+      			    Abenteurer abenteurer;
+       			    AbenteurerLernpunkte ab_lp;
+       			    Model_copyable<Wizard::esteps> actual_step;
+       			    // ... z.B. wie steigern etc ...
+       			   // global 
       			   std::string filename;
       			   Midgard_Undo undo;
                            bool gespeichert;
