@@ -84,7 +84,7 @@
 	    <class>GtkButton</class>
 	    <child_name>Toolbar:button</child_name>
 	    <name>button_neuer_charakter</name>
-	    <tooltip>Neuer Abenteurer</tooltip>
+	    <tooltip>Neuer Abenteurer.</tooltip>
 	    <signal>
 	      <name>button_release_event</name>
 	      <handler>on_neuer_charakter_release_event</handler>
@@ -464,6 +464,11 @@
 		      <widget>
 			<class>GtkMenuItem</class>
 			<name>nur_sichtbares</name>
+			<accelerator>
+			  <modifiers>GDK_CONTROL_MASK</modifiers>
+			  <key>GDK_A</key>
+			  <signal>activate</signal>
+			</accelerator>
 			<signal>
 			  <name>activate</name>
 			  <handler>on_nur_sichtbares_drucken</handler>
@@ -476,6 +481,11 @@
 		      <widget>
 			<class>GtkMenuItem</class>
 			<name>unsichtbares_drucken</name>
+			<accelerator>
+			  <modifiers>GDK_MOD1_MASK</modifiers>
+			  <key>GDK_A</key>
+			  <signal>activate</signal>
+			</accelerator>
 			<signal>
 			  <name>activate</name>
 			  <handler>on_auch_unsichtbares_drucken</handler>
@@ -490,6 +500,11 @@
 		  <widget>
 		    <class>GtkMenuItem</class>
 		    <name>beschreibung</name>
+		    <accelerator>
+		      <modifiers>GDK_CONTROL_MASK</modifiers>
+		      <key>GDK_B</key>
+		      <signal>activate</signal>
+		    </accelerator>
 		    <signal>
 		      <name>activate</name>
 		      <handler>on_beschreibung_drucken</handler>
@@ -502,6 +517,11 @@
 		  <widget>
 		    <class>GtkMenuItem</class>
 		    <name>alles_drucken</name>
+		    <accelerator>
+		      <modifiers>GDK_MOD1_MASK</modifiers>
+		      <key>GDK_P</key>
+		      <signal>activate</signal>
+		    </accelerator>
 		    <signal>
 		      <name>activate</name>
 		      <handler>on_alles_drucken</handler>
@@ -520,12 +540,41 @@
 		  <widget>
 		    <class>GtkMenuItem</class>
 		    <name>leeres_abenteurerblatt</name>
+		    <accelerator>
+		      <modifiers>GDK_CONTROL_MASK</modifiers>
+		      <key>GDK_E</key>
+		      <signal>activate</signal>
+		    </accelerator>
 		    <signal>
 		      <name>activate</name>
 		      <handler>on_leeres_abenteurerdokument_drucken</handler>
 		      <last_modification_time>Tue, 14 May 2002 06:11:40 GMT</last_modification_time>
 		    </signal>
 		    <label>Leeres Abenteurerblatt</label>
+		    <right_justify>False</right_justify>
+		  </widget>
+
+		  <widget>
+		    <class>GtkMenuItem</class>
+		    <name>trennlinie6</name>
+		    <right_justify>False</right_justify>
+		  </widget>
+
+		  <widget>
+		    <class>GtkMenuItem</class>
+		    <name>spielleiterbogen_drucken</name>
+		    <tooltip>Der Spielleiterbogen enthält die wichtigsten Informationen für alle momentan geladenen Abenteurer auf einer Seite</tooltip>
+		    <accelerator>
+		      <modifiers>GDK_MOD1_MASK</modifiers>
+		      <key>GDK_S</key>
+		      <signal>activate</signal>
+		    </accelerator>
+		    <signal>
+		      <name>activate</name>
+		      <handler>on_spielleiterbogen_drucken_activate</handler>
+		      <last_modification_time>Mon, 03 Jun 2002 17:44:59 GMT</last_modification_time>
+		    </signal>
+		    <label>Spielleiterbogen</label>
 		    <right_justify>False</right_justify>
 		  </widget>
 		</widget>
@@ -17574,6 +17623,75 @@ KS
 		  <int1>7</int1>
 		  <int2>7</int2>
 		  <last_modification_time>Mon, 27 May 2002 19:25:17 GMT</last_modification_time>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkToggleButton</class>
+	      <name>togglebutton_delete_abenteurer_aus_liste</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <can_focus>True</can_focus>
+	      <signal>
+		<name>toggled</name>
+		<handler>on_togglebutton_delete_abenteurer_aus_liste_toggled</handler>
+		<last_modification_time>Tue, 04 Jun 2002 06:21:02 GMT</last_modification_time>
+	      </signal>
+	      <relief>GTK_RELIEF_NORMAL</relief>
+	      <active>False</active>
+	      <child>
+		<left_attach>0</left_attach>
+		<right_attach>1</right_attach>
+		<top_attach>2</top_attach>
+		<bottom_attach>3</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>False</xfill>
+		<yfill>False</yfill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox84</name>
+		<homogeneous>False</homogeneous>
+		<spacing>0</spacing>
+
+		<widget>
+		  <class>GtkPixmap</class>
+		  <name>pixmap162</name>
+		  <filename>Erase-50.xpm</filename>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <build_insensitive>True</build_insensitive>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label598</name>
+		  <label>Abenteurer aus
+Liste löschen</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
 		</widget>
 	      </widget>
 	    </widget>

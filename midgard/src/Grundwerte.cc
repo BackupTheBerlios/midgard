@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.27 2002/05/28 10:06:17 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.28 2002/06/04 11:13:41 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -186,6 +186,19 @@ int Grundwerte::bo_Phk(const vector<cH_Typen>& Typ) const
 
   return bo_phk;
 }
+
+const std::string Grundwerte::Resistenzen_alle(const vector<cH_Typen>& Typ) const
+{
+ int R=Resistenz();
+ int R1=R+bo_Psy(Typ);
+ int R2=R+bo_Phs(Typ);
+ int R3=R+bo_Phk(Typ);
+ int R4=Gift();
+ std::string s=itos(R1)+"/"+itos(R2)+"/"+itos(R3)+"/"+itos(R4);
+ return s;
+}
+
+
 
 void Grundwerte::setSinn(const std::string &name,int wert)
 {

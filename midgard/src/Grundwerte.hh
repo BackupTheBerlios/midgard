@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.41 2002/05/28 10:06:17 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.42 2002/06/04 11:13:41 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -105,6 +105,7 @@ public:
    int ZaubernPP() const { return zauber_pp;}
    int SpezialPP() const { return pp_spezialzauber;}
    int Resistenz() const {return resistenz;}
+   const std::string Resistenzen_alle(const vector<cH_Typen>& Typ) const;
    int ResistenzPP() const {return resistenz_pp;}
    int bo_Au() const;
    int bo_Sc() const;

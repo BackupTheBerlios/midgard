@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.6 2002/06/04 09:46:01 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.7 2002/06/04 11:13:41 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -40,6 +40,62 @@ std::string Abenteurer::STyp() const
   else return CTyp1()->Name(getCWerte().Geschlecht());
   abort(); //never get here
 }
+
+
+const int Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
+{
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+   {
+     if(name==(*i)->Name()) return (*i)->Erfolgswert(); 
+   }   
+  std::list<st_universell> UF=CList_Universell(Database);
+  for(std::list<st_universell>::const_iterator i=UF.begin();i!=UF.end();++i)
+   {
+     if(name==i->mbe->Name()) return i->mbe->Erfolgswert(); 
+   }   
+  cout << name<< "nicht gefunden\n";
+  assert(!"never get here");
+  abort();
+}
+
+const std::list<Abenteurer::st_universell> Abenteurer::CList_Universell( const Datenbank &Database) const
+{
+  std::list<st_universell> UF;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
+   {
+     cH_Fertigkeit f(*i);
+     if(f->Ungelernt()!=-99)
+     UF.push_back(*i);
+   }
+  cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen"));
+  UF.push_back(werfen);
+//  UF.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
+
+  for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
+   {
+     int iwert=-99;
+     if (i->mbe->What()==MidgardBasicElement::FERTIGKEIT)
+      {
+        cH_Fertigkeit f(i->mbe);
+        iwert = f->Ungelernt();
+        if (!f->Voraussetzungen(getCWerte(),CList_Fertigkeit())) 
+            {iwert-=2; i->voraussetzung=false;}
+      }
+     else if (i->mbe->What()==MidgardBasicElement::WAFFE)
+      {
+        cH_Waffe f(i->mbe);
+        iwert = 4+getCWerte().bo_An();
+        if (!f->SG_Voraussetzung(getCWerte(),CList_Fertigkeit(),CList_Waffen()))
+            {iwert=0; i->voraussetzung=false;}
+      }
+     i->mbe->setErfolgswert(iwert);
+     if (i->mbe->ist_gelernt(CList_Fertigkeit()) || i->mbe->ist_gelernt(CList_Waffen()))
+          i->gelernt=true;
+   }
+  return UF;
+}
+
+
 
 
 void VAbenteurer::push_back(Abenteurer A)

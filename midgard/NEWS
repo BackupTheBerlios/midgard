@@ -1,3 +1,4 @@
+cvs add LaTeX_drucken_spielleiterbogen.cc
 ##########################################################################
 NEWS IN VERSION 0.6delta6
 * Erster Abenteurer bei Programmstart als 'gespeichert' markieren.
@@ -8,6 +9,11 @@ NEWS IN VERSION 0.6delta6
 * Überarbeitung der 'Spielleiterexport-Funktion'
 * History für geladene Abenteurer 
 * History abspeichern
+* Impelmentierung der 'Universellen Fähigkeiten' ist in die 'Abenteurer' Klasse
+   gewandert, ist so viel(!) konsistenter und nötig für den
+* Spielleiterbogen
+* Abenteurer kann aus der 'History-Liste' gelöscht werden. 
+   (Ebenfalls nötig für den Spielleiterbogen)
 
 TODO:
 * Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 

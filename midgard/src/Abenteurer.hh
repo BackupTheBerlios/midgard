@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.9 2002/06/04 09:46:01 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.10 2002/06/04 11:13:41 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -85,6 +85,10 @@ public:
    const std::list<cH_MidgardBasicElement>& CList_Kido() const {return list_Kido;}
    const std::list<cH_MidgardBasicElement>& CList_Sprache() const {return list_Sprache;} 
    const std::list<cH_MidgardBasicElement>& CList_Schrift() const {return list_Schrift;}
+   struct st_universell{cH_MidgardBasicElement mbe;bool voraussetzung;bool gelernt;
+          st_universell(cH_MidgardBasicElement m) 
+            : mbe(m),voraussetzung(true),gelernt(false) {}};
+   const std::list<st_universell> CList_Universell( const Datenbank &Database) const;
 
    std::list<cH_MidgardBasicElement>& List_Beruf() {return list_Beruf;}
    std::list<cH_MidgardBasicElement>& List_Fertigkeit_ang() {return list_Fertigkeit_ang;}
@@ -110,6 +114,9 @@ public:
    bool operator==(const Abenteurer& a) const
       {return getCWerte().Name_Abenteurer()==a.getCWerte().Name_Abenteurer() &&
               getCWerte().Version() == a.getCWerte().Version() ;}
+
+
+   const int Erfolgswert(std::string name,const Datenbank &Database) const;
 };
 
 class VAbenteurer
@@ -188,6 +195,7 @@ public:
    const std::list<cH_MidgardBasicElement>& CList_Kido() const {return ai->abenteurer.CList_Kido();}
    const std::list<cH_MidgardBasicElement>& CList_Sprache() const {return ai->abenteurer.CList_Sprache();} 
    const std::list<cH_MidgardBasicElement>& CList_Schrift() const {return ai->abenteurer.CList_Schrift();}
+   const std::list<Abenteurer::st_universell> CList_Universell( const Datenbank &Database) const {return ai->abenteurer.CList_Universell(Database);}
 
    std::list<cH_MidgardBasicElement>& List_Beruf() {return ai->abenteurer.List_Beruf();}
    std::list<cH_MidgardBasicElement>& List_Fertigkeit_ang() {return ai->abenteurer.List_Fertigkeit_ang();}
@@ -201,6 +209,7 @@ public:
    std::list<cH_MidgardBasicElement>& List_Sprache()  {return ai->abenteurer.List_Sprache();} 
    std::list<cH_MidgardBasicElement>& List_Schrift()  {return ai->abenteurer.List_Schrift();}
 
+   const int Erfolgswert(std::string name,const Datenbank &Database) const {return ai->abenteurer.Erfolgswert(name,Database);};
 };
 
 
