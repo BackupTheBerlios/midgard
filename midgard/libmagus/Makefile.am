@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.34 2003/08/04 08:50:22 christof Exp $
+# $Id: Makefile.am,v 1.35 2003/08/05 08:55:18 christof Exp $
 
 AM_CPPFLAGS = @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@
@@ -23,7 +23,7 @@ Zufallscharakter_SOURCES=Zufallscharakter.cc
 readxml_SOURCES=readxml.cc
 readxml2_SOURCES=readxml2.cc
 
-noinst_LIBRARIES=libmagus.a
+lib_LTLIBRARIES=libmagus.la
 
 EXTRA_QUELLEN=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
 	LaTeX_drucken_ausruestung.cc LaTeX_drucken.cc \
@@ -32,20 +32,20 @@ EXTRA_QUELLEN=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
 	Zufall.cc Zufall_Lernschema.cc Zufall_Spezies_Typ.cc \
 	spielleiter_export.cc Magus_Optionen.cc AbenteurerLernpunkte.cc
 
-libmagus_a_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
+libmagus_la_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Zauberwerk.cc Land.cc Waffe.cc WaffeGrund.cc Sinne.cc \
 	Typen.cc Schrift.cc Ruestung.cc Beruf.cc Fertigkeiten_angeboren.cc \
 	Fertigkeiten.cc Sprache.cc Spezies.cc Abenteurer_besitz.cc \
 	Ausruestung.cc dtos1.cc Windows_Linux.cc magus_paths.cc \
 	Datenbank.cc Grad_anstieg.cc \
 	Grundwerte.cc LernListen.cc Preise.cc Prototyp2.cc \
-	Prototyp.cc Prozente100.cc  Ruestung.cc Spezialgebiet.cc \
+	Prototyp.cc Prozente100.cc  Spezialgebiet.cc \
 	xml.cc Region.cc Optionen.cc Abenteurer.cc magustrace.cc \
 	Lernschema.cc Ausgabe.cc snprintf.c $(PORT_FILES) \
-	$(EXTRA_QUELLEN) Random.cc
+	$(EXTRA_QUELLEN) Random.cc libmagus.cc
 
-test_LDADD = libmagus.a @COMMONXX_LIBS@ @SIGC_LIBS@
-Zufallscharakter_LDADD = libmagus.a @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
+test_LDADD = libmagus.la @COMMONXX_LIBS@ @SIGC_LIBS@
+Zufallscharakter_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
 readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
 readxml2_LDADD = @XMLPP_LIBS@
 

@@ -39,10 +39,8 @@ int main(int argc,char **argv)
 {  ManuProC::Tracer::Enable(LibMagus::trace_channel,true);
 //   Datenbank db;
    if (argc>1) TagStream::host_encoding=argv[1];
-   magus_paths::init(argv[0]);
-   Magus_Optionen::init();
  try {  
-   Datenbank::init(&progress); // db.load(&progress);
+   libmagus_init(argc,argv,&progress);
    
    Abenteurer a;
    Zufall z(a);

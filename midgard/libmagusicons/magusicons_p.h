@@ -1,10 +1,13 @@
-// $Id: magusicons_p.h,v 1.2 2003/04/27 21:13:41 christof Exp $
+// $Id: magusicons_p.h,v 1.3 2003/08/05 08:55:18 christof Exp $
 
 #include "magusicons.h"
 #include <map>
 #include <vector>
 
 namespace MagusIcons {
+enum style { Alessandro, Ulf, Gtk, Any };
+extern void set_icon_style(style);
+
 struct key_t
 {  style s; std::string name;
 

@@ -127,13 +127,11 @@ reloop:
          i=-1;
          mutter_9=false;
          ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
-//         if(ci==V.end()) assert(!"Muttersprache nicht im Lernschema gefunden");
          if(ci==V.end()) 
             { Ausgabe(Ausgabe::Warning,"Zu blöd zum Schreiben: Muttersprache(+9)");
 //              const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
               throw std::exception();
             }
-//cout << Aben.Typ1()->Name(Enums::Mann) <<" lernt Allgemeine Sprache\n";
        }
      else if(was==eFach && mutter_12) 
        { 
@@ -145,14 +143,11 @@ reloop:
               const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
               throw std::exception();
             }
-//cout << Aben.Typ1()->Name(Enums::Mann) <<" lernt Fach Sprache\n";
        }
      else i=Random::integer(0,V.size()-1);
      }catch(std::exception &e){
         Ausgabe(Ausgabe::Error,std::string("Lernpunkte_verteilen: Exception ")+e.what());
         i=Random::integer(0,V.size()-1);} 
-//if(i==0)
-//cout << V[0]->Name()<<'\t'<<V[0].Lernpunkte()<<'\t'<<V[0].Pflicht()<<'\n';
      MBEmlt M=V[0];
      if(i==-1)  M=*ci;
      else       M=V[i];
@@ -162,7 +157,6 @@ reloop:
      else if(was==eAllg) M->setLernArt("Unge");
 
 
-//cout << '\t'<<L.size()<<' '<<M->Name()<<'\n';
      L.remove(M); // Die nächste Methode ändert 'M' daher muß es HIER entfernt werden
 
      if((*M)->What()==MidgardBasicElement::FERTIGKEIT) 

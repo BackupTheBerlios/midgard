@@ -1,8 +1,9 @@
-// $Id: magusicons.cc,v 1.6 2003/05/06 12:54:37 christof Exp $
+// $Id: magusicons.cc,v 1.7 2003/08/05 08:55:18 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>
 #include <iostream>
+#include <libmagus/Magus_Optionen.hh>
 
 static MagusIcons::style current_style=MagusIcons::Alessandro;
 MagusIcons::map_t MagusIcons::images;
@@ -44,7 +45,13 @@ Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name)
 {  using namespace MagusIcons;
    using MagusIcons::key_t;
    if (images.empty())
-   {  for (const data_registry *iter=data_registry::first; iter; iter=iter->next)
+   {  Magus_Optionen::IconIndex current_option=Programmoptionen.getIconIndex();
+      if (current_option==Magus_Optionen::Self) current_style=Alessandro;
+      else if (current_option==Magus_Optionen::Ulf) current_style=Ulf;
+      else if (current_option==Magus_Optionen::Gtk2) current_style=Gtk;
+      else current_style=Alessandro;
+      
+      for (const data_registry *iter=data_registry::first; iter; iter=iter->next)
       {  if (iter->is_xpm())
             images[key_t(iter->st,iter->name)]=
  		Gdk::Pixbuf::create_from_xpm_data(iter->XpmData());
@@ -80,10 +87,6 @@ Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name)
    Glib::RefPtr<Gdk::Pixbuf> pb=images[key_t(Any,name)];
    if (!pb) std::cerr << "MagusImage(\"" << name << "\") not found\n";
    return pb;
-}
-
-void MagusIcons::set_icon_style(style st)
-{  current_style=st;
 }
 
 const MagusIcons::data_registry *MagusIcons::data_registry::first;

@@ -36,3 +36,7 @@ use StyleIcon for new Icons
 
 - Probleme torture: Verteidigungswaffen werden nicht als solche erkannt
 	Export: Waffen immer mit $$
+	Zusätze werden nicht ersetzt (Lernschema: Heimat, Gastland,
+		Nachbarland)
+
+  Landeskunde geht, Schreiben: Alte Sprache nicht
