@@ -1,6 +1,13 @@
 Version 0.9.5
 - Wizard überarbeitet (geht jetzt erstmalig)
 - Spezies vereinfacht
+- Berggnom Bug behoben (wegen zufall)
+
+-------------- TODO ----------------
+
+<<<TODO>>>
+
+------------------------------------
 
 Version 0.9.4
 
@@ -13,12 +20,6 @@ Version 0.9.4
 - Ausgabe der PP für Spezial-Zauber (Dweomer, Wunder, etc.)
 - StandardRegionen implementiert
 - Berufe aus dem Gildenbrief (in eigener Region)
-
--------------- TODO ----------------
-
-<<<TODO>>>
-
-------------------------------------
 
 NEU in Version 0.9.3
 

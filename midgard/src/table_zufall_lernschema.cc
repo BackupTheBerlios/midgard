@@ -178,15 +178,12 @@ void table_zufall::fill_combos()
      L.push_back(i->first->Name(hauptfenster->getAben().Geschlecht()));
   combo_typ->set_popdown_strings(L);
 */
-std::cout << hauptfenster->getChar()->getAbenteurer().Spezies()->Name() << " tz::fc 1a\n";
   // Spezies
   L.clear();
   std::vector<cH_Spezies> S=LernListen::getSpezies(nsc_allowed);
   for(std::vector<cH_Spezies>::const_iterator i=S.begin();i!=S.end();++i)
      L.push_back((*i)->Name());
-std::cout << hauptfenster->getChar()->getAbenteurer().Spezies()->Name() << " tz::fc 1aa\n";
  combo_spezies->set_popdown_strings(L);
-std::cout << hauptfenster->getChar()->getAbenteurer().Spezies()->Name() << " tz::fc 1b\n";
 
   // Herkunft
   L.clear();

@@ -32,9 +32,7 @@ void table_zufall::init(midgard_CG *h)
 {
   hauptfenster=h;
   checkbutton_ange_fert->hide(); // nicht richtig implementiert
-std::cout << h->getChar()->getAbenteurer().Spezies()->Name() << " tz::i 1a\n";
   fill_combos();
-std::cout << h->getChar()->getAbenteurer().Spezies()->Name() << " tz::i 1b\n";
   fill_combo_steigern();
   fill_prototyp2_list();
   zeige_werte();

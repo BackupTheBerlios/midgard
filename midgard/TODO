@@ -1,6 +1,5 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 * Wizard aktiv
-* Lernpunkte werden nie aktiv, angeb. Fertigkeiten bleiben aktiv
 * Eingabe von PP für Fertigkeiten geht nicht
 ######################################################################
 
@@ -69,7 +68,7 @@ was bedeutet:
 
 - set_remember fehlt ganz (ist auch nicht notwendig)
 
-- Wizard testen
+- Wizard an/aus, kleines Problem bei Berufswahl
 
 - mehrere Fenster, Neustart des Fensters
 
@@ -83,9 +82,6 @@ was bedeutet:
 
 - Komponenten: Entries/Spinbuttons mit many_changed+activate (wie MVC)
 	und dann in Grundwerte ersetzen (Werte ändern ...)
-
-- Spezies wird nicht gesetzt (liegt vermutlich an nicht gesetztem
-       Abenteurer)
 
 - Lizenz
 
@@ -104,9 +100,7 @@ was bedeutet:
 
 - Dinge in Dialoge verschieben?
 
-- Expander ?
-
-- Lernschema: Würfeln/Eingeben Button noch getrennt
+- Expander ? bis dahin ist gtk2.4 Standard
 
 - hide 4: Beschreibung des Artikels (optional) ??
 
