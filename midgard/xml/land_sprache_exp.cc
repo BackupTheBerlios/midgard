@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.55 2002/10/25 06:48:19 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.56 2002/10/25 17:48:56 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -303,6 +303,19 @@ void land_speichern(Tag &o)
       fetch_and_set_float_attrib(is, Dinge, "Preis");
       fetch_and_set_string_attrib(is, Dinge, "Währung");
     }
+   Query query1a("select 'Waffen', '', name, gewicht, kosten_gs, 'GS' from waffen"
+               " where grundkenntnisse !='Kampf ohne Waffen' "
+               " order by name");
+   while ((query1a>>is).good())
+    { Tag &Dinge=Preise.push_back(Tag("Dinge"));
+      fetch_and_set_string_attrib(is, Dinge, "Art");
+      fetch_and_set_string_attrib(is, Dinge, "Art2");
+      fetch_and_set_string_attrib(is, Dinge, "Ware");
+      fetch_and_set_string_attrib(is, Dinge, "Gewicht");
+      fetch_and_set_float_attrib(is, Dinge, "Preis");
+      fetch_and_set_string_attrib(is, Dinge, "Währung");
+    }
+   
    Tag &PreiseM=o.push_back(Tag("PreiseNeuMod"));
    Query query2("select distinct art1 from preise_mod order by art1");
    while ((query2>>is).good())

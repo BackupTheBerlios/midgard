@@ -13,9 +13,13 @@ NEWS IN VERSION 0.8.8
 * noch mehr kleinere Bugs beseitigt
 * Der erste Preismodifikator (Adel) wird jetzt korrekt berücksichtigt
 * Preise und Gewicht für Waffen werden angegeben
+* Original-Midgard-Logo in die Statuszeile verbannt
+* Preise und Gewicht für Waffen von 'preise' -> 'waffen' (PostgreSQL)
 
 TODO: ('-' zeigt CP an)
 
+* Gewicht im Ausrüstungsbaum anzeigen
+* Maximale Traglast und aktuelle Belastung anzeigen
 * Neue Ausrüstung eingeben
 * Regionale Waffen&Gewichte in der Ausrüstung
 * Hilfe Menü ans Ende

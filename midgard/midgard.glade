@@ -1940,54 +1940,25 @@ Stefan Peschl, Sven Rey, Ottmar Zimmer und viele andere geholfen.</label>
 	<widget>
 	  <class>GtkVBox</class>
 	  <child_name>Notebook:tab</child_name>
-	  <name>table_notebook_credits</name>
+	  <name>vbox66</name>
 	  <homogeneous>False</homogeneous>
 	  <spacing>0</spacing>
 
 	  <widget>
-	    <class>GtkHBox</class>
-	    <name>hbox85</name>
-	    <homogeneous>False</homogeneous>
-	    <spacing>0</spacing>
+	    <class>GtkPixmap</class>
+	    <name>pixmap_original_tux</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <filename>MAGUS_Logo_Small.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
 	    <child>
 	      <padding>0</padding>
 	      <expand>True</expand>
 	      <fill>True</fill>
 	    </child>
-
-	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap_original_tux</name>
-	      <cxx_visibility>protected</cxx_visibility>
-	      <filename>MAGUS_Logo_Small.xpm</filename>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	      <child>
-		<padding>0</padding>
-		<expand>True</expand>
-		<fill>True</fill>
-	      </child>
-	    </widget>
-
-	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap_logo</name>
-	      <cxx_visibility>protected</cxx_visibility>
-	      <filename>midgard_logo_small.xpm</filename>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	      <child>
-		<padding>0</padding>
-		<expand>True</expand>
-		<fill>True</fill>
-	      </child>
-	    </widget>
 	  </widget>
 
 	  <widget>
@@ -7482,14 +7453,7 @@ ausw‰hlen</label>
 		</child>
 
 		<widget>
-		  <class>GtkViewport</class>
-		  <name>viewport_lernen</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-		  <widget>
-		    <class>Placeholder</class>
-		  </widget>
+		  <class>Placeholder</class>
 		</widget>
 	      </widget>
 
@@ -15189,8 +15153,8 @@ anschlieﬂend unten einen neuen Gegenstand ausw‰hlen.</label>
 		  <last_modification_time>Mon, 07 Oct 2002 14:28:07 GMT</last_modification_time>
 		</signal>
 		<creation_function>SimpleTree</creation_function>
-		<int1>8</int1>
-		<int2>8</int2>
+		<int1>9</int1>
+		<int2>9</int2>
 		<last_modification_time>Wed, 02 Oct 2002 16:39:25 GMT</last_modification_time>
 	      </widget>
 	    </widget>
@@ -19254,6 +19218,29 @@ werk</label>
 
 	  <widget>
 	    <class>Placeholder</class>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkEventBox</class>
+	  <name>eventbox_Original_Midgard</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <tooltip>Dieses Icon zeigt an, daﬂ die Originalregeln verwendet werden.</tooltip>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkPixmap</class>
+	    <name>pixmap176</name>
+	    <filename>midgard_logo_status.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
 	  </widget>
 	</widget>
 

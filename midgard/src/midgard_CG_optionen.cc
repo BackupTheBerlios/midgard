@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.106 2002/09/21 18:00:13 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.107 2002/10/25 17:48:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,12 +48,13 @@ void midgard_CG::checkbutton_original(bool active)
     { table_steigern->togglebutton_alle_zauber->set_sensitive(false); 
       MOptionen->setAllHausregeln(false);
       show_Hausregeln_active(false);
-      pixmap_logo->show();
+      eventbox_Original_Midgard->show();
+//      pixmap_logo->show();
     }      
   else 
     { table_steigern->togglebutton_alle_zauber->set_sensitive(true); 
-      
-      pixmap_logo->hide();
+      eventbox_Original_Midgard->hide();
+//      pixmap_logo->hide();
     }      
   menu_init();
 }
@@ -186,7 +187,8 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
   {
    if(!(*i)->Offiziell() && (*i)->Active()) 
      { 
-       pixmap_logo->hide();
+//       pixmap_logo->hide();
+       eventbox_Original_Midgard->hide();
        break;
      }
   }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.6 $">
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.7 $">
  <Schriften>
   <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
    <Variante Name="KanThaiTun(1)"/>
@@ -2155,7 +2155,6 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
-   <Kaufpreis Preis="10" Währung="GS" Gewicht="0.5"/>
   </Waffe>
   <Waffe Name="Sai" Region="K" Grundkenntnisse="Stichwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-3">
    <Modifikationen/>

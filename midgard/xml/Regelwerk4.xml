@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.7 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.8 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -1631,67 +1631,7 @@
   <Dinge Art="Waffen" Ware="10 Blasrohrnadeln" Gewicht="0.05" Preis="1" Währung="GS"/>
   <Dinge Art="Waffen" Ware="10 Bleikugeln" Gewicht="0.2" Preis="1" Währung="GS"/>
   <Dinge Art="Waffen" Ware="10 Pfeile" Gewicht="1.5" Preis="2" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Anderthalbhänder" Gewicht="4" Preis="200" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Bihänder" Gewicht="5" Preis="200" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Blasrohr" Gewicht="2" Preis="8" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Bogen" Gewicht="0.6" Preis="15" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Bola" Gewicht="1" Preis="4" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Buckler" Gewicht="1" Preis="10" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Dolch" Gewicht="0.5" Preis="5" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Fuchtel" Gewicht="2" Preis="100" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Garotte" Gewicht="0" Preis="5" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Glefe" Gewicht="3" Preis="30" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Handarmbrust" Gewicht="1" Preis="100" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Handaxt" Gewicht="1.5" Preis="10" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Hellebarde" Gewicht="5" Preis="50" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Kampfgabeln Paar" Gewicht="1.5" Preis="15" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Kampfstab" Gewicht="2.5" Preis="10" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Keule" Gewicht="2" Preis="8" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Kompositbogen" Gewicht="0.7" Preis="-1" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Kriegsflegel" Gewicht="7.5" Preis="30" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Kriegshammer" Gewicht="2.5" Preis="12" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Krummsäbel" Gewicht="2.5" Preis="100" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Kurzbogen" Gewicht="0.5" Preis="15" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Kurzschwert" Gewicht="1.5" Preis="20" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Langbogen" Gewicht="1" Preis="40" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Langschwert" Gewicht="2.5" Preis="100" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Lanze" Gewicht="5" Preis="13" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Lasso" Gewicht="1" Preis="2" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Magierstab" Gewicht="1.5" Preis="15" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Magierstecken" Gewicht="2" Preis="20" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Morgenstern" Gewicht="5" Preis="40" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Netz" Gewicht="2" Preis="2" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="NunChaku" Gewicht="0.5" Preis="10" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Ochsenzunge" Gewicht="1" Preis="10" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Ogerhammer" Gewicht="10" Preis="70" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Parierdolch" Gewicht="0.7" Preis="8" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Peitsche" Gewicht="1" Preis="8" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Rapier" Gewicht="1.5" Preis="70" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Schlachtbeil" Gewicht="5" Preis="25" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Schleuder" Gewicht="0.1" Preis="1" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Skhallanta" Gewicht="3" Preis="-1" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Speerschleuder" Gewicht="1.5" Preis="8" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Stabkeule" Gewicht="5" Preis="15" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Stielhammer" Gewicht="7.5" Preis="50" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Stockschleuder" Gewicht="2" Preis="7" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Stoßspeer" Gewicht="2.5" Preis="8" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Streitaxt" Gewicht="2.5" Preis="20" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Streitkolben" Gewicht="2.5" Preis="12" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfaxt" Gewicht="1.5" Preis="25" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfeisen" Gewicht="2" Preis="30" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfhammer" Gewicht="2.5" Preis="25" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfkeule" Gewicht="2" Preis="12" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfmesser" Gewicht="0.3" Preis="10" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfpfeil" Gewicht="0.3" Preis="3" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfscheibe" Gewicht="0.2" Preis="2" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfspeer" Gewicht="1.5" Preis="6" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfspieß" Gewicht="2" Preis="8" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Wurfstern" Gewicht="0.1" Preis="1" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="großer Schild" Gewicht="5" Preis="15" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="kleiner Schild" Gewicht="2" Preis="10" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="leichte Armbrust" Gewicht="2.5" Preis="40" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="leichter Speer" Gewicht="1.5" Preis="6" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="schwere Armbrust" Gewicht="5" Preis="40" Währung="GS"/>
   <Dinge Art="Waffen" Ware="starker Langbogen" Gewicht="1.2" Preis="120" Währung="GS"/>
   <Dinge Art="Waffenzubehör" Ware="Gurt für 5 Wurfpfeile" Gewicht="0.3" Preis="5" Währung="GS"/>
   <Dinge Art="Waffenzubehör" Ware="Köcher für 20 Pfeile" Gewicht="0.3" Preis="2" Währung="GS"/>
@@ -1703,6 +1643,82 @@
   <Dinge Art="Waffenzubehör" Ware="verzierte Dolchscheide" Gewicht="0.2" Preis="6" Währung="GS"/>
   <Dinge Art="Waffenzubehör" Ware="verzierte Schwertscheide" Gewicht="1" Preis="20" Währung="GS"/>
   <Dinge Art="Waffenzubehör" Ware="verzierter Waffengürtel" Gewicht="1" Preis="3" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Anderthalbhänder" Gewicht="4" Preis="200" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Bihänder" Gewicht="5" Preis="200" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Blasrohr" Gewicht="2" Preis="8" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Bogen" Gewicht="0.6" Preis="15" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Bola" Gewicht="1" Preis="4" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="BuKasa" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Buckler" Gewicht="1" Preis="10" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Dolch" Gewicht="0.5" Preis="5" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Dreizack" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Dreizackspeer" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Fuchtel" Gewicht="2" Preis="100" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Garotte" Gewicht="0" Preis="5" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Glefe" Gewicht="3" Preis="30" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="GunSen" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Handarmbrust" Gewicht="1" Preis="100" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Handaxt" Gewicht="1.5" Preis="10" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Hellebarde" Gewicht="5" Preis="50" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kampfgabeln" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kampfstab" Gewicht="2.5" Preis="10" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Katana" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Keule" Gewicht="2" Preis="8" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kharrata" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kompositbogen" Gewicht="0.7" Preis="-1" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kriegsflegel" Gewicht="7.5" Preis="30" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kriegshammer" Gewicht="2.5" Preis="12" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Krummsäbel" Gewicht="2.5" Preis="100" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kurzbogen" Gewicht="0.5" Preis="15" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kurzschwert" Gewicht="1.5" Preis="20" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="KusariGama" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kyu" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Langbogen" Gewicht="1" Preis="40" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Langschwert" Gewicht="2.5" Preis="100" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Lanze" Gewicht="5" Preis="13" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Lasso" Gewicht="1" Preis="2" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Magierstab" Gewicht="1.5" Preis="15" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Magierstecken" Gewicht="2" Preis="20" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Morgenstern" Gewicht="5" Preis="40" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Naginata" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Namisritra" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Netz" Gewicht="2" Preis="2" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="NunChaku" Gewicht="0.5" Preis="10" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Ochsenzunge" Gewicht="1" Preis="10" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Ogerhammer" Gewicht="10" Preis="70" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Parierdolch" Gewicht="0.7" Preis="8" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Peitsche" Gewicht="1" Preis="8" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Pilum" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Rapier" Gewicht="1.5" Preis="70" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Sai" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Schlachtbeil" Gewicht="5" Preis="25" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Schleuder" Gewicht="0.1" Preis="1" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Skhallanta" Gewicht="3" Preis="-1" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Speerschleuder" Gewicht="1.5" Preis="8" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Stabkeule" Gewicht="5" Preis="15" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Stielhammer" Gewicht="7.5" Preis="50" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Stockschleuder" Gewicht="2" Preis="7" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Stoßspeer" Gewicht="2.5" Preis="8" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Streitaxt" Gewicht="2.5" Preis="20" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Streitkolben" Gewicht="2.5" Preis="12" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="TetsuBo" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Werfen" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfaxt" Gewicht="1.5" Preis="25" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfeisen" Gewicht="2" Preis="30" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfhammer" Gewicht="2.5" Preis="25" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfkeule" Gewicht="2" Preis="12" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfmesser" Gewicht="0.3" Preis="10" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfpfeil" Gewicht="0.3" Preis="3" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfscheibe" Gewicht="0.2" Preis="2" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfspeer" Gewicht="1.5" Preis="6" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfspieß" Gewicht="2" Preis="8" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Wurfstern" Gewicht="0.1" Preis="1" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Zweizack" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="großer Schild" Gewicht="5" Preis="15" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="kleiner Schild" Gewicht="2" Preis="10" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="leichte Armbrust" Gewicht="2.5" Preis="40" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="leichter Speer" Gewicht="1.5" Preis="6" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="schwere Armbrust" Gewicht="5" Preis="40" Währung="GS"/>
  </PreiseNeu>
  <PreiseNeuMod>
   <Art Name="Kleidung">
@@ -7078,7 +7094,6 @@
    <Lernschema Typ="PK" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="Ba" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="4" Erfolgswert="5"/>
-   <Kaufpreis Preis="200" Währung="GS" Gewicht="4"/>
   </Waffe>
   <Waffe Name="Bihänder" Grundkenntnisse="Zweihandschwert" Schwierigkeit="6" Kategorie="Angriff" Klasse="Z" Schaden="2W6">
    <Modifikationen Waffenrang="-2" Abwehr-leicht="1" Abwehr-schwer="-2"/>
@@ -7124,7 +7139,6 @@
    <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Gl" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Or" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="200" Währung="GS" Gewicht="5"/>
   </Waffe>
   <Waffe Name="Dolch" Grundkenntnisse="Stichwaffe" Schwierigkeit="1" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
    <Modifikationen Waffenrang="2" Abwehr-leicht="-2" Abwehr-schwer="2"/>
@@ -7197,7 +7211,6 @@
    <Lernschema Typ="gHx" Lernpunkte="2" Erfolgswert="4"/>
    <Lernschema Typ="sHx" Lernpunkte="2" Erfolgswert="4"/>
    <Lernschema Typ="wHx" Lernpunkte="2" Erfolgswert="4"/>
-   <Kaufpreis Preis="5" Währung="GS" Gewicht="0.5"/>
   </Waffe>
   <Waffe Name="Faustkampf" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-4">
    <Modifikationen Waffenrang="2" Abwehr-leicht="-2" Abwehr-schwer="2"/>
@@ -7294,7 +7307,6 @@
    <Lernschema Typ="Er" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="4" Erfolgswert="5"/>
-   <Kaufpreis Preis="100" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="Garotte" Grundkenntnisse="Garotte" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="Erwürgen" erfordert="Meucheln">
    <Modifikationen/>
@@ -7337,7 +7349,6 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="As" Lernpunkte="2" Erfolgswert="5"/>
-   <Kaufpreis Preis="5" Währung="GS"/>
   </Waffe>
   <Waffe Name="Glefe" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6(+2)">
    <Modifikationen Waffenrang="+1/-2" Abwehr-leicht="0/0" Abwehr-schwer="0/-1"/>
@@ -7379,7 +7390,6 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="PK" Lernpunkte="4" Erfolgswert="4"/>
-   <Kaufpreis Preis="30" Währung="GS" Gewicht="3"/>
   </Waffe>
   <Waffe Name="Handaxt" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6">
    <Modifikationen/>
@@ -7439,7 +7449,6 @@
    <Lernschema Typ="Hä" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="2" Erfolgswert="5"/>
-   <Kaufpreis Preis="10" Währung="GS" Gewicht="1.5"/>
   </Waffe>
   <Waffe Name="Hellebarde" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6(W6+2/2W6-1)">
    <Modifikationen Waffenrang="+1/-3" Abwehr-leicht="0/+2" Abwehr-schwer="0/-2"/>
@@ -7485,7 +7494,6 @@
    <Lernschema Typ="Sö" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Gl" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="50" Währung="GS" Gewicht="5"/>
   </Waffe>
   <Waffe Name="Kampfstab" Grundkenntnisse="Kampfstab" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6">
    <Modifikationen Abwehr-leicht="0" Abwehr-schwer="+2"/>
@@ -7541,7 +7549,6 @@
    <Lernschema Typ="PW" Lernpunkte="5" Erfolgswert="4"/>
    <Lernschema Typ="PHe" Lernpunkte="6" Erfolgswert="4"/>
    <Lernschema Typ="PF" Lernpunkte="8" Erfolgswert="4"/>
-   <Kaufpreis Preis="10" Währung="GS" Gewicht="2.5"/>
   </Waffe>
   <Waffe Name="Keule" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="1" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
    <Modifikationen Abwehr-leicht="0" Abwehr-schwer="+2"/>
@@ -7607,7 +7614,6 @@
    <Lernschema Typ="Hä" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Ba" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="8" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="Kharrata" Grundkenntnisse="Kharrata" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="2W6">
    <Modifikationen/>
@@ -7695,7 +7701,6 @@
    <Lernschema Typ="PHa" Lernpunkte="6" Erfolgswert="4"/>
    <Lernschema Typ="PF" Lernpunkte="8" Erfolgswert="4"/>
    <Lernschema Typ="PK" Lernpunkte="8" Erfolgswert="4"/>
-   <Kaufpreis Preis="30" Währung="GS" Gewicht="7.5"/>
   </Waffe>
   <Waffe Name="Kriegshammer" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6">
    <Modifikationen/>
@@ -7751,7 +7756,6 @@
    <Lernschema Typ="Se" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="12" Währung="GS" Gewicht="2.5"/>
   </Waffe>
   <Waffe Name="Krummsäbel" Grundkenntnisse="Einhandschwert" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6(+1)">
    <Modifikationen Abwehr-leicht="0/-2" Abwehr-schwer="0/0"/>
@@ -7806,7 +7810,6 @@
    <Lernschema Typ="Hä" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="100" Währung="GS" Gewicht="2.5"/>
   </Waffe>
   <Waffe Name="Kurzschwert" Grundkenntnisse="Stichwaffe" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6">
    <Modifikationen Waffenrang="+2"/>
@@ -7869,7 +7872,6 @@
    <Lernschema Typ="Ku" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="2" Erfolgswert="5"/>
-   <Kaufpreis Preis="20" Währung="GS" Gewicht="1.5"/>
   </Waffe>
   <Waffe Name="Langschwert" Grundkenntnisse="Einhandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
    <Modifikationen/>
@@ -7925,7 +7927,6 @@
    <Lernschema Typ="PHe" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="Er" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="100" Währung="GS" Gewicht="2.5"/>
   </Waffe>
   <Waffe Name="Lanze" Grundkenntnisse="Spießwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6(2W6+2/3W6+3)">
    <Modifikationen Waffenrang="+1/+3" Abwehr-leicht="0/0" Abwehr-schwer="0/-2"/>
@@ -7973,7 +7974,6 @@
    <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Ba" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Ku" Lernpunkte="4" Erfolgswert="5"/>
-   <Kaufpreis Preis="13" Währung="GS" Gewicht="5"/>
   </Waffe>
   <Waffe Name="Magierstab" Grundkenntnisse="Zauberstäbe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6">
    <Modifikationen/>
@@ -8011,7 +8011,6 @@
    <Lernschema Typ="gHx" Lernpunkte="6" Erfolgswert="4"/>
    <Lernschema Typ="sHx" Lernpunkte="6" Erfolgswert="4"/>
    <Lernschema Typ="wHx" Lernpunkte="6" Erfolgswert="4"/>
-   <Kaufpreis Preis="15" Währung="GS" Gewicht="1.5"/>
   </Waffe>
   <Waffe Name="Magierstecken" Grundkenntnisse="Zauberstäbe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
    <Modifikationen/>
@@ -8040,7 +8039,6 @@
    <Ausnahme Typ="Tm"/>
    <Lernschema Typ="Dr" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="Ma" Lernpunkte="8" Erfolgswert="4"/>
-   <Kaufpreis Preis="20" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="Morgenstern" Grundkenntnisse="Kettenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="2">
    <Modifikationen Waffenrang="-2" Abwehr-leicht="+1" Abwehr-schwer="-1"/>
@@ -8091,7 +8089,6 @@
    <Lernschema Typ="PHa" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="PHe" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="PK" Lernpunkte="4" Erfolgswert="4"/>
-   <Kaufpreis Preis="40" Währung="GS" Gewicht="5"/>
   </Waffe>
   <Waffe Name="Ochsenzunge" Grundkenntnisse="Stichwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="2W6" Schadensbonus="-4">
    <Modifikationen Waffenrang="+2" Abwehr-leicht="-1" Abwehr-schwer="+1"/>
@@ -8143,7 +8140,6 @@
    <Lernschema Typ="gHx" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="sHx" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="wHx" Lernpunkte="4" Erfolgswert="4"/>
-   <Kaufpreis Preis="10" Währung="GS" Gewicht="1"/>
   </Waffe>
   <Waffe Name="Ogerhammer" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="4W6+0|3">
    <Modifikationen Waffenrang="-4" Abwehr-leicht="+2" Abwehr-schwer="-3"/>
@@ -8185,7 +8181,6 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="BN" Lernpunkte="4" Erfolgswert="5"/>
-   <Kaufpreis Preis="70" Währung="GS" Gewicht="10"/>
   </Waffe>
   <Waffe Name="Peitsche" Grundkenntnisse="Peitsche" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-3">
    <Modifikationen Waffenrang="-1"/>
@@ -8228,7 +8223,6 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="BS" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="8" Währung="GS" Gewicht="1"/>
   </Waffe>
   <Waffe Name="Rapier" Grundkenntnisse="Stichwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6">
    <Modifikationen Waffenrang="+3" Abwehr-leicht="-2" Abwehr-schwer="+1"/>
@@ -8280,7 +8274,6 @@
    <Lernschema Typ="Er" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="70" Währung="GS" Gewicht="1.5"/>
   </Waffe>
   <Waffe Name="Schlachtbeil" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="W6+3|1">
    <Modifikationen Waffenrang="-2" Abwehr-leicht="+1" Abwehr-schwer="-2"/>
@@ -8331,7 +8324,6 @@
    <Lernschema Typ="Wa" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Ba" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="PK" Lernpunkte="8" Erfolgswert="4"/>
-   <Kaufpreis Preis="25" Währung="GS" Gewicht="5"/>
   </Waffe>
   <Waffe Name="Stabkeule" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="2W6" Schadensbonus="-2">
    <Modifikationen Waffenrang="-3" Abwehr-leicht="+2" Abwehr-schwer="-2"/>
@@ -8387,7 +8379,6 @@
    <Lernschema Typ="ScN" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="ScS" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="ScW" Lernpunkte="4" Erfolgswert="4"/>
-   <Kaufpreis Preis="15" Währung="GS" Gewicht="5"/>
   </Waffe>
   <Waffe Name="Stielhammer" Grundkenntnisse="Stangenwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6(W6+1/2W6)">
    <Modifikationen Waffenrang="+1/-3" Abwehr-leicht="0/+2" Abwehr-schwer="0/-2"/>
@@ -8432,7 +8423,6 @@
    <Lernschema Typ="Sö" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Gl" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Or" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="50" Währung="GS" Gewicht="7.5"/>
   </Waffe>
   <Waffe Name="Stoßspeer" Grundkenntnisse="Spießwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="1/2/3W6">
    <Modifikationen Waffenrang="+2/+2" Abwehr-leicht="0/0" Abwehr-schwer="0/-2"/>
@@ -8493,7 +8483,6 @@
    <Lernschema Typ="Hä" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Se" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="8" Währung="GS" Gewicht="2.5"/>
   </Waffe>
   <Waffe Name="Streitaxt" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
    <Modifikationen/>
@@ -8549,7 +8538,6 @@
    <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="BS" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="20" Währung="GS" Gewicht="2.5"/>
   </Waffe>
   <Waffe Name="Streitkolben" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6">
    <Modifikationen/>
@@ -8606,7 +8594,6 @@
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Ba" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="12" Währung="GS" Gewicht="2.5"/>
   </Waffe>
   <Waffe Name="leichter Speer" Grundkenntnisse="Spießwaffe" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
    <Modifikationen Waffenrang="+1" Abwehr-leicht="-1" Abwehr-schwer="+1"/>
@@ -8669,7 +8656,6 @@
    <Lernschema Typ="Ba" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
-   <Kaufpreis Preis="6" Währung="GS" Gewicht="1.5"/>
   </Waffe>
   <Waffe Name="waffenloser Kampf" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="7" Kategorie="Angriff" Schaden="Speziell">
    <Modifikationen Waffenrang="+2" Abwehr-leicht="-2" Abwehr-schwer="+2"/>
@@ -8781,7 +8767,6 @@
    <Lernschema Typ="Th" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="PC" Lernpunkte="8" Erfolgswert="4"/>
    <Lernschema Typ="PT" Lernpunkte="8" Erfolgswert="4"/>
-   <Kaufpreis Preis="8" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="Bogen" Grundkenntnisse="Bögen" Schwierigkeit="4" Kategorie="Schußwaffe" Klasse="S" Schaden="W6">
    <Modifikationen/>
@@ -8839,7 +8824,6 @@
    <Lernschema Typ="Hä" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="PF" Lernpunkte="8" Erfolgswert="4"/>
-   <Kaufpreis Preis="15" Währung="GS" Gewicht="0.6"/>
   </Waffe>
   <Waffe Name="Handarmbrust" Grundkenntnisse="Armbrust" Schwierigkeit="3" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="-1">
    <Modifikationen/>
@@ -8880,7 +8864,6 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Kaufpreis Preis="100" Währung="GS" Gewicht="1"/>
   </Waffe>
   <Waffe Name="Kompositbogen" Grundkenntnisse="Bögen" Schwierigkeit="6" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="1">
    <Modifikationen/>
@@ -8922,7 +8905,6 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="BS" Lernpunkte="4" Erfolgswert="5"/>
-   <Kaufpreis Preis="-1" Währung="GS" Gewicht="0.7"/>
   </Waffe>
   <Waffe Name="Kurzbogen" Grundkenntnisse="Bögen" Schwierigkeit="3" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="-1">
    <Modifikationen/>
@@ -8979,7 +8961,6 @@
    <Lernschema Typ="Hä" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="PF" Lernpunkte="8" Erfolgswert="4"/>
-   <Kaufpreis Preis="15" Währung="GS" Gewicht="0.5"/>
   </Waffe>
   <Waffe Name="Langbogen" Grundkenntnisse="Bögen" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus="1">
    <Modifikationen/>
@@ -9029,7 +9010,6 @@
    <Lernschema Typ="Wa" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Ba" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="4" Erfolgswert="5"/>
-   <Kaufpreis Preis="40" Währung="GS" Gewicht="1"/>
   </Waffe>
   <Waffe Name="Schleuder" Grundkenntnisse="Schleuder" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="W6(W6-1)">
    <Modifikationen/>
@@ -9086,7 +9066,6 @@
    <Lernschema Typ="Wa" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Dr" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="PF" Lernpunkte="8" Erfolgswert="4"/>
-   <Kaufpreis Preis="1" Währung="GS" Gewicht="0.1"/>
   </Waffe>
   <Waffe Name="Skhallanta" Grundkenntnisse="Armbrust" Schwierigkeit="4" Kategorie="Schußwaffe" Klasse="S" Schaden="2*2W6" Schadensbonus="-3">
    <Modifikationen/>
@@ -9127,7 +9106,6 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Kaufpreis Preis="-1" Währung="GS" Gewicht="3"/>
   </Waffe>
   <Waffe Name="Stockschleuder" Grundkenntnisse="Schleuder" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="2W6" Schadensbonus="-2">
    <Modifikationen/>
@@ -9172,7 +9150,6 @@
    <Lernschema Typ="Sö" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Gl" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Se" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="7" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="leichte Armbrust" Grundkenntnisse="Armbrust" Schwierigkeit="3" Kategorie="Schußwaffe" Klasse="S" Schaden="W6">
    <Modifikationen/>
@@ -9224,7 +9201,6 @@
    <Lernschema Typ="Er" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Th" Lernpunkte="6" Erfolgswert="4"/>
-   <Kaufpreis Preis="40" Währung="GS" Gewicht="2.5"/>
   </Waffe>
   <Waffe Name="schwere Armbrust" Grundkenntnisse="Armbrust" Schwierigkeit="4" Kategorie="Schußwaffe" Klasse="S" Schaden="2W6-1">
    <Modifikationen/>
@@ -9273,7 +9249,6 @@
    <Lernschema Typ="Or" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Se" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Er" Lernpunkte="4" Erfolgswert="5"/>
-   <Kaufpreis Preis="40" Währung="GS" Gewicht="5"/>
   </Waffe>
   <Waffe Name="Buckler" Grundkenntnisse="Schild" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2">
    <Modifikationen/>
@@ -9325,7 +9300,6 @@
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="1"/>
    <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="1"/>
    <Lernschema Typ="PT" Lernpunkte="3" Erfolgswert="1"/>
-   <Kaufpreis Preis="10" Währung="GS" Gewicht="1"/>
   </Waffe>
   <Waffe Name="Kampfgabeln" Grundkenntnisse="Parierwaffe" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2">
    <Modifikationen/>
@@ -9417,7 +9391,6 @@
    <Lernschema Typ="Hä" Lernpunkte="2" Erfolgswert="1"/>
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="1"/>
    <Lernschema Typ="Or" Lernpunkte="3" Erfolgswert="1"/>
-   <Kaufpreis Preis="8" Währung="GS" Gewicht="0.7"/>
   </Waffe>
   <Waffe Name="großer Schild" Grundkenntnisse="Schild" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="E">
    <Modifikationen/>
@@ -9475,7 +9448,6 @@
    <Lernschema Typ="PHe" Lernpunkte="3" Erfolgswert="1"/>
    <Lernschema Typ="PK" Lernpunkte="3" Erfolgswert="1"/>
    <Lernschema Typ="PM" Lernpunkte="3" Erfolgswert="1"/>
-   <Kaufpreis Preis="15" Währung="GS" Gewicht="5"/>
   </Waffe>
   <Waffe Name="kleiner Schild" Grundkenntnisse="Schild" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="V" Schadensbonus="-1">
    <Modifikationen/>
@@ -9539,7 +9511,6 @@
    <Lernschema Typ="PHe" Lernpunkte="3" Erfolgswert="1"/>
    <Lernschema Typ="PK" Lernpunkte="3" Erfolgswert="1"/>
    <Lernschema Typ="PM" Lernpunkte="3" Erfolgswert="1"/>
-   <Kaufpreis Preis="10" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="Bola" Grundkenntnisse="Fesselwaffe" Schwierigkeit="7" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-2">
    <Modifikationen/>
@@ -9583,7 +9554,6 @@
    <Lernschema Typ="BS" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Ku" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Tm" Lernpunkte="4" Erfolgswert="5"/>
-   <Kaufpreis Preis="4" Währung="GS" Gewicht="1"/>
   </Waffe>
   <Waffe Name="Lasso" Grundkenntnisse="Fesselwaffe" Schwierigkeit="7" Kategorie="Wurfwaffe" Klasse="E" Schaden="0">
    <Modifikationen/>
@@ -9626,7 +9596,6 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="BS" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Ku" Lernpunkte="4" Erfolgswert="5"/>
-   <Kaufpreis Preis="2" Währung="GS" Gewicht="1"/>
   </Waffe>
   <Waffe Name="Netz" Grundkenntnisse="Fesselwaffe" Schwierigkeit="7" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1">
    <Modifikationen Abwehr-leicht="+2" Abwehr-schwer="-2"/>
@@ -9669,7 +9638,6 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="Se" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="PM" Lernpunkte="6" Erfolgswert="4"/>
-   <Kaufpreis Preis="2" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="Speerschleuder" Grundkenntnisse="Wurfspieß" Schwierigkeit="4" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6">
    <Modifikationen/>
@@ -9715,7 +9683,6 @@
    <Lernschema Typ="ScN" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="ScS" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="ScW" Lernpunkte="4" Erfolgswert="4"/>
-   <Kaufpreis Preis="8" Währung="GS" Gewicht="1.5"/>
   </Waffe>
   <Waffe Name="Werfen" Grundkenntnisse="Werfen" Schwierigkeit="7" Kategorie="Wurfwaffe" Schaden="var">
    <Modifikationen/>
@@ -9817,7 +9784,6 @@
    <Lernschema Typ="Wa" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="PHa" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="PK" Lernpunkte="3" Erfolgswert="4"/>
-   <Kaufpreis Preis="25" Währung="GS" Gewicht="1.5"/>
   </Waffe>
   <Waffe Name="Wurfeisen" Grundkenntnisse="Stielwurfwaffe" Schwierigkeit="3" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6">
    <Modifikationen/>
@@ -9858,7 +9824,6 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Kaufpreis Preis="30" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="Wurfhammer" Grundkenntnisse="Stielwurfwaffe" Schwierigkeit="2" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" erfordert="Kriegshammer">
    <Modifikationen/>
@@ -9911,7 +9876,6 @@
    <Lernschema Typ="PHa" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="PHe" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="PK" Lernpunkte="3" Erfolgswert="4"/>
-   <Kaufpreis Preis="25" Währung="GS" Gewicht="2.5"/>
   </Waffe>
   <Waffe Name="Wurfkeule" Grundkenntnisse="Stielwurfwaffe" Schwierigkeit="1" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" erfordert="Keule">
    <Modifikationen/>
@@ -9972,7 +9936,6 @@
    <Lernschema Typ="ScS" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="ScW" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="5"/>
-   <Kaufpreis Preis="12" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="Wurfmesser" Grundkenntnisse="Wurfmesser" Schwierigkeit="2" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" erfordert="Dolch">
    <Modifikationen/>
@@ -10036,7 +9999,6 @@
    <Lernschema Typ="gHx" Lernpunkte="6" Erfolgswert="4"/>
    <Lernschema Typ="sHx" Lernpunkte="6" Erfolgswert="4"/>
    <Lernschema Typ="wHx" Lernpunkte="6" Erfolgswert="4"/>
-   <Kaufpreis Preis="10" Währung="GS" Gewicht="0.3"/>
   </Waffe>
   <Waffe Name="Wurfpfeil" Grundkenntnisse="Wurfpfeil" Schwierigkeit="3" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-2">
    <Modifikationen/>
@@ -10088,7 +10050,6 @@
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="PC" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="PT" Lernpunkte="4" Erfolgswert="4"/>
-   <Kaufpreis Preis="3" Währung="GS" Gewicht="0.3"/>
   </Waffe>
   <Waffe Name="Wurfscheibe" Grundkenntnisse="Wurfscheibe" Schwierigkeit="5" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-2">
    <Modifikationen/>
@@ -10130,7 +10091,6 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="As" Lernpunkte="2" Erfolgswert="5"/>
-   <Kaufpreis Preis="2" Währung="GS" Gewicht="0.2"/>
   </Waffe>
   <Waffe Name="Wurfspeer" Grundkenntnisse="Wurfspieß" Schwierigkeit="1" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-1" erfordert="leichter Speer">
    <Modifikationen/>
@@ -10193,7 +10153,6 @@
    <Lernschema Typ="ScN" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="ScS" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="ScW" Lernpunkte="3" Erfolgswert="4"/>
-   <Kaufpreis Preis="6" Währung="GS" Gewicht="1.5"/>
   </Waffe>
   <Waffe Name="Wurfspieß" Grundkenntnisse="Wurfspieß" Schwierigkeit="1" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6">
    <Modifikationen/>
@@ -10241,7 +10200,6 @@
    <Lernschema Typ="Se" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="PK" Lernpunkte="3" Erfolgswert="4"/>
    <Lernschema Typ="PM" Lernpunkte="3" Erfolgswert="4"/>
-   <Kaufpreis Preis="8" Währung="GS" Gewicht="2"/>
   </Waffe>
   <Waffe Name="Wurfstern" Grundkenntnisse="Wurfscheibe" Schwierigkeit="5" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" Schadensbonus="-3">
    <Modifikationen/>
@@ -10284,7 +10242,6 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="As" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="PW" Lernpunkte="4" Erfolgswert="4"/>
-   <Kaufpreis Preis="1" Währung="GS" Gewicht="0.1"/>
   </Waffe>
  </Waffen>
  <Waffen-Grundkenntnisse>
