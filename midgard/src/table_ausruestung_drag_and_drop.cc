@@ -21,12 +21,20 @@
 #include "Data_NewPreis.hh"
 #include <Misc/mystring.h>
 
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+   typedef Gtk::SelectionData &selection_data_t;
+#  define GTKMM24(x) x
+#else
+   typedef GtkSelectionData* selection_data_t;
+#  define GTKMM24(x)
+#endif
+
 class MyTreeStore : public Gtk::TreeStore
 {	MyTreeStore(const Gtk::TreeModelColumnRecord& cols) 
 		: Gtk::TreeStore(cols) {}
-	virtual bool drag_data_get_vfunc(const Gtk::TreeModel::Path& path, GtkSelectionData* selection_data);
+	virtual bool drag_data_get_vfunc(const Gtk::TreeModel::Path& path, selection_data_t selection_data);
 	virtual bool drag_data_delete_vfunc(const Gtk::TreeModel::Path& path);
-	virtual bool drag_data_received_vfunc(const TreeModel::Path& dest, GtkSelectionData* selection_data);
+	virtual bool drag_data_received_vfunc(const TreeModel::Path& dest, selection_data_t selection_data);
 public:
 	static Glib::RefPtr<MyTreeStore> MyTreeStore::create(const Gtk::TreeModelColumnRecord& cols)
 	{  MyTreeStore *x=new MyTreeStore(cols);
@@ -35,9 +43,10 @@ public:
 	}
 };
 
-bool MyTreeStore::drag_data_get_vfunc(const Gtk::TreeModel::Path& path, GtkSelectionData* selection_data)
+bool MyTreeStore::drag_data_get_vfunc(const Gtk::TreeModel::Path& path, 
+					selection_data_t selection_data)
 { 
-std::cerr << "drag_data_get " << path.to_string() << ' ' << selection_data->target << '\n'; 
+std::cerr << "drag_data_get " << path.to_string() << ' ' << selection_data GTKMM24(.gobj())->target << '\n'; 
    return Gtk::TreeStore::drag_data_get_vfunc(path,selection_data);
 //   return false;
 }
@@ -51,10 +60,10 @@ std::cerr << "drag_data_delete " << path.to_string() << '\n';
 #include <gtk/gtktreednd.h>
 
 bool MyTreeStore::drag_data_received_vfunc(const Gtk::TreeModel::Path& dest, 
-					GtkSelectionData* selection_data)
+					selection_data_t selection_data)
 {  GtkTreeModel *model=0;
    GtkTreePath *path=0;
-   if (!gtk_tree_get_row_drag_data(selection_data,&model,&path)) 
+   if (!gtk_tree_get_row_drag_data(selection_data GTKMM24(.gobj()),&model,&path)) 
       return false;
 std::cerr << "drag_data_received " << dest.to_string() << ' ' << model
 << ' ' << Gtk::TreeModel::Path(path,false).to_string() << '\n';

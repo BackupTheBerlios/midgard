@@ -12,6 +12,9 @@
 #include <libmagus/Ausgabe.hh>
 #include <Misc/inbetween.h>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+#if MPC_SIGC_VERSION > 0x120
+#  include <sigc++/bind.h>
+#endif
 
 void table_grundwerte::init(midgard_CG *h)
 {

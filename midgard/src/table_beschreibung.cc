@@ -83,7 +83,7 @@ void table_beschreibung::show_beschreibung()
       try
       {
       Glib::RefPtr<Gdk::Pixbuf> pb=Gdk::Pixbuf::create_from_file(hauptfenster->getAben().BeschreibungPix());
-      if (pb.is_null()) pb=MagusImage("Portrait-32.xpm");
+      if (!bool(pb)) pb=MagusImage("Portrait-32.xpm");
       else if (pb->get_height()>32)
          pb=pb->scale_simple(int(pb->get_width()*32.0/pb->get_height()+.5),
                                             32,Gdk::INTERP_BILINEAR);

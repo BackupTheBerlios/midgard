@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.341 2004/04/21 08:59:41 christof Exp $
+// $Id: midgard_CG.cc,v 1.342 2004/05/07 06:17:29 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,6 +39,9 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 //#include "WindowInfo.hh"
 #include <libmagus/Datenbank.hh>
 #include "MagusDialog.hh"
+#if MPC_SIGC_VERSION > 0x120
+#  include <sigc++/bind.h>
+#endif
 
 static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const Glib::ustring &t)
 {  Gtk::VBox *vbox=manage(new Gtk::VBox());

@@ -27,6 +27,9 @@
 #include "WindowInfo.hh"
 #include <libmagus/Datenbank.hh>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+#if MPC_SIGC_VERSION > 0x120
+#  include <sigc++/bind.h>
+#endif
 
 Gtk::Box &midgard_CG::make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild,const bool hbox)
 {
@@ -180,11 +183,17 @@ static void wert_changed(gpointer gp)
 } 
 */ 
 
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION<=2
+#  define GTKMM22(x) x
+#else
+#  define GTKMM22(x)
+#endif
+
 void midgard_CG::menubar_init()
 {
   // Ansicht
   Gtk::Menu *ansicht_menu = Gtk::manage(new class Gtk::Menu());
-  main_menubar->items().insert(--main_menubar->items().end(),Gtk::Menu_Helpers::MenuElem("Ansicht & _Fenster", Gtk::Menu_Helpers::AccelKey("<Control>F"), *ansicht_menu));
+  main_menubar->items().insert(--main_menubar->items().end(),Gtk::Menu_Helpers::MenuElem("Ansicht & _Fenster", Gtk:: GTKMM22(Menu_Helpers::)AccelKey("<Control>F"), *ansicht_menu));
 
   Gtk::Menu *menu1 = Gtk::manage(new class Gtk::Menu());
   Gtk::Menu *menu2 = Gtk::manage(new class Gtk::Menu());
@@ -228,7 +237,7 @@ void midgard_CG::menubar_init()
 
   // Regionen
   Gtk::Menu *regionen_menu = Gtk::manage(new class Gtk::Menu());
-  main_menubar->items().insert(--main_menubar->items().end(),Gtk::Menu_Helpers::MenuElem("_Regionen",Gtk::Menu_Helpers::AccelKey("<Control>R"), *regionen_menu));
+  main_menubar->items().insert(--main_menubar->items().end(),Gtk::Menu_Helpers::MenuElem("_Regionen",Gtk:: GTKMM22(Menu_Helpers::)AccelKey("<Control>R"), *regionen_menu));
 
   for(std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();i!=Datenbank.Regionen.end();++i)
    {
@@ -277,7 +286,7 @@ void midgard_CG::menu_history_init(int oldsize)
   for(std::list<std::string>::const_iterator i=Programmoptionen.LetzteDateien().begin();
   		i!=Programmoptionen.LetzteDateien().end();++i)
    {
-     if (x<10) L.push_back(Gtk::Menu_Helpers::MenuElem(*i, Gtk::Menu_Helpers::AccelKey("<Control>"+itos(x))));
+     if (x<10) L.push_back(Gtk::Menu_Helpers::MenuElem(*i, Gtk:: GTKMM22(Menu_Helpers::)AccelKey("<Control>"+itos(x))));
      else L.push_back(Gtk::Menu_Helpers::MenuElem(*i));
      Gtk::MenuItem *mi=(Gtk::MenuItem *)&L.back();
      mi->signal_activate().connect(SigC::bind(SigC::slot(*static_cast<class midgard_CG*>(this), &midgard_CG::xml_import_history),*i));

@@ -39,7 +39,7 @@ Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(RegionenPic_enum::epic typ,bool 
    else if (typ==RegionenPic_enum::Abenteuer)  name="Abwehr-50.xpm";
 
    Glib::RefPtr<Gdk::Pixbuf> res=MagusImage(name);
-   if (tiny && !res.is_null() && res->get_height()>26)
+   if (tiny && bool(res) && res->get_height()>26)
       res=res->scale_simple(int(res->get_width()*26.0/res->get_height()+.5),
       				26,Gdk::INTERP_BILINEAR);
    return res;

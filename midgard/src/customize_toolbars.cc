@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.32 2003/12/08 07:50:14 christof Exp $
+// $Id: customize_toolbars.cc,v 1.33 2004/05/07 06:17:29 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -100,14 +100,26 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
       tb->set_toolbar_style(show_icons 
                 ?(show_text?Gtk::TOOLBAR_BOTH:Gtk::TOOLBAR_ICONS)
       		:Gtk::TOOLBAR_TEXT);
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+      for (unsigned i2=0;i2<tb->get_n_items();++i2)
+      {  ToolItem *i=tb->get_nth_item(i2);
+         if (!i) continue;
+         Gtk::Widget *ch=i->get_child();
+         if (!dynamic_cast<Gtk::ToolButton*>(ch))
+#else
       for (Gtk::Toolbar_Helpers::ToolList::iterator i=tb->tools().begin();i!=tb->tools().end();++i)
-      {  if (i->get_type()==TOOLBAR_CHILD_WIDGET)
-         {  CustomizeToolbars(i->get_widget(),show_icons,show_text,tab_text);
+      {  Gtk::Widget *ch=i->get_widget();
+         if (i->get_type()==TOOLBAR_CHILD_WIDGET)
+#endif
+         {  CustomizeToolbars(ch,show_icons,show_text,tab_text);
          }
          else if (getenv("TRACE"))
             std::cout << "skipping tb child " 
-         	<< (i->get_widget()?i->get_widget()->get_name():"<NULL>")
-         	<< ' ' << i->get_type() << '\n';
+         	<< (ch?ch->get_name():"<NULL>")
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION<=2
+         	<< ' ' << i->get_type()
+#endif
+         	<< '\n';
       }
    }
    else if (dynamic_cast<Gtk::Bin*>(w))
