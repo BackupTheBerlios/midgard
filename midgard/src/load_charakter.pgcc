@@ -80,6 +80,8 @@ void midgard_CG::load_charakter()
       char db_ruestung[20];
       int db_av_bonus, db_sl_bonus;
       char db_region[20];
+      char db_region_2[20];
+      char db_rasse[50];
    exec sql end declare section;
    strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
    strncpy(db_version,werte.version.c_str(),sizeof(db_version));
@@ -140,7 +142,8 @@ void midgard_CG::load_charakter()
          gold        ,
          silber      ,
          kupfer      ,
-         ruestung
+         ruestung    ,
+         rasse
       FROM charaktere WHERE charakter_name=:db_name_ch
             AND version=:db_version;
 
@@ -200,7 +203,8 @@ void midgard_CG::load_charakter()
        :db_gold        ,
        :db_silber      ,
        :db_kupfer      ,
-       :db_ruestung    ;
+       :db_ruestung    ,
+       :db_rasse       ;
    exec sql close cha;
 
        werte.st=   db_st ;    
@@ -252,7 +256,7 @@ void midgard_CG::load_charakter()
       werte.silber = db_silber;
       werte.kupfer = db_kupfer;
       werte.ruestung = db_ruestung;
-//      werte.version  = db_version ;
+      werte.rasse  = db_rasse ;
 
 
 
@@ -444,6 +448,34 @@ void midgard_CG::load_charakter()
       } 
    exec sql close sprache;
    midgard_CG::sprachen_schrift();
+   // Regionen
+   Albabool=false;      checkbutton_Alba->set_active(false);
+   Escharbool=false;      checkbutton_Eschar->set_active(false);
+   Rawindrabool=false;      checkbutton_Rawindra->set_active(false);
+   KanThaiPanbool=false;      checkbutton_KanThaiPan->set_active(false);
+   Waelandbool=false;      checkbutton_Waeland->set_active(false);
+   Nahuatlanbool=false;      checkbutton_Nahuatlan->set_active(false);
+   strncpy(db_art,"Region",sizeof(db_art));
+   exec sql declare r_ein cursor for select region from charaktere_fertigkeiten
+      where charakter_name=:db_name_ch and version=:db_version 
+      and art=:db_art;
+   exec sql open r_ein;
+   SQLerror::test(__FILELINE__);
+   while (true)
+    {
+      exec sql fetch r_ein into :db_region_2;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;   
+      string reg=db_region_2;
+      if (reg=="A") {Albabool=true ; checkbutton_Alba->set_active(true);}
+      if (reg=="E") {Escharbool=true;      checkbutton_Eschar->set_active(true);}
+      if (reg=="R") {Rawindrabool=true;      checkbutton_Rawindra->set_active(true);}
+      if (reg=="K") {KanThaiPanbool=true;      checkbutton_KanThaiPan->set_active(true);}
+      if (reg=="W") {Waelandbool=true;      checkbutton_Waeland->set_active(true);}
+      if (reg=="N") {Nahuatlanbool=true;      checkbutton_Nahuatlan->set_active(true);}
+    }
+   exec sql close r_ein;
+   tr.close();
 
 
 
@@ -467,7 +499,16 @@ void midgard_CG::load_charakter()
     }
    typauswahl->get_menu()->set_active(typ.nr);
    typauswahl->get_menu()->deactivate();
+   // Rasse setzen
+   exec sql begin declare section;   
+    int db_nr;
+   exec sql end declare section;   
+   strncpy(db_rasse,werte.rasse.c_str(),sizeof(db_rasse));
+   exec sql select nr into :db_nr from rassen where rasse = :db_rasse;
+   optionmenu_rassen->get_menu()->set_active(db_nr);
+   optionmenu_rassen->get_menu()->deactivate();
 
+   
    midgard_CG::zeige_werte(werte,"alle");
    midgard_CG::show_berufe();
    midgard_CG::show_fertigkeiten();

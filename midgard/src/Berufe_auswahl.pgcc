@@ -105,18 +105,21 @@ void Berufe_auswahl::on_close_berufe_clicked()
 bool Berufe_auswahl::berufe_voraussetzung(string beruf, st_werte werte, string typz)
 {
   exec sql begin declare section;
-   int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au;
-   char db_typ[1];
+   int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb;
+   char db_typ[5];
+   char db_region[10];
    char db_beruf[30];
   exec sql end declare section;
   strncpy(db_beruf,beruf.c_str(),sizeof(db_beruf));
 
-  exec sql select distinct coalesce(st,'0'), coalesce(ge,'0'),
+  exec sql select coalesce(st,'0'), coalesce(ge,'0'),
    coalesce(ko,'0'),  coalesce("in",'0'), coalesce(zt,'0'),
-   coalesce(typ,'0'), coalesce(pa,'0'), coalesce(au,'0')
-   into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_typ,:db_pa,:db_au
-   from berufe_voraussetzung where beruf=:db_beruf;
+   coalesce(typ,'0'), coalesce(pa,'0'), coalesce(au,'0'), coalesce(sb,'0')
+   , coalesce(region,'')
+   into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_typ,:db_pa,:db_au,:db_sb,:db_region
+   from berufe_voraussetzung where beruf=:db_beruf limit 1;
   SQLerror::test(__FILELINE__);
+//cout << beruf<<"\t->"<<db_typ<<"<-\t";
   if (   db_st<=werte.st &&
          db_ge<=werte.ge &&
          db_ko<=werte.ko &&
@@ -124,7 +127,9 @@ bool Berufe_auswahl::berufe_voraussetzung(string beruf, st_werte werte, string t
          db_zt<=werte.zt &&
          db_pa<=werte.pa &&
          db_au<=werte.au &&
-         Berufe_auswahl::btyp(db_typ,typz) 
+         db_sb<=werte.sb &&
+         Berufe_auswahl::btyp(db_typ,typz) &&
+         hauptfenster->region_check(db_region)
      )   
    return true;
   else return false ;
@@ -132,11 +137,15 @@ bool Berufe_auswahl::berufe_voraussetzung(string beruf, st_werte werte, string t
 
 bool Berufe_auswahl::btyp(string typ, string typz)
 {
- if       (typ=="z" && typz=="z") return true;
- else if  (typ=="k" && typz=="n") return true; 
- else if  (typ=="k" && typz=="j") return true; 
- else if  (typ=="0") return true;
- else return false;
+//cout <<"\t"<<typz<<"\t";
+ bool r;
+ if       (typ=="z" && typz=="z") r=true;
+ else if  (typ=="k" && typz=="n") r=true; 
+ else if  (typ=="k" && typz=="j") r=true; 
+ else if  (typ=="0") r=true;
+ else r = false;
+//cout << r<<"\n";
+ return r;
 }
 
 string Berufe_auswahl::Beruf_vorteile(string beruf)

@@ -12,34 +12,33 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-/* typ = typ.s */
 double midgard_CG::get_standard_zauber(string typ, string zauber)
 {
+   double fac;
+   // gibt es eine Ausnahmeregelung?
+   fac = midgard_CG::Ausnahmen_float(zauber);
+   if (fac!=0) return fac;
+
+   //sonst
   exec sql begin declare section;
-//   char db_typ[10];
-//   char db_zauber[500];
    char db_ergebnis[20];
    char query[200];
   exec sql end declare section;
   snprintf(query,sizeof(query),"select %s from arkanum_zauber where name = '%s'",
                typ.c_str(), zauber.c_str());
-
    Transaction tr;
    exec sql prepare zaub from :query ;    
-    exec sql declare zauber cursor for zaub ;
+   exec sql declare zauber cursor for zaub ;
+   exec sql open zauber;
+   SQLerror::test(__FILELINE__);
+   exec sql fetch zauber into  :db_ergebnis;
+   SQLerror::test(__FILELINE__);  
 
-    exec sql open zauber;
-    SQLerror::test(__FILELINE__);
+   
+   if (!strcmp(db_ergebnis,"G")) fac = 0.5; 
+   if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
+   if (!strcmp(db_ergebnis,"A")) fac = 5.0; 
 
-    exec sql fetch zauber into  :db_ergebnis;
-    SQLerror::test(__FILELINE__,100);  
-
- double fac;
- if (!strcmp(db_ergebnis,"G")) fac = 0.5; 
- if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
- if (!strcmp(db_ergebnis,"A")) fac = 5.0; 
 //cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
- return(fac);
+   return(fac);
 }
-
-

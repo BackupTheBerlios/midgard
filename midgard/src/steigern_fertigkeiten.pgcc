@@ -83,14 +83,14 @@ void midgard_CG::show_neue_fertigkeiten()
    char db_art[100];
    int idb_erfolgswert;
    int db_fp;
-   char query[1000];
+   char query[1024];
    char db_voraussetzung[100];
    char db_region[10];
   exec sql end declare section;
   strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
   snprintf(query,sizeof(query),"SELECT f.fertigkeit, f.fp, f.anfangswert, \
 f.%s, coalesce(v.fertigkeit,''), coalesce(f.region,'') FROM fertigkeiten f, fertigkeiten_voraussetzung v WHERE \
-v.name = f.fertigkeit
+v.name = f.fertigkeit \
 AND (f.%s = 'G' OR f.%s = 'S' OR f.%s = 'A') \
 AND f.fertigkeit NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
 WHERE charakter_name = '%s' AND version = '%s') \
@@ -98,7 +98,6 @@ AND f.fertigkeit != 'Sprache' AND f.fertigkeit != 'Lesen/Schreiben' \
 ORDER BY f.fertigkeit",  db_typ, db_typ, db_typ, db_typ, werte.name_charakter.c_str(),
    werte.version.c_str());
 
-//cout << query<<"\n"<<werte.name_charakter<<"\t"<<werte.version<<"\n";
  Transaction tr;  
  exec sql prepare fert_ein_ from :query ;  
  exec sql declare fert_ein cursor for fert_ein_ ;  

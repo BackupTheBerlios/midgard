@@ -34,7 +34,8 @@ struct st_werte{int st; int ge;int ko;int in;int zt;
              int kaw; int wlw; int lpbasis;
              int alter;string gestalt;
              int gewicht;int groesse;int grad;
-             string spezialisierung;string spezial; string stand;string herkunft;
+             string spezialisierung;string spezial; string stand;
+             string herkunft; string rasse;
              string glaube; string name_charakter; string name_spieler;
              int gfp;string version; string beschreibung; string ruestung;
              int gold; int silber; int kupfer;
@@ -44,7 +45,7 @@ struct st_werte{int st; int ge;int ko;int in;int zt;
              bo_au_typ(0),bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
              bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),lpbasis(0),
              alter(0),gewicht(0),groesse(0),grad(1),spezialisierung(""),
-             stand(""),herkunft(""),glaube(""),name_charakter(""), gfp(0),version("Erschaffung"),
+             stand(""),herkunft(""),rasse("Mensch"),glaube(""),name_charakter(""), gfp(0),version("Erschaffung"),
              ruestung("OR"), gold(0), silber(0), kupfer(0) {}
       void clear() {*this=st_werte();}}; 
 struct st_lernpunkte{int beruf; int fertigkeiten; int waffen; int zauber;
@@ -114,6 +115,7 @@ class midgard_CG : public midgard_CG_glade
 {   
         friend class midgard_CG_glade;
         vector<string> typen_vector;
+        vector<string> rassen_vector;
         vector<st_ausgewaehlte_fertigkeiten> vec_fertigkeiten;
         vector<st_angeborene_fertigkeit> vec_an_fertigkeit;
         vector<st_ausgewaehlte_waffen> vec_waffen;
@@ -130,7 +132,9 @@ class midgard_CG : public midgard_CG_glade
 
         void regnot(string sadd);
         void fill_typauswahl();
+        void fill_rassen();
         void typauswahl_button();
+        void rassenwahl_button();
         void on_herkunftsland_clicked();
         void on_muttersprache_clicked();
         void gw_wuerfeln();
@@ -289,5 +293,8 @@ class midgard_CG : public midgard_CG_glade
          bool Fertigkeiten_Voraussetzung(const string fertigkeit);
          bool Waffen_Voraussetzung(const string waffe);
          bool region_check(string region);
+         bool Ausnahmen_bool(string name);
+         float Ausnahmen_float(string name);
+         string Ausnahmen_string(string name, string alt);
 };
 #endif

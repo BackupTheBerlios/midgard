@@ -65,15 +65,15 @@ WHERE charakter_name = '%s' AND version = '%s') ORDER BY stufe,name "
             :db_standard, :db_spruchrolle, :db_region ;
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
-         double fac = midgard_CG::get_standard_zauber(typ.s,db_name);
-
+         double fac= midgard_CG::get_standard_zauber(typ.s,db_name);
+         string standard = midgard_CG::Ausnahmen_string(db_name,db_standard);
          if (midgard_CG::region_check(db_region))
           {
             if (!spruchrolle->get_active())
-               os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac<<"\t"<<db_standard<<"\n";
+               os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac<<"\t"<<standard<<"\n";
             else
                if (strcmp(db_spruchrolle,"nicht"))
-                  os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac/10<<"\t"<<db_standard<<"\n";
+                  os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac/10<<"\t"<<standard<<"\n";
           }
       }
    exec sql close zauber_ein;

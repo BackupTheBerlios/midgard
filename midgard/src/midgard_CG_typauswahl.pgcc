@@ -36,3 +36,33 @@ void midgard_CG::fill_typauswahl()
   typauswahl->set_menu(*_m);
   typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
 }
+
+void midgard_CG::fill_rassen()
+{
+  rassen_vector.clear();
+  exec sql begin declare section;
+   char db_rasse[50];
+   int db_nr;
+  exec sql end declare section;
+  Transaction tr;
+  exec sql declare ein_r cursor for 
+      select nr,rasse from rassen order by nr ;
+  exec sql open ein_r;
+  SQLerror::test(__FILELINE__);
+  Gtk::Menu *_m(manage(new Gtk::Menu()));
+  Gtk::MenuItem *_mi;
+  while (true)
+   {
+      exec sql fetch ein_r into :db_nr, :db_rasse;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;   
+      rassen_vector.push_back(db_rasse);
+      _mi = manage(new Gtk::MenuItem(db_rasse));
+      _m->append(*_mi);
+      _mi->show();
+      _mi->set_user_data((gpointer)db_nr);
+    }
+  optionmenu_rassen->set_menu(*_m);
+  optionmenu_rassen->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::rassenwahl_button));
+}
+
