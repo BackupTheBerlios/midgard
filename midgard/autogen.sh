@@ -27,7 +27,10 @@ fi
 
 libtoolize --force --copy
 autoheader
-aclocal -I macros
+if test -f /usr/share/aclocal/petig.m4
+then aclocal
+else aclocal -I macros
+fi
 automake --add-missing --copy --gnu
 autoconf
 ./configure $* && $MAKE
