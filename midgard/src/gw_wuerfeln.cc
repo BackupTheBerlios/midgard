@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.28 2002/01/26 21:19:04 christof Exp $
+// $Id: gw_wuerfeln.cc,v 1.29 2002/01/29 14:16:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -95,12 +95,12 @@ void midgard_CG::gw_setzen(Gtk::Label *L,int button)
   if(L) 
    {
      int w=atoi(label_besserer_wurf->get_text().c_str());
-     if(L->get_text()=="St") {Werte.setSt(w); spinbutton_st->set_text(itos(w));}
-     else if(L->get_text()=="Gs") {Werte.setGs(w); spinbutton_gs->set_text(itos(w));}
-     else if(L->get_text()=="Gw") {Werte.setGw(w); spinbutton_gw->set_text(itos(w));}
-     else if(L->get_text()=="Ko") {Werte.setKo(w); spinbutton_ko->set_text(itos(w));}
-     else if(L->get_text()=="In") {Werte.setIn(w); spinbutton_in->set_text(itos(w));}
-     else if(L->get_text()=="Zt") {Werte.setZt(w); spinbutton_zt->set_text(itos(w));}
+     if(L->get_text()=="St") {Werte.setSt(w); spinbutton_st->set_value(w);}
+     else if(L->get_text()=="Gs") {Werte.setGs(w); spinbutton_gs->set_value(w);}
+     else if(L->get_text()=="Gw") {Werte.setGw(w); spinbutton_gw->set_value(w);}
+     else if(L->get_text()=="Ko") {Werte.setKo(w); spinbutton_ko->set_value(w);}
+     else if(L->get_text()=="In") {Werte.setIn(w); spinbutton_in->set_value(w);}
+     else if(L->get_text()=="Zt") {Werte.setZt(w); spinbutton_zt->set_value(w);}
    }
   if(++werte_label_count==7)
    {
@@ -146,32 +146,32 @@ void midgard_CG::set_werte_label_3(Gtk::Label *L)
      int w=atoi(L->get_text().c_str());
      switch(werte_label_count) {
       case 1 : 
-            spinbutton_st->set_text(L->get_text());
+            spinbutton_st->set_value(w);
             Werte.setSt(w);
             label_werte->set_text("Welcher Wert soll für die  Geschicklichkeit (Gs) verwendet werden?");
             break;
       case 2 :
-            spinbutton_gs->set_text(L->get_text());
+            spinbutton_gs->set_value(w);
             Werte.setGs(w);
             label_werte->set_text("Welcher Wert soll für die  Gewandheit (Gw) verwendet werden?");
             break;
       case 3 : 
-            spinbutton_gw->set_text(L->get_text());
+            spinbutton_gw->set_value(w);
             Werte.setGw(w);
             label_werte->set_text("Welcher Wert soll für die  Konstitution (Ko) verwendet werden?");
             break;
       case 4 : 
-            spinbutton_ko->set_text(L->get_text());
+            spinbutton_ko->set_value(w);
             Werte.setKo(w);
             label_werte->set_text("Welcher Wert soll für die  Intelligenz (In) verwendet werden?");
             break;
       case 5 : 
-            spinbutton_in->set_text(L->get_text());
+            spinbutton_in->set_value(w);
             Werte.setIn(w);
             label_werte->set_text("Welcher Wert soll für das  Zaubertalent (Zt) verwendet werden?");
             break;
       default: 
-            spinbutton_zt->set_text(L->get_text());
+            spinbutton_zt->set_value(w);
             Werte.setZt(w);
             table_werte_wuerfeln->hide();
             table_bw_wurf->hide();

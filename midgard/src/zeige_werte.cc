@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.40 2002/01/29 10:45:28 thoma Exp $
+// $Id: zeige_werte.cc,v 1.41 2002/01/29 14:16:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -104,12 +104,12 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        label_steigertage->set_text(Formatiere_short(fixedpoint<1>(w.Steigertage())));
        label_alter->set_text(itos(w.Alter()));
 /*
-       spinbutton_st->set_text(itos(w.St()));
-       spinbutton_gw->set_text(itos(w.Gw()));
-       spinbutton_gs->set_text(itos(w.Gs()));
-       spinbutton_ko->set_text(itos(w.Ko()));
-       spinbutton_in->set_text(itos(w.In()));
-       spinbutton_zt->set_text(itos(w.Zt()));
+       spinbutton_st->set_value(w.St());
+       spinbutton_gw->set_value(w.Gw());
+       spinbutton_gs->set_value(w.Gs());
+       spinbutton_ko->set_value(w.Ko());
+       spinbutton_in->set_value(w.In());
+       spinbutton_zt->set_value(w.Zt());
        label_sehen->set_text(itos(w.Sehen()));
        label_hoeren->set_text(itos(w.Hoeren()));
        label_riechen->set_text(itos(w.Riechen()));
@@ -117,13 +117,13 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        label_tasten->set_text(itos(w.Tasten()));
        label_sechster_sinn->set_text(itos(w.SechsterSinn()));
 
-       spinbutton_au->set_text(itos(w.Au()));
-       spinbutton_pa->set_text(itos(w.pA()));
-       spinbutton_sb->set_text(itos(w.Sb()));      
-       spinbutton_wk->set_text(itos(w.Wk()));      
-       spinbutton_b->set_text(itos(w.B()));     
-       spinbutton_lp->set_text(itos(w.LP()));      
-       spinbutton_ap->set_text(itos(w.AP()));   
+       spinbutton_au->set_value(w.Au());
+       spinbutton_pa->set_value(w.pA());
+       spinbutton_sb->set_value(w.Sb());      
+       spinbutton_wk->set_value(w.Wk());      
+       spinbutton_b->set_value(w.B());     
+       spinbutton_lp->set_value(w.LP());      
+       spinbutton_ap->set_value(w.AP());   
        abwehr_wert->set_text(itos(w.Abwehr_wert()));
        zaubern_wert->set_text(itos(w.Zaubern_wert()));
        kaw->set_text(itos(w.KAW()));
@@ -138,16 +138,16 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        bo_psy->set_text(itos(w.bo_Psy(Typ))) ;
        bo_phs->set_text(itos(w.bo_Phs(Typ))) ;
        bo_phk->set_text(itos(w.bo_Phk(Typ))) ;
-       spinbutton_alter->set_text(itos(w.Alter()));
-       spinbutton_gfp->set_text(itos(w.GFP()));
+       spinbutton_alter->set_value(w.Alter());
+       spinbutton_gfp->set_value(w.GFP());
 //       spinbutton_tage->set_text(dtos1(w.Steigertage()));
-       spinbutton_tage->set_text(Formatiere_short(fixedpoint<1>(w.Steigertage())));
-       spinbutton_gg->set_text(itos(w.GG()));
-       spinbutton_sg->set_text(itos(w.SG()));
+       spinbutton_tage->set_value(w.Steigertage());
+       spinbutton_gg->set_value(w.GG());
+       spinbutton_sg->set_value(w.SG());
        label_gestalt->set_text(w.Gestalt());  
-       spinbutton_Cgewicht->set_text(itos(w.Gewicht()));
-       spinbutton_groesse->set_text(itos(w.Groesse()));
-       spinbutton_grad->set_text(itos(w.Grad()));      
+       spinbutton_Cgewicht->set_value(w.Gewicht());
+       spinbutton_groesse->set_value(w.Groesse());
+       spinbutton_grad->set_value(w.Grad());      
        entry_spezialisierung->set_text(w.Spezialisierung());
        {
         int inr=0;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.49 2002/01/29 10:45:28 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.50 2002/01/29 14:16:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,7 +69,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 //     if (Typ[0]->Zaubern()=="z" ) age = age/4+19;
 //     if (Typ[0]->Zaubern()=="n" || Typ[0]->Zaubern()=="j") age = age/4+16;
      Werte.setAlter( age * Werte.Spezies()->Alter());
-     spinbutton_alter->set_text(itos(Werte.Alter()));
+     spinbutton_alter->set_value(Werte.Alter());
    }
   zeige_lernpunkte();
   zeige_notebook();
@@ -163,11 +163,11 @@ void midgard_CG::on_spinbutton_zaubern_activate()
 
 void midgard_CG::zeige_lernpunkte()
 {
- spinbutton_fach->set_text(itos(lernpunkte.Fach()));
- spinbutton_allgemein->set_text(itos(lernpunkte.Allgemein()));
- spinbutton_unge->set_text(itos(lernpunkte.Unge()));
- spinbutton_waffen->set_text(itos(lernpunkte.Waffen()));
- spinbutton_zauber->set_text(itos(lernpunkte.Zauber()));
+ spinbutton_fach->set_value(lernpunkte.Fach());
+ spinbutton_allgemein->set_value(lernpunkte.Allgemein());
+ spinbutton_unge->set_value(lernpunkte.Unge());
+ spinbutton_waffen->set_value(lernpunkte.Waffen());
+ spinbutton_zauber->set_value(lernpunkte.Zauber());
 }
 
 
