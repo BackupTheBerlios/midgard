@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.61 2001/08/23 20:11:45 thoma Exp $
+// $Id: midgard_CG.hh,v 1.62 2001/08/24 13:33:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,6 +78,18 @@ class midgard_CG : public midgard_CG_glade
         Gtk::Menu *menu;
         void menu_init();
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
+        Gtk::CheckMenuItem *menu_original;
+        Gtk::CheckMenuItem *menu_info;
+        Gtk::CheckMenuItem *menu_Eschar;
+        Gtk::CheckMenuItem *menu_Rawindra;
+        Gtk::CheckMenuItem *menu_KanThaiPan;
+        Gtk::CheckMenuItem *menu_Nahuatlan;
+        Gtk::CheckMenuItem *menu_Waeland;
+        Gtk::CheckMenuItem *menu_Alba;
+        Gtk::CheckMenuItem *menu_HD;
+        Gtk::CheckMenuItem *menu_BR;
+        Gtk::CheckMenuItem *menu_Gildenbrief;
+        Gtk::CheckMenuItem *menu_Kuestenstaaten;
 
         void set_tree_titles();
 
@@ -190,17 +202,29 @@ class midgard_CG : public midgard_CG_glade
         void on_angeborene_fertigkeit_clicked();
         void on_angeborene_fertigkeit_right_clicked();
         void on_spezialwaffe_clicked();
+        void on_checkbutton_original_menu();
         void on_checkbutton_original_toggled();
+        void on_checkbutton_info_fenster_menu();
         void on_checkbutton_info_fenster_toggled();
+        void on_checkbutton_Eschar_menu();
         void on_checkbutton_Eschar_toggled();
+        void on_checkbutton_Rawindra_menu();
         void on_checkbutton_Rawindra_toggled();
+        void on_checkbutton_KanThaiPan_menu();
         void on_checkbutton_KanThaiPan_toggled();
+        void on_checkbutton_Nahuatlan_menu();
         void on_checkbutton_Nahuatlan_toggled();
+        void on_checkbutton_Waeland_menu();
         void on_checkbutton_Waeland_toggled();
+        void on_checkbutton_Alba_menu();
         void on_checkbutton_Alba_toggled();
+        void on_checkbutton_HD_menu();
         void on_checkbutton_HD_toggled();
+        void on_checkbutton_BR_menu();
         void on_checkbutton_BR_toggled();
+        void on_checkbutton_Gildenbrief_menu();
         void on_checkbutton_Gildenbrief_toggled();
+        void on_checkbutton_Kuestenstaaten_menu();
         void on_checkbutton_Kuestenstaaten_toggled();
 
         void on_grad_anstieg_clicked();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.56 2001/08/23 20:11:45 thoma Exp $
+// $Id: midgard_CG.cc,v 1.57 2001/08/24 13:33:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,7 +39,7 @@
 midgard_CG::midgard_CG()
 :menu(0)
 {
-  menu=manage(new Gtk::Menu());
+//  menu=manage(new Gtk::Menu());
   menu_init();
   on_neuer_charakter_clicked();
   set_tree_titles();
