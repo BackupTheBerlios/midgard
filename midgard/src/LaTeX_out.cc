@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.74 2002/01/03 10:32:04 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.75 2002/01/03 15:27:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -350,16 +350,16 @@ void midgard_CG::LaTeX_write_values()
 
     if ((*i)->ist_gelernt(list_Fertigkeit))
      {
-       fout <<"\\newcommand{\\uni"<<a<<"}{\\mygray\\tiny "<<name<< "}\t\t";
-       fout << "\\newcommand{\\uniw"<<a<<"}{\\mygray"  <<wert << "}\n";
+//       fout <<"\\newcommand{\\uni"<<a<<"}{("<<name<< "}\t\t";
+//       fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << ")}\n";
      }
     else
      {
-       fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
+       fout <<"\\newcommand{\\uni"<<a<<"}{"<<name<< "}\t\t";
        if (f->Voraussetzungen(Werte))
-          fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
+          fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
        else
-          fout << "\\newcommand{\\uniw"<<a<<"}{\\mygray"  <<wert << "}\n";
+          fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << "$^*$)}\n";
      }
   } 
 
