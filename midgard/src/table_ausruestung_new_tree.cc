@@ -125,7 +125,9 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
      if(dt->Ware()->Einheit()=="KS") k=int(dt->Kosten());
      
      Grundwerte &W=hauptfenster->getWerte();
-     if(g>W.Gold() || s>W.Silber() || k>W.Kupfer()) return;
+     if(g>W.Gold())   { hauptfenster->set_status("Nicht genug Gold"); return; }
+     if(s>W.Silber()) { hauptfenster->set_status("Nicht genug Silber"); return; }
+     if(k>W.Kupfer()) { hauptfenster->set_status("Nicht genug Kupfer"); return; }
      W.addGold(-g);
      W.addSilber(-s);
      W.addKupfer(-k);
