@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.156 2002/02/14 07:06:48 thoma Exp $
+// $Id: midgard_CG.cc,v 1.157 2002/02/14 09:00:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,10 +32,11 @@
 #endif
 
 midgard_CG::midgard_CG(const string &datei)
-: InfoFenster(0), wizard(this),menu(0),menu_gradanstieg(0),
+: InfoFenster(0), wizard(0),menu(0),menu_gradanstieg(0),
   haus_menuitem(0),Database(Midgard_Info)
 {
-  table_wizard->hide();
+  wizard_starten_bool=true;
+//  table_wizard->hide();
   srand(time(0));
   if(InfoFenster) delete(InfoFenster);
   InfoFenster = manage(new WindowInfo(this));
@@ -110,7 +111,7 @@ void midgard_CG::on_radiobutton_frau_toggled()
 { on_radiobutton_mann_toggled(); }
 void midgard_CG::on_radiobutton_mann_toggled()
 {
-  if(table_wizard->is_visible())
+  if(wizard)
    { radiobutton_mann->set_sensitive(false); 
      radiobutton_frau->set_sensitive(false);
    }
@@ -368,7 +369,7 @@ void midgard_CG::on_neuer_charakter_clicked()
   typauswahl_button(); // ruft clear_listen() und clear_gtk() auf
   show_gtk();
 
-  table_wizard->hide();
+//  table_wizard->hide();
 }
 
 void midgard_CG::on_schliessen_CG_clicked()

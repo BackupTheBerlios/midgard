@@ -2224,15 +2224,14 @@ andere geholfen.</label>
 	      </widget>
 
 	      <widget>
-		<class>GtkButton</class>
-		<name>button71</name>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>clicked</name>
-		  <handler>tux_clicked</handler>
-		  <last_modification_time>Wed, 13 Feb 2002 15:37:37 GMT</last_modification_time>
-		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
+		<class>GtkPixmap</class>
+		<name>pixmap106</name>
+		<filename>Tux-med.xpm</filename>
+		<xalign>0.5</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<build_insensitive>True</build_insensitive>
 		<child>
 		  <left_attach>0</left_attach>
 		  <right_attach>1</right_attach>
@@ -2244,20 +2243,9 @@ andere geholfen.</label>
 		  <yexpand>False</yexpand>
 		  <xshrink>False</xshrink>
 		  <yshrink>False</yshrink>
-		  <xfill>False</xfill>
-		  <yfill>False</yfill>
+		  <xfill>True</xfill>
+		  <yfill>True</yfill>
 		</child>
-
-		<widget>
-		  <class>GtkPixmap</class>
-		  <name>pixmap106</name>
-		  <filename>Tux-med.xpm</filename>
-		  <xalign>0.5</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <build_insensitive>True</build_insensitive>
-		</widget>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -7953,7 +7941,8 @@ auswählen</label>
 
 		  <widget>
 		    <class>GtkButton</class>
-		    <name>button42</name>
+		    <name>button_angeborene_fert</name>
+		    <cxx_visibility>protected</cxx_visibility>
 		    <tooltip>Zum würfeln: linke Maustaste, zum wählen: rechte Maustaste</tooltip>
 		    <signal>
 		      <name>button_release_event</name>
@@ -14136,133 +14125,6 @@ KS
 	  <ypad>0</ypad>
 	</widget>
       </widget>
-
-      <widget>
-	<class>GtkTable</class>
-	<name>table_wizard</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<rows>1</rows>
-	<columns>3</columns>
-	<homogeneous>False</homogeneous>
-	<row_spacing>0</row_spacing>
-	<column_spacing>0</column_spacing>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>2</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>True</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>True</yfill>
-	</child>
-
-	<widget>
-	  <class>GtkTable</class>
-	  <name>table129</name>
-	  <rows>2</rows>
-	  <columns>1</columns>
-	  <homogeneous>False</homogeneous>
-	  <row_spacing>0</row_spacing>
-	  <column_spacing>0</column_spacing>
-	  <child>
-	    <left_attach>1</left_attach>
-	    <right_attach>2</right_attach>
-	    <top_attach>0</top_attach>
-	    <bottom_attach>1</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>True</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>True</yfill>
-	  </child>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <name>button_wiz_weiter</name>
-	    <can_focus>True</can_focus>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_wizard_weiter_clicked</handler>
-	      <last_modification_time>Wed, 13 Feb 2002 08:08:09 GMT</last_modification_time>
-	    </signal>
-	    <label>Weiter</label>
-	    <relief>GTK_RELIEF_NORMAL</relief>
-	    <child>
-	      <left_attach>0</left_attach>
-	      <right_attach>1</right_attach>
-	      <top_attach>0</top_attach>
-	      <bottom_attach>1</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>False</xexpand>
-	      <yexpand>False</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>False</yfill>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <name>button_wiz_wiederholen</name>
-	    <can_focus>True</can_focus>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_wizard_wiederholen_clicked</handler>
-	      <last_modification_time>Wed, 13 Feb 2002 09:23:46 GMT</last_modification_time>
-	    </signal>
-	    <label>Wiederholen</label>
-	    <relief>GTK_RELIEF_NORMAL</relief>
-	    <child>
-	      <left_attach>0</left_attach>
-	      <right_attach>1</right_attach>
-	      <top_attach>1</top_attach>
-	      <bottom_attach>2</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>False</xexpand>
-	      <yexpand>False</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>False</yfill>
-	    </child>
-	  </widget>
-	</widget>
-
-	<widget>
-	  <class>Custom</class>
-	  <name>LogWinWizard</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <creation_function>logwin</creation_function>
-	  <int1>0</int1>
-	  <int2>0</int2>
-	  <last_modification_time>Fri, 08 Feb 2002 13:21:42 GMT</last_modification_time>
-	  <child>
-	    <left_attach>0</left_attach>
-	    <right_attach>1</right_attach>
-	    <top_attach>0</top_attach>
-	    <bottom_attach>1</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>True</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>True</yfill>
-	  </child>
-	</widget>
-      </widget>
     </widget>
   </widget>
 </widget>
@@ -18199,6 +18061,224 @@ eingeben</label>
 	<label></label>
 	<icon>SchliessenIII-50.xpm</icon>
       </widget>
+    </widget>
+  </widget>
+</widget>
+
+<widget>
+  <class>GtkWindow</class>
+  <name>Wizard_window</name>
+  <title>Wizard</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>False</modal>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>False</auto_shrink>
+
+  <widget>
+    <class>GtkTable</class>
+    <name>table_wizard</name>
+    <cxx_visibility>protected</cxx_visibility>
+    <visible>False</visible>
+    <rows>1</rows>
+    <columns>4</columns>
+    <homogeneous>False</homogeneous>
+    <row_spacing>0</row_spacing>
+    <column_spacing>0</column_spacing>
+
+    <widget>
+      <class>GtkTable</class>
+      <name>table129</name>
+      <rows>2</rows>
+      <columns>1</columns>
+      <homogeneous>False</homogeneous>
+      <row_spacing>0</row_spacing>
+      <column_spacing>0</column_spacing>
+      <child>
+	<left_attach>2</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>0</top_attach>
+	<bottom_attach>1</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>True</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>button_wiz_weiter</name>
+	<can_focus>True</can_focus>
+	<signal>
+	  <name>clicked</name>
+	  <handler>on_button_wizard_weiter_clicked</handler>
+	  <last_modification_time>Wed, 13 Feb 2002 08:08:09 GMT</last_modification_time>
+	</signal>
+	<label>Weiter</label>
+	<relief>GTK_RELIEF_NORMAL</relief>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>0</top_attach>
+	  <bottom_attach>1</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>False</xexpand>
+	  <yexpand>False</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
+	</child>
+      </widget>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>button_wiz_wiederholen</name>
+	<can_focus>True</can_focus>
+	<signal>
+	  <name>clicked</name>
+	  <handler>on_button_wizard_wiederholen_clicked</handler>
+	  <last_modification_time>Wed, 13 Feb 2002 09:23:46 GMT</last_modification_time>
+	</signal>
+	<label>Wiederholen</label>
+	<relief>GTK_RELIEF_NORMAL</relief>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>1</top_attach>
+	  <bottom_attach>2</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>False</xexpand>
+	  <yexpand>False</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
+	</child>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>Custom</class>
+      <name>LogWinWizard</name>
+      <cxx_visibility>protected</cxx_visibility>
+      <creation_function>logwin</creation_function>
+      <int1>0</int1>
+      <int2>0</int2>
+      <last_modification_time>Fri, 08 Feb 2002 13:21:42 GMT</last_modification_time>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>2</right_attach>
+	<top_attach>0</top_attach>
+	<bottom_attach>1</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>True</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkButton</class>
+      <name>button_close_wizard</name>
+      <can_focus>True</can_focus>
+      <signal>
+	<name>clicked</name>
+	<handler>on_button_close_wizard_clicked</handler>
+	<last_modification_time>Wed, 13 Feb 2002 17:50:53 GMT</last_modification_time>
+      </signal>
+      <relief>GTK_RELIEF_NORMAL</relief>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>0</top_attach>
+	<bottom_attach>1</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>False</xfill>
+	<yfill>False</yfill>
+      </child>
+
+      <widget>
+	<class>GtkHBox</class>
+	<name>hbox63</name>
+	<homogeneous>False</homogeneous>
+	<spacing>0</spacing>
+
+	<widget>
+	  <class>GtkPixmap</class>
+	  <name>pixmap133</name>
+	  <filename>SchliessenIII-50.xpm</filename>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <build_insensitive>True</build_insensitive>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label556</name>
+	  <label>Wizard
+schließen</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap134</name>
+      <filename>MAGUS-Logo-Text-halb.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>3</left_attach>
+	<right_attach>4</right_attach>
+	<top_attach>0</top_attach>
+	<bottom_attach>1</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>True</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
     </widget>
   </widget>
 </widget>

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.171 2002/02/14 07:06:48 thoma Exp $
+// $Id: midgard_CG.hh,v 1.172 2002/02/14 09:00:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@
 #include "Ausruestung.hh"
 class Random;
 #include "WindowInfo.hh"
-#include "Wizard.hh"
+#include "Wizard_window.hh"
 
 class GeldFenster 
 {public:
@@ -59,9 +59,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::vector<std::string> Vstand, Vhand, Vkido;
 
         friend class midgard_CG_glade;
-        friend class Wizard;
+        friend class Wizard_window;
         friend class Midgard_Info;
-        Wizard wizard;
+        Wizard_window *wizard;
 
         Gtk::Menu *menu, *menu_gradanstieg;
         void menu_init();
@@ -154,9 +154,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
      	  std::string filename;
    
         // Wizard
+        bool wizard_starten_bool;
         void on_button_close_wizard_clicked();
-        void on_button_wizard_weiter_clicked();
-        void on_button_wizard_wiederholen_clicked();
+//        void on_button_wizard_weiter_clicked();
+//        void on_button_wizard_wiederholen_clicked();
         void wizard_do_nothing();
         void wizard_do_something();
         void wizard_starten_clicked();

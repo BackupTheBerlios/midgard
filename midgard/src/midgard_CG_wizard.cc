@@ -24,50 +24,52 @@ void midgard_CG::wizard_do_nothing()
 
 void midgard_CG::wizard_do_something()
 {
-  Wizard::esteps e=wizard.ActualStep();
+  Wizard_window::esteps e=wizard->ActualStep();
   switch (e) {
-      case Wizard::SPEZIES : 
+      case Wizard_window::SPEZIES : 
          { optionmenu_spezies->set_sensitive(true);
            break; }
-      case Wizard::GRUNDWERTE : grundwerte_wuerfeln(); break;
-      case Wizard::GESCHLECHT : 
+      case Wizard_window::GRUNDWERTE : grundwerte_wuerfeln(); break;
+      case Wizard_window::GESCHLECHT : 
          { radiobutton_mann->set_sensitive(true); 
            radiobutton_frau->set_sensitive(true);
            break; }
-      case Wizard::TYP : 
+      case Wizard_window::TYP : 
          { typauswahl->set_sensitive(true);
            break; }
-      case Wizard::STADTLAND : break;
-      case Wizard::ABGELEITETEWERTE : on_abge_werte_setzen_clicked(); break;
-      case Wizard::HERKUNFT : on_herkunftsland_clicked(); break;
-      case Wizard::ANGEBORENEFERTIGKEITEN : on_angeborene_fertigkeit_clicked(); break;
-      case Wizard::LERNPUNKTE : on_lernpunkte_wuerfeln_clicked(); break;
-      case Wizard::FERTIG : on_button_close_wizard_clicked(); break;
+      case Wizard_window::STADTLAND : break;
+      case Wizard_window::ABGELEITETEWERTE : on_abge_werte_setzen_clicked(); break;
+      case Wizard_window::HERKUNFT : on_herkunftsland_clicked(); break;
+      case Wizard_window::ANGEBORENEFERTIGKEITEN : on_angeborene_fertigkeit_clicked(); break;
+      case Wizard_window::LERNPUNKTE : on_lernpunkte_wuerfeln_clicked(); break;
+      case Wizard_window::FERTIG : on_button_close_wizard_clicked(); break;
       default: regnot("Kann nicht automatisch erfolgen, "
                "bitte oben auswählen oder Standardwert akzeptieren\n");break;
    }
 }
 
-
+/*
 void midgard_CG::on_button_wizard_wiederholen_clicked()
 {
-  wizard.same_step();  
+  wizard->same_step();  
 }
 
 void midgard_CG::on_button_wizard_weiter_clicked()
 {
-  wizard.next_step();  
+  wizard->next_step();  
 }
+*/
 
 void midgard_CG::wizard_starten_clicked()
 {
- table_wizard->show();
+// table_wizard->show();
+ wizard = manage(new class Wizard_window(this));
  notebook_main->set_sensitive(false);
- wizard.restart();
+// wizard.restart();
 }
 
 void midgard_CG::on_button_close_wizard_clicked()
 {
- table_wizard->hide();
+ wizard=0;
  notebook_main->set_sensitive(true);
 }

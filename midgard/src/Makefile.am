@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.119 2002/02/13 11:48:12 christof Exp $
+# $Id: Makefile.am,v 1.121 2002/02/14 09:03:39 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -16,7 +16,8 @@ EXTRA_DIST = document_eingabe.tex.in document_eingabe4.tex.in \
 
 
 noinst_HEADERS = \
-   Wizard.hh \
+   Wizard_window.hh \
+   Wizard_window_glade.hh \
    Grad_anstieg.hh \
    MidgardBasicTree.hh \
    MidgardBasicElement.hh \
@@ -83,7 +84,8 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 midgard_SOURCES = \
-   Wizard.cc \
+   Wizard_window.cc \
+   Wizard_window_glade.cc \
    midgard_CG_wizard.cc \
 	load_charakter.cc  \
    save_charakter.cc \
