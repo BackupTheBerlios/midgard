@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.78 2004/01/22 07:40:17 christof Exp $
+// $Id: midgard.cc,v 1.79 2004/01/23 10:02:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,7 +79,11 @@ static void progress(double d)
 }
 
 int main(int argc, char **argv)
-{  if (!getenv("DEBUG")) Magus_Ausgabe::register_Ausgabe();
+{
+#ifdef __MINGW32__ // Dr MinGW als Exception Handle (debugging Ausgabe!)
+   LoadLibrary("exchndl.dll");
+#endif
+   if (!getenv("DEBUG")) Magus_Ausgabe::register_Ausgabe();
    Ausgabe::setLogLevel(Ausgabe::Debug);
    libmagus_init0(argc,const_cast<const char **>(argv));
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
