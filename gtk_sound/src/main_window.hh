@@ -16,6 +16,7 @@
 #include <vector>
 #include "class_sound.h"
 
+
 class main_window : public main_window_glade
 {   
        bool killbool,repeatbool;
@@ -32,9 +33,8 @@ class main_window : public main_window_glade
         void play(std::string titel,std::string file);
         void fill_playlist();
         void on_clist_playlist_select_row(gint row, gint column, GdkEvent *event);
-        guint refresh_playlist();
+        void remove_from_playlist(unsigned int pid);
         void play_auswahl(std::string kategorie,int nr);
-        void on_button_refresh_clicked();
         void on_kill_on_new_button_toggled();
         void on_button_kill_clicked();
         void on_togglebutton_repeat_toggled();
@@ -43,9 +43,11 @@ class main_window : public main_window_glade
         soundmap sound;
         std::string pfad;
         vector<st_playlist> vec_playlist;
-//        SigC::Connection des;
         gint on_eventbox_key_press_event(GdkEventKey *ev);
         gint on_tree_list_key_press_event(GdkEventKey *ev);
+
+        static main_window *objekt;
+        static void signalhandler(int signr);
    public:
       main_window(const std::string& pfad_);
 };
