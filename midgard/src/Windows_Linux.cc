@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.cc,v 1.2 2002/07/01 10:22:42 christof Exp $
+// $Id: Windows_Linux.cc,v 1.3 2002/07/08 14:52:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -19,3 +19,17 @@
 
 #include "Windows_Linux.hh"
 
+std::string recodePathForTeX(std::string p)
+{
+#ifndef __MINGW32__
+   // tja da kann man gegen Leerzeichen nix machen ...
+#else
+   // Pfad in DOS Darstellung wandeln (keine Leerzeichen)
+   char buf[10240];
+   if (GetShortPathName(p.c_str(), buf, sizeof buf)) p=buf;
+   // recode path name for TeX with slashes
+   for (std::string::iterator i=p.begin();i!=p.end();++i)
+       if (*i=='\\') *i='/';
+#endif
+   return p;
+};

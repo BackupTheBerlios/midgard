@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.hh,v 1.5 2002/07/01 12:38:24 christof Exp $
+// $Id: Windows_Linux.hh,v 1.6 2002/07/08 14:52:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -32,6 +32,8 @@ namespace WinLux
 {
   static const char dirsep=WINDOWS_LINUX('\\','/');
   static const char psep=WINDOWS_LINUX(';',':');
+  
+  std::string recodePathForTeX(std::string p);
 };
 
 #endif

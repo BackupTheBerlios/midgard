@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.41 2002/07/07 08:31:58 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.42 2002/07/08 14:52:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,11 +66,7 @@ std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
       case TeX_tmp : return hauptfenster->getOptionen()->getString(Midgard_Optionen::tmppfad);
       case TeX_Install : 
       {  std::string result=hauptfenster->with_path("MAGUS-Logo-grey2.png",true);
-#ifdef __MINGW32__ // recode path name for TeX with slashes
-         for (std::string::iterator i=result.begin();i!=result.end();++i)
-            if (*i=='\\') *i='/';
-#endif
-         return result;
+         return WinLux::recodePathForTeX(result);
       }
     }
   abort(); // never get here
@@ -196,14 +192,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  write_fertigkeiten(fout,L);
  write_universelle(fout);
 
-#ifdef __MINGW32__ // LaTeX needs / instead of '\\'
- std::string recoded_install_latex_file=install_latex_file;
- for (std::string::iterator i=recoded_install_latex_file.begin();i!=recoded_install_latex_file.end();++i)
-            if (*i=='\\') *i='/';
- fout << "\\input{"+recoded_install_latex_file+"}\n";
-#else
- fout << "\\input{"+install_latex_file+"}\n";
-#endif 
+ fout << "\\input{"+WinLux::recodePathForTeX(install_latex_file)+"}\n";
 }
 
 
@@ -265,14 +254,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
       fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
    }
 */
-#ifdef __MINGW32__ // LaTeX needs / instead of '\\'
- std::string recoded_install_latex_file=install_latex_file;
- for (std::string::iterator i=recoded_install_latex_file.begin();i!=recoded_install_latex_file.end();++i)
-            if (*i=='\\') *i='/';
- fout << "\\input{"+recoded_install_latex_file+"}\n";
-#else
- fout << "\\input{"+install_latex_file+"}\n";
-#endif 
+ fout << "\\input{"+WinLux::recodePathForTeX(install_latex_file)+"}\n";
 // fout.close();
 }
 
