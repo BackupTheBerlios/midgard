@@ -20,7 +20,7 @@ void frame_icons::init()
 {
  if(!hauptfenster) assert(!"");
  if(!(hauptfenster->getOptionen())) assert(!"");
- Gtk::Table *table=manage(new Gtk::Table(0,0,false));
+ Gtk::Table *table=manage(new Gtk::Table(1,1,false));
  std::list<Midgard_Optionen::st_Icon> &L=hauptfenster->getOptionen()->getIcon();
  int count=0;
  for(std::list<Midgard_Optionen::st_Icon>::iterator i=L.begin();i!=L.end();++i)

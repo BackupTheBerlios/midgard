@@ -106,7 +106,7 @@ void midgard_CG::menu_init()
    {
      if((*i)->Nr()<=0) continue;
      std::string labeltext=(*i)->Name();
-     Gtk::Table *_tab=Gtk::manage(new Gtk::Table(0,0,false));
+     Gtk::Table *_tab=Gtk::manage(new Gtk::Table(1,1,false));
      int row=1;
      if((*i)->Offiziell()) 
        {
@@ -138,7 +138,7 @@ void midgard_CG::menu_init()
   for(std::list<Midgard_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=Gtk::manage (new Gtk::Label(i->text));
-    Gtk::Table *_tab=Gtk::manage(new Gtk::Table(0,0,false));
+    Gtk::Table *_tab=Gtk::manage(new Gtk::Table(1,1,false));
     _tab->attach(*_l,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
     if(i->bild) 
      {
@@ -185,7 +185,7 @@ void midgard_CG::menubar_init()
   for(std::list<Midgard_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=Gtk::manage (new Gtk::Label(i->text));
-    Gtk::Table *_tab=Gtk::manage(new Gtk::Table(0,0,false));
+    Gtk::Table *_tab=Gtk::manage(new Gtk::Table(1,1,false));
     _tab->attach(*_l,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
     if(i->bild) 
      {
@@ -219,7 +219,7 @@ void midgard_CG::menubar_init()
    {
      if((*i)->Nr()<=0) continue;
      std::string labeltext=(*i)->Name();
-     Gtk::Table *_tab=Gtk::manage(new Gtk::Table(0,0,false));
+     Gtk::Table *_tab=Gtk::manage(new Gtk::Table(1,1,false));
      int row=1;
      if((*i)->Offiziell()) 
        {

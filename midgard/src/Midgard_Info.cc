@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.75 2003/04/24 14:37:05 christof Exp $
+// $Id: Midgard_Info.cc,v 1.76 2003/05/06 09:37:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,7 +40,7 @@ Midgard_Info::Midgard_Info(GlademmData *data) : Midgard_Info_glade(data)
 void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
 {
   frame_regionen->remove();
-  Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
+  Gtk::Table *_tab=manage(new Gtk::Table(1,1,false));
   int row=0;
   Midgard_Optionen::IconIndex II=Midgard_Optionen::Self;//=hauptfenster->MOptionen->getIconIndex();
   for(std::vector<cH_Region>::const_iterator i=Regionen.begin();i!=Regionen.end();++i)

@@ -30,7 +30,7 @@ void frame_ansicht::init()
 {
  if(!hauptfenster) assert(!"");
  if(!(hauptfenster->getOptionen())) assert(!"");
- Gtk::Table *table=manage(new Gtk::Table(0,0,false));  
+ Gtk::Table *table=manage(new Gtk::Table(1,1,false));  
  std::list<Midgard_Optionen::st_Ober> &L=hauptfenster->getOptionen()->getOber();
  int count=0;
  for(std::list<Midgard_Optionen::st_Ober>::iterator i=L.begin();i!=L.end();++i)

@@ -24,7 +24,7 @@ void frame_drucken::init()
   bool_changed=false;
   if(!hauptfenster) assert(!"");
   if(!(hauptfenster->getOptionen())) assert(!"");
-  Gtk::Table *table=Gtk::manage(new Gtk::Table(0,0,false));
+  Gtk::Table *table=Gtk::manage(new Gtk::Table(1,1,false));
   std::list<Midgard_Optionen::st_pdfViewer> L=hauptfenster->getOptionen()->getPDF();  
   Gtk::RadioButton::Group _RadioMGroup_pdfViewer;
   int count=0;

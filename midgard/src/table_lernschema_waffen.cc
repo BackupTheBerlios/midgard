@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.30 2003/04/29 07:06:56 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.31 2003/05/06 09:37:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -111,7 +111,7 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
   tree_waffen_lernschema->show();
   tree_waffen_lernschema->Expand_recursively();
-  Gtk::Table *table=manage(new Gtk::Table(0,0,false));
+  Gtk::Table *table=manage(new Gtk::Table(1,1,false));
   Gtk::Label *lE = manage(new Gtk::Label(itos(waffebesitzlernen.EWaffe())+" Einhandwaffen, Verteidigungswaffen oder Wurfwaffen",0));
   Gtk::Label *lA = manage(new Gtk::Label(itos(waffebesitzlernen.AWaffe())+" beliebige Waffen (einschließlich Zweihand- und Schußwaffen)",0));
   
