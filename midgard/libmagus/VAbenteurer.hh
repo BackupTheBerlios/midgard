@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.3 2003/09/01 06:47:57 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.4 2003/09/04 07:41:32 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -24,8 +24,10 @@
 #include "Abenteurer.hh"
 #include "AbenteurerLernpunkte.hh"
 #include "Undo.hh"
+#include "VAbentModelProxy.hh"
+#include <sigc++/object.h>
 
-class VAbenteurer
+class VAbenteurer : public SigC::Object // um signale zu empfangen
 {
    public:
       struct st_abenteurer{Abenteurer abenteurer;
@@ -41,7 +43,6 @@ class VAbenteurer
              };
    private:
       std::list<st_abenteurer> VA;
-      std::list<st_abenteurer>::iterator ai;
 
       class sort {
         public: sort() {}
@@ -49,42 +50,47 @@ class VAbenteurer
           { return x.abenteurer.Gw() < y.abenteurer.Gw() ;
           }
       };
+      void divert_proxy();
       
+      std::list<st_abenteurer>::iterator ai;
       SigC::Signal0<void> sig_anderer;
+   public:
+      VAbentModelProxy proxies;
 
    public:
-      VAbenteurer() {}
+      VAbenteurer();
       
       const std::list<st_abenteurer> &getList() const {return VA;}
       std::list<st_abenteurer> &getList() {return VA;}
-      const Abenteurer &getCAbenteurer() const {return ai->abenteurer;}
-      const Abenteurer &getAbenteurer() const {return ai->abenteurer;}
-      Abenteurer &getAbenteurer() {return ai->abenteurer;}
       void sort_gw() {VA.sort(sort());}
       void push_back();
-      void setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::iterator &i);
-//      void set_Abenteurer(const Abenteurer& A);
-
-      SigC::Signal0<void> &signal_anderer_abenteurer() { return sig_anderer; }
-      void modified() {ai->gespeichert=false;}
-      void saved() {ai->gespeichert=true;}
-      bool gespeichert() const {return ai->gespeichert;}
-      void setFilename(std::string s) {ai->filename=s;}
-      const std::string &getFilename() {return ai->filename;}
-      AbenteurerLernpunkte &getLernpunkte() { return ai->ab_lp; }
-      const AbenteurerLernpunkte &getLernpunkte() const { return ai->ab_lp; }
-
       bool unsaved_exist();
       bool empty() const {return VA.empty();}
       size_t size() const {return VA.size();}
       void delete_empty();
+
+      // these operate on the concept of a current character
+      std::list<st_abenteurer>::iterator actualIterator();
+      std::list<st_abenteurer>::const_iterator actualIterator() const;
+      const Abenteurer &getCAbenteurer() const {return actualIterator()->abenteurer;}
+      const Abenteurer &getAbenteurer() const {return actualIterator()->abenteurer;}
+      Abenteurer &getAbenteurer() {return actualIterator()->abenteurer;}
+      void setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::iterator &i);
+//      void set_Abenteurer(const Abenteurer& A);
+      SigC::Signal0<void> &signal_anderer_abenteurer() { return sig_anderer; }
+
+      void modified() {actualIterator()->gespeichert=false;}
+      void saved() {actualIterator()->gespeichert=true;}
+      bool gespeichert() const {return actualIterator()->gespeichert;}
+      void setFilename(std::string s) {actualIterator()->filename=s;}
+      const std::string &getFilename() {return actualIterator()->filename;}
+      AbenteurerLernpunkte &getLernpunkte() { return actualIterator()->ab_lp; }
+      const AbenteurerLernpunkte &getLernpunkte() const { return actualIterator()->ab_lp; }
       void undosave(const std::string &s);
-
    const Abenteurer *operator->() const
-   {  return &ai->abenteurer; }
+   {  return &actualIterator()->abenteurer; }
    Abenteurer *operator->()
-   {  return &ai->abenteurer; }
-
+   {  return &actualIterator()->abenteurer; }
 };
 
 #endif

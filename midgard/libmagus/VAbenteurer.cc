@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.1 2003/09/01 06:48:57 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.2 2003/09/04 07:41:32 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -22,6 +22,7 @@
 #include <sstream>
 #include <Misc/Trace.h>
 #include "magustrace.h"
+#include <sigc++/object_slot.h>
 
 void VAbenteurer::undosave(const std::string &s)
 {
@@ -67,3 +68,20 @@ void VAbenteurer::delete_empty()
     }
 }
 
+std::list<VAbenteurer::st_abenteurer>::iterator VAbenteurer::actualIterator()
+{  if (ai==VA.end()) push_back();
+   return ai;
+}
+
+std::list<VAbenteurer::st_abenteurer>::const_iterator VAbenteurer::actualIterator() const
+{  return const_cast<VAbenteurer*>(this)->actualIterator();
+}
+
+VAbenteurer::VAbenteurer()
+  : ai(VA.end())
+{  signal_anderer_abenteurer().connect(SigC::slot(*this,&VAbenteurer::divert_proxy));
+}
+
+void VAbenteurer::divert_proxy()
+{  proxies.divert(getAbenteurer());
+}

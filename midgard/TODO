@@ -32,7 +32,7 @@ use StyleIcon for new Icons
 
 ---
 
--forward port of flashing_eigenschaft, frame_spezielles, frame119, frame120 
+- forward port of flashing_eigenschaft, frame_spezielles, frame119, frame120 
 
 - Probleme Zufallsabenteurer: Verteidigungswaffen werden nicht als solche erkannt
 	Export: Waffen immer mit $$
@@ -44,5 +44,8 @@ use StyleIcon for new Icons
 - evtl. Bugfixes in magus (drucken nicht mitgekommen?)
 
 - Undo/Redo verändern die Lernpunkte noch nicht ...
+	Undo/Redo über array<st_abenteurer> realisieren bzw Teil davon
 
 - Dialoge, anlegen von neuen Artikeln ...
+
+- Nachsehen ob MVC mit Abenteurern tatsächlich funktioniert
