@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.39 2002/03/01 20:42:39 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.40 2002/03/03 08:02:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,6 +22,8 @@
 #include <algorithm>
 #include <gtk--/label.h>
 #include <Aux/itos.h>
+#include <SelectMatching.h>
+
 
 gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
 {
@@ -129,6 +131,7 @@ void midgard_CG::check_350(const std::vector<int>& a)
       button_grundwerte->set_sensitive(true);
       button_abg_werte->set_sensitive(false);
       Werte.clear();            
+      Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
    }
 }
 

@@ -39,27 +39,25 @@
 \newsavebox{\ZSchlagwaffe}
 \newsavebox{\Stangenwaffe}
 \newsavebox{\Kettenwaffe} 
-\newsavebox{\Bogen}       
-\newsavebox{\Armbrust}    
-\newsavebox{\Schleuder}   
+\newsavebox{\KampfohneWaffen} 
+\newsavebox{\Zauberstaebe}
 \newsavebox{\Wurfspiess}  
 \newsavebox{\Stielwurfwaffe}
+\newsavebox{\Wurfscheibe}
+\newsavebox{\Fesselwaffe}
+\newsavebox{\Armbrust}    
+\newsavebox{\Bogen}       
+\newsavebox{\Schleuder}   
 \newsavebox{\Schilde}
+\newsavebox{\Parierwaffe}
 %%
-\newsavebox{\Magierstab}
-\newsavebox{\KampfohneWaffen} 
+\newsavebox{\Kampfstab} 
+\newsavebox{\Peitsche}
+\newsavebox{\Garotte}
+\newsavebox{\Wurfmesser}
 \newsavebox{\Blasrohr}  
 \newsavebox{\Wurfpfeil} 
-\newsavebox{\Wurfmesser}
-\newsavebox{\Wurfstern} 
-\newsavebox{\Kampfstab} 
-\newsavebox{\Parierwaffe}
 \newsavebox{\Werfen}
-\newsavebox{\Fesselwaffe}
-\newsavebox{\Bola}
-\newsavebox{\Netz}
-\newsavebox{\Peitsche}
-\newsavebox{\Lasso}   
 %\input{midgard_tmp_latexwertedef}
 \input{midgard_tmp_latexwerte}
 \IfFileExists{drache.png}{\parbox{10cm}{\includegraphics[width=10cm]{drache.png}}}%
@@ -375,14 +373,17 @@ Sprache&Wert&Schrift\\\hline\hline
 {\setlength{\tabcolsep}{0.2em}\renewcommand{\arraystretch}{0.8}
     \begin{tabular}[b]{l|l|l|l|}
       \multicolumn{4}{l}{\small Grundkenntnisse in}\\\cline{2-2}\cline{4-4}
-      ESchwert&\makebox[1ex]{\usebox{\ESchwert}}&Kettenwaffe&\makebox[1ex]{\usebox{\Kettenwaffe}}\\\cline{2-2}\cline{4-4}
-      Stichwaffe&{\usebox{\Stichwaffe}}&Bogen&\usebox{\Bogen}\\\cline{2-2}\cline{4-4}
-      ESchlagwaffe&{\usebox{\ESchlagwaffe}}&Armbrust&\usebox{\Armbrust}\\\cline{2-2}\cline{4-4}
-      Spieﬂwaffe&{\usebox{\Spiesswaffe}}&Schleuder&\usebox{\Schleuder}\\\cline{2-2}\cline{4-4}
-      ZSchwert&{\usebox{\ZSchwert}}&Wurfspieﬂ&\usebox{\Wurfspiess}\\\cline{2-2}\cline{4-4}
-      ZSchlagwaffe&{\usebox{\ZSchlagwaffe}}&Stielwurfwaffe&\usebox{\Stielwurfwaffe}\\\cline{2-2}\cline{4-4}
-      Stangenwaffe&{\usebox{\Stangenwaffe}}&Schild&\usebox{\Schilde}\\\cline{2-2}\cline{4-4}
-    \end{tabular}}
+      ESchwert    &\makebox[1ex]{\usebox{\ESchwert}}  &Wurfspieﬂ&\makebox[1ex]{\usebox{\Wurfspiess}}\\\cline{2-2}\cline{4-4}
+      Stichwaffe  &{\usebox{\Stichwaffe}}             &Stielwurfwaffe&\usebox{\Stielwurfwaffe}\\\cline{2-2}\cline{4-4}
+      ESchlagwaffe&{\usebox{\ESchlagwaffe}}           &Wurfscheibe     &\usebox{\Wurfscheibe}\\\cline{2-2}\cline{4-4}
+      Spieﬂwaffe  &{\usebox{\Spiesswaffe}}            &Fesselwaffe     &\usebox{\Fesselwaffe}\\\cline{2-2}\cline{4-4}
+      ZSchwert    &{\usebox{\ZSchwert}}               &Armbrust      &\usebox{\Armbrust}\\\cline{2-2}\cline{4-4}
+      ZSchlagwaffe&{\usebox{\ZSchlagwaffe}}           &Bogen         &\usebox{\Bogen}\\\cline{2-2}\cline{4-4}
+      Stangenwaffe&{\usebox{\Stangenwaffe}}           &Schleuder     &\usebox{\Schleuder}\\\cline{2-2}\cline{4-4}
+      Kettenwaffe &{\usebox{\Kettenwaffe}}            &Schild        &\usebox{\Schilde}\\\cline{2-2}\cline{4-4}
+      Kampf ohne Waffen &{\usebox{\KampfohneWaffen}}  &Parierwaffe   &\usebox{\Parierwaffe}\\\cline{2-2}\cline{4-4}
+      Zauberst‰be &{\usebox{\Zauberstaebe}}\\\cline{2-2}
+    \end{tabular}}                                    
 \hfill
 \LI
 \scriptsize

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.30 2002/02/10 14:55:56 thoma Exp $
+# $Id: Makefile.am,v 1.31 2002/03/03 08:02:14 thoma Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
 
@@ -27,6 +27,7 @@ export: all_exp arkanum_exp
 	./all_exp E >$(XMLDIR)/Eschar.xml
 	./all_exp N >$(XMLDIR)/Nahuatlan.xml
 	./all_exp W >$(XMLDIR)/Waeland.xml
+	./all_exp X >$(XMLDIR)/AbenteuerBaende.xml
 	./all_exp "H&D" >$(XMLDIR)/HexenzauberDruidenkraft.xml
 	./all_exp TuT >$(XMLDIR)/TippsTricks.xml
 	./all_exp G >$(XMLDIR)/Gildenbrief.xml

@@ -115,7 +115,8 @@ MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const vector<cH_Typen>& Typ)
 
 int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const
 {
-  if(Name()=="Trinken") return Erfolgswert()+Werte.Ko()/10;
+  if(Name()=="Trinken" && Werte.Spezies()->Name()!="Zwerg") 
+      return Erfolgswert()+Werte.Ko()/10;
   if(Name()=="Berserkergang") return Erfolgswert()-Werte.Wk()/5;
   else return Erfolgswert();
 }

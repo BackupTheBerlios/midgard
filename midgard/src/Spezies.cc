@@ -197,6 +197,7 @@ std::list<cH_MidgardBasicElement> Spezies::getFreiwilligeFertigkeiten(const Grun
     if(!(i->art=="ff")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
     f->set_Erfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte));
+//cout << i->erfolgswert<<' '<<cH_Fertigkeit(f)->AttributBonus(Werte)<<'\n';
     f->set_Lernpunkte(i->lp);
     L.push_back(f);
    }

@@ -27,11 +27,13 @@ NEWS IN VERSION 0.4delta5
    für die Spezies. Dadurch 
    a) ist die Klasse 'Pflichten' inclusive Datenbanktabelle weggefallen.
    b) werden die Pflichfertigkeiten bei Spielbeginn automatisch gelernt.
-
+* Datenbank für Rawindra, Eschar und KanThaiPan Fertigkeiten und
+   Zauberwerk überarbeitet
+   (nichtsdestotrotz warte ich noch auf die offiziellen Regeln)
+* Alle Grundkenntnisse (Waffen) ausdrucken
 
 TODO:
-* Offiielles Logo ist weg :-(
-* Alle Grundkenntnisse (Waffen) ausdrucken
+* Offielles Logo ist weg :-(
 * Tooltips Farbe
 * Laden von Optionen 
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes
