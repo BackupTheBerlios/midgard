@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.147 2002/04/18 08:14:41 christof Exp $
+# $Id: Makefile.am,v 1.148 2002/04/18 08:19:08 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -211,9 +211,10 @@ if UTF8
 
 # convert to utf8 between preprocessing and compilation
 %.o: %.cc
-	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) $*.cc \
+	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+		$(AM_CXXFLAGS) $(CXXFLAGS) -Wp,-MD,.deps/$(*F).pp $*.cc \
 	| ./iso2utf8 \
-	| $(CXXCOMPILE) -o $*.o -Wp,-MD,.deps/$(*F).pp -c -x c++ /dev/stdin
+	| $(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
 	@-cp .deps/$(*F).pp .deps/$(*F).P; \
 	tr ' ' '\012' < .deps/$(*F).pp \
 	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
@@ -221,9 +222,10 @@ if UTF8
 	rm .deps/$(*F).pp
 
 midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
-	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) $*.cc \
+	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \ 
+		$(AM_CXXFLAGS) $(CXXFLAGS) -Wp,-MD,.deps/$(*F).pp $*.cc \
 	| ./iso2utf8 \
-	| $(CXXCOMPILE) -o $*.o -Wp,-MD,.deps/$(*F).pp -O0 -c -x c++ /dev/stdin
+	| $(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
 	@-cp .deps/$(*F).pp .deps/$(*F).P; \
 	tr ' ' '\012' < .deps/$(*F).pp \
 	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
