@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.25 2003/09/10 07:15:43 christof Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.26 2003/11/28 07:52:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,7 @@ void table_grundwerte::on_entry_nameC_activate()
 }
 bool table_grundwerte::on_entry_nameC_focus_out_event(GdkEventFocus *ev)
 { hauptfenster->getAben().setNameC(entry_nameC->get_text());  
-  hauptfenster->set_title(hauptfenster->getAben().Name_Abenteurer());
+//  hauptfenster->set_title(hauptfenster->getAben().Name_Abenteurer());
   return false; 
 }
 

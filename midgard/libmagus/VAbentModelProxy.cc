@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.cc,v 1.5 2003/11/25 07:29:51 christof Exp $               
+// $Id: VAbentModelProxy.cc,v 1.6 2003/11/28 07:52:20 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -45,4 +45,8 @@ void VAbentModelProxy::divert(VAbenteurer::Item &A)
    for (haus_t::iterator i=A.proxies.hausregeln.begin();i!=A.proxies.hausregeln.end();++i)
       hausregeln[i->first].set_model(i->second);
    wizard.set_model(A.proxies.wizard);
+   
+   undo_changed.set_signal(A.signal_undo_changed());
+   undo_list_changed.set_signal(A.signal_undo_list_changed());
+   werte_eingeben.set_model(A.WerteEingebenModel());
 }

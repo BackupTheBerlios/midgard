@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.5 2003/11/25 07:29:51 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.6 2003/11/28 07:52:20 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,6 +23,42 @@
 #include <Misc/Trace.h>
 #include "magustrace.h"
 #include <sigc++/object_slot.h>
+
+VAbenteurer::iterator VAbenteurer::push_back()
+{ 
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+   VA.push_back(st_abenteurer()); 
+   list_changed();
+   return --end();
+}
+
+
+bool VAbenteurer::unsaved_exist()
+{ 
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+   for(VAbenteurer::iterator i=begin();i!=end();++i)
+       if(!i->gespeichert()) return true;
+   return false;
+}
+
+void VAbenteurer::delete_empty()
+{ 
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+ reloop:
+   for(VAbenteurer::iterator i=begin();i!=end();++i)
+    { const Grundwerte &W=i->getAbenteurer(); 
+      if(i->gespeichert() && W.Name_Abenteurer().empty())
+        { VA.erase(i); 
+          goto reloop;
+        } 
+    }
+}
+
+// ===================== Item =========================
+
+void VAbenteurer::Item::divert_proxy()
+{  proxies.divert(*current_undo);
+}
 
 void VAbenteurer::Item::init()
 {  current_undo=--undos.end();
@@ -52,6 +88,7 @@ void VAbenteurer::Item::undosave(const std::string &s)
   if (i!=end()) undos.erase(i,unconstify(end()));
   undos.push_back(st_undo(getAbenteurer()));
   current_undo=--undos.end();
+  signal_undo_list_changed()();
 }
 
 void VAbenteurer::Item::setUndo(const_iterator it)
@@ -59,40 +96,28 @@ void VAbenteurer::Item::setUndo(const_iterator it)
    _signal_undo_changed();
 }
 
-VAbenteurer::iterator VAbenteurer::push_back()
-{ 
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   VA.push_back(st_abenteurer()); 
-   return --end();
-}
-
+// ================== AbenteurerAuswahl ====================
 
 void AbenteurerAuswahl::setAbenteurer(const VAbenteurer::iterator &i)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  ai=i;
- // signal!!!
+ signal_anderer_abenteurer()();
 }
 
-bool VAbenteurer::unsaved_exist()
-{ 
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   for(VAbenteurer::iterator i=begin();i!=end();++i)
-       if(!i->gespeichert()) return true;
-   return false;
+AbenteurerAuswahl::AbenteurerAuswahl()
+  : ai(Chars.end())
+{  // actualIterator(); // mindestens einen erzeugen
+   signal_anderer_abenteurer().connect(SigC::slot(*this,&AbenteurerAuswahl::divert_proxy));
+#warning mit undo_changed noch verbinden?   
 }
 
-void VAbenteurer::delete_empty()
-{ 
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
- reloop:
-   for(VAbenteurer::iterator i=begin();i!=end();++i)
-    { const Grundwerte &W=i->getAbenteurer(); 
-      if(i->gespeichert() && W.Name_Abenteurer().empty())
-        { VA.erase(i); 
-          goto reloop;
-        } 
-    }
+bool AbenteurerAuswahl::valid() const
+{  return ai!=Chars.end();
+}
+
+void AbenteurerAuswahl::divert_proxy()
+{  proxies.divert(*actualIterator());
 }
 
 VAbenteurer AbenteurerAuswahl::Chars;
@@ -106,20 +131,3 @@ VAbenteurer::const_iterator AbenteurerAuswahl::actualIterator() const
 {  return const_cast<AbenteurerAuswahl*>(this)->actualIterator();
 }
 
-AbenteurerAuswahl::AbenteurerAuswahl()
-  : ai(Chars.end())
-{  // actualIterator(); // mindestens einen erzeugen
-   signal_anderer_abenteurer().connect(SigC::slot(*this,&AbenteurerAuswahl::divert_proxy));
-}
-
-bool AbenteurerAuswahl::valid() const
-{  return ai!=Chars.end();
-}
-
-void AbenteurerAuswahl::divert_proxy()
-{  proxies.divert(*actualIterator());
-}
-
-void VAbenteurer::Item::divert_proxy()
-{  proxies.divert(*current_undo);
-}

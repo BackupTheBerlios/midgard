@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.20 2003/11/24 16:21:42 christof Exp $
+// $Id: midgard_CG_undo.cc,v 1.21 2003/11/28 07:52:20 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,24 +20,6 @@
 #include "midgard_CG.hh"
 #include <sstream>
 #include <libmagus/Ausgabe.hh>
-
-#if 0
-void midgard_CG::show_undo_tree()
-{
-  for (VAbenteurer::Item::const_iterator i=getChar()->begin();i!=getChar()->end();++i)
-     datavec.push_back(new Data_Undo(*i));
-  undo_tree->setDataVec(datavec);
-}
-
-void midgard_CG::on_undo_leaf_selected(cH_RowDataBase d)
-{
-  const Data_Undo *dt=dynamic_cast<const Data_Undo*>(&*d);
-  std::stringstream s(getChar().getUndo().get(dt->getIndex()));
-  Char->xml_import_stream(s);
-  Ausgabe(Ausgabe::Log,"Alten Zustand wieder hergestellt");
-  undo_tree->get_selection()->unselect_all();
-}
-#endif
 
 void midgard_CG::on_button_redo_clicked()
 {

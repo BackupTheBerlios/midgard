@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.317 2003/11/24 16:21:42 christof Exp $
+// $Id: midgard_CG.cc,v 1.318 2003/11/28 07:52:20 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,7 +52,7 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
 }
 
 midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
-: news_columns(), undo_menu(),menu_kontext(), schummeln(false),
+: news_columns(), undo_menu(),menu_kontext(),abent_menu(), schummeln(),
 	InfoFenster(info)
 { news_columns.attach_to(*list_news);
 
@@ -76,6 +76,8 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 // Statusbar MVC
   bool_ImageButton *wuerfelt_butt = new bool_ImageButton(Programmoptionen.WerteEingebenModel(),
   	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
+  wuerfelt_butt->set_tooltips("Werte werden ausgewürfelt. (Hier klicken zum eingeben)",
+  		"Werte werden eingegeben. (Hier klicken zum auswürfeln)");
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   wuerfelt_butt->show();
 
@@ -107,6 +109,10 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
    <<'\n';
    
   aktiver.proxies.wizard.signal_changed().connect(SigC::slot(*this,&midgard_CG::wizard_changed));
+  aktiver.proxies.signal_undo_changed().connect(SigC::slot(*this,&midgard_CG::refresh));
+  aktiver.signal_changed().connect(SigC::slot(*this,&midgard_CG::refresh));
+  refresh();
+  refresh_char_list();
 }
 
 midgard_CG::~midgard_CG()
@@ -248,4 +254,23 @@ void midgard_CG::grundwerte_background_create()
       st->set_bg_pixmap(Gtk::STATE_NORMAL,pm);
       grundwerte_background->set_style(st);
    }
+}
+
+void midgard_CG::refresh()
+{  set_title(getAben().Name_Abenteurer());
+}
+
+void midgard_CG::refresh_char_list()
+{  if (abent_menu) delete abent_menu;
+   abent_menu=new Gtk::Menu;
+   for (VAbenteurer::const_iterator i=AbenteurerAuswahl::Chars.begin();
+		i!=AbenteurerAuswahl::Chars.end();++i)
+   {  // vielleicht noch mit Typ(Grad) ?   z.B. Aneren Hl(8)
+      Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->getAbenteurer().Name_Abenteurer()));
+      undo_menu->add(*mi);
+      mi->show();
+      mi->signal_activate().connect(SigC::bind(SigC::slot(
+      		getChar(),&AbenteurerAuswahl::setAbenteurer),i));
+   }
+   fenster1->set_submenu(abent_menu);
 }

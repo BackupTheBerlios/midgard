@@ -84,3 +84,6 @@ Fenster möglich, Neustart des Fensters möglich)
 	(table_grundwerte_typauswahl.cc, table_steigern_fertigkeiten.cc)
 
 - geladene Regionen werden nicht angezeigt - warum?
+
+- Komponenten: Entries/Spinbuttons mit many_changed+activate (wie MVC)
+	und dann in Grundwerte ersetzen (Werte ändern ...)

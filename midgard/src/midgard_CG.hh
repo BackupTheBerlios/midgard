@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.342 2003/11/24 16:21:42 christof Exp $
+// $Id: midgard_CG.hh,v 1.343 2003/11/28 07:52:20 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,8 +42,7 @@ private:
 	AbenteurerAuswahl aktiver;
 
         TreeViewUtility::CListEmulator news_columns;
-        Gtk::Menu *undo_menu;
-        Gtk::Menu *menu_kontext;
+        Gtk::Menu *undo_menu,*menu_kontext,*abent_menu;
 
         Model<bool> schummeln; // weg hier ?! in Char? Programmoption?
 
@@ -179,6 +178,9 @@ private:
          void AndererAbenteurer();
          void LernschemaSteigern(bool l,bool s);
          void NamenEingeben() { table_grundwerte->NamenEingeben(); }
+         void refresh();
+         void refresh_char_list();
+        // void refresh_undo_list();
 
 	// Nettigkeiten ?
         static Gtk::Box &make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);
@@ -201,7 +203,5 @@ private:
 	// wird von Wizard verwendet
         void wizard_do_something(int page,const std::string &text);
         void wizard_changed(gpointer);
-        
-//        Wizard &getWizard() { return wizard; }
 };
 #endif

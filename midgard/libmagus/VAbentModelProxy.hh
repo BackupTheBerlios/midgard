@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.hh,v 1.3 2003/11/25 07:29:51 christof Exp $               
+// $Id: VAbentModelProxy.hh,v 1.4 2003/11/28 07:52:20 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -25,6 +25,7 @@
 #include <map>
 #include "Optionen.hh"
 #include "Wizard.hh"
+#include <BaseObjects/SignalPlex.h>
 
 namespace AbenteurerListe {
 class Item;
@@ -44,6 +45,9 @@ struct VAbentModelProxy
    haus_t hausregeln;
    
    ModelPlex<Wizard::esteps> wizard;
+   ModelPlex<bool> werte_eingeben;
+   SignalPlex1<SigC::Signal0<void> > undo_changed;
+   SignalPlex1<SigC::Signal0<void> > undo_list_changed;
    
    void divert(AbenteurerListe::Item &new_one);
    void divert(AbenteurerListe::st_undo &new_one);

@@ -1,31 +1,17 @@
-// generated 2002/5/14 9:41:31 CEST by thoma@Tiger.(none)
-// using glademm V0.6.4b_cvs
-//
-// newer (non customized) versions of this file go to table_grundwerte.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
-
 #ifndef _TABLE_GRUNDWERTE_HH
 #  include "table_grundwerte_glade.hh"
 #  define _TABLE_GRUNDWERTE_HH
 
 class midgard_CG;
+class AbenteurerAuswahl;
 #include <vector>
 #include <BaseObjects/Model.h>
 #include <Misc/UniqueValue.h>
 
-
 class table_grundwerte : public table_grundwerte_glade
 {  
-//        friend class midgard_CG;
-//        friend class Zufall;
-//        friend class table_zufall;
-//        friend class BegruessungsWindow;
-        midgard_CG *hauptfenster; // oder nur VAbenteurer
+        midgard_CG *hauptfenster; // oder nur AbenteurerAuswahl?
+        AbenteurerAuswahl *abentaus;
 
         bool block_changed;
 public:
@@ -33,6 +19,7 @@ public:
         
         table_grundwerte(GlademmData *_data);
         void init(midgard_CG *hauptfenster);
+        void refresh() { zeige_werte(); }
         void fill_typauswahl();  
         void fill_typauswahl_2();
         void neuer_charakter();
@@ -44,7 +31,7 @@ public:
         static const UniqueValue::value_t trace_channel;
 
 private:
-        std::vector<std::string> Vstand, Vhand;
+        std::vector<std::string> Vstand, Vhand, Vhandf;
 
         void edit_sensitive(bool b);
         

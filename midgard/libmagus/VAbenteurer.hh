@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.10 2003/11/25 07:29:51 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.11 2003/11/28 07:52:20 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -47,8 +47,10 @@ namespace AbenteurerListe
        		// global 
 		std::vector<st_undo>::iterator current_undo;
 		SigC::Signal0<void> _signal_undo_changed;
+		SigC::Signal0<void> _signal_undo_list_changed;
 		std::string filename;
 		bool bgespeichert;
+		Model<bool> werte_eingeben;
 
 		void divert_proxy();
 		void operator=(const Item &);
@@ -83,6 +85,9 @@ namespace AbenteurerListe
 		void undosave(const std::string &s);
 		SigC::Signal0<void> &signal_undo_changed()
 		{  return _signal_undo_changed; }
+		SigC::Signal0<void> &signal_undo_list_changed()
+		{  return _signal_undo_list_changed; }
+		Model_ref<bool> WerteEingebenModel() { return werte_eingeben; }
 	};
 }
 
