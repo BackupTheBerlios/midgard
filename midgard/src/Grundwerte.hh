@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.43 2002/06/06 12:37:50 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.44 2002/06/06 12:38:40 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,6 @@
 #include "Spezialgebiet.hh"
 #include "Typen.hh"
 #include "MidgardBasicElement.hh"
-//#include "Ausruestung.hh"
 
 
 class Grundwerte
@@ -37,7 +36,6 @@ class Grundwerte
          };         
    st_grund grund;
    std::list<MidgardBasicElement> list_Sinne;
-//   std::map<std::string,int> sinnmap;
    int raufen;
 
    int au,pa,sb,wk,b,lp,ap;
@@ -64,7 +62,6 @@ class Grundwerte
 
    int steigern_EP_prozent;  
    int grad_basiswerte; 
-//   AusruestungBaum besitz;
    void reset();
    
 public:
@@ -230,9 +227,6 @@ public:
    void setBeschreibung(const std::string& _b){beschreibung.text=_b;}
    void setBeschreibungPix(const std::string& _b){beschreibung.file=_b;}
    void setBeschreibungPixSize(int i){beschreibung.size=i;}
-//   void clearRuestung() {ruestung.clear(); }
-//   void setRuestung1(cH_Ruestung r){ruestung[0]=r;}
-//   void setRuestung2(cH_Ruestung r){ruestung[1]=r;}
    void setRuestung1(std::string r,bool force=false)
       {ruestung[0]=cH_Ruestung(r,force);}
    void setRuestung2(std::string r,bool force=false)
@@ -257,8 +251,6 @@ public:
    void setKEP(int a) {kep=a;}
    void setZEP(int a) {zep=a;}
    
-//   AusruestungBaum &getBesitz() {return besitz;}
-//   const AusruestungBaum &getCBesitz() const {return besitz;}
 
    int get_Steigern_EP_Prozent() const {return steigern_EP_prozent;}
    int get_Grad_Basiswerte() const {return grad_basiswerte;}
@@ -274,13 +266,4 @@ public:
    std::string Ruestung_Angriff_Verlust(const std::list<cH_MidgardBasicElement>& list_Fertigkeit) const;
 
 };
-/*
-class H_Grundwerte : public Handle<Grundwerte>    
-{
-protected:
- H_Grundwerte() {}
-public:
- H_Grundwerte(Grundwerte *r) : Handle<Grundwerte>(r){}
-};
-*/
 #endif

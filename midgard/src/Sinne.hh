@@ -16,8 +16,8 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifndef _BERUF_HH
-#  define _BERUF_HH
+#ifndef _SINNE_HH
+#  define _SINNE_HH
 
 #include "MidgardBasicElement.hh"
 
@@ -27,10 +27,10 @@ class Sinne : public MidgardBasicElement
   private:
      void get_Sinne();      
   public:
-      Sinne(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
+      Sinne(const Tag *t) : MidgardBasicElement_fixed(t,t->getAttr("Name"))
           {get_Sinne();}
 
-     enum MBEE What() const {return MidgardBasicElement::SINN;}
+     enum MidgardBasicElement_fixed::MBEE What() const {return MidgardBasicElement::SINN;}
      std::string What_str() const {return "Sinn";}
 
      int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
