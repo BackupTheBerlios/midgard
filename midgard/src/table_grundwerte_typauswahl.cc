@@ -173,7 +173,8 @@ void table_grundwerte::on_combo_spezies_changed()
 
 gint table_grundwerte::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 {
-  spezieswahl_button();
+//cout << "Fokus out\n";
+//  spezieswahl_button();
   return false;
 }
 
@@ -196,7 +197,6 @@ void table_grundwerte::spezieswahl_button()
 
 // hauptfenster->undosave("Spezies gewählt");
  fill_typauswahl();
-// typauswahl_button();
 
  if (hauptfenster->getWerte().Spezies()->Name()=="Elf")
    hauptfenster->InfoFenster->AppendShow("Soll dieser Elf ein Doppeltyp-Abenteurer sein?",WindowInfo::Elf_doppel);
