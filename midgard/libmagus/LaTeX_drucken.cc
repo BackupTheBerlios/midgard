@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.1 2003/07/18 06:38:00 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.2 2003/07/22 09:46:54 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,6 @@
 #include "Fertigkeiten_angeboren.hh"
 #include "LaTeX_drucken.hh"
 #include <fstream>
-#include "midgard_CG.hh"
 #include "Fertigkeiten.hh"
 #include "KiDo.hh"
 #include "Zauber.hh"
@@ -40,10 +39,10 @@ static std::string defFileName(const std::string &s)
    return res;
 }
 
-std::string LaTeX_drucken::get_latex_filename(const LaTeX_Filenames what)
+std::string LaTeX_drucken::get_latex_filename(const Abenteurer &A, const LaTeX_Filenames what)
 {
-  std::string name=hauptfenster->getWerte().Name_Abenteurer();
-  std::string version=hauptfenster->getWerte().Version();
+  std::string name=A.getWerte().Name_Abenteurer();
+  std::string version=A.getWerte().Version();
   std::string nv="_"+defFileName(name)+"__"+defFileName(version)+"_";
   
   switch (what)
@@ -61,20 +60,20 @@ std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
 {
   switch (what)
     {
-      case TeX_tmp : return hauptfenster->getOptionen()->getString(Magus_Optionen::tmppfad);
+      case TeX_tmp : return Programmoptionen.getString(Magus_Optionen::tmppfad);
       case TeX_Install : 
-      {  std::string result=hauptfenster->with_path("MAGUS-Logo-grey2.png",true);
+      {  std::string result=magus_paths::with_path("MAGUS-Logo-grey2.png",true);
          return WinLux::recodePathForTeX(result);
       }
     }
   abort(); // never get here
 }
 
-
+#if 0
 void LaTeX_drucken::on_latex_clicked(bool values)
 {   
 // std::string installfile=get_latex_pathname(TeX_Install)+get_latex_filename(TeX_MainDocument);
- std::string installfile=hauptfenster->with_path(get_latex_filename(TeX_MainDocument)+".tex");
+ std::string installfile=magus_paths::with_path(get_latex_filename(TeX_MainDocument)+".tex");
  std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_MainWerte);
  
 //cout <<"LaTeX: "<< filename<<'\n';
@@ -97,9 +96,10 @@ void LaTeX_drucken::on_latex_clicked(bool values)
  fout.close();
  }
  pdf_viewer(filename);
-}      
+}
+#endif
 
-void LaTeX_drucken::LaTeX_write_values(std::ostream &fout,const std::string &install_latex_file)
+void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
 // fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
@@ -223,7 +223,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(std::ostream &fout,const std::strin
  fout << WinLux::active_tilde;
 }
 
-void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
+void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool empty)
 {
  for(ewhat was=enamecharakter;was<eMAX; was=ewhat(int(was)+1))
   {
@@ -586,7 +586,7 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_Waff
 }
 
 
-void LaTeX_drucken::write_universelle(std::ostream &fout)
+void LaTeX_drucken::write_universelle(const Abenteurer &A,std::ostream &fout)
 {
  std::list<Abenteurer::st_universell> UF=hauptfenster->getChar()->List_Universell(hauptfenster->getCDatabase());
  int countunifert=0;
@@ -753,7 +753,7 @@ void LaTeX_drucken::LaTeX_newsavebox(std::ostream &fout)
 }
 
 
-void LaTeX_drucken::LaTeX_kopfzeile(std::ostream &fout,bool landscape,bool newdoc)
+void LaTeX_drucken::LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool landscape,bool newdoc)
 {
  if(newdoc)
   {
@@ -882,7 +882,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
   std::string pdflatex="pdflatex";
   
 #ifdef __MINGW32__ // oder direkt mit Pfad aufrufen?
-  pdflatex="\""+hauptfenster->BinaryVerzeichnis()+"texmf\\miktex\\bin\\"+pdflatex+"\"";
+  pdflatex="\""+magus_paths::BinaryVerzeichnis()+"texmf\\miktex\\bin\\"+pdflatex+"\"";
 #define unlink(a) _unlink(a)
 #endif
 
@@ -918,7 +918,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
 
 ///////////////////////////////////////////////////////////////
 
-void LaTeX_drucken::LaTeX_zauber(std::ostream &fout)
+void LaTeX_drucken::LaTeX_zauber(const Abenteurer &A,std::ostream &fout)
 {
   for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Zauber().begin();i!=hauptfenster->getChar()->List_Zauber().end();++i)
    {
@@ -942,7 +942,7 @@ void LaTeX_drucken::LaTeX_zauber(std::ostream &fout)
    }
 }
 
-void LaTeX_drucken::LaTeX_zaubermittel(std::ostream &fout)
+void LaTeX_drucken::LaTeX_zaubermittel(const Abenteurer &A,std::ostream &fout)
 {
   for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Zauberwerk().begin();i!=hauptfenster->getChar()->List_Zauberwerk().end();++i)
    {
@@ -958,7 +958,7 @@ void LaTeX_drucken::LaTeX_zaubermittel(std::ostream &fout)
 }
 
 
-void LaTeX_drucken::LaTeX_zauber_main(std::ostream &fout)
+void LaTeX_drucken::LaTeX_zauber_main(const Abenteurer &A,std::ostream &fout)
 {
   fout << "\\begin{center}\n";
 //  LaTeX_kopfzeile(fout,true,false);
@@ -991,7 +991,7 @@ void LaTeX_drucken::LaTeX_zauber_main(std::ostream &fout)
 
 /////////////////////////////////////////////////////////////////
 
-void LaTeX_drucken::LaTeX_kido(std::ostream &fout)
+void LaTeX_drucken::LaTeX_kido(const Abenteurer &A,std::ostream &fout)
 {
   for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Kido().begin();i!=hauptfenster->getChar()->List_Kido().end();++i)
    {
@@ -1012,13 +1012,13 @@ void LaTeX_drucken::LaTeX_kido(std::ostream &fout)
 }
 
 
-void LaTeX_drucken::LaTeX_kido_main(std::ostream &fout)
+void LaTeX_drucken::LaTeX_kido_main(const Abenteurer &A,std::ostream &fout)
 {
 //  fout << "\\end{center}\n";
   LaTeX_kopfzeile(fout,true,false);
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
-         <<KiDo::get_erfolgswert_kido(hauptfenster->getChar()->List_Fertigkeit())+hauptfenster->getWerte().bo_Za()<<"}\\\\\\hline\n";
+         <<KiDo::get_erfolgswert_kido(A.List_Fertigkeit())+A.getWerte().bo_Za()<<"}\\\\\\hline\n";
   fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
 
   LaTeX_kido(fout);
