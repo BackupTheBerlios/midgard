@@ -59,4 +59,5 @@ AC_SUBST(COMMONGTK2_ONLY)
 
 AC_OUTPUT(Makefile src/Makefile pixmaps/Makefile \
 	xml/Makefile libmagus/Makefile libmagusicons/Makefile \
-	src/magus.rc libmagus/libmagus.rc libmagusicons/libmagusicons.rc)
+	src/magus.rc libmagus/libmagus.rc libmagusicons/libmagusicons.rc \
+	win32/magus.nsi )
