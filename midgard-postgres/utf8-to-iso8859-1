@@ -12,3 +12,4 @@ do
   diff $i.orig $i
 done
 exit 0
+
