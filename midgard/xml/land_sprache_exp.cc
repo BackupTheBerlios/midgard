@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.26 2002/02/10 14:55:56 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.27 2002/03/01 14:14:19 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -124,27 +124,31 @@ void land_speichern(std::ostream &o)
 //******************************************************************
   if (region.empty())
   {o << " <SpeziesListe>\n";
-   Query query("select spezies, nr, land, "
-   		" ap_wert, alter, groesse_f, groesse_w, groesse_s, b_f, b_s,"
-   		" lpbasis, ap_grad, gestalt, m_abb,"
-   		" m_psy, m_phs, m_phk, gift," 
-		" m_st,m_ge,m_ko,m_in,m_zt,m_sb,m_au,"
-		" h_st,h_ge,h_ko,h_in,h_zt,h_sb,h_au"
-   	" from spezies"
-   	" order by spezies");
+   Query query("select spezies, nr, land, hand_bonus, raufen,alter_fak, "
+         " groesse_wanz, groesse_wuerfel, groesse_bonus, gewicht_wanz, gewicht_bonus, "
+         " b_wanz, b_bonus, lp, ap_bonus, ap_grad_fak, "
+         " psy, psy100, phs, phs100, phk, phk100, "
+   		" st,gs,gw,ko,\"in\",zt,sb,au "
+      	" from spezies"
+      	" order by spezies");
   while ((query>>is).good())
   {o << "  <Spezies";
    std::string name=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_int_attrib(is, o, "MAGUS-Index");
-   fetch_and_write_int_attrib(is, o, "MAGUS-AP_wert"); // erforderlich ???
    fetch_and_write_bool_attrib(is, o, "Land");
+   fetch_and_write_int_attrib(is, o, "HandBonus");
+   fetch_and_write_int_attrib(is, o, "RaufenBonus");
    o << ">\n";
    o << "    <Alter";
-   fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
+   fetch_and_write_int_attrib(is, o, "Faktor");
    o << "/>\n";
    o << "    <Größe";
    fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
-   fetch_and_write_int_attrib(is, o, "ArtWürfel");
+   fetch_and_write_int_attrib(is, o, "Würfel");
+   fetch_and_write_int_attrib(is, o, "Addiere");
+   o << "/>\n";
+   o << "    <Gewicht";
+   fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
    fetch_and_write_int_attrib(is, o, "Addiere");
    o << "/>\n";
    o << "    <Bewegungsweite";
@@ -152,34 +156,27 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Addiere");
    o << "/>\n";
    o << "    <Modifikation";
-   fetch_and_write_int_attrib(is, o, "LP_Basis");
-   fetch_and_write_int_attrib(is, o, "APproGrad");
-   fetch_and_write_int_attrib(is, o, "Gestalt");
-   fetch_and_write_int_attrib(is, o, "Abwehr");
-   o << "><Resistenzen";
+   fetch_and_write_int_attrib(is, o, "LP_Bonus");
+   fetch_and_write_int_attrib(is, o, "AP_Bonus");
+   fetch_and_write_int_attrib(is, o, "AP_GradFaktor");
+   o << ">\n       <Resistenzen";
    fetch_and_write_int_attrib(is, o, "psy");
+   fetch_and_write_int_attrib(is, o, "psy100");
    fetch_and_write_int_attrib(is, o, "phs");
+   fetch_and_write_int_attrib(is, o, "phs100");
    fetch_and_write_int_attrib(is, o, "phk");
-   fetch_and_write_int_attrib(is, o, "Gift");
+   fetch_and_write_int_attrib(is, o, "phk100");
+   o << "/>\n      </Grundwerte>\n";
+   fetch_and_write_int_attrib(is, o, "St");
+   fetch_and_write_int_attrib(is, o, "Gs");
+   fetch_and_write_int_attrib(is, o, "Gw");
+   fetch_and_write_int_attrib(is, o, "Ko");
+   fetch_and_write_int_attrib(is, o, "In");
+   fetch_and_write_int_attrib(is, o, "Zt");
+   fetch_and_write_int_attrib(is, o, "Sb");
+   fetch_and_write_int_attrib(is, o, "Au");
+
    o << "/></Modifikation>\n";
-   o << "    <Minima";
-   fetch_and_write_int_attrib(is, o, "St");
-   fetch_and_write_int_attrib(is, o, "Ge");
-   fetch_and_write_int_attrib(is, o, "Ko");
-   fetch_and_write_int_attrib(is, o, "In");
-   fetch_and_write_int_attrib(is, o, "Zt");
-   fetch_and_write_int_attrib(is, o, "Sb");
-   fetch_and_write_int_attrib(is, o, "Au");
-   o << "/>\n";
-   o << "    <Maxima";
-   fetch_and_write_int_attrib(is, o, "St");
-   fetch_and_write_int_attrib(is, o, "Ge");
-   fetch_and_write_int_attrib(is, o, "Ko");
-   fetch_and_write_int_attrib(is, o, "In");
-   fetch_and_write_int_attrib(is, o, "Zt");
-   fetch_and_write_int_attrib(is, o, "Sb");
-   fetch_and_write_int_attrib(is, o, "Au");
-   o << "/>\n";
    {  Query query2("select typen,maxgrad from spezies_typen"
       	" where spezies='"+name+"'"
       	" order by spezies,typen");
@@ -189,6 +186,18 @@ void land_speichern(std::ostream &o)
       {  o << "    <Typ";
          fetch_and_write_string_attrib(is2, o, "Name");
          fetch_and_write_int_attrib(is2, o, "MaximalerGrad");
+         o << "/>\n";
+      }
+   }
+   {  Query query3("select art,name,erfolgswert from spezies_angeborene_fert"
+      	" where spezies='"+name+"'");
+      FetchIStream is3;
+      std::string typen;
+      while ((query3>>is3).good()) 
+      {  o << "    <AngeboreneFerigkeit";
+         fetch_and_write_string_attrib(is3, o, "Art");
+         fetch_and_write_string_attrib(is3, o, "Name");
+         fetch_and_write_int_attrib(is3, o, "Erfolgswert");
          o << "/>\n";
       }
    }

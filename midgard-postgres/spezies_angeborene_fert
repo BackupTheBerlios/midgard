@@ -1,0 +1,40 @@
+--
+-- Selected TOC Entries:
+--
+DROP INDEX "spezies_angeborene_fert_spezies";
+DROP TABLE "spezies_angeborene_fert";
+--
+--
+--
+
+CREATE TABLE "spezies_angeborene_fert" (
+	"spezies" text,
+	"art" text,
+	"name" text,
+	"erfolgswert" integer
+);
+
+--
+--
+--
+
+
+COPY "spezies_angeborene_fert" FROM stdin;
+Berggnom	af	Nachtsicht	8
+Berggnom	af	Robustheit	12
+Berggnom	s	Hören	10
+Elf	af	Nachtsicht	8
+Elf	z	Erkennen der Aura	\N
+Halbling	af	Gute Reflexe	9
+Halbling	s	Schmecken	10
+Waldgnom	af	Nachtsicht	8
+Waldgnom	af	Robustheit	12
+Waldgnom	s	Hören	10
+Zwerg	af	Robustheit	9
+\.
+--
+--
+--
+
+CREATE INDEX spezies_angeborene_fert_spezies ON spezies_angeborene_fert USING btree (spezies text_ops);
+
