@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="10" Name="Meskalamadug" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="PF" Geschlecht="m" Hand="Rechtshänder" Muttersprache="Hurritisch" Spezies="Mensch" Stadt_Land="Stadt" Überleben="Überleben in der Steppe"/>
+  <Basiseigenschaften Gs="80" Gw="65" In="98" Ko="46" St="76" Zt="94"/>
+  <abgeleiteteEigenschaften Au="17" B="24" SG="14" Sb="57" Wk="63" pA="82"/>
+  <Erfolgswerte Abwehr="15" ZauberResistenz="15" Zaubern="19"/>
+  <Gesundheit AP="48" LP="14"/>
+  <Beschreibung Alter="3038" Gestalt="normal" Gewicht="90" Größe="191" Herkunft="Urruti" Stand="Adel"/>
+  <Vermögen GS="17"/>
+  <Steigern EPproGFP="0" GFP="58295" benötigte_Tage="269">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Bezeichnung="Schleuder" Erfolgswert="8"/>
+   <Waffe Bezeichnung="Schleuder" Erfolgswert="8"/>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Schreiber"/>
+   <ang-Fertigkeit Bezeichnung="Richtungssinn" Wert="12"/>
+   <Fertigkeit Bezeichnung="Orakelkunst" Wert="10"/>
+   <Fertigkeit Bezeichnung="Mumifizieren"/>
+   <Fertigkeit Bezeichnung="Geomantie" Wert="10"/>
+   <Fertigkeit Bezeichnung="Alchimie" Wert="4"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="4"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="10"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Wert="8"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="10"/>
+   <Fertigkeit Bezeichnung="Rechnen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Naturkunde" Wert="7"/>
+   <Fertigkeit Bezeichnung="Musizieren" Wert="10" Zusatz="Harfe"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="7"/>
+   <Fertigkeit Bezeichnung="Heilkunde" Wert="12"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="12"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="14"/>
+   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="10"/>
+   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="8"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz="Urruti"/>
+   <Fertigkeit Bezeichnung="Tanzen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Singen" Wert="16"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="14"/>
+   <Fertigkeit Bezeichnung="Erzählen" Wert="10"/>
+   <Waffe Bezeichnung="Schleuder" Wert="8"/>
+   <Zauber Bezeichnung="Wort des Lebens"/>
+   <Zauber Bezeichnung="Bannen von Fäulnis"/>
+   <Zauber Bezeichnung="Ungeziefer bannen"/>
+   <Zauber Bezeichnung="Bannsphäre, Blaue"/>
+   <Zauber Bezeichnung="Bannsphäre, Silberne"/>
+   <Zauber Bezeichnung="Wetterzauber"/>
+   <Zauber Bezeichnung="Wiederkehr"/>
+   <Zauber Bezeichnung="Göttliche Strafe"/>
+   <Zauber Bezeichnung="Wahrsehen"/>
+   <Zauber Bezeichnung="Sa spenden"/>
+   <Zauber Bezeichnung="Wasser spüren"/>
+   <Zauber Bezeichnung="Göttlicher Blitz"/>
+   <Zauber Bezeichnung="Erheben der Toten"/>
+   <Zauber Bezeichnung="Allheilung"/>
+   <Zauber Bezeichnung="Heiliger Zorn"/>
+   <Zauber Bezeichnung="Heilen schwerer Wunden"/>
+   <Zauber Bezeichnung="Regenzauber"/>
+   <Zauber Bezeichnung="Göttliche Eingebung"/>
+   <Zauber Bezeichnung="Göttlicher Schutz vor Magie"/>
+   <Zauber Bezeichnung="Austreibung des Bösen"/>
+   <Zauber Bezeichnung="Heilen von Krankheit"/>
+   <Zauber Bezeichnung="Seelenheilung"/>
+   <Zauber Bezeichnung="Bannen von Gift"/>
+   <Zauber Bezeichnung="Bannen von Zauberwerk"/>
+   <Zauber Bezeichnung="Warnung"/>
+   <Zauber Bezeichnung="Verfluchen"/>
+   <Zauber Bezeichnung="Brot und Wasser"/>
+   <Zauber Bezeichnung="Bannsphäre, Goldene"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
+   <Zauber Bezeichnung="Bannen von Dunkelheit"/>
+   <Zauber Bezeichnung="Heilen von Wunden"/>
+   <Zauber Bezeichnung="Segnen"/>
+   <Zauber Bezeichnung="Erkennen der Aura"/>
+   <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+   <Zauberwerk Art="Zauberpergament" Bezeichnung="Zauberpergament beschriften" Stufe="3"/>
+   <Zauberwerk Art="" Bezeichnung="Weihen" Stufe="G"/>
+   <Zauberwerk Art="Pflanzliches Zaubermittel" Bezeichnung="Kraut der konzentrierten Energie" Stufe="4"/>
+   <Zauberwerk Art="Alchimistisches Zaubermittel" Bezeichnung="Heiltrunk (1W6) aktivieren" Stufe="2"/>
+   <Grundkenntnis Bezeichnung="Schleuder"/>
+   <Sprache Bezeichnung="Rawindi" Wert="4"/>
+   <Sprache Bezeichnung="Bulugi" Wert="4"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="12"/>
+   <Sprache Bezeichnung="Dunkle Sprache" Wert="10"/>
+   <Sprache Bezeichnung="Asadi" Wert="10"/>
+   <Sprache Bezeichnung="Aranisch" Wert="10"/>
+   <Sprache Bezeichnung="Hurritisch" Wert="20"/>
+   <Sprache Bezeichnung="Luwisch" Wert="14"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="15"/>
+   <Sprache Bezeichnung="Meketisch" Wert="13"/>
+   <Sprache Bezeichnung="Maralinga" Wert="12"/>
+   <Urschrift Bezeichnung="Aranisch" Wert="4"/>
+   <Urschrift Bezeichnung="Dunkle Sprache" Wert="10"/>
+   <Urschrift Bezeichnung="Neu-Vallinga" Wert="10"/>
+   <Urschrift Bezeichnung="Asadi" Wert="8"/>
+   <Urschrift Bezeichnung="Scharidisch" Wert="12"/>
+   <Urschrift Bezeichnung="Maralinga" Wert="12"/>
+   <Urschrift Bezeichnung="Meketisch" Wert="12"/>
+   <Urschrift Bezeichnung="Luwisch" Wert="14"/>
+   <Urschrift Bezeichnung="Hurritisch" Wert="17"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Kompendium" Region="TuT"/>
+   <Region Name="Eschar" Region="E"/>
+   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="true"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
