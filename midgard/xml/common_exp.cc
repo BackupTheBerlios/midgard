@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.28 2002/06/24 07:46:23 christof Exp $
+// $Id: common_exp.cc,v 1.29 2002/06/27 09:18:36 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -18,7 +18,6 @@
  */
 
 #include "export_common.h"
-#include <Misc/Transaction.h>
 
 static void schwierigkeit(Tag &o, 
 	const std::string &_query, const std::string &tag)
@@ -172,10 +171,9 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
 }
 
 void region_tags(Tag &t, const string &region)
-{  Transaction tr;
-   t.setAttr_ne("Region",region);
+{  t.setAttr_ne("Region",region);
    Query query("select name, titel, copyright, jahr, offiziell, file, url, maintainer,"
-   	" version, nr, pic"
+   	" version, now(), nr, pic"
 	" from regionen where abkuerzung='"+region+"'");
    FetchIStream is=query.Fetch();
    if (query.good())
@@ -188,6 +186,7 @@ void region_tags(Tag &t, const string &region)
       fetch_and_set_string_attrib(is, t, "URL");
       fetch_and_set_string_attrib(is, t, "Maintainer");
       fetch_and_set_string_attrib(is, t, "Version");
+      fetch_and_set_string_attrib(is, t, "erzeugt");
       fetch_and_set_int_attrib(is, t, "MAGUS-Index");
       fetch_and_set_int_attrib(is, t, "MAGUS-Bild");
    }
