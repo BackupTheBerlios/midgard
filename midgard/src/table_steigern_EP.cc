@@ -102,14 +102,18 @@ void table_steigern::desteigern(unsigned int kosten)
      ep_k = (int)(0.5+kosten * (hauptfenster->getCWerte().get_Steigern_EP_Prozent()/100.));
    }
   if( !hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
-  set_lernzeit(-ep_k);
+  set_lernzeit(-ep_k,Nichts);
   hauptfenster->getWerte().addGold(gold_k);
   hauptfenster->getWerte().addAEP(ep_k);
   zeige_werte();
 }
 
-void table_steigern::set_lernzeit(int kosten,bool no_pp=false)
+void table_steigern::set_lernzeit(int kosten,e_was_steigern was,bool no_pp=false)
 {
+  if(was==Ausdauer) 
+   { hauptfenster->getWerte().addSteigertage(Grad_anstieg::AP_Maximum_Tage);
+     return;
+   }
   if(radiobutton_unterweisung->get_active())
       hauptfenster->getWerte().addSteigertage(kosten/10);
   else if(radiobutton_selbst->get_active())
@@ -124,7 +128,7 @@ void table_steigern::set_lernzeit(int kosten,bool no_pp=false)
 bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,int &stufen, e_was_steigern was)
 {
   if (!steigern_mit_EP_bool) // Steigern OHNE EP/Gold/PP
-      { set_lernzeit(kosten);
+      { set_lernzeit(kosten,was);
         return true; 
       }
 
@@ -139,16 +143,13 @@ bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,i
   int ep_k = EP_kosten(kosten);
   int pp   = PP_vorrat(MBE,was);
 
-//if(radiobutton_praxis->get_active())
-//{ hauptfenster->set_info("Wird gerade überarbeitet, nicht möglich, sorry\n"); 
-//return false;}
-
  if(radiobutton_praxis->get_active())
   {
    if(pp==0) {hauptfenster->set_status("Keine PP vorhanden"); return false;}
    int rest_aep=0,use_pp=0;
    if(radiobutton_pp_hoch_wie_geht->get_active())
     {
+      if(!MBE) {hauptfenster->set_status("Nur eine Stufe auf einmal möglich"); return false;}
       use_pp=pp;
       int ppkosten=0,aep=40*pp;
       stufen=stufen_auf_einmal_steigern_fuer_aep(*MBE,ppkosten,aep);
@@ -182,9 +183,10 @@ bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,i
 
   // jetzt darf gesteigert werden ...
   hauptfenster->getWerte().addGold(-gold_k);  
-  set_lernzeit(kosten);
-  if(radiobutton_praxis->get_active())  set_lernzeit(ep_k,true);
-cout << "set lernzeiten: "<<kosten<<' '<<ep_k<<'\n';
+  
+  if(radiobutton_praxis->get_active())
+   { set_lernzeit(kosten-ep_k,was); set_lernzeit(ep_k,was,true); }
+  else set_lernzeit(kosten,was);
 
   if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) modify(PP,*MBE,"",MBE->Praxispunkte()-pp) ;
   else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) hauptfenster->getWerte().addSpezialPP(-pp) ;
@@ -303,7 +305,7 @@ int table_steigern::genug_geld(const int kosten)
   if(!radiobutton_unterweisung->get_active())
      return 0; // keine Untreweisung => kein Geld nötig
   // +0.5 zum runden
-  int gold_k = (int)(0.5 + kosten * ((100-hauptfenster->getCWerte().get_Steigern_EP_Prozent())/100.));
+  int gold_k = (int)(0.5 + kosten * (100-hauptfenster->getCWerte().get_Steigern_EP_Prozent())/100.);
   if( !hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
   if (gold_k > hauptfenster->getCWerte().Gold()) 
     { hauptfenster->set_status("Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-hauptfenster->getCWerte().Gold())+" Gold."); 
@@ -313,49 +315,3 @@ int table_steigern::genug_geld(const int kosten)
    return gold_k;
 }
 
-/*
-void table_steigern::PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp)
-{
-  int aep=40;
-  if(alle_pp) 
-     { aep=40*MBE.Praxispunkte();
-       MBE.setPraxispunkte(0);
-     }
-  else 
-       MBE.addPraxispunkte(-1);
-     
-  int kosten=0;
-  stufen_auf_einmal_steigern_fuer_aep(false ,MBE,kosten,aep);
-  // Die übrigbleibenden Punkte in AEP umwandeln
-  if(!verfallen && aep>0)
-   {
-     int steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
-     int aep_kosten = steiger_kosten-aep;
-     if(aep_kosten>hauptfenster->getCWerte().AEP())
-      {
-        hauptfenster->set_status("Zu wenig AEP, die restlichen Punkte verfallen.");
-      }
-     else
-      {
-        hauptfenster->getWerte().addAEP(-aep_kosten);
-        zeige_werte();
-        hauptfenster->getWerte().addGFP(steiger_kosten);
-        MBE.addErfolgswert(1);
-
-        set_lernzeit(steiger_kosten-aep_kosten); // Lernzeit für PP
-        radiobutton_selbst->set_active(true);
-        set_lernzeit(aep_kosten); // Lernzeit für Selbststudium
-        radiobutton_praxis->set_active(true);
-      }  
-   }
-  load_for_page(notebook_lernen->get_current_page_num());
-}
-*/
-
-/*
-void table_steigern::PraxisPunkt_fuer_Was(e_was_steigern was)
-{
-// get_ab_re_za(was,true);
- 
-}
-*/

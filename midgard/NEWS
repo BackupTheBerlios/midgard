@@ -1,6 +1,33 @@
 ##########################################################################
 NEWS IN VERSION 0.7delta2
 
+* PP Eingabe für Waffen/SPrachen Schriften fixed
+* Werte editieren -> Abenteurertyp
+* Steigertage für Ausdauer korrigiert
+* Abwehr/Resistenz/Zaubern auch auf Zauberseite sinnvoll, und
+   Endlosschleife beseitigt falls verlernen in Grad 1.
+* Zaubersprüche im Selbsstudium lernen
+
+
+TODO:
+* Runden mit 'fixedpoint'
+* Anzeigen der EP/Gold Einstellung nach laden
+* Landeskunde als Berufstfertigkeit für'
+s Heimatland mit +9
+* Steigern mit PP sinnvoll implementieren
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
+in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
+links). 
+* H&D (Zauberlied) funktioniert nicht
+* Ausdruck für lange Listen
+* Spielleiterliste: Höchster Wert FETT
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+##########################################################################
+NEWS IN VERSION 0.7delta2
+
 * kleinere Bugs beseitigt
 * Wenn ein Zusatz gewählt werden soll sind die anderen Fenster 
    'desensibilisiert'
@@ -17,6 +44,7 @@ in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
 * H&D (Zauberlied) funktioniert nicht
 * Ausdruck für lange Listen
+* Spielleiterliste: Höchster Wert FETT
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv

@@ -101,7 +101,6 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-// cH_MidgardBasicElement MBE = dt->getMBE();
  MidgardBasicElement_mutable &MBE = const_cast<MidgardBasicElement_mutable&>(dt->getMBE());
  // Neue Dinge können nur durch Unterweisung gelernt werden
  // es sei denn es handelt sich um Zaubersprüche
@@ -113,11 +112,13 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
   }
  else // ==> MBE->What()==MidgardBasicElement::ZAUBER
   {
-    // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
+/*
     if(radiobutton_selbst->get_active() )
       { hauptfenster->set_status("Neue Zauber können nicht durch 'Selbststudium' gelernt werden");
         return;
       }
+*/
+    // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
     if(radiobutton_praxis->get_active() )
       { if(!hauptfenster->getCChar().CTyp1()->SpruecheMitPP() && !hauptfenster->getCChar().CTyp2()->SpruecheMitPP() )
            { hauptfenster->set_status("Neue Zaubersprüche können von "+hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCChar().getCWerte().Geschlecht())

@@ -74,7 +74,7 @@ private:
         void steigern_gtk();
         int steigern_womit(const std::string& fert);
         void desteigern(unsigned int kosten);
-        void set_lernzeit(int kosten,bool no_pp=false);
+        void set_lernzeit(int kosten,e_was_steigern was,bool no_pp=false);
         bool steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,int &stufen,e_was_steigern was=Nichts);
         int genug_geld(const int kosten);
         int EP_kosten(const int kosten);
@@ -85,7 +85,7 @@ public:
 //        void PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp);
 //        void PraxisPunkt_fuer_Was(e_was_steigern was);
 private:
-        int stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_mutable& MBE,int &kosten,int &aep);
+         int stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_mutable& MBE,int &kosten,int &aep);
 
 
         // Fertigkeiten

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.6 2002/06/11 07:31:11 thoma Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.7 2002/06/16 21:08:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -319,6 +319,7 @@ void table_grundwerte::edit_sensitive(bool b)
 {
   if(b)   button_grda1setzen->show();
   else    button_grda1setzen->hide();
+  combo_typ->set_sensitive(b);  
   entry_nameC->set_sensitive(b);
   entry_nameS->set_sensitive(b);
   entry_version->set_sensitive(b);

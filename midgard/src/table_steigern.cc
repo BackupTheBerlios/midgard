@@ -78,7 +78,7 @@ void table_steigern::load_for_page(guint pagenr)
   // Sensitive & Show
   if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
    {
-     frame_fertigkeit->hide();
+//     frame_fertigkeit->hide();
      radiobutton_verlernen->set_active(true);
      if(pagenr==PAGE_ZAUBER) frame_zauber_zusatz->show();
      if(hauptfenster->getCChar().CTyp1()->SpruecheMitPP() || hauptfenster->getCChar().CTyp2()->SpruecheMitPP())
@@ -88,7 +88,7 @@ void table_steigern::load_for_page(guint pagenr)
    }
   else
    {
-     frame_fertigkeit->show();
+//     frame_fertigkeit->show();
      radiobutton_steigern->set_active(true);
      frame_zauber_zusatz->hide();
      radiobutton_praxis->set_sensitive(true);

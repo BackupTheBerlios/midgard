@@ -48,7 +48,7 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
       MidgardBasicElement_mutable M=getSelectedNotebookLernen();
       spinbutton_pp_eingeben->set_value(M.Praxispunkte());
       spinbutton_pp_eingeben->show();
-     }catch(TreeBase::noRowSelected &e) {cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
+     }catch(TreeBase::noRowSelected &e) {/*cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");*/}
    }
   else
    {
@@ -306,6 +306,9 @@ void table_steigern::modify(modi_modus modus,const MidgardBasicElement_mutable &
      std::list<MidgardBasicElement_mutable> &L=hauptfenster->getChar().List_Fertigkeit();
      if(c==0) L=hauptfenster->getChar().List_Fertigkeit();
      else if(c==1) L=hauptfenster->getChar().List_Zauber();
+     else if(c==2) L=hauptfenster->getChar().List_Waffen();
+     else if(c==3) L=hauptfenster->getChar().List_Sprache();
+     else if(c==4) L=hauptfenster->getChar().List_Schrift();
      else assert(!"never get here\n");
      for(std::list<MidgardBasicElement_mutable>::iterator i=L.begin();i!=L.end();++i)
       {

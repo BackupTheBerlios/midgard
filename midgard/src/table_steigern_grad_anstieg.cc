@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.3 2002/06/14 19:54:42 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.4 2002/06/16 21:08:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -162,7 +162,7 @@ void table_steigern::get_ausdauer(int grad)
   if (hauptfenster->getCWerte().AP()<hauptfenster->getCWerte().Grad()) hauptfenster->getWerte().setAP(hauptfenster->getCWerte().Grad()); 
    // Neue AP höher als alte?
   if (nap>hauptfenster->getCWerte().AP())  hauptfenster->getWerte().setAP(nap)  ;
-  hauptfenster->getWerte().addSteigertage(Grad_anstieg::AP_Maximum_Tage);
+//  hauptfenster->getWerte().addSteigertage(Grad_anstieg::AP_Maximum_Tage);
 }
 
 void table_steigern::get_ab_re_za(e_was_steigern was)
@@ -171,6 +171,7 @@ void table_steigern::get_ab_re_za(e_was_steigern was)
   int kosten;
   int grad=hauptfenster->getCWerte().Grad();
   if(!radiobutton_steigern->get_active()) grad=--grad;
+  if(grad==0) grad=1;
   if      (was==Abwehr)
     { 
       max_wert = hauptfenster->getCDatabase().GradAnstieg.get_MaxAbwehr(grad); 
@@ -210,7 +211,7 @@ void table_steigern::get_ab_re_za(e_was_steigern was)
   else
    {
      if (checkbutton_EP_Geld->get_active()) desteigern(kosten);
-     set_lernzeit(-kosten);
+     set_lernzeit(-kosten,was);
      hauptfenster->getWerte().addGFP(-kosten);
      if      (was==Abwehr)    hauptfenster->getWerte().setAbwehr_wert(alter_wert-1);
      else if (was==Resistenz) hauptfenster->getWerte().setResistenz(alter_wert-1); 
