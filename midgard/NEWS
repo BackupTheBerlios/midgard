@@ -15,6 +15,7 @@ Version 0.9.8
 - Statusbaricons passen jetzt wieder zu den Optionen
 - auch gelernte Fertigkeiten erhöhen bewirkt kein zuklappen
 - erstmalige (ungetestete) UTF-8 LaTeX Unterstützung
+- viele Bugfixes
 
 -------------- TODO ----------------
 
