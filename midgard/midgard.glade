@@ -386,7 +386,7 @@
 		</accelerator>
 		<signal>
 		  <name>activate</name>
-		  <handler>xml_export_auswahl</handler>
+		  <handler>save_existing_filename</handler>
 		  <last_modification_time>Fri, 12 Apr 2002 12:01:18 GMT</last_modification_time>
 		</signal>
 		<label>Speichern</label>
@@ -398,7 +398,7 @@
 		<name>speichern_unter_</name>
 		<signal>
 		  <name>activate</name>
-		  <handler>save_existing_filename</handler>
+		  <handler>xml_export_auswahl</handler>
 		  <last_modification_time>Sun, 05 May 2002 19:40:38 GMT</last_modification_time>
 		</signal>
 		<label>Speichern unter ...</label>

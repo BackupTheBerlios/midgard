@@ -2255,9 +2255,9 @@ Entfesseln	eBe	G	\N
 Entfesseln	gHx	A	\N
 Entfesseln	tBe	G	\N
 Entgiften	De	A	\N
-Entgiften	Dr	S	\N
+Entgiften	Dr	S	Holz
 Entgiften	Dt	S	\N
-Entgiften	Hl	G	\N
+Entgiften	Hl	G	Holz
 Entgiften	Or	G	\N
 Entgiften	PF	S	\N
 Entgiften	PHa	S	\N
@@ -2422,9 +2422,9 @@ Erkennen von Gift	PT	S	\N
 Erkennen von Gift	dBe	S	\N
 Erkennen von Gift	tBe	S	\N
 Erkennen von Krankheit	De	S	\N
-Erkennen von Krankheit	Dr	A	\N
+Erkennen von Krankheit	Dr	A	Holz
 Erkennen von Krankheit	Dt	G	\N
-Erkennen von Krankheit	Hl	G	\N
+Erkennen von Krankheit	Hl	G	Holz
 Erkennen von Krankheit	PC	S	\N
 Erkennen von Krankheit	PF	S	\N
 Erkennen von Krankheit	PHa	S	\N
@@ -4821,6 +4821,7 @@ Jurugu rufen	wHx	A	\N
 Juwelenauge	De	A	\N
 Juwelenauge	Dt	S	\N
 Juwelenauge	Ma	G	\N
+Juwelenauge	PC	S	\N
 Juwelenauge	PF	S	\N
 Juwelenauge	PHa	S	\N
 Juwelenauge	PHe	S	\N
