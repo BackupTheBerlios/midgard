@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.65 2002/07/03 10:55:06 thoma Exp $
+// $Id: Optionen.cc,v 1.66 2002/07/03 17:01:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 #include "../pixmaps/midgard_logo_tiny.xpm"
 #include "../pixmaps/Cyan-Dice-trans-50.xpm"
 #include "../pixmaps/Haus-32.xpm"
+#include "../pixmaps/NSC-Mode-32.xpm"
 //#include "MidgardBasicElement.hh" // nur für NotFound
 #include <fstream>
 #include "TagStream.hh"
@@ -285,7 +286,7 @@ void Midgard_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
-                           false,0));
+                           false,NSC_Mode_32_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(gw_wuerfeln,
                            "3-Tasten Maus",
                            false,Cyan_Dice_trans_50_xpm));
