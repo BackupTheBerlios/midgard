@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.45 2002/06/04 10:07:53 christof Exp $
+// $Id: Optionen.cc,v 1.46 2002/06/04 10:12:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -352,7 +352,7 @@ void Midgard_Optionen::load_options()
       ts.debug();
       return;
     }
-  const Tag *options=data.find("Optionen");
+  const Tag *options=data->find("Optionen");
   if (!options) options=data; // compat
   FOR_EACH_CONST_TAG_OF(i,*options,"Optionen") // compat
      setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
@@ -368,7 +368,7 @@ void Midgard_Optionen::load_options()
      setString(i->getAttr("Name"),i->getAttr("Wert"));
 
   const Tag *data2=ts.find("MAGUS-fenster"); // compat
-  if (!data2) data2=data.find("Fenster");
+  if (!data2) data2=data->find("Fenster");
   if(data2)
    {
      FOR_EACH_CONST_TAG_OF(i,*data2,"Position")
@@ -379,7 +379,7 @@ void Midgard_Optionen::load_options()
         hauptfenster->setWindowSize(i->getIntAttr("Breite"),i->getIntAttr("Höhe"));
    }
   const Tag *data3=ts.find("MAGUS-history"); // compat
-  if (!data3) data3=data.find("History");
+  if (!data3) data3=data->find("History");
   if(data3)
    {
      FOR_EACH_CONST_TAG_OF(i,*data3,"Datei")
