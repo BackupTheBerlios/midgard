@@ -26,8 +26,7 @@
 bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-// cH_MidgardBasicElement MBE = dt->getMBE();
- MidgardBasicElement_mutable MBE = dt->getMBE();
+ MidgardBasicElement_mutable &MBE = const_cast<MidgardBasicElement_mutable&>(dt->getMBE());
  if(togglebutton_praxispunkte->get_active() && radiobutton_pp_fertigkeit->get_active()) 
   {
    spinbutton_pp_eingeben->set_value(MBE.Praxispunkte());
@@ -189,6 +188,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
    { MyList     = &hauptfenster->getChar().List_Schrift(); MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
+
 
 //cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
  MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE);

@@ -661,7 +661,6 @@ void table_lernschema::show_lernschema()
    {
     for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Fertigkeit.begin();i!=hauptfenster->getDatabase().Fertigkeit.end();++i)
      {
-//      cH_Fertigkeit f(*i);
       MidgardBasicElement_mutable f(*i);
       int lp=0;
       f.setLernArt(fert);
@@ -698,10 +697,6 @@ void table_lernschema::show_lernschema()
       if (f.ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit())) f.setGelernt(true); 
       if(f.Gelernt()&&!togglebutton_gelernte_anzeigen->get_active()) continue;
       if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
-//if((*i)->Gelernt())
-//cout << "Was ist gelernt? "<<(*i)->Name()<<' '   
-//<<(*i)->ist_gelernt(list_FertigkeitZusaetze)<<' '
-//<<(*i)->ist_gelernt(hauptfenster->getCChar().List_Fertigkeit)<<'\n';
       newlist.push_back(f);
      }
    }

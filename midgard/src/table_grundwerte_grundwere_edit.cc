@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.5 2002/05/30 06:19:20 thoma Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.6 2002/06/11 07:31:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -331,8 +331,8 @@ void table_grundwerte::edit_sensitive(bool b)
   spinbutton_tage->set_sensitive(b);
   spinbutton_gg->set_sensitive(b);
   spinbutton_sg->set_sensitive(b);
-//  optionmenu_stand->set_sensitive(b);
-//  optionmenu_hand->set_sensitive(b);
+  combo_stand->set_sensitive(b);
+  combo_hand->set_sensitive(b);
   spinbutton_groesse->set_sensitive(b);
   spinbutton_grad->set_sensitive(b);
   entry_herkunft->set_sensitive(b); 

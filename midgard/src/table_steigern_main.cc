@@ -51,7 +51,10 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
          radiobutton_pp_zauber->set_sensitive(true);//hide();
    }
   else
+   {
      vbox_praxispunkte->hide();
+     spinbutton_pp_eingeben->hide();
+   }
 }
 
 std::string table_steigern::SpruecheMitPP()
@@ -130,7 +133,10 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   }   
  
  guint pagenr = notebook_lernen->get_current_page_num();
- const_cast<MidgardBasicElement_mutable&>(getSelectedNotebookLernen()).setPraxispunkte(PPanz);
+ MidgardBasicElement_mutable M=getSelectedNotebookLernen();
+ modify(PP,M,"",PPanz);
+
+// const_cast<MidgardBasicElement_mutable&>(getSelectedNotebookLernen()).setPraxispunkte(PPanz);
 
 
   if(pagenr==PAGE_FERTIGKEITEN)
@@ -142,7 +148,6 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
      MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Sprache(),alte_sprache_tree,hauptfenster); 
      MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Schrift(),alte_schrift_tree,hauptfenster); 
    }
-
   spinbutton_pp_eingeben->hide();
 }
 

@@ -12940,8 +12940,8 @@ eingeben</label>
 		<bottom_attach>2</bottom_attach>
 		<xpad>0</xpad>
 		<ypad>0</ypad>
-		<xexpand>False</xexpand>
-		<yexpand>False</yexpand>
+		<xexpand>True</xexpand>
+		<yexpand>True</yexpand>
 		<xshrink>False</xshrink>
 		<yshrink>False</yshrink>
 		<xfill>True</xfill>
@@ -12989,7 +12989,7 @@ eingeben</label>
 		<xshrink>True</xshrink>
 		<yshrink>True</yshrink>
 		<xfill>True</xfill>
-		<yfill>True</yfill>
+		<yfill>False</yfill>
 	      </child>
 
 	      <widget>

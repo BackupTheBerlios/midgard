@@ -27,7 +27,7 @@ void table_grundwerte::init(midgard_CG *h)
   Vhand[2]="Beidhändig";  
 
   togglebutton_edit_werte->set_active(false);
-//wg. saved Abenteurer//  on_togglebutton_edit_werte_toggled();
+  on_togglebutton_edit_werte_toggled();
   zeige_werte();
 }
     

@@ -25,11 +25,11 @@ NEWS IN VERSION 0.6delta6
    Sprachen/Schriften zu tun hat, dann sagt mir bitte sofort Bescheid.
 * Zustätze beim steigern
 * PP eingabe
+* PP zum Steigern verwenden
       
 
 TODO:
-* PP zum Steigern verwenden
-* CAST in MidgardBasicElement.cc:98
+* CAST in MidgardBasicElement.cc:98 korrekt?
 * Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50

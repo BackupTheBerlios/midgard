@@ -96,7 +96,7 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
     }
   else if (MBE->Name()=="Zaubern") 
     {  
-     hauptfenster->InfoFenster->AppendShow("Sicher, daß dieser Kämpfer Zaubern lernen soll?\nDiese Entscheidung kann nicht mehr Rückgängig gemacht werden.",WindowInfo::ZaubernLernen,MBE);
+     hauptfenster->InfoFenster->AppendShow("Sicher, daß dieser Kämpfer Zaubern lernen soll?\nDiese Entscheidung kann nicht mehr Rückgängig gemacht werden.",WindowInfo::ZaubernLernen,&MBE);
     }
   else 
      MidgardBasicElement_leaf_neu(d);

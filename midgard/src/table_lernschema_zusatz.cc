@@ -104,6 +104,10 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
        if(datavec.empty()) 
          { hauptfenster->set_status("Keine Schrift lernbar (entweder keine Sprache gelernt oder es werden alle lernbaren Schriften schon beherrscht.)");
            list_FertigkeitZusaetze.remove(MBE->Name());
+           if(MBE.LernArt()=="Fach")      lernpunkte.addFach( MBE.Lernpunkte());
+           else if(MBE.LernArt()=="Allg") lernpunkte.addAllgemein( MBE.Lernpunkte());
+           else if(MBE.LernArt()=="Unge") lernpunkte.addUnge( MBE.Lernpunkte());
+           else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_schrift_selected));
        break;

@@ -170,8 +170,8 @@ bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e
             "(sollten die AEP (bei 3. und 5.) nicht ausreichen um fehlende FP zu bezahlen,\n"
             " so verfallen die restlichen FP der PP.)";
          if(pp>1)
-              hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,*MBE,5);
-         else hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,*MBE,3);
+              hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,MBE,5);
+         else hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,MBE,3);
          return false;
       }
    }
@@ -187,7 +187,6 @@ bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e
 
 
   // jetzt darf gesteigert werden ...
-cout << (*MBE)->Name()<<' '<<MBE->Zusatz()<<' '<<MBE->Praxispunkte()<<'\n';
   hauptfenster->getWerte().addGold(-gold_k);  
   set_lernzeit(kosten);
   if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) MBE->addPraxispunkte(-pp) ;
@@ -197,8 +196,6 @@ cout << (*MBE)->Name()<<' '<<MBE->Zusatz()<<' '<<MBE->Praxispunkte()<<'\n';
   else if(was==Zaubern)    hauptfenster->getWerte().addZaubernPP(-pp) ;
   else if(was==Ausdauer)   ;
   else assert(!"Fehler in steigern_EP.cc");
-
-cout << (*MBE)->Name()<<' '<<MBE->Zusatz()<<' '<<MBE->Praxispunkte()<<'\n';
 
   if(bkep)
    { if (ep_k<=hauptfenster->getCWerte().KEP()) {hauptfenster->getWerte().addKEP(-ep_k);ep_k =0  ;}

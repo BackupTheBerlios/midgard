@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.41 2002/06/08 06:35:03 thoma Exp $
+// $Id: WindowInfo.cc,v 1.42 2002/06/11 07:31:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,25 +54,26 @@ void WindowInfo::on_button_bestaetigen_clicked()
  if (Modus==ZaubernLernen)    hauptfenster->table_grundwerte->kaempfer_lernt_zaubern();
  else if (Modus==Exit_ohne_speichern)  hauptfenster->on_button_quit_confirm_clicked();
  else assert(!"never get here");
-// else if (Modus==PraxisPunkteMBE) hauptfenster->PraxisPunkt_to_AEP(MBE);
 }
 
 
 void WindowInfo::on_button_auswahl_clicked(int connect)
 {
  assert(Modus==PraxisPunkteMBE);
+ assert(MBE!=0);
   if       (connect==1) on_button_abbrechen_clicked();
-  else if  (connect==2) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,true,false);
-  else if  (connect==3) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,false,false);
-  else if  (connect==4) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,true,true);
-  else if  (connect==5) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,false,true);
+  else if  (connect==2) hauptfenster->table_steigern->PraxisPunkt_to_AEP(*MBE,true,false);
+  else if  (connect==3) hauptfenster->table_steigern->PraxisPunkt_to_AEP(*MBE,false,false);
+  else if  (connect==4) hauptfenster->table_steigern->PraxisPunkt_to_AEP(*MBE,true,true);
+  else if  (connect==5) hauptfenster->table_steigern->PraxisPunkt_to_AEP(*MBE,false,true);
   frame_auswahl->remove();
   hide();
+  MBE=0;
 }
 
 
 WindowInfo::WindowInfo(midgard_CG* h)
-: mystream(0), hauptfenster(h), MBE(new Fertigkeit(*cH_Fertigkeit("",true)))
+: mystream(0), hauptfenster(h), MBE(0) //new Fertigkeit(*cH_Fertigkeit("",true)))
 {
    if (mystream) delete mystream;
    Gtk::OStream *mystream = new Gtk::OStream(LogWin->get_list());
@@ -96,7 +97,7 @@ void WindowInfo::AppendShow(const std::string& s, emodus modus,int anzahl)
   Flush(anzahl);
 }
 
-void WindowInfo::AppendShow(const std::string& s, emodus modus,MidgardBasicElement_mutable& _MBE,int anzahl)
+void WindowInfo::AppendShow(const std::string& s, emodus modus,MidgardBasicElement_mutable *_MBE,int anzahl)
 {
   MBE=_MBE;
   AppendShow(s,modus,anzahl); 
