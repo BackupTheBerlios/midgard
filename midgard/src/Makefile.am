@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.107 2002/01/31 15:47:25 christof Exp $
+# $Id: Makefile.am,v 1.108 2002/01/31 17:44:18 christof Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -222,13 +222,16 @@ midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	$(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
 
 midgard_exe_LIBS=-lManuProC_Widgets -lManuProC_Base -lGtkmmAddons \
-	-L/usr/local/mingw/local/lib/ -lgtkmm -lgdkmm \
-	-lgtk-1.3 -lgdk-1.3 -lglib-1.3 -lgmodule-1.3 -lgobject-1.3 -lsigc
+	 -lgtkmm -lgdkmm -lsigc \
+	 -lgtk-1.3 -lgdk-1.3 -lglib-1.3 -lgmodule-1.3 -lgobject-1.3
+	
+midgard_LDFLAGS=-L../../ManuProC_Base/src -L../../GtkmmAddons/src \
+	-L../../ManuProc_Widgets/src -L/usr/local/mingw/local/lib
 
 midgard.exe: $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
 	@rm -f midgard$(EXEEXT)
-	$(CXXLINK) $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_LDADD) \
-		@KOMPONENTEN_LDFLAGS@ $(midgard_exe_LIBS)
+	$(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) \
+	  -o $@ $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_exe_LIBS)
 
 else
 
