@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.16 2002/01/22 11:39:11 christof Exp $
+// $Id: fertigk_exp.cc,v 1.17 2002/02/06 16:47:17 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -149,8 +149,8 @@ void fert_speichern(std::ostream &o)
       	while ((query2>>is2).good())
         {  ep+=" "+fetch_string(is2)+"=\"true\"";
         }
-        if (ep!=" KEP=\"true\" ZEP=\"true\"")
-           o << "    <verwendbareEP" << ep << "/>\n";
+        if (!ep.empty())
+           o << "    <EP-Typ" << ep << "/>\n";
      }
    
    o << "  </Fertigkeit>\n";
@@ -364,15 +364,15 @@ void fert_speichern(std::ostream &o)
    if (fert!=fert2)
    {  if (ep.size())
          o << "  <EP-Typ Fertigkeit=\"" << toXML(fert) 
-      		<< "\" Typ=\"" << toXML(ep.substr(1)) << "\"/>\n";
+      		<< "\"" << ep << "/>\n";
       fert=fert2;
       ep="";
    }
-   ep+=std::string(",")+ep2;
+   ep+=" "+ep2+"=\"true\"";
   }
-  if (ep.size()) 
+  if (!ep.empty()) 
          o << "  <EP-Typ Fertigkeit=\"" << toXML(fert) 
-      		<< "\" Typ=\"" << toXML(ep.substr(1)) << "\"/>\n";
+      		<< "\"" << ep << "/>\n";
    o << " </verwendbareEP>\n";
  }
 
