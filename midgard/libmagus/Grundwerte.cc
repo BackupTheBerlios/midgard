@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.7 2003/09/16 09:12:29 christof Exp $               
+// $Id: Grundwerte.cc,v 1.8 2003/09/16 09:14:03 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -61,7 +61,7 @@ void Grundwerte::reset()
   stadt_land=Enums::Stadt;
   steigern_EP_prozent=50;
   grad_basiswerte=1;
-  herkunft=cH_Land("Alba");
+  herkunft=cH_Land("",true);
 
  resetSinne();
  ruestung.clear();
@@ -434,7 +434,7 @@ Grundwerte::Grundwerte()
              alter(),geschlecht(Enums::Mann),gewicht(),groesse(),grad(1),
              stand(""),glaube(""),name_abenteurer(""),version("Erschaffung"),
              gfp(),steigertage(),gold(), silber(), kupfer(),
-             aep(),kep(),zep(),herkunft(cH_Land("Alba")),spezies("Mensch"),
+             aep(),kep(),zep(),herkunft(cH_Land("",true)),spezies("Mensch"),
              stadt_land(Enums::Stadt), steigern_EP_prozent(50), grad_basiswerte(1),
              Typ(2)
 { reset(); }
