@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.39 2002/11/18 09:28:58 thoma Exp $
+// $Id: Optionen.hh,v 1.40 2002/11/28 17:56:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -109,11 +109,12 @@ class Midgard_Optionen
       void Icon_init();
       void pdfViewer_init();
 
-      void deactivate_Original();
 
       midgard_CG* hauptfenster;
    public:
       Midgard_Optionen(midgard_CG* h);
+
+      void set_Original(bool active,OptionenCheckIndex index);
 
       std::string Viewer() const;
 

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.101 2002/11/23 22:12:18 thoma Exp $
+// $Id: Optionen.cc,v 1.102 2002/11/28 17:56:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -232,11 +232,12 @@ void Midgard_Optionen::setpdfViewer(std::string is,bool b)
 }
 
 
-void Midgard_Optionen::deactivate_Original()
+//void Midgard_Optionen::deactivate_Original()
+void Midgard_Optionen::set_Original(bool active,OptionenCheckIndex index)
 {
   for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    {
-     if (i->index==Original) i->active=false;
+     if (i->index==index) i->active=active;
    }
 }   
 
@@ -278,7 +279,7 @@ void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index)
    {
      if(i->index==index) 
       { 
-        if(i->active) deactivate_Original();
+        if(i->active) set_Original(false,Original);
         hauptfenster->show_Hausregeln_active();
         return;
       }

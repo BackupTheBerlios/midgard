@@ -22,7 +22,7 @@
 #include "../pixmaps/midgard_logo_tiny.xpm"
 #include <Misc/itos.h>
 #include <MVC_boolMenu_Widget.hh>
-
+#include "../pixmaps/NSC-Mode-26.xpm"
 
 Gtk::Box &midgard_CG::make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild,const bool hbox)
 {
@@ -45,12 +45,15 @@ void midgard_CG::menu_init()
 
 //Schummel-Menü/////////////////////////////////////////////////////////////////////
   Gtk::Menu *schummel_menu = manage(new class Gtk::Menu());
-  Gtk::MenuItem *schummel = manage(new class Gtk::MenuItem("'Sams Schummel-Menü'")); 
+  Gtk::MenuItem *schummel = manage(new class Gtk::MenuItem("Original-Regel-Menü")); 
   schummel->set_submenu(*schummel_menu);
+
+  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(schummeln,make_gtk_box(NSC_Mode_26_xpm,"alle Regeln abschalten")));
+  schummel_menu->append(*_M);
+  _M->activate.connect_after(SigC::slot(this,&midgard_CG::Schummeln));}
 
   {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,make_gtk_box(midgard_logo_tiny_xpm,"Originalregeln ")));
   schummel_menu->append(*_M);}
-
 
   {Gtk::MenuItem *_M = manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
   schummel_menu->append(*_M);
