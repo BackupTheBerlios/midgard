@@ -16,16 +16,11 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/2/11 14:16:06 CET by thoma@ig23.
-// using glademm V0.5_11c
-//
-// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
-
-// This file is for your program, I won't touch it again!
-
+#ifndef USE_XML
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
+#endif
 #include "Preise.hh"
 #include <gtk--/main.h>
 
@@ -35,16 +30,21 @@ cH_Preise::cH_Preise(const std::string& name)
 {
  cH_Preise *cached(cache.lookup(name));
  if (cached) *this=*cached;
+#ifndef USE_XML 
  else
   {
    *this=cH_Preise(new Preise(name));
    cache.Register(name,*this);
   }
+#else
+  assert(!"Preise im Cache");
+#endif
 }
 
 
 void Preise::get_Preise()
 {
+#ifndef USE_XML
   exec sql begin declare section;
    char db_name[1024],db_art[50],db_art2[50],db_einheit[20];
    double db_kosten,db_gewicht;
@@ -60,10 +60,13 @@ void Preise::get_Preise()
   art2=db_art2;
   kosten=db_kosten;
   gewicht=db_gewicht;
+#else
+#endif  
 }
 
 Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
 {
+#ifndef USE_XML
  exec sql begin declare section;
    char db_name[1024];
    int db_size;
@@ -86,6 +89,8 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
   }
  exec sql close Pein;
  tr.close();
+#else
+#endif 
  progressbar->set_percentage(1);
 }  
 //////////////////////////////////////////////////////////////////////
@@ -97,17 +102,20 @@ cH_PreiseMod::cH_PreiseMod(const std::string& art,const std::string& art2,const 
  st_index index(art,art2,typ,nr);
  cH_PreiseMod *cached(cache.lookup(index));
  if (cached) *this=*cached;
+#ifndef USE_XML
  else
   {
    *this=cH_PreiseMod(new PreiseMod(art,art2,typ,nr));
    cache.Register(index,*this);
   }
+#else
+  assert(!"PreiseMod im Cache");
+#endif  
 }
-
-
 
 void PreiseMod::get_PreiseMod()
 {
+#ifndef USE_XML
   exec sql begin declare section;
    char db_name[100],db_typ[100],db_art[100],db_art2[100];
    double db_faktor;
@@ -125,11 +133,14 @@ void PreiseMod::get_PreiseMod()
     order by art,typ;
   SQLerror::test(__FILELINE__);
   payload=st_payload(db_name,db_faktor);
+#else
+#endif  
 }
 
 
 PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
 {
+#ifndef USE_XML
  exec sql begin declare section;
    char db_art[100],db_art2[100],db_typ[100];
    int db_size,db_nr;
@@ -152,6 +163,8 @@ PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
   }
  exec sql close PMein;
  tr.close();
+#else
+#endif 
  progressbar->set_percentage(1);
 }  
 
@@ -161,6 +174,7 @@ PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
 /////////////////////////////////////////////////////////////////////////
 void Preise::saveArtikel(std::string art,std::string art2,std::string name,double preis, std::string einheit,double gewicht)
 {
+#ifndef USE_XML
   exec sql begin declare section;
    char NAME[50],ART[50],ART2[50],EINHEIT[5];
    double KOSTEN=preis;
@@ -173,6 +187,7 @@ void Preise::saveArtikel(std::string art,std::string art2,std::string name,doubl
   exec sql insert into preise (name,kosten,einheit,art,art2,gewicht)
    values (:NAME,:KOSTEN,:EINHEIT,:ART,:ART2,:GEWICHT);
   SQLerror::test(__FILELINE__);
+#else
+  cout << "geht mit XML noch nicht (so)?\n";  
+#endif  
 }
-
-
