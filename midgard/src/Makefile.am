@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.169 2002/05/29 07:49:15 thoma Exp $
+# $Id: Makefile.am,v 1.170 2002/05/30 14:35:24 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -264,7 +264,7 @@ else
 # midgard_CG_glade.cc nicht optimieren, sonst explodiert der
 # Speicherverbrauch (>344MB am 2002-1-31)
 midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
-	$(CXXCOMPILE) -Wp,-MD,.deps/$(*F).pp -O0 -c $<
+	$(CXXCOMPILE) -Wp,-MD,.deps/$(*F).pp -O0 -c -o $@ midgard_CG_glade.cc
 	@-cp .deps/$(*F).pp .deps/$(*F).P; \
 	tr ' ' '\012' < .deps/$(*F).pp \
 	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
