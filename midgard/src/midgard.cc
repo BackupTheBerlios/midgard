@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.24 2001/09/19 14:25:01 thoma Exp $
+// $Id: midgard.cc,v 1.25 2001/10/02 13:38:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,11 +37,11 @@ int main(int argc, char **argv)
 {   
    Gtk::Main m(&argc, &argv);
 
-   if (argc==1) manage(new Midgard_Info(true));
+//   if (argc==1) manage(new Midgard_Info(true));
 
    try {
       Petig::dbconnect(Petig::Connection("","midgard"));
-      if (argc==1) sleep(7);
+//      if (argc==1) sleep(7);
       manage(new midgard_CG(argc,argv));
       m.run();
       

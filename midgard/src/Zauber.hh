@@ -57,6 +57,7 @@ class Zauber : public HandleContent
    int Kosten() const {  return kosten; }
    int Lernpunkte() const {  return lernpunkte; }
    std::string Spruchrolle() const {return spruchrolle; }
+
    double get_Faktor(const vector<Data_typen>& Typen,const Grundwerte& Werte) const;
 
 };

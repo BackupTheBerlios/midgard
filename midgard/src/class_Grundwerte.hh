@@ -2,7 +2,7 @@
 #define CLASS_GRUND
 #include "itos.h"
 
-class Grundwerte : public HandleContent
+class Grundwerte //: public HandleContent
 {
    int st,ge,ko,in,zt, au,pa,sb,rw,hgw,b,lp,ap,abwehr_wert;
    int zaubern_wert;
