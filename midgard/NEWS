@@ -14,10 +14,12 @@ NEWS IN VERSION 0.4delta6
 * Negative GFP stürzen nicht mehr ab.
 * Offielles Logo wieder da
 * Waffenbesitz bei Spielbeginn funktioniert wieder
+* Zahlreiche Bugs aus der 'lernen' Routine herausgeholt
+* nach dem Laden ist 'steigern' wählbar
 
 TODO:
+* geladene Optionen auswerten
 * Ausrüstung drucken, Abenteurer drucken -> absturz
-* nach dem Laden muß steigern wählbar sein
 * Steigern mehrerer Stufen mit PP
 * Waeland: Zauber
 * Nahuathlan: Komplett
