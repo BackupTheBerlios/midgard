@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.81 2003/09/29 06:56:08 christof Exp $
+// $Id: Midgard_Info.cc,v 1.82 2003/09/29 09:04:27 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,9 +32,10 @@ void Midgard_Info::database_hide()
 
 Midgard_Info::Midgard_Info(GlademmData *data) : Midgard_Info_glade(data)
 {
-   versionsnummer->set_text("Version: "+(std::string)VERSION);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   frame_datenbank->show();
+   versionsnummer->set_text("Version: "+(std::string)VERSION
+   		+"\n\"Spirit of Sargon\""); // Hommage to André (my first SL)
+//   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+//   frame_datenbank->show();
 
 }
 
