@@ -4,7 +4,7 @@ NEWS IN VERSION 0.8.5
 * Zufallsabenteurer auswürfeln geht wieder
 * region_check und nsc_check aus Klasse midgard_CG entfernen
 * Lernschema benutzt jetzt den selben Pool wie das Lernschema-Z
-* Datenbankkorrekturen,
+* kleine Datenbankkorrekturen
 * Berufesfertigkeiten jetzt mit Prüfung der Voraussetzungen
 * Spruchrollenlernen wieder korrekt
 

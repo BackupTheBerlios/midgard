@@ -83,6 +83,7 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_neuer_charakter</name>
 	  <tooltip>Neuer Abenteurer mit Wizard generieren</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>button_release_event</name>
 	    <handler>on_neuer_charakter_release_event</handler>
@@ -97,6 +98,7 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button9</name>
 	  <tooltip>Abenteurer laden</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>button_release_event</name>
 	    <handler>on_laden_release_event</handler>
@@ -111,6 +113,7 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button8</name>
 	  <tooltip>Linke Maustaste: Speichern           Rechte Maustaste: Speichern unter ...</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>button_release_event</name>
 	    <handler>on_speichern_release_event</handler>
@@ -126,6 +129,7 @@
 	  <name>button_main_drucken</name>
 	  <cxx_visibility>protected</cxx_visibility>
 	  <tooltip>Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei). Mittlere Maustaste: Charakterbeschreibung drucken. Rechte Maustaste: Ausrüstung drucken.</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>button_release_event</name>
 	    <handler>on_latex_release_event</handler>
@@ -141,6 +145,7 @@
 	  <name>button_undo</name>
 	  <cxx_visibility>protected</cxx_visibility>
 	  <tooltip>Letzte Änderung rückgängig machen.</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_button_undo_clicked</handler>
@@ -159,6 +164,7 @@
 	  <name>button_redo</name>
 	  <cxx_visibility>protected</cxx_visibility>
 	  <tooltip>Rückgängmachen rückgängig machen</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_button_redo_clicked</handler>
@@ -173,6 +179,7 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_menu</name>
 	  <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>button_release_event</name>
 	    <handler>on_button_menu_button_release_event</handler>
@@ -190,6 +197,7 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_info</name>
 	  <tooltip>Info</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_button_info_clicked</handler>
@@ -204,6 +212,7 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button11</name>
 	  <tooltip>Hilfe</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_button_hilfe_clicked</handler>
@@ -218,6 +227,7 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_html_hilfe</name>
 	  <tooltip>HTML Hilfe (wenn verfügbar)</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_button_html_hilfe_clicked</handler>
@@ -7142,6 +7152,7 @@ editieren</label>
 		      <class>GtkRadioButton</class>
 		      <name>button_fachkenntnisse</name>
 		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
 			<handler>on_lernliste_wahl_toggled</handler>
@@ -7289,6 +7300,7 @@ editieren</label>
 		      <class>GtkRadioButton</class>
 		      <name>button_allgemeinwissen</name>
 		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
 			<handler>on_lernliste_wahl_toggled</handler>
@@ -7420,6 +7432,7 @@ editieren</label>
 		      <class>GtkRadioButton</class>
 		      <name>button_untyp_fertigkeiten</name>
 		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
 			<handler>on_lernliste_wahl_toggled</handler>
@@ -7551,6 +7564,7 @@ editieren</label>
 		      <class>GtkRadioButton</class>
 		      <name>button_kido_auswahl</name>
 		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
 			<handler>on_kido_wahl_clicked</handler>
@@ -7680,6 +7694,7 @@ auswählen</label>
 		      <class>GtkRadioButton</class>
 		      <name>button_waffen</name>
 		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
 			<handler>on_lernliste_wahl_toggled</handler>
@@ -7816,6 +7831,7 @@ auswählen</label>
 		      <class>GtkRadioButton</class>
 		      <name>button_zauber</name>
 		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
 			<handler>on_lernliste_wahl_toggled</handler>
@@ -8689,6 +8705,7 @@ auswählen</label>
 		<child_name>Toolbar:button</child_name>
 		<name>button_herkunft</name>
 		<cxx_visibility>protected</cxx_visibility>
+		<can_focus>True</can_focus>
 		<signal>
 		  <name>clicked</name>
 		  <handler>on_herkunftsland_clicked</handler>
@@ -8703,6 +8720,7 @@ auswählen</label>
 		<name>button_angeborene_fert</name>
 		<cxx_visibility>protected</cxx_visibility>
 		<tooltip>Linke Maustaste: Würfeln                          Rechte Maustaste: Auswählen (Abbruch dann mit 'Lernpunkte')</tooltip>
+		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_angeborene_fertigkeit_button_release_event</handler>
@@ -8760,6 +8778,7 @@ auswählen</label>
 		<name>button_lernpunkte</name>
 		<cxx_visibility>protected</cxx_visibility>
 		<tooltip>Lernpunkte würfeln</tooltip>
+		<can_focus>True</can_focus>
 		<signal>
 		  <name>clicked</name>
 		  <handler>on_lernpunkte_wuerfeln_clicked</handler>
@@ -8778,6 +8797,7 @@ auswählen</label>
 		<name>togglebutton_lernpunkte_edit</name>
 		<cxx_visibility>protected</cxx_visibility>
 		<tooltip>Lernpunkte editieren und/oder %Wurf für Berufswahl eingeben.</tooltip>
+		<can_focus>True</can_focus>
 		<signal>
 		  <name>toggled</name>
 		  <handler>on_togglebutton_lernpunkte_edit_toggled</handler>
@@ -8794,6 +8814,7 @@ auswählen</label>
 		<name>button_beruf</name>
 		<cxx_visibility>protected</cxx_visibility>
 		<tooltip>Linke Maustaste: Auswahl aus Originalliste. Rechte Maustaste: Berufsnamen selber eingeben.</tooltip>
+		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_button_beruf_release_event</handler>
@@ -8983,6 +9004,7 @@ Beruf eingeben</label>
 		<name>button_lernschema_geld</name>
 		<cxx_visibility>protected</cxx_visibility>
 		<tooltip>Linke Maustaste: Geld würfeln             Rechte Maustaste: Geld eingeben</tooltip>
+		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_button_lernschema_geld_button_release_event</handler>
@@ -9001,6 +9023,7 @@ Beruf eingeben</label>
 		<name>button_lernschema_waffen</name>
 		<cxx_visibility>protected</cxx_visibility>
 		<tooltip>Linke Maustaste: Waffen auswürfeln            Rechte Maustaste: Waffen aussuchen</tooltip>
+		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_button_lernschema_waffen_button_release_event</handler>
@@ -9099,6 +9122,7 @@ eingeben</label>
 		<name>button_ruestung</name>
 		<cxx_visibility>protected</cxx_visibility>
 		<tooltip>Linke Maustaste: Rüstung würfeln                                 Rechte Maustaste: Rüstung aussuchen</tooltip>
+		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_button_ruestung_button_release_event</handler>
@@ -9114,6 +9138,7 @@ eingeben</label>
 		<name>button_ausruestung</name>
 		<cxx_visibility>protected</cxx_visibility>
 		<tooltip>Ausrüstung aufgrund bestimmter Fertigkeiten würfeln</tooltip>
+		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_button_ausruestung_button_release_event</handler>
