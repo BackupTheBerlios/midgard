@@ -3,7 +3,7 @@
 --
 DROP TABLE "pflicht_lernen";
 --
--- TOC Entry ID 2 (OID 609569)
+-- TOC Entry ID 2 (OID 629920)
 --
 -- Name: pflicht_lernen Type: TABLE Owner: thoma
 --
@@ -18,10 +18,16 @@ CREATE TABLE "pflicht_lernen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 609569) TABLE DATA pflicht_lernen
+-- Data for TOC Entry ID 3 (OID 629920) TABLE DATA pflicht_lernen
 --
 
 COPY "pflicht_lernen"  FROM stdin;
+Ri	Lanze	\N	\N	\N	\N
+Ri	großer Schild	\N	\N	\N	\N
+Ri	kleiner Schild	\N	\N	\N	\N
+Ri	Reiten	\N	\N	\N	\N
+Ri	Kampf zu Pferd	\N	\N	\N	\N
+Ri	Kampf in Vollrüstung	\N	\N	\N	\N
 Ba	Musizieren	\N	\N	\N	\N
 dBe	Lesen/Schreiben	\N	\N	\N	\N
 dBe	Wissen von der Magie	\N	\N	\N	\N
@@ -154,4 +160,14 @@ Halbling	Tarnen	1			10
 Berggnom	Geheimmechanismen öffnen	1	\N	\N	4
 Waldgnom	Spurenlesen	1	\N	\N	4
 Waldgnom	Tarnen	1	\N	\N	4
+Ri	\N	\N	Beschatten	\N	\N
+Ri	\N	\N	Gassenwissen	\N	\N
+Ri	\N	\N	Giftmischen	\N	\N
+Ri	\N	\N	Kampf vom Streitwagen	\N	\N
+Ri	\N	\N	Meucheln	\N	\N
+Ri	\N	\N	Fallenstellen	\N	\N
+Ri	\N	\N	Stehlen	\N	\N
+Ri	\N	\N	Fälschen	\N	\N
+Ri	\N	\N	Streitwagen lenken	\N	\N
+Ri	\N	\N	Tarnen	\N	\N
 \.

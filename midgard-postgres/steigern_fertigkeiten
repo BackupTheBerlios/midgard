@@ -3,7 +3,7 @@
 --
 DROP TABLE "steigern_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 22639)
+-- TOC Entry ID 2 (OID 631341)
 --
 -- Name: steigern_fertigkeiten Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "steigern_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22639) TABLE DATA steigern_fertigkeiten
+-- Data for TOC Entry ID 3 (OID 631341) TABLE DATA steigern_fertigkeiten
 --
 
 COPY "steigern_fertigkeiten"  FROM stdin;
@@ -130,4 +130,23 @@ Brettspiel	Brettspiel
 Kamelreiten	Bewegung
 Geheimmechanismen öffnen	Abenteuer
 Geheimzeichen	-
+Kalligraphie	Kalligraphie
+Dichten	Kalligraphie
+Etikette	Gassenwissen
+Fangen	Bewegung
+Jonglieren	Jonglieren
+Heraldik	-
+Kampf in Dunkelheit	Kampf in Dunkelheit
+Lanzenstechen	Lanzenstechen
+Luftkampf	-
+Malen/Zeichnen	Kalligraphie
+Schiffsführung	Wissen
+Schlittschuhlaufen	Bewegung
+Siegelfälschung	-
+Siegelkunde	Wissen
+Tanzen	Kalligraphie
+Verbergen	Beschatten
+Werfen	Werfen
+Wetterkunde	Wetterkunde
+Singen (Stufe)	Kalligraphie
 \.

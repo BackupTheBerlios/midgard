@@ -3,7 +3,7 @@
 --
 DROP TABLE "berufe_stand";
 --
--- TOC Entry ID 2 (OID 19488)
+-- TOC Entry ID 2 (OID 628550)
 --
 -- Name: berufe_stand Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "berufe_stand" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19488) TABLE DATA berufe_stand
+-- Data for TOC Entry ID 3 (OID 628550) TABLE DATA berufe_stand
 --
 
 COPY "berufe_stand"  FROM stdin;
@@ -431,4 +431,6 @@ Dewadasi	Mittelschicht
 Dewadasi	Adel
 Schlangenbeschwörer	Unfrei
 Schlangenbeschwörer	Volk
+Knappe	Adel
+Pagin	Adel
 \.

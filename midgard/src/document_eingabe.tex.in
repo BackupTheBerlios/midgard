@@ -358,28 +358,29 @@ Sprache&Wert&Schrift\\\hline\hline
 }
 }
 
-\vspace{-1ex}
+\vspace{-1.5ex}
 {\renewcommand{\arraystretch}{0.7}
 \begin{tabularx}{7.5cm}{lrXlr}
-\multicolumn{5}{c}{\small Universelle Fertigkeiten}\\[1ex]
-Balancieren&+8&&Schleichen&+1\\
-Beredsamkeit&+3&&Schlittenfahren&+3\\
-Beschatten&+3&&Schlösser öffnen&+0\\
-Betäuben&+6&&Schwimmen&+3\\
-Fallen&+8&&Seilkunst&+4\\
-Fallen entdecken&+0&&Springen&+8\\
-Fallen entschärfen&+0&&Spurenlesen&+0\\
-Fallenstellen&+1&&Stehlen&+3\\
-Fangen&+8&&Tarnen&+1\\
-Geheimmech. öffnen&+1&&Tauchen&+9\\
-Geländelauf&+8&&Überleben&+6\\
-Horchen&+2&&Verführen&+3\\
-Kanufahren&+3&&Verhören&+3\\
-Klettern&+8&&Verkleiden&+5\\
-Landeskunde&+6&&Wagenlenken&+3\\
-Meucheln&+0&&Wahrnehmung&+2\\
-Reiten&+5&&Winden&+0\\
-Rudern&+3&&&\\
+\multicolumn{5}{c}{\small Universelle Fertigkeiten}\\[0.5ex]
+Balancieren&+8&         &Schlittenfahren&+3     \\
+Beredsamkeit&+3&        &Schlösser öffnen&+0    \\
+Beschatten&+3&          &Schwimmen&+3           \\
+Betäuben&+6&            &Seilkunst&+4           \\
+Fallen&+8&              &Springen&+8            \\
+Fallen entdecken&+0&    &Spurenlesen&+0         \\
+Fallen entschärfen&+0&  &Stehlen&+3             \\
+Fallenstellen&+1&       &Tarnen&+1              \\
+Fangen&+8&              &Tauchen&+9             \\
+Geheimmech. öffnen&+1&  &Überleben&+6           \\
+Geländelauf&+8&         &Verbergen&+4           \\
+Horchen&+2&             &Verführen&+3           \\
+Kanufahren&+3&          &Verhören&+3            \\
+Klettern&+8&            &Verkleiden&+5          \\
+Landeskunde&+6&         &Wagenlenken&+3         \\
+Meucheln&+0&            &Wahrnehmung&+2         \\
+Reiten&+5&              &Winden&+0              \\
+Rudern&+3&              &Werfen&+4              \\
+Schleichen&+1\\
 \end{tabularx}}
 \end{minipage}
 %}

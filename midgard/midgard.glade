@@ -2369,6 +2369,306 @@
 	    </child>
 
 	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame61</name>
+	      <label>Optionen</label>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<left_attach>1</left_attach>
+		<right_attach>2</right_attach>
+		<top_attach>0</top_attach>
+		<bottom_attach>2</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>True</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>False</xfill>
+		<yfill>False</yfill>
+	      </child>
+
+	      <widget>
+		<class>GtkTable</class>
+		<name>table46</name>
+		<rows>3</rows>
+		<columns>1</columns>
+		<homogeneous>False</homogeneous>
+		<row_spacing>0</row_spacing>
+		<column_spacing>0</column_spacing>
+
+		<widget>
+		  <class>GtkHSeparator</class>
+		  <name>hseparator16</name>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>3</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkFixed</class>
+		  <name>fixed4</name>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>2</top_attach>
+		    <bottom_attach>3</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Eschar</name>
+		    <x>0</x>
+		    <y>16</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Eschar Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Eschar_toggled</handler>
+		      <last_modification_time>Fri, 23 Mar 2001 08:08:15 GMT</last_modification_time>
+		    </signal>
+		    <label>Eschar</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Gildenbrief</name>
+		    <x>96</x>
+		    <y>64</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber/Charakterklassen aus Gildenbriefen berücksichtigen, die NICHT in 'Hexenzauber&amp; Druidenkraft' oder 'Barbarenwut &amp; Ritterehre' enhalten sind</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Gildenbrief_toggled</handler>
+		      <last_modification_time>Mon, 28 May 2001 12:14:20 GMT</last_modification_time>
+		    </signal>
+		    <label>Gildenbrief</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Alba</name>
+		    <x>0</x>
+		    <y>0</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Alba Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Alba_toggled</handler>
+		      <last_modification_time>Sun, 25 Mar 2001 12:05:37 GMT</last_modification_time>
+		    </signal>
+		    <label>Alba</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_KanThaiPan</name>
+		    <x>0</x>
+		    <y>32</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des KanThaiPan Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_KanThaiPan_toggled</handler>
+		      <last_modification_time>Wed, 21 Mar 2001 07:30:40 GMT</last_modification_time>
+		    </signal>
+		    <label>KanThaiPan</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Nahuatlan</name>
+		    <x>0</x>
+		    <y>64</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Nahuatlan Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Nahuatlan_toggled</handler>
+		      <last_modification_time>Fri, 23 Mar 2001 22:33:12 GMT</last_modification_time>
+		    </signal>
+		    <label>Nahuatlan</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Kuestenstaaten</name>
+		    <x>0</x>
+		    <y>48</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Quellenbuches 'Küstenstaaten' berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Kuestenstaaten_toggled</handler>
+		      <last_modification_time>Mon, 28 May 2001 12:13:48 GMT</last_modification_time>
+		    </signal>
+		    <label>Küstenstaaten</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_BR</name>
+		    <x>96</x>
+		    <y>48</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten und Zauber des Quellenbuches 'Barbarenwut &amp; Ritterehre'</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_BR_toggled</handler>
+		      <last_modification_time>Sun, 27 May 2001 18:56:21 GMT</last_modification_time>
+		    </signal>
+		    <label>B&amp;R</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_HD</name>
+		    <x>96</x>
+		    <y>32</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Zauber des Quellenbuches 'Hexenzauber &amp; Druidenkraft'</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_HD_toggled</handler>
+		      <last_modification_time>Mon, 30 Apr 2001 16:30:19 GMT</last_modification_time>
+		    </signal>
+		    <label>H&amp;D</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Waeland</name>
+		    <x>96</x>
+		    <y>16</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Waeland Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Waeland_toggled</handler>
+		      <last_modification_time>Fri, 23 Mar 2001 22:36:46 GMT</last_modification_time>
+		    </signal>
+		    <label>Waeland</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Rawindra</name>
+		    <x>96</x>
+		    <y>0</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Rawindra Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Rawindra_toggled</handler>
+		      <last_modification_time>Wed, 21 Mar 2001 07:29:52 GMT</last_modification_time>
+		    </signal>
+		    <label>Rawindra</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkCheckButton</class>
+		  <name>checkbutton_info_fenster</name>
+		  <cxx_visibility>public</cxx_visibility>
+		  <tooltip>Anzeige/keine Anzeige des Info Fensters</tooltip>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>toggled</name>
+		    <handler>on_checkbutton_info_fenster_toggled</handler>
+		    <last_modification_time>Wed, 21 Mar 2001 07:26:33 GMT</last_modification_time>
+		  </signal>
+		  <label>Info fenster</label>
+		  <active>True</active>
+		  <draw_indicator>True</draw_indicator>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>True</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
 	      <class>GtkToolbar</class>
 	      <name>toolbar1</name>
 	      <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
@@ -2382,8 +2682,8 @@
 		<right_attach>1</right_attach>
 		<top_attach>0</top_attach>
 		<bottom_attach>1</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
+		<xpad>3</xpad>
+		<ypad>3</ypad>
 		<xexpand>False</xexpand>
 		<yexpand>False</yexpand>
 		<xshrink>False</xshrink>
@@ -2514,8 +2814,8 @@ Charakterblattt</label>
 		<right_attach>1</right_attach>
 		<top_attach>1</top_attach>
 		<bottom_attach>2</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
+		<xpad>3</xpad>
+		<ypad>3</ypad>
 		<xexpand>False</xexpand>
 		<yexpand>False</yexpand>
 		<xshrink>False</xshrink>
@@ -2609,246 +2909,6 @@ wählen</label>
 		<label>Charakter
 beschreibung</label>
 		<icon>DescrChar-trans-50.xpm</icon>
-	      </widget>
-	    </widget>
-
-	    <widget>
-	      <class>GtkFrame</class>
-	      <name>frame61</name>
-	      <label>Optionen</label>
-	      <label_xalign>0</label_xalign>
-	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-	      <child>
-		<left_attach>1</left_attach>
-		<right_attach>2</right_attach>
-		<top_attach>0</top_attach>
-		<bottom_attach>2</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<xexpand>True</xexpand>
-		<yexpand>False</yexpand>
-		<xshrink>False</xshrink>
-		<yshrink>False</yshrink>
-		<xfill>False</xfill>
-		<yfill>True</yfill>
-	      </child>
-
-	      <widget>
-		<class>GtkTable</class>
-		<name>table46</name>
-		<rows>3</rows>
-		<columns>1</columns>
-		<homogeneous>False</homogeneous>
-		<row_spacing>0</row_spacing>
-		<column_spacing>0</column_spacing>
-
-		<widget>
-		  <class>GtkHSeparator</class>
-		  <name>hseparator16</name>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>1</top_attach>
-		    <bottom_attach>2</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>3</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-		</widget>
-
-		<widget>
-		  <class>GtkFixed</class>
-		  <name>fixed4</name>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>2</top_attach>
-		    <bottom_attach>3</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>True</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>checkbutton_Nahuatlan</name>
-		    <x>0</x>
-		    <y>48</y>
-		    <width>0</width>
-		    <height>0</height>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Fertigkeiten/Zauber des Nahuatlan Quellenbuches berücksichtigen</tooltip>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_checkbutton_Nahuatlan_toggled</handler>
-		      <last_modification_time>Fri, 23 Mar 2001 22:33:12 GMT</last_modification_time>
-		    </signal>
-		    <label>Nahuatlan</label>
-		    <active>False</active>
-		    <draw_indicator>True</draw_indicator>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>checkbutton_Eschar</name>
-		    <x>0</x>
-		    <y>16</y>
-		    <width>0</width>
-		    <height>0</height>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Fertigkeiten/Zauber des Eschar Quellenbuches berücksichtigen</tooltip>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_checkbutton_Eschar_toggled</handler>
-		      <last_modification_time>Fri, 23 Mar 2001 08:08:15 GMT</last_modification_time>
-		    </signal>
-		    <label>Eschar</label>
-		    <active>False</active>
-		    <draw_indicator>True</draw_indicator>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>checkbutton_Alba</name>
-		    <x>0</x>
-		    <y>0</y>
-		    <width>0</width>
-		    <height>0</height>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Fertigkeiten/Zauber des Alba Quellenbuches berücksichtigen</tooltip>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_checkbutton_Alba_toggled</handler>
-		      <last_modification_time>Sun, 25 Mar 2001 12:05:37 GMT</last_modification_time>
-		    </signal>
-		    <label>Alba</label>
-		    <active>False</active>
-		    <draw_indicator>True</draw_indicator>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>checkbutton_Rawindra</name>
-		    <x>0</x>
-		    <y>64</y>
-		    <width>0</width>
-		    <height>0</height>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Fertigkeiten/Zauber des Rawindra Quellenbuches berücksichtigen</tooltip>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_checkbutton_Rawindra_toggled</handler>
-		      <last_modification_time>Wed, 21 Mar 2001 07:29:52 GMT</last_modification_time>
-		    </signal>
-		    <label>Rawindra</label>
-		    <active>False</active>
-		    <draw_indicator>True</draw_indicator>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>checkbutton_KanThaiPan</name>
-		    <x>0</x>
-		    <y>32</y>
-		    <width>0</width>
-		    <height>0</height>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Fertigkeiten/Zauber des KanThaiPan Quellenbuches berücksichtigen</tooltip>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_checkbutton_KanThaiPan_toggled</handler>
-		      <last_modification_time>Wed, 21 Mar 2001 07:30:40 GMT</last_modification_time>
-		    </signal>
-		    <label>KanThaiPan</label>
-		    <active>False</active>
-		    <draw_indicator>True</draw_indicator>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>checkbutton_Waeland</name>
-		    <x>0</x>
-		    <y>80</y>
-		    <width>0</width>
-		    <height>0</height>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Fertigkeiten/Zauber des Waeland Quellenbuches berücksichtigen</tooltip>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_checkbutton_Waeland_toggled</handler>
-		      <last_modification_time>Fri, 23 Mar 2001 22:36:46 GMT</last_modification_time>
-		    </signal>
-		    <label>Waeland</label>
-		    <active>False</active>
-		    <draw_indicator>True</draw_indicator>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>checkbutton_HD</name>
-		    <x>0</x>
-		    <y>96</y>
-		    <width>0</width>
-		    <height>0</height>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Zauber des Quellenbuches 'Hexenzauber &amp; Druidenkraft'</tooltip>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_checkbutton_HD_toggled</handler>
-		      <last_modification_time>Mon, 30 Apr 2001 16:30:19 GMT</last_modification_time>
-		    </signal>
-		    <label>H&amp;D</label>
-		    <active>False</active>
-		    <draw_indicator>True</draw_indicator>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkCheckButton</class>
-		  <name>checkbutton_info_fenster</name>
-		  <cxx_visibility>public</cxx_visibility>
-		  <tooltip>Anzeige/keine Anzeige des Info Fensters</tooltip>
-		  <can_focus>True</can_focus>
-		  <signal>
-		    <name>toggled</name>
-		    <handler>on_checkbutton_info_fenster_toggled</handler>
-		    <last_modification_time>Wed, 21 Mar 2001 07:26:33 GMT</last_modification_time>
-		  </signal>
-		  <label>Info fenster</label>
-		  <active>True</active>
-		  <draw_indicator>True</draw_indicator>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>False</yfill>
-		  </child>
-		</widget>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -16442,7 +16502,7 @@ Unterstützung</label>
     <widget>
       <class>GtkLabel</class>
       <name>label401</name>
-      <label>Der MCG ist Copyleft 2001 by Malte Thoma, Greven</label>
+      <label>Der MCG unterliegt der GNU Public Licence</label>
       <justify>GTK_JUSTIFY_CENTER</justify>
       <wrap>False</wrap>
       <xalign>0</xalign>

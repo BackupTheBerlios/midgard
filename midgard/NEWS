@@ -1,10 +1,16 @@
 ##########################################################################
 NEWS IN VERSION 0.5beta3
-- Charakterbeschreibung darf nun beliebig lang in der Datenbank abgespeichert
-    werden.
+- Charakterbeschreibung darf nun beliebig lang sein.
 - kleinere Bugs beseitigt
 - Info Seite leicht überarbeitet
-- xml-import Bugs beseitigt
+- xml-import Bugs beseitigt (?)
+- Fian & Zauber (aus B&R) eingearbeitet
+- Ritter (aus B&R) eingearbeitet
+- Fertigkeiten aus B&R eingearbeitet
+- Ausnahmen bei Fertigkeiten werden berücksichtigt
+- Oberfläche und Programm vorbereitet auf 'Gildenbrief' und 'Küstenstaaten'
+- LaTeX Ausdruck um die universellen Fertigkeiten 'Verbergen' und 'Werfen' 
+   erweitert
 
 ##########################################################################
 NEWS IN VERSION 0.5beta2

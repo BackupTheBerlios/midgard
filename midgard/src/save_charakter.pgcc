@@ -351,6 +351,34 @@ void midgard_CG::on_speichern_clicked()
         VALUES(:db_name_ch,:db_version,'Region','W','Region');
       SQLerror::test(__FILELINE__);
     }
+   if (HDbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','HD','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (BRbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','BR','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (Gildenbriefbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','G','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (Kuestenstaatenbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','S','Region');
+      SQLerror::test(__FILELINE__);
+    }
    tr.commit();
 }
 

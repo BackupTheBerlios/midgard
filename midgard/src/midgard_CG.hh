@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.36 2001/05/25 16:18:39 thoma Exp $
+// $Id: midgard_CG.hh,v 1.37 2001/05/29 06:27:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -141,13 +141,16 @@ struct st_ausnahmen{string name; string art;float fac;string standard;
          :name(nn), art(aa), fac(ff), standard(ss) {}};
 
 extern bool Infobool;
-extern bool Escharbool;
-extern bool Rawindrabool;
-extern bool KanThaiPanbool;
-extern bool Nahuatlanbool;
-extern bool Waelandbool;
-extern bool Albabool;
-extern bool HDbool;
+extern bool Escharbool;//E
+extern bool Rawindrabool;//R
+extern bool KanThaiPanbool;//K
+extern bool Nahuatlanbool;//N
+extern bool Waelandbool;//W
+extern bool Albabool;//A
+extern bool HDbool;//H&D
+extern bool BRbool;//B&R
+extern bool Gildenbriefbool;//G
+extern bool Kuestenstaatenbool;//S
 
 class midgard_CG : public midgard_CG_glade
 {   
@@ -178,7 +181,6 @@ class midgard_CG : public midgard_CG_glade
         st_lernpunkte lernpunkte;
         st_spezies_constraint spezies_constraint;
 
-        void midgard_CG::get_Ausnahmen();
         void regnot(string sadd);
         void fill_typauswahl();
         void fill_typauswahl_2();
@@ -264,6 +266,9 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_Waeland_toggled();
         void on_checkbutton_Alba_toggled();
         void on_checkbutton_HD_toggled();
+        void on_checkbutton_BR_toggled();
+        void on_checkbutton_Gildenbrief_toggled();
+        void on_checkbutton_Kuestenstaaten_toggled();
 
         void on_grad_anstieg_clicked();
         void get_grad(int gfp);
@@ -372,7 +377,7 @@ class midgard_CG : public midgard_CG_glade
          double get_standard_zauber_(const string& ergebnis, const string& ergebnis2, const string& p_element, const string& s_element, const string& zauber);
          double get_standard_waffen(const string& typ, const string& typ2,const string& waffe);
          double get_standard_fertigkeit(const string& typ, const string& typ_2,const string& fertigkeit);
-         double get_standard_fertigkeit_(const string& ergebnis,const string& ergebnis2);
+         double get_standard_fertigkeit_(const string& ergebnis,const string& ergebnis2,const string& fertigkeiten);
          string get_region_waffen(const string& waffe, const string& region,int mod);
          void sprache_uebernehmen(const string& s, int wert);
          void schrift_uebernehmen(const string& s, const string& t);
@@ -383,6 +388,7 @@ class midgard_CG : public midgard_CG_glade
          bool Waffen_Voraussetzung(const string& waffe);
          bool region_check(const string& region);
          bool Ausnahmen_bool(const string& name);
+         void get_Ausnahmen();
          float Ausnahmen_float(const string& name);
          string Ausnahmen_string(const string& name, const string& alt,const string& alt2);
         void get_typ(int nr, int typ_1_2=1);

@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.12 2001/05/25 16:18:39 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.13 2001/05/29 06:27:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -93,6 +93,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   if (51<=istand&&istand<=90) werte.stand = "Mittelschicht";
   if (istand>=91) werte.stand = "Adel";
 
+  get_Ausnahmen();
   midgard_CG::zeige_werte(werte,"alle");
 }
 

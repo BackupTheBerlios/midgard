@@ -3,7 +3,7 @@
 --
 DROP TABLE "ausnahmen";
 --
--- TOC Entry ID 2 (OID 19441)
+-- TOC Entry ID 2 (OID 631602)
 --
 -- Name: ausnahmen Type: TABLE Owner: thoma
 --
@@ -14,29 +14,38 @@ CREATE TABLE "ausnahmen" (
 	"spezies" text,
 	"herkunft" text,
 	"typ" text,
-	"standard" text
+	"standard" text,
+	"beruf" text,
+	"stand" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19441) TABLE DATA ausnahmen
+-- Data for TOC Entry ID 3 (OID 631602) TABLE DATA ausnahmen
 --
 
 COPY "ausnahmen"  FROM stdin;
-Leomies Birneneis	z	Halbling	\N	PF	G
-Leomies Birneneis	z	Halbling	\N	PW	G
-Leomies Birneneis	z	Halbling	\N	Hl	S
-Ahnengeist beschwören	z	\N	KanThaiPan	Sc	G
-Ahnengeist beschwören	z	\N	KanThaiPan	PC	G
-Großer Hitzeschutz	z	\N	KanThaiPan	Ord	G
-Großer Hitzeschutz	z	\N	KanThaiPan	PW	G
-NüQuang	z	\N	KanThaiPan	Sc	G
-PiPingQuang	z	\N	KanThaiPan	Sc	G
-XiengBaQuang	z	\N	KanThaiPan	Sc	G
-YehKiQuang	z	\N	KanThaiPan	Sc	G
-PiYeúQuang	z	\N	KanThaiPan	Sc	G
-Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	Sc	G
-Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	Sc	G
-Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	Sc	G
-Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	Sc	G
-Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	Sc	G
+Leomies Birneneis	z	Halbling	\N	PF	G	\N	\N
+Leomies Birneneis	z	Halbling	\N	PW	G	\N	\N
+Leomies Birneneis	z	Halbling	\N	Hl	S	\N	\N
+Ahnengeist beschwören	z	\N	KanThaiPan	Sc	G	\N	\N
+Ahnengeist beschwören	z	\N	KanThaiPan	PC	G	\N	\N
+Großer Hitzeschutz	z	\N	KanThaiPan	Ord	G	\N	\N
+Großer Hitzeschutz	z	\N	KanThaiPan	PW	G	\N	\N
+NüQuang	z	\N	KanThaiPan	Sc	G	\N	\N
+PiPingQuang	z	\N	KanThaiPan	Sc	G	\N	\N
+XiengBaQuang	z	\N	KanThaiPan	Sc	G	\N	\N
+YehKiQuang	z	\N	KanThaiPan	Sc	G	\N	\N
+PiYeúQuang	z	\N	KanThaiPan	Sc	G	\N	\N
+Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	Sc	G	\N	\N
+Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	Sc	G	\N	\N
+Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	Sc	G	\N	\N
+Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	Sc	G	\N	\N
+Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	Sc	G	\N	\N
+Etikette	f	\N	\N	\N	G	Herold	Adel
+Etikette	f	\N	\N	\N	A	\N	Volk
+Fangen	f	\N	\N	\N	G	Fischer	\N
+Fangen	f	\N	\N	\N	G	Gaukler	\N
+Lanzenstechen	f	\N	KÃ¼stenstaaten	\N	S	\N	\N
+Lanzenstechen	f	\N	Alba	\N	S	\N	\N
+Heraldik	f	\N	\N		G	Herold	\N
 \.

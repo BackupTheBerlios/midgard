@@ -3,7 +3,7 @@
 --
 DROP TABLE "lernschema";
 --
--- TOC Entry ID 2 (OID 607722)
+-- TOC Entry ID 2 (OID 627195)
 --
 -- Name: lernschema Type: TABLE Owner: thoma
 --
@@ -20,10 +20,19 @@ CREATE TABLE "lernschema" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 607722) TABLE DATA lernschema
+-- Data for TOC Entry ID 3 (OID 627195) TABLE DATA lernschema
 --
 
 COPY "lernschema"  FROM stdin;
+Fi	leichter Speer	Waffe	5	\N	1	\N	\N
+Fi	Dolch	Waffe	5	\N	1	\N	\N
+Fi	Stoßspeer	Waffe	5	\N	1	\N	\N
+Fi	Langschwert	Waffe	5	\N	2	\N	\N
+Fi	Bogen	Waffe	5	\N	2	\N	\N
+Fi	Wurfspeer	Waffe	5	\N	2	\N	\N
+Fi	großer Schild	Waffe	1	\N	2	\N	\N
+Fi	Kampfstab	Waffe	5	\N	3	\N	\N
+Fi	waffenloser Kampf	Waffe	5	\N	4	\N	\N
 Sp	leichter Speer	Waffe	5	\N	2	\N	\N
 Sp	Parierdolch	Waffe	1	\N	2	\N	\N
 Sp	Rapier	Waffe	5	\N	2	\N	\N
@@ -634,6 +643,24 @@ Sö	Reiten	Fertigkeit	15	Ge	1	\N	\N
 Sö	Wagenlenken	Fertigkeit	15	Ge	2	\N	\N
 Sp	Balancieren	Fertigkeit	15	Ge	2	\N	\N
 Sp	Fallen entschärfen	Fertigkeit	4	Ge	1	\N	\N
+Fi	Klettern	Fertigkeit	15	Ge	1	\N	\N
+Fi	Schwimmen	Fertigkeit	15	Ge	1	\N	\N
+Fi	Springen	Fertigkeit	15	Ge	1	\N	\N
+Fi	Zeichensprache	Fertigkeit	1	\N	1	\N	\N
+Fi	Geländelauf	Fertigkeit	15	Ge	2	\N	\N
+Fi	Himmelskunde	Fertigkeit	\N	\N	2	\N	\N
+Fi	Laufen	Fertigkeit	2	\N	2	\N	\N
+Fi	Naturkunde	Fertigkeit	4	In	2	\N	\N
+Th	Naturkunde	Fertigkeit	4	In	2	\N	\N
+Fi	Naturkunde	Fertigkeit	4	In	2	\N	\N
+Fi	Sagenkunde	Fertigkeit	4	In	2	\N	\N
+Fi	Reiten	Fertigkeit	15	Ge	2	\N	\N
+Fi	Schleichen	Fertigkeit	4	Ge	2	\N	\N
+Fi	Spurenlesen	Fertigkeit	4	Ge	2	\N	\N
+Fi	Fallenstellen	Fertigkeit	4	Ge	3	\N	\N
+Fi	Pflanzenkunde	Fertigkeit	4	In	3	\N	\N
+Fi	Tierkunde	Fertigkeit	4	In	3	\N	\N
+Fi	Tarnen	Fertigkeit	4	Ge	3	\N	\N
 Sp	Klettern	Fertigkeit	15	Ge	2	\N	\N
 Sp	Schleichen	Fertigkeit	4	Ge	2	\N	\N
 Sp	Tarnen	Fertigkeit	4	Ge	2	\N	\N
@@ -962,13 +989,20 @@ BS	Kampf zu Pferd	Fertigkeit	\N	\N	1	\N	\N
 Dr	Baum	Zauber	\N	\N	4	\N	\N
 Dr	Geheimzeichen	Fertigkeit	\N	\N	1	\N	\N
 Dr	Heiliger Zorn	Zauber	\N	\N	3	\N	\N
+Fi	Heiliger Zorn	Zauber	\N	\N	4	\N	\N
 Dr	Lesen von Zauberschrift	Fertigkeit	\N	\N	2	\N	\N
 Dr	Macht über die belebte Natur	Zauber	\N	\N	4	\N	\N
+Fi	Macht über die belebte Natur	Zauber	\N	\N	8	\N	\N
+Fi	Macht über das Selbst	Zauber	\N	\N	4	\N	\N
+Fi	Zähmen	Zauber	\N	\N	4	\N	\N
+Fi	Zaubersprung	Zauber	\N	\N	8	\N	\N
 Dr	Rindenhaut	Zauber	\N	\N	2	\N	\N
 Dr	Tiersprache	Zauber	\N	\N	3	\N	\N
 Dr	Wandeln wie der Wind	Zauber	\N	\N	1	\N	\N
+Fi	Wandeln wie der Wind	Zauber	\N	\N	1	\N	\N
 Dr	Wissen von der Magie	Fertigkeit	\N	\N	1	\N	\N
-Dr	Wundersame Heilung	Zauber	\N	\N	3	\N	\N
+Dr	Wundersame Tarnung	Zauber	\N	\N	3	\N	\N
+Fi	Wundersame Tarnung	Zauber	\N	\N	1	\N	\N
 Dr	Zähmen	Zauber	\N	\N	2	\N	\N
 Ba	Die drei Zaubergesänge	Zauber	\N	\N	11	\N	\N
 Ba	Lesen von Zauberschrift	Fertigkeit	\N	\N	1	\N	\N
@@ -1076,7 +1110,6 @@ PW	Sprache	Fertigkeit	4	\N	2	\N	\N
 Gl	Sprache	Fertigkeit	4	\N	2	\N	\N
 Hä	Sprache	Fertigkeit	4	\N	1	\N	\N
 eBe	Zauberkunde	Fertigkeit	4	In	2	\N	\N
-Th	Naturkunde	Fertigkeit	4	In	2	\N	\N
 Sa	Naturkunde	Fertigkeit	4	In	2	\N	\N
 Sc	Naturkunde	Fertigkeit	4	In	2	\N	\N
 Dr	Naturkunde	Fertigkeit	4	In	1	\N	\N

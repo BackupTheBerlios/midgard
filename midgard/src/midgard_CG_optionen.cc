@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.14 2001/05/25 16:18:39 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.15 2001/05/29 06:27:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,6 +28,9 @@ bool Nahuatlanbool=false;
 bool Waelandbool=false;
 bool Albabool=false;
 bool HDbool=false;
+bool BRbool=false;
+bool Gildenbriefbool=false;
+bool Kuestenstaatenbool=false;
 
 void midgard_CG::on_checkbutton_info_fenster_toggled()
 {   
@@ -46,6 +49,29 @@ void midgard_CG::on_checkbutton_HD_toggled()
 {   
   if (checkbutton_HD->get_active()) HDbool=true;
   else HDbool=false;
+}
+
+void midgard_CG::on_checkbutton_BR_toggled()
+{   
+  if (checkbutton_BR->get_active()) BRbool=true;
+  else BRbool=false;
+  midgard_CG::fill_typauswahl();
+}
+
+void midgard_CG::on_checkbutton_Kuestenstaaten_toggled()
+{   
+  if (checkbutton_Kuestenstaaten->get_active()) Kuestenstaatenbool=true;
+  else Kuestenstaatenbool=false;
+  midgard_CG::regnot("Region noch nicht publiziert");
+//  midgard_CG::fill_typauswahl();
+}
+
+void midgard_CG::on_checkbutton_Gildenbrief_toggled()
+{   
+  if (checkbutton_Gildenbrief->get_active()) Gildenbriefbool=true;
+  else Gildenbriefbool=false;
+  midgard_CG::regnot("nicht implementiert");
+//  midgard_CG::fill_typauswahl();
 }
 
 void midgard_CG::on_checkbutton_Rawindra_toggled()

@@ -3,7 +3,7 @@
 --
 DROP TABLE "berufe_voraussetzung";
 --
--- TOC Entry ID 2 (OID 19927)
+-- TOC Entry ID 2 (OID 629495)
 --
 -- Name: berufe_voraussetzung Type: TABLE Owner: thoma
 --
@@ -25,10 +25,12 @@ CREATE TABLE "berufe_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19927) TABLE DATA berufe_voraussetzung
+-- Data for TOC Entry ID 3 (OID 629495) TABLE DATA berufe_voraussetzung
 --
 
 COPY "berufe_voraussetzung"  FROM stdin;
+9	Knappe	\N	\N	\N	\N	\N	k	m	\N	\N	\N	BR
+9	Pagin	\N	\N	\N	\N	\N	k	w	\N	\N	\N	BR
 9	Gelehrter	\N	\N	\N	81	\N	\N	\N	\N	\N	\N	\N
 9	Adliger	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 7	Akrobat	\N	81	\N	\N	\N	\N	\N	\N	\N	\N	\N

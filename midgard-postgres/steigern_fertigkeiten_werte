@@ -94,4 +94,10 @@ Wissen	\N	\N	20	20	50	50	50	100	100	200	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\
 YangScheng	\N	200	500	1000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zeichensprache	\N	30	150	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zunge Verschlucken	\N	\N	\N	\N	\N	\N	\N	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Kalligraphie	\N	200	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Jonglieren	\N	\N	\N	\N	\N	\N	20	20	40	40	100	100	200	200	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Kampf in Dunkelheit	800	600	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Lanzenstechen	\N	100	100	150	150	200	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Wetterkunde	\N	\N	5	5	13	13	13	25	25	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Werfen	\N	\N	\N	\N	\N	48	48	80	160	320	640	1280	2400	4000	8000	8000	12000	12000	20000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.

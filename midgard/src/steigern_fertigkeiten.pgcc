@@ -92,7 +92,7 @@ void midgard_CG::show_alte_fertigkeiten()
         exec sql close kosten_ein;
         tr.close();
 
-        double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2);
+        double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,i->name);
         sfp = itos(db_fp * fac);
         skosten_steigern = itos(db_kosten_steigern*fac);
         skosten_reduzieren = itos(db_kosten_reduzieren*fac);
@@ -158,14 +158,20 @@ void midgard_CG::show_neue_fertigkeiten()
       if (sqlca.sqlcode) break;
       string serfolgswert=itos(db_erfolgswert);
       if (serfolgswert=="0") serfolgswert="";
-      double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2);
+      double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,db_fertigkeiten);
       string s1 = db_standard, s2 = db_standard2;
+      s1 = Ausnahmen_string(db_fertigkeiten,db_standard,"");
+//cout << "\t\t"<<s1<<"\t"<<fac<<"\n";
+//cout << db_fertigkeiten<<"\t"<<Fertigkeiten_Voraussetzung(db_fertigkeiten)
+//      <<"\t->"<<db_region<<"<-\t"<<BRbool<<"\t"<<region_check(db_region)<<"\n";
       if (midgard_CG::Fertigkeiten_Voraussetzung(db_fertigkeiten) 
         &&midgard_CG::region_check(db_region) 
         && (s1!="" || s2!="") )
        {
          os << db_fertigkeiten<<"\t"<<serfolgswert<<"\t"<<db_fp*fac
-            <<"\t"<<db_standard<<" "<<db_standard2<<"\t"<<db_voraussetzung<<"\n";
+            <<"\t"<<s1<<" "<<s2<<"\t"<<db_voraussetzung<<"\n";
+//         os << db_fertigkeiten<<"\t"<<serfolgswert<<"\t"<<db_fp*fac
+//            <<"\t"<<db_standard<<" "<<db_standard2<<"\t"<<db_voraussetzung<<"\n";
        }
    }
  exec sql close fert_ein;

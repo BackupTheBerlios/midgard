@@ -3,7 +3,7 @@
 --
 DROP TABLE "fertigkeiten_voraussetzung";
 --
--- TOC Entry ID 2 (OID 20859)
+-- TOC Entry ID 2 (OID 630978)
 --
 -- Name: fertigkeiten_voraussetzung Type: TABLE Owner: thoma
 --
@@ -23,7 +23,7 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 20859) TABLE DATA fertigkeiten_voraussetzung
+-- Data for TOC Entry ID 3 (OID 630978) TABLE DATA fertigkeiten_voraussetzung
 --
 
 COPY "fertigkeiten_voraussetzung"  FROM stdin;
@@ -145,4 +145,23 @@ Kampf zu Kamel	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kamelreiten
 Mumifizieren	\N	31	\N	31	\N	\N	\N	\N	\N	Kräuterkunde, Naturkunde
 Pyromantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie
 KiDo-Technik	\N	\N	\N	\N	\N	\N	\N	\N	\N	KiDo
+Kalligraphie	\N	61	\N	\N	\N	\N	\N	\N	\N	Lesen/Sreiben
+Dichten	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
+Etikette	\N	31	\N	31	\N	\N	31	\N	\N	\N
+Fangen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
+Heraldik	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
+Jonglieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
+Kampf in Dunkelheit	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
+Lanzenstechen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kampf zu Pferd, Lanze
+Luftkampf	\N	61	\N	\N	\N	\N	\N	\N	\N	Reiten
+Malen/Zeichen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
+Schiffsführung	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
+Schlittschuhlaufen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
+Siegelfälschung	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fälschen
+Siegelkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	Lesen/Schreiben
+Tanzen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
+Verbergen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
+Werfen	31	31	\N	\N	\N	\N	\N	\N	\N	\N
+Wetterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
+Singen (Stufe)	\N	\N	\N	\N	\N	\N	\N	\N	\N	Singen
 \.

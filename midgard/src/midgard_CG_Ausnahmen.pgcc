@@ -34,34 +34,59 @@ void midgard_CG::get_Ausnahmen()
    char db_name[50], db_art[5], db_standard[5];
    char query[1024];
  exec sql end declare section;
- string squery = "select name, art, standard from ausnahmen \
-   where (spezies = '"+werte.spezies+"' or spezies=null) \
-   and (herkunft = '"+werte.herkunft+"' or herkunft = null) \
-   and typ = '"+typ.s+"'" ;
- if (typ_2.s!="") squery += "or typ = '"+typ_2.s+"'";
- strncpy (query,squery.c_str(),sizeof(query));
- Transaction tr;
- exec sql prepare ein_ from :query;
- exec sql declare ein cursor for ein_;
- exec sql open ein;
- SQLerror::test(__FILELINE__);
- while (true)
-   {
-     exec sql fetch ein into :db_name, :db_art, :db_standard;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     string art=db_art;
-     string standard = db_standard;
-     float fac;
-     if (art=="z")
-      { if (standard == "G" ) fac = 0.5;
-        else if (standard == "S" ) fac = 1;
-        else if (standard == "A" ) fac = 5;
-        else abort();
+ string squery;
+ for (int n=0;n<2;++n) 
+  {
+    if (n==0)
+     { 
+       squery = "select name, art, standard from ausnahmen \
+         where (spezies = '"+werte.spezies+"' or spezies=null) \
+         and (herkunft = '"+werte.herkunft+"' or herkunft = null) \
+         and typ = '"+typ.s+"'";
+         if (typ_2.s!="") squery += "or typ = '"+typ_2.s+"'";
       }
-     vec_ausnahmen.push_back(st_ausnahmen(db_name,db_art,fac,db_standard)); 
-   }
- tr.close();
+     else if (n==1)
+      { 
+       squery = "select name, art, standard from ausnahmen \
+         where typ=null \
+         and (herkunft = '"+werte.herkunft+"'";
+         for(vector<st_ausgewaehlte_berufe>::iterator i=vec_beruf.begin();
+            i!=vec_beruf.end();++i)
+            squery += " or beruf = '"+i->name+"' ";
+         squery += " or  stand = '"+werte.stand+"' )";
+      }
+     else abort();
+     strncpy (query,squery.c_str(),sizeof(query));
+     Transaction tr;
+     exec sql prepare ein_ from :query;
+     exec sql declare ein cursor for ein_;
+     exec sql open ein;
+    SQLerror::test(__FILELINE__);
+    while (true)
+      {
+        exec sql fetch ein into :db_name, :db_art, :db_standard;
+        SQLerror::test(__FILELINE__,100);
+        if (sqlca.sqlcode) break;
+        string art=db_art;
+        string standard = db_standard;
+        float fac;
+        if (art=="z")
+         { if (standard == "G" ) fac = 0.5;
+           else if (standard == "S" ) fac = 1;
+           else if (standard == "A" ) fac = 5;
+           else abort();
+         }
+        else if (art=="f")
+         { if (standard == "G" ) fac = 0.5;
+           else if (standard == "S" ) fac = 1;
+           else if (standard == "A" ) fac = 2;
+           else abort();
+         }
+        else abort();
+        vec_ausnahmen.push_back(st_ausnahmen(db_name,db_art,fac,db_standard)); 
+      }
+    tr.close();
+   }   
 /*
  for (vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
          i!=vec_ausnahmen.end();++i)
@@ -82,11 +107,5 @@ string midgard_CG::Ausnahmen_string(const string& name, const string& alt,const 
  for (vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
          i!=vec_ausnahmen.end();++i)
    if (i->name==name) return i->standard;
- return alt+" "+alt2;
-/*
- if (alt=="G" || alt2=="G") return "G";
- if (alt=="S" && alt2=="S") return "S";
- else return "A";
-*/
- abort();
+  return alt+" "+alt2;
 }
