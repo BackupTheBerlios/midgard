@@ -110,7 +110,7 @@ bool table_ausruestung::tree_valid(const Glib::RefPtr<Gtk::TreeSelection> &selec
 
 void table_ausruestung::on_Ausruestung_tree_select_row()
 { Gtk::TreeIter i= Ausruestung_tree->get_selection()->get_selected();
-  if (i==m_refStore->children().end())
+  if (!i) // i==m_refStore->children().end())
   {  button_ausruestung_loeschen->set_sensitive(false);
      besitz=0;
      return;

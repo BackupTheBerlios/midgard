@@ -37,8 +37,9 @@ public:
 
 bool MyTreeStore::drag_data_get_vfunc(const Gtk::TreeModel::Path& path, GtkSelectionData* selection_data)
 { 
-std::cerr << "drag_data_get " << path.to_string() << ':' << selection_data->target << '\n'; 
-   return false;
+std::cerr << "drag_data_get " << path.to_string() << ' ' << selection_data->target << '\n'; 
+   return Gtk::TreeStore::drag_data_get_vfunc(path,selection_data);
+//   return false;
 }
 
 bool MyTreeStore::drag_data_delete_vfunc(const Gtk::TreeModel::Path& path)
@@ -47,9 +48,22 @@ std::cerr << "drag_data_delete " << path.to_string() << '\n';
    return false;
 }
 
+#include <gtk/gtktreednd.h>
+
 bool MyTreeStore::drag_data_received_vfunc(const TreeModel::Path& dest, GtkSelectionData* selection_data)
-{ 
-std::cerr << "drag_data_received " << dest.to_string() << ':' << selection_data->target << '\n'; 
+{  GtkTreeModel *model=0;
+   GtkTreePath *path=0;
+   if (!gtk_tree_get_row_drag_data(selection_data,&model,&path)) 
+      return false;
+std::cerr << "drag_data_received " << dest.to_string() << ' ' << model
+<< ' ' << Gtk::TreeModel::Path(path,false).to_string() << '\n';
+   if (model!=GTK_TREE_MODEL(gobj())) 
+   {  std::cerr << "my model is @"<< gobj() << '\n';
+      goto out;
+   }
+   
+out:
+   if (path) gtk_tree_path_free(path);
    return false;
 }
 
