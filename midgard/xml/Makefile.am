@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.38 2002/10/16 08:09:58 thoma Exp $
+# $Id: Makefile.am,v 1.39 2002/10/23 16:26:48 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
 
@@ -26,23 +26,23 @@ LIBS=@LIBS@ @COMMONXX_LIBS@
 XMLDIR=.
 
 export: all_exp arkanum_exp
-	./all_exp A >$(XMLDIR)/Alba.xml
-	./all_exp   >$(XMLDIR)/Regelwerk4.xml
-	./arkanum_exp >$(XMLDIR)/Arkanum.xml
-	./all_exp MdS >$(XMLDIR)/MeisterDerSphaeren.xml
-	./all_exp K >$(XMLDIR)/KanThaiPan.xml
-	./all_exp R >$(XMLDIR)/Rawindra.xml
-	./all_exp E >$(XMLDIR)/Eschar.xml
-	./all_exp I >$(XMLDIR)/Ikengabecken.xml
-	./all_exp N >$(XMLDIR)/Nahuatlan.xml
-	./all_exp W >$(XMLDIR)/Waeland.xml
-	./all_exp KS >$(XMLDIR)/Kuestenstaaten.xml
-	./all_exp M >$(XMLDIR)/Minangpahit.xml
-	./all_exp X >$(XMLDIR)/AbenteuerBaende.xml
-	./all_exp "H&D" >$(XMLDIR)/HexenzauberDruidenkraft.xml
-	./all_exp "H&Df" >$(XMLDIR)/HexenzauberDruidenkraftFinster.xml
-	./all_exp TuT >$(XMLDIR)/Kompendium.xml
-	./all_exp G >$(XMLDIR)/Gildenbrief.xml
-	./all_exp 3 >$(XMLDIR)/Regelwerk3.xml
-	./all_exp "B&R" >$(XMLDIR)/BarbarenWutRitterEhre.xml
-#	./all_exp 2 >$(XMLDIR)/Regelwerk2.xml
+	./all_exp A $(XMLDIR)/Alba.xml
+	./all_exp ""  $(XMLDIR)/Regelwerk4.xml
+	./arkanum_exp $(XMLDIR)/Arkanum.xml
+	./all_exp MdS $(XMLDIR)/MeisterDerSphaeren.xml
+	./all_exp K $(XMLDIR)/KanThaiPan.xml
+	./all_exp R $(XMLDIR)/Rawindra.xml
+	./all_exp E $(XMLDIR)/Eschar.xml
+	./all_exp I $(XMLDIR)/Ikengabecken.xml
+	./all_exp N $(XMLDIR)/Nahuatlan.xml
+	./all_exp W $(XMLDIR)/Waeland.xml
+	./all_exp KS $(XMLDIR)/Kuestenstaaten.xml
+	./all_exp M $(XMLDIR)/Minangpahit.xml
+	./all_exp X $(XMLDIR)/AbenteuerBaende.xml
+	./all_exp "H&D" $(XMLDIR)/HexenzauberDruidenkraft.xml
+	./all_exp "H&Df" $(XMLDIR)/HexenzauberDruidenkraftFinster.xml
+	./all_exp TuT $(XMLDIR)/Kompendium.xml
+	./all_exp G $(XMLDIR)/Gildenbrief.xml
+	./all_exp 3 $(XMLDIR)/Regelwerk3.xml
+	./all_exp "B&R" $(XMLDIR)/BarbarenWutRitterEhre.xml
+#	./all_exp 2 $(XMLDIR)/Regelwerk2.xml

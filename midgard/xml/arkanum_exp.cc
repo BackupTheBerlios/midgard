@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.17 2002/10/23 16:26:48 christof Exp $
+// $Id: arkanum_exp.cc,v 1.18 2002/10/23 16:28:45 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
       TagStream ts;
       Tag &data=ts.push_back(Tag("MAGUS-data"));
-      region_tags(data,region.empty()?std::string("Arkanum"):region);
+      region_tags(data,region.empty()?std::string("Arkanum"):region,revision);
       arkanum_speichern(data);
    {  ofstream of(file.c_str());
       ts.write(of);

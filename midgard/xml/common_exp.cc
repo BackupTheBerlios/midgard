@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.33 2002/10/23 14:21:12 christof Exp $
+// $Id: common_exp.cc,v 1.34 2002/10/23 16:26:48 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -164,7 +164,7 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    return result;
 }
 
-void region_tags(Tag &t, const string &region)
+void region_tags(Tag &t, const string &region, const string &revision)
 {  t.setAttr_ne("Region",region);
    Query query("select name, titel, copyright, jahr, offiziell, file, url, maintainer,"
    	" version, nr, pic"
@@ -182,7 +182,7 @@ void region_tags(Tag &t, const string &region)
       fetch_and_set_string_attrib(is, t, "Version");
       fetch_and_set_int_attrib(is, t, "MAGUS-Index");
       fetch_and_set_int_attrib(is, t, "MAGUS-Bild");
-      t.setAttr("CVS","$Revi""sion$");
+      t.setAttr("CVS",revision);
    }
 }
 

@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.18 2002/08/26 14:23:01 thoma Exp $
+// $Id: zauber_exp.cc,v 1.19 2002/10/23 16:26:48 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -33,7 +33,7 @@ void arkanum_speichern(Tag &o)
    	"wirkungsdauer, material, "
    	"zauberart, element, spruchrolle, thaumagram,zusaetze,nsc_only "
    	"from zauber "
-   	IF_REGION("where coalesce(region,'')='"+region+"' ")
+   	"where coalesce(region,'')='"+region+"' "
    	"order by coalesce(region,''),name");
   while ((q >> is).good())
   {Tag &spruch=zauber.push_back(Tag("Spruch"));
@@ -124,7 +124,7 @@ void arkanum_speichern(Tag &o)
   Tag &zauberwerke=o.push_back(Tag("Zauberwerke"));
   {Query query("select name, region,region_zusatz, art, stufe, zeitaufwand, kosten, kosten_gfp"
   	" from zauberwerk"
-  	IF_REGION(" where coalesce(region,'')='"+region+"' ")
+  	" where coalesce(region,'')='"+region+"' "
   	" order by coalesce(region,''),name,art,stufe");
    FetchIStream is;
   while ((query>>is).good())
