@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.21 2002/06/26 14:01:18 christof Exp $               
+// $Id: Abenteurer.hh,v 1.22 2002/06/26 14:18:46 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -175,9 +175,9 @@ class VAbenteurer
       void delete_empty();
 
    // diese beiden Funktionen ersetzen den Rest der Klasse ! CP
-   const Abenteurer *operator*() const
+   const Abenteurer *operator->() const
    {  return &ai->abenteurer; }
-   Abenteurer *operator*()
+   Abenteurer *operator->()
    {  return &ai->abenteurer; }
 
    // wenn man mich fragt, ist das ab hier unnötig (s.o.) CP
