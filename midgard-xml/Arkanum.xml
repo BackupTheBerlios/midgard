@@ -889,6 +889,7 @@
     <Grund>Th</Grund>
     <Standard>gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,dBe,eBe,tBe</Ausnahme>
+    <Lernschema Typ="Th" Lernpunkte="1"/>
   </Spruch>
   <Spruch Name="Hort der Natur" Grad="G" Lernkosten="15000" AP="alle (min 8)" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="zerstört" Reagens="Eis" Zauberdauer="24 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="200 m Uk" Wirkungsdauer="perm" Material="Bearbeitete Steine">
     <Grund>Dr,Sa,Sc</Grund>
