@@ -744,7 +744,7 @@ void table_lernschema::show_lernschema()
         else
          {  fert="Allg";
             label_lernschma_titel->set_text("Allgemeinwissen ("+
-                  A.getWerte().Stadt_Land()+")");
+                  A.getWerte().Stadt_Land_str()+")");
          }
    }
 
@@ -759,8 +759,8 @@ void table_lernschema::show_lernschema()
       f.setLernArt(fert);
       if(fert=="Allg")
        {
-         if     (A.getWerte().Stadt_Land()=="Land"  ) lp=cH_Fertigkeit(*i)->LernLand();
-         else if(A.getWerte().Stadt_Land()=="Stadt" ) lp=cH_Fertigkeit(*i)->LernStadt();
+         if     (A.getWerte().Stadt_Land()==Enums::Land  ) lp=cH_Fertigkeit(*i)->LernLand();
+         else if(A.getWerte().Stadt_Land()==Enums::Stadt ) lp=cH_Fertigkeit(*i)->LernStadt();
          else {hauptfenster->set_status("Stadt oder Land wählen"); return;}
          cH_Fertigkeit(*i)->get_region_lp(lp,hauptfenster);  
          if(!togglebutton_teure_anzeigen->get_active() && lp>lernpunkte.Allgemein())

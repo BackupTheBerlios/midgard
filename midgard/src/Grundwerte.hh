@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.50 2002/09/06 20:58:52 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.51 2002/09/07 07:15:56 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -151,8 +151,8 @@ public:
    std::string BeschreibungPix() const {return beschreibung.file;}
    int BeschreibungPixSize() const {return beschreibung.size;}
    std::string Merkmale() const {return merkmale;}
-   std::string Stadt_Land_str() const ;
    Enums::StadtLand Stadt_Land() const {return stadt_land;}
+   std::string Stadt_Land_str() const ;
    cH_Ruestung Ruestung(unsigned int i=0) const;
    int GFP() const {return gfp;}
    float Steigertage() const {return steigertage;}
@@ -249,8 +249,8 @@ public:
       {ruestung[0]=cH_Ruestung(r,force);}
    void setRuestung2(std::string r,bool force=false)
       {ruestung[1]=cH_Ruestung(r,force);}
-   void setStadt_Land(const Enums::StadtLand& sl) {stadt_land=sl;}
-   void setStadt_Land(const std::string& sl);
+   void setStadtLand(const Enums::StadtLand& sl) {stadt_land=sl;}
+   void setStadtLand(const std::string& sl);
    void setGFP(int _gfp){gfp=_gfp;}
    void addGFP(int _gfp){gfp += _gfp;}
    void setSteigertage(float i){steigertage=i;}

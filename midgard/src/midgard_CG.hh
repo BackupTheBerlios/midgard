@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.274 2002/09/06 20:58:52 thoma Exp $
+// $Id: midgard_CG.hh,v 1.275 2002/09/07 07:15:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,6 +49,7 @@ class midgard_CG : public midgard_CG_glade
         bool in_dtor;
 /////////////////////////////////////////////////////////////////////////////
         friend class Zufall;
+        friend class LernListen;
         friend class LaTeX_drucken;
         friend class Window_Waffenbesitz;
         friend class Data_waffenbesitz;

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.38 2002/09/06 20:58:52 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.39 2002/09/07 07:15:55 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,7 +57,7 @@ void Grundwerte::reset()
   gold=0; 
   silber=0; 
   kupfer=0;
-  stadt_land="Stadt";
+  stadt_land=Enums::Stadt;
   steigern_EP_prozent=50;
   grad_basiswerte=1;
 
@@ -426,11 +426,11 @@ std::string Grundwerte::Stadt_Land_str() const
   abort();
 }
 
-void Grundwerte::setGeschlecht(const std::string& _g)
+void Grundwerte::setStadtLand(const std::string& _g)
 {
-  if     (_g=="Stadt") setGeschlecht(Enums::Stadt);
-  else if(_g=="Land")  setGeschlecht(Enums::Land);
-  else                 setGeschlecht(Enums::NoSL);
+  if     (_g=="Stadt") setStadtLand(Enums::Stadt);
+  else if(_g=="Land")  setStadtLand(Enums::Land);
+  else                 setStadtLand(Enums::NoSL);
 }
 
   

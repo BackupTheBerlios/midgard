@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.4 2002/09/04 14:28:17 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.5 2002/09/07 07:15:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,70 +18,6 @@
  */
 
 #include "midgard_CG.hh"
-
-#include "../pixmaps/NewChar-trans-50.xpm"
-#include "../pixmaps/LoadChar-trans-50.xpm"
-#include "../pixmaps/SaveChar-trans-50.xpm"
-#include "../pixmaps/PrintChar-trans-50.xpm"
-#include "../pixmaps/Undo.xpm"
-#include "../pixmaps/redo.xpm"
-#include "../pixmaps/wizzard-trans-50_2.xpm"
-#include "../pixmaps/Info-trans-50.xpm"
-#include "../pixmaps/Help-trans-50.xpm"
-#include "../pixmaps/Exit-trans-50.xpm"
-#include "../pixmaps/Excl-32.xpm"
-#include "../pixmaps/Erase-50.xpm"
-// Ulfs Icons
-#include "../pixmaps/Anleitung.xpm"
-#include "../pixmaps/Drucken.xpm"
-#include "../pixmaps/Hilfe.xpm"
-#include "../pixmaps/Info.xpm"
-#include "../pixmaps/Menue.xpm"
-#include "../pixmaps/Neu.xpm"
-#include "../pixmaps/Oeffnen.xpm"
-#include "../pixmaps/Schliessen.xpm"
-#include "../pixmaps/Speichern.xpm"
-#include "../pixmaps/Vorwaerts.xpm"
-#include "../pixmaps/Zurueck.xpm"
-
-
-midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
-{
-  if(MOptionen->IconCheck(Midgard_Optionen::Self).active)
-   {
-     if     (typ==iNew)        return st_icons("Neu"         ,NewChar_trans_50_xpm   );
-     else if(typ==iOpen)       return st_icons("Öffnen"      ,LoadChar_trans_50_xpm  );
-     else if(typ==iClose)      return st_icons("Speichern"   ,SaveChar_trans_50_xpm  );
-     else if(typ==iPrint)      return st_icons("Drucken"     ,PrintChar_trans_50_xpm );
-     else if(typ==iBack)       return st_icons("Zurück"      ,Undo_xpm               );
-     else if(typ==iForward)    return st_icons("Vorwärts"    ,redo_xpm               );
-     else if(typ==iMenu)       return st_icons("Menü"        ,wizzard_trans_50_2_xpm );
-     else if(typ==iInfo)       return st_icons("Info"        ,Info_trans_50_xpm      );
-     else if(typ==iHelp)       return st_icons("Hilfe"       ,Help_trans_new1_xpm    );
-     else if(typ==iInstruction)return st_icons("Anleitung"   ,Help_trans_new1_xpm    );
-     else if(typ==iExit)       return st_icons("Schließen"   ,Exit_trans_50_xpm      );
-     else if(typ==iJa)         return st_icons("Ja"          ,Excl_32_xpm);
-     else if(typ==iNein)       return st_icons("Nein"        ,Erase_50_xpm);
-   }
-  else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
-   {
-     if     (typ==iNew)        return st_icons("Neu"         ,Neu_xpm   );
-     else if(typ==iOpen)       return st_icons("Öffnen"      ,Oeffnen_xpm  );
-     else if(typ==iClose)      return st_icons("Speichern"   ,Speichern_xpm  );
-     else if(typ==iPrint)      return st_icons("Drucken"     ,Drucken_xpm );
-     else if(typ==iBack)       return st_icons("Zurück"      ,Zurueck_xpm               );
-     else if(typ==iForward)    return st_icons("Vorwärts"    ,Vorwaerts_xpm               );
-     else if(typ==iMenu)       return st_icons("Menü"        ,Menue_xpm );
-     else if(typ==iInfo)       return st_icons("Info"        ,Info_xpm      );
-     else if(typ==iHelp)       return st_icons("Hilfe"       ,Hilfe_xpm    );
-     else if(typ==iInstruction)return st_icons("Anleitung"   ,Anleitung_xpm    );
-     else if(typ==iExit)       return st_icons("Schließen"   ,Schliessen_xpm      );
-     else if(typ==iJa)         return st_icons("Ja"          ,Neu_xpm);
-     else if(typ==iNein)       return st_icons("Nein"        ,Schliessen_xpm);
-   }
-  assert(!"never get here");
-  abort();
-}
 
 void midgard_CG::Icons_setzen()
 {
@@ -118,5 +54,98 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
             dynamic_cast<Gtk::Label*>((*i)->get_widget())->set_text(I.text);
       }
    }
+}
+
+
+#include "../pixmaps/NewChar-trans-50.xpm"
+#include "../pixmaps/LoadChar-trans-50.xpm"
+#include "../pixmaps/SaveChar-trans-50.xpm"
+#include "../pixmaps/PrintChar-trans-50.xpm"
+#include "../pixmaps/Undo.xpm"
+#include "../pixmaps/redo.xpm"
+#include "../pixmaps/wizzard-trans-50_2.xpm"
+#include "../pixmaps/Info-trans-50.xpm"
+#include "../pixmaps/Help-trans-50.xpm"
+#include "../pixmaps/Exit-trans-50.xpm"
+#include "../pixmaps/Excl-32.xpm"
+#include "../pixmaps/Erase-50.xpm"
+// Ulfs Icons
+#include "../pixmaps/Anleitung.xpm"
+#include "../pixmaps/Drucken.xpm"
+#include "../pixmaps/Hilfe.xpm"
+#include "../pixmaps/Info.xpm"
+#include "../pixmaps/Menue.xpm"
+#include "../pixmaps/Neu.xpm"
+#include "../pixmaps/Oeffnen.xpm"
+#include "../pixmaps/Schliessen.xpm"
+#include "../pixmaps/Speichern.xpm"
+#include "../pixmaps/Vorwaerts.xpm"
+#include "../pixmaps/Zurueck.xpm"
+// StefanP Icons
+#include "../pixmaps/SP-Anleitung.xpm"
+#include "../pixmaps/SP-Drucken.xpm"
+#include "../pixmaps/SP-Hilfe.xpm"
+#include "../pixmaps/SP-Info.xpm"
+#include "../pixmaps/SP-Menue.xpm"
+#include "../pixmaps/SP-Neu.xpm"
+#include "../pixmaps/SP-Neugr.xpm"
+#include "../pixmaps/SP-Oeffnen.xpm"
+#include "../pixmaps/SP-Schliessen.xpm"
+#include "../pixmaps/SP-Speichern.xpm"
+#include "../pixmaps/SP-Vorwaerts.xpm"
+#include "../pixmaps/SP-Zurueck.xpm"
+
+midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
+{
+  if(MOptionen->IconCheck(Midgard_Optionen::Self).active)
+   {
+     if     (typ==iNew)        return st_icons("Neu"         ,NewChar_trans_50_xpm   );
+     else if(typ==iOpen)       return st_icons("Öffnen"      ,LoadChar_trans_50_xpm  );
+     else if(typ==iClose)      return st_icons("Speichern"   ,SaveChar_trans_50_xpm  );
+     else if(typ==iPrint)      return st_icons("Drucken"     ,PrintChar_trans_50_xpm );
+     else if(typ==iBack)       return st_icons("Zurück"      ,Undo_xpm               );
+     else if(typ==iForward)    return st_icons("Vorwärts"    ,redo_xpm               );
+     else if(typ==iMenu)       return st_icons("Menü"        ,wizzard_trans_50_2_xpm );
+     else if(typ==iInfo)       return st_icons("Info"        ,Info_trans_50_xpm      );
+     else if(typ==iHelp)       return st_icons("Hilfe"       ,Help_trans_new1_xpm    );
+     else if(typ==iInstruction)return st_icons("Anleitung"   ,Help_trans_new1_xpm    );
+     else if(typ==iExit)       return st_icons("Schließen"   ,Exit_trans_50_xpm      );
+     else if(typ==iJa)         return st_icons("Ja"          ,Excl_32_xpm);
+     else if(typ==iNein)       return st_icons("Nein"        ,Erase_50_xpm);
+   }
+  else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
+   {
+     if     (typ==iNew)        return st_icons("Neu"         ,Neu_xpm   );
+     else if(typ==iOpen)       return st_icons("Öffnen"      ,Oeffnen_xpm  );
+     else if(typ==iClose)      return st_icons("Speichern"   ,Speichern_xpm  );
+     else if(typ==iPrint)      return st_icons("Drucken"     ,Drucken_xpm );
+     else if(typ==iBack)       return st_icons("Zurück"      ,Zurueck_xpm               );
+     else if(typ==iForward)    return st_icons("Vorwärts"    ,Vorwaerts_xpm               );
+     else if(typ==iMenu)       return st_icons("Menü"        ,Menue_xpm );
+     else if(typ==iInfo)       return st_icons("Info"        ,Info_xpm      );
+     else if(typ==iHelp)       return st_icons("Hilfe"       ,Hilfe_xpm    );
+     else if(typ==iInstruction)return st_icons("Anleitung"   ,Anleitung_xpm    );
+     else if(typ==iExit)       return st_icons("Schließen"   ,Schliessen_xpm      );
+     else if(typ==iJa)         return st_icons("Ja"          ,Neu_xpm);
+     else if(typ==iNein)       return st_icons("Nein"        ,Schliessen_xpm);
+   }
+  else if(MOptionen->IconCheck(Midgard_Optionen::StefanP).active)
+   {
+     if     (typ==iNew)        return st_icons("Neu"         ,SP_Neu_xpm   );
+     else if(typ==iOpen)       return st_icons("Öffnen"      ,SP_Oeffnen_xpm  );
+     else if(typ==iClose)      return st_icons("Speichern"   ,SP_Speichern_xpm  );
+     else if(typ==iPrint)      return st_icons("Drucken"     ,SP_Drucken_xpm );
+     else if(typ==iBack)       return st_icons("Zurück"      ,SP_Zurueck_xpm               );
+     else if(typ==iForward)    return st_icons("Vorwärts"    ,SP_Vorwaerts_xpm               );
+     else if(typ==iMenu)       return st_icons("Menü"        ,SP_Menue_xpm );
+     else if(typ==iInfo)       return st_icons("Info"        ,SP_Info_xpm      );
+     else if(typ==iHelp)       return st_icons("Hilfe"       ,SP_Hilfe_xpm    );
+     else if(typ==iInstruction)return st_icons("Anleitung"   ,SP_Anleitung_xpm    );
+     else if(typ==iExit)       return st_icons("Schließen"   ,SP_Schliessen_xpm      );
+     else if(typ==iJa)         return st_icons("Ja"          ,SP_Neu_xpm);
+     else if(typ==iNein)       return st_icons("Nein"        ,SP_Schliessen_xpm);
+   }
+  assert(!"never get here");
+  abort();
 }
 

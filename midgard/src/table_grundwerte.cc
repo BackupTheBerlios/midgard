@@ -98,7 +98,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide=true)
    entry_bezeichnung->set_text(hauptfenster->getWerte().Bezeichnung());
    entry_merkmale->set_text(hauptfenster->getWerte().Merkmale());
 
-   if (hauptfenster->getWerte().Geschlecht()=="w") radiobutton_frau->set_active(true); 
+   if (hauptfenster->getWerte().Geschlecht()==Enums::Frau) radiobutton_frau->set_active(true); 
    else radiobutton_mann->set_active(true); 
    
    if(typ2_hide)
@@ -121,8 +121,8 @@ void table_grundwerte::neuer_charakter()
    radiobutton_stadt->set_sensitive(true);
    radiobutton_land->set_sensitive(true);
    frame_wuerfelvariante->hide();
-   if(hauptfenster->getWerte().Stadt_Land()=="Land")  radiobutton_land->set_active(true);
-   if(hauptfenster->getWerte().Stadt_Land()=="Stadt")  radiobutton_stadt->set_active(true);
+   if(hauptfenster->getWerte().Stadt_Land()==Enums::Land)  radiobutton_land->set_active(true);
+   if(hauptfenster->getWerte().Stadt_Land()==Enums::Stadt)  radiobutton_stadt->set_active(true);
    fill_typauswahl();
    fill_spezies();
    combo_spezies->get_entry()->set_text(hauptfenster->getWerte().Spezies()->Name());

@@ -5,6 +5,8 @@ NEWS IN VERSION 0.8.1
 * Gründliche Überarbeitung des Codes für 'Würfelvarianten' (kürzer, klarer)
 * Elfen Doppelcharakter: Abfrage nur einmal
 * Fehler im Ausdruck behoben
+* Zufallsabenteurer generieren (Spezies, Grundwerte, Typ)
+* Icons für Toolbar von Stefan Peschel (Rosendorn)
 
 TODO: ('-' zeigt CP an)
 * Schwarzer Balken im Lernschema bei Maximierung

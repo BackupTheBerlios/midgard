@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.73 2002/08/29 07:55:23 thoma Exp $
+// $Id: Optionen.cc,v 1.74 2002/09/07 07:15:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -300,6 +300,7 @@ void Midgard_Optionen::Icon_setzen_from_menu(IconIndex index,bool b)
       { i->active = b;
         if     (index==Self) ;
         else if(index==Ulf) ;
+        else if(index==StefanP) ;
         hauptfenster->Icons_setzen();
       }
      else i->active = false;
@@ -408,7 +409,8 @@ void Midgard_Optionen::Icon_init()
 {
  list_Icon.clear();  
  list_Icon.push_back(st_Icon(Self,"MAGUS-Stil",true));
- list_Icon.push_back(st_Icon(Ulf,"Win32-Stil",false));
+ list_Icon.push_back(st_Icon(Ulf,"Win32-Stil (groﬂ)",false));
+ list_Icon.push_back(st_Icon(StefanP,"Win32-Stil (klein)",false));
 }
 
 // Lines marked with 'compat' are to maintain compatibility

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.6 2002/06/26 14:01:18 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.7 2002/09/07 07:15:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,7 +68,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
     for (int i=0;i<hauptfenster->getWerte().Spezies()->Groesse_Wanz();++i) 
        groesse += hauptfenster->random.integer(1,hauptfenster->getWerte().Spezies()->Groesse_Wuerfel()) ;
     if (hauptfenster->getWerte().Spezies()->Name()=="Mensch" && 
-         hauptfenster->getWerte().Geschlecht()=="w")
+         hauptfenster->getWerte().Geschlecht()==Enums::Frau)
        groesse-=10;   
     hauptfenster->getWerte().setGroesse(groesse);
   }
@@ -78,7 +78,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
                   + hauptfenster->getWerte().Groesse();
     for (int i=0;i<hauptfenster->getWerte().Spezies()->Gewicht_Wanz();++i) 
        gewicht += hauptfenster->random.integer(1,6) ;
-    if (hauptfenster->getWerte().Spezies()->Name()=="Mensch" && hauptfenster->getWerte().Geschlecht()=="w")
+    if (hauptfenster->getWerte().Spezies()->Name()=="Mensch" && hauptfenster->getWerte().Geschlecht()==Enums::Frau)
        gewicht-=4;   
     hauptfenster->getWerte().setGewicht(gewicht);
   }

@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.1 2002/05/14 07:26:14 thoma Exp $
+// $Id: LernListen.hh,v 1.2 2002/09/07 07:15:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,33 +20,39 @@
 #ifndef _LERNLISTEN_HH
 #  define _LERNLISTEN_HH
 
+#include "Datenbank.hh"
+
+class midgard_CG;
+class VAbenteurer;
+
 class LernListen
 {
-     std::list<cH_MidgardBasicElement> list_Beruf;
-     std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
-     std::list<cH_MidgardBasicElement> list_Fertigkeit;
-     std::list<cH_MidgardBasicElement> list_Fertigkeit_universal;
-     std::list<cH_MidgardBasicElement> list_WaffenGrund;
-     std::list<cH_MidgardBasicElement> list_Waffen;
-     std::list<cH_MidgardBasicElement> list_Waffen_besitz;
-     std::list<cH_MidgardBasicElement> list_Zauber;
-     std::list<cH_MidgardBasicElement> list_Zauberwerk;
-     std::list<cH_MidgardBasicElement> list_Kido;
-     std::list<cH_MidgardBasicElement> list_Sprache;
-     std::list<cH_MidgardBasicElement> list_Schrift;
-   public:
-     std::list<cH_MidgardBasicElement> getBeruf() {return list_Beruf;}
-     std::list<cH_MidgardBasicElement> getFertigkeit_ang() {return list_Fertigkeit_ang;}
-     std::list<cH_MidgardBasicElement> getFertigkeit() {return list_Fertigkeit;}
-     std::list<cH_MidgardBasicElement> getFertigkeit_universal() {return list_Fertigkeit_universal;}
-     std::list<cH_MidgardBasicElement> getWaffenGrund() {return list_WaffenGrund;}
-     std::list<cH_MidgardBasicElement> getWaffen() {return list_Waffen;}
-     std::list<cH_MidgardBasicElement> getWaffen_besitz() {return list_Waffen_besitz;}
-     std::list<cH_MidgardBasicElement> getZauber() {return list_Zauber;}
-     std::list<cH_MidgardBasicElement> getZauberwerk() {return list_Zauberwerk;}
-     std::list<cH_MidgardBasicElement> getKido() {return list_Kido;}
-     std::list<cH_MidgardBasicElement> getSprache() {return list_Sprache;}
-     std::list<cH_MidgardBasicElement> getSchrift() {return list_Schrift;}
+      const Datenbank D;
+  public:
+      LernListen(const Datenbank& d) : D(d){}   
+
+      bool nsc_check(bool nsc_allowed,bool nsc_only) const ;
+      bool region_check(const std::string& region) const;
+                
+      
+      std::vector<cH_Spezies> getSpezies(bool nsc_allowed) const ;
+      std::vector<pair<cH_Typen,bool> > getTypen(const VAbenteurer& A,bool nsc_allowed) const ;
+
+/*   
+
+     std::list<cH_MidgardBasicElement> getBeruf(){}; 
+     std::list<cH_MidgardBasicElement> getFertigkeit_ang(){}; 
+     std::list<cH_MidgardBasicElement> getFertigkeit(){};
+     std::list<cH_MidgardBasicElement> getFertigkeit_universal(){};
+     std::list<cH_MidgardBasicElement> getWaffenGrund() {};
+     std::list<cH_MidgardBasicElement> getWaffen() {};
+     std::list<cH_MidgardBasicElement> getWaffen_besitz(){};
+     std::list<cH_MidgardBasicElement> getZauber() {};
+     std::list<cH_MidgardBasicElement> getZauberwerk(){};
+     std::list<cH_MidgardBasicElement> getKido() {};
+     std::list<cH_MidgardBasicElement> getSprache(){}; 
+     std::list<cH_MidgardBasicElement> getSchrift(){}; 
+*/
 };
 
 

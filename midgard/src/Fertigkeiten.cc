@@ -217,8 +217,8 @@ void Fertigkeit::get_region_lp(int &lp,const midgard_CG* hauptfenster) const
      if(!hauptfenster->region_check(i->region)) continue;
      if(hauptfenster->getWerte().Herkunft()->Name()==i->region)
        {
-         if     (hauptfenster->getWerte().Stadt_Land()=="Land"  ) lp=i->lp_land;
-         else if(hauptfenster->getWerte().Stadt_Land()=="Stadt" ) lp=i->lp_stadt;
+         if     (hauptfenster->getWerte().Stadt_Land()==Enums::Land  ) lp=i->lp_land;
+         else if(hauptfenster->getWerte().Stadt_Land()==Enums::Stadt ) lp=i->lp_stadt;
        }
    }
 }

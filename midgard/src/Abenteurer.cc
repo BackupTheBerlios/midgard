@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.37 2002/09/06 20:58:52 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.38 2002/09/07 07:15:55 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -474,7 +474,7 @@ bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
    if (Steigern)       getWerte().setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
    else
       getWerte().setEP(0,0,0);
-   getWerte().setStadt_Land(Typ->getAttr("Stadt_Land","Stadt"));
+   getWerte().setStadtLand(Typ->getAttr("Stadt_Land","Stadt"));
    if (Steigern) getWerte().set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
       	,Steigern->getIntAttr("Basiswerte",getWerte().Grad()));
    else getWerte().set_Grad_Anstieg(50,getWerte().Grad());

@@ -17609,6 +17609,101 @@ Liste löschen</label>
 	  </widget>
 	</widget>
       </widget>
+
+      <widget>
+	<class>GtkTable</class>
+	<name>table_zufall</name>
+	<cxx_separate_file>True</cxx_separate_file>
+	<cxx_separate_class>True</cxx_separate_class>
+	<cxx_visibility>protected</cxx_visibility>
+	<rows>3</rows>
+	<columns>3</columns>
+	<homogeneous>False</homogeneous>
+	<row_spacing>0</row_spacing>
+	<column_spacing>0</column_spacing>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <name>button_zufall_voll</name>
+	  <can_focus>True</can_focus>
+	  <signal>
+	    <name>clicked</name>
+	    <handler>on_button_zufall_voll_clicked</handler>
+	    <last_modification_time>Fri, 06 Sep 2002 18:18:11 GMT</last_modification_time>
+	  </signal>
+	  <label>Zufallsabenteurer 
+Grad 1 erzeugen</label>
+	  <relief>GTK_RELIEF_NORMAL</relief>
+	  <child>
+	    <left_attach>0</left_attach>
+	    <right_attach>1</right_attach>
+	    <top_attach>0</top_attach>
+	    <bottom_attach>1</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GtkEventBox</class>
+	<child_name>Notebook:tab</child_name>
+	<name>eventbox_zufall</name>
+	<tooltip>Optionen</tooltip>
+	<signal>
+	  <name>button_release_event</name>
+	  <handler>on_eventbox_zufall_button_release_event</handler>
+	  <last_modification_time>Fri, 06 Sep 2002 18:07:30 GMT</last_modification_time>
+	</signal>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <name>vbox65</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+
+	  <widget>
+	    <class>GtkPixmap</class>
+	    <name>pixmap167</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <filename>Regio_Hausregel-50.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label603</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <label>Zufallsgenerator</label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+	  </widget>
+	</widget>
+      </widget>
     </widget>
 
     <widget>

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.9 2002/08/19 06:31:14 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.10 2002/09/07 07:15:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -105,8 +105,8 @@ void table_lernschema::showBerufsLernList()
      cH_Beruf b(*i);
      if ( !b->Typ(hauptfenster->getChar().getVTyp()) || 
           !b->Stand(hauptfenster->getWerte().Stand()) ) continue;
-     if(!b->Stadt() && hauptfenster->getWerte().Stadt_Land()=="Stadt") continue;
-     if(!b->Land()  && hauptfenster->getWerte().Stadt_Land()=="Land") continue;
+     if(!b->Stadt() && hauptfenster->getWerte().Stadt_Land()==Enums::Stadt) continue;
+     if(!b->Land()  && hauptfenster->getWerte().Stadt_Land()==Enums::Land) continue;
      L.push_back(*i);
    }
 

@@ -21,19 +21,23 @@
 
 #include "midgard_CG.hh" 
 #include "Enums.hh" 
+#include "LernListen.hh"
 
 class Zufall
 {
       midgard_CG *hauptfenster;
-      VAbenteurer *Aben;
+      VAbenteurer Aben;
       Datenbank Database;
       Random random;
+      LernListen LL;
    
    public:
 
       Zufall(midgard_CG *h)
-        : hauptfenster(h), Aben(&(h->getChar())),
-          Database(h->getCDatabase()),random(h->random) {};
+        : hauptfenster(h),  Aben(h->getChar()),
+          Database(h->getCDatabase()),random(h->random) ,
+          LL(Database)
+          {};
       void Voll(); // kompletten Zufallsabenteruer erzeugen
 
 //      VAbenteurer Abenteurer() const {return Aben;}

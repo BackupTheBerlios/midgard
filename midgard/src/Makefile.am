@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.192 2002/09/06 20:58:52 thoma Exp $
+# $Id: Makefile.am,v 1.193 2002/09/07 07:15:56 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -103,6 +103,7 @@ registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 
 magus_SOURCES = $(PORT_FILES) \
+   LernListen.cc \
    Zufall.cc \
    Zufall_Spezies_Typ.cc \
    table_zufall.cc \

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.13 2002/09/04 14:28:17 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.14 2002/09/07 07:15:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,11 +35,6 @@ gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton 
   if (ev->button==3) Eigenschaften_variante(3);
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GRUNDWERTE);
 
-  hauptfenster->getWerte().setAu(constraint_aw(
-                                 hauptfenster->getWerte().Spezies()->Au()) );
-  hauptfenster->getWerte().setpA( hauptfenster->random.integer(1,100)-30 
-                                 + 3*(hauptfenster->getWerte().In()/10 
-                                      + hauptfenster->getWerte().Au()/10) );
   combo_spezies->set_sensitive(false);
   return false;
 }
@@ -65,21 +60,28 @@ void table_grundwerte::Eigenschaften_variante(int i)
    { gw_wuerfeln_2x();
      frame_wuerfelvariante->hide();
      check_350();
-     return;
    }
+  else 
+   {
+     Veigenschaften.clear();
+     Veigenschaften.push_back(st_eigen(est,"die Stärke","St"));
+     Veigenschaften.push_back(st_eigen(egs,"die Geschicklichkeit","Gs"));
+     Veigenschaften.push_back(st_eigen(egw,"die Gewandheit","Gw"));
+     Veigenschaften.push_back(st_eigen(eko,"die Konstitution","Ko"));
+     Veigenschaften.push_back(st_eigen(ein,"die Intelligenz","In"));
+     Veigenschaften.push_back(st_eigen(ezt,"das Zaubertalent","Zt"));
+     actual_eigen=est;
 
-  Veigenschaften.clear();
-  Veigenschaften.push_back(st_eigen(est,"die Stärke","St"));
-  Veigenschaften.push_back(st_eigen(egs,"die Geschicklichkeit","Gs"));
-  Veigenschaften.push_back(st_eigen(egw,"die Gewandheit","Gw"));
-  Veigenschaften.push_back(st_eigen(eko,"die Konstitution","Ko"));
-  Veigenschaften.push_back(st_eigen(ein,"die Intelligenz","In"));
-  Veigenschaften.push_back(st_eigen(ezt,"das Zaubertalent","Zt"));
-  actual_eigen=est;
-
-  if      (i==2)  gw_variante_2();
-  else if (i==3)  gw_variante_3();
-  frame_wuerfelvariante->show();
+     if      (i==2)  gw_variante_2();
+     else if (i==3)  gw_variante_3();
+     frame_wuerfelvariante->show();
+   }
+  hauptfenster->getWerte().setAu(constraint_aw(
+                                 hauptfenster->getWerte().Spezies()->Au()) );
+  hauptfenster->getWerte().setpA( hauptfenster->random.integer(1,100)-30 
+                                 + 3*(hauptfenster->getWerte().In()/10 
+                                      + hauptfenster->getWerte().Au()/10) );
+  
 }
 
 void table_grundwerte::check_350(const std::vector<int>& a)
