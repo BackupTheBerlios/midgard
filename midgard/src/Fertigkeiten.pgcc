@@ -31,11 +31,7 @@ cerr << '\n';
 cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
 {assert(tag);
  *this=cH_Fertigkeit(new Fertigkeit(tag));
-cerr << "cH_Fertigkeit::cH_Fertigkeit(" << tag->getAttr("Name") << ")\n";
  cache.Register(tag->getAttr("Name"),*this);
-for (cache_t::const_iterator i=cache.begin();i!=cache.end();++i)
-cerr << i->first << ',';
-cerr << '\n';
 }
 #endif
 
