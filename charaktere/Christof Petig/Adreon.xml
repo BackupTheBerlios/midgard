@@ -5,21 +5,22 @@
  </Preise>
 
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Adreon McX" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Figur Name="Adreon McTuron" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="2"/>
   <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Er" Spezialisierung="Langschwert" Stadt_Land="Stadt" Hand="Rechtshänder"/>
   <Basiseigenschaften St="95" Gw="86" Gs="93" Ko="90" In="97" Zt="76"/>
   <abgeleiteteEigenschaften Au="50" pA="53" Wk="100" Sb="47" B="25"/>
-  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
-  <Gesundheit LP="17" AP="12"/>
-  <Beschreibung Alter="21" Gestalt="schlank" Gewicht="82" Größe="180" Stand="Volk" Herkunft="Alba" Glaube="Dheis Albi"/>
-  <Vermögen GS="14"/>
-  <Steigern><Praxispunkte/></Steigern>
+  <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="11"/>
+  <Gesundheit LP="17" AP="17"/>
+  <Beschreibung Alter="21" Gestalt="normal" Gewicht="82" Größe="180" Stand="Volk" Herkunft="Alba" Glaube="Dheis Albi"/>
+  <Vermögen GS="14" SS="1"/>
+  <Steigern GFP="445" benötigte_Tage="60,16"><Praxispunkte/></Steigern>
   <TextPixSize>8</TextPixSize>
   <Ausrüstung>
     <Rüstung>TR</Rüstung>
-    <Waffe Bezeichnung="kleiner Schild"/>
-    <Waffe Bezeichnung="Langschwert"/>
+    <Rüstung2>OR</Rüstung2>
     <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Langschwert"/>
+    <Waffe Bezeichnung="kleiner Schild"/>
     <Gegenstand Bezeichnung="Körper" sichtbar="true">
       <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
       <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
@@ -33,34 +34,40 @@
     </Gegenstand>
   </Ausrüstung>
   <Fertigkeiten>
-    <Sinne Bezeichnung="Sehen" Wert="10"/>
-    <Sinne Bezeichnung="Hören" Wert="8"/>
-    <Sinne Bezeichnung="Riechen" Wert="8"/>
-    <Sinne Bezeichnung="Schmecken" Wert="8"/>
-    <Sinne Bezeichnung="Tasten" Wert="8"/>
-    <Sinne Bezeichnung="Sechster Sinn" Wert="3"/>
+    <Sinn Bezeichnung="Sehen" Wert="8"/>
+    <Sinn Bezeichnung="Hören" Wert="8"/>
+    <Sinn Bezeichnung="Riechen" Wert="8"/>
+    <Sinn Bezeichnung="Schmecken" Wert="8"/>
+    <Sinn Bezeichnung="Tasten" Wert="8"/>
+    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
     <Beruf Bezeichnung="Bote"/>
+    <Fertigkeit Bezeichnung="Verkleiden" Wert="12"/>
+    <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
+    <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
+    <Fertigkeit Bezeichnung="Geländelauf" Wert="11"/>
+    <Fertigkeit Bezeichnung="Zeichensprache" Wert="8"/>
+    <Fertigkeit Bezeichnung="Geheimzeichen" Wert="11" Zusatz="Zinken (Meer der fünf Winde)"/>
     <Fertigkeit Bezeichnung="Gassenwissen" Wert="7"/>
     <Fertigkeit Bezeichnung="Himmelskunde" Wert="6"/>
     <Fertigkeit Bezeichnung="Lippenlesen" Wert="8"/>
     <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="7"/>
     <Fertigkeit Bezeichnung="Reiten" Wert="11"/>
-    <Fertigkeit Bezeichnung="Seilkunst" Wert="7"/>
+    <Fertigkeit Bezeichnung="Seilkunst" Wert="8"/>
     <Fertigkeit Bezeichnung="Spurenlesen" Wert="8"/>
     <Fertigkeit Bezeichnung="Suchen" Wert="10"/>
     <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
-    <Waffe Bezeichnung="Langschwert" Wert="7"/>
-    <Waffe Bezeichnung="Dolch" Wert="5"/>
-    <Waffe Bezeichnung="kleiner Schild" Wert="5"/>
-    <Waffe Bezeichnung="Handaxt" Wert="5"/>
-    <Grundkenntnis Bezeichnung="ESchlagwaffe"/>
-    <Grundkenntnis Bezeichnung="ESchwert"/>
-    <Grundkenntnis Bezeichnung="Schilde"/>
+    <Waffe Bezeichnung="Dolch" Wert="8"/>
+    <Waffe Bezeichnung="Handaxt" Wert="7"/>
+    <Waffe Bezeichnung="Langschwert" Wert="8"/>
+    <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+    <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+    <Grundkenntnis Bezeichnung="Einhandschwert"/>
+    <Grundkenntnis Bezeichnung="Schild"/>
     <Grundkenntnis Bezeichnung="Stichwaffe"/>
     <Sprache Bezeichnung="Albisch" Wert="20"/>
     <Sprache Bezeichnung="Comentang" Wert="12"/>
     <Urschrift Bezeichnung="Albisch" Wert="14"/>
-    <Optionen Name="Originalregeln" Wert="true"/>
+    <Optionen Name="Originalregeln" Wert="false"/>
     <Optionen Name="NSCs zulassen" Wert="false"/>
   </Fertigkeiten>
  </Midgard-Abenteurer>
