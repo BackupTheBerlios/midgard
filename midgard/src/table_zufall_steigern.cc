@@ -34,7 +34,6 @@
 
 void table_zufall::on_button_steigern_clicked()
 {
-  on_button_check100_clicked();
   int gfp;
   spinbutton_gfp->update();
   spinbutton_grad->update();
