@@ -89,7 +89,7 @@ void midgard_CG::xml_import(const std::string& datei)
    }
    
    const int xml_version=top->getIntAttr("Version");
-   if (xml_version<3 || xml_version>9)
+   if (xml_version<3 || xml_version>10)
    {  manage(new WindowInfo("XML Version "+itos(xml_version)
    			+" wird noch nicht unterstützt"));
    }
