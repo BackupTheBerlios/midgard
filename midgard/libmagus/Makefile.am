@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.48 2004/05/24 16:02:59 christof Exp $
+# $Id: Makefile.am,v 1.49 2004/06/23 11:00:25 christof Exp $
 
 SIGC_MAJOR=2
 
@@ -56,7 +56,7 @@ EXTRA_QUELLEN=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
 	Zufall.cc Zufall_Lernschema.cc Zufall_Spezies_Typ.cc \
 	spielleiter_export.cc Magus_Optionen.cc AbenteurerLernpunkte.cc \
 	Undo.cc VAbenteurer.cc zufall_steigern.cc VAbentModelProxy.cc \
-	Wizard.cc
+	Wizard.cc ResistenzUndCo.cc
 
 libmagus_la_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Zauberwerk.cc Land.cc Waffe.cc WaffeGrund.cc Sinne.cc \

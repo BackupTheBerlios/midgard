@@ -99,8 +99,7 @@ protected:
               ,nsc_only(),steigern_mit_EP() {}
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
-                 ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT,SINN} ;
-//      enum TREE {OLD,NEW}; // GUI
+                 ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT,SINN,RESISTENZ_UND_CO} ;
 
       const std::map<std::string,std::string> &get_MapTyp() const {return map_typ;}
       

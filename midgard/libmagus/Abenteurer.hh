@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.23 2004/04/22 09:31:19 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.24 2004/06/23 11:00:25 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -52,15 +52,15 @@ class Abenteurer : public Grundwerte
    std::list<MBEmlt> list_Schrift;        
 
    std::list<std::string> list_Gelernt_von_Spruchrolle;
-
+   
 public:
    typedef std::map<cH_Region,Model_copyable<bool> > regionen_t;
+
 private:
    regionen_t regionen; // aktive Regionen
    Optionen optionen; // aktive Optionen
 
 public:
-
    Abenteurer();
    
    const std::string LastSavedAt() const;
@@ -110,7 +110,6 @@ private:
       class sort_universell {
         public: sort_universell() {}
         bool operator()(st_universell x,st_universell y) const
-//          { return (x.mbe)->Name() < (y.mbe)->Name() ;
           { return (*(x.mbe))->Name() < (*(y.mbe))->Name() ;
           }
       };
@@ -159,6 +158,12 @@ public:
                             std::list<MBEmlt>& nach,
                             const MBEmlt& MBE);
 
+   // neues Interface
+   // true: Besonderheiten
+   bool ErlernenSteigern(MBEmlt &MBE);
+   // false: Fehlgeschlagen
+   bool ReduzierenVerlernen(MBEmlt &MBE);
+   
    // Zum Steigern eines MBEm
    typedef Enums::e_was_steigern e_was_steigern;
    typedef Enums::e_wie_steigern e_wie_steigern;

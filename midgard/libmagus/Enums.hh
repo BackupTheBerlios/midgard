@@ -1,4 +1,4 @@
-// $Id: Enums.hh,v 1.3 2003/09/01 06:47:57 christof Exp $               
+// $Id: Enums.hh,v 1.4 2004/06/23 11:00:25 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -25,6 +25,7 @@ namespace Enums
 {
    enum geschlecht{NoFM,Mann,Frau};
    enum StadtLand{NoSL,Stadt,Land};
+   // <deprecated> diese Definitionen sind in Abenteurer.hh sinnvoller realisiert
    enum e_wie_steigern{eUnterweisung,eSelbststudium,ePraxis};
    enum e_was_steigern{eMBEm,eAusdauer,eAbwehr,eZaubern,eResistenz};
    struct st_bool_steigern{bool mitEP;bool HausG1;bool Spruchrolle; bool
@@ -37,7 +38,7 @@ namespace Enums
                   pp_verfallen(v),aep_fuellen(a),neue_sprache_pp(n)
                   {}
                     };
-
+   // </deprecated>
    enum MBEListen {sFert,sWaff,sZaub,sSpra,sSchr,sWGru,sZWerk,sKiDo};
 
 };

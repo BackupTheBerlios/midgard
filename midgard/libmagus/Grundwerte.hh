@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.9 2003/09/05 06:20:13 christof Exp $               
+// $Id: Grundwerte.hh,v 1.10 2004/06/23 11:00:25 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -27,6 +27,8 @@
 #include "Typen.hh"
 #include "MidgardBasicElement.hh"
 #include "Fertigkeiten.hh"
+#include <BaseObjects/Model.h>
+#include <Misc/compiler_ports.h>
 
 class Grundwerte
 {
@@ -62,12 +64,25 @@ class Grundwerte
    cH_Spezialgebiet spezialgebiet;
    Enums::StadtLand stadt_land;
 
-   int steigern_EP_prozent;  
+//   int steigern_EP_prozent;  
    int grad_basiswerte; 
 
    std::vector<cH_Typen> Typ;
    std::string muttersprache;
 
+public: // access these Models if you like ... ;-)
+   enum wie_steigern_t { 
+           ws_Unterweisung, // FP+GS
+           ws_none=ws_Unterweisung, // FP werden nicht verändert (*anteil=0)
+           ws_Selbststudium=ws_Unterweisung, // 4/3*FP (goldanteil=0, fpanteil=133)
+           ws_NurPraxispunkte, // PP (GFP Rest kann verfallen)
+           ws_PraxispunkteFP, // PP+FP (mit FP bis zur nächsten Stufe auffüllen)
+           ws_Spruchrolle // FP/10, GFP+=2*FP, Fehlschlag: 
+        };
+
+   Model_copyable<wie_steigern_t> wie_steigern;
+   Model_copyable<int> goldanteil; // 33-67 (oder weniger wenn Auftraggeber Kosten bezahlt)
+   Model_copyable<int> fpanteil; // 33-67 (oder 133 wenn Selbststudium)
 
 public:
    Grundwerte();
@@ -270,13 +285,13 @@ public:
    std::string Muttersprache() const {return muttersprache;}
    void setMuttersprache(std::string s) {muttersprache=s;}
 
-   int get_Steigern_EP_Prozent() const {return steigern_EP_prozent;}
+   int get_Steigern_EP_Prozent() const {return fpanteil;}
    int gold_kosten(int kosten) const;
    int ep_kosten(int kosten) const;
    int get_Grad_Basiswerte() const {return grad_basiswerte;}
-   void set_Grad_Anstieg(int p,int b)
-              { steigern_EP_prozent=p; grad_basiswerte=b; }
-   void set_Steigern_EP_Prozent(int i) {steigern_EP_prozent=i;}
+   __deprecated void set_Grad_Anstieg(int p,int b)
+              { fpanteil=p; grad_basiswerte=b; }
+   __deprecated void set_Steigern_EP_Prozent(int i) {fpanteil=i;}
    void set_Grad_Basiswerte(int i) {grad_basiswerte=i;}
 
    void setRuestung1(const std::string &r,bool force=false)

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.10 2004/03/06 16:55:41 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.11 2004/06/23 11:00:25 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -61,7 +61,7 @@ void Grundwerte::reset()
   silber=0; 
   kupfer=0;
   stadt_land=Enums::Stadt;
-  steigern_EP_prozent=50;
+//  steigern_EP_prozent=50;
   grad_basiswerte=1;
   herkunft=cH_Land("",true);
 
@@ -377,12 +377,12 @@ std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_F
 }
 
 int Grundwerte::gold_kosten(int kosten) const
-{
-  int g=int(kosten * (100-get_Steigern_EP_Prozent())/100. + 0.5);
-  int e=ep_kosten(kosten);
+{ // soll es nicht 100% ergeben, dann getrennt runden
+  if (fpanteil!=100-goldanteil) 
+     return int(kosten * (100-get_Steigern_EP_Prozent())/100. + 0.5);
   
-  if(g+e != kosten) g= kosten-e; // Wg. Rundungsproblemen
-  return g;
+  // damit es zu 100% aufgeht (Rundungsprobleme)
+  return kosten-ep_kosten(kosten);
 }
 
 
@@ -434,11 +434,12 @@ Grundwerte::Grundwerte()
              b(),lp(),ap(),gg(),sg(),abwehr_wert(),abwehr_pp(),
              zaubern_wert(),zauber_pp(),pp_spezialzauber(),resistenz(),resistenz_pp(),
              alter(),geschlecht(Enums::Mann),gewicht(),groesse(),grad(1),
-             stand(""),glaube(""),name_abenteurer(""),version("Erschaffung"),
+             stand(),glaube(),name_abenteurer(),version("Erschaffung"),
              gfp(),steigertage(),gold(), silber(), kupfer(),
              aep(),kep(),zep(),herkunft(cH_Land("",true)),spezies("Mensch"),
-             stadt_land(Enums::Stadt), steigern_EP_prozent(50), grad_basiswerte(1),
-             Typ(2)
+             stadt_land(Enums::Stadt), /*steigern_EP_prozent(50),*/ grad_basiswerte(1),
+             Typ(2), wie_steigern(ws_Unterweisung), goldanteil(50),
+             fpanteil(50)
 { reset(); }
 
 

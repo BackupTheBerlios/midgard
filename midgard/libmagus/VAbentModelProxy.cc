@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.cc,v 1.12 2004/05/26 09:37:12 christof Exp $               
+// $Id: VAbentModelProxy.cc,v 1.13 2004/06/23 11:00:25 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -22,9 +22,25 @@
 #include "Datenbank.hh"
 #include "magustrace.h"
 #include <Misc/TraceNV.h>
+#if MPC_SIGC_VERSION>=0x200
+#include <sigc++/compatibility.h>
+#include <sigc++/bind.h>
+#endif
+
+void VAbentModelProxy::disconnect()
+{  while (!sg_conns.empty()) 
+   { sg_conns.begin()->disconnect();
+     sg_conns.erase(sg_conns.begin());
+   }
+}
+
+static void adaptor(void *ptr,SigC::Signal0<void> *sig)
+{  (*sig)();
+}
 
 void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,NV("st_undo",&A));
+   disconnect();
    for (std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();
 		i!=Datenbank.Regionen.end();++i)
       regionen[*i]=Model_ref<bool>(A.abenteurer.getRegion(*i));
@@ -39,10 +55,19 @@ void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
       
    wizard.set_model(Model_ref<Wizard::esteps>(A.wizard));
    wizard_mode=Model_ref<Wizard::mode>(A.wizard);
+   sg_conns.push_back(A.abenteurer.wie_steigern.signal_changed()
+         .connect(SigC::bind(SigC::slot(&adaptor),&sig_steigern_geaendert)));
+   sg_conns.push_back(A.abenteurer.goldanteil.signal_changed()
+         .connect(SigC::bind(SigC::slot(&adaptor),&sig_steigern_geaendert)));
+   sg_conns.push_back(A.abenteurer.fpanteil.signal_changed()
+         .connect(SigC::bind(SigC::slot(&adaptor),&sig_steigern_geaendert)));
+   // it most likely changed, perhaps a crc can cover it  ...
+   sig_steigern_geaendert();
 }
 
 void VAbentModelProxy::divert()
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+   disconnect();
    for (regionen_t::iterator i=regionen.begin();i!=regionen.end();++i)
       i->second=Model_ref<bool>();
    
@@ -54,10 +79,13 @@ void VAbentModelProxy::divert()
       
    wizard.set_model(Model_ref<Wizard::esteps>());
    wizard_mode=Model_ref<Wizard::mode>();
+   // it most likely changed, perhaps a crc can cover it  ...
+   sig_steigern_geaendert();
 }
 
 void VAbentModelProxy::divert(VAbenteurer::Item &A)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,NV("Item",&A));
+   disconnect();
    for (regionen_t::iterator i=A.proxies.regionen.begin();i!=A.proxies.regionen.end();++i)
       regionen[i->first].set_model(i->second);
    for (check_t::iterator i=A.proxies.checks.begin();i!=A.proxies.checks.end();++i)
@@ -70,4 +98,12 @@ void VAbentModelProxy::divert(VAbenteurer::Item &A)
    undo_changed.set_signal(A.signal_undo_changed());
    undo_list_changed.set_signal(A.signal_undo_list_changed());
    werte_eingeben.set_model(A.WerteEingebenModel());
+   sg_conns.push_back(A.proxies.sig_steigern_geaendert
+         .connect(sig_steigern_geaendert.slot()));
+   // it most likely changed, perhaps a crc can cover it  ...
+   sig_steigern_geaendert();
+}
+
+VAbentModelProxy::~VAbentModelProxy()
+{  disconnect();
 }

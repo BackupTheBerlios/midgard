@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.hh,v 1.7 2004/05/26 09:37:12 christof Exp $               
+// $Id: VAbentModelProxy.hh,v 1.8 2004/06/23 11:00:25 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -20,12 +20,13 @@
 #ifndef CLASS_VABENTMODELPROXY_HH
 #define CLASS_VABENTMODELPROXY_HH
 
-#include <BaseObjects/ModelPlex.h>
-#include "Region.hh"
 #include <map>
+#include <vector>
+#include <BaseObjects/ModelPlex.h>
+#include <BaseObjects/SignalPlex.h>
+#include "Region.hh"
 #include "Optionen.hh"
 #include "Wizard.hh"
-#include <BaseObjects/SignalPlex.h>
 
 namespace AbenteurerListe {
 class Item;
@@ -49,10 +50,24 @@ struct VAbentModelProxy
    ModelPlex<bool> werte_eingeben;
    SignalPlex1<SigC::Signal0<void> > undo_changed;
    SignalPlex1<SigC::Signal0<void> > undo_list_changed;
+   // dieses Signal feuert, wenn wie_steigern,goldanteil,fpanteil geändert wurde
+private:   
+   std::vector<SigC::Connection> sg_conns;
+   VAbentModelProxy::VAbentModelProxy(const VAbentModelProxy &);
+   const VAbentModelProxy &operator=(const VAbentModelProxy &);
+public:   
+   VAbentModelProxy() {}
+   
+   SigC::Signal0<void> sig_steigern_geaendert;
    
    void divert(AbenteurerListe::Item &new_one);
    void divert(AbenteurerListe::st_undo &new_one);
    // divert to nothing
    void divert();
+   
+   ~VAbentModelProxy();
+
+private:
+   void disconnect();
 };
 #endif

@@ -27,7 +27,8 @@ class table_steigern : public table_steigern_glade
         std::list<MBEmlt> list_Sprache_neu;
         std::list<MBEmlt> list_Schrift_neu;
 
-        Model<bool> steigern_mit_EP_bool;
+        Model<bool> steigern_mit_EP_bool; // nur das Model für die Oberfläche
+              // muss synchron mit Grundwerte gehalten werden
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE,PAGE_BESITZ};
 
