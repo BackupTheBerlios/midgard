@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.24 2001/12/21 09:34:05 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.25 2001/12/21 22:46:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,6 @@
 // This file is for your program, I won't touch it again!
 
 #include "midgard_CG.hh"
-#include "zufall.h"
 #include <strstream>
 #include <algorithm>
 #include <gtk--/label.h>
@@ -55,7 +54,6 @@ gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
    }
   else if (ev->button==3)
    {
-     Random random;
      std::vector<int> V;
      for(int i=0;i<9;++i) V.push_back(random.integer(1,100)) ;
      sort(V.rbegin(),V.rend());
@@ -97,6 +95,7 @@ gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
   return false;
 }
 
+//////////////////////////////////////////////////////////////////////////
 void midgard_CG::gw_setzen(Gtk::Label *L,int button)
 {
   if(L) 
@@ -116,7 +115,6 @@ void midgard_CG::gw_setzen(Gtk::Label *L,int button)
     return;
    }
 
-  Random random;
   vector<int> V;
   for(int j=0;j<2;++j) V.push_back(random.integer(1,100)) ;
   sort(V.rbegin(),V.rend());
@@ -143,6 +141,7 @@ void midgard_CG::set_werte_label_2()
   button_wert_6->add_label("Zt");
 }
 
+//////////////////////////////////////////////////////////////////////////
 
 void midgard_CG::set_werte_label_3(Gtk::Label *L)
 {
@@ -187,6 +186,8 @@ void midgard_CG::set_werte_label_3(Gtk::Label *L)
   ++werte_label_count;
 }
 
+//////////////////////////////////////////////////////////////////////////
+
 void midgard_CG::on_button_wert_1_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_1->get_child());
@@ -230,10 +231,10 @@ void midgard_CG::on_button_wert_6_clicked()
   else  set_werte_label_3(l);
 }
 
+//////////////////////////////////////////////////////////////////////////
 
 void midgard_CG::gw_wuerfeln_2x()
 {   
- Random random;
  Werte.set_Basiswerte(constraint_gw(random,Werte.Spezies()->St()),
      constraint_gw(random,Werte.Spezies()->Gw()),
      constraint_gw(random,Werte.Spezies()->Gs()),

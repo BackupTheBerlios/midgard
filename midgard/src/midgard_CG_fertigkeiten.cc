@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.39 2001/12/13 21:53:49 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.40 2001/12/21 22:46:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,6 @@
 #include "Fertigkeiten_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Window_angeb_fert.hh"
-#include "zufall.h"
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
@@ -67,7 +66,6 @@ gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *e
 
 void midgard_CG::on_angeborene_fertigkeit_clicked()
 {
-  Random random;
   int wurf = random.integer(1,100);
 //wurf = 100; /*debug*/
   while (wurf==100)

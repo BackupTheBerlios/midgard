@@ -1,0 +1,90 @@
+#include "Ruestung.hh"
+#include <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
+#include <gtk--/main.h>
+exec sql include sqlca;
+
+
+cH_Ruestung::cache_t cH_Ruestung::cache;
+
+cH_Ruestung::cH_Ruestung(const std::string& name)
+{
+ cH_Ruestung *cached(cache.lookup(name));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_Ruestung(new Ruestung(name));
+   cache.Register(name,*this);
+  }
+}
+
+Ruestung::Ruestung(const std::string& n) 
+: name(n)
+{
+  exec sql begin declare section;
+   char  db_name [ 50 ]   ,  db_long [ 50 ]   ,  db_region [ 50 ]   ;
+   int  db_lp_verlust   ,  db_min_staerke   ,  db_rw_verlust   ,  db_b_verlust   ;
+   int db_abwehr_bonus_verlust,db_angriffs_bonus_verlust;
+  exec sql end declare section ;
+  strncpy(db_name,Name().c_str(),sizeof(db_name));
+  exec sql select  coalesce( region  , '' ) , 
+         lp_verlust  , min_staerke  , rw_verlust  , 
+         b_verlust ,coalesce(abwehr_bonus_verlust,0),
+         coalesce(angriffs_bonus_verlust,0)
+      into :db_long, :db_region, :db_lp_verlust, :db_min_staerke, :db_rw_verlust,
+           :db_b_verlust,:db_abwehr_bonus_verlust,:db_angriffs_bonus_verlust
+      from ruestung where ruestung_s=:db_name ;
+  SQLerror::test(__FILELINE__);
+  longname=db_long;
+  region=db_region;
+  lp_verlust=db_lp_verlust;
+  min_staerke=db_min_staerke;
+  rw_verlust=db_rw_verlust;
+  b_verlust=db_b_verlust;
+  abwehr_bonus_verlust=db_abwehr_bonus_verlust;
+  angriffs_bonus_verlust=db_angriffs_bonus_verlust;
+}
+
+
+Ruestung_All::Ruestung_All(Gtk::ProgressBar *progressbar)
+{
+ exec sql begin declare section;
+   char  db_name [ 100 ]   ;
+   int  db_size   ;
+ exec sql end declare section;
+ exec sql select  count ( ruestung_s  ) into :db_size from ruestung;
+ exec sql declare RIein  cursor for select distinct ruestung_s  from ruestung ;
+
+ Transaction tr;
+ exec sql open RIein;
+ SQLerror::test(__FILELINE__);
+ double count=0;
+ while(true)
+  {
+   progressbar->set_percentage(count/db_size);
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+   exec sql fetch RIein into :db_name;
+   SQLerror::test(__FILELINE__,100);  
+   if (sqlca.sqlcode) break;
+   list_All.push_back(cH_Ruestung(db_name));
+   ++count;
+  }
+ exec sql close RIein;
+ tr.close();
+ progressbar->set_percentage(1);
+}
+
+
+int Ruestung::AbwehrBonus_Verlust(int abwehr_bonus) const
+{
+ abwehr_bonus-=abwehr_bonus_verlust;
+ if(abwehr_bonus<0) abwehr_bonus=0;
+ return abwehr_bonus;
+} 
+int Ruestung::AngriffsBonus_Verlust(int angriffs_bonus) const
+{
+ angriffs_bonus-=angriffs_bonus_verlust;
+ if(angriffs_bonus<0) angriffs_bonus=0;
+ return angriffs_bonus;
+}
+

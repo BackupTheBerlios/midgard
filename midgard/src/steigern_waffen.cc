@@ -17,7 +17,6 @@
  */
 
 #include "midgard_CG.hh"
-#include "zufall.h"
 #include "WaffeGrund.hh"
 #include "class_SimpleTree.hh"
 #include "Pflicht.hh"

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.32 2001/12/13 21:53:49 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.33 2001/12/21 22:46:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,6 @@
 
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
-#include "zufall.h"
 
 void midgard_CG::on_grad_anstieg_clicked()
 {
@@ -78,7 +77,6 @@ void midgard_CG::get_grundwerte()
       manage(new WindowInfo(strinfo));
       return;
    }
-  Random random;
   int z=random.integer(1,100);
   std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nfür Grad "
       + itos(Database.GradAnstieg.get_Grad_Basiswerte()+1) + " wurde eine ";
@@ -127,7 +125,6 @@ void midgard_CG::get_ausdauer(int grad)
    if (!steigern(kosten)) return;
    Werte.add_GFP(kosten);
    int ap=0;
-   Random random;
    for (int i=0;i<grad;++i) ap += random.integer(1,6);
 
   int nab, nap;

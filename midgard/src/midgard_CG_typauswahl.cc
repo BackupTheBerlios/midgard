@@ -58,6 +58,30 @@ void midgard_CG::typauswahl_button()
  show_gtk();
  Database.ausnahmen.set_Typ(Typ);
  if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
+
+ if(Werte.Spezies()->Land()) 
+   {
+     radiobutton_land->set_active(true);
+     radiobutton_stadt->set_sensitive(false);
+     radiobutton_land->set_sensitive(true);
+   }
+ else if(!Typ[0]->Stadt())
+   {
+     radiobutton_land->set_active(true);
+     radiobutton_stadt->set_sensitive(false);
+     radiobutton_land->set_sensitive(true);
+   }
+ else if(!Typ[0]->Land())
+   {
+     radiobutton_stadt->set_active(true);
+     radiobutton_land->set_sensitive(false);
+     radiobutton_stadt->set_sensitive(true);
+   }
+ else
+   {
+     radiobutton_stadt->set_sensitive(true);
+     radiobutton_land->set_sensitive(true);
+   }
 }
 void midgard_CG::typauswahl_2_button()
 {
@@ -108,11 +132,10 @@ void midgard_CG::spezieswahl_button()
    }
 }
 
-void midgard_CG::on_optionmenu_land_deactivate()
+void midgard_CG::on_radiobutton_stadt_land_toggled()
 {
-   int iw = int(optionmenu_land->get_menu()->get_active()->get_user_data());
-   if(iw==optionmenu_land::Stadt) Werte.setStadt_Land("Stadt");   
-   if(iw==optionmenu_land::Land)  Werte.setStadt_Land("Land");   
+   if(radiobutton_stadt->get_active()) Werte.setStadt_Land("Stadt");   
+   else                                Werte.setStadt_Land("Land");   
 }
 
 

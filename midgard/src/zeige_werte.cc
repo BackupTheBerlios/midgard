@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.26 2001/12/13 21:53:49 thoma Exp $
+// $Id: zeige_werte.cc,v 1.27 2001/12/21 22:46:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,13 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        ko->set_text(itos(w.Ko()));
        in->set_text(itos(w.In()));
        zt->set_text(itos(w.Zt()));
+       label_sehen->set_text(itos(w.Sehen()));
+       label_hoeren->set_text(itos(w.Hoeren()));
+       label_riechen->set_text(itos(w.Riechen()));
+       label_schmecken->set_text(itos(w.Schmecken()));
+       label_tasten->set_text(itos(w.Tasten()));
+       label_sechster_sinn->set_text(itos(w.SechsterSinn()));
+
        au->set_text(itos(w.Au()));
        pa->set_text(itos(w.pA()));
        sb->set_text(itos(w.Sb()));      

@@ -1,4 +1,4 @@
-/* $Id: zufall.h,v 1.15 2001/11/09 12:43:45 thoma Exp $ */
+/* $Id: zufall.h,v 1.16 2001/12/21 22:46:15 thoma Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -16,6 +16,8 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
+#ifndef _ZUFALL_H
+#  define _ZUFALL_H 
 
 //#include <iomanip.h>
 //#include <time.h>
@@ -43,3 +45,4 @@ private:
          }
 */
 };
+#endif

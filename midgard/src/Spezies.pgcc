@@ -48,6 +48,7 @@ Spezies::Spezies(const std::string& n)
    int NR;
    char TYP[50];
    int MAXGRAD;
+   bool LAND;
  exec sql end declare section;
  strncpy(SPEZIES,Name().c_str(),sizeof(SPEZIES));
  exec sql select nr,coalesce(m_st,-h_st), coalesce(m_ge,-h_ge),
@@ -55,9 +56,9 @@ Spezies::Spezies(const std::string& n)
       coalesce(m_sb,-h_sb), coalesce(m_au,-h_au), lpbasis, ap_grad,
       coalesce(m_abb,0), coalesce(m_psy,0), coalesce(m_phs,0), 
       coalesce(m_phk,0),alter,groesse_f,groesse_w,groesse_s,
-      coalesce(gestalt,0),b_f,b_s 
+      coalesce(gestalt,0),b_f,b_s,coalesce(land,'f')
       into :NR,:ST,:GE,:KO,:IN,:ZT,:SB,:AU,:LPBASIS,:AP_GRAD,
-         :ABB,:PSY,:PHS,:PHK,:ALTER,:GF,:GW,:GS,:GESTALT,:BF,:BS
+         :ABB,:PSY,:PHS,:PHK,:ALTER,:GF,:GW,:GS,:GESTALT,:BF,:BS,:LAND
       from spezies where spezies=:SPEZIES;
  SQLerror::test(__FILELINE__); 
  nr=NR;
@@ -82,6 +83,7 @@ Spezies::Spezies(const std::string& n)
  gestalt=GESTALT;
  b_f=BF;
  b_s=BS;
+ land=LAND;
 
  exec sql declare SPEIN2 cursor for select typen,coalesce(maxgrad,0) from 
       spezies_typen where  spezies = :SPEZIES;

@@ -38,7 +38,8 @@ CREATE TABLE "spezies" (
 	"groesse_s" integer,
 	"gestalt" integer,
 	"b_f" integer,
-	"b_s" integer
+	"b_s" integer,
+	"land" boolean
 );
 
 --
@@ -47,12 +48,12 @@ CREATE TABLE "spezies" (
 
 
 COPY "spezies" FROM stdin;
-0	Mensch	0	0	\N	0	\N	0	\N	0	\N	0	\N	0	\N	0	0	\N	0	\N	\N	\N	\N	\N	1	2	20	150	0	4	16
-1	Elf	\N	90	81	\N	61	\N	61	\N	61	\N	\N	0	81	\N	1	\N	0	0	\N	2	2	2	4	2	6	160	-2	4	16
-2	Berggnom	\N	60	61	\N	31	\N	\N	0	\N	0	\N	0	\N	80	-4	\N	-3	20	2	5	5	5	3	1	6	90	-1	2	8
-3	Waldgnom	\N	60	61	\N	31	\N	\N	0	\N	0	\N	0	\N	80	-4	\N	-3	20	2	5	5	5	3	1	6	90	-1	2	8
-4	Halbling	\N	80	91	\N	\N	0	\N	0	\N	0	\N	0	\N	0	-2	\N	-2	\N	1	5	5	5	1	2	6	100	0	2	8
-5	Zwerg	61	\N	\N	90	61	\N	\N	0	\N	0	\N	0	\N	80	1	\N	0	15	\N	4	4	\N	2	1	6	130	2	3	12
+0	Mensch	0	0	\N	0	\N	0	\N	0	\N	0	\N	0	\N	0	0	\N	0	\N	\N	\N	\N	\N	1	2	20	150	0	4	16	\N
+1	Elf	\N	90	81	\N	61	\N	61	\N	61	\N	\N	0	81	\N	1	\N	0	0	\N	2	2	2	4	2	6	160	-2	4	16	\N
+2	Berggnom	\N	60	61	\N	31	\N	\N	0	\N	0	\N	0	\N	80	-4	\N	-3	20	2	5	5	5	3	1	6	90	-1	2	8	\N
+3	Waldgnom	\N	60	61	\N	31	\N	\N	0	\N	0	\N	0	\N	80	-4	\N	-3	20	2	5	5	5	3	1	6	90	-1	2	8	\N
+4	Halbling	\N	80	91	\N	\N	0	\N	0	\N	0	\N	0	\N	0	-2	\N	-2	\N	1	5	5	5	1	2	6	100	0	2	8	\N
+5	Zwerg	61	\N	\N	90	61	\N	\N	0	\N	0	\N	0	\N	80	1	\N	0	15	\N	4	4	\N	2	1	6	130	2	3	12	\N
 \.
 --
 --

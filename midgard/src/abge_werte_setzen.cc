@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.33 2001/12/21 09:34:05 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.34 2001/12/21 22:46:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,13 +18,11 @@
  */
 
 #include "midgard_CG.hh"
-#include "zufall.h"
 
 void midgard_CG::on_abge_werte_setzen_clicked()
 {
   Werte.set_Sinn("Sechster Sinn",Werte.Zt()/25);
 
-  Random random;
   int grad =1;
   //////////////////////////////////////////////////////////////////////
   // Aussehn

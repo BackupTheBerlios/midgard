@@ -43,14 +43,14 @@ Typen::Typen(const std::string& n)
  exec sql begin declare section;
    int db_typnr;
    char  db_typs[10],db_typl[50],db_typlw[50],db_typz[5],db_ausdauer[5],
-         db_region[5],db_beruf[5];
+         db_region[5],db_beruf[5],db_sl[5];
    int db_stand,db_sb,db_ruestung,db_geld;         
  exec sql end declare section;
  strncpy(db_typs,Short().c_str(),sizeof(db_typs));
  exec sql select typnr,typl,typlw,typz,ausdauer,stand,sb,ruestung,geld,
-         coalesce(region,''),coalesce(beruf,'')
+         coalesce(region,''),coalesce(beruf,''),coalesce(stadt_land,'')
       into :db_typnr,:db_typl,:db_typlw,:db_typz,:db_ausdauer,:db_stand,
-            :db_sb,:db_ruestung,:db_geld,:db_region,:db_beruf
+            :db_sb,:db_ruestung,:db_geld,:db_region,:db_beruf,:db_sl
       from typen where typs=:db_typs;
  SQLerror::test(__FILELINE__); 
  typnr=db_typnr;
@@ -64,6 +64,10 @@ Typen::Typen(const std::string& n)
  geld=db_geld;
  region=db_region;
  beruf=db_beruf;
+ std::string sl=db_sl;
+ if(sl=="s") land=false; 
+ else if(sl=="l") stadt=false; 
+ else {land=true;stadt=true;}
 }
 
 

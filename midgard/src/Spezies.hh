@@ -15,6 +15,7 @@ class Spezies : public HandleContent
   int st,gw,gs,ko,in,zt,sb,au,lpbasis,ap_grad,m_abb,
        m_psy,m_phs,m_phk,alter, groesse_f,groesse_w, groesse_s, gestalt,
        b_f,b_s;
+  bool land;
 
 protected:   
   struct st_spez {std::string typen;int maxgrad;
@@ -57,6 +58,7 @@ public:
    int B_s() const {return b_s;}
 //   std::vector<st_spez> get_Vec_Typen() const {return vec_typen;}
    bool Typ_erlaubt(std::string typ) const;
+   bool Land() const {return land;}
 };
 
 class cH_Spezies : public Handle<const Spezies>

@@ -19,7 +19,6 @@
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 #include "class_SimpleTree.hh"
-#include "zufall.h"
 
 void midgard_CG::on_zauber_laden_clicked()
 {   
@@ -142,7 +141,6 @@ void midgard_CG::on_spruchrolle_toggled()
 bool midgard_CG::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
 {
  cH_Zauber zauber(z);
- Random random;
  int erf_z = Werte.Zaubern_wert() + Werte.bo_Za() ;
  int xr=random.integer(1,20);
  int iaus=0;

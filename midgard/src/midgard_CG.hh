@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.109 2001/12/21 09:34:05 thoma Exp $
+// $Id: midgard_CG.hh,v 1.110 2001/12/21 22:46:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,6 +45,7 @@
 
 #include <vector>
 #include <list>
+#include "zufall.h"
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
@@ -87,6 +88,7 @@ extern bool Kuestenstaatenbool;//S
 
 class midgard_CG : public midgard_CG_glade
 {   
+        Random random;   
    public:
         struct st_Database { std::vector<cH_Land> Laender;
                              std::vector<cH_Ruestung> Ruestung;
@@ -203,7 +205,8 @@ class midgard_CG : public midgard_CG_glade
         void fill_spezies();
         void typauswahl_button();
         void typauswahl_2_button();
-        void on_optionmenu_land_deactivate();
+//        void on_optionmenu_land_deactivate();
+        void on_radiobutton_stadt_land_toggled();
         void angeborene_zauber();
         void angeborene_fertigkeiten();
         void on_radiobutton_frau_toggled();
@@ -418,6 +421,9 @@ class midgard_CG : public midgard_CG_glade
         void on_preise_leaf_selected(cH_RowDataBase d);        
         void on_button_modi_clicked();
         void show_modi();
+        void setStandardAusruestung();
+        void setFertigkeitenAusruestung(AusruestungBaum *Rucksack);
+        void InfoFenster(std::string name,int wurf,int noetig);
         void showAusruestung();
         void showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB);
         Gtk::CTree *Ausruestung_tree;

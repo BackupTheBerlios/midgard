@@ -241,9 +241,9 @@ void midgard_CG::load_charakter()
    steigern_bool=db_steigern_bool;
    Database.GradAnstieg.set_Grad_Anstieg(db_steigern_EP,db_grad_basiswerte);
 //////////////////////////////////////////////////////////////////////////////
-   // Land oder Stadt?
-   if(Werte.Stadt_Land()=="Stadt") optionmenu_land->set_history(0);
-   else optionmenu_land->set_history(1);
+//   // Land oder Stadt?
+//   if(Werte.Stadt_Land()=="Stadt") optionmenu_land->set_history(0);
+//   else radiobutton_land->set_active;
 
    // Geschlecht setzen ////////////////////////////////////////////////
    if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
@@ -311,7 +311,7 @@ void midgard_CG::load_ausruestung()
       if (sqlca.sqlcode) break;
       AusruestungBaum *A = &besitz.push_back(Ausruestung(adb_fert,adb_magisch,adb_wert));
       A->setParent(&besitz);
-//      load_ausruestung_C(adb_self,*A);
+      load_ausruestung_C(adb_self,*A);
     }
   exec sql close AFEIN;
   tr.close();
@@ -319,6 +319,7 @@ void midgard_CG::load_ausruestung()
 
 void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum &AB)
 {
+  vector<pair<int,AusruestungBaum> > V;
   exec sql begin declare section;
     char acdb_name[50];
     char acdb_vers[50];
@@ -335,9 +336,9 @@ void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum &AB)
             "version ='"+Werte.Version()+"' and art='Ausruestung' "
             "and av_bonus="+itos(parent);
   strncpy(cquery,squery.c_str(),sizeof(cquery));
-cout << cquery<<'\n'<<parent<<'\n';
+//cout << cquery<<'\n'<<parent<<'\n';
   exec sql prepare LCFEIN_ from :cquery;
-  exec sql declare LCFEIN cursor for LFEIN_;
+  exec sql declare LCFEIN cursor for LCFEIN_;
   Transaction tr;
   exec sql open LCFEIN;
   SQLerror::test(__FILELINE__);
@@ -353,11 +354,19 @@ cout << cquery<<'\n'<<parent<<'\n';
       if (sqlca.sqlcode) break;
       AusruestungBaum *A = &AB.push_back(Ausruestung(acdb_fert,acdb_magisch,acdb_wert));
       A->setParent(&AB);
-//cout << "Child: "<<acdb_self<<' '<<parent<<'\n';
-      load_ausruestung_C(acdb_self,*A);
-    }
+cout << "Child: "<<acdb_self<<' '<<parent<<'\t';
+cout<<A->getAusruestung().Name()<<'\n';
+//      load_ausruestung_C(acdb_self,*A);
+      V.push_back(pair<int,AusruestungBaum>(acdb_self,*A));  
+     }
   exec sql close LCFEIN;
   tr.close();
+
+  for(vector<pair<int,AusruestungBaum> >::iterator i=V.begin();i!=V.end();++i)
+   {
+//cout << i->first<<' '<<i->second.getAusruestung().Name()<<'\n';
+    load_ausruestung_C(i->first,i->second);
+   }
 }
 
 void midgard_CG::load_fertigkeiten()

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.37 2001/12/20 06:18:38 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.38 2001/12/21 22:46:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,11 +20,9 @@
 #include "midgard_CG.hh"
 #include "Window_lernpunkte_editieren.hh"
 #include "Window_Waffe_Geld.hh"
-#include "zufall.h"
 
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {
-  Random random;
   lernpunkte.set_Fach(random.integer(1,6)+random.integer(1,6));
   lernpunkte.set_Allgemein(random.integer(1,6)+1);
   lernpunkte.set_Unge(random.integer(1,6));
@@ -35,7 +33,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   if (Typ[1]->Zaubern()=="j" || Typ[1]->Zaubern() == "z" && Typ[1]->Short()!="") 
       lernpunkte.set_Zauber(random.integer(1,6)+1);
 
-  if (Werte.Alter()==0)
+//  if (Werte.Alter()==0)
    {
      int age = (lernpunkte.Allgemein() + lernpunkte.Unge() 
              + lernpunkte.Fach()
@@ -114,7 +112,7 @@ void midgard_CG::zeige_notebook()
 {
    hbox_beruf->set_sensitive(true);
    table_beruf->set_sensitive(true);
-/*
+
    hbox_fertigkeit->set_sensitive(true);
    table_fertigkeit->set_sensitive(true);
    hbox_waffen->set_sensitive(true);
@@ -124,12 +122,10 @@ void midgard_CG::zeige_notebook()
    hbox_kido->set_sensitive(true);
    table_kido_lernen->set_sensitive(true);
 
-*/
 }
 
 void midgard_CG::on_button_ruestung_clicked()
 {
-  Random random;
   std::string rue;
   int wurf = random.integer(1,100);
   if (Typ[0]->Ruestung() == 1)

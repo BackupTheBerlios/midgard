@@ -16,10 +16,12 @@ class Typen : public HandleContent
    std::string zaubern,ausdauer,region,beruf;
    int stand,sb,ruestung,geld;
    mutable int opionmenu_nr;
+   bool stadt,land;
 
 public:
    Typen(const std::string& n);
-   Typen() : typnr(0),stand(0),sb(0),ruestung(0),geld(0),opionmenu_nr(0){}
+   Typen() : typnr(0),stand(0),sb(0),ruestung(0),geld(0),
+         opionmenu_nr(0),stadt(true),land(true) {}
    
    int Nr() const {return opionmenu_nr;}
    void set_opionmenu_nr(int o) const {opionmenu_nr=o;}
@@ -36,6 +38,9 @@ if (geschlecht=="m") return typl; else return typlw;}
    int Geld() const {return geld;}
    std::string Region() const {return region;}
    std::string Beruf() const {return beruf;}
+   bool Land() const {return land;}
+   bool Stadt() const {return stadt;}
+   
 
    bool is_mage() const 
     { if(Zaubern()=="z" || Zaubern()=="j") return true; else return false; } 

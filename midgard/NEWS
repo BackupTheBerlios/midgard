@@ -1,12 +1,22 @@
 ##########################################################################
+NEWS IN VERSION 0.1delta2
+
+* Berufswahl berücksichtigt bereits gelernte Fertigkeiten
+* Typen und Spezies geben jetzt Stadt/Land vor
+* Ausrüstung aufgrund spezieller Fertigkeiten bei Spielbeginn werden 
+   berücksichtigt
+* Sinne werden auf der Oberfläche angezeigt
+* Kleinere Umbauten der Oberfläche
+
+##########################################################################
 NEWS IN VERSION 0.1delta1
 
-* Berufe funktionieren
+* Berufe funktionieren (fast)
 * Sprachen, alte Sprachen und Schriften funktionieren (zumindest sollten sie das:-)
 * Umbau der Oberfläche begonnen
 * Landeskunde funktioniert jetzt für Heimatländer 
    (Charaktererschaffung und Steigern)
-* Neuer Grundwerte-Auswürfelmechanismus implementiert
+* Neue Grundwerte-Auswürfelmechanismen implementiert
 * Die Oberfläche für die 4.Version ist weitgehend fertig
 * Die Ausrüstungsbaum funktioniert prinzipiell
 * Ausrüstungsbaum kann abgespeichert werden
@@ -30,6 +40,7 @@ TODO:
 * Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
    und dem dazugehörigen Abwerbonus noch nicht.
 * Landeskunde Heimat in Universellen Fertigkeiten
+* Berufe, wenn die Fertigkeit schon gelernt ist
 
 
 ##########################################################################

@@ -35,6 +35,7 @@ class Beruf_Data : public RowDataBase
 {
       int kat;
       std::string beruf,fert;
+      bool gelernte_fertigkeit;
 
       std::string kat_to_str(const int kat) const
          { if (kat==1) return "I";
@@ -47,10 +48,12 @@ class Beruf_Data : public RowDataBase
    public:
       Beruf_Data(const int _kat,
                  const std::string &_beruf,
-                 const std::string &_fert)  
-         :kat(_kat),beruf(_beruf),fert(_fert) {}
+                 const std::string &_fert,
+                 const bool _gelernte_fertigkeit)  
+         :kat(_kat),beruf(_beruf),fert(_fert),
+            gelernte_fertigkeit(_gelernte_fertigkeit) {}
          
-      enum spalten{BERUF,FERT,KAT};
+      enum spalten{BERUF,FERT,GELERNT,KAT};
       
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
@@ -59,12 +62,17 @@ class Beruf_Data : public RowDataBase
             case KAT: return cH_EntryValueIntString(kat_to_str(kat));
             case BERUF: return cH_EntryValueIntString(beruf);
             case FERT: return cH_EntryValueIntString(fert);
+            case GELERNT: {
+               if(gelernte_fertigkeit) return cH_EntryValueIntString("*");
+               else return cH_EntryValueIntString("");
+             }
           }
         return cH_EntryValueIntString("?");
        }
       int Kat() const {return kat;}
       std::string Beruf() const {return beruf;}
       std::string Fert() const {return fert;}
+      bool Gelernt() const {return gelernte_fertigkeit;}
 };
 
 
@@ -72,9 +80,11 @@ class Beruf_Data : public RowDataBase
 Berufe_auswahl::Berufe_auswahl(midgard_CG* h,  
   const midgard_CG::st_Database& _Database,
   const vector<cH_Typen>& _Typ,
-  const Grundwerte& _Werte)
-:  Typ(_Typ),Database(_Database),  Werte(_Werte)
+  const Grundwerte& _Werte,
+  std::list<cH_MidgardBasicElement>& _list_fert)
+: list_fert(_list_fert),Typ(_Typ),Database(_Database),  Werte(_Werte)
 {
+  label_stern_erklaerung->hide();
   hauptfenster=h;
   spinbutton_wurf->hide();
   kat_I=false; kat_II=false; kat_III=false; kat_IV=false;
@@ -132,7 +142,7 @@ void Berufe_auswahl::gewuerfelt(int wurf)
     kat_II=true;
     kat_III=true;}
  if(96<=wurf&&wurf<=100)
-  { kat="Eine Fertigkeit aus der Kategorie III oder IV \n oder zwei aus den Kategorien I und II wählbar"; 
+  { kat="Eine Fertigkeit aus der Kategorie III oder IV \n oder zwei aus den Kategorien I und II wählbar (aber trotzdem nur EIN Beruf)"; 
     kat_I=true; 
     kat_II=true;
     kat_III=true;
@@ -168,7 +178,12 @@ void Berufe_auswahl::fill_list()
          else kat=cH_Fertigkeit(*j)->Berufskategorie();
          if( (kat==1 && kat_I)   || (kat==2 && kat_II) || 
              (kat==3 && kat_III) || (kat==4 && kat_IV ) )
-         datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j));
+           {
+             if(Fertigkeit(*j).ist_gelernt(list_fert))
+                  datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,false));
+             else
+                  datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,true));
+           }
        }
      }
   Beruf_tree->set_selection_mode(GTK_SELECTION_MULTIPLE);
@@ -182,12 +197,20 @@ void Berufe_auswahl::on_leaf_selected(cH_RowDataBase d)
   const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
   if(!kat_IV || (dt->Kat()==3 || dt->Kat()==4) )
    {
-     std::list<cH_MidgardBasicElement> saf;
-//  sab.push_back(cH_MidgardBasicElement(new Beruf(beruf)));  
-     saf.push_back(cH_MidgardBasicElement(new Fertigkeit(dt->Fert())));  
      cH_MidgardBasicElement mbe(new Beruf(dt->Beruf()));
      hauptfenster->MidgardBasicElement_uebernehmen(mbe);
-     hauptfenster->MidgardBasicElement_uebernehmen(saf);
+     if(dt->Gelernt())
+       for (std::list<cH_MidgardBasicElement>::const_iterator k=list_fert.begin();k!=list_fert.end();++k)
+         {
+           if((*k)->Name()==dt->Fert()) (*k)->add_Erfolgswert(1);
+         }        
+     else
+         {
+           std::list<cH_MidgardBasicElement> saf;
+           saf.push_back(cH_MidgardBasicElement(new Fertigkeit(dt->Fert())));  
+           hauptfenster->MidgardBasicElement_uebernehmen(saf);
+         }
+
      destroy();
    }
 }
@@ -197,16 +220,19 @@ void Berufe_auswahl::on_close_berufe_clicked(void)
  try{
    std::vector<cH_RowDataBase> V=Beruf_tree->getSelectedRowDataBase_vec();
    if(V.empty()) destroy();
-   if(V.size()!=2) return;
+   if(V.size()>2) return;
    std::list<cH_MidgardBasicElement> saf;
    cH_MidgardBasicElement mbe(new Beruf(dynamic_cast<const Beruf_Data*>(&**V.begin())->Beruf()));
    for(std::vector<cH_RowDataBase>::const_iterator i=V.begin();i!=V.end();++i)
     {
      const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&**i);
-//  sab.push_back(cH_MidgardBasicElement(new Beruf(beruf)));  
-     saf.push_back(cH_MidgardBasicElement(new Fertigkeit(dt->Fert())));  
-//     cH_MidgardBasicElement mbe(new Beruf(dt->Beruf()));
-//cout << dt->Beruf()<<' '<<dt->Fert()<<'\n';
+     if(dt->Gelernt())
+       for (std::list<cH_MidgardBasicElement>::const_iterator k=list_fert.begin();k!=list_fert.end();++k)
+         {
+           if((*k)->Name()==dt->Fert()) (*k)->add_Erfolgswert(1);
+         }        
+     else
+        saf.push_back(cH_MidgardBasicElement(new Fertigkeit(dt->Fert())));  
     }
    hauptfenster->MidgardBasicElement_uebernehmen(mbe);
    hauptfenster->MidgardBasicElement_uebernehmen(saf);

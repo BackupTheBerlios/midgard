@@ -91,7 +91,8 @@ COPY "lernschema_4" FROM stdin;
 1	BS	f	Wurfspeer	Waffenfertigkeiten	5
 1	BS	f	kleiner Schild	Waffenfertigkeiten	1
 1	BS	f	leichter Speer	Waffenfertigkeiten	5
-1	BS	f	Überleben in Steppe oder Wüste	Fachkenntnisse	8
+1	BS	f	Überleben in der Steppe	Fachkenntnisse	8
+1	BS	f	Überleben in der Wüste	Fachkenntnisse	8
 1	BW	f	Dolch	Waffenfertigkeiten	5
 1	BW	f	Fallenstellen	Fachkenntnisse	4
 1	BW	f	Handaxt	Waffenfertigkeiten	5
@@ -108,7 +109,8 @@ COPY "lernschema_4" FROM stdin;
 1	BW	f	Wurfspeer	Waffenfertigkeiten	5
 1	BW	f	kleiner Schild	Waffenfertigkeiten	1
 1	BW	f	leichter Speer	Waffenfertigkeiten	5
-1	BW	f	Überleben in Dschungel oder Wald	Fachkenntnisse	8
+1	BW	f	Überleben im Dschungel	Fachkenntnisse	8
+1	BW	f	Überleben im Wald	Fachkenntnisse	8
 1	Ba	f	Das Lied der Tapferkeit	Zauberkünste	0
 1	Ba	f	Dichten	Fachkenntnisse	12
 1	Ba	f	Dolch	Waffenfertigkeiten	5
@@ -255,7 +257,8 @@ COPY "lernschema_4" FROM stdin;
 1	Ku	f	Stoßspeer	Waffenfertigkeiten	5
 1	Ku	f	Streitkolben	Waffenfertigkeiten	5
 1	Ku	f	leichter Speer	Waffenfertigkeiten	5
-1	Ku	f	Überleben in Steppe oder Wüste	Fachkenntnisse	8
+1	Ku	f	Überleben in der Steppe	Fachkenntnisse	8
+1	Ku	f	Überleben in der Wüste	Fachkenntnisse	8
 1	Ma	f	Erkennen von Leben	Zauberkünste	0
 1	Ma	f	Heranholen	Zauberkünste	0
 1	Ma	f	Hören von Fernem	Zauberkünste	0
@@ -380,18 +383,19 @@ COPY "lernschema_4" FROM stdin;
 1	ScN	f	Sagenkunde	Fachkenntnisse	5
 1	ScN	f	Schwäche	Zauberkünste	0
 1	ScN	f	Tanzen	Fachkenntnisse	15
-1	ScN	f	Überleben in Schnee	Fachkenntnisse	8
+1	ScN	f	Überleben im Schnee	Fachkenntnisse	8
 1	ScS	f	Reiten	Fachkenntnisse	15
 1	ScS	f	Sagenkunde	Fachkenntnisse	5
 1	ScS	f	Schwäche	Zauberkünste	0
 1	ScS	f	Tanzen	Fachkenntnisse	15
-1	ScS	f	Überleben in Steppe oder Wüste	Fachkenntnisse	8
+1	ScS	f	Überleben in der Steppe	Fachkenntnisse	8
+1	ScS	f	Überleben in der Wüste	Fachkenntnisse	8
 1	ScW	f	Sagenkunde	Fachkenntnisse	5
 1	ScW	f	Schwimmen	Fachkenntnisse	15
 1	ScW	f	Schwäche	Zauberkünste	0
 1	ScW	f	Tanzen	Fachkenntnisse	15
-1	ScW	f	Überleben in Dschungel	Fachkenntnisse	8
-1	ScW	f	Überleben in Wald	Fachkenntnisse	8
+1	ScW	f	Überleben im Dschungel	Fachkenntnisse	8
+1	ScW	f	Überleben im Wald	Fachkenntnisse	8
 1	Se	f	Dolch	Waffenfertigkeiten	5
 1	Se	f	Erzählen	Fachkenntnisse	12
 1	Se	f	Handaxt	Waffenfertigkeiten	5
@@ -507,7 +511,8 @@ COPY "lernschema_4" FROM stdin;
 1	Wa	f	Stoßspeer	Waffenfertigkeiten	5
 1	Wa	f	Tierkunde	Fachkenntnisse	5
 1	Wa	f	leichter Speer	Waffenfertigkeiten	5
-1	Wa	f	Überleben in Wald oder Gebirge	Fachkenntnisse	8
+1	Wa	f	Überleben im Gebirge	Fachkenntnisse	8
+1	Wa	f	Überleben im Wald	Fachkenntnisse	8
 1	dBe	f	Halebant 1 beschwören	Zauberkünste	\N
 1	dBe	f	Lesen von Zauberschrift	Fachkenntnisse	12
 1	dBe	f	Sagenkunde	Fachkenntnisse	4
