@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.281 2002/09/19 10:06:45 thoma Exp $
+// $Id: midgard_CG.hh,v 1.282 2002/09/19 10:20:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -193,7 +193,7 @@ class midgard_CG : public midgard_CG_glade
 //   private:
    public:
         // Oberfläche Notebook 
-        enum enum_notebook_main{NOPAGE=-1,PAGE_INFO=1,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
+        enum enum_notebook_main{NOPAGE=-1,PAGE_INFO=0,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
                                 PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_OPTIONEN,
                                 PAGE_NEWS,PAGE_ZUFALL};
    private:
