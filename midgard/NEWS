@@ -4,11 +4,11 @@ NEWS IN VERSION 0.6delta2
 * Statuszeile ersetzt weitgehend das Info Fenster
 * Wizard auf (hoffentlich :-) sinnvolle Größe geschrumpft
 * (unsichtbare) Neuimplementation des Beruf/Lernschema/ang.Fert. Fensters
+* KiDo Lernschema geht wieder
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Waffenauswahl bei Charaktererschaffung überarbeiten
-* KiDo Lernschema
 * Waeland: Zauber
 * Nahuathlan: Komplett
 * Destruktor wird nicht aufgerufen

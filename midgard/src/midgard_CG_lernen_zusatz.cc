@@ -80,6 +80,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
        if(datavec.empty()) 
          { set_status("Keine Schrift lernbar (entweder keine Sprache gelernt oder es werden alle lernbaren Schriften schon beherrscht.)");
            list_FertigkeitZusaetze.remove(MBE->Name());
+//           scrolledwindow_lernen->set_sensitive(true);
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_zusatz_leaf_schrift_selected));
        break;
@@ -93,6 +94,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
          { set_status("Noch keine Fernkampfwaffe gewählt.");
            list_Fertigkeit.remove(MBE);
            list_FertigkeitZusaetze.remove(MBE->Name());
+//           scrolledwindow_lernen->set_sensitive(true);
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_zusatz_leaf_selected));
        break;
@@ -123,6 +125,14 @@ void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_M
        vs.push_back("Land");
        vs.push_back("Koninent");
        vs.push_back("Sprache(n)");
+       break;
+      }
+     case MidgardBasicElement::ZWaffe :
+      {
+       frame_lernschema_zusatz->set_label("Fernkampfwaffe auswählen");
+       vs.push_back(MBE->Name());
+       vs.push_back("");
+       vs.push_back("");
        break;
       }
      case MidgardBasicElement::ZTabelle :

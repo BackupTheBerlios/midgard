@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.111 2002/04/30 08:25:04 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.112 2002/04/30 12:04:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -464,7 +464,8 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
   undosave(MBE->Name()+" gelernt");
   show_lernschema();
   show_gelerntes();
-  if(MBE->ZusatzEnum(Typ)) scrolledwindow_lernen->set_sensitive(false);
+  if(frame_lernschema_zusatz->is_visible()) scrolledwindow_lernen->set_sensitive(false);
+//  if(MBE->ZusatzEnum(Typ)) scrolledwindow_lernen->set_sensitive(false);
 }
 
 void midgard_CG::show_gelerntes()
