@@ -173,7 +173,8 @@ cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const s
       return (*i);
     }
   }
- assert(!"Region nicht gefunden\n");
- abort(); // never get here
+  return cH_Region("???",true);
+// assert(!"Region nicht gefunden\n");
+// abort(); // never get here
 }
 
