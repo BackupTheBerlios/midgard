@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.45 2002/09/23 08:11:59 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.46 2002/09/25 06:33:02 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -39,6 +39,8 @@ bool Abenteurer::Valid() const
   if(Typ.size()!=2) return false;
   return Typ1()->Valid();
 }
+
+
 
 
 std::string Abenteurer::STyp() const
@@ -744,3 +746,44 @@ reloop:
      if(remove) {list_WaffenGrund.remove(*i); goto reloop;}
    }
 }
+
+
+std::list<MBEmlt> &Abenteurer::get_known_list(const Enums::MBEListen was)
+{
+  std::list<MBEmlt> *L ; 
+  switch (was) {
+     case Enums::sFert: L=&List_Fertigkeit(); break;
+     case Enums::sWaff: L=&List_Waffen(); break;
+     case Enums::sSpra: L=&List_Sprache(); break;
+     case Enums::sSchr: L=&List_Schrift(); break;
+     case Enums::sWGru: L=&List_WaffenGrund(); break;
+     case Enums::sZaub: L=&List_Zauber(); break;
+     case Enums::sZWerk:L=&List_Zauberwerk(); break;
+     case Enums::sKiDo: L=&List_Kido(); break;
+     default: assert(!"never get here\n");
+   }
+ return *L;
+}
+
+
+std::list<MBEmlt> &Abenteurer::get_known_list(const MBEmlt &MBE)
+{
+   if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
+         return get_known_list(Enums::sFert);
+   else if(MBE->What()==MidgardBasicElement::WAFFE) 
+         return get_known_list(Enums::sWaff);
+   else if(MBE->What()==MidgardBasicElement::WAFFEGRUND) 
+         return get_known_list(Enums::sWGru);
+   else if(MBE->What()==MidgardBasicElement::ZAUBER)
+         return get_known_list(Enums::sZaub);
+   else if(MBE->What()==MidgardBasicElement::ZAUBERWERK)
+         return get_known_list(Enums::sZWerk);
+   else if(MBE->What()==MidgardBasicElement::KIDO) 
+         return get_known_list(Enums::sKiDo);
+   else if(MBE->What()==MidgardBasicElement::SPRACHE) 
+         return get_known_list(Enums::sSpra);
+   else if(MBE->What()==MidgardBasicElement::SCHRIFT)
+         return get_known_list(Enums::sSchr);
+   assert(!"never get here"); abort();
+}
+ 

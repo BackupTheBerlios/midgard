@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.4 2002/09/21 18:00:13 thoma Exp $
+// $Id: LernListen_steigern.cc,v 1.5 2002/09/25 06:33:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,17 +25,17 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 
-std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,eMBE was,bool nsc_allowed) const
+std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBEListen was,bool nsc_allowed) const
 {
   std::list<cH_MidgardBasicElement> V_;
   switch(was) {
-     case sFert: V_=D.Fertigkeit; break;
-     case sWaff: V_=D.Waffe; break;
-     case sZaub: V_=D.Zauber; break;
-     case sSpra: V_=D.Sprache; break;
-     case sSchr: V_=D.Schrift; break;
-     case sWGru: V_=D.WaffeGrund; break;
-     case sZWerk:V_=D.Zauberwerk; break; 
+     case Enums::sFert: V_=D.Fertigkeit; break;
+     case Enums::sWaff: V_=D.Waffe; break;
+     case Enums::sZaub: V_=D.Zauber; break;
+     case Enums::sSpra: V_=D.Sprache; break;
+     case Enums::sSchr: V_=D.Schrift; break;
+     case Enums::sWGru: V_=D.WaffeGrund; break;
+     case Enums::sZWerk:V_=D.Zauberwerk; break; 
      default : assert(!"never get here\n");
    }
   std::list<MBEmlt> V;
@@ -49,14 +49,14 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,eMBE was,boo
      if (!nsc_check(nsc_allowed,(*i)->NSC_only())) continue;
      MBEmlt MBEm(*i);
      switch(was) {
-       case sFert: { const cH_Fertigkeit f(*i);
+       case Enums::sFert: { const cH_Fertigkeit f(*i);
           if (MBEmlt(*i).ist_gelernt(A.List_Fertigkeit()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!f->Voraussetzung(A)) continue;
           MBEm.setErfolgswert(f->Anfangswert());
           break;
          }
-       case sWaff: { const cH_Waffe w(*i);
+       case Enums::sWaff: { const cH_Waffe w(*i);
           if (MBEm.ist_gelernt(A.List_Waffen()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!w->Grundkenntnis_vorhanden(A.List_WaffenGrund())) continue;
@@ -65,30 +65,30 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,eMBE was,boo
           else MBEm.setErfolgswert(4);
           break;
          }
-       case sWGru: {
+       case Enums::sWGru: {
           if (MBEm.ist_gelernt(A.List_WaffenGrund()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
          }
-       case sSpra: {
+       case Enums::sSpra: {
           if (MBEm.ist_gelernt(A.List_Sprache()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           MBEm.setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
           break;
          }
-       case sSchr: {
+       case Enums::sSchr: {
           if (MBEm.ist_gelernt(A.List_Schrift()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!cH_Schrift(*i)->kann_Sprache(A.List_Sprache())) continue;
           MBEm.setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
           break;
          }
-       case sZaub: { 
+       case Enums::sZaub: { 
           if (MBEm.ist_gelernt(A.List_Zauber()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
          }
-       case sZWerk: { 
+       case Enums::sZWerk: { 
           if (MBEm.ist_gelernt(A.List_Zauberwerk()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
@@ -103,7 +103,7 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,eMBE was,boo
 std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
       bool salz,bool beschwoerung,bool nsc, bool alle,bool spruchrolle) const
 {
-  std::list<MBEmlt> L_=get_steigern_MBEm(A,sZaub,nsc);
+  std::list<MBEmlt> L_=get_steigern_MBEm(A,Enums::sZaub,nsc);
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
    {
@@ -125,7 +125,7 @@ std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
 std::list<MBEmlt> LernListen::get_steigern_ZauberWerkliste(const Abenteurer& A,
       bool nsc, bool alle) const
 {
-  std::list<MBEmlt> L_=get_steigern_MBEm(A,sZWerk,nsc);
+  std::list<MBEmlt> L_=get_steigern_MBEm(A,Enums::sZWerk,nsc);
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
    { const cH_Zauberwerk z(i->getMBE());
@@ -140,7 +140,7 @@ std::list<MBEmlt> LernListen::get_steigern_ZauberWerkliste(const Abenteurer& A,
 }
 
 
-void LernListen::shorten_for_GFP(std::list<MBEmlt> &L_,const Abenteurer& A,int gfp) const
+void LernListen::shorten_for_GFP(std::list<MBEmlt> &L_,const Abenteurer& A,const int gfp) const
 {
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)

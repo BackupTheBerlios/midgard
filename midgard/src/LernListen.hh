@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.14 2002/09/21 18:00:13 thoma Exp $
+// $Id: LernListen.hh,v 1.15 2002/09/25 06:33:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,8 +33,8 @@ class LernListen
       const Datenbank D;
   public:
       enum eMBE{MutterSprache,GastlandSprache,NachbarlandSprache,AlteSprache,
-                lFach,lAllg,lUnge,lWaff,lZaub,lAngebFert,
-                sFert,sWaff,sZaub,sSpra,sSchr,sWGru,sZWerk};
+                lFach,lAllg,lUnge,lWaff,lZaub,lAngebFert};
+//                sFert,sWaff,sZaub,sSpra,sSchr,sWGru,sZWerk};
 
       LernListen(const Datenbank& d) : D(d){}   
       LernListen() {}   
@@ -63,12 +63,12 @@ class LernListen
                      int lernpunkte=0,std::string lernart="") const;
 
 
-      std::list<MBEmlt> get_steigern_MBEm(const Abenteurer& A,eMBE was,bool nsc_allowed) const;
+      std::list<MBEmlt> get_steigern_MBEm(const Abenteurer& A,Enums::MBEListen was,bool nsc_allowed) const;
       std::list<MBEmlt> get_steigern_Zauberliste(const Abenteurer& A,
             bool salz,bool beschwoerung,bool nsc, bool alle,bool spruchrolle) const;
       std::list<MBEmlt> get_steigern_ZauberWerkliste(const Abenteurer& A,
             bool nsc, bool alle) const;
-      void shorten_for_GFP(std::list<MBEmlt> &L,const Abenteurer& A,int gfp) const;
+      void shorten_for_GFP(std::list<MBEmlt> &L,const Abenteurer& A,const int gfp) const;
 
 };
 

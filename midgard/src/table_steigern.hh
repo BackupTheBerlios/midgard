@@ -17,7 +17,7 @@ class midgard_CG;
 #include "MidgardBasicElement.hh"
 #include <list>
 class LernListen;
-
+#include "Enums.hh"
 
 class table_steigern : public table_steigern_glade
 {  
@@ -69,14 +69,19 @@ private:
         
         // Grad anstieg
 public:
-        enum e_was_steigern{Nichts,Ausdauer,Abwehr,Zaubern,Resistenz};
+//        enum e_was_steigern{Nichts,Ausdauer,Abwehr,Zaubern,Resistenz};
 private:
+        const Enums::e_wie_steigern get_wie_steigern();
+        const Enums::st_bool_steigern get_bool_steigern();
+
         void get_grundwerte(int wurf);
-        void get_ausdauer(int grad);
-        void get_ab_re_za(e_was_steigern was);//,bool verschenke_pp=false);
-         
+//        void get_ausdauer(int grad);
+        void get_ab_re_za(Enums::e_was_steigern was);//,bool verschenke_pp=false);
+
+
         // EP
         void steigern_gtk();
+/*
         int steigern_womit(const std::string& fert);
         void desteigern(unsigned int kosten);
         void set_lernzeit(int kosten,e_was_steigern was,bool no_pp=false);
@@ -93,7 +98,7 @@ public:
 private:
          int stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int &aep);
 
-
+*/
         // Fertigkeiten
         void on_fertigkeiten_laden_clicked();
         void fertigkeiten_zeigen();

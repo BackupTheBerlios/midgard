@@ -22,8 +22,9 @@
 #include "Typen.hh"
 #include <xml.h>
 #include "ProgressBar.h"
-//#include "zufall.h"
+#include "zufall.h"
 #include <Misc/itos.h>
+
 
 cH_Zauber::cache_t cH_Zauber::cache;
 
@@ -143,9 +144,10 @@ std::string Zauber::Agens(const std::vector<cH_Typen> &Typ) const
    return agens;
 }
 
-bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,const Random &random,std::string &info) const
+bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info) const
 {
 // cH_Zauber zauber(getMBE());
+ Random random;
  int erf_z = A.getWerte().Zaubern_wert() + A.getWerte().bo_Za() ;
  int xr=random.integer(1,20);
  int iaus=0;
@@ -170,7 +172,7 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,const Random &random,std::
  x += erf_z;
  return x;
 
- info = "Lernversuch von Spruchrolle:
+ info += "Lernversuch von Spruchrolle:
  gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n     "
       +itos(xr)+"            -"+itos(iStufe())+"               "
       +itos(iaus)+"             "+itos(erf_z)+"       =       "+ itos(x)+"\n";

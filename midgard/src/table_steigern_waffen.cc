@@ -27,7 +27,7 @@ void table_steigern::on_waffen_laden_clicked()
 {
   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
-  list_Waffen_neu=LL->get_steigern_MBEm(A,LernListen::sWaff,nsc);
+  list_Waffen_neu=LL->get_steigern_MBEm(A,Enums::sWaff,nsc);
   on_waffengrund_laden_clicked();
   waffen_zeigen();
 }
@@ -55,7 +55,7 @@ void table_steigern::on_waffengrund_laden_clicked()
 {
   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
-  list_WaffenGrund_neu=LL->get_steigern_MBEm(A,LernListen::sWGru,nsc);
+  list_WaffenGrund_neu=LL->get_steigern_MBEm(A,Enums::sWGru,nsc);
 }
 
 void table_steigern::on_leaf_selected_neue_waffen(cH_RowDataBase d)

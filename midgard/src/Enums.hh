@@ -1,4 +1,4 @@
-// $Id: Enums.hh,v 1.2 2002/09/21 18:00:13 thoma Exp $               
+// $Id: Enums.hh,v 1.3 2002/09/25 06:33:02 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,10 +24,29 @@ namespace Enums
 {
    enum geschlecht{NoFM,Mann,Frau};
    enum StadtLand{NoSL,Stadt,Land};
+   enum e_wie_steigern{eUnterweisung,eSelbststudium,ePraxis};
+   enum e_was_steigern{eMBEm,eAusdauer,eAbwehr,eZaubern,eResistenz};
+   struct st_bool_steigern{bool mitEP;bool HausG1;bool Spruchrolle; bool
+                        SpruchrolleAuto;
+                        bool hoch_wie_geht; bool pp_verfallen; bool aep_fuellen;
+                        bool neue_sprache_pp;
+          st_bool_steigern(bool m,bool H,bool S,bool Sa,bool h,bool v,bool a,bool n)
+              : mitEP(m),HausG1(H),Spruchrolle(S),SpruchrolleAuto(Sa),
+                  hoch_wie_geht(h),
+                  pp_verfallen(v),aep_fuellen(a),neue_sprache_pp(n)
+                  {}
+                    };
+
+   enum MBEListen {sFert,sWaff,sZaub,sSpra,sSchr,sWGru,sZWerk,sKiDo};
+
 };
+
+
 
 class MidgardBasicElement_mutable;
 
 typedef MidgardBasicElement_mutable MBEmlt;
+
+
 
 #endif

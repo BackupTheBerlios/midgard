@@ -27,7 +27,7 @@ void table_steigern::on_schrift_laden_clicked()
 {   
   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
-  list_Schrift_neu=LL->get_steigern_MBEm(A,LernListen::sSchr,nsc);
+  list_Schrift_neu=LL->get_steigern_MBEm(A,Enums::sSchr,nsc);
    schriften_zeigen();
 }
 
@@ -35,7 +35,7 @@ void table_steigern::on_sprache_laden_clicked()
 {   
   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
-  list_Sprache_neu=LL->get_steigern_MBEm(A,LernListen::sSpra,nsc);
+  list_Sprache_neu=LL->get_steigern_MBEm(A,Enums::sSpra,nsc);
   sprachen_zeigen();
          
   on_schrift_laden_clicked();

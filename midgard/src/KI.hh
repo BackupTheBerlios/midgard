@@ -21,24 +21,34 @@
 
 class midgard_CG; 
 #include "LernListen.hh"
+#include<list>
 
 class MagusKI
 {
       midgard_CG *hauptfenster;
-      VAbenteurer Aben;
+      Abenteurer Aben;
       Datenbank Database;
       Random random;
       LernListen LL;
+
+      const Enums::MBEListen Was() const;
+
+      void NeuLernen(int &gfp);
+      std::list<MBEmlt>& get_known_list(const Enums::MBEListen was);
+      std::list<MBEmlt> NeuLernenList(const Enums::MBEListen was,const int gfp) const;
+
+      void Steigern(int &gfp) ; 
+
       
    public:
 
       MagusKI(midgard_CG *h)
-        : hauptfenster(h),  Aben(h->getChar()),
+        : hauptfenster(h),  Aben(h->getChar().getAbenteurer()),
           Database(h->getCDatabase()),random(h->random) ,
           LL(Database)
           {};
 
-      void Steigern(int gfp); 
+      void VerteileGFP(int gfp) ;
 
    private:
 };

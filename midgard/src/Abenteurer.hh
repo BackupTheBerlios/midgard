@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.32 2002/09/23 06:34:08 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.33 2002/09/25 06:33:02 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -144,6 +144,50 @@ public:
    static void move_element(std::list<MBEmlt>& von,
                             std::list<MBEmlt>& nach,
                             const MBEmlt& MBE);
+
+   // Zum Steigern eines MBEm
+   typedef Enums::e_was_steigern e_was_steigern;
+   typedef Enums::e_wie_steigern e_wie_steigern;
+   enum modi_modus{Zusatzmodus,PPmodus};;
+   typedef Enums::st_bool_steigern st_bool_steigern;
+   void reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
+   void verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
+   bool steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie,
+                 const st_bool_steigern &bool_steigern);
+   bool neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
+
+
+   void desteigern(unsigned int kosten,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
+   bool steigern_usp(const e_wie_steigern wie,int &kosten,
+                     const e_was_steigern was,
+                     std::string &info,const st_bool_steigern &bool_steigern)
+       { int d=1; 
+         MBEmlt mbe=MidgardBasicElement_mutable(&*cH_Fertigkeit("",true));
+         return steigern_usp(wie,kosten,mbe,d,was,info,bool_steigern);}
+   bool steigern_usp(const e_wie_steigern wie,int &kosten,MBEmlt MBE,
+                     int &stufen,const e_was_steigern was,
+                     std::string &info,const st_bool_steigern &bool_steigern);
+   void set_lernzeit(const e_wie_steigern wie,const int kosten,
+                     const e_was_steigern was,const bool no_pp=false);
+   int genug_geld(const int kosten,const e_wie_steigern wie,
+                           const bool HausG1, std::string &info);
+   bool genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0,std::string &info);
+   int EP_kosten(const int kosten,const e_wie_steigern wie);
+   int PP_vorrat(const MBEmlt &MBE,e_was_steigern was,std::string &info,const e_wie_steigern wie);
+   void steigern_mit(bool &bkep,bool &bzep,const MBEmlt MBE,e_was_steigern was);
+   int stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int &aep);
+   void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
+
+
+   void get_ausdauer(int grad, const Datenbank &Database,std::string &info,
+                      const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
+   void get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
+                              const bool bsteigern,const Datenbank &Database,
+                              std::string &info,const st_bool_steigern &bool_steigern);
+  
+   std::list<MBEmlt> &get_known_list(const Enums::MBEListen was);
+   std::list<MBEmlt> &get_known_list(const MBEmlt &MBE);
+
 };
 
 

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.198 2002/09/17 05:39:32 thoma Exp $
+# $Id: Makefile.am,v 1.199 2002/09/25 06:33:02 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -115,6 +115,7 @@ magus_SOURCES = $(PORT_FILES) \
    Windows_Linux.cc \
    customize_toolbars.cc \
    Abenteurer.cc \
+   Abenteurer_steigern.cc \
    midgard_CG_AbenteurerListe.cc \
    table_steigern_gold.cc \
    table_steigern_waffenbesitz.cc \

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.50 2002/09/21 18:00:13 thoma Exp $
+// $Id: WindowInfo.cc,v 1.51 2002/09/25 06:33:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,7 +72,7 @@ void WindowInfo::on_button_auswahl_clicked(int connect)
      else if  (connect==5) hauptfenster->table_steigern->PraxisPunkt_to_AEP(*MBE,false,true);
 */
   }
- else if(was!=table_steigern::Nichts)
+ else if(was!=Enums::eMBEm)
   {
      if       (connect==1) on_button_abbrechen_clicked();
 //     else if  (connect==2) hauptfenster->table_steigern->PraxisPunkt_fuer_Was(was);
@@ -81,12 +81,12 @@ void WindowInfo::on_button_auswahl_clicked(int connect)
  frame_auswahl->remove();
  hide();
  MBE=0;
- was=table_steigern::Nichts;
+ was=Enums::eMBEm;
 }
 
 
 WindowInfo::WindowInfo(midgard_CG* h)
-: mystream(0), hauptfenster(h), MBE(0),was(table_steigern::Nichts)
+: mystream(0), hauptfenster(h), MBE(0),was(Enums::eMBEm)
 {
    if (mystream) delete mystream;
    Gtk::OStream *mystream = new Gtk::OStream(LogWin->get_list());
@@ -116,7 +116,7 @@ void WindowInfo::AppendShow(const std::string& s, emodus modus,MBEmlt *_MBE,int 
   AppendShow(s,modus,anzahl); 
 }
 
-void WindowInfo::AppendShow(const std::string& s, emodus modus,table_steigern::e_was_steigern _was,int anzahl)
+void WindowInfo::AppendShow(const std::string& s, emodus modus,Enums::e_was_steigern _was,int anzahl)
 {
   was=_was;
   AppendShow(s,modus,anzahl); 

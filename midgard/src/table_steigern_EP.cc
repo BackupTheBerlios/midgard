@@ -87,6 +87,7 @@ void table_steigern::show_EPeingabe(bool b)
 
 
  
+#if 0
 
 void table_steigern::desteigern(unsigned int kosten)
 {
@@ -339,6 +340,7 @@ int table_steigern::genug_geld(const int kosten)
    return gold_k;
 }
 
+#endif
 
 void table_steigern::on_togglebutton_pp_verfallen_toggled()
 {

@@ -43,11 +43,6 @@ struct st_vor{bool spezies; bool typ; bool herkunft; bool angefert;
                   spezies(true),typ(true),herkunft(true),angefert(true),
                   st(true),gs(true),gw(true),ko(true),
                   in(true),zt(true),au(true),pa(true),wk(true),sb(true),b(true){}
-/*
-              st_vor(bool _spezies,_typ,_herkunft,_st,_gs,_gw,_ko,_in,_zt,_au,_pa,_wk,_sb,_b) :
-                  spezies(_spezies),typ(_typ),herkunft(_herkunft),st(_st),gs(_gs),gw(_gw),ko(_ko),
-                  in(_in),zt(_zt),au(_au),pa(_pa),wk(_wk),sb(_sb),b(_b){}
-*/
               };
       
 

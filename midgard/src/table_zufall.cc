@@ -136,8 +136,7 @@ void table_zufall::on_button_zufall_voll_clicked()
     }
    }catch (std::exception &e) { cerr << e.what()<<'\n';}
    MO->setOber(MO->OberCheck(Midgard_Optionen::NoInfoFenster).text,old_value);
-//   hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,old_value);
-   hauptfenster->frame_lernschema->set_sensitive(false);
+   hauptfenster->frame_lernschema->set_sensitive(true);
 }
 
 void table_zufall::on_togglebutton_vorgaben_toggled()
@@ -162,7 +161,7 @@ void table_zufall::on_button_steigern_clicked()
          gfp=hauptfenster->random.integer(GA.getGFP(grad),GA.getGFP(grad+1));
 cout << grad<<'\t'<<gfp<<'\n';
        }
-  MagusKI(hauptfenster).Steigern(gfp);
+  MagusKI(hauptfenster).VerteileGFP(gfp);
 }
 
 void table_zufall::zeige_werte()

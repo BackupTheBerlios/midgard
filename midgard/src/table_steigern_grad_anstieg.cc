@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.8 2002/09/23 06:34:08 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.9 2002/09/25 06:33:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,12 +26,17 @@ void table_steigern::on_grad_anstieg_clicked()
  radiobutton_steigern->set_active(true);
  int old_grad=hauptfenster->getWerte().Grad();
  hauptfenster->getWerte().setGrad(hauptfenster->getCDatabase().GradAnstieg.get_Grad(hauptfenster->getWerte().GFP()));
- get_ausdauer(hauptfenster->getWerte().Grad());
+// get_ausdauer(hauptfenster->getWerte().Grad());
+
+ std::string info;
+ hauptfenster->getChar()->get_ausdauer(hauptfenster->getWerte().Grad(),hauptfenster->getCDatabase(),info,
+                           get_wie_steigern(),get_bool_steigern());
+ hauptfenster->set_status(info);
  while(old_grad<=hauptfenster->getWerte().Grad())
   {
-    get_ab_re_za(Abwehr);
-    get_ab_re_za(Resistenz);
-    get_ab_re_za(Zaubern);
+    get_ab_re_za(Enums::eAbwehr);
+    get_ab_re_za(Enums::eResistenz);
+    get_ab_re_za(Enums::eZaubern);
     int wurf=hauptfenster->random.integer(1,100);
     get_grundwerte(wurf);
     ++old_grad;
@@ -45,20 +50,23 @@ void table_steigern::on_button_grad_clicked()
 }
 void table_steigern::on_button_grad_ausdauer_clicked()
 {   
-  get_ausdauer(hauptfenster->getWerte().Grad());
+ std::string info;
+ hauptfenster->getChar()->get_ausdauer(hauptfenster->getWerte().Grad(),hauptfenster->getCDatabase(),info,get_wie_steigern(),get_bool_steigern());
+ hauptfenster->set_status(info);
+//  get_ausdauer(hauptfenster->getWerte().Grad());
   zeige_werte();
 }
 void table_steigern::on_button_grad_abwehr_clicked()
 {   
- get_ab_re_za(Abwehr);
+ get_ab_re_za(Enums::eAbwehr);
 }
 void table_steigern::on_button_grad_zaubern_clicked()
 {   
- get_ab_re_za(Zaubern);
+ get_ab_re_za(Enums::eZaubern);
 }
 void table_steigern::on_button_grad_resistenz_clicked()
 {   
- get_ab_re_za(Resistenz);
+ get_ab_re_za(Enums::eResistenz);
 }
 void table_steigern::on_button_grad_basiswerte_clicked()
 {   
@@ -144,6 +152,7 @@ void table_steigern::get_grundwerte(int wurf)
   zeige_werte();
 }
 
+#if 0
 void table_steigern::get_ausdauer(int grad)
 {
    int bonus_K, bonus_aK, bonus_Z;
@@ -177,16 +186,21 @@ void table_steigern::get_ausdauer(int grad)
    +") + Persönlichen Bonus("+itos(hauptfenster->getWerte().bo_Au())+") 
    + Spezies-Bonus("+itos(nspez)+")\n";
   hauptfenster->set_status(stinfo);
-//  InfoFenster->AppendShow(stinfo,WindowInfo::None);
    // Für alle ist die AP-anzahel mind. = Grad
   if (hauptfenster->getWerte().AP()<hauptfenster->getWerte().Grad()) hauptfenster->getWerte().setAP(hauptfenster->getWerte().Grad()); 
    // Neue AP höher als alte?
   if (nap>hauptfenster->getWerte().AP())  hauptfenster->getWerte().setAP(nap)  ;
-//  hauptfenster->getWerte().addSteigertage(Grad_anstieg::AP_Maximum_Tage);
 }
+#endif
 
-void table_steigern::get_ab_re_za(e_was_steigern was)
+void table_steigern::get_ab_re_za(Enums::e_was_steigern was)
 {
+  std::string info;
+  const bool bsteigern=radiobutton_steigern->get_active();
+  hauptfenster->getChar()->get_ab_re_za(was,get_wie_steigern(),bsteigern,
+                                        hauptfenster->getCDatabase(),info,get_bool_steigern());
+  hauptfenster->set_status(info);
+#if 0
   int alter_wert, max_wert;
   int kosten;
   int grad=hauptfenster->getWerte().Grad();
@@ -237,5 +251,6 @@ void table_steigern::get_ab_re_za(e_was_steigern was)
      else if (was==Resistenz) hauptfenster->getWerte().setResistenz(alter_wert-1); 
      else if (was==Zaubern)   hauptfenster->getWerte().setZaubern_wert(alter_wert-1); 
    }
+#endif
  zeige_werte();
 }
