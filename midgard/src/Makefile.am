@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.174 2002/06/12 10:12:49 thoma Exp $
+# $Id: Makefile.am,v 1.175 2002/06/13 13:31:13 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -224,8 +224,7 @@ CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 #
 # the following lines are to support UTF8 recoding while compiling
 # and dependancy tracking for both automake 1.4 (.P) and
-# automake 1.5 (.Po). Optimization is turned off for midgard_CG_glade.cc
-# (because it's too big)
+# automake 1.5 (.Po). 
 #
 
 if UTF8
@@ -236,31 +235,6 @@ if UTF8
 		$(AM_CXXFLAGS) $(CXXFLAGS) -Wp,-MD,.deps/$(*F).pp $*.cc \
 	| ./iso2utf8 \
 	| $(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
-	@-cp .deps/$(*F).pp .deps/$(*F).P; \
-	tr ' ' '\012' < .deps/$(*F).pp \
-	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
-	>> .deps/$(*F).P; \
-	cp .deps/$(*F).P .deps/$(*F).Po ; \
-	rm .deps/$(*F).pp
-
-midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
-	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
-		$(AM_CXXFLAGS) $(CXXFLAGS) -Wp,-MD,.deps/$(*F).pp $*.cc \
-	| ./iso2utf8 \
-	| $(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
-	@-cp .deps/$(*F).pp .deps/$(*F).P; \
-	tr ' ' '\012' < .deps/$(*F).pp \
-	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
-	>> .deps/$(*F).P; \
-	cp .deps/$(*F).P .deps/$(*F).Po ; \
-	rm .deps/$(*F).pp
-
-else
-
-# midgard_CG_glade.cc nicht optimieren, sonst explodiert der
-# Speicherverbrauch (>344MB am 2002-1-31)
-midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
-	$(CXXCOMPILE) -Wp,-MD,.deps/$(*F).pp -O0 -c -o $@ midgard_CG_glade.cc
 	@-cp .deps/$(*F).pp .deps/$(*F).P; \
 	tr ' ' '\012' < .deps/$(*F).pp \
 	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
