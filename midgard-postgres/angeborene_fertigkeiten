@@ -21,13 +21,24 @@ CREATE TABLE "angeborene_fertigkeiten" (
 --
 
 COPY "angeborene_fertigkeiten"  FROM stdin;
-86	87	Beidh�ndigkeit	\N
-88	89	Berserkergang	\N
-90	91	Richtungssinn	12
-92	93	Gefahr sp�ren	1
-94	95	Horchen	5
-96	97	Nachtsicht	\N
-98	99	Wachgabe	\N
+11	20	Sehen	10
+1	2	Kurzsichtigkeit	4
+3	4	Schwerhörigkeit	4
+5	6	Riechschwäche	4
+7	8	Geschmacksschwäche	4
+9	10	Tastschwäche	4
+21	30	Hören	10
+31	40	Riechen	10
+41	50	Schmecken	10
+51	60	Tasten	10
+61	65	Sechster Sinn	6
+66	70	Berserkergang	18
+71	75	Gute Reflexe	9
+76	80	Nachtsicht	8
+81	85	Richtungssinn	12
+86	90	Robustheit	9
+96	99	Einprägen	4
+91	95	Wachgabe	6
 \.
 --
 -- TOC Entry ID 3 (OID 9067316)

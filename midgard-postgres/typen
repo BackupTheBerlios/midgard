@@ -27,41 +27,47 @@ CREATE TABLE "typen" (
 --
 
 COPY "typen"  FROM stdin;
-27	PT	Todespriester	Todespriesterin	z	z	20	0	4	\N
-28	Sc	Schamane	Schamanin	z	z	0	0	1	\N
-29	Th	Thaumaturge	Thaumaturgin	z	z	0	0	1	\N
-15	dBe	Dämonenbeschwörer	Dämonenbeschwörerin	z	z	20	20	4	\N
-14	eBe	Elementarbeschwörer	Elementarbeschwörerin	z	z	20	20	4	\N
-16	Dr	Druide	Druidin	z	z	0	20	1	\N
-22	PH	Herrschaftspriester	Herrschaftspriesterin	z	z	20	0	1	\N
 2	BN	Nordlandbarbar	Nordlandbarbarin	n	k	0	0	2	\N
 3	BS	Steppenbarbar	Steppenbarbarin	n	k	0	0	2	\N
 4	BW	Waldlandbarbar	Waldlandbarbarin	n	k	0	0	4	\N
-5	Ba	Barde	Bardin	j	ak	20	0	1	\N
-6	Gl	Glücksritter	Glücksritterin	n	ak	0	0	3	\N
+5	Er	Ermittler	Ermittlerin	n	ak	0	0	0	\N
 7	Hä	Händler	Händlerin	n	ak	-10	0	2	\N
 8	Kr	Krieger	Kriegerin	n	k	0	0	3	\N
-9	Ord	Ordeskrieger	Ordenskriegerin	j	ak	0	0	3	\N
+9	Ku	Kundschafter	Kundschafterin	n	k	0	0	0	\N
 10	Se	Seefahrer	Seefahrerin	n	ak	0	0	2	\N
 11	Sö	Söldner	Söldnerin	n	k	0	0	3	\N
-13	Wa	Waldläufer	Waldläuferin	n	k	-10	0	1	\N
-1	Ass	Assassine	Assassinin	n	ak	0	20	1	\N
 12	Sp	Spitzbube	Spitzbübin	n	ak	-20	-20	1	\N
-17	Hl	Heiler	Heilerin	z	z	0	0	4	\N
-20	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N
-18	gHx	grauer Hexer	graue Hexe	z	z	0	0	4	\N
-19	sHx	schwarzer Hexer	schwarze Hexe	z	z	0	0	4	\N
-21	Ma	Magier	Magierin	z	z	0	0	4	\N
-23	PF	Fruchtbarkeitspriester	Fruchtberkeitspriesterin	z	z	20	0	4	\N
-24	PW	Weisheitspriester	Weisheitspriesterin	z	z	20	0	4	\N
-25	PM	Meerespriester	Meerespriesterin	z	z	20	0	1	\N
-26	PK	Kriegspriester	Kriegspriesterin	z	z	20	0	1	\N
-30	Ny	Ninya	Ninya	n	ak	0	20	1	K
-31	Kd	KiDoka	KiDoka	n	k	0	0	1	K
-32	Fi	Fian	Fian	j	ak	0	0	3	B&R
-33	Ri	Ritter	Ritterin	n	k	0	0	3	B&R
-34	Sr	Srikumara	Srikumara	j	ak	0	0	3	R
-35	Sa	Saddhu	Saddhu	z	z	0	0	4	R
+13	Wa	Waldläufer	Waldläuferin	n	k	-10	0	1	\N
+14	Ba	Barde	Bardin	j	ak	20	0	1	\N
+16	Tm	Tiermeister	Tiermeisterin	j	ak	0	0	0	\N
+20	Hl	Heiler	Heilerin	z	z	0	0	4	\N
+21	gHx	grauer Hexer	graue Hexe	z	z	0	0	4	\N
+22	sHx	schwarzer Hexer	schwarze Hexe	z	z	0	0	4	\N
+23	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N
+24	Ma	Magier	Magierin	z	z	0	0	4	\N
+25	PF	Fruchtbarkeitspriester	Fruchtberkeitspriesterin	z	z	20	0	4	\N
+26	PHa	Priester Handel/Handwerk	Priesterin Handel/Handwerk	z	z	20	0	1	\N
+27	PHe	Herrschaftspriester	Herrschaftspriesterin	z	z	20	0	1	\N
+28	PK	Kriegspriester	Kriegspriesterin	z	z	20	0	1	\N
+29	PM	Meerespriester	Meerespriesterin	z	z	20	0	1	\N
+30	PT	Todespriester	Todespriesterin	z	z	20	0	4	\N
+31	PW	Weisheitspriester	Weisheitspriesterin	z	z	20	0	4	\N
+37	Kd	KiDoka	KiDoka	n	k	0	0	1	K
+39	Sr	Srikumara	Srikumara	j	ak	0	0	3	R
+40	Fi	Fian	Fian	j	ak	0	0	3	B&R
+41	Ri	Ritter	Ritterin	n	k	0	0	3	B&R
+32	ScN	Schamane (Nordland)	Schamanin (Nordland)	z	ak	0	0	1	\N
+33	ScS	Schamane (Steppe)	Schamanin (Steppe)	z	ak	0	0	1	\N
+34	ScW	Schamane (Waldland)	Schamanin (Waldland)	z	ak	0	0	1	\N
+35	Th	Thaumaturge	Thaumaturgin	z	z	0	0	1	\N
+38	Sa	Saddhu	Saddhu	z	z	0	0	4	R
+6	Gl	Glücksritter	Glücksritterin	n	ak	0	-20	3	\N
+17	eBe	Elementarbeschwörer	Elementarbeschwörerin	z	z	20	30	4	\N
+18	dBe	Dämonenbeschwörer	Dämonenbeschwörerin	z	z	20	30	4	\N
+19	Dr	Druide	Druidin	z	z	0	30	1	\N
+36	Ny	Ninya	Ninya	n	ak	0	30	1	K
+1	As	Assassine	Assassinin	n	ak	0	30	1	\N
+15	Or	Ordeskrieger	Ordenskriegerin	j	ak	0	0	3	\N
 \.
 --
 -- TOC Entry ID 3 (OID 9071979)

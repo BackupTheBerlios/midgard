@@ -4,7 +4,7 @@
 DROP INDEX "fertigkeiten_voraussetzung_name";
 DROP TABLE "fertigkeiten_voraussetzung";
 --
--- TOC Entry ID 2 (OID 26667275)
+-- TOC Entry ID 2 (OID 30118263)
 --
 -- Name: fertigkeiten_voraussetzung Type: TABLE Owner: thoma
 --
@@ -25,7 +25,7 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26667275) TABLE DATA fertigkeiten_voraussetzung
+-- Data for TOC Entry ID 4 (OID 30118263) TABLE DATA fertigkeiten_voraussetzung
 --
 
 COPY "fertigkeiten_voraussetzung"  FROM stdin;
@@ -133,7 +133,6 @@ Schmerzen ertragen	\N	\N	\N	\N	\N	\N	\N	81	\N	\N	\N
 Schlangen beschwören	\N	61	\N	\N	\N	\N	\N	31	\N	Musizieren	\N
 Srimara lenken	\N	31	\N	\N	\N	\N	\N	61	\N	\N	\N
 Kampf zu Srimara	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	0	\N	\N
 Kenntnis der fünf Klassiker	\N	\N	\N	11	\N	\N	\N	\N	\N		\N
 Abrichten	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
 Akrobatik	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
@@ -186,9 +185,10 @@ Wahrnehmung	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Winden	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zeichensprache	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
 Malen/Zeichnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	\N	\N	\N
 \.
 --
--- TOC Entry ID 3 (OID 26667275)
+-- TOC Entry ID 3 (OID 30118263)
 --
 -- Name: "fertigkeiten_voraussetzung_name" Type: INDEX Owner: thoma
 --

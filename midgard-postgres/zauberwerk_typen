@@ -798,54 +798,6 @@ Wasser weihen	1	PW	G
 Weihen	G	PW	S
 Werwesenamulett verzaubern	3	PW	A
 Zauberpergament beschriften	3	PW	G
-Berserkerpilz aktivieren	2	Sc	G
-Binden	G	Sc	A
-Dämonenamulett verzaubern	3	Sc	S
-Elementaramulett verzaubern	3	Sc	S
-Flohpulver aktivieren	2	Sc	S
-Geisteramulett verzaubern	4	Sc	S
-Heiltrunk (1W6) aktivieren	2	Sc	S
-Krafttrunk (1W6) aktivieren	1	Sc	S
-Krafttrunk (2W6) aktivieren	2	Sc	S
-Liebestrank aktivieren	3	Sc	S
-Pulver der Panzerhaut aktivieren	3	Sc	S
-Rauchperle aktivieren	3	Sc	S
-Reckentrunk aktivieren	2	Sc	S
-Salbe der Eisenhaut aktivieren	4	Sc	S
-Schamanentrommel herstellen	G	Sc	G
-Schildamulett verzaubern	1	Sc	S
-Schildamulett verzaubern	2	Sc	S
-Schildamulett verzaubern	3	Sc	S
-Schildamulett verzaubern	4	Sc	S
-Schildamulett verzaubern	5	Sc	S
-Schildamulett verzaubern	6	Sc	S
-Schnellkraut aktivieren	3	Sc	S
-Schutzamulett verzaubern	1	Sc	A
-Schutzamulett verzaubern	2	Sc	A
-Schutzamulett verzaubern	3	Sc	A
-Schutzamulett verzaubern	4	Sc	A
-Schutzamulett verzaubern	5	Sc	A
-Schutzamulett verzaubern	6	Sc	A
-Spiegelamulett verzaubern	1	Sc	A
-Spiegelamulett verzaubern	2	Sc	A
-Spiegelamulett verzaubern	3	Sc	A
-Spiegelamulett verzaubern	4	Sc	A
-Spiegelamulett verzaubern	5	Sc	A
-Spiegelamulett verzaubern	6	Sc	A
-Talisman verzaubern	1	Sc	S
-Talisman verzaubern	2	Sc	S
-Talisman verzaubern	3	Sc	S
-Talisman verzaubern	4	Sc	S
-Trunk der Macht über Hunde aktivieren	2	Sc	S
-Trunk der Macht über Menschen aktivieren	4	Sc	S
-Trunk der Macht über Orks aktivieren	3	Sc	S
-Trunk des Riesenwuchses aktivieren	4	Sc	S
-Trunk des Schwerelosigkeit aktivieren	4	Sc	S
-Trunk des Unsichtbarkeit aktivieren	3	Sc	S
-Trunk des Verwandlung aktivieren	5	Sc	S
-Untotenamulett verzaubern	3	Sc	S
-Weihen	G	Sc	S
-Werwesenamulett verzaubern	3	Sc	S
 Berserkerpilz aktivieren	2	sHx	S
 Binden	G	sHx	A
 Dämonenamulett verzaubern	3	sHx	A
@@ -905,6 +857,85 @@ Schildamulett verzaubern	2	tBe	S
 Schildamulett verzaubern	3	tBe	S
 Schildamulett verzaubern	4	tBe	S
 Schildamulett verzaubern	5	tBe	S
+Berserkerpilz aktivieren	2	ScN	G
+Binden	G	ScN	A
+Dämonenamulett verzaubern	3	ScN	S
+Elementaramulett verzaubern	3	ScN	S
+Flohpulver aktivieren	2	ScN	S
+Geisteramulett verzaubern	4	ScN	S
+Heiltrunk (1W6) aktivieren	2	ScN	S
+Krafttrunk (1W6) aktivieren	1	ScN	S
+Krafttrunk (2W6) aktivieren	2	ScN	S
+Liebestrank aktivieren	3	ScN	S
+Pulver der Panzerhaut aktivieren	3	ScN	S
+Rauchperle aktivieren	3	ScN	S
+Reckentrunk aktivieren	2	ScN	S
+Salbe der Eisenhaut aktivieren	4	ScN	S
+Schamanentrommel herstellen	G	ScN	G
+Schildamulett verzaubern	1	ScN	S
+Schildamulett verzaubern	2	ScN	S
+Schildamulett verzaubern	3	ScN	S
+Schildamulett verzaubern	4	ScN	S
+Schildamulett verzaubern	5	ScN	S
+Schildamulett verzaubern	6	ScN	S
+Schnellkraut aktivieren	3	ScN	S
+Schutzamulett verzaubern	1	ScN	A
+Schutzamulett verzaubern	2	ScN	A
+Schutzamulett verzaubern	3	ScN	A
+Schutzamulett verzaubern	4	ScN	A
+Schutzamulett verzaubern	5	ScN	A
+Schutzamulett verzaubern	6	ScN	A
+Spiegelamulett verzaubern	1	ScN	A
+Spiegelamulett verzaubern	2	ScN	A
+Spiegelamulett verzaubern	3	ScN	A
+Spiegelamulett verzaubern	4	ScN	A
+Spiegelamulett verzaubern	5	ScN	A
+Spiegelamulett verzaubern	6	ScN	A
+Talisman verzaubern	1	ScN	S
+Talisman verzaubern	2	ScN	S
+Talisman verzaubern	3	ScN	S
+Talisman verzaubern	4	ScN	S
+Trunk der Macht über Hunde aktivieren	2	ScN	S
+Trunk der Macht über Menschen aktivieren	4	ScN	S
+Trunk der Macht über Orks aktivieren	3	ScN	S
+Trunk des Riesenwuchses aktivieren	4	ScN	S
+Trunk des Schwerelosigkeit aktivieren	4	ScN	S
+Trunk des Unsichtbarkeit aktivieren	3	ScN	S
+Trunk des Verwandlung aktivieren	5	ScN	S
+Untotenamulett verzaubern	3	ScN	S
+Weihen	G	ScN	S
+Werwesenamulett verzaubern	3	ScN	S
+Berserkerpilz aktivieren	2	ScW	G
+Binden	G	ScW	A
+Dämonenamulett verzaubern	3	ScW	S
+Elementaramulett verzaubern	3	ScW	S
+Flohpulver aktivieren	2	ScW	S
+Geisteramulett verzaubern	4	ScW	S
+Heiltrunk (1W6) aktivieren	2	ScW	S
+Krafttrunk (1W6) aktivieren	1	ScW	S
+Krafttrunk (2W6) aktivieren	2	ScW	S
+Liebestrank aktivieren	3	ScW	S
+Pulver der Panzerhaut aktivieren	3	ScW	S
+Rauchperle aktivieren	3	ScW	S
+Reckentrunk aktivieren	2	ScW	S
+Salbe der Eisenhaut aktivieren	4	ScW	S
+Schamanentrommel herstellen	G	ScW	G
+Schildamulett verzaubern	1	ScW	S
+Schildamulett verzaubern	2	ScW	S
+Schildamulett verzaubern	3	ScW	S
+Schildamulett verzaubern	4	ScW	S
+Schildamulett verzaubern	5	ScW	S
+Schildamulett verzaubern	6	ScW	S
+Schnellkraut aktivieren	3	ScW	S
+Schutzamulett verzaubern	1	ScW	A
+Schutzamulett verzaubern	2	ScW	A
+Schutzamulett verzaubern	3	ScW	A
+Schutzamulett verzaubern	4	ScW	A
+Schutzamulett verzaubern	5	ScW	A
+Schutzamulett verzaubern	6	ScW	A
+Spiegelamulett verzaubern	1	ScW	A
+Spiegelamulett verzaubern	2	ScW	A
+Spiegelamulett verzaubern	3	ScW	A
 Schutzamulett verzaubern	3	Th	G
 Schutzamulett verzaubern	4	Th	G
 Schutzamulett verzaubern	5	Th	G
@@ -916,6 +947,71 @@ Spiegelamulett verzaubern	1	Th	G
 Spiegelamulett verzaubern	2	Th	G
 Spiegelamulett verzaubern	3	Th	G
 Spiegelamulett verzaubern	4	Th	G
+Spiegelamulett verzaubern	4	ScW	A
+Spiegelamulett verzaubern	5	ScW	A
+Spiegelamulett verzaubern	6	ScW	A
+Talisman verzaubern	1	ScW	S
+Talisman verzaubern	2	ScW	S
+Talisman verzaubern	3	ScW	S
+Talisman verzaubern	4	ScW	S
+Trunk der Macht über Hunde aktivieren	2	ScW	S
+Trunk der Macht über Menschen aktivieren	4	ScW	S
+Trunk der Macht über Orks aktivieren	3	ScW	S
+Trunk des Riesenwuchses aktivieren	4	ScW	S
+Trunk des Schwerelosigkeit aktivieren	4	ScW	S
+Trunk des Unsichtbarkeit aktivieren	3	ScW	S
+Trunk des Verwandlung aktivieren	5	ScW	S
+Untotenamulett verzaubern	3	ScW	S
+Weihen	G	ScW	S
+Werwesenamulett verzaubern	3	ScW	S
+Berserkerpilz aktivieren	2	ScS	G
+Binden	G	ScS	A
+Dämonenamulett verzaubern	3	ScS	S
+Elementaramulett verzaubern	3	ScS	S
+Flohpulver aktivieren	2	ScS	S
+Geisteramulett verzaubern	4	ScS	S
+Heiltrunk (1W6) aktivieren	2	ScS	S
+Krafttrunk (1W6) aktivieren	1	ScS	S
+Krafttrunk (2W6) aktivieren	2	ScS	S
+Liebestrank aktivieren	3	ScS	S
+Pulver der Panzerhaut aktivieren	3	ScS	S
+Rauchperle aktivieren	3	ScS	S
+Reckentrunk aktivieren	2	ScS	S
+Salbe der Eisenhaut aktivieren	4	ScS	S
+Schamanentrommel herstellen	G	ScS	G
+Schildamulett verzaubern	1	ScS	S
+Schildamulett verzaubern	2	ScS	S
+Schildamulett verzaubern	3	ScS	S
+Schildamulett verzaubern	4	ScS	S
+Schildamulett verzaubern	5	ScS	S
+Schildamulett verzaubern	6	ScS	S
+Schnellkraut aktivieren	3	ScS	S
+Schutzamulett verzaubern	1	ScS	A
+Schutzamulett verzaubern	2	ScS	A
+Schutzamulett verzaubern	3	ScS	A
+Schutzamulett verzaubern	4	ScS	A
+Schutzamulett verzaubern	5	ScS	A
+Schutzamulett verzaubern	6	ScS	A
+Spiegelamulett verzaubern	1	ScS	A
+Spiegelamulett verzaubern	2	ScS	A
+Spiegelamulett verzaubern	3	ScS	A
+Spiegelamulett verzaubern	4	ScS	A
+Spiegelamulett verzaubern	5	ScS	A
+Spiegelamulett verzaubern	6	ScS	A
+Talisman verzaubern	1	ScS	S
+Talisman verzaubern	2	ScS	S
+Talisman verzaubern	3	ScS	S
+Talisman verzaubern	4	ScS	S
+Trunk der Macht über Hunde aktivieren	2	ScS	S
+Trunk der Macht über Menschen aktivieren	4	ScS	S
+Trunk der Macht über Orks aktivieren	3	ScS	S
+Trunk des Riesenwuchses aktivieren	4	ScS	S
+Trunk des Schwerelosigkeit aktivieren	4	ScS	S
+Trunk des Unsichtbarkeit aktivieren	3	ScS	S
+Trunk des Verwandlung aktivieren	5	ScS	S
+Untotenamulett verzaubern	3	ScS	S
+Weihen	G	ScS	S
+Werwesenamulett verzaubern	3	ScS	S
 \.
 --
 -- TOC Entry ID 3 (OID 23238585)

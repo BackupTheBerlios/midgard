@@ -55,11 +55,6 @@ Lasso	Ma	A
 Namisritra	Ma	A
 Netz	Ma	A
 Peitsche	Ma	A
-Kharrata	Ord	S
-Lasso	Ord	S
-Namisritra	Ord	S
-Netz	Ord	S
-Peitsche	Ord	S
 Kharrata	PC	A
 Lasso	PC	A
 Namisritra	PC	A
@@ -90,11 +85,6 @@ Lasso	PW	A
 Namisritra	PW	A
 Netz	PW	A
 Peitsche	PW	A
-Kharrata	Sc	A
-Lasso	Sc	A
-Namisritra	Sc	A
-Netz	Sc	A
-Peitsche	Sc	A
 Kharrata	sHx	A
 Lasso	sHx	A
 Namisritra	sHx	A
@@ -139,11 +129,6 @@ Lasso	Sr	S
 Namisritra	Sr	S
 Netz	Sr	S
 Peitsche	Sr	S
-Kharrata	Ass	G
-Lasso	Ass	S
-Namisritra	Ass	G
-Netz	Ass	S
-Peitsche	Ass	S
 Kharrata	BN	S
 Lasso	BN	S
 Namisritra	BN	S
@@ -192,7 +177,6 @@ Lasso	Wa	S
 Namisritra	Wa	S
 Netz	Wa	S
 Peitsche	Wa	S
-ESchwert	Ass	S
 ESchwert	BN	S
 ESchwert	BS	S
 ESchwert	BW	S
@@ -206,7 +190,6 @@ ESchwert	Kd	S
 ESchwert	Kr	G
 ESchwert	Ma	A
 ESchwert	Ny	S
-ESchwert	Ord	S
 ESchwert	PC	A
 ESchwert	PF	A
 ESchwert	PK	S
@@ -215,7 +198,6 @@ ESchwert	PT	A
 ESchwert	PW	A
 ESchwert	Ri	G
 ESchwert	Sa	A
-ESchwert	Sc	A
 ESchwert	Se	S
 ESchwert	Sp	S
 ESchwert	Sr	S
@@ -227,7 +209,6 @@ ESchwert	eBe	A
 ESchwert	gHx	A
 ESchwert	sHx	A
 ESchwert	wHx	A
-ESchlagwaffe	Ass	S
 ESchlagwaffe	BN	S
 ESchlagwaffe	BS	S
 ESchlagwaffe	BW	S
@@ -241,7 +222,6 @@ ESchlagwaffe	Kd	S
 ESchlagwaffe	Kr	G
 ESchlagwaffe	Ma	A
 ESchlagwaffe	Ny	S
-ESchlagwaffe	Ord	S
 ESchlagwaffe	PC	A
 ESchlagwaffe	PF	A
 ESchlagwaffe	PK	S
@@ -250,7 +230,6 @@ ESchlagwaffe	PT	A
 ESchlagwaffe	PW	A
 ESchlagwaffe	Ri	G
 ESchlagwaffe	Sa	A
-ESchlagwaffe	Sc	A
 ESchlagwaffe	Se	S
 ESchlagwaffe	Sp	S
 ESchlagwaffe	Sr	S
@@ -262,7 +241,6 @@ ESchlagwaffe	eBe	A
 ESchlagwaffe	gHx	A
 ESchlagwaffe	sHx	A
 ESchlagwaffe	wHx	A
-Spießwaffe	Ass	S
 Spießwaffe	BN	S
 Spießwaffe	BS	S
 Spießwaffe	BW	S
@@ -276,7 +254,6 @@ Spießwaffe	Kd	S
 Spießwaffe	Kr	G
 Spießwaffe	Ma	A
 Spießwaffe	Ny	S
-Spießwaffe	Ord	S
 Spießwaffe	PC	A
 Spießwaffe	PF	A
 Spießwaffe	PK	S
@@ -285,7 +262,6 @@ Spießwaffe	PT	A
 Spießwaffe	PW	A
 Spießwaffe	Ri	G
 Spießwaffe	Sa	A
-Spießwaffe	Sc	A
 Spießwaffe	Se	S
 Spießwaffe	Sp	S
 Spießwaffe	Sr	S
@@ -297,7 +273,6 @@ Spießwaffe	eBe	A
 Spießwaffe	gHx	A
 Spießwaffe	sHx	A
 Spießwaffe	wHx	A
-ZSchwert	Ass	S
 ZSchwert	BN	S
 ZSchwert	BS	S
 ZSchwert	BW	S
@@ -311,7 +286,6 @@ ZSchwert	Kd	S
 ZSchwert	Kr	G
 ZSchwert	Ma	A
 ZSchwert	Ny	S
-ZSchwert	Ord	S
 ZSchwert	PC	A
 ZSchwert	PF	A
 ZSchwert	PK	S
@@ -320,7 +294,6 @@ ZSchwert	PT	A
 ZSchwert	PW	A
 ZSchwert	Ri	G
 ZSchwert	Sa	A
-ZSchwert	Sc	A
 ZSchwert	Se	S
 ZSchwert	Sp	S
 ZSchwert	Sr	S
@@ -332,7 +305,6 @@ ZSchwert	eBe	A
 ZSchwert	gHx	A
 ZSchwert	sHx	A
 ZSchwert	wHx	A
-ZSchlagwaffe	Ass	S
 ZSchlagwaffe	BN	S
 ZSchlagwaffe	BS	S
 ZSchlagwaffe	BW	S
@@ -346,7 +318,6 @@ ZSchlagwaffe	Kd	S
 ZSchlagwaffe	Kr	G
 ZSchlagwaffe	Ma	A
 ZSchlagwaffe	Ny	S
-ZSchlagwaffe	Ord	S
 ZSchlagwaffe	PC	A
 ZSchlagwaffe	PF	A
 ZSchlagwaffe	PK	S
@@ -355,7 +326,6 @@ ZSchlagwaffe	PT	A
 ZSchlagwaffe	PW	A
 ZSchlagwaffe	Ri	G
 ZSchlagwaffe	Sa	A
-ZSchlagwaffe	Sc	A
 ZSchlagwaffe	Se	S
 ZSchlagwaffe	Sp	S
 ZSchlagwaffe	Sr	S
@@ -367,7 +337,6 @@ ZSchlagwaffe	eBe	A
 ZSchlagwaffe	gHx	A
 ZSchlagwaffe	sHx	A
 ZSchlagwaffe	wHx	A
-Stangenwaffe	Ass	S
 Stangenwaffe	BN	S
 Stangenwaffe	BS	S
 Stangenwaffe	BW	S
@@ -381,7 +350,6 @@ Stangenwaffe	Kd	S
 Stangenwaffe	Kr	G
 Stangenwaffe	Ma	A
 Stangenwaffe	Ny	S
-Stangenwaffe	Ord	S
 Stangenwaffe	PC	A
 Stangenwaffe	PF	A
 Stangenwaffe	PK	S
@@ -390,7 +358,6 @@ Stangenwaffe	PT	A
 Stangenwaffe	PW	A
 Stangenwaffe	Ri	G
 Stangenwaffe	Sa	A
-Stangenwaffe	Sc	A
 Stangenwaffe	Se	S
 Stangenwaffe	Sp	S
 Stangenwaffe	Sr	S
@@ -402,7 +369,6 @@ Stangenwaffe	eBe	A
 Stangenwaffe	gHx	A
 Stangenwaffe	sHx	A
 Stangenwaffe	wHx	A
-Kettenwaffe	Ass	S
 Kettenwaffe	BN	S
 Kettenwaffe	BS	S
 Kettenwaffe	BW	S
@@ -416,7 +382,6 @@ Kettenwaffe	Kd	S
 Kettenwaffe	Kr	G
 Kettenwaffe	Ma	A
 Kettenwaffe	Ny	S
-Kettenwaffe	Ord	S
 Kettenwaffe	PC	A
 Kettenwaffe	PF	A
 Kettenwaffe	PK	S
@@ -425,7 +390,6 @@ Kettenwaffe	PT	A
 Kettenwaffe	PW	A
 Kettenwaffe	Ri	G
 Kettenwaffe	Sa	A
-Kettenwaffe	Sc	A
 Kettenwaffe	Se	S
 Kettenwaffe	Sp	S
 Kettenwaffe	Sr	S
@@ -437,7 +401,6 @@ Kettenwaffe	eBe	A
 Kettenwaffe	gHx	A
 Kettenwaffe	sHx	A
 Kettenwaffe	wHx	A
-waffenloser Kampf	Ass	S
 waffenloser Kampf	BN	S
 waffenloser Kampf	BS	S
 waffenloser Kampf	BW	S
@@ -451,7 +414,6 @@ waffenloser Kampf	Kd	S
 waffenloser Kampf	Kr	G
 waffenloser Kampf	Ma	A
 waffenloser Kampf	Ny	S
-waffenloser Kampf	Ord	S
 waffenloser Kampf	PC	A
 waffenloser Kampf	PF	A
 waffenloser Kampf	PK	S
@@ -471,8 +433,6 @@ waffenloser Kampf	eBe	A
 waffenloser Kampf	gHx	A
 waffenloser Kampf	sHx	A
 waffenloser Kampf	wHx	A
-waffenloser Kampf	Sc	S
-Kampfstab	Ass	S
 Kampfstab	BN	S
 Kampfstab	BS	S
 Kampfstab	BW	S
@@ -486,7 +446,6 @@ Kampfstab	Kd	S
 Kampfstab	Kr	G
 Kampfstab	Ma	A
 Kampfstab	Ny	S
-Kampfstab	Ord	S
 Kampfstab	PC	A
 Kampfstab	PF	A
 Kampfstab	PK	S
@@ -495,7 +454,6 @@ Kampfstab	PT	A
 Kampfstab	PW	A
 Kampfstab	Ri	G
 Kampfstab	Sa	A
-Kampfstab	Sc	A
 Kampfstab	Se	S
 Kampfstab	Sp	S
 Kampfstab	Sr	S
@@ -522,14 +480,12 @@ Garotte	Hä	S
 Garotte	Kd	S
 Garotte	Ma	A
 Garotte	Ny	S
-Garotte	Ord	S
 Garotte	PC	A
 Garotte	PF	A
 Garotte	PM	A
 Garotte	PW	A
 Garotte	Ri	G
 Garotte	Sa	A
-Garotte	Sc	A
 Garotte	Se	S
 Garotte	Sr	S
 Garotte	Th	A
@@ -539,13 +495,11 @@ Garotte	eBe	A
 Garotte	gHx	A
 Garotte	sHx	A
 Garotte	wHx	A
-Garotte	Ass	G
 Garotte	Sp	G
 Garotte	Sö	S
 Garotte	Kr	S
 Garotte	PT	S
 Garotte	PK	A
-Wurfspieß	Ass	S
 Wurfspieß	BN	S
 Wurfspieß	BS	S
 Wurfspieß	BW	S
@@ -559,7 +513,6 @@ Wurfspieß	Kd	S
 Wurfspieß	Kr	G
 Wurfspieß	Ma	A
 Wurfspieß	Ny	S
-Wurfspieß	Ord	S
 Wurfspieß	PC	A
 Wurfspieß	PF	A
 Wurfspieß	PK	S
@@ -568,7 +521,6 @@ Wurfspieß	PT	A
 Wurfspieß	PW	A
 Wurfspieß	Ri	G
 Wurfspieß	Sa	A
-Wurfspieß	Sc	A
 Wurfspieß	Se	S
 Wurfspieß	Sp	S
 Wurfspieß	Sr	S
@@ -580,7 +532,6 @@ Wurfspieß	eBe	A
 Wurfspieß	gHx	A
 Wurfspieß	sHx	A
 Wurfspieß	wHx	A
-Wurfmesser	Ass	S
 Wurfmesser	BN	S
 Wurfmesser	BS	S
 Wurfmesser	BW	S
@@ -594,7 +545,6 @@ Wurfmesser	Kd	S
 Wurfmesser	Kr	G
 Wurfmesser	Ma	A
 Wurfmesser	Ny	S
-Wurfmesser	Ord	S
 Wurfmesser	PC	A
 Wurfmesser	PF	A
 Wurfmesser	PK	S
@@ -603,7 +553,6 @@ Wurfmesser	PT	A
 Wurfmesser	PW	A
 Wurfmesser	Ri	G
 Wurfmesser	Sa	A
-Wurfmesser	Sc	A
 Wurfmesser	Se	S
 Wurfmesser	Sp	S
 Wurfmesser	Sr	S
@@ -615,7 +564,6 @@ Wurfmesser	eBe	A
 Wurfmesser	gHx	A
 Wurfmesser	sHx	A
 Wurfmesser	wHx	A
-Stielwurfwaffe	Ass	S
 Stielwurfwaffe	BN	S
 Stielwurfwaffe	BS	S
 Stielwurfwaffe	BW	S
@@ -629,7 +577,6 @@ Stielwurfwaffe	Kd	S
 Stielwurfwaffe	Kr	G
 Stielwurfwaffe	Ma	A
 Stielwurfwaffe	Ny	S
-Stielwurfwaffe	Ord	S
 Stielwurfwaffe	PC	A
 Stielwurfwaffe	PF	A
 Stielwurfwaffe	PK	S
@@ -638,7 +585,6 @@ Stielwurfwaffe	PT	A
 Stielwurfwaffe	PW	A
 Stielwurfwaffe	Ri	G
 Stielwurfwaffe	Sa	A
-Stielwurfwaffe	Sc	A
 Stielwurfwaffe	Se	S
 Stielwurfwaffe	Sp	S
 Stielwurfwaffe	Sr	S
@@ -663,7 +609,6 @@ Wurfpfeil	Kd	S
 Wurfpfeil	Kr	G
 Wurfpfeil	Ma	A
 Wurfpfeil	Ny	S
-Wurfpfeil	Ord	S
 Wurfpfeil	PC	A
 Wurfpfeil	PF	A
 Wurfpfeil	PK	S
@@ -672,7 +617,6 @@ Wurfpfeil	PT	A
 Wurfpfeil	PW	A
 Wurfpfeil	Ri	G
 Wurfpfeil	Sa	A
-Wurfpfeil	Sc	A
 Wurfpfeil	Se	S
 Wurfpfeil	Sp	S
 Wurfpfeil	Sr	S
@@ -684,7 +628,6 @@ Wurfpfeil	eBe	A
 Wurfpfeil	gHx	A
 Wurfpfeil	sHx	A
 Wurfpfeil	wHx	A
-Wurfpfeil	Ass	G
 Wurfscheibe	BN	S
 Wurfscheibe	BS	S
 Wurfscheibe	BW	S
@@ -697,14 +640,12 @@ Wurfscheibe	Hä	S
 Wurfscheibe	Kd	S
 Wurfscheibe	Ma	A
 Wurfscheibe	Ny	S
-Wurfscheibe	Ord	S
 Wurfscheibe	PC	A
 Wurfscheibe	PF	A
 Wurfscheibe	PM	A
 Wurfscheibe	PT	A
 Wurfscheibe	Ri	G
 Wurfscheibe	Sa	A
-Wurfscheibe	Sc	A
 Wurfscheibe	Se	S
 Wurfscheibe	Sp	S
 Wurfscheibe	Sr	S
@@ -715,7 +656,6 @@ Wurfscheibe	eBe	A
 Wurfscheibe	gHx	A
 Wurfscheibe	sHx	A
 Wurfscheibe	wHx	A
-Wurfscheibe	Ass	G
 Wurfscheibe	Kr	S
 Wurfscheibe	Sö	S
 Wurfscheibe	PK	A
@@ -732,7 +672,6 @@ Werfen	Kd	S
 Werfen	Kr	G
 Werfen	Ma	A
 Werfen	Ny	S
-Werfen	Ord	S
 Werfen	PC	A
 Werfen	PF	A
 Werfen	PM	A
@@ -740,7 +679,6 @@ Werfen	PT	A
 Werfen	PW	A
 Werfen	Ri	G
 Werfen	Sa	A
-Werfen	Sc	A
 Werfen	Sr	S
 Werfen	Sö	G
 Werfen	Wa	S
@@ -749,13 +687,11 @@ Werfen	eBe	A
 Werfen	gHx	A
 Werfen	sHx	A
 Werfen	wHx	A
-Werfen	Ass	G
 Werfen	Gl	G
 Werfen	Sp	G
 Werfen	Se	G
 Werfen	Th	S
 Werfen	PK	A
-Bögen	Ass	S
 Bögen	BN	S
 Bögen	BS	S
 Bögen	BW	S
@@ -769,7 +705,6 @@ Bögen	Kd	S
 Bögen	Kr	G
 Bögen	Ma	A
 Bögen	Ny	S
-Bögen	Ord	S
 Bögen	PC	A
 Bögen	PF	A
 Bögen	PK	S
@@ -778,7 +713,6 @@ Bögen	PT	A
 Bögen	PW	A
 Bögen	Ri	G
 Bögen	Sa	A
-Bögen	Sc	A
 Bögen	Se	S
 Bögen	Sp	S
 Bögen	Sr	S
@@ -800,7 +734,6 @@ Blasrohr	Gl	S
 Blasrohr	Hl	A
 Blasrohr	Hä	S
 Blasrohr	Kd	S
-Blasrohr	Ord	S
 Blasrohr	PC	A
 Blasrohr	PF	A
 Blasrohr	PM	A
@@ -808,7 +741,6 @@ Blasrohr	PT	A
 Blasrohr	PW	A
 Blasrohr	Ri	G
 Blasrohr	Sa	A
-Blasrohr	Sc	A
 Blasrohr	Se	S
 Blasrohr	Sp	S
 Blasrohr	Sr	S
@@ -818,14 +750,12 @@ Blasrohr	eBe	A
 Blasrohr	gHx	A
 Blasrohr	sHx	A
 Blasrohr	wHx	A
-Blasrohr	Ass	G
 Blasrohr	Kr	S
 Blasrohr	Ny	S
 Blasrohr	Ma	S
 Blasrohr	Sö	S
 Blasrohr	PK	A
 Blasrohr	Th	S
-Schilde	Ass	S
 Schilde	BN	S
 Schilde	BS	S
 Schilde	BW	S
@@ -839,7 +769,6 @@ Schilde	Kd	S
 Schilde	Kr	G
 Schilde	Ma	A
 Schilde	Ny	S
-Schilde	Ord	S
 Schilde	PC	A
 Schilde	PF	A
 Schilde	PK	S
@@ -848,7 +777,6 @@ Schilde	PT	A
 Schilde	PW	A
 Schilde	Ri	G
 Schilde	Sa	A
-Schilde	Sc	A
 Schilde	Se	S
 Schilde	Sp	S
 Schilde	Sr	S
@@ -932,7 +860,6 @@ Bögen	Er	S
 Blasrohr	Er	S
 Schilde	Er	S
 Werfen	Ku	G
-Armbrust	Ass	S
 Armbrust	BN	S
 Armbrust	BS	S
 Armbrust	BW	S
@@ -948,7 +875,6 @@ Armbrust	Kr	G
 Armbrust	Ku	S
 Armbrust	Ma	A
 Armbrust	Ny	S
-Armbrust	Ord	S
 Armbrust	PC	A
 Armbrust	PF	A
 Armbrust	PK	S
@@ -957,7 +883,6 @@ Armbrust	PT	A
 Armbrust	PW	A
 Armbrust	Ri	G
 Armbrust	Sa	A
-Armbrust	Sc	A
 Armbrust	Se	S
 Armbrust	Sp	S
 Armbrust	Sr	S
@@ -970,7 +895,6 @@ Armbrust	eBe	A
 Armbrust	gHx	A
 Armbrust	sHx	A
 Armbrust	wHx	A
-Fesselwaffe	Ass	S
 Fesselwaffe	BN	S
 Fesselwaffe	BS	G
 Fesselwaffe	BW	S
@@ -986,7 +910,6 @@ Fesselwaffe	Kr	S
 Fesselwaffe	Ku	S
 Fesselwaffe	Ma	A
 Fesselwaffe	Ny	S
-Fesselwaffe	Ord	S
 Fesselwaffe	PC	A
 Fesselwaffe	PF	A
 Fesselwaffe	PK	S
@@ -995,7 +918,6 @@ Fesselwaffe	PT	A
 Fesselwaffe	PW	A
 Fesselwaffe	Ri	S
 Fesselwaffe	Sa	A
-Fesselwaffe	Sc	A
 Fesselwaffe	Se	S
 Fesselwaffe	Sp	S
 Fesselwaffe	Sr	S
@@ -1008,7 +930,6 @@ Fesselwaffe	eBe	A
 Fesselwaffe	gHx	A
 Fesselwaffe	sHx	A
 Fesselwaffe	wHx	A
-Parierwaffe	Ass	S
 Parierwaffe	BN	S
 Parierwaffe	BS	S
 Parierwaffe	BW	S
@@ -1024,7 +945,6 @@ Parierwaffe	Kr	G
 Parierwaffe	Ku	S
 Parierwaffe	Ma	A
 Parierwaffe	Ny	S
-Parierwaffe	Ord	S
 Parierwaffe	PC	A
 Parierwaffe	PF	A
 Parierwaffe	PK	S
@@ -1033,7 +953,6 @@ Parierwaffe	PT	A
 Parierwaffe	PW	A
 Parierwaffe	Ri	G
 Parierwaffe	Sa	A
-Parierwaffe	Sc	A
 Parierwaffe	Se	S
 Parierwaffe	Sp	S
 Parierwaffe	Sr	S
@@ -1046,7 +965,6 @@ Parierwaffe	eBe	A
 Parierwaffe	gHx	A
 Parierwaffe	sHx	A
 Parierwaffe	wHx	A
-Schleuder	Ass	S
 Schleuder	BN	S
 Schleuder	BS	S
 Schleuder	BW	S
@@ -1062,7 +980,6 @@ Schleuder	Kr	G
 Schleuder	Ku	S
 Schleuder	Ma	A
 Schleuder	Ny	S
-Schleuder	Ord	S
 Schleuder	PC	A
 Schleuder	PF	A
 Schleuder	PK	A
@@ -1071,7 +988,6 @@ Schleuder	PT	A
 Schleuder	PW	A
 Schleuder	Ri	G
 Schleuder	Sa	A
-Schleuder	Sc	A
 Schleuder	Se	S
 Schleuder	Sp	S
 Schleuder	Sr	S
@@ -1084,7 +1000,6 @@ Schleuder	eBe	A
 Schleuder	gHx	A
 Schleuder	sHx	A
 Schleuder	wHx	A
-Stichwaffe	Ass	S
 Stichwaffe	BN	S
 Stichwaffe	BS	S
 Stichwaffe	BW	S
@@ -1100,7 +1015,6 @@ Stichwaffe	Kr	G
 Stichwaffe	Ku	S
 Stichwaffe	Ma	A
 Stichwaffe	Ny	S
-Stichwaffe	Ord	S
 Stichwaffe	PC	A
 Stichwaffe	PF	A
 Stichwaffe	PK	S
@@ -1109,7 +1023,6 @@ Stichwaffe	PT	A
 Stichwaffe	PW	A
 Stichwaffe	Ri	G
 Stichwaffe	Sa	A
-Stichwaffe	Sc	A
 Stichwaffe	Se	S
 Stichwaffe	Sp	S
 Stichwaffe	Sr	S
@@ -1131,7 +1044,6 @@ Zauberstab	PM	S
 Zauberstab	PT	S
 Zauberstab	PW	S
 Zauberstab	Sa	S
-Zauberstab	Sc	S
 Zauberstab	Th	S
 Zauberstab	dBe	S
 Zauberstab	eBe	S
@@ -1139,8 +1051,156 @@ Zauberstab	gHx	S
 Zauberstab	sHx	S
 Zauberstab	wHx	S
 Zauberstab	Hl	S
-Zauberstab	Ord	A
 Zauberstab	Tm	A
+Kharrata	As	G
+Lasso	As	S
+Namisritra	As	G
+Netz	As	S
+Peitsche	As	S
+ESchwert	As	S
+ESchlagwaffe	As	S
+Spießwaffe	As	S
+ZSchwert	As	S
+ZSchlagwaffe	As	S
+Stangenwaffe	As	S
+Kettenwaffe	As	S
+waffenloser Kampf	As	S
+Kampfstab	As	S
+Garotte	As	G
+Wurfspieß	As	S
+Wurfmesser	As	S
+Stielwurfwaffe	As	S
+Wurfpfeil	As	G
+Wurfscheibe	As	G
+Werfen	As	G
+Bögen	As	S
+Blasrohr	As	G
+Schilde	As	S
+Armbrust	As	S
+Fesselwaffe	As	S
+Parierwaffe	As	S
+Schleuder	As	S
+Stichwaffe	As	S
+Kharrata	Or	S
+Lasso	Or	S
+Namisritra	Or	S
+Netz	Or	S
+Peitsche	Or	S
+ESchwert	Or	S
+ESchlagwaffe	Or	S
+Spießwaffe	Or	S
+ZSchwert	Or	S
+ZSchlagwaffe	Or	S
+Stangenwaffe	Or	S
+Kettenwaffe	Or	S
+waffenloser Kampf	Or	S
+Kampfstab	Or	S
+Garotte	Or	S
+Wurfspieß	Or	S
+Wurfmesser	Or	S
+Stielwurfwaffe	Or	S
+Wurfpfeil	Or	S
+Wurfscheibe	Or	S
+Werfen	Or	S
+Bögen	Or	S
+Blasrohr	Or	S
+Schilde	Or	S
+Armbrust	Or	S
+Fesselwaffe	Or	S
+Parierwaffe	Or	S
+Schleuder	Or	S
+Stichwaffe	Or	S
+Zauberstab	Or	A
+Kharrata	ScS	A
+Lasso	ScS	A
+Namisritra	ScS	A
+Netz	ScS	A
+Peitsche	ScS	A
+ESchwert	ScS	A
+ESchlagwaffe	ScS	A
+Spießwaffe	ScS	A
+ZSchwert	ScS	A
+ZSchlagwaffe	ScS	A
+Stangenwaffe	ScS	A
+Kettenwaffe	ScS	A
+waffenloser Kampf	ScS	S
+Kampfstab	ScS	A
+Garotte	ScS	A
+Wurfspieß	ScS	A
+Wurfmesser	ScS	A
+Stielwurfwaffe	ScS	A
+Wurfpfeil	ScS	A
+Wurfscheibe	ScS	A
+Werfen	ScS	A
+Bögen	ScS	A
+Blasrohr	ScS	A
+Schilde	ScS	A
+Armbrust	ScS	A
+Fesselwaffe	ScS	A
+Parierwaffe	ScS	A
+Schleuder	ScS	A
+Stichwaffe	ScS	A
+Zauberstab	ScS	S
+Kharrata	ScW	A
+Lasso	ScW	A
+Namisritra	ScW	A
+Netz	ScW	A
+Peitsche	ScW	A
+ESchwert	ScW	A
+ESchlagwaffe	ScW	A
+Spießwaffe	ScW	A
+ZSchwert	ScW	A
+ZSchlagwaffe	ScW	A
+Stangenwaffe	ScW	A
+Kettenwaffe	ScW	A
+waffenloser Kampf	ScW	S
+Kampfstab	ScW	A
+Garotte	ScW	A
+Wurfspieß	ScW	A
+Wurfmesser	ScW	A
+Stielwurfwaffe	ScW	A
+Wurfpfeil	ScW	A
+Wurfscheibe	ScW	A
+Werfen	ScW	A
+Bögen	ScW	A
+Blasrohr	ScW	A
+Schilde	ScW	A
+Armbrust	ScW	A
+Fesselwaffe	ScW	A
+Parierwaffe	ScW	A
+Schleuder	ScW	A
+Stichwaffe	ScW	A
+Zauberstab	ScW	S
+Kharrata	ScN	A
+Lasso	ScN	A
+Namisritra	ScN	A
+Netz	ScN	A
+Peitsche	ScN	A
+ESchwert	ScN	A
+ESchlagwaffe	ScN	A
+Spießwaffe	ScN	A
+ZSchwert	ScN	A
+ZSchlagwaffe	ScN	A
+Stangenwaffe	ScN	A
+Kettenwaffe	ScN	A
+waffenloser Kampf	ScN	S
+Kampfstab	ScN	A
+Garotte	ScN	A
+Wurfspieß	ScN	A
+Wurfmesser	ScN	A
+Stielwurfwaffe	ScN	A
+Wurfpfeil	ScN	A
+Wurfscheibe	ScN	A
+Werfen	ScN	A
+Bögen	ScN	A
+Blasrohr	ScN	A
+Schilde	ScN	A
+Armbrust	ScN	A
+Fesselwaffe	ScN	A
+Parierwaffe	ScN	A
+Schleuder	ScN	A
+Stichwaffe	ScN	A
+Zauberstab	ScN	S
 \.
 --
 -- TOC Entry ID 3 (OID 26591586)

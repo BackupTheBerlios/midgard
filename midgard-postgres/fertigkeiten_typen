@@ -5,7 +5,7 @@ DROP INDEX "fertigkeiten_typen_name";
 DROP INDEX "fertigkeiten_typen_name_typ";
 DROP TABLE "fertigkeiten_typen";
 --
--- TOC Entry ID 2 (OID 26574826)
+-- TOC Entry ID 2 (OID 30119262)
 --
 -- Name: fertigkeiten_typen Type: TABLE Owner: thoma
 --
@@ -17,7 +17,7 @@ CREATE TABLE "fertigkeiten_typen" (
 );
 
 --
--- Data for TOC Entry ID 5 (OID 26574826) TABLE DATA fertigkeiten_typen
+-- Data for TOC Entry ID 5 (OID 30119262) TABLE DATA fertigkeiten_typen
 --
 
 COPY "fertigkeiten_typen"  FROM stdin;
@@ -25,7 +25,6 @@ Lesen/Schreiben	wHx	G
 LiYao	wHx	S
 Lippenlesen	wHx	S
 Luftkampf	wHx	A
-Malen/Zeichen	wHx	S
 Meditieren	wHx	A
 Menschenkenntnis	wHx	S
 Meucheln	wHx	A
@@ -301,7 +300,6 @@ Lesen/Schreiben	Th	S
 LiYao	Th	G
 Lippenlesen	Th	S
 Luftkampf	Th	A
-Malen/Zeichen	Th	G
 Meditieren	Th	A
 Menschenkenntnis	Th	S
 Meucheln	Th	A
@@ -388,7 +386,6 @@ Lesen/Schreiben	sHx	G
 LiYao	sHx	S
 Lippenlesen	sHx	S
 Luftkampf	sHx	A
-Malen/Zeichen	sHx	S
 Meditieren	sHx	A
 Menschenkenntnis	sHx	S
 Meucheln	sHx	A
@@ -476,7 +473,6 @@ Lesen/Schreiben	Sc	S
 LiYao	Sc	A
 Lippenlesen	Sc	S
 Luftkampf	Sc	A
-Malen/Zeichen	Sc	S
 Meditieren	Sc	A
 Menschenkenntnis	Sc	S
 Meucheln	Sc	A
@@ -563,7 +559,6 @@ Bogen vom Streitwagen	sHx	A
 Bogen zu Pferd	sHx	A
 Brettspiel	sHx	S
 Dichten	sHx	S
-Malen/Zeichen	PW	S
 Meditieren	PW	A
 Menschenkenntnis	PW	G
 Meucheln	PW	A
@@ -877,7 +872,6 @@ Lesen/Schreiben	PT	G
 LiYao	PT	A
 Lippenlesen	PT	S
 Luftkampf	PT	A
-Malen/Zeichen	PT	S
 Meditieren	PT	A
 Menschenkenntnis	PT	S
 Meucheln	PT	A
@@ -963,7 +957,6 @@ Lesen/Schreiben	PM	G
 LiYao	PM	A
 Lippenlesen	PM	S
 Luftkampf	PM	A
-Malen/Zeichen	PM	S
 Meditieren	PM	A
 Menschenkenntnis	PM	S
 Meucheln	PM	A
@@ -1051,7 +1044,6 @@ Lesen/Schreiben	PK	G
 LiYao	PK	S
 Lippenlesen	PK	S
 Luftkampf	PK	S
-Malen/Zeichen	PK	S
 Meditieren	PK	A
 Menschenkenntnis	PK	S
 Meucheln	PK	A
@@ -1369,7 +1361,6 @@ Lesen/Schreiben	PF	G
 LiYao	PF	A
 Lippenlesen	PF	S
 Luftkampf	PF	A
-Malen/Zeichen	PF	S
 Meditieren	PF	A
 Menschenkenntnis	PF	S
 Meucheln	PF	A
@@ -1453,7 +1444,6 @@ Lesen/Schreiben	PC	G
 LiYao	PC	A
 Lippenlesen	PC	S
 Luftkampf	PC	A
-Malen/Zeichen	PC	S
 Meditieren	PC	A
 Menschenkenntnis	PC	S
 Meucheln	PC	A
@@ -1539,7 +1529,6 @@ Lesen/Schreiben	Ord	S
 LiYao	Ord	S
 Lippenlesen	Ord	S
 Luftkampf	Ord	G
-Malen/Zeichen	Ord	A
 Meditieren	Ord	A
 Menschenkenntnis	Ord	S
 Meucheln	Ord	S
@@ -1627,7 +1616,6 @@ Lesen/Schreiben	Ma	G
 LiYao	Ma	S
 Lippenlesen	Ma	S
 Luftkampf	Ma	A
-Malen/Zeichen	Ma	S
 Meditieren	Ma	A
 Menschenkenntnis	Ma	S
 Meucheln	Ma	A
@@ -1946,7 +1934,6 @@ Lesen/Schreiben	Hl	G
 LiYao	Hl	A
 Lippenlesen	Hl	S
 Luftkampf	Hl	A
-Malen/Zeichen	Hl	S
 Meditieren	Hl	A
 Menschenkenntnis	Hl	G
 Meucheln	Hl	A
@@ -2031,7 +2018,6 @@ Lesen/Schreiben	gHx	G
 LiYao	gHx	S
 Lippenlesen	gHx	S
 Luftkampf	gHx	A
-Malen/Zeichen	gHx	S
 Meditieren	gHx	A
 Menschenkenntnis	gHx	S
 Meucheln	gHx	A
@@ -2117,7 +2103,6 @@ Lesen/Schreiben	eBe	S
 LiYao	eBe	S
 Lippenlesen	eBe	S
 Luftkampf	eBe	A
-Malen/Zeichen	eBe	S
 Meditieren	eBe	A
 Menschenkenntnis	eBe	A
 Meucheln	eBe	A
@@ -2204,7 +2189,6 @@ Lesen/Schreiben	Dr	S
 LiYao	Dr	A
 Lippenlesen	Dr	S
 Luftkampf	Dr	A
-Malen/Zeichen	Dr	S
 Meditieren	Dr	A
 Menschenkenntnis	Dr	S
 Meucheln	Dr	A
@@ -2520,7 +2504,6 @@ Lesen/Schreiben	dBe	S
 LiYao	dBe	S
 Lippenlesen	dBe	S
 Luftkampf	dBe	A
-Malen/Zeichen	dBe	S
 Meditieren	dBe	A
 Menschenkenntnis	dBe	A
 Meucheln	dBe	A
@@ -2606,7 +2589,6 @@ Lesen/Schreiben	Ba	S
 LiYao	Ba	A
 Lippenlesen	Ba	S
 Luftkampf	Ba	S
-Malen/Zeichen	Ba	A
 Meditieren	Ba	A
 Menschenkenntnis	Ba	G
 Meucheln	Ba	A
@@ -2692,7 +2674,6 @@ Lesen/Schreiben	Wa	S
 LiYao	Wa	A
 Lippenlesen	Wa	S
 Luftkampf	Wa	A
-Malen/Zeichen	Wa	A
 Meditieren	Wa	A
 Menschenkenntnis	Wa	S
 Meucheln	Wa	S
@@ -2780,7 +2761,6 @@ Lesen/Schreiben	Sp	S
 LiYao	Sp	S
 Lippenlesen	Sp	S
 Luftkampf	Sp	A
-Malen/Zeichen	Sp	G
 Meditieren	Sp	A
 Menschenkenntnis	Sp	S
 Meucheln	Sp	G
@@ -3098,7 +3078,6 @@ Lesen/Schreiben	Sö	S
 LiYao	Sö	S
 Lippenlesen	Sö	S
 Luftkampf	Sö	G
-Malen/Zeichen	Sö	A
 Meditieren	Sö	A
 Menschenkenntnis	Sö	S
 Meucheln	Sö	S
@@ -3184,7 +3163,6 @@ Lesen/Schreiben	Se	S
 LiYao	Se	S
 Lippenlesen	Se	S
 Luftkampf	Se	A
-Malen/Zeichen	Se	A
 Meditieren	Se	A
 Menschenkenntnis	Se	G
 Meucheln	Se	S
@@ -3270,7 +3248,6 @@ Lesen/Schreiben	Kr	S
 LiYao	Kr	S
 Lippenlesen	Kr	S
 Luftkampf	Kr	G
-Malen/Zeichen	Kr	A
 Meditieren	Kr	A
 Menschenkenntnis	Kr	S
 Meucheln	Kr	A
@@ -3357,7 +3334,6 @@ Lesen/Schreiben	Hä	G
 LiYao	Hä	S
 Lippenlesen	Hä	S
 Luftkampf	Hä	S
-Malen/Zeichen	Hä	A
 Meditieren	Hä	A
 Menschenkenntnis	Hä	G
 Meucheln	Hä	S
@@ -3674,7 +3650,6 @@ Lesen/Schreiben	Gl	S
 LiYao	Gl	S
 Lippenlesen	Gl	S
 Luftkampf	Gl	S
-Malen/Zeichen	Gl	S
 Meditieren	Gl	A
 Menschenkenntnis	Gl	G
 Meucheln	Gl	S
@@ -3760,7 +3735,6 @@ Lesen/Schreiben	BW	S
 LiYao	BW	A
 Lippenlesen	BW	S
 Luftkampf	BW	S
-Malen/Zeichen	BW	A
 Meditieren	BW	A
 Menschenkenntnis	BW	S
 Meucheln	BW	S
@@ -3847,7 +3821,6 @@ Lesen/Schreiben	BS	S
 LiYao	BS	A
 Lippenlesen	BS	S
 Luftkampf	BS	S
-Malen/Zeichen	BS	A
 Meditieren	BS	A
 Menschenkenntnis	BS	S
 Meucheln	BS	S
@@ -3934,7 +3907,6 @@ Lesen/Schreiben	BN	S
 LiYao	BN	A
 Lippenlesen	BN	S
 Luftkampf	BN	S
-Malen/Zeichen	BN	A
 Meditieren	BN	A
 Menschenkenntnis	BN	S
 Meucheln	BN	S
@@ -4249,7 +4221,6 @@ Lesen/Schreiben	Ass	S
 LiYao	Ass	S
 Lippenlesen	Ass	G
 Luftkampf	Ass	S
-Malen/Zeichen	Ass	A
 Meditieren	Ass	A
 Menschenkenntnis	Ass	S
 Meucheln	Ass	G
@@ -4341,7 +4312,6 @@ Lesen/Schreiben	Kd	S
 LiYao	Kd	S
 Lippenlesen	Kd	S
 Luftkampf	Kd	S
-Malen/Zeichen	Kd	A
 Meditieren	Kd	G
 Menschenkenntnis	Kd	S
 Meucheln	Kd	S
@@ -4488,7 +4458,6 @@ Lesen/Schreiben	Ny	S
 LiYao	Ny	G
 Lippenlesen	Ny	G
 Luftkampf	Ny	S
-Malen/Zeichen	Ny	A
 Meditieren	Ny	G
 Menschenkenntnis	Ny	S
 Meucheln	Ny	G
@@ -4634,7 +4603,6 @@ Lesen/Schreiben	Fi	S
 LiYao	Fi	S
 Lippenlesen	Fi	S
 Luftkampf	Fi	S
-Malen/Zeichen	Fi	A
 Meditieren	Fi	G
 Menschenkenntnis	Fi	S
 Meucheln	Fi	S
@@ -4780,7 +4748,6 @@ Lesen/Schreiben	Ri	S
 LiYao	Ri	S
 Lippenlesen	Ri	S
 Luftkampf	Ri	S
-Malen/Zeichen	Ri	A
 Meditieren	Ri	G
 Menschenkenntnis	Ri	S
 Meucheln	Ri	A
@@ -4926,7 +4893,6 @@ Lesen/Schreiben	Sa	S
 LiYao	Sa	A
 Lippenlesen	Sa	S
 Luftkampf	Sa	S
-Malen/Zeichen	Sa	S
 Meditieren	Sa	G
 Menschenkenntnis	Sa	S
 Meucheln	Sa	A
@@ -5072,7 +5038,6 @@ Lesen/Schreiben	Sr	S
 LiYao	Sr	S
 Lippenlesen	Sr	S
 Luftkampf	Sr	G
-Malen/Zeichen	Sr	A
 Meditieren	Sr	G
 Menschenkenntnis	Sr	S
 Meucheln	Sr	S
@@ -5168,9 +5133,583 @@ Schlangen beschwören	Ass	A
 Schleichen	Ass	G
 Schlittenfahren	Ass	S
 Schlittschuhlaufen	Ass	S
+Abrichten	BN	S
+Abrichten	BS	S
+Abrichten	BW	S
+Abrichten	Hä	S
+Abrichten	Kr	S
+Abrichten	Ku	S
+Abrichten	Se	S
+Abrichten	Sö	S
+Abrichten	Ord	S
+Abrichten	gHx	S
+Abrichten	sHx	S
+Abrichten	wHx	S
+Abrichten	PF	S
+Abrichten	Kd	S
+Abrichten	Sr	S
+Abrichten	Fi	S
+Abrichten	Ri	S
+Abrichten	Sa	S
+Abrichten	Gl	S
+Abrichten	Ass	S
+Abrichten	eBe	S
+Abrichten	dBe	S
+Abrichten	Ny	S
+Akrobatik	Er	S
+Akrobatik	Kr	S
+Akrobatik	Ku	S
+Akrobatik	Se	S
+Akrobatik	Sö	S
+Akrobatik	Ba	S
+Akrobatik	Ord	S
+Akrobatik	Kd	S
+Akrobatik	Sr	S
+Akrobatik	Fi	S
+Akrobatik	Ri	S
+Akrobatik	Ny	S
+Baukunde	BN	S
+Baukunde	Er	S
+Baukunde	Hä	S
+Baukunde	Kr	S
+Baukunde	Ku	S
+Baukunde	Se	S
+Baukunde	Sö	S
+Baukunde	Sp	S
+Baukunde	Ba	S
+Baukunde	Ord	S
+Baukunde	Hl	S
+Baukunde	gHx	S
+Baukunde	sHx	S
+Baukunde	wHx	S
+Baukunde	Ma	S
+Baukunde	PF	S
+Baukunde	PHe	S
+Baukunde	PK	S
+Baukunde	PM	S
+Baukunde	PT	S
+Baukunde	PW	S
+Baukunde	Kd	S
+Baukunde	Sr	S
+Baukunde	Fi	S
+Baukunde	Ri	S
+Baukunde	ScN	S
+Baukunde	Th	S
+Baukunde	Sa	S
+Baukunde	Gl	S
+Baukunde	Ass	S
+Baukunde	eBe	S
+Baukunde	dBe	S
+Baukunde	Dr	S
+Baukunde	Ny	S
+Gaukeln	BN	S
+Gaukeln	BS	S
+Gaukeln	BW	S
+Gaukeln	Er	S
+Gaukeln	Hä	S
+Gaukeln	Ku	S
+Gaukeln	Se	S
+Gaukeln	Sö	S
+Gaukeln	Ba	S
+Gaukeln	Tm	S
+Gaukeln	Kd	S
+Gaukeln	Sr	S
+Gaukeln	Fi	S
+Gaukeln	Ri	S
+Gaukeln	Ass	S
+Gaukeln	Ny	S
+Heilkunde	BN	S
+Heilkunde	BS	S
+Heilkunde	BW	S
+Heilkunde	Er	S
+Heilkunde	Kr	S
+Heilkunde	Ku	S
+Heilkunde	Se	S
+Heilkunde	Sö	S
+Heilkunde	Sp	S
+Heilkunde	Wa	S
+Heilkunde	Ord	S
+Heilkunde	PHa	S
+Heilkunde	PHe	S
+Heilkunde	PK	S
+Heilkunde	PM	S
+Heilkunde	PT	S
+Heilkunde	Kd	S
+Heilkunde	Sr	S
+Heilkunde	Fi	S
+Heilkunde	Ri	S
+Heilkunde	ScN	S
+Heilkunde	ScS	S
+Heilkunde	ScW	S
+Heilkunde	Th	S
+Heilkunde	Sa	S
+Heilkunde	Gl	S
+Heilkunde	eBe	S
+Heilkunde	dBe	S
+Heilkunde	Dr	S
+Heilkunde	Ny	S
+Landeskunde	BN	S
+Landeskunde	BS	S
+Landeskunde	BW	S
+Landeskunde	Kr	S
+Landeskunde	Ku	S
+Landeskunde	Sö	S
+Landeskunde	Sp	S
+Landeskunde	Wa	S
+Landeskunde	Ord	S
+Landeskunde	Tm	S
+Landeskunde	Hl	S
+Landeskunde	gHx	S
+Landeskunde	sHx	S
+Landeskunde	wHx	S
+Landeskunde	Ma	S
+Landeskunde	PF	S
+Landeskunde	PHa	S
+Landeskunde	PHe	S
+Landeskunde	PK	S
+Landeskunde	PM	S
+Landeskunde	PT	S
+Landeskunde	Kd	S
+Landeskunde	Sr	S
+Landeskunde	Fi	S
+Landeskunde	Ri	S
+Landeskunde	ScN	S
+Landeskunde	ScS	S
+Landeskunde	ScW	S
+Landeskunde	Th	S
+Landeskunde	Sa	S
+Landeskunde	Ass	S
+Landeskunde	eBe	S
+Landeskunde	dBe	S
+Landeskunde	Dr	S
+Landeskunde	Ny	S
+Malen/Zeichnen	Hl	S
+Malen/Zeichnen	gHx	S
+Malen/Zeichnen	sHx	S
+Malen/Zeichnen	wHx	S
+Malen/Zeichnen	Ma	S
+Malen/Zeichnen	PF	S
+Malen/Zeichnen	PHa	S
+Malen/Zeichnen	PHe	S
+Malen/Zeichnen	PK	S
+Malen/Zeichnen	PM	S
+Malen/Zeichnen	PT	S
+Malen/Zeichnen	PW	S
+Malen/Zeichnen	ScN	S
+Malen/Zeichnen	ScS	S
+Malen/Zeichnen	ScW	S
+Malen/Zeichnen	Sa	S
+Malen/Zeichnen	Gl	S
+Malen/Zeichnen	eBe	S
+Malen/Zeichnen	dBe	S
+Malen/Zeichnen	Dr	S
+Schauspielern	Ku	S
+Schauspielern	Se	S
+Schauspielern	Sö	S
+Schauspielern	Sp	S
+Schauspielern	Hl	S
+Schauspielern	gHx	S
+Schauspielern	sHx	S
+Schauspielern	wHx	S
+Schauspielern	Ma	S
+Schauspielern	PF	S
+Schauspielern	PHa	S
+Schauspielern	PHe	S
+Schauspielern	PK	S
+Schauspielern	PM	S
+Schauspielern	PT	S
+Schauspielern	Kd	S
+Schauspielern	Sr	S
+Schauspielern	Fi	S
+Schauspielern	Ri	S
+Schauspielern	ScN	S
+Schauspielern	ScS	S
+Schauspielern	ScW	S
+Schauspielern	Th	S
+Schauspielern	Sa	S
+Schauspielern	Dr	S
+Schauspielern	Ny	S
+Schießen vom Streitwagen	BN	S
+Schießen vom Streitwagen	BW	S
+Schießen vom Streitwagen	Er	S
+Schießen vom Streitwagen	Hä	S
+Schießen vom Streitwagen	Ku	S
+Schießen vom Streitwagen	Se	S
+Schießen vom Streitwagen	Sp	S
+Schießen vom Streitwagen	Wa	S
+Schießen vom Streitwagen	Ba	S
+Schießen vom Streitwagen	Ord	S
+Schießen vom Streitwagen	Tm	S
+Schießen vom Streitwagen	Kd	S
+Schießen vom Streitwagen	Sr	S
+Schießen vom Streitwagen	Fi	S
+Schießen vom Streitwagen	Ri	S
+Schießen vom Streitwagen	Gl	S
+Schießen vom Streitwagen	Ass	S
+Schießen vom Streitwagen	Ny	S
+Schätzen	Er	S
+Schätzen	Kr	S
+Schätzen	Ku	S
+Schätzen	Se	S
+Schätzen	Sö	S
+Schätzen	Sp	S
+Schätzen	Ba	S
+Schätzen	Ord	S
+Schätzen	Hl	S
+Schätzen	gHx	S
+Schätzen	sHx	S
+Schätzen	wHx	S
+Schätzen	Ma	S
+Schätzen	PF	S
+Schätzen	PHe	S
+Schätzen	PK	S
+Schätzen	PM	S
+Schätzen	PT	S
+Schätzen	PW	S
+Schätzen	Sr	S
+Schätzen	Fi	S
+Schätzen	Ri	S
+Schätzen	Sa	S
+Schätzen	Gl	S
+Schätzen	Ass	S
+Schätzen	eBe	S
+Schätzen	dBe	S
+Schätzen	Dr	S
+Schätzen	Ny	S
+Seemannsgang	BN	S
+Seemannsgang	BW	S
+Seemannsgang	Er	S
+Seemannsgang	Kr	S
+Seemannsgang	Ku	S
+Seemannsgang	Sö	S
+Seemannsgang	Sp	S
+Seemannsgang	Wa	S
+Seemannsgang	Ba	S
+Seemannsgang	Ord	S
+Seemannsgang	Tm	S
+Seemannsgang	Sr	S
+Seemannsgang	Fi	S
+Seemannsgang	Ri	S
+Seemannsgang	Gl	S
+Seemannsgang	Ass	S
+Seemannsgang	Ny	S
+Steuern	BN	S
+Steuern	BS	S
+Steuern	BW	S
+Steuern	Er	S
+Steuern	Kr	S
+Steuern	Ku	S
+Steuern	Sö	S
+Steuern	Sp	S
+Steuern	Wa	S
+Steuern	Ba	S
+Steuern	Ord	S
+Steuern	Tm	S
+Steuern	Hl	S
+Steuern	gHx	S
+Steuern	sHx	S
+Steuern	wHx	S
+Steuern	Ma	S
+Steuern	PF	S
+Steuern	PHa	S
+Steuern	PHe	S
+Steuern	PK	S
+Steuern	PT	S
+Steuern	PW	S
+Steuern	Kd	S
+Steuern	Sr	S
+Steuern	Fi	S
+Steuern	Ri	S
+Steuern	ScN	S
+Steuern	ScS	S
+Steuern	ScW	S
+Steuern	Th	S
+Steuern	Sa	S
+Steuern	Gl	S
+Steuern	Ass	S
+Steuern	eBe	S
+Steuern	dBe	S
+Steuern	Dr	S
+Steuern	Ny	S
+Suchen	BS	S
+Suchen	BW	S
+Suchen	Kr	S
+Suchen	Ku	S
+Suchen	Se	S
+Suchen	Sö	S
+Suchen	Wa	S
+Suchen	Ba	S
+Suchen	Ord	S
+Suchen	Tm	S
+Suchen	Hl	S
+Suchen	gHx	S
+Suchen	sHx	S
+Suchen	wHx	S
+Suchen	Ma	S
+Suchen	PF	S
+Suchen	PHa	S
+Suchen	PHe	S
+Suchen	PK	S
+Suchen	PM	S
+Suchen	PT	S
+Suchen	PW	S
+Suchen	Kd	S
+Suchen	Sr	S
+Suchen	Fi	S
+Suchen	Ri	S
+Suchen	ScN	S
+Suchen	ScS	S
+Suchen	ScW	S
+Suchen	Th	S
+Suchen	Sa	S
+Suchen	eBe	S
+Suchen	dBe	S
+Suchen	Dr	S
+Suchen	Ny	S
+Thaumatographie	BN	S
+Thaumatographie	BS	S
+Thaumatographie	BW	S
+Thaumatographie	Er	S
+Thaumatographie	Hä	S
+Thaumatographie	Kr	S
+Thaumatographie	Ku	S
+Thaumatographie	Se	S
+Thaumatographie	Sp	S
+Thaumatographie	Wa	S
+Thaumatographie	Ba	S
+Thaumatographie	Ord	S
+Thaumatographie	Tm	S
+Thaumatographie	Hl	S
+Thaumatographie	Kd	S
+Thaumatographie	Sr	S
+Thaumatographie	Fi	S
+Thaumatographie	Ri	S
+Thaumatographie	Gl	S
+Thaumatographie	Ass	S
+Thaumatographie	Ny	S
+Akrobatik	Dr	A
+Akrobatik	dBe	A
+Akrobatik	eBe	A
+Akrobatik	Sa	A
+Akrobatik	Th	A
+Akrobatik	ScW	A
+Akrobatik	ScS	A
+Akrobatik	ScN	A
+Akrobatik	PW	A
+Akrobatik	PT	A
+Akrobatik	PM	A
+Akrobatik	PK	A
+Akrobatik	PHe	A
+Akrobatik	PHa	A
+Akrobatik	PF	A
+Akrobatik	Ma	A
+Akrobatik	wHx	A
+Akrobatik	sHx	A
+Akrobatik	gHx	A
+Akrobatik	Ass	G
+Akrobatik	BN	G
+Akrobatik	BS	G
+Akrobatik	Tm	A
+Akrobatik	BW	G
+Akrobatik	Gl	G
+Akrobatik	Hä	G
+Akrobatik	Hl	G
+Akrobatik	Sp	G
+Akrobatik	Wa	G
+Abrichten	Sp	G
+Abrichten	Wa	G
+Abrichten	Tm	G
+Abrichten	ScW	G
+Abrichten	ScN	G
+Abrichten	ScS	G
+Abrichten	Dr	G
+Abrichten	Ba	A
+Abrichten	Er	A
+Abrichten	Ma	A
+Abrichten	Hl	A
+Abrichten	PHa	A
+Abrichten	PHe	A
+Abrichten	PK	A
+Abrichten	PM	A
+Abrichten	PT	A
+Abrichten	PW	A
+Abrichten	Th	A
+Baukunde	PHa	G
+Baukunde	BS	A
+Baukunde	BW	A
+Baukunde	Tm	A
+Baukunde	Wa	A
+Baukunde	ScS	A
+Baukunde	ScW	A
+Gaukeln	Dr	A
+Gaukeln	dBe	A
+Gaukeln	eBe	A
+Gaukeln	Sa	A
+Gaukeln	Th	A
+Gaukeln	ScW	A
+Gaukeln	ScS	A
+Gaukeln	ScN	A
+Gaukeln	PT	A
+Gaukeln	PM	A
+Gaukeln	PK	A
+Gaukeln	PHe	A
+Gaukeln	PHa	A
+Gaukeln	PF	A
+Gaukeln	Ma	A
+Gaukeln	Hl	A
+Gaukeln	Sp	G
+Gaukeln	Gl	G
+Gaukeln	Kr	A
+Gaukeln	Ord	A
+Gaukeln	Wa	A
+Gaukeln	gHx	S
+Gaukeln	sHx	S
+Gaukeln	wHx	S
+Gaukeln	PW	S
+Heilkunde	Hl	G
+Heilkunde	PF	G
+Heilkunde	PW	G
+Heilkunde	Ass	A
+Heilkunde	Ba	A
+Heilkunde	Hä	A
+Heilkunde	Ma	A
+Heilkunde	Tm	A
+Heilkunde	gHx	A
+Heilkunde	sHx	A
+Heilkunde	wHx	A
+Landeskunde	Ba	G
+Landeskunde	Er	G
+Landeskunde	Gl	G
+Landeskunde	Hä	G
+Landeskunde	Se	G
+Landeskunde	PW	G
+Schauspielern	Ass	G
+Schauspielern	Ba	G
+Schauspielern	Er	G
+Schauspielern	Gl	G
+Schauspielern	Hä	G
+Schauspielern	dBe	G
+Schauspielern	eBe	G
+Schauspielern	PW	G
+Schauspielern	BN	A
+Schauspielern	BS	A
+Schauspielern	BW	A
+Schauspielern	Kr	A
+Schauspielern	Ord	A
+Schauspielern	Tm	A
+Schauspielern	Wa	A
+Schießen vom Streitwagen	BS	G
+Schießen vom Streitwagen	Kr	G
+Schießen vom Streitwagen	Sö	G
+Schießen vom Streitwagen	Dr	A
+Schießen vom Streitwagen	dBe	A
+Schießen vom Streitwagen	eBe	A
+Schießen vom Streitwagen	Sa	A
+Schießen vom Streitwagen	Th	A
+Schießen vom Streitwagen	ScW	A
+Schießen vom Streitwagen	ScS	A
+Schießen vom Streitwagen	ScN	A
+Schießen vom Streitwagen	PW	A
+Schießen vom Streitwagen	PT	A
+Schießen vom Streitwagen	PM	A
+Schießen vom Streitwagen	PK	A
+Schießen vom Streitwagen	PHe	A
+Schießen vom Streitwagen	PHa	A
+Schießen vom Streitwagen	PF	A
+Schießen vom Streitwagen	Ma	A
+Schießen vom Streitwagen	wHx	A
+Schießen vom Streitwagen	sHx	A
+Schießen vom Streitwagen	gHx	A
+Schießen vom Streitwagen	Hl	A
+Schätzen	Hä	G
+Schätzen	Kd	G
+Schätzen	PHa	G
+Schätzen	Th	G
+Schätzen	BN	A
+Schätzen	BS	A
+Schätzen	BW	A
+Schätzen	Wa	A
+Schätzen	Tm	A
+Schätzen	ScN	A
+Schätzen	ScS	A
+Schätzen	ScW	A
+Seemannsgang	Hä	G
+Seemannsgang	Kd	G
+Seemannsgang	Se	G
+Seemannsgang	BS	A
+Seemannsgang	Dr	A
+Seemannsgang	dBe	A
+Seemannsgang	eBe	A
+Seemannsgang	Sa	A
+Seemannsgang	Th	A
+Seemannsgang	ScW	A
+Seemannsgang	ScS	A
+Seemannsgang	ScN	A
+Seemannsgang	PW	A
+Seemannsgang	PT	A
+Seemannsgang	PK	A
+Seemannsgang	PHe	A
+Seemannsgang	PHa	A
+Seemannsgang	PF	A
+Seemannsgang	Ma	A
+Seemannsgang	wHx	A
+Seemannsgang	sHx	A
+Seemannsgang	gHx	A
+Seemannsgang	Hl	A
+Seemannsgang	PM	G
+Steuern	Hä	G
+Steuern	Se	G
+Steuern	PM	G
+Suchen	Ass	G
+Suchen	BN	G
+Suchen	Er	G
+Suchen	Gl	G
+Suchen	Hä	G
+Suchen	Sp	G
+Thaumatographie	Th	G
+Thaumatographie	Sö	G
+Thaumatographie	Dr	A
+Thaumatographie	Ma	S
+Thaumatographie	PF	A
+Thaumatographie	PHa	A
+Thaumatographie	PHe	A
+Thaumatographie	PK	A
+Thaumatographie	PM	A
+Thaumatographie	PT	A
+Thaumatographie	Sa	A
+Thaumatographie	ScN	A
+Thaumatographie	ScS	A
+Thaumatographie	ScW	A
+Thaumatographie	dBe	A
+Thaumatographie	eBe	A
+Thaumatographie	gHx	A
+Thaumatographie	sHx	A
+Thaumatographie	wHx	A
+Thaumatographie	PW	S
+Malen/Zeichnen	Th	G
+Malen/Zeichnen	Sp	G
+Malen/Zeichnen	Ass	A
+Malen/Zeichnen	BN	A
+Malen/Zeichnen	BS	A
+Malen/Zeichnen	BW	A
+Malen/Zeichnen	Ba	A
+Malen/Zeichnen	Er	A
+Malen/Zeichnen	Fi	A
+Malen/Zeichnen	Hä	A
+Malen/Zeichnen	Kd	A
+Malen/Zeichnen	Kr	A
+Malen/Zeichnen	Ku	A
+Malen/Zeichnen	Ny	A
+Malen/Zeichnen	Ord	A
+Malen/Zeichnen	Ri	A
+Malen/Zeichnen	Se	A
+Malen/Zeichnen	Sr	A
+Malen/Zeichnen	Sö	A
+Malen/Zeichnen	Tm	A
+Malen/Zeichnen	Wa	A
 \.
 --
--- TOC Entry ID 3 (OID 26574826)
+-- TOC Entry ID 3 (OID 30119262)
 --
 -- Name: "fertigkeiten_typen_name_typ" Type: INDEX Owner: thoma
 --
@@ -5178,7 +5717,7 @@ Schlittschuhlaufen	Ass	S
 CREATE UNIQUE INDEX "fertigkeiten_typen_name_typ" on "fertigkeiten_typen" using btree ( "name" "text_ops", "typ" "text_ops" );
 
 --
--- TOC Entry ID 4 (OID 26574826)
+-- TOC Entry ID 4 (OID 30119262)
 --
 -- Name: "fertigkeiten_typen_name" Type: INDEX Owner: thoma
 --

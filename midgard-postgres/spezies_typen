@@ -29,23 +29,17 @@ Halbling	PW	\N
 Elf	Ba	\N
 Elf	Gl	\N
 Elf	Kr	\N
-Elf	Se	\N
 Elf	Wa	\N
 Elf	Dr	\N
 Elf	Hl	\N
-Elf	Hx	\N
 Elf	Ma	\N
-Elf	Th	\N
 Zwerg	Hä	\N
 Zwerg	Kr	\N
 Zwerg	Sö	\N
 Zwerg	PF	\N
-Zwerg	PH	\N
 Zwerg	PK	\N
 Zwerg	Th	\N
 Berggnom	Gl	\N
-Berggnom	Hä	\N
-Berggnom	Kr	\N
 Berggnom	Sp	\N
 Berggnom	Wa	\N
 Berggnom	Dr	\N
@@ -56,8 +50,6 @@ Berggnom	sHx	\N
 Berggnom	Ma	\N
 Berggnom	Th	\N
 Waldgnom	Gl	\N
-Waldgnom	Hä	\N
-Waldgnom	Kr	\N
 Waldgnom	Sp	\N
 Waldgnom	Wa	\N
 Waldgnom	Dr	\N
@@ -67,6 +59,15 @@ Waldgnom	gHx	\N
 Waldgnom	sHx	\N
 Waldgnom	Ma	\N
 Waldgnom	Th	\N
+Elf	gHx	\N
+Elf	wHx	\N
+Elf	sHx	\N
+Halbling	Wa	\N
+Zwerg	eBe	\N
+Zwerg	PHa	\N
+Zwerg	PHe	\N
+Berggnom	As	\N
+Waldgnom	As	\N
 \.
 --
 -- TOC Entry ID 3 (OID 26599941)

@@ -28,16 +28,6 @@ COPY "ausnahmen"  FROM stdin;
 Leomies Birneneis	z	Halbling	\N	PF	G	\N	\N
 Leomies Birneneis	z	Halbling	\N	PW	G	\N	\N
 Leomies Birneneis	z	Halbling	\N	Hl	S	\N	\N
-NüQuang	z	\N	KanThaiPan	Sc	G	\N	\N
-PiPingQuang	z	\N	KanThaiPan	Sc	G	\N	\N
-XiengBaQuang	z	\N	KanThaiPan	Sc	G	\N	\N
-YehKiQuang	z	\N	KanThaiPan	Sc	G	\N	\N
-PiYeúQuang	z	\N	KanThaiPan	Sc	G	\N	\N
-Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	Sc	G	\N	\N
-Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	Sc	G	\N	\N
-Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	Sc	G	\N	\N
-Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	Sc	G	\N	\N
-Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	Sc	G	\N	\N
 Etikette	f	\N	\N	\N	G	Herold	Adel
 Etikette	f	\N	\N	\N	A	\N	Volk
 Fangen	f	\N	\N	\N	G	Fischer	\N
@@ -45,7 +35,6 @@ Fangen	f	\N	\N	\N	G	Gaukler	\N
 Lanzenstechen	f	\N	Küstenstaaten	\N	S	\N	\N
 Lanzenstechen	f	\N	Alba	\N	S	\N	\N
 Heraldik	f	\N	\N		G	Herold	\N
-Askese	f	\N	Eschar	Sc	G	\N	\N
 Askese	f	\N	Rawindra	Hl	G	\N	\N
 Augensalbe herstellen	f	\N	Rawindra	Th	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	Kr	G	\N	\N
@@ -68,14 +57,10 @@ Kampf zu Elefanten	f	\N	Minangpahit	Hä	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Hä	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Kr	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Kr	G	\N	\N
-Kampf zu Elefanten	f	\N	Minangpahit	Ord	G	\N	\N
-Kampf zu Elefanten	f	\N	Rawindra	Ord	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Sö	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Sö	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Wa	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Wa	G	\N	\N
-Kampf zu Elefanten	f	\N	Minangpahit	Ass	S	\N	\N
-Kampf zu Elefanten	f	\N	Rawindra	Ass	S	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Se	S	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Se	S	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Sp	S	\N	\N
@@ -87,13 +72,10 @@ Kampf zu Srimara	f	\N	Rawindra	BW	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Gl	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Hä	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Kr	G	\N	\N
-Kampf zu Srimara	f	\N	Rawindra	Ord	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Sö	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Wa	G	\N	\N
-Kampf zu Srimara	f	\N	Rawindra	Ass	S	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Se	S	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Sp	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	Ass	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	Ba	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	BN	S	\N	\N
 Körperkontrolle	f	\N	Rawindra	BS	S	\N	\N
@@ -101,7 +83,6 @@ Körperkontrolle	f	\N	Rawindra	BW	S	\N	\N
 Körperkontrolle	f	\N	Rawindra	Gl	S	\N	\N
 Körperkontrolle	f	\N	Rawindra	Hä	S	\N	\N
 Körperkontrolle	f	\N	Rawindra	Kr	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	Ord	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	Sö	S	\N	\N
 Körperkontrolle	f	\N	Rawindra	Sp	S	\N	\N
 Körperkontrolle	f	\N	Rawindra	Wa	S	\N	\N
@@ -114,7 +95,6 @@ Körperkontrolle	f	\N	Rawindra	sHx	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	Ma	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	dBe	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	eBe	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	Sc	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	Th	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	PF	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	PW	G	\N	\N
@@ -133,7 +113,6 @@ Meditieren	f	\N	Rawindra	gHx	G	\N	\N
 Meditieren	f	\N	Rawindra	Ma	G	\N	\N
 Meditieren	f	\N	Rawindra	dBe	G	\N	\N
 Meditieren	f	\N	Rawindra	eBe	G	\N	\N
-Meditieren	f	\N	Rawindra	Sc	G	\N	\N
 Meditieren	f	\N	Rawindra	Th	G	\N	\N
 Meditieren	f	\N	Rawindra	PH	G	\N	\N
 Meditieren	f	\N	Rawindra	PF	G	\N	\N
@@ -147,9 +126,7 @@ Meditieren	f	\N	KanThaiPan	PM	G	\N	\N
 Meditieren	f	\N	KanThaiPan	PW	G	\N	\N
 Meditieren	f	\N	KanThaiPan	PC	G	\N	\N
 Meditieren	f	\N	KanThaiPan	PK	G	\N	\N
-Meditieren	f	\N	KanThaiPan	Ord	G	\N	\N
 Meditieren	f	\N	KanThaiPan	Kr	G	\N	\N
-Meditieren	f	\N	KanThaiPan	Sc	G	\N	\N
 Natya	f	\N	Rawindra	PH	G	\N	\N
 Natya	f	\N	Rawindra	PF	G	\N	\N
 Natya	f	\N	Rawindra	PM	G	\N	\N
@@ -166,7 +143,6 @@ Schlangen beschwören	f	\N	Rawindra	gHx	S	\N	\N
 Schlangen beschwören	f	\N	Rawindra	Ma	S	\N	\N
 Schlangen beschwören	f	\N	Rawindra	dBe	S	\N	\N
 Schlangen beschwören	f	\N	Rawindra	eBe	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	Sc	S	\N	\N
 Schlangen beschwören	f	\N	Rawindra	Th	S	\N	\N
 Schlangen beschwören	f	\N	Rawindra	PH	S	\N	\N
 Schlangen beschwören	f	\N	Rawindra	PF	S	\N	\N
@@ -183,7 +159,6 @@ Schmerzen ertragen	f	\N	Rawindra	gHx	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Ma	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	dBe	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	eBe	S	\N	\N
-Schmerzen ertragen	f	\N	Rawindra	Sc	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Th	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	PH	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	PF	S	\N	\N
@@ -191,7 +166,6 @@ Schmerzen ertragen	f	\N	Rawindra	PM	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	PW	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	PC	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	PK	S	\N	\N
-Schmerzen ertragen	f	\N	Rawindra	Ass	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Ba	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	BN	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	BS	S	\N	\N
@@ -199,20 +173,14 @@ Schmerzen ertragen	f	\N	Rawindra	BW	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Gl	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Hä	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Kr	S	\N	\N
-Schmerzen ertragen	f	\N	Rawindra	Ord	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Se	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Sö	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Wa	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Sr	S	\N	\N
 Srimara lenken	f	\N	Rawindra	Kr	S	\N	\N
-Srimara lenken	f	\N	Rawindra	Ord	S	\N	\N
 Srimara lenken	f	\N	Rawindra	Sö	S	\N	\N
 Paschuyana, der Weg des Tieres	z	\N	Rawindra	pw	G	\N	\N
-Überleben in der Wüste	f	\N	Eschar	Sc	G	\N	\N
-Überleben im Dschungel	f	\N	Ikenga Becken	Sc	G	\N	\N
-Ahnengeist beschwören	z	\N	KanThaiPan	Sc	G	\N	\N
 Ahnengeist beschwören	z	\N	KanThaiPan	PC	G	\N	\N
-Großer Hitzeschutz	z	\N	KanThaiPan	Ord	G	\N	\N
 Großer Hitzeschutz	z	\N	KanThaiPan	PW	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	BW	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	Gl	G	\N	\N
@@ -220,6 +188,76 @@ Elefanten lenken	f	\N	Minangpahit	Hä	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	BW	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	Gl	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	Hä	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	As	S	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	As	S	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	As	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	As	G	\N	\N
+Schmerzen ertragen	f	\N	Rawindra	As	S	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Or	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Or	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Or	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	Or	G	\N	\N
+Meditieren	f	\N	KanThaiPan	Or	G	\N	\N
+Schmerzen ertragen	f	\N	Rawindra	Or	S	\N	\N
+Srimara lenken	f	\N	Rawindra	Or	S	\N	\N
+Großer Hitzeschutz	z	\N	KanThaiPan	Or	G	\N	\N
+NüQuang	z	\N	KanThaiPan	ScW	G	\N	\N
+PiPingQuang	z	\N	KanThaiPan	ScW	G	\N	\N
+XiengBaQuang	z	\N	KanThaiPan	ScW	G	\N	\N
+YehKiQuang	z	\N	KanThaiPan	ScW	G	\N	\N
+PiYeúQuang	z	\N	KanThaiPan	ScW	G	\N	\N
+Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	ScW	G	\N	\N
+Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScW	G	\N	\N
+Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScW	G	\N	\N
+Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScW	G	\N	\N
+Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	ScW	G	\N	\N
+Askese	f	\N	Eschar	ScW	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	ScW	G	\N	\N
+Meditieren	f	\N	Rawindra	ScW	G	\N	\N
+Meditieren	f	\N	KanThaiPan	ScW	G	\N	\N
+Schlangen beschwören	f	\N	Rawindra	ScW	S	\N	\N
+Schmerzen ertragen	f	\N	Rawindra	ScW	S	\N	\N
+Überleben in der Wüste	f	\N	Eschar	ScW	G	\N	\N
+Überleben im Dschungel	f	\N	Ikenga Becken	ScW	G	\N	\N
+Ahnengeist beschwören	z	\N	KanThaiPan	ScW	G	\N	\N
+NüQuang	z	\N	KanThaiPan	ScN	G	\N	\N
+PiPingQuang	z	\N	KanThaiPan	ScN	G	\N	\N
+XiengBaQuang	z	\N	KanThaiPan	ScN	G	\N	\N
+YehKiQuang	z	\N	KanThaiPan	ScN	G	\N	\N
+PiYeúQuang	z	\N	KanThaiPan	ScN	G	\N	\N
+Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	ScN	G	\N	\N
+Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScN	G	\N	\N
+Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScN	G	\N	\N
+Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScN	G	\N	\N
+Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	ScN	G	\N	\N
+Askese	f	\N	Eschar	ScN	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	ScN	G	\N	\N
+Meditieren	f	\N	Rawindra	ScN	G	\N	\N
+Meditieren	f	\N	KanThaiPan	ScN	G	\N	\N
+Schlangen beschwören	f	\N	Rawindra	ScN	S	\N	\N
+Schmerzen ertragen	f	\N	Rawindra	ScN	S	\N	\N
+Überleben in der Wüste	f	\N	Eschar	ScN	G	\N	\N
+Überleben im Dschungel	f	\N	Ikenga Becken	ScN	G	\N	\N
+Ahnengeist beschwören	z	\N	KanThaiPan	ScN	G	\N	\N
+NüQuang	z	\N	KanThaiPan	ScS	G	\N	\N
+PiPingQuang	z	\N	KanThaiPan	ScS	G	\N	\N
+XiengBaQuang	z	\N	KanThaiPan	ScS	G	\N	\N
+YehKiQuang	z	\N	KanThaiPan	ScS	G	\N	\N
+PiYeúQuang	z	\N	KanThaiPan	ScS	G	\N	\N
+Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	ScS	G	\N	\N
+Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScS	G	\N	\N
+Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScS	G	\N	\N
+Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScS	G	\N	\N
+Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	ScS	G	\N	\N
+Askese	f	\N	Eschar	ScS	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	ScS	G	\N	\N
+Meditieren	f	\N	Rawindra	ScS	G	\N	\N
+Meditieren	f	\N	KanThaiPan	ScS	G	\N	\N
+Schlangen beschwören	f	\N	Rawindra	ScS	S	\N	\N
+Schmerzen ertragen	f	\N	Rawindra	ScS	S	\N	\N
+Überleben in der Wüste	f	\N	Eschar	ScS	G	\N	\N
+Überleben im Dschungel	f	\N	Ikenga Becken	ScS	G	\N	\N
+Ahnengeist beschwören	z	\N	KanThaiPan	ScS	G	\N	\N
 \.
 --
 -- TOC Entry ID 3 (OID 9550212)

@@ -16,7 +16,7 @@ CREATE TABLE "charaktere" (
 	"spieler_name" text,
 	"typ_s" text,
 	"st" integer,
-	"ge" integer,
+	"gw" integer,
 	"ko" integer,
 	"inn" integer,
 	"zt" integer,
@@ -72,7 +72,9 @@ CREATE TABLE "charaktere" (
 	"grad_basiswerte" integer,
 	"grad_abwehr" integer,
 	"grad_resistenz" integer,
-	"grad_zaubern" integer
+	"grad_zaubern" integer,
+	"gs" integer,
+	"wk" integer
 );
 
 --
