@@ -1,7 +1,7 @@
-// $Id: Datenbank.hh,v 1.16 2003/09/17 07:44:31 christof Exp $               
+// $Id: Datenbank.hh,v 1.17 2004/05/06 12:12:52 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -40,6 +40,9 @@
 #include <Misc/Tag.h>
 #include <BaseObjects/Model.h> // for cheap sigc++
 #include "libmagus_dll.h"
+#if MPC_SIGC_VERSION > 0x120
+#  include <sigc++/compatibility.h>
+#endif
 
 class Datenbank
 {
