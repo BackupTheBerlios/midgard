@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.321 2003/11/28 10:35:03 christof Exp $
+// $Id: midgard_CG.cc,v 1.322 2003/11/28 12:46:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,7 +52,7 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
 }
 
 midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
-: news_columns(), undo_menu(),menu_kontext(),abent_menu(), schummeln(),
+: news_columns(), undo_menu(),menu_kontext(),schummeln(),
 	InfoFenster(info)
 { news_columns.attach_to(*list_news);
 
@@ -264,16 +264,16 @@ void midgard_CG::refresh()
 }
 
 void midgard_CG::refresh_char_list()
-{  if (abent_menu) delete abent_menu;
-   abent_menu=new Gtk::Menu;
+{  // if (abent_menu) delete abent_menu;
+   Gtk::Menu *abent_menu=manage(new Gtk::Menu);
    for (VAbenteurer::const_iterator i=AbenteurerAuswahl::Chars.begin();
 		i!=AbenteurerAuswahl::Chars.end();++i)
    {  // vielleicht noch mit Typ(Grad) ?   z.B. Aneren Hl(8)
       Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->getAbenteurer().Name_Abenteurer()));
-      undo_menu->add(*mi);
+      abent_menu->add(*mi);
       mi->show();
       mi->signal_activate().connect(SigC::bind(SigC::slot(
       		getChar(),&AbenteurerAuswahl::setAbenteurer),i));
    }
-   fenster1->set_submenu(abent_menu);
+   fenster1->set_submenu(*abent_menu);
 }
