@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.13 2004/05/26 09:37:12 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.14 2004/06/04 17:20:26 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -194,7 +194,7 @@ VAbenteurer *AbenteurerAuswahl::Chars;
 
 VAbenteurer::iterator AbenteurerAuswahl::actualIterator()
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,this);
-#ifndef __MINGW32__
+#if 0 // ndef __MINGW32__
    assert(ai!=Chars->end());
 #else   
    if (ai==Chars->end()) ai=Chars->push_back();
