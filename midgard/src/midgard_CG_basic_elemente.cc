@@ -269,4 +269,5 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
     list_Schrift.push_back(mbe);
 //    show_fertigkeiten();
    }
+  show_gelerntes();
 }

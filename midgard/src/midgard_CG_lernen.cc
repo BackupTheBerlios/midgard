@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.53 2002/02/06 10:23:51 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.54 2002/02/06 11:37:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -264,20 +264,24 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
+cout << MBE->Name()<<' '<<MBE->What()<<'\n';
   switch(MBE->What()) {
      case MidgardBasicElement::WAFFE : 
          { list_Waffen.remove(MBE);
-           lernpunkte.addWaffen(MBE->Lernpunkte());
+           lernpunkte.addWaffen(-MBE->Lernpunkte());
+           break;
          }
      case MidgardBasicElement::ZAUBER : 
          { list_Zauber.remove(MBE);
-           lernpunkte.addZauber(MBE->Lernpunkte());
+           lernpunkte.addZauber(-MBE->Lernpunkte());
+           break;
          }
      case MidgardBasicElement::FERTIGKEIT : 
          { list_Fertigkeit.remove(MBE);
            if(cH_Fertigkeit(MBE)->LernArt()=="Fach")  lernpunkte.addFach(- MBE->Lernpunkte());
            else if(cH_Fertigkeit(MBE)->LernArt()=="Allg") lernpunkte.addAllgemein(- MBE->Lernpunkte());
            else if(cH_Fertigkeit(MBE)->LernArt()=="Unge") lernpunkte.addUnge(- MBE->Lernpunkte());
+           break;
          }
      default : break;
    }

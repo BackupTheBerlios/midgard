@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.62 2002/02/06 10:23:51 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.63 2002/02/06 11:33:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -94,7 +94,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _tab->attach(*_lc,1,3,row,row+1,GTK_FILL,0,0,0);
   ++row;
 
-  std::string copytxt2="Sämtliche Daten wurden mit freundlicher Erlaubnis des VFSF entnommen, copyright 1980-2001 by Verlag für F&SF-Spiele, Stelzenberg";
+  std::string copytxt2="Sämtliche Daten wurden mit freundlicher\nErlaubnis des VFSF entnommen, copyright 1980-2001 by Verlag\n für F&SF-Spiele, Stelzenberg";
   Gtk::Label *_lc2=manage (new Gtk::Label(copytxt2,0,0));
   Gtk::Pixmap *_pc2=manage(new Gtk::Pixmap(Money_50_xpm));
   _lc2->set_justify(GTK_JUSTIFY_LEFT);

@@ -118,6 +118,7 @@ Region::Region(const Tag *tag)
   maintainer=tag->getAttr("Maintainer");
   version=tag->getAttr("Version");
   copyright=tag->getAttr("Copyright");
+  jahr=tag->getAttr("Jahr");
   offiziell=tag->getBoolAttr("offiziell");
   pic=RegionenPic::epic(tag->getIntAttr("MAGUS-Bild",tag->getIntAttr("MCG-Bild")));
 #endif  
