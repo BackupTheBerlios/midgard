@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.5 2003/05/08 13:40:01 christof Exp $            
+// $Id: Abenteurer.cc,v 1.6 2003/05/08 16:57:07 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -576,7 +576,7 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
    }
 }
 
-void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Optionen *Optionen,midgard_CG *hauptfenster)
+void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,const Datenbank &Database)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
     FOR_EACH_CONST_TAG(i,*tag)
@@ -689,7 +689,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Optionen")
         {
          try{
-           Optionen->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getBoolAttr("Page"));
+           optionen.setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
          {}
@@ -698,8 +698,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         {
          try
          {  cH_Region R(i->getAttr("Name",i->getAttr("Region")));
-            Region::setActive(Database.Regionen,R,true);
-            hauptfenster->set_region_statusbar(R->Pic(),true);
+            regionen[R]=true;
          }
 // bis hier
          catch (const NotFound &e)
@@ -722,7 +721,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
 void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,const Datenbank &Database)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-    for(std::map<cH_Region,Model<bool> >::const_iterator i=regionen.begin();i!=regionen.end();++i)
+    for(std::map<cH_Region,Model_copyable<bool> >::iterator i=regionen.begin();i!=regionen.end();++i)
       {   i->second=false;  }
     if(!tag) return;
     FOR_EACH_CONST_TAG(i,*tag)
@@ -731,7 +730,7 @@ void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,const Da
       if(sart=="CheckOptions")
         {
          try{
-           optionen->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
+           optionen.setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
          {}
@@ -739,7 +738,7 @@ void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,const Da
       else if(sart=="Hausregeln")
         {
          try{
-           optionen->setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
+           optionen.setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
          {}
