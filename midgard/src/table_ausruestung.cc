@@ -204,6 +204,7 @@ void table_ausruestung::showAusruestung()
   button_ausruestung_loeschen->set_sensitive(false);
 }
 
+
 void table_ausruestung::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const list<AusruestungBaum> &AB)
 {
   Gtk::CTree_Helpers::RowList::iterator n;
@@ -372,7 +373,7 @@ void table_ausruestung::fill_preisliste()
        clist_preisliste->set_column_auto_resize(i,true);
 }
 
-void table_ausruestung::setStandardAusruestung()
+AusruestungBaum *table_ausruestung::setStandardAusruestung()
 {
   AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
   Koerper->setParent(&besitz);
@@ -393,11 +394,13 @@ void table_ausruestung::setStandardAusruestung()
   AusruestungBaum *Geld=&Rucksack->push_back(Ausruestung("Geld","",false));
   Geld->setParent(Lederbeutel);
 
-  setFertigkeitenAusruestung(Rucksack);
+  return Rucksack;
+//  setFertigkeitenAusruestung(Rucksack);
 }
 
-void table_ausruestung::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
+void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
 {
+  AusruestungBaum &besitz=hauptfenster->getChar().getBesitz();
   for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
    {
     int wurf;
@@ -491,7 +494,8 @@ void table_ausruestung::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
    }
 }
 
-void table_ausruestung::InfoFensterAusruestung(std::string name,int wurf,int noetig)
+//void table_ausruestung::InfoFensterAusruestung(std::string name,int wurf,int noetig)
+void table_lernschema::InfoFensterAusruestung(std::string name,int wurf,int noetig)
 {
  std::string strinfo;
  strinfo="Für '"+name+"' wurde eine "+itos(wurf)+" gewürfelt.\n";

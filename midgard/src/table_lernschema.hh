@@ -16,6 +16,7 @@
 #include "class_lernpunkte.hh"
 #include "MidgardBasicElement.hh"
 class midgard_CG;
+class AusruestungBaum;
 #include "Waffe.hh"
 #include "Beruf.hh"
 
@@ -93,6 +94,11 @@ private:
        // KiDo
        void fill_kido_lernschema();
        void on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d);
+
+       // Ausrüstung
+//       void setStandardAusruestung();
+       void setFertigkeitenAusruestung(AusruestungBaum *Rucksack);
+       void InfoFensterAusruestung(std::string name,int wurf,int noetig);
        
 public:
         
@@ -101,7 +107,6 @@ public:
           tree_lernschema(0),Beruf_tree(0),tree_angeb_fert(0),tree_kido_lernschema(0),
             tree_waffen_lernschema(0),maxkido(0) {}
         void init(midgard_CG *hauptfenster);
-//        void WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe);
 
       // Ab hier die automatischen Methoden von glade erzeugt
 private:
@@ -128,7 +133,6 @@ private:
         void on_spinbutton_unge_activate();
         gint on_spinbutton_unge_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_unge_focus_in_event(GdkEventFocus *ev);
-//        void kido_stil_optionmenue();
         void on_kido_wahl_clicked();
         void on_tree_gelerntes_leaf_selected(cH_RowDataBase d);
         void on_herkunftsland_clicked();
@@ -144,6 +148,7 @@ private:
         void on_spinbutton_waffen_lernschema_activate();
         gint on_spinbutton_waffen_lernschema_focus_in_event(GdkEventFocus *ev);
         gint on_button_ruestung_button_release_event(GdkEventButton *ev);
+        gint on_button_ausruestung_button_release_event(GdkEventButton *ev);
         void on_togglebutton_teure_anzeigen_toggled();
         void on_togglebutton_gelernte_anzeigen_toggled();
         gint on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev);

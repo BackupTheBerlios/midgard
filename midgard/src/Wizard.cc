@@ -153,6 +153,11 @@ void Wizard::fill_vecwiz()
                           "Rüstung auswürfeln",
                           "Rüstung",
                           &midgard_CG::wizard_do_something));
+   //AUSRUESTUNG
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Ausrüstung auswürfeln",
+                          "Ausrüstung",
+                          &midgard_CG::wizard_do_something));
    //SPEZIALWAFFE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Spezialwaffe wählen (anklicken)",

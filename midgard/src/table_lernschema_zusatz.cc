@@ -80,6 +80,12 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       {
        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Sprache.begin();i!=hauptfenster->getDatabase().Sprache.end();++i)
          {
+            if(MBE->Name()=="Muttersprache") // muﬂ im Heimatlannd gesprochen werden
+             {
+               std::vector<std::string> V=hauptfenster->getChar().getWerte().Herkunft()->Sprachen(); 
+               std::vector<std::string>::const_iterator l=find(V.begin(),V.end(),(*i)->Name());
+               if(l==V.end()) continue;
+             }
             if((MBE->Name()=="Muttersprache" || (MBE->Name()=="Gastlandsprache"))
                   && cH_Sprache(*i)->Alte_Sprache()) 
               {
@@ -103,6 +109,11 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
          {
            if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getChar().List_Schrift())) continue;
            if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getChar().List_Sprache())) continue;
+           std::string::size_type s=MBE->Name().find("Muttersprache");
+           if(s!=std::string::npos)
+            {
+             if(!cH_Schrift(*i)->Mutterschrift(hauptfenster->getChar().getWerte().Herkunft())) continue; 
+            }
            datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }
        if(datavec.empty()) 
@@ -202,12 +213,12 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
       {
        if(MBE->Name()=="Muttersprache")
         {
-          vector<std::string> V=hauptfenster->getWerte().Herkunft()->Sprachen();
-          vector<std::string> W;
+          std::vector<std::string> V=hauptfenster->getWerte().Herkunft()->Sprachen();
+          std::vector<std::string> W;
           for(vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
             if(!cH_Sprache(*i)->Alte_Sprache()) W.push_back(*i) ;
           std::string s,label;
-          for(vector<std::string>::const_iterator i=W.begin();i!=W.end();)
+          for(std::vector<std::string>::const_iterator i=W.begin();i!=W.end();)
               { s+=*i; if(++i!=W.end()) s+=", ";}
           if(W.size()==1)  label ="Muttersprache ("+s+") w‰hlen" ;
           else label = "Eine Muttersprache w‰hlen\n("+s+")" ;

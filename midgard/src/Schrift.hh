@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.17 2002/06/07 12:17:04 thoma Exp $               
+// $Id: Schrift.hh,v 1.18 2002/06/28 13:09:10 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,7 @@
 #include "Typen.hh"
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
-
+class cH_Land;
 
 class Schrift : public MidgardBasicElement
 {
@@ -34,17 +34,10 @@ class Schrift : public MidgardBasicElement
      int Grundkosten() const {return kosten;}
   
   public:
-#ifdef USE_XML
    Schrift(const std::string& name,const Tag *t) : MidgardBasicElement(t,name)
       { get_Schrift();get_map_typ(); get_Steigern_Kosten_map();
         EP_steigern("Schreiben");
       }
-#else
-   Schrift(const std::string& n) : MidgardBasicElement(n)
-      { get_Schrift();get_map_typ(); get_Steigern_Kosten_map();
-        EP_steigern("Schreiben");
-      }
-#endif
    enum MBEE What() const {return MidgardBasicElement::SCHRIFT;}
    std::string What_str() const {return "Urschrift";}
 
@@ -53,6 +46,7 @@ class Schrift : public MidgardBasicElement
    bool Kult() const {return kult;}
    bool Alt() const {return alt;}
    bool kann_Sprache(const std::list<MidgardBasicElement_mutable>& sprache) const;
+   bool Mutterschrift(cH_Land herkunft) const;
    int Schrift::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
    int Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
         { cH_Fertigkeit F("Lesen/Schreiben");

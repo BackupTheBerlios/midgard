@@ -46,6 +46,7 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
   std::list<std::string> L;
   for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
    {
+     if(combo_typ2->is_visible() && typ_1_2==1 && (*i)->Zaubern()=="z") continue;
      if(typ_1_2==2 && (*i)->Zaubern()!="z") continue;
      if (hauptfenster->getWerte().Spezies()->Name()=="Mensch" || hauptfenster->getWerte().Spezies()->Typ_erlaubt((*i)->Short()))
        if (hauptfenster->region_check((*i)->Region()) && hauptfenster->nsc_check((*i)->NSC_only()))
@@ -194,8 +195,9 @@ void table_grundwerte::on_radiobutton_stadt_land_toggled()
 void table_grundwerte::doppelcharaktere()
 {
    if(!hauptfenster) return;
-   fill_typauswahl_2();
    combo_typ2->show();
+   fill_typauswahl();
+   fill_typauswahl_2();
 }
 
 void table_grundwerte::on_radiobutton_frau_toggled()

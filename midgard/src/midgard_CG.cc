@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.241 2002/06/28 07:36:51 thoma Exp $
+// $Id: midgard_CG.cc,v 1.242 2002/06/28 13:09:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -94,5 +94,6 @@ cout <<"Suche nach "<< n<<'\n';
    }
   cout << "File "+name+" nowhere found\n";
   if(!noexit) exit(1);
+  return("");
 }
 

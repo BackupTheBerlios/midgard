@@ -55,9 +55,11 @@ private:
         void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
         void on_checkbutton_sichtbar_toggled();
         void fill_preisliste();
-        void setStandardAusruestung();
-        void setFertigkeitenAusruestung(AusruestungBaum *Rucksack);
-        void InfoFensterAusruestung(std::string name,int wurf,int noetig);
+public:
+        AusruestungBaum* setStandardAusruestung();
+private:
+//        void setFertigkeitenAusruestung(AusruestungBaum *Rucksack);
+//        void InfoFensterAusruestung(std::string name,int wurf,int noetig);
         void on_optionmenu_einheit_deactivate();
         SigC::Connection sichtbarConnection;
         void zeige_werte();

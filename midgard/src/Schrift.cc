@@ -87,6 +87,21 @@ std::list<cH_MidgardBasicElement> Schrift::gleicheSchrift(const std::list<cH_Mid
   return LS;
 }
 
+bool Schrift::Mutterschrift(cH_Land herkunft) const
+{
+  std::vector<std::string> V=herkunft->Sprachen();
+  for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     const std::vector<std::string> W=cH_Sprache(*i)->Schrift();
+     for(std::vector<std::string>::const_iterator j=W.begin();j!=W.end();++j)
+      {
+       if(*j==Name()) return true;
+      }
+   }
+  return false;
+}
+
+
 Schriften_All::Schriften_All(Gtk::ProgressBar *progressbar)
 {
  const Tag *schriften=xml_data->find("Schriften");

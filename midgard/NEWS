@@ -1,6 +1,3 @@
-cvs delete midgard.xml midgard_optionen.xml midgard_document_eingabe.tex.in 
-cvs add ../xml/midgard.xml ../xml/magus_optionen.xml magus_document_eingabe.tex
-
 ##########################################################################
 NEWS IN VERSION 0.7delta3
 - Spezialwaffe versteckt nun die ungelernten Waffen ;-)
@@ -8,17 +5,23 @@ NEWS IN VERSION 0.7delta3
 * Wurfspeer nach 'Leichter Speer' lernbar (war Rechtschreibfehler in Datenbank)
 * Laden eines Charakters zeigt dessen Werte an
 * floats für Gewichte
-* Freiwillige Speziesfertigkeiten für Berggnom
+* Freiwillige Speziesfertigkeiten für Berggnom und Waldgnom
 * Gastlandsprache ohne alte Sprachen
 * Oberfläche leicht überarbeitet
 * Datenbankkorrekturen
 * Fertigkeiten berücksichtigen jetzt auch Waffen als Voraussetzungen
 * Zahlreiche kleinere Bugs beseitigt
 * Pfade für pngs, tex, xml, etc gesetzt
-
+* Speicherpfad ($HOME/.magus) erzeugen wenn nicht existent
+* Undo geht wieder
+* Nur noch die Sprachen als Muttersprache lernbar, die im Herkunftsland 
+   gesprochen werden
+* Nur noch die Schriften als 'Mutterschrift' lernbar, die im Herkunftsland 
+   geschrieben werden
 
 TODO: ('-' zeigt CP an)
 * Muttersprache nach Heimatland
+* Ausrüstung nach Fertigkeiten
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
@@ -34,10 +37,8 @@ links).
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
 - überprüfen ob gelernt/ungelernt nicht in die Überschrift der Tabelle passt
-- Speicherpfad erzeugen wenn nicht existent
 - viewport_lernen durch scrolledwindow_lernen ersetzen? denn dort eingefügte 
 	Widgets haben einen eigenen ViewPort? überall! (auch in pps!)
-- beim Steigern waren Fertigkeiten doppelt ?
 - Recode während schreiben von TeX (damit der Quelltext besser lesbar wird)
 - Würfelvarianten für Nichtmenschen!
 - Absturz bei Programmende

@@ -8783,6 +8783,21 @@ eingeben</label>
 		<label>Rüstung</label>
 		<icon>Dice_Armor-trans-50.xpm</icon>
 	      </widget>
+
+	      <widget>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button_ausruestung</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<tooltip>Ausrüstung aufgrund bestimmter Fertigkeiten würfeln</tooltip>
+		<signal>
+		  <name>button_release_event</name>
+		  <handler>on_button_ausruestung_button_release_event</handler>
+		  <last_modification_time>Fri, 28 Jun 2002 08:19:11 GMT</last_modification_time>
+		</signal>
+		<label>Ausrüstung</label>
+		<icon>Dice_Armor-trans-50.xpm</icon>
+	      </widget>
 	    </widget>
 	  </widget>
 
@@ -17446,7 +17461,7 @@ KS
 	      <editable>True</editable>
 	      <text_visible>True</text_visible>
 	      <text_max_length>0</text_max_length>
-	      <text>$HOME/magus</text>
+	      <text>~/magusbartusel@yahoo.debartusel@yahoo.debartusel@yahoo.debartusel@yahoo.debartusel@yahoo.debartusel@yahoo.de</text>
 	      <child>
 		<left_attach>1</left_attach>
 		<right_attach>2</right_attach>

@@ -39,6 +39,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    table_lernschema->button_lernschema_geld->set_sensitive(false);
    table_lernschema->button_lernschema_waffen->set_sensitive(false);
    table_lernschema->button_ruestung->set_sensitive(false);
+   table_lernschema->button_ausruestung->set_sensitive(false);
    label_wizard->hide();
 
    table_lernschema->edit_lernpunkte(false);

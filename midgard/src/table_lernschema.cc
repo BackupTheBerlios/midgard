@@ -374,9 +374,9 @@ void table_lernschema::on_lernpunkte_wuerfeln_clicked()
   button_lernschema_geld->set_sensitive(true);
   button_lernschema_waffen->set_sensitive(true);
   button_ruestung->set_sensitive(true);
+  button_ausruestung->set_sensitive(true);
 
   on_lernliste_wahl_toggled();
-
 }
 
 void table_lernschema::on_togglebutton_lernpunkte_edit_toggled()
@@ -532,6 +532,18 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
   hauptfenster->set_status("Beim Auswürfeln der Rüstung wurde eine "+itos(wurf)+" gewürfelt "
              "==> " + hauptfenster->getWerte().Ruestung()->Long());
   zeige_werte();
+}
+
+
+gint table_lernschema::on_button_ausruestung_button_release_event(GdkEventButton *ev)
+{  
+  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::AUSRUESTUNG);
+  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+     button_ausruestung->set_sensitive(false);
+//  if(hauptfenster->getChar().getAbenteurer().getBesitz().empty()) 
+  AusruestungBaum *Rucksack=hauptfenster->table_ausruestung->setStandardAusruestung();
+  setFertigkeitenAusruestung(Rucksack);
+  return 0;
 }
 
 
