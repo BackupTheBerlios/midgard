@@ -1,8 +1,9 @@
 # $Id: Makefile.am,v 1.1 1999/09/09 08:09:06 christof Exp $
 
-SUBDIRS=searchcombo src tests 
+SUBDIRS=src tests 
 
-EXTRA_DIST = AUTHORS TODO README configure
+EXTRA_DIST = AUTHORS TODO README configure searchcombo/src/gtksearchcombo.c \
+		searchcombo/src/gtksearchcombo.h
 
 #INCLUDES = -I/home/share/safeSTL
 #LDADD = -lefence
