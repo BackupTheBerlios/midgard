@@ -131,7 +131,7 @@ table_zufall_glade::table_zufall_glade(GlademmData *_data
    
    Gtk::Table *table173 = manage(new class Gtk::Table(2, 6, false));
    frame_verteilung_auf = manage(new class Gtk::Frame("Verteilung auf"));
-   tree_prototyp = new class SimpleTree(4, 4);
+   tree_prototyp = new class SimpleTree(4);
    
    Gtk::ScrolledWindow *scrolledwindow_prototyp = manage(new class Gtk::ScrolledWindow());
    frame_spezialist_typen = manage(new class Gtk::Frame("Spezialisieren auf einen oder mehrere Spezialisierungs-Typen"));

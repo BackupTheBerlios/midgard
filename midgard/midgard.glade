@@ -15523,7 +15523,6 @@ anschließend unten den neuen Gegenstand auswählen.</label>
 		</signal>
 		<creation_function>SimpleTree</creation_function>
 		<int1>9</int1>
-		<int2>9</int2>
 		<last_modification_time>Wed, 02 Oct 2002 16:39:25 GMT</last_modification_time>
 	      </widget>
 	    </widget>
@@ -16625,7 +16624,6 @@ Liste löschen</label>
 		</signal>
 		<creation_function>SimpleTree</creation_function>
 		<int1>7</int1>
-		<int2>7</int2>
 		<last_modification_time>Mon, 27 May 2002 19:25:17 GMT</last_modification_time>
 	      </widget>
 	    </widget>
@@ -16695,7 +16693,6 @@ Liste löschen</label>
 		</signal>
 		<creation_function>SimpleTree</creation_function>
 		<int1>2</int1>
-		<int2>2</int2>
 		<last_modification_time>Thu, 11 Apr 2002 17:10:29 GMT</last_modification_time>
 	      </widget>
 	    </widget>
@@ -18511,7 +18508,6 @@ Grad 1 erzeugen</label>
 			  </signal>
 			  <creation_function>SimpleTree</creation_function>
 			  <int1>4</int1>
-			  <int2>4</int2>
 			  <last_modification_time>Wed, 23 Oct 2002 09:52:45 GMT</last_modification_time>
 			</widget>
 		      </widget>
