@@ -35,9 +35,10 @@ NEWS IN VERSION 0.4delta6
 * Runden von EP/Gold überarbeitet
 * Herkunft korrigierbar
 * Landeskunde (Heimat): Erfolgswert 
-
+* Erfogswert für Spezialwaffe jetzt (hoffentlich) korrekt implementiert
 
 TODO:
+* Bezeichnung für einen Charakter
 * Ausrüstung drucken, Abenteurer drucken -> absturz ??
 * Steigern mehrerer Stufen mit PP
 * Finstermagier: Lernschema, Fertigkeiten, Waffen, Zauber

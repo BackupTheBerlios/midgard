@@ -191,9 +191,7 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen() {
          togglebutton_spezialwaffe->set_active(false); }
 
    menu_init();
-
    Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
-   
    show_gtk();
    if(cH_Spezialgebiet::is_cached(Werte.Spezialisierung()))
       Werte.setSpezialgebiet(cH_Spezialgebiet(Werte.Spezialisierung()));

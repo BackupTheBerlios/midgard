@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.96 2002/03/26 08:56:32 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.97 2002/03/27 17:11:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -300,13 +300,18 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   if(togglebutton_spezialwaffe->get_active() && MBE->What()!= MidgardBasicElement::WAFFE)
-      {togglebutton_spezialwaffe->set_active(false); return ; }
+      {
+        togglebutton_spezialwaffe->set_active(false); return ; 
+      }
   switch(MBE->What()) {
      case MidgardBasicElement::WAFFE : 
          { 
-           if(togglebutton_spezialwaffe->get_active())
-            {
-             Werte.setSpezialisierung(MBE->Name());
+           if(togglebutton_spezialwaffe->get_active() )
+            { 
+              if(cH_Waffe(MBE)->Verteidigung())
+               regnot("Eine Verteidingungswaffe kann keine Spezialwaffe werden.");
+             else
+               Werte.setSpezialisierung(MBE->Name());
             }
            else
             {
@@ -348,8 +353,9 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 
      default : break;
    }
+  show_lernschema(); // Lernschema setzt die Erfolgswerte zurück
+  Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
   show_gelerntes();
-  show_lernschema();
 }
 
 void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
@@ -439,7 +445,6 @@ void midgard_CG::show_gelerntes()
   std::list<std::list<cH_MidgardBasicElement> > LL;
   LL.push_back(list_Fertigkeit_ang);
   LL.push_back(list_Fertigkeit);
-  Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
   LL.push_back(list_Waffen);
   LL.push_back(list_Zauber);
   LL.push_back(list_Zauberwerk);
