@@ -2,22 +2,22 @@
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Grad 7" Grad="8"/>
-  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben Heimat" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand=""/>
+  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="nach Ruf des roten Raben" Grad="8"/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand=""/>
   <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="6"/>
   <Erfolgswerte Abwehr="14" Zaubern="17" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="39"/>
-  <Beschreibung Alter="28" Gestalt="breit" Gewicht="69" Größe="161" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
+  <Beschreibung Alter="29" Gestalt="breit" Gewicht="69" Größe="161" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
   <Vermögen GS="72"/>
-  <Steigern GFP="15348" AEP="21" EPproGFP="33" benötigte_Tage="430.24">
+  <Steigern GFP="15348" AEP="21" EPproGFP="33" benötigte_Tage="70.24">
    <Praxispunkte Zaubern="2" Spezial="3" Resistenz="1"/>
   </Steigern>
   <Text/>
   <Ausrüstung>
    <Rüstung>TR</Rüstung>
    <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="0" Bezeichnung="Magierstab"/>
+   <Waffe Erfolgswert="9" Bezeichnung="Magierstab"/>
    <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
     <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
     <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
@@ -44,8 +44,8 @@
    <Fertigkeit Bezeichnung="Kamelreiten" Wert="12"/>
    <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
    <Fertigkeit Bezeichnung="Kräuterkunde" Wert="11" Praxispunkte="1"/>
-   <Fertigkeit Bezeichnung="Landeskunde" Wert="8" Zusatz=""/>
-   <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz=""/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="8" Zusatz="KanThaiPan"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz="Eschar"/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="15"/>
    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
    <Fertigkeit Bezeichnung="Naturkunde" Wert="4"/>
@@ -100,8 +100,8 @@
    <Zauber Bezeichnung="Seelenheilung"/>
    <Zauber Bezeichnung="Stille"/>
    <Zauber Bezeichnung="Stärke"/>
-   <Zauber Bezeichnung="Tiere rufen" Zusatz=""/>
-   <Zauber Bezeichnung="Tiersprache" Zusatz=""/>
+   <Zauber Bezeichnung="Tiere rufen" Zusatz="Säugetiere"/>
+   <Zauber Bezeichnung="Tiersprache" Zusatz="Säugetiere"/>
    <Zauber Bezeichnung="Trunk des Lebens"/>
    <Zauber Bezeichnung="Unfruchtbarkeit"/>
    <Zauber Bezeichnung="Unsichtbarkeit"/>
@@ -110,7 +110,7 @@
    <Zauber Bezeichnung="Wort des Lebens"/>
    <Zauber Bezeichnung="Zwiesprache"/>
    <Zauber Bezeichnung="Zähmen"/>
-   <Grundkenntnis Bezeichnung="Zauberstab"/>
+   <Grundkenntnis Bezeichnung="Zauberstäbe"/>
    <Sprache Bezeichnung="Albisch" Wert="13"/>
    <Sprache Bezeichnung="Aranisch" Wert="6"/>
    <Sprache Bezeichnung="Chryseisch" Wert="13"/>
@@ -131,12 +131,12 @@
    <Urschrift Bezeichnung="KanThaiTun(2)" Wert="12"/>
    <Urschrift Bezeichnung="Meketisch" Wert="12"/>
    <Urschrift Bezeichnung="Erainnisch" Wert="14"/>
-   <Urschrift Bezeichnung="Waldgnome" Wert="12"/>
+   <Urschrift Bezeichnung="Baumrunen Beth-Luis-Nion" Wert="12"/>
    <Urschrift Bezeichnung="Albisch" Wert="8"/>
    <Urschrift Bezeichnung="Chryseisch" Wert="8"/>
    <Urschrift Bezeichnung="Moravisch" Wert="8"/>
    <Urschrift Bezeichnung="Comentang" Wert="8"/>
-   <Urschrift Bezeichnung="Berggnome" Wert="8"/>
+   <Urschrift Bezeichnung="Zwergenrunen Futhark" Wert="8"/>
   </Fertigkeiten>
   <Optionen>
    <CheckOptions Name="Originalregeln" Wert="false"/>
