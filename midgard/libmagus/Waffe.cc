@@ -199,8 +199,13 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
         else if (w <=15) sb=-2;
         else             sb=-1;
         if(name=="Kampfriemen") sb+=1;
+        sb2=sb;
       }
-  if (Waffe()->Art()!="SchuÃŸwaffe" && Waffe()->Art()!="Wurfwaffe") 
+  // Nicht stark genug fürs Einhändige Tragen dieser Waffe?
+  if(Waffe()->Text().find("Einhändig")!=std::string::npos &&
+        !Waffe()->Min_St_Einhand(Werte)) sb2=sb;
+           
+  if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe")
     {  sb += Werte.bo_Sc(); sb2 += Werte.bo_Sc();}
   if(sb==sb2)  return add_plus_or_minus(s,sb); 
   else         return add_plus_or_minus(s,sb)+"|"+itos(sb2);
