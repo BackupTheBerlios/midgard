@@ -1,4 +1,4 @@
-// $Id: Ausgabe.cc,v 1.6 2004/06/04 09:27:39 christof Exp $
+// $Id: Ausgabe.cc,v 1.7 2004/06/04 10:36:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -19,20 +19,7 @@
 
 #include "Ausgabe.hh"
 #include <iostream>
-
-// copied from TagStream.cc
-static void utf82iso(std::string &s)
-{  for (unsigned i = 0; i+1<s.size() ; ++i)
-   {  unsigned char x=s[i];
-      if ((x&0xe0)==0xc0) 
-      {  unsigned char y=s[i+1];
-         unsigned char r=(x<<6)|(y&0x3f);
-         s.replace(i,2u,1u,char(r));
-      }
-      else if (x>=0x80)
-         std::cout << "UTF8 decoding error " << x << '\n';
-   }
-}
+#include <Misc/TagStream.h>
 
 const char * const Verbose[Ausgabe::MaxLevel]=
 {  0,"Meldung",/*.Ausgabe::Warning=*/"Warnung", "Bitte Handeln",
@@ -49,7 +36,7 @@ static void StandardAusgabe(Ausgabe::Level l,const std::string &_text)
 {  if (l>Ausgabe::MaxLevel) l=Ausgabe::Fatal;
    if (l<LogLevel) return;
    std::string text(_text);
-   utf82iso(text);
+   TagStream::utf82iso(text);
    std::cerr << (Verbose[l]?Verbose[l]:"") << (Verbose[l]?":":"") << text << '\n';
 }
 
