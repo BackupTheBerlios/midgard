@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.20 2002/11/14 13:26:04 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.21 2002/11/17 21:49:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,6 @@
 
 void midgard_CG::Icons_setzen()
 {
-//  menu_init();
   e_icon icon_counter=iNew;
   // toplevel toolbar
   for(Gtk::Toolbar_Helpers::ToolList::iterator i=toolbar_top->tools().begin();i!=toolbar_top->tools().end();++i)
@@ -167,7 +166,6 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iForward)    return st_icons("Vorwärts"    ,redo_xpm               );
      else if(typ==iMenu)       return st_icons("Menü"        ,wizzard_trans_50_2_xpm );
      else if(typ==iInfo)       return st_icons("Info"        ,Info_trans_50_xpm      );
-     else if(typ==iHelp)       return st_icons("Hilfe"       ,Help_trans_new1_xpm    );
      else if(typ==iInstruction)return st_icons("Anleitung"   ,Help_trans_new1_xpm    );
      else if(typ==iExit)       return st_icons("Schließen"   ,Exit_trans_50_xpm      );
      else if(typ==iJa)         return st_icons("Ja"          ,Excl_32_xpm);
@@ -215,7 +213,6 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iForward)    return st_icons("Vorwärts"    ,ulf_knopfleiste_24_vorwaerts_xpm               );
      else if(typ==iMenu)       return st_icons("Menü"        ,ulf_knopfleiste_24_menue_xpm );
      else if(typ==iInfo)       return st_icons("Info"        ,ulf_knopfleiste_24_info_xpm      );
-     else if(typ==iHelp)       return st_icons("Hilfe"       ,ulf_knopfleiste_24_hilfe_xpm    );
      else if(typ==iInstruction)return st_icons("Anleitung"   ,ulf_knopfleiste_24_anleitung_xpm    );
      else if(typ==iExit)       return st_icons("Schließen"   ,ulf_knopfleiste_24_schliessen_xpm      );
      else if(typ==iJa)         return st_icons("Ja"          ,ulf_auswahl_16_ja_xpm);
