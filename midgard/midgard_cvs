@@ -1,0 +1,53 @@
+#!/bin/sh
+
+if [ "$1" -eq "checkout" -o "$1" -eq "co" ] 
+then
+  echo ========= Logging in ======
+  cvs -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc login <<EOF
+
+EOF
+  cvs -d :pserver:anonymous@anoncvs.gnome.org:/cvs/gnome login <<EOF
+
+EOF
+  cvs -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard login <<EOF
+
+EOF
+  echo ========= Petig.m4 ========
+  cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co m4
+  
+  echo ========  ManuProC_Base ========
+  cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co ManuProC_Base
+  
+  echo ========== GtkmmAddons ========
+  cvs -z3 -d :pserver:anonymous@anoncvs.gnome.org:/cvs/gnome co gtk--addons
+  ln -s gtk--addons GtkmmAddons
+  
+  echo ========  ManuProC_Widgets ========
+  cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co ManuProC_Widgets
+  
+  echo =========== Midgard-Postgres ========
+  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard-postgres
+  
+  echo ============ Midgard CG ========
+  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard
+elif [ "$1" -eq "update" ]
+then
+  cd ManuProCBase
+  cvs -z3 update -dP
+  cd ../midgard-postgres
+  cvs -z3 update -dP
+  cd ../midgard
+  cvs -z3 update -dP
+  cd ..
+elif [ "$1" -eq "make" ]
+then 
+elif [ "$1" -eq "configure" ]
+then 
+elif [ "$1" -eq "install" ]
+then 
+else
+  echo "USAGE: $0 <Befehl>"
+  echo "Befehle: checkout co update configure make install"
+  echo "Normale Reihenfolge: checkout install  oder  update install"
+  echo "Vorsicht die Pakete werden in $PWD ausgepackt"
+fi
