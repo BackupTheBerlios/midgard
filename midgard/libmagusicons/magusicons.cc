@@ -1,4 +1,4 @@
-// $Id: magusicons.cc,v 1.12 2004/03/18 09:06:47 christof Exp $
+// $Id: magusicons.cc,v 1.13 2004/05/18 14:49:50 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>
@@ -55,7 +55,7 @@ Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name)
 {  using namespace MagusIcons;
    using MagusIcons::key_t;
    if (images.empty())
-   {  Magus_Optionen::IconIndex current_option=Programmoptionen.getIconIndex();
+   {  Magus_Optionen::IconIndex current_option=Programmoptionen->getIconIndex();
       if (current_option==Magus_Optionen::Self) current_style=Alessandro;
       else if (current_option==Magus_Optionen::Ulf) current_style=Ulf;
       else if (current_option==Magus_Optionen::Gtk2) current_style=MagusIcons::Gtk;
