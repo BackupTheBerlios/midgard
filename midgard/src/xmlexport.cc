@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.30 2001/12/27 21:20:41 christof Exp $
+// $Id: xmlexport.cc,v 1.1 2002/01/03 10:57:22 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -23,42 +23,27 @@
 #include <fstream>
 #include <Aux/Transaction.h>
 #include <Aux/dbconnect.h>
-exec sql include sqlca;
 #include "../xml/export_common.h"
 
 void charakter_speichern(std::ostream &o, const std::string &name,const std::string &version="")
-{  exec sql begin declare section;
-   char *NAME,*VERSION;
-   exec sql end declare section;
+{  Transaction t;
+   Query query1("select charakter_name, spieler_name, version, grad, "
+   		"spezies, geschlecht, typ_s, typ_2_s, "
+   		"spezialisierung, stadt_land,"
+   		"st, gw, gs, ko, inn, zt, au, pa, wk,"
+   		"sb, rw, hgw, b, kaw, wlw, gg, sg, abwehr, zaubern,"
+   		"resistenz, lpbasis, lp, ap, alter, gestalt,"
+   		"gewicht, groesse, stand, herkunft,"
+   		"glaube, db_bo_au, db_bo_sc, db_bo_an, "
+   		"db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,"
+   		"db_bo_gi, db_gfp, gold, silber, kupfer, "
+   		"aep, kep, zep, steigern_bool, steigern_ep_prozent,"
+   		"grad_basiswerte, grad_abwehr, grad_resistenz,"
+   		"grad_zaubern, beschreibung, ruestung "
+   	"from charaktere "
+   	"where charakter_name='"+name+"' and version='"+version+"'");
    
-   (const char*)NAME=name.c_str();
-   (const char*)VERSION=version.c_str();
-   
-   Transaction t;
-   exec sql allocate descriptor spalten;
-   exec sql declare c cursor for
-   	select charakter_name, spieler_name, version, grad, 
-   		spezies, geschlecht, typ_s, typ_2_s, 
-   		spezialisierung, stadt_land,
-   		st, gw, gs, ko, inn, zt, au, pa, wk,
-   		sb, rw, hgw, b, kaw, wlw, gg, sg, abwehr, zaubern,
-   		resistenz, lpbasis, lp, ap, alter, gestalt,
-   		gewicht, groesse, stand, herkunft,
-   		glaube, db_bo_au, db_bo_sc, db_bo_an, 
-   		db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,
-   		db_bo_gi, db_gfp, gold, silber, kupfer, 
-   		aep, kep, zep, steigern_bool, steigern_ep_prozent,
-   		grad_basiswerte, grad_abwehr, grad_resistenz,
-   		grad_zaubern, beschreibung, ruestung
-   	from charaktere 
-   	where charakter_name=:NAME and version=:VERSION;
-   exec sql open c;
-   SQLerror::test(__FILELINE__);
-   exec sql fetch c into sql descriptor spalten;
-   SQLerror::test(__FILELINE__);
-   exec sql close c;
-   SQLerror::test(__FILELINE__);
-   FetchIStream is("spalten");
+   FetchIStream is=query1.Fetch();
    o <<	"<Midgard-Charakter Version=\"8\">\n";
    o << "  <Figur";
    fetch_and_write_string_attrib(is, o, "Name");
@@ -151,19 +136,14 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    
    o << "  <Ausrüstung>\n"; // oder Besitz?
    fetch_and_write_string(is, o, "Rüstung", 4);
-   exec sql declare c3 cursor for
-        select fertigkeit, av_bonus, sl_bonus, region, magisch
-   	from charaktere_fertigkeiten
-   	where charakter_name=:NAME and version=:VERSION and art='Besitz_W' 
-   	order by fertigkeit;
-   exec sql open c3;
-   SQLerror::test(__FILELINE__);
-   while (!sqlca.sqlcode)
-   {  exec sql fetch c3 into sql descriptor spalten;
-      SQLerror::test(__FILELINE__,100);
-      if (sqlca.sqlcode) break;
-      std::string typ;
-      FetchIStream is2("spalten");
+  {Query query2("select fertigkeit, av_bonus, sl_bonus, region, magisch "
+   	"from charaktere_fertigkeiten "
+   	"where charakter_name='"+name+"' and version='"+version+"' "
+   	"and art='Besitz_W' "
+   	"order by fertigkeit");
+   FetchIStream is2;
+   while ((query2>>is2).good())
+   {  std::string typ;
       o << "    <Waffe";
       fetch_and_write_string_attrib(is2, o, "Bezeichnung");
       fetch_and_write_int_attrib(is2, o, "AngriffVerteidigung_Bonus");
@@ -176,25 +156,18 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
          else o << '>' << magisch << "</Waffe>\n";
       }
    }
-   exec sql close c3;
-   SQLerror::test(__FILELINE__);
+  }
    o << "  </Ausrüstung>\n";
    
    o << "  <Fertigkeiten>\n";   
-   exec sql declare c2 cursor for
-        select art, fertigkeit, wert, region
-   	from charaktere_fertigkeiten
-   	where charakter_name=:NAME and version=:VERSION and art!='Besitz_W'
-   	order by art, fertigkeit;
-   exec sql open c2;
-   SQLerror::test(__FILELINE__);
-   while (!sqlca.sqlcode)
-   {  exec sql fetch c2 into sql descriptor spalten;
-      SQLerror::test(__FILELINE__,100);
-      if (sqlca.sqlcode) break;
-      std::string typ;
-      FetchIStream is2("spalten");
-      is2 >> typ;
+  {Query query2("select art, fertigkeit, wert, region, magisch, zauberwerk_stufe "
+   	"from charaktere_fertigkeiten "
+   	"where charakter_name='"+name+"' and version='"+version+"' "
+   	"and art!='Besitz_W' and art!='Ausrüstung' "
+   	"order by art, fertigkeit");
+   FetchIStream is2;
+   while ((query2>>is2).good())
+   {  is2 >> typ;
       // oder <Beruf Wert=12>Arzt</Beruf> ?
       o << "    <"<<typ;
       if (typ!="Region") fetch_and_write_string_attrib(is2, o, "Bezeichnung");
@@ -202,22 +175,20 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
       fetch_and_write_int_attrib(is2, o, "Wert");
       // dies ist wahrscheinlich unnötig ...
       fetch_and_write_string_attrib(is2, o, "Region");
+      fetch_and_write_string_attrib(is2, o, "Art"); // Zauberwerk
+      fetch_and_write_string_attrib(is2, o, "Stufe"); // Zauberwerk
       o << "/>\n";
    }
-   exec sql close c2;
-   SQLerror::test(__FILELINE__);
    o << "  </Fertigkeiten>\n";   
+  }
    
    o << "</Midgard-Charakter>\n";
    exec sql deallocate descriptor spalten;
 }
 
-// wegen eines bugs in epcg <=V6.1
-#define GARNIX 
-
 int main(int argc, char *argv[])
 {  
-   if (argc>3 && argc<1) {std::cerr << "USAGE: "<<argv[0]<<" ['Charaktername'] ['Version']\n";
+   if (argc>3 && argc<1) {std::cerr << "USAGE: "<<argv[0]<<" ['Charaktername'|'Mus%er'] ['Version']\n";
       exit(1); };
    try{
       Petig::Connection conn;
@@ -230,52 +201,28 @@ int main(int argc, char *argv[])
    else if (argc==2)
    {  
       Transaction tr;
-   exec sql begin declare section;
-   char *charakter=argv[1];
-   exec sql end declare section;
-   
-   exec sql allocate descriptor figuren2;
-   exec sql declare fcurs2 cursor for
-   	select charakter_name, version
-   	from charaktere 
-   	where charakter_name like :charakter
-   	order by charakter_name, version;
-   exec sql open fcurs2;
-   SQLerror::test(__FILELINE__);
-   while (true)
-   {  exec sql fetch fcurs2 into sql descriptor figuren2;
-      SQLerror::test(__FILELINE__,100);
-      if (sqlca.sqlcode) break;
-      FetchIStream is("figuren2");
-      string charakter,version;
-      is >> charakter >> version;
-      charakter_speichern(std::cout,charakter,version);
-   }
-   exec sql close fcurs2;
-   SQLerror::test(__FILELINE__);
-   exec sql deallocate descriptor figuren2;
+      Query query0("select charakter_name, version "
+   	"from charaktere 
+   	"where charakter_name like '"+std::string(argv[1])+"' "
+   	"order by charakter_name, version");
+      FetchIStream is;
+      while ((query0>>is).good())
+      {  string charakter,version;
+         is >> charakter >> version;
+         charakter_speichern(std::cout,charakter,version);
+      }
    }
    else // argc==1
    {  Transaction tr;
-   exec sql allocate descriptor figuren;
-   exec sql declare fcurs cursor for
-   	select charakter_name, version
-   	from charaktere 
-   	order by charakter_name, version;
-   exec sql open fcurs;
-   SQLerror::test(__FILELINE__);
-   while (true)
-   {  exec sql fetch fcurs into sql descriptor figuren;
-      SQLerror::test(__FILELINE__,100);
-      if (sqlca.sqlcode) break;
-      FetchIStream is("figuren");
-      string charakter,version;
-      is >> charakter >> version;
-      charakter_speichern(std::cout,charakter,version);
-   }
-   exec sql close fcurs;
-   SQLerror::test(__FILELINE__);
-   exec sql deallocate descriptor figuren;
+      Query query0("select charakter_name, version "
+   	"from charaktere 
+   	"order by charakter_name, version");
+      FetchIStream is;
+      while ((query0>>is).good())
+      {  string charakter,version;
+         is >> charakter >> version;
+         charakter_speichern(std::cout,charakter,version);
+      }
    }
    std::cout << "</MidgardCG-data>\n";
    Petig::dbdisconnect();
