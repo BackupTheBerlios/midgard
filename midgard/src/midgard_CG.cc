@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.149 2002/02/09 21:45:39 thoma Exp $
+// $Id: midgard_CG.cc,v 1.150 2002/02/10 16:17:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -297,6 +297,11 @@ void midgard_CG::on_neuer_charakter_clicked()
    table_gruppe->hide();
    table_artikel->hide();
    togglebutton_gruppe_neu->hide(); // nicht implementiert
+
+
+   if(Werte.Stadt_Land()=="Land")  radiobutton_land->set_active(true);
+   if(Werte.Stadt_Land()=="Stadt")  radiobutton_stadt->set_active(true);
+  
 
    vbox_berufsname->hide();
    button_kido_auswahl->set_sensitive(false);       

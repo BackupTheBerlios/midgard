@@ -62,9 +62,9 @@ COPY "typen" FROM stdin;
 30	PM	Meerespriester	Meerespriesterin	z	z	20	0	1	\N	4	z	\N	t
 31	PT	Todespriester	Todespriesterin	z	z	20	0	4	\N	3	z	\N	t
 32	PW	Weisheitspriester	Weisheitspriesterin	z	z	20	0	4	\N	3	z	\N	t
-33	ScN	Schamane (Nordland)	Schamanin (Nordland)	z	ak	0	0	1	\N	4	\N	l	t
-34	ScS	Schamane (Steppe)	Schamanin (Steppe)	z	ak	0	0	1	\N	4	\N	l	t
-35	ScW	Schamane (Waldland)	Schamanin (Waldland)	z	ak	0	0	1	\N	4	\N	l	t
+33	ScN	Nordlandschamane	Nordlandschamanin	Nordlandschamanin (Nordland)	ak	0	0	1	\N	4	\N	l	t
+34	ScS	Steppenschamane	Steppenschamanin	z	ak	0	0	1	\N	4	\N	l	t
+35	ScW	Waldlandschamane	Waldlandschamanin	z	ak	0	0	1	\N	4	\N	l	t
 36	Th	Thaumaturg	Thaumaturgin	z	z	10	0	1	\N	4	z	s	\N
 37	Ny	Ninya	Ninya	n	ak	0	30	1	K	1	\N	\N	\N
 38	Kd	KiDoka	KiDoka	n	k	0	0	1	K	4	\N	\N	\N

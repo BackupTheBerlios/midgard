@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.64 2002/02/09 16:14:06 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.65 2002/02/10 16:17:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -330,8 +330,8 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     case MidgardBasicElement::FERTIGKEIT: 
       { 
-        if(!SpracheSchrift(MBE->Name()))  list_Fertigkeit.push_back(MBE); 
-        else SpracheSchrift(MBE->Name(),MBE->Erfolgswert(),true);
+        if(!SpracheSchrift(MBE))  list_Fertigkeit.push_back(MBE); 
+        else SpracheSchrift(MBE,MBE->Erfolgswert(),true);
         if(cH_Fertigkeit(MBE)->LernArt()=="Fach")
            lernpunkte.addFach(- MBE->Lernpunkte());
         else if(cH_Fertigkeit(MBE)->LernArt()=="Allg")
@@ -416,11 +416,24 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
          if(f->LernUnge() > lernpunkte.Unge() ) continue;
        }
 
-      if(fert=="Unge")  f->set_Lernpunkte(f->LernUnge());
+      if(fert=="Unge")  
+         { f->set_Lernpunkte(f->LernUnge());
+           f->set_Erfolgswert(f->Anfangswert());
+         }
       else if(fert=="Allg" && Werte.Stadt_Land()=="Land" ) 
-                        f->set_Lernpunkte(f->LernLand());
+         { f->set_Lernpunkte(f->LernLand());
+           f->set_Erfolgswert(f->Anfangswert());
+           if(f->Name()=="Muttersprache" && Werte.In()>30) f->set_Erfolgswert(14);
+           if(f->Name()=="Muttersprache" && Werte.In()>60) f->set_Erfolgswert(18);
+           if(f->Name()=="Gastlandsprache" && Werte.In()>30) f->set_Erfolgswert(12);
+         }
       else if(fert=="Allg" && Werte.Stadt_Land()=="Stadt" ) 
-                        f->set_Lernpunkte(f->LernStadt());
+         { f->set_Lernpunkte(f->LernStadt());
+           f->set_Erfolgswert(f->Anfangswert());
+           if(f->Name()=="Muttersprache" && Werte.In()>30) f->set_Erfolgswert(14);
+           if(f->Name()=="Muttersprache" && Werte.In()>60) f->set_Erfolgswert(18);
+           if(f->Name()=="Gastlandsprache" && Werte.In()>30) f->set_Erfolgswert(12);
+         }
       else if(fert=="Fach") 
         {
          int lp=Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::LERNPUNKTE);
@@ -433,7 +446,6 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
       if(!f->Voraussetzungen(Werte)) continue;
       if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
       if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
-      f->set_Erfolgswert(f->Anfangswert());
       newlist.push_back(*i);
      }
    }
@@ -550,10 +562,11 @@ void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,
    }
 }
 
-bool midgard_CG::SpracheSchrift(const std::string& fert,int wert,bool auswahl)
+bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert,bool auswahl)
 {
  bool launch=false;
  Sprache_auswahl::modus mod;
+ std::string fert=MBE->Name();
 
  if      (fert=="Geheimzeichen") 
     { launch=true;  mod=Sprache_auswahl::GEHEIMZEICHEN; }
@@ -582,7 +595,7 @@ bool midgard_CG::SpracheSchrift(const std::string& fert,int wert,bool auswahl)
    mod=Sprache_auswahl::SPRACHE;
    
  if(auswahl && launch)
-     manage (new Sprache_auswahl(this,Database,Werte,mod,wert,
+     manage (new Sprache_auswahl(this,Database,Werte,MBE,mod,wert,
                                  list_Sprache,list_Schrift,list_Fertigkeit));
  return launch;
 }

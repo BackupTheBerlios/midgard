@@ -16,17 +16,18 @@ NEWS IN VERSION 0.4delta1
 * Icon für die 'Helfer' 
    (P.S: Wer hatte denn noch mit abtippen geholfen, ich habe nicht mehr alle
    namen beisammen ...)
-
+* Startwert der Muttersprache und Gastlandsprache -> Intelligenz
+* Abenteurer Typen sind jetzt so wie im Regelbuch geordnet. Wollt 
+   Ihr wirklich noch eine andere Ordnung?
 
 TODO:
-* Typen alphabetisch und mit anderem Namen auf C-Blatt
 * Geheimzeichen-Liste nicht gefüllt.
+* Abrichten wie Geheimsprachen außer für Tiermeister
 * Pflicht lernen kennzeichnen
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 
    Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT
 * Spezialwaffe auswählen geht nicht
-* Startwert der Muttersprache -> Intelligenz
 * Abspeichern und Laden von Optionen 
 * Landeskunde als Berufsfähigkeit für 3 Berufe
   (Karawanenführer, land, v,m

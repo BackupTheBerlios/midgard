@@ -26,6 +26,16 @@
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
+  if (mod == GEHEIMZEICHEN)
+   {
+//     cH_Land s=static_cast<Land*>(clist_sp_sc->selection().begin()->get_data());
+     cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Geheimzeichen")));
+     std::string zusatz=clist_sp_sc->get_text(row,0);
+//     cH_Fertigkeit(F)->setZusatz((s)->Name());     
+     cH_Fertigkeit(F)->setZusatz(zusatz);
+     F->set_Erfolgswert(wert);
+     hauptfenster->MidgardBasicElement_uebernehmen(F);
+   }
   if (mod == LAND || mod == HEIMATLAND)
    {
      cH_Land s=static_cast<Land*>(clist_sp_sc->selection().begin()->get_data());
@@ -48,21 +58,22 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
 
 
 Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database, 
-   const Grundwerte& _Werte,
+   const Grundwerte& _Werte,const cH_MidgardBasicElement& _MBE,
    const modus _mod,int _wert,const std::list<cH_MidgardBasicElement> &Sp,
                              const std::list<cH_MidgardBasicElement> &Sc,
                              const std::list<cH_MidgardBasicElement> &L)
- :mod(_mod),hauptfenster(h),Werte(_Werte) ,wert(_wert)
+ :mod(_mod),hauptfenster(h),Werte(_Werte) , MBE(&_MBE), wert(_wert)
 {
   {
    Gtk::OStream os(clist_sp_sc);
    if (mod == GEHEIMZEICHEN)
       {
          sp_sc_label->set_text("Geheimzeichen wählen");
-         for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
+         std::vector<std::string> VG=cH_Fertigkeit(*MBE)->VZusatz();
+         for (std::vector<std::string>::const_iterator i=VG.begin();i!=VG.end();++i)
           { 
-            os << (*i)->Name()<<'\t'<<wert<<'\n';
-            os.flush((*i)->ref(),&HandleContent::unref);
+            os << (*i)<<'\t'<<wert<<'\n';
+//            os.flush((*i)->ref(),&HandleContent::unref);
           }
       }
    else if (mod == LAND || mod == HEIMATLAND)
