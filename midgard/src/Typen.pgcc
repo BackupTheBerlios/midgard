@@ -39,7 +39,7 @@ cH_Typen::cH_Typen(const std::string& name IF_XML(,bool create))
   }
 #else
   cerr << "Typen '" << name << "' nicht im Cache\n";
-  if (0) // create)
+  if (create)
   {  static Tag t2("Typ"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Abkürzung",name);
