@@ -14,6 +14,8 @@ void table_optionen::init()
  entry_html->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::html_viewer));
  entry_tmp_verz->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::tmppfad));
  entry_speicher_verz->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::speicherpfad));
+ frame_drucken->init();
+ frame_globale_optionen->init();
 }
 
 

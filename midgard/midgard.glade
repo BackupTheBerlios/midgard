@@ -13309,7 +13309,7 @@ Drucken</label>
 	    <class>GtkPixmap</class>
 	    <name>pixmap146</name>
 	    <width>80</width>
-	    <filename>DescrChar-trans-50.xpm</filename>
+	    <filename>Descr.Char-40.xpm</filename>
 	    <xalign>0.5</xalign>
 	    <yalign>0.5</yalign>
 	    <xpad>0</xpad>
@@ -14771,7 +14771,7 @@ KS
 	      <name>frame_globale_optionen</name>
 	      <cxx_separate_file>True</cxx_separate_file>
 	      <cxx_separate_class>True</cxx_separate_class>
-	      <cxx_visibility>public</cxx_visibility>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <label>Globale Optionen</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
@@ -14800,7 +14800,7 @@ KS
 	      <name>frame_drucken</name>
 	      <cxx_separate_file>True</cxx_separate_file>
 	      <cxx_separate_class>True</cxx_separate_class>
-	      <cxx_visibility>public</cxx_visibility>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <label>Drucken</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
@@ -15271,6 +15271,7 @@ KS
 	      <last_modification_time>Fri, 12 Apr 2002 11:23:41 GMT</last_modification_time>
 	    </signal>
 	    <label>Zurück</label>
+	    <icon>Undo.xpm</icon>
 	    <child>
 	      <new_group>True</new_group>
 	    </child>
@@ -15287,6 +15288,7 @@ KS
 	      <last_modification_time>Fri, 12 Apr 2002 11:23:10 GMT</last_modification_time>
 	    </signal>
 	    <label>Vorwärts</label>
+	    <icon>redo.xpm</icon>
 	  </widget>
 
 	  <widget>

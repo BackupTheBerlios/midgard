@@ -53,9 +53,9 @@ void frame_globale_optionen::init()
    table->attach(*cb,0,1,count,count+1,GTK_FILL,0,0,0);
    ++count;
   } 
-
- table->show_all();
  add(*table);
+cout << "\n\nINIT\n";
+ show_all();
 }
 
 void frame_globale_optionen::element_activate_C(Gtk::CheckButton *cb,Midgard_Optionen::OptionenCheckIndex index)
