@@ -11,19 +11,17 @@ class cH_WaffeGrund;
 
 class WaffeGrund : public MidgardBasicElement
 {
-     std::string name,region;
-
      void get_WaffeGrund();
   public:
      WaffeGrund(const std::string& n)
-       :name(n)  {get_WaffeGrund();get_map_typ();}
+       :MidgardBasicElement(n)  {get_WaffeGrund();get_map_typ();}
 
      enum MBEE What() const {return MidgardBasicElement::WAFFEGRUND;}
      std::string What_str() const {return "Grundkenntnis";}
       
 
-     std::string Name() const {return name;}
-     std::string Region() const {return region;}
+//     std::string Name() const {return name;}
+//     std::string Region() const {return region;}
 };
 
 class cH_WaffeGrund : public Handle<const WaffeGrund>

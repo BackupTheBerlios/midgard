@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.112 2001/12/27 12:43:11 thoma Exp $
+// $Id: midgard_CG.hh,v 1.113 2001/12/27 14:47:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -365,10 +365,11 @@ class midgard_CG : public midgard_CG_glade
         void show_neue_fertigkeiten();
         void on_leaf_selected_neue_fert(cH_RowDataBase d);
         void on_button_fertigkeiten_sort_clicked();
+        void on_alte_fert_reorder();
 //        void on_togglebutton_praxispunkte_fertigkeiten_toggled();
 //        void on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled();
 //        void on_radiobutton_praxis_auto_fertigkeiten_toggled();
-        int praxispunkte_wuerfeln(const std::string& fert,int alter_wert, const std::string& art,bool wuerfeln);
+//        int praxispunkte_wuerfeln(const std::string& fert,int alter_wert, const std::string& art,bool wuerfeln);
         bool kido_steigern_check(int wert);
         void fillClistLand(const cH_MidgardBasicElement &MBE);
         void on_clist_landauswahl_select_row(gint row, gint column, GdkEvent *event);   

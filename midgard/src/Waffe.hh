@@ -11,7 +11,7 @@ class cH_Waffe;
 class Waffe : public MidgardBasicElement
 {
    protected:
-     Waffe():name("xxx"){}
+     Waffe():MidgardBasicElement("xxx"){} //wg. WaffeBesitz :-(
    public:
      struct st_alias { std::string name; std::string region; 
          std::string schaden;int schaden_bonus; int angriffs_mod;
@@ -19,11 +19,11 @@ class Waffe : public MidgardBasicElement
         :name(n),region(r),schaden(s),schaden_bonus(b),angriffs_mod(a){}
       };
    private:
-     std::string name, grundkenntnisse, art, art2;
+     std::string grundkenntnisse, art, art2;
      std::string schaden;
      std::string waffenrang, wm_abwehr_leicht, wm_abwehr_schwer,
          voraussetzung;
-     std::string region;
+//     std::string region;
      int schwierigkeit,st,gw,gs,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f;
      int lern_land,lern_stadt, anfangswert;
@@ -38,14 +38,14 @@ class Waffe : public MidgardBasicElement
      int Gs() const {return gs;}
   public:
      Waffe(const std::string& n)
-      :name(n),lern_land(0),lern_stadt(0)
+      :MidgardBasicElement(n),lern_land(0),lern_stadt(0)
      {get_Waffe(); get_Alias(); get_map_typ();get_Steigern_Kosten_map();
       EP_steigern("Waffen"); }
 
      enum MBEE What() const {return MidgardBasicElement::WAFFE;}
      std::string What_str() const {return "Waffe";}
 
-     std::string Name() const {return name;}
+//     std::string Name() const {return name;}
      const list<st_alias>& Alias() const {return list_alias;}     
      std::string Grundkenntnis() const {return grundkenntnisse;}
      std::string Region(const std::string& name) const ;

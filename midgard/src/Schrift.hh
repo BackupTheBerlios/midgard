@@ -9,21 +9,19 @@
 
 class Schrift : public MidgardBasicElement
 {
-     std::string name, art_der_schrift, region;
+     std::string art_der_schrift;
 //     int kosten;
 
      void get_Schrift();
      int Grundkosten() const {return kosten;}
   
   public:
-   Schrift(const std::string& n) : name(n)
+   Schrift(const std::string& n) : MidgardBasicElement(n)
       { get_Schrift();get_map_typ(); EP_steigern("Lesen/Schreiben");
       }
    enum MBEE What() const {return MidgardBasicElement::SCHRIFT;}
    std::string What_str() const {return "Urschrift";}
 
-   std::string Name() const   {return name; }
-   std::string Region() const {return region;}
    std::string Art_der_Schrift() const   {return art_der_schrift; }
 
    bool kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const;

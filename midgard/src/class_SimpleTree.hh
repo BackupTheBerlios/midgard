@@ -24,7 +24,7 @@ class Data_SimpleTree : public RowDataBase
 
    enum Spalten_FA {NAMEa,WERTa,PPa,STEIGERN,REDUZIEREN,VERLERNEN} ;
    enum Spalten_FN {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
-   enum Spalten_WA {NAMEa_W,WERTa_W,STANDARDa_W,STEIGERN_W,REDUZIEREN_W} ;
+   enum Spalten_WA {NAMEa_W,WERTa_W,PPa_W,STANDARDa_W,STEIGERN_W,REDUZIEREN_W} ;
    enum Spalten_WN {NAMEn_W,WERTn_W,STANDARDn_W,VORAUSSETZUNGEN_W};
    enum Spalten_GA {NAMEa_G,STANDARDa_G};
    enum Spalten_GN {NAMEn_G,STANDARDn_G,KOSTEN_G};
@@ -33,9 +33,10 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_ZWA{STUFEa_ZW,NAMEa_ZW,ARTa_ZW,KOSTENa_ZW} ;
    enum Spalten_ZWN{STUFEn_ZW,NAMEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW};
    enum Spalten_KA {HOHOa_K,NAMEa_K,STUFEa_K,APa_K,KOSTENa_K,STILa_K,} ;
-   enum Spalten_SPA{NAMEa_SP,WERTa_SP,STEIGERN_SP,REDUZIEREN_SP,VERLERNEN_SP} ;
+   enum Spalten_SPA{NAMEa_SP,WERTa_SP,PPa_SP,STEIGERN_SP,REDUZIEREN_SP,VERLERNEN_SP} ;
    enum Spalten_SPN{NAMEn_SP,URSCHRIFT_SP,KOSTEN_SP} ;
-   enum Spalten_SCA {NAMEa_SC,WERTa_SC,KOSTENa_SC} ;
+   enum Spalten_SCA{NAMEa_SC,WERTa_SC,PPa_SC,ARTa_SC,STEIGERNa_SC,REDUZIERENa_SC,VERLERNENa_SC};
+   enum Spalten_SCN{NAMEn_SC,WERTn_SC,KOSTENn_SC} ;
 
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
@@ -62,6 +63,7 @@ class Data_SimpleTree : public RowDataBase
        switch((Spalten_WA)seqnr) {
          case NAMEa_W : return cH_EntryValueIntString(MBE->Name());
          case WERTa_W : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
+         case PPa_W : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
          case STANDARDa_W : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
          case STEIGERN_W : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
          case REDUZIEREN_W : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
@@ -137,6 +139,7 @@ class Data_SimpleTree : public RowDataBase
       switch (seqnr) {
          case NAMEa_SP : return cH_EntryValueIntString(MBE->Name());
          case WERTa_SP : return cH_EntryValueEmptyInt(MBE->Erfolgswert());
+         case PPa_SP : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
          case STEIGERN_SP : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
          case REDUZIEREN_SP : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
          case VERLERNEN_SP : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen));
@@ -150,14 +153,19 @@ class Data_SimpleTree : public RowDataBase
      if (name=="SCA")
       switch (seqnr) {
          case NAMEa_SC : return cH_EntryValueIntString(MBE->Name());
-         case WERTa_SC : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
-         case KOSTENa_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case WERTa_SC : return cH_EntryValueEmptyInt(MBE->Erfolgswert());
+         case ARTa_SC : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
+         case PPa_SC : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
+         case STEIGERNa_SC : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
+         case REDUZIERENa_SC : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
+         case VERLERNENa_SC : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen));
+//         case KOSTENa_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
      if (name=="SCN")
       switch (seqnr) {
-         case NAMEa_SC : return cH_EntryValueIntString(MBE->Name());
-         case WERTa_SC : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
-         case KOSTENa_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case NAMEn_SC : return cH_EntryValueIntString(MBE->Name());
+         case WERTn_SC : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
+         case KOSTENn_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
       return cH_EntryValueIntString("?");
     }

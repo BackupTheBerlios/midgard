@@ -8,20 +8,20 @@
 
 class KiDo : public MidgardBasicElement
 {
-   std::string hoho,name,stufe;
+   std::string hoho,stufe;
    int ap;
    std::string stil, effekt;
 
    void get_KiDo();
  public:
    KiDo(const std::string& n)
-     :hoho(n) {get_KiDo();get_map_typ();EP_steigern("KiDo");}
+     : MidgardBasicElement(n) {get_KiDo();get_map_typ();EP_steigern("KiDo");}
 
  enum MBEE What() const {return MidgardBasicElement::KIDO;}
  std::string What_str() const {return "KiDo";}
 
- std::string Hoho() const {  return hoho; }
- std::string Name()  const {  return hoho; }
+ std::string Hoho() const {  return name; }
+// std::string Name()  const {  return name; }
  int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
          { cH_Fertigkeit F("KiDo");
                       return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; }

@@ -8,9 +8,9 @@
 
 class Fertigkeit : public MidgardBasicElement
 {
-     std::string name, region, attribut;
+     std::string attribut;
      mutable std::string zusatz; // Für verschiedene Länder bei Landeskunde
-     int lernpunkte, lern_land,lern_stadt, anfangswert0, anfangswert,
+     int /*lernpunkte,*/ lern_land,lern_stadt, anfangswert0, anfangswert,
          ungelernt,berufskategorie;
      struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
@@ -30,7 +30,7 @@ class Fertigkeit : public MidgardBasicElement
   public:
 #ifndef USE_XML  
      Fertigkeit(const std::string& n)
-      :name(n),lernpunkte(0),lern_land(0),lern_stadt(0),pflicht(false) 
+      : MidgardBasicElement(n),lern_land(0),lern_stadt(0),pflicht(false) 
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
 #else
@@ -39,18 +39,27 @@ class Fertigkeit : public MidgardBasicElement
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
 #endif
+/*
+    Fertigkeit(const Fertigkeit &F)
+       : attribut(F.attribut),zusatz(F.zusatz),lern_land(F.lern_land),
+         lern_stadt(F.lern_stadt),anfangswert0(F.anfangswert0),
+         anfangswert(F.anfangswert),ungelernt(F.ungelernt),
+         berufskategorie(F.berufskategorie),voraussetzung(F.voraussetzung)
+         pflicht(F.pflicht)
+       {}
+*/
 
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
      std::string What_str() const {return "Fertigkeit";}
 
 
-     std::string Name() const {return name;}
+//     std::string Name() const {return name;}
      std::string Zusatz() const {return zusatz;}
      void setZusatz(std::string z) const {zusatz=z;}
      std::string Attribut() const {return attribut;}
-     std::string Region() const {return region;}
+//     std::string Region() const {return region;}
      int FErfolgswert(const Grundwerte &Werte) const;
-     int Lernpunkte() const {return lernpunkte;}
+//     int Lernpunkte() const {return lernpunkte;}
      int LernLand() const {return lern_land;}
      int LernStadt() const {return lern_stadt;}
      int Anfangswert0() const {return anfangswert0;}
@@ -78,10 +87,10 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
 */
     typedef CacheStatic<std::string,cH_Fertigkeit> cache_t;
     static cache_t cache;
-    cH_Fertigkeit(Fertigkeit *s) : Handle<const Fertigkeit>(s) {};
     friend class std::map<std::string,cH_Fertigkeit>;
     cH_Fertigkeit(){};
  public:
+    cH_Fertigkeit(Fertigkeit *s) : Handle<const Fertigkeit>(s) {};
     cH_Fertigkeit(const std::string& n);
 #ifdef USE_XML    
     cH_Fertigkeit(const Tag *tag);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.98 2001/12/27 09:39:52 thoma Exp $
+// $Id: midgard_CG.cc,v 1.99 2001/12/27 14:47:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,16 +114,17 @@ void midgard_CG::set_tree_titles()
  neue_fert_tree->setTitles(neue_fert);
 
  std::vector<string> alte_waffen;
- alte_waffen.push_back("Waffe");
  alte_waffen.push_back("Wert");
+ alte_waffen.push_back("Waffe");
  alte_waffen.push_back("");
  alte_waffen.push_back("Steigern\n(nächste Stufe)");
  alte_waffen.push_back("Reduzieren\n(eine Stufe)");
  alte_waffen_tree->set_value_data(gpointer("WA"));
  alte_waffen_tree->setTitles(alte_waffen);
  std::vector<string> neue_waffen;
- neue_waffen.push_back("Waffe");
  neue_waffen.push_back("Wert");
+ neue_waffen.push_back("Waffe");
+ neue_waffen.push_back("PP");
  neue_waffen.push_back("");
  neue_waffen.push_back("Voraussetzung");
  neue_waffen_tree->set_value_data(gpointer("WN"));
@@ -189,6 +190,7 @@ void midgard_CG::set_tree_titles()
  std::vector<string> alte_sprachen;
  alte_sprachen.push_back("Sprache");
  alte_sprachen.push_back("Wert");
+ alte_sprachen.push_back("PP");
  alte_sprachen.push_back("Steigern\n(nächste Stufe)");
  alte_sprachen.push_back("Reduzieren\n(eine Stufe)");
  alte_sprachen.push_back("Verlernen");
@@ -204,7 +206,10 @@ void midgard_CG::set_tree_titles()
  std::vector<string> schrift;
  schrift.push_back("Urschrift");
  schrift.push_back("Art der Schrift");
- schrift.push_back("Kosten");
+ schrift.push_back("PP");
+ schrift.push_back("Steigern\n(nächste Stufe)");
+ schrift.push_back("Reduzieren\n(eine Stufe)");
+ schrift.push_back("Verlernen");
  alte_schrift_tree->set_value_data(gpointer("SCA"));
  alte_schrift_tree->setTitles(schrift);
  neue_schrift_tree->set_value_data(gpointer("SCN"));

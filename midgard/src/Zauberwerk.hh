@@ -9,8 +9,8 @@ class cH_Zauberwerk;
 
 class Zauberwerk : public MidgardBasicElement
 {
-   std::string stufe, name,art;
-   std::string preis, zeitaufwand,region; 
+   std::string stufe, art;
+   std::string preis, zeitaufwand; 
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBERWERK;}
    std::string What_str() const {return "Zauberwerk";}
@@ -26,15 +26,15 @@ class Zauberwerk : public MidgardBasicElement
    void get_Zauberwerk();
  public: 
    Zauberwerk(const std::string& n,const std::string& a) 
-      : name(n),art(a) {get_Zauberwerk();get_map_typ();
+      : MidgardBasicElement(n),art(a) {get_Zauberwerk();get_map_typ();
             getVoraussetzungen();getVoraussetzungenFert();} 
 
-   std::string Name() const {  return name; }
+//   std::string Name() const {  return name; }
    std::string Art() const { return art; }
    std::string Stufe() const {  return stufe; }
    int iStufe() const {  if (Stufe()=="groﬂ") return 6; else return atoi(Stufe().c_str()); }
    std::string Zeitaufwand() const { return zeitaufwand;}
-   std::string Region() const {return region;}
+//   std::string Region() const {return region;}
    std::string Preis() const { return preis; }
 
    bool Voraussetzungen(const std::list<cH_MidgardBasicElement>& listZauber) const;

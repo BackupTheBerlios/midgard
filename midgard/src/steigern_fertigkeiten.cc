@@ -35,7 +35,8 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
         if (f->Voraussetzungen(Werte)) 
          {
             f->set_Erfolgswert(f->Anfangswert());
-            list_Fertigkeit_neu.push_back(*i);
+//            list_Fertigkeit_neu.push_back(*i);
+            list_Fertigkeit_neu.push_back(new Fertigkeit(*f));
          }
    }
  fertigkeiten_zeigen();
@@ -87,6 +88,11 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
    fertigkeiten_zeigen();
 }
 
+void midgard_CG::on_alte_fert_reorder()
+{
+cout << "REORDER\n";
+  on_button_fertigkeiten_sort_clicked();
+}
 
 void midgard_CG::on_button_fertigkeiten_sort_clicked()
 {
@@ -159,8 +165,6 @@ cout << "2 "<<land<<'\n';
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
 cout << (MBE)->What()<<'\n';
 
-  cH_Fertigkeit(new Fertigkeit(*MBE));
-  
   cH_Fertigkeit(MBE)->setZusatz(land);
   scrolledwindow_landauswahl->hide();
   fertigkeiten_zeigen();

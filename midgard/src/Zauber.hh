@@ -9,11 +9,11 @@ class cH_Zauber;
 
 class Zauber : public MidgardBasicElement
 {
-   std::string ap, name;
+   std::string ap;//, name;
    std::string  art, stufe, zauberdauer, reichweite,
       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
       material, agens, prozess, reagens, beschreibung,
-      zauberart,element,region; 
+      zauberart,element;//,region; 
    bool spruchrolle;
 
    void get_Zauber();
@@ -24,7 +24,7 @@ class Zauber : public MidgardBasicElement
    { get_Zauber();get_map_typ();EP_steigern("Zauber");} 
 #else
    Zauber(const std::string& n) 
-      : name(n)
+      : MidgardBasicElement(n)
    {get_Zauber();get_map_typ();EP_steigern("Zauber");} 
 #endif   
 
@@ -32,7 +32,7 @@ class Zauber : public MidgardBasicElement
    std::string What_str() const {return "Zauber";}
 
    std::string Ap() const { return ap;}
-   std::string Name() const {  return name; }
+//   std::string Name() const {  return name; }
 
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }
@@ -50,7 +50,7 @@ class Zauber : public MidgardBasicElement
    std::string Reagens() const { return reagens;}
    std::string Beschreibung() const { return beschreibung;}
    std::string Element() const {return element;}
-   std::string Region() const {return region;}
+//   std::string Region() const {return region;}
    bool Spruchrolle() const {return spruchrolle;}
 //   void set_Spruchrolle(bool s) const {spruchrolle=s;}
    int Kosten_eBe(const std::string& pe,const std::string& se) const;

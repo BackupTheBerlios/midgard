@@ -54,7 +54,7 @@ void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
    cH_MidgardBasicElement MBE = dt->getMBE();
    int kosten = MBE->Kosten(Typ,Database.ausnahmen);
-   if(spruchrolle->get_active()) kosten/=5;
+   if(togglebutton_spruchrolle->get_active()) kosten/=5;
    if (steigern_bool) desteigern(kosten);
    Werte.add_GFP(-kosten);
    MidgardBasicElement::move_element(list_Zauber,list_Zauber_neu,MBE->Name());
@@ -69,15 +69,15 @@ void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   int kosten = MBE->Kosten(Typ,Database.ausnahmen);
-  if(spruchrolle->get_active()) kosten/=10;
+  if(togglebutton_spruchrolle->get_active()) kosten/=10;
   
   if (!steigern_usp(kosten,&MBE)) return;
-  if (radio_spruchrolle_auto->get_active() && spruchrolle->get_active())
+  if (radio_spruchrolle_auto->get_active() && togglebutton_spruchrolle->get_active())
    {
      Werte.add_GFP(2*kosten);
      MidgardBasicElement::move_element(list_Zauber_neu,list_Zauber,MBE->Name());
    }
-  else if (radio_spruchrolle_wuerfeln->get_active() && spruchrolle->get_active())
+  else if (radio_spruchrolle_wuerfeln->get_active() && togglebutton_spruchrolle->get_active())
    {
       int gelungen = spruchrolle_wuerfeln(MBE);
       if (gelungen != 0)

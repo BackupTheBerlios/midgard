@@ -6,19 +6,18 @@
 
 class Fertigkeit_angeborene : public MidgardBasicElement
 {
-     std::string name;
      int min,max;
 
      void get_Fertigkeit();
   public:
-     Fertigkeit_angeborene(const std::string& n) : name(n) {get_Fertigkeit();}
+     Fertigkeit_angeborene(const std::string& n) 
+         : MidgardBasicElement(n) {get_Fertigkeit();}
      Fertigkeit_angeborene(const std::string& n,int w) 
-         : name(n),min(0),max(0) {set_Erfolgswert(w);}
+         : MidgardBasicElement(n),min(0),max(0) {set_Erfolgswert(w);}
 
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT_ANG;}
      std::string What_str() const {return "ang.Fertigkeit";}
 
-     std::string Name() const {return name;}
      int Min() const {return min;}
      int Max() const {return max;}
 };

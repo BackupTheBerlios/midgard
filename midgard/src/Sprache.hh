@@ -8,7 +8,7 @@
 
 class Sprache : public MidgardBasicElement
 {
-     std::string name, urschrift, region;
+     std::string urschrift;
      int maxwert;
      bool alte_sprache;
 
@@ -16,14 +16,12 @@ class Sprache : public MidgardBasicElement
      int Grundkosten() const {return kosten;}
   
   public:
-   Sprache(const std::string& n) : name(n)
+   Sprache(const std::string& n) : MidgardBasicElement(n)
       {get_Sprache();get_map_typ();get_Steigern_Kosten_map();
          EP_steigern("Sprache");}
    enum MBEE What() const {return MidgardBasicElement::SPRACHE;}
    std::string What_str() const {return "Sprache";}
 
-   std::string Name() const   {return name; }
-   std::string Region() const {return region;}
    std::string Urschrift() const   {return urschrift; }
    std::string Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const ; 
 

@@ -22,6 +22,7 @@ class MidgardBasicElement : public HandleContent
 	const Tag *tag;
 #endif
 	// warum ist name nicht hier drin? CP
+      std::string name, region;
       int kosten;
       int mutable praxispunkte,erfolgswert,lernpunkte;
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
@@ -34,7 +35,12 @@ class MidgardBasicElement : public HandleContent
       int GrundKosten() const {  return kosten; }
 
    public:
-      MidgardBasicElement() : IF_XML(tag(0),) kosten(0),praxispunkte(0),
+      MidgardBasicElement(const std::string &n) 
+            : name(n),IF_XML(tag(0),) kosten(0),praxispunkte(0),
+                              erfolgswert(0),lernpunkte(0)
+                              ,steigern_mit_EP(0) {}
+      MidgardBasicElement(const std::string &n,const std::string &r) 
+            : name(n),region(r),IF_XML(tag(0),) kosten(0),praxispunkte(0),
                               erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
 #ifdef USE_XML
@@ -42,6 +48,13 @@ class MidgardBasicElement : public HandleContent
                                erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
 #endif                              
+      MidgardBasicElement(const MidgardBasicElement &M)
+       : name(M.name), region(M.region),kosten(M.kosten), 
+         praxispunkte(M.praxispunkte),erfolgswert(M.erfolgswert),
+         lernpunkte(M.lernpunkte), steigern_mit_EP(M.steigern_mit_EP),
+         map_typ(M.map_typ),map_erfolgswert_kosten(M.map_erfolgswert_kosten)
+       {}
+
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,ZAUBER,
                   ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
@@ -50,7 +63,8 @@ class MidgardBasicElement : public HandleContent
       map<std::string,std::string> get_MapTyp() const {return map_typ;}
       
       void EP_steigern(const std::string fert);
-      virtual std::string Name() const=0;
+      virtual std::string Name() const {return name;}
+      std::string Region() const {return region;}
       int Lernpunkte() const {return lernpunkte;};
       void set_Lernpunkte(int l) const {lernpunkte=l;}
       int Erfolgswert() const {return erfolgswert;};
@@ -60,7 +74,7 @@ class MidgardBasicElement : public HandleContent
       void set_Praxispunkte(int e) const {praxispunkte=e;}
       void add_Praxispunkte(int e) const {praxispunkte+=e;}
       int Steigern_mit_EP() const {return steigern_mit_EP;}
-      virtual std::string Region() const {return "";}
+//      virtual std::string Region() const {return "";}
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
