@@ -1,10 +1,3 @@
-cvs add table_beschreibung.hh table_beschreibung_glade.hh 
-table_beschreibung_glade.cc table_beschreibung.cc midgard_CG_drucken.cc
-LaTeX_drucken_ausruestung.cc LernListen.hh LaTeX_drucken_beschreibung.cc
-
-cvs delete midgard_CG_beschreibung.cc LaTeX_zauber.cc LaTeX_header.cc
-   LaTeX_out.cc LaTeX_kido.cc LaTeX_charakter_beschreibung.cc
-
 
 ##########################################################################
 NEWS IN VERSION 0.6delta3
@@ -57,7 +50,9 @@ NEWS IN VERSION 0.6delta3
            - Alles
            - leeres Dokument
 * Waffenbesitz: Neuladen: überflüssiger Knopf ist weg
-* Redesign (Zerteilen) der Klassen begonnen: Drucken, Beschreibung
+* Redesign (Zerteilen) der Klassen begonnen: Drucken, Beschreibung, 
+   Grundwerte (puh!)
+* Abenteurername in Kopfzeile
 
 TODO:
 * Ausdruck für Lange Listen

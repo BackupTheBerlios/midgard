@@ -32,6 +32,7 @@ public:
         void fill_typauswahl_2();
         void kaempfer_lernt_zaubern();
         void neuer_charakter();
+        void doppelcharaktere();
 
 private:
         int werte_label_count;
@@ -52,7 +53,6 @@ private:
         
         void fill_typauswahl_fill(int typ_1_2);
         void fill_spezies();
-        void doppelcharaktere();
         void typauswahl_button();  
         void typauswahl_2_button();
         void spezieswahl_button();

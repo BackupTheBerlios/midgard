@@ -2306,6 +2306,9 @@ andere geholfen.</label>
 	  <widget>
 	    <class>GtkTable</class>
 	    <name>table_grundwerte</name>
+	    <cxx_separate_file>True</cxx_separate_file>
+	    <cxx_separate_class>True</cxx_separate_class>
+	    <cxx_visibility>protected</cxx_visibility>
 	    <rows>7</rows>
 	    <columns>5</columns>
 	    <homogeneous>False</homogeneous>
