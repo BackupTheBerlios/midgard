@@ -1,4 +1,4 @@
-// $Id: midgard_CG_drucken.cc,v 1.12 2004/12/16 08:24:52 christof Exp $   
+// $Id: midgard_CG_drucken.cc,v 1.13 2005/02/16 14:58:14 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,10 +28,11 @@ void midgard_CG::on_beschreibung_drucken()
 }
 
 // Dokument ///////////////////////////////////////////////////
+#include "Zauber.hh"
 void midgard_CG::on_abenteurerdokument_drucken()
 {
-std::cerr << "on_abenteurerdokument_drucken\n";
   LaTeX_drucken L;
+  getAben().List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::NAME));
   L.Ausdrucken(getAben());
 }
  
@@ -76,4 +77,3 @@ void midgard_CG::on_spielleiterbogen_drucken_activate()
   LaTeX_drucken L;
   L.Spielleiterbogen(*AbenteurerAuswahl::Chars);
 }
- 
