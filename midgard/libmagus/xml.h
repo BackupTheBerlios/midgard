@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.7 2003/07/11 22:47:15 christof Exp $
+// $Id: xml.h,v 1.8 2003/07/18 06:38:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2003 Christof Petig
  *
@@ -24,6 +24,6 @@
 #include <Misc/Model.h> // for easily getting SigC::Slot*
 class Datenbank;
 
-void xml_init(SigC::Slot1<void,double> progress, Datenbank &db);
+void xml_init(SigC::Slot1<void,double> progress, class Datenbank &db);
 void xml_free();
 #endif

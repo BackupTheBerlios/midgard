@@ -34,7 +34,7 @@ class Grundwerte;
 class H_Data_beruf;
 class cH_MidgardBasicElement;
 class SimpleTree;
-class Datenbank;
+//class Datenbank;
 class MidgardBasicElement_mutable;
 class Abenteurer;
 class Tag;
@@ -120,7 +120,7 @@ protected:
       void setAnfangswert(int i) const {anfangswert=i;}
       const std::string &Region() const {return region;}
       const std::string &RegionZusatz() const {return region_zusatz;}
-      std::string RegionString(const Datenbank &D) const;
+      std::string RegionString() const;
       EP_t Steigern_mit_EP() const {return steigern_mit_EP;}
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern

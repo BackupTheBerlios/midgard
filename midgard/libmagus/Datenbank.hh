@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.11 2003/07/11 22:47:15 christof Exp $               
+// $Id: Datenbank.hh,v 1.12 2003/07/18 06:38:00 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,11 +68,12 @@ class Datenbank
   std::list<cH_Prototyp> prototyp;
   std::list<cH_Prototyp2> prototyp2;
   
-  Tag tag_eigene_artikel;
+  mutable Tag tag_eigene_artikel;
   
    //Konstruktor
   Datenbank();
   void load(SigC::Slot1<void,double> progress);
+  static void init(SigC::Slot1<void,double> progress);
   
   // verwendet Alias map
   cH_Waffe WaffeVonBezeichnung(const std::string &name) const
@@ -84,4 +85,5 @@ class Datenbank
   void load_list(const Tag&);
 };
 
+extern const class Datenbank Datenbank;
 #endif

@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.4 2003/06/03 16:39:02 christof Exp $
+// $Id: LernListen.cc,v 1.5 2003/07/18 06:38:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,13 +35,13 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
       case GastlandSprache: 
       case NachbarlandSprache: 
       case AlteSprache:
-                            V_=D.Sprache; break;
-      case lFach:           Vm=D.lernschema.get_List("Fachkenntnisse",A.getVTyp(),A.List_Fertigkeit());break;
+                            V_=Datenbank.Sprache; break;
+      case lFach:           Vm=Datenbank.lernschema.get_List("Fachkenntnisse",A.getVTyp(),A.List_Fertigkeit());break;
       case lAllg: 
-      case lUnge:           V_=D.Fertigkeit; break;
-      case lWaff:           Vm=D.lernschema.get_List("Waffenfertigkeiten",A.getVTyp(),A.List_Waffen());break;
-      case lZaub:           Vm=D.lernschema.get_List("Zauberkünste",A.getVTyp(),A.List_Waffen());break;
-      case lAngebFert:      V_=D.Fertigkeit_ang; break;
+      case lUnge:           V_=Datenbank.Fertigkeit; break;
+      case lWaff:           Vm=Datenbank.lernschema.get_List("Waffenfertigkeiten",A.getVTyp(),A.List_Waffen());break;
+      case lZaub:           Vm=Datenbank.lernschema.get_List("Zauberkünste",A.getVTyp(),A.List_Waffen());break;
+      case lAngebFert:      V_=Datenbank.Fertigkeit_ang; break;
       default : assert(!"never get here\n");
     }  
    std::list<MBEmlt> V;
@@ -49,7 +49,7 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
    {
     // Waffen hinzunehmen:
     if(was==lAllg)
-      {std::list<cH_MidgardBasicElement> v=Waffe::getAllgemeinwissen(D.Waffe);
+      {std::list<cH_MidgardBasicElement> v=Waffe::getAllgemeinwissen(Datenbank.Waffe);
        V_.splice(V_.end(),v);
       }
     for(std::list<cH_MidgardBasicElement>::const_iterator i=V_.begin();i!=V_.end();++i)
@@ -76,7 +76,7 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
          if     (A.getWerte().Stadt_Land()==Enums::Land  ) lp=(*i)->LernLand();
          else if(A.getWerte().Stadt_Land()==Enums::Stadt ) lp=(*i)->LernStadt();
          if((*i)->What()==MidgardBasicElement::FERTIGKEIT) 
-            cH_Fertigkeit(*i)->get_region_lp(lp,A,D);
+            cH_Fertigkeit(*i)->get_region_lp(lp,A);
        }
       M->setLernpunkte(lp);
       
@@ -106,14 +106,14 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
        {
          VI=Lernschema::getIndex(A.getVTyp(),"Fachkenntnisse",(*(*i))->Name());
          (*i)->setErfolgswert(cH_Fertigkeit((*i)->getMBE())->Anfangswert0()+cH_Fertigkeit((*i)->getMBE())->AttributBonus(A.getWerte()));
-         (*i)->setPflicht(D.lernschema.get_Pflicht(VI));
+         (*i)->setPflicht(Datenbank.lernschema.get_Pflicht(VI));
 //cout << (*i)->Name()<<"  ?: "<<i->Erfolgswert()<<'\t'<<i->Pflicht()<<'\n';
        }
       if(was==lWaff)
          VI=Lernschema::getIndex(A.getVTyp(),"Waffenfertigkeiten",(*(*i))->Name());
       if(was==lZaub)
          VI=Lernschema::getIndex(A.getVTyp(),"Zauberkünste",(*(*i))->Name());
-      int lp=D.lernschema.get_Lernpunkte(VI);
+      int lp=Datenbank.lernschema.get_Lernpunkte(VI);
       (*i)->setLernpunkte(lp);
       if((*(*i))->What()==MidgardBasicElement::WAFFE)
          if (!region_check(cH_Waffe((*i)->getMBE())->Region((*(*i))->Name()))) continue;
@@ -132,7 +132,7 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
 
 std::vector<cH_Spezies> LernListen::getSpezies(bool nsc_allowed) const
 {
- std::vector<cH_Spezies> V,S=D.Spezies;
+ std::vector<cH_Spezies> V,S=Datenbank.Spezies;
  for(std::vector<cH_Spezies>::const_iterator i=S.begin();i!=S.end();++i)                                   
    {
      if (!nsc_check(nsc_allowed,(*i)->NSC_only())) continue;
@@ -146,7 +146,7 @@ std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer& A,
 
 std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Grundwerte &W,const cH_Spezies &S,bool nsc_allowed) const
 {
-  std::vector<cH_Typen> T=D.Typen;
+  std::vector<cH_Typen> T=Datenbank.Typen;
   std::vector<std::pair<cH_Typen,bool> > V;
   for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
    {
@@ -169,7 +169,7 @@ std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Grundwerte &W,
 
 std::vector<std::pair<cH_Land,bool> > LernListen::getHerkunft(const Abenteurer& A) const
 {
-  std::vector<cH_Land> L=D.Laender;
+  std::vector<cH_Land> L=Datenbank.Laender;
   std::vector<std::pair<cH_Land,bool> > V;
   for (std::vector<cH_Land>::const_iterator i=L.begin();i!=L.end();++i)
    {
@@ -181,7 +181,7 @@ std::vector<std::pair<cH_Land,bool> > LernListen::getHerkunft(const Abenteurer& 
 std::vector<MidgardBasicElement::st_zusatz> LernListen::getLandZusatz() const
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
-  std::vector<cH_Land> L=D.Laender;
+  std::vector<cH_Land> L=Datenbank.Laender;
   for(std::vector<cH_Land>::const_iterator i=L.begin();i!=L.end();++i)
    {
      B.push_back(MidgardBasicElement::st_zusatz((*i)->Name()));
@@ -197,7 +197,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getMBEZusatz(const MBEml
   for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
    {
      MidgardBasicElement::st_zusatz z=*i;
-     z.long_region=Regionen_All::getRegionfromAbk(D.Regionen,i->region)->Name()+" "+i->region_zusatz;
+     z.long_region=Regionen_All::getRegionfromAbk(Datenbank.Regionen,i->region)->Name()+" "+i->region_zusatz;
      if(region_check(i->region)) B.push_back(z);
    }
   return B;
@@ -206,7 +206,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getMBEZusatz(const MBEml
 std::vector<MidgardBasicElement::st_zusatz> LernListen::getUeberlebenZusatz() const
 {
    std::vector<MidgardBasicElement::st_zusatz> B;
-   for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Fertigkeit.begin();i!=D.Fertigkeit.end();++i)
+   for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Fertigkeit.begin();i!=Datenbank.Fertigkeit.end();++i)
     {
       if((*i)->Name().find("Überleben")!=std::string::npos)
          B.push_back(MidgardBasicElement::st_zusatz((*i)->Name()));
@@ -228,7 +228,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getWaffenZusatz(const st
 std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const MBEmlt &MBE,const Abenteurer& Aben,bool nachbarland) const
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Sprache.begin();i!=D.Sprache.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Sprache.begin();i!=Datenbank.Sprache.end();++i)
    {
      if(MBEmlt(&**i)->ist_gelernt(Aben.List_Sprache())) continue;
 
@@ -252,7 +252,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const 
 std::vector<MidgardBasicElement::st_zusatz> LernListen::getSchriftenZusatz(const MBEmlt &MBE,const Abenteurer& Aben) const
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Schrift.begin();i!=D.Schrift.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Schrift.begin();i!=Datenbank.Schrift.end();++i)
    {
      if(MBEmlt(&**i)->ist_gelernt(Aben.List_Schrift())) continue;
      if(!cH_Schrift(*i)->kann_Sprache(Aben.List_Sprache())) continue;
@@ -269,7 +269,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getSchriftenZusatz(const
 std::vector<cH_Ruestung> LernListen::getRuestung() const
 {
   std::vector<cH_Ruestung> V;
-  for(std::vector<cH_Ruestung>::const_iterator i=D.Ruestung.begin();i!=D.Ruestung.end();++i)
+  for(std::vector<cH_Ruestung>::const_iterator i=Datenbank.Ruestung.begin();i!=Datenbank.Ruestung.end();++i)
    {  cH_Ruestung r(*i);
       if (region_check(r->Region()))  V.push_back(*i);
    }
@@ -281,7 +281,7 @@ bool LernListen::region_check(const std::string& region) const
 {
   if (region.empty()) return true;
   else if (region=="EE") return true; // eigene Erweiterungen
-  for(std::vector<cH_Region>::const_iterator i=D.Regionen.begin();i!=D.Regionen.end();++i)
+  for(std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();i!=Datenbank.Regionen.end();++i)
    {
 #warning FIX me   
      if( (region==(*i)->Abkuerzung() || region==(*i)->Name() ) /*&&
@@ -322,7 +322,7 @@ bool LernListen::SpracheSchrift(const cH_MidgardBasicElement& MBE)
 
 std::list<H_WaffeBesitz> LernListen::getWaffenBesitz(const Abenteurer& Aben) const
 {
-  std::list<cH_MidgardBasicElement> V=D.Waffe;
+  std::list<cH_MidgardBasicElement> V=Datenbank.Waffe;
   std::list<H_WaffeBesitz> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=V.begin();i!=V.end();++i)
    {
@@ -344,7 +344,7 @@ std::list<H_WaffeBesitz> LernListen::getWaffenBesitz(const Abenteurer& Aben) con
 std::vector<std::string> LernListen::getSpezialgebiet(const Abenteurer& A) const
 {
   std::vector<std::string> L;
-  for(std::vector<cH_Spezialgebiet>::const_iterator i=D.Spezialgebiet.begin();i!=D.Spezialgebiet.end();++i) 
+  for(std::vector<cH_Spezialgebiet>::const_iterator i=Datenbank.Spezialgebiet.begin();i!=Datenbank.Spezialgebiet.end();++i) 
    {
     if((*i)->Typ() != A.Typ1()->Short() && 
        (*i)->Typ() != A.Typ2()->Short() ) continue;
@@ -357,7 +357,7 @@ std::vector<std::string> LernListen::getSpezialgebiet(const Abenteurer& A) const
 std::list<MBEmlt> LernListen::getBeruf(const Abenteurer& A) const
 {
   std::list<MBEmlt> L;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Beruf.begin();i!=D.Beruf.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Beruf.begin();i!=Datenbank.Beruf.end();++i)
    {
      if(A.getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      cH_Beruf b(*i);

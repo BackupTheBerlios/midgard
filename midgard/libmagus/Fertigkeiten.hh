@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.5 2003/05/14 07:04:59 christof Exp $               
+// $Id: Fertigkeiten.hh,v 1.6 2003/07/18 06:38:00 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,6 @@
 #include "Typen.hh"
 class Tag;
 class Abenteurer;
-class Datenbank;
 
 class Fertigkeit : public MidgardBasicElement
 {
@@ -80,7 +79,7 @@ class Fertigkeit : public MidgardBasicElement
      bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const;
      int AttributBonus(const Grundwerte& Werte) const;
 
-     void get_region_lp(int &lp,const Abenteurer& A,const Datenbank &D) const;
+     void get_region_lp(int &lp,const Abenteurer& A) const;
      const std::vector<st_besitz> &get_vec_Besitz() const {return vec_Besitz;}
 };
 

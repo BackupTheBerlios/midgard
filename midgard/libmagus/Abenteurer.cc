@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.9 2003/06/15 12:57:10 christof Exp $            
+// $Id: Abenteurer.cc,v 1.10 2003/07/18 06:38:00 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -56,23 +56,23 @@ std::string Abenteurer::STyp() const
 }
 
 
-const std::string Abenteurer::SErfolgswert(std::string name,const Datenbank &Database) const
+const std::string Abenteurer::SErfolgswert(std::string name) const
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-  std::pair<int,bool> w=Erfolgswert(name,Database);
+  std::pair<int,bool> w=Erfolgswert(name);
   if(w.first==-99) return "";
   if(w.second) return itos(w.first);
   else return "("+itos(w.first)+")";
 }
 
-const std::pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
+const std::pair<int,bool> Abenteurer::Erfolgswert(std::string name) const
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   for(std::list<MBEmlt>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
    {
      if(name==(*(*i))->Name()) return std::pair<int,bool>((*i)->Erfolgswert(),true); 
    }   
-  std::list<st_universell> UF=List_Universell(Database);
+  std::list<st_universell> UF=List_Universell();
   for(std::list<st_universell>::const_iterator i=UF.begin();i!=UF.end();++i)
    {
      if(name==(*i->mbe)->Name()) return std::pair<int,bool>(i->mbe->Erfolgswert(),false); 
@@ -81,11 +81,11 @@ const std::pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenba
 }
 
 
-const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Datenbank &Database) const
+const std::list<Abenteurer::st_universell> Abenteurer::List_Universell() const
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   std::list<st_universell> UF;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Fertigkeit.begin();i!=Datenbank.Fertigkeit.end();++i)
    {
      cH_Fertigkeit f(*i);
      if(f->Ungelernt(*this)!=-99)
@@ -166,7 +166,7 @@ bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
 
 
 
-void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database)
+void Abenteurer::speicherstream(std::ostream &datei)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    TagStream ts;
@@ -356,7 +356,7 @@ const std::string Abenteurer::Beruf() const
 
 ///////////////////////////////////////////////////////////////////////////////
 
-bool Abenteurer::xml_import_stream(std::istream& datei, const Datenbank &Database)
+bool Abenteurer::xml_import_stream(std::istream& datei)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    reset();
@@ -392,16 +392,16 @@ bool Abenteurer::xml_import_stream(std::istream& datei, const Datenbank &Databas
          {  std::string name=i->getAttr("Ware");
          
             std::list<cH_Preise>::iterator iter;
-            while ((iter=std::find(Database.preise.begin(),Database.preise.end(),name))
-            		!=Database.preise.end())
-            {  iter=Database.preise.erase(iter);
+            while ((iter=std::find(Datenbank.preise.begin(),Datenbank.preise.end(),name))
+            		!=Datenbank.preise.end())
+            {  iter=Datenbank.preise.erase(iter);
             }
             
             Preise::saveArtikel("",hauptfenster,i->getAttr("Art"),i->getAttr("Art2"),name,
             		i->getFloatAttr("Preis"),i->getAttr("Währung"),
             		i->getFloatAttr("Gewicht"),
             		i->getAttr("Region"));
-            Database.preise.push_back(cH_Preise(name));
+            Datenbank.preise.push_back(cH_Preise(name));
          }
       }
    }
@@ -516,8 +516,8 @@ bool Abenteurer::xml_import_stream(std::istream& datei, const Datenbank &Databas
          setTyp2(cH_Typen(Typ->getAttr("Abkürzung2"),true));
    }
 
-   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Database);
-   load_regionen_optionen(Opt,xml_version,Database);
+   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Datenbank);
+   load_regionen_optionen(Opt,xml_version,Datenbank);
    load_ausruestung(Ausruestung,&(getBesitz()));
    return true;
 }
@@ -539,7 +539,7 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
    }
 }
 
-void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,const Datenbank &Database)
+void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
     FOR_EACH_CONST_TAG(i,*tag)
@@ -670,7 +670,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         }
     } 
     FOR_EACH_CONST_TAG_OF(i,*waffen_b,"Waffe")
-    {   H_WaffeBesitz WB=new WaffeBesitz(Database.WaffeVonBezeichnung(i->getAttr("Bezeichnung")),
+    {   H_WaffeBesitz WB=new WaffeBesitz(Datenbank.WaffeVonBezeichnung(i->getAttr("Bezeichnung")),
                         i->getAttr("Bezeichnung"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),
                         i->getIntAttr("SchadenLebenspunkte_Bonus"),
@@ -680,7 +680,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
     }
 }
 
-void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,const Datenbank &Database)
+void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
     for(std::map<cH_Region,Model_copyable<bool> >::iterator i=regionen.begin();i!=regionen.end();++i)

@@ -19,7 +19,7 @@
 
 #include "Zauber.hh"
 #include "Typen.hh"
-#include <xml.h>
+//#include <xml.h>
 #include "zufall.h"
 #include <Misc/itos.h>
 #include "Abenteurer.hh"

@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.3 2003/05/19 06:10:34 christof Exp $
+// $Id: Preise.hh,v 1.4 2003/07/18 06:38:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,7 +58,7 @@ class Preise : public HandleContent
 // bool ist_eigener_Artikel() const { return tag==&Tag_eigene_Artikel; }
 
 // warum kein Preise &?
- static void saveArtikel(const std::string &Filename, Datenbank &db,
+ static void saveArtikel(const std::string &Filename, 
      const std::string &art,const std::string &art2,
      const std::string &name,const double &preis, const std::string &einheit,
      const double &gewicht,const std::string &region,

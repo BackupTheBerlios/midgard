@@ -31,7 +31,7 @@
 //#include "class_SimpleTree.hh"
 //#include "SimpleTree.hh"
 #include <Misc/itos.h>
-#include "xml.h"
+//#include "xml.h"
 #include "Datenbank.hh"
 #include "Abenteurer.hh"
 #include <Misc/germanstring.h>
@@ -52,9 +52,9 @@ bool H_MidgardBasicElement_mutable::sort::operator() (H_MidgardBasicElement_muta
 bool MidgardBasicElement::Voraussetzung(const Abenteurer& A,bool anzeigen) const
 {Ausgabe(Ausgabe::Error,"ERROR in Voraussetzung");return false;}
 
-std::string MidgardBasicElement::RegionString(const Datenbank &D) const
+std::string MidgardBasicElement::RegionString() const
 {
-  std::vector<cH_Region> V=D.Regionen;
+  std::vector<cH_Region> V=Datenbank.Regionen;
   std::string s=Regionen_All::getRegionfromAbk(V,region)->Name();
   if(!RegionZusatz().empty()) s+=" ("+RegionZusatz()+")";
   return s;

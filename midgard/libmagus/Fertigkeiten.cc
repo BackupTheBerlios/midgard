@@ -23,6 +23,7 @@
 #include "Abenteurer.hh"
 #include "NotFound.h"
 #include "Ausgabe.hh"
+#include "Datenbank.hh"
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
@@ -215,11 +216,11 @@ int Fertigkeit::AttributBonus(const Grundwerte& Werte) const
 }
 
 
-void Fertigkeit::get_region_lp(int &lp,const Abenteurer& A,const Datenbank &D) const
+void Fertigkeit::get_region_lp(int &lp,const Abenteurer& A) const
 {
   for(std::vector<st_region_lern>::const_iterator i=vec_region_lp.begin();i!=vec_region_lp.end();++i)
    {
-     if(!LernListen(D).region_check(i->region)) continue;
+     if(!LernListen().region_check(i->region)) continue;
      if(A.getWerte().Herkunft()->Name()==i->region)
        {
          if     (A.getWerte().Stadt_Land()==Enums::Land  ) lp=i->lp_land;

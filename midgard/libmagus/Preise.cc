@@ -152,7 +152,9 @@ void PreiseNewMod_All::load(std::vector<cH_PreiseNewMod> &list,const Tag &t)
 // use this tag to determine whether this is a user defined item
 //Tag Preise::Tag_eigene_Artikel("Dinge");
 
-void Preise::saveArtikel(const std::string &Filename,Datenbank &db,
+// wieso wird Filename völlig ignoriert? CP
+
+void Preise::saveArtikel(const std::string &Filename,
      const std::string &art,const std::string &art2,
      const std::string &name,const double &preis, const std::string &einheit,
      const double &gewicht,const std::string &region,const std::string &beschreibung)
@@ -165,7 +167,7 @@ void Preise::saveArtikel(const std::string &Filename,Datenbank &db,
       return;
     }
 
-   Tag &RootTag=db.tag_eigene_artikel;
+   Tag &RootTag=Datenbank.tag_eigene_artikel;
    Tag *TeA_=RootTag.find("Preise");
    if(!TeA_) TeA_=&RootTag.push_back(Tag("Preise"));
 

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.8 2003/06/03 16:39:02 christof Exp $               
+// $Id: Abenteurer.hh,v 1.9 2003/07/18 06:38:00 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -24,7 +24,7 @@
 #include "Grundwerte.hh"
 #include "Typen.hh"
 //#include "Datenbank.hh"
-class Datenbank;
+//class Datenbank;
 #include "Optionen.hh"
 #include "Waffe.hh"
 #include "Ruestung.hh"
@@ -115,7 +115,7 @@ public:
    struct st_universell{MBEmlt mbe;bool voraussetzung;bool gelernt;
           st_universell(MBEmlt m) 
             : mbe(m),voraussetzung(true),gelernt(false) {}};
-   const std::list<st_universell> List_Universell( const Datenbank &Database) const;
+   const std::list<st_universell> List_Universell() const;
 
 private:
       class sort_universell {
@@ -139,14 +139,14 @@ public:
    std::list<MBEmlt>& List_Sprache()  {return list_Sprache;} 
    std::list<MBEmlt>& List_Schrift()  {return list_Schrift;}
 
-   void speicherstream(std::ostream &datei, const Datenbank &Database);
+   void speicherstream(std::ostream &datei);
    void grundwerte_speichern(Tag &);
    void save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB);
 
-   bool xml_import_stream(std::istream &datei, const Datenbank &Database);
+   bool xml_import_stream(std::istream &datei);
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
-   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,const Datenbank &Database);
-   void load_regionen_optionen(const Tag *tag, int xml_version,const Datenbank &Database);
+   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version);
+   void load_regionen_optionen(const Tag *tag, int xml_version);
 
 
    bool operator==(const Abenteurer& a) const
@@ -154,8 +154,8 @@ public:
               getWerte().Version() == a.getWerte().Version() ;}
 
    // (bool==true) => gelernt ; (bool==false) => universell(oder garnicht)
-   const std::pair<int,bool> Erfolgswert(std::string name,const Datenbank &Database) const;
-   const std::string SErfolgswert(std::string name,const Datenbank &Database) const;
+   const std::pair<int,bool> Erfolgswert(std::string name) const;
+   const std::string SErfolgswert(std::string name) const;
 
    void setAngebFert();
    bool setAngebSinnFert(int wurf,const MBEmlt &MBE);
@@ -199,12 +199,12 @@ public:
    void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
 
 
-   int get_ausdauer(int grad, const Datenbank &Database,std::string &info,
+   int get_ausdauer(int grad, std::string &info,
                       const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
    int get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
-                              const bool bsteigern,const Datenbank &Database,
+                              const bool bsteigern,
                               std::string &info,const st_bool_steigern &bool_steigern);
-   void eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf=-1);
+   void eigenschaften_steigern(std::string &info,int wurf=-1);
    bool eigenschaften_steigern_erlaubt() const;
   
    std::list<MBEmlt> &get_known_list(const Enums::MBEListen was);
