@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.216 2002/04/17 09:31:19 christof Exp $
+// $Id: midgard_CG.hh,v 1.217 2002/04/19 06:21:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -82,6 +82,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void show_gw_wuerfeln(bool b);
 
    private:
+        void menubar_init();
         void menu_gradanstieg_init();
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 

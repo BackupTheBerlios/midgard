@@ -26,6 +26,7 @@
 void midgard_CG::menu_init()
 {
   table_optionen->init();
+  menubar_init();
 
 /*
   bool memfire=fire_enabled;
@@ -129,7 +130,7 @@ void midgard_CG::menu_init()
 
 //Optionen/////////////////////////////////////////////////////////////////////
   Gtk::Menu *optionen_menu = manage(new class Gtk::Menu());
-  Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Optionen")); 
+  Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Ansicht & Fenster")); 
   optionen->set_submenu(*optionen_menu);
 /*
   std::list<Midgard_Optionen::st_Optionen> OL=MOptionen->getOptionen();
@@ -215,6 +216,36 @@ void midgard_CG::menu_init()
   fire_enabled=memfire;
 */
 }
+
+void midgard_CG::menubar_init()
+{
+  ansicht_menu->remove();
+//  Gtk::Menu *menubar = manage(new class Gtk::Menu());
+  Gtk::MenuItem *mit = manage(new class Gtk::MenuItem("Ansicht & Fenster"));
+  mit->set_submenu(*menubar);
+
+  std::list<Midgard_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
+  for(std::list<Midgard_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
+   {
+    Gtk::Label *_l=manage (new Gtk::Label(i->text));
+    Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
+    _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
+    if(i->bild) 
+     {
+      Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
+      _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
+     }
+    Gtk::MenuItem *mi=manage(new Gtk::MenuItem());
+    mi->add(*_tab);    
+    mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
+    menubar->append(*mi);
+   } 
+//  main_menubar->append(*mit);
+  ansicht_menu->append(*mit);
+  mit->show_all();
+}
+
+
 
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////

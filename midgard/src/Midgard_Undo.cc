@@ -1,4 +1,4 @@
-// $Id: Midgard_Undo.cc,v 1.2 2002/04/18 17:51:07 thoma Exp $
+// $Id: Midgard_Undo.cc,v 1.3 2002/04/19 06:21:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@ void Midgard_Undo::push_back(std::string text,std::string speicher)
 std::string Midgard_Undo::get(unsigned int c)
 {
 cout << "Size= "<<VU.size()<<' '<<c<<'\t'<<flush;
-cout << VU[c].speicher.size()<<'\n';
+cout << VU[c].text<<'\n';
   if(VU.size()>c) return VU[c].speicher ;
   else            return "";
 }

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.10 2002/04/17 07:06:08 christof Exp $
+// $Id: Optionen.cc,v 1.11 2002/04/19 06:21:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,6 +31,7 @@ Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
 {
    Optionen_init();
    Hausregeln_init();
+   Ober_init();
    pdfViewer_init();
    Strings_init();
 }
@@ -78,6 +79,14 @@ Midgard_Optionen::st_Haus Midgard_Optionen::HausregelCheck(HausIndex hi)
  abort();
 }
 
+Midgard_Optionen::st_Ober Midgard_Optionen::OberCheck(OberIndex hi)
+{
+ for(std::list<st_Ober>::const_iterator i=list_Ober.begin();i!=list_Ober.end();++i)
+   if(i->index==hi) return *i;
+ assert(!"OberCheck: nicht gefunden");
+ abort();
+}
+
 Midgard_Optionen::st_pdfViewer Midgard_Optionen::pdfViewerCheck(pdfViewerIndex pi)
 {
  for(std::list<st_pdfViewer>::const_iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
@@ -111,6 +120,16 @@ void Midgard_Optionen::setHausregeln(std::string hs,bool b)
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
     if(i->text==hs)  
       { Hausregeln_setzen_from_menu(i->index,b);
+        return;
+      }
+ throw NotFound();
+}
+
+void Midgard_Optionen::setOber(std::string hs,bool b)
+{
+  for(list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
+    if(i->text==hs)  
+      { Ober_setzen_from_menu(i->index,b);
         return;
       }
  throw NotFound();
@@ -168,6 +187,17 @@ void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index,bool b)
    }
 }   
     
+void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
+{
+  for(list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
+   {
+     if(i->index==index) 
+      { i->active = b;
+        return;
+      }
+   }
+}   
+    
 void Midgard_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
 {
   for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
@@ -190,10 +220,10 @@ void Midgard_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart zeigen",true,0));
 
-  list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
-                           "Lernschema/Steigern auswählbar machen",0));
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",0));
   list_OptionenExecute.push_back(st_OptionenExecute(WizardStarten,"Wizard starten",0));
+  list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
+                           "Lernschema/Steigern auswählbar machen",0));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaZusaetzeLoeschen,
                            "Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen",0));
 }
@@ -236,6 +266,16 @@ void Midgard_Optionen::Hausregeln_init()
 {
  list_Hausregeln.clear();  
  list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",false));
+}
+
+void Midgard_Optionen::Ober_init()
+{
+ list_Ober.clear();  
+ list_Ober.push_back(st_Ober(Bilder,"Bilder anzeigen",true));
+ list_Ober.push_back(st_Ober(Menueleiste,"Menüleiste",true));
+ list_Ober.push_back(st_Ober(Knopfleiste,"Knopfleiste",true));
+ list_Ober.push_back(st_Ober(Icons,"Icons",true));
+ list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen",true));
 }
 
 void Midgard_Optionen::load_options()

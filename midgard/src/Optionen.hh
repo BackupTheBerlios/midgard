@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.6 2002/04/16 06:57:24 thoma Exp $
+// $Id: Optionen.hh,v 1.7 2002/04/19 06:21:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,7 @@ class Midgard_Optionen
                             WizardStarten,
                             LernschemaZusaetzeLoeschen,show_InfoWindow};
       enum HausIndex {Gold};
+      enum OberIndex {Bilder,Menueleiste,Knopfleiste,Icons,Beschriftungen};
 
       struct st_strings{StringIndex index; std::string text; std::string name;
              st_strings(StringIndex i,std::string t,std::string n)
@@ -55,10 +56,14 @@ class Midgard_Optionen
       struct st_Haus{HausIndex index;std::string text;bool active;
                st_Haus(HausIndex i,std::string t,bool a)
                       :index(i),text(t),active(a) {} };
+      struct st_Ober{OberIndex index;std::string text;bool active;
+               st_Ober(OberIndex i,std::string t,bool a)
+                      :index(i),text(t),active(a) {} };
 
    private:
       std::list<st_strings> list_Strings;
       std::list<st_Haus> list_Hausregeln;
+      std::list<st_Ober> list_Ober;
       std::list<st_OptionenExecute>  list_OptionenExecute;
       std::list<st_OptionenCheck> list_OptionenCheck; 
       std::list<st_pdfViewer> list_pdfViewer;
@@ -66,6 +71,7 @@ class Midgard_Optionen
       void Strings_init();
       void Optionen_init();
       void Hausregeln_init();
+      void Ober_init();
       void pdfViewer_init();
 
       midgard_CG* hauptfenster;
@@ -78,6 +84,7 @@ class Midgard_Optionen
       void setString(StringIndex index,std::string n);
 
       std::list<st_Haus> getHausregeln() {return list_Hausregeln;}
+      std::list<st_Ober> getOber() {return list_Ober;}
       std::list<st_OptionenCheck> getOptionenCheck() {return list_OptionenCheck;}
       std::list<st_OptionenExecute> getOptionenExecute() {return list_OptionenExecute;}
       std::list<st_pdfViewer> getPDF() {return list_pdfViewer;}
@@ -88,15 +95,18 @@ class Midgard_Optionen
       void setString(std::string os,std::string name);
       void setOptionCheck(std::string os,bool b);
       void setHausregeln(std::string hs,bool b);
+      void setOber(std::string hs,bool b);
       void setpdfViewer(std::string is,bool b); 
       void setAllHausregeln(bool b);
 
 
       st_OptionenCheck OptionenCheck(OptionenCheckIndex oi);
       st_Haus HausregelCheck(HausIndex hi);
+      st_Ober OberCheck(OberIndex hi);
       st_pdfViewer pdfViewerCheck(pdfViewerIndex pi);
 
       void Hausregeln_setzen_from_menu(HausIndex index,bool b);
+      void Ober_setzen_from_menu(OberIndex index,bool b);
       void OptionenCheck_setzen_from_menu(OptionenCheckIndex index,bool b);
       void OptionenExecute_setzen_from_menu(OptionenExecuteIndex index);
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);
