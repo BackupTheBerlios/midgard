@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.21 2002/04/14 15:32:14 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.22 2002/04/15 07:04:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -56,6 +56,8 @@ std::string midgard_CG::system_comm(SystemComms what)
 
 void midgard_CG::LaTeX_newsavebox(ostream &fout)
 {
+ fout << "\\usepackage{german}\n";
+ fout << "\\usepackage[latin1]{inputenc}\n";
  fout << "\\newsavebox{\\ESchwert}    \n";
  fout << "\\newsavebox{\\Stichwaffe}  \n";
  fout << "\\newsavebox{\\ESchlagwaffe}\n";
