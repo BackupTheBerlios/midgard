@@ -19,7 +19,8 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
   exec sql declare LEin cursor for select distinct
    typ, pflicht, fertigkeit, art, coalesce(wert,0), 
    lernpunkte, coalesce(attribut,''),
-   coalesce(p_element,''),coalesce(s_element,'') from lernschema;
+   coalesce(p_element,''),coalesce(s_element,'') from lernschema 
+   order by lernpunkte;
  Transaction tr;
  exec sql open LEin;
  SQLerror::test(__FILELINE__);
@@ -51,7 +52,7 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
       if(art=="Fertigkeit") 
          { 
            cH_MidgardBasicElement fert(new Fertigkeit(i->first.fertigkeit));
-           cH_Waffe(fert)->set_Erfolgswert(i->second.erfolgswert);
+           cH_Fertigkeit(fert)->set_Erfolgswert(i->second.erfolgswert);
            L.push_back(fert); 
          }
       if(art=="Waffe") 

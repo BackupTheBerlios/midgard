@@ -40,24 +40,26 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const midgard_CG::st_Database& D,
 
   for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
      {
-//       cH_Waffe waffe(*i);
-//       if (hauptfenster->region_check(cH_Waffe(waffe)->Region(waffe->Name())))
-         list_Waffen.push_back(*i);
+       cH_Waffe waffe(*i);
+       if (D.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+       if (!hauptfenster->region_check(waffe->Region((*i)->Name()))) continue;
+       Lernschema::st_index I(Typ[0]->Short(),"Waffe",(*i)->Name());
+       int v=0;
+       for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
+            if ((*j)==(*i)->Name()) v=1;
+       (*i)->set_Lernpunkte(D.lernschema.get_Lernpunkte(I)-v);
+       list_Waffen.push_back(*i);
      }
+    list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
     Gtk::OStream os(waffen_clist_auswahl);
     waffen_clist_auswahl->freeze();
     
     for(std::list<cH_MidgardBasicElement>::iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
       {
         cH_Waffe w(*i);
-        if (D.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,w->Name())) continue;
-        int v=0;
-        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-           if ((*j)==w->Name()) v=1;
         if (w->SG_Voraussetzung(Werte))
          {
-            Lernschema::st_index I(Typ[0]->Short(),"Waffe",w->Name());
-            os << D.lernschema.get_Lernpunkte(I)-v <<"\t"<<w->Voraussetzung()<<"\t"
+            os << w->Lernpunkte() <<"\t"<<w->Voraussetzung()<<"\t"
                << w->Name() <<"\t"
                << w->Erfolgswert() <<"\t"<<w->Grundkenntnis()<<"\n";
             os.flush(&*i);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.35 2001/11/08 10:15:43 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.36 2001/11/12 14:04:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,20 +69,13 @@ void midgard_CG::spezialgebiet_button_fill()
 {
   Gtk::Menu *_m(manage(new Gtk::Menu()));
   Gtk::MenuItem *_mi;
-//  while (true)
   for(std::vector<cH_Spezialgebiet>::iterator i=Database.Spezialgebiet.begin();i!=Database.Spezialgebiet.end();++i)
    {
-//      exec sql fetch ein into :db_nr, :db_spezialgebiet, :db_spezial, :db_spezi
-//      SQLerror::test(__FILELINE__,100);
-//      if (sqlca.sqlcode) break;   
-//      vec_spezialgebiet.push_back(db_spezialgebiet);
-      if((*i)->Typ() != Typ[0]->Short() || (*i)->Typ() != Typ[1]->Short() ) continue;
+      if((*i)->Typ() != Typ[0]->Short() && (*i)->Typ() != Typ[1]->Short() ) continue;
       _mi = manage(new Gtk::MenuItem((*i)->Name()));
       _m->append(*_mi);
       _mi->show();
-//      _mi->set_user_data((gpointer)db_nr);
       _mi->set_user_data((gpointer)&*i);
-//      _mi->set_user_data((gpointer)&vec_spezialgebiet[db_nr]);
     }
   option_magier_spezialgebiet->set_menu(*_m);
   option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezialgebiet_button));
@@ -100,6 +93,7 @@ void midgard_CG::spezialgebiet_button()
 // Werte.set_Spezialisierung(vec_spezialgebiet[i]);
  Werte.set_Spezialgebiet(*ptr);
 
+cout <<"Spez="<<(*ptr)->Name()<<'\n';
 // get_spezial_from_spezialgebiet();
 //cout << Werte.Spezialisierung()<<"\t"<<Werte.Spezial()<<"\t"<<Werte.Spezial2(
 } 

@@ -26,23 +26,20 @@
 #include "config.h"
 #include "Window_Waffenbesitz.hh"
 #include "midgard_CG.hh"
-//#include <Aux/Transaction.h>
-//#include <Aux/SQLerror.h>
-//#include <Gtk_OStream.h>
-//exec sql include sqlca;
 #include "Typen.hh"
-
+#include "WindowInfo.hh"
 
 void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-  selected_weapon=&(dt->get_Waffe()); //WARNING
-  cH_WaffeBesitz WB(*selected_weapon);
+  cH_WaffeBesitz WB(dt->get_Waffe());
 
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
+   {
     MidgardBasicElement::move_element(Waffe_Besitz,Waffe_Besitz_neu,cH_WaffeBesitz(dt->get_Waffe())->Name());
-//    move_waffe(Waffe_Besitz,Waffe_Besitz_neu,dt->get_Waffe()->Name());
+    zeige_waffen();
+   }
   else 
    {
      table_magbonus->show();
@@ -61,10 +58,7 @@ void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
      spinbutton_av_bonus->grab_focus();
     }
 //  hauptfenster->on_speichern_clicked();
-  zeige_waffen();
 
-//  show_alte_waffen();   
-//  show_neue_waffen();   
 }
 
 void Window_Waffenbesitz::on_spinbutton_av_bonus_activate()
@@ -82,13 +76,13 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
   gtk_spin_button_update(spinbutton_av_bonus->gtkobj());
   gtk_spin_button_update(spinbutton_sl_bonus->gtkobj());
 
-//  cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
+  try{
+  cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
+  cH_MidgardBasicElement selected_weapon = dt->get_Waffe();
 
-//cout << Waffe_Besitz.size()<<'\n';
   for (std::list<cH_MidgardBasicElement>::iterator i=Waffe_Besitz.begin();i!=Waffe_Besitz.end();++i)
    { 
-//     if ((*i)==dt)
-     if ((*i)==*selected_weapon)
+     if ((*i)==selected_weapon)
       {
         cH_WaffeBesitz WB(*i);
         WB->set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
@@ -97,6 +91,9 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
       }
    }  
   table_magbonus->hide();
+  } catch(std::exception &e) {cerr<<e.what()<<'\n';
+      manage (new WindowInfo("Keine Waffe selektiert"));
+     };
   zeige_waffen();
 }
 
@@ -104,20 +101,9 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
 void Window_Waffenbesitz::on_leaf_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-//  move_waffe(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe()->Name());
    MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe()->Name());
   zeige_waffen();
 }
-
-/*
-void Window_Waffenbesitz::move_waffe(std::list<cH_MidgardBasicElement>& von,std::list<cH_MidgardBasicElement>& nach,std::string name)
-{
-  for (std::list<cH_MidgardBasicElement>::iterator i=von.begin();i!= von.end();++i)
-    if ((*i)->Name()==name) 
-       {nach.splice(nach.begin(),von,i);break;}
-  zeige_waffen();
-}
-*/
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
       const midgard_CG::st_Database& _Database,

@@ -19,7 +19,7 @@ class MidgardBasicElement : public HandleContent
 {
    protected:
       int kosten;
-      int mutable erfolgswert;
+      int mutable erfolgswert,lernpunkte;
       int steigern_mit_EP; //1=KEP,2=ZEP,3=Beides
       std::map<std::string,std::string> map_typ;
       std::map<int,int> map_erfolgswert_kosten;
@@ -30,7 +30,8 @@ class MidgardBasicElement : public HandleContent
 
 
    public:
-      MidgardBasicElement() : kosten(0),erfolgswert(0),steigern_mit_EP(0) {}                              
+      MidgardBasicElement() : kosten(0),erfolgswert(0),lernpunkte(0)
+                              ,steigern_mit_EP(0) {}                              
 
       enum MBEE {FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,ZAUBER,
                   ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
@@ -41,6 +42,8 @@ class MidgardBasicElement : public HandleContent
       void EP_steigern(const std::string fert);
       virtual std::string Name() const=0;
 //      virtual int Erfolgswert(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const {return 99;}
+      int Lernpunkte() const {return lernpunkte;};
+      void set_Lernpunkte(int l) const {lernpunkte=l;}
       int Erfolgswert() const {return erfolgswert;};
       void set_Erfolgswert(int e) const {erfolgswert=e;}
       void add_Erfolgswert(int e) const {erfolgswert+=e;}
@@ -93,6 +96,21 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
             : Handle<const MidgardBasicElement>(r){}
 //      bool operator== (const cH_MidgardBasicElement b) 
 //         {return b==(*this);)
+
+   class sort {
+      public:
+         enum esort {LERNPUNKTE,NAME,ERFOLGSWERT};
+      private:
+         esort es;
+      public:
+         sort(enum esort _es):es(_es) {}
+         bool operator() (cH_MidgardBasicElement x,cH_MidgardBasicElement y) const
+           { switch(es) {
+               case(LERNPUNKTE) : return x->Lernpunkte() < y->Lernpunkte()  ;
+               case(NAME) : return x->Name() < y->Name()  ;
+               case(ERFOLGSWERT): return x->Erfolgswert() < y->Erfolgswert();
+           }}
+    };
 
 };
    

@@ -24,13 +24,9 @@
 // This file is for your program, I won't touch it again!
 
 #include "Zauber_auswahl.hh"
-//#include <Aux/Transaction.h>
-//#include <Aux/SQLerror.h>
-//exec sql include sqlca;
 #include "midgard_CG.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
-//#include <class_zauber.hh>
 
 Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, 
    const midgard_CG::st_Database& Database,
@@ -44,47 +40,22 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
   zauber_auswahl_lernpunkte->set_text(itos(maxpunkte));
   std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Zauber",Typ);
   
-/*
-  exec sql begin declare section;
-   int db_lernpunkte;
-   char db_zauber[100];
-   char query[1024];
-  exec sql end declare section;
-
-   std::string squery = "select distinct l.fertigkeit, l.lernpunkte \
-      from lernschema l \
-      where (l.typ = '"+Typ[0]->Short()+"' or l.typ = '"+Typ[1]->Short()+"') \
-      and l.art = 'Zauber' ";
-   if (Typ[0]->Short() == "eBe") squery += "and (l.p_element = '"+Werte.Spezialgebiet()->Spezial()+"' or l.s_element = '"+Werte.Spezialgebiet()->Spezial2()+"') ";
-   squery += " order by lernpunkte";      
-  
-   strncpy(query,squery.c_str(),sizeof(query));
-//std::cout <<  query<<"\n";
-   Transaction tr;
-    exec sql prepare zauber_ from :query;
-    exec sql declare zauber cursor for zauber_;
-    exec sql open zauber;
-    SQLerror::test(__FILELINE__);
-    while (true)
-*/
     for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
       {
-//         exec sql fetch zauber into :db_zauber, :db_lernpunkte;
-//         SQLerror::test(__FILELINE__,100);  
-//         if (sqlca.sqlcode) break;
-//cout << db_zauber<<' '<<db_lernpunkte<<'\n';
-//         list_zauber.push_back(new Zauber(db_zauber,db_lernpunkte));
-         list_zauber.push_back(*i);
+       Lernschema::st_index I(Typ[0]->Short(),"Zauber",(*i)->Name());
+//       int v=0;
+//       for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.
+//            if ((*j)==(*i)->Name()) v=1;
+       (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
+       list_zauber.push_back(*i);
       }
-
-//    exec sql close zauber;
+    list_zauber.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
     Gtk::OStream os(zauber_clist_auswahl);
     zauber_clist_auswahl->freeze();
     for(std::list<cH_MidgardBasicElement>::iterator i=list_zauber.begin();i!=list_zauber.end();++i)
       {
          cH_Zauber z(*i);
-         Lernschema::st_index I(Typ[0]->Short(),"Zauber",z->Name());
-         os << Database.lernschema.get_Lernpunkte(I) <<"\t"<< z->Name() <<"\t"
+         os << z->Lernpunkte() <<"\t"<< z->Name() <<"\t"
             <<z->Ap()<<"\t"<<z->Kosten(Typ,Database.ausnahmen)<<"\n";
          os.flush(&*i);
       }

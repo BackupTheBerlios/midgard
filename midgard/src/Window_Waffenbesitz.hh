@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.29 2001/11/12 09:20:36 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.30 2001/11/12 14:04:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,7 +52,6 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         std::list<cH_MidgardBasicElement> Waffe_Besitz_neu;
         Grundwerte& Werte;
         vector<cH_Typen> Typ;
-        cH_MidgardBasicElement *selected_weapon;
         friend class Window_Waffenbesitz_glade;
         void on_leaf_selected_alt(cH_RowDataBase d);
         void on_leaf_selected_neu(cH_RowDataBase d);
@@ -61,7 +60,6 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         void on_button_neuladen_clicked();
         void lade_waffen();
         void zeige_waffen();
-//        void move_waffe(std::list<H_WaffeBesitz>& von,std::list<H_WaffeBesitz>& nach,std::string name);
         void on_button_close_clicked();
         void on_button_sort_clicked();
         void on_checkbutton_mag_waffenbonus_toggled();
@@ -78,7 +76,6 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
 
 class Data_waffenbesitz :  public RowDataBase
 {
-//      cH_WaffeBesitz waffe;
       cH_MidgardBasicElement waffe;
       Grundwerte Werte;
   public:
@@ -97,7 +94,6 @@ class Data_waffenbesitz :  public RowDataBase
            }
          return cH_EntryValueIntString("?");
        }
-//      H_WaffeBesitz get_Waffe() const {return waffe;}
       cH_MidgardBasicElement get_Waffe() const {return waffe;}
 };
 

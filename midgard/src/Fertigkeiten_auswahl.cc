@@ -41,67 +41,80 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Da
   // Berufsvorteile
   std::vector<string> vorteile=hauptfenster->Berufs_Vorteile();
 
-  // Lernschema //////////////////////////////////////////////////////////////
-  std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Fertigkeit",Typ);
-cout << LW.size()<<'\n';
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
-   {
-      if (!Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
-      cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0());
-      list_Fert.push_back(*i);
-   }
-  //Speziesspezifische Fertigkeit und andere Fertigkeiten
+  //Speziesspezifische Fertigkeit
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    {
      if(Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::LERNPUNKTE))
       {
         int erf=Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::ERFOLGSWERT);
-        cH_Fertigkeit(*i)->set_Erfolgswert(erf);
+        (*i)->set_Erfolgswert(erf);
+        int v=0;
+        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
+            if ((*j)==(*i)->Name()) v=1;
+        Lernschema::st_index I(Typ[0]->Short(),"Fertigkeit",(*i)->Name());
+        (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I)-v);
         list_Fert_spez.push_back(*i);       
       }
-     else //andere Fertigkeiten
-      {
-        for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Fert.begin();j!=list_Fert.end();++j)
-         {
-           if((*j)->Name()==(*i)->Name()) continue;
-           cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0());
-           list_allg_Fert.push_back(*i);
-         }
-      }
    }
-cout << list_allg_Fert.size()<<'\t'<<list_Fert.size()<<'\n';
-
+  // Lernschema //////////////////////////////////////////////////////////////
+  std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Fertigkeit",Typ);
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
+   {
+      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+      int v=0;
+      for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
+          if ((*j)==(*i)->Name()) v=1;
+      Lernschema::st_index I(Typ[0]->Short(),"Fertigkeit",(*i)->Name());
+      (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I)-v);
+      cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0());
+      list_Fert.push_back(*i);
+   }
+  // andere Fertigkeiten
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
+   {
+    bool fachkenntnis=false;
+    for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Fert.begin();j!=list_Fert.end();++j)
+       if((*j)->Name()==(*i)->Name()) { fachkenntnis=true; break; }
+    bool spezieskenntnis=false;
+    for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Fert_spez.begin();j!=list_Fert_spez.end();++j)
+       if((*j)->Name()==(*i)->Name()) { spezieskenntnis=true; break; }
+    
+    if(!fachkenntnis && !spezieskenntnis)
+     {
+       cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0());
+       list_allg_Fert.push_back(*i);
+     }
+   }
+   list_Fert_spez.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
+   list_Fert.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
    Gtk::OStream os(fertigkeiten_clist_auswahl);
    fertigkeiten_clist_auswahl->freeze();
    // Speziesspezifische Fertigkeiten
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_spez.begin();i!=list_Fert_spez.end();++i)
       { cH_Fertigkeit f(*i);
-        int v=0;
-        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-            if ((*j)==f->Name()) v=1;
         std::string serfolgswert=itos(f->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
         if ((f->Voraussetzungen(Werte) || Werte.Spezies()->Name()!="Mensch") &&
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name(),true))
-         { os << f->Lernpunkte()-v <<"\t"<<f->Voraussetzung()<<"\t"<<f->Pflicht()<<"\t"<<f->Name()<<"\t"
+         { os << f->Lernpunkte() <<"\t"<<f->Voraussetzung()<<"\t"<<f->Pflicht()<<"\t"<<f->Name()<<"\t"
                << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
             os.flush(&*i);
          }
       }
+   if (list_Fert_spez.size()) os <<'\n';
    // Lernschema
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert.begin();i!=list_Fert.end();++i)
       { cH_Fertigkeit f(*i);
-        int v=0;
-        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-            if ((*j)==f->Name()) v=1;
         std::string serfolgswert=itos(f->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
         if ((f->Voraussetzungen(Werte) || Werte.Spezies()->Name()!="Mensch") &&
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name(),true))
          { 
-            Lernschema::st_index I(Typ[0]->Short(),"Fertigkeit",f->Name());
-            os << Database.lernschema.get_Lernpunkte(I)-v <<"\t"<<f->Voraussetzung()<<"\t*\t"<<f->Name()<<"\t"
-               << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
+            Lernschema::st_index I(Typ[0]->Short(),"Fertigkeit",(*i)->Name());
+            os << (*i)->Lernpunkte() <<"\t"<<f->Voraussetzung()<<"\t"
+               << Database.lernschema.get_Pflicht_str(I) <<"\t"<<f->Name()<<"\t"
+               << serfolgswert<<"\t"<<f->Attribut()<<"\t"
+               <<f->Kosten(Typ,Database.ausnahmen)<<"\n";
             os.flush(&*i);
          }
       }
@@ -114,7 +127,7 @@ cout << list_allg_Fert.size()<<'\t'<<list_Fert.size()<<'\n';
            if ((*j)==f->Name()) v=1;
         std::string serfolgswert=itos(f->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
-        if ( f->Voraussetzungen(Werte) && 
+        if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
          { os << f->Lernpunkte()-v<<"\t"<<f->Voraussetzung()<<"\t"<<""<<"\t"<<f->Name()<<"\t"
               << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
