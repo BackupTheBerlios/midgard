@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.228 2002/05/02 12:12:56 thoma Exp $
+// $Id: midgard_CG.hh,v 1.229 2002/05/02 15:00:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -269,6 +269,7 @@ private:
         void clear_gtk();
         void clear_listen();
         void on_button_hilfe_clicked();
+        void on_button_html_hilfe_clicked();
         gint on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev);        
         gint on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
         void on_button_beschreibung_drucken_clicked();

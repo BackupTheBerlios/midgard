@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.217 2002/05/02 12:12:56 thoma Exp $
+// $Id: midgard_CG.cc,v 1.218 2002/05/02 15:00:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #include <gtk--/main.h>
 #include "Midgard_Info.hh"
 #include "Fertigkeiten.hh"
+#include <unistd.h>
 #ifdef __MINGW32__
 #include <time.h>
 #endif
@@ -214,6 +215,15 @@ void midgard_CG::show_gtk()
 void midgard_CG::on_button_hilfe_clicked()
 {
   manage(new Window_hilfe()); 
+}
+
+void midgard_CG::on_button_html_hilfe_clicked()
+{
+  std::string pfad;
+  if(!access("../docs/index.html",R_OK))  pfad="../docs/index.html";
+  else pfad=PACKAGE_DATA_DIR"/docs/index.html";
+  std::string s =MOptionen->getString(Midgard_Optionen::html_viewer)+" "+pfad;
+  system(s.c_str());
 }
 
 void midgard_CG::on_button_info_clicked()
