@@ -48,8 +48,6 @@ Dichten	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Elefanten lenken	\N	31	\N	\N	\N	\N	\N	31	\N	\N	\N
 Erste Hilfe	\N	0	\N	31	\N	\N	\N	\N	31	\N	31
 Erzählen	\N	\N	\N	31	\N	\N	31	\N	\N	\N	\N
-Etikette	\N	31	\N	31	\N	\N	31	\N	\N	\N	\N
-Fallen	\N	\N	\N	\N	\N	\N	\N	\N	81	\N	\N
 Fallen entdecken	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Fallen entschärfen	\N	61	\N	61	\N	\N	\N	\N	\N	\N	\N
 Fallenmechanik	\N	0	\N	0	\N	\N	\N	\N	\N	\N	61
@@ -103,14 +101,11 @@ Körperbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Zaubern	\N
 Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	\N	\N	\N
 Landeskunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Landeskunde (Heimat)	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
-Lanzenstechen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kampf zu Pferd, Lanze	\N
 Laufen	\N	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Lesen von Geisterschrift	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Lesen von Zauberschrift	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 LiYao	\N	61	\N	61	\N	\N	\N	\N	\N		\N
 Lippenlesen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
-Luftkampf	\N	61	\N	\N	\N	\N	\N	\N	\N	Reiten	\N
-Malen/Zeichnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Meditieren	\N	\N	\N	\N	\N	\N	\N	21	\N		\N
 Menschenkenntnis	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Meucheln	31	0	\N	\N	\N	\N	\N	\N	\N	\N	61

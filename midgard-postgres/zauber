@@ -651,7 +651,7 @@ Wort der Trauer	1600	6	Wort	4	\N	\N	\N	Luft	zerstört	Eis	5 s	0	Geist	9 m Uk	var	
 Wort des Lebens	1600	6	Wort	4	\N	\N	\N	Holz	zerstört	Eis	5 s	0	Körper	9 m Uk	var	göttlich		f		\N
 Wort des Todes	1600	6	Wort	4	\N	\N	\N	Eis	zerstört	Holz	5 s	0	Körper	9 m Uk	var	schwarzmagisch		f		\N
 Wundersame Tarnung	100	1	Gedanke	1	\N	\N	\N	Holz	verändert	Erde	1 s	0	Umgebung	selbst	30 min	druidisch		f		\N
-Wundrune	300	2	Geste(?)	2(?)	W	\N	Runen	Holz	erschafft	Erde	30 min	-	Körper	1 Ws	0	göttlich	Kieselstein, Stechpalmenblätter	f	\N	\N
+Wundrune	300	2	Geste	2	W	\N	Runen	Holz	erschafft	Erde	30 min	-	Körper	1 Ws	0	göttlich	Kieselstein, Stechpalmenblätter	f	\N	\N
 Wüstenwind	800	3	Geste	3	H&D	\N	\N				19 s	0	Umgebung	30m Uk Kegel	2 min	druidisch	Wüstensand	f	Rune	\N
 XiengBaQuang	4000	var	Geste	5	K	\N	\N				var	var	Körper	var	var			f		\N
 YehKiQuang	80	3	Geste	1	K	\N	\N				1 h	0	Geist					f		\N

@@ -72,6 +72,7 @@ cH_Region::cH_Region(const Tag *tag)
 Region::Region(const Tag *tag) 
 : name(tag->getAttr("Name")), active(false)
 {
+  nr=tag->getIntAttr("MAGUS-Index");
   abkuerzung=tag->getAttr("Region");
   file=tag->getAttr("Dateiname");
   url=tag->getAttr("URL");
@@ -116,3 +117,14 @@ Regionen_All::Regionen_All(Gtk::ProgressBar *progressbar)
  }
  ProgressBar::set_percentage(progressbar,1);
 }
+
+
+cH_Region Regionen_All::getRegionfromAbk(std::string a) const
+{
+ for(std::vector<cH_Region>::const_iterator i=list_All.begin();i!=list_All.end();++i)
+  {
+   if(a==(*i)->Abkuerzung()) return (*i);
+  }
+ assert(!"Region nicht gefunden\n");
+}
+

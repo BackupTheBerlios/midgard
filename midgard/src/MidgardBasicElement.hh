@@ -27,7 +27,7 @@
 
 class cH_Typen;
 class Grundwerte;
-class Ausnahmen;
+//class Ausnahmen;
 class H_Data_beruf;
 class cH_MidgardBasicElement;
 class SimpleTree;
@@ -41,6 +41,16 @@ class NotFound : public std::exception
 
 class MidgardBasicElement : public HandleContent
 {
+   private:
+      // WARNUNG: Beruf wird nicht verwendet
+      struct st_ausnahmen{std::string herkunft;std::string spezies;
+                          std::string typ;std::string beruf;std::string stand;
+                          std::string standard;
+//             st_ausnahmen(){}
+             st_ausnahmen(std::string h,std::string s,std::string t,
+                          std::string b,std::string st,std::string sta) 
+                        :herkunft(h),spezies(s),typ(t),beruf(b),stand(st),
+                         standard(sta) {} };
    public:
       enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,ZHerkunft=4,
                     ZSprache=5,ZSchrift=6};
@@ -54,6 +64,7 @@ class MidgardBasicElement : public HandleContent
       mutable std::string zusatz; // Für Zusäte bei Fertigkeiten (z.B. Abrichten, Sprache, Geheimzeichen...)
                                   // und Zauber (Tiersprache)
       std::vector<std::string> Vzusatz;
+      vector<st_ausnahmen> VAusnahmen;
       mutable bool gelernt; // Fürs Lernschema
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
       /* EP_t (CP) */ int steigern_mit_EP;
@@ -108,19 +119,24 @@ class MidgardBasicElement : public HandleContent
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
-      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const {return 0;};
+      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const {return 0;};
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
       bool ist_gelernt(const std::list<std::string>& L) const;
       int get_Steigern_Kosten(int erfolgswert) const;
-      vector<std::string> Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
-      std::string Standard__(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
-      double Standard_Faktor(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
-      int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
-         {return (int)(Standard_Faktor(Typ,ausnahmen)*GrundKosten());}
-      int Steigern(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
-      int Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
-      int Verlernen(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
+      vector<std::string> Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
+      std::string Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
+      double Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
+private:
+      std::string AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const;
+public:
+      std::string Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ,const std::string s) const;
+
+      int Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
+         {return (int)(Standard_Faktor(Werte,Typ)*GrundKosten());}
+      int Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
+      int Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
+      int Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
       bool standard_one_G(const vector<std::string>& s) const ;
       bool standard_all_S(const vector<std::string>& s) const ;
       bool operator == (const MidgardBasicElement& b) const 
@@ -134,12 +150,11 @@ class MidgardBasicElement : public HandleContent
             const std::list<cH_MidgardBasicElement>& BasicList,
             SimpleTree *Tree, 
             const Grundwerte& Werte, const vector<cH_Typen>& Typ,
-            const Ausnahmen& ausnahmen,bool clear_me=true);
+            bool clear_me=true);
       static void saveElementliste(IF_XML(ostream &datei,)
       				const std::list<cH_MidgardBasicElement>& b,
                                    const Grundwerte& Werte,
-                                   const vector<cH_Typen>& Typ,
-                                   const Ausnahmen& ausnahmen);
+                                   const vector<cH_Typen>& Typ);
 
 };
 

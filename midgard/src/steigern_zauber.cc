@@ -49,8 +49,8 @@ void midgard_CG::zauber_zeigen()
  if (Typ[0]->Zaubern()=="n" && Typ[1]->Zaubern()=="n") return;
  
  zeige_werte(Werte);
- MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,Werte,Typ,Database.ausnahmen);
- MidgardBasicElement::show_list_in_tree(list_Zauber    ,alte_zauber_tree,Werte,Typ,Database.ausnahmen);
+ MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,Werte,Typ);
+ MidgardBasicElement::show_list_in_tree(list_Zauber    ,alte_zauber_tree,Werte,Typ);
  zauberwerk_zeigen();
 }
 
@@ -83,8 +83,8 @@ void midgard_CG::on_checkbutton_zaubermittel_toggled()
 {
  zauberwerk_zeigen();
  zeige_werte(Werte);
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
+ MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ);
+ MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ);
 }
 */
 
@@ -102,8 +102,8 @@ void midgard_CG::on_spruchrolle_toggled()
       Zauber::set_Spruchrolle(list_Zauber,false);
       Zauber::set_Spruchrolle(list_Zauber_neu,false);
    }
- MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,Werte,Typ,Database.ausnahmen);
- MidgardBasicElement::show_list_in_tree(list_Zauber    ,alte_zauber_tree,Werte,Typ,Database.ausnahmen);
+ MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,Werte,Typ);
+ MidgardBasicElement::show_list_in_tree(list_Zauber    ,alte_zauber_tree,Werte,Typ);
 */
 }
 
@@ -119,8 +119,8 @@ bool midgard_CG::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
 
  // Für Magier:
  std::string standard="";
- if (Typ[0]->Short()=="Ma") standard=z->Standard(Typ,Database.ausnahmen)[0]; 
- if (Typ[1]->Short()=="Ma") standard=z->Standard(Typ,Database.ausnahmen)[1]; 
+ if (Typ[0]->Short()=="Ma") standard=z->Standard(Werte,Typ)[0]; 
+ if (Typ[1]->Short()=="Ma") standard=z->Standard(Werte,Typ)[1]; 
  if(standard!="") 
    {
     iaus = zauber->get_spezial_zauber_for_magier(Werte,standard); //iaus = 2 ?
@@ -179,8 +179,8 @@ void midgard_CG::zauberwerk_zeigen()
 {
  zauberwerk_laden();
  zeige_werte(Werte);
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
+ MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ);
+ MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ);
 }
 
 void midgard_CG::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)

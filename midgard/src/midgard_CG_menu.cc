@@ -80,7 +80,6 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *regionen = manage(new class Gtk::MenuItem("Regionen")); 
   regionen->set_submenu(*regionen_menu);
 
-  
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
      if((*i)->Nr()<=0) continue;

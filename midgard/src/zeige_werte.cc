@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.48 2002/02/14 07:06:48 thoma Exp $
+// $Id: zeige_werte.cc,v 1.49 2002/03/04 08:08:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,7 +29,6 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
 {
    if (OptionenCheck(Original).active) original_midgard_check() ;
    modify_bool=true; // Zum Abspeichern
-   Database.ausnahmen.set_Werte(w);       
        spinbutton_st->set_value(w.St());
        spinbutton_gw->set_value(w.Gw());
        spinbutton_gs->set_value(w.Gs());

@@ -64,18 +64,18 @@ void Sprache::get_Sprache()
      VSchrift.push_back(i->getAttr("Name",tag->getAttr("Name")));
 }
 
-int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
+int Sprache::Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 { 
   cH_Fertigkeit F("Sprechen: Sprache");
-  return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; 
+  return  (int)(F->Standard_Faktor(Werte,Typ) * kosten) ; 
 }
 
-int Sprache::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
+int Sprache::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
 {
   if (w.In() < 31) return (11>maxwert ? maxwert : 11); 
   if (w.In() < 61) return (18>maxwert ? maxwert : 18); 
 
-  int ab= cH_Fertigkeit("Sprache")->MaxErfolgswert(w,Typ,ausnahmen);
+  int ab= cH_Fertigkeit("Sprache")->MaxErfolgswert(w,Typ);
   if(maxwert==20) return ab;
   else return (ab>maxwert ? maxwert : ab);
 }

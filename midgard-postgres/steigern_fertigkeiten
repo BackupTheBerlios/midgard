@@ -1,6 +1,7 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "steigern_fertigkeiten_name";
 DROP TABLE "steigern_fertigkeiten";
 --
 --
@@ -23,7 +24,7 @@ Alchimie	Wissen
 Askese	Beidhändiger Kampf
 Astrologie	Wissen
 Athletik	Athletik
-Augensalbe herstellen	-
+Augensalbe herstellen	Wissen
 Balancieren	Bewegung
 Ballista bedienen	Ballista bedienen
 Baukunde	Baukunde
@@ -41,11 +42,10 @@ Fallen entdecken	Fallen entdecken
 Fallenmechanik	Fallenmechanik
 Fallenstellen	Fallenstellen
 Fangen	Bewegung
-Faustkampf	-
 Fechten	Fechten
 Fechten tevarrischer Stil	-
 FengSchui	Wissen
-FengTsu	-
+FengTsu	Bewegung
 Fälschen	Verkleiden
 Gassenwissen	Gassenwissen
 Gastlandsprache	Sprache
@@ -53,14 +53,14 @@ Gaukeln	Dichten
 Geheimmechanismen öffnen	Geheimmechanismen öffnen
 Geheimzeichen	Geheimzeichen
 Geländelauf	Bewegung
+Geomantie	Wissen
 Geschenke machen	Beredsamkeit
 Geschäftstüchtigkeit	Geschäftstüchtigkeit
 Giftmischen	Wissen
 Glücksspiel	Glücksspiel
 Heilkunde	Wissen
-Heraldik	-
 Himmelskunde	Himmelskunde
-IaiJutsu	-
+IaiJutsu	Bewegung
 Jonglieren	Jonglieren
 Kalligraphie	Kalligraphie
 Kamelreiten	Bewegung
@@ -68,22 +68,24 @@ Kampf in Dunkelheit	Kampf in Dunkelheit
 Kampf in Schlachtreihe	Kampf in Schlachtreihe
 Kampf in Vollrüstung	Kampf in Vollrüstung
 Kampf vom Streitwagen	Kampf vom Streitwagen
+Kampf zu Elefant	Kampf zu Pferd
+Kampf zu Kamel	Kampf zu Pferd
 Kampf zu Pferd	Kampf zu Pferd
 Kampftaktik	Kampftaktik
 KarumiJutsu	Bewegung
 Katapult bedienen	Ballista bedienen
 Kenntnis der Fünf Klassiker	-
+Kenntnis der fünf Klassiker	Wissen
 KentoYobu	-
 KiDo	KiDo
 Klettern	Bewegung
-Kriegsbemalung	Talisman verzaubern
 Kräuterkunde	Wissen
 KujKuri	Zeichensprache
 KujNoIu	-
-Körperbemalung	Talisman verzaubern
 Körperkontrolle	Bewegung
 Landeskunde	Wissen
 Laufen	Laufen
+Lesen von Geisterschrift	Lesen von Zauberschrift
 Lesen von Zauberrunen	Lesen von Zauberschrift
 Lesen von Zauberschrift	Lesen von Zauberschrift
 LiYao	LiYao
@@ -92,14 +94,16 @@ Meditieren	Verhören
 Menschenkenntnis	Menschenkenntnis
 Meucheln	Meucheln
 MiChen	-
+Mumifizieren	Wissen
 Musizieren	Musizieren
 Muttersprache	Sprache
 Muttersprache schreiben	Schreiben
 Naturkunde	Wissen
 Natya	Bewegung
 NinJutsu	NinJutsu
-Orakelkunst	-
+Orakelkunst	Wissen
 Pflanzenkunde	Wissen
+Pyromantie	Wissen
 Rechnen	Rechnen
 Reiten	Bewegung
 Rudern	Bewegung
@@ -109,6 +113,7 @@ Schauspielern	Schauspielern
 Schießen vom Streitwagen	Schießen vom Streitwagen
 Schiffsführung	Kampftaktik
 SchiyoKi	-
+Schlangen beschwören	Wissen
 Schleichen	Schleichen
 Schlittenfahren	Bewegung
 Schlittschuhlaufen	Bewegung
@@ -127,12 +132,12 @@ Springen	Bewegung
 Spurenlesen	Spurenlesen
 Srimara lenken	Elefanten lenken
 Stehlen	Stehlen
-Steinabreibungen machen	-
+Steinabreibungen machen	Wissen
 Steuern	Bewegung
 Stimmen nachahmen	Stimmen nachahmen
 Streitwagen lenken	Bewegung
 Suchen	Suchen
-TaiTschi	-
+TaiTschi	Wissen
 Tanzen	Tanzen
 Tarnen	Schleichen
 Tauchen	Tauchen
@@ -162,3 +167,9 @@ Zunge verschlucken	Zunge verschlucken
 Überleben in der Steppe	Überleben
 Überleben in der Wüste	Überleben
 \.
+--
+--
+--
+
+CREATE UNIQUE INDEX steigern_fertigkeiten_name ON steigern_fertigkeiten USING btree (name text_ops);
+

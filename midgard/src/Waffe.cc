@@ -89,6 +89,14 @@ void Waffe::get_Waffe()
 
    if(Art()=="Verteidigung") erfolgswert=1;
    else erfolgswert=4;   
+
+    FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
+         VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
+                              i->getAttr("Spezies"),
+                              i->getAttr("Typ"),
+                              i->getAttr("Beruf"),
+                              i->getAttr("Stand"),
+                              i->getAttr("Standard")));
 }
 
 void Waffe::get_Alias() 
@@ -241,11 +249,11 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
 }
 
 
-int Waffe::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
+int Waffe::MaxErfolgswert(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const
 {
  assert(Typ.size()==2);
  int maxwert=0;
- double x=Standard_Faktor(Typ,ausnahmen);
+ double x=Standard_Faktor(Werte,Typ);
 
  if (art == "Verteidigung")
   {

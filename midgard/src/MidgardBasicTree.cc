@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.12 2002/02/27 13:02:15 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.13 2002/03/04 08:08:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,14 +37,14 @@ int MidgardBasicTree::Cols(variante V)
      case (GELERNTES):      return 4;
      case (LERNSCHEMA):     return 9;
      case (LERNSCHEMAZUSATZ):return 3;
-     case (LONG_ALT):       return 7;
-     case (LONG_NEU):       return 5;
+     case (LONG_ALT):       return 8;
+     case (LONG_NEU):       return 6;
      case (SPRACHE_NEU):    return 3;
      case (SCHRIFT_ALT):    return 8;
      case (SCHRIFT_NEU):    return 3;
-     case (WAFFEGRUND):     return 3;
-     case (ZAUBER):         return 5;
-     case (ZAUBERWERK):     return 6;
+     case (WAFFEGRUND):     return 4;
+     case (ZAUBER):         return 6;
+     case (ZAUBERWERK):     return 7;
      case (KIDO):           return 6;
    }
   assert(!"MidgardBasicTree::Cols:     Falsche Variante \n");
@@ -81,6 +81,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Steigern\n(nächste Stufe)");
       vs.push_back("Reduzieren\n(eine Stufe)"); 
       vs.push_back("Verlernen");
+      vs.push_back("Region");
    }
   if(V==LONG_NEU)
    {
@@ -89,12 +90,14 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Lernkosten");  
       vs.push_back("Art");    
       vs.push_back("Voraussetzungen");
+      vs.push_back("Region");
    }
   if(V==WAFFEGRUND)
    {
       vs.push_back("Grundkenntnisse");
       vs.push_back("Art");
       vs.push_back("Kosten");
+      vs.push_back("Region");
    }
   if(V==SPRACHE_NEU)
    {
@@ -126,6 +129,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
      vs.push_back("Ursprung");
      vs.push_back("Lernkosten");
      vs.push_back("Art");
+      vs.push_back("Region");
    }
   if(V==ZAUBERWERK)
    {
@@ -135,6 +139,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
      vs.push_back("Kosten");
      vs.push_back("Preis");
      vs.push_back("Zeitaufwand");
+      vs.push_back("Region");
    }
   if(V==KIDO)
    {

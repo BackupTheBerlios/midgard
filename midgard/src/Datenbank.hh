@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.8 2002/03/03 08:02:14 thoma Exp $               
+// $Id: Datenbank.hh,v 1.9 2002/03/04 08:08:36 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,7 @@
 #include <list>
 
 #include "Land.hh"   
-#include "Ausnahmen.hh"
+//#include "Ausnahmen.hh"
 #include "Spezies.hh"
 #include "Typen.hh"
 #include "Grad_anstieg.hh"
@@ -54,7 +54,7 @@ class Datenbank
   std::list<cH_MidgardBasicElement> Kido;
   std::list<cH_MidgardBasicElement> Sprache;
   std::list<cH_MidgardBasicElement> Schrift;
-  Ausnahmen ausnahmen;
+//  Ausnahmen ausnahmen;
   std::vector<cH_Spezies> Spezies;
   std::vector<cH_Typen> Typen;
   Grad_anstieg GradAnstieg;

@@ -119,16 +119,16 @@ void midgard_CG::xml_export(const std::string& dateiname)
       datei << "/>\n";
     }
 
-   MidgardBasicElement::saveElementliste(datei,list_Beruf,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(datei,list_Fertigkeit_ang,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(datei,list_Fertigkeit,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(datei,list_Waffen,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(datei,list_Zauber,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(datei,list_Zauberwerk,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(datei,list_Kido,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(datei,list_WaffenGrund,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(datei,list_Sprache,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(datei,list_Schrift,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(datei,list_Beruf,Werte,Typ);
+   MidgardBasicElement::saveElementliste(datei,list_Fertigkeit_ang,Werte,Typ);
+   MidgardBasicElement::saveElementliste(datei,list_Fertigkeit,Werte,Typ);
+   MidgardBasicElement::saveElementliste(datei,list_Waffen,Werte,Typ);
+   MidgardBasicElement::saveElementliste(datei,list_Zauber,Werte,Typ);
+   MidgardBasicElement::saveElementliste(datei,list_Zauberwerk,Werte,Typ);
+   MidgardBasicElement::saveElementliste(datei,list_Kido,Werte,Typ);
+   MidgardBasicElement::saveElementliste(datei,list_WaffenGrund,Werte,Typ);
+   MidgardBasicElement::saveElementliste(datei,list_Sprache,Werte,Typ);
+   MidgardBasicElement::saveElementliste(datei,list_Schrift,Werte,Typ);
 
    // Regionen & Ähnliches
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)

@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.36 2002/02/09 16:14:06 thoma Exp $               
+// $Id: Zauber.hh,v 1.37 2002/03/04 08:08:36 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,6 @@
 #define ZAUBERCLASS
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
-#include "Ausnahmen.hh"
 class cH_Zauber;
 #include <gtk--/progressbar.h>
 
@@ -67,7 +66,7 @@ class Zauber : public MidgardBasicElement
    double SpruchrolleFaktor() const {return spruchrolle_faktor;}
    void setSpruchrolleFaktor(double s) const {spruchrolle_faktor=s;}
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
-   int Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
+   int Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte) const;
    int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
    int get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::string& standard) const;

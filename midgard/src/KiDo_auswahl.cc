@@ -72,7 +72,7 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
    for (std::list<cH_MidgardBasicElement>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
     {
       cH_KiDo kd(*i);
-      os << kd->HoHo() <<"\t"<<kd->Deutsch()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Typ,Database.ausnahmen)<<"\n";
+      os << kd->HoHo() <<"\t"<<kd->Deutsch()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Werte,Typ)<<"\n";
 //      os.flush(&*i);
       os.flush(kd->ref(),&HandleContent::unref);
     }

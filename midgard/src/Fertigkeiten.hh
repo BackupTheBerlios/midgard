@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.42 2002/02/19 08:46:05 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.43 2002/03/04 08:08:36 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,7 +66,7 @@ class Fertigkeit : public MidgardBasicElement
      void setLernArt(std::string z) const {lernart=z;}
      std::string Attribut() const {return attribut;}
      int FErfolgswert(const Grundwerte &Werte) const;
-     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ, const Ausnahmen& ausnahmen) const;
+     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
      int MaxUnterweisung() const {return maxunterweisung;}
      int LernUnge() const {return lern_unge;}
      int LernLand() const {return lern_land;}

@@ -95,9 +95,9 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case KOSTENg : 
             if ( MBE->What()==MidgardBasicElement::WAFFE)
                return cH_EntryValueIntString(cH_Waffe(MBE)->Schwierigkeit_str()); 
-           /* else*/ return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen)); 
+           /* else*/ return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ)); 
          case ARTg : 
-            return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen)); 
+            return cH_EntryValueIntString(MBE->Standard__(Werte,Typ)); 
          case GELERNTg : 
             if (MBE->Gelernt()) return cH_EntryValueIntString("*"); 
             else return cH_EntryValueIntString("");
@@ -119,10 +119,11 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
                 return cH_EntryValueIntString(MBE->Erfolgswert());
            }
          case PPa : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
-         case STANDARDa : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
-         case STEIGERN : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
-         case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
-         case VERLERNEN : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen)); 
+         case STANDARDa : return cH_EntryValueIntString(MBE->Standard__(Werte,Typ));
+         case STEIGERN : return cH_EntryValueEmptyInt(MBE->Steigern(Werte,Typ));
+         case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(Werte,Typ));
+         case VERLERNEN : return cH_EntryValueEmptyInt(MBE->Verlernen(Werte,Typ)); 
+         case REGIONa : return cH_EntryValueEmptyInt(MBE->Region()); 
         }
       if (Variante==MidgardBasicTree::LONG_NEU)
        switch ((Spalten_LONG_NEU)seqnr) {
@@ -143,11 +144,11 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case LERNKOSTEN : 
           {
              if(MBE->What()==MidgardBasicElement::WAFFE)
-                return cH_EntryValueEmptyInt(0);//MBE->Steigern(Typ,ausnahmen)); 
+                return cH_EntryValueEmptyInt(0);//MBE->Steigern(Werte,Typ)); 
              else
-                return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+                return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
           }
-         case ART : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
+         case ART : return cH_EntryValueIntString(MBE->Standard__(Werte,Typ));
          case VORAUSSETZUNGEN : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
@@ -157,12 +158,13 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
              else
                return cH_EntryValueIntString("");
            }
+         case REGIONn : return cH_EntryValueEmptyInt(MBE->Region()); 
         }
       if (Variante==MidgardBasicTree::SPRACHE_NEU)
        switch ((Spalten_SPRACHE_NEU)seqnr) {
          case NAMEsn    : return cH_EntryValueIntString(MBE->Name());
          case SCHRIFTsn : return cH_EntryValueIntString(cH_Sprache(MBE)->Schriften()); 
-         case LERNKOSTENsn : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case LERNKOSTENsn : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
         }
       if (Variante==MidgardBasicTree::SCHRIFT_ALT)
        switch((Spalten_SCHRIFT_ALT)seqnr) {
@@ -170,16 +172,16 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case ARTsa : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
          case WERTsa : return cH_EntryValueIntString(MBE->Erfolgswert());
          case PPsa : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
-         case STANDARDsa : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
-         case STEIGERNs : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
-         case REDUZIERENs : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
-         case VERLERNENs : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen)); 
+         case STANDARDsa : return cH_EntryValueIntString(MBE->Standard__(Werte,Typ));
+         case STEIGERNs : return cH_EntryValueEmptyInt(MBE->Steigern(Werte,Typ));
+         case REDUZIERENs : return cH_EntryValueEmptyInt(MBE->Reduzieren(Werte,Typ));
+         case VERLERNENs : return cH_EntryValueEmptyInt(MBE->Verlernen(Werte,Typ)); 
         }
       if (Variante==MidgardBasicTree::SCHRIFT_NEU)
        switch ((Spalten_SCHRIFT_NEU)seqnr) {
          case NAMErsn    : return cH_EntryValueIntString(MBE->Name());
          case ARTrsn     : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
-         case KOSTENn_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTENn_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
         }
       if (Variante==MidgardBasicTree::KIDO)
         switch ((Spalten_KIDO)seqnr) {
@@ -187,31 +189,34 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case NAMEa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Deutsch());
          case STUFEa_K   : return cH_EntryValueIntString(cH_KiDo(MBE)->Stufe());
          case APa_K      : return cH_EntryValueEmptyInt(cH_KiDo(MBE)->Ap());
-         case KOSTENa_K  : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTENa_K  : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
          case STILa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Stil()); 
         }
       if (Variante==MidgardBasicTree::WAFFEGRUND)
        switch((Spalten_WAFFEGRUND)seqnr) {
          case NAMEa_G : return cH_EntryValueIntString(MBE->Name());
-         case STANDARDa_G : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
-         case KOSTEN_G : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen)); 
+         case STANDARDa_G : return cH_EntryValueIntString(MBE->Standard__(Werte,Typ));
+         case KOSTEN_G : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ)); 
+         case REGION_G : return cH_EntryValueEmptyInt(MBE->Region()); 
         }
       if (Variante==MidgardBasicTree::ZAUBER)
       switch ((Spalten_ZAUBER)seqnr) {
          case STUFEn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Stufe());
          case NAMEn_Z : return cH_EntryValueIntString(MBE->Name());
          case URSPRUNGn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Ursprung());
-         case KOSTENn_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen)*cH_Zauber(MBE)->SpruchrolleFaktor());
-         case STANDARDn_Z : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
+         case KOSTENn_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ)*cH_Zauber(MBE)->SpruchrolleFaktor());
+         case STANDARDn_Z : return cH_EntryValueIntString(MBE->Standard__(Werte,Typ));
+         case REGIONn_Z : return cH_EntryValueEmptyInt(MBE->Region()); 
         }
       if (Variante==MidgardBasicTree::ZAUBERWERK)
       switch ((Spalten_ZAUBERWERK)seqnr) {
          case STUFEn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Stufe());
          case NAMEn_ZW : return cH_EntryValueIntString(MBE->Name());  
          case ARTn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Art());    
-         case KOSTENn_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTENn_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
          case PREISn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Preis()); 
          case ZEITAUFWANDn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Zeitaufwand());
+         case REGIONn_ZW : return cH_EntryValueEmptyInt(MBE->Region()); 
         }
 /*
       if (name=="ZA")
@@ -219,7 +224,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case NAMEa_Z : return cH_EntryValueIntString(MBE->Name());
          case STUFEa_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Stufe());
          case URSPRUNGa_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Ursprung());
-         case KOSTENa_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTENa_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
         }
 */
 /*
@@ -228,22 +233,22 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case STUFEn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Stufe());
          case NAMEn_Z : return cH_EntryValueIntString(MBE->Name());  
          case URSPRUNGn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Ursprung());
-         case KOSTENn_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
-         case STANDARDn_Z : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
+         case KOSTENn_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
+         case STANDARDn_Z : return cH_EntryValueIntString(MBE->Standard__(Werte,Typ));
         }
       if (name=="ZWA")
         switch (seqnr) {
          case STUFEa_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Stufe());
          case NAMEa_ZW : return cH_EntryValueIntString(MBE->Name());  
          case ARTa_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Art());    
-         case KOSTENa_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTENa_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
         }
      if (name=="ZWN")
        switch (seqnr) {
          case STUFEn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Stufe());
          case NAMEn_ZW : return cH_EntryValueIntString(MBE->Name());  
          case ARTn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Art());    
-         case KOSTENn_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTENn_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
          case PREISn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Preis()); 
          case ZEITAUFWANDn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Zeitaufwand());
         }
@@ -253,7 +258,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case NAMEa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Name_D());
          case STUFEa_K   : return cH_EntryValueIntString(cH_KiDo(MBE)->Stufe());
          case APa_K      : return cH_EntryValueEmptyInt(cH_KiDo(MBE)->Ap());
-         case KOSTENa_K  : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTENa_K  : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
          case STILa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Stil()); 
         }
      if (name=="SPA")
@@ -261,15 +266,15 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case NAMEa_SP : return cH_EntryValueIntString(MBE->Name());
          case WERTa_SP : return cH_EntryValueEmptyInt(MBE->Erfolgswert());
          case PPa_SP : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
-         case STEIGERN_SP : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
-         case REDUZIEREN_SP : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
-         case VERLERNEN_SP : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen));
+         case STEIGERN_SP : return cH_EntryValueEmptyInt(MBE->Steigern(Werte,Typ));
+         case REDUZIEREN_SP : return cH_EntryValueEmptyInt(MBE->Reduzieren(Werte,Typ));
+         case VERLERNEN_SP : return cH_EntryValueEmptyInt(MBE->Verlernen(Werte,Typ));
         }
      if (name=="SPN")
       switch (seqnr) {
          case NAMEn_SP : return cH_EntryValueIntString(MBE->Name());
          case URSCHRIFT_SP : return cH_EntryValueIntString(cH_Sprache(MBE)->Schriften());
-         case KOSTEN_SP : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTEN_SP : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
         }
      if (name=="SCA")
       switch (seqnr) {
@@ -277,15 +282,15 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case WERTa_SC : return cH_EntryValueEmptyInt(MBE->Erfolgswert());
 //         case ARTa_SC : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
          case PPa_SC : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
-         case STEIGERNa_SC : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
-         case REDUZIERENa_SC : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
-         case VERLERNENa_SC : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen));
-//         case KOSTENa_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case STEIGERNa_SC : return cH_EntryValueEmptyInt(MBE->Steigern(Werte,Typ));
+         case REDUZIERENa_SC : return cH_EntryValueEmptyInt(MBE->Reduzieren(Werte,Typ));
+         case VERLERNENa_SC : return cH_EntryValueEmptyInt(MBE->Verlernen(Werte,Typ));
+//         case KOSTENa_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
         }
      if (name=="SCN")
       switch (seqnr) {
          case NAMEn_SC : return cH_EntryValueIntString(MBE->Name());
-         case KOSTENn_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTENn_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
         }
 */
       return cH_EntryValueIntString("?");

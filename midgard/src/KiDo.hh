@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.18 2002/01/26 09:17:41 christof Exp $               
+// $Id: KiDo.hh,v 1.19 2002/03/04 08:08:36 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,9 +46,9 @@ class KiDo : public MidgardBasicElement
 
  std::string HoHo() const {  return Name(); }
  std::string Deutsch() const {  return deutsch; }
- int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
+ int Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
          { cH_Fertigkeit F("KiDo");
-                      return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; }
+                      return  (int)(F->Standard_Faktor(Werte,Typ) * kosten) ; }
  std::string Stufe() const {  return stufe; }
  int Ap() const {  return ap; }
  std::string Stil() const {  return stil; }

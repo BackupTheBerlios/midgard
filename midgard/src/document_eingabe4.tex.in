@@ -131,7 +131,7 @@ Körpergröße&\makebox[0.8cm]{\resizebox*{1.0cm}{1.5ex}{\koerpergroesse~(\koerperg
 Berufe&{\beruf}\\\hline
 %Sprachen&\\\hline
 %Schriften&\\\hline
-\raisebox{-0.3ex}[0.3ex]{weitere}&\\
+\raisebox{-0.3ex}[0.3ex]{weitere}&{\merkmale}\\
 \raisebox{0.3ex}[-0.3ex]{Merkmale}\rule[-1ex]{0ex}{3.3ex}&\\\hline
 \end{tabularx}\renewcommand{\arraystretch}{1}
 }
@@ -381,7 +381,7 @@ Sprache&Wert&Schrift\\\hline\hline
       ZSchlagwaffe&{\usebox{\ZSchlagwaffe}}           &Bogen         &\usebox{\Bogen}\\\cline{2-2}\cline{4-4}
       Stangenwaffe&{\usebox{\Stangenwaffe}}           &Schleuder     &\usebox{\Schleuder}\\\cline{2-2}\cline{4-4}
       Kettenwaffe &{\usebox{\Kettenwaffe}}            &Schild        &\usebox{\Schilde}\\\cline{2-2}\cline{4-4}
-      Kampf ohne Waffen &{\usebox{\KampfohneWaffen}}  &Parierwaffe   &\usebox{\Parierwaffe}\\\cline{2-2}\cline{4-4}
+      waffenlos   &{\usebox{\KampfohneWaffen}}  &Parierwaffe   &\usebox{\Parierwaffe}\\\cline{2-2}\cline{4-4}
       Zauberstäbe &{\usebox{\Zauberstaebe}}\\\cline{2-2}
     \end{tabular}}                                    
 \hfill

@@ -31,8 +31,22 @@ NEWS IN VERSION 0.4delta5
    Zauberwerk überarbeitet
    (nichtsdestotrotz warte ich noch auf die offiziellen Regeln)
 * Alle Grundkenntnisse (Waffen) ausdrucken
+* Waeland: Typen, Fertigkeiten, Runen
+* Eschar: Fertigkeiten, Zauber
+* KanThaiPan: Typen, Fertigkeiten, Zauber, KiDo (ist aber noch nciht offiziell)
+* Rawindra: Typen, Fertigkeiten, Zauber, Zauberwerk (Körperbemalung, Kriegsbemalung)
+* Alba: Zauber
+* Bug gefunden, der für das dynamische Verhalten der angezeigten Regionen 
+   zuständig war ...
+* Spezies erscheint im Ausdruck
+* Komplette neuimpelmentierung der Ausnahmen, dadurch fällt diese Klasse weg
 
 TODO:
+* Ausnahmebehandlung bei Fertigkeiten testen
+* Waeland: Zauber
+* Nahuathlan: Komplett
+* Eschar: Derwisch
+* Doppelklassen
 * Offielles Logo ist weg :-(
 * Tooltips Farbe
 * Laden von Optionen 
@@ -42,8 +56,6 @@ TODO:
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
-* Regionen
-* Doppelklassen
 
 ##########################################################################
 NEWS IN VERSION 0.4delta4

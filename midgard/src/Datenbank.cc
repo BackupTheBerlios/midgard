@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.13 2002/03/03 08:02:14 thoma Exp $               
+// $Id: Datenbank.cc,v 1.14 2002/03/04 08:08:36 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -70,7 +70,7 @@ Datenbank::Datenbank(Midgard_Info* MI)
     Kido = KiDo_All(MI->get_progressbar_kido()).get_All();
     Sprache = Sprachen_All(MI->get_progressbar_sprache()).get_All();
     Schrift = Schriften_All(MI->get_progressbar_schrift()).get_All();
-    ausnahmen = Ausnahmen(MI->get_progressbar_ausnahmen());
+//    ausnahmen = Ausnahmen(MI->get_progressbar_ausnahmen());
     Spezies = Spezies_All(MI->get_progressbar_spezies()).get_All();
     Typen = Typen_All(MI->get_progressbar_typen()).get_All();
     GradAnstieg = Grad_anstieg(MI->get_progressbar_grad());

@@ -60,7 +60,6 @@ void midgard_CG::typauswahl_button()
  clear_listen();
  clear_gtk();
  show_gtk();
- Database.ausnahmen.set_Typ(Typ);
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 
  if(Werte.Spezies()->Land()) 
@@ -92,7 +91,6 @@ void midgard_CG::typauswahl_2_button()
  cH_Typen ptr = static_cast<Typen*>(typauswahl_2->get_menu()->get_active()->get_user_data());
  Typ[1]=ptr;
  show_gtk();
- Database.ausnahmen.set_Typ(Typ);
 // if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }
 

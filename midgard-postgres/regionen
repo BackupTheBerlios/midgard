@@ -27,6 +27,7 @@ CREATE TABLE "regionen" (
 
 
 COPY "regionen" FROM stdin;
+11	Abenteuer	X	\N	\N	Malte Thoma	1.0	var.	t	6	1981-
 3	Alba	A	\N	\N	Malte Thoma	1.0	Thomas Kreutz und Ludger Fischer	t	3	\N
 -1	Arkanum	Arkanum	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	9	2000
 -2	Das Fantasy Rollenspiel		\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	10	2001
@@ -38,5 +39,5 @@ COPY "regionen" FROM stdin;
 8	Nahuatlan	N	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	8	\N
 6	Rawindra	R	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreutz	t	1	\N
 1	Tipps und Tricks	TuT	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	12	\N
-7	Waeland - Die Krieger des Nordens	W	\N	\N	Malte Thoma	1.0	Olaf Möhle, Stephanie Lammers u.a.	t	7	1991-1997
+7	Waeland	W	\N	\N	Malte Thoma	1.0	Olaf Möhle, Stephanie Lammers u.a.	t	7	1991-1997
 \.

@@ -56,28 +56,28 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 
  //////////////////////////////////////////////////////////////////////////
 
- if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
+ if (radiobutton_steigern->get_active() && MBE->Steigern(Werte,Typ))
     {
-      if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return false;
-      if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(Werte,Typ,Database.ausnahmen)) 
+      if (!steigern_usp(MBE->Steigern(Werte,Typ),&MBE)) return false;
+      if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(Werte,Typ)) 
           { regnot("Maximal möglicher Erfolgswert erreicht");
             return false; }
-      Werte.addGFP(MBE->Steigern(Typ,Database.ausnahmen));
+      Werte.addGFP(MBE->Steigern(Werte,Typ));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name()) 
             (*i)->add_Erfolgswert(1); 
     }
- else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
+ else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Werte,Typ))
     {
-      if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
-      Werte.addGFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
+      if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(Werte,Typ));
+      Werte.addGFP(-MBE->Reduzieren(Werte,Typ));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name())  
             (*i)->add_Erfolgswert(-1); 
     }
- else if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
+ else if (radiobutton_verlernen->get_active() && MBE->Verlernen(Werte,Typ))
     {
-      guint verlernen = MBE->Verlernen(Typ,Database.ausnahmen);
+      guint verlernen = MBE->Verlernen(Werte,Typ);
       if( MBE->What()==MidgardBasicElement::ZAUBER && 
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (checkbutton_EP_Geld->get_active()) desteigern(verlernen);
@@ -114,7 +114,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
                   +" nicht durch Praxispunkte gelernt werden");
           return;
         }
-      else if(MBE->Standard__(Typ,Database.ausnahmen)!="G")
+      else if(MBE->Standard__(Werte,Typ)!="G")
         {
           regnot("Nur Grundzauber können von "+Typ[0]->Name(Werte.Geschlecht())
                   +" mit Praxispunkten gelernt werden");
@@ -122,7 +122,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
         }
    }
 
- guint kosten=MBE->Kosten(Typ,Database.ausnahmen);
+ guint kosten=MBE->Kosten(Werte,Typ);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if( MBE->What()==MidgardBasicElement::ZAUBER &&
@@ -197,7 +197,6 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
   if((*mbe.begin())->What()==MidgardBasicElement::BERUF)
    {
     list_Beruf=mbe;
-    Database.ausnahmen.set_Beruf(list_Beruf);
 //    show_berufe();
 //    button_beruf_erfolgswert->set_sensitive(true);
    }
@@ -248,7 +247,6 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
    {
     list_Beruf.clear(); // es kann nur einen Beruf geben 
     list_Beruf.push_back(mbe);
-    Database.ausnahmen.set_Beruf(list_Beruf);
    }
   if(mbe->What()==MidgardBasicElement::FERTIGKEIT)
    {

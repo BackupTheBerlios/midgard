@@ -79,6 +79,14 @@ void Zauber::get_Zauber()
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
          Vzusatz.push_back(i->getAttr("Name"));
+
+    FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
+         VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
+                              i->getAttr("Spezies"),
+                              i->getAttr("Typ"),
+                              i->getAttr("Beruf"), //wird nicht ausgewertet
+                              i->getAttr("Stand"),
+                              i->getAttr("Standard")));
 }
 
 int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const
@@ -91,11 +99,11 @@ int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const
   return (int)(fac*GrundKosten());
 }
 
-int Zauber::Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const
+int Zauber::Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte) const
 {
    assert(Typ.size()==2);
    int ifac=-2;
-   vector<std::string> standard=Standard(Typ,ausnahmen);
+   vector<std::string> standard=Standard(Werte,Typ);
    if (standard[0]=="G" || standard[1]=="G") ifac=0;
 
    int ispez=0;

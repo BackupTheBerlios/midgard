@@ -30,6 +30,7 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include "KiDo.hh"
+#include "Beruf.hh"
 #include <SelectMatching.h>
  
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)

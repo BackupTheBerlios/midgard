@@ -21,31 +21,30 @@
 
 #include <MidgardBasicElement.hh>
 #include <Typen.hh>
-#include <Ausnahmen.hh>
 #include <rowdata.h>
+#include "Grundwerte.hh"
 
 class Data_SimpleTree : public RowDataBase
 {
    cH_MidgardBasicElement MBE;
    vector<cH_Typen> Typ;
-   Ausnahmen ausnahmen;
    Grundwerte Werte;
  public:
    Data_SimpleTree(const cH_MidgardBasicElement& _MBE,const vector<cH_Typen>& _Typ, 
-         const Ausnahmen& _ausnahmen,const Grundwerte &_Werte) 
-   : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen),Werte(_Werte) {}
+         const Grundwerte &_Werte) 
+   : MBE(_MBE),Typ(_Typ),Werte(_Werte) {}
 
    enum Spalten_GELERNTES  {ARTgg,NAMEgg,WERTgg,LERNPUNKTEgg};
    enum Spalten_LERNSCHEMA {LERNPUNKTEg,PFLICHTg,NAMEg,WERTg,EIGENSCHAFTg,VORAUSSETZUNGg,KOSTENg,ARTg,GELERNTg} ;
-   enum Spalten_LONG_ALT {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN} ;
-   enum Spalten_LONG_NEU {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
-   enum Spalten_WAFFEGRUND {NAMEa_G,STANDARDa_G,KOSTEN_G};
+   enum Spalten_LONG_ALT {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN,REGIONa} ;
+   enum Spalten_LONG_NEU {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN,REGIONn};
+   enum Spalten_WAFFEGRUND {NAMEa_G,STANDARDa_G,KOSTEN_G,REGION_G};
    enum Spalten_SPRACHE_NEU {NAMEsn,SCHRIFTsn,LERNKOSTENsn};
    enum Spalten_SCHRIFT_ALT {NAMEsa,ARTsa,WERTsa,PPsa,STANDARDsa,STEIGERNs,REDUZIERENs,VERLERNENs} ;
    enum Spalten_SCHRIFT_NEU {NAMErsn,ARTrsn,KOSTENn_SC};
    enum Spalten_KIDO {HOHOa_K,NAMEa_K,STUFEa_K,APa_K,KOSTENa_K,STILa_K,} ;
-   enum Spalten_ZAUBER {NAMEn_Z,STUFEn_Z,URSPRUNGn_Z,KOSTENn_Z,STANDARDn_Z};
-   enum Spalten_ZAUBERWERK {NAMEn_ZW,STUFEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW};
+   enum Spalten_ZAUBER {NAMEn_Z,STUFEn_Z,URSPRUNGn_Z,KOSTENn_Z,STANDARDn_Z,REGIONn_Z};
+   enum Spalten_ZAUBERWERK {NAMEn_ZW,STUFEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW,REGIONn_ZW};
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
    const cH_MidgardBasicElement getMBE() const {return MBE;}

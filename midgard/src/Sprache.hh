@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.19 2002/02/13 11:21:00 thoma Exp $               
+// $Id: Sprache.hh,v 1.20 2002/03/04 08:08:36 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -22,7 +22,6 @@
 #define SPRACHECLASS
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
-#include "Ausnahmen.hh"
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
 class cH_Sprache;
@@ -59,8 +58,8 @@ class Sprache : public MidgardBasicElement
 
    bool Alte_Sprache() const {return alte_sprache;}    
    bool Minderheit() const {return minderheit;}    
-   int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
-   int Kosten(const std::vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
+   int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
+   int Kosten(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
    std::list<cH_MidgardBasicElement> VerwandteSprachen(const std::list<cH_MidgardBasicElement>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const;
 
    static std::list<cH_MidgardBasicElement> Sprache::cleanVerwandteSprachen(std::list<cH_MidgardBasicElement> L);

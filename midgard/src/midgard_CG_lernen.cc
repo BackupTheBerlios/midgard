@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.86 2002/03/02 18:55:21 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.87 2002/03/04 08:08:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -464,7 +464,7 @@ void midgard_CG::show_gelerntes()
   for(std::list<std::list<cH_MidgardBasicElement> >::const_iterator i=LL.begin();i!=LL.end();++i)
     for (std::list<cH_MidgardBasicElement>::const_iterator j=i->begin();j!=i->end();++j)
       FL.push_back(*j);
-  MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,Werte,Typ,Database.ausnahmen);
+  MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,Werte,Typ);
   tree_gelerntes->Expand_recursively();
 }
 
@@ -595,7 +595,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
          newlist.push_back(*i);
         }
      }
-  MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,Werte,Typ,Database.ausnahmen);
+  MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,Werte,Typ);
   setTitels_for_Lernschema(what,fert);
   tree_lernschema->Expand_recursively();
   scrolledwindow_beruf->hide();

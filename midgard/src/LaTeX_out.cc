@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.104 2002/03/01 18:56:12 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.105 2002/03/04 08:08:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -227,6 +227,12 @@ void midgard_CG::LaTeX_write_values()
    {
      fout << (*i)->Name(); //<<" ("<<(*i)->Erfolgswert()<<")\t";
    }
+ fout <<"}\n";
+ /////////////////////////////////////////////////////////////////////////////
+ // weitere Merkmale
+ fout << "\\newcommand{\\merkmale}{" ;
+ if(Werte.Spezies()->Name()!="Mensch") 
+     fout << Werte.Spezies()->Name(); 
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten & Waffen

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.54 2002/03/02 16:24:38 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.55 2002/03/04 08:08:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,6 +22,7 @@
 #include <Gtk_OStream.h>
 #include "Fertigkeiten.hh"
 #include "class_Beruf_Data.hh"
+#include "Beruf.hh"
 
 gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
 {
@@ -155,7 +156,6 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
 //    MidgardBasicElement_uebernehmen(mbe);
     list_Beruf.clear(); // es kann nur einen Beruf geben
     list_Beruf.push_back(mbe);
-    Database.ausnahmen.set_Beruf(list_Beruf);
                    
     if(dt->Gelernt()) // Erfolgswert um eins erhöhen
       for (std::list<cH_MidgardBasicElement>::const_iterator k=list_Fertigkeit.begin();k!=list_Fertigkeit.end();++k)

@@ -61,6 +61,14 @@ Heiltrunk (1W6) aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (70 
 Krafttrunk (1W6) aktivieren	400	Alchimistisches Zaubermittel	1	1 Tag	50 GS (30 GS)	\N
 Krafttrunk (2W6) aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (60 GS)	\N
 Kraut der konzentrierten Energie	1200	Pflanzliches Zaubermittel	4	1 Tag	500 GS	\N
+Kriegsbemalung	200	Kriegsbemalung	1	1 Tag	10/20/30 GS	\N
+Kriegsbemalung	200	Kriegsbemalung	2	1 Tag	30/60/90 GS	\N
+Kriegsbemalung	500	Kriegsbemalung	3	1 Tag	60/120/180 GS	\N
+Kriegsbemalung	1000	Kriegsbemalung	4	1 Tag	100/200/300 GS	\N
+Körperbemalung	200	Körperbemalung	1	1 Tag	10/20/30 GS	\N
+Körperbemalung	200	Körperbemalung	2	1 Tag	30/60/90 GS	\N
+Körperbemalung	500	Körperbemalung	3	1 Tag	60/120/180 GS	\N
+Körperbemalung	1000	Körperbemalung	4	1 Tag	100/200/300 GS	\N
 Liebestrank aktivieren	800	Alchimistisches Zaubermittel	3	1 Monat	300 GS 	\N
 Liebeszauber	2000	Augensalbe	4		80 GS	\N
 Lähmung	500	Schutzrune	5	3 Stunden	5 GS	\N

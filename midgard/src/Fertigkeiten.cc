@@ -82,6 +82,15 @@ void Fertigkeit::get_Fertigkeit()
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
       Vzusatz.push_back(i->getAttr("Name"));
+
+    FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
+         VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
+                              i->getAttr("Spezies"),
+                              i->getAttr("Typ"),
+                              i->getAttr("Beruf"),
+                              i->getAttr("Stand"),
+                              i->getAttr("Standard")));
+
 }
 
 bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 
@@ -121,7 +130,7 @@ int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const
   else return Erfolgswert();
 }
 
-int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
+int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
 {
 //cout << Name()<<" Maximaler Erfolgswert = "<<maxerfolgswert<<'+'
 //  <<AttributBonus(w)<<" Attribut = "<<Attribut()<<'\n';

@@ -51,13 +51,13 @@ void MidgardBasicElement::show_list_in_tree(
   const std::list<cH_MidgardBasicElement>& BasicList,
   SimpleTree *Tree,
   const Grundwerte& Werte, 
-  const vector<cH_Typen>& Typ, const Ausnahmen& ausnahmen,bool clear_me)
+  const vector<cH_Typen>& Typ,bool clear_me)
 {
   if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {
-      datavec.push_back(new Data_SimpleTree(*i,Typ,ausnahmen,Werte));
+      datavec.push_back(new Data_SimpleTree(*i,Typ,Werte));
    }
   Tree->setDataVec(datavec,clear_me);
 }
@@ -117,16 +117,16 @@ bool MidgardBasicElement::ist_gelernt(const std::list<std::string>& L) const
  return false;
 }
 
-std::string MidgardBasicElement::Standard__(const vector<cH_Typen>& Typ,const Ausnahmen& a) const
+std::string MidgardBasicElement::Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
- vector<std::string> s = Standard(Typ,a);
+ vector<std::string> s = Standard(Werte,Typ);
  std::string s2=s[0];
  if(Typ[0]->Short()!="" && Typ[1]->Short()!="") s2+="/";
  if(Typ[1]->Short()!="") s2+=s[1];
  return s2;
 }
 
-vector<std::string> MidgardBasicElement::Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
+vector<std::string> MidgardBasicElement::Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
  assert(Typ.size()==2);
  vector<std::string> s(2);
@@ -134,17 +134,37 @@ vector<std::string> MidgardBasicElement::Standard(const vector<cH_Typen>& Typ,co
    if(Typ[0]->Short()==i->first) {s[0]=i->second; break;}
  for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
    if(Typ[1]->Short()==i->first) {s[1]=i->second; break;}
- ausnahmen.Ausnahmen_string(Name(),s);
+
+ s[0]=AusnahmenString(Werte,Typ[0],s[0]);
+ s[1]=AusnahmenString(Werte,Typ[1],s[1]);
+
  return s;
 }
 
-double MidgardBasicElement::Standard_Faktor(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
+std::string MidgardBasicElement::AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const
 {
-  double fac = ausnahmen.Ausnahmen_float(Name());
-  if (fac!=0) return fac;
-  if      (standard_one_G(Standard(Typ,ausnahmen)) ) fac = 0.5;
-  else if (standard_all_S(Standard(Typ,ausnahmen)) ) fac = 1.0;
-  else { 
+  if(Region()=="") return s;
+  for(std::vector<st_ausnahmen>::const_iterator i=VAusnahmen.begin();i!=VAusnahmen.end();++i)
+   {
+     if( (i->herkunft==""|| i->herkunft==Werte.Herkunft()->Name()) &&
+         (i->spezies ==""|| i->spezies ==Werte.Spezies()->Name())  &&
+         (i->stand   ==""|| i->stand==Werte.Stand())  &&
+         (i->typ     ==""|| i->typ==Typ->Short() ))
+      {
+       return i->standard;
+      }
+   }
+  return s;
+}
+
+
+double MidgardBasicElement::Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+{
+  double fac;
+  if      (standard_one_G(Standard(Werte,Typ)) ) fac = 0.5;
+  else if (standard_all_S(Standard(Werte,Typ)) ) fac = 1.0;
+  else 
+    { 
       fac = 2.0; 
       if (What()==ZAUBER || What()==ZAUBERWERK) fac=5.0;
     }
@@ -168,7 +188,6 @@ bool MidgardBasicElement::standard_all_S(const vector<std::string>& s) const
 }
 
 
-
 int MidgardBasicElement::get_Steigern_Kosten(int erfolgswert) const
 {
 //cout << erfolgswert<<'\t'<<const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert]<<'\t';
@@ -182,32 +201,34 @@ cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
 
-int MidgardBasicElement::Steigern(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
+int MidgardBasicElement::Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
 { 
    int kosten=0;
    if(Erfolgswert()>0)
       kosten = get_Steigern_Kosten(Erfolgswert()+1);
    else 
       kosten = get_Steigern_Kosten(abs(Erfolgswert())-1);
-   int back = int(Standard_Faktor(Typ,ausnahmen)*kosten);
+   int back = int(Standard_Faktor(Werte,Typ)*kosten);
    return back;
 }
-int MidgardBasicElement::Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
+
+int MidgardBasicElement::Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
 {
    int kosten=0;
    if(Erfolgswert()>0)
       kosten = get_Steigern_Kosten(Erfolgswert());
    else 
       kosten = get_Steigern_Kosten(abs(Erfolgswert()));
-   int back = int(Standard_Faktor(Typ,ausnahmen)*kosten);
+   int back = int(Standard_Faktor(Werte,Typ)*kosten);
    return back;
 }
-int MidgardBasicElement::Verlernen(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
+
+int MidgardBasicElement::Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
 //cout << "MidgardBasicElement::Verlernen "<<Name()<<' ' << Reduzieren(Typ,ausnahmen)<<'\n';
-   if(Reduzieren(Typ,ausnahmen)==0)
+   if(Reduzieren(Werte,Typ)==0)
     {
-        return Kosten(Typ,ausnahmen);
+        return Kosten(Werte,Typ);
     }      
    else return 0;
 }
@@ -303,8 +324,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
 void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
 			   const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
-                           const vector<cH_Typen>& Typ,
-                           const Ausnahmen& ausnahmen)
+                           const vector<cH_Typen>& Typ)
 {
   if(b.size()==0) return;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
