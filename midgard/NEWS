@@ -2,7 +2,7 @@
 NEWS IN VERSION 0.7delta3
 - Spezialwaffe versteckt nun die ungelernten Waffen ;-)
 
-TODO:
+TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
@@ -14,6 +14,11 @@ links).
 - Speicherpfad erzeugen wenn nicht existent
 - viewport_lernen durch scrolledwindow_lernen ersetzen? denn dort eingefügte 
 	Widgets haben einen eigenen ViewPort? überall! (auch in pps!)
+- beim Steigern waren Fertigkeiten doppelt ?
+- Laden eines Charakters zeigt dessen Werte nicht an
+- hide der PP steigern Buttons wenn pp nicht angewählt
+- Recode während schreiben von TeX (damit der Quelltext besser lesbar wird)
+- Würfelvarianten für Nichtmenschen!
 
 ##########################################################################
 NEWS IN VERSION 0.7delta2

@@ -74,25 +74,29 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
  const char dirsep='/';
 #endif
  std::string path=hauptfenster->getOptionen()->getString(Midgard_Optionen::speicherpfad);
+ std::string fname=path;
+
+ // path mit / (oder \) beenden, damit der Dateiname einfach dahinter kann
  if (!path.empty() && path[path.size()-1]!=dirsep) path+=dirsep;
  if(ewas==Pix) 
- {  set_filename(W->BeschreibungPix());
-    if (get_filename().empty()) set_filename(path);
+ {  fname=W->BeschreibungPix();
+    if (fname.empty()) fname=path;
  }
  else if (ewas==Save) 
- {  set_filename(hauptfenster->getChar().getFilename());
-    if (get_filename().empty()) 
-       set_filename(path+defFileName(W->Name_Abenteurer())+".magus");
+ {  fname=hauptfenster->getChar().getFilename();
+    if (fname.empty()) 
+       fname=path+defFileName(W->Name_Abenteurer())+".magus";
  }
  else if (ewas==Load) 
- {  set_filename(path);
+ {  // path is ok
  }
  else if (ewas==Export) 
- {  set_filename(path+defFileName(W->Name_Abenteurer())+".txt");
+ {  fname=path+defFileName(W->Name_Abenteurer())+".txt";
  }
+ set_filename(fname);
  
+std::cout << "Dateiname " << fname() << "->" << get_filename() << '\n';
 #ifdef __MINGW32__
-std::cout << "Dateiname " << filename << '\n';
    // TODO was ist mit '\\' am Ende ?
    // TODO path erzeugen?
    
