@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.16 2003/04/23 07:35:50 christof Exp $
+// $Id: midgard_CG_undo.cc,v 1.17 2003/04/29 07:33:56 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,7 @@ void midgard_CG::undosave(std::string s)
 
 void midgard_CG::show_undo_tree()
 {
-  std::vector<Midgard_Undo::st_undo> V=MidgardUndo.get_V();
+  const std::vector<Midgard_Undo::st_undo> &V=MidgardUndo.get_V();
   std::vector<cH_RowDataBase> datavec;
   for(std::vector<Midgard_Undo::st_undo>::const_iterator i=V.begin();i!=V.end();++i)
      datavec.push_back(new Data_Undo(*i));
@@ -72,7 +72,9 @@ static void PosCalc(GtkMenu *menu,gint *x,gint *y,gboolean *push_in,gpointer use
 }
 
 void midgard_CG::on_undo_secondpressed(int mbutton)
-{  if (undo_menu) delete undo_menu;
+{  if (MidgardUndo.get_V().size()!=undo_tree->getModel().getDataVec().size()) 
+      show_undo_tree();
+   if (undo_menu) delete undo_menu;
    undo_menu=new Gtk::Menu();
    const SimpleTreeModel::datavec_t &vec=undo_tree->getModel().getDataVec();
    Midgard_Undo::const_iterator i=MidgardUndo.current_iter();
@@ -90,7 +92,9 @@ void midgard_CG::on_undo_secondpressed(int mbutton)
 }
 
 void midgard_CG::on_redo_secondpressed(int mbutton)
-{  if (undo_menu) delete undo_menu;
+{  if (MidgardUndo.get_V().size()!=undo_tree->getModel().getDataVec().size()) 
+      show_undo_tree();
+   if (undo_menu) delete undo_menu;
    undo_menu=new Gtk::Menu();
    const SimpleTreeModel::datavec_t &vec=undo_tree->getModel().getDataVec();
    Midgard_Undo::const_iterator i=MidgardUndo.current_iter();
