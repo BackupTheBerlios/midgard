@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.29 2001/12/11 08:05:19 christof Exp $
+// $Id: xmlexport.pgcc,v 1.30 2001/12/27 21:20:41 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -38,9 +38,10 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    exec sql allocate descriptor spalten;
    exec sql declare c cursor for
    	select charakter_name, spieler_name, version, grad, 
-   		spezies, geschlecht, typ_s, typ_2_s, spezialisierung,
+   		spezies, geschlecht, typ_s, typ_2_s, 
+   		spezialisierung, stadt_land,
    		st, gw, gs, ko, inn, zt, au, pa, wk,
-   		sb, rw, hgw, b, kaw, wlw, abwehr, zaubern,
+   		sb, rw, hgw, b, kaw, wlw, gg, sg, abwehr, zaubern,
    		resistenz, lpbasis, lp, ap, alter, gestalt,
    		gewicht, groesse, stand, herkunft,
    		glaube, db_bo_au, db_bo_sc, db_bo_an, 
@@ -58,7 +59,7 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    exec sql close c;
    SQLerror::test(__FILELINE__);
    FetchIStream is("spalten");
-   o <<	"<Midgard-Charakter Version=\"7\">\n";
+   o <<	"<Midgard-Charakter Version=\"8\">\n";
    o << "  <Figur";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Spieler");
@@ -71,6 +72,7 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    fetch_and_write_typ_attrib(is, o, "Abkürzung");
    fetch_and_write_typ_attrib(is, o, "Abkürzung2");
    fetch_and_write_string_attrib(is, o, "Spezialisierung");
+   fetch_and_write_string_attrib(is, o, "Stadt_Land"); // ???
    o << "/>\n";
    o << "  <Basiseigenschaften";
    fetch_and_write_int_attrib(is, o, "St");
@@ -90,6 +92,8 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    fetch_and_write_int_attrib(is, o, "B");
    fetch_and_write_int_attrib(is, o, "KAW");
    fetch_and_write_int_attrib(is, o, "WLW");
+   fetch_and_write_int_attrib(is, o, "GG");
+   fetch_and_write_int_attrib(is, o, "SG");
    o << "/>\n";
    o << "  <Erfolgswerte";
    fetch_and_write_int_attrib(is, o, "Abwehr");
