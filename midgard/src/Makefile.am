@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.106 2002/01/31 11:25:27 christof Exp $
+# $Id: Makefile.am,v 1.107 2002/01/31 15:47:25 christof Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -220,6 +220,15 @@ midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	$(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
 	$(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
+
+midgard_exe_LIBS=-lManuProC_Widgets -lManuProC_Base -lGtkmmAddons \
+	-L/usr/local/mingw/local/lib/ -lgtkmm -lgdkmm \
+	-lgtk-1.3 -lgdk-1.3 -lglib-1.3 -lgmodule-1.3 -lgobject-1.3 -lsigc
+
+midgard.exe: $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
+	@rm -f midgard$(EXEEXT)
+	$(CXXLINK) $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_LDADD) \
+		@KOMPONENTEN_LDFLAGS@ $(midgard_exe_LIBS)
 
 else
 
