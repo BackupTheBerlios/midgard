@@ -25,6 +25,7 @@
 #ifdef __MINGW32__
 # include <windows.h>
 # include <commdlg.h>
+#include <gdk/gdkwin32.h>
 #endif
 
 void xml_fileselection::on_ok_button1_clicked()
@@ -66,7 +67,9 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
    strncpy(buf,filename.c_str(),sizeof buf);
    ZeroMemory(&ofn, sizeof (OPENFILENAME));
    ofn.lStructSize = sizeof (OPENFILENAME);
-//   ofn.hwndOwner = hwnd;
+   		// (GTK_WIDGET(h->gtkobj())->window )
+   ofn.hwndOwner = GDK_DRAWABLE_XID(h->get_window().gdkobj()); 
+		// GDK_WINDOW_HWND (win) 2.0
    ofn.lpstrFile = buf;
    ofn.nMaxFile = sizeof buf;
    if (ewas==Export) ofn.lpstrFilter = "Alle Dateien\0*.*\0Textdateien\0*.txt\0";
