@@ -82,9 +82,9 @@ void table_steigern::on_entry_magisch_activate()
       {
        if((*i)->Name()==WB->Name())
         {
-          WB.set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
-          WB.set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());
-          WB.set_Magisch(entry_magisch->get_text());
+          i->set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
+          i->set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());
+          i->set_Magisch(entry_magisch->get_text());
           break;
         }
       }
