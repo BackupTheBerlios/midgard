@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.7 2001/05/19 21:12:17 christof Exp $
+// $Id: xmlimport.pgcc,v 1.8 2001/05/25 08:50:54 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -33,7 +33,7 @@ bool charakter_laden(istream &i)
    {  cerr << "Ist das wirklich die richtige Datei? Ich kann keinen Charakter finden.\n";
       return false;
    }
-   if (top->getInt("Version")<3)
+   if (top->getInt("Version")<3 || top->getInt("Version")>4)
    {  cerr << "Version " << top->getInt("Version") << " wird noch nicht unterstützt\n";
       return false;
    }
@@ -47,9 +47,10 @@ bool charakter_laden(istream &i)
    const Tag *Beschreibung=top->find("Beschreibung");
    const Tag *Boni=top->find("Boni");
    const Tag *Boni_Resistenzen=Boni->find("Resistenzen");
-   const Tag *Vermoegen=top->find("Vermoegen");
-   if (!Vermoegen) Vermoegen=top->find("Vermögen");
-   const Tag *Ruestung=top->find("Ruestung"); // V3-
+   const Tag *Vermoegen=top->find("Vermoegen"); // V3
+   if (!Vermoegen) Vermoegen=top->find("Vermögen"); // V4
+   const Tag *Ruestung=top->find("Ruestung"); // V2?
+   if (!Ruestung) Ruestung=top->find("Rüstung"); // V3
    const Tag *Ausruestung=top->find("Ausrüstung"); // V4+
    if (!Ausruestung) Ausruestung=top->find("Fertigkeiten"); // V3-
    if (!Ruestung) Ruestung=Ausruestung->find("Rüstung"); // V4+
@@ -165,7 +166,8 @@ bool charakter_laden(istream &i)
    db_gold=Vermoegen->getInt("GS",0);
    db_silber=Vermoegen->getInt("SS",0);
    db_kupfer=Vermoegen->getInt("KS",0);
-   strncpy0(db_ruestung,Ruestung->Value().c_str(),sizeof db_ruestung);
+   if (Ruestung) strncpy0(db_ruestung,Ruestung->Value().c_str(),sizeof db_ruestung);
+   else *db_ruestung=0;
    strncpy0(db_spezies,Typ->getString("Spezies").c_str(),sizeof db_spezies);
    
 update:
