@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.58 2003/01/23 15:28:25 thoma Exp $
+// $Id: WindowInfo.cc,v 1.59 2003/04/24 11:51:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,12 +29,12 @@
 #include <gtkmm/main.h>
 #include "midgard_CG.hh"
 #include "Fertigkeiten.hh"
-#include "../pixmaps/Excl-32.xpm"
 #include <gtkmm/button.h>
 #include <gtkmm/table.h>   
 #include <gtkmm/label.h>
 #include <gtkmm/box.h>
 #include <Misc/itos.h>
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 void WindowInfo::on_button_abbrechen_clicked()
 {   
@@ -162,7 +162,7 @@ void WindowInfo::auswahl(int anz)
   Gtk::Table *table_auswahl = manage(new class Gtk::Table(1, anz, true));
   for(int i=0;i<anz;++i)
    {
-     Gtk::Image *p = manage(new class Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Excl_32_xpm)));
+     Gtk::Image *p = manage(new class Gtk::Image(MagusImage("Excl-32.xpm")));
      Gtk::Label  *l = manage(new class Gtk::Label(itos(i+1)+"."));
      Gtk::Button *b = auswahl_button(p,l,i+1);
      table_auswahl->attach(*b, i, i+1, 0, 1, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);

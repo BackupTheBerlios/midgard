@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.45 2003/04/13 20:43:41 christof Exp $
+// $Id: Optionen.hh,v 1.46 2003/04/24 11:51:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,10 +62,10 @@ class Midgard_Optionen
                    };
       struct st_OptionenCheck{OptionenCheckIndex index;std::string text;
                Model<bool> active;
-               const char * const *bild;
+               Glib::RefPtr<Gdk::Pixbuf> bild;
                Model<int> wert; 
                st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a,
-                   const char * const * const b,int w=-1)
+                   Glib::RefPtr<Gdk::Pixbuf>  b,int w=-1)
                   :index(i),text(t),active(a),bild(b),wert(w)
                   {}
                // this is only sensible for push_back!
@@ -73,9 +73,9 @@ class Midgard_Optionen
                	  : index(b.index), text(b.text), active(b.active.get_value()), 
                	  	bild(b.bild), wert(b.wert.get_value()) {}
               };
-      struct st_Haus{HausIndex index;std::string text;const char * const *bild;
+      struct st_Haus{HausIndex index;std::string text;Glib::RefPtr<Gdk::Pixbuf> bild;
                Model<bool> active;
-               st_Haus(HausIndex i,std::string t,const char * const *b,bool a)
+               st_Haus(HausIndex i,std::string t,Glib::RefPtr<Gdk::Pixbuf> b,bool a)
                       :index(i),text(t),bild(b),active(a) {}
                st_Haus(const st_Haus &b)
                      :index(b.index),text(b.text),bild(b.bild),active(b.active.get_value()){}

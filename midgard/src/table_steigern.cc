@@ -12,21 +12,16 @@
 #include "midgard_CG.hh"
 #include "dtos1.h"
 #include "LernListen.hh"
-#include "../pixmaps/Anpass-trans-50.xpm"
-#include "../pixmaps/Anpass-trans-50_invers.xpm"
-#include "../pixmaps/Red-Dice-trans-50.xpm"
-#include "../pixmaps/Red-Dice-trans-50_invers.xpm"
-#include "../pixmaps/EP-Steigern-50.xpm"
 #include <bool_CheckButton.hh>
-
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 void table_steigern::init(midgard_CG *h)
 {
   hauptfenster=h;
   if(LL) delete LL ;
   LL = new LernListen(hauptfenster->getDatabase());
-  flashing_gradanstieg->set(Anpass_trans_50_xpm,Anpass_trans_50_invers_xpm,0);
-  flashing_eigenschaft->set(Red_Dice_trans_50_xpm,Red_Dice_trans_50_invers_xpm,0);
+  flashing_gradanstieg->set(MagusImage("Anpass-trans-50.xpm"),MagusImage("Anpass-trans-50_invers.xpm"),0);
+  flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
 
   zeige_werte();
   load_for_page(notebook_lernen->get_current_page());
@@ -50,7 +45,7 @@ void table_steigern::init(midgard_CG *h)
   if(!only_once)
   {
    only_once=true;
-   bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(EP_Steigern_50_xpm,"Mit EP/PP\nsteigern",false)));
+   bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(MagusImage("EP-Steigern-50.xpm"),"Mit EP/PP\nsteigern",false)));
    _m->set_mode(false);
    _m->signal_toggled().connect(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled),true);
    eventbox_eppp_steigern->add(*_m);

@@ -20,163 +20,34 @@
 #include "MidgardBasicElement.hh" // nur für NotFound
 #include "ProgressBar.h"
 
-#include "../pixmaps/Eschar-trans-50.xpm"
-#include "../pixmaps/KiDo-trans-50.xpm"
-#include "../pixmaps/Regio-DFR-4-50.xpm"
-#include "../pixmaps/Regio_Rawindra-50.xpm"
-#include "../pixmaps/Regio_Alba-50.xpm"
-#include "../pixmaps/Regio_H_u_D-50.xpm"
-#include "../pixmaps/Regio_H_u_D_F-50.xpm"
-#include "../pixmaps/Regio_Gilde-50.xpm"
-#include "../pixmaps/Regio_Nahuatlan-50.xpm"
-#include "../pixmaps/Regio_Waeland-50.xpm"
-#include "../pixmaps/Regio_Arkanum-50.xpm"
-#include "../pixmaps/Abwehr-50.xpm"
-#include "../pixmaps/Eschar-trans-26.xpm"
-#include "../pixmaps/KiDo-trans-26.xpm"
-#include "../pixmaps/Regio-DFR-4-26.xpm"
-#include "../pixmaps/Regio_Rawindra-26.xpm"
-#include "../pixmaps/Regio_Alba-26.xpm"
-#include "../pixmaps/Regio_H_u_D-26.xpm"
-#include "../pixmaps/Regio_H_u_D_F-26.xpm"
-#include "../pixmaps/Regio_Gilde-26.xpm"
-#include "../pixmaps/Regio_Nahuatlan-26.xpm"
-#include "../pixmaps/Regio_Waeland-26.xpm"
-#include "../pixmaps/Regio_Arkanum-26.xpm"
-#include "../pixmaps/Abwehr-26.xpm"
-//#include "../pixmaps/Arkanum-50.xpm"
-#include "../pixmaps/TuT_50.xpm"
-#include "../pixmaps/TuT_26.xpm"
-#include "../pixmaps/pinguin.xpm"
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
-// Ulfs Icons
-#include "../pixmaps/Ulf/ulf_regionen_16_abenteuer.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_alba.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_eschar.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_finstermagier.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_gildenbrief.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_hexenzauber.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_kanthaipan.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_kompendium.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_nahuatlan.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_rawindra.xpm"
-#include "../pixmaps/Ulf/ulf_regionen_16_waeland.xpm"
+Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
+{  std::string name="pinguin.xpm";
+   if      (typ==Eschar)     name="Eschar-trans-50.xpm";
+   else if (typ==KanThaiPan) name="KiDo-trans-50.xpm";
+   else if (typ==DFR)        name="Regio-DFR-4-50.xpm";
+   else if (typ==Rawindra)   name="Regio_Rawindra-50.xpm";
+   else if (typ==Alba)       name="Regio_Alba-50.xpm";
+   else if (typ==Waeland)    name="Regio_Waeland-50.xpm";
+   else if (typ==Nahuatlan)  name="Regio_Nahuatlan-50.xpm";
+   else if (typ==Arkanum)    name="Regio_Arkanum-50.xpm";
+   else if (typ==Gildenbrief)name="Regio_Gilde-50.xpm";
+   else if (typ==HD)         name="Regio_H_u_D-50.xpm";
+   else if (typ==HD_finster) name="Regio_H_u_D_F-50.xpm";
+   else if (typ==Tipps_und_Tricks)  name="TuT-50.xpm";
+   else if (typ==Abenteuer)  name="Abwehr-50.xpm";
 
-
+   Glib::RefPtr<Gdk::Pixbuf> res=MagusImage(name);
+   if (tiny && ii!=Midgard_Optionen::Ulf)
+      res=res.scale_simple(int(res->get_width()*26.0/res->get_height()+.5),
+      				26,Gdk::INTERP_BILINEAR);
+   return res;
+}
 
 Gtk::Image *RegionenPic::Pic(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
-{  
- if(ii==Midgard_Optionen::Ulf)
- {
-   if      (typ==Eschar)     return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_eschar_xpm)));
-   else if (typ==KanThaiPan) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_kanthaipan_xpm)));
-   else if (typ==DFR)        return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_DFR_4_26_xpm)));
-   else if (typ==Rawindra)   return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_rawindra_xpm)));
-   else if (typ==Alba)       return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_alba_xpm)));
-   else if (typ==Waeland)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_waeland_xpm)));
-   else if (typ==Nahuatlan)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_nahuatlan_xpm)));
-   else if (typ==Arkanum)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Arkanum_26_xpm)));
-   else if (typ==Gildenbrief)return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_gildenbrief_xpm)));
-   else if (typ==HD)         return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_hexenzauber_xpm)));
-   else if (typ==HD_finster) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_finstermagier_xpm)));
-   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_kompendium_xpm)));
-   else if (typ==Abenteuer)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_abenteuer_xpm)));
- }
- else 
- {
- if(!tiny)
-  {
-   if      (typ==Eschar)     return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Eschar_trans_50_xpm)));
-   else if (typ==KanThaiPan) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(KiDo_trans_50_xpm)));
-   else if (typ==DFR)        return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_DFR_4_50_xpm)));
-   else if (typ==Rawindra)   return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Rawindra_50_xpm)));
-   else if (typ==Alba)       return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Alba_50_xpm)));
-   else if (typ==Waeland)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Waeland_50_xpm)));
-   else if (typ==Nahuatlan)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Nahuatlan_50_xpm)));
-   else if (typ==Arkanum)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Arkanum_50_xpm)));
-   else if (typ==Gildenbrief)return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Gilde_50_xpm)));
-   else if (typ==HD)         return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_H_u_D_50_xpm)));
-   else if (typ==HD_finster) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_H_u_D_F_50_xpm)));
-   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(TuT_50_xpm)));
-   else if (typ==Abenteuer)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Abwehr_50_xpm)));
-  }
- else
-  {
-   if      (typ==Eschar)     return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Eschar_trans_26_xpm)));
-   else if (typ==KanThaiPan) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(KiDo_trans_26_xpm)));
-   else if (typ==DFR)        return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_DFR_4_26_xpm)));
-   else if (typ==Rawindra)   return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Rawindra_26_xpm)));
-   else if (typ==Alba)       return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Alba_26_xpm)));
-   else if (typ==Waeland)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Waeland_26_xpm)));
-   else if (typ==Nahuatlan)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Nahuatlan_26_xpm)));
-   else if (typ==Arkanum)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Arkanum_26_xpm)));
-   else if (typ==Gildenbrief)return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Gilde_26_xpm)));
-   else if (typ==HD)         return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_H_u_D_26_xpm)));
-   else if (typ==HD_finster) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_H_u_D_F_26_xpm)));
-   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(TuT_26_xpm)));
-   else if (typ==Abenteuer)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Abwehr_26_xpm)));
-  }
- }
- return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(pinguin_xpm)));
+{  return manage(new Gtk::Image(PicModel(typ,ii,tiny)));
 }
-
-const char* const *RegionenPic::PicModel(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
-{  
- if(ii==Midgard_Optionen::Ulf)
- {
-   if      (typ==Eschar)     return ulf_regionen_16_eschar_xpm;
-   else if (typ==KanThaiPan) return ulf_regionen_16_kanthaipan_xpm;
-   else if (typ==DFR)        return Regio_DFR_4_26_xpm;
-   else if (typ==Rawindra)   return ulf_regionen_16_rawindra_xpm;
-   else if (typ==Alba)       return ulf_regionen_16_alba_xpm;
-   else if (typ==Waeland)    return ulf_regionen_16_waeland_xpm;
-   else if (typ==Nahuatlan)  return ulf_regionen_16_nahuatlan_xpm;
-   else if (typ==Arkanum)    return Regio_Arkanum_26_xpm;
-   else if (typ==Gildenbrief)return ulf_regionen_16_gildenbrief_xpm;
-   else if (typ==HD)         return ulf_regionen_16_hexenzauber_xpm;
-   else if (typ==HD_finster) return ulf_regionen_16_finstermagier_xpm;
-   else if (typ==Tipps_und_Tricks) return ulf_regionen_16_kompendium_xpm;
-   else if (typ==Abenteuer)  return ulf_regionen_16_abenteuer_xpm;
- }
- else 
- {
- if(!tiny)
-  {
-   if      (typ==Eschar)     return Eschar_trans_50_xpm;
-   else if (typ==KanThaiPan) return KiDo_trans_50_xpm;
-   else if (typ==DFR)        return Regio_DFR_4_50_xpm;
-   else if (typ==Rawindra)   return Regio_Rawindra_50_xpm;
-   else if (typ==Alba)       return Regio_Alba_50_xpm;
-   else if (typ==Waeland)    return Regio_Waeland_50_xpm;
-   else if (typ==Nahuatlan)  return Regio_Nahuatlan_50_xpm;
-   else if (typ==Arkanum)    return Regio_Arkanum_50_xpm;
-   else if (typ==Gildenbrief)return Regio_Gilde_50_xpm;
-   else if (typ==HD)         return Regio_H_u_D_50_xpm;
-   else if (typ==HD_finster) return Regio_H_u_D_F_50_xpm;
-   else if (typ==Tipps_und_Tricks)  return TuT_50_xpm;
-   else if (typ==Abenteuer)  return Abwehr_50_xpm;
-  }
- else
-  {
-   if      (typ==Eschar)     return Eschar_trans_26_xpm;
-   else if (typ==KanThaiPan) return KiDo_trans_26_xpm;
-   else if (typ==DFR)        return Regio_DFR_4_26_xpm;
-   else if (typ==Rawindra)   return Regio_Rawindra_26_xpm;
-   else if (typ==Alba)       return Regio_Alba_26_xpm;
-   else if (typ==Waeland)    return Regio_Waeland_26_xpm;
-   else if (typ==Nahuatlan)  return Regio_Nahuatlan_26_xpm;
-   else if (typ==Arkanum)    return Regio_Arkanum_26_xpm;
-   else if (typ==Gildenbrief)return Regio_Gilde_26_xpm;
-   else if (typ==HD)         return Regio_H_u_D_26_xpm;
-   else if (typ==HD_finster) return Regio_H_u_D_F_26_xpm;
-   else if (typ==Tipps_und_Tricks) return TuT_26_xpm;
-   else if (typ==Abenteuer)  return Abwehr_26_xpm;
-  }
- }
- return pinguin_xpm;
-}
-
-
 
 cH_Region::cache_t cH_Region::cache;
 

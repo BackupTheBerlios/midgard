@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.34 2002/12/12 09:59:35 christof Exp $               
+// $Id: Region.hh,v 1.35 2003/04/24 11:51:00 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -39,7 +39,7 @@ class RegionenPic
               Nahuatlan,Arkanum,DFR,Meister_der_Sphaeren,Tipps_und_Tricks,
               Abenteuer,HD_finster,Kuestenstaaten,Ikengabecken};
    static Gtk::Image* Pic(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
-   static const char * const * PicModel(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
+   static Glib::RefPtr<Gdk::Pixbuf> PicModel(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
 };
 
 
@@ -53,8 +53,8 @@ class Region  : public HandleContent
    RegionenPic::epic pic;
    bool offiziell;
    mutable Model<bool> active;
-   mutable Model<const char* const *> region_pix;
-   mutable Model<const char* const *> region_pix_small;
+   mutable Model<Glib::RefPtr<Gdk::Pixbuf> > region_pix;
+   mutable Model<Glib::RefPtr<Gdk::Pixbuf> > region_pix_small;
 
   public:
    Region(const Tag *tag);
@@ -73,10 +73,10 @@ class Region  : public HandleContent
    std::string Jahr() const {return jahr;}
    bool Offiziell() const {return offiziell;}
    RegionenPic::epic Pic() const {return pic;}
-   void setRegionPix(const char * const *c) const {region_pix=c;}
-   Model<const char* const *> &RegionPix() const {return region_pix;}
-   void setRegionPixSmall(const char * const *c) const {region_pix_small=c;}
-   Model<const char* const *> &RegionPixSmall() const {return region_pix_small;}
+   void setRegionPix(Glib::RefPtr<Gdk::Pixbuf> c) const {region_pix=c;}
+   Model<Glib::RefPtr<Gdk::Pixbuf> > &RegionPix() const {return region_pix;}
+   void setRegionPixSmall(Glib::RefPtr<Gdk::Pixbuf> c) const {region_pix_small=c;}
+   Model<Glib::RefPtr<Gdk::Pixbuf> > &RegionPixSmall() const {return region_pix_small;}
 
    bool operator==(const Region& b) const {return Name()==b.Name();}
 
