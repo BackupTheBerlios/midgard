@@ -2,15 +2,15 @@
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="nach Verflucht" Grad="8"/>
+  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="nach Strandpiraten" Grad="8"/>
   <Typ Spezies="Halbelfe" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand="Rechtshänderin"/>
   <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="6"/>
-  <Erfolgswerte Abwehr="15" Zaubern="17" ZauberResistenz="13"/>
-  <Gesundheit LP="16" AP="39"/>
-  <Beschreibung Alter="29" Gestalt="breit" Gewicht="69" Größe="161" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Vermögen GS="3"/>
-  <Steigern GFP="16343" AEP="25" EPproGFP="33" benötigte_Tage="165.24">
+  <Erfolgswerte Abwehr="15" Zaubern="17" ZauberResistenz="14"/>
+  <Gesundheit LP="16" AP="34"/>
+  <Beschreibung Alter="29" Gestalt="schlank" Gewicht="69" Größe="161" Stand="Mittelschicht" Merkmale="weiße Haare, permanent -4AP" Herkunft="Erainn" Glaube="Kebechet"/>
+  <Vermögen GS="1827" SS="4"/>
+  <Steigern GFP="16393" AEP="603" EPproGFP="0" benötigte_Tage="195.24">
    <Praxispunkte Zaubern="2" Spezial="3" Resistenz="1"/>
   </Steigern>
   <Text/>
@@ -39,9 +39,9 @@
    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
    <Beruf Bezeichnung="Gelehrte" Wert="14"/>
    <ang-Fertigkeit Bezeichnung="Geschmacksschwäche"/>
-   <ang-Fertigkeit Bezeichnung="Nachtsicht"/>
+   <ang-Fertigkeit Bezeichnung="Nachtsicht" Wert="8"/>
    <Fertigkeit Bezeichnung="Erste Hilfe" Wert="12"/>
-   <Fertigkeit Bezeichnung="Heilkunde" Wert="11"/>
+   <Fertigkeit Bezeichnung="Heilkunde" Wert="11" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="Kamelreiten" Wert="12"/>
    <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
    <Fertigkeit Bezeichnung="Kräuterkunde" Wert="11" Praxispunkte="1"/>
@@ -59,11 +59,12 @@
    <Fertigkeit Bezeichnung="TaiTschi"/>
    <Fertigkeit Bezeichnung="Tierkunde" Wert="8" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
-   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6" Praxispunkte="2"/>
    <Fertigkeit Bezeichnung="YangScheng" Wert="4"/>
-   <Fertigkeit Bezeichnung="Zauberkunde" Wert="10" Praxispunkte="3"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="10" Praxispunkte="4"/>
    <Fertigkeit Bezeichnung="Zaubern"/>
    <Waffe Bezeichnung="Magierstab" Wert="9"/>
+   <Zauber Bezeichnung="Person wiederfinden"/>
    <Zauber Bezeichnung="Allheilung"/>
    <Zauber Bezeichnung="Austreibung des Bösen"/>
    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
@@ -89,7 +90,6 @@
    <Zauber Bezeichnung="Heranholen"/>
    <Zauber Bezeichnung="Hören von Fernem"/>
    <Zauber Bezeichnung="Lähmung"/>
-   <Zauber Bezeichnung="Laufen wie der Wind"/>
    <Zauber Bezeichnung="Lehrersuche"/>
    <Zauber Bezeichnung="Lindern von Entkräftung"/>
    <Zauber Bezeichnung="Liniensicht"/>
@@ -127,6 +127,7 @@
    <Sprache Bezeichnung="Meketisch" Wert="13"/>
    <Sprache Bezeichnung="Moravisch" Wert="13"/>
    <Sprache Bezeichnung="Nahuatlanisch" Wert="6"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="10"/>
    <Sprache Bezeichnung="Scharidisch" Wert="10"/>
    <Sprache Bezeichnung="Sritrasprache" Wert="16"/>
    <Sprache Bezeichnung="Twyneddisch" Wert="4"/>
@@ -142,6 +143,7 @@
    <Urschrift Bezeichnung="Comentang" Wert="8"/>
    <Urschrift Bezeichnung="Zwergenrunen Futhark" Wert="8"/>
    <Urschrift Bezeichnung="Eldalyn" Wert="8"/>
+   <Urschrift Bezeichnung="Neu-Vallinga" Wert="8"/>
   </Fertigkeiten>
   <Optionen>
    <Region Name="Kompendium" Region="TuT"/>
