@@ -8,7 +8,7 @@ NEWS IN VERSION 0.7.6
 * Accelerators (Tastaturabkürzungen) für Menü eingebaut
 * 'Spezies/Typ' setzen bei Auswahl, nicht erst beim verlassen des Focus.
 * Muttersprache direkt nach dem Heimatland
-
+* Auswahl des 'Überlebens' nicht mehr nach 'Gastlandsprache'
 
 TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,

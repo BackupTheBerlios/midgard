@@ -380,8 +380,11 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   set_zusatz_sensitive(false);
   zeige_werte();  
   show_gelerntes();
-  MidgardBasicElement_mutable dummy=hauptfenster->getWerte().Ueberleben();
-  lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
+  if(dt->getMBE()->Name()=="Muttersprache")
+   {
+     MidgardBasicElement_mutable dummy=hauptfenster->getWerte().Ueberleben();
+     lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
+   }
 }
 
 gint table_lernschema::on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev)
