@@ -21,10 +21,14 @@ class window_Ausruestung : public window_Ausruestung_glade
         midgard_CG::st_Database Database;
         
         friend class window_Ausruestung_glade;
+        void fill_preisliste();
         void fill_optionmenu_art();
         void fill_optionmenu_typ();
+        void opt_art();
+        void opt_typ();
         void on_button_close_clicked();
         void on_button_druck_clicked();
+        void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event); 
    public:
         window_Ausruestung(const midgard_CG::st_Database& dat);
 };

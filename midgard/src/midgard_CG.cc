@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.86 2001/11/21 09:45:17 thoma Exp $
+// $Id: midgard_CG.cc,v 1.87 2001/11/26 07:22:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -76,7 +76,9 @@ void midgard_CG::get_Database()
                            Typen_All(MI->get_progressbar_typen()).get_All(),
                            Grad_anstieg(MI->get_progressbar_grad()),
                            Spezialgebiet_All(MI->get_progressbar_spezial()).get_All(),
-                           Praxispunkte(MI->get_progressbar_praxispunkte()));
+                           Praxispunkte(MI->get_progressbar_praxispunkte()),
+                           Preise_All(MI->get_progressbar_praxispunkte()).get_All(),
+                           PreiseMod_All(MI->get_progressbar_praxispunkte()).get_All());
    MI->on_button_close_clicked();
 }
 

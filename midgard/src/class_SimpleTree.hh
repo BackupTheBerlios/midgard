@@ -10,13 +10,13 @@
 #include <Schrift.hh>
 #include <rowdata.h>
 
-class Data_fert : public RowDataBase
+class Data_SimpleTree : public RowDataBase
 {
    cH_MidgardBasicElement MBE;
    vector<cH_Typen> Typ;
    Ausnahmen ausnahmen;
  public:
-   Data_fert(const cH_MidgardBasicElement& _MBE,const vector<cH_Typen>& _Typ, 
+   Data_SimpleTree(const cH_MidgardBasicElement& _MBE,const vector<cH_Typen>& _Typ, 
          const Ausnahmen& _ausnahmen) 
    : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen) {}
 
@@ -158,12 +158,12 @@ class Data_fert : public RowDataBase
 
 };
 
-class H_Data_fert : public Handle<Data_fert>
+class H_Data_SimpleTree : public Handle<Data_SimpleTree>
 {
 //protected:
-// H_Data_fert() {}
+// H_Data_SimpleTree() {}
 public:
- H_Data_fert(Data_fert *r) : Handle<Data_fert>(r) {}
+ H_Data_SimpleTree(Data_SimpleTree *r) : Handle<Data_SimpleTree>(r) {}
 };
 
 

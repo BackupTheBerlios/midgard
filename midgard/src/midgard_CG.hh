@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.97 2001/11/21 09:45:17 thoma Exp $
+// $Id: midgard_CG.hh,v 1.98 2001/11/26 07:22:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,7 @@
 #include "Praxispunkte.hh"
 #include "Lernschema.hh"
 #include "Beruf.hh"
-
+#include "Preise.hh"
 class Random;
 
 extern bool Originalbool;
@@ -106,6 +106,8 @@ class midgard_CG : public midgard_CG_glade
                              Grad_anstieg GradAnstieg;
                              std::vector<cH_Spezialgebiet> Spezialgebiet;
                              Praxispunkte praxispunkte;
+                             std::list<cH_Preise> preise;
+                             std::list<cH_PreiseMod> preisemod;
                st_Database(){}
                st_Database(std::vector<cH_Land> L,
                            std::vector<cH_Ruestung> R,
@@ -127,7 +129,9 @@ class midgard_CG : public midgard_CG_glade
                            std::vector<cH_Typen> T,
                            Grad_anstieg GA,
                            std::vector<cH_Spezialgebiet> SP,
-                           Praxispunkte px )
+                           Praxispunkte px,
+                           std::list<cH_Preise> pr,
+                           std::list<cH_PreiseMod> prm )
                            : Laender(L),Ruestung(R),lernschema(l),
                              Beruf(B),Fertigkeit_ang(Fa),
                              Fertigkeit(F),WaffeGrund(WG),Waffe(W),
@@ -136,7 +140,8 @@ class midgard_CG : public midgard_CG_glade
                              Kido(K),Sprache(Sp),Schrift(Sc),
                              pflicht(p),ausnahmen(a),Spezies(S),
                              Typen(T),GradAnstieg(GA),
-                             Spezialgebiet(SP),praxispunkte(px) {}
+                             Spezialgebiet(SP),praxispunkte(px),
+                             preise(pr),preisemod(prm) {}
                            };
    private:
         friend class midgard_CG_glade;
