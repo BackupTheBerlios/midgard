@@ -78,6 +78,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
      case MidgardBasicElement::ZNone : break;
    }
  Tree_Lernschema_Zusatz->setDataVec(datavec);
+ tree_lernschema->set_sensitive(false);
  frame_lernschema_zusatz->show();
 }
 
@@ -114,6 +115,7 @@ void midgard_CG::on_herkunft_leaf_selected(cH_RowDataBase d)
    }
   Werte.setHerkunft(dt->getLand());
   frame_lernschema_zusatz->hide();
+  tree_lernschema->set_sensitive(true);
   zeige_werte(Werte);  
   button_angeborene_fert->set_sensitive(true);
   button_herkunft->set_sensitive(false);
@@ -121,6 +123,7 @@ void midgard_CG::on_herkunft_leaf_selected(cH_RowDataBase d)
 
 void midgard_CG::on_zusatz_leaf_selected(cH_RowDataBase d)
 {
+  tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   cH_MidgardBasicElement MBE=dt->getMBE();
   MBE->setZusatz(dt->getZusatz());

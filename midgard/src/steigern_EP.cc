@@ -133,7 +133,12 @@ bool midgard_CG::steigern_usp(int kosten,const cH_MidgardBasicElement* MBE, e_wa
   // genug EP?
   bool bkep=false,bzep=false;
   int womit;
-  if(MBE) womit = (*MBE)->Steigern_mit_EP();
+  if     (MBE && (*MBE)->What()==MidgardBasicElement::WAFFE) womit = 1;
+  else if(MBE && (*MBE)->What()==MidgardBasicElement::WAFFEGRUND) womit = 1;
+  else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) womit = 2;
+  else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBERWERK) womit = 2;
+  else if(MBE && (*MBE)->What()==MidgardBasicElement::KIDO) womit = 3;
+  else if(MBE) womit = (*MBE)->Steigern_mit_EP();
   else if (was==Ausdauer) womit=3;
   else if (was==Zaubern) womit=2;
   else if (was==Resistenz) womit=3;
