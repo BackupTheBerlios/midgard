@@ -93,7 +93,13 @@ class Data_SimpleTree : public RowDataBase
              else
                 return cH_EntryValueIntString(MBE->Erfolgswert());
            }
-         case LERNKOSTEN : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case LERNKOSTEN : 
+          {
+             if(MBE->What()==MidgardBasicElement::WAFFE)
+                return cH_EntryValueEmptyInt(0);//MBE->Steigern(Typ,ausnahmen)); 
+             else
+                return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+          }
          case ART : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
          case VORAUSSETZUNGEN : 
            {

@@ -81,11 +81,11 @@ void Schrift::get_Schrift()
   kult=db_kult;
 #else // USE_XML
   assert(tag);
-  art_der_schrift=db_art;
-  region=db_region;
-  kosten=db_fp;
-  alt=db_alt;
-  kult=db_kult;
+  art_der_schrift=;
+  region=tag->getAttr("Region");
+  kosten=tag->getIntAttr("Kosten");
+  alt=tag->getBoolAttr("alte_Schrift");
+  kult=tag->getBoolAttr("Kultschrift");;
 #endif 
 }
 

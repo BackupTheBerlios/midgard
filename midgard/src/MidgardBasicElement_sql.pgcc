@@ -44,9 +44,10 @@ void MidgardBasicElement::get_map_typ()
  if(What()==FERTIGKEIT )
     squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
  if(What()==WAFFEGRUND)
-    squery ="select typ,standard from waffen_typen where name ='"+Name()+"'";
+    squery ="select typ,standard from waffen_grund_typen where name ='"+Name()+"'";
  if(What()==WAFFE)
-    squery ="select typ,standard from waffen_typen where name ='"+dynamic_cast<Waffe*>(this)->Grundkenntnis()+"'";
+    squery ="select typ,standard from waffen_typen where name ='"+Name()+"'";
+//    squery ="select typ,standard from waffen_typen where name ='"+dynamic_cast<Waffe*>(this)->Grundkenntnis()+"'";
  if(What()==SPRACHE)
     squery ="select typ,standard from fertigkeiten_typen where name ='Sprache'";
  if(What()==SCHRIFT)

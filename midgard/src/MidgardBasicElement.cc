@@ -142,6 +142,7 @@ double MidgardBasicElement::Standard_Faktor(const vector<cH_Typen>& Typ,const Au
       fac = 2.0; 
       if (What()==ZAUBER || What()==ZAUBERWERK) fac=5.0;
     }
+//cout <<Name()<<' ' <<"StandardFaktor = "<<fac<<"  Grundkosten= "<<GrundKosten()<<'\n';
   return fac;
 }
 

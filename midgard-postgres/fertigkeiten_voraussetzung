@@ -67,7 +67,7 @@ Gaukeln	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12
 Geheimmechanismen öffnen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Geheimzeichen	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Geländelauf	\N	31	\N	\N	\N	\N	\N	\N	0	\N	\N
-Geomantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie	\N
+Geomantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Zaubern	\N
 Geschenke machen	\N	\N	\N	61	\N	\N	61	\N	\N		\N
 Geschäftstüchtigkeit	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Giftmischen	\N	0	\N	61	\N	\N	\N	\N	\N	\N	31
@@ -99,12 +99,12 @@ Kriegsbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Körperbemalung	\N
 Kräuterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 KujKuri	\N	21	\N	31	\N	\N	\N	\N	\N		\N
 KujNoIu	\N	31	\N	\N	\N	\N	\N	\N	\N	Th	\N
-Körperbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Wissen von der Magie	\N
+Körperbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Zaubern	\N
 Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	\N	\N	\N
 Landeskunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Landeskunde (Heimat)	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Lanzenstechen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kampf zu Pferd, Lanze	\N
-Laufen	31	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
+Laufen	\N	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Lesen von Zauberschrift	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 LiYao	\N	61	\N	61	\N	\N	\N	\N	\N		\N
 Lippenlesen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
@@ -122,7 +122,7 @@ Natya	\N	61	\N	\N	\N	\N	61	31	\N	Tanzen	\N
 NinJutsu	\N	61	\N	\N	\N	\N	\N	\N	\N		\N
 Orakelkunst	\N	\N	\N	61	61	\N	\N	\N	\N		\N
 Pflanzenkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
-Pyromantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie	\N
+Pyromantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Zaubern	\N
 Rechnen	\N	\N	\N	81	\N	\N	\N	\N	\N	\N	\N
 Reiten	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Rudern	21	0	0	\N	\N	\N	\N	\N	\N	\N	21
@@ -168,7 +168,7 @@ Stimmen nachahmen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Streitwagen lenken	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	21
 Suchen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	31
 TaiTschi	\N	21	\N	\N	\N	\N	\N	21	\N	\N	\N
-Talisman verzaubern	\N	31	\N	\N	\N	\N	\N	\N	\N	Wissen von der Magie	\N
+Talisman verzaubern	\N	31	\N	\N	\N	\N	\N	\N	\N	Zaubern	\N
 Tanzen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Tarnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Tauchen	\N	31	61	\N	\N	\N	\N	\N	\N	\N	\N

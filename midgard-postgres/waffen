@@ -58,7 +58,7 @@ Kampfstab	31	\N	61	Kampfstab	7	Angriff	W6	0	E	\N	0	+2	\N	\N	\N	\N	\N	\N	\N	\N
 Katana	31	\N	21	ZSchwert	5	Angriff	W6	1	E	\N	\N	\N		K	\N	\N	\N	\N	\N	\N
 Keule	\N	\N	\N	ESchlagwaffe	1	Angriff	W6	-1	E	\N	0	+2	\N	\N	\N	\N	\N	\N	\N	1
 Kharrata	21	\N	81	Kharrata	3	Angriff	2W6	\N	E	\N	\N	\N	\N		\N	\N	\N	\N	\N	\N
-Kompositbogen	61	\N	31	Bögen	5	Schußwaffe	W6	1	S	\N	\N	\N	\N	\N	0	30	120	200	\N	\N
+Kompositbogen	61	\N	61	Bögen	5	Schußwaffe	W6	1	S	\N	\N	\N	\N	\N	0	30	120	200	\N	\N
 Kriegsflegel	61	\N	31	Kettenwaffe	5	Angriff	2W6	-1	Z	-3	+2	-2	\N	\N	\N	\N	\N	\N	\N	\N
 Kriegshammer	61	\N	11	ESchlagwaffe	2	Angriff	W6	0	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Krummsäbel	31	\N	11	ESchwert	3	Angriff	W6(+1)	0	E	\N	0/-2	0/0	\N	\N	\N	\N	\N	\N	\N	\N
