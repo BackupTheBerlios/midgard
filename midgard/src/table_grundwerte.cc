@@ -129,4 +129,5 @@ void table_grundwerte::neuer_charakter()
    combo_typ ->get_entry()->set_text(hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
    combo_typ2->get_entry()->set_text(hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
    zeige_werte();
+   hauptfenster->getChar().safed();
 }
