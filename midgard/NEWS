@@ -13,8 +13,11 @@ NEWS IN VERSION 0.4delta1
 * Geheimzeichen mit Zusatz (so wie Landeskunde)
 * Info Fenster mit memory (Komplett neues Konzept)
 * Zaubern lernen nur mit Abfrage
+* Icon für die 'Helfer'
+
 
 TODO:
+* Typen alphabetisch und mit anderem Namen auf C-Blatt
 * Geheimzeichen-Liste nicht gefüllt.
 * Zaubern nicht mehr anzeigen, nach dem lernen
 * Pflicht lernen kennzeichnen
