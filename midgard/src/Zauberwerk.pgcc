@@ -27,7 +27,7 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,cons
 
 #ifdef USE_XML
 cH_Zauberwerk::cH_Zauberwerk(const Tag *tag)
-{*this=cH_Zauber(new Zauberwerk(tag));
+{*this=cH_Zauberwerk(new Zauberwerk(tag));
  cache.Register(st_index(tag->getAttr("Name"),tag->getAttr("Art"),
  		tag->getAttr("Stufe")),*this);
 }
