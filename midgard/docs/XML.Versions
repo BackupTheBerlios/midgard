@@ -51,4 +51,7 @@ Version 9:
 	
 	<Region Region="ORIG"/> -> <bool ORIG="false"/>
 	<Region Region="A"/> -> <Region Name="Alba" Region="A"/>
-	
+
+Version 10:
+	MidgardCG -> MAGUS
+	Charakter -> Abenteurer
