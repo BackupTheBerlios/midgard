@@ -158,4 +158,3 @@ void table_grundwerte::neuer_charakter()
 #include <Misc/Trace.h>
 const UniqueValue::value_t table_grundwerte::trace_channel
                   =ManuProC::Tracer::channels.get();
-                  
