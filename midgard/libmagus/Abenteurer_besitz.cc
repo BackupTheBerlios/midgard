@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.2 2003/05/07 09:50:18 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -18,7 +18,7 @@
  */
 
 #include "Abenteurer.hh"
-#include "dtos1.h"
+#include <iostream>
 
 void rekursiv(const std::list<AusruestungBaum> &AB, double &last,double &GG)
 {

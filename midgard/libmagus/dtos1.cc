@@ -1,5 +1,6 @@
+// $Id: dtos1.cc,v 1.1 2003/05/07 09:50:18 christof Exp $
 /*  Midgard Character Generator
- *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,26 +17,18 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include "dtos1.h"
+#include <cstdio>
 
-#include "Ausruestung.hh"
-#include <Misc/itos.h>
-#include <dtos1.h>
+#ifdef __MINGW32__
+extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
+#endif
 
-std::string Ausruestung::SAnzahl() const
+std::string dtos1(double i)
 {
- if(anzahl) 
-   {
-     return itos(anzahl)+"$\\times$ ";
-   }
- return "";
+ char buffer[100];
+ snprintf(buffer,sizeof buffer,"%.1f",i);
+ return(buffer);
 }
 
-
-std::string Ausruestung::SGewicht() const
-{
-  std::string gewicht;
-  if(Gewicht()!=0) gewicht= dtos1(Gewicht())+" kg" ;
-  return gewicht;
-}
-
-
+   
