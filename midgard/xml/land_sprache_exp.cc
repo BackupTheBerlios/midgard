@@ -1,6 +1,6 @@
-// $Id: land_sprache_exp.cc,v 1.36 2002/06/06 08:41:40 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.37 2002/06/06 14:14:24 christof Exp $
 /*  Midgard Roleplaying Character Generator
- *  Copyright (C) 2001 Christof Petig
+ *  Copyright (C) 2001-2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <fstream>
 #include <Aux/Transaction.h>
 #include <Aux/dbconnect.h>
 #include "export_common.h"
@@ -186,31 +185,29 @@ void land_speichern(Tag &o)
 
 //******************************************************************
   if (region.empty())
-  {o << " <Gradanstieg>\n";
+  {Tag &Gradanstieg=o.push_back(Tag("Gradanstieg"));
    Query query("select grad, gfp, abwehr, resistenz, zaubern, schicksalsgunst,"
    	" ap_kosten, abwehr_kosten, resistenz_kosten, zaubern_kosten"
    	" from grad_anstieg"
    	" order by grad");
   while ((query>>is).good())
-  {o << "  <Grad";
-   fetch_and_set_int_attrib(is, o, "Grad");
-   fetch_and_set_int_attrib(is, o, "GFP");
-   fetch_and_set_int_attrib(is, o, "Abwehr");
-   fetch_and_set_int_attrib(is, o, "Resistenz");
-   fetch_and_set_int_attrib(is, o, "Zaubern");
-   fetch_and_set_int_attrib(is, o, "Schicksalsgunst");
-   o << "><Kosten";
-   fetch_and_set_int_attrib(is, o, "Ausdauer");
-   fetch_and_set_int_attrib(is, o, "Abwehr");
-   fetch_and_set_int_attrib(is, o, "Resistenz");
-   fetch_and_set_int_attrib(is, o, "Zaubern");
-   o << "/></Grad>\n";
+  {Tag &g=Gradanstieg.push_back(Tag("Grad"));
+   fetch_and_set_int_attrib(is, g, "Grad");
+   fetch_and_set_int_attrib(is, g, "GFP");
+   fetch_and_set_int_attrib(is, g, "Abwehr");
+   fetch_and_set_int_attrib(is, g, "Resistenz");
+   fetch_and_set_int_attrib(is, g, "Zaubern");
+   fetch_and_set_int_attrib(is, g, "Schicksalsgunst");
+   Tag &k=g.push_back(Tag("Kosten"));
+   fetch_and_set_int_attrib(is, k, "Ausdauer");
+   fetch_and_set_int_attrib(is, k, "Abwehr");
+   fetch_and_set_int_attrib(is, k, "Resistenz");
+   fetch_and_set_int_attrib(is, k, "Zaubern");
   }
-   o << " </Gradanstieg>\n";
  }
 
 //********************** typen ****************************************
-   o << " <Typen>\n";
+   Tag &Typen=o.push_back(Tag("Typen"));
   {Query query("select typs, region, typnr, typl, typlw, "
   		"typz, sprueche_mit_pp, nsc_only,kultwaffe, st,gw,gs,\"in\",pa ,beruf, "
   		"stadt_land, ausdauer, stand, sb, ruestung, geld "
@@ -218,43 +215,40 @@ void land_speichern(Tag &o)
    	" where coalesce(region,'')='"+region+"'"
    	" order by typnr,coalesce(region,''),typs");
   while ((query>>is).good())
-  {o << "  <Typ";
-   fetch_and_set_typ_attrib(is, o, "Abkürzung");
-   fetch_and_set_string_attrib(is, o, "Region");
-   fetch_and_set_int_attrib(is, o, "MAGUS-Index");
-   fetch_and_set_string_attrib(is, o, "Bezeichnung-Mann");
-   fetch_and_set_string_attrib(is, o, "Bezeichnung-Frau");
-   o << "\n       ";
+  {Tag &Typ=Typen.push_back(Tag("Typ"));
+   fetch_and_set_string_attrib(is, Typ, "Abkürzung");
+   fetch_and_set_string_attrib(is, Typ, "Region");
+   fetch_and_set_int_attrib(is, Typ, "MAGUS-Index");
+   fetch_and_set_string_attrib(is, Typ, "Bezeichnung-Mann");
+   fetch_and_set_string_attrib(is, Typ, "Bezeichnung-Frau");
    char zauberer=fetch_string(is,"n")[0];
-   write_bool_attrib(o, "Zauberer",zauberer=='z');
-   write_bool_attrib(o, "kannZaubern",zauberer=='z'||zauberer=='j');
-   fetch_and_set_string_attrib(is, o, "SprücheMitPraxisPunkten");
-   fetch_and_set_bool_attrib(is, o, "NSC_only");
-   fetch_and_set_bool_attrib(is, o, "Kultwaffe");
-   fetch_and_set_int_attrib(is, o, "MinSt");
-   fetch_and_set_int_attrib(is, o, "MinGw");
-   fetch_and_set_int_attrib(is, o, "MinGs");
-   fetch_and_set_int_attrib(is, o, "MinIn");
-   fetch_and_set_int_attrib(is, o, "MinpA");
-   fetch_and_set_string_attrib(is, o, "Berufswahl");
+   if (zauberer=='z') Typ.setBoolAttr("Zauberer",zauberer=='z');
+   if (zauberer=='z'||zauberer=='j') Typ.setBoolAttr("kannZaubern",zauberer=='z'||zauberer=='j');
+   fetch_and_set_string_attrib(is, Typ, "SprücheMitPraxisPunkten");
+   fetch_and_set_bool_attrib(is, Typ, "NSC_only");
+   fetch_and_set_bool_attrib(is, Typ, "Kultwaffe");
+   fetch_and_set_int_attrib(is, Typ, "MinSt");
+   fetch_and_set_int_attrib(is, Typ, "MinGw");
+   fetch_and_set_int_attrib(is, Typ, "MinGs");
+   fetch_and_set_int_attrib(is, Typ, "MinIn");
+   fetch_and_set_int_attrib(is, Typ, "MinpA");
+   fetch_and_set_string_attrib(is, Typ, "Berufswahl");
    string stadt_land=fetch_string(is);
-   if (stadt_land=="s") write_bool_attrib(o, "Land", false, true);
-   else if (stadt_land=="l") write_bool_attrib(o, "Stadt", false, true);
-   fetch_and_set_string_attrib(is, o, "Ausdauer");
-   o << ">\n    <Modifikation";
-   fetch_and_set_int_attrib(is, o, "Stand");
-   fetch_and_set_int_attrib(is, o, "Sb");
-   fetch_and_set_int_attrib(is, o, "Rüstung");
-   fetch_and_set_int_attrib(is, o, "Geld");
-   o << "/></Typ>\n";
+   if (stadt_land=="s") Typ.setBoolAttr("Land", false);
+   else if (stadt_land=="l") Typ.setBoolAttr("Stadt", false);
+   fetch_and_set_string_attrib(is, Typ, "Ausdauer");
+   Tag &Mod=Typ.push_back(Tag("Modifikation"));
+   fetch_and_set_int_attrib(is, Mod, "Stand");
+   fetch_and_set_int_attrib(is, Mod, "Sb");
+   fetch_and_set_int_attrib(is, Mod, "Rüstung");
+   fetch_and_set_int_attrib(is, Mod, "Geld");
   }
   }
-   o << " </Typen>\n";
    
 // ******************** preise ***********************
   
   if (region.empty())
-  {o << " <Preise>\n";
+  {Tag &Preise=o.push_back(Tag("Preise"));
   {Query query("select name, art, art2, kosten, einheit"MIDGARD3_4("",",gewicht")
    	" from preise"
    	" where not exists (select true from waffen"
@@ -263,16 +257,15 @@ void land_speichern(Tag &o)
    		" where ruestung.ruestung=preise.name)"
    	" order by art,art2,name");
   while ((query>>is).good())
-  {o << "  <Kaufpreis";
-   fetch_and_set_string_attrib(is, o, "Ware");
-   fetch_and_set_string_attrib(is, o, "Art");
-   fetch_and_set_string_attrib(is, o, "Art2");
-   fetch_and_set_float_attrib(is, o, "Preis");
-   fetch_and_set_string_attrib(is, o, "Währung");
+  {Tag &Kaufpreis=Preise.push_back(Tag("Kaufpreis"));
+   fetch_and_set_string_attrib(is, Kaufpreis, "Ware");
+   fetch_and_set_string_attrib(is, Kaufpreis, "Art");
+   fetch_and_set_string_attrib(is, Kaufpreis, "Art2");
+   fetch_and_set_float_attrib(is, Kaufpreis, "Preis");
+   fetch_and_set_string_attrib(is, Kaufpreis, "Währung");
 #ifndef MIDGARD3   
-   fetch_and_set_float_attrib(is, o, "Gewicht");
+   fetch_and_set_float_attrib(is, Kaufpreis, "Gewicht");
 #endif
-   o << "/>\n";
   }
   }
 
@@ -281,18 +274,16 @@ void land_speichern(Tag &o)
    	" from preise_modifikation"
    	" order by art,art2,typ,name");
   while ((query>>is).good())
-  {o << "  <Modifikation";
-   fetch_and_set_string_attrib(is, o, "Bezeichnung");
-   fetch_and_set_string_attrib(is, o, "Art");
-   fetch_and_set_string_attrib(is, o, "Art2");
-   fetch_and_set_float_attrib(is, o, "Faktor");
-//   fetch_and_set_int_attrib(is, o, "Mindestpreis");
-//   fetch_and_set_string_attrib(is, o, "Einheit");
-   fetch_and_set_string_attrib(is, o, "Typ");
-   fetch_and_set_int_attrib(is, o, "MAGUS-Nr");
-   o << "/>\n";
+  {Tag &Modifikation=Preise.push_back(Tag("Modifikation"));
+   fetch_and_set_string_attrib(is, Modifikation, "Bezeichnung");
+   fetch_and_set_string_attrib(is, Modifikation, "Art");
+   fetch_and_set_string_attrib(is, Modifikation, "Art2");
+   fetch_and_set_float_attrib(is, Modifikation, "Faktor");
+//   fetch_and_set_int_attrib(is, Modifikation, "Mindestpreis");
+//   fetch_and_set_string_attrib(is, Modifikation, "Einheit");
+   fetch_and_set_string_attrib(is, Modifikation, "Typ");
+   fetch_and_set_int_attrib(is, Modifikation, "MAGUS-Nr");
   }
-   o << " </Preise>\n";
   }
   }
 

@@ -1,6 +1,6 @@
-// $Id: fertigk_exp.cc,v 1.29 2002/06/05 06:43:29 christof Exp $
+// $Id: fertigk_exp.cc,v 1.30 2002/06/06 14:15:11 christof Exp $
 /*  Midgard Roleplaying Character Generator
- *  Copyright (C) 2001 Christof Petig
+ *  Copyright (C) 2001-2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <fstream>
 #include <Aux/Transaction.h>
 #include <Aux/dbconnect.h>
 #include "export_common.h"
