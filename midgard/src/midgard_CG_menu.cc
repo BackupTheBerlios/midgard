@@ -194,7 +194,6 @@ void midgard_CG::menubar_init()
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
      if((*i)->Nr()<=0) continue;
-//     Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());
      std::string labeltext=(*i)->Name();
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      int row=1;
@@ -210,20 +209,10 @@ void midgard_CG::menubar_init()
      _tab->set_col_spacings(10);
 
      MVC_boolMenu_Widget *mi = manage(new MVC_boolMenu_Widget((*i)->Active(),*_tab));
-//     i->active,i->text,0,0.5));
-//    i->active.changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_element_activate),i->index));
-//     _mi->add(*_tab);
      regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*mi));
-//     _mi->set_active((*i)->Active());
-//     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      (*i)->Active().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
-     mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active);
-//     (*i)->setSensitive().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
-
-#warning sensitive TODO
-//     if(MOptionen->OptionenCheck(Midgard_Optionen::Original).active && 
-//         !(*i)->Offiziell() )
-//        _mi->set_sensitive(false);
+     if(!(*i)->Offiziell())
+        mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::Original).active);
    }
  regionen_menu->show_all();
 

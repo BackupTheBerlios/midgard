@@ -96,7 +96,7 @@ void frame_globale_optionen::element_activate_C(gpointer gp,Midgard_Optionen::Op
    {
     if(hauptfenster->getOptionen()->OptionenCheck(index).active)
        hauptfenster->getOptionen()->setAllHausregeln(false);
-    init();
+//    init();
    }
 }
 
