@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.26 2004/12/16 08:24:52 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.27 2004/12/21 08:17:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -157,7 +157,7 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
  std::string beruf;
  for(std::list<MBEmlt>::const_iterator i=A.List_Beruf().begin();i!=A.List_Beruf().end();++i)
      beruf += (*(*i))->Name(); 
- fout << LaTeX_scale(beruf,10,"1.5cm") <<"}\n";
+ fout << TeX::scale(beruf,10,"1.5cm") <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // weitere Merkmale
  /////////////////////////////////////////////////////////////////////////////
@@ -328,12 +328,12 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
             if (A.Typ2()->Name(W.Geschlecht())!="") 
                styp += "/"+A.Typ2()->Name(W.Geschlecht());
           }
-        sfout += LaTeX_scale(styp,10,"2.2cm") ; 
+        sfout += TeX::scale(styp,10,"2.2cm") ; 
         break;
       }      
      case emagusversion : sfout += VERSION; break;
      case e_last_saved_time : sfout += A.LastSavedAt(); break;
-     case espezies : sfout += LaTeX_scale(W.Spezies()->Name(),10,"2cm") ; break;
+     case espezies : sfout += TeX::scale(W.Spezies()->Name(),10,"2cm") ; break;
      case emerk :    sfout +=W.Merkmale(); break;
      case est   : sfout += itos(W.St()); break ;
      case egs   : sfout += itos(W.Gs()); break ;
@@ -344,7 +344,7 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
      case eau   : { int ia=A.Erfolgswert("Athletik").first;
          ia/=3;
          std::string sa; if(ia>0) sa="^{+"+itos(ia)+"}"  ;
-         sfout += LaTeX_scale("$"+itos(W.Au())+sa+"$",8,"0.9cm"); break ;
+         sfout += TeX::scale("$"+itos(W.Au())+sa+"$",8,"0.9cm",false); break ;
       }
      case epa   : sfout += itos(W.pA()); break ;
      case esb   : sfout += itos(W.Sb()); break ;
@@ -352,7 +352,7 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
      case eb    : {
         int b=A.Erfolgswert("Laufen").first-2; 
         std::string bs;  if(b>0) bs="^{+"+itos(b)+"}"  ;
-        sfout += LaTeX_scale("$"+itos(W.B())+A.Ruestung_B_Verlust(false)+bs+"$",8,"0.9cm"); break ;
+        sfout += TeX::scale("$"+itos(W.B())+A.Ruestung_B_Verlust(false)+bs+"$",8,"0.9cm",false); break ;
       }
      case ekaw  : sfout += itos(W.KAW()); break ;
      case egsb  : sfout += itos(W.Geistesblitz()); break ;
@@ -390,19 +390,19 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
           else if(A.ZaubernPP() || A.SpezialPP() ) sfout += itos(A.ZaubernPP())+"/"+itos(A.SpezialPP()); 
           break ;
      case ezauber:sfout += itos0p(W.Zaubern_wert(),0,true); break ;
-     case ehand:sfout += LaTeX_scale(W.Hand(),7,"1.2cm"); break ;
+     case ehand:sfout += TeX::scale(W.Hand(),7,"1.2cm"); break ;
      case eraufen:sfout += itos(W.Raufen()); break ;
      case ealter:sfout += itos(W.Alter()); break ;
      case egewicht:sfout += itos(W.Gewicht())+ "\\,kg"; break ;
-     case egestalt:sfout += LaTeX_scale(W.Gestalt(),5,"0.7cm"); break ;
-     case ekoerpergroesse:sfout += LaTeX_scale(dtos(W.Groesse()/100.)+ "\\,m~\\scriptsize(" + W.GroesseBez()+")",8,"0.9cm"); break ;
+     case egestalt:sfout += TeX::scale(W.Gestalt(),5,"0.7cm"); break ;
+     case ekoerpergroesse:sfout += TeX::scale(dtos(W.Groesse()/100.)+ "\\,m~\\scriptsize(" + W.GroesseBez()+")",8,"0.9cm"); break ;
      case egrad:sfout += itos(W.Grad()); break ;
-     case espezialisierung:sfout += LaTeX_scale(W.Spezialisierung(),10,"2.2cm") ; break ;
-     case estand:sfout += LaTeX_scale(W.Stand(),10,"1.5cm"); break ;
-     case eherkunft:sfout += LaTeX_scale(W.Herkunft()->Name(),10,"2.2cm"); break ;
-     case eglaube:sfout += LaTeX_scale(W.Glaube(),10,"2.5cm"); break ;
-     case enamecharakter:sfout += LaTeX_scale(W.Name_Abenteurer(),25,"4.5cm"); break ;
-     case enamespieler : sfout += LaTeX_scale(W.Name_Spieler(),25,"4.5cm"); break ;
+     case espezialisierung:sfout += TeX::scale(W.Spezialisierung(),10,"2.2cm") ; break ;
+     case estand:sfout += TeX::scale(W.Stand(),10,"1.5cm"); break ;
+     case eherkunft:sfout += TeX::scale(W.Herkunft()->Name(),10,"2.2cm"); break ;
+     case eglaube:sfout += TeX::scale(W.Glaube(),10,"2.5cm"); break ;
+     case enamecharakter:sfout += TeX::scale(W.Name_Abenteurer(),25,"4.5cm"); break ;
+     case enamespieler : sfout += TeX::scale(W.Name_Spieler(),25,"4.5cm"); break ;
      case egfp : sfout += EmptyInt_4TeX(W.GFP(),10); break ;
      case eaep : sfout += EmptyInt_4TeX(W.AEP(),10); break ;
      case ekep : sfout += EmptyInt_4TeX(W.KEP(),10); break ;
@@ -442,7 +442,7 @@ void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_
       std::string a = LaTeX_string(sprachanz++);
       if(a=="0") break;
       if(!longlist) fout << "\\newcommand{\\spra"<<a<<"}";
-      fout << "{\\scriptsize " << LaTeX_scale((*(i->getSprache()))->Name(),20,"2.6cm") <<"}\n";
+      fout << "{\\scriptsize " << TeX::scale((*(i->getSprache()))->Name(),20,"2.6cm") <<"}\n";
 
       if(!longlist) fout << "\\newcommand{\\spraw"<<a<<"}";
       else fout << " & ";
@@ -456,7 +456,7 @@ void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_
        }
       if(!longlist) fout << "\\newcommand{\\schr"<<a<<"}";
       else fout << " & ";
-      fout <<"{\\scriptsize "<< LaTeX_scale(ss,20,"2.6cm") <<"}";
+      fout <<"{\\scriptsize "<< TeX::scale(ss,20,"2.6cm") <<"}";
       if(longlist) fout << "\\\\";
       fout << "\n";
    }
@@ -479,7 +479,7 @@ void LaTeX_drucken::write_fertigkeiten(const Abenteurer &A,std::ostream &fout,co
      std::string a = LaTeX_string(count++);
      if(a=="0") break;
      if(!longlist) fout <<"\\newcommand{\\fert"<<a<<"}";
-     fout << "{\\scriptsize " <<LaTeX_scale((*(*i))->Name()+" "+(*i)->Zusatz(),33,"4cm") << "}";
+     fout << "{\\scriptsize " <<TeX::scale((*(*i))->Name()+" "+(*i)->Zusatz(),33,"4cm") << "}";
 
      if(!longlist) fout << "\\newcommand{\\praxis"<<a<<"}";
      else fout << " & ";
@@ -685,7 +685,8 @@ void LaTeX_drucken::write_long_list(const Abenteurer &A,std::ostream &fout,const
   fout << "\\end{sideways}\n";
 }
 
-std::string LaTeX_drucken::LaTeX_scale(const std::string& is, 
+#if 0
+std::string LaTeX_drucken::scale(const std::string& is, 
       unsigned int maxlength, const std::string& scale)
 {
  std::string os;
@@ -693,6 +694,7 @@ std::string LaTeX_drucken::LaTeX_scale(const std::string& is,
  else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+is+"}" ;
  return os;
 }
+#endif
 
 std::string LaTeX_drucken::LaTeX_scalemag(const std::string& is, 
       unsigned int maxlength, const std::string& scale,
@@ -809,13 +811,13 @@ void LaTeX_drucken::LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool 
   {
     if(landscape)
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(A.Name_Abenteurer(),25,"4.5cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(A.Name_Spieler(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<TeX::scale(A.Name_Abenteurer(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<TeX::scale(A.Name_Spieler(),25,"4.5cm") << "}\n";
      }
     else
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(A.Name_Abenteurer(),20,"4.cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(A.Name_Spieler(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<TeX::scale(A.Name_Abenteurer(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<TeX::scale(A.Name_Spieler(),20,"4.cm") << "}\n";
      }
   }
  std::string     drache="9.9cm", namensbox="7cm";
@@ -1001,7 +1003,7 @@ void LaTeX_drucken::LaTeX_zauber(const Abenteurer &A,std::ostream &fout)
      fout << TeX::string2TeX(z->Wirkungsbereich()) << " & ";
      fout << TeX::string2TeX(z->Wirkungsdauer()) << " & ";
      fout << TeX::string2TeX(z->Ursprung()) << " & " ;
-     fout << LaTeX_scale(TeX::string2TeX(z->Material()),20,"3cm") << " & " ;
+     fout << TeX::scale(z->Material(),20,"3cm") << " & " ;
      fout << z->Agens(A.getVTyp()) <<" " <<z->Prozess() <<" "<<z->Reagens() ;
      fout << "\\\\\n";
      if(A.getOptionen().OptionenCheck(Optionen::ZauberBeschreibungDrucken).active

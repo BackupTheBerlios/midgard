@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.7 2003/11/24 16:21:42 christof Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.8 2004/12/21 08:17:45 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -25,6 +25,7 @@
 #include <Misc/recodestream.h>
 #include "VAbenteurer.hh"
 #include <fstream>
+#include <TeX.h>
 
 void LaTeX_drucken::Spielleiterbogen(VAbenteurer &VA)
 {
@@ -132,18 +133,18 @@ void LaTeX_drucken::for_each(const VAbenteurer &VA,std::ostream &fout,const ewha
     const Abenteurer &A=i->getAbenteurer();
     switch(what)
      {
-       case enamespieler : fout << " & "<<LaTeX_scale(A.Name_Spieler(),maxlength,cm) ; break;
-       case enamecharakter : fout << " & "<<LaTeX_scale(A.Name_Abenteurer(),maxlength,cm) ; break;
-       case espez: fout << " & "<<LaTeX_scale(A.Spezies()->Name(),maxlength,cm); break; 
-       case etyp: fout << " & "<<LaTeX_scale(A.STyp(),maxlength,cm); break; 
+       case enamespieler : fout << " & "<<TeX::scale(A.Name_Spieler(),maxlength,cm) ; break;
+       case enamecharakter : fout << " & "<<TeX::scale(A.Name_Abenteurer(),maxlength,cm) ; break;
+       case espez: fout << " & "<<TeX::scale(A.Spezies()->Name(),maxlength,cm); break; 
+       case etyp: fout << " & "<<TeX::scale(A.STyp(),maxlength,cm); break; 
        case egrad: fout << " & "<<A.Grad()<<"/"<<A.GFP(); break; 
-       case eherkunft: fout << " & "<<LaTeX_scale(A.Herkunft()->Name(),maxlength,cm); break; 
-       case estand: fout << " & "<<LaTeX_scale(A.Stand(),maxlength,cm); break; 
-       case egestalt: fout << " & "<<LaTeX_scale(A.Gestalt(),maxlength,cm); break; 
+       case eherkunft: fout << " & "<<TeX::scale(A.Herkunft()->Name(),maxlength,cm); break; 
+       case estand: fout << " & "<<TeX::scale(A.Stand(),maxlength,cm); break; 
+       case egestalt: fout << " & "<<TeX::scale(A.Gestalt(),maxlength,cm); break; 
        case ekoerpergroesse: fout << " & "<<A.Groesse()<<" cm"; break; 
        case egewicht: fout << " & "<<A.Gewicht()<<" kg"; break; 
-       case eBeruf: fout << " & "<<LaTeX_scale(A.Beruf(),maxlength,cm); break; 
-       case eglaube: fout << " & "<<LaTeX_scale(A.Glaube(),maxlength,cm); break; 
+       case eBeruf: fout << " & "<<TeX::scale(A.Beruf(),maxlength,cm); break; 
+       case eglaube: fout << " & "<<TeX::scale(A.Glaube(),maxlength,cm); break; 
        case est: V.push_back(st_is(A.St())); break;
        case egw: V.push_back(st_is(A.Gw())); break;
        case egs: V.push_back(st_is(A.Gs())); break;
@@ -207,7 +208,7 @@ void LaTeX_drucken::list_for_each(std::ostream &fout,const std::list<MBEmlt>& L,
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();)
    {
      std::string s=(*(*i))->Name()+" (+"+itos((*i)->Erfolgswert())+")";
-     fout << LaTeX_scale(s,maxlength,cm);
+     fout << TeX::scale(s,maxlength,cm);
      ++i;
      if(i!=L.end()) fout<<"\\newline ";
    }

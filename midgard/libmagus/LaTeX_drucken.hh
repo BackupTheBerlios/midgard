@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.7 2004/08/30 13:17:56 christof Exp $
+// $Id: LaTeX_drucken.hh,v 1.8 2004/12/21 08:17:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -72,8 +72,10 @@ class LaTeX_drucken
                          const std::list<MBEmlt> &F,
                          const std::list<H_WaffeBesitz> &WB_druck);
 
+#if 0
     static std::string LaTeX_scale(const std::string& is, 
          unsigned int maxlength, const std::string& scale);
+#endif
     static std::string LaTeX_scalemag(const std::string& is, 
          unsigned int maxlength, const std::string& scale,
          const std::string& magisch,const std::string& reichweite);
