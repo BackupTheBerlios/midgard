@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.22 2003/04/23 07:44:09 christof Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.23 2003/07/01 09:35:55 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,27 +68,28 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
  }
  fout << "}}\n\n";
 
- fout << "\\fbox{\\parbox[t]["+aboxhoehe+"]{"+breite+"}{ \n";
+ fout << "%\\raggedright\n\\renewcommand{\\arraystretch}{1.0}\n"
+      << "\\begin{longtable}{|lp{"+breite+"}|}\n\\hline\n";
  const AusruestungBaum besitz=hauptfenster->getChar()->getBesitz();
  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
   {
    if(i->getAusruestung().Sichtbar() || unsichtbar )
     {      
+      fout << "\\multicolumn{2}{|l|}{ ";
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
-//      fout <<"\\hspace{0.7cm}";
-      if(i->getAusruestung().Sichtbar())  fout << TeX::string2TeX(name) ;
-      else                                fout <<"\\textcolor{mygray}{"<< TeX::string2TeX(name)<<"}" ;
+      if(i->getAusruestung().Sichtbar())  fout << Gtk2TeX::string2TeX(name) ;
+      else                                fout <<"\\textcolor{mygray}{"<< Gtk2TeX::string2TeX(name)<<"}" ;
       double last=hauptfenster->getAben().getBelastung(name);
-      fout << " \\footnotesize ("<<last<<"kg)";
-      fout << "\\\\\n";
+      fout << " \\footnotesize ("<<dtos1(last)<<"\,kg)";
+      fout << "}\\\\\n"; // end of multicolumn and line
       ausruestung_druck(fout,unsichtbar,i->getChildren(),1);
      }
   }
- fout << "}}\n";
+ fout <<"\\hline\\end{longtable}\n";
  LaTeX_footer(fout);
  fout2.close();
- pdf_viewer(filename);
+ pdf_viewer(filename,true);
 }
 
 

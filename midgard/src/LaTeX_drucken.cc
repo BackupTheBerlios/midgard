@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.98 2003/06/23 07:43:52 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.99 2003/07/01 09:35:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -788,6 +788,7 @@ void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeil
  fout << "\\usepackage{german}\n\\usepackage[latin1]{inputenc}\n";
  fout << "\\usepackage[pdftex]{graphicx}\n";
  fout << "\\usepackage{tabularx}\n";
+ fout << "\\usepackage{longtable}\n";
  fout << "\\usepackage{times}\n";
  fout << "\\usepackage{color}\n";
  fout << "\\usepackage{wrapfig}\n";
@@ -860,7 +861,7 @@ void LaTeX_drucken::LaTeX_footer(std::ostream &fout)
   fout << "\\end{document}\n\n";
 }
  
-void LaTeX_drucken::pdf_viewer(const std::string& file)
+void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
 {
   char currentwd[10240];
   *currentwd=0;
