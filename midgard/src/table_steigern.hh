@@ -41,10 +41,6 @@ class table_steigern : public table_steigern_glade
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE,PAGE_BESITZ};
                                   
-//        enum modi_modus{Zusatz,PP};
-//        void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
-//        void modify(modi_modus modus,const MBEmlt &M,const std::string &s,int praxispunkte)
-//          {modify(modus,M,MidgardBasicElement::st_zusatz(s),praxispunkte);}
 public:
         
         table_steigern(GlademmData *_data) 
@@ -53,7 +49,7 @@ public:
         void init(midgard_CG *hauptfenster);
 
 private:
-        const MBEmlt &getSelectedNotebookLernen() throw(TreeBase::noRowSelected); 
+        const MBEmlt &getSelectedNotebookLernen() throw(SimpleTree::noRowSelected); 
         void load_for_page(guint pagenr);
         void zeige_werte();
         void neuer_charakter();
@@ -149,7 +145,7 @@ private:
         void on_leaf_selected_alte_schrift(cH_RowDataBase d);
         void on_leaf_selected_neue_schrift(cH_RowDataBase d);
         void on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page *p0, guint p1);
-        gint vscale_value_changed(GdkEventButton *ev);
+        bool vscale_value_changed(GdkEventButton *ev);
         void on_checkbutton_EP_Geld_toggled();
         void on_radio_selbst_toggled();
         void on_radio_praxis_toggled();
@@ -175,7 +171,7 @@ private:
         void on_button_grad_resistenz_clicked();
         void on_grad_anstieg_clicked();
         void on_button_grad_basiswerte_clicked();
-        gint on_button_grad_basiswerte_button_release_event(GdkEventButton *ev);
+        bool on_button_grad_basiswerte_button_release_event(GdkEventButton *ev);
         void on_spinbutton_eigenschaften_grad_anstieg_activate();
         void on_button_alter_clicked();
         void on_LabelSpin_gfp_activate();
@@ -185,9 +181,9 @@ private:
         void on_LabelSpin_aep_activate();
         void on_LabelSpin_kep_activate();
         void on_LabelSpin_zep_activate();
-        gint on_checkbutton_gfp_button_release_event(GdkEventButton *ev);
-        gint on_button_gold_eingeben_button_release_event(GdkEventButton *ev);
-        gint on_button_EP_eingeben_button_release_event(GdkEventButton *ev);
+        bool on_checkbutton_gfp_button_release_event(GdkEventButton *ev);
+        bool on_button_gold_eingeben_button_release_event(GdkEventButton *ev);
+        bool on_button_EP_eingeben_button_release_event(GdkEventButton *ev);
         void on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event);
         void on_button_ruestung_1_toggled();
         void on_button_ruestung_2_toggled();
