@@ -66,7 +66,8 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
                           target_table, n_targets - 1, /* no rootwin */
                           static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
 #endif                          
-  
+
+  m_refStore= Gtk::TreeStore::create(*this);
   Ausruestung_tree->set_model(m_refStore);
   Ausruestung_tree->append_column("Titel",m_columns.name);
   Ausruestung_tree->append_column("Material",m_columns.material);
