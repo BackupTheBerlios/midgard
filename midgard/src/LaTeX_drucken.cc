@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.46 2002/07/10 07:49:16 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.47 2002/07/10 08:07:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -193,9 +193,9 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  if(F.size()>maxfert) bool_fert=true;
  if(WB_druck.size()>maxwaffen) bool_waffen=true;
 
- fout << Windows_Linux::normal_tilde;
+ fout << WinLux::normal_tilde;
  fout << "\\input{"+WinLux::recodePathForTeX(install_latex_file)+"}\n";
- fout << Windows_Linux::active_tilde;
+ fout << WinLux::active_tilde;
 
  if(bool_sprach || bool_fert || bool_waffen) write_long_list(fout,S,F,WB_druck);
 }
@@ -217,9 +217,9 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
  write_waffenbesitz(fout,B);
  write_universelle(fout);
 
- fout << Windows_Linux::normal_tilde;
+ fout << WinLux::normal_tilde;
  fout << "\\input{"+WinLux::recodePathForTeX(install_latex_file)+"}\n";
- fout << Windows_Linux::active_tilde;
+ fout << WinLux::active_tilde;
 }
 
 void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
@@ -613,10 +613,10 @@ void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<st_sprachen_
   fout << "\\hline\n\\end{tabular}}\n";
 
   fout <<"\\vfill\\hfill\n";
-  fout << Windows_Linux::normal_tilde;
+  fout << WinLux::normal_tilde;
   fout <<"\\parbox{1.5cm}{\\includegraphics[width=1.5cm]{"
        << get_latex_pathname(TeX_Install) << "MAGUS-Logo-grey2.png}}";
-  fout << Windows_Linux::active_tilde;
+  fout << WinLux::active_tilde;
   fout << "\\end{minipage}\n";
   fout << "}\n";
   fout << "\\end{sideways}\n";
@@ -660,9 +660,9 @@ std::string LaTeX_drucken::LaTeX_string(int i)
 
 void LaTeX_drucken::LaTeX_newsavebox(ostream &fout)
 {
- fout << Windows_Linux::normal_tilde;
+ fout << WinLux::normal_tilde;
  fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
- fout << Windows_Linux::active_tilde; 
+ fout << WinLux::active_tilde; 
  fout << "\\usepackage{german}\n";
  fout << "\\usepackage[latin1]{inputenc}\n";
  fout << "\\newsavebox{\\Einhandschwert}    \n";
@@ -711,9 +711,9 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
   }
  std::string     drache="9.9cm", namensbox="7cm";
  if(!landscape) {drache="7cm" , namensbox="5cm";}
- fout << Windows_Linux::normal_tilde;
+ fout << WinLux::normal_tilde;
  fout << "\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"<< get_latex_pathname(TeX_Install) << "drache.png}}\n";
- fout << Windows_Linux::active_tilde; 
+ fout << WinLux::active_tilde; 
  fout << "\\parbox[][][c]{"+namensbox+"}{\n";
  if(!landscape) fout << "\\scriptsize\n";
  fout << "\\LI\n";
@@ -725,9 +725,9 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
  fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
  fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
  fout <<"\\end{tabularx}\n}\n";
- fout << Windows_Linux::normal_tilde;
+ fout << WinLux::normal_tilde;
  fout << "\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{"<< get_latex_pathname(TeX_Install) << "drache.png}}}\n";
- fout << Windows_Linux::active_tilde;
+ fout << WinLux::active_tilde;
  fout <<"\\vspace*{2ex}\n\n";
 }
 
