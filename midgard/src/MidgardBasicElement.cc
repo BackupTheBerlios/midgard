@@ -32,6 +32,7 @@
 #include <Aux/itos.h>
 #include "export_common.h"
 #include "xml.h"
+#include "Datenbank.hh"
 /*
 cH_MidgardBasicElement::cache_t cH_MidgardBasicElement::cache;
 
@@ -47,17 +48,25 @@ cH_MidgardBasicElement::cH_MidgardBasicElement(const std::string& name)
 }
 */
 
+std::string MidgardBasicElement::RegionString(const Datenbank &D) const
+{
+  std::vector<cH_Region> V=D.Regionen;
+  return Regionen_All::getRegionfromAbk(V,region)->Name();
+}
+
+
+
 void MidgardBasicElement::show_list_in_tree(
   const std::list<cH_MidgardBasicElement>& BasicList,
   SimpleTree *Tree,
   const Grundwerte& Werte, 
-  const vector<cH_Typen>& Typ,bool clear_me)
+  const vector<cH_Typen>& Typ,const Datenbank &Datenbank,bool clear_me)
 {
   if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {
-      datavec.push_back(new Data_SimpleTree(*i,Typ,Werte));
+      datavec.push_back(new Data_SimpleTree(*i,Typ,Werte,Datenbank));
    }
   Tree->setDataVec(datavec,clear_me);
 }
@@ -321,7 +330,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
     map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0/*??*/);
 }
 
-void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
+void MidgardBasicElement::saveElementliste(ostream &datei,
 			   const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
                            const vector<cH_Typen>& Typ)

@@ -23,16 +23,18 @@
 #include <Typen.hh>
 #include <rowdata.h>
 #include "Grundwerte.hh"
+#include "Datenbank.hh"
 
 class Data_SimpleTree : public RowDataBase
 {
    cH_MidgardBasicElement MBE;
    vector<cH_Typen> Typ;
    Grundwerte Werte;
+   Datenbank Database;
  public:
    Data_SimpleTree(const cH_MidgardBasicElement& _MBE,const vector<cH_Typen>& _Typ, 
-         const Grundwerte &_Werte) 
-   : MBE(_MBE),Typ(_Typ),Werte(_Werte) {}
+         const Grundwerte &_Werte,const Datenbank &D) 
+   : MBE(_MBE),Typ(_Typ),Werte(_Werte),Database(D) {}
 
    enum Spalten_GELERNTES  {ARTgg,NAMEgg,WERTgg,LERNPUNKTEgg};
    enum Spalten_LERNSCHEMA {LERNPUNKTEg,PFLICHTg,NAMEg,WERTg,EIGENSCHAFTg,VORAUSSETZUNGg,KOSTENg,ARTg,GELERNTg} ;

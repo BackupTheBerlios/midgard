@@ -119,11 +119,11 @@ Regionen_All::Regionen_All(Gtk::ProgressBar *progressbar)
 }
 
 
-cH_Region Regionen_All::getRegionfromAbk(std::string a) const
+cH_Region Regionen_All::getRegionfromAbk(std::vector<cH_Region> V,std::string r)
 {
- for(std::vector<cH_Region>::const_iterator i=list_All.begin();i!=list_All.end();++i)
+ for(std::vector<cH_Region>::const_iterator i=V.begin();i!=V.end();++i)
   {
-   if(a==(*i)->Abkuerzung()) return (*i);
+   if(r==(*i)->Abkuerzung()) return (*i);
   }
  assert(!"Region nicht gefunden\n");
 }

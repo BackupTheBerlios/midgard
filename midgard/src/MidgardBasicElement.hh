@@ -31,6 +31,7 @@ class Grundwerte;
 class H_Data_beruf;
 class cH_MidgardBasicElement;
 class SimpleTree;
+class Datenbank;
 
 #ifdef USE_XML
 class NotFound : public std::exception
@@ -56,7 +57,6 @@ class MidgardBasicElement : public HandleContent
                     ZSprache=5,ZSchrift=6};
    protected:
 	const Tag *tag;
-	// warum ist name nicht hier drin? CP
       std::string name, region;
       int kosten;
       int mutable praxispunkte,erfolgswert,lernpunkte;
@@ -80,10 +80,12 @@ class MidgardBasicElement : public HandleContent
             : IF_XML(tag(0),) name(n), kosten(0),praxispunkte(0),
                               erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
                               ,gelernt(false),steigern_mit_EP(0) {}
-      MidgardBasicElement(const std::string &n,const std::string &r) 
-            : IF_XML(tag(0),) name(n),region(r),kosten(0),praxispunkte(0),
+/*Das braucht glaube ich niemand MAT 4.3.02 
+      MidgardBasicElement(const std::string &n,const std::string &r,const std::string &rs) 
+            : IF_XML(tag(0),) name(n),region(r),region_string(rs),kosten(0),praxispunkte(0),
                               erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
                               ,gelernt(false),steigern_mit_EP(0) {}
+*/
       MidgardBasicElement(const Tag *t,const std::string &n) 
 		: tag(t), name(n), kosten(0),praxispunkte(0),
                                erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
@@ -107,6 +109,7 @@ class MidgardBasicElement : public HandleContent
       void EP_steigern(const std::string fert);
       virtual std::string Name() const {return name;}
       std::string Region() const {return region;}
+      std::string RegionString(const Datenbank &D) const;
       int Lernpunkte() const {return lernpunkte;};
       void set_Lernpunkte(int l) const {lernpunkte=l;}
       int Erfolgswert() const {return erfolgswert;};
@@ -150,6 +153,7 @@ public:
             const std::list<cH_MidgardBasicElement>& BasicList,
             SimpleTree *Tree, 
             const Grundwerte& Werte, const vector<cH_Typen>& Typ,
+            const Datenbank &D,
             bool clear_me=true);
       static void saveElementliste(IF_XML(ostream &datei,)
       				const std::list<cH_MidgardBasicElement>& b,

@@ -61,7 +61,7 @@ void Wizard_window::fill_vecwiz()
 {
    //START
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Dieser Wizard hilft einen neuen Abenteurer zu erzeugen."
+                          "Dieser Wizard hilft einen neuen Abenteurer zu erzeugen.\n"
                           "'Weiter' führt jeweils den nächsten Schritt aus.",
                           &midgard_CG::wizard_do_nothing));
    //SPEZIES
@@ -102,15 +102,18 @@ void Wizard_window::fill_vecwiz()
                           &midgard_CG::wizard_do_something));
    //WAEHLEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Jetzt Fertigkeiten/Waffen und ev. Zauber in beliebiger Reinfolge lernen und anschließne auf 'Weiter' drücken.",
+                          "Jetzt Fertigkeiten, Waffen und ev. Zauber in beliebiger\n"
+                          " Reinfolge lernen (anklicken) bis alle Lernpunkte \n"
+                          " verbraucht sind und anschließen 'Weiter' drücken.",
                           &midgard_CG::wizard_do_something));
    //BERUF
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Beruf auswählen",
+                          "Fertigkeit auswählen, die aufgrund der Berufswahl\n"
+                          " gelernt werden kann (anschließend 'Weiter' drücken.",
                           &midgard_CG::wizard_do_something));
    //SPEZIALWAFFE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Spezialwaffe wählen",
+                          "Spezialwaffe wählen (anklicken)",
                           &midgard_CG::wizard_do_something));
    //SPEZIAGEBIET
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,

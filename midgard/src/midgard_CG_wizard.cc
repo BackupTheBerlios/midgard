@@ -32,7 +32,7 @@ void midgard_CG::wizard_do_something()
   button.button=1;
   switch (e) {
       case Wizard_window::SPEZIES : notebook_main->set_sensitive(true);break;
-      case Wizard_window::GRUNDWERTE : grundwerte_wuerfeln(); break;
+      case Wizard_window::GRUNDWERTE : on_button_grundwerte_button_release_event(&button); break;
       case Wizard_window::GESCHLECHT : notebook_main->set_sensitive(true);break;
       case Wizard_window::TYP : notebook_main->set_sensitive(true);break;
       case Wizard_window::STADTLAND : notebook_main->set_sensitive(true);break;
