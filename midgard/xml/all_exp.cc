@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.16 2002/06/27 07:37:18 christof Exp $
+// $Id: all_exp.cc,v 1.17 2002/09/25 20:47:38 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
    land_speichern(data);
    fert_speichern(data);
    waffen_speichern(data);
+   ki_speichern(data);
    // Arkanum ist ein extra Package
    if (!region.empty()) arkanum_speichern(data);
    kido_speichern(data);

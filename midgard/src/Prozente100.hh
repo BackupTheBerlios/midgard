@@ -16,25 +16,33 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2002/9/6 20:10:27 CEST by thoma@Tiger.(none)
-// using glademm V1.1.1c_cvs
-//
-// newer (non customized) versions of this file go to table_zufall.cc_new
+#ifndef PROZ100
+#define PROZ100
+#include <vector>
 
-// This file is for your program, I won't touch it again!
+class Prozente100{
 
-#include "config.h"
-#include "table_zufall.hh"
-#include "midgard_CG.hh"
-#include "Zufall.hh"
-#include "KI.hh"
-#include "Optionen.hh"
+   public:
+      enum  ewas {fertigkeiten,waffen,waffen_grund,zauber,
+                  zauberwerk,sprachen,schriften};
+   private:
+      struct st_was{ewas was;int prozent;
+             st_was(ewas w,int p):was(w),prozent(p){}
+                   };
+      std::vector<st_was> VWas;
+      bool mage;
 
-void table_zufall::init(midgard_CG *h)
-{
-  hauptfenster=h;
-  fill_combos();
-  fill_combo_steigern();
-  zeige_werte();
-}
+      int Vsumme();
+      void add(const ewas &was,const int prozent);
+      
+   public:
+      Prozente100();
 
+      void check100();
+      void set_mage(bool m);         
+      int get(const ewas &was) const;
+      void set(const ewas &was,const int prozent);
+
+};
+
+#endif

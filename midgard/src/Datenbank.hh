@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.12 2002/07/10 09:18:37 christof Exp $               
+// $Id: Datenbank.hh,v 1.13 2002/09/25 20:48:18 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,6 +35,7 @@
 #include "Region.hh"  
 #include "Ruestung.hh"
 #include "Midgard_Info.hh"
+#include "Prototyp.hh"
 
 class midgard_CG;
 
@@ -62,6 +63,8 @@ class Datenbank
   std::vector<cH_Spezialgebiet> Spezialgebiet;
   std::list<cH_Preise> preise;
   std::list<cH_PreiseMod> preisemod;
+
+  std::list<cH_Prototyp> prototyp;
   
    //Konstruktor
   Datenbank();

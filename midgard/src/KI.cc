@@ -20,14 +20,19 @@
 #include "KI.hh"
 #include "zufall.h"
 
-void MagusKI::VerteileGFP(int gfp)
+void MagusKI::VerteileGFP(int gfp,const int spezial_allgemein,const Prozente100 &p)
 {
+  prozente100=p;
   while(gfp>0)
    {
-     int i=random.integer(1,2);
-     if     (i==1) Steigern(gfp);
-     else if(i==2) NeuLernen(gfp);
-cout << "Noch "<< gfp<<" GFP\n";
+     int i=random.integer(1,100);
+/*
+     if     (i<=spezial_allgemein) Steigern(gfp);
+     else                          NeuLernen(gfp);
+*/
+     if     (i>=spezial_allgemein) cerr << i<<' '<<spezial_allgemein<<"\tSteigern\n";
+     else                          cerr << i<<' '<<spezial_allgemein<<"\tNeuLenren\n";
+cout << "Noch "<< (gfp-=10)<<" GFP\n";
    }
 }
 
@@ -42,12 +47,14 @@ std::vector<MBEmlt> List_to_Vector(const std::list<MBEmlt> &L)
 
 const Enums::MBEListen MagusKI::Was() const
 {
-//return Enums::sFert; //DEBUG
+  int i=random.integer(1,100);
+
+return Enums::sFert; //DEBUG
 
   int min=Enums::sFert;
   int max=Enums::sZWerk;
-  int i=random.integer(min,max);
-  return Enums::MBEListen(i);
+  int j=random.integer(min,max);
+  return Enums::MBEListen(j);
 }
 
 void MagusKI::NeuLernen(int &gfp)

@@ -22,7 +22,7 @@
 
 class midgard_CG;
 #include "table_zufall_glade.hh"
-
+#include "Prozente100.hh"
 
 class table_zufall : public table_zufall_glade
 {
@@ -30,9 +30,14 @@ class table_zufall : public table_zufall_glade
       friend class midgard_CG;
 
       midgard_CG *hauptfenster;
+      Prozente100 prozente100;
+
       
       void zeige_werte();
       void fill_combos();
+      void fill_combo_steigern();
+      void set_bereiche_spinbuttons();
+      int get_spezialbildung();
    public:
       table_zufall(GlademmData *_data)
          : table_zufall_glade(_data) , hauptfenster(0) {}
@@ -43,6 +48,7 @@ class table_zufall : public table_zufall_glade
    private:
       // automatisch von glade erzeugte Methoden
 
+        gint on_hscale_spezial_allgemein_button_release_event(GdkEventButton *ev);
         void on_checkbutton_spezies_toggled();
         void on_checkbutton_herkunft_toggled();
         void on_checkbutton_typ_toggled();
@@ -70,6 +76,11 @@ class table_zufall : public table_zufall_glade
 
         void on_radiobutton_steigern_grad_toggled();
         void on_radiobutton_steigern_gfp_toggled();
+        void on_button_check100_clicked();
+        void on_combo_prototyp_activate();
+        gint on_combo_prototyp_focus_out_event(GdkEventFocus *ev);
+        void on_combo_prototyp_changed();
+
 };
 
 #endif

@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.25 2002/06/24 07:46:23 christof Exp $
+// $Id: export_common.h,v 1.26 2002/09/25 20:47:38 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -69,3 +69,4 @@ void fert_speichern(Tag &t);
 void zusaetze_speichern(Tag &t);
 void waffen_speichern(Tag &t);
 void kido_speichern(Tag &t);
+void ki_speichern(Tag &o);

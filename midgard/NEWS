@@ -1,4 +1,33 @@
 ##########################################################################
+NEWS IN VERSION 0.8.4
+
+TODO: ('-' zeigt CP an)
+
+* KI: Hochspezialisiert, Allrounder
+* region_check und nsc_check aus Klasse midgard_CG entfernen
+* Schwarzer Balken im Lernschema bei Maximierung
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
+  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
+* Ausrüstungsauswahl stürzt ab
+* Steigern mit vielen(!) PP stürzt ab
+- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? :
+   Unter "Lernschema" bleibt noch das Icon von "angeborene 
+   Fertigkeiten" stehen und noch einiges anderes. Bei "Steigern" 
+   und "Optionen" sind auch noch bunte Bildchen, und bei 
+   "Ausrüstung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrüsten" das Verschwinden.
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+- .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
+- xml laden beschleunigen (merge with map, reservate on vectors)
+
+
+
+##########################################################################
 NEWS IN VERSION 0.8.3
 
 * Ulf hat seine Icons überarbeitet und vervollständigt und ich hab' sie
@@ -26,29 +55,6 @@ NEWS IN VERSION 0.8.3
    steigern/neulernen bedarf also nocheinmal intensiver Tests
 * Zufallsabenteurer mit beliebig vielen GFP können jetzt erzeugt werden.
 
-
-TODO: ('-' zeigt CP an)
-
-* region_check und nsc_check aus Klasse midgard_CG entfernen
-* Schwarzer Balken im Lernschema bei Maximierung
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
-  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
-* Ausrüstungsauswahl stürzt ab
-* Steigern mit vielen(!) PP stürzt ab
-- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
-  man etwas hinzufügen möchte, ist nicht gerade intuitiv
-  (vielleicht drag'n'drop oder CTree verschieben)
-- Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? :
-   Unter "Lernschema" bleibt noch das Icon von "angeborene 
-   Fertigkeiten" stehen und noch einiges anderes. Bei "Steigern" 
-   und "Optionen" sind auch noch bunte Bildchen, und bei 
-   "Ausrüstung" verweigern die Icons von "Modifikatoren 
-   entfernen" und "mit Geld ausrüsten" das Verschwinden.
-- alle Ausdrucke unter Windows testen
-- wrapfig for Windows für Grafik in Beschreibung
-- .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
-- xml laden beschleunigen (merge with map, reservate on vectors)
 
 
 ##########################################################################

@@ -37,7 +37,7 @@ class Zufall
       
       enum B_VORGABE_BITS{B_Spezies,B_Typ,B_Herkunft,B_AngeFert,B_St,B_Gs,B_Gw,
             B_Ko,B_In,B_Zt,B_Au,B_pA,B_Wk,B_Sb,B_B,B_MAX};
-   
+
    public:
 
       Zufall(midgard_CG *h)

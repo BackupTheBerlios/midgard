@@ -30,6 +30,10 @@ class MagusKI
       Datenbank Database;
       Random random;
       LernListen LL;
+      Prozente100 prozente100;
+
+      int spezial_allgemein;
+      
 
       const Enums::MBEListen Was() const;
 
@@ -48,9 +52,11 @@ class MagusKI
           LL(Database)
           {};
 
-      void VerteileGFP(int gfp) ;
+      void VerteileGFP(int gfp,const int spezial_allgemein,const Prozente100 &p) ;
+//      void set_spezial_allgemein(int s) {spezial_allgemein=s;}
 
    private:
 };
+
 
 #endif

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.199 2002/09/25 06:33:02 thoma Exp $
+# $Id: Makefile.am,v 1.200 2002/09/25 20:48:18 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -30,7 +30,9 @@ EXTRA_DIST = midgard_document_eingabe.tex.in \
 
 
 noinst_HEADERS = \
+   Prototyp.hh \
    KI.hh \
+   Prozente100.hh \
    Windows_Linux.hh \
    customize_toolbars.h \
    class_AbenteurerListe.hh \
@@ -104,13 +106,17 @@ registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 
 magus_SOURCES = $(PORT_FILES) \
+   Prototyp.cc \
    KI.cc \
+   Prozente100.cc \
    LernListen_steigern.cc \
    LernListen.cc \
    Zufall.cc \
    Zufall_Spezies_Typ.cc \
    Zufall_Lernschema.cc \
    table_zufall.cc \
+   table_zufall_steigern.cc \
+   table_zufall_lernschema.cc \
    table_zufall_glade.cc \
    Windows_Linux.cc \
    customize_toolbars.cc \
