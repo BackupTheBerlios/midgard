@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.31 2001/05/15 18:58:05 thoma Exp $
+// $Id: midgard_CG.hh,v 1.32 2001/05/15 22:21:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -187,6 +187,7 @@ class midgard_CG : public midgard_CG_glade
         void fill_spezies();
         void typauswahl_button(int ttyp);
         void typauswahl_2_button(int ttyp);
+        void angeborene_zauber();
         void on_radiobutton_frau_toggled();
         void on_radiobutton_mann_toggled();
         void spezieswahl_button();

@@ -101,6 +101,7 @@ void midgard_CG::typauswahl_button(int ttyp)
     }
  get_typ(ityp);     
  show_gtk(ityp_);
+ if (ttyp!=-1&&(typ.s=="dBe" || typ.s=="eBe")) angeborene_zauber();
 }
 
 void midgard_CG::typauswahl_2_button(int ttyp)
@@ -115,6 +116,7 @@ void midgard_CG::typauswahl_2_button(int ttyp)
    }
  get_typ(ityp,2);     
  show_gtk(ityp_,2);
+ if (ttyp!=-1 && (typ_2.s=="dBe" || typ_2.s=="eBe")) angeborene_zauber();
 }
 
 
@@ -164,7 +166,10 @@ void midgard_CG::spezieswahl_button()
  midgard_CG::get_spezies_constraint();
  midgard_CG::typauswahl_button(-1);
 
- if (werte.spezies=="Elf") manage (new Window_doppelcharaktere(this));
+ if (werte.spezies=="Elf")
+   { manage (new Window_doppelcharaktere(this));
+     angeborene_zauber();
+   }
 }
 
 void midgard_CG::doppelcharaktere()

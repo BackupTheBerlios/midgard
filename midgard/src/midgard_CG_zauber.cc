@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.13 2001/05/15 18:58:05 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.14 2001/05/15 22:21:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,8 +51,8 @@ void midgard_CG::show_zauber()
 void midgard_CG::zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz)
 {
    zauber.clear();
+   angeborene_zauber();
    vec_zauber = saz;
-   zauber.push_back(st_zauber("0","Erkennen der Aura","0","0","0","0","0","0","0","0","0","0","0","0","0","0",0));
    for(vector<st_ausgewaehlte_zauber>::iterator i=vec_zauber.begin();
          i!=vec_zauber.end();++i)
       {
@@ -62,3 +62,10 @@ void midgard_CG::zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz)
    midgard_CG::show_zauber();
 }
 
+void midgard_CG::angeborene_zauber()
+{
+ if (typ.s=="eBe" || typ_2.s=="eBe" || typ.s=="dBe" || typ_2.s=="dBe" ) 
+    zauber.push_back(st_zauber("0","Lehrersuche","0","0","0","0","0","0","0","0","0","0","0","0","0","0",0));
+ if (werte.spezies=="Elf") 
+    zauber.push_back(st_zauber("0","Erkennen der Aura","0","0","0","0","0","0","0","0","0","0","0","0","0","0",0));
+}

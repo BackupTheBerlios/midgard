@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.16 2001/05/15 18:58:05 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.17 2001/05/15 22:21:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.8 2001/05/15 18:58:05 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.9 2001/05/15 22:21:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

@@ -71,13 +71,14 @@ double midgard_CG::get_standard_zauber(const styp& typ, const styp& typ_2, const
    exec sql declare zauber cursor for zaub ;
    exec sql open zauber;
    SQLerror::test(__FILELINE__);
+//cout << typ.s<<"\t"<<typ_2.s<<"\n";
    if(get_typ_s("Magie",typ) && get_typ_s("Magie",typ_2) ) 
     { if (typ.s !="eBe" && typ_2.s !="eBe") exec sql fetch zauber into  :db_ergebnis,:db_ergebnis2;
       else exec sql fetch zauber into  :db_ergebnis,:db_ergebnis2,:db_p_element,:db_s_element;
     }
    else 
-    { if (typ.s !="eBe") exec sql fetch zauber into  :db_ergebnis;
-      if (typ.s =="eBe") exec sql fetch zauber into  :db_ergebnis,:db_p_element,:db_s_element;
+    { if (typ.s !="eBe" &&  typ_2.s !="eBe") exec sql fetch zauber into  :db_ergebnis;
+      if (typ.s =="eBe" ||  typ_2.s =="eBe") exec sql fetch zauber into  :db_ergebnis,:db_p_element,:db_s_element;
     }
    SQLerror::test(__FILELINE__);  
 
