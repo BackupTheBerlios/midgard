@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.118 2002/05/05 20:39:21 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.119 2002/05/07 09:40:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -342,6 +342,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
      case MidgardBasicElement::KIDO : 
          { list_Kido.remove(MBE);
            ++maxkido;
+           fill_kido_lernschema();
            break;
          }
      case MidgardBasicElement::FERTIGKEIT_ANG : 
@@ -350,15 +351,18 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
          }
      case MidgardBasicElement::FERTIGKEIT : 
          { list_Fertigkeit.remove(MBE);
+           list_FertigkeitZusaetze.remove(MBE->Name());
            if(cH_Fertigkeit(MBE)->LernArt()=="Fach")      lernpunkte.addFach( MBE->Lernpunkte());
            else if(cH_Fertigkeit(MBE)->LernArt()=="Allg") lernpunkte.addAllgemein( MBE->Lernpunkte());
            else if(cH_Fertigkeit(MBE)->LernArt()=="Unge") lernpunkte.addUnge( MBE->Lernpunkte());
+           else set_info("Fehler beim Lernpunkte zurückstellen");
            std::string::size_type st = MBE->Name().find("KiDo-Technik");
            if(st!=std::string::npos)  --maxkido;
            break;
          }
      case MidgardBasicElement::SPRACHE : 
            list_Sprache.remove(MBE);
+           // KEIN break 
      case MidgardBasicElement::SCHRIFT : 
            list_Schrift.remove(MBE);
 
@@ -416,8 +420,9 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
             tree_lernschema->unselect_all();
             return;
           }
-        list_Zauber.push_back(MBE); 
-        if(MBE->ZusatzEnum(Typ)) lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
+        if(!MBE->ZusatzEnum(Typ)) // Das macht 'lernen_zusatz' automatisch
+            list_Zauber.push_back(MBE); 
+        else lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
         lernpunkte.addZauber(- MBE->Lernpunkte());
         break; }
     case MidgardBasicElement::FERTIGKEIT: 
@@ -437,15 +442,16 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
             std::string::size_type st = MBE->Name().find("KiDo-Technik");
             if(st!=std::string::npos) 
                { ++maxkido; list_FertigkeitZusaetze.push_back(MBE->Name());}
-            if(MBE->Name()!="Landeskunde (Heimat)" && st==std::string::npos) // Das macht 'lernen_zusatz' automatisch
-               list_Fertigkeit.push_back(MBE); 
+            if(!MBE->ZusatzEnum(Typ) && st==std::string::npos)// Das macht 'lernen_zusatz' automatisch
+                  list_Fertigkeit.push_back(MBE); 
             if(MBE->Name()=="KiDo" && Typ[0]->Short()=="Kd") maxkido+=2;
             if(maxkido>0 && cH_Fertigkeit("KiDo")->ist_gelernt(list_Fertigkeit)) 
                show_gtk();
          }
         else 
           { // Damit Sprachen und Schriften nicht doppelt angezeigt werden
-            list_FertigkeitZusaetze.push_back(MBE->Name());
+            // später: nach einhelliger Meinung sollen sie das doch 
+//            list_FertigkeitZusaetze.push_back(MBE->Name());
           }
         if(MBE->ZusatzEnum(Typ)) lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
 
@@ -561,14 +567,18 @@ void midgard_CG::show_lernschema()
         }
       if(!region_check((*i)->Region())) continue;
       if(!f->Voraussetzungen(Werte)) continue;
-      if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true);
+      // Fertigkeiten mit Zusätzen dürfen wiederholt gelernt werden, daher 'false'
+      // statt 'true'
+      if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(false);
       else {(*i)->setGelernt(false);(*i)->setZusatz("");}
-      if ((*i)->ist_gelernt(list_Fertigkeit)) 
-        {
-         if (!togglebutton_gelernte_anzeigen->get_active()) continue;
-         else (*i)->setGelernt(true); 
-        }
+      if((*i)->Name()=="Landeskunde (Heimat)" && (*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true);
+      if ((*i)->ist_gelernt(list_Fertigkeit)) (*i)->setGelernt(true); 
+      if((*i)->Gelernt()&&!togglebutton_gelernte_anzeigen->get_active()) continue;
       if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
+if((*i)->Gelernt())
+cout << "Was ist gelernt? "<<(*i)->Name()<<' '
+<<(*i)->ist_gelernt(list_FertigkeitZusaetze)<<' '
+<<(*i)->ist_gelernt(list_Fertigkeit)<<'\n';
       newlist.push_back(*i);
      }
    }
@@ -622,7 +632,6 @@ void midgard_CG::show_lernschema()
              if ((*i)->ist_gelernt(newlist)) continue ; // Speziesfertigkeiten 
              if (!cH_Fertigkeit(*i)->Voraussetzungen(Werte)) continue ;
              if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
-//             if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
              if ((*i)->ist_gelernt(list_Fertigkeit)) gelernt=true;
              if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
              VI=Lernschema::getIndex(Typ,"Fachkenntnisse",(*i)->Name());
@@ -653,10 +662,7 @@ void midgard_CG::show_lernschema()
   setTitels_for_Lernschema(what,fert);
   tree_lernschema->Expand_recursively();
 
-//  scrolledwindow_beruf->hide();
-//  table_berufsprozent->hide();
   scrolledwindow_lernen->show();
-//  scrolledwindow_ange_fert->hide();
 }
 
 void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)

@@ -22,10 +22,13 @@ NEWS IN VERSION 0.6delta3
 * Zahlreiche Änderungen an der Oberfläche
 * Au und pA wird zusammen mit Eigenschaften ausgewürfelt
 * Typempfehlungen werden berücksichtigt
+* Fertigkeiten/Zauber mit Zusätzen können auch bei der Erschaffung mehrfach 
+   gelernt werden
 
 TODO:
+* Gildenbrief funktioniert nicht
+* Tiersprache im Lernschema stürzt ab
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
-* Mindestwerte für pA sinnvoll berücksichigen
 * Destruktor wird nicht aufgerufen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)

@@ -28,7 +28,10 @@ static SigC::Connection connection;
 
 void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE)
 {
-  list_FertigkeitZusaetze.push_back(MBE->Name());
+  // Weil Fertigkeiten mehrmals gelernt werden dürfen werde sie hier nicht 
+  // in die LIste geschrieben.
+  // eine Ausnamhe ist 'Landeskunde (Heimat)', das passiert unten
+// list_FertigkeitZusaetze.push_back(MBE->Name());
   lernen_zusatz_titel(was,MBE);
   std::vector<cH_RowDataBase> datavec;
   connection.disconnect();
@@ -46,9 +49,11 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
       {
        if(MBE->Name()=="Landeskunde (Heimat)")
          {
+           list_FertigkeitZusaetze.push_back(MBE->Name());
            cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
            M->setZusatz(Werte.Herkunft()->Name());
            M->setErfolgswert(MBE->Erfolgswert());
+           M->setLernpunkte(MBE->Lernpunkte());
            list_Fertigkeit.push_back(M);
            return;
          }
@@ -80,7 +85,6 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
        if(datavec.empty()) 
          { set_status("Keine Schrift lernbar (entweder keine Sprache gelernt oder es werden alle lernbaren Schriften schon beherrscht.)");
            list_FertigkeitZusaetze.remove(MBE->Name());
-//           scrolledwindow_lernen->set_sensitive(true);
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_zusatz_leaf_schrift_selected));
        break;
@@ -94,7 +98,6 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
          { set_status("Noch keine Fernkampfwaffe gewählt.");
            list_Fertigkeit.remove(MBE);
            list_FertigkeitZusaetze.remove(MBE->Name());
-//           scrolledwindow_lernen->set_sensitive(true);
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_zusatz_leaf_selected));
        break;
@@ -110,7 +113,6 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
      case MidgardBasicElement::ZNone : break;
    }
  Tree_Lernschema_Zusatz->setDataVec(datavec);
-// scrolledwindow_lernen->set_sensitive(false);
  frame_lernschema_zusatz->show();
 }
 
@@ -123,7 +125,7 @@ void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_M
       {
        frame_lernschema_zusatz->set_label("Herkunftsland wählen");
        vs.push_back("Land");
-       vs.push_back("Koninent");
+       vs.push_back("Kontinent");
        vs.push_back("Sprache(n)");
        break;
       }
@@ -194,7 +196,13 @@ void midgard_CG::on_zusatz_leaf_selected(cH_RowDataBase d)
   tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   cH_MidgardBasicElement MBE=dt->getMBE();
-  MBE->setZusatz(dt->getZusatz());
+
+  cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit(MBE->Name()));
+  M->setZusatz(dt->getZusatz());
+  M->setErfolgswert(MBE->Erfolgswert());
+  M->setLernpunkte(MBE->Lernpunkte());
+  list_Fertigkeit.push_back(M);
+
   frame_lernschema_zusatz->hide();
   zeige_werte();  
   show_gelerntes();
