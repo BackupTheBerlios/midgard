@@ -19,11 +19,12 @@
 
 #include "Sprache.hh"
 #include <cstring>
-#include <Gtk_OStream.h>
+//#include <Gtk_OStream.h>
 #include <Misc/itos.h>
 #include "Schrift.hh"
 #include "Grundwerte.hh"
 #include "Abenteurer.hh"
+#include <iostream>
 
 cH_Sprache::cache_t cH_Sprache::cache;
 

@@ -22,6 +22,7 @@
 #include "Zauber.hh"
 #include "Fertigkeiten_angeboren.hh"
 #include "Fertigkeiten.hh"
+#include <iostream>
 
 cH_Spezies::cache_t cH_Spezies::cache;
 
