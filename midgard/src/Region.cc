@@ -216,6 +216,7 @@ Region::Region(const Tag *tag)
   offiziell=tag->getBoolAttr("offiziell");
   pic=RegionenPic::epic(tag->getIntAttr("MAGUS-Bild",tag->getIntAttr("MCG-Bild")));
   region_pix=RegionenPic::PicModel(pic,Midgard_Optionen::Self);
+  region_pix_small=RegionenPic::PicModel(pic,Midgard_Optionen::Self,true);
 }
 
 bool Region::setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active)

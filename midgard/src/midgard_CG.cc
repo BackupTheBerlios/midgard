@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.285 2002/11/28 17:56:57 thoma Exp $
+// $Id: midgard_CG.cc,v 1.286 2002/12/04 17:35:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@
 #endif
 #include "Windows_Linux.hh"
 #include <Misc/Trace.h>
-
+#include <char_Pixmap.hh>
 
 midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verzeichnis,
                        const std::string &datei)
@@ -88,16 +88,16 @@ midgard_CG::~midgard_CG()
 void midgard_CG::init_statusbar()
 {
   ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
-  frame_regionen_status->remove();
+//  frame_regionen_status->remove();
   vec_region_status.clear();
   Gtk::HBox *hb_regionen_status=manage(new class Gtk::HBox(false, 0));
   Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     Gtk::Pixmap *p=RegionenPic::Pic((*i)->Pic(),II,true);
-     hb_regionen_status->pack_start(*p);
-     if((*i)->Active()) p->show();
-     vec_region_status.push_back(st_reg_status((*i)->Pic(),p));
+     char_Pixmap *_pix=manage(new char_Pixmap((*i)->RegionPixSmall()));
+     hb_regionen_status->pack_start(*_pix);
+     if((*i)->Active()) _pix->show();
+     vec_region_status.push_back(st_reg_status((*i)->Pic(),_pix));
    }
   hb_regionen_status->show();
   frame_regionen_status->add(*hb_regionen_status);

@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.29 2002/12/04 08:57:22 thoma Exp $               
+// $Id: Region.hh,v 1.30 2002/12/04 17:35:30 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -54,6 +54,7 @@ class Region  : public HandleContent
    bool offiziell;
    mutable Model<bool> active;
    mutable Model<char**> region_pix;
+   mutable Model<char**> region_pix_small;
 
   public:
    Region(const Tag *tag);
@@ -74,6 +75,8 @@ class Region  : public HandleContent
    RegionenPic::epic Pic() const {return pic;}
    void setRegionPix(char **c) const {region_pix=c;}
    Model<char**> &RegionPix() const {return region_pix;}
+   void setRegionPixSmall(char **c) const {region_pix_small=c;}
+   Model<char**> &RegionPixSmall() const {return region_pix_small;}
 
    bool operator==(const Region& b) const {return Name()==b.Name();}
 
