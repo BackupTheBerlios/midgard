@@ -1,4 +1,17 @@
 ##########################################################################
+NEWS IN VERSION 0.7delta3
+
+TODO:
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
+in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
+links). 
+* Ausdruck für lange Listen
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+
+##########################################################################
 NEWS IN VERSION 0.7delta2
 
 * kleinere Bugs beseitigt
@@ -37,15 +50,6 @@ NEWS IN VERSION 0.7delta2
 * Lernen von Fertigkeiten Absturz beseitigt
 * Fertigkeiten mit Voraussetzungen werden anzeigen aber sind nicht lernbar
 
-
-TODO:
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
-in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
-links). 
-* Ausdruck für lange Listen
-* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
-  man etwas hinzufügen möchte, ist nicht gerade intuitiv
-  (vielleicht drag'n'drop oder CTree verschieben)
 
 
 ##########################################################################
