@@ -186,16 +186,14 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
      case MidgardBasicElement::FERTIGKEIT :
          {hauptfenster->getChar().List_Fertigkeit().remove(MBE);
            list_FertigkeitZusaetze.remove(MBE->Name());
-           if(MBE.LernArt()=="Fach")      lernpunkte.addFach( MBE.Lernpunkte());
-           else if(MBE.LernArt()=="Allg") lernpunkte.addAllgemein( MBE.Lernpunkte());
-           else if(MBE.LernArt()=="Unge") lernpunkte.addUnge( MBE.Lernpunkte());
-           else if(MBE.LernArt()=="Allg_Heimat") 
-             { lernpunkte.addAllgemein( MBE.Lernpunkte());
-               list_FertigkeitZusaetze.remove("Landeskunde (Heimat)");
-             }
-           else if(MBE.LernArt()=="Allg_Schreiben_Muttersprache") 
-             { lernpunkte.addAllgemein( MBE.Lernpunkte());
-               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)"); 
+           if(MBE.LernArt().find("Fach")!=std::string::npos) lernpunkte.addFach( MBE.Lernpunkte());
+           if(MBE.LernArt().find("Unge")!=std::string::npos) lernpunkte.addAllgemein( MBE.Lernpunkte());
+           if(MBE.LernArt().find("Allg")!=std::string::npos) lernpunkte.addUnge( MBE.Lernpunkte());
+
+           if(MBE.LernArt().find("Heimat")!=std::string::npos) 
+                  list_FertigkeitZusaetze.remove("Landeskunde (Heimat)");
+           if(MBE.LernArt().find("_Schreiben_Muttersprache")!=std::string::npos) 
+             { list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)"); 
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)"); 
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)");
              }
@@ -297,12 +295,12 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     case MidgardBasicElement::FERTIGKEIT:
       { 
-        if( (MBE.LernArt()=="Fach" &&
+        if( (MBE.LernArt().find("Fach")!=std::string::npos  &&
              MBE.Lernpunkte() > lernpunkte.Fach()) ||
              (MBE.LernArt().find("Allg")!=std::string::npos &&
              MBE.Lernpunkte() > lernpunkte.Allgemein()) ||
-             (MBE.LernArt()=="Unge" && 
-             MBE.Lernpunkte() > lernpunkte.Unge()) )  
+             (MBE.LernArt().find("Unge")!=std::string::npos &&
+             MBE.Lernpunkte() > lernpunkte.Unge()))
           { hauptfenster->set_status("Nicht genug Lernpunkte");      
             tree_lernschema->unselect_all();
             return;
@@ -326,11 +324,12 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         if(MBE->ZusatzEnum(A.getVTyp())) 
           lernen_zusatz(MBE->ZusatzEnum(A.getVTyp()),MBE);
 
-        if(MBE.LernArt()=="Fach")
+
+        if(MBE.LernArt().find("Fach")!=std::string::npos)
            lernpunkte.addFach(-MBE.Lernpunkte());
         else if(MBE.LernArt().find("Allg")!=std::string::npos)
            lernpunkte.addAllgemein(- MBE.Lernpunkte());
-        else if(MBE.LernArt()=="Unge")  
+        else if(MBE.LernArt().find("Unge")!=std::string::npos)
            lernpunkte.addUnge(- MBE.Lernpunkte());     
         break; }
     default : break;

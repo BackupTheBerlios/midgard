@@ -44,7 +44,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       list_FertigkeitZusaetze.push_back("Schreiben: Muttersprache(+4)");
       list_FertigkeitZusaetze.push_back("Schreiben: Muttersprache(+9)");
       list_FertigkeitZusaetze.push_back("Schreiben: Muttersprache(+12)");
-      MBE.setLernArt("Allg_Schreiben_Muttersprache");
+      MBE.setLernArt(MBE.LernArt()+"_Schreiben_Muttersprache");
     }
   lernen_zusatz_titel(was,MBE);
   datavec_zusatz.clear();
@@ -83,7 +83,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
            list_FertigkeitZusaetze.push_back(MBE->Name());
            cH_MidgardBasicElement MBE_=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
            MidgardBasicElement_mutable M(&*MBE_);
-           M.setLernArt("Allg_Heimat");
+           M.setLernArt(M.LernArt()+"_Heimat");
            M.setZusatz(hauptfenster->getWerte().Herkunft()->Name());
            M.setErfolgswert(MBE.Erfolgswert());
            M.setLernpunkte(MBE.Lernpunkte());

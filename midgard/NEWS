@@ -21,11 +21,12 @@ NEWS IN VERSION 0.7.7
 * Ausdruck überarbeitet: GFP/EP reduziert, dafür Resistenzen und Sinne größer
 * Spezies explizit im Ausdruck
 * Graphik in Beschreibung
-* Icons in Tollbar austauchbar
+* Icons in Tollbar austauchbar (Das M$-Iconset stammt von Ulf Kaiser)
+* Schreiben: Muttersprache als Fachkenntnis: Lernpunkte korrekt abziehen
+   Durch Beseitigung dieses Bugs wurde der Code deutlich klarer
 
 
 TODO: ('-' zeigt CP an)
-* Schreiben: Muttersprache als Fachkenntnis: Lernpunkte korrekt abziehen
 * Schwarzer Balken im Lernschema bei Maximierung
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
