@@ -41,17 +41,21 @@ Region::Region(const std::string& n)
 {
   exec sql begin declare section;
    char db_name[50], db_abkuerzung[50], db_file[50],
-        db_url[50], db_maintainer[50],db_version[50];
+        db_url[50], db_maintainer[50],db_version[50],db_copyright[100];
+   bool db_offiziell;
   exec sql end declare section;
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select abkuerzung,file,url,maintainer,version
-      into :db_abkuerzung,:db_file,:db_url, :db_maintainer,:db_version
+  exec sql select abkuerzung,file,url,maintainer,version,copyright,offiziell
+      into :db_abkuerzung,:db_file,:db_url, :db_maintainer,:db_version,
+           :db_copyright,:db_offiziell;   
       from regionen where name=:db_name;
   abkuerzung=db_abkuerzung;
   file=db_file;
   url=db_url;
   maintainer=db_maintainer;
   version=db_version;
+  copyright=db_copyright;
+  offiziell=db_offiziell;
 }
 
 bool Region::setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active)
