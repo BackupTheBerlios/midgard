@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.12 2002/02/25 10:04:26 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.13 2002/02/28 09:34:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ void midgard_CG::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
      }
   }
  fout << "\\begin{center}\n";
- std::string     drache="10cm", namensbox="7cm";
+ std::string     drache="9.9cm", namensbox="7cm";
  if(!landscape) {drache="7cm" , namensbox="5cm";}
  fout << "\\IfFileExists{drache.png}{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{drache.png}}}\n";
  fout << "{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}\n";

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.102 2002/02/24 12:59:19 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.103 2002/02/28 09:34:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -117,6 +117,7 @@ void midgard_CG::LaTeX_write_values()
 
 
 // fout << "\\newcommand{\\bogi}{ X }\n";
+ fout << "\\newcommand{\\res}{"<<Werte.Resistenz()<<"}\n";
  fout << "\\newcommand{\\psy}{"<<Werte.Resistenz()+Werte.bo_Psy(Typ)<<"}\n";
  fout << "\\newcommand{\\ppresistenz}{"<<EmptyInt_4TeX(Werte.ResistenzPP())<<"}\n";
  fout << "\\newcommand{\\phs}{"<<Werte.Resistenz()+Werte.bo_Phs(Typ)<<"}\n";

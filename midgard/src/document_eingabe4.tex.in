@@ -55,6 +55,7 @@
 \newsavebox{\Kampfstab} 
 \newsavebox{\Parierwaffe}
 \newsavebox{\Werfen}
+\newsavebox{\Fesselwaffe}
 \newsavebox{\Bola}
 \newsavebox{\Netz}
 \newsavebox{\Peitsche}
@@ -206,14 +207,14 @@ Berufe&{\beruf}\\\hline
 \multicolumn{2}{|l|}{Sinne} 
    & \multicolumn{2}{l|}{pers. Boni für} 
    & \multicolumn{2}{l}{Erfolgswerte}&PP\\\hline
-Sehen          & \sinnse   &Ausdauer & \boau  &Raufen & \raufen & \\
-Hören          & \sinnh    &Schaden  & \bosc  &Abwehr  & \abwehr & \ppabwehr \\
-Riechen        & \sinnr    &Angriff  & \boan  &Zaubern & \zauber & \ppzauber \\
-Schmecken      & \sinnsc   &Abwehr   & \boab  &Geistesmagie & \psy&  \ppresistenz \\
-Tasten         & \sinnt    &Zaubern  & \boza  &Körpermagie & \phs & \\
-Sechster Sinn  & \sinnss   &Geistmagie    & \bopsy &Umgebungsmagie & \phk& \\
-               &           &Körpermagie   & \bophs &Gift & \gift & \\
-\multicolumn{2}{|l|}{\hand}  &Umgebungsmagie   & \bophk & & &\\\hline
+Sehen          & \sinnse     &Ausdauer      & \boau  &Raufen        & \raufen & \\
+Hören          & \sinnh      &Schaden       & \bosc  &Abwehr        & \abwehr & \ppabwehr \\
+Riechen        & \sinnr      &Angriff       & \boan  &Zaubern       & \zauber & \ppzauber \\
+Schmecken      & \sinnsc     &Abwehr        & \boab  &Resistenz     & \res    & \ppresistenz \\
+Tasten         & \sinnt      &Zaubern       & \boza  &Geistesmagie  & \psy    & \\
+Sechster Sinn  & \sinnss     &Geistmagie    & \bopsy &Körpermagie   & \phs    & \\
+               &             &Körpermagie   & \bophs &Umgebungsmagie& \phk    & \\
+\multicolumn{2}{|l|}{\hand}  &Umgebungsmagie& \bophk &Gift          & \gift   & \\\hline
 \end{tabular}
 }
 \hfill

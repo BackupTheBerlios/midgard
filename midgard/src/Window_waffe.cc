@@ -91,14 +91,15 @@ void Window_waffe::wuerfeln()
  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
   {  
     cH_Waffe w(*i);
+    cH_MidgardBasicElement WB= new WaffeBesitz(cH_Waffe(*i),"",w->Region(w->Name()),0,0,"");
     if (w->Name() == "waffenloser Kampf") continue;
     if ((*i)->ist_gelernt(list_Waffen))
       {
          os << w->Art2()<<'\t'<<w->Name() <<'\t'<<w->Grundkenntnis()
             <<'\t'<<w->Schaden(w->Name())+"+"
             +itos(w->Schaden_Bonus(w->Name()))<<"\n";
-//         os.flush(gpointer(&*i));
-         os.flush((*i)->ref(),&HandleContent::unref);
+//         os.flush((*i)->ref(),&HandleContent::unref);
+         os.flush(WB->ref(),&HandleContent::unref);
       }  
   }
  hauptfenster->InfoFenster->AppendShow(strinfo);
@@ -133,7 +134,6 @@ void Window_waffe::on_button_close_clicked()
      cH_MidgardBasicElement mbe=static_cast<MidgardBasicElement*>(i->get_data());
      V.push_back(mbe);
    }
-//  oberfenster->get_waffe(V);
   hauptfenster->MidgardBasicElement_uebernehmen(V);
   destroy();
 }
