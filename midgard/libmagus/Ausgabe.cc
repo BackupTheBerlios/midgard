@@ -1,4 +1,4 @@
-// $Id: Ausgabe.cc,v 1.5 2004/04/30 13:31:40 thoma Exp $
+// $Id: Ausgabe.cc,v 1.6 2004/06/04 09:27:39 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -20,23 +20,19 @@
 #include "Ausgabe.hh"
 #include <iostream>
 
-extern std::string utf82iso(const std::string &s);
-#if 0
-{  std::string ret="";
-
-   for (std::string::const_iterator i = s.begin(); i!=s.end() ; i++)
-   {  if (((*i)&0xe0)==0xc0)
-      {  unsigned char first=*i;
-         unsigned char second=*++i;
-         ret+=(unsigned char)((first<<6)|(second)&0x3f);
+// copied from TagStream.cc
+static void utf82iso(std::string &s)
+{  for (unsigned i = 0; i+1<s.size() ; ++i)
+   {  unsigned char x=s[i];
+      if ((x&0xe0)==0xc0) 
+      {  unsigned char y=s[i+1];
+         unsigned char r=(x<<6)|(y&0x3f);
+         s.replace(i,2u,1u,char(r));
       }
-      else if ((unsigned char)(*i)>=0x80)
-         std::cout << "UTF8 error " << int(*i) << '\n';
-      else ret+=*i;
+      else if (x>=0x80)
+         std::cout << "UTF8 decoding error " << x << '\n';
    }
-   return ret;
 }
-#endif
 
 const char * const Verbose[Ausgabe::MaxLevel]=
 {  0,"Meldung",/*.Ausgabe::Warning=*/"Warnung", "Bitte Handeln",
@@ -49,10 +45,12 @@ void Ausgabe::setLogLevel(Level l)
 {  LogLevel=l;
 }
 
-static void StandardAusgabe(Ausgabe::Level l,const std::string &text)
+static void StandardAusgabe(Ausgabe::Level l,const std::string &_text)
 {  if (l>Ausgabe::MaxLevel) l=Ausgabe::Fatal;
    if (l<LogLevel) return;
-   std::cerr << (Verbose[l]?Verbose[l]:"") << (Verbose[l]?":":"") << utf82iso(text) << '\n';
+   std::string text(_text);
+   utf82iso(text);
+   std::cerr << (Verbose[l]?Verbose[l]:"") << (Verbose[l]?":":"") << text << '\n';
 }
 
 static Ausgabe::Ausgabe_cb *aktuelle_implementierung=&StandardAusgabe;
