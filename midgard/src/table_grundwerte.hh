@@ -22,10 +22,12 @@ class table_grundwerte : public table_grundwerte_glade
         friend class table_grundwerte_glade;
         friend class midgard_CG;
         midgard_CG *hauptfenster;
+
+        bool block_changed;
 public:
         
         table_grundwerte(GlademmData *_data) 
-            : table_grundwerte_glade(_data), hauptfenster(0) {}
+            : table_grundwerte_glade(_data), hauptfenster(0),block_changed(false) {}
         void init(midgard_CG *hauptfenster);
         void fill_typauswahl();  
         void fill_typauswahl_2();
@@ -60,9 +62,12 @@ private:
         
         // Ab hier die automatischen Methoden von glade erzeugt        
    private:
+        void on_combo_spezies_changed();
         void on_combo_spezies_activate();
         gint on_combo_spezies_focus_out_event(GdkEventFocus *ev);
+        void on_combo_typ__changed();
         void on_combo_typ_activate();
+        void on_combo_typ2__changed();
         void on_combo_typ2_activate();
         gint on_combo_typ__focus_out_event(GdkEventFocus *ev);
         gint on_combo_typ2_focus_out_event(GdkEventFocus *ev);

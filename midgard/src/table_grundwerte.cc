@@ -34,6 +34,7 @@ void table_grundwerte::init(midgard_CG *h)
 void table_grundwerte::zeige_werte(bool typ2_hide=true)
 { 
    if(!hauptfenster) return;
+   block_changed=true;
    if (hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Original).active)  
       original_midgard_check();
 
@@ -106,6 +107,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide=true)
       else  combo_typ2->show();
     }
    combo_spezies->get_entry()->set_text(hauptfenster->getWerte().Spezies()->Name());
+   block_changed=false;
 }
 
 void table_grundwerte::neuer_charakter()
@@ -123,6 +125,8 @@ void table_grundwerte::neuer_charakter()
    if(hauptfenster->getWerte().Stadt_Land()=="Stadt")  radiobutton_stadt->set_active(true);
    fill_typauswahl();
    fill_spezies();
-//   spezieswahl_button();
+   combo_spezies->get_entry()->set_text(hauptfenster->getWerte().Spezies()->Name());
+   combo_typ ->get_entry()->set_text(hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
+   combo_typ2->get_entry()->set_text(hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
    zeige_werte();
 }

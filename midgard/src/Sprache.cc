@@ -177,6 +177,22 @@ bool Sprache::ist_erlaubt(const VAbenteurer& A,bool nachbarland=false) const
   return false;
 }
 
+void Sprache::setErfolgswertMutterGastlandsprache(MidgardBasicElement_mutable &M,std::string mode,int in,int bonus)
+{
+  if(mode=="Muttersprache")
+   {
+     if(in<=30) M.setErfolgswert(10);
+     else if (30<in && in<=60) M.setErfolgswert(14);
+     else if (in>60) M.setErfolgswert(18+bonus);
+   }
+  else if(mode=="Gastlandsprache")
+   {
+     if(in>30) M.setErfolgswert(12);
+     else M.setErfolgswert(9);
+   }
+  else assert(!"never get here\n");
+}
+
 
 
 

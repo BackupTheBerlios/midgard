@@ -60,9 +60,7 @@ void midgard_CG::on_neuer_charakter_clicked()
       (*i)->setActive(false);
       set_region_statusbar((*i)->Pic(),false);
      }
-
   table_steigern->neuer_charakter();
-
   menu_init();
   notebook_main->set_page(PAGE_GRUNDWERTE);
   table_grundwerte->neuer_charakter();

@@ -6805,7 +6805,7 @@ setzen</label>
 	      <widget>
 		<class>GtkEntry</class>
 		<child_name>GtkCombo:entry</child_name>
-		<name>entry_spezies</name>
+		<name>combo_spezies</name>
 		<can_focus>True</can_focus>
 		<signal>
 		  <name>activate</name>
@@ -6816,6 +6816,11 @@ setzen</label>
 		  <name>focus_out_event</name>
 		  <handler>on_combo_spezies_focus_out_event</handler>
 		  <last_modification_time>Mon, 27 May 2002 11:35:02 GMT</last_modification_time>
+		</signal>
+		<signal>
+		  <name>changed</name>
+		  <handler>on_combo_spezies_changed</handler>
+		  <last_modification_time>Thu, 11 Jul 2002 12:22:37 GMT</last_modification_time>
 		</signal>
 		<editable>True</editable>
 		<text_visible>True</text_visible>
@@ -6990,6 +6995,11 @@ schaften</label>
 		    <handler>on_combo_typ__focus_out_event</handler>
 		    <last_modification_time>Mon, 27 May 2002 10:16:03 GMT</last_modification_time>
 		  </signal>
+		  <signal>
+		    <name>changed</name>
+		    <handler>on_combo_typ__changed</handler>
+		    <last_modification_time>Thu, 11 Jul 2002 06:59:09 GMT</last_modification_time>
+		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
@@ -7016,7 +7026,7 @@ schaften</label>
 		<widget>
 		  <class>GtkEntry</class>
 		  <child_name>GtkCombo:entry</child_name>
-		  <name>entry1</name>
+		  <name>combo_typ2_</name>
 		  <can_focus>True</can_focus>
 		  <signal>
 		    <name>activate</name>
@@ -7027,6 +7037,11 @@ schaften</label>
 		    <name>focus_out_event</name>
 		    <handler>on_combo_typ2_focus_out_event</handler>
 		    <last_modification_time>Mon, 27 May 2002 10:16:33 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>changed</name>
+		    <handler>on_combo_typ2__changed</handler>
+		    <last_modification_time>Thu, 11 Jul 2002 07:25:32 GMT</last_modification_time>
 		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>

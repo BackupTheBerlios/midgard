@@ -49,6 +49,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
   lernen_zusatz_titel(was,MBE);
   datavec_zusatz.clear();
   connection.disconnect();
+
   switch(was)
    {
      case MidgardBasicElement::ZHerkunft:
@@ -308,8 +309,13 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
   zeige_werte();  
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_herkunft->set_sensitive(false);
-  MidgardBasicElement_mutable dummy=hauptfenster->getWerte().Ueberleben();
-  lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
+//XXX Das muß nach der Sprachenausawahl kommen:
+//  MidgardBasicElement_mutable dummy=hauptfenster->getWerte().Ueberleben();
+//  lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
+  MidgardBasicElement_mutable M(&*cH_Fertigkeit("Muttersprache"));
+  Sprache::setErfolgswertMuttersprache(M,hauptfenster->getWerte().In(),
+           cH_Fertigkeit(M)->AttributBonus(hauptfenster->getWerte()));
+  lernen_zusatz(MidgardBasicElement::ZSprache,M);
 }
 
 void table_lernschema::on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d)
@@ -362,7 +368,7 @@ void table_lernschema::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
 
 void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
 {
-  tree_lernschema->set_sensitive(true);
+  if(tree_lernschema) tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
 
   MidgardBasicElement_mutable sprache(&*cH_Sprache(dt->getZusatz().name));
@@ -374,6 +380,8 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   set_zusatz_sensitive(false);
   zeige_werte();  
   show_gelerntes();
+  MidgardBasicElement_mutable dummy=hauptfenster->getWerte().Ueberleben();
+  lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
 }
 
 gint table_lernschema::on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev)

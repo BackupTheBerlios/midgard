@@ -67,12 +67,14 @@ void midgard_CG::menu_init()
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
 
      std::string labeltext=(*i)->Name();
+/*
      if (labeltext.size()>11)
      {  string::size_type pos=0;
         while ((pos=labeltext.find(' ',pos))!=string::npos)
         {  labeltext.replace(pos,1,'\n');
         }
      }
+*/
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      int row=1;
      if((*i)->Offiziell()) 
@@ -101,8 +103,6 @@ void midgard_CG::menu_init()
   Gtk::Menu *optionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Ansicht & Fenster")); 
   optionen->set_submenu(*optionen_menu);
-//  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Ansicht & Fenster","<Control>A", *optionen_menu));
-//  Gtk::MenuItem *optionen = (Gtk::MenuItem *)main_menubar->items().back();
 
   std::list<Midgard_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
   for(std::list<Midgard_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
@@ -186,12 +186,14 @@ reloop:
      if((*i)->Nr()<=0) continue;
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());
      std::string labeltext=(*i)->Name();
-          if (labeltext.size()>11)
+/*
+     if (labeltext.size()>11)
      {  string::size_type pos=0;
         while ((pos=labeltext.find(' ',pos))!=string::npos)
         {  labeltext.replace(pos,1,'\n');
         }
      }
+*/
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      int row=1;
      if((*i)->Offiziell()) 

@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.17 2002/07/10 09:31:37 christof Exp $               
+// $Id: Spezies.hh,v 1.18 2002/07/11 21:00:09 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,6 +31,7 @@
 class Grundwerte;
 class cH_MidgardBasicElement;
 class MidgardBasicElement_mutable;
+class cH_Spezies;
 
 class Spezies : public HandleContent
 {
@@ -112,6 +113,9 @@ public:
    std::vector<std::string> getVHerkunft() const {return vec_herkunft;}
    std::vector<std::string> getVSprache() const {return vec_sprache;}
 
+   static bool get_Spezies_from_long(const std::vector<cH_Spezies>& V,
+                                        std::string& name);
+
 
    bool operator==(const Spezies &b) const
    {  return Name()==b.Name(); }
@@ -128,6 +132,8 @@ class cH_Spezies : public Handle<const Spezies>
    cH_Spezies(const std::string& name ,bool create=false);
    cH_Spezies(const Tag *tag);
     cH_Spezies(const Spezies *s) : Handle<const Spezies>(s) {};
+
+
 };
 
 

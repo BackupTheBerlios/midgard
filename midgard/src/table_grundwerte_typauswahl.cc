@@ -21,7 +21,7 @@
 #include <Gtk_OStream.h>
 #include <SelectMatching.h>
 
-static bool block;
+//static bool block;
 
 void table_grundwerte::fill_typauswahl()
 {
@@ -57,10 +57,10 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
               L.push_back("("+(*i)->Name(hauptfenster->getWerte().Geschlecht())+")");
          }
    }
- block=true;
+ block_changed=true;
  if(typ_1_2==1) combo_typ->set_popdown_strings(L);
  else           combo_typ2->set_popdown_strings(L);
- block=false;
+ block_changed=false;
 }
 
 void table_grundwerte::on_combo_typ_activate()
@@ -69,10 +69,14 @@ void table_grundwerte::on_combo_typ_activate()
   button_abg_werte->grab_focus();
 }
 
+void table_grundwerte::on_combo_typ__changed()
+{
+ if(!block_changed) typauswahl_button();
+}
+
 gint table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
 {
   typauswahl_button();
-  hauptfenster->undosave("Typ gewählt");
   return false;
 }
 
@@ -82,6 +86,7 @@ void table_grundwerte::typauswahl_button()
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;
 
+ hauptfenster->undosave("Typ gewählt");
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);
  hauptfenster->getChar().setTyp1(cH_Typen(typ));
 
@@ -118,10 +123,14 @@ void table_grundwerte::on_combo_typ2_activate()
   button_abg_werte->grab_focus();
 }
 
+void table_grundwerte::on_combo_typ2__changed()
+{
+ if(!block_changed)typauswahl_2_button();
+}
+
 gint table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
 {
   typauswahl_2_button();
-  hauptfenster->undosave("zweiter Typ gewählt");
   return false;
 }
 
@@ -130,6 +139,8 @@ void table_grundwerte::typauswahl_2_button()
  std::string typ=combo_typ2->get_entry()->get_text();
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;
+
+ hauptfenster->undosave("zweiter Typ gewählt");
  hauptfenster->getChar().setTyp2(cH_Typen(typ));
 
 // if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
@@ -139,12 +150,14 @@ void table_grundwerte::typauswahl_2_button()
 void table_grundwerte::fill_spezies()
 {
   std::vector<std::string> L;
-    for(vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
-     {
-       if (!hauptfenster->nsc_check((*i)->NSC_only())) continue;
-       L.push_back((*i)->Name());
-     }
-  combo_spezies->set_popdown_strings(L);
+  for(vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
+   {
+     if (!hauptfenster->nsc_check((*i)->NSC_only())) continue;
+     L.push_back((*i)->Name());
+   }
+ block_changed=true;
+ combo_spezies->set_popdown_strings(L);
+ block_changed=false;
 }
 
 void table_grundwerte::on_combo_spezies_activate()
@@ -152,16 +165,23 @@ void table_grundwerte::on_combo_spezies_activate()
  button_grundwerte->grab_focus();
 }
 
+void table_grundwerte::on_combo_spezies_changed()
+{
+ if(!block_changed) spezieswahl_button();
+}
+
+
 gint table_grundwerte::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 {
   spezieswahl_button();
-  hauptfenster->undosave("Spezies gewählt");
   return false;
 }
 
 void table_grundwerte::spezieswahl_button()
 {
  std::string spezies=combo_spezies->get_entry()->get_text();
+ if(!Spezies::get_Spezies_from_long(hauptfenster->getCDatabase().Spezies,spezies))
+   return;
  bool ok=false;
  for(vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
    {
@@ -174,19 +194,19 @@ void table_grundwerte::spezieswahl_button()
    }
  if(!ok) return;
 
+ hauptfenster->undosave("Spezies gewählt");
  fill_typauswahl();
- typauswahl_button();
+// typauswahl_button();
 
  if (hauptfenster->getWerte().Spezies()->Name()=="Elf")
    hauptfenster->InfoFenster->AppendShow("Soll dieser Elf ein Doppeltyp-Abenteurer sein?",WindowInfo::Elf_doppel);
    
-//   manage (new Window_doppelcharaktere(this));
-
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIES);
 }
 
 void table_grundwerte::on_radiobutton_stadt_land_toggled()
 {
+  if(block_changed) return;
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::STADTLAND);
 
   if(radiobutton_stadt->get_active()) hauptfenster->getWerte().setStadt_Land("Stadt");   
@@ -206,6 +226,7 @@ void table_grundwerte::on_radiobutton_frau_toggled()
 { on_radiobutton_mann_toggled(); }
 void table_grundwerte::on_radiobutton_mann_toggled()
 {
+  if(block_changed) return;
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GESCHLECHT);
   std::string oldG=hauptfenster->getWerte().Geschlecht();
   if (radiobutton_mann->get_active()) hauptfenster->getWerte().setGeschlecht("m");
@@ -234,5 +255,3 @@ void table_grundwerte::kaempfer_lernt_zaubern()
   if (hauptfenster->getWerte().Zaubern_wert()==2) 
       hauptfenster->getWerte().setZaubern_wert(10);
 }
-         
-         

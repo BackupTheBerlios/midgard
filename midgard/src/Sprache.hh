@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.25 2002/07/10 09:31:37 christof Exp $               
+// $Id: Sprache.hh,v 1.26 2002/07/11 21:00:09 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -60,6 +60,12 @@ class Sprache : public MidgardBasicElement
 
    static std::list<MidgardBasicElement_mutable> Sprache::cleanVerwandteSprachen(std::list<MidgardBasicElement_mutable> L);
 
+   static void setErfolgswertMuttersprache(MidgardBasicElement_mutable &M,int in,int bonus) 
+      {setErfolgswertMutterGastlandsprache(M,"Muttersprache",in,bonus);}
+   static void setErfolgswertGastlandsprache(MidgardBasicElement_mutable &M,int in) 
+      {setErfolgswertMutterGastlandsprache(M,"Gastlandsprache",in,0);}
+private:
+   static void setErfolgswertMutterGastlandsprache(MidgardBasicElement_mutable &M,std::string mode,int in,int bonus);
 };
 
 

@@ -14,6 +14,7 @@
 #include "WaffeGrund.hh"
 #include <SelectMatching.h>
 #include "KiDo.hh"
+#include "Sprache.hh"
 
 void table_lernschema::init(midgard_CG *h)
 {
@@ -748,9 +749,10 @@ void table_lernschema::show_lernschema()
 
       if(!f.ist_gelernt(A.List_Fertigkeit()))
         {
-         if     ((*i)->Name()=="Muttersprache"   && 30<A.getWerte().In()&&A.getWerte().In()<=60) f.setErfolgswert(14);
-         else if((*i)->Name()=="Muttersprache"   && A.getWerte().In()>60) f.setErfolgswert(18+cH_Fertigkeit(*i)->AttributBonus(hauptfenster->getWerte()));
-         else if((*i)->Name()=="Gastlandsprache" && A.getWerte().In()>30) f.setErfolgswert(12);
+         if     ((*i)->Name()=="Muttersprache")
+              Sprache::setErfolgswertMuttersprache(f,A.getWerte().In(),cH_Fertigkeit(*i)->AttributBonus(hauptfenster->getWerte()));  
+         else if((*i)->Name()=="Gastlandsprache") 
+              Sprache::setErfolgswertGastlandsprache(f,A.getWerte().In());
          else f.setErfolgswert((*i)->Anfangswert()+cH_Fertigkeit(*i)->AttributBonus(A.getWerte()));
          f.setLernpunkte(lp);
         }

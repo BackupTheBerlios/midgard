@@ -253,3 +253,14 @@ bool Spezies::istVerbotenSpielbegin(const cH_MidgardBasicElement &mbe) const
 bool operator==(gpointer data,const cH_Spezies &s)
 {  return *(static_cast<Spezies*>(data))==*s;
 }
+
+bool Spezies::get_Spezies_from_long(const std::vector<cH_Spezies>& V,
+                                        std::string& name)
+{
+  for(std::vector<cH_Spezies>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     if((*i)->Name()==name )  return true;
+   }
+  return false;
+}
+

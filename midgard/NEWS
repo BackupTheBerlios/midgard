@@ -6,6 +6,9 @@ NEWS IN VERSION 0.7.6
 * Endlich ist das Fenster wieder verkleinerbar -> 800x600 geht
 * xml export von Zusätzen zu Fertigkeiten in der richtigen Region
 * Accelerators (Tastaturabkürzungen) für Menü eingebaut
+* 'Spezies/Typ' setzen bei Auswahl, nicht erst beim verlassen des Focus.
+* Muttersprache direkt nach dem Heimatland
+
 
 TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
