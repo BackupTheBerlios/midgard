@@ -135,7 +135,7 @@ void midgard_CG::xml_import(const std::string& datei)
    const Tag *Praxispunkte=Steigern?Steigern->find("Praxispunkte"):0;
 
    Werte.setBasiswerte(Basiseigenschaften->getIntAttr("St"),
-   	Basiseigenschaften->getIntAttr("Gw",Basiseigenschaften->getIntAttr("RW")),
+   	Basiseigenschaften->getIntAttr("Gw",abgeleiteteEigenschaften->getIntAttr("RW")),
    	Basiseigenschaften->getIntAttr("Gs",Basiseigenschaften->getIntAttr("Ge")),
    	Basiseigenschaften->getIntAttr("Ko"),
    	Basiseigenschaften->getIntAttr("In"),
