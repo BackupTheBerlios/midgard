@@ -15,7 +15,7 @@
 #include "../pixmaps/Anpass-trans-50.xpm"
 #include "../pixmaps/Anpass-trans-50_invers.xpm"
 #include "../pixmaps/EP-Steigern-50.xpm"
-#include <MVC_bool_Widget.hh>
+#include <bool_CheckButton.hh>
 
 
 void table_steigern::init(midgard_CG *h)
@@ -47,7 +47,7 @@ void table_steigern::init(midgard_CG *h)
   if(!only_once)
   {
    only_once=true;
-   MVC_bool_Widget *_m=manage(new MVC_bool_Widget(steigern_mit_EP_bool,hauptfenster->make_gtk_box(EP_Steigern_50_xpm,"Mit EP/PP\nsteigern",false)));
+   bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(EP_Steigern_50_xpm,"Mit EP/PP\nsteigern",false)));
    _m->set_mode(false);
    _m->toggled.connect_after(SigC::slot(this, &table_steigern::on_checkbutton_EP_Geld_toggled));
    eventbox_eppp_steigern->add(*_m);

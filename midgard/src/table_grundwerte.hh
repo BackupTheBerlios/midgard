@@ -15,7 +15,7 @@
 
 class midgard_CG;
 #include <vector>
-#include <MVC.h>
+#include <Model.h>
 
 class table_grundwerte : public table_grundwerte_glade
 {  

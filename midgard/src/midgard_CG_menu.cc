@@ -21,7 +21,7 @@
 #include <gtk--/pixmap.h>
 #include "../pixmaps/midgard_logo_tiny.xpm"
 #include <Misc/itos.h>
-#include <MVC_boolMenu_Widget.hh>
+#include <bool_CheckMenuItem.hh>
 #include "../pixmaps/NSC-Mode-26.xpm"
 
 Gtk::Box &midgard_CG::make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild,const bool hbox)
@@ -48,27 +48,27 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *schummel = manage(new class Gtk::MenuItem("Original-Regel-Menü")); 
   schummel->set_submenu(*schummel_menu);
 
-  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(schummeln,make_gtk_box(NSC_Mode_26_xpm,"alle Regeln abschalten")));
+  {bool_CheckMenuItem *_M=manage(new bool_CheckMenuItem(schummeln,make_gtk_box(NSC_Mode_26_xpm,"alle Regeln abschalten")));
   schummel_menu->append(*_M);
   _M->activate.connect_after(SigC::slot(this,&midgard_CG::Schummeln));}
 
   Gtk::MenuItem *trennlinie = (Gtk::MenuItem *)schummel_menu->items().back();
   trennlinie->show();
 
-  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,make_gtk_box(midgard_logo_tiny_xpm,"Originalregeln ")));
+  {bool_CheckMenuItem *_M=manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,make_gtk_box(midgard_logo_tiny_xpm,"Originalregeln ")));
   schummel_menu->append(*_M);}
 
   {Gtk::MenuItem *_M = manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
   schummel_menu->append(*_M);
   _M->activate.connect_after(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),Midgard_Optionen::LernschemaSensitive));}
 
-  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(table_grundwerte->edit_werte,"Werte editieren"));
+  {bool_CheckMenuItem *_M=manage(new bool_CheckMenuItem(table_grundwerte->edit_werte,"Werte editieren"));
   schummel_menu->append(*_M);}
 
-  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
+  {bool_CheckMenuItem *_M=manage(new bool_CheckMenuItem(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
   schummel_menu->append(*_M);}
 
-  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,"NSC-Modus"));
+  {bool_CheckMenuItem *_M=manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,"NSC-Modus"));
   schummel_menu->append(*_M);}
 
   menu_kontext->append(*schummel);
@@ -121,7 +121,7 @@ void midgard_CG::menu_init()
      _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
-     MVC_boolMenu_Widget *mi = manage(new MVC_boolMenu_Widget((*i)->Active(),*_tab));
+     bool_CheckMenuItem *mi = manage(new bool_CheckMenuItem((*i)->Active(),*_tab));
      regionen_menu->append(*mi);
      (*i)->Active().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
@@ -208,7 +208,7 @@ void midgard_CG::menubar_init()
   for(std::list<Midgard_Optionen::st_Ober>::iterator i=MOptionen->getOber().begin();i!=MOptionen->getOber().end();++i)
    {
     if(!i->show) continue;
-    MVC_boolMenu_Widget *mi = manage(new MVC_boolMenu_Widget(i->active,i->text,0,0.5));
+    bool_CheckMenuItem *mi = manage(new bool_CheckMenuItem(i->active,i->text,0,0.5));
     i->active.changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_element_activate),i->index));
     menu2->append(*mi);
    } 
@@ -242,7 +242,7 @@ void midgard_CG::menubar_init()
      _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
-     MVC_boolMenu_Widget *mi = manage(new MVC_boolMenu_Widget((*i)->Active(),*_tab));
+     bool_CheckMenuItem *mi = manage(new bool_CheckMenuItem((*i)->Active(),*_tab));
      regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*mi));
      (*i)->Active().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())

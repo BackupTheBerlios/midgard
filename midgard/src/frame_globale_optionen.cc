@@ -12,8 +12,8 @@
 #include "Optionen.hh"
 #include "midgard_CG.hh"
 #include <gtk--/separator.h>
-#include <MVC_int_Widget.hh>
-#include <MVC_bool_Widget.hh>
+#include <int_SpinButton.hh>
+#include <bool_CheckButton.hh>
 
 
 
@@ -32,7 +32,7 @@ void frame_globale_optionen::init()
  int count=0;
  for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=L.begin();i!=L.end();++i)
   {
-   MVC_bool_Widget *cb = manage(new MVC_bool_Widget(i->active,i->text));
+   bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text));
    i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_C),i->index));
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
    t->attach(*cb,0,1,0,1,GTK_FILL,0,0,0);
@@ -41,7 +41,7 @@ void frame_globale_optionen::init()
     {
       int min=hauptfenster->PAGE_INFO;
       int max=hauptfenster->PAGE_ZUFALL;
-      MVC_int_Widget *spin=manage(new MVC_int_Widget(i->wert, min, max));
+      int_SpinButton *spin=manage(new int_SpinButton(i->wert, min, max));
       i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_show_or_hide),spin,&(i->wert)));
       t->attach(*spin,1,2,0,1,GTK_FILL,0,0,0);
     }
@@ -62,7 +62,7 @@ void frame_globale_optionen::init()
  std::list<Midgard_Optionen::st_Haus> &L2=hauptfenster->getOptionen()->getHausregeln();
  for(std::list<Midgard_Optionen::st_Haus>::iterator i=L2.begin();i!=L2.end();++i)
   {
-   MVC_bool_Widget *cb = manage(new MVC_bool_Widget(i->active,i->text));
+   bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text));
    i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_H),i->index));
 
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));

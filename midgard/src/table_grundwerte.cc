@@ -16,7 +16,7 @@
 #include<gtk--/label.h>
 #include<gtk--/pixmap.h>
 #include<gtk--/box.h>
-#include <MVC_bool_Widget.hh>
+#include <bool_CheckButton.hh>
 
 void table_grundwerte::init(midgard_CG *h)
 {
@@ -39,7 +39,7 @@ void table_grundwerte::init(midgard_CG *h)
   if(!only_once)
   {
    only_once=true;
-    MVC_bool_Widget *_m=manage(new MVC_bool_Widget(edit_werte,hauptfenster->make_gtk_box(EditChar_trans_50_xpm,"Werte\neditieren",false,false)));
+    bool_CheckButton *_m=manage(new bool_CheckButton(edit_werte,hauptfenster->make_gtk_box(EditChar_trans_50_xpm,"Werte\neditieren",false,false)));
    _m->set_mode(false);
    eventbox_werte_edit->add(*_m);
    eventbox_werte_edit->show_all();

@@ -17,7 +17,7 @@ class midgard_CG;
 #include <list>
 class LernListen;
 #include "Enums.hh"
-#include <MVC.h>
+#include <Model.h>
 
 class table_steigern : public table_steigern_glade
 {  

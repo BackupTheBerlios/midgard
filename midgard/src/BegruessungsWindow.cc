@@ -8,14 +8,14 @@
 #include "config.h"
 #include "BegruessungsWindow.hh"
 #include "midgard_CG.hh"
-#include "MVC_bool_Widget.hh"
+#include "bool_CheckButton.hh"
 #include "../pixmaps/KillChar-32.xpm"
 
 BegruessungsWindow::BegruessungsWindow(midgard_CG* h) 
  : hauptfenster(h) 
 {
   Gtk::Pixmap *p= manage(new class Gtk::Pixmap(KillChar_32_xpm));
-  MVC_bool_Widget *W = manage(new MVC_bool_Widget(hauptfenster->MOptionen->OberCheck(Midgard_Optionen::BegruessungsFenster).active,*p));
+  bool_CheckButton *W = manage(new bool_CheckButton(hauptfenster->MOptionen->OberCheck(Midgard_Optionen::BegruessungsFenster).active,*p));
   W->set_mode(false);
   W->show_all();
   table_buttons->attach(*W, 1, 2, 6, 7, GTK_SHRINK, GTK_SHRINK, 0, 0);
