@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.33 2002/02/21 21:56:26 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.34 2002/02/23 07:41:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -110,7 +110,6 @@ void midgard_CG::Eigenschaften_variante(int i)
      for(int i=0;i<6;++i) a350.push_back(V[i]) ;
    }
   button_abg_werte->set_sensitive(true);
-  check_350(a350);
 }
 
 void midgard_CG::check_350(const std::vector<int>& a)

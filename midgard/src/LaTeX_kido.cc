@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.34 2002/02/06 16:47:00 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.35 2002/02/23 07:41:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,41 +50,6 @@ void midgard_CG::LaTeX_kido_main(void)
 {
   ofstream fout ("midgard_tmp_document_kido.tex");
   LaTeX_header(fout);
-/*
-  fout << "\\documentclass[a4paper,10pt,landscape]{article}\n";
-  fout << "\\usepackage{german}\n\\usepackage[latin2]{inputenc}\n";
-   fout << "\\usepackage[final]{epsfig}\n";
-   fout << "\\usepackage{tabularx}\n";
-   fout << "\\usepackage{times}\n";
-
-  fout << "\\setlength{\\textheight}{20.0cm}\n";
-  fout << "\\setlength{\\textwidth}{28cm}\n";
-  fout << "\\setlength{\\oddsidemargin}{-2.0cm}\n";
-  fout << "\\setlength{\\evensidemargin}{-2.0cm}\n";
-  fout << "\\setlength{\\topmargin}{-3.0cm}\n\n\n";
-   fout << "\\newcommand{\\LI}{\\setlength{\\arrayrulewidth}{0.4mm}}\n";
-   fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
-   fout << "\\setlength{\\doublerulesep}{0mm}\n";
-  fout << "\\begin{document}\n";
-   fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Abenteurer(),25,"4.5cm") << "}\n";
-   fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
-   fout << "\\begin{center}\n";
-   fout << "\\IfFileExists{drache.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=drache.ps}}}\n";
-   fout << "{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}\n";
-   fout << "\\parbox[][][c]{7cm}{\n";
-   fout << "\\LI\n";
-   fout << "\\begin{tabularx}{7.0cm}{|c|X|}\\hline\n";
-   fout << "\\makebox[1.1cm]{Figur}&\\namecharakter\\\\\\hline\n";
-   fout << "\\end{tabularx}\n\n";
-   fout <<"\\vspace{2mm}\\li\n";
-   fout <<"\\begin{tabularx}{7.0cm}{|c|X|}\\hline\n";
-   fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
-   fout <<"\\end{tabularx}\n}\n";
-   fout <<"\\IfFileExists{drache.ps}{\\parbox{10cm}{\scalebox{-1 1}{\\epsfig{width=10cm,angle=0,file=drache.ps}}}}\n";
-   fout <<"{\\parbox{10cm}{\scalebox{-1 1}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}}\n";
-   fout <<"\\vspace*{2ex}\n";
-*/
-
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
          <<KiDo::get_erfolgswert_kido(list_Fertigkeit)+Werte.bo_Za()<<"}\\\\\\hline\n";
@@ -92,8 +57,4 @@ void midgard_CG::LaTeX_kido_main(void)
   fout << "\\input{midgard_tmp_mykido.tex}\n";
   fout << "\\end{tabular}\n";
   LaTeX_footer(fout);
-/*
-  fout << "\\end{center}\n";
-  fout << "\\end{document}\n\n";
-*/
 }

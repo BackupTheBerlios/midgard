@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.40 2002/02/15 12:13:58 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.41 2002/02/23 07:41:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,6 @@
 
 void midgard_CG::LaTeX_zauber()
 {
-//  Zauber_get_Daten(vec_Zauber);
   std::string name = "midgard_tmp_myzauber.tex";
   ofstream fout(name.c_str());
   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
@@ -72,40 +71,6 @@ void midgard_CG::LaTeX_zauber_main(void)
 {
   ofstream fout ("midgard_tmp_document_zauber.tex");
   LaTeX_header(fout);
-/*
-  fout << "\\documentclass[a4paper,10pt,landscape]{article}\n";
-  fout << "\\usepackage{german}\n\\usepackage[latin2]{inputenc}\n";
-   fout << "\\usepackage[final]{epsfig}\n";
-   fout << "\\usepackage{tabularx}\n";
-   fout << "\\usepackage{times}\n";
-
-  fout << "\\setlength{\\textheight}{20.0cm}\n";
-  fout << "\\setlength{\\textwidth}{28cm}\n";
-  fout << "\\setlength{\\oddsidemargin}{-2.0cm}\n";
-  fout << "\\setlength{\\evensidemargin}{-2.0cm}\n";
-  fout << "\\setlength{\\topmargin}{-3.0cm}\n\n\n";
-   fout << "\\newcommand{\\LI}{\\setlength{\\arrayrulewidth}{0.4mm}}\n";
-   fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
-   fout << "\\setlength{\\doublerulesep}{0mm}\n";
-  fout << "\\begin{document}\n";
-   fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Abenteurer(),25,"4.5cm") << "}\n";
-   fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
-   fout << "\\begin{center}\n";
-   fout << "\\IfFileExists{drache.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=drache.ps}}}\n";
-   fout << "{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}\n";
-   fout << "\\parbox[][][c]{7cm}{\n";
-   fout << "\\LI\n";
-   fout << "\\begin{tabularx}{7.0cm}{|c|X|}\\hline\n";
-   fout << "\\makebox[1.1cm]{Figur}&\\namecharakter\\\\\\hline\n";
-   fout << "\\end{tabularx}\n\n";
-   fout <<"\\vspace{2mm}\\li\n";
-   fout <<"\\begin{tabularx}{7.0cm}{|c|X|}\\hline\n";
-   fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
-   fout <<"\\end{tabularx}\n}\n";
-   fout <<"\\IfFileExists{drache.ps}{\\parbox{10cm}{\\scalebox{-1 1}{\\epsfig{width=10cm,angle=0,file=drache.ps}}}}\n";
-   fout <<"{\\parbox{10cm}{\\scalebox{-1 1}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}}\n";
-   fout <<"\\vspace*{2ex}\n";
-*/
   fout << "\\begin{tabular}{lcclccclcclp{3cm}l}\\hline\n";
   fout << " & Erfolgs- & &&&Zauber-&Reich-&\\multicolumn{1}{c}{Wirkungs-}&Wirkungs-&"
        <<"  Wirkungs-&\\multicolumn{1}{c}{Ur-}&\\multicolumn{1}{c}{Material}&\\multicolumn{1}{c}{Prozess}\\\\ \n";

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.50 2002/02/21 21:56:26 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.51 2002/02/23 07:41:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -104,12 +104,9 @@ void midgard_CG::showBerufsLernList()
              (kat==3 && BKategorie.kat_III) || (kat==4 && BKategorie.kat_IV ) )
            {
              if(*j!="Schmecken+10" && cH_Fertigkeit(*j)->ist_gelernt(list_Fertigkeit))
-               {
-                  datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,true));  
                   gelerntes=true;
-               }
-             else
-                  datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,false));
+             else gelerntes=false;
+             datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,gelerntes));
            }
        }
     }
@@ -167,8 +164,11 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
         }
     else // neue Fertigkeit
       {
-         cH_MidgardBasicElement saf(&*cH_Fertigkeit(dt->Fert()));
-         MidgardBasicElement_uebernehmen(saf,true);
+         cH_MidgardBasicElement MBE(&*cH_Fertigkeit(dt->Fert()));
+         cH_Fertigkeit(MBE)->setLernArt("Beruf");
+         if(MBE->ZusatzEnum(Typ)) lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
+         if(MBE->Name()!="Landeskunde (Heimat)")
+            list_Fertigkeit.push_back(MBE);
       }
     if (!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4))
       {
