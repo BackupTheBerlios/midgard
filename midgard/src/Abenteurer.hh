@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.33 2002/09/25 06:33:02 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.34 2002/09/27 06:28:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -179,11 +179,12 @@ public:
    void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
 
 
-   void get_ausdauer(int grad, const Datenbank &Database,std::string &info,
+   int get_ausdauer(int grad, const Datenbank &Database,std::string &info,
                       const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-   void get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
+   int get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
                               const bool bsteigern,const Datenbank &Database,
                               std::string &info,const st_bool_steigern &bool_steigern);
+   void eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf=-1);
   
    std::list<MBEmlt> &get_known_list(const Enums::MBEListen was);
    std::list<MBEmlt> &get_known_list(const MBEmlt &MBE);

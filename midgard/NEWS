@@ -1,8 +1,17 @@
 ##########################################################################
 NEWS IN VERSION 0.8.4
 
-* KI: Hochspezialisiert, Allrounder
-* Steigern mit Prototyp 
+* KI: 
+   # Prototypen (zwei zum testen)
+   # Hochspezialisiert <-> Allrounder
+   # Gradanstieg sobald eine GFP-Grenze überschritten wird
+   # Ausdauer, Resistenz, Zaubern, Abwehr bei Gradanstieg
+   # Eigenschaftenanstieg beim Gradanstieg
+   # Es werden nur solche Fertigkeiten/Zauber,... gelernt,
+      die höchstens halb soviel kosten, wie GFP für den nächsten
+      Gradanstieg benötigt werden. (Bsp. in Grad 1 wird das gelernt, was 
+      höchstens 100 GFP kostet.)
+
 
 
 TODO: ('-' zeigt CP an)

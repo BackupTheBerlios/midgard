@@ -34,6 +34,7 @@
 
 void table_zufall::on_button_steigern_clicked()
 {
+  on_button_check100_clicked();
   int gfp;
   spinbutton_gfp->update();
   spinbutton_grad->update();
@@ -54,13 +55,19 @@ cout << grad<<'\t'<<gfp<<'\n';
 void table_zufall::on_radiobutton_steigern_grad_toggled()
 {
   if(radiobutton_steigern_grad->get_active())
+   {
     spinbutton_grad->set_sensitive(true);
+    spinbutton_gfp->set_sensitive(false);
+   }
 }
 
 void table_zufall::on_radiobutton_steigern_gfp_toggled()
 {
   if(radiobutton_steigern_gfp->get_active())
+   {
     spinbutton_gfp->set_sensitive(true);
+    spinbutton_grad->set_sensitive(false);
+   }   
 }
 
 
@@ -109,10 +116,10 @@ void table_zufall::on_combo_prototyp_changed()
   prozente100.set(Enums::sZWerk,P->ZauberWerk());
   prozente100.set(Enums::sSpra,P->Sprache());
   prozente100.set(Enums::sSchr,P->Schrift());
-  prozente100.setS(Enums::sFert,P->FertSpezialist());
-  prozente100.setS(Enums::sWaff,P->WaffSpezialist());
-  prozente100.setS(Enums::sSpra,P->SpraSpezialist());
-  prozente100.setS(Enums::sSchr,P->SchrSpezialist());
+  prozente100.setS(Enums::sFert,100-P->FertSpezialist());
+  prozente100.setS(Enums::sWaff,100-P->WaffSpezialist());
+  prozente100.setS(Enums::sSpra,100-P->SpraSpezialist());
+  prozente100.setS(Enums::sSchr,100-P->SchrSpezialist());
 
   prozente100.check100();
   set_bereiche_spinbuttons();    
@@ -204,5 +211,11 @@ gint table_zufall::on_vscale_spezallg_schr_button_release_event(GdkEventButton *
   label_allg_schr->set_text(itos(Av)+"%");
   prozente100.setS(Enums::sSchr,Av);
   return false;
+}
+
+void table_zufall::on_togglebutton_prototyp_toggled()
+{
+  if(togglebutton_prototyp->get_active()) frame_prototyp_mod->show();
+  else frame_prototyp_mod->hide();
 }
 

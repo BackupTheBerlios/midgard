@@ -31,6 +31,12 @@ void MagusKI::VerteileGFP(int gfp,const Prozente100 &p)
 
      if     (i<=spezial_allgemein) Steigern(gfp,was);
      else                          NeuLernen(gfp,was);
+
+cout << Aben.getWerte().Grad()<<' '<<Aben.getWerte().GFP()<<'\t'<<gfp<<'\n';
+     int kosten=teste_auf_gradanstieg();
+     gfp-=kosten;
+cout << Aben.getWerte().Grad()<<' '<<Aben.getWerte().GFP()<<'\t'<<gfp<<'\n';
+
 /*
      if     (i>=spezial_allgemein) cerr << i<<' '<<spezial_allgemein<<"\tSteigern\t"<<was<<'\t';
      else                          cerr << i<<' '<<spezial_allgemein<<"\tNeuLenren\t"<<was<<'\t';
@@ -65,14 +71,14 @@ void MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
   int j=random.integer(0,V.size()-1);
   MBEmlt M=V[j];
 
+  if(!allowed_for_grad(M)) return;
+
   std::string info;
-  Enums::e_wie_steigern wie=Enums::eUnterweisung;
-  Enums::st_bool_steigern bool_steigern(false,false,false,false,false,false,false,false);
-  bool ok=Aben.neu_lernen(M,info,wie,bool_steigern);
-
-  if(ok) gfp-=M->Kosten(Aben);
-
-  get_known_list(was).push_back(M);
+  bool ok=Aben.neu_lernen(M,info,get_wie_steigern(),get_bool_steigern());
+  if(ok) 
+   { gfp-=M->Kosten(Aben);
+     get_known_list(was).push_back(M);
+   }
 }
 
 
@@ -86,10 +92,10 @@ void MagusKI::Steigern(int &gfp,const Enums::MBEListen was)
    {
      if(j==x++) 
       {
+         if(!allowed_for_grad(*i)) return;
+
          std::string info;
-         Enums::e_wie_steigern wie=Enums::eUnterweisung;
-         Enums::st_bool_steigern bool_steigern(false,false,false,false,false,false,false,false);
-         bool ok=Aben.steigere(*i,info,wie,bool_steigern);        
+         bool ok=Aben.steigere(*i,info,get_wie_steigern(),get_bool_steigern());        
          if(ok) gfp-=i->Steigern(Aben);
       }
    }
@@ -127,3 +133,45 @@ std::list<MBEmlt> &MagusKI::get_known_list(const Enums::MBEListen was)
  return  Aben.get_known_list(was);
 }
 
+bool MagusKI::allowed_for_grad(const MBEmlt &M)
+{
+  if(M->Kosten(Aben)>0.5*Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1))
+   {
+cerr << M->Name() <<" wird nicht neu gelernt, weil es "<<M->Kosten(Aben)
+<<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '
+<<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
+     return false;
+   }
+  return true;
+}
+
+int MagusKI::teste_auf_gradanstieg()
+{
+  int oldgrad=Aben.getWerte().Grad();
+  Aben.getWerte().setGrad(Database.GradAnstieg.get_Grad(Aben.getWerte().GFP()));
+  int kosten=0;
+  if(oldgrad!=Aben.getWerte().Grad())
+   {
+     std::string info;
+     kosten+=Aben.get_ausdauer(Aben.getWerte().Grad(),Database,info,
+                                get_wie_steigern(),get_bool_steigern());
+cout <<"Info : "<< info<<'\n';
+     kosten+=Aben.get_ab_re_za(Enums::eAbwehr,get_wie_steigern(),true,Database,info,get_bool_steigern());
+     kosten+=Aben.get_ab_re_za(Enums::eResistenz,get_wie_steigern(),true,Database,info,get_bool_steigern());
+     kosten+=Aben.get_ab_re_za(Enums::eZaubern,get_wie_steigern(),true,Database,info,get_bool_steigern());
+cout <<"Info2: "<< info<<'\n';
+     Aben.eigenschaften_steigern(info,Database);
+
+   }  
+  return kosten;
+}
+
+const Abenteurer::e_wie_steigern MagusKI::get_wie_steigern()
+{
+  return Enums::eUnterweisung;
+}
+
+const Enums::st_bool_steigern MagusKI::get_bool_steigern()
+{
+  return Enums::st_bool_steigern(false,false,false,false,false,false,false,false);
+}

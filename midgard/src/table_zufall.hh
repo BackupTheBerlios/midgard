@@ -86,6 +86,7 @@ class table_zufall : public table_zufall_glade
         gint on_vscale_spezallg_spra_button_release_event(GdkEventButton *ev);
         gint on_vscale_spezallg_schr_button_release_event(GdkEventButton *ev);
 
+        void on_togglebutton_prototyp_toggled();
 
 };
 

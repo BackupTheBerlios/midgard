@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.9 2002/09/25 06:33:02 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.10 2002/09/27 06:28:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -102,53 +102,10 @@ void table_steigern::on_spinbutton_eigenschaften_grad_anstieg_activate()
 
 void table_steigern::get_grundwerte(int wurf)
 {
-  // Erhöhen der Schicksalsgunst
-  { int n=hauptfenster->getCDatabase().GradAnstieg.get_Schicksalsgunst(hauptfenster->getWerte().Grad());
-    if(hauptfenster->getWerte().Spezies()->Name()=="Halbling") n=n+2;
-    hauptfenster->getWerte().add_SG(n);
-  }
-
-
-  int z=wurf;  std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nfür Grad "
-      + itos(hauptfenster->getWerte().get_Grad_Basiswerte()+1) + " wurde eine ";
-  stinfo += itos(wurf);
-  stinfo +=" gewürfelt ==> ";
-  std::string was = "keine Erhöhung";
-
-  int erh = hauptfenster->random.integer(1,6)+1;
-  int awko=hauptfenster->getWerte().Ko(); //alter_wert;
-  int aapb = hauptfenster->getWerte().bo_Au(); // alter Wert
-  if( 76<=z && z>=78 ) { was="Stärke";           hauptfenster->getWerte().add_St(erh); }
-  if( 79<=z && z>=81 ) { was="Geschicklichkeit"; hauptfenster->getWerte().add_Gs(erh); }
-  if( 82<=z && z>=84 ) { was="Gewandheit"; hauptfenster->getWerte().add_Gw(erh); }
-  if( 85<=z && z>=87 ) { was="Konstitution"; hauptfenster->getWerte().add_Ko(erh); }
-  if( 88<=z && z>=90 ) { was="Intelligenz"; hauptfenster->getWerte().add_In(erh); }
-  if( 91<=z && z>=93 ) { was="Zaubertalent"; hauptfenster->getWerte().add_Zt(erh); }
-  if( 94<=z && z>=95 ) { was="Selbstbeherrschung"; hauptfenster->getWerte().add_Sb(erh); }
-  if( 96<=z && z>=97 ) { was="Willenskraft"; hauptfenster->getWerte().add_Wk(erh); }
-  if( 99<=z && z>=99 ) { was="persönliche Ausstrahlung"; hauptfenster->getWerte().add_pA(erh); }
-  if (z==100)          { was="Aussehn"; hauptfenster->getWerte().add_Au(erh); }
-
-  {
-   //Setzen von abgeleiteten Werten, die durch eine Steigerung 
-   //bertoffen sein könnten:
-   hauptfenster->getWerte().setSinn("Sechster Sinn",hauptfenster->getWerte().Zt()/25);
-//   hauptfenster->getWerte().setRaufen((hauptfenster->getWerte().St()+hauptfenster->getWerte().Gw())/20+hauptfenster->getWerte().bo_An() );
-   if(was=="Konstitution" && (awko/10 != hauptfenster->getWerte().Ko()/10))
-         hauptfenster->getWerte().setLP(hauptfenster->getWerte().LP()-awko/10+hauptfenster->getWerte().Ko()/10);
-   if( aapb!=hauptfenster->getWerte().bo_Au() ) 
-      hauptfenster->getWerte().setAP(hauptfenster->getWerte().AP()-aapb+hauptfenster->getWerte().bo_Au());
-  }
-
-
-  stinfo += was;
-  if (was != "keine Erhöhung" )
-    {
-       stinfo += " um "+itos(erh)+" erhöht.";
-    }
-//  InfoFenster->AppendShow(stinfo,WindowInfo::None);
-  hauptfenster->set_status(stinfo);
-  hauptfenster->getWerte().set_Grad_Basiswerte(1+hauptfenster->getWerte().get_Grad_Basiswerte());
+  std::string info;
+  hauptfenster->getChar()->eigenschaften_steigern(info,hauptfenster->getCDatabase());
+  
+  hauptfenster->set_status(info);
   zeige_werte();
 }
 

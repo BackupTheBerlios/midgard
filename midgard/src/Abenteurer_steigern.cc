@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.2 2002/09/25 08:12:07 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.3 2002/09/27 06:28:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -437,7 +437,7 @@ void Abenteurer::desteigern(unsigned int kosten,const e_wie_steigern &wie,const 
 }
 
 
-void Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &info,
+int Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &info,
                               const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
    Random random;
@@ -455,8 +455,8 @@ void Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &i
    else if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
    else if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
 //   int dummy=1;
-   if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return;
-//   if (!steigern_usp(kosten,0,dummy,eAusdauer)) return;
+   if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return 0;
+//   if (!steigern_usp(kosten,0,dummy,eAusdauer)) return 0;
    getWerte().addGFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += random.integer(1,6);
@@ -476,9 +476,10 @@ void Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &i
   if (getWerte().AP()<getWerte().Grad()) getWerte().setAP(getWerte().Grad());
    // Neue AP höher als alte?
   if (nap>getWerte().AP())  getWerte().setAP(nap)  ;
+  return kosten;
 }
  
-void Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
+int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
                               const bool bsteigern,const Datenbank &Database,
                               std::string &info,const st_bool_steigern &bool_steigern)
 {
@@ -508,18 +509,18 @@ void Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie
          alter_wert = getWerte().Zaubern_wert(); 
          kosten   = Database.GradAnstieg.get_Zauber_Kosten(alter_wert+1);
        } 
-      else return;
+      else return 0;
     }
   else assert(!"never get here");
   if (alter_wert >= max_wert && bsteigern)
       { info+="Für Grad "+itos(getWerte().Grad())+" ist der Maximalwert erreicht!" ;
-        return;}
+        return 0;}
 
   if(bsteigern)
    {
 //     int dummy=1;
-     if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return;
-//     if(!steigern_usp(kosten,0,dummy,was) ) return;
+     if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return 0;
+//     if(!steigern_usp(kosten,0,dummy,was) ) return 0;
      getWerte().addGFP(kosten);
      if      (was==Enums::eAbwehr)    getWerte().setAbwehr_wert(alter_wert+1);
      else if (was==Enums::eResistenz) getWerte().setResistenz(alter_wert+1);  
@@ -534,5 +535,56 @@ void Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie
      else if (was==Enums::eResistenz) getWerte().setResistenz(alter_wert-1);  
      else if (was==Enums::eZaubern)   getWerte().setZaubern_wert(alter_wert-1);
    }
+ return kosten;
 }
 
+void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf=-1)
+{
+  // Erhöhen der Schicksalsgunst
+  { int n=Database.GradAnstieg.get_Schicksalsgunst(getWerte().Grad());
+    if(getWerte().Spezies()->Name()=="Halbling") n=n+2;
+    getWerte().add_SG(n);
+  }
+
+  Random random;
+  if(wurf==-1) wurf=random.integer(1,100);
+
+  int z=wurf;  
+  info+="Beim Würfeln zur Erhöhung einer Eigenschaft für Grad "
+      + itos(getWerte().get_Grad_Basiswerte()+1) + " wurde eine ";
+  info += itos(wurf);
+  info +=" gewürfelt ==> ";
+  std::string was = "keine Erhöhung";
+
+  int erh = random.integer(1,6)+1;
+  int awko= getWerte().Ko(); //alter_wert;
+  int aapb = getWerte().bo_Au(); // alter Wert
+  if( 76<=z && z>=78 ) { was="Stärke";           getWerte().add_St(erh); }
+  if( 79<=z && z>=81 ) { was="Geschicklichkeit"; getWerte().add_Gs(erh); }
+  if( 82<=z && z>=84 ) { was="Gewandheit"; getWerte().add_Gw(erh); }
+  if( 85<=z && z>=87 ) { was="Konstitution"; getWerte().add_Ko(erh); }
+  if( 88<=z && z>=90 ) { was="Intelligenz"; getWerte().add_In(erh); }
+  if( 91<=z && z>=93 ) { was="Zaubertalent"; getWerte().add_Zt(erh); }
+  if( 94<=z && z>=95 ) { was="Selbstbeherrschung"; getWerte().add_Sb(erh); }
+  if( 96<=z && z>=97 ) { was="Willenskraft"; getWerte().add_Wk(erh); }
+  if( 99<=z && z>=99 ) { was="persönliche Ausstrahlung"; getWerte().add_pA(erh); }
+  if (z==100)          { was="Aussehn"; getWerte().add_Au(erh); }
+
+  {
+   //Setzen von abgeleiteten Werten, die durch eine Steigerung 
+   //bertoffen sein könnten:
+   getWerte().setSinn("Sechster Sinn",getWerte().Zt()/25);
+//   getWerte().setRaufen((getWerte().St()+getWerte().Gw())/20+getWerte().bo_An() );
+   if(was=="Konstitution" && (awko/10 != getWerte().Ko()/10))
+         getWerte().setLP(getWerte().LP()-awko/10+getWerte().Ko()/10);
+   if( aapb!=getWerte().bo_Au() ) 
+      getWerte().setAP(getWerte().AP()-aapb+getWerte().bo_Au());
+  }
+
+  info += was;
+  if (was != "keine Erhöhung" )
+    {
+       info += " um "+itos(erh)+" erhöht.";
+    }
+  getWerte().set_Grad_Basiswerte(1+getWerte().get_Grad_Basiswerte());
+}

@@ -28,6 +28,6 @@ CREATE TABLE "ki_prototyp" (
 
 
 COPY "ki_prototyp" FROM stdin;
-Kampfprofi	30	0	60	5	0	5	0	50	80	50	50	\N
-Wissenschaftler	50	0	10	0	0	30	20	50	100	50	50	\N
+Kampfprofi	30	0	60	5	0	5	0	50	80	50	50
+Wissenschaftler	50	0	10	0	0	25	15	50	100	50	50
 \.
