@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.76 2001/11/05 14:03:14 thoma Exp $
+// $Id: midgard_CG.cc,v 1.77 2001/11/06 10:42:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,6 +57,7 @@ void midgard_CG::get_Database()
                            Fertigkeiten_All(MI->get_progressbar_fertigkeiten()).get_All(),
                            WaffeGrund_All(MI->get_progressbar_grundkenntnisse()).get_All(),
                            Waffe_All(MI->get_progressbar_waffen()).get_All(),
+                           Waffe::fill_map_alias_waffe(),
                            Zauber_All(MI->get_progressbar_zauber()).get_All(),
                            Zauberwerk_All(MI->get_progressbar_zauberwerk()).get_All(),
                            KiDo_All(MI->get_progressbar_kido()).get_All(),

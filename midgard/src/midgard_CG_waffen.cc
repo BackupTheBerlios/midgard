@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.25 2001/11/05 11:08:31 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.26 2001/11/06 10:42:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ void midgard_CG::show_waffen()
 {
    waffen_clist->clear();
    Gtk::OStream os(waffen_clist);
-   for(std::list<cH_Waffe>::iterator i=list_Waffen.begin();
+   for(std::list<cH_MidgardBasicElement>::iterator i=list_Waffen.begin();
          i!=list_Waffen.end();++i)
       {
          os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
@@ -43,7 +43,8 @@ void midgard_CG::show_waffen()
 
 }
 
-void midgard_CG::waffen_uebernehmen(const std::list<cH_Waffe>& saw,std::list<cH_MidgardBasicElement> list_WaffenG)
+/*
+void midgard_CG::waffen_uebernehmen(const std::list<cH_MidgardBasicElement>& saw,std::list<cH_MidgardBasicElement> list_WaffenG)
 {
    list_Waffen = saw;
    list_WaffenGrund = list_WaffenG;
@@ -56,7 +57,7 @@ void midgard_CG::waffen_uebernehmen(const std::list<cH_Waffe>& saw,std::list<cH_
    hbox_kido->set_sensitive(true);
    table_kido_lernen->set_sensitive(true);
 }
-
+*/
 void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *event)
 {   
  /* Funktion für Spezialwaffe */

@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.25 2001/11/05 14:03:14 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.26 2001/11/06 10:42:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ class midgard_CG;
 //class H_Data_waffen;
 //class H_WaffeBesitz;
 //class cH_Waffe;
-#include "MidgardBasicElemenet.hh"
+#include "MidgardBasicElement.hh"
 class Grundwerte;
 class H_Data_typen;
 

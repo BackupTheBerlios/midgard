@@ -17,10 +17,6 @@
  */
 
 #include "midgard_CG.hh"
-//#include <Aux/Transaction.h>
-//#include <Aux/SQLerror.h>
-//exec sql include sqlca;
-//#include <cstring>
 #include "zufall.h"
 #include "WaffeGrund.hh"
 #include "class_waffen.hh"
@@ -33,16 +29,17 @@ void midgard_CG::on_waffen_laden_clicked()
  cH_Pflicht pflicht(Werte.Spezies(),Typ);
  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
    { cH_Waffe w(*i);
-     if ((*i)->ist_gelernt(list_Waffe)) continue ;
+     if (w->ist_gelernt(list_Waffen)) continue ;
      if (pflicht->istVerboten(w->Name())) continue;
-     if ((*i)->ist_lernbar(Typ,w->get_MapTyp()))
-       if (region_check(w->Region()) )
-        if (w->SG_Voraussetzungen(Werte))
-          {
-           if(w->Art()=="Verteidigung") w->set_Erfolgswert(1);
-           else w->set_Erfolgswert(4);
-           list_Waffen_neu.push_back(*i);
-          }
+     if (w->Grundkenntnis_vorhanden(list_WaffenGrund));
+       if (w->ist_lernbar(Typ,w->get_MapTyp()))
+         if (region_check(w->Region(w->Name())) )
+           if (w->SG_Voraussetzung(Werte))
+             {
+              if(w->Art()=="Verteidigung") w->set_Erfolgswert(1);
+              else w->set_Erfolgswert(4);
+              list_Waffen_neu.push_back(*i);
+             }
    }
 
 /*
@@ -92,8 +89,8 @@ void midgard_CG::waffen_zeigen()
    Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,Werte,Typ,ausnahmen,'N');
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund    ,alte_grund_tree,Werte,Typ,ausnahmen,'N');
-   MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffe_tree,Werte,Typ,ausnahmen,'N');
-   MidgardBasicElement::show_list_in_tree(list_Waffen    ,alte_waffe_tree,Werte,Typ,ausnahmen,'N');
+   MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,Werte,Typ,ausnahmen,'N');
+   MidgardBasicElement::show_list_in_tree(list_Waffen    ,alte_waffen_tree,Werte,Typ,ausnahmen,'N');
 //   show_alte_waffen();
 //   show_neue_waffen();
 }
@@ -133,7 +130,7 @@ void midgard_CG::show_alte_grund()
 }
 */
 
-
+/*
 void midgard_CG::get_srv_kosten(const cH_Waffe& waffe, int &steigern,int &reduzieren,int &verlernen) const
 {
    exec sql begin declare section;
@@ -162,7 +159,7 @@ void midgard_CG::get_srv_kosten(const cH_Waffe& waffe, int &steigern,int &reduzi
    steigern = (int)(db_schwierigkeit*db_erfolgsfaktor_s*fac);
    reduzieren = (int)(db_schwierigkeit*db_erfolgsfaktor_r*fac);
 }
-
+*/
 /*
 void midgard_CG::show_alte_waffen()
 {
@@ -280,7 +277,7 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
        if (!steigern(dt->Steigern(),"Waffen")) return;
        if (!togglebutton_praxispunkte_waffen->get_active()) // normal Lernen
         {
-          if (dt->Erfolgswert() >=  cH_Waffe(dt->Name(),Typ)->Maxwert()) 
+          if (dt->Erfolgswert() >=  cH_Waffe(dt->Name())->Maxwert(Typ)) 
             {  
                std::string strinfo = "Maximal möglicher Erfolgswert erreicht\n";
                manage (new WindowInfo(strinfo));

@@ -70,11 +70,10 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::
             :db_erfolgswert, :db_lernpunkte;
        SQLerror::test(__FILELINE__,100);
        if (sqlca.sqlcode) break;
-       cH_Waffe waffe(db_fertigkeiten,Typ,db_lernpunkte);
+       cH_Waffe waffe(db_fertigkeiten,db_lernpunkte);
        waffe->set_Erfolgswert(db_erfolgswert);
        if (hauptfenster->region_check(waffe->Region(waffe->Name())))
          list_Waffen.push_back(waffe);
-//            vec_Waffen.push_back(new Data_waffen(db_fertigkeiten,db_erfolgswert,db_lernpunkte,db_grund,db_zusatz));
       }
     exec sql close waffen;
     Gtk::OStream os(waffen_clist_auswahl);
@@ -124,13 +123,14 @@ void Waffen_auswahl::on_waffen_clist_auswahl_unselect_row(gint row, gint column,
 
 void Waffen_auswahl::on_close_waffen_clicked()
 {   
-   std::list<cH_Waffe> saw;
+   std::list<cH_MidgardBasicElement> saw;
    for (Gtk::CList::SelectionList::iterator i=waffen_clist_auswahl->selection().begin();
          i!=waffen_clist_auswahl->selection().end();++i)
      {  
-       cH_Waffe *ptr = static_cast<cH_Waffe*>(i->get_data());
+       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
        saw.push_back(*ptr);
      }
-  hauptfenster->waffen_uebernehmen(saw,list_WaffenGrund);
+//  hauptfenster->waffen_uebernehmen(saw,list_WaffenGrund);
+  hauptfenster->MidgardBasicElement_uebernehmen(saw,list_WaffenGrund);
   destroy();
 }

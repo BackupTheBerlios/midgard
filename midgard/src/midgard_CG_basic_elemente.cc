@@ -1,6 +1,6 @@
 #include "midgard_CG.hh"
 
-void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe)
+void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,const std::list<cH_MidgardBasicElement>& mbe2)
 {
   if(mbe.begin()==mbe.end()) return;
 
@@ -24,7 +24,19 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     hbox_waffen->set_sensitive(true);
     table_waffen->set_sensitive(true);
    }
-
+  if((*mbe.begin())->What()==MidgardBasicElement::WAFFE);
+   {
+    list_Waffen=mbe;
+    list_WaffenGrund=mbe2;
+    show_waffen();
+    button_geld_waffen->set_sensitive(true);
+    button_ruestung->set_sensitive(true);
+         
+    hbox_zauber->set_sensitive(true);
+    table_magier_lernen->set_sensitive(true);
+    hbox_kido->set_sensitive(true);
+    table_kido_lernen->set_sensitive(true);
+   }
   if((*mbe.begin())->What()==MidgardBasicElement::ZAUBER);
    {
     list_Zauber=mbe;

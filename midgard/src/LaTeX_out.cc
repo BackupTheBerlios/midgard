@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.51 2001/11/05 11:08:31 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.52 2001/11/06 10:42:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -209,7 +209,6 @@ void midgard_CG::LaTeX_write_values()
     if (wert == "0") wert = "";
     fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}\t\t";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
-//    fout << "\\newcommand{\\wert"<<a<<"}{"  <<f->Empty_Erfolgswert() << "}\n";
    }
  std::string a = LaTeX_string(count);
  fout << "\\newcommand{\\fert"<<a<<"}{\\scriptsize }\n";
@@ -219,24 +218,24 @@ void midgard_CG::LaTeX_write_values()
  // Waffen + Waffen/Besitz
  int  i_waffenlos = 4;
  unsigned int countwaffen=0;
- for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
-   {
+ for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+   {cH_Waffe w(*i);
     count++;
     std::string a = LaTeX_string(count);
 //std::cout << "latexstring = "<<a<<"\n";
-    std::string wert = itos((*i)->Erfolgswert());
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<(*i)->Name() << "}\t\t";
+    std::string wert = itos(w->Erfolgswert());
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<w->Name() << "}\t\t";
     fout <<"\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
     // waffenloser Kampf:
-    if ((*i)->Name()=="waffenloser Kampf") 
+    if (w->Name()=="waffenloser Kampf") 
          { i_waffenlos=atoi(wert.c_str());}
       for (std::list<H_WaffeBesitz>::const_iterator j=list_Waffen_besitz.begin();j!=list_Waffen_besitz.end();++j)
      {
-      if ((*j)->Waffe()->Name()==(*i)->Name())
+      if ((*j)->Waffe()->Name()==w->Name())
        {
 //         ++countwaffen;
          std::string b = LaTeX_string(countwaffen++);
-//std::cout << (*j)->Name()<<"\t"<<(*i)->Name()<<"\t"<<"latexstring = "<<b<<"\n";
+//std::cout << (*j)->Name()<<"\t"<<w->Name()<<"\t"<<"latexstring = "<<b<<"\n";
          std::string waffenname ;
          waffenname = (*j)->Name();
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
@@ -264,7 +263,7 @@ void midgard_CG::LaTeX_write_values()
      }
    }
  // waffenloser Kampf:
- H_WaffeBesitz waffenlos(new WaffeBesitz(cH_Waffe("waffenloser Kampf",Typ),"waffenloser Kampf","",0,0,""));
+ H_WaffeBesitz waffenlos(new WaffeBesitz(cH_Waffe("waffenloser Kampf"),"waffenloser Kampf","",0,0,""));
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+Werte.bo_An() << "}\n";
  std::string schaden= waffenlos->Schaden(Werte, waffenlos->Name());
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";

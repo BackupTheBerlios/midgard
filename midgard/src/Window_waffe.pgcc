@@ -41,7 +41,7 @@ void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *ev
 }
 
 Window_waffe::Window_waffe(int we, 
-      Window_Waffe_Geld* o, Grundwerte& W,const vector<H_Data_typen>& T, const std::list<cH_Waffe>& wa)
+      Window_Waffe_Geld* o, Grundwerte& W,const vector<H_Data_typen>& T, const std::list<cH_MidgardBasicElement>& wa)
 :list_Waffen(wa) ,Werte(W), Typ(T)
 {
   wurf=we;
@@ -84,7 +84,7 @@ void Window_waffe::wuerfeln()
      exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     cH_Waffe waffe(db_waffe,Typ);
+     cH_Waffe waffe(db_waffe);
       
      if (waffe->Name() == "waffenloser Kampf") continue;
      if ((aartE =="E" && waffe->Art2()=="E") ||

@@ -14,7 +14,7 @@ class H_WaffeBesitz;
 class Waffe : public MidgardBasicElement
 {
    protected:
-     Waffe(){}
+     Waffe():name("xxx"){}
    public:
      struct st_alias { std::string name; std::string region; 
          std::string schaden;int schaden_bonus; int angriffs_mod;
@@ -33,6 +33,7 @@ class Waffe : public MidgardBasicElement
      int schaden_bonus;
      bool pflicht;
      list<st_alias> list_alias;
+//     map<std::string,std::string> map_alias_waffe;
 
      void get_Waffe();
      void get_Alias();
@@ -68,11 +69,13 @@ class Waffe : public MidgardBasicElement
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
 
      bool SG_Voraussetzung(const Grundwerte& Werte) const;
+     bool Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>&) const;
      int Maxwert(const vector<H_Data_typen>& Typ) const;
 
-     static std::string get_waffe_from_alias(const std::string& waffe);
+//     static std::string get_waffe_from_alias(const std::string& waffe);
+     static std::map<std::string,std::string> fill_map_alias_waffe();
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
-         const std::list<cH_Waffe>& list_Waffen,
+         const std::list<cH_MidgardBasicElement>& list_Waffen,
          const std::list<H_WaffeBesitz>& list_Waffen_besitz,
          const vector<H_Data_typen>& Typ,
          const Grundwerte& Werte);

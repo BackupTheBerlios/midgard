@@ -195,11 +195,11 @@ void  Window_Waffenbesitz::lade_waffen()
      exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     cH_Waffe waffe(db_waffe,Typ);
+     cH_MidgardBasicElement waffe(new Waffe(db_waffe));
      if (waffe->Name()!="waffenloser Kampf" )
       {
        Waffe_Besitz_neu.push_back(new WaffeBesitz(waffe,waffe->Name(),"",0,0,""));
-       for (list<Waffe::st_alias>::const_iterator j=waffe->Alias().begin();j!=waffe->Alias().end();++j)
+       for (list<Waffe::st_alias>::const_iterator j=cH_Waffe(waffe)->Alias().begin();j!=cH_Waffe(waffe)->Alias().end();++j)
         {
          Waffe_Besitz_neu.push_back(new WaffeBesitz(waffe,(*j).name,"",0,0,""));
         }

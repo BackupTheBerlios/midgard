@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.88 2001/11/05 14:03:14 thoma Exp $
+// $Id: midgard_CG.hh,v 1.89 2001/11/06 10:42:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -88,6 +88,7 @@ class midgard_CG : public midgard_CG_glade
                              std::list<cH_MidgardBasicElement> Fertigkeit;
                              std::list<cH_MidgardBasicElement> WaffeGrund;
                              std::list<cH_MidgardBasicElement> Waffe;
+                             std::map<std::string,std::string> Waffe_from_Alias;
                              std::list<cH_MidgardBasicElement> Zauber;
                              std::list<cH_MidgardBasicElement> Zauberwerk;
                              std::list<cH_MidgardBasicElement> Kido;
@@ -100,6 +101,7 @@ class midgard_CG : public midgard_CG_glade
                            std::list<cH_MidgardBasicElement> F,
                            std::list<cH_MidgardBasicElement> WG,
                            std::list<cH_MidgardBasicElement> W,
+                           std::map<std::string,std::string> WfA,
                            std::list<cH_MidgardBasicElement> Z,
                            std::list<cH_MidgardBasicElement> Zw,
                            std::list<cH_MidgardBasicElement> K,
@@ -107,6 +109,7 @@ class midgard_CG : public midgard_CG_glade
                            std::list<cH_MidgardBasicElement> Sc)
                            : Laender(L),Ruestung(R),Fertigkeit_ang(Fa),
                              Fertigkeit(F),WaffeGrund(WG),Waffe(W),
+                             Waffe_from_Alias(WfA),
                              Zauber(Z),Zauberwerk(Zw),
                              Kido(K),Sprache(Sp),Schrift(Sc) {}
                            };
@@ -310,12 +313,12 @@ class midgard_CG : public midgard_CG_glade
         void on_waffengrund_laden_clicked();
 //        void show_alte_grund();
 //        void show_neue_grund();
-        void show_alte_waffen();
-        void show_neue_waffen();
+//        void show_alte_waffen();
+//        void show_neue_waffen();
         void waffen_zeigen();
-        void move_waffe(std::list<cH_Waffe>& von,std::list<cH_Waffe>& nach,const std::string& name);
+//        void move_waffe(std::list<cH_Waffe>& von,std::list<cH_Waffe>& nach,const std::string& name);
 //        void move_waffegrund(std::list<cH_WaffeGrund>& von,std::list<cH_WaffeGrund>& nach,const std::string& name);
-        void get_srv_kosten(const cH_Waffe& waffe, int &steigern,int &reduzieren,int &verlernen) const;
+//        void get_srv_kosten(const cH_Waffe& waffe, int &steigern,int &reduzieren,int &verlernen) const;
         void on_leaf_selected_alte_grund(cH_RowDataBase d);
         void on_leaf_selected_neue_grund(cH_RowDataBase d);
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);
@@ -388,9 +391,10 @@ class midgard_CG : public midgard_CG_glade
          void zeige_werte(const Grundwerte& w);
          void setze_lernpunkte(const Lernpunkte& _lernpunkte);
          void show_fertigkeiten();
-         void waffen_uebernehmen(const std::list<cH_Waffe>& saw,const std::list<cH_MidgardBasicElement> wg);
+//         void waffen_uebernehmen(const std::list<cH_MidgardBasicElement>& saw,const std::list<cH_MidgardBasicElement> wg);
          void waffe_besitz_uebernehmen(const std::list<H_WaffeBesitz>& wbu);
-         void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe);
+         void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
+                                              const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe);
          void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
          void herkunft_uebernehmen(const cH_Land& s);
