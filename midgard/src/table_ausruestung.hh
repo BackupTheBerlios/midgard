@@ -43,7 +43,7 @@ class table_ausruestung : public table_ausruestung_glade
         friend class table_ausruestung_glade;
         friend class midgard_CG;
         midgard_CG *hauptfenster;
-//        AusruestungBaum besitz;
+        AusruestungBaum *besitz;
         Gtk::CTree *Ausruestung_tree;
 
    public:
@@ -63,26 +63,20 @@ class table_ausruestung : public table_ausruestung_glade
 public:
         
         table_ausruestung(GlademmData *_data) ;
-//            : table_ausruestung_glade(_data) , hauptfenster(0) {}
         void init(midgard_CG *hauptfenster);
 
 private:
-//        void set_tree_titles();
         void ausruestung_laden();
-//        void show_modi();
         void showAusruestung();
         void showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB);
         bool tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList) ;
         void on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column);
         void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
         void on_checkbutton_sichtbar_toggled();
-//        void fill_preisliste();
         void fill_new_preise();
-public:
-        AusruestungBaum &setStandardAusruestung(AusruestungBaum &besitz);
+//public:
+//        AusruestungBaum &setStandardAusruestung(AusruestungBaum &besitz);
 private:
-//        void setFertigkeitenAusruestung(AusruestungBaum *Rucksack);
-//        void InfoFensterAusruestung(std::string name,int wurf,int noetig);
         void on_optionmenu_einheit_deactivate();
         SigC::Connection sichtbarConnection;
         void zeige_werte();
@@ -92,9 +86,6 @@ private:
 private:
         
         void on_preise_tree_neu_leaf_selected(cH_RowDataBase d);
-        void on_button_modi_clicked();
-//        void on_preise_leaf_selected(cH_RowDataBase d);
-//        void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
         void on_checkbutton_ausruestung_geld_toggled();
         void on_ausruestung_loeschen_clicked();
         gint on_button_ausruestung_druck_release_event(GdkEventButton *ev);

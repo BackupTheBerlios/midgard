@@ -19,6 +19,7 @@
 #include "table_ausruestung.hh"
 #include "midgard_CG.hh"
 #include "Data_NewPreis.hh"
+#include <Misc/mystring.h>
 //#include <Misc/itos.h>
 //#include "dtos1.h"
 
@@ -108,8 +109,40 @@ void table_ausruestung::fill_new_preise()
 
 void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
 {
+  if(!besitz) return;
   const Data_NewPreis *dt=dynamic_cast<const Data_NewPreis*>(&*d);
-
+  if(checkbutton_ausruestung_geld->get_active())
+   {
+     int g=0,s=0,k=0;
+     if(dt->Ware()->Einheit()=="GS") g=int(dt->Kosten());
+     if(dt->Ware()->Einheit()=="SS") s=int(dt->Kosten());
+     if(dt->Ware()->Einheit()=="KS") k=int(dt->Kosten());
+     hauptfenster->getWerte().addGold(-g);
+     hauptfenster->getWerte().addSilber(-s);
+     hauptfenster->getWerte().addKupfer(-k);
+     zeige_werte();
+   }
 cout << dt->Ware()->Name()<<'\t'<<dt->Ware()->Kosten()<<'\t'<<dt->Kosten()<<'\n';  
+  bool sichtbar=checkbutton_sichtbar->get_active();
+  std::string material;
+  std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M=dt->getMod();
+  for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
+   {
+     material += i->second.spezifikation + ", ";
+   }
+  ManuProC::remove_last_from(material,", ");
+  Ausruestung A(dt->Ware()->Name(),material,sichtbar);
+  
+  hauptfenster->getAben().getBesitz().push_back(A);
 
+cout << "SEL:1 "<<besitz->getAusruestung().Name()<<'\n';
+
+  AusruestungBaum &B=besitz->push_back(A);
+cout << "SEL:2 "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
+  B.setParent(besitz);
+cout << "SEL:3 "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
+  showAusruestung();
+cout << "SEL:4 "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
 }
+
+

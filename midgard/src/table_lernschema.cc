@@ -550,7 +550,9 @@ void table_lernschema::ausruestung_setzen()
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_ausruestung->set_sensitive(false);
   
-  AusruestungBaum &Rucksack=hauptfenster->table_ausruestung->setStandardAusruestung(hauptfenster->getChar()->getBesitz()); 
+  hauptfenster->getAben().setStandardAusruestung();
+//  AusruestungBaum &Rucksack=hauptfenster->table_ausruestung->setStandardAusruestung(hauptfenster->getChar()->getBesitz()); 
+  AusruestungBaum &Rucksack=hauptfenster->getAben().getBesitz();
   setFertigkeitenAusruestung(Rucksack);
 }
 

@@ -19,151 +19,37 @@
 #include "config.h"
 #include "table_ausruestung.hh"
 #include "midgard_CG.hh"
-//#include "WindowInfo.hh"
 #include <Gtk_OStream.h>
 #include <Misc/EntryValueIntString.h>
 #include <fstream>
 #include <Misc/itos.h>
 #include "dtos1.h"
 
-/*
-class Data_Preis : public RowDataBase
-{
-     std::string art,art2, typ, eigenschaft;
-     int kosten;
-     PreiseMod::st_payload preismod;
-  public:
-     Data_Preis(std::string a, std::string a2, std::string t, PreiseMod::st_payload p)
-      : art(a),art2(a2),typ(t),preismod(p) {}
-      
-     enum spalten {ART,ART2,TYP,EIGENSCHAFT,KOSTEN};
-     
-     virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
-      {
-        switch(spalten(seqnr)) {
-           case ART: return cH_EntryValueIntString(art);
-           case ART2: return cH_EntryValueIntString(art2);
-           case TYP: return cH_EntryValueIntString(typ);
-           case EIGENSCHAFT: return cH_EntryValueIntString(preismod.name);
-           case KOSTEN: return cH_EntryValueIntString(preismod.faktor);
-         }
-        return cH_EntryValueIntString();
-      }
-
-   std::string Art() const {return art;}
-   std::string Art2() const {return art2;}
-   std::string Typ() const {return typ;}
-   PreiseMod::st_payload Preismod() const {return preismod;}
-};
-class cH_Data_Preis : public Handle<const Data_Preis>
-{
-public:
- cH_Data_Preis(Data_Preis *r) : Handle<const Data_Preis>(r) {}
-};
-*/
-
-
-
 void table_ausruestung::init(midgard_CG *h)
 {
+   besitz=0;
    hauptfenster=h;
    zeige_werte();
    ausruestung_laden();
    table_gruppe->hide();
    table_artikel->hide();      
    togglebutton_gruppe_neu->hide(); // nicht implementiert
-//   set_tree_titles();
    fill_new_preise();
 }
    
-/*
-void table_ausruestung::set_tree_titles()
-{
- std::vector<string> preis;
- preis.push_back("Art");
- preis.push_back("");
- preis.push_back("Kategorie");
- preis.push_back("Eigenschaft");
- preis.push_back("Kostenfaktor");
- preise_tree->setTitles(preis);
-}
-*/
-
    
 void table_ausruestung::ausruestung_laden()
 {
   sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
-/*
-  std::vector<cH_RowDataBase> datavec;
-  for(std::list<cH_PreiseMod>::const_iterator i=hauptfenster->getDatabase().preisemod.begin();i!=hauptfenster->getDatabase().preisemod.end();++i)
-   {
-     datavec.push_back(new Data_Preis((*i)->Art(),(*i)->Art2(),(*i)->Typ(),(*i)->Payload()));
-   }
-  preise_tree->setDataVec(datavec);
-*/
   showAusruestung();
 }
 
-/*
-void table_ausruestung::on_preise_leaf_selected(cH_RowDataBase d)
-{
- static std::string art,art2;
- const Data_Preis *dt=dynamic_cast<const Data_Preis*>(&*d);
-//cout << dt->Art()<<' '<<dt->Typ()<<' '<<dt->Preismod().name<<'\n';
- std::string memart=art;
- std::string memart2=art2;
- art=dt->Art();
- art2=dt->Art2();
- if(art!=memart || art2!=memart2) modimap.clear();
- modimap[st_modimap_index(dt->Art(),dt->Art2(),dt->Typ())]=dt->Preismod();
- show_modi();
- entry_artikel_art->set_text(art);
- entry_artikel_art2->set_text(art2);
-}
-*/
-
-/*
-void table_ausruestung::show_modi()
-{
-  viewport_modi->remove();
-  Gtk::Table *table_modi = manage(new Gtk::Table(0,0,false));
-  Gtk::Label *l=manage (new Gtk::Label("Kosten"));
-  l->set_alignment(0, 0.5);
-  l->show();
-  table_modi->attach(*l,1,2,0,1,GTK_FILL|GTK_SHRINK,GTK_FILL|GTK_SHRINK,0,0);
-  int row=1;
-  for (std::map<st_modimap_index,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();++i)
-   {
-     Gtk::Label *l=manage (new Gtk::Label(i->second.name));
-     l->set_alignment(0, 0.5);
-     l->show();
-     table_modi->attach(*l,0,1,row,row+1,GTK_FILL|GTK_SHRINK,GTK_FILL|GTK_SHRINK,0,0);
-     Gtk::Label *l2=manage (new Gtk::Label("x "+dtos1(i->second.faktor)));
-     l2->set_alignment(0, 0.5);
-     l2->show();
-//cout << i->second.name<<' '<<i->second.faktor<<'\n';
-     table_modi->attach(*l2,1,2,row,row+1,GTK_FILL|GTK_SHRINK,GTK_FILL|GTK_SHRINK,0,0);
-     ++row;
-   }
-  table_modi->set_col_spacings(5);
-  viewport_modi->add(*table_modi);
-  table_modi->show();
-  fill_preisliste();
-}
-*/
-
-/*
-void table_ausruestung::on_button_modi_clicked()
-{
-  modimap.clear();
-  show_modi();
-}
-*/
 
 void table_ausruestung::showAusruestung()
 {
-  if(hauptfenster->getChar()->getBesitz().empty())
-      setStandardAusruestung(hauptfenster->getChar()->getBesitz());
+  hauptfenster->getAben().setStandardAusruestung();
+
+  besitz=0;
   std::vector<std::string> title;
   title.push_back("Titel");
   title.push_back("Material");
@@ -176,8 +62,8 @@ void table_ausruestung::showAusruestung()
          static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
   
   Gtk::CTree_Helpers::RowList::iterator r;
-  AusruestungBaum besitz=hauptfenster->getChar()->getBesitz();
-  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
+  AusruestungBaum be=hauptfenster->getChar()->getBesitz();
+  for(AusruestungBaum::const_iterator i=be.begin();i!=be.end();++i)
    {
      std::vector <string> v;
      v.push_back(i->getAusruestung().Name());
@@ -186,28 +72,9 @@ void table_ausruestung::showAusruestung()
      Ausruestung_tree->rows().push_back(Gtk::CTree_Helpers::Element(v));
      r=--(Ausruestung_tree->rows().end());
      r->set_data(gpointer(&*i));
-//cout << "show "<<i->getChildren().getAusruestung().Name()<<'\n';
+cout << "show "<<v[0]<<'\t'<<&*i<<'\t'<<i->getAusruestung().Name()<<'\n';
      showChildren(r,i->getChildren());
    }
-
-/*
-  for(Gtk::CTree_Helpers::RowList::const_iterator i=Ausruestung_tree->rows().begin();
-         i!=Ausruestung_tree->rows().end();++i)
-   {
-     cout << i->get_data() << '\n';
-     AusruestungBaum &A=*static_cast<AusruestungBaum*>(i->get_data());
-     cout << '\t'<<"I am: "<<A.getAusruestung().Name();
-     cout << '\t'<<"Child Size= "<<A.getChildren().size();
-     for(Gtk::CTree_Helpers::RowList::const_iterator j=i->subtree().begin();
-            j!=i->subtree().end();++j)
-      {
-        cout << j->get_data() << '\n';
-        AusruestungBaum &A=*static_cast<AusruestungBaum*>(j->get_data());
-        cout << '\t'<<"I am: "<<A.getAusruestung().Name();
-        cout << '\t'<<"Child Size= "<<A.getChildren().size()<<'\n';
-      }
-   }
-*/
 
   r->expand_recursive();
   Ausruestung_tree->show(); 
@@ -260,37 +127,57 @@ bool table_ausruestung::tree_valid(Gtk::CTree_Helpers::SelectionList &selectionL
 void table_ausruestung::on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column)
 {
   button_ausruestung_loeschen->set_sensitive(false);
+  besitz=0;
 }
 
 void table_ausruestung::on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column)
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
-  AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
+  AusruestungBaum *A=static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
   sichtbarConnection.disconnect();
-  checkbutton_sichtbar->set_active(A.getAusruestung().Sichtbar());
+  checkbutton_sichtbar->set_active(A->getAusruestung().Sichtbar());
   sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   button_ausruestung_loeschen->set_sensitive(true);
+cout << "SEL: "<<' '<<A<<'\t'<<  besitz<<'\t'<<A->getAusruestung().Sichtbar()<<'\n';
+  besitz=A;
+cout << "SEL: "<<' '<<A<<'\t'<<  besitz<<'\t'<<besitz->getAusruestung().Material()<<'#'<<'\n';
+//  cout << "SEL: "<<' '<<A<<'\t'<<A->getAusruestung().Name()<<'\n';
+
+
+//  cout << "SEL: "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
 }
+
 
 void table_ausruestung::on_checkbutton_sichtbar_toggled()
 {
+/*
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
 
   AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
   const_cast<Ausruestung&>(A.getAusruestung()).setSichtbar(checkbutton_sichtbar->get_active());
+*/
+  if(!besitz) return;
+cout << "Sichtbar 1: "<<'\t'<<  besitz<<'\t'<<besitz->getAusruestung().Sichtbar()<<'\n';
+  const_cast<Ausruestung&>(besitz->getAusruestung()).setSichtbar(checkbutton_sichtbar->get_active());
+cout << "Sichtbar 2: "<<'\t'<<  besitz<<'\t'<<besitz->getAusruestung().Sichtbar()<<'\n';
   showAusruestung();
 }
 
 
 void table_ausruestung::on_ausruestung_loeschen_clicked()
 {
+/*
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
   AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
   AusruestungBaum *Parent = A.getParent();
-  if(Parent)  Parent->remove(A);  
+*/
+  if(!besitz) return;
+  AusruestungBaum *Parent = besitz->getParent();
+//  if(Parent)  Parent->remove(A);  
+  if(Parent)  Parent->remove(*besitz);  
   else cerr << "Keine Herkunftsnode gesetzt\n";
 
 /*
@@ -311,16 +198,6 @@ void table_ausruestung::on_checkbutton_ausruestung_geld_toggled()
 }
 
 /*
-void table_ausruestung::on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event)
-{
-  Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
-  if(!tree_valid(selectionList)) return;
-  AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
-
-  std::string name   =clist_preisliste->get_text(row,0);
-  std::string kosten =clist_preisliste->get_text(row,1);
-  std::string einheit=clist_preisliste->get_text(row,2);
-
   if(checkbutton_ausruestung_geld->get_active())
    {
      int g=0,s=0,k=0;
@@ -332,19 +209,9 @@ void table_ausruestung::on_clist_preisliste_select_row(gint row, gint column, Gd
      hauptfenster->getWerte().addKupfer(-k);
      zeige_werte();
    }
- std::string bez;
- for (std::map<st_modimap_index,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();)
-   {
-     bez += i->second.name;
-     if(++i!=modimap.end()) bez+=", ";
-   }
 
  AusruestungBaum &B=A.push_back(Ausruestung(name,bez,checkbutton_sichtbar->get_active()));
  B.setParent(&A);
-
- clist_preisliste->unselect_all();
- showAusruestung();
-}
 */
 
 
@@ -356,37 +223,6 @@ void table_ausruestung::zeige_werte()
 }
 
 /*
-void table_ausruestung::fill_preisliste()
-{
- clist_preisliste->clear();
- if(modimap.empty()) return;
- double fak=1;  
- for (std::map<st_modimap_index,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();++i)
-   {
-    fak *= i->second.faktor;
-   }
-// Klassenvariable wg. drag&drop// std::vector<st_ausruestung> vec_aus;
- vec_aus.clear();
- for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=hauptfenster->getDatabase().preise.end();++i)
-   {
-    if(modimap.begin()->first.art==(*i)->Art() && modimap.begin()->first.art2==(*i)->Art2())
-     vec_aus.push_back(st_ausruestung((*i)->Name(),(*i)->Kosten() * fak,(*i)->Einheit(),(*i)->Gewicht()));
-   }  
- sort(vec_aus.begin(),vec_aus.end());
- Gtk::OStream os(clist_preisliste);
- for(std::vector<st_ausruestung>::const_iterator i=vec_aus.begin();i!=vec_aus.end();++i)
-   {
-      os << i->name <<'\t'
-         << i->kosten  <<'\t'
-         << i->einheit <<'\t'
-         << i->gewicht <<'\n';
-       os.flush(gpointer(&*i));
-   }
-  for (unsigned int i=0;i<clist_preisliste->columns().size();++i)
-       clist_preisliste->set_column_auto_resize(i,true);
-}
-*/
-
 AusruestungBaum &table_ausruestung::setStandardAusruestung(AusruestungBaum &besitz)
 {
   AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
@@ -412,7 +248,7 @@ AusruestungBaum &table_ausruestung::setStandardAusruestung(AusruestungBaum &besi
 //  setFertigkeitenAusruestung(Rucksack);
 }
 
-
+*/
 ////////////////////////////////////////////////////////////////////////
 //Neueingeben
 //von hier 

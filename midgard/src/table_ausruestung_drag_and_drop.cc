@@ -25,7 +25,7 @@
 //#include "/tmp/testdrag_and_drop.xpm"
 
 table_ausruestung::table_ausruestung(GlademmData *_data)
-: table_ausruestung_glade(_data) , hauptfenster(0)
+: table_ausruestung_glade(_data) , hauptfenster(0), besitz(0)
 {
   GtkTargetEntry tt[] = {
            { "STRING",     0, table_ausruestung::TARGET_STRING },
@@ -85,16 +85,16 @@ cout << "OUT:"<<sdp<<" at "<<adresse<<'\n';
 
       void *gp = reinterpret_cast<void*>(adresse);
 cout << "gp: "<<gp<<'t'<<'\n';
+/*
       Data_NewPreis *dp=reinterpret_cast<Data_NewPreis*>(gp);
 
       cH_Data_NewPreis P(dp);
       P->unref();
 cout << "Finaly we got: "<<P->Ware()->Name()<<' '<<P->Kosten()<<'\n';
-
+*/
       Gtk::Widget::drag_finish ( gdc, true, false, time );
       return;
     }
-  
   Gtk::Widget::drag_finish ( gdc , false, false, time );
 }
 

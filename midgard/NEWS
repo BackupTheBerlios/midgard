@@ -1,24 +1,7 @@
 ##########################################################################
-NEWS IN VERSION 0.8.6
+NEWS IN VERSION 0.8.7
 
-* Nur noch ein(!) Progressbar beim Laden der Datenbank
-- xml laden beschleunigen (merge with map, reservate on vectors)
-* Hilfe Menü
-* Zufallsgenerator: Steigern Oberfläche überarbeitet, 
-   Einstellungen bleiben erhalten
-* Neuimpelmentation der Preis-Modifikatoren in der Datenbank und der 
-   entsprechenden Klasse 
-* ANzeige der Waren völlig überarbeitet
-* Ein paar neue Icons von Ulf
-* In der exportierten TXT-Datei wird der Malus beim Zaubern von 
-   nicht-Grundzaubern berücksichtigt.
-* LaTeX Dokument überarbeitet, jetzt kann man EP und Geld die man während
-   des Spiels erhält/verliert eintragen.
-* kleine Datenbankkorrekturen
-* Winden nur mit 'schlank' lernbar
-* keine Endlosschleife mehr beim automatischen Steigern
-* Kein Absturz mehr wenn kein Abenteurer mehr existiert und dann die Seite 
-   gewechselt wird
+* Datenbankkorekturen (Dank an Sandro)
 
 TODO: ('-' zeigt CP an)
 
@@ -41,6 +24,30 @@ TODO: ('-' zeigt CP an)
 - alle Ausdrucke unter Windows testen
 - wrapfig for Windows für Grafik in Beschreibung
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
+
+
+
+##########################################################################
+NEWS IN VERSION 0.8.6
+
+* Nur noch ein(!) Progressbar beim Laden der Datenbank
+- xml laden beschleunigen (merge with map, reservate on vectors)
+* Hilfe Menü
+* Zufallsgenerator: Steigern Oberfläche überarbeitet, 
+   Einstellungen bleiben erhalten
+* Neuimpelmentation der Preis-Modifikatoren in der Datenbank und der 
+   entsprechenden Klasse 
+* ANzeige der Waren völlig überarbeitet
+* Ein paar neue Icons von Ulf
+* In der exportierten TXT-Datei wird der Malus beim Zaubern von 
+   nicht-Grundzaubern berücksichtigt.
+* LaTeX Dokument überarbeitet, jetzt kann man EP und Geld die man während
+   des Spiels erhält/verliert eintragen.
+* kleine Datenbankkorrekturen
+* Winden nur mit 'schlank' lernbar
+* keine Endlosschleife mehr beim automatischen Steigern
+* Kein Absturz mehr wenn kein Abenteurer mehr existiert und dann die Seite 
+   gewechselt wird
 
 ##########################################################################
 NEWS IN VERSION 0.8.5
