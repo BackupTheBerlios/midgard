@@ -12,11 +12,8 @@ class cH_WaffeGrund;
 class WaffeGrund : public MidgardBasicElement
 {
      std::string name,region;
-//     int kosten;
 
      void get_WaffeGrund();
-//     int GrundKosten() const { return kosten; }
-//     vector<std::string> Standard() const;
   public:
      WaffeGrund(const std::string& n)
        :name(n)  {get_WaffeGrund();get_map_typ();}
@@ -27,9 +24,6 @@ class WaffeGrund : public MidgardBasicElement
 
      std::string Name() const {return name;}
      std::string Region() const {return region;}
-//     int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
-//         {return (int)(Standard_Faktor(Typ,ausnahmen)*GrundKosten());};
-//     double Standard_Faktor(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
 };
 
 class cH_WaffeGrund : public Handle<const WaffeGrund>

@@ -76,8 +76,9 @@ void midgard_CG::on_waffengrund_laden_clicked()
    { cH_WaffeGrund w(*i);
      if ((*i)->ist_gelernt(list_WaffenGrund)) continue ;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,w->Name())) continue;
-     if (region_check(w->Region()) )
-      list_WaffenGrund_neu.push_back(*i);
+     if((*i)->ist_lernbar(Typ,(*i)->get_MapTyp()))
+        if (region_check(w->Region()) )
+         list_WaffenGrund_neu.push_back(*i);
    }
 }
 

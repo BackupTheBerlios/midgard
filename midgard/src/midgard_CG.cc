@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.87 2001/11/26 07:22:06 thoma Exp $
+// $Id: midgard_CG.cc,v 1.88 2001/11/27 12:31:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -77,8 +77,8 @@ void midgard_CG::get_Database()
                            Grad_anstieg(MI->get_progressbar_grad()),
                            Spezialgebiet_All(MI->get_progressbar_spezial()).get_All(),
                            Praxispunkte(MI->get_progressbar_praxispunkte()),
-                           Preise_All(MI->get_progressbar_praxispunkte()).get_All(),
-                           PreiseMod_All(MI->get_progressbar_praxispunkte()).get_All());
+                           Preise_All(MI->get_progressbar_preise()).get_All(),
+                           PreiseMod_All(MI->get_progressbar_preise()).get_All());
    MI->on_button_close_clicked();
 }
 
@@ -114,6 +114,7 @@ void midgard_CG::set_tree_titles()
  std::vector<string> alte_waffen;
  alte_waffen.push_back("Waffe");
  alte_waffen.push_back("Wert");
+ alte_waffen.push_back("");
  alte_waffen.push_back("Steigern\n(nächste Stufe)");
  alte_waffen.push_back("Reduzieren\n(eine Stufe)");
  alte_waffen_tree->set_value_data(gpointer("WA"));
@@ -121,16 +122,19 @@ void midgard_CG::set_tree_titles()
  std::vector<string> neue_waffen;
  neue_waffen.push_back("Waffe");
  neue_waffen.push_back("Wert");
+ neue_waffen.push_back("");
  neue_waffen.push_back("Voraussetzung");
  neue_waffen_tree->set_value_data(gpointer("WN"));
  neue_waffen_tree->setTitles(neue_waffen);
 
  std::vector<string> alte_grund;
  alte_grund.push_back("Grundkenntnisse");
+ alte_grund.push_back("");
  alte_grund_tree->setTitles(alte_grund);
  alte_grund_tree->set_value_data(gpointer("GA"));
  std::vector<string> neue_grund;
  neue_grund.push_back("Grundkenntnisse");
+ neue_grund.push_back("");
  neue_grund.push_back("Kosten");
  neue_grund_tree->set_value_data(gpointer("GN"));
  neue_grund_tree->setTitles(neue_grund);
@@ -424,6 +428,10 @@ void midgard_CG::on_neuer_charakter_clicked()
    hbox_kido->set_sensitive(false);
    table_kido_lernen->set_sensitive(false);
 
+   optionmenu_art->hide();
+   optionmenu_typ->hide();
+   optionmenu_eigenschaft->hide();
+     
 
    button_beruf_erfolgswert->set_sensitive(false);
    button_fertigkeiten->set_sensitive(false);

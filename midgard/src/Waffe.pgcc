@@ -237,17 +237,17 @@ int Waffe::Maxwert(const vector<cH_Typen>& Typ) const
 {
  assert(Typ.size()==2);
  int maxwert=0;
- if (Art()== "Angriff" || Art() == "Fern")
-  {
-    maxwert = 17;
-    if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 19;
-    if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 14;
-  }
  if (art == "Verteidigung")
   {
      maxwert = 7;
      if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 8;
      if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 6;
+  }
+ else
+  {
+    maxwert = 17;
+    if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 19;
+    if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 14;
   }
  return maxwert;
 }

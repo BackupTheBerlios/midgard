@@ -27,16 +27,12 @@
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
 #include "Preise.hh"
-//#include <cstring>
-//#include <Gtk_OStream.h>
-//#include "itos.h"
 #include <gtk--/main.h>
 
 cH_Preise::cache_t cH_Preise::cache;
 
 cH_Preise::cH_Preise(const std::string& name)
 {
-// st_index index(name,Typ);
  cH_Preise *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
@@ -50,8 +46,8 @@ cH_Preise::cH_Preise(const std::string& name)
 void Preise::get_Preise()
 {
   exec sql begin declare section;
-   char db_name[50],db_art[50],db_einheit[20];
-   int db_kosten;
+   char db_name[1024],db_art[50],db_einheit[20];
+   float db_kosten;
   exec sql end declare section;
 
   strncpy(db_name,Name().c_str(),sizeof(db_name));
@@ -67,7 +63,7 @@ void Preise::get_Preise()
 Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;
-   char db_name[100];
+   char db_name[1024];
    int db_size;
  exec sql end declare section;
  exec sql select count(name) into :db_size from preise;
@@ -83,7 +79,7 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
    exec sql fetch Pein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
-//   list_All.push_back(new Preise(db_name));
+   list_All.push_back(cH_Preise(db_name));
    ++count;
   }
  exec sql close Pein;
@@ -113,11 +109,12 @@ void PreiseMod::get_PreiseMod()
    char db_name[50],db_typ[50],db_art[50],db_einheit[20];
    float db_faktor;
    int db_min;
+   int db_nr;
   exec sql end declare section;
   strncpy(db_art,Art().c_str(),sizeof(db_art));
   exec sql declare PM2ein cursor for select 
     name,faktor,min,coalesce(einheit,''),coalesce(typ,'') 
-    from preise_modifikation where art =:db_art;
+    from preise_modifikation where art =:db_art order by typ,nr;
   Transaction tr;
   exec sql open PM2ein; 
   SQLerror::test(__FILELINE__);
@@ -142,7 +139,7 @@ PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
    int db_size;
  exec sql end declare section;
  exec sql select count(distinct art) into :db_size from preise_modifikation;
- exec sql declare PMein cursor for select distinct name from preise_modifikation;
+ exec sql declare PMein cursor for select distinct art from preise_modifikation;
  Transaction tr;
  exec sql open PMein; 
  SQLerror::test(__FILELINE__);
@@ -154,7 +151,7 @@ PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
    exec sql fetch PMein into :db_art;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
-//   list_All.push_back(new PreiseMod(db_art));
+   list_All.push_back(cH_PreiseMod(db_art));
    ++count;
   }
  exec sql close PMein;

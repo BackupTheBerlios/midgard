@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.98 2001/11/26 07:22:06 thoma Exp $
+// $Id: midgard_CG.hh,v 1.99 2001/11/27 12:31:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -385,6 +385,19 @@ class midgard_CG : public midgard_CG_glade
         void on_button_sprache_sort_clicked();
         void on_button_schrift_sort_clicked();
         void show_gtk();
+
+        void ausruestung_laden();
+        void fill_preisliste();
+        void fill_optionmenu_eigenschaft();
+        void fill_optionmenu_art();
+        void fill_optionmenu_typ();
+        void opt_eigenschaft();
+        void opt_art();
+        void opt_typ();
+        void on_button_ausruestung_druck_clicked();
+        void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
+        
+
    
    public:
          midgard_CG(int argc,char **argv);

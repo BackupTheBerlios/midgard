@@ -41,72 +41,7 @@ void WaffeGrund::get_WaffeGrund()
   exec sql close cl_waffeng_ein;
   tr.close();
 }
-/*
-double WaffeGrund::Standard_Faktor(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
-{
-  double fac;
-    if      (standard_one_G(Standard(Typ,ausnahmen)) ) fac = 0.5;
-    else if (standard_all_S(Standard(Typ,ausnahmen)) ) fac = 1.0;
-    else fac = 2.0; 
- return fac;
-}
 
-vector<std::string> Fertigkeit::Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
-{
- assert(Typ.size()==2);
- vector<std::string> s(2);
- for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
-   if(Typ[0]->Short()==i->first) {s[0]=i->second; break;}
- for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
-   if(Typ[1]->Short()==i->first) {s[1]=i->second; break;}
- ausnahmen.Ausnahmen_string(Name(),s);
- return s;
-}
- 
-*/
-/*
-void WaffeGrund::set_Standard(const vector<cH_Typen>& Typ)
-{
-  assert(Typ.size()==2);
-  std::string swaffe="Waffen";
-  if (Name()=="Peitsche") swaffe="Peitsche";
-  if (Name()=="Lasso") swaffe="Lasso";
-  if (Name()=="Netz") swaffe="Netz";
-  if (Name()=="Bola") swaffe="Bola";
-
-  exec sql begin declare section;
-   char db_ergebnis[20],db_ergebnis2[20];
-   char query[200];
-  exec sql end declare section;
-  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
-  std::string squery = "select "+Typ[0]->Short() ;
-  if (Typ[1]->Short()!="") squery += ", " + Typ[1]->Short() ;
-  squery += " from waffen_standard where fertigkeit  = '"+swaffe+"'";
-  strncpy(query,squery.c_str(),sizeof(query));  
-
-  Transaction tr;
-  exec sql prepare wafein_ from :query ;
-   exec sql declare wafein cursor for wafein_ ;
-   exec sql open wafein;
-   SQLerror::test(__FILELINE__);
-   if (Typ[1]->Short()!="") exec sql fetch wafein into  :db_ergebnis, :db_ergebnis2;
-   else exec sql fetch wafein into  :db_ergebnis;
-   SQLerror::test(__FILELINE__,100);
-   exec sql close wafein;
-   tr.close();
-   standard.clear();
-   standard.push_back(db_ergebnis);
-   standard.push_back(db_ergebnis2);
-}
-*/
-/*
-std::string Is_Grund(const list<cH_WaffeGrund>& L,const std::string& name)
-{
-  for (list<cH_WaffeGrund>::const_iterator i=L.begin();i!=L.end();++i)
-   if ((*i)->Name()==name) return "x";
-  return "";
-}
-*/
 WaffeGrund_All::WaffeGrund_All(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;

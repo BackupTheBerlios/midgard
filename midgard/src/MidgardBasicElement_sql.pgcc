@@ -6,6 +6,7 @@
 exec sql include sqlca;
 #include "xml.h"
 #include "Zauberwerk.hh"
+#include "Waffe.hh"
 
 #ifdef USE_XML
 static void Add(map<std::string,std::string> map_typ, std::string typen, std::string wert)
@@ -38,14 +39,9 @@ void MidgardBasicElement::get_map_typ()
  if(What()==FERTIGKEIT )
     squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
  if(What()==WAFFEGRUND || What()==WAFFE)
-   {
-    std::string name = "Waffen";
-    if (Name()=="Peitsche") name="Peitsche";
-    if (Name()=="Lasso") name="Lasso";
-    if (Name()=="Netz") name="Netz";
-    if (Name()=="Bola") name="Bola";
-    squery ="select typ,standard from waffen_typen where name ='"+name+"'";
-   }
+    squery ="select typ,standard from waffen_typen where name ='"+Name()+"'";
+ if(What()==WAFFE)
+    squery ="select typ,standard from waffen_typen where name ='"+cH_Waffe(this)->Grundkenntnis()+"'";
  if(What()==SPRACHE)
     squery ="select typ,standard from fertigkeiten_typen where name ='Sprache'";
  if(What()==SCHRIFT)

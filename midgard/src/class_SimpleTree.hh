@@ -21,11 +21,11 @@ class Data_SimpleTree : public RowDataBase
    : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen) {}
 
    enum Spalten_FA {NAMEa,WERTa,STEIGERN,REDUZIEREN,VERLERNEN} ;
-   enum Spalten_WA {NAMEa_W,WERTa_W,STEIGERN_W,REDUZIEREN_W} ;
    enum Spalten_FN {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
-   enum Spalten_WN {NAMEn_W,WERTn_W,VORAUSSETZUNGEN_W};
-   enum Spalten_GA {NAMEa_G};
-   enum Spalten_GN {NAMEn_G,KOSTEN_G};
+   enum Spalten_WA {NAMEa_W,WERTa_W,STANDARDa_W,STEIGERN_W,REDUZIEREN_W} ;
+   enum Spalten_WN {NAMEn_W,WERTn_W,STANDARDn_W,VORAUSSETZUNGEN_W};
+   enum Spalten_GA {NAMEa_G,STANDARDa_G};
+   enum Spalten_GN {NAMEn_G,STANDARDn_G,KOSTEN_G};
    enum Spalten_ZA {NAMEa_Z,STUFEa_Z,URSPRUNGa_Z,KOSTENa_Z} ;
    enum Spalten_ZN {NAMEn_Z,STUFEn_Z,URSPRUNGn_Z,KOSTENn_Z,STANDARDn_Z};
    enum Spalten_ZWA{STUFEa_ZW,NAMEa_ZW,ARTa_ZW,KOSTENa_ZW} ;
@@ -59,6 +59,7 @@ class Data_SimpleTree : public RowDataBase
        switch((Spalten_WA)seqnr) {
          case NAMEa_W : return cH_EntryValueIntString(MBE->Name());
          case WERTa_W : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
+         case STANDARDa_W : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
          case STEIGERN_W : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
          case REDUZIEREN_W : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
         }
@@ -66,15 +67,18 @@ class Data_SimpleTree : public RowDataBase
        switch ((Spalten_WN)seqnr) {
          case NAMEn_W : return cH_EntryValueIntString(MBE->Name());
          case WERTn_W : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
+         case STANDARDn_W : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
          case VORAUSSETZUNGEN_W : return cH_EntryValueIntString(cH_Waffe(MBE)->Voraussetzung());
         }
       if (name=="GA")
        switch((Spalten_GA)seqnr) {
          case NAMEa_G : return cH_EntryValueIntString(MBE->Name());
+         case STANDARDa_G : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
         }
       if (name=="GN")
        switch ((Spalten_GN)seqnr) {
          case NAMEn_G : return cH_EntryValueIntString(MBE->Name());
+         case STANDARDn_G : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
          case KOSTEN_G : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen)); 
         }
       if (name=="ZA")
