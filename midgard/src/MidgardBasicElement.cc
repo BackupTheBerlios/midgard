@@ -29,7 +29,9 @@
 #include "Schrift.hh"
 #include "class_SimpleTree.hh"
 #include "SimpleTree.hh"
-
+#include <Aux/itos.h>
+#include "export_common.h"
+#include "xml.h"
 /*
 cH_MidgardBasicElement::cache_t cH_MidgardBasicElement::cache;
 
