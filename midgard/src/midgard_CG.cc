@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.337 2004/04/01 06:25:29 christof Exp $
+// $Id: midgard_CG.cc,v 1.338 2004/04/01 06:28:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,9 +57,9 @@ void midgard_CG::call_any_wizard_change(void *p)
 {  signal_any_wizard_change()(p);
 }
 
-void print_change(void *p)
-{  std::cerr << "change " << p << '\n';
-}
+//void print_change(void *p)
+//{  std::cerr << "change " << p << '\n';
+//}
 
 midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 : news_columns(), undo_menu(),menu_kontext(),
@@ -73,9 +73,9 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   
   getChar().proxies.wizard.signal_changed().connect(SigC::slot(*this,&midgard_CG::call_any_wizard_change));
   getChar().proxies.wizard_mode.signal_changed().connect(SigC::slot(*this,&midgard_CG::call_any_wizard_change));
-  getChar().proxies.wizard.signal_changed().connect(SigC::slot(&print_change));
-  getChar().proxies.wizard_mode.signal_changed().connect(SigC::slot(&print_change));
-  signal_any_wizard_change().connect(SigC::slot(&print_change));
+//  getChar().proxies.wizard.signal_changed().connect(SigC::slot(&print_change));
+//  getChar().proxies.wizard_mode.signal_changed().connect(SigC::slot(&print_change));
+//  signal_any_wizard_change().connect(SigC::slot(&print_change));
   
 //  srand(time(0));
 // ToolBar: StyleIcon
