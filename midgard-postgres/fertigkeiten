@@ -122,7 +122,7 @@ COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert,
 4	\N	\N	4	NinJutsu	2	600	K	\N	Gw	\N	\N	18	18	\N
 \N	\N	\N	5	Orakelkunst	4	60	E	\N	In	\N	\N	12	11	\N
 4	3	\N	5	Pflanzenkunde	4	100	\N	\N	In	0	2	16	13	\N
-1	\N	\N	5	Pyromantie	4	400	E	\N	Zt	\N	1	12	11	\N
+1	\N	\N	5	Pyromantie	4	100	E	\N	Zt	\N	1	12	11	\N
 4	\N	3	8	Rechnen	6	100	\N	\N	In	\N	2	18	16	\N
 3	2	2	15	Reiten	10	60	\N	\N	Gw	5	1	18	18	\N
 3	2	\N	15	Rudern	10	60	\N	\N	St	3	1	18	18	\N

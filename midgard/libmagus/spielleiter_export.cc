@@ -148,7 +148,6 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
     std::string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
     std::string sz=", ";
-c    if(!(*(*i))->Zusatz().empty) sz="("+ (*(*i))->Zusatz() +")";
     if(!(f->Zusatz().empty()) sz="("+ f->Zusatz() +"),";
     fert+=(*(*i))->Name()+wert+sz ;
    }
