@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.28 2002/01/14 10:46:43 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.29 2002/01/19 17:57:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,7 @@
 #include "midgard_CG.hh"
 #include "KiDo_auswahl.hh"
 #include <Gtk_OStream.h>
-
+#include "KiDo.hh"
 
 void midgard_CG::on_kido_wahl_clicked()
 {

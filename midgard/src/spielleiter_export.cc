@@ -19,6 +19,11 @@
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 #include "Sprache.hh"
+#include "Fertigkeiten_angeboren.hh"
+#include "Waffe.hh"
+#include <fstream>
+#include "Zauber.hh"
+#include <Aux/itos.h>
 
 void midgard_CG::spielleiter_export()
 {
