@@ -16041,6 +16041,19 @@ wird der entsprechende Abenteurer geladen.</label>
 
 	      <widget>
 		<class>GtkMenuItem</class>
+		<name>exportieren</name>
+		<tooltip>Der Charakter wird im Format für NSCs in publizierten Abenteurern gespeichert</tooltip>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_exportieren_activate</handler>
+		  <last_modification_time>Mon, 13 May 2002 11:55:31 GMT</last_modification_time>
+		</signal>
+		<label>Exportieren</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
 		<name>trennlinie1</name>
 		<right_justify>False</right_justify>
 	      </widget>
@@ -16048,18 +16061,102 @@ wird der entsprechende Abenteurer geladen.</label>
 	      <widget>
 		<class>GtkMenuItem</class>
 		<name>drucken1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_P</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_drucken_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 12:05:34 GMT</last_modification_time>
-		</signal>
 		<label>Drucken</label>
 		<right_justify>False</right_justify>
+
+		<widget>
+		  <class>GtkMenu</class>
+		  <name>drucken1_menu</name>
+
+		  <widget>
+		    <class>GtkMenuItem</class>
+		    <name>abenteurerdokument</name>
+		    <accelerator>
+		      <modifiers>GDK_CONTROL_MASK</modifiers>
+		      <key>GDK_P</key>
+		      <signal>activate</signal>
+		    </accelerator>
+		    <signal>
+		      <name>activate</name>
+		      <handler>on_abenteurerdokument_drucken</handler>
+		      <last_modification_time>Mon, 13 May 2002 12:17:03 GMT</last_modification_time>
+		    </signal>
+		    <label>Abenteurerdokument</label>
+		    <right_justify>False</right_justify>
+		  </widget>
+
+		  <widget>
+		    <class>GtkMenuItem</class>
+		    <name>ausrüstungsdokument</name>
+		    <label>Ausrüstungsdokument</label>
+		    <right_justify>False</right_justify>
+
+		    <widget>
+		      <class>GtkMenu</class>
+		      <name>ausrüstungsdokument_menu</name>
+
+		      <widget>
+			<class>GtkMenuItem</class>
+			<name>nur_sichtbares</name>
+			<signal>
+			  <name>activate</name>
+			  <handler>on_nur_sichtbares_drucken</handler>
+			  <last_modification_time>Mon, 13 May 2002 12:17:03 GMT</last_modification_time>
+			</signal>
+			<label>Nur sichtbares</label>
+			<right_justify>False</right_justify>
+		      </widget>
+
+		      <widget>
+			<class>GtkMenuItem</class>
+			<name>unsichtbares_drucken</name>
+			<signal>
+			  <name>activate</name>
+			  <handler>on_auch_unsichtbares_drucken</handler>
+			  <last_modification_time>Mon, 13 May 2002 12:17:03 GMT</last_modification_time>
+			</signal>
+			<label>Alles drucken</label>
+			<right_justify>False</right_justify>
+		      </widget>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkMenuItem</class>
+		    <name>beschreibung</name>
+		    <signal>
+		      <name>activate</name>
+		      <handler>on_beschreibung_drucken</handler>
+		      <last_modification_time>Mon, 13 May 2002 12:17:03 GMT</last_modification_time>
+		    </signal>
+		    <label>Beschreibung</label>
+		    <right_justify>False</right_justify>
+		  </widget>
+
+		  <widget>
+		    <class>GtkMenuItem</class>
+		    <name>alles_drucken</name>
+		    <signal>
+		      <name>activate</name>
+		      <handler>on_alles_drucken</handler>
+		      <last_modification_time>Mon, 13 May 2002 12:17:03 GMT</last_modification_time>
+		    </signal>
+		    <label>Alles drucken</label>
+		    <right_justify>False</right_justify>
+		  </widget>
+
+		  <widget>
+		    <class>GtkMenuItem</class>
+		    <name>leeres_abenteurerblatt</name>
+		    <signal>
+		      <name>activate</name>
+		      <handler>on_leeres_abenteurerblatt_drucken</handler>
+		      <last_modification_time>Mon, 13 May 2002 12:17:03 GMT</last_modification_time>
+		    </signal>
+		    <label>Leeres Abenteurerblatt</label>
+		    <right_justify>False</right_justify>
+		  </widget>
+		</widget>
 	      </widget>
 
 	      <widget>

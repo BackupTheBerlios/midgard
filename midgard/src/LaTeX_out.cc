@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.118 2002/05/08 20:38:54 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.119 2002/05/13 14:43:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,6 +40,9 @@ gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 }
 
 void midgard_CG::on_drucken_clicked()
+{on_latex_clicked();}
+
+void midgard_CG::on_abenteurerdokument_drucken()
 {on_latex_clicked();}
 
 void midgard_CG::on_latex_clicked(bool values=true)
@@ -692,4 +695,13 @@ std::string midgard_CG::LaTeX_string(int i)
     if(i==47) return("av");
    //Never get here
    return("0");
+}
+
+
+void midgard_CG::on_alles_drucken()
+{
+  on_abenteurerdokument_drucken();
+  on_beschreibung_drucken();
+  on_nur_sichtbares_drucken();
+  on_auch_unsichtbares_drucken();
 }

@@ -197,6 +197,7 @@ void midgard_CG::menu_init()
 */
 ///////////////////////////////////////////////////////////////////////////////
 //Import/Export////////////////////////////////////////////////////////////////
+/*
   Gtk::Menu *im_ex_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *im_ex = manage(new class Gtk::MenuItem("Import/Export"));
   im_ex->set_submenu(*im_ex_menu);
@@ -207,6 +208,7 @@ void midgard_CG::menu_init()
   Elsa_export->show();
   
   menu->append(*im_ex);
+*/
 ///////////////////////////////////////////////////////////////////////////////
 
   menu->show_all();

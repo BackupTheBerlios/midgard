@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.237 2002/05/12 08:58:09 thoma Exp $
+// $Id: midgard_CG.hh,v 1.238 2002/05/13 14:43:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -308,12 +308,17 @@ private:
         gint on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev);
         void on_button_beschreibung_drucken_clicked();
+        void on_beschreibung_drucken();
         void on_button_grafik_clicked();
+        
+        void on_alles_drucken();
 
         void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, int xml_version));
         void on_latex_clicked(bool values=true);
         // needed for menu connection, you can't pass any data or default args
         void on_drucken_clicked();
+        void on_abenteurerdokument_drucken();
+        void on_leeres_abenteurerblatt_drucken() {on_latex_clicked(false);}
         void LaTeX_newsavebox(ostream &fout);
         void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
         void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
@@ -324,7 +329,7 @@ private:
         std::string get_latex_pathname(const LaTeX_Pathnames what);
         enum SystemComms {RM/*,CP*/};
         std::string system_comm(SystemComms);
-        void spielleiter_export();
+        void on_exportieren_activate();
         void latex_beschreibung_drucken();
         void on_button_info_clicked();
         void LaTeX_zauber_main(ostream &fout);
@@ -545,6 +550,8 @@ private:
         void ausruestung_laden();
         void fill_preisliste();
         gint on_button_ausruestung_druck_release_event(GdkEventButton *event);
+        void on_nur_sichtbares_drucken();
+        void on_auch_unsichtbares_drucken();
         void on_ausruestung_druck(bool unsichtbar);
         void ausruestung_druck(ostream &fout,bool unsichtbar,const list<AusruestungBaum> &AB,int deep);
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);

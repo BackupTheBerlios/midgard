@@ -32,7 +32,7 @@ std::string utf82iso(const std::string &s);
 #define LATIN(x) (x)
 #endif
 
-void midgard_CG::spielleiter_export()
+void midgard_CG::on_exportieren_activate()
 {
 #ifndef __MINGW32__
  manage 
@@ -41,7 +41,6 @@ void midgard_CG::spielleiter_export()
 #endif
 	 (new xml_fileselection(this,xml_fileselection::Export));
 }
-
 
 void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 {

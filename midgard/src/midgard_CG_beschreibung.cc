@@ -19,6 +19,9 @@ gint midgard_CG::on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev)
  return 0;
 }
 
+void midgard_CG::on_beschreibung_drucken()
+{ latex_beschreibung_drucken();}
+
 void midgard_CG::on_button_beschreibung_drucken_clicked()
 {
   latex_beschreibung_drucken();

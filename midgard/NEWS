@@ -39,20 +39,19 @@ NEWS IN VERSION 0.6delta3
 * Tabtaste beim Werteeditieren springt ins 'richtige' Feld.
 * Ausdauer und Schadensbonus korrigiert
 * Schreiben Nahuatlan: Tippfehler beseitigt
+* Der Export sollte in das Datei-Menü?
+* Druckenmenü im Dateimenü:
+ - Drucken - Abenteurerdokument
+           - Ausrüstungsdokument
+             - nur sichtbar
+             - alles
+           - Abenteurerbeschreibung
+           - Alles
+           - leeres Dokument
 
 TODO:
 * Gildenbrief funktioniert nicht
-* Waffenbesitz: Neuladen: Knopf weg
-* Druckenmenü im Dateimenü:
-> - Drucken - Abenteurerdokument
->           - Magiedokument 
->           - Ausrüstungsdokument
->             - nur sichtbar
->             - alles
->           - Abenteurerbeschreibung
->           - Alles
->           - leeres Dokument
-* > Der Import/Export sollte ebenfalls in das Datei-Menü?
+* Waffenbesitz: Neuladen: überflüssiger Knopf ist weg
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Destruktor wird nicht aufgerufen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 

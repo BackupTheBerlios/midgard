@@ -476,6 +476,11 @@ gint midgard_CG::on_button_ausruestung_druck_release_event(GdkEventButton *event
   return false;
 }
 
+void midgard_CG::on_nur_sichtbares_drucken()
+{on_ausruestung_druck(false); }
+void midgard_CG::on_auch_unsichtbares_drucken()
+{on_ausruestung_druck(true); }
+
 
 void midgard_CG::on_ausruestung_druck(bool unsichtbar)
 {
