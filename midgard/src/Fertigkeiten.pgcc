@@ -29,7 +29,8 @@ cerr << '\n';
 
 #ifdef USE_XML
 cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
-{assert(tag);
+{if (!tag) throw NotFound();
+//assert(tag);
  *this=cH_Fertigkeit(new Fertigkeit(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }

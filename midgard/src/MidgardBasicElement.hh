@@ -14,6 +14,12 @@ class H_Data_beruf;
 class cH_MidgardBasicElement;
 class SimpleTree;
 
+#ifdef USE_XML
+class NotFound : public std::exception
+{public:
+	virtual const char* what() const throw() { return "NotFound"; }
+}
+#endif
 
 class MidgardBasicElement : public HandleContent
 {
