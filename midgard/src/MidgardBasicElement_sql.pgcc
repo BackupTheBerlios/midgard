@@ -78,6 +78,7 @@ void MidgardBasicElement::get_map_typ()
  if(What()==WAFFEGRUND)
     tag=find_Tag("Waffen:Grundkenntnisse","Waffen:Grundkenntnis","Name",Name());
  // auch in Waffen:Steigern suchen
+ // dynamic_cast<Waffe*>(this)->Grundkenntnis()
  if(What()==WAFFE)
     tag=find_Tag("Waffen","Waffe","Name",Name());
  if(What()==SPRACHE)
@@ -92,6 +93,7 @@ void MidgardBasicElement::get_map_typ()
     const Tag *Standard=tag->find("Standard");
     const Tag *Ausnahme=tag->find("Ausnahme");
     // auch in Waffen:Steigern suchen
+    // V4 nicht?
     if ((What()==WAFFEGRUND || What()==WAFFE)
     		&& !Grund && !Standard && !Ausnahme)
     {  tag=xml_data->find("Waffen:Steigern");
