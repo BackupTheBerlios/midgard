@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.16 2004/04/21 12:49:44 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.17 2004/04/22 09:31:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -241,6 +241,7 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
    switch (was) {
      case etyp  : sfout += "typ}{"; break ;
      case emagusversion  : sfout += "magusversion}{"; break ;
+     case e_last_saved_time : sfout += "lastsavedat}{"; break ;
      case espezies : sfout += "spezies}{"; break ;
      case emerk : sfout += "merkmale}{"; break ;
      case est   : sfout += "st }{"; break ;
@@ -332,6 +333,7 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
         break;
       }      
      case emagusversion : sfout += VERSION; break;
+     case e_last_saved_time : sfout += A.LastSavedAt(); break;
      case espezies : sfout += LaTeX_scale(W.Spezies()->Name(),10,"2cm") ; break;
      case emerk :    sfout +=W.Merkmale(); break;
      case est   : sfout += itos(W.St()); break ;

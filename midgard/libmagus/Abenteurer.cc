@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.19 2004/04/22 08:04:45 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.20 2004/04/22 09:31:19 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -50,6 +50,13 @@ bool Abenteurer::Valid() const
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   if(getVTyp().size()!=2) return false;
   return Typ1()->Valid();
+}
+
+
+const std::string Abenteurer::LastSavedAt() const
+{
+  tm *t=localtime(&last_saved_time);
+  return itos(t->tm_mday) +"."+ itos(t->tm_mon) +"."+ itos(1900+t->tm_year);
 }
 
 
@@ -249,6 +256,7 @@ void Abenteurer::speicherstream(std::ostream &datei)
      o.setBoolAttr("Wert", i->active);
    }
    ts.write(datei);
+   last_saved_time= time((time_t *)NULL);
 }
 
 

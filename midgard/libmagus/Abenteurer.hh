@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.22 2004/03/09 11:40:57 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.23 2004/04/22 09:31:19 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -30,12 +30,14 @@
 #include "Region.hh"
 #include <map>
 #include <Misc/compiler_ports.h>
+#include <time.h>
+
 
 // Vielleicht sollte AbenteurerLernpunkte hier noch rein ...
 class Abenteurer : public Grundwerte
 {
+   time_t last_saved_time;
    AusruestungBaum besitz;
-//   Grundwerte Werte;
 
    std::list<MBEmlt> list_Beruf;
    std::list<MBEmlt> list_Fertigkeit_ang;
@@ -61,6 +63,7 @@ public:
 
    Abenteurer();
    
+   const std::string LastSavedAt() const;
    void reset();
    bool Valid() const;
 
