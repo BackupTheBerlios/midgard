@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.26 2001/05/05 20:01:26 thoma Exp $
+// $Id: midgard_CG.hh,v 1.27 2001/05/07 14:01:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -94,10 +94,11 @@ struct st_angeborene_fertigkeit {string name; int erfolgswert;
 struct st_ausgewaehlte_waffen {string name; int erfolgswert; 
       st_ausgewaehlte_waffen(const string n,int e)
       : name(n),erfolgswert(e) {} };
-struct st_waffen_besitz {string name; string alias; string region ;int av_bonus; int sl_bonus;
-   st_waffen_besitz(string n, string na, string r,int a, int s) 
-   : name(n), alias(na), region(r),av_bonus(a),sl_bonus(s) {}
-   st_waffen_besitz() : name(""), alias(""), region(""), av_bonus(0), sl_bonus(0) {} };
+struct st_waffen_besitz {string name; string alias; string region ;int av_bonus; 
+      int sl_bonus; string magisch;
+   st_waffen_besitz(string n, string na, string r,int a, int s, string m) 
+   : name(n), alias(na), region(r),av_bonus(a),sl_bonus(s),magisch(m) {}
+   st_waffen_besitz() : name(""), alias(""), region(""), av_bonus(0), sl_bonus(0), magisch("") {} };
 struct st_ausgewaehlte_zauber {string name; string ap; 
       st_ausgewaehlte_zauber(const string n, const string a)
       : name(n), ap(a) {} };
@@ -202,6 +203,7 @@ class midgard_CG : public midgard_CG_glade
         void latex_beschreibung_drucken();
         void on_button_info_clicked();
         void LaTeX_zauber_main();
+        string LaTeX_scale(const string& is, unsigned int maxlength, const string& scale, const st_waffen_besitz& waffe=st_waffen_besitz());
         void LaTeX_zauber();
         void LaTeX_zaubermittel();
         void LaTeX_kido_main();

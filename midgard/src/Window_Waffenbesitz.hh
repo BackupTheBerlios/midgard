@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.6 2001/04/19 13:29:11 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.7 2001/05/07 14:01:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,7 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         vector<st_waffen_besitz>& waffe_besitz;
         st_werte& werte;
         bool mag_bonus_bool;
+        int memwaffe;
         friend class Window_Waffenbesitz_glade;
         void on_clist_waffe_alt_select_row(gint row, gint column, GdkEvent *event);
         void on_clist_waffe_neu_select_row(gint row, gint column, GdkEvent *event);

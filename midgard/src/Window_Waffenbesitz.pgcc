@@ -35,12 +35,15 @@ exec sql include sqlca;
 void Window_Waffenbesitz::on_clist_waffe_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
   string waffe = clist_waffe_alt->get_text(row,0);
+  memwaffe=row;
+  int count=0;
   for (vector<st_waffen_besitz>::iterator i=waffe_besitz.begin();
          i!=waffe_besitz.end();++i)
    { 
      if ((i->region) !="") waffe = hauptfenster->get_region_waffen(waffe,i->region,2);
-     if ((i->name) == waffe &&  mag_bonus_bool) {manage (new Window_mag_bonus(this,*i)); break;}
-     if ((i->name) == waffe && !mag_bonus_bool) {waffe_besitz.erase(i);break;} 
+     if (count==memwaffe &&  mag_bonus_bool) {manage (new Window_mag_bonus(this,*i)); break;}
+     if (count==memwaffe && !mag_bonus_bool) {waffe_besitz.erase(i);break;} 
+     ++count;
    }
   hauptfenster->on_speichern_clicked();
   show_alte_waffen();   
@@ -53,10 +56,10 @@ void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, G
  string region = clist_waffe_neu->get_text(row,2);
  if (region!="") 
    { string wwaffe = hauptfenster->get_region_waffen(waffe,region,2);
-     waffe_besitz.push_back(st_waffen_besitz(wwaffe,waffe,region,0,0));
+     waffe_besitz.push_back(st_waffen_besitz(wwaffe,waffe,region,0,0,""));
    }
  if (region=="") 
-     waffe_besitz.push_back(st_waffen_besitz(waffe,waffe,region,0,0));
+     waffe_besitz.push_back(st_waffen_besitz(waffe,waffe,region,0,0,""));
   hauptfenster->on_speichern_clicked();
   show_alte_waffen();   
   show_neue_waffen();   
@@ -88,13 +91,11 @@ void  Window_Waffenbesitz::show_alte_waffen()
    {
      string schaden=hauptfenster->waffe_werte((*i),werte,"Schaden");
      string bonus= "("+itos(i->av_bonus)+"/"+itos(i->sl_bonus)+")";
-     if (bonus == "(0/0)")   bonus = "";
-     if (bonus == "(-5/-5)") bonus = "(0/0)";
+     if (i->magisch=="")   bonus = "";
      if (i->region=="")
         os << i->name <<"\t"<<schaden<<"\t"<<bonus<<"\n";
      else
       {
-//        string alias = hauptfenster->get_region_waffen(i->name,i->region,1); 
         os << i->alias <<"\t"<<schaden<<"\t"<<bonus<<"\n";
       }
    }
@@ -122,7 +123,7 @@ void  Window_Waffenbesitz::show_neue_waffen()
      and w.name not in 
      (select fertigkeit from charaktere_fertigkeiten 
       where charakter_name = :db_name and version = :db_version
-      and art = 'Besitz_W');
+      and art = 'Besitz_W' and magisch = '');
   Transaction tr;
   exec sql open ein;
   SQLerror::test(__FILELINE__);
@@ -132,7 +133,7 @@ void  Window_Waffenbesitz::show_neue_waffen()
      exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     string schaden=hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,db_waffe,"",0,0),werte,"Schaden");
+     string schaden=hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
      string waffe=db_waffe;
      if (waffe!="waffenloser Kampf" )
         os << db_waffe<<"\t"<<schaden<<"\n";
@@ -174,8 +175,10 @@ void Window_Waffenbesitz::on_checkbutton_mag_waffenbonus_toggled()
 
 void Window_Waffenbesitz::mag_boni_uebernehmen(st_waffen_besitz& wa)
 {
+  int count=0; 
   for (vector<st_waffen_besitz>::iterator i=waffe_besitz.begin();
          i!=waffe_besitz.end();++i)
-     if ((i->name) == wa.name) (*i)=wa;
+     if (count++ == memwaffe) (*i)=wa;
   Window_Waffenbesitz::show_alte_waffen();
+  Window_Waffenbesitz::show_neue_waffen();
 }

@@ -102,7 +102,7 @@ void Window_waffe::wuerfeln()
 
      if (waffe == "waffenloser Kampf") continue;
      string art = db_art;
-     string sch = hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,db_waffe,"",0,0),werte,"Schaden");
+     string sch = hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
      if (aartE =="E" && art=="E" )
          os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
      if (aartW =="W" && art=="W" )

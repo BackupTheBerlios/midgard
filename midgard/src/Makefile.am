@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.21 2001/04/30 15:02:22 thoma Exp $
+# $Id: Makefile.am,v 1.22 2001/05/07 14:01:46 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -72,6 +72,10 @@ midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 midgard_SOURCES = \
+   LaTeX_out.cc \
+   LaTeX_zauber.cc \
+   LaTeX_kido.cc \
+   LaTeX_charakter_beschreibung.cc \
    spielleiter_export.cc \
    midgard_CG_kido.cc \
    KiDo_auswahl_glade.cc \
@@ -119,10 +123,6 @@ midgard_SOURCES = \
 	Window_Waffe_Geld.cc \
 	Window_Geld_eingeben_glade.cc \
 	Window_Geld_eingeben.cc \
-   LaTeX_out.cc \
-   LaTeX_zauber.cc \
-   LaTeX_kido.cc \
-   LaTeX_charakter_beschreibung.cc \
    grundwere_edit_setzen.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \

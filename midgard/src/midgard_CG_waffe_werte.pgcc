@@ -32,13 +32,16 @@ string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,const st_werte& wer
    char db_s1[50] ;
    int  db_sb ;
    char db_angriffsrangmod[10], db_wm_abwehr_leicht[10], db_wm_abwehr_schwer[10];
+   int db_reich_0,db_reich_n,db_reich_m,db_reich_f;
   exec sql end declare section;
   strncpy(db_waffe,waffe.name.c_str(),sizeof(db_waffe));
   exec sql select coalesce(schaden,''), coalesce(schaden_b,0),
       art, coalesce(angriffsrangmod,''), coalesce(wm_abwehr_leicht,''),
-      coalesce(wm_abwehr_schwer,'')
+      coalesce(wm_abwehr_schwer,''),coalesce(reichweite_0,-1)
+      ,coalesce(reichweite_n,-1),coalesce(reichweite_m,-1),coalesce(reichweite_f,-1)
       into :db_s1, :db_sb, :db_art, :db_angriffsrangmod,
-            :db_wm_abwehr_leicht, :db_wm_abwehr_schwer
+            :db_wm_abwehr_leicht, :db_wm_abwehr_schwer,
+            :db_reich_0, :db_reich_n, :db_reich_m, :db_reich_f
       from waffen where name = :db_waffe;
   SQLerror::test(__FILELINE__);
   string art=db_art;
@@ -81,6 +84,13 @@ string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,const st_werte& wer
      if (ibonus == 0 ) schaden += "";
      if (ibonus > 0 ) schaden += "+"+itos(ibonus);
      return schaden;
+   }
+ if (mod=="Fern")
+   {
+     if (db_reich_0==-1) return ""; // keine Fernkampfwaffe
+     string s = itos(db_reich_0)+"/"+itos(db_reich_n)+"/"
+              + itos(db_reich_m)+"/"+itos(db_reich_f); 
+     return s; 
    }
  abort();
 }

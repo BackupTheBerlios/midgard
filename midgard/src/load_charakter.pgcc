@@ -286,6 +286,7 @@ void midgard_CG::load_charakter()
       char db_fertigkeit[50];
       int db_wert;
       char db_art[20];
+      char db_magisch[1024];
    exec sql end declare section;
 
    // Beruf
@@ -359,7 +360,7 @@ void midgard_CG::load_charakter()
    // Besitz (Waffen)
    strncpy(db_art,"Besitz_W",sizeof(db_art));
    exec sql declare besitz_w cursor for
-      select fertigkeit,coalesce(av_bonus,0),coalesce(sl_bonus,0),coalesce(region,'')  
+      select fertigkeit,coalesce(av_bonus,0),coalesce(sl_bonus,0),coalesce(region,''),coalesce(magisch,'')  
       from charaktere_fertigkeiten
       where charakter_name= :db_name_ch 
          and version= :db_version
@@ -368,11 +369,11 @@ void midgard_CG::load_charakter()
    SQLerror::test(__FILELINE__);
    while(true)
       {
-         exec sql fetch besitz_w into :db_fertigkeit, :db_av_bonus ,:db_sl_bonus, :db_region;
+         exec sql fetch besitz_w into :db_fertigkeit, :db_av_bonus ,:db_sl_bonus, :db_region, :db_magisch;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          string wa = get_region_waffen(db_fertigkeit,db_region,2);         
-         waffe_besitz.push_back(st_waffen_besitz(wa,db_fertigkeit,db_region,db_av_bonus,db_sl_bonus));
+         waffe_besitz.push_back(st_waffen_besitz(wa,db_fertigkeit,db_region,db_av_bonus,db_sl_bonus,db_magisch));
       } 
    exec sql close besitz_w;
 

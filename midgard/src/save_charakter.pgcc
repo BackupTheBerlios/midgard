@@ -180,6 +180,7 @@ void midgard_CG::on_speichern_clicked()
       char db_fertigkeit[50];
       int db_wert;
       char db_wert_str[20];
+      char db_magisch[1024];
    exec sql end declare section;
    Transaction tr;
    // Alte einträge löschen
@@ -232,13 +233,14 @@ void midgard_CG::on_speichern_clicked()
          i!=waffe_besitz.end();++i)
       {
          strncpy(db_fertigkeit, i->alias.c_str(),sizeof(db_fertigkeit));
+         strncpy(db_magisch, i->magisch.c_str(),sizeof(db_magisch));
          db_av_bonus = i->av_bonus;
          db_sl_bonus = i->sl_bonus;
          strncpy(db_region,i->region.c_str(),sizeof(db_region));
          exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus,region)
+            (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus,region,magisch)
          VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region) ;
+            (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region,:db_magisch) ;
             SQLerror::test(__FILELINE__);
       }
    for (vector<st_zauber>::iterator i=zauber.begin();

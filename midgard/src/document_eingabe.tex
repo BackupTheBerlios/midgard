@@ -60,7 +60,7 @@
 \parbox[][][c]{7cm}{
 \LI
   \begin{tabularx}{7.0cm}{|c|X|}\hline
-\makebox[1.1cm]{Figur}&\resizebox*{4.5cm}{2ex}{\namecharakter}\\\hline
+\makebox[1.1cm]{Figur}&\namecharakter\\\hline
   \end{tabularx}
 
 \vspace{2mm}\li
@@ -74,7 +74,7 @@
 \begin{minipage}[t]{13cm}
 \LI
   \begin{tabular}[t]{|c|l|}\hline
-\makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}Typ}&\makebox[2.2cm]{\resizebox*{2.2cm}{2ex}{{\typ}}}\\\hline
+\makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}Typ}&\makebox[2.2cm]{\typ}\\\hline
   \end{tabular}
 \hfill 
 \li
@@ -91,18 +91,17 @@
 \vspace{2ex}
 \li
   \begin{tabular}{|c|l|}\hline
-\makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}\small Herkunft}&\makebox[2.2cm]{\resizebox*{2cm}{2ex}{{\herkunft}}}\\\hline
+\makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}\small Herkunft}&\makebox[2.2cm]{\herkunft}\\\hline
   \end{tabular}
 \hfill
 \li
   \begin{tabular}{|c|l|}\hline
-%\makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}Glaube}&\makebox[2.5cm]{\resizebox*{2.5cm}{2ex}{\glaube}}\\\hline
 \makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}Glaube}&\makebox[2.5cm]{\glaube}\\\hline
   \end{tabular}
 \hfill
 \li
   \begin{tabular}{|c|l|}\hline
-\makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}Stand}&\makebox[1.5cm]{\resizebox*{1.5cm}{2ex}{{\stand}}}\\\hline
+\makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}Stand}&\makebox[1.5cm]{\stand}\\\hline
   \end{tabular}
 
 \vspace{2ex}
@@ -111,7 +110,7 @@
 Alter&\makebox[0.8cm]{{\alter}}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|l|}\hline
-Gestalt&\makebox[0.8cm]{\resizebox*{0.7cm}{2ex}{{\gestalt}}}\\\hline
+Gestalt&\makebox[0.8cm]{\gestalt}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|l|}\hline
 Gewicht&\makebox[0.8cm]{{\gewicht}}\\\hline
@@ -217,10 +216,10 @@ Zaubern&\makebox[0.2cm]{{\zauber}}\\\hline
 
 \li
 \vspace*{3ex}
-{\setlength{\tabcolsep}{1.4ex}
+{\setlength{\tabcolsep}{0.3em}
 \scriptsize
 \begin{tabular}{|c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c|c|c|c|} \hline
-Datum&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
+Datum\hspace*{2.5em}&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
 &{\gfp}&&&&{\gold}\\\hline
 &&&&&\\\hline
 &&&&&\\\hline
@@ -237,9 +236,10 @@ Datum&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
 &&&&&\\\hline
 \end{tabular}
 \hfill
-\begin{tabular}{|p{2.4cm}|c|p{2.4cm}|}
+\setlength{\tabcolsep}{0.5em}
+\begin{tabular}{|p{2.8cm}|c|p{2.4cm}|}
   \hline
-Sprache&&Schrift\\\hline\hline
+Sprache&Wert&Schrift\\\hline\hline
 {\spraa}&{\sprawa}&{\schra}\\\hline
 {\sprab}&{\sprawb}&{\schrb}\\\hline
 {\sprac}&{\sprawc}&{\schrc}\\\hline
@@ -259,54 +259,56 @@ Sprache&&Schrift\\\hline\hline
 \end{minipage}
 \hspace{3ex}
 \begin{minipage}[t]{5.4cm}
+\setlength{\tabcolsep}{0.4em}
 \small
-    \begin{tabular}[t]{|p{3cm}|p{0.5cm}|p{0.5cm}|}\hline
+    \begin{tabular}[t]{|p{4cm}|c|r|}\hline
       \multicolumn{3}{|c|}{\small erlernte und angeborene}\\
       \multicolumn{3}{|c|}{\small Fähigkeiten und Waffenfertigkeiten}\\[1ex]
-      \normalsize Fertigkeit&\normalsize PP&\normalsize EW\\\hline\hline
-\makebox[3cm][l]{{\ferta}}      &&\makebox[0.5cm]{{\werta}}\\\hline
-\makebox[3cm][l]{{\fertb}}      &&\makebox[0.5cm]{{\wertb}}\\\hline
-\makebox[3cm][l]{{\fertc}}      &&\makebox[0.5cm]{{\wertc}}\\\hline
-\makebox[3cm][l]{{\fertd}}      &&\makebox[0.5cm]{{\wertd}}\\\hline
-\makebox[3cm][l]{{\ferte}}      &&\makebox[0.5cm]{{\werte}}\\\hline
-\makebox[3cm][l]{{\fertf}}      &&\makebox[0.5cm]{{\wertf}}\\\hline
-\makebox[3cm][l]{{\fertg}}      &&\makebox[0.5cm]{{\wertg}}\\\hline
-\makebox[3cm][l]{{\ferth}}      &&\makebox[0.5cm]{{\werth}}\\\hline
-\makebox[3cm][l]{{\ferti}}      &&\makebox[0.5cm]{{\werti}}\\\hline
-\makebox[3cm][l]{{\fertj}}      &&\makebox[0.5cm]{{\wertj}}\\\hline
-\makebox[3cm][l]{{\fertk}}      &&\makebox[0.5cm]{{\wertk}}\\\hline
-\makebox[3cm][l]{{\fertl}}      &&\makebox[0.5cm]{{\wertl}}\\\hline
-\makebox[3cm][l]{{\fertm}}      &&\makebox[0.5cm]{{\wertm}}\\\hline
-\makebox[3cm][l]{{\fertn}}      &&\makebox[0.5cm]{{\wertn}}\\\hline
-\makebox[3cm][l]{{\ferto}}      &&\makebox[0.5cm]{{\werto}}\\\hline
-\makebox[3cm][l]{{\fertp}}      &&\makebox[0.5cm]{{\wertp}}\\\hline
-\makebox[3cm][l]{{\fertq}}      &&\makebox[0.5cm]{{\wertq}}\\\hline
-\makebox[3cm][l]{{\fertr}}      &&\makebox[0.5cm]{{\wertr}}\\\hline
-\makebox[3cm][l]{{\ferts}}      &&\makebox[0.5cm]{{\werts}}\\\hline
-\makebox[3cm][l]{{\fertt}}      &&\makebox[0.5cm]{{\wertt}}\\\hline
-\makebox[3cm][l]{{\fertu}}      &&\makebox[0.5cm]{{\wertu}}\\\hline
-\makebox[3cm][l]{{\fertv}}      &&\makebox[0.5cm]{{\wertv}}\\\hline
-\makebox[3cm][l]{{\fertw}}      &&\makebox[0.5cm]{{\wertw}}\\\hline
-\makebox[3cm][l]{{\fertx}}      &&\makebox[0.5cm]{{\wertx}}\\\hline
-\makebox[3cm][l]{{\ferty}}      &&\makebox[0.5cm]{{\werty}}\\\hline
-\makebox[3cm][l]{{\fertz}}      &&\makebox[0.5cm]{{\wertz}}\\\hline
-\makebox[3cm][l]{{\fertaa}}      &&\makebox[0.5cm]{{\wertaa}}\\\hline
-\makebox[3cm][l]{{\fertab}}      &&\makebox[0.5cm]{{\wertab}}\\\hline
-\makebox[3cm][l]{{\fertac}}      &&\makebox[0.5cm]{{\wertac}}\\\hline
-\makebox[3cm][l]{{\fertad}}      &&\makebox[0.5cm]{{\wertad}}\\\hline
-\makebox[3cm][l]{{\fertae}}      &&\makebox[0.5cm]{{\wertae}}\\\hline
-\makebox[3cm][l]{{\fertaf}}      &&\makebox[0.5cm]{{\wertaf}}\\\hline
-\makebox[3cm][l]{{\fertag}}      &&\makebox[0.5cm]{{\wertag}}\\\hline
-\makebox[3cm][l]{{\fertah}}      &&\makebox[0.5cm]{{\wertah}}\\\hline
-\makebox[3cm][l]{{\fertai}}      &&\makebox[0.5cm]{{\wertai}}\\\hline
-\makebox[3cm][l]{{\fertaj}}      &&\makebox[0.5cm]{{\wertaj}}\\\hline
+      \normalsize Fertigkeit&{$\!$\normalsize PP$\!$}&{$\!\!$\normalsize EW$\!\!$}\\\hline\hline
+\makebox[4cm][l]{{\ferta}}      &&{{\werta}}\\\hline
+\makebox[4cm][l]{{\fertb}}      &&{{\wertb}}\\\hline
+\makebox[4cm][l]{{\fertc}}      &&{{\wertc}}\\\hline
+\makebox[4cm][l]{{\fertd}}      &&{{\wertd}}\\\hline
+\makebox[4cm][l]{{\ferte}}      &&{{\werte}}\\\hline
+\makebox[4cm][l]{{\fertf}}      &&{{\wertf}}\\\hline
+\makebox[4cm][l]{{\fertg}}      &&{{\wertg}}\\\hline
+\makebox[4cm][l]{{\ferth}}      &&{{\werth}}\\\hline
+\makebox[4cm][l]{{\ferti}}      &&{{\werti}}\\\hline
+\makebox[4cm][l]{{\fertj}}      &&{{\wertj}}\\\hline
+\makebox[4cm][l]{{\fertk}}      &&{{\wertk}}\\\hline
+\makebox[4cm][l]{{\fertl}}      &&{{\wertl}}\\\hline
+\makebox[4cm][l]{{\fertm}}      &&{{\wertm}}\\\hline
+\makebox[4cm][l]{{\fertn}}      &&{{\wertn}}\\\hline
+\makebox[4cm][l]{{\ferto}}      &&{{\werto}}\\\hline
+\makebox[4cm][l]{{\fertp}}      &&{{\wertp}}\\\hline
+\makebox[4cm][l]{{\fertq}}      &&{{\wertq}}\\\hline
+\makebox[4cm][l]{{\fertr}}      &&{{\wertr}}\\\hline
+\makebox[4cm][l]{{\ferts}}      &&{{\werts}}\\\hline
+\makebox[4cm][l]{{\fertt}}      &&{{\wertt}}\\\hline
+\makebox[4cm][l]{{\fertu}}      &&{{\wertu}}\\\hline
+\makebox[4cm][l]{{\fertv}}      &&{{\wertv}}\\\hline
+\makebox[4cm][l]{{\fertw}}      &&{{\wertw}}\\\hline
+\makebox[4cm][l]{{\fertx}}      &&{{\wertx}}\\\hline
+\makebox[4cm][l]{{\ferty}}      &&{{\werty}}\\\hline
+\makebox[4cm][l]{{\fertz}}      &&{{\wertz}}\\\hline
+\makebox[4cm][l]{{\fertaa}}      &&{{\wertaa}}\\\hline
+\makebox[4cm][l]{{\fertab}}      &&{{\wertab}}\\\hline
+\makebox[4cm][l]{{\fertac}}      &&{{\wertac}}\\\hline
+\makebox[4cm][l]{{\fertad}}      &&{{\wertad}}\\\hline
+\makebox[4cm][l]{{\fertae}}      &&{{\wertae}}\\\hline
+\makebox[4cm][l]{{\fertaf}}      &&{{\wertaf}}\\\hline
+\makebox[4cm][l]{{\fertag}}      &&{{\wertag}}\\\hline
+\makebox[4cm][l]{{\fertah}}      &&{{\wertah}}\\\hline
+\makebox[4cm][l]{{\fertai}}      &&{{\wertai}}\\\hline
+\makebox[4cm][l]{{\fertaj}}      &&{{\wertaj}}\\\hline
     \end{tabular}
 \end{minipage}
 \hspace{2ex}
 %\fbox{
 \begin{minipage}[t]{7.5cm}
 \small
-    \begin{tabular*}{7.5cm}[t]{||c|c|c||}\hline\hline
+\setlength{\tabcolsep}{0.3em}
+    \begin{tabular}[t]{||p{2.6cm}|c|c||}\hline\hline
       \raisebox{-1ex}[2ex][0ex]{\LARGE Waffe}&\normalsize Erfolgswert&\footnotesize Angriffsrang(mod.)\\\cline{2-3}
       \raisebox{-0.2ex}[1ex][0.2ex]{\footnotesize (Reichweite)}&\normalsize\raisebox{-0.2ex}[1ex][0.2ex]{Schaden}&\footnotesize Abwehrmod.\\\hline\hline\hline
       waffenloser&{\waffeEy}&\waffeAy\\\cline{2-3}
@@ -323,16 +325,16 @@ Sprache&&Schrift\\\hline\hline
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffee}}}&{\waffeSe}&{\waffeVe}\\\hline\hline
       &{\waffeEf}&{\waffeAf}\\\cline{2-3}
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffef}}}&{\waffeSf}&{\waffeVf}\\\hline\hline
-    \end{tabular*}
+    \end{tabular}
 \parbox{7.5cm}{\epsfig{width=7.5cm,angle=0,file=/usr/local/share/midgard/axt1.ps}}
  \vspace*{2ex}
  \footnotesize
 \parbox{7.7cm}
 {
-{\setlength{\tabcolsep}{1ex}\renewcommand{\arraystretch}{0.8}
+{\setlength{\tabcolsep}{0.2em}\renewcommand{\arraystretch}{0.8}
     \begin{tabular}[b]{l|l|l|l|}
       \multicolumn{4}{l}{\small Grundkenntnisse in}\\\cline{2-2}\cline{4-4}
-      ESchwert&{\usebox{\ESchwert}}&Kettenwaffe&\usebox{\Kettenwaffe}\\\cline{2-2}\cline{4-4}
+      ESchwert&\makebox[1ex]{\usebox{\ESchwert}}&Kettenwaffe&\makebox[1ex]{\usebox{\Kettenwaffe}}\\\cline{2-2}\cline{4-4}
       Stichwaffe&{\usebox{\Stichwaffe}}&Bogen&\usebox{\Bogen}\\\cline{2-2}\cline{4-4}
       ESchlagwaffe&{\usebox{\ESchlagwaffe}}&Armbrust&\usebox{\Armbrust}\\\cline{2-2}\cline{4-4}
       Spießwaffe&{\usebox{\Spiesswaffe}}&Schleuder&\usebox{\Schleuder}\\\cline{2-2}\cline{4-4}
@@ -347,7 +349,6 @@ Sprache&&Schrift\\\hline\hline
     \begin{tabular}[b]{|c|c|}\hline
       Rüstungs-&auf LP\\
       klasse&Verlust\\\hline
-%      \rule{0ex}{0ex}&\\\hline
       {\ruestung}&{\ruestunglp}\\\hline
       \multicolumn{2}{c}{}\\\hline
       &mit Vert.\\
@@ -356,7 +357,8 @@ Sprache&&Schrift\\\hline\hline
     \end{tabular}
 }
 }
-\vspace{2ex}
+
+\vspace{-1ex}
 {\renewcommand{\arraystretch}{0.7}
 \begin{tabularx}{7.5cm}{lrXlr}
 \multicolumn{5}{c}{\small Universelle Fertigkeiten}\\[1ex]

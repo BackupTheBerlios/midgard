@@ -55,7 +55,6 @@ double midgard_CG::get_standard_fertigkeit(const string& typ, const string& fert
 
 double midgard_CG::get_standard_fertigkeit_(const string& ergebnis)
 {
-  double fac;
   if (ergebnis=="G") return 0.5;
   if (ergebnis=="S") return 1.0;
   if (ergebnis=="A") return 2.0;

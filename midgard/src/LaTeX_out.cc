@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.12 2001/05/05 20:01:26 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.13 2001/05/07 14:01:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,8 @@ void midgard_CG::on_latex_clicked()
  system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
 
  ofstream fout("midgard_tmp_latexwerte.tex");
- fout << "\\newcommand{\\typ}{\\footnotesize " << typ.l << "}\n";
+// fout << "\\newcommand{\\typ}{\\footnotesize " << typ.l << "}\n";
+ fout << "\\newcommand{\\typ}{"<< LaTeX_scale(typ.l,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<werte.st << "}\n";
  fout << "\\newcommand{\\gee}{" <<werte.ge << "}\n";
  fout << "\\newcommand{\\ko}{"  <<werte.ko<< "}\n";
@@ -75,28 +76,30 @@ void midgard_CG::on_latex_clicked()
  fout << "\\newcommand{\\abwehrfinal}{"<<werte.abwehr_wert+werte.bo_ab<< "}\n";
  int ohne_waffe=werte.abwehr_wert+werte.bo_ab;
  string mit_waffe = midgard_CG::get_Verteidigungswaffe(ohne_waffe);
- fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<< "}\n";
- 
+ if (atoi(mit_waffe.c_str())!=werte.abwehr_wert+werte.bo_ab)
+    fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<< "}\n";
+ else 
+    fout << "\\newcommand{\\abwehrmitwaffe}{""}\n";
 
  fout << "\\newcommand{\\zauber}{"<<werte.zaubern_wert<< "}\n";
  fout << "\\newcommand{\\alter}{"  <<werte.alter << "}\n";
- fout << "\\newcommand{\\gestalt}{"  <<werte.gestalt << "}\n";
+ fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(werte.gestalt,5,"0.7cm") << "}\n";
  fout << "\\newcommand{\\gewicht}{"  <<werte.gewicht/100. << "\\,kg}\n";
  fout << "\\newcommand{\\koerpergroesse}{"  <<werte.groesse/100. << "\\,m}\n";
  fout << "\\newcommand{\\grad}{"  <<werte.grad << "}\n";
- fout << "\\newcommand{\\spezialisierung}{\\tiny "  <<werte.spezialisierung << "}\n";
- fout << "\\newcommand{\\stand}{\\scriptsize "  <<werte.stand << "}\n";
- fout << "\\newcommand{\\herkunft}{"  <<werte.herkunft << "}\n";
- fout << "\\newcommand{\\glaube}{\\scriptsize "  <<werte.glaube << "}\n";
- fout << "\\newcommand{\\namecharakter}{"  <<werte.name_charakter << "}\n";
- fout << "\\newcommand{\\namespieler}{"  <<werte.name_spieler << "}\n";
+ fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(werte.spezialisierung,10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(werte.stand,10,"1.5cm") << "}\n";
+ fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(werte.herkunft,10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\glaube}{\\scriptsize "  <<LaTeX_scale(werte.glaube,10,"2.5cm") << "}\n";
+ fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(werte.name_charakter,25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(werte.name_spieler,25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\gfp}{\\tiny "  <<werte.gfp << "}\n";
 
  double geld = werte.gold + werte.silber/10. + werte.kupfer/100.;
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";
 
- fout << "\\newcommand{\\ruestung}{\\small "  <<werte.ruestung << "}\n";
- fout << "\\newcommand{\\ruestunglp}{\\small "  <<midgard_CG::ruestung("LP") << "}\n";
+ fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<werte.ruestung << "}\n";
+ fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<midgard_CG::ruestung("LP") << "}\n";
 
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
@@ -192,11 +195,10 @@ void midgard_CG::on_latex_clicked()
          string b = LaTeX_string(j);
          string waffenname ;
          waffenname = waffe_besitz[j].alias;
-         fout << "\\newcommand{\\waffe"<<b<<"}{\\scriptsize "<<waffenname ;
-         if (waffe_besitz[j].av_bonus!=0 || waffe_besitz[j].sl_bonus!=0) fout <<"$^*$";
-         fout << "}\n";
+         fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
+         if (waffe_besitz[j].magisch!="") waffenname+="$^*$" ;
+         fout <<LaTeX_scale(waffenname,15,"2.5cm",waffe_besitz[j])<< "}\n";
          int mag_schadensbonus = waffe_besitz[j].av_bonus;
-         if (waffe_besitz[j].av_bonus==-5 && waffe_besitz[j].sl_bonus==-5) mag_schadensbonus = 0; 
          int anbo = werte.bo_an;
          if (midgard_CG::waffe_werte(waffe_besitz[j],werte,"Verteidigung")=="true")
             anbo = 0;
@@ -213,11 +215,11 @@ void midgard_CG::on_latex_clicked()
    }
  // waffenloser Kampf:
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+werte.bo_an << "}\n";
- string schaden=midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0),werte,"Schaden");
+ string schaden=midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"Schaden");
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- string anm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0),werte,"Angriffsrangmodifikation");
+ string anm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"Angriffsrangmodifikation");
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- string abm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0),werte,"WM_Abwehr");
+ string abm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"WM_Abwehr");
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
 
  // Fertigkeiten auffüllen
@@ -265,6 +267,27 @@ void midgard_CG::on_latex_clicked()
     system("gv -seascape midgard_tmp_document_kido.ps &");
  }
 }      
+
+
+string midgard_CG::LaTeX_scale(const string& is, unsigned int maxlength, const string& scale, const st_waffen_besitz& waffe)
+{
+ string os;
+ if (is.size() <= maxlength) os = is;
+ else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+is+"}" ;
+
+ if (waffe.name!="")
+   {
+     string l1=os,l2;
+     if (waffe.magisch==""||waffe.magisch=="*") l2 = midgard_CG::waffe_werte(waffe,werte,"Fern");
+     else  { if (waffe.magisch.size()<=25) l2 = "\\tiny "+waffe.magisch;
+             else l2 = "\\resizebox*{"+scale+"}{1.5ex}{\\tiny "+waffe.magisch+"}" ;
+       }
+     os = "\\parbox{2cm}{\\mbox{"+l1+"}" ;
+     if (l2!="")  os += "\\tiny\\\\ \\mbox{"+l2+"}";
+     os += "}";
+   }
+ return os;
+}
 
 
 string midgard_CG::LaTeX_string(int i)

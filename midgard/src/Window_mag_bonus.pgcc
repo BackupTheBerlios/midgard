@@ -51,12 +51,16 @@ Window_mag_bonus::Window_mag_bonus(Window_Waffenbesitz* h,st_waffen_besitz& wa)
    label_waffe->set_text(wa.name);
    spinbutton_av_bonus->set_value(wa.av_bonus);
    spinbutton_sl_bonus->set_value(wa.sl_bonus);
+
+   entry_magisch->set_text(wa.magisch);
 }
 
 void Window_mag_bonus::on_button_close_clicked()
 {
   waffe_besitz.av_bonus = atoi(spinbutton_av_bonus->get_text().c_str());
   waffe_besitz.sl_bonus = atoi(spinbutton_sl_bonus->get_text().c_str());
+  waffe_besitz.magisch = entry_magisch->get_text();
+  if (waffe_besitz.magisch=="") waffe_besitz.magisch="*";
   hauptfenster->mag_boni_uebernehmen(waffe_besitz);
   destroy();
 }

@@ -1,4 +1,20 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta10
+- LaTeX output optimiert: Es wird nun zuerst getestet, wie lang eine 
+   Stringkette ist, und wenn diese eine bestimmte Länge überschreitet wird 
+   der Text so skaliert, daß er in die vorgegebene Länge paßt.
+- Fernkampfwaffen werden jetzt mit Reichweite(n) ausgedruckt
+- Einen Bug aus der Datenbank entfernt: 'Geheimmechanismen öffnen' 
+   funktionierte nicht
+- Bug beim Berechnen des Abwehrbonuses für waffenlosen Kampf und einem
+   Erfolgswert<8 entfernt
+- Umarbeitung der magischen Waffen => Möglicherweise kommt es zu Konflikten
+   mit bereits gespeicherten Charakteren die magische Waffen besitzen.
+- Für mag. Waffen kann eine kurze Beschreibung eingegeben werden.
+- Jetzt kann man dieselbe Waffe (z.B. Dolch) mehrmals 'besitzen'. Allerdings
+   ist nur eine NICHTmagische Waffe desselben Typs möglich.
+
+##########################################################################
 NEWS IN VERSION 0.4beta9
 - Boni für Angriff/Abwehr/..../Resistenzen können jetzt auch negativ sein.
 - Neuer Button 'KiDo-laden' von Alessandro
