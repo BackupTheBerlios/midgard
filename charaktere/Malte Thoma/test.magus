@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="test" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="As" Überleben="Überleben im Dschungel" Muttersprache="Albisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="64" Gw="76" Gs="84" Ko="90" In="87" Zt="50"/>
+  <abgeleiteteEigenschaften Au="79" pA="64" Wk="21" Sb="96" B="25"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="15" AP="13"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="78" Größe="174" Stand="Volk" Herkunft="Alba"/>
+  <Vermögen GS="9998390" SS="100000"/>
+  <Steigern GFP="325" AEP="99861" KEP="9975" ZEP="100000" benötigte_Tage="31">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Keule"/>
+   <Waffe Erfolgswert="0" Bezeichnung="leichte Armbrust"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="10"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="2"/>
+   <Fertigkeit Bezeichnung="Akrobatik" Wert="10"/>
+   <Fertigkeit Bezeichnung="Alchimie" Wert="4"/>
+   <Fertigkeit Bezeichnung="Athletik" Wert="4"/>
+   <Waffe Bezeichnung="Blasrohr" Wert="5"/>
+   <Waffe Bezeichnung="Keule" Wert="5"/>
+   <Waffe Bezeichnung="leichte Armbrust" Wert="5"/>
+   <Waffe Bezeichnung="Handaxt" Wert="5"/>
+   <Waffe Bezeichnung="Kriegshammer" Wert="5"/>
+   <Grundkenntnis Bezeichnung="Armbrust"/>
+   <Grundkenntnis Bezeichnung="Blasrohr"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Sprache Bezeichnung="Albisch" Wert="19"/>
+   <Sprache Bezeichnung="Aranisch" Wert="6" Praxispunkte="50"/>
+   <Optionen Name="Originalregeln" Wert="true"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>

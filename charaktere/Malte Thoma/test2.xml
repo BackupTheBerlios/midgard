@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Zeitpunkt="Erschaffung" Grad="2"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Kr" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="70" Gw="62" Gs="73" Ko="64" In="83" Zt="47"/>
+  <abgeleiteteEigenschaften Au="30" pA="39" Wk="19" Sb="59" B="22"/>
+  <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="13" AP="12"/>
+  <Beschreibung Alter="0" Gestalt="normal" Gewicht="68" Größe="166" Stand="Volk"/>
+  <Vermögen/>
+  <Steigern GFP="310" Basiswerte="1" benötigte_Tage="0.02">
+   <Praxispunkte Abwehr="3" Resistenz="2"/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Fertigkeit Bezeichnung="Ballista bedienen" Wert="4" Praxispunkte="5"/>
+   <Fertigkeit Bezeichnung="Beschatten" Wert="6"/>
+   <Optionen Name="Originalregeln" Wert="true"/>
+   <Optionen Name="NSCs zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>

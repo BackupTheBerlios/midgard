@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="derwisch" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="De" Überleben="Überleben in der Wüste" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="53" Gw="91" Gs="98" Ko="57" In="83" Zt="7"/>
+  <abgeleiteteEigenschaften Au="47" pA="51" Wk="47" Sb="41" B="22"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="10" AP="8"/>
+  <Beschreibung Alter="22" Gestalt="normal" Gewicht="75" Größe="174" Stand="Mittelschicht" Herkunft="Eschar"/>
+  <Vermögen GS="12"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Anderthalbhänder"/>
+   <Waffe Erfolgswert="0" Bezeichnung="kleiner Schild"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="6"/>
+   <Fertigkeit Bezeichnung="Springen" Wert="15"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kamelreiten" Wert="16"/>
+   <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="9"/>
+   <Fertigkeit Bezeichnung="Meditieren" Wert="8"/>
+   <Fertigkeit Bezeichnung="Naturkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="5"/>
+   <Waffe Bezeichnung="Anderthalbhänder" Wert="4"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+   <Waffe Bezeichnung="Dolch" Wert="4"/>
+   <Zauber Bezeichnung="Al-Tarka"/>
+   <Zauber Bezeichnung="Al-Karama"/>
+   <Zauber Bezeichnung="Al-Mutadid"/>
+   <Zauber Bezeichnung="Heiliger Zorn"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Zweihandschwert"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="19"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="12"/>
+   <Urschrift Bezeichnung="Scharidisch" Wert="10"/>
+   <Region Name="Eschar" Region="E"/>
+   <Optionen Name="Originalregeln" Wert="true"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>
