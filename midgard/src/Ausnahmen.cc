@@ -17,11 +17,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifndef USE_XML
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-#endif
 #include <Ausnahmen.hh>
 #include <midgard_CG.hh>
 //#include <gtk--/progressbar.h>
@@ -29,39 +24,6 @@ exec sql include sqlca;
 
 Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[50], db_art[5], db_standard[5];
-   char db_spezies[50], db_herkunft[50], db_typ[50], db_stand[50], db_beruf[50];
-   char query[1024];
-   int db_size;
- exec sql end declare section;
- exec sql select count(name) into :db_size from ausnahmen;
- SQLerror::test(__FILELINE__);
- std::string squery = "select name,art,standard,
-      coalesce(spezies,''),coalesce(herkunft,''),coalesce(typ,''),
-      coalesce(beruf,''), coalesce(stand,'') from ausnahmen";
- strncpy (query,squery.c_str(),sizeof(query));
- Transaction tr;
- exec sql prepare ein_aus_ from :query;
- exec sql declare ein_aus cursor for ein_aus_;
- exec sql open ein_aus;
- SQLerror::test(__FILELINE__);
- double count=0;
- while (true)
-   {
-     progressbar->set_percentage(count/db_size);
-     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-     exec sql fetch ein_aus into :db_name, :db_art, :db_standard,
-       :db_spezies, :db_herkunft, :db_typ, :db_beruf, :db_stand;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     st_index1 index(db_typ,db_herkunft,db_spezies,db_beruf,db_stand);
-     Data_Ausnahmen DA(db_name,db_art,db_standard);
-   }
- exec sql close ein_aus;
- tr.close();
-#else
  const Tag *Fertigkeiten=xml_data->find("Fertigkeiten");
  if (Fertigkeiten)
  {  Tag::const_iterator b=Fertigkeiten->begin(),e=Fertigkeiten->end();
@@ -88,7 +50,6 @@ Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
        }
     }
  }
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }
 

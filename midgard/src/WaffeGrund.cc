@@ -18,11 +18,6 @@
 
 #include "WaffeGrund.hh"
 #include "midgard_CG.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "Typen.hh"
 #include "ProgressBar.h"
 
@@ -34,10 +29,6 @@ cH_WaffeGrund::cH_WaffeGrund(const std::string& name IF_XML(,bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML
-   *this=cH_WaffeGrund(new WaffeGrund(name));  
-   cache.Register(name,*this);
-#else
   cerr << "Waffengrundfert. '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Waffen-Grundkenntnis");
@@ -46,72 +37,22 @@ cH_WaffeGrund::cH_WaffeGrund(const std::string& name IF_XML(,bool create))
      *this=cH_WaffeGrund(&t2);
   }
   else throw NotFound();
-#endif  
   }
 }
 
-#ifdef USE_XML
 cH_WaffeGrund::cH_WaffeGrund(const Tag *tag)
 {*this=cH_WaffeGrund(new WaffeGrund(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
 void WaffeGrund::get_WaffeGrund()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   int db_kosten;
-   char query[1024],db_region[10];
-  exec sql end declare section; 
-  std::string squery ="select fp,coalesce(region,'')
-      from waffen_grund where name = '"+Name()+"'";
-  strncpy(query,squery.c_str(),sizeof(query));
-  Transaction tr;
-  exec sql prepare cl_waffeng_ein_ from :query ;
-  exec sql declare cl_waffeng_ein cursor for cl_waffeng_ein_ ;
-
-  exec sql open cl_waffeng_ein;
-  SQLerror::test(__FILELINE__);
-  exec sql fetch cl_waffeng_ein into :db_kosten,:db_region;
-  SQLerror::test(__FILELINE__);
-   kosten=db_kosten;
-   region=db_region;
-
-  exec sql close cl_waffeng_ein;
-  tr.close();
-#else
    kosten=tag->getIntAttr("Kosten");
    region=tag->getAttr("Region");
-#endif
 }
 
 WaffeGrund_All::WaffeGrund_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[100];
-   int db_size;
- exec sql end declare section;
- exec sql select count(name) into :db_size from waffen_grund;
- exec sql declare WGein cursor for select distinct name from waffen_grund;
- Transaction tr;
- exec sql open WGein;
- SQLerror::test(__FILELINE__);
- double count=0;
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch WGein into :db_name;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   list_All.push_back(&*(cH_WaffeGrund(db_name)));
-   ++count;
-  }
- exec sql close WGAein;
- tr.close();
-#else
  const Tag *waffengrundf=xml_data->find("Waffen-Grundkenntnisse");
  if (waffengrundf)
  {  Tag::const_iterator b=waffengrundf->begin(),e=waffengrundf->end();
@@ -121,6 +62,5 @@ WaffeGrund_All::WaffeGrund_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_WaffeGrund(&*i)));
     }
  }   
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }

@@ -19,11 +19,6 @@
 
 #include "Zauber.hh"
 #include "midgard_CG.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "Typen.hh"
 #include <xml.h>
 #include "ProgressBar.h"
@@ -122,35 +117,6 @@ int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::str
 
 Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[50][100]; 
-   int db_size;
- exec sql end declare section;
- exec sql select count(name) into :db_size from zauber;
- exec sql declare ZAein cursor for select distinct name from zauber;
- Transaction tr;
- exec sql open ZAein;
- SQLerror::test(__FILELINE__);
- double count=0;
- while(true)
-  {
-   exec sql fetch 50 in ZAein into :db_name;
-   SQLerror::test(__FILELINE__,100);
-//   if (sqlca.sqlcode) break;
-   int j=sqlca.sqlerrd[2];
-   for (int i=0;i<j;++i)
-    {
-      progressbar->set_percentage(count/db_size);
-      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-      list_All.push_back(&*(cH_Zauber(db_name[i])));
-      ++count;
-     }
-   if(j<50) break;
-  }
- exec sql close ZAein;
- tr.close();
-#else // USE_XML
  const Tag *zauber=xml_data->find("Zauber");
  if (!zauber)
     cerr << "<Zauber><Spruch/>... nicht gefunden\n";
@@ -168,7 +134,6 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_Zauber(&*i)));
     }
  }
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }
 

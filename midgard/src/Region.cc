@@ -17,13 +17,7 @@
  */
 
 #include "Region.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#else
 #include "MidgardBasicElement.hh" // nur für NotFound
-#endif
 #include "ProgressBar.h"
 
 #include "../pixmaps/Eschar-trans-50.xpm"
@@ -64,55 +58,19 @@ cH_Region::cH_Region(const std::string& name)
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML
-   *this=cH_Region(new Region(name));
-   cache.Register(name,*this);
-#else
   cerr << "Region '" << name << "' nicht im Cache\n";
   throw NotFound();
-#endif  
   }
 }
 
-#ifdef USE_XML
 cH_Region::cH_Region(const Tag *tag)
 {*this=cH_Region(new Region(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
-#ifndef USE_XML
-Region::Region(const std::string& n) 
-: name(n), active(false)
-#else
 Region::Region(const Tag *tag) 
 : name(tag->getAttr("Name")), active(false)
-#endif
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   int db_nr;
-   char db_name[50], db_abkuerzung[50], db_file[50],
-        db_url[50], db_maintainer[50],db_version[50],db_copyright[100];
-   bool db_offiziell;
-   int db_pic;
-  exec sql end declare section;
-  strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select nr,abkuerzung,coalesce(file,''),coalesce(url,''),maintainer,version,copyright,offiziell,
-         coalesce(pic,0)
-      into :db_nr,:db_abkuerzung,:db_file,:db_url, :db_maintainer,:db_version,
-           :db_copyright,:db_offiziell,:db_pic
-      from regionen where name=:db_name;
-  nr=db_nr;
-  abkuerzung=db_abkuerzung;
-  file=db_file;
-  url=db_url;
-  maintainer=db_maintainer;
-  version=db_version;
-  copyright=db_copyright;
-  offiziell=db_offiziell;
-  pic=RegionenPic::epic(db_pic);
-#else
   abkuerzung=tag->getAttr("Region");
   file=tag->getAttr("Dateiname");
   url=tag->getAttr("URL");
@@ -122,7 +80,6 @@ Region::Region(const Tag *tag)
   jahr=tag->getAttr("Jahr");
   offiziell=tag->getBoolAttr("offiziell");
   pic=RegionenPic::epic(tag->getIntAttr("MAGUS-Bild",tag->getIntAttr("MCG-Bild")));
-#endif  
 }
 
 bool Region::setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active)
@@ -148,30 +105,6 @@ bool Region::isActive(const std::vector<cH_Region>& LR,const cH_Region& R)
 
 Regionen_All::Regionen_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[100];
-   int db_size;
- exec sql end declare section;
- exec sql select count(name) into :db_size from regionen;
- exec sql declare RIein cursor for select name from regionen order by nr;
- Transaction tr;
- exec sql open RIein;
- SQLerror::test(__FILELINE__);
- double count=0;
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch RIein into :db_name;
-   SQLerror::test(__FILELINE__,100);  
-   if (sqlca.sqlcode) break;
-   list_All.push_back(cH_Region(db_name));
-   ++count;
-  }
- exec sql close RIein;
- tr.close();
-#else
  if (xml_data)
  {  Tag::const_iterator b=xml_data->begin(),e=xml_data->end();
     double size=e-b;
@@ -180,6 +113,5 @@ Regionen_All::Regionen_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(cH_Region(&*i));
     }
  }
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }

@@ -19,11 +19,6 @@
 
 #include "Zauberwerk.hh"
 #include "midgard_CG.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "Typen.hh"
 #include "ProgressBar.h"
 
@@ -38,10 +33,6 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML
-   *this=cH_Zauberwerk(new Zauberwerk(name,art,stufe));
-   cache.Register(index,*this);
-#else
   cerr << "Zauberwerk '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Zauberwerk"); 
@@ -52,57 +43,22 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
      *this=cH_Zauberwerk(&t2);
   }
   else throw NotFound();
-#endif
   }
 }
 
-#ifdef USE_XML
 cH_Zauberwerk::cH_Zauberwerk(const Tag *tag)
 {*this=cH_Zauberwerk(new Zauberwerk(tag));
  cache.Register(st_index(tag->getAttr("Name"),tag->getAttr("Art"),
  		tag->getAttr("Stufe")),*this);
 }
-#endif
 
 void Zauberwerk::get_Zauberwerk()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   int db_kosten;
-   char db_preis[50];
-   char query[1000];
-   char db_zeitaufwand[30];
-   char db_region[10];
-  exec sql end declare section;
-  std::string squery = "SELECT kosten_gfp, 
-      coalesce(zeitaufwand,''),kosten, coalesce(region,'')
-      FROM zauberwerk 
-      WHERE name = '"+Name()+"' and art = '"+Art()+"' and stufe = '"+Stufe()+"'";
-   strncpy(query,squery.c_str(),sizeof(query));
-   Transaction tr;
-   exec sql prepare cl_zauberwerk_ein_ from :query ;
-   exec sql declare cl_zauberwerk_ein cursor for cl_zauberwerk_ein_ ;
-//cout << query<<'\n';
-   exec sql open cl_zauberwerk_ein;
-   SQLerror::test(__FILELINE__);
-   exec sql fetch cl_zauberwerk_ein into 
-      :db_kosten, :db_zeitaufwand, :db_preis, :db_region;
-   SQLerror::test(__FILELINE__);
-
-   kosten=db_kosten;
-   zeitaufwand=db_zeitaufwand;
-   preis=db_preis;
-   region=db_region;
-
-   exec sql close cl_zauberwerk_ein;
-   tr.close();
-#else
    assert(tag);
    kosten=tag->getIntAttr("Kosten");
    zeitaufwand=tag->getAttr("Zeitaufwand");
    preis=tag->getAttr("Geldaufwand");
    region=tag->getAttr("Region");
-#endif
 }
 
 void Zauberwerk::getVoraussetzungen()
@@ -168,32 +124,6 @@ bool Zauberwerk::Voraussetzungen_Fertigkeit(const std::list<cH_MidgardBasicEleme
 
 Zauberwerk_All::Zauberwerk_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[100]; 
-   char db_art[100];
-   char db_stufe[5];
-   int db_size;
- exec sql end declare section;
- exec sql select count(*) into :db_size from zauberwerk;
- exec sql declare ZAWein cursor for select distinct name,art,stufe from zauberwerk;
- Transaction tr;
- exec sql open ZAWein;
- SQLerror::test(__FILELINE__);
- double count=0;
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch ZAWein into :db_name, :db_art, :db_stufe;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   list_All.push_back(&*(cH_Zauberwerk(db_name,db_art,db_stufe)));
-   ++count;
-  }
- exec sql close ZAWein;
- tr.close();
-#else
  const Tag *zauberwerke=xml_data->find("Zauberwerke");
  if (!zauberwerke)
     cerr << "<Zauberwerke><Zauberwerk/>... nicht gefunden\n";
@@ -206,7 +136,6 @@ Zauberwerk_All::Zauberwerk_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_Zauberwerk(&*i)));
     }
  }
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }
 

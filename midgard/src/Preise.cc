@@ -16,13 +16,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifndef USE_XML
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-#else
 #include "MidgardBasicElement.hh" // nur für NotFound
-#endif
 #include "Preise.hh"
 #include "ProgressBar.h"
 #include <Aux/itos.h>
@@ -35,10 +29,6 @@ cH_Preise::cH_Preise(const std::string& name IF_XML(,bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML 
-   *this=cH_Preise(new Preise(name));
-   cache.Register(name,*this);
-#else
   cerr << "Preis '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Kaufpreis"); 
@@ -49,76 +39,29 @@ cH_Preise::cH_Preise(const std::string& name IF_XML(,bool create))
      *this=cH_Preise(&t2);
   }
   else throw NotFound();
-#endif
   }
 }
 
-#ifdef USE_XML
 cH_Preise::cH_Preise(const Tag *tag)
 {*this=cH_Preise(new Preise(tag));
  cache.Register(tag->getAttr("Ware"),*this);
 }
-#endif
 
-#ifdef USE_XML
 cH_Preise::cH_Preise(const std::string& _name, const std::string& _art, const Tag *tag)
 {*this=cH_Preise(new Preise(_name,_art,tag));
  cache.Register(_name,*this);
 }
-#endif
 
 void Preise::get_Preise()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_name[1024],db_art[50],db_art2[50],db_einheit[20];
-   double db_kosten,db_gewicht;
-  exec sql end declare section;
-
-  strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select kosten,einheit,art,art2,coalesce(gewicht,0)
-       into :db_kosten,:db_einheit,:db_art,:db_art2,:db_gewicht
-       from preise where name = :db_name;
-  SQLerror::test(__FILELINE__);
-  einheit=db_einheit;
-  art=db_art;
-  art2=db_art2;
-  kosten=db_kosten;
-  gewicht=db_gewicht;
-#else
   art2=tag->getAttr("Art2");
   einheit=tag->getAttr("Währung");
   kosten=tag->getFloatAttr("Preis");
   gewicht=tag->getFloatAttr("Gewicht");
-#endif  
 }
 
 Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[1024];
-   int db_size;
- exec sql end declare section;
- exec sql select count(name) into :db_size from preise;
- exec sql declare Pein cursor for select distinct name from preise;
- Transaction tr;
- exec sql open Pein; 
- SQLerror::test(__FILELINE__);
- double count=0;  
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch Pein into :db_name;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   list_All.push_back(cH_Preise(db_name));
-   ++count;
-  }
- exec sql close Pein;
- tr.close();
-#else
  const Tag *preise=xml_data->find("Preise");
  if (preise)
  {  Tag::const_iterator b=preise->begin(),e=preise->end();
@@ -157,7 +100,6 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
        }
     }
  }   
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }  
 //////////////////////////////////////////////////////////////////////
@@ -169,18 +111,9 @@ cH_PreiseMod::cH_PreiseMod(const std::string& art,const std::string& art2,const 
  st_index index(art,art2,typ,nr);
  cH_PreiseMod *cached(cache.lookup(index));
  if (cached) *this=*cached;
-#ifndef USE_XML
- else
-  {
-   *this=cH_PreiseMod(new PreiseMod(art,art2,typ,nr));
-   cache.Register(index,*this);
-  }
-#else
   assert(!"PreiseMod im Cache");
-#endif  
 }
 
-#ifdef USE_XML
 cH_PreiseMod::cH_PreiseMod(const Tag *tag)
 {*this=cH_PreiseMod(new PreiseMod(tag));
 	// art,art2,typ,nr
@@ -188,65 +121,20 @@ cH_PreiseMod::cH_PreiseMod(const Tag *tag)
  		tag->getAttr("Typ"),
  		tag->getIntAttr("MAGUS-Nr",tag->getIntAttr("MCG-Nr"))),*this);
 }
-#endif
 
 void PreiseMod::get_PreiseMod()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_name[100],db_typ[100],db_art[100],db_art2[100];
-   double db_faktor;
-   int db_nr;
-  exec sql end declare section;
-  strncpy(db_art,Art().c_str(),sizeof(db_art));
-  strncpy(db_art2,Art2().c_str(),sizeof(db_art2));
-  strncpy(db_typ,Typ().c_str(),sizeof(db_typ));
-  db_nr=Nr();
-  exec sql select 
-    name,faktor
-    into :db_name,:db_faktor
-    from preise_modifikation where 
-    art =:db_art and art2=:db_art2 and typ=:db_typ and nr=:db_nr
-    order by art,typ;
-  SQLerror::test(__FILELINE__);
-  payload=st_payload(db_name,db_faktor);
-#else
   assert(tag);
   nr=tag->getIntAttr("MAGUS-Nr",tag->getIntAttr("MCG-Nr"));
   art=tag->getAttr("Art");
   art2=tag->getAttr("Art2");
   typ=tag->getAttr("Typ");
   payload=st_payload(tag->getAttr("Bezeichnung"),tag->getFloatAttr("Faktor"));
-#endif  
 }
 
 
 PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_art[100],db_art2[100],db_typ[100];
-   int db_size,db_nr;
- exec sql end declare section;
- exec sql select count(*) into :db_size from preise_modifikation;
- exec sql declare PMein cursor for select art,art2,coalesce(typ,''),nr from preise_modifikation;
- Transaction tr;
- exec sql open PMein; 
- SQLerror::test(__FILELINE__);
- double count=0;  
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch PMein into :db_art,:db_art2,:db_typ,:db_nr;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   list_All.push_back(cH_PreiseMod(db_art,db_art2,db_typ,db_nr));
-   ++count;
-  }
- exec sql close PMein;
- tr.close();
-#else
  const Tag *preise=xml_data->find("Preise");
  if (preise)
  {  Tag::const_iterator b=preise->begin(),e=preise->end();
@@ -256,7 +144,6 @@ PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(cH_PreiseMod(&*i));
     }
  }   
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }  
 
@@ -265,31 +152,14 @@ PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
 // Neuanlegen
 /////////////////////////////////////////////////////////////////////////
 
-#ifdef USE_XML 
 // use this tag to determine whether this is a user defined item
 Tag Preise::eigenerArtikel("Kaufpreis");
-#endif
 
 void Preise::saveArtikel(std::string art,std::string art2,std::string name,double preis, std::string einheit,double gewicht)
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char NAME[50],ART[50],ART2[50],EINHEIT[5];
-   double KOSTEN=preis;
-   double GEWICHT=gewicht;
-  exec sql end declare section;
-  strncpy(NAME,name.c_str(),sizeof(NAME));
-  strncpy(ART,art.c_str(),sizeof(ART));
-  strncpy(ART2,art2.c_str(),sizeof(ART2));
-  strncpy(EINHEIT,einheit.c_str(),sizeof(EINHEIT));
-  exec sql insert into preise (name,kosten,einheit,art,art2,gewicht)
-   values (:NAME,:KOSTEN,:EINHEIT,:ART,:ART2,:GEWICHT);
-  SQLerror::test(__FILELINE__);
-#else
   eigenerArtikel.setAttr("Art2",art2);
   eigenerArtikel.setAttr("Währung",einheit);
   eigenerArtikel.setAttr("Preis",dtos(preis));
   eigenerArtikel.setAttr("Gewicht",dtos(gewicht));
   cH_Preise(name,art,&eigenerArtikel);
-#endif  
 }

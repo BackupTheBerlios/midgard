@@ -17,11 +17,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifndef USE_XML
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-#endif
 #include "KiDo.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
@@ -36,10 +31,6 @@ cH_KiDo::cH_KiDo(const std::string& name IF_XML(,bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML
-   *this=cH_KiDo(new KiDo(name));
-   cache.Register(name,*this);
-#else
   cerr << "KiDo '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("KiDo"); 
@@ -50,37 +41,16 @@ cH_KiDo::cH_KiDo(const std::string& name IF_XML(,bool create))
      *this=cH_KiDo(&t2);
   }
   else throw NotFound();
-#endif  
   }
 }
 
-#ifdef USE_XML
 cH_KiDo::cH_KiDo(const Tag *tag)
 {*this=cH_KiDo(new KiDo(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
 void KiDo::get_KiDo()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_deutsch[50],db_hoho[50],db_stufe[20],db_stil[20],db_effekt[1024];
-   int db_fp,db_ap;
-  exec sql end declare section;
-
-  strncpy(db_hoho,(HoHo()).c_str(),sizeof(db_hoho));
-  exec sql select name,stufe,stil,fp,ap,effekt
-       into :db_deutsch,:db_stufe,:db_stil,:db_fp,:db_ap,:db_effekt
-       from kido where name_orig = :db_hoho;
-  SQLerror::test(__FILELINE__);
-  deutsch = db_deutsch;
-  stufe = db_stufe;
-  stil=db_stil;
-  kosten=db_fp;
-  ap=db_ap;
-  effekt=db_effekt;  
-#else
   assert(tag);
   deutsch = tag->getAttr("Übersetzung");
   stufe = tag->getAttr("Stufe");
@@ -88,7 +58,6 @@ void KiDo::get_KiDo()
   kosten=tag->getIntAttr("Lernkosten");
   ap=tag->getIntAttr("AP");
   effekt=tag->Value();  
-#endif  
 }
 
 
@@ -110,30 +79,6 @@ std::map<std::string,int> KiDo::maxkidostil(const std::list<cH_MidgardBasicEleme
 
 KiDo_All::KiDo_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[100];
-   int db_size;
- exec sql end declare section;
- exec sql select count(name) into :db_size from kido;
- exec sql declare KIein cursor for select distinct name_orig from kido;
- Transaction tr;
- exec sql open KIein; 
- SQLerror::test(__FILELINE__);
- double count=0;  
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch KIein into :db_name;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   list_All.push_back(&*(cH_KiDo(db_name)));
-   ++count;
-  }
- exec sql close KIein;
- tr.close();
-#else
  const Tag *Kido_Fertigkeiten=xml_data->find("Kido-Fertigkeiten");
  if (Kido_Fertigkeiten)
  {  Tag::const_iterator b=Kido_Fertigkeiten->begin(),e=Kido_Fertigkeiten->end();
@@ -143,6 +88,5 @@ KiDo_All::KiDo_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_KiDo(&*i)));
     }
  }
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }  

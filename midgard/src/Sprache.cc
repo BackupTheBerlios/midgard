@@ -17,11 +17,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifndef USE_XML
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-#endif
 #include "Sprache.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
@@ -37,10 +32,6 @@ cH_Sprache::cH_Sprache(const std::string& name IF_XML(,bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML
-   *this=cH_Sprache(new Sprache(name));
-   cache.Register(name,*this);
-#else
   cerr << "Sprache '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Sprache"); 
@@ -49,55 +40,16 @@ cH_Sprache::cH_Sprache(const std::string& name IF_XML(,bool create))
      *this=cH_Sprache(&t2);
   }
   else throw NotFound();
-#endif  
   }
 }
 
-#ifdef USE_XML
 cH_Sprache::cH_Sprache(const Tag *tag)
 {*this=cH_Sprache(new Sprache(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
 void Sprache::get_Sprache()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_name[50],db_schrift[50],db_region[50];
-   int db_fp,db_maxwert;
-   bool db_alt,db_minderheit;
-   int db_g1,db_g2;
-  exec sql end declare section;
-
-  strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select distinct fp,max_wert,coalesce(alt,'f'),coalesce(minderheit,'f'),
-       coalesce(region,''),coalesce(gruppe_1,0),coalesce(gruppe_2,0)
-       into :db_fp,:db_maxwert,:db_alt,:db_minderheit,
-         :db_region,:db_g1,:db_g2
-       from sprachen where name = :db_name;
-  SQLerror::test(__FILELINE__);
-  region=db_region;
-  alte_sprache=db_alt;
-  minderheit=db_minderheit;
-  maxwert=db_maxwert;
-  kosten=db_fp;
-  if(db_g1) V_sprachgruppe.push_back(db_g1);
-  if(db_g2) V_sprachgruppe.push_back(db_g2);
-  
-  // Schriften
-  exec sql declare schriftein cursor for select schrift from 
-      sprache_schrift where sprache=:db_name;
-  exec sql open schriftein;
-  SQLerror::test(__FILELINE__);
-  while (true)
-   {
-     exec sql fetch schriftein into :db_schrift;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     VSchrift.push_back(db_schrift);
-   }
-#else
   region=tag->getAttr("Region");
   alte_sprache=tag->getBoolAttr("alteSprache");
   minderheit=tag->getBoolAttr("Minderheit");
@@ -110,7 +62,6 @@ void Sprache::get_Sprache()
 
   FOR_EACH_CONST_TAG_OF(i,*tag,"Schrift")
      VSchrift.push_back(i->getAttr("Name",tag->getAttr("Name")));
-#endif
 }
 
 int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
@@ -211,30 +162,6 @@ std::list<cH_MidgardBasicElement> Sprache::cleanVerwandteSprachen(std::list<cH_M
 
 Sprachen_All::Sprachen_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[100];
-   int db_size;
- exec sql end declare section;
- exec sql select count(name) into :db_size from sprachen;
- exec sql declare SIein cursor for select distinct name from sprachen;
- Transaction tr;
- exec sql open SIein; 
- SQLerror::test(__FILELINE__);
- double count=0;  
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch SIein into :db_name;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   list_All.push_back(&*(cH_Sprache(db_name)));
-   ++count;
-  }
- exec sql close SIein;
- tr.close();
-#else
  const Tag *sprachen=xml_data->find("Sprachen");
  if (sprachen)
  {  Tag::const_iterator b=sprachen->begin(),e=sprachen->end();
@@ -244,7 +171,6 @@ Sprachen_All::Sprachen_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_Sprache(&*i)));
     }
  }   
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }  
 

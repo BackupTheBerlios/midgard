@@ -18,11 +18,6 @@
  */
 
 #include "Land.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
 
@@ -34,10 +29,6 @@ cH_Land::cH_Land(const std::string& name IF_XML(,bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML 
-   *this=cH_Land(new Land(name));
-   cache.Register(name,*this);
-#else
   cerr << "Land '" << name << "' nicht im Cache\n";
   if (create || name.empty()) // don t ask me ... it just works this way ...
   {  static Tag t2("Land"); 
@@ -46,73 +37,23 @@ cH_Land::cH_Land(const std::string& name IF_XML(,bool create))
      *this=cH_Land("?",&t2);
   }
   else throw NotFound();
-#endif
   }
 }
 
-#ifdef USE_XML
 cH_Land::cH_Land(const std::string& kontinent,const Tag *tag)
 {
    *this=cH_Land(new Land(kontinent,tag));
    cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
-#ifndef USE_XML
-Land::Land(const std::string& n) 
-: name(n)
-{
-  exec sql begin declare section;
-   char db_name[50], db_kontinent[50], db_sprache[50];
-  exec sql end declare section;
-  strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql declare L1Iein cursor for select kontinent,sprache 
-   from land where land=:db_name;
-  Transaction tr;
-  exec sql open L1Iein;
-  SQLerror::test(__FILELINE__);
-  while(true)   
-   {
-     exec sql fetch L1Iein into :db_kontinent,:db_sprache;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     vec_sprache.push_back(db_sprache);
-   }
-  kontinent=db_kontinent;
-}
-#else
 Land::Land(const std::string& _kontinent, const Tag *tag)
   : name(tag->getAttr("Name")), kontinent(_kontinent)
 {  FOR_EACH_CONST_TAG_OF(i,*tag,"Sprache")
       vec_sprache.push_back(i->getAttr("Name"));
 }
-#endif
 
 Laender_All::Laender_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[100];
-   int db_size;
- exec sql end declare section;
- exec sql select count(land) into :db_size from land;
- exec sql declare LIein cursor for select distinct land from land;
- Transaction tr;
- exec sql open LIein;
- SQLerror::test(__FILELINE__);
- double count=0;
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   exec sql fetch LIein into :db_name;
-   SQLerror::test(__FILELINE__,100);  
-   if (sqlca.sqlcode) break;
-   list_All.push_back(cH_Land(db_name));
-   ++count;
-  }
- exec sql close LIein;
- tr.close();
-#else
  const Tag *Laender=xml_data->find("Länder");
  if (Laender)
  {  Tag::const_iterator b=Laender->begin(),e=Laender->end();
@@ -123,6 +64,5 @@ Laender_All::Laender_All(Gtk::ProgressBar *progressbar)
           list_All.push_back(cH_Land(i->getAttr("Name"),&*j));
     }
  }
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }

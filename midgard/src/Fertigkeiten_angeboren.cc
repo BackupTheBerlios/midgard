@@ -18,11 +18,6 @@
  */
 
 #include "Fertigkeiten_angeboren.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "ProgressBar.h"
 #include "Grundwerte.hh"
 
@@ -34,10 +29,6 @@ cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name IF_XM
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML
-   *this=cH_Fertigkeit_angeborene(new Fertigkeit_angeborene(name));
-   cache.Register(name,*this);
-#else
   cerr << "angeborene Fertigkeit '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("angeboreneFertigkeit"); 
@@ -46,37 +37,20 @@ cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name IF_XM
      *this=cH_Fertigkeit_angeborene(&t2);
   }
   else throw NotFound();
-#endif
   }
 }
 
-#ifdef USE_XML
 cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const Tag *tag)
 {*this=cH_Fertigkeit_angeborene(new Fertigkeit_angeborene(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
 void Fertigkeit_angeborene::get_Fertigkeit()
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[50];
-   int db_min,db_max,db_wert;
- exec sql end declare section;
- strncpy(db_name,Name().c_str(),sizeof(db_name));
- exec sql select min,max,coalesce(wert,0) into :db_min,:db_max,:db_wert
-   from angeborene_fertigkeiten where name = :db_name;
- SQLerror::test(__FILELINE__);
- erfolgswert=db_wert;
- min=db_min;
- max=db_max;
-#else
  assert(tag);
  min=tag->getIntAttr("Min");
  max=tag->getIntAttr("Max");
  erfolgswert=tag->getIntAttr("Wert");
-#endif 
 }
 
 
@@ -91,30 +65,6 @@ int Fertigkeit_angeborene::FErfolgswert(const Grundwerte &Werte) const
 
 Fertigkeiten_angeborene_All::Fertigkeiten_angeborene_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[50];
-   int db_size;
- exec sql end declare section;
- exec sql select count(name) into :db_size from angeborene_fertigkeiten;
- exec sql declare FAein cursor for select name from angeborene_fertigkeiten order by min;
- Transaction tr;
- exec sql open FAein;
- SQLerror::test(__FILELINE__);
- double count=0;
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch FAein into :db_name;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   list_All.push_back(&*(cH_Fertigkeit_angeborene(db_name)));
-   ++count;
-  }
- exec sql close FAein;
- tr.close();
-#else
  const Tag *angeboreneFertigkeiten=xml_data->find("angeboreneFertigkeiten");
  if (angeboreneFertigkeiten)
  {  Tag::const_iterator b=angeboreneFertigkeiten->begin(),e=angeboreneFertigkeiten->end();
@@ -124,6 +74,5 @@ Fertigkeiten_angeborene_All::Fertigkeiten_angeborene_All(Gtk::ProgressBar *progr
        list_All.push_back(&*(cH_Fertigkeit_angeborene(&*i)));
     }
  }
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }

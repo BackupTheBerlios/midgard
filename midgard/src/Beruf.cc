@@ -18,11 +18,6 @@
  */
 
 #include "Beruf.hh"
-#ifndef USE_XML
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-#endif
 #include "Grundwerte.hh"
 #include "ProgressBar.h"
 #include "Typen.hh"
@@ -35,10 +30,6 @@ cH_Beruf::cH_Beruf(const std::string& name IF_XML(,bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML 
-   *this=cH_Beruf(new Beruf(name));
-   cache.Register(name,*this);
-#else
   cerr << "Beruf '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Beruf"); 
@@ -47,67 +38,16 @@ cH_Beruf::cH_Beruf(const std::string& name IF_XML(,bool create))
      *this=cH_Beruf(&t2);
   }
   else throw NotFound();
-#endif  
   }
 }
 
-#ifdef USE_XML
 cH_Beruf::cH_Beruf(const Tag *tag)
 {*this=cH_Beruf(new Beruf(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
 void Beruf::get_Beruf()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   bool U,V,M,A,LAND,STADT,TYPK,TYPZ;
-   char REGION[10],GESCHLECHT[10],db_vorteil[50],db_beruf[5];
-   char query[1024],query2[1024];
-  exec sql end declare section;
-  std::string squery="select distinct coalesce(land,false), 
-      coalesce(stadt,false), coalesce(u,false), coalesce(v,false), 
-      coalesce(m,false), coalesce(a,false), coalesce(typ_k,false), 
-      coalesce(typ_z,false),coalesce(geschlecht,''),coalesce(region,''),
-      coalesce(beruf,'')
-      from berufe_voraussetzung_4 where beruf ='"+Name()+"'";
-  strncpy(query,squery.c_str(),sizeof(query));
-  Transaction tr;
-  exec sql prepare cl_beruf_ein_ from :query ;
-  exec sql declare cl_beruf_ein cursor for cl_beruf_ein_ ;
-
-  exec sql open cl_beruf_ein;
-  SQLerror::test(__FILELINE__);
-  while (true)   
-   {
-     exec sql fetch cl_beruf_ein into 
-      :LAND,:STADT,:U,:V,:M,:A,:TYPK,:TYPZ,:GESCHLECHT,:REGION,:db_beruf;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     region=REGION;
-     geschlecht=GESCHLECHT;
-     u=U;v=V;m=M;a=A;typ_k=TYPK;typ_z=TYPZ;stadt=STADT;land=LAND;
-
-     std::string squery2= "select vorteil from berufe_vorteile_4 where beruf='"
-                           +Name()+"'";
-     strncpy(query2,squery2.c_str(),sizeof(query2));
-     exec sql prepare cl_beruf2_ein_ from :query2 ;
-     exec sql declare cl_beruf2_ein cursor for cl_beruf2_ein_ ;
-     exec sql open cl_beruf2_ein;
-     SQLerror::test(__FILELINE__);
-     while(true)
-      {
-       exec sql fetch cl_beruf2_ein into :db_vorteil;
-       SQLerror::test(__FILELINE__,100);
-       if (sqlca.sqlcode) break;
-       vorteile.push_back(db_vorteil);
-      }     
-     exec sql close cl_beruf2_ein;
-   }
- exec sql close cl_beruf_ein;
- tr.close();
-#else
    assert(tag);
    const Tag *Voraussetzungen=tag->find("Voraussetzungen");
    if (!Voraussetzungen) Voraussetzungen=tag; // might as well be empty
@@ -130,7 +70,6 @@ void Beruf::get_Beruf()
     if (Vorteil)
        FOR_EACH_CONST_TAG_OF(i,*Vorteil,"Fertigkeit")
           vorteile.push_back(i->getAttr("Name"));
-#endif 
 }
 
 
@@ -168,52 +107,8 @@ bool Beruf::Typ(const vector<cH_Typen>& Typ) const
 }
 
 
-/*
-bool Beruf::Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const
-{
- if ( voraussetzung.st<=Werte.St() &&
-      voraussetzung.gs<=Werte.Gs() &&
-      voraussetzung.gw<=Werte.Gw() &&
-      voraussetzung.ko<=Werte.Ko() &&
-      voraussetzung.in<=Werte.In() &&
-      voraussetzung.zt<=Werte.Zt() &&
-      voraussetzung.au<=Werte.Au() &&
-      voraussetzung.pa<=Werte.pA() &&
-      voraussetzung.sb<=Werte.Sb() &&
-      voraussetzung.geschlecht!=Werte.Geschlecht() &&
-      voraussetzung.typ==Typ[0]->Zaubern() 
-     )   
-    return true;
- else return false ;
-}
-*/
-
 Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[100];
-   int db_size;
- exec sql end declare section;
- exec sql select count(distinct beruf) into :db_size from berufe_voraussetzung_4;
- exec sql declare BAein cursor for select beruf from berufe_voraussetzung_4;
- Transaction tr;
- exec sql open BAein;
- SQLerror::test(__FILELINE__);
- double count=0;
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch BAein into :db_name;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   list_All.push_back(&*(cH_Beruf(db_name)));
-   ++count;
-  }
- exec sql close BAein;
- tr.close();
-#else
  const Tag *berufe=xml_data->find("Berufe");
 // int count=0;
  if (!berufe)
@@ -233,6 +128,5 @@ Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_Beruf(&*i)));
     }
  }
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }

@@ -17,11 +17,6 @@
  */
 
 #include "Typen.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
 
@@ -32,12 +27,6 @@ cH_Typen::cH_Typen(const std::string& name IF_XML(,bool create))
  cH_Typen *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML 
-  {
-   *this=cH_Typen(new Typen(name));
-   cache.Register(name,*this);
-  }
-#else
  {cerr << "Typen '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Typ"); 
@@ -49,60 +38,18 @@ cH_Typen::cH_Typen(const std::string& name IF_XML(,bool create))
   }
   else throw NotFound();
  }
-#endif  
 }
 
-#ifdef USE_XML
 cH_Typen::cH_Typen(const Tag *tag)
 {*this=cH_Typen(new Typen(tag));
  cache.Register(tag->getAttr("Abkürzung"),*this);
 }
-#endif
 
-#ifndef USE_XML
-Typen::Typen(const std::string& n)
-: typs(n),typnr(0),stand(0),sb(0),ruestung(0),geld(0)
-#else
 Typen::Typen(const Tag *tag)
 : typs(tag->getAttr("Abkürzung"))
   ,typnr(tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index")))
   ,stand(0),sb(0),ruestung(0),geld(0)
-#endif
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   int db_typnr;
-   char  db_typs[10],db_typl[50],db_typlw[50],db_typz[5],db_ausdauer[5],
-         db_region[5],db_beruf[5],db_sl[5];
-   int db_stand,db_sb,db_ruestung,db_geld;         
-   bool db_sprueche_mit_pp;
- exec sql end declare section;
- strncpy(db_typs,Short().c_str(),sizeof(db_typs));
- exec sql select typnr,typl,typlw,typz,ausdauer,stand,sb,ruestung,geld,
-         coalesce(region,''),coalesce(beruf,''),coalesce(stadt_land,''),
-         coalesce(sprueche_mit_pp,'f')
-      into :db_typnr,:db_typl,:db_typlw,:db_typz,:db_ausdauer,:db_stand,
-            :db_sb,:db_ruestung,:db_geld,:db_region,:db_beruf,:db_sl,
-            :db_sprueche_mit_pp
-      from typen where typs=:db_typs;
- SQLerror::test(__FILELINE__); 
- typnr=db_typnr;
- typl=db_typl;
- typlw=db_typlw;
- typz=db_typz;
- ausdauer=db_ausdauer;
- stand=db_stand;
- sb=db_sb;
- ruestung=db_ruestung;
- geld=db_geld;
- region=db_region;
- beruf=db_beruf;
- std::string sl=db_sl;
- if(sl=="s")     { land=false;stadt=true;  } 
- else if(sl=="l"){ land=true; stadt=false; }
- else {land=true;stadt=true;}
- sprueche_mit_pp=db_sprueche_mit_pp;
-#else
  typl=tag->getAttr("Bezeichnung-Mann");
  typlw=tag->getAttr("Bezeichnung-Frau");
  typz=tag->getBoolAttr("Zauberer")?"z":(tag->getBoolAttr("kannZaubern")?"j":"n");
@@ -119,38 +66,11 @@ Typen::Typen(const Tag *tag)
  land=tag->getBoolAttr("Land",true);
  stadt=tag->getBoolAttr("Stadt",true);
  sprueche_mit_pp=tag->getBoolAttr("SprücheMitPraxisPunkten");
-#endif
 }
 
 
 Typen_All::Typen_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_name[100];
-   int db_size,db_dummy;
- exec sql end declare section;
- exec sql select count(typs) into :db_size from typen;
- exec sql declare T_EIN cursor for select distinct typs,typnr 
-      from typen order by typnr;
- Transaction tr;
- exec sql open T_EIN;
- SQLerror::test(__FILELINE__); 
- double count=0;
- while (true)
-  { 
-    progressbar->set_percentage(count/db_size);
-    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-    exec sql fetch T_EIN
-      into :db_name,:db_dummy;
-    SQLerror::test(__FILELINE__,100); 
-    if (sqlca.sqlcode) break;
-    list_All.push_back(cH_Typen(db_name));
-    ++count;
-  }
- exec sql close T_EIN;
- tr.close();
-#else
  const Tag *typen=xml_data->find("Typen");
  if (typen)
  {  Tag::const_iterator b=typen->begin(),e=typen->end();
@@ -160,7 +80,6 @@ Typen_All::Typen_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(cH_Typen(&*i));
     }
  }   
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }
 

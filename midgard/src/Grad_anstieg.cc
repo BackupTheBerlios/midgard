@@ -18,47 +18,13 @@
  */
 
 #include "Grad_anstieg.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#else
 #include "xml.h"
-#endif
 #include "ProgressBar.h"
 #include <Aux/itos.h>
 
 Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
 : steigern_EP_prozent(50), grad_basiswerte(1)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   int db_a,db_r,db_z,db_ak,db_rk,db_zk;
-   int db_grad,db_gfp,db_schicksal;
-   int db_size;
- exec sql end declare section;
- exec sql select count (grad) into :db_size from grad_anstieg; 
- SQLerror::test(__FILELINE__);
- exec sql declare GREIN cursor for select grad,gfp,schicksalsgunst,
-   coalesce(abwehr,0),coalesce(abwehr_kosten,0),coalesce(resistenz,0),
-   coalesce(resistenz_kosten,0),coalesce(zaubern,0),coalesce(zaubern_kosten,0)
-   from grad_anstieg order by grad;
- Transaction tr;
- exec sql open GREIN;
- SQLerror::test(__FILELINE__);
- double count=0;  
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch GREIN into :db_grad,:db_gfp,:db_schicksal,
-      :db_a,:db_ak,:db_r,:db_rk,:db_z,:db_zk;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   map_grad[db_grad] = st_grad(db_a,db_ak,db_r,db_rk,db_z,db_zk,db_gfp,db_schicksal);
-   ++count;
-  }
-#else
  const Tag *Gradanstieg=xml_data->find("Gradanstieg");
  if (Gradanstieg)
  {  Tag::const_iterator b=Gradanstieg->begin(),e=Gradanstieg->end();
@@ -74,7 +40,6 @@ Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
        		Kosten->getIntAttr("Ausdauer",i->getIntAttr("AP_Kosten")));
     }
  }
-#endif  
  ProgressBar::set_percentage(progressbar,1);
 }
 

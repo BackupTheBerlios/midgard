@@ -18,11 +18,6 @@
  */
 
 #include "Lernschema.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "ProgressBar.h"
 #include "Typen.hh"
 #include "Waffe.hh"
@@ -30,7 +25,6 @@ exec sql include sqlca;
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
 
-#ifdef USE_XML
 static void StoreLernschema(const string &list,const string &element,
 		const string &typ, std::map<Lernschema::st_index,Lernschema::st_wert> &lern_map,
 		Gtk::ProgressBar *progressbar, double base)
@@ -49,43 +43,12 @@ static void StoreLernschema(const string &list,const string &element,
     }
  }
 }
-#endif
 
 Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char TYP[10],FERTIGKEIT[50],ART[50],ATTR[10],PE[30],SE[30];
-   bool PFLICHT;
-   int WERT,LERNPUNKTE,db_size;
-  exec sql end declare section;
-  exec sql select count(typ) into :db_size from lernschema_4;
-  exec sql declare LEin cursor for select
-   typ, pflicht, name, art, coalesce(wert,0), lernpunkte
-   from lernschema_4 
-   order by lernpunkte;
- Transaction tr;
- exec sql open LEin;
- SQLerror::test(__FILELINE__);
- double count=0;  
- while(true)   
-   {
-     progressbar->set_percentage(count/db_size);
-     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-     exec sql fetch LEin into :TYP,:PFLICHT,:FERTIGKEIT,:ART,
-      :WERT,:LERNPUNKTE;//,:ATTR,:PE,:SE;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break; 
-     lern_map[st_index(TYP,ART,FERTIGKEIT)] 
-//            = st_wert(PFLICHT,WERT,ATTR,LERNPUNKTE,PE,SE); 
-            = st_wert(PFLICHT,WERT,"",LERNPUNKTE,"",""); 
-     ++count;
-   }
-#else 
  StoreLernschema("Zauber","Spruch","Zauberkünste",lern_map,progressbar,0);
  StoreLernschema("Fertigkeiten","Fertigkeit","Fachkenntnisse",lern_map,progressbar,0.33);
  StoreLernschema("Waffen","Waffe","Waffenfertigkeiten",lern_map,progressbar,0.66);
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }
 
@@ -112,7 +75,6 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
          }
       if(art=="Zauberkünste") 
          { 
-#warning hier auch set_Erfolgswert ??? CP
            L.push_back(&*cH_Zauber(i->first.fertigkeit));
          }
      }   

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.167 2002/02/12 07:15:29 thoma Exp $
+// $Id: midgard_CG.hh,v 1.168 2002/02/12 11:22:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -249,9 +249,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void clear_listen();
         void on_button_hilfe_clicked();
         void on_charakter_beschreibung_clicked();
-        void charakter_db_anlegen();
-        void on_laden_clicked();
-        void load_charakter(std::string name, std::string version);
+//        void charakter_db_anlegen();
+//        void on_laden_clicked();
+//        void load_charakter(std::string name, std::string version);
         void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, int xml_version));
         void on_latex_clicked(bool values=true);
         void LaTeX_write_values();
@@ -478,7 +478,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 	// das könnte doch alles privat oder?
          void save_ausruestung();
          void save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB);
-         void load_ausruestung();
+//         void load_ausruestung();
          void load_ausruestung_C(int parent, AusruestungBaum *AB);
 #else
          void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
@@ -506,7 +506,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void xml_import(const std::string& datei);
          void spielleiter_export_save(const std::string& dateiname);
          void charakter_beschreibung_uebernehmen(const std::string& b,bool drucken);
-         void select_charakter(const std::string& name, const std::string& version);
+//         void select_charakter(const std::string& name, const std::string& version);
 //         void show_fertigkeiten();
          void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
@@ -523,6 +523,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          {  frame_steigern->set_sensitive(true);
             on_radio_steigern_all();
          }
-         void on_speichern_clicked();
+//         void on_speichern_clicked();
 };
 #endif

@@ -16,11 +16,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifndef USE_XML
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-#endif
 #include "Schrift.hh"
 #include "Sprache.hh"
 #include <cstring>
@@ -37,10 +32,6 @@ cH_Schrift::cH_Schrift(const std::string& name IF_XML(,bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML 
-   *this=cH_Schrift(new Schrift(name));
-   cache.Register(name,*this);
-#else
  cerr << "Schrift '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Schrift"); 
@@ -50,47 +41,23 @@ cH_Schrift::cH_Schrift(const std::string& name IF_XML(,bool create))
      *this=cH_Schrift(name, &t2);
   }
   else throw NotFound();
-#endif
   }
 }
 
-#ifdef USE_XML
 cH_Schrift::cH_Schrift(const std::string& name,const Tag *tag)
 {*this=cH_Schrift(new Schrift(name,tag));  
  cache.Register(name,*this);
 }
-#endif
 
 
 void Schrift::get_Schrift()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_name[50],db_art[50],db_region[50];
-   int db_fp;
-   bool db_alt,db_kult;
-  exec sql end declare section;
-
-  strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select s.kosten,coalesce(s.region,''),
-       coalesce(s.alt,'f'),coalesce(s.kult,'f'),ss.art_der_schrift
-       into :db_fp,:db_region,:db_alt,:db_kult,:db_art
-       from schrift s,sprache_schrift ss 
-       where s.name=ss.art_der_schrift and ss.schrift = :db_name;
-  SQLerror::test(__FILELINE__);
-  art_der_schrift=db_art;
-  region=db_region;
-  kosten=db_fp;
-  alt=db_alt;
-  kult=db_kult;
-#else // USE_XML
   assert(tag);
   art_der_schrift=tag->getAttr("Name");
   region=tag->getAttr("Region");
   kosten=tag->getIntAttr("Kosten");
   alt=tag->getBoolAttr("alte_Schrift");
   kult=tag->getBoolAttr("Kultschrift");;
-#endif 
 }
 
 bool Schrift::kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const
@@ -121,30 +88,6 @@ std::list<cH_MidgardBasicElement> Schrift::gleicheSchrift(const std::list<cH_Mid
 
 Schriften_All::Schriften_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[100];
-   int db_size;
- exec sql end declare section;
- exec sql select count(schrift) into :db_size from sprache_schrift;
- exec sql declare SCIein cursor for select distinct schrift from sprache_schrift;
- Transaction tr;
- exec sql open SCIein; 
- SQLerror::test(__FILELINE__);
- double count=0;  
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch SCIein into :db_name;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   list_All.push_back(&*(cH_Schrift(db_name)));
-   ++count;
-  }
- exec sql close SCIein;
- tr.close();
-#else
  const Tag *schriften=xml_data->find("Schriften");
  if (schriften)
  {  Tag::const_iterator b=schriften->begin(),e=schriften->end();
@@ -156,6 +99,5 @@ Schriften_All::Schriften_All(Gtk::ProgressBar *progressbar)
     }
  }   
 
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }  

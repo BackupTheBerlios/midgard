@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.115 2002/02/10 14:55:56 thoma Exp $
+# $Id: Makefile.am,v 1.116 2002/02/12 11:22:44 thoma Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -36,11 +36,9 @@ noinst_HEADERS = \
    Preise.hh dtos1.h \
 WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 glademm_support.hh \
-midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
-Window_charakter_auswahl_glade.hh Window_charakter_auswahl.hh  \
+midgard_CG_glade.hh midgard_CG.hh  \
 Window_charakter_beschreibung_glade.hh Window_charakter_beschreibung.hh \
 WindowInfo_glade.hh WindowInfo.hh \
-Zauber_auswahl_glade.hh Zauber_auswahl.hh \
 Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_herkunft_glade.hh \
    Window_herkunft.hh \
@@ -75,35 +73,7 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_Erfahrungspunkte_glade.hh \
    ProgressBar.h
 
-%.cc: %.pgcc ; @ECPG@ -o $*.cc $<
-
-BUILT_SOURCES_CG =  \
-   Preise.cc \
-   Beruf.cc \
-   Lernschema.cc \
-   Region.cc \
-   Spezies.cc \
-   Typen.cc \
-   Pflicht.cc \
-   Ausnahmen.cc \
-   Zauber.cc \
-   Zauberwerk.cc \
-   Fertigkeiten.cc \
-   Waffe.cc \
-   KiDo.cc \
-   Sprache.cc \
-   Schrift.cc \
-   MidgardBasicElement_sql.cc \
-   Land.cc \
-   Ruestung.cc \
-   WaffeGrund.cc \
-   Fertigkeiten_angeboren.cc \
-   Grad_anstieg.cc \
-   Spezialgebiet.cc \
-   save_charakter.cc  load_charakter.cc  \
-   Window_charakter_auswahl.cc 
-
-BUILT_SOURCES= $(BUILT_SOURCES_CG) export_common.h
+BUILT_SOURCES= export_common.h
 
 export_common.cc: ../xml/export_common.cc ; ln -sf ../xml/$@ .
 export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
@@ -111,14 +81,34 @@ export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 midgard_SOURCES = \
+	load_charakter.cc  \
+   save_charakter.cc \
+	Fertigkeiten_angeboren.cc \
+   Ausnahmen.cc \
+   Pflicht.cc \
+   Typen.cc \
+   Spezies.cc \
+   Region.cc \
+   Lernschema.cc \
+   Zauber.cc \
+   Schrift.cc \
+   Sprache.cc \
+   KiDo.cc \
+   Waffe.cc \
+   Fertigkeiten.cc \
+   Zauberwerk.cc \
+   Land.cc \
+   WaffeGrund.cc \
+   Ruestung.cc \
+   Spezialgebiet.cc \
+   Grad_anstieg.cc \
+   Beruf.cc \
+   Preise.cc \
    Grundwerte.cc \
 	gw_wuerfeln.cc \
    midgard_CG_Ausruestung.cc \
    Berufe_auswahl.cc \
-   $(BUILT_SOURCES_CG) \
 	KiDo_auswahl.cc \
-   Zauber_auswahl.cc  \
-   Waffen_auswahl.cc \
 	Window_Waffenbesitz.cc \
    Window_waffe.cc \
    midgard_CG_typauswahl.cc \
@@ -167,8 +157,6 @@ midgard_SOURCES = \
    Window_charakter_auswahl_glade.cc \
    Window_charakter_beschreibung_glade.cc \
    Window_charakter_beschreibung.cc \
-   Waffen_auswahl_glade.cc \
-   Zauber_auswahl_glade.cc \
    Berufe_auswahl_glade.cc \
    midgard_CG_grad_anstieg.cc \
 	midgard_CG_glade.cc \
@@ -226,6 +214,7 @@ midgard_exe_LIBS=-lManuProC_Widgets -lManuProC_Base -lGtkmmAddons \
 	
 midgard_LDFLAGS=-L../../ManuProC_Base/src -L../../GtkmmAddons/src \
 	-L../../ManuProc_Widgets/src -L/usr/local/mingw/local/lib
+
 
 midgard.exe: $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
 	@rm -f midgard$(EXEEXT)

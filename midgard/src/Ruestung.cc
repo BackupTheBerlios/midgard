@@ -17,11 +17,6 @@
  */
 
 #include "Ruestung.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
 
@@ -33,10 +28,6 @@ cH_Ruestung::cH_Ruestung(const std::string& name IF_XML(,bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML
-   *this=cH_Ruestung(new Ruestung(name));
-   cache.Register(name,*this);
-#else
   cerr << "Rüstung '" << name << "' nicht im Cache\n";
   const Tag *t=find_Tag("Rüstungen","Rüstung","Abkürzung",name);
   if (t) *this=cH_Ruestung(t);
@@ -48,51 +39,17 @@ cH_Ruestung::cH_Ruestung(const std::string& name IF_XML(,bool create))
      *this=cH_Ruestung(&t2);
   }
   else throw NotFound();
-#endif
   }
 }
 
-#ifdef USE_XML
 cH_Ruestung::cH_Ruestung(const Tag *tag)
 {*this=cH_Ruestung(new Ruestung(tag));
  cache.Register(tag->getAttr("Abkürzung"),*this);
 }
-#endif
 
-#ifndef USE_XML
-Ruestung::Ruestung(const std::string& n) 
-: name(n)
-#else
 Ruestung::Ruestung(const Tag *tag) 
 : name(tag->getAttr("Abkürzung"))
-#endif
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char  db_name [ 50 ]   ,  db_long [ 50 ]   ,  db_region [ 50 ]   ;
-   int  db_lp_verlust   ,  db_min_staerke   ,  db_rw_verlust   ,  db_b_verlust   ;
-   int db_abwehr_bonus_verlust,db_angriffs_bonus_verlust,db_vollr;
-  exec sql end declare section ;
-  strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select ruestung, coalesce( region  , '' ) , 
-         lp_verlust  , min_staerke  , rw_verlust  , 
-         b_verlust ,coalesce(abwehr_bonus_verlust,0),
-         coalesce(angriffs_bonus_verlust,0),coalesce(vollruestung,0)
-      into :db_long, :db_region, :db_lp_verlust, :db_min_staerke, :db_rw_verlust,
-           :db_b_verlust,:db_abwehr_bonus_verlust,:db_angriffs_bonus_verlust,
-           :db_vollr
-      from ruestung where ruestung_s=:db_name ;
-  SQLerror::test(__FILELINE__);
-  longname=db_long;
-  region=db_region;
-  lp_verlust=db_lp_verlust;
-  min_staerke=db_min_staerke;
-  rw_verlust=db_rw_verlust;
-  b_verlust=db_b_verlust;
-  abwehr_bonus_verlust=db_abwehr_bonus_verlust;
-  angriffs_bonus_verlust=db_angriffs_bonus_verlust;
-  vollruestungsabzug=db_vollr;
-#else
   longname=tag->getAttr("Name");
   region=tag->getAttr("Region");
   lp_verlust=tag->getIntAttr("schütztLP");
@@ -107,37 +64,10 @@ Ruestung::Ruestung(const Tag *tag)
   else
      rw_verlust=b_verlust=abwehr_bonus_verlust=angriffs_bonus_verlust=0;
   vollruestungsabzug=tag->getIntAttr("Vollrüstung");
-#endif
 }
 
 Ruestung_All::Ruestung_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char  db_name [ 100 ]   ;
-   int  db_size   ;
- exec sql end declare section;
- exec sql select  count ( ruestung_s  ) into :db_size from ruestung;
- exec sql declare RIein  cursor for 
-      select ruestung_s  from ruestung order by lp_verlust,ruestung_s;
-
- Transaction tr;
- exec sql open RIein;
- SQLerror::test(__FILELINE__);
- double count=0;
- while(true)
-  {
-   progressbar->set_percentage(count/db_size);
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch RIein into :db_name;
-   SQLerror::test(__FILELINE__,100);  
-   if (sqlca.sqlcode) break;
-   list_All.push_back(cH_Ruestung(db_name));
-   ++count;
-  }
- exec sql close RIein;
- tr.close();
-#else
  const Tag *ruestungen=xml_data->find("Rüstungen");
  if (ruestungen)
  {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();
@@ -147,7 +77,6 @@ Ruestung_All::Ruestung_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(cH_Ruestung(&*i));
     }
  }   
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }
 

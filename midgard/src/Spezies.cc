@@ -17,11 +17,6 @@
  */
 
 #include "Spezies.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
 
@@ -33,10 +28,6 @@ cH_Spezies::cH_Spezies(const std::string& name IF_XML(,bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML
-   *this=cH_Spezies(new Spezies(name));
-   cache.Register(name,*this);
-#else
   cerr << "Spezies '" << name << "' nicht im Cache\n";
   const Tag *t=find_Tag("SpeziesListe","Spezies","Name",name);
   if (t) *this=cH_Spezies(t);
@@ -47,85 +38,17 @@ cH_Spezies::cH_Spezies(const std::string& name IF_XML(,bool create))
      *this=cH_Spezies(&t2);
   }
   else throw NotFound();
-#endif
   }
 }
 
-#ifdef USE_XML
 cH_Spezies::cH_Spezies(const Tag *tag)
 {*this=cH_Spezies(new Spezies(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
-#ifndef USE_XML
-Spezies::Spezies(const std::string& n)
-: name(n)
-#else
 Spezies::Spezies(const Tag *tag) 
 : name(tag->getAttr("Name"))
-#endif
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   int ST,GE,KO,IN,ZT;
-   int SB,AU,LPBASIS,AP_GRAD,ABB,PSY,PHS,PHK,ALTER,GF,GW,GS,
-      GESTALT,BF,BS;
-   char SPEZIES[50];
-   int NR;
-   char TYP[50];
-   int MAXGRAD;
-   bool LAND;
- exec sql end declare section;
- strncpy(SPEZIES,Name().c_str(),sizeof(SPEZIES));
- exec sql select nr,coalesce(m_st,-h_st), coalesce(m_ge,-h_ge),
-      coalesce(m_ko,-h_ko), coalesce(m_in,-h_in), coalesce(m_zt,-h_zt) ,
-      coalesce(m_sb,-h_sb), coalesce(m_au,-h_au), lpbasis, ap_grad,
-      coalesce(m_abb,0), coalesce(m_psy,0), coalesce(m_phs,0), 
-      coalesce(m_phk,0),alter,groesse_f,groesse_w,groesse_s,
-      coalesce(gestalt,0),b_f,b_s,coalesce(land,'f')
-      into :NR,:ST,:GE,:KO,:IN,:ZT,:SB,:AU,:LPBASIS,:AP_GRAD,
-         :ABB,:PSY,:PHS,:PHK,:ALTER,:GF,:GW,:GS,:GESTALT,:BF,:BS,:LAND
-      from spezies where spezies=:SPEZIES;
- SQLerror::test(__FILELINE__); 
- nr=NR;
- st=ST;
- gw=GE;
- gs=GE;
- ko=KO;
- in=IN;
- zt=ZT;
- sb=SB;
- au=AU;
- lpbasis=LPBASIS;
- ap_grad=AP_GRAD;
- m_abb=ABB;
- m_psy=PSY;
- m_phs=PHS;
- m_phk=PHK;
- alter=ALTER;
- groesse_f=GF;
- groesse_w=GW;
- groesse_s=GS;
- gestalt=GESTALT;
- b_f=BF;
- b_s=BS;
- land=LAND;
-
- exec sql declare SPEIN2 cursor for select typen,coalesce(maxgrad,0) from 
-      spezies_typen where  spezies = :SPEZIES;
- Transaction tr;
- exec sql open SPEIN2;
- while(true)
-      {
-       exec sql fetch SPEIN2 into :TYP,:MAXGRAD;
-       SQLerror::test(__FILELINE__,100); 
-       if (sqlca.sqlcode) break;
-       vec_typen.push_back(st_spez(TYP,MAXGRAD));
-      }
- exec sql close SPEIN2;
- tr.close();
-#else
  nr=tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index"));
  land=tag->getBoolAttr("Land");
  
@@ -180,38 +103,11 @@ Spezies::Spezies(const Tag *tag)
  
  FOR_EACH_CONST_TAG_OF(i,*tag,"Typ")
     vec_typen.push_back(st_spez(i->getAttr("Name"),i->getIntAttr("MaximalerGrad")));
-#endif
 }
 
 
 Spezies_All::Spezies_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_name[100],db_dummy[10];
-   int db_size;
- exec sql end declare section;
- exec sql select count(spezies) into :db_size from spezies;
- exec sql declare SP_EIN cursor for select distinct 
-      spezies,nr from spezies order by nr;
- Transaction tr;
- exec sql open SP_EIN;
- SQLerror::test(__FILELINE__); 
- double count=0;
- while (true)
-  { 
-    progressbar->set_percentage(count/db_size);
-    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-    exec sql fetch SP_EIN
-      into :db_name,:db_dummy;
-    SQLerror::test(__FILELINE__,100); 
-    if (sqlca.sqlcode) break;
-    list_All.push_back(cH_Spezies(db_name));
-    ++count;
-  }
- exec sql close SP_EIN;
- tr.close();
-#else
  const Tag *spezies=xml_data->find("SpeziesListe");
  if (spezies)
  {  Tag::const_iterator b=spezies->begin(),e=spezies->end();
@@ -221,7 +117,6 @@ Spezies_All::Spezies_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(cH_Spezies(&*i));
     }
  }   
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }
 

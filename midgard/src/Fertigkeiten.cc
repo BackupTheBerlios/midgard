@@ -19,11 +19,6 @@
 
 #include "Fertigkeiten.hh"
 #include "midgard_CG.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "Typen.hh"
 #include "ProgressBar.h"
 
@@ -35,10 +30,6 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name IF_XML(, bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML 
-   *this=cH_Fertigkeit(new Fertigkeit(name));  
-   cache.Register(name,*this);
-#else
   cerr << "Fertigkeit '" << name << "' nicht im Cache\n";
   const Tag *t=find_Tag("Fertigkeiten","Fertigkeit","Name",name);
   if (t) *this=cH_Fertigkeit(t);
@@ -49,70 +40,17 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name IF_XML(, bool create))
      *this=cH_Fertigkeit(&t2);
   }
   else throw NotFound();
-#endif
   }
 }
 
-#ifdef USE_XML
 cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
 {assert(tag);
  *this=cH_Fertigkeit(new Fertigkeit(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
 void Fertigkeit::get_Fertigkeit()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   int db_lp,db_lp_l,db_lp_s,db_anfangswert0,db_anfangswert,db_ungelernt,
-         db_kosten,db_berufskategorie;
-   int db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_pa,db_au,db_sb,db_rw;
-   int db_maxwert,db_maxunter;
-   char query[1024],db_region[10],db_attribut[10],db_voraussetzung[50];
-  exec sql end declare section; 
-  std::string squery ="select lp,coalesce(lp_land,99),coalesce(lp_stadt,99),coalesce(anfangswert0,0),
-      coalesce(anfangswert,0),coalesce(ungelernt,-99),coalesce(berufsklasse,0),
-      maxwert,maxunterweisung,
-      coalesce(fp,0),coalesce(region,''),
-      coalesce(attribut,''), coalesce(st,0), coalesce(gw,0),coalesce(gs,0),
-      coalesce(ko,0), coalesce(\"in\",0), coalesce(zt,0),   
-      coalesce(au,0), coalesce(pa,0), 
-      coalesce(sb,0), coalesce(rw,0), coalesce(v.fertigkeit,'')
-      from fertigkeiten f, fertigkeiten_voraussetzung v
-      where f.fertigkeit = '"+Name()+"' and f.fertigkeit = v.name";
-
-  strncpy(query,squery.c_str(),sizeof(query));
-  Transaction tr;
-  exec sql prepare cl_fertigkeit_ein_ from :query ;
-  exec sql declare cl_fertigkeit_ein cursor for cl_fertigkeit_ein_ ;
-
-  exec sql open cl_fertigkeit_ein;
-  SQLerror::test(__FILELINE__);
-  exec sql fetch cl_fertigkeit_ein into :db_lp,:db_lp_l,:db_lp_s, 
-      :db_anfangswert0, :db_anfangswert, :db_ungelernt, :db_berufskategorie, 
-      :db_maxwert,:db_maxunter,:db_kosten, :db_region,
-      :db_attribut, :db_st,:db_gw,:db_gs,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
-      :db_sb,:db_rw, :db_voraussetzung;
-  SQLerror::test(__FILELINE__);
- lern_unge=db_lp;
- lern_land=db_lp_l;
- lern_stadt=db_lp_s;
- maxunterweisung=db_maxunter;
- maxerfolgswert=db_maxwert;
-  anfangswert0=db_anfangswert0;
-  anfangswert=db_anfangswert;
-  ungelernt=db_ungelernt;
-  berufskategorie=db_berufskategorie;
-  erfolgswert=anfangswert; //Defaultwert
-  kosten=db_kosten;
-  region=db_region;
-//cout << Name()<<'\t'<<db_region <<' ' <<Region()<<'\n';
-  attribut=db_attribut;
-  voraussetzung = st_Voraussetzung(db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_au,db_pa,
-                                   db_sb,db_rw,db_voraussetzung);
-  exec sql close cl_fertigkeit_ein;
-#else
   assert(tag);
   lern_unge=tag->getBoolAttr("ZusatzBool",false);
   lern_unge=tag->getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
@@ -145,7 +83,6 @@ void Fertigkeit::get_Fertigkeit()
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusaetze")
       Vzusatz.push_back(i->getAttr("Name"));
-#endif  
 }
 
 bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 
@@ -217,39 +154,6 @@ int Fertigkeit::AttributBonus(const Grundwerte& Werte) const
 
 Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[50][100];
-   int db_size;
- exec sql end declare section;
- exec sql select count(fertigkeit) into :db_size from fertigkeiten;
- exec sql declare FIein cursor for select distinct fertigkeit from fertigkeiten;
- Transaction tr;
- exec sql open FIein;
- SQLerror::test(__FILELINE__);
- double count=0;  
- while(true)   
-  {
-//   progressbar->set_percentage(count/db_size);
-//   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch 50 in FIein into :db_name;
-   SQLerror::test(__FILELINE__,100);  
-//   if (sqlca.sqlcode) break;
-   int j=sqlca.sqlerrd[2];
-   for (int i=0;i<j;++i)
-    {
-      progressbar->set_percentage(count/db_size);
-      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-//      list_All.push_back(new Fertigkeit(db_name[i]));
-//      list_All.push_back(&**(new const cH_Fertigkeit(db_name[i])));
-      list_All.push_back(&*(cH_Fertigkeit(db_name[i])));
-      ++count;
-    }
-   if(j<50) break;
-  }
- exec sql close FIein;
- tr.close();
-#else
  const Tag *fertigkeiten=xml_data->find("Fertigkeiten");
  if (!fertigkeiten)
     cerr << "<Fertigkeiten><Fertigkeit/>... nicht gefunden\n";
@@ -268,7 +172,6 @@ Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_Fertigkeit(&*i)));
     }
  }
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }  
 

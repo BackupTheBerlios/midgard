@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.97 2002/02/04 11:01:01 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.98 2002/02/12 11:22:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,7 @@ gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_latex_clicked(bool values=true)
 {   
- if (!access("document_eingabe.tex",R_OK)) // Files im aktuellen Verzeichnis?
+ if (!access("document_eingabe4.tex",R_OK)) // Files im aktuellen Verzeichnis?
    {
     system("cp document_eingabe4.tex midgard_tmp_document_eingabe.tex");
    }

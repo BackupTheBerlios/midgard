@@ -17,11 +17,6 @@
  */
 
 #include "Spezialgebiet.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "ProgressBar.h"
 
 cH_Spezialgebiet::cache_t cH_Spezialgebiet::cache;
@@ -31,14 +26,7 @@ cH_Spezialgebiet::cH_Spezialgebiet(const std::string& name)
  cH_Spezialgebiet *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML
-  {
-   *this=cH_Spezialgebiet(new Spezialgebiet(name));
-   cache.Register(name,*this);
-  }
-#else
   assert(!"Spezialgebiet im Cache");
-#endif  
 }
 
 bool cH_Spezialgebiet::is_cached(const std::string s)
@@ -48,72 +36,23 @@ bool cH_Spezialgebiet::is_cached(const std::string s)
   return false;
 }
 
-#ifdef USE_XML
 cH_Spezialgebiet::cH_Spezialgebiet(const Tag *tag)
 {*this=cH_Spezialgebiet(new Spezialgebiet(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
-#ifndef USE_XML
-Spezialgebiet::Spezialgebiet(const std::string& _name)
-: nr(0),name(_name)
-#else
 Spezialgebiet::Spezialgebiet(const Tag *tag) 
 : nr(tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index")))
 	, name(tag->getAttr("Name"))
-#endif
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_s[100];
-   char db_typ[10],db_s1[50],db_s2[50];
-   int db_nr;         
- exec sql end declare section;
- strncpy(db_s,Name().c_str(),sizeof(db_s));
- exec sql select typ, nr, coalesce(spezial,''),coalesce(spezial2,'')
-      into :db_typ,:db_nr,:db_s1,:db_s2
-      from spezialgebiete where spezialgebiet=:db_s;
- SQLerror::test(__FILELINE__); 
- typ=db_typ;
- nr=db_nr;
- spezial=db_s1;
- spezial2=db_s2;
-#else
  typ=tag->getAttr("Typ");
  spezial=tag->getAttr("Spezialisierung");
  spezial2=tag->getAttr("Sekundärelement");
-#endif
 }
 
 
 Spezialgebiet_All::Spezialgebiet_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_name[100],db_dummy[10];
-   int db_size,db_dummy2;
- exec sql end declare section;
- exec sql select count(spezialgebiet) into :db_size from spezialgebiete;
- exec sql declare S_EIN cursor for select distinct 
-      spezialgebiet,typ,nr from spezialgebiete order by typ,nr;
- Transaction tr;
- exec sql open S_EIN;
- SQLerror::test(__FILELINE__); 
- double count=0;
- while (true)
-  { 
-    progressbar->set_percentage(count/db_size);
-    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-    exec sql fetch S_EIN  into :db_name,:db_dummy,:db_dummy2;
-    SQLerror::test(__FILELINE__,100); 
-    if (sqlca.sqlcode) break;
-    list_All.push_back(cH_Spezialgebiet(db_name));
-    ++count;
-  }
- exec sql close S_EIN;
- tr.close();
-#else
  const Tag *spezialgebiete=xml_data->find("Spezialgebiete");
  if (spezialgebiete)
  {  Tag::const_iterator b=spezialgebiete->begin(),e=spezialgebiete->end();
@@ -123,7 +62,6 @@ Spezialgebiet_All::Spezialgebiet_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(cH_Spezialgebiet(&*i));
     }
  }   
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }
 

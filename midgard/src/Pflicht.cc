@@ -17,11 +17,6 @@
  */
 
 #include "Pflicht.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "ProgressBar.h"
 
 
@@ -41,7 +36,6 @@ cH_Pflicht::cH_Pflicht(const std::string& spezies,const vector<cH_Typen>& Typ)
 }
 */
 
-#ifdef USE_XML
 
 void Pflicht::SuchePflichtVerbot(const Tag *list,const string &name,
 		pflicht_nach_typ_t &pflicht_nach_typ)
@@ -56,56 +50,9 @@ void Pflicht::SuchePflichtVerbot(const Tag *list,const string &name,
          	(pf("",name,0,0,j->getBoolAttr("Spielbeginn")?"S":""));
    }
 }
-#endif
 
 Pflicht::Pflicht(Gtk::ProgressBar *progressbar)//const std::string& spezies,const vector<cH_Typen>& Typ)
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char TYP[50],PFLICHT[50],VERBOTEN[50];
-   int LERNPUNKTE,ERFOLGSWERT;
-   char SPIELBEGINN[10];
-   char query[1024];
-   int db_size;
-  exec sql end declare section; 
-  exec sql select count(typ) into :db_size from pflicht_lernen;
-  std::string squery="select typ, coalesce(pflicht,''), coalesce(lernpunkte,0),
-      coalesce(verboten,''),coalesce(spielbegin,''),coalesce(erfolgswert,0)
-      from pflicht_lernen order by typ";
-      
-  strncpy(query,squery.c_str(),sizeof(query));
-  Transaction tr;
-  exec sql prepare cl_pflicht_ein_ from :query ;
-  exec sql declare cl_pflicht_ein cursor for cl_pflicht_ein_ ;
-
-  exec sql open cl_pflicht_ein;
-  SQLerror::test(__FILELINE__);
-  std::list<pf> list_pflicht;
-  std::string typmem="";
-  double count=0;
-  while (true)
-   {
-     progressbar->set_percentage(count/db_size);
-     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-     exec sql fetch cl_pflicht_ein into :TYP, :PFLICHT, :LERNPUNKTE, :VERBOTEN,
-         :SPIELBEGINN,:ERFOLGSWERT;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     if(typmem==std::string(TYP) || typmem=="")
-      {
-        list_pflicht.push_back(pf(PFLICHT,VERBOTEN,LERNPUNKTE,ERFOLGSWERT,SPIELBEGINN));
-      }      
-     else
-      {
-        pflicht_map[TYP] = list_pflicht;
-        list_pflicht.clear();
-      }
-     typmem=TYP;
-     ++count;
-   }
- exec sql close cl_pflicht_ein;
- tr.close();
-#else
  pflicht_nach_typ_t pflicht_nach_typ;
  const Tag *Fertigkeiten=xml_data->find("Fertigkeiten");
  if (Fertigkeiten)
@@ -149,7 +96,6 @@ Pflicht::Pflicht(Gtk::ProgressBar *progressbar)//const std::string& spezies,cons
  		i!=pflicht_nach_typ.end();++i)
     pflicht_map[i->first] = i->second;
 
-#endif 
  ProgressBar::set_percentage(progressbar,1);
 }
 

@@ -19,11 +19,6 @@
 
 #include "Waffe.hh"
 #include "midgard_CG.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#endif
 #include "Typen.hh"
 #include "ProgressBar.h"
 #include <Aux/itos.h>
@@ -36,10 +31,6 @@ cH_Waffe::cH_Waffe(const std::string& name IF_XML(, bool create))
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML 
-   *this=cH_Waffe(new Waffe(name));  
-   cache.Register(name,*this);
-#else
   cerr << "Waffe '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Waffe"); 
@@ -48,73 +39,16 @@ cH_Waffe::cH_Waffe(const std::string& name IF_XML(, bool create))
      *this=cH_Waffe(&t2);
   }
   else throw NotFound();
-#endif
   }
 }
 
-#ifdef USE_XML
 cH_Waffe::cH_Waffe(const Tag *tag)
 {*this=cH_Waffe(new Waffe(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
 void Waffe::get_Waffe()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   int db_schwierigkeit,db_schaden_b, db_st,db_gw,db_gs,
-      db_reichweite_0,db_reichweite_n,db_reichweite_m,
-      db_reichweite_f,db_lern_l,db_lern_s;
-   char query[1024],db_grundkenntnisse[50],db_art[50],db_art2,
-      db_region[10],db_schaden[30],db_waffenrang[10],
-      db_wm_abwehr_leicht[10], db_wm_abwehr_schwer[10], db_voraussetzung[50];
-  exec sql end declare section; 
-  std::string squery ="select grundkenntnisse,schwierigkeit,art,coalesce(art_2,''),
-      coalesce(schaden,''),coalesce(schaden_b,''),
-      coalesce(waffenrang,''),coalesce(wm_abwehr_leicht,''),
-      coalesce(wm_abwehr_schwer,''),coalesce(st,0),coalesce(gw,0),coalesce(gs,0),
-      coalesce(zusatz,''),
-      coalesce(region,''),coalesce(reichweite_0,-1),
-      coalesce(reichweite_n,-1),coalesce(reichweite_m,-1),
-      coalesce(reichweite_f,-1),coalesce(lern_land,99),coalesce(lern_stadt,99)
-      from waffen
-      where name = '"+Name()+"'";
-//      where name = '"+get_waffe_from_alias(Name())+"'";
-  strncpy(query,squery.c_str(),sizeof(query));
-  Transaction tr;
-  exec sql prepare cl_waffen_ein_ from :query ;
-  exec sql declare cl_waffen_ein cursor for cl_waffen_ein_ ;
-
-//cout << query<<'\n';
-  exec sql open cl_waffen_ein;
-  SQLerror::test(__FILELINE__);
-  exec sql fetch cl_waffen_ein into 
-   :db_grundkenntnisse,:db_schwierigkeit,:db_art,:db_art2,:db_schaden,
-   :db_schaden_b,:db_waffenrang,:db_wm_abwehr_leicht,:db_wm_abwehr_schwer,
-   :db_st,:db_gw,:db_gs,:db_voraussetzung,:db_region,:db_reichweite_0,:db_reichweite_n,
-   :db_reichweite_m,:db_reichweite_f,:db_lern_l,:db_lern_s;
-  SQLerror::test(__FILELINE__);
-   grundkenntnisse=db_grundkenntnisse;
-   schwierigkeit=db_schwierigkeit;
-   art=db_art;
-//cout << "Waffe, art = "<<db_art<<' '<<art<<' '<<Art()<<'\n';
-   art2=db_art2;
-   schaden=db_schaden;
-   schaden_bonus=db_schaden_b;
-   waffenrang=db_waffenrang;
-   wm_abwehr_leicht=db_wm_abwehr_leicht;
-   wm_abwehr_schwer=db_wm_abwehr_schwer;
-   st=db_st; gw=db_gw; gs=db_gs;
-   voraussetzung=db_voraussetzung;
-   region=db_region;
-   reichweite_0=db_reichweite_0;reichweite_n=db_reichweite_n;
-   reichweite_m=db_reichweite_m;reichweite_f=db_reichweite_f;
-   lern_land=db_lern_l; lern_stadt=db_lern_s;
-
-  exec sql close cl_waffen_ein;
-  tr.close();
-#else
    assert(tag);
    grundkenntnisse=tag->getAttr("Grundkenntnisse");
    schwierigkeit=tag->getIntAttr("Schwierigkeit");
@@ -152,7 +86,6 @@ void Waffe::get_Waffe()
    {  lern_land=Lernkosten->getIntAttr("Land");
       lern_stadt=Lernkosten->getIntAttr("Stadt");
    }
-#endif
 
    if(Art()=="Verteidigung") erfolgswert=1;
    else erfolgswert=4;   
@@ -160,38 +93,6 @@ void Waffe::get_Waffe()
 
 void Waffe::get_Alias() 
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char query[1024], db_alias[50], db_region[10], db_schaden[30];
-   int db_schaden_b,db_angriffs_mod;
-  exec sql end declare section; 
-  std::string squery ="select alias,
-      coalesce(r.schaden,w.schaden,''),coalesce(r.schaden_b,w.schaden_b,0),
-      coalesce(angriffs_mod,''),r.region
-      from waffen_region_name r,waffen w where r.name=w.name
-      and r.name = '"+Name()+"'";
-  strncpy(query,squery.c_str(),sizeof(query));
-  Transaction tr;
-  exec sql prepare cl_walias_ein_ from :query ;
-  exec sql declare cl_walias_ein cursor for cl_walias_ein_ ;
-
-//cout << query<<'\n';
-  exec sql open cl_walias_ein;
-  SQLerror::test(__FILELINE__);
-  while (true)
-   {
-     exec sql fetch cl_walias_ein into 
-      :db_alias,:db_schaden,:db_schaden_b,:db_angriffs_mod,:db_region;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     list_alias.push_back(st_alias( db_alias,db_region,db_schaden,db_schaden_b,db_angriffs_mod));
-   }
-  exec sql close cl_waffen_ein;
-  tr.close();
-//
-//for (list<Waffe::st_alias>::const_iterator j=list_alias.begin();j!=list_alias.end();++j)
-//cout << Name()<<'\t'<<(*j).name<<'\t'<<(*j).region<<'\n';
-#else
     assert(tag);
     FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleVariante")
     {  int Angriff=0;
@@ -200,7 +101,6 @@ void Waffe::get_Alias()
        list_alias.push_back(st_alias(i->getAttr("Name"),i->getAttr("Region"),
        		i->getAttr("Schaden"),i->getIntAttr("Schadensbonus"),Angriff));
     }
-#endif
 }
 
 
@@ -323,31 +223,6 @@ std::string Waffe::Schwierigkeit_str() const
 map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progressbar)
 {
   map<std::string,std::string> M;
-
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_alias[50];
-   char db_name[50];
-   int db_size;
-  exec sql end declare section;
-  exec sql select count(name) into :db_size from waffen_region_name;  
-  exec sql declare WAliasC cursor for select name,alias from
-      waffen_region_name;
-  Transaction tr;  
-  exec sql open WAliasC;
-  double count=0;
-  while (true)
-   {
-     progressbar->set_percentage(count/db_size);
-     exec sql fetch WAliasC into :db_name,:db_alias;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;     
-     M[db_alias]=db_name;
-     ++count;
-   }
-  tr.close();
-  exec sql close WAliasC;
-#else  
  const Tag *waffen=xml_data->find("Waffen");
  if (!waffen)
     cerr << "<Waffen><Waffe/>... nicht gefunden\n";
@@ -361,7 +236,6 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
           M[j->getAttr("Name")]=i->getAttr("Name");
     }
  }
-#endif  
   ProgressBar::set_percentage(progressbar,1);
   return M;
 }
@@ -442,36 +316,6 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
 
 Waffe_All::Waffe_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[50][100];
-   int db_size;
- exec sql end declare section;
- exec sql select count(name) into :db_size from waffen;
- exec sql declare WAein cursor for select distinct name from waffen;
- Transaction tr;
-
- exec sql open WAein;
- SQLerror::test(__FILELINE__);  
- double count=0;
- while(true)   
-  {
-   exec sql fetch 50 in WAein into :db_name;
-   SQLerror::test(__FILELINE__,100);
-//   if (sqlca.sqlcode) break;
-   int j=sqlca.sqlerrd[2];
-   for (int i=0;i<j;++i)
-    {
-      progressbar->set_percentage(count/db_size);
-//      list_All.push_back(new Waffe(db_name[i]));
-      list_All.push_back(&*(cH_Waffe(db_name[i])));
-      ++count;
-     }
-   if(j<50) break;
-  }
- exec sql close WAein;
- tr.close();
-#else
  const Tag *waffen=xml_data->find("Waffen");
  if (!waffen)
     cerr << "<Waffen><Waffe/>... nicht gefunden\n";
@@ -484,6 +328,5 @@ Waffe_All::Waffe_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_Waffe(&*i)));
     }
  }
-#endif
  ProgressBar::set_percentage(progressbar,1);
 }
