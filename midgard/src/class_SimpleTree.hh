@@ -23,32 +23,15 @@ class Data_SimpleTree : public RowDataBase
          const Ausnahmen& _ausnahmen,const Grundwerte &_Werte) 
    : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen),Werte(_Werte) {}
 
-//   enum Spalten_FA {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN} ;
    enum Spalten_LONG_ALT {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN} ;
-//   enum Spalten_FN {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
    enum Spalten_LONG_NEU {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
    enum Spalten_WAFFEGRUND {NAMEa_G,STANDARDa_G,KOSTEN_G};
    enum Spalten_SPRACHE_NEU {NAMEsn,SCHRIFTsn,LERNKOSTENsn};
-   enum Spalten_SCHRIFT_NEU {NAMErsn,KOSTENn_SC};
+   enum Spalten_SCHRIFT_ALT {NAMEsa,ARTsa,WERTsa,PPsa,STANDARDsa,STEIGERNs,REDUZIERENs,VERLERNENs} ;
+   enum Spalten_SCHRIFT_NEU {NAMErsn,ARTrsn,KOSTENn_SC};
    enum Spalten_KIDO {HOHOa_K,NAMEa_K,STUFEa_K,APa_K,KOSTENa_K,STILa_K,} ;
    enum Spalten_ZAUBER {NAMEn_Z,STUFEn_Z,URSPRUNGn_Z,KOSTENn_Z,STANDARDn_Z};
    enum Spalten_ZAUBERWERK {STUFEn_ZW,NAMEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW};
-
-/*
-   enum Spalten_WA {NAMEa_W,WERTa_W,PPa_W,STANDARDa_W,STEIGERN_W,REDUZIEREN_W,VERLERNEN_W} ;
-   enum Spalten_WN {NAMEn_W,WERTn_W,STANDARDn_W,VORAUSSETZUNGEN_W};
-   enum Spalten_GA {NAMEa_G,STANDARDa_G};
-   enum Spalten_GN {NAMEn_G,STANDARDn_G,KOSTEN_G};
-   enum Spalten_ZA {NAMEa_Z,STUFEa_Z,URSPRUNGa_Z,KOSTENa_Z} ;
-   enum Spalten_ZN {NAMEn_Z,STUFEn_Z,URSPRUNGn_Z,KOSTENn_Z,STANDARDn_Z};
-   enum Spalten_ZWA{STUFEa_ZW,NAMEa_ZW,ARTa_ZW,KOSTENa_ZW} ;
-   enum Spalten_ZWN{STUFEn_ZW,NAMEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW};
-   enum Spalten_KA {HOHOa_K,NAMEa_K,STUFEa_K,APa_K,KOSTENa_K,STILa_K,} ;
-   enum Spalten_SPA{NAMEa_SP,WERTa_SP,PPa_SP,STEIGERN_SP,REDUZIEREN_SP,VERLERNEN_SP} ;
-   enum Spalten_SPN{NAMEn_SP,URSCHRIFT_SP,KOSTEN_SP} ;
-   enum Spalten_SCA{NAMEa_SC,WERTa_SC,PPa_SC,STEIGERNa_SC,REDUZIERENa_SC,VERLERNENa_SC};
-   enum Spalten_SCN{NAMEn_SC,KOSTENn_SC} ;
-*/
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
@@ -110,9 +93,21 @@ class Data_SimpleTree : public RowDataBase
          case SCHRIFTsn : return cH_EntryValueIntString(cH_Sprache(MBE)->Schriften()); 
          case LERNKOSTENsn : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
+      if (Variante==MidgardBasicTree::SCHRIFT_ALT)
+       switch((Spalten_SCHRIFT_ALT)seqnr) {
+         case NAMEsa : return cH_EntryValueIntString(MBE->Name());
+         case ARTsa : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
+         case WERTsa : return cH_EntryValueIntString(MBE->Erfolgswert());
+         case PPsa : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
+         case STANDARDsa : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
+         case STEIGERNs : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
+         case REDUZIERENs : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
+         case VERLERNENs : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen)); 
+        }
       if (Variante==MidgardBasicTree::SCHRIFT_NEU)
        switch ((Spalten_SCHRIFT_NEU)seqnr) {
          case NAMErsn    : return cH_EntryValueIntString(MBE->Name());
+         case ARTrsn     : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
          case KOSTENn_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
       if (Variante==MidgardBasicTree::KIDO)

@@ -4,6 +4,8 @@ NEWS IN VERSION 0.1delta3
 * Sprachen und Schrift funktionieren richtig (hoffentlich)
 * Sprechen von verwandten Sprachen mit erniedrigtem Erfolgswert 
    (im Charakterdokument)
+* Schriften werden automatisch auf +8 gekonnt, wenn man die Sprache und eine
+   andere Schrfit mit derselben Schriftart gutgenug beherrscht. (Alles klar?:-)
 * Zahlreiche Bugs (Datenbank und Programm) beseitigt
 * Und nochmehr Bugs, Bugs, Bugs .... beseitigt
 * Praxispunkte für Abwehr/Zauber/Resistenz: speichern, laden, setzen, anzeigen
@@ -28,6 +30,7 @@ TODO:
 * Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
    und dem dazugehörigen Abwerbonus noch nicht.
 * Landeskunde als Berufsfähigkeit für 3 Berufe
+* späteres Lernen von 'Landeskunde Heimat' mit erhötem Erfolgswert.
 
 ##########################################################################
 NEWS IN VERSION 0.1delta2

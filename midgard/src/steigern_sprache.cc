@@ -122,25 +122,24 @@ void midgard_CG::neue_schrift_wegen_sprache()
   // Alle gelernten Sprachen testen
   for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
    {
-cout <<"gelernte Sprache: "<< (*i)->Name()<<' '<<(*i)->Erfolgswert()<<'\n';
      if((*i)->Erfolgswert()<10) continue;
      // welche Schriften gehören zu dieser Sprache?
      std::vector<std::string> VS=cH_Sprache(*i)->Schrift();
      for(std::vector<std::string>::const_iterator j=VS.begin();j!=VS.end();++j)
       {
         cH_Schrift s(*j);
-cout <<"benötigte Schrift: "<< s->Name() <<" ist gelernt: ";
-cout << s->ist_gelernt(list_Schrift)<<" Erfolgsert= "<<s->Erfolgswert()<<'\n';
         if(s->ist_gelernt(list_Schrift)) continue;
 //        std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(list_Schrift);
         std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(Database.Schrift);
         for(std::list<cH_MidgardBasicElement>::const_iterator k=gS.begin();k!=gS.end();++k)
          {
-            
            if(s->Name()!=(*k)->Name()) continue;
            int e=andereSprache_gleicheSchriftart(s->Art_der_Schrift());
-cout << "gleiche Schrift: "<<(*k)->Name()<<' '<<e<<'\n';
-           if(e>12) list_Schrift.push_back(*k);           
+           if(e>=12) 
+            {
+              (*k)->set_Erfolgswert(8);   
+              list_Schrift.push_back(*k); 
+            }
          }
       }
    }  
@@ -151,7 +150,6 @@ int midgard_CG::andereSprache_gleicheSchriftart(std::string art)
   int e=0;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
    {
-cout << art<<' '<<(*i)->Name()<<' '<<cH_Schrift(*i)->Art_der_Schrift()<<' '<<'\n';
      if (cH_Schrift(*i)->Art_der_Schrift()==art)
         if( (*i)->Erfolgswert() > e ) 
            e = (*i)->Erfolgswert();

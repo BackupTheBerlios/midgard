@@ -8434,10 +8434,10 @@ Spruchrolle</label>
 			    <handler>on_leaf_selected_alte_schrift</handler>
 			    <last_modification_time>Fri, 22 Jun 2001 09:01:42 GMT</last_modification_time>
 			  </signal>
-			  <creation_function>MidgardBasicTree(MidgardBasicTree::LONG_ALT)</creation_function>
+			  <creation_function>MidgardBasicTree(MidgardBasicTree::SCHRIFT_ALT)</creation_function>
 			  <int1>0</int1>
 			  <int2>0</int2>
-			  <last_modification_time>Mon, 31 Dec 2001 12:15:44 GMT</last_modification_time>
+			  <last_modification_time>Mon, 07 Jan 2002 08:31:23 GMT</last_modification_time>
 			</widget>
 		      </widget>
 		    </widget>
@@ -9646,7 +9646,7 @@ eingeben</label>
 		    <last_modification_time>Wed, 26 Dec 2001 18:29:57 GMT</last_modification_time>
 		  </signal>
 		  <climb_rate>1</climb_rate>
-		  <digits>0</digits>
+		  <digits>2</digits>
 		  <numeric>False</numeric>
 		  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
 		  <snap>False</snap>

@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.hh,v 1.1 2002/01/02 09:15:03 thoma Exp $
+// $Id: MidgardBasicTree.hh,v 1.2 2002/01/07 08:38:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,7 +28,7 @@
 class MidgardBasicTree : public SimpleTree
 {
   public: 
-      enum variante {LONG_ALT,LONG_NEU,SPRACHE_NEU,SCHRIFT_NEU,WAFFEGRUND,
+      enum variante {LONG_ALT,LONG_NEU,SPRACHE_NEU,SCHRIFT_ALT,SCHRIFT_NEU,WAFFEGRUND,
                      ZAUBER,ZAUBERWERK,KIDO};
       MidgardBasicTree(variante V);
   private:
