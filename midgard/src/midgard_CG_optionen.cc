@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.48 2002/02/08 15:08:56 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.49 2002/02/12 07:15:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,13 +22,18 @@
 
 void midgard_CG::on_checkbutton_optionen_menu(st_Optionen O)
 {
-  if (O.menuitem->get_active()) O.active=true;
+  if (O.checkmenuitem->get_active()) O.active=true;
   else O.active=false;
   
   if(O.index==Original) checkbutton_original(O.active);
-  if(O.index==LernschemaSensitive) lernschema_sensitive(true);
   if(O.index==showPics) Pics(O.active);
 }
+void midgard_CG::on_optionen_menu(st_OptionenM O)
+{
+  if(O.index==LernschemaSensitive) lernschema_sensitive(true);
+}
+
+
 
 void midgard_CG::checkbutton_original(bool active)
 {
@@ -77,16 +82,6 @@ void midgard_CG::lernschema_sensitive(bool active)
    button_kido_auswahl->set_sensitive(true);
 //   table_lernschema_buttons->set_sensitive(true);
 }
-
-
-/*
-void midgard_CG::on_checkbutton_version_menu()
-{
-  if (OptionMenu.menu_version->get_active()) OptionBool.version=true;
-  else OptionBool.version=false;
-  OptionMenu.menu_version->set_active(OptionBool.version);
-}
-*/
 
 
 void midgard_CG::Pics(bool b)
@@ -169,8 +164,6 @@ void midgard_CG::Hausregeln_setzen(bool b)
      i->menu->set_active(b);
    }
 }
-
-
 
 void midgard_CG::regnot(const std::string& sadd)
 {

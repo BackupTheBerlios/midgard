@@ -20,13 +20,15 @@
 #include "Pflicht.hh"
 #include <Gtk_OStream.h>
 #include "Fertigkeiten.hh"
+#include "Waffe.hh"       
+
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
 {
   list_Fertigkeit_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
-     if ((*i)->ist_gelernt(list_Fertigkeit) && !f->ZusatzBool()) continue ;
+     if ((*i)->ist_gelernt(list_Fertigkeit) && !f->ZusatzBool(Typ)) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
      if (f->Name()=="Zaubern" && Typ[0]->is_mage() || f->Name()=="Zaubern" && Typ[1]->is_mage() ) continue;
@@ -141,7 +143,17 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
         os <<(*i)->Name()<<'\n';
         os.flush(MBE->ref(),&HandleContent::unref);
       }
-  else if(MBE->Name()=="Geheimzeichen")
+  else if(MBE->Name()=="Scharfschieﬂen")
+     for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+      {
+        if (cH_Waffe(*i)->Art()=="Schuﬂwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
+         {
+           os <<(*i)->Name()<<'\n';
+           os.flush(MBE->ref(),&HandleContent::unref);
+   
+         }
+      }
+  else
    {
      std::vector<std::string> VZ=cH_Fertigkeit(MBE)->VZusatz();
      for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)

@@ -52,8 +52,7 @@ void midgard_CG::zauber_zeigen()
  steigern_aktivieren();
  MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Zauber    ,alte_zauber_tree,Werte,Typ,Database.ausnahmen);
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
+ zauberwerk_zeigen();
 }
 
 void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
@@ -61,7 +60,6 @@ void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
  if(MidgardBasicElement_leaf_alt(d))
   {
    zauber_zeigen();
-   zauberwerk_zeigen();
   }
 }
 
@@ -70,7 +68,6 @@ void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
 {  
   MidgardBasicElement_leaf_neu(d);
   zauber_zeigen();
-  zauberwerk_zeigen();
 }
 
 void midgard_CG::on_togglebutton_zaubersalze_toggled()

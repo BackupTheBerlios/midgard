@@ -125,12 +125,12 @@ COPY "fertigkeiten" FROM stdin;
 5	\N	\N	\N	Kenntnis der fünf Klassiker	\N	2500	K	\N	\N	\N	18	18	\N
 5	\N	\N	\N	Orakelkunst	\N	60	K	\N	\N	\N	18	18	\N
 5	\N	\N	\N	TaiTschi	\N	100	K	\N	\N	\N	18	18	\N
-6	4	\N	8	Abrichten	6	400	\N	pA	\N	3	18	13	\N
+6	4	\N	8	Abrichten	6	400	\N	pA	\N	3	18	13	t
 6	\N	\N	1	Askese	1	1500	R	Sb	\N	2	18	18	\N
 6	\N	\N	2	Kampf in Dunkelheit	2	300		Gw	\N	3	16	14	\N
 6	\N	\N	3	Beidhändiger Kampf	3	1500		Gw	\N	\N	16	15	\N
 6	\N	\N	4	Fechten	4	800		\N	\N	\N	16	15	\N
-6	\N	\N	5	Scharfschießen	4	800		Gs	\N	\N	16	16	\N
+6	\N	\N	5	Scharfschießen	4	800		Gs	\N	\N	16	16	t
 6	\N	\N	8	Meucheln	6	800		Gs	0	4	20	16	\N
 6	\N	\N	8	Schiffsführung	6	150	\N	In	\N	2	20	16	\N
 6	\N	\N	15	Elefanten lenken	12	1000	R	Gw	\N	\N	18	18	\N
@@ -177,7 +177,7 @@ COPY "fertigkeiten" FROM stdin;
 99	2	2	8	Seilkunst	6	50		Gs	4	1	18	14	\N
 99	2	2	9	Schreiben: Muttersprache(+9)	9	0	\N	In	\N	\N	18	17	\N
 99	2	2	10	Landeskunde (Heimat)	9	100	\N	In	8	2	16	13	t
-99	2	2	12	Musizieren	8	80		Gs	\N	1	20	16	\N
+99	2	2	12	Musizieren	8	80		Gs	\N	1	20	16	t
 99	3	3	5	Sagenkunde	4	100		In	0	2	16	13	\N
 99	3	3	8	Erste Hilfe	6	100		Gs	\N	2	18	13	\N
 99	3	3	12	Schreiben: Muttersprache(+12)	12	0	\N	In	\N	1	18	17	\N

@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.39 2002/02/08 14:34:18 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.40 2002/02/12 07:15:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -109,10 +109,10 @@ void Window_Waffe_Geld::Geld()
  else if (Typ[0]->Geld() == 2) igold+=0;
  else if (Typ[0]->Geld() == 3) igold+=6;
  else if (Typ[0]->Geld() == 4) igold+=3;
- if(V[0]==V[1] && V[1]==V[2]) igold += 100;
 
- if(Werte.Stand()=="Adel" ) igold*=3;
+ if(Werte.Stand()=="Adel" ) igold*=2;
  if(Werte.Stand()=="Unfrei" ) igold/=2;
+ if(V[0]==V[1] && V[1]==V[2]) igold += 100;
 
  std::string strinfo ="Beim Auswürfeln von Geld wurden \n"
    +itos(V[0])+"  "+itos(V[1])+"  "+itos(V[2])+"\n gewürfelt\n";

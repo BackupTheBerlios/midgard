@@ -146,18 +146,12 @@ void midgard_CG::xml_export(const std::string& dateiname)
    // Regionen & Ähnliches
    for (std::list<st_Optionen>::const_iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
     {
+cout << i->text<<' '<<i->active<<'\n';
       datei << "    <bool";
       write_string_attrib(datei, "Name", i->text);
       write_bool_attrib_force(datei, "Wert", i->active);
       datei << "/>\n";
     }
-/*
-   if (!OptionBool.Original) datei << "    <bool ORIG=\"false\"/>\n";
-   if (!OptionBool.Info) datei << "    <bool INFO=\"false\"/>\n";
-   if (!OptionBool.Pics) datei << "    <bool PICS=\"false\"/>\n";
-   if (!OptionBool.version) datei << "    <bool VERS=\"false\"/>\n";
-   if (!HausregelCheck(EPsteigern).active) datei << "    <bool STEI=\"false\"/>\n";
-*/
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {  if (!(*i)->Active()) continue;
       datei << "    <Region";

@@ -107,63 +107,16 @@ void Zauberwerk::get_Zauberwerk()
 
 void Zauberwerk::getVoraussetzungen()
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[50];
-   char db_voraus[50];
-   char db_operator[50];
- exec sql end declare section;
- strncpy(db_name,Name().c_str(),sizeof(db_name));
- exec sql declare ZWVein cursor for 
-   select voraussetzung, coalesce(verbindung,'') 
-   from zauberwerk_voraussetzung where name=:db_name;
- Transaction tr;
- exec sql open ZWVein;
- SQLerror::test(__FILELINE__);    
- while (true)
-  {
-   exec sql fetch ZWVein into :db_voraus, :db_operator;
-   SQLerror::test(__FILELINE__,100);    
-   if (sqlca.sqlcode) break;
-   vec_vor.push_back(st_vor(db_voraus,db_operator));
-  }
- exec sql close ZWVein;
- tr.close();
-#else
    assert(tag);
    FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzung")
       vec_vor.push_back(st_vor(i->getAttr("Fertigkeit"),i->getAttr("Verbindung")));
-#endif
 }
 
 void Zauberwerk::getVoraussetzungenFert()
 {
-#ifndef USE_XML
- exec sql begin declare section;
-   char db_name[50];
-   char db_voraus[50];
- exec sql end declare section;
- strncpy(db_name,Art().c_str(),sizeof(db_name));
- exec sql declare ZWVFein cursor for 
-   select voraussetzung 
-   from zauberwerk_voraussetzung where name=:db_name;
- Transaction tr;
- exec sql open ZWVFein;
- SQLerror::test(__FILELINE__);    
- while (true)
-  {
-   exec sql fetch ZWVFein into :db_voraus;
-   SQLerror::test(__FILELINE__,100);    
-   if (sqlca.sqlcode) break;
-   vec_vorF.push_back(st_vor(db_voraus,""));
-  }
- exec sql close ZWVFein;
- tr.close();
-#else
    assert(tag);
-   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzung_Art")
-      vec_vor.push_back(st_vor(i->getAttr("Fertigkeit"),""));
-#endif
+   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzung_Fertigkeit")
+      vec_vorF.push_back(st_vor(i->getAttr("Fertigkeit"),""));
 }
 
 

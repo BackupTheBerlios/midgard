@@ -1,4 +1,48 @@
 ##########################################################################
+NEWS IN VERSION 0.4delta2
+
+* Jede Menge kleinerer Bugfixes
+* Goldberechnung bei Charaktererschaffung korrigiert
+* Berechnung der Resistenz (Geist+Körper) korrigiert
+* "Binden" wird angezeigt 
+* Andere Bugs bei Zauberwerk Voraussetzungen  entfernt.
+* Abrichten mit Zusatz (wie Geheimsprache) außer für Tiermeister
+* Geheimzeichen-Liste zum auswählen
+* Scharfschießen wie 'Geheimzeichen'
+* Musizieren für versch. Instrumente
+* Optionen jetzt zweigeteilt (Checkmenu und Menu)
+
+TODO:
+* Es sind die beiden Infofenster, die beim Auswürfeln 
+   von Geld und Waffen im Lernschema auftauchen. 
+   Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT
+* Spezialwaffe auswählen geht nicht
+* Abspeichern und Laden von Optionen 
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* Erfolgswerte editierbar (verlernbar)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+* Doppelklassen:
+> - Bei "Elfen":
+>            -  werden die "Muss-Fertigkeiten" (Schleichen, Tarnen, etc.)
+> nicht für einen, sondern für mehr Lernpunkte angezeigt.
+>            - werden bei der Erschaffung und der Auswahl "Elf" die
+> Eigenschaftswerte nicht entsprechend der Spezies ermittelt, d.h. Mindest und
+> Höchstwerte für Eigenschaften werden vom Zufallsgenerator ignoriert.
+>           - nach Auswahl von Doppeltyp (Kriegerin/graue Hexe) bekomme ich
+> (zum Teil) negative Lernpunkte angezeigt (offenbar die vom "Zweittyp" - auch
+> bei Zaubersprüchen wird für jeden "-1" angezeigt), was dazu führt, dass ich
+> Lernpunkte hinzu bekomme, statt welche durch Auswahl von Fertigkeiten zu
+> verlieren.
+>          - Bei Doppeltypen werden Fertigekeiten offenbar zweifach
+> eingelesen, das ist sehr unübersichtlich. Außerdem bleibt das "-1"
+> Lernpunkte Problem bestehen (reproduzierbarer Fehler).
+
+##########################################################################
 NEWS IN VERSION 0.4delta1
 
 * kleinere Bugfixes

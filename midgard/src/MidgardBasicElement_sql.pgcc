@@ -139,7 +139,7 @@ void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
         write_string_attrib(datei, "Art", cH_Zauberwerk(*i)->Art());
         write_string_attrib(datei, "Stufe", cH_Zauberwerk(*i)->Stufe());
       }
-      else if ((*i)->What()==FERTIGKEIT && cH_Fertigkeit(*i)->ZusatzBool())
+      else if ((*i)->What()==FERTIGKEIT && cH_Fertigkeit(*i)->ZusatzBool(Typ))
          write_string_attrib(datei, "Zusatz", cH_Fertigkeit(*i)->Zusatz());
       datei << "/>\n";
    }

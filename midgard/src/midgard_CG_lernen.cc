@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.66 2002/02/10 21:48:37 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.67 2002/02/12 07:15:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -571,6 +571,10 @@ bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert,bool 
 
  if      (fert=="Geheimzeichen") 
     { launch=true;  mod=Sprache_auswahl::GEHEIMZEICHEN; }
+ else if (fert=="Musizieren") 
+    { launch=true;  mod=Sprache_auswahl::MUSIZIEREN; }
+ else if (fert=="Scharfschieﬂen") 
+    { launch=true;  mod=Sprache_auswahl::SCHARFSCHIESSEN; }
  else if (fert=="Landeskunde") 
     { launch=true;  mod=Sprache_auswahl::LAND; }
  else if (fert=="Landeskunde (Heimat)")
@@ -597,6 +601,7 @@ bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert,bool 
    
  if(auswahl && launch)
      manage (new Sprache_auswahl(this,Database,Werte,MBE,mod,wert,
+                                 list_Waffen,
                                  list_Sprache,list_Schrift,list_Fertigkeit));
  return launch;
 }

@@ -138,7 +138,7 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   else if (was==Ausdauer) womit=3;
   else if (was==Zaubern) womit=2;
   else if (was==Resistenz) womit=3;
-  else if (was==Abwehr) womit=1;
+  else if (was==Abwehr) womit=3;
   else assert(!"Fehler in steigern_EP.cc:steigern_usp");
 cout << (*MBE)->Name()<<'\t'<<womit<<'\n';
   if(womit==1 || womit==3) bkep=true;

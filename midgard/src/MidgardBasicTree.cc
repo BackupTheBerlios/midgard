@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.7 2002/02/08 09:52:38 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.8 2002/02/12 07:15:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -128,8 +128,8 @@ void MidgardBasicTree::set_tree_titles(variante V)
    }
   if(V==ZAUBERWERK)
    {
-     vs.push_back("Stufe");
      vs.push_back("Name");   
+     vs.push_back("Stufe");
      vs.push_back("Art");
      vs.push_back("Kosten");
      vs.push_back("Preis");

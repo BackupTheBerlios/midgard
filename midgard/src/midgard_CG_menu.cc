@@ -121,11 +121,29 @@ void midgard_CG::menu_init()
       Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
       _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
      }
-    i->menuitem=manage(new Gtk::CheckMenuItem());
-    i->menuitem->add(*_tab);    
-    i->menuitem->activate.connect(SigC::bind(SigC::slot(this,i->funktion),*i));
-    i->menuitem->set_active(i->active);
-    optionen_menu->append(*(i->menuitem));
+    i->checkmenuitem=manage(new Gtk::CheckMenuItem());
+    i->checkmenuitem->add(*_tab);    
+    i->checkmenuitem->activate.connect(SigC::bind(SigC::slot(this,i->funktion),*i));
+    i->checkmenuitem->set_active(i->active);
+    optionen_menu->append(*(i->checkmenuitem));
+   } 
+  for(std::list<st_OptionenM>::iterator i=list_OptionenM.begin();i!=list_OptionenM.end();++i)
+   {
+    Gtk::Label *_l=manage (new Gtk::Label(i->text));
+    Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
+    _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
+    if(i->bild) 
+     {
+      Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
+      _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
+     }
+    if(i->menuitem)
+     {
+       i->menuitem=manage(new Gtk::MenuItem());
+       i->menuitem->add(*_tab);    
+       i->menuitem->activate.connect(SigC::bind(SigC::slot(this,i->funktion),*i));
+       optionen_menu->append(*(i->menuitem));
+     }
    } 
 
 /*
@@ -170,15 +188,7 @@ void midgard_CG::menu_init()
   Gtk::Menu *im_ex_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *im_ex = manage(new class Gtk::MenuItem("Import/Export"));
   im_ex->set_submenu(*im_ex_menu);
-/*
-  Gtk::MenuItem *xml_import = manage(new class Gtk::MenuItem("xml Import"));
-  im_ex_menu->append(*xml_import);
-  xml_import->activate.connect(SigC::slot(this,&midgard_CG::xml_import_auswahl));
 
-  Gtk::MenuItem *xml_export = manage(new class Gtk::MenuItem("xml Export"));
-  im_ex_menu->append(*xml_export);
-  xml_export->activate.connect(SigC::slot(this,&midgard_CG::xml_export_auswahl));
-*/
   Gtk::MenuItem *Elsa_export = manage(new class Gtk::MenuItem("Export im Format für gedruckte Abenteuer"));
   im_ex_menu->append(*Elsa_export);
   Elsa_export->activate.connect(SigC::slot(this,&midgard_CG::spielleiter_export));
@@ -266,11 +276,12 @@ void midgard_CG::Optionen_init()
   list_Optionen.push_back(st_Optionen(showPics,menu_pics,
                            "Bilder anzeigen",true,0,
                            &midgard_CG::on_checkbutton_optionen_menu));
-  Gtk::CheckMenuItem *menu_lernschema_sensitive;
-  list_Optionen.push_back(st_Optionen(LernschemaSensitive,
+
+  Gtk::MenuItem *menu_lernschema_sensitive;
+  list_OptionenM.push_back(st_OptionenM(LernschemaSensitive,
                            menu_lernschema_sensitive,
-                           "Lernschema auswählbar machen",true,0,
-                           &midgard_CG::on_checkbutton_optionen_menu));
+                           "Lernschema auswählbar machen",0,
+                           &midgard_CG::on_optionen_menu));
 }
 
 

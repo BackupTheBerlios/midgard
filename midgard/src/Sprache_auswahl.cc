@@ -22,21 +22,34 @@
 #include <Gtk_OStream.h>
 #include "Schrift.hh"
 #include "Sprache.hh"
+#include "Waffe.hh"
 #include "Fertigkeiten.hh"
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
+  std::string zusatz=clist_sp_sc->get_text(row,0);
   if (mod == GEHEIMZEICHEN)
    {
-//     cH_Land s=static_cast<Land*>(clist_sp_sc->selection().begin()->get_data());
      cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Geheimzeichen")));
-     std::string zusatz=clist_sp_sc->get_text(row,0);
-//     cH_Fertigkeit(F)->setZusatz((s)->Name());     
      cH_Fertigkeit(F)->setZusatz(zusatz);
      F->set_Erfolgswert(wert);
      hauptfenster->MidgardBasicElement_uebernehmen(F);
    }
-  if (mod == LAND || mod == HEIMATLAND)
+  if (mod == MUSIZIEREN)
+   {
+     cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Musizieren")));
+     cH_Fertigkeit(F)->setZusatz(zusatz);
+     F->set_Erfolgswert(wert);
+     hauptfenster->MidgardBasicElement_uebernehmen(F);
+   }
+  if (mod == SCHARFSCHIESSEN)
+   {
+     cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Scharfschießen")));
+     cH_Fertigkeit(F)->setZusatz(zusatz);
+     F->set_Erfolgswert(wert);
+     hauptfenster->MidgardBasicElement_uebernehmen(F);
+   }
+  else if (mod == LAND || mod == HEIMATLAND)
    {
      cH_Land s=static_cast<Land*>(clist_sp_sc->selection().begin()->get_data());
      cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Landeskunde")));
@@ -59,7 +72,9 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
 
 Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database, 
    const Grundwerte& _Werte,const cH_MidgardBasicElement& _MBE,
-   const modus _mod,int _wert,const std::list<cH_MidgardBasicElement> &Sp,
+   const modus _mod,int _wert,
+                             const std::list<cH_MidgardBasicElement> &Waffe,
+                             const std::list<cH_MidgardBasicElement> &Sp,
                              const std::list<cH_MidgardBasicElement> &Sc,
                              const std::list<cH_MidgardBasicElement> &L)
  :mod(_mod),hauptfenster(h),Werte(_Werte) , MBE(&_MBE), wert(_wert)
@@ -74,6 +89,28 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
           { 
             os << (*i)<<'\t'<<wert<<'\n';
 //            os.flush((*i)->ref(),&HandleContent::unref);
+          }
+      }
+   if (mod == MUSIZIEREN)
+      {
+         sp_sc_label->set_text("Musikinstrument wählen");
+         std::vector<std::string> VG=cH_Fertigkeit(*MBE)->VZusatz();
+         for (std::vector<std::string>::const_iterator i=VG.begin();i!=VG.end();++i)
+          { 
+            os << (*i)<<'\t'<<wert<<'\n';
+//            os.flush((*i)->ref(),&HandleContent::unref);
+          }
+      }
+   else if (mod == SCHARFSCHIESSEN)
+      {
+         sp_sc_label->set_text("Fenkampfwaffe wählen");
+         for (std::list<cH_MidgardBasicElement>::const_iterator i=Waffe.begin();i!=Waffe.end();++i)
+          { 
+            if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
+             {
+               os << (*i)->Name()<<'\t'<<wert<<'\n';
+               os.flush((*i)->ref(),&HandleContent::unref);
+             }
           }
       }
    else if (mod == LAND || mod == HEIMATLAND)

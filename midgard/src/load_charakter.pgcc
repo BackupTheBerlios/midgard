@@ -626,20 +626,10 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
          cH_MidgardBasicElement fert(&*cH_Fertigkeit(db_fert));
          fert->set_Erfolgswert(db_wert);
          fert->set_Praxispunkte(db_av_bonus);
-         if(cH_Fertigkeit(fert)->ZusatzBool()) 
+         if(cH_Fertigkeit(fert)->ZusatzBool(Typ)) 
          {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
             cH_Fertigkeit(fert)->setZusatz(db_magisch);
          }
-/*
-         if(fert->Name()=="Landeskunde") 
-         {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
-            cH_Fertigkeit(fert)->setZusatz(db_magisch);
-         }
-         if(fert->Name()=="Geheimzeichen") 
-         {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
-            cH_Fertigkeit(fert)->setZusatz(db_magisch);
-         }
-*/
          list_Fertigkeit.push_back(fert);
          if      (fert->Name()=="KiDo") kido_bool=true;
          else if (fert->Name()=="Zaubern") magie_bool=true;
@@ -732,21 +722,10 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
          cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->getAttr("Bezeichnung"),true));
          fert->set_Erfolgswert(i->getIntAttr("Wert"));
          fert->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
-/*
-         if(fert->Name()=="Landeskunde") 
-         {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
-            cH_Land(i->getAttr("Zusatz"),true);
-//            cH_Fertigkeit(fert)->setZusatz(i->getAttr("Zusatz"));
-         }
-         if(fert->Name()=="Geheimzeichen") 
-         {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
-            cH_Geheimzeichen(i->getAttr("Zusatz"),true);
-         }
-         cH_Fertigkeit(fert)->setZusatz(i->getAttr("Zusatz"));
-*/
-         if(cH_Fertigkeit(fert)->ZusatzBool())
+         if(cH_Fertigkeit(fert)->ZusatzBool(Typ))
          {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
             if(fert->Name()=="Landeskunde") cH_Land(i->getAttr("Zusatz"),true);
+            if(fert->Name()=="Scharfschießen") cH_Waffe(i->getAttr("Zusatz"),true);
             cH_Fertigkeit(fert)->setZusatz(i->getAttr("Zusatz"));
          }
          list_Fertigkeit.push_back(fert);

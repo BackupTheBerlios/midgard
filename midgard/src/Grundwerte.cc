@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.8 2002/02/08 14:34:18 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.9 2002/02/12 07:15:29 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -97,9 +97,17 @@ int Grundwerte::bo_Psy(const vector<cH_Typen>& Typ) const
   if (6<=In()  && In()<=20) { bo_psyIn-=1; }
   if (81<=In() && In()<=95) { bo_psyIn+=1; }
   if (96<=In())             { bo_psyIn+=2; }
-  
-  int bo_psy = (bo_psyZt>bo_psyIn) ? bo_psyZt : bo_psyIn ;
 
+  int bo_psy;  
+  // Vorzeichen unterschiedlich:
+  if( bo_psyIn*bo_psyZt<=0) bo_psy = bo_psyIn+bo_psyZt;
+  else 
+   {
+     // Höheren Wert nehmen:
+     bo_psy = (abs(bo_psyZt)>abs(bo_psyIn))?abs(bo_psyZt):abs(bo_psyIn);
+     // Vorzeichen setzen:
+     if(bo_psyZt<0) bo_psy*=-1;
+   }
   if (Spezies()->Name()=="Elf" && Zt() <= 100 ) { bo_psy=2;}
   if (Spezies()->Name()=="Elf" && Zt() >= 100 ) { bo_psy=3;}
 
@@ -124,12 +132,21 @@ int Grundwerte::bo_Phs(const vector<cH_Typen>& Typ) const
   if (Zt()>=100)            {bo_phsZt+=3; }
 
   int bo_phsKo =0;
-  if (Ko()<=5)           { bo_phsKo-=2; }
+  if (Ko()<=5)            { bo_phsKo-=2; }
   if (6<=Ko()&&Ko()<=20)  { bo_phsKo-=1; }
   if (81<=Ko()&&Ko()<=95) { bo_phsKo+=1; }
-  if (96<=Ko())          { bo_phsKo+=2; }
+  if (96<=Ko())           { bo_phsKo+=2; }
 
-  int bo_phs = (bo_phsZt>bo_phsKo) ? bo_phsZt : bo_phsKo ;
+  // Vorzeichen unterschiedlich:
+  int bo_phs;
+  if( bo_phsKo*bo_phsZt<=0) bo_phs = bo_phsKo+bo_phsZt;
+  else 
+   {
+     // Höheren Wert nehmen:
+     bo_phs = (abs(bo_phsZt)>abs(bo_phsKo))?abs(bo_phsZt):abs(bo_phsKo);
+     // Vorzeichen setzen:
+     if(bo_phsZt<0) bo_phs*=-1;
+   }
 
   if (Spezies()->Name()=="Elf" && Zt() <= 100 ) { bo_phs=2;}
   if (Spezies()->Name()=="Elf" && Zt() >= 100 ) { bo_phs=3;}

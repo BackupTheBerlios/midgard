@@ -10,7 +10,8 @@ DROP TABLE "zauberwerk_voraussetzung";
 CREATE TABLE "zauberwerk_voraussetzung" (
 	"name" text,
 	"voraussetzung" text,
-	"verbindung" text
+	"verbindung" text,
+	"fertigkeit" text
 );
 
 --
@@ -19,60 +20,60 @@ CREATE TABLE "zauberwerk_voraussetzung" (
 
 
 COPY "zauberwerk_voraussetzung" FROM stdin;
-Augensalbe	Augensalbe herstellen	\N
-Berserkerpilz aktivieren	Heiliger Zorn	or
-Berserkerpilz aktivieren	Wahnsinn	or
-Binden	Thaumatographie	\N
-Dämonenamulett verzaubern	Silberne Bannsphäre	\N
-Elementaramulett verzaubern	Silberne Bannsphäre	\N
-Flohpulver aktivieren	Schweben	\N
-Geisteramulett verzaubern	Silberne Bannsphäre	\N
-Heiltrunk (1W6) aktivieren	Heilen von Wunden	\N
-Krafttrunk (1W6) aktivieren	Handauflegen	\N
-Krafttrunk (2W6) aktivieren	Handauflegen	\N
-Kraut der konzentrierten Energie	Handauflegen	or
-Kraut der konzentrierten Energie	Macht über das Selbst	or
-Liebestrank aktivieren	Liebeszauber	or
-Liebestrank aktivieren	Macht über Menschen	or
-Pulver der Panzerhaut aktivieren	Marmorhaut	or
-Pulver der Panzerhaut aktivieren	Rindenhaut	or
-Rauchperle aktivieren	Rauchwolke	\N
-Reckentrunk aktivieren	Stärke	\N
-Salbe der Eisenhaut aktivieren	Eisenhaut	\N
-Salbe der Krakenhände aktivieren	Macht über das Selbst	and
-Salbe der Krakenhände aktivieren	Zauberschloß	and
-Schamanentrommel herstellen	Geisterlauf	\N
-Schildamulett verzaubern	Flammenkreis	or
-Schildamulett verzaubern	Silberne Bannsphäre	or
-Schnellkraut aktivieren	Beschleunuigen	\N
-Schutzamulett verzaubern	Geistesschild	or
-Schutzamulett verzaubern	Schwarze Zone	or
-Schutzamulett verzaubern	Zweite Haut	or
-Spiegelamulett verzaubern	Schutzamulett verzaubern	\N
-Talisman verzaubern	Göttlicher Schutz vor Magie	or
-Talisman verzaubern	Magischer Kreis des Widerstehens	or
-Trunk der Macht über Hunde aktivieren	Macht über die belebte Natur	\N
-Trunk der Macht über Menschen aktivieren	Macht über Menschen	\N
-Trunk der Macht über Orks aktivieren	Macht über Menschen	\N
-Trunk des Riesenwuchses aktivieren	Vergrößern	\N
-Trunk des Schwerelosigkeit aktivieren	Fliegen	or
-Trunk des Schwerelosigkeit aktivieren	Schweben	or
-Trunk des Unsichtbarkeit aktivieren	Unsichtbarkeit	\N
-Trunk des Verwandlung aktivieren	Verwandlung	\N
-Untotenamulett verzaubern	Blaue Bannsphäre or	\N
-Untotenamulett verzaubern	Ring des Lebens or	\N
-Waffen verzaubern (2)	Binden	and
-Waffen verzaubern (2)	Zauberschmiede	\N
-Waffen verzaubern (4)	Binden	and
-Waffen verzaubern (4)	Zauberschmiede	\N
-Waffen verzaubern (6)	Binden	and
-Waffen verzaubern (6)	Zauberschmiede	\N
-Wasser weihen	Austreibung des Bösen	and
-Wasser weihen	Bannen von Finsterwerk	and
-Wasser weihen	Reinigen	and
-Wasser weihen	Segnen	and
-Werwesenamulett verzaubern	Silberstaub	\N
-Zauberpergament beschriften	Lesen von Zauberschrift	\N
+Augensalbe	Augensalbe herstellen	\N	\N
+Berserkerpilz aktivieren	Heiliger Zorn	or	\N
+Berserkerpilz aktivieren	Wahnsinn	or	\N
+Binden	\N	\N	Thaumatographie
+Dämonenamulett verzaubern	Silberne Bannsphäre	\N	\N
+Elementaramulett verzaubern	Silberne Bannsphäre	\N	\N
+Flohpulver aktivieren	Schweben	\N	\N
+Geisteramulett verzaubern	Silberne Bannsphäre	\N	\N
+Heiltrunk (1W6) aktivieren	Heilen von Wunden	\N	\N
+Krafttrunk (1W6) aktivieren	Handauflegen	\N	\N
+Krafttrunk (2W6) aktivieren	Handauflegen	\N	\N
+Kraut der konzentrierten Energie	Handauflegen	or	\N
+Kraut der konzentrierten Energie	Macht über das Selbst	or	\N
+Liebestrank aktivieren	Liebeszauber	or	\N
+Liebestrank aktivieren	Macht über Menschen	or	\N
+Pulver der Panzerhaut aktivieren	Marmorhaut	or	\N
+Pulver der Panzerhaut aktivieren	Rindenhaut	or	\N
+Rauchperle aktivieren	Rauchwolke	\N	\N
+Reckentrunk aktivieren	Stärke	\N	\N
+Salbe der Eisenhaut aktivieren	Eisenhaut	\N	\N
+Salbe der Krakenhände aktivieren	Macht über das Selbst	and	\N
+Salbe der Krakenhände aktivieren	Zauberschloß	and	\N
+Schamanentrommel herstellen	Geisterlauf	\N	\N
+Schildamulett verzaubern	Flammenkreis	or	\N
+Schildamulett verzaubern	Silberne Bannsphäre	or	\N
+Schnellkraut aktivieren	Beschleunuigen	\N	\N
+Schutzamulett verzaubern	Geistesschild	or	\N
+Schutzamulett verzaubern	Schwarze Zone	or	\N
+Schutzamulett verzaubern	Zweite Haut	or	\N
+Spiegelamulett verzaubern	Schutzamulett verzaubern	\N	\N
+Talisman verzaubern	Göttlicher Schutz vor Magie	or	\N
+Talisman verzaubern	Magischer Kreis des Widerstehens	or	\N
+Trunk der Macht über Hunde aktivieren	Macht über die belebte Natur	\N	\N
+Trunk der Macht über Menschen aktivieren	Macht über Menschen	\N	\N
+Trunk der Macht über Orks aktivieren	Macht über Menschen	\N	\N
+Trunk des Riesenwuchses aktivieren	Vergrößern	\N	\N
+Trunk des Schwerelosigkeit aktivieren	Fliegen	or	\N
+Trunk des Schwerelosigkeit aktivieren	Schweben	or	\N
+Trunk des Unsichtbarkeit aktivieren	Unsichtbarkeit	\N	\N
+Trunk des Verwandlung aktivieren	Verwandlung	\N	\N
+Untotenamulett verzaubern	Blaue Bannsphäre or	\N	\N
+Untotenamulett verzaubern	Ring des Lebens	or	\N
+Waffen verzaubern (2)	Binden	and	\N
+Waffen verzaubern (2)	Zauberschmiede	\N	\N
+Waffen verzaubern (4)	Binden	and	\N
+Waffen verzaubern (4)	Zauberschmiede	\N	\N
+Waffen verzaubern (6)	Binden	and	\N
+Waffen verzaubern (6)	Zauberschmiede	\N	\N
+Wasser weihen	Austreibung des Bösen	and	\N
+Wasser weihen	Bannen von Finsterwerk	and	\N
+Wasser weihen	Reinigen	and	\N
+Wasser weihen	Segnen	and	\N
+Werwesenamulett verzaubern	Silberstaub	\N	\N
+Zauberpergament beschriften	\N	\N	Lesen von Zauberschrift
 \.
 --
 --

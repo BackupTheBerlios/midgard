@@ -147,7 +147,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 
  std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
-   { if(cH_Fertigkeit(MBE)->ZusatzBool())
+   { if(cH_Fertigkeit(MBE)->ZusatzBool(Typ))
      {  
         MBE=new Fertigkeit(*cH_Fertigkeit(MBE));
         fillClistLand(MBE);

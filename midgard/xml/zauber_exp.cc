@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.3 2002/01/29 16:43:04 christof Exp $
+// $Id: zauber_exp.cc,v 1.4 2002/02/12 07:15:29 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -115,8 +115,10 @@ void arkanum_speichern(std::ostream &o)
 
 //************************ Voraussetzungen ****************************
 	// Zauberwerk Voraussetzungen
-  {Query query2("select voraussetzung,verbindung from zauberwerk_voraussetzung"
-	" where name='"+zauberwerk+"' order by voraussetzung");
+  {Query query2("select voraussetzung, verbindung, "
+   " coalesce(fertigkeit) from zauberwerk_voraussetzung"
+	" where name='"+zauberwerk+"' and voraussetzung is not null "
+	" order by voraussetzung");
    FetchIStream is2;
    while ((query2>>is2).good())
    {  o << "    <Voraussetzung";
@@ -125,11 +127,12 @@ void arkanum_speichern(std::ostream &o)
       o << "/>\n";
    }
   }
-  {Query query3("select voraussetzung from zauberwerk_voraussetzung"
-	" where name='"+art+"' order by voraussetzung");
+  {Query query3("select fertigkeit from zauberwerk_voraussetzung"
+	" where name='"+zauberwerk+"' and fertigkeit is not null "
+	" order by fertigkeit");
    FetchIStream is3;
    while ((query3>>is3).good())
-   {  o << "    <Voraussetzung_Art";
+   {  o << "    <Voraussetzung_Fertigkeit";
       fetch_and_write_string_attrib(is3, o, "Fertigkeit");
       o << "/>\n";
    }
