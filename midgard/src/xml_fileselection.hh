@@ -36,12 +36,16 @@ class midgard_CG;
 
 class xml_fileselection : public xml_fileselection_glade
 {   
+  public:
+        enum eAction {Save,Load,Export};
+  private:
         midgard_CG* hauptfenster;        
-        std::string was;
+        
+        eAction ewas;
         friend class xml_fileselection_glade;
         void on_ok_button1_clicked();
         void on_cancel_button1_clicked();
    public:
-        xml_fileselection(midgard_CG* h,std::string _was);
+        xml_fileselection(midgard_CG* h,eAction _was);
 };
 #endif

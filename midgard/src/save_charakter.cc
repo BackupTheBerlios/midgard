@@ -34,7 +34,7 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_export_auswahl()
 { 
- manage (new xml_fileselection(this,"save"/*"Abenteurer speichern"*/))
+ manage (new xml_fileselection(this,xml_fileselection::Save/*"Abenteurer speichern"*/))
 	->set_filename(filename);
   steigern_aktivieren();
 }

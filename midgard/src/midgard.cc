@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.35 2002/02/13 15:45:46 thoma Exp $
+// $Id: midgard.cc,v 1.36 2002/02/15 08:24:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,7 +33,6 @@ int main(int argc, char **argv)
    std::string datei;
    if (argc==2) datei=argv[1];
 
-//   Datenbank Database;
    manage(new midgard_CG(datei));
    m.run();
       

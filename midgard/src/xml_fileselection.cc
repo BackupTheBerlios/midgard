@@ -10,6 +10,7 @@
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
+
  *
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
@@ -29,11 +30,11 @@
 
 void xml_fileselection::on_ok_button1_clicked()
 {   
- if (was=="load")
+ if (ewas==Load)
    hauptfenster->xml_import(this->get_filename());
- else if (was=="save")
+ else if (ewas==Save)
    hauptfenster->xml_export(this->get_filename());
- else if (was=="export")
+ else if (ewas==Export)
    hauptfenster->spielleiter_export_save(this->get_filename());
  destroy();
 }
@@ -43,8 +44,8 @@ void xml_fileselection::on_cancel_button1_clicked()
   destroy();
 }
 
-xml_fileselection::xml_fileselection(midgard_CG* h, std::string _was)
-:was(_was)
+xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
+:ewas(_was)
 {
  hauptfenster=h;
 }

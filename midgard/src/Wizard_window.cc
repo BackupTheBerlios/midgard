@@ -112,4 +112,10 @@ gint Wizard_window::on_Wizard_window_delete_event(GdkEventAny* event)
  return 0;
 }
 
-
+void Wizard_window::on_togglebutton_wizard_start_toggled()
+{
+ if(togglebutton_wizard_start->get_active())
+   hauptfenster->setOption(midgard_CG::Wizard_immer_starten,true);
+ else
+   hauptfenster->setOption(midgard_CG::Wizard_immer_starten,false);
+}

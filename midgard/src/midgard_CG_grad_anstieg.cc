@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.49 2002/02/09 21:45:39 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.50 2002/02/15 08:24:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -187,7 +187,8 @@ void midgard_CG::get_ab_re_za(e_was_steigern was)
   int alter_wert, max_wert;
   int kosten;
   int grad=Werte.Grad();
-  if      (was==Abwehr)    
+  if(!radiobutton_steigern->get_active()) grad=--grad;
+  if      (was==Abwehr)
     { 
       max_wert = Database.GradAnstieg.get_Abwehr(grad); 
       kosten   = Database.GradAnstieg.get_Abwehr_Kosten(grad+1);
@@ -210,13 +211,22 @@ void midgard_CG::get_ab_re_za(e_was_steigern was)
        } 
       else return; }
   else abort();
-  if (alter_wert >= max_wert)
+  if (alter_wert >= max_wert && radiobutton_steigern->get_active())
       { InfoFenster->AppendShow("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!") ;
         return;}
-
-  if(!steigern_usp(kosten,0,was));  
-  Werte.addGFP(kosten);
-  if (was==Abwehr) Werte.setAbwehr_wert(alter_wert+1);
-  if (was==Resistenz) Werte.setResistenz(alter_wert+1); 
-  if (was==Zaubern) Werte.setZaubern_wert(alter_wert+1); 
+  if(radiobutton_steigern->get_active() && !steigern_usp(kosten,0,was)) 
+   {
+     Werte.addGFP(kosten);
+     if      (was==Abwehr)    Werte.setAbwehr_wert(alter_wert+1);
+     else if (was==Resistenz) Werte.setResistenz(alter_wert+1); 
+     else if (was==Zaubern)   Werte.setZaubern_wert(alter_wert+1); 
+   }
+  else
+   {
+     if (checkbutton_EP_Geld->get_active()) desteigern(kosten);
+     Werte.addGFP(-kosten);
+     if      (was==Abwehr)    Werte.setAbwehr_wert(alter_wert-1);
+     else if (was==Resistenz) Werte.setResistenz(alter_wert-1); 
+     else if (was==Zaubern)   Werte.setZaubern_wert(alter_wert-1); 
+   }
 }

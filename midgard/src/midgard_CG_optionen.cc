@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.51 2002/02/14 07:06:48 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.52 2002/02/15 08:24:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,9 @@
 
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
+#include <fstream>
+#include "TagStream.hh"
+#include "export_common.h"
 
 void midgard_CG::on_checkbutton_optionen_menu(st_Optionen O)
 {
@@ -142,6 +145,13 @@ midgard_CG::st_Optionen midgard_CG::OptionenCheck(std::string os)
  throw NotFound();
 }
 
+void midgard_CG::setOption(OptionenIndex oi,bool b)
+{
+ for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   if(i->index==oi)  i->active=b;
+}
+
+
 midgard_CG::st_Haus midgard_CG::HausregelCheck(HausIndex hi)
 {
  for(std::list<st_Haus>::const_iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
@@ -171,3 +181,43 @@ void midgard_CG::regnot(const std::string& sadd)
 //  manage(new WindowInfo(sadd));
  InfoFenster->AppendShow(sadd);
 }
+
+
+void midgard_CG::save_options()
+{
+  ofstream datei("./midgard_optionen.xml");
+  if (!datei.good())
+   { 
+    InfoFenster->AppendShow("Ich kann die Optionen nicht speichern");
+    return;
+   }
+ datei << "<?xml";
+ write_string_attrib(datei, "version", "1.0");
+ write_string_attrib(datei, "encoding", TagStream::host_encoding);
+ datei << "?>\n\n";
+ datei << "<MAGUS-optionen>\n";
+ datei << "  <Optionen";
+ for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   {
+     write_string_attrib(datei, "Name" ,i->text);
+     write_bool_attrib(datei, "Wert", i->active);
+   }
+ datei << "/>\n";
+ datei << "/MAGUS-optionen>\n";
+}
+
+void midgard_CG::load_options()
+{
+  TagStream ts("./midgard_optionen.xml");
+  const Tag *data=ts.find("MAGUS-optionen");
+  if(!data)    
+    { InfoFenster->AppendShow("Optionen konnten nicht geladen werden");
+      return;
+    }
+ data=ts.find("Optionen");                          
+ for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   {
+     i->active=data->getBoolAttr(i->text,false);     
+   }
+}
+

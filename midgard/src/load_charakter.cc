@@ -40,7 +40,7 @@ gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_import_auswahl()
 {
-  manage (new xml_fileselection(this,"load"/*"Abenteurer laden"*/))
+  manage (new xml_fileselection(this,xml_fileselection::Load/*"Abenteurer laden"*/))
 	  ->set_filename(filename);
 }
 
@@ -53,8 +53,11 @@ void midgard_CG::xml_import(const std::string& datei)
 {
    TagStream ts(datei);
    const Tag *data=&ts;
-   const Tag *top=ts.find("Midgard-Charakter");    if (!top) 
-   {  data=ts.find("MidgardCG-data");        if (!data) data=ts.find("MAGUS-data");       if (data) 
+   const Tag *top=ts.find("Midgard-Charakter");    
+   if (!top) 
+   {  data=ts.find("MidgardCG-data");        
+      if (!data) data=ts.find("MAGUS-data");
+      if (data) 
       {  top=data->find("Midgard-Charakter");
          if (!top) top=data->find("Midgard-Abenteurer");       }
    }

@@ -42,6 +42,7 @@ class Wizard_window : public Wizard_window_glade
         void on_button_wizard_weiter_clicked();
         void on_button_wizard_wiederholen_clicked();
         void on_button_close_wizard_clicked();
+        void on_togglebutton_wizard_start_toggled();
    public: 
       Wizard_window(midgard_CG* h);
       void next_step();

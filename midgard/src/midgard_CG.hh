@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.173 2002/02/14 11:38:06 thoma Exp $
+// $Id: midgard_CG.hh,v 1.174 2002/02/15 08:24:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,7 +72,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void Hausregeln_setzen(bool b);
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
-        enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,WizardStarten};
+        enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,
+                            WizardStarten,Wizard_immer_starten};
         enum HausIndex {Gold};
 
 
@@ -137,6 +138,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<st_OptionenM> list_OptionenM;
         st_Optionen OptionenCheck(OptionenIndex oi);
         st_Optionen OptionenCheck(std::string os);
+        void setOption(OptionenIndex oi,bool b);
         st_Haus HausregelCheck(HausIndex hi);
 
         void on_checkbutton_optionen_menu(st_Optionen O);
@@ -296,7 +298,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void show_gelerntes();
         void show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert="");
         void setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert);
-        bool SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert=0,bool auswahl=false);
         void on_spinbutton_fach_activate();
         void on_spinbutton_allgemein_activate();
         void on_spinbutton_unge_activate();
@@ -489,17 +490,11 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_checkbutton_ausruestung_geld_toggled();
 
          gint on_speichern_release_event(GdkEventButton *ev);
-         void grundwerte_speichern(IF_XML(ostream &));
-#ifndef USE_XML
-	// das könnte doch alles privat oder?
-         void save_ausruestung();
-         void save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB);
-//         void load_ausruestung();
-         void load_ausruestung_C(int parent, AusruestungBaum *AB);
-#else
+         void save_options();
+         void load_options();
+         void grundwerte_speichern(ostream &);
          void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
          void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
-#endif         
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export_auswahl();
          void xml_import_auswahl();
@@ -511,19 +506,17 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void Typ_Geschlecht_Spezies_setzen(); // uvm.
 
    public:
-//         midgard_CG(int argc,char **argv);
          midgard_CG(const string &datei="");
          Grundwerte Werte;
 
 	// werden von anderen Fenstern aufgerufen
+        bool SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert=0,bool auswahl=false);
          void kaempfer_lernt_zaubern(cH_MidgardBasicElement);
          void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
          void spielleiter_export_save(const std::string& dateiname);
          void charakter_beschreibung_uebernehmen(const std::string& b,bool drucken);
-//         void select_charakter(const std::string& name, const std::string& version);
-//         void show_fertigkeiten();
          void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());

@@ -276,6 +276,10 @@ void midgard_CG::Optionen_init()
   list_Optionen.push_back(st_Optionen(showPics,menu_pics,
                            "Bilder anzeigen",true,0,
                            &midgard_CG::on_checkbutton_optionen_menu));
+  Gtk::CheckMenuItem *menu_wizallways;
+  list_Optionen.push_back(st_Optionen(Wizard_immer_starten,menu_wizallways,
+                           "Wizard bei jedem Programmstart zeigen",true,0,
+                           &midgard_CG::on_checkbutton_optionen_menu));
 
   Gtk::MenuItem *menu_lernschema_sensitive;
   list_OptionenM.push_back(st_OptionenM(LernschemaSensitive,

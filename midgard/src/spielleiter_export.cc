@@ -28,7 +28,7 @@
 
 void midgard_CG::spielleiter_export()
 {
- manage (new xml_fileselection(this,"export"));
+ manage (new xml_fileselection(this,xml_fileselection::Export));
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.159 2002/02/14 16:41:55 thoma Exp $
+// $Id: midgard_CG.cc,v 1.160 2002/02/15 08:24:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -376,6 +376,7 @@ void midgard_CG::on_schliessen_CG_clicked()
 {
   if(modify_bool)
    {
+     save_options();
      xml_export_auswahl();
      return;
    }
@@ -388,3 +389,4 @@ gint midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
   on_schliessen_CG_clicked();
   return 0;
 }
+
