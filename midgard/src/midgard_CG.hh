@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.343 2003/11/28 07:52:20 christof Exp $
+// $Id: midgard_CG.hh,v 1.344 2003/11/28 13:48:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,7 +42,7 @@ private:
 	AbenteurerAuswahl aktiver;
 
         TreeViewUtility::CListEmulator news_columns;
-        Gtk::Menu *undo_menu,*menu_kontext,*abent_menu;
+        Gtk::Menu *undo_menu,*menu_kontext;
 
         Model<bool> schummeln; // weg hier ?! in Char? Programmoption?
 

@@ -1,4 +1,4 @@
-// $Id: AbenteurerAuswahl.h,v 1.2 2003/11/24 16:21:42 christof Exp $               
+// $Id: AbenteurerAuswahl.h,v 1.3 2003/11/28 13:48:42 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -40,6 +40,7 @@ public:
       __deprecated const Abenteurer &getAbenteurer() const {return actualIterator()->getAbenteurer();}
       __deprecated Abenteurer &getAbenteurer() {return actualIterator()->getAbenteurer();}
       void setAbenteurer(const VAbenteurer::iterator &i);
+      void setAbenteurer_sig(VAbenteurer::iterator i) { setAbenteurer(i); }
 //      void set_Abenteurer(const Abenteurer& A);
       SigC::Signal0<void> &signal_anderer_abenteurer() { return sig_anderer; }
 
