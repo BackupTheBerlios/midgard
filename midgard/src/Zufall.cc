@@ -114,7 +114,7 @@ void Zufall::setAngebFert()
 int c=0;
    do{
       wurf=random.integer(0,100); 
-if(c<5) wurf=100;
+if(c<5) c=100;
       if(wurf==100) 
        { std::list<MidgardBasicElement_mutable> L=LL.getMBEm(Aben,LernListen::lAngebFert);
          std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,99);
