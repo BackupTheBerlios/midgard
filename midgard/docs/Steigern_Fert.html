@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+  <title>Fenster - Steigern - Fertigkeiten</title>
+  <link rel="shortcut icon" href="image/magus-fav.ico">
+  <map name="Main_Win_LS">
+  <area shape=rect coords="1,1,340,33" href="Main_Reiter.html">
+  <area shape=rect coords="6,40,293,86" href="#BUT">
+  <area shape=rect coords="30,95,375,171" href="#LP-EDIT-2">
+  <area shape=rect coords="1,176,404,432" href="#LSCHEM">
+  </map>
+  <map name="LS_But">
+  <area shape=rect coords="6,6,88,76" href="#LAND">
+  <area shape=rect coords="99,6,179,76" href="#DICE_LP">
+  <area shape=rect coords="181,6,263,76" href="#EDIT_LP">
+  <area shape=rect coords="272,6,354,76" href="#MONEY">
+  <area shape=rect coords="356,6,436,76" href="#RUEST">
+  </map>
+  <map name="LS_TAB">
+  <area shape=rect coords="3,6,130,50" href="#TFERT">
+  <area shape=rect coords="132,6,231,50" href="#TWAF">
+  <area shape=rect coords="233,6,334,50" href="#TZAUB">
+  <area shape=rect coords="336,6,425,50" href="#TBER">
+  </map>
+</head>
+<body>
+  <a name="TOP"></a>
+  <h2>Steigern und erlernen von Fertigkeiten</h2>
+  <p>
+  <img src="image/ST-Notebook-Fert.png" usemap="#Main_Win_LS" alt="Steigern: Fertigkeiten" border="0" width="700" height="257">
+  <p>
+  <div align="center">Zurück zur <a href="element.html">Vorseite</a></div><br>
+  <p>
+  Auf dieser Notebook-Seite findet das Erlernen und Steigern von Fertigkeiten statt:<br>
+  Hierzu stehen zwei Auswahlfenster zu verfügung. Im oberen Fenster erfolgt das Steigern bereits gelernter Fertigkeiten, über
+  das untere Fenster ist es möglich, neue Fertigkeiten zu erlernen.<br>
+  <p>
+
+  Das <i>obere</i> Fenster beinhaltet die Liste der bereits gelernten Fertigkeiten.<br>
+  <p>
+  <table>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Name.png" alt="Fertigkeit" width=122 height=37 border=0>  </td>
+      <td>Name der Fertigkeit </td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-EW.png" alt="Wert" width=37 height=37 border=0>  </td>
+      <td>Aktueller Erfolgswert der Fertigkeit </td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-PP.png" alt="Praxispunkte" width=28 height=37 border=0>  </td>
+      <td>Eventuell erworbene Praxispunkte in einer Fertigkeit</td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Art.png" alt="Art" width=28 height=37 border=0> </td>
+      <td>Art der Fertigkeit:<br>
+        A: Ausnahmefertigkeit<br>
+        G: Grundfertigkeit<br>
+        S: Standardfertigkeit</td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Steigern.png" alt="Steigern (Kosten)" width=96 height=37 border=0>  </td>
+      <td>FP-Kosten, um den Erfolgswert um 1 zu steigern.</td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Red.png" width="76" height="37" border="0" alt="Kosten: Reduzieren">  </td>
+      <td>FP, die eine Reduktion des EW der Fertigkeit um 1 Punkt bringt (nur für Korrekturen!)</td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Verl.png" alt="Kosten: verlernen" width=67 height=36 border=0>  </td>
+      <td>FP, die ein Verlernen der Fertigkeit bringt. Voraussetzung: Die Fertigkeit wir auf ihrem minimalem Erfolgswert beherrscht.
+      (nur für Korrekturen!)  </td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Regio.png" width="64" height="37" border="0" alt="Region">  </td>
+      <td>Falls die Fertigkeit aus einem Regional-Quellenbuch stammt, so wird hier die entsprechende Region angegeben </td>
+    </tr>
+  </table>
+  <br><p>
+  Das <i>untere</i> Fenster zeigt eine Liste der erlernbaren Fertigkeiten an.<br>
+  <p>
+  <table>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Name.png" alt="Fertigkeit" width=122 height=37 border=0>  </td>
+      <td>Name der Fertigkeit </td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-EW.png" alt="Wert" width=37 height=37 border=0>  </td>
+      <td>Erfolgswert, mit dem die Fertigkeit unmittelbar nach dem Erlernen beherrscht wird.</td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-LernK.png" alt="Lernkosten" width=73 height=21 border=0>  </td>
+      <td>Lernkosten für das Erlernen der Fertigkeit.</td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Art.png" alt="Art" width=28 height=37 border=0>  </td>
+      <td>Art der Fertigkeit:<br>
+        A: Ausnahmefertigkeit<br>
+        G: Grundfertigkeit<br>
+        S: Standardfertigkeit  </td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Voraus.png" alt="Voraussetzung" width=118 height=21 border=0>  </td>
+      <td>Voraussetzungen, zum Erlernen der Fertigkeiten  </td>
+    </tr>
+    <tr>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/ST-Fert-Regio.png" width="64" height="37" border="0" alt="Region">  </td>
+      <td>Falls die Fertigkeit aus einem Regional-Quellenbuch stammt, so wird hier die entsprechende Region angegeben   </td>
+    </tr>
+  </table>
+  <br><p>
+  <table>
+    <tr>
+      <td><b>Erlernen von Fertigkeiten:</b><br>
+        Zum Erlernen einer neuen Fertigkeit muss der Button "Steigern" aktiviert sein. Durch einmaliges(!) anklicken mit Maus,
+        wird die neue Fertigkeit aus der Liste im unteren Fenster ausgewählt und gelernt. Die erlernte Fertigkeit erscheint im
+        oberen Auswahlfenster<br>
+       <font size="-1"><i>Hinweis:</i> Fertigkeiten sind nur erlernbar, wenn die Voraussetzungen erfüllt sind und ausreichend EP und Geld vorhanden ist.</font></td>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/But-St-High.png" alt="Button: Steigern" width=98 height=37 border=0>  </td>
+    </tr>
+    <tr>
+      <td><b>Steigern von Fertigkeiten:</b><br>
+        Zum Steigern von Fertigkeiten muss der Button "Steigern" aktiviert sein. Durch einmaliges(!) anklicken einer Fertigkeit im
+        oberen Fenster wird der Erfolgswert der Fertigkeit um 1 erhöht.<br>  </td>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/But-St-High.png" alt="Button: Steigern" width=98 height=37 border=0> </td>
+    </tr>
+    <tr>
+      <td><b>Reduzieren von Fertigkeiten:</b><br>
+        Soll der Erfolgswert einer Fertigkeit reduziert werden, so muss der Button "Reduzieren" aktiviert sein. Das einmalige(!)
+        Anklicken der Fertigkeit bewirkt einer Reduzierung des Erfolgswertes um 1. Der Wert einer Fertigkeit läßt sich nur bis zu
+        ihrem Mindestwert reduzieren.<br>
+        <font size="-1"><i>Hinweis:</i> Sollte nur für Korrekturen genutzt werden. </font> </td>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/But-St-Red.png" alt="Button: Reduzieren" width=100 height=39 border=0>   </td>
+    </tr>
+    <tr>
+      <td><b>Verlernen von Fertigkeiten:</b><br>
+        Eine Fertigkeit, deren Erfolgswert nur ihrem Minimalwert entspricht, kann verlernt werden. Hierzu muss der Button
+        "Verlernen" aktiviert sein. Das Verlernen erfolgt duch einmaliges Anklicken der Fertigkeit.<br>
+        <font size="-1"><i>Hinweis:</i> Sollte nur für Korrekturen genutzt werden.</font>  </td>
+      <td align="center" valign="center" bgcolor="#dddddd"><img src="image/But-St-kill.png" alt="Verlernen" width=99 height=38 border=0>  </td>
+    </tr>
+  </table>
+
+  <p>
+
+
+
+  <div align="center"><a href="#TOP"><font size="-1">zum Seitenanfang</font></a></div>
+  <p>
+</body>
+</html>
