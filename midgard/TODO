@@ -1,4 +1,9 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
+- Absturz bei Auswahl der RÃ¼stung
+- nerviges Zuklappen der ungelernten Fertigkeiten
+- nicht-Refresh der aktuellen Zeile nach anklicken (lernen)
+- Verlernen geht nicht
+
 Bugreport Sanni:
 Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
 mit dem Wert +0
