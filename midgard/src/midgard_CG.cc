@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.203 2002/04/19 17:00:17 christof Exp $
+// $Id: midgard_CG.cc,v 1.204 2002/04/19 17:01:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@ midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0),wizard(0), MOptionen(0),menu(0),menu_gradanstieg(0),
   Database(Midgard_Info),fire_enabled(true)
 {
-  ansicht_menu = manage(new Gtk::MenuItem("Ansicht2"));
+  ansicht_menu = manage(new Gtk::MenuItem("Ansicht"));
   main_menubar->append(*ansicht_menu);
   ansicht_menu->show();
   
