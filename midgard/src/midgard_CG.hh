@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.74 2001/10/17 05:00:41 thoma Exp $
+// $Id: midgard_CG.hh,v 1.75 2001/10/17 12:31:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,7 +49,8 @@
 #include "Waffe.hh"
 #include "WaffeGrund.hh"
 #include "KiDo.hh"
-#include "class_fertigkeiten.hh"
+//#include "class_fertigkeiten.hh"
+#include "Fertigkeiten_angeboren.hh"
 #include "class_berufe.hh"
 #include "class_sprache_schrift.hh"
 #include "class_lernpunkte.hh"
@@ -104,7 +105,8 @@ class midgard_CG : public midgard_CG_glade
         std::vector<std::string> spezies_vector;
         std::list<cH_Fertigkeit> list_Fertigkeiten;
         std::list<cH_Fertigkeit> list_Fertigkeiten_neu;
-        std::vector<H_Data_fert> vec_an_Fertigkeit;
+        std::list<cH_Fertigkeit_angeborene> list_an_Fertigkeit;
+//        std::list<cH_Fertigkeit_angeborene> list_an_Fertigkeit_neu;
         std::list<cH_Waffe> list_Waffen;
         std::list<cH_Waffe> list_Waffen_neu;
         std::list<H_WaffeBesitz> list_Waffen_besitz;

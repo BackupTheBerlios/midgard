@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.27 2001/10/08 12:53:01 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.28 2001/10/17 12:31:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,8 +41,8 @@ void midgard_CG::show_fertigkeiten()
          if ((*i)->Erfolgswert()!=0) os <<"\t" <<(*i)->Erfolgswert();
          os << "\n";
       }
-   for(std::vector<H_Data_fert>::iterator i=vec_an_Fertigkeit.begin();
-         i!=vec_an_Fertigkeit.end();++i)
+   for(std::list<cH_Fertigkeit_angeborene>::iterator i=list_an_Fertigkeit.begin();
+         i!=list_an_Fertigkeit.end();++i)
       {
          os << (*i)->Name();
          if ((*i)->Erfolgswert()!=0) os <<"\t" <<(*i)->Erfolgswert();
@@ -82,9 +82,9 @@ void midgard_CG::fertigkeiten_uebernehmen(const std::list<cH_Fertigkeit>& saf)
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
-  vec_an_Fertigkeit.clear();
+  list_an_Fertigkeit.clear();
   if (Werte.Spezies()=="Zwerg" || Werte.Spezies()=="Elf") 
-      vec_an_Fertigkeit.push_back(new Data_fert("Nachtsicht",0));
+      list_an_Fertigkeit.push_back(new Fertigkeit_angeborene("Nachtsicht",0));
   if (event->button==1) on_angeborene_fertigkeit_clicked() ;
   if (event->button==3) on_angeborene_fertigkeit_right_clicked() ;
   button_fertigkeiten->set_sensitive(true);
@@ -98,10 +98,10 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 //wurf = 100; /*debug*/
   while (wurf==100)
    {
-      manage (new Window_angeb_fert(this,vec_an_Fertigkeit,Werte,wurf));
+      manage (new Window_angeb_fert(this,list_an_Fertigkeit,Werte,wurf));
       wurf = random.integer(1,100);
    }
-  manage (new Window_angeb_fert(this,vec_an_Fertigkeit,Werte,wurf));
+  manage (new Window_angeb_fert(this,list_an_Fertigkeit,Werte,wurf));
   std::string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";stinfo+=itos(wurf);stinfo+=" gewürfelt.\n";
   manage(new WindowInfo(stinfo));
   midgard_CG::show_fertigkeiten();
@@ -109,7 +109,7 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()
 {
-  manage (new Window_angeb_fert(this,vec_an_Fertigkeit,Werte,-1));
+  manage (new Window_angeb_fert(this,list_an_Fertigkeit,Werte,-1));
   show_fertigkeiten();
 }
 

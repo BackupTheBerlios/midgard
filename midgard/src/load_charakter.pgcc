@@ -310,7 +310,8 @@ void midgard_CG::load_charakter()
          exec sql fetch an_fertigkeiten into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_an_Fertigkeit.push_back(new Data_fert(db_fertigkeit,db_wert));
+//         vec_an_Fertigkeit.push_back(new Data_fert(db_fertigkeit,db_wert));
+         list_an_Fertigkeit.push_back(new Fertigkeit_angeborene(db_fertigkeit,db_wert));
       } 
    exec sql close an_fertigkeit;
    // Fertigkeiten

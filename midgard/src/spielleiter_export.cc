@@ -74,8 +74,7 @@ void midgard_CG::spielleiter_export()
                     <<Werte.Resistenz()+Werte.bo_Phk()<<"\n\n" ;
 
  // angeborene Fertigkeiten
-// for (unsigned int i=0;i<vec_an_fertigkeit.size();++i)
- for(std::vector<H_Data_fert>::const_iterator i=vec_an_Fertigkeit.begin();i!=vec_an_Fertigkeit.end();++i)
+ for(std::list<cH_Fertigkeit_angeborene>::const_iterator i=list_an_Fertigkeit.begin();i!=list_an_Fertigkeit.end();++i)
    {
     std::string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
@@ -84,7 +83,6 @@ void midgard_CG::spielleiter_export()
    }
  // Fertigkeiten
  for(std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i)
-// for (unsigned int i=0;i<vec_fertigkeiten.size();++i)
    {
     std::string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
@@ -93,7 +91,6 @@ void midgard_CG::spielleiter_export()
     if (i != list_Fertigkeiten.end()) fout << ", ";
    }
  fout << " - ";
-// for (unsigned int i=0; i<vec_sprachen.size();++i)
  for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();i!=vec_Sprachen.end();++i)
    {
       fout << (*i)->Name() << " " << (*i)->Wert() ;

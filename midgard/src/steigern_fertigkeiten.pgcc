@@ -26,7 +26,7 @@ exec sql include sqlca;
 //#include <Aux/EntryValueIntString.h>
 //#include <Aux/EntryValueEmptyInt.h>
 #include "class_Ausnahmen.hh"
-
+#include "class_fertigkeiten.hh"
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
 {
