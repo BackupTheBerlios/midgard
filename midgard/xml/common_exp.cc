@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.26 2002/06/12 13:54:10 christof Exp $
+// $Id: common_exp.cc,v 1.27 2002/06/13 06:28:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,7 +25,7 @@ static void schwierigkeit(Tag &o,
 {  Query query(_query);
    FetchIStream is;
    while ((query>>is).good())
-   {  o.push_back(Tag(tag)).setAttr("Typ",fetch_typ(is));
+   {  o.push_back(Tag(tag)).setAttr("Typ",fetch_string(is));
    }
 }
 
