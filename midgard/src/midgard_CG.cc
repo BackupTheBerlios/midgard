@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.81 2001/11/09 14:28:59 thoma Exp $
+// $Id: midgard_CG.cc,v 1.82 2001/11/09 14:29:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,7 +73,7 @@ void midgard_CG::get_Database()
                            Spezies_All(MI->get_progressbar_spezies()).get_All(),
                            Typen_All(MI->get_progressbar_typen()).get_All(),
                            Grad_anstieg(MI->get_progressbar_grad()),
-                           Spezialgebiet_All(MI->get_progressbar_spezial()).get_All()
+                           Spezialgebiet_All(MI->get_progressbar_spezial()).get_All(),
                            Praxispunkte(MI->get_progressbar_praxispunkte()));
    MI->on_button_close_clicked();
 }
@@ -354,7 +354,6 @@ void midgard_CG::on_button_waffen_s_clicked()
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
-   laden_label->hide();
    button_abg_werte->set_sensitive(false);
    button_herkunft->set_sensitive(false);
    button_sprache->set_sensitive(false);

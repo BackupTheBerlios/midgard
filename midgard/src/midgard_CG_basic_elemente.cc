@@ -11,7 +11,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
       {
          cH_Fertigkeit f(*i);
-         int bonus = attribut_check(f->Attribut());
+         int bonus = f->AttributBonus(Werte);
          f->set_Erfolgswert( f->Erfolgswert() + bonus);     
          if (f->Name()=="KiDo") {kido_bool=true; show_gtk();}  
          if (f->Name()=="KiDo-Technik") { ++KD_tech;++maxkido;}

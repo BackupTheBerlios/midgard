@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.92 2001/11/09 12:43:45 thoma Exp $
+// $Id: midgard_CG.hh,v 1.93 2001/11/09 14:28:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,8 +58,8 @@
 #include "Pflicht.hh"
 #include "Spezies.hh"
 #include "Typen.hh"
-//#include "class_grad_anstieg.hh"
 #include "Grad_anstieg.hh"
+#include "Praxispunkte.hh"
 
 class Random;
 
@@ -101,6 +101,7 @@ class midgard_CG : public midgard_CG_glade
                              std::vector<cH_Typen> Typen;
                              Grad_anstieg GradAnstieg;
                              std::vector<cH_Spezialgebiet> Spezialgebiet;
+                             Praxispunkte praxispunkte;
                st_Database(){}
                st_Database(std::vector<cH_Land> L,
                            std::vector<cH_Ruestung> R,
@@ -119,7 +120,8 @@ class midgard_CG : public midgard_CG_glade
                            std::vector<cH_Spezies> S,
                            std::vector<cH_Typen> T,
                            Grad_anstieg GA,
-                           std::vector<cH_Spezialgebiet> SP )
+                           std::vector<cH_Spezialgebiet> SP,
+                           Praxispunkte px )
                            : Laender(L),Ruestung(R),Fertigkeit_ang(Fa),
                              Fertigkeit(F),WaffeGrund(WG),Waffe(W),
                              Waffe_from_Alias(WfA),
@@ -127,7 +129,7 @@ class midgard_CG : public midgard_CG_glade
                              Kido(K),Sprache(Sp),Schrift(Sc),
                              pflicht(p),ausnahmen(a),Spezies(S),
                              Typen(T),GradAnstieg(GA),
-                             Spezialgebiet(SP) {}
+                             Spezialgebiet(SP),praxispunkte(px) {}
                            };
    private:
         friend class midgard_CG_glade;
@@ -149,10 +151,7 @@ class midgard_CG : public midgard_CG_glade
 
         void set_tree_titles();
 
-//        std::vector<cH_Typen> vec_Typen;
-//        std::vector<cH_Typen> vec_Typen_2;
         std::vector<std::string> vec_spezialgebiet;
-//        std::vector<std::string> spezies_vector;
         std::list<H_WaffeBesitz> list_Waffen_besitz;
         std::vector<H_Data_beruf> vec_Beruf;
         st_Database Database;
@@ -177,12 +176,9 @@ class midgard_CG : public midgard_CG_glade
         bool kido_bool;
         int maxkido;
         bool magie_bool;
-//        Grad_anstieg Grad_Anstieg;
 
-//        vector<cH_Typen> Typ;
         vector<cH_Typen> Typ;
         Lernpunkte lernpunkte;
-//        Data_spezies Spezies_constraint;
    
         void get_Database();
         void regnot(std::string sadd);
@@ -199,7 +195,6 @@ class midgard_CG : public midgard_CG_glade
         void on_herkunftsland_clicked();
         void on_muttersprache_clicked();
         void gw_wuerfeln();
-//        void get_spezies_constraint();
         int  constraint_gw(Random& random,int constraint);
         int  constraint_aw(Random& random,int constraint);
         int  wuerfeln_best_of_two(Random& random);
@@ -249,7 +244,6 @@ class midgard_CG : public midgard_CG_glade
         void on_zauber_wahl_clicked();
         void on_berufe_wahl_clicked();
         void on_kido_wahl_clicked();
-//        int maxkidostil(const std::string& stufe);
         void show_kido();
         void stil_optionmenue();
         void show_berufe();
@@ -302,7 +296,6 @@ class midgard_CG : public midgard_CG_glade
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
-//        bool steigern(unsigned int kosten,const std::string& fert);
         bool steigern(unsigned int kosten,const cH_MidgardBasicElement *fert=0);
         void desteigern(unsigned int kosten);
         void on_checkbutton_EP_Geld_toggled();
@@ -323,19 +316,11 @@ class midgard_CG : public midgard_CG_glade
         void on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled();
         void on_radiobutton_praxis_auto_fertigkeiten_toggled();
         int praxispunkte_wuerfeln(const std::string& fert,int alter_wert, const std::string& art,bool wuerfeln);
-        int attribut_check(std::string atr);
         bool kido_steigern_check(int wert);
    
         void on_waffen_laden_clicked();
         void on_waffengrund_laden_clicked();
-//        void show_alte_grund();
-//        void show_neue_grund();
-//        void show_alte_waffen();
-//        void show_neue_waffen();
         void waffen_zeigen();
-//        void move_waffe(std::list<cH_Waffe>& von,std::list<cH_Waffe>& nach,const std::string& name);
-//        void move_waffegrund(std::list<cH_WaffeGrund>& von,std::list<cH_WaffeGrund>& nach,const std::string& name);
-//        void get_srv_kosten(const cH_Waffe& waffe, int &steigern,int &reduzieren,int &verlernen) const;
         void on_leaf_selected_alte_grund(cH_RowDataBase d);
         void on_leaf_selected_neue_grund(cH_RowDataBase d);
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);
@@ -383,12 +368,9 @@ class midgard_CG : public midgard_CG_glade
         void on_leaf_selected_neue_schrift(cH_RowDataBase d);
         void schriften_zeigen();
         void sprachen_zeigen();
-//        void sprachen_schrift();
         void on_button_sprache_sort_clicked();
         void on_button_schrift_sort_clicked();
         void show_gtk();
-//        void get_typ_after_load();
-//        void get_optionmenu_typ_nr();
    
    public:
          midgard_CG(int argc,char **argv);
@@ -408,7 +390,6 @@ class midgard_CG : public midgard_CG_glade
          void zeige_werte(const Grundwerte& w);
          void setze_lernpunkte(const Lernpunkte& _lernpunkte);
          void show_fertigkeiten();
-//         void waffen_uebernehmen(const std::list<cH_MidgardBasicElement>& saw,const std::list<cH_MidgardBasicElement> wg);
          void waffe_besitz_uebernehmen(const std::list<H_WaffeBesitz>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
@@ -417,10 +398,7 @@ class midgard_CG : public midgard_CG_glade
          void herkunft_uebernehmen(const cH_Land& s);
          std::vector<string> Berufs_Vorteile();
          bool region_check(const std::string& region);
-//         void clear_Ausnahmen();
          void EP_uebernehmen();
          void Geld_uebernehmen();
-//         static bool standard_one_G(const vector<std::string>& s);
-//         static bool standard_all_S(const vector<std::string>& s);
 };
 #endif

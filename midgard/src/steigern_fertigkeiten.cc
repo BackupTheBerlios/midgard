@@ -67,7 +67,8 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
             bool wuerfeln;
             if (radiobutton_praxis_wuerfeln_fertigkeiten->get_active()) wuerfeln = true;
             if (radiobutton_praxis_auto_fertigkeiten->get_active()) wuerfeln = false;
-            int gelungen = praxispunkte_wuerfeln(MBE->Name(),MBE->Erfolgswert(),"Fertigkeit",wuerfeln);
+//            int gelungen = praxispunkte_wuerfeln(MBE->Name(),MBE->Erfolgswert(),"Fertigkeit",wuerfeln);
+            bool gelungen = Database.praxispunkte.wuerfeln(MBE,Werte,Typ,wuerfeln);
             if (gelungen)
                {
                   Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen)/2);

@@ -132,7 +132,8 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
           if (radiobutton_praxis_wuerfeln_waffen->get_active()) wuerfeln = true;
 
           std::string art="Waffe";
-          int gelungen = praxispunkte_wuerfeln(MBE->Name(),MBE->Erfolgswert(),art,wuerfeln);
+//          int gelungen = praxispunkte_wuerfeln(MBE->Name(),MBE->Erfolgswert(),art,wuerfeln);
+          bool gelungen = Database.praxispunkte.wuerfeln(MBE,Werte,Typ,wuerfeln);
           if (gelungen)
             {
               Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
