@@ -21,9 +21,13 @@
 #include "Gtk_OStream.h"
 #include <gtkmm/label.h>
 
-void Gtk::OStream::flush_Label(gpointer user_data,GtkDestroyNotify d)
-{   handler_data.label.widget->set_text(data);
-// user_data?
+Gtk::OStream::streamsize Gtk::OStream::data_Label(const char *s,streamsize n)
+{   if (n) handler_data.label.widget->set_text(handler_data.label.widget->get_text()+std::string(s,n));
+    return n;
 }
 
-// void erase_Label? so that append might work?
+void Gtk::OStream::erase_Label(Gtk::OStream::openmode m)
+{  if (m & std::ios::trunc) handler_data.label.widget->set_text("");
+}
+
+// user_data?

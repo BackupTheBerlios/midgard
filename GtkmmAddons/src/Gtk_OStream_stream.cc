@@ -20,10 +20,6 @@
 
 #include "Gtk_OStream.h"
 
-#define CLIST_COLUMNS 20
-
-void Gtk::OStream::flush_stream(gpointer user_data,GtkDestroyNotify d)
-{   (*handler_data.stream.os) << data;
+Gtk::OStream::streamsize Gtk::OStream::data_stream(const char *s,streamsize n)
+{   return (*handler_data.stream.os).write(s,n);
 };
-
-// a data callback would be more sensible
