@@ -20,24 +20,24 @@ void table_lernschema::refresh()
 }
 
 void table_lernschema::wizard_changed(gpointer p)
-{ if (vabenteurer.proxies.wizard.Value()!=Wizard::BERUF1
-	&& !vabenteurer.proxies.wizard_mode.Value()>Wizard::hints)
+{ if (vabenteurer->proxies.wizard.Value()!=Wizard::BERUF1
+	&& !vabenteurer->proxies.wizard_mode.Value()>Wizard::Hints)
      vbox_berufsname->hide();
   else 
-  {  if (vabenteurer.proxies.werte_eingeben.Value())
+  {  if (vabenteurer->proxies.werte_eingeben.Value())
         vbox_berufsname->show();
      else 
-        button_beruf->grep_focus();
+        button_beruf->grab_focus();
   }
   
-  if (vabenteurer.proxies.wizard.Value()!=Wizard::KIDO_STIL
-          && !vabenteurer.proxies.wizard_mode.Value()>Wizard::hints)
+  if (vabenteurer->proxies.wizard.Value()!=Wizard::KIDO_STIL
+          && !vabenteurer->proxies.wizard_mode.Value()>Wizard::Hints)
      button_kido_auswahl->set_sensitive(false);
   else 
      button_kido_auswahl->set_sensitive(true);
 
-  if (vabenteurer.proxies.wizard.Value()!=Wizard::ANGEBORENEFERTIGKEITEN 
-          && !vabenteurer.proxies.wizard_mode.Value()>Wizard::hints)
+  if (vabenteurer->proxies.wizard.Value()!=Wizard::ANGEBORENEFERTIGKEITEN 
+          && !vabenteurer->proxies.wizard_mode.Value()>Wizard::Hints)
      button_angeborene_fert->set_sensitive(false);
   else 
      button_angeborene_fert->set_sensitive(true);
@@ -49,8 +49,8 @@ void table_lernschema::init(midgard_CG *h)
   vabenteurer=&h->getChar();
 //  vabenteurer->getLernpunkte().MaxKido()=0;
 //  gwr_auswahl=ENone;
-  vabenteurer.proxies.undo_changed.connect(SigC::slot(*this,&table_lernschema::refresh));
-  vabenteurer.proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_lernschema::wizard_changed));
+  vabenteurer->proxies.undo_changed.connect(SigC::slot(*this,&table_lernschema::refresh));
+  vabenteurer->proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_lernschema::wizard_changed));
 }
 
 table_lernschema::table_lernschema(GlademmData *_data)
