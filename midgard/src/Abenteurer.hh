@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.5 2002/05/29 13:13:46 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.6 2002/05/29 13:53:46 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -119,27 +119,20 @@ class VAbenteurer
       std::vector<st_abenteurer> VA;
       std::vector<st_abenteurer>::iterator ai;
    public:
-      VAbenteurer() {};//{VA.push_back(st_abenteurer()) ;}
+      VAbenteurer() {}
       
       const std::vector<st_abenteurer> &getList() const {return VA;}
-      void push_back(Abenteurer A) 
-            { VA.push_back(st_abenteurer(A,true)); ai=VA.end()-1; }
-      void set_Abenteurer(const Abenteurer& A)
-         { for(std::vector<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i) 
-             if(i->abenteurer==A) ai=i;
-         }
+      void push_back(Abenteurer A);
+      void set_Abenteurer(const Abenteurer& A);
       void modified() {ai->gespeichert=false;}
       void safed() {ai->gespeichert=true;}
       void setFilename(std::string s) {ai->filename=s;}
       const std::string &getFilename() {return ai->filename;}
 
 
-      bool unsaved_exist()
-          { for(std::vector<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i) 
-            if(i->gespeichert) return true;
-            return false;
-          }
+      bool unsaved_exist();
       bool empty() const {return VA.empty();}
+      bool size() const {return VA.size();}
 
 
       // Wrapper
