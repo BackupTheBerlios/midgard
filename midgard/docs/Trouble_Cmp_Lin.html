@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+  <title>Trouble: Kompileren unter Linux</title>
+  <link rel="shortcut icon" href="image/magus-fav.ico">
+</head>
+<body>
+
+  <h2>Probleme beim Kompilieren:</h2>
+  Zur Zeit ist der Quellcode nur über CVS zu beziehen. Der folgende Abschnitt
+  bezieht sich daher nur auf die CVS-Versionen. Viele Fehler können innerhalb
+  kurzer Zeit bereits behoben sein, so dass mit einem nochmaligen Update der
+  oder die Fehler bereits behoben sein können.<br>
+  <p>
+  <ol>
+    <li><a href="#GTKCR">CVS: 'connection refused' oder "Absturz"</a></li>
+    <li><a href="#ICE">Abbruch mit der Meldung: 'internal compiler error'</a></li>
+    <li></li>
+  </ol>
+  <hr>
+  <ol>
+    <li>Bei einem `checkout' oder 'Update' gibt es die Fehlermeldung:
+    <pre>
+    ========== GtkmmAddons ========
+    @ connection refused</pre><br>
+    oder es tut sich nichts.<br>
+    Der CVS-Server von GtkmmAddons befindet sich nicht auf berlios.de, sondern
+    auf gnome.org. Es kann unter Umständen vorkommen, dass der Server stark beansprucht
+    wird, und daher keine weitere Verbindung annimmt.<br>
+    <i>Abhilfe:</i><br>
+    Das 'checkout'/'update' nochmals ausführen.<br> <p>
+    </li>
+    <li><a name="ICE"></a>Der Compiler bricht mit de Meldung:<br> <br>
+    <pre>'internal compiler error'</pre> <br>
+    ab.<br>
+    Die Ursache ist im Normalfall, daß der verfügbare Arbeitsspeicher des Systems nicht ausreicht<br>
+    Dem kann auf zweierlei Art und Weise <a href="mem.html">abgeholfen</a> werden. <br>  </li>  <br>
+
+  </ol><p>
+ Zurück zur <a href="index.html"> Startseite</a>
+</body>
+</html>
