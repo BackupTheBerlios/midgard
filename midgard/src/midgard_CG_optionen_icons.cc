@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.16 2002/10/27 18:25:23 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.17 2002/10/30 06:11:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -95,7 +95,8 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Weapon-trans-50.xpm" 
 #include "../pixmaps/Dice_Armor-trans-50.xpm" 
 #include "../pixmaps/Dice-Ausruest-50.xpm" 
-//#include "../pixmaps/Erase-50.xpm" 
+#include "../pixmaps/KillChar-32.xpm" 
+#include "../pixmaps/Trash-32.xpm" 
 #include "../pixmaps/MAGUS_Logo_Small.xpm" 
 #include "../pixmaps/MAGUS_Logo_Tiny.xpm" 
 #include "../pixmaps/NSC-Mode-26.xpm" 
@@ -160,8 +161,8 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iRuestung)   return st_icons("Rüstung"  ,Dice_Armor_trans_50_xpm);
      else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,Dice_Ausruest_50_xpm);
      else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,MAGUS_Logo_Small_xpm);
-     else if(typ==iDeleteAusr  )return st_icons("Gegenstand löschen"  ,Erase_50_xpm);
-     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,Erase_50_xpm);
+     else if(typ==iDeleteAusr  )return st_icons("Gegenstand löschen"  ,Trash_32_xpm);
+     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,KillChar_32_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,MAGUS_Logo_Tiny_xpm);
      else if(typ==iStatusNPC)return st_icons(""  ,NSC_Mode_26_xpm);
      else if(typ==iNotebookInfo)   return st_icons("News & Geschichte"  ,NewsGeschichte_xpm);

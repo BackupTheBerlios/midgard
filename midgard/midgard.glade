@@ -15147,7 +15147,7 @@ KS
 		  <widget>
 		    <class>GtkPixmap</class>
 		    <name>pixmap69</name>
-		    <filename>Erase-50.xpm</filename>
+		    <filename>Trash-32.xpm</filename>
 		    <xalign>0.5</xalign>
 		    <yalign>0.5</yalign>
 		    <xpad>0</xpad>
@@ -16517,7 +16517,7 @@ anschlieﬂend unten einen neuen Gegenstand ausw‰hlen.</label>
 	      <widget>
 		<class>GtkPixmap</class>
 		<name>pixmap162</name>
-		<filename>Erase-50.xpm</filename>
+		<filename>KillChar-32.xpm</filename>
 		<xalign>0.5</xalign>
 		<yalign>0.5</yalign>
 		<xpad>0</xpad>
