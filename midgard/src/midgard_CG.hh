@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.221 2002/04/25 16:56:52 thoma Exp $
+// $Id: midgard_CG.hh,v 1.222 2002/04/27 15:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -82,6 +82,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void show_Pics(bool b);
         void show_Menueleiste(bool b);
         void show_Knopfleiste(bool b);
+        void show_Statusleiste(bool b);
         void show_Icons(bool b);
         void show_Beschriftungen(bool b);
         void show_gw_wuerfeln(bool b);
@@ -155,7 +156,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void optionmenu_stand_deactivate();
         void optionmenu_hand_deactivate();
         void pdf_viewer(const std::string& file);
-        void regnot(const std::string& sadd);
+        SigC::Connection connection_status;
+        gint timeout_status();
         void fill_typauswahl();
         void fill_typauswahl_2();
         void fill_typauswahl_fill(int typ_1_2);
@@ -165,6 +167,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_radiobutton_stadt_land_toggled();
         void on_radiobutton_frau_toggled();
    public:
+        void set_info(const std::string& sadd);
+        void set_status(std::string s);
         void on_radiobutton_mann_toggled();
    private:
         void spezieswahl_button();

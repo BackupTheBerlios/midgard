@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.80 2002/04/25 16:56:52 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.81 2002/04/27 15:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 #include "export_common.h"
 #include <xml.h>
 
-void midgard_CG::regnot(const std::string& sadd)
+void midgard_CG::set_info(const std::string& sadd)
 {
  InfoFenster->AppendShow(sadd);
 }
@@ -108,6 +108,12 @@ void midgard_CG::show_Knopfleiste(bool b)
 {
   if(b) griff_toolbar_top->show();
   else  griff_toolbar_top->hide();
+}
+
+void midgard_CG::show_Statusleiste(bool b)
+{
+  if(b) handlebox_status->show();
+  else  handlebox_status->hide();
 }
 
 void midgard_CG::show_Icons(bool i)

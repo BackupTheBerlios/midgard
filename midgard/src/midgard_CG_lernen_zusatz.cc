@@ -77,7 +77,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
            datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }
        if(datavec.empty()) 
-         { regnot("Keine Schrift lernbar (entweder keine Sprache gelernt oder es werden alle lernbaren Schriften schon beherrscht.)");
+         { set_status("Keine Schrift lernbar (entweder keine Sprache gelernt oder es werden alle lernbaren Schriften schon beherrscht.)");
            list_FertigkeitZusaetze.remove(MBE->Name());
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_zusatz_leaf_schrift_selected));
@@ -89,7 +89,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
         if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
        if(datavec.empty()) 
-         { regnot("Noch keine Fernkampfwaffe gewählt.");
+         { set_status("Noch keine Fernkampfwaffe gewählt.");
            list_Fertigkeit.remove(MBE);
            list_FertigkeitZusaetze.remove(MBE->Name());
            return;}

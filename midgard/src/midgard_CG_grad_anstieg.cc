@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.57 2002/04/15 06:57:11 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.58 2002/04/27 15:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -88,7 +88,7 @@ void midgard_CG::get_grundwerte()
 {
   if(Werte.Grad() <= Database.GradAnstieg.get_Grad_Basiswerte()) 
    {
-      InfoFenster->AppendShow("Für Grad "+itos(Database.GradAnstieg.get_Grad_Basiswerte())+" wurde schon gewürfelt");
+      set_status("Für Grad "+itos(Database.GradAnstieg.get_Grad_Basiswerte())+" wurde schon gewürfelt");
       return;
    }
   // Erhöhen der Schicksalsgunst
@@ -102,7 +102,7 @@ void midgard_CG::get_grundwerte()
   std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nfür Grad "
       + itos(Database.GradAnstieg.get_Grad_Basiswerte()+1) + " wurde eine ";
   stinfo += itos(z);
-  stinfo +=" gewürfelt --> ";
+  stinfo +=" gewürfelt ==> ";
   std::string was = "keine Erhöhung";
 
   int erh = random.integer(1,6)+1;
@@ -134,9 +134,10 @@ void midgard_CG::get_grundwerte()
   stinfo += was;
   if (was != "keine Erhöhung" )
     {
-       stinfo += " um "; stinfo += itos(erh); stinfo+=" erhöht.\n";
+       stinfo += " um "+itos(erh)+" erhöht.";
     }
-  InfoFenster->AppendShow(stinfo,WindowInfo::None);
+//  InfoFenster->AppendShow(stinfo,WindowInfo::None);
+  set_status(stinfo);
   Database.GradAnstieg.set_Grad_Basiswerte(1+Database.GradAnstieg.get_Grad_Basiswerte());
   zeige_werte();
 }
@@ -168,11 +169,12 @@ void midgard_CG::get_ausdauer(int grad)
   nap = ap + nab + Werte.bo_Au() ;
   int nspez = Werte.Grad()*Werte.Spezies()->AP_GradFak();
   nap += nspez;
-  std::string stinfo="Für Grad "+itos(Werte.Grad())+":\n";
-  stinfo+="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
-  stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
-  stinfo+="+";stinfo+=itos(Werte.bo_Au());stinfo+="=";stinfo+=itos(nspez);
-  InfoFenster->AppendShow(stinfo,WindowInfo::None);
+  std::string stinfo="Ausdauerpunkte für Grad "+itos(Werte.Grad())+": "
+   +"Gewürfelt("+itos(ap)+") + Bonus für Typ("+itos(nab)
+   +") + Persönlichen Bonus("+itos(Werte.bo_Au())+") 
+   + Spezies-Bonus("+itos(nspez)+")\n";
+  set_status(stinfo);
+//  InfoFenster->AppendShow(stinfo,WindowInfo::None);
    // Für alle ist die AP-anzahel mind. = Grad
   if (Werte.AP()<Werte.Grad()) Werte.setAP(Werte.Grad()); 
    // Neue AP höher als alte?
@@ -211,7 +213,7 @@ void midgard_CG::get_ab_re_za(e_was_steigern was)
     }
   else abort();
   if (alter_wert >= max_wert && radiobutton_steigern->get_active())
-      { InfoFenster->AppendShow("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!") ;
+      { set_status("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!") ;
         return;}
 
   if(radiobutton_steigern->get_active())

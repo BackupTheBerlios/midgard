@@ -185,11 +185,11 @@ bool midgard_CG::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_stei
 
   if(bkep)
    { if (ep_k<=Werte.KEP()) {Werte.addKEP(-ep_k);ep_k =0  ;}
-     else                   {Werte.setKEP(0);    ep_k-=Werte.KEP();} 
+     else                   {ep_k-=Werte.KEP(); Werte.setKEP(0);} 
    }
   if(bzep)
    { if (ep_k<=Werte.ZEP()) {Werte.addZEP(-ep_k);ep_k =0 ;}
-     else                   {Werte.setZEP(0);    ep_k-=Werte.ZEP(); } 
+     else                   {  ep_k-=Werte.ZEP(); Werte.setZEP(0);  } 
    }
   Werte.addAEP(-ep_k);
   Geld_uebernehmen();
@@ -205,7 +205,7 @@ bool midgard_CG::genug_EP(const int ep_k,const bool bkep,const bool bzep, int &a
   if (bzep) {aep += Werte.ZEP() ;sw +=",ZEP";}
   if (ep_k > aep) 
     { 
-      regnot("Zu wenig EP um zu steigern,\n es fehlen "+itos(ep_k-aep)+" Erfahrungspunkte (AEP"+sw+")."); 
+      set_status("Zu wenig EP um zu steigern, es fehlen "+itos(ep_k-aep)+" Erfahrungspunkte (AEP"+sw+")."); 
       return false;
     }
   return true;
@@ -222,7 +222,7 @@ int midgard_CG::PP_vorrat(const cH_MidgardBasicElement *MBE,e_was_steigern was)
      else if(was==Resistenz) pp=Werte.ResistenzPP() ;
      else if(was==Abwehr)    pp=Werte.AbwehrPP() ;
      else if(was==Zaubern)   pp=Werte.ZaubernPP() ;
-     else if(was==Ausdauer)  {regnot ("Ausdauer kann nicht mit Praxispunkten gesteigert werden.");return false;}
+     else if(was==Ausdauer)  {set_status("Ausdauer kann nicht mit Praxispunkten gesteigert werden.");return false;}
      else assert(!"Fehler in steigern_EP.cc");
    }
  return pp;
@@ -269,7 +269,7 @@ int midgard_CG::genug_geld(const int kosten)
   int gold_k = (int)(0.5 + kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
   if( !MOptionen->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
   if (gold_k > Werte.Gold()) 
-    { regnot("Zu wenig Gold um zu steigern,\n es fehlen "+itos(gold_k-Werte.Gold())+" GS."); 
+    { set_status("Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-Werte.Gold())+" Gold."); 
       return -1;
     }
   else 
@@ -296,7 +296,7 @@ void midgard_CG::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,b
      int aep_kosten = steiger_kosten-aep;
      if(aep_kosten>Werte.AEP())
       {
-        regnot("Zu wenig AEP, die restlichen Punkte verfallen.");
+        set_status("Zu wenig AEP, die restlichen Punkte verfallen.");
       }
      else
       {

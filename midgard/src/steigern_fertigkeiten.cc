@@ -59,7 +59,7 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
  if( radiobutton_unterweisung->get_active() && 
      F->Erfolgswert() >= F->MaxUnterweisung())
    {
-     regnot("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
+     set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
      return ;
    }
  if (MidgardBasicElement_leaf_alt(d))
@@ -72,7 +72,7 @@ void midgard_CG::on_alte_fert_reorder()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
       case Data_SimpleTree::WERTa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
-      default : InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
 
@@ -81,7 +81,7 @@ bool midgard_CG::kido_steigern_check(int wert)
 {
   if (Werte.Grad()+10 > wert) return false;
   else
-   { InfoFenster->AppendShow("KiDo darf nur auf maximal Grad+10 gesteigert werden.\n");
+   { set_status("KiDo darf nur auf maximal Grad+10 gesteigert werden.\n");
      return true;
    }
 }

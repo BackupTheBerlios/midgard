@@ -49,6 +49,9 @@ void Wizard_window::evaluate_step(esteps step)
   if(step==SPEZIALGEBIET&&(!Typ[0]->Spezialgebiet()&&!Typ[1]->Spezialgebiet()))
     next_step();
   hauptfenster->notebook_main->set_page(vecwiz[step].page);
+  hauptfenster->set_status(vecwiz[step].text);
+
+/*
   Gtk::OStream os(LogWinWizard->get_list());
   os << vecwiz[step].text<<'\n';
   os.flush();
@@ -56,6 +59,7 @@ void Wizard_window::evaluate_step(esteps step)
   (hauptfenster->*(vecwiz[step].callback))();
   static_cast<Gtk::Label*>(button_wiz_weiter->get_child())->set_text("Weiter:\n"+vecwiz[step+1].kurz);
   static_cast<Gtk::Label*>(button_wiz_wiederholen->get_child())->set_text("Wiederholen:\n"+vecwiz[step].kurz);
+*/
   // button_wiz_skip
 }
 

@@ -39,13 +39,13 @@
     </signal>
 
     <widget>
-      <class>GtkPacker</class>
-      <name>table_9999</name>
-      <default_border_width>0</default_border_width>
-      <default_pad_x>0</default_pad_x>
-      <default_pad_y>0</default_pad_y>
-      <default_ipad_x>0</default_ipad_x>
-      <default_ipad_y>0</default_ipad_y>
+      <class>GtkTable</class>
+      <name>main_table</name>
+      <rows>4</rows>
+      <columns>4</columns>
+      <homogeneous>False</homogeneous>
+      <row_spacing>0</row_spacing>
+      <column_spacing>0</column_spacing>
 
       <widget>
 	<class>GtkHandleBox</class>
@@ -55,17 +55,18 @@
 	<handle_position>GTK_POS_LEFT</handle_position>
 	<snap_edge>GTK_POS_TOP</snap_edge>
 	<child>
-	  <side>GTK_SIDE_TOP</side>
-	  <anchor>GTK_ANCHOR_NORTH</anchor>
-	  <expand>False</expand>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	  <use_default>True</use_default>
-	  <border_width>0</border_width>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>0</top_attach>
+	  <bottom_attach>1</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
-	  <xipad>0</xipad>
-	  <yipad>0</yipad>
+	  <xexpand>True</xexpand>
+	  <yexpand>True</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
 	</child>
 
 	<widget>
@@ -268,189 +269,6 @@
       </widget>
 
       <widget>
-	<class>GtkHandleBox</class>
-	<name>griff_toolbar_top</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<shadow_type>GTK_SHADOW_NONE</shadow_type>
-	<handle_position>GTK_POS_LEFT</handle_position>
-	<snap_edge>GTK_POS_TOP</snap_edge>
-	<child>
-	  <side>GTK_SIDE_TOP</side>
-	  <anchor>GTK_ANCHOR_WEST</anchor>
-	  <expand>False</expand>
-	  <xfill>False</xfill>
-	  <yfill>False</yfill>
-	  <use_default>True</use_default>
-	  <border_width>0</border_width>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xipad>0</xipad>
-	  <yipad>0</yipad>
-	</child>
-
-	<widget>
-	  <class>GtkToolbar</class>
-	  <name>toolbar_top</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-	  <type>GTK_TOOLBAR_BOTH</type>
-	  <space_size>10</space_size>
-	  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-	  <relief>GTK_RELIEF_NORMAL</relief>
-	  <tooltips>True</tooltips>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button7</name>
-	    <tooltip>Neuer Abenteurer</tooltip>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_neuer_charakter_clicked</handler>
-	      <last_modification_time>Fri, 30 Mar 2001 19:45:24 GMT</last_modification_time>
-	    </signal>
-	    <label>Neu</label>
-	    <icon>NewChar-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button8</name>
-	    <tooltip>Linke Maustaste: Speichern unter ....           Rechte Maustaste: Speichern.</tooltip>
-	    <signal>
-	      <name>button_release_event</name>
-	      <handler>on_speichern_release_event</handler>
-	      <last_modification_time>Tue, 17 Apr 2001 18:50:09 GMT</last_modification_time>
-	    </signal>
-	    <label>Speichern</label>
-	    <icon>SaveChar-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button9</name>
-	    <tooltip>Abenteurer laden</tooltip>
-	    <signal>
-	      <name>button_release_event</name>
-	      <handler>on_laden_release_event</handler>
-	      <last_modification_time>Mon, 21 May 2001 19:02:36 GMT</last_modification_time>
-	    </signal>
-	    <label>Laden</label>
-	    <icon>LoadChar-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button10</name>
-	    <tooltip>LaTeX Abenteurerblatt drucken (pdf Datei)</tooltip>
-	    <signal>
-	      <name>button_release_event</name>
-	      <handler>on_latex_release_event</handler>
-	      <last_modification_time>Mon, 23 Apr 2001 06:07:57 GMT</last_modification_time>
-	    </signal>
-	    <label>Drucken</label>
-	    <icon>PrintChar-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_undo</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_undo_clicked</handler>
-	      <last_modification_time>Fri, 12 Apr 2002 11:23:41 GMT</last_modification_time>
-	    </signal>
-	    <label>Zurück</label>
-	    <icon>Undo.xpm</icon>
-	    <child>
-	      <new_group>True</new_group>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_redo</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_redo_clicked</handler>
-	      <last_modification_time>Fri, 12 Apr 2002 11:23:10 GMT</last_modification_time>
-	    </signal>
-	    <label>Vorwärts</label>
-	    <icon>redo.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_menu</name>
-	    <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
-	    <signal>
-	      <name>button_release_event</name>
-	      <handler>on_button_menu_button_release_event</handler>
-	      <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
-	    </signal>
-	    <label>Menü</label>
-	    <icon>wizzard-trans-50_2.xpm</icon>
-	    <child>
-	      <new_group>True</new_group>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_info</name>
-	    <tooltip>Info</tooltip>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_info_clicked</handler>
-	      <last_modification_time>Sun, 01 Apr 2001 19:06:08 GMT</last_modification_time>
-	    </signal>
-	    <label>Info</label>
-	    <icon>Info-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button11</name>
-	    <tooltip>Hilfe</tooltip>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_hilfe_clicked</handler>
-	      <last_modification_time>Fri, 30 Mar 2001 19:46:38 GMT</last_modification_time>
-	    </signal>
-	    <label>Hilfe</label>
-	    <icon>Help-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button12</name>
-	    <tooltip>Schließen</tooltip>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_schliessen_CG_clicked</handler>
-	      <last_modification_time>Fri, 30 Mar 2001 19:47:22 GMT</last_modification_time>
-	    </signal>
-	    <label>Schließen</label>
-	    <icon>Exit-trans-50.xpm</icon>
-	    <child>
-	      <new_group>True</new_group>
-	    </child>
-	  </widget>
-	</widget>
-      </widget>
-
-      <widget>
 	<class>GtkNotebook</class>
 	<name>notebook_main</name>
 	<cxx_visibility>protected</cxx_visibility>
@@ -468,17 +286,18 @@
 	<tab_vborder>0</tab_vborder>
 	<popup_enable>False</popup_enable>
 	<child>
-	  <side>GTK_SIDE_RIGHT</side>
-	  <anchor>GTK_ANCHOR_CENTER</anchor>
-	  <expand>False</expand>
-	  <xfill>True</xfill>
-	  <yfill>True</yfill>
-	  <use_default>True</use_default>
-	  <border_width>0</border_width>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>2</top_attach>
+	  <bottom_attach>3</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
-	  <xipad>0</xipad>
-	  <yipad>0</yipad>
+	  <xexpand>True</xexpand>
+	  <yexpand>True</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>True</yfill>
 	</child>
 
 	<widget>
@@ -15608,6 +15427,226 @@ KS
 	  <yalign>0.5</yalign>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GtkHandleBox</class>
+	<name>griff_toolbar_top</name>
+	<cxx_visibility>protected</cxx_visibility>
+	<shadow_type>GTK_SHADOW_NONE</shadow_type>
+	<handle_position>GTK_POS_LEFT</handle_position>
+	<snap_edge>GTK_POS_TOP</snap_edge>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>1</top_attach>
+	  <bottom_attach>2</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>True</xexpand>
+	  <yexpand>True</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
+	</child>
+
+	<widget>
+	  <class>GtkToolbar</class>
+	  <name>toolbar_top</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	  <type>GTK_TOOLBAR_BOTH</type>
+	  <space_size>10</space_size>
+	  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
+	  <relief>GTK_RELIEF_NORMAL</relief>
+	  <tooltips>True</tooltips>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button7</name>
+	    <tooltip>Neuer Abenteurer</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_neuer_charakter_clicked</handler>
+	      <last_modification_time>Fri, 30 Mar 2001 19:45:24 GMT</last_modification_time>
+	    </signal>
+	    <label>Neu</label>
+	    <icon>NewChar-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button8</name>
+	    <tooltip>Linke Maustaste: Speichern unter ....           Rechte Maustaste: Speichern.</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_speichern_release_event</handler>
+	      <last_modification_time>Tue, 17 Apr 2001 18:50:09 GMT</last_modification_time>
+	    </signal>
+	    <label>Speichern</label>
+	    <icon>SaveChar-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button9</name>
+	    <tooltip>Abenteurer laden</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_laden_release_event</handler>
+	      <last_modification_time>Mon, 21 May 2001 19:02:36 GMT</last_modification_time>
+	    </signal>
+	    <label>Laden</label>
+	    <icon>LoadChar-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button10</name>
+	    <tooltip>LaTeX Abenteurerblatt drucken (pdf Datei)</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_latex_release_event</handler>
+	      <last_modification_time>Mon, 23 Apr 2001 06:07:57 GMT</last_modification_time>
+	    </signal>
+	    <label>Drucken</label>
+	    <icon>PrintChar-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_undo</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_undo_clicked</handler>
+	      <last_modification_time>Fri, 12 Apr 2002 11:23:41 GMT</last_modification_time>
+	    </signal>
+	    <label>Zurück</label>
+	    <icon>Undo.xpm</icon>
+	    <child>
+	      <new_group>True</new_group>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_redo</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_redo_clicked</handler>
+	      <last_modification_time>Fri, 12 Apr 2002 11:23:10 GMT</last_modification_time>
+	    </signal>
+	    <label>Vorwärts</label>
+	    <icon>redo.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_menu</name>
+	    <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_button_menu_button_release_event</handler>
+	      <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
+	    </signal>
+	    <label>Menü</label>
+	    <icon>wizzard-trans-50_2.xpm</icon>
+	    <child>
+	      <new_group>True</new_group>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_info</name>
+	    <tooltip>Info</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_info_clicked</handler>
+	      <last_modification_time>Sun, 01 Apr 2001 19:06:08 GMT</last_modification_time>
+	    </signal>
+	    <label>Info</label>
+	    <icon>Info-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button11</name>
+	    <tooltip>Hilfe</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_hilfe_clicked</handler>
+	      <last_modification_time>Fri, 30 Mar 2001 19:46:38 GMT</last_modification_time>
+	    </signal>
+	    <label>Hilfe</label>
+	    <icon>Help-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button12</name>
+	    <tooltip>Schließen</tooltip>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_schliessen_CG_clicked</handler>
+	      <last_modification_time>Fri, 30 Mar 2001 19:47:22 GMT</last_modification_time>
+	    </signal>
+	    <label>Schließen</label>
+	    <icon>Exit-trans-50.xpm</icon>
+	    <child>
+	      <new_group>True</new_group>
+	    </child>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GtkHandleBox</class>
+	<name>handlebox_status</name>
+	<cxx_visibility>protected</cxx_visibility>
+	<shadow_type>GTK_SHADOW_NONE</shadow_type>
+	<handle_position>GTK_POS_LEFT</handle_position>
+	<snap_edge>GTK_POS_LEFT</snap_edge>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>3</top_attach>
+	  <bottom_attach>4</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>True</xexpand>
+	  <yexpand>True</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
+	</child>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label_status</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <label></label>
+	  <justify>GTK_JUSTIFY_LEFT</justify>
+	  <wrap>False</wrap>
+	  <xalign>0.01</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>2</ypad>
 	</widget>
       </widget>
     </widget>

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.8 2002/04/22 08:51:34 thoma Exp $
+// $Id: Optionen.hh,v 1.9 2002/04/27 15:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,7 @@ class Midgard_Optionen
                             WizardStarten,
                             LernschemaZusaetzeLoeschen,show_InfoWindow};
       enum HausIndex {Gold};
-      enum OberIndex {Bilder,Menueleiste,Knopfleiste,Icons,Beschriftungen};
+      enum OberIndex {Bilder,Menueleiste,Knopfleiste,Icons,Beschriftungen,Status};
 
       struct st_strings{StringIndex index; std::string text; std::string name;
              st_strings(StringIndex i,std::string t,std::string n)

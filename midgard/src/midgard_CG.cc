@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.209 2002/04/25 16:56:52 thoma Exp $
+// $Id: midgard_CG.cc,v 1.210 2002/04/27 15:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -243,6 +243,18 @@ void midgard_CG::on_button_waffen_s_clicked()
   manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
 }
 
+void midgard_CG::set_status(std::string s)
+{
+  label_status->set_text(s);
+  connection_status=Gtk::Main::timeout.connect(slot(this,&midgard_CG::timeout_status),7000);
+}
+
+gint midgard_CG::timeout_status()
+{
+  label_status->set_text("");
+  return 0;
+}
+
 
 
 /*****************************************************************/
@@ -387,6 +399,7 @@ void midgard_CG::on_schliessen_CG_clicked()
      xml_export_auswahl();
      return;
    }
+  connection_status.disconnect();
   Gtk::Main::instance()->quit();
 }
 

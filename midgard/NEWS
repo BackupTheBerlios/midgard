@@ -1,13 +1,36 @@
 ##########################################################################
+NEWS IN VERSION 0.6delta2
+
+TODO:
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* KiDo Lernschema
+* Waeland: Zauber
+* Nahuathlan: Komplett
+* Destruktor wird nicht aufgerufen
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+Windows TODO (bitte irgendwo erwähnen)
+
+* das Icon so generieren, dass es auch unter Windows transparent ist ...
+* AcroRead wird noch nicht gefunden
+* den Windows Filerequester (nennt sich ebenfalls Explorer) verwenden (ja es geht!)
+* Abenteurer in ISO 8859-1[5] speichern, dann können sie leichter editiert/gelesen werden.
+
+##########################################################################
 NEWS IN VERSION 0.6delta1
 
 * PP Dweomer/Wunder/Lieder werden zum Lernen von neuem verwendet
 * Un-/Redo
 * Info Fenster Absturz-Bug behoben
 * Oberfläche überarbeitet (z.B. Berufsknopf nach oben)
+* Regionenmenü nach oben
+* kleinere Bugs beseitigt
 
 TODO:
-* Regionenmenü nach oben
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Waeland: Zauber
 * Nahuathlan: Komplett

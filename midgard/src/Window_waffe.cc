@@ -38,7 +38,7 @@ Window_waffe::Window_waffe(int _wurf,
 void Window_waffe::wuerfeln()
 {
  std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
-            +" gewürfelt,\n die Abenteurerklasse ist "+Typ[0]->Name(Werte.Geschlecht())+"\n ---> \n";
+            +" gewürfelt, die Abenteurerklasse ist "+Typ[0]->Name(Werte.Geschlecht())+"\n ==> ";
 
  Gtk::OStream os(clist_waffe);
 // std::string aartE,aartS,aartW,aartZ,aartA;
@@ -82,11 +82,13 @@ void Window_waffe::wuerfeln()
     else if (81<=wurf&&wurf<=95 ) {      A=3; }
     else if (96<=wurf&&wurf<=100) { E=1; A=2; M=true; }
   }  
-
+ strinfo += itos(E)+" Einhand- und "+itos(A)+" beliebige Waffen";
+ hauptfenster->set_status(strinfo);
+/*
  strinfo += "Es dürfen gewählt werden:\n"
             +itos(E)+" Einhandwaffen und "
             +itos(A)+" Beliebige Waffen und/oder Schilde\n";
-
+*/
 
  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
   {  
@@ -101,7 +103,7 @@ void Window_waffe::wuerfeln()
          os.flush(WB->ref(),&HandleContent::unref);
       }  
   }
- hauptfenster->InfoFenster->AppendShow(strinfo);
+// hauptfenster->set_info(strinfo);
  label_anzahl_E->set_text(itos(E));
  label_anzahl_A->set_text(itos(A));
 
@@ -188,5 +190,5 @@ void Window_waffe::magische_Waffe()
 {
    std::string strinfo="100 gewürfelt!!! => magische Einhandwaffe\n";
       strinfo+= "bitte unter 'steigern'->'Besitztümer' einen Angriffsbonus von +1 einstellen.\n";
-   hauptfenster->InfoFenster->AppendShow(strinfo);   
+   hauptfenster->set_info(strinfo);   
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.104 2002/04/25 11:05:33 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.105 2002/04/27 15:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,7 +45,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 
   int fachlern=random.integer(1,6)+random.integer(1,6);
   if(!list_Fertigkeit.empty())
-    regnot("Die Lernpunkte ("+itos(lpspezies)+") für die Pflichtfertigkeiten\n"
+    set_info("Die Lernpunkte ("+itos(lpspezies)+") für die Pflichtfertigkeiten\n"
       "für die Spezies "+Werte.Spezies()->Name()+" wurden von den erfürfelten\n"
       "Lernpunkten ("+itos(fachlern)+") abgezogen.");
   lernpunkte.setFach(fachlern - lpspezies);
@@ -209,10 +209,10 @@ void midgard_CG::lernschema_geld_wuerfeln()
  if(Werte.Stand()=="Unfrei" ) igold/=2;
  if(V[0]==V[1] && V[1]==V[2]) igold += 100;
 
- std::string strinfo ="Beim Auswürfeln von Geld wurden \n"
-   +itos(V[0])+"  "+itos(V[1])+"  "+itos(V[2])+"\n gewürfelt\n"
-   "das ergibt "+itos(igold)+" Gold\n";
- InfoFenster->AppendShow(strinfo);
+ std::string strinfo ="Beim Auswürfeln von Geld wurden "
+   +itos(V[0])+"  "+itos(V[1])+"  "+itos(V[2])+" gewürfelt ==> "
+   +itos(igold)+" Gold";
+ set_status(strinfo);
  Werte.addGold(igold);
  Geld_uebernehmen();
 }
@@ -272,9 +272,8 @@ void midgard_CG::on_button_ruestung_clicked()
       if (96 <= wurf && wurf  <= 100) rue = "LR" ;
    }    
   Werte.setRuestung(cH_Ruestung(rue));
-  std::string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";
-  strinfo += "---> " + Werte.Ruestung()->Long();
-  InfoFenster->AppendShow(strinfo);
+  set_status("Beim Auswürfeln der Rüstung wurde eine "+itos(wurf)+" gewürfelt "
+             "==> " + Werte.Ruestung()->Long());
   zeige_werte();
 }
 
@@ -285,8 +284,7 @@ void midgard_CG::on_lernliste_wahl_toggled()
    {
      if (Werte.Spezialgebiet()->Spezial2()=="" && Typ[0]->Short()=="eBe")
       {
-         std::string strinfo="Erst Primär- und Sekundärelement wählen\n";
-         InfoFenster->AppendShow(strinfo);
+         set_status("Erst Primär- und Sekundärelement wählen");
          return;
       }
    }
@@ -314,7 +312,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            if(togglebutton_spezialwaffe->get_active() )
             { 
               if(cH_Waffe(MBE)->Verteidigung())
-               regnot("Eine Verteidingungswaffe kann keine Spezialwaffe werden.");
+               set_status("Eine Verteidingungswaffe kann keine Spezialwaffe werden.");
              else
               {
                Werte.setSpezialisierung(MBE->Name());
@@ -355,7 +353,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                 lernpunkte.addAllgemein(MBE->Lernpunkte());
            else if(button_untyp_fertigkeiten->get_active())
                 lernpunkte.addUnge(MBE->Lernpunkte());
-           else regnot("Da kein Fertigkeiten-Auswahl-Knopf gewählt wurde konnten die Lernpunkte ("
+           else set_info("Da kein Fertigkeiten-Auswahl-Knopf gewählt wurde konnten die Lernpunkte ("
                   +itos(MBE->Lernpunkte())+") für das Verlernen dieser Sprache nicht gut geschrieben werden.");
            break;
 
@@ -375,7 +373,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
   cH_MidgardBasicElement MBE = dt->getMBE();
   if(MBE->Gelernt()) 
    { 
-     regnot ("Diese Fertigkeit ist schon gelernt");
+     set_status("Diese Fertigkeit ist schon gelernt");
      tree_lernschema->unselect_all();
      return;
    }
@@ -383,7 +381,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
     case MidgardBasicElement::WAFFE: 
       { 
         if(MBE->Lernpunkte()>lernpunkte.Waffen()) 
-          { regnot ("Nicht genug Lernpunkte"); 
+          { set_status("Nicht genug Lernpunkte"); 
             tree_lernschema->unselect_all();
             return;
           }
@@ -396,7 +394,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
     case MidgardBasicElement::ZAUBER: 
       { 
         if(MBE->Lernpunkte()>lernpunkte.Zauber()) 
-          { regnot ("Nicht genug Lernpunkte"); 
+          { set_status("Nicht genug Lernpunkte"); 
             tree_lernschema->unselect_all();
             return;
           }
@@ -412,12 +410,17 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
              MBE->Lernpunkte() > lernpunkte.Allgemein()) ||
              (cH_Fertigkeit(MBE)->LernArt()=="Unge" && 
              MBE->Lernpunkte() > lernpunkte.Unge()) ) 
-          { regnot ("Nicht genug Lernpunkte"); 
+          { set_status("Nicht genug Lernpunkte"); 
             tree_lernschema->unselect_all();
             return;
           }
         if(!SpracheSchrift(MBE)) 
-          { if(MBE->Name()!="Landeskunde (Heimat)") // Das macht 'lernen_zusatz' automatisch
+          { 
+            if(MBE->Name()=="KiDo-Technik")
+             {
+cout << "\n\nTODO\n";
+             }
+            else if(MBE->Name()!="Landeskunde (Heimat)") // Das macht 'lernen_zusatz' automatisch
                list_Fertigkeit.push_back(MBE); 
           }
         else 
@@ -507,7 +510,7 @@ void midgard_CG::show_lernschema()
        {
          if     (Werte.Stadt_Land()=="Land"  ) lp=f->LernLand();
          else if(Werte.Stadt_Land()=="Stadt" ) lp=f->LernStadt();
-         else {regnot("Stadt oder Land wählen"); return;}
+         else {set_status("Stadt oder Land wählen"); return;}
          if(!togglebutton_teure_anzeigen->get_active() && lp>lernpunkte.Allgemein())
             continue;
        }

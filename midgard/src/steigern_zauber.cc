@@ -136,7 +136,7 @@ bool midgard_CG::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
  gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n     "
       +itos(xr)+"            -"+itos(zauber->iStufe())+"               "
       +itos(iaus)+"             "+itos(erf_z)+"       =       "+ itos(x)+"\n";
- InfoFenster->AppendShow(strinfo.c_str(),WindowInfo::None);
+ set_info(strinfo);
  if (x>=20) return true;
  else return false;
 }
@@ -149,7 +149,7 @@ void midgard_CG::on_alte_zauber_reorder()
       case Data_SimpleTree::NAMEn_Z  : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
       case Data_SimpleTree::STUFEn_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::STUFE)); ;break;
       case Data_SimpleTree::URSPRUNGn_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
-      default : InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
 
@@ -164,7 +164,7 @@ void midgard_CG::on_alte_zaubermittel_reorder()
       case Data_SimpleTree::NAMEn_ZW  : list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::NAME)) ;break;
       case Data_SimpleTree::STUFEn_ZW : list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::STUFE)) ;break;
       case Data_SimpleTree::ARTn_ZW :   list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::ART));break;
-      default : InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
 

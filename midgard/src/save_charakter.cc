@@ -58,8 +58,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
    ofstream datei(dateiname.c_str());
    if (!datei.good())
    { 
-      InfoFenster->AppendShow("Ich kann die Datei '"+dateiname
-                               +"' nicht beschreiben");
+      set_info("Ich kann die Datei '"+dateiname+"' nicht beschreiben");
       return;
    }
   speicherstream(datei);

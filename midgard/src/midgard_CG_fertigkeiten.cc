@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.62 2002/03/09 22:06:57 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.63 2002/04/27 15:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,13 +59,11 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
    }
 //  Window_angeb_fert *W = manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
   if(count100>0) 
-    { regnot(itos(count100)+"x eine 100 gewürfelt, "+itos(count100)+" zusätzliche angeborende Fertigkeit nach Belieben wählen.");
+    { set_info(itos(count100)+"x eine 100 gewürfelt, "+itos(count100)+" zusätzliche angeborende Fertigkeit nach Belieben wählen.");
       on_angeborene_fertigkeit_right_clicked();      
     }
-  std::string name=AngebFert_gewuerfelt(wurf);
-  std::string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";
-  stinfo+=itos(wurf);stinfo+=" gewürfelt: "+name+"\n";
-  InfoFenster->AppendShow(stinfo);
+  set_status("Für die Angeborene Fertigkeit wurde eine "
+              +itos(wurf)+" gewürfelt => "+AngebFert_gewuerfelt(wurf));
 }
 
 

@@ -82,7 +82,7 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
      if( radiobutton_unterweisung->get_active() &&
          dt->getMBE()->Erfolgswert() >= F->MaxUnterweisung())
       {
-        regnot("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
+        set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
         return;
       }
    }
@@ -104,7 +104,7 @@ void midgard_CG::on_button_sprache_sort_clicked()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
       case Data_SimpleTree::WERTa : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
-      default : InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
 
@@ -118,7 +118,7 @@ void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
      if( radiobutton_unterweisung->get_active() &&
          dt->getMBE()->Erfolgswert() >= F->MaxUnterweisung())
       {
-        regnot("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
+        set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
         return;
       }
    }

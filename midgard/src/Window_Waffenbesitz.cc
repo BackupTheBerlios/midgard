@@ -73,7 +73,7 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
         WB->set_Magisch(entry_magisch->get_text());
      table_magbonus->hide();
   } catch(std::exception &e) {cerr<<e.what()<<'\n';
-      hauptfenster->InfoFenster->AppendShow("Keine Waffe selektiert");
+   hauptfenster->set_status("Keine Waffe selektiert");
      };
   zeige_waffen();
 }
@@ -175,6 +175,6 @@ void Window_Waffenbesitz::on_alte_waffen_reorder()
   switch((Data_waffenbesitz::SPALTEN_A)seq[0]) {
       case Data_waffenbesitz::MAGBONUS : Waffe_Besitz.sort(WaffenBesitz_sort_magbonus()) ;break;
       case Data_waffenbesitz::NAME_A   : Waffe_Besitz.sort(WaffenBesitz_sort_name()); break;
-      default : hauptfenster->InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }

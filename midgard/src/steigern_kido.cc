@@ -28,7 +28,7 @@ void midgard_CG::on_kido_laden_clicked()
       Werte.Spezialisierung()!=Vkido[2]&&
       Werte.Spezialisierung()!=Vkido[3] ) 
      {
-       InfoFenster->AppendShow("Erst einen KiDo-Stil wählen\n(unter 'Lernschema'->'KiDo')");
+       set_status("Erst einen KiDo-Stil wählen\n(unter 'Lernschema'->'KiDo')");
        return;
      }
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Kido.begin();i!=Database.Kido.end();++i)
@@ -90,6 +90,6 @@ void midgard_CG::on_alte_kido_reorder()
       case Data_SimpleTree::STUFEa_K : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STUFE)) ;break;
       case Data_SimpleTree::APa_K    : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::AP)); break;
       case Data_SimpleTree::STILa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STIL)) ;break;
-      default : InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }

@@ -61,7 +61,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
     {
       if (!steigern_usp(MBE->Steigern(Werte,Typ),&MBE)) return false;
       if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(Werte,Typ)) 
-          { regnot("Maximal möglicher Erfolgswert erreicht");
+          { set_status("Maximal möglicher Erfolgswert erreicht");
             return false; }
       Werte.addGFP(MBE->Steigern(Werte,Typ));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
@@ -102,7 +102,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  // es sei denn es handelt sich um Zaubersprüche
  if(MBE->What()!=MidgardBasicElement::ZAUBER)
   { if (!radiobutton_unterweisung->get_active())
-     { regnot("Neue Fertigkeiten, Waffen, Sprachen und Schriften können\n nur durch 'Unterweisung' gelernt werden");
+     { set_status("Neue Fertigkeiten, Waffen, Sprachen und Schriften können nur durch 'Unterweisung' gelernt werden");
        return;
      }
   }
@@ -110,17 +110,17 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
   {
     // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
     if(radiobutton_selbst->get_active() )
-      { regnot("Neue Zauber können nicht durch 'Selbststudium' gelernt werden");
+      { set_status("Neue Zauber können nicht durch 'Selbststudium' gelernt werden");
         return;
       }
     if(radiobutton_praxis->get_active() )
       { if(!Typ[0]->SpruecheMitPP() && !Typ[1]->SpruecheMitPP() )
-           { regnot("Neue Zaubersprüche können von "+Typ[0]->Name(Werte.Geschlecht())
+           { set_status("Neue Zaubersprüche können von "+Typ[0]->Name(Werte.Geschlecht())
                      +" nicht durch Praxispunkte gelernt werden");
              return;
            }
         else if(MBE->Standard__(Werte,Typ)!="G")
-           { regnot("Nur Grundzauber können von "+Typ[0]->Name(Werte.Geschlecht())
+           { set_status("Nur Grundzauber können von "+Typ[0]->Name(Werte.Geschlecht())
                      +" mit Praxispunkten gelernt werden");
              return;
            }

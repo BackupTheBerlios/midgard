@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.34 2002/03/04 08:08:36 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.35 2002/04/27 15:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,7 +28,7 @@ void midgard_CG::on_kido_wahl_clicked()
        Werte.Spezialisierung()!=Vkido[2] &&
        Werte.Spezialisierung()!=Vkido[3])
     {
-      InfoFenster->AppendShow("Erst eine Technik wählen\n");
+      set_status("Erst eine Technik wählen\n");
       return;
     }
    list_Kido.clear();

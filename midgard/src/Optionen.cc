@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.24 2002/04/25 16:56:51 thoma Exp $
+// $Id: Optionen.cc,v 1.25 2002/04/27 15:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -200,10 +200,11 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
         if     (index==Bilder) hauptfenster->show_Pics(i->active);
         else if(index==Menueleiste) hauptfenster->show_Menueleiste(i->active);
         else if(index==Knopfleiste) hauptfenster->show_Knopfleiste(i->active);
+        else if(index==Status) hauptfenster->show_Statusleiste(i->active);
         else if(index==Icons) 
          { if(!b && !OberCheck(Beschriftungen).active)
             {
-              hauptfenster->InfoFenster->AppendShow("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
+              hauptfenster->set_status("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
               i->active=true;
             }
            else 
@@ -212,7 +213,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
         else if(index==Beschriftungen) 
          { if(!b && !OberCheck(Icons).active)
             {
-              hauptfenster->InfoFenster->AppendShow("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
+              hauptfenster->set_status("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
               i->active=true;
             }
            else 
@@ -319,6 +320,7 @@ void Midgard_Optionen::Ober_init()
  list_Ober.push_back(st_Ober(Knopfleiste,"Knopfleiste",true));
  list_Ober.push_back(st_Ober(Icons,"Icons",true));
  list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen",true));
+ list_Ober.push_back(st_Ober(Status,"Statuszeile",true));
 }
 
 void Midgard_Optionen::load_options()
@@ -353,7 +355,7 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
   ofstream datei("midgard_optionen.xml");
   if (!datei.good())
    { 
-    InfoFenster->AppendShow("Ich kann die Optionen nicht speichern");
+    hauptfenster->set_status("Ich kann die Optionen nicht speichern");
     return;
    }
  datei << "<?xml";

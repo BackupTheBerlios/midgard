@@ -52,7 +52,7 @@ void midgard_CG::wizard_do_something()
       case Wizard_window::RUESTUNG : on_button_ruestung_button_release_event(&button); break;
       case Wizard_window::SPEICHERN : on_speichern_release_event(&button); break;
       case Wizard_window::FERTIG : on_button_close_wizard_clicked(); break;
-      default: regnot("Nicht impelmentiert");break;
+      default: set_status("Nicht impelmentiert");break;
    }
 }
 
