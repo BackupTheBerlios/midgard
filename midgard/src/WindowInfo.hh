@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.46 2003/09/01 06:47:58 christof Exp $
+// $Id: WindowInfo.hh,v 1.47 2003/09/02 06:22:47 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,51 +20,23 @@
 #ifndef _WINDOWINFO_HH
 #  include "WindowInfo_glade.hh"
 #  define _WINDOWINFO_HH
-#include <sigc++/slot.h>
-#include <Gtk_OStream.h>
-#include <gtkmm/image.h>
-
-
-class midgard_CG;
-#include "MidgardBasicElement.hh"
-#include "table_steigern.hh"
-#include "Enums.hh"
+//#include <sigc++/slot.h>
+//#include <Gtk_OStream.h>
+//#include <gtkmm/image.h>
+//class midgard_CG;
+//#include "Enums.hh"
 
 class WindowInfo : public WindowInfo_glade
-{   
-   public:
-        enum emodus {None,Autoclean/*,ZaubernLernen*//*,PraxisPunkteMBE*/,
-                     /*PraxisPunkteAnderes,*/Exit_ohne_speichern,Elf_doppel,
-                     LernenMitSpruchrolle};
-   private:
-        friend class WindowInfo_glade;
-        void on_button_abbrechen_clicked();
-        void on_button_bestaetigen_clicked();
-        void on_button_status_toggled();
+{	void on_button_abbrechen_clicked();
         gint timeout();
         SigC::Connection des;
-        bool autoclean;
 
-        Gtk::OStream *mystream,*myLogstream;
-        void bestaetigen(bool b);
-        void Flush(int anzahl);
+        void Flush();
         void on_button_erase_clicked();
         bool on_WindowInfo_delete_event(GdkEventAny *ev);
-        void auswahl(int anz);
-        Gtk::Button *WindowInfo::auswahl_button(Gtk::Image *p,Gtk::Label *l,int connect);
-        void on_button_auswahl_clicked(int connect);
-        emodus Modus;
-        midgard_CG* hauptfenster;
-        MBEmlt *MBE;
-        Enums::e_was_steigern was;
-        int bonus_spruchrolle;
    public:
-        WindowInfo(midgard_CG* h);
-        void AppendShow(const std::string& s,emodus modus, Enums::e_was_steigern was,int anzahl);
-        void AppendShow(const std::string& s,emodus modus, MBEmlt *MBE,int anzahl=0);
-        void AppendShow(const std::string& s,emodus modus=Autoclean,int anzahl=0);
-        void AppendShowLog(const std::string& s);
-        void Show() {bestaetigen(false); show();}
-        void show_pic(bool b);
+        WindowInfo();
+        void AppendShow(const std::string& s); // color?
+        void Show() { show();}
 };
 #endif
