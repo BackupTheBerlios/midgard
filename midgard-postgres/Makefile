@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.70 2004/11/26 16:01:05 christof Exp $
+# $Id: Makefile,v 1.71 2005/03/30 15:41:13 christof Exp $
 #PG_DUMP=pg_dump
 PG_DUMP=/usr/local/bin/pg_dump_sort
 
@@ -62,7 +62,7 @@ dist: $(DIST_FILES)
 
 # install system tables unconditionally, user tables if missing
 install:
-	dropdb midgard
+	-dropdb midgard
 	createdb -E utf8 midgard
 	# update pg_database set encoding=pg_char_to_encoding('latin1') where datname='midgard';
 	@for i in $(SYSTEM_TABLES) ; \
