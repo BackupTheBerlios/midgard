@@ -41,12 +41,14 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
 
 void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe)
 {
-  if(mbe->What()==MidgardBasicElement::SPRACHE);
+cout << "UEBER "<< mbe->What()<<'\t'<<list_Sprache.size()<<'\t'<<list_Schrift.size()<<'\n';
+  if(mbe->What()==MidgardBasicElement::SPRACHE)
    {
     list_Sprache.push_back(mbe);
    }
-  if(mbe->What()==MidgardBasicElement::SCHRIFT);
+  if(mbe->What()==MidgardBasicElement::SCHRIFT)
    {
     list_Schrift.push_back(mbe);
    }
+cout << "UEBER "<<mbe->What()<<'\t'<< list_Sprache.size()<<'\t'<<list_Schrift.size()<<'\n';
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.29 2001/11/01 09:31:26 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.30 2001/11/04 16:57:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,8 +25,7 @@
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
-//  manage(new Fertigkeiten_auswahl(this,Typ[0]->Short(),werte,lernpunkte,vec_beruf));
-  manage(new Fertigkeiten_auswahl(this,Typ,lernpunkte.Fertigkeiten(),Werte,vec_Beruf));
+  manage(new Fertigkeiten_auswahl(this,Database,Typ,lernpunkte.Fertigkeiten(),Werte,vec_Beruf));
 }
 
 void midgard_CG::show_fertigkeiten()
@@ -39,11 +38,11 @@ void midgard_CG::show_fertigkeiten()
          if (f->Erfolgswert()!=0) os <<"\t" <<f->Erfolgswert();
          os << "\n";
       }
-   for(std::list<cH_Fertigkeit_angeborene>::iterator i=list_an_Fertigkeit.begin();
-         i!=list_an_Fertigkeit.end();++i)
-      {
-         os << (*i)->Name();
-         if ((*i)->Erfolgswert()!=0) os <<"\t" <<(*i)->Erfolgswert();
+   for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit_ang.begin();
+         i!=list_Fertigkeit_ang.end();++i)
+      { cH_Fertigkeit_angeborene f(*i);
+         os << f->Name();
+         if (f->Erfolgswert()!=0) os <<"\t" <<f->Erfolgswert();
          os << "\n";
       }
    for (unsigned int i=0;i<fertigkeiten_clist->columns().size();++i)
@@ -53,9 +52,9 @@ void midgard_CG::show_fertigkeiten()
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
-  list_an_Fertigkeit.clear();
+  list_Fertigkeit_ang.clear();
   if (Werte.Spezies()=="Zwerg" || Werte.Spezies()=="Elf") 
-      list_an_Fertigkeit.push_back(new Fertigkeit_angeborene("Nachtsicht",0));
+      list_Fertigkeit_ang.push_back(new Fertigkeit_angeborene("Nachtsicht",0));
   if (event->button==1) on_angeborene_fertigkeit_clicked() ;
   if (event->button==3) on_angeborene_fertigkeit_right_clicked() ;
   button_fertigkeiten->set_sensitive(true);
@@ -69,10 +68,10 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 //wurf = 100; /*debug*/
   while (wurf==100)
    {
-      manage (new Window_angeb_fert(this,list_an_Fertigkeit,Werte,wurf));
+      manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
       wurf = random.integer(1,100);
    }
-  manage (new Window_angeb_fert(this,list_an_Fertigkeit,Werte,wurf));
+  manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
   std::string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";stinfo+=itos(wurf);stinfo+=" gewürfelt.\n";
   manage(new WindowInfo(stinfo));
   midgard_CG::show_fertigkeiten();
@@ -80,7 +79,7 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()
 {
-  manage (new Window_angeb_fert(this,list_an_Fertigkeit,Werte,-1));
+  manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,-1));
   show_fertigkeiten();
 }
 

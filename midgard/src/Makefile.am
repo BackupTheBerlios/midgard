@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.64 2001/11/04 07:22:20 thoma Exp $
+# $Id: Makefile.am,v 1.65 2001/11/04 16:57:23 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -92,7 +92,6 @@ BUILT_SOURCES_CG =  \
    save_charakter.cc  load_charakter.cc  \
    get_typ.cc  Window_charakter_auswahl.cc \
    praxispunkte_wuerfeln.cc \
-   midgard_CG_ruestung.cc \
 	Window_waffe.cc Window_Waffenbesitz.cc \
    get_berufs_vorteile.cc \
    midgard_CG_typauswahl.cc \

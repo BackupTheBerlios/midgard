@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.49 2001/11/04 07:23:09 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.50 2001/11/04 16:57:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,10 +84,12 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\au}{"  <<Werte.Au() << "}\n";
  fout << "\\newcommand{\\pa}{"  <<Werte.pA() << "}\n";
  fout << "\\newcommand{\\sbb}{"  <<Werte.Sb() << "}\n";
- int reaktionswert = Werte.RW() - atoi(ruestung("RW").c_str());
+// int reaktionswert = Werte.RW() - atoi(ruestung("RW").c_str());
+ int reaktionswert = Werte.RW() - Werte.Ruestung()->RW_Verlust();
  fout << "\\newcommand{\\rw}{"  << Werte.RW() << "\\scriptsize ("<<reaktionswert<<")}\n";
  fout << "\\newcommand{\\hgw}{"  <<Werte.HGW() << "}\n";
- int bewegungsweite = Werte.B() - atoi(ruestung("B").c_str());
+// int bewegungsweite = Werte.B() - atoi(ruestung("B").c_str());
+ int bewegungsweite = Werte.B() - Werte.Ruestung()->B_Verlust();
  fout << "\\newcommand{\\bb}{"  <<Werte.B() << "\\scriptsize ("<<bewegungsweite<<")}\n";
  fout << "\\newcommand{\\kaw}{"  <<Werte.KAW() << "}\n";
  fout << "\\newcommand{\\wlw}{"  <<Werte.WLW() << "}\n";
@@ -151,7 +153,7 @@ void midgard_CG::LaTeX_write_values()
       ++sprachanz;
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << s->Name() <<"}\n";
       fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< s->Erfolgswert() <<"}\n";
-      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< s->Urschrift() <<"}\n";
+      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< s->Urschrift(list_Schrift) <<"}\n";
    }
  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
    {
@@ -190,15 +192,14 @@ void midgard_CG::LaTeX_write_values()
  /////////////////////////////////////////////////////////////////////////////
  // angeborene Fertigkeiten
  int count=0;
- for(std::list<cH_Fertigkeit_angeborene>::const_iterator i=list_an_Fertigkeit.begin();i!=list_an_Fertigkeit.end();++i) 
-   {
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang.begin();i!=list_Fertigkeit_ang.end();++i) 
+   {cH_Fertigkeit_angeborene f(*i);
     std::string a = LaTeX_string(count);
     count++;
-    std::string wert = itos((*i)->Erfolgswert());
+    std::string wert = itos(f->Erfolgswert());
     if (wert == "0") wert = "";
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<(*i)->Name() << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}\t\t";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
-//    fout << "\\newcommand{\\wert"<<a<<"}{"  <<(*i)->Empty_Erfolgswert() << "}\n";
    }
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten

@@ -42,7 +42,8 @@ void Window_charakter_auswahl::on_clist_charakter_auswahl_select_row(gint row, g
         show_charakter();
     }  
   else 
-    { hauptfenster->select_charakter(name,version);
+    { 
+      hauptfenster->select_charakter(name,version);
       destroy();   
     }
 }

@@ -45,7 +45,7 @@ Laender_All::Laender_All()
  exec sql begin declare section;
    char db_name[100];
  exec sql end declare section;
- exec sql declare LIein cursor for select distinct name from laender;
+ exec sql declare LIein cursor for select distinct land from land;
  Transaction tr;
  exec sql open LIein;
  SQLerror::test(__FILELINE__);

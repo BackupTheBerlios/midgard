@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.73 2001/11/04 07:22:20 thoma Exp $
+// $Id: midgard_CG.cc,v 1.74 2001/11/04 16:57:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,6 +53,7 @@ void midgard_CG::get_Database()
    Midgard_Info *MI = manage(new Midgard_Info(true,this));
    Database = st_Database( Laender_All().get_All(),
                            Ruestung_All().get_All(),
+                           Fertigkeiten_angeborene_All().get_All(),
                            Fertigkeiten_All(MI->get_Label()).get_All(),
                            Zauber_All(MI->get_Label()).get_All(),
                            Zauberwerk_All(MI->get_Label()).get_All(),
@@ -318,7 +319,7 @@ void midgard_CG::on_button_geld_s_clicked()
 }
 void midgard_CG::on_button_ruestung_s_clicked()
 {
-  manage (new Window_ruestung(Werte,this));
+  manage (new Window_ruestung(Werte,this,Database));
 }
 void midgard_CG::on_button_waffen_s_clicked()
 {
@@ -363,7 +364,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    list_Fertigkeit.clear();
    list_Fertigkeit_neu.clear();
-   list_an_Fertigkeit.clear();
+   list_Fertigkeit_ang.clear();
    list_Waffen.clear();
    list_Waffen_neu.clear();
    list_WaffenGrund.clear();

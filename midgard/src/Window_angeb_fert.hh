@@ -1,4 +1,4 @@
-// $Id: Window_angeb_fert.hh,v 1.18 2001/10/17 12:31:17 thoma Exp $
+// $Id: Window_angeb_fert.hh,v 1.19 2001/11/04 16:57:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,12 +38,14 @@ class midgard_CG;
 //class H_Data_fert;
 class cH_Fertigkeit_angeborene;
 class Grundwerte;
+//#include "MidgardBasicElement.hh"
+#include "midgard_CG.hh"
 
 class Window_angeb_fert : public Window_angeb_fert_glade
 {   
         midgard_CG* hauptfenster;
-        std::list<cH_Fertigkeit_angeborene> list_an_Fertigkeit_neu;
-        std::list<cH_Fertigkeit_angeborene>& list_an_Fertigkeit;
+        std::list<cH_MidgardBasicElement> list_Fertigkeit_ang_neu;
+        std::list<cH_MidgardBasicElement>& list_Fertigkeit_ang;
         const Grundwerte& Werte;
         int wurf;
         friend class Window_angeb_fert_glade;
@@ -51,12 +53,13 @@ class Window_angeb_fert : public Window_angeb_fert_glade
         void on_clist_ang_fert_neu_select_row(gint row, gint column, GdkEvent *event);
         void on_button_close_clicked();
         void fertigkeiten_zeigen();
-        void move_fertigkeiten(std::list<cH_Fertigkeit_angeborene>& von,std::list<cH_Fertigkeit_angeborene>& nach,const std::string& name);
         void show_alte_afert();
         void show_neue_afert();
         void gewuerfelt();
    public:
-        Window_angeb_fert::Window_angeb_fert(midgard_CG* h, std::list<cH_Fertigkeit_angeborene>& vaf,
+        Window_angeb_fert::Window_angeb_fert(midgard_CG* h, 
+               const midgard_CG::st_Database& Database,
+               std::list<cH_MidgardBasicElement>& vaf,
                const Grundwerte& W,int wurf);
 };
 #endif

@@ -36,7 +36,9 @@ void MidgardBasicElement::show_list_in_tree(
   const vector<H_Data_typen>& Typ, const Ausnahmen& ausnahmen,
   char variante, bool _bool_)
 {
+cout << "SIZE = "<<BasicList.size()<<'\n';
   if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
+cout << (*BasicList.begin())->What()<<'\n';
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {

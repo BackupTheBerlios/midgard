@@ -84,6 +84,9 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Beruf') ;         
             SQLerror::test(__FILELINE__);
       }
+   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
+   MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,ausnahmen);
+/*
    for (std::list<cH_Fertigkeit_angeborene>::const_iterator i=list_an_Fertigkeit.begin();
          i!=list_an_Fertigkeit.end();++i)
       {
@@ -95,7 +98,7 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'ang.Fertigkeit') ;         
             SQLerror::test(__FILELINE__);
       }
-   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
+*/
    MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,ausnahmen);
 /*
    for (std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();
@@ -201,6 +204,7 @@ void midgard_CG::on_speichern_clicked()
          VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Grundkenntnis');
             SQLerror::test(__FILELINE__);
       }
+cout << list_Sprache.size()<<'\t'<<list_Schrift.size()<<'\n';
    MidgardBasicElement::saveElementliste(list_Sprache,Werte,Typ,ausnahmen);
    MidgardBasicElement::saveElementliste(list_Schrift,Werte,Typ,ausnahmen);
 /*

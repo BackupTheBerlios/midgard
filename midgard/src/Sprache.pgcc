@@ -88,13 +88,17 @@ int Sprache::Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen&  ausnahm
    else return 0;
 }
 
-
-/*
-void Sprache::get_Fertigkeit()
+std::string Sprache::Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const 
 {
-// cH_Fertigkeit("Sprache",,);
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
+  {
+   if((*i)->Name() == Urschrift()) 
+      return urschrift; 
+  }
+ return "";
 }
-*/
+
+
 Sprachen_All::Sprachen_All(Gtk::Label *label)
 {
  exec sql begin declare section;

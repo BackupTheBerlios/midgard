@@ -110,11 +110,11 @@ Ruestung::Ruestung(const std::string& n)
   strncpy(db_name,Name().c_str(),sizeof(db_name));
   
 
-/* declare R1Iein  cursor for select  ruestung  , region  , lp_verlust  , min_staerke  , rw_verlust  , b_verlust   from ruestung where ruestung_s  = ?   */
+/* declare R1Iein  cursor for select  ruestung  , coalesce( region  , '' ) , lp_verlust  , min_staerke  , rw_verlust  , b_verlust   from ruestung where ruestung_s  = ?   */
 #line 31 "Ruestung.pgcc"
 
   Transaction tr;
-  { ECPGdo(__LINE__, NULL, "declare R1Iein  cursor for select  ruestung  , region  , lp_verlust  , min_staerke  , rw_verlust  , b_verlust   from ruestung where ruestung_s  = ?  ", 
+  { ECPGdo(__LINE__, NULL, "declare R1Iein  cursor for select  ruestung  , coalesce( region  , '' ) , lp_verlust  , min_staerke  , rw_verlust  , b_verlust   from ruestung where ruestung_s  = ?  ", 
 	ECPGt_char,(db_name),50L,1L,50*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EOIT, ECPGt_EORT);}
 #line 33 "Ruestung.pgcc"
@@ -155,11 +155,11 @@ Ruestung_All::Ruestung_All()
 /* exec sql end declare section */
 #line 50 "Ruestung.pgcc"
 
- /* declare RIein  cursor for select distinct ruestung   from ruestung    */
+ /* declare RIein  cursor for select distinct ruestung_s   from ruestung    */
 #line 51 "Ruestung.pgcc"
 
  Transaction tr;
- { ECPGdo(__LINE__, NULL, "declare RIein  cursor for select distinct ruestung   from ruestung   ", ECPGt_EOIT, ECPGt_EORT);}
+ { ECPGdo(__LINE__, NULL, "declare RIein  cursor for select distinct ruestung_s   from ruestung   ", ECPGt_EOIT, ECPGt_EORT);}
 #line 53 "Ruestung.pgcc"
 
  SQLerror::test(__FILELINE__);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.29 2001/10/21 21:21:55 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.30 2001/11/04 16:57:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,10 +68,6 @@ void midgard_CG::zeige_lernpunkte()
  lernpunkte_z->set_text(itos(lernpunkte.Zauber()));
 }
 
-void midgard_CG::on_button_ruestung_clicked()
-{   
-  midgard_CG::ruestung("wuerfeln");
-}
 
 void midgard_CG::on_button_geld_waffen_clicked()
 {   
@@ -101,4 +97,55 @@ void midgard_CG::zeige_notebook()
    table_kido_lernen->set_sensitive(true);
 
 */
+}
+
+void midgard_CG::on_button_ruestung_clicked()
+{
+  Random random;
+  std::string rue;
+  int wurf = random.integer(1,100);
+  if (Typ[0]->Ruestung() == 1)
+   {
+      if ( 1 <= wurf && wurf  <= 10 ) rue = "OR" ;
+      if (11 <= wurf && wurf  <= 20 ) rue = "TR" ;
+      if (21 <= wurf && wurf  <= 30 ) rue = "TR" ;
+      if (31 <= wurf && wurf  <= 60 ) rue = "LR" ;
+      if (61 <= wurf && wurf  <= 80 ) rue = "LR" ;
+      if (81 <= wurf && wurf  <= 95 ) rue = "LR" ;
+      if (96 <= wurf && wurf  <= 100) rue = "LR" ;
+   }    
+  if (Typ[0]->Ruestung()== 2)
+   {
+      if ( 1 <= wurf && wurf  <= 10 ) rue = "OR" ;
+      if (11 <= wurf && wurf  <= 20 ) rue = "TR" ;
+      if (21 <= wurf && wurf  <= 30 ) rue = "LR" ;
+      if (31 <= wurf && wurf  <= 60 ) rue = "LR" ;
+      if (61 <= wurf && wurf  <= 80 ) rue = "KR" ;
+      if (81 <= wurf && wurf  <= 95 ) rue = "KR" ;
+      if (96 <= wurf && wurf  <= 100) rue = "KR" ;
+   }    
+  if (Typ[0]->Ruestung()== 3)
+   {
+      if ( 1 <= wurf && wurf  <= 10 ) rue = "OR" ;
+      if (11 <= wurf && wurf  <= 20 ) rue = "TR" ;
+      if (21 <= wurf && wurf  <= 30 ) rue = "LR" ;
+      if (31 <= wurf && wurf  <= 60 ) rue = "KR" ;
+      if (61 <= wurf && wurf  <= 80 ) rue = "KR" ;
+      if (81 <= wurf && wurf  <= 95 ) rue = "KR" ;
+      if (96 <= wurf && wurf  <= 100) rue = "PR" ;
+   }    
+  if (Typ[0]->Ruestung()== 4)
+   {
+      if ( 1 <= wurf && wurf  <= 10 ) rue = "OR" ;
+      if (11 <= wurf && wurf  <= 20 ) rue = "OR" ;
+      if (21 <= wurf && wurf  <= 30 ) rue = "OR" ;
+      if (31 <= wurf && wurf  <= 60 ) rue = "TR" ;
+      if (61 <= wurf && wurf  <= 80 ) rue = "TR" ;
+      if (81 <= wurf && wurf  <= 95 ) rue = "LR" ;
+      if (96 <= wurf && wurf  <= 100) rue = "LR" ;
+   }    
+  Werte.set_Ruestung(cH_Ruestung(rue));
+  std::string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";
+  strinfo += "---> " + Werte.Ruestung()->Long();
+  manage(new WindowInfo(strinfo));
 }

@@ -24,6 +24,7 @@ class Sprache : public MidgardBasicElement
    std::string Name() const   {return name; }
    std::string Region() const {return region;}
    std::string Urschrift() const   {return urschrift; }
+   std::string Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const ; 
 //   int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
    int Erfolgswert() const {return erfolgswert;}
    void set_Erfolgswert(int e) const { erfolgswert=e; }

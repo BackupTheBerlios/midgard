@@ -23,7 +23,7 @@ class MidgardBasicElement : public HandleContent
       void get_map_typ();
 
    public:
-      enum MBEE {FERTIGKEIT,WAFFEN,ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
+      enum MBEE {FERTIGKEIT,FERTIGKEIT_ANG,WAFFEN,ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
       enum TREE {OLD,NEW};
 
       map<std::string,std::string> get_MapTyp() const {return map_typ;}

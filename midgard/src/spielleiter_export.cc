@@ -32,7 +32,7 @@ void midgard_CG::spielleiter_export()
   fout << "\n";
   fout << "St "<<Werte.St()<<", Ge"<<Werte.Ge()<<", Ko"<<Werte.Ko()<<", In"<<Werte.In()
        << ", Zt"<<Werte.Zt()<<", Au"<<Werte.Au()<<", pA"<<Werte.pA()<<", Sb"<<Werte.Sb()<<"\n";
-  fout << Werte.LP()<<"LP, "<<Werte.AP()<<"AP - "<<Werte.Ruestung()<<" - RW "
+  fout << Werte.LP()<<"LP, "<<Werte.AP()<<"AP - "<<Werte.Ruestung()->Name()<<" - RW "
        << Werte.RW()<<", HGW "<<Werte.HGW()<<", B " << Werte.B() ;
   if (Werte.bo_Sc() != 0 || Werte.bo_Ab() != 0 || Werte.bo_An() != 0) fout <<" - ";
   if (Werte.bo_Sc() != 0) fout << "SchB+"<<Werte.bo_Sc();
@@ -74,11 +74,11 @@ void midgard_CG::spielleiter_export()
                     <<Werte.Resistenz()+Werte.bo_Phk()<<"\n\n" ;
 
  // angeborene Fertigkeiten
- for(std::list<cH_Fertigkeit_angeborene>::const_iterator i=list_an_Fertigkeit.begin();i!=list_an_Fertigkeit.end();++i)
-   {
-    std::string wert = "+"+itos((*i)->Erfolgswert());
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang.begin();i!=list_Fertigkeit_ang.end();++i)
+   {cH_Fertigkeit_angeborene f(*i);
+    std::string wert = "+"+itos(f->Erfolgswert());
     if (wert == "+0") wert = "";
-    fout <<(*i)->Name() << wert ;
+    fout <<f->Name() << wert ;
     fout << ", ";
    }
  // Fertigkeiten

@@ -1,15 +1,14 @@
 #ifndef _FERTIGKEITEN_A_HH
 #  define _FERTIGKEITEN_A_HH
 #include <list>
-#include <Aux/Handles.h>
-#include <Aux/CacheStatic.h>
-#include "class_typen.hh"
-#include "Ausnahmen.hh"
+#include "MidgardBasicElement.hh"
+//#include "class_typen.hh"
+//#include "Ausnahmen.hh"
 
-class Fertigkeit_angeborene : public HandleContent
+class Fertigkeit_angeborene : public MidgardBasicElement
 {
      std::string name;
-     int erfolgswert;
+     mutable int erfolgswert;
      int min,max;
 
      void get_Fertigkeit();
@@ -18,8 +17,12 @@ class Fertigkeit_angeborene : public HandleContent
      Fertigkeit_angeborene(const std::string& n,int w) 
          : name(n),erfolgswert(w),min(0),max(0) {}
 
+     enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT_ANG;}
+     std::string What_str() const {return "Fertigkeit_ang";}
+
      std::string Name() const {return name;}
      int Erfolgswert() const {return erfolgswert;};
+     void set_Erfolgswert(int e) const {erfolgswert=e;};
      int Min() const {return min;}
      int Max() const {return max;}
 //     std::string Voraussetzung() const {return voraussetzung;}
@@ -35,15 +38,18 @@ class cH_Fertigkeit_angeborene : public Handle<const Fertigkeit_angeborene>
  public:
     cH_Fertigkeit_angeborene(const std::string& n);
     cH_Fertigkeit_angeborene(Fertigkeit_angeborene *r) : Handle<const Fertigkeit_angeborene>(r){}
+
+    cH_Fertigkeit_angeborene(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit_angeborene>
+      (dynamic_cast<const Fertigkeit_angeborene *>(&*x)){}
+
 };
 
 class Fertigkeiten_angeborene_All 
 {
-   std::list<cH_Fertigkeit_angeborene> list_All;
-   void fill_list();
+   std::list<cH_MidgardBasicElement> list_All;
   public : 
-   Fertigkeiten_angeborene_All() {fill_list();}
-   std::list<cH_Fertigkeit_angeborene> get_All() const {return list_All;}
+   Fertigkeiten_angeborene_All();
+   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 
 #endif

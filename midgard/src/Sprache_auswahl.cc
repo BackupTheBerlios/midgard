@@ -36,6 +36,7 @@
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
   cH_MidgardBasicElement *s=static_cast<cH_MidgardBasicElement*>(clist_sp_sc->selection().begin()->get_data());
+  cH_Sprache(*s)->set_Erfolgswert(cH_Sprache(*s)->Maxwert());
   hauptfenster->MidgardBasicElement_uebernehmen(*s);
 
 /*
@@ -86,7 +87,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
          for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
           { 
             cH_Sprache s(*i);
-            os << s->Name()<<s->Maxwert()<<'\n';
+            os << s->Name()<<'\t'<<s->Maxwert()<<'\n';
             os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
           }
 /*

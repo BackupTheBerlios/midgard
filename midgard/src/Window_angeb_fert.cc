@@ -29,6 +29,7 @@
 #include <Gtk_OStream.h>
 #include "WindowInfo.hh"
 
+/*
 void Window_angeb_fert::move_fertigkeiten(std::list<cH_Fertigkeit_angeborene>& von,std::list<cH_Fertigkeit_angeborene>& nach,const std::string& name)
 {
  for (std::list<cH_Fertigkeit_angeborene>::iterator i=von.begin();i!= von.end();++i)
@@ -36,6 +37,7 @@ void Window_angeb_fert::move_fertigkeiten(std::list<cH_Fertigkeit_angeborene>& v
        {nach.splice(nach.begin(),von,i);break;}
   fertigkeiten_zeigen();
 }
+*/
 
 void Window_angeb_fert::fertigkeiten_zeigen()
 {
@@ -47,7 +49,8 @@ void Window_angeb_fert::fertigkeiten_zeigen()
 void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
   std::string altf = clist_ang_fert_alt->get_text(row,0);
-  move_fertigkeiten(list_an_Fertigkeit_neu,list_an_Fertigkeit,altf);
+//  move_fertigkeiten(list_an_Fertigkeit_neu,list_an_Fertigkeit,altf);
+  MidgardBasicElement::move_element(list_Fertigkeit_ang,list_Fertigkeit_ang_neu,altf);
   hauptfenster->on_speichern_clicked();
   show_alte_afert();
   show_neue_afert();
@@ -56,7 +59,8 @@ void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, 
 void Window_angeb_fert::on_clist_ang_fert_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
   std::string newf = clist_ang_fert_neu->get_text(row,1);
-  move_fertigkeiten(list_an_Fertigkeit_neu,list_an_Fertigkeit,newf);
+//  move_fertigkeiten(list_an_Fertigkeit_neu,list_an_Fertigkeit,newf);
+  MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,newf);
   hauptfenster->on_speichern_clicked();
   if (wurf==100) { on_button_close_clicked(); return;}
   show_alte_afert();
@@ -68,11 +72,11 @@ void Window_angeb_fert::show_alte_afert()
 {
   clist_ang_fert_alt->clear();
   Gtk::OStream os(clist_ang_fert_alt);
-  for(std::list<cH_Fertigkeit_angeborene>::const_iterator i=list_an_Fertigkeit.begin();
-         i!=list_an_Fertigkeit.end();++i)
-   {
-     os << (*i)->Name();
-     if ((*i)->Erfolgswert()!=0) os <<"\t"<<(*i)->Erfolgswert();
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang.begin();
+         i!=list_Fertigkeit_ang.end();++i)
+   { cH_Fertigkeit_angeborene f(*i);
+     os << f->Name();
+     if (f->Erfolgswert()!=0) os <<"\t"<<f->Erfolgswert();
      os <<"\n"; 
    }
   for (unsigned int i=0;i<clist_ang_fert_alt->columns().size();++i)
@@ -83,25 +87,29 @@ void Window_angeb_fert::show_neue_afert()
 {   
   clist_ang_fert_neu->clear();
   Gtk::OStream os(clist_ang_fert_neu);
-  for(std::list<cH_Fertigkeit_angeborene>::const_iterator i=list_an_Fertigkeit_neu.begin();
-         i!=list_an_Fertigkeit_neu.end();++i)
-   {
-     os << (*i)->Min() <<"-"<<(*i)->Max()<<"\t"<<(*i)->Name();
-     if ((*i)->Erfolgswert()!=0) os <<"\t"<<(*i)->Erfolgswert();
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang_neu.begin();
+         i!=list_Fertigkeit_ang_neu.end();++i)
+   { cH_Fertigkeit_angeborene f(*i);
+     os << f->Min() <<"-"<<f->Max()<<"\t"<<f->Name();
+     if (f->Erfolgswert()!=0) os <<"\t"<<f->Erfolgswert();
      os <<"\n"; 
    }
   for (unsigned int i=0;i<clist_ang_fert_neu->columns().size();++i)
      clist_ang_fert_neu->set_column_auto_resize(i,true);
 }
 
-Window_angeb_fert::Window_angeb_fert(midgard_CG* h, std::list<cH_Fertigkeit_angeborene>& vaf, 
+Window_angeb_fert::Window_angeb_fert(midgard_CG* h, 
+   const midgard_CG::st_Database& Database,
+   std::list<cH_MidgardBasicElement>& vaf, 
    const Grundwerte& W,int wu)
-: list_an_Fertigkeit(vaf),Werte(W),wurf(wu)
+: list_Fertigkeit_ang(vaf),Werte(W),wurf(wu)
 {
  hauptfenster=h;
-// hauptfenster->on_speichern_clicked();
- Fertigkeiten_angeborene_All FaA;
- list_an_Fertigkeit_neu = FaA.get_All();
+ for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit_ang.begin();i!=Database.Fertigkeit_ang.end();++i)
+  {
+    if((*i)->ist_gelernt(list_Fertigkeit_ang)) continue;
+    list_Fertigkeit_ang_neu.push_back(*i);
+  }
  if (wurf==100) 
    { label_ang_fert->set_text("100 gewürfelt --> Fertigkeit auswählen");
      show_alte_afert();
@@ -127,11 +135,13 @@ void Window_angeb_fert::on_button_close_clicked()
 
 void Window_angeb_fert::gewuerfelt()
 {
-  for (std::list<cH_Fertigkeit_angeborene>::const_iterator i=list_an_Fertigkeit_neu.begin();i!=list_an_Fertigkeit_neu.end();++i)
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang_neu.begin();i!=list_Fertigkeit_ang_neu.end();++i)
    {
-     if ((*i)->Min()<=wurf && wurf<=(*i)->Max()) 
+     if (cH_Fertigkeit_angeborene(*i)->Min()<=wurf && 
+         wurf<=cH_Fertigkeit_angeborene(*i)->Max()) 
       {
-         move_fertigkeiten(list_an_Fertigkeit_neu,list_an_Fertigkeit,(*i)->Name());
+//         move_fertigkeiten(list_an_Fertigkeit_neu,list_an_Fertigkeit,(*i)->Name());
+         MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,(*i)->Name());
          break;
       }
    }  

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.84 2001/11/04 07:22:20 thoma Exp $
+// $Id: midgard_CG.hh,v 1.85 2001/11/04 16:57:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,6 +84,7 @@ class midgard_CG : public midgard_CG_glade
    public:
         struct st_Database { std::vector<cH_Land> Laender;
                              std::vector<cH_Ruestung> Ruestung;
+                             std::list<cH_MidgardBasicElement> Fertigkeit_ang;
                              std::list<cH_MidgardBasicElement> Fertigkeit;
                              std::list<cH_MidgardBasicElement> Zauber;
                              std::list<cH_MidgardBasicElement> Zauberwerk;
@@ -93,13 +94,14 @@ class midgard_CG : public midgard_CG_glade
                st_Database(){}
                st_Database(std::vector<cH_Land> L,
                            std::vector<cH_Ruestung> R,
+                           std::list<cH_MidgardBasicElement> Fa,
                            std::list<cH_MidgardBasicElement> F,
                            std::list<cH_MidgardBasicElement> Z,
                            std::list<cH_MidgardBasicElement> Zw,
                            std::list<cH_MidgardBasicElement> K,
                            std::list<cH_MidgardBasicElement> Sp,
                            std::list<cH_MidgardBasicElement> Sc)
-                           : Laender(L),Ruestung(R),
+                           : Laender(L),Ruestung(R),Fertigkeit_ang(Fa),
                              Fertigkeit(F),Zauber(Z),Zauberwerk(Zw),
                              Kido(K),Sprache(Sp),Schrift(Sc) {}
                            };
@@ -127,7 +129,7 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_typen> vec_Typen_2;
         std::vector<std::string> vec_spezialgebiet;
         std::vector<std::string> spezies_vector;
-        std::list<cH_Fertigkeit_angeborene> list_an_Fertigkeit;
+//        std::list<cH_Fertigkeit_angeborene> list_an_Fertigkeit;
 //        std::list<cH_Fertigkeit_angeborene> list_an_Fertigkeit_neu;
         std::list<cH_Waffe> list_Waffen;
         std::list<cH_Waffe> list_Waffen_neu;
@@ -136,6 +138,8 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_WaffeGrund> list_WaffenGrund_neu;
         std::vector<H_Data_beruf> vec_Beruf;
         st_Database Database;
+        std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
+//        std::list<cH_MidgardBasicElement> list_Fertigkeit_ang_neu;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
         std::list<cH_MidgardBasicElement> list_Zauber;
@@ -211,7 +215,6 @@ class midgard_CG : public midgard_CG_glade
         void on_button_geld_s_clicked();
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
-        std::string ruestung(const std::string& mod);
         void on_waffen_clist_select_row(gint row, gint column, GdkEvent *event);   
         void on_waffen_clist_unselect_row(gint row, gint column, GdkEvent *event);
         void on_fertigkeiten_wahl_clicked();
