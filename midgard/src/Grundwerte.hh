@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.42 2002/06/04 11:13:41 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.43 2002/06/06 12:37:50 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ class Grundwerte
              :  st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt) {}
          };         
    st_grund grund;
-   std::list<cH_MidgardBasicElement> list_Sinne;
+   std::list<MidgardBasicElement> list_Sinne;
 //   std::map<std::string,int> sinnmap;
    int raufen;
 
@@ -97,7 +97,7 @@ public:
    int B() const {return b;}
    int LP() const {return lp;}
    int AP() const {return ap;}
-   std::list<cH_MidgardBasicElement> Sinne() const {return list_Sinne;}
+   std::list<MidgardBasicElement> Sinne() const {return list_Sinne;}
    int Raufen() const;
    int Abwehr_wert() const {return abwehr_wert;}
    int AbwehrPP() const {return abwehr_pp;}
