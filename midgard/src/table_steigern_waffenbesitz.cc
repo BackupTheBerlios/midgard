@@ -101,8 +101,6 @@ void table_steigern::on_entry_magisch_activate()
 void table_steigern::on_leaf_waffenbesitz_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-//  cH_MidgardBasicElement MBE=new WaffeBesitz(*cH_WaffeBesitz(dt->get_Waffe()));
-//  MidgardBasicElement_mutable MBE=dt->get_Waffe();
   WaffeBesitz MBE=dt->get_Waffe();
 
 //cout << MBE->Name()<<'\t'<<MBE.AliasName()<<'\n';

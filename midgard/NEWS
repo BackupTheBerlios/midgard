@@ -25,11 +25,15 @@ NEWS IN VERSION 0.7delta3
 * Bezeichnung und Merkmale abspeichern&laden fixed
 * Herkunft nach Spezies einschränken
 * Herkunft nach Typ einschränken
+* Waffenloser Kampf + Faustkampf als Waffen im Ausdruck mit korrektem Schaden
 
 TODO: ('-' zeigt CP an)
+* ² in TeX
+* Kampfriemen (S.198)
+* Überleben als angeborene Fertigkeit
 * Info Fenster für Typen, Lernpflichten
 * Kultwaffe für Priester ins Info Fenster
-* Ausrüstung nach Fertigkeiten
+* Ausrüstung nach Fertigkeiten würfeln
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 

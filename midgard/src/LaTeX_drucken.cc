@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.35 2002/07/01 10:22:42 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.36 2002/07/02 08:57:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -318,6 +318,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
 //WL int  i_waffenlos = 4;
  unsigned int countwaffen=0;
  std::string angriffsverlust_string = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar().List_Fertigkeit());
+ std::list<WaffeBesitz> WBesitz=hauptfenster->getChar().List_Waffen_besitz();
  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
    {cH_Waffe w(*i);
     count++;
@@ -331,9 +332,13 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     fout <<"\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
     // waffenloser Kampf:
-//WL    if (w->Name()=="waffenloser Kampf") 
-//WL         { i_waffenlos=atoi(wert.c_str());}
-      for (std::list<WaffeBesitz>::const_iterator j=hauptfenster->getChar().List_Waffen_besitz().begin();j!=hauptfenster->getChar().List_Waffen_besitz().end();++j)
+    if (w->Name()=="waffenloser Kampf" || w->Name()=="Faustkampf") 
+     {
+      WaffeBesitz W(w,w->Name(),0,0,"","");
+      W.setErfolgswert(i->Erfolgswert());
+      WBesitz.push_back(W);
+     }
+    for (std::list<WaffeBesitz>::const_iterator j=WBesitz.begin();j!=WBesitz.end();++j)
      {
       WaffeBesitz WB=*j;
       if (WB.Waffe()->Name()==w->Name())
