@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.20 2004/03/10 14:47:58 thoma Exp $
+// $Id: Magus_Optionen.hh,v 1.21 2004/05/18 11:57:19 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -145,7 +145,7 @@ class Magus_Optionen
       Magus_Optionen(const Magus_Optionen &);
 
    public: 
-      Magus_Optionen() : geaendert() {}
+      Magus_Optionen();
       
       // erst nachdem magus_paths initialisiert ist
       static void init();

@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.25 2004/04/22 08:06:12 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.26 2004/05/18 11:57:19 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -502,3 +502,7 @@ std::string Magus_Optionen::global_settings_load(int userid,const std::string& p
       		const std::string& name)
 {  return Programmoptionen.my_global_settings[st_Global_Settings_key(userid,program,name)];
 }
+
+Magus_Optionen::Magus_Optionen() 
+	: datei_history(), geaendert() 
+{}
