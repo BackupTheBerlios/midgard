@@ -3,10 +3,19 @@ NEWS IN VERSION 0.7delta3
 - Spezialwaffe versteckt nun die ungelernten Waffen ;-)
 
 TODO: ('-' zeigt CP an)
+* Muttersprache nach Heimatland
+* Mutterschrift automatisch
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
 * Ausdruck für lange Listen
+* Ich hatte als Allgemeinwissen die Landeskunde
+  (Elfen) gelernt und wollte das wieder verlernen. Die Landeskunde
+  verschwand, das Infofenster ging auf mit der Meldung "Fehler beim
+  Lernpunkte zurückstellen". Die Lernpunkte wurden auch nicht
+  zurückgestellt...
+* Wurfspeer nach 'Leichter Speer' lernbar (Wa)
+* floats für Gewichte
 - dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)

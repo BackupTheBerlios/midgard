@@ -9143,11 +9143,6 @@ eingeben</label>
 		  <cxx_visibility>protected</cxx_visibility>
 		  <tooltip>Nach dem Drücken dieses Knopfes kann eine Spezialwaffe gewählt werden. Entweder eine Nahkampfwaffe die 1 LP gekostet hat, oder eine Fernkampfwaffe, die höchstens 2 LP gekostet hat.</tooltip>
 		  <can_focus>True</can_focus>
-		  <signal>
-		    <name>toggled</name>
-		    <handler>on_togglebutton_spezialwaffe_toggled</handler>
-		    <last_modification_time>Tue, 25 Jun 2002 13:04:40 GMT</last_modification_time>
-		  </signal>
 		  <relief>GTK_RELIEF_NORMAL</relief>
 		  <active>False</active>
 		  <child>
@@ -11168,7 +11163,7 @@ auswählen</label>
 			  <wrap>False</wrap>
 			  <value>1</value>
 			  <lower>0</lower>
-			  <upper>100000</upper>
+			  <upper>1e+07</upper>
 			  <step>1</step>
 			  <page>10</page>
 			  <page_size>10</page_size>
