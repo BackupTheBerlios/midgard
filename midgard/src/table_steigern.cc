@@ -9,9 +9,11 @@
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/Datenbank.hh>
+#include <libmagus/magustrace.h>
+#include <Misc/Trace.h>
 
 void table_steigern::refresh()
-{
+{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__);
   if (hauptfenster->get_current_page()!=midgard_CG::PAGE_STEIGERN) return;
   flashing_gradanstieg->set(MagusImage("Anpass-trans-50.xpm"),MagusImage("Anpass-trans-50_invers.xpm"),0);
   flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
@@ -140,6 +142,18 @@ void table_steigern::show_goldeingabe(bool b,int button)
    }             
 }
 
+std::string Steigerntyp(const Grundwerte &W)
+{  if (W.wie_steigern==Grundwerte::ws_NurPraxispunkte) return "durch Praxis";
+   if (W.wie_steigern==Grundwerte::ws_PraxispunkteFP) return "durch Praxis+FP";
+   if (W.wie_steigern==Grundwerte::ws_Spruchrolle) return "durch Spruchrolle";
+   if (W.wie_steigern==Grundwerte::ws_Unterweisung && W.fpanteil>100) 
+      return "im Selbststudium";
+   if (W.wie_steigern==Grundwerte::ws_Unterweisung && !W.fpanteil) 
+      return "ohne Kosten";
+   if (W.wie_steigern==Grundwerte::ws_Unterweisung) 
+      return "mit Lehrmeister";
+   return "?";
+}
 
 void table_steigern::zeige_werte()
 {
@@ -208,6 +222,16 @@ void table_steigern::zeige_werte()
      if(MBEmlt(cH_Fertigkeit("Lesen von Zauberschrift"))->ist_gelernt(W.List_Fertigkeit()))
               togglebutton_spruchrolle->set_sensitive(true);
          else togglebutton_spruchrolle->set_sensitive(false);
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+  handlebox_steigern_1->set_label(W.Spezies()->Name()+" "+W.Typ1()->Short()
+      + "," + W.Typ2()->Short() + " Grad "+itos(W.Grad()));
+  handlebox_steigern_2->set_label(itos(W.GFP())+"GFP "+
+      itos(W.goldanteil.Value())+"%GS");
+  // oder reduzieren?
+  handlebox_steigern_3->set_label((W.reduzieren.Value()?"verlernen ":"lernen ")
+      +Steigerntyp(W));
+  handlebox_steigern_4->set_label("neuer Grad erreicht?");
+#endif
 }
 
 table_steigern::table_steigern(GlademmData *_data) 

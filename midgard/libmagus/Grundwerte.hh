@@ -1,7 +1,7 @@
-// $Id: Grundwerte.hh,v 1.10 2004/06/23 11:00:25 christof Exp $               
+// $Id: Grundwerte.hh,v 1.11 2004/06/28 08:44:10 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -75,14 +75,15 @@ public: // access these Models if you like ... ;-)
            ws_Unterweisung, // FP+GS
            ws_none=ws_Unterweisung, // FP werden nicht verändert (*anteil=0)
            ws_Selbststudium=ws_Unterweisung, // 4/3*FP (goldanteil=0, fpanteil=133)
-           ws_NurPraxispunkte, // PP (GFP Rest kann verfallen)
+           ws_NurPraxispunkte, // PP (GFP Rest kann verfallen) unsinnig? besser warten
            ws_PraxispunkteFP, // PP+FP (mit FP bis zur nächsten Stufe auffüllen)
-           ws_Spruchrolle // FP/10, GFP+=2*FP, Fehlschlag: 
+           ws_Spruchrolle // FP/10, GFP+=2*FP, Fehlschlag: GFP+=FP
         };
 
    Model_copyable<wie_steigern_t> wie_steigern;
    Model_copyable<int> goldanteil; // 33-67 (oder weniger wenn Auftraggeber Kosten bezahlt)
    Model_copyable<int> fpanteil; // 33-67 (oder 133 wenn Selbststudium)
+   Model_copyable<bool> reduzieren; // reduzieren/verlernen statt steigern
 
 public:
    Grundwerte();
@@ -290,8 +291,8 @@ public:
    int ep_kosten(int kosten) const;
    int get_Grad_Basiswerte() const {return grad_basiswerte;}
    __deprecated void set_Grad_Anstieg(int p,int b)
-              { fpanteil=p; grad_basiswerte=b; }
-   __deprecated void set_Steigern_EP_Prozent(int i) {fpanteil=i;}
+              { fpanteil=p; goldanteil=100-p; grad_basiswerte=b; }
+   __deprecated void set_Steigern_EP_Prozent(int i) {fpanteil=i; goldanteil=100-i;}
    void set_Grad_Basiswerte(int i) {grad_basiswerte=i;}
 
    void setRuestung1(const std::string &r,bool force=false)

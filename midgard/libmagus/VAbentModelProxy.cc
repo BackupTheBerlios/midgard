@@ -1,6 +1,6 @@
-// $Id: VAbentModelProxy.cc,v 1.13 2004/06/23 11:00:25 christof Exp $               
+// $Id: VAbentModelProxy.cc,v 1.14 2004/06/28 08:44:10 christof Exp $               
 /*  Midgard Character Generator
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -60,6 +60,8 @@ void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
    sg_conns.push_back(A.abenteurer.goldanteil.signal_changed()
          .connect(SigC::bind(SigC::slot(&adaptor),&sig_steigern_geaendert)));
    sg_conns.push_back(A.abenteurer.fpanteil.signal_changed()
+         .connect(SigC::bind(SigC::slot(&adaptor),&sig_steigern_geaendert)));
+   sg_conns.push_back(A.abenteurer.reduzieren.signal_changed()
          .connect(SigC::bind(SigC::slot(&adaptor),&sig_steigern_geaendert)));
    // it most likely changed, perhaps a crc can cover it  ...
    sig_steigern_geaendert();
