@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.101 2002/04/11 14:11:41 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.102 2002/04/16 10:59:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -361,9 +361,12 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 
      default : break;
    }
-  show_lernschema(); // Lernschema setzt die Erfolgswerte zurück
-//  Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
+  show_lernschema();
   show_gelerntes();
+  if(MBE->What()==MidgardBasicElement::WAFFE && togglebutton_spezialwaffe->get_active())
+     undosave("Spezialwaffe "+MBE->Name()+" gewählt");
+  else
+     undosave(MBE->Name()+" verlernt");
 }
 
 void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
@@ -435,13 +438,13 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     default : break;
    }
+  undosave(MBE->Name()+" gelernt");
   show_lernschema();
   show_gelerntes();
 }
 
 void midgard_CG::show_gelerntes()
 {
-  modify_bool=true; // Zum Abspeichern
   zeige_lernpunkte();
   
   std::list<cH_MidgardBasicElement> FL;

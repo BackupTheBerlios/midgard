@@ -5,14 +5,14 @@ gint midgard_CG::on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *e
 {
  std::string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
  Werte.setBeschreibung(b);
- modify_bool=true;
+ undosave("Beschreibung geändert");
  return 0;
 }
 
 gint midgard_CG::on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev)
 {
  Werte.setBeschreibungPixSize(spinbutton_pix_breite->get_value_as_int());
- modify_bool=true;
+ undosave("Bildgröße geändert");
  return 0;
 }
 
@@ -41,5 +41,6 @@ void midgard_CG::show_beschreibung()
 void midgard_CG::on_button_grafik_clicked()
 {
   manage (new xml_fileselection(this,xml_fileselection::Pix,&Werte));
+  undosave("Bild geändert");
 }
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.2 2002/04/13 07:01:49 thoma Exp $
+// $Id: midgard_CG_undo.cc,v 1.3 2002/04/16 10:59:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 
 void midgard_CG::undosave(std::string s)
 {
+  modify_bool=true;
   strstream ss;
   speicherstream(ss);
   ss<<char(0);

@@ -188,6 +188,17 @@ gint midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *eve
 { notebook_main->set_page(PAGE_GRUNDWERTE); return false;}
 
 
+void midgard_CG::menu_geschichte_selected()
+{
+ load_for_mainpage(PAGE_NEWS);
+}
+
+void midgard_CG::menu_einstellungen_aendern()
+{
+ load_for_mainpage(PAGE_OPTIONEN);
+}
+
+
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
 {
  load_for_mainpage(pagenr);

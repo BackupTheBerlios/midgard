@@ -71,12 +71,13 @@ void frame_globale_optionen::element_activate_C(Gtk::CheckButton *cb,Midgard_Opt
 {
   hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(index,cb->get_active());
   if(index==Midgard_Optionen::Original)
-   init();
+   {
+    hauptfenster->getOptionen()->setAllHausregeln(false);
+    init();
+   }
 }
 
 void frame_globale_optionen::element_activate_H(Gtk::CheckButton *cb,Midgard_Optionen::HausIndex index)
 {
   hauptfenster->getOptionen()->Hausregeln_setzen_from_menu(index,cb->get_active());
 }
-
-

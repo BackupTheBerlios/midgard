@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.214 2002/04/15 18:02:18 thoma Exp $
+// $Id: midgard_CG.hh,v 1.215 2002/04/16 10:59:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -85,58 +85,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void menu_gradanstieg_init();
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
-//        void Optionen_init(); //X
-//        void Hausregeln_init();//X
-//        void pdfViewer_init();//X
-
-        //X von hier     
-/*
-        enum pdfViewerIndex {gv,acroread,xpdf};
-        struct st_pdfViewer {pdfViewerIndex index; 
-                             Gtk::RadioMenuItem *radio_menu_item;
-                             std::string text;
-                             bool active;
-               st_pdfViewer(pdfViewerIndex i,Gtk::RadioMenuItem *r,
-                            std::string t, bool a) 
-                  : index(i),radio_menu_item(r),text(t),active(a) {} };
-
-        enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,
-                            WizardStarten,Wizard_immer_starten,gw_wuerfeln,
-                            LernschemaZusaetzeLoeschen,show_InfoWindow,
-                            NSC_only};
-        enum HausIndex {Gold};
-
-
-        struct st_OptionenM{OptionenIndex index;
-                           Gtk::MenuItem *menuitem; 
-                           std::string text;
-                           const char * const *bild;
-               st_OptionenM(OptionenIndex i,
-                           Gtk::MenuItem *m,
-                           std::string t,
-                           const char * const * const b)
-                  :index(i),menuitem(m),text(t),bild(b)
-                    {}};
-        struct st_Optionen{OptionenIndex index;
-                           Gtk::CheckMenuItem *checkmenuitem; 
-                           std::string text;
-                           bool active;const char * const *bild;
-               st_Optionen(OptionenIndex i,
-                           Gtk::CheckMenuItem *cm,
-                           std::string t,
-                           bool a, const char * const * const b)
-                  :index(i),checkmenuitem(cm),text(t),active(a),bild(b) 
-                  {}};
-              
-
-        Gtk::MenuItem *haus_menuitem;
-        struct st_Haus{HausIndex index; Gtk::CheckMenuItem *menu;std::string text;bool active;
-               st_Haus(HausIndex i,Gtk::CheckMenuItem *m,std::string t,bool a)
-                      :index(i),menu(m),text(t),active(a) {}
-                      };
-*/
-        //XX bis hier
-
         void set_tree_titles();
 
         struct st_BKategorie{bool kat_I; bool kat_II; bool kat_III; bool kat_IV;
@@ -172,29 +120,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<cH_MidgardBasicElement> list_Sprache_neu;
         std::list<cH_MidgardBasicElement> list_Schrift;
         std::list<cH_MidgardBasicElement> list_Schrift_neu;
-
-         //XX von hier
-/*
-        std::list<st_Haus> list_Hausregeln;
-        std::list<st_Optionen>  list_Optionen;
-        std::list<st_OptionenM> list_OptionenM;
-        std::list<st_pdfViewer> list_pdfViewer;
-
-        st_Optionen OptionenCheck(OptionenIndex oi);
-        st_Haus HausregelCheck(HausIndex hi);
-        st_pdfViewer pdfViewerCheck(pdfViewerIndex pi);
-
-        void setOption(std::string os,bool b);
-        void setHausregeln(std::string hs,bool b);
-        void setpdfViewer(std::string is,bool b);
-        void setAllHausregeln(bool b);
-
-        void Hausregeln_setzen_from_menu(HausIndex index);
-        void Optionen_setzen_from_menu(OptionenIndex index);
-        void OptionenM_setzen_from_menu(OptionenIndex index);
-        void pdfViewer_setzen_from_menu(pdfViewerIndex index);
-         //XX bis hier
-*/
 
     public:
         bool fire_enabled;
@@ -422,8 +347,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void checkbutton_original(bool active);
         void lernschema_sensitive(bool active);
    private:
-//        void Pics(bool b);
-//        void show_gw_wuerfeln(bool b);
         void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);
 
         void on_grad_anstieg_clicked();
@@ -463,6 +386,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_button_kurz_steigern_release_event(GdkEventButton *event);
 
         void on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
+        void menu_geschichte_selected();
+        void menu_einstellungen_aendern();
         void load_for_mainpage(guint pagenr);
         void load_for_page(guint pagenr);
         void on_radio_steigern_toggled();
@@ -586,10 +511,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_checkbutton_ausruestung_geld_toggled();
 
          gint on_speichern_release_event(GdkEventButton *ev);
-         //XX von hier
-//         void save_options();
-//         void load_options();
-         //XX bis hier
          void grundwerte_speichern(ostream &);
          void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
          void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
@@ -631,7 +552,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void spielleiter_export_save(const std::string& dateiname);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
-         void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe,bool beruf=false);
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();

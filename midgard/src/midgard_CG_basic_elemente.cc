@@ -196,39 +196,6 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,const std::list<cH_MidgardBasicElement>& mbe2)
 {
   if(mbe.begin()==mbe.end()) return;
-/*
-  if((*mbe.begin())->What()==MidgardBasicElement::FERTIGKEIT)
-   {
-    if(list_Fertigkeit.empty()) // wg. Fertigkeit durch Beruf
-      list_Fertigkeit=mbe;
-    else 
-      list_Fertigkeit.insert(list_Fertigkeit.end(),mbe.begin(),mbe.end());
-    maxkido=0;  if (Typ[0]->Short()=="Kd") maxkido=2;
-    int KD_tech=0;
-    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
-      {
-         cH_Fertigkeit f(*i);
-         int bonus = f->AttributBonus(Werte);
-         f->set_Erfolgswert( f->Erfolgswert() + bonus);     
-         if (f->Name()=="KiDo") {kido_bool=true; show_gtk();}  
-         if (f->Name()=="KiDo-Technik") { ++KD_tech;++maxkido;}
-      }
-    for (int j=0;j<KD_tech;++j)
-      for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
-       if (cH_Fertigkeit(*i)->Name()=="KiDo-Technik") {list_Fertigkeit.erase(i);break;}
-   }
-*/
-/*
-  if((*mbe.begin())->What()==MidgardBasicElement::WAFFE)
-   {
-    list_Waffen=mbe;
-    list_WaffenGrund=mbe2;
-   }
-  if((*mbe.begin())->What()==MidgardBasicElement::ZAUBER)
-   {
-    list_Zauber.insert(list_Zauber.end(),mbe.begin(),mbe.end());
-   }
-*/
   if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
    {
     list_Waffen_besitz=mbe;
@@ -238,31 +205,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     list_Kido=mbe;
    }
   else assert(0);
+  undosave(itos(mbe.size())+" "+(*mbe.begin())->What_str()+"n übernommen");
   show_gelerntes();
 }
 
-void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe,bool beruf)
-{
-assert(0);
-/*
-  if(mbe->What()==MidgardBasicElement::BERUF)
-   {
-    list_Beruf.clear(); // es kann nur einen Beruf geben 
-    list_Beruf.push_back(mbe);
-   }
-  else if(mbe->What()==MidgardBasicElement::FERTIGKEIT)
-   {
-    if(beruf) cH_Fertigkeit(mbe)->setLernArt("Beruf");
-    list_Fertigkeit.push_back(mbe);
-   }
-  else if(mbe->What()==MidgardBasicElement::SPRACHE)
-   {
-    list_Sprache.push_back(mbe);
-   }
-  else if(mbe->What()==MidgardBasicElement::SCHRIFT)
-   {
-    list_Schrift.push_back(mbe);
-   }
-  show_gelerntes();
-*/
-}

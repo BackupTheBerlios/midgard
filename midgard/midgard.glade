@@ -15538,28 +15538,14 @@ KS
 
 	      <widget>
 		<class>GtkMenuItem</class>
-		<name>geschichte1</name>
+		<name>geschichte</name>
+		<signal>
+		  <name>activate</name>
+		  <handler>menu_geschichte_selected</handler>
+		  <last_modification_time>Tue, 16 Apr 2002 10:30:16 GMT</last_modification_time>
+		</signal>
 		<label>Geschichte</label>
 		<right_justify>False</right_justify>
-
-		<widget>
-		  <class>GtkMenu</class>
-		  <name>geschichte1_menu</name>
-
-		  <widget>
-		    <class>GtkMenuItem</class>
-		    <name>a1</name>
-		    <label>A</label>
-		    <right_justify>False</right_justify>
-		  </widget>
-
-		  <widget>
-		    <class>GtkMenuItem</class>
-		    <name>b1</name>
-		    <label>B</label>
-		    <right_justify>False</right_justify>
-		  </widget>
-		</widget>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -15669,11 +15655,15 @@ KS
 	      <name>einstellungen1_menu</name>
 
 	      <widget>
-		<class>GtkCheckMenuItem</class>
-		<name>originalregeln1</name>
-		<label>Originalregeln</label>
-		<active>True</active>
-		<always_show_toggle>True</always_show_toggle>
+		<class>GtkMenuItem</class>
+		<name>aendern</name>
+		<signal>
+		  <name>activate</name>
+		  <handler>menu_einstellungen_aendern</handler>
+		  <last_modification_time>Tue, 16 Apr 2002 10:36:01 GMT</last_modification_time>
+		</signal>
+		<label>Ändern</label>
+		<right_justify>False</right_justify>
 	      </widget>
 	    </widget>
 	  </widget>
