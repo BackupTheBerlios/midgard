@@ -81,7 +81,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
            {
              vector<std::string> V=Werte.Herkunft()->Sprachen();
              vector<std::string> W;
-             for(vector<std::string>::const_iterator i=V.begin();i!=V.end();)
+             for(vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
                 if(!cH_Sprache(*i)->Alte_Sprache()) W.push_back(*i) ;
              std::string s;
              for(vector<std::string>::const_iterator i=W.begin();i!=W.end();)

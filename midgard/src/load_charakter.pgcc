@@ -285,6 +285,8 @@ void midgard_CG::load_charakter()
    ///////////////////////////////////////////////////////////////////////   
    // Berufe, Fertigkeiten, Waffen und Zauber (KiDo), Grundkenntnisse (Waffen)
    load_fertigkeiten();
+    menu_init();
+
    Database.ausnahmen.set_Beruf(list_Beruf);
 
    // Spezies setzen ////////////////////////////////////////////
@@ -491,5 +493,6 @@ void midgard_CG::load_fertigkeiten()
     } 
   exec sql close LFEIN;
   tr.close();
+//  menu_init();
 }
 

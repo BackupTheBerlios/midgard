@@ -39,83 +39,16 @@ void midgard_CG::menu_init()
   regionen->set_submenu(*regionen_menu);
 
   
-//  Gtk::CheckMenuItem *_mi;
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     menu_region=manage(new Gtk::CheckMenuItem((*i)->Name()));         
-     menu_region->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),menu_region,*i));
-     regionen_menu->append(*menu_region);
-     menu_region->set_active(false);
-     menu_region->show();
+     Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem((*i)->Name()));         
+     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
+     regionen_menu->append(*_mi);
+     _mi->set_active((*i)->Active());
+     if(!Originalbool && ((*i)->Abkuerzung()=="H&D" ||(*i)->Abkuerzung()=="G"))
+        _mi->set_sensitive(false);
+     _mi->show();
    }
-
-/* 
-  menu_Eschar=manage(new Gtk::CheckMenuItem("Eschar"));
-  menu_Eschar->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_Eschar_menu));
-  menu_Eschar->set_active(Escharbool);
-
-  menu_Rawindra=manage(new Gtk::CheckMenuItem("Rawindra"));
-  menu_Rawindra->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_Rawindra_menu));
-  menu_Rawindra->set_active(Rawindrabool);
-
-  menu_KanThaiPan=manage(new Gtk::CheckMenuItem("KanThaiPan"));
-  menu_KanThaiPan->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_KanThaiPan_menu));
-  menu_KanThaiPan->set_active(KanThaiPanbool);
-
-  menu_Nahuatlan=manage(new Gtk::CheckMenuItem("Nahuatlan"));
-  menu_Nahuatlan->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_Nahuatlan_menu));
-  menu_Nahuatlan->set_active(Nahuatlanbool);
-
-  menu_Waeland=manage(new Gtk::CheckMenuItem("Waeland"));
-  menu_Waeland->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_Waeland_menu));
-  menu_Waeland->set_active(Waelandbool);
-
-  menu_Alba=manage(new Gtk::CheckMenuItem("Alba"));
-  menu_Alba->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_Alba_menu));
-  menu_Alba->set_active(Albabool);
-
-  menu_HD=manage(new Gtk::CheckMenuItem("Hexenzauber und Druidenkraft"));
-  menu_HD->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_HD_menu));
-  menu_HD->set_active(HDbool);
-
-  menu_BR=manage(new Gtk::CheckMenuItem("Barbarenwut und Ritterehre"));
-  menu_BR->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_BR_menu));
-  menu_BR->set_active(BRbool);
-
-  menu_Gildenbrief=manage(new Gtk::CheckMenuItem("Gildenbrief"));
-  menu_Gildenbrief->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_Gildenbrief_menu));
-  menu_Gildenbrief->set_active(Gildenbriefbool);
-
-  menu_Kuestenstaaten=manage(new Gtk::CheckMenuItem("Kuestenstaaten"));
-  menu_Kuestenstaaten->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_Kuestenstaaten_menu));
-  menu_Kuestenstaaten->set_active(Kuestenstaatenbool);
-
-
-  optionen_menu->append(*menu_Alba);
-  optionen_menu->append(*menu_Eschar);
-  optionen_menu->append(*menu_Rawindra);
-  optionen_menu->append(*menu_KanThaiPan);
-  optionen_menu->append(*menu_Kuestenstaaten);
-  optionen_menu->append(*menu_Nahuatlan);
-  optionen_menu->append(*menu_Waeland);
-  optionen_menu->append(*menu_HD);
-  optionen_menu->append(*menu_BR);
-  optionen_menu->append(*menu_Gildenbrief);
-
-  menu_Alba->show();
-  menu_Eschar->show();
-  menu_KanThaiPan->show();
-//  menu_Kuestenstaaten->show();
-//  menu_Nahuatlan->show();
-  menu_Rawindra->show();
-//  menu_Waeland->show();
-
-  if (Originalbool) 
-   { menu_HD->show();
-     menu_BR->show();
-     menu_Gildenbrief->show();
-   }
-*/
   menu->append(*regionen);
   regionen->show();
 

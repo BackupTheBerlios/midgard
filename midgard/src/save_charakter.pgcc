@@ -130,7 +130,7 @@ void midgard_CG::on_speichern_clicked()
     }
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     strncpy(db_fertigkeit,(*i)->Name().c_str(),sizeof(db_magisch));
+     strncpy(db_fertigkeit,(*i)->Name().c_str(),sizeof(db_fertigkeit));
      if((*i)->Active()) db_wert=1;
      else db_wert=0;
      exec sql INSERT INTO charaktere_fertigkeiten
@@ -138,78 +138,6 @@ void midgard_CG::on_speichern_clicked()
         VALUES(:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Region');
       SQLerror::test(__FILELINE__);
    }
-/*
-   if (Albabool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','A','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Escharbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','E','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Rawindrabool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','R','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (KanThaiPanbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','K','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Nahuatlanbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','N','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Waelandbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','W','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (HDbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','HD','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (BRbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','BR','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Gildenbriefbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','G','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Kuestenstaatenbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','S','Region');
-      SQLerror::test(__FILELINE__);
-    }
-*/
    save_ausruestung();
    tr.commit();
 }

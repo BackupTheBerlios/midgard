@@ -85,7 +85,9 @@ void midgard_CG::on_radiobutton_pp_resistenz_toggled()
 {on_radiobutton_pp_all_toggled();}
 void midgard_CG::on_radiobutton_pp_all_toggled()
 {
-  if(!radiobutton_pp_fertigkeit->get_active())
+  if(radiobutton_pp_fertigkeit->get_active())
+    spinbutton_pp_eingeben->hide();
+  else 
     spinbutton_pp_eingeben->show();
 }
                                 

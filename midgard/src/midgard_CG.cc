@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.106 2002/01/09 16:24:08 thoma Exp $
+// $Id: midgard_CG.cc,v 1.107 2002/01/10 08:00:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,7 @@ midgard_CG::midgard_CG(int argc,char **argv)
 //  if (argc!=2) manage(new Midgard_Info(true,this));
   srand(time(0));
   get_Database();
-  menu_init();
+//  menu_init();
   on_neuer_charakter_clicked();
   set_tree_titles();
 }
@@ -293,6 +293,7 @@ void midgard_CG::clear_gtk()
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
+
    button_abg_werte->set_sensitive(false);
    button_herkunft->set_sensitive(false);
 //   button_sprache->set_sensitive(false);
@@ -337,16 +338,10 @@ void midgard_CG::on_neuer_charakter_clicked()
    zeige_werte(Werte);
    Originalbool=true;  checkbutton_original->set_active(true);
    Infobool=true;      checkbutton_original->set_active(true);
-/*
-   Albabool=false;      checkbutton_Alba->set_active(false);
-   Escharbool=false;      checkbutton_Eschar->set_active(false);
-   Rawindrabool=false;      checkbutton_Rawindra->set_active(false);
-   KanThaiPanbool=false;      checkbutton_KanThaiPan->set_active(false);
-   Waelandbool=false;      checkbutton_Waeland->set_active(false);
-   Nahuatlanbool=false;      checkbutton_Nahuatlan->set_active(false);
-   HDbool=false;             checkbutton_HD->set_active(false);
-   BRbool=false;             checkbutton_BR->set_active(false);
-*/
+   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+      (*i)->setActive(false);
+   menu_init();
+
    steigern_bool=true; checkbutton_EP_Geld->set_active(steigern_bool);
 
    Database.GradAnstieg.set_Grad_Basiswerte(1);
@@ -354,15 +349,14 @@ void midgard_CG::on_neuer_charakter_clicked()
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
- on_checkbutton_original_toggled();
- kido_bool=false;
- magie_bool=false;
- fill_typauswahl();
- fill_spezies();
- spezieswahl_button();
- typauswahl_button(); // ruft clear_listen() und clear_gtk() auf
- show_gtk();
-
+  on_checkbutton_original_toggled();
+  kido_bool=false;
+  magie_bool=false;
+  fill_typauswahl();
+  fill_spezies();
+  spezieswahl_button();
+  typauswahl_button(); // ruft clear_listen() und clear_gtk() auf
+  show_gtk();
 }
 
 void midgard_CG::on_schliessen_CG_clicked()
