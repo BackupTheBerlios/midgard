@@ -117,7 +117,7 @@ bool Berufe_auswahl::berufe_voraussetzung(string beruf, st_werte werte, string t
    coalesce(typ,'0'), coalesce(pa,'0'), coalesce(au,'0'), coalesce(sb,'0')
    , coalesce(region,'')
    into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_typ,:db_pa,:db_au,:db_sb,:db_region
-   from berufe_voraussetzung where beruf=:db_beruf limit 1;
+   from berufe_voraussetzung where beruf= :db_beruf limit 1;
   SQLerror::test(__FILELINE__);
 //cout << beruf<<"\t->"<<db_typ<<"<-\t";
   if (   db_st<=werte.st &&

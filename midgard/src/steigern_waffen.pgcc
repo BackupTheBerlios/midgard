@@ -317,7 +317,7 @@ bool midgard_CG::Waffen_Voraussetzung(const string waffe)
   exec sql select distinct coalesce(st,'0'), coalesce(ge,'0'),
    coalesce(zusatz,'')
    into :db_st,:db_ge,:db_zusatz
-   from waffen where name=:db_waffe;
+   from waffen where name= :db_waffe;
   SQLerror::test(__FILELINE__);
   if ( db_st<=werte.st && db_ge<=werte.ge ) return true;
   else return false ;

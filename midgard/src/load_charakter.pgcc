@@ -144,8 +144,8 @@ void midgard_CG::load_charakter()
          kupfer      ,
          ruestung    ,
          rasse
-      FROM charaktere WHERE charakter_name=:db_name_ch
-            AND version=:db_version;
+      FROM charaktere WHERE charakter_name= :db_name_ch
+            AND version= :db_version;
 
       exec sql open cha;
       SQLerror::test(__FILELINE__);
@@ -275,9 +275,9 @@ void midgard_CG::load_charakter()
    strncpy(db_art,"Beruf",sizeof(db_art));
    exec sql declare beruf cursor for
       select fertigkeit, wert from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open beruf;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -292,9 +292,9 @@ void midgard_CG::load_charakter()
    strncpy(db_art,"ang.Fertigkeit",sizeof(db_art));
    exec sql declare an_fertigkeiten cursor for
       select fertigkeit, wert from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open an_fertigkeiten;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -309,9 +309,9 @@ void midgard_CG::load_charakter()
    strncpy(db_art,"Fertigkeit",sizeof(db_art));
    exec sql declare fertigkeiten cursor for
       select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open fertigkeiten;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -326,9 +326,9 @@ void midgard_CG::load_charakter()
    strncpy(db_art,"Waffe",sizeof(db_art));
    exec sql declare waffen cursor for
       select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open waffen;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -344,9 +344,9 @@ void midgard_CG::load_charakter()
    exec sql declare besitz_w cursor for
       select fertigkeit,coalesce(av_bonus,0),coalesce(sl_bonus,0),coalesce(region,'')  
       from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open besitz_w;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -362,9 +362,9 @@ void midgard_CG::load_charakter()
    strncpy(db_art,"Zauber",sizeof(db_art));
    exec sql declare zauber cursor for
       select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open zauber;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -380,9 +380,9 @@ void midgard_CG::load_charakter()
    strncpy(db_art,"KiDo",sizeof(db_art));
    exec sql declare kido cursor for
       select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open kido;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -399,9 +399,9 @@ void midgard_CG::load_charakter()
    strncpy(db_art,"Grundkenntnis",sizeof(db_art));
    exec sql declare grund cursor for
       select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open grund;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -417,9 +417,9 @@ void midgard_CG::load_charakter()
    strncpy(db_art,"Sprache",sizeof(db_art));
    exec sql declare sprache cursor for
       select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open sprache;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -434,9 +434,9 @@ void midgard_CG::load_charakter()
    strncpy(db_art,"Urschrift",sizeof(db_art));
    exec sql declare schrift cursor for
       select fertigkeit  from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch 
-         and version=:db_version
-         and art=:db_art;
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
    exec sql open schrift;
    SQLerror::test(__FILELINE__);
    while(true)
@@ -457,8 +457,8 @@ void midgard_CG::load_charakter()
    Nahuatlanbool=false;      checkbutton_Nahuatlan->set_active(false);
    strncpy(db_art,"Region",sizeof(db_art));
    exec sql declare r_ein cursor for select region from charaktere_fertigkeiten
-      where charakter_name=:db_name_ch and version=:db_version 
-      and art=:db_art;
+      where charakter_name= :db_name_ch and version= :db_version 
+      and art= :db_art;
    exec sql open r_ein;
    SQLerror::test(__FILELINE__);
    while (true)

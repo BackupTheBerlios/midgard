@@ -51,7 +51,7 @@ int midgard_CG::praxispunkte_wuerfeln(string fert,int alter_wert, string art, bo
          return(gelungen=false);
       }
    exec sql select attribut into :db_atr 
-      from fertigkeiten where fertigkeit=:db_fert;
+      from fertigkeiten where fertigkeit= :db_fert;
 
       int hoches_attribut = midgard_CG::attribut_check(db_atr);
       db_max_wert += hoches_attribut;

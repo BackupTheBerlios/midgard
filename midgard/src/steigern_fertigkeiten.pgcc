@@ -265,7 +265,7 @@ bool midgard_CG::Fertigkeiten_Voraussetzung(const string fertigkeit)
    coalesce(sb,'0'), coalesce(rw,'0'), coalesce(fertigkeit,'')
    into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
          :db_sb,:db_rw,:db_fert
-   from fertigkeiten_voraussetzung where name=:db_fertigkeit;
+   from fertigkeiten_voraussetzung where name= :db_fertigkeit;
 //  SQLerror::test(__FILELINE__,100);
   SQLerror::test(__FILELINE__);
     if ( db_st<=werte.st &&
