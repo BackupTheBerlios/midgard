@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.21 2002/10/25 21:01:17 thoma Exp $
+// $Id: Preise.hh,v 1.22 2002/10/31 15:49:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,6 +69,8 @@ class cH_Preise : public Handle<const Preise>
     cH_Preise(const std::string& name ,bool create=false);
     cH_Preise(const Tag *tag);
     cH_Preise(const std::string& name, const std::string& art, const Tag *tag);
+    bool operator==(const std::string& name)
+    {  return (*this)->Name()==name; }
 
  class sort {
       public:
