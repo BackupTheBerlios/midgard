@@ -1,4 +1,4 @@
-// $Id: callbackbuf.h,v 1.2 2002/12/18 08:37:17 christof Exp $
+// $Id: callbackbuf.h,v 1.3 2002/12/18 10:27:32 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -37,7 +37,7 @@ protected:
    int_type overflow(int_type c) 
    {  char_type a=c;
       if (c!=-1) 
-      {  if ((os.*cb(&a,1))<1)
+      {  if (((os.*cb)(&a,1))<1)
          {  return -1;
          }
       }
