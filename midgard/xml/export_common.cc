@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.12 2002/02/18 16:15:36 christof Exp $
+// $Id: export_common.cc,v 1.13 2002/05/09 14:08:54 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -149,9 +149,13 @@ double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::
    o << '<' << wert << '>' << val << "</" << wert << ">\n";
 }
 
+ void write_int_attrib_force(std::ostream &o,const std::string &wert,int val)
+{  o << ' ' << wert << "=\"" << val << '\"';
+}
+
  void write_int_attrib(std::ostream &o,const std::string &wert,int val, int standard=0)
 {  if (val==standard) return;
-   o << ' ' << wert << "=\"" << val << '\"';
+   write_int_attrib_force(o,wert,val);
 }
 
 void write_float(std::ostream &o,const std::string &wert,double val, int indent=0)
@@ -178,11 +182,10 @@ void write_float_attrib(std::ostream &o,const std::string &wert,double val, doub
 
  void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false)
 {  if (val==standard) return;
-   o << ' ' << wert << "=\"" << (val?"true":"false") << '\"';
+   write_bool_attrib_force(o,wert,val);
 }
 
  void write_bool_attrib_force(std::ostream &o,const std::string &wert,bool val)
-{ 
-   o << ' ' << wert << "=\"" << (val?"true":"false") << '\"';
+{  o << ' ' << wert << "=\"" << (val?"true":"false") << '\"';
 }
 

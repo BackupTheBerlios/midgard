@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.18 2002/03/02 18:55:21 thoma Exp $
+// $Id: export_common.h,v 1.19 2002/05/09 14:08:54 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -43,6 +43,7 @@ std::string toSQL(const std::string &s);
 int fetch_int(FetchIStream &is,int standard=0);
 void write_int(std::ostream &o,const std::string &wert,int val, int indent=0);
 void write_int_attrib(std::ostream &o,const std::string &wert,int val, int standard=0);
+inline void write_int_attrib_force(std::ostream &o,const std::string &wert,int val);
 int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
 int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0);
 
