@@ -1,3 +1,5 @@
+// this file is based on:
+
 /* registry.cc: registry interface
 
    Copyright 1996, 1997, 1998, 1999, 2000 Cygnus Solutions.
@@ -8,29 +10,11 @@ This software is a copyrighted work licensed under the terms of the
 Cygwin license.  Please consult the file "CYGWIN_LICENSE" for
 details. */
 
-//#include "winsup.h"
-//#include "shared_info.h"
 #include "registry.h"
-//#include "security.h"
-//#include <cygwin/version.h>
-//----- parts collected ---------------
-#if 0
-#define CYGWIN_INFO_CYGNUS_REGISTRY_NAME "Cygnus Solutions"
-#define CYGWIN_INFO_CYGWIN_REGISTRY_NAME "Cygwin"
-#define CYGWIN_INFO_PROGRAM_OPTIONS_NAME "Program Options"
-#define CYGWIN_INFO_CYGWIN_MOUNT_REGISTRY_NAME "mounts v2"
-#define CYGWIN_INFO_CYGDRIVE_FLAGS "cygdrive flags"
-#define CYGWIN_INFO_CYGDRIVE_PREFIX "cygdrive prefix"
-#define CYGWIN_INFO_CYGDRIVE_DEFAULT_PREFIX "/cygdrive"
-#endif
-// I don't know what this might be for ...
+#include <cstdio>
+
 #define NO_COPY 
 static SECURITY_ATTRIBUTES NO_COPY sec_none_nih;
-
-#include <cstdio>
-#define debug_printf printf
-//-------------------------------------
-
 char magus_class[] = "magus";
 
 reg_key::reg_key (HKEY top, REGSAM access, ...)
@@ -40,32 +24,6 @@ reg_key::reg_key (HKEY top, REGSAM access, ...)
   build_reg (top, access, av);
   va_end (av);
 }
-
-#if 0
-reg_key::reg_key (REGSAM access, ...)
-{
-  va_list av;
-
-  new (this) reg_key (HKEY_CURRENT_USER, access, "SOFTWARE",
-		 CYGWIN_INFO_CYGNUS_REGISTRY_NAME,
-		 CYGWIN_INFO_CYGWIN_REGISTRY_NAME, NULL);
-
-  HKEY top = key;
-  va_start (av, access);
-  build_reg (top, KEY_READ, av);
-  va_end (av);
-  if (top != key)
-    RegCloseKey (top);
-}
-
-reg_key::reg_key (REGSAM access)
-{
-  new (this) reg_key (HKEY_CURRENT_USER, access, "SOFTWARE",
-		 CYGWIN_INFO_CYGNUS_REGISTRY_NAME,
-		 CYGWIN_INFO_CYGWIN_REGISTRY_NAME,
-		 CYGWIN_INFO_CYGWIN_MOUNT_REGISTRY_NAME, NULL);
-}
-#endif
 
 void
 reg_key::build_reg (HKEY top, REGSAM access, va_list av)
@@ -97,17 +55,9 @@ reg_key::build_reg (HKEY top, REGSAM access, va_list av)
       if (res != ERROR_SUCCESS)
 	{
 	  key_is_invalid = res;
-	  debug_printf ("failed to create key %s in the registry", name);
+	  printf ("failed to create key %s in the registry", name);
 	  break;
 	}
-
-#if 0
-      /* If we're considering the mounts key, check if it had to
-	 be created and set had_to_create appropriately. */
-      if (strcmp (name, CYGWIN_INFO_CYGWIN_MOUNT_REGISTRY_NAME) == 0)
-	if (disp == REG_CREATED_NEW_KEY)
-	  mount_table->had_to_create_mount_areas++;
-#endif	  
     }
 }
 
@@ -214,60 +164,3 @@ reg_key::~reg_key ()
   key_is_invalid = 1;
 }
 
-#if 0
-char *
-get_registry_hive_path (const PSID psid, char *path)
-{
-  char sid[256];
-  char key[256];
-  HKEY hkey;
-
-  if (!psid || !path)
-    return NULL;
-  cygsid csid (psid);
-  csid.string (sid);
-  strcpy (key,"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\");
-  strcat (key, sid);
-  if (!RegOpenKeyExA (HKEY_LOCAL_MACHINE, key, 0, KEY_READ, &hkey))
-    {
-      char buf[256];
-      DWORD type, siz;
-
-      key[0] = '\0';
-      if (!RegQueryValueExA (hkey, "ProfileImagePath", 0, &type,
-			     (BYTE *)buf, (siz = 256, &siz)))
-	ExpandEnvironmentStringsA (buf, key, 256);
-      RegCloseKey (hkey);
-      if (key[0])
-	return strcpy (path, key);
-    }
-  return NULL;
-}
-
-void
-load_registry_hive (PSID psid)
-{
-  char sid[256];
-  char path[MAX_PATH + 1];
-  HKEY hkey;
-  LONG ret;
-
-  if (!psid)
-    return;
-  /* Check if user hive is already loaded. */
-  cygsid csid (psid);
-  csid.string (sid);
-  if (!RegOpenKeyExA (HKEY_USERS, csid.string (sid), 0, KEY_READ, &hkey))
-    {
-      debug_printf ("User registry hive for %s already exists", sid);
-      RegCloseKey (hkey);
-      return;
-    }
-  if (get_registry_hive_path (psid, path))
-    {
-      strcat (path, "\\NTUSER.DAT");
-      if ((ret = RegLoadKeyA (HKEY_USERS, sid, path)) != ERROR_SUCCESS)
-	debug_printf ("Loading user registry hive for %s failed: %d", sid, ret);
-    }
-}
-#endif
