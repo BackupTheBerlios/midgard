@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.122 2002/01/08 17:14:48 thoma Exp $
+// $Id: midgard_CG.hh,v 1.123 2002/01/09 16:24:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,6 +52,7 @@
 #include "Waffe.hh"
 #include "WaffeGrund.hh"
 #include "KiDo.hh"
+#include "Region.hh"
 #include "Ruestung.hh"
 #include "Fertigkeiten_angeboren.hh"
 //#include "class_berufe.hh"
@@ -72,6 +73,7 @@ extern bool Originalbool;
 extern bool Infobool;
 extern bool steigern_bool;
 
+/*
 extern bool Escharbool;//E
 extern bool Rawindrabool;//R
 extern bool KanThaiPanbool;//K
@@ -82,7 +84,7 @@ extern bool HDbool;//H&D
 extern bool BRbool;//B&R
 extern bool Gildenbriefbool;//G
 extern bool Kuestenstaatenbool;//S
-
+*/
 
 class midgard_CG : public midgard_CG_glade
 {   
@@ -92,7 +94,8 @@ class midgard_CG : public midgard_CG_glade
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE};
    public:
-        struct st_Database { std::vector<cH_Land> Laender;
+        struct st_Database { std::vector<cH_Region> Regionen;
+                             std::vector<cH_Land> Laender;
                              std::vector<cH_Ruestung> Ruestung;
                              Lernschema lernschema;
                              std::list<cH_MidgardBasicElement> Beruf;
@@ -115,7 +118,8 @@ class midgard_CG : public midgard_CG_glade
                              std::list<cH_Preise> preise;
                              std::list<cH_PreiseMod> preisemod;
                st_Database(){}
-               st_Database(std::vector<cH_Land> L,
+               st_Database(std::vector<cH_Region> Re,
+                           std::vector<cH_Land> L,
                            std::vector<cH_Ruestung> R,
                            Lernschema l,
                            std::list<cH_MidgardBasicElement> B,
@@ -137,7 +141,8 @@ class midgard_CG : public midgard_CG_glade
                            std::vector<cH_Spezialgebiet> SP,
                            std::list<cH_Preise> pr,
                            std::list<cH_PreiseMod> prm )
-                           : Laender(L),Ruestung(R),lernschema(l),
+                           : Regionen(Re),Laender(L),Ruestung(R),
+                             lernschema(l),
                              Beruf(B),Fertigkeit_ang(Fa),
                              Fertigkeit(F),WaffeGrund(WG),Waffe(W),
                              Waffe_from_Alias(WfA),
@@ -155,6 +160,7 @@ class midgard_CG : public midgard_CG_glade
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
         Gtk::CheckMenuItem *menu_original;
         Gtk::CheckMenuItem *menu_info;
+/*
         Gtk::CheckMenuItem *menu_Eschar;
         Gtk::CheckMenuItem *menu_Rawindra;
         Gtk::CheckMenuItem *menu_KanThaiPan;
@@ -165,7 +171,7 @@ class midgard_CG : public midgard_CG_glade
         Gtk::CheckMenuItem *menu_BR;
         Gtk::CheckMenuItem *menu_Gildenbrief;
         Gtk::CheckMenuItem *menu_Kuestenstaaten;
-
+*/
         void set_tree_titles();
 
         st_Database Database;
@@ -298,6 +304,8 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_original_toggled();
         void on_checkbutton_info_fenster_menu();
         void on_checkbutton_info_fenster_toggled();
+        void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,const cH_Region& region);
+/*
         void on_checkbutton_Eschar_menu();
         void on_checkbutton_Eschar_toggled();
         void on_checkbutton_Rawindra_menu();
@@ -318,6 +326,7 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_Gildenbrief_toggled();
         void on_checkbutton_Kuestenstaaten_menu();
         void on_checkbutton_Kuestenstaaten_toggled();
+*/
 
         void on_grad_anstieg_clicked();
         void on_button_grad_ausdauer_clicked();

@@ -33,25 +33,23 @@ void midgard_CG::menu_init()
   menu->append(*drucken);
   drucken->show();
 
-//Optionen/////////////////////////////////////////////////////////////////////
-  Gtk::Menu *optionen_menu = manage(new class Gtk::Menu());
-  Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Optionen")); 
-  optionen->set_submenu(*optionen_menu);
- 
-  menu_original=manage(new Gtk::CheckMenuItem("Originalregeln"));
-  optionen_menu->append(*menu_original);
-  menu_original->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_original_menu));
-  menu_original->set_active(Originalbool);
-  menu_original->show();
+//Regionen/////////////////////////////////////////////////////////////////////
+  Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
+  Gtk::MenuItem *regionen = manage(new class Gtk::MenuItem("Regionen")); 
+  regionen->set_submenu(*regionen_menu);
 
-  menu_info=manage(new Gtk::CheckMenuItem("Info Fenster anzeigen"));
-  optionen_menu->append(*menu_info);
-  menu_info->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_info_fenster_menu));
-  menu_info->set_active(Infobool);
-  menu_info->show();
+  
+  Gtk::CheckMenuItem *_mi;
+  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+   {
+     _mi=manage(new Gtk::CheckMenuItem((*i)->Name()));         
+     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
+     regionen_menu->append(*_mi);
+     _mi->set_active(false);
+     _mi->show();
+   }
 
-//  optionen_menu->append(SeparatorElem());
-
+/* 
   menu_Eschar=manage(new Gtk::CheckMenuItem("Eschar"));
   menu_Eschar->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_Eschar_menu));
   menu_Eschar->set_active(Escharbool);
@@ -111,14 +109,37 @@ void midgard_CG::menu_init()
 //  menu_Nahuatlan->show();
   menu_Rawindra->show();
 //  menu_Waeland->show();
+
   if (Originalbool) 
    { menu_HD->show();
      menu_BR->show();
      menu_Gildenbrief->show();
    }
+*/
+  menu->append(*regionen);
+  regionen->show();
+
+
+//Optionen/////////////////////////////////////////////////////////////////////
+  Gtk::Menu *optionen_menu = manage(new class Gtk::Menu());
+  Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Optionen")); 
+  optionen->set_submenu(*optionen_menu);
+ 
+  menu_original=manage(new Gtk::CheckMenuItem("Originalregeln"));
+  optionen_menu->append(*menu_original);
+  menu_original->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_original_menu));
+  menu_original->set_active(Originalbool);
+  menu_original->show();
+
+  menu_info=manage(new Gtk::CheckMenuItem("Info Fenster anzeigen"));
+  optionen_menu->append(*menu_info);
+  menu_info->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_info_fenster_menu));
+  menu_info->set_active(Infobool);
+  menu_info->show();
 
   menu->append(*optionen);
   optionen->show();
+
 //Import/Export////////////////////////////////////////////////////////////////
   Gtk::Menu *im_ex_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *im_ex = manage(new class Gtk::MenuItem("Import/Export"));
