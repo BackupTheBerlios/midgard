@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.70 2003/10/14 07:33:05 christof Exp $
+// $Id: midgard.cc,v 1.71 2003/11/03 16:49:24 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -103,7 +103,7 @@ std::cerr << "displaying images\n";
    imag=manage(new Gtk::Image(Load0));
    progresswin->add(*imag);
    imag->show();
-   progresswin->show();
+   if (!getenv("NOSPLASH")) progresswin->show();
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    libmagus_init1(progress);
 
