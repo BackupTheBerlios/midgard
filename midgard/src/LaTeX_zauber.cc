@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.42 2002/02/24 12:59:19 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.43 2002/02/24 14:31:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -89,5 +89,7 @@ void midgard_CG::LaTeX_zauber_main(void)
      fout << "\\input{midgard_tmp_myzaubermittel.tex}\n";
      fout << "\\end{tabular}\n";
    }
+  fout << "\\end{center}\n";
+  
 //  LaTeX_footer(fout);
 }

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.123 2002/02/18 07:01:06 thoma Exp $
+# $Id: Makefile.am,v 1.124 2002/02/24 14:31:17 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -36,12 +36,11 @@ noinst_HEADERS = \
    Spezialgebiet.hh \
    Lernschema.hh \
    Preise.hh dtos1.h \
-WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
+WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh zufall.h \
 glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh  \
 Window_charakter_beschreibung_glade.hh Window_charakter_beschreibung.hh \
 WindowInfo_glade.hh WindowInfo.hh \
-Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_hilfe_glade.hh \
    Window_hilfe.hh \
 	Window_Waffe_Geld_glade.hh \
@@ -112,7 +111,6 @@ midgard_SOURCES = \
    Grundwerte.cc \
 	gw_wuerfeln.cc \
    midgard_CG_Ausruestung.cc \
-   Berufe_auswahl.cc \
 	KiDo_auswahl.cc \
 	Window_Waffenbesitz.cc \
    Window_waffe.cc \
@@ -121,7 +119,6 @@ midgard_SOURCES = \
    MidgardBasicElement.cc \
    midgard_CG_basic_elemente.cc \
    Window_ruestung.cc \
-   Sprache_auswahl.cc \
    steigern_fertigkeiten.cc  \
    steigern_waffen.cc \
    steigern_sprache.cc  \
@@ -155,12 +152,10 @@ midgard_SOURCES = \
 	Midgard_Info_glade.cc \
 	Midgard_Info.cc \
 	midgard.cc \
-   Sprache_auswahl_glade.cc \
    midgard_CG_lernen.cc \
    midgard_CG_lernen_zusatz.cc \
    Window_charakter_beschreibung_glade.cc \
    Window_charakter_beschreibung.cc \
-   Berufe_auswahl_glade.cc \
    midgard_CG_grad_anstieg.cc \
 	midgard_CG_glade.cc \
 	midgard_CG.cc \

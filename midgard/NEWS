@@ -43,6 +43,9 @@ NEWS IN VERSION 0.4delta4
    fileauswahl Widget geöffnet wird.
 * Zaubern und Kido KEINE neuen Dokumente 
 * Neuimplemenation des Sprachenfensters (so wie die anderen Zusätze)
+* Anzeige im Lernschema, wenn etwas schon gekonnt wird.
+* Anzeige von Fertigkeiten im Lernschema, die zu teuer sind.
+
 
 TODO:
 * Laden von Optionen 

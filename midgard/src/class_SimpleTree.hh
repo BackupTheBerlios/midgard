@@ -36,7 +36,7 @@ class Data_SimpleTree : public RowDataBase
    : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen),Werte(_Werte) {}
 
    enum Spalten_GELERNTES  {ARTgg,NAMEgg,WERTgg,LERNPUNKTEgg};
-   enum Spalten_LERNSCHEMA {LERNPUNKTEg,PFLICHTg,NAMEg,WERTg,EIGENSCHAFTg,VORAUSSETZUNGg,KOSTENg,ARTg} ;
+   enum Spalten_LERNSCHEMA {LERNPUNKTEg,PFLICHTg,NAMEg,WERTg,EIGENSCHAFTg,VORAUSSETZUNGg,KOSTENg,ARTg,GELERNTg} ;
    enum Spalten_LONG_ALT {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN} ;
    enum Spalten_LONG_NEU {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
    enum Spalten_WAFFEGRUND {NAMEa_G,STANDARDa_G,KOSTEN_G};
@@ -48,8 +48,7 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_ZAUBERWERK {NAMEn_ZW,STUFEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW};
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
- const cH_MidgardBasicElement getMBE() const {return MBE;}
-
+   const cH_MidgardBasicElement getMBE() const {return MBE;}
 };
 
 class H_Data_SimpleTree : public Handle<Data_SimpleTree>

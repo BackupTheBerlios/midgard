@@ -54,6 +54,7 @@ class MidgardBasicElement : public HandleContent
       mutable std::string zusatz; // Für Zusäte bei Fertigkeiten (z.B. Abrichten, Sprache, Geheimzeichen...)
                                   // und Zauber (Tiersprache)
       std::vector<std::string> Vzusatz;
+      mutable bool gelernt; // Fürs Lernschema
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
       /* EP_t (CP) */ int steigern_mit_EP;
       std::map<std::string,std::string> map_typ;
@@ -67,15 +68,15 @@ class MidgardBasicElement : public HandleContent
       MidgardBasicElement(const std::string &n) 
             : IF_XML(tag(0),) name(n), kosten(0),praxispunkte(0),
                               erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
-                              ,steigern_mit_EP(0) {}
+                              ,gelernt(false),steigern_mit_EP(0) {}
       MidgardBasicElement(const std::string &n,const std::string &r) 
             : IF_XML(tag(0),) name(n),region(r),kosten(0),praxispunkte(0),
                               erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
-                              ,steigern_mit_EP(0) {}
+                              ,gelernt(false),steigern_mit_EP(0) {}
       MidgardBasicElement(const Tag *t,const std::string &n) 
 		: tag(t), name(n), kosten(0),praxispunkte(0),
                                erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
-                              ,steigern_mit_EP(0) {}
+                              ,gelernt(false),steigern_mit_EP(0) {}
 
       MidgardBasicElement(const MidgardBasicElement &M);
 
@@ -90,6 +91,8 @@ class MidgardBasicElement : public HandleContent
       void setZusatz(std::string z) const {zusatz=z;}
       virtual eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const {return enum_zusatz;}
  
+      void setGelernt(bool b) const {gelernt=b;}
+      bool Gelernt() const {return gelernt;}
       void EP_steigern(const std::string fert);
       virtual std::string Name() const {return name;}
       std::string Region() const {return region;}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.80 2002/02/24 12:59:20 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.81 2002/02/24 14:31:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@
 #include "WaffeGrund.hh"
 //#include "Zauber.hh"
 #include "Fertigkeiten.hh"
-#include "Sprache_auswahl.hh"
+//#include "Sprache_auswahl.hh"
 
 void midgard_CG::on_herkunftsland_clicked()
 {
@@ -313,21 +313,49 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
+  if(MBE->Gelernt()) 
+   { 
+     regnot ("Diese Fertigkeit wird schon gelernt");
+     tree_lernschema->unselect_all();
+     return;
+   }
   switch(MBE->What()) {
     case MidgardBasicElement::WAFFE: 
-      { list_Waffen.push_back(MBE); 
+      { 
+        if(MBE->Lernpunkte()>lernpunkte.Waffen()) 
+          { regnot ("Nicht genug Lernpunkte"); 
+            tree_lernschema->unselect_all();
+            return;
+          }
+        list_Waffen.push_back(MBE); 
         list_WaffenGrund.push_back(&*cH_WaffeGrund(cH_Waffe(MBE)->Grundkenntnis()));
         list_WaffenGrund.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
         list_WaffenGrund.unique();
         lernpunkte.addWaffen(- MBE->Lernpunkte());
         break; }
     case MidgardBasicElement::ZAUBER: 
-      { list_Zauber.push_back(MBE); 
+      { 
+        if(MBE->Lernpunkte()>lernpunkte.Zauber()) 
+          { regnot ("Nicht genug Lernpunkte"); 
+            tree_lernschema->unselect_all();
+            return;
+          }
+        list_Zauber.push_back(MBE); 
         if(MBE->ZusatzEnum(Typ)) lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
         lernpunkte.addZauber(- MBE->Lernpunkte());
         break; }
     case MidgardBasicElement::FERTIGKEIT: 
       { 
+        if( (cH_Fertigkeit(MBE)->LernArt()=="Fach" && 
+             MBE->Lernpunkte() > lernpunkte.Fach()) ||
+             (cH_Fertigkeit(MBE)->LernArt()=="Allg" && 
+             MBE->Lernpunkte() > lernpunkte.Allgemein()) ||
+             (cH_Fertigkeit(MBE)->LernArt()=="Unge" && 
+             MBE->Lernpunkte() > lernpunkte.Unge()) ) 
+          { regnot ("Nicht genug Lernpunkte"); 
+            tree_lernschema->unselect_all();
+            return;
+          }
         // Das hat hier keinen Sinn, da der Erfolgswert bein Anzeigen des
         // Lernschemas nocheinmal nocheinmal gesetzt wird.
         // MBE->set_Erfolgswert(cH_Fertigkeit(MBE)->FErfolgswert(Werte)+cH_Fertigkeit(MBE)->AttributBonus(Werte));
@@ -417,11 +445,13 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
          if     (Werte.Stadt_Land()=="Land"  ) lp=f->LernLand();
          else if(Werte.Stadt_Land()=="Stadt" ) lp=f->LernStadt();
          else {regnot("Stadt oder Land wählen"); return;}
-         if(lp > lernpunkte.Allgemein() ) continue;
+//         if(lp > lernpunkte.Allgemein() ) continue;
+         if(lp == 99  ) continue;
        }
       else if(fert=="Unge")
        {
-         if(f->LernUnge() > lernpunkte.Unge() ) continue;
+//         if(f->LernUnge() > lernpunkte.Unge() ) continue;
+         if(f->LernUnge() == 99  ) continue;
        }
 
       if(fert=="Unge")  
@@ -452,8 +482,8 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
         }
       if(!region_check((*i)->Region())) continue;
       if(!f->Voraussetzungen(Werte)) continue;
-      if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
-      if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
+      if ((*i)->ist_gelernt(list_Fertigkeit)) (*i)->setGelernt(true); //continue ;
+      if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true); //continue ;
       if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
       newlist.push_back(*i);
      }
@@ -476,8 +506,9 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
           Lernschema::st_index I;
           if(what==MidgardBasicElement::WAFFE)  
            {
-             if((*i)->Lernpunkte()>lernpunkte.Waffen()) continue;
-             if ((*i)->ist_gelernt(list_Waffen)) continue ;
+//             if((*i)->Lernpunkte()>lernpunkte.Waffen()) continue;
+             if((*i)->Lernpunkte() == 99  ) continue;
+             if ((*i)->ist_gelernt(list_Waffen)) (*i)->setGelernt(true); //continue ;
              if (!cH_Waffe(*i)->SG_Voraussetzung(Werte)) continue ;
              I= Lernschema::st_index(Typ[0]->Short(),"Waffenfertigkeiten",(*i)->Name());
 //cout << "Spezial "<<Werte.Spezialisierung()<<' '<<(*i)->Name()
@@ -488,16 +519,18 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
             }
            else if(what==MidgardBasicElement::ZAUBER)
             {
-             if((*i)->Lernpunkte()>lernpunkte.Zauber()) continue;
-             if ((*i)->ist_gelernt(list_Zauber)) continue ;
-             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
+//             if((*i)->Lernpunkte()>lernpunkte.Zauber()) continue;
+             if((*i)->Lernpunkte() == 99  ) continue;
+             if ((*i)->ist_gelernt(list_Zauber)) (*i)->setGelernt(true);//continue ;
+             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true);//continue ;
              I=Lernschema::st_index(Typ[0]->Short(),"Zauberkünste",(*i)->Name());
             }
            else if(what==MidgardBasicElement::FERTIGKEIT)
             {
-             if((*i)->Lernpunkte()>lernpunkte.Fach()) continue;
-             if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
-             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
+//             if((*i)->Lernpunkte()>lernpunkte.Fach()) continue;
+             if((*i)->Lernpunkte() == 99  ) continue;
+             if ((*i)->ist_gelernt(list_Fertigkeit)) (*i)->setGelernt(true);//continue ;
+             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true);//continue ;
              if (!cH_Fertigkeit(*i)->Voraussetzungen(Werte)) continue ;
              if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
              I=Lernschema::st_index(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
@@ -553,6 +586,7 @@ void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,
    default: break;
    }
  vs.push_back("Art");
+ vs.push_back("Gelernt");
  tree_lernschema->setTitles(vs);                                   
 
  switch (what) {
@@ -587,10 +621,7 @@ void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,
 
 bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert,bool auswahl)
 {
-//return false;
-
  bool launch=false;
-// Sprache_auswahl::modus mod;
  std::string fert=MBE->Name();
 
  if(fert=="Schreiben: Muttersprache(+12)" ||
@@ -608,15 +639,6 @@ bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert,bool 
     { launch=true; /* mod=Sprache_auswahl::NEUESPRACHE;*/ }
  else if(fert=="Sprechen: Alte Sprache")
     { launch=true;  /*mod=Sprache_auswahl::ALTESPRACHE; */}
-
- // Als Fertigkeiten darf man auch eine alte Sprache wählen, 
- // wenn Sprache gewählt ist:
-// if(mod==Sprache_auswahl::NEUESPRACHE) mod=Sprache_auswahl::SPRACHE;
-   
-// if(auswahl && launch)
-//     manage (new Sprache_auswahl(this,Database,Werte,MBE,mod,wert,
-//                                 list_Waffen,
-//                                 list_Sprache,list_Schrift,list_Fertigkeit));
  return launch;
 }
 

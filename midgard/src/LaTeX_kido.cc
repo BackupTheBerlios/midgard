@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.36 2002/02/24 12:59:19 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.37 2002/02/24 14:31:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -56,5 +56,7 @@ void midgard_CG::LaTeX_kido_main(void)
   fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
   fout << "\\input{midgard_tmp_mykido.tex}\n";
   fout << "\\end{tabular}\n";
+  fout << "\\end{center}\n";
+  
 //  LaTeX_footer(fout);
 }
