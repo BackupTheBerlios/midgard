@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.208 2002/11/16 23:04:46 thoma Exp $
+# $Id: Makefile.am,v 1.209 2002/12/12 08:15:50 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -104,7 +104,7 @@ BUILT_SOURCES= registry.h text2c NEWS.h
 
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
 registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
-NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
+NEWS.h: ../NEWS ; ./text2c <../NEWS | ./iso2utf8 >NEWS.h
 
 magus_SOURCES = $(PORT_FILES) \
    BegruessungsWindow.cc \
@@ -238,27 +238,4 @@ magus_LDADD = $(LINK_OBJS) @LIBS@ @KOMPONENTEN_NODB_LIBS@
 LDFLAGS = @KOMPONENTEN_LDFLAGS@ $(LINK_OPTIONS)
 
 CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
-
-#
-# the following lines are to support UTF8 recoding while compiling
-# and dependancy tracking for both automake 1.4 (.P) and
-# automake 1.5 (.Po). 
-#
-
-if UTF8
-
-# convert to utf8 between preprocessing and compilation
-%.o: %.cc
-	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
-		$(AM_CXXFLAGS) $(CXXFLAGS) -Wp,-MD,.deps/$(*F).pp $*.cc \
-	| ./iso2utf8 \
-	| $(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
-	@-cp .deps/$(*F).pp .deps/$(*F).P; \
-	tr ' ' '\012' < .deps/$(*F).pp \
-	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
-	>> .deps/$(*F).P; \
-	cp .deps/$(*F).P .deps/$(*F).Po ; \
-	rm .deps/$(*F).pp
-
-endif
 
