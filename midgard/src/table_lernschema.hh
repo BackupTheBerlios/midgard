@@ -30,6 +30,7 @@ private:
         MidgardBasicTree *tree_waffen_lernschema;
         std::list<MBEmlt> list_Fertigkeit_ang_neu;                                        
         std::vector<cH_RowDataBase> datavec_zusatz;
+        SigC::Connection connection;
         
 private:
        void show_datavec_zusatz();
