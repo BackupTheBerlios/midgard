@@ -52,7 +52,7 @@ cH_Schrift::cH_Schrift(const std::string& name)
 
 #ifdef USE_XML
 cH_Schrift::cH_Schrift(const std::string& name,const Tag *tag)
-{*this=cH_Schrift(new Schrift(tag));  
+{*this=cH_Schrift(new Schrift(name,tag));  
  cache.Register(name,*this);
 }
 #endif
