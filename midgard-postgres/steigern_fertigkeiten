@@ -1,7 +1,6 @@
 --
 -- Selected TOC Entries:
 --
-DROP INDEX "steigern_fertigkeiten_name";
 DROP TABLE "steigern_fertigkeiten";
 --
 --
@@ -71,6 +70,7 @@ Kamelreiten	Bewegung
 Kampf in Dunkelheit	Kampf in Dunkelheit
 Kampf in Schlachtreihe	Kampf in Schlachtreihe
 Kampf in Vollrüstung	Kampf in Vollrüstung
+Kampf vom Streitwagen	Kampf vom Streitwagen
 Kampf zu Pferd	Kampf zu Pferd
 Kampftaktik	Kampftaktik
 Kanufahren	Bewegung
@@ -112,6 +112,7 @@ Rudern	Bewegung
 Sagenkunde	Wissen
 Scharfschießen	Scharfschießen
 Schauspielern	Schauspielern
+SchieÃŸen vom Streitwagen	SchieÃŸen vom Streitwagen
 Schiffsführung	Kampftaktik
 Schiffsführung	Wissen
 SchiyoKi	-
@@ -173,9 +174,3 @@ Zunge verschlucken	Verhören
 Überleben in der Steppe	Überleben
 Überleben in der Wüste	Überleben
 \.
---
---
---
-
-CREATE UNIQUE INDEX steigern_fertigkeiten_name ON steigern_fertigkeiten USING btree (name text_ops);
-
