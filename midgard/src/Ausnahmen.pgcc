@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2002      Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -26,6 +27,7 @@ exec sql include sqlca;
 
 Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
 {
+#ifndef USE_XML
  exec sql begin declare section;
    char db_name[50], db_art[5], db_standard[5];
    char db_spezies[50], db_herkunft[50], db_typ[50], db_stand[50], db_beruf[50];
@@ -57,6 +59,36 @@ Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
    }
  exec sql close ein_aus;
  tr.close();
+#else
+ const Tag *Fertigkeiten=xml_data->find("Fertigkeiten");
+ if (Fertigkeiten)
+ {  Tag::const_iterator b=Fertigkeiten->begin(),e=Fertigkeiten->end();
+    double size=(e-b)/2.0;
+    FOR_EACH_CONST_TAG_OF_5(i,*Fertigkeiten,b,e,"Fertigkeit")
+    {  progressbar->set_percentage((i-b)/size);
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       FOR_EACH_CONST_TAG_OF(j,*i,"regionaleBesonderheit")
+       {  st_index1 index(j->getAttr("Typ"),j->getAttr("Herkunft"),
+       			j->getAttr("Spezies"),j->getAttr("Beruf"),j->getAttr("Stand"));
+          Data_Ausnahmen DA(i->getAttr("Name"),"f",j->getAttr("Standard"));
+       }
+    }
+ }
+ const Tag *Zauber=xml_data->find("Zauber");
+ if (Zauber)
+ {  Tag::const_iterator b=Zauber->begin(),e=Zauber->end();
+    double size=(e-b)/2.0;
+    FOR_EACH_CONST_TAG_OF_5(i,*Zauber,b,e,"Spruch")
+    {  progressbar->set_percentage((i-b)/size+.5);
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       FOR_EACH_CONST_TAG_OF(j,*i,"regionaleBesonderheit")
+       {  st_index1 index(j->getAttr("Typ"),j->getAttr("Herkunft"),
+       			j->getAttr("Spezies"),j->getAttr("Beruf"),j->getAttr("Stand"));
+          Data_Ausnahmen DA(i->getAttr("Name"),"z",j->getAttr("Standard"));
+       }
+    }
+ }
+#endif 
  progressbar->set_percentage(1);
 }
 
