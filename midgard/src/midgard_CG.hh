@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.174 2002/02/15 08:24:36 thoma Exp $
+// $Id: midgard_CG.hh,v 1.175 2002/02/15 12:13:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -352,8 +352,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
-        void set_lernzeit(unsigned int kosten);
-        bool steigern_usp(unsigned int kosten,const cH_MidgardBasicElement *MBE,e_was_steigern was=Nichts);
+        void set_lernzeit(int kosten);
+        bool steigern_usp(int kosten,const cH_MidgardBasicElement *MBE,e_was_steigern was=Nichts);
         void desteigern(unsigned int kosten);
         void on_checkbutton_EP_Geld_toggled();
         void steigern_gtk();

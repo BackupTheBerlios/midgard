@@ -83,16 +83,16 @@ void midgard_CG::Geld_uebernehmen()
 
 void midgard_CG::desteigern(unsigned int kosten)
 {
-  guint gold_k=0,ep_k=0;
+  int gold_k=0,ep_k=0;
   if(radiobutton_praxis->get_active())
    {
      ep_k = kosten ;
    }
   else 
    {
-     gold_k = (guint)(kosten 
+     gold_k = (int)(kosten 
                * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
-     ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+     ep_k = (int)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
    }
   if( !HausregelCheck(Gold).active ) gold_k*=10;
   set_lernzeit(-ep_k);
@@ -102,7 +102,7 @@ void midgard_CG::desteigern(unsigned int kosten)
   EP_uebernehmen();
 }
 
-void midgard_CG::set_lernzeit(unsigned int kosten)
+void midgard_CG::set_lernzeit(int kosten)
 {
   if(radiobutton_unterweisung->get_active())
       Werte.addSteigertage(kosten/10);
@@ -112,7 +112,7 @@ void midgard_CG::set_lernzeit(unsigned int kosten)
       Werte.addSteigertage(kosten/500.);
 }
 
-bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* MBE, e_was_steigern was)
+bool midgard_CG::steigern_usp(int kosten,const cH_MidgardBasicElement* MBE, e_was_steigern was)
 {
   if (!steigern_mit_EP_bool) // Steigern OHNE EP/Gold/PP
       { set_lernzeit(kosten);
@@ -123,7 +123,7 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   if(radiobutton_unterweisung->get_active())
    {
      // genug Geld? 
-     gold_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
+     gold_k = (int)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
      if( !HausregelCheck(Gold).active ) gold_k*=10;
      if (gold_k > Werte.Gold()) 
          { regnot("Zu wenig Gold um zu steigern,\n es fehlen "+itos(gold_k-Werte.Gold())+" GS."); 
@@ -146,9 +146,9 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   if(womit==2 || womit==3) bzep=true;
 
   if(radiobutton_unterweisung->get_active()) 
-      ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+      ep_k = (int)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
   else
-      ep_k = (guint)(kosten);
+      ep_k = (int)(kosten);
   guint aep=Werte.AEP();  
   guint kep=Werte.KEP();  
   guint zep=Werte.ZEP();  

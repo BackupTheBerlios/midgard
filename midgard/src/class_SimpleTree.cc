@@ -37,10 +37,13 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case ARTgg : return cH_EntryValueIntString(MBE->What_str()); 
          case NAMEgg : 
            {
+             return cH_EntryValueIntString(MBE->Name()+" "+MBE->Zusatz());
+/*
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
                 return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
              else
                 return cH_EntryValueIntString(MBE->Name());
+*/
            }
          case WERTgg : 
            {
@@ -96,10 +99,10 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
        switch((Spalten_LONG_ALT)seqnr) {
          case NAMEa : 
            {
-             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
-             else
-                return cH_EntryValueIntString(MBE->Name());
+//             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
+             return cH_EntryValueIntString(MBE->Name()+" "+MBE->Zusatz());
+//             else
+//                return cH_EntryValueIntString(MBE->Name());
            }
          case WERTa : 
            {

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.50 2002/02/15 08:24:36 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.51 2002/02/15 12:13:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -209,13 +209,16 @@ void midgard_CG::get_ab_re_za(e_was_steigern was)
          kosten   = Database.GradAnstieg.get_Zauber_Kosten(grad+1);
          alter_wert = Werte.Zaubern_wert(); 
        } 
-      else return; }
+      else return; 
+    }
   else abort();
   if (alter_wert >= max_wert && radiobutton_steigern->get_active())
       { InfoFenster->AppendShow("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!") ;
         return;}
-  if(radiobutton_steigern->get_active() && !steigern_usp(kosten,0,was)) 
+
+  if(radiobutton_steigern->get_active())
    {
+     steigern_usp(kosten,0,was); //Wg. Geld und Lerntagen 
      Werte.addGFP(kosten);
      if      (was==Abwehr)    Werte.setAbwehr_wert(alter_wert+1);
      else if (was==Resistenz) Werte.setResistenz(alter_wert+1); 
@@ -224,6 +227,8 @@ void midgard_CG::get_ab_re_za(e_was_steigern was)
   else
    {
      if (checkbutton_EP_Geld->get_active()) desteigern(kosten);
+     set_lernzeit(-kosten);
+//     steigern_usp(-kosten,0,was);
      Werte.addGFP(-kosten);
      if      (was==Abwehr)    Werte.setAbwehr_wert(alter_wert-1);
      else if (was==Resistenz) Werte.setResistenz(alter_wert-1); 

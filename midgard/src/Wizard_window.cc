@@ -19,7 +19,7 @@ Wizard_window::esteps &operator++(Wizard_window::esteps &a)
 }
 
 Wizard_window::Wizard_window(midgard_CG* h)
-: hauptfenster(h), actual_step(SPEZIES)
+: hauptfenster(h), actual_step(START)
 {
   fill_vecwiz();
 }
@@ -35,7 +35,7 @@ void Wizard_window::same_step()
 }
 void Wizard_window::restart()
 {
- actual_step=SPEZIES;
+ actual_step=START;
  evaluate_step(actual_step);
 }
 
@@ -55,36 +55,50 @@ void Wizard_window::evaluate_step(esteps step)
 
 void Wizard_window::fill_vecwiz()
 {
+   //START
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Spezies auswählen",
+                          "Dieser Wizard hilft einen neuen Abenteurer zu erzeugen.",
+                          &midgard_CG::wizard_do_nothing));
+   //SPEZIES
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
+                          "Spezies auswählen (oder weiter)",
                           &midgard_CG::wizard_do_something));
+   //GRUNDWERTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
                           "Grundwerte würfeln",
                           &midgard_CG::wizard_do_something));
+   //GESCHLECHT
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Geschlecht wählen",
+                          "Geschlecht wählen (oder weiter)",
                           &midgard_CG::wizard_do_something));
+   //TYP
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Abenteurertyp wählen",
+                          "Abenteurertyp wählen (oder weiter)",
                           &midgard_CG::wizard_do_something));
+   //STADTLAND
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Stadt oder Land wählen",
+                          "Stadt oder Land wählen (oder weiter)",
                           &midgard_CG::wizard_do_something));
+   //ABGELEITETEWERTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
                           "Abgeleitete Werte würfeln",
                           &midgard_CG::wizard_do_something));
+   //HERKUNFT
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Herkunftsland wählen",
                           &midgard_CG::wizard_do_something));
+   //ANGEBORENEFERTIGKEITEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Für die angeborenen Fertigkeiten würfeln",
                           &midgard_CG::wizard_do_something));
+   //LERNPUNKTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Lernpunkte würfeln",
                           &midgard_CG::wizard_do_something));
+   //FERTIG
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Fertig",
-                          &midgard_CG::wizard_do_nothing));
+                          &midgard_CG::wizard_do_something));
 }
 
 

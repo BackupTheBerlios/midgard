@@ -142,6 +142,7 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
    {
      case MidgardBasicElement::ZLand :
       {        
+        clist_landauswahl->set_column_title(0, "Land auswählen");
         for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
          {
             os <<(*i)->Name()<<'\n';
@@ -151,6 +152,7 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
       }
      case MidgardBasicElement::ZWaffe :
       {      
+        clist_landauswahl->set_column_title(0, "Waffe auswählen");
         for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
          {
            if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
@@ -163,6 +165,7 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
       }
      case MidgardBasicElement::ZTabelle : 
       {
+        clist_landauswahl->set_column_title(0, MBE->Name()+" auswählen");
         std::vector<std::string> VZ=MBE->VZusatz();
         for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)
            {

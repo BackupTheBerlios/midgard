@@ -28,29 +28,34 @@ void midgard_CG::wizard_do_something()
   Wizard_window::esteps e=wizard->ActualStep();
   switch (e) {
       case Wizard_window::SPEZIES : 
-         { optionmenu_spezies->set_sensitive(true);
+         { 
+           notebook_main->set_sensitive(true);
            break; }
       case Wizard_window::GRUNDWERTE : grundwerte_wuerfeln(); break;
       case Wizard_window::GESCHLECHT : 
-         { radiobutton_mann->set_sensitive(true); 
-           radiobutton_frau->set_sensitive(true);
+         { 
+           notebook_main->set_sensitive(true);
            break; }
       case Wizard_window::TYP : 
-         { typauswahl->set_sensitive(true);
+         { 
+           notebook_main->set_sensitive(true);
            break; }
-      case Wizard_window::STADTLAND : break;
+      case Wizard_window::STADTLAND : 
+         {
+           notebook_main->set_sensitive(true);
+           break; }
       case Wizard_window::ABGELEITETEWERTE : on_abge_werte_setzen_clicked(); break;
       case Wizard_window::HERKUNFT : on_herkunftsland_clicked(); break;
       case Wizard_window::ANGEBORENEFERTIGKEITEN : on_angeborene_fertigkeit_clicked(); break;
       case Wizard_window::LERNPUNKTE : on_lernpunkte_wuerfeln_clicked(); break;
       case Wizard_window::FERTIG : on_button_close_wizard_clicked(); break;
-      default: regnot("Kann nicht automatisch erfolgen, "
-               "bitte oben auswählen oder Standardwert akzeptieren\n");break;
+      default: regnot("Nicht impelmentiert");break;
    }
 }
 
 void midgard_CG::wizard_starten_clicked()
 {
+ on_neuer_charakter_clicked();
  wizard = manage(new class Wizard_window(this));
  notebook_main->set_sensitive(false);
  wizard->restart();

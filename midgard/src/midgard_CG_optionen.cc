@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.52 2002/02/15 08:24:36 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.53 2002/02/15 12:13:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -203,7 +203,7 @@ void midgard_CG::save_options()
      write_bool_attrib(datei, "Wert", i->active);
    }
  datei << "/>\n";
- datei << "/MAGUS-optionen>\n";
+ datei << "</MAGUS-optionen>\n";
 }
 
 void midgard_CG::load_options()
