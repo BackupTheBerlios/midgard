@@ -17,4 +17,254 @@
   <Rüstung Name="Tschahaatha" Region="R" Abkürzung="PR(R)" schütztLP="4" B-Verlust="4"/>
   <Rüstung Name="Tschahaatha(VR)" Region="R" Abkürzung="VR(R)" schütztLP="5" B-Verlust="8"/>
  </Rüstungen>
+ <Waffen>
+  <Waffe Name="Anderthalbhänder" Grundkenntnisse="ZSchwert" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="2">
+    <Modifikationen Angriffsrang="-1" Abwehr:leicht="0" Abwehr:schwer="-1"/><Voraussetzungen St="31" Ge="21"/><Reichweite/>
+    <regionaleVariante Name="Claemore" Region="A"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Nimcha" Region="E"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Hamschar" Region="R"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Bihänder" Grundkenntnisse="ZSchwert" Schwierigkeit="7" Kategorie="Angriff" Klasse="Z" Schaden="2W6">
+    <Modifikationen Angriffsrang="-2" Abwehr:leicht="1" Abwehr:schwer="-2"/><Voraussetzungen St="81" Ge="31"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Dolch" Grundkenntnisse="Stichwaffe" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+    <Modifikationen Angriffsrang="2" Abwehr:leicht="-2" Abwehr:schwer="2"/><Voraussetzungen St="1" Ge="1"/><Reichweite/>
+    <regionaleVariante Name="Dirgh" Region="A"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Jambiya" Region="E"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Khanjar" Region="E"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Rilok" Region="E"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Telek" Region="E"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Tanto" Region="K"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Katar" Region="R"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Katar (Spreizklinge)" Region="R" Schaden="W6"><Modifikationen Angriff="-2"/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Handaxt" Grundkenntnisse="ESchlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6">
+    <Modifikationen/><Voraussetzungen St="11" Ge="1"/><Reichweite/>
+    <regionaleVariante Name="Ankusch" Region="R"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Hellebarde" Grundkenntnisse="Stangenwaffe" Schwierigkeit="6" Kategorie="Angriff" Klasse="Z" Schaden="W6(W6+2/2W6-1)">
+    <Modifikationen Angriffsrang="+1/-3" Abwehr:schwer="+2/-2"/><Voraussetzungen St="61" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Kampfstab" Grundkenntnisse="Kampfstab" Schwierigkeit="8" Kategorie="Angriff" Klasse="E" Schaden="W6">
+    <Modifikationen Abwehr:leicht="0" Abwehr:schwer="+2"/><Voraussetzungen St="31" Ge="61"/><Reichweite/>
+    <regionaleVariante Name="Bo" Region="K"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Keule" Grundkenntnisse="ESchlagwaffe" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+    <Modifikationen Abwehr:leicht="0" Abwehr:schwer="+2"/><Voraussetzungen St="1" Ge="1"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Kriegsflegel" Grundkenntnisse="Kettenwaffe" Schwierigkeit="6" Kategorie="Angriff" Klasse="Z" Schaden="2W6" Schadensbonus="-1">
+    <Modifikationen Angriffsrang="-3" Abwehr:leicht="+2" Abwehr:schwer="-2"/><Voraussetzungen St="61" Ge="31"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Kriegshammer" Grundkenntnisse="ESchlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6">
+    <Modifikationen/><Voraussetzungen St="61" Ge="21"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Krummsäbel" Grundkenntnisse="ESchwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6(+1)">
+    <Modifikationen Abwehr:leicht="0/-2" Abwehr:schwer="0/0"/><Voraussetzungen St="31" Ge="11"/><Reichweite/>
+    <regionaleVariante Name="Ma`khirr" Region="R" Schaden="W6" Schadensbonus="1"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Schimschar" Region="R" Schaden="W6(+2)"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Szimitar" Region="R" Schaden="W6(+2)"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Kurzschwert" Grundkenntnisse="Stichwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6">
+    <Modifikationen Angriffsrang="+2"/><Voraussetzungen St="1" Ge="1"/><Reichweite/>
+    <regionaleVariante Name="Laingdirgh" Region="A"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Patawar" Region="R" Schaden="W6(+2)"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Langschwert" Grundkenntnisse="ESchwert" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+    <Modifikationen/><Voraussetzungen St="31" Ge="21"/><Reichweite/>
+    <regionaleVariante Name="Breitschwert" Region="A"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Takuba" Region="E"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Aschwapatawar" Region="R"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Lanze" Grundkenntnisse="Spießwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6(2W6+2/3W6+3)">
+    <Modifikationen Angriffsrang="+1/+3" Abwehr:leicht="0/0" Abwehr:schwer="0/-2"/><Voraussetzungen St="61" Ge="11"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Magierstab" Grundkenntnisse="Magierstab" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6">
+    <Modifikationen/><Voraussetzungen St="1" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Morgenstern" Grundkenntnisse="Kettenwaffe" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="2">
+    <Modifikationen Angriffsrang="-2" Abwehr:leicht="+1" Abwehr:schwer="-1"/><Voraussetzungen St="61" Ge="61"/><Reichweite/>
+    <regionaleVariante Name="KauSinKe" Region="K"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Peitsche" Grundkenntnisse="Peitsche" Schwierigkeit="8" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-3">
+    <Modifikationen Angriffsrang="-1"/><Voraussetzungen St="21" Ge="81"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Rapier" Grundkenntnisse="Stichwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6">
+    <Modifikationen Angriffsrang="+3" Abwehr:leicht="-2" Abwehr:schwer="+1"/><Voraussetzungen St="11" Ge="51"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Schlachtbeil" Grundkenntnisse="ZSchlagwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="3">
+    <Modifikationen Angriffsrang="-2" Abwehr:leicht="+1" Abwehr:schwer="-2"/><Voraussetzungen St="61" Ge="31"/><Reichweite/>
+    <regionaleVariante Name="Namikravyad" Region="R"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Stabkeule" Grundkenntnisse="ZSchlagwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="2W6" Schadensbonus="-2">
+    <Modifikationen Angriffsrang="-3" Abwehr:leicht="+2" Abwehr:schwer="-2"/><Voraussetzungen St="81" Ge="1"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Stielhammer" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6(W6+1/2W6)">
+    <Modifikationen Angriffsrang="+1/-3" Abwehr:leicht="0/+2" Abwehr:schwer="0/-2"/><Voraussetzungen St="81" Ge="31"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Stoßspeer" Grundkenntnisse="Spießwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="1/2/3W6">
+    <Modifikationen Angriffsrang="+2/+2" Abwehr:leicht="0/0" Abwehr:schwer="0/-2"/><Voraussetzungen St="31" Ge="11"/><Reichweite/>
+    <regionaleVariante Name="Rumeh" Region="E"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="Yari" Region="K"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Streitaxt" Grundkenntnisse="ESchlagwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+    <Modifikationen/><Voraussetzungen St="61" Ge="11"/><Reichweite/>
+    <regionaleVariante Name="Sanghala" Region="R"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Streitkolben" Grundkenntnisse="ESchlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6">
+    <Modifikationen/><Voraussetzungen St="31" Ge="1"/><Reichweite/>
+    <regionaleVariante Name="Dabus" Region="E"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="leichter Speer" Grundkenntnisse="Spießwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+    <Modifikationen Angriffsrang="+1" Abwehr:leicht="-1" Abwehr:schwer="+1"/><Voraussetzungen St="1" Ge="1"/><Reichweite/>
+    <regionaleVariante Name="Jarid" Region="E"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="waffenloser Kampf" Grundkenntnisse="waffenloser Kampf" Schwierigkeit="7" Kategorie="Angriff" Schaden="Speziell">
+    <Modifikationen Angriffsrang="+2" Abwehr:leicht="-2" Abwehr:schwer="+2"/><Voraussetzungen St="21" Ge="21"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Blasrohr" Grundkenntnisse="Blasrohr" Schwierigkeit="6" Kategorie="Fern" Klasse="S" Schaden="Speziell">
+    <Modifikationen/><Voraussetzungen St="1" Ge="61"/><Reichweite nah="10" mittel="15" fern="20"/>
+    <regionaleVariante Name="FukiDake" Region="K"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Bogen" Grundkenntnisse="Bögen" Schwierigkeit="5" Kategorie="Fern" Klasse="S" Schaden="W6">
+    <Modifikationen/><Voraussetzungen St="31" Ge="31"/><Reichweite nah="30" mittel="100" fern="180"/>
+    <regionaleVariante Name="Mukantar" Region="E"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Bola" Grundkenntnisse="Bola" Schwierigkeit="8" Kategorie="Fern" Klasse="W" Schaden="W6" Schadensbonus="-2">
+    <Modifikationen/><Voraussetzungen St="21" Ge="81"/><Reichweite null="2" nah="10" mittel="15" fern="20"/>
+  </Waffe>
+  <Waffe Name="Langbogen" Grundkenntnisse="Bögen" Schwierigkeit="6" Kategorie="Fern" Klasse="S" Schaden="W6" Schadensbonus="1">
+    <Modifikationen/><Voraussetzungen St="61" Ge="61"/><Reichweite nah="30" mittel="120" fern="200"/>
+    <regionaleVariante Name="Aginkha (Pfeil)" Region="R" Schaden="2W6" Schadensbonus="-2"><Modifikationen Angriff="-2"/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Lasso" Grundkenntnisse="Lasso" Schwierigkeit="8" Kategorie="Fern" Klasse="E" Schaden="0">
+    <Modifikationen/><Voraussetzungen St="1" Ge="81"/><Reichweite null="3" nah="6" mittel="10" fern="15"/>
+  </Waffe>
+  <Waffe Name="Netz" Grundkenntnisse="Netz" Schwierigkeit="8" Kategorie="Fern" Klasse="W" Schaden="W6" Schadensbonus="-1">
+    <Modifikationen/><Voraussetzungen St="1" Ge="81"/><Reichweite nah="5"/>
+  </Waffe>
+  <Waffe Name="Pilum" Grundkenntnisse="Wurfspieß" Schwierigkeit="2" Kategorie="Fern" Klasse="W" Schaden="W6" erfordert="Leichter Speer">
+    <Modifikationen/><Voraussetzungen St="61" Ge="21"/><Reichweite nah="10" mittel="20" fern="30"/>
+  </Waffe>
+  <Waffe Name="Schleuder" Grundkenntnisse="Schleuder" Schwierigkeit="6" Kategorie="Fern" Klasse="S" Schaden="W6(W6-1)">
+    <Modifikationen/><Voraussetzungen St="1" Ge="61"/><Reichweite nah="30" mittel="60" fern="90"/>
+  </Waffe>
+  <Waffe Name="Speerschleuder" Grundkenntnisse="Wurfspieß" Schwierigkeit="5" Kategorie="Fern" Klasse="W" Schaden="W6">
+    <Modifikationen/><Voraussetzungen St="31" Ge="61"/><Reichweite nah="20" mittel="40" fern="70"/>
+  </Waffe>
+  <Waffe Name="Stockschleuder" Grundkenntnisse="Schleuder" Schwierigkeit="6" Kategorie="Fern" Klasse="S" Schaden="2W6" Schadensbonus="-2">
+    <Modifikationen/><Voraussetzungen St="31" Ge="81"/><Reichweite null="21" nah="30" mittel="100" fern="180"/>
+  </Waffe>
+  <Waffe Name="Wurfaxt" Grundkenntnisse="WSchlagwaffe" Schwierigkeit="3" Kategorie="Fern" Klasse="W" Schaden="W6" erfordert="Handaxt">
+    <Modifikationen/><Voraussetzungen St="31" Ge="31"/><Reichweite nah="10" mittel="20" fern="30"/>
+    <regionaleVariante Name="Dhauram" Region="R"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Wurfhammer" Grundkenntnisse="WSchlagwaffe" Schwierigkeit="3" Kategorie="Fern" Klasse="W" Schaden="W6" erfordert="Kriegshammer">
+    <Modifikationen/><Voraussetzungen St="61" Ge="31"/><Reichweite nah="10" mittel="20" fern="30"/>
+  </Waffe>
+  <Waffe Name="Wurfkeule" Grundkenntnisse="WSchlagwaffe" Schwierigkeit="2" Kategorie="Fern" Klasse="W" Schaden="W6" Schadensbonus="-1" erfordert="Keule">
+    <Modifikationen/><Voraussetzungen St="31" Ge="31"/><Reichweite nah="10" mittel="30" fern="50"/>
+  </Waffe>
+  <Waffe Name="Wurfmesser" Grundkenntnisse="Wurfmesser" Schwierigkeit="3" Kategorie="Fern" Klasse="W" Schaden="W6" Schadensbonus="-1" erfordert="Dolch">
+    <Modifikationen/><Voraussetzungen St="1" Ge="61"/><Reichweite nah="10" mittel="15" fern="20"/>
+  </Waffe>
+  <Waffe Name="Wurfpfeil" Grundkenntnisse="Wurfpfeil" Schwierigkeit="4" Kategorie="Fern" Klasse="W" Schaden="W6" Schadensbonus="-2">
+    <Modifikationen/><Voraussetzungen St="11" Ge="31"/><Reichweite nah="10" mittel="20" fern="30"/>
+  </Waffe>
+  <Waffe Name="Wurfspeer" Grundkenntnisse="Wurfspieß" Schwierigkeit="2" Kategorie="Fern" Klasse="W" Schaden="W6" Schadensbonus="-1" erfordert="Leichter Speer">
+    <Modifikationen/><Voraussetzungen St="31" Ge="21"/><Reichweite nah="10" mittel="30" fern="50"/>
+    <regionaleVariante Name="YariNage" Region="K"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Wurfstern" Grundkenntnisse="Wurfstern" Schwierigkeit="6" Kategorie="Fern" Klasse="W" Schaden="W6" Schadensbonus="-3">
+    <Modifikationen/><Voraussetzungen St="1" Ge="61"/><Reichweite nah="5" mittel="10" fern="15"/>
+    <regionaleVariante Name="Tschakram" Region="R"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="leichte Armbrust" Grundkenntnisse="Armbrust" Schwierigkeit="4" Kategorie="Fern" Klasse="S" Schaden="W6">
+    <Modifikationen/><Voraussetzungen St="1" Ge="31"/><Reichweite nah="30" mittel="120" fern="220"/>
+    <regionaleVariante Name="Ud al-Khal" Region="E"><Modifikationen/></regionaleVariante>
+    <regionaleVariante Name="OjuMi" Region="K"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="schwere Armbrust" Grundkenntnisse="Armbrust" Schwierigkeit="4" Kategorie="Fern" Klasse="S" Schaden="2W6-1">
+    <Modifikationen/><Voraussetzungen St="61" Ge="31"/><Reichweite nah="30" mittel="120" fern="240"/>
+    <regionaleVariante Name="SangMiau" Region="K"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="Buckler" Grundkenntnisse="Schilde" Schwierigkeit="1" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2">
+    <Modifikationen/><Voraussetzungen St="1" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Parierdolch" Grundkenntnisse="Parierdolch" Schwierigkeit="1" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2" erfordert="Dolch">
+    <Modifikationen/><Voraussetzungen St="1" Ge="61"/><Reichweite/>
+    <regionaleVariante Name="Jitte" Region="K"><Modifikationen/></regionaleVariante>
+  </Waffe>
+  <Waffe Name="großer Schild" Grundkenntnisse="Schilde" Schwierigkeit="1" Kategorie="Verteidigung" Klasse="E">
+    <Modifikationen/><Voraussetzungen St="61" Ge="1"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="kleiner Schild" Grundkenntnisse="Schilde" Schwierigkeit="1" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-1">
+    <Modifikationen/><Voraussetzungen St="31" Ge="11"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="BuKasa" Region="K" Grundkenntnisse="ESchlagwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6">
+    <Modifikationen/><Voraussetzungen St="31" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="GunSen" Region="K" Grundkenntnisse="ESchlagwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+    <Modifikationen/><Voraussetzungen St="31" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Katana" Region="K" Grundkenntnisse="ZSchwert" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+    <Modifikationen/><Voraussetzungen St="31" Ge="21"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="KusariGama" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="8" Kategorie="Angriff" Klasse="Z" Schaden="W6-1/W6+2">
+    <Modifikationen/><Voraussetzungen St="61" Ge="81"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Naginata" Region="K" Grundkenntnisse="Stangenwaffe" Schwierigkeit="6" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="2">
+    <Modifikationen Angriffsrang="+1/-3" Abwehr:schwer="+2/-2"/><Voraussetzungen St="11" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="NunChaku" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="8" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1">
+    <Modifikationen/><Voraussetzungen St="31" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Sai" Region="K" Grundkenntnisse="Stichwaffe" Schwierigkeit="8" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-3">
+    <Modifikationen/><Voraussetzungen St="31" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="TetsuBo" Region="K" Grundkenntnisse="Kampfstab" Schwierigkeit="8" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
+    <Modifikationen Abwehr:schwer="+2"/><Voraussetzungen St="31" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Tonfa" Region="K" Grundkenntnisse="waffenloser Kampf" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-2">
+    <Modifikationen/><Voraussetzungen St="21" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Kyu" Region="K" Grundkenntnisse="Bögen" Schwierigkeit="6" Kategorie="Fern" Klasse="S" Schaden="W6">
+    <Modifikationen/><Voraussetzungen St="31" Ge="61"/><Reichweite nah="30" mittel="100" fern="180"/>
+  </Waffe>
+  <Waffe Name="Kharrata" Region="R" Grundkenntnisse="Kharrata" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="2W6">
+    <Modifikationen/><Voraussetzungen St="21" Ge="61"/><Reichweite/>
+  </Waffe>
+  <Waffe Name="Namisritra" Region="R" Grundkenntnisse="Namisritra" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1" erfordert="waffenloser Kampf">
+    <Modifikationen/><Voraussetzungen St="1" Ge="1"/><Reichweite/>
+  </Waffe>
+ </Waffen>
+ <Waffen:Grundkenntnisse>
+  <Waffen:Grundkenntnis Name="Armbrust" Kosten="600"/>
+  <Waffen:Grundkenntnis Name="Blasrohr" Kosten="700"/>
+  <Waffen:Grundkenntnis Name="Bola" Kosten="700"/>
+  <Waffen:Grundkenntnis Name="Bögen" Kosten="700"/>
+  <Waffen:Grundkenntnis Name="ESchlagwaffe" Kosten="400"/>
+  <Waffen:Grundkenntnis Name="ESchwert" Kosten="600"/>
+  <Waffen:Grundkenntnis Name="Kampfstab" Kosten="700"/>
+  <Waffen:Grundkenntnis Name="Kettenwaffe" Kosten="900"/>
+  <Waffen:Grundkenntnis Name="Lasso" Kosten="700"/>
+  <Waffen:Grundkenntnis Name="Magierstab" Kosten="400"/>
+  <Waffen:Grundkenntnis Name="Netz" Kosten="700"/>
+  <Waffen:Grundkenntnis Name="Parierdolch" Kosten="300"/>
+  <Waffen:Grundkenntnis Name="Peitsche" Kosten="900"/>
+  <Waffen:Grundkenntnis Name="Schilde" Kosten="300"/>
+  <Waffen:Grundkenntnis Name="Schleuder" Kosten="700"/>
+  <Waffen:Grundkenntnis Name="Spießwaffe" Kosten="400"/>
+  <Waffen:Grundkenntnis Name="Stangenwaffe" Kosten="800"/>
+  <Waffen:Grundkenntnis Name="Stichwaffe" Kosten="400"/>
+  <Waffen:Grundkenntnis Name="WSchlagwaffe" Kosten="300"/>
+  <Waffen:Grundkenntnis Name="Wurfmesser" Kosten="300"/>
+  <Waffen:Grundkenntnis Name="Wurfpfeil" Kosten="400"/>
+  <Waffen:Grundkenntnis Name="Wurfspieß" Kosten="200"/>
+  <Waffen:Grundkenntnis Name="Wurfstern" Kosten="700"/>
+  <Waffen:Grundkenntnis Name="ZSchlagwaffe" Kosten="600"/>
+  <Waffen:Grundkenntnis Name="ZSchwert" Kosten="800"/>
+  <Waffen:Grundkenntnis Name="waffenloser Kampf" Kosten="800"/>
+  <Waffen:Grundkenntnis Name="Kharrata" Region="R" Kosten="200"/>
+  <Waffen:Grundkenntnis Name="Namisritra" Region="R" Kosten="200"/>
+ </Waffen:Grundkenntnisse>
 </MidgardCG-data>
