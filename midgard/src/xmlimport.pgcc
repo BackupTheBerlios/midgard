@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.25 2001/08/29 06:45:43 christof Exp $
+// $Id: xmlimport.pgcc,v 1.26 2001/09/03 09:59:55 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -165,7 +165,7 @@ bool charakter_laden(const Tag::const_iterator &top)
    db_zep=Steigern->getInt("ZEP",0); // V7+
    db_steigern_ep_prozent=Steigern->getInt("APproGFP",50); // V7+
    db_grad_basiswerte=Steigern->getInt("Basiswerte",db_grad); // V7+
-   db_steigern_bool=Steigern->getBool("steigern",false); // V7+
+   db_steigern_bool=Steigern->getBool("EPabziehen",db_steigern_bool=Steigern->getBool("steigern",false)); // V7+
    
 update:
    exec sql UPDATE charaktere SET 
