@@ -62,15 +62,18 @@ Spezies::Spezies(const Tag *tag)
  else alter_fak=1;
 
  const Tag *Groesse=tag->find("Größe");
+ if(!Groesse) Groesse=tag;
  groesse_bonus=Groesse->getIntAttr("Addiere");
  groesse_wanz=Groesse->getIntAttr("AnzahlWürfel");
  groesse_wuerfel=Groesse->getIntAttr("Würfel");
 
  const Tag *Gewicht=tag->find("Gewicht");
+ if (!Gewicht) Gewicht=tag;
  gewicht_bonus=Gewicht->getIntAttr("Addiere");
  gewicht_wanz=Gewicht->getIntAttr("AnzahlWürfel");
 
  const Tag *Bewegungsweite=tag->find("Bewegungsweite");
+ if (!Bewegungsweite) Bewegungsweite=tag;
  b_bonus=Bewegungsweite->getIntAttr("AnzahlWürfel");
  b_wanz=Bewegungsweite->getIntAttr("Addiere");
 
@@ -89,7 +92,7 @@ Spezies::Spezies(const Tag *tag)
  phs100=Resistenzen->getIntAttr("phs100");
  phk100=Resistenzen->getIntAttr("phk100");
 
- const Tag *Grundwerte=tag->find("Grundwerte");
+ const Tag *Grundwerte=Modifikation->find("Grundwerte");
  if (!Grundwerte) Grundwerte=tag;
  st=Grundwerte->getIntAttr("St");
  gw=Grundwerte->getIntAttr("Gw");
@@ -99,10 +102,10 @@ Spezies::Spezies(const Tag *tag)
  zt=Grundwerte->getIntAttr("Zt");
  sb=Grundwerte->getIntAttr("Sb");
  au=Grundwerte->getIntAttr("Au");
- 
+
  FOR_EACH_CONST_TAG_OF(i,*tag,"Typ")
     vec_typen.push_back(st_spez(i->getAttr("Name"),i->getIntAttr("MaximalerGrad")));
- FOR_EACH_CONST_TAG_OF(i,*tag,"Typ")
+ FOR_EACH_CONST_TAG_OF(i,*tag,"AngeboreneFerigkeit")
     vec_angebfert.push_back(st_angebfert(i->getAttr("Art"),i->getAttr("Name"),i->getIntAttr("Erfolgswert")));
 }
 

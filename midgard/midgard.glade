@@ -6538,7 +6538,7 @@ Beidhänder
 		    <widget>
 		      <class>GtkPixmap</class>
 		      <name>pixmap70</name>
-		      <filename>right_arr-exp2.xpm</filename>
+		      <filename>right_arr-exp3.xpm</filename>
 		      <xalign>0.5</xalign>
 		      <yalign>0.5</yalign>
 		      <xpad>0</xpad>
@@ -6575,7 +6575,7 @@ Beidhänder
 		    <widget>
 		      <class>GtkPixmap</class>
 		      <name>pixmap71</name>
-		      <filename>left_arr-exp2.xpm</filename>
+		      <filename>left_arr-exp3.xpm</filename>
 		      <xalign>0.5</xalign>
 		      <yalign>0.5</yalign>
 		      <xpad>0</xpad>

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.27 2002/03/01 14:14:19 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.28 2002/03/01 20:42:39 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -166,7 +166,7 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "phs100");
    fetch_and_write_int_attrib(is, o, "phk");
    fetch_and_write_int_attrib(is, o, "phk100");
-   o << "/>\n      </Grundwerte>\n";
+   o << "/>\n       <Grundwerte";
    fetch_and_write_int_attrib(is, o, "St");
    fetch_and_write_int_attrib(is, o, "Gs");
    fetch_and_write_int_attrib(is, o, "Gw");
@@ -175,8 +175,7 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Zt");
    fetch_and_write_int_attrib(is, o, "Sb");
    fetch_and_write_int_attrib(is, o, "Au");
-
-   o << "/></Modifikation>\n";
+   o << "/>\n    </Modifikation>\n";
    {  Query query2("select typen,maxgrad from spezies_typen"
       	" where spezies='"+name+"'"
       	" order by spezies,typen");

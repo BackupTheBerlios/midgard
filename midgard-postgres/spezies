@@ -47,7 +47,7 @@ CREATE TABLE "spezies" (
 
 COPY "spezies" FROM stdin;
 0	Mensch	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	1	2	20	150	4	-120	4	16	\N	\N
-1	Elf	\N	\N	\N	\N	\N	\N	\N	81	1	\N	\N	1	2	3	2	3	2	2	5	2	6	160	4	-128	4	16	\N	t
+1	Elf	-90	\N	81	61	61	61	\N	81	1	\N	\N	1	2	3	2	3	2	2	5	2	6	160	4	-128	4	16	\N	t
 2	Berggnom	-60	81	81	31	\N	\N	\N	-80	-4	20	-2	-3	5	5	5	5	5	5	4	1	6	90	3	-90	2	8	\N	\N
 3	Waldgnom	-60	81	81	31	\N	\N	\N	-80	-4	20	-2	-3	5	5	5	5	5	5	4	1	6	90	3	-90	2	8	\N	t
 4	Halbling	-80	61	91	\N	\N	\N	\N	\N	-4	\N	-1	-2	5	5	5	5	5	5	1	2	6	100	3	-87	2	8	\N	\N

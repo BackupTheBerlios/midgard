@@ -20,6 +20,8 @@ NEWS IN VERSION 0.4delta5
    kompilieren, es reicht ein update der xml Datei(en) :-)
 * Angeborene Fertigkeiten von Spezies auch in xml Datei
 * Angeborene Sinne für Halblinge und Gnome
+* Oberfläche leicht überarbeitet
+* Bugs beseitigt
 
 TODO:
 * Alle Grundkenntnisse (Waffen) ausdrucken

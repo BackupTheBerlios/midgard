@@ -99,23 +99,20 @@ void midgard_CG::typauswahl_2_button()
 
 void midgard_CG::fill_spezies()
 {
-  Gtk::Menu *_m(manage(new Gtk::Menu()));
-  Gtk::MenuItem *_mi;
-  for(vector<cH_Spezies>::iterator i=Database.Spezies.begin();i!=Database.Spezies.end();++i)
-   {
-      _mi = manage(new Gtk::MenuItem((*i)->Name()));
-      _m->append(*_mi);
-      _mi->show();
-      _mi->set_user_data(0); // dummy, see Gtk_OStream for reason
-      _mi->set_data_full("user_data", (*i)->ref(), &HandleContent::unref);
-    }
-  optionmenu_spezies->set_menu(*_m);
+  { Gtk::OStream t_(optionmenu_spezies);
+    for(vector<cH_Spezies>::iterator i=Database.Spezies.begin();i!=Database.Spezies.end();++i)
+     {
+       t_ << (*i)->Name();
+       t_.flush((*i)->ref(),&HandleContent::unref);
+     }
+  }
   optionmenu_spezies->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezieswahl_button));
-   Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
+  Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
 }
 
 void midgard_CG::spezieswahl_button()
 {
+ Werte.clear();
  if(wizard) { 
                notebook_main->set_sensitive(false) ;
                wizard->next_step();
@@ -128,25 +125,12 @@ void midgard_CG::spezieswahl_button()
  typauswahl_button();
 
  if (Werte.Spezies()->Name()=="Elf")
-   { manage (new Window_doppelcharaktere(this));
-//     angeborene_zauber();
-   }
-/*
- else if (Werte.Spezies()->Name()=="Zwerg" ||
-          Werte.Spezies()->Name()=="Waldgnom" ||
-          Werte.Spezies()->Name()=="Berggnom")
-     angeborene_fertigkeiten();
- else
-   {
-*/
-     typauswahl_2->hide();
-     magie_bool=false;
-     Typ[1]=cH_Typen();
-//   }
- 
- list_Fertigkeit_ang=Werte.Spezies()->getAngFertigkeiten();
- list_Zauber=Werte.Spezies()->getZauber();
+   manage (new Window_doppelcharaktere(this));
 
+ typauswahl_2->hide();
+ magie_bool=false;
+ Typ[1]=cH_Typen();
+ 
 }
 
 void midgard_CG::on_radiobutton_stadt_land_toggled()
