@@ -25,6 +25,7 @@ exec sql include sqlca;
 #include "xml_fileselection.hh"
 #include <Sprache.hh>
 #include <Schrift.hh>
+#include <class_waffen.hh>
  
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
@@ -271,258 +272,7 @@ void midgard_CG::load_charakter()
    ///////////////////////////////////////////////////////////////////////   
    // Berufe, Fertigkeiten, Waffen und Zauber (KiDo)
    // Grundkenntnisse (Waffen)
-   exec sql begin declare section;
-      char db_fertigkeit[50];
-      int db_wert;
-      char db_art[20];
-      char db_magisch[1024];
-   exec sql end declare section;
-
-   // Beruf
-   strncpy(db_art,"Beruf",sizeof(db_art));
-   exec sql declare beruf cursor for
-      select fertigkeit, wert from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open beruf;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch beruf into :db_fertigkeit, :db_wert;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         vec_Beruf.push_back(new Data_beruf(db_fertigkeit,"",db_wert));
-      } 
-   exec sql close beruf;
-   // angeborene Fertigkeiten
-   strncpy(db_art,"ang.Fertigkeit",sizeof(db_art));
-   exec sql declare an_fertigkeiten cursor for
-      select fertigkeit, wert from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open an_fertigkeiten;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch an_fertigkeiten into :db_fertigkeit, :db_wert;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-//         list_an_Fertigkeit.push_back(new Fertigkeit_angeborene(db_fertigkeit,db_wert));
-         cH_MidgardBasicElement fert_an(new Fertigkeit_angeborene(db_fertigkeit));
-         cH_Fertigkeit_angeborene(fert_an)->set_Erfolgswert(db_wert);
-         list_Fertigkeit_ang.push_back(fert_an);
-      } 
-   exec sql close an_fertigkeit;
-   // Fertigkeiten
-   strncpy(db_art,"Fertigkeit",sizeof(db_art));
-   exec sql declare fertigkeiten cursor for
-      select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open fertigkeiten;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch fertigkeiten into :db_fertigkeit, :db_wert;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         cH_MidgardBasicElement fertigkeit(new Fertigkeit(db_fertigkeit));
-         cH_Fertigkeit(fertigkeit)->set_Erfolgswert(db_wert);
-         list_Fertigkeit.push_back(fertigkeit);
-//         list_Fertigkeiten.push_back(fertigkeit);
-         if (cH_Fertigkeit(fertigkeit)->Name()=="KiDo") kido_bool=true;
-         if (cH_Fertigkeit(fertigkeit)->Name()=="Wissen von der Magie") magie_bool=true;
-      } 
-   exec sql close fertigkeit;
-   // Waffen
-   strncpy(db_art,"Waffe",sizeof(db_art));
-   exec sql declare waffen cursor for
-      select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open waffen;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch waffen into :db_fertigkeit, :db_wert;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         cH_Waffe waffe(db_fertigkeit,Typ);//,Ausnahmen(Werte,Typ,vec_Beruf));
-         waffe->set_Erfolgswert(db_wert);
-         list_Waffen.push_back(waffe);
-//         list_Waffen.push_back(new Data_waffen(db_fertigkeit,db_wert,""));
-      } 
-   exec sql close waffen;
-   // Besitz (Waffen)
-   strncpy(db_art,"Besitz_W",sizeof(db_art));
-   exec sql declare besitz_w cursor for
-      select fertigkeit,coalesce(av_bonus,0),coalesce(sl_bonus,0),coalesce(region,''),coalesce(magisch,'')  
-      from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open besitz_w;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch besitz_w into :db_fertigkeit, :db_av_bonus ,:db_sl_bonus, :db_region, :db_magisch;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         list_Waffen_besitz.push_back(new 
-            WaffeBesitz(cH_Waffe(Waffe::get_waffe_from_alias(db_fertigkeit),Typ),
-               db_fertigkeit,db_region,db_av_bonus,db_sl_bonus,db_magisch));
-      } 
-   exec sql close besitz_w;
-
-   // Zauber
-   strncpy(db_art,"Zauber",sizeof(db_art));
-   exec sql declare zauber cursor for
-      select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open zauber;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch zauber into :db_fertigkeit, :db_wert ;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-//         list_Zauber.push_back(cH_Zauber(db_fertigkeit));
-         list_Zauber.push_back(new Zauber(db_fertigkeit));
-      } 
-   exec sql close zauber;
-
-   // Zauber
-   strncpy(db_art,"Zauberwerk",sizeof(db_art));
-   exec sql declare zauberm cursor for
-      select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open zauberm;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch zauberm into :db_fertigkeit, :db_wert ;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         std::string stufe = itos(db_wert); 
-         if (db_wert==99) stufe = "G";
-//         vec_Zaubermittel.push_back(new Data_zaubermittel(stufe,db_fertigkeit));
-         list_Zauberwerk.push_back(new Zauberwerk(db_fertigkeit));
-      } 
-   exec sql close zauberm;
-//   get_Zaubermittel(vec_Zaubermittel);
-
-   // KiDo
-   strncpy(db_art,"KiDo",sizeof(db_art));
-   exec sql declare kido cursor for
-      select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open kido;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch kido into :db_fertigkeit, :db_wert ;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-//         list_Kido.push_back(cH_KiDo(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
-         list_Kido.push_back(new KiDo(db_fertigkeit));
-      } 
-   exec sql close kido;
-
-   // Grundkenntnisse (Waffen)
-   strncpy(db_art,"Grundkenntnis",sizeof(db_art));
-   exec sql declare grund cursor for
-      select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open grund;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch grund into :db_fertigkeit, :db_wert ;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         list_WaffenGrund.push_back(new WaffeGrund(db_fertigkeit));
-      } 
-   exec sql close grund;
-
-   // Sprache
-   strncpy(db_art,"Sprache",sizeof(db_art));
-   exec sql declare sprache cursor for
-      select fertigkeit, wert  from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open sprache;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch sprache into :db_fertigkeit, :db_wert;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         list_Sprache.push_back(new Sprache(db_fertigkeit));
-      } 
-   exec sql close sprache;
-   // Schrift
-   strncpy(db_art,"Urschrift",sizeof(db_art));
-   exec sql declare schrift cursor for
-      select fertigkeit  from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch 
-         and version= :db_version
-         and art= :db_art;
-   exec sql open schrift;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch schrift into :db_fertigkeit;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         list_Schrift.push_back(new Schrift(db_fertigkeit));
-//         vec_Schriften.push_back(new Data_schrift(db_fertigkeit,""));
-      } 
-   exec sql close sprache;
-//??? Was tut dies?  midgard_CG::sprachen_schrift();
-
-
-   // Regionen ///////////////////////////////////////////////////////////
-   strncpy(db_art,"Region",sizeof(db_art));
-   exec sql declare r_ein cursor for select region from charaktere_fertigkeiten
-      where charakter_name= :db_name_ch and version= :db_version 
-      and art= :db_art;
-   exec sql open r_ein;
-   SQLerror::test(__FILELINE__);
-   while (true)
-    {
-      exec sql fetch r_ein into :db_region_2;
-      SQLerror::test(__FILELINE__,100);
-      if (sqlca.sqlcode) break;   
-      std::string reg=db_region_2;
-      if (reg=="ORIG") {Originalbool=false ; checkbutton_original->set_active(false);}
-      if (reg=="INFO") {Infobool=false ; checkbutton_info_fenster->set_active(false);}
-      if (reg=="A") {Albabool=true ; checkbutton_Alba->set_active(true);}
-      if (reg=="E") {Escharbool=true;      checkbutton_Eschar->set_active(true);}
-      if (reg=="R") {Rawindrabool=true;      checkbutton_Rawindra->set_active(true);}
-      if (reg=="K") {KanThaiPanbool=true;      checkbutton_KanThaiPan->set_active(true);}
-      if (reg=="W") {Waelandbool=true;      checkbutton_Waeland->set_active(true);}
-      if (reg=="N") {Nahuatlanbool=true;      checkbutton_Nahuatlan->set_active(true);}
-      if (reg=="HD") {HDbool=true;      checkbutton_HD->set_active(true);}
-      if (reg=="BR") {BRbool=true;      checkbutton_BR->set_active(true);}
-      if (reg=="S") {Kuestenstaatenbool=true;      checkbutton_Kuestenstaaten->set_active(true);}
-      if (reg=="G") {Gildenbriefbool=true;      checkbutton_Gildenbrief->set_active(true);}
-    }
-   exec sql close r_ein;
-   tr.close();
-
+   load_fertigkeiten();
 
    // Spezies setzen ////////////////////////////////////////////
    exec sql begin declare section;   
@@ -537,15 +287,20 @@ void midgard_CG::load_charakter()
    get_spezial_from_spezialgebiet();
 }
 
-/*
+
 void midgard_CG::load_fertigkeiten()
 {
   exec sql begin declare section;
-   char db_fert,db_art;
+   char db_fert[50],db_art[50];
    int db_wert;
    char query[1024];
+   int db_av_bonus,db_sl_bonus;
+   char db_magisch[512],db_region[30];
   exec sql end declare section;
-  std::string query = "select fertigkeit,wert,art from charaktere_fertigkeiten
+  std::string squery = "select fertigkeit,coalesce(wert,0),art,
+      coalesce(av_bonus,''),coalesce(sl_bonus,''),coalesce(region,''),
+      coalesce(magisch,'')
+      from charaktere_fertigkeiten
       where charakter_name='"+Werte.Name_Charakter()+"' and 
             version ='"+Werte.Version()+"'";
   strncpy(query,squery.c_str(),sizeof(query));
@@ -556,13 +311,60 @@ void midgard_CG::load_fertigkeiten()
   SQLerror::test(__FILELINE__);
   while(true)
     {
-      exec sql fetch LFEIN into :db_fertigkeit, :db_wert, db_art;
+      exec sql fetch LFEIN into :db_fert, :db_wert, :db_art,
+            :db_av_bonus, :db_sl_bonus, :db_region, :db_magisch;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;
-//         vec_Beruf.push_back(new Data_beruf(db_fertigkeit,"",db_wert));
+      std::string sart=db_art;
+      if(sart=="Beruf")
+         vec_Beruf.push_back(new Data_beruf(db_fert,"",db_wert));
+      if(sart=="ang.Fertigkeit")
+       {
+         cH_MidgardBasicElement fert_an(new Fertigkeit_angeborene(db_fert));
+         cH_Fertigkeit_angeborene(fert_an)->set_Erfolgswert(db_wert);
+         list_Fertigkeit_ang.push_back(fert_an);
+       }    
+      if(sart=="Fertigkeit")
+       {
+         cH_MidgardBasicElement fert(new Fertigkeit(db_fert));
+         cH_Fertigkeit(fert)->set_Erfolgswert(db_wert);
+         list_Fertigkeit.push_back(fert);
+         if (cH_Fertigkeit(fert)->Name()=="KiDo") kido_bool=true;
+         if (cH_Fertigkeit(fert)->Name()=="Wissen von der Magie") magie_bool=true;
+       }    
+      if(sart=="Waffe")
+        {
+         cH_Waffe waffe(db_fert,Typ);
+         waffe->set_Erfolgswert(db_wert);
+         list_Waffen.push_back(waffe);
+        }
+      if(sart=="Besitz_W")      list_Waffen_besitz.push_back(new 
+           WaffeBesitz(cH_Waffe(Waffe::get_waffe_from_alias(db_fert),Typ),
+                        db_fert,db_region,db_av_bonus,db_sl_bonus,db_magisch));
+      if(sart=="Zauber")        list_Zauber.push_back(new Zauber(db_fert));
+      if(sart=="Zauberwerk")    list_Zauberwerk.push_back(new Zauberwerk(db_fert));
+      if(sart=="KiDo")          list_Kido.push_back(new KiDo(db_fert)) ;
+      if(sart=="Grundkenntnis") list_WaffenGrund.push_back(new WaffeGrund(db_fert)) ;
+      if(sart=="Sprache")       list_Sprache.push_back(new Sprache(db_fert)) ;
+      if(sart=="Urschrift")     list_Schrift.push_back(new Schrift(db_fert)) ;
+      if(sart=="Region")
+        {
+         std::string reg=db_region;
+         if (reg=="ORIG") {Originalbool=false ; checkbutton_original->set_active(false);}
+         if (reg=="INFO") {Infobool=false ; checkbutton_info_fenster->set_active(false);}
+         if (reg=="A") {Albabool=true ; checkbutton_Alba->set_active(true);}
+         if (reg=="E") {Escharbool=true;      checkbutton_Eschar->set_active(true);}
+         if (reg=="R") {Rawindrabool=true;      checkbutton_Rawindra->set_active(true);}
+         if (reg=="K") {KanThaiPanbool=true;      checkbutton_KanThaiPan->set_active(true);}
+         if (reg=="W") {Waelandbool=true;      checkbutton_Waeland->set_active(true);}
+         if (reg=="N") {Nahuatlanbool=true;      checkbutton_Nahuatlan->set_active(true);}
+         if (reg=="HD") {HDbool=true;      checkbutton_HD->set_active(true);}
+         if (reg=="BR") {BRbool=true;      checkbutton_BR->set_active(true);}
+         if (reg=="S") {Kuestenstaatenbool=true;      checkbutton_Kuestenstaaten->set_active(true);}
+         if (reg=="G") {Gildenbriefbool=true;      checkbutton_Gildenbrief->set_active(true);}
+        }
     } 
   exec sql close LFEIN;
   tr.close();
 }
 
-*/

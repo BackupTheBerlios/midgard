@@ -20,7 +20,7 @@ class Fertigkeit_angeborene : public MidgardBasicElement
          : name(n),min(0),max(0) {set_Erfolgswert(w);}
 
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT_ANG;}
-     std::string What_str() const {return "Fertigkeit_ang";}
+     std::string What_str() const {return "ang.Fertigkeit";}
 
      std::string Name() const {return name;}
 //     int Erfolgswert() const {return erfolgswert;};

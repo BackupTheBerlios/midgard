@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.65 2001/11/04 16:57:23 thoma Exp $
+# $Id: Makefile.am,v 1.66 2001/11/05 12:36:15 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -126,7 +126,6 @@ midgard_SOURCES = \
    Window_Erfahrungspunkte.cc \
    Window_Erfahrungspunkte_glade.cc \
    steigern_EP.cc \
-   midgard_CG_standard.cc \
    xml_fileselection.cc \
    xml_fileselection_glade.cc \
 	LaTeX_out.cc \
