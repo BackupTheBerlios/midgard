@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.10 2002/03/01 18:56:12 thoma Exp $               
+// $Id: Spezies.hh,v 1.11 2002/03/02 16:24:38 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,15 +41,15 @@ class Spezies : public HandleContent
        alter_fak, groesse_wanz,groesse_wuerfel,groesse_bonus, 
        gewicht_wanz, gewicht_bonus, 
        b_wanz,b_bonus,raufen;
-  bool land;
+  bool land,only_nsc;
 
 protected:   
   struct st_spez {std::string typen;int maxgrad;
          st_spez(std::string t,int m) : typen(t),maxgrad(m) {};
       };
-  struct st_angebfert {std::string art;std::string name;int erfolgswert;
-         st_angebfert(std::string a, std::string n,int e) 
-            : art(a),name(n),erfolgswert(e) {};
+  struct st_angebfert {std::string art;std::string name;int erfolgswert;int lp;
+         st_angebfert(std::string a, std::string n,int e,int l) 
+            : art(a),name(n),erfolgswert(e),lp(l) {};
       };
 private:
   std::vector<st_spez> vec_typen;
@@ -93,10 +93,16 @@ public:
    int Raufen() const {return raufen;}
    bool Typ_erlaubt(std::string typ) const;
    bool Land() const {return land;}
+   bool onlyNSC() const {return only_nsc;}
 
    std::list<cH_MidgardBasicElement> getZauber() const;
    std::list<cH_MidgardBasicElement> getAngFertigkeiten() const;
+   std::list<cH_MidgardBasicElement> getFertigkeiten(int &lp,const Grundwerte &Werte) const;
+   std::list<cH_MidgardBasicElement> getFreiwilligeFertigkeiten(const Grundwerte &Werte) const;
    std::list<pair<std::string,int> > getSinne() const;
+
+   bool istVerboten(const cH_MidgardBasicElement &mbe) const;
+   bool istVerbotenSpielbegin(const cH_MidgardBasicElement &mbe) const;
 
    bool operator==(const Spezies &b) const
    {  return Name()==b.Name(); }

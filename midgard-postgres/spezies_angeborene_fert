@@ -11,7 +11,8 @@ CREATE TABLE "spezies_angeborene_fert" (
 	"spezies" text,
 	"art" text,
 	"name" text,
-	"erfolgswert" integer
+	"erfolgswert" integer,
+	"lp" integer
 );
 
 --
@@ -20,17 +21,113 @@ CREATE TABLE "spezies_angeborene_fert" (
 
 
 COPY "spezies_angeborene_fert" FROM stdin;
-Berggnom	af	Nachtsicht	8
-Berggnom	af	Robustheit	12
-Berggnom	s	Hören	10
-Elf	af	Nachtsicht	8
-Elf	z	Erkennen der Aura	\N
-Halbling	af	Gute Reflexe	9
-Halbling	s	Schmecken	10
-Waldgnom	af	Nachtsicht	8
-Waldgnom	af	Robustheit	12
-Waldgnom	s	Hören	10
-Zwerg	af	Robustheit	9
+Berggnom	af	Nachtsicht	8	\N
+Berggnom	af	Robustheit	12	\N
+Berggnom	f	Fallen entdecken	6	1
+Berggnom	f	Geheimmechanismen öffnen	6	1
+Berggnom	s	Hören	10	\N
+Berggnom	sv	Überleben im Dschungel	\N	\N
+Berggnom	sv	Überleben im Schnee	\N	\N
+Berggnom	sv	Überleben im Sumpf	\N	\N
+Berggnom	sv	Überleben im Wald	\N	\N
+Berggnom	sv	Überleben in der Steppe	\N	\N
+Berggnom	sv	Überleben in der Wüste	\N	\N
+Berggnom	v	Kampfstab	\N	\N
+Berggnom	v	Kriegsflegel	\N	\N
+Berggnom	v	Langbogen	\N	\N
+Berggnom	v	Magierstecken	\N	\N
+Berggnom	v	Netz	\N	\N
+Berggnom	v	Peitsche	\N	\N
+Berggnom	v	Stockschleuder	\N	\N
+Berggnom	v	ZSchlagwaffe	\N	\N
+Berggnom	v	schwere Armbrust	\N	\N
+Berggnom    v	Lanze	\N	\N	\N
+Berggnom    v	Stangenwaffe	\N	\N	\N
+Berggnom    v	ZSchwert	\N	\N	\N
+Berggnom    v           Kompositbogen	\N	\N	\N	\N
+Elf	af	Nachtsicht	8	\N
+Elf	f	Schleichen	8	1
+Elf	f	Spurenlesen	6	1
+Elf	f	Tarnen	8	1
+Elf	f	Wahrnehmung	4	1
+Elf	sv	Ballista bedienen	0	0
+Elf	sv	Bogenkampf zu Pferd	0	0
+Elf	sv	Fechten	0	0
+Elf	sv	Geschäftstüchtigkeit	0	0
+Elf	sv	Kampf in Vollrüstung	0	0
+Elf	sv	Katapult bedienen	0	0
+Elf	sv	Trinken	0	0
+Elf	sv	Überleben im Dschungel	\N	\N
+Elf	sv	Überleben im Gebirge	\N	\N
+Elf	sv	Überleben im Schnee	\N	\N
+Elf	sv	Überleben im Sumpf	\N	\N
+Elf	sv	Überleben in der Steppe	\N	\N
+Elf	sv	Überleben in der Wüste	\N	\N
+Elf	v	Fälschen	0	0
+Elf	v	Gassenwissen	0	0
+Elf	v	Giftmischen	0	0
+Elf	v	Glücksspiel	0	0
+Elf	v	Meucheln	0	0
+Elf	v	Schlösser öffnen	0	0
+Elf	v	Stehlen	0	0
+Elf	z	Erkennen der Aura	\N	\N
+Halbling	af	Gute Reflexe	9	\N
+Halbling	f	Schleichen	10	1
+Halbling	f	Tarnen	10	1
+Halbling	s	Schmecken	10	\N
+Halbling	sv	Überleben im Dschungel	\N	\N
+Halbling	sv	Überleben im Gebirge	\N	\N
+Halbling	sv	Überleben im Schnee	\N	\N
+Halbling	sv	Überleben im Sumpf	\N	\N
+Halbling	sv	Überleben im Wald	\N	\N
+Halbling	sv	Überleben in der Steppe	\N	\N
+Halbling	sv	Überleben in der Wüste	\N	\N
+Halbling	v	Kampfstab	\N	\N
+Halbling	v	Kriegsflegel	\N	\N
+Halbling	v	Langbogen	\N	\N
+Halbling	v	Magierstecken	\N	\N
+Halbling	v	Netz	\N	\N
+Halbling	v	Peitsche	\N	\N
+Halbling	v	Stockschleuder	\N	\N
+Halbling	v	ZSchlagwaffe	\N	\N
+Halbling	v	schwere Armbrust	\N	\N
+Halbling    v	Lanze	\N	\N	\N
+Halbling    v	Stangenwaffe	\N	\N	\N
+Halbling    v	ZSchwert	\N	\N	\N
+Halbling    v           Kompositbogen	\N	\N	\N	\N
+Waldgnom	af	Nachtsicht	8	\N
+Waldgnom	af	Robustheit	12	\N
+Waldgnom	f	Fallenstellen	4	1
+Waldgnom	f	Spurenlesen	6	1
+Waldgnom	f	Tarnen	8	1
+Waldgnom	s	Hören	10	\N
+Waldgnom	sv	Überleben im Dschungel	\N	\N
+Waldgnom	sv	Überleben im Gebirge	\N	\N
+Waldgnom	sv	Überleben im Schnee	\N	\N
+Waldgnom	sv	Überleben im Sumpf	\N	\N
+Waldgnom	sv	Überleben in der Steppe	\N	\N
+Waldgnom	sv	Überleben in der Wüste	\N	\N
+Waldgnom	v	Kampfstab	\N	\N
+Waldgnom	v	Kriegsflegel	\N	\N
+Waldgnom	v	Langbogen	\N	\N
+Waldgnom	v	Magierstecken	\N	\N
+Waldgnom	v	Netz	\N	\N
+Waldgnom	v	Peitsche	\N	\N
+Waldgnom	v	Stockschleuder	\N	\N
+Waldgnom	v	ZSchlagwaffe	\N	\N
+Waldgnom	v	schwere Armbrust	\N	\N
+Waldgnom    v	Lanze	\N	\N	\N
+Waldgnom    v	Stangenwaffe	\N	\N	\N
+Waldgnom    v	ZSchwert	\N	\N	\N
+Waldgnom    v           Kompositbogen	\N	\N	\N	\N
+Zwerg	af	Robustheit	9	\N
+Zwerg	f	Baukunde	8	1
+Zwerg	ff	Trinken	12	1
+Zwerg	sv	Überleben im Dschungel	\N	\N
+Zwerg	sv	Überleben im Sumpf	\N	\N
+Zwerg	sv	Überleben im Wald	\N	\N
+Zwerg	sv	Überleben in der Steppe	\N	\N
+Zwerg	sv	Überleben in der Wüste	\N	\N
 \.
 --
 --

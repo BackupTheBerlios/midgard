@@ -1,4 +1,4 @@
-// $Id: Pflicht.hh,v 1.8 2002/01/15 09:58:17 christof Exp $               
+// $Id: Pflicht.hh,v 1.9 2002/03/02 16:24:38 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,7 +49,7 @@ class Pflicht //: public HandleContent
       Pflicht() {}
       Pflicht(Gtk::ProgressBar *progressbar);
       enum LE {LERNPUNKTE,ERFOLGSWERT};
-
+private:
       int istPflicht(const std::string& spezies,const vector<cH_Typen>& Typ,
                      const std::string& name,LE le) const ;
       bool istVerboten(const std::string& spezies,const vector<cH_Typen>& Typ,

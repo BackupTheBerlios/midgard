@@ -30,7 +30,8 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
    { cH_Fertigkeit f(*i);
      if ((*i)->ist_gelernt(list_Fertigkeit) && cH_Fertigkeit(*i)->ZusatzEnum(Typ)==MidgardBasicElement::ZNone) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
-     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
+//     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
+     if(Werte.Spezies()->istVerboten(*i)) continue;
      if (f->Name()=="Zaubern" && Typ[0]->is_mage() || f->Name()=="Zaubern" && Typ[1]->is_mage() ) continue;
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
        if (region_check(f->Region()) )

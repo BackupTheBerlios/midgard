@@ -28,7 +28,8 @@ void midgard_CG::on_waffen_laden_clicked()
  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
    { cH_Waffe w(*i);
      if ((*i)->ist_gelernt(list_Waffen)) continue ;
-     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,w->Name())) continue;
+//     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,w->Name())) continue;
+     if(Werte.Spezies()->istVerboten(*i)) continue;
      if (w->Grundkenntnis_vorhanden(list_WaffenGrund))
        if (w->ist_lernbar(Typ,w->get_MapTyp()))
          if (region_check(w->Region(w->Name())) )
@@ -68,7 +69,8 @@ void midgard_CG::on_waffengrund_laden_clicked()
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.WaffeGrund.begin();i!=Database.WaffeGrund.end();++i)
    { cH_WaffeGrund w(*i);
      if ((*i)->ist_gelernt(list_WaffenGrund)) continue ;
-     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,w->Name())) continue;
+//     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,w->Name())) continue;
+     if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
      if((*i)->ist_lernbar(Typ,(*i)->get_MapTyp()))
         if (region_check(w->Region()) )
          list_WaffenGrund_neu.push_back(*i);

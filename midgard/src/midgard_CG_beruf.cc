@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.53 2002/02/28 17:07:35 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.54 2002/03/02 16:24:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,7 +79,8 @@ void midgard_CG::showBerufsLernList()
   std::list<cH_MidgardBasicElement> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Beruf.begin();i!=Database.Beruf.end();++i)
    {
-     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+//     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+     if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
      cH_Beruf b(*i);
      if ( !b->Typ(Typ) ||  !b->Stand(Werte.Stand()) ) continue;
      if(!b->Stadt() && Werte.Stadt_Land()=="Stadt") continue;

@@ -22,6 +22,7 @@
 #include "Grundwerte.hh"
 #include "Zauber.hh"
 #include "Fertigkeiten_angeboren.hh"
+#include "Fertigkeiten.hh"
 
 cH_Spezies::cache_t cH_Spezies::cache;
 
@@ -53,6 +54,7 @@ Spezies::Spezies(const Tag *tag)
 : name(tag->getAttr("Name"))
 {
  nr=tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index"));
+ only_nsc=tag->getBoolAttr("only_NSC");
  land=tag->getBoolAttr("Land");
  hand_bonus=tag->getIntAttr("HandBonus");
  raufen=tag->getIntAttr("RaufenBonus");
@@ -106,7 +108,8 @@ Spezies::Spezies(const Tag *tag)
  FOR_EACH_CONST_TAG_OF(i,*tag,"Typ")
     vec_typen.push_back(st_spez(i->getAttr("Name"),i->getIntAttr("MaximalerGrad")));
  FOR_EACH_CONST_TAG_OF(i,*tag,"AngeboreneFerigkeit")
-    vec_angebfert.push_back(st_angebfert(i->getAttr("Art"),i->getAttr("Name"),i->getIntAttr("Erfolgswert")));
+    vec_angebfert.push_back(st_angebfert(i->getAttr("Art"),
+            i->getAttr("Name"),i->getIntAttr("Erfolgswert"),i->getIntAttr("LP")));
 }
 
 
@@ -172,6 +175,34 @@ std::list<cH_MidgardBasicElement> Spezies::getAngFertigkeiten() const
  return L;
 }
 
+std::list<cH_MidgardBasicElement> Spezies::getFertigkeiten(int &lp,const Grundwerte &Werte) const
+{
+  std::list<cH_MidgardBasicElement> L;
+  for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
+   {
+    if(!(i->art=="f")) continue;
+    cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
+    f->set_Erfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte) );
+    lp+=i->lp;
+    L.push_back(f);
+   }
+ return L;
+}
+
+std::list<cH_MidgardBasicElement> Spezies::getFreiwilligeFertigkeiten(const Grundwerte &Werte) const
+{
+  std::list<cH_MidgardBasicElement> L;
+  for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
+   {
+    if(!(i->art=="ff")) continue;
+    cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
+    f->set_Erfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte));
+    f->set_Lernpunkte(i->lp);
+    L.push_back(f);
+   }
+ return L;
+}
+
 std::list<pair<std::string,int> > Spezies::getSinne() const
 {
   std::list<pair<std::string,int> > S;
@@ -181,6 +212,24 @@ std::list<pair<std::string,int> > Spezies::getSinne() const
     S.push_back(pair<std::string,int>(i->name,i->erfolgswert));
    }
  return S;
+}
+
+bool Spezies::istVerboten(const cH_MidgardBasicElement &mbe) const
+{
+  for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
+   {
+    if( mbe->Name()==i->name  &&  i->art=="v") return true;
+   }
+  return false;
+}
+
+bool Spezies::istVerbotenSpielbegin(const cH_MidgardBasicElement &mbe) const
+{
+  for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
+   {
+    if( mbe->Name()==i->name  &&  i->art=="sv") return true;
+   }
+  return false;
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.28 2002/03/01 20:42:39 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.29 2002/03/02 16:24:38 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -124,7 +124,7 @@ void land_speichern(std::ostream &o)
 //******************************************************************
   if (region.empty())
   {o << " <SpeziesListe>\n";
-   Query query("select spezies, nr, land, hand_bonus, raufen,alter_fak, "
+   Query query("select spezies, nr, only_nsc, land, hand_bonus, raufen,alter_fak, "
          " groesse_wanz, groesse_wuerfel, groesse_bonus, gewicht_wanz, gewicht_bonus, "
          " b_wanz, b_bonus, lp, ap_bonus, ap_grad_fak, "
          " psy, psy100, phs, phs100, phk, phk100, "
@@ -135,6 +135,7 @@ void land_speichern(std::ostream &o)
   {o << "  <Spezies";
    std::string name=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_int_attrib(is, o, "MAGUS-Index");
+   fetch_and_write_bool_attrib(is, o, "only_NSC");
    fetch_and_write_bool_attrib(is, o, "Land");
    fetch_and_write_int_attrib(is, o, "HandBonus");
    fetch_and_write_int_attrib(is, o, "RaufenBonus");
@@ -188,7 +189,7 @@ void land_speichern(std::ostream &o)
          o << "/>\n";
       }
    }
-   {  Query query3("select art,name,erfolgswert from spezies_angeborene_fert"
+   {  Query query3("select art,name,erfolgswert,lp from spezies_angeborene_fert"
       	" where spezies='"+name+"'");
       FetchIStream is3;
       std::string typen;
@@ -197,6 +198,7 @@ void land_speichern(std::ostream &o)
          fetch_and_write_string_attrib(is3, o, "Art");
          fetch_and_write_string_attrib(is3, o, "Name");
          fetch_and_write_int_attrib(is3, o, "Erfolgswert");
+         fetch_and_write_int_attrib(is3, o, "LP");
          o << "/>\n";
       }
    }

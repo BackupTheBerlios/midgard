@@ -285,6 +285,10 @@ void midgard_CG::Optionen_init()
   list_OptionenM.push_back(st_OptionenM(LernschemaSensitive,
                            menu_lernschema_sensitive,
                            "Lernschema auswählbar machen",0));
+  Gtk::MenuItem *menu_show_info_window;
+  list_OptionenM.push_back(st_OptionenM(show_InfoWindow,
+                           menu_show_info_window,
+                           "Info Fenster zeigen",0));
   Gtk::MenuItem *menu_wizard_starten;
   list_OptionenM.push_back(st_OptionenM(WizardStarten,
                            menu_wizard_starten,

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.84 2002/03/01 18:56:12 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.85 2002/03/02 16:24:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,14 +39,24 @@ void midgard_CG::on_herkunftsland_clicked()
 
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {
-  lernpunkte.setFach(random.integer(1,6)+random.integer(1,6));
+  //Speziesspezifische Fertigkeiten
+  int lpspezies=0;
+  list_Fertigkeit=Werte.Spezies()->getFertigkeiten(lpspezies);
+  show_gelerntes();
+
+  int fachlern=random.integer(1,6)+random.integer(1,6);
+  if(!list_Fertigkeit.empty())
+    regnot("Die Lernpunkte ("+itos(lpspezies)+") für die Pflichtfertigkeiten\n"
+      "für die Spezies "+Werte.Spezies()->Name()+" wurden von den erfürfelten\n"
+      "Lernpunkten ("+itos(fachlern)+") abgezogen.");
+  lernpunkte.setFach(fachlern - lpspezies);
   lernpunkte.setAllgemein(random.integer(1,6)+1);
   lernpunkte.setUnge(random.integer(1,6));
   if (Typ[1]->Short()=="") lernpunkte.setWaffen(random.integer(1,6)+random.integer(1,6));
-  else                  lernpunkte.setWaffen(random.integer(1,6)+1); // Doppelcharakter
-  if (Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" && Typ[1]->Short()=="") 
+  else                     lernpunkte.setWaffen(random.integer(1,6)+1); // Doppelcharakter
+  if (Typ[0]->is_mage() && Typ[1]->Short()=="") 
       lernpunkte.setZauber(random.integer(1,6)+random.integer(1,6));
-  if (Typ[1]->Zaubern()=="j" || Typ[1]->Zaubern() == "z" && Typ[1]->Short()!="") 
+  if (Typ[1]->is_mage() && Typ[1]->Short()!="") 
       lernpunkte.setZauber(random.integer(1,6)+1);
 
   int age = (lernpunkte.Allgemein() + lernpunkte.Unge() 
@@ -271,7 +281,7 @@ void midgard_CG::on_lernliste_wahl_toggled()
   if(button_fachkenntnisse->get_active())
      show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
   if(button_allgemeinwissen->get_active())
-      show_lernschema(MidgardBasicElement::FERTIGKEIT,"Allg");
+     show_lernschema(MidgardBasicElement::FERTIGKEIT,"Allg");
   if(button_untyp_fertigkeiten->get_active())
       show_lernschema(MidgardBasicElement::FERTIGKEIT,"Unge");
   if(button_waffen->get_active())
@@ -471,7 +481,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
 
   std::list<cH_MidgardBasicElement> newlist;
   std::list<cH_MidgardBasicElement> LW;
-  if(fert=="Unge" || fert=="Allg" || fert=="Fach") // 'Fach' wg. Spezies
+  if(fert=="Unge" || fert=="Allg"/* || fert=="Fach"*/) // 'Fach' wg. Spezies
    {
     for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
      {
@@ -498,6 +508,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
       else if(f->Name()=="Muttersprache"   && Werte.In()>60) f->set_Erfolgswert(18+f->AttributBonus(Werte));
       else if(f->Name()=="Gastlandsprache" && Werte.In()>30) f->set_Erfolgswert(12);
       else f->set_Erfolgswert(f->Anfangswert()+f->AttributBonus(Werte));
+/*
       if(fert=="Fach") // Speziesfertigkeiten
         {
          lp=Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::LERNPUNKTE);
@@ -506,6 +517,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
          int erf=Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::ERFOLGSWERT);
          f->set_Erfolgswert(erf+f->AttributBonus(Werte));
         }
+*/
       f->set_Lernpunkte(lp);
 
       if(!region_check((*i)->Region())) continue;
@@ -516,8 +528,20 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
          else (*i)->setGelernt(true); 
         }
       if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true); //continue ;
-      if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+//      if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+      if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
       newlist.push_back(*i);
+     }
+   }
+  if(fert=="Fach") // Freiwillige Speziesfertigkeiten
+   {
+     std::list<cH_MidgardBasicElement> LW=Werte.Spezies()->getFreiwilligeFertigkeiten();
+     for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
+      {
+       bool gelernt=false;
+       if ((*i)->ist_gelernt(list_Fertigkeit)) gelernt=true;
+       if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
+       newlist.push_back(*i);
      }
    }
   if(fert!="Unge" && fert!="Allg" )
@@ -526,12 +550,15 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
          LW=Database.lernschema.get_List("Waffenfertigkeiten",Typ);
       if(what==MidgardBasicElement::ZAUBER)
          LW=Database.lernschema.get_List("Zauberkünste",Typ);
-      if(what==MidgardBasicElement::FERTIGKEIT)
+      if(what==MidgardBasicElement::FERTIGKEIT && fert!="Spez")
          LW=Database.lernschema.get_List("Fachkenntnisse",Typ);
+      if(what==MidgardBasicElement::FERTIGKEIT && fert=="Spez")
+         LW=Werte.Spezies()->getFreiwilligeFertigkeiten();
       for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
         {
           bool gelernt=false;
-          if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+//          if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+          if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
           if(what==MidgardBasicElement::WAFFE)  
                if (!region_check(cH_Waffe(*i)->Region((*i)->Name()))) continue;
           else if (!region_check((*i)->Region())) continue;
@@ -555,14 +582,15 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
             {
              if ((*i)->ist_gelernt(newlist)) continue ; // Speziesfertigkeiten 
              if (!cH_Fertigkeit(*i)->Voraussetzungen(Werte)) continue ;
-             if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
+             if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
+//             if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
              if ((*i)->ist_gelernt(list_Fertigkeit)) gelernt=true;
              if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
              I=Lernschema::st_index(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
              cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(Werte));
              cH_Fertigkeit(*i)->setPflicht(Database.lernschema.get_Pflicht(I));
            }
-        (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
+         (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
 
         bool zuteuer=false;
          if(what==MidgardBasicElement::WAFFE)  

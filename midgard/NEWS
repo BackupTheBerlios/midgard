@@ -14,6 +14,7 @@ NEWS IN VERSION 0.4delta5
 * Nochmalwürfeln bei schlechen Werten jetzt möglich
 * Spezialgebietauswahl nur noch für Magier (und Beschwörer)
 * Infofenster Liste kann gelöscht werden
+* Info Fenster kann über das Menü->Optionen gezeigt werden.
 * Kampf ohne Waffen im Ausdruck ohne Fehler
 * Spezies: Datenbank, xml-Datei, Klasse und Code überarbeitet. Damit ist es 
    jetzt trivial neue Spezies hinzuzufügen (ohne das Programm neu zu 
@@ -22,6 +23,11 @@ NEWS IN VERSION 0.4delta5
 * Angeborene Sinne für Halblinge und Gnome
 * Oberfläche leicht überarbeitet
 * Bugs beseitigt
+* Komplett neues Redesign der Pflichtfertigkeiten und der Verbotenen Fertigkeiten
+   für die Spezies. Dadurch 
+   a) ist die Klasse 'Pflichten' inclusive Datenbanktabelle weggefallen.
+   b) werden die Pflichfertigkeiten bei Spielbeginn automatisch gelernt.
+
 
 TODO:
 * Alle Grundkenntnisse (Waffen) ausdrucken
