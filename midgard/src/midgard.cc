@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.45 2002/06/30 18:34:15 thoma Exp $
+// $Id: midgard.cc,v 1.46 2002/07/01 10:22:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,12 +64,12 @@ int main(int argc, char **argv)
 #endif
 
    if(access(magus_verzeichnis.c_str(),R_OK)) 
-       if(mkdir(magus_verzeichnis.c_str(),0777))
+       if(mkdir(magus_verzeichnis.c_str() NUR_LINUX(,0777) ))
          { std::cerr << "Homeverzeichnis nicht schreibbar\n"; exit(1);}
-   magus_verzeichnis+=WinLux::dirsep();
+   magus_verzeichnis+=WinLux::dirsep;
 
    // normalize argv0 (prepend current dir if relative)
-   if (argv0[0]!=WinLux::dirsep() 
+   if (argv0[0]!=WinLux::dirsep 
 #ifdef __MINGW32__
 			|| argv0.find(':')==std::string::npos
 #endif
@@ -78,7 +78,7 @@ int main(int argc, char **argv)
       *buf=0;
       getcwd(buf,sizeof buf);
       cout << "cwd: " << buf << '\n';
-      argv0=buf+std::string(1,WinLux::dirsep())+argv0;
+      argv0=buf+std::string(1,WinLux::dirsep)+argv0;
       cout << "argv0: " << argv0 << '\n';
    }
 

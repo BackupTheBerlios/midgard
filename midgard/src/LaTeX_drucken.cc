@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.34 2002/07/01 08:19:37 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.35 2002/07/01 10:22:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -803,7 +803,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   if (!e) e="";
   if (!strstr(e,subpath))
   {  newpath="PATH="+hauptfenster->BinaryVerzeichnis()
-  	+subpath+std::string(1,WinLux::psep())+ e;
+  	+subpath+std::string(1,WinLux::psep)+ e;
      putenv((char*)(newpath.c_str()));
   }
   // GetTempPath ?
@@ -814,9 +814,9 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   std::string file2=file;
   // LaTeX always writes to current dir first, so we change dir
 
-  if (file.rfind(WinLux::dirsep())!=std::string::npos)
-  {  chdir((file.substr(0,file.rfind(WinLux::dirsep()))).c_str());
-     file2=file.substr(file.rfind(WinLux::dirsep())+1);
+  if (file.rfind(WinLux::dirsep)!=std::string::npos)
+  {  chdir((file.substr(0,file.rfind(WinLux::dirsep))).c_str());
+     file2=file.substr(file.rfind(WinLux::dirsep)+1);
   }
 
 // oder batchmode?

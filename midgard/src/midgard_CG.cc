@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.247 2002/07/01 08:57:29 thoma Exp $
+// $Id: midgard_CG.cc,v 1.248 2002/07/01 10:22:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -116,7 +116,7 @@ cout <<"Suche nach "<< n<<'\n';
 
 std::string midgard_CG::BinaryVerzeichnis() const
 {  
-   if (argv0.rfind(WinLux::dirsep())!=std::string::npos) 
-      return argv0.substr(0,argv0.rfind(WinLux::dirsep())+1);
+   if (argv0.rfind(WinLux::dirsep)!=std::string::npos) 
+      return argv0.substr(0,argv0.rfind(WinLux::dirsep)+1);
    else return "";
 }

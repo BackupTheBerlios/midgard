@@ -91,8 +91,8 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
  std::string fname=path;
 
  // path mit / (oder \) beenden, damit der Dateiname einfach dahinter kann
- if (!path.empty() && path[path.size()-1]!=WinLux::dirsep()) 
-    path+=WinLux::dirsep();
+ if (!path.empty() && path[path.size()-1]!=WinLux::dirsep) 
+    path+=WinLux::dirsep;
  if(ewas==Pix) 
  {  fname=VA->getWerte().BeschreibungPix();
     if (fname.empty()) fname=path;
@@ -137,7 +137,7 @@ std::cout << "Dateiname " << fname << "->" << get_filename() << '\n';
    		ewas==Load ? "Abenteurer laden" : "Abenteurer speichern";
    ofn.Flags = OFN_PATHMUSTEXIST 
    		| (ewas==Pix||ewas==Load ? OFN_FILEMUSTEXIST : 0);
-   if (!filename.empty() && filename[filename.size()-1]==WinLux::dirsep())
+   if (!filename.empty() && filename[filename.size()-1]==WinLux::dirsep)
    {  *buf=0;
       ofn.lpstrInitialDir = filename.c_str();
    }

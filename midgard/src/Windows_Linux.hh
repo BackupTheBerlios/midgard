@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.hh,v 1.1 2002/06/30 18:34:15 thoma Exp $
+// $Id: Windows_Linux.hh,v 1.2 2002/07/01 10:22:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -20,10 +20,19 @@
 #ifndef _WINLUX_HH_
 #define _WINLUX_HH_
 
+#ifdef __MINGW32__
+#define NUR_LINUX(x...)
+#else
+#define NUR_LINUX(x...) ##x
+#endif
+
 namespace WinLux
 {
-  const char dirsep();
-  const char psep();
+#ifdef __MINGW32__
+  static const char dirsep='\\', psep=';';
+#else
+  static const char dirsep='/', psep=':';
+#endif
 };
 
 #endif

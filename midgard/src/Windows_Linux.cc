@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.cc,v 1.1 2002/06/30 18:34:15 thoma Exp $
+// $Id: Windows_Linux.cc,v 1.2 2002/07/01 10:22:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -18,22 +18,4 @@
  */
 
 #include "Windows_Linux.hh"
-
-const char WinLux::dirsep()
-{
-  #ifdef __MINGW32__
-   return '\\';
-  #else
-   return '/';
-  #endif 
-};
-
-const char WinLux::psep()
-{
-  #ifdef __MINGW32__
-   return ';';
-  #else
-   return ':';
-  #endif 
-};
 
