@@ -100,24 +100,24 @@ void table_beschreibung::insert_into_beschreibung(const std::string &s,const gin
 void table_beschreibung::on_button_fett_clicked()
 {
   std::string s="\\textbf{  }";
-  insert_into_beschreibung(s,3,2);
+  insert_into_beschreibung(s,3,1);
 }
 
 void table_beschreibung::on_button_kursiv_clicked()
 {
   std::string s="\\textit{  }";
-  insert_into_beschreibung(s,3,2);
+  insert_into_beschreibung(s,3,1);
 }
 
 void table_beschreibung::on_button_liste_clicked()
 {
- std::string s="\n\n\\begin{punkte}\n  \\item\n \\item \\end{punkte}\n\n";
- insert_into_beschreibung(s,24,25);
+ std::string s="\n\n\\begin{punkte}\n\\item   \n\\item\n\\end{punkte}\n\n";
+ insert_into_beschreibung(s,23,21);
 }
 
 void table_beschreibung::on_button_liste2_clicked()
 {
- std::string s="\n\n\\begin{punkte2}\n  \\item\n \\item \\end{punkte2}\n\n";
- insert_into_beschreibung(s,24,25);
+ std::string s="\n\n\\begin{punkte2}\n\\item   \n\\item\n\\end{punkte2}\n\n";
+ insert_into_beschreibung(s,23,21);
 }
 
