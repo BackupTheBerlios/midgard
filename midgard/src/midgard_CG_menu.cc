@@ -304,7 +304,7 @@ void midgard_CG::Hausregeln_init()
  Gtk::CheckMenuItem *gold; 
 // list_Hausregeln.push_back(st_Haus(Gold,Gtk::CheckMenuItem *gold,"1 GS entspricht 1 GFP"));
  list_Hausregeln.push_back(st_Haus(Gold,gold,"1 GS entspricht 1 GFP",false));
- Gtk::CheckMenuItem *ep_steigern; 
- list_Hausregeln.push_back(st_Haus(EPsteigern,ep_steigern,"Steigern mit Erfahrungspunkten",true));
+// Gtk::CheckMenuItem *ep_steigern; 
+// list_Hausregeln.push_back(st_Haus(EPsteigern,ep_steigern,"Steigern mit Erfahrungspunkten",true));
 }
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.41 2002/01/30 12:04:05 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.42 2002/01/30 17:50:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,15 +31,9 @@ void midgard_CG::on_checkbutton_optionen_menu(st_Optionen O)
 
 void midgard_CG::checkbutton_original(bool active)
 {
-//  if (OptionMenu.menu_original->get_active()) OptionBool.Original=true;
-//  else OptionBool.Original=false;
-//  st_Optionen O=OptionCheck(Original);
-//  if (O.menuitem->get_active()) O.active=true;
-//  else O.active=false;
-  
-
   if(active) 
     { togglebutton_alle_zauber->set_sensitive(false); 
+      
       if(haus_menuitem)
        {
          Hausregeln_setzen(false);

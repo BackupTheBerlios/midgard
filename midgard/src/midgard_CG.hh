@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.151 2002/01/30 12:04:05 thoma Exp $
+// $Id: midgard_CG.hh,v 1.152 2002/01/30 17:50:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,28 +60,15 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void menu_init();
         void menu_gradanstieg_init();
         void Optionen_init();
-        enum OptionenIndex {Original,Info,showPics,LernschemaSensitive};
-        enum HausIndex {Gold,EPsteigern};
-
         void Hausregeln_init();
         void Hausregeln_setzen_from_menu();
         void Hausregeln_setzen(bool b);
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
-/*
-        struct st_OptionBool{bool Original; bool Info; bool Pics; 
-                     bool steigern;bool version;
-               void reset() {*this=st_OptionBool();}
-               st_OptionBool() : Original(true), Info(true),
-                                 Pics(true), steigern(false),
-                                  version(true) {}};
-        st_OptionBool OptionBool;
-        struct st_OptionMenu{Gtk::CheckMenuItem *menu_original;
-                             Gtk::CheckMenuItem *menu_info;
-                             Gtk::CheckMenuItem *menu_pics;
-                             Gtk::MenuItem      *menu_sensitive;
-                             Gtk::CheckMenuItem *menu_version;};
-        st_OptionMenu OptionMenu;
-*/
+
+        enum OptionenIndex {Original,Info,showPics,LernschemaSensitive};
+        enum HausIndex {Gold};
+
+
         struct st_Optionen{OptionenIndex index;Gtk::CheckMenuItem *menuitem; 
                            std::string text;
                            bool active;const char * const *bild;

@@ -69,7 +69,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
     }
  else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
     {
-      if (HausregelCheck(EPsteigern).active) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
+      if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
       Werte.addGFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name())  
@@ -80,7 +80,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       guint verlernen = MBE->Verlernen(Typ,Database.ausnahmen);
       if( MBE->What()==MidgardBasicElement::ZAUBER && 
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
-      if (HausregelCheck(EPsteigern).active) desteigern(verlernen);
+      if (checkbutton_EP_Geld->get_active()) desteigern(verlernen);
       Werte.addGFP(-verlernen);
       MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
     }
