@@ -1,0 +1,127 @@
+/*  Midgard Character Generator
+ *  Copyright (C) 2001 Malte Thoma
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+// generated 2001/2/11 14:16:06 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "Sprache.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+#include "itos.h"
+#include <gtk--/main.h>
+
+cH_Sprache::cache_t cH_Sprache::cache;
+
+cH_Sprache::cH_Sprache(const std::string& name)
+{
+ cH_Sprache *cached(cache.lookup(name));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_Sprache(new Sprache(name));
+   cache.Register(name,*this);
+  }
+}
+
+void Sprache::get_Sprache()
+{
+  exec sql begin declare section;
+   char db_name[50],db_schrift[50],db_region[50];
+   int db_fp,db_maxwert;
+   bool db_alt;
+  exec sql end declare section;
+
+  strncpy(db_name,Name().c_str(),sizeof(db_name));
+/*
+  exec sql select kontinent,land,fp,max_wert,schrift,alt,coalesce(region,'')
+       into :db_kontinent,:db_land,:db_fp,:db_maxwert,:db_schrift,:db_alt,:db_region
+       from sprachen where name = :db_name;
+*/
+  exec sql select distinct fp,max_wert,schrift,alt,coalesce(region,'')
+       into :db_fp,:db_maxwert,:db_schrift,:db_alt,:db_region
+       from sprachen where name = :db_name;
+  SQLerror::test(__FILELINE__);
+//  land=db_land;
+//  kontinent=db_kontinent;
+  urschrift=db_schrift;
+  region=db_region;
+  alte_sprache=db_alt;
+  maxwert=db_maxwert;
+  kosten=db_fp;
+}
+
+
+/*
+void Sprache::get_map_typ()
+{
+ exec sql begin declare section;
+   char query[1024], db_typ[10], db_standard[10];
+ exec sql end declare section;
+ std::string squery ="select typ,standard from fertigkeiten_typen where name ='Sprache'";
+ strncpy(query,squery.c_str(),sizeof(query));
+ Transaction tr;
+ exec sql prepare SMein_ from :query ;
+ exec sql declare SMein cursor for SMein_ ;
+ exec sql open SMein;
+ SQLerror::test(__FILELINE__);
+ while(true)
+  {
+    exec sql fetch SMein into :db_typ,:db_standard;
+    SQLerror::test(__FILELINE__,100);
+    if (sqlca.sqlcode) break;
+    map_typ[db_typ]=db_standard;
+  } 
+}   
+*/
+
+void Sprache::get_Fertigkeit()
+{
+// cH_Fertigkeit("Sprache",,);
+}
+
+Sprachen_All::Sprachen_All(Gtk::Label *label)
+{
+ exec sql begin declare section;
+   char db_name[100];
+ exec sql end declare section;
+ exec sql declare SIein cursor for select distinct name from sprachen;
+ Transaction tr;
+ exec sql open SIein; 
+ SQLerror::test(__FILELINE__);
+ int count=0;  
+ label->show();
+ while(true)
+  {
+   label->set_text(itos(++count)+" Sprachen geladen");
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+   exec sql fetch SIein into :db_name;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   list_All.push_back(new Sprache(db_name));
+  }
+ exec sql close SIein;
+ tr.close();
+ label->hide();
+}  

@@ -26,10 +26,8 @@ class Fertigkeit : public MidgardBasicElement
      mutable bool pflicht;
      Ausnahmen ausnahmen;
      std::map<int,int> map_erfolgswert_kosten;
-//     std::map<std::string,std::string> map_typ;
 
      void get_Fertigkeit();
-//     void get_map_typ();
      void get_Steigern_Kosten_map();
      int GrundKosten() const {  return kosten; }
      vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
@@ -37,9 +35,8 @@ class Fertigkeit : public MidgardBasicElement
   public:
      Fertigkeit(const std::string& n,int l=0,bool p=false)
       :name(n),lernpunkte(l),erfolgswert(0),pflicht(p) 
-      {get_Fertigkeit(); get_map_typ();}
+      {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();}
 
-  //   map<std::string,std::string> get_MapTyp() const {return map_typ;}
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
      std::string What_str() const {return "Fertigkeit";}
 
@@ -48,7 +45,7 @@ class Fertigkeit : public MidgardBasicElement
      std::string Attribut() const {return attribut;}
      std::string Region() const {return region;}
      int Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()+1));}
-     int Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()-1));}
+     int Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()));}
      int Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return Kosten(Typ,ausnahmen);}
      std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
 //     const vector<std::string>& Standard() const {return standard;}

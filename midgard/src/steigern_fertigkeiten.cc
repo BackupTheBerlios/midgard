@@ -34,7 +34,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
      if (pflicht->istVerboten(f->Name())) continue;
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
        if (region_check(f->Region()) )
-        if (f->Voraussetzungen(Werte)) continue;
+        if (f->Voraussetzungen(Werte)) 
             list_Fertigkeit_neu.push_back(*i);
    }
  fertigkeiten_zeigen();
@@ -47,8 +47,6 @@ void midgard_CG::fertigkeiten_zeigen()
  Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,Werte,Typ,ausnahmen,'N');
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,Werte,Typ,ausnahmen,'O');
-// show_alte_fertigkeiten();
-// show_neue_fertigkeiten();
 }
 
 

@@ -50,36 +50,17 @@ void Fertigkeit::get_Fertigkeit()
   if (lernpunkte==0) lernpunkte=db_lp;
   anfangswert0=db_anfangswert0;
   anfangswert=db_anfangswert;
+  erfolgswert=anfangswert; //Defaultwert
   kosten=db_kosten;
   region=db_region;
+//cout << Name()<<'\t'<<db_region <<' ' <<Region()<<'\n';
   attribut=db_attribut;
   voraussetzung = st_Voraussetzung(db_st,db_ge,db_ko,db_in,db_zt,db_au,db_pa,
                                    db_sb,db_rw,db_voraussetzung);
   exec sql close cl_fertigkeit_ein;
   tr.close();
 }
-/*
-void Fertigkeit::get_map_typ()
-{
- exec sql begin declare section;
-   char query[1024], db_typ[10], db_standard[10];
- exec sql end declare section;
- std::string squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
- strncpy(query,squery.c_str(),sizeof(query));
- Transaction tr;
- exec sql prepare FTein_ from :query ;
- exec sql declare FTein cursor for FTein_ ;
- exec sql open FTein;
- SQLerror::test(__FILELINE__);
- while(true)
-  {
-    exec sql fetch FTein into :db_typ,:db_standard;
-    SQLerror::test(__FILELINE__,100);
-    if (sqlca.sqlcode) break; 
-    map_typ[db_typ]=db_standard;
-  } 
-}
-*/
+
 bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 
 {
  if ( voraussetzung.st<=Werte.St() &&
@@ -163,10 +144,14 @@ void Fertigkeit::get_Steigern_Kosten_map()
    map_erfolgswert_kosten[17] = P17;
    map_erfolgswert_kosten[18] = P18;
    map_erfolgswert_kosten[19] = P19;
+for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
+ cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
 }
 
 int Fertigkeit::get_Steigern_Kosten(int erfolgswert) const
 {
+cout << erfolgswert<<'\t'<<const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert]<<'\t';
+cout << map_erfolgswert_kosten.size()<<'\n';
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
 

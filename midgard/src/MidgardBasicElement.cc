@@ -36,7 +36,7 @@ void MidgardBasicElement::show_list_in_tree(
   const vector<H_Data_typen>& Typ, const Ausnahmen& ausnahmen,
   char variante, bool _bool_)
 {
-  if (BasicList.begin()==BasicList.end() ) return ;
+  if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {
@@ -46,7 +46,7 @@ void MidgardBasicElement::show_list_in_tree(
          if(variante=='O')  
             datavec.push_back(new Data_fert(f->Name(),f->Erfolgswert(),f->Steigern(Typ,ausnahmen),f->Reduzieren(Typ,ausnahmen),f->Verlernen(Typ,ausnahmen)));
          if(variante=='N')  
-            datavec.push_back(new Data_fert(f->Name(),f->Anfangswert(),f->Kosten(Typ,ausnahmen),f->Standard__(Typ,ausnahmen),f->Voraussetzung()));
+            datavec.push_back(new Data_fert(f->Name(),f->Erfolgswert(),f->Kosten(Typ,ausnahmen),f->Standard__(Typ,ausnahmen),f->Voraussetzung()));
          break; }
        case(WAFFEN)      : break;
        case(ZAUBER)      : {cH_Zauber z(*i);

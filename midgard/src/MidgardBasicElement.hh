@@ -33,11 +33,11 @@ class MidgardBasicElement : public HandleContent
       virtual std::string Region() const {return "";}
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
-      virtual std::string Stufe() const;
+      virtual std::string Stufe() const {return "";} 
       bool ist_lernbar(const vector<H_Data_typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
       
-      virtual bool operator == (const MidgardBasicElement& b) const 
+      bool operator == (const MidgardBasicElement& b) const 
          {return Name()==b.Name();}
 
 
