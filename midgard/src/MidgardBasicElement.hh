@@ -108,7 +108,7 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
            { switch(es) {
                case(LERNPUNKTE) : return x->Lernpunkte() < y->Lernpunkte()  ;
                case(NAME) : return x->Name() < y->Name()  ;
-               case(ERFOLGSWERT): return x->Erfolgswert() < y->Erfolgswert();
+               case(ERFOLGSWERT): return x->Erfolgswert() > y->Erfolgswert();
            }}
     };
 

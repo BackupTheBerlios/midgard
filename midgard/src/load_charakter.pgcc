@@ -350,7 +350,12 @@ void midgard_CG::load_fertigkeiten()
       if(sart=="Zauberwerk")    list_Zauberwerk.push_back(new Zauberwerk(db_fert));
       if(sart=="KiDo")          list_Kido.push_back(new KiDo(db_fert)) ;
       if(sart=="Grundkenntnis") list_WaffenGrund.push_back(new WaffeGrund(db_fert)) ;
-      if(sart=="Sprache")       list_Sprache.push_back(new Sprache(db_fert)) ;
+      if(sart=="Sprache")
+        {
+         cH_MidgardBasicElement sprache(new Sprache(db_fert));
+         sprache->set_Erfolgswert(db_wert);
+         list_Sprache.push_back(sprache);
+        }
       if(sart=="Urschrift")     list_Schrift.push_back(new Schrift(db_fert)) ;
       if(sart=="Region")
         {

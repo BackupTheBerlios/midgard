@@ -97,11 +97,11 @@ void midgard_CG::on_button_kido_sort_clicked()
 {
   std::deque<guint> seq = alte_kido_tree->get_seq();
   switch((Data_fert::Spalten_KA)seq[0]) {
-      case Data_fert::HOHOa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::HOHO)); ;break;
-      case Data_fert::NAMEa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::NAME)); ;break;
-      case Data_fert::STUFEa_K : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STUFE)); ;break;
-      case Data_fert::APa_K    : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::AP)); ;break;
-      case Data_fert::STILa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STIL)); ;break;
+      case Data_fert::HOHOa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::HOHO)) ;break;
+      case Data_fert::NAMEa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::NAME)) ;break;
+      case Data_fert::STUFEa_K : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STUFE)) ;break;
+      case Data_fert::APa_K    : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::AP)); break;
+      case Data_fert::STILa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STIL)) ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

@@ -70,25 +70,6 @@ int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) cons
   cH_Fertigkeit F("Sprache");
   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; 
 }
-/*
-int Sprache::Steigern(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
-{ 
-   cH_Fertigkeit F("Sprache");
-//cout << F->Standard_Faktor(Typ,ausnahmen)<<'\t'<<Erfolgswert()<<'\t'<<F->get_Steigern_Kosten(Erfolgswert()+1)<<'\n';
-   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * F->get_Steigern_Kosten(Erfolgswert()+1));
-}
-int Sprache::Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
-{ 
-   cH_Fertigkeit F("Sprache");
-   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * F->get_Steigern_Kosten(Erfolgswert()));
-}
-int Sprache::Verlernen(const vector<cH_Typen>& Typ,const Ausnahmen&  ausnahmen) const
-{
-   if(Reduzieren(Typ,ausnahmen)==0)
-     return Kosten(Typ,ausnahmen);
-   else return 0;
-}
-*/
 
 std::string Sprache::Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const 
 {
@@ -97,6 +78,19 @@ std::string Sprache::Urschrift(const  std::list<cH_MidgardBasicElement>& list_Sc
    if((*i)->Name() == Urschrift()) 
       return urschrift; 
   }
+ // KanThaiTun
+ bool kanthaitun=false;
+ std::string s,t="(";
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
+  {
+    try{ s  = (*i)->Name().substr(0,10); }catch(...){}
+    if(Urschrift()!="KanThaiTun"||s!="KanThaiTun") continue;
+    std::string t2 = (*i)->Name().substr(11,1);
+    t+=t2+",";
+    if(s=="KanThaiTun") kanthaitun=true;
+  }
+ if (kanthaitun) t=t.substr(0,t.size()-1); // letzes Komma entfernen
+ if (kanthaitun) return Urschrift()+" "+t+")";
  return "";
 }
 

@@ -17,8 +17,6 @@
  */
 
 #include "midgard_CG.hh"
-//#include "Ausnahmen.hh"
-//#include "class_zauber.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
 #include "class_fertigkeiten.hh"
@@ -85,6 +83,9 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (radio_sprache_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
+      for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
+         if ( cH_Sprache(*i)->Name() == MBE->Name()) 
+            if (cH_Sprache(*i)->Maxwert()==(*i)->Erfolgswert() ) return;
       if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
       Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
@@ -122,8 +123,8 @@ void midgard_CG::on_button_sprache_sort_clicked()
 {
   std::deque<guint> seq = alte_sprache_tree->get_seq();
   switch((Data_fert::Spalten_SPA)seq[0]) {
-      case Data_fert::NAMEa_SP : list_Sprache.sort(cH_Sprache::sort(cH_Sprache::sort::NAME)); ;break;
-      case Data_fert::WERTa_SP : list_Sprache.sort(cH_Sprache::sort(cH_Sprache::sort::ERFOLGSWERT)); ;break;
+      case Data_fert::NAMEa_SP : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
+      case Data_fert::WERTa_SP : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

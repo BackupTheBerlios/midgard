@@ -45,6 +45,7 @@ class cH_Sprache : public Handle<const Sprache>
    cH_Sprache(const cH_MidgardBasicElement &x) : Handle<const Sprache>
       (dynamic_cast<const Sprache *>(&*x)){}
 
+/*
    class sort {
       public:
          enum esort {NAME,ERFOLGSWERT};
@@ -58,7 +59,7 @@ class cH_Sprache : public Handle<const Sprache>
                case(ERFOLGSWERT): return x->Erfolgswert() < y->Erfolgswert();
            }}
     };
-
+*/
 };
 
 class Sprachen_All
