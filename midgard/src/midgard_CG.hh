@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.28 2001/05/08 06:30:40 thoma Exp $
+// $Id: midgard_CG.hh,v 1.29 2001/05/09 08:18:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -153,7 +153,6 @@ extern bool Waelandbool;
 extern bool Albabool;
 extern bool HDbool;
 
-
 class midgard_CG : public midgard_CG_glade
 {   
         friend class midgard_CG_glade;
@@ -170,6 +169,8 @@ class midgard_CG : public midgard_CG_glade
         vector<st_zauber> zauber;
         vector<st_zaubermittel> vec_zaubermittel;
         vector<st_kido> vec_kido;
+        bool kido_bool;
+        bool magie_bool;
         vector<st_sprachen> vec_sprachen;
         vector<st_schriften> vec_schriften;
         map<string,string> waffen_grundkenntnisse;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.23 2001/05/08 06:30:40 thoma Exp $
+// $Id: midgard_CG.cc,v 1.24 2001/05/09 08:18:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,6 +37,8 @@
 
 midgard_CG::midgard_CG()
 {
+ kido_bool=false;
+ magie_bool=false;
  midgard_CG::fill_typauswahl();
  midgard_CG::fill_spezies();
  midgard_CG::spezieswahl_button();
@@ -98,7 +100,7 @@ void midgard_CG::show_gtk(int tnr)
  else label_spezialwaffe->set_text("");
 
  // Magie anzeigen?
- if (typ.z=="j" || typ.z == "z") 
+ if (typ.z=="j" || typ.z == "z" || magie_bool) 
    { if (typ.s=="Ma" || typ.s == "eBe") magier_spezialgebiet("show");
      else magier_spezialgebiet("hide");
      table_magier_lernen->show();
@@ -110,7 +112,8 @@ void midgard_CG::show_gtk(int tnr)
    }
 
  // KiDo anzeigen?
- if (typ.s=="Kd" || typ.s == "Ny") 
+// if (typ.s=="Kd" || typ.s == "Ny" ) 
+ if (kido_bool) 
    { optionmenu_KiDo_Stile->show();
      table_kido_lernen->show();
      table_kido_steigern->show();
@@ -129,7 +132,7 @@ void midgard_CG::show_gtk(int tnr)
   {   
     optionmenu_KiDo_Stile->set_history(kido_stil_nr);
     checkbutton_KanThaiPan->set_active(true);
-    midgard_CG::on_checkbutton_KanThaiPan_toggled();
+    KanThaiPanbool=true;
   }
 }
 

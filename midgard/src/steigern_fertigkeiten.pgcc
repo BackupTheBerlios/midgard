@@ -231,6 +231,9 @@ void midgard_CG::on_steigern_fert_clist_neu_select_row(gint row, gint column, Gd
   int erf = atoi(steigern_fert_clist_neu->get_text(row,1).c_str());
   vec_fertigkeiten.push_back(st_ausgewaehlte_fertigkeiten(new_fert,erf,"0"));
 
+  if (new_fert=="KiDo") {kido_bool=true;show_gtk(get_typ_nr());}
+  if (new_fert=="Wissen von der Magie") {magie_bool=true;show_gtk(get_typ_nr());}
+
   midgard_CG::show_fertigkeiten();
   midgard_CG::on_speichern_clicked();
   midgard_CG::show_alte_fertigkeiten();

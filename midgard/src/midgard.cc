@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.5 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard.cc,v 1.6 2001/05/09 08:18:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,7 +39,6 @@ int main(int argc, char **argv)
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
 
-//      midgard_CG *midgard_cg = 
       manage(new midgard_CG());
 
       m.run();

@@ -338,6 +338,9 @@ void midgard_CG::load_charakter()
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          vec_fertigkeiten.push_back(st_ausgewaehlte_fertigkeiten(db_fertigkeit,db_wert,""));
+         string f = db_fertigkeit;
+         if (f=="KiDo") kido_bool=true;
+         if (f=="Wissen von der Magie") magie_bool=true;
       } 
    exec sql close fertigkeit;
    // Waffen
@@ -530,7 +533,6 @@ void midgard_CG::load_charakter()
    // Geschlecht setzen
    if (werte.geschlecht=="w") radiobutton_frau->set_active(true);
    if (werte.geschlecht=="m") radiobutton_mann->set_active(true);
-//   midgard_CG::fill_typauswahl();
    optionmenu_spezies->set_history(db_nr); // Spezies
    midgard_CG::show_gtk(get_typ_nr());
    midgard_CG::get_spezial_from_spezialgebiet();

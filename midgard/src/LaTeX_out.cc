@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.13 2001/05/07 14:01:46 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.14 2001/05/09 08:18:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -90,7 +90,7 @@ void midgard_CG::on_latex_clicked()
  fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(werte.spezialisierung,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(werte.stand,10,"1.5cm") << "}\n";
  fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(werte.herkunft,10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\glaube}{\\scriptsize "  <<LaTeX_scale(werte.glaube,10,"2.5cm") << "}\n";
+ fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(werte.glaube,10,"2.5cm") << "}\n";
  fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(werte.name_charakter,25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(werte.name_spieler,25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\gfp}{\\tiny "  <<werte.gfp << "}\n";
