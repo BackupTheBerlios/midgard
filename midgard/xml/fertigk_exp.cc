@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.19 2002/02/10 14:55:56 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.20 2002/02/13 11:53:45 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -95,7 +95,7 @@ void fert_speichern(std::ostream &o)
    	" where art='"+fert+"' order by name");
       FetchIStream isZu;
       while ((queryZu>>isZu).good()) 
-      {  o << "    <Zusaetze ";
+      {  o << "    <Zusätze";
          fetch_and_write_string_attrib(isZu, o, "Name");
          o << "/>\n";
       }
