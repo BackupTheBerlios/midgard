@@ -124,11 +124,14 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   guint kep=Werte.KEP();  
   guint zep=Werte.ZEP();  
   guint pp=0;
-  if     (radiobutton_praxis->get_active() && MBE)  pp=(*MBE)->Praxispunkte() ;
-  else if(radiobutton_praxis->get_active() && was=="Resistenz")  pp=Werte.ResistenzPP() ;
-  else if(radiobutton_praxis->get_active() && was=="Abwehr")  pp=Werte.AbwehrPP() ;
-  else if(radiobutton_praxis->get_active() && was=="Zauber")  pp=Werte.ZaubernPP() ;
-  else assert(!"Fehler in steigern_EP.cc");
+  if     (radiobutton_praxis->get_active())
+   { 
+     if(MBE)                   pp=(*MBE)->Praxispunkte() ;
+     else if(was=="Resistenz") pp=Werte.ResistenzPP() ;
+     else if(was=="Abwehr")    pp=Werte.AbwehrPP() ;
+     else if(was=="Zauber")    pp=Werte.ZaubernPP() ;
+     else assert(!"Fehler in steigern_EP.cc");
+   }
 
   // Dafür sorgen, daß FP für Praxispunkte nicht verschenkt werden
   while (pp>0 && pp*40 > ep_k ) --pp;

@@ -37,7 +37,9 @@ void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
-    MidgardBasicElement::move_element(Waffe_Besitz,Waffe_Besitz_neu,cH_WaffeBesitz(dt->get_Waffe())->Name());
+//    MidgardBasicElement::move_element(Waffe_Besitz,Waffe_Besitz_neu,cH_WaffeBesitz(dt->get_Waffe())->Name());
+    const MidgardBasicElement *MBE = &static_cast<const MidgardBasicElement&>(*WB);
+    MidgardBasicElement::move_element(Waffe_Besitz,Waffe_Besitz_neu,MBE);
     zeige_waffen();
    }
   else 
@@ -101,7 +103,8 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
 void Window_Waffenbesitz::on_leaf_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-   MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe()->Name());
+//   MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe()->Name());
+  MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe());
   zeige_waffen();
 }
 

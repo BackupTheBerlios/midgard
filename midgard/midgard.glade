@@ -3990,7 +3990,7 @@ beschreibung</label>
 		<widget>
 		  <class>GtkPixmap</class>
 		  <name>pixmap70</name>
-		  <filename>right_arr-exp.xpm</filename>
+		  <filename>right_arr-exp2.xpm</filename>
 		  <xalign>0.5</xalign>
 		  <yalign>0.5</yalign>
 		  <xpad>0</xpad>
@@ -4027,7 +4027,7 @@ beschreibung</label>
 		<widget>
 		  <class>GtkPixmap</class>
 		  <name>pixmap71</name>
-		  <filename>left_arr-exp.xpm</filename>
+		  <filename>left_arr-exp2.xpm</filename>
 		  <xalign>0.5</xalign>
 		  <yalign>0.5</yalign>
 		  <xpad>0</xpad>
@@ -6164,7 +6164,7 @@ steigern</label>
 		    <widget>
 		      <class>GtkPixmap</class>
 		      <name>pixmap78</name>
-		      <filename>Steigern-trans-32.xpm</filename>
+		      <filename>PP-Eingeben-trans-32.xpm</filename>
 		      <xalign>0.5</xalign>
 		      <yalign>0.5</yalign>
 		      <xpad>0</xpad>
@@ -9045,7 +9045,7 @@ Spruchrolle</label>
 		  <last_modification_time>Mon, 03 Sep 2001 18:41:40 GMT</last_modification_time>
 		</signal>
 		<label>Resistenz</label>
-		<icon>Steigern-trans-32.xpm</icon>
+		<icon>Resistenz-trans-32.xpm</icon>
 	      </widget>
 
 	      <widget>

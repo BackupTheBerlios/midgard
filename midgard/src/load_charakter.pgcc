@@ -328,15 +328,15 @@ void midgard_CG::load_ausruestung()
       if (sqlca.sqlcode) break;
       AusruestungBaum *A = &besitz.push_back(Ausruestung(adb_fert,adb_magisch,adb_wert));
       A->setParent(&besitz);
-      load_ausruestung_C(adb_self,*A);
+      load_ausruestung_C(adb_self,A);
     }
   exec sql close AFEIN;
   tr.close();
 }
 
-void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum &AB)
+void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum *AB)
 {
-  vector<pair<int,AusruestungBaum> > V;
+  vector<pair<int,AusruestungBaum*> > V;
   exec sql begin declare section;
     char acdb_name[50];
     char acdb_vers[50];
@@ -369,16 +369,16 @@ void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum &AB)
 //cout << acdb_fert<<'-'<<acdb_wert<<'-'<<acdb_magisch<<'-'<<acdb_self<<'-'<<'\n';
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;
-      AusruestungBaum *A = &AB.push_back(Ausruestung(acdb_fert,acdb_magisch,acdb_wert));
-      A->setParent(&AB);
-cout << "Child: "<<acdb_self<<' '<<parent<<'\t';
-cout<<A->getAusruestung().Name()<<'\t'<<AB.getAusruestung().Name()<<'\n';
-      V.push_back(pair<int,AusruestungBaum>(acdb_self,*A));  
+      AusruestungBaum *A = &AB->push_back(Ausruestung(acdb_fert,acdb_magisch,acdb_wert));
+      A->setParent(AB);
+//cout << "Child: "<<acdb_self<<' '<<parent<<'\t';
+//cout<<A->getAusruestung().Name()<<'\t'<<AB->getAusruestung().Name()<<'\n';
+      V.push_back(pair<int,AusruestungBaum*>(acdb_self,A));  
      }
   exec sql close LCFEIN;
   tr.close();
 
-  for(vector<pair<int,AusruestungBaum> >::iterator i=V.begin();i!=V.end();++i)
+  for(vector<pair<int,AusruestungBaum*> >::iterator i=V.begin();i!=V.end();++i)
    {
 //cout << i->first<<' '<<i->second.getAusruestung().Name()<<'\n';
     load_ausruestung_C(i->first,i->second);

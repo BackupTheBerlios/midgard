@@ -1,7 +1,7 @@
 ##########################################################################
 NEWS IN VERSION 0.1delta3
 
-* Sprachen und Schrift funktionieren richtig
+* Sprachen und Schrift funktionieren richtig (hoffentlich)
 * Zahlreiche Bugs (Datenbank und Programm) beseitigt
 * Und nochmehr Bugs, Bugs, Bugs .... beseitigt
 * Praxispunkte für Abwehr/Zauber/Resistenz: speichern, laden, setzen, anzeigen
@@ -11,14 +11,16 @@ NEWS IN VERSION 0.1delta3
 * Zauberwerk hat jetzt den korrekten Schlüssel, dafür mußte die 
    charaktere_fertigkeiten eine weitere Spalte erhalten
 * Landeskunde steigern/neulernen für verschiedene Länder funktioniert.
+* und noch mehr Bugs (danke an Alessandro)
+* Landeskunde Heimat in Universellen Fertigkeiten
+* Einige(!) Interne Dinge umstrukturiert
+* Die Ausrüstung kann geladen werden
 
 TODO:
-* Die Ausrüstung kann noch nicht geladen werden
 * Neue Ausrüstungsgegenstände sofort übernehmen
 * Spezielgebiete für Magier stürzt ab
 * Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
    und dem dazugehörigen Abwerbonus noch nicht.
-* Landeskunde Heimat in Universellen Fertigkeiten
 * Landeskunde als Berufsfähigkeit für 3 Berufe
 
 ##########################################################################

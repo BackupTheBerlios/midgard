@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.117 2001/12/31 16:06:34 thoma Exp $
+// $Id: midgard_CG.hh,v 1.118 2002/01/04 14:21:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -471,7 +471,7 @@ class midgard_CG : public midgard_CG_glade
 //         int ausruestung_tree_nr;         
          void save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB);
          void load_ausruestung();
-         void load_ausruestung_C(int parent, AusruestungBaum &AB);
+         void load_ausruestung_C(int parent, AusruestungBaum *AB);
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);

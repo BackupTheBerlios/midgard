@@ -129,6 +129,7 @@ void midgard_CG::showAusruestung()
      showChildren(r,i->getChildren());
    }
 
+/*
   for(Gtk::CTree_Helpers::RowList::const_iterator i=Ausruestung_tree->rows().begin();
          i!=Ausruestung_tree->rows().end();++i)
    {
@@ -145,6 +146,7 @@ void midgard_CG::showAusruestung()
         cout << '\t'<<"Child Size= "<<A.getChildren().size()<<'\n';
       }
    }
+*/
 
   r->expand_recursive();
   Ausruestung_tree->show(); 
