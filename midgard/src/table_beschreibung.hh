@@ -33,5 +33,12 @@ private:
         void on_button_grafik_clicked();
         gint on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev);
+        gint on_button_grafik_button_release_event(GdkEventButton *event);
+        void on_button_fett_clicked();
+        void on_button_kursiv_clicked();
+        void on_button_liste_clicked();
+        void on_button_liste2_clicked();
+        void insert_into_beschreibung(const std::string &s,const gint select_start=0,const gint select_end=0);
+        void save_beschreibung();
 };
 #endif

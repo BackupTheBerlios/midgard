@@ -146,6 +146,7 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
  if (!in_dtor) 
   {
    if(Char.empty()) Char.push_back();
+   table_beschreibung->save_beschreibung();   
    load_for_mainpage(pagenr);
   }  
 }

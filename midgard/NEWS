@@ -22,6 +22,8 @@ NEWS IN VERSION 0.8.8
    sonst paßt es nicht zum Laden. Und das benötigt wg. Datenbank 
    den '.' als Trennzeichen.
 * Ausrüstung: Überprüfung, ob genug Geld vorhanden ist.
+* Beschreibung: Bild kann wieder gelöscht werden
+* Beschreibung: Formatierungen (Fett,Kursiv,Listen) für nicht-LaTeX-Kenner
 
 
 TODO: ('-' zeigt CP an)

@@ -16,11 +16,16 @@ void table_beschreibung::init(midgard_CG *h)
   show_beschreibung();
 }
 
-gint table_beschreibung::on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev)
-{  
+void table_beschreibung::save_beschreibung()
+{
   std::string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
   hauptfenster->getWerte().setBeschreibung(b);
   hauptfenster->undosave("Beschreibung geändert");
+}
+
+gint table_beschreibung::on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev)
+{  
+  save_beschreibung();
   return 0;
 }
 
@@ -28,6 +33,17 @@ void table_beschreibung::on_button_beschreibung_drucken_clicked()
 {  
   hauptfenster->on_beschreibung_drucken();
 }
+
+gint table_beschreibung::on_button_grafik_button_release_event(GdkEventButton *ev)
+{
+  if (ev->button==1) on_button_grafik_clicked();
+  if (ev->button==3) 
+   { label_grafik->set_text("");
+     hauptfenster->getWerte().setBeschreibungPix("");
+   }
+  return false;
+}
+
 
 void table_beschreibung::on_button_grafik_clicked()
 {  
@@ -66,5 +82,40 @@ void table_beschreibung::show_beschreibung()
   label_grafik->set_text(s);
 
   spinbutton_pix_breite->set_value(hauptfenster->getWerte().BeschreibungPixSize());
+}
+
+void table_beschreibung::insert_into_beschreibung(const std::string &s,const gint select_start,const gint select_end)
+{
+  gint pos=text_charakter_beschreibung->get_point();
+  text_charakter_beschreibung->insert_text(s.c_str(), s.size(), &pos);
+  
+  if(select_start!=select_end)
+     text_charakter_beschreibung->select_region(pos+select_start,pos+select_end);
+  if(select_start)
+     text_charakter_beschreibung->set_point(pos+select_start);
+}
+
+void table_beschreibung::on_button_fett_clicked()
+{
+  std::string s="\\textbf{  }";
+  insert_into_beschreibung(s,7,8);
+}
+
+void table_beschreibung::on_button_kursiv_clicked()
+{
+  std::string s="\\textit{  }";
+  insert_into_beschreibung(s,7,8);
+}
+
+void table_beschreibung::on_button_liste_clicked()
+{
+ std::string s="\n\n\\begin{punkte}\n  \\item\n \\item \\end{punkte}\n\n";
+ insert_into_beschreibung(s,24,25);
+}
+
+void table_beschreibung::on_button_liste2_clicked()
+{
+ std::string s="\n\n\\begin{punkte2}\n  \\item\n \\item \\end{punkte2}\n\n";
+ insert_into_beschreibung(s,24,25);
 }
 
