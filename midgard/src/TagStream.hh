@@ -57,6 +57,8 @@ class TagStream : public Tag
 public:
 	const Tag *find(const std::string &type) const
 	{  return Tag::find(type); }
+	Tag::const_iterator find(Tag::const_iterator it,const std::string &type) const
+	{  return Tag::find(it,type); }
 	TagStream(const std::string &path);
 	TagStream(const char *buf);
 	TagStream(istream &i);

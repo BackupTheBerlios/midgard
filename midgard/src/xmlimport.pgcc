@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.22 2001/08/28 16:54:35 christof Exp $
+// $Id: xmlimport.pgcc,v 1.23 2001/08/28 16:58:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -103,7 +103,7 @@ bool charakter_laden(const Tag::const_iterator &top)
       char db_ruestung[20];
       char db_spezies[50];
       int db_aep,db_kep,db_zep,db_steigern_ep_prozent,db_grad_basiswerte;
-      bool db_speichern_bool;
+      bool db_steigern_bool;
    exec sql end declare section;
 
    strncpy0(db_beschreibung,top->getString("Text").c_str(),sizeof db_beschreibung);
@@ -165,7 +165,7 @@ bool charakter_laden(const Tag::const_iterator &top)
    db_zep=Steigern->getInt("ZEP",0); // V7+
    db_steigern_ep_prozent=Steigern->getInt("APproGFP",50); // V7+
    db_grad_basiswerte=Steigern->getInt("Basiswerte",db_grad); // V7+
-   db_speichern_bool=Steigern->getBool("steigern",false); // V7+
+   db_steigern_bool=Steigern->getBool("steigern",false); // V7+
    
 update:
    exec sql UPDATE charaktere SET 
@@ -219,7 +219,7 @@ update:
       kupfer         = :db_kupfer      ,
       ruestung       = :db_ruestung    ,
       spezies        = :db_spezies     ,
-      steigern_bool  = :db_steigen_bool,
+      steigern_bool  = :db_steigern_bool,
       aep	     = :db_aep	       ,
       kep 	     = :db_kep		, 
       zep	     = :db_zep		,
