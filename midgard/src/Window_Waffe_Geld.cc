@@ -39,8 +39,8 @@ void Window_Waffe_Geld::on_button_close_clicked()
   vector<st_waffen_besitz> waffe;
   for (unsigned int i=0;i<clist_gewaehlte_waffen->rows().size();++i)
    {
-     string waffe=clist_gewaehlte_waffen->get_text(i,0);
-     waffe.push_back(st_waffen_besitz(waffe,waffe,"",0,0));
+     string swaffe=clist_gewaehlte_waffen->get_text(i,0);
+     waffe.push_back(st_waffen_besitz(swaffe,swaffe,"",0,0));
    }
   hauptfenster->waffe_besitz_uebernehmen(waffe);
   destroy();

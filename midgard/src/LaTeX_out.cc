@@ -163,8 +163,7 @@ void midgard_CG::on_latex_clicked()
          ++countwaffen;
          string b = LaTeX_string(j);
          string waffenname ;
-         if (waffe_besitz[j].region=="") waffenname = waffe_besitz[j].name;
-         else waffenname = midgard_CG::get_region_waffen(waffe_besitz[j].name,waffe_besitz[j].region,1);
+         waffenname = waffe_besitz[j].alias;
          fout << "\\newcommand{\\waffe"<<b<<"}{\\scriptsize "<<waffenname ;
          if (waffe_besitz[j].av_bonus!=0 || waffe_besitz[j].sl_bonus!=0) fout <<"$^*$";
          fout << "}\n";
@@ -183,11 +182,11 @@ void midgard_CG::on_latex_clicked()
    }
  // waffenloser Kampf:
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+werte.bo_an << "}\n";
- string schaden=midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","",0,0),werte,"Schaden");
+ string schaden=midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0),werte,"Schaden");
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- string anm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","",0,0),werte,"Angriffsrangmodifikation");
+ string anm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0),werte,"Angriffsrangmodifikation");
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- string abm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","",0,0),werte,"WM_Abwehr");
+ string abm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0),werte,"WM_Abwehr");
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
 
  // Fertigkeiten auffüllen

@@ -354,8 +354,8 @@ void midgard_CG::load_charakter()
          exec sql fetch besitz_w into :db_fertigkeit, :db_av_bonus ,:db_sl_bonus, :db_region;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         get_region_waffen(db_fertigkeit,db_region,2);         
-         waffe_besitz.push_back(st_waffen_besitz(,db_fertigkeit,db_region,db_av_bonus,db_sl_bonus));
+         string wa = get_region_waffen(db_fertigkeit,db_region,2);         
+         waffe_besitz.push_back(st_waffen_besitz(wa,db_fertigkeit,db_region,db_av_bonus,db_sl_bonus));
       } 
    exec sql close besitz_w;
 

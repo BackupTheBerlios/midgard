@@ -76,8 +76,8 @@ void  Window_Waffenbesitz::show_alte_waffen()
         os << i->name <<"\t"<<schaden<<"\t"<<bonus<<"\n";
      else
       {
-        string alias = hauptfenster->get_region_waffen(i->name,i->region,1); 
-        os << alias <<"\t"<<schaden<<"\t"<<bonus<<"\n";
+//        string alias = hauptfenster->get_region_waffen(i->name,i->region,1); 
+        os << i->alias <<"\t"<<schaden<<"\t"<<bonus<<"\n";
       }
    }
   for (unsigned int i=0;i<clist_waffe_alt->columns().size();++i)
@@ -114,7 +114,7 @@ void  Window_Waffenbesitz::show_neue_waffen()
      exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     string schaden=hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,"",0,0),werte,"Schaden");
+     string schaden=hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,db_waffe,"",0,0),werte,"Schaden");
      string waffe=db_waffe;
      if (waffe!="waffenloser Kampf" )
         os << db_waffe<<"\t"<<schaden<<"\n";

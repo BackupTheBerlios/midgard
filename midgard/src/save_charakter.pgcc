@@ -3,6 +3,23 @@ exec sql include sqlca;
 #include <cstring>
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
+
+gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
+{
+  if (ev->button==1) midgard_CG::on_speichern_clicked();
+  if (ev->button==3) midgard_CG::xml_export();
+  return false;
+}
+
+void midgard_CG::xml_export()
+{
+  string cname   = werte.name_charakter;
+  string version = werte.version;
+  string command = "xml "+cname+" "+version;
+  system(command.c_str());
+  string strinfo = "Charakter "+cname+" exportiert\n";
+  manage (new WindowInfo(strinfo));
+}
  
 void midgard_CG::on_speichern_clicked()
 {

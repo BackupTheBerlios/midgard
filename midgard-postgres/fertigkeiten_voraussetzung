@@ -138,6 +138,14 @@ YangScheng	\N	\N	\N	\N	61	\N	\N	\N	\N	\N
 YubeChian	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	61	\N	\N
 KiDo	\N	31	\N	\N	61	\N	\N	\N	\N	TaiTschi
+Brettspiel	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
+Dichten	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
+Erzählen	\N	\N	\N	31	\N	\N	31	\N	\N	\N
+Geomantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie
+Kamelreiten	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
+Kampf zu Kamel	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kamelreiten
+Mumifizieren	\N	31	\N	31	\N	\N	\N	\N	\N	Kräuterkunde, Naturkunde
+Pyromantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie
 \.
 -- Enable triggers
 BEGIN TRANSACTION;

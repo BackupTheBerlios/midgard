@@ -293,6 +293,8 @@ class midgard_CG : public midgard_CG_glade
          midgard_CG();
          st_werte werte;
          void on_speichern_clicked();
+         gint on_speichern_release_event(GdkEventButton *ev);
+         void xml_export();
          void charakter_beschreibung_uebernehmen(string b);
          void charakter_beschreibung_drucken(string b);
          void select_charakter(string name, string version);

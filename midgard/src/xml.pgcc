@@ -1,4 +1,4 @@
-// $Id: xml.pgcc,v 1.1 2001/04/17 11:44:58 christof Exp $
+// $Id: xml.pgcc,v 1.2 2001/04/17 19:39:47 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -181,14 +181,17 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    exec sql deallocate descriptor spalten;
 }
 
-int main()
-{  try{
-   ofstream o("Gwyneth");
+int main(int argc, char *argv[])
+{  
+   if (argc!=3) {cerr << "FEHLER: "<<argv[0]<<" muß mit 'Charaktername' und 'Version' aufgerufen werden\n";
+      exit(1); };
+   try{
+   ofstream o(argv[1]);
       Petig::Connection conn;
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
 
-   charakter_speichern(o,"Gwyneth NiConuhil","Legion der Verdammten");
+   charakter_speichern(o,argv[1],argv[2]);
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  cerr << e << '\n';

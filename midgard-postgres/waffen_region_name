@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_region_name";
 --
--- TOC Entry ID 2 (OID 367504)
+-- TOC Entry ID 2 (OID 371536)
 --
 -- Name: waffen_region_name Type: TABLE Owner: thoma
 --
@@ -15,7 +15,7 @@ CREATE TABLE "waffen_region_name" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 367504) TABLE DATA waffen_region_name
+-- Data for TOC Entry ID 3 (OID 371536) TABLE DATA waffen_region_name
 --
 
 -- Disable triggers
@@ -35,6 +35,20 @@ Anderthalbh‰nder	Claemore	A
 Langschwert	Breitschwert	A
 Dolch	Dirgh	A
 Kurzschwert	Laingdirgh	A
+Dolch	Jambiya	E
+Dolch	Khanjar	E
+Dolch	Rilok	E
+Dolch	Telek	E
+Streitkolben	Dabus	E
+leichter Speer	Jarid	E
+Wurfspeer	Jarid	E
+Anderthalbh‰nder	Nimcha	E
+Stoﬂspeer	Rumeh	E
+Lanze	Rumeh	E
+Kumms‰bel	Saif	E
+Langschwert	Takuba	E
+Bogen	Mukantar	E
+leichte Armbrust	Ud al-Khal	E
 \.
 -- Enable triggers
 BEGIN TRANSACTION;

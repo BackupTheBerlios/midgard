@@ -130,6 +130,8 @@ Teezeremonie	Überleben
 YangScheng	YangScheng
 YubeChian	-
 Zunge verschlucken	Verhören
+Brettspiel	Brettspiel
+Kamelreiten	Bewegung
 \.
 -- Enable triggers
 BEGIN TRANSACTION;

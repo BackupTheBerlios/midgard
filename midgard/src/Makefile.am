@@ -66,7 +66,7 @@ BUILT_SOURCES_CG = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
 
 BUILT_SOUCES_XML=xml.cc
 
-BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XML)
+BUILT_SOURCES=$(BUILT_SOURCES_CG) 
 
 xml_SOURCES= xml.cc
 
