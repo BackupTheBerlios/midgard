@@ -39,6 +39,8 @@ void table_ausruestung::init(midgard_CG *h)
    label_hoechstlast->set_text(itos(h->getAben().getHoechstlast())+" kg");
    label_schublast->set_text(itos(h->getAben().getSchublast())+" kg");
    fill_new_preise();
+   fill_all_Combos_Art_Einheit_Region();
+   fill_all_Combo_Art2();
 }
    
    
@@ -247,9 +249,11 @@ void table_ausruestung::fill_all_Combos_Art_Einheit_Region()
      LArt.push_back((*i)->Art());
      LEinheit.push_back((*i)->Einheit());
    }
-  LArt.unique();
   LArt.sort();
+  LArt.unique();
   combo_art->set_popdown_strings(LArt);
+  LEinheit.sort();
+  LEinheit.unique();
   combo_einheit->set_popdown_strings(LEinheit);
 }
 

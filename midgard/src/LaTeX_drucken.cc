@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.85 2002/11/22 15:47:19 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.86 2002/11/28 15:38:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -372,7 +372,7 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case ealter:sfout += itos(W.Alter()); break ;
      case egewicht:sfout += itos(W.Gewicht())+ "\\,kg"; break ;
      case egestalt:sfout += LaTeX_scale(W.Gestalt(),5,"0.7cm"); break ;
-     case ekoerpergroesse:sfout += LaTeX_scale(dtos(W.Groesse()/100.)+ "\\,m~\\scriptsize(" + W.GroesseBez()+")",7,"0.8cm"); break ;
+     case ekoerpergroesse:sfout += LaTeX_scale(dtos(W.Groesse()/100.)+ "\\,m~\\scriptsize(" + W.GroesseBez()+")",8,"0.9cm"); break ;
      case egrad:sfout += itos(W.Grad()); break ;
      case espezialisierung:sfout += LaTeX_scale(W.Spezialisierung(),10,"2.2cm") ; break ;
      case estand:sfout += LaTeX_scale(W.Stand(),10,"1.5cm"); break ;

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.63 2002/11/25 12:09:47 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.64 2002/11/28 15:38:31 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -87,7 +87,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    {
      cH_Fertigkeit f(*i);
-     if(f->Ungelernt()!=-99)
+     if(f->Ungelernt(*this)!=-99)
      UF.push_back(MBEmlt(*i));
    }
   cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen"));
@@ -101,7 +101,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
      if ((*i->mbe)->What()==MidgardBasicElement::FERTIGKEIT)
       {
         cH_Fertigkeit f(i->mbe->getMBE());
-        iwert = f->Ungelernt();
+        iwert = f->Ungelernt(*this);
         if(f->Name()==(*(getWerte().Ueberleben()))->Name()) iwert=6;
         if (!f->Voraussetzung(*this,true))
             {iwert-=2; i->voraussetzung=false;}

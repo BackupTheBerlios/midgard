@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.54 2002/10/24 07:21:01 christof Exp $               
+// $Id: Fertigkeiten.hh,v 1.55 2002/11/28 15:38:31 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -77,7 +77,7 @@ class Fertigkeit : public MidgardBasicElement
      int LernLand() const {return lern_land;}
      int LernStadt() const {return lern_stadt;}
      int Anfangswert0() const {return anfangswert0;}
-     int Ungelernt() const {return ungelernt;}
+     int Ungelernt(const Abenteurer &a) const;
      int Berufskategorie() const {return berufskategorie;}
      std::string Voraussetzung() const {return voraussetzung.fert;}
      bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const;

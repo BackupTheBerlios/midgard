@@ -172,11 +172,18 @@ MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const std::vector<cH_Typen>&
   return enum_zusatz;
 }
 
+int Fertigkeit::Ungelernt(const Abenteurer &a) const
+{
+  if(Name()=="Trinken") return a.getWerte().Ko()/10;
+  return ungelernt;
+}
+
+
 int Fertigkeit::FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) const
 {
   if(Name()=="Trinken" && a.getWerte().Spezies()->Name()!="Zwerg") 
       return mbem->Erfolgswert()+a.getWerte().Ko()/10;
-  if(Name()=="Berserkergang") return mbem->Erfolgswert()-a.getWerte().Wk()/5;
+  else if(Name()=="Berserkergang") return mbem->Erfolgswert()-a.getWerte().Wk()/5;
   else return mbem->Erfolgswert();
 }
 
