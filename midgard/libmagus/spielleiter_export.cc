@@ -147,9 +147,9 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
    { //cH_Fertigkeit f((*i)->getMBE());
     std::string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
-    std::string sz=", ";
-    if(!(*i)->Zusatz().empty()) sz="("+ (*i)->Zusatz() +")," ;
-    fert+=(*(*i))->Name()+wert+sz ;
+    std::string sz=wert+", ";
+    if(!(*i)->Zusatz().empty()) sz="("+ (*i)->Zusatz() +")"+sz ;
+    fert+=(*(*i))->Name()+sz ;
    }
  ManuProC::remove_last_from(fert,",");
 // std::string::size_type st3=fert.find_last_of(",");
