@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.9 2003/09/16 07:09:45 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.10 2003/09/17 07:44:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -24,6 +24,7 @@
 #include <string>
 #include <BaseObjects/Model.h>
 #include <BaseObjects/RadioModel.h>
+#include "libmagus_dll.h"
 
 class Magus_Optionen
 {
@@ -162,5 +163,5 @@ class Magus_Optionen
       Model_ref<bool> WerteEingebenModel() { return werte_eingeben; }
 };
 
-extern Magus_Optionen Programmoptionen;
+extern LIBMAGUS_API Magus_Optionen Programmoptionen;
 #endif

@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.15 2003/09/01 06:47:57 christof Exp $               
+// $Id: Datenbank.hh,v 1.16 2003/09/17 07:44:31 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -27,7 +27,6 @@
 #include <list>
 
 #include "Land.hh"   
-//#include "Ausnahmen.hh"
 #include "Spezies.hh"
 #include "Typen.hh"
 #include "Grad_anstieg.hh"
@@ -35,12 +34,12 @@
 #include "Preise.hh"
 #include "Region.hh"  
 #include "Ruestung.hh"
-//#include "Midgard_Info.hh"
 #include "Prototyp.hh"
 #include "Prototyp2.hh"
 #include "Waffe.hh"
 #include <Misc/Tag.h>
 #include <BaseObjects/Model.h> // for cheap sigc++
+#include "libmagus_dll.h"
 
 class Datenbank
 {
@@ -86,5 +85,5 @@ class Datenbank
   void load_list(const Tag&);
 };
 
-extern const class Datenbank Datenbank;
+extern LIBMAGUS_API const class Datenbank Datenbank;
 #endif

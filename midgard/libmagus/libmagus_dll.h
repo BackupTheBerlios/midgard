@@ -1,6 +1,5 @@
-// $Id: Windows_Linux.hh,v 1.4 2003/09/17 07:44:31 christof Exp $
+// $Id: libmagus_dll.h,v 1.1 2003/09/17 07:44:31 christof Exp $               
 /*  Midgard Character Generator
- *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -18,30 +17,19 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifndef _WINLUX_HH_
-#define _WINLUX_HH_
+#ifndef LIBMAGUS_DLL_H
+#define LIBMAGUS_DLL_H
 
 #ifdef __MINGW32__
-#define NUR_LINUX(x...)
-#define WINDOWS_LINUX(a,b) a
+#if defined(libmagus_COMPILATION) && defined(DLL_EXPORT)
+#define LIBMAGUS_API __declspec(dllexport) 
+#elif !defined(libmagus_COMPILATION)
+#define LIBMAGUS_API __declspec(dllimport)
 #else
-#define NUR_LINUX(x...) x
-#define WINDOWS_LINUX(a,b) b
-#endif
-
-#include <string>
-#include "libmagus_dll.h"
-
-namespace WinLux
-{
-  static const char dirsep=WINDOWS_LINUX('\\','/');
-  static const char psep=WINDOWS_LINUX(';',':');
-  // ~ in TeX als normales Zeichen (Dateiname) oder als festes Leerzeichen?
-  extern LIBMAGUS_API const std::string normal_tilde, active_tilde;
-  
-  std::string recodePathForTeX(std::string p);
-  
-  bool CreateProcess(const std::string &cmdline);
-};
+#define LIBMAGUS_API
+#endif /* libmagus_COMPILATION - DLL_EXPORT */
+#else
+#define LIBMAGUS_API
+#endif /* __MINGW32__ */
 
 #endif
