@@ -23,6 +23,8 @@
 #include "class_SimpleTree.hh"
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/NotFound.h>
+#include <libmagus/LernListen.hh>
+#include <libmagus/Datenbank.hh>
 
 void table_steigern::schriften_zeigen()
 {
@@ -39,7 +41,7 @@ void table_steigern::alte_schrift_zeigen()
 void table_steigern::neue_schrift_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
-  list_Schrift_neu=LL->get_steigern_MBEm(A,Enums::sSchr);
+  list_Schrift_neu=LernListen::get_steigern_MBEm(A,Enums::sSchr);
   MidgardBasicTree::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,&A);
 }
 
@@ -58,7 +60,7 @@ void table_steigern::alte_sprache_zeigen()
 void table_steigern::neue_sprache_zeigen()
 {   
   Abenteurer &A=hauptfenster->getAben();
-  list_Sprache_neu=LL->get_steigern_MBEm(A,Enums::sSpra);
+  list_Sprache_neu=LernListen::get_steigern_MBEm(A,Enums::sSpra);
    MidgardBasicTree::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,&hauptfenster->getAben());
 //  on_schrift_laden_clicked();
 }   

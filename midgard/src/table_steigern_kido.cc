@@ -21,6 +21,7 @@
 #include "class_SimpleTree.hh"
 #include "KiDo.hh"
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/Datenbank.hh>
 
 void table_steigern::on_kido_laden_clicked()
 {   
