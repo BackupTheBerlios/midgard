@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream.cc,v 1.3 2002/12/18 09:00:39 christof Exp $
+// $Id: Gtk_OStream.cc,v 1.4 2002/12/18 10:18:24 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -21,23 +21,25 @@
 #include "Gtk_OStream.h"
 #include <cassert>
 
+std::streamsize Gtk::OStreamBase::data_cb(const char_type* __s, std::streamsize __n)
+{  if (data_impl) return (*data_impl)(s,n);
+   return 0;
+}
+
 Gtk::OStreamBase::OStreamBase(line_cbt l,close_cbt c)
-	: flush_impl(0), close_impl(c), data_cbt(&OStream::default_data),
-		line_impl(l)
+	:  std::ostream(0), 
+	   flush_impl(0), close_impl(c), data_impl(&OStream::default_data),
+	   line_impl(l), 
+	   user_data(0), notify(0), buf(*this,&OStreamBase::data_cb)
 {
 }
 
 Gtk::OStreamBase::OStreamBase(data_cbt d)
-	: flush_impl(0), close_impl(0), data_cbt(d), line_impl(0)
+	:  std::ostream(0), 
+	   flush_impl(0), close_impl(0), data_impl(d), line_impl(0),
+	   user_data(0), notify(0), buf(*this,&OStreamBase::data_cb)
 {
 }
-
-#if 0
-Gtk::OStreamBase::OStreamBase(flush_cbt f,close_cbt c, data_cbt d, line_cbt l)
-	   : flush_impl(f), close_impl(c), data_impl(d), line_impl(l)
-{  if (!data_impl) data_impl=&OStream::default_data;
-}
-#endif
 
 std::ios::streamsize OStream::default_data(const char *s,streamsize n)
 {  data.append(s,n);

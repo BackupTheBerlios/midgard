@@ -52,6 +52,9 @@ class OStreamBase : public std::ostream
         gpointer user_data;
         GtkDestroyNotify notify;
         SigC::Signal0<void> flushed;
+        callbackbuf<Gtk::OStreamBase> buf;
+        
+        std::streamsize data_cb(const char_type* __s, std::streamsize __n);
 public:
 	OStreamBase(line_cbt l,close_cbt c=0);
 	OStreamBase(data_cbt d);
@@ -68,6 +71,7 @@ public:
 
 class OStream : public OStreamBase
 {       // specific information
+        friend class OStreamBase;
         struct data_stream { std::ostream *os; };
         struct data_optionmenu { Gtk::OptionMenu *widget; Gtk::Menu *menu; };
         struct data_label { Label *widget; };
