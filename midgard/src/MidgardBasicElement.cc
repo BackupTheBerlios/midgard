@@ -76,7 +76,7 @@ void MidgardBasicElement::move_element(std::list<MidgardBasicElement_mutable>& v
     {
       if ((*i)->Name()==MBE->Name()) 
         { 
-//          i->setErfolgswert(MBE.Erfolgswert());
+          i->setErfolgswert(MBE.Erfolgswert());
           nach.splice(nach.begin(),von,i);
           break; 
         }
@@ -142,6 +142,15 @@ vector<std::string> MidgardBasicElement::Standard(const Grundwerte &Werte,const 
 
  return s;
 }
+
+bool MidgardBasicElement::Grundfertigkeit(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+{
+  std::string standard=Standard__(Werte,Typ);
+  std::string::size_type st=standard.find("G");
+  if(st==std::string::nopos) return false;
+  return true;
+}
+
 
 std::string MidgardBasicElement::AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const
 {

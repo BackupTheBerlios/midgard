@@ -1577,10 +1577,9 @@ portierung</label>
 		  <widget>
 		    <class>GtkLabel</class>
 		    <name>label531</name>
-		    <label>Beim Abtippen der Daten haben Nils Richter,
-Sebastian Horstmann, Joachim Jordan,
-Alessandro Filipetti, Sven Rey und viele
-andere geholfen.</label>
+		    <label>Beim Abtippen der Daten und Testen haben Michael Gruetzki, Nils Richter,
+Roland Ritthaler Sebastian Horstmann, Joachim Jordan, Alessandro Filipetti,
+Sven Rey, Ottmar Zimmer und viele andere geholfen.</label>
 		    <justify>GTK_JUSTIFY_LEFT</justify>
 		    <wrap>False</wrap>
 		    <xalign>0</xalign>
@@ -12787,36 +12786,150 @@ steigern</label>
 		      </widget>
 
 		      <widget>
-			<class>GtkScrolledWindow</class>
-			<name>scrolledwindow23</name>
-			<hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-			<vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+			<class>GtkTable</class>
+			<name>table162</name>
+			<rows>2</rows>
+			<columns>2</columns>
+			<homogeneous>False</homogeneous>
+			<row_spacing>0</row_spacing>
+			<column_spacing>0</column_spacing>
 			<child>
-			  <shrink>False</shrink>
+			  <shrink>True</shrink>
 			  <resize>True</resize>
 			</child>
 
 			<widget>
-			  <class>GtkViewport</class>
-			  <name>viewport19</name>
-			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
+			  <class>GtkScrolledWindow</class>
+			  <name>scrolledwindow23</name>
+			  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+			  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+			  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+			  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+			  <child>
+			    <left_attach>0</left_attach>
+			    <right_attach>1</right_attach>
+			    <top_attach>0</top_attach>
+			    <bottom_attach>2</bottom_attach>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			    <xexpand>True</xexpand>
+			    <yexpand>True</yexpand>
+			    <xshrink>False</xshrink>
+			    <yshrink>False</yshrink>
+			    <xfill>True</xfill>
+			    <yfill>True</yfill>
+			  </child>
 
 			  <widget>
-			    <class>Custom</class>
-			    <name>neue_sprache_tree</name>
-			    <cxx_visibility>protected</cxx_visibility>
-			    <signal>
-			      <name>leaf_selected</name>
-			      <handler>on_leaf_selected_neue_sprache</handler>
-			      <last_modification_time>Fri, 22 Jun 2001 08:34:26 GMT</last_modification_time>
-			    </signal>
-			    <creation_function>MidgardBasicTree(MidgardBasicTree::SPRACHE_NEU)</creation_function>
-			    <int1>0</int1>
-			    <int2>0</int2>
-			    <last_modification_time>Mon, 31 Dec 2001 12:19:29 GMT</last_modification_time>
+			    <class>GtkViewport</class>
+			    <name>viewport19</name>
+			    <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+			    <widget>
+			      <class>Custom</class>
+			      <name>neue_sprache_tree</name>
+			      <cxx_visibility>protected</cxx_visibility>
+			      <signal>
+				<name>leaf_selected</name>
+				<handler>on_leaf_selected_neue_sprache</handler>
+				<last_modification_time>Fri, 22 Jun 2001 08:34:26 GMT</last_modification_time>
+			      </signal>
+			      <creation_function>MidgardBasicTree(MidgardBasicTree::SPRACHE_NEU)</creation_function>
+			      <int1>0</int1>
+			      <int2>0</int2>
+			      <last_modification_time>Mon, 31 Dec 2001 12:19:29 GMT</last_modification_time>
+			    </widget>
 			  </widget>
+			</widget>
+
+			<widget>
+			  <class>GtkToggleButton</class>
+			  <name>togglebutton_neue_sprache_pp</name>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <can_focus>True</can_focus>
+			  <relief>GTK_RELIEF_NORMAL</relief>
+			  <active>False</active>
+			  <child>
+			    <left_attach>1</left_attach>
+			    <right_attach>2</right_attach>
+			    <top_attach>0</top_attach>
+			    <bottom_attach>1</bottom_attach>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			    <xexpand>False</xexpand>
+			    <yexpand>False</yexpand>
+			    <xshrink>False</xshrink>
+			    <yshrink>False</yshrink>
+			    <xfill>False</xfill>
+			    <yfill>False</yfill>
+			  </child>
+
+			  <widget>
+			    <class>GtkHBox</class>
+			    <name>hbox86</name>
+			    <homogeneous>False</homogeneous>
+			    <spacing>0</spacing>
+
+			    <widget>
+			      <class>GtkPixmap</class>
+			      <name>pixmap163</name>
+			      <filename>Learning_by_Doing-32.xpm</filename>
+			      <xalign>0.5</xalign>
+			      <yalign>0.5</yalign>
+			      <xpad>0</xpad>
+			      <ypad>0</ypad>
+			      <build_insensitive>True</build_insensitive>
+			      <child>
+				<padding>0</padding>
+				<expand>True</expand>
+				<fill>True</fill>
+			      </child>
+			    </widget>
+
+			    <widget>
+			      <class>GtkLabel</class>
+			      <name>label600</name>
+			      <label>Neue Sprache mit
+PP lernen</label>
+			      <justify>GTK_JUSTIFY_CENTER</justify>
+			      <wrap>False</wrap>
+			      <xalign>0.5</xalign>
+			      <yalign>0.5</yalign>
+			      <xpad>0</xpad>
+			      <ypad>0</ypad>
+			      <child>
+				<padding>0</padding>
+				<expand>False</expand>
+				<fill>False</fill>
+			      </child>
+			    </widget>
+			  </widget>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label601</name>
+			  <label></label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <left_attach>1</left_attach>
+			    <right_attach>2</right_attach>
+			    <top_attach>1</top_attach>
+			    <bottom_attach>2</bottom_attach>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			    <xexpand>False</xexpand>
+			    <yexpand>True</yexpand>
+			    <xshrink>False</xshrink>
+			    <yshrink>False</yshrink>
+			    <xfill>True</xfill>
+			    <yfill>False</yfill>
+			  </child>
 			</widget>
 		      </widget>
 		    </widget>

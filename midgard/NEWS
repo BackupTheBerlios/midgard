@@ -17,22 +17,23 @@ NEWS IN VERSION 0.7delta2
 * Schreiben Muttersprache nur noch 1x auswählbar
 * Datanbank Bugs beseitigt
 * Reduzieren von max. Erfolgswert möglich
-
+* Spielleiterbogen: Höchster Wert FETT
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* Spielleiterbogen: Waffen/Abwehr/Zaubern
+* Neue Sprachen mit PP lernen
 
 TODO:
 * Voraussetzungen anzeigen aber nicht lernbar
-> Dann ist Magus mit "Magus verursachte einen Stapelfehler in Modul
-> LIBGTK-0.DLL" abgestürzt: Zuerst wählte ich für einen Magier das
-> Spezialgebiet aus, als noch der Waffenknopf bzw. Ungewöhnliche
-> Fertigkeiten aktiv war. Dann drückte ich auf die Zauberlerntaste und
-> rumms.
-> 
+* Lernen neuer Sprachen mit PP
+* Dann ist Magus mit "Magus verursachte einen Stapelfehler in Modul
+  LIBGTK-0.DLL" abgestürzt: Zuerst wählte ich für einen Magier das
+  Spezialgebiet aus, als noch der Waffenknopf bzw. Ungewöhnliche
+  Fertigkeiten aktiv war. Dann drückte ich auf die Zauberlerntaste und
+  rumms.
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
 * Ausdruck für lange Listen
-* Spielleiterliste: Höchster Wert FETT
-* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)

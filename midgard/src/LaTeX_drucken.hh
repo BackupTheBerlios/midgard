@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.6 2002/06/07 12:17:03 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.7 2002/06/19 07:53:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,10 +63,10 @@ class LaTeX_drucken
     
     enum ewhat{SName,AName,Spezies,Typ,Grad,Herkunft,Stand,Gestalt,Groesse,
                Gewicht,Beruf,Glaube,Sprachen,Schriften,St,Gw,Gs,Ko,In,Zt,
-               Au,pA,Wk,Sb,B,Resistenz,Sehen,Hoeren,Riechen,Schmecken,Tasten,
+               Au,pA,Wk,Sb,B,Resistenz,Zaubern,Abwehr,Sehen,Hoeren,Riechen,Schmecken,Tasten,
                SechsterSinn,Wahrnehmung,Spurenlesen,Fallen_entdecken,
                Suchen,Menschenkenntnis, Sagenkunde,Zauberkunde,Gassenwissen,
-               Himmelskunde,Schaetzen,angFert};
+               Himmelskunde,Schaetzen,angFert,Waffen};
     void line(ofstream &fout,const ewhat &what);
     void for_each(ofstream &fout,const ewhat &what);
     void list_for_each(ofstream &fout,const std::list<MidgardBasicElement_mutable>& L,const int &maxlength,const std::string& cm);

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.17 2002/06/12 10:59:58 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.18 2002/06/19 07:53:37 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -171,7 +171,7 @@ class VAbenteurer
       bool unsaved_exist();
       bool empty() const {return VA.empty();}
       bool size() const {return VA.size();}
-
+      void delete_empty();
 
       // Wrapper
 private:

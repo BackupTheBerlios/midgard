@@ -150,9 +150,21 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  if( MBE->What()==MidgardBasicElement::ZAUBER &&
      togglebutton_spruchrolle->get_active() ) kosten/=10;
  /////////////////////////////////////////////////////////////////////////
+ // Lernern neuer Sprache mit PP: ///////////////////////////////////////
+ bool neue_sprache_mit_pp=false;
+ if(MBE->What()==MidgardBasicElement::SPRACHE &&
+     togglebutton_neue_sprache_pp->get_active() )
+   { neue_sprache_mit_pp=true;  kosten=40;}
+ /////////////////////////////////////////////////////////////////////////
  
  int dummy=1;
- if (!steigern_usp(kosten,&MBE,dummy)) return;
+ if(neue_sprache_mit_pp) 
+   { set_lernzeit(kosten,Nichts);
+     if(MBE->Grundfertigkeit(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp());
+          MBE.setErfolgswert(9);
+     else MBE.setErfolgswert(7);
+   }
+ else if (!steigern_usp(kosten,&MBE,dummy)) return;
  hauptfenster->getChar().getWerte().addGFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
@@ -184,8 +196,6 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  else if(MBE->What()==MidgardBasicElement::WAFFE) 
    { MyList     = &hauptfenster->getChar().List_Waffen(); 
      MyList_neu = &list_Waffen_neu;  
-//     if(cH_Waffe(MBE)->Art()=="Verteidigung") MBE.setErfolgswert(1);
-//     else MBE.setErfolgswert(4);
    }
  else if(MBE->What()==MidgardBasicElement::WAFFEGRUND) 
    { MyList     = &hauptfenster->getChar().List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }

@@ -111,6 +111,7 @@ class MidgardBasicElement : public HandleContentCopyable
       vector<std::string> Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
       std::string Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
       double Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
+      bool Grundfertigkeit(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
 private:
       std::string AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const;
 public:

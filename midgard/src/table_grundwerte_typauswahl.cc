@@ -217,7 +217,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
    }
   fill_typauswahl();
   fill_typauswahl_2();
-  hauptfenster->undosave("Geschlecht gewählt");
+//  hauptfenster->undosave("Geschlecht gewählt");
 }
 
 void table_grundwerte::kaempfer_lernt_zaubern()

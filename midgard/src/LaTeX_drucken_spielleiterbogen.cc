@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.8 2002/06/18 07:20:54 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.9 2002/06/19 07:53:37 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -63,6 +63,8 @@ void LaTeX_drucken::Spielleiterbogen()
  line(fout,Wk);
  line(fout,Sb);
  line(fout,B);
+ line(fout,Abwehr);
+ line(fout,Zaubern);
  line(fout,Resistenz);
  line(fout,Sehen);
  line(fout,Hoeren);
@@ -81,6 +83,7 @@ void LaTeX_drucken::Spielleiterbogen()
  line(fout,Himmelskunde);
  line(fout,Schaetzen);
  line(fout,angFert);
+ line(fout,Waffen);
  line(fout,Sprachen);
  line(fout,Schriften);
 
@@ -120,6 +123,8 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
      case Wk: fout << "Wk"; break; 
      case Sb: fout << "Sb"; break; 
      case B: fout << "B"; break; 
+     case Zaubern: fout << "Zaubern"; break; 
+     case Abwehr: fout << "Abwehr"; break; 
      case Resistenz: fout << "Resistenz"; break; 
      case Sehen: fout << "Sehen"; break; 
      case Hoeren: fout << "Hoeren"; break; 
@@ -138,6 +143,7 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
      case Himmelskunde: fout << "Himmelskunde"; break; 
      case Schaetzen: fout << "Schätzen"; break; 
      case angFert: fout << "angeborne\\newline Fertigkeiten"; break; 
+     case Waffen: fout << "Waffen"; break;
      case Sprachen: fout << "Sprachen"; break; 
      case Schriften: fout << "Schriften"; break; 
    }
@@ -184,6 +190,8 @@ void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
        case Wk: V.push_back(st_is(W.Wk())); break;
        case Sb: V.push_back(st_is(W.Sb())); break;
        case B:  V.push_back(st_is(W.B())); break;
+       case Zaubern: V.push_back(st_is(W.Zaubern_wert())); break;
+       case Abwehr:  V.push_back(st_is(W.Abwehr_wert())); break;
        case Resistenz: fout << " & "<<W.Resistenzen_alle(hauptfenster->getCChar().getVTyp()); break; 
        case Sehen: V.push_back(st_is(W.Sehen())); break;
        case Hoeren: V.push_back(st_is(W.Hoeren())); break;
@@ -202,6 +210,7 @@ void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
        case Himmelskunde: V.push_back(st_is(A.Erfolgswert("Himmelskunde",Database),A.SErfolgswert("Himmelskunde",Database))); break;
        case Schaetzen: V.push_back(st_is(A.Erfolgswert("Schaetzen",Database),A.SErfolgswert("Schaetzen",Database))); break;
        case angFert: list_for_each(fout,A.CList_Fertigkeit_ang(),maxlength,cm); break;
+       case Waffen: list_for_each(fout,A.CList_Waffen(),maxlength,cm); break;
        case Sprachen: list_for_each(fout,A.CList_Sprache(),maxlength,cm); break;
        case Schriften: list_for_each(fout,A.CList_Schrift(),maxlength,cm); break;
      }
