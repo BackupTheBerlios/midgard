@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.15 $">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.16 $">
  <Fertigkeiten>
   <Fertigkeit Name="Geomantie" Region="TuT" Lernpunkte="4" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
    <Grund Typ="De"/>
@@ -1291,7 +1291,7 @@
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="To"/>
   </Fertigkeit>
-  <Fertigkeit Name="Orakelkunst" Region="E">
+  <Fertigkeit Name="Orakelkunst" Region="E,TuT">
    <Grund Typ="To"/>
    <Standard Typ="Km"/>
    <Standard Typ="Mg"/>
@@ -1301,7 +1301,7 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
   </Fertigkeit>
-  <Fertigkeit Name="Pyromantie" Region="E">
+  <Fertigkeit Name="Pyromantie" Region="E,TuT">
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Wi"/>
   </Fertigkeit>
@@ -1603,17 +1603,6 @@
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="To"/>
   </Fertigkeit>
-  <Fertigkeit Name="Astrologie" Region="R">
-   <Standard Typ="Hj"/>
-   <Standard Typ="Km"/>
-   <Standard Typ="Mg"/>
-   <Standard Typ="Sw"/>
-   <Ausnahme Typ="Fi"/>
-   <Ausnahme Typ="RiN"/>
-   <Ausnahme Typ="RiS"/>
-   <Ausnahme Typ="To"/>
-   <Ausnahme Typ="Wi"/>
-  </Fertigkeit>
   <Fertigkeit Name="Augensalbe herstellen" Region="R">
    <Standard Typ="Fi"/>
    <Standard Typ="Hj"/>
@@ -1685,6 +1674,17 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="To"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Astrologie" Region="R,TuT">
+   <Standard Typ="Hj"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="Sw"/>
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="RiN"/>
+   <Ausnahme Typ="RiS"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
   </Fertigkeit>
   <Fertigkeit Name="Lesen von Zauberrunen" Region="W">
    <Standard Typ="Hj"/>
