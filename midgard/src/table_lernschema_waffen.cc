@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.12 2002/09/10 19:55:46 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.13 2002/09/13 09:46:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -200,8 +200,8 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (96<=wurf&&wurf<=100) { E=1; A=2; M=true; }
   }  
 */
- WaffeBesitzLernen wbl=Zufall::WaffenBesitz_wuerfeln(hauptfenster->getChar(),wurf);
- strinfo += itos(wbl.EWaffe())+" Einhand- und "+itos(wbl.AWaffe())+" beliebige Waffen";
+ waffebesitzlernen =Zufall::WaffenBesitz_wuerfeln(hauptfenster->getChar(),wurf);
+ strinfo += itos(waffebesitzlernen.EWaffe())+" Einhand- und "+itos(waffebesitzlernen.AWaffe())+" beliebige Waffen";
  hauptfenster->set_status(strinfo);
 /*
  waffebesitzlernen.setMagisch(M);
