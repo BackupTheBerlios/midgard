@@ -127,9 +127,9 @@ private:
         // for later realization
         void on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
-                                     GtkSelectionData   &selection_data,
+                                     Gtk::SelectionData   &selection_data,
 #else // gtkmm 2.2
-				     Gtk::SelectionData *selection_data,
+				     GtkSelectionData *selection_data,
 #endif
                                      guint               info,
                                      guint32             time );

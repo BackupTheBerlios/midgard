@@ -86,7 +86,7 @@ std::cerr << "gtk-tree-model-drop-append=" << get_data("gtk-tree-model-drop-appe
 }
 
 void table_ausruestung::on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,
-                                     GtkSelectionData   *selection_data,
+                                     selection_data_t    selection_data,
                                      guint               info,
                                      guint32             time )
 {
@@ -164,7 +164,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 #if 0
 void table_ausruestung::tree_drag_data_received(GdkDragContext *context, 
                                   gint x,gint y,
-                                  GtkSelectionData   *data,
+                                  selection_data_t data,
                                   guint info,guint32 time)
 {
   Gdk_DragContext gdc ( context );
