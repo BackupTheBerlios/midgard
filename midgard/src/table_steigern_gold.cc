@@ -18,11 +18,13 @@
 
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
+#include <Aux/itos.h>
 
 void table_steigern::on_button_gfp_s_toggled()
 {
  if(checkbutton_gfp->get_active())
   {
+    spinbutton_gfp->set_value(hauptfenster->getCWerte().GFP());
     spinbutton_gfp->show();
     gfp->hide();  
     spinbutton_gfp->grab_focus();
@@ -30,6 +32,7 @@ void table_steigern::on_button_gfp_s_toggled()
  else
   {
     spinbutton_gfp->hide();
+    gfp->set_text(itos(hauptfenster->getCWerte().GFP()));
     gfp->show();  
   }
 }
@@ -38,6 +41,8 @@ void table_steigern::on_spinbutton_gfp_activate()
 {
  checkbutton_gfp->set_active(false);
  checkbutton_gfp->grab_focus();
+// on_button_gfp_s_toggled();
+ zeige_werte();
 }
 
 gint table_steigern::on_spinbutton_gfp_focus_out_event(GdkEventFocus *ev)

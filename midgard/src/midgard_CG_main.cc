@@ -143,10 +143,9 @@ gint midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *eve
 void midgard_CG::on_schliessen_CG_clicked()
 {
   MOptionen->save_options(InfoFenster);
-cout<< "SAVE?\t"<<Char.unsaved_exist()<<'\n';
   if(Char.unsaved_exist())
    {
-     load_for_mainpage(PAGE_NEWS);
+     notebook_main->set_page(PAGE_NEWS);
      set_status("Es existieren nichtgespeicherte Abenteurer",false);
      table_confirm_quit->show();
      return;
