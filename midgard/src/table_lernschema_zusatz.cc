@@ -140,7 +140,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
      case MidgardBasicElement::ZNone : break;
    }
  Tree_Lernschema_Zusatz->setDataVec(datavec);
- frame_lernschema_zusatz->show();
+ set_zusatz_sensitive(true);
+
 // Tree_Lernschema_Zusatz->grab_focus();
 /*
  Gdk_Window W_to=frame_lernschema_zusatz->get_window();
@@ -225,7 +226,8 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
   const Data_Herkunft *dt=dynamic_cast<const Data_Herkunft*>(&*d);
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::HERKUNFT);
   hauptfenster->getWerte().setHerkunft(dt->getLand());
-  frame_lernschema_zusatz->hide();
+  set_zusatz_sensitive(false);
+//  hauptfenster->notebook_main->set_sensitive(true);
   zeige_werte();  
   button_angeborene_fert->set_sensitive(true);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
@@ -254,7 +256,8 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
      hauptfenster->getChar().List_Zauber().push_back(MBE);
    }
 
-  frame_lernschema_zusatz->hide();
+  set_zusatz_sensitive(false);
+//  hauptfenster->notebook_main->set_sensitive(true);
   zeige_werte();  
   show_gelerntes();
 }
@@ -270,7 +273,8 @@ void table_lernschema::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
 
 //  MidgardBasicElement_mutable schrift=dt->getZusatz();
   hauptfenster->getChar().List_Schrift().push_back(schrift);
-  frame_lernschema_zusatz->hide();
+  set_zusatz_sensitive(false);
+//  hauptfenster->notebook_main->set_sensitive(true);
   zeige_werte();  
   show_gelerntes();
 }
@@ -285,7 +289,8 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   sprache.setLernpunkte(dt->getMBE().Lernpunkte());
 
   hauptfenster->getChar().List_Sprache().push_back(sprache);
-  frame_lernschema_zusatz->hide();
+  set_zusatz_sensitive(false);
+//  hauptfenster->notebook_main->set_sensitive(true);
   zeige_werte();  
   show_gelerntes();
 }
@@ -294,4 +299,26 @@ gint table_lernschema::on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *e
 {
   cout << "leave out\n";
   return false;
+}
+
+void table_lernschema::set_zusatz_sensitive(bool an)
+{
+ if(an)
+  {
+   handlebox_lernschema->set_sensitive(false);
+   frame_lernpunkte->set_sensitive(false);
+   tree_gelerntes->set_sensitive(false);
+   scrolledwindow_lernen->set_sensitive(false);
+   table_lernschema_121->set_sensitive(false);
+   frame_lernschema_zusatz->show();
+  }
+ else
+  {
+   handlebox_lernschema->set_sensitive(true);
+   frame_lernpunkte->set_sensitive(true);
+   tree_gelerntes->set_sensitive(true);
+   scrolledwindow_lernen->set_sensitive(true);
+   table_lernschema_121->set_sensitive(true);
+   frame_lernschema_zusatz->hide();
+  }
 }

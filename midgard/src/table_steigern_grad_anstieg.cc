@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.1 2002/05/24 14:06:52 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.2 2002/06/14 07:14:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,22 +21,6 @@
 #include "table_steigern.hh"
 #include <Aux/itos.h>
 
-/*
-gint table_steigern::on_button_kurz_steigern_release_event(GdkEventButton *event)
-{
-  if (event->button==1) 
-   { menu_gradanstieg->popup(event->button,event->time);
-     return true;
-   }
-  if (event->button==3) 
-   {
-    on_grad_anstieg_clicked();
-    return false;
-   }
- return false;
-}
-*/
-
 void table_steigern::on_grad_anstieg_clicked()
 {
  radiobutton_steigern->set_active(true);
@@ -51,7 +35,6 @@ void table_steigern::on_grad_anstieg_clicked()
     get_grundwerte();
     ++old_grad;
   }
- zeige_werte();
 }
 
 void table_steigern::on_button_grad_clicked()
@@ -67,17 +50,14 @@ void table_steigern::on_button_grad_ausdauer_clicked()
 void table_steigern::on_button_grad_abwehr_clicked()
 {   
  get_ab_re_za(Abwehr);
- zeige_werte();
 }
 void table_steigern::on_button_grad_zaubern_clicked()
 {   
  get_ab_re_za(Zaubern);
- zeige_werte();
 }
 void table_steigern::on_button_grad_resistenz_clicked()
 {   
  get_ab_re_za(Resistenz);
- zeige_werte();
 }
 void table_steigern::on_button_grad_basiswerte_clicked()
 {   
@@ -184,7 +164,7 @@ void table_steigern::get_ausdauer(int grad)
   hauptfenster->getWerte().addSteigertage(Grad_anstieg::AP_Maximum_Tage);
 }
 
-void table_steigern::get_ab_re_za(e_was_steigern was)
+void table_steigern::get_ab_re_za(e_was_steigern was,bool verschenke_pp=false)
 {
   int alter_wert, max_wert;
   int kosten;
@@ -212,14 +192,14 @@ void table_steigern::get_ab_re_za(e_was_steigern was)
        } 
       else return; 
     }
-  else abort();
+  else assert(!"never get here");
   if (alter_wert >= max_wert && radiobutton_steigern->get_active())
       { hauptfenster->set_status("Für Grad "+itos(hauptfenster->getCWerte().Grad())+" ist der Maximalwert erreicht!") ;
         return;}
 
   if(radiobutton_steigern->get_active())
    {
-     steigern_usp(kosten,0,was); //Wg. Geld und Lerntagen 
+     if(!steigern_usp(kosten,0,was,verschenke_pp) && !verschenke_pp) return; 
      hauptfenster->getWerte().addGFP(kosten);
      if      (was==Abwehr)    hauptfenster->getWerte().setAbwehr_wert(alter_wert+1);
      else if (was==Resistenz) hauptfenster->getWerte().setResistenz(alter_wert+1); 
@@ -229,10 +209,10 @@ void table_steigern::get_ab_re_za(e_was_steigern was)
    {
      if (checkbutton_EP_Geld->get_active()) desteigern(kosten);
      set_lernzeit(-kosten);
-//     steigern_usp(-kosten,0,was);
      hauptfenster->getWerte().addGFP(-kosten);
      if      (was==Abwehr)    hauptfenster->getWerte().setAbwehr_wert(alter_wert-1);
      else if (was==Resistenz) hauptfenster->getWerte().setResistenz(alter_wert-1); 
      else if (was==Zaubern)   hauptfenster->getWerte().setZaubern_wert(alter_wert-1); 
    }
+ zeige_werte();
 }

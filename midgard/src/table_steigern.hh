@@ -53,6 +53,7 @@ private:
 
         // Main
         void fillClistZusatz(MidgardBasicElement_mutable &MBE);
+        void set_zusatz_sensitive(bool an);
         void on_radio_steigern_all();
         std::string SpruecheMitPP();
         void on_radiobutton_pp_all_toggled();
@@ -61,23 +62,20 @@ private:
         void show_goldeingabe(bool b);
         void show_EPeingabe(bool b);
         
-        //Menu
-//        Gtk::Menu *menu, *menu_gradanstieg;
-//        void menu_gradanstieg_init();
-        
-
         // Grad anstieg
+public:
         enum e_was_steigern{Nichts,Ausdauer,Abwehr,Zaubern,Resistenz};
+private:
         void get_grundwerte();
         void get_ausdauer(int grad);
-        void get_ab_re_za(e_was_steigern was);
+        void get_ab_re_za(e_was_steigern was,bool verschenke_pp=false);
          
         // EP
         void steigern_gtk();
         int steigern_womit(const std::string& fert);
         void desteigern(unsigned int kosten);
         void set_lernzeit(int kosten);
-        bool steigern_usp(int kosten,MidgardBasicElement_mutable *MBE,e_was_steigern was=Nichts);
+        bool steigern_usp(int kosten,MidgardBasicElement_mutable *MBE,e_was_steigern was=Nichts,bool verschenke_pp=false);
         int genug_geld(const int kosten);
         int EP_kosten(const int kosten);
         int PP_vorrat(const MidgardBasicElement_mutable *MBE,e_was_steigern was);
@@ -85,6 +83,7 @@ private:
         void steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was);
 public:
         void PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp);
+        void PraxisPunkt_fuer_Was(e_was_steigern was);
 private:
         int stufen_auf_einmal_steigern_fuer_aep(bool info,MidgardBasicElement_mutable& MBE,int &kosten,int &aep);
 
@@ -172,6 +171,7 @@ private:
         void on_radiobutton_pp_fertigkeit_toggled();
         void on_radiobutton_pp_abwehr_toggled();
         void on_radiobutton_pp_zauber_toggled();
+        void on_radiobutton_pp_spezial_toggled();
         void on_radiobutton_pp_resistenz_toggled();
         void on_clist_landauswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_button_grad_clicked();
@@ -181,12 +181,9 @@ private:
         void on_button_grad_resistenz_clicked();
         void on_grad_anstieg_clicked();
         void on_button_grad_basiswerte_clicked();
-//        gint on_button_kurz_steigern_release_event(GdkEventButton *ev);
         void on_button_alter_clicked();
         void on_button_geld_s_toggled();
         void on_button_gfp_s_toggled();
-//        void on_button_waffen_s_clicked();
-//        void on_button_ruestung_s_clicked();
         void on_spinbutton_gfp_activate();
         gint on_spinbutton_gfp_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_gfp_focus_in_event(GdkEventFocus *ev);

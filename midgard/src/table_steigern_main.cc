@@ -31,12 +31,6 @@ void table_steigern::on_radio_verlernen_toggled()
 { on_radio_steigern_all();}
 void table_steigern::on_radio_steigern_all()
 {
-/*
-  if (radiobutton_steigern->get_active())
-     frame_lernen_mit->set_sensitive(true); 
-  else
-     frame_lernen_mit->set_sensitive(false); 
-*/
 }
 
 void table_steigern::on_togglebutton_praxispunkte_toggled()
@@ -95,19 +89,43 @@ void table_steigern::on_radio_praxis_toggled()
 }
 
 void table_steigern::on_radiobutton_pp_fertigkeit_toggled()
-{on_radiobutton_pp_all_toggled();}
+{ 
+   spinbutton_pp_eingeben->hide();
+// spinbutton_pp_eingeben->select_region(0,-1);
+// on_radiobutton_pp_all_toggled();
+}
 void table_steigern::on_radiobutton_pp_zauber_toggled()
-{on_radiobutton_pp_all_toggled();}
+{
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar().getWerte().ZaubernPP());
+ on_radiobutton_pp_all_toggled();
+}
+void table_steigern::on_radiobutton_pp_spezial_toggled()
+{
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar().getWerte().SpezialPP());
+ on_radiobutton_pp_all_toggled();
+}
 void table_steigern::on_radiobutton_pp_abwehr_toggled()    
-{on_radiobutton_pp_all_toggled();}
+{
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar().getWerte().AbwehrPP());
+ on_radiobutton_pp_all_toggled(); 
+}
 void table_steigern::on_radiobutton_pp_resistenz_toggled()
-{on_radiobutton_pp_all_toggled();}
+{ 
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar().getWerte().ResistenzPP());
+ on_radiobutton_pp_all_toggled();
+}
 void table_steigern::on_radiobutton_pp_all_toggled()
 {
+/*
   if(radiobutton_pp_fertigkeit->get_active())
     spinbutton_pp_eingeben->hide();
-  else 
-    spinbutton_pp_eingeben->show();
+  else
+*/
+   {
+     spinbutton_pp_eingeben->show();
+     spinbutton_pp_eingeben->grab_focus();
+     spinbutton_pp_eingeben->select_region(0,-1);
+   }
 }
                                 
 
@@ -234,32 +252,41 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
        }
      default : assert("Never get here\n");
    }
-  tree_steigern_zusatz->setTitles(title);
-  tree_steigern_zusatz->setDataVec(datavec);
-  scrolledwindow_landauswahl->show();
+  if(!datavec.empty())
+   {
+     set_zusatz_sensitive(true);
+     tree_steigern_zusatz->setTitles(title);
+     tree_steigern_zusatz->setDataVec(datavec);
+   }
+}
+
+void table_steigern::set_zusatz_sensitive(bool an)
+{
+ if(an)
+  {
+    table_handlebox1->set_sensitive(false);
+    handlebox_steigern->set_sensitive(false);
+    notebook_lernen->set_sensitive(false);
+    scrolledwindow_landauswahl->show();
+  }
+ else
+  {
+    table_handlebox1->set_sensitive(true);
+    handlebox_steigern->set_sensitive(true);
+    notebook_lernen->set_sensitive(true);
+    scrolledwindow_landauswahl->hide();
+  }
 }
 
 
 
-//#include <algorithm>
 void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
-
-/*
-  MidgardBasicElement_mutable M
-      =const_cast<MidgardBasicElement_mutable&>(dt->getMBE());
-*/
-#warning: Christof, warum geht das nicht?
-/*
-  M.setZusatz(dt->getZusatz());
-  // Erhöter Erfolgswert für Landeskunde Heimat:
-  if(dt->getZusatz()==hauptfenster->getCWerte().Herkunft()->Name()) 
-       M.setErfolgswert(9);
-*/
   modify(Zusatz,dt->getMBE(),dt->getZusatz(),0);
 
-  scrolledwindow_landauswahl->hide();
+  set_zusatz_sensitive(false);
+
   on_fertigkeiten_laden_clicked();
   neue_fert_tree->set_sensitive(true);
 }

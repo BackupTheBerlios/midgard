@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.45 2002/06/07 12:17:03 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.46 2002/06/14 07:14:08 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -194,6 +194,9 @@ public:
    void setZaubern_wert(int i){zaubern_wert=i;}
    void setAbwehr_wert(int i){abwehr_wert=i;}
    void setResistenz(int i){resistenz=i;}
+   void addZaubern_wert(int i){zaubern_wert+=i;}
+   void addAbwehr_wert(int i){abwehr_wert+=i;}
+   void addResistenz(int i){resistenz+=i;}
    void setZaubernPP(int i){zauber_pp=i;}
    void setSpezialPP(int i){pp_spezialzauber=i;}
    void setAbwehrPP(int i){abwehr_pp=i;}

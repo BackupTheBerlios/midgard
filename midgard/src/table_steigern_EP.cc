@@ -22,8 +22,6 @@
 #include <gtk--/adjustment.h>
 #include <Aux/itos.h>
 
-//bool steigern;
-
 gint table_steigern::vscale_value_changed(GdkEventButton *ev)
 {
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
@@ -47,17 +45,14 @@ void table_steigern::on_checkbutton_EP_Geld_toggled()
 {
    if (checkbutton_EP_Geld->get_active()) 
       { steigern_mit_EP_bool=true;
-//        frame_lernen_mit->set_sensitive(true);
       }
    else 
       { steigern_mit_EP_bool=false;
-//        frame_lernen_mit->set_sensitive(false);
       }
 }
 
 void table_steigern::on_button_EP_toggled()
 {
-//  manage(new Window_Erfahrungspunkte(hauptfenster,hauptfenster->getWerte()));
  show_EPeingabe(button_EP->get_active());  
  spinbutton_aep->grab_focus();
 }
@@ -123,7 +118,7 @@ void table_steigern::set_lernzeit(int kosten)
       hauptfenster->getWerte().addSteigertage(kosten/500.);
 }
 
-bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e_was_steigern was)
+bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e_was_steigern was,bool verschenke_pp)
 {
   if (!steigern_mit_EP_bool) // Steigern OHNE EP/Gold/PP
       { set_lernzeit(kosten);
@@ -140,9 +135,12 @@ bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e
 
   int ep_k = EP_kosten(kosten);
   int pp   = PP_vorrat(MBE,was);
+if(radiobutton_praxis->get_active())
+{ hauptfenster->set_info("Wird gerade überarbeitet, nicht möglich, sorry\n"); 
+return false;}
 
   // Kosten geringer als ein Praxispunkt wert ist
-  if(pp>0 && ep_k<40)
+  if((pp>0 && ep_k<40) )//|| (was!=Nichts && ep_k%40!=0 && true))
    {
      if(MBE)
       {
@@ -172,19 +170,32 @@ bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e
          if(pp>1)
               hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,MBE,5);
          else hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,MBE,3);
-         return false;
       }
+     else if(!verschenke_pp)
+      {
+        std::string str ="\nACHTUNG: Kosten ("+itos(ep_k)+") geringer als ein Praxispunkt wert (40GFP) ist.\n"
+            "Nun gibt es zwei Möglichkeiten:\n"
+            " 1. Es wird nicht gesteigert.\n"
+            " 2. Es wird mit einem PP gesteigert,\n"
+            "    die restlichen Punkte verfallen\n";
+        hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,was,2);
+      }
+     return false;
    }
   // Dafür sorgen, daß FP für Praxispunkte nicht verschenkt werden
   while (pp>0 && pp*40 > ep_k ) --pp;
   // Nun von den Kosten 40*pp subtrahieren
   ep_k -= pp*40;
-
+  if(verschenke_pp)
+    {
+      pp = 1+ep_k/40;
+      ep_k=0;
+    }
+cout <<"jbksfvbkjvb\t"<< pp<<'\n';
   
   int aep0=0,kep0=0,zep0=0;
   bool ok=genug_EP(ep_k,bkep,bzep,aep0,kep0,zep0);
   if(!ok) return false;
-
 
   // jetzt darf gesteigert werden ...
   hauptfenster->getWerte().addGold(-gold_k);  
@@ -206,8 +217,6 @@ bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e
      else                   {  ep_k-=hauptfenster->getCWerte().ZEP(); hauptfenster->getWerte().setZEP(0);  } 
    }
   hauptfenster->getWerte().addAEP(-ep_k);
-//  Geld_uebernehmen();
-//  EP_uebernehmen();
   zeige_werte();
   return true;  
 }
@@ -356,3 +365,8 @@ int table_steigern::stufen_auf_einmal_steigern_fuer_aep(bool info,MidgardBasicEl
 }
 
 
+void table_steigern::PraxisPunkt_fuer_Was(e_was_steigern was)
+{
+// get_ab_re_za(was,true);
+ 
+}

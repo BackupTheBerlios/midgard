@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.34 2002/06/11 07:31:11 thoma Exp $
+// $Id: WindowInfo.hh,v 1.35 2002/06/14 07:14:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,6 +39,7 @@
 
 class midgard_CG;
 #include "MidgardBasicElement.hh"
+#include "table_steigern.hh"
 
 class WindowInfo : public WindowInfo_glade
 {   
@@ -64,8 +65,10 @@ class WindowInfo : public WindowInfo_glade
         emodus Modus;
         midgard_CG* hauptfenster;
         MidgardBasicElement_mutable *MBE;
+        table_steigern::e_was_steigern was;
    public:
         WindowInfo(midgard_CG* h);
+        void AppendShow(const std::string& s,emodus modus, table_steigern::e_was_steigern was,int anzahl);
         void AppendShow(const std::string& s,emodus modus, MidgardBasicElement_mutable *MBE,int anzahl=0);
         void AppendShow(const std::string& s, emodus modus=Autoclean,int anzahl=0);
         void Show() {bestaetigen(false); show();}

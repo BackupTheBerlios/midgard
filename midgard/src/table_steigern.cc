@@ -179,11 +179,13 @@ void table_steigern::zeige_werte()
   {
     button_grad_zaubern->set_sensitive(true);
     frame_pp_zaubern->set_sensitive(true);
+    radiobutton_pp_zauber->set_sensitive(true);
   }  
  else
   {
     button_grad_zaubern->set_sensitive(false);
     frame_pp_zaubern->set_sensitive(false);
+    radiobutton_pp_zauber->set_sensitive(false);
   }
  show_label();
 

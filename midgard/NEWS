@@ -1,4 +1,24 @@
 ##########################################################################
+NEWS IN VERSION 0.7delta2
+
+* kleinere Bugs beseitigt
+* Wenn ein Zusatz gewählt werden soll sind die anderen Fenster 
+   'desensibilisiert'
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+
+TODO:
+* Steigern mit PP sinnvoll implementieren
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
+in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
+links). 
+* H&D (Zauberlied) funktioniert nicht
+* Ausdruck für lange Listen
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
 NEWS IN VERSION 0.7delta1
 
 * Steigern von neuen Waffen wieder mit richtigem Erfolgswert
@@ -12,18 +32,6 @@ NEWS IN VERSION 0.7delta1
 * Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
 * Spielleiterexport komplett an M4 angepaßt
 * die XML Dateien enthalten schon Gruppen (KÄM, PRI etc.)
-
-TODO:
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
-in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
-links). 
-* H&D (Zauberlied) funktioniert nicht
-* Fokus im Zusatzfenster einfrieren
-* Ausdruck für lange Listen
-* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
-* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
-  man etwas hinzufügen möchte, ist nicht gerade intuitiv
-  (vielleicht drag'n'drop oder CTree verschieben)
 
 ##########################################################################
 NEWS IN VERSION 0.7delta0

@@ -159,6 +159,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
         zauber += LATIN((*i)->Name())+", ";
      std::string::size_type st=zauber.find_last_of(",");
      if(st!=std::string::npos) zauber.erase(st,1);
-     fout << zauber<<"\n";
+     fout << zauber<<"\n\n";
    }  
+ fout << W.Beschreibung()<<'\n';
 }

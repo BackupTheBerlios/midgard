@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.8 2002/06/10 07:54:46 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.9 2002/06/14 07:14:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,7 @@ gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton 
 
 void table_grundwerte::grundwerte_wuerfeln()
 {
+  hauptfenster->set_status("");
   if(radiobutton_eigenschaften_standard->get_active())
      Eigenschaften_variante(1);
   else if(radiobutton_eigenschaften_zuweisen->get_active())

@@ -53,6 +53,7 @@ private:
        void on_zusatz_leaf_selected(cH_RowDataBase d);
        void on_zusatz_leaf_sprache_selected(cH_RowDataBase d);
        void on_zusatz_leaf_schrift_selected(cH_RowDataBase d);
+       void set_zusatz_sensitive(bool an);
        void show_gelerntes();
        void show_lernschema();
        void zeige_lernpunkte();

@@ -30,6 +30,7 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  if(togglebutton_praxispunkte->get_active() && radiobutton_pp_fertigkeit->get_active()) 
   {
    spinbutton_pp_eingeben->set_value(MBE.Praxispunkte());
+   spinbutton_pp_eingeben->select_region(0,-1);
    spinbutton_pp_eingeben->show();
    spinbutton_pp_eingeben->grab_focus();
    return false;
