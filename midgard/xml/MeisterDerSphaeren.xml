@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="MdS" Name="Meister der Sphären" Titel="Meister der Sphären" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="2" MAGUS-Bild="11" CVS="$Revision: 1.7 $">
+<MAGUS-data Region="MdS" Name="Meister der Sphären" Titel="Meister der Sphären" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="2" MAGUS-Bild="11" CVS="$Revision: 1.8 $">
  <Schriften/>
  <Sprachen/>
  <Typen/>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="H&amp;Df" Name="H&amp;D (Finstere Magie)" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes" Jahr="1994" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="11" MAGUS-Bild="14" CVS="$Revision: 1.8 $">
+<MAGUS-data Region="H&amp;Df" Name="H&amp;D (Finstere Magie)" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes" Jahr="1994" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="11" MAGUS-Bild="14" CVS="$Revision: 1.9 $">
  <Schriften/>
  <Sprachen/>
  <Typen/>
