@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.56 2002/03/29 07:02:59 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.57 2002/04/15 06:57:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -168,11 +168,10 @@ void midgard_CG::get_ausdauer(int grad)
   nap = ap + nab + Werte.bo_Au() ;
   int nspez = Werte.Grad()*Werte.Spezies()->AP_GradFak();
   nap += nspez;
-//  std::cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<Werte.bo()_au<<" + "<<nspez<<" = "<<nap<<"\n";
   std::string stinfo="Für Grad "+itos(Werte.Grad())+":\n";
-   stinfo+="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
-   stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
-   stinfo+="+";stinfo+=itos(Werte.bo_Au());stinfo+="=";stinfo+=itos(nap);
+  stinfo+="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
+  stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
+  stinfo+="+";stinfo+=itos(Werte.bo_Au());stinfo+="=";stinfo+=itos(nspez);
   InfoFenster->AppendShow(stinfo,WindowInfo::None);
    // Für alle ist die AP-anzahel mind. = Grad
   if (Werte.AP()<Werte.Grad()) Werte.setAP(Werte.Grad()); 
