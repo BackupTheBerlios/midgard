@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.28 2004/03/12 12:09:07 christof Exp $
+// $Id: MidgardBasicTree.cc,v 1.29 2004/03/18 09:06:47 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,7 @@ MidgardBasicTree::MidgardBasicTree(variante V)
 {
   set_tree_titles(V);
   set_value_data(gpointer(V));
+  get_selection()->set_mode(Gtk::SELECTION_MULTIPLE);
 }
 
 int MidgardBasicTree::Cols(variante V)
@@ -187,7 +188,5 @@ void MidgardBasicTree::show_list_in_tree(
   std::vector<cH_RowDataBase> datavec;
   for (std::list<MBEmlt>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
       datavec.push_back(new Data_SimpleTree(*i,a));
-  Tree->setDataVec(datavec); //,clear_me);
-  Tree->get_selection()->unselect_all();
-std::cout << Tree->get_selection()->get_selected_rows().size() << '\n';
+  Tree->setDataVec(datavec);
 }
