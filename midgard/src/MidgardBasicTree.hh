@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.hh,v 1.9 2002/07/09 12:23:31 thoma Exp $
+// $Id: MidgardBasicTree.hh,v 1.10 2002/12/12 08:41:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,7 @@
 #ifndef _MIDGARDBASICTREE_HH
 #  define _MIDGARDBASICTREE_HH 
 
-#include <treebase.h>
+#include <SimpleTree.hh>
 
 class MidgardBasicTree : public SimpleTree
 {
