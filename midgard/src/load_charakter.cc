@@ -53,7 +53,7 @@ void midgard_CG::xml_import(const std::string& datei)
    table_grundwerte->combo_spezies->set_sensitive(false);
    Char.push_back(Abenteurer());
    frame_steigern->set_sensitive(true);
-   if(!(Char.xml_import_stream(fi,getDatabase(),getOptionen())))
+   if(!(Char.xml_import_stream(fi,getDatabase(),getOptionen(),this)))
      {
        set_info("Laden fehlgeschlagen");
        return;
