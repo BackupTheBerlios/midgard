@@ -12,17 +12,17 @@ NEWS IN VERSION 0.4delta6
 * Anzeige der Lernauswahl springt nicht mehr zurück.
 * Code aufgeräumt
 * Negative GFP stürzen nicht mehr ab.
+* Offielles Logo wieder da
+* Waffenbesitz bei Spielbeginn funktioniert wieder
 
 TODO:
 * Ausrüstung drucken, Abenteurer drucken -> absturz
-* Waffenbesitz bei Spielbeginn ist leer
 * nach dem Laden muß steigern wählbar sein
 * Steigern mehrerer Stufen mit PP
 * Waeland: Zauber
 * Nahuathlan: Komplett
 * Eschar: Derwisch
 * Doppelklassen
-* Offielles Logo ist weg :-(
 * Laden von Optionen 
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)

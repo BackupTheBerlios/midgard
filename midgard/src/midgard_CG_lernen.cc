@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.92 2002/03/11 20:49:37 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.93 2002/03/12 12:01:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -454,6 +454,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 */
 //cout <<"2 " << MBE->Name()<<' '<<MBE->Erfolgswert()<<'\n';
   MBE->set_Erfolgswert(e);
+  show_lernschema();
   show_gelerntes();
 }
 
@@ -484,7 +485,6 @@ void midgard_CG::show_gelerntes()
   tree_gelerntes->Expand_recursively();
 }
 
-//void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)
 void midgard_CG::show_lernschema()
 {
   MidgardBasicElement::MBEE what;
