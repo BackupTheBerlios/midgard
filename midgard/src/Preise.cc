@@ -134,8 +134,6 @@ void PreiseMod::get_PreiseMod()
   art2=tag->getAttr("Art2");
   typ=tag->getAttr("Typ");
   payload=st_payload(tag->getAttr("Bezeichnung"),tag->getFloatAttr("Faktor"));
-//cout << tag->getAttr("Bezeichnung")<<' '<<tag->getFloatAttr("Faktor")<<'\n';
-#warning Christof: FLOAT geht nicht :-(
 }
 
 

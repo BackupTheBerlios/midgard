@@ -32,6 +32,12 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_export_auswahl()
 { 
+   if(Char.getWerte().Name_Abenteurer().empty())
+    { set_status("Der Abenteurer braucht noch einen Namen"); 
+      notebook_main->set_page(PAGE_GRUNDWERTE);
+      table_grundwerte->togglebutton_edit_werte->set_active(true);
+      table_grundwerte->entry_nameC->grab_focus();
+      return;}
 #ifndef __MINGW32__ 
  manage 
 #else

@@ -144,7 +144,7 @@ std::list<MidgardBasicElement_mutable> Sprache::VerwandteSprachen(const int erfo
 //         VS.push_back(MBE) ;
         MidgardBasicElement_mutable M(*i);
         M.setErfolgswert(erfolgswert-10);
-        VS.push_back(*i);
+        VS.push_back(M);
       }
    }
  return VS;

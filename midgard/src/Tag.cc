@@ -19,6 +19,7 @@
 
 #include "Tag.hh"
 #include <algo.h>
+#include <locale.h>
 
 #ifdef __MINGW32__
 extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
@@ -92,14 +93,18 @@ long Tag::parse_long_value(const std::string &value, long def)
 } 
 
 float Tag::parse_float_value(const std::string &value, float def)
-{  if (value.empty()) return def;
-   // 2do: check
-   return atof(value.c_str());
+{  return parse_double_value(value,def);
 }
 
 double Tag::parse_double_value(const std::string &value, double def)
 {  if (value.empty()) return def;
-   return atof(value.c_str());
+   /* Make sure we do NOT honor the locale for numeric input */
+   /* since the database gives the standard decimal point */
+   std::string oldlocale= setlocale(LC_NUMERIC, NULL);
+   setlocale(LC_NUMERIC, "C");
+   double f=strtod(value.c_str(),0);
+   setlocale(LC_NUMERIC, oldlocale.c_str());
+   return f;
 }
 
 const std::string Tag::getString(const std::string &typ,const std::string &def) const throw()
