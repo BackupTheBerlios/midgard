@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.29 2002/01/12 08:12:25 thoma Exp $
+// $Id: midgard.cc,v 1.30 2002/01/16 10:30:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,13 +25,9 @@
 // This file is for your program, I won't touch it again!
 
 #include <gtk--/main.h>
-
 #include "midgard_CG.hh"
-#include "Window_werte_editieren.hh"
-#include "Window_lernpunkte_editieren.hh"
 #include <Aux/dbconnect.h>
-#include "Midgard_Info.hh"
-#include <unistd.h>
+//#include <unistd.h>
 #include "xml.h"
 
 int main(int argc, char **argv)
