@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.59 2003/09/16 07:09:45 christof Exp $
+// $Id: midgard.cc,v 1.60 2003/09/16 08:00:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,19 +19,12 @@
 
 #include <gtkmm/main.h>
 #include "midgard_CG.hh"
-//#include <unistd.h>
-//#include "xml.h"
+#include <libmagus/Ausgabe.hh>
+#include <libmagus/libmagus.hh>
+#include <Misc/itos.h>
 #ifdef __MINGW32__
 #include <io.h>
-#include <libmagus/Ausgabe.hh>
 #endif
-//#include <sys/types.h>
-//#include <sys/stat.h>
-//#include "Windows_Linux.hh"
-//#include "Magus_Optionen.hh"
-#include <libmagus/libmagus.hh>
-
-//#include <locale>
 
 static void progress(double d)
 {  Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
