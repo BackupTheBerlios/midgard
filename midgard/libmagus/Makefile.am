@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.37 2003/09/04 07:41:32 christof Exp $
+# $Id: Makefile.am,v 1.38 2003/09/04 12:40:05 christof Exp $
 
 AM_CPPFLAGS = @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@
@@ -31,7 +31,8 @@ EXTRA_QUELLEN=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
 	grundwerte_abge_werte.cc grundwerte_gw_wuerfeln.cc \
 	Zufall.cc Zufall_Lernschema.cc Zufall_Spezies_Typ.cc \
 	spielleiter_export.cc Magus_Optionen.cc AbenteurerLernpunkte.cc \
-	Undo.cc VAbenteurer.cc zufall_steigern.cc VAbentModelProxy.cc
+	Undo.cc VAbenteurer.cc zufall_steigern.cc VAbentModelProxy.cc \
+	Wizard.cc
 
 libmagus_la_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Zauberwerk.cc Land.cc Waffe.cc WaffeGrund.cc Sinne.cc \

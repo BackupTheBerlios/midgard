@@ -3,6 +3,8 @@
 #  define _WIZARD_HH
 
 #include <BaseObjects/Model.h>
+class Abenteurer; // Alternative wäre, Wizard in Abenteurer reinzunehmen
+			// genau wie Lernpunkte
 
 struct Wizard
 {   enum esteps { Inaktiv, START, SPEZIES, GRUNDWERTE, GESCHLECHT, TYP, 
@@ -24,5 +26,10 @@ public:
     void set(esteps was);
     void next_step();
     void done(esteps was);
+    
+    bool can_skip(const Abenteurer &A);
+    void set(esteps was,const Abenteurer &A);
+    void next_step(const Abenteurer &A);
+    void done(esteps was,const Abenteurer &A);
 };
 #endif
