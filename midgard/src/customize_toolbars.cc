@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.15 2002/06/12 12:56:37 christof Exp $
+// $Id: customize_toolbars.cc,v 1.16 2002/06/13 13:28:52 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -29,6 +29,17 @@
 #include <typeinfo>
 // bin + container sind schon dabei
 
+static bool hasOnlyPixmaps(Gtk::Box *w)
+{  Gtk::Box_Helpers::BoxList &ch2=dynamic_cast<Gtk::Box*>(w)->children();
+   Gtk::Box_Helpers::BoxList::iterator i2=ch2.begin();
+   if (i2==ch2.end()) return false;
+   for (;i2!=ch2.end();++i2)
+   {  if (!(*i2)->get_widget() || !Gtk::Pixmap::isA((*i2)->get_widget())) 
+         return false;
+   }
+   return true;
+}
+
 static void CustomizeBox(Gtk::Widget *child, bool show_icons, bool tab_text)
 {  Gtk::Box_Helpers::BoxList &ch=dynamic_cast<Gtk::Box*>(child)->children();
    Gtk::Box_Helpers::BoxList::iterator i=ch.begin(),j=i;
@@ -50,16 +61,9 @@ static void CustomizeBox(Gtk::Widget *child, bool show_icons, bool tab_text)
          else w1->hide();
       }
       else if (Gtk::Box::isA(w1) && Gtk::Label::isA(w2))
-      {  Gtk::Box_Helpers::BoxList &ch2=dynamic_cast<Gtk::Box*>(w1)->children();
-         Gtk::Box_Helpers::BoxList::iterator i2=ch2.begin(),j2=i2;
-         
-         if (i2!=ch.end() && ++j2!=ch.end()
-            && (*i2)->get_widget() && (*j2)->get_widget()
-            && Gtk::Pixmap::isA((*i2)->get_widget())
-            && Gtk::Pixmap::isA((*j2)->get_widget()))
+      {  if (hasOnlyPixmaps(dynamic_cast<Gtk::Box*>(w1))) 
          {  if (show_icons) w1->show();
             else w1->hide();
-std::cout << "CT debug: "<< w1->get_name() << '\n';            
             if (tab_text) w2->show();
             else w2->hide();
          }
