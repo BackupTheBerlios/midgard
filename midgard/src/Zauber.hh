@@ -92,7 +92,9 @@ class cH_Zauber : public Handle<const Zauber>
 
    cH_Zauber(const cH_MidgardBasicElement &x) : Handle<const Zauber> 
       (dynamic_cast<const Zauber *>(&*x)){}
-//   cH_MidgardBasicElement operator cH_MidgardBasicElement() const {return cH_MidgardBasicElement(&*this);}
+
+//   cH_MidgardBasicElement operator cH_MidgardBasicElement() const 
+//            {return cH_MidgardBasicElement(&*this);}
 };
 
 

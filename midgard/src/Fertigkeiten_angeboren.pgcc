@@ -1,0 +1,54 @@
+#include "Fertigkeiten_angeboren.hh"
+#include <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
+exec sql include sqlca;
+
+cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;
+
+cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name)
+{
+ cH_Fertigkeit_angeborene *cached(cache.lookup(name));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_Fertigkeit_angeborene(new Fertigkeit_angeborene(name));
+   cache.Register(name,*this);
+  }
+}
+
+
+
+void Fertigkeit_angeborene::get_Fertigkeit()
+{
+ exec sql begin declare section;
+   char db_name[50];
+   int db_min,db_max,db_wert;
+ exec sql end declare section;
+ strncpy(db_name,Name().c_str(),sizeof(db_name));
+ exec sql select min,max,coalesce(wert,0) into :db_min,:db_max,:db_wert
+   from angeborene_fertigkeiten where name = :db_name;
+ SQLerror::test(__FILELINE__);
+ erfolgswert=db_wert;
+ min=db_min;
+ max=db_max;
+}
+
+void Fertigkeiten_angeborene_All::fill_list()
+{
+ exec sql begin declare section;
+   char db_name[50];
+ exec sql end declare section;
+ exec sql declare FAein cursor for select name from angeborene_fertigkeiten;
+ Transaction tr;
+ exec sql open FAein;
+ SQLerror::test(__FILELINE__);
+ while(true)
+  {
+   exec sql fetch FAein into :db_name;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   list_All.push_back(cH_Fertigkeit_angeborene(db_name));
+  }
+ exec sql close FAein;
+ tr.close();
+}

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.55 2001/10/21 21:21:55 thoma Exp $
+# $Id: Makefile.am,v 1.56 2001/10/23 07:41:53 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -92,6 +92,7 @@ midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 midgard_SOURCES = \
+   MidgardBasicElement.cc \
    $(BUILT_SOURCES_CG) \
    steigern_zauber.cc  \
    midgard_CG_menu.cc \

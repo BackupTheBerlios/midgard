@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.75 2001/10/17 12:31:17 thoma Exp $
+// $Id: midgard_CG.hh,v 1.76 2001/10/23 07:41:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,7 +49,6 @@
 #include "Waffe.hh"
 #include "WaffeGrund.hh"
 #include "KiDo.hh"
-//#include "class_fertigkeiten.hh"
 #include "Fertigkeiten_angeboren.hh"
 #include "class_berufe.hh"
 #include "class_sprache_schrift.hh"
@@ -114,9 +113,9 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_WaffeGrund> list_WaffenGrund_neu;
         std::vector<H_Data_beruf> vec_Beruf;
         std::list<cH_Zauber> list_Zauber;
-//Y        std::list<cH_MidgardBasic> list_Zauber;
-//Y        std::list<cH_MidgardBasic> list_Zauber_neu;
         std::list<cH_Zauber> list_Zauber_neu;
+//        std::list<cH_MidgardBasicElement> list_Zauber;
+//        std::list<cH_MidgardBasicElement> list_Zauber_neu;
         std::list<cH_Zauberwerk> list_Zauberwerk;
         std::list<cH_Zauberwerk> list_Zauberwerk_neu;
         std::list<cH_KiDo> list_Kido;
