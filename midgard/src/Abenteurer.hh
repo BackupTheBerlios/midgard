@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.45 2002/11/12 08:57:41 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.46 2002/11/12 10:31:34 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -69,6 +69,7 @@ public:
    
    AusruestungBaum &getBesitz(){return besitz;}
    AusruestungBaum& getAusruestung_as_parent(const std::string &name);
+   AusruestungBaum& rekursiv(std::list<AusruestungBaum> &AB,const std::string &name);
    const AusruestungBaum &getBesitz() const {return besitz;}
    void setStandardAusruestung();
    double getBelastung() const;
