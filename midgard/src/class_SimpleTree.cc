@@ -30,6 +30,7 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include "midgard_CG.hh"
+#include <Misc/itos.h>
 
 const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
 {
