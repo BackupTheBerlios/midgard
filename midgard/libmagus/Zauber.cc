@@ -124,7 +124,8 @@ void Zauber::load(const Tag &t)
 }
 
 Zauber::Zauber(const Tag &t)
-      : MidgardBasicElement(t.getAttr("Name")),spruchrolle_faktor(1)
+      : MidgardBasicElement(t.getAttr("Name")),
+        spruchrolle_faktor(1)
 {  load(t);
 } 
 

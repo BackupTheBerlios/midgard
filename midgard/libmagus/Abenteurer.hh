@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.16 2003/12/09 08:01:46 christof Exp $               
+// $Id: Abenteurer.hh,v 1.17 2004/03/01 16:02:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -48,6 +48,9 @@ class Abenteurer : public Grundwerte
    std::list<MBEmlt> list_Kido;
    std::list<MBEmlt> list_Sprache; 
    std::list<MBEmlt> list_Schrift;        
+
+   std::list<std::string> list_Gelernt_von_Spruchrolle;
+
 
    typedef std::map<cH_Region,Model_copyable<bool> > regionen_t;
    regionen_t regionen; // aktive Regionen

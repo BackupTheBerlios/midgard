@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.16 2003/12/17 07:58:38 christof Exp $            
+// $Id: Abenteurer.cc,v 1.17 2004/03/01 16:02:21 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -212,6 +212,9 @@ void Abenteurer::speicherstream(std::ostream &datei)
    MidgardBasicElement::saveElementliste(Fertigkeiten,List_WaffenGrund(),*this,getVTyp());
    MidgardBasicElement::saveElementliste(Fertigkeiten,List_Sprache(),*this,getVTyp());
    MidgardBasicElement::saveElementliste(Fertigkeiten,List_Schrift(),*this,getVTyp());
+   // Zauber, die von Spruchrolle gelernt wurden
+   for(std::list<std::string>::const_iterator i= list_Gelernt_von_Spruchrolle.begin();i!=list_Gelernt_von_Spruchrolle.end();++i)
+      Abenteurer.push_back(Tag("Von Spruchrolle gelernt",*i));
 
    // Regionen & Optionen
    Tag &Opt=Abenteurer.push_back(Tag("Optionen"));
@@ -521,6 +524,8 @@ bool Abenteurer::xml_import_stream(std::istream& datei)
    load_regionen_optionen(Opt,xml_version);
    getBesitz().clear();
    load_ausruestung(Ausruestung,&(getBesitz()));
+   FOR_EACH_CONST_TAG_OF(i,*top,"Von Spruchrolle gelernt")
+     list_Gelernt_von_Spruchrolle.push_back(i->Value());
    return true;
 }
 
