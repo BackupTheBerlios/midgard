@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.4 2003/08/02 14:55:38 christof Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.5 2003/08/04 08:50:22 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -20,11 +20,10 @@
 
 #include "LaTeX_drucken.hh"
 #include "dtos1.h"
-#include "itos.h"
-#include "recodestream.h"
+#include <Misc/itos.h>
+#include <Misc/recodestream.h>
 #include <TeX.h>
-//#include <Gtk2TeX.h>
-#include <Abenteurer.hh>
+#include "Abenteurer.hh"
 #include <fstream>
 
 void LaTeX_drucken::on_ausruestung_druck(const Abenteurer &A,bool unsichtbar)

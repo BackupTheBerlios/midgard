@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.9 2003/08/02 14:55:38 christof Exp $
+// $Id: magus_paths.cc,v 1.10 2003/08/04 08:50:22 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -78,6 +78,11 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
 #endif
    }
 
+   const char *envpath=getenv("MAGUSPATH");
+   if (envpath)
+   {  // evtl zerteilen ...
+      append_dir(std::string(envpath)+WinLux::dirsep);
+   }
    if(access(magus_verzeichnis.c_str(),R_OK)) 
       if(mkdir(magus_verzeichnis.c_str() NUR_LINUX(,0777) ))
       { 

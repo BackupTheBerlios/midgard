@@ -27,7 +27,7 @@ Zufall::Zufall(Abenteurer &a)
 
 void Zufall::Voll()
 {
-  Teil(e_Vorgabe::all,oldAben);
+  Teil(e_Vorgabe::none,oldAben);
 }
 
 #if 0

@@ -206,7 +206,8 @@ std::string WaffeBesitz::Schaden(const Abenteurer& A,const std::string& name) co
   if(Waffe()->Text().find("Einhändig")!=std::string::npos &&
        !Waffe()->Min_St_Einhand(Werte)) sb2=sb;
   // Grundkenntnis fürs Einhändige Tragen dieser Waffe nicht erworben
-  if(!MBEmlt(&*cH_WaffeGrund(Waffe()->ZweiteGrundkenntnis()))
+  if(!Waffe()->ZweiteGrundkenntnis().empty() && 
+  	!MBEmlt(&*cH_WaffeGrund(Waffe()->ZweiteGrundkenntnis()))
       ->ist_gelernt(A.List_WaffenGrund())) sb2=sb;
 
   if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe") 

@@ -37,7 +37,17 @@ AC_SUBST(PACKAGE_DATA_DIR)
 
 AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR,"$PACKAGE_DATA_DIR",[install path])
 
-
+dnl we don t want to link libmagus with gtkmm !
+for i in $COMMONGTK2_LIBS 
+do
+  if expr match "$i" ".*commongtk.*" >/dev/null
+  then COMMONGTK2_ONLY="$COMMONGTK2_ONLY $i" 
+  fi
+  if expr match "$i" ".*GtkmmAddons.*" >/dev/null
+  then COMMONGTK2_ONLY="$COMMONGTK2_ONLY $i"
+  fi
+done
+AC_SUBST(COMMONGTK2_ONLY)
 
 AC_OUTPUT(Makefile src/Makefile pixmaps/Makefile \
 	xml/Makefile libmagus/Makefile libmagusicons/Makefile)

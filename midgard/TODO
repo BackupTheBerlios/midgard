@@ -33,3 +33,6 @@ use StyleIcon for new Icons
 ---
 
 -forward port of flashing_eigenschaft, frame_spezielles, frame119, frame120 
+
+- Probleme torture: Verteidigungswaffen werden nicht als solche erkannt
+	Export: Waffen immer mit $$

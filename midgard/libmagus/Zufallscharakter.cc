@@ -48,15 +48,15 @@ int main(int argc,char **argv)
    Zufall z(a);
    z.Voll();
    
-   { std::ofstream datei("torture.magus");
-     if (!datei.good()) Ausgabe(Ausgabe::Error,"Kann torture.magus nicht beschreiben");
+   { std::ofstream datei("random.magus");
+     if (!datei.good()) Ausgabe(Ausgabe::Error,"Kann random.magus nicht beschreiben");
      else a.speicherstream(datei);
    }
    
    LaTeX_drucken dr;
    dr.Ausdrucken(a);
    
-   spielleiter_export_save(a,"torture.txt");
+   spielleiter_export_save(a,"random.txt");
  } catch (NotFound &e)
  {  Ausgabe(Ausgabe::Error, "NotFound "+ e.Name());  }
 }

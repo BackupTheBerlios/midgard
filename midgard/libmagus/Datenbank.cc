@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.18 2003/07/21 06:23:15 christof Exp $               
+// $Id: Datenbank.cc,v 1.19 2003/08/04 08:50:22 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig
@@ -78,8 +78,6 @@ void Datenbank::load_list(const Tag &t)
          {  Waffe_All::load(Waffe,*k);
             lernschema.load(*k,"Waffenfertigkeiten");
          }
-      else if (j->Type()=="Waffen-Grundkenntnisse")
-         FOR_EACH_CONST_TAG(k,*j) WaffeGrund_All::load(Waffe,*k);
       else if (j->Type()=="Kido-Fertigkeiten")
          FOR_EACH_CONST_TAG(k,*j) KiDo_All::load(Kido,*k);
       else if (j->Type()=="Sprachen")
