@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Bruder Retrun" Spieler="Frank Wasinski" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="PT" Überleben="Überleben Heimat" Muttersprache="Albisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="94" Gw="58" Gs="46" Ko="68" In="83" Zt="82"/>
+  <abgeleiteteEigenschaften Au="45" pA="40" Wk="65" Sb="98" B="23"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="11" AP="9"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="87" Größe="180" Stand="Volk" Merkmale="Rechte Hand skelettiert, aber voll benutzbar" Herkunft="Alba" Glaube="Ylathor"/>
+  <Vermögen GS="136"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Kurzschwert"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Kurzschwert"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Kurzschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Kurzschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Kurzschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Kurzschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Kurzschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Kurzschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Kurzschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Kurzschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="10"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Dieb"/>
+   <Fertigkeit Bezeichnung="Fallen entdecken" Wert="5"/>
+   <Fertigkeit Bezeichnung="Geheimmechanismen öffnen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Giftmischen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+   <Fertigkeit Bezeichnung="Schätzen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Suchen" Wert="7"/>
+   <Fertigkeit Bezeichnung="Geheimzeichen" Wert="6" Zusatz="Zinken (Meer der fünf Winde)"/>
+   <Waffe Bezeichnung="Keule" Wert="4"/>
+   <Waffe Bezeichnung="Kurzschwert" Wert="4"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="4"/>
+   <Zauber Bezeichnung="Erkennen der Aura"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Hauch des Winters"/>
+   <Zauber Bezeichnung="Heilen von Wunden"/>
+   <Zauber Bezeichnung="Heiliger Zorn"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Albisch" Wert="19"/>
+   <Sprache Bezeichnung="Altoqua" Wert="13"/>
+   <Sprache Bezeichnung="Moravisch" Wert="12"/>
+   <Sprache Bezeichnung="Waelska" Wert="5"/>
+   <Urschrift Bezeichnung="Altoqua" Wert="13"/>
+   <Urschrift Bezeichnung="Albisch" Wert="13"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
