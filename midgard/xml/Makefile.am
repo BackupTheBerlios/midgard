@@ -1,12 +1,14 @@
-# $Id: Makefile.am,v 1.15 2001/12/06 09:53:20 christof Exp $
+# $Id: Makefile.am,v 1.16 2001/12/07 15:35:41 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
 
 %_nm.o: %_exp.cc ; $(COMPILE.cc) -DXML_NO_MAIN $(OUTPUT_OPTION) $<
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
+MIDGARD3=$(shell if test `hostname` = "puck" ; then echo -DMIDGARD3 ; fi)
+
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
-           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
+           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(MIDGARD3)
 
 common_sources = export_common.cc common_exp.cc
 arkanum_exp_SOURCES= arkanum_exp.cc $(common_sources)

@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.1 2001/12/05 07:51:55 christof Exp $
+// $Id: common_exp.cc,v 1.2 2001/12/07 15:35:41 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -48,8 +48,14 @@ void grund_standard_ausnahme(ostream &o,
 }
 
 void lernschema(ostream &o, const std::string &art, const std::string &name)
-{  Query query("select typ,0 as kosten,wert,pflicht from lernschema_4"
-	" where name='"+name+"' and art='"+art+"' order by wert,typ");
+{  Query query("select typ,"
+	MIDGARD3_4("","0 as ") "lernpunkte," 
+	MIDGARD3_4("0 as","") "wert,"
+	"pflicht from "
+	MIDGARD3_4("lernschema","lernschema_4")
+	" where name='"+name+"' and art='"+art+"' order by lernpunkte,"
+	MIDGARD3_4("","wert,") 
+	"typ");
    FetchIStream is;
    while ((query>>is).good())
    {  o << "    <Lernschema";

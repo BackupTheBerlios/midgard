@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.8 2001/12/05 07:51:55 christof Exp $
+// $Id: export_common.h,v 1.9 2001/12/07 15:35:41 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,6 +20,13 @@
 #include <string>
 #include <Aux/FetchIStream.h>
 #include <iostream>
+
+#ifdef MIDGARD3
+#define MIDGARD3_4(x,y) x
+#else
+#define MIDGARD3_4(x,y) y
+#define MIDGARD4
+#endif
 
 std::string toXML(const std::string &s);
 

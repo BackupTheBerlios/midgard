@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.12 2001/12/03 15:30:35 christof Exp $
+// $Id: waffen_exp.pgcc,v 1.13 2001/12/07 15:35:41 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -145,41 +145,7 @@ void waffen_speichern(std::ostream &o)
       exec sql close cursor_reg;
 
 //*************** Waffen Typen ***************************
-      exec sql select typ into :TYPEN from waffen_typen
-      	where name=:WAFFE and standard='G'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Grund>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Grund>\n";
-      }
-
-      exec sql select typ into :TYPEN from waffen_typen
-      	where name=:WAFFE and standard='S'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Standard>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Standard>\n";
-      }
-
-      exec sql select typ into :TYPEN from waffen_typen
-      	where name=:WAFFE and standard='A'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Ausnahme>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Ausnahme>\n";
-      }
+      grund_standard_ausnahme(o, "waffen_typen", waffe);
 
       if (grund==waffe)
       {  exec sql begin declare section; 
@@ -196,83 +162,11 @@ void waffen_speichern(std::ostream &o)
      }
       //********** Lernschema **********************************
       // wert, attribut, [p+s]_element 
-      exec sql declare cursor_lp cursor for 
-      	select typ,0 as kosten,wert,pflicht from lernschema_4
-      	where name=:WAFFE and art='Waffe'
-      	order by wert,typ;
-      exec sql open cursor_lp;
-      while (!sqlca.sqlcode) 
-      {  exec sql fetch from cursor_lp into sql descriptor spalten;
-         if (sqlca.sqlcode) break;
-         FetchIStream is2("spalten");
-         o << "    <Lernschema";
-         fetch_and_write_typ_attrib(is2, o, "Typ");
-         fetch_and_write_int_attrib(is2, o, "Lernpunkte");
-         fetch_and_write_int_attrib(is2, o, "Erfolgswert");
-         fetch_and_write_bool_attrib(is2, o, "Pflicht");
-         o << "/>\n";
-      }
-      exec sql close cursor_lp;
+      lernschema(o, "Waffe", WAFFE);
+      pflicht_lernen(o, WAFFE);
+      verbot_lernen(o, WAFFE);
+//      ausnahmen(o, "w", WAFFE);
 
-      //********** Pflicht ****************
-     {exec sql begin declare section;
-      	 int LERNPKTE[40], ERFWERT[40];
-         exec sql end declare section;
-         
-      exec sql select typ,coalesce(lernpunkte,0),coalesce(erfolgswert,0) 
-      	into :TYPEN,:LERNPKTE,:ERFWERT from pflicht_lernen 
-      	where pflicht=:WAFFE order by typ;
-      if (!sqlca.sqlcode) 
-      {  for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << "    <Lernschema";
-            write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
-            write_int_attrib(o,"Lernpunkte",LERNPKTE[i]);
-            write_int_attrib(o,"Anfangswert",ERFWERT[i]);
-            write_bool_attrib(o,"Pflicht",true);
-            o << "/>\n";
-         }
-      }
-     }
-      //********** Verbot ****************
-     {exec sql begin declare section;
-      	 char SPIELBEGINN[40][2];
-         exec sql end declare section;
-         
-      exec sql select typ,coalesce(spielbegin,'') 
-      	into :TYPEN,:SPIELBEGINN from pflicht_lernen 
-      	where verboten=:WAFFE order by typ;
-      if (!sqlca.sqlcode) 
-      {  for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << "    <Verbot";
-            write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
-            write_bool_attrib(o,"Spielbeginn",SPIELBEGINN[i]==string("S"));
-            o << "/>\n";
-         }
-      }
-     }
-#if 0     
-//************** ausnahmen *****************
-      exec sql declare cursor_ausn cursor for 
-      	select spezies, herkunft, typ, beruf, stand, standard
-      	from ausnahmen 
-      	where name=:WAFFE and art='w'
-      	order by spezies,herkunft,typ,beruf,stand;
-      exec sql open cursor_ausn;
-      while (!sqlca.sqlcode) 
-      {  exec sql fetch from cursor_ausn into sql descriptor spalten;
-         if (sqlca.sqlcode) break;
-         FetchIStream is2("spalten");
-         o << "    <regionaleBesonderheit";
-         fetch_and_write_string_attrib(is2, o, "Spezies");
-         fetch_and_write_string_attrib(is2, o, "Herkunft");
-         fetch_and_write_typ_attrib(is2, o, "Typ");
-         fetch_and_write_string_attrib(is2, o, "Beruf");
-         fetch_and_write_string_attrib(is2, o, "Stand");
-         fetch_and_write_string_attrib(is2, o, "Standard");
-         o << "/>\n";
-      }
-      exec sql close cursor_ausn;
-#endif
    //***** preise ******
    {  exec sql begin declare section;
       float kosten;
@@ -318,130 +212,13 @@ void waffen_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Kosten");
    o << ">\n";
 //*************** Waffen Typen ***************************
+
    // nicht erforderlich für Grundkenntnisse?
-   {  exec sql begin declare section;
-      const char *WAFFE=grund.c_str(GARNIX);
-      char TYPEN[40][40];
-      exec sql end declare section;
-
-#if 0   
-      exec sql select typ into :TYPEN from waffen_typen
-      	where name=:WAFFE and standard='G'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Grund>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Grund>\n";
-      }
-
-      exec sql select typ into :TYPEN from waffen_typen
-      	where name=:WAFFE and standard='S'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Standard>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Standard>\n";
-      }
-
-      exec sql select typ into :TYPEN from waffen_typen
-      	where name=:WAFFE and standard='A'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Ausnahme>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Ausnahme>\n";
-      }
-#endif
-#if 0
-      //********** Lernschema **********************************
-      // wert, attribut, [p+s]_element 
-      exec sql declare cursor_lp2 cursor for 
-      	select typ,0 as kosten,wert,pflicht from lernschema_4
-      	where name=:WAFFE and art='Waffe'
-      	order by wert,typ;
-      exec sql open cursor_lp2;
-      while (!sqlca.sqlcode) 
-      {  exec sql fetch from cursor_lp2 into sql descriptor spalten;
-         if (sqlca.sqlcode) break;
-         FetchIStream is2("spalten");
-         o << "    <Lernschema";
-         fetch_and_write_typ_attrib(is2, o, "Typ");
-         fetch_and_write_int_attrib(is2, o, "Lernpunkte");
-         fetch_and_write_int_attrib(is2, o, "Erfolgswert");
-         fetch_and_write_bool_attrib(is2, o, "Pflicht");
-         o << "/>\n";
-      }
-      exec sql close cursor_lp2;
-#endif
-      //********** Pflicht ****************
-     {exec sql begin declare section;
-      	 int LERNPKTE[40], ERFWERT[40];
-         exec sql end declare section;
-         
-      exec sql select typ,coalesce(lernpunkte,0),coalesce(erfolgswert,0) 
-      	into :TYPEN,:LERNPKTE,:ERFWERT from pflicht_lernen 
-      	where pflicht=:WAFFE order by typ;
-      if (!sqlca.sqlcode) 
-      {  for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << "    <Lernschema";
-            write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
-            write_int_attrib(o,"Lernpunkte",LERNPKTE[i]);
-            write_int_attrib(o,"Anfangswert",ERFWERT[i]);
-            write_bool_attrib(o,"Pflicht",true);
-            o << "/>\n";
-         }
-      }
-     }
-      //********** Verbot ****************
-     {exec sql begin declare section;
-      	 char SPIELBEGINN[40][2];
-         exec sql end declare section;
-         
-      exec sql select typ,coalesce(spielbegin,'') 
-      	into :TYPEN,:SPIELBEGINN from pflicht_lernen 
-      	where verboten=:WAFFE order by typ;
-      if (!sqlca.sqlcode) 
-      {  for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << "    <Verbot";
-            write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
-            write_bool_attrib(o,"Spielbeginn",SPIELBEGINN[i]==string("S"));
-            o << "/>\n";
-         }
-      }
-     }
-#if 0     
-//************** ausnahmen *****************
-      exec sql declare cursor_ausn2 cursor for 
-      	select spezies, herkunft, typ, beruf, stand, standard
-      	from ausnahmen 
-      	where name=:WAFFE and art='w'
-      	order by spezies,herkunft,typ,beruf,stand;
-      exec sql open cursor_ausn2;
-      while (!sqlca.sqlcode) 
-      {  exec sql fetch from cursor_ausn2 into sql descriptor spalten;
-         if (sqlca.sqlcode) break;
-         FetchIStream is2("spalten");
-         o << "    <regionaleBesonderheit";
-         fetch_and_write_string_attrib(is2, o, "Spezies");
-         fetch_and_write_string_attrib(is2, o, "Herkunft");
-         fetch_and_write_typ_attrib(is2, o, "Typ");
-         fetch_and_write_string_attrib(is2, o, "Beruf");
-         fetch_and_write_string_attrib(is2, o, "Stand");
-         fetch_and_write_string_attrib(is2, o, "Standard");
-         o << "/>\n";
-      }
-      exec sql close cursor_ausn2;
-#endif
-   }
+//      grund_standard_ausnahme(o, "waffen_typen", grund);
+//      lernschema(o, "Waffe", grund);
+      pflicht_lernen(o, grund);
+      verbot_lernen(o, grund);
+//      ausnahmen(o, "w", grund);
    o << "  </Waffen:Grundkenntnis>\n";
   }
    exec sql close grund_curs;
@@ -450,74 +227,31 @@ void waffen_speichern(std::ostream &o)
 
 //********************* steigern_fertigkeiten_werte ********************
    o << " <Waffen:Steigern>\n";
-    exec sql declare steig_curs cursor for
-      		select schwierigkeit,
-      	    coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),
-      	    coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),
-      	    coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),
-      	    coalesce(p12,0), coalesce(p13,0), coalesce(p14,0), coalesce(p15,0),
-      	    coalesce(p16,0), coalesce(p17,0), coalesce(p18,0), coalesce(p19,0),
-      	    coalesce(p20,0)
-       		from waffen_steigern
-       		order by schwierigkeit;
-       	exec sql open steig_curs;
-       	SQLerror::test(__FILELINE__);
-       while (true)
-       {  exec sql fetch steig_curs into sql descriptor spalten;
-          SQLerror::test(__FILELINE__,100);
-          if (sqlca.sqlcode) break;
-          o << "    <Kosten";
-          FetchIStream is("spalten");
+  {Query query("select " MIDGARD3_4("name,","schwierigkeit,")
+      	    "coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),"
+      	    "coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),"
+      	    "coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),"
+      	    "coalesce(p12,0), coalesce(p13,0), coalesce(p14,0), coalesce(p15,0),"
+      	    "coalesce(p16,0), coalesce(p17,0), coalesce(p18,0), coalesce(p19,0),"
+      	    "coalesce(p20,0)"
+       		" from waffen_steigern"
+       		" order by " MIDGARD3_4("name","schwierigkeit"));
+    FetchIStream is;
+       while ((query>>is).good())
+       {  o << "    <Kosten";
+#ifdef MIDGARD3
+          fetch_and_write_string_attrib(is, o, "Kategorie");
+#else       
           fetch_and_write_int_attrib(is, o, "Schwierigkeit");
+#endif
           for (int i=1;i<=20;++i) 
              fetch_and_write_int_attrib(is, o, "Wert"+itos(i));
           o << "/>\n";
        }
-   exec sql close steig_curs;
-   SQLerror::test(__FILELINE__);
-
-//*************** Waffen Typen ***************************
-   {  exec sql begin declare section;
-      const char *WAFFE="Waffen";
-      char TYPEN[40][40];
-      exec sql end declare section;
-
-      exec sql select typ into :TYPEN from waffen_typen
-      	where name=:WAFFE and standard='G'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Grund>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Grund>\n";
-      }
-
-      exec sql select typ into :TYPEN from waffen_typen
-      	where name=:WAFFE and standard='S'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Standard>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Standard>\n";
-      }
-
-      exec sql select typ into :TYPEN from waffen_typen
-      	where name=:WAFFE and standard='A'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Ausnahme>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Ausnahme>\n";
-      }
    }
+
+//**************************** Waffen Typen ***************************
+   grund_standard_ausnahme(o, "waffen_typen", "Waffen");
    o << " </Waffen:Steigern>\n";
 //******************************************************************
    

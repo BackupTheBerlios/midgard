@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.27 2001/12/06 12:13:42 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.28 2001/12/07 15:35:41 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,17 +20,12 @@
 #include <fstream>
 #include <Aux/Transaction.h>
 #include <Aux/dbconnect.h>
-exec sql include sqlca;
 #include "export_common.h"
 #include <Aux/itos.h>
-
-// wegen eines bugs in epcg <=V6.1
-#define GARNIX 
 
 void fert_speichern(std::ostream &o)
 {  
    Transaction t;
-   exec sql allocate descriptor spalten;
    
   {Query query("select fertigkeit, region, lp as lernpunkte, anfangswert0,"
   	" fp, anfangswert, attribut"
@@ -214,144 +209,110 @@ void fert_speichern(std::ostream &o)
   }
 
 //********************* Pflicht + verboten ********************
-   o << " <Typ-Pflichten>\n";
+  {o << " <Typ-Pflichten>\n";
    o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten/Berufe sind -->\n";
-   exec sql declare pflicht_curs cursor for
-   	select pflicht, typ, lernpunkte, verboten, spielbegin, erfolgswert
-   	from pflicht_lernen
-   	where not exists (select true from fertigkeiten 
-   		where pflicht=fertigkeit or verboten=fertigkeit)
-   	and not exists (select true from berufe_voraussetzung 
-   		where pflicht=beruf or verboten=beruf)
-   	order by typ,coalesce(pflicht,''),verboten;
-   exec sql open pflicht_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch pflicht_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   std::string pflicht=fetch_string(is);
+   Query query("select pflicht, typ, lernpunkte, verboten, spielbegin, erfolgswert"
+   	" from pflicht_lernen"
+   	" where not exists (select true from fertigkeiten"
+   		" where pflicht=fertigkeit or verboten=fertigkeit)"
+   	" and not exists (select true from berufe_voraussetzung"
+   		" where pflicht=beruf or verboten=beruf)"
+   	" order by typ,coalesce(pflicht,''),verboten");
+   FetchIStream is;
+  while ((query>>is).good())
+  {std::string pflicht=fetch_string(is);
    if (pflicht.size())
    {  o << "  <Pflicht";
       fetch_and_write_string_attrib(is, o, "Typ");
       write_string_attrib(o, "Fertigkeit", pflicht);
       fetch_and_write_int_attrib(is, o, "Lernpunkte");
-      fetch_string(is);
-      fetch_and_write_string_attrib(is, o, "Spielbeginn");
+      fetch_string(is); // verboten
+      std::string spielbeg=fetch_string(is);
+      write_bool_attrib(o, "Spielbeginn",!spielbeg.empty());
       fetch_and_write_int_attrib(is, o, "Erfolgswert");
       o << "/>\n";
    }
    else
    {  o << "  <Verbot";
       fetch_and_write_string_attrib(is, o, "Typ");
-      fetch_int(is);
+      fetch_int(is); // Lernpunkte
       fetch_and_write_string_attrib(is, o, "Fertigkeit");
       fetch_and_write_string_attrib(is, o, "Spielbeginn");
       o << "/>\n";
    }
   }
-   exec sql close pflicht_curs;
-   SQLerror::test(__FILELINE__);
    o << " </Typ-Pflichten>\n";
+ }
 
 //********************* praxispunkte ********************
-   o << " <Praxispunkte>\n";
-   exec sql declare praxis_curs cursor for
-   	select name, max_wert, lernfaktor
-   	from praxispunkte
-   	where not exists (select true from fertigkeiten where name=fertigkeit)
-   	order by name;
-   exec sql open praxis_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch praxis_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Steigern";
+  {o << " <Praxispunkte>\n";
+   Query query("select name, max_wert, lernfaktor"
+   	" from praxispunkte"
+   	" where not exists (select true from fertigkeiten where name=fertigkeit)"
+   	" order by name");
+   FetchIStream is;
+  while ((query>>is).good())
+  {o << "  <Steigern";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_int_attrib(is, o, "MaximalWert");
    fetch_and_write_int_attrib(is, o, "Lernfaktor");
    o << "/>\n";
   }
-   exec sql close praxis_curs;
-   SQLerror::test(__FILELINE__);
    o << " </Praxispunkte>\n";
+  }
 
 //********************* ZEP oder KEP oder beides? ********************
   {o << " <verwendbareEP>\n";
    o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten sind -->\n";
-   exec sql declare mit_curs cursor for
-   	select name, ep
-   	from steigern_fertigkeiten_mit
-   	where not exists (select true from fertigkeiten where name=fertigkeit)
-   	order by name,ep;
-   exec sql open mit_curs;
-   SQLerror::test(__FILELINE__);
+   Query query("select name, ep"
+   	" from steigern_fertigkeiten_mit"
+   	" where not exists (select true from fertigkeiten where name=fertigkeit)"
+   	" order by name,ep");
+   FetchIStream is;
    std::string fert,ep;
-  while (true)
-  {exec sql begin declare section;
-   char NAME[100];
-   char EP[8];
-   exec sql end declare section;
-   
-   exec sql fetch mit_curs into :NAME, :EP;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   if (fert!=NAME)
+  while ((query>>is).good())
+  {std::string fert2=fetch_string(is),ep2=fetch_string(is);
+   if (fert!=fert2)
    {  if (ep.size())
          o << "  <EP-Typ Fertigkeit=\"" << toXML(fert) 
       		<< "\" Typ=\"" << toXML(ep.substr(1)) << "\"/>\n";
-      fert=NAME;
+      fert=fert2;
       ep="";
    }
-   ep+=string(",")+EP;
+   ep+=string(",")+ep2;
   }
   if (ep.size()) 
          o << "  <EP-Typ Fertigkeit=\"" << toXML(fert) 
       		<< "\" Typ=\"" << toXML(ep.substr(1)) << "\"/>\n";
  }
-   exec sql close mit_curs;
-   SQLerror::test(__FILELINE__);
    o << " </verwendbareEP>\n";
 
 //*************************** Steigerungstabelle *******************
    o << " <SteigernKosten>\n";
-   exec sql declare curs_steig cursor for
-      		select name,
-      	    coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),
-      	    coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),
-      	    coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),
-      	    coalesce(p12,0), coalesce(p13,0), coalesce(p14,0), coalesce(p15,0),
-      	    coalesce(p16,0), coalesce(p17,0), coalesce(p18,0), coalesce(p19,0),
-      	    coalesce(p20,0), coalesce(p21,0), coalesce(p22,0), coalesce(p23,0),
-      	    coalesce(p24,0), coalesce(p25,0), coalesce(p26,0), coalesce(p27,0),
-      	    coalesce(p28,0)
-       		from steigern_fertigkeiten_werte
-   	where not exists (select true from fertigkeiten where name=fertigkeit)
-       		order by name;
-   exec sql open curs_steig;
-   SQLerror::test(__FILELINE__);
-   std::string fert,ep;
-  while (true)
-       {  exec sql fetch curs_steig into sql descriptor spalten;
-          SQLerror::test(__FILELINE__,100);
-          if (sqlca.sqlcode) break;
-          FetchIStream is("spalten");
-          o << "    <Kosten";
+  {Query query("select name,"
+      	    " coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),"
+      	    " coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),"
+      	    " coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),"
+      	    " coalesce(p12,0), coalesce(p13,0), coalesce(p14,0), coalesce(p15,0),"
+      	    " coalesce(p16,0), coalesce(p17,0), coalesce(p18,0), coalesce(p19,0),"
+      	    " coalesce(p20,0), coalesce(p21,0), coalesce(p22,0), coalesce(p23,0),"
+      	    " coalesce(p24,0), coalesce(p25,0), coalesce(p26,0), coalesce(p27,0),"
+      	    " coalesce(p28,0)"
+       		" from steigern_fertigkeiten_werte"
+   	" where not exists (select true from fertigkeiten where name=fertigkeit)"
+       		" order by name");
+   FetchIStream is;
+  while ((query>>is).good())
+       {  o << "    <Kosten";
           fetch_and_write_string_attrib(is, o, "Fertigkeit");
           for (int i=0;i<=28;++i) 
              fetch_and_write_int_attrib(is, o, "Wert"+itos(i));
           o << "/>\n";
        }
-    exec sql close curs_steig;
-    SQLerror::test(__FILELINE__);
    o << " </SteigernKosten>\n";
+  }
 
 //******************************************************************
-   
-   exec sql deallocate descriptor spalten;
 }
 
 #ifndef XML_NO_MAIN
