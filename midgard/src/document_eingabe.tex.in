@@ -56,7 +56,8 @@
 \newsavebox{\Lasso}   
 %\input{midgard_tmp_latexwertedef}
 \input{midgard_tmp_latexwerte}
-\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache.ps}}
+\IfFileExists{drache.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=drache.ps}}}%
+{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache.ps}}}
 \parbox[][][c]{7cm}{
 \LI
   \begin{tabularx}{7.0cm}{|c|X|}\hline
@@ -68,7 +69,8 @@
 \makebox[1.1cm]{Spieler}&{\namespieler}\\\hline
   \end{tabularx}
 }
-\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@dracher.ps}}
+\IfFileExists{dracher.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=dracher.ps}}}%
+{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@dracher.ps}}}
 
 \vspace*{2ex}
 \begin{minipage}[t]{13cm}
@@ -326,7 +328,8 @@ Sprache&Wert&Schrift\\\hline\hline
       &{\waffeEf}&{\waffeAf}\\\cline{2-3}
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffef}}}&{\waffeSf}&{\waffeVf}\\\hline\hline
     \end{tabular}
-\parbox{7.5cm}{\epsfig{width=7.5cm,angle=0,file=@PACKAGE_DATA_DIR@axt1.ps}}
+\IfFileExists{axt1.ps}{\parbox{7.5cm}{\epsfig{width=7.5cm,angle=0,file=axt1.ps}}}%
+{\parbox{7.5cm}{\epsfig{width=7.5cm,angle=0,file=@PACKAGE_DATA_DIR@axt1.ps}}}
  \vspace*{2ex}
  \footnotesize
 \parbox{7.7cm}
