@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.6 2002/09/07 12:19:18 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.7 2002/09/08 17:59:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,6 +81,22 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Speichern.xpm"
 #include "../pixmaps/Vorwaerts.xpm"
 #include "../pixmaps/Zurueck.xpm"
+#include "../pixmaps/Ulf/Ulf-Ja.xpm"
+#include "../pixmaps/Ulf/Ulf-Nein.xpm"
+// Ulfs 24-Icons
+#include "../pixmaps/Ulf/ulf_24_anleitung.xpm"
+#include "../pixmaps/Ulf/ulf_24_drucken.xpm"
+#include "../pixmaps/Ulf/ulf_24_hilfe.xpm"
+#include "../pixmaps/Ulf/ulf_24_info.xpm"
+#include "../pixmaps/Ulf/ulf_24_menue.xpm"
+#include "../pixmaps/Ulf/ulf_24_neu.xpm"
+#include "../pixmaps/Ulf/ulf_24_oeffnen.xpm"
+#include "../pixmaps/Ulf/ulf_24_schliessen.xpm"
+#include "../pixmaps/Ulf/ulf_24_speichern.xpm"
+#include "../pixmaps/Ulf/ulf_24_vorwaerts.xpm"
+#include "../pixmaps/Ulf/ulf_24_zurueck.xpm"
+#include "../pixmaps/Ulf/ulf_24_ja.xpm"
+#include "../pixmaps/Ulf/ulf_24_nein.xpm"
 // StefanP Icons
 #include "../pixmaps/SP-Anleitung.xpm"
 #include "../pixmaps/SP-Drucken.xpm"
@@ -115,7 +131,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
    {
-     if     (typ==iNew)        return st_icons("Neu"         ,Neu_xpm   );
+     if     (typ==iNew)        return st_icons("Neu"         ,SP_Neugr_xpm   );
      else if(typ==iOpen)       return st_icons("Öffnen"      ,Oeffnen_xpm  );
      else if(typ==iClose)      return st_icons("Speichern"   ,Speichern_xpm  );
      else if(typ==iPrint)      return st_icons("Drucken"     ,Drucken_xpm );
@@ -126,8 +142,24 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iHelp)       return st_icons("Hilfe"       ,Hilfe_xpm    );
      else if(typ==iInstruction)return st_icons("Anleitung"   ,Anleitung_xpm    );
      else if(typ==iExit)       return st_icons("Schließen"   ,Schliessen_xpm      );
-     else if(typ==iJa)         return st_icons("Ja"          ,SP_Neugr_xpm);
-     else if(typ==iNein)       return st_icons("Nein"        ,Schliessen_xpm);
+     else if(typ==iJa)         return st_icons("Ja"          ,Ulf_Ja_xpm);
+     else if(typ==iNein)       return st_icons("Nein"        ,Ulf_Nein_xpm);
+   }
+  else if(MOptionen->IconCheck(Midgard_Optionen::Ulf24).active)
+   {
+     if     (typ==iNew)        return st_icons("Neu"         ,ulf_24_neu_xpm   );
+     else if(typ==iOpen)       return st_icons("Öffnen"      ,ulf_24_oeffnen_xpm  );
+     else if(typ==iClose)      return st_icons("Speichern"   ,ulf_24_speichern_xpm  );
+     else if(typ==iPrint)      return st_icons("Drucken"     ,ulf_24_drucken_xpm );
+     else if(typ==iBack)       return st_icons("Zurück"      ,ulf_24_zurueck_xpm               );
+     else if(typ==iForward)    return st_icons("Vorwärts"    ,ulf_24_vorwaerts_xpm               );
+     else if(typ==iMenu)       return st_icons("Menü"        ,ulf_24_menue_xpm );
+     else if(typ==iInfo)       return st_icons("Info"        ,ulf_24_info_xpm      );
+     else if(typ==iHelp)       return st_icons("Hilfe"       ,ulf_24_hilfe_xpm    );
+     else if(typ==iInstruction)return st_icons("Anleitung"   ,ulf_24_anleitung_xpm    );
+     else if(typ==iExit)       return st_icons("Schließen"   ,ulf_24_schliessen_xpm      );
+     else if(typ==iJa)         return st_icons("Ja"          ,ulf_24_ja_xpm);
+     else if(typ==iNein)       return st_icons("Nein"        ,ulf_24__nein_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::StefanP).active)
    {

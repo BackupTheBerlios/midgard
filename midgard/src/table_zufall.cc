@@ -36,6 +36,8 @@ void table_zufall::init(midgard_CG *h)
 void table_zufall::on_button_zufall_voll_clicked()
 {
    hauptfenster->on_neuer_charakter_clicked();
+   hauptfenster->table_lernschema->init(hauptfenster);
+   
    Zufall zufall(hauptfenster);
    zufall.Voll();
 }
