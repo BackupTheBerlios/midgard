@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.23 2002/04/16 10:17:37 christof Exp $
+// $Id: LaTeX_header.cc,v 1.24 2002/04/16 11:29:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -230,21 +230,10 @@ void midgard_CG::pdf_viewer(const std::string& file)
 
 #endif
   system(("pdflatex "+file+".tex").c_str());
-  system((MOptionen->Viewer()+file+".pdf &").c_str());
-/*
-  if(MOptionen->pdfViewerCheck(Midgard_Optionen::gv).active)
-     system(("gv "+file+".pdf &").c_str());
-  else if (MOptionen->pdfViewerCheck(Midgard_Optionen::acroread).active)
-     system(("acroread "+file+".pdf &").c_str());
-  else if (MOptionen->pdfViewerCheck(Midgard_Optionen::xpdf).active)
-     system(("xpdf "+file+".pdf &").c_str());
-  else if (MOptionen->pdfViewerCheck(Midgard_Optionen::andere).active)
-     system(("xpdf "+file+".pdf &").c_str());
-*/
+  system((MOptionen->Viewer()+file+".pdf").c_str());
+
   unlink((file+".tex").c_str());
   unlink((file+".aux").c_str());
   unlink((file+".log").c_str());
   unlink((file+".pdf").c_str());
 }
-
-
