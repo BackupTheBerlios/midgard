@@ -33,6 +33,7 @@
 #include "glademm_support.hh"
 
 class midgard_CG;
+class Grundwerte;
 
 class xml_fileselection : public xml_fileselection_glade
 {   
@@ -40,12 +41,13 @@ class xml_fileselection : public xml_fileselection_glade
         enum eAction {Save,Load,Export,Pix};
   private:
         midgard_CG* hauptfenster;        
-        
         eAction ewas;
+        Grundwerte* Werte;
+        
         friend class xml_fileselection_glade;
         void on_ok_button1_clicked();
         void on_cancel_button1_clicked();
    public:
-        xml_fileselection(midgard_CG* h,eAction _was);
+        xml_fileselection(midgard_CG* h,eAction _was,Grundwerte *W=0);
 };
 #endif

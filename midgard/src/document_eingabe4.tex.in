@@ -7,9 +7,9 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{tabularx}
 \usepackage{times}
-%\usepackage{pstricks}
+\usepackage{pstricks}
 
-%\newrgbcolor{mygray}{0.75 0.75 0.75}
+\newrgbcolor{mygray}{0.75 0.75 0.75}
 
 \pagestyle{empty}
 

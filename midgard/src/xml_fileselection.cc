@@ -38,8 +38,8 @@ void xml_fileselection::on_ok_button1_clicked()
    hauptfenster->spielleiter_export_save(this->get_filename());
  else if (ewas==Pix)
   {
-    Grundwerte W=hauptfenster->getWerte();
-    W.setBeschreibungPix(this->get_filename());
+    assert(Werte!=0);
+    Werte->setBeschreibungPix(this->get_filename());
     hauptfenster->show_beschreibung();
   }
  destroy();
@@ -50,8 +50,8 @@ void xml_fileselection::on_cancel_button1_clicked()
   destroy();
 }
 
-xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
-: hauptfenster(h),ewas(_was)
+xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
+: hauptfenster(h),ewas(_was),Werte(W)
 {
  if(ewas==Pix) set_filename(hauptfenster->getWerte().BeschreibungPix());
 }

@@ -497,11 +497,6 @@ void midgard_CG::on_ausruestung_druck(bool unsichtbar)
  fout << "}}\n";
  LaTeX_footer(fout);
  fout.close();
-/*
- system("latex midgard_tmp_ausruestung.tex");    
- system("dvips midgard_tmp_ausruestung.dvi");
- system("gv midgard_tmp_ausruestung.ps &");  
-*/
  system("pdflatex midgard_tmp_ausruestung.tex");
  if(pdfViewerCheck(gv).active)
    system("gv midgard_tmp_ausruestung.pdf &");
