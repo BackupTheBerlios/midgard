@@ -140,7 +140,7 @@ void Zauber::get_Zauber()
     region=tag->getAttr("Region");
     zauberart=tag->getAttr("Zauberart");
     element=tag->getAttr("Element");
-    ap=tag->getIntAttr("AP");;
+    ap=tag->getAttr("AP");;
     art=tag->getAttr("Typ");
     zauberdauer=tag->getAttr("Zauberdauer");
     reichweite=tag->getAttr("Reichweite");
