@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.20 2001/11/23 08:31:21 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.21 2001/12/03 13:37:46 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -121,9 +121,9 @@ void fert_speichern(std::ostream &o)
       //********** Lernschema **********************************
       // wert, attribut, [p+s]_element 
       exec sql declare cursor_lp cursor for 
-      	select typ,lernpunkte,pflicht from lernschema 
-      	where fertigkeit=:FERTIGK and art='Fertigkeit'
-      	order by lernpunkte,typ;
+      	select typ,wert,pflicht from lernschema_4
+      	where name=:FERTIGK and art='Fertigkeit'
+      	order by wert,typ;
       exec sql open cursor_lp;
       while (!sqlca.sqlcode) 
       {  exec sql fetch from cursor_lp into sql descriptor spalten;
