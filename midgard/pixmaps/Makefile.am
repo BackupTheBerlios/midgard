@@ -37,6 +37,8 @@ EXTRA_DIST = \
        Select-trans-50.xpm \
        Skills-trans-50.xpm \
        Steigern-trans-32.xpm \
+       Schliessen1-50.xpm \
+       SchliessenIII-50.xpm \
        Verlernen-trans-32.xpm \
        Weapon-trans-50.xpm \
        Zauber-trans-50.xpm
