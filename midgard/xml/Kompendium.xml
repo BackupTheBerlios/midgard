@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-22 17:41:54.128004+02" MAGUS-Index="1" MAGUS-Bild="12">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.4 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -5841,8 +5841,8 @@
   <Zauberwerk Name="Farbletter (Rot)" Stufe="magische Letter"/>
   <Zauberwerk Name="Farbletter (Ultraviolett)" Stufe="magische Letter"/>
   <Zauberwerk Name="Farbletter (Violett)" Stufe="magische Letter"/>
-  <Zauberwerk Name="Feuerkugel" Stufe="Schutzrune"/>
   <Zauberwerk Name="Feuerkugel" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Feuerkugel" Stufe="Schutzrune"/>
   <Zauberwerk Name="Feuerring" Stufe="Großes Siegel"/>
   <Zauberwerk Name="Flohpulver aktivieren" Stufe="Alchimistisches Zaubermittel"/>
   <Zauberwerk Name="Funkenregen" Stufe="Großes Siegel"/>
@@ -5857,10 +5857,10 @@
   <Zauberwerk Name="Krafttrunk (2W6) aktivieren" Stufe="Alchimistisches Zaubermittel"/>
   <Zauberwerk Name="Kraut der konzentrierten Energie" Stufe="Pflanzliches Zaubermittel"/>
   <Zauberwerk Name="Liebestrank aktivieren" Stufe="Alchimistisches Zaubermittel"/>
-  <Zauberwerk Name="Lähmung" Stufe="Schutzrune"/>
   <Zauberwerk Name="Lähmung" Stufe="Großes Siegel"/>
-  <Zauberwerk Name="Namenloses Grauen" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Lähmung" Stufe="Schutzrune"/>
   <Zauberwerk Name="Namenloses Grauen" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Namenloses Grauen" Stufe="Schutzrune"/>
   <Zauberwerk Name="Nebel" Stufe="Großes Siegel"/>
   <Zauberwerk Name="Opferletter (Dämonen)" Stufe="magische Letter"/>
   <Zauberwerk Name="Opferletter (Elemetarwesen)" Stufe="magische Letter"/>
@@ -5886,10 +5886,10 @@
   <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Schildamulett verzaubern" Stufe="Amulett"/>
-  <Zauberwerk Name="Schlaf" Stufe="Schutzrune"/>
   <Zauberwerk Name="Schlaf" Stufe="Großes Siegel"/>
-  <Zauberwerk Name="Schmerzen" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Schlaf" Stufe="Schutzrune"/>
   <Zauberwerk Name="Schmerzen" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Schmerzen" Stufe="Schutzrune"/>
   <Zauberwerk Name="Schnellkraut aktivieren" Stufe="Pflanzliches Zaubermittel"/>
   <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Schutzamulett verzaubern" Stufe="Amulett"/>
@@ -5912,8 +5912,8 @@
   <Zauberwerk Name="Talisman verzaubern" Stufe="Talisman"/>
   <Zauberwerk Name="Tierisches Handeln" Stufe="Augensalbe"/>
   <Zauberwerk Name="Tierisches Handeln" Stufe="Großes Siegel"/>
-  <Zauberwerk Name="Todeshauch" Stufe="Schutzrune"/>
   <Zauberwerk Name="Todeshauch" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Todeshauch" Stufe="Schutzrune"/>
   <Zauberwerk Name="Trunk der Macht über Hunde aktivieren" Stufe="Alchimistisches Zaubermittel"/>
   <Zauberwerk Name="Trunk der Macht über Menschen aktivieren" Stufe="Alchimistisches Zaubermittel"/>
   <Zauberwerk Name="Trunk der Macht über Orks aktivieren" Stufe="Alchimistisches Zaubermittel"/>
@@ -5922,18 +5922,18 @@
   <Zauberwerk Name="Trunk des Unsichtbarkeit aktivieren" Stufe="Alchimistisches Zaubermittel"/>
   <Zauberwerk Name="Trunk des Verwandlung aktivieren" Stufe="Alchimistisches Zaubermittel"/>
   <Zauberwerk Name="Untotenamulett verzaubern" Stufe="Amulett"/>
-  <Zauberwerk Name="Verdorren" Stufe="Schutzrune"/>
   <Zauberwerk Name="Verdorren" Stufe="Großes Siegel"/>
-  <Zauberwerk Name="Vereisen" Stufe="Schutzrune"/>
+  <Zauberwerk Name="Verdorren" Stufe="Schutzrune"/>
   <Zauberwerk Name="Vereisen" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Vereisen" Stufe="Schutzrune"/>
   <Zauberwerk Name="Verlangsamen" Stufe="Großes Siegel"/>
   <Zauberwerk Name="Versetzen" Stufe="Großes Siegel"/>
-  <Zauberwerk Name="Versteinern" Stufe="Schutzrune"/>
   <Zauberwerk Name="Versteinern" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Versteinern" Stufe="Schutzrune"/>
   <Zauberwerk Name="Verwandeln" Stufe="Schutzrune"/>
   <Zauberwerk Name="Verwandlung" Stufe="Großes Siegel"/>
-  <Zauberwerk Name="Wahnsinn" Stufe="Schutzrune"/>
   <Zauberwerk Name="Wahnsinn" Stufe="Großes Siegel"/>
+  <Zauberwerk Name="Wahnsinn" Stufe="Schutzrune"/>
   <Zauberwerk Name="Werwesenamulett verzaubern" Stufe="Amulett"/>
   <Zauberwerk Name="Windstoß" Stufe="Großes Siegel"/>
   <Zauberwerk Name="Zahlenletter (1)" Stufe="magische Letter"/>

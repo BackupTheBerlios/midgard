@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.32 2002/10/23 13:29:52 christof Exp $
+// $Id: common_exp.cc,v 1.33 2002/10/23 14:21:12 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -182,7 +182,7 @@ void region_tags(Tag &t, const string &region)
       fetch_and_set_string_attrib(is, t, "Version");
       fetch_and_set_int_attrib(is, t, "MAGUS-Index");
       fetch_and_set_int_attrib(is, t, "MAGUS-Bild");
-      t.setAttr("CVS","$Revision: 1.32 $");
+      t.setAttr("CVS","$Revi""sion$");
    }
 }
 
