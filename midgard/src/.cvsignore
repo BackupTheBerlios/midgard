@@ -63,3 +63,5 @@ midgard_CG_Ausnahmen.cc
 .libs
 get_standard_zaubermittel.cc
 get_spezies_constraint.cc
+xml.cc
+xml
