@@ -109,7 +109,7 @@ void Window_Waffenbesitz::on_leaf_selected_neu(cH_RowDataBase d)
 }
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
-      const midgard_CG::st_Database& _Database,
+      const Datenbank& _Database,
       const std::list<cH_MidgardBasicElement>& vw,
       std::list<cH_MidgardBasicElement>& wb,Grundwerte& We,
       const vector<cH_Typen>& T )

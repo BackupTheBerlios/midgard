@@ -56,7 +56,7 @@ void KiDo_auswahl::on_button_close_clicked()
 
 
 KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
-   const midgard_CG::st_Database& Database,
+   const Datenbank& Database,
    const vector<cH_Typen>& Typ)
 : maxkido(m)
 {

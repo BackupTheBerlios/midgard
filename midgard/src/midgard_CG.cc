@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.108 2002/01/11 08:48:11 thoma Exp $
+// $Id: midgard_CG.cc,v 1.109 2002/01/12 08:12:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,67 +26,20 @@
 
 #include "midgard_CG.hh"
 #include "Window_charakter_beschreibung.hh"
-//#include "Sprache_auswahl.hh"
-//#include "Window_herkunft.hh"
 #include "Window_hilfe.hh"
 #include "Window_Geld_eingeben.hh"
 #include "Window_ruestung.hh"
 #include "Window_waffe.hh"
 #include "Window_Waffenbesitz.hh"
-#include "Midgard_Info.hh"
-#include "Ausnahmen.hh"
-#include "Sprache.hh"
-#include "Schrift.hh"
-#include "Grad_anstieg.hh"
-//#include "Spezies.hh"
-//#include "Typen.hh"
-#include "Praxispunkte.hh"
 #include <gtk--/notebook.h>
-#include  <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
 
-midgard_CG::midgard_CG(int argc,char **argv)
-:menu(0)
+//midgard_CG::midgard_CG(int argc,char **argv)
+midgard_CG::midgard_CG(Datenbank& _Database)
+: menu(0),Database(_Database)
 {
-//  if (argc!=2) manage(new Midgard_Info(true,this));
   srand(time(0));
-  get_Database();
-//  menu_init();
   on_neuer_charakter_clicked();
   set_tree_titles();
-}
-
-void midgard_CG::get_Database()
-{
-   Midgard_Info *MI = manage(new Midgard_Info(this,true));
-   try{
-   Transaction tr;
-   Database = st_Database( Regionen_All(MI->get_progressbar_regionen()).get_All(),
-                           Laender_All(MI->get_progressbar_laender()).get_All(),
-                           Ruestung_All(MI->get_progressbar_ruestung()).get_All(),
-                           Lernschema(MI->get_progressbar_lernschema()),
-                           Beruf_All(MI->get_progressbar_beruf()).get_All(),
-                           Fertigkeiten_angeborene_All(MI->get_progressbar_ang_fert()).get_All(),
-                           Fertigkeiten_All(MI->get_progressbar_fertigkeiten()).get_All(),
-                           WaffeGrund_All(MI->get_progressbar_grundkenntnisse()).get_All(),
-                           Waffe_All(MI->get_progressbar_waffen()).get_All(),
-                           Waffe::fill_map_alias_waffe(MI->get_progressbar_aliaswaffen()),
-                           Zauber_All(MI->get_progressbar_zauber()).get_All(),
-                           Zauberwerk_All(MI->get_progressbar_zauberwerk()).get_All(),
-                           KiDo_All(MI->get_progressbar_kido()).get_All(),
-                           Sprachen_All(MI->get_progressbar_sprache()).get_All(),
-                           Schriften_All(MI->get_progressbar_schrift()).get_All(),
-                           Pflicht(MI->get_progressbar_pflicht()),
-                           Ausnahmen(MI->get_progressbar_ausnahmen()),
-                           Spezies_All(MI->get_progressbar_spezies()).get_All(),
-                           Typen_All(MI->get_progressbar_typen()).get_All(),
-                           Grad_anstieg(MI->get_progressbar_grad()),
-                           Spezialgebiet_All(MI->get_progressbar_spezial()).get_All(),
-                           Preise_All(MI->get_progressbar_preise()).get_All(),
-                           PreiseMod_All(MI->get_progressbar_preise()).get_All());
-   tr.close();
-   }catch(SQLerror &e) {cerr<< e.what()<<'\n'; return;}
-   MI->on_button_close_clicked();
 }
 
 gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.127 2002/01/11 10:22:13 thoma Exp $
+// $Id: midgard_CG.hh,v 1.128 2002/01/12 08:12:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,6 +46,8 @@
 #include <vector>
 #include <list>
 #include "zufall.h"
+#include "Datenbank.hh"
+/*
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
@@ -55,7 +57,9 @@
 #include "Region.hh"
 #include "Ruestung.hh"
 #include "Fertigkeiten_angeboren.hh"
+*/
 //#include "class_berufe.hh"
+/*
 #include "class_lernpunkte.hh"
 #include "Grundwerte.hh"
 #include "Land.hh"
@@ -67,6 +71,7 @@
 #include "Beruf.hh"
 #include "Preise.hh"
 #include "Ausruestung.hh"
+*/
 class Random;
 
 extern bool Originalbool;
@@ -81,6 +86,7 @@ class midgard_CG : public midgard_CG_glade
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE};
    public:
+/*
         struct st_Database { std::vector<cH_Region> Regionen;
                              std::vector<cH_Land> Laender;
                              std::vector<cH_Ruestung> Ruestung;
@@ -140,6 +146,7 @@ class midgard_CG : public midgard_CG_glade
                              Spezialgebiet(SP),
                              preise(pr),preisemod(prm) {}
                            };
+*/
    private:
         friend class midgard_CG_glade;
         Gtk::Menu *menu;
@@ -150,7 +157,8 @@ class midgard_CG : public midgard_CG_glade
 
         void set_tree_titles();
 
-        st_Database Database;
+//        st_Database Database;
+        Datenbank Database;
         std::list<cH_MidgardBasicElement> list_Beruf;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
@@ -179,7 +187,7 @@ class midgard_CG : public midgard_CG_glade
         vector<cH_Typen> Typ;
         Lernpunkte lernpunkte;
    
-        void get_Database();
+//        void get_Database();
         void regnot(std::string sadd);
         void fill_typauswahl();
         void fill_typauswahl_2();
@@ -278,9 +286,9 @@ class midgard_CG : public midgard_CG_glade
         void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
         void on_checkbutton_original_menu();
-        void on_checkbutton_original_toggled();
+//        void on_checkbutton_original_toggled();
         void on_checkbutton_info_fenster_menu();
-        void on_checkbutton_info_fenster_toggled();
+//        void on_checkbutton_info_fenster_toggled();
         void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);
 
         void on_grad_anstieg_clicked();
@@ -434,7 +442,8 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_ausruestung_geld_toggled();
    
    public:
-         midgard_CG(int argc,char **argv);
+//         midgard_CG(int argc,char **argv);
+         midgard_CG(Datenbank& _Database);
          void doppelcharaktere();
          Grundwerte Werte;
          void on_speichern_clicked();

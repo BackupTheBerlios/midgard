@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.28 2002/01/10 08:00:46 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.29 2002/01/12 08:12:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,10 +25,21 @@ bool Infobool=true;
 
 void midgard_CG::on_checkbutton_original_menu()
 {
-  checkbutton_original->set_active(menu_original->get_active());
-  on_checkbutton_original_toggled();
+//  checkbutton_original->set_active(menu_original->get_active());
+  if (menu_original->get_active()) Originalbool=true;
+  else Originalbool=false;
+
+  if(Originalbool) 
+    { checkbutton_alle_zauber->set_sensitive(false); 
+    }      
+  else 
+    { checkbutton_alle_zauber->set_sensitive(true); 
+    }      
+
+//  on_checkbutton_original_toggled();
 }
 
+/*
 void midgard_CG::on_checkbutton_original_toggled()
 {
   if (checkbutton_original->get_active()) Originalbool=true;
@@ -43,21 +54,24 @@ void midgard_CG::on_checkbutton_original_toggled()
     }      
 // menu_init();
 }
-
+*/
 
 void midgard_CG::on_checkbutton_info_fenster_menu()
 {
-  checkbutton_info_fenster->set_active(menu_info->get_active());
-  on_checkbutton_info_fenster_toggled();
+  if (menu_info->get_active()) Infobool=true;
+  else Infobool=false;
+  menu_info->set_active(Infobool);
+//  checkbutton_info_fenster->set_active(menu_info->get_active());
+//  on_checkbutton_info_fenster_toggled();
 }
-
+/*
 void midgard_CG::on_checkbutton_info_fenster_toggled()
 {   
   if (checkbutton_info_fenster->get_active()) Infobool=true;
   else Infobool=false;
   menu_info->set_active(Infobool);
 }
-
+*/
 void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region)
 {
  if(menu_item->get_active()) region->setActive(true);

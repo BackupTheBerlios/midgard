@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten_auswahl.hh,v 1.30 2001/12/10 17:11:05 thoma Exp $
+// $Id: Fertigkeiten_auswahl.hh,v 1.31 2002/01/12 08:12:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,6 +40,7 @@ class Typen;
 class Grundwerte;
 //#include "Grundwerte.hh"
 #include "class_lernpunkte.hh"
+#include <Datenbank.hh>
 
 class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
 {   
@@ -48,7 +49,7 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         Grundwerte Werte;
         vector<cH_Typen> Typ;
         midgard_CG* hauptfenster;
-        midgard_CG::st_Database Database;
+        Datenbank Database;
 
         friend class Fertigkeiten_auswahl_glade;
         void on_close_fertigkeiten_clicked();
@@ -73,7 +74,7 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         void Unge();
         bool SpracheSchrift(const std::string& fert,int wert=0,bool auswahl=false);
  public:
-        Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Database& Database,
+        Fertigkeiten_auswahl(midgard_CG* h,const Datenbank& Database,
                  const vector<cH_Typen>& Typ,
                  Lernpunkte& _lernpunkte, const Grundwerte& _Werte,
                  const std::list<cH_MidgardBasicElement> *_list_Sprache,

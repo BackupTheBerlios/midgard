@@ -29,7 +29,7 @@
 #include <Gtk_OStream.h>
 
 Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, 
-   const midgard_CG::st_Database& Database,
+   const Datenbank& Database,
    const vector<cH_Typen>& Typ, int lernpunkte)
 {
   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;

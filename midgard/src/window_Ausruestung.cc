@@ -10,7 +10,7 @@
 #include <Gtk_OStream.h>
 
 
-window_Ausruestung::window_Ausruestung(const midgard_CG::st_Database& dat)
+window_Ausruestung::window_Ausruestung(const Datenbank& dat)
 : Database(dat)
 {
   fill_optionmenu_art();

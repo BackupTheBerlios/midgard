@@ -1,4 +1,4 @@
-// $Id: Window_herkunft.hh,v 1.16 2001/11/04 07:22:20 thoma Exp $
+// $Id: Window_herkunft.hh,v 1.17 2002/01/12 08:12:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,6 +46,6 @@ class Window_herkunft : public Window_herkunft_glade
         friend class Window_herkunft_glade;
         void on_clist_herkunftsland_select_row(gint row, gint column, GdkEvent *event);
    public:
-        Window_herkunft(midgard_CG* h,const midgard_CG::st_Database& Database);
+        Window_herkunft(midgard_CG* h,const Datenbank& Database);
 };
 #endif

@@ -28,7 +28,7 @@
 #include <Gtk_OStream.h>
 
 
-Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const midgard_CG::st_Database& D,
+Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const Datenbank& D,
    int lernpunkte, const Grundwerte& Werte,const vector<cH_Typen>& _Typ)
 :Typ(_Typ)
 {

@@ -1,4 +1,4 @@
-// $Id: Zauber_auswahl.hh,v 1.29 2001/11/13 15:26:57 thoma Exp $
+// $Id: Zauber_auswahl.hh,v 1.30 2002/01/12 08:12:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,6 +39,8 @@
 class midgard_CG;
 class Grundwerte;
 //#include "Grundwerte.hh"
+//class Datenbank
+#include "Datenbank.hh"
 
 class Zauber_auswahl : public Zauber_auswahl_glade
 {   
@@ -51,7 +53,7 @@ class Zauber_auswahl : public Zauber_auswahl_glade
         void on_close_zauber_clicked();
   public:
         Zauber_auswahl(midgard_CG* h, const Grundwerte& Werte, 
-            const midgard_CG::st_Database& Database,
+            const Datenbank& Database,
             const vector<cH_Typen>& Typ,int lernpunkte);
 
 };

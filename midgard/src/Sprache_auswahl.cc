@@ -55,7 +55,7 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
 }
 
 
-Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& Database, 
+Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database, 
    const Grundwerte& _Werte,
    const modus _mod,int _wert,const std::list<cH_MidgardBasicElement> *Sp,
                              const std::list<cH_MidgardBasicElement> &Sc,

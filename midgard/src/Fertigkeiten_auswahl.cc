@@ -31,7 +31,7 @@
 #include "Pflicht.hh"
 
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,
-     const midgard_CG::st_Database& dat,const vector<cH_Typen>& _Typ,
+     const Datenbank& dat,const vector<cH_Typen>& _Typ,
      Lernpunkte& _lernpunkte, const Grundwerte& _Werte,
      const std::list<cH_MidgardBasicElement> *_list_Sprache,
      const std::list<cH_MidgardBasicElement> &_list_Schrift,

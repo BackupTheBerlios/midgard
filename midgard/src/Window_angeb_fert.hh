@@ -1,4 +1,4 @@
-// $Id: Window_angeb_fert.hh,v 1.21 2001/12/03 08:08:06 thoma Exp $
+// $Id: Window_angeb_fert.hh,v 1.22 2002/01/12 08:12:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,7 +55,7 @@ class Window_angeb_fert : public Window_angeb_fert_glade
         bool Sinn(int wurf,int wert); 
    public:
         Window_angeb_fert::Window_angeb_fert(midgard_CG* h, 
-               const midgard_CG::st_Database& Database,
+               const Datenbank& Database,
                std::list<cH_MidgardBasicElement>& vaf,
                Grundwerte& W,int wurf);
 };

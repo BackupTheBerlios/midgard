@@ -33,7 +33,7 @@
 
 Window_waffe::Window_waffe(int _wurf, 
       Window_Waffe_Geld* o, Grundwerte& W,const vector<cH_Typen>& T, 
-      const midgard_CG::st_Database& _Database,
+      const Datenbank& _Database,
       const std::list<cH_MidgardBasicElement>& wa)
 :Database(_Database),wurf(_wurf),list_Waffen(wa) ,Werte(W), Typ(T)
 {

@@ -83,7 +83,7 @@ void Window_angeb_fert::show_neue_afert()
      os << f->Min() <<"-"<<f->Max()<<"\t"<<f->Name();
      if (f->Erfolgswert()!=0) os <<"\t"<<f->Erfolgswert();
      os <<"\n"; 
-cout << "Angehängte Adresse: "<<(*i)->ref()<<'\n';
+//cout << "Angehängte Adresse: "<<(*i)->ref()<<'\n';
      os.flush((*i)->ref(),&HandleContent::unref);
    }
   for (unsigned int i=0;i<clist_ang_fert_neu->columns().size();++i)
@@ -91,7 +91,7 @@ cout << "Angehängte Adresse: "<<(*i)->ref()<<'\n';
 }
 
 Window_angeb_fert::Window_angeb_fert(midgard_CG* h, 
-   const midgard_CG::st_Database& Database,
+   const Datenbank& Database,
    std::list<cH_MidgardBasicElement>& vaf, 
    Grundwerte& W,int wu)
 : list_Fertigkeit_ang(vaf),Werte(W),wurf(wu)

@@ -37,7 +37,7 @@ void Window_herkunft::on_clist_herkunftsland_select_row(gint row, gint column, G
    destroy();
 }
 
-Window_herkunft::Window_herkunft(midgard_CG* h,const midgard_CG::st_Database& Database)
+Window_herkunft::Window_herkunft(midgard_CG* h,const Datenbank& Database)
 : hauptfenster(h)
 {
  Gtk::OStream os(clist_herkunftsland);

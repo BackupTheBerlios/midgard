@@ -206,4 +206,3 @@ Sprachen_All::Sprachen_All(Gtk::ProgressBar *progressbar)
  progressbar->set_percentage(1);
 }  
 
-

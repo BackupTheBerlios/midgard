@@ -18,7 +18,7 @@
 
 class window_Ausruestung : public window_Ausruestung_glade
 {   
-        midgard_CG::st_Database Database;
+        Datenbank Database;
         
         friend class window_Ausruestung_glade;
         void fill_preisliste();
@@ -30,6 +30,6 @@ class window_Ausruestung : public window_Ausruestung_glade
         void on_button_druck_clicked();
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event); 
    public:
-        window_Ausruestung(const midgard_CG::st_Database& dat);
+        window_Ausruestung(const Datenbank& dat);
 };
 #endif

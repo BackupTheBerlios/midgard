@@ -45,7 +45,7 @@ void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEve
    manage (new WindowInfo("Nicht stark genug."));
 }
 
-Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const midgard_CG::st_Database& Database) 
+Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const Datenbank& Database) 
 : Werte(W), hauptfenster(h)
 {
  std::string sru="Rüstung auswählen. Bisherige Rüstung: ("+ Werte.Ruestung()->Long() +")";

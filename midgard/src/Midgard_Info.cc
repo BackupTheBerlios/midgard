@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.51 2001/11/21 09:45:17 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.52 2002/01/12 08:12:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,19 +30,20 @@
 
 void Midgard_Info::on_button_close_clicked()
 {   
-  if(hauptfenster) hauptfenster->show();
+//  if(hauptfenster) hauptfenster->show();
   destroy();
 }
 
-Midgard_Info::Midgard_Info(midgard_CG* h,bool selfclean)
-:hauptfenster(h)
+//Midgard_Info::Midgard_Info(midgard_CG* h,bool selfclean)
+Midgard_Info::Midgard_Info(bool selfclean)
+//:hauptfenster(h)
 {
    versionsnummer->set_text("Version: "+(std::string)VERSION);
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    if (selfclean) 
     { toolbar_close->hide();
       frame_datenbank->show();
-      if (hauptfenster) hauptfenster->hide();
+//      if (hauptfenster) hauptfenster->hide();
     }
    else
     {

@@ -12,6 +12,14 @@ NEWS IN VERSION 0.2delta1
 * Stadt/Land Bug beseitigt
 * Himmelskunde Bug beseitigt
 * Preisliste überarbeitet, Konzept überarbeitet
+* Korrekte Werte von Universellen Fertigkeiten
+* Bugs bei der Ausrüstung
+* Umbau der 'Regionen' in eine Tabelle -> Dynamisches Menü, Änderung der Oberfläche
+* Bug beim Muttersprace lernen beseitigt
+* Weiterer Umbau der Oberfläche incl. neuen Buttons
+* Bug beim steigern Fertigkeiten 'Zaubern' beseitigt
+* Die Anzahl der Lerntage kann dem Alter hinzuaddiert werden
+* Die Datenbank ist jetzt in einer eigenen Klasse 
 
 TODO:
 * Spezielgebiete für Magier stürzt ab
@@ -21,6 +29,7 @@ TODO:
   (Karawanenführer, land, v,m
    Kaufmann, stadt,m,a
    Verwalter, land, stadt, m,a,
+* Einlesen von Charakteren aus XML (!!!)
 
 
 ##########################################################################

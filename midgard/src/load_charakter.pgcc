@@ -481,8 +481,8 @@ void midgard_CG::load_fertigkeiten()
       if(sart=="bool")
         {
          std::string reg=db_region;
-         if (reg=="ORIG") {Originalbool=false ; checkbutton_original->set_active(false);}
-         if (reg=="INFO") {Infobool=false ; checkbutton_info_fenster->set_active(false);}
+         if (reg=="ORIG") {Originalbool=false ; /*checkbutton_original->set_active(false);*/}
+         if (reg=="INFO") {Infobool=false ;/* checkbutton_info_fenster->set_active(false);*/}
         }
       if(sart=="Region")
         {
@@ -493,6 +493,5 @@ void midgard_CG::load_fertigkeiten()
     } 
   exec sql close LFEIN;
   tr.close();
-//  menu_init();
 }
 
