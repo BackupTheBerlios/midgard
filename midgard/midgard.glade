@@ -14842,32 +14842,6 @@ KS
 	  <column_spacing>0</column_spacing>
 
 	  <widget>
-	    <class>GtkLabel</class>
-	    <name>label571</name>
-	    <label>GLOBALE EINSTELLUNGEN</label>
-	    <justify>GTK_JUSTIFY_CENTER</justify>
-	    <wrap>False</wrap>
-	    <xalign>0</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>10</ypad>
-	    <child>
-	      <left_attach>0</left_attach>
-	      <right_attach>1</right_attach>
-	      <top_attach>0</top_attach>
-	      <bottom_attach>1</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>False</xexpand>
-	      <yexpand>False</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>False</yfill>
-	    </child>
-	  </widget>
-
-	  <widget>
 	    <class>GtkTable</class>
 	    <name>table141</name>
 	    <rows>3</rows>
@@ -14893,7 +14867,7 @@ KS
 	    <widget>
 	      <class>GtkTable</class>
 	      <name>table142</name>
-	      <rows>8</rows>
+	      <rows>2</rows>
 	      <columns>1</columns>
 	      <homogeneous>False</homogeneous>
 	      <row_spacing>0</row_spacing>
@@ -14914,124 +14888,6 @@ KS
 	      </child>
 
 	      <widget>
-		<class>GtkLabel</class>
-		<name>label572</name>
-		<label>Anzeige</label>
-		<justify>GTK_JUSTIFY_CENTER</justify>
-		<wrap>False</wrap>
-		<xalign>0</xalign>
-		<yalign>0.5</yalign>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton1</name>
-		<can_focus>True</can_focus>
-		<label>Wizard automatisch starten</label>
-		<active>True</active>
-		<draw_indicator>True</draw_indicator>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>1</top_attach>
-		  <bottom_attach>2</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton2</name>
-		<can_focus>True</can_focus>
-		<label>Bilder anzeigen</label>
-		<active>True</active>
-		<draw_indicator>True</draw_indicator>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>2</top_attach>
-		  <bottom_attach>3</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton3</name>
-		<can_focus>True</can_focus>
-		<label>Infofenster anzeigen</label>
-		<active>True</active>
-		<draw_indicator>True</draw_indicator>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>3</top_attach>
-		  <bottom_attach>4</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton4</name>
-		<can_focus>True</can_focus>
-		<label>Grundwerte nur über Maustasten würfeln</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>4</top_attach>
-		  <bottom_attach>5</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
-	      </widget>
-
-	      <widget>
 		<class>GtkTable</class>
 		<name>table145</name>
 		<rows>1</rows>
@@ -15042,8 +14898,8 @@ KS
 		<child>
 		  <left_attach>0</left_attach>
 		  <right_attach>1</right_attach>
-		  <top_attach>7</top_attach>
-		  <bottom_attach>8</bottom_attach>
+		  <top_attach>1</top_attach>
+		  <bottom_attach>2</bottom_attach>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <xexpand>False</xexpand>
@@ -15106,26 +14962,32 @@ KS
 	      </widget>
 
 	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton5</name>
-		<can_focus>True</can_focus>
-		<label>Minihilfen anzeigen</label>
-		<active>True</active>
-		<draw_indicator>True</draw_indicator>
+		<class>GtkFrame</class>
+		<name>frame_globale_optionen</name>
+		<cxx_separate_file>True</cxx_separate_file>
+		<cxx_separate_class>True</cxx_separate_class>
+		<cxx_visibility>protected</cxx_visibility>
+		<label>Globale Optionen</label>
+		<label_xalign>0</label_xalign>
+		<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 		<child>
 		  <left_attach>0</left_attach>
 		  <right_attach>1</right_attach>
-		  <top_attach>5</top_attach>
-		  <bottom_attach>6</bottom_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
+		  <yexpand>True</yexpand>
 		  <xshrink>False</xshrink>
 		  <yshrink>False</yshrink>
 		  <xfill>True</xfill>
-		  <yfill>False</yfill>
+		  <yfill>True</yfill>
 		</child>
+
+		<widget>
+		  <class>Placeholder</class>
+		</widget>
 	      </widget>
 	    </widget>
 

@@ -17,6 +17,7 @@ NEWS IN VERSION 0.5delta1
   woanders aufbewahren. Am sinnvollsten mit der Leiste, die Speichern 
   und Drucken enthält.
 * (zukünftige) Wizard Verbesserungen von Christof
+* Implementation der Optionen komplett(!) überarbeitet
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
