@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.267 2002/10/05 07:34:45 thoma Exp $
+// $Id: midgard_CG.cc,v 1.268 2002/10/10 07:31:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,6 @@ midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
 	InfoFenster(0),MOptionen(0),wizard(0),menu_kontext(0)
 {
 //table_ausruestung->set_sensitive(false); // bis auf weiters 
-
   InfoFenster = manage(new WindowInfo(this));
 
   // Optionen laden
@@ -43,6 +42,8 @@ midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
   MOptionen = new Midgard_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
   MOptionen->load_options(with_path("magus_optionen.xml",false,true));
+  // wait for Window to appear
+  while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
   
   srand(time(0));
   Database.load(Midgard_Info,this);

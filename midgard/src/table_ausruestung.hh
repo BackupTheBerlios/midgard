@@ -51,16 +51,7 @@ class table_ausruestung : public table_ausruestung_glade
    private:
         void fill_new_tree_titles(const std::map<e_spalten,std::string> &VSpalten);
         pair<e_spalten,std::string> enum_from_string(const std::string &s);
-//        std::map<e_spalten,
-
-        struct st_modimap_index{std::string art;std::string art2;std::string typ;
-            st_modimap_index(std::string a,std::string a2,std::string t)
-                :art(a),art2(a2),typ(t) {}
-                bool operator <(const st_modimap_index b) const       
-                {return art<b.art || (art==b.art && art2<b.art2) ||   
-                (art==b.art && art2==b.art2 && typ<b.typ);} };
-        std::map<st_modimap_index,PreiseMod::st_payload> modimap;
-
+        std::string spaltentitel(e_spalten e);
 
        struct st_ausruestung{std::string name;double kosten; std::string einheit; double gewicht;
          st_ausruestung(std::string n,double k, std::string e, double g)
@@ -76,16 +67,16 @@ public:
         void init(midgard_CG *hauptfenster);
 
 private:
-        void set_tree_titles();
+//        void set_tree_titles();
         void ausruestung_laden();
-        void show_modi();
+//        void show_modi();
         void showAusruestung();
         void showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB);
         bool tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList) ;
         void on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column);
         void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
         void on_checkbutton_sichtbar_toggled();
-        void fill_preisliste();
+//        void fill_preisliste();
         void fill_new_preise();
 public:
         AusruestungBaum &setStandardAusruestung(AusruestungBaum &besitz);
@@ -102,8 +93,8 @@ private:
         
         void on_preise_tree_neu_leaf_selected(cH_RowDataBase d);
         void on_button_modi_clicked();
-        void on_preise_leaf_selected(cH_RowDataBase d);
-        void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
+//        void on_preise_leaf_selected(cH_RowDataBase d);
+//        void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
         void on_checkbutton_ausruestung_geld_toggled();
         void on_ausruestung_loeschen_clicked();
         gint on_button_ausruestung_druck_release_event(GdkEventButton *ev);
@@ -125,7 +116,7 @@ private:
 
         guint n_targets;// = sizeof(target_table) / sizeof(target_table[0]);       
 
-        void on_clist_preisliste_drag_data_get(GdkDragContext *context,
+        void on_preise_tree_neu_drag_data_get(GdkDragContext *context,
                                      GtkSelectionData   *selection_data,
                                      guint               info,
                                      guint32             time );

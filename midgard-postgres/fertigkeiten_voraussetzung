@@ -172,7 +172,7 @@ TaiTschi	\N	21	\N	\N	\N	\N	\N	21	\N	\N	\N
 Talisman verzaubern	\N	31	\N	\N	\N	\N	\N	\N	\N	Zaubern	\N
 Tanzen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Tarnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Tauchen	\N	31	61	\N	\N	\N	\N	\N	\N	\N	\N
+Tauchen	\N	31	61	\N	\N	\N	\N	\N	\N	Schwimmen	\N
 Teezeremonie	\N	\N	\N	\N	\N	\N	31	\N	\N	\N	\N
 Thaumatographie	\N	\N	\N	61	\N	\N	\N	\N	\N	Zauberkunde	\N
 Tierkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
@@ -186,7 +186,7 @@ Wagenlenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	21
 Wahrnehmung	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Wahrsagekalender führen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Wetterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
-Winden	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Winden	\N	61	\N	\N	\N	\N	\N	\N	\N	schlank	\N
 Wissen von der Magie	\N	\N	\N	11	\N	\N	\N	\N	\N	\N	\N
 YangScheng	\N	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
 YubeChian	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N

@@ -19,11 +19,14 @@
 #include "midgard_CG.hh"
 #include "KI.hh"
 #include "zufall.h"
+#include <Misc/itos.h>
 
 void MagusKI::VerteileGFP(int gfp,const Prozente100 &p)
 {
   prozente100=p;
-  while(gfp>0)
+  int count=0,gfpmem=gfp; // wenn man nicht mitzählt, kann es zu Endlosschleifen kommen
+  const int MAXCOUNT=100;
+  while(gfp>0 && count<MAXCOUNT)
    {
      int i=random.integer(1,100);
      const Enums::MBEListen was=Was();
@@ -31,6 +34,9 @@ void MagusKI::VerteileGFP(int gfp,const Prozente100 &p)
 
      if     (i<=spezial_allgemein) Steigern(gfp,was);
      else                          NeuLernen(gfp,was);
+
+     if(gfp!=gfpmem) {gfpmem=gfp; count=0;}
+     else ++count;
 
 cout << Aben.getWerte().Grad()<<' '<<Aben.getWerte().GFP()<<'\t'<<gfp<<'\n';
      int kosten=teste_auf_gradanstieg();
@@ -42,6 +48,7 @@ cout << Aben.getWerte().Grad()<<' '<<Aben.getWerte().GFP()<<'\t'<<gfp<<'\n';
 cout << "Noch "<< (gfp-=10)<<" GFP\n";
 */
    }
+  if(count==MAXCOUNT) hauptfenster->set_status("Steigern abgebrochen, weil "+itos(MAXCOUNT)+" Versuche erfolglos blieben.");
 }
 
 std::vector<MBEmlt> List_to_Vector(const std::list<MBEmlt> &L)

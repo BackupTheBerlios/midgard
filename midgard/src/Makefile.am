@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.201 2002/10/04 20:26:18 thoma Exp $
+# $Id: Makefile.am,v 1.202 2002/10/10 07:31:21 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -97,7 +97,8 @@ WindowInfo_glade.hh WindowInfo.hh \
    ProgressBar.h \
    table_lernschema.hh \
    table_lernschema_glade.hh \
-   Data_waffenbesitz.hh
+   Data_waffenbesitz.hh \
+   Data_NewPreis.hh
 
 BUILT_SOURCES= registry.h text2c NEWS.h
 

@@ -18,55 +18,9 @@
 
 #include "table_ausruestung.hh"
 #include "midgard_CG.hh"
-#include <Misc/itos.h>
-#include "dtos1.h"
-
-class Data_NewPreis : public RowDataBase
-{
-      cH_Preise ware;
-      double kosten;
-      std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M;
-  public:
-     Data_NewPreis(const cH_Preise P) : ware(P),kosten(P->Kosten()) {}
-     Data_NewPreis(const cH_Preise P,const std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> &m) 
-         : ware(P),kosten(P->Kosten()),M(m) 
-         {
-           for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
-                kosten*=i->second.preis_faktor;
-         }
-      
-     enum spalten {ART,ART2,NAME,V_STAND,V_MATERIAL,V_FARBE,GEWICHT,KOSTEN};
-     
-     virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
-      {
-        std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M_=
-            const_cast<std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>&>(M);
-        switch(spalten(seqnr)) {
-           case ART: return cH_EntryValueIntString(ware->Art());
-           case ART2: return cH_EntryValueIntString(ware->Art2());
-           case NAME: return cH_EntryValueIntString(ware->Name());
-           case GEWICHT: return cH_EntryValueIntString(ware->Gewicht());
-           case V_STAND: return cH_EntryValueIntString(M_[table_ausruestung::Stand].spezifikation);
-           case V_MATERIAL: return cH_EntryValueIntString(M_[table_ausruestung::Material].spezifikation);
-           case V_FARBE: return cH_EntryValueIntString(M_[table_ausruestung::Farbe].spezifikation);
-           case KOSTEN: return cH_EntryValueIntString(dtos(kosten)+" "+ware->Einheit());
-         }
-        return cH_EntryValueIntString();
-      }
-   cH_Preise Ware() const {return ware;}
-   double Kosten() const {return kosten;}
-   std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> 
-         getMod() const {return M;}
-//   std::string Spezifikation() const {return spezifikation;}
-//   std::string Varaiante() const {return variante;}
-
-};
-class cH_Data_NewPreis : public Handle<const Data_NewPreis>
-{
-public:
- cH_Data_NewPreis(Data_NewPreis *r) : Handle<const Data_NewPreis>(r) {}
-};
-
+#include "Data_NewPreis.hh"
+//#include <Misc/itos.h>
+//#include "dtos1.h"
 
 pair<table_ausruestung::e_spalten,std::string> table_ausruestung::enum_from_string(const std::string &s)
 {
@@ -91,6 +45,13 @@ void table_ausruestung::fill_new_tree_titles(const std::map<e_spalten,std::strin
  preise_tree_neu->setTitles(preis_);
 } 
 
+std::string table_ausruestung::spaltentitel(e_spalten e)
+{
+  if(e==Farbe) return  "Farbe";
+  else if(e==Material)return  "Material";
+  else if(e==Stand) return "Stand";
+  return "???";
+}
 
 
 enum table_ausruestung::e_spalten &operator++(enum table_ausruestung::e_spalten &s)
@@ -100,17 +61,56 @@ enum table_ausruestung::e_spalten &operator++(enum table_ausruestung::e_spalten 
 
 void table_ausruestung::fill_new_preise()
 {
-  std::vector<cH_RowDataBase> datavec;
+//  std::vector<cH_RowDataBase> datavec;
   std::map<e_spalten,std::string> SpaltenMap;
+  std::list<cH_Data_NewPreis> LNP;
   for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=hauptfenster->getDatabase().preise.end();++i)
    {
+     LNP.push_back(new Data_NewPreis(*i));
+   }
+  for(e_spalten e=e_spalten(int(None)+1);e<Max;++e)
+   {
+     SpaltenMap[e]=spaltentitel(e);
+     std::list<cH_Data_NewPreis> LNP2;
+     for(std::list<cH_Data_NewPreis>::iterator j=LNP.begin();j!=LNP.end();++j)
+      {
+        std::map<std::string,std::vector<PreiseNewMod::st_preismod> > VM=cH_PreiseNewMod((*j)->Ware()->Art(),true)->VSpezifikation();
+        if(VM.empty()) continue;
+        std::map<e_spalten,std::vector<PreiseNewMod::st_preismod> > MS;
+        for(std::map<std::string,std::vector<PreiseNewMod::st_preismod> >::const_iterator k=VM.begin();k!=VM.end();++k)
+         {
+           pair<e_spalten,std::string> spalte=enum_from_string(k->first);
+           for(std::vector<PreiseNewMod::st_preismod>::const_iterator l=k->second.begin();l!=k->second.end();++l)
+              MS[spalte.first].push_back(*l);
+         }
+        if(MS[e].empty()) continue;
+//        (*j)->getMod()[e]=*(MS[e].begin());
+
+         for(std::vector<PreiseNewMod::st_preismod>::const_iterator k=MS[e].begin();k!=MS[e].end();++k)
+          {
+           std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M=(*j)->getMod();
+           M[e]=*k;                       
+           LNP2.push_back(new Data_NewPreis((*j)->Ware(),M));
+          }
+      }
+     LNP.splice(LNP.end(),LNP2);
+   }
+  std::vector<cH_RowDataBase> datavec;
+  for(std::list<cH_Data_NewPreis>::iterator j=LNP.begin();j!=LNP.end();++j)
+   {
+     datavec.push_back(&**j);
+   }
+
+/*
      std::map<std::string,std::vector<PreiseNewMod::st_preismod> > VM=cH_PreiseNewMod((*i)->Art(),true)->VSpezifikation();
-     if(VM.empty()) 
+     if(//VM.empty()) 
        { datavec.push_back(new Data_NewPreis(*i));
-         continue;
+//         continue;
        }
+     
+
      std::map<e_spalten,vector<PreiseNewMod::st_preismod> > MS;
-     for(std::map<std::string,std::vector<PreiseNewMod::st_preismod> >::const_iterator j=VM.begin();j!=VM.end();++j)     
+     for(std::map<std::string,std::vector<PreiseNewMod::st_preismod> >::const_iterator j=VM.begin();j!=VM.end();++j)
       {
         pair<e_spalten,std::string> spalte=enum_from_string(j->first);
         SpaltenMap[spalte.first]=spalte.second;
@@ -129,34 +129,30 @@ void table_ausruestung::fill_new_preise()
        VCI[j->first]=beg_end_t(j->second.begin(),j->second.end());
 reloop:
     std::map<e_spalten,PreiseNewMod::st_preismod> Y;
-    for(e_spalten e=Farbe;e<=Stand;++e)
+    for(e_spalten e=e_spalten(int(None)+1);e<Max;++e)
        if(VCI[e].first!=VCI[e].second) Y[e] = *(VCI[e].first) ;
     X.push_back(Y); 
 
     for(std::map<e_spalten,beg_end_t>::iterator k=VCI.begin();k!=VCI.end();++k)
      {
-      if(k->second.first!=k->second.second)
-         ++(k->second.first);
-      if(k->second.first!=k->second.second)
-         goto reloop;
+      if(k->second.first!=k->second.second)  ++(k->second.first);
+      if(k->second.first==k->second.second && k->first != Max-1) 
+{
+cout << "Zurücksetzen von "<<k->first<<'\n';
+//         k->second.first=MS[k->first].begin();
+//         goto reloop;
+}
+      if(k->second.first!=k->second.second)  goto reloop;
      }
 
     for(std::vector<std::map<e_spalten,PreiseNewMod::st_preismod> >::const_iterator j=X.begin();j!=X.end();++j)
         datavec.push_back(new Data_NewPreis(*i,*j));
    }
+*/
   fill_new_tree_titles(SpaltenMap);
   preise_tree_neu->setDataVec(datavec);
 }
 
-/*
-std::map<e_spalten,int> VI;
-
-PreiseNewMod::st_preismod next_element_for(const table_ausruestung::e_spalten &spalte,
-      std::map<table_ausruestung::e_spalten,std::vector<PreiseNewMod::st_preismod> > M)
-{
-  return M[spalte][VI[spalte]];
-}
-*/
 
 void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
 {

@@ -26,6 +26,7 @@
 #include <Misc/itos.h>
 #include "dtos1.h"
 
+/*
 class Data_Preis : public RowDataBase
 {
      std::string art,art2, typ, eigenschaft;
@@ -59,6 +60,7 @@ class cH_Data_Preis : public Handle<const Data_Preis>
 public:
  cH_Data_Preis(Data_Preis *r) : Handle<const Data_Preis>(r) {}
 };
+*/
 
 
 
@@ -70,10 +72,11 @@ void table_ausruestung::init(midgard_CG *h)
    table_gruppe->hide();
    table_artikel->hide();      
    togglebutton_gruppe_neu->hide(); // nicht implementiert
-   set_tree_titles();
+//   set_tree_titles();
    fill_new_preise();
 }
    
+/*
 void table_ausruestung::set_tree_titles()
 {
  std::vector<string> preis;
@@ -84,22 +87,24 @@ void table_ausruestung::set_tree_titles()
  preis.push_back("Kostenfaktor");
  preise_tree->setTitles(preis);
 }
-
+*/
 
    
-
 void table_ausruestung::ausruestung_laden()
 {
   sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
+/*
   std::vector<cH_RowDataBase> datavec;
   for(std::list<cH_PreiseMod>::const_iterator i=hauptfenster->getDatabase().preisemod.begin();i!=hauptfenster->getDatabase().preisemod.end();++i)
    {
      datavec.push_back(new Data_Preis((*i)->Art(),(*i)->Art2(),(*i)->Typ(),(*i)->Payload()));
    }
   preise_tree->setDataVec(datavec);
+*/
   showAusruestung();
 }
 
+/*
 void table_ausruestung::on_preise_leaf_selected(cH_RowDataBase d)
 {
  static std::string art,art2;
@@ -115,7 +120,9 @@ void table_ausruestung::on_preise_leaf_selected(cH_RowDataBase d)
  entry_artikel_art->set_text(art);
  entry_artikel_art2->set_text(art2);
 }
+*/
 
+/*
 void table_ausruestung::show_modi()
 {
   viewport_modi->remove();
@@ -143,12 +150,15 @@ void table_ausruestung::show_modi()
   table_modi->show();
   fill_preisliste();
 }
+*/
 
+/*
 void table_ausruestung::on_button_modi_clicked()
 {
   modimap.clear();
   show_modi();
 }
+*/
 
 void table_ausruestung::showAusruestung()
 {
@@ -300,6 +310,7 @@ void table_ausruestung::on_checkbutton_ausruestung_geld_toggled()
 {
 }
 
+/*
 void table_ausruestung::on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event)
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
@@ -334,6 +345,8 @@ void table_ausruestung::on_clist_preisliste_select_row(gint row, gint column, Gd
  clist_preisliste->unselect_all();
  showAusruestung();
 }
+*/
+
 
 void table_ausruestung::zeige_werte()
 {
@@ -342,7 +355,7 @@ void table_ausruestung::zeige_werte()
   label_kupfera->set_text(itos(hauptfenster->getWerte().Kupfer()));
 }
 
-
+/*
 void table_ausruestung::fill_preisliste()
 {
  clist_preisliste->clear();
@@ -372,6 +385,7 @@ void table_ausruestung::fill_preisliste()
   for (unsigned int i=0;i<clist_preisliste->columns().size();++i)
        clist_preisliste->set_column_auto_resize(i,true);
 }
+*/
 
 AusruestungBaum &table_ausruestung::setStandardAusruestung(AusruestungBaum &besitz)
 {

@@ -18,6 +18,8 @@
 
 #include "table_ausruestung.hh"
 #include "midgard_CG.hh"
+#include "Data_NewPreis.hh"
+#include <Misc/mystring.h>
 
 //static  Gdk_Pixmap drag_icon;
 //#include "/tmp/testdrag_and_drop.xpm"
@@ -47,14 +49,11 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
                                            drag_icon_xpm); // data
 */
 
-//  clist_preisliste->drag_drop.connect(slot(this,&(table_ausruestung::target_drag_drop)));
+// Ausruestung_tree->drag_drop.connect(slot(this,&(table_ausruestung::target_drag_drop)));
 
-  clist_preisliste->drag_source_set ( static_cast < GdkModifierType > ( GDK_BUTTON1_MASK | GDK_BUTTON3_MASK ) ,
+  preise_tree_neu->drag_source_set ( static_cast < GdkModifierType > ( GDK_BUTTON1_MASK | GDK_BUTTON3_MASK ) ,
                              target_table, n_targets,
                              static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE ) );
-
-//  clist_preisliste->drag_source_set_icon(cmap,drag_icon,drag_mask);
-
 
 //  Ausruestung_tree->drag_data_received.connect(slot(this,&(table_ausruestung::drag_data_received)));
 
@@ -76,7 +75,19 @@ void table_ausruestung::tree_drag_data_received(GdkDragContext *context,
       cout << "Received \""
            << (gchar *)data->data
            << "\" in label"
+           << " x="<<x<<" y="<<y
            << endl;
+
+      std::string sdp = (gchar *)data->data;
+      int adresse = atoi(sdp.c_str());
+
+      void *gp = reinterpret_cast<void*>(adresse);
+//      Data_NewPreis *dp=reinterpret_cast<Data_NewPreis*>(gp);
+/*
+      cH_Data_NewPreis P(dp);
+      P->unref();
+cout << "Finaly we got: "<<P->Ware()->Name()<<' '<<P->Kosten()<<'\n';
+*/   
       Gtk::Widget::drag_finish ( gdc, true, false, time );
       return;
     }
@@ -90,24 +101,39 @@ void table_ausruestung::tree_drag_data_received(GdkDragContext *context,
 gboolean table_ausruestung::target_drag_drop(GdkDragContext *context,
                                   gint x,gint y, guint time )
 {
+cout << "Traget Drop\n";
   return false;
 }
 */
 
-
-void table_ausruestung::on_clist_preisliste_drag_data_get(GdkDragContext *context,     
+void table_ausruestung::on_preise_tree_neu_drag_data_get(GdkDragContext *context,     
                                      GtkSelectionData   *selection_data,       
                                      guint               info,
                                      guint32             time )
 {
-   if(clist_preisliste->selection().begin()==clist_preisliste->selection().end()) return;
-st_ausruestung *A = static_cast<st_ausruestung*>
-      (clist_preisliste->selection().begin()->get_data());
-cout <<"GET IT: " <<A->name<<'\n';
+   try{
+    cH_Data_NewPreis dt(preise_tree_neu->getSelectedRowDataBase_as<cH_Data_NewPreis>());
 
-   std::string data= "Dies sind die Daten";
+/*
+cout <<"GET IT: " <<dt->Ware()->Name()<<'\t'<<dt->Kosten()<<'\t';
+    std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M=dt->getMod();
+for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
+cout <<i->second.spezifikation<<", ";
+cout << '\n';
+*/
+/*
+   std::string data= dt->Ware()->Name()+"@"+dtos(dt->Kosten())+"@";
+   for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
+      data += i->second.spezifikation+", ";
+   ManuProC::remove_last_from(data,", ");
+*/
+   int *adresse=reinterpret_cast<int*>(dt->ref());
+   std::string data=itos(*adresse);
+
    gtk_selection_data_set(selection_data,selection_data->target,8, 
        reinterpret_cast < const unsigned char * > ( data.c_str() ) ,
        data.size() );
+
+   }catch(std::exception &e) {cerr << e.what()<<'\n';}   
 }
- 
+

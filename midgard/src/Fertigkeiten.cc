@@ -159,6 +159,7 @@ FertEnd:
      }
     return false;
   }
+  if(Name()=="Winden" && A.getWerte().Gestalt() != "schlank") return false;
   return true;
 }
 

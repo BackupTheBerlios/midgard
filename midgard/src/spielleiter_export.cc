@@ -80,7 +80,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   else if(W.bo_Ab()<0) boni+="AbB" +itos(W.bo_Ab())+", ";
   if     (W.bo_An()>0) boni+="AnB+"+itos(W.bo_An())+", ";
   else if(W.bo_An()<0) boni+="AnB" +itos(W.bo_An())+", ";
-  ManuProC::remove_last_from(boni,",");
+  ManuProC::remove_last_from(boni,", ");
   if(!boni.empty()) fout <<" - "<<boni<<'\n';
 
   std::string angriff;
