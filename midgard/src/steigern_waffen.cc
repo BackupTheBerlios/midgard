@@ -96,9 +96,9 @@ void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
   WindowInfo(strinfo,true);
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
- if (radiobutton_grundkenntnisse_verlernen->get_active())
+ if (radiobutton_verlernen->get_active())
    {
-     radiobutton_grundkenntnisse_verlernen->set_active(false);
+//     radiobutton_grundkenntnisse_verlernen->set_active(false);
      MidgardBasicElement::move_element(list_WaffenGrund,list_WaffenGrund_neu,MBE->Name());
      waffen_zeigen();
    }
@@ -108,11 +108,11 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
 {  
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
    cH_MidgardBasicElement MBE = dt->getMBE();
-   if (radio_waffen_steigern->get_active())
+   if (radiobutton_steigern->get_active())
       {
        if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
-       if (!togglebutton_praxispunkte_waffen->get_active()) // normal Lernen
-        {
+//       if (!togglebutton_praxispunkte_waffen->get_active()) // normal Lernen
+//        {
           if (MBE->Erfolgswert() >=  cH_Waffe(MBE)->Maxwert(Typ)) 
             {  
                std::string strinfo = "Maximal möglicher Erfolgswert erreicht\n";
@@ -124,6 +124,7 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
           for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
                if (cH_Waffe(*i)->Name()==MBE->Name()) 
                   { cH_Waffe(*i)->add_Erfolgswert(1); break;}
+/*
         }
        else // steigern mit Praxispunkten
         {
@@ -142,8 +143,9 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
                   if ((*i)->Name()==MBE->Name()) (*i)->add_Erfolgswert(1);
             }
         }
+*/
       }
-   if (radio_waffen_reduzieren->get_active())
+   if (radiobutton_reduzieren->get_active())
       {
         if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
         Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
@@ -151,9 +153,14 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
         for (std::list<cH_MidgardBasicElement>::iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
               if (cH_Waffe(*i)->Name()==MBE->Name()) (*i)->add_Erfolgswert(-1);  
       }
+   if (radiobutton_verlernen->get_active())
+      {
+         manage(new WindowInfo("Nicht implementiert"));
+      }
    waffen_zeigen();
 }
 
+/*
 void midgard_CG::on_radio_waffen_steigern_toggled()
 {   
 }
@@ -177,6 +184,7 @@ void midgard_CG::on_radiobutton_praxis_wuerfeln_waffen_toggled()
 void midgard_CG::on_radiobutton_praxis_auto_waffen_toggled()
 {   
 }
+*/
 
 void midgard_CG::on_button_waffen_sort_clicked()
 {

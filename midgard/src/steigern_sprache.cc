@@ -81,7 +81,7 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
-   if (radio_sprache_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
+   if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
       for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
          if ( cH_Sprache(*i)->Name() == MBE->Name()) 
@@ -91,14 +91,14 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
       for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
          if ( cH_Sprache(*i)->Name() == MBE->Name()) cH_Sprache(*i)->add_Erfolgswert(1);
     }
-   if (radio_sprache_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen) )
+   if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen) )
     {
       if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
       Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
          if ( cH_Sprache(*i)->Name() == MBE->Name()) cH_Sprache(*i)->add_Erfolgswert(-1);
     }
-   if (radio_sprache_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen) )
+   if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen) )
     {
       if (steigern_bool) desteigern(MBE->Verlernen(Typ,Database.ausnahmen));
       Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));

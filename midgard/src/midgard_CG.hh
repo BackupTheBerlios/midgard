@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.111 2001/12/27 09:39:52 thoma Exp $
+// $Id: midgard_CG.hh,v 1.112 2001/12/27 12:43:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -381,12 +381,13 @@ class midgard_CG : public midgard_CG_glade
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);
         void on_leaf_selected_neue_waffen(cH_RowDataBase d);
         void on_button_waffen_sort_clicked();
+/*
         void on_radio_waffen_steigern_toggled();
         void on_radio_waffen_reduzieren_toggled();
         void on_togglebutton_praxispunkte_waffen_toggled();
         void on_radiobutton_praxis_wuerfeln_waffen_toggled();
         void on_radiobutton_praxis_auto_waffen_toggled();
-
+*/
 
         void on_zauber_laden_clicked();
         void zauber_zeigen();

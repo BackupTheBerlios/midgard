@@ -159,6 +159,8 @@ cout << "2 "<<land<<'\n';
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
 cout << (MBE)->What()<<'\n';
 
+  cH_Fertigkeit(new Fertigkeit(*MBE));
+  
   cH_Fertigkeit(MBE)->setZusatz(land);
   scrolledwindow_landauswahl->hide();
   fertigkeiten_zeigen();
