@@ -21,12 +21,6 @@ INHALT:
 
 ##########################################################################
 TODO
-* Vorraussetzungen bei Fertigkeiten, Waffen und Berufen werden angegeben, 
-   aber nicht kontrolliert, der Benutzer muß selber darauf achten, daß 
-   sein Charakter die Vorraussetzungen erfüllt.
-* Vorteile, die ein Beruf gewährt werden nicht automatisch berücksichtigt.
-   Werden entsprechende Fertigkeiten gelernt, muß die Lernpunktezahl entsprechend
-   nach oben korrigiert werden ('Lernpunkte Editieren').
 * Datenbank: 'arkanum_zauber' um  Sprüche für Beschwörer ergänzen.
 * Andere Rassen (Zwerg, Halbling, Ork, ...)
 * Charakterklassen aus den Quellenbüchern (siehe unten),
@@ -129,41 +123,25 @@ installiert werden:
 4. Abschnitt: Erweiterung des Charaktergenerators
 
 a) Neue Charakterklassen:
-   * Eintag der neuen Charakterkasse in das Optionmenu (mit 'glade')
-      oder direkt in das Quellfile 'midgard_CG_glade.cc'
-   * Eintrag in 'get_typ.pgcc' wobei die Variable 'typs' mit dem 
-      entsprechenden Einträgen in der Datenbank 'typen' übereinstimmen muß.
    * Erweiterung der Datenbank:
       - lernschema
       - pflicht_lernen
       - typen
-      - arkanum_zauber
+      - arkanum_zauber (wenn es ein Zauberer ist)
       - fertigkeiten
       - waffen_standard
 
 b) Anderes
    * neue Zauber
       -> arkanum_zauber
-   * neue berufe
-      -> berufe
+   * neue Berufe
+      -> berufe_voraussetzung, berufe_stand, berufe_vorteile
    * neue Fertigkeiten
-      -> fertigkeiten, steigern_fertigkeiten, steigern_fertigkeiten_werte
+      -> fertigkeiten, steigern_fertigkeiten, steigern_fertigkeiten_werte,
+         fertigkeiten_voraussetzung
    * neue Waffen
       -> waffen, waffen_grund
 
 ##########################################################################
-Verteiler:
-jordanj@s.netic.de
-malte@knoerr.escape.de
-Fabian.Wagner@01019freenet.de
-klaus@caldera.de
-bernward_kett@hp.com
-HChristsen@aol.com
-Lynx@chello.at
-filippetti@wtal.de 
-aneren@wtal.de
-skeeve@gmx.de
-kraehe@copyleft.de
-robert.wenner@smail.inf.fh-rhein-sieg.de
-corelltd@rbg.informatik.tu-darmstadt.de
-frank@heidebrunn.de
+
+pg_dump -O -x -c [-d|-D] midgard > midgard-postgres-0.2betha1

@@ -1,4 +1,64 @@
 ##########################################################################
+NEWS IN VERSION 0.2betha2
+Hilfe leicht überarbeitet und ergänzt
+Bug bei Sprachen lernen beseitigt: GFP werden jetzt addiert
+Einige Bugs aus der Datenbank beseitigt
+überflüssige  Spalten und Tabellen aus der Datenbank entfernt
+Kleinerer Bug in Oberfläche beseitigt (Zauber lernen Fenster)
+Neue Charakterklassen können nun ergänzt werden, ohne das der Quellcode
+geändert werden muß. Es reicht diese in die entsprechenden Tabellen einzutragen
+Datenbank aufgeräumt
+Info Fenster kann abgeschaltet werden.
+[ Die Regionen-Knöpfe sind ncoh ohne Funnktion ]
+
+##########################################################################
+NEWS IN VERSION 0.2betha1
+Fehler in Datenbank beseitigt (Schilde sind maskulin nicht neutrum :-)
+   -> konten nicht gelernt werden.
+Auswürfeln der Rüstung funktioniert jetzt (hoffentlich) richtig.
+
+##########################################################################
+NEWS IN VERSION 0.2betha0
+Fertigkeit 'Fallen entdecken' führe zu einem Absturz -> behoben
+Fertigkeit 'Giftmischen' führe zu einem Absturz -> behoben
+
+Voraussetzung für Fertigkeiten werden beim lernen und beim steigern 
+   berücksichtigt (Werte) bzw. angezeigt (andere Fertigkeiten oder Waffen)
+Vorraussetzungen für Waffen werden beim lernen und steigern berücksichtigt
+   (Werte) bzw. angezeigt (andere Waffen)
+(Vielen Dank an Alessandro für das abtipen/parsen der Werte.)
+Aus der Datenbank habe ich die nicht mehr benötigte Tabelle 'berufe' entfernt
+Vorteile aufgrund der Berufswahl werden bei der Waffenwahl berücksichtigt
+Programm stürzt nicht mehr ab, wenn ein nicht Zauberer Zauber lernen will
+Graphische Oberfläche leicht überarbeitet
+Schadensbonus nur noch für Nahkampfwaffen
+
+
+##########################################################################
+NEWS IN VERSION 0.1betha1
+Fehler bei der Berufsauswahl beseitigt
+Vorteile aufgrund der Berufswahl werden bei der Fertigkeitsauswahl berücksichtigt
+
+##########################################################################
+NEWS IN VERSION 0.1betha0
+Die Waffengrundkenntnisse werden für einen 'Neuen Charakter' zurückgesetzt.
+
+##########################################################################
+NEWS IN VERSION 0.1alpha8
+Bei der Berufswahl wird der Stand berücksichtigt
+Bei der Berufswahl werden die Vorraussetzungen (St,Ge,Ko,In,pA,Au,k|z) berücksichtigt
+Rechtschreibefehler in der Datenbank beseitigt => 
+   Verhören + Glücksspiel + Schlittschulaufen funktioniert 
+   (Dank an Alessandro)
+
+##########################################################################
+NEWS IN VERSION 0.1alpha7
+Ausdruck des Charakterdokumentes sollte jetzt vollständig sein.
+(Der Dank diesbezgl. geht mal wieder an Christof:-)
+Angriffsrang und Abwehrmodifikation werden angegeben
+Einige Bugs beseitigt
+
+##########################################################################
 NEWS IN VERSION 0.1alpha6
 Einige kleinere Bugs beseitigt
 Waffen aussuchen komplett, 
@@ -6,11 +66,10 @@ Ausdruck von Waffen, die ein CHarakter besitzt mit
    Erfolgswert und Schaden (incl. waffenl. Kampf!)
 Damit der Ausdruck wieder ohne Stopp funktioniert habe ich eine '~'
    als Defaultwert eingetragen, da diese für LaTeX 
-   ein unsichtbares Zeichen ist.
+   ein unsichtbares Zeichen darstellt.
 Peitsche, Lasso, Bola und Netz hinzugefügt.
-ACHTUNG: Aufgrund eine Beschränkung von LaTeX können bisher nur vier Waffen
-als Besitz ausgedruckt werden. Ich hoffe, daß mir (aus der TeX-Newsgroup in 
-diesem Punkt bals weiterhelfen kann, oder ist einer von LaTeX Experte?
+ACHTUNG: Aufgrund einer Beschränkung von LaTeX können bisher nur vier Waffen
+als Besitz ausgedruckt werden. 
 
 ##########################################################################
 NEWS IN VERSION 0.1alpha5
