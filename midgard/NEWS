@@ -26,6 +26,7 @@ links).
 - nicht-3TastenMaus: richtiges Tooltip setzen
 - alle Ausdrucke unter Windows testen
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
+- xml laden beschleunigen (merge with map, reservate on vectors)
 
 ##########################################################################
 NEWS IN VERSION 0.7delta4
