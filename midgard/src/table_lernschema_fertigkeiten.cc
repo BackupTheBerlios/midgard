@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.25 2003/04/29 07:06:56 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.26 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,7 +37,7 @@ void table_lernschema::on_button_angeborene_fertigkeit()
 
   button_lernpunkte->set_sensitive(true);
   togglebutton_lernpunkte_edit->set_sensitive(true);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
      button_angeborene_fert->set_sensitive(false);
 }
 

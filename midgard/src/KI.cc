@@ -176,7 +176,7 @@ MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was)
 std::list<MBEmlt> MagusKI::NeuLernenList(const Enums::MBEListen was,const int gfp) const
 {
   LernListen LLD(Database);
-  bool nsc = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
+  bool nsc = hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active;
    std::list<MBEmlt> LL;
   switch (was) {
      case Enums::sFert: 

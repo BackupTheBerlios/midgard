@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.322 2003/07/09 14:05:41 thoma Exp $
+// $Id: midgard_CG.hh,v 1.323 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,25 +39,12 @@ class Random;
 #include "Optionen.hh"
 #include "Waffe.hh"
 #include "Abenteurer.hh"
-//#include "Region.hh"
+#include "Region_GUI.hh"
 #include <TreeViewUtility.h>
 #include <config.h>
+#include "Magus_Optionen.hh"
 
-// small class for determining file positions (originally part of midgard_CG)
-class magus_paths
-{protected:
-        std::string argv0; // Dateiname
-        std::string magus_verzeichnis;
-public:
-         magus_paths(const std::string &_argv0,const std::string &_magus_verzeichnis)
-         	: argv0(_argv0), magus_verzeichnis(_magus_verzeichnis) {}
-         const std::string &MagusVerzeichnis() const {return magus_verzeichnis;}
-         const std::string &getArgv0() const { return argv0; }
-         std::string BinaryVerzeichnis() const;
-        std::string with_path(const std::string &name,bool path_only=false,bool noexit=false) const ;
-};
-
-class midgard_CG : public midgard_CG_glade, public magus_paths
+class midgard_CG : public midgard_CG_glade
 {   
         bool in_dtor;
 /////////////////////////////////////////////////////////////////////////////
@@ -86,7 +73,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         friend class Fertigkeit;
         friend class midgard_CG_glade;
         friend class Wizard;
-        friend class Midgard_Optionen;
+        friend class Magus_Optionen;
         friend class Midgard_Info;
         friend class frame_drucken;
         friend class Abenteurer;
@@ -115,9 +102,9 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
 
         // Optionen
    private:
-        Midgard_Optionen *MOptionen;
-        void OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index);
-        void Ober_element_activate(gpointer gp,Midgard_Optionen::OberIndex index);
+        Magus_Optionen *MOptionen;
+        void OptionenExecute_setzen_from_menu(Magus_Optionen::OptionenExecuteIndex index);
+        void Ober_element_activate(gpointer gp,Magus_Optionen::OberIndex index);
         void autoshrink(bool b);
         void show_Pics(bool b);
         void show_Menueleiste(bool b);
@@ -159,8 +146,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         void Box_setzen(Gtk::Widget *child,st_icons I);
         void Bin_setzen(Gtk::Widget *child,st_icons I);
    protected:
-        Midgard_Optionen* getOptionen() const {return MOptionen;};
-        const Midgard_Optionen* getCOptionen() const {return MOptionen;};
+        Magus_Optionen* getOptionen() const {return MOptionen;};
+        const Magus_Optionen* getCOptionen() const {return MOptionen;};
 
         // Wizard
    private:
@@ -184,7 +171,6 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         void xml_import_auswahl();
         void xml_import_history(const std::string datei);
    public:
-         const std::string& MagusVerzeichnis() const {return magus_verzeichnis;}
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
          void spielleiter_export_save(const std::string& dateiname,const bool full);
@@ -294,8 +280,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
 
         void set_status(const std::string &s,bool autoclean=true);
    public:
-        midgard_CG(const std::string &argv0,const std::string &_magus_verzeichnis,
-                    const std::string &datei="");
+        midgard_CG(Magus_Optionen *op,const std::string &datei="");
          ~midgard_CG();
 };
 #endif

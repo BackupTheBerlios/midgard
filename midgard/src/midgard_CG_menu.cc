@@ -55,12 +55,12 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *trennlinie = (Gtk::MenuItem *)&schummel_menu->items().back();
   trennlinie->show();
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,make_gtk_box(MagusImage("midgard_logo_tiny.xpm"),"Originalregeln ")));
+  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Magus_Optionen::Original).active,make_gtk_box(MagusImage("midgard_logo_tiny.xpm"),"Originalregeln ")));
   schummel_menu->append(*_M);}
 
   {Gtk::MenuItem *_M = Gtk::manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
   schummel_menu->append(*_M);
-  _M->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),Midgard_Optionen::LernschemaSensitive),true);}
+  _M->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),Magus_Optionen::LernschemaSensitive),true);}
 
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_grundwerte->edit_werte,"Werte editieren"));
   schummel_menu->append(*_M);}
@@ -68,7 +68,7 @@ void midgard_CG::menu_init()
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
   schummel_menu->append(*_M);}
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,"NSC-Modus"));
+  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active,"NSC-Modus"));
   schummel_menu->append(*_M);}
 
   menu_kontext->append(*schummel);
@@ -124,7 +124,7 @@ void midgard_CG::menu_init()
      regionen_menu->append(*mi);
      (*i)->Active().signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
-         mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,true);
+         mi->setSensitive(MOptionen->OptionenCheck(Magus_Optionen::Original).active,true);
    }
   menu_kontext->append(*regionen);
   
@@ -134,8 +134,8 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *optionen = Gtk::manage(new class Gtk::MenuItem("Ansicht & Fenster")); 
   optionen->set_submenu(*optionen_menu);
 
-  std::list<Midgard_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
-  for(std::list<Midgard_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
+  std::list<Magus_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
+  for(std::list<Magus_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=Gtk::manage (new Gtk::Label(i->text));
     Gtk::Table *_tab=Gtk::manage(new Gtk::Table(1,1,false));
@@ -181,8 +181,8 @@ void midgard_CG::menubar_init()
   Gtk::MenuItem *mi1 = Gtk::manage(new class Gtk::MenuItem("Ansicht & Fenster"));
   Gtk::MenuItem *mi2 = Gtk::manage(new class Gtk::MenuItem("Gestaltung"));
   
-  std::list<Midgard_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
-  for(std::list<Midgard_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
+  std::list<Magus_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
+  for(std::list<Magus_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=Gtk::manage (new Gtk::Label(i->text));
     Gtk::Table *_tab=Gtk::manage(new Gtk::Table(1,1,false));
@@ -197,7 +197,7 @@ void midgard_CG::menubar_init()
     mi->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
     menu1->append(*mi);
    } 
-  for(std::list<Midgard_Optionen::st_Ober>::iterator i=MOptionen->getOber().begin();i!=MOptionen->getOber().end();++i)
+  for(std::list<Magus_Optionen::st_Ober>::iterator i=MOptionen->getOber().begin();i!=MOptionen->getOber().end();++i)
    {
     if(!i->show) continue;
     bool_CheckMenuItem *mi = Gtk::manage(new bool_CheckMenuItem(i->active,i->text));
@@ -238,7 +238,7 @@ void midgard_CG::menubar_init()
      // Gtk::manage(mi);
      (*i)->Active().signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
-        mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,true);
+        mi->setSensitive(MOptionen->OptionenCheck(Magus_Optionen::Original).active,true);
    }
  regionen_menu->show_all();
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.122 2003/05/06 07:10:41 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.123 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,14 +31,14 @@ void midgard_CG::set_info(const std::string& sadd)
  InfoFenster->AppendShow(sadd);
 }
 
-void midgard_CG::OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index)
+void midgard_CG::OptionenExecute_setzen_from_menu(Magus_Optionen::OptionenExecuteIndex index)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  MOptionen->OptionenExecute_setzen_from_menu(index);
 }
 
 
-void midgard_CG::Ober_element_activate(gpointer gp,Midgard_Optionen::OberIndex index)
+void midgard_CG::Ober_element_activate(gpointer gp,Magus_Optionen::OberIndex index)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   getOptionen()->Ober_setzen_from_menu(index);
@@ -125,7 +125,7 @@ void midgard_CG::show_Statusleiste(bool b)
 void midgard_CG::show_Icons(bool i)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
- bool b=MOptionen->OberCheck(Midgard_Optionen::Beschriftungen).active;
+ bool b=MOptionen->OberCheck(Magus_Optionen::Beschriftungen).active;
  if     ( b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_BOTH);
  else if( b &&!i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_TEXT);
  else if(!b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_ICONS);
@@ -135,7 +135,7 @@ void midgard_CG::show_Icons(bool i)
 void midgard_CG::show_Beschriftungen(bool b)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
- bool i=MOptionen->OberCheck(Midgard_Optionen::Icons).active;
+ bool i=MOptionen->OberCheck(Magus_Optionen::Icons).active;
  if     ( b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_BOTH);
  else if( b &&!i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_TEXT);
  else if(!b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_ICONS);
@@ -176,7 +176,7 @@ void midgard_CG::show_Hausregeln_active()
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   frame_haus_status->remove();
   Gtk::HBox *hb=manage(new class Gtk::HBox(false, 0));
-  for(std::list<Midgard_Optionen::st_Haus>::const_iterator i=MOptionen->getHausregeln().begin();i!=MOptionen->getHausregeln().end();++i)
+  for(std::list<Magus_Optionen::st_Haus>::const_iterator i=MOptionen->getHausregeln().begin();i!=MOptionen->getHausregeln().end();++i)
    {
      if(!i->active) continue;
      Gtk::Image *p=manage(new Gtk::Image(i->bild));
@@ -230,17 +230,17 @@ void midgard_CG::Schummeln()
 {
   if(schummeln)
    {
-     MOptionen->set_Original(true,Midgard_Optionen::Original);
-     MOptionen->OptionenExecute_setzen_from_menu(Midgard_Optionen::LernschemaSensitive);
+     MOptionen->set_Original(true,Magus_Optionen::Original);
+     MOptionen->OptionenExecute_setzen_from_menu(Magus_Optionen::LernschemaSensitive);
      table_steigern->steigern_mit_EP_bool=false;
-     MOptionen->set_Original(true,Midgard_Optionen::NSC_only);
+     MOptionen->set_Original(true,Magus_Optionen::NSC_only);
      table_grundwerte->edit_werte=true;
    }
   else
    {
-     MOptionen->set_Original(false,Midgard_Optionen::Original);
+     MOptionen->set_Original(false,Magus_Optionen::Original);
      table_steigern->steigern_mit_EP_bool=true;
-     MOptionen->set_Original(false,Midgard_Optionen::NSC_only);
+     MOptionen->set_Original(false,Magus_Optionen::NSC_only);
      table_grundwerte->edit_werte=false;
    }
 }

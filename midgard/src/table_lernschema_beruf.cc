@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.27 2003/06/12 12:46:03 christof Exp $
+// $Id: table_lernschema_beruf.cc,v 1.28 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -34,7 +34,7 @@ void table_lernschema::on_button_beruf()
          "übrig, die zunächst verbraucht werden müssen.");
       return ;                                          
     }
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
       button_beruf->set_sensitive(false);
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::BERUF1);
   deleteBerufsFertigekeit();

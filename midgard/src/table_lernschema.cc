@@ -387,7 +387,7 @@ void table_lernschema::on_lernpunkte_wuerfeln_clicked()
 
   zeige_lernpunkte();
 
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
      button_lernpunkte->set_sensitive(false);
 
   button_sensitive(true);
@@ -432,7 +432,7 @@ void table_lernschema::edit_lernpunkte(bool b)
 void table_lernschema::on_button_lernschema_geld()
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GELD);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
      button_lernschema_geld->set_sensitive(false);
   if (hauptfenster->MOptionen->WerteEingebenModel().Value())
   {  gwr_auswahl=EGeld1;
@@ -498,7 +498,7 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
 void table_lernschema::on_button_ruestung()
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::RUESTUNG);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
      button_ruestung->set_sensitive(false);
    if (!hauptfenster->MOptionen->WerteEingebenModel().Value())
    {  
@@ -571,7 +571,7 @@ void table_lernschema::on_button_ausruestung()
 void table_lernschema::ausruestung_setzen()
 {
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::AUSRUESTUNG);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
      button_ausruestung->set_sensitive(false);
   
   hauptfenster->getAben().setStandardAusruestung();

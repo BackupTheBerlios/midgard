@@ -23,7 +23,7 @@ class frame_drucken : public frame_drucken_glade
         
         friend class frame_drucken_glade;
         midgard_CG *hauptfenster;
-        void element_activate(Gtk::RadioButton *rb,Midgard_Optionen::pdfViewerIndex index);
+        void element_activate(Gtk::RadioButton *rb,Magus_Optionen::pdfViewerIndex index);
         void entry_changed();
         bool entry_focus_out(GdkEventFocus *ev);
         Gtk::Entry *entry;

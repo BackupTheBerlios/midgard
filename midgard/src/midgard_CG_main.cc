@@ -38,7 +38,7 @@ bool midgard_CG::timeout_status()
 void midgard_CG::on_button_html_hilfe_clicked()
 {
   std::string pfad="file://"+with_path("index.html",false,false);
-  std::string s =MOptionen->getString(Midgard_Optionen::html_viewer)+" \""+pfad+"\"";
+  std::string s =MOptionen->getString(Magus_Optionen::html_viewer)+" \""+pfad+"\"";
   if (!WinLux::CreateProcess(s))
 	set_status("Fehler: "+s+" funktioniert nicht",false);
 }

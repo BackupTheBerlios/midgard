@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.60 2003/05/06 07:10:41 christof Exp $
+// $Id: WindowInfo.cc,v 1.61 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -139,7 +139,7 @@ void WindowInfo::Flush(int anzahl)
   os.flush();
   LogWin->scroll();
 
-  if(!hauptfenster->MOptionen->OberCheck(Midgard_Optionen::NoInfoFenster).active)
+  if(!hauptfenster->MOptionen->OberCheck(Magus_Optionen::NoInfoFenster).active)
      show();
   if (Modus==None || Modus==Autoclean) bestaetigen(false) ;
 //  else if (Modus==PraxisPunkteMBE) auswahl(anzahl);

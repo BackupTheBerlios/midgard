@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.34 2003/05/07 00:01:37 christof Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.35 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,7 +79,7 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 }
 
 midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
-{  bool ulf=MOptionen->IconCheck(Midgard_Optionen::Ulf).active;
+{  bool ulf=MOptionen->IconCheck(Magus_Optionen::Ulf).active;
      if     (typ==iNew)        return st_icons("Neu"         ,MagusImage("NewChar-trans-50.xpm")   );
      else if(typ==iOpen)       return st_icons("Öffnen"      ,MagusImage("LoadChar-trans-50.xpm")  );
      else if(typ==iClose)      return st_icons("Speichern"   ,MagusImage("SaveChar-trans-50.xpm")  );

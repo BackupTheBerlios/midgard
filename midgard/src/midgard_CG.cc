@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.299 2003/05/06 08:53:12 christof Exp $
+// $Id: midgard_CG.cc,v 1.300 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -61,7 +61,7 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
 
   // Optionen laden
   fill_IconVec();
-  MOptionen = new Midgard_Optionen(this); 
+  MOptionen = new Magus_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
   MOptionen->load_options(with_path("magus_optionen.xml",false,true));
   
@@ -89,11 +89,11 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   set_sensitive(true);
 
   if (!datei.empty()) xml_import(datei); // Charakter laden
-  else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) 
+  else if(MOptionen->OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
        on_wizard_starten_activate();
   else on_neuer_charakter_clicked();
-  if(MOptionen->OptionenCheck(Midgard_Optionen::Notebook_start).wert!=-1) 
-     notebook_main->set_current_page(MOptionen->OptionenCheck(Midgard_Optionen::Notebook_start).wert);
+  if(MOptionen->OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
+     notebook_main->set_current_page(MOptionen->OptionenCheck(Magus_Optionen::Notebook_start).wert);
 
   menubar_init();
   table_optionen->init();
@@ -106,7 +106,7 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
 #include"NEWS.h" 
    <<'\n';
 
-  if(MOptionen->OberCheck(Midgard_Optionen::BegruessungsFenster).active)
+  if(MOptionen->OberCheck(Magus_Optionen::BegruessungsFenster).active)
      manage(new BegruessungsWindow(this));
 }
 
@@ -127,7 +127,7 @@ void midgard_CG::init_statusbar()
 //  frame_regionen_status->remove();
   vec_region_status.clear();
   Gtk::HBox *hb_regionen_status=manage(new class Gtk::HBox(false, 0));
-//  Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
+//  Magus_Optionen::IconIndex II=MOptionen->getIconIndex();
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
      RefPtr_Pixmap *_pix=manage(new RefPtr_Pixmap((*i)->RegionPixSmall()));

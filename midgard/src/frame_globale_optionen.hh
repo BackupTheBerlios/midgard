@@ -16,15 +16,16 @@
 class midgard_CG;
 #include "Magus_Optionen.hh"
 #include <gtkmm/checkbutton.h>
+#include <libmagus/Optionen.hh>
 
 class frame_globale_optionen : public frame_globale_optionen_glade
 {	midgard_CG *hauptfenster;
 
-        void element_activate_C(gpointer gp,Midgard_Optionen::OptionenCheckIndex index);
-        void element_activate_H(gpointer gp,Midgard_Optionen::HausIndex index);
+        void element_activate_C(gpointer gp,Magus_Optionen::OptionenCheckIndex index);
+        void element_activate_H(gpointer gp,Optionen::HausIndex index);
         void element_show_or_hide(gpointer gp,Gtk::Widget *widget,Model<int> *wert);
 
-        void on_spinbutton_notebookpage_changed(Midgard_Optionen::OptionenCheckIndex index);
+        void on_spinbutton_notebookpage_changed(Magus_Optionen::OptionenCheckIndex index);
 public:
         
         frame_globale_optionen(GlademmData *_data) : frame_globale_optionen_glade(_data)

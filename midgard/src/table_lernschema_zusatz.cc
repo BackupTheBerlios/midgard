@@ -280,7 +280,7 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
   hauptfenster->getWerte().setHerkunft(dt->getLand());
   set_zusatz_sensitive(false);
   zeige_werte();  
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
      button_herkunft->set_sensitive(false);
   MBEmlt M(&*cH_Fertigkeit("Muttersprache"));
   Sprache::setErfolgswertMuttersprache(M,hauptfenster->getWerte().In(),

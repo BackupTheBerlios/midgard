@@ -28,9 +28,9 @@ void frame_globale_optionen::init()
  if(!hauptfenster) assert(!"");
  if(!(hauptfenster->getOptionen())) assert(!"");
  Gtk::Table *table=manage(new Gtk::Table(1,1,false));
- std::list<Midgard_Optionen::st_OptionenCheck> &L=hauptfenster->getOptionen()->getOptionenCheck();
+ std::list<Magus_Optionen::st_OptionenCheck> &L=hauptfenster->getOptionen()->getOptionenCheck();
  int count=0;
- for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=L.begin();i!=L.end();++i)
+ for(std::list<Magus_Optionen::st_OptionenCheck>::iterator i=L.begin();i!=L.end();++i)
   {
    bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text));
    i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&frame_globale_optionen::element_activate_C),i->index));
@@ -58,8 +58,8 @@ void frame_globale_optionen::init()
  Gtk::Label *label = manage(new class Gtk::Label("Hausregeln"));
  table->attach(*label, 0, 1, count, count+1, Gtk::AttachOptions(0), Gtk::AttachOptions(0), 0, 0);
  ++count;
- std::list<Midgard_Optionen::st_Haus> &L2=hauptfenster->getOptionen()->getHausregeln();
- for(std::list<Midgard_Optionen::st_Haus>::iterator i=L2.begin();i!=L2.end();++i)
+ std::list<Magus_Optionen::st_Haus> &L2=hauptfenster->getOptionen()->getHausregeln();
+ for(std::list<Magus_Optionen::st_Haus>::iterator i=L2.begin();i!=L2.end();++i)
   {
    bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text));
    i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&frame_globale_optionen::element_activate_H),i->index));
@@ -88,17 +88,17 @@ void frame_globale_optionen::element_show_or_hide(gpointer gp,Gtk::Widget *widge
 }
 
 
-void frame_globale_optionen::element_activate_C(gpointer gp,Midgard_Optionen::OptionenCheckIndex index)
+void frame_globale_optionen::element_activate_C(gpointer gp,Magus_Optionen::OptionenCheckIndex index)
 {
   hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(index);
-  if(index==Midgard_Optionen::Original)
+  if(index==Magus_Optionen::Original)
    {
     if(hauptfenster->getOptionen()->OptionenCheck(index).active)
        hauptfenster->getOptionen()->setAllHausregeln(false);
    }
 }
 
-void frame_globale_optionen::element_activate_H(gpointer gp,Midgard_Optionen::HausIndex index)
+void frame_globale_optionen::element_activate_H(gpointer gp,Magus_Optionen::HausIndex index)
 {
   hauptfenster->getOptionen()->Hausregeln_setzen_from_menu(index);
 }

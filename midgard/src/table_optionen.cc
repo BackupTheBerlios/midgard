@@ -12,9 +12,9 @@
 
 void table_optionen::init()
 {
- entry_html->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::html_viewer));
- entry_tmp_verz->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::tmppfad));
- entry_speicher_verz->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::speicherpfad));
+ entry_html->set_text(hauptfenster->getOptionen()->getString(Magus_Optionen::html_viewer));
+ entry_tmp_verz->set_text(hauptfenster->getOptionen()->getString(Magus_Optionen::tmppfad));
+ entry_speicher_verz->set_text(hauptfenster->getOptionen()->getString(Magus_Optionen::speicherpfad));
  spinbutton_datei_history->set_value(hauptfenster->getOptionen()->DateiHistory());
  
  frame_drucken->init();
@@ -37,19 +37,19 @@ void table_optionen::set_Hauptfenster(midgard_CG *h)
 
 void table_optionen::on_entry_html_changed()
 {  
- hauptfenster->getOptionen()->setString(Midgard_Optionen::html_viewer,
+ hauptfenster->getOptionen()->setString(Magus_Optionen::html_viewer,
       entry_html->get_text());
 }
 
 void table_optionen::on_entry_tmp_verz_changed()
 {  
- hauptfenster->getOptionen()->setString(Midgard_Optionen::tmppfad,
+ hauptfenster->getOptionen()->setString(Magus_Optionen::tmppfad,
       entry_tmp_verz->get_text());
 }
 
 void table_optionen::on_entry_speicher_verz_changed()
 {  
- hauptfenster->getOptionen()->setString(Midgard_Optionen::speicherpfad,
+ hauptfenster->getOptionen()->setString(Magus_Optionen::speicherpfad,
       entry_speicher_verz->get_text());
 }
 

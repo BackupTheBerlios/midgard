@@ -97,7 +97,7 @@ const Enums::e_wie_steigern table_steigern::get_wie_steigern()
 const Enums::st_bool_steigern table_steigern::get_bool_steigern()
 {
  return Enums::st_bool_steigern(steigern_mit_EP_bool,
-         hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Gold).active,
+         hauptfenster->getOptionen()->HausregelCheck(Magus_Optionen::Gold).active,
          togglebutton_spruchrolle->get_active(),
          !radio_spruchrolle_wuerfeln->get_active(),
          radiobutton_pp_hoch_wie_geht->get_active(),

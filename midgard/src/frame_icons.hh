@@ -25,8 +25,8 @@ class frame_icons : public frame_icons_glade
         friend class frame_icons_glade;
         midgard_CG *hauptfenster;
 
-//        void element_activate(Gtk::RadioButton *rb,Midgard_Optionen::IconIndex index);
-        void element_activate(gpointer gp,Midgard_Optionen::IconIndex index);
+//        void element_activate(Gtk::RadioButton *rb,Magus_Optionen::IconIndex index);
+        void element_activate(gpointer gp,Magus_Optionen::IconIndex index);
         
 public:
         

@@ -34,9 +34,9 @@
 void table_zufall::on_button_zufall_voll_clicked()
 {
    hauptfenster->on_wizard_beenden_activate();
-   Midgard_Optionen *MO=hauptfenster->MOptionen;
-   bool old_value=MO->OberCheck(Midgard_Optionen::NoInfoFenster).active;
-   std::string noinfofenster=MO->OberCheck(Midgard_Optionen::NoInfoFenster).text;
+   Magus_Optionen *MO=hauptfenster->MOptionen;
+   bool old_value=MO->OberCheck(Magus_Optionen::NoInfoFenster).active;
+   std::string noinfofenster=MO->OberCheck(Magus_Optionen::NoInfoFenster).text;
    MO->setOber(noinfofenster,true);
    Abenteurer oldAben=hauptfenster->getAben();
    hauptfenster->getChar().push_back();
@@ -174,7 +174,7 @@ void table_zufall::zeige_werte()
 
 void table_zufall::fill_combos()
 {
-  bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
+  bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active;
   LernListen LL(hauptfenster->getCDatabase());
   std::list<std::string> L;
 
@@ -306,7 +306,7 @@ bool table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 void table_zufall::on_combo_spezies_changed()
 {  
   LernListen LL(hauptfenster->getCDatabase());
-  bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
+  bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active;
   fill_combo_typen(LL,nsc_allowed);
 }
 

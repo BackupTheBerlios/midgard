@@ -23,7 +23,7 @@ class frame_ansicht : public frame_ansicht_glade
         
         friend class frame_ansicht_glade;
         midgard_CG *hauptfenster;
-        void element_activate(gpointer gp, Midgard_Optionen::OberIndex index);
+        void element_activate(gpointer gp, Magus_Optionen::OberIndex index);
 public:
         
         frame_ansicht(GlademmData *_data) : frame_ansicht_glade(_data)

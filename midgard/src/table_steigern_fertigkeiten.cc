@@ -34,7 +34,7 @@ void table_steigern::neue_fertigkeiten_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
   list_Fertigkeit_neu=LL->get_steigern_MBEm(A,Enums::sFert, 
-     hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active);  
+     hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active);  
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,hauptfenster);
 }
 
@@ -100,7 +100,7 @@ void table_steigern::kaempfer_lernt_zaubern()
 
  Gtk::Combo *_ct = manage(new class Gtk::Combo());
  _ct->get_entry()->set_editable(false); 
- bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
+ bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active;
  const std::vector<std::pair<cH_Typen,bool> > T=LL->getTypen(hauptfenster->getAben(),nsc_allowed);
  std::list<std::string> L;
  for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)

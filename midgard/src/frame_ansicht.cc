@@ -31,9 +31,9 @@ void frame_ansicht::init()
  if(!hauptfenster) assert(!"");
  if(!(hauptfenster->getOptionen())) assert(!"");
  Gtk::Table *table=manage(new Gtk::Table(1,1,false));  
- std::list<Midgard_Optionen::st_Ober> &L=hauptfenster->getOptionen()->getOber();
+ std::list<Magus_Optionen::st_Ober> &L=hauptfenster->getOptionen()->getOber();
  int count=0;
- for(std::list<Midgard_Optionen::st_Ober>::iterator i=L.begin();i!=L.end();++i)
+ for(std::list<Magus_Optionen::st_Ober>::iterator i=L.begin();i!=L.end();++i)
   {
    if(!i->show) continue;
    bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text));
@@ -46,7 +46,7 @@ void frame_ansicht::init()
  show_all(); 
 }
 
-void frame_ansicht::element_activate(gpointer gp,Midgard_Optionen::OberIndex index)
+void frame_ansicht::element_activate(gpointer gp,Magus_Optionen::OberIndex index)
 {
   hauptfenster->getOptionen()->Ober_setzen_from_menu(index);
 }   

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.101 2003/07/01 12:21:56 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.102 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -61,7 +61,7 @@ std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
 {
   switch (what)
     {
-      case TeX_tmp : return hauptfenster->getOptionen()->getString(Midgard_Optionen::tmppfad);
+      case TeX_tmp : return hauptfenster->getOptionen()->getString(Magus_Optionen::tmppfad);
       case TeX_Install : 
       {  std::string result=hauptfenster->with_path("MAGUS-Logo-grey2.png",true);
          return WinLux::recodePathForTeX(result);

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.32 2003/06/03 16:39:02 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.33 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -38,7 +38,7 @@ void table_lernschema::on_button_lernschema_waffen()
    }
   hauptfenster->getChar()->List_Waffen_besitz().clear();
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::WAFFEN);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
      button_lernschema_waffen->set_sensitive(false);
 
      table_waffen_lernschema_eingabe->hide();

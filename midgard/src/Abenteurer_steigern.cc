@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.28 2003/07/02 07:08:59 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.29 2003/07/16 06:29:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -493,7 +493,7 @@ void Abenteurer::desteigern(unsigned int kosten,const e_wie_steigern &wie,const 
      gold_k = getWerte().gold_kosten(kosten);
      ep_k = getWerte().ep_kosten(kosten);
    }
-//  if( !hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
+//  if( !hauptfenster->getOptionen()->HausregelCheck(Magus_Optionen::Gold).active ) gold_k*=10;
   if( !bool_steigern.HausG1 ) gold_k*=10;
   set_lernzeit(wie,-ep_k,Enums::eMBEm,bool_steigern);
   getWerte().addGold(gold_k);

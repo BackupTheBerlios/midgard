@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.14 2002/12/11 18:18:50 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.15 2003/07/16 06:29:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,13 +25,13 @@
 void table_grundwerte::on_abge_werte_setzen_clicked()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
    {
      combo_typ->set_sensitive(false);
      combo_typ2->set_sensitive(false);
    }   
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ABGELEITETEWERTE);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active) 
+  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active) 
       button_abg_werte->set_sensitive(false);
   hauptfenster->getWerte().setGrad(1);
   { //Bewegungsweite

@@ -34,7 +34,7 @@ void table_steigern::waffen_zeigen()
 void table_steigern::neue_waffen_zeigen()
 {
    Abenteurer &A=hauptfenster->getAben();
-   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
+   bool nsc=hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active;
    list_Waffen_neu=LL->get_steigern_MBEm(A,Enums::sWaff,nsc);
    MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,hauptfenster);
 }
@@ -42,7 +42,7 @@ void table_steigern::neue_waffen_zeigen()
 void table_steigern::waffengrund_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
-  bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
+  bool nsc=hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active;
   list_WaffenGrund_neu=LL->get_steigern_MBEm(A,Enums::sWGru,nsc);
   MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,hauptfenster);
   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_WaffenGrund()    ,alte_grund_tree,hauptfenster);
