@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.314 2003/10/14 07:33:05 christof Exp $
+// $Id: midgard_CG.cc,v 1.315 2003/11/04 07:40:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -92,6 +92,10 @@ midgard_CG::midgard_CG(WindowInfo *info,const std::vector<std::string> &dateien)
   	Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
      notebook_main->set_current_page(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert);
   else notebook_main->set_current_page(PAGE_GRUNDWERTE);
+  
+  // Optionen setzen:
+  Ober_setzen_from_menu(0,Magus_Optionen::Customize_Icons);
+  Ober_setzen_from_menu(0,Magus_Optionen::AutoShrink);
 
   // für die NEWS
   Gtk::OStream os(list_news);

@@ -57,3 +57,7 @@ use StyleIcon for new Icons
 
 - InfoWindow neu erzeugen, eventuell einfärben
 
+- Größe des Hauptfensters:
+  Lernschema ändert min x, Steigern min y - warum?
+
+- Optionen werden nicht ausgewertet um Toolbar options zu setzen
