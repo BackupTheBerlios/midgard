@@ -33,7 +33,7 @@ void table_ausruestung::init(midgard_CG *h)
    ausruestung_laden();
    table_gruppe->hide();
    table_artikel->hide();      
-   togglebutton_artikel_neu->set_sensitive(false);
+   togglebutton_artikel_neu->set_active(false);
    togglebutton_gruppe_neu->hide(); // nicht implementiert
    label_normallast->set_text(itos(h->getAben().getNormallast())+" kg");
    label_hoechstlast->set_text(itos(h->getAben().getHoechstlast())+" kg");
@@ -271,9 +271,14 @@ bool table_ausruestung::fill_all_Combo_Art2()
   return true;
 }
 
-gint table_ausruestung::on_combo_entry_artikel_art_focus_out_event(GdkEventFocus *ev)
+void table_ausruestung::on_combo_entry_artikel_art_changed()
 {
   on_combo_entry_artikel_art_activate();
+}
+
+gint table_ausruestung::on_combo_entry_artikel_art_focus_out_event(GdkEventFocus *ev)
+{
+//  on_combo_entry_artikel_art_activate();
   return false;
 }
 void table_ausruestung::on_combo_entry_artikel_art_activate()
@@ -290,9 +295,13 @@ void table_ausruestung::on_combo_entry_artikel_art_activate()
    }
 }
 
-gint table_ausruestung::on_combo_entry_art2_focus_out_event(GdkEventFocus *ev)
+void table_ausruestung::on_combo_entry_art2_changed()
 {
   on_combo_entry_art2_activate();
+}
+gint table_ausruestung::on_combo_entry_art2_focus_out_event(GdkEventFocus *ev)
+{
+//  on_combo_entry_art2_activate();
   return false;
 }
 void table_ausruestung::on_combo_entry_art2_activate()

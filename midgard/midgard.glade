@@ -14639,7 +14639,7 @@ Drucken</label>
 		    <handler>on_combo_entry_region_activate</handler>
 		    <last_modification_time>Thu, 28 Nov 2002 07:35:12 GMT</last_modification_time>
 		  </signal>
-		  <editable>True</editable>
+		  <editable>False</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
 		  <text>Eigene Erweiterung</text>
@@ -14686,7 +14686,7 @@ KS
 		    <handler>on_combo_entry_einheit_activate</handler>
 		    <last_modification_time>Thu, 28 Nov 2002 07:34:59 GMT</last_modification_time>
 		  </signal>
-		  <editable>True</editable>
+		  <editable>False</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
 		  <text>GS</text>
@@ -14884,7 +14884,12 @@ Waffenzubehör
 		    <handler>on_combo_entry_artikel_art_focus_out_event</handler>
 		    <last_modification_time>Thu, 28 Nov 2002 07:58:12 GMT</last_modification_time>
 		  </signal>
-		  <editable>True</editable>
+		  <signal>
+		    <name>changed</name>
+		    <handler>on_combo_entry_artikel_art_changed</handler>
+		    <last_modification_time>Thu, 28 Nov 2002 11:39:36 GMT</last_modification_time>
+		  </signal>
+		  <editable>False</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
 		  <text>Ausrüstung</text>
@@ -14932,7 +14937,12 @@ Waffenzubehör
 		    <handler>on_combo_entry_art2_focus_out_event</handler>
 		    <last_modification_time>Thu, 28 Nov 2002 08:05:01 GMT</last_modification_time>
 		  </signal>
-		  <editable>True</editable>
+		  <signal>
+		    <name>changed</name>
+		    <handler>on_combo_entry_art2_changed</handler>
+		    <last_modification_time>Thu, 28 Nov 2002 11:38:56 GMT</last_modification_time>
+		  </signal>
+		  <editable>False</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
 		  <text></text>
