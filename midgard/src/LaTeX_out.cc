@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.86 2002/01/19 17:44:21 christof Exp $
+// $Id: LaTeX_out.cc,v 1.87 2002/01/21 08:45:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -330,9 +330,9 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+Werte.bo_An() << "}\n";
  std::string schaden= cH_WaffeBesitz(waffenlos)->Schaden(Werte, waffenlos->Name());
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- std::string anm = cH_WaffeBesitz(waffenlos)->Waffenrang();
+ std::string anm = cH_WaffeBesitz(waffenlos)->Waffe()->Waffenrang();
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- std::string abm = cH_WaffeBesitz(waffenlos)->WM_Abwehr();
+ std::string abm = cH_WaffeBesitz(waffenlos)->Waffe()->WM_Abwehr();
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
  /////////////////////////////////////////////////////////////////////////
  // Universelle Fertigkeiten

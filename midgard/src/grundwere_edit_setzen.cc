@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.19 2002/01/16 11:06:26 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.20 2002/01/21 08:45:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -142,6 +142,66 @@ void midgard_CG::on_spinbutton_pa_activate()
 { set_all_entrys(); spinbutton_sb->grab_focus();}   
 void midgard_CG::on_spinbutton_b_activate()
 { set_all_entrys();} 
+
+gint midgard_CG::on_entry_nameC_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_entry_nameS_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_entry_version_focus_out_event(GdkEventFocus *ev)
+{ 
+ OptionBool.version=false;
+ menu_init();
+ set_all_entrys(); 
+  return false;
+}
+gint midgard_CG::on_entry_spezialisierung_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_entry_glaube_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_entry_herkunft_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_grad_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_lp_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_ap_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_Cgewicht_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_groesse_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_alter_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_tage_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_gg_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_sg_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_gfp_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_st_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}     
+gint midgard_CG::on_spinbutton_gw_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}     
+gint midgard_CG::on_spinbutton_gs_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}     
+gint midgard_CG::on_spinbutton_ko_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}     
+gint midgard_CG::on_spinbutton_in_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}     
+gint midgard_CG::on_spinbutton_zt_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}     
+gint midgard_CG::on_spinbutton_sb_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_wk_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_au_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_spinbutton_pa_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}   
+gint midgard_CG::on_spinbutton_b_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;} 
 
 
 

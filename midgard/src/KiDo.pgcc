@@ -56,16 +56,16 @@ void KiDo::get_KiDo()
 {
 #ifndef USE_XML
   exec sql begin declare section;
-   char db_name_orig[50],db_name[50],db_stufe[20],db_stil[20],db_effekt[1024];
+   char db_deutsch[50],db_hoho[50],db_stufe[20],db_stil[20],db_effekt[1024];
    int db_fp,db_ap;
   exec sql end declare section;
 
-  strncpy(db_name_orig,(Hoho()).c_str(),sizeof(db_name_orig));
+  strncpy(db_hoho,(HoHo()).c_str(),sizeof(db_hoho));
   exec sql select name,stufe,stil,fp,ap,effekt
-       into :db_name,:db_stufe,:db_stil,:db_fp,:db_ap,:db_effekt
-       from kido where name_orig = :db_name_orig;
+       into :db_deutsch,:db_stufe,:db_stil,:db_fp,:db_ap,:db_effekt
+       from kido where name_orig = :db_hoho;
   SQLerror::test(__FILELINE__);
-  name = db_name;
+  deutsch = db_deutsch;
   stufe = db_stufe;
   stil=db_stil;
   kosten=db_fp;
@@ -106,7 +106,7 @@ KiDo_All::KiDo_All(Gtk::ProgressBar *progressbar)
    char db_name[100];
    int db_size;
  exec sql end declare section;
- exec sql select count(name_orig) into :db_size from kido;
+ exec sql select count(name) into :db_size from kido;
  exec sql declare KIein cursor for select distinct name_orig from kido;
  Transaction tr;
  exec sql open KIein; 

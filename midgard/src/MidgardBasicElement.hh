@@ -81,8 +81,8 @@ class MidgardBasicElement : public HandleContent
        {}
 
 
-      enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,ZAUBER,
-                  ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
+      enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
+                 ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
       enum TREE {OLD,NEW};
 
       map<std::string,std::string> get_MapTyp() const {return map_typ;}
@@ -102,7 +102,7 @@ class MidgardBasicElement : public HandleContent
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
-      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const=0;
+      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const {return 0;};
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
       int get_Steigern_Kosten(int erfolgswert) const;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.135 2002/01/20 23:06:08 christof Exp $
+// $Id: midgard_CG.hh,v 1.136 2002/01/21 08:45:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -169,6 +169,33 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_spinbutton_au_activate();
         void on_spinbutton_pa_activate();
         void on_spinbutton_b_activate();
+        gint on_entry_nameC_focus_out_event(GdkEventFocus *ev);
+        gint on_entry_nameS_focus_out_event(GdkEventFocus *ev);
+        gint on_entry_version_focus_out_event(GdkEventFocus *ev);
+        gint on_entry_spezialisierung_focus_out_event(GdkEventFocus *ev);
+        gint on_entry_glaube_focus_out_event(GdkEventFocus *ev);
+        gint on_entry_herkunft_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_grad_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_lp_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_ap_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_Cgewicht_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_groesse_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_alter_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_gfp_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_tage_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_gg_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_sg_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_st_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_gw_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_gs_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_ko_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_in_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_zt_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_sb_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_wk_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_au_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_pa_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_b_focus_out_event(GdkEventFocus *ev);
 
         void edit_sensitive(bool b);
         void on_abge_werte_setzen_clicked();
@@ -207,9 +234,15 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_spinbutton_unge_activate();
         void on_spinbutton_waffen_activate();
         void on_spinbutton_zaubern_activate();
+        gint on_spinbutton_fach_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_allgemein_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_unge_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_waffen_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_zaubern_focus_out_event(GdkEventFocus *ev);
         void on_togglebutton_lernpunkte_edit_toggled();
         void edit_lernpunkte(bool b);
         void on_entry_Cname_activate();
+        gint on_entry_Cname_focus_out_event(GdkEventFocus *ev);
         void on_button_fach_trans_clicked();
         void on_button_waffe_trans_clicked();
         void on_button_ruestung_clicked();
@@ -400,7 +433,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_optionmenu_einheit_deactivate();
         void on_spinbutton_gewicht_activate();
         void on_checkbutton_ausruestung_geld_toggled();
-   
+
    public:
 //         midgard_CG(int argc,char **argv);
          midgard_CG(Datenbank& _Database);

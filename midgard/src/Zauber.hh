@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.31 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Zauber.hh,v 1.32 2002/01/21 08:45:00 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,7 +68,6 @@ class Zauber : public MidgardBasicElement
    std::string Reagens() const { return reagens;}
    std::string Beschreibung() const { return beschreibung;}
    std::string Element() const {return element;}
-//   std::string Region() const {return region;}
    bool Spruchrolle() const {return spruchrolle;}
 //   void set_Spruchrolle(bool s) const {spruchrolle=s;}
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
@@ -82,17 +81,6 @@ class Zauber : public MidgardBasicElement
 
 class cH_Zauber : public Handle<const Zauber>
 {
-/*
-   struct st_index {std::string name; int lernpunkte;
-      bool operator == (const st_index& b) const
-         {return (name==b.name  && lernpunkte==b.lernpunkte);}
-      bool operator <  (const st_index& b) const
-         { return name < b.name || 
-             (name==b.name && lernpunkte<b.lernpunkte ); }
-      st_index(std::string n,int l):name(n),lernpunkte(l){}
-      st_index(){}
-      };
-*/
     typedef CacheStatic<std::string,cH_Zauber> cache_t;
     static cache_t cache;
     cH_Zauber(Zauber *s) : Handle<const Zauber>(s) {};

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.29 2002/01/19 17:57:53 christof Exp $
+// $Id: midgard_CG_kido.cc,v 1.30 2002/01/21 08:45:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,7 +43,7 @@ void midgard_CG::show_kido()
    for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
     {
       cH_KiDo kd(*i);
-      os << kd->Hoho()<<"\t"<<kd->Name()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Typ,Database.ausnahmen)<<"\n";
+      os << kd->HoHo()<<"\t"<<kd->Deutsch()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Typ,Database.ausnahmen)<<"\n";
     }
    for (unsigned int i=0;i<clist_kido->columns().size();++i)
       clist_kido->set_column_auto_resize(i,true);

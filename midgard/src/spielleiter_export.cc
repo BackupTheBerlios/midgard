@@ -61,10 +61,10 @@ void midgard_CG::spielleiter_export()
          fout <<waffenname ;
          if (WB->av_Bonus()!=0 || WB->sl_Bonus()!=0) fout <<"$^*$";
          int mag_schadensbonus = WB->av_Bonus();
-         int ang_mod = WB->WM_Angriff((*j)->Name());
+         int ang_mod = WB->Waffe()->WM_Angriff((*j)->Name());
 //         if (WB->av_Bonus()==-5 && WB->sl_Bonus()==-5) mag_schadensbonus = 0; 
          int anbo = Werte.bo_An();
-         if (WB->Verteidigung())
+         if (WB->Waffe()->Verteidigung())
             anbo = 0;
          int wert = w->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
          fout << "+"<<wert << "(";

@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.29 2002/01/19 17:47:45 christof Exp $
+// $Id: LaTeX_kido.cc,v 1.30 2002/01/21 08:45:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,8 +37,8 @@ void midgard_CG::LaTeX_kido()
      if (stufe=="Eingeweihter") stufe="E";
      if (stufe=="Meister") stufe="M";
      fout << ap << " & ";
-     fout << kd->Hoho() << " & ";
-     fout << kd->Name_D() << " & ";
+     fout << kd->HoHo() << " & ";
+     fout << kd->Deutsch() << " & ";
      fout << stufe << " & ";
      fout << Gtk2TeX::string2TeX(kd->Effekt()) ;
      fout << "\\\\\n";

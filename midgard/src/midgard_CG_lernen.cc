@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.47 2002/01/20 19:09:36 christof Exp $
+// $Id: midgard_CG_lernen.cc,v 1.48 2002/01/21 08:45:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,13 @@ void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
 void midgard_CG::on_entry_Cname_activate()         
 {
   Werte.setCharaktername(entry_Cname->get_text());
+  zeige_werte(Werte);
+}
+gint midgard_CG::on_entry_Cname_focus_out_event(GdkEventFocus *ev)         
+{
+  Werte.setCharaktername(entry_Cname->get_text());
+  zeige_werte(Werte);
+  return false;
 }
 
 
@@ -109,38 +116,41 @@ void midgard_CG::edit_lernpunkte(bool b)
  spinbutton_zauber->set_sensitive(b);
 }
 
-/*
-void midgard_CG::setze_lernpunkte(const Lernpunkte& l)
-{
- lernpunkte = l;
- zeige_lernpunkte();
-}
-*/
 
+gint midgard_CG::on_spinbutton_fach_focus_out_event(GdkEventFocus *ev)
+{on_spinbutton_fach_activate();  return false;}
 void midgard_CG::on_spinbutton_fach_activate()
 {
   gtk_spin_button_update(spinbutton_fach->gtkobj());
   lernpunkte.set_Fach(spinbutton_fach->get_value_as_int());
   spinbutton_allgemein->grab_focus();
 }
+gint midgard_CG::on_spinbutton_allgemein_focus_out_event(GdkEventFocus *ev)
+{on_spinbutton_allgemein_activate();  return false;}
 void midgard_CG::on_spinbutton_allgemein_activate()
 {
   gtk_spin_button_update(spinbutton_unge->gtkobj());
   lernpunkte.set_Unge(spinbutton_unge->get_value_as_int());
   spinbutton_unge->grab_focus();
 }
+gint midgard_CG::on_spinbutton_unge_focus_out_event(GdkEventFocus *ev)
+{on_spinbutton_unge_activate();  return false;}
 void midgard_CG::on_spinbutton_unge_activate()
 {
   gtk_spin_button_update(spinbutton_allgemein->gtkobj());
   lernpunkte.set_Allgemein(spinbutton_allgemein->get_value_as_int());
   spinbutton_waffen->grab_focus();
 }
+gint midgard_CG::on_spinbutton_waffen_focus_out_event(GdkEventFocus *ev)
+{on_spinbutton_waffen_activate();  return false;}
 void midgard_CG::on_spinbutton_waffen_activate()
 {
   gtk_spin_button_update(spinbutton_waffen->gtkobj());
   lernpunkte.set_Waffen(spinbutton_waffen->get_value_as_int());
   spinbutton_zauber->grab_focus();
 }
+gint midgard_CG::on_spinbutton_zaubern_focus_out_event(GdkEventFocus *ev)
+{on_spinbutton_zaubern_activate();  return false;}
 void midgard_CG::on_spinbutton_zaubern_activate()
 {
   gtk_spin_button_update(spinbutton_zauber->gtkobj());

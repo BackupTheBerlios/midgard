@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.15 2002/01/14 15:23:41 christof Exp $               
+// $Id: KiDo.hh,v 1.16 2002/01/21 08:45:00 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,7 @@
 
 class KiDo : public MidgardBasicElement
 {
-   std::string hoho,stufe;
+   std::string deutsch,stufe;
    int ap;
    std::string stil, effekt;
 
@@ -44,12 +44,11 @@ class KiDo : public MidgardBasicElement
  enum MBEE What() const {return MidgardBasicElement::KIDO;}
  std::string What_str() const {return "KiDo";}
 
- std::string Hoho() const {  return name; }
-// std::string Name()  const {  return name; }
+ std::string HoHo() const {  return Name(); }
+ std::string Deutsch() const {  return deutsch; }
  int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
          { cH_Fertigkeit F("KiDo");
                       return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; }
- std::string Name_D()  const {  return name; }
  std::string Stufe() const {  return stufe; }
  int Ap() const {  return ap; }
  std::string Stil() const {  return stil; }
@@ -87,8 +86,8 @@ class cH_KiDo : public Handle<const KiDo>
          sort(enum esort _es):es(_es) {}
          bool operator() (cH_KiDo x,cH_KiDo y) const
            { switch(es) {
-               case(HOHO) : return x->Hoho() < y->Hoho()  ;
-               case(NAME) : return x->Name() < y->Name()  ;
+               case(HOHO) : return x->HoHo() < y->HoHo()  ;
+               case(NAME) : return x->Deutsch() < y->Deutsch()  ;
                case(STUFE): return x->Stufe() < y->Stufe();
                case(AP)   : return x->Ap() < y->Ap() ;
                case(STIL) : return x->Stil() < y->Stil() ;

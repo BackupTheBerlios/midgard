@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.37 2002/01/20 19:29:19 christof Exp $
+// $Id: zeige_werte.cc,v 1.38 2002/01/21 08:45:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,8 @@
 //#include "class_spezies.hh"
 #include "dtos1.h"
 #include <Aux/itos.h>
+#include <Aux/fixedpoint.h>
+#include <Aux/Ausgabe_neu.h>
 
 void midgard_CG::zeige_werte(const Grundwerte& w)
 {
@@ -61,7 +63,8 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        bo_phk->set_text(itos(w.bo_Phk(Typ))) ;
        spinbutton_alter->set_text(itos(w.Alter()));
        spinbutton_gfp->set_text(itos(w.GFP()));
-       spinbutton_tage->set_text(dtos1(w.Steigertage()));
+//       spinbutton_tage->set_text(dtos1(w.Steigertage()));
+       spinbutton_tage->set_text(Formatiere_short(fixedpoint<1>(w.Steigertage())));
        spinbutton_gg->set_text(itos(w.GG()));
        spinbutton_sg->set_text(itos(w.SG()));
        label_gestalt->set_text(w.Gestalt());  
@@ -93,5 +96,6 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        label_pp_zaubern->set_text(itos(w.ZaubernPP()));
        label_pp_resistenz->set_text(itos(w.ResistenzPP()));
        label_steigertage->set_text(dtos1(w.Steigertage()));
+       label_steigertage->set_text(Formatiere_short(fixedpoint<1>(w.Steigertage())));
        label_alter->set_text(itos(w.Alter()));
 }

@@ -133,22 +133,26 @@ class Waffe_All
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
-class WaffeBesitz : public Waffe
+class WaffeBesitz : public MidgardBasicElement
 {
      cH_Waffe waffe;
-     std::string name,region;
+     std::string alias_name;
      mutable int av_bonus,sl_bonus;
      mutable std::string magisch;
 
   public:
      WaffeBesitz(const cH_Waffe& w, std::string b,
                   std::string r,int a,int s, std::string m)
-      :waffe(w),name(b),region(r),av_bonus(a),sl_bonus(s),magisch(m) 
+      :MidgardBasicElement(b), 
+         waffe(w),alias_name(b),av_bonus(a),sl_bonus(s),magisch(m) 
          {}
      
+     enum MBEE What() const {return MidgardBasicElement::WAFFEBESITZ;}
+     std::string What_str() const {return "WaffeBesitz";}
+
      cH_Waffe Waffe() const {return waffe;}
-     std::string Name() const {return name;}
-     std::string Region() const {return region;}
+     std::string AliasName() const {return alias_name;}
+//     std::string Region() const {return region;}
      int av_Bonus() const {return av_bonus;}
      int sl_Bonus() const {return sl_bonus;}
      std::string Bonus() const;

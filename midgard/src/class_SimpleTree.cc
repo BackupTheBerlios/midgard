@@ -113,8 +113,8 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
         }
       if (Variante==MidgardBasicTree::KIDO)
         switch ((Spalten_KIDO)seqnr) {
-         case HOHOa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Hoho());
-         case NAMEa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Name_D());
+         case HOHOa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->HoHo());
+         case NAMEa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Deutsch());
          case STUFEa_K   : return cH_EntryValueIntString(cH_KiDo(MBE)->Stufe());
          case APa_K      : return cH_EntryValueEmptyInt(cH_KiDo(MBE)->Ap());
          case KOSTENa_K  : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
