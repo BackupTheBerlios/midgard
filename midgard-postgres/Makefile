@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.28 2001/09/04 07:41:23 thoma Exp $
+# $Id: Makefile,v 1.29 2001/10/24 12:30:20 christof Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten arkanum_zauber ausnahmen berufe_stand \
@@ -8,7 +8,7 @@ SYSTEM_TABLES=angeborene_fertigkeiten arkanum_zauber ausnahmen berufe_stand \
 	steigern_fertigkeiten steigern_fertigkeiten_mit \
 	steigern_fertigkeiten_werte typen waffen waffen_grund waffen_region_name \
 	waffen_standard waffen_steigern zauber_beschreibung zauberwerk \
-	zauberwerk_voraussetzung spezialgebiete grad_anstieg
+	zauberwerk_voraussetzung spezialgebiete grad_anstieg zauber_typen
 USER_TABLES=charaktere charaktere_fertigkeiten
 TABLES=$(SYSTEM_TABLES) $(USER_TABLES)
 
