@@ -1,6 +1,7 @@
 #include <Misc/FetchIStream.h>
 #include <vector>
 #include <algorithm>
+#include <Misc/dbconnect.h>
 
 class Gruppe
 {  std::vector<std::string> typen;
@@ -13,8 +14,9 @@ public:
 
 Gruppe::Gruppe(const std::string &n)
  : name(n)
-{  typen=Query("select typ from typen_gruppe where gruppe='"+n+"' order by typ")
-	.FetchArray<std::string>();
+{  (Query("select typ from typen_gruppe where gruppe=? order by typ")
+	<< n)
+	.FetchArray(typen);
 }
 
 class Gruppen
@@ -24,9 +26,10 @@ public:
 };
 
 Gruppen::Gruppen() // oder by count
-{  std::vector<std::string> typen=Query("select distinct gruppe from typen_gruppe order by gruppe")
-	.FetchArray<std::string>();
-   std::copy(typen.begin(),typen.end(),back_insert_iterator<std::vector<Gruppe> >(gruppen));
+{  std::vector<std::string> typen;
+   Query("select distinct gruppe from typen_gruppe order by gruppe")
+	.FetchArray(typen);
+   std::copy(typen.begin(),typen.end(),std::back_insert_iterator<std::vector<Gruppe> >(gruppen));
 }
 
 enum gsan_t { Grund, Standard, Ausnahme, Nicht, GsanAnz, Illegal=-1 };
@@ -47,3 +50,11 @@ public:
    Schnitt schneiden(const Gruppe &g) const;
    void ersetze(gsan_t wo, const Gruppe &g);
 };
+
+int main()
+{  ManuProC::Connection conn;
+   conn.setDbase("midgard");
+   ManuProC::dbconnect(conn);
+   Gruppen g;
+   ManuProC::dbdisconnect();
+}
