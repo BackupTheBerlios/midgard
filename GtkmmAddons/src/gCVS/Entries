@@ -1,6 +1,4 @@
 /.cvsignore/1.2/Mon Apr 29 09:08:31 2002//
-/Gtk2TeX.cc/1.13/Mon Apr 29 09:06:43 2002//
-/Gtk2TeX.h/1.11/Mon Apr 29 09:06:43 2002//
 /Gtk_OStream.h/1.6/Mon Apr 29 09:06:43 2002//
 /Gtk_OStream_clist.cc/1.6/Mon Apr 29 09:06:43 2002//
 /Gtk_OStream_label.cc/1.4/Mon Apr 29 09:06:43 2002//
@@ -30,4 +28,6 @@
 /string_width.cc/1.2/Mon Apr 29 09:06:44 2002//
 /TeX.cc/1.2/Wed Jul  3 08:15:01 2002//
 /TeX.h/1.2/Wed Jul  3 08:15:01 2002//
+/Gtk2TeX.cc/1.17/Fri Jul 26 06:28:54 2002//
+/Gtk2TeX.h/1.13/Fri Jul 26 06:28:54 2002//
 D

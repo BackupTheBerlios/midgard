@@ -1,11 +1,11 @@
-/* $Id: gsc_test.c,v 1.6 2002/05/16 14:47:12 christof Exp $ */
+/* $Id: gsc_test.c,v 1.7 2002/07/25 16:24:45 christof Exp $ */
 
 #include <gtk/gtk.h>
 #include "gtksearchcombo.h"
 #include <string.h>
 #include <assert.h>
 
-//#define SLOW_DOWN
+#define SLOW_DOWN
 
 const char *names[]=
   {

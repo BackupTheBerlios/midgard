@@ -16,7 +16,7 @@
  *  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-// $Id: Gtk2TeX.h,v 1.11 2001/11/09 10:38:27 christof Exp $
+// $Id: Gtk2TeX.h,v 1.13 2002/07/26 06:28:30 christof Exp $
 
 #include <iostream>
 #include <TeX.h>
@@ -33,19 +33,24 @@ namespace Gtk2TeX
 	{	bool longtable:1;
 		bool headline:1; // output ...\endhead
 		bool environment:1; // output \begin{}{}...\end{}
+		bool multicolumn:1; // let columns grow into next ones if empty
 		ColumnType_cb columntype_cb;
 		Row_cb preline_cb,postline_cb;
 		Simple_cb prehead_cb,posthead_cb,postlist_cb;
 		Gtk::CList::SelectionList *selection;
+		// there's no selection ctor ... so 
+		gint first_line,last_line;
 		gpointer user_data;
 		ColumnTitle_cb columntitle_cb;
 		Element_cb element_cb;
 	
 		TableFlags()
 		: longtable(true), headline(true), environment(true),
+		  multicolumn(0),
 		  columntype_cb(0), preline_cb(0), postline_cb(0),
 		  prehead_cb(0), posthead_cb(0), postlist_cb(0),
-		  selection(0), user_data(0), columntitle_cb(0),
+		  selection(0), first_line(0), last_line(-1),
+		  user_data(0), columntitle_cb(0),
 		  element_cb(0)
 		{}
 	};

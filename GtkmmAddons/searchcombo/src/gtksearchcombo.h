@@ -1,5 +1,5 @@
 /* gtksearchcombo - combo widget for gtk+
- * Copyright 1999 Christof Petig
+ * Copyright 1999-2002 Christof Petig
  * based on gtkcombo: Copyright 1997 Paolo Molaro
  *                    Modified by the GTK+ Team and others 1997-1999.
  *
@@ -66,6 +66,8 @@ struct _GtkSearchCombo {
 	guint autoexpand:1;	/** whether to automatically expand and activate once unique */
 	guint autoexpand_on_activate:1; /** whether to expand on pressing Return */
 	guint start_idle:1;	/** start search at idle time not in focus_in */
+	guint auto_narrow:1;  /** do not call search on key press but
+				instread try to shrink displayed list ourselves */
 	
 	/* internal state variables */
 	guint backspace:1;	/** last key was backspace -> do not autocomplete */
