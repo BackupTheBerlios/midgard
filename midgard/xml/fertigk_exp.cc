@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.45 2003/09/01 06:47:59 christof Exp $
+// $Id: fertigk_exp.cc,v 1.46 2004/06/04 13:27:17 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -355,7 +355,9 @@ void fert_speichern(Tag &o)
       if (fetch_bool(is)) staende.setBoolAttr("Mittelschicht",true);
       if (fetch_bool(is)) staende.setBoolAttr("Adel",true);
 #endif
-      if (staende.attbegin()!=staende.attend() && staende.attend()-staende.attbegin()!=4)
+      unsigned standcount=0;
+      for (Tag::const_attiterator i=staende.attbegin();i!=staende.attend();++i) ++standcount;
+      if (0<standcount && standcount<4)
          Beruf.push_back(staende);
    }
    {  Query query2(
