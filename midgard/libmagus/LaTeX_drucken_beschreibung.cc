@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_beschreibung.cc,v 1.1 2003/07/18 06:38:01 christof Exp $
+// $Id: LaTeX_drucken_beschreibung.cc,v 1.2 2003/07/23 06:44:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,21 +18,21 @@
  */
 
 #include "LaTeX_drucken.hh"
-#include "midgard_CG.hh"
 #include <unistd.h>
-//#include <fstream>
+#include <fstream>
 #include <Misc/itos.h>
 #include "recodestream.h"
 #include "Windows_Linux.hh"
+#include "Abenteurer.hh"
 
-void LaTeX_drucken::latex_beschreibung_drucken()
+void LaTeX_drucken::latex_beschreibung_drucken(const Abenteurer &A)
 {   
- std::string figwidth=itos(hauptfenster->getWerte().BeschreibungPixSize())+"cm";
- std::string file=hauptfenster->getWerte().BeschreibungPix();
- std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_Beschreibung);
+ std::string figwidth=itos(A.getWerte().BeschreibungPixSize())+"cm";
+ std::string file=A.getWerte().BeschreibungPix();
+ std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(A,TeX_Beschreibung);
  std::ofstream fout2((filename+".tex").c_str());
  orecodestream fout(fout2);
- LaTeX_header(fout,false); 
+ LaTeX_header(A,fout,false); 
  fout << "\\fbox{\\parbox[t][23cm]{18cm}{ \n";
  if(file!="")
   {
@@ -47,7 +47,7 @@ void LaTeX_drucken::latex_beschreibung_drucken()
    fout << WinLux::active_tilde;
    fout << "\\end{wrapfigure}\n";
   }
- fout << hauptfenster->getWerte().Beschreibung()<<"\n";
+ fout << A.getWerte().Beschreibung()<<"\n";
  fout << "}}\n";
  LaTeX_footer(fout);
  fout2.close();

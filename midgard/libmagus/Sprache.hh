@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.6 2003/05/20 07:14:34 christof Exp $               
+// $Id: Sprache.hh,v 1.7 2003/07/23 06:44:58 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -38,15 +38,20 @@ class Sprache_und_Schrift
    private:
       MBEmlt sprache;
       bool gelernt;
+      bool ungelernt_besser;
+      int ungelernt;
       std::vector<st_sus> schriften;
    public:
       Sprache_und_Schrift(const MBEmlt& M,bool g)
-         : sprache(M),gelernt(g) {}
+         : sprache(M),gelernt(g),ungelernt_besser(),ungelernt() {}
 
       MBEmlt getSprache() const {return sprache;}
+      std::string getErfolgswert() const;
       bool getGelernt() const {return gelernt;}
       const std::vector<st_sus>& getSchriften() const {return schriften;}
       void push_back(std::string s,int w) {schriften.push_back(st_sus(s,w));};
+      
+      static void ungelernte_ist_besser(std::vector<Sprache_und_Schrift> &SuS,const std::string name,const int wert);
 };
 
 

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.2 2003/07/22 06:26:40 christof Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.3 2003/07/23 06:44:58 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,10 +28,10 @@
 
 void LaTeX_drucken::on_ausruestung_druck(const Abenteurer &A,bool unsichtbar)
 {
- std::string filename=get_latex_pathname(LaTeX_drucken::TeX_tmp)+get_latex_filename(LaTeX_drucken::TeX_Ausruestung);
+ std::string filename=get_latex_pathname(LaTeX_drucken::TeX_tmp)+get_latex_filename(A,LaTeX_drucken::TeX_Ausruestung);
  std::ofstream fout2((filename+".tex").c_str());
  orecodestream fout(fout2);
- LaTeX_header(fout,false);           
+ LaTeX_header(A,fout,false);           
 
  std::string breite="18cm";
  std::string hbreitea="9cm";

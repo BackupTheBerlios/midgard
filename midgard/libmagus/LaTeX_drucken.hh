@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.2 2003/07/22 06:26:40 christof Exp $
+// $Id: LaTeX_drucken.hh,v 1.3 2003/07/23 06:44:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,52 +60,53 @@ class LaTeX_drucken
    
     bool bool_sprach,bool_fert,bool_waffen;
 
-    void LaTeX_write_values(std::ostream &fout,const std::string &install_latex_file);
-    void LaTeX_write_empty_values(std::ostream &fout,const std::string &install_latex_file);
-    void write_grundwerte(std::ostream &fout,bool empty=false);
+    void LaTeX_write_values(const Abenteurer &A,std::ostream &fout,const std::string &install_latex_file);
+    void LaTeX_write_empty_values(std::ostream &fout,const std::string &install_latex_file); //const
+    void write_grundwerte(const Abenteurer&,std::ostream &fout,bool empty=false);
     void write_sprachen(std::ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist=false);
-    void write_fertigkeiten(std::ostream &fout,const std::list<MBEmlt>& L,bool longlist=false);
-    void write_waffenbesitz(std::ostream &fout,const std::list<H_WaffeBesitz>& L,bool longlist=false);
-    void write_universelle(std::ostream &fout);
-    void write_long_list(std::ostream &fout,const std::vector<Sprache_und_Schrift> &S,
+    void write_fertigkeiten(const Abenteurer &A,std::ostream &fout,const std::list<MBEmlt>& L,bool longlist=false);
+    void write_waffenbesitz(const Abenteurer &A,std::ostream &fout,const std::list<H_WaffeBesitz>& L,bool longlist=false);
+    void write_universelle(const Abenteurer &A,std::ostream &fout);
+    void write_long_list(const Abenteurer &A,std::ostream &fout,const std::vector<Sprache_und_Schrift> &S,
                          const std::list<MBEmlt> &F,
                          const std::list<H_WaffeBesitz> &WB_druck);
 
-    std::string LaTeX_scale(const std::string& is, 
+    static std::string LaTeX_scale(const std::string& is, 
          unsigned int maxlength, const std::string& scale);
-    std::string LaTeX_scalemag(const std::string& is, 
+    static std::string LaTeX_scalemag(const std::string& is, 
          unsigned int maxlength, const std::string& scale,
          const std::string& magisch,const std::string& reichweite);
-    std::string LaTeX_string(int i);
+    static std::string LaTeX_string(int i);
 
-    std::string get_latex_filename(const LaTeX_Filenames what);
-    std::string get_latex_pathname(const LaTeX_Pathnames what);
+    static std::string get_latex_filename(const Abenteurer &A,const LaTeX_Filenames what);
+    static std::string get_latex_pathname(const LaTeX_Pathnames what);
     void LaTeX_Drachenbox(std::ostream &fout);
-    void LaTeX_newsavebox(std::ostream &fout);
-    void LaTeX_footer(std::ostream &fout);
-    void LaTeX_kopfzeile(std::ostream &fout,bool landscape,bool newdoc=true);
-    void LaTeX_header(std::ostream &fout,bool landscape=true,bool kopfzeile=true);
-    void LaTeX_zauber_main(std::ostream &fout);
-    void LaTeX_zaubermittel(std::ostream &fout);
-    void LaTeX_zauber(std::ostream &fout);
-    void LaTeX_kido(std::ostream &fout);
-    void LaTeX_kido_main(std::ostream &fout);
+    static void LaTeX_newsavebox(std::ostream &fout);
+    static void LaTeX_footer(std::ostream &fout);
+    static void LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool landscape,bool newdoc=true);
+    void LaTeX_header(const Abenteurer &A,std::ostream &fout,bool landscape=true,bool kopfzeile=true);
+    void LaTeX_zauber_main(const Abenteurer &A,std::ostream &fout);
+    void LaTeX_zaubermittel(const Abenteurer &A,std::ostream &fout);
+    void LaTeX_zauber(const Abenteurer &A,std::ostream &fout);
+    static void LaTeX_kido(const Abenteurer &A,std::ostream &fout);
+    static void LaTeX_kido_main(const Abenteurer &A,std::ostream &fout);
 
     void ausruestung_druck(std::ostream &fout,bool unsichtbar,const std::list<AusruestungBaum> &AB,int deep);
-    void pdf_viewer(const std::string& file,const bool tex_two_times=false);
+    static void pdf_viewer(const std::string& file,const bool tex_two_times=false);
     
-    void line(std::ostream &fout,const ewhat &what);
-    void for_each(std::ostream &fout,const ewhat &what);
+    void line(const VAbenteurer &VA,std::ostream &fout,const ewhat &what);
+    void for_each(const VAbenteurer &VA,std::ostream &fout,const ewhat &what);
     void list_for_each(std::ostream &fout,const std::list<MBEmlt>& L,const int &maxlength,const std::string& cm);
  public:
     LaTeX_drucken()
       : bool_sprach(),bool_fert(),bool_waffen()
        {}
 
-//    void on_latex_clicked(bool values=true);
+    void Ausdrucken(const Abenteurer &A,bool values=true);
+    void Ausdrucken();
     void on_ausruestung_druck(const Abenteurer &a,bool unsichtbar);
     void latex_beschreibung_drucken(const Abenteurer &a);      
-    void Spielleiterbogen(const VAbenteurer &a);
+    void Spielleiterbogen(VAbenteurer &a); // nicht const wegen sort_gw()
 
 };
 

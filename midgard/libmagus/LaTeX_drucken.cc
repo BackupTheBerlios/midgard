@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.2 2003/07/22 09:46:54 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.3 2003/07/23 06:44:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,6 +17,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <config.h>
 #include <unistd.h>
 #include <Misc/EmptyInt_4TeX.h>
 #include "Fertigkeiten_angeboren.hh"
@@ -29,6 +30,11 @@
 #include <TeX.h>
 #include "recodestream.h"
 #include "Windows_Linux.hh"
+#include "Abenteurer.hh"
+#include "Magus_Optionen.hh"
+#include "magus_paths.h"
+#include "Ausgabe.hh"
+#include "Datenbank.hh"
 
 static std::string defFileName(const std::string &s)
 {  std::string res;
@@ -69,27 +75,27 @@ std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
   abort(); // never get here
 }
 
-#if 0
-void LaTeX_drucken::on_latex_clicked(bool values)
+#if 1
+void LaTeX_drucken::Ausdrucken(const Abenteurer &A,bool values)
 {   
 // std::string installfile=get_latex_pathname(TeX_Install)+get_latex_filename(TeX_MainDocument);
- std::string installfile=magus_paths::with_path(get_latex_filename(TeX_MainDocument)+".tex");
- std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_MainWerte);
+ std::string installfile=magus_paths::with_path(get_latex_filename(A,TeX_MainDocument)+".tex");
+ std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(A,TeX_MainWerte);
  
 //cout <<"LaTeX: "<< filename<<'\n';
  {
  std::ofstream fout((filename+".tex").c_str());
  orecodestream rfout(fout);
- if (values) LaTeX_write_values(rfout,installfile);
+ if (values) LaTeX_write_values(A,rfout,installfile);
  else LaTeX_write_empty_values(rfout,installfile);
 
- if (hauptfenster->getChar()->List_Zauber().size()>0 || hauptfenster->getChar()->List_Zauberwerk().size()>0)  // Zauber
+ if (!A.List_Zauber().empty() || !A.List_Zauberwerk().empty())  // Zauber
   {
-    LaTeX_zauber_main(rfout);
+    LaTeX_zauber_main(A,rfout);
   }
- if (hauptfenster->getChar()->List_Kido().size()>0) // KiDo
+ if (!A.List_Kido().empty()) // KiDo
   {
-    LaTeX_kido_main(rfout);
+    LaTeX_kido_main(A,rfout);
   }
  rfout << "\\end{document}\n";
  rfout.flush();
@@ -105,22 +111,22 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
 // fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
  LaTeX_newsavebox(fout);
 
- write_grundwerte(fout);
+ write_grundwerte(A,fout);
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
  std::vector<Sprache_und_Schrift> S;
- for(std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Sprache().begin();i!=hauptfenster->getChar()->List_Sprache().end();++i)
+ for(std::list<MBEmlt>::const_iterator i=A.List_Sprache().begin();i!=A.List_Sprache().end();++i)
    {  
-      Sprache_und_Schrift sus=cH_Sprache((*i)->getMBE())->SchriftWert((*i)->Erfolgswert(),true,hauptfenster->getChar()->List_Schrift());
+      Sprache_und_Schrift sus=cH_Sprache((*i)->getMBE())->SchriftWert((*i)->Erfolgswert(),true,A.List_Schrift());
       S.push_back(sus);
    }
- std::list<MBEmlt> verwandteSprachen=Sprache::getVerwandteSprachen(hauptfenster->getChar()->List_Sprache(),hauptfenster->getCDatabase().Sprache);
+ std::list<MBEmlt> verwandteSprachen=Sprache::getVerwandteSprachen(A.List_Sprache(),Datenbank.Sprache);
  for(std::list<MBEmlt>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { //cH_Sprache s(*i);
-     if((*i)->ist_gelernt(hauptfenster->getChar()->List_Sprache()) ) 
+     if((*i)->ist_gelernt(A.List_Sprache()) ) 
       { 
         // der ungelernte Erfolgswert ist besser als der gelernte
-        if((*i)->Erfolgswert() > hauptfenster->getAben().Erfolgswert((*(*i))->Name()).first)
+        if((*i)->Erfolgswert() > A.Erfolgswert((*(*i))->Name()).first)
            Sprache_und_Schrift::ungelernte_ist_besser(S,(*(*i))->Name(),(*i)->Erfolgswert());
         continue;
       }
@@ -130,7 +136,7 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
  if(S.size()>maxsprach) bool_sprach=true;
  /////////////////////////////////////////////////////////////////////////////
  // Grundfertigkeiten (Waffen)
- for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_WaffenGrund().begin();i!=hauptfenster->getChar()->List_WaffenGrund().end();++i)
+ for (std::list<MBEmlt>::const_iterator i=A.List_WaffenGrund().begin();i!=A.List_WaffenGrund().end();++i)
    {
       std::string sout = (*(*i))->Name();
       if (sout =="BÃ¶gen") sout = "Bogen";
@@ -145,7 +151,7 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
  // Beruf
  fout << "\\newcommand{\\beruf}{" ;
  std::string beruf;
- for(std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Beruf().begin();i!=hauptfenster->getChar()->List_Beruf().end();++i)
+ for(std::list<MBEmlt>::const_iterator i=A.List_Beruf().begin();i!=A.List_Beruf().end();++i)
      beruf += (*(*i))->Name(); 
  fout << LaTeX_scale(beruf,10,"1.5cm") <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
@@ -155,19 +161,19 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
  /////////////////////////////////////////////////////////////////////////////
  // angeborene Fertigkeiten
  std::list<MBEmlt> F;
- for(std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Fertigkeit_ang().begin();i!=hauptfenster->getChar()->List_Fertigkeit_ang().end();++i) 
+ for(std::list<MBEmlt>::const_iterator i=A.List_Fertigkeit_ang().begin();i!=A.List_Fertigkeit_ang().end();++i) 
      F.push_back(*i);
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten
- for(std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Fertigkeit().begin();i!=hauptfenster->getChar()->List_Fertigkeit().end();++i) 
+ for(std::list<MBEmlt>::const_iterator i=A.List_Fertigkeit().begin();i!=A.List_Fertigkeit().end();++i) 
     F.push_back(*i);
 // Leerzeile ???
  /////////////////////////////////////////////////////////////////////////////
  // Waffen + Waffen/Besitz
- std::string angriffsverlust_string = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar()->List_Fertigkeit());
- std::list<H_WaffeBesitz> WBesitz=hauptfenster->getChar()->List_Waffen_besitz();
+ std::string angriffsverlust_string = A.getWerte().Ruestung_Angriff_Verlust(A.List_Fertigkeit());
+ std::list<H_WaffeBesitz> WBesitz=A.List_Waffen_besitz();
  std::list<H_WaffeBesitz> WB_druck;
- for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Waffen().begin();i!=hauptfenster->getChar()->List_Waffen().end();++i)
+ for (std::list<MBEmlt>::const_iterator i=A.List_Waffen().begin();i!=A.List_Waffen().end();++i)
    {
     F.push_back(*i);
     cH_Waffe w((*i)->getMBE());
@@ -188,9 +194,9 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
        }
      }
    }
- write_waffenbesitz(fout,WB_druck);
- write_fertigkeiten(fout,F);
- write_universelle(fout);
+ write_waffenbesitz(A,fout,WB_druck);
+ write_fertigkeiten(A,fout,F);
+ write_universelle(A,fout);
  if(F.size()>maxfert) bool_fert=true;
  if(WB_druck.size()>maxwaffen) bool_waffen=true;
 
@@ -198,7 +204,7 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
  fout << "\\input{"+WinLux::recodePathForTeX(install_latex_file)+"}\n";
  fout << WinLux::active_tilde;
 
- if(bool_sprach || bool_fert || bool_waffen) write_long_list(fout,S,F,WB_druck);
+ if(bool_sprach || bool_fert || bool_waffen) write_long_list(A,fout,S,F,WB_druck);
 }
 
 
@@ -207,16 +213,16 @@ void LaTeX_drucken::LaTeX_write_empty_values(std::ostream &fout,const std::strin
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
 // fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
  LaTeX_newsavebox(fout);
- write_grundwerte(fout,true);
+ write_grundwerte(Abenteurer(),fout,true);
  
  std::vector<Sprache_und_Schrift> L;
  write_sprachen(fout,L);
  fout << "\\newcommand{\\beruf}{}\n" ;
  std::list<MBEmlt> F;
- write_fertigkeiten(fout,F);
+ write_fertigkeiten(Abenteurer(),fout,F);
  std::list<H_WaffeBesitz> B;
- write_waffenbesitz(fout,B);
- write_universelle(fout);
+ write_waffenbesitz(Abenteurer(),fout,B);
+ write_universelle(Abenteurer(),fout);
 
  fout << WinLux::normal_tilde;
  fout << "\\input{"+WinLux::recodePathForTeX(install_latex_file)+"}\n";
@@ -304,19 +310,19 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
    }
   if(!empty)
    {
-    const Grundwerte &W=hauptfenster->getWerte();
+    const Grundwerte &W=A.getWerte();
     switch(was) {
      case etyp  : {
         std::string styp;
-        if(W.Bezeichnung().size())
-          {  styp=W.Bezeichnung()+" ("+hauptfenster->getChar()->Typ1()->Short();
-             if(hauptfenster->getChar()->Typ2()->Short().size()) styp +="/"+hauptfenster->getChar()->Typ2()->Short();
+        if(!W.Bezeichnung().empty())
+          {  styp=W.Bezeichnung()+" ("+A.Typ1()->Short();
+             if(!A.Typ2()->Short().empty()) styp +="/"+A.Typ2()->Short();
              styp+=")";
           }
         else 
-          { styp = hauptfenster->getChar()->Typ1()->Name(W.Geschlecht());
-            if (hauptfenster->getChar()->Typ2()->Name(W.Geschlecht())!="") 
-               styp += "/"+hauptfenster->getChar()->Typ2()->Name(W.Geschlecht());
+          { styp = A.Typ1()->Name(W.Geschlecht());
+            if (A.Typ2()->Name(W.Geschlecht())!="") 
+               styp += "/"+A.Typ2()->Name(W.Geschlecht());
           }
         sfout += LaTeX_scale(styp,10,"2.2cm") ; 
         break;
@@ -330,7 +336,7 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
      case eko   : sfout += itos(W.Ko()); break ;
      case ein   : sfout += itos(W.In()); break ;
      case ezt   : sfout += itos(W.Zt()); break ;
-     case eau   : { int ia=hauptfenster->getChar()->Erfolgswert("Athletik",&(hauptfenster->getCDatabase())).first;
+     case eau   : { int ia=A.Erfolgswert("Athletik").first;
          ia/=3;
          std::string sa; if(ia>0) sa="^{+"+itos(ia)+"}"  ;
          sfout += LaTeX_scale("$"+itos(W.Au())+sa+"$",8,"0.9cm"); break ;
@@ -339,9 +345,9 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
      case esb   : sfout += itos(W.Sb()); break ;
      case ewk   : sfout += itos(W.Wk()); break ;
      case eb    : {
-        int b=hauptfenster->getChar()->Erfolgswert("Laufen",&(hauptfenster->getCDatabase())).first-2; 
+        int b=A.Erfolgswert("Laufen").first-2; 
         std::string bs;  if(b>0) bs="^{+"+itos(b)+"}"  ;
-        sfout += LaTeX_scale("$"+itos(W.B())+hauptfenster->getAben().Ruestung_B_Verlust(false)+bs+"$",8,"0.9cm"); break ;
+        sfout += LaTeX_scale("$"+itos(W.B())+A.Ruestung_B_Verlust(false)+bs+"$",8,"0.9cm"); break ;
       }
      case ekaw  : sfout += itos(W.KAW()); break ;
      case egsb  : sfout += itos(W.Geistesblitz()); break ;
@@ -354,29 +360,27 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
      case eboan : sfout += itos0p(W.bo_An(),0,true); break ;
      case eboab : sfout += itos0p(W.bo_Ab(),0,true); break ;
      case eboza : sfout += itos0p(W.bo_Za(),0,true); break ;
-     case ebopsy: sfout += itos0p(W.bo_Psy(hauptfenster->getChar()->getVTyp()),0,true); break ;
-     case ebophs: sfout += itos0p(W.bo_Phs(hauptfenster->getChar()->getVTyp()),0,true); break ;
-     case ebophk: sfout += itos0p(W.bo_Phk(hauptfenster->getChar()->getVTyp()),0,true); break ;
+     case ebopsy: sfout += itos0p(W.bo_Psy(A.getVTyp()),0,true); break ;
+     case ebophs: sfout += itos0p(W.bo_Phs(A.getVTyp()),0,true); break ;
+     case ebophk: sfout += itos0p(W.bo_Phk(A.getVTyp()),0,true); break ;
      case eres  : sfout += itos0p(W.Resistenz(),0,true); break ;
-     case epsy  : sfout += itos0p(W.Resistenz()+W.bo_Psy(hauptfenster->getChar()->getVTyp()),0,true); break ;
-     case ephs  : sfout += itos0p(W.Resistenz()+W.bo_Phs(hauptfenster->getChar()->getVTyp()),0,true); break ; 
-     case ephk  : sfout += itos0p(W.Resistenz()+W.bo_Phk(hauptfenster->getChar()->getVTyp()),0,true); break ;
+     case epsy  : sfout += itos0p(W.Resistenz()+W.bo_Psy(A.getVTyp()),0,true); break ;
+     case ephs  : sfout += itos0p(W.Resistenz()+W.bo_Phs(A.getVTyp()),0,true); break ; 
+     case ephk  : sfout += itos0p(W.Resistenz()+W.bo_Phk(A.getVTyp()),0,true); break ;
      case egift : sfout += itos(W.Gift()); break ;
      case eabwehr:sfout += itos0p(W.Abwehr_wert(),0,true); break ;
      case eabwehrfinal:
      case eabwehrmitwaffe:
       { if(was==eabwehrfinal)    sfout += itos0p(W.Abwehr_wert()+W.bo_Ab(),-1,true);
-        if(was==eabwehrmitwaffe) sfout += Gtk2TeX::string2TeX(
+        if(was==eabwehrmitwaffe) sfout += TeX::string2TeX(
             Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),
-               hauptfenster->getChar()->List_Waffen(),
-               hauptfenster->getChar()->List_Waffen_besitz(),
-               hauptfenster->getAben()));
-        sfout += W.Ruestung_Abwehr_Verlust(hauptfenster->getChar()->List_Fertigkeit());
+               A.List_Waffen(),A.List_Waffen_besitz(),A));
+        sfout += W.Ruestung_Abwehr_Verlust(A.List_Fertigkeit());
         break;
       }
-     case eppresistenz:sfout += EmptyInt_4TeX(hauptfenster->getWerte().ResistenzPP()); break ;
-     case eppabwehr:sfout += EmptyInt_4TeX(hauptfenster->getWerte().AbwehrPP()); break ;
-     case eppzauber:sfout += EmptyInt_4TeX(hauptfenster->getWerte().ZaubernPP()); break ;
+     case eppresistenz:sfout += EmptyInt_4TeX(A.getWerte().ResistenzPP()); break ;
+     case eppabwehr:sfout += EmptyInt_4TeX(A.getWerte().AbwehrPP()); break ;
+     case eppzauber:sfout += EmptyInt_4TeX(A.getWerte().ZaubernPP()); break ;
      case ezauber:sfout += itos0p(W.Zaubern_wert(),0,true); break ;
      case ehand:sfout += LaTeX_scale(W.Hand(),7,"1.2cm"); break ;
      case eraufen:sfout += itos(W.Raufen()); break ;
@@ -459,7 +463,7 @@ void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_
    }
 }
 
-void LaTeX_drucken::write_fertigkeiten(std::ostream &fout,const std::list<MBEmlt>& L,bool longlist)
+void LaTeX_drucken::write_fertigkeiten(const Abenteurer &A,std::ostream &fout,const std::list<MBEmlt>& L,bool longlist)
 {
   unsigned int count=0;
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
@@ -477,9 +481,9 @@ void LaTeX_drucken::write_fertigkeiten(std::ostream &fout,const std::list<MBEmlt
 
      std::string wert;
      if((*(*i))->What()==MidgardBasicElement::FERTIGKEIT)
-       wert=itos0p(cH_Fertigkeit((*i)->getMBE())->FErfolgswert(hauptfenster->getAben(),*i),0,true);
+       wert=itos0p(cH_Fertigkeit((*i)->getMBE())->FErfolgswert(A,*i),0,true);
      else if((*(*i))->What()==MidgardBasicElement::FERTIGKEIT_ANG)
-       wert=itos0p(cH_Fertigkeit_angeborene((*i)->getMBE())->FErfolgswert(hauptfenster->getAben(),*i),0,true);
+       wert=itos0p(cH_Fertigkeit_angeborene((*i)->getMBE())->FErfolgswert(A,*i),0,true);
      else if((*(*i))->What()==MidgardBasicElement::WAFFE)
        wert=itos0p((*i)->Erfolgswert(),0,true);
      if(!longlist) fout << "\\newcommand{\\wert"<<a<<"}";
@@ -505,12 +509,12 @@ struct st_WB{std::string name;std::string wert;std::string schaden;
                     : name(n),wert(w),schaden(s),rang(r),modi(m) {}};
 
 #include "WaffeGrund.hh"
-void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_WaffeBesitz>& L,bool longlist)
+void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,const std::list<H_WaffeBesitz>& L,bool longlist)
 {
-  std::string angriffsverlust = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar()->List_Fertigkeit());
+  std::string angriffsverlust = A.getWerte().Ruestung_Angriff_Verlust(A.List_Fertigkeit());
   std::vector<st_WB> VWB;
-  VWB.push_back(st_WB("Raufen",itos(hauptfenster->getWerte().Raufen()),
-                      hauptfenster->getWerte().RaufenSchaden(),"",""));
+  VWB.push_back(st_WB("Raufen",itos(A.getWerte().Raufen()),
+                      A.getWerte().RaufenSchaden(),"",""));
   for(std::list<H_WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
    {
      std::string waffenname = (*i)->AliasName();
@@ -524,11 +528,11 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_Waff
       }
      else  // Erfolgswert für Angriffswaffen
       {
-        int wert = (*i)->Erfolgswert()+hauptfenster->getWerte().bo_An()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
+        int wert = (*i)->Erfolgswert()+A.getWerte().bo_An()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
         // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
         swert = itos(wert)+angriffsverlust;
       }
-     std::string schaden=(*i)->Schaden(hauptfenster->getWerte(),(*i)->AliasName());
+     std::string schaden=(*i)->Schaden(A,(*i)->AliasName());
      std::string anm = (*i)->Waffe()->Waffenrang();
      std::string abm = (*i)->Waffe()->WM_Abwehr();
      std::string text=(*i)->Waffe()->Text();
@@ -536,10 +540,10 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_Waff
      bool grund_ist_gelernt = false;
      if( !(*i)->Waffe()->ZweiteGrundkenntnis().empty() )
         grund_ist_gelernt=MBEmlt(&*cH_WaffeGrund((*i)->Waffe()->ZweiteGrundkenntnis()))
-           ->ist_gelernt(hauptfenster->getAben().List_WaffenGrund());
+           ->ist_gelernt(A.List_WaffenGrund());
                     
      if(text.find("Einhändig")!=std::string::npos)
-      { if(!(*i)->Waffe()->Min_St_Einhand(hauptfenster->getWerte())) text="";
+      { if(!(*i)->Waffe()->Min_St_Einhand(A.getWerte())) text="";
         if(!grund_ist_gelernt) text="";
       }
                                              
@@ -588,7 +592,7 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_Waff
 
 void LaTeX_drucken::write_universelle(const Abenteurer &A,std::ostream &fout)
 {
- std::list<Abenteurer::st_universell> UF=hauptfenster->getChar()->List_Universell(hauptfenster->getCDatabase());
+ std::list<Abenteurer::st_universell> UF=A.List_Universell();
  int countunifert=0;
  for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
   {
@@ -601,7 +605,7 @@ void LaTeX_drucken::write_universelle(const Abenteurer &A,std::ostream &fout)
     else            wert = "--"+itos(abs(iwert));
     
     if     (name=="Geheimmechanismen Ã¶ffnen") name = "Geheimmech. Ã¶ffnen";
-    else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+hauptfenster->getWerte().Herkunft()->Name()+")";
+    else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+A.getWerte().Herkunft()->Name()+")";
 
     if (!i->gelernt)
      {
@@ -625,7 +629,7 @@ void LaTeX_drucken::write_universelle(const Abenteurer &A,std::ostream &fout)
 }
 
 
-void LaTeX_drucken::write_long_list(std::ostream &fout,const std::vector<Sprache_und_Schrift>& S,
+void LaTeX_drucken::write_long_list(const Abenteurer &A,std::ostream &fout,const std::vector<Sprache_und_Schrift>& S,
                      const std::list<MBEmlt> &F,
                      const std::list<H_WaffeBesitz> &WB_druck)
 {
@@ -644,7 +648,7 @@ void LaTeX_drucken::write_long_list(std::ostream &fout,const std::vector<Sprache
           "\\multicolumn{3}{|c|}{\\small angeborene und erlernte}\\\\\n"
           "\\multicolumn{3}{|c|}{\\small FÃ¤higkeiten und Waffenfertigkeiten}\\\\[1ex]\n"
           "\\normalsize Fertigkeit&{$\\!$\\normalsize PP$\\!$}&{$\\!\\!$\\normalsize EW$\\!\\!$}\\\\\\hline\\hline\n";
-  write_fertigkeiten(fout,F,true);
+  write_fertigkeiten(A,fout,F,true);
   fout << "\\hline\n\\end{tabular}}\n";
 
   // Sprache & Schrift
@@ -663,7 +667,7 @@ void LaTeX_drucken::write_long_list(std::ostream &fout,const std::vector<Sprache
           "\\begin{tabular}[t]{||p{3.1cm}|c|c||}\\hline\\hline\n"
           "\\raisebox{-1ex}[2ex][0ex]{\\LARGE Waffe}&\\normalsize Erfolgswert&\\footnotesize Waffenrang\\\\\\cline{2-3}\n"
           "\\raisebox{-0.2ex}[1ex][0.2ex]{\\footnotesize (Reichweite)}&\\normalsize\\raisebox{-0.2ex}[1ex][0.2ex]{Schaden}&\\footnotesize Abwehrmod.\\\\\\hline\\hline\\hline\n";
-  write_waffenbesitz(fout,WB_druck,true);
+  write_waffenbesitz(A,fout,WB_druck,true);
   fout << "\\hline\n\\end{tabular}}\n";
 
   fout <<"\\vfill\\hfill\n";
@@ -759,13 +763,13 @@ void LaTeX_drucken::LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool 
   {
     if(landscape)
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(hauptfenster->getWerte().Name_Abenteurer(),25,"4.5cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(hauptfenster->getWerte().Name_Spieler(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(A.getWerte().Name_Abenteurer(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(A.getWerte().Name_Spieler(),25,"4.5cm") << "}\n";
      }
     else
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(hauptfenster->getWerte().Name_Abenteurer(),20,"4.cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(hauptfenster->getWerte().Name_Spieler(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(A.getWerte().Name_Abenteurer(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(A.getWerte().Name_Spieler(),20,"4.cm") << "}\n";
      }
   }
  std::string     drache="9.9cm", namensbox="7cm";
@@ -790,7 +794,7 @@ void LaTeX_drucken::LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool 
  fout <<"\\vspace*{2ex}\n\n";
 }
 
-void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeile)
+void LaTeX_drucken::LaTeX_header(const Abenteurer &A,std::ostream &fout,bool landscape,bool kopfzeile)
 {
  if(landscape) fout << "\\documentclass[a4paper,10pt,landscape]{article}\n" ;
  else   fout << "\\documentclass[a4paper,10pt]{article}\n";
@@ -863,7 +867,7 @@ void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeil
  if(kopfzeile)
    {  
      fout << "\\begin{center}\n";
-     LaTeX_kopfzeile(fout,landscape);
+     LaTeX_kopfzeile(A,fout,landscape);
      fout << "\\end{center}\n";
     }
 }
@@ -898,16 +902,16 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
 // oder batchmode?
 //2x wg. longtable
   system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
-  if (hauptfenster->getChar()->List_Zauber().size()>0 || hauptfenster->getChar()->List_Zauberwerk().size()>0)  // Zauber
-     system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
-  else if(tex_two_times)
-     system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
+//  if (!A.List_Zauber().empty() || !A.List_Zauberwerk().empty())  // Zauber
+  system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
+//  else if(tex_two_times)
+//     system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
 
-  std::string pdfcommand=hauptfenster->getOptionen()->Viewer()+" "+file2+".pdf";
-  const_cast<midgard_CG*>(hauptfenster)->set_status(pdfcommand,false);
+  std::string pdfcommand=Programmoptionen.Viewer()+" "+file2+".pdf";
+  Ausgabe(Ausgabe::Debug,pdfcommand);
+//  const_cast<midgard_CG*>(hauptfenster)->set_status(pdfcommand,false);
   if (!WinLux::CreateProcess(pdfcommand))
-	const_cast<midgard_CG*>(hauptfenster)
-	->set_status("Fehler: "+pdfcommand+" startet nicht",false);
+     Ausgabe(Ausgabe::Error,pdfcommand+" startet nicht");
 
 //  unlink((file+".tex").c_str());
   unlink((file2+".aux").c_str());
@@ -920,13 +924,13 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
 
 void LaTeX_drucken::LaTeX_zauber(const Abenteurer &A,std::ostream &fout)
 {
-  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Zauber().begin();i!=hauptfenster->getChar()->List_Zauber().end();++i)
+  for (std::list<MBEmlt>::const_iterator i=A.List_Zauber().begin();i!=A.List_Zauber().end();++i)
    {
      cH_Zauber z((*i)->getMBE());
      fout << z->Name() ;
      if(!(*i)->Zusatz().empty()) fout << " ("<<(*i)->Zusatz()<<")";
      fout <<" & ";
-     fout << z->Erfolgswert_Z(hauptfenster->getAben()) <<" & ";
+     fout << z->Erfolgswert_Z(A) <<" & ";
      fout << TeX::string2TeX(z->Ap()) << " & ";
      fout << TeX::string2TeX(z->Art())<< " & ";
      fout << TeX::string2TeX(z->Stufe()) << " & ";
@@ -937,14 +941,14 @@ void LaTeX_drucken::LaTeX_zauber(const Abenteurer &A,std::ostream &fout)
      fout << TeX::string2TeX(z->Wirkungsdauer()) << " & ";
      fout << TeX::string2TeX(z->Ursprung()) << " & " ;
      fout << LaTeX_scale(TeX::string2TeX(z->Material()),20,"3cm") << " & " ;
-     fout << z->Agens(hauptfenster->getChar()->getVTyp()) <<" " <<z->Prozess() <<" "<<z->Reagens() ;
+     fout << z->Agens(A.getVTyp()) <<" " <<z->Prozess() <<" "<<z->Reagens() ;
      fout << "\\\\\n";
    }
 }
 
 void LaTeX_drucken::LaTeX_zaubermittel(const Abenteurer &A,std::ostream &fout)
 {
-  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Zauberwerk().begin();i!=hauptfenster->getChar()->List_Zauberwerk().end();++i)
+  for (std::list<MBEmlt>::const_iterator i=A.List_Zauberwerk().begin();i!=A.List_Zauberwerk().end();++i)
    {
      cH_Zauberwerk z((*i)->getMBE());
 //     std::string wert ;//= itos((*i)->Wert());
@@ -965,7 +969,7 @@ void LaTeX_drucken::LaTeX_zauber_main(const Abenteurer &A,std::ostream &fout)
   fout << "\\scriptsize\n";
   fout << "\\begin{longtable}{lcclccclcclp{3cm}l}\n";
   fout <<"\\multicolumn{13}{c}{";
-  LaTeX_kopfzeile(fout,true,false);
+  LaTeX_kopfzeile(A,fout,true,false);
   fout << "}\\\\\n";
   fout << " & Erfolgs- & &&&Zauber-&Reich-&\\multicolumn{1}{c}{Wirkungs-}&Wirkungs-&"
        <<"  Wirkungs-&\\multicolumn{1}{c}{Ur-}&\\multicolumn{1}{c}{Material}&\\multicolumn{1}{c}{Prozess}\\\\ \n";
@@ -974,15 +978,15 @@ void LaTeX_drucken::LaTeX_zauber_main(const Abenteurer &A,std::ostream &fout)
        << " & \\raisebox{1.5ex}[-1.5ex]{Stufe} & -dauer & weite&\\multicolumn{1}{c}{ziel}&bereich&"
        << "dauer&\\multicolumn{1}{c}{sprung}\\\\\\hline\n";
   fout << "\\endhead\n";
-  LaTeX_zauber(fout);
+  LaTeX_zauber(A,fout);
   fout << "\\end{longtable}\n";
 
  
-  if (hauptfenster->getChar()->List_Zauberwerk().size()!=0)
+  if (!A.List_Zauberwerk().empty())
    {
      fout << "\\begin{tabular}{lllll}\\hline\n";
      fout << "Name&Art&Stufe&\\scriptsize Zeitaufwand&Kosten\\\\\\hline\n";
-     LaTeX_zaubermittel(fout);
+     LaTeX_zaubermittel(A,fout);
      fout << "\\end{tabular}\n";
    }
   fout << "\\end{center}\n";
@@ -993,7 +997,7 @@ void LaTeX_drucken::LaTeX_zauber_main(const Abenteurer &A,std::ostream &fout)
 
 void LaTeX_drucken::LaTeX_kido(const Abenteurer &A,std::ostream &fout)
 {
-  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Kido().begin();i!=hauptfenster->getChar()->List_Kido().end();++i)
+  for (std::list<MBEmlt>::const_iterator i=A.List_Kido().begin();i!=A.List_Kido().end();++i)
    {
      cH_KiDo kd((*i)->getMBE());
      std::string ap = itos(kd->Ap());
@@ -1015,13 +1019,15 @@ void LaTeX_drucken::LaTeX_kido(const Abenteurer &A,std::ostream &fout)
 void LaTeX_drucken::LaTeX_kido_main(const Abenteurer &A,std::ostream &fout)
 {
 //  fout << "\\end{center}\n";
-  LaTeX_kopfzeile(fout,true,false);
+  LaTeX_kopfzeile(A,fout,true,false);
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
          <<KiDo::get_erfolgswert_kido(A.List_Fertigkeit())+A.getWerte().bo_Za()<<"}\\\\\\hline\n";
   fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
 
-  LaTeX_kido(fout);
+  LaTeX_kido(A,fout);
   fout << "\\end{tabular}\n";
 //  fout << "\\end{center}\n";
 }
+
+void LaTeX_drucken::Ausdrucken() { Ausdrucken(Abenteurer(),false); }

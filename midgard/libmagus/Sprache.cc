@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -106,6 +106,30 @@ const Sprache_und_Schrift Sprache::SchriftWert(int erfolgswert,bool gelernt,cons
     }
   }
   return sus;
+}
+
+std::string Sprache_und_Schrift::getErfolgswert() const
+{
+   std::string back;
+   if(!gelernt) back += "(";
+   back += "+"+itos(sprache->Erfolgswert());
+   if(!gelernt) back += ")";
+
+   if(ungelernt_besser) back+=" (+"+itos(ungelernt)+")";
+   return back;
+}
+
+void Sprache_und_Schrift::ungelernte_ist_besser(std::vector<Sprache_und_Schrift> &SuS,const std::string name,const int wert)
+{
+  for(std::vector<Sprache_und_Schrift>::iterator i=SuS.begin();i!=SuS.end();++i)
+   {
+     if(name==i->getSprache()->getMBE()->Name())
+      {
+        i->ungelernt_besser=true;
+        i->ungelernt=wert;
+        return;
+      }  
+   } 
 }
 
 bool Sprache::Sprachgruppe(const std::vector<int>& V2) const
