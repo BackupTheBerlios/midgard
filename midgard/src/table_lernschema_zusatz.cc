@@ -132,11 +132,16 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
          {
            if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getChar().List_Schrift())) continue;
            if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getChar().List_Sprache())) continue;
-           std::string::size_type s=MBE->Name().find("Muttersprache");
            bool erlaubt=true;
-           if(s!=std::string::npos)
+           std::string::size_type s1=MBE->Name().find("Muttersprache");
+           std::string::size_type s2=MBE->Name().find("Alte Sprache");
+           if(s1!=std::string::npos)
             {
              if(!cH_Schrift(*i)->Mutterschrift(hauptfenster->getChar())) erlaubt=false; 
+            }
+           if(s2!=std::string::npos)
+            {
+             if(!cH_Sprache((*i)->Name())->Alte_Sprache()) continue; 
             }
            datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),erlaubt,hauptfenster->getCDatabase()));
          }
@@ -390,6 +395,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
    {
      MidgardBasicElement_mutable dummy=hauptfenster->getWerte().Ueberleben();
      lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
+     hauptfenster->getChar()->setMuttersprache(sprache->Name());
    }
 }
 

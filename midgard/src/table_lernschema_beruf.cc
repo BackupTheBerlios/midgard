@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.8 2002/08/15 15:01:07 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.9 2002/08/19 06:31:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,13 +35,10 @@ gint table_lernschema::on_button_beruf_release_event(GdkEventButton *ev)
   if (ev->button==1) 
    {
      beruf_gewuerfelt(hauptfenster->random.integer(1,100));
-//     if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active) 
-//         frame_berufswahl->set_sensitive(false);
    }
   if (ev->button==3) 
    {
      vbox_berufsname->show();
-//     frame_berufswahl->set_sensitive(true);
      entry_berufsname->grab_focus();
    }
   return false;
@@ -53,9 +50,6 @@ void table_lernschema::on_entry_berufsname_activate()
   hauptfenster->getChar().List_Beruf().clear();
   hauptfenster->getChar().List_Beruf().push_back(beruf);
   vbox_berufsname->hide();
-//  frame_berufswahl->set_sensitive(false);
-//  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active)
-//    frame_berufswahl->set_sensitive(false);
   show_gelerntes();
 }
 
@@ -65,7 +59,6 @@ gint table_lernschema::on_spinbutton_beruf_focus_in(GdkEventFocus *ev)
 void table_lernschema::on_spinbutton_beruf_activate()
 {
   gtk_spin_button_update(spinbutton_beruf->gtkobj());
-//  frame_berufswahl->set_sensitive(false);
   table_berufsprozent->hide();
   beruf_gewuerfelt(spinbutton_beruf->get_value_as_int());
 }
@@ -75,7 +68,6 @@ void table_lernschema::deleteBerufsFertigekeit()
 {
   for(std::list<MidgardBasicElement_mutable>::iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
    {
-//     cH_Fertigkeit f(*i);
      if((*i).LernArt()=="Beruf") 
       {
         hauptfenster->getChar().List_Fertigkeit().erase(i);
@@ -109,7 +101,6 @@ void table_lernschema::showBerufsLernList()
   std::list<MidgardBasicElement_mutable> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Beruf.begin();i!=hauptfenster->getDatabase().Beruf.end();++i)
    {
-//     if (Database.pflicht.istVerboten(hauptfenster->getWerte().Spezies()->Name(),hauptfenster->Typ,(*i)->Name())) continue;
      if(hauptfenster->getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      cH_Beruf b(*i);
      if ( !b->Typ(hauptfenster->getChar().getVTyp()) || 
@@ -136,12 +127,12 @@ void table_lernschema::showBerufsLernList()
            {
              if(j->name!="Schmecken+10" && MidgardBasicElement_mutable(&*cH_Fertigkeit(j->name)).ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))
                   gelerntes=true;
+             else if(j->name=="Schreiben: Muttersprache(+12)") gelerntes=true;
              else gelerntes=false;
              datavec.push_back(new Beruf_Data(kat,(*i)->Name(),j->name,j->wert,gelerntes));
            }
        }
     }
-//  if(gelerntes) label_berufsstern_erklaerung->show();
   if(gelerntes) hauptfenster->set_status(hauptfenster->label_status->get_text()
                +"\nEin * bezeichnet eine bereits gelernte Fertigkeit."
                " Für diese wird dann der Erfolgswert um eins erhöht.",false);
@@ -150,9 +141,7 @@ void table_lernschema::showBerufsLernList()
   Beruf_tree->Expand_recursively();
   viewport_lernen->add(*Beruf_tree);  
 
-//  scrolledwindow_beruf->show();
   scrolledwindow_lernen->show();
-//  scrolledwindow_ange_fert->hide();
   frame_lernpunkte->set_sensitive(false);
 }
 
@@ -180,8 +169,6 @@ void table_lernschema::beruf_gewuerfelt(int wurf)
     BKategorie.kat_II=true;
     BKategorie.kat_III=true;
     BKategorie.kat_IV=true; }
-//    label_berufskategorie->set_text(kat);
-//    label_berufskategorie->show();
     hauptfenster->set_status(kat,false);
 
   showBerufsLernList();
@@ -200,14 +187,26 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
         hauptfenster->getWerte().setSinn("Schmecken",10);
     else if(dt->Gelernt()) // Erfolgswert um eins erhöhen
      {
-      for (std::list<MidgardBasicElement_mutable>::iterator k=hauptfenster->getChar().List_Fertigkeit().begin();k!=hauptfenster->getChar().List_Fertigkeit().end();++k)
-        {
+      if(dt->Fert()=="Schreiben: Muttersprache(+12)")
+       {
+        for (std::list<MidgardBasicElement_mutable>::iterator k=hauptfenster->getChar().List_Schrift().begin();k!=hauptfenster->getChar().List_Schrift().end();++k)
+         {
+           if((*k)->Name()==hauptfenster->getChar()->Muttersprache() ) 
+             { (*k).addErfolgswert(1); break;}
+         }
+       }
+      else 
+       {
+        for (std::list<MidgardBasicElement_mutable>::iterator k=hauptfenster->getChar().List_Fertigkeit().begin();k!=hauptfenster->getChar().List_Fertigkeit().end();++k)
+         {
           if((*k)->Name()==dt->Fert())
            { (*k).addErfolgswert(1);
              if((*k)->What()==MidgardBasicElement::FERTIGKEIT)
                 (*k).setLernArt("Beruf+");
+             break;
            }
-        }
+         }
+       }
      }
     else // neue Fertigkeit
       {

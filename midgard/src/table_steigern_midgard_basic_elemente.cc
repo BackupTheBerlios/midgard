@@ -20,6 +20,7 @@
 #include "midgard_CG.hh"
 #include "class_SimpleTree.hh"
 #include "Fertigkeiten.hh"
+#include "Sprache.hh"
 #include "Zauber.hh"
 #include <Misc/itos.h>
 
@@ -171,6 +172,8 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      else MBE.setErfolgswert(7);
    }
  else if (!steigern_usp(kosten,&MBE,dummy)) return;
+
+
  hauptfenster->getChar().getWerte().addGFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
@@ -221,7 +224,12 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  else if(MBE->What()==MidgardBasicElement::KIDO) 
    { MyList     = &hauptfenster->getChar().List_Kido(); MyList_neu = &list_Kido_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
-   { MyList     = &hauptfenster->getChar().List_Sprache(); MyList_neu = &list_Sprache_neu;  }
+   { MyList     = &hauptfenster->getChar().List_Sprache(); MyList_neu = &list_Sprache_neu;  
+     // eventuell höherer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
+     int ungelernterErfolgswert=cH_Sprache(MBE)->getHoeherenErfolgswert(hauptfenster->getChar()->List_Sprache(),hauptfenster->getCDatabase().Sprache);
+     if (ungelernterErfolgswert) MBE.setErfolgswert(ungelernterErfolgswert);
+     // bis hier
+   }
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
    { MyList     = &hauptfenster->getChar().List_Schrift(); MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
