@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.55 2002/06/29 06:32:31 christof Exp $
+// $Id: Optionen.cc,v 1.56 2002/06/29 20:41:24 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -313,7 +313,6 @@ void Midgard_Optionen::Strings_init()
   
   // %USERPROFILE%\Anwendungsdaten\Magus ???
   list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",hauptfenster->MagusVerzeichnis()));
- }
 #endif
 }
 
