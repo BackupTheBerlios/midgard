@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.12 2002/06/03 15:49:52 christof Exp $
+// $Id: zauber_exp.cc,v 1.13 2002/06/03 21:29:07 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -153,7 +153,7 @@ void arkanum_speichern(Tag &o)
 	" order by fertigkeit");
    FetchIStream is3;
    while ((query3>>is3).good())
-   {  spruch.push_back(Tag("Voraussetzung")).setAttr("Fertigkeit",fetch_string(is3));
+   {  zw.push_back(Tag("Voraussetzung")).setAttr("Fertigkeit",fetch_string(is3));
    }
   }
   }
@@ -187,11 +187,11 @@ void arkanum_speichern(Tag &o)
    FetchIStream is;
    while ((query>>is).good())
    {  Tag &sp=sg.push_back(Tag("Spezialgebiet"));
-      fetch_and_set_typ_attrib(is, sg, "Typ");
-      fetch_and_set_string_attrib(is, sg, "Name");
-      fetch_and_set_int_attrib(is, sg, "MAGUS-Index");
-      fetch_and_set_string_attrib(is, sg, "Spezialisierung");
-      fetch_and_set_string_attrib(is, sg, "Sekundärelement");
+      fetch_and_set_string_attrib(is, sp, "Typ");
+      fetch_and_set_string_attrib(is, sp, "Name");
+      fetch_and_set_int_attrib(is, sp, "MAGUS-Index");
+      fetch_and_set_string_attrib(is, sp, "Spezialisierung");
+      fetch_and_set_string_attrib(is, sp, "Sekundärelement");
    }
   }
 

@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.21 2002/06/03 15:49:52 christof Exp $
+// $Id: export_common.h,v 1.22 2002/06/03 21:29:07 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -48,7 +48,7 @@ int fetch_and_set_int_attrib(FetchIStream &is,Tag &o,const std::string &wert,int
 double fetch_float(FetchIStream &is,double standard=0);
 void write_float(std::ostream &o,const std::string &wert,double val, int indent=0);
 void write_float_attrib(std::ostream &o,const std::string &wert,double val, double standard=0);
-double fetch_and_write_float(FetchIStream &is,std::ostream &o,const std::string &wert,double indent=0);
+double fetch_and_write_float(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
 double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,double standard=0);
 
 std::string fetch_string(FetchIStream &is,const std::string &standard="");
@@ -61,8 +61,8 @@ std::string fetch_and_set_string_attrib(FetchIStream &is,Tag &o,const std::strin
 bool fetch_bool(FetchIStream &is,const bool &standard=false);
 void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false);
 void write_bool_attrib_force(std::ostream &o,const std::string &wert,bool val);
-bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const bool &standard=false);
-bool fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,const bool &standard=false);
+bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,bool standard=false);
+bool fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,bool standard=false);
 
 std::string typ_standardisierung(const std::string &t);
 std::string fetch_typ(FetchIStream &is,const std::string &standard="");

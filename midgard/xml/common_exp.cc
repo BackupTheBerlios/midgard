@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.22 2002/06/03 15:49:52 christof Exp $
+// $Id: common_exp.cc,v 1.23 2002/06/03 21:29:07 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -43,7 +43,7 @@ static void schwierigkeit(Tag &o,
 {  Query query(_query);
    FetchIStream is;
    while ((query>>is).good())
-   {  o.push_back(Tag(tag,fetch_typ(is));
+   {  o.push_back(Tag(tag,fetch_typ(is)));
    }
 }
 
@@ -79,6 +79,7 @@ void grund_standard_ausnahme(Tag &o,
    schwierigkeit(o,query0+"G"+query1, "Grund");
    schwierigkeit(o,query0+"S"+query1, "Standard");
    schwierigkeit(o,query0+"A"+query1, "Ausnahme");
+   schwierigkeit(o,query0+"-"+query1, "Nicht");
 }
 
 void lernschema(std::ostream &o, const std::string &art, const std::string &name, bool nur_region)
@@ -173,13 +174,13 @@ void lernschema(Tag &o, const std::string &art, const std::string &name, bool nu
    FetchIStream is;
    while ((query>>is).good())
    {  Tag &ls=o.push_back(Tag("Lernschema"));
-      fetch_and_write_typ_attrib(is, ls, "Typ");
-      fetch_and_write_int_attrib(is, ls, "Lernpunkte");
-      fetch_and_write_int_attrib(is, ls, "Erfolgswert");
-      fetch_and_write_bool_attrib(is, ls, "Pflicht");
+      fetch_and_set_string_attrib(is, ls, "Typ");
+      fetch_and_set_int_attrib(is, ls, "Lernpunkte");
+      fetch_and_set_int_attrib(is, ls, "Erfolgswert");
+      fetch_and_set_bool_attrib(is, ls, "Pflicht");
 #ifdef MIDGARD3
-      fetch_and_write_string_attrib(is, ls, "Primärelement");
-      fetch_and_write_string_attrib(is, ls, "Sekundärelement");
+      fetch_and_set_string_attrib(is, ls, "Primärelement");
+      fetch_and_set_string_attrib(is, ls, "Sekundärelement");
 #endif
    }
 }
@@ -198,12 +199,12 @@ void ausnahmen(Tag &o, const std::string &art, const std::string &name, bool nur
    FetchIStream is2;
    while ((query>>is2).good())
    {  Tag &rb=o.push_back(Tag("regionaleBesonderheit"));
-      fetch_and_write_string_attrib(is2, rb, "Spezies");
-      fetch_and_write_string_attrib(is2, rb, "Herkunft");
-      fetch_and_write_typ_attrib(is2, rb, "Typ");
-      fetch_and_write_string_attrib(is2, rb, "Beruf");
-      fetch_and_write_string_attrib(is2, rb, "Stand");
-      fetch_and_write_string_attrib(is2, rb, "Standard");
+      fetch_and_set_string_attrib(is2, rb, "Spezies");
+      fetch_and_set_string_attrib(is2, rb, "Herkunft");
+      fetch_and_set_string_attrib(is2, rb, "Typ");
+      fetch_and_set_string_attrib(is2, rb, "Beruf");
+      fetch_and_set_string_attrib(is2, rb, "Stand");
+      fetch_and_set_string_attrib(is2, rb, "Standard");
    }
 }
 

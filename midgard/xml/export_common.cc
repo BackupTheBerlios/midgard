@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.15 2002/06/03 15:49:52 christof Exp $
+// $Id: export_common.cc,v 1.16 2002/06/03 21:29:07 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -110,13 +110,19 @@ double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::
    return val;
 }
 
- std::string fetch_and_set_string_attrib(FetchIStream &is,Tag &o,const std::string &wert,const std::string &standard="")
+ std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard)
+{  std::string val=fetch_string(is,standard);
+   write_string_attrib(o,wert,val,standard);
+   return val;
+}
+
+ std::string fetch_and_set_string_attrib(FetchIStream &is,Tag &o,const std::string &wert,const std::string &standard)
 {  std::string val=fetch_string(is,standard);
    if (val!=standard) o.setAttr(wert,val);
    return val;
 }
 
-int fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,bool standard=0)
+bool fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,bool standard=0)
 {  bool val=fetch_bool(is,standard);
    if (val!=standard) o.setBoolAttr(wert,val);
    return val;
@@ -129,7 +135,7 @@ int fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,bo
    return val;
 }
 
- bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const bool &standard=false)
+ bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,bool standard)
 {  bool val=fetch_bool(is,standard);
    write_bool_attrib(o,wert,val,standard);
    return val;
