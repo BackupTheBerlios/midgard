@@ -3,9 +3,11 @@ NEWS IN VERSION 0.8beta3
 - Überflüssigen Code aus 'grad_anstieg' und sinnlose Tabellenspalten
    aus 'charaktere' entfernt
 - Bug entfernt: 'Abwehr mit Verteidigungswaffen' funktionierte nicht 
-   fehlerhaft.
+   richtig.
 - Wenn man das Programmm NICHT mit 'midgard s' startet, dann erscheint 
    ersteinmal das Info Fenster.
+- kleinere Schönheitsreperaturen
+- Alessandros Logo eingebaut
 
 ##########################################################################
 NEWS IN VERSION 0.8beta2

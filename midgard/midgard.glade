@@ -15464,7 +15464,7 @@ Verlust</label>
     <class>GtkTable</class>
     <name>table49</name>
     <rows>19</rows>
-    <columns>3</columns>
+    <columns>4</columns>
     <homogeneous>False</homogeneous>
     <row_spacing>0</row_spacing>
     <column_spacing>0</column_spacing>
@@ -16518,6 +16518,31 @@ portierung</label>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap61</name>
+      <filename>logo-work-3-v1.0pre.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>3</left_attach>
+	<right_attach>4</right_attach>
+	<top_attach>4</top_attach>
+	<bottom_attach>15</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>True</xexpand>
 	<yexpand>False</yexpand>
 	<xshrink>False</xshrink>
 	<yshrink>False</yshrink>
