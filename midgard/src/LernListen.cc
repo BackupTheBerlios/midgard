@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.1 2002/09/07 07:17:26 thoma Exp $
+// $Id: LernListen.cc,v 1.2 2002/09/07 14:18:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,6 +49,18 @@ std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const VAbenteurer& A,bool
    }
   return V;
 }
+
+std::vector<pair<cH_Land,bool> > LernListen::getLand(const VAbenteurer& A) const
+{
+  std::vector<cH_Land> L=D.Laender;
+  std::vector<pair<cH_Land,bool> > V;
+  for (std::vector<cH_Land>::const_iterator i=L.begin();i!=L.end();++i)
+   {
+     V.push_back(pair<cH_Land,bool>(*i,(*i)->ist_erlaubt(A)));
+   }
+  return V;
+}
+
 
 bool LernListen::region_check(const std::string& region) const
 {

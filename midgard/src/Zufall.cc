@@ -32,6 +32,7 @@ void Zufall::Voll()
    Aben->getWerte().setGeschlecht(getGeschlecht());
    Aben->setTyp1(getTyp());
    hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
+   Aben->getWerte().setHerkunft(getLand());
 }
 
 

@@ -47,6 +47,7 @@ class Zufall
       Enums::geschlecht getGeschlecht() const;
       cH_Typen getTyp() const;
       Enums::StadtLand getStadtLand() const;
+      cH_Land getLand() const;
 
 };
 

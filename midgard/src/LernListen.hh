@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.2 2002/09/07 07:15:56 thoma Exp $
+// $Id: LernListen.hh,v 1.3 2002/09/07 14:18:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,6 +37,7 @@ class LernListen
       
       std::vector<cH_Spezies> getSpezies(bool nsc_allowed) const ;
       std::vector<pair<cH_Typen,bool> > getTypen(const VAbenteurer& A,bool nsc_allowed) const ;
+      std::vector<pair<cH_Land,bool> > getLand(const VAbenteurer& A) const;
 
 /*   
 

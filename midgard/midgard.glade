@@ -17655,7 +17655,7 @@ Grad 1 erzeugen</label>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_zufall</name>
-	<tooltip>Optionen</tooltip>
+	<tooltip>Zufallsabenteurer (NSC) erstellen</tooltip>
 	<signal>
 	  <name>button_release_event</name>
 	  <handler>on_eventbox_zufall_button_release_event</handler>

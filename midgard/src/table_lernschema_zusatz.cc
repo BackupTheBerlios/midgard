@@ -23,8 +23,10 @@
 #include "Waffe.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
+#include "LernListen.hh"
 #include <typeinfo> // for bad_cast
 static SigC::Connection connection;
+
 
 #include <gdk/gdk.h>
 
@@ -54,12 +56,19 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
    {
      case MidgardBasicElement::ZHerkunft:
       {
+       std::vector<pair<cH_Land,bool> > L=LernListen(hauptfenster->getDatabase()).getLand(hauptfenster->getChar());
+       for(std::vector<pair<cH_Land,bool> >::const_iterator i=L.begin();i!=L.end();++i)
+        {
+          datavec_zusatz.push_back(new Data_Herkunft(i->first,i->second));
+        }
+/*
        for (std::vector<cH_Land>::const_iterator i=hauptfenster->getDatabase().Laender.begin();i!=hauptfenster->getDatabase().Laender.end();++i)
         {
           bool erlaubt=false;
           if((*i)->ist_erlaubt(hauptfenster->getChar())) erlaubt=true;
           datavec_zusatz.push_back(new Data_Herkunft(*i,erlaubt));
         }
+*/
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
        scrolledwindow_lernen->hide();
        break;

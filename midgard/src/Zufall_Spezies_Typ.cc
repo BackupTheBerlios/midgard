@@ -59,3 +59,17 @@ Enums::StadtLand Zufall::getStadtLand() const
   else if(i==1) return Enums::Land;
   assert(!"never get here\n"); abort();
 }
+
+
+cH_Land Zufall::getLand() const
+{
+   std::vector<pair<cH_Land,bool> > V_=LL.getLand(Aben);
+   std::vector<cH_Land> V; // nur die erlaubten Länder
+   for(std::vector<pair<cH_Land,bool> >::const_iterator i=V_.begin();i!=V_.end();++i)
+    {
+      if(i->second) V.push_back(i->first) ;
+    }
+   int i=random.integer(0,V.size()-1);
+   return V[i];   
+}
+
