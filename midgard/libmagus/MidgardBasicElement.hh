@@ -84,7 +84,7 @@ class MidgardBasicElement : public HandleContentCopyable
       std::map<int,int> map_erfolgswert_kosten;
       
       void get_map_typ() { get_map_typ(*tag); }
-      void get_map_typ(const Tag *t);
+      void get_map_typ(const Tag &t);
       void get_Steigern_Kosten_map();
       int GrundKosten() const {  return kosten; }
 
