@@ -21,7 +21,7 @@
 #include "Gtk_OStream.h"
 #include <gtkmm/label.h>
 
-Gtk::OStream::streamsize Gtk::OStream::data_Label(const char *s,streamsize n)
+std::streamsize Gtk::OStream::data_Label(const char *s,std::streamsize n)
 {   if (n) handler_data.label.widget->set_text(handler_data.label.widget->get_text()+std::string(s,n));
     return n;
 }

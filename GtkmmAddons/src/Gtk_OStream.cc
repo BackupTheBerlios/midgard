@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream.cc,v 1.2 2002/12/17 11:10:28 christof Exp $
+// $Id: Gtk_OStream.cc,v 1.3 2002/12/18 09:00:39 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -21,8 +21,8 @@
 #include "Gtk_OStream.h"
 #include <cassert>
 
-Gtk::OStreamBase::OStreamBase(line_cbt l)
-	: flush_impl(0), close_impl(0), data_cbt(&OStream::default_data),
+Gtk::OStreamBase::OStreamBase(line_cbt l,close_cbt c)
+	: flush_impl(0), close_impl(c), data_cbt(&OStream::default_data),
 		line_impl(l)
 {
 }
@@ -32,10 +32,12 @@ Gtk::OStreamBase::OStreamBase(data_cbt d)
 {
 }
 
+#if 0
 Gtk::OStreamBase::OStreamBase(flush_cbt f,close_cbt c, data_cbt d, line_cbt l)
 	   : flush_impl(f), close_impl(c), data_impl(d), line_impl(l)
 {  if (!data_impl) data_impl=&OStream::default_data;
 }
+#endif
 
 std::ios::streamsize OStream::default_data(const char *s,streamsize n)
 {  data.append(s,n);
@@ -52,9 +54,12 @@ Gtk::OStreamBase::~OStreamBase(void)
     if (close_impl) (this->*close_impl)();
 }
 
-void Gtk::OStreamBase::flush(gpointer user_data=0,GtkDestroyNotify d=0)
-{  if (flush_impl) (this->*flush_impl)(user_data,d);
-   else if (line_impl && data_impl==&OStream::default_data)
+void Gtk::OStreamBase::flush(gpointer _user_data=0,GtkDestroyNotify d=0)
+{  if (_user_data || d)
+   {  user_data=_user_data; notify=d; }
+
+   if (flush_impl) (this->*flush_impl)();
+   else if (line_impl && data_impl==&OStream::default_data && !data.empty())
       (*line_impl)(data);
    flushed();
 }

@@ -21,6 +21,8 @@
 #ifndef GTKMM_OSTREAM_H
 #define GTKMM_OSTREAM_H
 #include <callbackbuf.h> 
+#include <gtk/gtktypeutils.h> // for gpointer, GtkDestroyNotify
+#include <sigc++/signal.h>
 
 namespace Gtk {
 class OptionMenu;
@@ -33,11 +35,13 @@ class TreeView;
 
 namespace Gtk {
 
+class OStream;
+
 class OStreamBase : public std::ostream
 {protected:
-	typedef void (OStream::*flush_cbt)(gpointer user_data,GtkDestroyNotify d);
+	typedef void (OStream::*flush_cbt)();
         typedef void (OStream::*close_cbt)();
-        typedef streamsize (OStream::*data_cbt)(const char*,streamsize);
+        typedef std::streamsize (OStream::*data_cbt)(const char*,std::streamsize);
         typedef void (OStream::*line_cbt)(const std::string &line);
         flush_cbt flush_impl;
         close_cbt close_impl;
@@ -45,15 +49,19 @@ class OStreamBase : public std::ostream
         line_cbt line_impl;
         
         std::string data;
-//        std::ios::openmode mode; // is this interesting ?
+        gpointer user_data;
+        GtkDestroyNotify notify;
         SigC::Signal0<void> flushed;
 public:
-	OStreamBase(flush_cbt f,close_cbt c=0, data_cbt d=0,line_cbt=0);
-	OStreamBase(line_cbt l);
+	OStreamBase(line_cbt l,close_cbt c=0);
 	OStreamBase(data_cbt d);
         ~OStreamBase(void);
-        // this routine does the hard work
+        // the arguments are for convenience only, set_user_data works the same
         void flush(gpointer user_data=0,GtkDestroyNotify d=0);
+        void set_user_data(gpointer _user_data=0,GtkDestroyNotify d=0)
+        {  user_data=_user_data;
+           notify=d;
+        }
         
         SigC::Signal0<void> &signal_flushed() { return flushed; }
 };
@@ -71,16 +79,14 @@ class OStream : public OStreamBase
                 struct data_treeview treeview;
         } handler_data;
 
-        streamsize default_data(const char *,streamsize);
+        std::streamsize default_data(const char *,std::streamsize);
         void erase_OptionMenu(openmode m);
         void erase_Label(openmode m);
         void erase_TreeView(openmode m);
-        streamsize data_stream(const char *,streamsize);
-        streamsize data_Label(const char *,streamsize);
-//        void flush_stream(gpointer user_data,GtkDestroyNotify d);
-        void flush_OptionMenu(gpointer user_data,GtkDestroyNotify d);
-        void flush_Label(gpointer user_data,GtkDestroyNotify d);
-        void flush_TreeView(gpointer user_data,GtkDestroyNotify d);
+        std::streamsize data_stream(const char *,std::streamsize);
+        std::streamsize data_Label(const char *,std::streamsize);
+        void line_OptionMenu(const std::string &line);
+        void line_TreeView(const std::string &line);
         void close_OptionMenu();
     public:
         // add your own post flushing functionality (e.g. scrolling)
@@ -92,19 +98,19 @@ class OStream : public OStreamBase
         {   handler_data.stream.os=stream;
         }
 	OStream(Gtk::TreeView *tv,openmode mode=(std::ios::out|std::ios::trunc))
-		: OStreamBase(&OStream::flush_TreeView)
+		: OStreamBase(&OStream::line_TreeView)
 	{   handler_data.treeview.view=tv;
 	    erase_TreeView(mode);
 	}
         OStream(Gtk::OptionMenu *o,openmode mode=(std::ios::out|std::ios::trunc)) throw()
-                : OStreamBase(&OStream::flush_OptionMenu, &OStream::close_OptionMenu)
+                : OStreamBase(&OStream::line_OptionMenu, &OStream::close_OptionMenu)
         {   handler_data.optionmenu.widget=o;
             erase_OptionMenu(mode);
         }
         OStream(Gtk::Label *l,openmode mode=(std::ios::out|std::ios::trunc)) throw()
                 : OStreamBase(&OStream::data_Label)
         {   handler_data.label.widget=l;
-            erase_Label(mode)
+            erase_Label(mode);
         }
 };
 

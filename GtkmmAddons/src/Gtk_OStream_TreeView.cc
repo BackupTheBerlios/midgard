@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream_TreeView.cc,v 1.1 2002/12/17 10:15:06 christof Exp $
+// $Id: Gtk_OStream_TreeView.cc,v 1.2 2002/12/18 09:00:39 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -21,6 +21,6 @@
 #include "Gtk_OStream.h"
 #include <gtkmm/treeview.h>
 
-void Gtk::OStream::flush_TreeView(gpointer user_data,GtkDestroyNotify d)
+void Gtk::OStream::line_TreeView(const std::string &line)
 {
 }

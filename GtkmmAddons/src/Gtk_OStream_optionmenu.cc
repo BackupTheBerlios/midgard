@@ -41,7 +41,7 @@ void Gtk::OStream::close_OptionMenu()
 }
 
 void Gtk::OStream::line_OptionMenu(const std::string &line)
-{   item=manage(new Gtk::MenuItem(line));
+{   Gtk::MenuItem *item=manage(new Gtk::MenuItem(line));
     handler_data.optionmenu.menu->append(*item);
     item->show();
     if (user_data) item->set_data("user_data",user_data,notify);

@@ -20,6 +20,6 @@
 
 #include "Gtk_OStream.h"
 
-Gtk::OStream::streamsize Gtk::OStream::data_stream(const char *s,streamsize n)
+std::streamsize Gtk::OStream::data_stream(const char *s,std::streamsize n)
 {   return (*handler_data.stream.os).write(s,n);
 };
