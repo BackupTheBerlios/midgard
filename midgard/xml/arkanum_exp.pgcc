@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.13 2001/11/14 09:33:18 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.15 2001/11/14 15:47:21 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -34,11 +34,9 @@ void arkanum_speichern(std::ostream &o)
    	select name, region, stufe, kosten, ap, art, 
    	ursprung, agens, prozess, reagens,
    	zauberdauer, reichweite, wirkungsziel, wirkungsbereich,
-   	wirkungsdauer, material, /* spruchrolle, thaumagram, */
-   	/* effekt[2] ??? */
-   	zauberart, p_element
+   	wirkungsdauer, material, 
+   	zauberart, element, spruchrolle, thaumagram
    	from zauber
-   	where coalesce(s_element,'')=''
    	order by coalesce(region,''),name;
    exec sql open zauber_curs;
    SQLerror::test(__FILELINE__);
@@ -67,6 +65,8 @@ void arkanum_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Material");
    fetch_and_write_string_attrib(is, o, "Zauberart");
    fetch_and_write_string_attrib(is, o, "Element");
+   fetch_and_write_bool_attrib(is, o, "Spruchrolle");
+   fetch_and_write_string_attrib(is, o, "Thaumagramm");
    o << ">\n";
    {  exec sql begin declare section;
       const char *ZAUBER=zauber.c_str(GARNIX);
@@ -109,7 +109,7 @@ void arkanum_speichern(std::ostream &o)
 
       // wert, attribut, [p+s]_element 
       exec sql declare cursor_lp cursor for 
-      	select typ,lernpunkte,pflicht from lernschema 
+      	select typ,lernpunkte,pflicht,p_element,s_element from lernschema 
       	where fertigkeit=:ZAUBER and art='Zauber'
       	order by lernpunkte,typ;
       exec sql open cursor_lp;
@@ -121,6 +121,8 @@ void arkanum_speichern(std::ostream &o)
          fetch_and_write_typ_attrib(is2, o, "Typ");
          fetch_and_write_int_attrib(is2, o, "Lernpunkte");
          fetch_and_write_bool_attrib(is2, o, "Pflicht");
+         fetch_and_write_string_attrib(is2, o, "Primärelement");
+         fetch_and_write_string_attrib(is2, o, "Sekundärelement");
          o << "/>\n";
       }
       exec sql close cursor_lp;
