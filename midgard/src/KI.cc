@@ -145,7 +145,7 @@ cerr << M->Name() <<" wird nicht neu gelernt, weil es "<<M->Kosten(Aben)
    }
   if(was==eSteigern && M.Steigern(Aben)>maxkosten)
    {
-cerr << M->Name() <<" wird nicht gesteigert, weil es "<<M->Kosten(Aben)
+cerr << M->Name() <<" wird nicht gesteigert, weil es "<<M.Steigern(Aben)
 <<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '
 <<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
      return false;
