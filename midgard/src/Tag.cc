@@ -189,3 +189,10 @@ void Tag::setIntAttr(const std::string &name, int val)
    snprintf(buf,sizeof buf,"%d",val);
    setAttr(name,buf);
 }
+
+void Tag::setFloatAttr(const std::string &name, double val)
+{  char buf[30];
+   snprintf(buf,sizeof buf,"%f",val);
+   setAttr(name,buf);
+}
+

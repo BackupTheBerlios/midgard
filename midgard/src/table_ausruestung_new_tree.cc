@@ -51,6 +51,7 @@ void table_ausruestung::fill_new_tree_titles(const std::map<e_spalten,std::strin
     preis_.push_back(i->second);
  preis_.push_back("Gewicht");
  preis_.push_back("Kosten");
+ preis_.push_back("Region");
  preise_tree_neu->setTitles(preis_);
 } 
 
@@ -127,17 +128,14 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
      hauptfenster->getWerte().addKupfer(-k);
      zeige_werte();
    }
-//cout << dt->Ware()->Name()<<'\t'<<dt->Ware()->Kosten()<<'\t'<<dt->Kosten()<<'\n';  
   bool sichtbar=checkbutton_sichtbar->get_active();
   std::string material;
   std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M=dt->getMod();
   for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
      material += i->second.spezifikation + ", ";
   ManuProC::remove_last_from(material,", ");
-  Ausruestung A(dt->Ware()->Name(),material,sichtbar);
+  Ausruestung A(dt->Ware()->Name(),dt->Ware()->Gewicht(),material,dt->Ware()->Region(),sichtbar);
   
-//  hauptfenster->getAben().getBesitz().push_back(A);
-//cout << "SEL:1 "<<besitz->getAusruestung().Name()<<'\n';
   AusruestungBaum &B=besitz->push_back(A);
   B.setParent(besitz);
   showAusruestung();

@@ -22,26 +22,35 @@
 #include <string>
 #include <map>
 #include <list>
+#include "dtos1.h"
 
 class AusruestungBaum;
 
 class Ausruestung
 {
-     std::string name, material;
+     std::string name;
+     double gewicht;
+     std::string material,region;
      bool sichtbar;
 
    public:
-     Ausruestung() : sichtbar(false) {}
+     Ausruestung() : gewicht(0), sichtbar(false) {}
 
      Ausruestung(std::string n) 
-       : name(n), sichtbar(true) {}
-     Ausruestung(std::string n,std::string ma,bool s)
-         :name(n),material(ma),sichtbar(s) {}
+       : name(n), gewicht(0), sichtbar(true) {}
+     Ausruestung(std::string n,double g,std::string ma,std::string r,bool s)
+         :name(n),gewicht(g),material(ma),region(r),sichtbar(s) {}
 
      bool operator==(const Ausruestung& b) const
          {return name==b.name && material==b.material;}
      
      std::string Name() const {return name;}
+     double Gewicht() const {return gewicht;}
+     std::string SGewicht() const { std::string gewicht;
+                                    if(Gewicht()!=0) gewicht= dtos1(Gewicht())+" kg";
+                                    return gewicht;
+                                  }
+     std::string Region() const {return region;}
      std::string Material() const {return material;}
      bool Sichtbar() const {return sichtbar;}
      std::string SichtbarStr() const {if(sichtbar) return "*"; else return "";}

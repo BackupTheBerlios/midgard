@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.49 2002/10/24 07:21:00 christof Exp $            
+// $Id: Abenteurer.cc,v 1.50 2002/10/25 21:01:11 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -210,6 +210,7 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
          k.setAttr("Preis", dtos((*i)->Kosten()));
          k.setAttr("Währung", (*i)->Einheit());
          k.setAttr("Gewicht", dtos((*i)->Gewicht()));
+         k.setAttr("Region", (*i)->Region());
       }
    }
    
@@ -362,6 +363,8 @@ void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &A
   for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
    {  Tag &Ggs=datei.push_back(Tag("Gegenstand"));
       Ggs.setAttr("Bezeichnung", i->getAusruestung().Name());
+      Ggs.setAttr("Region", i->getAusruestung().Region());
+      Ggs.setFloatAttr("Gewicht", i->getAusruestung().Gewicht());
       Ggs.setAttr("Besonderheit", i->getAusruestung().Material());
       if (i->getAusruestung().Sichtbar()) 
          Ggs.setBoolAttr("sichtbar", i->getAusruestung().Sichtbar());
@@ -421,7 +424,8 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
             
             Preise::saveArtikel(i->getAttr("Art"),i->getAttr("Art2"),name,
             		i->getFloatAttr("Preis"),i->getAttr("Währung"),
-            		i->getFloatAttr("Gewicht"));
+            		i->getFloatAttr("Gewicht"),
+            		i->getAttr("Region"));
             Database.preise.push_back(cH_Preise(name));
          }
       }
@@ -543,9 +547,11 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
 
 void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
 {  FOR_EACH_CONST_TAG_OF(i,*tag,"Gegenstand")
-   {  cH_Preise(i->getAttr("Bezeichnung"),true);       AusruestungBaum *A = &AB->push_back(
-   	Ausruestung(i->getAttr("Bezeichnung"),i->getAttr("Besonderheit")
-   					,i->getBoolAttr("sichtbar")));
+   {  cH_Preise(i->getAttr("Bezeichnung"),true);
+      AusruestungBaum *A = &AB->push_back(
+      	Ausruestung(i->getAttr("Bezeichnung"),i->getFloatAttr("Gewicht"),
+      	         i->getAttr("Besonderheit"),
+   					i->getAttr("Region"),i->getBoolAttr("sichtbar")));
       A->setParent(AB);
       load_ausruestung(&*i,A);
    }

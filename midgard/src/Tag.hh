@@ -100,6 +100,7 @@ public:
 	int getIntAttr(const std::string &typ,int def=0) const throw();
 	float getFloatAttr(const std::string &typ,float def=0) const throw();
 	void setIntAttr(const std::string &name, int val);
+	void setFloatAttr(const std::string &name, double val);
 	void setBoolAttr(const std::string &name, bool val)
 	{  setAttr(name,val?"true":"false"); }
 	// Spezialfall: nur setzen wenn !=""

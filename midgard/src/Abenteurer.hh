@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.38 2002/10/24 07:21:00 christof Exp $               
+// $Id: Abenteurer.hh,v 1.39 2002/10/25 21:01:17 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -68,6 +68,12 @@ public:
    AusruestungBaum &getBesitz() {return besitz;}
    const AusruestungBaum &getBesitz() const {return besitz;}
    void setStandardAusruestung();
+   double getBelastung() const;
+   int getTragkraft() const;
+   int getHubkraft() const;
+   int getSchubkraft() const;
+   
+   
 
    const cH_Typen &Typ1() const {return Typ[0];}
    const cH_Typen &Typ2() const {return Typ[1];}

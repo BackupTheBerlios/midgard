@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.8 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.9 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -1648,21 +1648,21 @@
   <Dinge Art="Waffen" Ware="Blasrohr" Gewicht="2" Preis="8" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Bogen" Gewicht="0.6" Preis="15" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Bola" Gewicht="1" Preis="4" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="BuKasa" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="BuKasa" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="Buckler" Gewicht="1" Preis="10" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Dolch" Gewicht="0.5" Preis="5" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Dreizack" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Dreizackspeer" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Dreizack" Währung="GS" Region="G"/>
+  <Dinge Art="Waffen" Ware="Dreizackspeer" Währung="GS" Region="N"/>
   <Dinge Art="Waffen" Ware="Fuchtel" Gewicht="2" Preis="100" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Garotte" Gewicht="0" Preis="5" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Glefe" Gewicht="3" Preis="30" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="GunSen" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="GunSen" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="Handarmbrust" Gewicht="1" Preis="100" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Handaxt" Gewicht="1.5" Preis="10" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Hellebarde" Gewicht="5" Preis="50" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Kampfgabeln" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Kampfstab" Gewicht="2.5" Preis="10" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Katana" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Katana" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="Keule" Gewicht="2" Preis="8" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Kharrata" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Kompositbogen" Gewicht="0.7" Preis="-1" Währung="GS"/>
@@ -1671,8 +1671,8 @@
   <Dinge Art="Waffen" Ware="Krummsäbel" Gewicht="2.5" Preis="100" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Kurzbogen" Gewicht="0.5" Preis="15" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Kurzschwert" Gewicht="1.5" Preis="20" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="KusariGama" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Kyu" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="KusariGama" Währung="GS" Region="K"/>
+  <Dinge Art="Waffen" Ware="Kyu" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="Langbogen" Gewicht="1" Preis="40" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Langschwert" Gewicht="2.5" Preis="100" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Lanze" Gewicht="5" Preis="13" Währung="GS"/>
@@ -1680,17 +1680,17 @@
   <Dinge Art="Waffen" Ware="Magierstab" Gewicht="1.5" Preis="15" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Magierstecken" Gewicht="2" Preis="20" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Morgenstern" Gewicht="5" Preis="40" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Naginata" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Namisritra" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Naginata" Währung="GS" Region="K"/>
+  <Dinge Art="Waffen" Ware="Namisritra" Währung="GS" Region="R"/>
   <Dinge Art="Waffen" Ware="Netz" Gewicht="2" Preis="2" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="NunChaku" Gewicht="0.5" Preis="10" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="NunChaku" Gewicht="0.5" Preis="10" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="Ochsenzunge" Gewicht="1" Preis="10" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Ogerhammer" Gewicht="10" Preis="70" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Parierdolch" Gewicht="0.7" Preis="8" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Peitsche" Gewicht="1" Preis="8" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Pilum" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Pilum" Währung="GS" Region="3"/>
   <Dinge Art="Waffen" Ware="Rapier" Gewicht="1.5" Preis="70" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Sai" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Sai" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="Schlachtbeil" Gewicht="5" Preis="25" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Schleuder" Gewicht="0.1" Preis="1" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Skhallanta" Gewicht="3" Preis="-1" Währung="GS"/>
@@ -1701,7 +1701,7 @@
   <Dinge Art="Waffen" Ware="Stoßspeer" Gewicht="2.5" Preis="8" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Streitaxt" Gewicht="2.5" Preis="20" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Streitkolben" Gewicht="2.5" Preis="12" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="TetsuBo" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="TetsuBo" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="Werfen" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Wurfaxt" Gewicht="1.5" Preis="25" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Wurfeisen" Gewicht="2" Preis="30" Währung="GS"/>
@@ -1713,7 +1713,7 @@
   <Dinge Art="Waffen" Ware="Wurfspeer" Gewicht="1.5" Preis="6" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Wurfspieß" Gewicht="2" Preis="8" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Wurfstern" Gewicht="0.1" Preis="1" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Zweizack" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Zweizack" Währung="GS" Region="G"/>
   <Dinge Art="Waffen" Ware="großer Schild" Gewicht="5" Preis="15" Währung="GS"/>
   <Dinge Art="Waffen" Ware="kleiner Schild" Gewicht="2" Preis="10" Währung="GS"/>
   <Dinge Art="Waffen" Ware="leichte Armbrust" Gewicht="2.5" Preis="40" Währung="GS"/>

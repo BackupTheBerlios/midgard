@@ -61,6 +61,7 @@ void Preise::get_Preise()
   einheit=tag->getAttr("Währung");
   kosten=tag->getFloatAttr("Preis");
   gewicht=tag->getFloatAttr("Gewicht");
+  region=tag->getAttr("Region");
 }
 
 Preise_All::Preise_All()
@@ -218,11 +219,14 @@ PreiseMod_All::PreiseMod_All()
 // use this tag to determine whether this is a user defined item
 Tag Preise::eigenerArtikel("Kaufpreis");
 
-void Preise::saveArtikel(std::string art,std::string art2,std::string name,double preis, std::string einheit,double gewicht)
+void Preise::saveArtikel(const std::string &art,const std::string &art2,
+     const std::string &name,const double &preis, const std::string &einheit,
+     const double &gewicht,const std::string &region)
 {
   eigenerArtikel.setAttr("Art2",art2);
   eigenerArtikel.setAttr("Währung",einheit);
   eigenerArtikel.setAttr("Preis",dtos(preis));
   eigenerArtikel.setAttr("Gewicht",dtos(gewicht));
+  eigenerArtikel.setAttr("Region",region);
   cH_Preise(name,art,&eigenerArtikel);
 }
