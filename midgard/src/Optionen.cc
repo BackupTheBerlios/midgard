@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.90 2002/10/24 07:21:01 christof Exp $
+// $Id: Optionen.cc,v 1.91 2002/10/29 12:17:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -447,8 +447,8 @@ void Midgard_Optionen::Hausregeln_init()
 void Midgard_Optionen::Ober_init()
 {
  list_Ober.clear();  
- list_Ober.push_back(st_Ober(SaveFenster,"Größe und Position Fensters speichern",false));
- list_Ober.push_back(st_Ober(AutoShrink,"Automatisches verkleinern des Fensters",false));
+ list_Ober.push_back(st_Ober(SaveFenster,"Fenstergröße und -position speichern",false));
+ list_Ober.push_back(st_Ober(AutoShrink,"Fenster automatisch verkleinern",false));
  list_Ober.push_back(st_Ober(Bilder,"Bilder anzeigen",true));
  list_Ober.push_back(st_Ober(Menueleiste,"Menüleiste",true));
  list_Ober.push_back(st_Ober(Knopfleiste,"Knopfleiste",true));
