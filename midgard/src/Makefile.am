@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.62 2001/11/03 09:55:04 thoma Exp $
+# $Id: Makefile.am,v 1.63 2001/11/03 17:18:38 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -21,6 +21,7 @@ noinst_HEADERS = \
    KiDo.hh \
    Ausnahmen.hh \
    Land.hh \
+   Grundwerte.hh \
 WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
@@ -55,7 +56,6 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_doppelcharaktere_glade.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh \
-   class_Grundwerte.hh \
    class_kido.hh \
    class_waffen.hh \
    class_berufe.hh \
@@ -90,7 +90,7 @@ BUILT_SOURCES_CG =  \
    save_charakter.cc  load_charakter.cc  \
    get_typ.cc  Window_charakter_auswahl.cc \
    praxispunkte_wuerfeln.cc sprachen_schrift.cc \
-   Sprache_auswahl.cc Window_herkunft.cc midgard_CG_ruestung.cc \
+   Sprache_auswahl.cc midgard_CG_ruestung.cc \
 	Window_ruestung.cc Window_waffe.cc Window_Waffenbesitz.cc \
    get_berufs_vorteile.cc \
    midgard_CG_typauswahl.cc \
@@ -113,6 +113,7 @@ midgard_SOURCES = \
    MidgardBasicElement.cc \
    midgard_CG_basic_elemente.cc \
    $(BUILT_SOURCES_CG) \
+   Window_herkunft.cc \
    steigern_fertigkeiten.cc  \
    steigern_sprache.cc  \
    steigern_zauber.cc  \

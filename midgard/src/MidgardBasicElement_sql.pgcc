@@ -1,5 +1,5 @@
 #include "MidgardBasicElement.hh"
-#include "class_Grundwerte.hh"
+#include "Grundwerte.hh"
 #include "Ausnahmen.hh"
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>

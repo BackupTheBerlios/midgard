@@ -1,8 +1,9 @@
 #ifndef CLASS_GRUND
 #define CLASS_GRUND
 #include "itos.h"
+#include "Land.hh"
 
-class Grundwerte //: public HandleContent
+class Grundwerte
 {
    int st,ge,ko,in,zt, au,pa,sb,rw,hgw,b,lp,ap,abwehr_wert;
    int zaubern_wert;
@@ -10,9 +11,10 @@ class Grundwerte //: public HandleContent
       bo_psy,bo_phs,bo_phk, bo_gi,kaw,wlw,lpbasis,alter;
    std::string gestalt, geschlecht;
    int gewicht,groesse,grad;
-   std::string spezialisierung, spezial, spezial2,stand,herkunft,spezies,
+   std::string spezialisierung, spezial, spezial2,stand,spezies,
       glaube,name_charakter,name_spieler,version,beschreibung,ruestung;
    int gfp,gold,silber,kupfer,aep,kep,zep;
+   cH_Land herkunft;
 
 public:
    Grundwerte() : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0), rw(0),
@@ -22,7 +24,7 @@ public:
              bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),lpbasis(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),spezialisierung(""),
              spezial(""),spezial2(""),
-             stand(""),herkunft(""),spezies("Mensch"),glaube(""),name_charakter(""),version("Erschaffung"),
+             stand(""),spezies("Mensch"),glaube(""),name_charakter(""),version("Erschaffung"),
              ruestung("OR"), gfp(0),gold(0), silber(0), kupfer(0),
              aep(0),kep(0),zep(0) {}
    void clear() {*this=Grundwerte();}
@@ -65,7 +67,8 @@ public:
    std::string Spezial() const {return spezial;}
    std::string Spezial2() const {return spezial2;}
    std::string Stand() const {return stand;}
-   std::string Herkunft() const {return herkunft;}
+//   std::string Herkunft() const {return herkunft;}
+   cH_Land Herkunft() const {return herkunft;}
 //   std::string &Spezies() {return spezies;}
    std::string Spezies() const {return spezies;}
    std::string Glaube() const {return glaube;}
@@ -123,16 +126,16 @@ public:
    void set_Grad(int i){grad=i;}
    void set_AP(int i){ap=i;}
    void set_Alter(int _alter){alter=_alter;}
-   void set_Geschlecht(std::string _geschlecht){geschlecht=_geschlecht;}
-   void set_Spezialisierung(std::string _spezialisierung){spezialisierung=_spezialisierung;}   
-   void set_Spezial(std::string _spezial,std::string _spezial2){spezial=_spezial;spezial2=_spezial2;}
-   void set_Herkunft(std::string _herkunft){herkunft=_herkunft;}
-   void set_Spezies(std::string _spezies){spezies=_spezies;}
-   void set_Glaube(std::string _glaube){glaube=_glaube;}
-   void set_Namen(std::string _name_charakter,std::string _name_spieler, std::string _version)
+   void set_Geschlecht(const std::string& _geschlecht){geschlecht=_geschlecht;}
+   void set_Spezialisierung(const std::string& _spezialisierung){spezialisierung=_spezialisierung;}   
+   void set_Spezial(const std::string& _spezial,std::string _spezial2){spezial=_spezial;spezial2=_spezial2;}
+   void set_Herkunft(const cH_Land& _herkunft){herkunft=_herkunft;}
+   void set_Spezies(const std::string& _spezies){spezies=_spezies;}
+   void set_Glaube(const std::string& _glaube){glaube=_glaube;}
+   void set_Namen(const std::string& _name_charakter,std::string _name_spieler, std::string _version)
       {name_charakter=_name_charakter;name_spieler=_name_spieler;version=_version;}
-   void set_Beschreibung(std::string _beschreibung){beschreibung=_beschreibung;}
-   void set_Ruestung(std::string _ruestung){ruestung=_ruestung;}
+   void set_Beschreibung(const std::string& _beschreibung){beschreibung=_beschreibung;}
+   void set_Ruestung(const std::string& _ruestung){ruestung=_ruestung;}
    void set_GFP(int _gfp){gfp=_gfp;}
    void add_GFP(int _gfp){gfp += _gfp;}
    void set_Geld(int g,int s,int k){gold=g;silber=s;kupfer=k;}

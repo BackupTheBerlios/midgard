@@ -391,7 +391,7 @@ void midgard_CG::grundwerte_speichern()
    strncpy(db_geschlecht,(Werte.Geschlecht()).c_str(),sizeof(db_geschlecht));
    strncpy(db_spez,(Werte.Spezialisierung()).c_str(),sizeof(db_spez));
    strncpy(db_stand,(Werte.Stand()).c_str(),sizeof(db_stand));
-   strncpy(db_herkunft,(Werte.Herkunft()->Name()).c_str(),sizeof(db_herkunft));
+   strncpy(db_herkunft,(Werte.Herkunft()->Name().c_str()),sizeof(db_herkunft));
    strncpy(db_glaube,(Werte.Glaube()).c_str(),sizeof(db_glaube));
    strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
    strncpy(db_name_sp,(Werte.Name_Spieler()).c_str(),sizeof(db_name_sp));

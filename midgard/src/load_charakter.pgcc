@@ -238,7 +238,7 @@ void midgard_CG::load_charakter()
    Werte.set_Alter(db_alter); 
    Werte.set_Geschlecht(db_geschlecht) ;
    Werte.set_Spezialisierung(db_spez) ;
-   Werte.set_Herkunft( db_herkunft);
+   Werte.set_Herkunft(cH_Land(db_herkunft));
    Werte.set_Glaube(db_glaube);
    Werte.set_Namen(db_name_ch,db_name_sp,db_version) ;
    Werte.set_GFP(db_gfp);

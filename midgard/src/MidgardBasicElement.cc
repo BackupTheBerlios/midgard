@@ -1,6 +1,6 @@
 #include "MidgardBasicElement.hh"
 #include "class_typen.hh"
-#include "class_Grundwerte.hh"
+#include "Grundwerte.hh"
 #include "Fertigkeiten.hh"
 #include "KiDo.hh"
 #include "Zauber.hh"

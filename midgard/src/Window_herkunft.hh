@@ -1,4 +1,4 @@
-// $Id: Window_herkunft.hh,v 1.14 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_herkunft.hh,v 1.15 2001/11/03 17:18:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,11 +33,13 @@
 #  define _WINDOW_HERKUNFT_HH
 #include "glademm_support.hh"
 
+#include "Land.hh"
 class midgard_CG;
 class Window_herkunft : public Window_herkunft_glade
 {   
         midgard_CG* hauptfenster;
-        
+        std::vector<cH_Land> L;
+
         friend class Window_herkunft_glade;
         void on_clist_herkunftsland_select_row(gint row, gint column, GdkEvent *event);
    public:

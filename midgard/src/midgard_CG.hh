@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.82 2001/11/03 09:55:04 thoma Exp $
+// $Id: midgard_CG.hh,v 1.83 2001/11/03 17:18:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,7 +54,7 @@
 #include "class_sprache_schrift.hh"
 #include "class_lernpunkte.hh"
 #include "class_typen.hh"
-#include "class_Grundwerte.hh"
+#include "Grundwerte.hh"
 #include "class_spezies.hh"
 #include "class_grad_anstieg.hh"
 

@@ -27,36 +27,27 @@
 #include "Window_herkunft.hh"
 #include "midgard_CG.hh"
 #include <Gtk_OStream.h>
-exec sql include sqlca;
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
+//exec sql include sqlca;
+//#include <Aux/Transaction.h>
+//#include <Aux/SQLerror.h>
+#include "Land.hh"
 
 void Window_herkunft::on_clist_herkunftsland_select_row(gint row, gint column, GdkEvent *event)
 {   
-   std::string land = clist_herkunftsland->get_text(row,1);
-   hauptfenster->herkunft_uebernehmen(land);
+//   std::string land = clist_herkunftsland->get_text(row,1);
+   cH_Land *land=static_cast<cH_Land*>(clist_herkunftsland->selection().begin()->get_data());
+   hauptfenster->herkunft_uebernehmen(*land);
    destroy();
 }
 
 Window_herkunft::Window_herkunft(midgard_CG* h)
 {
  hauptfenster=h;
- exec sql begin declare section;
-   char db_land[50],db_kontinent[50];
- exec sql end declare section;
+ L=Laender_All().get_All();
  Gtk::OStream os(clist_herkunftsland);
- Transaction tr;
- exec sql declare ein cursor for
-   SELECT DISTINCT kontinent, land FROM sprachen;
- exec sql open ein;
- SQLerror::test(__FILELINE__);
- while (true)
+ for (std::vector<cH_Land>::const_iterator i=L.begin();i!=L.end();++i)
   {
-    exec sql fetch ein into :db_kontinent, :db_land;
-    SQLerror::test(__FILELINE__,100);
-    if (sqlca.sqlcode) break;
-    os << db_kontinent<<"\t"<<db_land<<"\n";
+   os << (*i)->Kontinent()<<'\t'<<(*i)->Name()<<'\n';
+   os.flush(&*i);
   }   
- tr.close();
- exec sql close ein;
 }

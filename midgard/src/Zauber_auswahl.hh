@@ -1,4 +1,4 @@
-// $Id: Zauber_auswahl.hh,v 1.26 2001/10/26 16:07:30 thoma Exp $
+// $Id: Zauber_auswahl.hh,v 1.27 2001/11/03 17:18:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,7 @@
 
 class midgard_CG;
 class Grundwerte;
-//#include "class_Grundwerte.hh"
+//#include "Grundwerte.hh"
 class H_Data_beruf;
 
 class Zauber_auswahl : public Zauber_auswahl_glade

@@ -46,7 +46,7 @@ Ausnahmen::Ausnahmen(const Grundwerte& Werte,const vector<H_Data_typen>& Typ,
      { 
        squery = "select name, art, standard from ausnahmen \
          where (spezies = '"+Werte.Spezies()+"' or spezies=null) \
-         and (herkunft = '"+Werte.Herkunft()+"' or herkunft = null) \
+         and (herkunft = '"+Werte.Herkunft()->Name()+"' or herkunft = null) \
          and typ = '"+Typ[0]->Short()+"'";
          if (Typ[1]->Short()!="") squery += "or typ = '"+Typ[1]->Short()+"'";
       }
@@ -54,7 +54,7 @@ Ausnahmen::Ausnahmen(const Grundwerte& Werte,const vector<H_Data_typen>& Typ,
       { 
        squery = "select name, art, standard from ausnahmen \
          where typ=null \
-         and (herkunft = '"+Werte.Herkunft()+"'";
+         and (herkunft = '"+Werte.Herkunft()->Name()+"'";
          for(std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
             squery += " or beruf = '"+(*i)->Name()+"' ";
          squery += " or  stand = '"+Werte.Stand()+"' )";
