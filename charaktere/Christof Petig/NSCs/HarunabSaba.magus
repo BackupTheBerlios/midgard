@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="7" Name="Harun ab Saba" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="Ma" Geschlecht="m" Hand="Rechtshänder" Muttersprache="Scharidisch" Spezialgebiet="Adept der Herrschaft" Spezialisierung="Adept der Erkenntnis" Spezies="Mensch" Stadt_Land="Stadt" Überleben="Überleben im Schnee"/>
+  <Basiseigenschaften Gs="77" Gw="70" In="95" Ko="27" St="68" Zt="97"/>
+  <abgeleiteteEigenschaften Au="29" B="23" SG="5" Sb="82" Wk="39" pA="46"/>
+  <Erfolgswerte Abwehr="14" ZauberResistenz="13" Zaubern="17"/>
+  <Gesundheit AP="28" LP="12"/>
+  <Beschreibung Alter="26" Gestalt="normal" Gewicht="81" Größe="186" Herkunft="Eschar" Stand="Mittelschicht"/>
+  <Vermögen GS="18"/>
+  <Steigern EPproGFP="67" GFP="9469" benötigte_Tage="590">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="9"/>
+   <Waffe Bezeichnung="Magierstab" Erfolgswert="13"/>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Instrument nach eigener Wahl" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="10"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Schreiber"/>
+   <Fertigkeit Bezeichnung="Rechnen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="5"/>
+   <Fertigkeit Bezeichnung="Kampf zu Kamel" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kamelreiten" Wert="14"/>
+   <Fertigkeit Bezeichnung="Giftmischen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Beschatten" Wert="6"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+   <Fertigkeit Bezeichnung="Alchimie" Wert="8"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="10"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Musizieren" Wert="8" Zusatz="Tamburin"/>
+   <Fertigkeit Bezeichnung="Gaukeln" Wert="8"/>
+   <Fertigkeit Bezeichnung="Schlittenfahren" Wert="11"/>
+   <Fertigkeit Bezeichnung="Springen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Brettspiel" Wert="10"/>
+   <Waffe Bezeichnung="Magierstab" Wert="13"/>
+   <Waffe Bezeichnung="Dolch" Wert="9"/>
+   <Zauber Bezeichnung="Goldener Panzer"/>
+   <Zauber Bezeichnung="Schmerzen"/>
+   <Zauber Bezeichnung="Warnung"/>
+   <Zauber Bezeichnung="Verwirren"/>
+   <Zauber Bezeichnung="Zauberschloß"/>
+   <Zauber Bezeichnung="Schwäche"/>
+   <Zauber Bezeichnung="Macht über die Sinne"/>
+   <Zauber Bezeichnung="Erkennen von Leben"/>
+   <Zauber Bezeichnung="Macht über das Selbst"/>
+   <Zauber Bezeichnung="Scharfblick"/>
+   <Zauber Bezeichnung="Macht über Unbelebtes"/>
+   <Zauber Bezeichnung="Sehen von Verborgenem"/>
+   <Zauber Bezeichnung="Sehen in Dunkelheit"/>
+   <Zauber Bezeichnung="Macht über Menschen"/>
+   <Zauber Bezeichnung="Macht über die belebte Natur"/>
+   <Zauber Bezeichnung="Hören von Fernem"/>
+   <Zauber Bezeichnung="Erkennen von Zauberei"/>
+   <Zauber Bezeichnung="Bannsphäre, Schwarze"/>
+   <Zauber Bezeichnung="Geistesschild"/>
+   <Zauber Bezeichnung="Lauschen"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Zauberstäbe"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="19"/>
+   <Sprache Bezeichnung="Tuskisch" Wert="12"/>
+   <Sprache Bezeichnung="Hurritisch" Wert="19"/>
+   <Sprache Bezeichnung="Altoqua" Wert="13"/>
+   <Sprache Bezeichnung="Dvarskar" Wert="4"/>
+   <Urschrift Bezeichnung="Scharidisch" Wert="13"/>
+   <Urschrift Bezeichnung="Dvarskar" Wert="5"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Eschar" Region="E"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

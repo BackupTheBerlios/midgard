@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="6" Name="Rustan Beni Guta" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="Kr" Geschlecht="f" Hand="Rechtshänder" Muttersprache="Scharidisch" Spezialisierung="Handaxt" Spezies="Mensch" Stadt_Land="Stadt" Überleben="Überleben im Schnee"/>
+  <Basiseigenschaften Gs="72" Gw="82" In="70" Ko="43" St="93" Zt="19"/>
+  <abgeleiteteEigenschaften Au="87" B="24" SG="3" Sb="34" Wk="46" pA="100"/>
+  <Erfolgswerte Abwehr="14" ZauberResistenz="13" Zaubern="2"/>
+  <Gesundheit AP="40" LP="13"/>
+  <Beschreibung Alter="23" Gestalt="schlank" Gewicht="56" Größe="164" Herkunft="Eschar" Stand="Adel"/>
+  <Vermögen GS="5"/>
+  <Steigern EPproGFP="0" GFP="5268" benötigte_Tage="374.6">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>KR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe AngriffVerteidigung_Bonus="1" Bezeichnung="leichter Speer" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Ochsenzunge" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Wurfpfeil" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Rapier" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Kurzbogen" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Rumeh" Erfolgswert="0" Region="E"/>
+   <Waffe Bezeichnung="Ud al-Khal" Erfolgswert="0" Region="E"/>
+   <Waffe Bezeichnung="Jarid" Erfolgswert="0" Region="E"/>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Bälle, Reifen und Keulen zum Jonglieren" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="10"/>
+   <Sinn Bezeichnung="Sechster Sinn"/>
+   <Beruf Bezeichnung="Erdarbeiter"/>
+   <Fertigkeit Bezeichnung="Kampf in Schlachtreihe" Wert="5"/>
+   <Fertigkeit Bezeichnung="Wagenlenken" Wert="15"/>
+   <Fertigkeit Bezeichnung="Schiffsführung" Wert="8"/>
+   <Fertigkeit Bezeichnung="Streitwagen lenken" Wert="17"/>
+   <Fertigkeit Bezeichnung="Schießen vom Streitwagen" Wert="17"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Gaukeln" Wert="8"/>
+   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Brettspiel" Wert="8"/>
+   <Fertigkeit Bezeichnung="Kampftaktik" Wert="6"/>
+   <Fertigkeit Bezeichnung="Bogenkampf zu Pferd" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kamelreiten" Wert="16"/>
+   <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kampf vom Streitwagen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Trinken" Wert="2"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Ballista bedienen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Kampf zu Kamel" Wert="13"/>
+   <Fertigkeit Bezeichnung="Kampf in Vollrüstung" Wert="10"/>
+   <Waffe Bezeichnung="leichte Armbrust" Wert="7"/>
+   <Waffe Bezeichnung="Handaxt" Wert="11"/>
+   <Waffe Bezeichnung="Kurzbogen" Wert="7"/>
+   <Waffe Bezeichnung="leichter Speer" Wert="5"/>
+   <Waffe Bezeichnung="Buckler" Wert="4"/>
+   <Waffe Bezeichnung="Wurfpfeil" Wert="6"/>
+   <Waffe Bezeichnung="Ochsenzunge" Wert="6"/>
+   <Waffe Bezeichnung="Keule" Wert="7"/>
+   <Waffe Bezeichnung="Rapier" Wert="7"/>
+   <Waffe Bezeichnung="Bogen" Wert="4"/>
+   <Waffe Bezeichnung="Lanze" Wert="7"/>
+   <Waffe Bezeichnung="Fuchtel" Wert="4"/>
+   <Waffe Bezeichnung="Streitaxt" Wert="4"/>
+   <Waffe Bezeichnung="Kriegshammer" Wert="4"/>
+   <Waffe Bezeichnung="großer Schild" Wert="3"/>
+   <Waffe Bezeichnung="Stoßspeer" Wert="4"/>
+   <Grundkenntnis Bezeichnung="Armbrust"/>
+   <Grundkenntnis Bezeichnung="Bögen"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Wurfpfeil"/>
+   <Grundkenntnis Bezeichnung="Stangenwaffe"/>
+   <Grundkenntnis Bezeichnung="Wurfspieß"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="18"/>
+   <Sprache Bezeichnung="Trll'ng" Wert="12"/>
+   <Sprache Bezeichnung="Gnomenon" Wert="18"/>
+   <Sprache Bezeichnung="Chryseisch" Wert="4"/>
+   <Sprache Bezeichnung="Aranisch" Wert="6"/>
+   <Sprache Bezeichnung="KanThaiTun" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Eschar" Region="E"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

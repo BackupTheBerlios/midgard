@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="6" Name="Nin Schubad" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="PF" Geschlecht="f" Hand="Rechtshänder" Muttersprache="Hurritisch" Spezies="Mensch" Stadt_Land="Stadt" Überleben="Überleben im Wald"/>
+  <Basiseigenschaften Gs="98" Gw="92" In="80" Ko="79" St="66" Zt="90"/>
+  <abgeleiteteEigenschaften Au="87" B="25" SG="3" Sb="30" Wk="64" pA="96"/>
+  <Erfolgswerte Abwehr="14" ZauberResistenz="13" Zaubern="15"/>
+  <Gesundheit AP="28" LP="14"/>
+  <Beschreibung Alter="25" Gestalt="breit" Gewicht="65" Größe="159" Herkunft="Urruti" Stand="Mittelschicht"/>
+  <Vermögen GS="170"/>
+  <Steigern AEP="15" EPproGFP="0" GFP="5680" benötigte_Tage="11">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Bezeichnung="Streitkolben" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Handaxt" Erfolgswert="0"/>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Kurtisane"/>
+   <ang-Fertigkeit Bezeichnung="Einprägen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="10"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Überleben in der Steppe" Wert="7"/>
+   <Fertigkeit Bezeichnung="Meditieren" Wert="6"/>
+   <Waffe Bezeichnung="Handaxt" Wert="5"/>
+   <Waffe Bezeichnung="Streitkolben" Wert="4"/>
+   <Zauber Bezeichnung="Bannen von Dunkelheit"/>
+   <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
+   <Zauber Bezeichnung="Brot und Wasser"/>
+   <Zauber Bezeichnung="Erkennen der Aura"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+   <Zauber Bezeichnung="Segnen"/>
+   <Zauber Bezeichnung="Heilen von Wunden"/>
+   <Zauber Bezeichnung="Bannsphäre, Goldene"/>
+   <Zauber Bezeichnung="Bannen von Gift"/>
+   <Zauber Bezeichnung="Entgiften"/>
+   <Zauber Bezeichnung="Göttlicher Schutz vor Magie"/>
+   <Zauber Bezeichnung="Wort des Lebens"/>
+   <Zauber Bezeichnung="Seelenheilung"/>
+   <Zauber Bezeichnung="Verfluchen"/>
+   <Zauber Bezeichnung="Göttliche Strafe"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Sprache Bezeichnung="Hurritisch" Wert="19"/>
+   <Sprache Bezeichnung="Kelwisch" Wert="12"/>
+   <Sprache Bezeichnung="Albisch" Wert="12"/>
+   <Sprache Bezeichnung="Twyneddisch" Wert="18"/>
+   <Sprache Bezeichnung="Ikengadialekte" Wert="4"/>
+   <Sprache Bezeichnung="Rawindi" Wert="4"/>
+   <Sprache Bezeichnung="Trll'ng" Wert="4"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="4"/>
+   <Sprache Bezeichnung="Halftan" Wert="4"/>
+   <Sprache Bezeichnung="Hochcoraniaid" Wert="4"/>
+   <Urschrift Bezeichnung="Hurritisch" Wert="12"/>
+   <Urschrift Bezeichnung="Kelwisch" Wert="12"/>
+   <Urschrift Bezeichnung="Twyneddisch" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
