@@ -1,7 +1,10 @@
 Version 0.9.5
 - Wizard überarbeitet (geht jetzt erstmalig)
 - Spezies vereinfacht
+- Ausdruck der Zauberbeschreibung verbessert
+- Abspeichern der Auswahl 'Zauberbeschreibung drucken' fixed
 - Berggnom Bug behoben (wegen zufall)
+- Speichern und Ausdrucken des Datums des letzen Speicherdatums
 
 -------------- TODO ----------------
 
