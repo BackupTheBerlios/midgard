@@ -100,7 +100,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
 // cH_MidgardBasicElement MBE = dt->getMBE();
- MidgardBasicElement_mutable MBE = dt->getMBE();
+ MidgardBasicElement_mutable &MBE = const_cast<MidgardBasicElement_mutable&>(dt->getMBE());
  // Neue Dinge können nur durch Unterweisung gelernt werden
  // es sei denn es handelt sich um Zaubersprüche
  if(MBE->What()!=MidgardBasicElement::ZAUBER)

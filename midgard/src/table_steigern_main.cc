@@ -110,7 +110,7 @@ void table_steigern::on_radiobutton_pp_all_toggled()
 
 void table_steigern::on_spinbutton_pp_eingeben_activate()
 {
-  gtk_spin_button_update(spinbutton_pp_eingeben->gtkobj());
+  spinbutton_pp_eingeben->update();
   int PPanz = spinbutton_pp_eingeben->get_value_as_int();
 
  if(!radiobutton_pp_fertigkeit->get_active())
@@ -241,42 +241,50 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
 
-  MidgardBasicElement_mutable *M
-      =const_cast<MidgardBasicElement_mutable*>(&(dt->getMBE()));
+/*
+  MidgardBasicElement_mutable M
+      =const_cast<MidgardBasicElement_mutable&>(dt->getMBE());
+*/
 #warning: Christof, warum geht das nicht?
-
-  M->setZusatz(dt->getZusatz());
+/*
+  M.setZusatz(dt->getZusatz());
   // Erhöter Erfolgswert für Landeskunde Heimat:
   if(dt->getZusatz()==hauptfenster->getCWerte().Herkunft()->Name()) 
-       M->setErfolgswert(9);
-
-/*
-  std::list<MidgardBasicElement_mutable> L;
-  bool found=false;
-  int c=0;
-  while(true)
-   {
-     if(c==0) L==hauptfenster->getCChar().CList_Fertigkeit();
-     else if(c==1) L==hauptfenster->getCChar().CList_Zauber();
-     else assert(!"never get here\n");
-     for(std::list<MidgardBasicElement_mutable>::iterator i=L.begin();i!=L.end();++i)
-      {
-        if(i->Name()==(*M)->Name())       
-         {
-           found=true;
-           i->setZusatz(dt->getZusatz());
-           if(dt->getZusatz()==hauptfenster->getCWerte().Herkunft()->Name()) 
-             i->setErfolgswert(9);
-         }
-      }
-    if(found) break;
-    else ++c;
-   }
-// bis hier ist es ein HACK
+       M.setErfolgswert(9);
 */
+  modify(Zusatz,dt->getMBE(),dt->getZusatz(),0);
 
   scrolledwindow_landauswahl->hide();
   on_fertigkeiten_laden_clicked();
   neue_fert_tree->set_sensitive(true);
 }
 
+void table_steigern::modify(modi_modus modus,const MidgardBasicElement_mutable &M,const std::string &zusatz,int praxispunkte)
+{
+  bool found=false;
+  int c=0;
+  while(true)
+   {
+     std::list<MidgardBasicElement_mutable> &L=hauptfenster->getChar().List_Fertigkeit();
+     if(c==0) L=hauptfenster->getChar().List_Fertigkeit();
+     else if(c==1) L=hauptfenster->getChar().List_Zauber();
+     else assert(!"never get here\n");
+     for(std::list<MidgardBasicElement_mutable>::iterator i=L.begin();i!=L.end();++i)
+      {
+        if( i->Zusatz().empty() && (*i)->Name() == M->Name())       
+         {
+           found=true;
+           if(modus==PP)
+             i->setPraxispunkte(praxispunkte);
+           else if(modus==Zusatz)
+            {
+              i->setZusatz(zusatz);
+              if(zusatz==hauptfenster->getCWerte().Herkunft()->Name()) 
+                i->setErfolgswert(9);
+            }
+         }
+      }
+    if(found) break;
+    else ++c;
+   }
+}

@@ -187,15 +187,18 @@ bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e
 
 
   // jetzt darf gesteigert werden ...
+cout << (*MBE)->Name()<<' '<<MBE->Zusatz()<<' '<<MBE->Praxispunkte()<<'\n';
   hauptfenster->getWerte().addGold(-gold_k);  
   set_lernzeit(kosten);
-  if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) (*MBE).addPraxispunkte(-pp) ;
+  if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) MBE->addPraxispunkte(-pp) ;
   else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) hauptfenster->getWerte().addSpezialPP(-pp) ;
   else if(was==Resistenz)  hauptfenster->getWerte().addResistenzPP(-pp) ;
   else if(was==Abwehr)     hauptfenster->getWerte().addAbwehrPP(-pp) ;
   else if(was==Zaubern)    hauptfenster->getWerte().addZaubernPP(-pp) ;
   else if(was==Ausdauer)   ;
   else assert(!"Fehler in steigern_EP.cc");
+
+cout << (*MBE)->Name()<<' '<<MBE->Zusatz()<<' '<<MBE->Praxispunkte()<<'\n';
 
   if(bkep)
    { if (ep_k<=hauptfenster->getCWerte().KEP()) {hauptfenster->getWerte().addKEP(-ep_k);ep_k =0  ;}

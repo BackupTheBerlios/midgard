@@ -28,7 +28,7 @@ class Data_SimpleTree : public RowDataBase
 {
  private:
 //   cH_MidgardBasicElement MBE;
-   MidgardBasicElement_mutable MBE;
+   const MidgardBasicElement_mutable &MBE;
    const midgard_CG *hauptfenster; 
  public:
 //   Data_SimpleTree(const cH_MidgardBasicElement& _MBE, const midgard_CG *h) 

@@ -37,13 +37,15 @@ class table_steigern : public table_steigern_glade
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE,PAGE_BESITZ};
                                   
-
+        enum modi_modus{Zusatz,PP};
+        void modify(modi_modus modus,const MidgardBasicElement_mutable &M,const std::string &zusatz,int praxispunkte);
 public:
         
         table_steigern(GlademmData *_data) 
          : table_steigern_glade(_data),hauptfenster(0) {}
         void init(midgard_CG *hauptfenster);
 
+private:
         const MidgardBasicElement_mutable &getSelectedNotebookLernen();
         void load_for_page(guint pagenr);
         void zeige_werte();
@@ -81,7 +83,9 @@ public:
         int PP_vorrat(const MidgardBasicElement_mutable *MBE,e_was_steigern was);
         bool genug_EP(const int ep_k,const bool bkep,const bool bzep,int &aep0,int &kep0,int &zep0);
         void steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was);
+public:
         void PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp);
+private:
         int stufen_auf_einmal_steigern_fuer_aep(bool info,MidgardBasicElement_mutable& MBE,int &kosten,int &aep);
 
 

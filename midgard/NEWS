@@ -23,12 +23,12 @@ NEWS IN VERSION 0.6delta6
    fehlerfrei geladen werden können dürfte nun wieder das meiste funktionieren.
    Solle noch jemand einen Fehler finden, der mit Fertigkeiten/Waffen/Zaubern/
    Sprachen/Schriften zu tun hat, dann sagt mir bitte sofort Bescheid.
+* Zustätze beim steigern
+* PP eingabe
       
 
-
 TODO:
-* PP eingabe
-* Zustätze beim steigern
+* PP zum Steigern verwenden
 * CAST in MidgardBasicElement.cc:98
 * Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
