@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.298 2003/04/29 12:33:37 christof Exp $
+// $Id: midgard_CG.cc,v 1.299 2003/05/06 08:53:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,7 +57,7 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
 
 //  ManuProC::Tracer::Enable(table_grundwerte::trace_channel);
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  InfoFenster = manage(new WindowInfo(this));
+  InfoFenster = new WindowInfo(this);
 
   // Optionen laden
   fill_IconVec();
@@ -115,7 +115,8 @@ midgard_CG::~midgard_CG()
 //cout << "~midgard_CG()\n\n\n\n";
    in_dtor=true;
    delete MOptionen;
-   if(wizard) delete wizard;
+   if (InfoFenster) delete InfoFenster;
+   if (wizard) delete wizard;
    if (menu_kontext) delete menu_kontext;
    if (undo_menu) delete undo_menu;
 }
