@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.36 2002/04/17 10:14:40 thoma Exp $
+// $Id: WindowInfo.cc,v 1.37 2002/04/25 16:56:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -180,3 +180,8 @@ void WindowInfo::on_button_erase_clicked()
   LogWin->get_list()->items().clear(); 
 }
 
+void WindowInfo::show_pic(bool b)
+{
+ if(b) pixmap_arkanum->show();
+ else  pixmap_arkanum->hide();
+}

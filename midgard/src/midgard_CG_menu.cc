@@ -259,6 +259,44 @@ void midgard_CG::menubar_init()
   menu0->add(*mi2);
   ansicht_menu->set_submenu(*menu0);
   ansicht_menu->show_all();   
+
+  ///////////////////////////////////////////////////////////////////
+  // Regionen
+  Gtk::Menu *menur = manage(new class Gtk::Menu());
+  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+   {
+     if((*i)->Nr()<=0) continue;
+     Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());
+     std::string labeltext=(*i)->Name();
+          if (labeltext.size()>11)
+     {  string::size_type pos=0;
+        while ((pos=labeltext.find(' ',pos))!=string::npos)
+        {  labeltext.replace(pos,1,'\n');
+        }
+     }
+     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
+     int row=1;
+     if((*i)->Offiziell()) 
+       {
+        Gtk::Pixmap *_o=manage(new Gtk::Pixmap(midgard_logo_tiny_xpm));
+        _tab->attach(*_o,1,2,1,2,0,0,0,0);
+        row=2;
+       }
+     Gtk::Label *_l=manage (new Gtk::Label(labeltext,0,0));
+     _tab->attach(*_l,1,2,0,1,0,0,0,0);
+     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,0,0,0,0);
+     _tab->set_col_spacings(10);
+
+     _mi->add(*_tab);
+     menur->append(*_mi);
+     _mi->set_active((*i)->Active());
+     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
+     if(MOptionen->OptionenCheck(Midgard_Optionen::Original).active && 
+         !(*i)->Offiziell() )
+        _mi->set_sensitive(false);
+   }
+ region_menu->set_submenu(*menur);
+ region_menu->show_all();
 }
 
 

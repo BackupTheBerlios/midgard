@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.30 2002/04/25 11:05:33 thoma Exp $
+// $Id: WindowInfo.hh,v 1.31 2002/04/25 16:56:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,5 +68,6 @@ class WindowInfo : public WindowInfo_glade
         void AppendShow(const std::string& s,emodus modus, cH_MidgardBasicElement &MBE,int anzahl=0);
         void AppendShow(const std::string& s, emodus modus=Autoclean,int anzahl=0);
         void Show() {bestaetigen(false); show();}
+        void show_pic(bool b);
 };
 #endif

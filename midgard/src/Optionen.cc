@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.23 2002/04/25 13:08:51 christof Exp $
+// $Id: Optionen.cc,v 1.24 2002/04/25 16:56:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -198,10 +198,27 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
      if(i->index==index) 
       { i->active = b;
         if     (index==Bilder) hauptfenster->show_Pics(i->active);
-        else if(index==Menueleiste)  hauptfenster->show_Menueleiste(i->active);
+        else if(index==Menueleiste) hauptfenster->show_Menueleiste(i->active);
         else if(index==Knopfleiste) hauptfenster->show_Knopfleiste(i->active);
-        else if(index==Icons) hauptfenster->show_Icons(i->active);
-        else if(index==Beschriftungen) hauptfenster->show_Beschriftungen(i->active);
+        else if(index==Icons) 
+         { if(!b && !OberCheck(Beschriftungen).active)
+            {
+              hauptfenster->InfoFenster->AppendShow("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
+              i->active=true;
+            }
+           else 
+              hauptfenster->show_Icons(i->active);
+         }
+        else if(index==Beschriftungen) 
+         { if(!b && !OberCheck(Icons).active)
+            {
+              hauptfenster->InfoFenster->AppendShow("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
+              i->active=true;
+            }
+           else 
+              hauptfenster->show_Beschriftungen(i->active);
+         }
+        hauptfenster->menu_init();
         return;
       }
    }

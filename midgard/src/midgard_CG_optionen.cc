@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.79 2002/04/25 11:05:33 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.80 2002/04/25 16:56:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -77,6 +77,7 @@ void midgard_CG::lernschema_sensitive(bool active)
 
 void midgard_CG::show_Pics(bool b)
 {
+ InfoFenster->show_pic(b);
  if(b)
   {
     pixmap_dfr4->show();
@@ -153,4 +154,5 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
        break;
      }
   }
+ menu_init();
 }
