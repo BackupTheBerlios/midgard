@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.161 2002/05/15 10:18:23 christof Exp $
+# $Id: Makefile.am,v 1.162 2002/05/16 15:21:53 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -222,10 +222,12 @@ LDFLAGS = @KOMPONENTEN_LDFLAGS@ $(LINK_OPTIONS)
 
 CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
-midgard_CG_glade_o_DEPS=midgard_CG_glade.cc ../config.h midgard_CG.hh \
-	midgard_CG_glade.hh 
-
-# und vieles mehr !!!
+#
+# the following lines are to support UTF8 recoding while compiling
+# and dependancy tracking for both automake 1.4 (.P) and
+# automake 1.5 (.Po). Optimization is turned off for midgard_CG_glade.cc
+# (because it's too big)
+#
 
 if UTF8
 
@@ -239,6 +241,7 @@ if UTF8
 	tr ' ' '\012' < .deps/$(*F).pp \
 	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
 	>> .deps/$(*F).P; \
+	cp .deps/$(*F).P .deps/$(*F).Po ; \
 	rm .deps/$(*F).pp
 
 midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
@@ -250,6 +253,7 @@ midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	tr ' ' '\012' < .deps/$(*F).pp \
 	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
 	>> .deps/$(*F).P; \
+	cp .deps/$(*F).P .deps/$(*F).Po ; \
 	rm .deps/$(*F).pp
 
 else
@@ -262,6 +266,7 @@ midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	tr ' ' '\012' < .deps/$(*F).pp \
 	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
 	>> .deps/$(*F).P; \
+	cp .deps/$(*F).P .deps/$(*F).Po ; \
 	rm .deps/$(*F).pp
 
 endif
