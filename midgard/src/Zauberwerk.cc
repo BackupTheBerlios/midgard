@@ -65,14 +65,18 @@ void Zauberwerk::getVoraussetzungen()
 {
    assert(tag);
    FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzung")
-      vec_vor.push_back(st_vor(i->getAttr("Fertigkeit"),i->getAttr("Verbindung")));
+   {  if (i->getAttr("Zauber").empty()) continue;
+      vec_vor.push_back(st_vor(i->getAttr("Zauber"),i->getAttr("Verbindung")));
+   }
 }
 
 void Zauberwerk::getVoraussetzungenFert()
 {
    assert(tag);
-   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzung_Fertigkeit")
+   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzung")
+   {  if (i->getAttr("Fertigkeit").empty()) continue;
       vec_vorF.push_back(st_vor(i->getAttr("Fertigkeit"),""));
+   }
 }
 
 
