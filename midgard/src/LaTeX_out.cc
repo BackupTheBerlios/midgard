@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.33 2001/08/14 13:26:59 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.34 2001/08/15 08:46:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -99,6 +99,9 @@ void midgard_CG::on_latex_clicked()
  fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(Werte.Name_Charakter(),25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\gfp}{\\tiny "  <<Werte.GFP() << "}\n";
+ fout << "\\newcommand{\\aep}{\\tiny "  <<Werte.AEP() << "}\n";
+ fout << "\\newcommand{\\kep}{\\tiny "  <<Werte.KEP() << "}\n";
+ fout << "\\newcommand{\\zep}{\\tiny "  <<Werte.ZEP() << "}\n";
 
  double geld = Werte.Gold() + Werte.Silber()/10. + Werte.Kupfer()/100.;
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";

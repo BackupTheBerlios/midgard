@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.51 2001/08/13 20:08:24 thoma Exp $
+// $Id: midgard_CG.cc,v 1.52 2001/08/15 08:46:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -176,7 +176,6 @@ void midgard_CG::on_radiobutton_mann_toggled()
   typauswahl_2->set_history(Typ2.Nr_Optionmenu());
 }
 
-//void midgard_CG::show_gtk(int tnr,int typ_1_2)
 void midgard_CG::show_gtk()
 {
   typauswahl->set_history(Typ.Nr_Optionmenu());
@@ -196,6 +195,7 @@ void midgard_CG::show_gtk()
    midgard_CG::show_waffen();
    midgard_CG::show_zauber();
 
+ EP_uebernehmen();
 
  // Spezialwaffe anzeigen?
  if (Typ.Zaubern()=="n" || Typ.Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
@@ -384,7 +384,7 @@ void midgard_CG::on_neuer_charakter_clicked()
  on_checkbutton_original_toggled();
  kido_bool=false;
  magie_bool=false;
- Werte.set_Namen("","","Erschaffung");
+// Werte.set_Namen("","","Erschaffung");
  midgard_CG::fill_typauswahl();
  midgard_CG::fill_spezies();
  midgard_CG::spezieswahl_button();

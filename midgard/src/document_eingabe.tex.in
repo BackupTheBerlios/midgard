@@ -222,7 +222,7 @@ Zaubern&\makebox[0.2cm]{{\zauber}}\\\hline
 \scriptsize
 \begin{tabular}{|c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c|c|c|c|} \hline
 Datum\hspace*{2.5em}&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
-&{\gfp}&&&&{\gold}\\\hline
+&{\gfp}&{\aep}&{\kep}&{\zep}&{\gold}\\\hline
 &&&&&\\\hline
 &&&&&\\\hline
 &&&&&\\\hline

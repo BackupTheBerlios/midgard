@@ -69,6 +69,7 @@ void midgard_CG::on_speichern_clicked()
       int db_av_bonus,db_sl_bonus;
       char db_region[20];
       char db_spezies[50];
+      int db_aep,db_kep,db_zep;
    exec sql end declare section;
 
 
@@ -108,6 +109,9 @@ void midgard_CG::on_speichern_clicked()
       db_gold = Werte.Gold();
       db_silber = Werte.Silber();
       db_kupfer = Werte.Kupfer();
+      db_aep = Werte.AEP();
+      db_kep = Werte.KEP();
+      db_zep = Werte.ZEP();
 
 //   strncpy(db_beschreibung,Werte.beschreibung.c_str(),sizeof(db_beschreibung));
    db_beschreibung = (char *) (Werte.Beschreibung()).c_str();
@@ -175,7 +179,10 @@ void midgard_CG::on_speichern_clicked()
       silber         = :db_silber      ,
       kupfer         = :db_kupfer      ,
       ruestung       = :db_ruestung    ,
-      spezies          = :db_spezies
+      spezies          = :db_spezies ,
+      aep            = :db_aep,
+      kep            = :db_kep,
+      zep            = :db_zep
       WHERE charakter_name = :db_name_ch ;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode==100) midgard_CG::charakter_db_anlegen();

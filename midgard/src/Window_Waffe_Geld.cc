@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.25 2001/08/13 20:08:23 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.26 2001/08/15 08:46:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,6 +63,7 @@ void Window_Waffe_Geld::on_button_close_clicked()
      waffe.push_back(new Data_waffen(swaffe,swaffe,"",0,0,""));
    }
   hauptfenster->waffe_besitz_uebernehmen(waffe);
+  hauptfenster->Geld_uebernehmen();
   destroy();
 }
 

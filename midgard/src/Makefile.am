@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.40 2001/08/04 17:58:00 thoma Exp $
+# $Id: Makefile.am,v 1.41 2001/08/15 08:46:03 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -58,8 +58,9 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    class_fertigkeiten.hh \
    class_sprache_schrift.hh \
    class_spezies.hh \
-   class_typen.hh
-
+   class_typen.hh \
+   Window_Erfahrungspunkte.hh \
+   Window_Erfahrungspunkte_glade.hh
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
@@ -87,6 +88,9 @@ midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 midgard_SOURCES = \
+   Window_Erfahrungspunkte.cc \
+   Window_Erfahrungspunkte_glade.cc \
+   steigern_EP.cc \
    $(BUILT_SOURCES_CG) \
    xml_fileselection.cc \
    xml_fileselection_glade.cc \

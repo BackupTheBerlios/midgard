@@ -14,6 +14,9 @@ NEWS IN VERSION 0.7beta5
 - Die Tabellen für Waffenbesitz sind jetzt auch umgearbeitet, d.h. unter anderem
    daß die entsprechenden Tabellen jetzt umgestellt und sortiert werden können
    (dies macht sich dann wieder auf dem Ausdruck bemerkbar)
+- Es ist jetzt auch möglich Erfahrungspunkte (AEP,KEP,ZEP) einzugeben
+- Das Vermögen wird nun auch im Hauptschirm (beim steigern) angezeigt.
+
 
 ##########################################################################
 NEWS IN VERSION 0.7beta4

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.54 2001/08/04 17:58:00 thoma Exp $
+// $Id: midgard_CG.hh,v 1.55 2001/08/15 08:46:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -198,6 +198,8 @@ class midgard_CG : public midgard_CG_glade
         void get_zauber(int grad);
         void get_grundwerte();
          
+        void on_button_EP_clicked();
+
         void on_fertigkeiten_laden_clicked();
         void on_steigern_fert_tree_alt_select(const std::string& fertigkeit, int wert, int steigern, int reduzieren, int verlernen);
         void on_steigern_fert_tree_neu_select(const std::string& fertigkeit, int wert, int lernkosten);
@@ -333,6 +335,8 @@ class midgard_CG : public midgard_CG_glade
          bool Waffen_Voraussetzung(const std::string& waffe);
          bool region_check(const std::string& region);
          void clear_Ausnahmen();
+         void EP_uebernehmen();
+         void Geld_uebernehmen();
 
 };
 #endif

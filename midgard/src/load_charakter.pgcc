@@ -93,6 +93,7 @@ void midgard_CG::load_charakter()
       char db_region[20];
       char db_region_2[20];
       char db_spezies[50];
+      int db_aep,db_kep,db_zep;
    exec sql end declare section;
 
  //  db_beschreibung=0; /* Ist nötig !!! */
@@ -152,7 +153,8 @@ void midgard_CG::load_charakter()
          silber      ,
          kupfer      ,
          ruestung    ,
-         spezies
+         spezies  ,
+         coalesce(aep,0), coalesce(kep,0),coalesce(zep,0)
       FROM charaktere WHERE charakter_name= :db_name_ch
             AND version= :db_version;
 
@@ -210,7 +212,8 @@ void midgard_CG::load_charakter()
        :db_silber      ,
        :db_kupfer      ,
        :db_ruestung    ,
-       :db_spezies       ;
+       :db_spezies     ,
+       :db_aep,:db_kep,:db_zep  ;
    SQLerror::test(__FILELINE__);
    exec sql close cha;
    Werte.set_Basiswerte(db_st,db_ge,db_ko,db_in,db_zt) ;    
@@ -231,7 +234,7 @@ void midgard_CG::load_charakter()
    Werte.set_Geld(db_gold,db_silber,db_kupfer);
    Werte.set_Ruestung(db_ruestung);
    Werte.set_Spezies(db_spezies) ;
-
+   Werte.set_EP(db_aep,db_kep,db_zep);
 //////////////////////////////////////////////////////////////////////////////
    ///////////////////////////////////////////////////////////////////////   
    // Berufe, Fertigkeiten, Waffen und Zauber (KiDo)

@@ -10,7 +10,7 @@ class Grundwerte : public HandleContent
    int gewicht,groesse,grad;
    std::string spezialisierung, spezial, spezial2,stand,herkunft,spezies,
       glaube,name_charakter,name_spieler,version,beschreibung,ruestung;
-   int gfp,gold,silber,kupfer;
+   int gfp,gold,silber,kupfer,aep,kep,zep;
 
 public:
    Grundwerte() : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0), rw(0),
@@ -21,7 +21,8 @@ public:
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),spezialisierung(""),
              spezial(""),spezial2(""),
              stand(""),herkunft(""),spezies("Mensch"),glaube(""),name_charakter(""),version("Erschaffung"),
-             ruestung("OR"), gfp(0),gold(0), silber(0), kupfer(0) {}
+             ruestung("OR"), gfp(0),gold(0), silber(0), kupfer(0),
+             aep(0),kep(0),zep(0) {}
    void clear() {*this=Grundwerte();}
 
    int St() const {return st;}
@@ -77,6 +78,9 @@ public:
    int Gold() const {return gold;}
    int Silber() const {return silber;}
    int Kupfer() const {return kupfer;}
+   int AEP() const {return aep;}
+   int KEP() const {return kep;}
+   int ZEP() const {return zep;}
 
    void add_St(int i) {st+=i;}
    void add_Ge(int i) {ge+=i;}
@@ -135,6 +139,7 @@ public:
    void add_Gold(int g)  {gold+=g;}
    void add_Silber(int s) {silber+=s;}
    void add_Kupfer(int k) {kupfer+=k;}
+   void set_EP(int a, int k, int z) {aep=a;kep=k;zep=z;}
 
 };
 /*
