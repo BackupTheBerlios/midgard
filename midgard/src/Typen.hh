@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.23 2002/07/03 10:25:34 thoma Exp $               
+// $Id: Typen.hh,v 1.24 2002/07/04 09:33:47 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,7 +46,7 @@ class Typen : public HandleContent
 
    std::vector<std::string> vec_herkunft;
    std::vector<std::string> vec_gruppe;
-
+   std::string lernpflichten_info;
 
 public:
    Typen(const Tag *tag);
@@ -80,6 +80,7 @@ public:
    const std::vector<std::string> &get_vec_herkunft() const {return vec_herkunft;}
    const std::vector<std::string> &get_vec_gruppe() const {return vec_gruppe;}
    bool Gruppe(const std::string &gruppe) const;
+   std::string getLernpflichtenInfo() const {return lernpflichten_info;}
 
 
    bool is_mage() const 

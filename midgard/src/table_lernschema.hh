@@ -81,6 +81,7 @@ private:
        void on_ang_fert_leaf_selected(cH_RowDataBase d);
        std::string AngebFert_gewuerfelt(int wurf);
        bool AngebSinn(int wurf,int wert);
+       void lernpflichten_info();
        
        // Waffen
        void show_WaffenBesitz_lernschema();

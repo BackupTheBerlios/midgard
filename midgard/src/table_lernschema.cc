@@ -349,8 +349,17 @@ void table_lernschema::on_herkunftsland_clicked()
   lernen_zusatz(MidgardBasicElement::ZHerkunft,Mdummy);
 }
 
+void table_lernschema::lernpflichten_info()
+{
+  std::string t1=hauptfenster->getChar().Typ1()->getLernpflichtenInfo();
+  std::string t2=hauptfenster->getChar().Typ2()->getLernpflichtenInfo();
+  if(!t1.empty() || !t2.empty())
+      hauptfenster->set_info(t1+"\n"+t2);
+}
+
 void table_lernschema::on_lernpunkte_wuerfeln_clicked()
 {  
+  lernpflichten_info();
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::LERNPUNKTE);
   //Speziesspezifische Fertigkeiten
   int lpspezies=0;
