@@ -53,6 +53,7 @@ NEWS IN VERSION 0.6delta3
 * Redesign (Zerteilen) der Klassen begonnen: Drucken, Beschreibung, 
    Grundwerte (puh!)
 * Abenteurername in Kopfzeile
+* Nichtstandard Agens für Hl+Dr
 
 TODO:
 * Zweite Rüstung

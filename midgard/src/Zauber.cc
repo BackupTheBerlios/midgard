@@ -83,8 +83,8 @@ void Zauber::get_Zauber()
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
          Vzusatz.push_back(i->getAttr("Name"));
 
-//    FOR_EACH_CONST_TAG_OF(i,*tag,"AgensTyp")
-//         map_typ_agens[cH_Typen(i->getAttr("Typ"))]=i->getAttr("Agens");
+    FOR_EACH_CONST_TAG_OF(i,*tag,"AgensTyp")
+         map_typ_agens[cH_Typen(i->getAttr("Typ"),true)]=i->getAttr("Agens");
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
@@ -135,6 +135,7 @@ int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::vec
 std::string Zauber::Agens(const std::vector<cH_Typen> &Typ) const
 {
    cH_Typen T=Typ[0];
+cout << "Agens\t"<<Typ[0]->Short()<<"\t=>"<<map_typ_agens[Typ[0]]<<'\n';
    if(map_typ_agens[Typ[0]]!="") return map_typ_agens[Typ[0]];
    if(map_typ_agens[Typ[1]]!="") return map_typ_agens[Typ[0]];
    return agens;
