@@ -1,4 +1,35 @@
 ##########################################################################
+NEWS IN VERSION 0.8.9
+
+* Angabe der Normal/Höchst/Schublast im Ausdruck
+* Neue Icons von Alessandro
+* Kleinere Bugfixes in der Datenbank
+* Nur noch Bildname (ohne Pfad) im Knopf in 'Beschreibung'
+
+TODO: ('-' zeigt CP an)
+
+* Abzug auf EW bei Überlast (Ruestung(0)->B_Verlust(u,b,ew))
+* Neue Ausrüstung eingeben
+* Regionale Waffen&Gewichte in der Ausrüstung
+* Hilfe Menü ans Ende
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
+  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
+- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? :
+   Unter "Lernschema" bleibt noch 
+   einiges stehen. Bei "Steigern" 
+   und "Optionen" sind auch noch bunte Bildchen, und bei 
+   "Ausrüstung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrüsten" das Verschwinden.
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+
+
+
+##########################################################################
 NEWS IN VERSION 0.8.8
 
 * kleinere Bugfixes
@@ -25,28 +56,6 @@ NEWS IN VERSION 0.8.8
 * Beschreibung: Bild kann wieder gelöscht werden
 * Beschreibung: Formatierungen (Fett,Kursiv,Listen) für nicht-LaTeX-Kenner
 
-
-TODO: ('-' zeigt CP an)
-
-* Abzug auf EW bei Überlast (Ruestung(0)->B_Verlust(u,b,ew))
-* Angabe der Normal/Höchst/Schublast im Ausdruck
-* Neue Ausrüstung eingeben
-* Regionale Waffen&Gewichte in der Ausrüstung
-* Hilfe Menü ans Ende
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
-  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
-- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
-  man etwas hinzufügen möchte, ist nicht gerade intuitiv
-  (vielleicht drag'n'drop oder CTree verschieben)
-- Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? :
-   Unter "Lernschema" bleibt noch 
-   einiges stehen. Bei "Steigern" 
-   und "Optionen" sind auch noch bunte Bildchen, und bei 
-   "Ausrüstung" verweigern die Icons von "Modifikatoren 
-   entfernen" und "mit Geld ausrüsten" das Verschwinden.
-- alle Ausdrucke unter Windows testen
-- wrapfig for Windows für Grafik in Beschreibung
 
 
 

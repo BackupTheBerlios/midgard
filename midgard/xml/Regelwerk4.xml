@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.9 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.10 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -2217,8 +2217,8 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Voraussetzungen Gs="31" In="31" RW="31"/>
-   <Besitz Name="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)" Min="91" Position="Rucksack"/>
-   <Lernschema Typ="Hl" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
+   <Besitz Name="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)" Min="6" Position="Rucksack"/>
+   <Lernschema Typ="Hl" Lernpunkte="1" Erfolgswert="8"/>
    <Lernschema Typ="PF" Lernpunkte="1" Erfolgswert="8"/>
    <Lernschema Typ="PW" Lernpunkte="2" Erfolgswert="8"/>
    <Lernschema Typ="ScN" Lernpunkte="2" Erfolgswert="8"/>
@@ -4640,7 +4640,7 @@
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen In="61" Fertigkeit="Erste Hilfe"/>
    <Voraussetzungen_2 Name="Erste Hilfe"/>
-   <Lernschema Typ="Hl" Lernpunkte="2" Erfolgswert="5" Pflicht="true"/>
+   <Lernschema Typ="Hl" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="PW" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="ScN" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="ScS" Lernpunkte="2" Erfolgswert="5"/>

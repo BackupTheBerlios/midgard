@@ -9,6 +9,7 @@
 #include "table_beschreibung.hh"
 #include "midgard_CG.hh"
 #include "xml_fileselection.hh"
+#include "Windows_Linux.hh"
 
 void table_beschreibung::init(midgard_CG *h)
 {
@@ -78,9 +79,13 @@ void table_beschreibung::show_beschreibung()
 
   std::string s="Bild";
   if(hauptfenster->getWerte().BeschreibungPix()!="")
-    s+=":\n"+hauptfenster->getWerte().BeschreibungPix();
+   {
+      s+=":\n"+hauptfenster->getWerte().BeschreibungPix();
+cout <<"s ="<< s<<'\t'<<s.rfind(WinLux::dirsep)<<'\n';
+      std::string ss(s,s.rfind(WinLux::dirsep)+1,s.size());
+      s=ss;
+   }
   label_grafik->set_text(s);
-
   spinbutton_pix_breite->set_value(hauptfenster->getWerte().BeschreibungPixSize());
 }
 

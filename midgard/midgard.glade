@@ -13925,7 +13925,7 @@ Drucken</label>
 	      <widget>
 		<class>GtkPixmap</class>
 		<name>pixmap148</name>
-		<filename>MAGUS_Logo_Small.xpm</filename>
+		<filename>Portrait-32.xpm</filename>
 		<xalign>0.5</xalign>
 		<yalign>0.5</yalign>
 		<xpad>0</xpad>
@@ -19610,8 +19610,8 @@ werk</label>
 	    <ypad>2</ypad>
 	    <child>
 	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>False</fill>
+	      <expand>True</expand>
+	      <fill>True</fill>
 	    </child>
 	  </widget>
 
@@ -19974,7 +19974,7 @@ werk</label>
 	    <widget>
 	      <class>GtkPixmap</class>
 	      <name>pixmap_nein</name>
-	      <filename>Erase-50.xpm</filename>
+	      <filename>Nein-32.xpm</filename>
 	      <xalign>0.5</xalign>
 	      <yalign>0.5</yalign>
 	      <xpad>0</xpad>
@@ -20035,7 +20035,7 @@ werk</label>
 	  <class>GtkButton</class>
 	  <name>button_info_ok</name>
 	  <width>50</width>
-	  <cxx_visibility>protected</cxx_visibility>
+	  <cxx_visibility>public</cxx_visibility>
 	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
@@ -20103,6 +20103,7 @@ schlieﬂen</label>
 	<widget>
 	  <class>GtkButton</class>
 	  <name>button_erase</name>
+	  <cxx_visibility>public</cxx_visibility>
 	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
@@ -20134,7 +20135,7 @@ schlieﬂen</label>
 	    <widget>
 	      <class>GtkPixmap</class>
 	      <name>pixmap143</name>
-	      <filename>Erase-50.xpm</filename>
+	      <filename>Clear-32.xpm</filename>
 	      <xalign>0.5</xalign>
 	      <yalign>0.5</yalign>
 	      <xpad>0</xpad>

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.273 2002/10/29 07:57:57 christof Exp $
+// $Id: midgard_CG.cc,v 1.274 2002/10/30 09:57:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -158,6 +158,8 @@ void midgard_CG::fill_IconVec()
   // InfoFenster
   IconVec.push_back(st_buttons(InfoFenster->button_bestaetigen,iJa));
   IconVec.push_back(st_buttons(InfoFenster->button_abbrechen,iNein));
+  IconVec.push_back(st_buttons(InfoFenster->button_info_ok,iOK));
+  IconVec.push_back(st_buttons(InfoFenster->button_erase,iErase));
   // Grundwerte
   IconVec.push_back(st_buttons(table_grundwerte->button_grundwerte,iEigenschaften));
   IconVec.push_back(st_buttons(table_grundwerte->button_abg_werte,iAbgeleitet));

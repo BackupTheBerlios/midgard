@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.17 2002/10/30 06:11:03 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.18 2002/10/30 09:57:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -70,7 +70,7 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
      dynamic_cast<Gtk::Pixmap*>(child)->set(I.icon);
 }
 
-
+#include "../pixmaps/pinguin.xpm"
 #include "../pixmaps/NewChar-trans-50.xpm"
 #include "../pixmaps/LoadChar-trans-50.xpm"
 #include "../pixmaps/SaveChar-trans-50.xpm"
@@ -82,13 +82,14 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Help-trans-50.xpm"
 #include "../pixmaps/Exit-trans-50.xpm"
 #include "../pixmaps/Excl-32.xpm"
-#include "../pixmaps/Erase-50.xpm"
+//#include "../pixmaps/Erase-50.xpm"
 #include "../pixmaps/Dice-W100-trans-50.xpm" 
 #include "../pixmaps/Dices2-trans-50.xpm"
 #include "../pixmaps/EditChar-trans-50.xpm" 
 #include "../pixmaps/Dice-2W6-trans-50.xpm" 
 #include "../pixmaps/Edit-trans-50.xpm" 
 #include "../pixmaps/Red-Dice-trans-50.xpm" 
+#include "../pixmaps/Yellow-Dice-trans-50.xpm"
 #include "../pixmaps/Angeb_All-32.xpm" 
 #include "../pixmaps/Job-trans-50.xpm" 
 #include "../pixmaps/Money-50.xpm" 
@@ -97,11 +98,14 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Dice-Ausruest-50.xpm" 
 #include "../pixmaps/KillChar-32.xpm" 
 #include "../pixmaps/Trash-32.xpm" 
-#include "../pixmaps/MAGUS_Logo_Small.xpm" 
+//#include "../pixmaps/MAGUS_Logo_Small.xpm" 
 #include "../pixmaps/MAGUS_Logo_Tiny.xpm" 
 #include "../pixmaps/NSC-Mode-26.xpm" 
 #include "../pixmaps/NewsGeschichte.xpm" 
 #include "../pixmaps/L_Schema_small.xpm" 
+#include "../pixmaps/Clear-32.xpm"
+#include "../pixmaps/Nein-32.xpm"
+#include "../pixmaps/Portrait-32.xpm"
 
 
 // Ulfs 24-Icons
@@ -147,7 +151,9 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iInstruction)return st_icons("Anleitung"   ,Help_trans_new1_xpm    );
      else if(typ==iExit)       return st_icons("Schließen"   ,Exit_trans_50_xpm      );
      else if(typ==iJa)         return st_icons("Ja"          ,Excl_32_xpm);
-     else if(typ==iNein)       return st_icons("Nein"        ,Erase_50_xpm);
+     else if(typ==iNein)       return st_icons("Nein"        ,Nein_32_xpm);
+     else if(typ==iOK)         return st_icons("Fenster\nschließen",Yellow_Dice_trans_50_xpm);
+     else if(typ==iErase)      return st_icons("Textfeld\nlöschen",Clear_32_xpm);
      else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",Dice_W100_trans_50_xpm);
      else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",Dices2_trans_50_xpm);
      else if(typ==iEditGrund)  return st_icons("Werte\neditieren",EditChar_trans_50_xpm);
@@ -160,13 +166,14 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iWaffen)     return st_icons("Waffen"  ,Weapon_trans_50_xpm);
      else if(typ==iRuestung)   return st_icons("Rüstung"  ,Dice_Armor_trans_50_xpm);
      else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,Dice_Ausruest_50_xpm);
-     else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,MAGUS_Logo_Small_xpm);
+     else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,Portrait_32_xpm);
      else if(typ==iDeleteAusr  )return st_icons("Gegenstand löschen"  ,Trash_32_xpm);
      else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,KillChar_32_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,MAGUS_Logo_Tiny_xpm);
      else if(typ==iStatusNPC)return st_icons(""  ,NSC_Mode_26_xpm);
      else if(typ==iNotebookInfo)   return st_icons("News & Geschichte"  ,NewsGeschichte_xpm);
      else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,L_Schema_small_xpm);
+     else return st_icons("Unbekannt"  ,pinguin_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
    {
@@ -183,6 +190,8 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iExit)       return st_icons("Schließen"   ,ulf_knopfleiste_24_schliessen_xpm      );
      else if(typ==iJa)         return st_icons("Ja"          ,ulf_auswahl_16_ja_xpm);
      else if(typ==iNein)       return st_icons("Nein"        ,ulf_auswahl_16_nein_xpm);
+     else if(typ==iOK)         return st_icons("Fenster\nschließen",ulf_auswahl_16_ja_xpm);
+     else if(typ==iErase)      return st_icons("Textfeld\nlöschen",ulf_auswahl_16_nein_xpm);
      else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",ulf_notebook_24_wuerfel_xpm);
      else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",ulf_notebook_24_wuerfel_xpm);
      else if(typ==iEditGrund)  return st_icons("Werte\neditieren",ulf_notebook_24_editieren_xpm);
@@ -202,7 +211,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iStatusNPC)   return st_icons(""  ,ulf_statusleiste_16_npczulassen_xpm);
      else if(typ==iNotebookInfo)   return st_icons("News & Geschichte"  ,ulf_zipfel_24_infocredits_xpm);
      else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,ulf_zipfel_24_lernschema_xpm);
-     
+     else return st_icons("Unbekannt"  ,pinguin_xpm);
    }
   assert(!"never get here");
   abort();
