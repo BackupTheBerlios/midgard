@@ -86,11 +86,11 @@ void Fertigkeit::get_Fertigkeit()
 #else
   assert(tag);
   lernpunkte=tag->getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
-  lern_land=tag->getIntAttr("Lernpunkte:Land",99);
-  lern_stadt=tag->getIntAttr("Lernpunkte:Stadt",99);
+  lern_land=tag->getIntAttr("Lernpunkte-Land",99);
+  lern_stadt=tag->getIntAttr("Lernpunkte-Stadt",99);
   anfangswert0=tag->getIntAttr("Anfangswert");
   anfangswert=tag->getIntAttr("Erfolgswert");
-  ungelernt=tag->getIntAttr("Erfolgswert:ungelernt");
+  ungelernt=tag->getIntAttr("Erfolgswert-ungelernt");
   berufskategorie=tag->getIntAttr("Berufskategorie");
   erfolgswert=anfangswert; //Defaultwert
   kosten=tag->getIntAttr("Lernkosten");
@@ -99,8 +99,8 @@ void Fertigkeit::get_Fertigkeit()
   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
   if (Voraussetzungen)
      voraussetzung = st_Voraussetzung(Voraussetzungen->getIntAttr("St"),
-     		Voraussetzungen->getIntAttr("Gw",Voraussetzungen->getIntAttr("Ge")),
-     		Voraussetzungen->getIntAttr("Gs"),
+     		Voraussetzungen->getIntAttr("Gw",Voraussetzungen->getIntAttr("RW")),
+     		Voraussetzungen->getIntAttr("Gs",Voraussetzungen->getIntAttr("Ge")),
      		Voraussetzungen->getIntAttr("Ko"),
      		Voraussetzungen->getIntAttr("In"),
      		Voraussetzungen->getIntAttr("Zt"),

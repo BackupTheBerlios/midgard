@@ -74,8 +74,8 @@ void MidgardBasicElement::get_map_typ()
  }
  else if(What()==FERTIGKEIT ) assert(tag);
  else if(What()==WAFFEGRUND)
-    tag=find_Tag("Waffen:Grundkenntnisse","Waffen:Grundkenntnis","Name",Name());
- // auch in Waffen:Steigern suchen
+    tag=find_Tag("Waffen-Grundkenntnisse","Waffen-Grundkenntnis","Name",Name());
+ // auch in Waffen-Steigern suchen
  // dynamic_cast<Waffe*>(this)->Grundkenntnis()
  else if(What()==WAFFE)
     tag=find_Tag("Waffen","Waffe","Name",Name());
@@ -93,14 +93,14 @@ void MidgardBasicElement::get_map_typ()
  {  const Tag *Grund=tag->find("Grund");
     const Tag *Standard=tag->find("Standard");
     const Tag *Ausnahme=tag->find("Ausnahme");
-    // auch in Waffen:Steigern suchen
+    // auch in Waffen-Steigern suchen
     // V4 nicht? ich glaube ja
 #ifdef MIDGARD3
     if ((What()==WAFFEGRUND || What()==WAFFE)
     		&& !Grund && !Standard && !Ausnahme)
-    {  tag=xml_data->find("Waffen:Steigern");
+    {  tag=xml_data->find("Waffen-Steigern");
        if (!tag)
-       {  cerr << "<Waffen:Steigern><Grund/>... nicht gefunden\n";
+       {  cerr << "<Waffen-Steigern><Grund/>... nicht gefunden\n";
           return;
        }
        Grund=tag->find("Grund");
