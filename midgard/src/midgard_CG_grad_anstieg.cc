@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.43 2002/01/22 11:41:46 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.44 2002/01/30 12:54:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -139,7 +139,7 @@ void midgard_CG::get_grundwerte()
        stinfo += " um "; stinfo += itos(erh); stinfo+=" erhöht.\n";
     }
   manage(new WindowInfo(stinfo,false));
-  if (OptionBool.Original) original_midgard_check() ;
+  if (OptionCheck(Original).active) original_midgard_check() ;
   Database.GradAnstieg.set_Grad_Basiswerte(1+Database.GradAnstieg.get_Grad_Basiswerte());
 }
 

@@ -11,6 +11,18 @@ NEWS IN VERSION 0.3delta3
 * LaTeX Ausdruck jetzt ohne Erfolgswert für Beruf.
 * Ausrüstung und Charakterbeschreibung kann nun auch über das Menü
    ausgedruckt werden
+* Ausrüestungsliste jetzt alphabetisch sortiert
+* Ausdruck der Ausrüstung jetzt mit und ohne die sichtbaren Gegenstände
+* 'Werfen' jetzt bei den universellen Fertigkeiten
+* Neuer Menüpunkt: 'Hausregeln', bislang allerdings nur für 'Gold'
+   (Wird aber noch nicht ausgewertet)
+* Umbennennung: Charaktere -> Abenteurer (ist bestimmt noch nicht vollständig)
+* Ersetzung spinbutton->set_text() in spinbutton->set_value() (noch unvollständig)
+* Editieren des Zaubertalentes -> Anpassung des Sechsten Sinnes
+* Durch Rüstung verringerte Werte für B/Gw werden nur noch ausgedruckt, 
+   wenn sie relevant sind.
+* Giftresistenz korrigiert
+* xml Umstellungsbug: 'Reichweite von Waffen' beseitigt
 
 TODO:
 * Landeskunde als Berufsfähigkeit für 3 Berufe
@@ -20,7 +32,6 @@ TODO:
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
-* LaTeX Fehler bei Werfen?
 
 ##########################################################################
 NEWS IN VERSION 0.3delta2

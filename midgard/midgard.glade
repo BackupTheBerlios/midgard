@@ -110,7 +110,7 @@
 	    <widget>
 	      <class>GtkFrame</class>
 	      <name>frame30</name>
-	      <label>Name des Charakters</label>
+	      <label>Name des Abenteurers</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	      <child>
@@ -3569,14 +3569,14 @@ Beidhänder
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
 		<name>button7</name>
-		<tooltip>Neuer Charakter</tooltip>
+		<tooltip>Neuer Abenteurer</tooltip>
 		<signal>
 		  <name>clicked</name>
 		  <handler>on_neuer_charakter_clicked</handler>
 		  <last_modification_time>Fri, 30 Mar 2001 19:45:24 GMT</last_modification_time>
 		</signal>
 		<label>Neuer
-Charakter</label>
+Abenteurer</label>
 		<icon>NewChar-trans-50.xpm</icon>
 	      </widget>
 
@@ -3584,13 +3584,13 @@ Charakter</label>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
 		<name>button8</name>
-		<tooltip>Charakter speichern</tooltip>
+		<tooltip>Abenteurer speichern</tooltip>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_speichern_release_event</handler>
 		  <last_modification_time>Tue, 17 Apr 2001 18:50:09 GMT</last_modification_time>
 		</signal>
-		<label>Charakter
+		<label>Abenteurer
 speichern</label>
 		<icon>SaveChar-trans-50.xpm</icon>
 	      </widget>
@@ -3599,13 +3599,13 @@ speichern</label>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
 		<name>button9</name>
-		<tooltip>Charakter laden</tooltip>
+		<tooltip>Abenteurer laden</tooltip>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_laden_release_event</handler>
 		  <last_modification_time>Mon, 21 May 2001 19:02:36 GMT</last_modification_time>
 		</signal>
-		<label>Charakter
+		<label>Abenteurer
 laden</label>
 		<icon>LoadChar-trans-50.xpm</icon>
 	      </widget>
@@ -3620,7 +3620,7 @@ laden</label>
 		  <handler>on_charakter_beschreibung_clicked</handler>
 		  <last_modification_time>Fri, 30 Mar 2001 20:06:41 GMT</last_modification_time>
 		</signal>
-		<label>Charakter
+		<label>Abenteurer
 beschreibung</label>
 		<icon>DescrChar-trans-50.xpm</icon>
 		<child>
@@ -3632,14 +3632,14 @@ beschreibung</label>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
 		<name>button10</name>
-		<tooltip>LaTeX Charakterblatt drucken (ghostview)</tooltip>
+		<tooltip>LaTeX Abenteurerblatt drucken (ghostview)</tooltip>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_latex_release_event</handler>
 		  <last_modification_time>Mon, 23 Apr 2001 06:07:57 GMT</last_modification_time>
 		</signal>
 		<label>LaTeX
-Charakterblatt</label>
+Abenteurerblatt</label>
 		<icon>PrintChar-trans-50.xpm</icon>
 	      </widget>
 
@@ -3807,7 +3807,7 @@ editieren</label>
 	      <name>typauswahl</name>
 	      <cxx_visibility>protected</cxx_visibility>
 	      <can_focus>True</can_focus>
-	      <items>Charakterklassen
+	      <items>Abenteurerklassen
 </items>
 	      <initial_choice>0</initial_choice>
 	      <child>
@@ -3831,7 +3831,7 @@ editieren</label>
 	      <name>typauswahl_2</name>
 	      <cxx_visibility>protected</cxx_visibility>
 	      <can_focus>True</can_focus>
-	      <items>2. Charakterklasse
+	      <items>2. Abenteurerklasse
 </items>
 	      <initial_choice>0</initial_choice>
 	      <child>
@@ -4648,7 +4648,7 @@ würfeln</label>
 	      <widget>
 		<class>GtkFrame</class>
 		<name>frame59</name>
-		<label>Charakterklasse</label>
+		<label>Abenteurerklasse</label>
 		<label_xalign>0</label_xalign>
 		<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 		<child>
@@ -5315,6 +5315,22 @@ auswählen</label>
 			<padding>0</padding>
 			<expand>False</expand>
 			<fill>False</fill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkPixmap</class>
+		      <name>pixmap107</name>
+		      <filename>Claymore-50.xpm</filename>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <build_insensitive>True</build_insensitive>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
 		      </child>
 		    </widget>
 		  </widget>
@@ -6252,7 +6268,7 @@ auswählen</label>
 	    <widget>
 	      <class>GtkFrame</class>
 	      <name>frame65</name>
-	      <label>Charakterklasse</label>
+	      <label>Abenteurerklasse</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	      <child>
@@ -10856,10 +10872,11 @@ eingeben</label>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
 		<name>button_ausruestung_druck</name>
+		<tooltip>Linker Mausknopf: Alles drucken. Rechter Mausknopf: Nur sichtbares drucken.</tooltip>
 		<signal>
-		  <name>clicked</name>
-		  <handler>on_button_ausruestung_druck_clicked</handler>
-		  <last_modification_time>Mon, 26 Nov 2001 09:28:30 GMT</last_modification_time>
+		  <name>button_release_event</name>
+		  <handler>on_button_ausruestung_druck_release_event</handler>
+		  <last_modification_time>Mon, 28 Jan 2002 15:26:39 GMT</last_modification_time>
 		</signal>
 		<label>Drucken</label>
 		<icon>PrintChar-trans-50.xpm</icon>
@@ -13113,7 +13130,7 @@ KS
 <widget>
   <class>GtkWindow</class>
   <name>Window_charakter_beschreibung</name>
-  <title>Charakter Beschreibung</title>
+  <title>Abenteurer Beschreibung</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
   <modal>False</modal>
@@ -13234,7 +13251,7 @@ KS
     <widget>
       <class>GtkLabel</class>
       <name>label398</name>
-      <label>Die Charakterbeschreibung darf sämtliche LaTeX Befehle enthalten</label>
+      <label>Die Abenteurerbeschreibung darf sämtliche LaTeX Befehle enthalten</label>
       <justify>GTK_JUSTIFY_CENTER</justify>
       <wrap>False</wrap>
       <xalign>0</xalign>
@@ -13382,7 +13399,7 @@ KS
   <name>Window_charakter_auswahl</name>
   <height>260</height>
   <has_focus>True</has_focus>
-  <title>Charakter auswahl</title>
+  <title>Abenteurer auswahl</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
   <modal>True</modal>
@@ -13399,7 +13416,7 @@ KS
     <widget>
       <class>GtkLabel</class>
       <name>label251</name>
-      <label>In der Datenbank vorhandene Charaktere</label>
+      <label>In der Datenbank vorhandene Abenteurere</label>
       <justify>GTK_JUSTIFY_LEFT</justify>
       <wrap>False</wrap>
       <xalign>0.5</xalign>
@@ -13486,7 +13503,7 @@ KS
 	<name>checkbutton_loeschen</name>
 	<cxx_visibility>protected</cxx_visibility>
 	<can_focus>True</can_focus>
-	<label>Charakter löschen</label>
+	<label>Abenteurer löschen</label>
 	<active>False</active>
 	<draw_indicator>True</draw_indicator>
 	<child>
@@ -16009,31 +16026,6 @@ Verlust</label>
     </widget>
 
     <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap15</name>
-      <filename>AngebSkills-trans-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>2</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
       <class>GtkToolbar</class>
       <name>toolbar31</name>
       <border_width>5</border_width>
@@ -16069,6 +16061,123 @@ Verlust</label>
 	</signal>
 	<label></label>
 	<icon>SchliessenIII-50.xpm</icon>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkVBox</class>
+      <name>vbox32</name>
+      <homogeneous>False</homogeneous>
+      <spacing>0</spacing>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>2</right_attach>
+	<top_attach>1</top_attach>
+	<bottom_attach>2</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+
+      <widget>
+	<class>GtkPixmap</class>
+	<name>pixmap108</name>
+	<filename>Angeb_Sicht-32.xpm</filename>
+	<xalign>0.5</xalign>
+	<yalign>0.5</yalign>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<build_insensitive>True</build_insensitive>
+	<child>
+	  <padding>0</padding>
+	  <expand>True</expand>
+	  <fill>True</fill>
+	</child>
+      </widget>
+
+      <widget>
+	<class>GtkPixmap</class>
+	<name>pixmap109</name>
+	<filename>Angeb_Nase-32.xpm</filename>
+	<xalign>0.5</xalign>
+	<yalign>0.5</yalign>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<build_insensitive>True</build_insensitive>
+	<child>
+	  <padding>0</padding>
+	  <expand>True</expand>
+	  <fill>True</fill>
+	</child>
+      </widget>
+
+      <widget>
+	<class>GtkPixmap</class>
+	<name>pixmap110</name>
+	<filename>Angeb_Richtung-32.xpm</filename>
+	<xalign>0.5</xalign>
+	<yalign>0.5</yalign>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<build_insensitive>True</build_insensitive>
+	<child>
+	  <padding>0</padding>
+	  <expand>True</expand>
+	  <fill>True</fill>
+	</child>
+      </widget>
+
+      <widget>
+	<class>GtkPixmap</class>
+	<name>pixmap111</name>
+	<filename>Angeb_Ohr-32.xpm</filename>
+	<xalign>0.5</xalign>
+	<yalign>0.5</yalign>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<build_insensitive>True</build_insensitive>
+	<child>
+	  <padding>0</padding>
+	  <expand>True</expand>
+	  <fill>True</fill>
+	</child>
+      </widget>
+
+      <widget>
+	<class>GtkPixmap</class>
+	<name>pixmap112</name>
+	<filename>Angeb_Reflex-32.xpm</filename>
+	<xalign>0.5</xalign>
+	<yalign>0.5</yalign>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<build_insensitive>True</build_insensitive>
+	<child>
+	  <padding>0</padding>
+	  <expand>True</expand>
+	  <fill>True</fill>
+	</child>
+      </widget>
+
+      <widget>
+	<class>GtkPixmap</class>
+	<name>pixmap113</name>
+	<filename>Angeb_Tast-32.xpm</filename>
+	<xalign>0.5</xalign>
+	<yalign>0.5</yalign>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<build_insensitive>True</build_insensitive>
+	<child>
+	  <padding>0</padding>
+	  <expand>True</expand>
+	  <fill>True</fill>
+	</child>
       </widget>
     </widget>
   </widget>
@@ -16186,71 +16295,6 @@ Verlust</label>
 	    <xfill>False</xfill>
 	    <yfill>False</yfill>
 	  </child>
-	</widget>
-
-	<widget>
-	  <class>GtkPixmap</class>
-	  <name>pixmap90</name>
-	  <filename>MAGUS-Logo-Text-halb.xpm</filename>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <build_insensitive>True</build_insensitive>
-	  <child>
-	    <left_attach>1</left_attach>
-	    <right_attach>2</right_attach>
-	    <top_attach>0</top_attach>
-	    <bottom_attach>4</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>True</yfill>
-	  </child>
-	</widget>
-
-	<widget>
-	  <class>GtkToolbar</class>
-	  <name>toolbar_close</name>
-	  <border_width>5</border_width>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-	  <type>GTK_TOOLBAR_ICONS</type>
-	  <space_size>5</space_size>
-	  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-	  <relief>GTK_RELIEF_NORMAL</relief>
-	  <tooltips>True</tooltips>
-	  <child>
-	    <left_attach>0</left_attach>
-	    <right_attach>1</right_attach>
-	    <top_attach>3</top_attach>
-	    <bottom_attach>4</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>False</xfill>
-	    <yfill>False</yfill>
-	  </child>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_close</name>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_close_clicked</handler>
-	      <last_modification_time>Tue, 03 Apr 2001 21:32:37 GMT</last_modification_time>
-	    </signal>
-	    <label></label>
-	    <icon>Schliessen1-50.xpm</icon>
-	  </widget>
 	</widget>
 
 	<widget>
@@ -17577,7 +17621,7 @@ andere geholfen.</label>
 	    <widget>
 	      <class>GtkLabel</class>
 	      <name>label426</name>
-	      <label>Charakterklassen</label>
+	      <label>Abenteurerklassen</label>
 	      <justify>GTK_JUSTIFY_CENTER</justify>
 	      <wrap>False</wrap>
 	      <xalign>0</xalign>
@@ -18245,6 +18289,69 @@ andere geholfen.</label>
 		<yfill>False</yfill>
 	      </child>
 	    </widget>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkPixmap</class>
+	  <name>pixmap90</name>
+	  <filename>MAGUS-Logo-Text-halb.xpm</filename>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <build_insensitive>True</build_insensitive>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>0</top_attach>
+	    <bottom_attach>4</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>True</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <name>button_close</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <tooltip>Schließen</tooltip>
+	  <signal>
+	    <name>clicked</name>
+	    <handler>on_button_close_clicked</handler>
+	    <last_modification_time>Tue, 03 Apr 2001 21:32:37 GMT</last_modification_time>
+	  </signal>
+	  <relief>GTK_RELIEF_NORMAL</relief>
+	  <child>
+	    <left_attach>0</left_attach>
+	    <right_attach>1</right_attach>
+	    <top_attach>3</top_attach>
+	    <bottom_attach>4</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>False</xfill>
+	    <yfill>False</yfill>
+	  </child>
+
+	  <widget>
+	    <class>GtkPixmap</class>
+	    <name>pixmap106</name>
+	    <filename>Tux-med.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
 	  </widget>
 	</widget>
       </widget>
