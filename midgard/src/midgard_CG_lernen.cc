@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.48 2002/01/21 08:45:00 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.49 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,12 +37,12 @@ void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
 
 void midgard_CG::on_entry_Cname_activate()         
 {
-  Werte.setCharaktername(entry_Cname->get_text());
+  Werte.setAbenteurername(entry_Cname->get_text());
   zeige_werte(Werte);
 }
 gint midgard_CG::on_entry_Cname_focus_out_event(GdkEventFocus *ev)         
 {
-  Werte.setCharaktername(entry_Cname->get_text());
+  Werte.setAbenteurername(entry_Cname->get_text());
   zeige_werte(Werte);
   return false;
 }

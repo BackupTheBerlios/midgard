@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.129 2002/01/29 08:01:11 thoma Exp $
+// $Id: midgard_CG.cc,v 1.130 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -111,10 +111,10 @@ void midgard_CG::show_gtk()
 //     typauswahl_2->set_history(Typ[1]->Nr());
    }
 //cout << "Geschlecht = " <<Werte.Geschlecht()<<'\n';
- fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Charakterklasse im Lernfenster
+ fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Abenteurerklasse im Lernfenster
  if (Typ[1]->Name(Werte.Geschlecht())!="") 
    fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
- steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Charakterklasse im Lernfenster
+ steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Abenteurerklasse im Lernfenster
  if (Typ[1]->Name(Werte.Geschlecht())!="") 
    steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
  
@@ -309,7 +309,6 @@ void midgard_CG::on_neuer_charakter_clicked()
    zeige_lernpunkte();
    zeige_werte(Werte);
    OptionBool.reset(); 
-   HausBool.reset();
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
    menu_init();

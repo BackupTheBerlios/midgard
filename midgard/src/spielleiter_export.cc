@@ -28,10 +28,10 @@
 void midgard_CG::spielleiter_export()
 {
   std::string strinfo = "Datei 'spielleiter_export.txt' enthält nun die Daten des \n";
-  strinfo +="Charakters im Format für Midgard Publikationen\n";
+  strinfo +="Abenteurers im Format für Midgard Publikationen\n";
   manage (new WindowInfo(strinfo));
   ofstream fout("spielleiter_export.txt");
-  fout << Werte.Name_Charakter()<<", "
+  fout << Werte.Name_Abenteurer()<<", "
       <<Typ[0]->Name(Werte.Geschlecht())<<",   Grad "<<Werte.Grad()<<"\n";
   fout << Werte.Stand()<<", "<<Werte.Glaube()<<" - ("<<Werte.Groesse()<<"cm) - "
        << Werte.Alter()<<" Jahre\n";

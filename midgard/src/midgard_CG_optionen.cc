@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.37 2002/01/29 08:01:11 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.38 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -131,12 +131,10 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
   }
 }
 
-void midgard_CG::Hausregeln_setzen()
+void midgard_CG::Hausregeln_setzen_from_menu()
 {
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-   {
      i->active = i->menu->get_active();
-   }
 }
 
 void midgard_CG::Hausregeln_setzen(bool b)

@@ -33,7 +33,7 @@ Window_charakter_beschreibung_glade::Window_charakter_beschreibung_glade(
    toolbar12->tools().push_back(Gtk::Toolbar_Helpers::Space());
    
    Gtk::Button *button40 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar12->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Abbrechen", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(Schliessen1_50_xpm))->gtkobj()), 0, 0));
-   Gtk::Label *label398 = manage(new class Gtk::Label("Die Charakterbeschreibung darf sämtliche LaTeX Befehle enthalten"));
+   Gtk::Label *label398 = manage(new class Gtk::Label("Die Abenteurerbeschreibung darf sämtliche LaTeX Befehle enthalten"));
    Gtk::Table *table23 = manage(new class Gtk::Table(3, 4, false));
    text_charakter_beschreibung->set_usize(734, 340);
    text_charakter_beschreibung->set_editable(true);
@@ -48,7 +48,7 @@ Window_charakter_beschreibung_glade::Window_charakter_beschreibung_glade(
    table23->attach(*scrolledwindow12, 0, 4, 1, 2, GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 0, 0);
    table23->attach(*toolbar12, 0, 4, 2, 3, 0, 0, 0, 5);
    table23->attach(*label398, 0, 4, 0, 1, 0, 0, 5, 5);
-   Window_charakter_beschreibung->set_title("Charakter Beschreibung");
+   Window_charakter_beschreibung->set_title("Abenteurer Beschreibung");
    Window_charakter_beschreibung->add(*table23);
    text_charakter_beschreibung->show();
    scrolledwindow12->show();

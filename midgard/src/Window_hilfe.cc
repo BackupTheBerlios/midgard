@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.23 2001/12/17 14:53:58 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.24 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,17 +44,17 @@ Window_hilfe::Window_hilfe()
 std::string Window_hilfe::hilfetext()
 {
 std::string s="
-1. Generierung eines neuen Charakters
+1. Generierung eines neuen Abenteurers
 
 * Spezies wählen (nur wenn es kein Mensch sein soll)
 * Grundwerte würfeln (und eventuell editieren)
    - linke Maustaste: 2x würfeln, höheres Ergebnis zählt
    - rechte Maustaste: 9x würfeln und die betsen sechs Ergebnisse frei verteilen
 * Geschlecht wählen (wenn es kein Mann sein soll)
-* Charaktertyp wählen (wenn es kein Assassine sein soll)
+* Abenteurertyp wählen (wenn es kein Assassine sein soll)
 * Abgeleitete Werte würfeln (eventuell editieren)
-* Werte editieren: 'Name des Charakters' und 'Version' eintragen, unter diesen
-   beiden Angaben wird der Charakter in gespeichert.
+* Werte editieren: 'Name des Abenteurers' und 'Version' eintragen, unter diesen
+   beiden Angaben wird der Abenteurer in gespeichert.
 * Herkunftsland wählen
 * Lernschema
 * Lernpunkte würfeln (eventuell editieren)
@@ -69,8 +69,8 @@ std::string s="
 * Magier wählen einen Spezialbereich
 * Geld und Waffen würfeln (oder aussuchen)
 * Rüstung auswürfeln (kann über 'Steigern' auch ausgesucht werden 
-   wenn der Charakter vorher abgespeichert wird)
-* bei Bedarf Charakterbeschreibung eingeben und ausdrucken.
+   wenn der Abenteurer vorher abgespeichert wird)
+* bei Bedarf Abenteurerbeschreibung eingeben und ausdrucken.
    Es ist zu beachten, daß die Beschriebung als LaTeX Dokument verarbeitet wird.
    Dadurch ist gewährleistet, daß nahezu alle Zeichen darstellen werden können.
    Allerdings sind einige Symbole nur über LaTeX Komandos erhältlich.
@@ -82,21 +82,21 @@ std::string s="
    ....
    \\end{punkte}
    bzw. dasselbe für 'punkte2' angesprochen werden können.
-* Charakter speichern 
-* Charakter drucken (Es wird ein (mehrere) druckfertige(s) 
+* Abenteurer speichern 
+* Abenteurer drucken (Es wird ein (mehrere) druckfertige(s) 
    Postscriptdokument(e) mit 'gv' angezeigt, der Ausdruck kann dann 
    aus diesem Programm heraus erfolgen. 
    
-2. Steigern eines Charakters 
-(Generell gilt: Während des Steigerns wird der Charakter STÄNDIG in der 
-gesichert. Daher ist es nocht nötig, den Charakter nach dem
+2. Steigern eines Abenteurers 
+(Generell gilt: Während des Steigerns wird der Abenteurer STÄNDIG in der 
+gesichert. Daher ist es nocht nötig, den Abenteurer nach dem
 steigern zu speichern.) Bitte beachtet auch die unten aufgeführet Anleitung 
 zur Bedienung der 'TreeBaseListen'
 
-* Charakter laden (Wenn ein Charaktername und eine Version eingetragen sind,
-    wird der entsprechende Charakter geladen, ansonsten erscheint eine 
-    Auswahlliste aller gespeicherter Charaktere. In diesem Fenster ist 
-    es auch möglich Charaktere aus der Datenbank zu löschen)
+* Abenteurer laden (Wenn ein Abenteurername und eine Version eingetragen sind,
+    wird der entsprechende Abenteurer geladen, ansonsten erscheint eine 
+    Auswahlliste aller gespeicherter Abenteurer. In diesem Fenster ist 
+    es auch möglich Abenteurer aus der Datenbank zu löschen)
 * Steigern mit oder ohne Einsatz von Gold und Erfahrungspunkten
 * .... an Grad anpassen
    Mit diesem Knopf werden die AP, die Abwehr, die Resistenzen und der Zaubernwert
@@ -107,32 +107,32 @@ zur Bedienung der 'TreeBaseListen'
    Es ist auch möglich, die STeigerungen für die jeweiligen Aspekte einzeln 
    durchzuführen.
 * Fertigkeiten (Fertigkeiten laden)
-   Im oberen Fenster sind die Fertigkeiten, die der Charakter kann mit
+   Im oberen Fenster sind die Fertigkeiten, die der Abenteurer kann mit
    dem jeweiligen Erfolgswert angegeben. Außerdem ist angegeben, wieviele
    GFP die nächste Stufe (nach oben bzw nach unten) kostet. Beherrscht ein
-   Charakter eine Fertigkeit auf dem niedrigsten Erfolgswert, so kannn er 
+   Abenteurer eine Fertigkeit auf dem niedrigsten Erfolgswert, so kannn er 
    diese auch 'verlernen'. Dadurch ist es möglich Eingabefehler rückgängig 
    zu machen.
    Im unteren Fenster sind die erlernbaren Fertigkeiten mit entsprechenden 
    Kosten angegeben.
 * Waffen (Waffen laden)
    Im rechten Bereich sind die Grundkenntnisse der Waffen aufgeführt.
-   oben die, die der Charakter bereits kann, unten die, die er lernen kann
+   oben die, die der Abenteurer bereits kann, unten die, die er lernen kann
    (mit Lernkosten in GFP).
-   Im linken Bereich stehen oben die Waffen, die der Charakter schon 
+   Im linken Bereich stehen oben die Waffen, die der Abenteurer schon 
    beherrscht (mit Erfolgswert und Kosten für die nächst höhere bzw. 
-   niedirgere Stufe), unten stehen die Waffen, die der Charakter mit dem
+   niedirgere Stufe), unten stehen die Waffen, die der Abenteurer mit dem
    Erfolgswert +4 beherrscht, weil er die Grundkenntnisse in der jeweiligen
    Waffenart besitzt. Durch Ancklicken kann man Waffen steigern und lernen,
    bzw. Grundkenntnisse lernen.
 * Zauber (Zauber laden)
-   Oben die Zauber, die ein Charakter kann, unten die, die er lernen darf
+   Oben die Zauber, die ein Abenteurer kann, unten die, die er lernen darf
    (mit Kosten). Wählt man einen Zauber aus der oberen Liste, so wird dieser
    'verlernt'.
 * KiDo funktioniert genauso wie bei den Zaubern
 * Sprachen und Schriften
    Links die Sprachen, rechts die Schriften. Oben jeweils die, die ein 
-   Charakter beherrscht, unten die, die er lernen kann.
+   Abenteurer beherrscht, unten die, die er lernen kann.
 
 Einigen selten benutzte Features lassen sich durch das Menu erreichen,
 das aufklappt, wenn man den RECHTEN Mausknopf betätigt.

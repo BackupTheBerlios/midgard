@@ -101,7 +101,7 @@ midgard_CG_glade::midgard_CG_glade(
    Gtk::HSeparator *hseparator20 = manage(new class Gtk::HSeparator());
    entry_nameC = manage(new class Gtk::Entry());
    
-   Gtk::Frame *frame30 = manage(new class Gtk::Frame("Name des Charakters"));
+   Gtk::Frame *frame30 = manage(new class Gtk::Frame("Name des Abenteurers"));
    Gtk::Adjustment *spinbutton_ap_adj = manage(new class Gtk::Adjustment(0, 0, 100, 1, 10, 10));
    spinbutton_ap = manage(new class Gtk::SpinButton(*spinbutton_ap_adj, 1, 0));
    
@@ -298,17 +298,17 @@ midgard_CG_glade::midgard_CG_glade(
    Gtk::Table *table68 = manage(new class Gtk::Table(1, 5, false));
    Gtk::Toolbar *toolbar1 = manage(new class Gtk::Toolbar(GTK_ORIENTATION_HORIZONTAL, GTK_TOOLBAR_BOTH));
    Gtk::Button *button7 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar1->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Neuer\n"
-		"Charakter", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(NewChar_trans_50_xpm))->gtkobj()), 0, 0));
-   Gtk::Button *button8 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar1->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Charakter\n"
+		"Abenteurer", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(NewChar_trans_50_xpm))->gtkobj()), 0, 0));
+   Gtk::Button *button8 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar1->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Abenteurer\n"
 		"speichern", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(SaveChar_trans_50_xpm))->gtkobj()), 0, 0));
-   Gtk::Button *button9 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar1->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Charakter\n"
+   Gtk::Button *button9 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar1->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Abenteurer\n"
 		"laden", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(LoadChar_trans_50_xpm))->gtkobj()), 0, 0));
    toolbar1->tools().push_back(Gtk::Toolbar_Helpers::Space());
-   button_beschreibung = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar1->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Charakter\n"
+   button_beschreibung = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar1->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Abenteurer\n"
 		"beschreibung", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(DescrChar_trans_50_xpm))->gtkobj()), 0, 0));
    
    Gtk::Button *button10 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar1->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "LaTeX\n"
-		"Charakterblatt", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(PrintChar_trans_50_xpm))->gtkobj()), 0, 0));
+		"Abenteurerblatt", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(PrintChar_trans_50_xpm))->gtkobj()), 0, 0));
    toolbar1->tools().push_back(Gtk::Toolbar_Helpers::Space());
    
    Gtk::Button *button12 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar1->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Schließen", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(Exit_trans_50_xpm))->gtkobj()), 0, 0));
@@ -395,7 +395,7 @@ midgard_CG_glade::midgard_CG_glade(
    Gtk::HSeparator *hseparator13 = manage(new class Gtk::HSeparator());
    fertig_typ = manage(new class Gtk::Label("label280"));
    
-   Gtk::Frame *frame59 = manage(new class Gtk::Frame("Charakterklasse"));
+   Gtk::Frame *frame59 = manage(new class Gtk::Frame("Abenteurerklasse"));
    entry_Cname = manage(new class Gtk::Entry());
    
    Gtk::Frame *frame91 = manage(new class Gtk::Frame("Name"));
@@ -508,7 +508,7 @@ midgard_CG_glade::midgard_CG_glade(
    Gtk::EventBox *eventbox_lernen = manage(new class Gtk::EventBox());
    steigern_typ = manage(new class Gtk::Label("label280"));
    
-   Gtk::Frame *frame65 = manage(new class Gtk::Frame("Charakterklasse"));
+   Gtk::Frame *frame65 = manage(new class Gtk::Frame("Abenteurerklasse"));
    label_s_grad = manage(new class Gtk::Label("1"));
    
    Gtk::Frame *frame73 = manage(new class Gtk::Frame("Grad"));
@@ -1333,10 +1333,10 @@ midgard_CG_glade::midgard_CG_glade(
    table68->attach(*frame55, 2, 3, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
    table68->attach(*frame54, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
    table68->attach(*frame84, 1, 2, 0, 1, GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 0, 0);
-   _tooltips.set_tip(*button7, "Neuer Charakter", "");
-   _tooltips.set_tip(*button8, "Charakter speichern", "");
-   _tooltips.set_tip(*button9, "Charakter laden", "");
-   _tooltips.set_tip(*button10, "LaTeX Charakterblatt drucken (ghostview)", "");
+   _tooltips.set_tip(*button7, "Neuer Abenteurer", "");
+   _tooltips.set_tip(*button8, "Abenteurer speichern", "");
+   _tooltips.set_tip(*button9, "Abenteurer laden", "");
+   _tooltips.set_tip(*button10, "LaTeX Abenteurerblatt drucken (ghostview)", "");
    _tooltips.set_tip(*button12, "Schließen", "");
    toolbar1->set_space_size(10);
    toolbar1->set_tooltips(true);
@@ -1353,7 +1353,7 @@ midgard_CG_glade::midgard_CG_glade(
       
       Gtk::Menu *_m(manage(new Gtk::Menu()));
       Gtk::MenuItem *_mi;
-      _mi = manage(new Gtk::MenuItem("Charakterklassen"));
+      _mi = manage(new Gtk::MenuItem("Abenteurerklassen"));
       _m->append(*_mi);
       _mi->show();
       _mi->set_user_data((gpointer)0);
@@ -1365,7 +1365,7 @@ midgard_CG_glade::midgard_CG_glade(
       
       Gtk::Menu *_m(manage(new Gtk::Menu()));
       Gtk::MenuItem *_mi;
-      _mi = manage(new Gtk::MenuItem("2. Charakterklasse"));
+      _mi = manage(new Gtk::MenuItem("2. Abenteurerklasse"));
       _m->append(*_mi);
       _mi->show();
       _mi->set_user_data((gpointer)0);

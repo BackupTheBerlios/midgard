@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.148 2002/01/29 08:01:11 thoma Exp $
+// $Id: midgard_CG.hh,v 1.149 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,7 +60,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void menu_init();
         void menu_gradanstieg_init();
         void Hausregeln_init();
-        void Hausregeln_setzen();
+        void Hausregeln_setzen_from_menu();
         void Hausregeln_setzen(bool b);
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 

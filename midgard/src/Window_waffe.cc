@@ -38,7 +38,7 @@ Window_waffe::Window_waffe(int _wurf,
 void Window_waffe::wuerfeln()
 {
  std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
-            +" gewürfelt,\n die Charakterklasse ist "+Typ[0]->Name(Werte.Geschlecht())+"\n ---> \n";
+            +" gewürfelt,\n die Abenteurerklasse ist "+Typ[0]->Name(Werte.Geschlecht())+"\n ---> \n";
 
  Gtk::OStream os(clist_waffe);
 // std::string aartE,aartS,aartW,aartZ,aartA;

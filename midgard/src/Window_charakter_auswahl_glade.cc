@@ -23,11 +23,11 @@ Window_charakter_auswahl_glade::Window_charakter_auswahl_glade(
 {   
    
    Gtk::Window *Window_charakter_auswahl = this;
-   Gtk::Label *label251 = manage(new class Gtk::Label("In der Datenbank vorhandene Charaktere"));
+   Gtk::Label *label251 = manage(new class Gtk::Label("In der Datenbank vorhandene Abenteurer"));
    clist_charakter_auswahl = manage(new class Gtk::CList(2));
    
    Gtk::ScrolledWindow *scrolledwindow13 = manage(new class Gtk::ScrolledWindow());
-   checkbutton_loeschen = manage(new class Gtk::CheckButton("Charakter löschen"));
+   checkbutton_loeschen = manage(new class Gtk::CheckButton("Abenteurer löschen"));
    
    Gtk::Pixmap *pixmap19 = manage(new class Gtk::Pixmap(LoadChar_trans_50_xpm));
    Gtk::Toolbar *toolbar25 = manage(new class Gtk::Toolbar(GTK_ORIENTATION_HORIZONTAL, GTK_TOOLBAR_ICONS));
@@ -58,7 +58,7 @@ Window_charakter_auswahl_glade::Window_charakter_auswahl_glade(
    vbox5->pack_start(*hbox16, false, true, 0);
    Window_charakter_auswahl->set_usize(-1, 260);
    Window_charakter_auswahl->grab_focus();
-   Window_charakter_auswahl->set_title("Charakter auswahl");
+   Window_charakter_auswahl->set_title("Abenteurer auswahl");
    Window_charakter_auswahl->set_modal(true);
    Window_charakter_auswahl->add(*vbox5);
    label251->show();

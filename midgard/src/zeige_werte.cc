@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.39 2002/01/22 15:34:41 thoma Exp $
+// $Id: zeige_werte.cc,v 1.40 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,83 @@
 void midgard_CG::zeige_werte(const Grundwerte& w)
 {
    Database.ausnahmen.set_Werte(w);       
+       spinbutton_st->set_value(w.St());
+       spinbutton_gw->set_value(w.Gw());
+       spinbutton_gs->set_value(w.Gs());
+       spinbutton_ko->set_value(w.Ko());
+       spinbutton_in->set_value(w.In());
+       spinbutton_zt->set_value(w.Zt());
+       label_sehen->set_text(itos(w.Sehen()));
+       label_hoeren->set_text(itos(w.Hoeren()));
+       label_riechen->set_text(itos(w.Riechen()));
+       label_schmecken->set_text(itos(w.Schmecken()));
+       label_tasten->set_text(itos(w.Tasten()));
+       label_sechster_sinn->set_text(itos(w.SechsterSinn()));
+
+       spinbutton_au->set_value(w.Au());
+       spinbutton_pa->set_value(w.pA());
+       spinbutton_sb->set_value(w.Sb());      
+       spinbutton_wk->set_value(w.Wk());      
+       spinbutton_b->set_value(w.B());     
+       spinbutton_lp->set_value(w.LP());      
+       spinbutton_ap->set_value(w.AP());   
+       abwehr_wert->set_text(itos(w.Abwehr_wert()));
+       zaubern_wert->set_text(itos(w.Zaubern_wert()));
+       kaw->set_text(itos(w.KAW()));
+       wlw->set_text(itos(w.WLW()));
+       resistenz->set_text(itos(w.Resistenz()));
+       gift_wert->set_text(itos(w.Gift()));
+       bo_au->set_text(itos(w.bo_Au())) ;
+       bo_sc->set_text(itos(w.bo_Sc())) ;
+       bo_an->set_text(itos(w.bo_An())) ;
+       bo_ab->set_text(itos(w.bo_Ab())) ;
+       bo_za->set_text(itos(w.bo_Za())) ;
+       bo_psy->set_text(itos(w.bo_Psy(Typ))) ;
+       bo_phs->set_text(itos(w.bo_Phs(Typ))) ;
+       bo_phk->set_text(itos(w.bo_Phk(Typ))) ;
+       spinbutton_alter->set_value(w.Alter());
+       spinbutton_gfp->set_value(w.GFP());
+       spinbutton_tage->set_value(w.Steigertage());
+//       spinbutton_tage->set_text(Formatiere_short(fixedpoint<1>(w.Steigertage())));
+       spinbutton_gg->set_value(w.GG());
+       spinbutton_sg->set_value(w.SG());
+       label_gestalt->set_text(w.Gestalt());  
+       spinbutton_Cgewicht->set_value(w.Gewicht());
+       spinbutton_groesse->set_value(w.Groesse());
+       spinbutton_grad->set_value(w.Grad());      
+       entry_spezialisierung->set_text(w.Spezialisierung());
+       {
+        int inr=0;
+        for (unsigned int i=0; i<Vstand.size();++i)
+           if (Vstand[i]==Werte.Stand()) inr=i;
+        optionmenu_stand->set_history(inr);
+       }
+       {
+        int inr=0;
+        for (unsigned int i=0; i<Vhand.size();++i)
+           if (Vhand[i]==Werte.Hand()) inr=i;
+        optionmenu_hand->set_history(inr);
+       }
+       entry_herkunft->set_text(w.Herkunft()->Name());
+       entry_glaube->set_text(w.Glaube());
+       entry_nameC->set_text(w.Name_Abenteurer());
+       entry_Cname->set_text(w.Name_Abenteurer());
+       entry_nameS->set_text(w.Name_Spieler());
+       entry_version->set_text(w.Version(OptionBool.version));
+       gfp->set_text(itos(w.GFP()));
+
+       label_s_grad->set_text(itos(w.Grad()));
+       label_s_ap->set_text(itos(w.AP()));
+       label_s_abwehr->set_text(itos(w.Abwehr_wert()));
+       label_s_zaubern->set_text(itos(w.Zaubern_wert()));
+       label_s_resistenz->set_text(itos(w.Resistenz()));
+       label_pp_abwehr->set_text(itos(w.AbwehrPP()));
+       label_pp_zaubern->set_text(itos(w.ZaubernPP()));
+       label_pp_resistenz->set_text(itos(w.ResistenzPP()));
+       label_steigertage->set_text(dtos1(w.Steigertage()));
+       label_steigertage->set_text(Formatiere_short(fixedpoint<1>(w.Steigertage())));
+       label_alter->set_text(itos(w.Alter()));
+/*
        spinbutton_st->set_text(itos(w.St()));
        spinbutton_gw->set_text(itos(w.Gw()));
        spinbutton_gs->set_text(itos(w.Gs()));
@@ -86,8 +163,8 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        }
        entry_herkunft->set_text(w.Herkunft()->Name());
        entry_glaube->set_text(w.Glaube());
-       entry_nameC->set_text(w.Name_Charakter());
-       entry_Cname->set_text(w.Name_Charakter());
+       entry_nameC->set_text(w.Name_Abenteurer());
+       entry_Cname->set_text(w.Name_Abenteurer());
        entry_nameS->set_text(w.Name_Spieler());
        entry_version->set_text(w.Version(OptionBool.version));
        gfp->set_text(itos(w.GFP()));
@@ -103,4 +180,5 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        label_steigertage->set_text(dtos1(w.Steigertage()));
        label_steigertage->set_text(Formatiere_short(fixedpoint<1>(w.Steigertage())));
        label_alter->set_text(itos(w.Alter()));
+*/
 }

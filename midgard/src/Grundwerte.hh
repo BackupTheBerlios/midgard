@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.20 2002/01/27 09:01:25 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.21 2002/01/29 10:45:28 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,7 @@ class Grundwerte
    std::string geschlecht;
    int gewicht,groesse,grad;
    std::string stand,spezialisierung,hand,
-      glaube,name_charakter,name_spieler,version,beschreibung;
+      glaube,name_abenteurer,name_spieler,version,beschreibung;
    int gfp;
    float steigertage;
    int gold,silber,kupfer,aep,kep,zep;
@@ -59,7 +59,7 @@ public:
              b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
              zaubern_wert(0),zauber_pp(0),resistenz(0),resistenz_pp(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
-             stand(""),glaube(""),name_charakter(""),version("Erschaffung"),
+             stand(""),glaube(""),name_abenteurer(""),version("Erschaffung"),
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
              aep(0),kep(0),zep(0),ruestung("OR"),spezies("Mensch"),
              stadt_land("Stadt") 
@@ -121,7 +121,7 @@ public:
    cH_Land Herkunft() const {return herkunft;}
    cH_Spezies Spezies() const {return spezies;}
    std::string Glaube() const {return glaube;}
-   std::string Name_Charakter() const {return name_charakter;}
+   std::string Name_Abenteurer() const {return name_abenteurer;}
    std::string Name_Spieler() const {return name_spieler;}
    std::string Version(bool b) const;
    std::string Beschreibung() const {return beschreibung;}
@@ -193,10 +193,10 @@ public:
    void setHerkunft(const cH_Land& _herkunft){herkunft=_herkunft;}
    void setSpezies(const cH_Spezies& _spezies){spezies=_spezies;}
    void setGlaube(const std::string& _glaube){glaube=_glaube;}
-   void setCharaktername(const std::string& s) {name_charakter=s;}
-   void setNamen(const std::string& _name_charakter,std::string _name_spieler, std::string _version)
-      {name_charakter=_name_charakter;name_spieler=_name_spieler;version=_version;}
-   void setNameC(const std::string& s) {name_charakter=s;}
+   void setAbenteurername(const std::string& s) {name_abenteurer=s;}
+   void setNamen(const std::string& _name_abenteurer,std::string _name_spieler, std::string _version)
+      {name_abenteurer=_name_abenteurer;name_spieler=_name_spieler;version=_version;}
+   void setNameC(const std::string& s) {name_abenteurer=s;}
    void setNameS(const std::string& s) { name_spieler=s;}
    void setVersion(const std::string& s) { version=s;}
 

@@ -60,11 +60,11 @@ void midgard_CG::xml_export(const std::string& dateiname)
    
 #ifndef USE_XML
   // eigentlich Unsinn da nur Version 8, aber besser als nichts zu tun
-  std::string cname   = Werte.Name_Charakter();
+  std::string cname   = Werte.Name_Abenteurer();
   std::string version = Werte.Version(OptionBool.version);
   std::string command = "midgard_xmlexport '"+cname+"' '"+version+"' > '"+dateiname+"'";
   system(command.c_str());
-  std::string strinfo = "Charakter "+cname+" exportiert\n";
+  std::string strinfo = "Abenteurer "+cname+" exportiert\n";
   manage (new WindowInfo(strinfo));
 #else
    ofstream datei(dateiname.c_str());
@@ -95,7 +95,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
    }
    datei << " </Preise>\n\n";
    
-   datei << " <Midgard-Charakter";
+   datei << " <Midgard-Abenteurer";
    write_int_attrib(datei,"Version",9);
    datei << ">\n";
 
@@ -154,7 +154,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
       datei << "/>\n";
    }
    datei << "  </Fertigkeiten>\n";   
-   datei << " </Midgard-Charakter>\n";
+   datei << " </Midgard-Abenteurer>\n";
    datei << "</MidgardCG-data>\n";
 #endif
 }
@@ -178,7 +178,7 @@ void midgard_CG::on_speichern_clicked()
       char db_magisch[1024];
       int db_wert;
    exec sql end declare section;
-   strncpy(db_name_ch,Werte.Name_Charakter().c_str(),sizeof(db_name_ch));
+   strncpy(db_name_ch,Werte.Name_Abenteurer().c_str(),sizeof(db_name_ch));
    strncpy(db_version,Werte.Version(OptionBool.version).c_str(),sizeof(db_version));
    // Alte einträge löschen
 
@@ -345,7 +345,7 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
    strncpy(db_stand,(Werte.Stand()).c_str(),sizeof(db_stand));
    strncpy(db_herkunft,(Werte.Herkunft()->Name().c_str()),sizeof(db_herkunft));
    strncpy(db_glaube,(Werte.Glaube()).c_str(),sizeof(db_glaube));
-   strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
+   strncpy(db_name_ch,(Werte.Name_Abenteurer()).c_str(),sizeof(db_name_ch));
    strncpy(db_name_sp,(Werte.Name_Spieler()).c_str(),sizeof(db_name_sp));
    strncpy(db_version,(Werte.Version(OptionBool.version)).c_str(),sizeof(db_version));
    strncpy(db_typ_s,Typ[0]->Short().c_str(),sizeof(db_typ_s));
@@ -409,7 +409,7 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
    if (sqlca.sqlcode==100) charakter_db_anlegen();
 #else
    datei << "  <Figur";
-   write_string_attrib(datei, "Name", Werte.Name_Charakter());
+   write_string_attrib(datei, "Name", Werte.Name_Abenteurer());
    write_string_attrib(datei, "Spieler", Werte.Name_Spieler());
    write_string_attrib(datei, "Zeitpunkt", Werte.Version(OptionBool.version));
    write_int_attrib(datei, "Grad", Werte.Grad());
@@ -512,7 +512,7 @@ void midgard_CG::save_ausruestung()
     char db_art_a[50],db_fert_a[50],db_magisch_a[50];
     int db_wert_a,db_self;
   exec sql end declare section;
-  strncpy(db_name_a,Werte.Name_Charakter().c_str(),sizeof(db_name_a));
+  strncpy(db_name_a,Werte.Name_Abenteurer().c_str(),sizeof(db_name_a));
   strncpy(db_vers_a,Werte.Version(OptionBool.version).c_str(),sizeof(db_vers_a));
   strncpy(db_art_a,"Ausruestung",sizeof(db_art_a));
   int self=0;
@@ -538,7 +538,7 @@ void midgard_CG::save_ausruestung_C(int parent,int &self,const list<AusruestungB
     char db_art_ac[50],db_fert_ac[50],db_magisch_ac[50];
     int db_wert_ac,db_parent,db_self_ac;
   exec sql end declare section;
-  strncpy(db_name_ac,Werte.Name_Charakter().c_str(),sizeof(db_name_ac));
+  strncpy(db_name_ac,Werte.Name_Abenteurer().c_str(),sizeof(db_name_ac));
   strncpy(db_vers_ac,Werte.Version(OptionBool.version).c_str(),sizeof(db_vers_ac));
   strncpy(db_art_ac,"Ausruestung",sizeof(db_art_ac));
 
@@ -582,9 +582,9 @@ void midgard_CG::charakter_db_anlegen()
       char db_name_ch[50];
       char db_version[50];
    exec sql end declare section;
-   strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
+   strncpy(db_name_ch,(Werte.Name_Abenteurer()).c_str(),sizeof(db_name_ch));
    strncpy(db_version,(Werte.Version(OptionBool.version)).c_str(),sizeof(db_version));
-   std::cout << "Neuen Charakter "<< db_name_ch  <<" in Datenbank anlegen\n";
+   std::cout << "Neuen Abenteurer "<< db_name_ch  <<" in Datenbank anlegen\n";
    exec sql insert into charaktere 
         (charakter_name,version)
      values (:db_name_ch,:db_version);

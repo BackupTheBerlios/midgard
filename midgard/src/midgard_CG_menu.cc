@@ -161,12 +161,7 @@ void midgard_CG::menu_init()
      i->menu = manage(new class Gtk::CheckMenuItem(i->text));
      haus_menu->append(*(i->menu));
      i->menu->set_active(i->active);
-//     i->menu->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen));
-
-//     Gtk::MenuItem *haus_gold = manage(new class Gtk::MenuItem("1 GS entspricht 1 GFP"));
-//  haus_menu->append(*haus_gold);
-//  haus_gold->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen));
-//  haus_gold->show();
+     i->menu->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen_from_menu));
    }  
   haus->add(*_tabhaus);
   menu->append(*haus);

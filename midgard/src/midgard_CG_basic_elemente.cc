@@ -100,7 +100,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
     regnot("Neue Fertigkeiten können nur durch 'Unterweisung' gelernt werden");
     return;
   }
- // Nicht alle Charakterklassen können Zauber auch mit Praxispunkten lernen
+ // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
  if(MBE->What()==MidgardBasicElement::ZAUBER &&
      radiobutton_praxis->get_active() )
    {

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.93 2002/01/29 08:01:11 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.94 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -154,7 +154,7 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(Werte.Stand(),10,"1.5cm") << "}\n";
  fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(Werte.Herkunft()->Name(),10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(Werte.Glaube(),10,"2.5cm") << "}\n";
- fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(Werte.Name_Charakter(),25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(Werte.Name_Abenteurer(),25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\gfp}{\\tiny "  <<EmptyInt_4TeX(Werte.GFP()) << "}\n";
  fout << "\\newcommand{\\aep}{\\tiny "  <<EmptyInt_4TeX(Werte.KEP()) << "}\n";

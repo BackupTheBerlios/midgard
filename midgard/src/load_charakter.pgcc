@@ -72,16 +72,16 @@ void midgard_CG::xml_import(const std::string& datei)
 #ifdef USE_XML
    TagStream ts(datei);
    const Tag *data=&ts;
-   const Tag *top=ts.find("Midgard-Charakter"); // -V8
+   const Tag *top=ts.find("Midgard-Abenteurer"); // -V8
    if (!top) 
    {  data=ts.find("MidgardCG-data");  // V8+
       if (!data) data=ts.find("MAGUS-data"); // V10?
       if (data) 
-      {  top=data->find("Midgard-Charakter");
+      {  top=data->find("Midgard-Abenteurer");
          if (!top) top=data->find("Midgard-Abenteurer"); // V10?
       }
    }
-   // Wenn mehrere Charaktere -> auswählen?
+   // Wenn mehrere Abenteurer -> auswählen?
    if (!top)
    {  manage(new WindowInfo("(Abenteurer in) Datei '"+datei
                    +"' nicht gefunden."));
@@ -200,7 +200,7 @@ void midgard_CG::xml_import(const std::string& datei)
       	,Steigern->getIntAttr("Basiswerte",Werte.Grad()));
    else Database.GradAnstieg.set_Grad_Anstieg(50,Werte.Grad());
 
-   // Charakterklasse setzen und anzeigen 
+   // Abenteurerklasse setzen und anzeigen 
    this->Typ[0]=cH_Typen(Typ->getAttr("Abkürzung"),true);
 
    { std::string s = Typ->getAttr("Abkürzung2");
@@ -476,12 +476,12 @@ void midgard_CG::load_ausruestung()
     int adb_wert,adb_self;
     char query[1024];
   exec sql end declare section;
-  strncpy(adb_name,Werte.Name_Charakter().c_str(),sizeof(adb_name));
+  strncpy(adb_name,Werte.Name_Abenteurer().c_str(),sizeof(adb_name));
   strncpy(adb_vers,Werte.Version(OptionBool.version).c_str(),sizeof(adb_vers));
   strncpy(adb_art,"Ausruestung",sizeof(adb_art));
   std::string squery = "select fertigkeit,wert,magisch,sl_bonus
       from charaktere_fertigkeiten
-      where charakter_name='"+Werte.Name_Charakter()+"' and 
+      where charakter_name='"+Werte.Name_Abenteurer()+"' and 
             version ='"+Werte.Version(OptionBool.version)+"' and art='Ausruestung'
             and av_bonus="+itos(0);
   strncpy(query,squery.c_str(),sizeof(query));
@@ -515,12 +515,12 @@ void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum *AB)
     int acdb_wert,acdb_self;
     char cquery[1024];
   exec sql end declare section;
-  strncpy(acdb_name,Werte.Name_Charakter().c_str(),sizeof(acdb_name));
+  strncpy(acdb_name,Werte.Name_Abenteurer().c_str(),sizeof(acdb_name));
   strncpy(acdb_vers,Werte.Version(OptionBool.version).c_str(),sizeof(acdb_vers));
   strncpy(acdb_art,"Ausruestung",sizeof(acdb_art));
   std::string squery = "select fertigkeit,wert,magisch,sl_bonus "
       "from charaktere_fertigkeiten "
-      "where charakter_name='"+Werte.Name_Charakter()+"' and "
+      "where charakter_name='"+Werte.Name_Abenteurer()+"' and "
             "version ='"+Werte.Version(OptionBool.version)+"' and art='Ausruestung' "
             "and av_bonus="+itos(parent);
   strncpy(cquery,squery.c_str(),sizeof(cquery));
@@ -582,7 +582,7 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
       coalesce(av_bonus,0),coalesce(sl_bonus,0),coalesce(region,''),
       coalesce(magisch,''),coalesce(zauberwerk_stufe,'')
       from charaktere_fertigkeiten
-      where charakter_name='"+Werte.Name_Charakter()+"' and 
+      where charakter_name='"+Werte.Name_Abenteurer()+"' and 
             version ='"+Werte.Version(OptionBool.version)+"' and art!='Ausruestung'";
   strncpy(query,squery.c_str(),sizeof(query));
   exec sql prepare LFEIN_ from :query;

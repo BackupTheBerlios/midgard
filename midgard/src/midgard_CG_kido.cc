@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.30 2002/01/21 08:45:00 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.31 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,6 +57,6 @@ void midgard_CG::stil_optionmenue()
   if (ityp==optionmenu_KiDo_Stile::sanft) Werte.setSpezialisierung(Vkido[1]);
   if (ityp==optionmenu_KiDo_Stile::hart) Werte.setSpezialisierung(Vkido[2]);
   if (ityp==optionmenu_KiDo_Stile::gemischt) Werte.setSpezialisierung(Vkido[3]);
-  // NUR sensetiv setzen, wenn Charaktererschaffung also Grad=1
+  // NUR sensetiv setzen, wenn Abenteurerrschaffung also Grad=1
   if(Werte.Grad()==1) button_kido_auswahl->set_sensitive(true);
 }

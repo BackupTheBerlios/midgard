@@ -119,13 +119,13 @@ protected:
         class Gtk::OptionMenu *typauswahl;
         struct typauswahl
         {   enum enum_t 
-	   {   Charakterklassen, 
+	   {   Abenteurerklassen, 
 	   };
         };
         class Gtk::OptionMenu *typauswahl_2;
         struct typauswahl_2
         {   enum enum_t 
-	   {   ___Charakterklasse, 
+	   {   ___Abenteurerklasse, 
 	   };
         };
         class Gtk::RadioButton *radiobutton_stadt;

@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.4 2002/01/19 17:07:32 christof Exp $
+// $Id: LaTeX_header.cc,v 1.5 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -88,12 +88,12 @@ void midgard_CG::LaTeX_header(ostream &fout,bool landscape)
  fout << "\\begin{document}\n";
  if(landscape)
   {
-    fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Charakter(),25,"4.5cm") << "}\n";
+    fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Abenteurer(),25,"4.5cm") << "}\n";
     fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
   }
  else
   {
-    fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Charakter(),20,"4.cm") << "}\n";
+    fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Abenteurer(),20,"4.cm") << "}\n";
     fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),20,"4.cm") << "}\n";
   }
  fout << "\\begin{center}\n";

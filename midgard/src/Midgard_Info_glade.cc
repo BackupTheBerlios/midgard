@@ -100,7 +100,7 @@ Midgard_Info_glade::Midgard_Info_glade(
    Gtk::Label *label425 = manage(new class Gtk::Label("Spezies"));
    progressbar_spezies = manage(new class Gtk::ProgressBar());
    
-   Gtk::Label *label426 = manage(new class Gtk::Label("Charakterklassen"));
+   Gtk::Label *label426 = manage(new class Gtk::Label("Abenteurerklassen"));
    progressbar_typen = manage(new class Gtk::ProgressBar());
    
    Gtk::Label *label427 = manage(new class Gtk::Label("Grad Anstieg"));

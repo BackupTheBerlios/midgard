@@ -1,4 +1,4 @@
-// $Id: xmlexport.cc,v 1.8 2002/01/20 23:06:08 christof Exp $
+// $Id: xmlexport.cc,v 1.9 2002/01/29 10:45:28 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -47,7 +47,7 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    	"where charakter_name='"+name+"' and version='"+version+"'");
    
    FetchIStream is=query1.Fetch();
-   o <<	"<Midgard-Charakter Version=\"8\">\n";
+   o <<	"<Midgard-Abenteurer Version=\"8\">\n";
    o << "  <Figur";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Spieler");
@@ -227,12 +227,12 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    o << "  </Fertigkeiten>\n";   
   }
    
-   o << "</Midgard-Charakter>\n";
+   o << "</Midgard-Abenteurer>\n";
 }
 
 int main(int argc, char *argv[])
 {  
-   if (argc>3 && argc<1) {std::cerr << "USAGE: "<<argv[0]<<" ['Charaktername'|'Mus%er'] ['Version']\n";
+   if (argc>3 && argc<1) {std::cerr << "USAGE: "<<argv[0]<<" ['Abenteurername'|'Mus%er'] ['Version']\n";
       exit(1); };
    try{
       Petig::Connection conn;
