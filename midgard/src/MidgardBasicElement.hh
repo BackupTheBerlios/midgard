@@ -75,7 +75,6 @@ class MidgardBasicElement : public HandleContent
       void set_Praxispunkte(int e) const {praxispunkte=e;}
       void add_Praxispunkte(int e) const {praxispunkte+=e;}
       int Steigern_mit_EP() const {return steigern_mit_EP;}
-//      virtual std::string Region() const {return "";}
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
@@ -112,8 +111,6 @@ class MidgardBasicElement : public HandleContent
 
 };
 
-//MidgardBasicElement::TREE& operator++(MidgardBasicElement::TREE& t) {return t+1;}
-
 
 class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
 {
@@ -122,7 +119,6 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
       friend class std::map<std::string,cH_MidgardBasicElement>;
       cH_MidgardBasicElement(){}
    public:
-//      cH_MidgardBasicElement(){*this=new MidgardBasicElement();}
       cH_MidgardBasicElement(const MidgardBasicElement *r) 
             : Handle<const MidgardBasicElement>(r){}
 //      bool operator== (const cH_MidgardBasicElement b) 

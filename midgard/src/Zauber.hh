@@ -32,7 +32,6 @@ class Zauber : public MidgardBasicElement
    std::string What_str() const {return "Zauber";}
 
    std::string Ap() const { return ap;}
-//   std::string Name() const {  return name; }
 
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }

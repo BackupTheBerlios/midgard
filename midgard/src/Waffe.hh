@@ -23,12 +23,10 @@ class Waffe : public MidgardBasicElement
      std::string schaden;
      std::string waffenrang, wm_abwehr_leicht, wm_abwehr_schwer,
          voraussetzung;
-//     std::string region;
      int schwierigkeit,st,gw,gs,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f;
      int lern_land,lern_stadt, anfangswert;
      int schaden_bonus;
-//     bool pflicht;
      list<st_alias> list_alias;
 
      void get_Waffe();
@@ -45,12 +43,11 @@ class Waffe : public MidgardBasicElement
      enum MBEE What() const {return MidgardBasicElement::WAFFE;}
      std::string What_str() const {return "Waffe";}
 
-//     std::string Name() const {return name;}
      const list<st_alias>& Alias() const {return list_alias;}     
      std::string Grundkenntnis() const {return grundkenntnisse;}
-     std::string Region(const std::string& name) const ;
      int LernLand() const {return lern_land;}
      int LernStadt() const {return lern_stadt;}
+      std::string Region(const std::string& name) const ;
 
      std::string Art() const {return art;}
      std::string Art2() const {return art2;}
@@ -114,14 +111,12 @@ class WaffeBesitz : public Waffe
      std::string name,region;
      mutable int av_bonus,sl_bonus;
      mutable std::string magisch;
-//     bool magisch;
 
   public:
      WaffeBesitz(const cH_Waffe& w, std::string b,
                   std::string r,int a,int s, std::string m)
       :waffe(w),name(b),region(r),av_bonus(a),sl_bonus(s),magisch(m) 
          {}
-//      {if (magisch_text!="") magisch=true; else magisch=false;}
      
      cH_Waffe Waffe() const {return waffe;}
      std::string Name() const {return name;}
@@ -132,7 +127,6 @@ class WaffeBesitz : public Waffe
      std::string Magisch() const {return magisch;}
      std::string Schaden(const Grundwerte& Werte,const std::string& name) const;
       
-//     bool Magisch() const {return magisch;}
 
      void set_av_Bonus(int a) const {av_bonus=a;}
      void set_sl_Bonus(int a) const {sl_bonus=a;}
