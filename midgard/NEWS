@@ -19,6 +19,9 @@ NEWS IN VERSION 0.6delta3
 * MindestwerTypen in Klammern 
 * Text im Notebook
 * Text/Icons im Notebook abschaltbar
+* Zahlreiche Änderungen an der Oberfläche
+* Au und pA wird zusammen mit Eigenschaften ausgewürfelt
+* Typempfehlungen werden berücksichtigt
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen

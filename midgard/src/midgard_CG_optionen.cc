@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.85 2002/05/06 14:03:58 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.86 2002/05/06 19:50:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -145,6 +145,8 @@ void midgard_CG::show_NIcons(bool i)
    pixmap_notebook_beschreibung->show();
    pixmap_notebook_ausruestung->show();
    pixmap_notebook_optionen->show();
+   pixmap_notebook_news_1->show();
+   pixmap_notebook_news_2->show();
   }
  else
   {
@@ -154,6 +156,8 @@ void midgard_CG::show_NIcons(bool i)
    pixmap_notebook_beschreibung->hide();
    pixmap_notebook_ausruestung->hide();
    pixmap_notebook_optionen->hide();
+   pixmap_notebook_news_1->hide();
+   pixmap_notebook_news_2->hide();
   }
 }
 
@@ -168,6 +172,7 @@ void midgard_CG::show_NBeschriftungen(bool b)
    label_notebook_beschreibung->show();
    label_notebook_ausruestung->show();
    label_notebook_optionen->show();
+   label_notebook_news->show();
   }
  else
   {
@@ -177,6 +182,7 @@ void midgard_CG::show_NBeschriftungen(bool b)
    label_notebook_beschreibung->hide();
    label_notebook_ausruestung->hide();
    label_notebook_optionen->hide();
+   label_notebook_news->hide();
   }
 }
 

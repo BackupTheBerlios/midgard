@@ -25,9 +25,9 @@
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
   <modal>False</modal>
-  <allow_shrink>False</allow_shrink>
+  <allow_shrink>True</allow_shrink>
   <allow_grow>True</allow_grow>
-  <auto_shrink>True</auto_shrink>
+  <auto_shrink>False</auto_shrink>
 
   <widget>
     <class>GtkEventBox</class>
@@ -6001,6 +6001,7 @@ schaften</label>
 		  <class>GtkOptionMenu</class>
 		  <name>typauswahl</name>
 		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>Eingeklammerungen bedeuten, daß die empfohlenen Mindestwerte für diesen Typ nicht erreicht sind.</tooltip>
 		  <can_focus>True</can_focus>
 		  <items>Abenteurerklassen
 </items>
@@ -8218,83 +8219,14 @@ auswählen</label>
 		<widget>
 		  <class>GtkTable</class>
 		  <name>table132</name>
-		  <rows>1</rows>
+		  <rows>2</rows>
 		  <columns>2</columns>
 		  <homogeneous>False</homogeneous>
 		  <row_spacing>0</row_spacing>
 		  <column_spacing>0</column_spacing>
 
 		  <widget>
-		    <class>GtkToggleButton</class>
-		    <name>togglebutton_gelernte_anzeigen</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_togglebutton_gelernte_anzeigen_toggled</handler>
-		      <last_modification_time>Fri, 01 Mar 2002 07:42:26 GMT</last_modification_time>
-		    </signal>
-		    <relief>GTK_RELIEF_NORMAL</relief>
-		    <active>False</active>
-		    <child>
-		      <left_attach>0</left_attach>
-		      <right_attach>1</right_attach>
-		      <top_attach>0</top_attach>
-		      <bottom_attach>1</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkHBox</class>
-		      <name>hbox66</name>
-		      <homogeneous>False</homogeneous>
-		      <spacing>0</spacing>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap142</name>
-			<filename>Angeb_Sicht-32.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-			<child>
-			  <padding>0</padding>
-			  <expand>True</expand>
-			  <fill>True</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<name>label562</name>
-			<label>Auch gelernte
-Fertigkeiten anzeigen</label>
-			<justify>GTK_JUSTIFY_CENTER</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkToggleButton</class>
+		    <class>GtkCheckButton</class>
 		    <name>togglebutton_teure_anzeigen</name>
 		    <cxx_visibility>protected</cxx_visibility>
 		    <can_focus>True</can_focus>
@@ -8303,8 +8235,8 @@ Fertigkeiten anzeigen</label>
 		      <handler>on_togglebutton_teure_anzeigen_toggled</handler>
 		      <last_modification_time>Fri, 01 Mar 2002 07:43:14 GMT</last_modification_time>
 		    </signal>
-		    <relief>GTK_RELIEF_NORMAL</relief>
 		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
 		    <child>
 		      <left_attach>1</left_attach>
 		      <right_attach>2</right_attach>
@@ -8321,45 +8253,81 @@ Fertigkeiten anzeigen</label>
 		    </child>
 
 		    <widget>
-		      <class>GtkHBox</class>
-		      <name>hbox69</name>
-		      <homogeneous>False</homogeneous>
-		      <spacing>0</spacing>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap145</name>
-			<filename>Angeb_Sicht-32.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-			<child>
-			  <padding>0</padding>
-			  <expand>True</expand>
-			  <fill>True</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<name>label565</name>
-			<label>Auch Fertigkeiten
-zeigen, die zu teuer sind</label>
-			<justify>GTK_JUSTIFY_CENTER</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
+		      <class>GtkLabel</class>
+		      <name>label565</name>
+		      <label>zu teure Fertigkeiten zeigen</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
 		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>togglebutton_gelernte_anzeigen</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_togglebutton_gelernte_anzeigen_toggled</handler>
+		      <last_modification_time>Fri, 01 Mar 2002 07:42:26 GMT</last_modification_time>
+		    </signal>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		    <child>
+		      <left_attach>1</left_attach>
+		      <right_attach>2</right_attach>
+		      <top_attach>1</top_attach>
+		      <bottom_attach>2</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label562</name>
+		      <label>Gelernte Fertigkeiten zeigen</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>7.45058e-09</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkPixmap</class>
+		    <name>pixmap145</name>
+		    <filename>Angeb_Sicht-32.xpm</filename>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <build_insensitive>True</build_insensitive>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>1</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>2</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>True</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>True</yfill>
+		    </child>
 		  </widget>
 		</widget>
 	      </widget>
@@ -15300,16 +15268,81 @@ wird der entsprechende Abenteurer geladen.</label>
 	</widget>
 
 	<widget>
-	  <class>GtkLabel</class>
+	  <class>GtkEventBox</class>
 	  <child_name>Notebook:tab</child_name>
-	  <name>label555</name>
-	  <label>NEWS</label>
-	  <justify>GTK_JUSTIFY_CENTER</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
+	  <name>eventbox17</name>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox57</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
+
+	    <widget>
+	      <class>GtkHBox</class>
+	      <name>hbox74</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>0</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkPixmap</class>
+		<name>pixmap_notebook_news_1</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<filename>Fert_Lesen-32.xpm</filename>
+		<xalign>0.5</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<build_insensitive>True</build_insensitive>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkPixmap</class>
+		<name>pixmap_notebook_news_2</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<filename>redo.xpm</filename>
+		<xalign>0.5</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<build_insensitive>True</build_insensitive>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <child_name>Notebook:tab</child_name>
+	      <name>label_notebook_news</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <label>News &amp; Geschichte</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>False</fill>
+	      </child>
+	    </widget>
+	  </widget>
 	</widget>
       </widget>
 
