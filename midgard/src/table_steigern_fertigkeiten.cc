@@ -76,7 +76,7 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
   MBEmlt MBE = dt->getMBE();
   if ((*MBE)->Name()=="KiDo") 
     { zeige_werte();
-      Ausgabe(Ausgabe::ActionNeeded,"Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!");
+      Ausgabe(Ausgabe::ActionNeeded,"Jetzt muss ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!");
 #warning Kido Stil mit Wizard realisieren!
 //      hauptfenster->load_for_mainpage(midgard_CG::PAGE_LERNEN);
       MidgardBasicElement_leaf_neu(d);      

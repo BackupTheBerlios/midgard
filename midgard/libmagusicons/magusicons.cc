@@ -1,4 +1,4 @@
-// $Id: magusicons.cc,v 1.10 2004/03/06 23:15:17 christof Exp $
+// $Id: magusicons.cc,v 1.11 2004/03/12 12:09:07 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>
@@ -6,6 +6,7 @@
 #include <libmagus/Magus_Optionen.hh>
 #include <gtk/gtkstock.h>
 #include <gtk/gtkiconfactory.h>
+#include <gtk/gtkwidget.h>
 
 static MagusIcons::style current_style=MagusIcons::Alessandro;
 MagusIcons::map_t MagusIcons::images;
@@ -46,7 +47,7 @@ static void brighten(const Glib::RefPtr<Gdk::Pixbuf> &im, gfloat value)
 #define GTK_ICON(name,stock) \
 	images[key_t(MagusIcons::Gtk,name)]= \
 		Glib::wrap(gtk_icon_set_render_icon(gtk_icon_factory_lookup_default \
-		(GTK_STOCK_##stock),0,GTK_TEXT_DIR_NONE, \
+		(GTK_STOCK_##stock),gtk_widget_get_default_style(),GTK_TEXT_DIR_NONE, \
          		GTK_STATE_NORMAL, GTK_ICON_SIZE_LARGE_TOOLBAR, \
         		0,0))
 
