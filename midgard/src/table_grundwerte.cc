@@ -16,7 +16,7 @@ void table_grundwerte::init(midgard_CG *h)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
   hauptfenster=h;
-  abentaus=h->getChar();
+  abentaus=&h->getChar();
 
   abentaus->signal_anderer_abenteurer().connect(SigC::bind(SigC::slot(*this,&table_grundwerte::zeige_werte),true));
 //  zeige_werte(); // noch weg
