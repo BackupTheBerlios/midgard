@@ -245,14 +245,8 @@ Reise zu den Sphären	Der Zauberer kann sich selbst und bis zu 5 andere Abenteure
 Rindenhaut	Der Verzauberte erhält eine harte, borkige Haut, die seine Bewegungsweite um 4 senkt und ihn wie eine Kettenrüstung schützt.(Eichenrinde, 2KS)
 Ring des Lebens	Der Zauberer zeichnet mit seinem Finger einen blauen leuchtenden Ring in die Luft. Dieser ring der sich je Runde um 3m ausbreitet schützt vor Untoten. Ein Untoter verliert bei Kontakt einmalig 4W6LP, gelingt WW:Resistenz so verliert er die hälfte.(Samen des Lebenskrautes, 5SS)
 Rost	Von diesem Spruch betroffene Gegenstände aus unedelen Metallen beginnem mit 10% pro Grad des Zauberers sehr schnell zu verotten. 'Rostige' Gegenstäne sind nicht unbrauchbar sondern erleiden nur abzüge, z.B. Rüstung fäng 1LP weniger Schaden auf, eine Waffe erhält -2 auf EW:Angriff.
-Scharfblick	*.*
 Schattenroß rufen	GZ 10. Kann nur nachts beschworen werden aber auch tagsüber geritten werden. Roß verschwindet wieder, wenn Magier absteigt. Dieser hat WM+10 auf Reiten und Kampf zu Pferd
-Schlaf	*.*
-Schlangenbiß	*.*
 Schleichende Verderbnis	GZ 15. Zauberzutat ist Pergament gemacht aus der Haut eines gehängten/geräderten Mörders. Das mit Runen versehene Pergament muß 2 m um die augenblickliche Wohnstatt des Opfers vergraben werden. Dann sinken die Basiswerte des Opfers pro Tag um 1, es hat Alpträume(keine AP Regeneration). LPmax sinkt um 2 pro Woche. Das Opfer hat jede Woche einen WW:phs, auf den aber kumulativ WM-2 dazu kommen. Das Opfer stirbt bei 0 LP oder eine Basiseigenschaft 0. Der Zauber kann gebrochen werden, wenn das Opfer die Wohnstatt verlässt oder das Pergament findet und zerstört.
-Schmerzen	*.*
-Schrumpfen	*.*
-Schutzgeist	*.*
 Schutzkreis gegen Dunebargen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dunebarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Dvergar	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dvergar, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Geisterwesen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 4AP pro Person im Schutzkreis. Jeder Geist, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
@@ -263,112 +257,23 @@ Schutzkreis gegen Kaobargen	Schutzkreis schützt die Personen innerhalb. Anlegen 
 Schutzkreis gegen Untote	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 3AP pro Person im Schutzkreis. Jeder Untote, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Vindfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Wisfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
-Schwarm	*.*
-Schwarze Zone	*.*
-Schweben	*.*
-Schwingenkeule	*.*
-Schwäche	*.*
-Seelenheilung	*.*
-Seelenkompaß	*.*
-Segnen	*.*
-Sehen in Dunkelheit	*.*
-Sehen von Verborgenem	*.*
-Silberstaub	*.*
-Spruch intensivieren	*.*
 Späfolk beschwören 1 	Beschwören 1 AP, Fesseln 1 AP, Verlängern 1 AP. 
 Späfolk beschwören 2 	Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
 Späfolk beschwören 3 	Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Späfolk beschwören 4 	Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
-Staubkämpfer	*.*
-Steinkugel	*.*
-Steinwand	*.*
-Stille	*.*
-Stimmenwerfen	*.*
-Sturmflut	*.*
-Sturmhand	*.*
-Sturmwind	*.*
-Stärke	*.*
-Sumpfboden	*.*
-Thursenstein	*.*
-Tiere rufen	*.*
-Tiergestallt	*.*
-Tierisches Handeln	*.*
-Tiersprache	*.*
-Todeshauch	*.*
-Todeskeule	*.*
-Todeszauber	*.*
 Trockensalz	Das Salz saugt bis zu 1l Flüssigkeit auf.
 Träger beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
 Träger beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
 Träger beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Träger beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
-Umkehrschild	*.*
-Ungeheuer rufen	*.*
-Unsichtbarbeit	*.*
 Unwetter rufen	GZ 5. Dadurch wird ein sehr starkes Gewitter gerufen, das sich innerhalb von 5 Minuten bildet und dann 15 Minuten anhält. Massive Wirkungen. Lebewesen mit weniger als LP, die nicht rechtzeitig einen Unterschlupf finden, sterben.
-Verbotenes Wort	*.*
-Verdorren	*.*
-Vereisen	*.*
-Verfluchen	*.*
-Vergiften	*.*
 Verglasen	GZ 5. Mißlingt der WW:phs, verwandelt sich der Körper des Opfers innerhalb von 4 Runden in Glas. Kann mit Bannen von Zauberwerk/Bannen von Finsterwerk aufgehoben werden, wenn PW:WLW gelingt.
-Vergrößern	*.*
-Verjüngen	*.*
-Verkleinern	*.*
-Verlangsamen	*.*
-Verletzung	*.*
-Versetzen	*.*
-Versteinern	*.*
-Vertieren	*.*
-Verursachen schwerer Wunden	*.*
-Verursachen von Krankheit	*.*
-Verursachen von Wunden	*.*
-Verwandlung	*.*
-Verwirren	*.*
 Verwüstung	GZ 1. Pflanzen innerhalb des Wirkungsbereiches verdorren innerhalb von Sekunden. Das Gelände bleibt (Grad Fm)^2 unfruchtbar.
-Verzweiflung	*.*
-Vision	*.*
-Wachsen	*.*
-Wagemut	*.*
-Wahnsinn	*.*
-Wahrsehen	*.*
-Wandelhand	*.*
-Wandeln wie der Wind	*.*
-Waranung	*.*
-Wasseratmen	*.*
-Wasserlauf	*.*
-Wassermeisterschaft	*.*
-Wasserstrahl	*.*
-Wasserwandlung	*.*
-Wetterzauber	*.*
-Wiederkehr	*.*
-Windmeisterschaft	*.*
-Windstoß	*.*
-Wirbelwind	*.*
-Wort der Trauer	*.*
-Wort des Lebens	*.*
-Wort des Todes	*.*
-Wundersame Tarnung	*.*
 Wächter beschwören 1	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
 Wächter beschwören 2	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Wächter beschwören 3	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
-Zauberauge	*.*
-Zauberhand	*.*
-Zaubermacht	*.*
-Zauberschild	*.*
-Zauberschloß	*.*
-Zauberschlüssel	*.*
-Zauberschmiede	*.*
-Zauberstimme	*.*
-Zauberwirklichkeit	*.*
-Zauberzunge	*.*
 Zeichen des Chaos	GZ 4. Mißlingt dem Opfer ein WW:phs(weiße Hexer, Priester und Ordenskriegen haben WM+4), wächst ihm ein leicht zu bemerkendes Chaoszeichen: Schwarz verfärbte Körperteile, glühende Augen, Klauen, Hörner usw. Die Wirkung des Zaubers dauert (Gr Fm)*(Gr Opfer). 
-Ziehlsuche	*.*
 Zucksalz	Das Opfer leidet unter nervösen Zuckungen, was WM-4 auf alle EW bedeutet, auch Angriff und Zaubern. pA sinkt auf ein Viertel.
-Zweige der Macht und des Wissens	*.*
-Zweite Haut	*.*
-Zwiesprache	*.*
-Zähmen	*.*
 \.
 --
 --
