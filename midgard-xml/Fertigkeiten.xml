@@ -12,6 +12,8 @@
     <Grund>BN,BS,BW,Kr,Ri,Sö</Grund>
     <Standard>As,Ba,Fi,Gl,Hä,Kd,Ny,Or,PK,Sc,Se,Sp,Sr,Wa</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sa,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Kosten Wert2="100" Wert3="250" Wert4="500" Wert5="1000"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Balancieren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>As,BW,Gl,Kd,Ny,Se,Sp,Wa</Grund>
@@ -22,6 +24,7 @@
     <Lernschema Typ="Sp" Lernpunkte="2"/>
     <Lernschema Typ="Tr" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Ballista bedienen" Lernpunkte="8" Lernkosten="100">
     <Grund>Kr,Ri,Se,Sö</Grund>
@@ -29,6 +32,7 @@
     <Ausnahme>Dr,Hl,Kd,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sö" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Beidhändiger Kampf" Lernpunkte="6" Anfangswert="-4" Lernkosten="1500" Erfolgswert="-4">
     <Grund>BN,BS,BW,Gl,Kd,Kr,Ri,Se,Sö</Grund>
@@ -40,6 +44,8 @@
     <Lernschema Typ="Ny" Lernpunkte="2"/>
     <Lernschema Typ="Sö" Lernpunkte="2"/>
     <Lernschema Typ="Ri" Lernpunkte="3"/>
+    <Kosten Wert1="4000" Wert2="3000" Wert3="2000"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Beredsamkeit" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA">
     <Grund>Ba,Gl,Hä,Se</Grund>
@@ -49,12 +55,17 @@
     <Lernschema Typ="PH" Lernpunkte="2"/>
     <Lernschema Typ="Sk" Lernpunkte="2"/>
     <Lernschema Typ="Ri" Lernpunkte="3"/>
+    <Praxispunkte MaximalWert="14" Lernfaktor="10"/>
+    <Kosten Wert7="50" Wert8="100" Wert9="250" Wert10="500"/>
   </Fertigkeit>
   <Fertigkeit Name="Beschatten" Lernpunkte="4" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="RW">
     <Grund>As,BW,Ny,Sp,Wa</Grund>
     <Standard>BN,BS,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="As" Lernpunkte="2"/>
     <Lernschema Typ="Ny" Lernpunkte="2"/>
+    <Verbot Typ="Ri"/>
+    <Praxispunkte MaximalWert="16" Lernfaktor="10"/>
+    <Kosten Wert7="50" Wert8="50" Wert9="100" Wert10="100" Wert11="200" Wert12="400" Wert13="400"/>
   </Fertigkeit>
   <Fertigkeit Name="Bogen vom Streitwagen" Lernpunkte="8" Lernkosten="200">
     <Grund>BS,Kr,Ri,Sö</Grund>
@@ -62,6 +73,7 @@
     <Ausnahme>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Kr" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Bogen zu Pferd" Lernpunkte="8" Lernkosten="200">
     <Grund>BS,Kr,Ri,Sö</Grund>
@@ -71,6 +83,7 @@
     <Lernschema Typ="Kr" Lernpunkte="2"/>
     <Lernschema Typ="Ri" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Erste Hilfe" Lernpunkte="4" Lernkosten="100">
     <Grund>Hl,PF,Sa,Sc</Grund>
@@ -111,6 +124,7 @@
     <Lernschema Typ="BW" Lernpunkte="1"/>
     <Lernschema Typ="Wa" Lernpunkte="1"/>
     <Lernschema Typ="Fi" Lernpunkte="3"/>
+    <Verbot Typ="Ri"/>
     <steigern_wie Fertigkeit="Abenteuer"/>
   </Fertigkeit>
   <Fertigkeit Name="Faustkampf" Lernpunkte="5" Lernkosten="500">
@@ -120,17 +134,22 @@
     <Lernschema Typ="BN" Lernpunkte="2"/>
     <Lernschema Typ="BS" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Fechten" Lernpunkte="4" Anfangswert="4" Lernkosten="800" Erfolgswert="4">
     <Grund>As,Ba,Gl,Sp</Grund>
     <Standard>BN,BS,BW,Fi,Hä,Kd,Kr,Or,Ri,Se,Sr,Sö,Wa</Standard>
     <Ausnahme>Dr,Hl,Ma,Ny,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Praxispunkte MaximalWert="16" Lernfaktor="10"/>
+    <Kosten Wert5="50" Wert6="50" Wert7="100" Wert8="100" Wert9="200" Wert10="200" Wert11="500" Wert12="500" Wert13="1000" Wert14="1000" Wert15="2000" Wert16="2000"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Fechten tevarischer Stil" Lernpunkte="5" Lernkosten="400">
     <Grund>As,Ba,Gl,Sp</Grund>
     <Standard>BN,BS,BW,Fi,Hä,Kd,Kr,Or,Ri,Se,Sr,Sö,Wa</Standard>
     <Ausnahme>Dr,Hl,Ma,Ny,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Gassenwissen" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In">
     <Grund>As,Ba,Gl,Hä,Ny,Se,Sp,Sö,gHx,sHx,wHx</Grund>
@@ -142,12 +161,17 @@
     <Lernschema Typ="gHx" Lernpunkte="2"/>
     <Lernschema Typ="sHx" Lernpunkte="2"/>
     <Lernschema Typ="wHx" Lernpunkte="2"/>
+    <Verbot Typ="Elf"/>
+    <Verbot Typ="Ri"/>
+    <Praxispunkte MaximalWert="16" Lernfaktor="5"/>
+    <Kosten Wert3="50" Wert4="50" Wert5="50" Wert6="100" Wert7="100" Wert8="250" Wert9="250" Wert10="500" Wert11="500"/>
   </Fertigkeit>
   <Fertigkeit Name="Geheimmechanismen öffnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In">
     <Grund>Gl,Sp,Th</Grund>
     <Standard>As,Ba,Fi,Hl,Hä,Kd,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Se,Sr,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Dr,Kr,Ri,Sa,Sc,Sö</Ausnahme>
     <Lernschema Typ="Sp" Lernpunkte="2"/>
+    <Lernschema Typ="Berggnom" Lernpunkte="1" Anfangswert="4" Pflicht="True"/>
     <steigern_wie Fertigkeit="Abenteuer"/>
   </Fertigkeit>
   <Fertigkeit Name="Geheimzeichen" Lernpunkte="3" Lernkosten="50">
@@ -168,6 +192,7 @@
     <Lernschema Typ="Fi" Lernpunkte="2"/>
     <Lernschema Typ="Wa" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Geschichten erzählen" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8" Attribut="In">
     <Grund>Ba,Gl,Se</Grund>
@@ -175,6 +200,7 @@
     <Ausnahme>As,Ny</Ausnahme>
     <Lernschema Typ="Ba" Lernpunkte="1"/>
     <Lernschema Typ="Gl" Lernpunkte="2"/>
+    <Kosten Wert9="20" Wert10="20" Wert11="20" Wert12="50" Wert13="50" Wert14="100" Wert15="100" Wert16="200" Wert17="200" Wert18="400" Wert19="800"/>
   </Fertigkeit>
   <Fertigkeit Name="Geschäftstüchtigkeit" Lernpunkte="9" Lernkosten="4000">
     <Grund>Hä</Grund>
@@ -191,6 +217,8 @@
     <Lernschema Typ="gHx" Lernpunkte="2"/>
     <Lernschema Typ="sHx" Lernpunkte="2"/>
     <Lernschema Typ="wHx" Lernpunkte="2"/>
+    <Verbot Typ="Elf"/>
+    <Verbot Typ="Ri"/>
     <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
   <Fertigkeit Name="Glücksspiel" Lernpunkte="4" Anfangswert="15" Lernkosten="200" Erfolgswert="15" Attribut="Ge">
@@ -198,6 +226,8 @@
     <Standard>As,BN,BS,BW,Dr,Fi,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="Gl" Lernpunkte="1"/>
     <Lernschema Typ="Sö" Lernpunkte="2"/>
+    <Verbot Typ="Elf"/>
+    <Kosten Wert16="100"/>
   </Fertigkeit>
   <Fertigkeit Name="Himmelskunde" Lernpunkte="3" Lernkosten="50">
     <Grund>BN,BS,Ba,Hä,Sa,Sc,Se,Wa</Grund>
@@ -214,6 +244,7 @@
     <Standard>As,BN,BS,Ba,Fi,Gl,Hä,Ny,Or,Se,Sp,Sr,Wa</Standard>
     <Ausnahme>Dr,Hl,Kd,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf in Vollrüstung" Lernpunkte="8" Lernkosten="4000">
     <Grund>Kr,Ri,Sö</Grund>
@@ -223,14 +254,18 @@
     <Lernschema Typ="Ri" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Sö" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Sr" Lernpunkte="4"/>
+    <Verbot Typ="Elf" Spielbeginn="S"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf vom Streitwagen" Lernpunkte="8" Lernkosten="200">
     <Grund>BN,BS,Kr,Ri,Sö</Grund>
     <Standard>BW,Ba,Fi,Gl,Hä,Kd,Or,Sr,Wa</Standard>
     <Ausnahme>As,Dr,Hl,Ma,Ny,PC,PF,PK,PM,PT,PW,Sa,Sc,Se,Sp,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Kr" Lernpunkte="2"/>
+    <Verbot Typ="Ri"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf zu Pferd" Lernpunkte="8" Lernkosten="200">
     <Grund>BN,BS,BW,Gl,Hä,Kr,Ri,Sa,Sö</Grund>
@@ -242,6 +277,7 @@
     <Lernschema Typ="Or" Lernpunkte="2"/>
     <Lernschema Typ="Sö" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampftaktik" Lernpunkte="8" Anfangswert="1" Lernkosten="200" Erfolgswert="1">
     <Grund>Kr,Ri,Sa,Se,Sö</Grund>
@@ -252,12 +288,15 @@
     <Lernschema Typ="Ri" Lernpunkte="2"/>
     <Lernschema Typ="Sr" Lernpunkte="2"/>
     <Lernschema Typ="Sö" Lernpunkte="2"/>
+    <Kosten Wert2="1000" Wert3="2000"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kanufahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>BW,Hä,Se,Wa</Grund>
     <Standard>As,BN,BS,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BW" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Katapult bedienen" Lernpunkte="8" Lernkosten="100">
     <Grund>Kr,Ri,Se,Sö</Grund>
@@ -265,6 +304,7 @@
     <Ausnahme>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sö" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Klettern" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>As,BN,BS,BW,Gl,Ny,Se,Sp,Wa</Grund>
@@ -279,6 +319,7 @@
     <Lernschema Typ="Tr" Lernpunkte="2"/>
     <Lernschema Typ="Wa" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kräuterkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
     <Grund>Dr,Hl,Ma,Sa,Sc,Wa,dBe,eBe,gHx,sHx,wHx</Grund>
@@ -309,6 +350,8 @@
     <Lernschema Typ="Wa" Lernpunkte="1"/>
     <Lernschema Typ="BS" Lernpunkte="2"/>
     <Lernschema Typ="Fi" Lernpunkte="2"/>
+    <Kosten Wert3="100" Wert4="300" Wert5="500" Wert6="1000"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Lesen von Zauberschrift" Lernpunkte="8" Lernkosten="60">
     <Grund>Hl,Ma,PC,PF,PK,PM,PT,PW,gHx,sHx,wHx</Grund>
@@ -368,6 +411,8 @@
     <Lernschema Typ="As" Lernpunkte="2"/>
     <Lernschema Typ="Sp" Lernpunkte="2"/>
     <Lernschema Typ="Tr" Lernpunkte="2"/>
+    <Praxispunkte MaximalWert="14" Lernfaktor="10"/>
+    <Kosten Wert3="50" Wert4="100" Wert5="100" Wert6="200" Wert7="400" Wert8="400" Wert9="800" Wert10="800"/>
   </Fertigkeit>
   <Fertigkeit Name="Menschenkenntnis" Lernpunkte="3" Anfangswert="4" Lernkosten="250" Erfolgswert="2" Attribut="In">
     <Grund>Ba,Gl,Hl,Hä,PW,Se</Grund>
@@ -380,6 +425,8 @@
     <Lernschema Typ="PW" Lernpunkte="2"/>
     <Lernschema Typ="Sa" Lernpunkte="2"/>
     <Lernschema Typ="Ri" Lernpunkte="3"/>
+    <Praxispunkte MaximalWert="14" Lernfaktor="10"/>
+    <Kosten Wert3="50" Wert4="100" Wert5="100" Wert6="200" Wert7="400" Wert8="400" Wert9="800" Wert10="800"/>
   </Fertigkeit>
   <Fertigkeit Name="Meucheln" Lernpunkte="5" Anfangswert="8" Lernkosten="800" Erfolgswert="6" Attribut="Ge">
     <Grund>As,Ny,Sp</Grund>
@@ -387,6 +434,10 @@
     <Ausnahme>Ba,Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="As" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Ny" Lernpunkte="2"/>
+    <Verbot Typ="Ri"/>
+    <Praxispunkte MaximalWert="20" Lernfaktor="10"/>
+    <Kosten Wert7="100" Wert8="100" Wert9="200" Wert10="200" Wert11="500" Wert12="500" Wert13="1000" Wert14="1000" Wert15="2000" Wert16="2000"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Musizieren" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8">
     <Grund>Ba,Sa</Grund>
@@ -395,6 +446,7 @@
     <Lernschema Typ="Sk" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Ri" Lernpunkte="2"/>
     <Lernschema Typ="Sa" Lernpunkte="2"/>
+    <Kosten Wert9="20" Wert10="20" Wert11="20" Wert12="50" Wert13="50" Wert14="100" Wert15="100" Wert16="200" Wert17="200" Wert18="400" Wert19="800"/>
   </Fertigkeit>
   <Fertigkeit Name="Naturkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
     <Grund>Dr,Sa,Sc,Wa</Grund>
@@ -445,6 +497,7 @@
     <Lernschema Typ="Hä" Lernpunkte="2"/>
     <Lernschema Typ="Sr" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Rudern" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="St">
     <Grund>BN,BW,Hä,Se,Wa</Grund>
@@ -452,6 +505,7 @@
     <Lernschema Typ="BN" Lernpunkte="1"/>
     <Lernschema Typ="Se" Lernpunkte="1"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Sagenkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
     <Grund>Ba,Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Grund>
@@ -480,6 +534,9 @@
     <Lernschema Typ="As" Lernpunkte="2"/>
     <Lernschema Typ="Wa" Lernpunkte="2"/>
     <Lernschema Typ="Ny" Lernpunkte="3"/>
+    <Praxispunkte MaximalWert="16" Lernfaktor="10"/>
+    <Kosten Wert5="50" Wert6="50" Wert7="100" Wert8="100" Wert9="200" Wert10="200" Wert11="500" Wert12="500" Wert13="1000" Wert14="1000" Wert15="2000" Wert16="2000"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Schleichen" Lernpunkte="3" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge">
     <Grund>As,BN,BS,BW,Gl,Ny,Sp,Wa</Grund>
@@ -489,6 +546,8 @@
     <Lernschema Typ="Sp" Lernpunkte="2"/>
     <Lernschema Typ="Tr" Lernpunkte="2"/>
     <Lernschema Typ="Wa" Lernpunkte="2"/>
+    <Lernschema Typ="Elf" Lernpunkte="1" Anfangswert="8" Pflicht="True"/>
+    <Lernschema Typ="Halbling" Lernpunkte="1" Anfangswert="10" Pflicht="True"/>
     <steigern_wie Fertigkeit="Abenteuer"/>
   </Fertigkeit>
   <Fertigkeit Name="Schlittenfahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
@@ -496,12 +555,14 @@
     <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BN" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Schlösser öffnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge">
     <Grund>Sp</Grund>
     <Standard>As,Ba,Fi,Gl,Hä,Kd,Ny,Or,Se,Sr,Wa</Standard>
     <Ausnahme>BN,BS,BW,Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sö,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sp" Lernpunkte="1" Pflicht="True"/>
+    <Verbot Typ="Elf"/>
     <steigern_wie Fertigkeit="Abenteuer"/>
   </Fertigkeit>
   <Fertigkeit Name="Schwimmen" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
@@ -515,6 +576,7 @@
     <Lernschema Typ="PM" Lernpunkte="2"/>
     <Lernschema Typ="Wa" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Segeln" Lernpunkte="4" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>Hä,Se</Grund>
@@ -522,11 +584,14 @@
     <Lernschema Typ="Se" Lernpunkte="1"/>
     <Lernschema Typ="BN" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Seilkunst" Lernpunkte="4" Anfangswert="15" Lernkosten="50" Erfolgswert="6" Attribut="Ge">
     <Grund>Hä,Se,Sp</Grund>
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="Se" Lernpunkte="2"/>
+    <Praxispunkte MaximalWert="16" Lernfaktor="5"/>
+    <Kosten Wert7="10" Wert8="10" Wert9="20" Wert10="20" Wert11="50" Wert12="50"/>
   </Fertigkeit>
   <Fertigkeit Name="Singen" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8" Attribut="In">
     <Grund>Ba,PC,PF,PK,PM,PT,PW,Sa,Sc</Grund>
@@ -534,12 +599,14 @@
     <Lernschema Typ="Ba" Lernpunkte="1"/>
     <Lernschema Typ="PW" Lernpunkte="2"/>
     <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Kosten Wert9="20" Wert10="20" Wert11="20" Wert12="50" Wert13="50" Wert14="100" Wert15="100" Wert16="200" Wert17="200" Wert18="400" Wert19="800"/>
   </Fertigkeit>
   <Fertigkeit Name="Skifahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>BN,Wa</Grund>
     <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BN" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Sprache" Lernpunkte="3" Anfangswert="4" Lernkosten="10" Erfolgswert="1">
     <Grund>As,Ba,Dr,Gl,Hl,Hä,Ny,PW,Se</Grund>
@@ -548,6 +615,7 @@
     <Lernschema Typ="Se" Lernpunkte="1"/>
     <Lernschema Typ="Gl" Lernpunkte="2"/>
     <Lernschema Typ="PW" Lernpunkte="2"/>
+    <Kosten Wert2="20" Wert3="100" Wert4="100"/>
   </Fertigkeit>
   <Fertigkeit Name="Springen" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12">
     <Grund>As,Gl,Kd,Ny,Sp,Wa</Grund>
@@ -555,6 +623,7 @@
     <Ausnahme>Hl,Ma,PC,PF,PK,PM,PT,PW,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Fi" Lernpunkte="1"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Spurenlesen" Lernpunkte="3" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In">
     <Grund>BS,BW,Wa</Grund>
@@ -564,6 +633,8 @@
     <Lernschema Typ="Wa" Lernpunkte="1"/>
     <Lernschema Typ="BS" Lernpunkte="2"/>
     <Lernschema Typ="Fi" Lernpunkte="2"/>
+    <Lernschema Typ="Elf" Lernpunkte="1" Anfangswert="6" Pflicht="True"/>
+    <Lernschema Typ="Waldgnom" Lernpunkte="1" Anfangswert="4" Pflicht="True"/>
     <steigern_wie Fertigkeit="Abenteuer"/>
   </Fertigkeit>
   <Fertigkeit Name="Stehlen" Lernpunkte="5" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="Ge">
@@ -572,6 +643,10 @@
     <Ausnahme>Dr,Fi,Hl,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sp" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Tr" Lernpunkte="1"/>
+    <Verbot Typ="Elf"/>
+    <Verbot Typ="Ri"/>
+    <Praxispunkte MaximalWert="25" Lernfaktor="10"/>
+    <Kosten Wert7="100" Wert8="100" Wert9="100" Wert10="200" Wert11="200" Wert12="200" Wert13="400" Wert14="400" Wert15="800" Wert16="800" Wert17="800"/>
   </Fertigkeit>
   <Fertigkeit Name="Stimmen nachahmen" Lernpunkte="4" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In">
     <Grund>As,BW,Ba,Ny,Wa,gHx,sHx,wHx</Grund>
@@ -581,6 +656,8 @@
     <Lernschema Typ="Ny" Lernpunkte="1"/>
     <Lernschema Typ="Ba" Lernpunkte="2"/>
     <Lernschema Typ="Sk" Lernpunkte="2"/>
+    <Praxispunkte MaximalWert="20" Lernfaktor="5"/>
+    <Kosten Wert13="20" Wert14="20" Wert15="20" Wert16="50" Wert17="50" Wert18="100" Wert19="100"/>
   </Fertigkeit>
   <Fertigkeit Name="Streitwagen lenken" Lernpunkte="5" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>BS,Kr,PK,Ri</Grund>
@@ -588,7 +665,9 @@
     <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Kr" Lernpunkte="1"/>
     <Lernschema Typ="Or" Lernpunkte="2"/>
+    <Verbot Typ="Ri"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Talisman verzaubern" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1">
     <Grund>Th</Grund>
@@ -596,6 +675,8 @@
     <Ausnahme>Dr,Hl,Ma,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sc" Lernpunkte="2"/>
     <Lernschema Typ="Th" Lernpunkte="2"/>
+    <Kosten Wert2="400" Wert3="800" Wert4="1200"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Tanzen" Lernpunkte="3" Lernkosten="150" Attribut="Ge">
     <Grund>BW,Ba,Gl,Sc</Grund>
@@ -613,6 +694,10 @@
     <Lernschema Typ="Sp" Lernpunkte="2"/>
     <Lernschema Typ="Wa" Lernpunkte="2"/>
     <Lernschema Typ="Fi" Lernpunkte="3"/>
+    <Lernschema Typ="Elf" Lernpunkte="1" Anfangswert="8" Pflicht="True"/>
+    <Lernschema Typ="Halbling" Lernpunkte="1" Anfangswert="10" Pflicht="True"/>
+    <Lernschema Typ="Waldgnom" Lernpunkte="1" Anfangswert="4" Pflicht="True"/>
+    <Verbot Typ="Ri"/>
     <steigern_wie Fertigkeit="Abenteuer"/>
   </Fertigkeit>
   <Fertigkeit Name="Tauchen" Lernpunkte="2" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Attribut="Ko">
@@ -621,6 +706,9 @@
     <Ausnahme>BS,Hl,Ma,PC,PF,PK,PT,PW,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="BN" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Se" Lernpunkte="1"/>
+    <Praxispunkte MaximalWert="14" Lernfaktor="2"/>
+    <Kosten Wert13="100" Wert14="250" Wert15="500"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Tierkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
     <Grund>Dr,Hl,PF,Sc,Wa</Grund>
@@ -648,6 +736,8 @@
     <Lernschema Typ="Gl" Lernpunkte="2"/>
     <Lernschema Typ="Sk" Lernpunkte="2"/>
     <Lernschema Typ="Ri" Lernpunkte="3"/>
+    <Praxispunkte MaximalWert="16" Lernfaktor="2"/>
+    <Kosten Wert9="50" Wert10="50" Wert11="100" Wert12="200" Wert13="400"/>
   </Fertigkeit>
   <Fertigkeit Name="Verhören" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="pA">
     <Grund>Gl,Hä,PT</Grund>
@@ -656,6 +746,8 @@
     <Lernschema Typ="As" Lernpunkte="2"/>
     <Lernschema Typ="Gl" Lernpunkte="2"/>
     <Lernschema Typ="Hä" Lernpunkte="2"/>
+    <Praxispunkte MaximalWert="16" Lernfaktor="5"/>
+    <Kosten Wert9="50" Wert10="100" Wert11="200" Wert12="400" Wert13="800"/>
   </Fertigkeit>
   <Fertigkeit Name="Verkleiden" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In">
     <Grund>As,Gl,Ny,Sp</Grund>
@@ -663,6 +755,8 @@
     <Ausnahme>Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sö,Th,dBe,eBe</Ausnahme>
     <Lernschema Typ="Ny" Lernpunkte="1"/>
     <Lernschema Typ="As" Lernpunkte="2"/>
+    <Praxispunkte MaximalWert="20" Lernfaktor="10"/>
+    <Kosten Wert13="20" Wert14="20" Wert15="20" Wert16="50" Wert17="50" Wert18="100" Wert19="250"/>
   </Fertigkeit>
   <Fertigkeit Name="Wagenlenken" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>BS,Hä,Kr,Ri</Grund>
@@ -673,6 +767,7 @@
     <Lernschema Typ="Or" Lernpunkte="2"/>
     <Lernschema Typ="Sö" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Wahrnehmung" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="4" Attribut="In">
     <Grund>As,BN,BS,BW,Dr,Hä,Ny,Se,Sp,Wa</Grund>
@@ -684,11 +779,17 @@
     <Lernschema Typ="Wa" Lernpunkte="2"/>
     <Lernschema Typ="Kd" Lernpunkte="3"/>
     <Lernschema Typ="Ny" Lernpunkte="3"/>
+    <Lernschema Typ="Elf" Lernpunkte="1" Anfangswert="4" Pflicht="True"/>
+    <Praxispunkte MaximalWert="6" Lernfaktor="15"/>
+    <Kosten Wert5="200" Wert6="400"/>
   </Fertigkeit>
   <Fertigkeit Name="Winden" Lernpunkte="4" Anfangswert="4" Lernkosten="250" Erfolgswert="2">
     <Grund>As,Kd,Ny,Sa,Sp</Grund>
     <Standard>BN,BS,BW,Ba,Fi,Gl,Hä,Or,Se,Sr,Wa</Standard>
     <Ausnahme>Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sc,Sö,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Praxispunkte MaximalWert="8" Lernfaktor="15"/>
+    <Kosten Wert3="50" Wert4="100" Wert5="200" Wert6="400"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Wissen von der Magie" Lernpunkte="1" Lernkosten="5000">
     <Grund>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Grund>
@@ -712,6 +813,7 @@
     <Lernschema Typ="sHx" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="wHx" Lernpunkte="1" Pflicht="True"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Zauberkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
     <Grund>Ba,Ma,PW,Th,gHx,sHx,wHx</Grund>
@@ -738,18 +840,27 @@
     <Lernschema Typ="Sp" Lernpunkte="1"/>
     <Lernschema Typ="Tr" Lernpunkte="1"/>
     <Lernschema Typ="Hä" Lernpunkte="2"/>
+    <Kosten Wert2="30" Wert3="150"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Dschungel" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
     <Grund>BW,Hä,Wa</Grund>
     <Standard>As,BN,BS,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BW" Lernpunkte="1"/>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
+    <Verbot Typ="Berggnom" Spielbeginn="S"/>
+    <Verbot Typ="Elf" Spielbeginn="S"/>
+    <Verbot Typ="Halbling" Spielbeginn="S"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
+    <Verbot Typ="Zwerg" Spielbeginn="S"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Gebirge" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
     <Grund>BN</Grund>
     <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
+    <Verbot Typ="Elf" Spielbeginn="S"/>
+    <Verbot Typ="Halbling" Spielbeginn="S"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Schnee" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
@@ -757,11 +868,20 @@
     <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BN" Lernpunkte="1"/>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
+    <Verbot Typ="Berggnom" Spielbeginn="S"/>
+    <Verbot Typ="Elf" Spielbeginn="S"/>
+    <Verbot Typ="Halbling" Spielbeginn="S"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Sumpf" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>Sa</Ausnahme>
+    <Verbot Typ="Berggnom" Spielbeginn="S"/>
+    <Verbot Typ="Elf" Spielbeginn="S"/>
+    <Verbot Typ="Halbling" Spielbeginn="S"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
+    <Verbot Typ="Zwerg" Spielbeginn="S"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Wald" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
@@ -769,6 +889,9 @@
     <Standard>As,BN,BS,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BW" Lernpunkte="1"/>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
+    <Verbot Typ="Berggnom" Spielbeginn="S"/>
+    <Verbot Typ="Halbling" Spielbeginn="S"/>
+    <Verbot Typ="Zwerg" Spielbeginn="S"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben in der Steppe" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
@@ -776,11 +899,21 @@
     <Standard>As,BN,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BS" Lernpunkte="1"/>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
+    <Verbot Typ="Berggnom" Spielbeginn="S"/>
+    <Verbot Typ="Elf" Spielbeginn="S"/>
+    <Verbot Typ="Halbling" Spielbeginn="S"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
+    <Verbot Typ="Zwerg" Spielbeginn="S"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben in der Wüste" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
     <Grund>Hä</Grund>
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Verbot Typ="Berggnom" Spielbeginn="S"/>
+    <Verbot Typ="Elf" Spielbeginn="S"/>
+    <Verbot Typ="Halbling" Spielbeginn="S"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
+    <Verbot Typ="Zwerg" Spielbeginn="S"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Etikette" Region="B&amp;R" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In">
@@ -788,22 +921,27 @@
     <Standard>As,Dr,Fi,Hl,Hä,Kd,Kr,Ny,Or,Sa,Se,Sr,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Sc,Sp,Sö,Wa</Ausnahme>
     <steigern_wie Fertigkeit="Gassenwissen"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Fallen" Region="B&amp;R" Lernpunkte="5" Anfangswert="15" Lernkosten="200" Erfolgswert="12">
     <Grund>As,BW,Gl,Ny,Sp,Wa</Grund>
     <Standard>BN,BS,Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Fangen" Region="B&amp;R" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>BN,BS,BW,Se,Sp</Grund>
     <Standard>As,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Fälschen" Region="B&amp;R" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In">
     <Grund>As,Gl,Hä,Ny,Sp</Grund>
     <Standard>Ba,Ma,PC,PF,PK,PM,PT,PW,Se,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Dr,Fi,Hl,Kd,Kr,Or,Ri,Sa,Sc,Sr,Sö,Wa</Ausnahme>
+    <Verbot Typ="Ri"/>
     <steigern_wie Fertigkeit="Verkleiden"/>
+    <Kosten Wert13="20" Wert14="20" Wert15="20" Wert16="50" Wert17="50" Wert18="100" Wert19="250"/>
   </Fertigkeit>
   <Fertigkeit Name="Heraldik" Region="B&amp;R" Lernpunkte="2" Lernkosten="100" Attribut="In">
     <Grund>Ri</Grund>
@@ -811,21 +949,27 @@
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Ri" Lernpunkte="1"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Jonglieren" Region="B&amp;R" Lernpunkte="3" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="Ge">
     <Grund>Ba,Gl,Se,Sp</Grund>
     <Standard>As,BN,BS,BW,Hä,Kr,Or,Sc,Sr,Sö,Wa,gHx,sHx,wHx</Standard>
     <Ausnahme>Dr,Fi,Hl,Kd,Ma,Ny,PC,PF,PK,PM,PT,PW,Ri,Sa,Th,dBe,eBe</Ausnahme>
+    <Kosten Wert7="20" Wert8="20" Wert9="40" Wert10="40" Wert11="100" Wert12="100" Wert13="200" Wert14="200" Wert15="400" Wert16="400"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kalligraphie" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="Ge">
     <Grund>Ma,PC,PF,PM,PT,PW,Th</Grund>
     <Standard>Hl,Hä,Or,Sr,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Kd,Kr,Ny,PK,Ri,Sa,Sc,Se,Sp,Sö,Wa</Ausnahme>
+    <Kosten Wert2="200" Wert3="200" Wert4="400"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf in Dunkelheit" Region="B&amp;R" Lernpunkte="6" Anfangswert="1" Lernkosten="300" Erfolgswert="1" Attribut="Ge">
     <Grund>As,Sp,Wa</Grund>
     <Standard>BN,BS,BW,Ba,Gl,Hä,Kr,Or,Se,Sr,Sö</Standard>
     <Ausnahme>Dr,Fi,Hl,Kd,Ma,Ny,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Kosten Wert1="800" Wert2="600" Wert3="400"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Lanzenstechen" Region="B&amp;R" Lernpunkte="4" Anfangswert="1" Lernkosten="200" Erfolgswert="1">
     <Grund>Ri</Grund>
@@ -835,12 +979,15 @@
     <Lernschema Typ="Or" Lernpunkte="2"/>
     <Lernschema Typ="Ri" Lernpunkte="2"/>
     <Lernschema Typ="PK" Lernpunkte="6"/>
+    <Kosten Wert2="100" Wert3="100" Wert4="150" Wert5="150" Wert6="200" Wert7="200" Wert8="400"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Luftkampf" Region="B&amp;R" Lernpunkte="8" Lernkosten="400" Attribut="Ge">
     <Grund>Kr,Or,Sr,Sö</Grund>
     <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Ny,PK,Ri,Sa</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sc,Se,Sp,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Malen/Zeichen" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="Ge">
     <Grund>Sp,Th</Grund>
@@ -852,11 +999,13 @@
     <Standard>As,BN,Ba,Dr,Fi,Gl,Hl,Kd,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>BS,BW,Sa,Wa</Ausnahme>
     <steigern_wie Fertigkeit="Wissen"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Schlittschuhlaufen" Region="B&amp;R" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>BN</Grund>
     <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Siegelfälschung" Region="B&amp;R" Lernpunkte="4" Lernkosten="100" Attribut="Ge">
     <Grund>As,Sp</Grund>
@@ -870,6 +1019,7 @@
     <Ausnahme>BN,BS,BW,Ba,Fi,Gl,Sc,Se,Sö,Wa</Ausnahme>
     <Lernschema Typ="Ri" Lernpunkte="1"/>
     <steigern_wie Fertigkeit="Wissen"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Singen (Stufe)" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="pA">
     <Grund>Ba,PC,PF,PK,PM,PT,PW</Grund>
@@ -884,16 +1034,22 @@
   <Fertigkeit Name="Werfen" Region="B&amp;R" Lernpunkte="4" Anfangswert="5" Lernkosten="400" Erfolgswert="5" Attribut="Ge">
     <Grund>As,Gl,Se,Sp,Th</Grund>
     <Standard>BN,BS,BW,Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Kosten Wert6="48" Wert7="48" Wert8="80" Wert9="160" Wert10="320" Wert11="640" Wert12="1280" Wert13="2400" Wert14="4000" Wert15="8000" Wert16="8000" Wert17="12000" Wert18="12000" Wert19="20000"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Wetterkunde" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="25" Erfolgswert="2" Attribut="In">
     <Grund>Ba,Dr,PF,PM,Sc,Se,Wa</Grund>
     <Standard>BN,BS,BW,Fi,Gl,Hl,Hä,Kd,Ny,PC,PK,PT,PW,Ri,Sa,Sp,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>As,Kr,Ma,Or,Sr,Sö,Th</Ausnahme>
+    <Kosten Wert3="5" Wert4="5" Wert5="13" Wert6="13" Wert7="13" Wert8="25" Wert9="25" Wert10="50" Wert11="50" Wert12="100" Wert13="100"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Brettspiel" Region="E" Lernpunkte="1" Anfangswert="4" Lernkosten="20" Erfolgswert="2" Attribut="In">
     <Grund>Ba,Dr,Gl,Hl,Hä,Ma,PC,PF,PK,PM,PT,PW,Th</Grund>
     <Standard>As,Fi,Kd,Kr,Ny,Or,Ri,Sa,Se,Sp,Sr,Sö,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Sc</Ausnahme>
+    <Kosten Wert3="5" Wert4="5" Wert5="10" Wert6="10" Wert7="10" Wert8="20" Wert9="20" Wert10="50" Wert11="50" Wert12="100" Wert13="100"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Dichten" Region="E" Lernpunkte="4" Lernkosten="150" Attribut="In">
     <Grund>Ba</Grund>
@@ -911,16 +1067,19 @@
     <Grund>PF,Sa,Sc</Grund>
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ny,Or,PC,PK,PM,PT,PW,Ri,Se,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Standard>
     <Ausnahme>Ma,Th,dBe,eBe</Ausnahme>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kamelreiten" Region="E" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>BS,Fi,Gl,Hä,Kr,Or,Ri,Sa,Sr,Sö,Wa</Grund>
     <Standard>As,BN,BW,Ba,Dr,Hl,Kd,Ma,Ny,PC,PF,PK,PM,PT,PW,Sc,Se,Sp,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf zu Kamel" Region="E" Lernpunkte="8" Lernkosten="200">
     <Grund>BS,Kr,Ri,Sa,Sö</Grund>
     <Standard>As,Ba,Fi,Gl,Hä,Kd,Ny,Or,Se,Sp,Sr,Wa</Standard>
     <Ausnahme>BN,BW,Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Mumifizieren" Region="E" Lernpunkte="4" Lernkosten="200" Attribut="In">
     <Grund>Hl,PT,Sc</Grund>
@@ -931,6 +1090,7 @@
     <Grund>Sc</Grund>
     <Standard>As,BN,BS,BW,Ba,Dr,Gl,Hl,Hä,Kr,Ny,PC,PF,PK,PM,PT,PW,Ri,Sa,Se,Sp,Sö,Wa,gHx,sHx,wHx</Standard>
     <Ausnahme>Fi,Kd,Ma,Or,Sr,Th,dBe,eBe</Ausnahme>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="FengSchui" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
     <Grund>As,Fi,Kd,Kr,Ny,Or,Ri,Sr,Sö</Grund>
@@ -945,24 +1105,29 @@
     <Standard>BN,BS,BW,Ba,Hä,Kd,PK,Sa,Se,Sp,Sö,Wa</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Fälschen" Region="K" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In">
     <Grund>As,Gl,Hä,Ny,Sp</Grund>
     <Standard>Ba,Ma,PC,PF,PK,PM,PT,PW,Se,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Dr,Fi,Hl,Kd,Kr,Or,Ri,Sa,Sc,Sr,Sö,Wa</Ausnahme>
+    <Verbot Typ="Ri"/>
     <steigern_wie Fertigkeit="Verkleiden"/>
+    <Kosten Wert13="20" Wert14="20" Wert15="20" Wert16="50" Wert17="50" Wert18="100" Wert19="250"/>
   </Fertigkeit>
   <Fertigkeit Name="Geschenke machen" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA">
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>Sa</Ausnahme>
     <Lernschema Typ="Tr" Lernpunkte="1"/>
     <steigern_wie Fertigkeit="Beredsamkeit"/>
+    <Kosten Wert7="50" Wert8="100" Wert9="250" Wert10="500"/>
   </Fertigkeit>
   <Fertigkeit Name="IaiJutsu" Region="K" Lernpunkte="8" Lernkosten="60">
     <Grund>As,Fi,Kr,Ny,Or,PK,Ri,Sr</Grund>
     <Standard>BN,BS,BW,Ba,Gl,Hä,Kd,Sa,Se,Sp,Sö,Wa</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="KarumiJutsu" Region="K" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>Ny</Grund>
@@ -970,6 +1135,7 @@
     <Ausnahme>BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Or,Ri,Se,Sr,Sö,Wa</Ausnahme>
     <Lernschema Typ="Ny" Lernpunkte="1"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K" Lernpunkte="5" Lernkosten="2500">
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
@@ -982,6 +1148,7 @@
     <Standard>BN,BS,BW,Gl,Hä,Kd,Ny,Se,Wa</Standard>
     <Ausnahme>As,Ba,Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Sp,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="KiDo" Region="K" Lernpunkte="8" Anfangswert="10" Lernkosten="800" Erfolgswert="10" Attribut="Zt">
     <Grund>As,Fi,Kd,Ny,Or,Sr</Grund>
@@ -989,6 +1156,8 @@
     <Ausnahme>Dr,Ma,PF,PM,PT,PW,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Kd" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Ny" Lernpunkte="1"/>
+    <Kosten Wert11="10" Wert12="15" Wert13="20" Wert14="30" Wert15="70" Wert16="150" Wert17="300" Wert18="600" Wert19="800"/>
+    <EP-Typ Typ="KEP,ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="KiDo-Technik" Region="K" Lernpunkte="1">
     <Standard>Kd,Ny</Standard>
@@ -1004,17 +1173,20 @@
     <Ausnahme>BN,BS,BW,Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Ny" Pflicht="True"/>
     <steigern_wie Fertigkeit="Zeichensprache"/>
+    <Kosten Wert2="30" Wert3="150"/>
   </Fertigkeit>
   <Fertigkeit Name="KujNoIu" Region="K" Lernpunkte="8" Lernkosten="400">
     <Grund>Th</Grund>
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="LiYao" Region="K" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
     <Grund>Ny,Th</Grund>
     <Standard>As,Fi,Gl,Hä,Kd,Kr,Ma,Or,PK,Ri,Se,Sp,Sr,Sö,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Ba,Dr,Hl,PC,PF,PM,PT,PW,Sa,Sc,Wa</Ausnahme>
     <Lernschema Typ="Ny" Lernpunkte="3"/>
+    <Kosten Wert3="10" Wert4="10" Wert5="30" Wert6="30" Wert7="30" Wert8="50" Wert9="50" Wert10="100" Wert11="100" Wert12="200" Wert13="200"/>
   </Fertigkeit>
   <Fertigkeit Name="Meditieren" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb">
     <Grund>Fi,Kd,Ny,Ri,Sa,Sr</Grund>
@@ -1023,12 +1195,14 @@
     <Lernschema Typ="Sa" Lernpunkte="1"/>
     <Lernschema Typ="Ny" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Verhören"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="MiChen" Region="K" Lernpunkte="8" Lernkosten="500">
     <Grund>As,Hl,Ny</Grund>
     <Standard>Ba,Dr,Fi,Gl,Hä,Kd,Kr,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Ma,Th,dBe,eBe</Ausnahme>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="NinJutsu" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="600" Erfolgswert="2" Attribut="Ge">
     <Grund>Ny</Grund>
@@ -1036,6 +1210,7 @@
     <Ausnahme>BN,BS,BW,Ba,Fi,Gl,Hä,Kr,Or,Ri,Se,Sr,Sö,Wa</Ausnahme>
     <Lernschema Typ="Ny" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Kd" Lernpunkte="3"/>
+    <Kosten Wert3="150" Wert4="150" Wert5="300" Wert6="300" Wert7="600" Wert8="600" Wert9="1200" Wert10="1200" Wert11="2400" Wert12="2400"/>
   </Fertigkeit>
   <Fertigkeit Name="Orakelkunst" Region="K" Lernpunkte="5" Lernkosten="60">
     <Grund>Ny,PC,PF,PK,PM,PT,PW,Sa,Sc</Grund>
@@ -1049,12 +1224,14 @@
     <Ausnahme>Th,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Kd" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP,ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Schwerttanz" Region="K" Lernpunkte="8" Anfangswert="14" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>Fi,Gl,Kr,Or,PK,Ri,Sr,Sö</Grund>
     <Standard>As,Ba,Kd,Ny,Se</Standard>
     <Ausnahme>BN,BS,BW,Dr,Hl,Hä,Ma,PC,PF,PM,PT,PW,Sa,Sc,Sp,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Steinabreibungen machen" Region="K" Lernpunkte="4" Lernkosten="60">
     <Grund>Ma,PC,PF,PK,PM,PT,PW,Th,gHx,sHx,wHx</Grund>
@@ -1069,6 +1246,7 @@
     <Lernschema Typ="Kd" Lernpunkte="1"/>
     <Lernschema Typ="Ny" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP,ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Teezeremonie" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="pA">
     <Grund>Fi,Kd,Or,PC,PF,PK,PM,PT,PW,Sa,Sc,Sr</Grund>
@@ -1076,18 +1254,21 @@
     <Lernschema Typ="Ny" Lernpunkte="1"/>
     <Lernschema Typ="Kd" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Überleben"/>
+    <Kosten Wert7="10" Wert8="10" Wert9="10" Wert10="20" Wert11="20" Wert12="50" Wert13="100" Wert14="100"/>
   </Fertigkeit>
   <Fertigkeit Name="YangScheng" Region="K" Lernpunkte="5" Anfangswert="1" Lernkosten="100" Erfolgswert="1">
     <Grund>Fi,Hl,Kd,Or,PC,PF,PK,PM,PW,Sa,Sc,Sr</Grund>
     <Standard>As,Ba,Dr,Gl,Hä,Ma,Ny,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Kr,PT,Ri,Se</Ausnahme>
     <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Kosten Wert2="200" Wert3="500" Wert4="1000" Wert5="2000"/>
   </Fertigkeit>
   <Fertigkeit Name="YubeChian" Region="K" Lernpunkte="8" Lernkosten="200">
     <Grund>As,Hl,Ny</Grund>
     <Standard>Ba,Dr,Fi,Gl,Hä,Kd,Kr,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Ma,Th,dBe,eBe</Ausnahme>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Zunge verschlucken" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8">
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
@@ -1099,30 +1280,36 @@
     <Ausnahme>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PF,Ri,Se,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sa" Lernpunkte="1"/>
     <steigern_wie Fertigkeit="BeidhÃ¤ndiger Kampf"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Astrologie" Region="R" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2">
     <Grund>Ma,PC,PF,PK,PM,PT,PW,Th</Grund>
     <Standard>Ba,Dr,Hl,Hä,Sa,Sc,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>As,BN,BS,BW,Fi,Gl,Kd,Kr,Ny,Or,Ri,Se,Sp,Sr,Sö,Wa</Ausnahme>
     <steigern_wie Fertigkeit="Wissen"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Augensalbe herstellen" Region="R" Lernpunkte="9" Lernkosten="200">
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="Th" Lernpunkte="3"/>
     <steigern_wie Fertigkeit="-"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Elefanten lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Ge">
     <Standard>Sa,Sr</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf zu Elefant" Region="R" Lernpunkte="8" Lernkosten="200">
     <Standard>Sa,Sr</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf zu Srimara" Region="R" Lernpunkte="8" Lernkosten="200">
     <Standard>Sa,Sr</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sr" Lernpunkte="1"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Körperkontrolle" Region="R" Lernpunkte="3" Anfangswert="15" Lernkosten="150" Erfolgswert="12">
     <Standard>Sa,Sr</Standard>
@@ -1130,6 +1317,7 @@
     <Lernschema Typ="Sa" Lernpunkte="1"/>
     <Lernschema Typ="Sr" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Meditieren" Region="R" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb">
     <Grund>Fi,Kd,Ny,Ri,Sa,Sr</Grund>
@@ -1138,11 +1326,13 @@
     <Lernschema Typ="Sa" Lernpunkte="1"/>
     <Lernschema Typ="Ny" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Verhören"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Natya" Region="R" Lernpunkte="7" Lernkosten="100">
     <Standard>Ba,PC,PF,PK,PM,PT,PW</Standard>
     <Ausnahme>As,BN,BS,BW,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Schlangen beschwören" Region="R" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb">
     <Grund>Kd,Ny,Sa</Grund>
@@ -1155,12 +1345,14 @@
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sa" Lernpunkte="1"/>
     <steigern_wie Fertigkeit="Bewegung"/>
+    <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Srimara lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Ge">
     <Grund>Sr</Grund>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sr" Lernpunkte="1"/>
     <steigern_wie Fertigkeit="Elefanten lenken"/>
+    <EP-Typ Typ="KEP"/>
   </Fertigkeit>
  </Fertigkeiten>
  <angeboreneFertigkeiten>
@@ -1307,6 +1499,8 @@
     <Voraussetzungen Typ="k"/>
     <Stand>Unfrei,Volk</Stand>
     <Vorteil>Stielhammer</Vorteil>
+    <Lernschema Typ="Berggnom" Lernpunkte="3" Pflicht="True"/>
+    <Lernschema Typ="Zwerg" Lernpunkte="3" Pflicht="True"/>
   </Beruf>
   <Beruf Name="Bettler" Lernpunkte="7">
     <Voraussetzungen/>
@@ -2009,6 +2203,8 @@
     <Voraussetzungen St="31" Typ="k"/>
     <Stand>Mittelschicht,Volk</Stand>
     <Vorteil>Athletik,Kriegshammer</Vorteil>
+    <Lernschema Typ="Berggnom" Lernpunkte="3" Pflicht="True"/>
+    <Lernschema Typ="Zwerg" Lernpunkte="3" Pflicht="True"/>
   </Beruf>
   <Beruf Name="Stellmacher" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
@@ -2250,6 +2446,7 @@
     <Voraussetzungen St="31" Typ="k"/>
     <Stand>Volk</Stand>
     <Vorteil>Handaxt,Streitaxt</Vorteil>
+    <Lernschema Typ="Zwerg" Lernpunkte="3" Pflicht="True"/>
   </Beruf>
   <Beruf Name="Zollpächter" Lernpunkte="7">
     <Voraussetzungen In="61"/>
@@ -2263,6 +2460,7 @@
   </Beruf>
  </Berufe>
  <Typ-Pflichten>
+    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten/Berufe sind -->
   <Verbot Typ="Berggnom" Fertigkeit="Kampfstab"/>
   <Verbot Typ="Berggnom" Fertigkeit="Kriegsflegel"/>
   <Verbot Typ="Berggnom" Fertigkeit="Langbogen"/>
@@ -2274,31 +2472,6 @@
   <Verbot Typ="Berggnom" Fertigkeit="ZSchlagwaffe"/>
   <Verbot Typ="Berggnom" Fertigkeit="ZSchwert"/>
   <Verbot Typ="Berggnom" Fertigkeit="schwere Armbrust"/>
-  <Verbot Typ="Berggnom" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
-  <Verbot Typ="Berggnom" Fertigkeit="Überleben im Schnee" Spielbeginn="S"/>
-  <Verbot Typ="Berggnom" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
-  <Verbot Typ="Berggnom" Fertigkeit="Überleben im Wald" Spielbeginn="S"/>
-  <Verbot Typ="Berggnom" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
-  <Verbot Typ="Berggnom" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
-  <Pflicht Typ="Berggnom" Fertigkeit="Bergmann" Lernpunkte="3"/>
-  <Pflicht Typ="Berggnom" Fertigkeit="Geheimmechanismen öffnen" Lernpunkte="1" Erfolgswert="4"/>
-  <Pflicht Typ="Berggnom" Fertigkeit="Steinmetz" Lernpunkte="3"/>
-  <Verbot Typ="Elf" Fertigkeit="Gassenwissen"/>
-  <Verbot Typ="Elf" Fertigkeit="Giftmischen"/>
-  <Verbot Typ="Elf" Fertigkeit="Glücksspiel"/>
-  <Verbot Typ="Elf" Fertigkeit="Kampf in Vollrüstung" Spielbeginn="S"/>
-  <Verbot Typ="Elf" Fertigkeit="Schlösser öffnen"/>
-  <Verbot Typ="Elf" Fertigkeit="Stehlen"/>
-  <Verbot Typ="Elf" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
-  <Verbot Typ="Elf" Fertigkeit="Überleben im Gebirge" Spielbeginn="S"/>
-  <Verbot Typ="Elf" Fertigkeit="Überleben im Schnee" Spielbeginn="S"/>
-  <Verbot Typ="Elf" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
-  <Verbot Typ="Elf" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
-  <Verbot Typ="Elf" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
-  <Pflicht Typ="Elf" Fertigkeit="Schleichen" Lernpunkte="1" Erfolgswert="8"/>
-  <Pflicht Typ="Elf" Fertigkeit="Spurenlesen" Lernpunkte="1" Erfolgswert="6"/>
-  <Pflicht Typ="Elf" Fertigkeit="Tarnen" Lernpunkte="1" Erfolgswert="8"/>
-  <Pflicht Typ="Elf" Fertigkeit="Wahrnehmung" Lernpunkte="1" Erfolgswert="4"/>
   <Verbot Typ="Halbling" Fertigkeit="Kampfstab"/>
   <Verbot Typ="Halbling" Fertigkeit="Kriegsflegel"/>
   <Verbot Typ="Halbling" Fertigkeit="Langbogen"/>
@@ -2310,25 +2483,6 @@
   <Verbot Typ="Halbling" Fertigkeit="ZSchlagwaffe"/>
   <Verbot Typ="Halbling" Fertigkeit="ZSchwert"/>
   <Verbot Typ="Halbling" Fertigkeit="schwere Armbrust"/>
-  <Verbot Typ="Halbling" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
-  <Verbot Typ="Halbling" Fertigkeit="Überleben im Gebirge" Spielbeginn="S"/>
-  <Verbot Typ="Halbling" Fertigkeit="Überleben im Schnee" Spielbeginn="S"/>
-  <Verbot Typ="Halbling" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
-  <Verbot Typ="Halbling" Fertigkeit="Überleben im Wald" Spielbeginn="S"/>
-  <Verbot Typ="Halbling" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
-  <Verbot Typ="Halbling" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
-  <Pflicht Typ="Halbling" Fertigkeit="Schleichen" Lernpunkte="1" Erfolgswert="10"/>
-  <Pflicht Typ="Halbling" Fertigkeit="Tarnen" Lernpunkte="1" Erfolgswert="10"/>
-  <Verbot Typ="Ri" Fertigkeit="Beschatten"/>
-  <Verbot Typ="Ri" Fertigkeit="Fallenstellen"/>
-  <Verbot Typ="Ri" Fertigkeit="Fälschen"/>
-  <Verbot Typ="Ri" Fertigkeit="Gassenwissen"/>
-  <Verbot Typ="Ri" Fertigkeit="Giftmischen"/>
-  <Verbot Typ="Ri" Fertigkeit="Kampf vom Streitwagen"/>
-  <Verbot Typ="Ri" Fertigkeit="Meucheln"/>
-  <Verbot Typ="Ri" Fertigkeit="Stehlen"/>
-  <Verbot Typ="Ri" Fertigkeit="Streitwagen lenken"/>
-  <Verbot Typ="Ri" Fertigkeit="Tarnen"/>
   <Pflicht Typ="Ri" Fertigkeit="Lanze"/>
   <Pflicht Typ="Ri" Fertigkeit="großer Schild"/>
   <Pflicht Typ="Ri" Fertigkeit="kleiner Schild"/>
@@ -2343,51 +2497,37 @@
   <Verbot Typ="Waldgnom" Fertigkeit="ZSchlagwaffe"/>
   <Verbot Typ="Waldgnom" Fertigkeit="ZSchwert"/>
   <Verbot Typ="Waldgnom" Fertigkeit="schwere Armbrust"/>
-  <Verbot Typ="Waldgnom" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
-  <Verbot Typ="Waldgnom" Fertigkeit="Überleben im Gebirge" Spielbeginn="S"/>
-  <Verbot Typ="Waldgnom" Fertigkeit="Überleben im Schnee" Spielbeginn="S"/>
-  <Verbot Typ="Waldgnom" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
-  <Verbot Typ="Waldgnom" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
-  <Verbot Typ="Waldgnom" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
-  <Pflicht Typ="Waldgnom" Fertigkeit="Spurenlesen" Lernpunkte="1" Erfolgswert="4"/>
-  <Pflicht Typ="Waldgnom" Fertigkeit="Tarnen" Lernpunkte="1" Erfolgswert="4"/>
-  <Verbot Typ="Zwerg" Fertigkeit="Überleben im Dschungel" Spielbeginn="S"/>
-  <Verbot Typ="Zwerg" Fertigkeit="Überleben im Sumpf" Spielbeginn="S"/>
-  <Verbot Typ="Zwerg" Fertigkeit="Überleben im Wald" Spielbeginn="S"/>
-  <Verbot Typ="Zwerg" Fertigkeit="Überleben in der Steppe" Spielbeginn="S"/>
-  <Verbot Typ="Zwerg" Fertigkeit="Überleben in der Wüste" Spielbeginn="S"/>
-  <Pflicht Typ="Zwerg" Fertigkeit="Bergmann" Lernpunkte="3"/>
-  <Pflicht Typ="Zwerg" Fertigkeit="Steinmetz" Lernpunkte="3"/>
-  <Pflicht Typ="Zwerg" Fertigkeit="Zimmermann" Lernpunkte="3"/>
  </Typ-Pflichten>
  <Praxispunkte>
   <Steigern Name="Abenteuer" MaximalWert="16" Lernfaktor="5"/>
   <Steigern Name="Abwehr" MaximalWert="18" Lernfaktor="5"/>
   <Steigern Name="Angriff" MaximalWert="17" Lernfaktor="7"/>
-  <Steigern Name="Beredsamkeit" MaximalWert="14" Lernfaktor="10"/>
-  <Steigern Name="Beschatten" MaximalWert="16" Lernfaktor="10"/>
   <Steigern Name="Bewegung" MaximalWert="18" Lernfaktor="2"/>
-  <Steigern Name="Fechten" MaximalWert="16" Lernfaktor="10"/>
   <Steigern Name="Fern" MaximalWert="17" Lernfaktor="7"/>
-  <Steigern Name="Gassenwissen" MaximalWert="16" Lernfaktor="5"/>
   <Steigern Name="Glückspiel" MaximalWert="18" Lernfaktor="2"/>
-  <Steigern Name="Lippenlesen" MaximalWert="14" Lernfaktor="10"/>
-  <Steigern Name="Menschenkenntnis" MaximalWert="14" Lernfaktor="10"/>
-  <Steigern Name="Meucheln" MaximalWert="20" Lernfaktor="10"/>
   <Steigern Name="Resistenz" MaximalWert="17" Lernfaktor="5"/>
-  <Steigern Name="Scharfschießen" MaximalWert="16" Lernfaktor="10"/>
-  <Steigern Name="Seilkunst" MaximalWert="16" Lernfaktor="5"/>
-  <Steigern Name="Stehlen" MaximalWert="25" Lernfaktor="10"/>
-  <Steigern Name="Stimmen nachahmen" MaximalWert="20" Lernfaktor="5"/>
-  <Steigern Name="Tauchen" MaximalWert="14" Lernfaktor="2"/>
-  <Steigern Name="Verführen" MaximalWert="16" Lernfaktor="2"/>
-  <Steigern Name="Verhören" MaximalWert="16" Lernfaktor="5"/>
-  <Steigern Name="Verkleiden" MaximalWert="20" Lernfaktor="10"/>
   <Steigern Name="Verteidigung" MaximalWert="7" Lernfaktor="15"/>
-  <Steigern Name="Wahrnehmung" MaximalWert="6" Lernfaktor="15"/>
-  <Steigern Name="Winden" MaximalWert="8" Lernfaktor="15"/>
   <Steigern Name="Wissen" MaximalWert="16" Lernfaktor="2"/>
   <Steigern Name="Zaubern" MaximalWert="19" Lernfaktor="5"/>
   <Steigern Name="Überleben" MaximalWert="16" Lernfaktor="5"/>
  </Praxispunkte>
+ <verwendbareEP>
+    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten sind -->
+  <EP-Typ Fertigkeit="Ausdauer" Typ="KEP,ZEP"/>
+  <EP-Typ Fertigkeit="Waffen" Typ="KEP"/>
+  <EP-Typ Fertigkeit="Zauber" Typ="ZEP"/>
+ </verwendbareEP>
+ <SteigernKosten/>
+    <Kosten Fertigkeit="Abenteuer" Wert3="100" Wert4="100" Wert5="200" Wert6="200" Wert7="400" Wert8="400" Wert9="800" Wert10="800" Wert11="1600" Wert12="1600"/>
+    <Kosten Fertigkeit="Bewegung" Wert13="50" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="800"/>
+    <Kosten Fertigkeit="Meditation" Wert9="50" Wert10="100" Wert11="200" Wert12="400" Wert13="800"/>
+    <Kosten Fertigkeit="Schildamulett verzaubern" Wert2="200" Wert3="300" Wert4="400" Wert5="500" Wert6="600"/>
+    <Kosten Fertigkeit="Schutzamulett verzaubern" Wert2="300" Wert3="600" Wert4="800" Wert5="1000" Wert6="2000"/>
+    <Kosten Fertigkeit="Spiegelamulett verzaubern" Wert2="600" Wert3="1000" Wert4="1500" Wert5="2000" Wert6="2500"/>
+    <Kosten Fertigkeit="Verstellen" Wert5="50" Wert6="50" Wert7="100" Wert8="100" Wert9="200" Wert10="200" Wert11="400" Wert12="800" Wert13="800"/>
+    <Kosten Fertigkeit="Waffen verzaubern" Wert2="800" Wert3="1500"/>
+    <Kosten Fertigkeit="Wissen" Wert3="20" Wert4="20" Wert5="50" Wert6="50" Wert7="50" Wert8="100" Wert9="100" Wert10="200" Wert11="200" Wert12="400" Wert13="400"/>
+    <Kosten Fertigkeit="Zunge Verschlucken" Wert9="50" Wert10="100" Wert11="200" Wert12="400" Wert13="800"/>
+    <Kosten Fertigkeit="Überleben" Wert7="10" Wert8="10" Wert9="10" Wert10="20" Wert11="20" Wert12="50" Wert13="100" Wert14="100"/>
+ </SteigernKosten/>
 </MidgardCG-data>
