@@ -4,6 +4,8 @@ NEWS IN VERSION 0.8.8
 * KI berücksichtigt Grund-, Standard und Ausnahmefähigkeiten.
 * Icons werden jetzt auch in der Statusleiste umgeschaltet
 * Kein Absturz mehr bei Würfelvarianten 'best of nine' und 'Zuweisen'
+- .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
+	(schon seit 0.7.6 erledigt)
 
 TODO: ('-' zeigt CP an)
 
@@ -22,8 +24,6 @@ TODO: ('-' zeigt CP an)
    entfernen" und "mit Geld ausrüsten" das Verschwinden.
 - alle Ausdrucke unter Windows testen
 - wrapfig for Windows für Grafik in Beschreibung
-- .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
-
 
 
 ##########################################################################
