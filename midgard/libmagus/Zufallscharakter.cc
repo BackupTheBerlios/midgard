@@ -19,7 +19,7 @@
 #include "Datenbank.hh"
 #include "magustrace.h"
 #include <Misc/Trace.h>
-#include "magus_paths.h"
+//#include "magus_paths.h"
 #include <fstream>
 #include "Abenteurer.hh"
 #include <Misc/TagStream.h>
@@ -29,7 +29,8 @@
 #include "Zufall.hh"
 #include "LaTeX_drucken.hh"
 #include "spielleiter_export.hh"
-#include "Magus_Optionen.hh"
+//#include "Magus_Optionen.hh"
+#include "libmagus.hh"
 
 void progress(double d)
 {  Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
@@ -40,7 +41,7 @@ int main(int argc,char **argv)
 //   Datenbank db;
    if (argc>1) TagStream::host_encoding=argv[1];
  try {  
-   libmagus_init(argc,argv,&progress);
+   libmagus_init(argc,const_cast<const char**>(argv),&progress);
    
    Abenteurer a;
    Zufall z(a);
