@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.6 2001/11/14 16:53:23 christof Exp $
+// $Id: export_common.h,v 1.7 2001/11/20 22:18:06 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -21,114 +21,20 @@
 #include <Aux/FetchIStream.h>
 #include <iostream>
 
-static const char HEX[]="0123456789ABCDEF";
-
-static std::string toXML(const std::string &s)
-{  string res;
-   for (string::const_iterator i=s.begin();i!=s.end();++i)
-   {  if (isalnum(*i)) res+=*i;
-      else if ((unsigned char)*i>=160) res+=*i;
-      else if (strchr("# @^+-*/.,?!$'`|~[]{}()_:;=",*i)) res+=*i;
-      else if (*i=='&') res+="&amp;";
-      else if (*i=='<') res+="&lt;";
-      else if (*i=='>') res+="&gt;";
-      else if (*i=='"') res+="&quot;";
-      else res+=string("&#x")+HEX[(*i>>4)&0xf]+HEX[*i&0xf]+';';
-   }
-   return res;
-}
-
-static int fetch_int(FetchIStream &is,int standard=0)
-{  int val;
-   
-   is >> FetchIStream::MapNull<int>(val,standard);
-   return val;
-}
-
-static void write_int(std::ostream &o,const std::string &wert,int val, int indent=0)
-{  if (!val) return;
-   for (int i=0;i<indent;++i) o << ' ';
-   o << '<' << wert << '>' << val << "</" << wert << ">\n";
-}
-
-static void write_int_attrib(std::ostream &o,const std::string &wert,int val, int standard=0)
-{  if (val==standard) return;
-   o << ' ' << wert << "=\"" << val << '\"';
-}
-
-static int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
-{  int val=fetch_int(is);
-   write_int(o,wert,val,indent);
-   return val;
-}
-
-static int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0)
-{  int val=fetch_int(is,standard);
-   write_int_attrib(o,wert,val,standard);
-   return val;
-}
-
-static std::string fetch_string(FetchIStream &is,const std::string &standard="")
-{  std::string val;
-   
-   is >> FetchIStream::MapNull<string>(val,standard); 
-   return val;
-}
-
-static void write_string(std::ostream &o,const std::string &wert,const std::string &val,int indent=0)
-{  if (!val.size()) return;
-   for (int i=0;i<indent;++i) o << ' ';
-   o << '<' << wert << '>' << toXML(val) << "</" << wert << ">\n";
-}
-
-static void write_string_attrib(std::ostream &o,const std::string &wert,const std::string &val,const std::string &standard="")
-{  if (val==standard) return;
-   o << ' ' << wert << "=\"" << toXML(val) << '\"';
-}
-
-static std::string fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
-{  std::string val=fetch_string(is);
-   write_string(o,wert,val,indent);
-   return val;
-}
-
-static std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="")
-{  std::string val=fetch_string(is,standard);
-   write_string_attrib(o,wert,val,standard);
-   return val;
-}
-
-static bool fetch_bool(FetchIStream &is,const bool &standard=false)
-{  bool val;
-   
-   is >> FetchIStream::MapNull<bool>(val,standard); 
-   return val;
-}
-
-static void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false)
-{  if (val==standard) return;
-   o << ' ' << wert << "=\"" << (val?"True":"False") << '\"';
-}
-
-static bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const bool &standard=false)
-{  bool val=fetch_bool(is,standard);
-   write_bool_attrib(o,wert,val,standard);
-   return val;
-}
-
-static std::string typ_standardisierung(const std::string &t)
-{  if (t=="Ord") return "Or";
-   else if (t=="Ass") return "As";
-   else return t;
-}
-
-static std::string fetch_typ(FetchIStream &is,const std::string &standard="")
-{  return typ_standardisierung(fetch_string(is,standard));
-}
-
-static std::string fetch_and_write_typ_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="")
-{  std::string val=fetch_typ(is,standard);
-   write_string_attrib(o,wert,val,standard);
-   return val;
-}
-
+std::string toXML(const std::string &s);
+int fetch_int(FetchIStream &is,int standard=0);
+void write_int(std::ostream &o,const std::string &wert,int val, int indent=0);
+void write_int_attrib(std::ostream &o,const std::string &wert,int val, int standard=0);
+int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
+int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0);
+std::string fetch_string(FetchIStream &is,const std::string &standard="");
+void write_string(std::ostream &o,const std::string &wert,const std::string &val,int indent=0);
+void write_string_attrib(std::ostream &o,const std::string &wert,const std::string &val,const std::string &standard="");
+std::string fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
+std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="");
+bool fetch_bool(FetchIStream &is,const bool &standard=false);
+void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false);
+bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const bool &standard=false);
+std::string typ_standardisierung(const std::string &t);
+std::string fetch_typ(FetchIStream &is,const std::string &standard="");
+std::string fetch_and_write_typ_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="");

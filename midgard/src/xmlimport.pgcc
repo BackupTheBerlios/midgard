@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.28 2001/11/14 08:24:04 christof Exp $
+// $Id: xmlimport.pgcc,v 1.29 2001/11/20 22:18:06 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -304,17 +304,25 @@ update:
 
 bool charakter_laden(istream &i)
 {  TagStream ts(i);
+   Tag *top=&ts;
 //   ts.debug(15);
    
-   Tag::const_iterator top=ts.find(ts.begin(),"Midgard-Charakter");
-   if (top==ts.end())
+   Tag::const_iterator next=top->find(top->begin(),"Midgard-Charakter");
+   if (next==top->end()) 
+   {  next=top->find(top->begin(),"MidgardCG-data");
+      if (next!=top->end()) 
+      {  top=&*next;
+         next=top->find(top->begin(),"Midgard-Charakter");
+      }
+   }
+   if (next==top->end())
    {  std::cerr << "Ist das wirklich die richtige Datei? Ich kann keinen Charakter finden.\n";
       return false;
    }
    // Wirklich abbrechen ?? oder andere Charaktere laden?
-   if (!charakter_laden(top)) return false;
-   while ((top=ts.find(++top,"Midgard-Charakter"))!=ts.end())
-      if (!charakter_laden(top)) return false;
+   if (!charakter_laden(next)) return false;
+   while ((next=top->find(++next,"Midgard-Charakter"))!=top->end())
+      if (!charakter_laden(next)) return false;
    return true;
 }
 

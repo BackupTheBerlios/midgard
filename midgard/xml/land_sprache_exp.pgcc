@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.pgcc,v 1.8 2001/11/19 08:27:33 christof Exp $
+// $Id: land_sprache_exp.pgcc,v 1.9 2001/11/20 22:18:06 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -28,7 +28,6 @@ exec sql include sqlca;
 
 void land_speichern(std::ostream &o)
 {  
-   o << "<MidgardCG-data>\n";
    Transaction t;
    exec sql allocate descriptor spalten;
 
@@ -229,11 +228,11 @@ void land_speichern(std::ostream &o)
    o << " </Typen>\n";
 
 //******************************************************************
-   o << "</MidgardCG-data>\n";
    
    exec sql deallocate descriptor spalten;
 }
 
+#ifndef XML_NO_MAIN
 int main(int argc, char *argv[])
 {  
    try{
@@ -242,10 +241,13 @@ int main(int argc, char *argv[])
       Petig::dbconnect(conn);
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
+   std::cout << "<MidgardCG-data>\n";
    land_speichern(std::cout);
+   std::cout << "</MidgardCG-data>\n";
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';
    }
    return 0;
 }
+#endif

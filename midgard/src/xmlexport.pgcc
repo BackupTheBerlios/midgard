@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.27 2001/11/14 08:24:04 christof Exp $
+// $Id: xmlexport.pgcc,v 1.28 2001/11/20 22:18:06 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -219,9 +219,11 @@ int main(int argc, char *argv[])
       Petig::dbconnect(conn);
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
+   std::cout << "<MidgardCG-data>\n";
    if (argc==3) charakter_speichern(std::cout,argv[1],argv[2]);
    else if (argc==2)
-   {  Transaction tr;
+   {  
+      Transaction tr;
    exec sql begin declare section;
    char *charakter=argv[1];
    exec sql end declare section;
@@ -269,6 +271,7 @@ int main(int argc, char *argv[])
    SQLerror::test(__FILELINE__);
    exec sql deallocate descriptor figuren;
    }
+   std::cout << "</MidgardCG-data>\n";
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';

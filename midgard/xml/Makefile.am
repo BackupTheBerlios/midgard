@@ -1,17 +1,24 @@
-# $Id: Makefile.am,v 1.7 2001/11/15 08:29:34 christof Exp $
+# $Id: Makefile.am,v 1.8 2001/11/20 22:18:06 christof Exp $
 
-bin_PROGRAMS = arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
+bin_PROGRAMS = arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp \
+	all_exp
 
+%_nm.o: %_exp.cc ; $(COMPILE.cc) -DXML_NO_MAIN $(OUTPUT_OPTION) $<
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
 
-arkanum_exp_SOURCES= arkanum_exp.cc
-kido_exp_SOURCES= kido_exp.cc
-fertigk_exp_SOURCES= fertigk_exp.cc
-land_sprache_exp_SOURCES= land_sprache_exp.cc
-waffen_exp_SOURCES=waffen_exp.cc
+arkanum_exp_SOURCES= arkanum_exp.cc export_common.cc
+kido_exp_SOURCES= kido_exp.cc export_common.cc
+fertigk_exp_SOURCES= fertigk_exp.cc export_common.cc
+land_sprache_exp_SOURCES= land_sprache_exp.cc export_common.cc
+waffen_exp_SOURCES=waffen_exp.cc export_common.cc
+all_exp_SOURCES=all_exp.cc export_common.cc
+
+all_exp_LDADD=arkanum_nm.o kido_nm.o fertigk_nm.o land_sprache_nm.o \
+	waffen_nm.o
+all_exp_DEPENDENCIES=$(all_exp_LDADD)
 
 BUILT_SOURCES=arkanum_exp.cc kido_exp.cc fertigk_exp.cc land_sprache_exp.cc \
 	waffen_exp.cc

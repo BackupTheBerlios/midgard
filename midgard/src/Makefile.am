@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.72 2001/11/13 15:26:57 thoma Exp $
+# $Id: Makefile.am,v 1.73 2001/11/20 22:18:06 christof Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -103,7 +103,9 @@ BUILT_SOUCES_XMLI=xmlimport.cc
 
 BUILT_SOURCES= $(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE) $(BUILT_SOUCES_XMLI)
 
-midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
+export_common.cc: ../xml/export_common.cc ; ln -sf ../xml/$@ .
+
+midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE) export_common.cc
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 
@@ -186,7 +188,9 @@ midgard_SOURCES = \
    WindowInfo_glade.cc \
    itos.cc \
    Window_doppelcharaktere.cc \
-   Window_doppelcharaktere_glade.cc
+   Window_doppelcharaktere_glade.cc \
+   \
+   Tag.cc TagStream.cc xml.cc
 
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.16 2001/11/20 07:22:37 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.17 2001/11/20 22:18:06 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -38,7 +38,6 @@ void fert_speichern(std::ostream &o)
    	order by region,fertigkeit;
    exec sql open fert_curs;
    SQLerror::test(__FILELINE__);
-   o << "<MidgardCG-data>\n";
    o << " <Fertigkeiten>\n";
   while (true)
   {exec sql fetch fert_curs into sql descriptor spalten;
@@ -536,11 +535,11 @@ void fert_speichern(std::ostream &o)
    o << " </SteigernKosten/>\n";
 
 //******************************************************************
-   o << "</MidgardCG-data>\n";
    
    exec sql deallocate descriptor spalten;
 }
 
+#ifndef XML_NO_MAIN
 int main(int argc, char *argv[])
 {  
    try{
@@ -549,10 +548,13 @@ int main(int argc, char *argv[])
       Petig::dbconnect(conn);
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
+   std::cout << "<MidgardCG-data>\n";
    fert_speichern(std::cout);
+   std::cout << "</MidgardCG-data>\n";
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';
    }
    return 0;
 }
+#endif
