@@ -34,6 +34,7 @@ exec sql include sqlca;
 #include "../pixmaps/Regio_Gilde-50.xpm"
 #include "../pixmaps/Regio_Nahuatlan-50.xpm"
 #include "../pixmaps/Regio_Waeland-50.xpm"
+#include "../pixmaps/Regio_Arkanum-50.xpm"
 #include "../pixmaps/pinguin.xpm"
 
 Gtk::Pixmap *RegionenPic::Pic(epic typ)
@@ -42,8 +43,9 @@ Gtk::Pixmap *RegionenPic::Pic(epic typ)
    else if (typ==KanThaiPan) return manage(new Gtk::Pixmap(KiDo_trans_50_xpm));
    else if (typ==Rawindra)   return manage(new Gtk::Pixmap(Regio_Rawindra_50_xpm));
    else if (typ==Alba)       return manage(new Gtk::Pixmap(Regio_Alba_50_xpm));
-//   else if (typ==Waeland)    return manage(new Gtk::Pixmap(Regio_Waeland_50_xpm));
-//   else if (typ==Nahuatlan)  return manage(new Gtk::Pixmap(Regio_Nahuatlan_50_xpm));
+   else if (typ==Waeland)    return manage(new Gtk::Pixmap(Regio_Waeland_50_xpm));
+   else if (typ==Nahuatlan)  return manage(new Gtk::Pixmap(Regio_Nahuatlan_50_xpm));
+   else if (typ==Arkanum)    return manage(new Gtk::Pixmap(Regio_Arkanum_50_xpm));
    else if (typ==Gildenbrief)return manage(new Gtk::Pixmap(Regio_Gilde_50_xpm));
    else if (typ==HD)         return manage(new Gtk::Pixmap(Regio_H_u_D_50_xpm));
    else return manage(new Gtk::Pixmap(pinguin_xpm));
