@@ -1,0 +1,257 @@
+Wissen	Alchimie	F	0.5
+Wissen	Astrologie	F	0.7
+Wissen	Baukunde	F	0.7
+Wissen	Dämonenkunde	F	0.7
+Wissen	Gassenwissen	F	0.9
+Wissen	Geheimzeichen	F	0.8
+Wissen 	Geomantie	F	0.5
+Wissen 	Giftmischen	F	0.9
+Wissen 	Heilkunde	F	0.5
+Wissen 	Himmelskunde	F	0.5
+Wissen	Kenntnis der fünf Klassiker	F	0.5
+Wissen	Kräuterkunde	F	0.5
+Wissen	Landeskunde	F	0.5
+Wissen	Lesen von Geisterschrift	F	0.9
+Wissen	Lesen von Zauberrunen	F	0.5
+Wissen	Lesen von Zauberschrift	F	0.5
+Wissen	Menschenkenntnis	F	0.8
+Wissen	Mumifizieren	F	0.8
+Wissen	Naturkunde	F	0.5
+Wissen	Orakelkunst	F	0.8
+Wissen	Pflanzenkunde	F	0.5
+Wissen	Pyromantie	F	0.8
+Wissen	Rechnen	F	0.5
+Wissen	Sagenkunde	F	0.5
+Wissen 	Schätzen	F	0.8
+Wissen	Steinabreibungen machen	F	0.9
+Wissen	Teezeremonie	F	0.8
+Wissen	Thaumatographie	F	0.8
+Wissen	Tierkunde	F	0.5
+Wissen	Wahrsagekalender führen	F	0.5
+Wissen	Wetterkunde	F	0.6
+Wissen	YangScheng	F	0.8
+Wissen	Zauberkunde	F	0.5
+Wissen	Zeichensprache	F	0.6
+Soziales	Beredsamkeit	F	0.5
+Soziales	Ballspiel	F	0.7
+Soziales	Beschatten	F	0.6
+Soziales	Brettspiel	F	0.6
+Soziales	Dichten	F	0.6
+Soziales	Erzählen	F	0.5
+Soziales	Gassenwissen	F	0.5
+Soziales	Gaukeln	F	0.6
+Soziales	Geheimzeichen	F	0.6
+Soziales	Geschenke machen	F	0.6
+Soziales	Geschäftstüchtigkeit	F	0.6
+Soziales	Glücksspiel	F	0.6
+Soziales	Lippenlesen	F	0.8
+Soziales	Menschenkenntnis	F	0.4
+Soziales	Musizieren	F	0.6
+Soziales	Schauspielern	F	0.6
+Soziales	Singen	F	0.6
+Soziales	Stimmen nachahmen	F	0.9
+Soziales	Tanzen	F	0.6
+Soziales	Teezeremonie	F	0.6
+Soziales	Trinken	F	0.7
+Soziales	Verführen	F	0.5
+Soziales	Verhören	F	0.6
+Soziales	Verkleiden	F	0.6
+Soziales	Zeichensprache	F	0.9
+Abenteurer	Akrobatik	F	0.8
+Abenteurer	Balancieren	F	0.7
+Abenteurer	Baukunde	F	0.8
+Abenteurer	Fallen entdecken	F	0.8
+Abenteurer	Fangen	F	0.9
+Abenteurer	Gassenwissen	F	0.9
+Abenteurer	Geheimmechanismen öffnen	F	0.8
+Abenteurer	Geländelauf	F	0.7
+Abenteurer	Erste Hilfe	F	0.8
+Abenteurer	Klettern	F	0.7
+Abenteurer	Menschenkenntnis	F	0.7
+Abenteurer	Reiten	F	0.7
+Abenteurer	Schleichen	F	0.6
+Abenteurer	Schwimmen	F	0.6
+Abenteurer	Schätzen	F	0.9
+Abenteurer	Seilkunst	F	0.8
+Abenteurer	Spurenlesen	F	0.9
+Abenteurer	Suchen	F	0.8
+Abenteurer	Tarnen	F	0.8
+Abenteurer	Tauchen	F	0.9
+Abenteurer	Verhören	F	0.9
+Abenteurer	Wahrnehmung	F	0.6
+Abenteurer	Winden	F	0.9
+Abenteurer	Zauberkunde	F	0.8
+Halbseidenes	Beschatten	F	0.7
+Halbseidenes	Betäuben	F	0.6
+Halbseidenes	Fallenmechanik	F	0.6
+Halbseidenes	Fallenstellen	F	0.6
+Halbseidenes	Fälschen	F	0.6
+Halbseidenes	Gassenwissen	F	0.5
+Halbseidenes	Geheimmechanismen öffnen	F	0.5
+Halbseidenes	Geheimzeichen	F	0.5
+Halbseidenes	Giftmischen	F	0.5
+Halbseidenes	Glücksspiel	F	0.5
+Halbseidenes	Klettern	F	0.9
+Halbseidenes	Lippenlesen	F	0.9
+Halbseidenes	Menschenkenntnis	F	0.8
+Halbseidenes	Meucheln	F	0.6
+Halbseidenes	Schauspielern	F	0.9
+Halbseidenes	Schleichen	F	0.7
+Halbseidenes	Schlösser öffnen	F	0.5
+Halbseidenes	Schätzen	F	0.7
+Halbseidenes	Seilkunst	F	0.7
+Halbseidenes	Stehlen	F	0.5
+Halbseidenes	Stimmen nachahmen	F	0.9
+Halbseidenes	Suchen	F	0.7
+Halbseidenes	Tarnen	F	0.6
+Halbseidenes	Verbergen	F	0.5
+Halbseidenes	Verführen	F	0.8
+Halbseidenes	Verhören	F	0.8
+Halbseidenes	Verkleiden	F	0.8
+Halbseidenes	Winden	F	0.9
+Halbseidenes	Zeichensprache	F	0.8
+Halbseidenes	Zunge verschlucken	F	0.7
+Kampf	Akrobatik	F	0.9
+Kampf	Ballista bedienen	F	0.8
+Kampf	Beidhändiger Kampf	F	0.6
+Kampf	Bogenkampf zu Pferd	F	0.5
+Kampf	Fechten	F	0.5
+Kampf	Fechten tevarrischer Stil	F	0.7
+Kampf	Geländelauf	F	0.7
+Kampf	Kampf in Dunkelheit	F	0.6
+Kampf	Kampf in Schlachtreihe	F	0.6
+Kampf	Kampf in Vollrüstung	F	0.6
+Kampf	Kampf vom Streitwagen	F	0.7
+Kampf	Kampf zu Elefant	F	0.6
+Kampf	Kampf zu Kamel	F	0.6
+Kampf	Kampf zu Pferd	F	0.6
+Kampf	Kampftaktik	F	0.5
+Kampf	Katapult bedienen	F	0.6
+Kampf	Schießen vom Streitwagen	F	0.7
+Kampf	Reiten	F	0.7
+Kampf	Schlachtruf	F	0.7
+Kampf	Schwerttanz	F	0.7
+Kampf	Srimara lenken	F	0.7
+Kampf	Streitwagen lenken	F	0.7
+Kampf	IaiJutsu	F	0.6
+Kampf	Kamelreiten	F	0.6
+Heilung	Erste Hilfe	F	0.5
+Heilung	Heilkunde	F	0.5
+Heilung	Kräuterkunde	F	0.5
+Heilung	Meditieren	F	0.8
+Heilung	Pflanzenkunde	F	0.8
+Heilung	Giftmischen	F	0.9
+Heilung	FengSchui	F	0.6
+Heilung	TaiTschi	F	0.6
+Heilung	Tierkunde	F	0.8
+Heilung	YangScheng	F	0.9
+Heilung	Zauberkunde	F	0.8
+Natur	Abrichten	F	0.6
+Natur	Fallenstellen	F	0.6
+Natur	FengSchui	F	0.6
+Natur	Geomantie	F	0.6
+Natur	Himmelskunde	F	0.5
+Natur	Kamelreiten	F	0.8
+Natur	Elefanten lenken	F	0.8
+Natur	Klettern	F	0.6
+Natur	Kräuterkunde	F	0.5
+Natur	Naturkunde	F	0.5
+Natur	Pflanzenkunde	F	0.5
+Natur	Reiten	F	0.6
+Natur	Schlangen beschwören	F	0.9
+Natur	Schleichen	F	0.7
+Natur	Schwimmen	F	0.7
+Natur	Spurenlesen	F	0.6
+Natur	Tarnen	F	0.7
+Natur	Tauchen	F	0.7
+Natur	Tierkunde	F	0.5
+Natur	Wahrnehmung	F	0.7
+Natur	Wetterkunde	F	0.5
+Natur	Überleben im Dschungel	F	0.5
+Natur	Überleben im Gebirge	F	0.5
+Natur	Überleben im Schnee	F	0.5
+Natur	Überleben im Sumpf	F	0.5
+Natur	Überleben im Wald	F	0.5
+Natur	Überleben in der Steppe	F	0.5
+Natur	Überleben in der Wüste	F	0.5
+Körper	Seemannsgang	F	0.6
+Körper	Adlersprung	F	0.6
+Körper	Akrobatik	F	0.5
+Körper	Askese	F	0.6
+Körper	Athletik	F	0.6
+Körper	Balancieren	F	0.5
+Körper	Ballspiel	F	0.6
+Körper	Fangen	F	0.6
+Körper	Gaukeln	F	0.8
+Körper	Geländelauf	F	0.6
+Körper	Klettern	F	0.5
+Körper	Körperkontrolle	F	0.6
+Körper	Laufen	F	0.5
+Körper	Meditieren	F	0.9
+Körper	Reiten	F	0.7
+Körper	Rudern	F	0.9
+Körper	Schleichen	F	0.9
+Körper	Schlittenfahren	F	0.8
+Körper	Schlittschuhlaufen	F	0.8
+Körper	Schmerzen ertragen	F	0.7
+Körper	Schwimmen	F	0.6
+Körper	Skifahren	F	0.7
+Körper	Springen	F	0.5
+Körper	Tanzen	F	0.7
+Körper	Tauchen	F	0.7
+Körper	Trinken	F	0.7
+Körper	Wagenlenken	F	0.8
+Körper	Winden	F	0.6
+Körper	TaiTschi	F	0.6
+Körper	YangScheng	F	0.8
+Untersuchen	Alchimie	F	0.7
+Untersuchen	Baukunde	F	0.7
+Untersuchen	Beschatten	F	0.7
+Untersuchen	Fallen entdecken	F	0.6
+Untersuchen	Gassenwissen	F	0.7
+Untersuchen	Geheimzeichen	F	0.7
+Untersuchen	Giftmischen	F	0.9
+Untersuchen	Heilkunde	F	0.9
+Untersuchen	Kräuterkunde	F	0.9
+Untersuchen	Lesen von Zauberschrift	F	0.9
+Untersuchen	Lippenlesen	F	0.9
+Untersuchen	Menschenkenntnis	F	0.6
+Untersuchen	Naturkunde	F	0.6
+Untersuchen	Pflanzenkunde	F	0.7
+Untersuchen	Schleichen	F	0.7
+Untersuchen	Schlösser öffnen	F	0.7
+Untersuchen	Schätzen	F	0.9
+Untersuchen	Spurenlesen	F	0.5
+Untersuchen	Suchen	F	0.5
+Untersuchen	Tierkunde	F	0.7
+Untersuchen	Verführen	F	0.8
+Untersuchen	Verhören	F	0.6
+Untersuchen	Verkleiden	F	0.8
+Untersuchen	Wahrnehmung	F	0.5
+Untersuchen	Zauberkunde	F	0.8
+Untersuchen	Zeichensprache	F	0.8
+
+#Zauber
+Schutz
+Kampf
+Information
+Heilung
+Bann
+Natur
+Beschwörung
+Illusion
+Macht
+Zerstörung
+Verwirrung
+Elemente
+Verschleiern
+Nekromantie
+Genuss
+
+jedes Agens,Reagens,Prozess,Ursprung
+jedes Element?
+jedes Prozess+Reagens (wo mehr als 5 Zauber möglich)
+[bewegt Feuer, verändert Erde, verändert Luft, beherrscht Wasser,
+	bewegt Erde, beherrscht Feuer, verändert Metall, erkennt Luft,
+	erschafft Feuer, beherrscht Luft, zerstört Magan] 
+= [115,56,51,41,29...17]
