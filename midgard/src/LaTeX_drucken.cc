@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.40 2002/07/04 20:39:36 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.41 2002/07/07 08:31:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,103 +114,8 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
 // fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
  LaTeX_newsavebox(fout);
- std::string styp;
- if(hauptfenster->getWerte().Bezeichnung().size())
-  {  styp=hauptfenster->getWerte().Bezeichnung()+" ("+hauptfenster->getChar().Typ1()->Short();
-     if(hauptfenster->getChar().Typ2()->Short().size()) styp +="/"+hauptfenster->getChar().Typ2()->Short();
-     styp+=")";
-  }
- else 
-  { styp = hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht());
-    if (hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht())!="") 
-      styp += "/"+hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht());
-  }
- fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\st}{"  <<hauptfenster->getWerte().St() << "}\n";
- fout << "\\newcommand{\\gs}{" <<hauptfenster->getWerte().Gs() << "}\n";
- fout << "\\newcommand{\\gw}{"  << hauptfenster->getWerte().Gw()<<hauptfenster->getWerte().Ruestung_RW_Verlust()<<"}\n";
- fout << "\\newcommand{\\ko}{"  <<hauptfenster->getWerte().Ko()<< "}\n";
- fout << "\\newcommand{\\inn}{" <<hauptfenster->getWerte().In() << "}\n";
- fout << "\\newcommand{\\zt}{"  <<hauptfenster->getWerte().Zt() << "}\n";
- fout << "\\newcommand{\\au}{"  <<hauptfenster->getWerte().Au() << "}\n";
- fout << "\\newcommand{\\pa}{"  <<hauptfenster->getWerte().pA() << "}\n";
- fout << "\\newcommand{\\sbb}{"  <<hauptfenster->getWerte().Sb() << "}\n";
- fout << "\\newcommand{\\wk}{"  <<hauptfenster->getWerte().Wk() << "}\n";
- fout << "\\newcommand{\\rw}{ X }\n";
- fout << "\\newcommand{\\hgw}{ X }\n";
- fout << "\\newcommand{\\bb}{"  <<hauptfenster->getWerte().B()<<hauptfenster->getWerte().Ruestung_B_Verlust()<<"}\n";
-// fout << "\n";
- fout << "\\newcommand{\\kaw}{"  <<hauptfenster->getWerte().KAW() << "}\n";
- fout << "\\newcommand{\\geistesblitz}{"  <<hauptfenster->getWerte().Geistesblitz() << "}\n";
- fout << "\\newcommand{\\ggn}{"  <<hauptfenster->getWerte().GG() << "}\n";
- fout << "\\newcommand{\\sg}{"  <<hauptfenster->getWerte().SG() << "}\n";
- fout << "\\newcommand{\\lp}{"  <<hauptfenster->getWerte().LP() << "}\n";
- fout << "\\newcommand{\\ap}{"  <<hauptfenster->getWerte().AP() << "}\n";
- fout << "\\newcommand{\\boau}{"<<hauptfenster->getWerte().bo_Au()<< "}\n";
- fout << "\\newcommand{\\bosc}{"<<hauptfenster->getWerte().bo_Sc()<< "}\n";
- fout << "\\newcommand{\\boan}{"<<hauptfenster->getWerte().bo_An()<< "}\n";
- fout << "\\newcommand{\\boab}{"<<hauptfenster->getWerte().bo_Ab()<< "}\n";
- fout << "\\newcommand{\\boza}{"<<hauptfenster->getWerte().bo_Za()<< "}\n";
- fout << "\\newcommand{\\bopsy}{"<<hauptfenster->getWerte().bo_Psy(hauptfenster->getChar().getVTyp())<< "}\n";
- fout << "\\newcommand{\\bophs}{"<<hauptfenster->getWerte().bo_Phs(hauptfenster->getChar().getVTyp())<< "}\n";
- fout << "\\newcommand{\\bophk}{"<<hauptfenster->getWerte().bo_Phk(hauptfenster->getChar().getVTyp())<< "}\n";
 
- // Sinne
- fout << "\\newcommand{\\sinnse}{"<<hauptfenster->getWerte().Sehen()<< "}\n";
- fout << "\\newcommand{\\sinnh}{"<<hauptfenster->getWerte().Hoeren()<< "}\n";
- fout << "\\newcommand{\\sinnr}{"<<hauptfenster->getWerte().Riechen()<< "}\n";
- fout << "\\newcommand{\\sinnsc}{"<<hauptfenster->getWerte().Schmecken()<< "}\n";
- fout << "\\newcommand{\\sinnt}{"<<hauptfenster->getWerte().Tasten()<< "}\n";
- fout << "\\newcommand{\\sinnss}{"<<hauptfenster->getWerte().SechsterSinn()<< "}\n";
- 
- fout << "\\newcommand{\\hand}{"<<hauptfenster->getWerte().Hand()<< "}\n";
-
-// fout << "\\newcommand{\\bogi}{ X }\n";
- fout << "\\newcommand{\\res}{"<<hauptfenster->getWerte().Resistenz()<<"}\n";
- fout << "\\newcommand{\\psy}{"<<hauptfenster->getWerte().Resistenz()+hauptfenster->getWerte().bo_Psy(hauptfenster->getChar().getVTyp())<<"}\n";
- fout << "\\newcommand{\\ppresistenz}{"<<EmptyInt_4TeX(hauptfenster->getWerte().ResistenzPP())<<"}\n";
- fout << "\\newcommand{\\phs}{"<<hauptfenster->getWerte().Resistenz()+hauptfenster->getWerte().bo_Phs(hauptfenster->getChar().getVTyp())<<"}\n";
- fout << "\\newcommand{\\phk}{"<<hauptfenster->getWerte().Resistenz()+hauptfenster->getWerte().bo_Phk(hauptfenster->getChar().getVTyp())<<"}\n";
-// fout << "\\newcommand{\\gift}{"<<3*hauptfenster->getWerte().LP()+hauptfenster->getWerte().bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
- fout << "\\newcommand{\\gift}{"<<hauptfenster->getWerte().Gift()<<"}\n";
-
- fout << "\\newcommand{\\raufen}{"<<hauptfenster->getWerte().Raufen()<< "}\n";
- fout << "\\newcommand{\\abwehr}{"<<hauptfenster->getWerte().Abwehr_wert()<< "}\n";
- fout << "\\newcommand{\\ppabwehr}{"<<EmptyInt_4TeX(hauptfenster->getWerte().AbwehrPP())<< "}\n";
- int ohne_waffe=hauptfenster->getWerte().Abwehr_wert()+hauptfenster->getWerte().bo_Ab();
- std::string abwehr_verlust_string = hauptfenster->getWerte().Ruestung_Abwehr_Verlust(hauptfenster->getChar().List_Fertigkeit());
- fout << "\\newcommand{\\abwehrfinal}{"<<ohne_waffe<<abwehr_verlust_string<<"}\n";
-
- std::string mit_waffe = Waffe::get_Verteidigungswaffe(ohne_waffe,hauptfenster->getChar().List_Waffen(),hauptfenster->getChar().List_Waffen_besitz(),hauptfenster->getChar().getVTyp(),hauptfenster->getWerte());
- fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<<abwehr_verlust_string<<"}\n";
-
- fout << "\\newcommand{\\zauber}{"<<EmptyInt_4TeX(hauptfenster->getWerte().Zaubern_wert())<< "}\n";
- fout << "\\newcommand{\\ppzauber}{"<<EmptyInt_4TeX(hauptfenster->getWerte().ZaubernPP())<< "}\n";
- fout << "\\newcommand{\\alter}{"  <<hauptfenster->getWerte().Alter() << "}\n";
- fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(hauptfenster->getWerte().Gestalt(),5,"0.7cm") << "}\n";
- fout << "\\newcommand{\\gewicht}{"  <<hauptfenster->getWerte().Gewicht() << "\\,kg}\n";
- fout << "\\newcommand{\\koerpergroesse}{"  <<hauptfenster->getWerte().Groesse()/100. << "\\,m}\n";
- fout << "\\newcommand{\\koerpergroessebez}{("  <<hauptfenster->getWerte().GroesseBez() << ")}\n";
- fout << "\\newcommand{\\grad}{"  <<hauptfenster->getWerte().Grad() << "}\n";
- fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(hauptfenster->getWerte().Spezialisierung(),10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(hauptfenster->getWerte().Stand(),10,"1.5cm") << "}\n";
- fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(hauptfenster->getWerte().Herkunft()->Name(),10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(hauptfenster->getWerte().Glaube(),10,"2.5cm") << "}\n";
- fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(hauptfenster->getWerte().Name_Abenteurer(),25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(hauptfenster->getWerte().Name_Spieler(),25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\gfp}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().GFP()) << "}\n";
- fout << "\\newcommand{\\aep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().KEP()) << "}\n";
- fout << "\\newcommand{\\kep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().ZEP()) << "}\n";
- fout << "\\newcommand{\\zep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().AEP()) << "}\n";
-
- double geld = hauptfenster->getWerte().Gold() + hauptfenster->getWerte().Silber()/10. + hauptfenster->getWerte().Kupfer()/100.;
- fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";
-
- fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung()->Name() << "}\n";
- fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung()->LP_Verlust() << "}\n";
- fout << "\\newcommand{\\ruestungb}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung(1)->Name() << "}\n";
- fout << "\\newcommand{\\ruestunglpb}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung(1)->LP_Verlust() << "}\n";
-
+ write_grundwerte(fout);
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
  {
@@ -252,10 +157,6 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // weitere Merkmale
- fout << "\\newcommand{\\merkmale}{" ;
- if(hauptfenster->getWerte().Spezies()->Name()!="Mensch")  fout << hauptfenster->getWerte().Spezies()->Name()<<" "; 
- fout << hauptfenster->getWerte().Merkmale();
- fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten & Waffen
  /////////////////////////////////////////////////////////////////////////////
@@ -293,41 +194,8 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
    }
  write_waffenbesitz(fout,WB_druck);
  write_fertigkeiten(fout,L);
- /////////////////////////////////////////////////////////////////////////
- // Universelle Fertigkeiten
+ write_universelle(fout);
 
- std::list<Abenteurer::st_universell> UF=hauptfenster->getChar().List_Universell(hauptfenster->getCDatabase());
- int countunifert=0;
- for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
-  {
-    std::string a = LaTeX_string(countunifert);
-    std::string name = i->mbe->Name();
-    std::string wert;
-    int iwert= i->mbe.Erfolgswert();
-    if   (iwert>=0) wert = "+"+itos(iwert);
-    else            wert = "--"+itos(abs(iwert));
-    
-    if     (name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
-    else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+hauptfenster->getWerte().Herkunft()->Name()+")";
-
-    if (!i->gelernt)
-     {
-       ++countunifert;
-       fout <<"\\newcommand{\\uni"<<a<<"}{"<<name<< "}\t\t";
-       if (i->voraussetzung)
-          fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
-       else
-          fout << "\\newcommand{\\uniw"<<a<<"}{$^*\\!$("<<wert << ")}\n";
-     }
-  } 
-
- // Universelle Fertigkeiten auffüllen
- for (unsigned int i=countunifert; i<maxunifert;++i)
-   {
-      std::string a = LaTeX_string(i);
-      fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
-      fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
-   }
 #ifdef __MINGW32__ // LaTeX needs / instead of '\\'
  std::string recoded_install_latex_file=install_latex_file;
  for (std::string::iterator i=recoded_install_latex_file.begin();i!=recoded_install_latex_file.end();++i)
@@ -337,6 +205,254 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\input{"+install_latex_file+"}\n";
 #endif 
 }
+
+
+void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file)
+{
+ fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
+// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
+ LaTeX_newsavebox(fout);
+ write_grundwerte(fout,true);
+ 
+ std::vector<st_sprachen_schrift> L;
+ write_sprachen(fout,L);
+ fout << "\\newcommand{\\beruf}{}\n" ;
+ std::list<MidgardBasicElement_mutable> F;
+ write_fertigkeiten(fout,F);
+ std::list<WaffeBesitz> B;
+ write_waffenbesitz(fout,B);
+ write_universelle(fout);
+/*
+ // Universelle Fertigkeiten
+ std::list<cH_MidgardBasicElement> UF;
+ const std::list<cH_MidgardBasicElement> LF=hauptfenster->getCDatabase().Fertigkeit;
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=LF.begin();i!=LF.end();++i)
+  {
+    cH_Fertigkeit f(*i);
+    if(f->Ungelernt()!=-99)
+       UF.push_back(*i);
+  }
+ cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen")); 
+ UF.push_back(werfen);
+ UF.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
+ int countunifert=0;
+ for(std::list<cH_MidgardBasicElement>::iterator i=UF.begin();i!=UF.end();++i)
+  {
+    std::string a = LaTeX_string(countunifert++);
+    std::string name = (*i)->Name();
+    std::string wert;
+    if       ((*i)->What()==MidgardBasicElement::FERTIGKEIT) 
+      { cH_Fertigkeit f(*i);
+        wert = "+"+itos(f->Ungelernt());
+        if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
+        if(name=="Landeskunde (Heimat)") name = "Landeskunde";
+      }
+    else if  ((*i)->What()==MidgardBasicElement::WAFFE)    
+      { cH_Waffe      f(*i);
+        wert = "+4";
+      }
+//    f->set_Erfolgswert(f->Ungelernt());
+    fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
+    fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
+  } 
+
+
+// unsigned int maxunifert=48;
+ for (unsigned int i=countunifert; i<maxunifert;++i)
+   {
+      std::string a = LaTeX_string(i);
+      fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
+   }
+*/
+#ifdef __MINGW32__ // LaTeX needs / instead of '\\'
+ std::string recoded_install_latex_file=install_latex_file;
+ for (std::string::iterator i=recoded_install_latex_file.begin();i!=recoded_install_latex_file.end();++i)
+            if (*i=='\\') *i='/';
+ fout << "\\input{"+recoded_install_latex_file+"}\n";
+#else
+ fout << "\\input{"+install_latex_file+"}\n";
+#endif 
+// fout.close();
+}
+
+
+
+void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
+{
+ for(ewhat was=etyp;was<eMAX; was=ewhat(int(was)+1))
+  {
+   std::string sfout = "\\newcommand{\\";
+   switch (was) {
+     case etyp  : sfout += "typ}{"; break ;
+     case emerk : sfout += "merkmale}{"; break ;
+     case est   : sfout += "st }{"; break ;
+     case egs   : sfout += "gs }{"; break ;
+     case egw   : sfout += "gw }{"; break ;
+     case eko   : sfout += "ko }{"; break ;
+     case ein   : sfout += "inn }{"; break ;
+     case ezt   : sfout += "zt }{"; break ;
+     case eau   : sfout += "au }{"; break ;
+     case epa   : sfout += "pa }{"; break ;
+     case esb   : sfout += "sbb }{"; break ;
+     case ewk   : sfout += "wk }{"; break ;
+     case eb    : sfout += "bb }{"; break ;
+     case ekaw  : sfout += "kaw }{"; break ;
+     case egsb  : sfout += "geistesblitz }{"; break ;
+     case egn   : sfout += "ggn}{"; break ;
+     case esg   : sfout += "sg }{"; break ;
+     case elp   : sfout += "lp }{"; break ;
+     case eap   : sfout += "ap }{"; break ;
+     case eboau : sfout += "boau}{"; break ;
+     case ebosc : sfout += "bosc}{"; break ;
+     case eboan : sfout += "boan}{"; break ;
+     case eboab : sfout += "boab}{"; break ;
+     case eboza : sfout += "boza}{"; break ;
+     case ebopsy: sfout += "bopsy}{"; break ;
+     case ebophs: sfout += "bophs}{"; break ;
+     case ebophk: sfout += "bophk}{"; break ;
+     case eres  : sfout += "res}{"; break ;
+     case epsy  : sfout += "psy}{"; break ;
+     case ephs  : sfout += "phs}{"; break ;
+     case ephk  : sfout += "phk}{"; break ;
+     case egift : sfout += "gift}{"; break ;
+     case eabwehr:sfout += "abwehr}{"; break ;
+     case eabwehrfinal:sfout += "abwehrfinal}{"; break ;
+     case eabwehrmitwaffe:sfout += "abwehrmitwaffe}{"; break ;
+     case eppresistenz:sfout += "ppresistenz}{"; break ;
+     case eppabwehr:sfout += "ppabwehr}{"; break ;
+     case eppzauber:sfout += "ppzauber}{"; break ;
+     case ezauber:sfout += "zauber}{"; break ;
+     case ehand:sfout += "hand}{"; break ;
+     case eraufen:sfout += "raufen}{"; break ;
+     case ealter:sfout += "alter}{"; break ;
+     case egewicht:sfout += "gewicht}{"; break ;
+     case egestalt:sfout += "gestalt}{"; break ;
+     case ekoerpergroesse:sfout += "koerpergroesse}{"; break ;
+     case egrad:sfout += "grad}{"; break ;
+     case espezialisierung:sfout += "spezialisierung}{"; break ;
+     case estand:sfout += "stand}{"; break ;
+     case eherkunft:sfout += "herkunft}{"; break ;
+     case eglaube:sfout += "glaube}{"; break ;
+     case enamecharakter:sfout += "namecharakter}{"; break ;
+     case enamespieler : sfout += "namespieler}{"; break ;
+     case egfp : sfout += "gfp}{"; break ;
+     case eaep : sfout += "aep}{"; break ;
+     case ekep : sfout += "kep}{"; break ;
+     case ezep : sfout += "zep}{"; break ;
+     case egeld : sfout += "gold}{"; break ;
+     case eruestung : sfout += "ruestung}{"; break ;
+     case eruestunglp : sfout += "ruestunglp}{"; break ;
+     case eruestungb : sfout += "ruestungb}{"; break ;
+     case eruestunglpb : sfout += "ruestunglpb}{"; break ;
+     case esinnse : sfout += "sinnse}{"; break ;
+     case esinnh  : sfout += "sinnh}{"; break ;
+     case esinnr  : sfout += "sinnr}{"; break ;
+     case esinnsc : sfout += "sinnsc}{"; break ;
+     case esinnt  : sfout += "sinnt}{"; break ;
+     case esinnss : sfout += "sinnss}{"; break ;
+     default : sfout  += "XXX"; break;
+   }
+  if(!empty)
+   {
+    const Grundwerte &W=hauptfenster->getWerte();
+    switch(was) {
+     case etyp  : {
+        std::string styp;
+        if(W.Bezeichnung().size())
+          {  styp=W.Bezeichnung()+" ("+hauptfenster->getChar().Typ1()->Short();
+             if(hauptfenster->getChar().Typ2()->Short().size()) styp +="/"+hauptfenster->getChar().Typ2()->Short();
+             styp+=")";
+          }
+        else 
+          { styp = hauptfenster->getChar().Typ1()->Name(W.Geschlecht());
+            if (hauptfenster->getChar().Typ2()->Name(W.Geschlecht())!="") 
+               styp += "/"+hauptfenster->getChar().Typ2()->Name(W.Geschlecht());
+          }
+        sfout += LaTeX_scale(styp,10,"2.2cm") ; 
+        break;
+      }      
+     case emerk : { if(W.Spezies()->Name()!="Mensch") sfout += W.Spezies()->Name() + " ";
+           sfout +=W.Merkmale(); 
+         }
+     case est   : sfout += itos(W.St()); break ;
+     case egs   : sfout += itos(W.Gs()); break ;
+     case egw   : sfout += itos(W.Gw()) + W.Ruestung_RW_Verlust(); break ;
+     case eko   : sfout += itos(W.Ko()); break ;
+     case ein   : sfout += itos(W.In()); break ;
+     case ezt   : sfout += itos(W.Zt()); break ;
+     case eau   : sfout += itos(W.Au()); break ;
+     case epa   : sfout += itos(W.pA()); break ;
+     case esb   : sfout += itos(W.Sb()); break ;
+     case ewk   : sfout += itos(W.Wk()); break ;
+     case eb    : sfout += itos(W.B()) + W.Ruestung_B_Verlust(); break ;
+     case ekaw  : sfout += itos(W.KAW()); break ;
+     case egsb  : sfout += itos(W.Geistesblitz()); break ;
+     case egn   : sfout += itos(W.GG()); break ;
+     case esg   : sfout += itos(W.SG()); break ;
+     case elp   : sfout += itos(W.LP()); break ;
+     case eap   : sfout += itos(W.AP()); break ;
+     case eboau : sfout += itos(W.bo_Au()); break ;
+     case ebosc : sfout += itos(W.bo_Sc()); break ;
+     case eboan : sfout += itos(W.bo_An()); break ;
+     case eboab : sfout += itos(W.bo_Ab()); break ;
+     case eboza : sfout += itos(W.bo_Za()); break ;
+     case ebopsy: sfout += itos(W.bo_Psy(hauptfenster->getChar().getVTyp())); break ;
+     case ebophs: sfout += itos(W.bo_Phs(hauptfenster->getChar().getVTyp())); break ;
+     case ebophk: sfout += itos(W.bo_Phk(hauptfenster->getChar().getVTyp())); break ;
+     case eres  : sfout += itos(W.Resistenz()); break ;
+     case epsy  : sfout += itos(W.Resistenz()+W.bo_Psy(hauptfenster->getChar().getVTyp())); break ;
+     case ephs  : sfout += itos(W.Resistenz()+W.bo_Phs(hauptfenster->getChar().getVTyp())); break ; 
+     case ephk  : sfout += itos(W.Resistenz()+W.bo_Phk(hauptfenster->getChar().getVTyp())); break ;
+     case egift : sfout += itos(W.Gift()); break ;
+     case eabwehr:sfout += itos(W.Abwehr_wert()); break ;
+     case eabwehrfinal:
+     case eabwehrmitwaffe:
+      { if(was==eabwehrfinal)    sfout += itos(W.Abwehr_wert()+W.bo_Ab());
+        if(was==eabwehrmitwaffe) sfout += Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar().List_Waffen(),hauptfenster->getChar().List_Waffen_besitz(),hauptfenster->getChar().getVTyp(),W);
+        sfout += W.Ruestung_Abwehr_Verlust(hauptfenster->getChar().List_Fertigkeit());
+        break;
+      }
+     case eppresistenz:sfout += EmptyInt_4TeX(hauptfenster->getWerte().ResistenzPP()); break ;
+     case eppabwehr:sfout += EmptyInt_4TeX(hauptfenster->getWerte().AbwehrPP()); break ;
+     case eppzauber:sfout += EmptyInt_4TeX(hauptfenster->getWerte().ZaubernPP()); break ;
+     case ezauber:sfout += EmptyInt_4TeX(W.Zaubern_wert()); break ;
+     case ehand:sfout += W.Hand(); break ;
+     case eraufen:sfout += itos(W.Raufen()); break ;
+     case ealter:sfout += itos(W.Alter()); break ;
+     case egewicht:sfout += itos(W.Gewicht())+ "\\,kg"; break ;
+     case egestalt:sfout += LaTeX_scale(W.Gestalt(),5,"0.7cm"); break ;
+     case ekoerpergroesse:sfout += LaTeX_scale(dtos(W.Groesse()/100.)+ "\\,m " + W.GroesseBez(),7,"0.8cm"); break ;
+     case egrad:sfout += itos(W.Grad()); break ;
+     case espezialisierung:sfout += LaTeX_scale(W.Spezialisierung(),10,"2.2cm") ; break ;
+     case estand:sfout += LaTeX_scale(W.Stand(),10,"1.5cm"); break ;
+     case eherkunft:sfout += LaTeX_scale(W.Herkunft()->Name(),10,"2.2cm"); break ;
+     case eglaube:sfout += LaTeX_scale(W.Glaube(),10,"2.5cm"); break ;
+     case enamecharakter:sfout += LaTeX_scale(W.Name_Abenteurer(),25,"4.5cm"); break ;
+     case enamespieler : sfout += LaTeX_scale(W.Name_Spieler(),25,"4.5cm"); break ;
+     case egfp : sfout += EmptyInt_4TeX(W.GFP()); break ;
+     case eaep : sfout += EmptyInt_4TeX(W.AEP()); break ;
+     case ekep : sfout += EmptyInt_4TeX(W.KEP()); break ;
+     case ezep : sfout += EmptyInt_4TeX(W.ZEP()); break ;
+     case egeld : sfout += "\\tiny " + dtos(W.Gold()+W.Silber()/10.+W.Kupfer()/100.); break ;
+     case eruestung : sfout += W.Ruestung()->Name(); break ;
+     case eruestunglp : sfout += itos(W.Ruestung()->LP_Verlust()); break ;
+     case eruestungb : sfout += W.Ruestung(1)->Name(); break ;
+     case eruestunglpb : sfout += itos(W.Ruestung(1)->LP_Verlust()); break ;
+     case esinnse : sfout += itos(W.Sehen()     ); break ;
+     case esinnh  : sfout += itos(W.Hoeren()    ); break ;
+     case esinnr  : sfout += itos(W.Riechen()   ); break ;
+     case esinnsc : sfout += itos(W.Schmecken() ); break ;
+     case esinnt  : sfout += itos(W.Tasten()    ); break ;
+     case esinnss : sfout += itos(W.SechsterSinn()); break ;
+     default : sfout += "XXX"; break;
+    }
+   }
+  if(sfout.find("XXX")==std::string::npos)
+     fout << sfout<< "}\n";
+ }
+}
+
 
 void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<st_sprachen_schrift>& L)
 {
@@ -432,173 +548,42 @@ void LaTeX_drucken::write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz
    }
 }
 
-void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file)
+
+void LaTeX_drucken::write_universelle(ostream &fout)
 {
- fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
-// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
- LaTeX_newsavebox(fout);
- fout << "\\newcommand{\\typ}{}\n";
- fout << "\\newcommand{\\merkmale}{}" ;
- fout << "\\newcommand{\\hand}{""}\n";
- fout << "\\newcommand{\\st}{}\n";
- fout << "\\newcommand{\\gw}{}\n";
- fout << "\\newcommand{\\gs}{}\n";
- fout << "\\newcommand{\\ko}{}\n";
- fout << "\\newcommand{\\inn}{}\n";
- fout << "\\newcommand{\\zt}{}\n";
- fout << "\\newcommand{\\au}{}\n";
- fout << "\\newcommand{\\pa}{}\n";
- fout << "\\newcommand{\\sbb}{}\n";
- fout << "\\newcommand{\\wk}{}\n";
- fout << "\\newcommand{\\rw}{}\n";
- fout << "\\newcommand{\\bb}{}\n";
- fout << "\\newcommand{\\geistesblitz}{}\n";
- fout << "\\newcommand{\\kaw}{}\n";
- fout << "\\newcommand{\\wlw}{}\n";
- fout << "\\newcommand{\\sg}{}\n";
- fout << "\\newcommand{\\ggn}{}\n";
- fout << "\\newcommand{\\lp}{}\n";
- fout << "\\newcommand{\\ap}{}\n";
- fout << "\\newcommand{\\boau}{}\n";
- fout << "\\newcommand{\\bosc}{}\n";
- fout << "\\newcommand{\\boan}{}\n";
- fout << "\\newcommand{\\boab}{}\n";
- fout << "\\newcommand{\\boza}{}\n";
- fout << "\\newcommand{\\bopsy}{}\n";
- fout << "\\newcommand{\\bophs}{}\n";
- fout << "\\newcommand{\\bophk}{}\n";
- fout << "\\newcommand{\\bogi}{}\n";
- fout << "\\newcommand{\\res}{}\n";
- fout << "\\newcommand{\\psy}{}\n";
- fout << "\\newcommand{\\phs}{}\n";
- fout << "\\newcommand{\\phk}{}\n";
- fout << "\\newcommand{\\gift}{}\n";
-
- fout << "\\newcommand{\\abwehr}{}\n";
- fout << "\\newcommand{\\abwehrfinal}{}\n";
- fout << "\\newcommand{\\abwehrmitwaffe}{}\n";
-
- fout << "\\newcommand{\\ppresistenz}{}\n";
- fout << "\\newcommand{\\ppabwehr}{}\n";
- fout << "\\newcommand{\\ppzauber}{}\n";
-
- fout << "\\newcommand{\\zauber}{}\n";
- fout << "\\newcommand{\\alter}{}\n";
- fout << "\\newcommand{\\gestalt}{}\n";
- fout << "\\newcommand{\\gewicht}{}\n";
- fout << "\\newcommand{\\koerpergroesse}{}\n";
- fout << "\\newcommand{\\koerpergroessebez}{}\n";
- fout << "\\newcommand{\\grad}{}\n";
- fout << "\\newcommand{\\spezialisierung}{}\n";
- fout << "\\newcommand{\\stand}{}\n";
- fout << "\\newcommand{\\herkunft}{}\n";
- fout << "\\newcommand{\\glaube}{}\n";
- fout << "\\newcommand{\\namecharakter}{}\n";
- fout << "\\newcommand{\\namespieler}{}\n";
- fout << "\\newcommand{\\gfp}{}\n";
- fout << "\\newcommand{\\aep}{}\n";
- fout << "\\newcommand{\\kep}{}\n";
- fout << "\\newcommand{\\zep}{}\n";
-
- fout << "\\newcommand{\\gold}{}\n";
-
- fout << "\\newcommand{\\ruestung}{}\n";
- fout << "\\newcommand{\\ruestunglp}{}\n";
-
- fout << "\\newcommand{\\raufen}{}\n";
- // Sinne
- fout << "\\newcommand{\\sinnse}{}\n";
- fout << "\\newcommand{\\sinnh}{}\n";
- fout << "\\newcommand{\\sinnr}{}\n";
- fout << "\\newcommand{\\sinnsc}{}\n";
- fout << "\\newcommand{\\sinnt}{}\n";
- fout << "\\newcommand{\\sinnss}{}\n";
- 
- std::vector<st_sprachen_schrift> L;
- write_sprachen(fout,L);
- fout << "\\newcommand{\\beruf}{}\n" ;
- fout << "\\newcommand{\\waffeEy"<<"}{}\n";
- fout << "\\newcommand{\\waffeSy}{}\n";
- fout << "\\newcommand{\\waffeAy}{}\n";
- fout << "\\newcommand{\\waffeVy}{}\n";
- // Fertigkeiten auffüllen
- std::list<MidgardBasicElement_mutable> F;
- write_fertigkeiten(fout,F);
-/*
-// unsigned int maxfert=40;
- for (unsigned int i=0; i<maxfert;++i)
-   {
-      std::string a = LaTeX_string(i);
-      fout << "\\newcommand{\\fert"<<a<<"}{}\n";
-      fout << "\\newcommand{\\praxis"<<a<<"}{}   ";
-      fout << "\\newcommand{\\wert"<<a<<"}{}\n";
-   }
-*/
- // Waffen auffüllen
- std::list<WaffeBesitz> B;
- write_waffenbesitz(fout,B);
-/*
-// unsigned int maxwaffen=8;
- for (unsigned int i=0; i<maxwaffen;++i)
-   {
-      std::string a = LaTeX_string(i);
-      fout << "\\newcommand{\\waffe"<<a<<"}{\\scriptsize }\n";
-      fout << "\\newcommand{\\waffeE"<<a<<"}{\\scriptsize }\n";
-      fout << "\\newcommand{\\waffeS"<<a<<"}{\\scriptsize }\n";
-      fout << "\\newcommand{\\waffeA"<<a<<"}{\\scriptsize }\n";
-      fout << "\\newcommand{\\waffeV"<<a<<"}{\\scriptsize }\n";
-   }
-*/
- // Universelle Fertigkeiten
- std::list<cH_MidgardBasicElement> UF;
- const std::list<cH_MidgardBasicElement> LF=hauptfenster->getCDatabase().Fertigkeit;
- for(std::list<cH_MidgardBasicElement>::const_iterator i=LF.begin();i!=LF.end();++i)
-  {
-    cH_Fertigkeit f(*i);
-    if(f->Ungelernt()!=-99)
-       UF.push_back(*i);
-  }
- cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen")); 
- UF.push_back(werfen);
- UF.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
+ std::list<Abenteurer::st_universell> UF=hauptfenster->getChar().List_Universell(hauptfenster->getCDatabase());
  int countunifert=0;
- for(std::list<cH_MidgardBasicElement>::iterator i=UF.begin();i!=UF.end();++i)
+ for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
   {
-    std::string a = LaTeX_string(countunifert++);
-    std::string name = (*i)->Name();
+    std::string a = LaTeX_string(countunifert);
+    std::string name = i->mbe->Name();
     std::string wert;
-    if       ((*i)->What()==MidgardBasicElement::FERTIGKEIT) 
-      { cH_Fertigkeit f(*i);
-        wert = "+"+itos(f->Ungelernt());
-        if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
-        if(name=="Landeskunde (Heimat)") name = "Landeskunde";
-      }
-    else if  ((*i)->What()==MidgardBasicElement::WAFFE)    
-      { cH_Waffe      f(*i);
-        wert = "+4";
-      }
-//    f->set_Erfolgswert(f->Ungelernt());
-    fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
-    fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
+    int iwert= i->mbe.Erfolgswert();
+    if   (iwert>=0) wert = "+"+itos(iwert);
+    else            wert = "--"+itos(abs(iwert));
+    
+    if     (name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
+    else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+hauptfenster->getWerte().Herkunft()->Name()+")";
+
+    if (!i->gelernt)
+     {
+       ++countunifert;
+       fout <<"\\newcommand{\\uni"<<a<<"}{"<<name<< "}\t\t";
+       if (i->voraussetzung)
+          fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
+       else
+          fout << "\\newcommand{\\uniw"<<a<<"}{$^*\\!$("<<wert << ")}\n";
+     }
   } 
 
-
-// unsigned int maxunifert=48;
+ // Universelle Fertigkeiten auffüllen
  for (unsigned int i=countunifert; i<maxunifert;++i)
    {
       std::string a = LaTeX_string(i);
       fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
    }
-#ifdef __MINGW32__ // LaTeX needs / instead of '\\'
- std::string recoded_install_latex_file=install_latex_file;
- for (std::string::iterator i=recoded_install_latex_file.begin();i!=recoded_install_latex_file.end();++i)
-            if (*i=='\\') *i='/';
- fout << "\\input{"+recoded_install_latex_file+"}\n";
-#else
- fout << "\\input{"+install_latex_file+"}\n";
-#endif 
-// fout.close();
+
 }
 
 

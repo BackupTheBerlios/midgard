@@ -1,23 +1,11 @@
 ##########################################################################
-NEWS IN VERSION 0.7delta4
+NEWS IN VERSION 0.7delta5
 
-* kleinere Bugs behoben
-* Absturz bei Programmende behoben!
-* 'Muttersprache' und 'Gastlandsprache' können im Lernschema wieder 
-   verlernt und neu ausgesucht werden.
-* Landeskunde (Heimat): das gleiche
-* Schreiben:Muttersprache+x: das gleiche
-* viele Icons upgedated (Auch schon in 0.7delta3)
-* Überleben als angeborene Fertigkeit
-* Ausrüstung nach Fertigkeiten würfeln
-* Info Fenster für Typen, Lernpflichten
-* Sprachen Allgemeinwissen: Nachbarland (Logik funktioniert)
-* Drucken von Listen gründlich überarbeitet. 
-   Damit wird es möglich sein 'lange Listen' auszudrucken
-* Lernen AlteSprachen für Magister/Priester
+* kleinere Bugs beseitigt
+* Drucken weiter überarbeitet
 
 TODO: ('-' zeigt CP an)
-* Sprachen Allgemeinwissen: Nachbarland (Datenbank)
+* Alte Sprachen für Magister im Lernschema
 * Kultwaffe (Namentlich) für Priester ins Info Fenster
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
@@ -33,6 +21,27 @@ links).
 - nicht-3TastenMaus: richtiges Tooltip setzen
 - alle Ausdrucke unter Windows testen
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
+
+##########################################################################
+NEWS IN VERSION 0.7delta4
+
+* kleinere Bugs behoben
+* Absturz bei Programmende behoben!
+* 'Muttersprache' und 'Gastlandsprache' können im Lernschema wieder 
+   verlernt und neu ausgesucht werden.
+* Landeskunde (Heimat): das gleiche
+* Schreiben:Muttersprache+x: das gleiche
+* viele Icons upgedated (Auch schon in 0.7delta3)
+* Überleben als angeborene Fertigkeit
+* Ausrüstung nach Fertigkeiten würfeln
+* Info Fenster für Typen, Lernpflichten
+* Sprachen Allgemeinwissen: Nachbarland (Logik funktioniert)
+* Sprachen Allgemeinwissen: Nachbarland (Datenbank)
+* Drucken von Listen gründlich überarbeitet. 
+   Damit wird es möglich sein 'lange Listen' auszudrucken
+* Lernen AlteSprachen für Magister/Priester
+* Magister
+
 
 ##########################################################################
 NEWS IN VERSION 0.7delta3

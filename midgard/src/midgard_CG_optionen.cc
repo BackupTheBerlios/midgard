@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.96 2002/07/02 16:43:44 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.97 2002/07/07 08:31:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,6 +47,7 @@ void midgard_CG::checkbutton_original(bool active)
   if(active) 
     { table_steigern->togglebutton_alle_zauber->set_sensitive(false); 
       MOptionen->setAllHausregeln(false);
+      show_Hausregeln_active(false);
       pixmap_logo->show();
     }      
   else 

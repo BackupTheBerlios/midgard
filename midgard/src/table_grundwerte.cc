@@ -115,6 +115,8 @@ void table_grundwerte::neuer_charakter()
    combo_typ->set_sensitive(false);
    combo_spezies->set_sensitive(true);
    button_abg_werte->set_sensitive(false);
+   radiobutton_stadt->set_sensitive(true);
+   radiobutton_land->set_sensitive(true);
    table_werte_wuerfeln->hide();
    table_bw_wurf->hide();
    if(hauptfenster->getWerte().Stadt_Land()=="Land")  radiobutton_land->set_active(true);
@@ -123,5 +125,4 @@ void table_grundwerte::neuer_charakter()
    fill_spezies();
 //   spezieswahl_button();
    zeige_werte();
-   
 }

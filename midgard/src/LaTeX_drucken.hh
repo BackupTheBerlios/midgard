@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.9 2002/07/04 20:39:36 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.10 2002/07/07 08:31:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,6 +36,18 @@ class LaTeX_drucken
     enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung,TeX_Spielleiter};
     enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
  private:
+    enum ewhat{etyp,espez,emerk,est,egs,egw,eko,ein,ezt,eau,epa,esb,ewk,eb,ekaw,egsb,egn,esg,
+               elp,eap,eboau,ebosc,eboan,eboab,eboza,ebopsy,ebophs,ebophk,
+               eres,epsy,ephs,ephk,egift,eabwehr,eabwehrfinal,eabwehrmitwaffe,
+               eppresistenz,eppabwehr,eppzauber,ezauber,ehand,eraufen,
+               ealter,egewicht,egestalt,ekoerpergroesse,
+               egrad,espezialisierung,estand,eherkunft,eglaube,enamecharakter,
+               enamespieler,egfp,eaep,ekep,ezep,egeld,eruestung,eruestunglp,
+               eruestungb,eruestunglpb,esinnse,esinnh,esinnr,esinnsc,esinnt,esinnss,
+               eMAX,
+         eWahrnehmung,eSpurenlesen,eFallen_entdecken,eSuchen,eMenschenkenntnis,
+         eSagenkunde,eZauberkunde,eGassenwissen,eHimmelskunde,eSchaetzen,eangFert,
+         eWaffen,eSprachen,eSchriften,eBeruf};
     static const unsigned int maxsprach=23;
     static const unsigned int maxfert=40;
     static const unsigned int maxwaffen=9;
@@ -53,9 +65,11 @@ class LaTeX_drucken
                st_sprachen_schrift(const MidgardBasicElement_mutable &s)
                     :sprache(s) {}
                };
+    void write_grundwerte(ostream &fout,bool empty=false);
     void write_sprachen(ostream &fout,const std::vector<st_sprachen_schrift>& L);
     void write_fertigkeiten(ostream &fout,const std::list<MidgardBasicElement_mutable>& L);
     void write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L);
+    void write_universelle(ostream &fout);
 
     std::string LaTeX_scale(const std::string& is, 
          unsigned int maxlength, const std::string& scale);
@@ -79,12 +93,14 @@ class LaTeX_drucken
     void ausruestung_druck(ostream &fout,bool unsichtbar,const std::list<AusruestungBaum> &AB,int deep);
     void pdf_viewer(const std::string& file);
     
+/*
     enum ewhat{SName,AName,Spezies,Typ,Grad,Herkunft,Stand,Gestalt,Groesse,
                Gewicht,Beruf,Glaube,Sprachen,Schriften,St,Gw,Gs,Ko,In,Zt,
                Au,pA,Wk,Sb,B,Resistenz,Zaubern,Abwehr,Sehen,Hoeren,Riechen,Schmecken,Tasten,
                SechsterSinn,Wahrnehmung,Spurenlesen,Fallen_entdecken,
                Suchen,Menschenkenntnis, Sagenkunde,Zauberkunde,Gassenwissen,
                Himmelskunde,Schaetzen,angFert,Waffen};
+*/
     void line(ostream &fout,const ewhat &what);
     void for_each(ostream &fout,const ewhat &what);
     void list_for_each(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,const int &maxlength,const std::string& cm);
