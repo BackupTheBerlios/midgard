@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.pgcc,v 1.13 2001/12/17 09:53:44 christof Exp $
+// $Id: land_sprache_exp.pgcc,v 1.14 2001/12/17 13:04:53 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -200,7 +200,7 @@ void land_speichern(std::ostream &o)
   {o << "  <Kaufpreis";
    fetch_and_write_string_attrib(is, o, "Ware");
    fetch_and_write_string_attrib(is, o, "Art");
-   fetch_and_write_int_attrib(is, o, "Preis");
+   fetch_and_write_float_attrib(is, o, "Preis");
    fetch_and_write_string_attrib(is, o, "Währung");
    o << "/>\n";
   }
