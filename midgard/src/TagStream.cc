@@ -24,12 +24,31 @@
 
 //#define REMEMBER_EMPTY_SPACE
 
+#ifdef __MINGW32__
+std::string iso2utf8(const std::string &s)
+{  std::string ret="";
+
+   for (std::string::const_iterator i = s.begin(); i!=s.end() ; i++)
+   {  if ((unsigned char)(*i)>127) 
+      {  ret+=(unsigned char)(0xc0|(((unsigned char)(*i))>>6));
+         ret+=(unsigned char)(0x80|((*i)&0x3f));
+      }
+      else ret+=*i;
+   }
+   return ret;
+}
+#endif
+
 std::string TagStream::de_xml(const std::string &cont)
 {  std::string ret;
    std::string::const_iterator i(cont.begin());
    while (i!=cont.end())
    {  std::string::const_iterator verbatim(::find(i,cont.end(),'&'));
+#ifndef __MINGW32__   
       ret+=std::string(i,verbatim);
+#else // recode to UTF8
+      ret+=iso2utf8(std::string(i,verbatim));
+#endif
       if (verbatim!=cont.end())
       {  std::string::const_iterator endtag(::find(verbatim,cont.end(),';'));
          if (endtag!=cont.end()) ++endtag;
@@ -38,7 +57,9 @@ std::string TagStream::de_xml(const std::string &cont)
          else if (tag=="&lt;") ret+='<';
          else if (tag=="&gt;") ret+='>';
          else if (tag=="&quot;") ret+='"';
+#ifndef __MINGW32__         
          else if (tag=="&auml;") ret+='ä'; // and so on ... but glade simply passes them
+#endif         
          else
          {  ret+=tag;
          }

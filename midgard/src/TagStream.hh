@@ -31,6 +31,7 @@ class TagStream : public Tag
 	char buffer[GB_BUFFER_SIZE];
 	bool read_again;
 	int pointer,end_pointer;
+	std::string encoding;
 	
 	istream *is;
 	ifstream *ifs;
