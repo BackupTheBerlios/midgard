@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.116 2002/05/02 13:01:34 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.117 2002/05/05 20:38:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,9 +46,9 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 
   int fachlern=random.integer(1,6)+random.integer(1,6);
   if(!list_Fertigkeit.empty())
-    set_info("Die Lernpunkte ("+itos(lpspezies)+") für die Pflichtfertigkeiten\n"
-      "für die Spezies "+Werte.Spezies()->Name()+" wurden von den erfürfelten\n"
-      "Lernpunkten ("+itos(fachlern)+") abgezogen.");
+    set_status("Die Lernpunkte ("+itos(lpspezies)+") für die Pflichtfertigkeiten"
+      " für die Spezies "+Werte.Spezies()->Name()+" wurden von den erfürfelten"
+      " Lernpunkten ("+itos(fachlern)+") abgezogen.");
   lernpunkte.setFach(fachlern - lpspezies);
   lernpunkte.setAllgemein(random.integer(1,6)+1);
   lernpunkte.setUnge(random.integer(1,6));
@@ -74,6 +74,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   button_waffen->set_sensitive(true);
   if(Typ[1]->is_mage() || Typ[1]->is_mage() || magie_bool) 
       button_zauber->set_sensitive(true);
+  button_beruf->set_sensitiv(true);
   button_lernschema_geld->set_sensitive(true);
   button_lernschema_waffen->set_sensitive(true);
   button_ruestung->set_sensitive(true);
@@ -301,7 +302,6 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
   cH_MidgardBasicElement MBE = dt->getMBE();
   if(togglebutton_spezialwaffe->get_active() && MBE->What()!= MidgardBasicElement::WAFFE)
       {
-//        togglebutton_spezialwaffe->set_active(false); return ; 
         set_status(MBE->What_str()+" kann nicht als Spezialwaffe verwendet werden.");
         return;         
       }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.68 2002/04/30 08:25:04 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.69 2002/05/05 20:38:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,8 @@
 
 gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
 {
+  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active)
+      button_beruf->set_sensitiv(false);
   if(wizard) wizard->next_step(Wizard::BERUF1);
   deleteBerufsFertigekeit();
   if (ev->button==1) 
