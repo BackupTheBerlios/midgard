@@ -67,15 +67,18 @@ class Data_Zusatz : public RowDataBase
 {
       MidgardBasicElement_mutable MBE;
       MidgardBasicElement::st_zusatz zusatz;
-      bool erlaubt;
       Datenbank Database;
    public:
+      Data_Zusatz(const MidgardBasicElement_mutable &mbe,MidgardBasicElement::st_zusatz z)
+         : MBE(mbe),zusatz(z){}
+
+/*
       Data_Zusatz(const MidgardBasicElement_mutable &mbe,MidgardBasicElement::st_zusatz z,bool e,const Datenbank &D)
          : MBE(mbe),zusatz(z),erlaubt(e),Database(D) {}
 
       Data_Zusatz(const MidgardBasicElement_mutable &mbe,std::string z,bool e,const Datenbank &D)
          : MBE(mbe),zusatz(z),erlaubt(e),Database(D) {}
-
+*/
       enum Spalten {NAME,TYP,REGION};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
         {
@@ -83,15 +86,16 @@ class Data_Zusatz : public RowDataBase
            {
             case NAME : return cH_EntryValueIntString(zusatz.name);
             case TYP : return cH_EntryValueIntString(zusatz.typ);
-            case REGION : return cH_EntryValueIntString(
-               Regionen_All::getRegionfromAbk(Database.Regionen,zusatz.region)->Name()+" "+zusatz.region_zusatz);
+            case REGION : return cH_EntryValueIntString(zusatz.long_region);
+//            case REGION : return cH_EntryValueIntString(
+//               Regionen_All::getRegionfromAbk(Database.Regionen,zusatz.region)->Name()+" "+zusatz.region_zusatz);
             default : return cH_EntryValueIntString("");
            }
           return cH_EntryValueIntString();
         }
       const MidgardBasicElement_mutable &getMBE() const {return MBE;}
       MidgardBasicElement::st_zusatz getZusatz() const {return zusatz;}
-      bool Erlaubt() const {return erlaubt;}
+      bool Erlaubt() const {return zusatz.erlaubt;}
 };
 
 class cH_Data_Zusatz : public Handle<Data_Zusatz>

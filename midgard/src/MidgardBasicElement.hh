@@ -54,11 +54,12 @@ class MidgardBasicElement : public HandleContentCopyable
  public:
       enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,
                     ZHerkunft=4,ZSprache=5,ZSchrift=6,ZUeberleben=7};
-      struct st_zusatz{std::string name;std::string typ;std::string region; std::string region_zusatz;
+      struct st_zusatz{std::string name;bool erlaubt; std::string typ;std::string region; std::string region_zusatz;
+                       std::string long_region;
              st_zusatz() {}
-             st_zusatz(std::string n):name(n) {}
-             st_zusatz(std::string n,std::string t,std::string r,std::string rz)
-               :name(n),typ(t),region(r),region_zusatz(rz){}};
+             st_zusatz(std::string n,bool e=true):name(n),erlaubt(e) {}
+             st_zusatz(std::string n,std::string t,std::string r,std::string rz,std::string lr,bool e=true)
+               :name(n),erlaubt(e),typ(t),region(r),region_zusatz(rz),long_region(lr) {}};
    protected:
 	const Tag *tag;
       std::string name, region,region_zusatz;

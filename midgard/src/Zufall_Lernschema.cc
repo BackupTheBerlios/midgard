@@ -18,6 +18,8 @@
 
 #include "Zufall.hh"
 #include "Sprache.hh"
+#include "Schrift.hh"
+#include "Land.hh"
 #include "WaffeGrund.hh"
 #include "class_lernpunkte.hh"
 
@@ -27,42 +29,44 @@ void Zufall::Lernschema()
   Lernpunkte_wuerfeln(lernpunkte,Aben,random);
   st_LL FAUWZ_Listen=getLernlisten();
 
-  Lernpunkte_verteilen(FAUWZ_Listen.Fach,lernpunkte.Fach());
-  Lernpunkte_verteilen(FAUWZ_Listen.Allg,lernpunkte.Allgemein());
-  Lernpunkte_verteilen(FAUWZ_Listen.Unge,lernpunkte.Unge());
   Lernpunkte_verteilen(FAUWZ_Listen.Waff,lernpunkte.Waffen());
   Lernpunkte_verteilen(FAUWZ_Listen.Zaub,lernpunkte.Zauber());
+  Lernpunkte_verteilen(FAUWZ_Listen.Fach,lernpunkte.Fach());
+  Lernpunkte_verteilen(FAUWZ_Listen.Allg,lernpunkte.Allgemein(),false);
+  Lernpunkte_verteilen(FAUWZ_Listen.Unge,lernpunkte.Unge());
 }
 
 
-std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicElement_mutable> L)
+std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicElement_mutable> L,int lp)
 {
   std::vector<MidgardBasicElement_mutable> V;
   for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     V.push_back(*i);
+     if(i->Lernpunkte()<=lp) V.push_back(*i);
    }
   return V;
 }
 
-void Zufall::Lernpunkte_verteilen(std::list<MidgardBasicElement_mutable> L,int lp)
+void Zufall::Lernpunkte_verteilen(std::list<MidgardBasicElement_mutable> L,int lp,bool ungew)
 {
 reloop:
   L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::LERNPUNKTE));
-  std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L);
+  std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,lp);
   while(lp>0)
    {
      if(V.begin()==V.end()) break;
      int i;
      if(V[0].Lernpunkte()==0) i=0;  // damit Fertigkeiten mit '0' Lernpunkten gelernt werden
      else i=random.integer(0,V.size()-1);
-      
-     MidgardBasicElement_mutable M=V[i];
 
+cout << "A\n";      
+     MidgardBasicElement_mutable M=V[i];
+cout << "B\n";
      // Vorraussetzungen?
      if((M->What()==MidgardBasicElement::FERTIGKEIT || M->What()==MidgardBasicElement::WAFFE)
-          && !M->Voraussetzung(Aben,false))  continue;
-    
+          && !M->Voraussetzung(Aben.getAbenteurer(),false))  continue;
+
+     L.remove(M); // Die nächste Methode ändert 'M' daher muß es HIER entfernt werden
 
      if(M->What()==MidgardBasicElement::FERTIGKEIT) 
        {  cH_Fertigkeit(M)->get_region_lp(lp,hauptfenster); 
@@ -73,6 +77,10 @@ reloop:
        }
 cout << "lp="<<lp<<'\t'<<M.Lernpunkte()<<'\t'<<M->Name()<<'\t'<<M.Erfolgswert()<<'\n';
 
+     // Fertigkeit/Zauber mit Zusätzen
+     if(M->ZusatzEnum(Aben->getVTyp())) 
+          M=getZusatz(M->ZusatzEnum(Aben->getVTyp()),M);
+
      if(M.Lernpunkte()<=lp)
       {
        if(M->What()==MidgardBasicElement::FERTIGKEIT)
@@ -80,7 +88,17 @@ cout << "lp="<<lp<<'\t'<<M.Lernpunkte()<<'\t'<<M->Name()<<'\t'<<M.Erfolgswert()<
           if(M.ist_gelernt(Aben.List_Fertigkeit())) continue;
           Aben.List_Fertigkeit().push_back(M);
         }
-       if(M->What()==MidgardBasicElement::WAFFE)
+       else if(M->What()==MidgardBasicElement::SPRACHE)
+        {
+          if(M.ist_gelernt(Aben.List_Sprache())) continue;
+          Aben.List_Sprache().push_back(M);
+        }
+       else if(M->What()==MidgardBasicElement::SCHRIFT)
+        {
+          if(M.ist_gelernt(Aben.List_Schrift())) continue;
+          Aben.List_Schrift().push_back(M);
+        }
+       else if(M->What()==MidgardBasicElement::WAFFE)
         {
           if(M.ist_gelernt(Aben.List_Waffen())) continue;
           Aben.List_Waffen().push_back(M);
@@ -88,13 +106,12 @@ cout << "lp="<<lp<<'\t'<<M.Lernpunkte()<<'\t'<<M->Name()<<'\t'<<M.Erfolgswert()<
           Aben.List_WaffenGrund().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
           Aben.List_WaffenGrund().unique();
         }
-       if(M->What()==MidgardBasicElement::ZAUBER)
+       else if(M->What()==MidgardBasicElement::ZAUBER)
         {
           if(M.ist_gelernt(Aben.List_Zauber())) continue;
           Aben.List_Zauber().push_back(M);
         }
        lp-=M.Lernpunkte();
-       L.remove(M);
        goto reloop;
       }
    }  
@@ -142,3 +159,44 @@ void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A,Random &
 }
 
 
+MidgardBasicElement_mutable Zufall::getZusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE,bool ungew) const
+{
+cout << "Zusatz für "<<MBE->Name()<<'\n';
+  std::vector<MidgardBasicElement::st_zusatz> VG;
+  switch(was)
+   {
+//     case MidgardBasicElement::ZHerkunft:
+     case MidgardBasicElement::ZUeberleben: VG=LL.getUeberlebenZusatz();break;
+     case MidgardBasicElement::ZLand:       VG=LL.getLandZusatz(); break;
+     case MidgardBasicElement::ZSprache:    VG=LL.getSprachenZusatz(MBE,Aben,!ungew); break;
+     case MidgardBasicElement::ZSchrift:    VG=LL.getSchriftenZusatz(MBE,Aben); break;
+     case MidgardBasicElement::ZWaffe:      VG=LL.getWaffenZusatz(Aben.List_Waffen()); break;
+     case MidgardBasicElement::ZTabelle:    VG=MBE->VZusatz(); break;
+     default: assert(!"never get here");
+   }
+  std::vector<MidgardBasicElement::st_zusatz> V;    
+  for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VG.begin();i!=VG.end();++i)
+   {
+     if(hauptfenster->region_check(i->region)) V.push_back(*i);
+   }
+  if(V.empty()) return MBE;
+  int i=random.integer(0,V.size()-1);
+
+  MidgardBasicElement_mutable Mtmp=MBE;
+  if(was==MidgardBasicElement::ZSprache)
+       Mtmp=MidgardBasicElement_mutable(&*cH_Sprache(V[i].name));
+  else if(was==MidgardBasicElement::ZSchrift)
+       Mtmp=MidgardBasicElement_mutable(&*cH_Schrift(V[i].name));
+
+  if(Mtmp->What()==MidgardBasicElement::FERTIGKEIT)
+       MBE.setZusatz(V[i]);
+  else
+   {
+     Mtmp.setErfolgswert(MBE.Erfolgswert());
+     Mtmp.setLernpunkte(MBE.Lernpunkte());
+     Mtmp.setLernArt(MBE.LernArt());
+   }
+  MBE=Mtmp;
+
+  return MBE;
+}

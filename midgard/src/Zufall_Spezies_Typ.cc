@@ -30,8 +30,15 @@
 cH_Spezies Zufall::getSpezies() const
 {
    std::vector<cH_Spezies> V=LL.getSpezies(true);
-   int i=random.integer(0,V.size()-1);
-   return V[i];   
+   if(true)
+    {
+      return *find(V.begin(),V.end(),cH_Spezies("Mensch"));
+    }
+   else
+    {
+      int i=random.integer(0,V.size()-1);
+      return V[i];   
+    }
 }
 
 Enums::geschlecht Zufall::getGeschlecht() const
@@ -64,7 +71,7 @@ Enums::StadtLand Zufall::getStadtLand() const
 
 cH_Land Zufall::getLand() const
 {
-   std::vector<pair<cH_Land,bool> > V_=LL.getLand(Aben);
+   std::vector<pair<cH_Land,bool> > V_=LL.getHerkunft(Aben);
    std::vector<cH_Land> V; // nur die erlaubten Länder
    for(std::vector<pair<cH_Land,bool> >::const_iterator i=V_.begin();i!=V_.end();++i)
     {
@@ -93,9 +100,9 @@ MidgardBasicElement_mutable Zufall::getMuttersprache() const
 
 MidgardBasicElement_mutable Zufall::getUeberleben() const
 {
-  std::vector<std::string> V=LL.getZusatz(LernListen::UeberlebenHeimat);
+  std::vector<MidgardBasicElement::st_zusatz> V=LL.getUeberlebenZusatz();
   int i=random.integer(0,V.size()-1);
-  MidgardBasicElement_mutable M(&*cH_Fertigkeit(V[i]));
+  MidgardBasicElement_mutable M(&*cH_Fertigkeit(V[i].name));
   return M;
 }
 

@@ -32,6 +32,8 @@ class Zufall
       Datenbank Database;
       Random random;
       LernListen LL;
+      
+      enum B_VORGABE_BITS{B_Spezies,B_Typ,B_MAX};
    
    public:
 
@@ -40,7 +42,11 @@ class Zufall
           Database(h->getCDatabase()),random(h->random) ,
           LL(Database)
           {};
+
+      enum e_Vorgabe{eSpezies=1<<B_Spezies,eTyp=1<<B_Typ};
+
       void Voll(); // kompletten Zufallsabenteruer erzeugen
+      void Teil(e_Vorgabe vorgabe);
 
 //      VAbenteurer Abenteurer() const {return Aben;}
 
@@ -52,6 +58,7 @@ class Zufall
       cH_Land getLand() const;
       MidgardBasicElement_mutable getMuttersprache() const;
       MidgardBasicElement_mutable getUeberleben() const;
+      MidgardBasicElement_mutable getZusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE,bool ungew=true) const;
 
       void setMuttersprache(); 
 
@@ -70,7 +77,7 @@ class Zufall
                ;};
       void Lernschema();
       st_LL getLernlisten();
-      void Lernpunkte_verteilen(std::list<MidgardBasicElement_mutable> L,int lp);
+      void Lernpunkte_verteilen(std::list<MidgardBasicElement_mutable> L,int lp,bool ungew=true);
    public:
       static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A, Random &random);
 };

@@ -66,10 +66,10 @@ private:
        void edit_lernpunkte(bool b);
        void zeige_werte();
        void lernschema_geld_wuerfeln(const std::vector<int>& VGeldwurf);
+       void geld_wuerfeln();
        void on_button_ruestung_clicked(int wurf);
        void setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert);
        void clean_lernschema_trees();        
-       bool SpracheSchrift(const cH_MidgardBasicElement& MBE);
 
        // Beruf
        void deleteBerufsFertigekeit();
@@ -155,6 +155,7 @@ private:
         gint on_spinbutton_waffen_lernschema_focus_in_event(GdkEventFocus *ev);
         gint on_button_ruestung_button_release_event(GdkEventButton *ev);
         gint on_button_ausruestung_button_release_event(GdkEventButton *ev);
+        void ausruestung_setzen();
         void on_togglebutton_teure_anzeigen_toggled();
         void on_togglebutton_gelernte_anzeigen_toggled();
         void on_togglebutton_einschraenkungen_zusatz_anzeigen_toggled();

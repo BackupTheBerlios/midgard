@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.5 2002/09/09 05:32:58 thoma Exp $
+// $Id: LernListen.hh,v 1.6 2002/09/10 10:45:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,21 +31,28 @@ class LernListen
   public:
       enum eMBE{MutterSprache,GastlandSprache,NachbarlandSprache,AlteSprache,
                 lFach,lAllg,lUnge,lWaff,lZaub };
-      enum eZusatz{UeberlebenHeimat};
+//      enum eZusatz{UeberlebenHeimat};
 
       LernListen(const Datenbank& d) : D(d){}   
 
       bool nsc_check(bool nsc_allowed,bool nsc_only) const ;
       bool region_check(const std::string& region) const;
-                
+
+      static bool SpracheSchrift(const cH_MidgardBasicElement& MBE);                
       
       std::vector<cH_Spezies> getSpezies(bool nsc_allowed) const ;
       std::vector<pair<cH_Typen,bool> > getTypen(const VAbenteurer& A,bool nsc_allowed) const ;
-      std::vector<pair<cH_Land,bool> > getLand(const VAbenteurer& A) const;
+      std::vector<pair<cH_Land,bool> > getHerkunft(const VAbenteurer& A) const;
+      std::vector<MidgardBasicElement::st_zusatz> getLandZusatz() const;
+      std::vector<MidgardBasicElement::st_zusatz> getMBEZusatz(const MidgardBasicElement_mutable& MBE) const;
+      std::vector<MidgardBasicElement::st_zusatz> getUeberlebenZusatz() const; 
+      static std::vector<MidgardBasicElement::st_zusatz> getWaffenZusatz(const std::list<MidgardBasicElement_mutable>& WL); 
+      std::vector<MidgardBasicElement::st_zusatz> getSprachenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben,bool nachbarland) const;
+      std::vector<MidgardBasicElement::st_zusatz> getSchriftenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben) const;
+      
 
       std::list<MidgardBasicElement_mutable> getMBEm(const VAbenteurer& A,eMBE was, int erfolgswert=0,
                      int lernpunkte=0,std::string lernart="") const;
-      std::vector<std::string> getZusatz(eZusatz ez) const; 
 
 };
 

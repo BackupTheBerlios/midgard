@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.5 2002/09/09 06:48:01 thoma Exp $
+// $Id: LernListen.cc,v 1.6 2002/09/10 10:45:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,7 @@
 #include "LernListen.hh"
 #include "midgard_CG.hh"
 #include "Sprache.hh"
+#include "Schrift.hh"
 
 
 std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,eMBE was,
@@ -42,8 +43,10 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
     }  
    std::list<MidgardBasicElement_mutable> V;
    if(!V_.empty())
+   {
     for(std::list<cH_MidgardBasicElement>::const_iterator i=V_.begin();i!=V_.end();++i)
      {
+      if((*i)->Name()=="Muttersprache") continue; // Muttersprache wird vorher gelernt
       bool erlaubt=false;
       if(was==MutterSprache || was==NachbarlandSprache)
        {
@@ -58,7 +61,6 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
       MidgardBasicElement_mutable M(&**i);
       M.setLernArt(lernart+"_"+(*i)->Name());
       M.setErlaubt(erlaubt);
-
 
       int lp;
       if(was==lUnge) lp = cH_Fertigkeit(*i)->LernUnge();
@@ -75,7 +77,9 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
       if(!region_check((*i)->Region())) continue;
       V.push_back(M);
      }
+    }
    else if(!Vm.empty())
+   {
     for(std::list<MidgardBasicElement_mutable>::iterator i=Vm.begin();i!=Vm.end();++i)
      {
       if(was==lFach)
@@ -93,21 +97,11 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
 //cout << (*i)->Name()<<"Region: "<<region_check((*i)->Region())<<' '<<i->Lernpunkte()<<' '<<i->Erfolgswert()<<'\n';
       V.push_back(*i);
      }     
+   }
+//  else assert(!"never get here\n");
   return V;
 }
 
-
-std::vector<std::string> LernListen::getZusatz(eZusatz ez) const
-{
-   assert(ez==UeberlebenHeimat);
-   std::vector<std::string> V;
-   for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Fertigkeit.begin();i!=D.Fertigkeit.end();++i)
-    {
-      if((*i)->Name().find("Überleben")!=std::string::npos)
-         V.push_back((*i)->Name());
-    }
-   return V;
-}
 
 
 
@@ -141,7 +135,9 @@ std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const VAbenteurer& A,bool
   return V;
 }
 
-std::vector<pair<cH_Land,bool> > LernListen::getLand(const VAbenteurer& A) const
+
+
+std::vector<pair<cH_Land,bool> > LernListen::getHerkunft(const VAbenteurer& A) const
 {
   std::vector<cH_Land> L=D.Laender;
   std::vector<pair<cH_Land,bool> > V;
@@ -151,6 +147,94 @@ std::vector<pair<cH_Land,bool> > LernListen::getLand(const VAbenteurer& A) const
    }
   return V;
 }
+
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getLandZusatz() const
+{
+  std::vector<MidgardBasicElement::st_zusatz> B;
+  std::vector<cH_Land> L=D.Laender;
+  for(std::vector<cH_Land>::const_iterator i=L.begin();i!=L.end();++i)
+     B.push_back(MidgardBasicElement::st_zusatz((*i)->Name()));
+  return B;
+}
+
+
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getMBEZusatz(const MidgardBasicElement_mutable& MBE) const
+{
+  std::vector<MidgardBasicElement::st_zusatz> B;
+  std::vector<MidgardBasicElement::st_zusatz> V=MBE->VZusatz();
+  for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     MidgardBasicElement::st_zusatz z=*i;
+     z.long_region=Regionen_All::getRegionfromAbk(D.Regionen,i->region)->Name()+" "+i->region_zusatz;
+     if(region_check(i->region)) B.push_back(z);
+   }
+  return B;
+}
+
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getUeberlebenZusatz() const
+{
+   std::vector<MidgardBasicElement::st_zusatz> B;
+   for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Fertigkeit.begin();i!=D.Fertigkeit.end();++i)
+    {
+      if((*i)->Name().find("Überleben")!=std::string::npos)
+         B.push_back(MidgardBasicElement::st_zusatz((*i)->Name()));
+    }
+   return B;
+}
+
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getWaffenZusatz(const std::list<MidgardBasicElement_mutable> &WL)
+{
+   std::vector<MidgardBasicElement::st_zusatz> B;
+   for(std::list<MidgardBasicElement_mutable>::const_iterator i=WL.begin();i!=WL.end();++i)
+    {
+      if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
+        B.push_back(MidgardBasicElement::st_zusatz((*i)->Name()));
+    }
+  return B;
+}
+
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben,bool nachbarland) const
+{
+  std::vector<MidgardBasicElement::st_zusatz> B;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Sprache.begin();i!=D.Sprache.end();++i)
+   {
+     if(MidgardBasicElement_mutable(&**i).ist_gelernt(Aben.List_Sprache())) continue;
+
+     bool erlaubt=true;
+     if(MBE->Name()=="Muttersprache" || MBE->Name()=="Gastlandsprache")
+      {
+        if(cH_Sprache(*i)->Alte_Sprache()) continue;                  
+        if(MBE->Name()=="Muttersprache") // muß im Heimatland gesprochen werden
+          if(!cH_Sprache(*i)->ist_erlaubt(Aben))
+             erlaubt=false;
+      }
+     else if(MBE->Name()=="Sprechen: Alte Sprache" && !cH_Sprache(*i)->Alte_Sprache())
+         continue;
+     else if(nachbarland && !cH_Sprache(*i)->ist_erlaubt(Aben,nachbarland))
+         erlaubt=false;
+     B.push_back(MidgardBasicElement::st_zusatz((*i)->Name(),erlaubt));
+   }
+ return B;
+}
+
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getSchriftenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben) const
+{
+  std::vector<MidgardBasicElement::st_zusatz> B;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Schrift.begin();i!=D.Schrift.end();++i)
+   {
+     if(MidgardBasicElement_mutable(&**i).ist_gelernt(Aben.List_Schrift())) continue;
+     if(!cH_Schrift(*i)->kann_Sprache(Aben.List_Sprache())) continue;
+     bool erlaubt=true;
+     if( MBE->Name().find("Muttersprache") != std::string::npos)
+       if(!cH_Schrift(*i)->Mutterschrift(Aben)) erlaubt=false;
+     else if ( MBE->Name().find("Alte Sprache") != std::string::npos)
+       if(!cH_Sprache((*i)->Name())->Alte_Sprache()) continue;
+     B.push_back(MidgardBasicElement::st_zusatz((*i)->Name(),erlaubt));
+   }
+  return B;
+}
+
+
 
 
 bool LernListen::region_check(const std::string& region) const
@@ -168,5 +252,28 @@ bool LernListen::nsc_check(bool nsc_allowd,bool nsc_only) const
 {
   if (nsc_only && !nsc_allowd) return false;
   return true;
+}
+
+bool LernListen::SpracheSchrift(const cH_MidgardBasicElement& MBE)
+{
+ bool back=false;  
+ std::string fert=MBE->Name();
+
+ if(fert=="Schreiben: Muttersprache(+12)" ||
+         fert=="Schreiben: Muttersprache(+9)" ||
+         fert=="Schreiben: Muttersprache(+4)" ||
+         fert=="Schreiben: Alte Sprache(+12)" ||
+         fert=="Schreiben" )
+    { back=true;   }   
+ else if(fert=="Muttersprache")
+    { back=true; }  
+ else if(fert=="Gastlandsprache" ||
+         fert=="Sprechen: Sprache(+4)" ||
+         fert=="Sprechen: Sprache(+9)" ||
+         fert=="Sprechen: Sprache(+12)") 
+    { back=true;  }  
+ else if(fert=="Sprechen: Alte Sprache")
+    { back=true; }  
+ return back;  
 }
 

@@ -40,6 +40,22 @@ void table_zufall::on_button_zufall_voll_clicked()
    hauptfenster->table_lernschema->init(hauptfenster);
    
    Zufall zufall(hauptfenster);
-   zufall.Voll();
+   if(!togglebutton_vorgaben->get_active()) zufall.Voll();
+   else
+    {
+      Zufall::e_Vorgabe v=Zufall::e_Vorgabe(0);
+      if(checkbutton_spezies->get_active()) v=Zufall::e_Vorgabe(v|Zufall::eSpezies);
+      if(checkbutton_typ->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eTyp);
+      zufall.Teil(v);
+    }
 }
 
+void table_zufall::on_togglebutton_vorgaben_toggled()
+{
+  if(togglebutton_vorgaben->get_active()) 
+   {
+     frame_vorgaben->show();
+     hauptfenster->table_grundwerte->togglebutton_edit_werte->set_active(true);
+   }
+  else frame_vorgaben->hide();
+}

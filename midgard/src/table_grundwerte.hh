@@ -22,6 +22,7 @@ class table_grundwerte : public table_grundwerte_glade
         friend class table_grundwerte_glade;
         friend class midgard_CG;
         friend class Zufall;
+        friend class table_zufall;
         midgard_CG *hauptfenster;
 
         bool block_changed;

@@ -15,6 +15,7 @@
 #include <SelectMatching.h>
 #include "KiDo.hh"
 #include "Sprache.hh"
+#include "LernListen.hh"
 
 void table_lernschema::init(midgard_CG *h)
 {
@@ -298,7 +299,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
             tree_lernschema->unselect_all();
             return;
           }
-        if(!SpracheSchrift(MBE))
+        if(!LernListen::SpracheSchrift(MBE))
           { 
             std::string::size_type st = MBE->Name().find("KiDo-Technik");
             if(st!=std::string::npos) 
@@ -434,9 +435,7 @@ gint table_lernschema::on_button_lernschema_geld_button_release_event(GdkEventBu
   hauptfenster->getWerte().setGeld(0,0,0);
   if      (ev->button==1) 
    {
-     VGeldwurf.clear();
-     for(int i=0;i<3;++i) VGeldwurf.push_back(hauptfenster->random.integer(1,6));
-     lernschema_geld_wuerfeln(VGeldwurf);
+     geld_wuerfeln();
    }
   else if (ev->button==3) 
    {
@@ -445,6 +444,13 @@ gint table_lernschema::on_button_lernschema_geld_button_release_event(GdkEventBu
 //    manage (new Window_Geld_eingeben(hauptfenster,hauptfenster->getWerte()));;
    }
   return 0;
+}
+
+void table_lernschema::geld_wuerfeln()
+{
+     VGeldwurf.clear();
+     for(int i=0;i<3;++i) VGeldwurf.push_back(hauptfenster->random.integer(1,6));
+     lernschema_geld_wuerfeln(VGeldwurf);
 }
 
 void table_lernschema::set_gwr_eingabe()
@@ -563,15 +569,19 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
 
 gint table_lernschema::on_button_ausruestung_button_release_event(GdkEventButton *ev)
 {  
+  ausruestung_setzen();
+  return 0;
+}
+
+void table_lernschema::ausruestung_setzen()
+{
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::AUSRUESTUNG);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_ausruestung->set_sensitive(false);
   
   AusruestungBaum &Rucksack=hauptfenster->table_ausruestung->setStandardAusruestung(hauptfenster->getChar().getBesitz()); 
   setFertigkeitenAusruestung(Rucksack);
-  return 0;
 }
-
 
 
 void table_lernschema::on_togglebutton_teure_anzeigen_toggled()
@@ -939,25 +949,3 @@ void table_lernschema::clean_lernschema_trees()
   viewport_lernen->remove();
 }
 
-bool table_lernschema::SpracheSchrift(const cH_MidgardBasicElement& MBE)
-{
- bool launch=false;
- std::string fert=MBE->Name();
-
- if(fert=="Schreiben: Muttersprache(+12)" ||
-         fert=="Schreiben: Muttersprache(+9)" ||
-         fert=="Schreiben: Muttersprache(+4)" ||
-         fert=="Schreiben: Alte Sprache(+12)" ||
-         fert=="Schreiben" )
-    { launch=true;   }
- else if(fert=="Muttersprache")
-    { launch=true; }
- else if(fert=="Gastlandsprache" ||
-         fert=="Sprechen: Sprache(+4)" ||
-         fert=="Sprechen: Sprache(+9)" ||
-         fert=="Sprechen: Sprache(+12)") 
-    { launch=true;  }
- else if(fert=="Sprechen: Alte Sprache")
-    { launch=true; }
- return launch;
-}

@@ -8,7 +8,8 @@ NEWS IN VERSION 0.8.1
 * Zufallsabenteurer generieren: Spezies, Grundwerte, Typ, abg. Werte,
    Herkunft, Überleben (Heimat), ang. Fertigkeiten, Lernschema
 * Icons für Toolbar von Stefan Peschel (Rosendorn)
-
+* Zauber, Geheimzeichen und Musikinstrument aus 'Unter dem Sturmdrachen
+* Komplett neue API für Zusätze (nötig für den Zufallsgenerator)
 
 TODO: ('-' zeigt CP an)
 * Sprachen, Schriften, Zusätze, Berufe, Geld, Waffen, Rüstung, Ausrüstung

@@ -38,8 +38,29 @@ void Zufall::Voll()
    Aben->List_Fertigkeit_ang().clear();
    hauptfenster->table_lernschema->on_angeborene_fertigkeit_clicked();
    Lernschema();
+// Lücke
+   
+   hauptfenster->table_lernschema->geld_wuerfeln();
+// Lücke
+
+   hauptfenster->table_lernschema->on_button_ruestung_clicked(random(1,100));
+   hauptfenster->table_lernschema->ausruestung_setzen();
 }
 
+
+enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s)
+{  return (enum Zufall::B_VORGABE_BITS)(++(int&)s);
+}
+
+void Zufall::Teil(e_Vorgabe vorgabe)
+{
+  for(B_VORGABE_BITS i=B_VORGABE_BITS(0);i<B_MAX;++i)
+   {
+    if(!(vorgabe&(1<<i))) continue;
+    if (i==B_Spezies) cout << "Spezies\n";
+    if (i==B_Typ) cout << "Typ\n";
+   }
+}
 
 void Zufall::setMuttersprache()
 {

@@ -218,25 +218,32 @@ void table_steigern::on_button_alter_clicked()
   zeige_werte();
 }
 
-
+#include "LernListen.hh"
 void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
 {
   std::vector<cH_RowDataBase> datavec;
   std::vector<std::string> title;
+  std::vector<MidgardBasicElement::st_zusatz> VZusatz;
+  LernListen LL(hauptfenster->getCDatabase());
   switch (MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()))
    {
      case MidgardBasicElement::ZLand :
       {        
         title.push_back("Land auswählen");
+        VZusatz=LL.getLandZusatz();
+/*
         for (std::vector<cH_Land>::const_iterator i=hauptfenster->getCDatabase().Laender.begin();i!=hauptfenster->getCDatabase().Laender.end();++i)
          {
            datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true,hauptfenster->getCDatabase()));
          }
+*/
         break;
       }
      case MidgardBasicElement::ZWaffe :
       {      
         title.push_back("Waffe auswählen");
+        VZusatz=LL.getWaffenZusatz(hauptfenster->getChar().List_Waffen());
+/*
         for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
          {
            if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
@@ -244,6 +251,7 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
               datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true,hauptfenster->getCDatabase()));
             }
          }
+*/
         break;
       }
      case MidgardBasicElement::ZTabelle : 
@@ -251,16 +259,21 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
         title.push_back(MBE->Name()+" auswählen");
         title.push_back("Typ");
         title.push_back("Region");
+        VZusatz=LL.getMBEZusatz(MBE);
+/*
         std::vector<MidgardBasicElement::st_zusatz> VZ=MBE->VZusatz();
         for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VZ.begin();i!=VZ.end();++i)
            {
              if(hauptfenster->region_check(i->region))
                datavec.push_back(new Data_Zusatz(MBE,*i,true,hauptfenster->getCDatabase()));
            }
+*/
         break; 
        }
      default : assert("Never get here\n");
    }
+  for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VZusatz.begin();i!=VZusatz.end();++i)
+        datavec.push_back(new Data_Zusatz(MBE,*i));
   if(!datavec.empty())
    {
      set_zusatz_sensitive(true);
