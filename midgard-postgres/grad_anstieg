@@ -4,9 +4,7 @@
 DROP INDEX "grad_anstieg_grad";
 DROP TABLE "grad_anstieg";
 --
--- TOC Entry ID 2 (OID 16851485)
 --
--- Name: grad_anstieg Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "grad_anstieg" (
@@ -23,9 +21,7 @@ CREATE TABLE "grad_anstieg" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 16851485)
 --
--- Name: grad_anstieg Type: TABLE DATA Owner: thoma
 --
 
 
@@ -47,9 +43,7 @@ COPY "grad_anstieg" FROM stdin;
 15	\N	\N	\N	\N	150000	\N	\N	3
 \.
 --
--- TOC Entry ID 3 (OID 26608064)
 --
--- Name: "grad_anstieg_grad" Type: INDEX Owner: thoma
 --
 
 CREATE UNIQUE INDEX grad_anstieg_grad ON grad_anstieg USING btree (grad int4_ops);

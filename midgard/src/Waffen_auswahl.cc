@@ -63,7 +63,7 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const midgard_CG::st_Database& D,
                << w->Name() <<"\t"
                << w->Erfolgswert() <<"\t"<<w->Grundkenntnis()<<"\n";
 //            os.flush(&*i);
-            os.flush(w->ref());
+            os.flush(w->ref(),&HandleContent::unref);
          }
       }
     for (unsigned int i=0;i<waffen_clist_auswahl->columns().size();++i)

@@ -4,9 +4,7 @@
 DROP INDEX "charaktere_charakter_name_versi";
 DROP TABLE "charaktere";
 --
--- TOC Entry ID 2 (OID 13830577)
 --
--- Name: charaktere Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "charaktere" (
@@ -80,9 +78,7 @@ CREATE TABLE "charaktere" (
 );
 
 --
--- TOC Entry ID 3 (OID 26608036)
 --
--- Name: "charaktere_charakter_name_versi" Type: INDEX Owner: thoma
 --
 
 CREATE UNIQUE INDEX charaktere_charakter_name_versi ON charaktere USING btree (charakter_name text_ops, "version" text_ops);

@@ -23,13 +23,14 @@ void Beruf::get_Beruf()
 {
   exec sql begin declare section;
    bool U,V,M,A,LAND,STADT,TYPK,TYPZ;
-   char REGION[10],GESCHLECHT[10],db_vorteil[50];      
+   char REGION[10],GESCHLECHT[10],db_vorteil[50],db_beruf[5];
    char query[1024],query2[1024];
   exec sql end declare section;
   std::string squery="select distinct coalesce(land,false), 
       coalesce(stadt,false), coalesce(u,false), coalesce(v,false), 
       coalesce(m,false), coalesce(a,false), coalesce(typ_k,false), 
-      coalesce(typ_z,false),coalesce(geschlecht,''),coalesce(region,'')
+      coalesce(typ_z,false),coalesce(geschlecht,''),coalesce(region,''),
+      coalesce(beruf,'')
       from berufe_voraussetzung_4 where beruf ='"+Name()+"'";
   strncpy(query,squery.c_str(),sizeof(query));
   Transaction tr;
@@ -41,7 +42,7 @@ void Beruf::get_Beruf()
   while (true)   
    {
      exec sql fetch cl_beruf_ein into 
-      :LAND,:STADT,:U,:V,:M,:A,:TYPK,:TYPZ,:GESCHLECHT,:REGION;
+      :LAND,:STADT,:U,:V,:M,:A,:TYPK,:TYPZ,:GESCHLECHT,:REGION,:db_beruf;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
      region=REGION;
@@ -93,10 +94,11 @@ bool Beruf::Stand(const std::string& stand) const
 
 bool Beruf::Typ(const vector<cH_Typen>& Typ) const
 {
-  if(Typ[0]->Zaubern()=="z" && typ_z ) return true; 
-  if(Typ[1]->Zaubern()=="z" && typ_z ) return true; 
-  if(Typ[0]->Zaubern()!="z" && typ_k ) return true; 
-  if(Typ[1]->Zaubern()!="z" && typ_k ) return true; 
+  if(Typ[0]->Beruf()=="") return true;
+  else if(Typ[0]->Beruf()=="z" && typ_z ) return true; 
+  else if(Typ[1]->Beruf()=="z" && typ_z ) return true; 
+  else if(Typ[0]->Beruf()=="k" && typ_k ) return true; 
+  else if(Typ[1]->Beruf()=="k" && typ_k ) return true; 
   return false;
 }
 

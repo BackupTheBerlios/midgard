@@ -4,9 +4,7 @@
 DROP INDEX "steigern_fertigkeiten_mit_name";
 DROP TABLE "steigern_fertigkeiten_mit";
 --
--- TOC Entry ID 2 (OID 13830661)
 --
--- Name: steigern_fertigkeiten_mit Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "steigern_fertigkeiten_mit" (
@@ -15,38 +13,44 @@ CREATE TABLE "steigern_fertigkeiten_mit" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 13830661)
 --
--- Name: steigern_fertigkeiten_mit Type: TABLE DATA Owner: thoma
 --
 
 
 COPY "steigern_fertigkeiten_mit" FROM stdin;
-Askese	ZEP
-Astrologie	ZEP
-Athletik	KEP
-Augensalbe herstellen	ZEP
 Ausdauer	KEP
 Ausdauer	ZEP
+KiDo	ZEP
+KiDo	KEP
+Zauber	ZEP
+Waffen	KEP
+Klettern	KEP
+Lanzenstechen	KEP
+Laufen	KEP
+Luftkampf	KEP
+Meucheln	KEP
+Reiten	KEP
+Rudern	KEP
+Scharfschießen	KEP
+Schlittenfahren	KEP
+Schwimmen	KEP
+Segeln	KEP
+Springen	KEP
+Wissen von der Magie	ZEP
+Athletik	KEP
 Balancieren	KEP
 Ballista bedienen	KEP
 Beidhändiger Kampf	KEP
 Bogen vom Streitwagen	KEP
 Bogen zu Pferd	KEP
 Brettspiel	KEP
-Elefanten lenken	KEP
-Etikette	ZEP
 Fallen	KEP
-Fangen	KEP
 Faustkampf	KEP
 Fechten	KEP
-Fechten tevarrischer Stil	KEP
 FengTsu	KEP
 Geländelauf	KEP
 Geomantie	ZEP
-Heraldik	ZEP
 IaiJutsu	KEP
-Jonglieren	KEP
 Kamelreiten	KEP
 Kampf in Dunkelheit	KEP
 Kampf in Schlachtreihe	KEP
@@ -61,53 +65,43 @@ Kanufahren	KEP
 KarumiJutsu	KEP
 Katapult bedienen	KEP
 KentoYobu	KEP
-KiDo	KEP
-KiDo	ZEP
-Klettern	KEP
 KujNoIu	ZEP
-Körperkontrolle	ZEP
-Lanzenstechen	KEP
-Laufen	KEP
-Luftkampf	KEP
-Meditieren	ZEP
-Meucheln	KEP
 MiChen	KEP
-Natya	ZEP
 Pyromantie	ZEP
-Reiten	KEP
-Rudern	KEP
-Scharfschießen	KEP
-Schiffsführung	KEP
-SchiyoKi	KEP
 SchiyoKi	ZEP
-Schlittenfahren	KEP
-Schlittschuhlaufen	KEP
-Schmerzen ertragen	ZEP
+SchiyoKi	KEP
 Schwerttanz	KEP
-Schwimmen	KEP
-Segeln	KEP
-Siegelkunde	ZEP
 Skifahren	KEP
-Springen	KEP
-Srimara lenken	KEP
 Streitwagen lenken	KEP
-TaiTschi	KEP
 TaiTschi	ZEP
+TaiTschi	KEP
 Talisman verzaubern	ZEP
 Tauchen	KEP
-Waffen	KEP
 Wagenlenken	KEP
+Winden	KEP
+YubeChian	KEP
+Askese	ZEP
+Astrologie	ZEP
+Augensalbe herstellen	ZEP
+Elefanten lenken	KEP
+Körperkontrolle	ZEP
+Srimara lenken	KEP
+Meditieren	ZEP
+Natya	ZEP
+Schmerzen ertragen	ZEP
+Etikette	ZEP
+Fangen	KEP
+Jonglieren	KEP
+Schiffsführung	KEP
+Schlittschuhlaufen	KEP
+Siegelkunde	ZEP
 Werfen	KEP
 Wetterkunde	ZEP
-Winden	KEP
-Wissen von der Magie	ZEP
-YubeChian	KEP
-Zauber	ZEP
+Heraldik	ZEP
+Fechten tevarrischer Stil	KEP
 \.
 --
--- TOC Entry ID 3 (OID 26608125)
 --
--- Name: "steigern_fertigkeiten_mit_name" Type: INDEX Owner: thoma
 --
 
 CREATE INDEX steigern_fertigkeiten_mit_name ON steigern_fertigkeiten_mit USING btree (name text_ops);

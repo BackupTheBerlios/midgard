@@ -90,7 +90,7 @@
 \makebox[1.05cm]{\rule[-1.4ex]{0cm}{4ex}Grad}&\makebox[1.5cm]{{\grad}}\\\hline
   \end{tabular}
 
-\vspace{2ex}
+\vspace{1ex}
 \li
   \begin{tabular}{|c|l|}\hline
 \makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}\small Herkunft}&\makebox[2.2cm]{\herkunft}\\\hline
@@ -106,7 +106,7 @@
 \makebox[1.1cm]{\rule[-1.4ex]{0cm}{4ex}Stand}&\makebox[1.5cm]{\stand}\\\hline
   \end{tabular}
 
-\vspace{2ex}
+\vspace{1ex}
 {\small
 \begin{tabular}{|c|l|}\hline
 Alter&\makebox[0.8cm]{{\alter}}\\\hline
@@ -121,7 +121,7 @@ Gewicht&\makebox[0.8cm]{{\gewicht}}\\\hline
 Körpergröße&\makebox[0.8cm]{{\koerpergroesse}}\\\hline
 \end{tabular}
 
-\vspace{2ex}
+\vspace{1ex}
 \renewcommand{\arraystretch}{0.9}
 \begin{tabularx}{13cm}{|c|X|}\hline
 Berufe&{\beruf}\\\hline
@@ -132,7 +132,7 @@ Berufe&{\beruf}\\\hline
 \end{tabularx}\renewcommand{\arraystretch}{1}
 }
 
-\vspace{2ex}
+\vspace{1ex}
 \normalsize
 \LI
 \begin{tabular}{|c|c|}\hline
@@ -141,24 +141,26 @@ Berufe&{\beruf}\\\hline
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{Ko}&\makebox[0.6cm]{{\ko}}\\\hline
 \end{tabular}\hfill
+\li
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{Au}&\makebox[0.6cm]{{\au}}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|c|}\hline
-\makebox[0.6cm]{Sb}&\makebox[0.6cm]{{\sb}}\\\hline
+\makebox[0.6cm]{Sb}&\makebox[0.6cm]{{\sbb}}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{KAW}&\makebox[0.6cm]{{\kaw}}\\\hline
 \end{tabular}
 
-\vspace{2ex}
-\li
+\vspace{1ex}
+\LI
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{Gs}&\makebox[0.6cm]{{\gs}}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{In}&\makebox[0.6cm]{{\inn}}\\\hline
 \end{tabular}\hfill
+\li
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{pA}&\makebox[0.6cm]{{\pa}}\\\hline
 \end{tabular}\hfill
@@ -169,78 +171,66 @@ Berufe&{\beruf}\\\hline
 \makebox[0.6cm]{\tiny Geistesblitz}&\makebox[0.6cm]{{\geistesblitz}}\\\hline
 \end{tabular}
 
-\vspace{2ex}
+\vspace{1ex}
 \LI
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{Gw}&\makebox[0.6cm]{{\gw}}\\\hline
 \end{tabular}\hfill
-\li
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{Zt}&\makebox[0.6cm]{{\zt}}\\\hline
 \end{tabular}\hfill
+\li
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{B}&\makebox[0.6cm]{{\bb}}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|c|}\hline
-\makebox[0.6cm]{GG}&\makebox[0.6cm]{{\gg}}\\\hline
+\makebox[0.6cm]{GG}&\makebox[0.6cm]{{\ggn}}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|c|}\hline
 \makebox[0.6cm]{SG}&\hspace*{0.6cm}{\sg}\\\hline
 \end{tabular}
 
-\vspace{2ex}
-\parbox{4cm}{
-Sinne
-\fbox{
-\begin{tabular}{ll}
-Sehen & \sinnse \\
-Hören & \sinnh \\
-Riechen & \sinnr \\
-Schmecken & \sinnsc \\
-Tasten & \sinnt \\
-Sechster Sinn & \sinnss 
-\end{tabular}
-}}
-\parbox{4cm}{
-pers. Boni für
-\fbox{\footnotesize
-\begin{tabular}{ll}
-\scriptsize Ausdauer & \boau \\
-Schaden && \bosc \\
-Angriff && \boan \\
-Abwehr  && \boab \\
-Zaubern && \boza \\
-Geist   && \bopsy \\
-Körper  && \bophs \\
-Umgeb.  && \bophk
-\end{tabular}
-}}
-\parbox{4cm}{
-Erfolgswerte
-\begin{tabular}{ll}
-Raufen & \raufen \\
-Abwehr  & \abwehr \\
-Zaubern & \zauber \\
-Geistesmagie & \psy \\
-Körpermagie & \phs \\
-Umgebungsmagie & \phk \\
-Gift & \gift
+\vspace{1ex}
+\parbox[t]{7.5cm}{
+\tiny
+\begin{tabular}{|lr|lr|lr|}
+\hline
+\multicolumn{2}{|l|}{Sinne} 
+   & \multicolumn{2}{l|}{pers. Boni für} 
+   & \multicolumn{2}{l|}{Erfolgswerte}\\\hline
+Sehen          & \sinnse   &Ausdauer & \boau  &Raufen & \raufen \\
+Hören          & \sinnh    &Schaden  & \bosc  &Abwehr  & \abwehr \\
+Riechen        & \sinnr    &Angriff  & \boan  &Zaubern & \zauber \\
+Schmecken      & \sinnsc   &Abwehr   & \boab  &Geistesmagie & \psy \\
+Tasten         & \sinnt    &Zaubern  & \boza  &Körpermagie & \phs \\
+Sechster Sinn  & \sinnss   &Geistmagie    & \bopsy &Umgebungsmagie & \phk \\
+               &           &Körpermagie   & \bophs &Gift & \gift  \\
+               &           &Umgebungsmagie   & \bophk & & \\\hline
 \end{tabular}
 }
+\hfill
+\IfFileExists{saebel.ps}{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=saebel.ps}}}%
+{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=/usr/local/share/midgard/saebel.ps}}}
+\hfill
 
-\vspace{2ex}\LI
+\vspace{1ex}\LI
 \begin{tabularx}{13cm}{|p{0.5cm}|c|X|}\hline
 \makebox[0.5cm]{LP}&\makebox[0.5cm]{{\lp}}&\\\hline
 \makebox[0.5cm]{AP}&\makebox[0.5cm]{{\ap}}&\\\hline
 \end{tabularx}
 
 \li
-\vspace*{3ex}
+\vspace*{1ex}
 {\setlength{\tabcolsep}{0.3em}
 \scriptsize
 \begin{tabular}{|c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c|c|c|c|} \hline
 Datum\hspace*{2.5em}&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
 &{\gfp}&{\aep}&{\kep}&{\zep}&{\gold}\\\hline
+&&&&&\\\hline
+&&&&&\\\hline
+&&&&&\\\hline
+&&&&&\\\hline
+&&&&&\\\hline
 &&&&&\\\hline
 &&&&&\\\hline
 &&&&&\\\hline
@@ -274,15 +264,20 @@ Sprache&Wert&Schrift\\\hline\hline
 {\spral}&{\sprawl}&{\schrl}\\\hline
 {\spram}&{\sprawm}&{\schrm}\\\hline
 {\spran}&{\sprawn}&{\schrn}\\\hline
+{\sprao}&{\sprawo}&{\schro}\\\hline
+{\sprap}&{\sprawp}&{\schrp}\\\hline
+{\spraq}&{\sprawq}&{\schrq}\\\hline
+{\sprar}&{\sprawr}&{\schrr}\\\hline
+{\spras}&{\spraws}&{\schrs}\\\hline
 \end{tabular} 
 }
 \end{minipage}
 \hspace{3ex}
 \begin{minipage}[t]{5.4cm}
 \setlength{\tabcolsep}{0.4em}
-\small
+\footnotesize
     \begin{tabular}[t]{|p{4cm}|c|r|}\hline
-      \multicolumn{3}{|c|}{\small erlernte und angeborene}\\
+      \multicolumn{3}{|c|}{\small angeborene und erlernte}\\
       \multicolumn{3}{|c|}{\small Fähigkeiten und Waffenfertigkeiten}\\[1ex]
       \normalsize Fertigkeit&{$\!$\normalsize PP$\!$}&{$\!\!$\normalsize EW$\!\!$}\\\hline\hline
 \makebox[4cm][l]{{\ferta}}      &&{{\werta}}\\\hline
@@ -321,6 +316,10 @@ Sprache&Wert&Schrift\\\hline\hline
 \makebox[4cm][l]{{\fertah}}      &&{{\wertah}}\\\hline
 \makebox[4cm][l]{{\fertai}}      &&{{\wertai}}\\\hline
 \makebox[4cm][l]{{\fertaj}}      &&{{\wertaj}}\\\hline
+\makebox[4cm][l]{{\fertak}}      &&{{\wertak}}\\\hline
+\makebox[4cm][l]{{\fertal}}      &&{{\wertal}}\\\hline
+\makebox[4cm][l]{{\fertam}}      &&{{\wertam}}\\\hline
+\makebox[4cm][l]{{\fertan}}      &&{{\wertan}}\\\hline
     \end{tabular}
 \end{minipage}
 \hspace{2ex}
@@ -345,6 +344,10 @@ Sprache&Wert&Schrift\\\hline\hline
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffee}}}&{\waffeSe}&{\waffeVe}\\\hline\hline
       &{\waffeEf}&{\waffeAf}\\\cline{2-3}
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffef}}}&{\waffeSf}&{\waffeVf}\\\hline\hline
+      &{\waffeEg}&{\waffeAg}\\\cline{2-3}
+      \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffeg}}}&{\waffeSg}&{\waffeVg}\\\hline\hline
+      &{\waffeEh}&{\waffeAh}\\\cline{2-3}
+      \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffeh}}}&{\waffeSh}&{\waffeVh}\\\hline\hline
     \end{tabular}
 \IfFileExists{schwert.ps}{\parbox{7.5cm}{\epsfig{width=7.5cm,angle=0,file=schwert.ps}}}%
 {\parbox{7.5cm}{\epsfig{width=7.5cm,angle=0,file=/usr/local/share/midgard/schwert.ps}}}
@@ -380,29 +383,28 @@ Sprache&Wert&Schrift\\\hline\hline
 }
 
 \vspace{-1.5ex}
+\parbox{7.5cm}
 {\renewcommand{\arraystretch}{0.7}
-\begin{tabularx}{7.5cm}{lrXlr}
-\multicolumn{5}{c}{\small Universelle Fertigkeiten}\\[0.5ex]
-Balancieren&+8&         &Schlittenfahren&+3     \\
-Beredsamkeit&+3&        &Schlösser öffnen&+0    \\
-Beschatten&+3&          &Schwimmen&+3           \\
-Betäuben&+6&            &Seilkunst&+4           \\
-Fallen&+8&              &Springen&+8            \\
-Fallen entdecken&+0&    &Spurenlesen&+0         \\
-Fallen entschärfen&+0&  &Stehlen&+3             \\
-Fallenstellen&+1&       &Tarnen&+1              \\
-Fangen&+8&              &Tauchen&+9             \\
-Geheimmech. öffnen&+1&  &Überleben&+6           \\
-Geländelauf&+8&         &Verbergen&+4           \\
-Horchen&+2&             &Verführen&+3           \\
-Kanufahren&+3&          &Verhören&+3            \\
-Klettern&+8&            &Verkleiden&+5          \\
-Landeskunde&+6&         &Wagenlenken&+3         \\
-Meucheln&+0&            &Wahrnehmung&+2         \\
-Reiten&+5&              &Winden&+0              \\
-Rudern&+3&              &Werfen&+4              \\
-Schleichen&+1\\
-\end{tabularx}}
+\tiny
+\begin{tabular}{lrlrlr}
+\multicolumn{5}{c}{\footnotesize Universelle Fertigkeiten}\\[0.5ex]
+\unia  & \uniwa  & \uniq  & \uniwq  & \uniag & \uniwag\\
+\unib  & \uniwb  & \unir  & \uniwr  & \uniah & \uniwah\\
+\unic  & \uniwc  & \unis  & \uniws  & \uniai & \uniwai\\
+\unid  & \uniwd  & \unit  & \uniwt  & \uniaj & \uniwaj\\
+\unie  & \uniwe  & \uniu  & \uniwu  & \uniak & \uniwak\\
+\unif  & \uniwf  & \univ  & \uniwv  & \unial & \uniwal\\
+\unig  & \uniwg  & \uniw  & \uniww  & \uniam & \uniwam\\
+\unih  & \uniwh  & \unix  & \uniwx  & \unian & \uniwan\\
+\unii  & \uniwi  & \uniy  & \uniwy  & \uniao & \uniwao\\
+\unij  & \uniwj  & \uniz  & \uniwz  & \uniap & \uniwap\\
+\unik  & \uniwk  & \uniaa & \uniwaa & \uniaq & \uniwaq\\
+\unil  & \uniwl  & \uniab & \uniwab & \uniar & \uniwar\\
+\unim  & \uniwm  & \uniac & \uniwac & \unias & \uniwas\\
+\unin  & \uniwn  & \uniad & \uniwad & \uniat & \uniwat\\
+\unio  & \uniwo  & \uniae & \uniwae & \uniau & \uniwau\\
+\unip  & \uniwp  & \uniaf & \uniwaf & \uniav & \uniwav\\
+\end{tabular}}
 \end{minipage}
 %}
 \end{document}

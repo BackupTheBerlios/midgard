@@ -4,9 +4,7 @@
 DROP INDEX "ruestung_ruestung_s";
 DROP TABLE "ruestung";
 --
--- TOC Entry ID 2 (OID 9071538)
 --
--- Name: ruestung Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "ruestung" (
@@ -20,32 +18,28 @@ CREATE TABLE "ruestung" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9071538)
 --
--- Name: ruestung Type: TABLE DATA Owner: thoma
 --
 
 
 COPY "ruestung" FROM stdin;
-Dhunaka	KR(R)	3	0	0	0	R
+Ohne Rüstung	OR	0	0	0	0	\N
+RitterRüstung	RR	6	81	50	16	\N
+Vollrüstung	VR	5	61	40	12	\N
+Plattenrüstung	PR	4	61	25	8	\N
 Kettenrüstung	KR	3	31	0	4	\N
 Lederrüstung	LR	2	0	0	0	\N
-Ohne Rüstung	OR	0	0	0	0	\N
+Textilrüstung	TR	1	0	0	0	\N
 Papierrüstung	TR(K)	1	0	0	0	K
-Plattenrüstung	PR	4	61	25	8	\N
-RitterRüstung	RR	6	81	50	16	\N
 SaMurai-Rüstung	PR(K)	4	31	0	4	K
 SaMurai-Rüstung	VR(K)	5	61	25	8	K
+Dhunaka	KR(R)	3	0	0	0	R
 Sritrahaut	TR(R)	1	0	0	0	R
-Textilrüstung	TR	1	0	0	0	\N
 Tschahaatha	PR(R)	4	0	0	4	R
 Tschahaatha(VR)	VR(R)	5	0	0	8	R
-Vollrüstung	VR	5	61	40	12	\N
 \.
 --
--- TOC Entry ID 3 (OID 26608095)
 --
--- Name: "ruestung_ruestung_s" Type: INDEX Owner: thoma
 --
 
 CREATE UNIQUE INDEX ruestung_ruestung_s ON ruestung USING btree (ruestung_s text_ops);

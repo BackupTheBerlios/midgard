@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.60 2001/12/19 09:13:07 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.61 2001/12/20 06:18:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,12 +34,12 @@ void midgard_CG::on_latex_clicked(bool values=true)
 {   
  if (!access("document_eingabe.tex",R_OK)) // Files im aktuellen Verzeichnis?
    {
-    system("cp document_eingabe.tex midgard_tmp_document_eingabe.tex");
+    system("cp document_eingabe4.tex midgard_tmp_document_eingabe.tex");
     system("cp latexwertedef.tex midgard_tmp_latexwertedef.tex");
    }
  else
    {
-    system("cp "PACKAGE_DATA_DIR"document_eingabe.tex midgard_tmp_document_eingabe.tex");
+    system("cp "PACKAGE_DATA_DIR"document_eingabe4.tex midgard_tmp_document_eingabe.tex");
     system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
    }
  if (values) LaTeX_write_values();
@@ -98,7 +98,7 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\kaw}{"  <<Werte.KAW() << "}\n";
  fout << "\\newcommand{\\geistesblitz}{"  <<Werte.Geistesblitz() << "}\n";
 // fout << "\\newcommand{\\wlw}{"  <<Werte.WLW() << "}\n";
- fout << "\\newcommand{\\gg}{"  <<Werte.GG() << "}\n";
+ fout << "\\newcommand{\\ggn}{"  <<Werte.GG() << "}\n";
  fout << "\\newcommand{\\sg}{"  <<Werte.SG() << "}\n";
  fout << "\\newcommand{\\lp}{"  <<Werte.LP() << "}\n";
  fout << "\\newcommand{\\ap}{"  <<Werte.AP() << "}\n";
@@ -166,7 +166,7 @@ void midgard_CG::LaTeX_write_values()
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
  unsigned int sprachanz=0;
- unsigned int maxsprach=14;
+ unsigned int maxsprach=19;
  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
    { cH_Sprache s(*i);
       std::string a = LaTeX_string(sprachanz);
@@ -292,9 +292,41 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
  std::string abm = cH_WaffeBesitz(waffenlos)->WM_Abwehr();
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
+ /////////////////////////////////////////////////////////////////////////
+ // Universelle Fertigkeiten
+ std::list<cH_MidgardBasicElement> UF;
+ for(std::list<cH_MidgardBasicElement>::iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
+  {
+    cH_Fertigkeit f(*i);
+    if(f->Ungelernt()!=-1)
+     {
+       if (f->Voraussetzungen(Werte)) f->set_Erfolgswert(f->Ungelernt());
+       else f->set_Erfolgswert(f->Ungelernt()-2);
+       UF.push_back(*i);
+     } 
+  }
+ int countunifert=0;
+ for(std::list<cH_MidgardBasicElement>::iterator i=UF.begin();i!=UF.end();++i)
+  {
+    cH_Fertigkeit f(*i);
+    std::string a = LaTeX_string(countunifert++);
+    std::string wert="+"+itos(f->Erfolgswert());
+    std::string name = f->Name();
+    if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
+    if (!(*i)->ist_gelernt(list_Fertigkeit))
+     {
+       fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
+       fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
+     }
+    else
+     {
+       fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
+       fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
+     }
+  } 
 
  // Fertigkeiten auffüllen
- unsigned int maxfert=36;
+ unsigned int maxfert=40;
  for (unsigned int i=count+1; i<maxfert;++i)
    {
       std::string a = LaTeX_string(i);
@@ -302,7 +334,7 @@ void midgard_CG::LaTeX_write_values()
       fout << "\\newcommand{\\wert"<<a<<"}{\\scriptsize }\n";
    }
  // Waffen auffüllen
- unsigned int maxwaffen=6;
+ unsigned int maxwaffen=8;
  for (unsigned int i=countwaffen; i<maxwaffen;++i)
    {
       std::string a = LaTeX_string(i);
@@ -311,6 +343,14 @@ void midgard_CG::LaTeX_write_values()
       fout << "\\newcommand{\\waffeS"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\waffeA"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\waffeV"<<a<<"}{\\scriptsize }\n";
+   }
+ // Universelle Fertigkeiten auffüllen
+ unsigned int maxunifert=48;
+ for (unsigned int i=countunifert; i<maxunifert;++i)
+   {
+      std::string a = LaTeX_string(i);
+      fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
    }
  fout.close();
 
@@ -391,7 +431,7 @@ void midgard_CG::LaTeX_write_empty_values()
  fout << "\\newcommand{\\waffeAy}{}\n";
  fout << "\\newcommand{\\waffeVy}{}\n";
  // Fertigkeiten auffüllen
- unsigned int maxfert=36;
+ unsigned int maxfert=40;
  for (unsigned int i=0; i<maxfert;++i)
    {
       std::string a = LaTeX_string(i);
@@ -399,7 +439,7 @@ void midgard_CG::LaTeX_write_empty_values()
       fout << "\\newcommand{\\wert"<<a<<"}{\\scriptsize }\n";
    }
  // Waffen auffüllen
- unsigned int maxwaffen=6;
+ unsigned int maxwaffen=8;
  for (unsigned int i=0; i<maxwaffen;++i)
    {
       std::string a = LaTeX_string(i);
@@ -409,9 +449,15 @@ void midgard_CG::LaTeX_write_empty_values()
       fout << "\\newcommand{\\waffeA"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\waffeV"<<a<<"}{\\scriptsize }\n";
    }
-
+ // Universelle Fertigkeiten auffüllen
+ unsigned int maxunifert=48;
+ for (unsigned int i=0; i<maxunifert;++i)
+   {
+      std::string a = LaTeX_string(i);
+      fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
+   }
  fout.close();
-
 }
 
 
@@ -482,6 +528,18 @@ std::string midgard_CG::LaTeX_string(int i)
     if(i==33) return("ah");
     if(i==34) return("ai");
     if(i==35) return("aj");
+    if(i==36) return("ak");
+    if(i==37) return("al");
+    if(i==38) return("am");
+    if(i==39) return("an");
+    if(i==40) return("ao");
+    if(i==41) return("ap");
+    if(i==42) return("aq");
+    if(i==43) return("ar");
+    if(i==44) return("as");
+    if(i==45) return("at");
+    if(i==46) return("au");
+    if(i==47) return("av");
    //Never get here
    return("0");
 }

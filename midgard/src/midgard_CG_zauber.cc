@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.42 2001/12/18 13:14:48 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.43 2001/12/20 06:18:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -76,7 +76,7 @@ void midgard_CG::spezialgebiet_button_fill()
    {
     if((*i)->Typ() != Typ[0]->Short() && (*i)->Typ() != Typ[1]->Short() ) continue;
     t_ << (*i)->Name();
-    t_.flush((*i)->ref());
+    t_.flush((*i)->ref(),&HandleContent::unref);
 //    t_.flush(gpointer(&*i));
    }  
  }

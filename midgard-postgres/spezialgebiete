@@ -4,9 +4,7 @@
 DROP INDEX "spezialgebiete_spezialgebiet";
 DROP TABLE "spezialgebiete";
 --
--- TOC Entry ID 2 (OID 26648396)
 --
--- Name: spezialgebiete Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "spezialgebiete" (
@@ -18,9 +16,7 @@ CREATE TABLE "spezialgebiete" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26648396)
 --
--- Name: spezialgebiete Type: TABLE DATA Owner: thoma
 --
 
 
@@ -54,9 +50,7 @@ eBe	9	Luft Wasser	Luft	Wasser
 eBe	10	Wasser Luft	Wasser	Luft
 \.
 --
--- TOC Entry ID 3 (OID 26648452)
 --
--- Name: "spezialgebiete_spezialgebiet" Type: INDEX Owner: thoma
 --
 
 CREATE UNIQUE INDEX spezialgebiete_spezialgebiet ON spezialgebiete USING btree (spezialgebiet text_ops);

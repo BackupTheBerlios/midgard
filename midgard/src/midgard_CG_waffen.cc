@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.28 2001/12/18 13:14:48 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.29 2001/12/20 06:18:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ void midgard_CG::show_waffen()
       {
          os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
 //         os.flush(&*i);
-         os.flush((*i)->ref());
+         os.flush((*i)->ref(),&HandleContent::unref);
       }
    for (unsigned int i=0;i<waffen_clist->columns().size();++i)
       waffen_clist->set_column_auto_resize(i,true);

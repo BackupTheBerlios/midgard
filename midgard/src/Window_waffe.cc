@@ -104,7 +104,7 @@ void Window_waffe::wuerfeln()
             <<'\t'<<w->Schaden(w->Name())+"+"
             +itos(w->Schaden_Bonus(w->Name()))<<"\n";
 //         os.flush(gpointer(&*i));
-         os.flush((*i)->ref());
+         os.flush((*i)->ref(),&HandleContent::unref);
       }  
   }
  manage(new WindowInfo(strinfo));

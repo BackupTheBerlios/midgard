@@ -4,9 +4,7 @@
 DROP INDEX "spezies_spezies";
 DROP TABLE "spezies";
 --
--- TOC Entry ID 2 (OID 9071403)
 --
--- Name: spezies Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "spezies" (
@@ -44,24 +42,20 @@ CREATE TABLE "spezies" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9071403)
 --
--- Name: spezies Type: TABLE DATA Owner: thoma
 --
 
 
 COPY "spezies" FROM stdin;
 0	Mensch	0	0	\N	0	\N	0	\N	0	\N	0	\N	0	\N	0	0	\N	0	\N	\N	\N	\N	\N	1	2	20	150	0	4	16
 1	Elf	\N	90	81	\N	61	\N	61	\N	61	\N	\N	0	81	\N	1	\N	0	0	\N	2	2	2	4	2	6	160	-2	4	16
-2	Berggnom	\N	60	61	\N	31	\N	\N	0	\N	0	\N	0	\N	80	-4	\N	-3	20	2	5	5	5	3	1	6	90	-1	2	8
-3	Waldgnom	\N	60	61	\N	31	\N	\N	0	\N	0	\N	0	\N	80	-4	\N	-3	20	2	5	5	5	3	1	6	90	-1	2	8
-4	Halbling	\N	80	91	\N	\N	0	\N	0	\N	0	\N	0	\N	0	-2	\N	-2	\N	1	5	5	5	1	2	6	100	0	2	8
 5	Zwerg	61	\N	\N	90	61	\N	\N	0	\N	0	\N	0	\N	80	1	\N	0	15	\N	4	4	\N	2	1	6	130	2	3	12
+4	Halbling	\N	80	91	\N	\N	0	\N	0	\N	0	\N	0	\N	0	-2	\N	-2	\N	1	5	5	5	1	2	6	100	0	2	8
+3	Waldgnom	\N	60	61	\N	31	\N	\N	0	\N	0	\N	0	\N	80	-4	\N	-3	20	2	5	5	5	3	1	6	90	-1	2	8
+2	Berggnom	\N	60	61	\N	31	\N	\N	0	\N	0	\N	0	\N	80	-4	\N	-3	20	2	5	5	5	3	1	6	90	-1	2	8
 \.
 --
--- TOC Entry ID 3 (OID 26608106)
 --
--- Name: "spezies_spezies" Type: INDEX Owner: thoma
 --
 
 CREATE UNIQUE INDEX spezies_spezies ON spezies USING btree (spezies text_ops);

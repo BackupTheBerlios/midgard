@@ -4,9 +4,7 @@
 DROP INDEX "praxispunkte_name";
 DROP TABLE "praxispunkte";
 --
--- TOC Entry ID 2 (OID 9071348)
 --
--- Name: praxispunkte Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "praxispunkte" (
@@ -16,46 +14,42 @@ CREATE TABLE "praxispunkte" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9071348)
 --
--- Name: praxispunkte Type: TABLE DATA Owner: thoma
 --
 
 
 COPY "praxispunkte" FROM stdin;
-Abenteuer	16	5
-Abwehr	18	5
 Angriff	17	7
+Verteidigung	7	15
+Abwehr	18	5
+Resistenz	17	5
+Zaubern	19	5
+Abenteuer	16	5
+Bewegung	18	2
+Wissen	16	2
 Beredsamkeit	14	10
 Beschatten	16	10
-Bewegung	18	2
 Fechten	16	10
-Fern	17	7
 Gassenwissen	16	5
 Glückspiel	18	2
 Lippenlesen	14	10
 Menschenkenntnis	14	10
 Meucheln	20	10
-Resistenz	17	5
 Scharfschießen	16	10
 Seilkunst	16	5
 Stehlen	25	10
 Stimmen nachahmen	20	5
 Tauchen	14	2
+Überleben	16	5
 Verführen	16	2
 Verhören	16	5
 Verkleiden	20	10
-Verteidigung	7	15
 Wahrnehmung	6	15
 Winden	8	15
-Wissen	16	2
-Zaubern	19	5
-Überleben	16	5
+Fern	17	7
 \.
 --
--- TOC Entry ID 3 (OID 26608089)
 --
--- Name: "praxispunkte_name" Type: INDEX Owner: thoma
 --
 
 CREATE UNIQUE INDEX praxispunkte_name ON praxispunkte USING btree (name text_ops);

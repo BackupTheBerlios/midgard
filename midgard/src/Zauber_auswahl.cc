@@ -57,7 +57,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
          os << z->Lernpunkte() <<"\t"<< z->Name() <<"\t"
             <<z->Ap()<<"\t"<<z->Kosten(Typ,Database.ausnahmen)<<"\n";
 //         os.flush(&*i);
-         os.flush(z->ref());
+         os.flush(z->ref(),&HandleContent::unref);
       }
     for (unsigned int i=0;i<zauber_clist_auswahl->columns().size();++i)
       zauber_clist_auswahl->set_column_auto_resize(i,true);

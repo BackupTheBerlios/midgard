@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.81 2001/12/18 14:52:40 thoma Exp $
+# $Id: Makefile.am,v 1.82 2001/12/20 06:18:38 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -9,7 +9,7 @@ pkgdata_DATA = document_eingabe.tex document_eingabe4.tex \
    latexwertedef.tex charakter_beschreibung.tex axt1.ps \
    drache.ps dracher.ps
 
-EXTRA_DIST = document_eingabe.tex.in \
+EXTRA_DIST = document_eingabe.tex.in document_eingabe4.tex.in \
    latexwertedef.tex charakter_beschreibung.tex axt1.ps \
    drache.ps dracher.ps
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.36 2001/12/19 09:13:07 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.37 2001/12/20 06:18:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,7 +51,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 }
 
 
-void midgard_CG::on_button_waffe_trans_clicked()
+void midgard_CG::on_button_fach_trans_clicked()
 {
  int F=lernpunkte.Fach();
  int U=lernpunkte.Unge();
@@ -63,7 +63,7 @@ void midgard_CG::on_button_waffe_trans_clicked()
  zeige_lernpunkte();
 }
 
-void midgard_CG::on_button_fach_trans_clicked()
+void midgard_CG::on_button_waffe_trans_clicked()
 {
  int W=lernpunkte.Waffen();
  int U=lernpunkte.Unge();

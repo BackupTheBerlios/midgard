@@ -13,7 +13,7 @@ class Typen : public HandleContent
    std::string typs;
    int typnr;
    std::string typl,typlw,typz;
-   std::string zaubern,ausdauer,region;
+   std::string zaubern,ausdauer,region,beruf;
    int stand,sb,ruestung,geld;
    mutable int opionmenu_nr;
 
@@ -35,6 +35,7 @@ if (geschlecht=="m") return typl; else return typlw;}
    int Ruestung() const {return ruestung;}
    int Geld() const {return geld;}
    std::string Region() const {return region;}
+   std::string Beruf() const {return beruf;}
 
    bool is_mage() const 
     { if(Zaubern()=="z" || Zaubern()=="j") return true; else return false; } 

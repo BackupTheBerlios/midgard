@@ -85,7 +85,7 @@ void Fertigkeiten_auswahl::Fachwissen()
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name(),true))
          { os << f->Lernpunkte() <<"\t"<<f->Voraussetzung()<<"\t"<<f->Pflicht()<<"\t"<<f->Name()<<"\t"
                << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
-            os.flush(f->ref());
+            os.flush(f->ref(),&HandleContent::unref);
          }
       }
    if (list_Fert_spez.size()) os <<'\n';
@@ -104,7 +104,7 @@ void Fertigkeiten_auswahl::Fachwissen()
                << serfolgswert<<"\t"<<f->Attribut()<<"\t"
                <<f->Kosten(Typ,Database.ausnahmen)<<"\n";
 //            os.flush(&*i);
-            os.flush(f->ref());
+            os.flush(f->ref(),&HandleContent::unref);
          }
       }
    for (unsigned int i=0;i<fach_clist_auswahl->columns().size();++i)
@@ -158,7 +158,7 @@ cout << Werte.Stadt_Land()<<'\n'<<'\n';
             { os << lernpunkte<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
                 << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
 //              os.flush(&*i);
-              os.flush(f->ref());
+              os.flush(f->ref(),&HandleContent::unref);
             }
       }
    for (unsigned int i=0;i<allgemein_clist_auswahl->columns().size();++i)
@@ -198,7 +198,7 @@ void Fertigkeiten_auswahl::Unge()
            { os << f->Lernpunkte()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
                 << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
 //             os.flush(&*i);
-             os.flush(f->ref());
+             os.flush(f->ref(),&HandleContent::unref);
            }
       }
    for (unsigned int i=0;i<unge_clist_auswahl->columns().size();++i)

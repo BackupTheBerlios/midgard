@@ -156,7 +156,7 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
    {
      os <<(*i)->Name()<<'\n';
 //     os.flush(const_cast<cH_MidgardBasicElement*>(&MBE));
-     os.flush(MBE->ref());
+     os.flush(MBE->ref(),&HandleContent::unref);
    }
   scrolledwindow_landauswahl->show();
 }

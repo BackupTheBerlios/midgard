@@ -4,9 +4,7 @@
 DROP INDEX "Preise_name";
 DROP TABLE "preise";
 --
--- TOC Entry ID 2 (OID 30112831)
 --
--- Name: preise Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "preise" (
@@ -18,295 +16,291 @@ CREATE TABLE "preise" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 30112831)
 --
--- Name: preise Type: TABLE DATA Owner: thoma
 --
 
 
 COPY "preise" FROM stdin;
-	0		
-1/20l Tusche	2	SS	Ausrüstung
-1/20l Tuschegefäß	1	SS	Ausrüstung
-1/2l Metallflasche	1	GS	Ausrüstung
-1/4 Keramikamphore	5	KS	Ausrüstung
-1/4l Glasflasche	5	SS	Ausrüstung
-1/4l Lampenöl	5	KS	Ausrüstung
-1/4l Weihwasser	1	GS	Ausrüstung
-1/4l Zauberöl	2	GS	Ausrüstung
-10 Armbrustbolzen	4	SS	Waffen
-10 Blasrohrnadeln	2	SS	Waffen
-10 Bleikugeln	1	SS	Waffen
-10 Fackeln	3	KS	Ausrüstung
-10 Pfeile	4	SS	Waffen
-10 Talgkerzen	1	KS	Ausrüstung
-10 große Nägel	1	KS	Ausrüstung
-1kg Holzkohle	5	KS	Ausrüstung
-1l Keramikampore	7	KS	Ausrüstung
-1m Kupferdraht	1	SS	Ausrüstung
-1m Metallkette	1	GS	Ausrüstung
-1m*1m Segeltuch	5	KS	Ausrüstung
-1m*1m Stoff	1	KS	Ausrüstung
-20m Garn	1	KS	Ausrüstung
-20m Seil	1	SS	Ausrüstung
-2m*2m Fischernetz	1	SS	Ausrüstung
-30cm*30cm Papyrus	2	KS	Ausrüstung
-30cm*30cm Pergament	1	SS	Ausrüstung
-5l-Wasserschlauch	1	SS	Ausrüstung
-Abschriften von Dokumenten	1	SS	Dienstleistungen
-Anderthalbhänder	18	GS	Waffen
-Antiläusepulver	2	SS	Dienstleistungen
-Apfelwein	2	KS	Lebensmittel
-Arzt	2	GS	Tageslohn
-Arzt-Besuch (Medikamente extra)	25	SS	Dienstleistungen
-Austreibung des Bösen	100	GS	Dienstleistungen
-Bihänder	22	GS	Waffen
-Blasrohr	10	SS	Waffen
-Bogen	25	SS	Waffen
-Bordell-Besuch	20	SS	Dienstleistungen
-Bordell-Besuch (sehr gut)	10	GS	Dienstleistungen
-Branntwein	7	SS	Lebensmittel
-Bronzehorn	2	GS	Ausrüstung
-Brot	2	KS	Lebensmittel
-Buckler	15	SS	Waffen
-Butter	2	KS	Lebensmittel
-Dolch	7	SS	Waffen
-Doppelzimmer (pro Nacht)	1	SS	Gasthaus
-Dünnbier	2	KS	Lebensmittel
-Ei	3	ES	Lebensmittel
-Einbrecherwerkzeug (Dietriche)	25	SS	Ausrüstung
-Einzelzimmer (pro Nacht)	2	SS	Gasthaus
-Eisenkeil	5	KS	Ausrüstung
-Engiftung bei Sucht (Zauber)	50	GS	Dienstleistungen
-Erste Hilfe-Ausrüstung	3	GS	Ausrüstung
-Erste Hilfe-Heimittel	2	GS	Ausrüstung
-Esel	5	GS	Tiere
-Feuerstein und Zunder	1	SS	Ausrüstung
-Feuertopf aus Ton	5	KS	Ausrüstung
-Fisch	2	KS	Lebensmittel
-Flöte	5	SS	Ausrüstung
-Friseur-Besuch	1	KS	Dienstleistungen
-Früchte	3	KS	Lebensmittel
-Galeere (15m lang)	1200	GS	Transportmittel
-Galeere (25m lang)	5000	GS	Transportmittel
-Geflügel	2	KS	Lebensmittel
-Gemeinschaftsraum (Strohsack)	4	KS	Gasthaus
-Gemüse	3	KS	Lebensmittel
-Greifvogel	6	GS	Tiere
-Greifvogelfutter pro Tag	1	KS	Essen
-Gurt für 5 Wurfpfeile, -messer	5	SS	Waffenzubehör
-Gußeisentopf für zwei Liter	4	SS	Ausrüstung
-Gürtel	2	SS	Kleidung
-Hammelfleisch	2	KS	Lebensmittel
-Handaxt	12	SS	Waffen
-Handelsschiff (15m lang)	800	GS	Transportmittel
-Handelsschiff (25m lang)	4000	GS	Transportmittel
-Handschuhe, Leder	3	SS	Kleidung
-Handschuhe, Leinen	1	SS	Kleidung
-Harfe	10	GS	Ausrüstung
-Harnisch	150	GS	Rüstungen
-Heilen von Wunden	10	GS	Dienstleistungen
-Heiltrunk	20	GS	Dienstleistungen
-Hellebarde	8	GS	Waffen
-Hemd	3	SS	Kleidung
-Holz/Metallschild (groß)	25	SS	Schild
-Holz/Metallschild (klein)	20	SS	Schild
-Holzbalken	1	SS	Ausrüstung
-Holzbecher	1	KS	Ausrüstung
-Holzpflock	2	ES	Ausrüstung
-Hose	5	SS	Kleidung
-Hundefutter pro Tag	2	KS	Essen
-Identifikation von Zauberwerk	30	GS	Dienstleistungen
-Jagdhund	2	GS	Tiere
-Kampfhandschuhe	40	SS	Rüstungen
-Kampfhund	6	GS	Tiere
-Kampfstab	15	SS	Waffen
-Karren (zweispännig)	20	GS	Transportmittel
-Kettenhemd	20	GS	Rüstungen
-Kettenhose	60	SS	Rüstungen
-Kettenwams	10	GS	Rüstungen
-Keule	8	SS	Waffen
-Kilt	3	SS	Kleidung
-Kleid	20	SS	Kleidung
-Kleinsegler (10m lang)	80	GS	Transportmittel
-Kleinsegler (5m lang)	20	GS	Transportmittel
-Kleinvieh	2	KS	Tiere
-Krafttrunk	10	GS	Dienstleistungen
-Kreidestück	2	KS	Ausrüstung
-Kriegsflegel	70	SS	Waffen
-Kriegshammer	25	SS	Waffen
-Kristallspiegel	20	GS	Ausrüstung
-Krummsäbel	100	SS	Waffen
-Kräutertee	2	ES	Lebensmittel
-Kurzschwert	25	SS	Waffen
-Kutte	20	SS	Kleidung
-Käse	3.5	KS	Lebensmittel
-Köcher, Hüfte (20 Pfeile, 30 Bolzen)	4	SS	Waffenzubehör
-Köcher, Rücken (30Pfeile, 50 Bolzen)	5	SS	Waffenzubehör
-Lamellenpanzer	7	GS	Rüstungen
-Langbogen	6	GS	Waffen
 Langschwert	120	SS	Waffen
-Lanze	20	SS	Waffen
-Laterne	10	SS	Ausrüstung
-Laterne abblendbar	15	SS	Ausrüstung
-Laute	3	GS	Ausrüstung
-Lebenshaltung ohne Unterkunft /pro Woche"	1	GS	Essen
-Lederarmschienen	8	SS	Rüstungen
-Lederbeinschienen	10	SS	Rüstungen
-Lederbeutel für 20 Münzen	5	KS	Ausrüstung
-Ledergürteltasch (für 20 Münzen)	2	SS	Ausrüstung
-Lederhals- und -nackenschutz	20	SS	Rüstungen
-Lederhandschuhe	5	SS	Rüstungen
-Lederhelm	10	SS	Rüstungen
-Lederpanzerung (Hund)	3	GS	Rüstungen
-Lederrucksack (25kg)	4	SS	Ausrüstung
-Lederrüstung	6	GS	Rüstungen
-Lederschild (groß)	20	SS	Schild
-Lederschild (klein)	15	SS	Schild
-Ledertasche für 50 Bleikugeln	4	SS	Waffenzubehör
-Lederwams	25	SS	Rüstungen
-Leichter Speer	8	SS	Waffen
-Lendenschurz	1	SS	Kleidung
-Magierstab	25	SS	Waffen
-Maultier	7	GS	Tiere
-Metallarmschein	50	SS	Rüstungen
-Metallbeinschienen	60	SS	Rüstungen
-Metallhals- und -nackenschutz	50	SS	Rüstungen
-Metallhelm	40	SS	Rüstungen
-Miete eines Raumes	10	SS	Gasthaus
-Mietes eines Hauses	50	SS	Gasthaus
-Milch	2	KS	Lebensmittel
-Morgenstern	75	SS	Waffen
-Netz	50	SS	Waffen
-Packpferd	10	GS	Tiere
-Panzerhandschuhe	60	SS	Rüstungen
-Panzerwams	40	GS	Rüstungen
-Parierdolch	15	SS	Waffen
-Peitsche	25	SS	Waffen
-Pfeffer	5	GS	Lebensmittel
-Pferd im Stall	1	SS	Gasthaus
-Pferdefutter pro Tag	3	KS	Essen
-Pilum	10	SS	Waffen
-Plattenpanzerung (Pferd)	50	GS	Rüstungen
-Plattenrüstung	70	GS	Rüstungen
-Pony	6	GS	Tiere
-Preise für unterstes Niveau	2	KS	Gasthaus
-Rapier	80	SS	Waffen
-Rassepferd	60	GS	Tiere
-Reitpferd	20	GS	Tiere
-Reitpferd, zum Kampf ausgebildet	40	GS	Tiere
-Rindfleisch	2	KS	Lebensmittel
-Robe	20	SS	Kleidung
-Rock	3	SS	Kleidung
-Ruderboot (4m kang)	10	GS	Transportmittel
-Salz	5	SS	Lebensmittel
-Sandalen, einfach	2	SS	Kleidung
-Sandalen, schwer	4	SS	Kleidung
-Sattel	30	SS	Tiere
-Satteltaschen	10	SS	Tiere
-Schinken	5	KS	Lebensmittel
-Schlachtbeil	5	GS	Waffen
-Schlachtroß, leicht	70	GS	Tiere
-Schlachtroß, schwer	100	GS	Tiere
-Schleuder	1	SS	Waffen
-Schlittenhund	2	GS	Tiere
-Schreibpinsel	5	KS	Ausrüstung
-Schuhe, einfach	5	SS	Kleidung
-Schuppenpanzer	9	GS	Rüstungen
-Schuppenpanzerung (Pferd)	20	GS	Rüstungen
-Schweinefleisch	1	KS	Lebensmittel
-Seemann	1	SS	Tageslohn
-Seiler	7	KS	Tageslohn
-Skier	8	SS	Ausrüstung
-Speerschleuder	10	SS	Waffen
-Spiegel aus poliertem Metall	1	GS	Ausrüstung
-Stabkeule	3	GS	Waffen
-Starkbier	5	KS	Lebensmittel
-Steuermann	5	SS	Tageslohn
-Stiefel, halbhoch	10	SS	Kleidung
-Stiefel, kniehoch	20	SS	Kleidung
-Stielhammer	8	GS	Waffen
+Krummsäbel	100	SS	Waffen
+Dolch	7	SS	Waffen
 Stilett	15	SS	Waffen
-Stockschleuder	10	SS	Waffen
-Stoßspeer	12	SS	Waffen
-Streitaxt	25	SS	Waffen
+Kurzschwert	25	SS	Waffen
+Rapier	80	SS	Waffen
+Keule	8	SS	Waffen
 Streitkolben	20	SS	Waffen
-Söldner (Gr. 1)	2	SS	Tageslohn
-Söldner mit Pferd	5	SS	Tageslohn
-Tag in der Stadt	5	SS	Essen
-Tag unterwegs	1	SS	Essen
-Talisman im Tempel	2	GS	Dienstleistungen
-Talismanherstellung (+1)	3	GS	Dienstleistungen
-Topfhelm	60	SS	Rüstungen
-Trommel	5	SS	Ausrüstung
-Tunika	5	SS	Kleidung
-Umhang	8	SS	Kleidung
-Umhang mit Kapuze	10	SS	Kleidung
-Vier- bis Sechsbettzimmer (pro Person)	1	SS	Gasthaus
-Vierpersonenzelt	3	GS	Ausrüstung
-Vollbier	3	KS	Lebensmittel
-Vollhelm (mit Visier)	10	GS	Rüstungen
-Vollmetallschild (groß)	10	GS	Schild
-Vollmetallschild (klein)	10	GS	Schild
-Waffenschmied	1	GS	Tageslohn
-Wagen (vierspännig)	30	GS	Transportmittel
-Wein	7	KS	Lebensmittel
-Werkzeug (Hammer u.a.)	5	SS	Ausrüstung
-Wild	1	SS	Lebensmittel
-Wundheiler	3	SS	Tageslohn
+Kriegshammer	25	SS	Waffen
+Handaxt	12	SS	Waffen
+Streitaxt	25	SS	Waffen
+Leichter Speer	8	SS	Waffen
+Stoßspeer	12	SS	Waffen
+Lanze	20	SS	Waffen
+Anderthalbhänder	18	GS	Waffen
+Bihänder	22	GS	Waffen
+Schlachtbeil	5	GS	Waffen
+Stabkeule	3	GS	Waffen
+Hellebarde	8	GS	Waffen
+Stielhammer	8	GS	Waffen
+Morgenstern	75	SS	Waffen
+Kriegsflegel	70	SS	Waffen
+Kampfstab	15	SS	Waffen
+Magierstab	25	SS	Waffen
+Peitsche	25	SS	Waffen
+Bogen	25	SS	Waffen
+Langbogen	6	GS	Waffen
+starker Langbogen	18	GS	Waffen
+leichte Armbrust	6	GS	Waffen
+schwere Ambrust	8	GS	Waffen
+Schleuder	1	SS	Waffen
+Stockschleuder	10	SS	Waffen
+Wurfspeer	8	SS	Waffen
+Pilum	10	SS	Waffen
+Speerschleuder	10	SS	Waffen
 Wurfaxt	30	SS	Waffen
 Wurfhammer	35	SS	Waffen
 Wurfkeule	15	SS	Waffen
 Wurfmesser	20	SS	Waffen
 Wurfpfeil	4	SS	Waffen
-Wurfspeer	8	SS	Waffen
 Wurfstern	1	SS	Waffen
-Wurst	4	KS	Lebensmittel
-Zaumzeug	3	SS	Tiere
-Zeichenkohle	1	KS	Ausrüstung
-Zinnbecher	2	SS	Ausrüstung
-Zugochse	15	GS	Tiere
-Zugpferd	10	GS	Tiere
-Zweipersonenzelt	2	GS	Ausrüstung
-beschlagener Helm	20	SS	Rüstungen
-beschlagenes Leder	4	GS	Rüstungen
-billiger Eintopf	2	KS	Gasthaus
-einfache Dolchscheide	3	SS	Waffenzubehör
-einfache Schwertscheide	8	SS	Waffenzubehör
-einfacher Tagelöhner	4	KS	Tageslohn
-einfacher Waffengürtel	3	SS	Waffenzubehör
-exzellentes Mahl	5	SS	Gasthaus
-gefütterte Hose	35	SS	Kleidung
+Blasrohr	10	SS	Waffen
+Netz	50	SS	Waffen
+Parierdolch	15	SS	Waffen
+Buckler	15	SS	Waffen
+10 Bleikugeln	1	SS	Waffen
+10 Pfeile	4	SS	Waffen
+10 Armbrustbolzen	4	SS	Waffen
+10 Blasrohrnadeln	2	SS	Waffen
+Lederschild (klein)	15	SS	Schild
+Lederschild (groß)	20	SS	Schild
+Holz/Metallschild (klein)	20	SS	Schild
+Holz/Metallschild (groß)	25	SS	Schild
+Vollmetallschild (klein)	10	GS	Schild
+Vollmetallschild (groß)	10	GS	Schild
 gepolstertes Unterkleid	5	SS	Rüstungen
-gestepptes Hemd	15	SS	Rüstungen
-groß (60-150qm Grundfläche), Kellerraum, 1. Stock,  pro qm Wohnfläche	3	GS	Hausbau
-großer Sack (50kg)	5	KS	Ausrüstung
-guter Eintopf	5	KS	Gasthaus
-gutes Mahl	3	SS	Gasthaus
-klein (30-70qm) ohne Keller, nur ein Stockwerk,  pro qm Wohnfläche	1	GS	Hausbau
-kleiner Sack (25kg)	2	KS	Ausrüstung
-leichte Armbrust	6	GS	Waffen
-religiöses Symbol an der Kette (Edlemetall)	1	GS	Ausrüstung
-religiöses Symbol an der Kette (unedles Metall)	5	KS	Ausrüstung
-schwarzer Tee	3	KS	Lebensmittel
-schwere Ambrust	8	GS	Waffen
-starker Krafttrunk	20	GS	Dienstleistungen
-starker Langbogen	18	GS	Waffen
-ungelernter Handlanger	4	KS	Tageslohn
-verzierte Dolchscheide	10	SS	Waffenzubehör
-verzierte Schwertscheide	30	SS	Waffenzubehör
-verzierter Waffengürtel	5	SS	Waffenzubehör
-vollständiges Mahl	2	SS	Gasthaus
-warme Decke	4	SS	Ausrüstung
-warmer Mantel	35	SS	Kleidung
-wasserdichte Lederhülle für Schriftrollen	3	SS	Ausrüstung
 wattierter Rock	2	GS	Rüstungen
+gestepptes Hemd	15	SS	Rüstungen
+Lederwams	25	SS	Rüstungen
+beschlagenes Leder	4	GS	Rüstungen
+Lederrüstung	6	GS	Rüstungen
+Lamellenpanzer	7	GS	Rüstungen
+Schuppenpanzer	9	GS	Rüstungen
+Kettenwams	10	GS	Rüstungen
+Kettenhemd	20	GS	Rüstungen
+Panzerwams	40	GS	Rüstungen
+Plattenrüstung	70	GS	Rüstungen
+Harnisch	150	GS	Rüstungen
+Lederarmschienen	8	SS	Rüstungen
+Metallarmschein	50	SS	Rüstungen
+Lederbeinschienen	10	SS	Rüstungen
+Metallbeinschienen	60	SS	Rüstungen
+Kettenhose	60	SS	Rüstungen
+Lederhals- und -nackenschutz	20	SS	Rüstungen
+Metallhals- und -nackenschutz	50	SS	Rüstungen
+Lederhelm	10	SS	Rüstungen
+beschlagener Helm	20	SS	Rüstungen
+Metallhelm	40	SS	Rüstungen
+Topfhelm	60	SS	Rüstungen
+Vollhelm (mit Visier)	10	GS	Rüstungen
+Lederhandschuhe	5	SS	Rüstungen
+Kampfhandschuhe	40	SS	Rüstungen
+Panzerhandschuhe	60	SS	Rüstungen
+Schuppenpanzerung (Pferd)	20	GS	Rüstungen
+Plattenpanzerung (Pferd)	50	GS	Rüstungen
+Lederpanzerung (Hund)	3	GS	Rüstungen
+einfacher Waffengürtel	3	SS	Waffenzubehör
+verzierter Waffengürtel	5	SS	Waffenzubehör
+einfache Schwertscheide	8	SS	Waffenzubehör
+verzierte Schwertscheide	30	SS	Waffenzubehör
+Köcher, Hüfte (20 Pfeile, 30 Bolzen)	4	SS	Waffenzubehör
+Köcher, Rücken (30Pfeile, 50 Bolzen)	5	SS	Waffenzubehör
+Ledertasche für 50 Bleikugeln	4	SS	Waffenzubehör
+einfache Dolchscheide	3	SS	Waffenzubehör
+verzierte Dolchscheide	10	SS	Waffenzubehör
+Gurt für 5 Wurfpfeile, -messer	5	SS	Waffenzubehör
+Hemd	3	SS	Kleidung
+Hose	5	SS	Kleidung
+Kilt	3	SS	Kleidung
+Rock	3	SS	Kleidung
+Lendenschurz	1	SS	Kleidung
+Tunika	5	SS	Kleidung
+Umhang	8	SS	Kleidung
+Umhang mit Kapuze	10	SS	Kleidung
+Kutte	20	SS	Kleidung
+Robe	20	SS	Kleidung
+Kleid	20	SS	Kleidung
+warmer Mantel	35	SS	Kleidung
+gefütterte Hose	35	SS	Kleidung
+Handschuhe, Leder	3	SS	Kleidung
+Handschuhe, Leinen	1	SS	Kleidung
+Sandalen, einfach	2	SS	Kleidung
+Sandalen, schwer	4	SS	Kleidung
+Schuhe, einfach	5	SS	Kleidung
+Stiefel, halbhoch	10	SS	Kleidung
+Stiefel, kniehoch	20	SS	Kleidung
+Gürtel	2	SS	Kleidung
+Tag in der Stadt	5	SS	Essen
+Tag unterwegs	1	SS	Essen
+Pferdefutter pro Tag	3	KS	Essen
+Hundefutter pro Tag	2	KS	Essen
+Greifvogelfutter pro Tag	1	KS	Essen
+Lebenshaltung ohne Unterkunft /pro Woche"	1	GS	Essen
+Preise für unterstes Niveau	2	KS	Gasthaus
+Gemeinschaftsraum (Strohsack)	4	KS	Gasthaus
+Vier- bis Sechsbettzimmer (pro Person)	1	SS	Gasthaus
+Doppelzimmer (pro Nacht)	1	SS	Gasthaus
+Einzelzimmer (pro Nacht)	2	SS	Gasthaus
+Pferd im Stall	1	SS	Gasthaus
+Miete eines Raumes	10	SS	Gasthaus
+Mietes eines Hauses	50	SS	Gasthaus
+	0		
+billiger Eintopf	2	KS	Gasthaus
+guter Eintopf	5	KS	Gasthaus
+vollständiges Mahl	2	SS	Gasthaus
+gutes Mahl	3	SS	Gasthaus
+exzellentes Mahl	5	SS	Gasthaus
+Friseur-Besuch	1	KS	Dienstleistungen
 öffentliches Bad	2	SS	Dienstleistungen
+Bordell-Besuch	20	SS	Dienstleistungen
+Bordell-Besuch (sehr gut)	10	GS	Dienstleistungen
+Arzt-Besuch (Medikamente extra)	25	SS	Dienstleistungen
+Identifikation von Zauberwerk	30	GS	Dienstleistungen
+Heilen von Wunden	10	GS	Dienstleistungen
+Austreibung des Bösen	100	GS	Dienstleistungen
+Engiftung bei Sucht (Zauber)	50	GS	Dienstleistungen
+Abschriften von Dokumenten	1	SS	Dienstleistungen
+Talismanherstellung (+1)	3	GS	Dienstleistungen
+Talisman im Tempel	2	GS	Dienstleistungen
+Krafttrunk	10	GS	Dienstleistungen
+starker Krafttrunk	20	GS	Dienstleistungen
+Heiltrunk	20	GS	Dienstleistungen
+Antiläusepulver	2	SS	Dienstleistungen
+Zugpferd	10	GS	Tiere
+Packpferd	10	GS	Tiere
+Reitpferd	20	GS	Tiere
+Reitpferd, zum Kampf ausgebildet	40	GS	Tiere
+Rassepferd	60	GS	Tiere
+Schlachtroß, leicht	70	GS	Tiere
+Schlachtroß, schwer	100	GS	Tiere
+Pony	6	GS	Tiere
+Esel	5	GS	Tiere
+Maultier	7	GS	Tiere
+Zugochse	15	GS	Tiere
+Kleinvieh	2	KS	Tiere
+Jagdhund	2	GS	Tiere
+Schlittenhund	2	GS	Tiere
+Kampfhund	6	GS	Tiere
+Greifvogel	6	GS	Tiere
+Zaumzeug	3	SS	Tiere
+Sattel	30	SS	Tiere
+Satteltaschen	10	SS	Tiere
+Karren (zweispännig)	20	GS	Transportmittel
+Wagen (vierspännig)	30	GS	Transportmittel
+Ruderboot (4m kang)	10	GS	Transportmittel
+Kleinsegler (5m lang)	20	GS	Transportmittel
+Kleinsegler (10m lang)	80	GS	Transportmittel
+Handelsschiff (15m lang)	800	GS	Transportmittel
+Handelsschiff (25m lang)	4000	GS	Transportmittel
+Galeere (15m lang)	1200	GS	Transportmittel
+Galeere (25m lang)	5000	GS	Transportmittel
+Schweinefleisch	1	KS	Lebensmittel
+Hammelfleisch	2	KS	Lebensmittel
+Rindfleisch	2	KS	Lebensmittel
+Schinken	5	KS	Lebensmittel
+Geflügel	2	KS	Lebensmittel
+Wild	1	SS	Lebensmittel
+Fisch	2	KS	Lebensmittel
+Wurst	4	KS	Lebensmittel
+Salz	5	SS	Lebensmittel
+Pfeffer	5	GS	Lebensmittel
+Brot	2	KS	Lebensmittel
+Käse	3.5	KS	Lebensmittel
+Butter	2	KS	Lebensmittel
+Ei	3	ES	Lebensmittel
+Gemüse	3	KS	Lebensmittel
+Früchte	3	KS	Lebensmittel
+Milch	2	KS	Lebensmittel
+schwarzer Tee	3	KS	Lebensmittel
+Kräutertee	2	ES	Lebensmittel
+Apfelwein	2	KS	Lebensmittel
+Dünnbier	2	KS	Lebensmittel
+Vollbier	3	KS	Lebensmittel
+Starkbier	5	KS	Lebensmittel
+Wein	7	KS	Lebensmittel
+Branntwein	7	SS	Lebensmittel
+Zweipersonenzelt	2	GS	Ausrüstung
+Vierpersonenzelt	3	GS	Ausrüstung
+warme Decke	4	SS	Ausrüstung
+20m Seil	1	SS	Ausrüstung
+20m Garn	1	KS	Ausrüstung
+2m*2m Fischernetz	1	SS	Ausrüstung
+1m*1m Stoff	1	KS	Ausrüstung
+1m*1m Segeltuch	5	KS	Ausrüstung
+Holzbalken	1	SS	Ausrüstung
+1m Metallkette	1	GS	Ausrüstung
+1m Kupferdraht	1	SS	Ausrüstung
+Skier	8	SS	Ausrüstung
+Werkzeug (Hammer u.a.)	5	SS	Ausrüstung
+10 große Nägel	1	KS	Ausrüstung
+Eisenkeil	5	KS	Ausrüstung
+Holzpflock	2	ES	Ausrüstung
+Spiegel aus poliertem Metall	1	GS	Ausrüstung
+Kristallspiegel	20	GS	Ausrüstung
+Feuerstein und Zunder	1	SS	Ausrüstung
+Feuertopf aus Ton	5	KS	Ausrüstung
+1kg Holzkohle	5	KS	Ausrüstung
+10 Fackeln	3	KS	Ausrüstung
+10 Talgkerzen	1	KS	Ausrüstung
+Laterne	10	SS	Ausrüstung
+Laterne abblendbar	15	SS	Ausrüstung
+1/4l Lampenöl	5	KS	Ausrüstung
+1/4l Zauberöl	2	GS	Ausrüstung
+1/4l Weihwasser	1	GS	Ausrüstung
+Kreidestück	2	KS	Ausrüstung
+Zeichenkohle	1	KS	Ausrüstung
+Schreibpinsel	5	KS	Ausrüstung
+1/20l Tusche	2	SS	Ausrüstung
+30cm*30cm Pergament	1	SS	Ausrüstung
+30cm*30cm Papyrus	2	KS	Ausrüstung
+Einbrecherwerkzeug (Dietriche)	25	SS	Ausrüstung
+Erste Hilfe-Ausrüstung	3	GS	Ausrüstung
+Erste Hilfe-Heimittel	2	GS	Ausrüstung
+religiöses Symbol an der Kette (unedles Metall)	5	KS	Ausrüstung
+religiöses Symbol an der Kette (Edlemetall)	1	GS	Ausrüstung
+Flöte	5	SS	Ausrüstung
+Harfe	10	GS	Ausrüstung
+Laute	3	GS	Ausrüstung
+Bronzehorn	2	GS	Ausrüstung
+Trommel	5	SS	Ausrüstung
+wasserdichte Lederhülle für Schriftrollen	3	SS	Ausrüstung
+5l-Wasserschlauch	1	SS	Ausrüstung
+großer Sack (50kg)	5	KS	Ausrüstung
+kleiner Sack (25kg)	2	KS	Ausrüstung
+Lederrucksack (25kg)	4	SS	Ausrüstung
+Ledergürteltasch (für 20 Münzen)	2	SS	Ausrüstung
+Lederbeutel für 20 Münzen	5	KS	Ausrüstung
+1/20l Tuschegefäß	1	SS	Ausrüstung
+1/4 Keramikamphore	5	KS	Ausrüstung
+1l Keramikampore	7	KS	Ausrüstung
+1/4l Glasflasche	5	SS	Ausrüstung
+1/2l Metallflasche	1	GS	Ausrüstung
+Holzbecher	1	KS	Ausrüstung
+Zinnbecher	2	SS	Ausrüstung
+Gußeisentopf für zwei Liter	4	SS	Ausrüstung
+ungelernter Handlanger	4	KS	Tageslohn
+Seiler	7	KS	Tageslohn
+Seemann	1	SS	Tageslohn
+Wundheiler	3	SS	Tageslohn
+Steuermann	5	SS	Tageslohn
+Waffenschmied	1	GS	Tageslohn
+Arzt	2	GS	Tageslohn
+einfacher Tagelöhner	4	KS	Tageslohn
+Söldner (Gr. 1)	2	SS	Tageslohn
+Söldner mit Pferd	5	SS	Tageslohn
+klein (30-70qm) ohne Keller, nur ein Stockwerk,  pro qm Wohnfläche	1	GS	Hausbau
+groß (60-150qm Grundfläche), Kellerraum, 1. Stock,  pro qm Wohnfläche	3	GS	Hausbau
 \.
 --
--- TOC Entry ID 3 (OID 30112862)
 --
--- Name: "Preise_name" Type: INDEX Owner: thoma
 --
 
 CREATE UNIQUE INDEX "Preise_name" ON preise USING btree (name text_ops);

@@ -4,9 +4,7 @@
 DROP INDEX "waffen_steigern_schwierigkeit";
 DROP TABLE "waffen_steigern";
 --
--- TOC Entry ID 2 (OID 30117440)
 --
--- Name: waffen_steigern Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "waffen_steigern" (
@@ -34,9 +32,7 @@ CREATE TABLE "waffen_steigern" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 30117440)
 --
--- Name: waffen_steigern Type: TABLE DATA Owner: thoma
 --
 
 
@@ -51,9 +47,7 @@ COPY "waffen_steigern" FROM stdin;
 7	\N	\N	\N	40	40	60	80	160	320	640	1280	2400	4000	8000	8000	12000	12000	20000	\N	\N
 \.
 --
--- TOC Entry ID 3 (OID 30117478)
 --
--- Name: "waffen_steigern_schwierigkeit" Type: INDEX Owner: thoma
 --
 
 CREATE UNIQUE INDEX waffen_steigern_schwierigkeit ON waffen_steigern USING btree (schwierigkeit int4_ops);

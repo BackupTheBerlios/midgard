@@ -72,7 +72,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
           { 
             os << (*i)->Name()<<'\t'<<wert<<'\n';
 //            os.flush(&const_cast<cH_Land&>(*i));
-            os.flush((*i)->ref());
+            os.flush((*i)->ref(),&HandleContent::unref);
           }
       }
    if (mod == SPRACHE)
@@ -84,7 +84,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
             cH_Sprache s(*i);
             os << s->Name()<<'\t'<<wert<<'\n';
 //            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
-            os.flush((*i)->ref());
+            os.flush((*i)->ref(),&HandleContent::unref);
           }
       }
    if (mod == ALTESPRACHE)
@@ -97,7 +97,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
             if(!s->Alte_Sprache()) continue;
             os << s->Name()<<'\t'<<wert<<'\n';
 //            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
-            os.flush((*i)->ref());
+            os.flush((*i)->ref(),&HandleContent::unref);
            }
       }
    if (mod == NEUESPRACHE)
@@ -110,7 +110,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
             if(s->Alte_Sprache()) continue;
             os << s->Name()<<'\t'<<wert<<'\n';
 //            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
-            os.flush((*i)->ref());
+            os.flush((*i)->ref(),&HandleContent::unref);
           }
       }
    if (mod == SCHRIFT)
@@ -124,7 +124,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
              {
                os << s->Name()<<'\t'<<s->Art_der_Schrift()<<'\n';
 //               os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
-               os.flush((*i)->ref());
+               os.flush((*i)->ref(),&HandleContent::unref);
              }
           }
          if(!clist_sp_sc->rows().size())

@@ -4,9 +4,7 @@
 DROP INDEX "angeborene_fertigkeiten_name";
 DROP TABLE "angeborene_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 30134263)
 --
--- Name: angeborene_fertigkeiten Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "angeborene_fertigkeiten" (
@@ -17,19 +15,17 @@ CREATE TABLE "angeborene_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 30134263)
 --
--- Name: angeborene_fertigkeiten Type: TABLE DATA Owner: thoma
 --
 
 
 COPY "angeborene_fertigkeiten" FROM stdin;
+11	20	Sehen	10
 1	2	Kurzsichtigkeit	4
 3	4	Schwerhörigkeit	4
 5	6	Riechschwäche	4
 7	8	Geschmacksschwäche	4
 9	10	Tastschwäche	4
-11	20	Sehen	10
 21	30	Hören	10
 31	40	Riechen	10
 41	50	Schmecken	10
@@ -40,13 +36,11 @@ COPY "angeborene_fertigkeiten" FROM stdin;
 76	80	Nachtsicht	8
 81	85	Richtungssinn	12
 86	90	Robustheit	9
-91	95	Wachgabe	6
 96	99	Einprägen	4
+91	95	Wachgabe	6
 \.
 --
--- TOC Entry ID 3 (OID 30134309)
 --
--- Name: "angeborene_fertigkeiten_name" Type: INDEX Owner: thoma
 --
 
 CREATE UNIQUE INDEX angeborene_fertigkeiten_name ON angeborene_fertigkeiten USING btree (name text_ops);

@@ -4,9 +4,7 @@
 DROP INDEX "spezies_typen_spezies";
 DROP TABLE "spezies_typen";
 --
--- TOC Entry ID 2 (OID 26599941)
 --
--- Name: spezies_typen Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "spezies_typen" (
@@ -16,66 +14,62 @@ CREATE TABLE "spezies_typen" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26599941)
 --
--- Name: spezies_typen Type: TABLE DATA Owner: thoma
 --
 
 
 COPY "spezies_typen" FROM stdin;
-Berggnom	As	\N
-Berggnom	Dr	\N
-Berggnom	Gl	\N
-Berggnom	Hl	\N
-Berggnom	Ma	\N
-Berggnom	Sp	\N
-Berggnom	Th	\N
-Berggnom	Wa	\N
-Berggnom	gHx	\N
-Berggnom	sHx	\N
-Berggnom	wHx	\N
-Elf	Ba	\N
-Elf	Dr	\N
-Elf	Gl	\N
-Elf	Hl	\N
-Elf	Kr	\N
-Elf	Ma	\N
-Elf	Wa	\N
-Elf	gHx	\N
-Elf	sHx	\N
-Elf	wHx	\N
 Halbling	Ba	\N
-Halbling	Hl	\N
 Halbling	Hä	\N
+Halbling	Sp	\N
+Halbling	Hl	\N
 Halbling	PF	\N
 Halbling	PW	\N
-Halbling	Sp	\N
-Halbling	Wa	\N
-Waldgnom	As	\N
-Waldgnom	Dr	\N
-Waldgnom	Gl	\N
-Waldgnom	Hl	\N
-Waldgnom	Ma	\N
-Waldgnom	Sp	\N
-Waldgnom	Th	\N
-Waldgnom	Wa	\N
-Waldgnom	gHx	\N
-Waldgnom	sHx	\N
-Waldgnom	wHx	\N
+Elf	Ba	\N
+Elf	Gl	\N
+Elf	Kr	\N
+Elf	Wa	\N
+Elf	Dr	\N
+Elf	Hl	\N
+Elf	Ma	\N
 Zwerg	Hä	\N
 Zwerg	Kr	\N
+Zwerg	Sö	\N
 Zwerg	PF	\N
+Zwerg	PK	\N
+Zwerg	Th	\N
+Berggnom	Gl	\N
+Berggnom	Sp	\N
+Berggnom	Wa	\N
+Berggnom	Dr	\N
+Berggnom	Hl	\N
+Berggnom	wHx	\N
+Berggnom	gHx	\N
+Berggnom	sHx	\N
+Berggnom	Ma	\N
+Berggnom	Th	\N
+Waldgnom	Gl	\N
+Waldgnom	Sp	\N
+Waldgnom	Wa	\N
+Waldgnom	Dr	\N
+Waldgnom	Hl	\N
+Waldgnom	wHx	\N
+Waldgnom	gHx	\N
+Waldgnom	sHx	\N
+Waldgnom	Ma	\N
+Waldgnom	Th	\N
+Elf	gHx	\N
+Elf	wHx	\N
+Elf	sHx	\N
+Halbling	Wa	\N
+Zwerg	eBe	\N
 Zwerg	PHa	\N
 Zwerg	PHe	\N
-Zwerg	PK	\N
-Zwerg	Sö	\N
-Zwerg	Th	\N
-Zwerg	eBe	\N
+Berggnom	As	\N
+Waldgnom	As	\N
 \.
 --
--- TOC Entry ID 3 (OID 26608110)
 --
--- Name: "spezies_typen_spezies" Type: INDEX Owner: thoma
 --
 
 CREATE INDEX spezies_typen_spezies ON spezies_typen USING btree (spezies text_ops);

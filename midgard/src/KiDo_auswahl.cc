@@ -107,7 +107,7 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
       cH_KiDo kd(*i);
       os << kd->Hoho() <<"\t"<<kd->Name()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Typ,Database.ausnahmen)<<"\n";
 //      os.flush(&*i);
-      os.flush(kd->ref());
+      os.flush(kd->ref(),&HandleContent::unref);
     }
    for (unsigned int i=0;i<clist_kido_auswahl->columns().size();++i)
       clist_kido_auswahl->set_column_auto_resize(i,true);
