@@ -2,9 +2,9 @@
 
 login() {
   echo ========= Logging in ======
-  echo Bitte dreimal Return drücken
+  echo Bitte zweimal Return drücken
   cvs -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc login
-  cvs -d :pserver:anonymous@anoncvs.gnome.org:/cvs/gnome login
+#  cvs -d :pserver:anonymous@anoncvs.gnome.org:/cvs/gnome login
   cvs -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard login
 }
 
@@ -13,8 +13,7 @@ checkout() {
   cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co ManuProC_Base
   
   echo ========== GtkmmAddons ========
-  cvs -z3 -d :pserver:anonymous@anoncvs.gnome.org:/cvs/gnome co gtk--addons
-  ln -s gtk--addons GtkmmAddons
+  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co GtkmmAddons
   
   echo ========  ManuProC_Widgets ========
   cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co ManuProC_Widgets
@@ -107,7 +106,7 @@ then
   domake
   doinstall
 else
-  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.8 $aetsch"
+  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.9 $aetsch"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
