@@ -8988,12 +8988,11 @@ eingeben</property>
 		      <property name="column_spacing">0</property>
 
 		      <child>
-			<widget class="GtkHandleBox" id="handlebox_steigern_1">
+			<widget class="GtkExpander" id="handlebox_steigern_1">
 			  <property agent="glademm" name="cxx_visibility">protected</property>
 			  <property name="visible">True</property>
-			  <property name="shadow_type">GTK_SHADOW_OUT</property>
-			  <property name="handle_position">GTK_POS_LEFT</property>
-			  <property name="snap_edge">GTK_POS_TOP</property>
+			  <property name="expanded">True</property>
+			  <property name="spacing">0</property>
 
 			  <child>
 			    <widget class="GtkTable" id="table76">
@@ -9781,6 +9780,26 @@ eingeben</property>
 			      </child>
 			    </widget>
 			  </child>
+
+			  <child>
+			    <widget class="GtkLabel" id="label697">
+			      <property name="visible">True</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Mensch Hl Gr.8 30J 20Tage</property>
+			      <property name="use_underline">False</property>
+			      <property name="use_markup">False</property>
+			      <property name="justify">GTK_JUSTIFY_LEFT</property>
+			      <property name="wrap">False</property>
+			      <property name="selectable">True</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="type">label_item</property>
+			    </packing>
+			  </child>
 			</widget>
 			<packing>
 			  <property name="left_attach">0</property>
@@ -9793,12 +9812,11 @@ eingeben</property>
 		      </child>
 
 		      <child>
-			<widget class="GtkHandleBox" id="handlebox_steigern_2">
+			<widget class="GtkExpander" id="handlebox_steigern_2">
 			  <property agent="glademm" name="cxx_visibility">protected</property>
 			  <property name="visible">True</property>
-			  <property name="shadow_type">GTK_SHADOW_OUT</property>
-			  <property name="handle_position">GTK_POS_LEFT</property>
-			  <property name="snap_edge">GTK_POS_TOP</property>
+			  <property name="expanded">True</property>
+			  <property name="spacing">0</property>
 
 			  <child>
 			    <widget class="GtkTable" id="table72">
@@ -10490,6 +10508,25 @@ eing.</property>
 			      </child>
 			    </widget>
 			  </child>
+
+			  <child>
+			    <widget class="GtkLabel" id="label699">
+			      <property name="visible">True</property>
+			      <property name="label" translatable="yes">1000GFP 50%GS</property>
+			      <property name="use_underline">False</property>
+			      <property name="use_markup">False</property>
+			      <property name="justify">GTK_JUSTIFY_LEFT</property>
+			      <property name="wrap">False</property>
+			      <property name="selectable">False</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="type">label_item</property>
+			    </packing>
+			  </child>
 			</widget>
 			<packing>
 			  <property name="left_attach">1</property>
@@ -10502,12 +10539,11 @@ eing.</property>
 		      </child>
 
 		      <child>
-			<widget class="GtkHandleBox" id="handlebox_steigern_4">
+			<widget class="GtkExpander" id="handlebox_steigern_4">
 			  <property agent="glademm" name="cxx_visibility">protected</property>
 			  <property name="visible">True</property>
-			  <property name="shadow_type">GTK_SHADOW_OUT</property>
-			  <property name="handle_position">GTK_POS_LEFT</property>
-			  <property name="snap_edge">GTK_POS_TOP</property>
+			  <property name="expanded">True</property>
+			  <property name="spacing">0</property>
 
 			  <child>
 			    <widget class="GtkTable" id="table75">
@@ -11112,6 +11148,25 @@ eing.</property>
 			      </child>
 			    </widget>
 			  </child>
+
+			  <child>
+			    <widget class="GtkLabel" id="label700">
+			      <property name="visible">True</property>
+			      <property name="label" translatable="yes">neuer Grad erreicht</property>
+			      <property name="use_underline">False</property>
+			      <property name="use_markup">False</property>
+			      <property name="justify">GTK_JUSTIFY_LEFT</property>
+			      <property name="wrap">False</property>
+			      <property name="selectable">False</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="type">label_item</property>
+			    </packing>
+			  </child>
 			</widget>
 			<packing>
 			  <property name="left_attach">2</property>
@@ -11124,12 +11179,11 @@ eing.</property>
 		      </child>
 
 		      <child>
-			<widget class="GtkHandleBox" id="handlebox_steigern_3">
+			<widget class="GtkExpander" id="handlebox_steigern_3">
 			  <property agent="glademm" name="cxx_visibility">protected</property>
 			  <property name="visible">True</property>
-			  <property name="shadow_type">GTK_SHADOW_OUT</property>
-			  <property name="handle_position">GTK_POS_LEFT</property>
-			  <property name="snap_edge">GTK_POS_LEFT</property>
+			  <property name="expanded">True</property>
+			  <property name="spacing">0</property>
 
 			  <child>
 			    <widget class="GtkTable" id="table99">
@@ -12394,6 +12448,25 @@ eingeben</property>
 				</packing>
 			      </child>
 			    </widget>
+			  </child>
+
+			  <child>
+			    <widget class="GtkLabel" id="label698">
+			      <property name="visible">True</property>
+			      <property name="label" translatable="yes">Steigern Praxis</property>
+			      <property name="use_underline">False</property>
+			      <property name="use_markup">False</property>
+			      <property name="justify">GTK_JUSTIFY_LEFT</property>
+			      <property name="wrap">False</property>
+			      <property name="selectable">False</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="type">label_item</property>
+			    </packing>
 			  </child>
 			</widget>
 			<packing>
