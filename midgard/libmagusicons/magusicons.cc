@@ -1,7 +1,8 @@
-// $Id: magusicons.cc,v 1.4 2003/05/06 07:46:41 christof Exp $
+// $Id: magusicons.cc,v 1.5 2003/05/06 07:50:15 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>
+#include <iostream>
 
 static MagusIcons::style current_style=MagusIcons::Alessandro;
 MagusIcons::map_t MagusIcons::images;
