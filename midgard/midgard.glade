@@ -16863,31 +16863,6 @@ portierung</label>
 	    </widget>
 
 	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap57</name>
-	      <filename>pinguin.xpm</filename>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	      <child>
-		<left_attach>0</left_attach>
-		<right_attach>1</right_attach>
-		<top_attach>9</top_attach>
-		<bottom_attach>10</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<xexpand>False</xexpand>
-		<yexpand>True</yexpand>
-		<xshrink>False</xshrink>
-		<yshrink>False</yshrink>
-		<xfill>True</xfill>
-		<yfill>True</yfill>
-	      </child>
-	    </widget>
-
-	    <widget>
 	      <class>GtkLabel</class>
 	      <name>label401</name>
 	      <label>MAGUS unterliegt der GNU Public Licence</label>
@@ -16939,6 +16914,59 @@ andere geholfen.</label>
 		<xfill>True</xfill>
 		<yfill>False</yfill>
 	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkHBox</class>
+	      <name>hbox56</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>0</spacing>
+	      <child>
+		<left_attach>0</left_attach>
+		<right_attach>1</right_attach>
+		<top_attach>9</top_attach>
+		<bottom_attach>10</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>True</yfill>
+	      </child>
+
+	      <widget>
+		<class>GtkPixmap</class>
+		<name>pixmap57</name>
+		<filename>pinguin.xpm</filename>
+		<xalign>0.5</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<build_insensitive>True</build_insensitive>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkPixmap</class>
+		<name>pixmap104</name>
+		<filename>gnu-haed-trans-32.xpm</filename>
+		<xalign>0.5</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<build_insensitive>True</build_insensitive>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
 	    </widget>
 	  </widget>
 	</widget>

@@ -6,9 +6,10 @@ NEWS IN VERSION 0.3delta3
 * XML: Laden beschleunigt (Fertigkeiten/Steigern_wie + Waffen/Schwierigkeit)
 * Gestaltberechnung korrigiert
 * Magische Waffen funktionieren
+* die richtigen Callbacks für 'steigern Menü' eintragen
+
 
 TODO:
-* die richtigen Callbacks für 'steigern Menü' eintragen (noch alle gleich)
 * Landeskunde als Berufsfähigkeit für 3 Berufe
   (Karawanenführer, land, v,m
    Kaufmann, stadt,m,a
