@@ -20,10 +20,15 @@
 #define LIBMAGUS_NOTFOUND_H
 
 #include <stdexcept>
+#include <string>
 
 class NotFound : public std::exception
-{public:
+{	std::string name;
+public:
 	virtual const char* what() const throw() { return "NotFound"; }
+	const std::string &Name() const throw() { return name; }
+	NotFound(const std::string &n) : name(n) {}
+	virtual ~NotFound() throw() {}
 };
 
 #endif

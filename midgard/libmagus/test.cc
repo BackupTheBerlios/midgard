@@ -6,6 +6,7 @@
 #include <fstream>
 #include "Abenteurer.hh"
 #include <Misc/TagStream.h>
+#include <NotFound.h>
 
 void progress(double d)
 {  std::cout << "Progress " << d << "%\n";
@@ -20,10 +21,13 @@ int main(int argc,char **argv)
    Datenbank db;
    if (argc>1) TagStream::host_encoding=argv[1];
    magus_paths::init(argv[0]);
+ try {  
    db.load(&progress,&meldung);
    
    std::ifstream fi("../../charaktere/Christof Petig/Aneren.magus");
    Abenteurer a;
    if (!a.xml_import_stream(fi,db)) 
       std::cerr << "Laden fehlgeschlagen\n";
+ } catch (NotFound &e)
+ {  std::cerr << "NotFound " << e.Name() << '\n';  }
 }

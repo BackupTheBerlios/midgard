@@ -40,7 +40,7 @@ cH_Waffe::cH_Waffe(const std::string& name , bool create)
      t2.setAttr("Name",name);
      *this=new Waffe(t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 

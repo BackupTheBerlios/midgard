@@ -41,7 +41,7 @@ cH_Schrift::cH_Schrift(const std::string& name ,bool create)
      t2.setAttr("Typ","?");
      *this=new Schrift(name, t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 

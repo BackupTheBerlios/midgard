@@ -39,7 +39,7 @@ cH_Ruestung::cH_Ruestung(const std::string& name ,bool create)
      t2.setAttr("Name",name);
      *this=new Ruestung(t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 

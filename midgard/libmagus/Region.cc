@@ -37,7 +37,7 @@ cH_Region::cH_Region(const std::string& name,bool create)
  else
   {
   std::cerr << "Region '" << name << "' nicht im Cache\n";
-  throw NotFound();
+  throw NotFound(name);
   }
 }
 

@@ -77,7 +77,7 @@ cH_KiDo::cH_KiDo(const std::string& name ,bool create)
      t2.setAttr("Stil","?");
      *this=new KiDo(t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 

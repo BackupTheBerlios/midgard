@@ -64,7 +64,7 @@ cH_Zauber::cH_Zauber(const std::string& name, bool create)
      // Wirkungsdauer, Reichweite ???
      *this=new Zauber(t2); // und wie fügen wir den der Liste zu?
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 

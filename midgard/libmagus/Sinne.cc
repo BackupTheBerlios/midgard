@@ -23,7 +23,7 @@
 cH_Sinne::cH_Sinne(const std::string& name,bool create)
 {
  if (create) *this=new Sinne(name);
- else throw NotFound();
+ else throw NotFound(name);
 }
 
 void Sinne::get_Sinne()

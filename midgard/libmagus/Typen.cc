@@ -38,7 +38,7 @@ cH_Typen::cH_Typen(const std::string& name ,bool create)
      t2.setAttr("Bezeichnung-Frau",name);
      *this=new Typen(t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
  }
 }
 

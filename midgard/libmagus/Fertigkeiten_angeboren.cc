@@ -37,7 +37,7 @@ cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name ,bool
      t2.setAttr("Name",name);
      *this=new Fertigkeit_angeborene(t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 

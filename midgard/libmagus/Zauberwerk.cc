@@ -41,7 +41,7 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
      t2.setAttr("Stufe",stufe);
      *this=new Zauberwerk(t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 

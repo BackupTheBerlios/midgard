@@ -40,7 +40,7 @@ cH_Prototyp::cH_Prototyp(const std::string& name,bool create)
      t2.setAttr("Name",name);
      *this=new Prototyp(t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 

@@ -44,7 +44,7 @@ cH_Preise::cH_Preise(const std::string& name ,bool create)
      t2.setAttr("Art2","?");
      *this=new Preise(t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 
@@ -126,7 +126,7 @@ cH_PreiseNewMod::cH_PreiseNewMod(const std::string& name, bool create)
      t2.setAttr("Name",name);
      *this=new PreiseNewMod(t2);
   }
-  else throw NotFound();
+  else throw NotFound(name);
   }
 }
 

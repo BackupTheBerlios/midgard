@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.15 2003/06/27 06:17:37 christof Exp $
+// $Id: xml.cc,v 1.16 2003/07/01 10:49:10 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2003 Christof Petig
  *
@@ -24,11 +24,12 @@
 #include <Misc/compiler_ports.h>
 #include "Datenbank.hh"
 #include <fstream>
+#include <NotFound.h>
 
 void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen, Datenbank &db)
 {  std::string filename=magus_paths::with_path("midgard.xml");
-   TagStream ts=TagStream(const_cast<std::istream&>
-   	(static_cast<const std::istream&>(std::ifstream(filename.c_str()))));
+   std::ifstream ifs(filename.c_str());
+   TagStream ts=TagStream(ifs);
    try
    {  Tag &main_file=ts.getContent();
    
@@ -55,9 +56,15 @@ void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::stri
              if (data.Type()!="MAGUS-data")
              {  std::cerr << file << " ist keine Magus Datei\n";
              }
-             else
+             else try
              {  db.load_region(data,file);
                 db.load_list(data);
+             }
+             catch (NotFound &e)
+             {  std::cerr << file << ": " << e.what() << ": " << e.Name() << '\n';
+             }
+             catch (std::exception &e)
+             {  std::cerr << file << ": " << e.what() << '\n';
              }
           } catch (std::exception &e)
           {  std::cerr << file << " ist keine gültige XML Datei\n";
