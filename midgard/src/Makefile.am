@@ -1,10 +1,10 @@
-# $Id: Makefile.am,v 1.102 2002/01/28 23:23:02 christof Exp $
+# $Id: Makefile.am,v 1.103 2002/01/29 16:41:29 christof Exp $
 
 bin_PROGRAMS = midgard 
 
 
 # völlig veraltet!!!
-EXTRA_PROGRAMS = midgard_xmlexport midgard_xmlimport
+EXTRA_PROGRAMS = midgard_xmlexport
 
 pkgdata_DATA = document_eingabe.tex document_eingabe4.tex \
    charakter_beschreibung.tex axt1.ps \
@@ -102,17 +102,12 @@ BUILT_SOURCES_CG =  \
    save_charakter.cc  load_charakter.cc  \
    Window_charakter_auswahl.cc 
 
-BUILT_SOUCES_XMLI=xmlimport.cc
-
-BUILT_SOURCES= $(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLI) \
-	export_common.h
+BUILT_SOURCES= $(BUILT_SOURCES_CG) export_common.h
 
 export_common.cc: ../xml/export_common.cc ; ln -sf ../xml/$@ .
 export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
 
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
-midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
-
 
 midgard_SOURCES = \
    Grundwerte.cc \
@@ -204,9 +199,7 @@ CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
 
 midgard_LDADD = @LIBS@ @KOMPONENTEN_LIBS@
 
-
 midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
-midgard_xmlimport_LDADD = @LIBS@ @COMMONXX_LIBS@
 
 LDFLAGS = @KOMPONENTEN_LDFLAGS@
 
@@ -223,3 +216,4 @@ midgard_CG_glade.o: midgard_CG_glade.cc ../config.h midgard_CG.hh \
 #%.o: %.cc ; $(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 #	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
 #	$(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
+
