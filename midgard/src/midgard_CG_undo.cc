@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.21 2003/11/28 07:52:20 christof Exp $
+// $Id: midgard_CG_undo.cc,v 1.22 2004/05/06 15:07:39 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,9 @@
 #include "midgard_CG.hh"
 #include <sstream>
 #include <libmagus/Ausgabe.hh>
+#if MPC_SIGC_VERSION > 0x120
+#  include <sigc++/bind.h>
+#endif
 
 void midgard_CG::on_button_redo_clicked()
 {
