@@ -2,7 +2,7 @@
 # using glademm V0.5_11c
 
 AC_PREREQ(2.50)
-AC_INIT(magus, 0.9.7, [midgard-general@berlios.de])
+AC_INIT(magus, 0.9.8, [midgard-general@berlios.de])
 AM_INIT_AUTOMAKE
 AC_CONFIG_HEADERS(config.h)
 

@@ -1,3 +1,11 @@
+Version 0.9.8
+
+-------------- TODO ----------------
+
+<<<TODO>>>
+
+------------------------------------
+
 Version 0.9.7
 - Wizard/Würfeln Buttons in der Statusleiste neu gestaltet
 - eingeklammerte Typen können jetzt ausgewählt werden
@@ -9,11 +17,7 @@ Version 0.9.7
 - Schwierigkeit/Kosten "Verteidigung" korrigiert
 - Schriften im Ausdruck geben jetzt Schriftart an, nicht Sprache
 
--------------- TODO ----------------
-
-<<<TODO>>>
-
-------------------------------------
+- Windows Version mit Installer und neuestem teTeX
 
 Version 0.9.6
 - Expander haben nun sinnvolle Überschriften
