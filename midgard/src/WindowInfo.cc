@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.23 2002/02/08 14:34:18 thoma Exp $
+// $Id: WindowInfo.cc,v 1.24 2002/02/08 15:08:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,6 +37,7 @@ void WindowInfo::on_button_info_ok_clicked()
 }
 
 WindowInfo::WindowInfo()
+: mystream(0)
 {
 //   infotext->set_text(s.c_str());
 
@@ -49,9 +50,10 @@ WindowInfo::WindowInfo()
       des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
 //      button_info_ok->hide();
     }
+  hide();
 }
 
-void WindowInfo::AppendShow(std::string s,bool autoclean)
+void WindowInfo::AppendShow(const std::string& s,bool autoclean)
 {
   (*mystream) << s;
   Flush(autoclean);

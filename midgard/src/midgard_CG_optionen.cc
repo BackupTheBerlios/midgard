@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.47 2002/02/08 14:34:18 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.48 2002/02/08 15:08:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -172,7 +172,7 @@ void midgard_CG::Hausregeln_setzen(bool b)
 
 
 
-void midgard_CG::regnot(std::string sadd)
+void midgard_CG::regnot(const std::string& sadd)
 {
 //  manage(new WindowInfo(sadd));
  InfoFenster->AppendShow(sadd);

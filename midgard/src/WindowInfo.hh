@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.20 2002/02/08 14:34:18 thoma Exp $
+// $Id: WindowInfo.hh,v 1.21 2002/02/08 15:08:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,7 +47,7 @@ class WindowInfo : public WindowInfo_glade
         void Flush(bool autoclean);
    public:
         WindowInfo();
-        void AppendShow(std::string s,bool autoclean=true);
+        void AppendShow(const std::string& s,bool autoclean=true);
         void AppendShow(int i,bool autoclean=true);
 };
 #endif

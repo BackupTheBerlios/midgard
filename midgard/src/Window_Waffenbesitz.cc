@@ -20,7 +20,6 @@
 #include "Window_Waffenbesitz.hh"
 #include "midgard_CG.hh"
 #include "Typen.hh"
-//#include "WindowInfo.hh"
 
 void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
 {  
