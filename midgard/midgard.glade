@@ -4809,7 +4809,7 @@ Praxispunkten</label>
 
 		  <widget>
 		    <class>GtkScrolledWindow</class>
-		    <name>scrolledwindow28</name>
+		    <name>scrolledwindow53</name>
 		    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
 		    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 		    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
@@ -4820,12 +4820,9 @@ Praxispunkten</label>
 		    </child>
 
 		    <widget>
-		      <class>GtkScrolledWindow</class>
-		      <name>scrolledwindow53</name>
-		      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-		      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		      <class>GtkViewport</class>
+		      <name>viewport4</name>
+		      <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 		      <widget>
 			<class>Custom</class>
@@ -4846,7 +4843,7 @@ Praxispunkten</label>
 
 		  <widget>
 		    <class>GtkScrolledWindow</class>
-		    <name>scrolledwindow29</name>
+		    <name>scrolledwindow55</name>
 		    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
 		    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 		    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
@@ -4857,32 +4854,23 @@ Praxispunkten</label>
 		    </child>
 
 		    <widget>
-		      <class>GtkScrolledWindow</class>
-		      <name>scrolledwindow54</name>
-		      <hscrollbar_policy>GTK_POLICY_ALWAYS</hscrollbar_policy>
-		      <vscrollbar_policy>GTK_POLICY_ALWAYS</vscrollbar_policy>
-		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		      <class>GtkViewport</class>
+		      <name>viewport6</name>
+		      <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 		      <widget>
-			<class>GtkViewport</class>
-			<name>viewport2</name>
-			<shadow_type>GTK_SHADOW_IN</shadow_type>
-
-			<widget>
-			  <class>Custom</class>
-			  <name>neue_fert_tree</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <signal>
-			    <name>leaf_selected</name>
-			    <handler>on_leaf_selected_neue_fert</handler>
-			    <last_modification_time>Wed, 20 Jun 2001 14:56:19 GMT</last_modification_time>
-			  </signal>
-			  <creation_function>SimpleTree</creation_function>
-			  <int1>5</int1>
-			  <int2>5</int2>
-			  <last_modification_time>Wed, 20 Jun 2001 14:55:18 GMT</last_modification_time>
-			</widget>
+			<class>Custom</class>
+			<name>neue_fert_tree</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<signal>
+			  <name>leaf_selected</name>
+			  <handler>on_leaf_selected_neue_fert</handler>
+			  <last_modification_time>Wed, 20 Jun 2001 14:56:19 GMT</last_modification_time>
+			</signal>
+			<creation_function>SimpleTree</creation_function>
+			<int1>5</int1>
+			<int2>5</int2>
+			<last_modification_time>Wed, 20 Jun 2001 14:55:18 GMT</last_modification_time>
 		      </widget>
 		    </widget>
 		  </widget>
@@ -6319,59 +6307,23 @@ Praxispunkten</label>
 			</child>
 
 			<widget>
-			  <class>GtkCList</class>
-			  <name>steigern_zauber_clist_alt</name>
-			  <width>250</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>select_row</name>
-			    <handler>on_steigern_zauber_clist_alt_select_row</handler>
-			    <last_modification_time>Thu, 15 Feb 2001 15:22:23 GMT</last_modification_time>
-			  </signal>
-			  <columns>3</columns>
-			  <column_widths>80,80,80</column_widths>
-			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-			  <show_titles>True</show_titles>
-			  <shadow_type>GTK_SHADOW_IN</shadow_type>
+			  <class>GtkViewport</class>
+			  <name>viewport3</name>
+			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label236</name>
-			    <label>Name</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label393</name>
-			    <label>Ursprung</label>
-			    <justify>GTK_JUSTIFY_RIGHT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label237</name>
-			    <label>Kosten</label>
-			    <justify>GTK_JUSTIFY_RIGHT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
+			    <class>Custom</class>
+			    <name>alte_zauber_tree</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <signal>
+			      <name>leaf_selected</name>
+			      <handler>on_leaf_selected_alte_zauber</handler>
+			      <last_modification_time>Wed, 20 Jun 2001 17:07:25 GMT</last_modification_time>
+			    </signal>
+			    <creation_function>SimpleTree</creation_function>
+			    <int1>3</int1>
+			    <int2>3</int2>
+			    <last_modification_time>Wed, 20 Jun 2001 09:42:43 GMT</last_modification_time>
 			  </widget>
 			</widget>
 		      </widget>
@@ -6389,85 +6341,23 @@ Praxispunkten</label>
 			</child>
 
 			<widget>
-			  <class>GtkCList</class>
-			  <name>steigern_zauber_clist_neu</name>
-			  <width>250</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>select_row</name>
-			    <handler>on_steigern_zauber_clist_neu_select_row</handler>
-			    <last_modification_time>Thu, 15 Feb 2001 15:22:13 GMT</last_modification_time>
-			  </signal>
-			  <columns>5</columns>
-			  <column_widths>80,80,80,80,80</column_widths>
-			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-			  <show_titles>True</show_titles>
-			  <shadow_type>GTK_SHADOW_IN</shadow_type>
+			  <class>GtkViewport</class>
+			  <name>viewport5</name>
+			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label240</name>
-			    <label>Stufe</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label238</name>
-			    <label>Name</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label394</name>
-			    <label>Ursprung</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label239</name>
-			    <label>Kosten</label>
-			    <justify>GTK_JUSTIFY_RIGHT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label241</name>
-			    <label>Art</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
+			    <class>Custom</class>
+			    <name>neue_zauber_tree</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <signal>
+			      <name>leaf_selected</name>
+			      <handler>on_leaf_selected_neue_zauber</handler>
+			      <last_modification_time>Wed, 20 Jun 2001 17:09:24 GMT</last_modification_time>
+			    </signal>
+			    <creation_function>SimpleTree</creation_function>
+			    <int1>5</int1>
+			    <int2>5</int2>
+			    <last_modification_time>Wed, 20 Jun 2001 09:42:43 GMT</last_modification_time>
 			  </widget>
 			</widget>
 		      </widget>
