@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.2 2003/05/08 10:57:48 christof Exp $
+// $Id: Optionen.hh,v 1.3 2003/07/10 16:23:25 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -27,7 +27,7 @@
 class Optionen
 {
    public:
-      enum OptionenCheckIndex {Original,NSC_only};
+      enum OptionenCheckIndex {Original,NSC_only,num_OptionenCheckIndex};
       enum HausIndex {Gold,Werte100};
 
       struct st_OptionenCheck{OptionenCheckIndex index;std::string text;

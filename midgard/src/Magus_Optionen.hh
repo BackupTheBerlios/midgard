@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.1 2003/07/03 16:27:06 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.2 2003/07/10 16:23:25 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,11 +42,7 @@ class Midgard_Optionen
       struct st_strings{StringIndex index; std::string text; std::string name;
              st_strings(StringIndex i,std::string t,std::string n)
                : index(i),text(t),name(n) {} };
-/*
-      struct st_pdfViewer{pdfViewerIndex index;std::string text;bool active;
-             st_pdfViewer(pdfViewerIndex i,std::string t, bool a) 
-                  : index(i),text(t),active(a) {} };
-*/
+
       struct st_OptionenExecute{OptionenExecuteIndex index;std::string text;Glib::RefPtr<Gdk::Pixbuf> bild;
                st_OptionenExecute(OptionenExecuteIndex i,std::string t,Glib::RefPtr<Gdk::Pixbuf> const b)
                   :index(i),text(t),bild(b) {} };
@@ -60,7 +56,7 @@ class Midgard_Optionen
       // mit Wert!!!
       struct st_OptionenCheck : public Optionen::st_OptionenCheck
       {		Glib::RefPtr<Gdk::Pixbuf> bild;
-               Model<int> wert; 
+               Model_ref<int> wert; 
 
                st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a,
                    Glib::RefPtr<Gdk::Pixbuf>  b,int w=-1)
@@ -71,13 +67,13 @@ class Midgard_Optionen
                	  : index(b.index), text(b.text), active(b.active.get_value()), 
                	  	bild(b.bild), wert(b.wert.get_value()) {}
               };
-      struct st_Ober{OberIndex index;std::string text;Model<bool> active;bool show;
+      struct st_Ober{OberIndex index;std::string text;Model_ref<bool> active;bool show;
                st_Ober(OberIndex i,std::string t,bool a,bool s=true) // show=false => Wird nicht angezeigt
                       :index(i),text(t),active(a),show(s) {}
                st_Ober(const st_Ober &b) 
                       :index(b.index),text(b.text),active(b.active.get_value()),show(b.show) {}
                        };
-      struct st_Icon{IconIndex index;std::string text;Model<bool> active;
+      struct st_Icon{IconIndex index;std::string text;Model_ref<bool> active;
                st_Icon(IconIndex i,std::string t,bool a)
                       :index(i),text(t),active(a) {}
                st_Icon(const st_Icon &b)
@@ -91,7 +87,7 @@ class Midgard_Optionen
       std::list<st_OptionenExecute>  list_OptionenExecute;
       std::list<st_OptionenCheck> list_OptionenCheck; 
       std::list<st_pdfViewer> list_pdfViewer;
-      Model<bool> werte_eingeben;
+      Model_ref<bool> werte_eingeben;
 
       void Strings_init();
       void Optionen_init();
