@@ -1,0 +1,52 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "spezialgebiete";
+--
+-- TOC Entry ID 2 (OID 832872)
+--
+-- Name: spezialgebiete Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "spezialgebiete" (
+	"typ" text,
+	"nr" integer,
+	"spezialgebiet" text,
+	"spezial" text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 832872) TABLE DATA spezialgebiete
+--
+
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'spezialgebiete';
+COPY "spezialgebiete"  FROM stdin;
+Ma	0	Spezialgebiet	\N
+Ma	1	Adept der Herrschaft	beherrscht
+Ma	2	Adept der Bewegung	bewegt
+Ma	3	Adept der Erkenntnis	erkennt
+Ma	4	Adept der Schöfung	erschafft
+Ma	5	Adept der Veränderung	verändert
+Ma	6	Adept der Wandlung	verwandelt
+Ma	7	Adept der Zerstörung	zerstört
+Ma	8	Erdmagier	Erde
+Ma	9	Feuermagier	Feuer
+Ma	10	Luftmagier	Luft
+Ma	11	Wassermagier	Wasser
+Ma	12	Eismagier	Eis
+Ma	13	Adept der göttlichen Ordnung	Metall
+Ma	14	Adept des formbaren Chaos	Magan
+Ma	15	Adept des Todes	Eis
+eBe	0	Primär- und Sekundärelement	\N
+eBe	1	Wasser Luft	\N
+eBe	2	Feuer Erde	\N
+\.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'spezialgebiete'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+
