@@ -3,7 +3,7 @@
 --
 DROP TABLE "pflicht_lernen";
 --
--- TOC Entry ID 2 (OID 9029220)
+-- TOC Entry ID 2 (OID 9071170)
 --
 -- Name: pflicht_lernen Type: TABLE Owner: thoma
 --
@@ -18,7 +18,7 @@ CREATE TABLE "pflicht_lernen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9029220) TABLE DATA pflicht_lernen
+-- Data for TOC Entry ID 3 (OID 9071170) TABLE DATA pflicht_lernen
 --
 
 COPY "pflicht_lernen"  FROM stdin;

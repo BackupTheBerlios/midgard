@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_steigern";
 --
--- TOC Entry ID 2 (OID 9030390)
+-- TOC Entry ID 2 (OID 9072340)
 --
 -- Name: waffen_steigern Type: TABLE Owner: thoma
 --
@@ -33,7 +33,7 @@ CREATE TABLE "waffen_steigern" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9030390) TABLE DATA waffen_steigern
+-- Data for TOC Entry ID 3 (OID 9072340) TABLE DATA waffen_steigern
 --
 
 COPY "waffen_steigern"  FROM stdin;

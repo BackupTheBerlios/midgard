@@ -1,4 +1,15 @@
 ##########################################################################
+NEWS IN VERSION 0.7beta4
+- Grundfähigkeiten für 'Überleben ...' stimmen jetzt
+   Allerdings gibt es (soweit ich weiß keine offiziellen Regeln für 
+   die Schamanen und Händler ... oder?
+- Aufgrund eines überraschend aufgetretenen Bugs in einer Libary
+   funktionierte die Charakterklassssenauswahl nicht mehr. Das ist jetzt 
+   behoben.
+- Oberfläche leicht überarbeitet
+
+
+##########################################################################
 NEWS IN VERSION 0.7beta3
 - Anzeige der Charakterklasse nach dem Laden ging nicht
 - Anzeige der Grundkenntnisse funktionierte nicht

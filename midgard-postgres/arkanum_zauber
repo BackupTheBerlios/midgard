@@ -3,7 +3,7 @@
 --
 DROP TABLE "arkanum_zauber";
 --
--- TOC Entry ID 2 (OID 9025401)
+-- TOC Entry ID 2 (OID 9067351)
 --
 -- Name: arkanum_zauber Type: TABLE Owner: thoma
 --
@@ -62,7 +62,7 @@ CREATE TABLE "arkanum_zauber" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9025401) TABLE DATA arkanum_zauber
+-- Data for TOC Entry ID 3 (OID 9067351) TABLE DATA arkanum_zauber
 --
 
 COPY "arkanum_zauber"  FROM stdin;

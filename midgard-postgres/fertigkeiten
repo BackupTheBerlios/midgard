@@ -3,7 +3,7 @@
 --
 DROP TABLE "fertigkeiten";
 --
--- TOC Entry ID 2 (OID 9027527)
+-- TOC Entry ID 2 (OID 9069477)
 --
 -- Name: fertigkeiten Type: TABLE Owner: thoma
 --
@@ -62,7 +62,7 @@ CREATE TABLE "fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9027527) TABLE DATA fertigkeiten
+-- Data for TOC Entry ID 3 (OID 9069477) TABLE DATA fertigkeiten
 --
 
 COPY "fertigkeiten"  FROM stdin;
@@ -139,12 +139,6 @@ COPY "fertigkeiten"  FROM stdin;
 4	4	Alchemie	2	100		A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	S	S	S	G	G	G	S	G	S	S	S	S	S	S	S	A	A	\N	A	A	S	A	\N	\N	\N	\N	\N	\N	\N
 3	15	Balancieren	12	100		G	S	S	S	G	G	S	S	S	G	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	G	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 6	-4	Beidhändiger Kampf	-4	1500		S	S	G	G	G	G	S	G	S	G	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	G	\N	S	G	A	S	\N	\N	\N	\N	\N	\N	\N
-3	8	Überleben im Dschungel	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
-3	8	Überleben im Schnee	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
-3	8	Überleben in der Steppe	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
-3	8	Überleben im Wald	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
-3	8	Überleben in der Wüste	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
-3	8	Überleben im Gebirge	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 5	4	Giftmischen	2	100		G	S	S	S	S	S	S	A	S	S	S	S	S	S	A	G	G	G	S	S	S	G	S	S	A	S	S	S	G	S	S	S	In	S	A	G	S	\N	\N	\N	\N	\N	\N	\N
 4	4	Geheimmechanismen öffnen	2	400		S	S	A	A	A	G	S	A	S	S	A	G	S	A	S	S	S	S	S	S	S	A	G	S	S	S	S	S	S	S	S	S	In	S	A	A	S	\N	\N	\N	\N	\N	\N	\N
 3	4	Lippenlesen	2	250		G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	In	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
@@ -217,4 +211,10 @@ COPY "fertigkeiten"  FROM stdin;
 5	15	Fälschen	12	50	K	G	S	A	A	A	G	G	A	A	S	A	G	A	A	A	S	S	S	S	S	S	A	S	S	S	S	S	S	S	S	G	A	In	A	A	A	A	\N	\N	\N	\N	\N	\N	\N
 5	15	Fälschen	12	50	B&R	G	S	A	A	A	G	G	A	A	S	A	G	A	A	A	S	S	S	S	S	S	A	S	S	S	S	S	S	S	S	G	A	In	A	A	A	A	\N	\N	\N	\N	\N	\N	\N
 9	\N	Augensalbe herstellen	\N	200	R	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S		S	S	S	S	\N	\N	\N	\N	\N	\N	\N
+3	8	Überleben im Dschungel	6	50		S	S	S	S	G	S	G	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
+3	8	Überleben im Wald	6	50		S	S	S	S	G	S	G	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
+3	8	Überleben im Gebirge	6	50		S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
+3	8	Überleben im Schnee	6	50		S	S	G	S	S	S	G	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
+3	8	Überleben in der Steppe	6	50		S	S	S	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
+3	8	Überleben in der Wüste	6	50		S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 \.

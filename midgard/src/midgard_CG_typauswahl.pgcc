@@ -61,12 +61,14 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
   exec sql declare ein cursor for ein_;
   exec sql open ein;
   SQLerror::test(__FILELINE__);
-/*
+
+#if 0
+  Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
+#endif
+#if 1
   Gtk::Menu *_m(manage(new Gtk::Menu()));
   Gtk::MenuItem *_mi;
-*/
-{
-Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
+#endif
   unsigned int count=0;
   while (true)
    {
@@ -82,36 +84,37 @@ Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 );
             db_typs,db_typz,db_stand,db_sb,db_ausdauer,db_ruestung));
 //std::cout << db_typnr<<"\t"<<db_typ<<"\t"<<typen_vector.size()<<"\n";
 
-/*
-         _mi = manage(new Gtk::MenuItem(db_typ));
-         _m->append(*_mi);
-         _mi->show();
-         _mi->set_user_data((gpointer)count);
-*/
-t_ << db_typ;
-t_.flush((gpointer)count);
+#if 0
+         t_ << db_typ;
+         t_.flush((gpointer)count);
+#endif
+#if 1
+      _mi = manage(new Gtk::MenuItem(db_typ));
+      _m->append(*_mi);
+      _mi->show();
+      _mi->set_user_data((gpointer)count);
+#endif
          ++count;
        }
    }
-}
   if (typ_1_2==1) 
-   { //typauswahl->set_menu(*_m);
-//     typauswahl->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button),get_typ_nr()));
+{
+     typauswahl->set_menu(*_m);
      typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
-   }
+}
   if (typ_1_2==2) 
-   { //typauswahl_2->set_menu(*_m);
-//     typauswahl_2->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button),get_typ_nr(2)));
+{     
+     typauswahl_2->set_menu(*_m);
      typauswahl_2->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button));
-     }
+}
 }
 
 
 void midgard_CG::typauswahl_button()
 {
- int ityp_ = int(typauswahl->get_menu()->get_active()->get_user_data());
- Typ = *vec_Typen[ityp_];
-
+ int ityp = int(typauswahl->get_menu()->get_active()->get_user_data());
+ Typ = *vec_Typen[ityp];
+//cout << "Typ1"<<"\t"<<ityp<<"\t"<<Typ.Name()<<"\n";
  clear_Ausnahmen();
  show_gtk();
  if (Typ.Short()=="dBe" || Typ.Short()=="eBe") angeborene_zauber();
@@ -119,8 +122,9 @@ void midgard_CG::typauswahl_button()
 
 void midgard_CG::typauswahl_2_button()
 {
- int ityp_ = int(typauswahl_2->get_menu()->get_active()->get_user_data());
- Typ2 = *vec_Typen_2[ityp_];
+ int ityp = int(typauswahl_2->get_menu()->get_active()->get_user_data());
+ Typ2 = *vec_Typen_2[ityp];
+//cout << "Typ1"<<"\t"<<ityp<<"\t"<<Typ.Name()<<"\n";
 
  clear_Ausnahmen();
  show_gtk();
@@ -161,6 +165,10 @@ void midgard_CG::spezieswahl_button()
 {
  int ityp = int(optionmenu_spezies->get_menu()->get_active()->get_user_data());
  Werte.set_Spezies(spezies_vector[ityp]);
+
+//cout << "Spezies"<<"\t"<<ityp<<"\t"<<Werte.Spezies()<<"\n";
+
+
  midgard_CG::fill_typauswahl();
  midgard_CG::get_spezies_constraint();
  midgard_CG::typauswahl_button();

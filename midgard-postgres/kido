@@ -3,7 +3,7 @@
 --
 DROP TABLE "kido";
 --
--- TOC Entry ID 2 (OID 9027937)
+-- TOC Entry ID 2 (OID 9069887)
 --
 -- Name: kido Type: TABLE Owner: thoma
 --
@@ -19,7 +19,7 @@ CREATE TABLE "kido" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9027937) TABLE DATA kido
+-- Data for TOC Entry ID 3 (OID 9069887) TABLE DATA kido
 --
 
 COPY "kido"  FROM stdin;

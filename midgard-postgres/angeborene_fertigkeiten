@@ -3,7 +3,7 @@
 --
 DROP TABLE "angeborene_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 9025366)
+-- TOC Entry ID 2 (OID 9067316)
 --
 -- Name: angeborene_fertigkeiten Type: TABLE Owner: thoma
 --
@@ -16,7 +16,7 @@ CREATE TABLE "angeborene_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9025366) TABLE DATA angeborene_fertigkeiten
+-- Data for TOC Entry ID 3 (OID 9067316) TABLE DATA angeborene_fertigkeiten
 --
 
 COPY "angeborene_fertigkeiten"  FROM stdin;

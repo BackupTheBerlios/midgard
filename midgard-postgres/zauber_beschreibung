@@ -3,7 +3,7 @@
 --
 DROP TABLE "zauber_beschreibung";
 --
--- TOC Entry ID 2 (OID 9030438)
+-- TOC Entry ID 2 (OID 9072388)
 --
 -- Name: zauber_beschreibung Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "zauber_beschreibung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9030438) TABLE DATA zauber_beschreibung
+-- Data for TOC Entry ID 3 (OID 9072388) TABLE DATA zauber_beschreibung
 --
 
 COPY "zauber_beschreibung"  FROM stdin;

@@ -94,6 +94,7 @@ Ausnahmen::Ausnahmen(const Grundwerte& Werte,const Data_typen& Typ,
            else abort();
          }
         else abort();
+//cout <<Typ.Name()<<"\t"<< db_name<<"\t"<<fac<<"\t"<<db_standard<<"\t"<<db_art<<"\n";
         vec_Ausnahmen.push_back(new Data_Ausnahmen(db_name,db_art,fac,db_standard)); 
       }
     tr.close();
