@@ -110,9 +110,10 @@ void Window_Waffenbesitz::move_waffe(std::list<H_WaffeBesitz>& von,std::list<H_W
 }
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
+       midgard_CG::st_Database _Database,
       const std::list<cH_MidgardBasicElement>& vw,std::list<H_WaffeBesitz>& wb,Grundwerte& We,
       const vector<cH_Typen>& T )
-: list_Waffen(vw), Waffe_Besitz(wb), Werte(We),Typ(T)
+: Database(_Database), list_Waffen(vw), Waffe_Besitz(wb), Werte(We),Typ(T)
 {
   table_magbonus->hide();
   hauptfenster=h;
@@ -171,6 +172,20 @@ void Window_Waffenbesitz::on_button_neuladen_clicked()
 void  Window_Waffenbesitz::lade_waffen()
 {
   Waffe_Besitz_neu.clear();
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
+   {
+     cH_Waffe w(*i);
+     if (w->Name() == "waffenloser Kampf") continue;
+      if ((*i)->ist_gelernt(list_Waffen))
+       {
+        Waffe_Besitz_neu.push_back(new WaffeBesitz(w,w->Name(),"",0,0,""));
+        for (list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
+         {
+          Waffe_Besitz_neu.push_back(new WaffeBesitz(w,(*j).name,"",0,0,""));
+         }
+       }
+   }
+/*
   exec sql begin declare section;
    char db_waffe[50];
    char db_name[50] ;
@@ -207,6 +222,7 @@ void  Window_Waffenbesitz::lade_waffen()
    }
   exec sql close ein;
   tr.close();
+*/
 }
 
 void Window_Waffenbesitz::on_checkbutton_mag_waffenbonus_toggled()
