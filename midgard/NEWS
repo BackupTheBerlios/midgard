@@ -1,13 +1,16 @@
 ##########################################################################
 NEWS IN VERSION 0.1delta3
 
-* Sprachen und Schrift
+* Sprachen und Schrift funktionieren richtig
 * Zahlreiche Bugs (Datenbank und Programm) beseitigt
 * Und nochmehr Bugs, Bugs, Bugs .... beseitigt
 * Praxispunkte für Abwehr/Zauber/Resistenz: speichern, laden, setzen, anzeigen
 * Lernen von Zaubersprüchen für einige Chrakterklassen mit PP
 * Maximale Erfolgswerte für Fertigkeiten, Sprachen, Schriften und Waffen 
 * XML loading and merging (off by default)
+* Zauberwerk hat jetzt den korrekten Schlüssel, dafür mußte die 
+   charaktere_fertigkeiten eine weitere Spalte erhalten
+* Landeskunde steigern/neulernen für verschiedene Länder funktioniert.
 
 TODO:
 * Die Ausrüstung kann noch nicht geladen werden
