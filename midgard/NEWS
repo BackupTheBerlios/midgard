@@ -8,10 +8,12 @@ NEWS IN VERSION 0.6delta2
 * Waeland: Zauber (und damit komplett)
 * Nahuatlan: Zauber, Netzmagie, Tricksermagie, Tempeltänze
 * KanThaiPan: Zaubertänze
+* Waffenauswahl bei Charaktererschaffung überarbeiten (würfeln)
+
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
-* Waffenauswahl bei Charaktererschaffung überarbeiten
+* Waffenauswahl bei Charaktererschaffung überarbeiten (selbst eingeben)
 * Nahuathlan: Fertigkeiten, Typen
 * Destruktor wird nicht aufgerufen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.226 2002/04/30 08:25:04 thoma Exp $
+// $Id: midgard_CG.hh,v 1.227 2002/05/02 10:12:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,6 +41,7 @@ class Random;
 #include "Wizard.hh"
 #include "Midgard_Undo.hh"
 #include "Optionen.hh"
+#include "Waffe.hh"
 
 class GeldFenster 
 {public:
@@ -73,7 +74,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         friend class Midgard_Info;
         friend class frame_drucken;
         Midgard_Undo MidgardUndo;
-//        Wizard_window *wizard;
         Wizard *wizard;
         Midgard_Optionen *MOptionen;
         Grundwerte Werte;
@@ -137,10 +137,12 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         SimpleTree *Beruf_tree;
         MidgardBasicTree *tree_angeb_fert;
         MidgardBasicTree *tree_kido_lernschema;
+        MidgardBasicTree *tree_waffen_lernschema;
+        WaffeBesitzLernen waffebesitzlernen;
 
     private:
         bool modify_bool;
-        bool kido_bool;
+//        bool kido_bool;
         int maxkido;
         bool magie_bool;
         bool steigern_mit_EP_bool;
@@ -333,6 +335,9 @@ private:
         void on_button_ruestung_clicked();
         gint on_button_lernschema_geld_button_release_event(GdkEventButton *ev);
         gint on_button_lernschema_waffen_button_release_event(GdkEventButton *ev);
+        void on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d);
+        void show_WaffenBesitz_lernschema();
+        void WaffenBesitz_lernschema_wuerfeln(int wurf);
 //   public:
         void lernschema_geld_wuerfeln();
         void on_lernliste_wahl_toggled();

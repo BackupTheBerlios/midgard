@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.14 2002/03/09 22:06:57 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.15 2002/05/02 10:12:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,6 +47,7 @@ int MidgardBasicTree::Cols(variante V)
      case (ZAUBER):         return 6;
      case (ZAUBERWERK):     return 7;
      case (KIDO):           return 6;
+     case (WAFFE_LERNSCHEMA):return 4;
    }
   assert(!"MidgardBasicTree::Cols:     Falsche Variante \n");
   abort();
@@ -62,14 +63,14 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Wert");  
       vs.push_back("LP");    
    }
-  if(V==ANGEBFERT)
+  else if(V==ANGEBFERT)
    {
       vs.push_back("Würfelergebnis");
       vs.push_back("Fertigkeit");
       vs.push_back("Wert");  
    }
 /*
-  if(V==LERNSCHEMA)
+  else if(V==LERNSCHEMA)
    {
       vs.push_back("LP");    
       vs.push_back("Fertigkeit");
@@ -79,7 +80,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Kosten");    
    }
 */
-  if(V==LONG_ALT)
+  else if(V==LONG_ALT)
    {
       vs.push_back("Fertigkeit");
       vs.push_back("Wert");
@@ -90,7 +91,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Verlernen");
       vs.push_back("Region");
    }
-  if(V==LONG_NEU)
+  else if(V==LONG_NEU)
    {
       vs.push_back("Fertigkeit");
       vs.push_back("Wert");
@@ -99,20 +100,20 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Voraussetzungen");
       vs.push_back("Region");
    }
-  if(V==WAFFEGRUND)
+  else if(V==WAFFEGRUND)
    {
       vs.push_back("Grundkenntnisse");
       vs.push_back("Art");
       vs.push_back("Kosten");
       vs.push_back("Region");
    }
-  if(V==SPRACHE_NEU)
+  else if(V==SPRACHE_NEU)
    {
       vs.push_back("Sprache");
       vs.push_back("Schrift");
       vs.push_back("Lernkosten");  
    }
-  if(V==SCHRIFT_ALT)
+  else if(V==SCHRIFT_ALT)
    {
       vs.push_back("Fertigkeit");
       vs.push_back("Schrifttyp");
@@ -123,13 +124,13 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Reduzieren\n(eine Stufe)"); 
       vs.push_back("Verlernen");
    }
-  if(V==SCHRIFT_NEU)
+  else if(V==SCHRIFT_NEU)
    {
       vs.push_back("Schrift");
       vs.push_back("Schrifttyp");
       vs.push_back("Lernkosten");  
    }
-  if(V==ZAUBER)
+  else if(V==ZAUBER)
    {
      vs.push_back("Name");   
      vs.push_back("Stufe");
@@ -138,7 +139,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
      vs.push_back("Art");
       vs.push_back("Region");
    }
-  if(V==ZAUBERWERK)
+  else if(V==ZAUBERWERK)
    {
      vs.push_back("Name");   
      vs.push_back("Stufe");
@@ -148,7 +149,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
      vs.push_back("Zeitaufwand");
       vs.push_back("Region");
    }
-  if(V==KIDO)
+  else if(V==KIDO)
    {
      vs.push_back("HoHo");   
      vs.push_back("Technik");
@@ -156,6 +157,13 @@ void MidgardBasicTree::set_tree_titles(variante V)
      vs.push_back("AP");
      vs.push_back("Kosten");
      vs.push_back("Stil");
+   }
+  else if(V==WAFFE_LERNSCHEMA)
+   {
+     vs.push_back("Art");   
+     vs.push_back("Waffe");
+     vs.push_back("Grundkenntnisse");
+     vs.push_back("Schaden");
    }
   setTitles(vs);
 }

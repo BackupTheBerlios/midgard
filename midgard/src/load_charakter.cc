@@ -267,8 +267,9 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
             fert->setZusatz(i->getAttr("Zusatz"));
          }
          list_Fertigkeit.push_back(fert);
-         if      (fert->Name()=="KiDo") kido_bool=true;
-         else if (fert->Name()=="Zaubern") magie_bool=true;
+//         if      (fert->Name()=="KiDo") kido_bool=true;
+//         else 
+         if (fert->Name()=="Zaubern") magie_bool=true;
        }    
       else if(sart=="Waffe")
         {
@@ -344,7 +345,6 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         list_Waffen_besitz.push_back(new 
 	        WaffeBesitz(cH_Waffe(wn,true),
                         i->getAttr("Bezeichnung"),
-//                        i->getAttr("Region"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),
                         i->getIntAttr("SchadenLebenspunkte_Bonus"),
                         i->Value()));

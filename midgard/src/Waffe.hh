@@ -124,6 +124,25 @@ class Waffe_All
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
+class WaffeBesitzLernen
+{
+   int Ewaffe,Awaffe;
+   bool magisch;
+
+ public:
+   WaffeBesitzLernen() :  Ewaffe(0),Awaffe(0),magisch(false) {}
+
+   void set_EWaffe(int i)  {Ewaffe=i;}
+   void set_AWaffe(int i)  {Awaffe=i;}
+   void add_EWaffe(int i)  {Ewaffe+=i;}
+   void add_AWaffe(int i)  {Awaffe+=i;}
+   int EWaffe() const {return Ewaffe;}
+   int AWaffe() const {return Awaffe;}
+
+   void setMagisch(bool b) {magisch=b;}
+   bool getMagisch() const {return magisch;}
+};
+
 
 class WaffeBesitz : public MidgardBasicElement
 {
@@ -136,7 +155,7 @@ class WaffeBesitz : public MidgardBasicElement
      WaffeBesitz(const cH_Waffe& w, std::string b,
                   int a,int s, std::string m)
       :MidgardBasicElement(b), 
-         waffe(w),alias_name(b),av_bonus(a),sl_bonus(s),magisch(m) 
+         waffe(w),alias_name(b),av_bonus(a),sl_bonus(s),magisch(m)
          {}
      
      enum MBEE What() const {return MidgardBasicElement::WAFFEBESITZ;}
@@ -150,10 +169,10 @@ class WaffeBesitz : public MidgardBasicElement
      std::string Magisch() const {return magisch;}
      std::string Schaden(const Grundwerte& Werte,const std::string& name) const;
       
-
      void set_av_Bonus(int a) const {av_bonus=a;}
      void set_sl_Bonus(int a) const {sl_bonus=a;}
      void set_Magisch(std::string a) const {magisch=a;}
+
 };
 
 class cH_WaffeBesitz : public Handle<const WaffeBesitz>

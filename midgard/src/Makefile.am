@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.153 2002/04/30 08:25:04 thoma Exp $
+# $Id: Makefile.am,v 1.154 2002/05/02 10:12:02 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -69,8 +69,6 @@ WindowInfo_glade.hh WindowInfo.hh \
 	Window_Geld_eingeben.hh \
 	Window_ruestung_glade.hh \
 	Window_ruestung.hh \
-	Window_waffe_glade.hh \
-	Window_waffe.hh \
 	Window_Waffenbesitz_glade.hh \
 	Window_Waffenbesitz.hh \
 	Midgard_Info_glade.hh \
@@ -100,6 +98,7 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 magus_SOURCES = $(RC_FILES) \
+   midgard_CG_waffen.cc \
    Wizard.cc \
    frame_globale_optionen.cc \
    Optionen.cc \
@@ -138,7 +137,6 @@ magus_SOURCES = $(RC_FILES) \
 	gw_wuerfeln.cc \
    midgard_CG_Ausruestung.cc \
 	Window_Waffenbesitz.cc \
-   Window_waffe.cc \
    midgard_CG_typauswahl.cc \
    MidgardBasicTree.cc \
    MidgardBasicElement.cc \
@@ -166,7 +164,6 @@ magus_SOURCES = $(RC_FILES) \
    midgard_CG_region_check.cc \
    midgard_CG_optionen.cc \
 	Window_Waffenbesitz_glade.cc \
-	Window_waffe_glade.cc \
 	Window_ruestung_glade.cc \
    Window_hilfe_glade.cc \
    Window_hilfe.cc \

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.215 2002/04/30 08:25:04 thoma Exp $
+// $Id: midgard_CG.cc,v 1.216 2002/05/02 10:12:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,7 @@ midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0),wizard(0), MOptionen(0),menu(0),menu_gradanstieg(0),
   Database(Midgard_Info),fire_enabled(true),
   tree_lernschema(0),Beruf_tree(0),tree_angeb_fert(0),tree_kido_lernschema(0),
-  maxkido(0)
+  tree_waffen_lernschema(0),maxkido(0)
 {
   ansicht_menu = manage(new Gtk::MenuItem("Ansicht"));
   region_menu = manage(new Gtk::MenuItem("Regionen"));
@@ -382,7 +382,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
-  kido_bool=false;
+//  kido_bool=false;
   magie_bool=false;
   menu_init();
   fill_typauswahl();

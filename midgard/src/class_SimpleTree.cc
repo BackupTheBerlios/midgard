@@ -232,5 +232,16 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case ZEITAUFWANDn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Zeitaufwand());
          case REGIONn_ZW : return cH_EntryValueIntString(MBE->RegionString(hauptfenster->getDatabase())); 
         }
+      else if (Variante==MidgardBasicTree::WAFFE_LERNSCHEMA)
+       {
+        cH_WaffeBesitz wb=cH_WaffeBesitz(MBE);
+        cH_Waffe w=wb->Waffe();
+        switch ((Spalten_WAFFE_LERNSCHEMA)seqnr) {
+         case NAME_WL    : return cH_EntryValueIntString(MBE->Name());
+         case GRUND_WL   : return cH_EntryValueIntString(w->Grundkenntnis());
+         case ART_WL     : return cH_EntryValueIntString(w->Art2());
+         case SCHADEN_WL : return cH_EntryValueIntString(w->Schaden(w->Name())+"+"+itos(w->Schaden_Bonus(w->Name())));
+        }  
+       }
       return cH_EntryValueIntString("?");
 }

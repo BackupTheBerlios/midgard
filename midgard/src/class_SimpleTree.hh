@@ -45,6 +45,7 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_KIDO {HOHOa_K,NAMEa_K,STUFEa_K,APa_K,KOSTENa_K,STILa_K,} ;
    enum Spalten_ZAUBER {NAMEn_Z,STUFEn_Z,URSPRUNGn_Z,KOSTENn_Z,STANDARDn_Z,REGIONn_Z};
    enum Spalten_ZAUBERWERK {NAMEn_ZW,STUFEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW,REGIONn_ZW};
+   enum Spalten_WAFFE_LERNSCHEMA {ART_WL,NAME_WL,GRUND_WL,SCHADEN_WL};
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
    const cH_MidgardBasicElement getMBE() const {return MBE;}

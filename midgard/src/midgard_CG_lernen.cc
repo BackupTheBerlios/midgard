@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.112 2002/04/30 12:04:51 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.113 2002/05/02 10:12:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,7 @@
  */
 
 #include "midgard_CG.hh"
-#include "Window_waffe.hh"
+//#include "Window_waffe.hh"
 #include <Aux/itos.h>
 #include "class_SimpleTree.hh"
 #include "Waffe.hh"
@@ -180,20 +180,6 @@ void midgard_CG::zeige_lernpunkte()
 }
 
 
-gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
-{   
-  if(wizard) wizard->next_step(Wizard::WAFFEN);
-  button_lernschema_waffen->set_sensitive(false);
-  if  (ev->button==1)
-   {
-     int wurf = random.integer(1,100);
-     manage (new Window_waffe(wurf,this,Werte,Typ,Database,list_Waffen));
-   }
-  else if (ev->button==3) 
-     manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
-  return 0;
-}
-
 gint midgard_CG::on_button_lernschema_geld_button_release_event(GdkEventButton *ev)
 {
   if(wizard) wizard->next_step(Wizard::GELD);
@@ -341,6 +327,13 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
             }
            break;
          }
+     case MidgardBasicElement::WAFFEBESITZ : 
+         { list_Waffen_besitz.remove(MBE);
+           std::string art=cH_WaffeBesitz(MBE)->Waffe()->Art2();
+           if(art=="E" || art=="W" || art=="V") waffebesitzlernen.add_EWaffe(1);
+           else waffebesitzlernen.add_AWaffe(1);
+           break;
+         }
      case MidgardBasicElement::ZAUBER : 
          { list_Zauber.remove(MBE);
            lernpunkte.addZauber(MBE->Lernpunkte());
@@ -381,7 +374,10 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 
      default : break;
    }
-  show_lernschema();
+  if(MBE->What()==MidgardBasicElement::WAFFEBESITZ)
+    show_WaffenBesitz_lernschema();
+  else 
+     show_lernschema();
   show_gelerntes();
   if(MBE->What()==MidgardBasicElement::WAFFE && togglebutton_spezialwaffe->get_active())
      undosave("Spezialwaffe "+MBE->Name()+" gewählt");
@@ -739,6 +735,7 @@ void midgard_CG::clean_lernschema_trees()
   if(Beruf_tree) {Beruf_tree->destroy(); Beruf_tree=0;}
   if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
   if(tree_kido_lernschema) {tree_kido_lernschema->destroy(); tree_kido_lernschema=0;}
+  if(tree_waffen_lernschema) {tree_waffen_lernschema->destroy(); tree_waffen_lernschema=0;}
   viewport_lernen->remove();
 }
 
