@@ -29,7 +29,8 @@ static SigC::Connection connection;
 #include <libmagus/Ausgabe.hh>
 #include <gdk/gdk.h>
 
-void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE)
+// der R¸ckgabewert ist f¸r das idle signal (immer false)
+bool table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE)
 {
   checkbutton_einschraenkungen_zusatz->set_active(false);
   // Weil Fertigkeiten mehrmals gelernt werden d√ºrfen werde sie hier nicht 
@@ -59,7 +60,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE
        std::vector<std::pair<cH_Land,bool> > L=LernListen::getHerkunft(hauptfenster->getAben());
        for(std::vector<std::pair<cH_Land,bool> >::const_iterator i=L.begin();i!=L.end();++i)
           datavec_zusatz.push_back(new Data_Herkunft(i->first,i->second,MBE));
-       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected()
+       	.connect(SigC::slot(*this, &table_lernschema::on_herkunft_leaf_selected));
        scrolledwindow_lernen->hide();
        break;
       }
@@ -68,7 +70,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE
        std::vector<MidgardBasicElement::st_zusatz> V=LernListen::getUeberlebenZusatz();
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(hauptfenster->getAben().Ueberleben(),*i));
-       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_ueberleben_leaf_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*this, &table_lernschema::on_herkunft_ueberleben_leaf_selected));
        scrolledwindow_lernen->hide();
        break;
       }
@@ -84,7 +86,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE
            M->setErfolgswert(MBE->Erfolgswert());
            M->setLernpunkte(MBE->Lernpunkte());
            hauptfenster->getAben().List_Fertigkeit().push_back(M);
-           return;
+           return false;
          }
        else
          {
@@ -92,7 +94,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE
            for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
               datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
          }
-       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*this, &table_lernschema::on_zusatz_leaf_selected));
        break;
       }
      case MidgardBasicElement::ZSprache:
@@ -107,7 +109,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE
             ::getSprachenZusatz(MBE,hauptfenster->getAben(),button_allgemeinwissen->get_active());
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
-       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*this, &table_lernschema::on_zusatz_leaf_sprache_selected));
        break;
       }
      case MidgardBasicElement::ZSchrift:
@@ -128,8 +130,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)");
              }
            else Ausgabe(Ausgabe::Error,"Fehler beim Lernpunkte zur√ºckstellen");
-           return;}
-       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_schrift_selected));
+           return false;}
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*this, &table_lernschema::on_zusatz_leaf_schrift_selected));
        break;
       }
      case MidgardBasicElement::ZWaffe:
@@ -145,8 +147,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE
            else if(MBE->LernArt()=="Allg") vabenteurer->getLernpunkte().getLernpunkte().addAllgemein( MBE->Lernpunkte());
            else if(MBE->LernArt()=="Unge") vabenteurer->getLernpunkte().getLernpunkte().addUnge( MBE->Lernpunkte());
            else Ausgabe(Ausgabe::Error,"Fehler beim Lernpunkte zur√ºckstellen");
-           return;}
-       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
+           return false;}
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*this, &table_lernschema::on_zusatz_leaf_selected));
        break;
       }
      case MidgardBasicElement::ZTabelle:
@@ -173,6 +175,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE
  gdk_pointer_grab(Wto,0,eventmask,Wto,cursor,0);
 */
 // fra->pointer_grab();
+  return false;
 }
 
 
@@ -286,8 +289,10 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
   MBEmlt M(cH_Fertigkeit("Muttersprache"));
   Sprache::setErfolgswertMuttersprache(M,hauptfenster->getAben().In(),
            cH_Fertigkeit(M->getMBE())->AttributBonus(hauptfenster->getAben()));
-#error lernen_zusatz in idle connectieren!
-  lernen_zusatz(MidgardBasicElement::ZSprache,M);
+  Glib::signal_idle().connect(SigC::bind(
+  	SigC::slot(*this,&table_lernschema::lernen_zusatz),MidgardBasicElement::ZSprache,M));
+//#error lernen_zusatz in idle connectieren!
+//  lernen_zusatz(MidgardBasicElement::ZSprache,M);
 }
 
 void table_lernschema::on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d)
@@ -361,10 +366,14 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   show_gelerntes();
   if((*dt->getMBE())->Name()=="Muttersprache")
    {
-     MBEmlt dummy=hauptfenster->getAben().Ueberleben();
-#error in idle selectieren     
-     lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
+//#error in idle selectieren     
+//     lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
      hauptfenster->getAben().setMuttersprache((*sprache)->Name());
+     
+     MBEmlt dummy=hauptfenster->getAben().Ueberleben();
+     Glib::signal_idle().connect(SigC::bind(
+  	SigC::slot(*this,&table_lernschema::lernen_zusatz),
+  		MidgardBasicElement::ZUeberleben,dummy));
    }
 }
 
