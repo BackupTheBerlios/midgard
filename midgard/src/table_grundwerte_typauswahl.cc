@@ -89,7 +89,9 @@ void table_grundwerte::typauswahl_button()
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  std::string typ=combo_typ->get_entry()->get_text();
  try
- { hauptfenster->getAben().setTyp1(Typen::getTyp(typ));
+ { if (typ.size()>2 && typ[0]=='(' && typ[typ.size()-1]==')')
+     typ=typ.substr(1,typ.size()-2);
+   hauptfenster->getAben().setTyp1(Typen::getTyp(typ));
  } catch (NotFound &n) { return; }
 
  hauptfenster->getChar().getWizard().done(Wizard::TYP,hauptfenster->getAben());

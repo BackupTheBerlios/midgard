@@ -57,9 +57,9 @@ bool Wizard::can_skip(const Abenteurer &A)
          return A.Typ1()->Valid();
       case STADTLAND: // !=Enums::Stadt
       case ABGELEITETEWERTE:
-         return A.Sb()>1 || A.Au()>1 || A.pA()>1;
+         return A.Sb()>1 || A.Wk()>1 || A.B()>0; // A.Au()>1 || A.pA()>1;
       case HERKUNFT:
-         return !!A.Herkunft();
+         return !!A.Herkunft(); // @@
       case KIDO_STIL:
 #warning KiDo fehlt noch      
 	 { // KiDo_Stile kido_stil;
@@ -67,6 +67,14 @@ bool Wizard::can_skip(const Abenteurer &A)
 	 }
          return false;
 #warning ...
+      case BERUF: // @@
+      case GELD: // @@@
+      case WAFFEN: // @@
+      case RUESTUNG: // @@
+      case AUSRUESTUNG: // @@
+      case NAMEN: // @@
+      case SPEICHERN: // @@
+      case ZWEITER_TYP: // @@
       default:
          return false;
    }
