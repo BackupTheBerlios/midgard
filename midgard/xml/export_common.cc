@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.13 2002/05/09 14:08:54 christof Exp $
+// $Id: export_common.cc,v 1.14 2002/05/15 12:29:56 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -149,13 +149,13 @@ double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::
    o << '<' << wert << '>' << val << "</" << wert << ">\n";
 }
 
- void write_int_attrib_force(std::ostream &o,const std::string &wert,int val)
-{  o << ' ' << wert << "=\"" << val << '\"';
-}
-
  void write_int_attrib(std::ostream &o,const std::string &wert,int val, int standard=0)
 {  if (val==standard) return;
    write_int_attrib_force(o,wert,val);
+}
+
+ void write_int_attrib_force(std::ostream &o,const std::string &wert,int val)
+{  o << ' ' << wert << "=\"" << val << '\"';
 }
 
 void write_float(std::ostream &o,const std::string &wert,double val, int indent=0)
