@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.25 2001/12/05 07:51:55 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.26 2001/12/06 09:51:02 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -123,7 +123,7 @@ void fert_speichern(std::ostream &o)
       //********** ZEP oder KEP ? ****************
      {   Query query2("select ep into :EP from steigern_fertigkeiten_mit"
      		" where name='"+fert+"' order by ep");
-      	FetchIStream is2=query2.Fetch();
+      	FetchIStream is2;
       	std::string ep;
       	while ((query2>>is2).good())
         {  if (!ep.empty()) ep+=',';
