@@ -19,11 +19,11 @@ NEWS IN VERSION 0.4delta1
 * Startwert der Muttersprache und Gastlandsprache -> Intelligenz
 * Abenteurer Typen sind jetzt so wie im Regelbuch geordnet. Wollt 
    Ihr wirklich noch eine andere Ordnung?
+* Pflicht lernen kennzeichnen
 
 TODO:
 * Geheimzeichen-Liste nicht gefüllt.
 * Abrichten wie Geheimsprachen außer für Tiermeister
-* Pflicht lernen kennzeichnen
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 
    Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.65 2002/02/10 16:17:31 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.66 2002/02/10 21:48:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -486,6 +486,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
              if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
              I=Lernschema::st_index(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
              cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0());
+             cH_Fertigkeit(*i)->setPflicht(Database.lernschema.get_Pflicht(I));
            }
           (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
           newlist.push_back(*i);

@@ -1,4 +1,4 @@
-// $Id: Lernschema.hh,v 1.3 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Lernschema.hh,v 1.4 2002/02/10 21:48:37 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,14 +52,12 @@ class Lernschema
 
       std::map<st_index,st_wert> lern_map;
 
-      bool get_Pflicht(const st_index& I) const 
-            {return const_cast<std::map<st_index,st_wert>&>(lern_map)[I].pflicht;}
    public:
       Lernschema() {};
       Lernschema(Gtk::ProgressBar *progressbar);
 
-      std::string get_Pflicht_str(const st_index& I) const 
-            {if (get_Pflicht(I)) return "*";else return "";}
+      bool get_Pflicht(const st_index& I) const 
+            {return const_cast<std::map<st_index,st_wert>&>(lern_map)[I].pflicht;}
       int get_Lernpunkte(const st_index& I) const 
             {return const_cast<std::map<st_index,st_wert>&>(lern_map)[I].lernpunkte;}
 /*
