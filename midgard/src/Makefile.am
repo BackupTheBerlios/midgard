@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.43 2001/08/23 20:11:45 thoma Exp $
+# $Id: Makefile.am,v 1.44 2001/09/03 08:11:00 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -78,7 +78,8 @@ BUILT_SOURCES_CG =   steigern_fertigkeiten.cc  steigern_zauber.cc steigern_waffe
 	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc get_kido.cc \
    get_standard_zaubermittel.cc \
    midgard_CG_magier_spezialgebiet.cc \
-   steigern_EP_sql.cc
+   steigern_EP_sql.cc \
+   midgard_CG_grad_anstieg_sql.cc
 
 BUILT_SOUCES_XMLE=xmlexport.cc
 BUILT_SOUCES_XMLI=xmlimport.cc

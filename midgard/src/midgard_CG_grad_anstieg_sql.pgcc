@@ -1,0 +1,49 @@
+#include "midgard_CG.hh"
+#include "WindowInfo.hh"
+#include <Aux/FetchIStream.h>
+#include <Aux/dbconnect.h>  
+#include <Aux/Transaction.h>
+exec sql include sqlca;
+
+
+void midgard_CG::get_abwehr_resistenz(const string& was)
+{
+  int grad=Werte.Grad();
+  if (was=="Abwehr"    && grad <= Grad_Anstieg.get_Grad_Abwehr())   
+      {manage(new WindowInfo("Für diesen Grad wurde schon gesteigert!")) ;return;}
+  if (was=="Resistenz" && grad <= Grad_Anstieg.get_Grad_Resistenz())
+      {manage(new WindowInfo("Für diesen Grad wurde schon gesteigert!")) ;return;}
+
+  exec sql allocate descriptor mydesc;
+  exec sql begin declare section;
+   char query[1024];
+  exec sql end declare section;
+  string squery = "select ";
+  if (was=="Abwehr"   ) squery += "abwehr   , abwehr_kosten ";
+  if (was=="Resistenz") squery += "resistenz, resistenz_kosten ";
+  squery += " from grad_anstieg where grad = '"+itos(Werte.Grad())+"'"; 
+
+  Werte.Grad();
+  snprintf(query,sizeof(query),squery.c_str());
+  Transaction tr;
+  exec sql prepare grad_an_ein_ from :query ;
+  exec sql declare grad_an_ein cursor for grad_an_ein_ ;
+  exec sql open grad_an_ein;
+  SQLerror::test(__FILELINE__);
+  exec sql fetch from grad_an_ein into sql descriptor mydesc;
+
+  int wert,kosten;
+  FetchIStream is("mydesc");
+  is >> FetchIStream::MapNull<int>(wert,0) >> FetchIStream::MapNull<int>(kosten,0);
+  SQLerror::test(__FILELINE__);
+  if (wert=="")
+    {manage(new WindowInfo(was+" kann nur für gerade Grade gesteigert werden!")) ;return;}
+  exec sql close grad_an_ein;
+  tr.close();
+
+  Werte.add_GFP(kosten);
+  if (was=="Abwehr")   
+   { Werte.set_Abwehr_wert(wert); Grad_Anstieg.set_Grad_Abwehr(grad);}
+  if (was=="Resistenz") 
+   { Werte.set_Resistenz(wert); Grad_Anstieg.set_Grad_Resistenz(grad);}
+}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.62 2001/08/24 13:33:05 thoma Exp $
+// $Id: midgard_CG.hh,v 1.63 2001/09/03 08:11:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,6 +54,7 @@
 #include "class_typen.hh"
 #include "class_Grundwerte.hh"
 #include "class_spezies.hh"
+#include "class_grad_anstieg.hh"
 
 class Random;
 
@@ -71,6 +72,8 @@ extern bool HDbool;//H&D
 extern bool BRbool;//B&R
 extern bool Gildenbriefbool;//G
 extern bool Kuestenstaatenbool;//S
+
+extern grad_anstieg Grad_Anstieg;
 
 class midgard_CG : public midgard_CG_glade
 {   
@@ -110,7 +113,12 @@ class midgard_CG : public midgard_CG_glade
         int maxkido;
         int steigern_EP_prozent;
         int grad_basiswerte;
+//        int grad_abwehr;
+//        int grad_resistenz;
         bool magie_bool;
+        grad_anstieg Grad_Anstieg;
+
+
 
         std::vector<H_Data_sprache> vec_Sprachen;
         std::vector<H_Data_schrift> vec_Schriften;
@@ -234,10 +242,11 @@ class midgard_CG : public midgard_CG_glade
         void on_button_grad_clicked();
         void get_grad(int gfp);
         void get_ausdauer(int grad);
-        void get_resistenz_wert(int grad);
-        void get_abwehr_wert(int grad);
+//        void get_resistenz_wert(int grad);
+//        void get_abwehr_wert(int grad);
         void get_zauber(int grad);
         void get_grundwerte();
+        void get_abwehr_resistenz(const string& was);
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);

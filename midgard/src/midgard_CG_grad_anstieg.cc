@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.21 2001/08/21 12:03:03 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.22 2001/09/03 08:11:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,11 +23,13 @@
 
 void midgard_CG::on_grad_anstieg_clicked()
 {
-   int old_grad      = Werte.Grad();
+   int old_grad = Werte.Grad();
    get_grad(Werte.GFP());
    get_ausdauer(Werte.Grad());
-   get_abwehr_wert(Werte.Grad());
-   get_resistenz_wert(Werte.Grad());
+//   get_abwehr_wert(Werte.Grad());
+//   get_resistenz_wert(Werte.Grad());
+   get_abwehr_resistenz("Abwehr");
+   get_abwehr_resistenz("Resistenz");
    get_zauber(Werte.Grad());
    if (old_grad<Werte.Grad()) get_grundwerte();
    zeige_werte(Werte);
@@ -53,16 +55,19 @@ void midgard_CG::on_button_grad_basiswerte_clicked()
 
 void midgard_CG::on_button_grad_azr_clicked()
 {   
- get_abwehr_wert(Werte.Grad());
+// get_abwehr_wert(Werte.Grad());
  get_zauber(Werte.Grad());
- get_resistenz_wert(Werte.Grad());
-  zeige_werte(Werte);
+// get_resistenz_wert(Werte.Grad());
+   get_abwehr_resistenz("Abwehr");
+   get_abwehr_resistenz("Resistenz");
+
+ zeige_werte(Werte);
 }
 
 
 void midgard_CG::get_grundwerte()
 {
-  if(Werte.Grad() <= grad_basiswerte) 
+  if(Werte.Grad() <= Grad_Anstieg.get_Grad_Basiswerte()) 
    {
       std::string strinfo = "Für diesen Grad wurde schon gewürfelt";
       manage(new WindowInfo(strinfo));
@@ -97,7 +102,7 @@ void midgard_CG::get_grundwerte()
     }
   manage(new WindowInfo(stinfo,true));
   if (Originalbool) original_midgard_check() ;
-  grad_basiswerte=Werte.Grad();
+  Grad_Anstieg.set_Grad_Basiswerte(Werte.Grad());
 }
 
 void midgard_CG::get_zauber(int grad)
@@ -126,19 +131,21 @@ void midgard_CG::get_zauber(int grad)
   }
 }
 
-
+/*
 void midgard_CG::get_abwehr_wert(int grad)
 {
+   if (get_Grad_Abwehr()>=grad) return;
    int kosten=0;
    int a;
    if (grad == 1)  { a=11; }
-   if (grad == 2)  { a=12; kosten =   10; }
-   if (grad == 4)  { a=13; kosten =   20; }
-   if (grad == 6)  { a=14; kosten =   80; }
-   if (grad == 8)  { a=15; kosten =  300; }
-   if (grad == 10) { a=16; kosten =  700; }
-   if (grad == 12) { a=17; kosten = 1000; }
-   if (grad == 14) { a=18; kosten = 1500; }
+   else if (grad == 2)  { a=12; kosten =   10; }
+   else if (grad == 4)  { a=13; kosten =   20; }
+   else if (grad == 6)  { a=14; kosten =   80; }
+   else if (grad == 8)  { a=15; kosten =  300; }
+   else if (grad == 10) { a=16; kosten =  700; }
+   else if (grad == 12) { a=17; kosten = 1000; }
+   else if (grad == 14) { a=18; kosten = 1500; }
+   else     { a=Werte.Abwehr_wert(); kosten=0; }
    if (!steigern(kosten,"Abwehr"))
       { std::string strinfo ="Zu wenig EP um die 'Abwehr' zu steigern";
         manage(new WindowInfo(strinfo));
@@ -146,20 +153,23 @@ void midgard_CG::get_abwehr_wert(int grad)
       }
    Werte.add_GFP(kosten);  
    Werte.set_Abwehr_wert(a);
+   set_Grad_Abwehr(grad);
 }
 
 void midgard_CG::get_resistenz_wert(int grad)
 {
+   if (get_Grad_Resistenz()>=grad) return;
    int kosten=0;
    int r;
    if (grad == 1)  { r=10; }
-   if (grad == 2)  { r=11; kosten =   10; }
-   if (grad == 4)  { r=12; kosten =   20; }
-   if (grad == 6)  { r=13; kosten =   80; }
-   if (grad == 8)  { r=14; kosten =  300; }
-   if (grad == 10) { r=15; kosten =  700; }
-   if (grad == 12) { r=16; kosten = 1000; }
-   if (grad == 14) { r=17; kosten = 1500; }
+   else if (grad == 2)  { r=11; kosten =   10; }
+   else if (grad == 4)  { r=12; kosten =   20; }
+   else if (grad == 6)  { r=13; kosten =   80; }
+   else if (grad == 8)  { r=14; kosten =  300; }
+   else if (grad == 10) { r=15; kosten =  700; }
+   else if (grad == 12) { r=16; kosten = 1000; }
+   else if (grad == 14) { r=17; kosten = 1500; }
+   else     { r=Werte.Resistenz(); kosten=0; }
    if (!steigern(kosten,"Resistenz"))
       { std::string strinfo ="Zu wenig EP um die 'Resistenz' zu steigern";
         manage(new WindowInfo(strinfo));
@@ -167,8 +177,9 @@ void midgard_CG::get_resistenz_wert(int grad)
       }
    Werte.add_GFP(kosten);  
    Werte.set_Resistenz(r);
+   set_Grad_Resistenz(grad);
 }
-
+*/
 
 
 void midgard_CG::get_ausdauer(int grad)
