@@ -75,8 +75,10 @@ void table_ausruestung::fill_new_preise()
   std::list<cH_Data_NewPreis> LNP;
   for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=hauptfenster->getDatabase().preise.end();++i)
    {
+     if((*i)->Unverkauflich() && !togglebutton_unverkauflich->get_active()) 
+         continue;
      if(LernListen(hauptfenster->getDatabase()).region_check((*i)->Region()))
-        LNP.push_back(new Data_NewPreis(*i));
+         LNP.push_back(new Data_NewPreis(*i));
    }
   for(e_spalten e=e_spalten(int(None)+1);e<Max;++e)
    {
@@ -148,3 +150,7 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
 }
 
 
+void table_ausruestung::on_togglebutton_unverkauflich_toggled()
+{
+  fill_new_preise();
+}

@@ -62,6 +62,7 @@ void Preise::get_Preise()
   kosten=tag->getFloatAttr("Preis");
   gewicht=tag->getFloatAttr("Gewicht");
   region=tag->getAttr("Region");
+  if(kosten<0) {kosten=0; unverkauflich=true;}
 }
 
 Preise_All::Preise_All()

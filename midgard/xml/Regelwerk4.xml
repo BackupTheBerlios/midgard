@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.11 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.12 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -1610,16 +1610,12 @@
   <Dinge Art="Rüstung" Ware="Lederarmschienen" Gewicht="1" Preis="8" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Lederbeinschienen" Gewicht="1.2" Preis="10" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Lederhelm" Gewicht="0.5" Preis="5" Währung="GS"/>
-  <Dinge Art="Rüstung" Ware="Lederrüstung" Gewicht="12.5" Preis="30" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Metallarmschienen" Gewicht="1.5" Preis="20" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Metallbeinschienen" Gewicht="2.5" Preis="25" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Metallhandschuhe" Gewicht="0.7" Preis="30" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Metallhelm mit Visier" Gewicht="2" Preis="75" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Metallhelm ohne Visier" Gewicht="1.5" Preis="35" Währung="GS"/>
-  <Dinge Art="Rüstung" Ware="Plattenrüstung" Gewicht="35" Preis="500" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Ritterrüstung" Gewicht="60" Preis="2000" Währung="GS"/>
-  <Dinge Art="Rüstung" Ware="Textilrüstung TR" Gewicht="7.5" Preis="20" Währung="GS"/>
-  <Dinge Art="Rüstung" Ware="Vollrüstung" Gewicht="45" Preis="600" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="gepolstertes Unterkleid" Gewicht="2.5" Preis="5" Währung="GS"/>
   <Dinge Art="Waffen" Ware="10 Armbrustbolzen" Gewicht="1.5" Preis="3" Währung="GS"/>
   <Dinge Art="Waffen" Ware="10 Blasrohrnadeln" Gewicht="0.05" Preis="1" Währung="GS"/>
@@ -1646,7 +1642,7 @@
   <Dinge Art="Waffen" Ware="Buckler" Gewicht="1" Preis="10" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Dolch" Gewicht="0.5" Preis="5" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Dreizack" Währung="GS" Region="G"/>
-  <Dinge Art="Waffen" Ware="Dreizackspeer" Preis="20" Währung="GS" Region="N"/>
+  <Dinge Art="Waffen" Ware="Dreizackspeer" Gewicht="1" Preis="20" Währung="GS" Region="N"/>
   <Dinge Art="Waffen" Ware="Fuchtel" Gewicht="2" Preis="100" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Garotte" Gewicht="0" Preis="5" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Glefe" Gewicht="3" Preis="30" Währung="GS"/>
@@ -1654,7 +1650,7 @@
   <Dinge Art="Waffen" Ware="Handarmbrust" Gewicht="1" Preis="100" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Handaxt" Gewicht="1.5" Preis="10" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Hellebarde" Gewicht="5" Preis="50" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Kampfgabeln" Preis="15" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="Kampfgabeln" Gewicht="2" Preis="15" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Kampfstab" Gewicht="2.5" Preis="10" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Katana" Preis="500" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="Keule" Gewicht="2" Preis="8" Währung="GS"/>
@@ -1682,9 +1678,9 @@
   <Dinge Art="Waffen" Ware="Ogerhammer" Gewicht="10" Preis="70" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Parierdolch" Gewicht="0.7" Preis="8" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Peitsche" Gewicht="1" Preis="8" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Pilum" Preis="8" Währung="GS" Region="3"/>
+  <Dinge Art="Waffen" Ware="Pilum" Gewicht="2" Preis="8" Währung="GS" Region="3"/>
   <Dinge Art="Waffen" Ware="Rapier" Gewicht="1.5" Preis="70" Währung="GS"/>
-  <Dinge Art="Waffen" Ware="Sai" Preis="15" Währung="GS" Region="K"/>
+  <Dinge Art="Waffen" Ware="Sai" Gewicht="2" Preis="15" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="Schlachtbeil" Gewicht="5" Preis="25" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Schleuder" Gewicht="0.1" Preis="1" Währung="GS"/>
   <Dinge Art="Waffen" Ware="Skhallanta" Gewicht="3" Preis="-1" Währung="GS"/>
@@ -1766,37 +1762,7 @@
   <Dinge Art="Waffen" Ware="Yari" Gewicht="2.5" Preis="8" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="YariNage" Gewicht="1.5" Preis="6" Währung="GS" Region="K"/>
  </PreiseNeu>
- <PreiseNeuMod>
-  <Art Name="Kleidung">
-   <Variante Name="Farbe">
-    <Farbe Spezifikation="blau" PreisFaktor="3"/>
-    <Farbe Spezifikation="gelb" PreisFaktor="2"/>
-    <Farbe Spezifikation="grün" PreisFaktor="2"/>
-    <Farbe Spezifikation="purpur" PreisFaktor="20"/>
-    <Farbe Spezifikation="rot" PreisFaktor="4"/>
-    <Farbe Spezifikation="ungefärbt" PreisFaktor="1"/>
-   </Variante>
-   <Variante Name="Material_K">
-    <Material_K Spezifikation="Baumwolle" PreisFaktor="2"/>
-    <Material_K Spezifikation="Leder" PreisFaktor="2"/>
-    <Material_K Spezifikation="Leinen" PreisFaktor="1"/>
-    <Material_K Spezifikation="Pelz" PreisFaktor="4.5"/>
-    <Material_K Spezifikation="Seide" PreisFaktor="8"/>
-   </Variante>
-   <Variante Name="Stand">
-    <Stand Spezifikation="Adel" PreisFaktor="5"/>
-    <Stand Spezifikation="Mittelschicht" PreisFaktor="1"/>
-    <Stand Spezifikation="Volk" PreisFaktor="0.33333"/>
-   </Variante>
-  </Art>
-  <Art Name="Waffen">
-   <Variante Name="Material_W">
-    <Material_W Spezifikation="Alchimistenmetall" PreisFaktor="50"/>
-    <Material_W Spezifikation="standard" PreisFaktor="1"/>
-    <Material_W Spezifikation="versilbert" PreisFaktor="10"/>
-   </Variante>
-  </Art>
- </PreiseNeuMod>
+ <PreiseNeuMod/>
  <Fertigkeiten>
   <Fertigkeit Name="Abrichten" Lernpunkte="6" Lernpunkte-Land="4" Anfangswert="8" Lernkosten="400" Erfolgswert="6" Attribut="pA" Berufskategorie="3" Maximalwert="18" MaximalMitUnterweisung="13" Zusätze="1">
    <Grund Typ="Dr"/>

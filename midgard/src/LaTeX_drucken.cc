@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.72 2002/10/29 07:42:36 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.73 2002/11/02 22:16:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -792,7 +792,7 @@ void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeil
    fout << "\%% Listenumgebungen\n";
    fout << "\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n";
    fout << "\\newenvironment{punkte}{\n";
-   fout << "\\begin{std::list}{$\\bullet$}\n";
+   fout << "\\begin{list}{$\\bullet$}\n";
    fout << "{\n";
    fout << "\\setlength{\\labelwidth}{0.5cm}\n";
    fout << "\\setlength{\\leftmargin}{1.cm} \n";
@@ -802,12 +802,12 @@ void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeil
    fout << "\\setlength{\\itemsep}{0.1ex plus0.1ex minus0.1ex}\n";
    fout << "}}\n";
    fout << "{\n";
-   fout << "\\end{std::list}\n";
+   fout << "\\end{list}\n";
    fout << "}\n";
 
 
    fout << "\\newenvironment{punkte2}{\n";
-   fout << "\\begin{std::list}{$\\star$}\n";   
+   fout << "\\begin{list}{$\\star$}\n";   
    fout << "{\n";
    fout << "\\setlength{\\labelwidth}{0.5cm}\n";
    fout << "\\setlength{\\leftmargin}{1.cm} \n";
@@ -817,7 +817,7 @@ void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeil
    fout << "\\setlength{\\itemsep}{0.0ex plus0.1ex minus0.1ex}\n";
    fout << "}}\n";
    fout << "{\n"; 
-   fout << "\\end{std::list}\n";
+   fout << "\\end{list}\n";
    fout << "}\n";
   }
  fout << "\\newcommand{\\LI}{\\setlength{\\arrayrulewidth}{0.4mm}}\n";

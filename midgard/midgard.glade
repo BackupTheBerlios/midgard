@@ -15101,7 +15101,7 @@ KS
 	    <widget>
 	      <class>GtkTable</class>
 	      <name>table105</name>
-	      <rows>3</rows>
+	      <rows>4</rows>
 	      <columns>1</columns>
 	      <homogeneous>False</homogeneous>
 	      <row_spacing>0</row_spacing>
@@ -15135,8 +15135,8 @@ KS
 		<child>
 		  <left_attach>0</left_attach>
 		  <right_attach>1</right_attach>
-		  <top_attach>1</top_attach>
-		  <bottom_attach>2</bottom_attach>
+		  <top_attach>2</top_attach>
+		  <bottom_attach>3</bottom_attach>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <xexpand>False</xexpand>
@@ -15219,6 +15219,75 @@ KS
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <build_insensitive>True</build_insensitive>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkToggleButton</class>
+		<name>togglebutton_unverkauflich</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<can_focus>True</can_focus>
+		<signal>
+		  <name>toggled</name>
+		  <handler>on_togglebutton_unverkauflich_toggled</handler>
+		  <last_modification_time>Fri, 01 Nov 2002 13:05:09 GMT</last_modification_time>
+		</signal>
+		<relief>GTK_RELIEF_NORMAL</relief>
+		<active>False</active>
+		<child>
+		  <left_attach>0</left_attach>
+		  <right_attach>1</right_attach>
+		  <top_attach>1</top_attach>
+		  <bottom_attach>2</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>False</yfill>
+		</child>
+
+		<widget>
+		  <class>GtkHBox</class>
+		  <name>hbox96</name>
+		  <homogeneous>False</homogeneous>
+		  <spacing>0</spacing>
+
+		  <widget>
+		    <class>GtkPixmap</class>
+		    <name>pixmap177</name>
+		    <filename>Angeb_Sicht-32.xpm</filename>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <build_insensitive>True</build_insensitive>
+		    <child>
+		      <padding>0</padding>
+		      <expand>True</expand>
+		      <fill>True</fill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label637</name>
+		    <label>Unverkäufliches
+anzeigen</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <padding>0</padding>
+		      <expand>False</expand>
+		      <fill>False</fill>
+		    </child>
+		  </widget>
 		</widget>
 	      </widget>
 	    </widget>

@@ -99,6 +99,7 @@ private:
         void on_entry_name_activate();
         void on_entry_artikel_art2_activate();
         void on_entry_artikel_art_activate();
+        void on_togglebutton_unverkauflich_toggled();
 
         // drag & drop
         enum {TARGET_STRING,TARGET_ROOTWIN,TARGET_URL};
