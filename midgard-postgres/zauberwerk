@@ -4,7 +4,7 @@
 DROP INDEX "zauberwerk_name_art_stufe";
 DROP TABLE "zauberwerk";
 --
--- TOC Entry ID 2 (OID 9072509)
+-- TOC Entry ID 2 (OID 26613699)
 --
 -- Name: zauberwerk Type: TABLE Owner: thoma
 --
@@ -16,202 +16,179 @@ CREATE TABLE "zauberwerk" (
 	"stufe" text,
 	"zeitaufwand" text,
 	"kosten" text,
-	"ba" text,
-	"dbe" text,
-	"dr" text,
-	"ebe" text,
-	"ghx" text,
-	"hl" text,
-	"ma" text,
-	"ord" text,
-	"pc" text,
-	"pf" text,
-	"pha" text,
-	"phe" text,
-	"pk" text,
-	"pm" text,
-	"pt" text,
-	"pw" text,
-	"sc" text,
-	"shx" text,
-	"sk" text,
-	"tbe" text,
-	"th" text,
-	"tm" text,
-	"whx" text,
 	"region" text
 );
 
 --
--- Data for TOC Entry ID 4 (OID 9072509) TABLE DATA zauberwerk
+-- Data for TOC Entry ID 4 (OID 26613699) TABLE DATA zauberwerk
 --
 
 COPY "zauberwerk"  FROM stdin;
-Flohpulver aktivieren	400	AZ	2	3 Tage	70 GS	\N	\N	S	\N	S	S	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	G	\N	S	\N
-Heiltrunk (1W6) aktivieren	600	AZ	2	3 Tage	100 GS (70 GS)	\N	\N	S	\N	S	G	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	\N	\N	S	\N
-Krafttrunk (1W6) aktivieren	400	AZ	1	1 Tag	50 GS (30 GS)	\N	\N	S	\N	S	G	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	G	\N	S	\N
-Krafttrunk (2W6) aktivieren	600	AZ	2	3 Tage	100 GS (60 GS)	\N	\N	S	\N	S	G	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	G	\N	S	\N
-Liebestrank aktivieren	800	AZ	3	1 Monat	300 GS 	\N	S	S	S	G	S	S	\N	S	S	S	S	S	S		S	S	G	\N	S	G	\N	G	\N
-Pulver der Panzerhaut aktivieren	800	AZ	3	5 Tage	100 GS (70 GS) 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
-Rauchperle aktivieren	800	AZ	3	5 Tage	100 GS (70 GS) 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
-Reckentrunk aktivieren	600	AZ	2	3 Tage	100 GS (60 GS) 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
-Salbe der Eisenhaut aktivieren	1200	AZ	4	7 Tage	200 GS (150 GS) 	\N				S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
-Salbe der Krakenhände aktivieren	600	AZ	2	3 Tage	100 GS  	\N				S		S	\N										S	\N		G	\N	S	\N
-Trunk des Riesenwuchses aktivieren	800	AZ	4	7 Tage	500 GS 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
-Trunk des Schwerelosigkeit aktivieren	1200	AZ	4	15 Tage	500 GS 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
-Trunk des Unsichtbarkeit aktivieren	800	AZ	3	7 Tage	300 GS 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
-Trunk des Verwandlung aktivieren	2000	AZ	5	7 Tage	500 GS 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
-Trunk der Macht über Hunde aktivieren	400	AZ	2	7 Tage	200 GS 	\N	S	S	S	S	S	S	\N		S							S	S	\N	S	G	\N	S	\N
-Trunk der Macht über Orks aktivieren	600	AZ	3	7 Tage	300 GS 	\N	S		S	S		S	\N	S			S					S	S	\N	S	G	\N	S	\N
-Trunk der Macht über Menschen aktivieren	800	AZ	4	15 Tage	500 GS 	\N	S	S	S	S	S	S	\N		S							S	S	\N	S	G	\N	S	\N
-Berserkerpilz aktivieren	600	PZ	2	2 Tage	500 GS	\N	\N	S	\N	S	S	S	\N	S	S	S	S	G	S	S	S	G	S	\N	\N	\N	\N	S	\N
-Kraut der konzentrierten Energie	1200	PZ	4	1 Tag	500 GS	\N	S	S	S	S	G	S	\N	S	S	S	S	S	S	S	S	\N	S	\N	S	G	\N	S	\N
-Schnellkraut aktivieren	800	PZ	3	3 Tage	200 GS	\N	\N	S	\N	S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	G	\N	S	\N
-Wasser weihen	200	Weihwasser	1	1 Tag	30 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	G	G	G	G	G	G	\N	\N	\N	\N	\N	\N	\N	\N
-Zauberpergament beschriften	600	Zauberpergament	3	1 Monat/Stufe	variabel	\N	\N	\N	\N	\N	\N	G	\N	S	S	S	S	S	S	S	G	\N	\N	\N	\N	G	\N	\N	\N
-Dämonenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N	S	A	S	A	A	A	\N	S	A	A	A	S	A	A	A	S	A	\N	S	G	\N	A	\N
-Elementaramulett verzaubern	500	Amulett	3	1 Monat	ab 4000 GS/ABW	\N	S	A	S	A	A	A	\N	A	A	A	A	A	A	A	A	S	A	\N	S	G	\N	A	\N
-Geisteramulett verzaubern	2000	Amulett	4	1 Monat	1000 GS/ABW	\N	S	A	S	A	A	A	\N	A	A	A	A	A	A	S	A	S	A	\N	S	G	\N	A	\N
-Schildamulett verzaubern	100	Amulett	1	1 Monat	2000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
-Schildamulett verzaubern	200	Amulett	2	1 Monat	3000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
-Schildamulett verzaubern	300	Amulett	3	1 Monat	4000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
-Schildamulett verzaubern	400	Amulett	4	1 Monat	5000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
-Schildamulett verzaubern	500	Amulett	5	1 Monat	6000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
-Schildamulett verzaubern	600	Amulett	6	1 Monat	7000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
-Schutzamulett verzaubern	300	Amulett	1	1 Monat	600 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Schutzamulett verzaubern	300	Amulett	2	1 Monat	1200 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Schutzamulett verzaubern	600	Amulett	3	1 Monat	1800 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Schutzamulett verzaubern	800	Amulett	4	1 Monat	2400 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Schutzamulett verzaubern	1000	Amulett	5	1 Monat	3000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Schutzamulett verzaubern	2000	Amulett	6	1 Monat	3600 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Spiegelamulett verzaubern	200	Amulett	1	1 Monat	1000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Spiegelamulett verzaubern	600	Amulett	2	1 Monat	2000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Spiegelamulett verzaubern	1000	Amulett	3	1 Monat	3000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Spiegelamulett verzaubern	1500	Amulett	4	1 Monat	4000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Spiegelamulett verzaubern	2000	Amulett	5	1 Monat	5000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Spiegelamulett verzaubern	2500	Amulett	6	1 Monat	6000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
-Untotenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N	S	S	S	A	S	S	\N	A	S	A	A	A	A	S	A	S	A	\N	S	G	\N	A	\N
-Werwesenamulett verzaubern	400	Amulett	3	1 Monat	20000 GS/ABW	\N	S	S	S	A	S	S	\N	A	S	A	A	A	A	S	A	S	A	\N	S	G	\N	A	\N
-Talisman verzaubern	500	Talisman	3	1 Tag	60/120/180 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
-Talisman verzaubern	200	Talisman	2	1 Tag	30/60/90 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
-Talisman verzaubern	200	Talisman	1	1 Tag	10/20/30 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
-Talisman verzaubern	1000	Talisman	4	1 Tag	100/200/300 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
-Zahlenletter (12)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (13)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zeitletter (Stunde)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zeitletter (Tag)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zeitletter (Trideade)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zeitletter (Mond)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zeitletter (Jahr)	400	magische Letter	2		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zündletter (Bereich)	600	magische Letter	3		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Schamanentrommel herstellen	1600		G			\N							\N									G		\N			G		\N
-Weihen	20000		G			\N							\N	S	S	S	S	S	S	S	S	S		\N			\N		\N
-Binden	10000		G			\N	A	A	A	A	A	S	\N	A	A	A	A	A	A	A	S	A	A	\N	A	G	\N	A	\N
-Nebel	1000	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Staubkämpfer	1000	Großes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Schlaf	200	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Feuerkugel	800	Schutzrune	2	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Lähmung	500	Schutzrune	5	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Namenloses Grauen	400	Schutzrune	4	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Schlaf	100	Schutzrune	1	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Schmerzen	100	Schutzrune	2	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Todeshauch	400	Schutzrune	3	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zündletter (Berührung)	600	magische Letter	3		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zündletter (Schlüsselwort)	600	magische Letter	3		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Waffen verzaubern (2)	800		2	1 Monat	100 GS + 5*Waffenpreis	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Waffen verzaubern (4)	1600		4	1 Monat	200 GS + 5*Waffenpreis	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Waffen verzaubern (6)	3500		6	1 Monat	300 GS + 5*Waffenpreis	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Angst	120	Augensalbe	1		20 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Anziehen	120	Augensalbe	1		20 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Beeinflussen	800	Augensalbe	3		60 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Erkennen von Zauberei	300	Augensalbe	2		40 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Verdorren	600	Schutzrune	3	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Vereisen	1000	Schutzrune	4	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Versteinern	1000	Schutzrune	5	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Verwandeln	1000	Schutzrune	6	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Wahnsinn	600	Schutzrune	6	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Angst	200	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Bannen von Dunkelheit	100	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Bannen von Licht	100	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Eisiger Nebel	250	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Feuerkugel	2000	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Feuerring	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Funkenregen	400	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Graue Hand	4000	Großes Siegel	6	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Hauch des Winters	80	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Lähmung	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Namenloses Grauen	1600	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Schmerzen	200	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Schwäche	80	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Stille	200	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Tierisches Handeln	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Todeshauch	800	Großes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Verdorren	1000	Großes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Vereisen	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Verlangsamen	800	Großes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Versetzen	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Versteinern	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Verwandlung	8000	Großes Siegel	6	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Wahnsinn	3000	Großes Siegel	6	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Windstoß	120	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zauberstimme	150	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Auslösen	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Alarm	1000	magische Letter	4		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Farbletter (Infrarot)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Farbletter (Rot)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Farbletter (Orange)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Farbletter (Gelb)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Farbletter (Grün)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Farbletter (Blau)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Farbletter (Violett)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Farbletter (Ultraviolett)	200	magische Letter	1		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Geräuschletter (Knarren)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Geräuschletter (Pfeifen)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Geräuschletter (Donnern)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Geräuschletter (Knistern)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Menschen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Zwerge)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Elfen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Orcs)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Menschenähnliche)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Tiermenschen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Tiere)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Lebewesen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Magische Wesen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Elemetarwesen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Dämonen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Untote)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Opferletter (Geisterwesen)	1000	magische Letter	4		1 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (1)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (2)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (3)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (4)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (5)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (6)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (7)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (8)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (9)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (10)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Zahlenletter (11)	200	magische Letter	1		4 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Liebeszauber	2000	Augensalbe	4		80 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Macht über die belebte Natur	300	Augensalbe	2		40 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Macht über Menschen	500	Augensalbe	3		60 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Sehen in Dunkelheit	200	Augensalbe	2		40 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Sehen von Verborgenem	150	Augensalbe	2		40 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Srimarameisterschaft	1000	Augensalbe	3		60 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Tierisches Handeln	3000	Augensalbe	5		100 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Wahrsehen	3000	Augensalbe	5		100 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Körperbemalung	200	Talisman	1	1 Stunde	10/20/30 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
-Körperbemalung	200	Talisman	2	1 Stunde	30/60/90 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
-Körperbemalung	500	Talisman	3	1 Stunde	60/120/180 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
-Körperbemalung	1000	Talisman	4	1 Stunde	100/200/300 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
-Kriegsbemalung	200	Talisman	1	10 min	10/20/30 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
-Kriegsbemalung	200	Talisman	2	10 min	30/60/90 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
-Kriegsbemalung	500	Talisman	3	10 min	60/120/180 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
-Kriegsbemalung	1000	Talisman	4	10 min	100/200/300 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	R
+Flohpulver aktivieren	400	AZ	2	3 Tage	70 GS	\N
+Heiltrunk (1W6) aktivieren	600	AZ	2	3 Tage	100 GS (70 GS)	\N
+Krafttrunk (1W6) aktivieren	400	AZ	1	1 Tag	50 GS (30 GS)	\N
+Krafttrunk (2W6) aktivieren	600	AZ	2	3 Tage	100 GS (60 GS)	\N
+Liebestrank aktivieren	800	AZ	3	1 Monat	300 GS 	\N
+Pulver der Panzerhaut aktivieren	800	AZ	3	5 Tage	100 GS (70 GS) 	\N
+Rauchperle aktivieren	800	AZ	3	5 Tage	100 GS (70 GS) 	\N
+Reckentrunk aktivieren	600	AZ	2	3 Tage	100 GS (60 GS) 	\N
+Salbe der Eisenhaut aktivieren	1200	AZ	4	7 Tage	200 GS (150 GS) 	\N
+Salbe der Krakenhände aktivieren	600	AZ	2	3 Tage	100 GS  	\N
+Trunk des Riesenwuchses aktivieren	800	AZ	4	7 Tage	500 GS 	\N
+Trunk des Schwerelosigkeit aktivieren	1200	AZ	4	15 Tage	500 GS 	\N
+Trunk des Unsichtbarkeit aktivieren	800	AZ	3	7 Tage	300 GS 	\N
+Trunk des Verwandlung aktivieren	2000	AZ	5	7 Tage	500 GS 	\N
+Trunk der Macht über Hunde aktivieren	400	AZ	2	7 Tage	200 GS 	\N
+Trunk der Macht über Orks aktivieren	600	AZ	3	7 Tage	300 GS 	\N
+Trunk der Macht über Menschen aktivieren	800	AZ	4	15 Tage	500 GS 	\N
+Berserkerpilz aktivieren	600	PZ	2	2 Tage	500 GS	\N
+Kraut der konzentrierten Energie	1200	PZ	4	1 Tag	500 GS	\N
+Schnellkraut aktivieren	800	PZ	3	3 Tage	200 GS	\N
+Wasser weihen	200	Weihwasser	1	1 Tag	30 GS	\N
+Zauberpergament beschriften	600	Zauberpergament	3	1 Monat/Stufe	variabel	\N
+Dämonenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N
+Elementaramulett verzaubern	500	Amulett	3	1 Monat	ab 4000 GS/ABW	\N
+Geisteramulett verzaubern	2000	Amulett	4	1 Monat	1000 GS/ABW	\N
+Schildamulett verzaubern	100	Amulett	1	1 Monat	2000 GS/ABW	\N
+Schildamulett verzaubern	200	Amulett	2	1 Monat	3000 GS/ABW	\N
+Schildamulett verzaubern	300	Amulett	3	1 Monat	4000 GS/ABW	\N
+Schildamulett verzaubern	400	Amulett	4	1 Monat	5000 GS/ABW	\N
+Schildamulett verzaubern	500	Amulett	5	1 Monat	6000 GS/ABW	\N
+Schildamulett verzaubern	600	Amulett	6	1 Monat	7000 GS/ABW	\N
+Schutzamulett verzaubern	300	Amulett	1	1 Monat	600 GS/ABW	\N
+Schutzamulett verzaubern	300	Amulett	2	1 Monat	1200 GS/ABW	\N
+Schutzamulett verzaubern	600	Amulett	3	1 Monat	1800 GS/ABW	\N
+Schutzamulett verzaubern	800	Amulett	4	1 Monat	2400 GS/ABW	\N
+Schutzamulett verzaubern	1000	Amulett	5	1 Monat	3000 GS/ABW	\N
+Schutzamulett verzaubern	2000	Amulett	6	1 Monat	3600 GS/ABW	\N
+Spiegelamulett verzaubern	200	Amulett	1	1 Monat	1000 GS/ABW	\N
+Spiegelamulett verzaubern	600	Amulett	2	1 Monat	2000 GS/ABW	\N
+Spiegelamulett verzaubern	1000	Amulett	3	1 Monat	3000 GS/ABW	\N
+Spiegelamulett verzaubern	1500	Amulett	4	1 Monat	4000 GS/ABW	\N
+Spiegelamulett verzaubern	2000	Amulett	5	1 Monat	5000 GS/ABW	\N
+Spiegelamulett verzaubern	2500	Amulett	6	1 Monat	6000 GS/ABW	\N
+Untotenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N
+Werwesenamulett verzaubern	400	Amulett	3	1 Monat	20000 GS/ABW	\N
+Talisman verzaubern	500	Talisman	3	1 Tag	60/120/180 GS	\N
+Talisman verzaubern	200	Talisman	2	1 Tag	30/60/90 GS	\N
+Talisman verzaubern	200	Talisman	1	1 Tag	10/20/30 GS	\N
+Talisman verzaubern	1000	Talisman	4	1 Tag	100/200/300 GS	\N
+Zahlenletter (12)	200	magische Letter	1		4 GS	\N
+Zahlenletter (13)	200	magische Letter	1		4 GS	\N
+Zeitletter (Stunde)	400	magische Letter	2		1 GS	\N
+Zeitletter (Tag)	400	magische Letter	2		1 GS	\N
+Zeitletter (Trideade)	400	magische Letter	2		1 GS	\N
+Zeitletter (Mond)	400	magische Letter	2		1 GS	\N
+Zeitletter (Jahr)	400	magische Letter	2		1 GS	\N
+Zündletter (Bereich)	600	magische Letter	3		4 GS	\N
+Schamanentrommel herstellen	1600		G			\N
+Weihen	20000		G			\N
+Binden	10000		G			\N
+Nebel	1000	Großes Siegel	4	Stufe*10 min	10 GS	\N
+Staubkämpfer	1000	Großes Siegel	3	Stufe*10 min	10 GS	\N
+Schlaf	200	Großes Siegel	1	Stufe*10 min	10 GS	\N
+Feuerkugel	800	Schutzrune	2	3 Stunden	5 GS	\N
+Lähmung	500	Schutzrune	5	3 Stunden	5 GS	\N
+Namenloses Grauen	400	Schutzrune	4	3 Stunden	5 GS	\N
+Schlaf	100	Schutzrune	1	3 Stunden	5 GS	\N
+Schmerzen	100	Schutzrune	2	3 Stunden	5 GS	\N
+Todeshauch	400	Schutzrune	3	3 Stunden	5 GS	\N
+Zündletter (Berührung)	600	magische Letter	3		4 GS	\N
+Zündletter (Schlüsselwort)	600	magische Letter	3		4 GS	\N
+Waffen verzaubern (2)	800		2	1 Monat	100 GS + 5*Waffenpreis	\N
+Waffen verzaubern (4)	1600		4	1 Monat	200 GS + 5*Waffenpreis	\N
+Waffen verzaubern (6)	3500		6	1 Monat	300 GS + 5*Waffenpreis	\N
+Angst	120	Augensalbe	1		20 GS	\N
+Anziehen	120	Augensalbe	1		20 GS	\N
+Beeinflussen	800	Augensalbe	3		60 GS	\N
+Erkennen von Zauberei	300	Augensalbe	2		40 GS	\N
+Verdorren	600	Schutzrune	3	3 Stunden	5 GS	\N
+Vereisen	1000	Schutzrune	4	3 Stunden	5 GS	\N
+Versteinern	1000	Schutzrune	5	3 Stunden	5 GS	\N
+Verwandeln	1000	Schutzrune	6	3 Stunden	5 GS	\N
+Wahnsinn	600	Schutzrune	6	3 Stunden	5 GS	\N
+Angst	200	Großes Siegel	1	Stufe*10 min	10 GS	\N
+Bannen von Dunkelheit	100	Großes Siegel	1	Stufe*10 min	10 GS	\N
+Bannen von Licht	100	Großes Siegel	1	Stufe*10 min	10 GS	\N
+Eisiger Nebel	250	Großes Siegel	2	Stufe*10 min	10 GS	\N
+Feuerkugel	2000	Großes Siegel	2	Stufe*10 min	10 GS	\N
+Feuerring	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N
+Funkenregen	400	Großes Siegel	2	Stufe*10 min	10 GS	\N
+Graue Hand	4000	Großes Siegel	6	Stufe*10 min	10 GS	\N
+Hauch des Winters	80	Großes Siegel	1	Stufe*10 min	10 GS	\N
+Lähmung	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N
+Namenloses Grauen	1600	Großes Siegel	4	Stufe*10 min	10 GS	\N
+Schmerzen	200	Großes Siegel	2	Stufe*10 min	10 GS	\N
+Schwäche	80	Großes Siegel	1	Stufe*10 min	10 GS	\N
+Stille	200	Großes Siegel	2	Stufe*10 min	10 GS	\N
+Tierisches Handeln	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N
+Todeshauch	800	Großes Siegel	3	Stufe*10 min	10 GS	\N
+Verdorren	1000	Großes Siegel	3	Stufe*10 min	10 GS	\N
+Vereisen	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N
+Verlangsamen	800	Großes Siegel	3	Stufe*10 min	10 GS	\N
+Versetzen	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N
+Versteinern	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N
+Verwandlung	8000	Großes Siegel	6	Stufe*10 min	10 GS	\N
+Wahnsinn	3000	Großes Siegel	6	Stufe*10 min	10 GS	\N
+Windstoß	120	Großes Siegel	1	Stufe*10 min	10 GS	\N
+Zauberstimme	150	Großes Siegel	2	Stufe*10 min	10 GS	\N
+Auslösen	200	magische Letter	1		1 GS	\N
+Alarm	1000	magische Letter	4		4 GS	\N
+Farbletter (Infrarot)	200	magische Letter	1		1 GS	\N
+Farbletter (Rot)	200	magische Letter	1		1 GS	\N
+Farbletter (Orange)	200	magische Letter	1		1 GS	\N
+Farbletter (Gelb)	200	magische Letter	1		1 GS	\N
+Farbletter (Grün)	200	magische Letter	1		1 GS	\N
+Farbletter (Blau)	200	magische Letter	1		1 GS	\N
+Farbletter (Violett)	200	magische Letter	1		1 GS	\N
+Farbletter (Ultraviolett)	200	magische Letter	1		1 GS	\N
+Geräuschletter (Knarren)	200	magische Letter	1		4 GS	\N
+Geräuschletter (Pfeifen)	200	magische Letter	1		4 GS	\N
+Geräuschletter (Donnern)	200	magische Letter	1		4 GS	\N
+Geräuschletter (Knistern)	200	magische Letter	1		4 GS	\N
+Opferletter (Menschen)	1000	magische Letter	4		1 GS	\N
+Opferletter (Zwerge)	1000	magische Letter	4		1 GS	\N
+Opferletter (Elfen)	1000	magische Letter	4		1 GS	\N
+Opferletter (Orcs)	1000	magische Letter	4		1 GS	\N
+Opferletter (Menschenähnliche)	1000	magische Letter	4		1 GS	\N
+Opferletter (Tiermenschen)	1000	magische Letter	4		1 GS	\N
+Opferletter (Tiere)	1000	magische Letter	4		1 GS	\N
+Opferletter (Lebewesen)	1000	magische Letter	4		1 GS	\N
+Opferletter (Magische Wesen)	1000	magische Letter	4		1 GS	\N
+Opferletter (Elemetarwesen)	1000	magische Letter	4		1 GS	\N
+Opferletter (Dämonen)	1000	magische Letter	4		1 GS	\N
+Opferletter (Untote)	1000	magische Letter	4		1 GS	\N
+Opferletter (Geisterwesen)	1000	magische Letter	4		1 GS	\N
+Zahlenletter (1)	200	magische Letter	1		4 GS	\N
+Zahlenletter (2)	200	magische Letter	1		4 GS	\N
+Zahlenletter (3)	200	magische Letter	1		4 GS	\N
+Zahlenletter (4)	200	magische Letter	1		4 GS	\N
+Zahlenletter (5)	200	magische Letter	1		4 GS	\N
+Zahlenletter (6)	200	magische Letter	1		4 GS	\N
+Zahlenletter (7)	200	magische Letter	1		4 GS	\N
+Zahlenletter (8)	200	magische Letter	1		4 GS	\N
+Zahlenletter (9)	200	magische Letter	1		4 GS	\N
+Zahlenletter (10)	200	magische Letter	1		4 GS	\N
+Zahlenletter (11)	200	magische Letter	1		4 GS	\N
+Liebeszauber	2000	Augensalbe	4		80 GS	\N
+Macht über die belebte Natur	300	Augensalbe	2		40 GS	\N
+Macht über Menschen	500	Augensalbe	3		60 GS	\N
+Sehen in Dunkelheit	200	Augensalbe	2		40 GS	\N
+Sehen von Verborgenem	150	Augensalbe	2		40 GS	\N
+Srimarameisterschaft	1000	Augensalbe	3		60 GS	\N
+Tierisches Handeln	3000	Augensalbe	5		100 GS	\N
+Wahrsehen	3000	Augensalbe	5		100 GS	\N
+Körperbemalung	200	Talisman	1	1 Stunde	10/20/30 GS	R
+Körperbemalung	200	Talisman	2	1 Stunde	30/60/90 GS	R
+Körperbemalung	500	Talisman	3	1 Stunde	60/120/180 GS	R
+Körperbemalung	1000	Talisman	4	1 Stunde	100/200/300 GS	R
+Kriegsbemalung	200	Talisman	1	10 min	10/20/30 GS	R
+Kriegsbemalung	200	Talisman	2	10 min	30/60/90 GS	R
+Kriegsbemalung	500	Talisman	3	10 min	60/120/180 GS	R
+Kriegsbemalung	1000	Talisman	4	10 min	100/200/300 GS	R
 \.
 --
--- TOC Entry ID 3 (OID 9072509)
+-- TOC Entry ID 3 (OID 26613699)
 --
 -- Name: "zauberwerk_name_art_stufe" Type: INDEX Owner: thoma
 --

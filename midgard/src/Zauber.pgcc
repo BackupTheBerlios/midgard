@@ -25,28 +25,25 @@ void Zauber::get_Zauber()
    char db_ursprung[50];
    int db_kosten;
    char db_stufe[10];
-   char db_spruchrolle[10];
    char query[1000];
    char db_region[10];
    char db_zauberart[30];
-   char db_p_element[30],db_s_element[30];
+   char db_element[30];
    char db_ap[10], db_art[20], db_agens[30], db_prozess[30], 
         db_reagens[30], db_zauberdauer[30], db_reichweite[10],
         db_wirkungsziel[30], db_wirkungsbereich[30], db_wirkungsdauer[20], 
-        db_material[50], db_thaumagram[10], db_effekt[1024];
+        db_material[50], db_thaumagram[10];
+   bool db_spruchrolle;
   exec sql end declare section;
-//   char db_standard[20],db_standard2[20];
-//  strncpy(db_standard2,"",sizeof(db_standard2));
   
   std::string squery = "SELECT coalesce(z.ursprung,''), 
-      z.kosten, z.stufe, coalesce(z.spruchrolle,''), coalesce(z.region,''), 
-      coalesce(z.zauberart,''),coalesce(z.p_element,''), 
-      coalesce(z.s_element,''), z.ap, z.art, coalesce(z.agens,''),
+      z.kosten, z.stufe, z.spruchrolle, coalesce(z.region,''), 
+      coalesce(z.zauberart,''), 
+      coalesce(z.element,''), z.ap, z.art, coalesce(z.agens,''),
       coalesce(z.prozess,''), coalesce(z.reagens,''),z.zauberdauer,
       z.reichweite,z.wirkungsziel,z.wirkungsbereich,
-      z.wirkungsdauer,coalesce(z.material),coalesce(z.thaumagram,''),coalesce(z.effekt,'')
-      FROM arkanum_zauber z
-      WHERE name = '"+name+"'";
+      z.wirkungsdauer,coalesce(z.material),coalesce(z.thaumagram,'')
+      FROM zauber z WHERE name = '"+name+"'";
    strncpy(query,squery.c_str(),sizeof(query));
    Transaction tr;
    exec sql prepare cl_zauber_ein_ from :query ;
@@ -57,10 +54,10 @@ void Zauber::get_Zauber()
    SQLerror::test(__FILELINE__);
    exec sql fetch cl_zauber_ein into :db_ursprung, :db_kosten,
       :db_stufe,  :db_spruchrolle, :db_region, :db_zauberart,
-      :db_p_element, :db_s_element, :db_ap, :db_art, :db_agens,
+      :db_element, :db_ap, :db_art, :db_agens,
       :db_prozess, :db_reagens, :db_zauberdauer, :db_reichweite,
       :db_wirkungsziel, :db_wirkungsbereich, :db_wirkungsdauer, 
-      :db_material, :db_thaumagram, :db_effekt;
+      :db_material, :db_thaumagram;
    SQLerror::test(__FILELINE__);
 
    ursprung=db_ursprung;   
@@ -69,8 +66,7 @@ void Zauber::get_Zauber()
    spruchrolle=db_spruchrolle;
    region=db_region;
    zauberart=db_zauberart;
-   p_element=db_p_element;
-   s_element=db_s_element;
+   element=db_element;
    ap=db_ap;
    art=db_art;
    stufe=db_stufe;
@@ -84,30 +80,16 @@ void Zauber::get_Zauber()
    agens=db_agens;
    prozess=db_prozess;
    reagens=db_reagens;
-   beschreibung=db_effekt;
+//   beschreibung=db_effekt;
    exec sql close cl_zauber_ein;
    tr.close();
 }
 
-/*
-int Zauber::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
-{
-  double fac = ausnahmen.Ausnahmen_float(Name()); 
-  if (fac!=0) return (int)(fac*GrundKosten());
-
-  if      (standard_one_G(Standard(Typ,ausnahmen)) ) fac = 0.5;
-  else if (standard_all_S(Standard(Typ,ausnahmen)) ) fac = 1.0;
-  else fac = 5.0; 
-
-  return (int)(fac*GrundKosten());
-}
-*/
-
 int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const
 {
   double fac; 
-    if      (P_Element() == pe ) fac = 0.5;
-    else if (S_Element() == se ) fac = 1.0;
+    if      (Element() == pe ) fac = 0.5;
+    else if (Element() == se ) fac = 1.0;
     else fac = 5.0;  // oder vielleicht null?
 
   return (int)(fac*GrundKosten());
@@ -141,7 +123,7 @@ int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte) const
  strncpy(db_zauber,Name().c_str(),sizeof(db_zauber));
  exec sql select ma,agens,prozess 
    into :db_ergebnis, :db_agens, :db_prozess
-   from arkanum_zauber where name = :db_zauber;
+   from zauber where name = :db_zauber;
  SQLerror::test(__FILELINE__);
 
  int ispez=0;
@@ -183,8 +165,8 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
    char db_name[50][100]; 
    int db_size;
  exec sql end declare section;
- exec sql select count(name) into :db_size from arkanum_zauber;
- exec sql declare ZAein cursor for select distinct name from arkanum_zauber;
+ exec sql select count(name) into :db_size from zauber;
+ exec sql declare ZAein cursor for select distinct name from zauber;
  Transaction tr;
  exec sql open ZAein;
  SQLerror::test(__FILELINE__);

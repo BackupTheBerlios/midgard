@@ -12,10 +12,9 @@ class Zauber : public MidgardBasicElement
    std::string ap, name;
    std::string  art, stufe, zauberdauer, reichweite,
       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
-      material, agens, prozess, reagens, beschreibung,spruchrolle,
-      zauberart,p_element,s_element,region; 
-//   int lernpunkte;
-//   mutable bool spruchrolle;
+      material, agens, prozess, reagens, beschreibung,
+      zauberart,element,region; 
+   bool spruchrolle;
 
    void get_Zauber();
  public: 
@@ -44,16 +43,11 @@ class Zauber : public MidgardBasicElement
    std::string Prozess() const { return prozess;}
    std::string Reagens() const { return reagens;}
    std::string Beschreibung() const { return beschreibung;}
-   std::string P_Element() const {return p_element;}
-   std::string S_Element() const {return s_element;}
+   std::string Element() const {return element;}
    std::string Region() const {return region;}
-//   bool Spruchrolle() const {return spruchrolle;}
+   bool Spruchrolle() const {return spruchrolle;}
 //   void set_Spruchrolle(bool s) const {spruchrolle=s;}
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
-//   int Lernpunkte() const {  return lernpunkte; }
-   bool Spruchrolle() const 
-      { if (spruchrolle=="nicht") return false; 
-        else return true; }
    int Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
    int get_spezial_zauber_for_magier(const Grundwerte& Werte) const;
 
