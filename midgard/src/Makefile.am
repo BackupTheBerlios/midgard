@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.13 2001/04/19 11:45:35 christof Exp $
+# $Id: Makefile.am,v 1.14 2001/04/19 13:29:11 thoma Exp $
 
 bin_PROGRAMS = midgard xml
 

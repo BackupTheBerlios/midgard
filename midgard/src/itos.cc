@@ -1,4 +1,4 @@
-// $Id: itos.cc,v 1.3 2001/04/19 11:45:35 christof Exp $
+// $Id: itos.cc,v 1.4 2001/04/19 13:29:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

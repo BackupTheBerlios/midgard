@@ -33,7 +33,7 @@ void midgard_CG::xml_export()
 {
   string cname   = werte.name_charakter;
   string version = werte.version;
-  string command = "xml "+cname+" "+version;
+  string command = "xml "+cname+" "+version+" > "+werte.name_charakter+".xml";
   system(command.c_str());
   string strinfo = "Charakter "+cname+" exportiert\n";
   manage (new WindowInfo(strinfo));

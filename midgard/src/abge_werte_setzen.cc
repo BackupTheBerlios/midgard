@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.5 2001/04/19 11:45:35 christof Exp $
+// $Id: abge_werte_setzen.cc,v 1.6 2001/04/19 13:29:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
