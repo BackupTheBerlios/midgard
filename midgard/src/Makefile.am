@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.18 2001/04/25 06:16:24 christof Exp $
+# $Id: Makefile.am,v 1.19 2001/04/25 07:04:28 christof Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -42,7 +42,8 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 	Midgard_Info_glade.hh \
 	Midgard_Info.hh \
    KiDo_auswahl.hh \
-   KiDo_auswahl_glade.hh
+   KiDo_auswahl_glade.hh \
+   Tag.hh TagStream.hh
 
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
@@ -68,7 +69,7 @@ BUILT_SOUCES_XMLI=xmlimport.cc
 BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE) $(BUILT_SOUCES_XMLI)
 
 midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
-midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLE)
+midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 midgard_SOURCES = \
    spielleiter_export.cc \

@@ -48,19 +48,29 @@ string TagStream::de_xml(const string &cont)
 }
 
 TagStream::TagStream(const string &path) 
-	: read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0)
+	: Tag(""), read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0)
 {  ifs=new ifstream(path.c_str());
    is=ifs;
    is->read(buffer,GB_BUFFER_SIZE);
    end_pointer=is->gcount();
+   load_project_file(this);
 }
 
 TagStream::TagStream(const char *str) 
-	: read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0)
+	: Tag(""), read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0)
 {  iss=new istrstream(str,strlen(str));
    is=iss;
    is->read(buffer,GB_BUFFER_SIZE);
    end_pointer=is->gcount();
+   load_project_file(this);
+}
+
+TagStream::TagStream(istream &i) 
+	: Tag(""), read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0)
+{  is=&i;
+   is->read(buffer,GB_BUFFER_SIZE);
+   end_pointer=is->gcount();
+   load_project_file(this);
 }
 
 TagStream::~TagStream()
@@ -89,7 +99,7 @@ char *TagStream::next_tag_pointer(Tag *parent)
    char *bra=find('<');
    char *result=bra;
    if (!bra) bra=buffer+end_pointer;
-   if (bra>buffer+pointer) parent->push_back(Tag("",de_xml(string(buffer+pointer,bra-buffer-pointer))));
+   if (bra>buffer+pointer) parent->push_back(Tag("",de_xml(string(buffer+pointer,bra-(buffer+pointer)))));
    set_pointer(bra);
    return result;
 }
@@ -134,13 +144,13 @@ char *TagStream::next_tag(Tag *parent)
       {  char *tagend=find_wordend(tag+2);
          if (!tagend) ERROR2("tag doesn't end",tag);
          
-         Tag *newtag(&parent->push_back(Tag(string(tag+1,tagend-tag-1),"")));
+         Tag *newtag(&parent->push_back(Tag(string(tag+1,tagend-(tag+1)),"")));
          while (tagend)
          {  while (isspace(*tagend)) tagend++;
             if (*tagend=='?')
             {  if (tagend[1]!='>') ERROR2("strange tag end (?[^>])",tag);
                set_pointer(tagend+2);
-               break;
+               goto continue_outer;
             }
             if (isword0(*tagend))
             {  char *attrend=find_wordend(tagend);
@@ -150,69 +160,75 @@ char *TagStream::next_tag(Tag *parent)
                char *valuestart(attrend+2);
                char *valueend(find(valuestart,attrend[1]));
                if (valueend)
-               {  newtag->push_back(Tag(string(tagend,attrend-tagend-1),
-               		de_xml(string(valuestart,valueend-valuestart-1))));
+               {  newtag->push_back(Tag(string(tagend,attrend-tagend),
+               		de_xml(string(valuestart,valueend-valuestart))));
                   tagend=valueend+1;
                }
                else ERROR2("value does not end",valuestart);
             }
             else ERROR2("strange attribute char",tag);
          }         
-         continue;
+         continue; // outer
       }
       if (tag[1]=='-' && tag[2]=='-')
       {  char *endcomment=find(tag+3,'-');
          while (endcomment && endcomment[1]!='-' && endcomment[2]!='>')
             endcomment=find(endcomment+1,'-');
-         if (endcomment)
-            parent->push_back(Tag("--",string(tag+3,endcomment-tag-3)));
-         else ERROR2("Comment does not end",tag);
+         if (!endcomment) ERROR2("Comment does not end",tag);
+         parent->push_back(Tag("--",string(tag+3,endcomment-(tag+3))));
+         set_pointer(endcomment+3);
+         continue; // outer
       }
-      if (tag[1]=='/') return tag; // unmatched </tag>
-      char *tagend=find_wordend(tag);
-      if (!tagend) ERROR2("tag doesn't end",tag);
-      
-      Tag *newtag(&parent->push_back(Tag(string(tag+1,tagend-tag-1),"")));
-      // read attributes
-      while (tagend)
-      {  while (isspace(*tagend)) tagend++;
-         if (*tagend=='/')
-         {  if (tagend[1]!='>') ERROR2("strange tag end (/[^>])",tag);
-            set_pointer(tagend+2);
-            break;
+      if (tag[1]=='/') 
+         return tag; // unmatched </tag>
+      // normal tag
+      {  char *tagend=find_wordend(tag+1);
+         if (!tagend) ERROR2("tag doesn't end",tag);
+         
+         Tag *newtag(&parent->push_back(Tag(string(tag+1,tagend-(tag+1)),"")));
+         // read attributes
+         while (tagend)
+         {  while (isspace(*tagend)) tagend++;
+            if (*tagend=='/')
+            {  if (tagend[1]!='>') ERROR2("strange tag end (/[^>])",tag);
+               set_pointer(tagend+2);
+               goto continue_outer;
+            }
+            if (*tagend=='>') break;
+            if (isword0(*tagend))
+            {  char *attrend=find_wordend(tagend);
+               if (!attrend || *attrend!='=' || 
+               	(attrend[1]!='"' && attrend[1]!='\''))
+                  ERROR2("strange attribute",tagend);
+               char *valuestart(attrend+2);
+               char *valueend(find(valuestart,attrend[1]));
+               if (valueend)
+               {  newtag->push_back(Tag(string(tagend,attrend-tagend),
+               		de_xml(string(valuestart,valueend-valuestart))));
+                  tagend=valueend+1;
+               } else ERROR2("value does not end",valuestart);
+            }
+            else ERROR2("strange attribute char",tagend);
          }
-         if (isalnum(*tagend))
-         {  char *attrend=find_wordend(tagend);
-            if (!attrend || *attrend!='=' || 
-            	(attrend[1]!='"' && attrend[1]!='\''))
-               ERROR2("strange attribute",tagend);
-            char *valuestart(attrend+2);
-            char *valueend(find(valuestart,attrend[1]));
-            if (valueend)
-            {  newtag->push_back(Tag(string(tagend,attrend-tagend-1),
-            		de_xml(string(valuestart,valueend-valuestart-1))));
-               tagend=valueend+1;
-            } else ERROR2("value does not end",valuestart);
+         char *tagvalue=tagend+1;
+         char *valueend=find(tagvalue,'<');
+         if (!valueend) ERROR2("premature value end",tagvalue);
+         newtag->Value(de_xml(string(tagvalue,valueend-tagvalue)));
+         set_pointer(valueend);
+         if (valueend[1]!='/') tagvalue=next_tag(newtag); // recurse
+         else tagvalue=valueend;
+         
+         if (!tagvalue) ERROR2("premature nested value end",tagvalue);
+         if (tagvalue[1]!='/') ERROR2("not ending?",tagvalue);
+         char *endtagend=find(tagvalue+1,'>');
+         if (!endtagend) ERROR2("endtag doesn't end",valueend);
+         if (memcmp(tagvalue+2,newtag->Type().c_str(),newtag->Type().size()))
+         {  cerr << "tag <" << newtag->Type() << "> ended with </";
+            cerr.write(tagvalue+2,endtagend-tagvalue-2-1) << ">\n";
          }
-         else ERROR2("strange attribute char",tag);
-      }
-      char *tagvalue=tagend+1;
-      char *valueend=find(tagvalue,'<');
-      if (!valueend) ERROR2("premature value end",tagvalue);
-      newtag->Value(de_xml(string(tagvalue,valueend-tagvalue)));
-      set_pointer(valueend);
-      if (valueend[1]!='/') tagvalue=next_tag(newtag); // recurse
-      else tagvalue=valueend;
-      
-      if (!tagvalue) ERROR2("premature nested value end",tagvalue);
-      if (tagvalue[1]!='/') ERROR2("not ending?",tagvalue);
-      char *endtagend=find(tagvalue+1,'>');
-      if (!endtagend) ERROR2("endtag doesn't end",valueend);
-      if (memcmp(tagvalue+2,newtag->Type().c_str(),newtag->Type().size()))
-      {  cerr << "tag <" << newtag->Type() << "> ended with </";
-         cerr.write(tagvalue+2,endtagend-tagvalue-2-1) << ">\n";
-      }
-      set_pointer(endtagend+1);
+         set_pointer(endtagend+1);
+       }
+       continue_outer: ;
    }
    return 0;
 }

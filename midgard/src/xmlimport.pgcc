@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.1 2001/04/25 06:16:24 christof Exp $
+// $Id: xmlimport.pgcc,v 1.2 2001/04/25 07:04:28 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,10 +25,8 @@ exec sql include sqlca;
 #include "TagStream.hh"
 
 void charakter_laden(istream &i)
-{  Tag top("");
-   TagStream t(i);
-   t.load_project_file(&top);
-   top->debug();
+{  TagStream t(i);
+   t.debug(15);
 }
 
 int main(int argc, char *argv[])

@@ -32,10 +32,29 @@ Tag *Tag::find(const string &tp)
    return &*i;
 }
 
+static string quote_nonprintable(const string &in)
+{  string res;
+   static const char * const hex= "0123456789ABCDEF";
+   for (string::const_iterator i=in.begin();i!=in.end();++i)
+   {  if ((unsigned char)(*i)<32 || (127<=(unsigned char)(*i) && (unsigned char)(*i)<160))
+         switch (*i)
+         {  case '\r': res+="\\r"; break;
+            case '\t': res+="\\t"; break;
+            case '\n': res+="\\n"; break;
+            case '\b': res+="\\b"; break;
+            case '\0': res+="\\0"; break;
+            default: res+=string("\\x")+hex[(*i>>4)&0xf]+hex[*i&0xf];
+               break;
+         }
+      else res+=*i;
+   }
+   return res;
+}
+
 void Tag::debug(int recursion_depth,int indent) const
 {  cout.write("                                                       ",indent);
    cout << '"' << Type() << '"';
-   if (Value()[0]) cout << "=\"" << Value() << '"';
+   if (Value()[0]) cout << "=\"" << quote_nonprintable(Value()) << '"';
    else cout << " @" << this;
    cout << "\n";
    if (recursion_depth>2 || (recursion_depth>0 && Type()!="widget"))

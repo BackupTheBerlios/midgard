@@ -22,7 +22,7 @@
 #include <fstream>
 #include <strstream>
 
-class TagStream
+class TagStream : public Tag
 {	// copied from _GbWidgetLoadData
 	static const int GB_BUFFER_SIZE=10240;
 	// int line_number;
@@ -40,13 +40,6 @@ class TagStream
 	
 	char *find(const char *start,char what)
 	{  return (char*)memchr(start,what,end_pointer-(start-buffer)); }
-#if 0	
-	// careful: no range checking done - may BOOOM
-	char *find(const char *start,const char *one_of)
-	{  char *res=strpbrk(start,one_of); 
-	   if (!res || res>end_pointer) return 0;
-	}
-#endif
 	char *find(char what)
 	{  return (char*)memchr(buffer+pointer,what,end_pointer-pointer); }
 	char *find_wordend(char *ptr);
@@ -58,10 +51,10 @@ class TagStream
 	   o.write(ptr,size);
 	}
 	static string de_xml(const string &cont);
+	void load_project_file(Tag *top);
 public:
 	TagStream(const string &path);
 	TagStream(const char *buf);
+	TagStream(istream &i);
 	~TagStream();
-//	char *next_line();
-	void load_project_file(Tag *top);
 };
