@@ -9,3 +9,4 @@ libmagus.la
 readxml2
 test
 libmagus_sigc2.def
+model_test
