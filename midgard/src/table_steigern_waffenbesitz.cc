@@ -31,7 +31,7 @@ cout << WB->Name()<<'\t'<<WB.AliasName()<<'\n';
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
     const MidgardBasicElement *MBE = &static_cast<const MidgardBasicElement&>(*WB);
-    for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();
+    for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();
          i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
      {
        if(*i==MBE)
@@ -77,8 +77,8 @@ void table_steigern::on_entry_magisch_activate()
      cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
      WaffeBesitz WB = dt->get_Waffe();
 
-     std::list<MidgardBasicElement_mutable> &L=hauptfenster->getChar().List_Waffen_besitz();
-     for(std::list<MidgardBasicElement_mutable>::iterator i=L.begin();i!=L.end();++i)
+     std::list<WaffeBesitz> &L=hauptfenster->getChar().List_Waffen_besitz();
+     for(std::list<WaffeBesitz>::iterator i=L.begin();i!=L.end();++i)
       {
        if((*i)->Name()==WB->Name())
         {
@@ -133,7 +133,7 @@ void  table_steigern::show_alte_waffen()
   std::vector<cH_RowDataBase> datavec;
 //cout <<"Alte größe = " <<Waffe_Besitz.size()<<'\n';
 
-  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
+  for (std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
      datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_alt_tree->setDataVec(datavec);
 }

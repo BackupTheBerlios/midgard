@@ -327,16 +327,16 @@ int Waffe::MaxErfolgswert(const Grundwerte& Werte,const vector<cH_Typen>& Typ) c
 
 std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
    const std::list<MidgardBasicElement_mutable>& list_Waffen,
-   const std::list<MidgardBasicElement_mutable>& list_Waffen_besitz,
+   const std::list<WaffeBesitz>& list_Waffen_besitz,
    const vector<cH_Typen>& Typ,
    const Grundwerte& Werte)
 {
-   std::list<cH_MidgardBasicElement> Verteidigungswaffen;
+   std::list<WaffeBesitz> Verteidigungswaffen;
 //   Verteidigungswaffen.push_back(new WaffeBesitz(
 //      cH_Waffe("waffenloser Kampf"),0,"waffenloser Kampf",0,0,""));
    MidgardBasicElement_mutable wl(&*cH_Waffe("waffenloser Kampf"));
    Verteidigungswaffen.push_back(WaffeBesitz(wl));
-   for (std::list<MidgardBasicElement_mutable>::const_iterator i=list_Waffen_besitz.begin();
+   for (std::list<WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
      {
        WaffeBesitz WB(*i);
@@ -346,10 +346,10 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          Verteidigungswaffen.push_back(*i);
      }
    std::string Vwaffewert;
-   for(std::list<cH_MidgardBasicElement>::const_iterator i=Verteidigungswaffen.begin();
+   for(std::list<WaffeBesitz>::const_iterator i=Verteidigungswaffen.begin();
          i!=Verteidigungswaffen.end();/*siehe unten*/)
      {
-      WaffeBesitz WB(*i);
+      WaffeBesitz WB=*i;
       std::vector<int> vwert;
       for (std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)      
          { cH_Waffe w(*j);

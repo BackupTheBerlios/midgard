@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.16 2002/06/12 10:12:49 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.17 2002/06/12 10:59:58 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -25,7 +25,7 @@
 #include <vector>
 #include "Datenbank.hh"
 #include "Optionen.hh"
-class WaffeBesitz;
+#include "Waffe.hh"
 
 
 class Abenteurer

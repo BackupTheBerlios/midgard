@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.12 2002/06/12 06:59:31 christof Exp $            
+// $Id: Abenteurer.cc,v 1.13 2002/06/12 10:59:58 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -159,7 +159,7 @@ void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const M
    if (!getCWerte().Ruestung(1)->Name().empty())
      Ausruestung.push_back(Tag("Rüstung2", getCWerte().Ruestung(1)->Name()));
    // Waffen Besitz
-   for (std::list<MidgardBasicElement_mutable>::const_iterator i=CList_Waffen_besitz().begin();
+   for (std::list<WaffeBesitz>::const_iterator i=CList_Waffen_besitz().begin();
          i!=CList_Waffen_besitz().end();++i)
       {  WaffeBesitz WB(*i);
          Tag &w=Ausruestung.push_back(Tag("Waffe"));

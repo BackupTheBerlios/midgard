@@ -24,6 +24,7 @@
 #include <gtk--/progressbar.h>
 
 class cH_Waffe;
+class WaffeBesitz;
 //class H_WaffeBesitz;
 
 class Waffe : public MidgardBasicElement
@@ -92,7 +93,7 @@ class Waffe : public MidgardBasicElement
      static std::map<std::string,std::string> fill_map_alias_waffe(Gtk::ProgressBar *progressbar);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<MidgardBasicElement_mutable>& list_Waffen,
-         const std::list<MidgardBasicElement_mutable>& list_Waffen_besitz,
+         const std::list<WaffeBesitz>& list_Waffen_besitz,
          const vector<cH_Typen>& Typ,
          const Grundwerte& Werte);
      static void setSpezialWaffe(const std::string& name, std::list<MidgardBasicElement_mutable>& list_Waffen_gelernt);

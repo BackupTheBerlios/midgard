@@ -606,12 +606,17 @@ void table_lernschema::show_gelerntes()
   LL.push_back(hauptfenster->getCChar().CList_Zauberwerk());
   LL.push_back(hauptfenster->getCChar().CList_Kido());
   LL.push_back(hauptfenster->getCChar().CList_WaffenGrund());
-  LL.push_back(hauptfenster->getCChar().CList_Waffen_besitz());
   LL.push_back(hauptfenster->getCChar().CList_Sprache());
   LL.push_back(hauptfenster->getCChar().CList_Schrift());
   LL.push_back(hauptfenster->getCChar().CList_Beruf());  
   LL.push_back(hauptfenster->getCWerte().Sinne());
-
+  {
+  std::list<MidgardBasicElement_mutable> temp;
+  for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getCChar().CList_Waffen_besitz().begin();i!=hauptfenster->getCChar().CList_Waffen_besitz().end();++i)
+      temp.push_back(*i);
+  LL.push_back(temp);
+  }
+  
   for(std::list<std::list<MidgardBasicElement_mutable> >::const_iterator i=LL.begin();i!=LL.end();++i)
     for (std::list<MidgardBasicElement_mutable>::const_iterator j=i->begin();j!=i->end();++j)
       FL.push_back(*j);
