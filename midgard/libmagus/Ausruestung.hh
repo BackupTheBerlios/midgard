@@ -24,7 +24,6 @@
 #include <list>
 //#include "dtos1.h"
 
-class midgard_CG;
 class AusruestungBaum;
 
 class Ausruestung

@@ -34,7 +34,6 @@ class H_Data_beruf;
 class cH_MidgardBasicElement;
 class SimpleTree;
 class Datenbank;
-class midgard_CG;
 class MidgardBasicElement_mutable;
 class Abenteurer;
 class Tag;

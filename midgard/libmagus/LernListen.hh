@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.1 2003/05/06 07:12:04 christof Exp $
+// $Id: LernListen.hh,v 1.2 2003/05/07 12:42:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,6 @@
 
 #include "Datenbank.hh"
 
-class midgard_CG;
 class VAbenteurer;
 class WaffeBesitz;
 #include "Beruf.hh"

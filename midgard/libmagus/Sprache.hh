@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Sprache.hh,v 1.2 2003/05/07 12:42:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -25,7 +25,6 @@
 #include "Fertigkeiten.hh"
 class cH_Sprache;
 class Abenteurer;
-class midgard_CG;
 //class cH_Sprache;
 //class Sprache_und_Schrift;
 

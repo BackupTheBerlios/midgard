@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.1 2003/05/06 07:12:04 christof Exp $
+// $Id: Preise.hh,v 1.2 2003/05/07 12:42:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,7 @@
 #include<vector>
 #include<list>
 #include "xml.h"
+class Datenbank;
 
 class Preise : public HandleContent
 {
@@ -60,7 +61,7 @@ class Preise : public HandleContent
  std::string Einheit()  const {  return einheit; }
 // bool ist_eigener_Artikel() const { return tag==&Tag_eigene_Artikel; }
 
- static void saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
+ static void saveArtikel(const std::string &Filename,Datenbank &db,
      const std::string &art,const std::string &art2,
      const std::string &name,const double &preis, const std::string &einheit,
      const double &gewicht,const std::string &region,

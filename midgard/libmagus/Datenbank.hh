@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.4 2003/05/07 12:24:05 christof Exp $               
+// $Id: Datenbank.hh,v 1.5 2003/05/07 12:42:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,8 +37,6 @@
 //#include "Midgard_Info.hh"
 #include "Prototyp.hh"
 #include "Prototyp2.hh"
-
-class midgard_CG;
 
 class Datenbank
 {
