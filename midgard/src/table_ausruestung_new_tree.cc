@@ -75,7 +75,8 @@ void table_ausruestung::fill_new_preise()
   std::list<cH_Data_NewPreis> LNP;
   for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=hauptfenster->getDatabase().preise.end();++i)
    {
-     LNP.push_back(new Data_NewPreis(*i));
+     if(LernListen(hauptfenster->getDatabase()).region_check((*i)->Region()))
+        LNP.push_back(new Data_NewPreis(*i));
    }
   for(e_spalten e=e_spalten(int(None)+1);e<Max;++e)
    {

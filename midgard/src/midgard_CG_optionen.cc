@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.108 2002/10/28 07:44:54 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.109 2002/11/01 10:23:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -182,6 +182,8 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
  table_grundwerte->fill_typauswahl();
  if(notebook_main->get_current_page_num()==PAGE_STEIGERN)
     table_steigern->load_for_page(table_steigern->notebook_lernen->get_current_page_num());
+ else if(notebook_main->get_current_page_num()==PAGE_AUSRUESTUNG)
+    table_ausruestung->fill_new_preise();
 
  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
   {

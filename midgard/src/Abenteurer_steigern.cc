@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.9 2002/10/31 15:37:58 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.10 2002/11/01 10:23:48 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -374,6 +374,12 @@ int Abenteurer::stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int 
      aep-=steiger_kosten;
      MBE->addErfolgswert(1);
      steiger_kosten = MBE->Steigern(*this);
+     int ew=MBE->Erfolgswert();
+     if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
+         ew=(*MBE)->FErfolgswert(*this,MBE);
+cout << steiger_kosten<<' '<<kosten<<' '<<stufen<<'\t'<<ew<<' '
+<<(*MBE)->MaxErfolgswert(*this)<<'\n';
+     if((*MBE)->MaxErfolgswert(*this)-1==ew) break;
    }      
   if(aep>0)
    {

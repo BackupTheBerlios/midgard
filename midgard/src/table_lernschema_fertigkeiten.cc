@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.17 2002/10/25 06:49:10 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.18 2002/11/01 10:23:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -139,7 +139,7 @@ void table_lernschema::InfoFensterAusruestung(const std::string &fert_name,
  std::string strinfo;
  strinfo="Für die Fertigkeit '"+fert_name+"' wurde für '"+gegen_name+
         "' eine "+itos(wurf)+" gewürfelt.\n";
- strinfo += "Nötig ist mindestens eine "+itos(noetig+1)+".\n";
+ strinfo += "Nötig ist mindestens eine "+itos(noetig)+".\n";
  if(wurf>noetig) strinfo +="==> Das reicht.\n";
  else strinfo +="==> Das reicht NICHT.\n";
  hauptfenster->InfoFenster->AppendShow(strinfo,WindowInfo::None);
