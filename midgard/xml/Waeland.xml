@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="9" MAGUS-Bild="7" CVS="$Revision: 1.6 $">
+<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="9" MAGUS-Bild="7" CVS="$Revision: 1.7 $">
  <Schriften>
   <Schrift Name="Futhark" Region="W" Typ="Runen" Kosten="20">
    <Variante Name="Futhark"/>
@@ -988,10 +988,6 @@
    <Standard Typ="Sk"/>
   </Waffe>
   <Waffe Name="NunChaku" Region="K">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Waffe>
-  <Waffe Name="Sai" Region="K">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Waffe>

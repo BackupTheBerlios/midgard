@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.6 $">
+<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.7 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -1700,10 +1700,6 @@
    <Ausnahme Typ="Sa"/>
   </Waffe>
   <Waffe Name="NunChaku" Region="K">
-   <Standard Typ="Sr"/>
-   <Ausnahme Typ="Sa"/>
-  </Waffe>
-  <Waffe Name="Sai" Region="K">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Waffe>

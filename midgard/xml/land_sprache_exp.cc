@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.60 2002/11/04 07:33:15 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.61 2002/11/04 20:47:42 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -333,7 +333,7 @@ void land_speichern(Tag &o)
       fetch_and_set_string_attrib(is, Dinge, "Währung");
       fetch_and_set_string_attrib(is, Dinge, "Region");
     }
-   Query query1c("select 'Rüstung', '', ruestung, gewicht, kosten_gs, 'GS',region "
+   Query query1c("select 'Rüstung', '', ruestung, gewicht, kosten_gs, 'GS',region,'true' "
                " from ruestung "
                " where ruestung !='Ohne Rüstung' "
                "order by ruestung");
@@ -346,6 +346,7 @@ void land_speichern(Tag &o)
       fetch_and_set_float_attrib(is, Dinge, "Preis");
       fetch_and_set_string_attrib(is, Dinge, "Währung");
       fetch_and_set_string_attrib(is, Dinge, "Region");
+      fetch_and_set_bool_attrib(is, Dinge, "Rüstung_ohne_Gewicht");
     }
    
    Tag &PreiseM=o.push_back(Tag("PreiseNeuMod"));

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.7 $">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.8 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -2811,17 +2811,6 @@
    <Standard Typ="Wi"/>
   </Waffe>
   <Waffe Name="NunChaku" Region="K">
-   <Grund Typ="RiN"/>
-   <Grund Typ="RiS"/>
-   <Standard Typ="Fi"/>
-   <Standard Typ="Hj"/>
-   <Standard Typ="Km"/>
-   <Standard Typ="Mg"/>
-   <Standard Typ="Sw"/>
-   <Standard Typ="To"/>
-   <Standard Typ="Wi"/>
-  </Waffe>
-  <Waffe Name="Sai" Region="K">
    <Grund Typ="RiN"/>
    <Grund Typ="RiS"/>
    <Standard Typ="Fi"/>

@@ -1188,10 +1188,6 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Waffe>
-  <Waffe Name="Sai" Region="K">
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-  </Waffe>
   <Waffe Name="TetsuBo" Region="K">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.6 $">
+<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.7 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -818,9 +818,6 @@
    <Ausnahme Typ="MMa"/>
   </Waffe>
   <Waffe Name="NunChaku" Region="K">
-   <Ausnahme Typ="MMa"/>
-  </Waffe>
-  <Waffe Name="Sai" Region="K">
    <Ausnahme Typ="MMa"/>
   </Waffe>
   <Waffe Name="TetsuBo" Region="K">

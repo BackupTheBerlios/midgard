@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.7 $">
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.8 $">
  <Schriften>
   <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
    <Variante Name="KanThaiTun(1)"/>
@@ -1970,6 +1970,12 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
+  <Waffe Name="Katana mit Meisterklinge" Region="K" Grundkenntnisse="Zweihandschwert" Kategorie="Angriff">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
   <Waffe Name="KusariGama" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="Z" Schaden="W6-1/W6+2">
    <Modifikationen/>
    <Voraussetzungen St="61" Gs="81"/>
@@ -2156,68 +2162,6 @@
    <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Sai" Region="K" Grundkenntnisse="Stichwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-3">
-   <Modifikationen/>
-   <Voraussetzungen St="31" Gs="61"/>
-   <Reichweite/>
-   <Lernkosten/>
-   <Grund Typ="Kr"/>
-   <Grund Typ="Ri"/>
-   <Grund Typ="RiN"/>
-   <Grund Typ="RiS"/>
-   <Grund Typ="Sö"/>
-   <Standard Typ="As"/>
-   <Standard Typ="BN"/>
-   <Standard Typ="BS"/>
-   <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
-   <Standard Typ="Er"/>
-   <Standard Typ="Fi"/>
-   <Standard Typ="Gl"/>
-   <Standard Typ="Hj"/>
-   <Standard Typ="Hä"/>
-   <Standard Typ="Kd"/>
-   <Standard Typ="Km"/>
-   <Standard Typ="Ku"/>
-   <Standard Typ="Mg"/>
-   <Standard Typ="Ny"/>
-   <Standard Typ="Or"/>
-   <Standard Typ="PK"/>
-   <Standard Typ="Ru"/>
-   <Standard Typ="Se"/>
-   <Standard Typ="Sk"/>
-   <Standard Typ="Sp"/>
-   <Standard Typ="Sr"/>
-   <Standard Typ="Sw"/>
-   <Standard Typ="Tm"/>
-   <Standard Typ="To"/>
-   <Standard Typ="Wa"/>
-   <Standard Typ="Wi"/>
-   <Ausnahme Typ="De"/>
-   <Ausnahme Typ="Dr"/>
-   <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="MMa"/>
-   <Ausnahme Typ="Ma"/>
-   <Ausnahme Typ="PC"/>
-   <Ausnahme Typ="PF"/>
-   <Ausnahme Typ="PHa"/>
-   <Ausnahme Typ="PHe"/>
-   <Ausnahme Typ="PM"/>
-   <Ausnahme Typ="PT"/>
-   <Ausnahme Typ="PW"/>
-   <Ausnahme Typ="Sa"/>
-   <Ausnahme Typ="ScN"/>
-   <Ausnahme Typ="ScS"/>
-   <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="wHx"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="5"/>
-  </Waffe>
   <Waffe Name="TetsuBo" Region="K" Grundkenntnisse="Kampfstab" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1">
    <Modifikationen Abwehr-schwer="+2"/>
    <Voraussetzungen St="31" Gs="61"/>
@@ -2399,6 +2343,66 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
+  <Waffe Name="Bo" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="DaDao" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="HuSchou" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="Ken" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="Ken mit Meisterklinge" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="NinYato" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="NinYato mit Meisterklinge" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="NoDachi" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="NoDachi mit Meisterklinge" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="PaiPu" Region="K">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
   <Waffe Name="Anderthalbhänder">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
@@ -2463,6 +2467,7 @@
    <Standard Typ="Ny"/>
   </Waffe>
   <Waffe Name="Kampfgabeln">
+   <regionaleVariante Name="Sai" Region="K" Schadensbonus="-2"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
   </Waffe>
