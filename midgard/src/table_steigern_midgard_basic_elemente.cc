@@ -109,9 +109,10 @@ const Enums::st_bool_steigern table_steigern::get_bool_steigern()
 
 void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 {
-// Abenteurer &A=hauptfenster->getAben();
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE());
+
+cout <<"NEu: " <<MBE->Erfolgswert()<<'\n';
 
  std::string info;
  bool ok=hauptfenster->getChar()->neu_lernen(MBE,info,get_wie_steigern(),get_bool_steigern());
@@ -158,7 +159,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
    { MyList     = &hauptfenster->getChar()->List_Sprache(); MyList_neu = &list_Sprache_neu;  
      // eventuell höherer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
      int ungelernterErfolgswert=cH_Sprache(MBE->getMBE())->getHoeherenErfolgswert(hauptfenster->getChar()->List_Sprache(),hauptfenster->getCDatabase().Sprache);
-     if (ungelernterErfolgswert) MBE->setErfolgswert(ungelernterErfolgswert);
+     if (ungelernterErfolgswert > MBE->Erfolgswert()) MBE->setErfolgswert(ungelernterErfolgswert);
      // bis hier
    }
  else if((*MBE).What()==MidgardBasicElement::SCHRIFT) 

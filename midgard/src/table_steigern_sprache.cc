@@ -43,7 +43,7 @@ void table_steigern::on_sprache_laden_clicked(bool load_old)
 void table_steigern::schriften_zeigen(bool load_old)
 {
    zeige_werte();
-   if(load_old)
+//   if(load_old)
       MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Schrift()    ,alte_schrift_tree,hauptfenster);
    MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,hauptfenster);
 }

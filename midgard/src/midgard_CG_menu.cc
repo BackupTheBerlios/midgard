@@ -172,6 +172,8 @@ reloop:
   std::list<Midgard_Optionen::st_Ober> L=MOptionen->getOber();
   for(std::list<Midgard_Optionen::st_Ober>::iterator i=L.begin();i!=L.end();++i)
    {
+cout << "Menü\t"<<i->text<<'\n';
+
     if(!i->show) continue;
     Gtk::CheckMenuItem *mi=manage(new Gtk::CheckMenuItem(i->text));
     mi->set_active(i->active);

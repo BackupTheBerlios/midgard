@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.59 2002/11/12 06:21:34 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.60 2002/11/12 16:14:35 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -710,8 +710,9 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
 
 void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
 {
-    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();
-    			i!=Database.Regionen.end();++i)
+    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+      {   Region::setActive(Database.Regionen,(*i),false);  }
+    if(!tag) return;
     FOR_EACH_CONST_TAG(i,*tag)
     {
       const std::string sart=i->Type();

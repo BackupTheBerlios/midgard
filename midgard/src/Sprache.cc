@@ -180,7 +180,7 @@ int Sprache::getHoeherenErfolgswert(const std::list<MBEmlt>& gelernte_listSprach
     std::list<MBEmlt> tmplist=cH_Sprache((*i)->getMBE())->VerwandteSprachen((*i)->Erfolgswert(),gelernte_listSprache,listSprache);
     for(std::list<MBEmlt>::const_iterator j=tmplist.begin();j!=tmplist.end();++j)
      {
-       if(Name()==(*(*j))->Name() && (*j)->Erfolgswert()>e) e=(*j)->Erfolgswert();
+       if(Name()==(*(*j))->Name() /*&& (*j)->Erfolgswert()>e*/) e=(*j)->Erfolgswert();
      }
   }
  return e;
