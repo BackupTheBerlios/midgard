@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.53 2002/02/06 18:07:35 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.54 2002/02/12 12:42:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,6 @@
  */
 
 #include "midgard_CG.hh"
-#include "Zauber_auswahl.hh"
 #include <Gtk_OStream.h>
 #ifndef USE_XML
 #include <Aux/SQLerror.h>
