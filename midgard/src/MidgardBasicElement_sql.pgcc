@@ -240,8 +240,9 @@ void MidgardBasicElement::EP_steigern(const std::string fert)
  int back=0;
  const Tag *steigern=0;
  
- if (!tag)
-    steigern=tag->find(tag->begin(),"EP-Typ");
+ if (tag)
+    // Fertigkeit gefunden
+    steigern=tag->find("EP-Typ");
  else 
     // globale Liste: Ausdauer, Waffen, Zauber
     steigern=find_Tag("verwendbareEP","EP-Typ","Fertigkeit",fert);
