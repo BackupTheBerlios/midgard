@@ -142,7 +142,7 @@ COPY "lernschema_4" FROM stdin;
 1	Km	f	Erkennen von Leben	Zauberkünste	0
 1	MMa	f	Erkennen von Leben	Zauberkünste	0
 1	Ma	f	Erkennen von Leben	Zauberkünste	0
-1	Hl	t	Erste Hilfe	Fachkenntnisse	8
+1	Hl	f	Erste Hilfe	Fachkenntnisse	8
 1	Kd	f	Erste Hilfe	Fachkenntnisse	8
 1	PF	f	Erste Hilfe	Fachkenntnisse	8
 1	Ba	f	Erzählen	Fachkenntnisse	12
@@ -945,7 +945,7 @@ COPY "lernschema_4" FROM stdin;
 2	PHa	f	Heiliger Zorn	Zauberkünste	0
 2	PHe	f	Heiliger Zorn	Zauberkünste	0
 2	PT	f	Heiliger Zorn	Zauberkünste	0
-2	Hl	t	Heilkunde	Fachkenntnisse	5
+2	Hl	f	Heilkunde	Fachkenntnisse	5
 2	Mg	f	Heilkunde	Fachkenntnisse	5
 2	PW	f	Heilkunde	Fachkenntnisse	5
 2	ScN	f	Heilkunde	Fachkenntnisse	5

@@ -21,13 +21,13 @@ CREATE TABLE "fertigkeiten_besitz" (
 
 COPY "fertigkeiten_besitz" FROM stdin;
 Abrichten	Tier	91	Besitz
-Erste Hilfe	Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)	91	Rucksack
+Erste Hilfe	Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)	6	Rucksack
 Fälschen	Hilfsmittel und Werkzeuge zum Fälschen	6	Rucksack
 Gaukeln	Bälle, Reifen und Keulen zum Jonglieren	51	Rucksack
 Giftmischen	eine Dosis 3W6 Klingengift	99	Rucksack
 Giftmischen	eine Dosis 4W6 Speisegift	91	Rucksack
-Glückspiel	geladene Würfel	50	Rucksack
-Kampf zu Pferd	ausgeblidetes Schlachtroß	96	Besitz
+Glückspiel	geladene Würfel	51	Rucksack
+Kampf zu Pferd	ausgebildetes Schlachtroß	96	Besitz
 Musizieren	Instrument nach eigener Wahl	6	Rucksack
 Musizieren	magisches Instrument nach eigener Wahl	91	Rucksack
 Reiten	Reitpferd	71	Besitz
