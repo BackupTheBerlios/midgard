@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.18 2002/07/10 09:18:37 christof Exp $               
+// $Id: Datenbank.cc,v 1.19 2002/07/10 09:37:24 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -53,7 +53,7 @@ Datenbank::Datenbank()
 }
 
 
-void Datenbank::load(Midgard_Info* MI, Midgard_CG *hauptfenster)
+void Datenbank::load(Midgard_Info* MI, midgard_CG *hauptfenster)
 {
     // wait for Window to appear
     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
