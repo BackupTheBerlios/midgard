@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.48 2001/07/29 20:29:59 thoma Exp $
+// $Id: midgard_CG.cc,v 1.49 2001/07/30 20:11:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -82,7 +82,7 @@ void midgard_CG::set_tree_titles()
  std::vector<string> neue_grund;
  neue_grund.push_back("Grundkenntnisse");
  neue_grund.push_back("Kosten");
- alte_grund_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+ neue_grund_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_grund_tree->setTitles(neue_grund);
  
  std::vector<string> alte_zauber;
@@ -369,8 +369,17 @@ void midgard_CG::on_neuer_charakter_clicked()
    alte_schrift_tree->clear();
    neue_schrift_tree->clear();
    
- Originalbool=true;
- checkbutton_original->set_active(true);
+   Originalbool=true;  checkbutton_original->set_active(true);
+   Infobool=true;      checkbutton_original->set_active(true);
+   Albabool=false;      checkbutton_Alba->set_active(false);
+   Escharbool=false;      checkbutton_Eschar->set_active(false);
+   Rawindrabool=false;      checkbutton_Rawindra->set_active(false);
+   KanThaiPanbool=false;      checkbutton_KanThaiPan->set_active(false);
+   Waelandbool=false;      checkbutton_Waeland->set_active(false);
+   Nahuatlanbool=false;      checkbutton_Nahuatlan->set_active(false);
+   HDbool=false;             checkbutton_HD->set_active(false);
+   BRbool=false;             checkbutton_BR->set_active(false);
+
  on_checkbutton_original_toggled();
  kido_bool=false;
  magie_bool=false;

@@ -3,7 +3,7 @@
 --
 DROP TABLE "berufe_vorteile";
 --
--- TOC Entry ID 2 (OID 628991)
+-- TOC Entry ID 2 (OID 9031988)
 --
 -- Name: berufe_vorteile Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "berufe_vorteile" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 628991) TABLE DATA berufe_vorteile
+-- Data for TOC Entry ID 3 (OID 9031988) TABLE DATA berufe_vorteile
 --
 
 COPY "berufe_vorteile"  FROM stdin;
@@ -279,7 +279,7 @@ Mathematiker	Sprache
 Mathematiker	Lesen/Schreiben
 Mathematiker	Rechnen
 Mechaniker	Fallen entschärfen
-Mechaniker	Geheimmechanismen öffnen 
+Mechaniker	Geheimmechanismen öffnen
 Mechaniker	Fallenmechanik
 Messerschleifer	Dolch
 Scherenschleifer	Dolch
@@ -355,7 +355,7 @@ Schilterer	Sagenkunde
 Schilterer	Lesen/Schreiben
 Wappenhersteller	Sagenkunde
 Wappenhersteller	Lesen/Schreiben
-Schlosser	Geheimmechanismen öffnen 
+Schlosser	Geheimmechanismen öffnen
 Schlosser	Schlösser öffnen
 Schmuggler	Wetterkunde
 Schmuggler	Segeln

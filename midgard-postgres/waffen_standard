@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_standard";
 --
--- TOC Entry ID 2 (OID 641816)
+-- TOC Entry ID 2 (OID 9030322)
 --
 -- Name: waffen_standard Type: TABLE Owner: thoma
 --
@@ -49,7 +49,7 @@ CREATE TABLE "waffen_standard" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 641816) TABLE DATA waffen_standard
+-- Data for TOC Entry ID 3 (OID 9030322) TABLE DATA waffen_standard
 --
 
 COPY "waffen_standard"  FROM stdin;

@@ -447,17 +447,7 @@ void midgard_CG::load_charakter()
    midgard_CG::sprachen_schrift();
 
 
-   // Regionen
-   Originalbool=true;      checkbutton_original->set_active(true);
-   Infobool=true;      checkbutton_original->set_active(true);
-   Albabool=false;      checkbutton_Alba->set_active(false);
-   Escharbool=false;      checkbutton_Eschar->set_active(false);
-   Rawindrabool=false;      checkbutton_Rawindra->set_active(false);
-   KanThaiPanbool=false;      checkbutton_KanThaiPan->set_active(false);
-   Waelandbool=false;      checkbutton_Waeland->set_active(false);
-   Nahuatlanbool=false;      checkbutton_Nahuatlan->set_active(false);
-   HDbool=false;             checkbutton_HD->set_active(false);
-   BRbool=false;             checkbutton_BR->set_active(false);
+   // Regionen ///////////////////////////////////////////////////////////
    strncpy(db_art,"Region",sizeof(db_art));
    exec sql declare r_ein cursor for select region from charaktere_fertigkeiten
       where charakter_name= :db_name_ch and version= :db_version 
@@ -486,6 +476,11 @@ void midgard_CG::load_charakter()
    exec sql close r_ein;
    tr.close();
 
+
+   // Geschlecht setzen ////////////////////////////////////////////////
+   if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
+   if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
+   // Charakterklasse setzen und anzeigen 
    Typ.set_Short(db_typ_s);
    Typ2.set_Short(db_typ_2_s);
    fill_typauswahl();
@@ -497,16 +492,16 @@ void midgard_CG::load_charakter()
    if (Typ.Zaubern()=="n" || Typ.Short() == "Ord" ||
        Typ2.Zaubern()=="n" || Typ2.Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
    else label_spezialwaffe->set_text("");
-   // Spezies setzen
+
+   // Spezies setzen ////////////////////////////////////////////
    exec sql begin declare section;   
     int db_nr;
    exec sql end declare section;   
    strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
    exec sql select nr into :db_nr from spezies where spezies = :db_spezies;
-   // Geschlecht setzen
-   if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
-   if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
    optionmenu_spezies->set_history(db_nr); // Spezies
+
+   //////////////////////////////////////////////////////////////
    show_gtk();
    get_spezial_from_spezialgebiet();
 }

@@ -3,7 +3,7 @@
 --
 DROP TABLE "spezialgebiete";
 --
--- TOC Entry ID 2 (OID 23649)
+-- TOC Entry ID 2 (OID 9030855)
 --
 -- Name: spezialgebiete Type: TABLE Owner: thoma
 --
@@ -17,7 +17,7 @@ CREATE TABLE "spezialgebiete" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23649) TABLE DATA spezialgebiete
+-- Data for TOC Entry ID 3 (OID 9030855) TABLE DATA spezialgebiete
 --
 
 COPY "spezialgebiete"  FROM stdin;

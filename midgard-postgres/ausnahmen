@@ -3,7 +3,7 @@
 --
 DROP TABLE "ausnahmen";
 --
--- TOC Entry ID 2 (OID 3331264)
+-- TOC Entry ID 2 (OID 9026101)
 --
 -- Name: ausnahmen Type: TABLE Owner: thoma
 --
@@ -20,7 +20,7 @@ CREATE TABLE "ausnahmen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 3331264) TABLE DATA ausnahmen
+-- Data for TOC Entry ID 3 (OID 9026101) TABLE DATA ausnahmen
 --
 
 COPY "ausnahmen"  FROM stdin;

@@ -67,18 +67,19 @@ void midgard_CG::get_typ_after_load()
 //std::cout <<Typ.Name() <<"\t"<<Typ2.Name() <<"<-\n";
  clear_Ausnahmen();
 
-//std::cout << typ.l<<"\n";
+//std::cout << Typ.Name()<<"\n";
 }
 
 void midgard_CG::get_optionmenu_typ_nr()
 {
-  int count;
+  int count=0;
   for (std::vector<cH_Data_typen>::const_iterator i=vec_Typen.begin();i!=vec_Typen.end();++i)
    {
     if( (*i)->Short() == Typ.Short()) break;
     ++count;
    }
   Typ.set_Nr_Optionmenu(count);
+//std::cout << count<<"\n";
   typauswahl->set_history(Typ.Nr_Optionmenu());
 
   count=0;

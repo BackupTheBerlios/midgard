@@ -144,7 +144,7 @@ void midgard_CG::show_neue_grund()
 
       double fac = midgard_CG::get_standard_waffen(Typ.Short(),Typ2.Short(),db_name);
       if (midgard_CG::region_check(db_region))
-      datavec.push_back(new Data_grund(db_name,db_fp*fac));
+         datavec.push_back(new Data_grund(db_name,db_fp*fac));
    }
  exec sql close grund_ein;
  tr.close();
