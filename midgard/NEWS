@@ -8,6 +8,7 @@ Version 0.9.4
 - Gtk stil hat eigene Icons
 - Ausgabe der PP für Spezial-Zauber (Dweomer, Wunder, etc.)
 - StandardRegionen implementiert
+- Berufe aus dem Gildenbrief (in eigener Region)
 
 -------------- TODO ----------------
 
