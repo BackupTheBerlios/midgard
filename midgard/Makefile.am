@@ -6,4 +6,4 @@ SUBDIRS = pixmaps libmagus libmagusicons src xml
 EXTRA_DIST = AUTHORS TODO README NEWS configure 
 
 glade:
-	glade-- --image-provider=MagusImage midgard.glade
+	glade-- --image-provider=MagusImage --gtkmmversion 2.4.0 midgard.glade
