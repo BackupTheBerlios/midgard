@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.171 2002/02/28 17:07:35 thoma Exp $
+// $Id: midgard_CG.cc,v 1.172 2002/03/01 09:10:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -178,7 +178,7 @@ void midgard_CG::show_gtk()
 
 
  // Magie anzeigen?
- if (Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
+ if (Typ[0]->is_mage() || Typ[1]->is_mage() || magie_bool) 
    { if (Typ[0]->Spezialgebiet() || Typ[1]->Spezialgebiet()) show_magier_spezialgebiet(true);
      else show_magier_spezialgebiet(false);
      button_zauber->set_sensitive(true);
@@ -333,6 +333,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_untyp_fertigkeiten->set_sensitive(false);
    button_waffen->set_sensitive(false);
    button_zauber->set_sensitive(false);
+//   togglebutton_gelernte_anzeigen->set_active(false);
    table_berufswahl->set_sensitive(false);
    scrolledwindow_beruf->hide();
    label_berufskategorie->hide();

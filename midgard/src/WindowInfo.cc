@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.30 2002/02/19 08:46:05 thoma Exp $
+// $Id: WindowInfo.cc,v 1.31 2002/03/01 09:10:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -126,5 +126,10 @@ gint WindowInfo::timeout()
 { 
    hide();
    return 0; 
+}
+
+void WindowInfo::on_button_erase_clicked()
+{
+  LogWin->get_list()->items().clear(); 
 }
 

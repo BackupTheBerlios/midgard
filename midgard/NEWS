@@ -1,4 +1,33 @@
 ##########################################################################
+NEWS IN VERSION 0.4delta5
+
+* Waffenbesitz löscht die Waffen, nicht den Besitz
+* Code aufgeräumt
+* Nichtmenschen: Pflichtfertigkeiten kennzeichnen
+* Nichtmenschen: Angeborene Fertigkeiten Bug beseitigt
+* Ob die bereits gelerneten Fertigkeiten im Lernschema angezeigt werden ist
+   nun eine Option
+* Ob zu teure Fertigkeiten im Lernschema angezeigt werden ist
+   nun eine Option
+* Nichtmenschen: Fertigkeiten nur noch einmal (mit 'Spezieslernschema') 
+   lernbar.
+* Nochmalwürfeln bei schlechen Werten jetzt möglich
+* Spezialgebietauswahl nur noch für Magier (und Beschwörer)
+* Infofenster Liste kann gelöscht werden
+
+TODO:
+* Tooltips Farbe
+* Laden von Optionen 
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes
+* Kurzanleitung drucken ... mal sehe, ob das sinnvoll ist. Wahrscheinlich 
+   ist es sinnvoller die HTML-Seiten in einem Browser zu starten.
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+* Regionen
+* Doppelklassen
+
+##########################################################################
 NEWS IN VERSION 0.4delta4
 
 * viele kleinere Bugs beseitigt (Programm und Daten)

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.23 2002/02/09 21:45:39 thoma Exp $
+// $Id: WindowInfo.hh,v 1.24 2002/03/01 09:10:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,6 +54,7 @@ class WindowInfo : public WindowInfo_glade
         Gtk::OStream *mystream;
         void bestaetigen(bool b);
         void Flush();
+        void on_button_erase_clicked();
         emodus Modus;
         midgard_CG* hauptfenster;
         cH_MidgardBasicElement *MBE;

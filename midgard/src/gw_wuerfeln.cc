@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.36 2002/02/28 17:07:35 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.37 2002/03/01 09:10:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,10 +26,10 @@
 gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
 {
   Werte.clear();
+  button_grundwerte->set_sensitive(false);
   if (ev->button==1) grundwerte_wuerfeln();
   if (ev->button==2) Eigenschaften_variante(2);
   if (ev->button==3) Eigenschaften_variante(3);
-  button_grundwerte->set_sensitive(false);
   return false;
 }
 

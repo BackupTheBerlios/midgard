@@ -88,7 +88,6 @@ Window_angeb_fert::Window_angeb_fert(midgard_CG* h,
    Grundwerte& W,int wu)
 : list_Fertigkeit_ang(vaf),Werte(W),wurf(wu)
 {
-  list_Fertigkeit_ang_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit_ang.begin();i!=Database.Fertigkeit_ang.end();++i)
    {
      if((*i)->ist_gelernt(list_Fertigkeit_ang)) continue;

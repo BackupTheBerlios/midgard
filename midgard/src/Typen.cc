@@ -80,7 +80,7 @@ bool Typen::Spezialgebiet() const
 {
   if (Short()=="Ma")  return true;
   if (Short()=="eBe") return true;
-  return true;
+  return false;
 }
 
 
