@@ -38,7 +38,7 @@ class Zufall
 
    public:
 
-      Zufall() ;
+      Zufall(Abenteurer &a) ;
 
       enum e_Vorgabe{eSpezies=1<<B_Spezies,eTyp=1<<B_Typ,
          eHerkunft=1<<B_Herkunft,eAngeFert=1<<B_AngeFert,
@@ -91,7 +91,7 @@ class Zufall
                                 const st_LL &Listen);
       bool knows_everything(const std::list<MBEmlt> &List_gelerntes,const std::list<MBEmlt> &L);
    public:
-      static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A, Random &random);
+      static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A);
       static WaffeBesitzLernen WaffenBesitz_wuerfeln(const Abenteurer &A,int wurf);
 };
 

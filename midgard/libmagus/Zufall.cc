@@ -16,16 +16,8 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2002/9/6 20:10:27 CEST by thoma@Tiger.(none)
-// using glademm V1.1.1c_cvs
-//
-// newer (non customized) versions of this file go to table_zufall.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "Zufall.hh"
 #include "Fertigkeiten_angeboren.hh"
-#include "midgard_CG.hh"
 
 Zufall::Zufall(Abenteurer &a) 
 : Aben(a),oldAben(Aben)
@@ -105,6 +97,7 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
    else            Aben.List_Fertigkeit_ang()=oldAben.List_Fertigkeit_ang();
    Lernschema();
    setBeruf();
+#error Oh Oh    
    hauptfenster->table_lernschema->geld_wuerfeln();
    setWaffenBesitz();
    hauptfenster->table_lernschema->on_button_ruestung_clicked(Random::integer(1,100));
