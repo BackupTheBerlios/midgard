@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.14 2002/01/15 08:18:44 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.15 2002/01/17 13:42:19 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -69,13 +69,22 @@ void land_speichern(std::ostream &o)
    	" order by coalesce(region,''),name");
   while ((query>>is).good())
   {o << "  <Schrift";
-   fetch_and_write_string_attrib(is, o, "Name");
+   string schrift=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_string_attrib(is, o, "Typ");
    fetch_and_write_int_attrib(is, o, "Kosten");
    fetch_and_write_bool_attrib(is, o, "alte_Schrift");
    fetch_and_write_bool_attrib(is, o, "Kultschrift");
-   o << "/>\n";
+   o << ">\n";
+   Query query2("select schrift from sprache_schrift"
+   	" where art_der_schrift="+toSQL(schrift)+" order by schrift");
+   FetchIStream is2;
+   while ((query2>>is2).good())
+   {  o << "    <Variante";
+      fetch_and_write_string_attrib(is2, o, "Name");
+      o << "/>\n";
+   }
+   o << "</Schrift>\n";
   }
   }
    o << " </Schriften>\n";
@@ -99,13 +108,12 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Gruppe2");
    fetch_and_write_bool_attrib(is, o, "Minderheit");
    o << ">";
-   Query query2("select art_der_schrift, schrift from sprache_schrift"
-   	" where sprache="+toSQL(sprache)+" order by art_der_schrift");
+   Query query2("select schrift from sprache_schrift"
+   	" where sprache="+toSQL(sprache)+" order by schrift");
    FetchIStream is2;
    while ((query2>>is2).good())
    {  o << "\n    <Schrift";
-      fetch_and_write_string_attrib(is2, o, "Name");
-      fetch_and_write_string_attrib(is2, o, "Bezeichnung", sprache);
+      fetch_and_write_string_attrib(is2, o, "Name", sprache);
       o << "/>";
    }
    o << "</Sprache>\n";
