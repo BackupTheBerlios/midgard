@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.8 2002/01/12 08:12:25 thoma Exp $
+// $Id: Preise.hh,v 1.9 2002/01/18 14:10:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,16 +25,25 @@
 #include<string>
 #include<vector>
 #include<list>
+#include "xml.h"
 
 class Preise : public HandleContent
 {
    std::string name,einheit,art,art2;
    double kosten,gewicht;
+#ifdef USE_XML
+   const Tag *tag;
+#endif
 
    void get_Preise();
  public:
+#ifndef USE_XML 
    Preise(const std::string& n)
      :name(n) {get_Preise();}
+#else     
+   Preise(const Tag *tag)
+     :name(tag->getAttr("Name")) {get_Preise();}
+#endif
 
  std::string Art() const {  return art; }
  std::string Art2() const {  return art2; }
@@ -59,6 +68,9 @@ class cH_Preise : public Handle<const Preise>
     cH_Preise(){};
  public:
     cH_Preise(const std::string& name);
+#ifdef USE_XML
+    cH_Preise(const Tag *tag);
+#endif    
 
  class sort {
       public:
@@ -94,13 +106,21 @@ class PreiseMod : public HandleContent
              : name(n), faktor(f) {}
           };
  private:
+#ifdef USE_XML
+   const Tag *tag;
+#endif 
    std::string art,art2,typ;
    int nr;
    st_payload payload;
    void get_PreiseMod();
  public:
+#ifndef USE_XML 
    PreiseMod(const std::string& a,const std::string& a2,const std::string& t,const int& n)
      :art(a),art2(a2),typ(t),nr(n) {get_PreiseMod();}
+#else
+   PreiseMod(const Tag *_tag)
+     : tag (_tag) {get_PreiseMod();}
+#endif     
 
  std::string Art() const {  return art; }
  std::string Art2() const {  return art2; }
@@ -130,6 +150,9 @@ class cH_PreiseMod : public Handle<const PreiseMod>
     cH_PreiseMod(){};
  public:
     cH_PreiseMod(const std::string& art,const std::string& art2,const std::string typ,const int &nr);
+#ifdef USE_XML
+    cH_PreiseMod(const Tag *tag);
+#endif
 };
 
 class PreiseMod_All
