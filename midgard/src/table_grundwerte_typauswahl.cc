@@ -186,10 +186,10 @@ void table_grundwerte::spezieswahl_button()
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  std::string spezies=combo_spezies->get_entry()->get_text();
- if(!Spezies::get_Spezies_from_long(Datenbank.Spezies,spezies))
+ if(!Spezies::get_Spezies_from_long(spezies))
    return;
  hauptfenster->getAben().getWerte() = Grundwerte();
- hauptfenster->getAben().setSpezies(Spezies::getSpezies(spezies,Datenbank.Spezies));
+ hauptfenster->getAben().setSpezies(Spezies::getSpezies(spezies));
 
 // hauptfenster->getChar().undosave("Spezies gewählt");
  fill_typauswahl();

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.45 2004/03/31 07:19:11 christof Exp $
+# $Id: Makefile.am,v 1.46 2004/04/16 06:01:35 christof Exp $
 
 if WINDOWS
 PORT_FILES=registry.cc TeX.cc
@@ -21,7 +21,7 @@ AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
 CLEANFILES = *~
 
 EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter model_test \
-	model_test2 OptionenTest model_test3
+	model_test2 OptionenTest model_test3 test_spec
 
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
 registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
@@ -34,6 +34,7 @@ readxml2_SOURCES=readxml2.cc
 model_test_SOURCES=model_test.cc
 model_test2_SOURCES=model_test2.cc
 model_test3_SOURCES=model_test3.cc
+test_spec_SOURCES=test_spec.cc
 
 lib_LTLIBRARIES=libmagus.la
 
@@ -68,6 +69,7 @@ readxml2_LDADD = @XMLPP_LIBS@
 model_test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 model_test2_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 model_test3_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
+test_spec_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 
 BUILT_SOURCES= registry.h TeX.cc
 

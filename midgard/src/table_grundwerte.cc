@@ -68,6 +68,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    midgard_check_werte100();
    
    Abenteurer &A=abentaus->getAbenteurer();
+std::cout << A.Spezies()->Name() << '\n';
 
    spinbutton_st->set_value(A.St());
    spinbutton_gw->set_value(A.Gw());

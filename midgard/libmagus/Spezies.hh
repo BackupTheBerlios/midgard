@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.5 2003/09/01 06:47:57 christof Exp $               
+// $Id: Spezies.hh,v 1.6 2004/04/16 06:01:36 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -117,10 +117,8 @@ public:
    std::vector<std::string> getVHerkunft() const {return vec_herkunft;}
    std::vector<std::string> getVSprache() const {return vec_sprache;}
 
-   static bool get_Spezies_from_long(const std::vector<cH_Spezies>& V,
-                                        std::string& name);
-
-   static cH_Spezies getSpezies(std::string s,const std::vector<cH_Spezies> V);
+   static bool get_Spezies_from_long(std::string& name);
+   static cH_Spezies getSpezies(std::string s);
 
    bool operator==(const Spezies &b) const
    {  return Name()==b.Name(); }

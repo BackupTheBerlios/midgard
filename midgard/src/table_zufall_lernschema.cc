@@ -57,8 +57,8 @@ Zufall::e_Vorgabe table_zufall::getVorgaben(Abenteurer& oldAben) const
       if(checkbutton_spezies->get_active()) 
          { v+=Zufall::B_Spezies;
            std::string spezies=combo_spezies->get_entry()->get_text();
-           if(Spezies::get_Spezies_from_long(LernListen::getSpezies(true),spezies))
-              oldAben.setSpezies(Spezies::getSpezies(spezies,LernListen::getSpezies(true)));
+           if(Spezies::get_Spezies_from_long(spezies))
+              oldAben.setSpezies(Spezies::getSpezies(spezies));
          }
       if(checkbutton_typ->get_active())  
          {  v+=Zufall::B_Typ;
@@ -198,8 +198,8 @@ void table_zufall::fill_combo_typen(const bool nsc_allowed)
 
   // ist eine Spezies in der Combo gesetzt?
   std::string ss=combo_spezies->get_entry()->get_text();
-  if(Spezies::get_Spezies_from_long(Datenbank.Spezies,ss))
-     spezies=Spezies::getSpezies(ss,Datenbank.Spezies)  ;
+  if(Spezies::get_Spezies_from_long(ss))
+     spezies=Spezies::getSpezies(ss)  ;
   if (!(spezies==hauptfenster->getAben().Spezies()))
   {  hauptfenster->getAben().setSpezies(spezies);
      Ausgabe(Ausgabe::Warning,"wie auch immer Spezies!=Spezies werden konnte (CP)");

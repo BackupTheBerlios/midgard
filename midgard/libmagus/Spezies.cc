@@ -25,6 +25,7 @@
 #include "Fertigkeiten.hh"
 #include "NotFound.h"
 #include "Ausgabe.hh"
+#include <Datenbank.hh>
 
 cH_Spezies::cache_t cH_Spezies::cache;
 
@@ -245,10 +246,10 @@ bool operator==(void* data,const cH_Spezies &s)
 {  return *(static_cast<Spezies*>(data))==*s;
 }
 
-bool Spezies::get_Spezies_from_long(const std::vector<cH_Spezies>& V,
-                                        std::string& name)
+bool Spezies::get_Spezies_from_long(std::string& name)
 {
-  for(std::vector<cH_Spezies>::const_iterator i=V.begin();i!=V.end();++i)
+  for(std::vector<cH_Spezies>::const_iterator i=Datenbank.Spezies.begin();
+  		i!=Datenbank.Spezies.end();++i)
    {
      if((*i)->Name()==name )  return true;
    }
@@ -261,9 +262,10 @@ int Spezies::B_Durchschnitt() const
 }
 
 
-cH_Spezies Spezies::getSpezies(std::string s,const std::vector<cH_Spezies> V)
+cH_Spezies Spezies::getSpezies(std::string s)
 {
-  for(std::vector<cH_Spezies>::const_iterator i=V.begin();i!=V.end();++i)
+  for(std::vector<cH_Spezies>::const_iterator i=Datenbank.Spezies.begin();
+  	i!=Datenbank.Spezies.end();++i)
    {
      if(s==(*i)->Name()) return *i;
    }
