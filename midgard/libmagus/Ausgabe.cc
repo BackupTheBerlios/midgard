@@ -1,4 +1,4 @@
-// $Id: Ausgabe.cc,v 1.1 2003/07/11 22:47:15 christof Exp $
+// $Id: Ausgabe.cc,v 1.2 2003/07/15 06:09:10 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -19,8 +19,6 @@
 
 #include "Ausgabe.hh"
 #include <iostream>
-
-static Ausgabe::Ausgabe_cb *aktuelle_implementierung;
 
 extern std::string utf82iso(const std::string &s);
 #if 0
@@ -50,8 +48,10 @@ static Ausgabe::Level LogLevel=Ausgabe::Warning;
 static void StandardAusgabe(Ausgabe::Level l,const std::string &text)
 {  if (l>Ausgabe::MaxLevel) l=Ausgabe::Fatal;
    if (l<LogLevel) return;
-   std::cerr << (Verbose[l]?Verbose[l]:"") << (Verbose[l]?":":"") << text << '\n';
+   std::cerr << (Verbose[l]?Verbose[l]:"") << (Verbose[l]?":":"") << utf82iso(text) << '\n';
 }
+
+static Ausgabe::Ausgabe_cb *aktuelle_implementierung=&StandardAusgabe;
 
 void Ausgabe::set(Ausgabe::Ausgabe_cb *cb)
 {  if (!cb) aktuelle_implementierung=&StandardAusgabe;

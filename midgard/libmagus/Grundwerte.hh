@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.2 2003/05/21 07:02:14 christof Exp $               
+// $Id: Grundwerte.hh,v 1.3 2003/07/15 06:09:10 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,18 +69,7 @@ class Grundwerte
    
 
 public:
-   Grundwerte() : 
-             Ueberleben_angeboren(&*cH_Fertigkeit("Überleben Heimat",true)),
-             raufen(0),au(0),pa(0),sb(0), wk(0),
-             b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
-             zaubern_wert(0),zauber_pp(0),pp_spezialzauber(0),resistenz(0),resistenz_pp(0),
-             alter(0),geschlecht(Enums::Mann),gewicht(0),groesse(0),grad(1),
-             stand(""),glaube(""),name_abenteurer(""),version("Erschaffung"),
-             gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
-             aep(0),kep(0),zep(0),spezies("Mensch"),
-             stadt_land(Enums::Stadt), steigern_EP_prozent(50), grad_basiswerte(1)
-             
-         { reset(); }
+   Grundwerte();
    void resetSinne() ;
    void setSt(int i) {grund.st=i;}
    void setGw(int i) {grund.gw=i;}

@@ -10,7 +10,7 @@
 #include <Misc/itos.h>
 
 void progress(double d)
-{  Ausgabe(Ausgabe::Warning, "Progress " +itos(d)+ "%");
+{  Ausgabe(Ausgabe::Warning, "Progress " +itos(int(d*100))+ "%");
 }
 
 int main(int argc,char **argv)
