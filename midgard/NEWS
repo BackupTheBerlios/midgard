@@ -7,6 +7,14 @@ NEWS IN VERSION 0.8.11
    Lernpunkte zurückstellen.
 * Erläuterungen zu Waffen im Ausdruck (z.B. bei variablem Schaden)
 * Waffenausdruck korrekt formatiert
+* Freischalten des Lernschemas und des Steigerns durch 
+   'Werte für Grad 1 setzen'
+* viele kleinere Bugfixes
+* Überarbeitet 'steigern_mit ZEP/KEP' LIste (Danke an Markus Steinberg)
+* Bugfix: Zauberer lernen Angriffswaffe nur bis +14
+* abschaltbares Begrüßungsfenster (Idee von Andre (Sam) Paus)
+* Hilfe-Fenster entfernt
+* Tabelle spezies_herkunft wieder füllen 
 
 TODO: ('-' zeigt CP an)
 
