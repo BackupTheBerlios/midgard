@@ -36,11 +36,15 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
      {
         if( *i == WB)
          {
-            hauptfenster->getChar()->List_Waffen_besitz().remove(*i);
+//            hauptfenster->getChar()->List_Waffen_besitz().remove(*i);
+              list_WaffenBesitz_neu.splice(list_WaffenBesitz_neu.begin(),   
+                     hauptfenster->getChar()->List_Waffen_besitz(),i);
+                     
             break;
          }
      }
     show_alte_waffen();
+    show_neue_waffen();
    }
   else 
    {
@@ -93,6 +97,7 @@ void table_steigern::on_entry_magisch_activate()
    hauptfenster->set_status("Keine Waffe selektiert");
      };
   show_alte_waffen();
+  show_neue_waffen();
 }
 
 
@@ -130,8 +135,12 @@ void table_steigern::init_waffenbesitz()
   waffenbesitz_alt_tree->setTitles(list_vector(alte_waffen));
   waffenbesitz_neu_tree->setTitles(list_vector(neue_waffen));
 
-  lade_waffenbesitz();
+//  lade_waffenbesitz();
   show_alte_waffen();
+
+  list_WaffenBesitz_neu = LernListen(hauptfenster->getCDatabase())
+             .getWaffenBesitz(hauptfenster->getAben());
+  show_neue_waffen();
 }
 
 void  table_steigern::show_alte_waffen()
@@ -145,11 +154,13 @@ void  table_steigern::show_alte_waffen()
   waffenbesitz_alt_tree->Expand_recursively();
 }
 
-void  table_steigern::lade_waffenbesitz()
+//void  table_steigern::lade_waffenbesitz()
+void  table_steigern::show_neue_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
-  std::list<H_WaffeBesitz> Waffe_Besitz_neu=LernListen(hauptfenster->getCDatabase()).getWaffenBesitz(hauptfenster->getAben());
-  for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
+//  std::list<H_WaffeBesitz> Waffe_Besitz_neu=LernListen(hauptfenster->getCDatabase()).getWaffenBesitz(hauptfenster->getAben());
+//  for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
+  for (std::list<H_WaffeBesitz>::const_iterator i=list_WaffenBesitz_neu.begin();i!=list_WaffenBesitz_neu.end();++i)
         datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_neu_tree->setDataVec(datavec);
 }

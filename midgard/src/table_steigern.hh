@@ -9,6 +9,7 @@ class LernListen;
 #include <Model.h>
 #include <gtkmm/liststore.h>
 #include "Ruestung.hh"
+#include "Waffe.hh"
 
 class table_steigern : public table_steigern_glade
 {  
@@ -22,6 +23,7 @@ class table_steigern : public table_steigern_glade
         std::list<MBEmlt> list_Fertigkeit_neu;
         std::list<MBEmlt> list_WaffenGrund_neu;
         std::list<MBEmlt> list_Waffen_neu;
+        std::list<H_WaffeBesitz> list_WaffenBesitz_neu;
         std::list<MBEmlt> list_Zauber_neu;
         std::list<MBEmlt> list_Zauberwerk_neu;
         std::list<MBEmlt> list_Kido_neu;
@@ -121,7 +123,8 @@ private:
         void fill_ruestung();
         void show_label();
         void init_waffenbesitz();
-        void lade_waffenbesitz();
+//        void lade_waffenbesitz();
+        void show_neue_waffen();
         void show_alte_waffen();
 
 
