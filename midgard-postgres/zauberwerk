@@ -14,7 +14,8 @@ CREATE TABLE "zauberwerk" (
 	"stufe" text,
 	"zeitaufwand" text,
 	"kosten" text,
-	"region" text
+	"region" text,
+	"region_zusatz" text
 );
 
 --
@@ -23,168 +24,168 @@ CREATE TABLE "zauberwerk" (
 
 
 COPY "zauberwerk" FROM stdin;
-Alarm	1000	magische Letter	4		4 GS	\N
-Angst	120	Augensalbe	1		20 GS	\N
-Angst	200	Großes Siegel	1	Stufe*10 min	10 GS	\N
-Anziehen	120	Augensalbe	1		20 GS	\N
-Auslösen	200	magische Letter	1		1 GS	\N
-Bannen von Dunkelheit	100	Großes Siegel	1	Stufe*10 min	10 GS	\N
-Bannen von Licht	100	Großes Siegel	1	Stufe*10 min	10 GS	\N
-Beeinflussen	800	Augensalbe	3		60 GS	\N
-Berserkerpilz aktivieren	600	Pflanzliches Zaubermittel	2	2 Tage	500 GS	\N
-Binden	10000		G			\N
-Dämonenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N
-Eisiger Nebel	250	Großes Siegel	2	Stufe*10 min	10 GS	\N
-Elementaramulett verzaubern	500	Amulett	3	1 Monat	ab 4000 GS/ABW	\N
-Erkennen von Zauberei	300	Augensalbe	2		40 GS	\N
-Farbletter (Blau)	200	magische Letter	1		1 GS	\N
-Farbletter (Gelb)	200	magische Letter	1		1 GS	\N
-Farbletter (Grün)	200	magische Letter	1		1 GS	\N
-Farbletter (Infrarot)	200	magische Letter	1		1 GS	\N
-Farbletter (Orange)	200	magische Letter	1		1 GS	\N
-Farbletter (Rot)	200	magische Letter	1		1 GS	\N
-Farbletter (Ultraviolett)	200	magische Letter	1		1 GS	\N
-Farbletter (Violett)	200	magische Letter	1		1 GS	\N
-Feuerkugel	800	Schutzrune	2	3 Stunden	5 GS	\N
-Feuerkugel	2000	Großes Siegel	2	Stufe*10 min	10 GS	\N
-Feuerring	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N
-Flohpulver aktivieren	400	Alchimistisches Zaubermittel	2	3 Tage	70 GS	\N
-Funkenregen	400	Großes Siegel	2	Stufe*10 min	10 GS	\N
-Geisteramulett verzaubern	2000	Amulett	4	1 Monat	1000 GS/ABW	\N
-Geräuschletter (Donnern)	200	magische Letter	1		4 GS	\N
-Geräuschletter (Knarren)	200	magische Letter	1		4 GS	\N
-Geräuschletter (Knistern)	200	magische Letter	1		4 GS	\N
-Geräuschletter (Pfeifen)	200	magische Letter	1		4 GS	\N
-Graue Hand	4000	Großes Siegel	6	Stufe*10 min	10 GS	\N
-Hauch des Winters	80	Großes Siegel	1	Stufe*10 min	10 GS	\N
-Heiltrunk (1W6) aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (70 GS)	\N
-Krafttrunk (1W6) aktivieren	400	Alchimistisches Zaubermittel	1	1 Tag	50 GS (30 GS)	\N
-Krafttrunk (2W6) aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (60 GS)	\N
-Kraut der konzentrierten Energie	1200	Pflanzliches Zaubermittel	4	1 Tag	500 GS	\N
-Kriegsbemalung	200	Kriegsbemalung	1	1 Tag	10/20/30 GS	\N
-Kriegsbemalung	200	Kriegsbemalung	2	1 Tag	30/60/90 GS	\N
-Kriegsbemalung	500	Kriegsbemalung	3	1 Tag	60/120/180 GS	\N
-Kriegsbemalung	1000	Kriegsbemalung	4	1 Tag	100/200/300 GS	\N
-Körperbemalung	200	Körperbemalung	1	1 Tag	10/20/30 GS	\N
-Körperbemalung	200	Körperbemalung	2	1 Tag	30/60/90 GS	\N
-Körperbemalung	500	Körperbemalung	3	1 Tag	60/120/180 GS	\N
-Körperbemalung	1000	Körperbemalung	4	1 Tag	100/200/300 GS	\N
-Liebestrank aktivieren	800	Alchimistisches Zaubermittel	3	1 Monat	300 GS 	\N
-Liebeszauber	2000	Augensalbe	4		80 GS	\N
-Lähmung	500	Schutzrune	5	3 Stunden	5 GS	\N
-Lähmung	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N
-Macht über Menschen	500	Augensalbe	3		60 GS	\N
-Macht über die belebte Natur	300	Augensalbe	2		40 GS	\N
-Namenloses Grauen	400	Schutzrune	4	3 Stunden	5 GS	\N
-Namenloses Grauen	1600	Großes Siegel	4	Stufe*10 min	10 GS	\N
-Nebel	1000	Großes Siegel	4	Stufe*10 min	10 GS	\N
-Opferletter (Dämonen)	1000	magische Letter	4		1 GS	\N
-Opferletter (Elemetarwesen)	1000	magische Letter	4		1 GS	\N
-Opferletter (Elfen)	1000	magische Letter	4		1 GS	\N
-Opferletter (Geisterwesen)	1000	magische Letter	4		1 GS	\N
-Opferletter (Lebewesen)	1000	magische Letter	4		1 GS	\N
-Opferletter (Magische Wesen)	1000	magische Letter	4		1 GS	\N
-Opferletter (Menschen)	1000	magische Letter	4		1 GS	\N
-Opferletter (Menschenähnliche)	1000	magische Letter	4		1 GS	\N
-Opferletter (Orcs)	1000	magische Letter	4		1 GS	\N
-Opferletter (Tiere)	1000	magische Letter	4		1 GS	\N
-Opferletter (Tiermenschen)	1000	magische Letter	4		1 GS	\N
-Opferletter (Untote)	1000	magische Letter	4		1 GS	\N
-Opferletter (Zwerge)	1000	magische Letter	4		1 GS	\N
-Pulver der Panzerhaut aktivieren	800	Alchimistisches Zaubermittel	3	5 Tage	100 GS (70 GS) 	\N
-Rauchperle aktivieren	800	Alchimistisches Zaubermittel	3	5 Tage	100 GS (70 GS) 	\N
-Reckentrunk aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (60 GS) 	\N
-Salbe der Eisenhaut aktivieren	1200	Alchimistisches Zaubermittel	4	7 Tage	200 GS (150 GS) 	\N
-Salbe der Krakenhände aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS  	\N
-Schamanentrommel herstellen	1600		G			\N
-Schildamulett verzaubern	100	Amulett	1	1 Monat	2000 GS/ABW	\N
-Schildamulett verzaubern	200	Amulett	2	1 Monat	3000 GS/ABW	\N
-Schildamulett verzaubern	300	Amulett	3	1 Monat	4000 GS/ABW	\N
-Schildamulett verzaubern	400	Amulett	4	1 Monat	5000 GS/ABW	\N
-Schildamulett verzaubern	500	Amulett	5	1 Monat	6000 GS/ABW	\N
-Schildamulett verzaubern	600	Amulett	6	1 Monat	7000 GS/ABW	\N
-Schlaf	100	Schutzrune	1	3 Stunden	5 GS	\N
-Schlaf	200	Großes Siegel	1	Stufe*10 min	10 GS	\N
-Schmerzen	100	Schutzrune	2	3 Stunden	5 GS	\N
-Schmerzen	200	Großes Siegel	2	Stufe*10 min	10 GS	\N
-Schnellkraut aktivieren	800	Pflanzliches Zaubermittel	3	3 Tage	200 GS	\N
-Schutzamulett verzaubern	300	Amulett	1	1 Monat	600 GS/ABW	\N
-Schutzamulett verzaubern	300	Amulett	2	1 Monat	1200 GS/ABW	\N
-Schutzamulett verzaubern	600	Amulett	3	1 Monat	1800 GS/ABW	\N
-Schutzamulett verzaubern	800	Amulett	4	1 Monat	2400 GS/ABW	\N
-Schutzamulett verzaubern	1000	Amulett	5	1 Monat	3000 GS/ABW	\N
-Schutzamulett verzaubern	2000	Amulett	6	1 Monat	3600 GS/ABW	\N
-Schwäche	80	Großes Siegel	1	Stufe*10 min	10 GS	\N
-Sehen in Dunkelheit	200	Augensalbe	2		40 GS	\N
-Sehen von Verborgenem	150	Augensalbe	2		40 GS	\N
-Spiegelamulett verzaubern	200	Amulett	1	1 Monat	1000 GS/ABW	\N
-Spiegelamulett verzaubern	600	Amulett	2	1 Monat	2000 GS/ABW	\N
-Spiegelamulett verzaubern	1000	Amulett	3	1 Monat	3000 GS/ABW	\N
-Spiegelamulett verzaubern	1500	Amulett	4	1 Monat	4000 GS/ABW	\N
-Spiegelamulett verzaubern	2000	Amulett	5	1 Monat	5000 GS/ABW	\N
-Spiegelamulett verzaubern	2500	Amulett	6	1 Monat	6000 GS/ABW	\N
-Srimarameisterschaft	1000	Augensalbe	3		60 GS	\N
-Staubkämpfer	1000	Großes Siegel	3	Stufe*10 min	10 GS	\N
-Stille	200	Großes Siegel	2	Stufe*10 min	10 GS	\N
-Talisman verzaubern	200	Talisman	1	1 Tag	10/20/30 GS	\N
-Talisman verzaubern	200	Talisman	2	1 Tag	30/60/90 GS	\N
-Talisman verzaubern	500	Talisman	3	1 Tag	60/120/180 GS	\N
-Talisman verzaubern	1000	Talisman	4	1 Tag	100/200/300 GS	\N
-Tierisches Handeln	3000	Augensalbe	5		100 GS	\N
-Tierisches Handeln	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N
-Todeshauch	400	Schutzrune	3	3 Stunden	5 GS	\N
-Todeshauch	800	Großes Siegel	3	Stufe*10 min	10 GS	\N
-Trunk der Macht über Hunde aktivieren	400	Alchimistisches Zaubermittel	2	7 Tage	200 GS 	\N
-Trunk der Macht über Menschen aktivieren	800	Alchimistisches Zaubermittel	4	15 Tage	500 GS 	\N
-Trunk der Macht über Orks aktivieren	600	Alchimistisches Zaubermittel	3	7 Tage	300 GS 	\N
-Trunk des Riesenwuchses aktivieren	800	Alchimistisches Zaubermittel	4	7 Tage	500 GS 	\N
-Trunk des Schwerelosigkeit aktivieren	1200	Alchimistisches Zaubermittel	4	15 Tage	500 GS 	\N
-Trunk des Unsichtbarkeit aktivieren	800	Alchimistisches Zaubermittel	3	7 Tage	300 GS 	\N
-Trunk des Verwandlung aktivieren	2000	Alchimistisches Zaubermittel	5	7 Tage	500 GS 	\N
-Untotenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N
-Verdorren	600	Schutzrune	3	3 Stunden	5 GS	\N
-Verdorren	1000	Großes Siegel	3	Stufe*10 min	10 GS	\N
-Vereisen	1000	Schutzrune	4	3 Stunden	5 GS	\N
-Vereisen	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N
-Verlangsamen	800	Großes Siegel	3	Stufe*10 min	10 GS	\N
-Versetzen	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N
-Versteinern	1000	Schutzrune	5	3 Stunden	5 GS	\N
-Versteinern	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N
-Verwandeln	1000	Schutzrune	6	3 Stunden	5 GS	\N
-Verwandlung	8000	Großes Siegel	6	Stufe*10 min	10 GS	\N
-Waffen verzaubern (2)	800		2	1 Monat	100 GS + 5*Waffenpreis	\N
-Waffen verzaubern (4)	1600		4	1 Monat	200 GS + 5*Waffenpreis	\N
-Waffen verzaubern (6)	3500		6	1 Monat	300 GS + 5*Waffenpreis	\N
-Wahnsinn	600	Schutzrune	6	3 Stunden	5 GS	\N
-Wahnsinn	3000	Großes Siegel	6	Stufe*10 min	10 GS	\N
-Wahrsehen	3000	Augensalbe	5		100 GS	\N
-Wasser weihen	200	Weihwasser	1	1 Tag	30 GS	\N
-Weihen	20000		G			\N
-Werwesenamulett verzaubern	400	Amulett	3	1 Monat	20000 GS/ABW	\N
-Windstoß	120	Großes Siegel	1	Stufe*10 min	10 GS	\N
-Zahlenletter (1)	200	magische Letter	1		4 GS	\N
-Zahlenletter (10)	200	magische Letter	1		4 GS	\N
-Zahlenletter (11)	200	magische Letter	1		4 GS	\N
-Zahlenletter (12)	200	magische Letter	1		4 GS	\N
-Zahlenletter (13)	200	magische Letter	1		4 GS	\N
-Zahlenletter (2)	200	magische Letter	1		4 GS	\N
-Zahlenletter (3)	200	magische Letter	1		4 GS	\N
-Zahlenletter (4)	200	magische Letter	1		4 GS	\N
-Zahlenletter (5)	200	magische Letter	1		4 GS	\N
-Zahlenletter (6)	200	magische Letter	1		4 GS	\N
-Zahlenletter (7)	200	magische Letter	1		4 GS	\N
-Zahlenletter (8)	200	magische Letter	1		4 GS	\N
-Zahlenletter (9)	200	magische Letter	1		4 GS	\N
-Zauberpergament beschriften	600	Zauberpergament	3	1 Monat/Stufe	variabel	\N
-Zauberstimme	150	Großes Siegel	2	Stufe*10 min	10 GS	\N
-Zeitletter (Jahr)	400	magische Letter	2		1 GS	\N
-Zeitletter (Mond)	400	magische Letter	2		1 GS	\N
-Zeitletter (Stunde)	400	magische Letter	2		1 GS	\N
-Zeitletter (Tag)	400	magische Letter	2		1 GS	\N
-Zeitletter (Trideade)	400	magische Letter	2		1 GS	\N
-Zündletter (Bereich)	600	magische Letter	3		4 GS	\N
-Zündletter (Berührung)	600	magische Letter	3		4 GS	\N
-Zündletter (Schlüsselwort)	600	magische Letter	3		4 GS	\N
+Alarm	1000	magische Letter	4		4 GS	\N	\N
+Angst	120	Augensalbe	1		20 GS	\N	\N
+Angst	200	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N
+Anziehen	120	Augensalbe	1		20 GS	\N	\N
+Auslösen	200	magische Letter	1		1 GS	\N	\N
+Bannen von Dunkelheit	100	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N
+Bannen von Licht	100	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N
+Beeinflussen	800	Augensalbe	3		60 GS	\N	\N
+Berserkerpilz aktivieren	600	Pflanzliches Zaubermittel	2	2 Tage	500 GS	\N	\N
+Binden	10000		G			\N	\N
+Dämonenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N	\N
+Eisiger Nebel	250	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N
+Elementaramulett verzaubern	500	Amulett	3	1 Monat	ab 4000 GS/ABW	\N	\N
+Erkennen von Zauberei	300	Augensalbe	2		40 GS	\N	\N
+Farbletter (Blau)	200	magische Letter	1		1 GS	\N	\N
+Farbletter (Gelb)	200	magische Letter	1		1 GS	\N	\N
+Farbletter (Grün)	200	magische Letter	1		1 GS	\N	\N
+Farbletter (Infrarot)	200	magische Letter	1		1 GS	\N	\N
+Farbletter (Orange)	200	magische Letter	1		1 GS	\N	\N
+Farbletter (Rot)	200	magische Letter	1		1 GS	\N	\N
+Farbletter (Ultraviolett)	200	magische Letter	1		1 GS	\N	\N
+Farbletter (Violett)	200	magische Letter	1		1 GS	\N	\N
+Feuerkugel	800	Schutzrune	2	3 Stunden	5 GS	\N	\N
+Feuerkugel	2000	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N
+Feuerring	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N
+Flohpulver aktivieren	400	Alchimistisches Zaubermittel	2	3 Tage	70 GS	\N	\N
+Funkenregen	400	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N
+Geisteramulett verzaubern	2000	Amulett	4	1 Monat	1000 GS/ABW	\N	\N
+Geräuschletter (Donnern)	200	magische Letter	1		4 GS	\N	\N
+Geräuschletter (Knarren)	200	magische Letter	1		4 GS	\N	\N
+Geräuschletter (Knistern)	200	magische Letter	1		4 GS	\N	\N
+Geräuschletter (Pfeifen)	200	magische Letter	1		4 GS	\N	\N
+Graue Hand	4000	Großes Siegel	6	Stufe*10 min	10 GS	\N	\N
+Hauch des Winters	80	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N
+Heiltrunk (1W6) aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (70 GS)	\N	\N
+Krafttrunk (1W6) aktivieren	400	Alchimistisches Zaubermittel	1	1 Tag	50 GS (30 GS)	\N	\N
+Krafttrunk (2W6) aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (60 GS)	\N	\N
+Kraut der konzentrierten Energie	1200	Pflanzliches Zaubermittel	4	1 Tag	500 GS	\N	\N
+Kriegsbemalung	200	Kriegsbemalung	1	1 Tag	10/20/30 GS	\N	\N
+Kriegsbemalung	200	Kriegsbemalung	2	1 Tag	30/60/90 GS	\N	\N
+Kriegsbemalung	500	Kriegsbemalung	3	1 Tag	60/120/180 GS	\N	\N
+Kriegsbemalung	1000	Kriegsbemalung	4	1 Tag	100/200/300 GS	\N	\N
+Körperbemalung	200	Körperbemalung	1	1 Tag	10/20/30 GS	\N	\N
+Körperbemalung	200	Körperbemalung	2	1 Tag	30/60/90 GS	\N	\N
+Körperbemalung	500	Körperbemalung	3	1 Tag	60/120/180 GS	\N	\N
+Körperbemalung	1000	Körperbemalung	4	1 Tag	100/200/300 GS	\N	\N
+Liebestrank aktivieren	800	Alchimistisches Zaubermittel	3	1 Monat	300 GS 	\N	\N
+Liebeszauber	2000	Augensalbe	4		80 GS	\N	\N
+Lähmung	500	Schutzrune	5	3 Stunden	5 GS	\N	\N
+Lähmung	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N	\N
+Macht über Menschen	500	Augensalbe	3		60 GS	\N	\N
+Macht über die belebte Natur	300	Augensalbe	2		40 GS	\N	\N
+Namenloses Grauen	400	Schutzrune	4	3 Stunden	5 GS	\N	\N
+Namenloses Grauen	1600	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N
+Nebel	1000	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N
+Opferletter (Dämonen)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Elemetarwesen)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Elfen)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Geisterwesen)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Lebewesen)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Magische Wesen)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Menschen)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Menschenähnliche)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Orcs)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Tiere)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Tiermenschen)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Untote)	1000	magische Letter	4		1 GS	\N	\N
+Opferletter (Zwerge)	1000	magische Letter	4		1 GS	\N	\N
+Pulver der Panzerhaut aktivieren	800	Alchimistisches Zaubermittel	3	5 Tage	100 GS (70 GS) 	\N	\N
+Rauchperle aktivieren	800	Alchimistisches Zaubermittel	3	5 Tage	100 GS (70 GS) 	\N	\N
+Reckentrunk aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS (60 GS) 	\N	\N
+Salbe der Eisenhaut aktivieren	1200	Alchimistisches Zaubermittel	4	7 Tage	200 GS (150 GS) 	\N	\N
+Salbe der Krakenhände aktivieren	600	Alchimistisches Zaubermittel	2	3 Tage	100 GS  	\N	\N
+Schamanentrommel herstellen	1600		G			\N	\N
+Schildamulett verzaubern	100	Amulett	1	1 Monat	2000 GS/ABW	\N	\N
+Schildamulett verzaubern	200	Amulett	2	1 Monat	3000 GS/ABW	\N	\N
+Schildamulett verzaubern	300	Amulett	3	1 Monat	4000 GS/ABW	\N	\N
+Schildamulett verzaubern	400	Amulett	4	1 Monat	5000 GS/ABW	\N	\N
+Schildamulett verzaubern	500	Amulett	5	1 Monat	6000 GS/ABW	\N	\N
+Schildamulett verzaubern	600	Amulett	6	1 Monat	7000 GS/ABW	\N	\N
+Schlaf	100	Schutzrune	1	3 Stunden	5 GS	\N	\N
+Schlaf	200	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N
+Schmerzen	100	Schutzrune	2	3 Stunden	5 GS	\N	\N
+Schmerzen	200	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N
+Schnellkraut aktivieren	800	Pflanzliches Zaubermittel	3	3 Tage	200 GS	\N	\N
+Schutzamulett verzaubern	300	Amulett	1	1 Monat	600 GS/ABW	\N	\N
+Schutzamulett verzaubern	300	Amulett	2	1 Monat	1200 GS/ABW	\N	\N
+Schutzamulett verzaubern	600	Amulett	3	1 Monat	1800 GS/ABW	\N	\N
+Schutzamulett verzaubern	800	Amulett	4	1 Monat	2400 GS/ABW	\N	\N
+Schutzamulett verzaubern	1000	Amulett	5	1 Monat	3000 GS/ABW	\N	\N
+Schutzamulett verzaubern	2000	Amulett	6	1 Monat	3600 GS/ABW	\N	\N
+Schwäche	80	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N
+Sehen in Dunkelheit	200	Augensalbe	2		40 GS	\N	\N
+Sehen von Verborgenem	150	Augensalbe	2		40 GS	\N	\N
+Spiegelamulett verzaubern	200	Amulett	1	1 Monat	1000 GS/ABW	\N	\N
+Spiegelamulett verzaubern	600	Amulett	2	1 Monat	2000 GS/ABW	\N	\N
+Spiegelamulett verzaubern	1000	Amulett	3	1 Monat	3000 GS/ABW	\N	\N
+Spiegelamulett verzaubern	1500	Amulett	4	1 Monat	4000 GS/ABW	\N	\N
+Spiegelamulett verzaubern	2000	Amulett	5	1 Monat	5000 GS/ABW	\N	\N
+Spiegelamulett verzaubern	2500	Amulett	6	1 Monat	6000 GS/ABW	\N	\N
+Srimarameisterschaft	1000	Augensalbe	3		60 GS	\N	\N
+Staubkämpfer	1000	Großes Siegel	3	Stufe*10 min	10 GS	\N	\N
+Stille	200	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N
+Talisman verzaubern	200	Talisman	1	1 Tag	10/20/30 GS	\N	\N
+Talisman verzaubern	200	Talisman	2	1 Tag	30/60/90 GS	\N	\N
+Talisman verzaubern	500	Talisman	3	1 Tag	60/120/180 GS	\N	\N
+Talisman verzaubern	1000	Talisman	4	1 Tag	100/200/300 GS	\N	\N
+Tierisches Handeln	3000	Augensalbe	5		100 GS	\N	\N
+Tierisches Handeln	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N	\N
+Todeshauch	400	Schutzrune	3	3 Stunden	5 GS	\N	\N
+Todeshauch	800	Großes Siegel	3	Stufe*10 min	10 GS	\N	\N
+Trunk der Macht über Hunde aktivieren	400	Alchimistisches Zaubermittel	2	7 Tage	200 GS 	\N	\N
+Trunk der Macht über Menschen aktivieren	800	Alchimistisches Zaubermittel	4	15 Tage	500 GS 	\N	\N
+Trunk der Macht über Orks aktivieren	600	Alchimistisches Zaubermittel	3	7 Tage	300 GS 	\N	\N
+Trunk des Riesenwuchses aktivieren	800	Alchimistisches Zaubermittel	4	7 Tage	500 GS 	\N	\N
+Trunk des Schwerelosigkeit aktivieren	1200	Alchimistisches Zaubermittel	4	15 Tage	500 GS 	\N	\N
+Trunk des Unsichtbarkeit aktivieren	800	Alchimistisches Zaubermittel	3	7 Tage	300 GS 	\N	\N
+Trunk des Verwandlung aktivieren	2000	Alchimistisches Zaubermittel	5	7 Tage	500 GS 	\N	\N
+Untotenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N	\N
+Verdorren	600	Schutzrune	3	3 Stunden	5 GS	\N	\N
+Verdorren	1000	Großes Siegel	3	Stufe*10 min	10 GS	\N	\N
+Vereisen	1000	Schutzrune	4	3 Stunden	5 GS	\N	\N
+Vereisen	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N
+Verlangsamen	800	Großes Siegel	3	Stufe*10 min	10 GS	\N	\N
+Versetzen	2000	Großes Siegel	4	Stufe*10 min	10 GS	\N	\N
+Versteinern	1000	Schutzrune	5	3 Stunden	5 GS	\N	\N
+Versteinern	3000	Großes Siegel	5	Stufe*10 min	10 GS	\N	\N
+Verwandeln	1000	Schutzrune	6	3 Stunden	5 GS	\N	\N
+Verwandlung	8000	Großes Siegel	6	Stufe*10 min	10 GS	\N	\N
+Waffen verzaubern (2)	800		2	1 Monat	100 GS + 5*Waffenpreis	\N	\N
+Waffen verzaubern (4)	1600		4	1 Monat	200 GS + 5*Waffenpreis	\N	\N
+Waffen verzaubern (6)	3500		6	1 Monat	300 GS + 5*Waffenpreis	\N	\N
+Wahnsinn	600	Schutzrune	6	3 Stunden	5 GS	\N	\N
+Wahnsinn	3000	Großes Siegel	6	Stufe*10 min	10 GS	\N	\N
+Wahrsehen	3000	Augensalbe	5		100 GS	\N	\N
+Wasser weihen	200	Weihwasser	1	1 Tag	30 GS	\N	\N
+Weihen	20000		G			\N	\N
+Werwesenamulett verzaubern	400	Amulett	3	1 Monat	20000 GS/ABW	\N	\N
+Windstoß	120	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N
+Zahlenletter (1)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (10)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (11)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (12)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (13)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (2)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (3)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (4)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (5)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (6)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (7)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (8)	200	magische Letter	1		4 GS	\N	\N
+Zahlenletter (9)	200	magische Letter	1		4 GS	\N	\N
+Zauberpergament beschriften	600	Zauberpergament	3	1 Monat/Stufe	variabel	\N	\N
+Zauberstimme	150	Großes Siegel	2	Stufe*10 min	10 GS	\N	\N
+Zeitletter (Jahr)	400	magische Letter	2		1 GS	\N	\N
+Zeitletter (Mond)	400	magische Letter	2		1 GS	\N	\N
+Zeitletter (Stunde)	400	magische Letter	2		1 GS	\N	\N
+Zeitletter (Tag)	400	magische Letter	2		1 GS	\N	\N
+Zeitletter (Trideade)	400	magische Letter	2		1 GS	\N	\N
+Zündletter (Bereich)	600	magische Letter	3		4 GS	\N	\N
+Zündletter (Berührung)	600	magische Letter	3		4 GS	\N	\N
+Zündletter (Schlüsselwort)	600	magische Letter	3		4 GS	\N	\N
 \.
 --
 --

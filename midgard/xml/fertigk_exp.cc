@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.24 2002/03/02 18:55:21 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.25 2002/05/02 12:55:48 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -28,7 +28,7 @@ void fert_speichern(std::ostream &o)
    Transaction t;
    
    o << " <Fertigkeiten>\n";
-  {Query query("select fertigkeit, region, lp as lernpunkte, "
+  {Query query("select fertigkeit, region, region_zusatz, lp as lernpunkte, "
   	MIDGARD3_4("","lp_land, lp_stadt, ")
   	" anfangswert0, fp, anfangswert, "
   	MIDGARD3_4("","ungelernt, ")
@@ -42,6 +42,7 @@ void fert_speichern(std::ostream &o)
   {o << "  <Fertigkeit";
    std::string fert=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "Region Zusatz");
    fetch_and_write_int_attrib(is, o, "Lernpunkte",99); // außergewöhnliche Fertigkeit
 #ifndef MIDGARD3
    fetch_and_write_int_attrib(is, o, "Lernpunkte-Land",99);
@@ -171,13 +172,14 @@ void fert_speichern(std::ostream &o)
 #ifdef REGION // Lernschema für Typen dieser Region
   if (!region.empty())
  { FetchIStream is;
-   Query q("select fertigkeit, region from fertigkeiten "
+   Query q("select fertigkeit, region,region_zusatz from fertigkeiten "
    	+ RegionErgaenzungQuery("fertigkeiten.fertigkeit","fertigkeiten_typen","Fertigkeit","f")
    	+ "order by coalesce(region,''),fertigkeit");
   while ((q >> is).good())
   {o << "  <Fertigkeit";
    std::string fert=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "Region Zusatz");
    o << ">\n";
 
    grund_standard_ausnahme(o, "fertigkeiten_typen",fert,"",true);
@@ -220,7 +222,7 @@ void fert_speichern(std::ostream &o)
   	" where coalesce(region,'')='"+region+"'"
    	" order by region, beruf");
 #else
-   Query query("select beruf, region, land, stadt,"
+   Query query("select beruf, region,region_zusatz, land, stadt,"
    	"typ_k, typ_z, geschlecht, u,v,m,a"
    	" from berufe_voraussetzung_4"
   	" where coalesce(region,'')='"+region+"'"
@@ -231,6 +233,7 @@ void fert_speichern(std::ostream &o)
   {o << "  <Beruf";
    std::string beruf=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "Region Zusatz");
 #ifdef MIDGARD3    
    fetch_and_write_int_attrib(is, o, "Lernpunkte");
 #endif

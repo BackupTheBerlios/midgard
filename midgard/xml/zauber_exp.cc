@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.8 2002/04/05 07:05:06 thoma Exp $
+// $Id: zauber_exp.cc,v 1.9 2002/05/02 12:55:48 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -27,7 +27,7 @@ void arkanum_speichern(std::ostream &o)
 
    o << " <Zauber>\n";
  { FetchIStream is;
-   Query q("select name, region, stufe, kosten, ap, art, "
+   Query q("select name, region,region_zusatz, stufe, kosten, ap, art, "
    	"ursprung, agens, prozess, reagens, "
    	"zauberdauer, reichweite, wirkungsziel, wirkungsbereich, "
    	"wirkungsdauer, material, "
@@ -39,6 +39,7 @@ void arkanum_speichern(std::ostream &o)
   {o << "  <Spruch";
    std::string zauber=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "Region Zusatz");
    fetch_and_write_string_attrib(is, o, "Grad");
    fetch_and_write_int_attrib(is, o, "Lernkosten");
    fetch_and_write_string_attrib(is, o, "AP");
@@ -89,13 +90,14 @@ void arkanum_speichern(std::ostream &o)
 #ifdef REGION // Lernschema für Typen dieser Region
   if (!region.empty())
  { FetchIStream is;
-   Query q("select name, region from zauber "
+   Query q("select name, region,region_zusatz from zauber "
    	+ RegionErgaenzungQuery("zauber.name","zauber_typen","Zauber","z")
    	+ "order by coalesce(region,''),name");
   while ((q >> is).good())
   {o << "  <Spruch";
    std::string zauber=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "Region Zusatz");
    o << ">\n";
 
    grund_standard_ausnahme(o, "zauber_typen",zauber,"",true);
@@ -110,7 +112,7 @@ void arkanum_speichern(std::ostream &o)
    //***************** Zauberwerk ********************************
 
    o << " <Zauberwerke>\n";
-  {Query query("select name, region, art, stufe, zeitaufwand, kosten, kosten_gfp"
+  {Query query("select name, region,region_zusatz, art, stufe, zeitaufwand, kosten, kosten_gfp"
   	" from zauberwerk"
   	IF_REGION(" where coalesce(region,'')='"+region+"' ")
   	" order by coalesce(region,''),name,art,stufe");
@@ -119,6 +121,7 @@ void arkanum_speichern(std::ostream &o)
   {o << "  <Zauberwerk";
    std::string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "Region Zusatz");
    std::string art=fetch_and_write_string_attrib(is, o, "Art");
    std::string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
    fetch_and_write_string_attrib(is, o, "Zeitaufwand");
@@ -158,13 +161,14 @@ void arkanum_speichern(std::ostream &o)
 #ifdef REGION // Lernschema für Typen dieser Region
   if (!region.empty())
   {FetchIStream is;
-   Query q("select name, region, art, stufe from zauberwerk "
+   Query q("select name, region,region_zusatz, art, stufe from zauberwerk "
    	+ RegionErgaenzungQuery("zauberwerk.name","zauberwerk_typen","Zauber","z")
    	+ "order by coalesce(region,''),name");
   while ((q >> is).good())
   {o << "  <Zauberwerk";
    std::string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "Region Zusatz");
    std::string art=fetch_and_write_string_attrib(is, o, "Art");
    std::string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
    o << ">\n";
