@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.332 2004/01/02 09:22:50 christof Exp $
+// $Id: midgard_CG.cc,v 1.333 2004/01/19 10:54:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -221,4 +221,8 @@ void midgard_CG::refresh_char_list()
       		getChar(),&AbenteurerAuswahl::setAbenteurer_sig),i));
    }
    abenteurer_mi->set_submenu(*abent_menu);
+}
+
+midgard_CG::enum_notebook_main midgard_CG::get_current_page() const
+{  return enum_notebook_main(notebook_main->get_current_page());
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.345 2003/12/08 07:50:14 christof Exp $
+// $Id: midgard_CG.hh,v 1.346 2004/01/19 10:54:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -182,6 +182,7 @@ private:
          void NamenEingeben() { table_grundwerte->NamenEingeben(); }
          void refresh();
          void refresh_char_list();
+         enum_notebook_main get_current_page() const;
         // void refresh_undo_list();
 
 	// Nettigkeiten ?

@@ -1,5 +1,6 @@
 
 #include "config.h"
+#include <stdlib.h>
 #include "BegruessungsWindow.hh"
 #include "midgard_CG.hh"
 #include "bool_CheckButton.hh"

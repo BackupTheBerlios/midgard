@@ -58,7 +58,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
 { 
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
    if(!hauptfenster) return;
-   if (hauptfenster->notebook_main->get_current_page()!=PAGE_GRUNDWERTE) return;
+   if (hauptfenster->get_current_page()!=midgard_CG::PAGE_GRUNDWERTE) return;
    
    block_changed=true;
   fill_typauswahl();
