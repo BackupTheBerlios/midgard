@@ -3737,6 +3737,7 @@ editieren</label>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
 		<name>button_menu</name>
+		<tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_button_menu_button_release_event</handler>
@@ -17739,6 +17740,31 @@ andere geholfen.</label>
 	  </child>
 	</widget>
       </widget>
+    </widget>
+
+    <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap90</name>
+      <filename>MAGUS-Logo-Text-halb.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>2</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>4</top_attach>
+	<bottom_attach>5</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
     </widget>
   </widget>
 </widget>

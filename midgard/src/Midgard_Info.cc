@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.59 2002/01/23 16:46:28 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.60 2002/01/24 10:07:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,7 +66,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   std::string illutxt="Illustrationen von Werner Öckl\ncopyright 2001 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
   Gtk::Label *_li=manage (new Gtk::Label(illutxt,0,0));
   Gtk::Pixmap *_pi=manage(new Gtk::Pixmap(pdolch__xpm));
-  _li->set_justify(GTK_JUSTIFY_FILL);
+  _li->set_justify(GTK_JUSTIFY_LEFT);
   _tab->attach(*_pi,0,1,row,row+1,GTK_FILL,0,0,0);
   _tab->attach(*_li,1,3,row,row+1,GTK_FILL,0,0,0);
   ++row;
@@ -74,7 +74,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   std::string copytxt="MIDGARD ist Copyright 1981-2001 by\nVerlag für F&SF-Spiele, Stelzenberg";
   Gtk::Label *_lc=manage (new Gtk::Label(copytxt,0,0));
   Gtk::Pixmap *_pc=manage(new Gtk::Pixmap(Money_50_xpm));
-  _lc->set_justify(GTK_JUSTIFY_FILL);
+  _lc->set_justify(GTK_JUSTIFY_LEFT);
   _tab->attach(*_pc,0,1,row,row+1,GTK_FILL,0,0,0);
   _tab->attach(*_lc,1,3,row,row+1,GTK_FILL,0,0,0);
   ++row;
