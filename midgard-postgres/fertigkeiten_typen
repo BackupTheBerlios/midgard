@@ -2,12 +2,20 @@
 -- PostgreSQL database dump
 --
 
+SET client_encoding = 'LATIN1';
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
 SET search_path = public, pg_catalog;
 
-ALTER TABLE ONLY public.fertigkeiten_typen DROP CONSTRAINT fertigkeiten_typen_pkey;
-DROP INDEX public.fertigkeiten_typen_name;
 DROP INDEX public.fertigkeiten_typen_name_typ;
+DROP INDEX public.fertigkeiten_typen_name;
+ALTER TABLE ONLY public.fertigkeiten_typen DROP CONSTRAINT fertigkeiten_typen_pkey;
 DROP TABLE public.fertigkeiten_typen;
+SET default_tablespace = '';
+
+SET default_with_oids = true;
+
 --
 --
 
@@ -8588,7 +8596,8 @@ Zunge verschlucken	wHx	S
 --
 --
 
-CREATE UNIQUE INDEX fertigkeiten_typen_name_typ ON fertigkeiten_typen USING btree (name, typ);
+ALTER TABLE ONLY fertigkeiten_typen
+    ADD CONSTRAINT fertigkeiten_typen_pkey PRIMARY KEY (name, typ);
 
 
 --
@@ -8600,7 +8609,10 @@ CREATE INDEX fertigkeiten_typen_name ON fertigkeiten_typen USING btree (name);
 --
 --
 
-ALTER TABLE ONLY fertigkeiten_typen
-    ADD CONSTRAINT fertigkeiten_typen_pkey PRIMARY KEY (name, typ);
+CREATE UNIQUE INDEX fertigkeiten_typen_name_typ ON fertigkeiten_typen USING btree (name, typ);
 
+
+--
+-- PostgreSQL database dump complete
+--
 

@@ -1,0 +1,67 @@
+select '======== Fertigkeiten =========' as "===============================";
+
+select 'vorteil?' as berufe_vorteile_4,* from berufe_vorteile_4
+where not exists (select true from fertigkeiten where fertigkeit=vorteil)
+and not exists (select true from waffen where name=vorteil) and
+vorteil!='Überleben';
+
+select 'name?' as fertigkeiten_voraussetzung,* from
+fertigkeiten_voraussetzung where not exists (select true from fertigkeiten
+where fertigkeit=name);
+
+select 'fertigkeit?' as lernschema_4,* from lernschema_4 where not exists (select
+true from fertigkeiten where fertigkeiten.fertigkeit=lernschema_4.name)
+and art='Fertigkeit';
+
+select 'name?' as ausnahmen,* from ausnahmen where not exists (select
+true from fertigkeiten where fertigkeit=ausnahmen.name) and art='f';
+
+select '======== Berufe =========' as "===============================";
+
+select 'beruf?' as berufe_vorteile_4,* from berufe_vorteile_4 where not exists (
+select true from berufe_voraussetzung_4 where
+berufe_vorteile_4.beruf=berufe_voraussetzung_4.beruf);
+
+select 'beruf?' as ausnahmen,* from ausnahmen where not exists (select true
+from berufe_voraussetzung_4 where berufe_voraussetzung_4.beruf=ausnahmen.beruf)
+and art='f' and beruf!='';
+
+select '======== Zauber =========' as "===============================";
+
+select 'fertigkeit?' as lernschema_4,* from lernschema_4 where not exists
+(select true from zauber where zauber.name=lernschema_4.name) and not exists
+(select true from zauberwerk where zauberwerk.name=lernschema_4.name) and
+art='Zauber';
+
+select 'name?' as ausnahmen,* from ausnahmen where not exists (select
+true from zauber where zauber.name=ausnahmen.name) and art='z';
+
+select '======== Waffen =========' as "===============================";
+
+select 'fertigkeit?' as lernschema_4,* from lernschema_4 where not exists
+(select true from waffen where waffen.name=lernschema_4.name) and art='Waffe';
+
+select 'name?' as waffen_typen,* from waffen_typen where not exists
+(select true from waffen where waffen.name=waffen_typen.name)
+and name!='Waffen';
+
+select '======== gemeinsam ========' as "===============================";
+
+select 'pflicht?' as pflicht_lernen,* from pflicht_lernen where not exists
+(select true from waffen where name=pflicht) and not exists ( select true
+from berufe_voraussetzung_4 where pflicht=beruf) and not exists (select true
+from fertigkeiten where fertigkeit=pflicht) and pflicht!='';
+
+select 'verboten?' as pflicht_lernen,* from pflicht_lernen where not exists
+(select true from waffen where name=verboten) and not exists ( select true
+from berufe_voraussetzung_4 where verboten=beruf) and not exists (select true
+from fertigkeiten where fertigkeit=verboten) and not exists (select true
+from waffen_grund where name=verboten) and verboten!='';
+
+select '========== sonstiges =========' as "===============================";
+
+select 'schrift?' as sprache_schrift,* from sprache_schrift where not exists
+(select true from schrift where art_der_schrift=schrift.name);
+
+select 'sprache?' as sprache_schrift,* from sprache_schrift where not exists   
+(select true from sprachen where sprache_schrift.sprache=sprachen.name);

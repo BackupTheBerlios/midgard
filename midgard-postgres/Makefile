@@ -1,10 +1,11 @@
-# $Id: Makefile,v 1.68 2004/06/04 10:38:12 christof Exp $
+# $Id: Makefile,v 1.69 2004/11/26 15:55:10 christof Exp $
 #PG_DUMP=pg_dump
 PG_DUMP=/usr/local/bin/pg_dump_sort
 
 
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
-		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
+		tablename not like 'pg_%' and tablename not like 'pga_%' \
+		and tablename not like 'sql_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten zauber ausnahmen \
 	berufe_voraussetzung_4 berufe_vorteile_4 \
 	fertigkeiten fertigkeiten_voraussetzung fertigkeiten_voraussetzungen_2 \
@@ -61,6 +62,7 @@ dist: $(DIST_FILES)
 
 # install system tables unconditionally, user tables if missing
 install:
+	dropdb midgard
 	createdb -E latin1 midgard
 	# update pg_database set encoding=pg_char_to_encoding('latin1') where datname='midgard';
 	@for i in $(SYSTEM_TABLES) ; \

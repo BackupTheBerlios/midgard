@@ -1,7 +1,4 @@
 #!/bin/sh
 
-grep -v '^-- TOC Entry ID .* (OID .*)$' \
-| grep -v '^-- TOC entry .* (OID .*)$' \
-| grep -v '^-- Name: .* Type: .* Owner: .*$' \
-| grep -v '^-- Data for TOC Entry ID .* (OID .*)$' \
-| grep -v '^-- Data for TOC entry .* (OID .*)$'
+grep -v '^-- Name: .*; Type: .*; Schema: .*; Owner: .*; Tablespace: .*$' \
+| grep -v '^-- Data for Name: .*; Type: TABLE DATA; Schema: .*; Owner: .*$' 

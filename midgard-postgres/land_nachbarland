@@ -2,11 +2,19 @@
 -- PostgreSQL database dump
 --
 
+SET client_encoding = 'LATIN1';
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
 SET search_path = public, pg_catalog;
 
-ALTER TABLE ONLY public.land_nachbarland DROP CONSTRAINT land_nachbarland_pkey;
 DROP INDEX public.land_nachbarland_land_1_land_2;
+ALTER TABLE ONLY public.land_nachbarland DROP CONSTRAINT land_nachbarland_pkey;
 DROP TABLE public.land_nachbarland;
+SET default_tablespace = '';
+
+SET default_with_oids = true;
+
 --
 --
 
@@ -65,13 +73,17 @@ Tegarische Steppe	Valian
 --
 --
 
+ALTER TABLE ONLY land_nachbarland
+    ADD CONSTRAINT land_nachbarland_pkey PRIMARY KEY (land_1, land_2);
+
+
+--
+--
+
 CREATE UNIQUE INDEX land_nachbarland_land_1_land_2 ON land_nachbarland USING btree (land_1, land_2);
 
 
 --
+-- PostgreSQL database dump complete
 --
-
-ALTER TABLE ONLY land_nachbarland
-    ADD CONSTRAINT land_nachbarland_pkey PRIMARY KEY (land_1, land_2);
-
 
