@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:11.707946+02" MAGUS-Index="7" MAGUS-Bild="2">
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:01:05.379278+02" MAGUS-Index="7" MAGUS-Bild="2">
  <Schriften>
   <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
    <Variante Name="KanThaiTun(1)"/>
@@ -84,6 +84,7 @@
    <Standard Typ="Tt"/>
    <Standard Typ="Wa"/>
    <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PM"/>
@@ -114,6 +115,7 @@
    <Standard Typ="Hä"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Or"/>
    <Standard Typ="PK"/>
@@ -167,6 +169,7 @@
    <Standard Typ="Dt"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Kd"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
@@ -240,6 +243,7 @@
    <Standard Typ="Gl"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Hä"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Ny"/>
@@ -286,6 +290,7 @@
    <Standard Typ="Hä"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Ny"/>
@@ -348,6 +353,7 @@
    <Standard Typ="Hj"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Hä"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="PC"/>
@@ -413,6 +419,7 @@
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -451,6 +458,7 @@
    <Standard Typ="Hä"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Ny"/>
@@ -498,6 +506,7 @@
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Hl"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
@@ -564,6 +573,7 @@
    <Standard Typ="Hä"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Ny"/>
@@ -631,6 +641,7 @@
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="PC"/>
@@ -679,6 +690,7 @@
    <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Or"/>
@@ -732,6 +744,7 @@
    <Standard Typ="Hä"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Ny"/>
@@ -772,6 +785,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Lesen von Geisterschrift" Region="K" Lernpunkte="8" Anfangswert="12" Lernkosten="20" Erfolgswert="6" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="15">
    <Grund Typ="Hl"/>
+   <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
@@ -877,6 +891,7 @@
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="dBe"/>
@@ -922,6 +937,7 @@
    <Standard Typ="Gl"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Hä"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Se"/>
@@ -973,6 +989,7 @@
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1000,6 +1017,7 @@
    <EP-Typ KEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Steinabreibungen machen" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="60" Erfolgswert="4" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
+   <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
@@ -1089,6 +1107,7 @@
    <Standard Typ="Gl"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Hä"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Se"/>
@@ -1140,6 +1159,7 @@
    <Standard Typ="Hl"/>
    <Standard Typ="Hä"/>
    <Standard Typ="Kr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Ny"/>
@@ -1214,6 +1234,7 @@
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="dBe"/>
@@ -1809,6 +1830,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1868,6 +1890,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1927,6 +1950,7 @@
    <Standard Typ="Wi"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1986,6 +2010,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2047,6 +2072,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2108,6 +2134,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2170,6 +2197,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2231,6 +2259,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2290,6 +2319,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2350,6 +2380,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2650,6 +2681,14 @@
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
   </Waffe>
+  <Waffe Name="Dreizack" Region="G">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
+  <Waffe Name="Zweizack" Region="G">
+   <Standard Typ="Kd"/>
+   <Standard Typ="Ny"/>
+  </Waffe>
   <Waffe Name="Namisritra" Region="R">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
@@ -2799,6 +2838,7 @@
   </Spruch>
   <Spruch Name="Doppelgänger schaffen" Region="K" Grad="6" Lernkosten="6000" AP="9" Typ="Geste" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Haare, Nägel, Speichel und Blut">
    <Grund Typ="Km"/>
+   <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
    <Standard Typ="De"/>
@@ -2815,6 +2855,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="Th"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
@@ -2855,6 +2896,7 @@
    <Grund Typ="ScW"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PW"/>
    <Standard Typ="Sw"/>
@@ -2872,6 +2914,7 @@
    <Grund Typ="PHe"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
@@ -2938,6 +2981,7 @@
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="To"/>
    <Standard Typ="gHx"/>
@@ -2976,6 +3020,7 @@
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3010,6 +3055,7 @@
    <Standard Typ="Dt"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PW"/>
    <Standard Typ="Sa"/>

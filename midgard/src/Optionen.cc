@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.88 2002/09/27 19:56:21 thoma Exp $
+// $Id: Optionen.cc,v 1.89 2002/10/18 08:36:47 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -274,10 +274,10 @@ void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index)
 {
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
    {
-     if(i->active) deactivate_Original();
      if(i->index==index) 
       { 
         hauptfenster->show_Hausregeln_active(i->active);
+        if(i->active) deactivate_Original();
         return;
       }
    }

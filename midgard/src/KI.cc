@@ -40,17 +40,12 @@ void MagusKI::VerteileGFP(int gfp,const Prozente100 &p,
      if(gfp!=gfpmem) {gfpmem=gfp; count=0;}
      else ++count;
 
-//cout << Aben.getWerte().Grad()<<' '<<Aben.getWerte().GFP()<<'\t'<<gfp<<'\n';
      int kosten=teste_auf_gradanstieg();
      gfp-=kosten;
-//cout << Aben.getWerte().Grad()<<' '<<Aben.getWerte().GFP()<<'\t'<<gfp<<'\n';
-/*
-     if     (i>=spezial_allgemein) cerr << i<<' '<<spezial_allgemein<<"\tSteigern\t"<<was<<'\t';
-     else                          cerr << i<<' '<<spezial_allgemein<<"\tNeuLenren\t"<<was<<'\t';
-cout << "Noch "<< (gfp-=10)<<" GFP\n";
-*/
    }
   if(count==MAXCOUNT) hauptfenster->set_status("Steigern abgebrochen, weil "+itos(MAXCOUNT)+" Versuche erfolglos blieben.");
+  // Das Alter anpassen
+  Aben.Steigertage2Alter();
 }
 
 std::vector<MBEmlt> List_to_Vector(const std::list<MBEmlt> &L)

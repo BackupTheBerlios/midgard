@@ -43,7 +43,7 @@ void frame_drucken::init()
      if(i->index==Midgard_Optionen::anderer) 
       { Gtk::Button *b=manage(new class Gtk::Button("..."));
         b->clicked.connect(SigC::slot(this,&frame_drucken::on_button_pdf_viewer_clicked));
-        table->attach(*b,1,2,count,count+1,GTK_FILL,0,0,0);
+        table->attach(*b,1,2,count+1,count+2,GTK_FILL,0,0,0);
       }
      ++count;
    }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:37.814485+02" MAGUS-Index="6" MAGUS-Bild="8">
+<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:01:30.692505+02" MAGUS-Index="6" MAGUS-Bild="8">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -42,6 +42,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Ku"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -103,6 +104,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Ku"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -177,6 +179,7 @@
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -230,6 +233,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Ku"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -274,6 +278,7 @@
   <Fertigkeit Name="Akribie" Region="N" Anfangswert="17" Lernkosten="100" Attribut="In">
    <Grund Typ="Dt"/>
    <Standard Typ="Dr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Sw"/>
    <Standard Typ="Th"/>
@@ -353,6 +358,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Ku"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -418,6 +424,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Ku"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -487,6 +494,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Ku"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -1300,6 +1308,16 @@
    <regionaleVariante Name="Rundschild" Region="N" Schadensbonus="-1"/>
    <Lernschema Typ="Tr" Lernpunkte="4" Erfolgswert="1"/>
   </Waffe>
+  <Waffe Name="Dreizack" Region="G">
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Ausnahme Typ="Dt"/>
+  </Waffe>
+  <Waffe Name="Zweizack" Region="G">
+   <Standard Typ="Tr"/>
+   <Standard Typ="Tt"/>
+   <Ausnahme Typ="Dt"/>
+  </Waffe>
  </Waffen>
  <Waffen-Grundkenntnisse/>
  <Zauber>
@@ -1325,6 +1343,7 @@
    <Standard Typ="Hl"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PHa"/>
@@ -1409,6 +1428,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Nb"/>
    <Ausnahme Typ="Sa"/>
@@ -1474,7 +1494,7 @@
    <Standard Typ="Tt"/>
    <Lernschema Typ="Tt" Lernpunkte="3"/>
   </Spruch>
-  <Spruch Name="Ixtantzutuhs Schönheit" Region="N" Grad="3" Lernkosten="1000" AP="3" Typ="Tanz" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="göttlich" Zauberart="Tanz">
+  <Spruch Name="Ixtantzutuhs Schönheit" Region="N" Grad="3" Lernkosten="1000" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Zauberart="Tanz">
    <Grund Typ="PF"/>
    <Grund Typ="Tt"/>
    <Grund Typ="gHx"/>
@@ -1572,6 +1592,7 @@
    <Standard Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PHa"/>
@@ -1654,6 +1675,7 @@
    <Grund Typ="Tm"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PF"/>
    <Standard Typ="PHa"/>
@@ -1734,6 +1756,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Nb"/>
    <Ausnahme Typ="PHa"/>

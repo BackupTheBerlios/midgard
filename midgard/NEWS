@@ -1,14 +1,14 @@
 ##########################################################################
 NEWS IN VERSION 0.8.8
 
-* KI berücksichtigt Grund-, Standard und Ausnahmefähigkeiten.
-* Icons werden jetzt auch in der Statusleiste umgeschaltet
-* Kein Absturz mehr bei Würfelvarianten 'best of nine' und 'Zuweisen'
-- .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
-	(schon seit 0.7.6 erledigt)
+* kleinere Bugfixes
+* 'Alles an GFP anpassen' steigert Abwehr/Resistenz/Zaubern/...
+   auch bei Zwischenstufen.
+* Hausregel funktioniert wieder
 
 TODO: ('-' zeigt CP an)
 
+* Grundkenntnisse des Meeresmagier
 * Hilfe Menü ans Ende
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
@@ -33,6 +33,11 @@ NEWS IN VERSION 0.8.7
 * Datenbankkorekturen (Zauber) (Dank an Sandro)
 * Oberfläche: Die Kopfzeile einer Liste bleibt jetzt stehen wenn man scrollt :-)
 * Ausrüstungsauswahl (Code und Oberfläche) überarbeitet => funktioniert wieder
+* KI berücksichtigt Grund-, Standard und Ausnahmefähigkeiten.
+* Icons werden jetzt auch in der Statusleiste umgeschaltet
+* Kein Absturz mehr bei Würfelvarianten 'best of nine' und 'Zuweisen'
+- .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
+	(schon seit 0.7.6 erledigt)
 
 
 

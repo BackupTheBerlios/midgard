@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.36 2002/10/14 07:41:03 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.37 2002/10/18 08:36:47 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -78,6 +78,8 @@ public:
    bool is_mage() const ;
    std::string Muttersprache() const {return muttersprache;}
    void setMuttersprache(std::string s) {muttersprache=s;}
+   void Steigertage2Alter();
+
 
    const std::string Beruf() const;
    const std::list<MBEmlt>& List_Beruf() const {return list_Beruf;}

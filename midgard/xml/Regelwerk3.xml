@@ -868,6 +868,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1149,6 +1150,16 @@
    <Lernschema Typ="dBe" Lernpunkte="9" Erfolgswert="4"/>
    <Lernschema Typ="eBe" Lernpunkte="9" Erfolgswert="4"/>
   </Waffe>
+  <Waffe Name="Dreizack" Region="G">
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="tBe"/>
+  </Waffe>
+  <Waffe Name="Zweizack" Region="G">
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="tBe"/>
+  </Waffe>
   <Waffe Name="BuKasa" Region="K">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
@@ -1316,6 +1327,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1346,6 +1358,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1374,6 +1387,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1405,6 +1419,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1434,6 +1449,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1461,6 +1477,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1492,6 +1509,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1520,6 +1538,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1551,6 +1570,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1580,6 +1600,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1609,6 +1630,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1640,6 +1662,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1668,6 +1691,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1699,6 +1723,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1726,6 +1751,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1754,6 +1780,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1783,6 +1810,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1812,6 +1840,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1841,6 +1870,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1869,6 +1899,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1896,6 +1927,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1924,6 +1956,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1953,6 +1986,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1982,6 +2016,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2011,6 +2046,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2039,6 +2075,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2067,6 +2104,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2094,6 +2132,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2123,6 +2162,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2150,6 +2190,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2177,6 +2218,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2203,6 +2245,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2231,6 +2274,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2261,6 +2305,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2287,6 +2332,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2314,6 +2360,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2343,6 +2390,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2371,6 +2419,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2398,6 +2447,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2426,6 +2476,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2455,6 +2506,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2483,6 +2535,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2511,6 +2564,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2539,6 +2593,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2569,6 +2624,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2595,6 +2651,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2623,6 +2680,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2651,6 +2709,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2679,6 +2738,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2707,6 +2767,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2737,6 +2798,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2766,6 +2828,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2795,6 +2858,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2823,6 +2887,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2850,6 +2915,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2878,6 +2944,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2906,6 +2973,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2934,6 +3002,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2965,6 +3034,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -2991,6 +3061,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3019,6 +3090,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3048,6 +3120,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3076,6 +3149,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3104,6 +3178,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3132,6 +3207,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3161,6 +3237,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3189,6 +3266,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3217,6 +3295,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3245,6 +3324,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3272,6 +3352,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3300,6 +3381,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3329,6 +3411,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3358,6 +3441,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3386,6 +3470,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3413,6 +3498,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3442,6 +3528,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3471,6 +3558,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3499,6 +3587,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3527,6 +3616,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3554,6 +3644,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3584,6 +3675,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3612,6 +3704,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3644,6 +3737,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3665,6 +3759,7 @@
    <Ausnahme Typ="wHx"/>
   </Spruch>
   <Spruch Name="Lehrersuche" Region="3" Grad="1" Lernkosten="3000" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Luft" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Zauberart="Beschwörung">
+   <Grund Typ="MMa"/>
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
    <Standard Typ="Dr"/>
@@ -3698,6 +3793,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3728,6 +3824,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3758,6 +3855,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3786,6 +3884,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3814,6 +3913,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3842,6 +3942,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3870,6 +3971,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3899,6 +4001,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3927,6 +4030,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3955,6 +4059,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3983,6 +4088,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4012,6 +4118,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4038,6 +4145,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4068,6 +4176,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4096,6 +4205,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4127,6 +4237,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4153,6 +4264,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4181,6 +4293,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4211,6 +4324,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4241,6 +4355,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4270,6 +4385,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4298,6 +4414,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4327,6 +4444,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4354,6 +4472,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4386,6 +4505,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4413,6 +4533,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4443,6 +4564,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4475,6 +4597,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4506,6 +4629,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4533,6 +4657,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4564,6 +4689,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4595,6 +4721,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4623,6 +4750,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4652,6 +4780,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4682,6 +4811,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4709,6 +4839,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4737,6 +4868,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4765,6 +4897,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4793,6 +4926,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4822,6 +4956,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4848,6 +4983,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4876,6 +5012,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4905,6 +5042,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4932,6 +5070,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -4962,6 +5101,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:17.926821+02" MAGUS-Index="8" MAGUS-Bild="1">
+<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:01:09.889914+02" MAGUS-Index="8" MAGUS-Bild="1">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -37,6 +37,7 @@
    <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -91,6 +92,7 @@
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Hl"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PC"/>
    <Standard Typ="PK"/>
@@ -146,6 +148,7 @@
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Astrologie" Region="R" Lernpunkte="4" Anfangswert="5" Lernkosten="400" Erfolgswert="4" Attribut="Zt" Berufskategorie="2" Maximalwert="12" MaximalMitUnterweisung="11">
+   <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
@@ -220,6 +223,7 @@
    <Standard Typ="Hä"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Ny"/>
@@ -280,6 +284,7 @@
    <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -336,6 +341,7 @@
    <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -432,6 +438,7 @@
    <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Ny"/>
    <Ausnahme Typ="Or"/>
@@ -489,6 +496,7 @@
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Or"/>
@@ -565,6 +573,7 @@
    <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -651,6 +660,7 @@
    <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Ny"/>
@@ -1353,6 +1363,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1656,6 +1667,14 @@
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Waffe>
+  <Waffe Name="Dreizack" Region="G">
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="Sa"/>
+  </Waffe>
+  <Waffe Name="Zweizack" Region="G">
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="Sa"/>
+  </Waffe>
   <Waffe Name="BuKasa" Region="K">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
@@ -1733,6 +1752,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1786,6 +1806,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Hl"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1926,6 +1947,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
   <Spruch Name="Der kleine Seiltrick" Region="R" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="-" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="5 min">
@@ -1936,6 +1958,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
   <Spruch Name="Götterarme" Region="R" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="10 min">
@@ -1949,6 +1972,7 @@
    <Standard Typ="Dt"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
@@ -2029,6 +2053,7 @@
    <Standard Typ="Dr"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="sHx"/>
    <Ausnahme Typ="To"/>
@@ -2040,6 +2065,7 @@
    <Standard Typ="Dr"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="sHx"/>
    <Ausnahme Typ="To"/>

@@ -205,16 +205,7 @@ const MBEmlt &table_steigern::getSelectedNotebookLernen() throw(TreeBase::noRowS
 
 void table_steigern::on_button_alter_clicked()
 {
-  float tage=hauptfenster->getChar()->getWerte().Steigertage();
-  int alter=hauptfenster->getChar()->getWerte().Alter();
-  int tage_pro_jahr=360;
-  while(tage>tage_pro_jahr)
-   {
-     alter+=1;
-     tage-=tage_pro_jahr;
-   }
-  hauptfenster->getChar()->getWerte().setAlter(alter);
-  hauptfenster->getChar()->getWerte().setSteigertage(tage);
+  hauptfenster->getChar()->Steigertage2Alter();
   zeige_werte();
 }
 

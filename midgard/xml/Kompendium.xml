@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:54.98375+02" MAGUS-Index="1" MAGUS-Bild="12">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:02:00.284152+02" MAGUS-Index="1" MAGUS-Bild="12">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -127,6 +127,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="Tm"/>
@@ -2721,6 +2722,28 @@
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
   </Waffe>
+  <Waffe Name="Dreizack" Region="G">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Sw"/>
+  </Waffe>
+  <Waffe Name="Zweizack" Region="G">
+   <Standard Typ="Fi"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="RiN"/>
+   <Standard Typ="RiS"/>
+   <Standard Typ="To"/>
+   <Standard Typ="Wi"/>
+   <Ausnahme Typ="Hj"/>
+   <Ausnahme Typ="Sw"/>
+  </Waffe>
   <Waffe Name="BuKasa" Region="K">
    <Grund Typ="RiN"/>
    <Grund Typ="RiS"/>
@@ -3155,6 +3178,7 @@
    <Grund Typ="Km"/>
    <Grund Typ="Wi"/>
    <Standard Typ="Dr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Or"/>
    <Standard Typ="PF"/>
@@ -3194,6 +3218,7 @@
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="To"/>
    <Lernschema Typ="Hj" Lernpunkte="4"/>
   </Spruch>
@@ -3209,6 +3234,7 @@
    <Standard Typ="Wi"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="gHx"/>
@@ -3228,6 +3254,7 @@
    <Standard Typ="wHx"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3247,6 +3274,7 @@
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
@@ -3293,6 +3321,7 @@
    <Standard Typ="ScW"/>
    <Standard Typ="To"/>
    <Ausnahme Typ="De"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="PC"/>
@@ -3316,6 +3345,7 @@
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Dr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
@@ -3343,6 +3373,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Ausnahme Typ="De"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PHa"/>
@@ -3367,6 +3398,7 @@
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Fi"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3386,6 +3418,7 @@
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Lernschema Typ="Sw" Lernpunkte="4"/>
   </Spruch>
@@ -3400,6 +3433,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -3451,6 +3485,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
   <Spruch Name="Wandwandeln" Region="TuT" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="verwandelt" Reagens="Erde" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="1 min" Thaumagramm="Siegel">
@@ -3461,6 +3496,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
   <Spruch Name="Wittern" Region="TuT" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="25m Uk" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="10 min" Material="Spürhundhaare (5 SS)" Thaumagramm="Siegel">
@@ -3479,6 +3515,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
   <Spruch Name="Zaubersprung" Region="TuT" Grad="4" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="5 s" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min">
@@ -5478,11 +5515,27 @@
   <Spruch Name="Damhsa an Duiseacht (Tanz des Erwachens)" Region="G">
    <Grund Typ="Fi"/>
   </Spruch>
+  <Spruch Name="Heimfeder" Region="G">
+   <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+  </Spruch>
+  <Spruch Name="Meeressegen" Region="G">
+   <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="To"/>
+   <Ausnahme Typ="Wi"/>
+  </Spruch>
   <Spruch Name="Rince an Coisreacan (Reigen der Weihe)" Region="G">
    <Standard Typ="Fi"/>
   </Spruch>
   <Spruch Name="Rince na Daoine Maithe (Reigen des Feenvolks)" Region="G">
    <Grund Typ="Fi"/>
+  </Spruch>
+  <Spruch Name="Windgunst" Region="G">
+   <Standard Typ="Km"/>
+   <Ausnahme Typ="To"/>
   </Spruch>
   <Spruch Name="Aggression" Region="H&amp;D">
    <Ausnahme Typ="Km"/>

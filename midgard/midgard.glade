@@ -1037,7 +1037,7 @@
 		<widget>
 		  <class>GtkPixmap</class>
 		  <name>pixmap60</name>
-		  <filename>SchliessenIII-50.xpm</filename>
+		  <filename>ulf_24_info.xpm</filename>
 		  <xalign>0.5</xalign>
 		  <yalign>0.5</yalign>
 		  <xpad>0</xpad>
@@ -1112,8 +1112,6 @@
 		<widget>
 		  <class>GtkLabel</class>
 		  <name>label329</name>
-		  <width>48</width>
-		  <height>16</height>
 		  <label>Knöpfe, Logo
 &amp; HTML</label>
 		  <justify>GTK_JUSTIFY_CENTER</justify>

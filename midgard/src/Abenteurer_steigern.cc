@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.6 2002/10/01 11:07:10 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.7 2002/10/18 08:36:47 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -471,7 +471,7 @@ int Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &in
   info+="Ausdauerpunkte für Grad "+itos(getWerte().Grad())+": "
    "Gewürfelt("+itos(ap)+") + Bonus für Typ("+itos(nab)
    +") + Persönlichen Bonus("+itos(getWerte().bo_Au())
-   +") + Spezies-Bonus("+itos(nspez)+")";
+   +") + Spezies-Bonus("+itos(nspez)+") = "+itos(nap)+" AP";
    // Für alle ist die AP-anzahel mind. = Grad
   if (getWerte().AP()<getWerte().Grad()) getWerte().setAP(getWerte().Grad());
    // Neue AP höher als alte?
@@ -540,6 +540,10 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
 
 void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf=-1)
 {
+  if(getWerte().Grad() <= getWerte().get_Grad_Basiswerte())
+   {info+="Für Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewürfelt";
+    return;
+   }
   // Erhöhen der Schicksalsgunst
   { int n=Database.GradAnstieg.get_Schicksalsgunst(getWerte().Grad());
     if(getWerte().Spezies()->Name()=="Halbling") n=n+2;
@@ -588,3 +592,19 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
     }
   getWerte().set_Grad_Basiswerte(1+getWerte().get_Grad_Basiswerte());
 }
+
+
+void Abenteurer::Steigertage2Alter()
+{
+  float tage=getWerte().Steigertage();
+  int alter=getWerte().Alter();
+  int tage_pro_jahr=360;
+  while(tage>tage_pro_jahr)
+   {
+     alter+=1;
+     tage-=tage_pro_jahr;
+   }
+  getWerte().setAlter(alter);
+  getWerte().setSteigertage(tage);
+}
+

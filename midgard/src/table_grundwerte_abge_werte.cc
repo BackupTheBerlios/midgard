@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.10 2002/09/23 06:34:08 thoma Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.11 2002/10/18 08:36:47 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -112,6 +112,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
        if (11<=istand&&istand<=50) stand =  Vstand[2];
        if (51<=istand&&istand<=90) stand =  Vstand[3];
        if (istand>=91) stand =  Vstand[4];;
+       if (hauptfenster->getAben().Typ1()->Short()=="MMa") stand =  Vstand[3];
      }
     else if(hauptfenster->getWerte().Spezies()->Name()=="Halbling" ||
             hauptfenster->getWerte().Spezies()->Name()=="Waldgnom" ||

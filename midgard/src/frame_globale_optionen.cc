@@ -104,7 +104,8 @@ void frame_globale_optionen::element_activate_C(gpointer gp,Midgard_Optionen::Op
   hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(index);
   if(index==Midgard_Optionen::Original)
    {
-    hauptfenster->getOptionen()->setAllHausregeln(false);
+    if(hauptfenster->getOptionen()->OptionenCheck(index).active)
+       hauptfenster->getOptionen()->setAllHausregeln(false);
     init();
    }
 }

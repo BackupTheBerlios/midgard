@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-09 18:24:47.308675+02" MAGUS-Index="9" MAGUS-Bild="7">
+<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:01:46.820647+02" MAGUS-Index="9" MAGUS-Bild="7">
  <Schriften>
   <Schrift Name="Futhark" Region="W" Typ="Runen" Kosten="20">
    <Variante Name="Futhark"/>
@@ -47,6 +47,7 @@
    <Standard Typ="Dt"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Hl"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Sa"/>
@@ -954,6 +955,14 @@
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Waffe>
+  <Waffe Name="Dreizack" Region="G">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="Zweizack" Region="G">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
   <Waffe Name="BuKasa" Region="K">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
@@ -1227,6 +1236,7 @@
    <Standard Typ="Dt"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>

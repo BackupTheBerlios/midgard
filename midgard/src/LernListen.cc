@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.17 2002/09/30 05:51:25 thoma Exp $
+// $Id: LernListen.cc,v 1.18 2002/10/18 08:36:47 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -290,6 +290,7 @@ bool LernListen::SpracheSchrift(const cH_MidgardBasicElement& MBE)
          fert=="Schreiben: Muttersprache(+9)" ||
          fert=="Schreiben: Muttersprache(+4)" ||
          fert=="Schreiben: Alte Sprache(+12)" ||
+         fert=="Schreiben: Alte Sprache(+4)" ||
          fert=="Schreiben" )
     { back=true;   }   
  else if(fert=="Muttersprache")
