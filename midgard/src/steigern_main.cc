@@ -198,6 +198,10 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
     button_grad_zaubern->set_sensitive(false);
     frame_pp_zaubern->set_sensitive(false);
   }
+ if(pagenr==PAGE_LERNEN)
+  {
+   show_gelerntes();
+  }
  if(pagenr==PAGE_STEIGERN)
   {
     menu_gradanstieg_init();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.59 2002/03/27 09:08:36 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.60 2002/04/11 06:11:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -155,13 +155,16 @@ void midgard_CG::beruf_gewuerfelt(int wurf)
 
 void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
 {
+ try{
     const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
     cH_MidgardBasicElement mbe(&*cH_Beruf(dt->Beruf()));
-//    MidgardBasicElement_uebernehmen(mbe);
     list_Beruf.clear(); // es kann nur einen Beruf geben
     list_Beruf.push_back(mbe);
-                   
-    if(dt->Gelernt()) // Erfolgswert um eins erhöhen
+
+    if(dt->Fert()=="Schmecken+10") 
+        Werte.setSinn("Schmecken",10);
+    else if(dt->Gelernt()) // Erfolgswert um eins erhöhen
+     {
       for (std::list<cH_MidgardBasicElement>::const_iterator k=list_Fertigkeit.begin();k!=list_Fertigkeit.end();++k)
         {
           if((*k)->Name()==dt->Fert())
@@ -170,6 +173,7 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
                 cH_Fertigkeit(*k)->setLernArt("Beruf+");
            }
         }
+     }
     else // neue Fertigkeit
       {
          cH_MidgardBasicElement MBE(&*cH_Fertigkeit(dt->Fert()));
@@ -178,6 +182,7 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
          if(MBE->Name()!="Landeskunde (Heimat)")
             list_Fertigkeit.push_back(MBE);
       }
+
     if (!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4))
       {
          tree_lernschema->clear();
@@ -192,4 +197,5 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
          BKategorie.kat_IV=false;
       }
  show_gelerntes();
+ }catch(std::exception &e) {cerr << e.what()<<'\n';}
 }

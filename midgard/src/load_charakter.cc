@@ -182,8 +182,8 @@ void midgard_CG::xml_import(const std::string& datei)
    filename=datei;
 }
 
-void midgard_CG::Typ_Geschlecht_Spezies_setzen() {  
-
+void midgard_CG::Typ_Geschlecht_Spezies_setzen() 
+{  
    if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
    if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
 

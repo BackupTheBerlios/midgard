@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.34 2002/04/10 15:58:49 thoma Exp $
+// $Id: WindowInfo.cc,v 1.35 2002/04/11 06:11:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -80,21 +80,21 @@ WindowInfo::WindowInfo(midgard_CG* h)
   hide();
 }
 
-void WindowInfo::AppendShow(const std::string& s, emodus modus)
+void WindowInfo::AppendShow(const std::string& s, emodus modus,int anzahl)
 { 
   Modus=modus;
   Gtk::OStream os(LogWin->get_list());
   os << s <<'\n';
-  Flush();
+  Flush(anzahl);
 }
 
-void WindowInfo::AppendShow(const std::string& s, emodus modus,cH_MidgardBasicElement& _MBE)
+void WindowInfo::AppendShow(const std::string& s, emodus modus,cH_MidgardBasicElement& _MBE,int anzahl)
 {
   MBE=_MBE;
-  AppendShow(s,modus); 
+  AppendShow(s,modus,anzahl); 
 }
 
-void WindowInfo::Flush()
+void WindowInfo::Flush(int anzahl)
 {
   Gtk::OStream os(LogWin->get_list());
   os.flush();
@@ -102,7 +102,7 @@ void WindowInfo::Flush()
 
   show();
   if (Modus==None || Modus==Autoclean) bestaetigen(false) ;
-  else if (Modus==PraxisPunkteMBE) auswahl();
+  else if (Modus==PraxisPunkteMBE) auswahl(anzahl);
   else bestaetigen(true);
 
 /*
@@ -115,12 +115,12 @@ void WindowInfo::Flush()
 }
 
 
-void WindowInfo::auswahl()
+void WindowInfo::auswahl(int anz)
 {
   table_bestaetigen->hide();
   table_schliessen->hide();
-  Gtk::Table *table_auswahl = manage(new class Gtk::Table(1, 5, true));
-  for(int i=0;i<5;++i)
+  Gtk::Table *table_auswahl = manage(new class Gtk::Table(1, anz, true));
+  for(int i=0;i<anz;++i)
    {
      Gtk::Pixmap *p = manage(new class Gtk::Pixmap(Excl_32_xpm));
      Gtk::Label  *l = manage(new class Gtk::Label(itos(i+1)+"."));

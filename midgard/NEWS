@@ -9,10 +9,12 @@ NEWS IN VERSION 0.5delta1
    => Speziesfertigkeiten behalten ihren höheren Erfolgswert
    => Ein alter Hack ist jetzt nicht mehr nötig *freu*
 * InfoFenster überarbeitet
-
+* Steigern einer oder mehrerer Stufen mit PP wenn die Fertigkeit weniger 
+   als 40 FP kostet
+* Berufsfertigkeit 'Schmecken+10' kann gelernt werden
 
 TODO:
-* Steigern mehrerer Stufen mit PP
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Waeland: Zauber
 * Nahuathlan: Komplett
 * Eschar: Derwisch
