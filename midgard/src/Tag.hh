@@ -1,4 +1,4 @@
-// $Id: Tag.hh,v 1.14 2001/04/25 07:59:16 christof Exp $
+// $Id: Tag.hh,v 1.17 2002/05/29 10:20:52 christof Exp $
 /*  glade--: C++ frontend for glade (Gtk+ User Interface Builder)
  *  Copyright (C) 1998-2002  Christof Petig
  *
@@ -86,7 +86,7 @@ public:
 	
 	const std::string &getAttr(const std::string &name, const std::string &def="") const throw();
 	void setAttr(const std::string &name, const std::string &value);
-	
+	bool hasAttr(const std::string &name) const throw();
 	bool getBoolAttr(const std::string &typ,bool def=false) const throw();
 	int getIntAttr(const std::string &typ,int def=0) const throw();
 	float getFloatAttr(const std::string &typ,float def=0) const throw();

@@ -1,4 +1,4 @@
-// $Id: Tag.cc,v 1.15 2001/04/25 07:59:16 christof Exp $
+// $Id: Tag.cc,v 1.19 2002/05/29 10:20:52 christof Exp $
 /*  glade--: C++ frontend for glade (Gtk+ User Interface Builder)
  *  Copyright (C) 1998-2002  Christof Petig
  *
@@ -69,28 +69,33 @@ bool Tag::hasTag(const std::string &typ) const throw()
 }
 
 bool Tag::parse_bool_value(const std::string &value, bool def)
-{  if (!strcasecmp(value.c_str(),"true")) return true;
+{  if (value.empty()) return def;
+   if (!strcasecmp(value.c_str(),"true")) return true;
    if (!strcasecmp(value.c_str(),"false")) return false;
    std::cerr << "strange bool value: \"" << value << "\"\n";
    return parse_int_value(value, def);
 }
 
 int Tag::parse_int_value(const std::string &value, int def)
-{  // 2do: check
+{  if (value.empty()) return def;
+   // 2do: check
    return atoi(value.c_str());
 }
 
 long Tag::parse_long_value(const std::string &value, long def)
-{  return atol(value.c_str());
+{  if (value.empty()) return def;
+   return atol(value.c_str());
 } 
 
 float Tag::parse_float_value(const std::string &value, float def)
-{  // 2do: check
+{  if (value.empty()) return def;
+   // 2do: check
    return atof(value.c_str());
 }
 
 double Tag::parse_double_value(const std::string &value, double def)
-{  return atof(value.c_str());
+{  if (value.empty()) return def;
+   return atof(value.c_str());
 }
 
 const std::string Tag::getString(const std::string &typ,const std::string &def) const throw()
@@ -132,6 +137,10 @@ Tag::attvec_t::iterator Tag::attfind(const std::string &name)
 
 Tag::attvec_t::const_iterator Tag::attfind(const std::string &name) const
 {  return std::find(attributes.begin(),attend(),name); }
+
+bool Tag::hasAttr(const std::string &name) const throw()
+{  return attfind(name)!=attend();
+}
 
 const std::string &Tag::getAttr(const std::string &name, const std::string &def) const throw()
 {  attvec_t::const_iterator i=attfind(name);
