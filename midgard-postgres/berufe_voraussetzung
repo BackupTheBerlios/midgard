@@ -1,0 +1,242 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE berufe_voraussetzung;
+--
+-- TOC Entry ID 2 (OID 5785887)
+--
+-- Name: berufe_voraussetzung Type: TABLE Owner: christof
+--
+
+CREATE TABLE berufe_voraussetzung (
+	lernpunkte integer,
+	beruf text,
+	st integer,
+	ge integer,
+	ko integer,
+	in integer,
+	zt integer,
+	typ text,
+	geschlecht text,
+	pa integer,
+	au integer
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5785887) TABLE DATA berufe_voraussetzung
+--
+
+COPY berufe_voraussetzung  FROM stdin;
+9	Adliger	\N	\N	\N	31	\N	\N	\N	\N	\N
+7	Akrobat	\N	81	\N	\N	\N	\N	\N	\N	\N
+9	Alchimist	\N	61	\N	81	\N	z	\N	\N	\N
+5	Angesteller	\N	\N	\N	31	\N	\N	\N	\N	\N
+5	Anstreicher	\N	\N	\N	\N	\N	\N	\N	\N	\N
+9	Apotheker	\N	\N	\N	61	\N	z	\N	\N	\N
+5	Arbeiter	\N	\N	\N	\N	\N	\N	\N	\N	\N
+9	Arzt	\N	\N	\N	81	\N	z	\N	\N	\N
+9	Athlet	61	61	61	\N	\N	k	\N	\N	\N
+7	Auktionator	\N	\N	\N	61	\N	\N	\N	31	\N
+5	Bäcker	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Bader	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Barbier	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Bardame	\N	\N	\N	\N	\N	\N	w	31	61
+5	Barkeeper	\N	\N	61	\N	\N	\N	\N	31	\N
+5	Bauer	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Baumeister	\N	\N	\N	61	\N	\N	\N	\N	\N
+5	Beamter	\N	\N	\N	31	\N	\N	\N	\N	\N
+9	Bergbauingenieur	\N	\N	\N	61	\N	z	\N	\N	\N
+7	Bergführer	31	61	\N	31	\N	k	\N	\N	\N
+7	Bergmann	\N	\N	\N	\N	\N	k	\N	\N	\N
+7	Bettler	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Bildhauer	\N	\N	\N	61	\N	\N	\N	\N	\N
+7	Biologe	\N	\N	\N	61	\N	z	\N	\N	\N
+5	Bogenmacher	\N	61	\N	\N	\N	\N	\N	\N	\N
+7	Bootsbauer	\N	31	\N	\N	\N	\N	\N	\N	\N
+7	Botaniker	\N	\N	\N	61	\N	z	\N	\N	\N
+7	Bote	\N	21	61	\N	\N	k	\N	\N	\N
+5	Brauer	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Butler	\N	\N	\N	31	\N	\N	\N	\N	\N
+7	Croupier	\N	31	\N	31	\N	\N	\N	\N	\N
+5	Dachdecker	\N	31	\N	\N	\N	\N	\N	\N	\N
+9	Dieb	\N	61	\N	\N	\N	\N	\N	\N	\N
+5	Diener	\N	\N	\N	\N	\N	\N	\N	\N	\N
+9	Diplomat	\N	\N	\N	61	\N	\N	\N	31	\N
+7	Dolmetscher	\N	\N	\N	21	\N	\N	\N	\N	\N
+7	Drucker	\N	61	\N	31	\N	\N	\N	\N	\N
+9	Einbrecher	\N	61	\N	\N	\N	\N	\N	\N	\N
+5	Erdarbeiter	31	\N	\N	\N	\N	k	\N	\N	\N
+9	Exorzist	\N	\N	\N	61	81	P	\N	\N	\N
+5	Fackelmacher	\N	\N	\N	\N	\N	\N	\N	\N	\N
+9	Falkner	\N	\N	\N	\N	\N	\N	\N	\N	\N
+9	Fallenkonstrukteur	\N	61	\N	61	\N	\N	\N	\N	\N
+7	Fallensteller	\N	31	\N	\N	\N	k	\N	\N	\N
+5	Färber	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Fischer	\N	\N	21	\N	\N	\N	\N	\N	\N
+5	Flößer	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Flußschiffer	\N	\N	\N	\N	\N	k	\N	\N	\N
+7	Fuhrmann	\N	21	\N	\N	\N	k	\N	\N	\N
+5	Gärtner	\N	31	\N	31	\N	\N	\N	\N	\N
+7	Gaukler	\N	81	\N	\N	\N	\N	\N	\N	\N
+7	Geldeintreiber	31	31	\N	\N	\N	k	\N	\N	\N
+7	Geldverleiher	\N	\N	\N	61	\N	\N	\N	\N	\N
+7	Pfandleiher	\N	\N	\N	31	\N	\N	\N	\N	\N
+7	Geologe	\N	\N	\N	61	\N	z	\N	\N	\N
+5	Gerber	\N	\N	\N	\N	\N	\N	\N	\N	\N
+9	Geschichtenerzähler	\N	\N	\N	31	\N	\N	\N	31	\N
+5	Geschützexperte	\N	61	\N	61	\N	k	\N	\N	\N
+9	Gladiator	61	61	61	\N	\N	k	\N	\N	\N
+5	Glasbläser	\N	\N	31	\N	\N	\N	\N	\N	\N
+5	Glöckner	31	61	\N	\N	\N	\N	\N	\N	\N
+7	Goldschmied	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Grabräuber	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Graveur	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Grobschmied	61	\N	\N	\N	\N	k	\N	\N	\N
+5	Hafenarbeiter	31	\N	\N	\N	\N	k	\N	\N	\N
+7	Harpunier	61	61	\N	\N	\N	k	\N	\N	\N
+9	Hebamme	\N	31	\N	31	\N	\N	w	\N	\N
+7	Henker	\N	21	\N	\N	\N	k	\N	\N	\N
+7	Herold	\N	\N	\N	61	\N	\N	\N	31	\N
+7	Hetäre	\N	\N	\N	61	\N	\N	w	61	61
+5	Hirte	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Höfling	\N	\N	\N	61	\N	\N	\N	\N	31
+9	Hofnarr	\N	31	\N	61	\N	\N	\N	31	\N
+5	Holzschnitzer	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Hufschmied	61	\N	\N	\N	\N	k	\N	\N	\N
+9	Hundeführer	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Imker	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Informant	\N	\N	\N	61	\N	\N	\N	\N	\N
+8	Ingenieur	\N	\N	\N	61	\N	z	\N	\N	\N
+7	Inquisitor	\N	\N	\N	61	\N	\N	\N	\N	\N
+5	Jäger	\N	31	31	\N	\N	\N	\N	\N	\N
+7	Jurist	\N	\N	\N	61	\N	z	\N	\N	\N
+7	Juwelier	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Kammerjäger	\N	\N	\N	21	\N	\N	\N	\N	\N
+7	Karawanenführer	\N	\N	31	61	\N	\N	\N	\N	\N
+7	Kartograph	\N	\N	\N	61	\N	\N	\N	\N	\N
+7	Kaufmann	\N	\N	\N	61	\N	\N	\N	\N	\N
+5	Kellner	\N	21	\N	\N	\N	\N	\N	\N	\N
+5	Kerzenzieher	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Kesselflicker	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Koch	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Köhler	\N	\N	\N	\N	\N	\N	\N	\N	\N
+9	Kopfgeldjäger	\N	\N	\N	\N	\N	k	\N	\N	\N
+5	Korbflechter	\N	31	\N	\N	\N	\N	\N	\N	\N
+7	Krämer	\N	\N	\N	21	\N	\N	\N	\N	\N
+5	Kräuterkundiger	\N	\N	\N	61	\N	\N	\N	\N	\N
+5	Küfer	\N	21	\N	\N	\N	\N	\N	\N	\N
+7	Kunstmaler	\N	61	\N	31	\N	\N	\N	\N	\N
+7	Kupferschmied	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Kürschner	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Kurtisane	\N	\N	\N	\N	\N	\N	w	\N	61
+7	Laienprediger	\N	\N	\N	61	\N	\N	\N	61	\N
+7	Lebensmittelhändler	\N	\N	\N	31	\N	\N	\N	\N	\N
+5	Lederwerker	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Märchenerzähler	\N	\N	\N	\N	\N	\N	\N	31	\N
+7	Mathematiker	\N	\N	\N	81	\N	z	\N	\N	\N
+5	Maurer	21	\N	\N	\N	\N	k	\N	\N	\N
+7	Mechaniker	\N	61	\N	\N	\N	\N	\N	\N	\N
+5	Messerschleifer	\N	21	\N	\N	\N	\N	\N	\N	\N
+5	Metzger	21	\N	\N	\N	\N	k	\N	\N	\N
+5	Müller	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Musikant	\N	61	\N	\N	\N	\N	\N	\N	\N
+7	Musikinstrumentenmacher	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Nachtwächter	31	31	\N	\N	\N	k	\N	\N	\N
+9	Navigator	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Netzmacher	\N	31	\N	\N	\N	\N	\N	\N	\N
+9	Offizier	\N	\N	\N	61	\N	k	\N	\N	\N
+7	Optiker	\N	61	\N	61	\N	\N	\N	\N	\N
+5	Papierhersteller	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Parfümhersteller	\N	\N	\N	31	\N	\N	\N	\N	\N
+7	Pelzhändler	\N	\N	\N	31	\N	\N	\N	\N	\N
+5	Perlentaucher	31	\N	41	\N	\N	\N	\N	\N	\N
+7	Pfadfinder	\N	\N	61	31	\N	\N	\N	\N	\N
+5	Pfeilmacher	\N	61	\N	\N	\N	\N	\N	\N	\N
+5	Pferdedieb	\N	31	\N	\N	\N	\N	\N	\N	\N
+7	Pferdehändler	\N	\N	\N	31	\N	\N	\N	\N	\N
+7	Philosoph	\N	\N	\N	61	\N	z	\N	\N	\N
+7	Pionier	\N	\N	61	31	\N	\N	\N	\N	\N
+5	Räuber	31	\N	\N	\N	\N	k	\N	\N	\N
+7	Rechtsgelehrter	\N	\N	\N	61	\N	z	\N	\N	\N
+7	Redner	\N	\N	\N	61	\N	\N	\N	61	\N
+7	Reeder	\N	\N	\N	61	\N	\N	\N	\N	\N
+5	Sattler	\N	21	\N	\N	\N	\N	\N	\N	\N
+7	Scharfrichter	\N	21	\N	\N	\N	k	\N	\N	\N
+7	Schauspieler	\N	\N	\N	\N	\N	\N	\N	61	\N
+5	Scherenschleifer	\N	21	\N	\N	\N	\N	\N	\N	\N
+7	Schiffsbauer	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Schilterer	\N	31	\N	31	\N	\N	\N	\N	\N
+5	Schlachter	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Schlosser	\N	61	\N	\N	\N	\N	\N	\N	\N
+7	Schmuggler	\N	21	\N	\N	\N	\N	\N	\N	\N
+5	Schneider	\N	21	\N	\N	\N	\N	\N	\N	\N
+5	Schreiber	\N	\N	\N	61	\N	z	\N	\N	\N
+7	Schreiner	\N	21	\N	\N	\N	\N	\N	\N	\N
+5	Schuhmacher	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Schwammtaucher	31	\N	41	\N	\N	\N	\N	\N	\N
+5	Schwarzbrenner	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Schwerarbeiter	31	\N	31	\N	\N	k	\N	\N	\N
+7	Seemann	21	21	\N	\N	\N	k	\N	\N	\N
+7	Segelmacher	\N	31	\N	\N	\N	k	\N	\N	\N
+5	Seiler	\N	31	\N	\N	\N	\N	\N	\N	\N
+7	Silberschmied	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Sklavenaufseher	\N	\N	\N	31	\N	\N	\N	\N	\N
+5	Sklavenhändler	\N	\N	\N	31	\N	\N	\N	\N	\N
+7	Spieler	\N	61	\N	61	\N	\N	\N	\N	\N
+5	Spinnerin	\N	21	\N	\N	\N	\N	w	\N	\N
+7	Spitzel	\N	\N	\N	61	\N	\N	\N	\N	\N
+7	Steinbrucharbeiter	31	\N	31	\N	\N	k	\N	\N	\N
+7	Steinmetz	31	\N	\N	\N	\N	k	\N	\N	\N
+5	Stellmacher	\N	31	\N	\N	\N	\N	\N	\N	\N
+7	Stempelschneider	\N	61	\N	\N	\N	\N	\N	\N	\N
+5	Steuereintreiber	31	31	\N	\N	\N	k	\N	\N	\N
+7	Steuermann	\N	\N	\N	61	\N	k	\N	\N	\N
+7	Steuerpächter	\N	\N	\N	61	\N	\N	\N	\N	\N
+5	Strandräuber	21	\N	\N	\N	\N	k	\N	\N	\N
+5	Straßenräuber	31	\N	\N	\N	\N	k	\N	\N	\N
+5	Tänzer	\N	31	\N	\N	\N	\N	\N	21	\N
+5	Teppichknüpfer	\N	31	\N	\N	\N	\N	\N	\N	\N
+7	Theologe	\N	\N	\N	61	\N	z	\N	\N	\N
+7	Tierarzt	\N	\N	\N	61	\N	\N	\N	\N	\N
+9	Tierausbilder	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Tierhändler	\N	\N	\N	31	\N	\N	\N	\N	\N
+5	Tierpfleger	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Tintenhersteller	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Tischler	\N	21	\N	\N	\N	\N	\N	\N	\N
+5	Töpfer	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Torfstecher	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Totengräber	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Träger	31	31	\N	\N	\N	\N	\N	\N	\N
+7	Trapper	\N	31	\N	\N	\N	k	\N	\N	\N
+5	Tuchwalker	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Unteroffizier	61	61	\N	\N	\N	k	\N	\N	\N
+7	Untersuchungsbeamter	\N	\N	\N	61	\N	k	\N	\N	\N
+5	Urbarmacher	31	31	\N	\N	\N	\N	\N	\N	\N
+5	Verkäufer	\N	\N	\N	31	\N	\N	\N	\N	\N
+7	Verwalter	\N	\N	\N	31	\N	\N	\N	21	\N
+5	Viehdieb	\N	21	\N	\N	\N	\N	\N	\N	\N
+5	Viehtreiber	\N	31	\N	\N	\N	k	\N	\N	\N
+5	Viehzüchter	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	Vorarbeiter	\N	\N	\N	31	\N	\N	\N	\N	\N
+5	Vorkoster	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Wächter	31	\N	\N	31	\N	k	\N	\N	\N
+7	Waffenhändler	\N	\N	\N	31	\N	\N	\N	\N	\N
+5	Waffenschmied	61	\N	\N	\N	\N	k	\N	\N	\N
+5	Wagner	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Waldarbeiter	31	\N	\N	\N	\N	k	\N	\N	\N
+5	Wappenhersteller	\N	31	\N	31	\N	\N	\N	\N	\N
+5	Weber	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Weinhändler	\N	\N	\N	31	\N	\N	\N	\N	\N
+7	Werkzeugmacher	\N	61	\N	61	\N	\N	\N	\N	\N
+5	Wilderer	\N	21	\N	\N	\N	k	\N	\N	\N
+5	Winzer	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Wirt	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Wrackberger	31	31	\N	\N	\N	\N	\N	\N	\N
+9	Wundheiler	\N	31	\N	31	\N	\N	\N	\N	\N
+7	Zahnausreißer	\N	31	\N	\N	\N	\N	\N	\N	\N
+5	Ziegelbrenner	\N	\N	\N	\N	\N	\N	\N	\N	\N
+7	Zimmermann	31	\N	\N	\N	\N	k	\N	\N	\N
+7	Zollpächter	\N	\N	\N	61	\N	\N	\N	\N	\N
+9	Zureiter	\N	61	\N	\N	\N	k	\N	\N	\N
+9	Gelehrter	\N	0	\N	81	\N	\N	\N	\N	\N
+\.

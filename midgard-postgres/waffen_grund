@@ -1,0 +1,47 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE waffen_grund;
+--
+-- TOC Entry ID 2 (OID 5788652)
+--
+-- Name: waffen_grund Type: TABLE Owner: christof
+--
+
+CREATE TABLE waffen_grund (
+	name text,
+	fp integer
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5788652) TABLE DATA waffen_grund
+--
+
+COPY waffen_grund  FROM stdin;
+ESchwert	600
+Stichwaffe	400
+ESchlagwaffe	400
+Spießwaffe	400
+ZSchwert	800
+ZSchlagwaffe	600
+Stangenwaffe	800
+Kettenwaffe	900
+Kampfstab	700
+Magierstab	400
+waffenloser Kampf	800
+Bögen	700
+Armbrust	600
+Schleuder	700
+Wurfspieß	200
+WSchlagwaffe	300
+Wurfmesser	300
+Wurfpfeil	400
+Wurfstern	700
+Blasrohr	700
+Schilde	300
+Parierdolch	300
+Lasso	700
+Bola	700
+Netz	700
+Peitsche	900
+\.

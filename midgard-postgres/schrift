@@ -1,0 +1,44 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE schrift;
+--
+-- TOC Entry ID 2 (OID 5788133)
+--
+-- Name: schrift Type: TABLE Owner: christof
+--
+
+CREATE TABLE schrift (
+	name text,
+	typ text,
+	kosten integer,
+	region text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5788133) TABLE DATA schrift
+--
+
+COPY schrift  FROM stdin;
+Seemeister	Buchstaben	100	\N
+Coraniaid	Buchstaben	100	\N
+Waelska	Runen	100	\N
+Läinisch	Bilder	100	\N
+Rawindi	Buchstaben	100	\N
+Scharidisch	Buchstaben	100	\N
+Meketisch	Bilder	100	\N
+Luwisch	Keilschrift	100	\N
+Bulugi	Bilder	100	\N
+Nahuatlanisch	Bilder	100	\N
+Halftan	Buchstaben	100	\N
+Dvarskar	Runen	100	\N
+Gnomenon	Bilder	100	\N
+Tegarisch	Buchstaben	100	\N
+KanThaiTun(1)	Silben	100	K
+KanThaiTun(2)	Silben	200	K
+KanThaiTun(3)	Silben	1000	K
+KanThaiTun(4)	Silben	1000	K
+KanThaiTun(5)	Silben	1000	K
+KanThaiTun(6)	Silben	1000	K
+Geisterschrift	Silben	100	K
+\.

@@ -1,0 +1,1093 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE lernschema;
+--
+-- TOC Entry ID 2 (OID 5786939)
+--
+-- Name: lernschema Type: TABLE Owner: christof
+--
+
+CREATE TABLE lernschema (
+	typ text,
+	fertigkeit text,
+	art text,
+	wert integer,
+	attribut text,
+	lernpunkte integer
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5786939) TABLE DATA lernschema
+--
+
+COPY lernschema  FROM stdin;
+Sp	leichter Speer	Waffe	5	\N	2
+Sp	Parierdolch	Waffe	1	\N	2
+Sp	Rapier	Waffe	5	\N	2
+Sp	Schleuder	Waffe	5	\N	3
+Sp	Stoßspeer	Waffe	5	\N	3
+Sp	Streitaxt	Waffe	5	\N	3
+Sp	Streitkolben	Waffe	5	\N	2
+Ord	Parierdolch	Waffe	1	\N	3
+Sp	Wurfaxt	Waffe	5	\N	2
+Sp	Wurfkeule	Waffe	5	\N	2
+Sp	Wurfmesser	Waffe	5	\N	2
+Sp	Wurfpfeil	Waffe	5	\N	3
+Sp	Wurfspeer	Waffe	5	\N	2
+Sp	Zeichensprache	Fertigkeit	1	\N	1
+Th	Blasrohr	Waffe	4	\N	4
+Th	Dolch	Waffe	4	\N	2
+Th	Körperbemalung	Fertigkeit	1	\N	2
+Th	leichte Armbrust	Waffe	4	\N	6
+Th	Magierstab	Waffe	4	\N	6
+Th	Talisman verzaubern	Fertigkeit	1	\N	2
+Tr	Bogen	Waffe	5	\N	2
+Tr	Dolch	Waffe	5	\N	1
+Tr	Keule	Waffe	5	\N	4
+Sp	waffenloser Kampf	Waffe	5	\N	4
+Tr	Netz	Waffe	5	\N	2
+Tr	Peitsche	Waffe	5	\N	2
+Tr	Steinaxt	Waffe	5	\N	3
+Ord	Schlachtbeil	Waffe	5	\N	3
+Tr	Zeichensprache	Fertigkeit	1	\N	1
+Wa	Anderthalbhänder	Waffe	5	\N	4
+Wa	Bogen	Waffe	5	\N	2
+Wa	Dolch	Waffe	5	\N	1
+Tr	waffenloser Kampf	Waffe	5	\N	5
+Wa	Handaxt	Waffe	5	\N	2
+Wa	Kampfstab	Waffe	5	\N	3
+Wa	Keule	Waffe	5	\N	2
+Se	waffenloser Kampf	Waffe	5	\N	3
+Wa	Kriegshammer	Waffe	5	\N	3
+Wa	Krummsäbel	Waffe	5	\N	3
+Wa	Kurzschwert	Waffe	5	\N	2
+Wa	Langbogen	Waffe	5	\N	3
+Wa	Langschwert	Waffe	5	\N	2
+Wa	Laufen	Fertigkeit	2	\N	1
+Wa	leichter Speer	Waffe	5	\N	1
+Wa	Schlachtbeil	Waffe	5	\N	3
+Wa	Schleuder	Waffe	5	\N	3
+Wa	Stoßspeer	Waffe	5	\N	1
+Wa	Streitaxt	Waffe	5	\N	2
+Wa	Streitkolben	Waffe	5	\N	3
+Ord	Schleuder	Waffe	5	\N	3
+Wa	Wurfaxt	Waffe	5	\N	2
+Wa	Wurfspeer	Waffe	5	\N	2
+Se	leichte Armbrust	Waffe	5	\N	3
+Se	leichter Speer	Waffe	5	\N	1
+Se	Parierdolch	Waffe	1	\N	1
+Se	Pilum	Waffe	5	\N	2
+Se	Rapier	Waffe	5	\N	3
+Se	Schlachtbeil	Waffe	5	\N	3
+Se	Schleuder	Waffe	5	\N	3
+Se	schwere Armbrust	Waffe	5	\N	3
+Se	Stabkeule	Waffe	5	\N	3
+Se	Stockschleuder	Waffe	5	\N	3
+Se	Stoßspeer	Waffe	5	\N	3
+Se	Streitaxt	Waffe	5	\N	1
+Se	Streitkolben	Waffe	5	\N	1
+Ord	schwere Armbrust	Waffe	5	\N	3
+Se	Wurfaxt	Waffe	5	\N	2
+Se	Wurfmesser	Waffe	5	\N	2
+Se	Wurfspeer	Waffe	5	\N	2
+Sk	Bogen	Waffe	5	\N	4
+Sk	Dichten	Fertigkeit	1	\N	1
+Sk	Dolch	Waffe	5	\N	1
+Sö	waffenloser Kampf	Waffe	5	\N	2
+Sk	Langschwert	Waffe	5	\N	2
+Sk	leichter Speer	Waffe	5	\N	2
+Sk	Musizieren	Fertigkeit	1	\N	1
+Sk	Schlachtbeil	Waffe	5	\N	4
+Sk	Streitaxt	Waffe	5	\N	2
+Sk	Wurfspeer	Waffe	5	\N	2
+Sö	Anderthalbhänder	Waffe	5	\N	2
+Sö	Beidhändiger Kampf	Fertigkeit	-4	\N	2
+Sö	Bihänder	Waffe	5	\N	2
+Sö	Bogen	Waffe	5	\N	2
+Sö	Buckler	Waffe	1	\N	1
+Sö	Dolch	Waffe	5	\N	1
+PW	waffenloser Kampf	Waffe	4	\N	6
+Sö	Handaxt	Waffe	5	\N	1
+Sö	Hellebarde	Waffe	5	\N	2
+Sö	Kampfstab	Waffe	5	\N	2
+Sö	Kampftaktik	Fertigkeit	1	\N	2
+Sö	Keule	Waffe	5	\N	1
+Sö	Kriegsflegel	Waffe	5	\N	2
+Sö	Kriegshammer	Waffe	5	\N	1
+Sö	Krummsäbel	Waffe	5	\N	1
+Sö	Kurzschwert	Waffe	5	\N	1
+Sö	Langbogen	Waffe	5	\N	2
+Sö	Langschwert	Waffe	5	\N	1
+Sö	Lanze	Waffe	5	\N	1
+Sö	leichte Armbrust	Waffe	5	\N	2
+Sö	leichter Speer	Waffe	5	\N	1
+Sö	Morgenstern	Waffe	5	\N	1
+Sö	Parierdolch	Waffe	1	\N	1
+Sö	Pilum	Waffe	5	\N	1
+Sö	Rapier	Waffe	5	\N	1
+Sö	Schlachtbeil	Waffe	5	\N	2
+Sö	Schleuder	Waffe	5	\N	2
+Sö	schwere Armbrust	Waffe	5	\N	2
+Sö	Stabkeule	Waffe	5	\N	1
+Sö	Stielhammer	Waffe	5	\N	2
+Sö	Stockschleuder	Waffe	5	\N	2
+Sö	Stoßspeer	Waffe	5	\N	1
+Sö	Streitaxt	Waffe	5	\N	1
+Sö	Streitkolben	Waffe	5	\N	1
+Ord	Stabkeule	Waffe	5	\N	2
+Sö	Wurfaxt	Waffe	5	\N	1
+Sö	Wurfhammer	Waffe	5	\N	1
+Sö	Wurfkeule	Waffe	5	\N	1
+Sö	Wurfmesser	Waffe	5	\N	1
+Sö	Wurfpfeil	Waffe	5	\N	1
+Sö	Wurfspeer	Waffe	5	\N	1
+Sp	Bogen	Waffe	5	\N	4
+Sp	Buckler	Waffe	1	\N	2
+Sp	Dolch	Waffe	5	\N	1
+Sp	Handaxt	Waffe	5	\N	2
+Sp	Kampfstab	Waffe	5	\N	3
+Sp	Keule	Waffe	5	\N	1
+Ri	waffenloser Kampf	Waffe	5	\N	2
+Sp	Kriegshammer	Waffe	5	\N	3
+Sp	Krummsäbel	Waffe	5	\N	2
+Sp	Kurzschwert	Waffe	5	\N	2
+Sp	Langschwert	Waffe	5	\N	3
+Sp	leichte Armbrust	Waffe	5	\N	4
+PW	Kampfstab	Waffe	4	\N	5
+PW	Magierstab	Waffe	4	\N	3
+PW	Parierdolch	Waffe	1	\N	3
+Ord	Stielhammer	Waffe	5	\N	3
+PW	Wurfmesser	Waffe	4	\N	3
+PW	Wurfstern	Waffe	1	\N	4
+Ri	Anderthalbhänder	Waffe	5	\N	2
+Ri	Beidhändiger Kampf	Fertigkeit	-4	\N	3
+Ri	Bihänder	Waffe	5	\N	2
+Ri	Bogen	Waffe	5	\N	2
+Ri	Dolch	Waffe	5	\N	1
+Sa	waffenloser Kampf	Waffe	4	\N	2
+Ri	Kampftaktik	Fertigkeit	1	\N	2
+PH	waffenloser Kampf	Waffe	4	\N	9
+Ri	Krummsäbel	Waffe	5	\N	1
+Ri	Kurzschwert	Waffe	5	\N	2
+Ri	Langschwert	Waffe	5	\N	1
+Ri	Lanze	Waffe	5	\N	1
+Ri	Lanzenstechen	Fertigkeit	1	\N	2
+Ri	Morgenstern	Waffe	5	\N	2
+Ri	Musizieren	Fertigkeit	1	\N	2
+Ri	Streitaxt	Waffe	5	\N	2
+Ri	Streitkolben	Waffe	5	\N	2
+Ri	Tanzen	Fertigkeit	1	\N	2
+Ord	Stoßspeer	Waffe	5	\N	1
+Sa	Askese	Fertigkeit	1	\N	1
+Sa	Kampfstab	Waffe	4	\N	2
+Sa	Musizieren	Fertigkeit	1	\N	2
+Ord	Streitaxt	Waffe	5	\N	1
+Sc	Dolch	Waffe	4	\N	2
+Sc	Keule	Waffe	4	\N	2
+Sc	Körperbemalung	Fertigkeit	1	\N	2
+Sc	leichter Speer	Waffe	4	\N	2
+Sc	Speerschleuder	Waffe	4	\N	4
+Sc	Stabkeule	Waffe	4	\N	4
+Sc	Talisman verzaubern	Fertigkeit	1	\N	2
+Sc	Wurfkeule	Waffe	4	\N	3
+Sc	Wurfspeer	Waffe	4	\N	3
+Se	Anderthalbhänder	Waffe	5	\N	3
+Se	Bogen	Waffe	5	\N	3
+Se	Dolch	Waffe	5	\N	1
+PK	waffenloser Kampf	Waffe	5	\N	9
+Se	Handaxt	Waffe	5	\N	1
+Se	Kampfstab	Waffe	5	\N	2
+Se	Keule	Waffe	5	\N	1
+PM	waffenloser Kampf	Waffe	4	\N	4
+Se	Kriegshammer	Waffe	5	\N	3
+Se	Krummsäbel	Waffe	5	\N	1
+Se	Kurzschwert	Waffe	5	\N	1
+Se	Langschwert	Waffe	5	\N	2
+PH	Magierstab	Waffe	4	\N	6
+PH	Morgenstern	Waffe	4	\N	4
+PH	Stabkeule	Waffe	4	\N	4
+PH	Streitkolben	Waffe	4	\N	2
+Ord	Streitkolben	Waffe	5	\N	1
+PH	Wurfhammer	Waffe	4	\N	3
+PH	Wurfkeule	Waffe	4	\N	3
+PK	Anderthalbhänder	Waffe	5	\N	4
+PK	Dolch	Waffe	5	\N	2
+PT	waffenloser Kampf	Waffe	4	\N	9
+PK	Handaxt	Waffe	5	\N	2
+PK	Keule	Waffe	5	\N	2
+Ny	waffenloser Kampf	Waffe	5	\N	2
+PK	Kriegsflegel	Waffe	5	\N	8
+PK	Kriegshammer	Waffe	5	\N	2
+PK	Krummsäbel	Waffe	5	\N	2
+PK	Kurzschwert	Waffe	5	\N	2
+PK	Langschwert	Waffe	5	\N	2
+PK	Lanzenstechen	Fertigkeit	1	\N	6
+PK	leichter Speer	Waffe	5	\N	2
+PK	Morgenstern	Waffe	5	\N	4
+PK	Pilum	Waffe	5	\N	3
+PK	Rapier	Waffe	5	\N	2
+PK	Schlachtbeil	Waffe	5	\N	8
+PK	Stabkeule	Waffe	5	\N	4
+PK	Stoßspeer	Waffe	5	\N	2
+PK	Streitaxt	Waffe	5	\N	2
+PK	Streitkolben	Waffe	5	\N	2
+Ord	Wurfaxt	Waffe	5	\N	1
+PK	Wurfaxt	Waffe	5	\N	3
+PK	Wurfhammer	Waffe	5	\N	3
+PK	Wurfkeule	Waffe	5	\N	3
+PK	Wurfmesser	Waffe	5	\N	3
+PK	Wurfspeer	Waffe	5	\N	3
+PM	Dolch	Waffe	4	\N	2
+PF	waffenloser Kampf	Waffe	4	\N	9
+Kd	waffenloser Kampf	Waffe	5	\N	1
+PM	Kurzschwert	Waffe	4	\N	2
+PM	leichter Speer	Waffe	4	\N	2
+PM	Pilum	Waffe	4	\N	3
+PM	Stoßspeer	Waffe	4	\N	2
+Ord	Wurfhammer	Waffe	5	\N	1
+PM	Wurfspeer	Waffe	4	\N	3
+PT	Blasrohr	Waffe	4	\N	8
+PT	Dolch	Waffe	4	\N	2
+PT	Keule	Waffe	4	\N	2
+PT	Kurzschwert	Waffe	4	\N	2
+PT	Magierstab	Waffe	4	\N	3
+PT	Parierdolch	Waffe	4	\N	3
+PT	Rapier	Waffe	4	\N	2
+Ord	Wurfkeule	Waffe	5	\N	1
+PT	Wurfmesser	Waffe	4	\N	3
+PT	Wurfpfeil	Waffe	4	\N	4
+PW	Dolch	Waffe	4	\N	2
+Ny	Bogen	Waffe	5	\N	2
+Ny	Dolch	Waffe	5	\N	1
+Ny	Kampfstab	Waffe	5	\N	2
+Ny	Krummsäbel	Waffe	5	\N	2
+Ny	KujKuri	Fertigkeit	1	\N	0
+Ny	KusariGama	Waffe	5	\N	3
+Ny	Langbogen	Waffe	5	\N	3
+Ny	Langschwert	Waffe	5	\N	2
+Ny	leichte Armbrust	Waffe	5	\N	2
+Ny	Morgenstern	Waffe	5	\N	3
+Ny	Naginata	Waffe	5	\N	2
+Ny	NunChako	Waffe	5	\N	2
+Ny	Sai	Waffe	5	\N	1
+Ord	Wurfmesser	Waffe	5	\N	3
+Ny	Wurfstern	Waffe	5	\N	1
+Kr	waffenloser Kampf	Waffe	5	\N	2
+PF	Keule	Waffe	4	\N	2
+Gl	waffenloser Kampf	Waffe	5	\N	3
+PF	Kriegsflegel	Waffe	4	\N	8
+PF	Kriegshammer	Waffe	4	\N	2
+PF	Magierstab	Waffe	4	\N	6
+PF	Morgenstern	Waffe	4	\N	4
+PF	Stabkeule	Waffe	4	\N	4
+PF	Streitkolben	Waffe	4	\N	2
+Ord	Wurfpfeil	Waffe	5	\N	3
+PF	Wurfhammer	Waffe	4	\N	3
+PF	Wurfkeule	Waffe	4	\N	3
+Hä	waffenloser Kampf	Waffe	5	\N	4
+PH	Keule	Waffe	4	\N	2
+Hl	waffenloser Kampf	Waffe	4	\N	9
+PH	Kriegsflegel	Waffe	4	\N	8
+PH	Kriegshammer	Waffe	4	\N	2
+wHx	Magierstab	Waffe	4	\N	6
+wHx	Wurfmesser	Waffe	4	\N	6
+gHx	Magierstab	Waffe	4	\N	6
+gHx	Wurfmesser	Waffe	4	\N	6
+sHx	Magierstab	Waffe	4	\N	6
+sHx	Wurfmesser	Waffe	4	\N	6
+Kd	Beidhändiger Kampf	Fertigkeit	-4	\N	2
+Kd	Dolch	Waffe	5	\N	1
+Kd	Kampfstab	Waffe	5	\N	2
+Kd	Krummsäbel	Waffe	5	\N	2
+Kd	KusariGama	Waffe	5	\N	3
+Kd	Langbogen	Waffe	5	\N	3
+Kd	leichte Armbrust	Waffe	5	\N	3
+Kd	Morgenstern	Waffe	5	\N	1
+Kd	Naginata	Waffe	5	\N	3
+Kd	NunChako	Waffe	5	\N	1
+Kd	Sai	Waffe	5	\N	1
+Kd	Tonfa	Waffe	5	\N	1
+Ord	Wurfspeer	Waffe	5	\N	1
+Kd	Wurfstern	Waffe	5	\N	2
+Kr	Anderthalbhänder	Waffe	5	\N	2
+Kr	Beidhändiger Kampf	Fertigkeit	-4	\N	2
+Kr	Bihänder	Waffe	5	\N	2
+Kr	Bogen	Waffe	5	\N	2
+Kr	Buckler	Waffe	1	\N	1
+Kr	Dolch	Waffe	5	\N	1
+eBe	waffenloser Kampf	Waffe	4	\N	9
+Kr	Handaxt	Waffe	5	\N	1
+Kr	Hellebarde	Waffe	5	\N	2
+Kr	Kampfstab	Waffe	5	\N	2
+Kr	Kampftaktik	Fertigkeit	1	\N	2
+Kr	Keule	Waffe	5	\N	1
+BN	waffenloser Kampf	Waffe	5	\N	4
+Kr	Kriegsflegel	Waffe	5	\N	2
+Kr	Kriegshammer	Waffe	5	\N	1
+Kr	Krummsäbel	Waffe	5	\N	1
+Kr	Kurzschwert	Waffe	5	\N	1
+Kr	Langbogen	Waffe	5	\N	2
+Kr	Langschwert	Waffe	5	\N	1
+Kr	Lanze	Waffe	5	\N	1
+Kr	Lanzenstechen	Fertigkeit	1	\N	2
+Kr	leichte Armbrust	Waffe	5	\N	2
+Kr	leichter Speer	Waffe	5	\N	1
+Kr	Morgenstern	Waffe	5	\N	1
+Kr	Parierdolch	Waffe	1	\N	1
+Kr	Pilum	Waffe	5	\N	1
+Kr	Rapier	Waffe	5	\N	1
+Kr	Schlachtbeil	Waffe	5	\N	2
+Kr	Schleuder	Waffe	5	\N	2
+Kr	schwere Armbrust	Waffe	5	\N	2
+Kr	Stabkeule	Waffe	5	\N	1
+Kr	Stielhammer	Waffe	5	\N	2
+Kr	Stockschleuder	Waffe	5	\N	2
+Kr	Stoßspeer	Waffe	5	\N	1
+Kr	Streitaxt	Waffe	5	\N	1
+Kr	Streitkolben	Waffe	5	\N	1
+Ord	Morgenstern	Waffe	5	\N	2
+Kr	Wurfaxt	Waffe	5	\N	1
+Kr	Wurfhammer	Waffe	5	\N	1
+Kr	Wurfkeule	Waffe	5	\N	1
+Kr	Wurfmesser	Waffe	5	\N	1
+Kr	Wurfpfeil	Waffe	5	\N	1
+Kr	Wurfspeer	Waffe	5	\N	1
+Ma	Dolch	Waffe	4	\N	2
+Ma	Magierstab	Waffe	4	\N	6
+Ma	Wurfmesser	Waffe	4	\N	6
+Ny	Beidhändiger Kampf	Fertigkeit	-4	\N	2
+Ny	Bihänder	Waffe	5	\N	3
+Ny	Blasrohr	Waffe	5	\N	1
+BS	waffenloser Kampf	Waffe	5	\N	3
+Gl	Handaxt	Waffe	5	\N	1
+Gl	Hellebarde	Waffe	5	\N	3
+Gl	Kampfstab	Waffe	5	\N	2
+Gl	Keule	Waffe	5	\N	1
+BW	waffenloser Kampf	Waffe	5	\N	4
+Gl	Kriegsflegel	Waffe	5	\N	3
+Gl	Kriegshammer	Waffe	5	\N	1
+Gl	Krummsäbel	Waffe	5	\N	1
+Gl	Kurzschwert	Waffe	5	\N	1
+Gl	Langbogen	Waffe	5	\N	3
+Gl	Langschwert	Waffe	5	\N	1
+Gl	Lanze	Waffe	5	\N	1
+Gl	leichte Armbrust	Waffe	5	\N	3
+Gl	leichter Speer	Waffe	5	\N	1
+Gl	Morgenstern	Waffe	5	\N	2
+Gl	Parierdolch	Waffe	1	\N	1
+Gl	Pilum	Waffe	5	\N	2
+Gl	Rapier	Waffe	5	\N	1
+Gl	Schlachtbeil	Waffe	5	\N	3
+Gl	Schleuder	Waffe	5	\N	3
+Gl	schwere Armbrust	Waffe	5	\N	3
+Gl	Stabkeule	Waffe	5	\N	3
+Gl	Stielhammer	Waffe	5	\N	3
+Gl	Stockschleuder	Waffe	5	\N	3
+Gl	Stoßspeer	Waffe	5	\N	1
+Gl	Streitaxt	Waffe	5	\N	1
+Gl	Streitkolben	Waffe	5	\N	1
+Ord	Reiten	Fertigkeit	15	Ge	1
+Gl	Wurfaxt	Waffe	5	\N	2
+Gl	Wurfhammer	Waffe	5	\N	2
+Gl	Wurfkeule	Waffe	5	\N	2
+Gl	Wurfmesser	Waffe	5	\N	2
+Gl	Wurfpfeil	Waffe	5	\N	2
+Gl	Wurfspeer	Waffe	5	\N	2
+Hä	Bogen	Waffe	5	\N	4
+Hä	Buckler	Waffe	1	\N	2
+Hä	Dolch	Waffe	5	\N	1
+Ba	waffenloser Kampf	Waffe	5	\N	4
+Hä	Handaxt	Waffe	5	\N	2
+Hä	Kampfstab	Waffe	5	\N	3
+Hä	Keule	Waffe	5	\N	2
+dBe	waffenloser Kampf	Waffe	4	\N	9
+Hä	Kriegshammer	Waffe	5	\N	3
+Hä	Krummsäbel	Waffe	5	\N	2
+Hä	Kurzschwert	Waffe	5	\N	2
+Hä	Langbogen	Waffe	5	\N	4
+Hä	Langschwert	Waffe	5	\N	2
+Hä	leichte Armbrust	Waffe	5	\N	2
+Hä	leichter Speer	Waffe	5	\N	2
+Hä	Parierdolch	Waffe	1	\N	2
+Hä	Rapier	Waffe	5	\N	3
+Hä	Schleuder	Waffe	5	\N	3
+Hä	schwere Armbrust	Waffe	5	\N	3
+Hä	Stoßspeer	Waffe	5	\N	3
+Hä	Streitaxt	Waffe	5	\N	2
+Hä	Streitkolben	Waffe	5	\N	2
+Ord	Streitwagen lenken	Fertigkeit	15	Ge	2
+Hä	Wurfaxt	Waffe	5	\N	2
+Hä	Wurfhammer	Waffe	5	\N	2
+Hä	Wurfmesser	Waffe	5	\N	3
+Hä	Wurfspeer	Waffe	5	\N	2
+Hä	Zeichensprache	Fertigkeit	1	\N	2
+Hl	Dolch	Waffe	4	\N	2
+Hl	Magierstab	Waffe	4	\N	6
+Ord	Wagenlenken	Fertigkeit	15	Ge	2
+wHx	Dolch	Waffe	4	\N	2
+gHx	Dolch	Waffe	4	\N	2
+sHx	Dolch	Waffe	4	\N	2
+Ord	Goldener Panzer	Zauber	\N	\N	8
+BN	Anderthalbhänder	Waffe	5	\N	2
+BN	Bogen	Waffe	5	\N	2
+BN	Dolch	Waffe	5	\N	1
+Ass	waffenloser Kampf	Waffe	5	\N	2
+BN	Handaxt	Waffe	5	\N	1
+BN	Keule	Waffe	5	\N	2
+Ord	waffenloser Kampf	Waffe	5	\N	4
+BN	Kriegshammer	Waffe	5	\N	2
+BN	Kurzschwert	Waffe	5	\N	2
+BN	Langbogen	Waffe	5	\N	2
+BN	Langschwert	Waffe	5	\N	1
+BN	leichter Speer	Waffe	5	\N	1
+BN	Schlachtbeil	Waffe	5	\N	1
+BN	Schleuder	Waffe	5	\N	2
+BN	Stabkeule	Waffe	5	\N	2
+BN	Stoßspeer	Waffe	5	\N	1
+BN	Streitaxt	Waffe	5	\N	1
+Ord	Göttlicher Schutz vor Magie	Zauber	\N	\N	8
+BN	Wurfaxt	Waffe	5	\N	1
+BN	Wurfhammer	Waffe	5	\N	1
+BN	Wurfmesser	Waffe	5	\N	3
+BN	Wurfspeer	Waffe	5	\N	1
+BS	Bogen	Waffe	5	\N	2
+BS	Dolch	Waffe	5	\N	1
+PH	Beredsamkeit	Fertigkeit	8	pA	2
+BS	Handaxt	Waffe	5	\N	1
+PH	Sagenkunde	Fertigkeit	4	In	2
+BS	Krummsäbel	Waffe	5	\N	1
+BS	Kurzschwert	Waffe	5	\N	2
+BS	Laufen	Fertigkeit	2	\N	2
+BS	leichter Speer	Waffe	5	\N	1
+BS	Speerschleuder	Waffe	5	\N	2
+BS	Stoßspeer	Waffe	5	\N	1
+BS	Streitaxt	Waffe	5	\N	3
+BS	Streitkolben	Waffe	5	\N	1
+Ord	Handauflegen	Zauber	\N	\N	4
+BS	Wurfaxt	Waffe	5	\N	1
+BS	Wurfkeule	Waffe	5	\N	2
+BS	Wurfmesser	Waffe	5	\N	2
+BS	Wurfspeer	Waffe	5	\N	1
+BW	Blasrohr	Waffe	5	\N	2
+BW	Bogen	Waffe	5	\N	2
+BW	Dolch	Waffe	5	\N	1
+PH	Austreibung des Bösen	Zauber	\N		3
+BW	Handaxt	Waffe	5	\N	1
+BW	Keule	Waffe	5	\N	1
+PH	Bannen von Dunkelheit	Zauber	\N		1
+BW	Kurzschwert	Waffe	5	\N	1
+BW	leichter Speer	Waffe	5	\N	1
+BW	Schleuder	Waffe	5	\N	3
+BW	Speerschleuder	Waffe	5	\N	1
+BW	Stabkeule	Waffe	5	\N	2
+BW	Stoßspeer	Waffe	5	\N	1
+BW	Wurfaxt	Waffe	5	\N	1
+BW	Wurfkeule	Waffe	5	\N	1
+BW	Wurfpfeil	Waffe	5	\N	2
+BW	Wurfspeer	Waffe	5	\N	1
+Dr	Dolch	Waffe	4	\N	2
+Dr	Handaxt	Waffe	4	\N	2
+Dr	Kampfstab	Waffe	4	\N	4
+Dr	Keule	Waffe	4	\N	2
+Dr	leichter Speer	Waffe	4	\N	2
+Dr	Schleuder	Waffe	4	\N	4
+Dr	Wurfkeule	Waffe	4	\N	3
+Gl	Anderthalbhänder	Waffe	5	\N	3
+Gl	Beidhändiger Kampf	Fertigkeit	-4	\N	2
+Gl	Bihänder	Waffe	5	\N	3
+Gl	Bogen	Waffe	5	\N	3
+Gl	Buckler	Waffe	1	\N	1
+Gl	Dolch	Waffe	5	\N	1
+Ba	Anderthalbhänder	Waffe	5	\N	4
+Ba	Bogen	Waffe	5	\N	4
+Ba	Buckler	Waffe	1	\N	2
+Ba	Dolch	Waffe	5	\N	1
+PH	Erkennen der Wesen der Dinge	Zauber	\N		2
+Ba	Handaxt	Waffe	5	\N	2
+Ba	Kampfstab	Waffe	5	\N	3
+Ba	Keule	Waffe	5	\N	3
+PH	Handauflegen	Zauber	\N		1
+Ba	Kriegshammer	Waffe	5	\N	3
+Ba	Krummsäbel	Waffe	5	\N	2
+Ba	Kurzschwert	Waffe	5	\N	2
+Ba	Langbogen	Waffe	5	\N	4
+Ba	Langschwert	Waffe	5	\N	2
+Ba	Lanze	Waffe	5	\N	4
+Ba	leichte Armbrust	Waffe	5	\N	4
+Ba	leichter Speer	Waffe	5	\N	2
+Ba	Musizieren	Fertigkeit	10	\N	1
+Ba	Parierdolch	Waffe	1	\N	1
+Ba	Rapier	Waffe	5	\N	2
+Ba	Schlachtbeil	Waffe	5	\N	4
+Ba	Schleuder	Waffe	5	\N	3
+Ba	Stoßspeer	Waffe	5	\N	3
+Ba	Streitaxt	Waffe	5	\N	2
+Ba	Streitkolben	Waffe	5	\N	3
+Ord	Heilen von Wunden	Zauber	\N	\N	8
+Ba	Wurfaxt	Waffe	5	\N	2
+Ba	Wurfhammer	Waffe	5	\N	2
+Ba	Wurfmesser	Waffe	5	\N	2
+Ba	Wurfspeer	Waffe	5	\N	2
+dBe	Dolch	Waffe	4	\N	2
+dBe	Magierstab	Waffe	4	\N	6
+Ord	Heiliger Zorn	Zauber	\N	\N	4
+eBe	Dolch	Waffe	4	\N	2
+eBe	Magierstab	Waffe	4	\N	6
+Ny	LiYao	Fertigkeit	4	In	3
+Ny	Menschenkenntnis	Fertigkeit	4	In	2
+Ny	Stimmen nachahmen	Fertigkeit	15	In	1
+Ny	Verkleiden	Fertigkeit	15	In	1
+Ny	Wahrnehmung	Fertigkeit	4	In	3
+PF	Pflanzenkunde	Fertigkeit	4	In	2
+PF	Sagenkunde	Fertigkeit	4	In	2
+PF	Tierkunde	Fertigkeit	4	In	2
+PK	Sagenkunde	Fertigkeit	4	In	1
+PM	Sagenkunde	Fertigkeit	4	In	2
+PT	Giftmischen	Fertigkeit	4	In	2
+PT	Sagenkunde	Fertigkeit	4	In	1
+PW	Menschenkenntnis	Fertigkeit	4	In	2
+PW	Sagenkunde	Fertigkeit	4	In	1
+PW	Singen	Fertigkeit	10	In	2
+PW	Zauberkunde	Fertigkeit	4	In	1
+Ri	Menschenkenntnis	Fertigkeit	4	In	3
+Ri	Siegelkunde	Fertigkeit	4	In	1
+Sa	Kräuterkunde	Fertigkeit	4	In	2
+Sa	Menschenkenntnis	Fertigkeit	4	In	2
+Sa	Pflanzenkunde	Fertigkeit	4	In	2
+Sa	Sagenkunde	Fertigkeit	4	In	1
+Sa	Tierkunde	Fertigkeit	4	In	2
+Sa	Wahrnehmung	Fertigkeit	4	In	2
+Sc	Kräuterkunde	Fertigkeit	4	In	2
+Sc	Pflanzenkunde	Fertigkeit	4	In	2
+Sc	Sagenkunde	Fertigkeit	4	In	1
+Sc	Singen	Fertigkeit	10	In	2
+Sc	Tierkunde	Fertigkeit	4	In	2
+Sc	Überleben im Wald	Fertigkeit	8	In	1
+Sc	Überleben im Schnee	Fertigkeit	8	In	1
+Sc	Überleben im Dschungel	Fertigkeit	8	In	1
+Sc	Überleben im Gebirge	Fertigkeit	8	In	1
+Sc	Überleben in der Steppe	Fertigkeit	8	In	1
+Sk	Sagenkunde	Fertigkeit	4	In	1
+Sk	Stimmen nachahmen	Fertigkeit	15	In	2
+Sp	Fallen entdecken	Fertigkeit	4	In	2
+Sp	Gassenwissen	Fertigkeit	4	In	2
+Sp	Geheimmechanismen öffnen	Fertigkeit	4	In	2
+Sp	Lippenlesen	Fertigkeit	4	In	2
+Th	Zauberkunde	Fertigkeit	4	In	1
+Tr	Gassenwissen	Fertigkeit	4	In	2
+Tr	Lippenlesen	Fertigkeit	4	In	2
+Tr	Sagenkunde	Fertigkeit	4	In	1
+Wa	Kräuterkunde	Fertigkeit	4	In	2
+Wa	Pflanzenkunde	Fertigkeit	4	In	1
+Wa	Spurenlesen	Fertigkeit	4	In	1
+Wa	Tierkunde	Fertigkeit	4	In	1
+Wa	Wahrnehmung	Fertigkeit	4	In	2
+BN	Tauchen	Fertigkeit	15	Ko	1
+Se	Tauchen	Fertigkeit	15	Ko	1
+BW	Geländelauf	Fertigkeit	15	RW	2
+Ny	Beschatten	Fertigkeit	8	RW	2
+Sc	Geländelauf	Fertigkeit	15	RW	1
+Wa	Geländelauf	Fertigkeit	15	RW	2
+Kd	Meditieren	Fertigkeit	8	Sb	1
+Ny	Meditieren	Fertigkeit	8	Sb	2
+Sa	Körperkontrolle	Fertigkeit	15	Sb	1
+Sa	Meditieren	Fertigkeit	8	Sb	1
+Sa	Schmerzen ertragen	Fertigkeit	12	Sb	1
+BN	Rudern	Fertigkeit	15	St	1
+Se	Rudern	Fertigkeit	15	St	1
+Ba	Beredsamkeit	Fertigkeit	8	pA	2
+Ba	Verführen	Fertigkeit	8	pA	2
+Gl	Verführen	Fertigkeit	8	pA	2
+Gl	Verhören	Fertigkeit	8	pA	2
+Hä	Beredsamkeit	Fertigkeit	8	pA	1
+Hä	Verhören	Fertigkeit	8	pA	2
+Kd	Teezeremonie	Fertigkeit	8	pA	2
+Ny	Teezeremonie	Fertigkeit	8	pA	1
+Ri	Beredsamkeit	Fertigkeit	8	pA	3
+Ri	Verführen	Fertigkeit	8	pA	3
+Sk	Beredsamkeit	Fertigkeit	8	pA	2
+Sk	Verführen	Fertigkeit	8	pA	2
+Kd	NinJutsu	Fertigkeit	4	Ge	3
+Kr	Reiten	Fertigkeit	15	Ge	1
+Kr	Streitwagen lenken	Fertigkeit	15	Ge	1
+Kr	Wagenlenken	Fertigkeit	15	Ge	1
+Ny	Balancieren	Fertigkeit	15	Ge	1
+Ny	KarumiJutsu	Fertigkeit	15	Ge	1
+Ny	Klettern	Fertigkeit	15	Ge	1
+Ny	NinJutsu	Fertigkeit	4	Ge	1
+Ny	Scharfschießen	Fertigkeit	5	Ge	3
+PK	Reiten	Fertigkeit	15	Ge	1
+PM	Schwimmen	Fertigkeit	15	Ge	2
+Ri	Reiten	Fertigkeit	15	Ge	1
+Sc	Reiten	Fertigkeit	15	Ge	1
+Sc	Schwimmen	Fertigkeit	15	Ge	1
+Se	Balancieren	Fertigkeit	15	Ge	2
+Se	Klettern	Fertigkeit	15	Ge	2
+Se	Schwimmen	Fertigkeit	15	Ge	1
+Se	Segeln	Fertigkeit	15	Ge	1
+Se	Seilkunst	Fertigkeit	8	Ge	2
+Sö	Glücksspiel	Fertigkeit	15	Ge	2
+Sö	Reiten	Fertigkeit	15	Ge	1
+Sö	Wagenlenken	Fertigkeit	15	Ge	2
+Sp	Balancieren	Fertigkeit	15	Ge	2
+Sp	Fallen entschärfen	Fertigkeit	4	Ge	1
+Sp	Klettern	Fertigkeit	15	Ge	2
+Sp	Schleichen	Fertigkeit	4	Ge	2
+Sp	Tarnen	Fertigkeit	4	Ge	2
+Tr	Balancieren	Fertigkeit	15	Ge	2
+Tr	Klettern	Fertigkeit	15	Ge	2
+Tr	Schleichen	Fertigkeit	4	Ge	2
+Tr	Stehlen	Fertigkeit	8	Ge	1
+Tr	Tarnen	Fertigkeit	4	Ge	1
+Wa	Fallen stellen	Fertigkeit	4	Ge	1
+Wa	Klettern	Fertigkeit	15	Ge	2
+Wa	Scharfschießen	Fertigkeit	5	Ge	2
+Wa	Schleichen	Fertigkeit	4	Ge	2
+Wa	Schwimmen	Fertigkeit	15	Ge	2
+Wa	Tarnen	Fertigkeit	4	Ge	2
+Ba	Geschichten erzählen	Fertigkeit	10	In	1
+Ba	Sagenkunde	Fertigkeit	4	In	1
+Ba	Singen	Fertigkeit	10	In	1
+Ba	Stimmen nachahmen	Fertigkeit	15	In	2
+dBe	Sagenkunde	Fertigkeit	4	In	1
+dBe	Zauberkunde	Fertigkeit	4	In	2
+eBe	Sagenkunde	Fertigkeit	4	In	1
+BN	Überleben im Schnee	Fertigkeit	8	In	1
+BS	Spurenlesen	Fertigkeit	4	In	2
+BS	Überleben in der Steppe	Fertigkeit	8	In	1
+BW	Kräuterkunde	Fertigkeit	4	In	2
+BW	Spurenlesen	Fertigkeit	4	In	1
+BW	Überleben im Dschungel	Fertigkeit	8	In	1
+BW	Überleben im Wald	Fertigkeit	8	In	1
+BW	Wahrnehmung	Fertigkeit	4	In	2
+Dr	Pflanzenkunde	Fertigkeit	4	In	1
+Dr	Sagenkunde	Fertigkeit	4	In	1
+Dr	Tierkunde	Fertigkeit	4	In	1
+Dr	Wahrnehmung	Fertigkeit	4	In	2
+Dr	Zauberkunde	Fertigkeit	4	In	2
+Gl	Gassenwissen	Fertigkeit	4	In	1
+Gl	Geschichten erzählen	Fertigkeit	10	In	2
+Gl	Menschenkenntnis	Fertigkeit	4	In	2
+Gl	Zauberkunde	Fertigkeit	4	In	2
+Hä	Gassenwissen	Fertigkeit	4	In	2
+Hä	Menschenkenntnis	Fertigkeit	4	In	1
+Hä	Wahrnehmung	Fertigkeit	4	In	2
+Hl	Kräuterkunde	Fertigkeit	4	In	1
+Hl	Menschenkenntnis	Fertigkeit	4	In	2
+Hl	Zauberkunde	Fertigkeit	4	In	2
+wHx	Gassenwissen	Fertigkeit	4	In	2
+wHx	Giftmischen	Fertigkeit	4	In	2
+wHx	Kräuterkunde	Fertigkeit	4	In	2
+wHx	Zauberkunde	Fertigkeit	4	In	1
+gHx	Gassenwissen	Fertigkeit	4	In	2
+gHx	Giftmischen	Fertigkeit	4	In	2
+gHx	Kräuterkunde	Fertigkeit	4	In	2
+gHx	Zauberkunde	Fertigkeit	4	In	1
+sHx	Gassenwissen	Fertigkeit	4	In	2
+sHx	Giftmischen	Fertigkeit	4	In	2
+sHx	Kräuterkunde	Fertigkeit	4	In	2
+sHx	Zauberkunde	Fertigkeit	4	In	1
+Kd	FengSchui	Fertigkeit	4	In	1
+Kd	Wahrnehmung	Fertigkeit	4	In	3
+Ny	FengSchui	Fertigkeit	4	In	1
+BN	Klettern	Fertigkeit	15	Ge	2
+BN	Schlittenfahren	Fertigkeit	15	Ge	2
+BN	Schwimmen	Fertigkeit	15	Ge	1
+BN	Segeln	Fertigkeit	15	Ge	2
+BN	Skifahren	Fertigkeit	15	Ge	2
+BS	Reiten	Fertigkeit	15	Ge	1
+BS	Wagenlenken	Fertigkeit	15	Ge	2
+BW	Fallen stellen	Fertigkeit	4	Ge	1
+BW	Kanufahren	Fertigkeit	15	Ge	2
+BW	Klettern	Fertigkeit	15	Ge	2
+BW	Schwimmen	Fertigkeit	15	Ge	1
+Gl	Glücksspiel	Fertigkeit	15	Ge	1
+Gl	Reiten	Fertigkeit	15	Ge	1
+Hä	Reiten	Fertigkeit	15	Ge	2
+Hä	Wagenlenken	Fertigkeit	15	Ge	1
+Kd	Balancieren	Fertigkeit	15	Ge	1
+Kd	Klettern	Fertigkeit	15	Ge	1
+PT	Handauflegen	Zauber	\N	\N	2
+Hl	Reinigen	Zauber	\N	\N	2
+Th	Augensalbe herstellen	Fertigkeit	\N	\N	3
+Th	Bannen von Dunkelheit	Zauber	\N	\N	3
+Th	Bittersalz	Zauber	\N	\N	1
+Th	Durstsalz	Zauber	\N	\N	2
+Th	Erkennen von Zauberei	Zauber	\N	\N	2
+Th	Feuerfinger	Zauber	\N	\N	2
+Th	Hitzesalz	Zauber	\N	\N	1
+Th	Hören von Fernem	Zauber	\N	\N	3
+Th	Hungersalz	Zauber	\N	\N	2
+Th	Jucksalz	Zauber	\N	\N	2
+Th	Kühlsalz	Zauber	\N	\N	1
+Th	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+Th	Lesen/Schreiben	Fertigkeit	\N	\N	1
+Th	Macht über das Selbst	Zauber	\N	\N	4
+Th	Niessalz	Zauber	\N	\N	1
+Th	Sehen in Dunkelheit	Zauber	\N	\N	4
+Th	Sehen von Verborgenem	Zauber	\N	\N	3
+Th	Wassersalz	Zauber	\N	\N	2
+Th	Wehsalz	Zauber	\N	\N	1
+Th	Windstoß	Zauber	\N	\N	2
+Th	Wissen von der Magie	Fertigkeit	\N	\N	1
+Tr	Federflechten	Fertigkeit	\N	\N	1
+Tr	Geheimzeichen	Fertigkeit	\N	\N	2
+Tr	Geschenke machen	Fertigkeit	\N	\N	1
+Se	Rechnen	Fertigkeit	\N	\N	2
+Sk	Lesen von Zauberrunen	Fertigkeit	\N	\N	1
+Sk	Lesen/Schreiben	Fertigkeit	\N	\N	1
+Sk	Lied der Ruhe	Zauber	\N	\N	8
+Sk	Lied der Tapferkeit	Zauber	\N	\N	1
+Sk	Lied des Spottes	Zauber	\N	\N	8
+Sk	Reiserune	Zauber	\N	\N	4
+Sk	Stärkerune	Zauber	\N	\N	6
+Sk	Wahrheitsrune	Zauber	\N	\N	4
+Sö	Ballista bedienen	Fertigkeit	\N	\N	2
+Sö	Kampf in Vollrüstung	Fertigkeit	\N	\N	1
+Sö	Kampf zu Pferd	Fertigkeit	\N	\N	2
+Sö	Katapult bedienen	Fertigkeit	\N	\N	2
+Sp	Geheimzeichen	Fertigkeit	\N	\N	1
+PW	Erkennen der Wesen der Dinge	Zauber	\N	\N	1
+PW	Handauflegen	Zauber	\N	\N	2
+PW	Heilen von Krankheit	Zauber	\N	\N	3
+PW	Heilen von Wunden	Zauber	\N	\N	4
+PW	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+PW	Lesen/Schreiben	Fertigkeit	\N	\N	1
+PW	Rechnen	Fertigkeit	\N	\N	2
+PW	Segnen	Zauber	\N	\N	2
+PW	Windstoß	Zauber	\N	\N	2
+PW	Wissen von der Magie	Fertigkeit	\N	\N	1
+Ri	Heraldik	Fertigkeit	\N	\N	1
+Ri	Kampf in Vollrüstung	Fertigkeit	\N	\N	1
+Ri	Kampf zu Pferd	Fertigkeit	\N	\N	1
+Ri	Lesen/Schreiben	Fertigkeit	\N	\N	2
+Ri	Trinken	Fertigkeit	\N	\N	2
+Sa	Erste Hilfe	Fertigkeit	\N	\N	2
+Sa	Hitzeschutz	Zauber	\N	\N	1
+Sa	Kälteschutz	Zauber	\N	\N	1
+Sa	Lesen von Zauberschrift	Fertigkeit	\N	\N	2
+Sa	Lesen/Schreiben	Fertigkeit	\N	\N	2
+Sa	Levitation	Zauber	\N	\N	8
+Sa	Macht über die Sinne	Zauber	\N	\N	2
+Sa	Macht über Unbelebtes	Zauber	\N	\N	2
+Sa	Schlangen beschwören	Fertigkeit	\N	\N	1
+Sa	Segnen	Zauber	\N	\N	3
+Sa	Verfluchen	Zauber	\N	\N	3
+Sa	Verursachen von Krankheit	Zauber	\N	\N	4
+Sa	Vision	Zauber	\N	\N	3
+Sa	Wissen von der Magie	Fertigkeit	\N	\N	1
+Sc	Erste Hilfe	Fertigkeit	\N	\N	2
+Sc	Hitzeschutz	Zauber	\N	\N	2
+Sc	Kälteschutz	Zauber	\N	\N	2
+Sc	Lesen von Zauberschrift	Fertigkeit	\N	\N	2
+Sc	Macht über das Selbst	Zauber	\N	\N	4
+Sc	Schwäche	Zauber	\N	\N	1
+Sc	Segnen	Zauber	\N	\N	3
+Sc	Verfluchen	Zauber	\N	\N	3
+Sc	Verursachen von Krankheit	Zauber	\N	\N	4
+Sc	Vision	Zauber	\N	\N	3
+Sc	Wissen von der Magie	Fertigkeit	\N	\N	1
+Se	Himmelskunde	Fertigkeit	\N	\N	1
+PH	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+PH	Lesen/Schreiben	Fertigkeit	\N	\N	1
+PH	Segnen	Zauber	\N	\N	3
+PH	Wissen von der Magie	Fertigkeit	\N	\N	1
+PK	Austreibung des Bösen	Zauber	\N	\N	4
+PK	Bannen von Dunkelheit	Zauber	\N	\N	2
+PK	Erkennen der Wesen der Dinge	Zauber	\N	\N	2
+PK	Handauflegen	Zauber	\N	\N	1
+PK	Heilen von Wunden	Zauber	\N	\N	3
+PK	Heiliger Zorn	Zauber	\N	\N	1
+PK	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+PK	Lesen/Schreiben	Fertigkeit	\N	\N	1
+PK	Segnen	Zauber	\N	\N	2
+PK	Wissen von der Magie	Fertigkeit	\N	\N	1
+PK	Zauberschmiede	Zauber	\N	\N	3
+PM	Austreibung des Bösen	Zauber	\N	\N	3
+PM	Erkennen der Wesen der Dinge	Zauber	\N	\N	2
+PM	Handauflegen	Zauber	\N	\N	2
+PM	Heilen von Wunden	Zauber	\N	\N	4
+PM	Heiliger Zorn	Zauber	\N	\N	1
+PM	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+PM	Lesen/Schreiben	Fertigkeit	\N	\N	1
+PM	Nebel	Zauber	\N	\N	1
+PM	Segnen	Zauber	\N	\N	3
+PM	Wasseratmen	Zauber	\N	\N	2
+PM	Wissen von der Magie	Fertigkeit	\N	\N	1
+PT	Bannen von Licht	Zauber	\N	\N	1
+PT	Erkennen der Wesen der Dinge	Zauber	\N	\N	2
+PT	Hauch des Winters	Zauber	\N	\N	1
+PT	Heilen von Wunden	Zauber	\N	\N	4
+PT	Heiliger Zorn	Zauber	\N	\N	2
+PT	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+PT	Lesen/Schreiben	Fertigkeit	\N	\N	1
+PT	Verfluchen	Zauber	\N	\N	3
+PT	Verursachen von Krankheit	Zauber	\N	\N	3
+PT	Wissen von der Magie	Fertigkeit	\N	\N	1
+PW	Austreibung des Bösen	Zauber	\N	\N	3
+PW	Bannen von Dunkelheit	Zauber	\N	\N	1
+Ny	Kenntnis der fünf Klassiker	Fertigkeit	\N	\N	1
+Ny	Orakelkunst	Fertigkeit	\N	\N	1
+PF	Austreibung des Bösen	Zauber	\N	\N	4
+PF	Bannen von Dunkelheit	Zauber	\N	\N	2
+PF	Brot und Wasser	Zauber	\N	\N	1
+PF	Erkennen der Wesen der Dinge	Zauber	\N	\N	2
+PF	Erste Hilfe	Fertigkeit	\N	\N	1
+PF	Handauflegen	Zauber	\N	\N	1
+PF	Heilen von Krankheit	Zauber	\N	\N	3
+PF	Heilen von Wunden	Zauber	\N	\N	2
+PF	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+PF	Lesen/Schreiben	Fertigkeit	\N	\N	1
+PF	Segnen	Zauber	\N	\N	3
+PF	Wissen von der Magie	Fertigkeit	\N	\N	1
+PH	Heilen von Wunden	Zauber	\N	\N	4
+wHx	Schmerzen	Zauber	\N	\N	3
+wHx	Verwirren	Zauber	\N	\N	3
+wHx	Wissen von der Magie	Fertigkeit	\N	\N	1
+gHx	Schmerzen	Zauber	\N	\N	3
+gHx	Verwirren	Zauber	\N	\N	3
+gHx	Wissen von der Magie	Fertigkeit	\N	\N	1
+sHx	Schmerzen	Zauber	\N	\N	3
+sHx	Verwirren	Zauber	\N	\N	3
+sHx	Wissen von der Magie	Fertigkeit	\N	\N	1
+Kd	Erste Hilfe	Fertigkeit	\N	\N	1
+Kd	Kenntnis der fünf Klassiker	Fertigkeit	\N	\N	1
+Kr	Kampf in Vollrüstung	Fertigkeit	\N	\N	1
+Kr	Kampf vom Streitwagen	Fertigkeit	\N	\N	2
+Kr	Kampf zu Pferd	Fertigkeit	\N	\N	2
+Ma	Erkennen von Leben	Zauber	\N	\N	1
+Ma	Erkennen von Zauberei	Zauber	\N	\N	4
+Ma	Hören von Fernem	Zauber	\N	\N	2
+Ma	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+Ma	Lesen/Schreiben	Fertigkeit	\N	\N	1
+Ma	Macht über das Selbst	Zauber	\N	\N	1
+Ma	Macht über die belebte Natur	Zauber	\N	\N	3
+Ma	Macht über die Sinne	Zauber	\N	\N	2
+Ma	Macht über Menschen	Zauber	\N	\N	4
+Ma	Macht über Unbelebtes	Zauber	\N	\N	2
+Ma	Sehen in Dunkelheit	Zauber	\N	\N	3
+Ma	Sehen von Verborgenem	Zauber	\N	\N	2
+Ma	Wissen von der Magie	Fertigkeit	\N	\N	1
+Gl	Geheimzeichen	Fertigkeit	\N	\N	2
+Gl	Tanzen	Fertigkeit	\N	\N	1
+Hä	Geschäftstüchtigkeit	Fertigkeit	\N	\N	1
+Hä	Himmelskunde	Fertigkeit	\N	\N	1
+Hä	Lesen/Schreiben	Fertigkeit	\N	\N	2
+Hä	Rechnen	Fertigkeit	\N	\N	1
+Hl	Erkennen von Krankheit	Zauber	\N	\N	1
+Hl	Erste Hilfe	Fertigkeit	\N	\N	1
+Hl	Handauflegen	Zauber	\N	\N	1
+Hl	Heilen von Krankheit	Zauber	\N	\N	2
+Hl	Heilen von Wunden	Zauber	\N	\N	2
+Hl	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+Hl	Lesen/Schreiben	Fertigkeit	\N	\N	1
+Hl	Macht über die belebte Natur	Zauber	\N	\N	4
+Hl	Tiersprache	Zauber	\N	\N	3
+Hl	Wissen von der Magie	Fertigkeit	\N	\N	1
+Hl	Zähmen	Zauber	\N	\N	3
+wHx	Angst	Zauber	\N	\N	4
+wHx	Anziehen	Zauber	\N	\N	2
+wHx	Beeinflussen	Zauber	\N	\N	3
+wHx	Binden des Vertrauten	Zauber	\N	\N	1
+Ord	Kampf zu Pferd	Fertigkeit	\N	\N	2
+wHx	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+wHx	Lesen/Schreiben	Fertigkeit	\N	\N	1
+wHx	Macht über das Selbst	Zauber	\N	\N	2
+gHx	Angst	Zauber	\N	\N	4
+gHx	Anziehen	Zauber	\N	\N	2
+gHx	Beeinflussen	Zauber	\N	\N	3
+gHx	Binden des Vertrauten	Zauber	\N	\N	1
+gHx	Böser Blick	Zauber	\N	\N	4
+gHx	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+gHx	Lesen/Schreiben	Fertigkeit	\N	\N	1
+gHx	Macht über das Selbst	Zauber	\N	\N	2
+sHx	Angst	Zauber	\N	\N	4
+sHx	Anziehen	Zauber	\N	\N	2
+sHx	Beeinflussen	Zauber	\N	\N	3
+sHx	Binden des Vertrauten	Zauber	\N	\N	1
+sHx	Böser Blick	Zauber	\N	\N	4
+sHx	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+sHx	Lesen/Schreiben	Fertigkeit	\N	\N	1
+sHx	Macht über das Selbst	Zauber	\N	\N	2
+eBe	Spaevolk bannen (s)	Zauber	\N	\N	4
+eBe	Spaevolk beschwören I (p)	Zauber	\N	\N	1
+eBe	Spaevolk beschwören I (s)	Zauber	\N	\N	2
+eBe	Spaevolk beschwören II (p)	Zauber	\N	\N	4
+eBe	Wissen von der Magie	Fertigkeit	\N	\N	1
+BN	Faustkampf	Fertigkeit	\N	\N	2
+BN	Himmelskunde	Fertigkeit	\N	\N	1
+BS	Faustkampf	Fertigkeit	\N	\N	2
+BS	Himmelskunde	Fertigkeit	\N	\N	1
+BS	Kampf zu Pferd	Fertigkeit	\N	\N	1
+Dr	Baum	Zauber	\N	\N	4
+Dr	Geheimzeichen	Fertigkeit	\N	\N	1
+Dr	Heiliger Zorn	Zauber	\N	\N	3
+Dr	Lesen von Zauberschrift	Fertigkeit	\N	\N	2
+Dr	Macht über die belebte Natur	Zauber	\N	\N	4
+Dr	Rindenhaut	Zauber	\N	\N	2
+Dr	Tiersprache	Zauber	\N	\N	3
+Dr	Wandeln wie der Wind	Zauber	\N	\N	1
+Dr	Wissen von der Magie	Fertigkeit	\N	\N	1
+Dr	Wundersame Heilung	Zauber	\N	\N	3
+Dr	Zähmen	Zauber	\N	\N	2
+Ba	Die drei Zaubergesänge	Zauber	\N	\N	11
+Ba	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+Ba	Lesen/Schreiben	Fertigkeit	\N	\N	1
+Ba	Lied der Ruhe	Zauber	\N	\N	8
+Ba	Lied der Tanzlust	Zauber	\N	\N	8
+Ba	Lied der Tapferkeit	Zauber	\N	\N	1
+Ba	Lied des Spottes	Zauber	\N	\N	8
+Ba	Tanzen	Fertigkeit	\N	\N	1
+dBe	Dunebargen bannen	Zauber	\N	\N	4
+dBe	Dunkle Kämpfer beschwören I	Zauber	\N	\N	2
+dBe	Dunkle Kämpfer beschwören II	Zauber	\N	\N	4
+dBe	Kämpfer beschwören I	Zauber	\N	\N	3
+dBe	Kaobargen bannen	Zauber	\N	\N	3
+dBe	Kundschafter beschwören I	Zauber	\N	\N	2
+dBe	Kundschafter beschwören II	Zauber	\N	\N	4
+dBe	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+dBe	Lesen/Schreiben	Fertigkeit	\N	\N	1
+dBe	Schutzkreis gegen Dunebargen	Zauber	\N	\N	3
+dBe	Schutzkreis gegen Kaobargen	Zauber	\N	\N	2
+dBe	Träger beschwören I	Zauber	\N	\N	1
+dBe	Träger beschwören II	Zauber	\N	\N	3
+dBe	Wissen von der Magie	Fertigkeit	\N	\N	1
+eBe	Dvergar beschwören (p)	Zauber	\N	\N	2
+eBe	Lesen von Zauberschrift	Fertigkeit	\N	\N	1
+eBe	Lesen/Schreiben	Fertigkeit	\N	\N	1
+eBe	Schutzkreis gegen Spaevolk (p)	Zauber	\N	\N	2
+eBe	Schutzkreis gegen Spaevolk (s)	Zauber	\N	\N	3
+eBe	Spaevolk bannen (p)	Zauber	\N	\N	3
+Sp	Schlösser öffnen	Fertigkeit	4	Ge	1
+Ass	Bihänder	Waffe	5	\N	3
+Ass	Dolch	Waffe	5	\N	1
+Ass	Handaxt	Waffe	5	\N	2
+Ass	Hellebarde	Waffe	5	\N	3
+Ass	Kampfstab	Waffe	5	\N	2
+Ass	Keule	Waffe	5	\N	1
+PH	Heiliger Zorn	Zauber	\N		2
+Ass	Kriegshammer	Waffe	5	\N	2
+Ass	Krummsäbel	Waffe	5	\N	2
+Ass	Kurzschwert	Waffe	5	\N	1
+Ass	Langbogen	Waffe	5	\N	3
+Ass	Langschwert	Waffe	5	\N	2
+Ass	Lanze	Waffe	5	\N	3
+Ass	leichte Armbrust	Waffe	5	\N	2
+Ass	leichter Speer	Waffe	5	\N	2
+Ass	Morgenstern	Waffe	5	\N	3
+Ass	Parierdolch	Waffe	1	\N	1
+Ass	Rapier	Waffe	5	\N	2
+Ass	Schleuder	Waffe	5	\N	3
+Ass	schwere Armbrust	Waffe	5	\N	3
+Ass	Stoßspeer	Waffe	5	\N	3
+Ass	Streitaxt	Waffe	5	\N	3
+Ass	Streitkolben	Waffe	5	\N	2
+Ord	Lesen/Schreiben	Fertigkeit	\N	\N	1
+Ass	Wurfaxt	Waffe	5	\N	2
+Ass	Wurfkeule	Waffe	5	\N	3
+Ass	Wurfmesser	Waffe	5	\N	1
+Ass	Wurfpfeil	Waffe	5	\N	1
+Ass	Wurfspeer	Waffe	5	\N	2
+Ass	Wurfstern	Waffe	5	\N	1
+Ass	Beschatten	Fertigkeit	8	RW	2
+Ass	Verhören	Fertigkeit	8	pA	2
+Ass	Anderthalbhänder	Waffe	5	\N	3
+Ass	Blasrohr	Waffe	5	\N	1
+Ass	Bogen	Waffe	5	\N	2
+Ass	Buckler	Waffe	1	\N	3
+Ass	Fallen entdecken	Fertigkeit	4	In	2
+Ass	Giftmischen	Fertigkeit	4	In	2
+Ass	Lippenlesen	Fertigkeit	4	In	2
+Ass	Stimmen nachahmen	Fertigkeit	15	In	1
+Ass	Verkleiden	Fertigkeit	15	In	2
+Ass	Fallenmechanik	Fertigkeit	4	Ge	1
+Ass	Scharfschießen	Fertigkeit	5	Ge	2
+Ass	Schleichen	Fertigkeit	4	Ge	1
+Ass	Tarnen	Fertigkeit	4	Ge	1
+Ass	Geheimzeichen	Fertigkeit	\N	\N	1
+Ass	Meucheln	Fertigkeit	8	Ge	1
+Ord	Anderthalbhänder	Waffe	5	\N	2
+Ord	Bihänder	Waffe	5	\N	3
+Ord	Bogen	Waffe	5	\N	3
+Ord	Buckler	Waffe	1	\N	1
+Ord	Dolch	Waffe	5	\N	1
+Ma	Zauberkunde	Fertigkeit	\N	In	1
+Ord	Handaxt	Waffe	5	\N	1
+Ord	Hellebarde	Waffe	5	\N	2
+Ord	Kampfstab	Waffe	5	\N	2
+Ord	Kampftaktik	Fertigkeit	1	\N	2
+Ord	Keule	Waffe	5	\N	1
+PH	Feuerfinger	Zauber	\N		2
+Ord	Kriegsflegel	Waffe	5	\N	3
+Ord	Kriegshammer	Waffe	5	\N	1
+Ord	Krummsäbel	Waffe	5	\N	1
+Ord	Kurzschwert	Waffe	5	\N	1
+Ord	Langbogen	Waffe	5	\N	3
+Ord	Langschwert	Waffe	5	\N	1
+Ord	Lanze	Waffe	5	\N	2
+Ord	Lanzenstechen	Fertigkeit	1	\N	2
+Ord	leichte Armbrust	Waffe	5	\N	3
+Ord	leichter Speer	Waffe	5	\N	1
+Sp	Stehlen	Fertigkeit	8	Ge	1
+Ri	Bogen zu Pferd	Fertigkeit	\N	\N	2
+Kr	Bogen zu Pferd	Fertigkeit	\N	\N	2
+BS	Bogen zu Pferd	Fertigkeit	\N	\N	1
+Kr	Bogen vom Streitwagen	Fertigkeit	\N	\N	2
+Ny	Meucheln	Fertigkeit	8	Ge	2
+Se	Sprache	Fertigkeit	4	\N	1
+PW	Sprache	Fertigkeit	4	\N	2
+Gl	Sprache	Fertigkeit	4	\N	2
+Hä	Sprache	Fertigkeit	4	\N	1
+eBe	Zauberkunde	Fertigkeit	4	In	2
+Th	Naturkunde	Fertigkeit	4	In	2
+Sa	Naturkunde	Fertigkeit	4	In	2
+Sc	Naturkunde	Fertigkeit	4	In	2
+Dr	Naturkunde	Fertigkeit	4	In	1
+Wa	waffenloser Kampf	Waffe	5	\N	4
+Ny	KiDo	Fertigkeit	10	Zt	1
+Ny	Lesen/Schreiben	Fertigkeit	\N	\N	1
+Ny	TaiTschi	Fertigkeit	\N	\N	2
+Kd	TaiTschi	Fertigkeit	\N	\N	1
+Kd	KiDo	Fertigkeit	10	Zt	1
+Kd	YangScheng	Fertigkeit	1	\N	1
+Kd	SchiyoKi	Fertigkeit	\N	\N	2
+Kd	Lesen/Schreiben	Fertigkeit	2	\N	2
+Wa	großer Schild	Waffe	1	\N	2
+Sk	großer Schild	Waffe	1	\N	2
+Sö	großer Schild	Waffe	1	\N	1
+Ri	großer Schild	Waffe	1	\N	1
+Se	großer Schild	Waffe	1	\N	2
+PK	großer Schild	Waffe	1	\N	3
+PM	großer Schild	Waffe	1	\N	3
+PF	großer Schild	Waffe	1	\N	3
+PH	großer Schild	Waffe	1	\N	3
+Kr	großer Schild	Waffe	1	\N	1
+Gl	großer Schild	Waffe	1	\N	1
+Hä	großer Schild	Waffe	1	\N	2
+BN	großer Schild	Waffe	1	\N	1
+BS	großer Schild	Waffe	1	\N	3
+BW	großer Schild	Waffe	1	\N	2
+Ba	großer Schild	Waffe	1	\N	2
+Ord	großer Schild	Waffe	1	\N	1
+Tr	kleiner Schild	Waffe	1	\N	4
+Wa	kleiner Schild	Waffe	1	\N	2
+Sö	kleiner Schild	Waffe	1	\N	1
+Sp	kleiner Schild	Waffe	1	\N	2
+Ri	kleiner Schild	Waffe	1	\N	1
+Se	kleiner Schild	Waffe	1	\N	1
+PK	kleiner Schild	Waffe	1	\N	3
+PM	kleiner Schild	Waffe	1	\N	3
+PF	kleiner Schild	Waffe	1	\N	3
+PH	kleiner Schild	Waffe	1	\N	3
+Kr	kleiner Schild	Waffe	1	\N	1
+Gl	kleiner Schild	Waffe	1	\N	1
+Hä	kleiner Schild	Waffe	1	\N	1
+BN	kleiner Schild	Waffe	1	\N	1
+BS	kleiner Schild	Waffe	1	\N	1
+BW	kleiner Schild	Waffe	1	\N	1
+Dr	kleiner Schild	Waffe	1	\N	3
+Ba	kleiner Schild	Waffe	1	\N	2
+Ass	kleiner Schild	Waffe	1	\N	3
+Ord	kleiner Schild	Waffe	1	\N	1
+\.

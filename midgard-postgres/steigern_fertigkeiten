@@ -1,0 +1,131 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE steigern_fertigkeiten;
+--
+-- TOC Entry ID 2 (OID 5788255)
+--
+-- Name: steigern_fertigkeiten Type: TABLE Owner: christof
+--
+
+CREATE TABLE steigern_fertigkeiten (
+	name text,
+	wie text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5788255) TABLE DATA steigern_fertigkeiten
+--
+
+COPY steigern_fertigkeiten  FROM stdin;
+Alchemie	Wissen
+Athletik	Athletik
+Balancieren	Bewegung
+Ballista bedienen	-
+Beidhändiger Kampf	Beidhändiger Kampf
+Beredsamkeit	Beredsamkeit
+Beschatten	Beschatten
+Bogen vom Streitwagen	-
+Bogen zu Pferd	-
+Erste Hilfe	-
+Fallen entschärfen	Abenteuer
+Fallen stellen	Abenteuer
+Fallenmechanik	Abenteuer
+Faustkampf	-
+Fechten tevarischer Stil	-
+Fechten	Fechten
+Gassenwissen	Gassenwissen
+Geheimmech.öffnen	Abenteuer
+Geheimzeichen	-
+Geländelauf	Bewegung
+Geschäftstüchtigkeit	-
+Geschichten erzählen	Geschichten erzählen
+Himmelskunde	-
+Kampf in Schlachtreihe	-
+Kampf in Vollrüstung	-
+Kampf vom Streitwagen	-
+Kampf zu Pferd	-
+Kampftaktik	Kampftaktik
+Kanufahren	Bewegung
+Katapult bedienen	-
+Klettern	Bewegung
+Kräuterkunde	Wissen
+Laufen	Laufen
+Lesen von Zauberschrift	-
+Lesen/Schreiben	-
+Lippenlesen	Lippenlesen
+Menschenkenntnis	Menschenkenntnis
+Meucheln	Meucheln
+Musizieren	Musizieren
+Naturkunde	Wissen
+Pflanzenkunde	Wissen
+Rechnen	-
+Reiten	Bewegung
+Rudern	Bewegung
+Sagenkunde	Wissen
+Scharfschießen	Scharfschießen
+Schätzen	-
+Schleichen	Abenteuer
+Schlösser öffnen	Abenteuer
+Schwimmen	Bewegung
+Segeln	Bewegung
+Seilkunst	Seilkunst
+Singen	Singen
+Skifahren	Bewegung
+Sprache	Sprache
+Springen	Bewegung
+Spurenlesen	Abenteuer
+Stehlen	Stehlen
+Stimmen nachahmen	Stimmen nachahmen
+Streitwagen lenken	Bewegung
+Talisman verzaubern	Talisman verzaubern
+Tarnen	Abenteuer
+Tauchen	Tauchen
+Tierkunde	Wissen
+Trinken	-
+Verführen	Verführen
+Verhören	Verhören
+Verkleiden	Verkleiden
+Wagenlenken	Bewegung
+Wahrnehmung	Wahrnehmung
+Winden	Winden
+Wissen von der Magie	-
+Zauberkunde	Wissen
+Zeichensprache	Zeichensprache
+Fallen	Bewegung
+Fälschen	Verkleiden
+Überleben im Gebirge	Überleben
+Überleben im Schnee	Überleben
+Überleben in der Steppe	Überleben
+Überleben im Sumpf	Überleben
+Überleben im Wald	Überleben
+Überleben in der Wüste	Überleben
+Überleben im Dschungel	Überleben
+Schlittenfahren	Bewegung
+Glücksspiel	Glücksspiel
+Fallen entdecken	Abenteuer
+Giftmischen	Wissen
+FengSchui	Wissen
+FengTsu	-
+Geschenke machen	Beredsamkeit
+IaiJutsu	-
+KarumiJutsu	Bewegung
+Kenntnis der Fünf Klassiker	-
+KentoYobu	-
+KiDo	KiDo
+KujKuri	Zeichensprache
+KujNoIu	-
+LiYao	LiYao
+Meditieren	Verhören
+MiChen	-
+NinJutsu	NinJutsu
+Orakelkunst	-
+SchiyoKi	-
+Schwerttanz	Bewegung
+Steinabreibungen machen	-
+TaiTschi	-
+Teezeremonie	Überleben
+YangScheng	YangScheng
+YubeChian	-
+Zunge verschlucken	Verhören
+\.

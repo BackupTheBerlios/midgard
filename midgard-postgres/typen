@@ -1,0 +1,58 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE typen;
+--
+-- TOC Entry ID 2 (OID 5788493)
+--
+-- Name: typen Type: TABLE Owner: christof
+--
+
+CREATE TABLE typen (
+	typs text,
+	typl text,
+	typz text,
+	ausdauer text,
+	stand integer,
+	sb integer,
+	ruestung integer,
+	region text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5788493) TABLE DATA typen
+--
+
+COPY typen  FROM stdin;
+PT	Priester, Tod	z	z	20	0	4	\N
+Sc	Schamane	z	z	0	0	1	\N
+Th	Thaumaturge	z	z	0	0	1	\N
+dBe	Beschwörer, Dämonen	z	z	20	20	4	\N
+eBe	Beschwörer, Elementare	z	z	20	20	4	\N
+Dr	Druide	z	z	0	20	1	\N
+PH	Priester, Herrschaft	z	z	20	0	1	\N
+BN	Barbar, Nordland	n	k	0	0	2	\N
+BS	Barbar, Steppe	n	k	0	0	2	\N
+BW	Barbar, Waldland	n	k	0	0	4	\N
+Ba	Barde	j	ak	20	0	1	\N
+Gl	Glücksritter	n	ak	0	0	3	\N
+Hä	Händler	n	ak	-10	0	2	\N
+Kr	Krieger	n	k	0	0	3	\N
+Ord	Ordeskrieger	j	ak	0	0	3	\N
+Se	Seefahrer	n	ak	0	0	2	\N
+Sö	Söldner	n	k	0	0	3	\N
+Wa	Waldläufer	n	k	-10	0	1	\N
+Ass	Assassine	n	ak	0	20	1	\N
+Sp	Spitzbube	n	ak	-20	-20	1	\N
+Hl	Heiler	z	z	0	0	4	\N
+wHx	Hexer, weiß	z	z	0	0	4	\N
+gHx	Hexer, grau	z	z	0	0	4	\N
+sHx	Hexer, schwarz	z	z	0	0	4	\N
+Ma	Magier	z	z	0	0	4	\N
+PF	Priester, Fruchtbarkeit	z	z	20	0	4	\N
+PW	Priester, Weisheit	z	z	20	0	4	\N
+PM	Priester, Meer	z	z	20	0	1	\N
+PK	Priester, Krieg	z	z	20	0	1	\N
+Ny	Ninya	n	ak	0	20	1	K
+Kd	KiDoka	n	k	0	0	1	K
+\.

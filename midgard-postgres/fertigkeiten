@@ -1,0 +1,167 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE fertigkeiten;
+--
+-- TOC Entry ID 2 (OID 5786623)
+--
+-- Name: fertigkeiten Type: TABLE Owner: christof
+--
+
+CREATE TABLE fertigkeiten (
+	lp integer,
+	anfangswert0 text,
+	fertigkeit text,
+	anfangswert text,
+	fp integer,
+	region text,
+	ass text,
+	ba text,
+	bn text,
+	bs text,
+	bw text,
+	gl text,
+	"hä" text,
+	kr text,
+	ord text,
+	se text,
+	"sö" text,
+	sp text,
+	wa text,
+	dr text,
+	hl text,
+	whx text,
+	ghx text,
+	shx text,
+	ma text,
+	dbe text,
+	ebe text,
+	sc text,
+	th text,
+	ph text,
+	pf text,
+	pw text,
+	pm text,
+	pk text,
+	pt text,
+	pc text,
+	ny text,
+	kd text,
+	attribut text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5786623) TABLE DATA fertigkeiten
+--
+
+COPY fertigkeiten  FROM stdin;
+5	8	Beredsamkeit	6	200		S	G	S	S	S	G	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	pA
+4	8	Beschatten	6	300		G	S	S	S	G	S	S	S	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	RW
+2	4	Fallen entschärfen	2	400		G	S	S	S	S	S	S	A	S	S	A	G	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	G	S	Ge
+3	4	Fallen stellen	2	200		G	S	G	G	G	S	S	S	S	S	S	A	G	G	A	A	A	A	A	A	A	G	A	A	A	A	A	A	A	A	G	S	Ge
+2	4	Fallenmechanik	2	400		G	S	S	S	S	S	G	A	S	S	A	S	S	A	A	A	A	A	A	A	A	A	G	A	A	A	A	A	A	A	G	S	Ge
+4	4	Fechten	4	800		G	G	S	S	S	G	S	S	S	S	S	G	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	\N
+3	4	Gassenwissen	2	200		G	G	S	S	S	G	G	S	S	G	G	G	S	S	S	G	G	G	S	S	S	S	S	S	S	S	S	S	S	S	G	S	In
+3	15	Geländelauf	12	100		S	S	G	G	G	G	S	S	S	S	S	G	G	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	RW
+4	8	Geschichten erzählen	8	150		A	G	S	S	S	G	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	A	S	In
+4	15	Glücksspiel	15	200		S	G	S	S	S	G	G	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge
+8	1	Kampftaktik	1	200		A	A	S	S	S	S	S	G	S	G	G	A	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	A	\N
+3	15	Kanufahren	12	100		S	S	S	S	G	S	G	S	S	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge
+3	15	Klettern	12	100		G	S	G	G	G	G	S	S	S	G	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	Ge
+4	4	Kräuterkunde	2	100		S	S	S	S	S	S	S	S	S	S	S	S	G	G	G	G	G	G	G	G	G	G	S	S	S	S	S	S	S	S	S	S	In
+3	2	Laufen	2	50		S	S	G	G	G	S	S	S	S	A	S	S	G	S	A	A	A	A	A	A	A	G	S	A	A	A	A	A	A	A	S	S	\N
+3	4	Menschenkenntnis	2	250		S	G	S	S	S	G	G	S	S	G	S	S	S	S	G	S	S	S	S	A	A	S	S	S	S	G	S	S	S	S	S	S	In
+5	8	Meucheln	6	800		G	A	S	S	S	S	S	A	S	S	S	G	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	G	S	Ge
+4	8	Musizieren	8	150		S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+4	4	Naturkunde	2	100		S	S	S	S	S	S	S	A	S	S	A	A	G	G	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	In
+4	4	Pflanzenkunde	2	100		S	S	S	S	S	S	S	A	S	S	A	A	G	G	G	S	S	S	S	S	S	G	S	S	G	S	S	S	S	S	S	S	In
+3	15	Reiten	12	100		A	A	A	A	A	A	A	A	A	G	A	A	A	S	S	S	S	S	S	S	S	G	S	S	S	S	S	G	S	S	S	A	Ge
+4	4	Sagenkunde	2	100		S	G	S	S	S	S	S	S	S	S	S	S	S	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	S	S	In
+5	4	Scharfschießen	4	800		G	S	S	S	S	S	S	S	S	S	S	S	G	A	A	A	A	A	A	A	A	S	S	A	A	A	A	A	A	A	G	S	Ge
+3	4	Schleichen	2	400		G	S	G	G	G	G	S	S	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	Ge
+4	4	Schlösser öffnen	2	400		S	S	A	A	A	S	S	A	S	S	A	G	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	Ge
+3	15	Schwimmen	12	100		G	G	G	S	G	G	G	G	G	G	G	S	G	S	S	S	S	S	S	S	S	G	S	S	S	S	G	S	S	S	G	G	Ge
+4	15	Segeln	12	100		S	S	S	S	S	S	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge
+4	15	Seilkunst	6	50		S	S	S	S	S	S	G	S	S	G	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge
+4	8	Singen	8	150		S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	G	G	G	G	G	G	G	S	S	In
+3	15	Skifahren	12	100		S	S	G	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge
+3	4	Sprache	1	10		G	G	S	S	S	G	G	S	S	G	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	G	S	\N
+3	15	Springen	12	100		G	S	S	S	S	G	S	S	S	S	S	G	G	S	A	A	A	A	A	A	A	S	A	A	A	A	A	A	A	A	G	G	\N
+3	4	Spurenlesen	2	400		S	S	S	G	G	S	S	S	S	S	S	S	G	S	A	A	A	A	A	A	A	S	A	A	A	A	A	A	A	A	S	S	In
+5	8	Stehlen	6	300		S	S	S	S	S	S	S	A	A	S	A	G	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	Ge
+4	15	Stimmen nachahmen	12	50		G	G	A	A	G	S	S	A	S	S	S	S	G	S	S	G	G	G	S	S	S	S	S	S	S	S	S	S	S	S	G	S	In
+5	15	Streitwagen lenken	12	100		S	S	S	G	S	S	S	G	S	S	S	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	G	A	A	S	S	Ge
+8	1	Talisman verzaubern	1	400		S	S	S	S	S	S	S	S	S	S	S	S	S	A	A	A	A	A	A	A	A	S	G	S	S	S	S	S	S	S	S	S	\N
+4	4	Tarnen	2	400		G	S	G	G	G	G	S	S	S	S	S	G	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	Ge
+2	15	Tauchen	12	200		S	S	G	A	G	S	S	S	S	G	S	S	G	S	A	A	A	A	A	A	A	S	A	A	A	A	S	A	A	A	S	S	Ko
+4	4	Tierkunde	2	100		S	S	S	S	S	S	S	A	S	S	A	A	G	G	G	S	S	S	S	S	S	G	S	S	G	S	S	S	S	S	S	S	In
+4	8	Verführen	8	50		S	G	S	S	S	G	S	S	S	G	S	S	S	A	A	S	S	S	A	A	A	A	A	A	S	A	A	A	A	A	S	S	pA
+4	8	Verhören	8	200		S	S	A	A	A	G	G	S	S	S	S	S	A	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	G	S	S	S	pA
+5	15	Verkleiden	12	50		G	S	S	S	S	G	S	A	S	S	A	G	S	A	A	S	S	S	A	A	A	A	A	A	A	A	A	A	A	A	G	S	In
+3	15	Wagenlenken	12	100		S	S	S	G	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge
+4	4	Wahrnehmung	4	400		G	S	G	G	G	S	G	S	S	G	S	G	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	In
+4	4	Winden	2	250		G	S	S	S	S	S	S	A	S	S	A	G	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	G	G	\N
+4	4	Zauberkunde	2	100		A	G	A	A	A	A	S	A	A	A	A	S	A	S	S	G	G	G	G	S	S	S	G	S	S	G	S	S	S	S	A	A	In
+4	1	Zeichensprache	1	20		S	S	S	S	S	G	G	S	S	G	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+4	4	Fallen entdecken	2	400		G	S	S	S	S	S	G	A	A	S	A	G	S	A	A	A	A	A	A	A	A	A	G	A	A	A	A	A	A	A	G	A	In
+8	\N	Ballista bedienen	\N	100		S	S	S	S	S	S	S	G	S	G	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	\N
+8	\N	Bogen vom Streitwagen	\N	200		S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	\N
+8	\N	Bogen zu Pferd	\N	200		S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	\N
+4	\N	Erste Hilfe	\N	100		S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	G	S	S	G	S	S	S	S	S	S	S	\N
+5	\N	Faustkampf	\N	500		S	S	G	G	S	S	S	S	S	G	G	S	S	A	A	A	A	A	A	A	A	S	A	A	A	A	A	A	A	A	S	S	\N
+5	\N	Fechten tevarischer Stil	\N	400		G	G	S	S	S	G	S	S	S	S	S	G	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	\N
+3	\N	Geheimzeichen	\N	50		G	G	S	S	S	S	G	S	S	S	S	G	S	G	S	G	G	G	S	S	S	S	G	S	S	S	S	S	S	S	G	S	\N
+9	\N	Geschäftstüchtigkeit	\N	4000		S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+3	\N	Himmelskunde	\N	50		S	G	G	G	S	S	G	S	S	G	S	S	G	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	\N
+2	\N	Kampf in Schlachtreihe	\N	50		S	S	S	S	G	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	\N
+8	\N	Kampf in Vollrüstung	\N	4000		A	A	S	S	S	S	S	G	S	S	G	A	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	\N
+8	\N	Kampf vom Streitwagen	\N	200		A	S	G	G	S	S	S	G	S	A	G	A	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	\N
+8	\N	Kampf zu Pferd	\N	200		S	S	G	G	G	G	G	G	S	A	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	S	A	\N
+8	\N	Katapult bedienen	\N	100		S	S	S	S	S	S	S	G	S	G	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	\N
+8	\N	Lesen von Zauberschrift	\N	60		A	S	A	A	A	A	A	A	A	A	A	A	A	S	G	G	G	G	G	S	S	S	S	G	G	G	G	G	G	G	A	A	\N
+3	\N	Lesen/Schreiben	\N	100		S	S	S	S	S	S	G	S	S	S	S	S	S	S	G	G	G	G	G	S	S	S	S	G	G	G	G	G	G	G	S	S	\N
+4	\N	Rechnen	\N	100	 	S	S	A	A	A	S	G	A	S	G	A	S	A	S	S	S	S	S	S	S	S	A	G	S	S	G	S	S	S	S	S	S	\N
+3	\N	Trinken	\N	100		S	S	G	S	S	G	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+1	\N	Wissen von der Magie	\N	5000		S	S	S	S	S	S	S	A	S	S	A	S	S	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	S	S	\N
+4	4	Alchemie	2	100		A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	S	S	S	G	G	G	S	G	S	S	S	S	S	S	S	A	A	\N
+3	1	Athletik	1	50		S	S	G	G	G	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	S	A	A	A	A	A	S	A	A	S	S	\N
+3	15	Balancieren	12	100		G	S	S	S	G	G	S	S	S	G	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	G	Ge
+6	-4	Beidhändiger Kampf	-4	1500		S	S	G	G	G	G	S	G	S	G	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	G	\N
+5	15	Fallen	12	200	\N	G	S	S	S	G	G	S	S	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	\N
+3	8	Überleben im Dschungel	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+3	8	Überleben im Schnee	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+3	8	Überleben in der Steppe	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+3	8	Überleben im Sumpf	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+3	8	Überleben im Wald	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+3	8	Überleben in der Wüste	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+3	8	Überleben im Gebirge	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+5	4	Giftmischen	2	100		G	S	S	S	S	S	S	A	S	S	S	S	S	S	A	G	G	G	S	S	S	G	S	S	A	S	S	S	G	S	S	S	In
+4	4	Geheimmechanismen öffnen	2	400		S	S	A	A	A	G	S	A	S	S	A	G	S	A	S	S	S	S	S	S	S	A	G	S	S	S	S	S	S	S	S	S	In
+3	4	Lippenlesen	2	250		G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	In
+3	15	Rudern	12	100		S	S	G	S	G	S	G	S	S	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	St
+3	15	Schlittenfahren	12	100		S	S	G	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge
+8	10	KiDo	10	800	K	S	S	S	S	S	S	S	S	G	S	S	S	S	A	S	A	A	A	A	A	A	S	A	A	A	A	A	S	A	S	G	G	Zt
+4	1	KujKuri	1	20	K	S	A	A	A	A	S	A	A	A	A	A	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	G	A	\N
+8	\N	KujNoIu	\N	400	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	\N
+5	4	LiYao	2	100	K	S	A	A	A	A	S	S	S	S	S	S	S	A	A	A	S	S	S	S	S	S	A	G	S	A	A	A	S	A	A	G	S	In
+4	8	Meditieren	8	200	K	S	S	S	S	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	G	S	G	G	G	G	G	G	G	G	G	Sb
+8	\N	MiChen	\N	500	K	G	S	A	A	A	S	S	S	S	S	S	S	S	S	G	S	S	S	A	A	A	S	A	S	S	S	S	S	S	S	G	S	\N
+4	4	NinJutsu	2	600	K	S	A	A	A	A	A	A	A	A	A	A	S	A	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	Ge
+5	\N	Orakelkunst	\N	60	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	G	G	G	G	G	G	G	G	S	\N
+8	\N	SchiyoKi	\N	100	K	G	S	S	S	S	S	S	G	G	S	S	S	G	S	G	A	A	A	S	S	S	G	A	G	G	G	G	G	G	G	G	G	\N
+8	14	Schwerttanz	12	100	K	S	S	A	A	A	G	A	G	G	S	G	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	G	A	A	S	S	Ge
+4	\N	Steinabreibungen machen	\N	60	K	S	S	A	A	A	S	S	A	S	A	A	S	A	S	S	G	G	G	G	S	S	S	G	G	G	G	G	G	G	G	S	S	\N
+5	\N	TaiTschi	\N	100	K	G	S	S	S	S	S	S	G	G	S	S	S	G	S	G	A	A	A	S	S	S	G	A	G	G	G	G	G	G	G	G	G	\N
+5	8	Teezeremonie	6	50	K	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	G	S	G	G	G	G	G	G	G	S	G	pA
+5	1	YangScheng	1	100	K	S	S	A	A	A	S	S	A	G	A	S	S	S	S	G	S	S	S	S	S	S	G	S	G	G	G	G	G	A	G	S	G	\N
+8	\N	YubeChian	\N	200	K	G	S	A	A	A	S	S	S	S	S	S	S	S	S	G	S	S	S	A	A	A	S	A	S	S	S	S	S	S	S	G	S	\N
+4	8	Zunge verschlucken	8	200	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+5	15	Fälschen	12	50		G	S	A	A	A	G	G	A	A	S	A	G	A	A	A	S	S	S	S	S	S	A	S	S	S	S	S	S	S	S	G	A	In
+4	4	FengSchui	2	100	K	G	S	S	S	S	S	S	G	G	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	G	In
+8	\N	FengTsu	\N	300	K	G	S	S	S	S	G	S	G	G	S	S	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	G	S	\N
+5	8	Geschenke machen	6	200	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	pA
+8	\N	IaiJutsu	\N	60	K	G	S	S	S	S	S	S	G	G	S	S	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	G	A	A	G	S	\N
+3	15	KarumiJutsu	12	100	K	S	A	A	A	A	A	A	A	A	A	A	S	A	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	A	Ge
+5	\N	Kenntnis der Fünf Klassiker	\N	2500	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+8	\N	KentoYobu	\N	100	K	A	A	S	S	S	S	S	G	G	S	G	A	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	\N
+\.

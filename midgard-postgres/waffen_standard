@@ -1,0 +1,55 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE waffen_standard;
+--
+-- TOC Entry ID 2 (OID 5788745)
+--
+-- Name: waffen_standard Type: TABLE Owner: christof
+--
+
+CREATE TABLE waffen_standard (
+	fertigkeit text,
+	ass text,
+	ba text,
+	bn text,
+	bs text,
+	bw text,
+	gl text,
+	"hä" text,
+	kr text,
+	ord text,
+	se text,
+	"sö" text,
+	sp text,
+	wa text,
+	dr text,
+	hl text,
+	whx text,
+	ghx text,
+	shx text,
+	ma text,
+	dbe text,
+	ebe text,
+	sc text,
+	th text,
+	ph text,
+	pf text,
+	pw text,
+	pm text,
+	pk text,
+	pt text,
+	pc text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5788745) TABLE DATA waffen_standard
+--
+
+COPY waffen_standard  FROM stdin;
+Waffen	S	S	S	S	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
+Peitsche	S	S	S	S	S	S	G	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
+Lasso	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
+Netz	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
+Bola	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
+\.

@@ -1,0 +1,66 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE charaktere;
+--
+-- TOC Entry ID 2 (OID 5788853)
+--
+-- Name: charaktere Type: TABLE Owner: christof
+--
+
+CREATE TABLE charaktere (
+	charakter_name text,
+	beschreibung text,
+	version text,
+	spieler_name text,
+	typ_l text,
+	typ_s text,
+	typ_i text,
+	st integer,
+	ge integer,
+	ko integer,
+	inn integer,
+	zt integer,
+	au integer,
+	pa integer,
+	sb integer,
+	rw integer,
+	hgw integer,
+	b integer,
+	lp integer,
+	ap integer,
+	kaw integer,
+	wlw integer,
+	abwehr integer,
+	zaubern integer,
+	psy integer,
+	phs integer,
+	phk integer,
+	gift integer,
+	lpbasis integer,
+	alter integer,
+	gestalt text,
+	gewicht integer,
+	groesse integer,
+	grad integer,
+	spezialisierung text,
+	stand text,
+	herkunft text,
+	glaube text,
+	db_bo_au_typ integer,
+	db_bo_au integer,
+	db_bo_sc integer,
+	db_bo_an integer,
+	db_bo_ab integer,
+	db_bo_za integer,
+	db_bo_psy integer,
+	db_bo_phs integer,
+	db_bo_phk integer,
+	db_bo_gi integer,
+	db_gfp integer,
+	gold integer,
+	silber integer,
+	kupfer integer,
+	ruestung text
+);
+

@@ -1,0 +1,68 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE sprachen;
+--
+-- TOC Entry ID 2 (OID 5788182)
+--
+-- Name: sprachen Type: TABLE Owner: christof
+--
+
+CREATE TABLE sprachen (
+	kontinent text,
+	land text,
+	fp integer,
+	name text,
+	max_wert integer,
+	schrift text,
+	alt boolean,
+	region text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5788182) TABLE DATA sprachen
+--
+
+COPY sprachen  FROM stdin;
+Vesternesse	Fuardain	10	Twyneddisch	4	Seemeister	f	\N
+Vesternesse	Clanngadarn	10	Twyneddisch	4	Seemeister	f	\N
+Vesternesse	Ywerdon	10	Twyneddisch	4	Seemeister	f	\N
+Vesternesse	Ywerdon	10	Erainnisch	4	Seemeister	f	\N
+Vesternesse	Erainn	10	Erainnisch	4	Seemeister	f	\N
+Vesternesse	Erainn	10	Hochcoraniaid	4	Coraniaid	t	\N
+Vesternesse	Alba	10	Albisch	4	Seemeister	f	\N
+Vesternesse	Alba	10	Altoqua	4	Seemeister	t	\N
+Vesternesse	Chryseia	10	Chryseisch	4	Seemeister	f	\N
+Vesternesse	Chryseia	10	Maralinga	4	Seemeister	t	\N
+Sirao	Waeland	10	Waelska	4	Waelska	f	\N
+Vesternesse	Vesternesse	10	Comentang	3	Seemeister	f	\N
+Sirao	Medjis	10	Medjisisch	4	Tegarisch	f	\N
+Sirao	Tegarische Steppe	10	Tegarisch	4	Tegarisch	f	\N
+Sirao	Tegarische Steppe	10	Berekusch	4	Tegarisch	f	\N
+Sirao	Tegarische Steppe	10	Läinisch	4	Läinisch	f	\N
+Sirao	Aran	10	Aranisch	4	Seemeister	f	\N
+Sirao	Aran	10	Maralinga	4	Seemeister	f	\N
+Sirao	Rawindra	10	Rawindi	4	Rawindi	f	\N
+Sirao	KanThaiPan	10	KanThaiTun	4	KanThaiTun	f	\N
+Sirao	Minangpahit	10	Minangpahitisch	4	Rawindi	f	\N
+Lamaran	Küstenstaaten	10	Neu Vallinga	4	Seemeister	f	\N
+Lamaran	Eschar	10	Scharidisch	4	Scharidisch	f	\N
+Lamaran	Eschar	10	Meketisch	4	Meketisch	t	\N
+Lamaran	Eschar	10	Kelwisch	4	Luwisch	t	\N
+Lamaran	Urruti	10	Hurritisch	4	Luwisch	f	\N
+Lamaran	Urruti	10	Luwisch	4	Luwisch	t	\N
+Lamaran	Buluga	10	Bulugi	4	Bulugi	f	\N
+Lamaran	Ikenga Becken	10	Stammesdialekte	4		f	\N
+Huaxal	Feuerinseln	10	Stammesdialekte	2		f	\N
+Huaxal	Inseln unter dem Westwind	10	Trll'ng	3		f	\N
+Huaxal	Inseln unter dem Westwind	10	Nahuatlanisch	4	Nahuatlanisch	f	\N
+Huaxal	Nahuatlan	10	Nahuatlanisch	4	Nahuatlanisch	f	\N
+Valian	Valian	10	Maralinga	4	Seemeister	t	\N
+Nichtmenschen	Halfdal	10	Halftan	4	Halftan	f	\N
+Nichtmenschen	Dvarheim	10	Dvarskar	4	Dvarskar	f	\N
+Nichtmenschen	Gnome	10	Gnomenon	4	Gnomenon	f	\N
+Nichtmenschen	Elfen	10	Eldalyn	4	Coraniad	f	\N
+Sirao	Moravod	10	Moravisch	4	Tegarisch	f	\N
+Valian	Valian	10	Vallinga	4	Seemeister	f	\N
+Vesternesse	Alba	10	Dunathisch	4	Seemeister	t	A
+\.

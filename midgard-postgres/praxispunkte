@@ -1,0 +1,50 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE praxispunkte;
+--
+-- TOC Entry ID 2 (OID 5788037)
+--
+-- Name: praxispunkte Type: TABLE Owner: christof
+--
+
+CREATE TABLE praxispunkte (
+	name text,
+	max_wert integer,
+	lernfaktor integer
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5788037) TABLE DATA praxispunkte
+--
+
+COPY praxispunkte  FROM stdin;
+Angriff	17	7
+Verteidigung	7	15
+Abwehr	18	5
+Resistenz	17	5
+Zaubern	19	5
+Abenteuer	16	5
+Bewegung	18	2
+Wissen	16	2
+Beredsamkeit	14	10
+Beschatten	16	10
+Fechten	16	10
+Gassenwissen	16	5
+Glückspiel	18	2
+Lippenlesen	14	10
+Menschenkenntnis	14	10
+Meucheln	20	10
+Scharfschießen	16	10
+Seilkunst	16	5
+Stehlen	25	10
+Stimmen nachahmen	20	5
+Tauchen	14	2
+Überleben	16	5
+Verführen	16	2
+Verhören	16	5
+Verkleiden	20	10
+Wahrnehmung	6	15
+Winden	8	15
+Fern	17	7
+\.

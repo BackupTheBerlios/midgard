@@ -1,0 +1,36 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE waffen_region_name;
+--
+-- TOC Entry ID 2 (OID 5788704)
+--
+-- Name: waffen_region_name Type: TABLE Owner: christof
+--
+
+CREATE TABLE waffen_region_name (
+	name text,
+	alias text,
+	region text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5788704) TABLE DATA waffen_region_name
+--
+
+COPY waffen_region_name  FROM stdin;
+Dolch	Tanto	K
+Parierdolch	Jitte	K
+Stoﬂspeer	Yari	K
+Wurfspeer	YariNage	K
+leichte Armbrust	OjuMi	K
+schwere Armbrust	SangMiau	K
+Blasrohr	FukiDake	K
+Wurfmesser	Tanto	K
+Morgenstern	KauSinKe	K
+Kampfstab	Bo	K
+Anderthalbh‰nder	Claemore	A
+Langschwert	Breitschwert	A
+Dolch	Dirgh	A
+Kurzschwert	Laingdirgh	A
+\.

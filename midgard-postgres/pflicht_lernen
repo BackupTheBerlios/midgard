@@ -1,0 +1,70 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE pflicht_lernen;
+--
+-- TOC Entry ID 2 (OID 5780641)
+--
+-- Name: pflicht_lernen Type: TABLE Owner: christof
+--
+
+CREATE TABLE pflicht_lernen (
+	typ text,
+	pflicht text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5780641) TABLE DATA pflicht_lernen
+--
+
+COPY pflicht_lernen  FROM stdin;
+Ba	Musizieren
+dBe	Lesen/Schreiben
+dBe	Wissen von der Magie
+eBe	Lesen/Schreiben
+eBe	Wissen von der Magie
+Dr	Wissen von der Magie
+Dra	Wissen von der Magie
+Hä	Geschäftstüchtigkeit
+Hl	Erste Hilfe
+Hl	Lesen/Schreiben
+Hl	Wissen von der Magie
+wHx	Wissen von der Magie
+gHx	Wissen von der Magie
+sHx	Wissen von der Magie
+Kr	Kampf in Vollrüstung
+Ma	Lesen/Schreiben
+Ma	Wissen von der Magie
+Ny	KujKuri
+Ny	NinJutsu
+PF	Lesen/Schreiben
+PF	Wissen von der Magie
+PH	Lesen/Schreiben
+PH	Wissen von der Magie
+PK	Lesen/Schreiben
+PK	Wissen von der Magie
+PM	Lesen/Schreiben
+PM	Wissen von der Magie
+PT	Lesen/Schreiben
+PT	Wissen von der Magie
+PW	Lesen/Schreiben
+PW	Wissen von der Magie
+Ri	großes Schild
+Ri	Kampf in Vollrüstung
+Ri	Kampf zu Pferd
+Ri	kleines Schild
+Ri	Langschwert
+Ri	Reiten
+Sc	Wissen von der Magie
+Sk	Dichten
+Sk	Musizieren
+Sö	Kampf in Vollrüstung
+Sp	Stehlen
+Th	Lesen/Schreiben
+Th	Wissen von der Magie
+Sp	Schlösser öffnen
+Ass	Meucheln
+Ass	Schleichen
+Ass	Tarnen
+Kd	KiDo
+\.

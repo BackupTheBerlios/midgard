@@ -1,0 +1,484 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE berufe_vorteile;
+--
+-- TOC Entry ID 2 (OID 5786134)
+--
+-- Name: berufe_vorteile Type: TABLE Owner: christof
+--
+
+CREATE TABLE berufe_vorteile (
+	beruf text,
+	vorteil text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5786134) TABLE DATA berufe_vorteile
+--
+
+COPY berufe_vorteile  FROM stdin;
+Adliger	Kampftaktik
+Akrobat	Springen
+Akrobat	Klettern
+Akrobat	Fallen
+Akrobat	Balancieren
+Alchimist	Zauberkunde
+Alchimist	Kräuterkunde
+Alchimist	Giftmischen
+Beamter	Rechnen
+Beamter	Lesen/Schreiben
+Angesteller	Rechnen
+Angesteller	Lesen/Schreiben
+Anstreicher	Klettern
+Apotheker	Lesen/Schreiben
+Apotheker	Giftmischen
+Apotheker	Kräuterkunde
+Arbeiter	Athletik
+Arzt	Kräuterkunde
+Arzt	Erste Hilfe
+Athlet	Wurfspeer
+Athlet	Faustkampf
+Athlet	Laufen
+Athlet	Geländelauf
+Athlet	Athletik
+Auktionator	Geschäftstüchtigkeit
+Auktionator	Menschenkenntnis
+Auktionator	Beredsamkeit
+Bäcker	Faustkampf
+Bäcker	Pflanzenkunde
+Bader	Menschenkenntnis
+Bader	Erste Hilfe
+Barbier	Dolch
+Barbier	Menschenkenntnis
+Barbier	Beredsamkeit
+Bardame	Verführen
+Bardame	Trinken
+Barkeeper	Menschenkenntnis
+Barkeeper	Trinken
+Bauer	Kriegsflegel
+Bauer	Wetterkunde
+Bauer	Tierkunde
+Bauer	Pflanzenkunde
+Baumeister	Malen/Zeichnen
+Baumeister	Rechnen
+Baumeister	Lesen/Schreiben
+Baumeister	Geschäftstüchtigkeit
+Bergbauingenieur	Naturkunde
+Bergbauingenieur	Rechnen
+Bergbauingenieur	Lesen/Schreiben
+Bergführer	Wetterkunde
+Bergführer	Seilkunst
+Bergführer	Klettern
+Bergführer	Überleben im Gebirge
+Bergmann	Stielhammer
+Bettler	Verkleiden
+Bettler	Geheimzeichen
+Bettler	Gassenwissen
+Bildhauer	Sagenkunde
+Bildhauer	Kriegshammer
+Biologe	Lesen/Schreiben
+Biologe	Tierkunde
+Bogenmacher	Langbogen
+Bogenmacher	Bogen
+Pfeilmacher	Langbogen
+Pfeilmacher	Bogen
+Botaniker	Lesen/Schreiben
+Botaniker	Pflanzenkunde
+Bote	Reiten
+Bote	Laufen
+Brauer	Trinken
+Butler	Lesen/Schreiben
+Butler	Menschenkenntnis
+Croupier	Wahrnehmung
+Croupier	Menschenkenntnis
+Croupier	Glücksspiel
+Dachdecker	Klettern
+Dieb	Stehlen
+Dieb	Geheimzeichen
+Dieb	Gassenwissen
+Diener	Menschenkenntnis
+Diplomat	Sprache 4
+Diplomat	Menschenkenntnis
+Diplomat	Lesen/Schreiben
+Diplomat	Beredsamkeit
+Dolmetscher	Lesen/Schreiben
+Dolmetscher	2x Sprache 4
+Drucker	Sprache
+Drucker	Lesen/Schreiben
+Einbrecher	öffnen
+Einbrecher	Schlösser
+Einbrecher	Klettern
+Einbrecher	Gassenwissen
+Erdarbeiter	Athletik
+Exorzist	Zauberkunde
+Falkner	Tierkunde
+Fallenkonstrukteur	Fallenstellen
+Fallenkonstrukteur	Fallenmechanik
+Trapper	Spurenlesen
+Trapper	Fallenstellen
+Fallensteller	Spurenlesen
+Fallensteller	Fallenstellen
+Färber	Pflanzenkunde
+Fischer	Wetterkunde
+Fischer	Schwimmen
+Fischer	Segeln
+Fischer	Rudern
+Flößer	Schwimmen
+Flößer	Rudern
+Flußschiffer	Schwimmen
+Flußschiffer	Rudern
+Fuhrmann	Streitwagen lenken
+Fuhrmann	Wagenlenken
+Gaukler	Jonglieren
+Gaukler	Stimmen nachahmen
+Gaukler	Stehlen
+Gaukler	Gassenwissen
+Gärtner	Wetterkunde
+Gärtner	Kräuterkunde
+Gärtner	Pflanzenkunde
+Steuereintreiber	Menschenkenntnis
+Steuereintreiber	Keule
+Steuereintreiber	Faustkampf
+Geldeintreiber	Menschenkenntnis
+Geldeintreiber	Keule
+Geldeintreiber	Faustkampf
+Geldverleiher	Lesen/Schreiben
+Geldverleiher	Rechnen
+Gelehrter	Sprache
+Gelehrter	Landeskunde
+Gelehrter	Sagenkunde
+Gelehrter	Lesen/Schreiben
+Gerber	Dolch
+Geschichtenerzähler	Geschichten erzählen
+Geschichtenerzähler	Sagenkunde
+Geschichtenerzähler	Gassenwissen
+Geschichtenerzähler	Beredsamkeit
+Geologe	Naturkunde
+Geologe	Lesen/Schreiben
+Geschützexperte	Kampftaktik
+Geschützexperte	Katapult bedienen
+Geschützexperte	Ballista bedienen
+Gladiator	Kurzschwert
+Glasbläser	Blasrohr
+Glöckner	Klettern
+Goldschmied	Talisman verzaubern
+Goldschmied	Schlösser öffnen
+Silberschmied	Talisman verzaubern
+Silberschmied	Schlösser öffnen
+Grabräuber	Fallen entdecken
+Grabräuber	Sagenkunde
+Graveur	Lesen/Schreiben
+Hufschmied	Stabkeule
+Hufschmied	Kriegshammer
+Hufschmied	Athletik
+Grobschmied	Stabkeule
+Grobschmied	Kriegshammer
+Grobschmied	Athletik
+Hafenarbeiter	Athletik
+Hafenarbeiter	Rudern
+Harpunier	Stoßspeer
+Harpunier	Pilum
+Hebamme	Kräuterkunde
+Hebamme	Erste Hilfe
+Herold	Etikette
+Herold	Heraldik
+Herold	Beredsamkeit
+Herold	Lesen/Schreiben
+Hetäre	Verkleiden
+Hetäre	Menschenkenntnis
+Hetäre	Verführen
+Viehzüchter	Überleben
+Viehzüchter	Tierkunde
+Hirte	Überleben
+Hirte	Tierkunde
+Höfling	Tanzen
+Höfling	Lesen/schreiben
+Höfling	Beredsamkeit
+Hofnarr	Wahrnehmung
+Hofnarr	Jonglieren
+Hofnarr	Springen
+Segelmacher	Klettern
+Segelmacher	Segeln
+Hofnarr	Menschenkenntnis
+Sklavenaufseher	Keule
+Sklavenaufseher	Kurzschwert
+Hundeführer	Tierkunde
+Imker	Tierkunde
+Spitzel	Verhören
+Spitzel	Beschatten
+Spitzel	Gassenwissen
+Informant	Verhören
+Informant	Beschatten
+Informant	Gassenwissen
+Ingenieur	Fallenmechanik
+Ingenieur	Lesen/Schreiben
+Ingenieur	Rechnen
+Inquisitor	Zauberkunde
+Inquisitor	Verhören
+Inquisitor	Menschenkenntnis
+Jäger	Dolch
+Jäger	Bogen
+Jäger	Tierkunde
+Jurist	Verhören
+Jurist	Lesen/Schreiben
+Jurist	Beredsamkeit
+Sklavenaufseher	Menschenkenntnis
+Sklavenhändler	Menschenkenntnis
+Juwelier	Geschäftstüchtigkeit
+Kammerjäger	Tierkunde
+Kammerjäger	Giftmischen
+Karawanenführer	Überleben in der Wüste
+Karawanenführer	Reiten
+Karawanenführer	Himmelskunde
+Kartograph	Naturkunde
+Kartograph	Malen/Zeichnen
+Kartograph	Lesen/Schreiben
+Kaufmann	Geschäftstüchtigkeit
+Kaufmann	Beredsamkeit
+Kellner	Menschenkenntnis
+Kerzenzieher	Dolch
+Fackelmacher	Dolch
+Koch	Kräuterkunde
+Torfstecher	Überleben im Wald
+Torfstecher	Überleben im Sumpf
+Torfstecher	Fallenstellen
+Köhler	Überleben im Wald
+Köhler	Überleben im Sumpf
+Köhler	Fallenstellen
+Kopfgeldjäger	Spurenlesen
+Kopfgeldjäger	Scharfschießen
+Kopfgeldjäger	Meucheln
+Kopfgeldjäger	Gassenwissen
+Kopfgeldjäger	Beschatten
+Korbflechter	Pflanzenkunde
+Krämer	Menschenkenntnis
+Krämer	Geschäftstüchtigkeit
+Kräuterkundiger	Kräuterkunde
+Küfer	Kriegshammer
+Kurtisane	Verkleiden
+Kurtisane	Verführen
+Kürschner	Geschäftstüchtigkeit
+Kunstmaler	Kalligraphie
+Kunstmaler	Sagenkunde
+Kunstmaler	Malen/Zeichnen
+Kesselflicker	Talisman verzaubern
+Kesselflicker	Geschäftstüchtigkeit
+Kupferschmied	Talisman verzaubern
+Kupferschmied	Geschäftstüchtigkeit
+Laienprediger	Lesen/Schreiben
+Laienprediger	Beredsamkeit
+Lebensmittelhändler	Beredsamkeit
+Lebensmittelhändler	Pflanzenkunde
+Märchenerzähler	Geschichten erzählen 
+Märchenerzähler	Sagenkunde
+Märchenerzähler	Beredsamkeit
+Maurer	Klettern
+Maurer	Athletik
+Mathematiker	Sprache
+Mathematiker	Lesen/Schreiben
+Mathematiker	Rechnen
+Mechaniker	Fallen entschärfen
+Mechaniker	Geheimmechanismen öffnen 
+Mechaniker	Fallenmechanik
+Messerschleifer	Dolch
+Scherenschleifer	Dolch
+Metzger	Handaxt
+Metzger	Meucheln
+Schlachter	Handaxt
+Schlachter	Meucheln
+Müller	Wagenlenken
+Musikant	Singen
+Musikant	Tanzen
+Musikant	Musizieren
+Musikant	Gassenwissen
+Musikinstrumentenmacher	Musizieren
+Nachtwächter	Langschwert
+Nachtwächter	Hellebarde
+Navigator	Segeln
+Navigator	Rechnen
+Navigator	Wetterkunde
+Navigator	Himmelskunde
+Offizier	Lesen/Schreiben
+Offizier	Kampf zu Pferd
+Offizier	Reiten
+Offizier	Kampftaktik
+Optiker	Wahrnehmung
+Papierhersteller	Lesen/Schreiben
+Tintenhersteller	Lesen/Schreiben
+Parfümhersteller	Giftmischen
+Parfümhersteller	Pflanzenkunde
+Pionier	Überleben
+Pionier	Spurenlesen
+Pionier	Geländelauf
+Pfadfinder	Überleben
+Pfadfinder	Spurenlesen
+Pfadfinder	Geländelauf
+Pelzhändler	Überleben
+Pelzhändler	Geschäftstüchtigkeit
+Pfandleiher	Menschenkenntnis
+Pfandleiher	Geschäftstüchtigkeit
+Pferdedieb	Überleben
+Pferdedieb	Reiten
+Pferdehändler	Reiten
+Pferdehändler	Geschäftstüchtigkeit
+Philosoph	Sagenkunde
+Philosoph	Menschenkenntnis
+Philosoph	Beredsamkeit
+Philosoph	Lesen/Schreiben
+Räuber	Keule
+Räuber	Tarnen
+Rechtsgelehrter	Verhören
+Rechtsgelehrter	Lesen/Schreiben
+Redner	Geschichten erzählen
+Redner	Menschenkenntnis
+Redner	Beredsamkeit
+Reeder	Lesen/Schreiben
+Reeder	Geschäftstüchtigkeit
+Sattler	Reiten
+Scharfrichter	Schlachtbeil
+Scharfrichter	Bihänder
+Scharfrichter	Seilkunst
+Henker	Schlachtbeil
+Henker	Bihänder
+Henker	Seilkunst
+Schauspieler	Verkleiden
+Schauspieler	Stimmen nachahmen
+Schauspieler	Beredsamkeit
+Bootsbauer	Handaxt
+Bootsbauer	Segeln
+Bootsbauer	Rudern
+Schiffsbauer	Handaxt
+Schiffsbauer	Segeln
+Schiffsbauer	Rudern
+Schilterer	Sagenkunde
+Schilterer	Lesen/Schreiben
+Wappenhersteller	Sagenkunde
+Wappenhersteller	Lesen/Schreiben
+Schlosser	Geheimmechanismen öffnen 
+Schlosser	Schlösser öffnen
+Schmuggler	Wetterkunde
+Schmuggler	Segeln
+Schmuggler	Schleichen
+Schmuggler	Rudern
+Schneider	Verkleiden
+Schreiber	Sprache
+Schreiber	Lesen/Schreiben
+Schreiner	Streitakt
+Schreiner	Handxt
+Schwammtaucher	Dolch
+Schwammtaucher	Tauchen
+Schwammtaucher	Schwimmen
+Perlentaucher	Dolch
+Perlentaucher	Tauchen
+Perlentaucher	Schwimmen
+Schwarzbrenner	Trinken
+Schwerarbeiter	Kriegshammer
+Schwerarbeiter	Athletik
+Seemann	Seilkunst
+Seemann	Rudern
+Seemann	Klettern
+Netzmacher	Seilkunst
+Seiler	Seilkunst
+Strandräuber	Streitaxt
+Strandräuber	Rudern
+Straßenräuber	Reiten
+Straßenräuber	Krummsäbel
+Steinbrucharbeiter	Stielhammer
+Steinbrucharbeiter	Klettern
+Steinbrucharbeiter	Athletik
+Steinmetz	Kriegshammer
+Steinmetz	Athletik
+Wagner	Handaxt
+Wagner	Wagenlenken
+Stellmacher	Handaxt
+Stellmacher	Wagenlenken
+Stempelschneider	Fälschen
+Stempelschneider	Lesen/Schreiben
+Steuermann	Wetterkunde
+Steuermann	Segeln
+Steuermann	Rechnen
+Steuermann	Himmelskunde
+Spieler	Wahrnehmen
+Spieler	Rechnen
+Spieler	Glücksspiel
+Tänzer	Tanzen
+Teppichknüpfer	Seilkunst
+Theologe	Zauberkunde
+Theologe	Sagenkunde
+Theologe	Lesen/Schreiben
+Tierarzt	Lesen/Schreiben
+Tierarzt	Hilfe
+Tierarzt	Erste
+Tierarzt	Tierkunde
+Tierausbilder	Tierkunde
+Tierhändler	Tierkunde
+Tierhändler	Geschäftstüchtigkeit
+Tierpfleger	Tierkunde
+Tischler	Kriegshammer
+Tischler	Handaxt
+Totengräber	Sagenkunde
+Träger	Geländelauf
+Träger	Athletik
+Unteroffizier	Einhandwaffe
+Unteroffizier	Überleben
+Unteroffizier	Kampftaktik
+Untersuchungsbeamter	Verhören
+Untersuchungsbeamter	Menschenkenntnis
+Untersuchungsbeamter	Gassenwissen
+Urbarmacher	Tierkunde
+Urbarmacher	Pflanzenkunde
+Urbarmacher	Überleben
+Verkäufer	Menschenkenntnis
+Verkäufer	Beredsamkeit
+Verwalter	Rechnen
+Verwalter	Lesen/Schreiben
+Verwalter	Geschäftstüchtigkeit
+Viehdieb	Geländelauf
+Viehdieb	Tierkunde
+Viehtreiber	Überleben
+Viehtreiber	Kampf zu Pferd
+Viehtreiber	Reiten
+Vorarbeiter	Menschenkenntnis
+Vorarbeiter	Athletik
+Vorkoster	Giftmischen
+Vorkoster	Trinken
+Wächter	Hellebarde 
+Wächter	Langschwert
+Wächter	Gassenwissen
+Wächter	Menschenkenntnis
+Waffenhändler	Kampf in Vollrüstung
+Waffenhändler	Geschäftstüchtigkeit
+Waffenschmied	Kriegshammer
+Waffenschmied	Athletik
+Waldarbeiter	Schlachtbeil
+Waldarbeiter	Geländelauf
+Weinhändler	Trinken
+Weinhändler	Geschäftstüchtigkeit
+Werkzeugmacher	Talisman verzaubern
+Werkzeugmacher	Fallenmechanik
+Wilderer	Bogen
+Wilderer	Fallenstellen
+Winzer	Trinken
+Wirt	Menschenkenntnis
+Wirt	Beredsamkeit
+Wrackberger	Wetterkunde
+Wrackberger	Tauchen
+Wrackberger	Schwimmen
+Wrackberger	Rudern
+Wundheiler	Erste Hilfe
+Zahnausreißer	Kräuterkunde
+Zahnausreißer	Hilfe
+Zahnausreißer	Erste
+Zimmermann	Streitaxt
+Zimmermann	Handaxt
+Steuerpächter	Lesen/Schreiben
+Steuerpächter	Rechnen
+Zollpächter	Lesen/Schreiben
+Zollpächter	Rechnen
+Zureiter	Kampf zu Pferd
+Zureiter	Reiten
+Holzschnitzer	Talisman verzaubern
+Juwelier	Talisman verzaubern
+Hofnarr	Stimmen nachahmen
+\.

@@ -1,0 +1,36 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE ruestung;
+--
+-- TOC Entry ID 2 (OID 5788092)
+--
+-- Name: ruestung Type: TABLE Owner: christof
+--
+
+CREATE TABLE ruestung (
+	ruestung text,
+	ruestung_s text,
+	lp_verlust integer,
+	min_staerke integer,
+	rw_verlust integer,
+	b_verlust integer,
+	region text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 5788092) TABLE DATA ruestung
+--
+
+COPY ruestung  FROM stdin;
+Ohne Rüstung	OR	0	0	0	0	\N
+RitterRüstung	RR	6	81	50	16	\N
+Vollrüstung	VR	5	61	40	12	\N
+Plattenrüstung	PR	4	61	25	8	\N
+Kettenrüstung	KR	3	31	0	4	\N
+Lederrüstung	LR	2	0	0	0	\N
+Textilrüstung	TR	1	0	0	0	\N
+Papierrüstung	TR	1	0	0	0	K
+SaMurai-Rüstung	PR	4	31	0	4	K
+SaMurai-Rüstung	VR	5	61	25	8	K
+\.
