@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.111 2002/12/14 23:45:11 christof Exp $
+// $Id: Optionen.cc,v 1.112 2003/04/24 14:36:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,16 +18,9 @@
  */
 
 #include "Optionen.hh"
-#include "../pixmaps/midgard_logo_tiny.xpm"
-#include "../pixmaps/Cyan-Dice-trans-50.xpm"
-//#include "../pixmaps/Haus-32.xpm"
-#include "../pixmaps/Haus-1-2-1-26.xpm"
-#include "../pixmaps/Haus-Super-26.xpm"
-#include "../pixmaps/NSC-Mode-32.xpm"
-//#include "MidgardBasicElement.hh" // nur für NotFound
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include <fstream>
 #include <Misc/TagStream.h>
-//#include "export_common.h"
 #include "midgard_CG.hh"
 #ifdef __MINGW32__
 #  include "registry.h"
@@ -374,16 +367,13 @@ void Midgard_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
 void Midgard_Optionen::Optionen_init()
 {
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
-                           true,midgard_logo_tiny_xpm));
+                           true,MagusImage("midgard_logo_tiny.xpm")));
 
 //std::cout << list_OptionenCheck.back().wert.get_value();
 //list_OptionenCheck.back().wert.signal_changed().connect(SigC::slot(&print_it)); 
 
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
-                           false,NSC_Mode_32_xpm));
-  list_OptionenCheck.push_back(st_OptionenCheck(Drei_Tasten_Maus,
-                           "3-Tasten Maus",
-                           false,Cyan_Dice_trans_50_xpm));
+                           false,MagusImage("NSC-Mode-32.xpm")));
   list_OptionenCheck.push_back(st_OptionenCheck(Notebook_start, 
                            "MAGUS mit bestimmter Seite starten",false,0,1));
 
@@ -446,8 +436,8 @@ void Midgard_Optionen::pdfViewer_init()
 void Midgard_Optionen::Hausregeln_init()
 {
  list_Hausregeln.clear();  
- list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",Haus_1_2_1_26_xpm,false));
- list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",Haus_Super_26_xpm,false));
+ list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",MagusImage("Haus-1-2-1-26.xpm"),false));
+ list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",MagusImage("Haus_Super_26_xpm"),false));
 }
 
 void Midgard_Optionen::Ober_init()

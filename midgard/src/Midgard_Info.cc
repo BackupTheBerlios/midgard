@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.74 2003/04/24 14:23:43 christof Exp $
+// $Id: Midgard_Info.cc,v 1.75 2003/04/24 14:37:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,10 +36,6 @@ Midgard_Info::Midgard_Info(GlademmData *data) : Midgard_Info_glade(data)
 
 }
 
-
-#include "../pixmaps/pdolch_.xpm"
-#include "../pixmaps/Money-50.xpm"
-#include "../pixmaps/Kurai-50.xpm"
 
 void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
 {
