@@ -7549,86 +7549,6 @@ auswählen</label>
 		</child>
 
 		<widget>
-		  <class>GtkLabel</class>
-		  <name>label_lernschma_titel</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <label>label547</label>
-		  <justify>GTK_JUSTIFY_CENTER</justify>
-		  <wrap>False</wrap>
-		  <xalign>0</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-		</widget>
-
-		<widget>
-		  <class>GtkFrame</class>
-		  <name>frame_lernschema_zusatz</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <label>Titel</label>
-		  <label_xalign>0</label_xalign>
-		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		  <child>
-		    <left_attach>1</left_attach>
-		    <right_attach>2</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>2</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>True</yexpand>
-		    <xshrink>True</xshrink>
-		    <yshrink>True</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkScrolledWindow</class>
-		    <name>scrolledwindow77</name>
-		    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-		    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-		    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-
-		    <widget>
-		      <class>GtkViewport</class>
-		      <name>viewport39</name>
-		      <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-		      <widget>
-			<class>Custom</class>
-			<name>Tree_Lernschema_Zusatz</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<signal>
-			  <name>leave_notify_event</name>
-			  <handler>on_Tree_Lernschema_Zusatz_leave_notify_event</handler>
-			  <last_modification_time>Sat, 18 May 2002 19:48:50 GMT</last_modification_time>
-			</signal>
-			<creation_function>MidgardBasicTree(MidgardBasicTree::LERNSCHEMAZUSATZ)</creation_function>
-			<int1>0</int1>
-			<int2>0</int2>
-			<last_modification_time>Sun, 17 Feb 2002 20:14:16 GMT</last_modification_time>
-		      </widget>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
 		  <class>GtkScrolledWindow</class>
 		  <name>scrolledwindow_lernen</name>
 		  <cxx_visibility>protected</cxx_visibility>
@@ -7659,6 +7579,82 @@ auswählen</label>
 
 		    <widget>
 		      <class>Placeholder</class>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_lernschma_titel</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>label547</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>frame_lernschema_zusatz</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>Titel</label>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkScrolledWindow</class>
+		    <name>scrolledwindow77</name>
+		    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+
+		    <widget>
+		      <class>GtkViewport</class>
+		      <name>viewport39</name>
+		      <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+		      <widget>
+			<class>Custom</class>
+			<name>Tree_Lernschema_Zusatz</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<events>GDK_LEAVE_NOTIFY_MASK</events>
+			<creation_function>MidgardBasicTree(MidgardBasicTree::LERNSCHEMAZUSATZ)</creation_function>
+			<int1>0</int1>
+			<int2>0</int2>
+			<last_modification_time>Sun, 17 Feb 2002 20:14:16 GMT</last_modification_time>
+		      </widget>
 		    </widget>
 		  </widget>
 		</widget>
@@ -8666,6 +8662,36 @@ auswählen</label>
 		      <yfill>True</yfill>
 		    </child>
 		  </widget>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkEventBox</class>
+		<name>eventbox_zusatz</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<events>GDK_LEAVE_NOTIFY_MASK</events>
+		<signal>
+		  <name>leave_notify_event</name>
+		  <handler>on_eventbox_zusatz_leave_notify_event</handler>
+		  <last_modification_time>Sun, 19 May 2002 08:07:08 GMT</last_modification_time>
+		</signal>
+		<child>
+		  <left_attach>3</left_attach>
+		  <right_attach>4</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>True</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>True</yfill>
+		</child>
+
+		<widget>
+		  <class>Placeholder</class>
 		</widget>
 	      </widget>
 	    </widget>

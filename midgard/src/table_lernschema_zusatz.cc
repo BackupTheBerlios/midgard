@@ -126,7 +126,9 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
    }
  Tree_Lernschema_Zusatz->setDataVec(datavec);
  frame_lernschema_zusatz->show();
- Tree_Lernschema_Zusatz->grab_focus();
+// Tree_Lernschema_Zusatz->grab_focus();
+// Gdk_Window fra=frame_lernschema_zusatz->get_window();
+// fra->pointer_grab();
 }
 
 void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE)
@@ -205,7 +207,8 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
   frame_lernschema_zusatz->hide();
   zeige_werte();  
   button_angeborene_fert->set_sensitive(true);
-  button_herkunft->set_sensitive(false);
+  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+     button_herkunft->set_sensitive(false);
 }
 
 void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
@@ -262,7 +265,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   show_gelerntes();
 }
 
-gint table_lernschema::on_Tree_Lernschema_Zusatz_leave_notify_event(GdkEventCrossing *ev)
+gint table_lernschema::on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev)
 {
   cout << "leave out\n";
   return false;

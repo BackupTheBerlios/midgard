@@ -346,7 +346,8 @@ void table_lernschema::on_lernpunkte_wuerfeln_clicked()
 //  spinbutton_alter->set_value(hauptfenster->getCWerte().Alter());
   zeige_lernpunkte();
 
-  button_lernpunkte->set_sensitive(false);
+  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+     button_lernpunkte->set_sensitive(false);
   button_fachkenntnisse->set_sensitive(true);
   button_allgemeinwissen->set_sensitive(true);
   button_untyp_fertigkeiten->set_sensitive(true);
@@ -386,7 +387,8 @@ void table_lernschema::edit_lernpunkte(bool b)
 gint table_lernschema::on_button_lernschema_geld_button_release_event(GdkEventButton *ev)
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GELD);
-  button_lernschema_geld->set_sensitive(false);
+  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+     button_lernschema_geld->set_sensitive(false);
   hauptfenster->getWerte().setGeld(0,0,0);
   if      (ev->button==1)  lernschema_geld_wuerfeln();
   else if (ev->button==3)  manage (new Window_Geld_eingeben(hauptfenster,hauptfenster->getWerte()));;
@@ -421,7 +423,8 @@ void table_lernschema::lernschema_geld_wuerfeln()
 gint table_lernschema::on_button_ruestung_button_release_event(GdkEventButton *ev)
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::RUESTUNG);
-  button_ruestung->set_sensitive(false);
+  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+     button_ruestung->set_sensitive(false);
   if      (ev->button==1)  on_button_ruestung_clicked();
   else if (ev->button==3)  manage (new Window_ruestung(hauptfenster->getWerte(),hauptfenster,hauptfenster->getDatabase()));
   return 0;

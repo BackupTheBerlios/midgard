@@ -136,6 +136,6 @@ private:
         gint on_button_ruestung_button_release_event(GdkEventButton *ev);
         void on_togglebutton_teure_anzeigen_toggled();
         void on_togglebutton_gelernte_anzeigen_toggled();
-        gint on_Tree_Lernschema_Zusatz_leave_notify_event(GdkEventCrossing *ev);
+        gint on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev);
 };
 #endif
