@@ -172,3 +172,10 @@ float Tag::getFloatAttr(const std::string &typ,float def) const throw()
    return def;
 }
 
+#include <cstdio>
+
+void Tag::setIntAttr(const std::string &name, int val)
+{  char buf[30];
+   snprintf(buf,sizeof buf,"%d",val);
+   setAttr(name,buf);
+}

@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.41 2002/06/03 08:06:25 thoma Exp $
+// $Id: Optionen.cc,v 1.42 2002/06/03 14:45:22 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -389,76 +389,58 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
     hauptfenster->set_status("Ich kann die Optionen nicht speichern");
     return;
    }
- datei << "<?xml";
- write_string_attrib(datei, "version", "1.0");
- write_string_attrib(datei, "encoding", TagStream::host_encoding);
- datei << "?>\n\n";
+  TagStream ts;
+  ts.setEncoding("ISO-8859-1");
 
-
- datei <<"<MAGUS-history>\n";
+  Tag &hist=ts.push_back(Tag("MAGUS-history"));
  for(std::list<std::string>::const_iterator i=hauptfenster->LDateien.begin();i!=hauptfenster->LDateien.end();++i)
-  {
-    datei <<"  <Datei";
-    write_string_attrib(datei, "Name", *i);
-    datei <<"/>\n";
+  { hist.push_back(Tag("Datei")).setAttr("Name",*i);
   }
- datei << "</MAGUS-history>\n\n";
 
  if(OberCheck(SaveFenster).active)
-  {
-    datei << "<MAGUS-fenster>\n";
+  { Tag &fenstert=ts.push_back(Tag("MAGUS-fenster"));
     gint width,height,x,y;
     Gdk_Window fenster=hauptfenster->get_window();
     fenster.get_size(width,height);
     fenster.get_position(x,y);
-    datei << "  <Groesse";
-    write_int_attrib_force(datei, "Width" ,width);
-    write_int_attrib_force(datei, "Height" ,height);
-    datei << "/>\n";
-    datei << "  <Position";
-    write_int_attrib_force(datei, "X" ,x);
-    write_int_attrib_force(datei, "Y" ,y);
-    datei << "/>\n";
-    datei << "</MAGUS-fenster>\n\n";
+    Tag &groesse=fenstert.push_back(Tag("Groesse")); // Warum keine Umlaute? CP
+    groesse.setIntAttr("Width",width);
+    groesse.setIntAttr("Height",height);
+    Tag &position=fenstert.push_back(Tag("Position"));
+    position.setIntAttr("X", x);
+    position.setIntAttr("Y", y);
   }
- datei << "<MAGUS-optionen>\n";
+
+  Tag &optionen=ts.push_back(Tag("MAGUS-optionen"));
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
-   {
-     datei << "  <Optionen";
-     write_string_attrib(datei, "Name" ,i->text);
-     write_bool_attrib_force(datei, "Wert", i->active);
-     datei << "/>\n";
+   { Tag &opt=optionen.push_back(Tag("Optionen"));
+     opt.setAttr("Name",i->text);
+     opt.setBoolAttr("Wert", i->active);
    }
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
-   {
-     datei << "  <Ansicht";
-     write_string_attrib(datei, "Name" ,i->text);
-     write_bool_attrib_force(datei, "Wert", i->active);
-     datei << "/>\n";
+   { Tag &opt=optionen.push_back(Tag("Ansicht"));
+     opt.setAttr("Name",i->text);
+     opt.setBoolAttr("Wert", i->active);
    }
   for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-   {
-     datei << "  <Hausregel";
-     write_string_attrib(datei, "Name" ,i->text);
-     write_bool_attrib_force(datei, "Wert", i->active);
-     datei << "/>\n";
+   { Tag &opt=optionen.push_back(Tag("Hausregel"));
+     opt.setAttr("Name",i->text);
+     opt.setBoolAttr("Wert", i->active);
    }
   for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    {
      if(!i->active) continue;
-     datei << "  <pdfViewer";
-     write_string_attrib(datei, "Name" ,i->text);
-     write_bool_attrib(datei, "Wert", i->active);
-     datei << "/>\n";
+     Tag &opt=optionen.push_back(Tag("pdfViewer"));
+     opt.setAttr("Name",i->text);
+     opt.setBoolAttr("Wert", i->active);
    }
   for(std::list<st_strings>::iterator i=list_Strings.begin();i!=list_Strings.end();++i)
    {
-     if(i->name=="") continue;
-     datei << "  <Einstellungen";
-     write_string_attrib(datei, "Name" ,i->text);
-     write_string_attrib(datei, "Wert", i->name);
-     datei << "/>\n";
+     if(i->name.empty()) continue;
+     Tag &opt=optionen.push_back(Tag("Einstellungen"));
+     opt.setAttr("Name",i->text);
+     opt.setAttr("Wert", i->name);
    }
- datei << "</MAGUS-optionen>\n";
+  ts.write(datei);
 }
                                                    

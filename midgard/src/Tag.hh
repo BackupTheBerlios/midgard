@@ -90,6 +90,9 @@ public:
 	bool getBoolAttr(const std::string &typ,bool def=false) const throw();
 	int getIntAttr(const std::string &typ,int def=0) const throw();
 	float getFloatAttr(const std::string &typ,float def=0) const throw();
+	void setIntAttr(const std::string &name, int val);
+	void setBoolAttr(const std::string &name, bool val)
+	{  setAttr(name,val?"True":"False"); }
 	
 	// values of substructures
 	bool hasTag(const std::string &typ) const throw();
