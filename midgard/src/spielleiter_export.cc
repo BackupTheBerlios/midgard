@@ -29,8 +29,14 @@
 
 void midgard_CG::on_exportieren_activate()
 {
-	 (new xml_fileselection(this,xml_fileselection::Export));
+   (new xml_fileselection(this,xml_fileselection::Export));
 }
+
+void midgard_CG::on_kompletter_export_activate()
+{
+   (new xml_fileselection(this,xml_fileselection::ExportFull));
+}
+
 
 void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 {

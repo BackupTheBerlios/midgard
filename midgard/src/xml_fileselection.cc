@@ -38,7 +38,9 @@ try{
  { hauptfenster->xml_export(this->get_filename());
  }
  else if (ewas==Export)
-   hauptfenster->spielleiter_export_save(this->get_filename());
+   hauptfenster->spielleiter_export_save(this->get_filename(),false);
+ else if (ewas==ExportFull)
+   hauptfenster->spielleiter_export_save(this->get_filename(),true); 
  else if (ewas==Pix)
    {
     VA->getWerte().setBeschreibungPix(this->get_filename());
