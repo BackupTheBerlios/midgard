@@ -51,16 +51,20 @@ void Schrift::get_Schrift()
   exec sql begin declare section;
    char db_name[50],db_art[50],db_region[50];
    int db_fp;
+   bool db_alt,db_kult;
   exec sql end declare section;
 
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select typ,kosten,coalesce(region,'')
-       into :db_art,:db_fp,:db_region
+  exec sql select typ,kosten,coalesce(region,''),
+       coalesce(alt,f),coalesce(kult,f)
+       into :db_art,:db_fp,:db_region,:db_alt,:db_kult
        from schrift where name = :db_name;
   SQLerror::test(__FILELINE__);
   art_der_schrift=db_art;
   region=db_region;
   kosten=db_fp;
+  alt=db_alt;
+  kult=db_kult;
 }
 
 bool Schrift::kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const

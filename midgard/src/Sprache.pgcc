@@ -50,19 +50,25 @@ void Sprache::get_Sprache()
   exec sql begin declare section;
    char db_name[50],db_schrift[50],db_region[50];
    int db_fp,db_maxwert;
-   bool db_alt;
+   bool db_alt,db_minderheit;
+   int db_g1,db_g2;
   exec sql end declare section;
 
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select distinct fp,max_wert,schrift,alt,coalesce(region,'')
-       into :db_fp,:db_maxwert,:db_schrift,:db_alt,:db_region
+  exec sql select distinct fp,max_wert,schrift,alt,coalesce(minderheit,f),
+       coalesce(region,''),coalesce(gruppe_1,0),coalesce(gruppe_2,0)
+       into :db_fp,:db_maxwert,:db_schrift,:db_alt,:db_minderheit,
+         :db_region,:db_g1,:db_g2
        from sprachen where name = :db_name;
   SQLerror::test(__FILELINE__);
   urschrift=db_schrift;
   region=db_region;
   alte_sprache=db_alt;
+  minderheit=db_minderheit;
   maxwert=db_maxwert;
   kosten=db_fp;
+  if(db_g1) V_sprachgruppe.push_back(db_g1);
+  if(db_g2) V_sprachgruppe.push_back(db_g2);
 }
 
 int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
@@ -91,6 +97,18 @@ std::string Sprache::Urschrift(const  std::list<cH_MidgardBasicElement>& list_Sc
  if (back) t=t.substr(0,t.size()-1); // letzes Komma entfernen
  if (back) return Urschrift()+" "+t+")";
  return "";
+}
+
+bool Sprache::Sprachgruppe(const list<cH_MidgardBasicElement>& listSprache) const
+{
+  for(list<cH_MidgardBasicElement>::const_iterator i=listSprache.begin();i!=listSprache.end();++i)
+   {
+     vector<int> V= cH_Sprache(*i)->getVSprachgruppe();
+     for(vector<int>::const_iterator j=V.begin();j!=V.end();++j)
+       for(vector<int>::const_iterator k=V_sprachgruppe.begin();k!=V_sprachgruppe.end();++k)
+         if(*j==*k) return true;
+   }
+  return false;
 }
 
 

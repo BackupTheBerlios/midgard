@@ -10,7 +10,8 @@ class Sprache : public MidgardBasicElement
 {
      std::string urschrift;
      int maxwert;
-     bool alte_sprache;
+     bool alte_sprache,minderheit;
+     vector<int> V_sprachgruppe;
 
      void get_Sprache();
      int Grundkosten() const {return kosten;}
@@ -26,8 +27,11 @@ class Sprache : public MidgardBasicElement
    std::string Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const ; 
 
    bool Alte_Sprache() const {return alte_sprache;}    
+   bool Minderheit() const {return minderheit;}    
    int Maxwert() const {return maxwert;}
    int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
+   vector<int> getVSprachgruppe() const {return V_sprachgruppe;}
+   bool Sprachgruppe(const list<cH_MidgardBasicElement>& MBE) const;
 };
 
 class cH_Sprache : public Handle<const Sprache>

@@ -11,6 +11,7 @@ class Schrift : public MidgardBasicElement
 {
      std::string art_der_schrift;
 //     int kosten;
+    bool alt,kult;
 
      void get_Schrift();
      int Grundkosten() const {return kosten;}
@@ -24,6 +25,8 @@ class Schrift : public MidgardBasicElement
 
    std::string Art_der_Schrift() const   {return art_der_schrift; }
 
+   bool Kult() const {return kult;}
+   bool Alt() const {return alt;}
    bool kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const;
    int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
         { cH_Fertigkeit F("Lesen/Schreiben");

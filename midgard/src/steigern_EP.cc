@@ -83,6 +83,10 @@ void midgard_CG::desteigern(unsigned int kosten)
 bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* MBE)
 {
   if (!steigern_bool) return true;
+  if(!radiobutton_unterweisung->get_active())
+    { regnot("Neue Fertigkeiten können nur durch 'Unterweisung gelernt werden");
+      return false;
+    }
   guint gold_k=0,ep_k=0;
   if(radiobutton_unterweisung->get_active())
    {
@@ -90,16 +94,7 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
      gold_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
      if (gold_k > Werte.Gold()) { regnot("Zu wenig Gold um zu steigern,\n es fehlen "+itos(gold_k-Werte.Gold())+" GS."); return false;}
    }  
-/*
-  else if(radiobutton_praxis->get_active())
-   {
-     // genug Praxispunkte? 
-     pp_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
-     guint pp = 40*(*MBE)->Praxispunkte();
-     if (pp_k > pp) { regnot("Zu wenig Praxispunkte um zu steigern,\n es fehlen Praxispunkte für "+itos(pp_k-pp)+" FP.\n"
-         "(Ein Praxispunkt ist 40 FP wert.)"); return false;}
-   }  
-*/
+
   // genug EP?
   bool bkep=false,bzep=false;
   int womit;
