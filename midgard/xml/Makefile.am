@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.18 2001/12/17 13:04:53 christof Exp $
+# $Id: Makefile.am,v 1.19 2001/12/19 14:13:10 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
 
@@ -22,9 +22,6 @@ all_exp_SOURCES=all_exp.cc $(common_sources)
 all_exp_LDADD=arkanum_nm.o kido_nm.o fertigk_nm.o land_sprache_nm.o \
 	waffen_nm.o
 all_exp_DEPENDENCIES=$(all_exp_LDADD)
-
-BUILT_SOURCES=arkanum_exp.cc kido_exp.cc fertigk_exp.cc land_sprache_exp.cc \
-	waffen_exp.cc
 
 LDFLAGS = @KOMPONENTEN_LDFLAGS@
 CLEANFILES = *~ $(BUILT_SOURCES) 

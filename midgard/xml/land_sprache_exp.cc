@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.pgcc,v 1.14 2001/12/17 13:04:53 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.1 2001/12/19 14:12:06 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *

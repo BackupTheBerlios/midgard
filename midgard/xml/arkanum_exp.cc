@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.28 2001/12/12 10:30:01 christof Exp $
+// $Id: arkanum_exp.cc,v 1.1 2001/12/19 14:12:06 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *

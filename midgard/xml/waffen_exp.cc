@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.19 2001/12/17 13:04:53 christof Exp $
+// $Id: waffen_exp.cc,v 1.1 2001/12/19 14:12:06 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
