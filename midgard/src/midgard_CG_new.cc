@@ -38,8 +38,10 @@ gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
+cout << "SIZE\t"<<Char.getList().size()<<'\n';
    if(Char.empty()) Char.push_back(Abenteurer());
 //Char.push_back(Abenteurer());
+cout << "SIZE\t"<<Char.getList().size()<<'\n';
    table_lernschema->label_lernschma_titel->set_text("");
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
