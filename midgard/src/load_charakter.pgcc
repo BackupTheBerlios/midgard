@@ -153,7 +153,7 @@ void midgard_CG::xml_import(const std::string& datei)
    Werte.setZaubern_wert(Erfolgswerte->getIntAttr("Zaubern"));
    Werte.setAbwehr_wert(Erfolgswerte->getIntAttr("Abwehr"));
    Werte.setResistenz(Erfolgswerte->getIntAttr("ZauberResistenz", // V9
-   	Resistenzen->getIntAttr("Zauber", // V5
+   	!Resistenzen?0:Resistenzen->getIntAttr("Zauber", // V5
    	Resistenzen->getIntAttr("Resistenz", // V4.Malte
    	Resistenzen->getIntAttr("psy"))))); // V-4
    if (Praxispunkte)

@@ -185,26 +185,31 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
     const Tag *steigern_wie_t=tag->find("steigern_wie");
     if (steigern_wie_t) steigern_wie=steigern_wie_t->getAttr("Fertigkeit");
     
-    // Kosten für steigern_wie suchen
+    // Kosten für steigern_wie suchen: 
+    // lokaler Cache, cH_Fertigkeit, dann SteigernKosten
+    typedef map<std::string,const Tag *> map_string_tag_t;
+    static map_string_tag_t steigern_kosten;
+
     try
-    {  if (steigern_wie!=Name())
-          // wenn nicht gefunden wirft es NotFound
-          steigern_wie_t=cH_Fertigkeit(steigern_wie)->tag;
+    {  if (steigern_wie==Name()) steigern_wie_t=this->tag;
        else
-          steigern_wie_t=this->tag;
-       if (steigern_wie_t)
-          kosten=steigern_wie_t->find("Kosten");
-       else cerr << "!steigern_wie_t: " << Name() << ',' << What() << '\n';
+       {  // zuerst in lokalen Cache (schneller)
+          map_string_tag_t::const_iterator i=steigern_kosten.find(steigern_wie);
+          if (i!=steigern_kosten.end()) kosten=i->second;
+          // Fertigkeit suchen, wenn nicht gefunden wirft es NotFound
+          else
+             steigern_wie_t=cH_Fertigkeit(steigern_wie)->tag;
+       }
+          
+       if (!kosten)
+       {  if (steigern_wie_t)
+             kosten=steigern_wie_t->find("Kosten");
+          else cerr << "!steigern_wie_t: " << Name() << ',' << What() << '\n';
+       }
     } 
     catch (const NotFound &e) // keine Fertigkeit
-    {  typedef map<std::string,const Tag *> map_string_tag_t;
-       static map_string_tag_t steigern_kosten;
-       map_string_tag_t::const_iterator i=steigern_kosten.find(steigern_wie);
-       if (i==steigern_kosten.end())
-       {  kosten=find_Tag("SteigernKosten","Kosten","Fertigkeit",steigern_wie);
-          steigern_kosten[steigern_wie]=kosten;
-       }
-       else kosten=i->second;
+    {  kosten=find_Tag("SteigernKosten","Kosten","Fertigkeit",steigern_wie);
+       steigern_kosten[steigern_wie]=kosten;
     }
  }
  if (!kosten) 
