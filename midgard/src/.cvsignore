@@ -65,3 +65,4 @@ get_standard_zaubermittel.cc
 get_spezies_constraint.cc
 xml.cc
 xml
+midgard_CG_magier_spezialgebiet.cc

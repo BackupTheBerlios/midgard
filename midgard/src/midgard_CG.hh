@@ -35,7 +35,7 @@ struct st_werte{int st; int ge;int ko;int in;int zt;
              int kaw; int wlw; int lpbasis;
              int alter;string gestalt;
              int gewicht;int groesse;int grad;
-             string spezialisierung;string spezial; string stand;
+             string spezialisierung;string spezial;string spezial2; string stand;
              string herkunft; string spezies;
              string glaube; string name_charakter; string name_spieler;
              int gfp;string version; string beschreibung; string ruestung;
@@ -46,6 +46,7 @@ struct st_werte{int st; int ge;int ko;int in;int zt;
              bo_au_typ(0),bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
              bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),lpbasis(0),
              alter(0),gewicht(0),groesse(0),grad(1),spezialisierung(""),
+             spezial(""),spezial2(""),
              stand(""),herkunft(""),spezies("Mensch"),glaube(""),name_charakter(""), gfp(0),version("Erschaffung"),
              ruestung("OR"), gold(0), silber(0), kupfer(0) {}
       void clear() {*this=st_werte();}}; 
@@ -79,8 +80,9 @@ struct st_ausgewaehlte_zauber {string name; string ap;
 struct st_ausgewaehlte_berufe {string name; string vorteile; int erfolgswert; 
       st_ausgewaehlte_berufe(const string n, const string v, int e)
       : name(n), vorteile(v), erfolgswert(e) {} };
-struct st_spezialgebiet{string name;string spezial;
-       st_spezialgebiet(string n, string s):name(n),spezial(s){}};
+struct st_spezialgebiet{string name;string spezial; string spezial2;
+       st_spezialgebiet(string n, string s,string s2)
+       :name(n),spezial(s),spezial2(s2){}};
 struct st_zauber{string ap; string name; string erfolgswert;string art; string stufe;
               string zauberdauer; string reichweite; string wirkungsziel;
               string wirkungsbereich; string wirkungsdauer; string ursprung;

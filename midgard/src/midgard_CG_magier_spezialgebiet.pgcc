@@ -1,0 +1,56 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+
+
+void midgard_CG::magier_spezialgebiet(const string& whattodo)
+{
+ if (whattodo=="show") 
+   { spezialgebiet_button_fill();
+     option_magier_spezialgebiet->show();
+   }
+ if (whattodo=="hide") option_magier_spezialgebiet->hide();
+}
+
+void midgard_CG::spezialgebiet_button_fill()
+{
+  vec_spezialgebiet.clear();
+    exec sql begin declare section;
+   char db_typ[50];
+   int db_nr;
+   char db_spezial[50],db_spezialgebiet[50],db_spezial2[50];
+  exec sql end declare section;
+  Transaction tr;
+  strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
+  exec sql declare ein cursor for 
+     select nr,spezialgebiet,spezial,coalesce(spezial2,'') 
+       from spezialgebiete where typ = :db_typ order by nr;
+  exec sql open ein;
+  SQLerror::test(__FILELINE__);
+  Gtk::Menu *_m(manage(new Gtk::Menu()));
+  Gtk::MenuItem *_mi;
+  while (true)
+   {
+      exec sql fetch ein into :db_nr, :db_spezialgebiet, :db_spezial, :db_spezial2;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;   
+      vec_spezialgebiet.push_back(st_spezialgebiet(db_spezialgebiet,db_spezial,db_spezial2));
+      _mi = manage(new Gtk::MenuItem(db_spezialgebiet));
+      _m->append(*_mi);
+      _mi->show();
+      _mi->set_user_data((gpointer)db_nr);
+    }
+  option_magier_spezialgebiet->set_menu(*_m);
+  option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezialgebiet_button));;
+}
+
+void midgard_CG::spezialgebiet_button()
+{
+ int i = int(option_magier_spezialgebiet->get_menu()->get_active()->get_user_data());
+ if (i==0) return ;
+ werte.spezialisierung=vec_spezialgebiet[i].name;
+ werte.spezial=vec_spezialgebiet[i].spezial;
+ werte.spezial2=vec_spezialgebiet[i].spezial2;
+} 
+

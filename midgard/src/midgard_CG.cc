@@ -58,7 +58,7 @@ void midgard_CG::show_gtk()
 
  // Magie anzeigen?
  if (typ.z=="j" || typ.z == "z") 
-   { if (typ.s=="Ma") magier_spezialgebiet("show");
+   { if (typ.s=="Ma" || typ.s == "eBe") magier_spezialgebiet("show");
      else magier_spezialgebiet("hide");
      table_magier_lernen->show();
      table_magier_steigern->show();
