@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.79 2001/10/28 17:42:57 thoma Exp $
+// $Id: midgard_CG.hh,v 1.80 2001/10/29 15:25:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -119,15 +119,16 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_MidgardBasicElement> list_Zauberwerk_neu;
         std::list<cH_MidgardBasicElement> list_Kido;
         std::list<cH_MidgardBasicElement> list_Kido_neu;
+        std::list<cH_MidgardBasicElement> list_Sprache;
+        std::list<cH_MidgardBasicElement> list_Sprache_neu;
+        std::list<cH_MidgardBasicElement> list_Schrift;
+        std::list<cH_MidgardBasicElement> list_Schrift_neu;
 
         bool kido_bool;
         int maxkido;
         bool magie_bool;
         grad_anstieg Grad_Anstieg;
 
-
-        std::vector<H_Data_sprache> vec_Sprachen;
-        std::vector<H_Data_schrift> vec_Schriften;
         vector<H_Data_typen> Typ;
         Lernpunkte lernpunkte;
         Data_spezies Spezies_constraint;
@@ -299,7 +300,6 @@ class midgard_CG : public midgard_CG_glade
 
         void on_zauber_laden_clicked();
         void zauber_zeigen();
-//        void move_zauber(std::list<cH_Zauber>& von,std::list<cH_Zauber>& nach,const std::string& name);
         void on_spruchrolle_toggled();
         void on_checkbutton_zaubersalze_toggled();
         void on_checkbutton_beschwoerungen_toggled();
@@ -308,13 +308,8 @@ class midgard_CG : public midgard_CG_glade
         int spruchrolle_wuerfeln(std::string zauber);
         void on_leaf_selected_alte_zauber(cH_RowDataBase d);
         void on_leaf_selected_neue_zauber(cH_RowDataBase d);
-//        void show_alte_zauber();
-//        void show_neue_zauber();
         void on_leaf_selected_alte_zauberwerk(cH_RowDataBase d);
         void on_leaf_selected_neue_zauberwerk(cH_RowDataBase d);
-//        void show_altes_zauberwerk();
-//        void show_neues_zauberwerk();
-//        void move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,const std::string& name);
         void zauberwerk_laden();
         void zauberwerk_zeigen();
         void on_button_zauber_sort_clicked();
@@ -322,30 +317,27 @@ class midgard_CG : public midgard_CG_glade
 
         void on_kido_laden_clicked();
         void kido_zeigen();
-//        void move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,const std::string& name);
         void on_leaf_selected_alte_kido(cH_RowDataBase d);
         void on_leaf_selected_neue_kido(cH_RowDataBase d);
-//        void show_alte_kido();
-//        void show_neue_kido();
         void on_button_kido_sort_clicked();
 
 
         void on_sprache_laden_clicked();
         void on_leaf_selected_alte_sprache(cH_RowDataBase d);
         void on_leaf_selected_neue_sprache(cH_RowDataBase d);
-        void on_steigern_sprache_tree_alt_select(const std::string& name,int steigern,int reduzieren,int verlernen);
-        void on_steigern_sprache_tree_neu_select(const std::string& name,int kosten);
         void on_radio_sprache_steigern_toggled();
         void on_radio_sprache_reduzieren_toggled();
         void on_radio_sprache_verlernen_toggled();
         void on_leaf_selected_alte_schrift(cH_RowDataBase d);
         void on_leaf_selected_neue_schrift(cH_RowDataBase d);
-        void on_steigern_schrift_tree_alt_select(const std::string& name, int kosten);
-        void on_steigern_schrift_tree_neu_select(const std::string& name, const std::string& art, int kosten);
-        void show_alte_schriften();
-        void show_neue_schriften();
-        void show_alte_sprachen();
-        void show_neue_sprachen();
+//        void on_steigern_schrift_tree_alt_select(const std::string& name, int kosten);
+//        void on_steigern_schrift_tree_neu_select(const std::string& name, const std::string& art, int kosten);
+//        void show_alte_schriften();
+//        void show_neue_schriften();
+//        void show_alte_sprachen();
+//        void show_neue_sprachen();
+        void schriften_zeigen();
+        void sprachen_zeigen();
         void sprachen_schrift();
         void on_button_sprache_sort_clicked();
         void on_button_schrift_sort_clicked();

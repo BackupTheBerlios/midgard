@@ -40,7 +40,6 @@ Window_charakter_auswahl.cc
 praxispunkte_wuerfeln.cc
 get_standard_schrift.cc
 get_standard_sprache.cc
-steigern_sprache.cc
 sprachen_schrift.cc
 Sprache_auswahl.cc
 midgard_tmp_*

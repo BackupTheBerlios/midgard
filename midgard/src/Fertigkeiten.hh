@@ -17,13 +17,17 @@ class Fertigkeit : public HandleContent
      Ausnahmen ausnahmen;
 
      void get_Fertigkeit();
+     void get_Steigern_Kosten_map();
      int GrundKosten() const {  return kosten; }
      void set_Standard(const vector<H_Data_typen>& Typ) ;
+
+     std::map<int,int> map_erfolgswert_kosten;
   public:
      Fertigkeit(const std::string& n,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int l,bool p)
       :name(n),lernpunkte(l),erfolgswert(0),pflicht(p) {get_Fertigkeit(); set_Standard(Typ);}
 
      std::string Name() const {return name;}
+     int get_Steigern_Kosten(int erfolgswert);
      std::string Attribut() const {return attribut;}
      std::string Region() const {return region;}
      std::string Standard__() const { return standard[0]+' '+standard[1];}

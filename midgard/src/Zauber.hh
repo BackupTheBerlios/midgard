@@ -38,7 +38,7 @@ class Zauber : public MidgardBasicElement
    std::string Name() const {  return name; }
 //   bool ist_lernbar(const vector<H_Data_typen>& Typ) const;
 //   bool ist_gelernt(const std::list<cH_Zauber>& L) const;
-   bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
+//   bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
 
    std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
    std::string Art() const { return art;}

@@ -23,7 +23,8 @@ exec sql include sqlca;
 #include <Aux/SQLerror.h>
 #include "Window_charakter_auswahl.hh"
 #include "xml_fileselection.hh"
-
+#include <Sprache.hh>
+#include <Schrift.hh>
  
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
@@ -469,7 +470,8 @@ void midgard_CG::load_charakter()
          exec sql fetch sprache into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_Sprachen.push_back(new Data_sprache(db_fertigkeit,"",db_wert,0));
+//         vec_Sprachen.push_back(new Data_sprache(db_fertigkeit,"",db_wert,0));
+         list_Sprache.push_back(new Sprache(db_fertigkeit));
       } 
    exec sql close sprache;
    // Schrift
@@ -486,7 +488,8 @@ void midgard_CG::load_charakter()
          exec sql fetch schrift into :db_fertigkeit;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_Schriften.push_back(new Data_schrift(db_fertigkeit,""));
+         list_Schrift.push_back(new Schrift(db_fertigkeit));
+//         vec_Schriften.push_back(new Data_schrift(db_fertigkeit,""));
       } 
    exec sql close sprache;
    midgard_CG::sprachen_schrift();

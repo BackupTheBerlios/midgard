@@ -198,6 +198,9 @@ void midgard_CG::on_speichern_clicked()
          VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Grundkenntnis');
             SQLerror::test(__FILELINE__);
       }
+   MidgardBasicElement::saveElementliste(list_Sprache,Werte,Typ,ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Schrift,Werte,Typ,ausnahmen);
+/*
    for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();
          i!=vec_Sprachen.end();++i)
       {
@@ -217,6 +220,7 @@ void midgard_CG::on_speichern_clicked()
          VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Urschrift');
             SQLerror::test(__FILELINE__);
       }
+*/
    // Regionen & Ähnliches
    if (!Originalbool) 
     {  

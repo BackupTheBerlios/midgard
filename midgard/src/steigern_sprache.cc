@@ -17,74 +17,80 @@
  */
 
 #include "midgard_CG.hh"
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-#include <cstring>
-//#include <algorithm>
-#include <Aux/EntryValueIntString.h>
-#include <Aux/EntryValueEmptyInt.h> 
-
-#ifdef __MINGW32__
-extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
-#endif
+#include "class_Ausnahmen.hh"
+#include "class_zauber.hh"
 
 
 void midgard_CG::on_sprache_laden_clicked()
 {   
-   midgard_CG::zeige_werte(Werte);
-   midgard_CG::on_speichern_clicked();
-   midgard_CG::show_alte_schriften();
-   midgard_CG::show_neue_schriften();
-   midgard_CG::show_alte_sprachen();
-   midgard_CG::show_neue_sprachen();
+   list_Schrift_neu.clear();
+   Schriften_All SA(laden_label);
+   std::list<cH_MidgardBasicElement> list_tmp = SA.get_All();
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_tmp.begin();i!=list_tmp.end();++i)
+    { cH_Schrift s(*i);
+      if((*i)->ist_gelernt(list_Schrift)) continue;
+      if (region_check(s->Region()) )  list_Schrift_neu.push_back(*i) ;
+    }
+
+   list_Sprachen_neu.clear();
+   Sprachen_All SPA(laden_label);
+   std::list<cH_MidgardBasicElement> list_tmp = SPA.get_All();
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_tmp.begin();i!=list_tmp.end();++i)
+    { cH_Sprache s(*i);
+      if((*i)->ist_gelernt(list_Sprache)) continue;
+      if (region_check(s->Region()) )  list_Schrift_neu.push_back(*i) ;
+    }
+
+   schriften_zeigen();
+   sprachen_zeigen();
 }   
 
-void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
-{  const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
-   on_steigern_sprache_tree_alt_select(dt->Name(),dt->Steigern(),dt->Reduzieren(),dt->Verlernen());
+void midgard_CG::schriften_zeigen()
+{
+   zeige_werte(Werte);
+   on_speichern_clicked();
+   MidgardBasicElement::show_list_in_tree(list_Schrift    ,alte_schrift_tree,Werte,Typ,ausnahmen);
+   MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,Werte,Typ,ausnahmen);
 }
+
+void midgard_CG::sprachen_zeigen()
+{
+   zeige_werte(Werte);
+   on_speichern_clicked();
+   MidgardBasicElement::show_list_in_tree(list_Sprache    ,alte_sprachen_tree,Werte,Typ,ausnahmen,'O');
+   MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprachen_tree,Werte,Typ,ausnahmen,'N');
+}
+
 
 void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
-{  const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
-   on_steigern_sprache_tree_neu_select(dt->Name(),dt->Kosten());
-}
-
-    
-void midgard_CG::on_steigern_sprache_tree_neu_select(const std::string& name,int kosten)
-{   
+{  
+   const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
    if (!steigern(kosten,"Sprache")) return;
    Werte.add_GFP(kosten);
-   midgard_CG::zeige_werte(Werte);
-   vec_Sprachen.push_back(new Data_sprache(name,"",1,0));   
+   MidgardBasicElement::move_element(list_Sprache_neu,list_Sprache,dt->Name());
    on_sprache_laden_clicked();
 }   
     
-void midgard_CG::on_steigern_sprache_tree_alt_select(const std::string& name,int steigern,int reduzieren,int verlernen)
-{   
-   if (radio_sprache_steigern->get_active() && steigern)
+void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
+{  
+   const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
+   if (radio_sprache_steigern->get_active() && dt->Steigern())
     {
-      if (!midgard_CG::steigern(steigern,"Sprache")) return;
+      if (!steigern(steigern,"Sprache")) return;
       Werte.add_GFP(steigern);
-      for (std::vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
-                     i!= vec_Sprachen.end();++i )
-            if ( (*i)->Name() == name) (*i)->set_Wert((*i)->Wert()+1);
+      Sprache::Steigern(list_Sprachen,dt->Name(),1);
     }
    if (radio_sprache_reduzieren->get_active() && reduzieren )
     {
       if (steigern_bool) desteigern(reduzieren);
       Werte.add_GFP(-reduzieren);
-      for (std::vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
-                     i!= vec_Sprachen.end();++i )
-            if ( (*i)->Name() == name) (*i)->set_Wert((*i)->Wert()-1);
+      Sprache::Steigern(list_Sprachen,dt->Name(),-1);
     }
    if (radio_sprache_verlernen->get_active() && verlernen )
     {
       if (steigern_bool) desteigern(verlernen);
       Werte.add_GFP(-verlernen);
-      for (std::vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
-                     i!= vec_Sprachen.end();++i )
-            if ( (*i)->Name() == name) {vec_Sprachen.erase(i);break;};
+      MidgardBasicElement::move_element(list_Sprache,list_Sprache_neu,dt->Name());
     }
    on_sprache_laden_clicked();
 }
@@ -104,60 +110,33 @@ void midgard_CG::on_radio_sprache_verlernen_toggled()
 void midgard_CG::on_button_sprache_sort_clicked()
 {
   std::deque<guint> seq = alte_sprache_tree->get_seq();
-  std::vector<H_Data_sprache>::iterator IB=vec_Sprachen.begin();
-  std::vector<H_Data_sprache>::iterator IE=vec_Sprachen.end();   
   switch((Data_sprache::Spalten_A)seq[0]) {
-      case Data_sprache::NAMEa : sort(IB,IE,Data_sprache_sort_name()); ;break;
-      case Data_sprache::WERTa : sort(IB,IE,Data_sprache_sort_wert()); ;break;
+      case Data_sprache::NAMEa : list_Sprache.sort(cH_Sprache::sort(cH_Sprache::sort::NAME)); ;break;
+      case Data_sprache::WERTa : list_Sprache.sort(cH_Sprache::sort(cH_Sprache::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
-/*
-void midgard_CG::on_button_schrift_sort_clicked()
-{
-  std::deque<guint> seq = alte_schrift_tree->get_seq();
-  std::vector<H_Data_schrift>::iterator IB=vec_Schreiften.begin();
-  std::vector<H_Data_schrift>::iterator IE=vec_Schriften.end();   
-  switch((Data_schrift::Spalten_A)seq[0]) {
-      case Data_schrift::NAMEa : sort(IB,IE,Data_schrift_sort_name()); ;break;
-      case Data_schrift::WERTa : sort(IB,IE,Data_schrift_sort_wert()); ;break;
-      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
-   }
-}
-*/
 
-void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
-{  const Data_schrift *dt=dynamic_cast<const Data_schrift*>(&*d);  
-   on_steigern_schrift_tree_neu_select(dt->Urschrift(),dt->Art(),dt->Kosten());
-}
+
 void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
-{  const Data_schrift *dt=dynamic_cast<const Data_schrift*>(&*d);  
-   on_steigern_schrift_tree_alt_select(dt->Urschrift(),dt->Kosten());
-}
-
-
-
-void midgard_CG::on_steigern_schrift_tree_alt_select(const std::string& name, int kosten)
-{   
-   if (steigern_bool) desteigern(kosten);
-   Werte.add_GFP(-kosten);
-   for (std::vector<H_Data_schrift>::iterator i=vec_Schriften.begin();
-            i!=vec_Schriften.end();++i)
-      {
-         if ((*i)->Urschrift() == name) { vec_Schriften.erase(i);break;}
-      }
+{  
+   const Data_schrift *dt=dynamic_cast<const Data_schrift*>(&*d);  
+   if (steigern_bool) desteigern(dt->Kosten());
+   Werte.add_GFP(-dt->Kosten());
+   MidgardBasicElement::move_element(list_Schrift,list_Schrift_neu,dt->Name());
    on_sprache_laden_clicked();
 }   
     
-void midgard_CG::on_steigern_schrift_tree_neu_select(const std::string& name, const std::string& art, int kosten)
-{   
+void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
+{  
+   const Data_schrift *dt=dynamic_cast<const Data_schrift*>(&*d);  
    if (!steigern(kosten,"Lesen/Schreiben")) return;
    Werte.add_GFP(kosten);
-   vec_Schriften.push_back(new Data_schrift(name,art));
+   MidgardBasicElement::move_element(list_Schrift_neu,list_Schrift,dt->Name());
    on_sprache_laden_clicked();
 }   
 
-
+/*
 void midgard_CG::show_alte_sprachen()
 {
    std::vector<cH_RowDataBase> datavec;
@@ -208,8 +187,8 @@ void midgard_CG::show_alte_sprachen()
       }
    alte_sprache_tree->setDataVec(datavec);
 }
-
-
+*/
+/*
 void midgard_CG::show_neue_sprachen()
 {
   std::vector<cH_RowDataBase> datavec;
@@ -241,9 +220,9 @@ void midgard_CG::show_neue_sprachen()
  tr.close();
  neue_sprache_tree->setDataVec(datavec);
 }
+*/
 
-
-
+/*
 void midgard_CG::show_alte_schriften()
 {
   std::vector<cH_RowDataBase> datavec;
@@ -296,3 +275,4 @@ void midgard_CG::show_neue_schriften()
  tr.close();
  neue_schrift_tree->setDataVec(datavec);
 }
+*/

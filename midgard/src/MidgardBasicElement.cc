@@ -4,8 +4,11 @@
 #include "KiDo.hh"
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
+#include "Sprache.hh"
+#include "Schrift.hh"
 #include "class_kido.hh"
 #include "class_zauber.hh"
+#include "class_sprache_schrift.hh"
 #include "SimpleTree.hh"
 
 /*
@@ -57,8 +60,15 @@ void MidgardBasicElement::show_list_in_tree(
                datavec.push_back(new Data_kido(kd->Hoho(),kd->Name(),kd->Stufe(),
                   kd->Ap(),kd->Kosten(Typ,ausnahmen),kd->Stil()));
           break; }
-         case(SPRACHE)     : break;
-         case(SCHRIFT)     : break;
+         case(SPRACHE)     : {cH_Sprache s(*i);
+             if(variante=='O')
+               datavec.push_back(new Data_sprache(s->Name(),s->Erfolgswert(),s->Steigern(),s->Reduzieren(),s->Verlernen()));
+             if(variante=='N')
+               datavec.push_back(new Data_sprache(s->Name(),s->Urschrift(),0,s->Kosten(Typ,ausnahmen)));
+          break; }
+         case(SCHRIFT)     : {cH_Schrift s(*i);
+               datavec.push_back(new Data_schrift(s->Name(),s->Art(),s->Kosten(Typ,ausnahmen)));
+          break; }
       }
    }
     Tree->setDataVec(datavec);

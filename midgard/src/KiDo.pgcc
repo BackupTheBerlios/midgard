@@ -97,7 +97,7 @@ void KiDo::get_map_typ()
  exec sql begin declare section;
    char query[1024], db_typ[10], db_standard[10];
  exec sql end declare section;
- std::string squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
+ std::string squery ="select typ,standard from fertigkeiten_typen where name ='KiDo'";
  strncpy(query,squery.c_str(),sizeof(query));
  Transaction tr;
  exec sql prepare KMein_ from :query ;

@@ -94,6 +94,48 @@ void Fertigkeit::set_Standard(const vector<H_Data_typen>& Typ)
    ausnahmen.Ausnahmen_string(Name(),standard);
 }
 
+void Fertigkeit::get_Steigern_Kosten_map()
+{
+  exec sql begin declare section;
+   char NAME[50];
+   int P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19;
+  exec sql end declare section;
+  strncpy(NAME,Name().c_str(),sizeof(NAME));
+  exec sql select coalesce(p1,0),coalesce(p2,0),coalesce(p3,0),coalesce(p4,0),
+   coalesce(p5,0),coalesce(p6,0),coalesce(p7,0),coalesce(p8,0),
+   coalesce(p9,0),coalesce(p10,0),coalesce(p11,0),coalesce(p12,0),
+   coalesce(p13,0),coalesce(p14,0),coalesce(p15,0),coalesce(p16,0)
+   ,coalesce(p17,0),coalesce(p18,0),coalesce(p19,0) 
+   into :P1,:P2,:P3,:P4,:P5,:P6,:P7,:P8,:P9,:P10,:P11,:P12,:P13,:P14,:P15,
+   :P16,:P17,:P18,:P19
+   from steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
+   s.wie = w.name and s.name = :NAME; 
+   map_erfolgswert_kosten[1] = P1;
+   map_erfolgswert_kosten[2] = P2;
+   map_erfolgswert_kosten[3] = P3;
+   map_erfolgswert_kosten[4] = P4;
+   map_erfolgswert_kosten[5] = P5;
+   map_erfolgswert_kosten[6] = P6;
+   map_erfolgswert_kosten[7] = P7;
+   map_erfolgswert_kosten[8] = P8;
+   map_erfolgswert_kosten[9] = P9;
+   map_erfolgswert_kosten[10] = P10;
+   map_erfolgswert_kosten[11] = P11;
+   map_erfolgswert_kosten[12] = P12;
+   map_erfolgswert_kosten[13] = P13;
+   map_erfolgswert_kosten[14] = P14;
+   map_erfolgswert_kosten[15] = P15;
+   map_erfolgswert_kosten[16] = P16;
+   map_erfolgswert_kosten[17] = P17;
+   map_erfolgswert_kosten[18] = P18;
+   map_erfolgswert_kosten[19] = P19;
+}
+
+int Fertigkeit::get_Steigern_Kosten(int erfolgswert)
+{
+ return map_erfolgswert_kosten[erfolgswert];
+}
+
 /*
 void Fertigkeit::set_Erfolgswert(std::list<cH_Fertigkeit> L,std::string name,int e)
 {

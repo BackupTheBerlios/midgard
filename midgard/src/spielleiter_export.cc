@@ -91,7 +91,7 @@ void midgard_CG::spielleiter_export()
     if (i != list_Fertigkeiten.end()) fout << ", ";
    }
  fout << " - ";
- for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();i!=vec_Sprachen.end();++i)
+ for (std::vector<cH_MidgardBasicElement>::const_iterator i=list_Sprachen.begin();i!=list_Sprachen.end();++i)
    {
       fout << (*i)->Name() << " " << (*i)->Wert() ;
       if (i!=vec_Sprachen.end()) fout <<", ";
