@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.4 2003/05/08 06:15:30 christof Exp $               
+// $Id: Region.hh,v 1.5 2003/05/08 16:57:07 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -68,7 +68,9 @@ class Region  : public HandleContent
    bool Offiziell() const {return offiziell;}
    RegionenPic_enum::epic Pic() const {return pic;}
 
-   bool operator==(const Region& b) const {return Name()==b.Name();}
+   // nr ginge schneller
+   bool operator==(const Region& b) const { return Name()==b.Name();}
+   bool operator<(const Region& b) const { return Nr()<b.Nr(); }
 
 //   static bool setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active);
 //   static bool isActive(const std::vector<cH_Region>& LR,const cH_Region& R);
