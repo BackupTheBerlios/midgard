@@ -147,9 +147,29 @@ std::list<MBEmlt> MagusKI::KI_GSA_Liste(const std::list<MBEmlt> &L)
      else Ausnahme.push_back(*i);
    }
   int z=random.integer(1,100);
-  if     (z<GSA_MBE.getG()) return Grund;
-  else if(z<GSA_MBE.getG()+GSA_MBE.getS()) return Standard;
-  return Ausnahme;
+  bool g=false,s=false,a=false;
+  if     (z<GSA_MBE.getG()) g=true;
+  else if(z<GSA_MBE.getG()+GSA_MBE.getS()) s=true;
+  else a=true;
+
+  if(g)
+   { if     (!Grund.empty())    return Grund;
+     else if(!Standard.empty()) return Standard;
+     else if(!Ausnahme.empty()) return Ausnahme;
+   }
+  else if(s)
+   { if     (!Standard.empty()) return Standard;
+     else if(!Grund.empty())    return Grund;
+     else if(!Ausnahme.empty()) return Ausnahme;
+   }
+  else if(a)
+   {
+     if     (!Ausnahme.empty()) return Ausnahme;
+     else if(!Standard.empty()) return Standard;
+     else if(!Grund.empty()) return Grund;
+   }  
+  assert(!"never get here\n");
+  abort();
 }
 
 
