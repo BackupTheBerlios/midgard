@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.4 2001/11/19 16:52:17 christof Exp $
+// $Id: waffen_exp.pgcc,v 1.5 2001/11/19 18:00:14 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -22,6 +22,7 @@
 #include <Aux/dbconnect.h>
 exec sql include sqlca;
 #include "export_common.h"
+#include <Aux/itos.h>
 
 // wegen eines bugs in epcg <=V6.1
 #define GARNIX 
