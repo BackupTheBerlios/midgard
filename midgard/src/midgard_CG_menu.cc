@@ -234,8 +234,9 @@ void midgard_CG::menubar_init()
      _tab->attach(*_pix,0,1,0,row,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->set_col_spacings(10);
 
-     bool_CheckMenuItem *mi = Gtk::manage(new bool_CheckMenuItem((*i)->Active(),*_tab));
+     bool_CheckMenuItem *mi = (new bool_CheckMenuItem((*i)->Active(),*_tab));
      regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*mi));
+     // Gtk::manage(mi);
      (*i)->Active().signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
         mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,true);
