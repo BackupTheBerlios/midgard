@@ -33,6 +33,7 @@ NEWS IN VERSION 0.6delta3
 * Tiersprache im Lernschema geht wieder
 * Etliche kleinere Änderungen im Code mit aufräumen
 * Neue Option: Automatische Verkleinerung des Hauptfensters
+* Neue Option: Abspeichern und Laden der Position und Größe des Fensters
 
 TODO:
 * Gildenbrief funktioniert nicht

@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.30 2002/05/08 20:38:54 thoma Exp $
+// $Id: Optionen.cc,v 1.31 2002/05/08 21:31:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,8 @@
 #ifdef __MINGW32__
 #  include "registry.h"
 #endif
+
+#include <gdk--.h>
 
 Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
 :hauptfenster(h)
@@ -342,7 +344,6 @@ void Midgard_Optionen::load_options()
       ts.debug();
       return;
     }
-
   FOR_EACH_CONST_TAG_OF(i,*data,"Optionen")
      setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"Ansicht")
@@ -353,6 +354,13 @@ void Midgard_Optionen::load_options()
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"Einstellungen")
      setString(i->getAttr("Name"),i->getAttr("Wert"));
+
+  const Tag *data2=ts.find("MAGUS-fenster");
+  FOR_EACH_CONST_TAG_OF(i,*data2,"Position")
+     hauptfenster->setWindowPosition(i->getIntAttr("X"),i->getIntAttr("Y"));
+  FOR_EACH_CONST_TAG_OF(i,*data2,"Groesse")
+     hauptfenster->setWindowSize(i->getIntAttr("Width"),i->getIntAttr("Height"));
+
   hauptfenster->menu_init();
  } catch (std::exception &e) { cerr << e.what() << '\n'; }
 }
@@ -370,6 +378,24 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
  write_string_attrib(datei, "version", "1.0");
  write_string_attrib(datei, "encoding", TagStream::host_encoding);
  datei << "?>\n\n";
+
+ if(OberCheck(SaveFenster).active)
+  {
+    datei << "<MAGUS-fenster>\n";
+    gint width,height,x,y;
+    Gdk_Window fenster=hauptfenster->get_window();
+    fenster.get_size(width,height);
+    fenster.get_root_origin(x,y);
+    datei << "  <Groesse";
+    write_int_attrib(datei, "Width" ,width);
+    write_int_attrib(datei, "Height" ,height);
+    datei << "/>";
+    datei << "  <Position";
+    write_int_attrib(datei, "X" ,x);
+    write_int_attrib(datei, "Y" ,y);
+    datei << "/>";
+    datei << "</MAGUS-fenster>\n\n";
+  }
  datei << "<MAGUS-optionen>\n";
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    {

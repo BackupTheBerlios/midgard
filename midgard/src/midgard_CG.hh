@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.234 2002/05/08 20:38:55 thoma Exp $
+// $Id: midgard_CG.hh,v 1.235 2002/05/08 21:31:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,7 +68,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::vector<std::string> Vstand, Vhand, Vkido;
 
         friend class midgard_CG_glade;
-//        friend class Wizard_window;
         friend class Wizard;
         friend class Midgard_Optionen;
         friend class Midgard_Info;
@@ -112,6 +111,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
    public:
+        void setWindowPosition(int x,int y);
+        void setWindowSize(int width,int height);
         Midgard_Optionen* getOptionen() {return MOptionen;};
         std::list<std::string>            list_FertigkeitZusaetze;
    private:

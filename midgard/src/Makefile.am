@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.155 2002/05/03 14:30:19 christof Exp $
+# $Id: Makefile.am,v 1.156 2002/05/08 21:31:24 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -98,6 +98,7 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 magus_SOURCES = $(PORT_FILES) \
+   midgard_CG_oberflaeche.cc \
    midgard_CG_waffen.cc \
    Wizard.cc \
    frame_globale_optionen.cc \
