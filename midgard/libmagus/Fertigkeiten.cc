@@ -18,7 +18,6 @@
  */
 
 #include "Fertigkeiten.hh"
-#include "midgard_CG.hh"
 #include "Typen.hh"
 #include <LernListen.hh>
 

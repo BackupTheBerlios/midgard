@@ -162,7 +162,6 @@ PreiseNewMod_All::PreiseNewMod_All()
 /////////////////////////////////////////////////////////////////////////
 #include <fstream>
 #include <unistd.h>  
-#include "midgard_CG.hh"
 #include <Misc/TagStream.h>
 
 // use this tag to determine whether this is a user defined item

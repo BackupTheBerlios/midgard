@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Spezies.hh,v 1.2 2003/05/07 07:25:18 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,13 +24,15 @@
 #include <Misc/Handles.h>
 #include <Misc/CacheStatic.h>
 #include <string>
-#include "xml.h"
+//#include "xml.h"
 #include <list>
-#include "Enums.hh"
+//#include "Enums.hh"
+#include "MidgardBasicElement.hh" // wegen mutable
 
 class Grundwerte;
 class cH_MidgardBasicElement;
 class cH_Spezies;
+class Tag;
 
 class Spezies : public HandleContent
 {
@@ -101,6 +103,7 @@ public:
    bool Land() const {return land;}
    bool NSC_only() const {return only_nsc;}
 
+// warum mutable? vielleicht wegen Erfolgswert
    std::list<MBEmlt> getZauber() const;
    std::list<MBEmlt> getAngFertigkeiten() const;
    std::list<MBEmlt> getFertigkeiten(int &lp,const Grundwerte &Werte) const;

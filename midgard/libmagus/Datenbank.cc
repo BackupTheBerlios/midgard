@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Datenbank.cc,v 1.2 2003/05/07 07:25:18 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -48,14 +48,13 @@
 #include "Midgard_Info.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-#include "midgard_CG.hh"
 
 Datenbank::Datenbank()
 {
 }
 
 
-void Datenbank::load(Midgard_Info* MI, midgard_CG *hauptfenster)
+void Datenbank::load() //Midgard_Info* MI, midgard_CG *hauptfenster)
 {
     xml_init(MI->get_progressbar_regionen(),hauptfenster);
     Regionen = Regionen_All(MI->get_progressbar_regionen()).get_All();

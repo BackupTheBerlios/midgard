@@ -18,7 +18,6 @@
  */
 
 #include "Waffe.hh"
-#include "midgard_CG.hh"
 #include "Typen.hh"
 #include <Misc/itos.h>
 

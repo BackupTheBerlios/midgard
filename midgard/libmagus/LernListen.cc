@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.1 2003/05/06 07:12:04 christof Exp $
+// $Id: LernListen.cc,v 1.2 2003/05/07 07:25:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,6 @@
  */  
 
 #include "LernListen.hh"
-//#include "midgard_CG.hh"
 #include "Abenteurer.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"

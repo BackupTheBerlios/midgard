@@ -18,9 +18,8 @@
  */
 
 #include "Zauberwerk.hh"
-#include "midgard_CG.hh"
 #include "Typen.hh"
-
+#include <iostream>
 
 cH_Zauberwerk::cache_t cH_Zauberwerk::cache;
 

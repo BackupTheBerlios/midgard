@@ -24,7 +24,6 @@
 #include "Schrift.hh"
 #include "Grundwerte.hh"
 #include "Abenteurer.hh"
-#include "midgard_CG.hh"
 
 cH_Sprache::cache_t cH_Sprache::cache;
 

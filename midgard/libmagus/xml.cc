@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.1 2003/05/06 07:12:04 christof Exp $
+// $Id: xml.cc,v 1.2 2003/05/07 07:25:18 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,7 +18,6 @@
  */
 
 #include "xml.h"
-#include "midgard_CG.hh"
 
 //#define PARANOIA
 #define VERBOSE
