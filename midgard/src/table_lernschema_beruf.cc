@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.25 2003/04/29 07:06:56 christof Exp $
+// $Id: table_lernschema_beruf.cc,v 1.26 2003/06/10 08:31:03 thoma Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -17,7 +17,6 @@
  */
 
 #include "table_lernschema.hh"
-//#include "Berufe_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Fertigkeiten.hh"
 #include "class_Beruf_Data.hh"
@@ -28,6 +27,13 @@
 
 void table_lernschema::on_button_beruf()
 {
+  if(lernpunkte.Summe() != 0)
+    {                                                  
+      int s=lernpunkte.Summe();
+      hauptfenster->set_status("WARNUNG: Es sind noch "+itos(s)+" Lernpunkte "
+         "übrig, die zunächst verbraucht werden müssen.");
+      return ;                                          
+    }
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
       button_beruf->set_sensitive(false);
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::BERUF1);

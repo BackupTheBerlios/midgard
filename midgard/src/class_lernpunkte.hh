@@ -58,6 +58,8 @@ public:
 
    void set_schreiben_pflicht_allg(bool b) {schreiben_pflicht_allg=b;}
    void set_schreiben_pflicht_fach(bool b) {schreiben_pflicht_fach=b;}
+
+   int Summe() const {return fach+waffen+allgemein+unge+zauber;}   
    
 };
 
