@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.3 2001/12/19 15:44:49 christof Exp $
+// $Id: arkanum_exp.cc,v 1.4 2002/01/03 08:08:57 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -161,7 +161,7 @@ void arkanum_speichern(std::ostream &o)
    {  o << "  <Spezialgebiet";
       fetch_and_write_typ_attrib(is, o, "Typ");
       fetch_and_write_string_attrib(is, o, "Name");
-      fetch_and_write_int_attrib(is, o, "MCG:Index");
+      fetch_and_write_int_attrib(is, o, "MCG-Index");
       fetch_and_write_string_attrib(is, o, "Spezialisierung");
       fetch_and_write_string_attrib(is, o, "Sekundärelement");
       o << "/>\n";
@@ -182,7 +182,9 @@ int main(int argc, char *argv[])
       if (argc>1) region=argv[1];
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
-   std::cout << "<MidgardCG-data>\n";
+   std::cout << "<MidgardCG-data";
+   write_string_attrib("Region",region.empty()?"Arkanum":region);
+   std::cout << ">\n";
    arkanum_speichern(std::cout);
    std::cout << "</MidgardCG-data>\n";
    Petig::dbdisconnect();

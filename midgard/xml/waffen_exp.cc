@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.4 2001/12/27 22:55:25 christof Exp $
+// $Id: waffen_exp.cc,v 1.5 2002/01/03 08:08:57 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -86,8 +86,8 @@ void waffen_speichern(std::ostream &o)
 #ifdef MIDGARD3   
    fetch_and_write_string_attrib(is, o, "Angriffsrang");
 #endif
-   fetch_and_write_string_attrib(is, o, "Abwehr:leicht");
-   fetch_and_write_string_attrib(is, o, "Abwehr:schwer");
+   fetch_and_write_string_attrib(is, o, "Abwehr-leicht");
+   fetch_and_write_string_attrib(is, o, "Abwehr-schwer");
    o << "/><Voraussetzungen";
    fetch_and_write_int_attrib(is, o, "St");
 #ifdef MIDGARD3   
@@ -137,7 +137,7 @@ void waffen_speichern(std::ostream &o)
       {  Query query2("select fp from waffen_grund where name='"+waffe+"'");
          FetchIStream is2=query2.Fetch();
          if (is2.good())
-         {  o << "    <Waffen:Grundkenntnis";
+         {  o << "    <Waffen-Grundkenntnis";
             fetch_and_write_int_attrib(is2, o, "Kosten");
             o << "/>\n";
          }
@@ -189,14 +189,14 @@ void waffen_speichern(std::ostream &o)
 //******************waffen_grund************************************************
 
  if (region=="")
- { o << " <Waffen:Grundkenntnisse>\n";
+ { o << " <Waffen-Grundkenntnisse>\n";
    o << "   <-- direkte Grundkenntnisse stehen bei den Waffen -->\n";
   {Query query("select name, region, fp"
    	" from waffen_grund where not exists"
    	" (select true from waffen where waffen.name=waffen_grund.name)"
    	" order by coalesce(region,''),name");
   while ((query>>is).good())
-  {o << "  <Waffen:Grundkenntnis";
+  {o << "  <Waffen-Grundkenntnis";
    std::string grund=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_int_attrib(is, o, "Kosten");
@@ -209,13 +209,13 @@ void waffen_speichern(std::ostream &o)
       pflicht_lernen(o, grund);
       verbot_lernen(o, grund);
 //      ausnahmen(o, "w", grund);
-   o << "  </Waffen:Grundkenntnis>\n";
+   o << "  </Waffen-Grundkenntnis>\n";
   }
-   o << " </Waffen:Grundkenntnisse>\n";
+   o << " </Waffen-Grundkenntnisse>\n";
   }
 
 //********************* steigern_fertigkeiten_werte ********************
-   o << " <Waffen:Steigern>\n";
+   o << " <Waffen-Steigern>\n";
   {Query query("select " MIDGARD3_4("name,","schwierigkeit,")
       	    "coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),"
       	    "coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),"
@@ -241,7 +241,7 @@ void waffen_speichern(std::ostream &o)
 
 //**************************** Waffen Typen ***************************
    grund_standard_ausnahme(o, "waffen_typen", "Waffen");
-   o << " </Waffen:Steigern>\n";
+   o << " </Waffen-Steigern>\n";
  }
 //******************************************************************
 }

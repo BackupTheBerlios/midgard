@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.4 2002/01/01 17:51:37 christof Exp $
+// $Id: fertigk_exp.cc,v 1.5 2002/01/03 08:08:57 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -44,14 +44,14 @@ void fert_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_int_attrib(is, o, "Lernpunkte",99); // außergewöhnliche Fertigkeit
 #ifndef MIDGARD3
-   fetch_and_write_int_attrib(is, o, "Lernpunkte:Land",99);
-   fetch_and_write_int_attrib(is, o, "Lernpunkte:Stadt",99);
+   fetch_and_write_int_attrib(is, o, "Lernpunkte-Land",99);
+   fetch_and_write_int_attrib(is, o, "Lernpunkte-Stadt",99);
 #endif
    fetch_and_write_int_attrib(is, o, "Anfangswert");
    fetch_and_write_int_attrib(is, o, "Lernkosten");
    fetch_and_write_int_attrib(is, o, "Erfolgswert");
 #ifndef MIDGARD3
-   fetch_and_write_int_attrib(is, o, "Erfolgswert:ungelernt");
+   fetch_and_write_int_attrib(is, o, "Erfolgswert-ungelernt");
 #endif
    fetch_and_write_string_attrib(is, o, "Attribut");
 #ifndef MIDGARD3

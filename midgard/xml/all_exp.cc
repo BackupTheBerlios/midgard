@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.5 2001/12/17 14:24:14 christof Exp $
+// $Id: all_exp.cc,v 1.6 2002/01/03 08:08:57 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -38,7 +38,9 @@ int main(int argc, char *argv[])
    if (argc>1) region=argv[1];
    
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
-   std::cout << "<MidgardCG-data>\n";
+   std::cout << "<MidgardCG-data";
+   write_string_attrib("Region",region);
+   std::cout << ">\n";
    land_speichern(std::cout);
    fert_speichern(std::cout);
    waffen_speichern(std::cout);
