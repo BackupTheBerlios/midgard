@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MidgardCG-data>
+ <Länder>
   <Land Name="Feuerinseln" Kontinent="Huaxal" Sprache="Stammesdialekte"/>
   <Land Name="Inseln unter dem Westwind" Kontinent="Huaxal" Sprache="Trll"/>
   <Land Name="Inseln unter dem Westwind" Kontinent="Huaxal" Sprache="Nahuatlanisch"/>
@@ -42,4 +43,5 @@
   <Land Name="Vesternesse" Kontinent="Vesternesse" Sprache="Comentang"/>
   <Land Name="Ywerdon" Kontinent="Vesternesse" Sprache="Twyneddisch"/>
   <Land Name="Ywerdon" Kontinent="Vesternesse" Sprache="Erainnisch"/>
+ </Länder>
 </MidgardCG-data>
