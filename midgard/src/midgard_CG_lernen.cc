@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.42 2002/01/15 12:21:18 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.43 2002/01/16 10:55:25 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,6 @@
  */
 
 #include "midgard_CG.hh"
-#include "Window_lernpunkte_editieren.hh"
 #include "Window_Waffe_Geld.hh"
 #include "Window_herkunft.hh"
 
