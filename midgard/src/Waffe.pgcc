@@ -235,7 +235,8 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
         if (12<=w && w <=15) sb=-2;
         if (16<=w)           sb=-1;
       }
-  if (waffe->Art()!="Fern") sb += Werte.bo_Sc();
+  if (waffe->Art()!="Schußwaffe" && waffe->Art()!="Wurfwaffe") 
+      sb += Werte.bo_Sc();
   if     (sb == 0) return s;
   else if(sb  > 0) return s+"+"+itos(sb);
   else if(sb  < 0) return s+"-"+itos(sb);
@@ -300,6 +301,23 @@ std::string Waffe::Region(const std::string& name) const
    if (name==(*i).name) return (*i).region;
   assert(false);
 }
+
+
+std::string Waffe::Schwierigkeit_str() const
+{
+  switch(Schwierigkeit()) {
+    case 0: return "Verteidigung";
+    case 1: return "extrem leicht";
+    case 2: return "sehr leicht";          
+    case 3: return "leicht";
+    case 4: return "normal";
+    case 5: return "schwer";
+    case 6: return "sehr schwer";
+    case 7: return "extrem schwer";
+   }
+  return itos(Schwierigkeit());
+}
+
 
 
 map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progressbar)

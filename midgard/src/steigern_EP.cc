@@ -94,6 +94,7 @@ void midgard_CG::desteigern(unsigned int kosten)
                * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
      ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
    }
+  if( !HausregelCheck(Gold).active ) gold_k*=10;
   Werte.addGold(gold_k);
   Werte.addAEP(ep_k);
   Geld_uebernehmen();
@@ -122,6 +123,7 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
    {
      // genug Geld? 
      gold_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
+     if( !HausregelCheck(Gold).active ) gold_k*=10;
      if (gold_k > Werte.Gold()) 
          { regnot("Zu wenig Gold um zu steigern,\n es fehlen "+itos(gold_k-Werte.Gold())+" GS."); 
 //cout << "Zu wenig Gold\n";

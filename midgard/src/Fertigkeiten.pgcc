@@ -159,6 +159,13 @@ bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const
  else return false ;
 }
 
+std::string Fertigkeit::Pflicht_str() const
+{
+cout << Name() <<"  PFLICHT=" << pflicht<<'\n';
+  if (Pflicht()) return "*"; 
+  else return "";
+}
+
 int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const
 {
   if(Name()=="Trinken") return Erfolgswert()+Werte.Ko()/10;

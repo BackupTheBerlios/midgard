@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.61 2002/02/07 16:43:58 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.62 2002/02/08 09:52:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -352,7 +352,25 @@ void midgard_CG::show_gelerntes()
 {
   show_sinne();
   zeige_lernpunkte();
+  
+  std::list<cH_MidgardBasicElement> FL;
+  std::list<std::list<cH_MidgardBasicElement> > LL;
+  LL.push_back(list_Fertigkeit_ang);
+  LL.push_back(list_Fertigkeit);
+  LL.push_back(list_Waffen);
+  LL.push_back(list_Zauber);
+  LL.push_back(list_Zauberwerk);
+  LL.push_back(list_Kido);
+  LL.push_back(list_WaffenGrund);
+  LL.push_back(list_Sprache);
+  LL.push_back(list_Schrift);
+  LL.push_back(list_Beruf);
 
+  for(std::list<std::list<cH_MidgardBasicElement> >::const_iterator i=LL.begin();i!=LL.end();++i)
+    for (std::list<cH_MidgardBasicElement>::const_iterator j=i->begin();j!=i->end();++j)
+      FL.push_back(*j);
+  MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,Werte,Typ,Database.ausnahmen);
+/*
   MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
   MidgardBasicElement::show_list_in_tree(list_Fertigkeit,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
   MidgardBasicElement::show_list_in_tree(list_Waffen,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
@@ -363,6 +381,7 @@ void midgard_CG::show_gelerntes()
   MidgardBasicElement::show_list_in_tree(list_Sprache,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
   MidgardBasicElement::show_list_in_tree(list_Schrift,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
   MidgardBasicElement::show_list_in_tree(list_Beruf,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+*/
   tree_gelerntes->Expand_recursively();
 }
 
@@ -462,9 +481,75 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
         }
      }
   MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,Werte,Typ,Database.ausnahmen);
+  setTitels_for_Lernschema(what,fert);
   tree_lernschema->Expand_recursively();
 }
 
+void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)
+{
+ vector<std::string> vs;
+ vs.push_back("LP");
+ switch (what) {
+   case MidgardBasicElement::WAFFE:
+     {
+       vs.push_back("Grundkenntnnis"); // PFLICHTg
+       vs.push_back("Waffe");
+       vs.push_back("Wert");  
+       vs.push_back(""); // EIGENSCHAFTg
+       vs.push_back("Voraussetzung");
+       vs.push_back("Schwierigkeit");    
+       break;
+     }
+   case MidgardBasicElement::FERTIGKEIT:
+     {
+       vs.push_back("Pflicht");
+       vs.push_back("Fertigkeit");
+       vs.push_back("Wert");  
+       vs.push_back("L.E.");
+       vs.push_back("Voraussetzung");
+       vs.push_back("Kosten");    
+       break;
+     }
+   case MidgardBasicElement::ZAUBER:
+     {
+       vs.push_back("");
+       vs.push_back("Zauber");
+       vs.push_back("AP"); // WERTg
+       vs.push_back("");
+       vs.push_back("");
+       vs.push_back("Kosten");    
+       break;
+     }
+   default: break;
+   }
+ tree_lernschema->setTitles(vs);                                   
+
+ switch (what) {
+   case MidgardBasicElement::WAFFE:
+     {
+       tree_lernschema->set_column_visibility(Data_SimpleTree::PFLICHTg,true);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::EIGENSCHAFTg,false);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::VORAUSSETZUNGg,true);
+       break;
+     }
+   case MidgardBasicElement::FERTIGKEIT:
+     {
+       if(fert=="Fach") tree_lernschema->set_column_visibility(Data_SimpleTree::PFLICHTg,true);
+       else tree_lernschema->set_column_visibility(Data_SimpleTree::PFLICHTg,false);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::EIGENSCHAFTg,true);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::VORAUSSETZUNGg,true);
+       break;
+     }
+   case MidgardBasicElement::ZAUBER:
+     {
+       tree_lernschema->set_column_visibility(Data_SimpleTree::PFLICHTg,false);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::EIGENSCHAFTg,false);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::VORAUSSETZUNGg,false);
+       break;
+     }
+    default : break;
+   }
+}
 
 bool midgard_CG::SpracheSchrift(const std::string& fert,int wert,bool auswahl)
 {

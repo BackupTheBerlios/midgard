@@ -65,7 +65,7 @@ COPY "typen" FROM stdin;
 33	ScN	Schamane (Nordland)	Schamanin (Nordland)	z	ak	0	0	1	\N	4	\N	l	t
 34	ScS	Schamane (Steppe)	Schamanin (Steppe)	z	ak	0	0	1	\N	4	\N	l	t
 35	ScW	Schamane (Waldland)	Schamanin (Waldland)	z	ak	0	0	1	\N	4	\N	l	t
-36	Th	Thaumaturge	Thaumaturgin	z	z	10	0	1	\N	4	z	s	\N
+36	Th	Thaumaturg	Thaumaturgin	z	z	10	0	1	\N	4	z	s	\N
 37	Ny	Ninya	Ninya	n	ak	0	30	1	K	1	\N	\N	\N
 38	Kd	KiDoka	KiDoka	n	k	0	0	1	K	4	\N	\N	\N
 39	Sa	Saddhu	Saddhu	z	z	0	0	4	R	1	\N	\N	\N

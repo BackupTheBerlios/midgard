@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.32 2002/02/05 15:47:43 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.33 2002/02/08 09:52:38 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,7 +81,8 @@ class Fertigkeit : public MidgardBasicElement
      int Berufskategorie() const {return berufskategorie;}
      std::string Voraussetzung() const {return voraussetzung.fert;}
      bool Voraussetzungen(const Grundwerte& Werte) const;
-     std::string Pflicht() const {if (pflicht) return "*"; return "";}
+     bool Pflicht() const {return pflicht;}
+     std::string Pflicht_str() const; 
      int AttributBonus(const Grundwerte& Werte) const;
 };
 

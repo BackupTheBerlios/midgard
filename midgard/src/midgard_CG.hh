@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.160 2002/02/07 07:33:17 thoma Exp $
+// $Id: midgard_CG.hh,v 1.161 2002/02/08 09:52:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -260,6 +260,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_tree_lernschema_leaf_selected(cH_RowDataBase d);
         void show_gelerntes();
         void show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert="");
+        void setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert);
         bool SpracheSchrift(const std::string& fert,int wert=0,bool auswahl=false);
         void on_spinbutton_fach_activate();
         void on_spinbutton_allgemein_activate();

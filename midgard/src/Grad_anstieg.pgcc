@@ -26,6 +26,7 @@ exec sql include sqlca;
 #include "xml.h"
 #endif
 #include "ProgressBar.h"
+#include <Aux/itos.h>
 
 Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
 : steigern_EP_prozent(50), grad_basiswerte(1)
@@ -69,13 +70,20 @@ Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
        	st_grad(i->getIntAttr("Abwehr"),Kosten->getIntAttr("Abwehr"),
        		i->getIntAttr("Resistenz"),Kosten->getIntAttr("Resistenz"),
        		i->getIntAttr("Zaubern"),Kosten->getIntAttr("Zaubern"),
-       		i->getIntAttr("GFP"), i->getIntAttr("Schicksalsgunst"));
+       		i->getIntAttr("GFP"), i->getIntAttr("Schicksalsgunst"),
+       		i->getIntAttr("AP_Kosten"));
     }
  }
 #endif  
  ProgressBar::set_percentage(progressbar,1);
 }
 
+int Grad_anstieg::get_AP_Kosten(int grad)  
+{
+  int x=0; 
+  while(x==0)   x = map_grad[grad--].ap_kosten;
+  return x;
+}
 int Grad_anstieg::get_Abwehr(int grad)  
 {
   int x=0; 
@@ -121,10 +129,50 @@ int Grad_anstieg::get_Grad(int gfp)
 {
  map<int,st_grad>::const_reverse_iterator e=map_grad.rend();
  for(map<int,st_grad>::const_reverse_iterator i=map_grad.rbegin();i!=e;++i)
-{ 
+   { 
 //cout<<gfp<<'\t'<< i->second.gfp<<'\t'<<i->first<<'\n';
-   if( i->second.gfp <= gfp) 
-      return i->first;
-}
+    if( i->second.gfp <= gfp) 
+       return i->first;
+   }
  assert(0);
 }
+
+std::string Grad_anstieg::getGFP_for_str(ewas ew,const Grundwerte& Werte)
+{
+ int back=getGFP_for(ew,Werte);
+ if(back==0) 
+   if (ew!=Grad) return "";
+   else return "erreicht";
+ else return itos(back);
+}
+
+int Grad_anstieg::getGFP_for(ewas ew,const Grundwerte& Werte)
+{
+  int wert, maxwert, kosten;
+  int maxgrad=get_Grad(Werte.GFP());
+  switch(ew) {
+    case Grad     : 
+                    if(maxgrad>Werte.Grad()) return 0;
+                    else return map_grad[Werte.Grad()+1].gfp-Werte.GFP();      
+                    break ;
+    case Abwehr   : maxwert=get_Abwehr(Werte.Grad()); 
+                    wert=Werte.Abwehr_wert();
+                    kosten= map_grad[Werte.Grad()].abwehr_kosten;
+                    break;
+    case Zaubern  : maxwert=get_Zauber(Werte.Grad()); 
+                    wert=Werte.Zaubern_wert();
+                    kosten=map_grad[Werte.Grad()].zaubern_kosten;
+                    break;
+    case Resistenz: maxwert=get_Resistenz(Werte.Grad()); 
+                    wert=Werte.Resistenz();
+                    kosten=map_grad[Werte.Grad()].resistenz_kosten;
+                    break;
+    case Ausdauer : maxwert=999; 
+                    wert=Werte.AP();
+                    kosten=map_grad[Werte.Grad()].ap_kosten;
+                    break;
+   }
+   if(maxwert<=wert) return 0;
+   else return kosten;
+}
+

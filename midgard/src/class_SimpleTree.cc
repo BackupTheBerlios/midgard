@@ -53,6 +53,13 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
         }
       if (Variante==MidgardBasicTree::LERNSCHEMA)
        switch((Spalten_LERNSCHEMA)seqnr) {
+         case LERNPUNKTEg : return cH_EntryValueIntString(MBE->Lernpunkte()); 
+         case PFLICHTg : 
+            { if ( MBE->What()==MidgardBasicElement::FERTIGKEIT)
+                       return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Pflicht_str()); 
+              if ( MBE->What()==MidgardBasicElement::WAFFE)
+                    return cH_EntryValueIntString(cH_Waffe(MBE)->Grundkenntnis()); 
+            }
          case NAMEg : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
@@ -64,10 +71,15 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
                 return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
-             else
+             else if(MBE->What()==MidgardBasicElement::WAFFE)
                 return cH_EntryValueIntString(MBE->Erfolgswert());
+             else if(MBE->What()==MidgardBasicElement::ZAUBER)
+                return cH_EntryValueIntString(cH_Zauber(MBE)->Ap());
            }
-         case LERNPUNKTEg : return cH_EntryValueIntString(MBE->Lernpunkte()); 
+         case EIGENSCHAFTg : 
+            { if ( MBE->What()==MidgardBasicElement::FERTIGKEIT)
+                       return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Attribut()); 
+            }
          case VORAUSSETZUNGg :
            {  
             if ( MBE->What()==MidgardBasicElement::WAFFE)
@@ -75,14 +87,10 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
             if ( MBE->What()==MidgardBasicElement::FERTIGKEIT)
                return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung()); 
            }
-         case GRUNDKENNTNISg :
-           {  
+         case KOSTENg : 
             if ( MBE->What()==MidgardBasicElement::WAFFE)
-               return cH_EntryValueIntString(cH_Waffe(MBE)->Grundkenntnis()); 
-            if ( MBE->What()==MidgardBasicElement::FERTIGKEIT)
-               return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Attribut()); 
-           }
-         case KOSTENg : return cH_EntryValueIntString(MBE->Kosten(Typ,ausnahmen)); 
+               return cH_EntryValueIntString(cH_Waffe(MBE)->Schwierigkeit_str()); 
+           /* else*/ return cH_EntryValueIntString(MBE->Kosten(Typ,ausnahmen)); 
         }
       if (Variante==MidgardBasicTree::LONG_ALT)
        switch((Spalten_LONG_ALT)seqnr) {
@@ -181,9 +189,9 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
       if (Variante==MidgardBasicTree::ZAUBER)
       switch ((Spalten_ZAUBER)seqnr) {
          case STUFEn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Stufe());
-         case NAMEn_Z : return cH_EntryValueIntString(MBE->Name());  
+         case NAMEn_Z : return cH_EntryValueIntString(MBE->Name());
          case URSPRUNGn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Ursprung());
-         case KOSTENn_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case KOSTENn_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen)*cH_Zauber(MBE)->SpruchrolleFaktor());
          case STANDARDn_Z : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
         }
       if (Variante==MidgardBasicTree::ZAUBERWERK)

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.23 2002/01/29 16:43:04 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.24 2002/02/08 09:52:38 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -201,7 +201,7 @@ void land_speichern(std::ostream &o)
   if (region.empty())
   {o << " <Gradanstieg>\n";
    Query query("select grad, gfp, abwehr, resistenz, zaubern, schicksalsgunst,"
-   	" abwehr_kosten, resistenz_kosten, zaubern_kosten"
+   	" ap_kosten, abwehr_kosten, resistenz_kosten, zaubern_kosten"
    	" from grad_anstieg"
    	" order by grad");
   while ((query>>is).good())
@@ -212,6 +212,7 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Resistenz");
    fetch_and_write_int_attrib(is, o, "Zaubern");
    fetch_and_write_int_attrib(is, o, "Schicksalsgunst");
+   fetch_and_write_int_attrib(is, o, "AP_Kosten");
    o << "><Kosten";
    fetch_and_write_int_attrib(is, o, "Abwehr");
    fetch_and_write_int_attrib(is, o, "Resistenz");

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.46 2002/02/06 16:37:27 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.47 2002/02/08 09:52:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -145,18 +145,19 @@ void midgard_CG::get_grundwerte()
 
 void midgard_CG::get_ausdauer(int grad)
 {
-   int bonus_K, bonus_aK, bonus_Z, kosten=0;
-   if (grad == 1)  { bonus_K =  4, bonus_aK =  3; bonus_Z =  2; kosten =    20;}
-   if (grad == 2)  { bonus_K =  6, bonus_aK =  4; bonus_Z =  2; kosten =    20;}
-   if (grad == 3)  { bonus_K =  9, bonus_aK =  6; bonus_Z =  3; kosten =    20;}
-   if (grad == 4)  { bonus_K = 12, bonus_aK =  8; bonus_Z =  4; kosten =    40;}
-   if (grad == 5)  { bonus_K = 15, bonus_aK = 10; bonus_Z =  5; kosten =    70;}
-   if (grad == 6)  { bonus_K = 18, bonus_aK = 12; bonus_Z =  6; kosten =   150;}
-   if (grad == 7)  { bonus_K = 21, bonus_aK = 14; bonus_Z =  7; kosten =   300;}
-   if (grad == 8)  { bonus_K = 24, bonus_aK = 16; bonus_Z =  8; kosten =   600;}
-   if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; kosten =  1200;}
-   if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  1500;}
-   if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  2000;}
+   int bonus_K, bonus_aK, bonus_Z;
+   int kosten = Database.GradAnstieg.get_Resistenz_Kosten(grad);
+   if (grad == 1)  { bonus_K =  4, bonus_aK =  3; bonus_Z =  2; }
+   if (grad == 2)  { bonus_K =  6, bonus_aK =  4; bonus_Z =  2; }
+   if (grad == 3)  { bonus_K =  9, bonus_aK =  6; bonus_Z =  3; }
+   if (grad == 4)  { bonus_K = 12, bonus_aK =  8; bonus_Z =  4; }
+   if (grad == 5)  { bonus_K = 15, bonus_aK = 10; bonus_Z =  5; }
+   if (grad == 6)  { bonus_K = 18, bonus_aK = 12; bonus_Z =  6; }
+   if (grad == 7)  { bonus_K = 21, bonus_aK = 14; bonus_Z =  7; }
+   if (grad == 8)  { bonus_K = 24, bonus_aK = 16; bonus_Z =  8; }
+   if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; }
+   if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
+   if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
    if (!steigern_usp(kosten,0,Ausdauer)) return;
    Werte.addGFP(kosten);
    int ap=0;

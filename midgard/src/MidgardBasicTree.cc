@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.6 2002/02/06 18:07:35 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.7 2002/02/08 09:52:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,7 @@ int MidgardBasicTree::Cols(variante V)
 {
   switch(V) {
      case (GELERNTES):      return 4;
-     case (LERNSCHEMA):     return 6;
+     case (LERNSCHEMA):     return 7;
      case (LONG_ALT):       return 7;
      case (LONG_NEU):       return 5;
      case (SPRACHE_NEU):    return 3;
@@ -60,6 +60,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Wert");  
       vs.push_back("LP");    
    }
+/*
   if(V==LERNSCHEMA)
    {
       vs.push_back("LP");    
@@ -69,6 +70,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Grundkenntnnis");    
       vs.push_back("Kosten");    
    }
+*/
   if(V==LONG_ALT)
    {
       vs.push_back("Fertigkeit");

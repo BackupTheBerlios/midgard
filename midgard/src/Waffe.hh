@@ -84,6 +84,7 @@ class Waffe : public MidgardBasicElement
      std::string Reichweite() const ;
 
      int Schwierigkeit() const {return schwierigkeit;}
+     std::string Schwierigkeit_str() const;
      int Anfangswert() const {return anfangswert;}
      std::string Voraussetzung() const {return voraussetzung;}
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}

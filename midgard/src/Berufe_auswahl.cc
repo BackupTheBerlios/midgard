@@ -164,8 +164,8 @@ void Berufe_auswahl::fill_list()
    {
      cH_Beruf b(*i);
      if (hauptfenster->region_check(b->Region()))
-       if (b->Typ(Typ))
-         list_beruf.push_back(*i);
+       if (b->Typ(Typ) &&  b->Stand(Werte.Stand()) )
+            list_beruf.push_back(*i);
    }
   list_beruf.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
   std::vector<cH_RowDataBase> datavec;

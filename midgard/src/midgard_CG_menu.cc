@@ -27,7 +27,7 @@ void midgard_CG::menu_init()
   if (menu) { menu->destroy(); menu=0; haus_menuitem=0; }
   menu=manage(new Gtk::Menu());
 
-  Gtk::MenuItem *save = manage(new class Gtk::MenuItem("Charakter speichern"));
+  Gtk::MenuItem *save = manage(new class Gtk::MenuItem("Abenteurer speichern"));
   menu->append(*save);
 #ifndef USE_XML
   save->activate.connect(SigC::slot(this,&midgard_CG::on_speichern_clicked));
@@ -35,7 +35,7 @@ void midgard_CG::menu_init()
   save->activate.connect(SigC::slot(this,&midgard_CG::xml_export_auswahl));
 #endif
 
-  Gtk::MenuItem *close = manage(new class Gtk::MenuItem("MCG Beenden"));
+  Gtk::MenuItem *close = manage(new class Gtk::MenuItem("MAGUS Beenden"));
   menu->append(*close);
   close->activate.connect(SigC::slot(this,&midgard_CG::on_schliessen_CG_clicked));
 
@@ -44,11 +44,11 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *drucken = manage(new class Gtk::MenuItem("Drucken")); 
   drucken->set_submenu(*drucken_menu);
 
-  Gtk::MenuItem *latex = manage(new class Gtk::MenuItem("Charakter drucken (LaTeX)"));
+  Gtk::MenuItem *latex = manage(new class Gtk::MenuItem("Abenteurer drucken (LaTeX)"));
   drucken_menu->append(*latex);
   latex->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),true));
 
-  Gtk::MenuItem *latex_beschreibung = manage(new class Gtk::MenuItem("Charakterbeschreibung drucken"));
+  Gtk::MenuItem *latex_beschreibung = manage(new class Gtk::MenuItem("Abenteurerbeschreibung drucken"));
   drucken_menu->append(*latex_beschreibung);
   latex_beschreibung->activate.connect(SigC::slot(this,&midgard_CG::latex_beschreibung_drucken));
 
@@ -59,7 +59,7 @@ void midgard_CG::menu_init()
   drucken_menu->append(*latex_ausruestung2);
   latex_ausruestung2->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_ausruestung_druck),false));
 
-  Gtk::MenuItem *latex_empty = manage(new class Gtk::MenuItem("Leeres Charakterdokument drucken"));
+  Gtk::MenuItem *latex_empty = manage(new class Gtk::MenuItem("Leeres Abenteurerdokument drucken"));
   drucken_menu->append(*latex_empty);
   latex_empty->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),false));
 

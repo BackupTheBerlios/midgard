@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.34 2002/01/26 09:17:41 christof Exp $               
+// $Id: Zauber.hh,v 1.35 2002/02/08 09:52:38 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,18 +34,13 @@ class Zauber : public MidgardBasicElement
       material, agens, prozess, reagens, beschreibung,
       zauberart,element;//,region; 
    bool spruchrolle;
+   mutable double spruchrolle_faktor;
 
    void get_Zauber();
  public: 
-#ifdef USE_XML
    Zauber(const Tag *t) 
-      : MidgardBasicElement(t,t->getAttr("Name"))
+      : MidgardBasicElement(t,t->getAttr("Name")),spruchrolle_faktor(1)
    { get_Zauber();get_map_typ();EP_steigern("Zauber");} 
-#else
-   Zauber(const std::string& n) 
-      : MidgardBasicElement(n)
-   {get_Zauber();get_map_typ();EP_steigern("Zauber");} 
-#endif   
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
    std::string What_str() const {return "Zauber";}
@@ -69,7 +64,8 @@ class Zauber : public MidgardBasicElement
    std::string Beschreibung() const { return beschreibung;}
    std::string Element() const {return element;}
    bool Spruchrolle() const {return spruchrolle;}
-//   void set_Spruchrolle(bool s) const {spruchrolle=s;}
+   double SpruchrolleFaktor() const {return spruchrolle_faktor;}
+   void setSpruchrolleFaktor(double s) const {spruchrolle_faktor=s;}
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
    int Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
    int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 

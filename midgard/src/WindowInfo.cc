@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.21 2002/01/16 09:37:53 thoma Exp $
+// $Id: WindowInfo.cc,v 1.22 2002/02/08 09:52:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,7 @@ void WindowInfo::on_button_info_ok_clicked()
 WindowInfo::WindowInfo(const std::string& s,bool autoclean)
 {
    infotext->set_text(s.c_str());
+cout << "autoclean :"<<autoclean<<'\n';
    if(autoclean)
       des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
 }

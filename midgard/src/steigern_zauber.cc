@@ -33,9 +33,14 @@ void midgard_CG::on_zauber_laden_clicked()
          continue;
       if (z->Zauberart()=="Beschwörung" && !Region::isActive(Database.Regionen,cH_Region("MdS")))
          continue;
+      if (togglebutton_spruchrolle->get_active() && !z->Spruchrolle() ) continue;
       if ((*i)->ist_lernbar(Typ,z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
        if (region_check(z->Region()) )
+        {
+         if(togglebutton_spruchrolle->get_active()) z->setSpruchrolleFaktor(0.1);
+         else z->setSpruchrolleFaktor(1);
          list_Zauber_neu.push_back(*i);            
+        }
     }
   zauber_zeigen();
 }
@@ -45,11 +50,7 @@ void midgard_CG::zauber_zeigen()
  if (Typ[0]->Zaubern()=="n" && Typ[1]->Zaubern()=="n") return;
  
  zeige_werte(Werte);
-#ifndef USE_XML 
- on_speichern_clicked();
-#else
-   steigern_aktivieren();
-#endif
+ steigern_aktivieren();
  MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Zauber    ,alte_zauber_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,Werte,Typ,Database.ausnahmen);
@@ -101,6 +102,7 @@ void midgard_CG::on_checkbutton_zaubermittel_toggled()
 
 void midgard_CG::on_spruchrolle_toggled()
 {
+ on_zauber_laden_clicked();
 /*
  if (spruchrolle->get_active() ) 
    { 
