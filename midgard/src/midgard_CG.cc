@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.144 2002/02/06 15:18:40 thoma Exp $
+// $Id: midgard_CG.cc,v 1.145 2002/02/06 16:37:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -307,7 +307,8 @@ void midgard_CG::on_neuer_charakter_clicked()
 //   menu_gradanstieg_init();
 //cout << "HausregelCheck(EPsteigern).active "<<HausregelCheck(EPsteigern).active<<'\n';
 //   checkbutton_EP_Geld->set_active(HausregelCheck(EPsteigern).active);
-   checkbutton_EP_Geld->set_active(true);
+   steigern_mit_EP_bool=true;
+   checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
    
 
    Database.GradAnstieg.set_Grad_Basiswerte(1);

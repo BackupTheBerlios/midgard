@@ -21,7 +21,7 @@
 #include <gtk--/adjustment.h>
 #include <Aux/itos.h>
 
-bool steigern;
+//bool steigern;
 
 gint midgard_CG::vscale_value_changed(GdkEventButton *ev)
 {
@@ -39,8 +39,8 @@ void midgard_CG::steigern_gtk()
   label_Gold->set_text(itos(100-Database.GradAnstieg.get_Steigern_EP_Prozent())+"%");
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
   A->set_value(100-Database.GradAnstieg.get_Steigern_EP_Prozent());
-  if (steigern) checkbutton_EP_Geld->set_active(true);
-  else               checkbutton_EP_Geld->set_active(false);
+  if (steigern_mit_EP_bool) checkbutton_EP_Geld->set_active(true);
+  else                      checkbutton_EP_Geld->set_active(false);
 }
 
 void midgard_CG::on_checkbutton_EP_Geld_toggled()
@@ -48,11 +48,11 @@ void midgard_CG::on_checkbutton_EP_Geld_toggled()
 #warning was ist 'steigern'? MAT
 
    if (checkbutton_EP_Geld->get_active()) 
-      { steigern=true;
+      { steigern_mit_EP_bool=true;
         frame_lernen_mit->set_sensitive(true);
       }
    else 
-      { steigern=false;
+      { steigern_mit_EP_bool=false;
         frame_lernen_mit->set_sensitive(false);
       }
 }
@@ -112,7 +112,7 @@ void midgard_CG::set_lernzeit(unsigned int kosten)
 
 bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* MBE, e_was_steigern was)
 {
-  if (!steigern) // Steigern OHNE EP/Gold/PP
+  if (!steigern_mit_EP_bool) // Steigern OHNE EP/Gold/PP
       { set_lernzeit(kosten);
         return true; 
       }
@@ -138,6 +138,7 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   else if (was==Resistenz) womit=3;
   else if (was==Abwehr) womit=3;
   else assert(!"Fehler in steigern_EP.cc:steigern_usp");
+cout << (*MBE)->Name()<<'\t'<<womit<<'\n';
   if(womit==1 || womit==3) bkep=true;
   if(womit==2 || womit==3) bzep=true;
 

@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.43 2002/02/04 11:01:01 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.44 2002/02/06 16:37:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -122,7 +122,6 @@ void midgard_CG::on_abge_werte_setzen_clicked()
    }
   Werte.setGrad1Werte(Typ);
 
-  if (OptionenCheck(Original).active) original_midgard_check() ;
   zeige_werte(Werte);
   button_herkunft->set_sensitive(true);
   button_beschreibung->set_sensitive(true);

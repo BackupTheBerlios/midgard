@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.157 2002/02/06 13:53:56 thoma Exp $
+// $Id: midgard_CG.hh,v 1.158 2002/02/06 16:37:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -121,6 +121,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         bool kido_bool;
         int maxkido;
         bool magie_bool;
+        bool steigern_mit_EP_bool;
 
         vector<cH_Typen> Typ;
         Lernpunkte lernpunkte;

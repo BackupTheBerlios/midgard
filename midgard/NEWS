@@ -1,12 +1,16 @@
 ##########################################################################
 NEWS IN VERSION 0.4delta0
 
+* viele keine Bugfixes
 * Komplette Neuimplementation des Lernschemas
   Grund: Sinnvoller Vorschlag von Fabian Wagner
    -> vermutlich viele neue Bugs zu suchen....
 
 TODO:
+* INFO Fenster beim 'Sprachen'lernen
+* ZEP/KEP verwenden
 * Startwert der Muttersprache -> Intelligenz
+* Grundwerte auswürfeln für M$
 * Testen von nichtmenschlichen Spezies
 * Spezialwaffe
 * Abspeichern und laden von Optionen 

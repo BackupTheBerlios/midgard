@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.44 2002/02/06 10:23:51 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.45 2002/02/06 16:37:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,22 +48,6 @@ void midgard_CG::checkbutton_original(bool active)
     }      
 }
 
-/*
-void midgard_CG::on_checkbutton_info_fenster_menu()
-{
-  if (OptionMenu.menu_info->get_active()) OptionBool.Info=true;
-  else OptionBool.Info=false;
-  OptionMenu.menu_info->set_active(OptionBool.Info);
-}
-
-void midgard_CG::on_checkbutton_pics_menu()
-{
-  if (OptionMenu.menu_pics->get_active()) OptionBool.Pics=true;
-  else OptionBool.Pics=false;
-  OptionMenu.menu_pics->set_active(OptionBool.Pics);
-  Pics(OptionBool.Pics);
-}
-*/
 
 void midgard_CG::lernschema_sensitive(bool active)
 {
