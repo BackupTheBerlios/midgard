@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.28 2001/12/07 15:35:41 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.29 2001/12/07 16:10:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -46,15 +46,20 @@ void fert_speichern(std::ostream &o)
    
    grund_standard_ausnahme(o, "fertigkeiten_typen", fert);
       //********** fertigkeiten_voraussetzung **********************************
-   {  Query query2("select st,gw,gs,ko,\"in\",zt,au,pa,sb,rw, fertigkeit"
+   {  Query query2("select st," MIDGARD3_4("ge,","gw,gs,")
+   		"ko,\"in\",zt,au,pa,sb,rw, fertigkeit"
    	" from fertigkeiten_voraussetzung"
    	" where name='"+fert+"' order by fertigkeit");
       FetchIStream is2;
       while ((query2>>is2).good()) 
       {  o << "    <Voraussetzungen";
          fetch_and_write_int_attrib(is2, o, "St");
+#ifdef MIDGARD3
+         fetch_and_write_int_attrib(is2, o, "Ge");
+#else         
          fetch_and_write_int_attrib(is2, o, "Gw");
          fetch_and_write_int_attrib(is2, o, "Gs");
+#endif
          fetch_and_write_int_attrib(is2, o, "Ko");
          fetch_and_write_int_attrib(is2, o, "In");
          fetch_and_write_int_attrib(is2, o, "Zt");
@@ -153,8 +158,9 @@ void fert_speichern(std::ostream &o)
 //********************* Berufe ********************
    o << " <Berufe>\n";
 #warning hier noch ge durch gs,gw ersetzen
-  {Query query("select beruf, region, lernpunkte, st, ge as gw, ge as gs, ko,"
-  	" \"in\", zt, pa, au, sb, typ, geschlecht"
+  {Query query("select beruf, region, lernpunkte, st, "
+  	MIDGARD3_4("ge","ge as gw, ge as gs,")
+  	" ko, \"in\", zt, pa, au, sb, typ, geschlecht"
    	" from berufe_voraussetzung"
    	" order by region, beruf");
    FetchIStream is;
@@ -166,8 +172,12 @@ void fert_speichern(std::ostream &o)
    o << ">\n";
    o << "    <Voraussetzungen";
    fetch_and_write_int_attrib(is, o, "St");
+#ifdef MIDGARD3   
+   fetch_and_write_int_attrib(is, o, "Ge");
+#else
    fetch_and_write_int_attrib(is, o, "Gw");
    fetch_and_write_int_attrib(is, o, "Gs");
+#endif
    fetch_and_write_int_attrib(is, o, "Ko");
    fetch_and_write_int_attrib(is, o, "In");
    fetch_and_write_int_attrib(is, o, "Zt");

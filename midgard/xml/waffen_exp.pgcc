@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.13 2001/12/07 15:35:41 christof Exp $
+// $Id: waffen_exp.pgcc,v 1.14 2001/12/07 16:10:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -119,7 +119,6 @@ void waffen_speichern(std::ostream &o)
  //************************* waffen_region_name ************************  
    {  exec sql begin declare section;
       const char *WAFFE=waffe.c_str(GARNIX);
-      char TYPEN[40][40];
       exec sql end declare section;
 
       exec sql declare cursor_reg cursor for 
@@ -162,10 +161,10 @@ void waffen_speichern(std::ostream &o)
      }
       //********** Lernschema **********************************
       // wert, attribut, [p+s]_element 
-      lernschema(o, "Waffe", WAFFE);
-      pflicht_lernen(o, WAFFE);
-      verbot_lernen(o, WAFFE);
-//      ausnahmen(o, "w", WAFFE);
+      lernschema(o, "Waffe", waffe);
+      pflicht_lernen(o, waffe);
+      verbot_lernen(o, waffe);
+//      ausnahmen(o, "w", waffe);
 
    //***** preise ******
    {  exec sql begin declare section;
