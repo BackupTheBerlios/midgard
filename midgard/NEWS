@@ -12,6 +12,12 @@ NEWS IN VERSION 0.8beta1
 - In dem 'steigern'-Fenster werden jetzt auch  Grad,AP,Abwehr,Zaubern,Resistenz
    angezeigt
 - Info Fenster überarbeitet (die M$-Portierung steht jetzt schon drin)
+- Bug beim Eingeben von Erfolgswerte für die gelernten Berufe beseitigt
+- Es gibt jetzt ein Menu, das über die rechte Maustaste im Hauptfenster 
+   aufklappt. Dort finden sich selten und häufig verwendete Funktionen.
+   Wenn sich noch jemand etwas wünschen sollte dann möge er es nur mitteilen ...
+- Über das Menu kann man jetzt auch ein leeres Charakterdokument ausdrucken
+
 
 ##########################################################################
 NEWS IN VERSION 0.8beta0
