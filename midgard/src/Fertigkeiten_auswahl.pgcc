@@ -31,7 +31,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 #include "Sprache_auswahl.hh"
-//#include "class_Ausnahmen.hh"
+//#include "Ausnahmen.hh"
 
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const vector<H_Data_typen>& Typ,
      int lernpunkte, const Grundwerte& Werte,const std::vector<H_Data_beruf>& vec_Beruf)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.70 2001/10/31 18:34:43 thoma Exp $
+// $Id: midgard_CG.cc,v 1.71 2001/11/02 09:46:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@
 #include "Window_waffe.hh"
 #include "Window_Waffenbesitz.hh"
 #include "Midgard_Info.hh"
-#include "class_Ausnahmen.hh"
+#include "Ausnahmen.hh"
 
 midgard_CG::midgard_CG(int argc,char **argv)
 :menu(0)

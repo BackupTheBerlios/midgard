@@ -17,7 +17,7 @@
  */
 
 #include "midgard_CG.hh"
-#include "class_Ausnahmen.hh"
+#include "Ausnahmen.hh"
 #include "class_zauber.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"

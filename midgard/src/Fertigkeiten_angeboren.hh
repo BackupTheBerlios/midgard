@@ -4,7 +4,7 @@
 #include <Aux/Handles.h>
 #include <Aux/CacheStatic.h>
 #include "class_typen.hh"
-#include "class_Ausnahmen.hh"
+#include "Ausnahmen.hh"
 
 class Fertigkeit_angeborene : public HandleContent
 {

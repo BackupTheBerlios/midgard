@@ -17,7 +17,7 @@
 
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
-#include "class_Ausnahmen.hh"
+#include "Ausnahmen.hh"
 #include "class_fertigkeiten.hh"
 #include "Pflicht.hh"
 

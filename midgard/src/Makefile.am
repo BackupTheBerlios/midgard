@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.60 2001/11/01 09:31:26 thoma Exp $
+# $Id: Makefile.am,v 1.61 2001/11/02 09:46:45 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -12,9 +12,15 @@ EXTRA_DIST = document_eingabe.tex.in \
    drache.ps dracher.ps
 
 
-noinst_HEADERS = MidgardBasicElement.hh Zauber.hh Zauberwerk.hh Fertigkeiten.hh Waffe.hh KiDo.hh \
-WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh \
-itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
+noinst_HEADERS = \
+   MidgardBasicElement.hh \
+   Zauber.hh \
+   Zauberwerk.hh \
+   Fertigkeiten.hh \
+   Waffe.hh \
+   KiDo.hh \
+   Ausnahmen.hh \
+WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
 Window_charakter_auswahl_glade.hh Window_charakter_auswahl.hh  \
@@ -49,7 +55,6 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh \
    class_Grundwerte.hh \
-   class_Ausnahmen.hh \
    class_kido.hh \
    class_waffen.hh \
    class_berufe.hh \
@@ -64,17 +69,24 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
-BUILT_SOURCES_CG =  Zauber.cc Zauberwerk.cc Fertigkeiten.cc Waffe.cc KiDo.cc \
-   Sprache.cc Schrift.cc MidgardBasicElement_sql.cc \
+BUILT_SOURCES_CG =  \
+   Zauber.cc \
+   Zauberwerk.cc \
+   Fertigkeiten.cc \
+   Waffe.cc \
+   KiDo.cc \
+   Sprache.cc \
+   Schrift.cc \
+   MidgardBasicElement_sql.cc \
    Pflicht.cc \
    WaffeGrund.cc Fertigkeiten_angeboren.cc \
-    steigern_waffen.cc \
+   steigern_waffen.cc \
    get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  \
    Berufe_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \
    get_typ.cc  Window_charakter_auswahl.cc \
-   praxispunkte_wuerfeln.cc steigern_sprache.cc sprachen_schrift.cc \
+   praxispunkte_wuerfeln.cc sprachen_schrift.cc \
    Sprache_auswahl.cc Window_herkunft.cc midgard_CG_ruestung.cc \
 	Window_ruestung.cc Window_waffe.cc Window_Waffenbesitz.cc \
    get_berufs_vorteile.cc \
@@ -93,14 +105,16 @@ BUILT_SOURCES= $(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE) $(BUILT_SOUCES_XMLI)
 midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
+
 midgard_SOURCES = \
    MidgardBasicElement.cc \
    midgard_CG_basic_elemente.cc \
    $(BUILT_SOURCES_CG) \
    steigern_fertigkeiten.cc  \
+   steigern_sprache.cc  \
    steigern_zauber.cc  \
-   midgard_CG_menu.cc \
    steigern_kido.cc  \
+   midgard_CG_menu.cc \
    Window_angeb_fert.cc \
    Window_Erfahrungspunkte.cc \
    Window_Erfahrungspunkte_glade.cc \
@@ -164,18 +178,18 @@ midgard_SOURCES = \
    Window_doppelcharaktere_glade.cc
 
 
-CXXFLAGS = @CXXFLAGS@ @COMMONXX_INCLUDES@ \
-           @COMMONGTK_INCLUDES@ \
-           @KOMPONENTEN_INCLUDES@ \
+CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
 
-midgard_LDADD = @LIBS@ @COMMONXX_LIBS@ @COMMONGTK_LIBS@ @KOMPONENTEN_LIBS@
+midgard_LDADD = @LIBS@ @KOMPONENTEN_LIBS@
 
 
 midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
 midgard_xmlimport_LDADD = @LIBS@ @COMMONXX_LIBS@
 
-LDFLAGS = @COMMONXX_LDFLAGS@  @COMMONGTK_LDFLAGS@ @KOMPONENTEN_LDFLAGS@
+LDFLAGS = @KOMPONENTEN_LDFLAGS@
+
+CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
 # midgard_CG_glade.cc nicht optimieren, sonst explodiert der
 # Speicherverbrauch

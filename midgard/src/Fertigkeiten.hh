@@ -3,7 +3,7 @@
 #include "MidgardBasicElement.hh"
 //#include <vector>
 #include "class_typen.hh"
-#include "class_Ausnahmen.hh"
+#include "Ausnahmen.hh"
 #include <gtk--/label.h>
 
 

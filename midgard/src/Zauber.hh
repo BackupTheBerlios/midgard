@@ -2,7 +2,7 @@
 #define ZAUBERCLASS
 #include "MidgardBasicElement.hh"
 #include "class_typen.hh"
-#include "class_Ausnahmen.hh"
+#include "Ausnahmen.hh"
 class cH_Zauber;
 #include <gtk--/label.h>
 

@@ -11,7 +11,7 @@
 #include "class_zauber.hh"
 #include "class_fertigkeiten.hh"
 #include "class_sprache_schrift.hh"
-#include "class_Ausnahmen.hh"
+#include "Ausnahmen.hh"
 #include "SimpleTree.hh"
 
 /*

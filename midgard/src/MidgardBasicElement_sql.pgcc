@@ -1,6 +1,6 @@
 #include "MidgardBasicElement.hh"
 #include "class_Grundwerte.hh"
-#include "class_Ausnahmen.hh"
+#include "Ausnahmen.hh"
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;

@@ -9,7 +9,7 @@
 
 class Grundwerte;
 class H_Data_beruf;
-class Data_typen;
+//class Data_typen;
 
 class Data_Ausnahmen : public HandleContent
 {
@@ -59,7 +59,6 @@ class Ausnahmen : public cH_Data_Ausnahmen
 
    static void clear(){cache.clear();}
 
-//   vector<cH_Data_Ausnahmen> get_Ausnahmen() const {return vec_Ausnahmen;}
    float Ausnahmen_float(const std::string& name) const;
    void Ausnahmen_string(const std::string& name, vector<std::string>& standard) const;
 };

@@ -19,7 +19,7 @@
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
-#include <class_Ausnahmen.hh>
+#include <Ausnahmen.hh>
 #include <midgard_CG.hh>
 
 
