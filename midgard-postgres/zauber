@@ -460,7 +460,7 @@ Magischer Kreis des Bewachens	1000	6	Geste	4	\N	\N	\N	\N	Magan	erkennt	Magan	30 
 Magischer Kreis des Verschleierns	1000	6	Geste	4	\N	\N	\N	\N	Magan	zerstört	Magan	30 min	0	Umgebung	10 m Uk	perm	dämonisch	Wächterwürfel, rec.	t		\N	\N
 Magischer Kreis des Widerstehens	1000	6	Geste	4	\N	\N	\N	\N	Magan	verändert	Wasser	30 min	0	Umgebung	10 m Uk	perm	dämonisch	Wächterwürfel, rec.	t		\N	\N
 Magischer Kreis, klein	1000	6	Geste	3	\N	\N	\N	\N	Magan	erkennt	Magan	30 min	0	Umgebung	6 m Uk	8 h	druidisch	drahtumwickelte Zweige von Eiche, Esche und Weißdorn	t	Siegel	\N	\N
-Magischer Spion	2000	6	Geste	4	\N	\N	\N	\N				je 2 min	2 km	Umgebung	0	1 Monat	dämonisch	Harz und Edelsteinstaub	f	Siegel	\N	\N
+Magischer Spion	2000	6	Geste	4	H&D	\N	\N	\N				je 2 min	2 km	Umgebung	0	1 Monat	dämonisch	Harz und Edelsteinstaub	f	Siegel	\N	\N
 Manifestation des Ka	15000	18	Geste	G	E	\N	\N	\N	Magan	erschafft	Erde	6 h	3 m	Geist	1 Ws	-	dämonisch	Wachsbad mit seltenen Essenzen	f		\N	\N
 Marhune beschwören	7000	6	Geste	6	3	\N	Wasser	Beschwörung	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
 Marid beschwören	7000	18	Geste	G	3	\N	Wasser	Beschwörung	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	f		\N	\N
