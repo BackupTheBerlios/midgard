@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.14 2001/05/29 06:27:57 thoma Exp $
+// $Id: WindowInfo.cc,v 1.15 2001/05/30 15:08:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

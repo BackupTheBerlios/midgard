@@ -1,4 +1,4 @@
-// $Id: midgard_CG_attribut_check.cc,v 1.10 2001/05/29 06:27:58 thoma Exp $
+// $Id: midgard_CG_attribut_check.cc,v 1.11 2001/05/30 15:08:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

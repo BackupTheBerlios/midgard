@@ -1,4 +1,4 @@
-// $Id: Window_ruestung.hh,v 1.11 2001/05/29 06:27:58 thoma Exp $
+// $Id: Window_ruestung.hh,v 1.12 2001/05/30 15:08:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
