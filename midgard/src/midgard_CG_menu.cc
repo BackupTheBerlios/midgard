@@ -65,7 +65,7 @@ void midgard_CG::menu_init()
      _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      Gtk::HBox *_hb=manage(new class Gtk::HBox(false,0));
 
-     _hb->pack_start(*RegionenPic::Pic((*i)->Pic()));
+//     _hb->pack_start(*RegionenPic::Pic((*i)->Pic()));
      _hb->pack_start(*_mi);
      regionen_menu->append(*_mi);
      _mi->set_active((*i)->Active());
