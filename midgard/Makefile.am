@@ -5,3 +5,5 @@ SUBDIRS = pixmaps libmagusicons libmagus src xml
 
 EXTRA_DIST = AUTHORS TODO README NEWS configure 
 
+glade:
+	glade-- --image-provider=MagusImage midgard.glade

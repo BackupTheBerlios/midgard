@@ -3159,7 +3159,7 @@ Sven Rey, Markus Steinberg, Ottmar Zimmer und viele andere geholfen.</property>
 			<widget class="button" id="button_grundwerte">
 			  <property agent="glademm" name="cxx_visibility">protected</property>
 			  <property name="visible">True</property>
-			  <property name="tooltip" translatable="yes">Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt. Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaft zuweisen das ganze 6x wiederholen. Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen. ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.</property>
+			  <property name="tooltip" translatable="yes">Eigenschaften würfeln/eingeben</property>
 			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">Eigen-
 schaften</property>
