@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.114 2002/05/02 12:12:56 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.115 2002/05/02 12:18:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -436,7 +436,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
           { 
             std::string::size_type st = MBE->Name().find("KiDo-Technik");
             if(st!=std::string::npos)  ++maxkido;
-            if(MBE->Name()!="Landeskunde (Heimat)" && st!=std::string::npos) // Das macht 'lernen_zusatz' automatisch
+            if(MBE->Name()!="Landeskunde (Heimat)" && st==std::string::npos) // Das macht 'lernen_zusatz' automatisch
                list_Fertigkeit.push_back(MBE); 
             if(MBE->Name()=="KiDo" && Typ[0]->Short()=="Kd") maxkido+=2;
             if(maxkido>0 && cH_Fertigkeit("KiDo")->ist_gelernt(list_Fertigkeit)) 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.36 2002/05/02 12:12:56 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.37 2002/05/02 12:19:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -36,12 +36,9 @@ gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton
      table_waffen_lernschema_eingabe->hide();
      int wurf = random.integer(1,100);
      WaffenBesitz_lernschema_wuerfeln(wurf);     
-     show_WaffenBesitz_lernschema();
-//     manage (new Window_waffe(wurf,this,Werte,Typ,Database,list_Waffen));
    }
   else if (ev->button==3)
-   table_waffen_lernschema_eingabe->show();
-//     manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
+     table_waffen_lernschema_eingabe->show();
   return 0;
 }
 
@@ -151,4 +148,5 @@ void midgard_CG::WaffenBesitz_lernschema_wuerfeln(int wurf)
  waffebesitzlernen.setMagisch(M);
  waffebesitzlernen.set_EWaffe(E);
  waffebesitzlernen.set_AWaffe(A);
+ show_WaffenBesitz_lernschema();
 }
