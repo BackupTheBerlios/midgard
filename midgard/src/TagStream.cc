@@ -24,7 +24,6 @@
 
 //#define REMEMBER_EMPTY_SPACE
 
-#ifdef __MINGW32__
 std::string iso2utf8(const std::string &s)
 {  std::string ret="";
 
@@ -37,18 +36,38 @@ std::string iso2utf8(const std::string &s)
    }
    return ret;
 }
+
+std::string utf82iso(const std::string &s)
+{  std::string ret="";
+
+   for (std::string::const_iterator i = s.begin(); i!=s.end() ; i++)
+   {  if (((*i)&0xe0)==0xe0)
+         ret+=(unsigned char)(((*i)<<6)|(*(++i))&0x3f);
+      else ret+=*i;
+   }
+   return ret;
+}
+
+std::string TagStream::host_encoding=
+#ifdef __MINGW32__
+				"UTF-8";
+#else
+				"ISO-8859-1";
 #endif
+
+std::string TagStream::recode(const std::string &in) const
+{  if (encoding==host_encoding) return in;
+   if (encoding=="ISO-8859-1" && host_encoding=="UTF-8") return iso2utf8(in);
+   if (encoding=="UTF-8" && host_encoding=="ISO-8859-1") return utf82iso(in);
+   return encoding+"->"+host_encoding;
+}
 
 std::string TagStream::de_xml(const std::string &cont)
 {  std::string ret;
    std::string::const_iterator i(cont.begin());
    while (i!=cont.end())
    {  std::string::const_iterator verbatim(::find(i,cont.end(),'&'));
-#ifndef __MINGW32__   
       ret+=std::string(i,verbatim);
-#else // recode to UTF8
-      ret+=iso2utf8(std::string(i,verbatim));
-#endif
       if (verbatim!=cont.end())
       {  std::string::const_iterator endtag(::find(verbatim,cont.end(),';'));
          if (endtag!=cont.end()) ++endtag;
@@ -103,8 +122,8 @@ TagStream::~TagStream()
 }
 
 void TagStream::load_project_file(Tag *top)
-{  while (good() && next_tag(top));
-   encoding=top->getAttr("encoding");
+{  encoding=host_encoding;
+   while (good() && next_tag(top));
 }
 
 bool TagStream::good()
@@ -132,7 +151,7 @@ char *TagStream::next_tag_pointer(Tag *parent)
    char *result=bra;
    if (!bra) bra=buffer+end_pointer;
    if (bra>buffer+pointer && more_than_space(buffer+pointer,bra)) 
-      parent->push_back(Tag("",de_xml(std::string(buffer+pointer,bra-(buffer+pointer)))));
+      parent->push_back(Tag("",recode(de_xml(std::string(buffer+pointer,bra-(buffer+pointer))))));
    set_pointer(bra);
    return result;
 }
@@ -177,12 +196,13 @@ char *TagStream::next_tag(Tag *parent)
       {  char *tagend=find_wordend(tag+2);
          if (!tagend) ERROR2("tag doesn't end",tag);
          
-         Tag *newtag(&parent->push_back(Tag(std::string(tag+1,tagend-(tag+1)),"")));
+         Tag *newtag(&parent->push_back(Tag(recode(std::string(tag+1,tagend-(tag+1))),"")));
          while (tagend)
          {  while (isspace(*tagend)) tagend++;
             if (*tagend=='?')
             {  if (tagend[1]!='>') ERROR2("strange tag end (?[^>])",tag);
                set_pointer(tagend+2);
+               if (newtag->Type()=="xml") encoding=newtag->getAttr("encoding");
                goto continue_outer;
             }
             if (isword0(*tagend))
@@ -193,8 +213,8 @@ char *TagStream::next_tag(Tag *parent)
                char *valuestart(attrend+2);
                char *valueend(find(valuestart,attrend[1]));
                if (valueend)
-               {  newtag->setAttr(std::string(tagend,attrend-tagend),
-               		de_xml(std::string(valuestart,valueend-valuestart)));
+               {  newtag->setAttr(recode(std::string(tagend,attrend-tagend)),
+               		recode(de_xml(std::string(valuestart,valueend-valuestart))));
                   tagend=valueend+1;
                }
                else ERROR2("value does not end",valuestart);
@@ -208,7 +228,7 @@ char *TagStream::next_tag(Tag *parent)
          while (endcomment && endcomment[1]!='-' && endcomment[2]!='>')
             endcomment=find(endcomment+1,'-');
          if (!endcomment) ERROR2("Comment does not end",tag);
-         parent->push_back(Tag("--",std::string(tag+3,endcomment-(tag+3))));
+         parent->push_back(Tag("--",recode(std::string(tag+3,endcomment-(tag+3)))));
          set_pointer(endcomment+3);
          continue; // outer
       }
@@ -218,7 +238,7 @@ char *TagStream::next_tag(Tag *parent)
       {  char *tagend=find_wordend(tag+1);
          if (!tagend) ERROR2("tag doesn't end",tag);
          
-         Tag *newtag(&parent->push_back(Tag(std::string(tag+1,tagend-(tag+1)),"")));
+         Tag *newtag(&parent->push_back(Tag(recode(std::string(tag+1,tagend-(tag+1))),"")));
          // read attributes
          while (tagend)
          {  while (isspace(*tagend)) tagend++;
@@ -236,8 +256,8 @@ char *TagStream::next_tag(Tag *parent)
                char *valuestart(attrend+2);
                char *valueend(find(valuestart,attrend[1]));
                if (valueend)
-               {  newtag->setAttr(std::string(tagend,attrend-tagend),
-               		de_xml(std::string(valuestart,valueend-valuestart)));
+               {  newtag->setAttr(recode(std::string(tagend,attrend-tagend)),
+               		recode(de_xml(std::string(valuestart,valueend-valuestart))));
                   tagend=valueend+1;
                } else ERROR2("value does not end",valuestart);
             }
@@ -246,7 +266,7 @@ char *TagStream::next_tag(Tag *parent)
          char *tagvalue=tagend+1;
          char *valueend=find(tagvalue,'<');
          if (!valueend) ERROR2("premature value end",tagvalue);
-         newtag->Value(de_xml(std::string(tagvalue,valueend-tagvalue)));
+         newtag->Value(recode(de_xml(std::string(tagvalue,valueend-tagvalue))));
          set_pointer(valueend);
          if (valueend[1]!='/') tagvalue=next_tag(newtag); // recurse
          else tagvalue=valueend;

@@ -30,6 +30,7 @@ exec sql include sqlca;
 #include "Waffe.hh"
 // for XML export
 #include "xml_fileselection.hh"
+#include "TagStream.hh"
 
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
@@ -74,7 +75,10 @@ void midgard_CG::xml_export(const std::string& dateiname)
       return;
    }
 
-   datei << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
+   datei << "<?xml";
+   write_string_attrib(datei, "version", "1.0");
+   write_string_attrib(datei, "encoding", TagStream::host_encoding);
+   datei << "?>\n\n";
    datei << "<MAGUS-data>\n";
 
 // Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien

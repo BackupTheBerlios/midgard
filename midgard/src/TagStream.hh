@@ -55,7 +55,11 @@ class TagStream : public Tag
 	}
 	static std::string de_xml(const std::string &cont);
 	void load_project_file(Tag *top);
+	// encoding -> host_encoding
+	std::string recode(const std::string &in) const;
 public:
+	static std::string host_encoding;
+
 	const Tag *find(const std::string &type) const
 	{  return Tag::find(type); }
 	Tag::const_iterator find(Tag::const_iterator it,const std::string &type) const
