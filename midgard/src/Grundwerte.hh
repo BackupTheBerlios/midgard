@@ -21,14 +21,16 @@ class Grundwerte
 
    int au,pa,sb,wk,b,lp,ap;
    int gg,sg;
-   int abwehr_wert,zaubern_wert;
-   int resistenz,bo_au,bo_sc,bo_an,bo_ab,bo_za,
-      bo_psy,bo_phs,bo_phk,alter;
+   int abwehr_wert,abwehr_pp,zaubern_wert,zauber_pp;
+   int resistenz,resistenz_pp;
+   int bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,bo_phk,alter;
    std::string gestalt, geschlecht;
    int gewicht,groesse,grad;
    std::string stand,spezialisierung,hand,
       glaube,name_charakter,name_spieler,version,beschreibung;
-   int gfp,gold,silber,kupfer,aep,kep,zep;
+   int gfp;
+   float steigertage;
+   int gold,silber,kupfer,aep,kep,zep;
    cH_Land herkunft;
    cH_Ruestung ruestung; 
    cH_Spezies spezies;
@@ -37,13 +39,13 @@ class Grundwerte
 
 public:
    Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
-             b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),zaubern_wert(0),
-             resistenz(0),
+             b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
+             zaubern_wert(0),zauber_pp(0),resistenz(0),resistenz_pp(0),
              bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
              bo_psy(0),bo_phs(0),bo_phk(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_charakter(""),version("Erschaffung"),
-             gfp(0),gold(0), silber(0), kupfer(0),
+             gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
              aep(0),kep(0),zep(0),ruestung("OR"),spezies("Mensch"),
              stadt_land("Stadt") 
          { resetSinne(); }
@@ -76,8 +78,11 @@ public:
    std::map<std::string,int> Sinne() const {return sinnmap;}
    int Raufen() const {return raufen;}
    int Abwehr_wert() const {return abwehr_wert;}
+   int AbwehrPP() const {return abwehr_pp;}
    int Zaubern_wert() const { return zaubern_wert;}
+   int ZaubernPP() const { return zauber_pp;}
    int Resistenz() const {return resistenz;}
+   int ResistenzPP() const {return resistenz_pp;}
    int bo_Au() const {return bo_au;}
    int bo_Sc() const {return bo_sc;}
    int bo_An() const {return bo_an;}
@@ -115,6 +120,7 @@ public:
    std::string Stadt_Land() const {return stadt_land;}
    cH_Ruestung Ruestung() const {return ruestung;}
    int GFP() const {return gfp;}
+   float Steigertage() const {return steigertage;}
    int Gold() const {return gold;}
    int Silber() const {return silber;}
    int Kupfer() const {return kupfer;}
@@ -171,6 +177,12 @@ public:
    void set_Zaubern_wert(int i){zaubern_wert=i;}
    void set_Abwehr_wert(int i){abwehr_wert=i;}
    void set_Resistenz(int i){resistenz=i;}
+   void setZaubernPP(int i){zauber_pp=i;}
+   void setAbwehrPP(int i){abwehr_pp=i;}
+   void setResistenzPP(int i){resistenz_pp=i;}
+   void addZaubernPP(int i){zauber_pp+=i;}
+   void addAbwehrPP(int i){abwehr_pp+=i;}
+   void addResistenzPP(int i){resistenz_pp+=i;}
    void set_Grad(int i){grad=i;}
    void set_AP(int i){ap=i;}
    void set_SG(int i){sg=i;}
@@ -191,6 +203,8 @@ public:
    void setStadt_Land(const std::string& sl) {stadt_land=sl;}
    void set_GFP(int _gfp){gfp=_gfp;}
    void add_GFP(int _gfp){gfp += _gfp;}
+   void setSteigertage(float i){steigertage=i;}
+   void addSteigertage(float i){steigertage+=i;}
    void set_Geld(int g,int s,int k){gold=g;silber=s;kupfer=k;}
    void add_Gold(int g)  {gold+=g;}
    void add_Silber(int s) {silber+=s;}

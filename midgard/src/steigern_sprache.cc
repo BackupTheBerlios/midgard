@@ -77,33 +77,6 @@ void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
     
 void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
-/*
-   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
-   cH_MidgardBasicElement MBE = dt->getMBE();
-   if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
-    {
-      for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
-         if ( cH_Sprache(*i)->Name() == MBE->Name()) 
-            if (cH_Sprache(*i)->Maxwert()==(*i)->Erfolgswert() ) return;
-      if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
-      Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
-      for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
-         if ( cH_Sprache(*i)->Name() == MBE->Name()) cH_Sprache(*i)->add_Erfolgswert(1);
-    }
-   if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen) )
-    {
-      if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
-      Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
-      for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
-         if ( cH_Sprache(*i)->Name() == MBE->Name()) cH_Sprache(*i)->add_Erfolgswert(-1);
-    }
-   if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen) )
-    {
-      if (steigern_bool) desteigern(MBE->Verlernen(Typ,Database.ausnahmen));
-      Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));
-      MidgardBasicElement::move_element(list_Sprache,list_Sprache_neu,MBE->Name());
-    }
-*/
   if(MidgardBasicElement_leaf_alt(d))
     on_sprache_laden_clicked();
 }
@@ -116,9 +89,9 @@ void midgard_CG::on_alte_sprache_reorder()
 void midgard_CG::on_button_sprache_sort_clicked()
 {
   std::deque<guint> seq = alte_sprache_tree->get_seq();
-  switch((Data_SimpleTree::Spalten_SPA)seq[0]) {
-      case Data_SimpleTree::NAMEa_SP : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
-      case Data_SimpleTree::WERTa_SP : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
+  switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
+      case Data_SimpleTree::NAMEa : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
@@ -140,13 +113,6 @@ void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  
   MidgardBasicElement_leaf_neu(d);
-/*
-   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
-   cH_MidgardBasicElement MBE = dt->getMBE();
-   if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
-   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
-   MidgardBasicElement::move_element(list_Schrift_neu,list_Schrift,MBE->Name());
-*/
-   on_sprache_laden_clicked();
+  on_sprache_laden_clicked();
 }   
 

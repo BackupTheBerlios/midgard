@@ -76,7 +76,11 @@ CREATE TABLE "charaktere" (
 	"hand" text,
 	"stadt_land" text,
 	"gg" integer,
-	"sg" integer
+	"sg" integer,
+	"abwehr_pp" integer,
+	"zaubern_pp" integer,
+	"resistenz_pp" integer,
+	"steigertage" integer
 );
 
 --

@@ -39,7 +39,7 @@ void MidgardBasicElement::show_list_in_tree(
    {
       datavec.push_back(new Data_SimpleTree(*i,Typ,ausnahmen,Werte));
    }
-    Tree->setDataVec(datavec);
+  Tree->setDataVec(datavec);
 }
 
 void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,
@@ -165,7 +165,7 @@ int MidgardBasicElement::Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen&
 }
 int MidgardBasicElement::Verlernen(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
-cout << "MidgardBasicElement::Verlernen "<<Name()<<' ' << Reduzieren(Typ,ausnahmen)<<'\n';
+//cout << "MidgardBasicElement::Verlernen "<<Name()<<' ' << Reduzieren(Typ,ausnahmen)<<'\n';
    if(Reduzieren(Typ,ausnahmen)==0)
     {
         return Kosten(Typ,ausnahmen);

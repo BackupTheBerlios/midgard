@@ -92,7 +92,7 @@ void midgard_CG::on_alte_kido_reorder()
 void midgard_CG::on_button_kido_sort_clicked()
 {
   std::deque<guint> seq = alte_kido_tree->get_seq();
-  switch((Data_SimpleTree::Spalten_KA)seq[0]) {
+  switch((Data_SimpleTree::Spalten_KIDO)seq[0]) {
       case Data_SimpleTree::HOHOa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::HOHO)) ;break;
       case Data_SimpleTree::NAMEa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::NAME)) ;break;
       case Data_SimpleTree::STUFEa_K : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STUFE)) ;break;

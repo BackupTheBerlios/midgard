@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.35 2001/12/30 08:43:42 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.36 2001/12/31 16:06:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -143,8 +143,7 @@ void midgard_CG::get_ausdauer(int grad)
    if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; kosten =  1200;}
    if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  1500;}
    if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  2000;}
-//   if (!steigern(kosten,"Ausdauer")) return;
-   if (!steigern_usp(kosten,0,false)) return;
+   if (!steigern_usp(kosten,0,"Ausdauer")) return;
    Werte.add_GFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += random.integer(1,6);
@@ -157,7 +156,8 @@ void midgard_CG::get_ausdauer(int grad)
   int nspez = Werte.Grad()*Werte.Spezies()->AP_Grad();
   nap += nspez;
 //  std::cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<Werte.bo()_au<<" + "<<nspez<<" = "<<nap<<"\n";
-  std::string stinfo="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
+  std::string stinfo="Für Grad "+itos(Werte.Grad())+":\n";
+   stinfo+="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
    stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
    stinfo+="+";stinfo+=itos(Werte.bo_Au());stinfo+="=";stinfo+=itos(nap);
   manage(new WindowInfo(stinfo,true));
@@ -165,6 +165,8 @@ void midgard_CG::get_ausdauer(int grad)
   if (Werte.AP()<Werte.Grad()) Werte.set_AP(Werte.Grad()); 
    // Neue AP höher als alte?
   if (nap>Werte.AP())  Werte.set_AP(nap)  ;
+
+  Werte.addSteigertage(28);
 }
 
 void midgard_CG::get_ab_re_za(const string& was)
@@ -196,11 +198,12 @@ void midgard_CG::get_ab_re_za(const string& was)
       else return; }
   else abort();
   if (alter_wert >= max_wert)
-      {manage(new WindowInfo("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!")) ;return;}
-  
+      { manage(new WindowInfo("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!")) ;
+        return;}
+
+  if(!steigern_usp(kosten,0,was));  
   Werte.add_GFP(kosten);
   if (was=="Abwehr") Werte.set_Abwehr_wert(alter_wert+1);
   if (was=="Resistenz") Werte.set_Resistenz(alter_wert+1); 
   if (was=="Zaubern") Werte.set_Zaubern_wert(alter_wert+1); 
-
 }

@@ -12,6 +12,7 @@ exec sql include sqlca;
 
 Praxispunkte::Praxispunkte(Gtk::ProgressBar *progressbar)
 {
+return;
   exec sql begin declare section;
    char NAME[50],query[1024];
    int MAX,FAK;

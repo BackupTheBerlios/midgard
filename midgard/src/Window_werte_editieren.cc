@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.30 2001/12/27 09:39:52 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.31 2001/12/31 16:06:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,6 +69,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
    Werte.set_GG(atoi (gg_ein->get_text().c_str()));
    Werte.set_SG(atoi (sg_ein->get_text().c_str()));
    Werte.set_Alter(atoi( alter_ein->get_text().c_str()));
+   Werte.setSteigertage(atoi( spinbutton_steigertage->get_text().c_str()));
    Werte.set_Spezialisierung(spezialisierung_ein->get_text());
    Werte.set_Herkunft(cH_Land(herkunft_ein->get_text()));
    Werte.set_Glaube(glaube_ein->get_text());
@@ -120,6 +121,7 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  gfp_ein ->set_value(Werte.GFP());
    
  alter_ein->set_value(Werte.Alter());   
+ spinbutton_steigertage->set_value(Werte.Steigertage());
  gestalt_ein->set_text(Werte.Gestalt());   
  gewicht_ein->set_value(Werte.Gewicht());   
  groesse_ein->set_value(Werte.Groesse());   
@@ -362,3 +364,7 @@ void Window_werte_editieren::wlw_activate()
  lpbasis_ein->grab_focus();
 }
 */
+
+void Window_werte_editieren::on_spinbutton_steigertage_activate()
+{
+}

@@ -6,6 +6,9 @@
 %\usepackage{array}
 \usepackage{tabularx}
 \usepackage{times}
+\usepackage{pstricks}
+
+\newrgbcolor{mygray}{0.75 0.75 0.75}
 
 \pagestyle{empty}
 
@@ -187,7 +190,7 @@ Berufe&{\beruf}\\\hline
 \makebox[0.6cm]{GG}&\makebox[0.6cm]{{\ggn}}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|c|}\hline
-\makebox[0.6cm]{SG}&\hspace*{0.6cm}{\sg}\\\hline
+\makebox[0.6cm]{SG}&\makebox[0.6cm]{\sg}\\\hline
 \end{tabular}
 
 \vspace{1ex}

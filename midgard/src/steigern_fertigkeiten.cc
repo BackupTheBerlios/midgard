@@ -65,7 +65,7 @@ void midgard_CG::on_alte_fert_reorder()
 void midgard_CG::on_button_fertigkeiten_sort_clicked()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
-  switch((Data_SimpleTree::Spalten_FA)seq[0]) {
+  switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
       case Data_SimpleTree::WERTa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
@@ -123,39 +123,10 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
 void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent *event)
 {
   std::string land = clist_landauswahl->get_text(row,0);
-cout << "2 "<<land<<'\n';
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
-cout << (MBE)->What()<<'\n';
 
   cH_Fertigkeit(MBE)->setZusatz(land);
   scrolledwindow_landauswahl->hide();
-  fertigkeiten_zeigen();
+  on_fertigkeiten_laden_clicked();
 }
 
-/*
-void midgard_CG::on_radio_fert_reduzieren_toggled()
-{
-   if (radio_fert_reduzieren->get_active())
-      togglebutton_praxispunkte_fertigkeiten->set_active(false);
-}
-void midgard_CG::on_radio_fert_verlernen_toggled()
-{
-   if (radio_fert_verlernen->get_active())
-      togglebutton_praxispunkte_fertigkeiten->set_active(false);
-}
-*/
-/*
-void midgard_CG::on_togglebutton_praxispunkte_fertigkeiten_toggled()
-{
-    if (togglebutton_praxispunkte_fertigkeiten->get_active())
-      radio_fert_steigern->set_active(true);
-}
-
-void midgard_CG::on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled()
-{
-}
-
-void midgard_CG::on_radiobutton_praxis_auto_fertigkeiten_toggled()
-{
-}
-*/

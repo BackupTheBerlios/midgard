@@ -89,68 +89,15 @@ void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
   strinfo +="Grundkenntnis gehöhren, NICHT verlernt\n";
   WindowInfo(strinfo,true);
   if (MidgardBasicElement_leaf_alt(d))
-     waffen_zeigen();
+//     waffen_zeigen();
+  on_waffen_laden_clicked();
+
 }
 
 void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
 {  
   if (MidgardBasicElement_leaf_alt(d))
-/*
-   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-   cH_MidgardBasicElement MBE = dt->getMBE();
-   if (radiobutton_steigern->get_active())
-      {
-       if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
-//       if (!togglebutton_praxispunkte_waffen->get_active()) // normal Lernen
-//        {
-          if (MBE->Erfolgswert() >=  cH_Waffe(MBE)->Maxwert(Typ)) 
-            {  
-               std::string strinfo = "Maximal möglicher Erfolgswert erreicht\n";
-               manage (new WindowInfo(strinfo));
-               return ;
-            }          
-          Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
-          if (MBE->Steigern(Typ,Database.ausnahmen) != 0)
-          for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
-               if (cH_Waffe(*i)->Name()==MBE->Name()) 
-                  { cH_Waffe(*i)->add_Erfolgswert(1); break;}
-*/
-/*
-        }
-       else // steigern mit Praxispunkten
-        {
-          bool wuerfeln;
-          if (radiobutton_praxis_auto_waffen->get_active())     wuerfeln = false;
-          if (radiobutton_praxis_wuerfeln_waffen->get_active()) wuerfeln = true;
-
-          std::string art="Waffe";
-//          int gelungen = praxispunkte_wuerfeln(MBE->Name(),MBE->Erfolgswert(),art,wuerfeln);
-          bool gelungen = Database.praxispunkte.wuerfeln(MBE,Werte,Typ,wuerfeln);
-          if (gelungen)
-            {
-              Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
-              if (MBE->Steigern(Typ,Database.ausnahmen) != 0)
-              for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
-                  if ((*i)->Name()==MBE->Name()) (*i)->add_Erfolgswert(1);
-            }
-        }
-*/
-/*
-      }
-   if (radiobutton_reduzieren->get_active())
-      {
-        if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
-        Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
-        if (MBE->Reduzieren(Typ,Database.ausnahmen) != 0)
-        for (std::list<cH_MidgardBasicElement>::iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
-              if (cH_Waffe(*i)->Name()==MBE->Name()) (*i)->add_Erfolgswert(-1);  
-      }
-   if (radiobutton_verlernen->get_active())
-      {
-         manage(new WindowInfo("Nicht implementiert"));
-      }
-*/
-   waffen_zeigen();
+    waffen_zeigen();
 }
 
 void midgard_CG::on_alte_waffen_reorder()
@@ -162,9 +109,9 @@ void midgard_CG::on_alte_waffen_reorder()
 void midgard_CG::on_button_waffen_sort_clicked()
 {
   std::deque<guint> seq = alte_waffen_tree->get_seq();
-  switch((Data_SimpleTree::Spalten_WA)seq[0]) {
-      case Data_SimpleTree::WERTa_W : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
-      case Data_SimpleTree::NAMEa_W : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
+  switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
+      case Data_SimpleTree::WERTa : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
+      case Data_SimpleTree::NAMEa : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

@@ -19,7 +19,7 @@ class Praxispunkte
    public:
       Praxispunkte() {}
       Praxispunkte(Gtk::ProgressBar *progressbar);
-
+private:
       bool wuerfeln(const cH_MidgardBasicElement& MBE, 
                                  const Grundwerte& Werte,
                                  const vector<cH_Typen>& Typ,

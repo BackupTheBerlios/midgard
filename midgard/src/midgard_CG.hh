@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.116 2001/12/30 08:43:42 thoma Exp $
+// $Id: midgard_CG.hh,v 1.117 2001/12/31 16:06:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -339,7 +339,8 @@ class midgard_CG : public midgard_CG_glade
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
-        bool steigern_usp(unsigned int kosten,const cH_MidgardBasicElement *MBE,bool brandneu);
+        void set_lernzeit(unsigned int kosten);
+        bool steigern_usp(unsigned int kosten,const cH_MidgardBasicElement *MBE,const std::string &was="");
         void desteigern(unsigned int kosten);
         void on_checkbutton_EP_Geld_toggled();
         void steigern_gtk();
@@ -357,6 +358,12 @@ class midgard_CG : public midgard_CG_glade
         void on_radio_selbst_toggled();
         void on_radio_praxis_toggled();
         void on_spinbutton_pp_eingeben_activate();
+        void on_radiobutton_pp_fertigkeit_toggled();
+        void on_radiobutton_pp_zauber_toggled();
+        void on_radiobutton_pp_abwehr_toggled();
+        void on_radiobutton_pp_resistenz_toggled();
+        void on_radiobutton_pp_all_toggled();
+
 
         void on_fertigkeiten_laden_clicked();
         void fertigkeiten_zeigen();

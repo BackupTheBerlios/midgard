@@ -36,7 +36,18 @@ void midgard_CG::on_radio_steigern_all()
   else
      frame_lernen_mit->set_sensitive(false); 
 
+  if(radiobutton_pp_eingeben->get_active())
+   {
+     vbox_praxispunkte->show();
+     if(Typ[0]->is_mage() || Typ[1]->is_mage()) 
+         radiobutton_pp_zauber->set_active(true);
+     else
+         radiobutton_pp_zauber->set_active(false);
+   }
+  else
+     vbox_praxispunkte->hide();
 }
+
 /////////////////////////////////////////////////////////
 
 void midgard_CG::on_radio_unterweisung_toggled()
@@ -64,9 +75,40 @@ void midgard_CG::on_radio_praxis_toggled()
 {
 }
 
+void midgard_CG::on_radiobutton_pp_fertigkeit_toggled()
+{on_radiobutton_pp_all_toggled();}
+void midgard_CG::on_radiobutton_pp_zauber_toggled()
+{on_radiobutton_pp_all_toggled();}
+void midgard_CG::on_radiobutton_pp_abwehr_toggled()    
+{on_radiobutton_pp_all_toggled();}
+void midgard_CG::on_radiobutton_pp_resistenz_toggled()
+{on_radiobutton_pp_all_toggled();}
+void midgard_CG::on_radiobutton_pp_all_toggled()
+{
+  if(!radiobutton_pp_fertigkeit->get_active())
+    spinbutton_pp_eingeben->show();
+}
+                                
 
 void midgard_CG::on_spinbutton_pp_eingeben_activate()
 {
+  gtk_spin_button_update(spinbutton_pp_eingeben->gtkobj());
+  int PPanz = spinbutton_pp_eingeben->get_value_as_int();
+
+ if(!radiobutton_pp_fertigkeit->get_active())
+  {
+    if(radiobutton_pp_abwehr->get_active())
+       Werte.setAbwehrPP(PPanz);
+    else if(radiobutton_pp_zauber->get_active())
+       Werte.setZaubernPP(PPanz);
+    else if(radiobutton_pp_resistenz->get_active())
+       Werte.setResistenzPP(PPanz);
+    spinbutton_pp_eingeben->hide();
+    radiobutton_steigern->get_active();
+    zeige_werte(Werte);
+    return;
+  }   
+ 
  guint pagenr = notebook_lernen->get_current_page_num();
  cH_MidgardBasicElement *MBE;
 // cH_RowDataBase rdb;
@@ -85,9 +127,7 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
     }
 //  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&**rdb);
   MBE=&const_cast<cH_MidgardBasicElement&>(dt->getMBE());
-
-  gtk_spin_button_update(spinbutton_pp_eingeben->gtkobj());
-  (*MBE)->set_Praxispunkte(spinbutton_pp_eingeben->get_value_as_int());
+  (*MBE)->set_Praxispunkte(PPanz);
 
   if(pagenr==PAGE_FERTIGKEITEN)
      MidgardBasicElement::show_list_in_tree(list_Fertigkeit,alte_fert_tree,Werte,Typ,Database.ausnahmen); 
@@ -104,8 +144,15 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
   spinbutton_pp_eingeben->hide();
 }
 
+
+
+
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
 {
+ if(Typ[0]->is_mage() || Typ[1]->is_mage())
+    button_grad_zaubern->set_sensitive(true);
+ else 
+    button_grad_zaubern->set_sensitive(false);
  if(pagenr==PAGE_STEIGERN)
    load_for_page(notebook_lernen->get_current_page_num());
 }
@@ -132,17 +179,21 @@ void midgard_CG::load_for_page(guint pagenr)
   if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
    {
      frame_fertigkeit->set_sensitive(false);
-     frame_lernen_mit->set_sensitive(false);
+//     frame_lernen_mit->set_sensitive(false);
      radiobutton_verlernen->set_active(true);
      if(pagenr==PAGE_ZAUBER) frame_zauber_zusatz->show();
-     else                    frame_zauber_zusatz->hide();
+     if(Typ[0]->SpruecheMitPP() || Typ[1]->SpruecheMitPP())
+        radiobutton_praxis->set_sensitive(true);
+     else
+     radiobutton_praxis->set_sensitive(false);
    }
   else
    {
      frame_fertigkeit->set_sensitive(true);
-     frame_lernen_mit->set_sensitive(true);
+//     frame_lernen_mit->set_sensitive(true);
      radiobutton_steigern->set_active(true);
      frame_zauber_zusatz->hide();
+     radiobutton_praxis->set_sensitive(true);
    }
 }
 

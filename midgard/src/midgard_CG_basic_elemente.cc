@@ -26,6 +26,8 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
    { MyList     = &list_Zauber; MyList_neu = &list_Zauber_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBERWERK) 
    { MyList     = &list_Zauberwerk; MyList_neu = &list_Zauberwerk_neu;  }
+ else if(MBE->What()==MidgardBasicElement::KIDO) 
+   { MyList     = &list_Kido; MyList_neu = &list_Kido_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
    { if (cH_Sprache(MBE)->Maxwert()==MBE->Erfolgswert() ) return false;
      MyList     = &list_Sprache; MyList_neu = &list_Sprache_neu;  }
@@ -37,7 +39,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 
  if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
-      if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE,false)) return false;
+      if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return false;
       if (MBE->What()==MidgardBasicElement::WAFFE &&
           MBE->Erfolgswert() >=  cH_Waffe(MBE)->Maxwert(Typ)) 
           { regnot("Maximal möglicher Erfolgswert erreicht");
@@ -72,6 +74,31 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
+ // Neue Dinge können nur durch Unterweisung gelernt werden
+ // es sei denn es handelt sich um Zaubersprüche
+ if(!radiobutton_unterweisung->get_active() &&  
+    MBE->What()==MidgardBasicElement::ZAUBER )
+  {
+    regnot("Neue Fertigkeiten können nur durch 'Unterweisung' gelernt werden");
+    return;
+  }
+ // Nicht alle Charakterklassen können Zauber auch mit Praxispunkten lernen
+ if(MBE->What()==MidgardBasicElement::ZAUBER &&
+     radiobutton_praxis->get_active() )
+   {
+     if(!Typ[0]->SpruecheMitPP() || !Typ[1]->SpruecheMitPP() )
+        {
+          regnot("Neue Zaubersprüche können von "+Typ[0]->Name(Werte.Geschlecht())
+                  +" nicht durch Praxispunkte gelernt werden");
+          return;
+        }
+      else if(MBE->Standard__(Typ,Database.ausnahmen)!="G")
+        {
+          regnot("Nur Grundzauber können von "+Typ[0]->Name(Werte.Geschlecht())
+                  +" mit Praxispunkten gelernt werden");
+          return;
+        }
+   }
 
  guint kosten=MBE->Kosten(Typ,Database.ausnahmen);
 
@@ -80,7 +107,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      togglebutton_spruchrolle->get_active() ) kosten/=10;
  /////////////////////////////////////////////////////////////////////////
  
- if (!steigern_usp(kosten,&MBE,true)) return;
+ if (!steigern_usp(kosten,&MBE)) return;
  Werte.add_GFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
@@ -95,7 +122,6 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      else Werte.add_GFP(kosten);
    } 
  /////////////////////////////////////////////////////////////////////////
-
 
  std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
@@ -112,15 +138,20 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
    { MyList     = &list_Zauber; MyList_neu = &list_Zauber_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBERWERK) 
    { MyList     = &list_Zauberwerk; MyList_neu = &list_Zauberwerk_neu;  }
+ else if(MBE->What()==MidgardBasicElement::KIDO) 
+   { MyList     = &list_Kido; MyList_neu = &list_Kido_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
    { MyList     = &list_Sprache; MyList_neu = &list_Sprache_neu;  }
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
    { MyList     = &list_Schrift; MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
-cout << MBE->What()<<' '<<MyList_neu->size()<<' '<<MyList->size()<<' '<<MBE->Name()<<'\n';
- MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE->Name());
-cout << MBE->What()<<' '<<MyList_neu->size()<<' '<<MyList->size()<<' '<<MBE->Name()<<'\n';
+//cout << MBE->What()<<' '<<MyList_neu->size()<<' '<<MyList->size()<<' '<<MBE->Name()<<'\n';
+ if(MBE->What()!=MidgardBasicElement::ZAUBERWERK)
+    MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE->Name());
+ else
+    MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE->Name(),cH_Zauberwerk(MBE)->Art());
+//cout << MBE->What()<<' '<<MyList_neu->size()<<' '<<MyList->size()<<' '<<MBE->Name()<<'\n';
 }
 
 

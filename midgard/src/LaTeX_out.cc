@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.71 2001/12/29 14:55:36 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.72 2001/12/31 16:06:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -505,6 +505,46 @@ void midgard_CG::LaTeX_write_empty_values()
       fout << "\\newcommand{\\waffeV"<<a<<"}{\\scriptsize }\n";
    }
  // Universelle Fertigkeiten auffüllen
+ std::list<cH_MidgardBasicElement> UF;
+ for(std::list<cH_MidgardBasicElement>::iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
+  {
+    cH_Fertigkeit f(*i);
+    if(f->Ungelernt()!=-1)
+       UF.push_back(*i);
+  }
+ int countunifert=0;
+ for(std::list<cH_MidgardBasicElement>::iterator i=UF.begin();i!=UF.end();++i)
+  {
+    cH_Fertigkeit f(*i);
+    std::string a = LaTeX_string(countunifert++);
+    std::string wert;
+//    if      (f->Erfolgswert()>0) 
+    wert = "+"+itos(f->Erfolgswert());
+//    else if (f->Erfolgswert()<0) wert = "--"+itos(abs(f->Erfolgswert()));
+//    wert = itos(f->Erfolgswert());
+    std::string name = f->Name();
+    if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
+    if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+Werte.Herkunft()->Name()+")";
+
+    f->set_Erfolgswert(f->Ungelernt());
+
+    if ((*i)->ist_gelernt(list_Fertigkeit))
+     {
+       fout <<"\\newcommand{\\uni"<<a<<"}{\\mygray\\tiny "<<name<< "}\t\t";
+       fout << "\\newcommand{\\uniw"<<a<<"}{\\mygray"  <<wert << "}\n";
+     }
+    else
+     {
+       fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
+       if (f->Voraussetzungen(Werte))
+          fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
+       else
+          fout << "\\newcommand{\\uniw"<<a<<"}{\\mygray"  <<wert << "}\n";
+     }
+  } 
+
+
+
  unsigned int maxunifert=48;
  for (unsigned int i=0; i<maxunifert;++i)
    {

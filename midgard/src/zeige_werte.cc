@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.27 2001/12/21 22:46:15 thoma Exp $
+// $Id: zeige_werte.cc,v 1.28 2001/12/31 16:06:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,4 +78,8 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        label_s_abwehr->set_text(itos(w.Abwehr_wert()));
        label_s_zaubern->set_text(itos(w.Zaubern_wert()));
        label_s_resistenz->set_text(itos(w.Resistenz()));
+       label_pp_abwehr->set_text(itos(w.AbwehrPP()));
+       label_pp_zaubern->set_text(itos(w.ZaubernPP()));
+       label_pp_resistenz->set_text(itos(w.ResistenzPP()));
+       label_steigertage->set_text(dtos(w.Steigertage()));
 }

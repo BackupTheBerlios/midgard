@@ -17,6 +17,7 @@ class Typen : public HandleContent
    int stand,sb,ruestung,geld;
    mutable int opionmenu_nr;
    bool stadt,land;
+   bool sprueche_mit_pp;
 
 public:
    Typen(const std::string& n);
@@ -40,7 +41,7 @@ if (geschlecht=="m") return typl; else return typlw;}
    std::string Beruf() const {return beruf;}
    bool Land() const {return land;}
    bool Stadt() const {return stadt;}
-   
+   bool SpruecheMitPP() const {return sprueche_mit_pp;}
 
    bool is_mage() const 
     { if(Zaubern()=="z" || Zaubern()=="j") return true; else return false; } 

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.83 2001/12/27 09:39:52 thoma Exp $
+# $Id: Makefile.am,v 1.84 2001/12/31 16:06:34 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -16,6 +16,7 @@ EXTRA_DIST = document_eingabe.tex.in document_eingabe4.tex.in \
 
 noinst_HEADERS = \
    Grad_anstieg.hh \
+   MidgardBasicTree.hh \
    MidgardBasicElement.hh \
    Zauber.hh \
    Zauberwerk.hh \
@@ -127,6 +128,7 @@ midgard_SOURCES = \
 	Window_Waffenbesitz.cc \
    Window_waffe.cc \
    midgard_CG_typauswahl.cc \
+   MidgardBasicTree.cc \
    MidgardBasicElement.cc \
    midgard_CG_basic_elemente.cc \
    Window_herkunft.cc \

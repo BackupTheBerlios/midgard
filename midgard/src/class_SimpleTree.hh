@@ -4,6 +4,7 @@
 #include <Aux/EntryValueEmptyInt.h>
 #include <Aux/EntryValueIntString.h>
 #include <MidgardBasicElement.hh>
+#include <MidgardBasicTree.hh>
 #include <Typen.hh>
 #include <Ausnahmen.hh>
 #include <Sprache.hh>
@@ -22,8 +23,18 @@ class Data_SimpleTree : public RowDataBase
          const Ausnahmen& _ausnahmen,const Grundwerte &_Werte) 
    : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen),Werte(_Werte) {}
 
-   enum Spalten_FA {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN} ;
-   enum Spalten_FN {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
+//   enum Spalten_FA {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN} ;
+   enum Spalten_LONG_ALT {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN} ;
+//   enum Spalten_FN {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
+   enum Spalten_LONG_NEU {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
+   enum Spalten_WAFFEGRUND {NAMEa_G,STANDARDa_G,KOSTEN_G};
+   enum Spalten_SPRACHE_NEU {NAMEsn,SCHRIFTsn,LERNKOSTENsn};
+   enum Spalten_SCHRIFT_NEU {NAMErsn,KOSTENn_SC};
+   enum Spalten_KIDO {HOHOa_K,NAMEa_K,STUFEa_K,APa_K,KOSTENa_K,STILa_K,} ;
+   enum Spalten_ZAUBER {NAMEn_Z,STUFEn_Z,URSPRUNGn_Z,KOSTENn_Z,STANDARDn_Z};
+   enum Spalten_ZAUBERWERK {STUFEn_ZW,NAMEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW};
+
+/*
    enum Spalten_WA {NAMEa_W,WERTa_W,PPa_W,STANDARDa_W,STEIGERN_W,REDUZIEREN_W,VERLERNEN_W} ;
    enum Spalten_WN {NAMEn_W,WERTn_W,STANDARDn_W,VORAUSSETZUNGEN_W};
    enum Spalten_GA {NAMEa_G,STANDARDa_G};
@@ -37,57 +48,106 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_SPN{NAMEn_SP,URSCHRIFT_SP,KOSTEN_SP} ;
    enum Spalten_SCA{NAMEa_SC,WERTa_SC,PPa_SC,STEIGERNa_SC,REDUZIERENa_SC,VERLERNENa_SC};
    enum Spalten_SCN{NAMEn_SC,KOSTENn_SC} ;
-
+*/
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
-      string name = (char*)(gp);
-      if (name=="FA")
-       switch((Spalten_FA)seqnr) {
-         case NAMEa : return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
-         case WERTa : return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
+      MidgardBasicTree::variante Variante = 
+               MidgardBasicTree::variante(reinterpret_cast<int>(gp));
+      if (Variante==MidgardBasicTree::LONG_ALT)
+       switch((Spalten_LONG_ALT)seqnr) {
+         case NAMEa : 
+           {
+             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
+                return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
+             else
+                return cH_EntryValueIntString(MBE->Name());
+           }
+         case WERTa : 
+           {
+             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
+                return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
+             else
+                return cH_EntryValueIntString(MBE->Erfolgswert());
+           }
          case PPa : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
          case STANDARDa : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
          case STEIGERN : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
          case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
          case VERLERNEN : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen)); 
         }
-      if (name=="FN")
-       switch ((Spalten_FN)seqnr) {
-         case NAMEn : return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
-         case WERTn : return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
+      if (Variante==MidgardBasicTree::LONG_NEU)
+       switch ((Spalten_LONG_NEU)seqnr) {
+         case NAMEn : 
+           {
+             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
+                return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
+             else
+                return cH_EntryValueIntString(MBE->Name());
+           }
+         case WERTn : 
+           {
+             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
+                return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
+             else
+                return cH_EntryValueIntString(MBE->Erfolgswert());
+           }
          case LERNKOSTEN : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
          case ART : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
-         case VORAUSSETZUNGEN : return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung());
+         case VORAUSSETZUNGEN : 
+           {
+             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
+               return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Voraussetzung());
+             else if(MBE->What()==MidgardBasicElement::WAFFE)
+               return cH_EntryValueIntString(cH_Waffe(MBE)->Voraussetzung());
+             else
+               return cH_EntryValueIntString("");
+           }
         }
-      if (name=="WA")
-       switch((Spalten_WA)seqnr) {
-         case NAMEa_W : return cH_EntryValueIntString(MBE->Name());
-         case WERTa_W : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
-         case PPa_W : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
-         case STANDARDa_W : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
-         case STEIGERN_W : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
-         case REDUZIEREN_W : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
-         case VERLERNEN_W : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen)); 
+      if (Variante==MidgardBasicTree::SPRACHE_NEU)
+       switch ((Spalten_SPRACHE_NEU)seqnr) {
+         case NAMEsn    : return cH_EntryValueIntString(MBE->Name());
+         case SCHRIFTsn : return cH_EntryValueIntString(cH_Sprache(MBE)->Schriften()); 
+         case LERNKOSTENsn : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
-      if (name=="WN")
-       switch ((Spalten_WN)seqnr) {
-         case NAMEn_W : return cH_EntryValueIntString(MBE->Name());
-         case WERTn_W : return cH_EntryValueEmptyInt(MBE->Erfolgswert()); 
-         case STANDARDn_W : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
-         case VORAUSSETZUNGEN_W : return cH_EntryValueIntString(cH_Waffe(MBE)->Voraussetzung());
+      if (Variante==MidgardBasicTree::SCHRIFT_NEU)
+       switch ((Spalten_SCHRIFT_NEU)seqnr) {
+         case NAMErsn    : return cH_EntryValueIntString(MBE->Name());
+         case KOSTENn_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
-      if (name=="GA")
-       switch((Spalten_GA)seqnr) {
+      if (Variante==MidgardBasicTree::KIDO)
+        switch ((Spalten_KIDO)seqnr) {
+         case HOHOa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Hoho());
+         case NAMEa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Name_D());
+         case STUFEa_K   : return cH_EntryValueIntString(cH_KiDo(MBE)->Stufe());
+         case APa_K      : return cH_EntryValueEmptyInt(cH_KiDo(MBE)->Ap());
+         case KOSTENa_K  : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case STILa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Stil()); 
+        }
+      if (Variante==MidgardBasicTree::WAFFEGRUND)
+       switch((Spalten_WAFFEGRUND)seqnr) {
          case NAMEa_G : return cH_EntryValueIntString(MBE->Name());
          case STANDARDa_G : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
-        }
-      if (name=="GN")
-       switch ((Spalten_GN)seqnr) {
-         case NAMEn_G : return cH_EntryValueIntString(MBE->Name());
-         case STANDARDn_G : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
          case KOSTEN_G : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen)); 
         }
+      if (Variante==MidgardBasicTree::ZAUBER)
+      switch ((Spalten_ZAUBER)seqnr) {
+         case STUFEn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Stufe());
+         case NAMEn_Z : return cH_EntryValueIntString(MBE->Name());  
+         case URSPRUNGn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Ursprung());
+         case KOSTENn_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case STANDARDn_Z : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
+        }
+      if (Variante==MidgardBasicTree::ZAUBERWERK)
+      switch ((Spalten_ZAUBERWERK)seqnr) {
+         case STUFEn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Stufe());
+         case NAMEn_ZW : return cH_EntryValueIntString(MBE->Name());  
+         case ARTn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Art());    
+         case KOSTENn_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
+         case PREISn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Preis()); 
+         case ZEITAUFWANDn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Zeitaufwand());
+        }
+/*
       if (name=="ZA")
        switch ((Spalten_ZA)seqnr) {
          case NAMEa_Z : return cH_EntryValueIntString(MBE->Name());
@@ -95,6 +155,8 @@ class Data_SimpleTree : public RowDataBase
          case URSPRUNGa_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Ursprung());
          case KOSTENa_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
+*/
+/*
       if (name=="ZN")
       switch ((Spalten_ZN)seqnr) {
          case STUFEn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Stufe());
@@ -118,15 +180,6 @@ class Data_SimpleTree : public RowDataBase
          case KOSTENn_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
          case PREISn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Preis()); 
          case ZEITAUFWANDn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Zeitaufwand());
-        }
-      if (name=="KA")
-        switch (seqnr) {
-         case HOHOa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Hoho());
-         case NAMEa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Name_D());
-         case STUFEa_K   : return cH_EntryValueIntString(cH_KiDo(MBE)->Stufe());
-         case APa_K      : return cH_EntryValueEmptyInt(cH_KiDo(MBE)->Ap());
-         case KOSTENa_K  : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
-         case STILa_K    : return cH_EntryValueIntString(cH_KiDo(MBE)->Stil()); 
         }
       if (name=="KN")
       switch (seqnr) {
@@ -168,6 +221,7 @@ class Data_SimpleTree : public RowDataBase
          case NAMEn_SC : return cH_EntryValueIntString(MBE->Name());
          case KOSTENn_SC : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
+*/
       return cH_EntryValueIntString("?");
     }
  const cH_MidgardBasicElement &getMBE() const {return MBE;}
