@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Tuomi" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="BN" Spezialisierung="leichter Speer" Überleben="Überleben in der Steppe" Muttersprache="Läinisch" Stadt_Land="Land" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="81" Gw="81" Gs="62" Ko="100" In="53" Zt="47"/>
+  <abgeleiteteEigenschaften Au="22" pA="22" Wk="31" Sb="4" B="26"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="20" AP="15"/>
+  <Beschreibung Alter="20" Gestalt="normal" Gewicht="60" Größe="163" Stand="Volk" Herkunft="Tegarische Steppe" Glaube="Schamanismus"/>
+  <Vermögen GS="6"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="5" Bezeichnung="Bogen"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Keule"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Wurfspeer"/>
+   <Waffe Erfolgswert="1" Bezeichnung="kleiner Schild"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Dolch" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Keule" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Wurfspeer" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Bogen" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Beruf Bezeichnung="Hirte"/>
+   <ang-Fertigkeit Bezeichnung="Gute Reflexe" Wert="9"/>
+   <Fertigkeit Bezeichnung="Athletik" Wert="5"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="11"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Rudern" Wert="16"/>
+   <Fertigkeit Bezeichnung="Schlittenfahren" Wert="15"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="6"/>
+   <Fertigkeit Bezeichnung="Skifahren" Wert="16"/>
+   <Fertigkeit Bezeichnung="Überleben im Schnee" Wert="8"/>
+   <Fertigkeit Bezeichnung="Überleben in der Steppe" Wert="6"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+   <Waffe Bezeichnung="leichter Speer" Wert="7"/>
+   <Waffe Bezeichnung="Dolch" Wert="5"/>
+   <Waffe Bezeichnung="Bogen" Wert="5"/>
+   <Waffe Bezeichnung="Keule" Wert="5"/>
+   <Waffe Bezeichnung="Faustkampf" Wert="5"/>
+   <Waffe Bezeichnung="Wurfspeer" Wert="5"/>
+   <Grundkenntnis Bezeichnung="Bögen"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Wurfspieß"/>
+   <Sprache Bezeichnung="Läinisch" Wert="14"/>
+   <Sprache Bezeichnung="Moravisch" Wert="12"/>
+   <Sprache Bezeichnung="Tegarisch" Wert="12"/>
+   <Sprache Bezeichnung="Waelska" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
