@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.22 2002/01/20 11:56:59 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.23 2002/01/29 16:43:04 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -135,8 +135,8 @@ void land_speichern(std::ostream &o)
   while ((query>>is).good())
   {o << "  <Spezies";
    std::string name=fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_int_attrib(is, o, "MCG-Index");
-   fetch_and_write_int_attrib(is, o, "MCG-AP_wert"); // erforderlich ???
+   fetch_and_write_int_attrib(is, o, "MAGUS-Index");
+   fetch_and_write_int_attrib(is, o, "MAGUS-AP_wert"); // erforderlich ???
    fetch_and_write_bool_attrib(is, o, "Land");
    o << ">\n";
    o << "    <Alter";
@@ -233,7 +233,7 @@ void land_speichern(std::ostream &o)
   {o << "  <Typ";
    fetch_and_write_typ_attrib(is, o, "Abkürzung");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_int_attrib(is, o, "MCG-Index");
+   fetch_and_write_int_attrib(is, o, "MAGUS-Index");
    fetch_and_write_string_attrib(is, o, "Bezeichnung-Mann");
    fetch_and_write_string_attrib(is, o, "Bezeichnung-Frau");
    o << "\n       ";
@@ -294,7 +294,7 @@ void land_speichern(std::ostream &o)
 //   fetch_and_write_int_attrib(is, o, "Mindestpreis");
 //   fetch_and_write_string_attrib(is, o, "Einheit");
    fetch_and_write_string_attrib(is, o, "Typ");
-   fetch_and_write_int_attrib(is, o, "MCG-Nr");
+   fetch_and_write_int_attrib(is, o, "MAGUS-Nr");
    o << "/>\n";
   }
    o << " </Preise>\n";

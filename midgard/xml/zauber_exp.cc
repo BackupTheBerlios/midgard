@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.2 2002/01/19 14:28:11 christof Exp $
+// $Id: zauber_exp.cc,v 1.3 2002/01/29 16:43:04 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -172,7 +172,7 @@ void arkanum_speichern(std::ostream &o)
    {  o << "  <Spezialgebiet";
       fetch_and_write_typ_attrib(is, o, "Typ");
       fetch_and_write_string_attrib(is, o, "Name");
-      fetch_and_write_int_attrib(is, o, "MCG-Index");
+      fetch_and_write_int_attrib(is, o, "MAGUS-Index");
       fetch_and_write_string_attrib(is, o, "Spezialisierung");
       fetch_and_write_string_attrib(is, o, "Sekundärelement");
       o << "/>\n";

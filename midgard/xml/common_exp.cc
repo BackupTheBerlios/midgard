@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.17 2002/01/19 14:28:11 christof Exp $
+// $Id: common_exp.cc,v 1.18 2002/01/29 16:43:04 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -280,8 +280,8 @@ void region_tags(std::ostream &os, const string &region)
       fetch_and_write_string_attrib(is, std::cout, "URL");
       fetch_and_write_string_attrib(is, std::cout, "Maintainer");
       fetch_and_write_string_attrib(is, std::cout, "Version");
-      fetch_and_write_int_attrib(is, std::cout, "MCG-Index");
-      fetch_and_write_int_attrib(is, std::cout, "MCG-Bild");
+      fetch_and_write_int_attrib(is, std::cout, "MAGUS-Index");
+      fetch_and_write_int_attrib(is, std::cout, "MAGUS-Bild");
    }
 }
 
