@@ -52,7 +52,7 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
      {
       if(art=="Fachkenntnisse") 
          { 
-           cH_MidgardBasicElement fert(new Fertigkeit(i->first.fertigkeit));
+           cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->first.fertigkeit));
            cH_Fertigkeit(fert)->set_Erfolgswert(i->second.erfolgswert);
            L.push_back(fert); 
          }

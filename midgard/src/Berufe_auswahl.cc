@@ -188,7 +188,7 @@ void Berufe_auswahl::fill_list()
          if( (kat==1 && kat_I)   || (kat==2 && kat_II) || 
              (kat==3 && kat_III) || (kat==4 && kat_IV ) )
            {
-             if(Fertigkeit(*j).ist_gelernt(list_fert))
+             if(cH_Fertigkeit(*j)->ist_gelernt(list_fert))
                   datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,true));
              else
                   datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,false));
@@ -212,7 +212,7 @@ void Berufe_auswahl::einBeruf(const Beruf_Data &dt)
       }        
   else // neue Fertigkeit
     {
-       cH_MidgardBasicElement saf(new Fertigkeit(dt.Fert()));       
+       cH_MidgardBasicElement saf(&*cH_Fertigkeit(dt.Fert()));       
        hauptfenster->MidgardBasicElement_uebernehmen(saf);
     }
 }
