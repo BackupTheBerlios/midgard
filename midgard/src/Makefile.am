@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.33 2001/06/12 09:31:05 thoma Exp $
+# $Id: Makefile.am,v 1.34 2001/06/18 05:58:50 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -148,9 +148,9 @@ midgard_LDADD = @LIBS@ @COMMONXX_LIBS@ @COMMONGTK_LIBS@
 midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
 midgard_xmlimport_LDADD = @LIBS@ @COMMONXX_LIBS@
 
-LDFLAGS = @COMMONXX_LDFLAGS@
+LDFLAGS = @COMMONXX_LDFLAGS@  @COMMONGTK_LDFLAGS@
 
 # midgard_CG_glade.cc nicht optimieren, sonst explodiert der
 # Speicherverbrauch
-midgard_CG_glade.o: midgard_CG_glade.cc
-	$(CXXCOMPILE) -O0 -c $<
+#midgard_CG_glade.o: midgard_CG_glade.cc
+#	$(CXXCOMPILE) -O0 -c $<

@@ -68,9 +68,9 @@ void midgard_CG::spielleiter_export()
    }
 
  fout <<" - Abwehr+"<<werte.abwehr_wert+werte.bo_ab <<", "
-      <<"Resistenz+"<<werte.psyZR_wert+werte.bo_psy<<"/" 
-                    <<werte.phsZR_wert+werte.bo_phs<<"/" 
-                    <<werte.phkZR_wert+werte.bo_phk<<"\n\n" ;
+      <<"Resistenz+"<<werte.resistenz+werte.bo_psy<<"/" 
+                    <<werte.resistenz+werte.bo_phs<<"/" 
+                    <<werte.resistenz+werte.bo_phk<<"\n\n" ;
 
  // angeborene Fertigkeiten
  for (unsigned int i=0;i<vec_an_fertigkeit.size();++i)

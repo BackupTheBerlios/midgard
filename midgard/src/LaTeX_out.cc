@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.25 2001/06/12 09:31:05 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.26 2001/06/18 05:58:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,9 +68,9 @@ void midgard_CG::on_latex_clicked()
 // fout << "\\newcommand{\\phs}{"<<werte.phsZR_wert<<"+"<<werte.bo_phs<<"}\n";
 // fout << "\\newcommand{\\phk}{"<<werte.phkZR_wert<<"+"<<werte.bo_phk<<"}\n";
 // fout << "\\newcommand{\\gift}{"<<werte.gift_wert<<"+"<<werte.bo_gi<<"}\n";
- fout << "\\newcommand{\\psy}{"<<werte.psyZR_wert+werte.bo_psy<<"}\n";
- fout << "\\newcommand{\\phs}{"<<werte.phsZR_wert+werte.bo_phs<<"}\n";
- fout << "\\newcommand{\\phk}{"<<werte.phkZR_wert+werte.bo_phk<<"}\n";
+ fout << "\\newcommand{\\psy}{"<<werte.resistenz+werte.bo_psy<<"}\n";
+ fout << "\\newcommand{\\phs}{"<<werte.resistenz+werte.bo_phs<<"}\n";
+ fout << "\\newcommand{\\phk}{"<<werte.resistenz+werte.bo_phk<<"}\n";
  fout << "\\newcommand{\\gift}{"<<werte.gift_wert+werte.bo_gi<<"}\n";
 
  fout << "\\newcommand{\\abwehr}{"<<werte.abwehr_wert<< "}\n";

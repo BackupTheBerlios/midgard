@@ -19,10 +19,11 @@ class midgard_CG;
 class xml_fileselection : public xml_fileselection_glade
 {   
         midgard_CG* hauptfenster;        
+        string was;
         friend class xml_fileselection_glade;
         void on_ok_button1_clicked();
         void on_cancel_button1_clicked();
    public:
-      xml_fileselection(midgard_CG* h);
+      xml_fileselection(midgard_CG* h,string _was);
 };
 #endif

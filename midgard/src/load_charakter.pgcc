@@ -27,18 +27,18 @@ exec sql include sqlca;
  
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
-  if (ev->button==1) midgard_CG::on_laden_clicked();
-  if (ev->button==3) manage (new xml_fileselection(this));
+  if (ev->button==1) on_laden_clicked();
+  if (ev->button==3) manage (new xml_fileselection(this,"load"));
   return false;
 }
  
 void midgard_CG::xml_import(const string& datei)
 {
-//cout << datei << "\n";
   string command = "midgard_xmlimport < "+datei;
   system(command.c_str());
   string strinfo = "Charakter aus Datei "+datei+" importiert\n";
   manage (new WindowInfo(strinfo));
+  on_laden_clicked();  
 }
 
 
@@ -91,9 +91,7 @@ void midgard_CG::load_charakter()
       int db_wlw= werte.wlw;      
       int db_abwehr       = werte.abwehr_wert;      
       int db_zaubern ;
-      int db_psy          = werte.psyZR_wert;      
-      int db_phs          = werte.phsZR_wert;      
-      int db_phk          = werte.phkZR_wert;      
+      int db_resistenz          = werte.resistenz;      
       int db_gift         = werte.gift_wert;      
       int db_bo_au_typ    = werte.bo_au_typ;      
       int db_bo_au        = werte.bo_au;      
@@ -161,9 +159,7 @@ void midgard_CG::load_charakter()
          wlw            ,
          abwehr         ,
          zaubern        ,
-         psy            ,
-         phs            ,
-         phk            ,
+         resistenz      ,
          gift           ,
          lpbasis        ,
          alter          ,
@@ -222,9 +218,7 @@ void midgard_CG::load_charakter()
        :db_wlw      ,
        :db_abwehr   ,
        :db_zaubern  ,
-       :db_psy      ,
-       :db_phs      ,
-       :db_phk      ,
+       :db_resistenz,
        :db_gift     ,
        :db_lpbasis  ,
        :db_alter    ,
@@ -273,9 +267,7 @@ void midgard_CG::load_charakter()
        werte.wlw=  db_wlw;     
       werte.abwehr_wert= db_abwehr       ;       
        werte.zaubern_wert = itos(db_zaubern) ;
-      werte.psyZR_wert=  db_psy          ;      
-      werte.phsZR_wert=  db_phs          ;      
-      werte.phkZR_wert=  db_phk          ;      
+      werte.resistenz=  db_resistenz          ;      
       werte.gift_wert=   db_gift         ;     
       werte.bo_au_typ=   db_bo_au_typ    ;     
       werte.bo_au=       db_bo_au        ; 
@@ -524,6 +516,7 @@ void midgard_CG::load_charakter()
 
 
    // Regionen
+   Originalbool=false;      checkbutton_original->set_active(false);
    Albabool=false;      checkbutton_Alba->set_active(false);
    Escharbool=false;      checkbutton_Eschar->set_active(false);
    Rawindrabool=false;      checkbutton_Rawindra->set_active(false);
@@ -544,6 +537,7 @@ void midgard_CG::load_charakter()
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;   
       string reg=db_region_2;
+      if (reg=="ORIG") {Originalbool=true ; checkbutton_original->set_active(true);}
       if (reg=="A") {Albabool=true ; checkbutton_Alba->set_active(true);}
       if (reg=="E") {Escharbool=true;      checkbutton_Eschar->set_active(true);}
       if (reg=="R") {Rawindrabool=true;      checkbutton_Rawindra->set_active(true);}

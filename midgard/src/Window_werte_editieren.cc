@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.17 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.18 2001/06/18 05:58:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,9 +54,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
 
  werte.abwehr_wert  =  atoi (abwehr_ein ->  get_text().c_str());
  werte.zaubern_wert =        zaubern_ein -> get_text().c_str();
- werte.psyZR_wert   =  atoi (psyZR_ein ->   get_text().c_str());
- werte.phsZR_wert   =  atoi (phsZR_ein ->   get_text().c_str());
- werte.phkZR_wert   =  atoi (phkZR_ein ->   get_text().c_str());
+ werte.resistenz   =  atoi (resistenz_ein ->   get_text().c_str());
  werte.gift_wert    =  atoi (gift_ein ->    get_text().c_str());
  werte.gfp          = atoi (gfp_ein->get_text().c_str());
 
@@ -126,9 +124,7 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,st_werte& w)
  bo_gi_ein->  set_value(werte.bo_gi); 
  abwehr_ein -> set_value(werte.abwehr_wert);
  zaubern_ein -> set_value(atoi(werte.zaubern_wert.c_str()));
- psyZR_ein -> set_value(werte.psyZR_wert);
- phsZR_ein -> set_value(werte.phsZR_wert);
- phkZR_ein -> set_value(werte.phkZR_wert);
+ resistenz_ein -> set_value(werte.resistenz);
  gift_ein -> set_value(werte.gift_wert);
  gfp_ein ->set_value(werte.gfp);
    

@@ -2,7 +2,17 @@
 NEWS IN VERSION 0.5beta5
 - Ordenskriegerbug in Datenbank entfernt
 - Hilfe überarbeitet
-
+- Optionmenu neu überarbeitet
+   ACHTUNG: GtkmmAddons muß in Neuer Version neu installiert werden
+- Button 'Originalregeln' eingebaut. Defaultmäßig ist er eingeschaltet.
+   Dieser Knopf ist eine von Elsas Bedingungen, damit der MCG ein 
+   'offizielles' Produkt werden kann. Was er bewirkt sieht man, in der 
+   Minihilfe.
+- Resistenzen überarbeitet, jetzt gibt es nur noch EINE Zauberresistenz.
+   Damit einhergehend eine Überarbeitung der Oberfläche
+- Das im- exportieren eines Charakters im xml Format sollte nun korrekt
+   funktionieren. Ich habe das xml Format an die neuen Resistenzen
+   angepaßt.
 
 ##########################################################################
 NEWS IN VERSION 0.5beta4

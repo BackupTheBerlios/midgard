@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.35 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG.cc,v 1.36 2001/06/18 05:58:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -257,6 +257,9 @@ void midgard_CG::on_neuer_charakter_clicked()
    clist_steigern_schrift_alt->clear();
    clist_steigern_schrift_neu->clear();
    
+ Originalbool=true;
+ checkbutton_original->set_active(true);
+ on_checkbutton_original_toggled();
  kido_bool=false;
  magie_bool=false;
  werte.version="Erschaffung";
@@ -265,6 +268,12 @@ void midgard_CG::on_neuer_charakter_clicked()
  midgard_CG::spezieswahl_button();
  midgard_CG::typauswahl_button(-1);
  show_gtk(get_typ_nr());
+
+ // Verschwindet irgendwann
+ checkbutton_Kuestenstaaten->set_sensitive(false);
+ checkbutton_Nahuatlan->set_sensitive(false);
+ checkbutton_Waeland->set_sensitive(false);
+
 }
 
 

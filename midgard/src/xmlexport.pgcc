@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.15 2001/06/12 09:31:06 thoma Exp $
+// $Id: xmlexport.pgcc,v 1.16 2001/06/18 05:58:50 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -76,7 +76,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    		spezies, geschlecht, typ_s, typ_2_s, spezialisierung,
    		st, ge, ko, inn, zt, au, pa,
    		sb, rw, hgw, b, kaw, wlw, abwehr, zaubern,
-   		psy, phs, phk, gift, lpbasis, lp, ap, alter, gestalt,
+   		resistenz, gift, lpbasis, lp, ap, alter, gestalt,
    		gewicht, groesse, stand, herkunft,
    		glaube, db_bo_au_typ, db_bo_au, db_bo_sc, db_bo_an, 
    		db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,
@@ -128,9 +128,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    fetch_and_write_int_attrib(is, o, "Zaubern");
    o << "/>\n";
    o << "  <Resistenzen";
-   fetch_and_write_int_attrib(is, o, "psy");
-   fetch_and_write_int_attrib(is, o, "phs");
-   fetch_and_write_int_attrib(is, o, "phk");
+   fetch_and_write_int_attrib(is, o, "Resistenz");
    fetch_and_write_int_attrib(is, o, "Gift");
    o << "/>\n";
    o << "  <Gesundheit"; // schlechter Name ?
@@ -155,7 +153,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    fetch_and_write_int_attrib(is, o, "Abwehr");
    fetch_and_write_int_attrib(is, o, "Zaubern");
    o << ">\n";
-   o << "    <Resistenzen";
+   o << "    <Resistenzen"; // Würde ich unter BONI fassen MAT
    fetch_and_write_int_attrib(is, o, "psy");
    fetch_and_write_int_attrib(is, o, "phs");
    fetch_and_write_int_attrib(is, o, "phk");

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.16 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.17 2001/06/18 05:58:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,6 +28,7 @@ void midgard_CG::on_grad_anstieg_clicked()
    get_abwehr_resistenz_wert(werte.grad);
    get_zauber(werte.grad);
    if (old_grad<werte.grad) get_grundwerte();
+   if (Originalbool) original_midgard_check() ;
    midgard_CG::zeige_werte(werte,"alle");
 }
 
@@ -54,15 +55,12 @@ void midgard_CG::get_grundwerte()
   if (z==99)   { was="Reaktionswert"; werte.rw+=erh; }
   if (z==100)  { was="Hanggemengewert"; werte.hgw+=erh; }
 
-//  cout << was;
   stinfo += was;
   if (was != "keine Erhöhung" )
     {
-//       cout <<" um " <<erh<<" erhöht.\n";
        stinfo += " um "; stinfo += itos(erh); stinfo+=" erhöht.\n";
        midgard_CG::grundwerte_boni_setzen();
     }
-//  cout << ".\n";
   manage(new WindowInfo(stinfo,true));
 }
 
@@ -89,6 +87,15 @@ void midgard_CG::get_zauber(int grad)
 void midgard_CG::get_abwehr_resistenz_wert(int grad)
 {
    int kosten=0;
+   if (grad == 1)  { werte.abwehr_wert = 11; werte.resistenz=10; }
+   if (grad == 2)  { werte.abwehr_wert = 12; werte.resistenz=11; kosten =   10; }
+   if (grad == 4)  { werte.abwehr_wert = 13; werte.resistenz=12; kosten =   20; }
+   if (grad == 6)  { werte.abwehr_wert = 14; werte.resistenz=13; kosten =   80; }
+   if (grad == 8)  { werte.abwehr_wert = 15; werte.resistenz=14; kosten =  300; }
+   if (grad == 10) { werte.abwehr_wert = 16; werte.resistenz=15; kosten =  700; }
+   if (grad == 12) { werte.abwehr_wert = 17; werte.resistenz=16; kosten = 1000; }
+   if (grad == 14) { werte.abwehr_wert = 18; werte.resistenz=17; kosten = 1500; }
+/*
    if (grad == 1)  { werte.abwehr_wert = 11; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=10; }
    if (grad == 2)  { werte.abwehr_wert = 12; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=11; kosten =   10; }
    if (grad == 4)  { werte.abwehr_wert = 13; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=12; kosten =   20; }
@@ -97,6 +104,7 @@ void midgard_CG::get_abwehr_resistenz_wert(int grad)
    if (grad == 10) { werte.abwehr_wert = 16; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=15; kosten =  700; }
    if (grad == 12) { werte.abwehr_wert = 17; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=16; kosten = 1000; }
    if (grad == 14) { werte.abwehr_wert = 18; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=17; kosten = 1500; }
+*/
    werte.gfp += kosten;
 }
 

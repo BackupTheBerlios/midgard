@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.20 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.21 2001/06/18 05:58:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,7 @@
 #include "midgard_CG.hh"
 
 
+bool Originalbool=true;
 bool Infobool=true;
 bool Escharbool=false;
 bool Rawindrabool=false;
@@ -31,6 +32,26 @@ bool HDbool=false;
 bool BRbool=false;
 bool Gildenbriefbool=false;
 bool Kuestenstaatenbool=false;
+
+void midgard_CG::on_checkbutton_original_toggled()
+{
+  if (checkbutton_original->get_active()) Originalbool=true;
+  else Originalbool=false;
+
+  if(Originalbool) 
+    { checkbutton_alle_zauber->set_sensitive(false); 
+      checkbutton_HD->set_sensitive(false);
+      checkbutton_BR->set_sensitive(false);
+      checkbutton_Gildenbrief->set_sensitive(false);
+    }      
+  else 
+    { checkbutton_alle_zauber->set_sensitive(true); 
+      checkbutton_HD->set_sensitive(true);
+      checkbutton_BR->set_sensitive(true);
+      checkbutton_Gildenbrief->set_sensitive(true);
+    }      
+}
+
 
 void midgard_CG::on_checkbutton_info_fenster_toggled()
 {   

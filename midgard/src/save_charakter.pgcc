@@ -21,20 +21,22 @@ exec sql include sqlca;
 #include <cstring>
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
+#include "xml_fileselection.hh"
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) midgard_CG::on_speichern_clicked();
-  if (ev->button==3) midgard_CG::xml_export();
+//  if (ev->button==3) midgard_CG::xml_export();
+  if (ev->button==3) manage (new xml_fileselection(this,"save"));
   frame_steigern->show();
   return false;
 }
 
-void midgard_CG::xml_export()
+void midgard_CG::xml_export(const string& datei)
 {
   string cname   = werte.name_charakter;
   string version = werte.version;
-  string command = "midgard_xmlexport '"+cname+"' '"+version+"' > '"+werte.name_charakter+".xml'";
+  string command = "midgard_xmlexport '"+cname+"' '"+version+"' > "+datei;
   system(command.c_str());
   string strinfo = "Charakter "+cname+" exportiert\n";
   manage (new WindowInfo(strinfo));
@@ -65,9 +67,7 @@ void midgard_CG::on_speichern_clicked()
       int db_wlw= werte.wlw;      
       int db_abwehr       = werte.abwehr_wert;      
       int db_zaubern ;
-      int db_psy          = werte.psyZR_wert;      
-      int db_phs          = werte.phsZR_wert;      
-      int db_phk          = werte.phkZR_wert;      
+      int db_resistenz    = werte.resistenz;      
       int db_gift         = werte.gift_wert;      
       int db_bo_au_typ    = werte.bo_au_typ;      
       int db_bo_au        = werte.bo_au;      
@@ -143,9 +143,7 @@ void midgard_CG::on_speichern_clicked()
       wlw            = :db_wlw      ,
       abwehr         = :db_abwehr   ,
       zaubern        = :db_zaubern  ,
-      psy            = :db_psy      ,
-      phs            = :db_phs      ,
-      phk            = :db_phk      ,
+      resistenz      = :db_resistenz,
       gift           = :db_gift     ,
       lpbasis        = :db_lpbasis  ,
       alter          = :db_alter    ,
@@ -309,7 +307,14 @@ void midgard_CG::on_speichern_clicked()
          VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Urschrift');
             SQLerror::test(__FILELINE__);
       }
-   // Regionen
+   // Regionen & Ähnliches
+   if (Originalbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','ORIG','Region');
+      SQLerror::test(__FILELINE__);
+    }
    if (Albabool) 
     {  
      exec sql INSERT INTO charaktere_fertigkeiten

@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.18 2001/06/12 09:31:06 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.19 2001/06/18 05:58:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,9 +65,10 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   //Barde,Ordenskrieger,Zauberer
   if (typ.z == "j" || typ.z == "z" || typ_2.z == "j" || typ_2.z == "z" ) werte.zaubern_wert = "10" ;
    else werte.zaubern_wert="";
-  werte.psyZR_wert = 10;
-  werte.phsZR_wert = 10;
-  werte.phkZR_wert = 10;
+   werte.resistenz = 10;
+//  werte.psyZR_wert = 10;
+//  werte.phsZR_wert = 10;
+//  werte.phkZR_wert = 10;
   werte.gift_wert = 3*werte.lp + spezies_constraint.gift ;
   // Körper und Stand
   werte.groesse = spezies_constraint.groesse_s + werte.st/10.;
@@ -95,6 +96,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   if (51<=istand&&istand<=90) werte.stand = "Mittelschicht";
   if (istand>=91) werte.stand = "Adel";
 
+  if (Originalbool) original_midgard_check() ;
   get_Ausnahmen();
   midgard_CG::zeige_werte(werte,"alle");
   button_herkunft->set_sensitive(true);
@@ -178,4 +180,29 @@ void midgard_CG::grundwerte_boni_setzen()
   if (werte.bo_phs<spezies_constraint.m_phs) werte.bo_phs=spezies_constraint.m_phs;
   if (werte.bo_phk<spezies_constraint.m_phk) werte.bo_phk=spezies_constraint.m_phk;
 
+}
+
+void midgard_CG::original_midgard_check()
+{
+   if (werte.st>100) werte.st=100;
+   if (werte.st<1)   werte.st=1;
+   if (werte.ge>100) werte.ge=100;
+   if (werte.ge<1)   werte.ge=1;
+   if (werte.ko>100) werte.ko=100;
+   if (werte.ko<1)   werte.ko=1;
+   if (werte.in>100) werte.in=100;
+   if (werte.in<1)   werte.in=1;
+   if (werte.zt>100) werte.zt=100;
+   if (werte.zt<1)   werte.zt=1;
+
+   if (werte.au>100) werte.au=100;
+   if (werte.au<1)   werte.au=1;
+   if (werte.pa>100) werte.pa=100;
+   if (werte.pa<1)   werte.pa=1;
+   if (werte.sb>100) werte.sb=100;
+   if (werte.sb<1)   werte.sb=1;
+   if (werte.rw>100) werte.rw=100;
+   if (werte.rw<1)   werte.rw=1;
+   if (werte.hgw>100) werte.hgw=100;
+   if (werte.hgw<1)   werte.hgw=1;
 }

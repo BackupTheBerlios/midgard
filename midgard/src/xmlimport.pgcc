@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.15 2001/06/12 09:31:06 thoma Exp $
+// $Id: xmlimport.pgcc,v 1.16 2001/06/18 05:58:50 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -78,9 +78,7 @@ bool charakter_laden(istream &i)
       int db_wlw;      
       int db_abwehr;      
       int db_zaubern ;
-      int db_psy;      
-      int db_phs;      
-      int db_phk;      
+      int db_resistenz;      
       int db_gift;      
       int db_bo_au_typ;      
       int db_bo_au;      
@@ -134,9 +132,7 @@ bool charakter_laden(istream &i)
    db_wlw=abgeleiteteEigenschaften->getInt("WLW",0);
    db_abwehr=Erfolgswerte->getInt("Abwehr",0);
    db_zaubern=Erfolgswerte->getInt("Zaubern",0);
-   db_psy=Resistenzen->getInt("psy",0);
-   db_phs=Resistenzen->getInt("phs",0);
-   db_phk=Resistenzen->getInt("phk",0);
+   db_resistenz=Resistenzen->getInt("Resistenz",0);
    db_gift=Resistenzen->getInt("Gift",0);
    db_bo_au_typ=Boni->getInt("Ausdauer_Typ",0);
    db_bo_au=Boni->getInt("Ausdauer",0);
@@ -195,9 +191,7 @@ update:
       wlw            = :db_wlw      ,
       abwehr         = :db_abwehr   ,
       zaubern        = :db_zaubern  ,
-      psy            = :db_psy      ,
-      phs            = :db_phs      ,
-      phk            = :db_phk      ,
+      resistenz      = :db_resistenz,
       gift           = :db_gift     ,
       lpbasis        = :db_lpbasis  ,
       alter          = :db_alter    ,

@@ -11,8 +11,10 @@
 
 void xml_fileselection::on_ok_button1_clicked()
 {   
-cout << get_filename()<<"\n";
- hauptfenster->xml_import(this->get_filename());
+ if (was=="load")
+   hauptfenster->xml_import(this->get_filename());
+ if (was=="save")
+   hauptfenster->xml_export(this->get_filename());
  destroy();
 }
 
@@ -21,7 +23,8 @@ void xml_fileselection::on_cancel_button1_clicked()
   destroy();
 }
 
-xml_fileselection::xml_fileselection(midgard_CG* h)
+xml_fileselection::xml_fileselection(midgard_CG* h, string _was)
+:was(_was)
 {
  hauptfenster=h;
 }

@@ -20,6 +20,7 @@
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 #include "Window_doppelcharaktere.hh"
+#include <Gtk_OStream.h>
 exec sql include sqlca;
 
 void midgard_CG::fill_typauswahl()
@@ -58,8 +59,12 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
   exec sql declare ein cursor for ein_;
   exec sql open ein;
   SQLerror::test(__FILELINE__);
+/*
   Gtk::Menu *_m(manage(new Gtk::Menu()));
   Gtk::MenuItem *_mi;
+*/
+{
+Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
   unsigned int count=0;
   while (true)
    {
@@ -71,19 +76,25 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
          if (typ_1_2==1)  typen_vector.push_back(st_typen(db_typnr,db_typ));
          if (typ_1_2==2)  typen_2_vector.push_back(st_typen(db_typnr,db_typ));
 //cout << db_typnr<<"\t"<<db_typ<<"\t"<<typen_vector.size()<<"\n";
+
+/*
          _mi = manage(new Gtk::MenuItem(db_typ));
          _m->append(*_mi);
          _mi->show();
          _mi->set_user_data((gpointer)count);
+*/
+t_ << db_typ;
+t_.flush((gpointer)count);
          ++count;
        }
-   }  
+   }
+}
   if (typ_1_2==1) 
-   { typauswahl->set_menu(*_m);
+   { //typauswahl->set_menu(*_m);
      typauswahl->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button),get_typ_nr()));
    }
   if (typ_1_2==2) 
-   { typauswahl_2->set_menu(*_m);
+   { //typauswahl_2->set_menu(*_m);
      typauswahl_2->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button),get_typ_nr(2)));
    }
 }

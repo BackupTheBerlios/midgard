@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.41 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG.hh,v 1.42 2001/06/18 05:58:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,7 +48,7 @@
 struct st_werte{int st; int ge;int ko;int in;int zt;
              int au;int pa;int sb;int rw;int hgw;
              int b;int lp;int ap;int abwehr_wert; string zaubern_wert;
-             int psyZR_wert; int phsZR_wert; int phkZR_wert; int gift_wert;
+             int resistenz; int gift_wert;
              int bo_au_typ; int bo_au; int bo_sc; int bo_an; int bo_ab; int bo_za;
              int bo_psy; int bo_phs; int bo_phk; int bo_gi;
              int kaw; int wlw; int lpbasis;
@@ -61,7 +61,7 @@ struct st_werte{int st; int ge;int ko;int in;int zt;
              int gold; int silber; int kupfer;
       st_werte() : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0), rw(0),
              hgw(0),b(0),lp(0),ap(0),abwehr_wert(0),
-             psyZR_wert(0),phsZR_wert(0),phkZR_wert(0),gift_wert(0),
+             resistenz(0),gift_wert(0),
              bo_au_typ(0),bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
              bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),lpbasis(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),spezialisierung(""),
@@ -140,7 +140,9 @@ struct st_ausnahmen{string name; string art;float fac;string standard;
          st_ausnahmen(string nn, string aa, float ff, string ss)
          :name(nn), art(aa), fac(ff), standard(ss) {}};
 
+extern bool Originalbool;
 extern bool Infobool;
+
 extern bool Escharbool;//E
 extern bool Rawindrabool;//R
 extern bool KanThaiPanbool;//K
@@ -202,6 +204,7 @@ class midgard_CG : public midgard_CG_glade
         int  wuerfeln_best_of_two(Random& random);
         void werte_editieren();
         void on_abge_werte_setzen_clicked();
+        void original_midgard_check();
         void grundwerte_boni_setzen();
         void on_neuer_charakter_clicked();
         void on_button_hilfe_clicked();
@@ -259,6 +262,7 @@ class midgard_CG : public midgard_CG_glade
         void on_angeborene_fertigkeit_clicked();
         void on_angeborene_fertigkeit_right_clicked();
         void on_spezialwaffe_clicked();
+        void on_checkbutton_original_toggled();
         void on_checkbutton_info_fenster_toggled();
         void on_checkbutton_Eschar_toggled();
         void on_checkbutton_Rawindra_toggled();
@@ -360,7 +364,7 @@ class midgard_CG : public midgard_CG_glade
          void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
          gint on_laden_release_event(GdkEventButton *ev);
-         void xml_export();
+         void xml_export(const string& datei);
          void xml_import(const string& datei);
          void charakter_beschreibung_uebernehmen(const string& b);
          void charakter_beschreibung_drucken(const string& b);
