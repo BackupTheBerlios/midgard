@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.16 2001/12/07 15:35:41 christof Exp $
+# $Id: Makefile.am,v 1.17 2001/12/12 10:30:01 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
 
@@ -8,7 +8,8 @@ EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffe
 MIDGARD3=$(shell if test `hostname` = "puck" ; then echo -DMIDGARD3 ; fi)
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
-           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(MIDGARD3)
+           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(MIDGARD3) \
+           -DREGION
 
 common_sources = export_common.cc common_exp.cc
 arkanum_exp_SOURCES= arkanum_exp.cc $(common_sources)

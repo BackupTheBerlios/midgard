@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.27 2001/12/05 07:51:55 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.28 2001/12/12 10:30:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -38,6 +38,7 @@ void arkanum_speichern(std::ostream &o)
    	"wirkungsdauer, material, "
    	"zauberart, element, spruchrolle, thaumagram "
    	"from zauber "
+   	IF_REGION("where coalesce(region,'')='"+region+"' ")
    	"order by coalesce(region,''),name");
   while ((q >> is).good())
   {o << "  <Spruch";
@@ -74,14 +75,35 @@ void arkanum_speichern(std::ostream &o)
          fetch_and_write_string(is2,o,"Beschreibung",4);
    o << "  </Spruch>\n";
   }
-   o << " </Zauber>\n";
  }
+#ifdef REGION // Lernschema für Typen dieser Region
+  if (region!="")
+ { FetchIStream is;
+   Query q("select name, region from zauber "
+   	+ RegionErgaenzungQuery("zauber.name","zauber_typen","Zauber","z")
+   	+ "order by coalesce(region,''),name");
+  while ((q >> is).good())
+  {o << "  <Spruch";
+   std::string zauber=fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_string_attrib(is, o, "Region");
+   o << ">\n";
+
+   grund_standard_ausnahme(o, "zauber_typen",zauber,"",true);
+   lernschema(o, "Zauber",zauber,true);
+   ausnahmen(o, "z", zauber,true);
+   o << "  </Spruch>\n";
+  }
+ }
+#endif
+   o << " </Zauber>\n";
    
    //***************** Zauberwerk ********************************
 
    o << " <Zauberwerke>\n";
   {Query query("select name, region, art, stufe, zeitaufwand, kosten, kosten_gfp"
-  	" from zauberwerk order by coalesce(region,''),name");
+  	" from zauberwerk"
+  	IF_REGION(" where coalesce(region,'')='"+region+"' ")
+  	" order by coalesce(region,''),name");
    FetchIStream is;
   while ((query>>is).good())
   {o << "  <Zauberwerk";
@@ -109,12 +131,34 @@ void arkanum_speichern(std::ostream &o)
    }
    o << "  </Zauberwerk>\n";
   }
-   o << " </Zauberwerke>\n";
  }
+#ifdef REGION // Lernschema für Typen dieser Region
+  if (region!="")
+  {FetchIStream is;
+   Query q("select name, region from zauberwerk "
+   	+ RegionErgaenzungQuery("zauberwerk.name","zauberwerk_typen","Zauber","z")
+   	+ "order by coalesce(region,''),name");
+  while ((q >> is).good())
+  {o << "  <Zauberwerk";
+   std::string zauber=fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_string_attrib(is, o, "Region");
+   o << ">\n";
+
+   grund_standard_ausnahme(o, "zauber_typen",zauber,"",true);
+   lernschema(o, "Zauber",zauber,true);
+   ausnahmen(o, "z", zauber,true);
+   o << "  </Zauberwerk>\n";
+  }
+  }
+#endif
+   o << " </Zauberwerke>\n";
 
 //********************* Spezialgebiete ********************
-   o << " <Spezialgebiete>\n";
-  {Query query("select typ, spezialgebiet, nr, spezial, spezial2"
+#ifdef REGION
+  if (region=="")
+#endif  
+  {o << " <Spezialgebiete>\n";
+   Query query("select typ, spezialgebiet, nr, spezial, spezial2"
   	" from spezialgebiete order by typ,nr");
    FetchIStream is;
    while ((query>>is).good())
@@ -128,6 +172,7 @@ void arkanum_speichern(std::ostream &o)
    }
    o << " </Spezialgebiete>\n";
   }
+
 }
 
 #ifndef XML_NO_MAIN
@@ -137,6 +182,8 @@ int main(int argc, char *argv[])
       Petig::Connection conn;
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
+      
+      if (argc>1) region=argv[1];
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data>\n";

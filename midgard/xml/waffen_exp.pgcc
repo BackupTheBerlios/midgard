@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.17 2001/12/10 16:45:02 christof Exp $
+// $Id: waffen_exp.pgcc,v 1.18 2001/12/12 10:30:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -36,6 +36,7 @@ void waffen_speichern(std::ostream &o)
   {Query query("select ruestung, region, ruestung_s, lp_verlust,"
    		" min_staerke,rw_verlust,b_verlust"
    	" from ruestung"
+   	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),lp_verlust");
   while ((query>>is).good())
   {o << "  <Rüstung";
@@ -69,6 +70,7 @@ void waffen_speichern(std::ostream &o)
    		"st, ge, reichweite_0, reichweite_n,"
    		"reichweite_m, reichweite_f"
    	" from waffen"
+   	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),art,name");
   while ((query>>is).good())
   {o << "  <Waffe";
@@ -99,6 +101,7 @@ void waffen_speichern(std::ostream &o)
    {  Query query2("select alias,region,schaden,schaden_b,angriffs_mod"
       	" from waffen_region_name"
       	" where name='"+waffe+"'"
+   	" and coalesce(region,'')='"+region+"'"
       	" order by region,alias");
       FetchIStream is2;
       while ((query2>>is2).good()) 
@@ -147,12 +150,32 @@ void waffen_speichern(std::ostream &o)
       
    o << "  </Waffe>\n";
   }
-   o << " </Waffen>\n";
  }
+#ifdef REGION
+  if (region!="")
+  {FetchIStream is;
+   Query q("select name, region from waffen "
+   	+ RegionErgaenzungQuery("waffen.name","waffen_typen","Waffe","w")
+   	+ "order by coalesce(region,''),name");
+  while ((q >> is).good())
+  {o << "  <Waffe";
+   std::string waffe=fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_string_attrib(is, o, "Region");
+   o << ">\n";
+
+   grund_standard_ausnahme(o, "waffen_typen",waffe,"",true);
+   lernschema(o, "Waffe",waffe,true);
+   ausnahmen(o, "w", waffe,true);
+   o << "  </Waffe>\n";
+  }
+  }
+#endif 
+   o << " </Waffen>\n";
 
 //******************waffen_grund************************************************
 
-   o << " <Waffen:Grundkenntnisse>\n";
+ if (region=="")
+ { o << " <Waffen:Grundkenntnisse>\n";
    o << "   <-- direkte Grundkenntnisse stehen bei den Waffen -->\n";
   {Query query("select name, region, fp"
    	" from waffen_grund where not exists"
@@ -205,6 +228,7 @@ void waffen_speichern(std::ostream &o)
 //**************************** Waffen Typen ***************************
    grund_standard_ausnahme(o, "waffen_typen", "Waffen");
    o << " </Waffen:Steigern>\n";
+ }
 //******************************************************************
 }
 
@@ -215,6 +239,8 @@ int main(int argc, char *argv[])
       Petig::Connection conn;
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
+      
+      if (argc>1) region=argv[1];
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data>\n";

@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.1 2001/11/20 22:19:09 christof Exp $
+// $Id: export_common.cc,v 1.2 2001/12/12 10:30:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -18,6 +18,10 @@
  */
 
 #include "export_common.h"
+
+#ifdef REGION
+std::string region;
+#endif
 
 static const char HEX[]="0123456789ABCDEF";
 

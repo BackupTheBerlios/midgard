@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.1 2001/11/20 22:19:09 christof Exp $
+// $Id: all_exp.cc,v 1.2 2001/12/12 10:30:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
 
+   if (argc>1) region=argv[1];
+   
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data>\n";
    land_speichern(std::cout);

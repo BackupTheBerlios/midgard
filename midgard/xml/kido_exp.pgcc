@@ -1,4 +1,4 @@
-// $Id: kido_exp.pgcc,v 1.7 2001/12/10 15:38:50 christof Exp $
+// $Id: kido_exp.pgcc,v 1.8 2001/12/12 10:30:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,7 +25,10 @@
 void kido_speichern(std::ostream &o)
 {  
    Transaction t;
-   Query query("select name_orig, name, stufe, stil, fp, ap, effekt"
+#ifdef REGION   
+   if (region=="K")
+#endif
+  {Query query("select name_orig, name, stufe, stil, fp, ap, effekt"
    	" from kido"
    	" order by name_orig");
    FetchIStream is;
@@ -44,6 +47,7 @@ void kido_speichern(std::ostream &o)
    o << "</KiDo>\n";
   }
    o << " </Kido-Fertigkeiten>\n";
+  }
 }
 
 #ifndef XML_NO_MAIN
@@ -53,6 +57,8 @@ int main(int argc, char *argv[])
       Petig::Connection conn;
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
+      
+      if (argc>1) region=argv[1];
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data>\n";

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.pgcc,v 1.10 2001/12/10 15:38:50 christof Exp $
+// $Id: land_sprache_exp.pgcc,v 1.11 2001/12/12 10:30:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,9 +25,10 @@
 void land_speichern(std::ostream &o)
 {  
    Transaction t;
-
-   o << " <Länder>\n";
    FetchIStream is;
+
+  if (region=="")
+  {o << " <Länder>\n";
   {Query query("select land, kontinent, sprache"
    	" from land"
    	" order by kontinent,land");
@@ -40,11 +41,13 @@ void land_speichern(std::ostream &o)
   }
  }
    o << " </Länder>\n";
+  }
 
 //******************************************************************
    o << " <Schriften>\n";
   {Query query("select name, region, typ, kosten"
    	" from schrift"
+   	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),name");
   while ((query>>is).good())
   {o << "  <Schrift";
@@ -58,8 +61,9 @@ void land_speichern(std::ostream &o)
    o << " </Schriften>\n";
 
 //******************************************************************
-   o << " <SpeziesListe>\n";
-  {Query query("select spezies, nr,"
+  if (region=="")
+  {o << " <SpeziesListe>\n";
+   Query query("select spezies, nr,"
    		" ap_wert, alter, groesse_f, groesse_w, groesse_s, b_f, b_s,"
    		" lpbasis, ap_grad, gestalt, m_abb,"
    		" m_psy, m_phs, m_phk, gift," 
@@ -133,8 +137,9 @@ void land_speichern(std::ostream &o)
   }
 
 //******************************************************************
-   o << " <Gradanstieg>\n";
-  {Query query("select grad, gfp, abwehr, resistenz, zaubern,"
+  if (region=="")
+  {o << " <Gradanstieg>\n";
+   Query query("select grad, gfp, abwehr, resistenz, zaubern,"
    	" abwehr_kosten, resistenz_kosten, zaubern_kosten"
    	" from grad_anstieg"
    	" order by grad");
@@ -159,10 +164,11 @@ void land_speichern(std::ostream &o)
   {Query query("select typs, region, typnr, typl, typlw, typz,"
    		" ausdauer, stand, sb, ruestung"
    	" from typen"
+   	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),typs");
   while ((query>>is).good())
   {o << "  <Typ";
-   fetch_and_write_string_attrib(is, o, "Abkürzung");
+   fetch_and_write_typ_attrib(is, o, "Abkürzung");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_int_attrib(is, o, "MCG:Index");
    fetch_and_write_string_attrib(is, o, "Bezeichnung:Mann");
@@ -189,6 +195,8 @@ int main(int argc, char *argv[])
       Petig::Connection conn;
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
+      
+      if (argc>1) region=argv[1];
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data>\n";

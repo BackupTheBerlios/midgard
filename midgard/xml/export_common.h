@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.9 2001/12/07 15:35:41 christof Exp $
+// $Id: export_common.h,v 1.10 2001/12/12 10:30:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -28,6 +28,15 @@
 #define MIDGARD4
 #endif
 
+#ifdef REGION
+extern std::string region;
+#define IF_REGION(x) x
+#define IF_NOT_REGION(x) 
+#else
+#define IF_REGION(x)
+#define IF_NOT_REGION(x) x
+#endif
+
 std::string toXML(const std::string &s);
 
 int fetch_int(FetchIStream &is,int standard=0);
@@ -53,8 +62,15 @@ std::string fetch_and_write_typ_attrib(FetchIStream &is,std::ostream &o,const st
 // common routines for exporting from tables
 void grund_standard_ausnahme(ostream &o, 
 	const std::string &table, const std::string &name,
-	const std::string &condition="");
-void lernschema(ostream &o, const std::string &art, const std::string &name);
-void ausnahmen(ostream &o, const std::string &art, const std::string &name);
+	const std::string &condition="", bool nur_region=false);
+void lernschema(ostream &o, const std::string &art, const std::string &name,
+	bool nur_region=false);
+void ausnahmen(ostream &o, const std::string &art, const std::string &name,
+	bool nur_region=false);
 void pflicht_lernen(ostream &o, const std::string &name);
 void verbot_lernen(ostream &o, const std::string &name);
+
+std::string RegionErgaenzungQuery(const std::string &attribute, 
+	const std::string &typtable, const std::string &lernsch_art,
+	const std::string &ausnahmen_art);
+std::string Herkunft(bool invert=false);
