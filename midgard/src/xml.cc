@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.29 2002/01/30 15:59:37 christof Exp $
+// $Id: xml.cc,v 1.30 2002/01/30 16:15:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -24,8 +24,7 @@
 //#define PARANOIA
 #define VERBOSE
 #include "TagStream.hh"
-#include "gtk--/progressbar.h"
-#include "gtk--/main.h"
+#include "ProgressBar.h"
 
 static TagStream *top;
 const Tag *xml_data;
