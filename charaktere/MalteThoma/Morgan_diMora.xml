@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MAGUS-data>
- <Preise>
-  <Kaufpreis Ware="Silberbecher" Art="Ausrüstung" Art2="Behälter" Preis="5" Währung="GS" Gewicht="0"/>
-  <Kaufpreis Ware="kleiner Silbertopf" Art="Ausrüstung" Art2="Behälter" Preis="10" Währung="GS" Gewicht="2"/>
-  <Kaufpreis Ware="Mörser und Stößel" Art="Ausrüstung" Art2="Werkzeug" Preis="3" Währung="GS" Gewicht="0"/>
- </Preise>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Morgan di'Mora" Spieler="Malte Thoma" Grad="3"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Gl" Spezialisierung="Rapier" Überleben="Überleben im Gebirge" Stadt_Land="Stadt" Hand="Rechtshänder"/>
-  <Basiseigenschaften St="95" Gw="96" Gs="98" Ko="97" In="81" Zt="36"/>
-  <abgeleiteteEigenschaften Au="59" pA="67" Wk="46" Sb="8" B="23" SG="3"/>
-  <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="11"/>
-  <Gesundheit LP="16" AP="21"/>
-  <Beschreibung Alter="18" Gestalt="normal" Gewicht="65" Größe="168" Stand="Mittelschicht" Herkunft="Küstenstaaten" Glaube="Alpanu"/>
-  <Vermögen GS="106" SS="5"/>
-  <Steigern GFP="620" benötigte_Tage="133">
+  <Figur Grad="3" Name="Morgan di'Mora" Spieler="Malte Thoma"/>
+  <Typ Abkürzung="Gl" Geschlecht="m" Hand="Rechtshänder" Spezialisierung="Rapier" Spezies="Mensch" Stadt_Land="Stadt" Überleben="Überleben im Gebirge"/>
+  <Basiseigenschaften Gs="98" Gw="96" In="81" Ko="97" St="95" Zt="36"/>
+  <abgeleiteteEigenschaften Au="59" B="23" SG="3" Sb="8" Wk="46" pA="67"/>
+  <Erfolgswerte Abwehr="12" ZauberResistenz="11" Zaubern="2"/>
+  <Gesundheit AP="21" LP="16"/>
+  <Beschreibung Alter="18" Gestalt="normal" Gewicht="65" Glaube="Alpanu" Größe="168" Herkunft="Küstenstaaten" Stand="Mittelschicht"/>
+  <Vermögen GS="376" SS="2"/>
+  <Steigern AEP="125" GFP="620" benötigte_Tage="133">
    <Praxispunkte Resistenz="1"/>
   </Steigern>
   <Text/>
   <Ausrüstung>
    <Rüstung>KR</Rüstung>
    <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="0" Bezeichnung="Bogen"/>
-   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
-   <Waffe Erfolgswert="0" Bezeichnung="Parierdolch"/>
-   <Waffe Erfolgswert="0" Bezeichnung="Rapier"/>
-   <Waffe Erfolgswert="0" Bezeichnung="Stoßspeer"/>
+   <Waffe Bezeichnung="Bogen" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Parierdolch" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Rapier" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Stoßspeer" Erfolgswert="0"/>
   </Ausrüstung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="8"/>
@@ -38,7 +33,7 @@
    <Fertigkeit Bezeichnung="Akrobatik" Wert="10"/>
    <Fertigkeit Bezeichnung="Beidhändiger Kampf" Wert="5"/>
    <Fertigkeit Bezeichnung="Fechten" Wert="7"/>
-   <Fertigkeit Bezeichnung="Gassenwissen" Wert="6" Praxispunkte="2"/>
+   <Fertigkeit Bezeichnung="Gassenwissen" Praxispunkte="2" Wert="6"/>
    <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
    <Fertigkeit Bezeichnung="Reiten" Wert="17"/>
@@ -62,8 +57,13 @@
    <Sprache Bezeichnung="Aranisch" Wert="11"/>
    <Sprache Bezeichnung="Neu-Vallinga" Wert="19"/>
    <Urschrift Bezeichnung="Neu-Vallinga" Wert="9"/>
-   <Optionen Name="Originalregeln" Wert="true"/>
-   <Optionen Name="NSC zulassen" Wert="false"/>
   </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
