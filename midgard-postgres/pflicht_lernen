@@ -3,7 +3,7 @@
 --
 DROP TABLE "pflicht_lernen";
 --
--- TOC Entry ID 2 (OID 9071170)
+-- TOC Entry ID 2 (OID 19989498)
 --
 -- Name: pflicht_lernen Type: TABLE Owner: thoma
 --
@@ -18,65 +18,13 @@ CREATE TABLE "pflicht_lernen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9071170) TABLE DATA pflicht_lernen
+-- Data for TOC Entry ID 3 (OID 19989498) TABLE DATA pflicht_lernen
 --
 
 COPY "pflicht_lernen"  FROM stdin;
 Ri	Lanze	\N	\N	\N	\N
 Ri	großer Schild	\N	\N	\N	\N
 Ri	kleiner Schild	\N	\N	\N	\N
-Ri	Reiten	\N	\N	\N	\N
-Ri	Kampf zu Pferd	\N	\N	\N	\N
-Ri	Kampf in Vollrüstung	\N	\N	\N	\N
-Ba	Musizieren	\N	\N	\N	\N
-dBe	Lesen/Schreiben	\N	\N	\N	\N
-dBe	Wissen von der Magie	\N	\N	\N	\N
-eBe	Lesen/Schreiben	\N	\N	\N	\N
-eBe	Wissen von der Magie	\N	\N	\N	\N
-Dr	Wissen von der Magie	\N	\N	\N	\N
-Dra	Wissen von der Magie	\N	\N	\N	\N
-Hä	Geschäftstüchtigkeit	\N	\N	\N	\N
-Hl	Erste Hilfe	\N	\N	\N	\N
-Hl	Lesen/Schreiben	\N	\N	\N	\N
-Hl	Wissen von der Magie	\N	\N	\N	\N
-wHx	Wissen von der Magie	\N	\N	\N	\N
-gHx	Wissen von der Magie	\N	\N	\N	\N
-sHx	Wissen von der Magie	\N	\N	\N	\N
-Kr	Kampf in Vollrüstung	\N	\N	\N	\N
-Ma	Lesen/Schreiben	\N	\N	\N	\N
-Ma	Wissen von der Magie	\N	\N	\N	\N
-Ny	KujKuri	\N	\N	\N	\N
-Ny	NinJutsu	\N	\N	\N	\N
-PF	Lesen/Schreiben	\N	\N	\N	\N
-PF	Wissen von der Magie	\N	\N	\N	\N
-PH	Lesen/Schreiben	\N	\N	\N	\N
-PH	Wissen von der Magie	\N	\N	\N	\N
-PK	Lesen/Schreiben	\N	\N	\N	\N
-PK	Wissen von der Magie	\N	\N	\N	\N
-PM	Lesen/Schreiben	\N	\N	\N	\N
-PM	Wissen von der Magie	\N	\N	\N	\N
-PT	Lesen/Schreiben	\N	\N	\N	\N
-PT	Wissen von der Magie	\N	\N	\N	\N
-PW	Lesen/Schreiben	\N	\N	\N	\N
-PW	Wissen von der Magie	\N	\N	\N	\N
-Ri	großes Schild	\N	\N	\N	\N
-Ri	Kampf in Vollrüstung	\N	\N	\N	\N
-Ri	Kampf zu Pferd	\N	\N	\N	\N
-Ri	kleines Schild	\N	\N	\N	\N
-Ri	Langschwert	\N	\N	\N	\N
-Ri	Reiten	\N	\N	\N	\N
-Sc	Wissen von der Magie	\N	\N	\N	\N
-Sk	Dichten	\N	\N	\N	\N
-Sk	Musizieren	\N	\N	\N	\N
-Sö	Kampf in Vollrüstung	\N	\N	\N	\N
-Sp	Stehlen	\N	\N	\N	\N
-Th	Lesen/Schreiben	\N	\N	\N	\N
-Th	Wissen von der Magie	\N	\N	\N	\N
-Sp	Schlösser öffnen	\N	\N	\N	\N
-Ass	Meucheln	\N	\N	\N	\N
-Ass	Schleichen	\N	\N	\N	\N
-Ass	Tarnen	\N	\N	\N	\N
-Kd	KiDo	\N	\N	\N	\N
 Berggnom	Bergmann	3	\N	\N	\N
 Berggnom	Steinmetz	3	\N	\N	\N
 Zwerg	Bergmann	3	\N	\N	\N

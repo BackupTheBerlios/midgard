@@ -145,7 +145,13 @@ class WaffeBesitz : public Waffe
 class H_WaffeBesitz : public Handle<WaffeBesitz>
 {
  public:
-    H_WaffeBesitz(WaffeBesitz *s) : Handle<WaffeBesitz>(s) {};
+    H_WaffeBesitz() {}
+    H_WaffeBesitz(WaffeBesitz *s) : Handle<WaffeBesitz>(s) {}
+
+    bool operator == (const H_WaffeBesitz& b) const
+      {return (*this)->Name()==b->Name() && (*this)->Region() == b->Region() &&
+              (*this)->av_Bonus()==b->av_Bonus() && (*this)->sl_Bonus()==b->sl_Bonus() &&
+               (*this)->Magisch()==b->Magisch(); }
 };
 
   
@@ -157,7 +163,10 @@ class Waffen_sort_wert
       { return x->Erfolgswert() > y->Erfolgswert();}}; 
 class WaffenBesitz_sort_magbonus
 { public : bool operator() (H_WaffeBesitz x, H_WaffeBesitz y) const
-      { return x->av_Bonus() > y->av_Bonus();}}; 
+      { return x->av_Bonus() > y->av_Bonus()  || 
+              (x->av_Bonus() == y->av_Bonus() && x->sl_Bonus() > y->sl_Bonus())||
+              (x->av_Bonus() == y->av_Bonus() && x->sl_Bonus()== y->sl_Bonus() &&
+               x->Magisch() > y->Magisch() );}}; 
 class WaffenBesitz_sort_name
 { public : bool operator() (H_WaffeBesitz x, H_WaffeBesitz y) const
       { return x->Name() < y->Name();}};

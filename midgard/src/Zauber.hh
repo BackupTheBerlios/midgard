@@ -4,12 +4,14 @@
 #include <list>
 #include <vector>
 #include <Aux/Handles.h>
+//Y#include "MidgardBasic.hh"
 #include <Aux/CacheStatic.h>
 #include "class_Grundwerte.hh"
 #include "class_typen.hh"
 #include "class_Ausnahmen.hh"
 
 class Zauber : public HandleContent
+//Yclass Zauber : public MidgardBasic
 {
    std::string ap, name;
    int erfolgswert;
@@ -28,6 +30,11 @@ class Zauber : public HandleContent
  public: 
    Zauber(const std::string& n,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int l=0) 
       : name(n),lernpunkte(l), ausnahmen(a) {get_Zauber();set_Standard(Typ);} 
+
+//Y   cH_MidgardBasic operator cH_MidgardBasic() const {return cH_MidgardBasic(&*this);}
+//Y   int Wert() return 0;
+//Y   std::string What() {return "Zauber";}
+
 
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
@@ -84,6 +91,8 @@ class cH_Zauber : public Handle<const Zauber>
     cH_Zauber(){};
  public:
    cH_Zauber(const std::string& name,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int lernpunkte=0) ;
+//Y   cH_Zauber(const cH_MidgardBasic &x) : Handle<const Zauber> 
+//Y (dynamic_cast<const Zauber *>(&*x)){}
 };
 
 

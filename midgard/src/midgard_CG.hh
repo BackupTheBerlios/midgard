@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.73 2001/10/16 08:59:23 thoma Exp $
+// $Id: midgard_CG.hh,v 1.74 2001/10/17 05:00:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -112,6 +112,8 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_WaffeGrund> list_WaffenGrund_neu;
         std::vector<H_Data_beruf> vec_Beruf;
         std::list<cH_Zauber> list_Zauber;
+//Y        std::list<cH_MidgardBasic> list_Zauber;
+//Y        std::list<cH_MidgardBasic> list_Zauber_neu;
         std::list<cH_Zauber> list_Zauber_neu;
         std::list<cH_Zauberwerk> list_Zauberwerk;
         std::list<cH_Zauberwerk> list_Zauberwerk_neu;

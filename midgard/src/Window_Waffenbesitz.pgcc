@@ -36,7 +36,7 @@ exec sql include sqlca;
 void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-//  H_WaffeBesitz waffe=dt->get_Waffe();
+  selected_weapon=dt->get_Waffe();
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
     move_waffe(Waffe_Besitz,Waffe_Besitz_neu,dt->get_Waffe()->Name());
@@ -79,10 +79,11 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
 
 //  cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
 
+cout << Waffe_Besitz.size()<<'\n';
   for (std::list<H_WaffeBesitz>::iterator i=Waffe_Besitz.begin();i!=Waffe_Besitz.end();++i)
    { 
-//     if ((*i)->Name()==dt->Name())
-     if ((*i)->Name()==label_waffe->get_text())
+//     if ((*i)==dt)
+     if ((*i)==selected_weapon)
       {
         (*i)->set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
         (*i)->set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());
@@ -121,15 +122,8 @@ Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
   alte_waffen.push_back("Schaden");
   alte_waffen.push_back("Region");
   alte_waffen.push_back("mag.Bonus");
-/*
-  std::vector<string> neue_waffen;
-  neue_waffen.push_back("Name");
-  neue_waffen.push_back("Schaden");
-  neue_waffen.push_back("Region");
-*/
-//  waffenbesitz_alt_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+  alte_waffen.push_back("Beschreibung");
   waffenbesitz_alt_tree->setTitles(alte_waffen);
-//  waffenbesitz_neu_tree->set_value_data(reinterpret_cast<gpointer>('N'));
   waffenbesitz_neu_tree->setTitles(alte_waffen);
 
   lade_waffen();
@@ -152,6 +146,8 @@ void Window_Waffenbesitz::zeige_waffen()
 void  Window_Waffenbesitz::show_alte_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
+cout <<"Alte größe = " <<Waffe_Besitz.size()<<'\n';
+
   for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz.begin();i!=Waffe_Besitz.end();++i)
      datavec.push_back(new Data_waffenbesitz(*i,Werte));
   waffenbesitz_alt_tree->setDataVec(datavec);

@@ -38,7 +38,6 @@ Springen	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Balancieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Ballista bedienen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Beidhändiger Kampf	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Fallen stellen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
 Glücksspiel	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf vom Streitwagen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
 Musizieren	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
@@ -120,7 +119,6 @@ FengTsu	\N	61	\N	\N	\N	\N	\N	61	\N
 Geschenke machen	\N	\N	\N	61	\N	\N	61	\N	\N	
 IaiJutsu	\N	31	\N	\N	\N	\N	\N	\N	\N	Einhandschwert
 KarumiJutsu	61	61	\N	\N	\N	\N	\N	\N	\N	Klettern
-Kenntnis der Fünf Klassiker	\N	\N	\N	11	\N	\N	\N	\N	\N	
 KentoYobu	\N	\N	\N	\N	21	\N	\N	\N	\N	
 KujKuri	\N	21	\N	31	\N	\N	\N	\N	\N	
 KujNoIu	\N	31	\N	\N	\N	\N	\N	\N	\N	Th
@@ -177,4 +175,6 @@ Schlangen beschwören	\N	61	\N	\N	\N	\N	\N	31	\N	Musizieren
 Srimara lenken	\N	31	\N	\N	\N	\N	\N	61	\N	\N
 Kampf zu Srimara	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
 Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	0	\N
+Fallenstellen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
+Kenntnis der fünf Klassiker	\N	\N	\N	11	\N	\N	\N	\N	\N	
 \.

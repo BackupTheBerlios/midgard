@@ -75,3 +75,8 @@ Ausnahmen.cc
 steigern_EP_sql.cc
 midgard_CG_grad_anstieg_sql.cc
 class_grad_anstieg_sql.cc
+KiDo.cc
+Fertigkeiten.cc
+Zauberwerk.cc
+Waffe.cc
+*.kannweg

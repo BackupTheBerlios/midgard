@@ -50,6 +50,7 @@ Kummsäbel	Saif	E	\N	\N	\N
 Langschwert	Takuba	E	\N	\N	\N
 Bogen	Mukantar	E	\N	\N	\N
 leichte Armbrust	Ud al-Khal	E	\N	\N	\N
+Dolch	Katar	R	\N	0	\N
 Anderthalbhänder	Hamschar	R	\N	\N	\N
 Langschwert	Aschwapatawar	R	\N	\N	\N
 Handaxt	Ankusch	R	\N	\N	\N
@@ -62,6 +63,5 @@ Krummsäbel	Szimitar	R	W6(+2)	\N	\N
 Langbogen	Aginkha (Pfeil)	R	2W6	-2	-2
 Krummsäbel	Ma`khirr	R	W6	1	\N
 Krummsäbel	Schimschar	R	W6(+2)	\N	\N
-Dolch	Katar	R		0	\N
 Dolch	Katar (Spreizklinge)	R	W6	0	-2
 \.

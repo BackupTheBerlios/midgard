@@ -3,7 +3,7 @@
 --
 DROP TABLE "steigern_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 13819444)
+-- TOC Entry ID 2 (OID 19963729)
 --
 -- Name: steigern_fertigkeiten Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "steigern_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 13819444) TABLE DATA steigern_fertigkeiten
+-- Data for TOC Entry ID 3 (OID 19963729) TABLE DATA steigern_fertigkeiten
 --
 
 COPY "steigern_fertigkeiten"  FROM stdin;
@@ -29,7 +29,6 @@ Bogen vom Streitwagen	-
 Bogen zu Pferd	-
 Erste Hilfe	-
 Fallen entschärfen	Abenteuer
-Fallen stellen	Abenteuer
 Fallenmechanik	Abenteuer
 Faustkampf	-
 Fechten tevarischer Stil	-
@@ -122,6 +121,7 @@ SchiyoKi	-
 Schwerttanz	Bewegung
 Steinabreibungen machen	-
 TaiTschi	-
+Tanzen	-
 Teezeremonie	Überleben
 YangScheng	YangScheng
 YubeChian	-
@@ -144,7 +144,6 @@ Schiffsführung	Wissen
 Schlittschuhlaufen	Bewegung
 Siegelfälschung	-
 Siegelkunde	Wissen
-Tanzen	Kalligraphie
 Verbergen	Beschatten
 Werfen	Werfen
 Wetterkunde	Wetterkunde
@@ -157,4 +156,5 @@ Körperkontrolle	Bewegung
 Schmerzen ertragen	Bewegung
 Srimara lenken	Elefanten lenken
 Natya	Bewegung
+Fallenstellen	Abenteuer
 \.

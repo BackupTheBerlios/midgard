@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.23 2001/10/16 13:50:49 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.24 2001/10/17 05:00:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,7 +52,7 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         std::list<H_WaffeBesitz> Waffe_Besitz_neu;
         Grundwerte& Werte;
         vector<H_Data_typen> Typ;
-        int memwaffe;
+        H_WaffeBesitz selected_weapon;
         friend class Window_Waffenbesitz_glade;
         void on_leaf_selected_alt(cH_RowDataBase d);
         void on_leaf_selected_neu(cH_RowDataBase d);
@@ -82,7 +82,7 @@ class Data_waffenbesitz :  public RowDataBase
       Data_waffenbesitz(const H_WaffeBesitz& w,const Grundwerte& g)
          : waffe(w), Werte(g) {}
 
-      enum SPALTEN_A {NAME_A,SCHADEN_A,REGION,MAGBONUS};
+      enum SPALTEN_A {NAME_A,SCHADEN_A,REGION,MAGBONUS,MAGTEXT};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
           switch(seqnr) {
@@ -90,6 +90,7 @@ class Data_waffenbesitz :  public RowDataBase
             case SCHADEN_A : return cH_EntryValueIntString(waffe->Schaden(Werte,waffe->Name()));
             case REGION : return cH_EntryValueIntString(waffe->Region());
             case MAGBONUS : return cH_EntryValueIntString(waffe->Bonus());
+            case MAGTEXT : return cH_EntryValueIntString(waffe->Magisch());
            }
          return cH_EntryValueIntString("?");
        }
