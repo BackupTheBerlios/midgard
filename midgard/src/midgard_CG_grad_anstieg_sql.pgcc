@@ -1,32 +1,43 @@
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 #include <Aux/FetchIStream.h>
-#include <Aux/dbconnect.h>  
+//#include <Aux/dbconnect.h>  
 #include <Aux/Transaction.h>
 exec sql include sqlca;
 
 
 void midgard_CG::get_ab_re_za(const string& was)
 {
-  int grad=Werte.Grad();
-  int grad_alt;
-  if (was=="Abwehr")    grad_alt = Grad_Anstieg.get_Grad_Abwehr(); 
-  else if (was=="Resistenz") grad_alt = Grad_Anstieg.get_Grad_Resistenz();
-  else if (was=="Zaubern")   grad_alt = Grad_Anstieg.get_Grad_Zaubern();
+  int alter_wert, max_wert;
+  if      (was=="Abwehr")    
+    { max_wert = Grad_Anstieg.get_Grad_Abwehr(); 
+      alter_wert = Werte.Abwehr_wert(); } 
+  else if (was=="Resistenz") 
+    { max_wert = Grad_Anstieg.get_Grad_Resistenz();
+      alter_wert = Werte.Resistenz(); } 
+  else if (was=="Zaubern") 
+    { if ( Typ.Zaubern()  == "z" || Typ.Zaubern()  == "j" ||
+           Typ2.Zaubern() == "z" || Typ2.Zaubern() == "j" ) 
+        { max_wert = Grad_Anstieg.get_Grad_Zaubern();
+          alter_wert = Werte.Zaubern_wert(); } 
+      else return; }
   else abort();
-  if (grad <= grad_alt)
-      {manage(new WindowInfo("Für Grad "+itos(grad_alt)+" wurde schon gesteigert!")) ;return;}
-  ++grad_alt;
+  if (alter_wert >= max_wert)
+      {manage(new WindowInfo("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!")) ;return;}
   
   exec sql allocate descriptor mydesc;
   exec sql begin declare section;
    char query[1024];
   exec sql end declare section;
   string squery = "select ";
-  if (was=="Abwehr"   ) squery += "abwehr   , abwehr_kosten ";
-  if (was=="Resistenz") squery += "resistenz, resistenz_kosten ";
-  if (was=="Zaubern"  ) squery += "zaubern  , zaubern_kosten ";
-  squery += " from grad_anstieg where grad = '"+itos(grad_alt)+"'"; 
+  if (was=="Abwehr"   ) squery += " abwehr_kosten ";
+  if (was=="Resistenz") squery += " resistenz_kosten ";
+  if (was=="Zaubern"  ) squery += " zaubern_kosten ";
+  squery += " from grad_anstieg where ";
+  if (was=="Abwehr"   ) squery += " abwehr ";
+  if (was=="Resistenz") squery += " resistenz ";
+  if (was=="Zaubern"  ) squery += " zaubern ";
+  squery += "="+itos(alter_wert+1); 
 
   snprintf(query,sizeof(query),squery.c_str());
   Transaction tr;
@@ -36,24 +47,18 @@ void midgard_CG::get_ab_re_za(const string& was)
   SQLerror::test(__FILELINE__);
   exec sql fetch from grad_an_ein into sql descriptor mydesc;
 
-  int wert,kosten;
+  int kosten;
   FetchIStream is("mydesc");
-  is >> FetchIStream::MapNull<int>(wert,0) >> FetchIStream::MapNull<int>(kosten,0);
+//  is >> FetchIStream::MapNull<int>(kosten,0);
+  is >> kosten;
   SQLerror::test(__FILELINE__);
   exec sql close grad_an_ein;
   tr.close();
-  if (wert==0)
-    {manage(new WindowInfo(was+" kann für Grad "+itos(grad_alt)+" nicht gesteigert werden!")) ;}
-  else 
-   {
-     Werte.add_GFP(kosten);
-     if (was=="Abwehr") Werte.set_Abwehr_wert(wert);
-     if (was=="Resistenz") Werte.set_Resistenz(wert); 
-     if (was=="Zaubern") Werte.set_Zaubern_wert(wert); 
-   }
-  if (was=="Abwehr") Grad_Anstieg.set_Grad_Abwehr(grad_alt);
-  if (was=="Resistenz") Grad_Anstieg.set_Grad_Resistenz(grad_alt);
-  if (was=="Zaubern") Grad_Anstieg.set_Grad_Zaubern(grad_alt);
+  Werte.add_GFP(kosten);
+  if (was=="Abwehr") Werte.set_Abwehr_wert(alter_wert+1);
+  if (was=="Resistenz") Werte.set_Resistenz(alter_wert+1); 
+  if (was=="Zaubern") Werte.set_Zaubern_wert(alter_wert+1); 
+
 }
 
 void midgard_CG::get_grad(int gfp)
@@ -65,4 +70,5 @@ void midgard_CG::get_grad(int gfp)
       where gfp <= :db_gfp;
  SQLerror::test(__FILELINE__);
  Werte.set_Grad(db_new_grad);
+ Grad_Anstieg.set_Grad_Anstieg(Werte.Grad());
 }

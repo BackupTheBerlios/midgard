@@ -1,4 +1,9 @@
 ##########################################################################
+NEWS IN VERSION 0.8beta3
+- Überflüssigen Code aus 'grad_anstieg' und sinnlose Tavbellenspalten
+   aus 'charaktere' entfernt
+
+##########################################################################
 NEWS IN VERSION 0.8beta2
 - Verwenden der Funktion EmptyInt_4TeX -> dadurch wird eine Grundwertefunktion
     überflüssig, Anpassung des Quellcodes

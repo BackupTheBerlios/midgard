@@ -1,0 +1,18 @@
+#include "class_grad_anstieg.hh"
+#include <Aux/SQLerror.h>
+
+
+void grad_anstieg::get_max_werte()
+{
+ exec sql begin declare section;
+   int db_a,db_r,db_z;
+   int db_grad=grad;
+ exec sql end declare section;
+ exec sql select max(abwehr), max(resistenz),max(zaubern)
+   into :db_a,:db_r,:db_z
+   from grad_anstieg where grad <= :db_grad;
+ SQLerror::test(__FILELINE__);
+ grad_max_abwehr = db_a;
+ grad_max_resistenz=db_r; 
+ grad_max_zaubern=db_z;
+}

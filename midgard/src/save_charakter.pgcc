@@ -82,9 +82,6 @@ void midgard_CG::on_speichern_clicked()
       bool db_steigern_bool;
       int db_steigern_EP;
       int db_grad_basiswerte;
-      int db_grad_abwehr;
-      int db_grad_resistenz;
-      int db_grad_zaubern;
    exec sql end declare section;
 
 
@@ -130,11 +127,7 @@ void midgard_CG::on_speichern_clicked()
       db_steigern_bool = steigern_bool;
       db_steigern_EP = Grad_Anstieg.get_Steigern_EP_Prozent();
       db_grad_basiswerte = Grad_Anstieg.get_Grad_Basiswerte();
-      db_grad_abwehr = Grad_Anstieg.get_Grad_Abwehr();
-      db_grad_resistenz = Grad_Anstieg.get_Grad_Resistenz();
-      db_grad_zaubern = Grad_Anstieg.get_Grad_Zaubern();
 
-//   strncpy(db_beschreibung,Werte.beschreibung.c_str(),sizeof(db_beschreibung));
    db_beschreibung = (char *) (Werte.Beschreibung()).c_str();
    strncpy(db_gestalt,(Werte.Gestalt()).c_str(),sizeof(db_gestalt));
    strncpy(db_geschlecht,(Werte.Geschlecht()).c_str(),sizeof(db_geschlecht));
@@ -206,10 +199,7 @@ void midgard_CG::on_speichern_clicked()
       zep            = :db_zep,
       steigern_bool  = :db_steigern_bool,
       steigern_EP_prozent  = :db_steigern_EP,
-      grad_basiswerte =:db_grad_basiswerte,
-      grad_abwehr =:db_grad_abwehr,
-      grad_resistenz =:db_grad_resistenz,
-      grad_zaubern =:db_grad_zaubern
+      grad_basiswerte =:db_grad_basiswerte
       WHERE charakter_name = :db_name_ch and version= :db_version;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode==100) midgard_CG::charakter_db_anlegen();

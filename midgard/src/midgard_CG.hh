@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.64 2001/09/04 07:35:40 thoma Exp $
+// $Id: midgard_CG.hh,v 1.65 2001/09/07 07:30:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -111,13 +111,10 @@ class midgard_CG : public midgard_CG_glade
 
         bool kido_bool;
         int maxkido;
-        int steigern_EP_prozent;
-        int grad_basiswerte;
-//        int grad_abwehr;
-//        int grad_resistenz;
+//        int steigern_EP_prozent;
+//        int grad_basiswerte;
         bool magie_bool;
         grad_anstieg Grad_Anstieg;
-
 
 
         std::vector<H_Data_sprache> vec_Sprachen;
@@ -244,9 +241,6 @@ class midgard_CG : public midgard_CG_glade
         void on_button_grad_clicked();
         void get_grad(int gfp);
         void get_ausdauer(int grad);
-//        void get_resistenz_wert(int grad);
-//        void get_abwehr_wert(int grad);
-//        void get_zauber(int grad);
         void get_grundwerte();
         void get_ab_re_za(const string& was);
          

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.24 2001/09/04 07:35:40 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.25 2001/09/07 07:30:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,13 +23,17 @@
 
 void midgard_CG::on_grad_anstieg_clicked()
 {
-   get_grad(Werte.GFP());
-   get_ausdauer(Werte.Grad());
-   get_ab_re_za("Abwehr");
-   get_ab_re_za("Resistenz");
-   get_ab_re_za("Zaubern");
-   get_grundwerte();
-   zeige_werte(Werte);
+ int old_grad=Werte.Grad();
+ get_grad(Werte.GFP());
+ get_ausdauer(Werte.Grad());
+ get_ab_re_za("Abwehr");
+ get_ab_re_za("Resistenz");
+ get_ab_re_za("Zaubern");
+ while(old_grad<Werte.Grad())
+  { get_grundwerte();
+    ++old_grad;
+  }
+ zeige_werte(Werte);
 }
 
 void midgard_CG::on_button_grad_clicked()
@@ -49,11 +53,8 @@ void midgard_CG::on_button_grad_abwehr_clicked()
 }
 void midgard_CG::on_button_grad_zaubern_clicked()
 {   
- if (Typ.Zaubern() == "z" || Typ.Zaubern() == "j" || Typ2.Zaubern() == "z" || Typ2.Zaubern() == "j")
-  {
-    get_ab_re_za("Zaubern");
-    zeige_werte(Werte);
-  }
+ get_ab_re_za("Zaubern");
+ zeige_werte(Werte);
 }
 void midgard_CG::on_button_grad_resistenz_clicked()
 {   
@@ -105,33 +106,6 @@ void midgard_CG::get_grundwerte()
   if (Originalbool) original_midgard_check() ;
   Grad_Anstieg.set_Grad_Basiswerte(1+Grad_Anstieg.get_Grad_Basiswerte());
 }
-/*
-void midgard_CG::get_zauber(int grad)
-{
- if (Typ.Zaubern() == "z" || Typ.Zaubern() == "j" || Typ2.Zaubern() == "z" || Typ2.Zaubern() == "j")
-  {  
-   int kosten=0;
-   int a;
-   if (grad == 1)  { a=10 ;}
-   if (grad == 2)  { a=11 ; kosten =   10;}
-   if (grad == 3)  { a=12 ; kosten =   10;}
-   if (grad == 4)  { a=13 ; kosten =   20;}
-   if (grad == 5)  { a=14 ; kosten =   30;}
-   if (grad == 6)  { a=15 ; kosten =   70;}
-   if (grad == 7)  { a=16 ; kosten =  150;}
-   if (grad == 8)  { a=17 ; kosten =  300;}
-   if (grad == 9)  { a=18 ; kosten =  600;}
-   if (grad == 10) { a=19 ; kosten =  800;}
-   if (!steigern(kosten,"Zauber")) 
-      { std::string strinfo ="Zu wenig EP um 'Zaubern' zu steigern";
-        manage(new WindowInfo(strinfo));
-        return;
-      }
-   Werte.add_GFP(kosten);
-   Werte.set_Zaubern_wert(a);
-  }
-}
-*/
 
 void midgard_CG::get_ausdauer(int grad)
 {

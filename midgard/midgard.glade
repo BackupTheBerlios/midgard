@@ -7704,7 +7704,7 @@ sortieren</label>
 		    <policy>GTK_UPDATE_CONTINUOUS</policy>
 		    <value>50</value>
 		    <lower>33</lower>
-		    <upper>67</upper>
+		    <upper>68</upper>
 		    <step>1</step>
 		    <page>1</page>
 		    <page_size>1</page_size>
@@ -12855,12 +12855,12 @@ setzung</label>
 	<width>350</width>
 	<cxx_visibility>protected</cxx_visibility>
 	<label>infotext</label>
-	<justify>GTK_JUSTIFY_FILL</justify>
-	<wrap>False</wrap>
+	<justify>GTK_JUSTIFY_CENTER</justify>
+	<wrap>True</wrap>
 	<xalign>0.5</xalign>
 	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
+	<xpad>5</xpad>
+	<ypad>5</ypad>
 	<child>
 	  <left_attach>0</left_attach>
 	  <right_attach>1</right_attach>

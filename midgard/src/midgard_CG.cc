@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.57 2001/08/24 13:33:05 thoma Exp $
+// $Id: midgard_CG.cc,v 1.58 2001/09/07 07:30:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -398,15 +398,14 @@ void midgard_CG::on_neuer_charakter_clicked()
    HDbool=false;             checkbutton_HD->set_active(false);
    BRbool=false;             checkbutton_BR->set_active(false);
 
-   steigern_EP_prozent=50;
-   vscale_EP_Gold->set_digits(steigern_EP_prozent);
+   Grad_Anstieg.clear();
+   vscale_EP_Gold->set_digits(Grad_Anstieg.get_Steigern_EP_Prozent());
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
  on_checkbutton_original_toggled();
  kido_bool=false;
  magie_bool=false;
-// Werte.set_Namen("","","Erschaffung");
  midgard_CG::fill_typauswahl();
  midgard_CG::fill_spezies();
  midgard_CG::spezieswahl_button();
