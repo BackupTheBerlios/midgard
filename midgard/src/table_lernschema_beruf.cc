@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.18 2002/10/24 07:21:01 christof Exp $
+// $Id: table_lernschema_beruf.cc,v 1.19 2002/10/25 06:49:10 thoma Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -120,8 +120,7 @@ void table_lernschema::showBerufsLernList()
   Beruf_tree->setDataVec(datavec);
   Beruf_tree->show();
   Beruf_tree->Expand_recursively();
-  viewport_lernen->add(*Beruf_tree);  
-
+  scrolledwindow_lernen->add(*Beruf_tree);  
   scrolledwindow_lernen->show();
   frame_lernpunkte->set_sensitive(false);
 }

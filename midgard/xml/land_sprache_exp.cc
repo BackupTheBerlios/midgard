@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.54 2002/10/24 07:24:02 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.55 2002/10/25 06:48:19 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -292,12 +292,14 @@ void land_speichern(Tag &o)
   
   if (region.empty())
   {Tag &Preise=o.push_back(Tag("PreiseNeu"));
-   Query query("select art, art2, name, gewicht,kosten,einheit from preise");
+   Query query("select art, art2, name, gewicht,kosten,einheit from preise"
+               " order by art,art2,name");
    while ((query>>is).good())
     { Tag &Dinge=Preise.push_back(Tag("Dinge"));
       fetch_and_set_string_attrib(is, Dinge, "Art");
       fetch_and_set_string_attrib(is, Dinge, "Art2");
       fetch_and_set_string_attrib(is, Dinge, "Ware");
+      fetch_and_set_string_attrib(is, Dinge, "Gewicht");
       fetch_and_set_float_attrib(is, Dinge, "Preis");
       fetch_and_set_string_attrib(is, Dinge, "Währung");
     }
@@ -323,6 +325,7 @@ void land_speichern(Tag &o)
        }
     }
   }
+#if 0
   if (region.empty())
   {Tag &Preise=o.push_back(Tag("Preise"));
   {Query query("select name, art, art2, kosten, einheit"MIDGARD3_4("",",gewicht")
@@ -362,6 +365,7 @@ void land_speichern(Tag &o)
   }
   }
   }
+#endif
 
 //******************************************************************
 }

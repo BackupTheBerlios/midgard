@@ -54,7 +54,7 @@ void table_ausruestung::showAusruestung()
   title.push_back("Titel");
   title.push_back("Material");
   title.push_back("Sichtbar");
-  viewport_ausruestung->remove();
+  scrolledwindow_ausruestung->remove();
   Ausruestung_tree=manage(new Gtk::CTree(title));
 
   Ausruestung_tree->drag_data_received.connect(slot(this,&(table_ausruestung::tree_drag_data_received)));
@@ -84,7 +84,7 @@ void table_ausruestung::showAusruestung()
   for (unsigned int i=0;i<Ausruestung_tree->columns().size();++i)
          Ausruestung_tree->set_column_auto_resize(i,true);
             
-  viewport_ausruestung->add(*Ausruestung_tree);
+  scrolledwindow_ausruestung->add(*Ausruestung_tree);
   button_ausruestung_loeschen->set_sensitive(false);
 }
 

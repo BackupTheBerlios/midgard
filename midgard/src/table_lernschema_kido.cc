@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.12 2002/09/27 19:56:21 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.13 2002/10/25 06:49:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ void table_lernschema::on_kido_wahl_clicked()
 void table_lernschema::fill_kido_lernschema()
 {
   clean_lernschema_trees();
-  viewport_lernen->remove();
+  scrolledwindow_lernen->remove();
   if(maxkido==0) return;
   else if(maxkido==1) label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Technik auswählen");
   else label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Techniken auswählen");
@@ -65,7 +65,7 @@ void table_lernschema::fill_kido_lernschema()
   MidgardBasicElement::show_list_in_tree(newlist,tree_kido_lernschema,hauptfenster);
   scrolledwindow_lernen->show();
   tree_kido_lernschema->show();
-  viewport_lernen->add(*tree_kido_lernschema);
+  scrolledwindow_lernen->add(*tree_kido_lernschema);
 }
 
 void table_lernschema::on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d)

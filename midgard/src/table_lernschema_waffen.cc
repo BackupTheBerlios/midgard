@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.20 2002/10/24 07:21:01 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.21 2002/10/25 06:49:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -115,7 +115,7 @@ void table_lernschema::show_WaffenBesitz_lernschema()
      Gtk::Label *lM = manage(new Gtk::Label("Die erste gewählte Einhandwaffe ist magisch",0));
      table->attach(*lM,0,1,3,4,GTK_FILL,0,0,0);
    }
-  viewport_lernen->add(*table);  
+  scrolledwindow_lernen->add(*table);  
   scrolledwindow_lernen->show_all();
 }
 

@@ -918,7 +918,7 @@ void table_lernschema::show_lernschema()
      }   
   MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,hauptfenster);
   tree_lernschema->show();
-  viewport_lernen->add(*tree_lernschema);
+  scrolledwindow_lernen->add(*tree_lernschema);
 
   setTitels_for_Lernschema(what,fert);
   tree_lernschema->Expand_recursively();
@@ -1004,6 +1004,6 @@ void table_lernschema::clean_lernschema_trees()
   if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
   if(tree_kido_lernschema) {tree_kido_lernschema->destroy(); tree_kido_lernschema=0;}
   if(tree_waffen_lernschema) {tree_waffen_lernschema->destroy(); tree_waffen_lernschema=0;}
-  viewport_lernen->remove();
+  scrolledwindow_lernen->remove();
 }
 

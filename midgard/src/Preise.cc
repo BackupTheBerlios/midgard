@@ -65,6 +65,15 @@ void Preise::get_Preise()
 
 Preise_All::Preise_All()
 {
+ const Tag *preise=xml_data->find("PreiseNeu");
+ if (preise)
+ {  Tag::const_iterator b=preise->begin(),e=preise->end();
+    FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Dinge")
+    {  
+       list_All.push_back(cH_Preise(&*i));
+    }
+ }   
+/*
  const Tag *preise=xml_data->find("Preise");
  if (preise)
  {  Tag::const_iterator b=preise->begin(),e=preise->end();
@@ -89,6 +98,7 @@ Preise_All::Preise_All()
        }
     }
  }   
+*/
  const Tag *ruestungen=xml_data->find("Rüstungen");
  if (ruestungen)
  {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();

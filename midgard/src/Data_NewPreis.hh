@@ -30,14 +30,11 @@ class Data_NewPreis : public RowDataBase
       cH_Preise ware;
       double kosten;
       mutable std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M;
+      double CalKosten() const;
   public:
      Data_NewPreis(const cH_Preise P) : ware(P),kosten(P->Kosten()) {}
      Data_NewPreis(const cH_Preise P,const std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> &m) 
-         : ware(P),kosten(P->Kosten()),M(m) 
-         {
-           for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
-                kosten*=i->second.preis_faktor;
-         }
+         : ware(P),kosten(P->Kosten()),M(m)  {}
       
      enum spalten {ART,ART2,NAME,V_FARBE,V_MATERIAL,V_STAND,GEWICHT,KOSTEN};
      
@@ -53,12 +50,12 @@ class Data_NewPreis : public RowDataBase
            case V_STAND: return cH_EntryValueIntString(M_[table_ausruestung::Stand].spezifikation);
            case V_MATERIAL: return cH_EntryValueIntString(M_[table_ausruestung::Material].spezifikation);
            case V_FARBE: return cH_EntryValueIntString(M_[table_ausruestung::Farbe].spezifikation);
-           case KOSTEN: return cH_EntryValueIntString(dtos(kosten)+" "+ware->Einheit());
+           case KOSTEN: return cH_EntryValueIntString(dtos(CalKosten())+" "+ware->Einheit());
          }
         return cH_EntryValueIntString();
       }
    cH_Preise Ware() const {return ware;}
-   double Kosten() const {return kosten;}
+   double Kosten() const {return CalKosten();}
    std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> &
          getMod() const {return M;}
 
@@ -68,5 +65,8 @@ class cH_Data_NewPreis : public Handle<const Data_NewPreis>
 public:
  cH_Data_NewPreis(const Data_NewPreis *r) : Handle<const Data_NewPreis>(r) {}
 };
+
+
+
 
 #endif

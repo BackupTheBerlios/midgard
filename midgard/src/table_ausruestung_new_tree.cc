@@ -21,6 +21,16 @@
 #include "Data_NewPreis.hh"
 #include <Misc/mystring.h>
 
+
+double Data_NewPreis::CalKosten() const
+{      
+  double k=kosten;
+  for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
+    k*=i->second.preis_faktor;
+  return k;
+}
+
+
 pair<table_ausruestung::e_spalten,std::string> table_ausruestung::enum_from_string(const std::string &s)
 {
   
@@ -84,13 +94,13 @@ void table_ausruestung::fill_new_preise()
         if(MS[e].empty()) continue;
         (*j)->getMod()[e]=*(MS[e].begin());
 
-         std::vector<PreiseNewMod::st_preismod>::const_iterator b=MS[e].begin();
-         for(std::vector<PreiseNewMod::st_preismod>::const_iterator k=++b;k!=MS[e].end();++k)
-          {
+        std::vector<PreiseNewMod::st_preismod>::const_iterator b=MS[e].begin();
+        for(std::vector<PreiseNewMod::st_preismod>::const_iterator k=++b;k!=MS[e].end();++k)
+         {
            std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M=(*j)->getMod();
            M[e]=*k;                       
            LNP2.push_back(new Data_NewPreis((*j)->Ware(),M));
-          }
+         }
       }
      LNP.splice(LNP.end(),LNP2);
    }

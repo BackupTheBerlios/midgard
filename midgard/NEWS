@@ -10,9 +10,14 @@ NEWS IN VERSION 0.8.8
    (da mir die Listen noch nicht zugeschickt wurden läßt sich 
     das noch nichts testen :-(
 * Neue Icons für Spruchrolle (automatisch/würfeln)
+* noch mehr kleinere Bugs beseitigt
+* Der erste Preismodifikator (Adel) wird jetzt korrekt berücksichtigt
+* Preise und Gewicht für Waffen werden angegeben
 
 TODO: ('-' zeigt CP an)
 
+* Neue Ausrüstung eingeben
+* Regionale Waffen&Gewichte in der Ausrüstung
 * Hilfe Menü ans Ende
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.16 2002/09/27 19:56:21 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.17 2002/10/25 06:49:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -74,7 +74,7 @@ void table_lernschema::on_angeborene_fertigkeit_right_clicked()
 
   scrolledwindow_lernen->show();
   tree_angeb_fert->show();
-  viewport_lernen->add(*tree_angeb_fert);
+  scrolledwindow_lernen->add(*tree_angeb_fert);
 }
 
 void table_lernschema::on_ang_fert_leaf_selected(cH_RowDataBase d)
