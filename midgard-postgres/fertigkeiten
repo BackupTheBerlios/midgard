@@ -131,7 +131,6 @@ COPY "fertigkeiten"  FROM stdin;
 3	2	2	15	Reiten	10	60		Gw	5	1
 1	\N	\N	\N	Pyromantie	\N	400	E	Zt	\N	1
 99	2	2	5	Landeskunde	4	100	\N	In	8	2
-8	\N	\N	6	Geschäftstüchtigkeit	2	4000		pA	8	4
 99	2	2	12	Musizieren	8	80		Gs	\N	1
 4	3	0	5	Naturkunde	4	100	\N	In	\N	1
 99	1	1	15	Tanzen	10	50		Gw	8	1
@@ -149,7 +148,6 @@ COPY "fertigkeiten"  FROM stdin;
 8	\N	\N	5	Alchemie	4	100		In	\N	2
 4	\N	\N	4	Astrologie	2	400	R	\N	\N	2
 6	\N	\N	1	Askese	1	1500	R	Sb	\N	2
-99	\N	\N	2	Giftmischen	2	100	\N	In	\N	2
 8	\N	\N	\N	YubeChian	\N	200	K	\N	\N	1
 4	\N	\N	5	Zauberkunde	4	100		In	0	2
 4	\N	\N	5	Kräuterkunde	4	100		In	\N	2
@@ -169,7 +167,6 @@ COPY "fertigkeiten"  FROM stdin;
 4	\N	\N	15	Stimmen nachahmen	12	50		In	\N	1
 4	\N	0	\N	Steinabreibungen machen	\N	60	K	\N	\N	1
 4	4	0	15	Steuern	10	60	\N	Gs	\N	1
-99	\N	\N	2	Gaukeln	2	100	\N	Gw	\N	1
 4	\N	3	5	Schätzen	4	100	\N	In	\N	2
 6	\N	\N	8	Schiffsführung	6	150	\N	In	\N	2
 4	\N	3	8	Rechnen	6	100		In	\N	2
@@ -182,6 +179,8 @@ COPY "fertigkeiten"  FROM stdin;
 3	0	0	9	Sprache	4	10		In	\N	2
 6	\N	\N	15	Fälschen	12	150		Gs	\N	3
 4	\N	\N	8	Suchen	6	300	\N	In	3	3
+8	\N	\N	8	Geschäftstüchtigkeit	6	2000	2000	In	8	4
+99	\N	\N	5	Giftmischen	4	100	\N	In	5	2
 \.
 --
 -- TOC Entry ID 3 (OID 30139266)

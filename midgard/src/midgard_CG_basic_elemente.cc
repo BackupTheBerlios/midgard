@@ -4,6 +4,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
 {
   button_beruf_erfolgswert->set_sensitive(true); // falls Lernpunkte für Beruf nicht reichten
   if(mbe.begin()==mbe.end()) return;
+/*
   if((*mbe.begin())->What()==MidgardBasicElement::BERUF)
    {
     list_Beruf=mbe;
@@ -11,9 +12,13 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     show_berufe();
 //    button_beruf_erfolgswert->set_sensitive(true);
    }
+*/
   if((*mbe.begin())->What()==MidgardBasicElement::FERTIGKEIT)
    {
-    list_Fertigkeit = mbe;
+    if(list_Fertigkeit.empty()) // wg. Fertigkeit durch Beruf
+      list_Fertigkeit=mbe;
+    else 
+      list_Fertigkeit.splice(list_Fertigkeit.end(),const_cast<std::list<cH_MidgardBasicElement>& >(mbe));
     maxkido=0;  if (Typ[0]->Short()=="Kd") maxkido=2;
     int KD_tech=0;
     for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
@@ -61,6 +66,14 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
 
 void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe)
 {
+  if(mbe->What()==MidgardBasicElement::BERUF)
+   {
+    list_Beruf.push_back(mbe);
+    Database.ausnahmen.set_Beruf(list_Beruf);
+    show_berufe();
+    hbox_fertigkeit->set_sensitive(true); 
+    table_fertigkeit->set_sensitive(true);
+   }
   if(mbe->What()==MidgardBasicElement::SPRACHE)
    {
     list_Sprache.push_back(mbe);

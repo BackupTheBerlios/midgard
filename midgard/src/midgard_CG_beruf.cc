@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.32 2001/12/05 15:02:53 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.33 2001/12/07 08:53:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@
 void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
-//  manage(new Berufe_auswahl(this,Database,Typ,lernpunkte.Beruf(),Werte));
+  manage(new Berufe_auswahl(this,Database,Typ,Werte));
 }
 
 void midgard_CG::show_berufe()
@@ -44,29 +44,31 @@ void midgard_CG::show_berufe()
 
 gint midgard_CG::on_beruf_erfolgswert_release_event(GdkEventButton *ev)
 {
+/*
   if (ev->button==1) on_beruf_erfolgswert_clicked();
   if (ev->button==3) beruf_erfolgswert_eingeben();
   hbox_fertigkeit->set_sensitive(true);
   table_fertigkeit->set_sensitive(true);
+*/
   return false;
 }
-
+/*
 void midgard_CG::beruf_erfolgswert_eingeben()
 {
 #warning 
 #warning 
 #warning Berufeserfolgswert setzen geht bisher nur für den letzen Beruf
 #warning 
-
   for(std::list<cH_MidgardBasicElement>::iterator i=list_Beruf.begin();i!=list_Beruf.end();++i)
    {
      vbox_beruferfolgswert->show();
      label_beruf_ew->set_text((*i)->Name());   
    }
 }
-
+*/
 void midgard_CG::on_spinbutton_beruferfolgesert_activate()
 {
+/*
   spinbutton_beruferfolgesert->update();
   int x=spinbutton_beruferfolgesert->get_value_as_int();
   std::string beruf=label_beruf_ew->get_text();
@@ -76,8 +78,9 @@ void midgard_CG::on_spinbutton_beruferfolgesert_activate()
    }
   vbox_beruferfolgswert->hide();
   MidgardBasicElement_uebernehmen(list_Beruf);
+*/
 }
-
+/*
 
 void midgard_CG::on_beruf_erfolgswert_clicked()
 {
@@ -108,3 +111,4 @@ std::vector<string> midgard_CG::Berufs_Vorteile()
    }           
  return V;
 }
+*/

@@ -32,11 +32,11 @@
 Berufe_auswahl::Berufe_auswahl(midgard_CG* h,  
   const midgard_CG::st_Database& Database,
   const vector<cH_Typen>& Typ,
-  int lernpunkte, const Grundwerte& Werte)
+  const Grundwerte& Werte)
 {
   hauptfenster=h;
-  maxpunkte = lernpunkte;
-  beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
+//  maxpunkte = lernpunkte;
+//  beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
 
   Gtk::OStream os(berufe_clist_auswahl);
   berufe_clist_auswahl->freeze();
@@ -44,47 +44,84 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h,
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Beruf.begin();i!=Database.Beruf.end();++i)
    {
      cH_Beruf b(*i);
-     (*i)->set_Lernpunkte(b->Lernpunkte());
-//     if(!b->Voraussetzungen(Werte,Typ)) continue;
-      if (hauptfenster->region_check(b->Region()))
-        if(b->Lernpunkte()<=maxpunkte)
-           list_beruf.push_back(*i);
+     if (hauptfenster->region_check(b->Region()))
+         list_beruf.push_back(*i);
    }
-  list_beruf.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
+  list_beruf.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
   for(std::list<cH_MidgardBasicElement>::iterator i=list_beruf.begin();i!=list_beruf.end();++i)
      {
-      cH_Beruf b(*i);
+//      cH_Beruf b(*i);
+//      os <<  ' '<<"\t"<<(*i)->Name()<<'\t';
+      std::vector<string> fert=cH_Beruf(*i)->Vorteile();
+      for(std::vector<string>::const_iterator j=fert.begin();j!=fert.end();++j)
        {
-         os << b->Lernpunkte()<<"\t"<<(*i)->Name()<<"\t"<<b->get_Vorteile()<<"\n";
-         os.flush(&*i);
+         os << "\t"<<(*i)->Name()<<'\t'<< *j<<"\n";
+//         os.flush(i->ref_from_const());
+//         if (++j!=fert.end())
+//            os<<"\t\t";
        }
      }
   for (unsigned int i=0;i<berufe_clist_auswahl->columns().size();++i)
     berufe_clist_auswahl->set_column_auto_resize(i,true);
 
-  berufe_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
-  berufe_clist_auswahl->set_reorderable(true);
+//  berufe_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
+//  berufe_clist_auswahl->set_reorderable(true);
   berufe_clist_auswahl->thaw();
 }
 
 void Berufe_auswahl::on_berufe_clist_auswahl_select_row(gint row, gint column, GdkEvent *event)
 {   
-   if (maxpunkte < atoi(berufe_clist_auswahl->get_text(row,0).c_str() ))
-      {
-         berufe_clist_auswahl->row(row).unselect();
-      }
-   maxpunkte -= atoi(berufe_clist_auswahl->get_text(row,0).c_str());
-   beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
+// << static_cast<MidgardBasicElement*>(berufe_clist_auswahl->get_user_data())->Name() <<'\n';
+//         berufe_clist_auswahl->row(row).unselect();
+
+//  std::string beruf= static_cast<MidgardBasicElement*>(berufe_clist_auswahl->get_user_data())->Name();
+  std::string beruf=berufe_clist_auswahl->get_text(row,1);
+  std::string fert=berufe_clist_auswahl->get_text(row,2);
+  std::list<cH_MidgardBasicElement> saf;
+//  sab.push_back(cH_MidgardBasicElement(new Beruf(beruf)));  
+  saf.push_back(cH_MidgardBasicElement(new Fertigkeit(fert)));  
+  cH_MidgardBasicElement mbe(new Beruf(beruf));
+  hauptfenster->MidgardBasicElement_uebernehmen(mbe);
+  hauptfenster->MidgardBasicElement_uebernehmen(saf);
+  destroy();
 }
 
 void Berufe_auswahl::on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event)
 {   
-   maxpunkte += atoi(berufe_clist_auswahl->get_text(row,0).c_str());
-   beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
+//   maxpunkte += atoi(berufe_clist_auswahl->get_text(row,0).c_str());
+//   beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
 }
 
+//void Berufe_auswahl::on_close_berufe_clicked()
+//{   
+/*
+   std::list<cH_MidgardBasicElement> sab;
+   for (Gtk::CList::SelectionList::iterator i=berufe_clist_auswahl->selection().begin();
+         i!=berufe_clist_auswahl->selection().end();++i)
+     {  
+      cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
+
+  std::list<cH_MidgardBasicElement> sab;
+  sab.push_back(cH_Beruf());  
+  hauptfenster->MidgardBasicElement_uebernehmen(sab);
+
+
+      }
+//   maxpunkte -= atoi(berufe_clist_auswahl->get_text(row,0).c_str());
+//   beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
+*/
+//}
+
+/*
+void Berufe_auswahl::on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event)
+{   
+//   maxpunkte += atoi(berufe_clist_auswahl->get_text(row,0).c_str());
+//   beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
+}
+*/
 void Berufe_auswahl::on_close_berufe_clicked()
 {   
+/*
    std::list<cH_MidgardBasicElement> sab;
    for (Gtk::CList::SelectionList::iterator i=berufe_clist_auswahl->selection().begin();
          i!=berufe_clist_auswahl->selection().end();++i)
@@ -96,10 +133,9 @@ void Berufe_auswahl::on_close_berufe_clicked()
      }
 //  hauptfenster->berufe_uebernehmen(sab);
   hauptfenster->MidgardBasicElement_uebernehmen(sab);
+*/
   destroy();
-
 }
-
 /*
 bool Berufe_auswahl::berufe_voraussetzung(const std::string& beruf, const Grundwerte& Werte, const std::string& typz, const std::string& typ2z)
 {
@@ -139,7 +175,7 @@ bool Berufe_auswahl::berufe_voraussetzung(const std::string& beruf, const Grundw
   else return false ;
 }
 */
-
+/*
 bool Berufe_auswahl::btyp(const std::string& typ, const std::string& typz, const std::string& typ2z)
 {
 //std::cout <<"\t"<<typz<<"\t";
@@ -153,6 +189,7 @@ bool Berufe_auswahl::btyp(const std::string& typ, const std::string& typz, const
 //std::cout << r<<"\n";
  return r;
 }
+*/
 /*
 std::string Berufe_auswahl::Beruf_vorteile(const std::string& beruf)
 {

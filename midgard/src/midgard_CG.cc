@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.90 2001/12/05 15:02:53 thoma Exp $
+// $Id: midgard_CG.cc,v 1.91 2001/12/07 08:53:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -433,7 +433,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    optionmenu_eigenschaft->hide();
      
 
-   button_beruf_erfolgswert->set_sensitive(false);
+//   button_beruf_erfolgswert->set_sensitive(false);
+   button_beruf_erfolgswert->hide();
    button_fertigkeiten->set_sensitive(false);
    button_kido_auswahl->set_sensitive(false);       
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.101 2001/12/04 13:07:17 thoma Exp $
+// $Id: midgard_CG.hh,v 1.102 2001/12/07 08:53:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -265,8 +265,8 @@ class midgard_CG : public midgard_CG_glade
         void show_zauber();
         void zeige_lernpunkte();
         void zeige_notebook();
-        void on_beruf_erfolgswert_clicked();
-        void beruf_erfolgswert_eingeben();
+//        void on_beruf_erfolgswert_clicked();
+//        void beruf_erfolgswert_eingeben();
         gint on_beruf_erfolgswert_release_event(GdkEventButton *ev);
         void on_spinbutton_beruferfolgesert_activate();
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
@@ -425,7 +425,7 @@ class midgard_CG : public midgard_CG_glade
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe);
          void herkunft_uebernehmen(const cH_Land& s);
-         std::vector<string> Berufs_Vorteile();
+//         std::vector<string> Berufs_Vorteile();
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();

@@ -33,7 +33,7 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const midgard_CG::st_Database& D,
 :Typ(_Typ)
 {
   hauptfenster=h;
-  std::vector<string> vorteile=hauptfenster->Berufs_Vorteile();
+//  std::vector<string> vorteile=hauptfenster->Berufs_Vorteile();
   maxpunkte = lernpunkte;
   waffen_auswahl_lernpunkte->set_text(itos(maxpunkte));
   std::list<cH_MidgardBasicElement> LW=D.lernschema.get_List("Waffenfertigkeiten",Typ);
@@ -44,10 +44,10 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const midgard_CG::st_Database& D,
        if (D.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
        if (!hauptfenster->region_check(waffe->Region((*i)->Name()))) continue;
        Lernschema::st_index I(Typ[0]->Short(),"Waffenfertigkeiten",(*i)->Name());
-       int v=0;
-       for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-            if ((*j)==(*i)->Name()) v=1;
-       (*i)->set_Lernpunkte(D.lernschema.get_Lernpunkte(I)-v);
+//       int v=0;
+//       for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
+//            if ((*j)==(*i)->Name()) v=1;
+       (*i)->set_Lernpunkte(D.lernschema.get_Lernpunkte(I));
        list_Waffen.push_back(*i);
      }
     list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));

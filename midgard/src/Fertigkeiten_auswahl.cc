@@ -193,7 +193,7 @@ void Fertigkeiten_auswahl::Allgemeinwissen()
         if (serfolgswert=="0") serfolgswert="";
         if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
-         { os << f->Lernpunkte()<<f->Voraussetzung()<<"\t"<<""<<"\t"<<f->Name()<<"\t"
+         { os << f->Lernpunkte()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
               << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
            os.flush(&*i);
          }
@@ -240,7 +240,7 @@ void Fertigkeiten_auswahl::Unge()
         if (serfolgswert=="0") serfolgswert="";
         if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
-         { os << f->Lernpunkte()<<f->Voraussetzung()<<""<<"\t"<<f->Name()<<"\t"
+         { os << f->Lernpunkte()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
               << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
            os.flush(&*i);
          }
@@ -259,15 +259,24 @@ void Fertigkeiten_auswahl::Unge()
 void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
 {
    std::list<cH_MidgardBasicElement> saf;
-/*
-   for (Gtk::CList::SelectionList::iterator i=fertigkeiten_clist_auswahl->selection().begin();
-         i!=fertigkeiten_clist_auswahl->selection().end();++i)
+   for (Gtk::CList::SelectionList::iterator i=fach_clist_auswahl->selection().begin();i!=fach_clist_auswahl->selection().end();++i)
      {  
       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
       if ((*ptr)->Name() != "Sprache" && (*ptr)->Name() != "Lesen/Schreiben" )
          saf.push_back(*ptr);
      }
-*/
+   for (Gtk::CList::SelectionList::iterator i=allgemein_clist_auswahl->selection().begin();i!=allgemein_clist_auswahl->selection().end();++i)
+     {  
+      cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
+      if ((*ptr)->Name() != "Sprache" && (*ptr)->Name() != "Lesen/Schreiben" )
+         saf.push_back(*ptr);
+     }
+   for (Gtk::CList::SelectionList::iterator i=unge_clist_auswahl->selection().begin();i!=unge_clist_auswahl->selection().end();++i)
+     {  
+      cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
+      if ((*ptr)->Name() != "Sprache" && (*ptr)->Name() != "Lesen/Schreiben" )
+         saf.push_back(*ptr);
+     }
   hauptfenster->MidgardBasicElement_uebernehmen(saf);
   destroy();
 }
