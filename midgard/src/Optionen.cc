@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.57 2002/06/30 20:37:08 thoma Exp $
+// $Id: Optionen.cc,v 1.58 2002/07/01 11:34:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -191,8 +191,10 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
      i->active = b;
      if     (i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
      else if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
-     else if(i->index==NSC_only) {hauptfenster->table_grundwerte->fill_typauswahl();
+     else if(i->index==NSC_only) {hauptfenster->show_NSC_active(i->active);
+                                  hauptfenster->table_grundwerte->fill_typauswahl();
                                   hauptfenster->table_grundwerte->fill_typauswahl_2();} // zum Neuaufbau des Typmenüs
+     else if(i->index==Wizard_immer_starten) hauptfenster->show_wizard_active(i->active);
    }
 //  hauptfenster->fire_enabled=true;
 }

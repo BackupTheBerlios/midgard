@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.hh,v 1.3 2002/07/01 10:24:20 christof Exp $
+// $Id: Windows_Linux.hh,v 1.4 2002/07/01 11:34:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -24,7 +24,7 @@
 #define NUR_LINUX(x...)
 #define WINDOWS_LINUX(a,b) a
 #else
-#define NUR_LINUX(x...) ##x
+#define NUR_LINUX(x...) 
 #define WINDOWS_LINUX(a,b) b
 #endif
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.262 2002/06/29 06:32:31 christof Exp $
+// $Id: midgard_CG.hh,v 1.263 2002/07/01 11:34:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -97,9 +97,8 @@ class midgard_CG : public midgard_CG_glade
         void show_Statusleiste(bool b);
         void show_Icons(bool b);
         void show_Beschriftungen(bool b);
-//        void show_NIcons(bool b);
-//        void show_NBeschriftungen(bool b);
         void show_gw_wuerfeln(bool b);
+        void show_NSC_active(bool b);
    protected:
         Midgard_Optionen* getOptionen() const {return MOptionen;};
         const Midgard_Optionen* getCOptionen() const {return MOptionen;};
@@ -112,6 +111,7 @@ class midgard_CG : public midgard_CG_glade
         void on_wizard_starten_activate();
         void wizard_do_something();
         void set_wizard(std::string s);
+        void show_wizard_active(bool b);
 
         // Load & Save
    private:

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.94 2002/06/28 13:09:10 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.95 2002/07/01 11:34:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -137,96 +137,24 @@ void midgard_CG::show_Beschriftungen(bool b)
  else if(!b &&!i) toolbar_top->hide();
 }
 
-/*
-void midgard_CG::show_NIcons(bool i)
-{
-// bool b=MOptionen->OberCheck(Midgard_Optionen::NBeschriftungen).active;
- if(i)
-  {
-   pixmap_logo->show();
-   pixmap_original_tux->show();
-   pixmap_notebook_grundwerte->show();
-   pixmap_notebook_lernen->show();
-   pixmap_notebook_steigern->show();
-   pixmap_notebook_beschreibung->show();
-   pixmap_notebook_ausruestung->show();
-   pixmap_notebook_optionen->show();
-   pixmap_notebook_news_1->show();
-   pixmap_notebook_news_2->show();
-   table_steigern->pixmap_ns_fertig->show();
-   table_steigern->pixmap_ns_waffen->show();
-   table_steigern->pixmap_ns_zauber->show();
-   table_steigern->pixmap_ns_kido->show();
-   table_steigern->pixmap_ns_sprache->show();
-   table_steigern->pixmap_ns_besitz->show();
-  }
- else
-  {
-   pixmap_logo->hide();
-   pixmap_original_tux->hide();
-   pixmap_notebook_grundwerte->hide();
-   pixmap_notebook_lernen->hide();
-   pixmap_notebook_steigern->hide();
-   pixmap_notebook_beschreibung->hide();
-   pixmap_notebook_ausruestung->hide();
-   pixmap_notebook_optionen->hide();
-   pixmap_notebook_news_1->hide();
-   pixmap_notebook_news_2->hide();
-   table_steigern->pixmap_ns_fertig->hide();
-   table_steigern->pixmap_ns_waffen->hide();
-   table_steigern->pixmap_ns_zauber->hide();
-   table_steigern->pixmap_ns_kido->hide();
-   table_steigern->pixmap_ns_sprache->hide();
-   table_steigern->pixmap_ns_besitz->hide();
-  }
-}
-*/
-/*
-void midgard_CG::show_NBeschriftungen(bool b)
-{
-// bool i=MOptionen->OberCheck(Midgard_Optionen::NIcons).active;
- if(b)
-  {
-   label_notebook_info->show();
-   label_notebook_grundwerte->show();
-   label_notebook_lernen->show();
-   label_notebook_steigern->show();
-   label_notebook_beschreibung->show();
-   label_notebook_ausruestung->show();
-   label_notebook_optionen->show();
-   label_notebook_news->show();
-   table_steigern->label_ns_fertigkeiten->show();
-   table_steigern->label_nw_waffen->show();
-   table_steigern->label_ns_zauber->show();
-   table_steigern->label_ns_kido->show();
-   table_steigern->label_ns_sprache->show();
-   table_steigern->label_ns_besitz->show();
-  }
- else
-  {
-   label_notebook_info->hide();
-   label_notebook_grundwerte->hide();
-   label_notebook_lernen->hide();
-   label_notebook_steigern->hide();
-   label_notebook_beschreibung->hide();
-   label_notebook_ausruestung->hide();
-   label_notebook_optionen->hide();
-   label_notebook_news->hide();
-   table_steigern->label_ns_fertigkeiten->hide();
-   table_steigern->label_nw_waffen->hide();
-   table_steigern->label_ns_zauber->hide();
-   table_steigern->label_ns_kido->hide();
-   table_steigern->label_ns_sprache->hide();
-   table_steigern->label_ns_besitz->hide();
-  }
-}
-*/
-
 void midgard_CG::show_gw_wuerfeln(bool b)
 {
   if(b) table_grundwerte->vbox_gw_wuerfeln->hide();
   else table_grundwerte->vbox_gw_wuerfeln->show();
 }
+
+void midgard_CG::show_NSC_active(bool b)
+{
+  if(b) eventbox_NSC_aktiv->show();
+  else  eventbox_NSC_aktiv->hide();
+}
+
+void midgard_CG::show_wizard_active(bool b)
+{
+  if(b) eventbox_wizard_aktiv->show();
+  else  eventbox_wizard_aktiv->hide();
+}
+
 
 void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region)
 {
