@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.22 2001/12/03 14:32:10 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.23 2001/12/03 14:50:05 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -299,8 +299,9 @@ void fert_speichern(std::ostream &o)
 
 //********************* Berufe ********************
    o << " <Berufe>\n";
+#warning hier noch ge durch gs,gw ersetzen
    exec sql declare beruf_curs cursor for
-   	select beruf, region, lernpunkte, st, gw, gs, ko, "in", zt, pa, au, sb, 
+   	select beruf, region, lernpunkte, st, ge as gw, ge as gs, ko, "in", zt, pa, au, sb, 
    		typ, geschlecht
    	from berufe_voraussetzung
    	order by region, beruf;
