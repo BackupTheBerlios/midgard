@@ -85,27 +85,34 @@ void Waffe::get_Waffe()
   tr.close();
 #else
    assert(tag);
-   const Tag *Modifikationen=tag->find("Modifikationen");
    grundkenntnisse=tag->getAttr("Grundkenntnisse");
    schwierigkeit=tag->getIntAttr("Schwierigkeit");
    art=tag->getAttr("Kategorie");
    art2=tag->getAttr("Klasse");
    schaden=tag->getAttr("Schaden");
    schaden_bonus=tag->getIntAttr("Schadensbonus");
-   waffenrang=Modifikationen->getAttr("")db_waffenrang;
-   wm_abwehr_leicht=tag->getAttr("")db_wm_abwehr_leicht;
-   wm_abwehr_schwer=tag->getAttr("")db_wm_abwehr_schwer;
-   st=tag->getAttr("")db_st;
-   gw=tag->getAttr("")db_gw;
-   gs=tag->getAttr("")db_gs;
    voraussetzung=tag->getAttr("erfordert");
    region=tag->getAttr("Region");
-   reichweite_0=tag->getAttr("")db_reichweite_0;
-   reichweite_n=tag->getAttr("")db_reichweite_n;
-   reichweite_m=tag->getAttr("")db_reichweite_m;
-   reichweite_f=tag->getAttr("")db_reichweite_f;
-   lern_land=tag->getAttr("")db_lern_l;
-   lern_stadt=tag->getAttr("")db_lern_s;
+   
+   const Tag *Modifikationen=tag->find("Modifikationen");
+   waffenrang=Modifikationen->getAttr("Waffenrang");
+   wm_abwehr_leicht=Modifikationen->getAttr("Abwehr-leicht");
+   wm_abwehr_schwer=Modifikationen->getAttr("Abwehr-schwer");
+
+   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
+   st=Voraussetzungen->getIntAttr("St");
+   gw=Voraussetzungen->getIntAttr("Gw");
+   gs=Voraussetzungen->getIntAttr("Gs");
+
+   const Tag *Reichweite=tag->find("Reichweite");
+   reichweite_0=Reichweite->getIntAttr("null");
+   reichweite_n=Reichweite->getIntAttr("nah");
+   reichweite_m=Reichweite->getIntAttr("mittel");
+   reichweite_f=Reichweite->getIntAttr("fern");
+
+   const Tag *Lernkosten=tag->find("Lernkosten");
+   lern_land=Lernkosten->getIntAttr("Land");
+   lern_stadt=Lernkosten->getIntAttr("Stadt");
 #endif
 
    if(Art()=="Verteidigung") erfolgswert=1;
