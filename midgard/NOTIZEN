@@ -5,3 +5,26 @@ gdb .libs/magus
 
 gtk_tree_row_reference_new_proxy
 diff -ru ~/winhome/midgard . | bzip2 -9 > /data/backup/midg_patch0819.bz2
+
+
+-----  Idee für eine neue Anwendung ------------
+
+Liste:
+
+          | Gegner                 | Zustand
+
+SC1       | Wache1 (Wache1.magus)  | Handgemenge
+Gw 87     | Gw 47
+          | 12LP 47AP
+          | Breitschwert, KR       |
+
+usw.
+
+NSC kämpfen gegeneinander, Monster werden benötigt
+
+Zauber? (Unsichtbar, blenden etc.)
+
+Abfrage: wer muss wann was tun (Abwehr gegen X, Angriff, Schaden)
+
+Umgruppieren von Kontrahenten, Handicap (EW-4, Angriff -2, Vert. -3,
+Schaden -1), 
