@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.7 2001/05/15 22:21:41 thoma Exp $
+// $Id: xmlexport.pgcc,v 1.8 2001/05/19 21:12:17 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -73,15 +73,15 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    exec sql allocate descriptor spalten;
    exec sql declare c cursor for
    	select charakter_name, spieler_name, version, grad, 
-   		spezies, geschlecht, typ_s, spezialisierung,
+   		spezies, geschlecht, typ_s, typ_2_s, spezialisierung,
    		st, ge, ko, inn, zt, au, pa,
    		sb, rw, hgw, b, kaw, wlw, abwehr, zaubern,
    		psy, phs, phk, gift, lpbasis, lp, ap, alter, gestalt,
    		gewicht, groesse, stand, herkunft,
    		glaube, db_bo_au_typ, db_bo_au, db_bo_sc, db_bo_an, 
    		db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,
-   		db_bo_gi, db_gfp, gold, silber, kupfer, ruestung,
-   		beschreibung
+   		db_bo_gi, db_gfp, gold, silber, kupfer, 
+   		beschreibung, ruestung
    	from charaktere 
    	where charakter_name=:NAME and version=:VERSION;
    exec sql open c;
@@ -92,7 +92,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    SQLerror::test(__FILELINE__);
    FetchIStream is("spalten");
    o << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n"
-   	"<Midgard-Charakter Version=\"3\">\n";
+   	"<Midgard-Charakter Version=\"4\">\n";
    o << "  <Figur";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Spieler");
@@ -103,6 +103,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    fetch_and_write_string_attrib(is, o, "Spezies");
    fetch_and_write_string_attrib(is, o, "Geschlecht");
    fetch_and_write_string_attrib(is, o, "Abkürzung");
+   fetch_and_write_string_attrib(is, o, "Abkürzung2");
    fetch_and_write_string_attrib(is, o, "Spezialisierung");
    o << "/>\n";
    o << "  <Basiseigenschaften";
@@ -162,19 +163,49 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    o << "/>\n";
    o << "  </Boni>\n"; 
    fetch_and_write_int(is, o, "GFP", 2);
-   o << "  <Vermoegen";
+   o << "  <Vermögen";
    fetch_and_write_int_attrib(is, o, "GS");
    fetch_and_write_int_attrib(is, o, "SS");
    fetch_and_write_int_attrib(is, o, "KS");
    o << "/>\n";
-   fetch_and_write_string(is, o, "Rüstung", 2);
    fetch_and_write_string(is, o, "Text", 2);
-
+   
+   o << "  <Ausrüstung>\n"; // oder Besitz?
+   fetch_and_write_string(is, o, "Rüstung", 4);
+   exec sql declare c3 cursor for
+        select fertigkeit, av_bonus, sl_bonus, region, magisch
+   	from charaktere_fertigkeiten
+   	where charakter_name=:NAME and version=:VERSION and art='Besitz_W' 
+   	order by fertigkeit;
+   exec sql open c3;
+   SQLerror::test(__FILELINE__);
+   while (!sqlca.sqlcode)
+   {  exec sql fetch c3 into sql descriptor spalten;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;
+      string typ;
+      FetchIStream is2("spalten");
+      o << "    <Waffe";
+      fetch_and_write_string_attrib(is2, o, "Bezeichnung");
+      fetch_and_write_int_attrib(is2, o, "AngriffVerteidigung_Bonus");
+      fetch_and_write_int_attrib(is2, o, "SchadenLebenspunkte_Bonus");
+      fetch_and_write_string_attrib(is2, o, "Region");
+      {  string magisch;
+         
+         is2 >> FetchIStream::MapNull<string>(magisch,"");
+         if (!magisch.size()) o << "/>\n";
+         else o << '>' << magisch << "</Waffe>\n";
+      }
+   }
+   exec sql close c3;
+   SQLerror::test(__FILELINE__);
+   o << "  </Ausrüstung>\n";
+   
    o << "  <Fertigkeiten>\n";   
    exec sql declare c2 cursor for
-        select art, fertigkeit, wert, av_bonus, sl_bonus
+        select art, fertigkeit, wert, region
    	from charaktere_fertigkeiten
-   	where charakter_name=:NAME and version=:VERSION
+   	where charakter_name=:NAME and version=:VERSION and art!='Besitz_W'
    	order by art, fertigkeit;
    exec sql open c2;
    SQLerror::test(__FILELINE__);
@@ -187,10 +218,11 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
       is2 >> typ;
       // oder <Beruf Wert=12>Arzt</Beruf> ?
       o << "    <"<<typ;
-      fetch_and_write_string_attrib(is2, o, "Bezeichnung");
+      if (typ!="Region") fetch_and_write_string_attrib(is2, o, "Bezeichnung");
+      else { string dummy; is2 >> dummy; }
       fetch_and_write_int_attrib(is2, o, "Wert");
-      fetch_and_write_int_attrib(is2, o, "AngriffVerteidigung_Bonus");
-      fetch_and_write_int_attrib(is2, o, "SchadenLebenspunkte_Bonus");
+      // dies ist wahrscheinlich unnötig ...
+      fetch_and_write_string_attrib(is2, o, "Region");
       o << "/>\n";
    }
    exec sql close c2;
