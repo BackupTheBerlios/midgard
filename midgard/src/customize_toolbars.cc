@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.13 2002/05/16 08:05:17 christof Exp $
+// $Id: customize_toolbars.cc,v 1.14 2002/06/12 12:55:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -59,6 +59,7 @@ static void CustomizeBox(Gtk::Widget *child, bool show_icons, bool tab_text)
             && Gtk::Pixmap::isA((*j2)->get_widget()))
          {  if (show_icons) w1->show();
             else w1->hide();
+std::cout << "CT debug: "<< w->get_name() << '\n';            
             if (tab_text) w2->show();
             else w2->hide();
          }
