@@ -44,11 +44,21 @@ void frame_globale_optionen::init()
  Gtk::HSeparator *hseparator = manage(new class Gtk::HSeparator());
  table->attach(*hseparator, 0, 1, count, count+1, GTK_FILL, 0, 0, 0);
  ++count;
+ Gtk::Label *label = manage(new class Gtk::Label("Hausregeln"));
+ table->attach(*label, 0, 1, count, count+1, 0, 0, 0, 0);
+ ++count;
  std::list<Midgard_Optionen::st_Haus> L2=hauptfenster->getOptionen()->getHausregeln();
  for(std::list<Midgard_Optionen::st_Haus>::const_iterator i=L2.begin();i!=L2.end();++i)
   {
    Gtk::CheckButton *cb=manage(new Gtk::CheckButton(i->text,0,0.5));
-   cb->set_active(i->active);
+   if(hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Original).active)
+    {
+      cb->set_sensitive(false);
+      cb->set_active(i->active);
+    }
+   else
+      cb->set_active(i->active);
+   
    cb->toggled.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_H),cb,i->index));
    table->attach(*cb,0,1,count,count+1,GTK_FILL,0,0,0);
    ++count;
@@ -60,6 +70,8 @@ void frame_globale_optionen::init()
 void frame_globale_optionen::element_activate_C(Gtk::CheckButton *cb,Midgard_Optionen::OptionenCheckIndex index)
 {
   hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(index,cb->get_active());
+  if(index==Midgard_Optionen::Original)
+   init();
 }
 
 void frame_globale_optionen::element_activate_H(Gtk::CheckButton *cb,Midgard_Optionen::HausIndex index)
