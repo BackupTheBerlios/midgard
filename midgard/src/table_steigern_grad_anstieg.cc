@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.23 2003/09/05 08:33:30 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.24 2003/11/28 08:49:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -86,7 +86,7 @@ void table_steigern::on_button_grad_basiswerte_clicked()
 
 void table_steigern::on_button_grad_basiswerte()
 {
-  if (Programmoptionen.WerteEingebenModel().Value()) 
+  if (hauptfenster->getChar().proxies.werte_eingeben.Value()) 
    {
      spinbutton_eigenschaften_grad_anstieg->show();
      spinbutton_eigenschaften_grad_anstieg->grab_focus();

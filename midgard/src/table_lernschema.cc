@@ -373,7 +373,7 @@ void table_lernschema::lernpflichten_info()
 
 #include "Zufall.hh"
 void table_lernschema::on_lernpunkte_wuerfeln_clicked()
-{ if (Programmoptionen.WerteEingebenModel().Value()) 
+{ if (hauptfenster->getChar().proxies.werte_eingeben.Value()) 
   {  togglebutton_lernpunkte_edit->set_active(true);
      return;
   }
@@ -431,7 +431,7 @@ void table_lernschema::on_button_lernschema_geld()
   hauptfenster->getChar().getWizard().done(Wizard::GELD,hauptfenster->getAben());
   if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernschema_geld->set_sensitive(false);
-  if (Programmoptionen.WerteEingebenModel().Value())
+  if (hauptfenster->getChar().proxies.werte_eingeben.Value())
   {  gwr_auswahl=EGeld1;
      set_gwr_eingabe();
   }
@@ -497,7 +497,7 @@ void table_lernschema::on_button_ruestung()
   hauptfenster->getChar().getWizard().done(Wizard::RUESTUNG,hauptfenster->getAben());
   if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_ruestung->set_sensitive(false);
-   if (!Programmoptionen.WerteEingebenModel().Value())
+   if (!hauptfenster->getChar().proxies.werte_eingeben.Value())
    {  
      int wurf = Random::integer(1,100);
      on_button_ruestung_clicked(wurf);
