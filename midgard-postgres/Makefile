@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.10 2001/04/30 15:16:08 thoma Exp $
+# $Id: Makefile,v 1.11 2001/04/30 15:22:19 christof Exp $
 
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
@@ -69,6 +69,7 @@ install:
 	    psql midgard <"$$i" ; \
 	  fi ; \
 	done
+	psql midgard -c "vacuum analyze"
 
 # install all tables unconditionally - use with care!
 fullinstall:
@@ -77,6 +78,7 @@ fullinstall:
 	  echo "loading $$i" ; \
 	  psql midgard <"$$i" ; \
 	done
+	psql midgard -c "vacuum analyze"
 
 clean:
 	rm *~
