@@ -137,7 +137,7 @@ bool MagusKI::allowed_for_grad(const MBEmlt &M)
 {
   if(M->Kosten(Aben)>0.5*Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1))
    {
-cerr << M->Name() <<" wird nicht neu gelernt, weil es "<<M->Kosten(Aben)
+cerr << M->Name() <<" wird nicht neu gelernt/gesteigert, weil es "<<M->Kosten(Aben)
 <<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '
 <<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
      return false;
