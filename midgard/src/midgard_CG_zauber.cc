@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.39 2001/11/23 09:48:13 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.40 2001/11/25 13:46:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,20 +78,15 @@ void midgard_CG::spezialgebiet_button_fill()
     t_ << (*i)->Name();
     t_.flush((gpointer)&*i);
    }  
-  option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezialgebiet_button));
- } 
+ }
+ option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezialgebiet_button));
 }
 
 void midgard_CG::spezialgebiet_button()
 {
-// int i = int(option_magier_spezialgebiet->get_menu()->get_active()->get_user_da
-// if (i==0) return ;
  cH_Spezialgebiet *ptr = static_cast<cH_Spezialgebiet*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
-
-// string s = *static_cast<const std::string*>(option_magier_spezialgebiet->get
 // if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
-// Werte.set_Spezialisierung(s);
-// Werte.set_Spezialisierung(vec_spezialgebiet[i]);
+cout <<"Spez="<<(*ptr)->Name()<<'\n';
  Werte.set_Spezialgebiet(*ptr);
 
 cout <<"Spez="<<(*ptr)->Name()<<'\n';

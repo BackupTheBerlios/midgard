@@ -1,4 +1,4 @@
-// $Id: Window_angeb_fert.hh,v 1.19 2001/11/04 16:57:23 thoma Exp $
+// $Id: Window_angeb_fert.hh,v 1.20 2001/11/25 13:46:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,7 @@
 
 #include <list>
 class midgard_CG;
-//class H_Data_fert;
+//class H_Data_SimpleTree;
 class cH_Fertigkeit_angeborene;
 class Grundwerte;
 //#include "MidgardBasicElement.hh"

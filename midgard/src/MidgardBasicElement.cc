@@ -9,7 +9,7 @@
 #include "Zauberwerk.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-#include "class_fertigkeiten.hh"
+#include "class_SimpleTree.hh"
 #include "SimpleTree.hh"
 
 /*
@@ -37,16 +37,30 @@ void MidgardBasicElement::show_list_in_tree(
   std::vector<cH_RowDataBase> datavec;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {
-      datavec.push_back(new Data_fert(*i,Typ,ausnahmen));
+      datavec.push_back(new Data_SimpleTree(*i,Typ,ausnahmen));
    }
     Tree->setDataVec(datavec);
 }
 
-void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,std::list<cH_MidgardBasicElement>& nach,const std::string& name)
+void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,
+                                       std::list<cH_MidgardBasicElement>& nach,
+                                       const std::string& name,
+                                       const std::string& art)
 {
  for (std::list<cH_MidgardBasicElement>::iterator i=von.begin();i!= von.end();++i)
-   if ((*i)->Name()==name) 
-     { nach.splice(nach.begin(),von,i);break; }
+  {
+   if((*i)->What()==ZAUBERWERK)
+    {
+//cout << (*i)->Name()<<' '<<name <<' '<< cH_Zauberwerk(*i)->Art()<<' '<<art<<'\n';
+      if ((*i)->Name()==name && cH_Zauberwerk(*i)->Art()==art) 
+        { nach.splice(nach.begin(),von,i);break; }
+    }
+   else
+    {
+      if ((*i)->Name()==name) 
+        { nach.splice(nach.begin(),von,i);break; }
+    }
+  }
 }
 
 bool MidgardBasicElement::ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const

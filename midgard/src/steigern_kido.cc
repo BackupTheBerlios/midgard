@@ -19,7 +19,7 @@
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 //#include "class_kido.hh"
-#include "class_fertigkeiten.hh"
+#include "class_SimpleTree.hh"
 
 void midgard_CG::on_kido_laden_clicked()
 {   
@@ -73,7 +73,7 @@ void midgard_CG::kido_zeigen()
 
 void midgard_CG::on_leaf_selected_alte_kido(cH_RowDataBase d)
 {  
-   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (steigern_bool) desteigern(MBE->Kosten(Typ,Database.ausnahmen));
    Werte.add_GFP(-MBE->Kosten(Typ,Database.ausnahmen));
@@ -83,7 +83,7 @@ void midgard_CG::on_leaf_selected_alte_kido(cH_RowDataBase d)
 
 void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
 {  
-  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
    
   if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
@@ -96,12 +96,12 @@ void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
 void midgard_CG::on_button_kido_sort_clicked()
 {
   std::deque<guint> seq = alte_kido_tree->get_seq();
-  switch((Data_fert::Spalten_KA)seq[0]) {
-      case Data_fert::HOHOa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::HOHO)) ;break;
-      case Data_fert::NAMEa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::NAME)) ;break;
-      case Data_fert::STUFEa_K : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STUFE)) ;break;
-      case Data_fert::APa_K    : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::AP)); break;
-      case Data_fert::STILa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STIL)) ;break;
+  switch((Data_SimpleTree::Spalten_KA)seq[0]) {
+      case Data_SimpleTree::HOHOa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::HOHO)) ;break;
+      case Data_SimpleTree::NAMEa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::NAME)) ;break;
+      case Data_SimpleTree::STUFEa_K : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STUFE)) ;break;
+      case Data_SimpleTree::APa_K    : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::AP)); break;
+      case Data_SimpleTree::STILa_K  : list_Kido.sort(cH_KiDo::sort(cH_KiDo::sort::STIL)) ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

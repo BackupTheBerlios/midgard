@@ -18,7 +18,7 @@
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 //#include "Ausnahmen.hh"
-#include "class_fertigkeiten.hh"
+#include "class_SimpleTree.hh"
 #include "Pflicht.hh"
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
@@ -32,7 +32,10 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
        if (region_check(f->Region()) )
         if (f->Voraussetzungen(Werte)) 
+         {
+            f->set_Erfolgswert(f->Anfangswert());
             list_Fertigkeit_neu.push_back(*i);
+         }
    }
  fertigkeiten_zeigen();
 }
@@ -48,7 +51,7 @@ void midgard_CG::fertigkeiten_zeigen()
 
 void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
- const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+ const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
 
  if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
@@ -97,9 +100,9 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 void midgard_CG::on_button_fertigkeiten_sort_clicked()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
-  switch((Data_fert::Spalten_FA)seq[0]) {
-      case Data_fert::NAMEa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
-      case Data_fert::WERTa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
+  switch((Data_SimpleTree::Spalten_FA)seq[0]) {
+      case Data_SimpleTree::NAMEa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
@@ -118,7 +121,7 @@ bool midgard_CG::kido_steigern_check(int wert)
 
 void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  
-  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
 
   if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;

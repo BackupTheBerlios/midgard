@@ -18,9 +18,7 @@
 
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
-//#include "Ausnahmen.hh"
-//#include "class_zauber.hh"
-#include "class_fertigkeiten.hh"
+#include "class_SimpleTree.hh"
 #include "zufall.h"
 
 void midgard_CG::on_zauber_laden_clicked()
@@ -54,7 +52,7 @@ void midgard_CG::zauber_zeigen()
 
 void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
 {  
-   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
    cH_MidgardBasicElement MBE = dt->getMBE();
    int kosten = MBE->Kosten(Typ,Database.ausnahmen);
    if(spruchrolle->get_active()) kosten/=5;
@@ -69,7 +67,7 @@ void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
 
 void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
 {  
-  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   int kosten = MBE->Kosten(Typ,Database.ausnahmen);
   if(spruchrolle->get_active()) kosten/=10;
@@ -181,10 +179,10 @@ bool midgard_CG::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
 void midgard_CG::on_button_zauber_sort_clicked()
 {
   std::deque<guint> seq = alte_zauber_tree->get_seq();
-  switch((Data_fert::Spalten_ZA)seq[0]) {
-      case Data_fert::NAMEa_Z  : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
-      case Data_fert::STUFEa_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::STUFE)); ;break;
-      case Data_fert::URSPRUNGa_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
+  switch((Data_SimpleTree::Spalten_ZA)seq[0]) {
+      case Data_SimpleTree::NAMEa_Z  : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
+      case Data_SimpleTree::STUFEa_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::STUFE)); ;break;
+      case Data_SimpleTree::URSPRUNGa_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
@@ -196,10 +194,10 @@ void midgard_CG::on_button_zauber_sort_clicked()
 void midgard_CG::on_button_zaubermittel_sort_clicked()
 {
   std::deque<guint> seq = alte_zaubermittel_tree->get_seq();
-  switch((Data_fert::Spalten_ZWA)seq[0]) {
-      case Data_fert::NAMEa_ZW  : list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::NAME)) ;break;
-      case Data_fert::STUFEa_ZW : list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::STUFE)) ;break;
-      case Data_fert::ARTa_ZW :   list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::ART));break;
+  switch((Data_SimpleTree::Spalten_ZWA)seq[0]) {
+      case Data_SimpleTree::NAMEa_ZW  : list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::NAME)) ;break;
+      case Data_SimpleTree::STUFEa_ZW : list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::STUFE)) ;break;
+      case Data_SimpleTree::ARTa_ZW :   list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::ART));break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
@@ -207,11 +205,11 @@ void midgard_CG::on_button_zaubermittel_sort_clicked()
 
 void midgard_CG::on_leaf_selected_alte_zauberwerk(cH_RowDataBase d)
 {  
- const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+ const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
  if (steigern_bool) desteigern(MBE->Kosten(Typ,Database.ausnahmen));
  Werte.add_GFP(-MBE->Kosten(Typ,Database.ausnahmen));
- MidgardBasicElement::move_element(list_Zauberwerk,list_Zauberwerk_neu,MBE->Name());
+ MidgardBasicElement::move_element(list_Zauberwerk,list_Zauberwerk_neu,MBE->Name(),cH_Zauberwerk(MBE)->Art());
  zauberwerk_zeigen();
 }
 
@@ -226,11 +224,11 @@ void midgard_CG::zauberwerk_zeigen()
 
 void midgard_CG::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
 {  
-  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));  
-  MidgardBasicElement::move_element(list_Zauberwerk_neu,list_Zauberwerk,MBE->Name());
+  MidgardBasicElement::move_element(list_Zauberwerk_neu,list_Zauberwerk,MBE->Name(),cH_Zauberwerk(MBE)->Art());
   zauberwerk_zeigen();
 }
 

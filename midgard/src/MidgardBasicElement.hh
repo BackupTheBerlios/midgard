@@ -66,7 +66,10 @@ class MidgardBasicElement : public HandleContent
          {return Name()==b.Name();}
 
 
-      static void move_element(std::list<cH_MidgardBasicElement>& von,std::list<cH_MidgardBasicElement>& nach,const std::string& name);
+      static void move_element(std::list<cH_MidgardBasicElement>& von,
+                               std::list<cH_MidgardBasicElement>& nach,
+                               const std::string& name,
+                               const std::string& art="");
       static void show_list_in_tree(
             const std::list<cH_MidgardBasicElement>& BasicList,
             SimpleTree *Tree, 

@@ -19,7 +19,7 @@
 #include "midgard_CG.hh"
 #include "zufall.h"
 #include "WaffeGrund.hh"
-#include "class_fertigkeiten.hh"
+#include "class_SimpleTree.hh"
 #include "Pflicht.hh"
 
 
@@ -60,7 +60,7 @@ void midgard_CG::waffen_zeigen()
 void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
 {  
 //  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
-  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
@@ -83,7 +83,7 @@ void midgard_CG::on_waffengrund_laden_clicked()
 
 void midgard_CG::on_leaf_selected_neue_waffen(cH_RowDataBase d)
 {  
-  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MidgardBasicElement::move_element(list_Waffen_neu,list_Waffen,dt->getMBE()->Name());
   waffen_zeigen();
 }
@@ -94,7 +94,7 @@ void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
   strinfo +="GFP angepaßt, noch die bereits gelernten Waffen, die zu dieser\n";
   strinfo +="Grundkenntnis gehöhren, verlernt\n";
   WindowInfo(strinfo,true);
- const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+ const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
  if (radiobutton_grundkenntnisse_verlernen->get_active())
    {
@@ -106,7 +106,7 @@ void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
 
 void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
 {  
-   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (radio_waffen_steigern->get_active())
       {
@@ -181,9 +181,9 @@ void midgard_CG::on_radiobutton_praxis_auto_waffen_toggled()
 void midgard_CG::on_button_waffen_sort_clicked()
 {
   std::deque<guint> seq = alte_waffen_tree->get_seq();
-  switch((Data_fert::Spalten_WA)seq[0]) {
-      case Data_fert::WERTa_W : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
-      case Data_fert::NAMEa_W : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
+  switch((Data_SimpleTree::Spalten_WA)seq[0]) {
+      case Data_SimpleTree::WERTa_W : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
+      case Data_SimpleTree::NAMEa_W : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

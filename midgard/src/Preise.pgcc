@@ -1,0 +1,164 @@
+/*  Midgard Character Generator
+ *  Copyright (C) 2001 Malte Thoma
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+// generated 2001/2/11 14:16:06 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "Preise.hh"
+//#include <cstring>
+//#include <Gtk_OStream.h>
+//#include "itos.h"
+#include <gtk--/main.h>
+
+cH_Preise::cache_t cH_Preise::cache;
+
+cH_Preise::cH_Preise(const std::string& name)
+{
+// st_index index(name,Typ);
+ cH_Preise *cached(cache.lookup(name));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_Preise(new Preise(name));
+   cache.Register(name,*this);
+  }
+}
+
+
+void Preise::get_Preise()
+{
+  exec sql begin declare section;
+   char db_name[50],db_art[50],db_einheit[20];
+   int db_kosten;
+  exec sql end declare section;
+
+  strncpy(db_name,Name().c_str(),sizeof(db_name));
+  exec sql select kosten,einheit,art
+       into :db_kosten,:db_einheit,:db_art
+       from preise where name = :db_name;
+  SQLerror::test(__FILELINE__);
+  einheit=db_einheit;
+  art=db_art;
+  kosten=db_kosten;
+}
+
+Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
+{
+ exec sql begin declare section;
+   char db_name[100];
+   int db_size;
+ exec sql end declare section;
+ exec sql select count(name) into :db_size from preise;
+ exec sql declare Pein cursor for select distinct name from preise;
+ Transaction tr;
+ exec sql open Pein; 
+ SQLerror::test(__FILELINE__);
+ double count=0;  
+ while(true)
+  {
+   progressbar->set_percentage(count/db_size);
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+   exec sql fetch Pein into :db_name;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+//   list_All.push_back(new Preise(db_name));
+   ++count;
+  }
+ exec sql close Pein;
+ tr.close();
+ progressbar->set_percentage(1);
+}  
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+cH_PreiseMod::cache_t cH_PreiseMod::cache;
+
+cH_PreiseMod::cH_PreiseMod(const std::string& art)
+{
+ cH_PreiseMod *cached(cache.lookup(art));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_PreiseMod(new PreiseMod(art));
+   cache.Register(art,*this);
+  }
+}
+
+
+
+void PreiseMod::get_PreiseMod()
+{
+  exec sql begin declare section;
+   char db_name[50],db_typ[50],db_art[50],db_einheit[20];
+   float db_faktor;
+   int db_min;
+  exec sql end declare section;
+  strncpy(db_art,Art().c_str(),sizeof(db_art));
+  exec sql declare PM2ein cursor for select 
+    name,faktor,min,coalesce(einheit,''),coalesce(typ,'') 
+    from preise_modifikation where art =:db_art;
+  Transaction tr;
+  exec sql open PM2ein; 
+  SQLerror::test(__FILELINE__);
+  while(true)
+   {
+    exec sql fetch PM2ein into :db_name,:db_faktor,:db_min,:db_einheit,:db_typ;
+    SQLerror::test(__FILELINE__,100);
+    if (sqlca.sqlcode) break;
+    vec_mod.push_back(st_vec(db_name,db_einheit,db_typ,db_faktor,db_min));
+   }
+  exec sql close PM2ein;
+  tr.close();
+}
+
+
+
+
+PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
+{
+ exec sql begin declare section;
+   char db_art[100];
+   int db_size;
+ exec sql end declare section;
+ exec sql select count(distinct art) into :db_size from preise_modifikation;
+ exec sql declare PMein cursor for select distinct name from preise_modifikation;
+ Transaction tr;
+ exec sql open PMein; 
+ SQLerror::test(__FILELINE__);
+ double count=0;  
+ while(true)
+  {
+   progressbar->set_percentage(count/db_size);
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+   exec sql fetch PMein into :db_art;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+//   list_All.push_back(new PreiseMod(db_art));
+   ++count;
+  }
+ exec sql close PMein;
+ tr.close();
+ progressbar->set_percentage(1);
+}  
+

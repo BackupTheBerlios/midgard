@@ -19,7 +19,7 @@
 #include "midgard_CG.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-#include "class_fertigkeiten.hh"
+#include "class_SimpleTree.hh"
 
 void midgard_CG::on_schrift_laden_clicked()
 {   
@@ -68,7 +68,7 @@ void midgard_CG::sprachen_zeigen()
 
 void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 {  
-   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);  
+   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
    Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
@@ -79,7 +79,7 @@ void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
     
 void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
-   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);  
+   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (radio_sprache_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
@@ -122,9 +122,9 @@ void midgard_CG::on_radio_sprache_verlernen_toggled()
 void midgard_CG::on_button_sprache_sort_clicked()
 {
   std::deque<guint> seq = alte_sprache_tree->get_seq();
-  switch((Data_fert::Spalten_SPA)seq[0]) {
-      case Data_fert::NAMEa_SP : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
-      case Data_fert::WERTa_SP : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
+  switch((Data_SimpleTree::Spalten_SPA)seq[0]) {
+      case Data_SimpleTree::NAMEa_SP : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa_SP : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
@@ -132,7 +132,7 @@ void midgard_CG::on_button_sprache_sort_clicked()
 
 void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 {  
-   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);  
+   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (steigern_bool) desteigern(MBE->Kosten(Typ,Database.ausnahmen));
    Werte.add_GFP(-MBE->Kosten(Typ,Database.ausnahmen));
@@ -142,7 +142,7 @@ void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
     
 void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  
-   const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);  
+   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
    Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));

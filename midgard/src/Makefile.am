@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.76 2001/11/21 10:46:34 christof Exp $
+# $Id: Makefile.am,v 1.77 2001/11/25 13:46:08 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -31,6 +31,7 @@ noinst_HEADERS = \
    Spezialgebiet.hh \
    Praxispunkte.hh \
    Lernschema.hh \
+   Preise.hh \
 WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
@@ -66,15 +67,18 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh \
    class_lernpunkte.hh \
-   class_fertigkeiten.hh \
+   class_SimpleTree.hh \
    Spezies.hh \
    Typen.hh \
    Window_Erfahrungspunkte.hh \
-   Window_Erfahrungspunkte_glade.hh
+   Window_Erfahrungspunkte_glade.hh \
+   window_Ausruestung_glade.hh \
+   window_Ausruestung.hh
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
 BUILT_SOURCES_CG =  \
+   Preise.cc \
    Beruf.cc \
    Lernschema.cc \
    Praxispunkte.cc \
@@ -114,6 +118,8 @@ midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 
 midgard_SOURCES = \
+   window_Ausruestung_glade.cc \
+   window_Ausruestung.cc \
    Berufe_auswahl.cc \
    $(BUILT_SOURCES_CG) \
    Fertigkeiten_auswahl.cc \

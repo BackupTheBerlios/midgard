@@ -9,7 +9,7 @@
 class KiDo : public MidgardBasicElement
 {
    std::string hoho,name,stufe;
-   int ap;//,kosten;
+   int ap;
    std::string stil, effekt;
 
    void get_KiDo();
@@ -30,8 +30,6 @@ class KiDo : public MidgardBasicElement
  int Ap() const {  return ap; }
  std::string Stil() const {  return stil; }
  std::string Effekt() const {  return effekt; }
-// std::string Region() const { return "K";}
-// int Erfolgswert()
 
  static int get_erfolgswert_kido(const std::list<cH_MidgardBasicElement>& L);
  static std::map<std::string,int> maxkidostil(const std::list<cH_MidgardBasicElement>& list_Kido);
@@ -77,7 +75,4 @@ class KiDo_All
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 
-
-
- 
 #endif
