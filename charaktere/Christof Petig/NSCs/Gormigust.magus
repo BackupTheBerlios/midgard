@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Gormigust" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ma" Überleben="Überleben im Gebirge" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="82" Gw="53" Gs="70" Ko="89" In="81" Zt="89"/>
+  <abgeleiteteEigenschaften Au="58" pA="109" Wk="38" Sb="92" B="23"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="16" AP="8"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="80" Größe="178" Stand="Mittelschicht" Herkunft="Alba"/>
+  <Vermögen/>
+  <Steigern GFP="45100" benötigte_Tage="4509">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="6"/>
+   <Beruf Bezeichnung="Alchimist"/>
+   <Fertigkeit Bezeichnung="Alchimie" Wert="4"/>
+   <Zauber Bezeichnung="Angst"/>
+   <Zauber Bezeichnung="Augenschleier"/>
+   <Zauber Bezeichnung="Bannen von Zauberwerk"/>
+   <Zauber Bezeichnung="Beeinflussen"/>
+   <Zauber Bezeichnung="Blendwerk"/>
+   <Zauber Bezeichnung="Dinge wiederfinden"/>
+   <Zauber Bezeichnung="Erkennen von Leben"/>
+   <Zauber Bezeichnung="Erkennen von Zauberei"/>
+   <Zauber Bezeichnung="Erscheinungen"/>
+   <Zauber Bezeichnung="Feuerkugel"/>
+   <Zauber Bezeichnung="Freundesauge"/>
+   <Zauber Bezeichnung="Funkenregen"/>
+   <Zauber Bezeichnung="Hören der Geister"/>
+   <Zauber Bezeichnung="Hören von Fernem"/>
+   <Zauber Bezeichnung="Macht über Unbelebtes"/>
+   <Zauber Bezeichnung="Macht über das Selbst"/>
+   <Zauber Bezeichnung="Macht über die Sinne"/>
+   <Zauber Bezeichnung="Macht über die belebte Natur"/>
+   <Zauber Bezeichnung="Namenloses Grauen"/>
+   <Zauber Bezeichnung="Nebel schaffen"/>
+   <Zauber Bezeichnung="Nebel wecken"/>
+   <Zauber Bezeichnung="Pflanzenmann"/>
+   <Zauber Bezeichnung="Reise der Seele"/>
+   <Zauber Bezeichnung="Schlaf"/>
+   <Zauber Bezeichnung="Sehen in Dunkelheit"/>
+   <Zauber Bezeichnung="Sehen von Verborgenem"/>
+   <Zauber Bezeichnung="Tiere rufen"/>
+   <Zauber Bezeichnung="Tierisches Handeln"/>
+   <Zauber Bezeichnung="Tiersprache" Zusatz="Vögel"/>
+   <Zauber Bezeichnung="Tiersprache" Zusatz="Säugetiere"/>
+   <Zauber Bezeichnung="Todeshauch"/>
+   <Zauber Bezeichnung="Unsichtbarkeit"/>
+   <Zauber Bezeichnung="Verwirren"/>
+   <Zauber Bezeichnung="Wetterzauber"/>
+   <Zauber Bezeichnung="Windstoß"/>
+   <Zauber Bezeichnung="Zauberwirklichkeit"/>
+   <Zauber Bezeichnung="Zwiesprache"/>
+   <Sprache Bezeichnung="Albisch" Wert="19"/>
+   <Urschrift Bezeichnung="Albisch" Wert="13"/>
+   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
+   <Optionen Name="Originalregeln" Wert="false"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>
