@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.9 2001/11/15 07:51:27 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.10 2001/11/15 10:20:46 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -91,7 +91,8 @@ void fert_speichern(std::ostream &o)
          }
          o << "</Ausnahme>\n";
       }
-      
+
+      //********** Lernschema      
       // wert, attribut, [p+s]_element 
       exec sql declare cursor_lp cursor for 
       	select typ,lernpunkte,pflicht from lernschema 
@@ -109,6 +110,18 @@ void fert_speichern(std::ostream &o)
          o << "/>\n";
       }
       exec sql close cursor_lp;
+
+// ************************* Steigern wie *****************************
+      {  exec sql begin declare section;
+      	 char STEIGERN_WIE[100];
+         exec sql end declare section;
+         
+         exec sql select wie into :STEIGERN_WIE 
+         	from steigern_fertigkeiten
+         	where name=:FERTIGK;
+         if (!sqlca.sqlcode && fert!=STEIGERN_WIE)
+            o << "    <steigern_wie Fertigkeit=\"" << toXML(STEIGERN_WIE) << "\"/>\n";
+      }
    }
    
    o << "  </Fertigkeit>\n";
