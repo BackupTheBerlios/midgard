@@ -32,6 +32,10 @@
   <Fertigkeiten>
     <Sinn Bezeichnung="Riechen" Wert="8"/>
     <Sinn Bezeichnung="Tasten" Wert="8"/>
+    <Sinn Bezeichnung="Hören" Wert="8"/>
+    <Sinn Bezeichnung="Sehen" Wert="8"/>
+    <Sinn Bezeichnung="Schmecken" Wert="4"/>
+    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
     <Beruf Bezeichnung="Gelehrte" Wert="14"/>
     <ang-Fertigkeit Bezeichnung="Geschmacksschwäche"/>
     <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
