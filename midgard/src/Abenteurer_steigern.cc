@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.21 2003/01/23 15:28:25 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.22 2003/03/10 07:27:10 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -213,6 +213,11 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
     {
       if(pp>=use_pp)  ep_k = rest_aep; 
       else            {ep_k = rest_aep + 40*(use_pp-pp); use_pp=pp;}
+      if(ep_k > use_pp*40)
+       {
+         info+="Höchstens die Hälfte der GFP darf beim 'Steigern mit PP' durch die Hälfte der GFP darf beim 'Steigern mit PP' durch EP bestritten werden"; 
+         return false;
+       }
     }  
    else
     {  
