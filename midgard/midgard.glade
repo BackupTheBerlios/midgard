@@ -13,6 +13,11 @@
   <property name="modal">False</property>
   <property name="resizable">True</property>
   <property name="destroy_with_parent">False</property>
+  <property name="decorated">True</property>
+  <property name="skip_taskbar_hint">False</property>
+  <property name="skip_pager_hint">False</property>
+  <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
+  <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <signal name="delete_event" handler="on_midgard_CG_delete_event"/>
   <signal name="button_press_event" handler="on_eventbox_MCG_button_press_event"/>
 
@@ -40,129 +45,243 @@
 	      <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
 	      <property name="toolbar_style">GTK_TOOLBAR_BOTH</property>
 	      <property name="tooltips">True</property>
+	      <property name="show_arrow">True</property>
 
 	      <child>
-		<widget class="Custom" id="button_neuer_charakter">
-		  <property agent="glademm" name="cxx_visibility">protected</property>
+		<widget class="GtkToolItem" id="toolitem1">
 		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="creation_function">ChoiceButton</property>
-		  <property name="int1">0</property>
-		  <property name="int2">0</property>
-		  <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
+
+		  <child>
+		    <widget class="Custom" id="button_neuer_charakter">
+		      <property agent="glademm" name="cxx_visibility">protected</property>
+		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
+		      <property name="creation_function">ChoiceButton</property>
+		      <property name="int1">0</property>
+		      <property name="int2">0</property>
+		      <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+		    </widget>
+		  </child>
 		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">False</property>
+		</packing>
 	      </child>
 
 	      <child>
-		<widget class="button" id="button9">
+		<widget class="GtkToolButton" id="button9">
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">Abenteurer laden</property>
 		  <property name="can_focus">True</property>
 		  <property name="label" translatable="yes">Öffnen</property>
 		  <property name="use_underline">True</property>
 		  <property name="icon">LoadChar-trans-50.xpm</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
 		  <signal name="clicked" handler="on_laden"/>
 		</widget>
-	      </child>
-
-	      <child>
-		<widget class="Custom" id="button_speichern">
-		  <property agent="glademm" name="cxx_visibility">protected</property>
-		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="creation_function">ChoiceButton</property>
-		  <property name="int1">0</property>
-		  <property name="int2">0</property>
-		  <property name="last_modification_time">Mon, 14 Apr 2003 20:37:51 GMT</property>
-		</widget>
-	      </child>
-
-	      <child>
-		<widget class="Custom" id="button_main_drucken">
-		  <property agent="glademm" name="cxx_visibility">protected</property>
-		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="creation_function">ChoiceButton</property>
-		  <property name="int1">0</property>
-		  <property name="int2">0</property>
-		  <property name="last_modification_time">Mon, 14 Apr 2003 20:32:01 GMT</property>
-		</widget>
-	      </child>
-
-	      <child>
-		<widget class="Custom" id="button_undo">
-		  <property agent="glademm" name="cxx_visibility">protected</property>
-		  <property name="visible">True</property>
-		  <property name="tooltip" translatable="yes">Letzte Änderung rückgängig machen.</property>
-		  <property name="can_focus">True</property>
-		  <property name="creation_function">DoubleButton</property>
-		  <property name="int1">0</property>
-		  <property name="int2">0</property>
-		  <property name="last_modification_time">Mon, 14 Apr 2003 20:19:56 GMT</property>
-		  <signal name="clicked" handler="on_button_undo_clicked"/>
-		  <signal name="secondpressed" handler="on_undo_secondpressed" last_modification_time="Mon, 14 Apr 2003 20:20:58 GMT"/>
-		</widget>
 		<packing>
-		  <property name="new_group">True</property>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">True</property>
 		</packing>
 	      </child>
 
 	      <child>
-		<widget class="Custom" id="button_redo">
-		  <property agent="glademm" name="cxx_visibility">protected</property>
+		<widget class="GtkToolItem" id="toolitem2">
 		  <property name="visible">True</property>
-		  <property name="tooltip" translatable="yes">Rückgängmachen rückgängig machen</property>
-		  <property name="can_focus">True</property>
-		  <property name="creation_function">DoubleButton</property>
-		  <property name="int1">0</property>
-		  <property name="int2">0</property>
-		  <property name="last_modification_time">Mon, 14 Apr 2003 20:20:12 GMT</property>
-		  <signal name="clicked" handler="on_button_redo_clicked"/>
-		  <signal name="secondpressed" handler="on_redo_secondpressed" last_modification_time="Mon, 14 Apr 2003 20:20:41 GMT"/>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
+
+		  <child>
+		    <widget class="Custom" id="button_speichern">
+		      <property agent="glademm" name="cxx_visibility">protected</property>
+		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
+		      <property name="creation_function">ChoiceButton</property>
+		      <property name="int1">0</property>
+		      <property name="int2">0</property>
+		      <property name="last_modification_time">Mon, 14 Apr 2003 20:37:51 GMT</property>
+		    </widget>
+		  </child>
 		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">False</property>
+		</packing>
 	      </child>
 
 	      <child>
-		<widget class="button" id="button_menu">
+		<widget class="GtkToolItem" id="toolitem3">
+		  <property name="visible">True</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
+
+		  <child>
+		    <widget class="Custom" id="button_main_drucken">
+		      <property agent="glademm" name="cxx_visibility">protected</property>
+		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
+		      <property name="creation_function">ChoiceButton</property>
+		      <property name="int1">0</property>
+		      <property name="int2">0</property>
+		      <property name="last_modification_time">Mon, 14 Apr 2003 20:32:01 GMT</property>
+		    </widget>
+		  </child>
+		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">False</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkToolItem" id="toolitem4">
+		  <property name="visible">True</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
+
+		  <child>
+		    <widget class="Custom" id="button_undo">
+		      <property agent="glademm" name="cxx_visibility">protected</property>
+		      <property name="visible">True</property>
+		      <property name="tooltip" translatable="yes">Letzte Änderung rückgängig machen.</property>
+		      <property name="can_focus">True</property>
+		      <property name="creation_function">DoubleButton</property>
+		      <property name="int1">0</property>
+		      <property name="int2">0</property>
+		      <property name="last_modification_time">Mon, 14 Apr 2003 20:19:56 GMT</property>
+		      <signal name="clicked" handler="on_button_undo_clicked"/>
+		      <signal name="secondpressed" handler="on_undo_secondpressed" last_modification_time="Mon, 14 Apr 2003 20:20:58 GMT"/>
+		    </widget>
+		  </child>
+		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">False</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkToolItem" id="toolitem5">
+		  <property name="visible">True</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
+
+		  <child>
+		    <widget class="Custom" id="button_redo">
+		      <property agent="glademm" name="cxx_visibility">protected</property>
+		      <property name="visible">True</property>
+		      <property name="tooltip" translatable="yes">Rückgängmachen rückgängig machen</property>
+		      <property name="can_focus">True</property>
+		      <property name="creation_function">DoubleButton</property>
+		      <property name="int1">0</property>
+		      <property name="int2">0</property>
+		      <property name="last_modification_time">Mon, 14 Apr 2003 20:20:12 GMT</property>
+		      <signal name="clicked" handler="on_button_redo_clicked"/>
+		      <signal name="secondpressed" handler="on_redo_secondpressed" last_modification_time="Mon, 14 Apr 2003 20:20:41 GMT"/>
+		    </widget>
+		  </child>
+		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">False</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkSeparatorToolItem" id="separatortoolitem1">
+		  <property name="visible">True</property>
+		  <property name="draw">True</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">False</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkToolButton" id="button_menu">
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</property>
 		  <property name="can_focus">True</property>
 		  <property name="label" translatable="yes">Menü</property>
 		  <property name="use_underline">True</property>
 		  <property name="icon">wizzard-trans-50_2.xpm</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
 		  <signal name="clicked" handler="on_button_menu"/>
 		</widget>
 		<packing>
-		  <property name="new_group">True</property>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">True</property>
 		</packing>
 	      </child>
 
 	      <child>
-		<widget class="button" id="button_info">
+		<widget class="GtkToolButton" id="button_info">
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">Info</property>
 		  <property name="can_focus">True</property>
 		  <property name="label" translatable="yes">Info</property>
 		  <property name="use_underline">True</property>
 		  <property name="icon">Info-trans-50.xpm</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
 		  <signal name="clicked" handler="on_button_info_clicked"/>
 		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">True</property>
+		</packing>
 	      </child>
 
 	      <child>
-		<widget class="button" id="button_html_hilfe">
+		<widget class="GtkToolButton" id="button_html_hilfe">
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">HTML Hilfe</property>
 		  <property name="can_focus">True</property>
 		  <property name="label" translatable="yes">Anleitung</property>
 		  <property name="use_underline">True</property>
 		  <property name="icon">Help-trans-50.xpm</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
 		  <signal name="clicked" handler="on_button_html_hilfe_clicked"/>
 		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">True</property>
+		</packing>
 	      </child>
 
 	      <child>
-		<widget class="button" id="button_schliessen">
+		<widget class="GtkSeparatorToolItem" id="separatortoolitem2">
+		  <property name="visible">True</property>
+		  <property name="draw">True</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">False</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkToolButton" id="button_schliessen">
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">Schließen</property>
@@ -170,10 +289,14 @@
 		  <property name="label" translatable="yes">Schließen</property>
 		  <property name="use_underline">True</property>
 		  <property name="icon">Exit-trans-50.xpm</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
 		  <signal name="clicked" handler="on_schliessen_CG_clicked"/>
 		</widget>
 		<packing>
-		  <property name="new_group">True</property>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">True</property>
 		</packing>
 	      </child>
 	    </widget>
@@ -729,6 +852,8 @@
 		<widget class="GtkEventBox" id="grundwerte_background">
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
+		  <property name="visible_window">True</property>
+		  <property name="above_child">False</property>
 		  <signal name="realize" handler="grundwerte_background_create" after="yes" last_modification_time="Sun, 12 Oct 2003 22:02:43 GMT"/>
 
 		  <child>
@@ -1512,6 +1637,8 @@
 			    <widget class="GtkEventBox" id="eventbox11">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Tage, die durch steigern/neulernen verstrichen sind und noch nicht dem Alter hinzuaddiert wurden.</property>
+			      <property name="visible_window">True</property>
+			      <property name="above_child">False</property>
 
 			      <child>
 				<widget class="GtkFrame" id="frame93">
@@ -1573,6 +1700,8 @@
 			    <widget class="GtkEventBox" id="eventbox12">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Göttliche Gnade</property>
+			      <property name="visible_window">True</property>
+			      <property name="above_child">False</property>
 
 			      <child>
 				<widget class="GtkFrame" id="frame95">
@@ -1634,6 +1763,8 @@
 			    <widget class="GtkEventBox" id="eventbox13">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Schicksalsgunst</property>
+			      <property name="visible_window">True</property>
+			      <property name="above_child">False</property>
 
 			      <child>
 				<widget class="GtkFrame" id="frame96">
@@ -1695,6 +1826,8 @@
 			    <widget class="GtkEventBox" id="eventbox14">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">GesamtFertigkeitsPunkte</property>
+			      <property name="visible_window">True</property>
+			      <property name="above_child">False</property>
 
 			      <child>
 				<widget class="GtkFrame" id="frame97">
@@ -1972,56 +2105,66 @@
 			  <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
 			  <property name="toolbar_style">GTK_TOOLBAR_BOTH</property>
 			  <property name="tooltips">True</property>
+			  <property name="show_arrow">True</property>
 
 			  <child>
-			    <widget class="GtkCombo" id="combo_spezies">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
+			    <widget class="GtkToolItem" id="toolitem6">
 			      <property name="visible">True</property>
-			      <property name="value_in_list">True</property>
-			      <property name="allow_empty">False</property>
-			      <property name="case_sensitive">False</property>
-			      <property name="enable_arrow_keys">True</property>
-			      <property name="enable_arrows_always">False</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 
-			      <child internal-child="entry">
-				<widget class="GtkEntry" id="combo_spezies">
+			      <child>
+				<widget class="GtkCombo" id="combo_spezies">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
-				  <property name="can_focus">True</property>
-				  <property name="editable">True</property>
-				  <property name="visibility">True</property>
-				  <property name="max_length">0</property>
-				  <property name="text" translatable="yes"></property>
-				  <property name="has_frame">True</property>
-				  <property name="invisible_char" translatable="yes">*</property>
-				  <property name="activates_default">False</property>
-				  <signal name="activate" handler="on_combo_spezies_activate"/>
-				  <signal name="focus_out_event" handler="on_combo_spezies_focus_out_event"/>
-				  <signal name="changed" handler="on_combo_spezies_changed"/>
-				</widget>
-			      </child>
+				  <property name="value_in_list">True</property>
+				  <property name="allow_empty">False</property>
+				  <property name="case_sensitive">False</property>
+				  <property name="enable_arrow_keys">True</property>
+				  <property name="enable_arrows_always">False</property>
 
-			      <child internal-child="list">
-				<widget class="GtkList" id="convertwidget9">
-				  <property name="visible">True</property>
-				  <property name="selection_mode">GTK_SELECTION_BROWSE</property>
-
-				  <child>
-				    <widget class="GtkListItem" id="convertwidget10">
+				  <child internal-child="entry">
+				    <widget class="GtkEntry" id="combo_spezies">
 				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
+				      <property name="editable">True</property>
+				      <property name="visibility">True</property>
+				      <property name="max_length">0</property>
+				      <property name="text" translatable="yes"></property>
+				      <property name="has_frame">True</property>
+				      <property name="invisible_char" translatable="yes">*</property>
+				      <property name="activates_default">False</property>
+				      <signal name="activate" handler="on_combo_spezies_activate"/>
+				      <signal name="focus_out_event" handler="on_combo_spezies_focus_out_event"/>
+				      <signal name="changed" handler="on_combo_spezies_changed"/>
+				    </widget>
+				  </child>
+
+				  <child internal-child="list">
+				    <widget class="GtkList" id="convertwidget9">
+				      <property name="visible">True</property>
+				      <property name="selection_mode">GTK_SELECTION_BROWSE</property>
 
 				      <child>
-					<widget class="GtkLabel" id="convertwidget11">
+					<widget class="GtkListItem" id="convertwidget10">
 					  <property name="visible">True</property>
-					  <property name="label" translatable="yes"></property>
-					  <property name="use_underline">False</property>
-					  <property name="use_markup">False</property>
-					  <property name="justify">GTK_JUSTIFY_LEFT</property>
-					  <property name="wrap">False</property>
-					  <property name="selectable">False</property>
-					  <property name="xalign">0</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
+
+					  <child>
+					    <widget class="GtkLabel" id="convertwidget11">
+					      <property name="visible">True</property>
+					      <property name="label" translatable="yes"></property>
+					      <property name="use_underline">False</property>
+					      <property name="use_markup">False</property>
+					      <property name="justify">GTK_JUSTIFY_LEFT</property>
+					      <property name="wrap">False</property>
+					      <property name="selectable">False</property>
+					      <property name="xalign">0</property>
+					      <property name="yalign">0.5</property>
+					      <property name="xpad">0</property>
+					      <property name="ypad">0</property>
+					    </widget>
+					  </child>
 					</widget>
 				      </child>
 				    </widget>
@@ -2029,81 +2172,101 @@
 				</widget>
 			      </child>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="GtkVBox" id="vbox_gw_wuerfeln">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
+			    <widget class="GtkToolItem" id="toolitem7">
 			      <property name="visible">True</property>
-			      <property name="homogeneous">True</property>
-			      <property name="spacing">0</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 
 			      <child>
-				<widget class="GtkRadioButton" id="radiobutton_eigenschaften_standard">
+				<widget class="GtkVBox" id="vbox_gw_wuerfeln">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">Standard</property>
-				  <property name="use_underline">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="active">True</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">True</property>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">True</property>
-				  <property name="fill">True</property>
-				</packing>
-			      </child>
+				  <property name="homogeneous">True</property>
+				  <property name="spacing">0</property>
 
-			      <child>
-				<widget class="GtkRadioButton" id="radiobutton_eigenschaften_zuweisen">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">Zuweisen</property>
-				  <property name="use_underline">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="active">False</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">True</property>
-				  <property name="group">radiobutton_eigenschaften_standard</property>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">True</property>
-				  <property name="fill">True</property>
-				</packing>
-			      </child>
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_standard">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="tooltip" translatable="yes">2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">Standard</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">True</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">True</property>
+				      <property name="fill">True</property>
+				    </packing>
+				  </child>
 
-			      <child>
-				<widget class="GtkRadioButton" id="radiobutton_eigenschaften_69">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">9x würfeln, die besten sechs Ergebnisse frei verteilen.</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">6 von 9</property>
-				  <property name="use_underline">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="active">False</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">True</property>
-				  <property name="group">radiobutton_eigenschaften_standard</property>
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_zuweisen">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="tooltip" translatable="yes">2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">Zuweisen</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <property name="group">radiobutton_eigenschaften_standard</property>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">True</property>
+				      <property name="fill">True</property>
+				    </packing>
+				  </child>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_69">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="tooltip" translatable="yes">9x würfeln, die besten sechs Ergebnisse frei verteilen.</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">6 von 9</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <property name="group">radiobutton_eigenschaften_standard</property>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">True</property>
+				      <property name="fill">True</property>
+				    </packing>
+				  </child>
 				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">True</property>
-				  <property name="fill">True</property>
-				</packing>
 			      </child>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="button" id="button_grundwerte">
+			    <widget class="GtkToolButton" id="button_grundwerte">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Eigenschaften würfeln/eingeben</property>
@@ -2112,244 +2275,294 @@
 schaften</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Dice-W100-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 			      <signal name="clicked" handler="on_button_grundwerte"/>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="GtkVBox" id="vbox47">
+			    <widget class="GtkToolItem" id="toolitem8">
 			      <property name="visible">True</property>
-			      <property name="homogeneous">False</property>
-			      <property name="spacing">0</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 
 			      <child>
-				<widget class="GtkRadioButton" id="radiobutton_mann">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
+				<widget class="GtkVBox" id="vbox47">
 				  <property name="visible">True</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">männlich</property>
-				  <property name="use_underline">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="active">True</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">True</property>
-				  <signal name="toggled" handler="on_radiobutton_mann_toggled"/>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">False</property>
-				  <property name="fill">False</property>
-				</packing>
-			      </child>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">0</property>
 
-			      <child>
-				<widget class="GtkRadioButton" id="radiobutton_frau">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">weiblich</property>
-				  <property name="use_underline">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="active">False</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">True</property>
-				  <property name="group">radiobutton_mann</property>
-				  <signal name="toggled" handler="on_radiobutton_frau_toggled"/>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">False</property>
-				  <property name="fill">False</property>
-				</packing>
-			      </child>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkVBox" id="vbox46">
-			      <property name="visible">True</property>
-			      <property name="homogeneous">False</property>
-			      <property name="spacing">0</property>
-
-			      <child>
-				<widget class="GtkCombo" id="combo_typ">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="value_in_list">True</property>
-				  <property name="allow_empty">False</property>
-				  <property name="case_sensitive">False</property>
-				  <property name="enable_arrow_keys">True</property>
-				  <property name="enable_arrows_always">False</property>
-
-				  <child internal-child="entry">
-				    <widget class="GtkEntry" id="combo_typ_">
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_mann">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
 				      <property name="visible">True</property>
 				      <property name="can_focus">True</property>
-				      <property name="editable">True</property>
-				      <property name="visibility">True</property>
-				      <property name="max_length">0</property>
-				      <property name="text" translatable="yes"></property>
-				      <property name="has_frame">True</property>
-				      <property name="invisible_char" translatable="yes">*</property>
-				      <property name="activates_default">False</property>
-				      <signal name="activate" handler="on_combo_typ_activate"/>
-				      <signal name="focus_out_event" handler="on_combo_typ__focus_out_event"/>
-				      <signal name="changed" handler="on_combo_typ__changed"/>
+				      <property name="label" translatable="yes">männlich</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">True</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <signal name="toggled" handler="on_radiobutton_mann_toggled"/>
 				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
 				  </child>
 
-				  <child internal-child="list">
-				    <widget class="GtkList" id="convertwidget12">
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_frau">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
 				      <property name="visible">True</property>
-				      <property name="selection_mode">GTK_SELECTION_BROWSE</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">weiblich</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <property name="group">radiobutton_mann</property>
+				      <signal name="toggled" handler="on_radiobutton_frau_toggled"/>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
 
-				      <child>
-					<widget class="GtkListItem" id="convertwidget13">
+			  <child>
+			    <widget class="GtkToolItem" id="toolitem9">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+
+			      <child>
+				<widget class="GtkVBox" id="vbox46">
+				  <property name="visible">True</property>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">0</property>
+
+				  <child>
+				    <widget class="GtkCombo" id="combo_typ">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="value_in_list">True</property>
+				      <property name="allow_empty">False</property>
+				      <property name="case_sensitive">False</property>
+				      <property name="enable_arrow_keys">True</property>
+				      <property name="enable_arrows_always">False</property>
+
+				      <child internal-child="entry">
+					<widget class="GtkEntry" id="combo_typ_">
 					  <property name="visible">True</property>
+					  <property name="can_focus">True</property>
+					  <property name="editable">True</property>
+					  <property name="visibility">True</property>
+					  <property name="max_length">0</property>
+					  <property name="text" translatable="yes"></property>
+					  <property name="has_frame">True</property>
+					  <property name="invisible_char" translatable="yes">*</property>
+					  <property name="activates_default">False</property>
+					  <signal name="activate" handler="on_combo_typ_activate"/>
+					  <signal name="focus_out_event" handler="on_combo_typ__focus_out_event"/>
+					  <signal name="changed" handler="on_combo_typ__changed"/>
+					</widget>
+				      </child>
+
+				      <child internal-child="list">
+					<widget class="GtkList" id="convertwidget12">
+					  <property name="visible">True</property>
+					  <property name="selection_mode">GTK_SELECTION_BROWSE</property>
 
 					  <child>
-					    <widget class="GtkLabel" id="convertwidget14">
+					    <widget class="GtkListItem" id="convertwidget13">
 					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">False</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">False</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
+
+					      <child>
+						<widget class="GtkLabel" id="convertwidget14">
+						  <property name="visible">True</property>
+						  <property name="label" translatable="yes"></property>
+						  <property name="use_underline">False</property>
+						  <property name="use_markup">False</property>
+						  <property name="justify">GTK_JUSTIFY_LEFT</property>
+						  <property name="wrap">False</property>
+						  <property name="selectable">False</property>
+						  <property name="xalign">0</property>
+						  <property name="yalign">0.5</property>
+						  <property name="xpad">0</property>
+						  <property name="ypad">0</property>
+						</widget>
+					      </child>
 					    </widget>
 					  </child>
 					</widget>
 				      </child>
 				    </widget>
-				  </child>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">False</property>
-				  <property name="fill">False</property>
-				</packing>
-			      </child>
-
-			      <child>
-				<widget class="GtkCombo" id="combo_typ2">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="value_in_list">True</property>
-				  <property name="allow_empty">False</property>
-				  <property name="case_sensitive">False</property>
-				  <property name="enable_arrow_keys">True</property>
-				  <property name="enable_arrows_always">False</property>
-
-				  <child internal-child="entry">
-				    <widget class="GtkEntry" id="combo_typ2_">
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="editable">True</property>
-				      <property name="visibility">True</property>
-				      <property name="max_length">0</property>
-				      <property name="text" translatable="yes"></property>
-				      <property name="has_frame">True</property>
-				      <property name="invisible_char" translatable="yes">*</property>
-				      <property name="activates_default">False</property>
-				      <signal name="activate" handler="on_combo_typ2_activate"/>
-				      <signal name="focus_out_event" handler="on_combo_typ2_focus_out_event"/>
-				      <signal name="changed" handler="on_combo_typ2__changed"/>
-				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
 				  </child>
 
-				  <child internal-child="list">
-				    <widget class="GtkList" id="convertwidget15">
+				  <child>
+				    <widget class="GtkCombo" id="combo_typ2">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
 				      <property name="visible">True</property>
-				      <property name="selection_mode">GTK_SELECTION_BROWSE</property>
+				      <property name="value_in_list">True</property>
+				      <property name="allow_empty">False</property>
+				      <property name="case_sensitive">False</property>
+				      <property name="enable_arrow_keys">True</property>
+				      <property name="enable_arrows_always">False</property>
 
-				      <child>
-					<widget class="GtkListItem" id="convertwidget16">
+				      <child internal-child="entry">
+					<widget class="GtkEntry" id="combo_typ2_">
 					  <property name="visible">True</property>
+					  <property name="can_focus">True</property>
+					  <property name="editable">True</property>
+					  <property name="visibility">True</property>
+					  <property name="max_length">0</property>
+					  <property name="text" translatable="yes"></property>
+					  <property name="has_frame">True</property>
+					  <property name="invisible_char" translatable="yes">*</property>
+					  <property name="activates_default">False</property>
+					  <signal name="activate" handler="on_combo_typ2_activate"/>
+					  <signal name="focus_out_event" handler="on_combo_typ2_focus_out_event"/>
+					  <signal name="changed" handler="on_combo_typ2__changed"/>
+					</widget>
+				      </child>
+
+				      <child internal-child="list">
+					<widget class="GtkList" id="convertwidget15">
+					  <property name="visible">True</property>
+					  <property name="selection_mode">GTK_SELECTION_BROWSE</property>
 
 					  <child>
-					    <widget class="GtkLabel" id="convertwidget17">
+					    <widget class="GtkListItem" id="convertwidget16">
 					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">False</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">False</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
+
+					      <child>
+						<widget class="GtkLabel" id="convertwidget17">
+						  <property name="visible">True</property>
+						  <property name="label" translatable="yes"></property>
+						  <property name="use_underline">False</property>
+						  <property name="use_markup">False</property>
+						  <property name="justify">GTK_JUSTIFY_LEFT</property>
+						  <property name="wrap">False</property>
+						  <property name="selectable">False</property>
+						  <property name="xalign">0</property>
+						  <property name="yalign">0.5</property>
+						  <property name="xpad">0</property>
+						  <property name="ypad">0</property>
+						</widget>
+					      </child>
 					    </widget>
 					  </child>
 					</widget>
 				      </child>
 				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
 				  </child>
 				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">False</property>
-				  <property name="fill">False</property>
-				</packing>
 			      </child>
 			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkVBox" id="vbox48">
-			      <property name="visible">True</property>
+			    <packing>
+			      <property name="expand">False</property>
 			      <property name="homogeneous">False</property>
-			      <property name="spacing">0</property>
-
-			      <child>
-				<widget class="GtkRadioButton" id="radiobutton_stadt">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">Stadt</property>
-				  <property name="use_underline">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="active">False</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">True</property>
-				  <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">False</property>
-				  <property name="fill">False</property>
-				</packing>
-			      </child>
-
-			      <child>
-				<widget class="GtkRadioButton" id="radiobutton_land">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">Land</property>
-				  <property name="use_underline">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="active">False</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">True</property>
-				  <property name="group">radiobutton_stadt</property>
-				  <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">False</property>
-				  <property name="fill">False</property>
-				</packing>
-			      </child>
-			    </widget>
+			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="button" id="button_abg_werte">
+			    <widget class="GtkToolItem" id="toolitem10">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+
+			      <child>
+				<widget class="GtkVBox" id="vbox48">
+				  <property name="visible">True</property>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">0</property>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_stadt">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">Stadt</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_land">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">Land</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <property name="group">radiobutton_stadt</property>
+				      <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolButton" id="button_abg_werte">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
 			      <property name="can_focus">True</property>
@@ -2357,19 +2570,41 @@ schaften</property>
 Werte</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Dices2-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 			      <signal name="clicked" handler="on_abge_werte_setzen_clicked"/>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="GtkEventBox" id="eventbox_werte_edit">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
+			    <widget class="GtkToolItem" id="toolitem11">
 			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 
 			      <child>
-				<placeholder/>
+				<widget class="GtkEventBox" id="eventbox_werte_edit">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
+				  <property name="visible">True</property>
+				  <property name="visible_window">True</property>
+				  <property name="above_child">False</property>
+
+				  <child>
+				    <placeholder/>
+				  </child>
+				</widget>
 			      </child>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
 			  </child>
 
 			  <child>
@@ -2628,6 +2863,7 @@ Werte</property>
 				      <property name="tooltip" translatable="yes">Wird nicht der Knopf 'Abgeleitete Werte' gedrückt, weil der Abenteurer eingegeben wurde, so können mit diesem Knopf die Berechnung der Erfolgswerte (einschließlich des Erfolgswertes für 'Sechster Sinn') gesetzt werden.</property>
 				      <property name="can_focus">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <signal name="clicked" handler="on_button_grda1setzen_clicked"/>
 
 				      <child>
@@ -4410,6 +4646,8 @@ setzen</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Grundwerte</property>
+	      <property name="visible_window">True</property>
+	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_grundwerte_button_release_event"/>
 
 	      <child>
@@ -4518,6 +4756,7 @@ setzen</property>
 				  <property name="label" translatable="yes">zu teure Fertigkeiten zeigen</property>
 				  <property name="use_underline">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">True</property>
@@ -4541,6 +4780,7 @@ setzen</property>
 				  <property name="label" translatable="yes">Gelernte Fertigkeiten zeigen</property>
 				  <property name="use_underline">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">True</property>
@@ -4728,6 +4968,7 @@ setzen</property>
 			      <property name="tooltip" translatable="yes">Nach dem Drücken dieses Knopfes kann eine Spezialwaffe gewählt werden. Entweder eine Nahkampfwaffe die 1 LP gekostet hat, oder eine Fernkampfwaffe, die höchstens 2 LP gekostet hat.</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
+			      <property name="focus_on_click">True</property>
 			      <property name="active">False</property>
 			      <property name="inconsistent">False</property>
 			      <signal name="toggled" handler="on_togglebutton_spezialwaffe_toggled"/>
@@ -4856,6 +5097,8 @@ auswählen</property>
 			  <property agent="glademm" name="cxx_visibility">protected</property>
 			  <property name="visible">True</property>
 			  <property name="events">GDK_LEAVE_NOTIFY_MASK</property>
+			  <property name="visible_window">True</property>
+			  <property name="above_child">False</property>
 			  <signal name="leave_notify_event" handler="on_eventbox_zusatz_leave_notify_event"/>
 
 			  <child>
@@ -4958,6 +5201,7 @@ auswählen</property>
 			      <property name="label" translatable="yes">Verlernen</property>
 			      <property name="use_underline">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
+			      <property name="focus_on_click">True</property>
 			      <property name="active">False</property>
 			      <property name="inconsistent">False</property>
 			    </widget>
@@ -5063,6 +5307,7 @@ auswählen</property>
 				      <property name="label" translatable="yes">Einschränkungen aufheben</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <property name="active">False</property>
 				      <property name="inconsistent">False</property>
 				      <property name="draw_indicator">True</property>
@@ -5164,9 +5409,10 @@ auswählen</property>
 			  <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
 			  <property name="toolbar_style">GTK_TOOLBAR_BOTH</property>
 			  <property name="tooltips">True</property>
+			  <property name="show_arrow">True</property>
 
 			  <child>
-			    <widget class="button" id="button_herkunft">
+			    <widget class="GtkToolButton" id="button_herkunft">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Herkunft, Muttersprache etc.</property>
@@ -5174,33 +5420,250 @@ auswählen</property>
 			      <property name="label" translatable="yes">Herkunft</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">CountrChar-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 			      <signal name="clicked" handler="on_herkunftsland_clicked"/>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="GtkButton" id="button_angeborene_fert">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
+			    <widget class="GtkToolItem" id="toolitem12">
 			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">Würfeln bzw. Auswählen</property>
-			      <property name="can_focus">True</property>
-			      <property name="relief">GTK_RELIEF_NORMAL</property>
-			      <signal name="clicked" handler="on_button_angeborene_fertigkeit"/>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 
 			      <child>
-				<widget class="GtkVBox" id="vbox62">
+				<widget class="GtkButton" id="button_angeborene_fert">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
+				  <property name="visible">True</property>
+				  <property name="tooltip" translatable="yes">Würfeln bzw. Auswählen</property>
+				  <property name="can_focus">True</property>
+				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
+				  <signal name="clicked" handler="on_button_angeborene_fertigkeit"/>
+
+				  <child>
+				    <widget class="GtkVBox" id="vbox62">
+				      <property name="visible">True</property>
+				      <property name="homogeneous">False</property>
+				      <property name="spacing">0</property>
+
+				      <child>
+					<widget class="GtkImage" id="pixmap170">
+					  <property name="visible">True</property>
+					  <property name="pixbuf">Angeb_All-32.xpm</property>
+					  <property name="xalign">0.5</property>
+					  <property name="yalign">0.5</property>
+					  <property name="xpad">0</property>
+					  <property name="ypad">0</property>
+					</widget>
+					<packing>
+					  <property name="padding">0</property>
+					  <property name="expand">True</property>
+					  <property name="fill">True</property>
+					</packing>
+				      </child>
+
+				      <child>
+					<widget class="GtkLabel" id="label537">
+					  <property name="visible">True</property>
+					  <property name="label" translatable="yes">angeborene Fertigkeiten</property>
+					  <property name="use_underline">False</property>
+					  <property name="use_markup">False</property>
+					  <property name="justify">GTK_JUSTIFY_CENTER</property>
+					  <property name="wrap">False</property>
+					  <property name="selectable">False</property>
+					  <property name="xalign">0.5</property>
+					  <property name="yalign">0.5</property>
+					  <property name="xpad">0</property>
+					  <property name="ypad">0</property>
+					</widget>
+					<packing>
+					  <property name="padding">0</property>
+					  <property name="expand">True</property>
+					  <property name="fill">True</property>
+					</packing>
+				      </child>
+				    </widget>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkSeparatorToolItem" id="separatortoolitem3">
+			      <property name="visible">True</property>
+			      <property name="draw">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToggleToolButton" id="togglebutton_lernpunkte_edit">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
+			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Lernpunkte würfeln/eingeben (und %Wurf für Berufswahl)</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Lernpunkte</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Dice-2W6-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+			      <property name="active">False</property>
+			      <signal name="toggled" handler="on_togglebutton_lernpunkte_edit_toggled"/>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkSeparatorToolItem" id="separatortoolitem4">
+			      <property name="visible">True</property>
+			      <property name="draw">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolButton" id="button_beruf">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
+			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Auswahl aus Originalliste/Berufsnamen selber eingeben.</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Beruf</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Job-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+			      <signal name="clicked" handler="on_button_beruf"/>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolItem" id="toolitem13">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+
+			      <child>
+				<widget class="GtkVBox" id="vbox49">
 				  <property name="visible">True</property>
 				  <property name="homogeneous">False</property>
 				  <property name="spacing">0</property>
 
 				  <child>
-				    <widget class="GtkImage" id="pixmap170">
-				      <property name="visible">True</property>
-				      <property name="pixbuf">Angeb_All-32.xpm</property>
-				      <property name="xalign">0.5</property>
-				      <property name="yalign">0.5</property>
-				      <property name="xpad">0</property>
-				      <property name="ypad">0</property>
+				    <widget class="GtkTable" id="table_berufsprozent">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="n_rows">2</property>
+				      <property name="n_columns">2</property>
+				      <property name="homogeneous">False</property>
+				      <property name="row_spacing">0</property>
+				      <property name="column_spacing">0</property>
+
+				      <child>
+					<widget class="GtkLabel" id="label557">
+					  <property name="visible">True</property>
+					  <property name="label" translatable="yes">%Wurf für
+Beruf eingeben</property>
+					  <property name="use_underline">True</property>
+					  <property name="use_markup">False</property>
+					  <property name="justify">GTK_JUSTIFY_CENTER</property>
+					  <property name="wrap">False</property>
+					  <property name="selectable">False</property>
+					  <property name="xalign">0</property>
+					  <property name="yalign">0.5</property>
+					  <property name="xpad">0</property>
+					  <property name="ypad">0</property>
+					</widget>
+					<packing>
+					  <property name="left_attach">0</property>
+					  <property name="right_attach">2</property>
+					  <property name="top_attach">0</property>
+					  <property name="bottom_attach">1</property>
+					  <property name="x_options">fill</property>
+					  <property name="y_options"></property>
+					</packing>
+				      </child>
+
+				      <child>
+					<widget class="GtkLabel" id="label558">
+					  <property name="visible">True</property>
+					  <property name="label" translatable="yes">%</property>
+					  <property name="use_underline">False</property>
+					  <property name="use_markup">False</property>
+					  <property name="justify">GTK_JUSTIFY_CENTER</property>
+					  <property name="wrap">False</property>
+					  <property name="selectable">False</property>
+					  <property name="xalign">0</property>
+					  <property name="yalign">0.5</property>
+					  <property name="xpad">0</property>
+					  <property name="ypad">0</property>
+					</widget>
+					<packing>
+					  <property name="left_attach">1</property>
+					  <property name="right_attach">2</property>
+					  <property name="top_attach">1</property>
+					  <property name="bottom_attach">2</property>
+					  <property name="x_options">fill</property>
+					  <property name="y_options"></property>
+					</packing>
+				      </child>
+
+				      <child>
+					<widget class="GtkSpinButton" id="spinbutton_beruf">
+					  <property agent="glademm" name="cxx_visibility">protected</property>
+					  <property name="visible">True</property>
+					  <property name="tooltip" translatable="yes">%Wurf für den Beruf eingeben</property>
+					  <property name="can_focus">True</property>
+					  <property name="climb_rate">1</property>
+					  <property name="digits">0</property>
+					  <property name="numeric">False</property>
+					  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
+					  <property name="snap_to_ticks">False</property>
+					  <property name="wrap">False</property>
+					  <property name="adjustment">1 1 100 1 10 10</property>
+					  <signal name="activate" handler="on_spinbutton_beruf_activate"/>
+					  <signal name="focus_in_event" handler="on_spinbutton_beruf_focus_in"/>
+					</widget>
+					<packing>
+					  <property name="left_attach">0</property>
+					  <property name="right_attach">1</property>
+					  <property name="top_attach">1</property>
+					  <property name="bottom_attach">2</property>
+					  <property name="x_options">fill</property>
+					  <property name="y_options"></property>
+					</packing>
+				      </child>
 				    </widget>
 				    <packing>
 				      <property name="padding">0</property>
@@ -5210,18 +5673,52 @@ auswählen</property>
 				  </child>
 
 				  <child>
-				    <widget class="GtkLabel" id="label537">
-				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">angeborene Fertigkeiten</property>
-				      <property name="use_underline">False</property>
-				      <property name="use_markup">False</property>
-				      <property name="justify">GTK_JUSTIFY_CENTER</property>
-				      <property name="wrap">False</property>
-				      <property name="selectable">False</property>
-				      <property name="xalign">0.5</property>
-				      <property name="yalign">0.5</property>
-				      <property name="xpad">0</property>
-				      <property name="ypad">0</property>
+				    <widget class="GtkVBox" id="vbox_berufsname">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="homogeneous">False</property>
+				      <property name="spacing">0</property>
+
+				      <child>
+					<widget class="GtkLabel" id="label542">
+					  <property name="visible">True</property>
+					  <property name="label" translatable="yes">Berufsnamen eingeben</property>
+					  <property name="use_underline">False</property>
+					  <property name="use_markup">False</property>
+					  <property name="justify">GTK_JUSTIFY_LEFT</property>
+					  <property name="wrap">False</property>
+					  <property name="selectable">False</property>
+					  <property name="xalign">0</property>
+					  <property name="yalign">0.5</property>
+					  <property name="xpad">0</property>
+					  <property name="ypad">0</property>
+					</widget>
+					<packing>
+					  <property name="padding">0</property>
+					  <property name="expand">False</property>
+					  <property name="fill">False</property>
+					</packing>
+				      </child>
+
+				      <child>
+					<widget class="GtkEntry" id="entry_berufsname">
+					  <property agent="glademm" name="cxx_visibility">protected</property>
+					  <property name="visible">True</property>
+					  <property name="can_focus">True</property>
+					  <property name="editable">True</property>
+					  <property name="visibility">True</property>
+					  <property name="max_length">0</property>
+					  <property name="text" translatable="yes"></property>
+					  <property name="has_frame">True</property>
+					  <property name="invisible_char" translatable="yes">*</property>
+					  <property name="activates_default">False</property>
+					  <signal name="activate" handler="on_entry_berufsname_activate"/>
+					</widget>
+					<packing>
+					  <property name="padding">0</property>
+					  <property name="expand">False</property>
+					  <property name="fill">False</property>
+					</packing>
+				      </child>
 				    </widget>
 				    <packing>
 				      <property name="padding">0</property>
@@ -5233,65 +5730,87 @@ auswählen</property>
 			      </child>
 			    </widget>
 			    <packing>
-			      <property name="new_group">True</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="toggle" id="togglebutton_lernpunkte_edit">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">Lernpunkte würfeln/eingeben (und %Wurf für Berufswahl)</property>
-			      <property name="can_focus">True</property>
-			      <property name="label" translatable="yes">Lernpunkte</property>
-			      <property name="use_underline">True</property>
-			      <property name="icon">Dice-2W6-trans-50.xpm</property>
-			      <property name="active">False</property>
-			      <property name="inconsistent">False</property>
-			      <signal name="toggled" handler="on_togglebutton_lernpunkte_edit_toggled"/>
-			    </widget>
-			    <packing>
-			      <property name="new_group">True</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="button" id="button_beruf">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">Auswahl aus Originalliste/Berufsnamen selber eingeben.</property>
-			      <property name="can_focus">True</property>
-			      <property name="label" translatable="yes">Beruf</property>
-			      <property name="use_underline">True</property>
-			      <property name="icon">Job-trans-50.xpm</property>
-			      <signal name="clicked" handler="on_button_beruf"/>
-			    </widget>
-			    <packing>
-			      <property name="new_group">True</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkVBox" id="vbox49">
-			      <property name="visible">True</property>
+			      <property name="expand">False</property>
 			      <property name="homogeneous">False</property>
-			      <property name="spacing">0</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkSeparatorToolItem" id="separatortoolitem5">
+			      <property name="visible">True</property>
+			      <property name="draw">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolButton" id="button_lernschema_geld">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
+			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Geld würfeln/eingeben</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Geld</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Money-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+			      <signal name="clicked" handler="on_button_lernschema_geld"/>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolButton" id="button_lernschema_waffen">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
+			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Waffen auswürfeln/aussuchen</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Waffen</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Weapon-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+			      <signal name="clicked" handler="on_button_lernschema_waffen"/>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolItem" id="toolitem14">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 
 			      <child>
-				<widget class="GtkTable" id="table_berufsprozent">
+				<widget class="GtkTable" id="table_waffen_lernschema_eingabe">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="n_rows">2</property>
-				  <property name="n_columns">2</property>
+				  <property name="n_columns">1</property>
 				  <property name="homogeneous">False</property>
 				  <property name="row_spacing">0</property>
 				  <property name="column_spacing">0</property>
 
 				  <child>
-				    <widget class="GtkLabel" id="label557">
+				    <widget class="GtkLabel" id="label_gwr">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">%Wurf für
-Beruf eingeben</property>
-				      <property name="use_underline">True</property>
+				      <property name="label" translatable="yes">%Wurf
+eingeben</property>
+				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
 				      <property name="justify">GTK_JUSTIFY_CENTER</property>
 				      <property name="wrap">False</property>
@@ -5303,7 +5822,7 @@ Beruf eingeben</property>
 				    </widget>
 				    <packing>
 				      <property name="left_attach">0</property>
-				      <property name="right_attach">2</property>
+				      <property name="right_attach">1</property>
 				      <property name="top_attach">0</property>
 				      <property name="bottom_attach">1</property>
 				      <property name="x_options">fill</property>
@@ -5312,34 +5831,9 @@ Beruf eingeben</property>
 				  </child>
 
 				  <child>
-				    <widget class="GtkLabel" id="label558">
-				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">%</property>
-				      <property name="use_underline">False</property>
-				      <property name="use_markup">False</property>
-				      <property name="justify">GTK_JUSTIFY_CENTER</property>
-				      <property name="wrap">False</property>
-				      <property name="selectable">False</property>
-				      <property name="xalign">0</property>
-				      <property name="yalign">0.5</property>
-				      <property name="xpad">0</property>
-				      <property name="ypad">0</property>
-				    </widget>
-				    <packing>
-				      <property name="left_attach">1</property>
-				      <property name="right_attach">2</property>
-				      <property name="top_attach">1</property>
-				      <property name="bottom_attach">2</property>
-				      <property name="x_options">fill</property>
-				      <property name="y_options"></property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkSpinButton" id="spinbutton_beruf">
+				    <widget class="GtkSpinButton" id="spinbutton_waffen_lernschema">
 				      <property agent="glademm" name="cxx_visibility">protected</property>
 				      <property name="visible">True</property>
-				      <property name="tooltip" translatable="yes">%Wurf für den Beruf eingeben</property>
 				      <property name="can_focus">True</property>
 				      <property name="climb_rate">1</property>
 				      <property name="digits">0</property>
@@ -5347,177 +5841,30 @@ Beruf eingeben</property>
 				      <property name="update_policy">GTK_UPDATE_ALWAYS</property>
 				      <property name="snap_to_ticks">False</property>
 				      <property name="wrap">False</property>
-				      <property name="adjustment">1 1 100 1 10 10</property>
-				      <signal name="activate" handler="on_spinbutton_beruf_activate"/>
-				      <signal name="focus_in_event" handler="on_spinbutton_beruf_focus_in"/>
+				      <property name="adjustment">1 0 100 1 10 10</property>
+				      <signal name="activate" handler="on_spinbutton_waffen_lernschema_activate"/>
+				      <signal name="focus_in_event" handler="on_spinbutton_waffen_lernschema_focus_in_event"/>
 				    </widget>
 				    <packing>
 				      <property name="left_attach">0</property>
 				      <property name="right_attach">1</property>
 				      <property name="top_attach">1</property>
 				      <property name="bottom_attach">2</property>
-				      <property name="x_options">fill</property>
+				      <property name="x_options">expand|shrink|fill</property>
 				      <property name="y_options"></property>
 				    </packing>
 				  </child>
 				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">True</property>
-				  <property name="fill">True</property>
-				</packing>
 			      </child>
-
-			      <child>
-				<widget class="GtkVBox" id="vbox_berufsname">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="homogeneous">False</property>
-				  <property name="spacing">0</property>
-
-				  <child>
-				    <widget class="GtkLabel" id="label542">
-				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">Berufsnamen eingeben</property>
-				      <property name="use_underline">False</property>
-				      <property name="use_markup">False</property>
-				      <property name="justify">GTK_JUSTIFY_LEFT</property>
-				      <property name="wrap">False</property>
-				      <property name="selectable">False</property>
-				      <property name="xalign">0</property>
-				      <property name="yalign">0.5</property>
-				      <property name="xpad">0</property>
-				      <property name="ypad">0</property>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkEntry" id="entry_berufsname">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="editable">True</property>
-				      <property name="visibility">True</property>
-				      <property name="max_length">0</property>
-				      <property name="text" translatable="yes"></property>
-				      <property name="has_frame">True</property>
-				      <property name="invisible_char" translatable="yes">*</property>
-				      <property name="activates_default">False</property>
-				      <signal name="activate" handler="on_entry_berufsname_activate"/>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">True</property>
-				  <property name="fill">True</property>
-				</packing>
-			      </child>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="button" id="button_lernschema_geld">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">Geld würfeln/eingeben</property>
-			      <property name="can_focus">True</property>
-			      <property name="label" translatable="yes">Geld</property>
-			      <property name="use_underline">True</property>
-			      <property name="icon">Money-50.xpm</property>
-			      <signal name="clicked" handler="on_button_lernschema_geld"/>
 			    </widget>
 			    <packing>
-			      <property name="new_group">True</property>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
 			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="button" id="button_lernschema_waffen">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">Waffen auswürfeln/aussuchen</property>
-			      <property name="can_focus">True</property>
-			      <property name="label" translatable="yes">Waffen</property>
-			      <property name="use_underline">True</property>
-			      <property name="icon">Weapon-trans-50.xpm</property>
-			      <signal name="clicked" handler="on_button_lernschema_waffen"/>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkTable" id="table_waffen_lernschema_eingabe">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="n_rows">2</property>
-			      <property name="n_columns">1</property>
-			      <property name="homogeneous">False</property>
-			      <property name="row_spacing">0</property>
-			      <property name="column_spacing">0</property>
-
-			      <child>
-				<widget class="GtkLabel" id="label_gwr">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="label" translatable="yes">%Wurf
-eingeben</property>
-				  <property name="use_underline">False</property>
-				  <property name="use_markup">False</property>
-				  <property name="justify">GTK_JUSTIFY_CENTER</property>
-				  <property name="wrap">False</property>
-				  <property name="selectable">False</property>
-				  <property name="xalign">0</property>
-				  <property name="yalign">0.5</property>
-				  <property name="xpad">0</property>
-				  <property name="ypad">0</property>
-				</widget>
-				<packing>
-				  <property name="left_attach">0</property>
-				  <property name="right_attach">1</property>
-				  <property name="top_attach">0</property>
-				  <property name="bottom_attach">1</property>
-				  <property name="x_options">fill</property>
-				  <property name="y_options"></property>
-				</packing>
-			      </child>
-
-			      <child>
-				<widget class="GtkSpinButton" id="spinbutton_waffen_lernschema">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="can_focus">True</property>
-				  <property name="climb_rate">1</property>
-				  <property name="digits">0</property>
-				  <property name="numeric">False</property>
-				  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
-				  <property name="snap_to_ticks">False</property>
-				  <property name="wrap">False</property>
-				  <property name="adjustment">1 0 100 1 10 10</property>
-				  <signal name="activate" handler="on_spinbutton_waffen_lernschema_activate"/>
-				  <signal name="focus_in_event" handler="on_spinbutton_waffen_lernschema_focus_in_event"/>
-				</widget>
-				<packing>
-				  <property name="left_attach">0</property>
-				  <property name="right_attach">1</property>
-				  <property name="top_attach">1</property>
-				  <property name="bottom_attach">2</property>
-				  <property name="x_options">expand|shrink|fill</property>
-				  <property name="y_options"></property>
-				</packing>
-			      </child>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="button" id="button_ruestung">
+			    <widget class="GtkToolButton" id="button_ruestung">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Rüstung würfeln/aussuchen</property>
@@ -5525,12 +5872,19 @@ eingeben</property>
 			      <property name="label" translatable="yes">Rüstung</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Dice_Armor-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 			      <signal name="clicked" handler="on_button_ruestung"/>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="button" id="button_ausruestung">
+			    <widget class="GtkToolButton" id="button_ausruestung">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Ausrüstung aufgrund bestimmter Fertigkeiten würfeln</property>
@@ -5538,8 +5892,15 @@ eingeben</property>
 			      <property name="label" translatable="yes">Ausrüstung</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Dice-Ausruest-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 			      <signal name="clicked" handler="on_button_ausruestung"/>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
 			  </child>
 			</widget>
 		      </child>
@@ -5586,6 +5947,7 @@ eingeben</property>
 				  <property name="tooltip" translatable="yes">Restpunkte übertragen</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NONE</property>
+				  <property name="focus_on_click">True</property>
 				  <signal name="clicked" handler="on_button_waffe_trans_clicked"/>
 
 				  <child>
@@ -5615,6 +5977,7 @@ eingeben</property>
 				  <property name="tooltip" translatable="yes">Restpunkte übertragen</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NONE</property>
+				  <property name="focus_on_click">True</property>
 				  <signal name="clicked" handler="on_button_fach_trans_clicked"/>
 
 				  <child>
@@ -5680,6 +6043,7 @@ eingeben</property>
 					  <property name="visible">True</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">True</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -5825,6 +6189,7 @@ eingeben</property>
 					  <property name="visible">True</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -5955,6 +6320,7 @@ eingeben</property>
 					  <property name="visible">True</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -6127,6 +6493,7 @@ eingeben</property>
 					  <property name="visible">True</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -6259,6 +6626,7 @@ auswählen</property>
 					  <property name="visible">True</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -6390,6 +6758,7 @@ auswählen</property>
 					  <property name="visible">True</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -6594,6 +6963,8 @@ auswählen</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Lernschema</property>
+	      <property name="visible_window">True</property>
+	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_lernen_button_release_event"/>
 
 	      <child>
@@ -6735,6 +7106,10 @@ auswählen</property>
 			      <property name="yalign">0.5</property>
 			      <property name="xscale">1</property>
 			      <property name="yscale">1</property>
+			      <property name="top_padding">0</property>
+			      <property name="bottom_padding">0</property>
+			      <property name="left_padding">0</property>
+			      <property name="right_padding">0</property>
 
 			      <child>
 				<widget class="GtkVPaned" id="vpaned1">
@@ -6753,7 +7128,6 @@ auswählen</property>
 					  <property agent="glademm" name="cxx_visibility">protected</property>
 					  <property name="visible">True</property>
 					  <property name="creation_function">MidgardBasicTree(MidgardBasicTree::LONG_ALT_)</property>
-					  <property name="string1"></property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Tue, 09 Jul 2002 10:42:51 GMT</property>
@@ -7627,6 +8001,7 @@ auswählen</property>
 					      <property name="visible">True</property>
 					      <property name="can_focus">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 
@@ -7954,6 +8329,7 @@ PP lernen</property>
 				      <property name="tooltip" translatable="yes">Nach dem Aktivieren des Knopfes eine Rüstung aus der Liste wählen.</property>
 				      <property name="can_focus">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <property name="active">False</property>
 				      <property name="inconsistent">False</property>
 				      <property name="draw_indicator">False</property>
@@ -7963,6 +8339,8 @@ PP lernen</property>
 					<widget class="GtkEventBox" id="eventbox9">
 					  <property name="visible">True</property>
 					  <property name="tooltip" translatable="yes">Nach dem Aktivieren des Knopfes eine Rüstung aus der Liste wählen.</property>
+					  <property name="visible_window">True</property>
+					  <property name="above_child">False</property>
 
 					  <child>
 					    <widget class="GtkVBox" id="vbox59">
@@ -8029,6 +8407,7 @@ PP lernen</property>
 				      <property name="tooltip" translatable="yes">Nach dem Aktivieren des Knopfes ein Rüstung aus der Liste wählen.</property>
 				      <property name="can_focus">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <property name="active">False</property>
 				      <property name="inconsistent">False</property>
 				      <property name="draw_indicator">False</property>
@@ -8038,6 +8417,8 @@ PP lernen</property>
 					<widget class="GtkEventBox" id="eventbox17">
 					  <property name="visible">True</property>
 					  <property name="tooltip" translatable="yes">Nach dem Aktivieren des Knopfes eine Rüstung aus der Liste wählen.</property>
+					  <property name="visible_window">True</property>
+					  <property name="above_child">False</property>
 
 					  <child>
 					    <widget class="GtkVBox" id="vbox60">
@@ -8197,6 +8578,7 @@ PP lernen</property>
 					  <property name="tooltip" translatable="yes">Nach dem aktivieren: Waffe wählen</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -8915,12 +9297,15 @@ eingeben</property>
 				  <property name="visible">True</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NONE</property>
+				  <property name="focus_on_click">True</property>
 				  <signal name="clicked" handler="on_button_alter_clicked"/>
 
 				  <child>
 				    <widget class="GtkEventBox" id="eventbox10">
 				      <property name="visible">True</property>
 				      <property name="tooltip" translatable="yes">Lerntage dem Alter hinzurechnen</property>
+				      <property name="visible_window">True</property>
+				      <property name="above_child">False</property>
 
 				      <child>
 					<widget class="GtkImage" id="pixmap88">
@@ -9802,6 +10187,8 @@ eingeben</property>
 				<widget class="GtkEventBox" id="eventbox1">
 				  <property name="visible">True</property>
 				  <property name="tooltip" translatable="yes">Einstellen des Verhältnisses zwischen Erfahrungspunkten und Gold beim Steigern. Je weiter oben, um so höher der Anteil der verwendeten EP. (Nur wenn mit 'Unterweisung' gesteigert wird.)</property>
+				  <property name="visible_window">True</property>
+				  <property name="above_child">False</property>
 
 				  <child>
 				    <widget class="GtkTable" id="table73">
@@ -9904,6 +10291,7 @@ eingeben</property>
 				  <property name="tooltip" translatable="yes">Geld eingeben/ändern</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">False</property>
@@ -9972,6 +10360,7 @@ eing.</property>
 				  <property name="tooltip" translatable="yes">GFP eingeben/ändern</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">False</property>
@@ -10039,6 +10428,7 @@ eing.</property>
 				  <property name="visible">True</property>
 				  <property name="tooltip" translatable="yes">Erfahrungspunkte eingeben/ändern</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">False</property>
@@ -10105,6 +10495,8 @@ eing.</property>
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
 				  <property name="tooltip" translatable="yes">Ist dieser Knopf aktiviert, werden die Erfahrungspunkte entsprechend des eingestellten Verhältnisses reduziert. Ist dieser Knopf deaktiviert, kann beliebig gesteigert werden.</property>
+				  <property name="visible_window">True</property>
+				  <property name="above_child">False</property>
 
 				  <child>
 				    <placeholder/>
@@ -10164,6 +10556,7 @@ eing.</property>
 				      <property name="visible">True</property>
 				      <property name="tooltip" translatable="yes">Ist von den GFP her ein Gradanstieg möglich, so wird dieser hier gesetzt.</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <signal name="clicked" handler="on_button_grad_clicked"/>
 
 				      <child>
@@ -10248,6 +10641,7 @@ eing.</property>
 				      <property name="visible">True</property>
 				      <property name="tooltip" translatable="yes">Ausdauerpunkte neu auswürfeln</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <signal name="clicked" handler="on_button_grad_ausdauer_clicked"/>
 
 				      <child>
@@ -10332,6 +10726,7 @@ eing.</property>
 				      <property name="visible">True</property>
 				      <property name="tooltip" translatable="yes">Abwehr, Zaubern und Resistenz an den Grad anpassen</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <signal name="clicked" handler="on_button_grad_abwehr_clicked"/>
 
 				      <child>
@@ -10417,6 +10812,7 @@ eing.</property>
 				      <property name="visible">True</property>
 				      <property name="tooltip" translatable="yes">Zaubern steigern</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <signal name="clicked" handler="on_button_grad_zaubern_clicked"/>
 
 				      <child>
@@ -10501,6 +10897,7 @@ eing.</property>
 				      <property name="visible">True</property>
 				      <property name="tooltip" translatable="yes">Dieser Knopf macht all das, was die darunterliegenden auch machen</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <signal name="clicked" handler="on_grad_anstieg_clicked"/>
 
 				      <child>
@@ -10562,6 +10959,7 @@ eing.</property>
 				    <widget class="GtkButton" id="button_grad_resistenz">
 				      <property name="visible">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <signal name="clicked" handler="on_button_grad_resistenz_clicked"/>
 
 				      <child>
@@ -10647,6 +11045,7 @@ eing.</property>
 				      <property name="visible">True</property>
 				      <property name="tooltip" translatable="yes">Würfeln/Eingeben ob sich die Basiswerte beim Gradanstieg erhöhen. Zusätzlich wird die Schicksalsgunst erhöht.</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <signal name="clicked" handler="on_button_grad_basiswerte"/>
 
 				      <child>
@@ -10799,6 +11198,7 @@ eing.</property>
 					      <property name="tooltip" translatable="yes">Das Lernen von Spruchrolle ist automatisch erfolgreich.</property>
 					      <property name="can_focus">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 					      <property name="draw_indicator">False</property>
@@ -10831,6 +11231,7 @@ eing.</property>
 					      <property name="tooltip" translatable="yes">Es wird gewürfelt, ob das Lernen von Spruchrolle erfolgreich ist.</property>
 					      <property name="can_focus">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">True</property>
 					      <property name="inconsistent">False</property>
 					      <property name="draw_indicator">False</property>
@@ -10874,6 +11275,7 @@ eing.</property>
 					  <property name="tooltip" translatable="yes">Lernen von Spruchrolle</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_HALF</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <signal name="toggled" handler="on_spruchrolle_toggled" after="yes"/>
@@ -10941,6 +11343,7 @@ Spruchrolle</property>
 					  <property name="tooltip" translatable="yes">Es kann aus ALLEN Zaubern gewählt werden</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <signal name="toggled" handler="on_togglebutton_alle_zauber_toggled"/>
@@ -11008,6 +11411,7 @@ anzeigen</property>
 					  <property name="tooltip" translatable="yes">Zaubersalze können gelernt werden</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <signal name="toggled" handler="on_togglebutton_zaubersalze_toggled"/>
@@ -11154,6 +11558,7 @@ anzeigen</property>
 					      <property name="label" translatable="yes">n Stufen</property>
 					      <property name="use_underline">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 					      <property name="draw_indicator">False</property>
@@ -11177,6 +11582,7 @@ anzeigen</property>
 					      <property name="label" translatable="yes">1 Stufe</property>
 					      <property name="use_underline">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">True</property>
 					      <property name="inconsistent">False</property>
 					      <property name="draw_indicator">False</property>
@@ -11200,6 +11606,7 @@ anzeigen</property>
 					      <property name="label" translatable="yes">FP verfallen lassen</property>
 					      <property name="use_underline">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 					      <signal name="toggled" handler="on_togglebutton_pp_verfallen_toggled"/>
@@ -11222,6 +11629,7 @@ anzeigen</property>
 					      <property name="label" translatable="yes">Mit EP auffüllen</property>
 					      <property name="use_underline">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 					      <signal name="toggled" handler="on_togglebutton_pp_aep_fuellen_toggled"/>
@@ -11253,6 +11661,7 @@ anzeigen</property>
 					  <property name="tooltip" translatable="yes">Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefüllt.</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -11320,6 +11729,7 @@ anzeigen</property>
 					  <property name="tooltip" translatable="yes">Steigern mit Gold und EP</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">True</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -11388,6 +11798,7 @@ anzeigen</property>
 					  <property name="tooltip" translatable="yes">Steigern mit EP</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -11505,6 +11916,7 @@ anzeigen</property>
 					  <property name="tooltip" translatable="yes">Ist dieser Knopf gedrückt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert.</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -11572,6 +11984,7 @@ anzeigen</property>
 					  <property name="tooltip" translatable="yes">Ist dieser Knopf gedrückt wird eine bereits gelernter Fertigkeiten (durch anklicken) verlernt, wenn sie auf dem niedrigsten Erfolgswert beherrscht wird.</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -11640,6 +12053,7 @@ anzeigen</property>
 					  <property name="tooltip" translatable="yes">Ist dieser Knopf gedrückt können die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">True</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">False</property>
@@ -11782,6 +12196,7 @@ anzeigen</property>
 					  <property name="tooltip" translatable="yes">Praxispunkte eingeben</property>
 					  <property name="can_focus">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <signal name="toggled" handler="on_togglebutton_praxispunkte_toggled"/>
@@ -11858,6 +12273,7 @@ eingeben</property>
 					      <property name="label" translatable="yes">Fertigkeit</property>
 					      <property name="use_underline">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 					      <property name="draw_indicator">True</property>
@@ -11878,6 +12294,7 @@ eingeben</property>
 					      <property name="label" translatable="yes">Abwehr</property>
 					      <property name="use_underline">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 					      <property name="draw_indicator">True</property>
@@ -11899,6 +12316,7 @@ eingeben</property>
 					      <property name="label" translatable="yes">Zaubern</property>
 					      <property name="use_underline">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 					      <property name="draw_indicator">True</property>
@@ -11918,6 +12336,7 @@ eingeben</property>
 					      <property name="visible">True</property>
 					      <property name="can_focus">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 					      <property name="draw_indicator">True</property>
@@ -11943,6 +12362,7 @@ eingeben</property>
 					      <property name="label" translatable="yes">Resistenz</property>
 					      <property name="use_underline">True</property>
 					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="focus_on_click">True</property>
 					      <property name="active">False</property>
 					      <property name="inconsistent">False</property>
 					      <property name="draw_indicator">True</property>
@@ -12032,6 +12452,8 @@ eingeben</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Steigern</property>
+	      <property name="visible_window">True</property>
+	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_steigern_button_release_event"/>
 
 	      <child>
@@ -12113,6 +12535,7 @@ eingeben</property>
 		      <property name="visible">True</property>
 		      <property name="can_focus">True</property>
 		      <property name="relief">GTK_RELIEF_NORMAL</property>
+		      <property name="focus_on_click">True</property>
 		      <signal name="clicked" handler="on_button_beschreibung_drucken_clicked"/>
 
 		      <child>
@@ -12178,6 +12601,7 @@ Drucken</property>
 		      <property name="tooltip" translatable="yes">Grafik hinzufügen/wegnehmen.</property>
 		      <property name="can_focus">True</property>
 		      <property name="relief">GTK_RELIEF_NORMAL</property>
+		      <property name="focus_on_click">True</property>
 		      <signal name="clicked" handler="on_button_grafik"/>
 
 		      <child>
@@ -12383,6 +12807,8 @@ Drucken</property>
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
 			  <property name="editable">True</property>
+			  <property name="overwrite">False</property>
+			  <property name="accepts_tab">True</property>
 			  <property name="justification">GTK_JUSTIFY_LEFT</property>
 			  <property name="wrap_mode">GTK_WRAP_WORD</property>
 			  <property name="cursor_visible">True</property>
@@ -12456,6 +12882,7 @@ Drucken</property>
 			  <property name="label" translatable="yes">Fett</property>
 			  <property name="use_underline">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <signal name="clicked" handler="on_button_fett_clicked"/>
 			</widget>
 			<packing>
@@ -12475,6 +12902,7 @@ Drucken</property>
 			  <property name="label" translatable="yes">Kursiv</property>
 			  <property name="use_underline">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <signal name="clicked" handler="on_button_kursiv_clicked"/>
 			</widget>
 			<packing>
@@ -12494,6 +12922,7 @@ Drucken</property>
 			  <property name="label" translatable="yes">Liste</property>
 			  <property name="use_underline">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <signal name="clicked" handler="on_button_liste_clicked"/>
 			</widget>
 			<packing>
@@ -12513,6 +12942,7 @@ Drucken</property>
 			  <property name="label" translatable="yes">2.Liste</property>
 			  <property name="use_underline">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <signal name="clicked" handler="on_button_liste2_clicked"/>
 			</widget>
 			<packing>
@@ -12568,6 +12998,8 @@ Drucken</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Beschreibung des Abenteurers und/oder des Hintergrundes</property>
+	      <property name="visible_window">True</property>
+	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_beschreibung_button_release_event"/>
 
 	      <child>
@@ -12656,49 +13088,79 @@ Drucken</property>
 			  <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
 			  <property name="toolbar_style">GTK_TOOLBAR_BOTH</property>
 			  <property name="tooltips">True</property>
+			  <property name="show_arrow">True</property>
 
 			  <child>
 			    <placeholder/>
 			  </child>
 
 			  <child>
-			    <widget class="button" id="button_ausruestung_druck">
+			    <widget class="GtkToolButton" id="button_ausruestung_druck">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Drucken (alles)</property>
 			      <property name="label" translatable="yes">Drucken</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">PrintChar-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 			      <signal name="clicked" handler="on_button_ausruestung_druck"/>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="toggle" id="togglebutton_gruppe_neu">
+			    <widget class="GtkSeparatorToolItem" id="separatortoolitem6">
+			      <property name="visible">True</property>
+			      <property name="draw">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToggleToolButton" id="togglebutton_gruppe_neu">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
 			      <property name="label" translatable="yes">Neue Art</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">New_Art-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 			      <property name="active">False</property>
-			      <property name="inconsistent">False</property>
 			      <signal name="toggled" handler="on_togglebutton_gruppe_neu_toggled"/>
 			    </widget>
 			    <packing>
-			      <property name="new_group">True</property>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
 			    </packing>
 			  </child>
 
 			  <child>
-			    <widget class="toggle" id="togglebutton_artikel_neu">
+			    <widget class="GtkToggleToolButton" id="togglebutton_artikel_neu">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
 			      <property name="label" translatable="yes">Neuer Artikel</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">New_Art-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
 			      <property name="active">False</property>
-			      <property name="inconsistent">False</property>
 			      <signal name="toggled" handler="on_togglebutton_artikel_neu_toggled"/>
 			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
 			  </child>
 			</widget>
 			<packing>
@@ -13188,6 +13650,7 @@ Drucken</property>
 			      <property name="visible">True</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
+			      <property name="focus_on_click">True</property>
 			      <signal name="clicked" handler="on_button_artikel_speichern_clicked"/>
 
 			      <child>
@@ -13572,6 +14035,7 @@ speichern</property>
 			      <property name="visible">True</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
+			      <property name="focus_on_click">True</property>
 			      <signal name="clicked" handler="on_button_art_speichern_clicked"/>
 
 			      <child>
@@ -13681,6 +14145,7 @@ speichern</property>
 			      <property name="visible">True</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
+			      <property name="focus_on_click">True</property>
 			      <signal name="clicked" handler="on_ausruestung_loeschen_clicked"/>
 
 			      <child>
@@ -13744,6 +14209,7 @@ speichern</property>
 			      <property name="visible">True</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
+			      <property name="focus_on_click">True</property>
 			      <property name="active">False</property>
 			      <property name="inconsistent">False</property>
 			      <property name="draw_indicator">False</property>
@@ -14144,6 +14610,7 @@ anschließend unten den neuen Gegenstand auswählen.</property>
 			      <property name="visible">True</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
+			      <property name="focus_on_click">True</property>
 			      <property name="active">True</property>
 			      <property name="inconsistent">False</property>
 			      <property name="draw_indicator">False</property>
@@ -14370,6 +14837,7 @@ ausrüsten</property>
 			      <property name="visible">True</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
+			      <property name="focus_on_click">True</property>
 			      <property name="active">False</property>
 			      <property name="inconsistent">False</property>
 			      <signal name="toggled" handler="on_togglebutton_unverkauflich_toggled"/>
@@ -14517,6 +14985,8 @@ anzeigen</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Ausrüstung</property>
+	      <property name="visible_window">True</property>
+	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_ausruestung_button_release_event"/>
 
 	      <child>
@@ -14912,6 +15382,7 @@ anzeigen</property>
 			  <property name="label" translatable="yes">...</property>
 			  <property name="use_underline">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <signal name="clicked" handler="on_button_html_browser_clicked"/>
 			</widget>
 			<packing>
@@ -14931,6 +15402,7 @@ anzeigen</property>
 			  <property name="label" translatable="yes">...</property>
 			  <property name="use_underline">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <signal name="clicked" handler="on_button_tmp_clicked"/>
 			</widget>
 			<packing>
@@ -14950,6 +15422,7 @@ anzeigen</property>
 			  <property name="label" translatable="yes">...</property>
 			  <property name="use_underline">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <signal name="clicked" handler="on_button_speicherplatz_clicked"/>
 			</widget>
 			<packing>
@@ -15079,6 +15552,8 @@ anzeigen</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Optionen</property>
+	      <property name="visible_window">True</property>
+	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_optionen_button_release_event"/>
 
 	      <child>
@@ -15696,6 +16171,7 @@ Christof Petig</property>
 				  <property name="label" translatable="yes">General Public License (GPL)</property>
 				  <property name="use_underline">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <signal name="activate" handler="lizenz_anzeigen" last_modification_time="Sun, 28 Sep 2003 21:00:00 GMT"/>
 				</widget>
 				<packing>
@@ -15829,6 +16305,8 @@ Christof Petig</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Über dieses Programm</property>
+	      <property name="visible_window">True</property>
+	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_credits_button_release_event"/>
 
 	      <child>
@@ -15939,6 +16417,8 @@ Christof Petig</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">News &amp; Geschichte</property>
+	      <property name="visible_window">True</property>
+	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_geschichte_button_release_event"/>
 
 	      <child>
@@ -16044,6 +16524,7 @@ Christof Petig</property>
 				  <property name="label" translatable="yes">Spezies</property>
 				  <property name="use_underline">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">True</property>
@@ -16067,6 +16548,7 @@ Christof Petig</property>
 				  <property name="label" translatable="yes">Herkunft</property>
 				  <property name="use_underline">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">True</property>
@@ -16090,6 +16572,7 @@ Christof Petig</property>
 				  <property name="label" translatable="yes">Typ</property>
 				  <property name="use_underline">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">True</property>
@@ -16113,6 +16596,7 @@ Christof Petig</property>
 				  <property name="label" translatable="yes">angeb. Fert.</property>
 				  <property name="use_underline">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">True</property>
@@ -16336,6 +16820,7 @@ Christof Petig</property>
 				  <property name="label" translatable="yes">Werte</property>
 				  <property name="use_underline">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">True</property>
@@ -16375,6 +16860,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">St</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16398,6 +16884,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">Gs</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16421,6 +16908,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">Gw</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16444,6 +16932,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">Ko</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16467,6 +16956,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">In</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16490,6 +16980,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">Zt</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16513,6 +17004,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">Au</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16536,6 +17028,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">pA</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16559,6 +17052,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">Wk</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16582,6 +17076,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">Sb</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16605,6 +17100,7 @@ Christof Petig</property>
 					  <property name="label" translatable="yes">B</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <property name="active">False</property>
 					  <property name="inconsistent">False</property>
 					  <property name="draw_indicator">True</property>
@@ -16933,6 +17429,7 @@ Christof Petig</property>
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <property name="active">False</property>
 			  <property name="inconsistent">False</property>
 			  <signal name="toggled" handler="on_togglebutton_vorgaben_toggled"/>
@@ -16999,6 +17496,7 @@ machen</property>
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <signal name="clicked" handler="on_button_zufall_voll_clicked"/>
 
 			  <child>
@@ -17109,6 +17607,7 @@ Grad 1 erzeugen</property>
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
 			  <signal name="clicked" handler="on_button_steigern_clicked"/>
 
 			  <child>
@@ -17185,6 +17684,8 @@ Grad 1 erzeugen</property>
 			      <child>
 				<widget class="GtkEventBox" id="eventbox23">
 				  <property name="visible">True</property>
+				  <property name="visible_window">True</property>
+				  <property name="above_child">False</property>
 
 				  <child>
 				    <widget class="GtkTable" id="table176">
@@ -17219,6 +17720,7 @@ Grad 1 erzeugen</property>
 						  <property name="label" translatable="yes">Verteile</property>
 						  <property name="use_underline">True</property>
 						  <property name="relief">GTK_RELIEF_NORMAL</property>
+						  <property name="focus_on_click">True</property>
 						  <property name="active">False</property>
 						  <property name="inconsistent">False</property>
 						  <property name="draw_indicator">True</property>
@@ -17242,6 +17744,7 @@ Grad 1 erzeugen</property>
 						  <property name="label" translatable="yes">Spezialisieren</property>
 						  <property name="use_underline">True</property>
 						  <property name="relief">GTK_RELIEF_NORMAL</property>
+						  <property name="focus_on_click">True</property>
 						  <property name="active">False</property>
 						  <property name="inconsistent">False</property>
 						  <property name="draw_indicator">True</property>
@@ -17533,6 +18036,8 @@ Grad 1 erzeugen</property>
 				<widget class="GtkEventBox" id="eventbox21">
 				  <property name="visible">True</property>
 				  <property name="tooltip" translatable="yes">Verteilung der GFP auf unterschiedliche Bereiche. Ein 'Spezialist' steigert seine bereits gelernten Fertigkeiten, ein 'Gebildeter' lernt bevorzugt neue Fertigkeiten.</property>
+				  <property name="visible_window">True</property>
+				  <property name="above_child">False</property>
 
 				  <child>
 				    <widget class="GtkTable" id="table172">
@@ -17744,6 +18249,7 @@ werk</property>
 					  <property name="label" translatable="yes">Eingestellte Werte</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
+					  <property name="focus_on_click">True</property>
 					  <signal name="clicked" handler="on_button_check100_clicked"/>
 					</widget>
 					<packing>
@@ -18077,6 +18583,8 @@ werk</property>
 			    <widget class="GtkEventBox" id="eventbox22">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">'GFP': Vorgabe wieviel f_ue_r GFP der Abenteurer lernen soll. 'Grad': Vorgabe in welchem Grad sich der Abenteurer nach dem Steigern befinden soll.</property>
+			      <property name="visible_window">True</property>
+			      <property name="above_child">False</property>
 
 			      <child>
 				<widget class="GtkTable" id="table169">
@@ -18095,6 +18603,7 @@ werk</property>
 				      <property name="label" translatable="yes">GFP</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <property name="active">False</property>
 				      <property name="inconsistent">False</property>
 				      <property name="draw_indicator">True</property>
@@ -18164,6 +18673,7 @@ werk</property>
 				      <property name="label" translatable="yes">Grad</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
 				      <property name="active">True</property>
 				      <property name="inconsistent">False</property>
 				      <property name="draw_indicator">True</property>
@@ -18276,6 +18786,7 @@ werk</property>
 				  <property name="visible">True</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <signal name="toggled" handler="on_togglebutton_prototyp_toggled"/>
@@ -18405,6 +18916,8 @@ werk</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">einen Abenteurer vollautomatisch erwürfeln</property>
+	      <property name="visible_window">True</property>
+	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_zufall_button_release_event"/>
 
 	      <child>
@@ -18565,6 +19078,8 @@ werk</property>
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">Dieses Icon zeigt an, daß die Originalregeln verwendet werden.</property>
+		  <property name="visible_window">True</property>
+		  <property name="above_child">False</property>
 
 		  <child>
 		    <widget class="GtkImage" id="pixmap176">
@@ -18589,6 +19104,8 @@ werk</property>
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">Dieses Icon zeigt an, daß der NSC Modus eingeschaltet ist.</property>
+		  <property name="visible_window">True</property>
+		  <property name="above_child">False</property>
 
 		  <child>
 		    <widget class="GtkImage" id="pixmap164">
@@ -18614,6 +19131,8 @@ werk</property>
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">Dieses Icon zeigt an, daß der Wizard aktiv ist.</property>
 		  <property name="events">GDK_BUTTON_RELEASE_MASK</property>
+		  <property name="visible_window">True</property>
+		  <property name="above_child">False</property>
 		  <signal name="button_release_event" handler="wizard_aktiv_button_release_event" last_modification_time="Fri, 30 Jan 2004 21:20:13 GMT"/>
 
 		  <child>
@@ -18678,6 +19197,11 @@ werk</property>
   <property name="default_height">422</property>
   <property name="resizable">True</property>
   <property name="destroy_with_parent">False</property>
+  <property name="decorated">True</property>
+  <property name="skip_taskbar_hint">False</property>
+  <property name="skip_pager_hint">False</property>
+  <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
+  <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <signal name="delete_event" handler="on_WindowInfo_delete_event"/>
 
   <child>
@@ -18705,6 +19229,7 @@ werk</property>
 	      <property name="visible">True</property>
 	      <property name="can_focus">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
 	      <signal name="clicked" handler="on_button_abbrechen_clicked"/>
 
 	      <child>
@@ -18769,6 +19294,7 @@ schließen</property>
 	      <property name="visible">True</property>
 	      <property name="can_focus">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
 	      <signal name="clicked" handler="on_button_erase_clicked"/>
 
 	      <child>
@@ -18879,6 +19405,11 @@ löschen</property>
   <property name="modal">True</property>
   <property name="resizable">True</property>
   <property name="destroy_with_parent">False</property>
+  <property name="decorated">True</property>
+  <property name="skip_taskbar_hint">False</property>
+  <property name="skip_pager_hint">False</property>
+  <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
+  <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="show_fileops">True</property>
 
   <child internal-child="cancel_button">
@@ -18887,6 +19418,7 @@ löschen</property>
       <property name="can_default">True</property>
       <property name="can_focus">True</property>
       <property name="relief">GTK_RELIEF_NORMAL</property>
+      <property name="focus_on_click">True</property>
       <signal name="clicked" handler="on_cancel_button1_clicked"/>
     </widget>
   </child>
@@ -18897,6 +19429,7 @@ löschen</property>
       <property name="can_default">True</property>
       <property name="can_focus">True</property>
       <property name="relief">GTK_RELIEF_NORMAL</property>
+      <property name="focus_on_click">True</property>
       <signal name="clicked" handler="on_ok_button1_clicked"/>
     </widget>
   </child>
@@ -18912,6 +19445,11 @@ löschen</property>
   <property name="modal">True</property>
   <property name="resizable">True</property>
   <property name="destroy_with_parent">False</property>
+  <property name="decorated">True</property>
+  <property name="skip_taskbar_hint">False</property>
+  <property name="skip_pager_hint">False</property>
+  <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
+  <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
 
   <child>
     <widget class="GtkVBox" id="vbox67">
@@ -19091,6 +19629,7 @@ löschen</property>
 	      <property name="visible">True</property>
 	      <property name="can_focus">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
 	      <signal name="clicked" handler="on_button_eingabe_clicked"/>
 
 	      <child>
@@ -19119,6 +19658,7 @@ löschen</property>
 	      <property name="visible">True</property>
 	      <property name="can_focus">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
 	      <signal name="clicked" handler="on_button_neu_clicked"/>
 
 	      <child>
@@ -19147,6 +19687,7 @@ löschen</property>
 	      <property name="visible">True</property>
 	      <property name="can_focus">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
 	      <signal name="clicked" handler="on_button_zufall_clicked"/>
 
 	      <child>
@@ -19175,6 +19716,7 @@ löschen</property>
 	      <property name="visible">True</property>
 	      <property name="can_focus">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
 	      <signal name="clicked" handler="on_button_load_clicked"/>
 
 	      <child>
@@ -19320,6 +19862,11 @@ löschen</property>
   <property name="default_height">422</property>
   <property name="resizable">True</property>
   <property name="destroy_with_parent">False</property>
+  <property name="decorated">True</property>
+  <property name="skip_taskbar_hint">False</property>
+  <property name="skip_pager_hint">False</property>
+  <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
+  <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="has_separator">False</property>
   <signal name="delete_event" handler="on_WindowInfo_delete_event"/>
 
@@ -19340,6 +19887,7 @@ löschen</property>
 	      <property name="can_default">True</property>
 	      <property name="can_focus">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
 	      <property name="response_id">-6</property>
 
 	      <child>
@@ -19396,6 +19944,7 @@ löschen</property>
 	      <property name="can_default">True</property>
 	      <property name="can_focus">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
 	      <property name="response_id">-5</property>
 
 	      <child>
@@ -19452,6 +20001,7 @@ löschen</property>
 	      <property name="can_default">True</property>
 	      <property name="can_focus">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
 	      <property name="response_id">-7</property>
 
 	      <child>
