@@ -173,7 +173,8 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
      case MidgardBasicElement::WAFFEBESITZ :
          { 
            cH_Waffe W(MBE->getMBE());
-           WaffeBesitz WB(W,(*MBE)->Name(),0,0,"","");
+           H_WaffeBesitz WB=new WaffeBesitz(W,(*MBE)->Name(),0,0,"","");
+// sieht nicht sooo sinnvoll aus, etwas neu erzeugtes wegzunehmen CP
            hauptfenster->getChar()->List_Waffen_besitz().remove(WB);  
            std::string art=W->Art2();
            if(art=="E" || art=="W" || art=="V") waffebesitzlernen.add_EWaffe(1);
@@ -355,7 +356,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 
 void table_lernschema::on_herkunftsland_clicked()
 {  
-  cH_MidgardBasicElement Dummy=new Fertigkeit(*cH_Fertigkeit("",true));
+  cH_MidgardBasicElement Dummy=&*cH_Fertigkeit("",true);
   MBEmlt Mdummy(Dummy);
   lernen_zusatz(MidgardBasicElement::ZHerkunft,Mdummy);
 }
@@ -669,8 +670,8 @@ void table_lernschema::show_gelerntes()
   LL.push_back(hauptfenster->getWerte().Sinne());
   {
   std::list<MBEmlt> temp;
-  for(std::list<WaffeBesitz>::iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
-      temp.push_back(H_MidgardBasicElement_mutable(&*i));
+  for(std::list<H_WaffeBesitz>::iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
+      temp.push_back(H_MidgardBasicElement_mutable(&**i));
   LL.push_back(temp);
   }
   for(std::list<std::list<MBEmlt> >::const_iterator i=LL.begin();i!=LL.end();++i)

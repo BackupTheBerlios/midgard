@@ -44,7 +44,7 @@ class H_MidgardBasicElement_mutable;
 typedef H_MidgardBasicElement_mutable MBEmlt;
   
 // dies ist eine erlernbare Fertigkeit, d.h. losgelöst von einem Abenteurer
-class MidgardBasicElement : public HandleContentCopyable
+class MidgardBasicElement : public HandleContent
 {
    protected:
       // WARNUNG: Beruf wird nicht verwendet
@@ -176,7 +176,7 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
 };
 
 // dies ist eine erlernte "Fertigkeit" d.h. sie hat Erfolgswert usw.
-class MidgardBasicElement_mutable : public HandleContentCopyable
+class MidgardBasicElement_mutable : public HandleContent
 {
  private:
       cH_MidgardBasicElement mbe;

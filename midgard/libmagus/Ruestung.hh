@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.2 2003/05/21 07:02:14 christof Exp $               
+// $Id: Ruestung.hh,v 1.3 2003/06/03 16:39:02 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,7 +28,7 @@ class Tag;
 //#include "xml.h"
 
 class Grundwerte;
-class Ruestung  : public HandleContentCopyable
+class Ruestung  : public HandleContent // Copyable
 {
    std::string name, longname, region,behinderung_wie; 
    int lp_verlust,min_staerke,rw_verlust,b_verlust,

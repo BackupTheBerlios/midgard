@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.92 2003/04/28 13:13:23 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.93 2003/06/03 16:39:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -159,8 +159,8 @@ void LaTeX_drucken::LaTeX_write_values(std::ostream &fout,const std::string &ins
  /////////////////////////////////////////////////////////////////////////////
  // Waffen + Waffen/Besitz
  std::string angriffsverlust_string = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar()->List_Fertigkeit());
- std::list<WaffeBesitz> WBesitz=hauptfenster->getChar()->List_Waffen_besitz();
- std::list<WaffeBesitz> WB_druck;
+ std::list<H_WaffeBesitz> WBesitz=hauptfenster->getChar()->List_Waffen_besitz();
+ std::list<H_WaffeBesitz> WB_druck;
  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Waffen().begin();i!=hauptfenster->getChar()->List_Waffen().end();++i)
    {
     F.push_back(*i);
@@ -168,15 +168,15 @@ void LaTeX_drucken::LaTeX_write_values(std::ostream &fout,const std::string &ins
     // waffenloser Kampf:
     if (w->Name()=="waffenloser Kampf" || w->Name()=="Faustkampf") 
      {
-      WaffeBesitz W(w,w->Name(),0,0,"","");
-      W.setErfolgswert((*i)->Erfolgswert());
+      H_WaffeBesitz W=new WaffeBesitz(w,w->Name(),0,0,"","");
+      W->setErfolgswert((*i)->Erfolgswert());
       WBesitz.push_back(W);
      }
-    for (std::list<WaffeBesitz>::const_iterator j=WBesitz.begin();j!=WBesitz.end();++j)
+    for (std::list<H_WaffeBesitz>::const_iterator j=WBesitz.begin();j!=WBesitz.end();++j)
      {
-      WaffeBesitz WB=*j;
-      WB.setErfolgswert((*i)->Erfolgswert());
-      if (WB.Waffe()->Name()==w->Name())  WB_druck.push_back(WB)  ;
+      H_WaffeBesitz WB=*j;
+      WB->setErfolgswert((*i)->Erfolgswert());
+      if (WB->Waffe()->Name()==w->Name())  WB_druck.push_back(WB)  ;
      }
    }
  write_waffenbesitz(fout,WB_druck);
@@ -205,7 +205,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(std::ostream &fout,const std::strin
  fout << "\\newcommand{\\beruf}{}\n" ;
  std::list<MBEmlt> F;
  write_fertigkeiten(fout,F);
- std::list<WaffeBesitz> B;
+ std::list<H_WaffeBesitz> B;
  write_waffenbesitz(fout,B);
  write_universelle(fout);
 
@@ -493,35 +493,35 @@ struct st_WB{std::string name;std::string wert;std::string schaden;
                                   std::string r,std::string m)
                     : name(n),wert(w),schaden(s),rang(r),modi(m) {}};
 
-void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeBesitz>& L,bool longlist)
+void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_WaffeBesitz>& L,bool longlist)
 {
   std::string angriffsverlust = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar()->List_Fertigkeit());
   std::vector<st_WB> VWB;
   VWB.push_back(st_WB("Raufen",itos(hauptfenster->getWerte().Raufen()),
                       hauptfenster->getWerte().RaufenSchaden(),"",""));
-  for(std::list<WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
+  for(std::list<H_WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     std::string waffenname = i->AliasName();
-     if (i->Magisch()!="" || i->av_Bonus()!=0 || i->sl_Bonus()!=0) 
-         waffenname+="$^*$ "+i->Bonus() ;
+     std::string waffenname = (*i)->AliasName();
+     if ((*i)->Magisch()!="" || (*i)->av_Bonus()!=0 || (*i)->sl_Bonus()!=0) 
+         waffenname+="$^*$ "+(*i)->Bonus() ;
      std::string swert;
-     if (i->Waffe()->Verteidigung()) // Erfolgswert für Verteidigungswaffen
+     if ((*i)->Waffe()->Verteidigung()) // Erfolgswert für Verteidigungswaffen
       {
-        int wert = i->Erfolgswert()+i->av_Bonus()+i->Waffe()->WM_Angriff(i->AliasName());
+        int wert = (*i)->Erfolgswert()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
         swert=itos(wert);
       }
      else  // Erfolgswert für Angriffswaffen
       {
-        int wert = i->Erfolgswert()+hauptfenster->getWerte().bo_An()+i->av_Bonus()+i->Waffe()->WM_Angriff(i->AliasName());
+        int wert = (*i)->Erfolgswert()+hauptfenster->getWerte().bo_An()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
         // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
         swert = itos(wert)+angriffsverlust;
       }
-     std::string schaden=i->Schaden(hauptfenster->getWerte(),i->AliasName());
-     std::string anm = i->Waffe()->Waffenrang();
-     std::string abm = i->Waffe()->WM_Abwehr();
+     std::string schaden=(*i)->Schaden(hauptfenster->getWerte(),(*i)->AliasName());
+     std::string anm = (*i)->Waffe()->Waffenrang();
+     std::string abm = (*i)->Waffe()->WM_Abwehr();
 
-     VWB.push_back(st_WB(LaTeX_scalemag(waffenname,25,"3cm",i->Magisch(),
-            TeX::string2TeX(i->Waffe()->Reichweite()+" "+i->Waffe()->Text())),
+     VWB.push_back(st_WB(LaTeX_scalemag(waffenname,25,"3cm",(*i)->Magisch(),
+            TeX::string2TeX((*i)->Waffe()->Reichweite()+" "+(*i)->Waffe()->Text())),
             swert,schaden,anm,abm));
    }
  unsigned int count=0;
@@ -604,7 +604,7 @@ void LaTeX_drucken::write_universelle(std::ostream &fout)
 
 void LaTeX_drucken::write_long_list(std::ostream &fout,const std::vector<Sprache_und_Schrift>& S,
                      const std::list<MBEmlt> &F,
-                     const std::list<WaffeBesitz> &WB_druck)
+                     const std::list<H_WaffeBesitz> &WB_druck)
 {
   fout << "\n\n\\newpage\n\n";
   fout << "\\catcode`\\~=12\n"; // omitting this kills the printing on Windows - latex bug?

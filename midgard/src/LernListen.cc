@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.31 2003/04/25 07:12:08 christof Exp $
+// $Id: LernListen.cc,v 1.32 2003/06/03 16:39:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -320,22 +320,22 @@ bool LernListen::SpracheSchrift(const cH_MidgardBasicElement& MBE)
  return back;  
 }
 
-std::list<WaffeBesitz> LernListen::getWaffenBesitz(const Abenteurer& Aben) const
+std::list<H_WaffeBesitz> LernListen::getWaffenBesitz(const Abenteurer& Aben) const
 {
   std::list<cH_MidgardBasicElement> V=D.Waffe;
-  std::list<WaffeBesitz> L;
+  std::list<H_WaffeBesitz> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=V.begin();i!=V.end();++i)
    {
      if(Aben.getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      const cH_Waffe w(*i);
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
      if (!MBEmlt(&*w)->ist_gelernt(Aben.List_Waffen())) continue;
-     L.push_back(WaffeBesitz(w,w->Name(),0,0,"","")); 
+     L.push_back(new WaffeBesitz(w,w->Name(),0,0,"","")); 
      for(std::list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
       {
         if(j->st>Aben.getWerte().St()) continue;
         if(region_check(j->region))
-           L.push_back(WaffeBesitz(w,j->name,0,0,"",j->region)); 
+           L.push_back(new WaffeBesitz(w,j->name,0,0,"",j->region)); 
       }
    }
  return L;

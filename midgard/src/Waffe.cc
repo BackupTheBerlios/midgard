@@ -336,40 +336,40 @@ int Waffe::MaxErfolgswert(const Abenteurer &A) const
 
 std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
    const std::list<MBEmlt>& list_Waffen,
-   const std::list<WaffeBesitz>& list_Waffen_besitz,
+   const std::list<H_WaffeBesitz>& list_Waffen_besitz,
    const Abenteurer &A)
 {
-   std::list<WaffeBesitz> Verteidigungswaffen;
+   std::list<H_WaffeBesitz> Verteidigungswaffen;
 //   MBEmlt wl(&*cH_Waffe("waffenloser Kampf"));
    cH_Waffe wl("waffenloser Kampf");
-   Verteidigungswaffen.push_back(WaffeBesitz(wl,wl->Name(),0,0,"",""));
-   for (std::list<WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
+   Verteidigungswaffen.push_back(new WaffeBesitz(wl,wl->Name(),0,0,"",""));
+   for (std::list<H_WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
      {
-       WaffeBesitz WB(*i);
-       if (WB.Waffe()->Art()=="Verteidigung" || WB->Name()=="Kampfstab" || WB->Name()=="Sai" ||
-          WB->Name()=="Tonfa" || WB->Name()=="GunSen" || WB->Name()=="BuKasa" || 
-          WB->Name()=="KusariGama" || WB->Name()=="TetsuBo" ) 
+       H_WaffeBesitz WB(*i);
+       if (WB->Waffe()->Art()=="Verteidigung" || (*WB)->Name()=="Kampfstab" || (*WB)->Name()=="Sai" ||
+          (*WB)->Name()=="Tonfa" || (*WB)->Name()=="GunSen" || (*WB)->Name()=="BuKasa" || 
+          (*WB)->Name()=="KusariGama" || (*WB)->Name()=="TetsuBo" ) 
          Verteidigungswaffen.push_back(*i);
      }
    std::string Vwaffewert;
-   for(std::list<WaffeBesitz>::const_iterator i=Verteidigungswaffen.begin();
+   for(std::list<H_WaffeBesitz>::const_iterator i=Verteidigungswaffen.begin();
          i!=Verteidigungswaffen.end();/*siehe unten*/)
      {
-      WaffeBesitz WB=*i;
+      H_WaffeBesitz WB=*i;
       std::vector<int> vwert;
       for (std::list<MBEmlt>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)      
          { cH_Waffe w((*j)->getMBE());
-            if (WB->Name() == w->Name()) 
+            if ((*WB)->Name() == w->Name()) 
                { 
                  int erf_wert;
-                 if (WB->Name()=="Kampfstab"||WB->Name()=="Sai"||WB->Name()=="Tonfa"||WB->Name()=="KusariGama") 
+                 if ((*WB)->Name()=="Kampfstab"||(*WB)->Name()=="Sai"||(*WB)->Name()=="Tonfa"||(*WB)->Name()=="KusariGama") 
                   {erf_wert = (*j)->Erfolgswert()-5; (erf_wert<=7)?:erf_wert=7; }
-                 else if (WB->Name()=="TetsuBo")
+                 else if ((*WB)->Name()=="TetsuBo")
                   {erf_wert = (*j)->Erfolgswert()-7; (erf_wert<=7)?:erf_wert=7; }
-                 else if (WB->Name()=="GunSen"||WB->Name()=="BuKasa")
+                 else if ((*WB)->Name()=="GunSen"||(*WB)->Name()=="BuKasa")
                   {erf_wert = (*j)->Erfolgswert(); (erf_wert<=10)?:erf_wert=10; }
-                 else if (WB->Name()=="waffenloser Kampf")
+                 else if ((*WB)->Name()=="waffenloser Kampf")
                   {if ( (*j)->Erfolgswert()<8)              break       ;
                    if ( 8<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<12) erf_wert = 1;
                    if (12<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<16) erf_wert = 2;
@@ -377,7 +377,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
                   }
                  else erf_wert = (*j)->Erfolgswert();
                  int ewert = A.getWerte().Abwehr_wert()+A.getWerte().bo_Ab() // Grundwerte
-                           + erf_wert + WB.av_Bonus() ;// Waffenwerte
+                           + erf_wert + WB->av_Bonus() ;// Waffenwerte
                  Vwaffewert += itos(ewert);
                }
          }

@@ -290,10 +290,10 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
   return MBE;
 }
 
-std::vector<WaffeBesitz> List_to_Vector(const std::list<WaffeBesitz>& L)
+std::vector<H_WaffeBesitz> List_to_Vector(const std::list<H_WaffeBesitz>& L)
 {
-  std::vector<WaffeBesitz> V;
-  for(std::list<WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
+  std::vector<H_WaffeBesitz> V;
+  for(std::list<H_WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
    {
      V.push_back(*i);
    }
@@ -302,23 +302,23 @@ std::vector<WaffeBesitz> List_to_Vector(const std::list<WaffeBesitz>& L)
 
 void Zufall::setWaffenBesitz()
 {
-  std::list<WaffeBesitz> L=LL.getWaffenBesitz(Aben);
+  std::list<H_WaffeBesitz> L=LL.getWaffenBesitz(Aben);
   WaffeBesitzLernen wbl=WaffenBesitz_wuerfeln(Aben,random.integer(1,100));
 
 reloop:
   if(wbl.AWaffe() == 0 && wbl.EWaffe() == 0) return;
-  std::vector<WaffeBesitz> V=List_to_Vector(L);
-  for(std::vector<WaffeBesitz>::const_iterator i=V.begin();i!=V.end();++i)
+  std::vector<H_WaffeBesitz> V=List_to_Vector(L);
+  for(std::vector<H_WaffeBesitz>::const_iterator i=V.begin();i!=V.end();++i)
    {
      int i=random.integer(0,V.size()-1);
-     WaffeBesitz WB=V[i];
-     std::string art=cH_Waffe(WB.getMBE())->Art2();     
+     H_WaffeBesitz WB=V[i];
+     std::string art=cH_Waffe(WB->getMBE())->Art2();     
      if( (art=="E" || art=="W" || art=="V") && wbl.EWaffe()>0)
       {
         wbl.add_EWaffe(-1);
         if(wbl.getMagisch())
           {
-            WB.set_av_Bonus(1);
+            WB->set_av_Bonus(1);
             wbl.setMagisch(false);
           }
       }

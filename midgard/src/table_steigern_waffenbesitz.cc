@@ -26,12 +26,12 @@
 void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-  WaffeBesitz WB(dt->get_Waffe());
+  H_WaffeBesitz WB(dt->get_Waffe());
 //cout << WB->Name()<<'\t'<<WB.AliasName()<<'\n';
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
-    for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();
+    for(std::list<H_WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();
          i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
      {
         if( *i == WB)
@@ -45,7 +45,7 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
   else 
    {
      table_magbonus->show();
-     if (WB.Waffe()->Art()=="Verteidigung")
+     if (WB->Waffe()->Art()=="Verteidigung")
        { label_av_bonus->set_text("Abwehrbonus");
          label_sl_bonus->set_text("LP-Schutz");  
        }
@@ -53,10 +53,10 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
        { label_av_bonus->set_text("Angriffsbonus");
          label_sl_bonus->set_text("Schadensbonus");
        }
-//     label_waffe->set_text(WB->Name());
-     spinbutton_av_bonus->set_value(WB.av_Bonus());
-     spinbutton_sl_bonus->set_value(WB.sl_Bonus());
-     entry_magisch->set_text(WB.Magisch());
+//     label_waffe->set_text((*WB)->Name());
+     spinbutton_av_bonus->set_value(WB->av_Bonus());
+     spinbutton_sl_bonus->set_value(WB->sl_Bonus());
+     entry_magisch->set_text(WB->Magisch());
      spinbutton_av_bonus->grab_focus();
      spinbutton_av_bonus->select_region(0,-1);
     }
@@ -74,16 +74,16 @@ void table_steigern::on_entry_magisch_activate()
 
   try{
      cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
-     WaffeBesitz WB = dt->get_Waffe();
+     H_WaffeBesitz WB = dt->get_Waffe();
 
-     std::list<WaffeBesitz> &L=hauptfenster->getChar()->List_Waffen_besitz();
-     for(std::list<WaffeBesitz>::iterator i=L.begin();i!=L.end();++i)
+     std::list<H_WaffeBesitz> &L=hauptfenster->getChar()->List_Waffen_besitz();
+     for(std::list<H_WaffeBesitz>::iterator i=L.begin();i!=L.end();++i)
       {
         if( *i == WB)
         {
-          i->set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
-          i->set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());
-          i->set_Magisch(entry_magisch->get_text());
+          (*i)->set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
+          (*i)->set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());
+          (*i)->set_Magisch(entry_magisch->get_text());
           break;
         }
       }
@@ -99,7 +99,7 @@ void table_steigern::on_entry_magisch_activate()
 void table_steigern::on_leaf_waffenbesitz_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-  WaffeBesitz MBE=dt->get_Waffe();
+  H_WaffeBesitz MBE=dt->get_Waffe();
   
   hauptfenster->getChar()->List_Waffen_besitz().push_back(MBE);
   show_alte_waffen();
@@ -139,7 +139,7 @@ void  table_steigern::show_alte_waffen()
   std::vector<cH_RowDataBase> datavec;
 //cout <<"Alte größe = " <<Waffe_Besitz.size()<<'\n';
 
-  for (std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
+  for (std::list<H_WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
      datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_alt_tree->setDataVec(datavec);
   waffenbesitz_alt_tree->Expand_recursively();
@@ -148,8 +148,8 @@ void  table_steigern::show_alte_waffen()
 void  table_steigern::lade_waffenbesitz()
 {
   std::vector<cH_RowDataBase> datavec;
-  std::list<WaffeBesitz> Waffe_Besitz_neu=LernListen(hauptfenster->getCDatabase()).getWaffenBesitz(hauptfenster->getAben());
-  for (std::list<WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
+  std::list<H_WaffeBesitz> Waffe_Besitz_neu=LernListen(hauptfenster->getCDatabase()).getWaffenBesitz(hauptfenster->getAben());
+  for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
         datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_neu_tree->setDataVec(datavec);
 }

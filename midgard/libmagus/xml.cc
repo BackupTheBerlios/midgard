@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.12 2003/05/26 06:23:35 christof Exp $
+// $Id: xml.cc,v 1.13 2003/06/03 16:39:02 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2003 Christof Petig
  *
@@ -27,7 +27,8 @@
 
 void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen, Datenbank &db)
 {  std::string filename=magus_paths::with_path("midgard.xml");
-   TagStream ts=TagStream(std::ifstream(filename.c_str()));
+   TagStream ts=TagStream(const_cast<std::istream&>
+   	(static_cast<const std::istream&>(std::ifstream(filename.c_str()))));
    try
    {  Tag &xml_data_mutable=ts.getContent();
    

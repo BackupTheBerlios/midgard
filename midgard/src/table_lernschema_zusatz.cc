@@ -78,7 +78,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
        if((*MBE)->Name()=="Landeskunde (Heimat)")
          {
            list_FertigkeitZusaetze.push_back((*MBE)->Name());
-           cH_MidgardBasicElement MBE_=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
+           cH_MidgardBasicElement MBE_=&*cH_Fertigkeit("Landeskunde");
            MBEmlt M(&*MBE_);
            M->setLernArt(MBE->LernArt()+"_Heimat");
            M->setZusatz(hauptfenster->getWerte().Herkunft()->Name());

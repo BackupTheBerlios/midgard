@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.31 2003/05/06 09:37:18 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.32 2003/06/03 16:39:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -29,7 +29,7 @@ void table_lernschema::on_button_lernschema_waffen()
 {
   if(hauptfenster->getAben().List_Waffen().empty()) 
    { hauptfenster->set_info("Fehler: Noch keine Waffen gewählt"); return ;}
-  for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
+  for(std::list<H_WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
    {
      AusruestungBaum &AB=hauptfenster->getAben().getAusruestung_as_parent((*i)->Name());
      AusruestungBaum *Parent = AB.getParent();
@@ -104,10 +104,10 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   tree_waffen_lernschema->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
   label_lernschma_titel->set_text("Waffenbesitz wählen");
 #warning TODO
-  std::list<WaffeBesitz> L1=LernListen(hauptfenster->getDatabase()).getWaffenBesitz(hauptfenster->getAben());
+  std::list<H_WaffeBesitz> L1=LernListen(hauptfenster->getDatabase()).getWaffenBesitz(hauptfenster->getAben());
   std::list<MBEmlt> L;
-  for(std::list<WaffeBesitz>::iterator i=L1.begin();i!=L1.end();++i) 
-      L.push_back(H_MidgardBasicElement_mutable(&*i));
+  for(std::list<H_WaffeBesitz>::iterator i=L1.begin();i!=L1.end();++i) 
+      L.push_back(H_MidgardBasicElement_mutable(&**i));
   MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
   tree_waffen_lernschema->show();
   tree_waffen_lernschema->Expand_recursively();
@@ -135,13 +135,13 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
    MBEmlt MBE = dt->getMBE();
    cH_Waffe W(MBE->getMBE());
    std::string art=W->Art2();
-   WaffeBesitz WB(W,(*MBE)->Name(),0,0,"","");
+   H_WaffeBesitz WB=new WaffeBesitz(W,(*MBE)->Name(),0,0,"","");
    if( (art=="E" || art=="W" || art=="V") && waffebesitzlernen.EWaffe()>0)
     {
       waffebesitzlernen.add_EWaffe(-1);
       if(waffebesitzlernen.getMagisch())
         {
-          WB.set_av_Bonus(1);
+          WB->set_av_Bonus(1);
           waffebesitzlernen.setMagisch(false);
         }
     }
@@ -152,7 +152,7 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
    hauptfenster->getChar()->List_Waffen_besitz().push_back(WB);
    {
     AusruestungBaum &wohin=hauptfenster->getAben().getAusruestung_as_parent("Gürtel");
-    std::string g=WB.Waffe()->Grundkenntnis();
+    std::string g=WB->Waffe()->Grundkenntnis();
     if(g=="Kampf ohne Waffen")
      {
        if(g=="Zweihandschwert" || g=="Zweihandschlagwaffe" ||
@@ -160,7 +160,7 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
           g=="Armbrust"
          )
           wohin=hauptfenster->getAben().getBesitz();
-       wohin.push_back(Ausruestung(WB->Name()));
+       wohin.push_back(Ausruestung((*WB)->Name()));
      }
    }
    show_gelerntes();

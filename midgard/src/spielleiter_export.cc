@@ -88,17 +88,17 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
     {WaffeBesitz WB(w,w->Name(),0,0,"","");
     schaden= "$"+WB.Schaden(getWerte(),w->Name())+"$";
     }
-    for(std::list<WaffeBesitz>::const_iterator j=Char->List_Waffen_besitz().begin();j!=Char->List_Waffen_besitz().end();++j)
+    for(std::list<H_WaffeBesitz>::const_iterator j=Char->List_Waffen_besitz().begin();j!=Char->List_Waffen_besitz().end();++j)
      {
-       WaffeBesitz WB=*j;
-       if (WB.Waffe()->Name()==w->Name())
+       H_WaffeBesitz WB=*j;
+       if (WB->Waffe()->Name()==w->Name())
         {
           besitz=true;
-          name = WB.AliasName();
-//LaTeX          if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) name +="$^*$";
-          if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) name +="*";
-          wert += WB.av_Bonus() + WB.Waffe()->WM_Angriff((*j)->Name());
-          schaden=WB.Schaden(Char->getWerte(),WB->Name());
+          name = WB->AliasName();
+//LaTeX          if (WB->av_Bonus()!=0 || WB->sl_Bonus()!=0) name +="$^*$";
+          if (WB->av_Bonus()!=0 || WB->sl_Bonus()!=0) name +="*";
+          wert += WB->av_Bonus() + WB->Waffe()->WM_Angriff((**j)->Name());
+          schaden=WB->Schaden(Char->getWerte(),(*WB)->Name());
         }
       }
     angriff += name+"+"+itos(wert)+" ("+schaden+"), ";

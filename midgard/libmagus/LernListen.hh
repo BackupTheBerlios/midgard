@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.2 2003/05/07 12:42:08 christof Exp $
+// $Id: LernListen.hh,v 1.3 2003/06/03 16:39:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,7 @@
 #include "Datenbank.hh"
 
 class VAbenteurer;
-class WaffeBesitz;
+class H_WaffeBesitz;
 #include "Beruf.hh"
 #include "Enums.hh"
 
@@ -59,7 +59,7 @@ class LernListen
       std::vector<cH_Ruestung> getRuestung() const;
 
 
-      std::list<WaffeBesitz> getWaffenBesitz(const Abenteurer& Aben) const;      
+      std::list<H_WaffeBesitz> getWaffenBesitz(const Abenteurer& Aben) const;      
 
       std::list<MBEmlt> getMBEm(const Abenteurer& A,eMBE was, int erfolgswert=0,
                      int lernpunkte=0,std::string lernart="") const;

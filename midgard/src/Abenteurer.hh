@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.49 2003/01/23 15:28:24 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.50 2003/06/03 16:39:02 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -40,7 +40,7 @@ class Abenteurer
    std::list<MBEmlt> list_Fertigkeit;
    std::list<MBEmlt> list_WaffenGrund;
    std::list<MBEmlt> list_Waffen;
-   std::list<WaffeBesitz> list_Waffen_besitz;
+   std::list<H_WaffeBesitz> list_Waffen_besitz; // oder MBEmlt
    std::list<MBEmlt> list_Zauber;
    std::list<MBEmlt> list_Zauberwerk;
    std::list<MBEmlt> list_Kido;
@@ -101,7 +101,7 @@ public:
    const std::list<MBEmlt>& List_Fertigkeit() const {return list_Fertigkeit;}
    const std::list<MBEmlt>& List_WaffenGrund() const {return list_WaffenGrund;}
    const std::list<MBEmlt>& List_Waffen() const {return list_Waffen;}
-   const std::list<WaffeBesitz>& List_Waffen_besitz() const {return list_Waffen_besitz;}
+   const std::list<H_WaffeBesitz>& List_Waffen_besitz() const {return list_Waffen_besitz;}
    const std::list<MBEmlt>& List_Zauber() const {return list_Zauber;}
    const std::list<MBEmlt>& List_Zauberwerk() const {return list_Zauberwerk;}
    const std::list<MBEmlt>& List_Kido() const {return list_Kido;}
@@ -127,7 +127,7 @@ public:
    std::list<MBEmlt>& List_Fertigkeit()  {return list_Fertigkeit;}
    std::list<MBEmlt>& List_WaffenGrund() {return list_WaffenGrund;}
    std::list<MBEmlt>& List_Waffen()  {return list_Waffen;}
-   std::list<WaffeBesitz>& List_Waffen_besitz() {return list_Waffen_besitz;}
+   std::list<H_WaffeBesitz>& List_Waffen_besitz() {return list_Waffen_besitz;}
    std::list<MBEmlt>& List_Zauber()  {return list_Zauber;}
    std::list<MBEmlt>& List_Zauberwerk()  {return list_Zauberwerk;}
    std::list<MBEmlt>& List_Kido()  {return list_Kido;}

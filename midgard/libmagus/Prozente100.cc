@@ -17,6 +17,7 @@
  */
 
 #include "Prozente100.hh"
+#include <cassert>
 
 Prozente100::Prozente100()
 : mage(true)

@@ -23,7 +23,7 @@
 #include "Grundwerte.hh"
 
 class cH_Waffe;
-class WaffeBesitz;
+class H_WaffeBesitz;
 class Abenteurer;
 
 class Waffe : public MidgardBasicElement
@@ -94,7 +94,7 @@ class Waffe : public MidgardBasicElement
      static std::map<std::string,std::string> fill_map_alias_waffe();
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<MBEmlt>& list_Waffen,
-         const std::list<WaffeBesitz>& list_Waffen_besitz,
+         const std::list<H_WaffeBesitz>& list_Waffen_besitz,
          const Abenteurer &A);
      static void setSpezialWaffe(const std::string& name, std::list<MBEmlt>& list_Waffen_gelernt);
      static std::list<cH_MidgardBasicElement> getAllgemeinwissen(const std::list<cH_MidgardBasicElement> &L);
@@ -186,14 +186,23 @@ class WaffeBesitz : public MidgardBasicElement_mutable
 };
 
 
+struct H_WaffeBesitz : public Handle<WaffeBesitz>
+{
+      H_WaffeBesitz(){}
+      H_WaffeBesitz(WaffeBesitz *r) 
+            : Handle<WaffeBesitz>(r){}
+};
+
 class WaffenBesitz_sort_magbonus
-{ public : bool operator() (WaffeBesitz x, WaffeBesitz y) const
-      { return x.av_Bonus() > y.av_Bonus()  || 
-              (x.av_Bonus() == y.av_Bonus() && x.sl_Bonus() > y.sl_Bonus())||
-              (x.av_Bonus() == y.av_Bonus() && x.sl_Bonus()== y.sl_Bonus() &&
-               x.Magisch() > y.Magisch() );}}; 
+{ public : bool operator() (H_WaffeBesitz x, H_WaffeBesitz y) const
+      { return x->av_Bonus() > y->av_Bonus()  || 
+              (x->av_Bonus() == y->av_Bonus() && x->sl_Bonus() > y->sl_Bonus())||
+              (x->av_Bonus() == y->av_Bonus() && x->sl_Bonus()== y->sl_Bonus() &&
+               x->Magisch() > y->Magisch() );}}; 
 class WaffenBesitz_sort_name
-{ public : bool operator() (WaffeBesitz x, WaffeBesitz y) const
-      { return x->Name() < y->Name();}};
+{ public : bool operator() (H_WaffeBesitz x, H_WaffeBesitz y) const
+      { return (*x)->Name() < (*y)->Name();}};
+
+
 
 #endif

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.18 2002/10/24 07:21:01 christof Exp $
+// $Id: LaTeX_drucken.hh,v 1.19 2003/06/03 16:39:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,11 +64,11 @@ class LaTeX_drucken
     void write_grundwerte(std::ostream &fout,bool empty=false);
     void write_sprachen(std::ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist=false);
     void write_fertigkeiten(std::ostream &fout,const std::list<MBEmlt>& L,bool longlist=false);
-    void write_waffenbesitz(std::ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false);
+    void write_waffenbesitz(std::ostream &fout,const std::list<H_WaffeBesitz>& L,bool longlist=false);
     void write_universelle(std::ostream &fout);
     void write_long_list(std::ostream &fout,const std::vector<Sprache_und_Schrift> &S,
                          const std::list<MBEmlt> &F,
-                         const std::list<WaffeBesitz> &WB_druck);
+                         const std::list<H_WaffeBesitz> &WB_druck);
 
     std::string LaTeX_scale(const std::string& is, 
          unsigned int maxlength, const std::string& scale);

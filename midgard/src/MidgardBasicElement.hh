@@ -43,7 +43,7 @@ class NotFound : public std::exception
 	virtual const char* what() const throw() { return "NotFound"; }
 };
 
-class MidgardBasicElement : public HandleContentCopyable
+class MidgardBasicElement : public HandleContent // Copyable
 {
    protected:
       // WARNUNG: Beruf wird nicht verwendet
@@ -166,7 +166,7 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
             : Handle<const MidgardBasicElement>(r){}
 };
 
-class MidgardBasicElement_mutable : public HandleContentCopyable
+class MidgardBasicElement_mutable : public HandleContent // Copyable
 {
  private:
       cH_MidgardBasicElement mbe;

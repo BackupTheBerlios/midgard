@@ -133,7 +133,7 @@ void table_steigern::neu_lernen(MBEmlt &MBE,const int bonus)
    { if((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
       {
         neue_fert_tree->set_sensitive(false);
-        MBE=MBEmlt(new Fertigkeit(*cH_Fertigkeit(MBE->getMBE())));
+        MBE=MBEmlt(&*cH_Fertigkeit(MBE->getMBE()));
         fillClistZusatz(MBE);
         // Davor stellen, damit beim Kopieren dieses MBE Verschoben wird.   
         list_Fertigkeit_neu.push_front(MBE);
@@ -145,7 +145,7 @@ void table_steigern::neu_lernen(MBEmlt &MBE,const int bonus)
  else if((*MBE).What()==MidgardBasicElement::ZAUBER) 
   { if((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
      {  
-       MBE=MBEmlt(new Zauber(*cH_Zauber(MBE->getMBE())));
+       MBE=MBEmlt(&*cH_Zauber(MBE->getMBE()));
        fillClistZusatz(MBE);
        // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
        list_Zauber_neu.push_front(MBE);

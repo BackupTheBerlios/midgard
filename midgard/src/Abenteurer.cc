@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.72 2003/04/25 07:12:08 christof Exp $            
+// $Id: Abenteurer.cc,v 1.73 2003/06/03 16:39:02 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -236,18 +236,18 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
    if (!getWerte().Ruestung(1)->Name().empty())
      Ausruestung.push_back(Tag("Rüstung2", getWerte().Ruestung(1)->Name()));
    // Waffen Besitz
-   for (std::list<WaffeBesitz>::const_iterator i=List_Waffen_besitz().begin();
+   for (std::list<H_WaffeBesitz>::const_iterator i=List_Waffen_besitz().begin();
 //   for (std::list<MBEmlt>::const_iterator i=List_Waffen_besitz().begin();
          i!=List_Waffen_besitz().end();++i)
       {  
 //         WaffeBesitz WB(*i) ;
          Tag &w=Ausruestung.push_back(Tag("Waffe"));
-         w.setIntAttr("Erfolgswert", i->Erfolgswert());
-         w.setAttr("Bezeichnung", i->AliasName());
-         w.setIntAttr_nn("AngriffVerteidigung_Bonus", i->av_Bonus());
-         w.setIntAttr_nn("SchadenLebenspunkte_Bonus", i->sl_Bonus());
-         w.setAttr_ne("Region", i->Region());
-         if (!i->Magisch().empty()) w.Value(i->Magisch());
+         w.setIntAttr("Erfolgswert", (*i)->Erfolgswert());
+         w.setAttr("Bezeichnung", (*i)->AliasName());
+         w.setIntAttr_nn("AngriffVerteidigung_Bonus", (*i)->av_Bonus());
+         w.setIntAttr_nn("SchadenLebenspunkte_Bonus", (*i)->sl_Bonus());
+         w.setAttr_ne("Region", (*i)->Region());
+         if (!(*i)->Magisch().empty()) w.Value((*i)->Magisch());
       }
    save_ausruestung(Ausruestung, getBesitz().getChildren());
    
@@ -624,7 +624,8 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          F->setErfolgswert(i->getIntAttr("Wert"));
          F->setPraxispunkte(i->getIntAttr("Praxispunkte"));
          if(cH_Fertigkeit(fert)->ZusatzEnum(getVTyp()))
-         {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
+         {  // fert=new Fertigkeit(*cH_Fertigkeit(fert));
+            // create Zusatz if not already there
             if(fert->Name()=="Landeskunde") cH_Land(i->getAttr("Zusatz"),true);
             if(fert->Name()=="Scharfschießen") cH_Waffe(i->getAttr("Zusatz"),true);
             F->setZusatz(i->getAttr("Zusatz"));
@@ -647,7 +648,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          cH_MidgardBasicElement zauber(&*cH_Zauber(i->getAttr("Bezeichnung"),true));
          MBEmlt Z(zauber);
          if(zauber->ZusatzEnum(getVTyp()))
-          { zauber=new Zauber(*cH_Zauber(zauber));
+          { // zauber=new Zauber(*cH_Zauber(zauber));
             Z->setZusatz(i->getAttr("Zusatz"));
           }
          List_Zauber().push_back(Z);
@@ -726,7 +727,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
     FOR_EACH_CONST_TAG_OF(i,*waffen_b,"Waffe")
     {   std::string wn = Database.Waffe_from_Alias[i->getAttr("Bezeichnung")];
         if (wn=="") wn=i->getAttr("Bezeichnung"); 
-         WaffeBesitz WB(cH_Waffe(wn,true),
+         H_WaffeBesitz WB=new WaffeBesitz(cH_Waffe(wn,true),
                         i->getAttr("Bezeichnung"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),
                         i->getIntAttr("SchadenLebenspunkte_Bonus"),
