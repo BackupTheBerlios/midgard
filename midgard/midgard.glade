@@ -16099,8 +16099,9 @@ Unterstützung</label>
 
     <widget>
       <class>GtkToolbar</class>
-      <name>toolbar32</name>
+      <name>toolbar_close</name>
       <border_width>5</border_width>
+      <cxx_visibility>protected</cxx_visibility>
       <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
       <type>GTK_TOOLBAR_ICONS</type>
       <space_size>5</space_size>
@@ -16125,7 +16126,7 @@ Unterstützung</label>
       <widget>
 	<class>GtkButton</class>
 	<child_name>Toolbar:button</child_name>
-	<name>button61</name>
+	<name>button_close</name>
 	<signal>
 	  <name>clicked</name>
 	  <handler>on_button_close_clicked</handler>

@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.15 2001/06/12 09:31:06 thoma Exp $
+// $Id: Midgard_Info.hh,v 1.16 2001/09/11 07:57:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,10 @@ class Midgard_Info : public Midgard_Info_glade
         
         friend class Midgard_Info_glade;
         void on_button_close_clicked();
+        gint timeout();
+        SigC::Connection des;
+
    public:
-        Midgard_Info();
+        Midgard_Info(bool selfclean=false);
 };
 #endif
