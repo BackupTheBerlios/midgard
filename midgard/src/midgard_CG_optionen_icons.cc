@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.8 2002/09/09 05:32:58 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.9 2002/09/09 06:48:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,6 +39,19 @@ void midgard_CG::Icons_setzen()
   Box_setzen(child,StyleIcon(iJa));
   child = dynamic_cast<Gtk::Bin*>(InfoFenster->button_abbrechen)->get_child();
   Box_setzen(child,StyleIcon(iNein));
+
+  // Grundwerte
+  child = dynamic_cast<Gtk::Bin*>(table_grundwerte->button_grundwerte)->get_child();
+  Box_setzen(child,StyleIcon(iEigenschaften));
+  child = dynamic_cast<Gtk::Bin*>(table_grundwerte->button_abg_werte)->get_child();
+  Box_setzen(child,StyleIcon(iAbgeleitet));
+  child = dynamic_cast<Gtk::Bin*>(table_grundwerte->togglebutton_edit_werte)->get_child();
+  Box_setzen(child,StyleIcon(iEditGrund));
+  // Lernschema
+  child = dynamic_cast<Gtk::Bin*>(table_lernschema->button_lernpunkte)->get_child();
+  Box_setzen(child,StyleIcon(iLernpunkte));
+  child = dynamic_cast<Gtk::Bin*>(table_lernschema->togglebutton_lernpunkte_edit)->get_child();
+  Box_setzen(child,StyleIcon(iLernEdit));
 }
 
 void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
@@ -69,20 +82,12 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Exit-trans-50.xpm"
 #include "../pixmaps/Excl-32.xpm"
 #include "../pixmaps/Erase-50.xpm"
-// Ulfs Icons
-#include "../pixmaps/Anleitung.xpm"
-#include "../pixmaps/Drucken.xpm"
-#include "../pixmaps/Hilfe.xpm"
-#include "../pixmaps/Info.xpm"
-#include "../pixmaps/Menue.xpm"
-#include "../pixmaps/Neu.xpm"
-#include "../pixmaps/Oeffnen.xpm"
-#include "../pixmaps/Schliessen.xpm"
-#include "../pixmaps/Speichern.xpm"
-#include "../pixmaps/Vorwaerts.xpm"
-#include "../pixmaps/Zurueck.xpm"
-#include "../pixmaps/Ulf/Ulf-Ja.xpm"
-#include "../pixmaps/Ulf/Ulf-Nein.xpm"
+#include "../pixmaps/Dice-W100-trans-50.xpm" 
+#include "../pixmaps/Dices2-trans-50.xpm"
+#include "../pixmaps/EditChar-trans-50.xpm" 
+#include "../pixmaps/Dice-2W6-trans-50.xpm" 
+#include "../pixmaps/Edit-trans-50.xpm" 
+
 // Ulfs 24-Icons
 #include "../pixmaps/Ulf/ulf_24_anleitung.xpm"
 #include "../pixmaps/Ulf/ulf_24_drucken.xpm"
@@ -97,19 +102,8 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Ulf/ulf_24_zurueck.xpm"
 #include "../pixmaps/Ulf/ulf_24_ja.xpm"
 #include "../pixmaps/Ulf/ulf_24_nein.xpm"
-// StefanP Icons
-#include "../pixmaps/SP-Anleitung.xpm"
-#include "../pixmaps/SP-Drucken.xpm"
-#include "../pixmaps/SP-Hilfe.xpm"
-#include "../pixmaps/SP-Info.xpm"
-#include "../pixmaps/SP-Menue.xpm"
-#include "../pixmaps/SP-Neu.xpm"
-#include "../pixmaps/SP-Neugr.xpm"
-#include "../pixmaps/SP-Oeffnen.xpm"
-#include "../pixmaps/SP-Schliessen.xpm"
-#include "../pixmaps/SP-Speichern.xpm"
-#include "../pixmaps/SP-Vorwaerts.xpm"
-#include "../pixmaps/SP-Zurueck.xpm"
+#include "../pixmaps/Ulf/ulf_24_editieren.xpm"
+#include "../pixmaps/Ulf/ulf_24_wuerfel.xpm"
 
 midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
 {
@@ -128,24 +122,13 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iExit)       return st_icons("Schließen"   ,Exit_trans_50_xpm      );
      else if(typ==iJa)         return st_icons("Ja"          ,Excl_32_xpm);
      else if(typ==iNein)       return st_icons("Nein"        ,Erase_50_xpm);
+     else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",Dice_W100_trans_50_xpm);
+     else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",Dices2_trans_50_xpm);
+     else if(typ==iEditGrund)  return st_icons("Werte\neditieren",EditChar_trans_50_xpm);
+     else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,Dice_2W6_trans_50_xpm);
+     else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,Edit_trans_50_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
-   {
-     if     (typ==iNew)        return st_icons("Neu"         ,SP_Neugr_xpm   );
-     else if(typ==iOpen)       return st_icons("Öffnen"      ,Oeffnen_xpm  );
-     else if(typ==iClose)      return st_icons("Speichern"   ,Speichern_xpm  );
-     else if(typ==iPrint)      return st_icons("Drucken"     ,Drucken_xpm );
-     else if(typ==iBack)       return st_icons("Zurück"      ,Zurueck_xpm               );
-     else if(typ==iForward)    return st_icons("Vorwärts"    ,Vorwaerts_xpm               );
-     else if(typ==iMenu)       return st_icons("Menü"        ,Menue_xpm );
-     else if(typ==iInfo)       return st_icons("Info"        ,Info_xpm      );
-     else if(typ==iHelp)       return st_icons("Hilfe"       ,Hilfe_xpm    );
-     else if(typ==iInstruction)return st_icons("Anleitung"   ,Anleitung_xpm    );
-     else if(typ==iExit)       return st_icons("Schließen"   ,Schliessen_xpm      );
-     else if(typ==iJa)         return st_icons("Ja"          ,Ulf_Ja_xpm);
-     else if(typ==iNein)       return st_icons("Nein"        ,Ulf_Nein_xpm);
-   }
-  else if(MOptionen->IconCheck(Midgard_Optionen::Ulf24).active)
    {
      if     (typ==iNew)        return st_icons("Neu"         ,ulf_24_neu_xpm   );
      else if(typ==iOpen)       return st_icons("Öffnen"      ,ulf_24_oeffnen_xpm  );
@@ -160,22 +143,11 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iExit)       return st_icons("Schließen"   ,ulf_24_schliessen_xpm      );
      else if(typ==iJa)         return st_icons("Ja"          ,ulf_24_ja_xpm);
      else if(typ==iNein)       return st_icons("Nein"        ,ulf_24_nein_xpm);
-   }
-  else if(MOptionen->IconCheck(Midgard_Optionen::StefanP).active)
-   {
-     if     (typ==iNew)        return st_icons("Neu"         ,SP_Neu_xpm   );
-     else if(typ==iOpen)       return st_icons("Öffnen"      ,SP_Oeffnen_xpm  );
-     else if(typ==iClose)      return st_icons("Speichern"   ,SP_Speichern_xpm  );
-     else if(typ==iPrint)      return st_icons("Drucken"     ,SP_Drucken_xpm );
-     else if(typ==iBack)       return st_icons("Zurück"      ,SP_Zurueck_xpm               );
-     else if(typ==iForward)    return st_icons("Vorwärts"    ,SP_Vorwaerts_xpm               );
-     else if(typ==iMenu)       return st_icons("Menü"        ,SP_Menue_xpm );
-     else if(typ==iInfo)       return st_icons("Info"        ,SP_Info_xpm      );
-     else if(typ==iHelp)       return st_icons("Hilfe"       ,SP_Hilfe_xpm    );
-     else if(typ==iInstruction)return st_icons("Anleitung"   ,SP_Anleitung_xpm    );
-     else if(typ==iExit)       return st_icons("Schließen"   ,SP_Schliessen_xpm      );
-     else if(typ==iJa)         return st_icons("Ja"          ,SP_Neu_xpm);
-     else if(typ==iNein)       return st_icons("Nein"        ,SP_Schliessen_xpm);
+     else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",ulf_24_wuerfel_xpm);
+     else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",ulf_24_wuerfel_xpm);
+     else if(typ==iEditGrund)  return st_icons("Werte\neditieren",ulf_24_editieren_xpm);
+     else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,ulf_24_wuerfel_xpm);
+     else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,ulf_24_editieren_xpm);
    }
   assert(!"never get here");
   abort();

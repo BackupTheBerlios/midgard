@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.4 2002/09/09 05:32:58 thoma Exp $
+// $Id: LernListen.cc,v 1.5 2002/09/09 06:48:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,6 +72,7 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
       if(was==lUnge || was==lAllg)
            M.setErfolgswert((*i)->Anfangswert()+cH_Fertigkeit(*i)->AttributBonus(A.getWerte()));
       else M.setErfolgswert(erfolgswert);
+      if(!region_check((*i)->Region())) continue;
       V.push_back(M);
      }
    else if(!Vm.empty())
@@ -88,7 +89,8 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
          VI=Lernschema::getIndex(A.getVTyp(),"Zauberkünste",(*i)->Name());
       int lp=D.lernschema.get_Lernpunkte(VI);
       i->setLernpunkte(lp);
-cout << (*i)->Name()<<' '<<i->Lernpunkte()<<' '<<i->Erfolgswert()<<'\n';
+      if(!region_check((*i)->Region())) continue;
+//cout << (*i)->Name()<<"Region: "<<region_check((*i)->Region())<<' '<<i->Lernpunkte()<<' '<<i->Erfolgswert()<<'\n';
       V.push_back(*i);
      }     
   return V;

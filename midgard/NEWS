@@ -5,10 +5,14 @@ NEWS IN VERSION 0.8.1
 * Gründliche Überarbeitung des Codes für 'Würfelvarianten' (kürzer, klarer)
 * Elfen Doppelcharakter: Abfrage nur einmal
 * Fehler im Ausdruck behoben
-* Zufallsabenteurer generieren (Spezies, Grundwerte, Typ)
+* Zufallsabenteurer generieren: Spezies, Grundwerte, Typ, abg. Werte,
+   Herkunft, Überleben (Heimat), ang. Fertigkeiten, Lernschema
 * Icons für Toolbar von Stefan Peschel (Rosendorn)
 
+
 TODO: ('-' zeigt CP an)
+* Sprachen, Schriften, Zusätze, Berufe, Geld, Waffen, Rüstung, Ausrüstung
+   für zufällige Grad 1 Abenteurer
 * Schwarzer Balken im Lernschema bei Maximierung
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.275 2002/09/07 07:15:56 thoma Exp $
+// $Id: midgard_CG.hh,v 1.276 2002/09/09 06:48:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -109,8 +109,9 @@ class midgard_CG : public midgard_CG_glade
         void show_Hausregeln_active(bool b);
 
         enum e_icon {iNew,iOpen,iClose,iPrint,iBack,iForward,iMenu,iInfo,iHelp,
-                     iInstruction,iExit,iJa,iNein};
-        struct st_icons{std::string text;char  **icon;
+                     iInstruction,iExit,iJa,iNein,iEigenschaften,iAbgeleitet,
+                     iEditGrund,iLernpunkte,iLernEdit};
+        struct st_icons{std::string text;char **icon;
                st_icons(std::string t,char **i):text(t),icon(i){}};
         st_icons StyleIcon(e_icon typ) const;
         void Icons_setzen();
