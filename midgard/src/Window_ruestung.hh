@@ -1,4 +1,4 @@
-// $Id: Window_ruestung.hh,v 1.18 2002/01/12 08:12:25 thoma Exp $
+// $Id: Window_ruestung.hh,v 1.19 2002/05/16 07:39:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,6 +42,8 @@ class Window_ruestung : public Window_ruestung_glade
         midgard_CG* hauptfenster;
         friend class Window_ruestung_glade;
         void on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event);
+        void show_label();
+        int count;
    public:
         Window_ruestung::Window_ruestung(Grundwerte& W, midgard_CG* h, const Datenbank& Database);
 };

@@ -108,6 +108,7 @@ void midgard_CG::speicherstream(ostream &datei)
    grundwerte_speichern(datei);
    datei << Internal2Latin("  <Ausrüstung>\n");
    write_string(datei, Internal2Latin("Rüstung"), Werte.Ruestung()->Name(), 4);
+   write_string(datei, Internal2Latin("Rüstung2"), Werte.Ruestung(1)->Name(), 4);
    // Waffen Besitz
    for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)

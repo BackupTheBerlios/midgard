@@ -1,4 +1,3 @@
-
 ##########################################################################
 NEWS IN VERSION 0.6delta3
 
@@ -54,12 +53,13 @@ NEWS IN VERSION 0.6delta3
    Grundwerte (puh!)
 * Abenteurername in Kopfzeile
 * Nichtstandard Agens für Hl+Dr
+* Zweite Rüstung auswählen/speichern/laden
 
 TODO:
-* Zweite Rüstung
+* Zweite Rüstung ausdrucken
+* xml-speicherpfad
 * Ausdruck für Lange Listen
 * Searchcombo für Typen
-* Agens für Hl/Dr
 * Gildenbrief funktioniert nicht
 * pdf Dokument abspeichern
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.22 2002/05/13 07:44:33 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.23 2002/05/16 07:39:02 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -245,3 +245,9 @@ void Grundwerte::setSinnCheck(const std::string &name,int wert)
   else setSinn(name,wert);
 }
 
+
+cH_Ruestung Grundwerte::Ruestung(int i=0) const
+{
+ if(ruestung.size()<i+1) return cH_Ruestung("OR");
+ else return ruestung[i];
+}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.124 2002/05/14 14:01:44 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.125 2002/05/16 07:39:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -281,7 +281,8 @@ void midgard_CG::on_button_ruestung_clicked()
       if (81 <= wurf && wurf  <= 95 ) rue = "LR" ;
       if (96 <= wurf && wurf  <= 100) rue = "LR" ;
    }    
-  Werte.setRuestung(cH_Ruestung(rue));
+  Werte.clearRuestung();
+  Werte.addRuestung(cH_Ruestung(rue));
   set_status("Beim Auswürfeln der Rüstung wurde eine "+itos(wurf)+" gewürfelt "
              "==> " + Werte.Ruestung()->Long());
   zeige_werte();

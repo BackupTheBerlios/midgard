@@ -124,7 +124,15 @@ void midgard_CG::xml_import_stream(istream& datei)
    const Tag *Resistenzen=top->find("Resistenzen");
    const Tag *Gesundheit=top->find("Gesundheit");
    const Tag *Beschreibung=top->find("Beschreibung");
-   const Tag *Vermoegen=top->find("Vermoegen");    if (!Vermoegen) Vermoegen=top->find("Vermögen");    const Tag *Ruestung=top->find("Ruestung");    if (!Ruestung) Ruestung=top->find("Rüstung");    const Tag *Ausruestung=top->find("Ausrüstung");    if (!Ausruestung) Ausruestung=top->find("Fertigkeiten");    if (!Ruestung) Ruestung=Ausruestung->find("Rüstung");    const Tag *Fertigkeiten=top->find("Fertigkeiten");
+   const Tag *Vermoegen=top->find("Vermoegen");
+       if (!Vermoegen) Vermoegen=top->find("Vermögen");
+   const Tag *Ruestung1=top->find("Ruestung");
+       if (!Ruestung1) Ruestung1=top->find("Rüstung");
+   const Tag *Ausruestung=top->find("Ausrüstung");
+       if (!Ausruestung) Ausruestung=top->find("Fertigkeiten");
+       if (!Ruestung1) Ruestung1=Ausruestung->find("Rüstung");
+   const Tag *Ruestung2=Ausruestung->find("Rüstung2");
+   const Tag *Fertigkeiten=top->find("Fertigkeiten");
    const Tag *Steigern=top->find("Steigern");
    const Tag *Praxispunkte=Steigern?Steigern->find("Praxispunkte"):0;
 
@@ -183,8 +191,10 @@ void midgard_CG::xml_import_stream(istream& datei)
    Werte.setBeschreibungPix(top->getString("TextPix")); 
    Werte.setBeschreibungPixSize(atoi(top->getString("TextPixSize").c_str())); 
    Werte.setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
-   if (Ruestung) Werte.setRuestung(cH_Ruestung(Ruestung->Value(),true));
-   else Werte.setRuestung(cH_Ruestung("OR",true));
+   Werte.clearRuestung();
+   if (Ruestung1) Werte.addRuestung(cH_Ruestung(Ruestung1->Value(),true));
+   else Werte.addRuestung(cH_Ruestung("OR",true));
+   if (Ruestung2) Werte.addRuestung(cH_Ruestung(Ruestung2->Value(),true));
    Werte.setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch"),true));
    if (Steigern)       Werte.setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
    else

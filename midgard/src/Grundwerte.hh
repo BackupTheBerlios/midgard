@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.33 2002/05/14 14:01:44 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.34 2002/05/16 07:39:02 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,7 +55,7 @@ class Grundwerte
    float steigertage;
    int gold,silber,kupfer,aep,kep,zep;
    cH_Land herkunft;
-   cH_Ruestung ruestung; 
+   vector<cH_Ruestung> ruestung; 
    cH_Spezies spezies;
    cH_Spezialgebiet spezialgebiet;
    std::string stadt_land;
@@ -70,7 +70,7 @@ public:
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_abenteurer(""),version("Erschaffung"),
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
-             aep(0),kep(0),zep(0),ruestung("OR"),spezies("Mensch"),
+             aep(0),kep(0),zep(0),spezies("Mensch"),
              stadt_land("Stadt"), steigern_EP_prozent(50), grad_basiswerte(1)
          { resetSinne(); }
    void clear() {*this=Grundwerte();resetSinne();}
@@ -141,7 +141,7 @@ public:
    int BeschreibungPixSize() const {return beschreibung.size;}
    std::string Merkmale() const {return merkmale;}
    std::string Stadt_Land() const {return stadt_land;}
-   cH_Ruestung Ruestung() const {return ruestung;}
+   cH_Ruestung Ruestung(int i=0) const;
    int GFP() const {return gfp;}
    float Steigertage() const {return steigertage;}
    int Gold() const {return gold;}
@@ -226,7 +226,8 @@ public:
    void setBeschreibung(const std::string& _b){beschreibung.text=_b;}
    void setBeschreibungPix(const std::string& _b){beschreibung.file=_b;}
    void setBeschreibungPixSize(int i){beschreibung.size=i;}
-   void setRuestung(const cH_Ruestung _ruestung){ruestung=_ruestung;}
+   void clearRuestung() {ruestung.clear(); }
+   void addRuestung(const cH_Ruestung r){ruestung.push_back(r);}
    void setStadt_Land(const std::string& sl) {stadt_land=sl;}
    void setGFP(int _gfp){gfp=_gfp;}
    void addGFP(int _gfp){gfp += _gfp;}

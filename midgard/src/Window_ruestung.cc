@@ -20,6 +20,7 @@
 #include "Window_ruestung.hh"
 #include <Gtk_OStream.h>
 #include "midgard_CG.hh"
+#include <Aux/itos.h>
 
 void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event)
 {   
@@ -27,18 +28,20 @@ void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEve
 //  Werte.set_Ruestung(clist_ruestung->get_text(row,1));
   if(R->Min_Staerke()<=Werte.St())
    {
-     Werte.setRuestung(R);
-     destroy();
+     ++count;
+     if(count==1)  Werte.clearRuestung();
+     Werte.addRuestung(R);
+     show_label();
+     if(count==2) destroy();
    }
   else 
    hauptfenster->set_status("Nicht stark genug.");
 }
 
 Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const Datenbank& Database) 
-: Werte(W), hauptfenster(h)
+: Werte(W), hauptfenster(h), count(0)
 {
- std::string sru="Rüstung auswählen. Bisherige Rüstung: ("+ Werte.Ruestung()->Long() +")";
- label_ruestung->set_text(sru.c_str());
+ show_label();
  Gtk::OStream os(clist_ruestung);
  for(std::vector<cH_Ruestung>::const_iterator i=Database.Ruestung.begin();i!=Database.Ruestung.end();++i)
    { cH_Ruestung r(*i);
@@ -51,3 +54,9 @@ Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const Datenbank& D
    clist_ruestung->set_column_auto_resize(i,true);  
 }
 
+void Window_ruestung::show_label()
+{
+ std::string sru=itos(count+1)+"te Rüstung auswählen. Bisherige Rüstungen: ("+ 
+   Werte.Ruestung()->Long() +"/"+Werte.Ruestung(1)->Long()+")";
+ label_ruestung->set_text(sru.c_str());
+}
