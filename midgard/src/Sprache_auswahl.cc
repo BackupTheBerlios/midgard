@@ -37,7 +37,7 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
   if (mod == LAND)
    {
      cH_Land s=static_cast<Land*>(clist_sp_sc->selection().begin()->get_data());
-     cH_MidgardBasicElement F(new Fertigkeit("Landeskunde"));
+     cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Landeskunde")));
      cH_Fertigkeit(F)->setZusatz((s)->Name());     
      F->set_Erfolgswert(wert);
      hauptfenster->MidgardBasicElement_uebernehmen(F);

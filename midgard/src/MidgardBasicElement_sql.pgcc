@@ -72,8 +72,7 @@ void MidgardBasicElement::get_map_typ()
     anforderungen.push_back(pair<std::string,std::string>("Stufe",Stufe()));
     tag=find_Tag("Zauberwerke","Zauberwerk",anforderungen);
  }
- else if(What()==FERTIGKEIT )
-    tag=find_Tag("Fertigkeiten","Fertigkeit","Name",Name());
+ else if(What()==FERTIGKEIT ) assert(tag);
  else if(What()==WAFFEGRUND)
     tag=find_Tag("Waffen:Grundkenntnisse","Waffen:Grundkenntnis","Name",Name());
  // auch in Waffen:Steigern suchen
