@@ -5,6 +5,7 @@ Version 0.9.5
 - Abspeichern der Auswahl 'Zauberbeschreibung drucken' fixed
 - Berggnom Bug behoben (wegen zufall)
 - Speichern und Ausdrucken des Datums des letzen Speicherdatums
+- gtkmm 2.4 port (aka gnome 2.6, sigc++ 2.0, gtk+ 2.4)
 
 -------------- TODO ----------------
 
