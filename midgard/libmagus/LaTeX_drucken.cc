@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.14 2004/03/01 11:33:36 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.15 2004/03/06 16:55:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -384,7 +384,10 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
       }
      case eppresistenz:sfout += EmptyInt_4TeX(A.ResistenzPP()); break ;
      case eppabwehr:sfout += EmptyInt_4TeX(A.AbwehrPP()); break ;
-     case eppzauber:sfout += EmptyInt_4TeX(A.ZaubernPP()); break ;
+     case eppzauber: 
+          if(A.ZauberSpruecheMitPP())              sfout += EmptyInt_4TeX(A.ZaubernPP()); 
+          else if(A.ZaubernPP() || A.SpezialPP() ) sfout += itos(A.ZaubernPP())+"/"+itos(A.SpezialPP()); 
+          break ;
      case ezauber:sfout += itos0p(W.Zaubern_wert(),0,true); break ;
      case ehand:sfout += LaTeX_scale(W.Hand(),7,"1.2cm"); break ;
      case eraufen:sfout += itos(W.Raufen()); break ;

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.11 2004/03/01 16:02:21 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.12 2004/03/06 16:55:41 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -154,6 +154,13 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_
 }
 
 
+bool Abenteurer::ZauberSpruecheMitPP() const
+{
+   return Typ1()->SpruecheMitPP() || Typ2()->SpruecheMitPP() ;
+}
+
+
+
 bool Abenteurer::steigern_usp(const e_wie_steigern wie,
                               int &kosten,MBEmlt MBE,int &stufen, 
                               const e_was_steigern was,
@@ -263,8 +270,8 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
      else if(was==Enums::eResistenz)  addResistenzPP(-pp) ;
      else if(was==Enums::eAbwehr)     addAbwehrPP(-pp) ;   
      else if(was==Enums::eZaubern)    addZaubernPP(-pp) ;
-     else if(was==Enums::eAusdauer)   ;
-     else assert(!"Fehler in steigern_EP.cc");
+     else if(was==Enums::eAusdauer)   Ausgabe(Ausgabe::Error,"Was soll das? Ausdauer kann nicht mit PP gesteigert werden!");
+     else Ausgabe(Ausgabe::Error,"Fehler in steigern_EP.cc: das kann nicht sein!!!");
    }
   if(bkep)
    { if (ep_k<=KEP()) {addKEP(-ep_k);ep_k =0  ;}
