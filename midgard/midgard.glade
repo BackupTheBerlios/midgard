@@ -43,75 +43,51 @@
 	      <property name="tooltips">True</property>
 
 	      <child>
-		<widget class="GtkEventBox" id="eventbox30">
+		<widget class="button" id="button_neuer_charakter">
 		  <property name="visible">True</property>
-
-		  <child>
-		    <widget class="button" id="button_neuer_charakter">
-		      <property name="visible">True</property>
-		      <property name="tooltip" translatable="yes">Linke Maustaste: Neuer Abenteurer mit Wizard generieren    Rechte Maustaste: Neuen Abenteurer ohne Wizard gegerieren.</property>
-		      <property name="can_focus">True</property>
-		      <property name="label" translatable="yes">Neu</property>
-		      <property name="use_underline">True</property>
-		      <property name="icon">NewChar-trans-50.xpm</property>
-		      <signal name="button_release_event" handler="on_neuer_charakter_release_event"/>
-		    </widget>
-		  </child>
+		  <property name="tooltip" translatable="yes">Linke Maustaste: Neuer Abenteurer mit Wizard generieren    Rechte Maustaste: Neuen Abenteurer ohne Wizard gegerieren.</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Neu</property>
+		  <property name="use_underline">True</property>
+		  <property name="icon">NewChar-trans-50.xpm</property>
+		  <signal name="clicked" handler="on_neuer_charakter_release_event"/>
 		</widget>
 	      </child>
 
 	      <child>
-		<widget class="GtkEventBox" id="eventbox27">
+		<widget class="button" id="button9">
 		  <property name="visible">True</property>
-
-		  <child>
-		    <widget class="button" id="button9">
-		      <property name="visible">True</property>
-		      <property name="tooltip" translatable="yes">Abenteurer laden</property>
-		      <property name="can_focus">True</property>
-		      <property name="label" translatable="yes">Öffnen</property>
-		      <property name="use_underline">True</property>
-		      <property name="icon">LoadChar-trans-50.xpm</property>
-		      <signal name="button_release_event" handler="on_laden_release_event"/>
-		    </widget>
-		  </child>
+		  <property name="tooltip" translatable="yes">Abenteurer laden</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Öffnen</property>
+		  <property name="use_underline">True</property>
+		  <property name="icon">LoadChar-trans-50.xpm</property>
+		  <signal name="clicked" handler="on_laden_release_event"/>
 		</widget>
 	      </child>
 
 	      <child>
-		<widget class="GtkEventBox" id="eventbox28">
+		<widget class="button" id="button8">
 		  <property name="visible">True</property>
-
-		  <child>
-		    <widget class="button" id="button8">
-		      <property name="visible">True</property>
-		      <property name="tooltip" translatable="yes">Linke Maustaste: Speichern           Rechte Maustaste: Speichern unter ...</property>
-		      <property name="can_focus">True</property>
-		      <property name="label" translatable="yes">Speichern</property>
-		      <property name="use_underline">True</property>
-		      <property name="icon">SaveChar-trans-50.xpm</property>
-		      <signal name="button_release_event" handler="on_speichern_release_event"/>
-		    </widget>
-		  </child>
+		  <property name="tooltip" translatable="yes">Linke Maustaste: Speichern           Rechte Maustaste: Speichern unter ...</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Speichern</property>
+		  <property name="use_underline">True</property>
+		  <property name="icon">SaveChar-trans-50.xpm</property>
+		  <signal name="clicked" handler="on_speichern_release_event"/>
 		</widget>
 	      </child>
 
 	      <child>
-		<widget class="GtkEventBox" id="eventbox29">
+		<widget class="button" id="button_main_drucken">
+		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
-
-		  <child>
-		    <widget class="button" id="button_main_drucken">
-		      <property agent="glademm" name="cxx_visibility">protected</property>
-		      <property name="visible">True</property>
-		      <property name="tooltip" translatable="yes">Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei). Mittlere Maustaste: Charakterbeschreibung drucken. Rechte Maustaste: Ausrüstung drucken.</property>
-		      <property name="can_focus">True</property>
-		      <property name="label" translatable="yes">Drucken</property>
-		      <property name="use_underline">True</property>
-		      <property name="icon">PrintChar-trans-50.xpm</property>
-		      <signal name="button_release_event" handler="on_latex_release_event"/>
-		    </widget>
-		  </child>
+		  <property name="tooltip" translatable="yes">Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei). Mittlere Maustaste: Charakterbeschreibung drucken. Rechte Maustaste: Ausrüstung drucken.</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Drucken</property>
+		  <property name="use_underline">True</property>
+		  <property name="icon">PrintChar-trans-50.xpm</property>
+		  <signal name="clicked" handler="on_latex_release_event"/>
 		</widget>
 	      </child>
 
@@ -152,7 +128,7 @@
 		  <property name="label" translatable="yes">Menü</property>
 		  <property name="use_underline">True</property>
 		  <property name="icon">wizzard-trans-50_2.xpm</property>
-		  <signal name="button_release_event" handler="on_button_menu_button_release_event"/>
+		  <signal name="clicked" handler="on_button_menu_button_release_event"/>
 		</widget>
 		<packing>
 		  <property name="new_group">True</property>
@@ -5073,7 +5049,7 @@ setzen</property>
 schaften</property>
 			  <property name="use_underline">True</property>
 			  <property name="icon">Dice-W100-trans-50.xpm</property>
-			  <signal name="button_release_event" handler="on_button_grundwerte_button_release_event"/>
+			  <signal name="clicked" handler="on_button_grundwerte_button_release_event"/>
 			</widget>
 		      </child>
 
@@ -7283,61 +7259,55 @@ auswählen</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkEventBox" id="eventbox31">
+			    <widget class="GtkButton" id="button_angeborene_fert">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Linke Maustaste: Würfeln                          Rechte Maustaste: Auswählen (Abbruch dann mit 'Lernpunkte')</property>
+			      <property name="can_focus">True</property>
+			      <property name="relief">GTK_RELIEF_NORMAL</property>
+			      <signal name="clicked" handler="on_angeborene_fertigkeit_button_release_event"/>
 
 			      <child>
-				<widget class="GtkButton" id="button_angeborene_fert">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
+				<widget class="GtkVBox" id="vbox62">
 				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">Linke Maustaste: Würfeln                          Rechte Maustaste: Auswählen (Abbruch dann mit 'Lernpunkte')</property>
-				  <property name="can_focus">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <signal name="button_release_event" handler="on_angeborene_fertigkeit_button_release_event"/>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">0</property>
 
 				  <child>
-				    <widget class="GtkVBox" id="vbox62">
+				    <widget class="GtkImage" id="pixmap170">
 				      <property name="visible">True</property>
-				      <property name="homogeneous">False</property>
-				      <property name="spacing">0</property>
-
-				      <child>
-					<widget class="GtkImage" id="pixmap170">
-					  <property name="visible">True</property>
-					  <property name="pixbuf">Angeb_All-32.xpm</property>
-					  <property name="xalign">0.5</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
-					</widget>
-					<packing>
-					  <property name="padding">0</property>
-					  <property name="expand">True</property>
-					  <property name="fill">True</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkLabel" id="label537">
-					  <property name="visible">True</property>
-					  <property name="label" translatable="yes">angeborene Fertigkeiten</property>
-					  <property name="use_underline">False</property>
-					  <property name="use_markup">False</property>
-					  <property name="justify">GTK_JUSTIFY_CENTER</property>
-					  <property name="wrap">False</property>
-					  <property name="selectable">False</property>
-					  <property name="xalign">0.5</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
-					</widget>
-					<packing>
-					  <property name="padding">0</property>
-					  <property name="expand">True</property>
-					  <property name="fill">True</property>
-					</packing>
-				      </child>
+				      <property name="pixbuf">Angeb_All-32.xpm</property>
+				      <property name="xalign">0.5</property>
+				      <property name="yalign">0.5</property>
+				      <property name="xpad">0</property>
+				      <property name="ypad">0</property>
 				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">True</property>
+				      <property name="fill">True</property>
+				    </packing>
+				  </child>
+
+				  <child>
+				    <widget class="GtkLabel" id="label537">
+				      <property name="visible">True</property>
+				      <property name="label" translatable="yes">angeborene Fertigkeiten</property>
+				      <property name="use_underline">False</property>
+				      <property name="use_markup">False</property>
+				      <property name="justify">GTK_JUSTIFY_CENTER</property>
+				      <property name="wrap">False</property>
+				      <property name="selectable">False</property>
+				      <property name="xalign">0.5</property>
+				      <property name="yalign">0.5</property>
+				      <property name="xpad">0</property>
+				      <property name="ypad">0</property>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">True</property>
+				      <property name="fill">True</property>
+				    </packing>
 				  </child>
 				</widget>
 			      </child>
@@ -7379,21 +7349,15 @@ auswählen</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkEventBox" id="eventbox32">
+			    <widget class="button" id="button_beruf">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
-
-			      <child>
-				<widget class="button" id="button_beruf">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">Linke Maustaste: Auswahl aus Originalliste. Rechte Maustaste: Berufsnamen selber eingeben.</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">Beruf</property>
-				  <property name="use_underline">True</property>
-				  <property name="icon">Job-trans-50.xpm</property>
-				  <signal name="button_release_event" handler="on_button_beruf_release_event"/>
-				</widget>
-			      </child>
+			      <property name="tooltip" translatable="yes">Linke Maustaste: Auswahl aus Originalliste. Rechte Maustaste: Berufsnamen selber eingeben.</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Beruf</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Job-trans-50.xpm</property>
+			      <signal name="clicked" handler="on_button_beruf_release_event"/>
 			    </widget>
 			    <packing>
 			      <property name="new_group">True</property>
@@ -7557,21 +7521,15 @@ Beruf eingeben</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkEventBox" id="eventbox33">
+			    <widget class="button" id="button_lernschema_geld">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
-
-			      <child>
-				<widget class="button" id="button_lernschema_geld">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">Linke Maustaste: Geld würfeln             Rechte Maustaste: Geld eingeben</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">Geld</property>
-				  <property name="use_underline">True</property>
-				  <property name="icon">Money-50.xpm</property>
-				  <signal name="button_release_event" handler="on_button_lernschema_geld_button_release_event"/>
-				</widget>
-			      </child>
+			      <property name="tooltip" translatable="yes">Linke Maustaste: Geld würfeln             Rechte Maustaste: Geld eingeben</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Geld</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Money-50.xpm</property>
+			      <signal name="clicked" handler="on_button_lernschema_geld_button_release_event"/>
 			    </widget>
 			    <packing>
 			      <property name="new_group">True</property>
@@ -7579,21 +7537,15 @@ Beruf eingeben</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkEventBox" id="eventbox34">
+			    <widget class="button" id="button_lernschema_waffen">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
-
-			      <child>
-				<widget class="button" id="button_lernschema_waffen">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">Linke Maustaste: Waffen auswürfeln            Rechte Maustaste: Waffen aussuchen</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">Waffen</property>
-				  <property name="use_underline">True</property>
-				  <property name="icon">Weapon-trans-50.xpm</property>
-				  <signal name="button_release_event" handler="on_button_lernschema_waffen_button_release_event"/>
-				</widget>
-			      </child>
+			      <property name="tooltip" translatable="yes">Linke Maustaste: Waffen auswürfeln            Rechte Maustaste: Waffen aussuchen</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Waffen</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Weapon-trans-50.xpm</property>
+			      <signal name="clicked" handler="on_button_lernschema_waffen_button_release_event"/>
 			    </widget>
 			  </child>
 
@@ -7660,21 +7612,15 @@ eingeben</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkEventBox" id="eventbox35">
+			    <widget class="button" id="button_ruestung">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
-
-			      <child>
-				<widget class="button" id="button_ruestung">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">Linke Maustaste: Rüstung würfeln                                 Rechte Maustaste: Rüstung aussuchen</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">Rüstung</property>
-				  <property name="use_underline">True</property>
-				  <property name="icon">Dice_Armor-trans-50.xpm</property>
-				  <signal name="button_release_event" handler="on_button_ruestung_button_release_event"/>
-				</widget>
-			      </child>
+			      <property name="tooltip" translatable="yes">Linke Maustaste: Rüstung würfeln                                 Rechte Maustaste: Rüstung aussuchen</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Rüstung</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Dice_Armor-trans-50.xpm</property>
+			      <signal name="clicked" handler="on_button_ruestung_button_release_event"/>
 			    </widget>
 			  </child>
 
@@ -7687,7 +7633,7 @@ eingeben</property>
 			      <property name="label" translatable="yes">Ausrüstung</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Dice-Ausruest-50.xpm</property>
-			      <signal name="button_release_event" handler="on_button_ausruestung_button_release_event"/>
+			      <signal name="clicked" handler="on_button_ausruestung_button_release_event"/>
 			    </widget>
 			  </child>
 			</widget>
@@ -9078,7 +9024,7 @@ eingeben</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">False</property>
-				  <signal name="button_release_event" handler="on_button_gold_eingeben_button_release_event" after="yes"/>
+				  <signal name="clicked" handler="on_button_gold_eingeben_button_release_event" after="yes"/>
 
 				  <child>
 				    <widget class="GtkHBox" id="hbox99">
@@ -9103,25 +9049,19 @@ eingeben</property>
 				      </child>
 
 				      <child>
-					<widget class="GtkEventBox" id="eventbox24">
+					<widget class="GtkLabel" id="label640">
 					  <property name="visible">True</property>
-
-					  <child>
-					    <widget class="GtkLabel" id="label640">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes">Geld
+					  <property name="label" translatable="yes">Geld
 eing.</property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">False</property>
-					      <property name="justify">GTK_JUSTIFY_CENTER</property>
-					      <property name="wrap">False</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					    </widget>
-					  </child>
+					  <property name="use_underline">False</property>
+					  <property name="use_markup">False</property>
+					  <property name="justify">GTK_JUSTIFY_CENTER</property>
+					  <property name="wrap">False</property>
+					  <property name="selectable">False</property>
+					  <property name="xalign">0.5</property>
+					  <property name="yalign">0.5</property>
+					  <property name="xpad">0</property>
+					  <property name="ypad">0</property>
 					</widget>
 					<packing>
 					  <property name="padding">0</property>
@@ -9152,7 +9092,7 @@ eing.</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">False</property>
-				  <signal name="button_release_event" handler="on_checkbutton_gfp_button_release_event" after="yes"/>
+				  <signal name="clicked" handler="on_checkbutton_gfp_button_release_event" after="yes"/>
 
 				  <child>
 				    <widget class="GtkHBox" id="hbox98">
@@ -9161,19 +9101,13 @@ eing.</property>
 				      <property name="spacing">0</property>
 
 				      <child>
-					<widget class="GtkEventBox" id="eventbox25">
+					<widget class="GtkImage" id="pixmap161">
 					  <property name="visible">True</property>
-
-					  <child>
-					    <widget class="GtkImage" id="pixmap161">
-					      <property name="visible">True</property>
-					      <property name="pixbuf">Helper-50.xpm</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					    </widget>
-					  </child>
+					  <property name="pixbuf">Helper-50.xpm</property>
+					  <property name="xalign">0.5</property>
+					  <property name="yalign">0.5</property>
+					  <property name="xpad">0</property>
+					  <property name="ypad">0</property>
 					</widget>
 					<packing>
 					  <property name="padding">0</property>
@@ -9225,7 +9159,7 @@ eing.</property>
 				  <property name="active">False</property>
 				  <property name="inconsistent">False</property>
 				  <property name="draw_indicator">False</property>
-				  <signal name="button_release_event" handler="on_button_EP_eingeben_button_release_event" after="yes"/>
+				  <signal name="clicked" handler="on_button_EP_eingeben_button_release_event" after="yes"/>
 
 				  <child>
 				    <widget class="GtkHBox" id="hbox97">
@@ -9234,19 +9168,13 @@ eing.</property>
 				      <property name="spacing">0</property>
 
 				      <child>
-					<widget class="GtkEventBox" id="eventbox26">
+					<widget class="GtkImage" id="pixmap93">
 					  <property name="visible">True</property>
-
-					  <child>
-					    <widget class="GtkImage" id="pixmap93">
-					      <property name="visible">True</property>
-					      <property name="pixbuf">EP-Eingabe2-50.xpm</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					    </widget>
-					  </child>
+					  <property name="pixbuf">EP-Eingabe2-50.xpm</property>
+					  <property name="xalign">0.5</property>
+					  <property name="yalign">0.5</property>
+					  <property name="xpad">0</property>
+					  <property name="ypad">0</property>
 					</widget>
 					<packing>
 					  <property name="padding">0</property>
@@ -9835,7 +9763,7 @@ eing.</property>
 				      <property name="visible">True</property>
 				      <property name="tooltip" translatable="yes">Linke Maustaste: Würfeln, ob sich die Basiswerte beim Gradanstieg erhöhen         Rechte Maustaste: Würfelwurf direkt eingeben. In beiden Fällen wird zusätzlich die Schicksalsgunst erhöht.</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <signal name="button_release_event" handler="on_button_grad_basiswerte_button_release_event"/>
+				      <signal name="clicked" handler="on_button_grad_basiswerte_button_release_event"/>
 
 				      <child>
 					<widget class="GtkVBox" id="vbox43">
@@ -13336,7 +13264,7 @@ Drucken</property>
 		      <property name="tooltip" translatable="yes">Linke Maustaste: Grafik hinzufügen.                        Rechte Maustaste: Grafik entfernen.</property>
 		      <property name="can_focus">True</property>
 		      <property name="relief">GTK_RELIEF_NORMAL</property>
-		      <signal name="button_release_event" handler="on_button_grafik_button_release_event"/>
+		      <signal name="clicked" handler="on_button_grafik_button_release_event"/>
 
 		      <child>
 			<widget class="GtkHBox" id="hbox71">
@@ -13825,7 +13753,7 @@ Drucken</property>
 			      <property name="label" translatable="yes">Drucken</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">PrintChar-trans-50.xpm</property>
-			      <signal name="button_release_event" handler="on_button_ausruestung_druck_release_event"/>
+			      <signal name="clicked" handler="on_button_ausruestung_druck_release_event"/>
 			    </widget>
 			  </child>
 
@@ -17798,340 +17726,85 @@ Grad 1 erzeugen</property>
 			      <property name="column_spacing">0</property>
 
 			      <child>
-				<widget class="GtkEventBox" id="eventbox23">
+				<widget class="GtkTable" id="table176">
 				  <property name="visible">True</property>
+				  <property name="n_rows">2</property>
+				  <property name="n_columns">2</property>
+				  <property name="homogeneous">False</property>
+				  <property name="row_spacing">0</property>
+				  <property name="column_spacing">0</property>
 
 				  <child>
-				    <widget class="GtkTable" id="table176">
+				    <widget class="GtkFrame" id="frame116">
 				      <property name="visible">True</property>
-				      <property name="n_rows">2</property>
-				      <property name="n_columns">2</property>
-				      <property name="homogeneous">False</property>
-				      <property name="row_spacing">0</property>
-				      <property name="column_spacing">0</property>
+				      <property name="label_xalign">0</property>
+				      <property name="label_yalign">0.5</property>
+				      <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
 
 				      <child>
-					<widget class="GtkFrame" id="frame116">
+					<widget class="GtkTable" id="table174">
 					  <property name="visible">True</property>
-					  <property name="label_xalign">0</property>
-					  <property name="label_yalign">0.5</property>
-					  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+					  <property name="n_rows">2</property>
+					  <property name="n_columns">1</property>
+					  <property name="homogeneous">False</property>
+					  <property name="row_spacing">0</property>
+					  <property name="column_spacing">0</property>
 
 					  <child>
-					    <widget class="GtkTable" id="table174">
+					    <widget class="GtkRadioButton" id="radiobutton_proto_verteilen">
+					      <property agent="glademm" name="cxx_visibility">protected</property>
 					      <property name="visible">True</property>
-					      <property name="n_rows">2</property>
-					      <property name="n_columns">1</property>
-					      <property name="homogeneous">False</property>
-					      <property name="row_spacing">0</property>
-					      <property name="column_spacing">0</property>
-
-					      <child>
-						<widget class="GtkRadioButton" id="radiobutton_proto_verteilen">
-						  <property agent="glademm" name="cxx_visibility">protected</property>
-						  <property name="visible">True</property>
-						  <property name="can_focus">True</property>
-						  <property name="label" translatable="yes">Verteile</property>
-						  <property name="use_underline">True</property>
-						  <property name="relief">GTK_RELIEF_NORMAL</property>
-						  <property name="active">False</property>
-						  <property name="inconsistent">False</property>
-						  <property name="draw_indicator">True</property>
-						  <signal name="toggled" handler="on_radiobutton_proto_verteilen_toggled"/>
-						</widget>
-						<packing>
-						  <property name="left_attach">0</property>
-						  <property name="right_attach">1</property>
-						  <property name="top_attach">0</property>
-						  <property name="bottom_attach">1</property>
-						  <property name="x_options">fill</property>
-						  <property name="y_options"></property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkRadioButton" id="radiobutton_proto_spezialisieren">
-						  <property agent="glademm" name="cxx_visibility">protected</property>
-						  <property name="visible">True</property>
-						  <property name="can_focus">True</property>
-						  <property name="label" translatable="yes">Spezialisieren</property>
-						  <property name="use_underline">True</property>
-						  <property name="relief">GTK_RELIEF_NORMAL</property>
-						  <property name="active">False</property>
-						  <property name="inconsistent">False</property>
-						  <property name="draw_indicator">True</property>
-						  <property name="group">radiobutton_proto_verteilen</property>
-						  <signal name="toggled" handler="on_radiobutton_proto_spezialisieren_toggled"/>
-						</widget>
-						<packing>
-						  <property name="left_attach">0</property>
-						  <property name="right_attach">1</property>
-						  <property name="top_attach">1</property>
-						  <property name="bottom_attach">2</property>
-						  <property name="x_options">fill</property>
-						  <property name="y_options"></property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">0</property>
-					  <property name="right_attach">1</property>
-					  <property name="top_attach">0</property>
-					  <property name="bottom_attach">2</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkFrame" id="frame_verteilung_auf">
-					  <property agent="glademm" name="cxx_visibility">protected</property>
-					  <property name="visible">True</property>
-					  <property name="label_xalign">0</property>
-					  <property name="label_yalign">0.5</property>
-					  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
-
-					  <child>
-					    <widget class="GtkTable" id="table173">
-					      <property name="visible">True</property>
-					      <property name="n_rows">2</property>
-					      <property name="n_columns">6</property>
-					      <property name="homogeneous">False</property>
-					      <property name="row_spacing">0</property>
-					      <property name="column_spacing">3</property>
-
-					      <child>
-						<widget class="GtkLabel" id="label627">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Ausnahmekenntnisse</property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="left_attach">4</property>
-						  <property name="right_attach">6</property>
-						  <property name="top_attach">0</property>
-						  <property name="bottom_attach">1</property>
-						  <property name="x_options">fill</property>
-						  <property name="y_options"></property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label625">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Grundkenntnisse</property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="left_attach">0</property>
-						  <property name="right_attach">2</property>
-						  <property name="top_attach">0</property>
-						  <property name="bottom_attach">1</property>
-						  <property name="x_options">fill</property>
-						  <property name="y_options"></property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label626">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Standardkenntnisse</property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="left_attach">2</property>
-						  <property name="right_attach">4</property>
-						  <property name="top_attach">0</property>
-						  <property name="bottom_attach">1</property>
-						  <property name="x_options">shrink|fill</property>
-						  <property name="y_options">shrink|fill</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkSpinButton" id="spinbutton_ausnahme">
-						  <property agent="glademm" name="cxx_visibility">protected</property>
-						  <property name="visible">True</property>
-						  <property name="can_focus">True</property>
-						  <property name="climb_rate">1</property>
-						  <property name="digits">0</property>
-						  <property name="numeric">False</property>
-						  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
-						  <property name="snap_to_ticks">False</property>
-						  <property name="wrap">False</property>
-						  <property name="adjustment">1 0 100 1 10 10</property>
-						  <signal name="activate" handler="on_spinbutton_ausnahme_activate"/>
-						</widget>
-						<packing>
-						  <property name="left_attach">4</property>
-						  <property name="right_attach">5</property>
-						  <property name="top_attach">1</property>
-						  <property name="bottom_attach">2</property>
-						  <property name="x_options">shrink|fill</property>
-						  <property name="y_options">shrink</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkSpinButton" id="spinbutton_standard">
-						  <property agent="glademm" name="cxx_visibility">protected</property>
-						  <property name="visible">True</property>
-						  <property name="can_focus">True</property>
-						  <property name="climb_rate">1</property>
-						  <property name="digits">0</property>
-						  <property name="numeric">False</property>
-						  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
-						  <property name="snap_to_ticks">False</property>
-						  <property name="wrap">False</property>
-						  <property name="adjustment">1 0 100 1 10 10</property>
-						  <signal name="activate" handler="on_spinbutton_standard_activate"/>
-						</widget>
-						<packing>
-						  <property name="left_attach">2</property>
-						  <property name="right_attach">3</property>
-						  <property name="top_attach">1</property>
-						  <property name="bottom_attach">2</property>
-						  <property name="x_options">shrink|fill</property>
-						  <property name="y_options">shrink</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkSpinButton" id="spinbutton_grund">
-						  <property agent="glademm" name="cxx_visibility">protected</property>
-						  <property name="visible">True</property>
-						  <property name="can_focus">True</property>
-						  <property name="climb_rate">1</property>
-						  <property name="digits">0</property>
-						  <property name="numeric">False</property>
-						  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
-						  <property name="snap_to_ticks">False</property>
-						  <property name="wrap">False</property>
-						  <property name="adjustment">1 0 100 1 10 10</property>
-						  <signal name="activate" handler="on_spinbutton_grund_activate"/>
-						</widget>
-						<packing>
-						  <property name="left_attach">0</property>
-						  <property name="right_attach">1</property>
-						  <property name="top_attach">1</property>
-						  <property name="bottom_attach">2</property>
-						  <property name="x_options">shrink|fill</property>
-						  <property name="y_options">shrink</property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="label685">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes">Verteilung auf</property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">False</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">False</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
+					      <property name="can_focus">True</property>
+					      <property name="label" translatable="yes">Verteile</property>
+					      <property name="use_underline">True</property>
+					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="active">False</property>
+					      <property name="inconsistent">False</property>
+					      <property name="draw_indicator">True</property>
+					      <signal name="toggled" handler="on_radiobutton_proto_verteilen_toggled"/>
 					    </widget>
 					    <packing>
-					      <property name="type">label_item</property>
+					      <property name="left_attach">0</property>
+					      <property name="right_attach">1</property>
+					      <property name="top_attach">0</property>
+					      <property name="bottom_attach">1</property>
+					      <property name="x_options">fill</property>
+					      <property name="y_options"></property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkRadioButton" id="radiobutton_proto_spezialisieren">
+					      <property agent="glademm" name="cxx_visibility">protected</property>
+					      <property name="visible">True</property>
+					      <property name="can_focus">True</property>
+					      <property name="label" translatable="yes">Spezialisieren</property>
+					      <property name="use_underline">True</property>
+					      <property name="relief">GTK_RELIEF_NORMAL</property>
+					      <property name="active">False</property>
+					      <property name="inconsistent">False</property>
+					      <property name="draw_indicator">True</property>
+					      <property name="group">radiobutton_proto_verteilen</property>
+					      <signal name="toggled" handler="on_radiobutton_proto_spezialisieren_toggled"/>
+					    </widget>
+					    <packing>
+					      <property name="left_attach">0</property>
+					      <property name="right_attach">1</property>
+					      <property name="top_attach">1</property>
+					      <property name="bottom_attach">2</property>
+					      <property name="x_options">fill</property>
+					      <property name="y_options"></property>
 					    </packing>
 					  </child>
 					</widget>
-					<packing>
-					  <property name="left_attach">1</property>
-					  <property name="right_attach">2</property>
-					  <property name="top_attach">0</property>
-					  <property name="bottom_attach">1</property>
-					  <property name="y_options">fill</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkFrame" id="frame_spezialist_typen">
-					  <property agent="glademm" name="cxx_visibility">protected</property>
-					  <property name="label_xalign">0</property>
-					  <property name="label_yalign">0.5</property>
-					  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
-
-					  <child>
-					    <widget class="GtkScrolledWindow" id="scrolledwindow_prototyp">
-					      <property name="visible">True</property>
-					      <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-					      <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-					      <property name="shadow_type">GTK_SHADOW_NONE</property>
-					      <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
-
-					      <child>
-						<widget class="Custom" id="tree_prototyp">
-						  <property agent="glademm" name="cxx_visibility">protected</property>
-						  <property name="visible">True</property>
-						  <property name="creation_function">SimpleTree</property>
-						  <property name="int1">4</property>
-						  <property name="int2">0</property>
-						  <property name="last_modification_time">Wed, 23 Oct 2002 09:52:45 GMT</property>
-						  <signal name="leaf_selected" handler="on_tree_prototyp_leaf_selected"/>
-						</widget>
-					      </child>
-					    </widget>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="label686">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes">Spezialisieren auf einen oder mehrere Spezialisierungs-Typen</property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">False</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">False</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					    </widget>
-					    <packing>
-					      <property name="type">label_item</property>
-					    </packing>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">1</property>
-					  <property name="right_attach">2</property>
-					  <property name="top_attach">1</property>
-					  <property name="bottom_attach">2</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options">fill</property>
-					</packing>
 				      </child>
 				    </widget>
+				    <packing>
+				      <property name="left_attach">0</property>
+				      <property name="right_attach">1</property>
+				      <property name="top_attach">0</property>
+				      <property name="bottom_attach">1</property>
+				    </packing>
 				  </child>
 				</widget>
 				<packing>

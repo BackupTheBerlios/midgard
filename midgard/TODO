@@ -10,3 +10,32 @@ g_locale_to_utf8()
 - dnd Ausrüstung
 
 - Zauberwerk kommt im Kompendium (XML Datei) vor (Unsinn)
+
+was bedeutet:
+ - on_eventbox_credits_button_release_event ?
+   on_eventbox_grundwerte_button_release_event
+   on_eventbox_lernen_button_release_event
+   vscale_value_changed
+   on_eventbox_steigern_button_release_event
+   on_eventbox_beschreibung_button_release_event
+   on_eventbox_ausruestung_button_release_event
+
+umbenennen:
+       on_neuer_charakter_release_event
+       on_laden_release_event
+       on_speichern_release_event
+       on_latex_release_event
+       on_button_menu_button_release_event
+       on_button_grundwerte_button_release_event
+       on_angeborene_fertigkeit_button_release_event
+       on_button_beruf_release_event
+       on_button_lernschema_geld_button_release_event
+       on_button_lernschema_waffen_button_release_event
+       on_button_ruestung_button_release_event
+       on_button_ausruestung_button_release_event
+       on_button_gold_eingeben_button_release_event" after="yes
+       on_checkbutton_gfp_button_release_event" after="yes
+       on_button_EP_eingeben_button_release_event" after="yes
+       on_button_grad_basiswerte_button_release_event
+       on_button_grafik_button_release_event
+       on_button_ausruestung_druck_release_event
