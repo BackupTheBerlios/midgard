@@ -65,15 +65,15 @@ class MidgardBasicElement : public HandleContent
    public:
       MidgardBasicElement(const std::string &n) 
             : IF_XML(tag(0),) name(n), kosten(0),praxispunkte(0),
-                              erfolgswert(0),lernpunkte(0)
+                              erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
                               ,steigern_mit_EP(0) {}
       MidgardBasicElement(const std::string &n,const std::string &r) 
             : IF_XML(tag(0),) name(n),region(r),kosten(0),praxispunkte(0),
-                              erfolgswert(0),lernpunkte(0)
+                              erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
                               ,steigern_mit_EP(0) {}
       MidgardBasicElement(const Tag *t,const std::string &n) 
 		: tag(t), name(n), kosten(0),praxispunkte(0),
-                               erfolgswert(0),lernpunkte(0)
+                               erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
                               ,steigern_mit_EP(0) {}
 
       MidgardBasicElement(const MidgardBasicElement &M);
