@@ -34,6 +34,7 @@ bool cH_Zauber::sort::operator() (MBEmlt _x,MBEmlt _y) const
                case(STUFE): return x->Stufe() < y->Stufe();
                case(URSPRUNG): return germanstring(x->Ursprung()) < germanstring(y->Ursprung()) ;
    }
+   return false;
 }
 
 int Zauber::iStufe() const 

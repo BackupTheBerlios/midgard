@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.3 2003/05/08 06:15:30 christof Exp $
+// $Id: xml.cc,v 1.4 2003/05/09 08:19:10 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -68,7 +68,7 @@ static void reserve(Tag *t)
    reserve(t,"Kido-Fertigkeiten",64);
 }
 
-void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::string> meldungen)
+void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen)
 {  std::string filename=magus_paths::with_path("midgard.xml");
    if (top) return; // oder merge?
    {  std::ifstream in(filename.c_str());

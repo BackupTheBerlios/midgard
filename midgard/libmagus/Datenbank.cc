@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.4 2003/05/07 12:24:05 christof Exp $               
+// $Id: Datenbank.cc,v 1.5 2003/05/09 08:19:10 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -54,7 +54,7 @@ Datenbank::Datenbank() : tag_eigene_artikel("MAGUS-data")
 {
 }
 
-void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::string> meldungen)
+void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen)
 {
     xml_init(progress,meldungen);
     Regionen = Regionen_All().get_All();
@@ -82,4 +82,10 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::str
     prototyp = Prototyp_All().get_All();
     prototyp2 = Prototyp2_All().get_All();
 //    MI->database_hide();  // can't do this yet
+}
+
+cH_Waffe Datenbank::WaffeVonBezeichnung(const std::string &name) const
+{  std::map<std::string,std::string>::const_iterator i=Waffe_from_Alias.find(name);
+   if (i!=Waffe_from_Alias.end()) return cH_Waffe(i->second);
+   return cH_Waffe(name,true);
 }

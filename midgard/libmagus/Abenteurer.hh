@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.5 2003/05/08 16:57:07 christof Exp $               
+// $Id: Abenteurer.hh,v 1.6 2003/05/09 08:19:10 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -210,7 +210,7 @@ public:
 
 };
 
-#if 0 // nochmals überdenken
+#if 1 // nochmals überdenken
 class VAbenteurer
 {
    public:

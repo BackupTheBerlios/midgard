@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.2 2003/05/07 10:57:50 christof Exp $
+// $Id: xml.h,v 1.3 2003/05/09 08:19:10 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -39,7 +39,7 @@ extern const struct xml_liste xml_tags[];
 // suche nach elementtag
 const xml_liste *suche_Tageigenschaften(const std::string &liste,const std::string &elem);
 
-void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::string> meldungen);
+void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string &> meldungen);
 
 void xml_free();
 #endif

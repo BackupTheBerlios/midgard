@@ -19,7 +19,7 @@
 
 #include "Prototyp.hh"
 #include <cstring>
-#include <Gtk_OStream.h>
+#include <iostream>
 #include <Misc/itos.h>
 #include "Enums.hh"
 #include "Prozente100.hh"

@@ -19,7 +19,7 @@
 
 #include "Prototyp2.hh"
 #include <cstring>
-#include <Gtk_OStream.h>
+#include <iostream>
 #include <Misc/itos.h>
 
 class NotFound : public std::exception

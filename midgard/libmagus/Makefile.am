@@ -1,13 +1,13 @@
-# $Id: Makefile.am,v 1.18 2003/05/08 06:35:40 christof Exp $
+# $Id: Makefile.am,v 1.19 2003/05/09 08:19:10 christof Exp $
 
 AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
-	@COMMONGTK2_INCLUDES@
+	@SIGC_CFLAGS@ -DSIGC1_2
 
 AM_LDFLAGS = @COMMONXX_LDFLAGS@ $(LINK_OPTIONS)
 
 CLEANFILES = *~
 
-EXTRA_PROGRAMS= test dummy
+EXTRA_PROGRAMS= test
 
 test_SOURCES=test.cc
 
@@ -21,6 +21,6 @@ libmagus_a_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Datenbank.cc Grad_anstieg.cc \
 	Grundwerte.cc LernListen.cc Lernschema.cc Preise.cc Prototyp2.cc \
 	Prototyp.cc Prozente100.cc  Ruestung.cc Spezialgebiet.cc \
-	xml.cc Region.cc Optionen.cc
+	xml.cc Region.cc Optionen.cc Abenteurer.cc magustrace.cc
 
-dummy_SOURCES=Abenteurer.cc
+test_LDADD = libmagus.a @COMMONXX_LIBS@ @SIGC_LIBS@

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.6 2003/05/08 16:57:07 christof Exp $            
+// $Id: Abenteurer.cc,v 1.7 2003/05/09 08:19:10 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -119,45 +119,6 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
    }
   return UF;
 }
-
-#if 0
-void VAbenteurer::push_back()
-{ 
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   VA.push_back(st_abenteurer()); 
-   ai=--VA.end(); 
-}
-
-
-void VAbenteurer::setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::iterator &i)
-{
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
- ai=i;
-}
-
-bool VAbenteurer::unsaved_exist()
-{ 
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
-       if(!i->gespeichert) return true;
-   return false;
-}
-
-void VAbenteurer::delete_empty()
-{ 
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
- reloop:
-   ai=--VA.end(); 
-   for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
-    { const Grundwerte &W=i->abenteurer.getWerte(); 
-      if(i->gespeichert && W.Name_Abenteurer().empty())
-        { VA.erase(i); 
-          goto reloop;
-        } 
-    }
-}
-
-#endif
 
 bool Abenteurer::is_mage() const 
 {  
@@ -706,9 +667,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         }
     } 
     FOR_EACH_CONST_TAG_OF(i,*waffen_b,"Waffe")
-    {   std::string wn = Database.Waffe_from_Alias[i->getAttr("Bezeichnung")];
-        if (wn=="") wn=i->getAttr("Bezeichnung"); 
-         WaffeBesitz WB(cH_Waffe(wn,true),
+    {   WaffeBesitz WB(Database.WaffeVonBezeichnung(i->getAttr("Bezeichnung")),
                         i->getAttr("Bezeichnung"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),
                         i->getIntAttr("SchadenLebenspunkte_Bonus"),
@@ -859,4 +818,43 @@ std::string Abenteurer::Ruestung_B_Verlust(bool ueberlast_beruecksichtigen) cons
  if(s!="") return "_{"+s+"}";
  return "";
 }
+
+#if 1
+void VAbenteurer::push_back()
+{ 
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+   VA.push_back(st_abenteurer()); 
+   ai=--VA.end(); 
+}
+
+
+void VAbenteurer::setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::iterator &i)
+{
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+ ai=i;
+}
+
+bool VAbenteurer::unsaved_exist()
+{ 
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+   for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
+       if(!i->gespeichert) return true;
+   return false;
+}
+
+void VAbenteurer::delete_empty()
+{ 
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+ reloop:
+   ai=--VA.end(); 
+   for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
+    { const Grundwerte &W=i->abenteurer.getWerte(); 
+      if(i->gespeichert && W.Name_Abenteurer().empty())
+        { VA.erase(i); 
+          goto reloop;
+        } 
+    }
+}
+
+#endif
 

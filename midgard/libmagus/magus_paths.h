@@ -1,4 +1,4 @@
-// $Id: magus_paths.h,v 1.2 2003/05/07 11:27:21 christof Exp $
+// $Id: magus_paths.h,v 1.3 2003/05/09 08:19:10 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@ class magus_paths
         static std::string magus_verzeichnis;
         static std::vector<std::string> paths;
 public:
-         static void init(const std::string &_argv0,const std::string &_magus_verzeichnis);
+         static void init(const std::string &_argv0,const std::string &_magus_verzeichnis="");
          static const std::string &MagusVerzeichnis() {return magus_verzeichnis;}
          static const std::string &getArgv0() { return argv0; }
          static std::string BinaryVerzeichnis();
