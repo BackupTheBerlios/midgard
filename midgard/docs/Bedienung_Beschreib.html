@@ -38,14 +38,14 @@
           </tr>
           <tr class="Active">
             <td><img src="image/NavBar/Fert_Lesen.png" width="50" height="50" border="0" alt="Bedienung"> </td>
-            <td class="Here">Bedienung<br>
+            <td><a href="BedienungMain.html">Bedienung</a><br>
             <font size="-1">- <a href="Bedienung_Element.html">Oberflächenelemente</a></font><br>
-            <font size="-1">- Programmmodule</font><br>
-            <font size="-1">- generieren</font><br>
-            <font size="-1">- steigern &amp; verwalten</font><br>
-            <font size="-1">- ausrüsten</font><br>
-            <font size="-1">- beschreiben</font><br>
-            <font size="-1">- Optionen</font>
+            <font size="-1">- <a href="Bedienung_Modul.html">Programmmodule</a></font><br>
+            <font size="-1">- <a href="Bedienung_Genesis.html">generieren</a></font><br>
+            <font size="-1">-&nbsp;<a href="Bedienung_Steigern.html">steigern&nbsp;&amp;&nbsp;verwalten</a></font><br>
+            <font size="-1">- <a href="Bedienung_Ausruest.html">ausrüsten</a></font><br>
+            <font size="-1">- <font class="Here">beschreiben</font></font><br>
+            <font size="-1">- <a href="Bedienung_Option.html">Optionen</a></font>
             </td>
           </tr>
           <tr>
@@ -58,12 +58,38 @@
           </tr>
         </table>
         </td>
-        <td class="TextBox" align="center"><h2>Bedienung</h2>  </td>
+        <td class="TextBox" align="center">
+          <h2><a href="BedienungMain.html">Bedienung</a></h2>
+          <table>
+           <tr>
+             <td>
+               <ul>
+                 <li><a href="Bedienung_Modul.html">Oberflächenelemente</a></li>
+                 <li><a href="Bedienung_Modul.html">Programmmodule</a></li>
+                 <li><a href="Bedienung_Genesis.html">generieren</a></li>
+                 <li><a href="Bedienung_Steigern.html">steigern &amp; verwalten</a></li>
+                 <li><a href="Bedienung_Ausruest.html">ausrüsten</a></li>
+                 <li><font class="Here">beschreiben</font></li>
+                 <li><a href="Bedienung_Option.html">Optionen</a></li>
+               </ul>
+             </td>
+           </tr>
+         </table>
+        </td>
         <td>  </td>
       </tr>
       <tr>
         <td>  </td>
         <td  class="TextBox">
+        <h4>Abenteurer beschreiben</h4>
+          Auf der <a href="BMod_Be.html">Notebookseite Beschreibung</a> bietet MAGUS die Möglichkeit, eine mehr oder weniger
+          ausführliche Beschreibung eines Abenteurers einzugeben. Soll mehr, als ein Bild und eine unformatierte
+          Beschreibung eingegeben werden, so ist dies durch LaTeX-Kommandos möglich. Eine kleine Übersicht über die Kommandos
+          soll diese Seite bieten:
+          <ul>
+            <li><a href="#FNT">Schrift</a>  </li>
+            <li><a href="#UUA">Umbruch &amp; Ausrichtung</a> </li>
+          </ul>
         </td>
         <td>  </td>
       </tr>
@@ -75,6 +101,167 @@
       <tr>
         <td>  </td>
         <td  class="TextBox">
+        <h4>Umbruch &amp; Ausrichtung</h4><a name="UUA"></a>
+
+        <font class="highlight"><b>Zeilenumbruch</b></font>:<br> <br>
+        Syntax:<br>
+        <p style="font-family:monospace">
+        Zeile 1 \\ <br>
+        Zeile 2 </p>
+
+        <table border="1" width="100%">
+          <tr>
+            <td>\\  </td>
+            <td>Zeilenende  </td>
+          </tr>
+        </table><br><br>
+
+        <font class="highlight"><b>Textausrichtung</b></font><br><br>
+        Der Text wird defaultmäßig im Blocksatz gesetzt.<br><br>
+
+        Syntax:<br>
+        <p style="font-family:monospace">
+        \begin {Befehl}<br>
+        Text auf den der Befehl angewendet werden soll<br>
+        \end {Befehl}</p>
+
+
+        <table border="1" width="100%">
+          <tr>
+            <td>center  </td>
+            <td>zentrierter Text  </td>
+          </tr>
+          <tr>
+            <td>flushleft  </td>
+            <td>linksbündiger Text  </td>
+          </tr>
+          <tr>
+            <td>flushright  </td>
+            <td>rechtsbündiger Text  </td>
+          </tr>
+          <tr>
+            <td>quote  </td>
+            <td>Text einrücken  </td>
+          </tr>
+        </table><br><br>
+        Für einzelnen Zeilen gibt es folgende Alternativen:<br> <br>
+        Syntax:<br>
+        <p style="font-family:monospace">
+        \Befehl {Text} <br></p>
+
+        <table border="1" width="100%">
+          <tr>
+            <td>\centerline  </td>
+            <td>zentrierter Text  </td>
+          </tr>
+          <tr>
+            <td>\raggedleft  </td>
+            <td>linksbündiger Text  </td>
+          </tr>
+          <tr>
+            <td>\raggedright  </td>
+            <td>rechtsbündiger Text  </td>
+          </tr>
+        </table>
+        </td>
+        <td>  </td>
+      </tr>
+      <tr>
+         <td>  </td>
+         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+         <td>  </td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td  class="TextBox"> <a name="#FNT"></a>
+        <h4>Schrift</h4>
+
+         <font class="highlight"><b>Verändern der Schriftgröße</b></font><br><br>
+         Syntax:<br> <p style="font-family:monospace">
+         \begin{Befehl}<br>
+         Text für den der Befehl gelten soll<br>
+         \end{Befehl}<br></p>
+         oder:<p style="font-family:monospace">
+         {\Befehl Text}
+         </p>
+         <table border="1" width="100%">
+          <tr>
+            <td>\Huge  </td>
+            <td><font size=+5>riesige Schrift</font>  </td>
+          </tr>
+          <tr>
+            <td>\huge  </td>
+            <td><font size=+4>extrem große Schrift</font>  </td>
+          </tr>
+           <tr>
+            <td>\LARGE  </td>
+            <td><font size=+3>sehr große Schrift</font>  </td>
+          </tr>
+          <tr>
+            <td>\Large  </td>
+            <td><font size=+2>ziemlich große Schrift</font> </td>
+          </tr>
+          <tr>
+            <td>\large  </td>
+            <td><font size=+1>große Schrift</font>  </td>
+          </tr>
+          <tr>
+            <td>\normalsize  </td>
+            <td>normal große Schrift  </td>
+          </tr>
+          <tr>
+            <td>\small  </td>
+            <td><font size="-1">kleine Schrift</font>  </td>
+          </tr>
+          <tr>
+            <td>\footnotesize  </td>
+            <td><font size=-2>kleinere Schrift</font>  </td>
+          </tr>
+          <tr>
+            <td>\scriptsize  </td>
+            <td><font size=-3>sehr kleine Schrift</font>  </td>
+          </tr>
+          <tr>
+            <td>\tiny</td>
+            <td><font size=-4>winzige Schrift</font>  </td>
+          </tr>
+          </table><br><br>
+
+          <font class="highlight"><b>Schriftart</b></font> <br><br>
+           Syntax:<br> <p style="font-family:monospace">
+           \Befehl { Text für den der Befehl gelten soll }<br></p>
+
+          <table border="1" width="100%">
+          <tr>
+            <td>\textrm  </td>
+            <td><span style="font-family:serif">Roman (Serifen)</span> </td>
+          </tr>
+          <tr>
+            <td>\textsf  </td>
+            <td><span style="font-family:sans-serif">Sans Serif </span>  </td>
+          </tr>
+          <tr>
+            <td>\texttt  </td>
+            <td><span style="font-family:monospace">Typewriter (Courier)</span>  </td>
+          </tr>
+          </table><br><br>
+          <font class="highlight"><b>Schriftform</b></font><br><br>
+           Syntax:<br> <p style="font-family:monospace">
+           \Befehl { Text für den der Befehl gelten soll }<br></p>
+          <table border="1" width="100%">
+          <tr>
+            <td>\textbf  </td>
+            <td><b>Fett</b>  </td>
+          </tr>
+          <tr>
+            <td>\textit  </td>
+            <td><i>Italic</i>  </td>
+          </tr>
+          <tr>
+            <td>\textsc  </td>
+            <td><span style="font-variant:small-caps">Kapitälchen</span>  </td>
+          </tr>
+        </table>
         </td>
         <td>  </td>
       </tr>
