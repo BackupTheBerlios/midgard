@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.7 2002/01/08 07:59:04 christof Exp $
+// $Id: export_common.cc,v 1.8 2002/01/08 09:40:51 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -25,7 +25,7 @@ std::string region;
 
 static const char HEX[]="0123456789ABCDEF";
 
- std::string toXML(const std::string &s)
+std::string toXML(const std::string &s)
 {  std::string res;
    for (std::string::const_iterator i=s.begin();i!=s.end();++i)
    {  if (isalnum(*i)) res+=*i;
@@ -40,7 +40,17 @@ static const char HEX[]="0123456789ABCDEF";
    return res;
 }
 
- int fetch_int(FetchIStream &is,int standard=0)
+std::string toSQL(const std::string &s)
+{  std::string res;
+   for (std::string::const_iterator i=s.begin();i!=s.end();++i)
+   {  if (*i=='\'') res+="''";
+      else res+=*i;
+//      else res+=std::string("\")+Formatiere(*i,0,3,"0");
+   }
+   return "'"+res+"'";
+}
+
+int fetch_int(FetchIStream &is,int standard=0)
 {  int val;
    
    is >> FetchIStream::MapNull<int>(val,standard);

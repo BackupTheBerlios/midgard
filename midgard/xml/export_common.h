@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.12 2001/12/16 21:47:49 christof Exp $
+// $Id: export_common.h,v 1.13 2002/01/08 09:40:51 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -38,6 +38,7 @@ extern std::string region;
 #endif
 
 std::string toXML(const std::string &s);
+std::string toSQL(const std::string &s);
 
 int fetch_int(FetchIStream &is,int standard=0);
 void write_int(std::ostream &o,const std::string &wert,int val, int indent=0);

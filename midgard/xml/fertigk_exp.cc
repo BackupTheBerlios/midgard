@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.7 2002/01/07 10:03:56 christof Exp $
+// $Id: fertigk_exp.cc,v 1.8 2002/01/08 09:40:51 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -145,9 +145,9 @@ void fert_speichern(std::ostream &o)
       	FetchIStream is2;
       	std::string ep;
       	while ((query2>>is2).good())
-        {  ep+=" "+fetch_string(is2)+"=\"True\"";
+        {  ep+=" "+fetch_string(is2)+"=\"true\"";
         }
-        if (ep!=" KEP=\"True\" ZEP=\"True\"")
+        if (ep!=" KEP=\"true\" ZEP=\"true\"")
            o << "    <verwendbareEP" << ep << "/>\n";
      }
    
@@ -252,21 +252,21 @@ void fert_speichern(std::ostream &o)
       std::string staende;
       while ((query2>>is2).good())
       {  std::string stand=fetch_string(is2);
-         if (stand=="U") staende+=" Unfrei=\"True\"";
-         if (stand=="V") staende+=" Volk=\"True\"";
-         if (stand=="M") staende+=" Mittelschicht=\"True\"";
-         if (stand=="A") staende+=" Adel=\"True\"";
+         if (stand=="U") staende+=" Unfrei=\"true\"";
+         if (stand=="V") staende+=" Volk=\"true\"";
+         if (stand=="M") staende+=" Mittelschicht=\"true\"";
+         if (stand=="A") staende+=" Adel=\"true\"";
       }
 #else
       std::string staende;
-      if (fetch_bool(is)) staende+=" Unfrei=\"True\"";
-      if (fetch_bool(is)) staende+=" Volk=\"True\"";
-      if (fetch_bool(is)) staende+=" Mittelschicht=\"True\"";
-      if (fetch_bool(is)) staende+=" Adel=\"True\"";
+      if (fetch_bool(is)) staende+=" Unfrei=\"true\"";
+      if (fetch_bool(is)) staende+=" Volk=\"true\"";
+      if (fetch_bool(is)) staende+=" Mittelschicht=\"true\"";
+      if (fetch_bool(is)) staende+=" Adel=\"true\"";
 #endif
       if (!staende.empty() 
-      	&& staende!=" Unfrei=\"True\" Volk=\"True\" Mittelschicht=\"True\" Adel=\"True\""
-      	&& staende!=" Adel=\"True\" Mittelschicht=\"True\" Unfrei=\"True\" Volk=\"True\"")
+      	&& staende!=" Unfrei=\"true\" Volk=\"true\" Mittelschicht=\"true\" Adel=\"true\""
+      	&& staende!=" Adel=\"true\" Mittelschicht=\"true\" Unfrei=\"true\" Volk=\"true\"")
          o << "    <Stand" << staende << "/>\n";
    }
    {  Query query2(

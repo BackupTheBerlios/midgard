@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.9 2002/01/08 08:40:27 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.10 2002/01/08 09:40:51 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -82,9 +82,9 @@ void land_speichern(std::ostream &o)
    fetch_and_write_bool_attrib(is, o, "Minderheit");
    o << ">";
    Query query2("select art_der_schrift, schrift from sprache_schrift"
-   	" where sprache='"+sprache+"' order by art_der_schrift");
+   	" where sprache="+toSQL(sprache)+" order by art_der_schrift");
    FetchIStream is2;
-   while ((query>>is2).good())
+   while ((query2>>is2).good())
    {  o << "\n    <Schrift";
       fetch_and_write_string_attrib(is2, o, "Name");
       fetch_and_write_string_attrib(is2, o, "Bezeichnung", sprache);
