@@ -679,12 +679,19 @@ Srimarameisterschaft I	400	SGr*2	Wort	2	Magan	beherrscht	Wasser	10 s	30 m	Geist	
 Srimarameisterschaft II	600	SGr*3	Wort	3	Magan	beherrscht	Luft	20 s	30 m	Geist	Gr Ws	var	dämonisch		nicht	Siegel					S		A	S	S											S					A	R	\N	\N	\N	\N	\N	G	
 Wasserlauf	800	3	Gedanke	3	Wasser	bewegt	Erde	20 s	0	Körper	selbst	10 min	elementar			Siegel					S		A	A	A		A	A	A	A	A	S	A	A		A			G		A	\N	\N	\N	\N	\N	\N		G
 Wandlung	6000	18	Gedanke	6	Element	verwandelt	Erde	10 sec	-	Körper	Z	6 h	elementar		nicht		\N	\N	\N	\N	\N	\N	\N	S	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	R	\N	\N	\N	\N	\N	\N	G
+Wind des Todes	15000	18	Geste	G	Feuer	zerstört	Wasser	30 s	0	Körper	100 m Ke	2 min	schwarzmagisch	Vulkansche, Wüstensand,Diamantstaub							S		A				G								S	G						E	\N	\N	\N	\N	\N		S
+Trunk des Lebens	100	1/2	Geste	1				10 s	B	Umgebung	var	0	druidisch	Honig									S	G	S			S		A					A	S					S	H&D	\N	\N	\N	\N	\N	\N	\N
 Farbensalz	60	1	Gedanke	1	Magan	verändert	Holz	1 s	500 m	Umgebung	50x50cm	3 h	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
 Glühsalz	60	1	Gedanke	1	Feuer	erschafft	Feuer	1 s	500 m	Umgebung		10 s	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
+Ungeziefer bannen	1000	3-9 AP	Geste	3				10 min	0	Geist	6m Uk	8 h	druidisch	Schädel		Siegel				S	G	S	A	S	A			G	A	A				A	S	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
+Waldluft	80	1	Wort	1				10 s	0	Umgebung	12m Uk	8 h	druidisch		nicht						G		S	G	S			G	A	A	A	A	A	A	G	S					S	H&D	\N	\N	\N	\N	\N	\N	\N
+Wittern	200	2	Geste	2				10 s	25m Uk	Körper	Z	10 min	druidisch	Spürhundhaare	nicht	Siegel					G		S		A										G	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
+Wolkenbruch	2000	4	Geste	4				10 s	50 m	Umgebung	5m Uk	10 min	druidisch	Regenwasser							S		S	S	S		S	S				G	S	S	G	S					S	H&D	\N	\N	\N	\N	\N	\N	\N
 Fluch des Hundes	2000	6	Geste	5				1 s	0	Körper	1 Ws	0	dämonisch	Hundeurin       						S		G		S		S	A	A	A	A	A	A	A	G	G					G	\N	\N	H&D	\N	\N	\N	\N	\N	\N
 Der Große Knall	200	2	Geste	2				1 s	12 m	Umgebung	12 m	0	dämonisch								A		S		G					S	G				A	S					S	\N	H&D	\N	\N	\N	\N	\N	\N
 Ungeziefer bannen	1000	3-9 AP	Geste	3				10 min	0	Geist	6m Uk	8 h	druidisch	Schädel		Siegel				S	G	S	A	S	A			G	A	A				A	S	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
 Das Lied der Erinnerung	5000	2	Zauberlied	6	Magan	beherrscht	Luft	0	0	Geist	30m Uk	5 min+	druidisch	Harfe oder Laute	nicht				G																		S					H&D	\N	\N	\N	\N	\N	\N	\N
+Wüstenwind	800	3	Geste	3				19 s	0	Umgebung	30m Uk Kegel	2 min	druidisch	Wüstensand	nicht	Rune					S		G		S		S	S	S	S	S	G	S	G	S	G			G		G	H&D	G	\N	\N	\N	\N	\N	\N
 Dinge rufen	1500	2x4	Geste	4				1 h	50 km	Umgebung	1 Ob	1 Monat	dämonisch	Spinnenblut		Siegel				S		S	S		S											S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
 Eifersucht	800	1AP*#	Wort	3				10 s	15 m	Geist   Grad Ws	2 min	dämonisch               								G		A		S									G					S	\N	\N	\N	H&D	\N	\N	\N	\N	\N	\N	\N
 Entfesseln	240	2	Wort	2				20 s	0	Umgebung        1 Ob	0	dämonisch			Rune					A		G	A	S							S		S	A	G			G		G	\N	H&D	\N	\N	\N	\N	\N	\N	\N
@@ -711,12 +718,6 @@ Seance	1000	alle	Geste	3				2 h	0	Geist	Z	10 min	dämonisch	Schwarze Kerzen, Weih
 Signalkugel	200	2	Geste	2				10 s	0	Umgebung	0	20 s	elementar	Eulenfeder und Zunder		Rune							G	S	S					S		S				G			G		G	H&D	\N	\N	\N	\N	\N	\N	\N
 Sprachlähmung	1500	1AP*Gr	Geste	4				10 s	30 m	Körper	1 Ws	2 h	druidisch	Schnur mit Knoten									S	G	S									S	A	S					S	H&D	\N	\N	\N	\N	\N	\N	\N
 Tiefschlaf	3000	6	Geste	5				10 s	B	Körper	1 Ws	6 h	druidisch		nicht	Siegel					S		S	G	S		S	S	S	S	S	S	S	S	S	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
-Trunk des Lebens	100	1/2	Geste	1				10 s	B	Umgebung	var	0	druidisch	Honig									S	G	S			S		A					A	S					S	H&D	\N	\N	\N	\N	\N	\N	\N
-Ungeziefer bannen	1000	3-9 AP	Geste	3				10 min	0	Geist	6m Uk	8 h	druidisch	Schädel		Siegel				S	G	S	A	S	A			G	A	A				A	S	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
-Waldluft	80	1	Wort	1				10 s	0	Umgebung	12m Uk	8 h	druidisch		nicht						G		S	G	S			G	A	A	A	A	A	A	G	S					S	H&D	\N	\N	\N	\N	\N	\N	\N
-Wittern	200	2	Geste	2				10 s	25m Uk	Körper	Z	10 min	druidisch	Spürhundhaare	nicht	Siegel					G		S		A										G	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
-Wolkenbruch	2000	4	Geste	4				10 s	50 m	Umgebung	5m Uk	10 min	druidisch	Regenwasser							S		S	S	S		S	S				G	S	S	G	S					S	H&D	\N	\N	\N	\N	\N	\N	\N
-Wüstenwind	800	3	Geste	3				19 s	0	Umgebung	30m Uk Kegel	2 min	druidisch	Wüstensand	nicht	Rune					S		G		S		S	S	S	S	S	G	S	G	S	G			G		G	H&D	G	\N	\N	\N	\N	\N	\N
 Zaubertür	10000	9	Geste	6				30 s	B	Umgebung	1x2m Wand	2 min	dämonisch			Siegel							A		S											A			G		A	H&D	\N	\N	\N	\N	\N	\N	\N
 Zurückführen	6000	var	Wort	6				6 h	B	Umgebung	1 Ob	0	druidisch		nicht	Siegel					G		S		S										S	S			G		S	H&D	\N	\N	\N	\N	\N	\N	\N
 Zwingkreis	4000	6	Geste	5				10 s	30m	Umgebung	6m Uk	6 h	druidisch	Kupferarmband	Siegel				S	G	S	S	S	S		S	S	S	G	S	S	S	S	G	S			S		S	\N	H&D	\N	\N	\N	\N	\N	\N	\N
@@ -732,5 +733,4 @@ Verjüngen	15000	alle (min 8)	Geste	G	Holz	verändert	Erde	6 h	1 m	Körper	1 Ws	0	d
 Manifestation des Ka	15000	18	Geste	G	Magan	erschafft	Erde	6 h	3 m	Geist	1 Ws	-	dämonisch	Wachsbad mit seltenen Essenzen	nicht					G	S	G	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N	\N	\N	\N	\N		S
 Seelenraub	12000	18	Geste	G	Magan	bewegt	Luft	30 min	0	Körper	bis 12 Ws	-	schwarzmagisch		nicht					G	S	A	A												S	G						E	\N	\N	\N	\N	\N		S
 Tausch des Ba	20000	18	Geste	G	Magan	bewegt	Luft	3 h	15 m	Geist	2 Ws	-	dämonisch	Silberdraht	nicht					G	S	G	S				G	S	S	S	S	S	S	S	G	S		G			S	E	\N	\N	\N	\N	\N		G
-Wind des Todes	15000	18	Geste	G	Feuer	zerstört	Wasser	30 s	0	Körper	100 m Ke	2 min	schwarzmagisch	Vulkansche, Wüstensand,Diamantstaub							S		A				G								S	G						E	\N	\N	\N	\N	\N		S
 \.
