@@ -254,7 +254,7 @@
     <Lernschema Typ="Ri" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Sö" Lernpunkte="1" Pflicht="True"/>
     <Lernschema Typ="Sr" Lernpunkte="4"/>
-    <Verbot Typ="Elf" Spielbeginn="S"/>
+    <Verbot Typ="Elf" Spielbeginn="True"/>
     <steigern_wie Fertigkeit="-"/>
     <EP-Typ Typ="KEP"/>
   </Fertigkeit>
@@ -847,20 +847,21 @@
     <Standard>As,BN,BS,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BW" Lernpunkte="1"/>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
-    <Verbot Typ="Berggnom" Spielbeginn="S"/>
-    <Verbot Typ="Elf" Spielbeginn="S"/>
-    <Verbot Typ="Halbling" Spielbeginn="S"/>
-    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
-    <Verbot Typ="Zwerg" Spielbeginn="S"/>
+    <Verbot Typ="Berggnom" Spielbeginn="True"/>
+    <Verbot Typ="Elf" Spielbeginn="True"/>
+    <Verbot Typ="Halbling" Spielbeginn="True"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="True"/>
+    <Verbot Typ="Zwerg" Spielbeginn="True"/>
+    <regionaleBesonderheit Herkunft="Ikenga Becken" Typ="Sc" Standard="G"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Gebirge" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
     <Grund>BN</Grund>
     <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
-    <Verbot Typ="Elf" Spielbeginn="S"/>
-    <Verbot Typ="Halbling" Spielbeginn="S"/>
-    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
+    <Verbot Typ="Elf" Spielbeginn="True"/>
+    <Verbot Typ="Halbling" Spielbeginn="True"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="True"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Schnee" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
@@ -868,20 +869,20 @@
     <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BN" Lernpunkte="1"/>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
-    <Verbot Typ="Berggnom" Spielbeginn="S"/>
-    <Verbot Typ="Elf" Spielbeginn="S"/>
-    <Verbot Typ="Halbling" Spielbeginn="S"/>
-    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
+    <Verbot Typ="Berggnom" Spielbeginn="True"/>
+    <Verbot Typ="Elf" Spielbeginn="True"/>
+    <Verbot Typ="Halbling" Spielbeginn="True"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="True"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Sumpf" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>Sa</Ausnahme>
-    <Verbot Typ="Berggnom" Spielbeginn="S"/>
-    <Verbot Typ="Elf" Spielbeginn="S"/>
-    <Verbot Typ="Halbling" Spielbeginn="S"/>
-    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
-    <Verbot Typ="Zwerg" Spielbeginn="S"/>
+    <Verbot Typ="Berggnom" Spielbeginn="True"/>
+    <Verbot Typ="Elf" Spielbeginn="True"/>
+    <Verbot Typ="Halbling" Spielbeginn="True"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="True"/>
+    <Verbot Typ="Zwerg" Spielbeginn="True"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Wald" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
@@ -889,9 +890,9 @@
     <Standard>As,BN,BS,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BW" Lernpunkte="1"/>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
-    <Verbot Typ="Berggnom" Spielbeginn="S"/>
-    <Verbot Typ="Halbling" Spielbeginn="S"/>
-    <Verbot Typ="Zwerg" Spielbeginn="S"/>
+    <Verbot Typ="Berggnom" Spielbeginn="True"/>
+    <Verbot Typ="Halbling" Spielbeginn="True"/>
+    <Verbot Typ="Zwerg" Spielbeginn="True"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben in der Steppe" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
@@ -899,27 +900,30 @@
     <Standard>As,BN,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Lernschema Typ="BS" Lernpunkte="1"/>
     <Lernschema Typ="Sc" Lernpunkte="1"/>
-    <Verbot Typ="Berggnom" Spielbeginn="S"/>
-    <Verbot Typ="Elf" Spielbeginn="S"/>
-    <Verbot Typ="Halbling" Spielbeginn="S"/>
-    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
-    <Verbot Typ="Zwerg" Spielbeginn="S"/>
+    <Verbot Typ="Berggnom" Spielbeginn="True"/>
+    <Verbot Typ="Elf" Spielbeginn="True"/>
+    <Verbot Typ="Halbling" Spielbeginn="True"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="True"/>
+    <Verbot Typ="Zwerg" Spielbeginn="True"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben in der Wüste" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
     <Grund>Hä</Grund>
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
-    <Verbot Typ="Berggnom" Spielbeginn="S"/>
-    <Verbot Typ="Elf" Spielbeginn="S"/>
-    <Verbot Typ="Halbling" Spielbeginn="S"/>
-    <Verbot Typ="Waldgnom" Spielbeginn="S"/>
-    <Verbot Typ="Zwerg" Spielbeginn="S"/>
+    <Verbot Typ="Berggnom" Spielbeginn="True"/>
+    <Verbot Typ="Elf" Spielbeginn="True"/>
+    <Verbot Typ="Halbling" Spielbeginn="True"/>
+    <Verbot Typ="Waldgnom" Spielbeginn="True"/>
+    <Verbot Typ="Zwerg" Spielbeginn="True"/>
+    <regionaleBesonderheit Herkunft="Eschar" Typ="Sc" Standard="G"/>
     <steigern_wie Fertigkeit="Überleben"/>
   </Fertigkeit>
   <Fertigkeit Name="Etikette" Region="B&amp;R" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In">
     <Grund>Ba,Gl,Ma,PC,PF,PK,PM,PT,PW,Ri</Grund>
     <Standard>As,Dr,Fi,Hl,Hä,Kd,Kr,Ny,Or,Sa,Se,Sr,Th,dBe,eBe,gHx,sHx,wHx</Standard>
     <Ausnahme>BN,BS,BW,Sc,Sp,Sö,Wa</Ausnahme>
+    <regionaleBesonderheit Beruf="Herold" Stand="Adel" Standard="G"/>
+    <regionaleBesonderheit Stand="Volk" Standard="A"/>
     <steigern_wie Fertigkeit="Gassenwissen"/>
     <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
@@ -932,6 +936,8 @@
   <Fertigkeit Name="Fangen" Region="B&amp;R" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
     <Grund>BN,BS,BW,Se,Sp</Grund>
     <Standard>As,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <regionaleBesonderheit Beruf="Fischer" Standard="G"/>
+    <regionaleBesonderheit Beruf="Gaukler" Standard="G"/>
     <steigern_wie Fertigkeit="Bewegung"/>
     <EP-Typ Typ="KEP"/>
   </Fertigkeit>
@@ -948,6 +954,7 @@
     <Standard>Sa</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Ri" Lernpunkte="1"/>
+    <regionaleBesonderheit Beruf="Herold" Standard="G"/>
     <steigern_wie Fertigkeit="-"/>
     <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
@@ -979,6 +986,8 @@
     <Lernschema Typ="Or" Lernpunkte="2"/>
     <Lernschema Typ="Ri" Lernpunkte="2"/>
     <Lernschema Typ="PK" Lernpunkte="6"/>
+    <regionaleBesonderheit Herkunft="Alba" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Küstenstaaten" Standard="S"/>
     <Kosten Wert2="100" Wert3="100" Wert4="150" Wert5="150" Wert6="200" Wert7="200" Wert8="400"/>
     <EP-Typ Typ="KEP"/>
   </Fertigkeit>
@@ -1194,6 +1203,32 @@
     <Lernschema Typ="Kd" Lernpunkte="1"/>
     <Lernschema Typ="Sa" Lernpunkte="1"/>
     <Lernschema Typ="Ny" Lernpunkte="2"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Kr" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Or" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PF" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PH" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PK" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PM" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Dr" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ma" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sc" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="dBe" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="eBe" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="gHx" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="wHx" Standard="G"/>
     <steigern_wie Fertigkeit="Verhören"/>
     <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
@@ -1279,6 +1314,8 @@
     <Standard>Dr,Hl,Ma,PC,PK,PM,PT,PW,Sc,Th,dBe,eBe</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PF,Ri,Se,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sa" Lernpunkte="1"/>
+    <regionaleBesonderheit Herkunft="Eschar" Typ="Sc" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="G"/>
     <steigern_wie Fertigkeit="BeidhÃ¤ndiger Kampf"/>
     <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
@@ -1291,13 +1328,19 @@
   </Fertigkeit>
   <Fertigkeit Name="Augensalbe herstellen" Region="R" Lernpunkte="9" Lernkosten="200">
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
-    <Lernschema Typ="Th" Lernpunkte="3"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="G"/>
     <steigern_wie Fertigkeit="-"/>
     <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Elefanten lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Ge">
     <Standard>Sa,Sr</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <regionaleBesonderheit Herkunft="Minangpahit" Typ="Kr" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Minangpahit" Typ="PW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Minangpahit" Typ="Sö" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="G"/>
     <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf zu Elefant" Region="R" Lernpunkte="8" Lernkosten="200">
@@ -1309,6 +1352,19 @@
     <Standard>Sa,Sr</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sr" Lernpunkte="1"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="As" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BN" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BS" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Gl" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hä" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Or" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Se" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sp" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Wa" Standard="G"/>
     <EP-Typ Typ="KEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Körperkontrolle" Region="R" Lernpunkte="3" Anfangswert="15" Lernkosten="150" Erfolgswert="12">
@@ -1316,6 +1372,37 @@
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sa" Lernpunkte="1"/>
     <Lernschema Typ="Sr" Lernpunkte="2"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="As" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BN" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BS" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BW" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Dr" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Gl" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hä" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ma" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Or" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PT" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sc" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sp" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Wa" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="dBe" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="eBe" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="gHx" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="wHx" Standard="G"/>
     <steigern_wie Fertigkeit="Bewegung"/>
     <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
@@ -1325,12 +1412,45 @@
     <Lernschema Typ="Kd" Lernpunkte="1"/>
     <Lernschema Typ="Sa" Lernpunkte="1"/>
     <Lernschema Typ="Ny" Lernpunkte="2"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Kr" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Or" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PF" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PH" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PK" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PM" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Dr" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ma" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sc" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="dBe" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="eBe" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="gHx" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="wHx" Standard="G"/>
     <steigern_wie Fertigkeit="Verhören"/>
     <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
   <Fertigkeit Name="Natya" Region="R" Lernpunkte="7" Lernkosten="100">
     <Standard>Ba,PC,PF,PK,PM,PT,PW</Standard>
     <Ausnahme>As,BN,BS,BW,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
     <steigern_wie Fertigkeit="Bewegung"/>
     <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
@@ -1338,12 +1458,59 @@
     <Grund>Kd,Ny,Sa</Grund>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sa" Lernpunkte="1"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Dr" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ma" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sc" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="dBe" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="eBe" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="gHx" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="wHx" Standard="S"/>
   </Fertigkeit>
   <Fertigkeit Name="Schmerzen ertragen" Region="R" Lernpunkte="8" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Attribut="Sb">
     <Grund>Sa</Grund>
     <Standard>Sr</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sa" Lernpunkte="1"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="As" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BN" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BS" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BW" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Dr" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Gl" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hä" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Ma" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Or" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sc" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Se" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sr" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Wa" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="dBe" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="eBe" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="gHx" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="wHx" Standard="S"/>
     <steigern_wie Fertigkeit="Bewegung"/>
     <EP-Typ Typ="ZEP"/>
   </Fertigkeit>
@@ -1351,6 +1518,9 @@
     <Grund>Sr</Grund>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sr" Lernpunkte="1"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Or" Standard="S"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="S"/>
     <steigern_wie Fertigkeit="Elefanten lenken"/>
     <EP-Typ Typ="KEP"/>
   </Fertigkeit>
@@ -1383,7 +1553,7 @@
   <Beruf Name="Dewadasi" Region="R" Lernpunkte="9">
     <Voraussetzungen St="31" pA="61" Au="81" Geschlecht="w"/>
     <Stand>Adel,Mittelschicht,Unfrei,Volk</Stand>
-    <Vorteil>Natya,Tanzen</Vorteil>
+    <Vorteil>Natya,Tanzen,Verführen</Vorteil>
   </Beruf>
   <Beruf Name="Mahaut" Region="R" Lernpunkte="5">
     <Voraussetzungen St="31" Sb="31" Typ="k" Geschlecht="m"/>
@@ -1478,7 +1648,7 @@
   <Beruf Name="Baumeister" Lernpunkte="7">
     <Voraussetzungen In="61"/>
     <Stand>Adel,Mittelschicht</Stand>
-    <Vorteil>Geschäftstüchtigkeit,Lesen/Schreiben,Malen/Zeichnen,Rechnen</Vorteil>
+    <Vorteil>Geschäftstüchtigkeit,Lesen/Schreiben,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Beamter" Lernpunkte="5">
     <Voraussetzungen In="31"/>
@@ -1575,12 +1745,12 @@
   <Beruf Name="Diplomat" Lernpunkte="9">
     <Voraussetzungen In="61" pA="31"/>
     <Stand>Adel</Stand>
-    <Vorteil>Beredsamkeit,Lesen/Schreiben,Menschenkenntnis,Sprache 4</Vorteil>
+    <Vorteil>Beredsamkeit,Lesen/Schreiben,Menschenkenntnis,Sprache</Vorteil>
   </Beruf>
   <Beruf Name="Dolmetscher" Lernpunkte="7">
     <Voraussetzungen In="21"/>
     <Stand>Mittelschicht,Volk</Stand>
-    <Vorteil>2x Sprache 4,Lesen/Schreiben</Vorteil>
+    <Vorteil>Lesen/Schreiben,Sprache</Vorteil>
   </Beruf>
   <Beruf Name="Drucker" Lernpunkte="7">
     <Voraussetzungen Ge="61" In="31"/>
@@ -1590,7 +1760,7 @@
   <Beruf Name="Einbrecher" Lernpunkte="9">
     <Voraussetzungen Ge="61"/>
     <Stand>Unfrei,Volk</Stand>
-    <Vorteil>Gassenwissen,Klettern,Schlösser,öffnen</Vorteil>
+    <Vorteil>Gassenwissen,Klettern,Schlösser öffnen</Vorteil>
   </Beruf>
   <Beruf Name="Erdarbeiter" Lernpunkte="5">
     <Voraussetzungen St="31" Typ="k"/>
@@ -1665,7 +1835,7 @@
   <Beruf Name="Gelehrter" Lernpunkte="9">
     <Voraussetzungen In="81"/>
     <Stand>Adel,Mittelschicht</Stand>
-    <Vorteil>Landeskunde,Lesen/Schreiben,Sagenkunde,Sprache</Vorteil>
+    <Vorteil>Lesen/Schreiben,Sagenkunde,Sprache</Vorteil>
   </Beruf>
   <Beruf Name="Geologe" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="z"/>
@@ -1785,7 +1955,7 @@
   <Beruf Name="Höfling" Lernpunkte="7">
     <Voraussetzungen In="61" Au="31"/>
     <Stand>Adel,Mittelschicht</Stand>
-    <Vorteil>Beredsamkeit,Lesen/schreiben,Tanzen</Vorteil>
+    <Vorteil>Beredsamkeit,Lesen/Schreiben,Tanzen</Vorteil>
   </Beruf>
   <Beruf Name="Imker" Lernpunkte="5">
     <Voraussetzungen/>
@@ -1835,7 +2005,7 @@
   <Beruf Name="Kartograph" Lernpunkte="7">
     <Voraussetzungen In="61"/>
     <Stand>Adel,Mittelschicht</Stand>
-    <Vorteil>Lesen/Schreiben,Malen/Zeichnen,Naturkunde</Vorteil>
+    <Vorteil>Lesen/Schreiben,Naturkunde</Vorteil>
   </Beruf>
   <Beruf Name="Kaufmann" Lernpunkte="7">
     <Voraussetzungen In="61"/>
@@ -1885,7 +2055,7 @@
   <Beruf Name="Kunstmaler" Lernpunkte="7">
     <Voraussetzungen Ge="61" In="31"/>
     <Stand>Adel,Mittelschicht,Volk</Stand>
-    <Vorteil>Kalligraphie,Malen/Zeichnen,Sagenkunde</Vorteil>
+    <Vorteil>Kalligraphie,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Kupferschmied" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
@@ -1964,7 +2134,7 @@
   <Beruf Name="Märchenerzähler" Lernpunkte="7">
     <Voraussetzungen pA="31"/>
     <Stand>Volk</Stand>
-    <Vorteil>Beredsamkeit,Geschichten erzählen ,Sagenkunde</Vorteil>
+    <Vorteil>Beredsamkeit,Geschichten erzählen,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Müller" Lernpunkte="5">
     <Voraussetzungen/>
@@ -2129,7 +2299,7 @@
   <Beruf Name="Schreiner" Lernpunkte="7">
     <Voraussetzungen Ge="21"/>
     <Stand>Volk</Stand>
-    <Vorteil>Handxt,Streitakt</Vorteil>
+    <Vorteil>Handaxt,Streitaxt</Vorteil>
   </Beruf>
   <Beruf Name="Schuhmacher" Lernpunkte="5">
     <Voraussetzungen/>
@@ -2183,7 +2353,7 @@
   <Beruf Name="Spieler" Lernpunkte="7">
     <Voraussetzungen Ge="61" In="61"/>
     <Stand>Volk</Stand>
-    <Vorteil>Glücksspiel,Rechnen,Wahrnehmen</Vorteil>
+    <Vorteil>Glücksspiel,Rechnen,Wahrnehmung</Vorteil>
   </Beruf>
   <Beruf Name="Spinnerin" Lernpunkte="5">
     <Voraussetzungen Ge="21" Geschlecht="w"/>
@@ -2254,7 +2424,7 @@
   <Beruf Name="Tierarzt" Lernpunkte="7">
     <Voraussetzungen In="61"/>
     <Stand>Adel,Mittelschicht</Stand>
-    <Vorteil>Erste,Hilfe,Lesen/Schreiben,Tierkunde</Vorteil>
+    <Vorteil>Erste Hilfe,Lesen/Schreiben,Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Tierausbilder" Lernpunkte="9">
     <Voraussetzungen/>
@@ -2317,7 +2487,7 @@
   <Beruf Name="Unteroffizier" Lernpunkte="7">
     <Voraussetzungen St="61" Ge="61" Typ="k"/>
     <Stand>Mittelschicht,Volk</Stand>
-    <Vorteil>Einhandwaffe,Kampftaktik,Überleben</Vorteil>
+    <Vorteil>Kampftaktik,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Untersuchungsbeamter" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="k"/>
@@ -2431,12 +2601,12 @@
   <Beruf Name="Wächter" Lernpunkte="7">
     <Voraussetzungen St="31" In="31" Typ="k"/>
     <Stand>Mittelschicht,Volk</Stand>
-    <Vorteil>Gassenwissen,Hellebarde ,Langschwert,Menschenkenntnis</Vorteil>
+    <Vorteil>Gassenwissen,Hellebarde,Langschwert,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Zahnausreißer" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
     <Stand>Mittelschicht,Volk</Stand>
-    <Vorteil>Erste,Hilfe,Kräuterkunde</Vorteil>
+    <Vorteil>Erste Hilfe,Kräuterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Ziegelbrenner" Lernpunkte="5">
     <Voraussetzungen/>
@@ -2483,9 +2653,6 @@
   <Verbot Typ="Halbling" Fertigkeit="ZSchlagwaffe"/>
   <Verbot Typ="Halbling" Fertigkeit="ZSchwert"/>
   <Verbot Typ="Halbling" Fertigkeit="schwere Armbrust"/>
-  <Pflicht Typ="Ri" Fertigkeit="Lanze"/>
-  <Pflicht Typ="Ri" Fertigkeit="großer Schild"/>
-  <Pflicht Typ="Ri" Fertigkeit="kleiner Schild"/>
   <Verbot Typ="Waldgnom" Fertigkeit="Kampfstab"/>
   <Verbot Typ="Waldgnom" Fertigkeit="Kriegsflegel"/>
   <Verbot Typ="Waldgnom" Fertigkeit="Langbogen"/>

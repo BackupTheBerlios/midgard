@@ -96,9 +96,9 @@
     <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
-  <Spruch Name="Bannen von Hyrfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Feuer">
-    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Beschreibung>Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
+  <Spruch Name="Bannen von Hyrrfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Feuer">
+    <Lernschema Typ="eBe" Lernpunkte="3" Primärelement="Feuer"/>
+    <Lernschema Typ="eBe" Lernpunkte="4" Sekundärelement="Feuer"/>
   </Spruch>
   <Spruch Name="Bannen von Hyrrkin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
@@ -362,10 +362,12 @@
   <Spruch Name="Dunebrast 1 beschwören" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="1l Menschenblut" Zauberart="Beschwörung">
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="dBe" Lernpunkte="2"/>
   </Spruch>
   <Spruch Name="Dunebrast 2 beschwören" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1,5 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="2l Menschenblut" Zauberart="Beschwörung">
     <Standard>dBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="dBe" Lernpunkte="4"/>
   </Spruch>
   <Spruch Name="Dunebrast 3 beschwören" Grad="4" Lernkosten="1400" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="3l Menschenblut" Zauberart="Beschwörung">
     <Standard>dBe</Standard>
@@ -2064,6 +2066,9 @@
   </Spruch>
   <Spruch Name="Leomies Birneneis" Region="A" Grad="2" Lernkosten="500" AP="2/Wesen" Typ="Geste" Ursprung="elementar" Agens="Eis" Prozess="erschafft" Reagens="Eis" Zauberdauer="5 s" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="50 cm Umkreis" Wirkungsdauer="1 min" Spruchrolle="True">
     <Ausnahme>Hl,Ma,Or,PC,PF,PHa,PHe,PK,PM,PT,PW,Sr,eBe,gHx,sHx,tBe,wHx</Ausnahme>
+    <regionaleBesonderheit Spezies="Halbling" Typ="Hl" Standard="S"/>
+    <regionaleBesonderheit Spezies="Halbling" Typ="PF" Standard="G"/>
+    <regionaleBesonderheit Spezies="Halbling" Typ="PW" Standard="G"/>
   </Spruch>
   <Spruch Name="Abu es-Samum" Region="E" Grad="6" Lernkosten="8000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="bewegt" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="10 km Uk" Wirkungsdauer="1 h">
     <Grund>De</Grund>
@@ -2646,6 +2651,8 @@
   </Spruch>
   <Spruch Name="Ahnengeist beschwören" Region="K" Grad="3" Lernkosten="1000" AP="6" Typ="Geste" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Kerzen, Kräuter, Speiseopfer">
     <Standard>Sa,Sc</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="Das Essen nährt..." Region="K" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsdauer="1 h" Material="1 p Gifttausendfüßler, 1 g GoGoNe-Pulver">
     <Grund>gHx,sHx,wHx</Grund>
@@ -2667,13 +2674,17 @@
   </Spruch>
   <Spruch Name="Gelbe Glocke (1. Urton Kung)" Region="K" Grad="2" Lernkosten="800" AP="1" Typ="Zauberlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Spruchrolle="True">
     <Standard>Ba</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="Großer Hitzeschutz" Region="K" Grad="3" Lernkosten="1000" AP="4" Typ="Wort" Zauberdauer="10 min" Reichweite="1 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="4 Wochen">
     <Standard>Or,PT,PW,Sr</Standard>
     <Ausnahme>PC,PF,PHa,PHe,PK,PM</Ausnahme>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Or" Standard="G"/>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="G"/>
   </Spruch>
   <Spruch Name="Grüne Flöte (5. Urton Chüeh)" Region="K" Grad="3" Lernkosten="2000" AP="1" Typ="Zauberlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Spruchrolle="True">
     <Standard>Ba</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="Hauch des Frühlings" Region="K" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12 m Uk" Wirkungsdauer="10 min" Material="Fasanenfedern" Spruchrolle="True" Thaumagramm="Rune">
     <Grund>Dr,Sa,Sc</Grund>
@@ -2687,6 +2698,7 @@
   </Spruch>
   <Spruch Name="NüQuang" Region="K" Grad="5" Lernkosten="3000" AP="alle" Typ="Geste" Zauberdauer="var" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="3 d">
     <Standard>Sa,Sc</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="Person wiederfinden" Region="K" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Spruchrolle="True" Thaumagramm="Siegel">
     <Grund>Hl,Sa,Sc,Th</Grund>
@@ -2694,12 +2706,15 @@
   </Spruch>
   <Spruch Name="PiPingQuang" Region="K" Grad="3" Lernkosten="600" AP="4" Typ="Geste" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
     <Standard>Sa,Sc</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="PiYeúQuang" Region="K" Grad="3" Lernkosten="800" AP="4" Typ="Geste" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
     <Standard>PC,Sa,Sc</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="Roter Pirol (2. Urton Chih)" Region="K" Grad="1" Lernkosten="160" AP="1" Typ="Zauberlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Spruchrolle="True">
     <Standard>Ba</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="Scheintod" Region="K" Grad="5" Lernkosten="2400" AP="6" Typ="Gedanke" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="selbst" Wirkungsdauer="var" Spruchrolle="True">
     <Grund>Hl,Sa,Sc</Grund>
@@ -2708,6 +2723,7 @@
   </Spruch>
   <Spruch Name="Schwarzes Horn (4. Urton Yü)" Region="K" Grad="4" Lernkosten="6000" AP="1" Typ="Zauberlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="24 h" Spruchrolle="True">
     <Standard>Ba</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="Schöne Leiche" Region="K" Grad="3" Lernkosten="800" AP="4" Typ="Geste" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Spruchrolle="True" Thaumagramm="Siegel">
     <Grund>Hl,PT</Grund>
@@ -2725,12 +2741,15 @@
   </Spruch>
   <Spruch Name="Weißer Jadeklangstein (3. Urton Schang)" Region="K" Grad="5" Lernkosten="10000" AP="1" Typ="Zauberlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Kegel" Wirkungsdauer="var" Spruchrolle="True">
     <Standard>Ba</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="XiengBaQuang" Region="K" Grad="5" Lernkosten="4000" AP="var" Typ="Geste" Zauberdauer="var" Reichweite="var" Wirkungsziel="Körper" Wirkungsbereich="var" Wirkungsdauer="var">
     <Standard>Sa,Sc</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="YehKiQuang" Region="K" Grad="1" Lernkosten="80" AP="3" Typ="Geste" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Geist">
     <Standard>Sa,Sc</Standard>
+    <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Sc" Standard="G"/>
   </Spruch>
   <Spruch Name="Binden von Srimara" Region="R" Grad="4" Lernkosten="2000" AP="alle" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="6 h" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Material="Srimaraschuppe der entsprechenden Rasse">
     <Standard>Sr,Tm</Standard>
@@ -2759,6 +2778,7 @@
   <Spruch Name="Paschuyana, der Weg des Tieres" Region="R" Grad="5" Lernkosten="5000" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Luft" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="-">
     <Standard>PW,Sc</Standard>
     <Ausnahme>Dr,PC,PF,PHa,PHe,PK,PM,PT</Ausnahme>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="pw" Standard="G"/>
   </Spruch>
   <Spruch Name="Rückführung" Region="R" Grad="4" Lernkosten="1800" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="2 h">
     <Grund>Sa</Grund>
@@ -3029,36 +3049,42 @@
     <Grund>Th</Grund>
     <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
     <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Flammenkreis" Verbindung="or"/>
     <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
   </Zauberwerk>
   <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="2" Zeitaufwand="1 Monat" Geldaufwand="3000 GS/ABW" Kosten="200">
     <Grund>Th</Grund>
     <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
     <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Flammenkreis" Verbindung="or"/>
     <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
   </Zauberwerk>
   <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="3" Zeitaufwand="1 Monat" Geldaufwand="4000 GS/ABW" Kosten="300">
     <Grund>Th</Grund>
     <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
     <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Flammenkreis" Verbindung="or"/>
     <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
   </Zauberwerk>
   <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="4" Zeitaufwand="1 Monat" Geldaufwand="5000 GS/ABW" Kosten="400">
     <Grund>Th</Grund>
     <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
     <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Flammenkreis" Verbindung="or"/>
     <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
   </Zauberwerk>
   <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="5" Zeitaufwand="1 Monat" Geldaufwand="6000 GS/ABW" Kosten="500">
     <Grund>Th</Grund>
     <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
     <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Flammenkreis" Verbindung="or"/>
     <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
   </Zauberwerk>
   <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="6" Zeitaufwand="1 Monat" Geldaufwand="7000 GS/ABW" Kosten="600">
     <Grund>Th</Grund>
     <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
     <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Flammenkreis" Verbindung="or"/>
     <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
   </Zauberwerk>
   <Zauberwerk Name="Schlaf" Art="Großes Siegel" Stufe="1" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="200">
@@ -3450,31 +3476,31 @@
  </Zauberwerke>
  <Spezialgebiete>
   <Spezialgebiet Typ="Ma" Name="Spezialgebiet"/>
-  <Spezialgebiet Typ="Ma" Name="Adept der Herrschaft" MCG-Index="1" Spezialisierung="beherrscht"/>
-  <Spezialgebiet Typ="Ma" Name="Adept der Bewegung" MCG-Index="2" Spezialisierung="bewegt"/>
-  <Spezialgebiet Typ="Ma" Name="Adept der Erkenntnis" MCG-Index="3" Spezialisierung="erkennt"/>
-  <Spezialgebiet Typ="Ma" Name="Adept der Schöfung" MCG-Index="4" Spezialisierung="erschafft"/>
-  <Spezialgebiet Typ="Ma" Name="Adept der Veränderung" MCG-Index="5" Spezialisierung="verändert"/>
-  <Spezialgebiet Typ="Ma" Name="Adept der Wandlung" MCG-Index="6" Spezialisierung="verwandelt"/>
-  <Spezialgebiet Typ="Ma" Name="Adept der Zerstörung" MCG-Index="7" Spezialisierung="zerstört"/>
-  <Spezialgebiet Typ="Ma" Name="Erdmagier" MCG-Index="8" Spezialisierung="Erde"/>
-  <Spezialgebiet Typ="Ma" Name="Feuermagier" MCG-Index="9" Spezialisierung="Feuer"/>
-  <Spezialgebiet Typ="Ma" Name="Luftmagier" MCG-Index="10" Spezialisierung="Luft"/>
-  <Spezialgebiet Typ="Ma" Name="Wassermagier" MCG-Index="11" Spezialisierung="Wasser"/>
-  <Spezialgebiet Typ="Ma" Name="Eismagier" MCG-Index="12" Spezialisierung="Eis"/>
-  <Spezialgebiet Typ="Ma" Name="Adept der göttlichen Ordnung" MCG-Index="13" Spezialisierung="Metall"/>
-  <Spezialgebiet Typ="Ma" Name="Adept des formbaren Chaos" MCG-Index="14" Spezialisierung="Magan"/>
-  <Spezialgebiet Typ="Ma" Name="Adept des Todes" MCG-Index="15" Spezialisierung="Eis"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Herrschaft" MCG:Index="1" Spezialisierung="beherrscht"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Bewegung" MCG:Index="2" Spezialisierung="bewegt"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Erkenntnis" MCG:Index="3" Spezialisierung="erkennt"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Schöpfung" MCG:Index="4" Spezialisierung="erschafft"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Veränderung" MCG:Index="5" Spezialisierung="verändert"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Wandlung" MCG:Index="6" Spezialisierung="verwandelt"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Zerstörung" MCG:Index="7" Spezialisierung="zerstört"/>
+  <Spezialgebiet Typ="Ma" Name="Erdmagier" MCG:Index="8" Spezialisierung="Erde"/>
+  <Spezialgebiet Typ="Ma" Name="Feuermagier" MCG:Index="9" Spezialisierung="Feuer"/>
+  <Spezialgebiet Typ="Ma" Name="Luftmagier" MCG:Index="10" Spezialisierung="Luft"/>
+  <Spezialgebiet Typ="Ma" Name="Wassermagier" MCG:Index="11" Spezialisierung="Wasser"/>
+  <Spezialgebiet Typ="Ma" Name="Eismagier" MCG:Index="12" Spezialisierung="Eis"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der göttlichen Ordnung" MCG:Index="13" Spezialisierung="Metall"/>
+  <Spezialgebiet Typ="Ma" Name="Adept des formbaren Chaos" MCG:Index="14" Spezialisierung="Magan"/>
+  <Spezialgebiet Typ="Ma" Name="Adept des Todes" MCG:Index="15" Spezialisierung="Eis"/>
   <Spezialgebiet Typ="eBe" Name="Primär- und Sekundärelement"/>
-  <Spezialgebiet Typ="eBe" Name="Eis Erde" MCG-Index="1" Spezialisierung="Eis" Sekundärelement="Erde"/>
-  <Spezialgebiet Typ="eBe" Name="Erde Eis" MCG-Index="2" Spezialisierung="Erde" Sekundärelement="Eis"/>
-  <Spezialgebiet Typ="eBe" Name="Eis Wasser" MCG-Index="3" Spezialisierung="Eis" Sekundärelement="Wasser"/>
-  <Spezialgebiet Typ="eBe" Name="Wasser Eis" MCG-Index="4" Spezialisierung="Wasser" Sekundärelement="Eis"/>
-  <Spezialgebiet Typ="eBe" Name="Erde Feuer" MCG-Index="5" Spezialisierung="Erde" Sekundärelement="Feuer"/>
-  <Spezialgebiet Typ="eBe" Name="Feuer Erde" MCG-Index="6" Spezialisierung="Feuer" Sekundärelement="Erde"/>
-  <Spezialgebiet Typ="eBe" Name="Feuer Luft" MCG-Index="7" Spezialisierung="Feuer" Sekundärelement="Luft"/>
-  <Spezialgebiet Typ="eBe" Name="Luft Feuer" MCG-Index="8" Spezialisierung="Luft" Sekundärelement="Feuer"/>
-  <Spezialgebiet Typ="eBe" Name="Luft Wasser" MCG-Index="9" Spezialisierung="Luft" Sekundärelement="Wasser"/>
-  <Spezialgebiet Typ="eBe" Name="Wasser Luft" MCG-Index="10" Spezialisierung="Wasser" Sekundärelement="Luft"/>
+  <Spezialgebiet Typ="eBe" Name="Eis Erde" MCG:Index="1" Spezialisierung="Eis" Sekundärelement="Erde"/>
+  <Spezialgebiet Typ="eBe" Name="Erde Eis" MCG:Index="2" Spezialisierung="Erde" Sekundärelement="Eis"/>
+  <Spezialgebiet Typ="eBe" Name="Eis Wasser" MCG:Index="3" Spezialisierung="Eis" Sekundärelement="Wasser"/>
+  <Spezialgebiet Typ="eBe" Name="Wasser Eis" MCG:Index="4" Spezialisierung="Wasser" Sekundärelement="Eis"/>
+  <Spezialgebiet Typ="eBe" Name="Erde Feuer" MCG:Index="5" Spezialisierung="Erde" Sekundärelement="Feuer"/>
+  <Spezialgebiet Typ="eBe" Name="Feuer Erde" MCG:Index="6" Spezialisierung="Feuer" Sekundärelement="Erde"/>
+  <Spezialgebiet Typ="eBe" Name="Feuer Luft" MCG:Index="7" Spezialisierung="Feuer" Sekundärelement="Luft"/>
+  <Spezialgebiet Typ="eBe" Name="Luft Feuer" MCG:Index="8" Spezialisierung="Luft" Sekundärelement="Feuer"/>
+  <Spezialgebiet Typ="eBe" Name="Luft Wasser" MCG:Index="9" Spezialisierung="Luft" Sekundärelement="Wasser"/>
+  <Spezialgebiet Typ="eBe" Name="Wasser Luft" MCG:Index="10" Spezialisierung="Wasser" Sekundärelement="Luft"/>
  </Spezialgebiete>
 </MidgardCG-data>
