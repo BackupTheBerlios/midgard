@@ -351,8 +351,8 @@ void table_lernschema::on_herkunftsland_clicked()
 
 void table_lernschema::lernpflichten_info()
 {
-  std::string t1=hauptfenster->getChar().Typ1()->getLernpflichtenInfo();
-  std::string t2=hauptfenster->getChar().Typ2()->getLernpflichtenInfo();
+  std::string t1=hauptfenster->getChar().Typ1()->getLernpflichtenInfo(hauptfenster->getWerte().Herkunft());
+  std::string t2=hauptfenster->getChar().Typ2()->getLernpflichtenInfo(hauptfenster->getWerte().Herkunft());
   if(!t1.empty() || !t2.empty())
       hauptfenster->set_info(t1+"\n"+t2);
 }

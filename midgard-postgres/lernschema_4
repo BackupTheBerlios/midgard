@@ -314,7 +314,7 @@ COPY "lernschema_4" FROM stdin;
 1	Ny	f	Klettern	Fachkenntnisse	15
 1	Ny	f	Orakelkunst	Fachkenntnisse	\N
 1	Ny	f	Sai	Waffenfertigkeiten	5
-1	Ny	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
+1	Ny	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Ny	f	Stimmen nachahmen	Fachkenntnisse	15
 1	Ny	f	Teezeremonie	Fachkenntnisse	8
 1	Ny	f	Verkleiden	Fachkenntnisse	15
@@ -464,7 +464,7 @@ COPY "lernschema_4" FROM stdin;
 1	Sk	f	Dolch	Waffenfertigkeiten	5
 1	Sk	f	Lied der Tapferkeit	Zauberkünste	\N
 1	Sk	f	Sagenkunde	Fachkenntnisse	5
-1	Sk	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
+1	Sk	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Sk	t	Dichten	Fachkenntnisse	12
 1	Sk	t	Lesen von Zauberrunen	Fachkenntnisse	12
 1	Sk	t	Musizieren	Fachkenntnisse	12
@@ -484,7 +484,7 @@ COPY "lernschema_4" FROM stdin;
 1	Sr	f	Keule	Waffenfertigkeiten	5
 1	Sr	f	Krummsäbel	Waffenfertigkeiten	5
 1	Sr	f	Kurzschwert	Waffenfertigkeiten	5
-1	Sr	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
+1	Sr	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Sr	f	Srimara lenken	Fachkenntnisse	15
 1	Sr	f	Streitaxt	Waffenfertigkeiten	5
 1	Sr	f	leichter Speer	Waffenfertigkeiten	5
@@ -567,7 +567,7 @@ COPY "lernschema_4" FROM stdin;
 1	dBe	f	Halebant 1 beschwören	Zauberkünste	\N
 1	dBe	f	Lesen von Zauberschrift	Fachkenntnisse	12
 1	dBe	f	Sagenkunde	Fachkenntnisse	5
-1	dBe	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
+1	dBe	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	dBe	t	Wissen von der Magie	Fachkenntnisse	\N
 1	eBe	f	Kallbjargi beschwören	Zauberkünste	\N
 1	eBe	f	Karing beschwören	Zauberkünste	\N
@@ -576,7 +576,7 @@ COPY "lernschema_4" FROM stdin;
 1	eBe	f	Ljosfang beschwören	Zauberkünste	\N
 1	eBe	f	Mokkurbjargi beschwören	Zauberkünste	\N
 1	eBe	f	Sagenkunde	Fachkenntnisse	5
-1	eBe	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
+1	eBe	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	eBe	t	Wissen von der Magie	Fachkenntnisse	\N
 1	gHx	f	Binden des Vertrauten	Zauberkünste	0
 1	gHx	f	Lesen von Zauberschrift	Fachkenntnisse	12
@@ -792,7 +792,7 @@ COPY "lernschema_4" FROM stdin;
 2	Kd	f	Kampfstab	Waffenfertigkeiten	5
 2	Kd	f	Krummsäbel	Waffenfertigkeiten	5
 2	Kd	f	SchiyoKi	Fachkenntnisse	\N
-2	Kd	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	2
+2	Kd	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 2	Kd	f	Teezeremonie	Fachkenntnisse	8
 2	Kd	f	Wurfstern	Waffenfertigkeiten	5
 2	Kr	f	Anderthalbhänder	Waffenfertigkeiten	5
@@ -1002,7 +1002,7 @@ COPY "lernschema_4" FROM stdin;
 2	Ri	f	Kurzschwert	Waffenfertigkeiten	5
 2	Ri	f	Lanzenstechen	Fachkenntnisse	1
 2	Ri	f	Morgenstern	Waffenfertigkeiten	5
-2	Ri	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
+2	Ri	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 2	Ri	f	Streitaxt	Waffenfertigkeiten	5
 2	Ri	f	Streitkolben	Waffenfertigkeiten	5
 2	Ri	f	Tanzen	Fachkenntnisse	15
@@ -1024,7 +1024,7 @@ COPY "lernschema_4" FROM stdin;
 2	Sa	f	Musizieren	Fachkenntnisse	12
 2	Sa	f	Naturkunde	Fachkenntnisse	5
 2	Sa	f	Pflanzenkunde	Fachkenntnisse	4
-2	Sa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
+2	Sa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 2	Sa	f	Tierkunde	Fachkenntnisse	4
 2	Sa	f	Wahrnehmung	Fachkenntnisse	4
 2	Sa	f	waffenloser Kampf	Waffenfertigkeiten	4

@@ -188,6 +188,7 @@ COPY "fertigkeiten" FROM stdin;
 99	\N	\N	12	Schreiben: Alte Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	6
 99	\N	\N	12	Sprache	4	10	\N	\N	In	\N	2	20	17	5
 99	\N	\N	12	Sprechen: Alte Sprache	12	0	\N	\N	In	\N	\N	20	17	5
+99	\N	\N	12	Sprechen: Alte Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	6
 99	\N	\N	15	Augensalbe herstellen	12	200	R	\N	\N	\N	\N	18	18	\N
 99	\N	\N	17	Akribie	\N	100	N	\N	In	\N	\N	\N	\N	\N
 99	\N	\N	\N	Adlersprung	\N	200	N	\N	Ge	\N	\N	\N	\N	\N

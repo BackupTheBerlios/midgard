@@ -76,7 +76,7 @@ Typen::Typen(const Tag *tag)
  min_in=tag->getIntAttr("MinIn");
  min_pa=tag->getIntAttr("MinpA");
  FOR_EACH_CONST_TAG_OF(i,*tag,"Herkunft")
-   vec_herkunft.push_back(i->getAttr("Name"));
+   vec_herkunft.push_back(Typen::st_herkunft(i->getAttr("Land"),i->getAttr("Kultwaffe")));
  FOR_EACH_CONST_TAG_OF(i,*tag,"Gruppe")
    vec_gruppe.push_back(i->getAttr("Name"));
 }
@@ -139,6 +139,27 @@ bool Typen::get_Typ_from_long(const std::vector<cH_Typen>& V,
       }
    }
   return false;
+}
+
+
+std::string Typen::getLernpflichtenInfo(cH_Land herkunft) const
+{ 
+  std::vector<std::string> vk;
+  for(std::vector<st_herkunft>::const_iterator i=vec_herkunft.begin();i!=vec_herkunft.end();++i)
+   {
+     if(herkunft->Name()==i->land)
+       vk.push_back(i->kultwaffe);
+   }
+  if(vk.empty())  return lernpflichten_info;
+  std::string K="Für einen "+Short()+" muß als erstes ";
+  if(vk.size()==1) K+="die ";
+  else K+="eine ";
+  K+="Kultwaffe gewählt werden:\n";
+  for(std::vector<std::string>::const_iterator i=vk.begin();i!=vk.end();++i)
+   {
+     K+="\t"+*i+"\n";
+   }
+  return lernpflichten_info + "\n"+K;
 }
 
 

@@ -49,8 +49,11 @@ bool Land::ist_erlaubt(const VAbenteurer& A) const
      std::vector<cH_Typen> Typ=A.getVTyp();
      for(std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
       {
-        const std::vector<std::string> V=(*i)->get_vec_herkunft();
-        if(find(V.begin(),V.end(),Name())!=V.end()) return true;
+        const std::vector<Typen::st_herkunft> V=(*i)->get_vec_herkunft();
+        for(std::vector<Typen::st_herkunft>::const_iterator j=V.begin();j!=V.end();++j)
+         {
+           if(j->land==Name()) return true;
+         }
       }
    }
   else

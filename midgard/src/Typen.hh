@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.24 2002/07/04 09:33:47 thoma Exp $               
+// $Id: Typen.hh,v 1.25 2002/07/08 09:36:32 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,11 @@ class Typen : public HandleContent
    bool nsc_only,kultwaffe;
    int min_st,min_gw,min_gs,min_in,min_pa;
 
-   std::vector<std::string> vec_herkunft;
+public:
+   struct st_herkunft{std::string land; std::string kultwaffe;
+          st_herkunft(std::string l,std::string k):land(l),kultwaffe(k){}};
+private:
+   std::vector<st_herkunft> vec_herkunft;
    std::vector<std::string> vec_gruppe;
    std::string lernpflichten_info;
 
@@ -77,10 +81,10 @@ public:
    bool Spezialgebiet() const;
    bool Mindestwerte(const Grundwerte& Werte) const;
 //   bool Herkunft(cH_Land land) const;
-   const std::vector<std::string> &get_vec_herkunft() const {return vec_herkunft;}
+   const std::vector<st_herkunft> &get_vec_herkunft() const {return vec_herkunft;}
    const std::vector<std::string> &get_vec_gruppe() const {return vec_gruppe;}
    bool Gruppe(const std::string &gruppe) const;
-   std::string getLernpflichtenInfo() const {return lernpflichten_info;}
+   std::string getLernpflichtenInfo(cH_Land herkunft) const;
 
 
    bool is_mage() const 

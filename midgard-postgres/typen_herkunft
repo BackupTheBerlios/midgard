@@ -8,7 +8,8 @@ DROP TABLE "typen_herkunft";
 
 CREATE TABLE "typen_herkunft" (
 	"typ" text NOT NULL,
-	"land" text NOT NULL
+	"land" text NOT NULL,
+	"kultwaffe" text
 );
 
 --
@@ -17,462 +18,541 @@ CREATE TABLE "typen_herkunft" (
 
 
 COPY "typen_herkunft" FROM stdin;
-As	Alba
-As	Aran
-As	Chryseia
-As	Clanngadarn
-As	Erainn
-As	Eschar
-As	KanThaiPan
-As	Küstenstaaten
-As	Minangpahit
-As	Moravod
-As	Nahuatlan
-As	Rawindra
-As	Tegarische Steppe
-As	Valian
-As	Ywerddon
-BN	Alba
-BN	Clanngadarn
-BN	Fuardain
-BN	Moravod
-BN	Tegarische Steppe
-BN	Waeland
-BS	Aran
-BS	Buluga
-BS	Eschar
-BS	Tegarische Steppe
-BW	Ikengabecken
-BW	KanThaiPan
-BW	Medjis
-BW	Minangpahit
-BW	Moravod
-BW	Nahuatlan
-BW	Rawindra
-Ba	Alba
-Ba	Aran
-Ba	Buluga
-Ba	Chryseia
-Ba	Clanngadarn
-Ba	Dvarheim
-Ba	Erainn
-Ba	Eschar
-Ba	Feuerinseln
-Ba	Fuardain
-Ba	Halfdal
-Ba	Inseln unter dem Westwind
-Ba	KanThaiPan
-Ba	Küstenstaaten
-Ba	Minangpahit
-Ba	Moravod
-Ba	Nahuatlan
-Ba	Rawindra
-Ba	Tegarische Steppe
-Ba	Urruti
-Ba	Valian
-Ba	Vesternesse
-Ba	Ywerddon
-De	Eschar
-Dr	Alba
-Dr	Clanngadarn
-Dr	Fuardain
-Dr	Ywerddon
-Dt	Nahuatlan
-Er	Alba
-Er	Aran
-Er	Chryseia
-Er	Erainn
-Er	Eschar
-Er	KanThaiPan
-Er	Küstenstaaten
-Er	Rawindra
-Er	Valian
-Er	Ywerddon
-Fi	Erainn
-Gl	Alba
-Gl	Aran
-Gl	Chryseia
-Gl	Clanngadarn
-Gl	Erainn
-Gl	Eschar
-Gl	KanThaiPan
-Gl	Küstenstaaten
-Gl	Minangpahit
-Gl	Moravod
-Gl	Nahuatlan
-Gl	Rawindra
-Gl	Valian
-Gl	Ywerddon
-Hl	Alba
-Hl	Aran
-Hl	Chryseia
-Hl	Clanngadarn
-Hl	Erainn
-Hl	Eschar
-Hl	Küstenstaaten
-Hl	Moravod
-Hl	Nahuatlan
-Hl	Urruti
-Hl	Valian
-Hl	Waeland
-Hl	Ywerddon
-Hä	Alba
-Hä	Aran
-Hä	Buluga
-Hä	Chryseia
-Hä	Clanngadarn
-Hä	Dvarheim
-Hä	Erainn
-Hä	Eschar
-Hä	Feuerinseln
-Hä	Halfdal
-Hä	Inseln unter dem Westwind
-Hä	KanThaiPan
-Hä	Küstenstaaten
-Hä	Medjis
-Hä	Minangpahit
-Hä	Moravod
-Hä	Nahuatlan
-Hä	Rawindra
-Hä	Tegarische Steppe
-Hä	Urruti
-Hä	Valian
-Hä	Vesternesse
-Hä	Waeland
-Hä	Ywerddon
-Kd	KanThaiPan
-Kr	Alba
-Kr	Aran
-Kr	Buluga
-Kr	Chryseia
-Kr	Clanngadarn
-Kr	Dvarheim
-Kr	Erainn
-Kr	Eschar
-Kr	Feuerinseln
-Kr	Halfdal
-Kr	Inseln unter dem Westwind
-Kr	KanThaiPan
-Kr	Küstenstaaten
-Kr	Minangpahit
-Kr	Moravod
-Kr	Nahuatlan
-Kr	Rawindra
-Kr	Tegarische Steppe
-Kr	Urruti
-Kr	Valian
-Kr	Vesternesse
-Kr	Waeland
-Kr	Ywerddon
-Ku	Aran
-Ku	Buluga
-Ku	Erainn
-Ku	Eschar
-Ku	Fuardain
-Ku	Tegarische Steppe
-Ku	Urruti
-Ku	Waeland
-Ma	Alba
-Ma	Aran
-Ma	Chryseia
-Ma	Clanngadarn
-Ma	Erainn
-Ma	Eschar
-Ma	KanThaiPan
-Ma	Küstenstaaten
-Ma	Minangpahit
-Ma	Moravod
-Ma	Nahuatlan
-Ma	Rawindra
-Ma	Tegarische Steppe
-Ma	Valian
-Ma	Ywerddon
-Mg	Alba
-Mg	Eschar
-Mg	Küstenstaaten
-Mg	Valian
-Ny	KanThaiPan
-Or	Alba
-Or	Aran
-Or	Chryseia
-Or	Clanngadarn
-Or	Erainn
-Or	Eschar
-Or	KanThaiPan
-Or	Küstenstaaten
-Or	Minangpahit
-Or	Nahuatlan
-Or	Rawindra
-Or	Tegarische Steppe
-Or	Urruti
-Or	Valian
-PRI	Alba
-PRI	Aran
-PRI	Chryseia
-PRI	Clanngadarn
-PRI	Dvarheim
-PRI	Eschar
-PRI	Feuerinseln
-PRI	Fuardain
-PRI	Halfdal
-PRI	Inseln unter dem Westwind
-PRI	KanThaiPan
-PRI	Küstenstaaten
-PRI	Minangpahit
-PRI	Nahuatlan
-PRI	Rawindra
-PRI	Tegarische Steppe
-PRI	Urruti
-PRI	Valian
-PRI	Vesternesse
-PRI	Waeland
-PRI	Ywerddon
-Ru	Waeland
-Sa	Rawindra
-ScN	Buluga
-ScN	Fuardain
-ScN	Ikengabecken
-ScN	KanThaiPan
-ScN	Medjis
-ScN	Minangpahit
-ScN	Moravod
-ScN	Nahuatlan
-ScN	Rawindra
-ScN	Tegarische Steppe
-ScN	Waeland
-ScS	Buluga
-ScS	Fuardain
-ScS	Ikengabecken
-ScS	KanThaiPan
-ScS	Medjis
-ScS	Minangpahit
-ScS	Moravod
-ScS	Nahuatlan
-ScS	Rawindra
-ScS	Tegarische Steppe
-ScS	Waeland
-ScW	Buluga
-ScW	Fuardain
-ScW	Ikengabecken
-ScW	KanThaiPan
-ScW	Medjis
-ScW	Minangpahit
-ScW	Moravod
-ScW	Nahuatlan
-ScW	Rawindra
-ScW	Tegarische Steppe
-ScW	Waeland
-Se	Alba
-Se	Aran
-Se	Chryseia
-Se	Clanngadarn
-Se	Erainn
-Se	Eschar
-Se	KanThaiPan
-Se	Küstenstaaten
-Se	Minangpahit
-Se	Moravod
-Se	Rawindra
-Se	Valian
-Se	Waeland
-Se	Ywerddon
-Sk	Waeland
-Sp	Alba
-Sp	Aran
-Sp	Chryseia
-Sp	Clanngadarn
-Sp	Dvarheim
-Sp	Erainn
-Sp	Eschar
-Sp	Feuerinseln
-Sp	Halfdal
-Sp	Inseln unter dem Westwind
-Sp	KanThaiPan
-Sp	Küstenstaaten
-Sp	Medjis
-Sp	Minangpahit
-Sp	Moravod
-Sp	Nahuatlan
-Sp	Rawindra
-Sp	Tegarische Steppe
-Sp	Urruti
-Sp	Valian
-Sp	Vesternesse
-Sp	Ywerddon
-Sr	Rawindra
-Sö	Alba
-Sö	Aran
-Sö	Chryseia
-Sö	Clanngadarn
-Sö	Dvarheim
-Sö	Erainn
-Sö	Eschar
-Sö	Feuerinseln
-Sö	Halfdal
-Sö	Inseln unter dem Westwind
-Sö	KanThaiPan
-Sö	Küstenstaaten
-Sö	Medjis
-Sö	Minangpahit
-Sö	Moravod
-Sö	Nahuatlan
-Sö	Rawindra
-Sö	Tegarische Steppe
-Sö	Urruti
-Sö	Valian
-Sö	Vesternesse
-Sö	Waeland
-Sö	Ywerddon
-Th	Alba
-Th	Aran
-Th	Chryseia
-Th	Clanngadarn
-Th	Erainn
-Th	Eschar
-Th	KanThaiPan
-Th	Küstenstaaten
-Th	Minangpahit
-Th	Moravod
-Th	Nahuatlan
-Th	Rawindra
-Th	Valian
-Th	Waeland
-Th	Ywerddon
-Tm	Buluga
-Tm	Fuardain
-Tm	Ikengabecken
-Tm	Medjis
-Tm	Minangpahit
-Tm	Moravod
-Tm	Nahuatlan
-Tm	Rawindra
-Tm	Tegarische Steppe
-Tm	Waeland
-Tr	Nahuatlan
-Tt	Nahuatlan
-Wa	Alba
-Wa	Aran
-Wa	Clanngadarn
-Wa	Erainn
-Wa	Ikengabecken
-Wa	KanThaiPan
-Wa	Medjis
-Wa	Minangpahit
-Wa	Moravod
-Wa	Nahuatlan
-Wa	Rawindra
-Wa	Waeland
-Wa	Ywerddon
-dBe	Alba
-dBe	Aran
-dBe	Buluga
-dBe	Chryseia
-dBe	Eschar
-dBe	Ikengabecken
-dBe	KanThaiPan
-dBe	Küstenstaaten
-dBe	Medjis
-dBe	Moravod
-dBe	Nahuatlan
-dBe	Rawindra
-dBe	Tegarische Steppe
-dBe	Urruti
-dBe	Valian
-dBe	Ywerddon
-eBe	Alba
-eBe	Aran
-eBe	Buluga
-eBe	Chryseia
-eBe	Eschar
-eBe	Ikengabecken
-eBe	KanThaiPan
-eBe	Küstenstaaten
-eBe	Medjis
-eBe	Moravod
-eBe	Nahuatlan
-eBe	Rawindra
-eBe	Tegarische Steppe
-eBe	Urruti
-eBe	Valian
-eBe	Waeland
-eBe	Ywerddon
-gHx	Alba
-gHx	Aran
-gHx	Buluga
-gHx	Chryseia
-gHx	Clanngadarn
-gHx	Erainn
-gHx	Eschar
-gHx	Fuardain
-gHx	Ikengabecken
-gHx	KanThaiPan
-gHx	Küstenstaaten
-gHx	Medjis
-gHx	Minangpahit
-gHx	Moravod
-gHx	Nahuatlan
-gHx	Rawindra
-gHx	Tegarische Steppe
-gHx	Urruti
-gHx	Valian
-gHx	Waeland
-gHx	Ywerddon
-sHx	Alba
-sHx	Aran
-sHx	Buluga
-sHx	Chryseia
-sHx	Clanngadarn
-sHx	Erainn
-sHx	Eschar
-sHx	Fuardain
-sHx	Ikengabecken
-sHx	KanThaiPan
-sHx	Küstenstaaten
-sHx	Medjis
-sHx	Minangpahit
-sHx	Moravod
-sHx	Nahuatlan
-sHx	Rawindra
-sHx	Tegarische Steppe
-sHx	Urruti
-sHx	Valian
-sHx	Waeland
-sHx	Ywerddon
-tBe	Alba
-tBe	Aran
-tBe	Buluga
-tBe	Chryseia
-tBe	Eschar
-tBe	Ikengabecken
-tBe	KanThaiPan
-tBe	Küstenstaaten
-tBe	Medjis
-tBe	Moravod
-tBe	Nahuatlan
-tBe	Rawindra
-tBe	Tegarische Steppe
-tBe	Urruti
-tBe	Valian
-tBe	Ywerddon
-wHx	Alba
-wHx	Aran
-wHx	Buluga
-wHx	Chryseia
-wHx	Clanngadarn
-wHx	Erainn
-wHx	Eschar
-wHx	Fuardain
-wHx	Ikengabecken
-wHx	KanThaiPan
-wHx	Küstenstaaten
-wHx	Medjis
-wHx	Minangpahit
-wHx	Moravod
-wHx	Nahuatlan
-wHx	Rawindra
-wHx	Tegarische Steppe
-wHx	Urruti
-wHx	Valian
-wHx	Waeland
-wHx	Ywerddon
+As	Alba	\N
+As	Aran	\N
+As	Chryseia	\N
+As	Clanngadarn	\N
+As	Erainn	\N
+As	Eschar	\N
+As	KanThaiPan	\N
+As	Küstenstaaten	\N
+As	Minangpahit	\N
+As	Moravod	\N
+As	Nahuatlan	\N
+As	Rawindra	\N
+As	Tegarische Steppe	\N
+As	Valian	\N
+As	Ywerddon	\N
+BN	Alba	\N
+BN	Clanngadarn	\N
+BN	Fuardain	\N
+BN	Moravod	\N
+BN	Tegarische Steppe	\N
+BN	Waeland	\N
+BS	Aran	\N
+BS	Buluga	\N
+BS	Eschar	\N
+BS	Tegarische Steppe	\N
+BW	Ikengabecken	\N
+BW	KanThaiPan	\N
+BW	Medjis	\N
+BW	Minangpahit	\N
+BW	Moravod	\N
+BW	Nahuatlan	\N
+BW	Rawindra	\N
+Ba	Alba	\N
+Ba	Aran	\N
+Ba	Buluga	\N
+Ba	Chryseia	\N
+Ba	Clanngadarn	\N
+Ba	Dvarheim	\N
+Ba	Erainn	\N
+Ba	Eschar	\N
+Ba	Feuerinseln	\N
+Ba	Fuardain	\N
+Ba	Halfdal	\N
+Ba	Inseln unter dem Westwind	\N
+Ba	KanThaiPan	\N
+Ba	Küstenstaaten	\N
+Ba	Minangpahit	\N
+Ba	Moravod	\N
+Ba	Nahuatlan	\N
+Ba	Rawindra	\N
+Ba	Tegarische Steppe	\N
+Ba	Urruti	\N
+Ba	Valian	\N
+Ba	Vesternesse	\N
+Ba	Ywerddon	\N
+De	Eschar	\N
+Dr	Alba	\N
+Dr	Clanngadarn	\N
+Dr	Fuardain	\N
+Dr	Ywerddon	\N
+Dt	Nahuatlan	\N
+Er	Alba	\N
+Er	Aran	\N
+Er	Chryseia	\N
+Er	Erainn	\N
+Er	Eschar	\N
+Er	KanThaiPan	\N
+Er	Küstenstaaten	\N
+Er	Rawindra	\N
+Er	Valian	\N
+Er	Ywerddon	\N
+Fi	Erainn	\N
+Gl	Alba	\N
+Gl	Aran	\N
+Gl	Chryseia	\N
+Gl	Clanngadarn	\N
+Gl	Erainn	\N
+Gl	Eschar	\N
+Gl	KanThaiPan	\N
+Gl	Küstenstaaten	\N
+Gl	Minangpahit	\N
+Gl	Moravod	\N
+Gl	Nahuatlan	\N
+Gl	Rawindra	\N
+Gl	Valian	\N
+Gl	Ywerddon	\N
+Hl	Alba	\N
+Hl	Aran	\N
+Hl	Chryseia	\N
+Hl	Clanngadarn	\N
+Hl	Erainn	\N
+Hl	Eschar	\N
+Hl	Küstenstaaten	\N
+Hl	Moravod	\N
+Hl	Nahuatlan	\N
+Hl	Urruti	\N
+Hl	Valian	\N
+Hl	Waeland	\N
+Hl	Ywerddon	\N
+Hä	Alba	\N
+Hä	Aran	\N
+Hä	Buluga	\N
+Hä	Chryseia	\N
+Hä	Clanngadarn	\N
+Hä	Dvarheim	\N
+Hä	Erainn	\N
+Hä	Eschar	\N
+Hä	Feuerinseln	\N
+Hä	Halfdal	\N
+Hä	Inseln unter dem Westwind	\N
+Hä	KanThaiPan	\N
+Hä	Küstenstaaten	\N
+Hä	Medjis	\N
+Hä	Minangpahit	\N
+Hä	Moravod	\N
+Hä	Nahuatlan	\N
+Hä	Rawindra	\N
+Hä	Tegarische Steppe	\N
+Hä	Urruti	\N
+Hä	Valian	\N
+Hä	Vesternesse	\N
+Hä	Waeland	\N
+Hä	Ywerddon	\N
+Kd	KanThaiPan	\N
+Kr	Alba	\N
+Kr	Aran	\N
+Kr	Buluga	\N
+Kr	Chryseia	\N
+Kr	Clanngadarn	\N
+Kr	Dvarheim	\N
+Kr	Erainn	\N
+Kr	Eschar	\N
+Kr	Feuerinseln	\N
+Kr	Halfdal	\N
+Kr	Inseln unter dem Westwind	\N
+Kr	KanThaiPan	\N
+Kr	Küstenstaaten	\N
+Kr	Minangpahit	\N
+Kr	Moravod	\N
+Kr	Nahuatlan	\N
+Kr	Rawindra	\N
+Kr	Tegarische Steppe	\N
+Kr	Urruti	\N
+Kr	Valian	\N
+Kr	Vesternesse	\N
+Kr	Waeland	\N
+Kr	Ywerddon	\N
+Ku	Aran	\N
+Ku	Buluga	\N
+Ku	Erainn	\N
+Ku	Eschar	\N
+Ku	Fuardain	\N
+Ku	Tegarische Steppe	\N
+Ku	Urruti	\N
+Ku	Waeland	\N
+Ma	Alba	\N
+Ma	Aran	\N
+Ma	Chryseia	\N
+Ma	Clanngadarn	\N
+Ma	Erainn	\N
+Ma	Eschar	\N
+Ma	KanThaiPan	\N
+Ma	Küstenstaaten	\N
+Ma	Minangpahit	\N
+Ma	Moravod	\N
+Ma	Nahuatlan	\N
+Ma	Rawindra	\N
+Ma	Tegarische Steppe	\N
+Ma	Valian	\N
+Ma	Ywerddon	\N
+Mg	Alba	\N
+Mg	Eschar	\N
+Mg	Küstenstaaten	\N
+Mg	Valian	\N
+Ny	KanThaiPan	\N
+Or	Alba	\N
+Or	Aran	\N
+Or	Chryseia	\N
+Or	Clanngadarn	\N
+Or	Erainn	\N
+Or	Eschar	\N
+Or	KanThaiPan	\N
+Or	Küstenstaaten	\N
+Or	Minangpahit	\N
+Or	Nahuatlan	\N
+Or	Rawindra	\N
+Or	Tegarische Steppe	\N
+Or	Urruti	\N
+Or	Valian	\N
+PC	Aran	Dolch
+PC	Clanngadarn	Wurfspeer
+PC	Clanngadarn	leichter Speer
+PC	Eschar	Dolch
+PC	Fuardain	Wurfspeer
+PC	Fuardain	leichter Speer
+PC	KanThaiPan	Dolch
+PC	KanThaiPan	Magierstab
+PC	KanThaiPan	waffenloser Kampf
+PC	Nahuatlan	Dolch
+PC	Ywerddon	Wurfspeer
+PC	Ywerddon	leichter Speer
+PF	Alba	Sichel
+PF	Chryseia	Magierstab
+PF	Clanngadarn	Bogen
+PF	Dvarheim	Kampfstab
+PF	Fuardain	Bogen
+PF	Halblinge	Kurzschwert
+PF	Halfdal	Kurzschwert
+PF	KanThaiPan	Kampfstab
+PF	Küstenstaaten	Magierstab
+PF	Minangpahit	Handaxt
+PF	Nahuatlan	Magierstab
+PF	Rawindra	Streitkolben
+PF	Urruti	Schleuder
+PF	Urruti	Schleuder
+PF	Valian	Magierstab
+PF	Waeland	Stoßspeer
+PF	Ywerddon	Bogen
+PF	Zwerge	Kampfstab
+PHa	Alba	Kriegshammer
+PHa	Chryseia	Kurzschwert
+PHa	Dvarheim	Kurzschwert
+PHa	Küstenstaaten	Dolch
+PHa	Rawindra	Streitkolben
+PHa	Urruti	Kriegshammer
+PHa	Valian	Dolch
+PHa	Zwerge	Kurzschwert
+PHe	Alba	Langschwert
+PHe	Aran	Streitkolben
+PHe	Chryseia	Kurzschwert
+PHe	Clanngadarn	Langschwert
+PHe	Dvarheim	Streitkolben
+PHe	Eschar	Krummsäbel
+PHe	Eschar	Streitkolben
+PHe	Fuardain	Langschwert
+PHe	KanThaiPan	Kampfstab
+PHe	Küstenstaaten	Stoßspeer
+PHe	Minangpahit	Streitkolben
+PHe	Nahuatlan	Langschwert
+PHe	Rawindra	Streitkolben
+PHe	Urruti	Kurzschwert
+PHe	Valian	Stoßspeer
+PHe	Waeland	Langschwert
+PHe	Ywerddon	Langschwert
+PHe	Zwerge	Streitkolben
+PK	Alba	Stoßspeer
+PK	Aran	Krummsäbel
+PK	Dvarheim	Kriegshammer
+PK	Dvarheim	Streitaxt
+PK	KanThaiPan	Langschwert
+PK	KanThaiPan	Langschwert
+PK	Küstenstaaten	Langschwert
+PK	Minangpahit	Streitaxt
+PK	Nahuatlan	Langschwert
+PK	Rawindra	Krummsäbel
+PK	Urruti	Glefe
+PK	Urruti	Kurzschwert
+PK	Urruti	Stoßspeer
+PK	Valian	Kurzschwert
+PK	Waeland	Streitaxt
+PK	Zwerge	Kriegshammer
+PK	Zwerge	Streitaxt
+PM	Alba	Stoßspeer
+PM	Chryseia	Kurzschwert
+PM	Küstenstaaten	Dolch
+PM	Minangpahit	Wurfspeer
+PM	Valian	Dolch
+PM	Waeland	Stoßspeer
+PT	Alba	waffenloser Kampf
+PT	Clanngadarn	Dolch
+PT	Fuardain	Dolch
+PT	Küstenstaaten	Kurzschwert
+PT	Nahuatlan	Dolch
+PT	Rawindra	Dolch
+PT	Valian	Kurzschwert
+PT	Ywerddon	Dolch
+PW	Alba	Dolch
+PW	Alba	Kampfstab
+PW	Chryseia	waffenloser Kampf
+PW	Halblinge	Stoßspeer
+PW	Halfdal	Stoßspeer
+PW	KanThaiPan	waffenloser Kampf
+PW	Küstenstaaten	waffenloser Kampf
+PW	Minangpahit	Dolch
+PW	Nahuatlan	Magierstab
+PW	Rawindra	waffenloser Kampf
+PW	Waeland	Magierstab
+Ru	Waeland	\N
+Sa	Rawindra	\N
+ScN	Buluga	\N
+ScN	Fuardain	\N
+ScN	Ikengabecken	\N
+ScN	KanThaiPan	\N
+ScN	Medjis	\N
+ScN	Minangpahit	\N
+ScN	Moravod	\N
+ScN	Nahuatlan	\N
+ScN	Rawindra	\N
+ScN	Tegarische Steppe	\N
+ScN	Waeland	\N
+ScS	Buluga	\N
+ScS	Fuardain	\N
+ScS	Ikengabecken	\N
+ScS	KanThaiPan	\N
+ScS	Medjis	\N
+ScS	Minangpahit	\N
+ScS	Moravod	\N
+ScS	Nahuatlan	\N
+ScS	Rawindra	\N
+ScS	Tegarische Steppe	\N
+ScS	Waeland	\N
+ScW	Buluga	\N
+ScW	Fuardain	\N
+ScW	Ikengabecken	\N
+ScW	KanThaiPan	\N
+ScW	Medjis	\N
+ScW	Minangpahit	\N
+ScW	Moravod	\N
+ScW	Nahuatlan	\N
+ScW	Rawindra	\N
+ScW	Tegarische Steppe	\N
+ScW	Waeland	\N
+Se	Alba	\N
+Se	Aran	\N
+Se	Chryseia	\N
+Se	Clanngadarn	\N
+Se	Erainn	\N
+Se	Eschar	\N
+Se	KanThaiPan	\N
+Se	Küstenstaaten	\N
+Se	Minangpahit	\N
+Se	Moravod	\N
+Se	Rawindra	\N
+Se	Valian	\N
+Se	Waeland	\N
+Se	Ywerddon	\N
+Sk	Waeland	\N
+Sp	Alba	\N
+Sp	Aran	\N
+Sp	Chryseia	\N
+Sp	Clanngadarn	\N
+Sp	Dvarheim	\N
+Sp	Erainn	\N
+Sp	Eschar	\N
+Sp	Feuerinseln	\N
+Sp	Halfdal	\N
+Sp	Inseln unter dem Westwind	\N
+Sp	KanThaiPan	\N
+Sp	Küstenstaaten	\N
+Sp	Medjis	\N
+Sp	Minangpahit	\N
+Sp	Moravod	\N
+Sp	Nahuatlan	\N
+Sp	Rawindra	\N
+Sp	Tegarische Steppe	\N
+Sp	Urruti	\N
+Sp	Valian	\N
+Sp	Vesternesse	\N
+Sp	Ywerddon	\N
+Sr	Rawindra	\N
+Steppe Tegarische	PC	Magierstab
+Steppe Tegarische	PK	Krummsäbel
+Sö	Alba	\N
+Sö	Aran	\N
+Sö	Chryseia	\N
+Sö	Clanngadarn	\N
+Sö	Dvarheim	\N
+Sö	Erainn	\N
+Sö	Eschar	\N
+Sö	Feuerinseln	\N
+Sö	Halfdal	\N
+Sö	Inseln unter dem Westwind	\N
+Sö	KanThaiPan	\N
+Sö	Küstenstaaten	\N
+Sö	Medjis	\N
+Sö	Minangpahit	\N
+Sö	Moravod	\N
+Sö	Nahuatlan	\N
+Sö	Rawindra	\N
+Sö	Tegarische Steppe	\N
+Sö	Urruti	\N
+Sö	Valian	\N
+Sö	Vesternesse	\N
+Sö	Waeland	\N
+Sö	Ywerddon	\N
+Th	Alba	\N
+Th	Aran	\N
+Th	Chryseia	\N
+Th	Clanngadarn	\N
+Th	Erainn	\N
+Th	Eschar	\N
+Th	KanThaiPan	\N
+Th	Küstenstaaten	\N
+Th	Minangpahit	\N
+Th	Moravod	\N
+Th	Nahuatlan	\N
+Th	Rawindra	\N
+Th	Valian	\N
+Th	Waeland	\N
+Th	Ywerddon	\N
+Tm	Buluga	\N
+Tm	Fuardain	\N
+Tm	Ikengabecken	\N
+Tm	Medjis	\N
+Tm	Minangpahit	\N
+Tm	Moravod	\N
+Tm	Nahuatlan	\N
+Tm	Rawindra	\N
+Tm	Tegarische Steppe	\N
+Tm	Waeland	\N
+Tr	Nahuatlan	\N
+Tt	Nahuatlan	\N
+Wa	Alba	\N
+Wa	Aran	\N
+Wa	Clanngadarn	\N
+Wa	Erainn	\N
+Wa	Ikengabecken	\N
+Wa	KanThaiPan	\N
+Wa	Medjis	\N
+Wa	Minangpahit	\N
+Wa	Moravod	\N
+Wa	Nahuatlan	\N
+Wa	Rawindra	\N
+Wa	Waeland	\N
+Wa	Ywerddon	\N
+dBe	Alba	\N
+dBe	Aran	\N
+dBe	Buluga	\N
+dBe	Chryseia	\N
+dBe	Eschar	\N
+dBe	Ikengabecken	\N
+dBe	KanThaiPan	\N
+dBe	Küstenstaaten	\N
+dBe	Medjis	\N
+dBe	Moravod	\N
+dBe	Nahuatlan	\N
+dBe	Rawindra	\N
+dBe	Tegarische Steppe	\N
+dBe	Urruti	\N
+dBe	Valian	\N
+dBe	Ywerddon	\N
+eBe	Alba	\N
+eBe	Aran	\N
+eBe	Buluga	\N
+eBe	Chryseia	\N
+eBe	Eschar	\N
+eBe	Ikengabecken	\N
+eBe	KanThaiPan	\N
+eBe	Küstenstaaten	\N
+eBe	Medjis	\N
+eBe	Moravod	\N
+eBe	Nahuatlan	\N
+eBe	Rawindra	\N
+eBe	Tegarische Steppe	\N
+eBe	Urruti	\N
+eBe	Valian	\N
+eBe	Waeland	\N
+eBe	Ywerddon	\N
+gHx	Alba	\N
+gHx	Aran	\N
+gHx	Buluga	\N
+gHx	Chryseia	\N
+gHx	Clanngadarn	\N
+gHx	Erainn	\N
+gHx	Eschar	\N
+gHx	Fuardain	\N
+gHx	Ikengabecken	\N
+gHx	KanThaiPan	\N
+gHx	Küstenstaaten	\N
+gHx	Medjis	\N
+gHx	Minangpahit	\N
+gHx	Moravod	\N
+gHx	Nahuatlan	\N
+gHx	Rawindra	\N
+gHx	Tegarische Steppe	\N
+gHx	Urruti	\N
+gHx	Valian	\N
+gHx	Waeland	\N
+gHx	Ywerddon	\N
+sHx	Alba	\N
+sHx	Aran	\N
+sHx	Buluga	\N
+sHx	Chryseia	\N
+sHx	Clanngadarn	\N
+sHx	Erainn	\N
+sHx	Eschar	\N
+sHx	Fuardain	\N
+sHx	Ikengabecken	\N
+sHx	KanThaiPan	\N
+sHx	Küstenstaaten	\N
+sHx	Medjis	\N
+sHx	Minangpahit	\N
+sHx	Moravod	\N
+sHx	Nahuatlan	\N
+sHx	Rawindra	\N
+sHx	Tegarische Steppe	\N
+sHx	Urruti	\N
+sHx	Valian	\N
+sHx	Waeland	\N
+sHx	Ywerddon	\N
+tBe	Alba	\N
+tBe	Aran	\N
+tBe	Buluga	\N
+tBe	Chryseia	\N
+tBe	Eschar	\N
+tBe	Ikengabecken	\N
+tBe	KanThaiPan	\N
+tBe	Küstenstaaten	\N
+tBe	Medjis	\N
+tBe	Moravod	\N
+tBe	Nahuatlan	\N
+tBe	Rawindra	\N
+tBe	Tegarische Steppe	\N
+tBe	Urruti	\N
+tBe	Valian	\N
+tBe	Ywerddon	\N
+wHx	Alba	\N
+wHx	Aran	\N
+wHx	Buluga	\N
+wHx	Chryseia	\N
+wHx	Clanngadarn	\N
+wHx	Erainn	\N
+wHx	Eschar	\N
+wHx	Fuardain	\N
+wHx	Ikengabecken	\N
+wHx	KanThaiPan	\N
+wHx	Küstenstaaten	\N
+wHx	Medjis	\N
+wHx	Minangpahit	\N
+wHx	Moravod	\N
+wHx	Nahuatlan	\N
+wHx	Rawindra	\N
+wHx	Tegarische Steppe	\N
+wHx	Urruti	\N
+wHx	Valian	\N
+wHx	Waeland	\N
+wHx	Ywerddon	\N
 \.

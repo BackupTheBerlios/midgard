@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.48 2002/07/04 13:54:36 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.49 2002/07/08 09:36:32 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -266,14 +266,13 @@ void land_speichern(Tag &o)
    fetch_and_set_int_attrib(is, Mod, "Rüstung");
    fetch_and_set_int_attrib(is, Mod, "Geld");
    { 
-#warning HACK until typen_gruppe works (here for priests)
-     std::string S=typ;
-     if(S[0]=='P') S="PRI";
-     Query query1("select land from typen_herkunft where typ='"+S+"'"
+     Query query1("select land,kultwaffe from typen_herkunft where typ='"+typ+"'"
    		" order by land");
      FetchIStream is1;
      while ((query1>>is1).good())
-     {  Typ.push_back(Tag("Herkunft")).setAttr("Name",fetch_string(is1));
+     { Tag &H=Typ.push_back(Tag("Herkunft")); 
+       fetch_and_set_string_attrib(is1,H,"Land");
+       fetch_and_set_string_attrib(is1,H,"Kultwaffe");
      }
    }
    { Query queryg("select gruppe from typen_gruppe where typ='"+typ+"'"
