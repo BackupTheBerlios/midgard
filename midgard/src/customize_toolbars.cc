@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.11 2002/05/16 07:41:37 christof Exp $
+// $Id: customize_toolbars.cc,v 1.12 2002/05/16 07:51:13 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -54,10 +54,7 @@ static void CustomizeBox(Gtk::Widget *child, bool show_icons, bool tab_text)
 
 static void CustomizeTab(Gtk::Widget *w, bool show_icons, bool tab_text)
 {  if (Gtk::EventBox::isA(w)) w=dynamic_cast<Gtk::Bin*>(w)->get_child();
-   if (!w) return;
-
-   Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
-   if (child && Gtk::Box::isA(child)) CustomizeBox(child,show_icons,tab_text);
+   if (w && Gtk::Box::isA(w)) CustomizeBox(w,show_icons,tab_text);
 }
 
 static void CustomizeButton(Gtk::Widget *w, bool show_icons, bool show_text)
