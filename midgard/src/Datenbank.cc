@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.14 2002/03/04 08:08:36 thoma Exp $               
+// $Id: Datenbank.cc,v 1.15 2002/04/23 20:32:26 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -77,5 +77,5 @@ Datenbank::Datenbank(Midgard_Info* MI)
     Spezialgebiet = Spezialgebiet_All(MI->get_progressbar_spezial()).get_All();
     preise = Preise_All(MI->get_progressbar_preise()).get_All();
     preisemod = PreiseMod_All(MI->get_progressbar_preise()).get_All();
-    MI->database_hide();
+    MI->database_hide();  // can't do this yet
 }

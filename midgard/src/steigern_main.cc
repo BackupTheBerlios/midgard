@@ -221,8 +221,7 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
 }
 
 void midgard_CG::load_for_mainpage(guint pagenr)
-{
- if(Typ[0]->is_mage() || Typ[1]->is_mage())
+{if(!Typ.empty() && (Typ[0]->is_mage() || Typ[1]->is_mage()))
   {
     button_grad_zaubern->set_sensitive(true);
     frame_pp_zaubern->set_sensitive(true);

@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.19 2002/04/23 20:18:10 thoma Exp $
+// $Id: Optionen.cc,v 1.20 2002/04/23 20:32:26 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -304,7 +304,8 @@ void Midgard_Optionen::Ober_init()
 }
 
 void Midgard_Optionen::load_options()
-{ ifstream f("midgard_optionen.xml");
+{try {
+  ifstream f("midgard_optionen.xml");
   if (!f.good()) cout << "Cannot open " << "midgard_optionen.xml" << '\n';
   TagStream ts(f);
   const Tag *data=ts.find("MAGUS-optionen");
@@ -325,6 +326,7 @@ void Midgard_Optionen::load_options()
   FOR_EACH_CONST_TAG_OF(i,*data,"Einstellungen")
      setString(i->getAttr("Name"),i->getAttr("Wert"));
   hauptfenster->menu_init();
+ } catch (std::exception &e) { cerr << e.what() << '\n'; }
 }
 
                                                    
