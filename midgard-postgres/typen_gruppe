@@ -1,0 +1,90 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "typen_gruppe";
+--
+--
+--
+
+CREATE TABLE "typen_gruppe" (
+	"typ" text NOT NULL,
+	"gruppe" text NOT NULL,
+	Constraint "typen_gruppe_pkey" Primary Key ("typ", "gruppe")
+);
+
+--
+--
+--
+
+
+COPY "typen_gruppe" FROM stdin;
+As	KÄM
+BN	BAR
+BN	KÄM
+BS	BAR
+BS	KÄM
+BW	BAR
+BW	KÄM
+Ba	KÄM
+De	ZAU
+Dr	ZAU
+Dt	ZAU
+Er	KÄM
+Fi	KÄM
+Gl	KÄM
+Hl	ZAU
+Hä	KÄM
+Kd	KÄM
+Kr	KÄM
+Ku	KÄM
+Ma	ZAU
+Ny	KÄM
+Or	KÄM
+PC	PRI
+PC	ZAU
+PF	PRI
+PF	ZAU
+PHa	PRI
+PHa	ZAU
+PHe	PRI
+PHe	ZAU
+PK	PRI
+PK	ZAU
+PM	PRI
+PM	ZAU
+PT	PRI
+PT	ZAU
+PW	PRI
+PW	ZAU
+Ri	KÄM
+Ru	KÄM
+Sa	ZAU
+ScN	Sc
+ScN	ZAU
+ScS	Sc
+ScS	ZAU
+ScW	Sc
+ScW	ZAU
+Se	KÄM
+Sk	KÄM
+Sp	KÄM
+Sr	KÄM
+Sö	KÄM
+Th	ZAU
+Tm	KÄM
+Tr	KÄM
+Tt	ZAU
+Wa	KÄM
+dBe	Be
+dBe	ZAU
+eBe	Be
+eBe	ZAU
+gHx	Hx
+gHx	ZAU
+sHx	Hx
+sHx	ZAU
+tBe	Be
+tBe	ZAU
+wHx	Hx
+wHx	ZAU
+\.
