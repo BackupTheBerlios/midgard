@@ -369,16 +369,6 @@
     <Lernschema Typ="wHx" Lernpunkte="2"/>
     <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
-  <Fertigkeit Name="Körperbemalung" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1">
-    <Grund>Th</Grund>
-    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa</Standard>
-    <Ausnahme>Dr,Hl,Ma,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Voraussetzungen Ge="31"/>
-    <Lernschema Typ="Sc" Lernpunkte="2"/>
-    <Lernschema Typ="Sc" Lernpunkte="2"/>
-    <Lernschema Typ="Th" Lernpunkte="2"/>
-    <Lernschema Typ="Th" Lernpunkte="2"/>
-  </Fertigkeit>
   <Fertigkeit Name="Laufen" Lernpunkte="3" Anfangswert="2" Lernkosten="50" Erfolgswert="2">
     <Grund>BN,BS,BW,Sc,Wa</Grund>
     <Standard>As,Ba,Dr,Fi,Gl,Hä,Kd,Kr,Ny,Or,Ri,Sa,Sp,Sr,Sö,Th</Standard>
@@ -737,7 +727,7 @@
     <Grund>Th</Grund>
     <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa</Standard>
     <Ausnahme>Dr,Hl,Ma,dBe,eBe,gHx,sHx,wHx</Ausnahme>
-    <Voraussetzungen Ge="31"/>
+    <Voraussetzungen Ge="31" Fertigkeit="Wissen von der Magie"/>
     <Lernschema Typ="Sc" Lernpunkte="2"/>
     <Lernschema Typ="Th" Lernpunkte="2"/>
     <Kosten Wert2="400" Wert3="800" Wert4="1200"/>
@@ -1469,6 +1459,7 @@
   <Fertigkeit Name="Augensalbe herstellen" Region="R" Lernpunkte="9" Lernkosten="200">
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Voraussetzungen Ge="31" Fertigkeit="Alchemie, Thaumaturgie"/>
+    <Lernschema Typ="Th" Lernpunkte="3"/>
     <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="G"/>
     <steigern_wie Fertigkeit="-"/>
     <EP-Typ Typ="ZEP"/>
@@ -1477,9 +1468,15 @@
     <Standard>Sa,Sr</Standard>
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Voraussetzungen Ge="31" Sb="31"/>
+    <regionaleBesonderheit Herkunft="Minangpahit" Typ="BW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Minangpahit" Typ="Gl" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Minangpahit" Typ="Hä" Standard="G"/>
     <regionaleBesonderheit Herkunft="Minangpahit" Typ="Kr" Standard="G"/>
     <regionaleBesonderheit Herkunft="Minangpahit" Typ="PW" Standard="G"/>
     <regionaleBesonderheit Herkunft="Minangpahit" Typ="Sö" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="BW" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Gl" Standard="G"/>
+    <regionaleBesonderheit Herkunft="Rawindra" Typ="Hä" Standard="G"/>
     <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="G"/>
     <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
     <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="G"/>
@@ -1510,6 +1507,24 @@
     <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="G"/>
     <regionaleBesonderheit Herkunft="Rawindra" Typ="Wa" Standard="G"/>
     <EP-Typ Typ="KEP"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kriegsbemalung" Region="R" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1">
+    <Grund>Th</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzungen Ge="31" Fertigkeit="Körperbemalung"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Lernschema Typ="Th" Lernpunkte="2"/>
+    <steigern_wie Fertigkeit="Talisman verzaubern"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Körperbemalung" Region="R" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1">
+    <Grund>Th</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzungen Ge="31" Fertigkeit="Wissen von der Magie"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Lernschema Typ="Th" Lernpunkte="2"/>
+    <steigern_wie Fertigkeit="Talisman verzaubern"/>
   </Fertigkeit>
   <Fertigkeit Name="Körperkontrolle" Region="R" Lernpunkte="3" Anfangswert="15" Lernkosten="150" Erfolgswert="12">
     <Standard>Sa,Sr</Standard>
@@ -1673,6 +1688,45 @@
     <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="S"/>
     <steigern_wie Fertigkeit="Elefanten lenken"/>
     <EP-Typ Typ="KEP"/>
+  </Fertigkeit>
+  <Fertigkeit Lernpunkte="8">
+    <Lernschema Typ="Berggnom" Pflicht="True"/>
+    <Lernschema Typ="Berggnom" Pflicht="True"/>
+    <Lernschema Typ="Berggnom" Pflicht="True"/>
+    <Lernschema Typ="Berggnom" Pflicht="True"/>
+    <Lernschema Typ="Berggnom" Pflicht="True"/>
+    <Lernschema Typ="Berggnom" Pflicht="True"/>
+    <Lernschema Typ="Elf" Pflicht="True"/>
+    <Lernschema Typ="Elf" Pflicht="True"/>
+    <Lernschema Typ="Elf" Pflicht="True"/>
+    <Lernschema Typ="Elf" Pflicht="True"/>
+    <Lernschema Typ="Elf" Pflicht="True"/>
+    <Lernschema Typ="Elf" Pflicht="True"/>
+    <Lernschema Typ="Elf" Pflicht="True"/>
+    <Lernschema Typ="Halbling" Pflicht="True"/>
+    <Lernschema Typ="Halbling" Pflicht="True"/>
+    <Lernschema Typ="Halbling" Pflicht="True"/>
+    <Lernschema Typ="Halbling" Pflicht="True"/>
+    <Lernschema Typ="Halbling" Pflicht="True"/>
+    <Lernschema Typ="Halbling" Pflicht="True"/>
+    <Lernschema Typ="Halbling" Pflicht="True"/>
+    <Lernschema Typ="Waldgnom" Pflicht="True"/>
+    <Lernschema Typ="Waldgnom" Pflicht="True"/>
+    <Lernschema Typ="Waldgnom" Pflicht="True"/>
+    <Lernschema Typ="Waldgnom" Pflicht="True"/>
+    <Lernschema Typ="Waldgnom" Pflicht="True"/>
+    <Lernschema Typ="Waldgnom" Pflicht="True"/>
+    <Lernschema Typ="Zwerg" Pflicht="True"/>
+    <Lernschema Typ="Zwerg" Pflicht="True"/>
+    <Lernschema Typ="Zwerg" Pflicht="True"/>
+    <Lernschema Typ="Zwerg" Pflicht="True"/>
+    <Lernschema Typ="Zwerg" Pflicht="True"/>
+    <Verbot Typ="Elf"/>
+    <Verbot Typ="Elf"/>
+    <Verbot Typ="Elf"/>
+    <Verbot Typ="Elf"/>
+    <Verbot Typ="Halbling"/>
+    <Verbot Typ="Halbling"/>
   </Fertigkeit>
  </Fertigkeiten>
  <angeboreneFertigkeiten>

@@ -97,8 +97,10 @@
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Bannen von Hyrrfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Feuer">
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="eBe" Lernpunkte="3" Primärelement="Feuer"/>
     <Lernschema Typ="eBe" Lernpunkte="4" Sekundärelement="Feuer"/>
+    <Beschreibung>Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
   <Spruch Name="Bannen von Hyrrkin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung" Element="Feuer">
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
@@ -3432,46 +3434,6 @@
   </Zauberwerk>
   <Zauberwerk Name="Zündletter (Schlüsselwort)" Art="magische Letter" Stufe="3" Geldaufwand="4 GS" Kosten="600">
     <Grund>Th</Grund>
-  </Zauberwerk>
-  <Zauberwerk Name="Kriegsbemalung" Region="R" Art="Talisman" Stufe="1" Zeitaufwand="10 min" Geldaufwand="10/20/30 GS" Kosten="200">
-    <Grund>Th</Grund>
-    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
-    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
-  </Zauberwerk>
-  <Zauberwerk Name="Kriegsbemalung" Region="R" Art="Talisman" Stufe="2" Zeitaufwand="10 min" Geldaufwand="30/60/90 GS" Kosten="200">
-    <Grund>Th</Grund>
-    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
-    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
-  </Zauberwerk>
-  <Zauberwerk Name="Kriegsbemalung" Region="R" Art="Talisman" Stufe="3" Zeitaufwand="10 min" Geldaufwand="60/120/180 GS" Kosten="500">
-    <Grund>Th</Grund>
-    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
-    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
-  </Zauberwerk>
-  <Zauberwerk Name="Kriegsbemalung" Region="R" Art="Talisman" Stufe="4" Zeitaufwand="10 min" Geldaufwand="100/200/300 GS" Kosten="1000">
-    <Grund>Th</Grund>
-    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
-    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
-  </Zauberwerk>
-  <Zauberwerk Name="Körperbemalung" Region="R" Art="Talisman" Stufe="1" Zeitaufwand="1 Stunde" Geldaufwand="10/20/30 GS" Kosten="200">
-    <Grund>Th</Grund>
-    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
-    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
-  </Zauberwerk>
-  <Zauberwerk Name="Körperbemalung" Region="R" Art="Talisman" Stufe="2" Zeitaufwand="1 Stunde" Geldaufwand="30/60/90 GS" Kosten="200">
-    <Grund>Th</Grund>
-    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
-    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
-  </Zauberwerk>
-  <Zauberwerk Name="Körperbemalung" Region="R" Art="Talisman" Stufe="3" Zeitaufwand="1 Stunde" Geldaufwand="60/120/180 GS" Kosten="500">
-    <Grund>Th</Grund>
-    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
-    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
-  </Zauberwerk>
-  <Zauberwerk Name="Körperbemalung" Region="R" Art="Talisman" Stufe="4" Zeitaufwand="1 Stunde" Geldaufwand="100/200/300 GS" Kosten="1000">
-    <Grund>Th</Grund>
-    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
-    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
   </Zauberwerk>
  </Zauberwerke>
  <Spezialgebiete>
