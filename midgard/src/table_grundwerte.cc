@@ -20,7 +20,7 @@
 
 void table_grundwerte::init(midgard_CG *h)
 {
-  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__); 
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
   hauptfenster=h;
   label=0;
 
@@ -51,7 +51,7 @@ void table_grundwerte::init(midgard_CG *h)
     
 void table_grundwerte::zeige_werte(bool typ2_hide)
 { 
-  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__); 
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
    if(!hauptfenster) return;
    block_changed=true;
    midgard_check_werte100();
@@ -132,7 +132,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
 
 void table_grundwerte::neuer_charakter()
 {
-  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__); 
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
    if(!hauptfenster) return;
    block_changed=true;
    button_grundwerte->set_sensitive(true);
@@ -153,3 +153,8 @@ void table_grundwerte::neuer_charakter()
    zeige_werte();
    hauptfenster->getChar().saved();
 }
+
+#include <Misc/Trace.h>
+const UniqueValue::value_t table_grundwerte::trace_channel
+                  =ManuProC::Tracer::channels.get();
+                  

@@ -25,7 +25,8 @@ void midgard_CG::set_status(const std::string &s,bool autoclean)
   label_status->set_text(s);
   InfoFenster->AppendShowLog(s);
   if(autoclean)
-     connection_status=Gtk::Main::timeout.connect(slot(this,&midgard_CG::timeout_status),7000);
+//     connection_status=
+      Gtk::Main::timeout.connect(slot(this,&midgard_CG::timeout_status),7000);
 }
 
 gint midgard_CG::timeout_status()
@@ -206,7 +207,7 @@ void midgard_CG::on_schliessen_CG_clicked()
 
 void midgard_CG::on_button_quit_confirm_clicked()
 {
-  connection_status.disconnect();
+//  connection_status.disconnect();
   Gtk::Main::instance()->quit();
 }
 
@@ -216,3 +217,7 @@ gint midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
   return true;
 }
 
+void midgard_CG::on_exportieren_ranas_pdf_dokumente_activate()
+{
+  InfoFenster->AppendShow("Noch nicht implementiert");
+}

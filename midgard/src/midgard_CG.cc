@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.287 2002/12/05 10:30:08 thoma Exp $
+// $Id: midgard_CG.cc,v 1.288 2002/12/11 11:09:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,8 +38,8 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
 	InfoFenster(0),MOptionen(0),wizard(0),menu_kontext(0),
 	schummeln(false),tag_eigene_artikel(Tag("MAGUS-data"))
 {
-//  ManuProC::Tracer::Enable(ManuProC::Tracer::Auftrag);
-  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
+//  ManuProC::Tracer::Enable(table_grundwerte::trace_channel);
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   InfoFenster = manage(new WindowInfo(this));
 
   // Optionen laden
@@ -87,7 +87,7 @@ midgard_CG::~midgard_CG()
 
 void midgard_CG::init_statusbar()
 {
-  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
 //  frame_regionen_status->remove();
   vec_region_status.clear();
   Gtk::HBox *hb_regionen_status=manage(new class Gtk::HBox(false, 0));
@@ -105,7 +105,7 @@ void midgard_CG::init_statusbar()
 
 void midgard_CG::set_region_statusbar(RegionenPic::epic pic,bool active)
 {
-  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   for(std::vector<st_reg_status>::const_iterator i=vec_region_status.begin();i!=vec_region_status.end();++i)
    {
      if(i->name==pic)
@@ -120,7 +120,7 @@ void midgard_CG::set_region_statusbar(RegionenPic::epic pic,bool active)
 
 std::string magus_paths::with_path(const std::string &name,bool path_only,bool noexit) const
 {
-  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   std::vector<std::string> V;
 #ifndef __MINGW32__ // IMHO macht das unter Win32 keinen Sinn
 
@@ -160,7 +160,7 @@ std::string magus_paths::with_path(const std::string &name,bool path_only,bool n
 
 std::string magus_paths::BinaryVerzeichnis() const
 {  
-  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
    if (argv0.rfind(WinLux::dirsep)!=std::string::npos) 
       return argv0.substr(0,argv0.rfind(WinLux::dirsep)+1);
    else return "";
@@ -168,7 +168,7 @@ std::string magus_paths::BinaryVerzeichnis() const
 
 void midgard_CG::fill_IconVec()
 {
-  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   // InfoFenster
   IconVec.push_back(st_buttons(InfoFenster->button_bestaetigen,iJa));
   IconVec.push_back(st_buttons(InfoFenster->button_abbrechen,iNein));

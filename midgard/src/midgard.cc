@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.52 2002/11/14 13:26:04 thoma Exp $
+// $Id: midgard.cc,v 1.53 2002/12/11 11:09:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -128,3 +128,5 @@ int main(int argc, char **argv)
    xml_free();
    return 0;
 }
+
+

@@ -16,6 +16,8 @@
 class midgard_CG;
 #include <vector>
 #include <Model.h>
+#include <Misc/UniqueValue.h>
+
 
 class table_grundwerte : public table_grundwerte_glade
 {  
@@ -40,6 +42,8 @@ public:
         void kaempfer_lernt_zaubern();
         void neuer_charakter();
         void doppelcharaktere();
+
+        static const UniqueValue::value_t trace_channel;
 
 private:
         std::vector<std::string> Vstand, Vhand;
