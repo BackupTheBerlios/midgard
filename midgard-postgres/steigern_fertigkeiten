@@ -3,7 +3,7 @@
 --
 DROP TABLE "steigern_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 631341)
+-- TOC Entry ID 2 (OID 638680)
 --
 -- Name: steigern_fertigkeiten Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "steigern_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 631341) TABLE DATA steigern_fertigkeiten
+-- Data for TOC Entry ID 3 (OID 638680) TABLE DATA steigern_fertigkeiten
 --
 
 COPY "steigern_fertigkeiten"  FROM stdin;
@@ -149,4 +149,12 @@ Verbergen	Beschatten
 Werfen	Werfen
 Wetterkunde	Wetterkunde
 Singen (Stufe)	Kalligraphie
+Askese	BeidhÃ¤ndiger Kampf
+Astrologie	Wissen
+Augensalbe herstellen	-
+Elefanten lenken	Elefanten lenken
+Körperkontrolle	Bewegung
+Schmerzen ertragen	Bewegung
+Srimara lenken	Elefanten lenken
+Natya	Bewegung
 \.

@@ -3,7 +3,7 @@
 --
 DROP TABLE "ruestung";
 --
--- TOC Entry ID 2 (OID 22476)
+-- TOC Entry ID 2 (OID 642027)
 --
 -- Name: ruestung Type: TABLE Owner: thoma
 --
@@ -19,7 +19,7 @@ CREATE TABLE "ruestung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22476) TABLE DATA ruestung
+-- Data for TOC Entry ID 3 (OID 642027) TABLE DATA ruestung
 --
 
 COPY "ruestung"  FROM stdin;
@@ -33,4 +33,8 @@ Textilrüstung	TR	1	0	0	0	\N
 Papierrüstung	TR(K)	1	0	0	0	K
 SaMurai-Rüstung	PR(K)	4	31	0	4	K
 SaMurai-Rüstung	VR(K)	5	61	25	8	K
+Dhunaka	KR(R)	3	0	0	0	R
+Sritrahaut	TR(R)	1	0	0	0	R
+Tschahaatha	PR(R)	4	0	0	4	R
+Tschahaatha(VR)	VR(R)	5	0	0	8	R
 \.

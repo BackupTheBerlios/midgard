@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_standard";
 --
--- TOC Entry ID 2 (OID 624790)
+-- TOC Entry ID 2 (OID 641816)
 --
 -- Name: waffen_standard Type: TABLE Owner: thoma
 --
@@ -43,17 +43,21 @@ CREATE TABLE "waffen_standard" (
 	"ny" text,
 	"kd" text,
 	"fi" text,
-	"ri" text
+	"ri" text,
+	"sr" text,
+	"sa" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 624790) TABLE DATA waffen_standard
+-- Data for TOC Entry ID 3 (OID 641816) TABLE DATA waffen_standard
 --
 
 COPY "waffen_standard"  FROM stdin;
-Lasso	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S	S	G
-Netz	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S	S	G
-Peitsche	S	S	S	S	S	S	G	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S	S	G
-Waffen	S	S	S	S	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S	S	G
-Bola	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A	S	S	S	G
+Bola	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	S	S	S	G	S	A
+Waffen	S	S	S	S	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	S	S	S	G	S	A
+Peitsche	S	S	S	S	S	S	G	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	S	S	S	G	S	A
+Netz	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	S	S	S	G	S	A
+Lasso	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	S	S	S	G	S	A
+Namisritra	G	S	S	S	S	S	S	S	S	S	S	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	S	S	S	A
+Kharrata	G	S	S	S	S	S	S	S	S	S	S	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	S	S	S	A
 \.

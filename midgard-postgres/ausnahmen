@@ -3,7 +3,7 @@
 --
 DROP TABLE "ausnahmen";
 --
--- TOC Entry ID 2 (OID 631602)
+-- TOC Entry ID 2 (OID 638454)
 --
 -- Name: ausnahmen Type: TABLE Owner: thoma
 --
@@ -20,7 +20,7 @@ CREATE TABLE "ausnahmen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 631602) TABLE DATA ausnahmen
+-- Data for TOC Entry ID 3 (OID 638454) TABLE DATA ausnahmen
 --
 
 COPY "ausnahmen"  FROM stdin;
@@ -45,7 +45,176 @@ Etikette	f	\N	\N	\N	G	Herold	Adel
 Etikette	f	\N	\N	\N	A	\N	Volk
 Fangen	f	\N	\N	\N	G	Fischer	\N
 Fangen	f	\N	\N	\N	G	Gaukler	\N
-Lanzenstechen	f	\N	KÃ¼stenstaaten	\N	S	\N	\N
+Lanzenstechen	f	\N	Küstenstaaten	\N	S	\N	\N
 Lanzenstechen	f	\N	Alba	\N	S	\N	\N
 Heraldik	f	\N	\N		G	Herold	\N
+Askese	f	\N	Eschar	Sc	G	\N	\N
+Askese	f	\N	Rawindra	Hl	G	\N	\N
+Augensalbe herstellen	f	\N	Rawindra	Th	G	\N	\N
+Elefenaten lenken	f	\N	Rawindra	BW	G	\N	\N
+Elefenaten lenken	f	\N	Rawindra	Gl	G	\N	\N
+Elefenaten lenken	f	\N	Rawindra	Hä	G	\N	\N
+Elefanten lenken	f	\N	Rawindra	Kr	G	\N	\N
+Elefanten lenken	f	\N	Rawindra	Sö	G	\N	\N
+Elefanten lenken	f	\N	Rawindra	PW	G	\N	\N
+Elefenaten lenken	f	\N	Minangpahit	BW	G	\N	\N
+Elefenaten lenken	f	\N	Minangpahit	Gl	G	\N	\N
+Elefenaten lenken	f	\N	Minangpahit	Hä	G	\N	\N
+Elefanten lenken	f	\N	Minangpahit	Kr	G	\N	\N
+Elefanten lenken	f	\N	Minangpahit	Sö	G	\N	\N
+Elefanten lenken	f	\N	Minangpahit	PW	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Ba	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Ba	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	BN	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	BN	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	BS	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	BS	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	BW	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	BW	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Gl	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Gl	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Hä	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Hä	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Kr	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Kr	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Ord	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Ord	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Sö	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Sö	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Wa	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Wa	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Ass	S	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Ass	S	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Se	S	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Se	S	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	Sp	S	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	Sp	S	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Ba	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	BN	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	BS	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	BW	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Gl	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Hä	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Kr	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Ord	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Sö	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Wa	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Ass	S	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Se	S	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	Sp	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	Ass	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	Ba	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	BN	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	BS	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	BW	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	Gl	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	Hä	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	Kr	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	Ord	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	Sö	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	Sp	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	Wa	S	\N	\N
+Körperkontrolle	f	\N	Rawindra	Dr	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	Hl	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	wHx	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	sHx	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	gHx	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	sHx	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	Ma	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	dBe	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	eBe	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	Sc	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	Th	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	PF	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	PW	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	PH	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	PW	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	PM	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	PK	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	PT	G	\N	\N
+Körperkontrolle	f	\N	Rawindra	PC	G	\N	\N
+Meditieren	f	Rawindra	Ba	G	\N	\N	\N
+Meditieren	f	Rawindra	Dr	G	\N	\N	\N
+Meditieren	f	Rawindra	Hl	G	\N	\N	\N
+Meditieren	f	Rawindra	wHx	G	\N	\N	\N
+Meditieren	f	Rawindra	sHx	G	\N	\N	\N
+Meditieren	f	Rawindra	gHx	G	\N	\N	\N
+Meditieren	f	Rawindra	Ma	G	\N	\N	\N
+Meditieren	f	Rawindra	dBe	G	\N	\N	\N
+Meditieren	f	Rawindra	eBe	G	\N	\N	\N
+Meditieren	f	Rawindra	Sc	G	\N	\N	\N
+Meditieren	f	Rawindra	Th	G	\N	\N	\N
+Meditieren	f	Rawindra	PH	G	\N	\N	\N
+Meditieren	f	Rawindra	PF	G	\N	\N	\N
+Meditieren	f	Rawindra	PM	G	\N	\N	\N
+Meditieren	f	Rawindra	PW	G	\N	\N	\N
+Meditieren	f	Rawindra	PC	G	\N	\N	\N
+Meditieren	f	Rawindra	PK	G	\N	\N	\N
+Meditieren	f	KanThaiPan	PH	G	\N	\N	\N
+Meditieren	f	KanThaiPan	PF	G	\N	\N	\N
+Meditieren	f	KanThaiPan	PM	G	\N	\N	\N
+Meditieren	f	KanThaiPan	PW	G	\N	\N	\N
+Meditieren	f	KanThaiPan	PC	G	\N	\N	\N
+Meditieren	f	KanThaiPan	PK	G	\N	\N	\N
+Meditieren	f	KanThaiPan	Ord	G	\N	\N	\N
+Meditieren	f	KanThaiPan	Kr	G	\N	\N	\N
+Meditieren	f	KanThaiPan	Sc	G	\N	\N	\N
+Natya	f	Rawindra	PH	G	\N	\N	\N
+Natya	f	Rawindra	PF	G	\N	\N	\N
+Natya	f	Rawindra	PM	G	\N	\N	\N
+Natya	f	Rawindra	PW	G	\N	\N	\N
+Natya	f	Rawindra	PC	G	\N	\N	\N
+Natya	f	Rawindra	PK	G	\N	\N	\N
+Natya	f	Rawindra	Ba	G	\N	\N	\N
+Schlangen beschwören	f	Rawindra	Ba	G	\N	\N	\N
+Schlangen beschwören	f	Rawindra	Dr	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	Hl	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	wHx	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	sHx	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	gHx	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	Ma	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	dBe	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	eBe	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	Sc	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	Th	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	PH	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	PF	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	PM	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	PW	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	PC	S	\N	\N	\N
+Schlangen beschwören	f	Rawindra	PK	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Ba	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Dr	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Hl	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	wHx	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	sHx	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	gHx	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Ma	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	dBe	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	eBe	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Sc	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Th	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	PH	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	PF	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	PM	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	PW	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	PC	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	PK	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Ass	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Ba	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	BN	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	BS	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	BW	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Gl	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Hä	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Kr	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Ord	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Se	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Sö	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Wa	S	\N	\N	\N
+Schmerzen ertragen	f	Rawindra	Sr	S	\N	\N	\N
+Srimara lenken	f	Rawindra	Kr	S	\N	\N	\N
+Srimara lenken	f	Rawindra	Ord	S	\N	\N	\N
+Srimara lenken	f	Rawindra	Sö	S	\N	\N	\N
+	\N	\N	\N	\N	\N	\N	\N
 \.

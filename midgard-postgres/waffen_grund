@@ -10,7 +10,8 @@ DROP TABLE "waffen_grund";
 
 CREATE TABLE "waffen_grund" (
 	"name" text,
-	"fp" integer
+	"fp" integer,
+	"region" text
 );
 
 --
@@ -18,30 +19,32 @@ CREATE TABLE "waffen_grund" (
 --
 
 COPY "waffen_grund"  FROM stdin;
-ESchwert	600
-Stichwaffe	400
-ESchlagwaffe	400
-Spießwaffe	400
-ZSchwert	800
-ZSchlagwaffe	600
-Stangenwaffe	800
-Kettenwaffe	900
-Kampfstab	700
-Magierstab	400
-waffenloser Kampf	800
-Bögen	700
-Armbrust	600
-Schleuder	700
-Wurfspieß	200
-WSchlagwaffe	300
-Wurfmesser	300
-Wurfpfeil	400
-Wurfstern	700
-Blasrohr	700
-Schilde	300
-Parierdolch	300
-Lasso	700
-Bola	700
-Netz	700
-Peitsche	900
+ESchwert	600	\N
+Stichwaffe	400	\N
+ESchlagwaffe	400	\N
+Spießwaffe	400	\N
+ZSchwert	800	\N
+ZSchlagwaffe	600	\N
+Stangenwaffe	800	\N
+Kettenwaffe	900	\N
+Kampfstab	700	\N
+Magierstab	400	\N
+waffenloser Kampf	800	\N
+Bögen	700	\N
+Armbrust	600	\N
+Schleuder	700	\N
+Wurfspieß	200	\N
+WSchlagwaffe	300	\N
+Wurfmesser	300	\N
+Wurfpfeil	400	\N
+Wurfstern	700	\N
+Blasrohr	700	\N
+Schilde	300	\N
+Parierdolch	300	\N
+Lasso	700	\N
+Bola	700	\N
+Netz	700	\N
+Peitsche	900	\N
+Namisritra	200	R
+Kharrata	200	R
 \.

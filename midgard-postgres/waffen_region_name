@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_region_name";
 --
--- TOC Entry ID 2 (OID 23091)
+-- TOC Entry ID 2 (OID 641886)
 --
 -- Name: waffen_region_name Type: TABLE Owner: thoma
 --
@@ -15,7 +15,7 @@ CREATE TABLE "waffen_region_name" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23091) TABLE DATA waffen_region_name
+-- Data for TOC Entry ID 3 (OID 641886) TABLE DATA waffen_region_name
 --
 
 COPY "waffen_region_name"  FROM stdin;
@@ -47,4 +47,16 @@ Kummsäbel	Saif	E
 Langschwert	Takuba	E
 Bogen	Mukantar	E
 leichte Armbrust	Ud al-Khal	E
+Kummsäbel	Szimitar	R
+Kummsäbel	Schimschar	R
+Anderthalbhänder	Hamschar	R
+Kurzschwert	Patawar	R
+Langschwert	Aschwapatawar	R
+Handaxt	Ankusch	R
+Streitaxt	Sanghala	R
+Krummmsäbel	Ma`khirr	R
+Schlachtbeil	Namikravyad	R
+Wurfaxt	Dhauram	R
+Wurfstern	Tschakram	R
+Dolch	Katar	R
 \.

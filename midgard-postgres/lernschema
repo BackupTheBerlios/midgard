@@ -3,7 +3,7 @@
 --
 DROP TABLE "lernschema";
 --
--- TOC Entry ID 2 (OID 627195)
+-- TOC Entry ID 2 (OID 640460)
 --
 -- Name: lernschema Type: TABLE Owner: thoma
 --
@@ -20,7 +20,7 @@ CREATE TABLE "lernschema" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 627195) TABLE DATA lernschema
+-- Data for TOC Entry ID 3 (OID 640460) TABLE DATA lernschema
 --
 
 COPY "lernschema"  FROM stdin;
@@ -1164,4 +1164,36 @@ Dr	kleiner Schild	Waffe	1	\N	3	\N	\N
 Ba	kleiner Schild	Waffe	1	\N	2	\N	\N
 Ass	kleiner Schild	Waffe	1	\N	3	\N	\N
 Ord	kleiner Schild	Waffe	1	\N	1	\N	\N
+Sc	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
+Th	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
+Sc	Kriegsbemalung	Fertigkeit	1	\N	2	\N	\N
+Th	Kriegsbemalung	Fertigkeit	1	\N	2	\N	\N
+Th	Augensalbe	Fertigkeit	\N	\N	3	\N	\N
+Sr	Dolch	Waffe	5	\N	1	\N	\N
+Sr	Krummsäbel	Waffe	5	\N	1	\N	\N
+Sr	Kurzschwert	Waffe	5	\N	1	\N	\N
+Sr	Keule	Waffe	5	\N	1	\N	\N
+Sr	Handaxt	Waffe	5	\N	1	\N	\N
+Sr	Streitaxt	Waffe	5	\N	1	\N	\N
+Sr	leichter Speer	Waffe	5	\N	1	\N	\N
+Sr	Buckler	Waffe	5	\N	1	\N	\N
+Sr	Langschwert	Waffe	5	\N	2	\N	\N
+Sr	Lanze	Waffe	5	\N	2	\N	\N
+Sr	Anderthalbhänder	Waffe	5	\N	2	\N	\N
+Sr	Stabkeule	Waffe	5	\N	2	\N	\N
+Sr	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
+Sr	Kampf zu Srimara	Fertigkeit	15	\N	1	\N	\N
+Sr	Kampftaktik	Fertigkeit	1	\N	2	\N	\N
+Sr	Körperkontrolle	Fertigkeit	15	\N	2	\N	\N
+Sr	Kampf in Vollrüstung	Fertigkeit	\N	\N	4	\N	\N
+Sr	Binden von Srimara	Zauber	\N	\N	2	\N	\N
+Sr	Heiliger Zorn	Zauber	\N	\N	4	\N	\N
+Sr	Goldener Panzer	Zauber	\N	\N	8	\N	\N
+Sr	Göttlicher Schutz vor Magie	Zauber	\N	\N	8	\N	\N
+Sr	Srimarameisterschaft	Zauber	\N	\N	8	\N	\N
+Sr	Reiten	Fertigkeit	15	Ge	2		\N
+Sr	Srimara lenken	Fertigkeit	15	Sb	1		\N
+Sr	Langbogen	Waffe	5	\N	3	\N	\N
+Ass	Namisritra	Waffe	5	\N	1	\N	\N
+Ass	Kharrata	Waffe	5	\N	1	\N	\N
 \.

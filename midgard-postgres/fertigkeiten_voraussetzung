@@ -3,7 +3,7 @@
 --
 DROP TABLE "fertigkeiten_voraussetzung";
 --
--- TOC Entry ID 2 (OID 630978)
+-- TOC Entry ID 2 (OID 638045)
 --
 -- Name: fertigkeiten_voraussetzung Type: TABLE Owner: thoma
 --
@@ -23,7 +23,7 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 630978) TABLE DATA fertigkeiten_voraussetzung
+-- Data for TOC Entry ID 3 (OID 638045) TABLE DATA fertigkeiten_voraussetzung
 --
 
 COPY "fertigkeiten_voraussetzung"  FROM stdin;
@@ -54,6 +54,8 @@ Sprache	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Stehlen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
 Streitwagen lenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
 Talisman verzaubern	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
+Körperbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
+Kriegsbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
 Tarnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
 Tauchen	\N	31	61	\N	\N	\N	\N	\N	\N	\N
 Wagenlenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
@@ -164,4 +166,15 @@ Verbergen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
 Werfen	31	31	\N	\N	\N	\N	\N	\N	\N	\N
 Wetterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
 Singen (Stufe)	\N	\N	\N	\N	\N	\N	\N	\N	\N	Singen
+Askese	\N	\N	\N	\N	\N	\N	\N	61	\N	\N
+Astrologie	\N	\N	\N	\N	\N	\N	\N	\N	\N	Rechnen
+Augensalbe herstellen	\N	31	\N	\N	\N	\N	\N	\N	\N	Alchemie, Thaumaturgie
+Elefanten lenken	\N	31	\N	\N	\N	\N	\N	31	\N	\N
+Kampf zu Elefant	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
+Natya	\N	61	\N	\N	\N	\N	61	31	\N	Tanzen
+Schmerzen ertragen	\N	\N	\N	\N	\N	\N	\N	81	\N	\N
+Schlangen beschwören	\N	61	\N	\N	\N	\N	\N	31	\N	Musizieren
+Srimara lenken	\N	31	\N	\N	\N	\N	\N	61	\N	\N
+Kampf zu Srimara	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
+Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	0	\N
 \.

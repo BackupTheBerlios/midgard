@@ -3,7 +3,7 @@
 --
 DROP TABLE "steigern_fertigkeiten_werte";
 --
--- TOC Entry ID 2 (OID 22777)
+-- TOC Entry ID 2 (OID 632206)
 --
 -- Name: steigern_fertigkeiten_werte Type: TABLE Owner: thoma
 --
@@ -42,7 +42,7 @@ CREATE TABLE "steigern_fertigkeiten_werte" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22777) TABLE DATA steigern_fertigkeiten_werte
+-- Data for TOC Entry ID 3 (OID 632206) TABLE DATA steigern_fertigkeiten_werte
 --
 
 COPY "steigern_fertigkeiten_werte"  FROM stdin;
@@ -52,6 +52,7 @@ Beidhändiger Kampf	4000	3000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\
 Beredsamkeit	\N	\N	\N	\N	\N	\N	50	100	250	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Beschatten	\N	\N	\N	\N	\N	\N	50	50	100	100	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Bewegung	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	0	50	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Bewegung	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	0	500	500	1000	2000	4000	8000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Brettspiel	\N	\N	5	5	10	10	10	20	20	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fälschen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fechten	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N

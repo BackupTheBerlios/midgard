@@ -3,7 +3,7 @@
 --
 DROP TABLE "typen";
 --
--- TOC Entry ID 2 (OID 630169)
+-- TOC Entry ID 2 (OID 641662)
 --
 -- Name: typen Type: TABLE Owner: thoma
 --
@@ -22,7 +22,7 @@ CREATE TABLE "typen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 630169) TABLE DATA typen
+-- Data for TOC Entry ID 3 (OID 641662) TABLE DATA typen
 --
 
 COPY "typen"  FROM stdin;
@@ -60,4 +60,6 @@ COPY "typen"  FROM stdin;
 9	Ord	Ordeskrieger	Ordenskriegerin	j	ak	0	0	3	\N
 32	Fi	Fian	Fian	j	ak	0	0	3	B&R
 33	Ri	Ritter	Ritterin	n	k	0	0	3	B&R
+34	Sr	Srikumara	Srikumara	j	ak	0	0	3	R
+35	Sa	Saddhu	Saddhu	z	z	0	0	4	R
 \.
