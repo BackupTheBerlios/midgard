@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.21 2001/11/19 08:10:52 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.22 2001/11/19 08:34:15 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -140,7 +140,7 @@ void arkanum_speichern(std::ostream &o)
       {  exec sql fetch from cursor_ausn into sql descriptor spalten;
          if (sqlca.sqlcode) break;
          FetchIStream is2("spalten");
-         o << "    <Ausnahme";
+         o << "    <regionaleBesonderheit";
          fetch_and_write_string_attrib(is2, o, "Spezies");
          fetch_and_write_string_attrib(is2, o, "Herkunft");
          fetch_and_write_typ_attrib(is2, o, "Typ");
