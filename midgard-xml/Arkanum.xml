@@ -89,7 +89,6 @@
     <Beschreibung>Bannt Hrimfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
   <Spruch Name="Bannen von Hrimkin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
-    <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Bannen von Hunar" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
@@ -101,18 +100,15 @@
     <Beschreibung>Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
   <Spruch Name="Bannen von Hyrrkin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
-    <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Bannen von Jördfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Erde">
-    <Standard>eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="eBe" Lernpunkte="3"/>
     <Lernschema Typ="eBe" Lernpunkte="4"/>
     <Beschreibung>Bannt Jördfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
   <Spruch Name="Bannen von Jördkin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
-    <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Bannen von Kaobargen" Grad="2" Lernkosten="140" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung">
@@ -133,14 +129,12 @@
     <Lernschema Typ="PT" Lernpunkte="1"/>
   </Spruch>
   <Spruch Name="Bannen von Vindfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="  " Material=" " Zauberart="Beschwörung" Element="Luft">
-    <Standard>eBe</Standard>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="eBe" Lernpunkte="3"/>
     <Lernschema Typ="eBe" Lernpunkte="4"/>
     <Beschreibung>Bannt Vindfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. </Beschreibung>
   </Spruch>
   <Spruch Name="Bannen von Vindskin" Grad="4" Lernkosten="800" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Material=" " Zauberart="Beschwörung">
-    <Grund>eBe</Grund>
     <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sa,Sc,Th,dBe,gHx,sHx,wHx</Ausnahme>
   </Spruch>
   <Spruch Name="Bannen von Wisfolk" Grad="1" Lernkosten="60" AP="2" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="bewegt" Reagens="Wasser" Zauberdauer="10 sec" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Material=" " Zauberart="Beschwörung" Element="Wasser">
@@ -2799,4 +2793,666 @@
     <Grund>Sa</Grund>
     <Standard>Hl</Standard>
   </Spruch>
+  <Zauberwerk Name="Alarm" Art="magische Letter" Stufe="4" Geldaufwand="4 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Angst" Art="Augensalbe" Stufe="1" Geldaufwand="20 GS" Kosten="120">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Angst" Art="Großes Siegel" Stufe="1" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Anziehen" Art="Augensalbe" Stufe="1" Geldaufwand="20 GS" Kosten="120">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Auslösen" Art="magische Letter" Stufe="1" Geldaufwand="1 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Bannen von Dunkelheit" Art="Großes Siegel" Stufe="1" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="100">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Bannen von Licht" Art="Großes Siegel" Stufe="1" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="100">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Beeinflussen" Art="Augensalbe" Stufe="3" Geldaufwand="60 GS" Kosten="800">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Berserkerpilz aktivieren" Art="PZ" Stufe="2" Zeitaufwand="2 Tage" Geldaufwand="500 GS" Kosten="600">
+    <Grund>PK,Sc</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PM,PT,PW,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Heiliger Zorn" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Wahnsinn" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Binden" Stufe="G" Kosten="10000">
+    <Grund>Th</Grund>
+    <Standard>Ma,PW</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,Sc,dBe,eBe,gHx,sHx,tBe,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Thaumatographie"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Dämonenamulett verzaubern" Art="Amulett" Stufe="3" Zeitaufwand="1 Monat" Geldaufwand="20000 GS/ABW" Kosten="500">
+    <Grund>Th</Grund>
+    <Standard>PC,PK,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>Dr,Hl,Ma,PF,PHa,PHe,PM,PT,PW,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberne Bannsphäre"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Eisiger Nebel" Art="Großes Siegel" Stufe="2" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="250">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Elementaramulett verzaubern" Art="Amulett" Stufe="3" Zeitaufwand="1 Monat" Geldaufwand="ab 4000 GS/ABW" Kosten="500">
+    <Grund>Th</Grund>
+    <Standard>Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberne Bannsphäre"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Erkennen von Zauberei" Art="Augensalbe" Stufe="2" Geldaufwand="40 GS" Kosten="300">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Farbletter (Blau)" Art="magische Letter" Stufe="1" Geldaufwand="1 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Farbletter (Gelb)" Art="magische Letter" Stufe="1" Geldaufwand="1 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Farbletter (Grün)" Art="magische Letter" Stufe="1" Geldaufwand="1 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Farbletter (Infrarot)" Art="magische Letter" Stufe="1" Geldaufwand="1 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Farbletter (Orange)" Art="magische Letter" Stufe="1" Geldaufwand="1 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Farbletter (Rot)" Art="magische Letter" Stufe="1" Geldaufwand="1 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Farbletter (Ultraviolett)" Art="magische Letter" Stufe="1" Geldaufwand="1 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Farbletter (Violett)" Art="magische Letter" Stufe="1" Geldaufwand="1 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Feuerkugel" Art="Schutzrune" Stufe="2" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="800">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Feuerkugel" Art="Großes Siegel" Stufe="2" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="2000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Feuerring" Art="Großes Siegel" Stufe="4" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="2000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Flohpulver aktivieren" Art="AZ" Stufe="2" Zeitaufwand="3 Tage" Geldaufwand="70 GS" Kosten="400">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Schweben"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Funkenregen" Art="Großes Siegel" Stufe="2" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="400">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Geisteramulett verzaubern" Art="Amulett" Stufe="4" Zeitaufwand="1 Monat" Geldaufwand="1000 GS/ABW" Kosten="2000">
+    <Grund>Th</Grund>
+    <Standard>PT,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PW,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberne Bannsphäre"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Geräuschletter (Donnern)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Geräuschletter (Knarren)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Geräuschletter (Knistern)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Geräuschletter (Pfeifen)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Graue Hand" Art="Großes Siegel" Stufe="6" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="4000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Hauch des Winters" Art="Großes Siegel" Stufe="1" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="80">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Heiltrunk (1W6) aktivieren" Art="AZ" Stufe="2" Zeitaufwand="3 Tage" Geldaufwand="100 GS (70 GS)" Kosten="600">
+    <Grund>Hl</Grund>
+    <Standard>Dr,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Heilen von Wunden"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Krafttrunk (1W6) aktivieren" Art="AZ" Stufe="1" Zeitaufwand="1 Tag" Geldaufwand="50 GS (30 GS)" Kosten="400">
+    <Grund>Hl,Th</Grund>
+    <Standard>Dr,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Handauflegen"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Krafttrunk (2W6) aktivieren" Art="AZ" Stufe="2" Zeitaufwand="3 Tage" Geldaufwand="100 GS (60 GS)" Kosten="600">
+    <Grund>Hl,Th</Grund>
+    <Standard>Dr,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Handauflegen"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Kraut der konzentrierten Energie" Art="PZ" Stufe="4" Zeitaufwand="1 Tag" Geldaufwand="500 GS" Kosten="1200">
+    <Grund>Hl,Th</Grund>
+    <Standard>Dr,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,dBe,eBe,gHx,sHx,tBe,wHx</Standard>
+    <Voraussetzung Fertigkeit="Handauflegen" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Macht über das Selbst" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Liebestrank aktivieren" Art="AZ" Stufe="3" Zeitaufwand="1 Monat" Geldaufwand="300 GS " Kosten="800">
+    <Grund>Th,gHx,sHx,wHx</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PW,Sc,dBe,eBe,tBe</Standard>
+    <Voraussetzung Fertigkeit="Liebeszauber" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Macht über Menschen" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Liebeszauber" Art="Augensalbe" Stufe="4" Geldaufwand="80 GS" Kosten="2000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Lähmung" Art="Schutzrune" Stufe="5" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="500">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Lähmung" Art="Großes Siegel" Stufe="5" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="3000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Macht über Menschen" Art="Augensalbe" Stufe="3" Geldaufwand="60 GS" Kosten="500">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Macht über die belebte Natur" Art="Augensalbe" Stufe="2" Geldaufwand="40 GS" Kosten="300">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Namenloses Grauen" Art="Schutzrune" Stufe="4" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="400">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Namenloses Grauen" Art="Großes Siegel" Stufe="4" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="1600">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Nebel" Art="Großes Siegel" Stufe="4" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Dämonen)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Elemetarwesen)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Elfen)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Geisterwesen)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Lebewesen)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Magische Wesen)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Menschen)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Menschenähnliche)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Orcs)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Tiere)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Tiermenschen)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Untote)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Opferletter (Zwerge)" Art="magische Letter" Stufe="4" Geldaufwand="1 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Pulver der Panzerhaut aktivieren" Art="AZ" Stufe="3" Zeitaufwand="5 Tage" Geldaufwand="100 GS (70 GS) " Kosten="800">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Marmorhaut" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Rindenhaut" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Rauchperle aktivieren" Art="AZ" Stufe="3" Zeitaufwand="5 Tage" Geldaufwand="100 GS (70 GS) " Kosten="800">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Rauchwolke"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Reckentrunk aktivieren" Art="AZ" Stufe="2" Zeitaufwand="3 Tage" Geldaufwand="100 GS (60 GS) " Kosten="600">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Stärke"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Salbe der Eisenhaut aktivieren" Art="AZ" Stufe="4" Zeitaufwand="7 Tage" Geldaufwand="200 GS (150 GS) " Kosten="1200">
+    <Grund>Th</Grund>
+    <Standard>Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Eisenhaut"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Salbe der Krakenhände aktivieren" Art="AZ" Stufe="2" Zeitaufwand="3 Tage" Geldaufwand="100 GS  " Kosten="600">
+    <Grund>Th</Grund>
+    <Standard>Ma,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Macht über das Selbst" Verbindung="and"/>
+    <Voraussetzung Fertigkeit="Zauberschloß" Verbindung="and"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schamanentrommel herstellen" Stufe="G" Kosten="1600">
+    <Grund>Sc,Tm</Grund>
+    <Voraussetzung Fertigkeit="Geisterlauf"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="1" Zeitaufwand="1 Monat" Geldaufwand="2000 GS/ABW" Kosten="100">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="2" Zeitaufwand="1 Monat" Geldaufwand="3000 GS/ABW" Kosten="200">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="3" Zeitaufwand="1 Monat" Geldaufwand="4000 GS/ABW" Kosten="300">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="4" Zeitaufwand="1 Monat" Geldaufwand="5000 GS/ABW" Kosten="400">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="5" Zeitaufwand="1 Monat" Geldaufwand="6000 GS/ABW" Kosten="500">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schildamulett verzaubern" Art="Amulett" Stufe="6" Zeitaufwand="1 Monat" Geldaufwand="7000 GS/ABW" Kosten="600">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberne Bannsphäre" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schlaf" Art="Großes Siegel" Stufe="1" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Schlaf" Art="Schutzrune" Stufe="1" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="100">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Schmerzen" Art="Schutzrune" Stufe="2" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="100">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Schmerzen" Art="Großes Siegel" Stufe="2" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Schnellkraut aktivieren" Art="PZ" Stufe="3" Zeitaufwand="3 Tage" Geldaufwand="200 GS" Kosten="800">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Beschleunuigen"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schutzamulett verzaubern" Art="Amulett" Stufe="1" Zeitaufwand="1 Monat" Geldaufwand="600 GS/ABW" Kosten="300">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Geistesschild" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Schwarze Zone" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Zweite Haut" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schutzamulett verzaubern" Art="Amulett" Stufe="2" Zeitaufwand="1 Monat" Geldaufwand="1200 GS/ABW" Kosten="300">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Geistesschild" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Schwarze Zone" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Zweite Haut" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schutzamulett verzaubern" Art="Amulett" Stufe="3" Zeitaufwand="1 Monat" Geldaufwand="1800 GS/ABW" Kosten="600">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Geistesschild" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Schwarze Zone" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Zweite Haut" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schutzamulett verzaubern" Art="Amulett" Stufe="4" Zeitaufwand="1 Monat" Geldaufwand="2400 GS/ABW" Kosten="800">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Geistesschild" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Schwarze Zone" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Zweite Haut" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schutzamulett verzaubern" Art="Amulett" Stufe="5" Zeitaufwand="1 Monat" Geldaufwand="3000 GS/ABW" Kosten="1000">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Geistesschild" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Schwarze Zone" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Zweite Haut" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schutzamulett verzaubern" Art="Amulett" Stufe="6" Zeitaufwand="1 Monat" Geldaufwand="3600 GS/ABW" Kosten="2000">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Geistesschild" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Schwarze Zone" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Zweite Haut" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Schwäche" Art="Großes Siegel" Stufe="1" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="80">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Sehen in Dunkelheit" Art="Augensalbe" Stufe="2" Geldaufwand="40 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Sehen von Verborgenem" Art="Augensalbe" Stufe="2" Geldaufwand="40 GS" Kosten="150">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Art="Amulett" Stufe="1" Zeitaufwand="1 Monat" Geldaufwand="1000 GS/ABW" Kosten="200">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Schutzamulett verzaubern"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Art="Amulett" Stufe="2" Zeitaufwand="1 Monat" Geldaufwand="2000 GS/ABW" Kosten="600">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Schutzamulett verzaubern"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Art="Amulett" Stufe="3" Zeitaufwand="1 Monat" Geldaufwand="3000 GS/ABW" Kosten="1000">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Schutzamulett verzaubern"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Art="Amulett" Stufe="4" Zeitaufwand="1 Monat" Geldaufwand="4000 GS/ABW" Kosten="1500">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Schutzamulett verzaubern"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Art="Amulett" Stufe="5" Zeitaufwand="1 Monat" Geldaufwand="5000 GS/ABW" Kosten="2000">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Schutzamulett verzaubern"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Spiegelamulett verzaubern" Art="Amulett" Stufe="6" Zeitaufwand="1 Monat" Geldaufwand="6000 GS/ABW" Kosten="2500">
+    <Grund>Th</Grund>
+    <Standard>Ma</Standard>
+    <Ausnahme>Dr,Hl,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Schutzamulett verzaubern"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Srimarameisterschaft" Art="Augensalbe" Stufe="3" Geldaufwand="60 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Staubkämpfer" Art="Großes Siegel" Stufe="3" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Stille" Art="Großes Siegel" Stufe="2" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Talisman verzaubern" Art="Talisman" Stufe="3" Zeitaufwand="1 Tag" Geldaufwand="60/120/180 GS" Kosten="500">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Göttlicher Schutz vor Magie" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Magischer Kreis des Widerstehens" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Talisman verzaubern" Art="Talisman" Stufe="2" Zeitaufwand="1 Tag" Geldaufwand="30/60/90 GS" Kosten="200">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Göttlicher Schutz vor Magie" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Magischer Kreis des Widerstehens" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Talisman verzaubern" Art="Talisman" Stufe="1" Zeitaufwand="1 Tag" Geldaufwand="10/20/30 GS" Kosten="200">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Göttlicher Schutz vor Magie" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Magischer Kreis des Widerstehens" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Talisman verzaubern" Art="Talisman" Stufe="4" Zeitaufwand="1 Tag" Geldaufwand="100/200/300 GS" Kosten="1000">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Göttlicher Schutz vor Magie" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Magischer Kreis des Widerstehens" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Tierisches Handeln" Art="Großes Siegel" Stufe="5" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="3000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Tierisches Handeln" Art="Augensalbe" Stufe="5" Geldaufwand="100 GS" Kosten="3000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Todeshauch" Art="Schutzrune" Stufe="3" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="400">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Todeshauch" Art="Großes Siegel" Stufe="3" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="800">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Trunk der Macht über Hunde aktivieren" Art="AZ" Stufe="2" Zeitaufwand="7 Tage" Geldaufwand="200 GS " Kosten="400">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PF,Sc,dBe,eBe,gHx,sHx,tBe,wHx</Standard>
+    <Voraussetzung Fertigkeit="Macht über die belebte Natur"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Trunk der Macht über Menschen aktivieren" Art="AZ" Stufe="4" Zeitaufwand="15 Tage" Geldaufwand="500 GS " Kosten="800">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PF,Sc,dBe,eBe,gHx,sHx,tBe,wHx</Standard>
+    <Voraussetzung Fertigkeit="Macht über Menschen"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Trunk der Macht über Orks aktivieren" Art="AZ" Stufe="3" Zeitaufwand="7 Tage" Geldaufwand="300 GS " Kosten="600">
+    <Grund>Th</Grund>
+    <Standard>Ma,PC,PHe,Sc,dBe,eBe,gHx,sHx,tBe,wHx</Standard>
+    <Voraussetzung Fertigkeit="Macht über Menschen"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Trunk des Riesenwuchses aktivieren" Art="AZ" Stufe="4" Zeitaufwand="7 Tage" Geldaufwand="500 GS " Kosten="800">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Vergrößern"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Trunk des Schwerelosigkeit aktivieren" Art="AZ" Stufe="4" Zeitaufwand="15 Tage" Geldaufwand="500 GS " Kosten="1200">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Fliegen" Verbindung="or"/>
+    <Voraussetzung Fertigkeit="Schweben" Verbindung="or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Trunk des Unsichtbarkeit aktivieren" Art="AZ" Stufe="3" Zeitaufwand="7 Tage" Geldaufwand="300 GS " Kosten="800">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Unsichtbarkeit"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Trunk des Verwandlung aktivieren" Art="AZ" Stufe="5" Zeitaufwand="7 Tage" Geldaufwand="500 GS " Kosten="2000">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PC,PF,PHa,PHe,PK,PM,PT,PW,Sc,gHx,sHx,wHx</Standard>
+    <Voraussetzung Fertigkeit="Verwandlung"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Untotenamulett verzaubern" Art="Amulett" Stufe="3" Zeitaufwand="1 Monat" Geldaufwand="20000 GS/ABW" Kosten="500">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PF,PT,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>PC,PHa,PHe,PK,PM,PW,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Blaue Bannsphäre or"/>
+    <Voraussetzung Fertigkeit="Ring des Lebens or"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Verdorren" Art="Schutzrune" Stufe="3" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="600">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Verdorren" Art="Großes Siegel" Stufe="3" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Vereisen" Art="Schutzrune" Stufe="4" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Vereisen" Art="Großes Siegel" Stufe="4" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="2000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Verlangsamen" Art="Großes Siegel" Stufe="3" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="800">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Versetzen" Art="Großes Siegel" Stufe="4" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="2000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Versteinern" Art="Schutzrune" Stufe="5" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Versteinern" Art="Großes Siegel" Stufe="5" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="3000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Verwandeln" Art="Schutzrune" Stufe="6" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="1000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Verwandlung" Art="Großes Siegel" Stufe="6" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="8000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Waffen verzaubern (2)" Stufe="2" Zeitaufwand="1 Monat" Geldaufwand="100 GS + 5*Waffenpreis" Kosten="800">
+    <Grund>Th</Grund>
+    <Voraussetzung Fertigkeit="Binden" Verbindung="and"/>
+    <Voraussetzung Fertigkeit="Zauberschmiede"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Waffen verzaubern (4)" Stufe="4" Zeitaufwand="1 Monat" Geldaufwand="200 GS + 5*Waffenpreis" Kosten="1600">
+    <Grund>Th</Grund>
+    <Voraussetzung Fertigkeit="Binden" Verbindung="and"/>
+    <Voraussetzung Fertigkeit="Zauberschmiede"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Waffen verzaubern (6)" Stufe="6" Zeitaufwand="1 Monat" Geldaufwand="300 GS + 5*Waffenpreis" Kosten="3500">
+    <Grund>Th</Grund>
+    <Voraussetzung Fertigkeit="Binden" Verbindung="and"/>
+    <Voraussetzung Fertigkeit="Zauberschmiede"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Wahnsinn" Art="Schutzrune" Stufe="6" Zeitaufwand="3 Stunden" Geldaufwand="5 GS" Kosten="600">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Wahnsinn" Art="Großes Siegel" Stufe="6" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="3000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Wahrsehen" Art="Augensalbe" Stufe="5" Geldaufwand="100 GS" Kosten="3000">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Wasser weihen" Art="Weihwasser" Stufe="1" Zeitaufwand="1 Tag" Geldaufwand="30 GS" Kosten="200">
+    <Grund>PF,PHa,PHe,PK,PM,PT,PW</Grund>
+    <Voraussetzung Fertigkeit="Austreibung des Bösen" Verbindung="and"/>
+    <Voraussetzung Fertigkeit="Bannen von Finsterwerk" Verbindung="and"/>
+    <Voraussetzung Fertigkeit="Reinigen" Verbindung="and"/>
+    <Voraussetzung Fertigkeit="Segnen" Verbindung="and"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Weihen" Stufe="G" Kosten="20000">
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+  </Zauberwerk>
+  <Zauberwerk Name="Werwesenamulett verzaubern" Art="Amulett" Stufe="3" Zeitaufwand="1 Monat" Geldaufwand="20000 GS/ABW" Kosten="400">
+    <Grund>Th</Grund>
+    <Standard>Dr,Hl,Ma,PF,PT,Sc,dBe,eBe,tBe</Standard>
+    <Ausnahme>PC,PHa,PHe,PK,PM,PW,gHx,sHx,wHx</Ausnahme>
+    <Voraussetzung Fertigkeit="Silberstaub"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Windstoß" Art="Großes Siegel" Stufe="1" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="120">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (1)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (10)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (11)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (12)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (13)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (2)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (3)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (4)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (5)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (6)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (7)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (8)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zahlenletter (9)" Art="magische Letter" Stufe="1" Geldaufwand="4 GS" Kosten="200">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zauberpergament beschriften" Art="Zauberpergament" Stufe="3" Zeitaufwand="1 Monat/Stufe" Geldaufwand="variabel" Kosten="600">
+    <Grund>Ma,PW,Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT</Standard>
+    <Voraussetzung Fertigkeit="Lesen von Zauberschrift"/>
+  </Zauberwerk>
+  <Zauberwerk Name="Zauberstimme" Art="Großes Siegel" Stufe="2" Zeitaufwand="Stufe*10 min" Geldaufwand="10 GS" Kosten="150">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zeitletter (Jahr)" Art="magische Letter" Stufe="2" Geldaufwand="1 GS" Kosten="400">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zeitletter (Mond)" Art="magische Letter" Stufe="2" Geldaufwand="1 GS" Kosten="400">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zeitletter (Stunde)" Art="magische Letter" Stufe="2" Geldaufwand="1 GS" Kosten="400">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zeitletter (Tag)" Art="magische Letter" Stufe="2" Geldaufwand="1 GS" Kosten="400">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zeitletter (Trideade)" Art="magische Letter" Stufe="2" Geldaufwand="1 GS" Kosten="400">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zündletter (Bereich)" Art="magische Letter" Stufe="3" Geldaufwand="4 GS" Kosten="600">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zündletter (Berührung)" Art="magische Letter" Stufe="3" Geldaufwand="4 GS" Kosten="600">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Zündletter (Schlüsselwort)" Art="magische Letter" Stufe="3" Geldaufwand="4 GS" Kosten="600">
+    <Grund>Th</Grund>
+  </Zauberwerk>
+  <Zauberwerk Name="Kriegsbemalung" Region="R" Art="Talisman" Stufe="1" Zeitaufwand="10 min" Geldaufwand="10/20/30 GS" Kosten="200">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+  </Zauberwerk>
+  <Zauberwerk Name="Kriegsbemalung" Region="R" Art="Talisman" Stufe="2" Zeitaufwand="10 min" Geldaufwand="30/60/90 GS" Kosten="200">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+  </Zauberwerk>
+  <Zauberwerk Name="Kriegsbemalung" Region="R" Art="Talisman" Stufe="3" Zeitaufwand="10 min" Geldaufwand="60/120/180 GS" Kosten="500">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+  </Zauberwerk>
+  <Zauberwerk Name="Kriegsbemalung" Region="R" Art="Talisman" Stufe="4" Zeitaufwand="10 min" Geldaufwand="100/200/300 GS" Kosten="1000">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+  </Zauberwerk>
+  <Zauberwerk Name="Körperbemalung" Region="R" Art="Talisman" Stufe="1" Zeitaufwand="1 Stunde" Geldaufwand="10/20/30 GS" Kosten="200">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+  </Zauberwerk>
+  <Zauberwerk Name="Körperbemalung" Region="R" Art="Talisman" Stufe="2" Zeitaufwand="1 Stunde" Geldaufwand="30/60/90 GS" Kosten="200">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+  </Zauberwerk>
+  <Zauberwerk Name="Körperbemalung" Region="R" Art="Talisman" Stufe="3" Zeitaufwand="1 Stunde" Geldaufwand="60/120/180 GS" Kosten="500">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+  </Zauberwerk>
+  <Zauberwerk Name="Körperbemalung" Region="R" Art="Talisman" Stufe="4" Zeitaufwand="1 Stunde" Geldaufwand="100/200/300 GS" Kosten="1000">
+    <Grund>Th</Grund>
+    <Standard>PC,PF,PHa,PHe,PK,PM,PT,PW,Sc</Standard>
+    <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
+  </Zauberwerk>
 </MidgardCG-data>

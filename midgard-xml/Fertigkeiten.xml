@@ -725,12 +725,6 @@
     <Grund>Hä</Grund>
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
   </Fertigkeit>
-  <Fertigkeit Name="Dichten" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="In">
-    <Grund>Ba</Grund>
-    <Standard>As,BN,BS,BW,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
-    <Ausnahme>Sa</Ausnahme>
-    <Lernschema Typ="Sk" Lernpunkte="1" Pflicht="True"/>
-  </Fertigkeit>
   <Fertigkeit Name="Etikette" Region="B&amp;R" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In">
     <Grund>Ba,Gl,Ma,PC,PF,PK,PM,PT,PW,Ri</Grund>
     <Standard>As,Dr,Fi,Hl,Hä,Kd,Kr,Ny,Or,Sa,Se,Sr,Th,dBe,eBe,gHx,sHx,wHx</Standard>
