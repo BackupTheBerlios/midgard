@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.30 2002/06/29 20:39:30 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.31 2002/06/30 18:34:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,6 +31,7 @@
 #include "Zauberwerk.hh"
 #include <Gtk2TeX.h>
 #include "recodestream.h"
+#include "Windows_Linux.hh"
 
 static std::string defFileName(const std::string &s)
 {  std::string res;
@@ -792,19 +793,13 @@ void LaTeX_drucken::LaTeX_footer(ostream &fout)
 void LaTeX_drucken::pdf_viewer(const std::string& file)
 {
 #ifdef __MINGW32__
-  const char psep=';',dirsep='\\';
-#else
-  const char psep=':',dirsep='/';
-#endif   
-
-#ifdef __MINGW32__
   const char * const subpath="\\texmf\\miktex\\bin";
   static std::string newpath;
   const char *e=getenv("PATH");
   if (!e) e="";
   if (!strstr(e,subpath))
   {  newpath="PATH="+hauptfenster->BinaryVerzeichnis()
-  	+subpath+std::string(1,psep)+ e;
+  	+subpath+std::string(1,WinLux::psep())+ e;
      putenv((char*)(newpath.c_str()));
   }
   // GetTempPath ?
@@ -815,9 +810,9 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   std::string file2=file;
   // LaTeX always writes to current dir first, so we change dir
 
-  if (file.rfind(dirsep)!=std::string::npos)
+  if (file.rfind(WinLux::dirsep())!=std::string::npos)
   {  chdir((file.substr(0,file.rfind(dirsep))).c_str());
-     file2=file.substr(file.rfind(dirsep)+1);
+     file2=file.substr(file.rfind(WinLux::dirsep())+1);
   }
 
   system(("pdflatex --interaction batchmode "+file2+".tex").c_str());
