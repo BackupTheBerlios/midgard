@@ -1,5 +1,30 @@
 ##########################################################################
-NEWS IN VERSION 0.3betha0
+NEWS IN VERSION 0.3beta1
+Weitere Pixmaps eingebaut.
+Die Pixmaps müssen nicht mehr getrennnt heruntergeladen werden, die 
+   Installation sollte einfacher sein (Ich bitte um Rückmeldung)
+'KiDo' hat als Voraussetzung 'TaiTschi'
+Die 'Zauber' Seiten in den Notebooks werden nur noch dann angezeigt, wenn 
+   auch eine entsprechende Charakterklasse gewählt wird. Entsprechendes 
+   gilt auch für die 'KiDo' Seiten in den Notebooks.
+Für Eingeweihte (und solche die es werden wollen, hier zähle ich mich mal mit dazu:-):
+Auf dem berlios-server gibt es ein CVS-Repository, in dem (dank Christof)
+   auch die Datenbank liegt. Wer näheres wissen will liest entweder ein 
+   dickes Buch, schaut sich mal die Entwicklerseite 
+   http://developer.berlios.de/projects/midgard an, oder fragt 
+   Christof.
+Auch wenn es eigentlich mehr kann als GENERIEREN, hat sich bis auf weiteres
+   der Name MCG = MidgardCharakterGenerator eingebürgert, wenn jemand einen
+   treffenderen Namen weiß, dann möge er mir den miteilen :-)
+
+COMING SOON:
+Die KiDo Datenbank ist NOCH nicht da, daher können noch keine KiDo 
+   Techniken gelernt werden, obwohl die Oberfläche dafür vorhanden ist.
+   (Nils arbeitet auf hochturen daran :-)
+Für Eschar hat sich auch jemand gefunden ... *freu*
+
+##########################################################################
+NEWS IN VERSION 0.3beta0
 Einige kleinere Bugs beseitigt und andere kleinere 
    Schönheitsreperaturen :-) vorgenommen.
 Alessandro hat fast alle Pixmaps fertig -> Die Oberfläche wird bunt
@@ -23,12 +48,12 @@ Alba Region eingearbeitet (Wenn ich mich nicht verguckt habe, dann gibt es NUR
 die regionalen Ergänzungen vorzunehmen *freu*
 
 ##########################################################################
-NEWS IN VERSION 0.2betha5
+NEWS IN VERSION 0.2beta5
 angeborene Fertigkeiten können jetzt editiert werden (rechte Maustaste)
 Stand 'entry' durch 'optionmenu' ersetzt -> keine Falscheingabe mehr möglich.
 
 ##########################################################################
-NEWS IN VERSION 0.2betha4
+NEWS IN VERSION 0.2beta4
 Nach 'neuer Charakter' waren Abstürze möglich, da keine Charakterklasse
    gesetzt war -> behoben
 Es können magische Waffen unter 'steigern' -> 'Besitztümer' gewählt werden,
@@ -40,7 +65,7 @@ Ausdruck des Awehrwertes unter Berücksichtigung von (mag.) Verteidigungswaffen
 
 
 ##########################################################################
-NEWS IN VERSION 0.2betha3
+NEWS IN VERSION 0.2beta3
 Das Info Fenster vernichtet sich nach 4 Sekunden selbstständig.
 Abspeichern von Charakteren war fehlerhaft (durch die Umstellung der 
    Charakterklassen)
@@ -48,7 +73,7 @@ Beruf Gelehrer in Datenbank korrigiert
 
 
 ##########################################################################
-NEWS IN VERSION 0.2betha2
+NEWS IN VERSION 0.2beta2
 Hilfe leicht überarbeitet und ergänzt
 Bug bei Sprachen lernen beseitigt: GFP werden jetzt addiert
 Einige Bugs aus der Datenbank beseitigt
@@ -61,13 +86,13 @@ Info Fenster kann abgeschaltet werden.
 [ Die Regionen-Knöpfe sind noch ohne Funktion ]
 
 ##########################################################################
-NEWS IN VERSION 0.2betha1
+NEWS IN VERSION 0.2beta1
 Fehler in Datenbank beseitigt (Schilde sind maskulin nicht neutrum :-)
    -> konten nicht gelernt werden.
 Auswürfeln der Rüstung funktioniert jetzt (hoffentlich) richtig.
 
 ##########################################################################
-NEWS IN VERSION 0.2betha0
+NEWS IN VERSION 0.2beta0
 Fertigkeit 'Fallen entdecken' führe zu einem Absturz -> behoben
 Fertigkeit 'Giftmischen' führe zu einem Absturz -> behoben
 
@@ -84,12 +109,12 @@ Schadensbonus nur noch für Nahkampfwaffen
 
 
 ##########################################################################
-NEWS IN VERSION 0.1betha1
+NEWS IN VERSION 0.1beta1
 Fehler bei der Berufsauswahl beseitigt
 Vorteile aufgrund der Berufswahl werden bei der Fertigkeitsauswahl berücksichtigt
 
 ##########################################################################
-NEWS IN VERSION 0.1betha0
+NEWS IN VERSION 0.1beta0
 Die Waffengrundkenntnisse werden für einen 'Neuen Charakter' zurückgesetzt.
 
 ##########################################################################

@@ -91,6 +91,9 @@ struct st_zauber{string ap; string name; string erfolgswert;string art; string s
          ursprung(u), material(mat), agens(age), prozess(pro), reagens(rea),
          beschreibung(bes), kosten(ko) {} };
 
+struct st_kido {string technik; string stil;
+      st_kido(string t, string s): technik(t),stil(s) {}};
+
 struct st_sprachen {string name; int wert;string schrift;
       st_sprachen(string n, int w, string s) : name(n),wert(w),schrift(s) {} };
 struct st_schriften {string urschrift; string typ;
@@ -117,6 +120,7 @@ class midgard_CG : public midgard_CG_glade
         vector<st_ausgewaehlte_zauber> vec_zauber;
         vector<st_ausgewaehlte_berufe> vec_beruf;
         vector<st_zauber> zauber;
+        vector<st_kido> vec_kido;
         vector<st_sprachen> vec_sprachen;
         vector<st_schriften> vec_schriften;
         map<string,string> waffen_grundkenntnisse;
@@ -161,6 +165,9 @@ class midgard_CG : public midgard_CG_glade
         void spezialgebiet_button();
         void on_zauber_wahl_clicked();
         void on_berufe_wahl_clicked();
+        void on_kido_wahl_clicked();
+        void show_kido();
+        void stil_optionmenue();
         string  get_erfolgswert_zaubern(styp typ,string name);
         int get_spezial_zauber(string typ,string name);
         void show_berufe();
@@ -227,6 +234,13 @@ class midgard_CG : public midgard_CG_glade
         void show_alte_zauber();
         void show_neue_zauber();
 
+        void on_kido_laden_clicked();
+        void on_steigern_kido_clist_alt_select_row(gint row, gint column, GdkEvent *event);
+        void on_steigern_kido_clist_neu_select_row(gint row, gint column, GdkEvent *event);
+        void show_alte_kido();
+        void show_neue_kido();
+
+
         void on_sprache_laden_clicked();
         void on_steigern_sprache_clist_alt_select_row(gint row, gint column, GdkEvent *event);
         void on_steigern_sprache_clist_neu_select_row(gint row, gint column, GdkEvent *event);
@@ -256,6 +270,7 @@ class midgard_CG : public midgard_CG_glade
          void waffe_besitz_uebernehmen(vector<st_waffen_besitz>& wbu);
          void zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz);
          void berufe_uebernehmen(vector<st_ausgewaehlte_berufe>& sab);
+         void midgard_CG::kido_uebernehmen(vector<string>& technik);
          double get_standard_zauber(string typ, string zauber);
          double get_standard_waffen(string typ,string waffe);
          double get_standard_fertigkeit(string typ, string fertigkeit);

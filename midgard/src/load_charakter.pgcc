@@ -256,8 +256,8 @@ void midgard_CG::load_charakter()
 
 //////////////////////////////////////////////////////////////////////////////
    ///////////////////////////////////////////////////////////////////////   
-   // Berufe, Fertigkeiten, Waffen und Zauber
-   // Grundkenntnisse (Wafen)
+   // Berufe, Fertigkeiten, Waffen und Zauber (KiDo)
+   // Grundkenntnisse (Waffen)
    exec sql begin declare section;
       char db_fertigkeit[50];
       int db_wert;
@@ -351,6 +351,7 @@ void midgard_CG::load_charakter()
          waffe_besitz.push_back(st_waffen_besitz(db_fertigkeit,db_av_bonus,db_sl_bonus));
       } 
    exec sql close besitz_w;
+
    // Zauber
    strncpy(db_art,"Zauber",sizeof(db_art));
    exec sql declare zauber cursor for
@@ -368,6 +369,25 @@ void midgard_CG::load_charakter()
          zauber.push_back(st_zauber("0",db_fertigkeit,itos(db_wert),"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
       } 
    exec sql close zauber;
+
+   // KiDo
+   strncpy(db_art,"KiDo",sizeof(db_art));
+   exec sql declare kido cursor for
+      select fertigkeit, wert  from charaktere_fertigkeiten
+      where charakter_name=:db_name_ch 
+         and version=:db_version
+         and art=:db_art;
+   exec sql open kido;
+   SQLerror::test(__FILELINE__);
+   while(true)
+      {
+         exec sql fetch kido into :db_fertigkeit, :db_wert ;
+         SQLerror::test(__FILELINE__,100);
+         if (sqlca.sqlcode) break;
+         vec_kido.push_back(st_kido(db_fertigkeit,0));
+      } 
+   exec sql close kido;
+
    // Grundkenntnisse (Waffen)
    strncpy(db_art,"Grundkenntnis",sizeof(db_art));
    exec sql declare grund cursor for

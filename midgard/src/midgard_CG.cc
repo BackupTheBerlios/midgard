@@ -28,18 +28,35 @@ void midgard_CG::typauswahl_button()
 {
  get_typ(typ);
  fertig_typ->set_text(typ.l);
+
+ // Spezialwaffe anzeigen?
  if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
  else label_spezialwaffe->set_text("");
+
+ // Magie anzeigen?
  if (typ.z=="j" || typ.z == "z") 
-   { option_magier_spezialgebiet->show();
+   { if (typ.s=="Ma") option_magier_spezialgebiet->show();
+     else option_magier_spezialgebiet->hide();
      table_magier_lernen->show();
      table_magier_steigern->show();
    }
  else 
-   { option_magier_spezialgebiet->hide();
-     table_magier_lernen->hide();
+   { table_magier_lernen->hide();
      table_magier_steigern->hide();
    }
+
+ // KiDo anzeigen?
+ if (typ.s=="Kd" || typ.s == "Ny") 
+   { optionmenu_KiDo_Stile->show();
+     table_kido_lernen->show();
+     table_kido_steigern->show();
+   }
+ else 
+   { optionmenu_KiDo_Stile->hide();
+     table_kido_lernen->hide();
+     table_kido_steigern->hide();
+   }
+
 }
 
 void midgard_CG::on_herkunftsland_clicked()

@@ -1,0 +1,56 @@
+// generated 2001/4/3 21:37:34 CEST by thoma@ig23.
+// using glademm V0.5_11f_cvs
+//
+// newer (non customized) versions of this file go to KiDo_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "config.h"
+#include "KiDo_auswahl.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+
+void KiDo_auswahl::on_clist_kido_auswahl_select_row(gint row, gint column, GdkEvent *event)
+{   
+   if (maxkido>0) label_kido_techniken->set_text(itos(--maxkido));
+   else clist_kido_auswahl->row(row).unselect();
+}
+
+void KiDo_auswahl::on_clist_kido_auswahl_unselect_row(gint row, gint column, GdkEvent *event)
+{   
+   label_kido_techniken->set_text(itos(++maxkido));
+}
+
+void KiDo_auswahl::on_button_close_clicked()
+{
+  vector<string> technik;
+  for(Gtk::CList::SelectionList::iterator i=clist_kido_auswahl->selection().begin();
+      i!=clist_kido_auswahl->selection().end();++i)
+   {
+     
+//     technik.push_back(ptr->technik);
+   }
+  hauptfenster->kido_uebernehmen(technik);
+  destroy();
+}
+
+
+KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m)
+: maxkido(m)
+{
+   hauptfenster=h;
+   label_kido_techniken->set_text(itos(maxkido));
+
+//XXX CLIST FÜLLEN
+
+   for (unsigned int i=0;i<clist_kido_auswahl->columns().size();++i)
+      clist_kido_auswahl->set_column_auto_resize(i,true);
+   clist_kido_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
+   clist_kido_auswahl->set_reorderable(true);
+}
+

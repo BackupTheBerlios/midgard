@@ -146,5 +146,5 @@ b) Anderes
 
 ##########################################################################
 
-pg_dump -O -x -c [-d|-D] midgard > midgard-postgres-0.2betha1
-pg_dump -O -x -c midgard > midgard-postgres-0.3betha0
+pg_dump -O -x -c [-d|-D] midgard > midgard-postgres-0.2beta1
+pg_dump -O -x -c midgard > midgard-postgres-0.3beta0

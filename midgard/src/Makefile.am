@@ -42,7 +42,9 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 	Window_angeb_fert_glade.hh \
 	Window_angeb_fert.hh \
 	Midgard_Info_glade.hh \
-	Midgard_Info.hh
+	Midgard_Info.hh \
+   KiDo_auswahl.hh \
+   KiDo_auswahl_glade.hh
 
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
@@ -58,7 +60,7 @@ BUILT_SOURCES = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
 	Window_ruestung.cc Window_waffe.cc Window_Waffenbesitz.cc \
    midgard_CG_waffe_werte.cc get_berufs_vorteile.cc \
    midgard_CG_typauswahl.cc  Window_mag_bonus.cc get_Verteidigungswaffe.cc \
-	Window_angeb_fert.cc
+	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc
 
 
 
@@ -66,6 +68,8 @@ BUILT_SOURCES = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
 
 
 midgard_SOURCES = \
+   midgard_CG_kido.cc \
+   KiDo_auswahl_glade.cc \
    midgard_CG_region_check.cc \
 	Window_angeb_fert_glade.cc \
    Window_mag_bonus_glade.cc \

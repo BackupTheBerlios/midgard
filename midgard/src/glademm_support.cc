@@ -1,4 +1,4 @@
-// generated 2001/4/3 9:39:19 CEST by thoma@ig23.
+// generated 2001/4/4 8:09:31 CEST by thoma@ig23.
 // using glademm V0.5_11f_cvs
 //
 // some glademm convenience functions

@@ -2,7 +2,7 @@
 # using glademm V0.5_11c
 
 AC_INIT(src/midgard.cc)
-AM_INIT_AUTOMAKE(midgard, 0.3betha0)
+AM_INIT_AUTOMAKE(midgard, 0.3beta1)
 AM_CONFIG_HEADER(config.h)
 
 AC_ISC_POSIX
@@ -16,7 +16,7 @@ AM_PROG_LIBTOOL
 
 AC_LANG_CPLUSPLUS
 
-AM_PATH_GTKMM(1.2.4,,
+AM_PATH_GTKMM(1.2.0,,
         AC_MSG_ERROR(Cannot find GTK--: Please install Version 1.2.4+))
         
 PETIG_CHECK_POSTGRES
