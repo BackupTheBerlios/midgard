@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.44 2002/12/12 09:59:35 christof Exp $
+// $Id: WindowInfo.hh,v 1.45 2003/01/23 15:28:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,8 +33,9 @@ class midgard_CG;
 class WindowInfo : public WindowInfo_glade
 {   
    public:
-        enum emodus {None,Autoclean,ZaubernLernen,PraxisPunkteMBE,
-                     PraxisPunkteAnderes,Exit_ohne_speichern,Elf_doppel};
+        enum emodus {None,Autoclean/*,ZaubernLernen*//*,PraxisPunkteMBE*/,
+                     /*PraxisPunkteAnderes,*/Exit_ohne_speichern,Elf_doppel,
+                     LernenMitSpruchrolle};
    private:
         friend class WindowInfo_glade;
         void on_button_abbrechen_clicked();
@@ -56,11 +57,12 @@ class WindowInfo : public WindowInfo_glade
         midgard_CG* hauptfenster;
         MBEmlt *MBE;
         Enums::e_was_steigern was;
+        int bonus_spruchrolle;
    public:
         WindowInfo(midgard_CG* h);
         void AppendShow(const std::string& s,emodus modus, Enums::e_was_steigern was,int anzahl);
         void AppendShow(const std::string& s,emodus modus, MBEmlt *MBE,int anzahl=0);
-        void AppendShow(const std::string& s, emodus modus=Autoclean,int anzahl=0);
+        void AppendShow(const std::string& s,emodus modus=Autoclean,int anzahl=0);
         void AppendShowLog(const std::string& s);
         void Show() {bestaetigen(false); show();}
         void show_pic(bool b);

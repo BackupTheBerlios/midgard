@@ -88,6 +88,7 @@ private:
         void save_new_arikel();
         std::map<std::string,std::list<std::string> > MNewArt;
         void newArt(const std::string &art,const std::string art2);
+        bool genug_geld(const std::string &_E_,const int kosten) const;
 private:
         SigC::Connection sichtbarConnection;
         void zeige_werte();
@@ -118,6 +119,7 @@ private:
         void on_togglebutton_unverkauflich_toggled();
         void on_combo_entry_einheit_activate();
         void on_combo_entry_region_activate();
+        void on_entry_beschreibung_activate();
         void on_button_artikel_speichern_clicked();
 
         // drag & drop

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.9 2002/12/12 11:00:50 christof Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.10 2003/01/23 15:28:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -20,37 +20,53 @@
 #include "Abenteurer.hh"
 #include "dtos1.h"
 
-void rekursiv(const std::list<AusruestungBaum> &AB, double &last)
+void rekursiv(const std::list<AusruestungBaum> &AB, double &last,double &GG)
 {
   for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
    {
+     double G=i->getAusruestung().Gewicht();
      if(!i->getAusruestung().RuestungOhneGewicht())
-        last+=i->getAusruestung().Gewicht();
+      {
+        if(GG<0) { GG+=G; if(GG>0) G=GG; else G=0;}
+        if (G>0) last+=G*i->getAusruestung().Anzahl();
+      }
      std::list<AusruestungBaum> L=i->getChildren();
-     rekursiv(L,last);
+     GG+=G;
+     rekursiv(L,last,GG);
    }
 }
 
-double Abenteurer::getBelastung() const
+std::map<std::string,double> Abenteurer::getBelastung() const
 {
-  double last=0;
+  std::map<std::string,double> MG;
+//  double last=0;
   for(AusruestungBaum::const_iterator i=getBesitz().begin();i!=getBesitz().end();++i)
    {
-     last+=i->getAusruestung().Gewicht();
+//     if(i->getAusruestung().Name()!="Körper") continue;
+     
+     double G=i->getAusruestung().Gewicht();
+     if(G>0) MG[i->getAusruestung().Name()]+=G*i->getAusruestung().Anzahl();
      std::list<AusruestungBaum> L=i->getChildren();
-     ::rekursiv(L,last);
+     ::rekursiv(L,MG[i->getAusruestung().Name()],G);
    }
-  return last;
+  return MG;
+//  return last;
+}
+
+double Abenteurer::getBelastung(const std::string &s) const
+{
+  std::map<std::string,double> MG=getBelastung();
+  return MG[s];
 }
 
 
 AusruestungBaum* Abenteurer::rekursiv(std::list<AusruestungBaum> &AB,const std::string &name)
 {
-std::cout << "S2: "<<AB.size()<<'\n';
+//std::cout << "S2: "<<AB.size()<<'\n';
   AusruestungBaum *ab=&getBesitz();
   for(std::list<AusruestungBaum>::iterator i=AB.begin();i!=AB.end();++i)
    {
-std::cout <<' '<< name<<'\t'<<i->getAusruestung().Name()<<'\t'<<(name==i->getAusruestung().Name())<<'\n';
+//std::cout <<' '<< name<<'\t'<<i->getAusruestung().Name()<<'\t'<<(name==i->getAusruestung().Name())<<'\n';
      if(name==i->getAusruestung().Name()) return ab=&*i;
      else ab = rekursiv(i->getChildren(),name);
    }
@@ -84,13 +100,13 @@ void Abenteurer::setStandardAusruestung()
   Guertel->setParent(Koerper);
   AusruestungBaum *Schuhe=&Koerper->push_back(Ausruestung("Schuhe"));
   Schuhe->setParent(Koerper);
-  AusruestungBaum *Rucksack=&Koerper->push_back(Ausruestung("Rucksack",0,"Leder","",true,false));
+  AusruestungBaum *Rucksack=&Koerper->push_back(Ausruestung(1,"Rucksack",0,"Leder","",true,false,""));
   Rucksack->setParent(Koerper);
-  AusruestungBaum *Decke=&Rucksack->push_back(Ausruestung("Decke",0,"warm","",false,false));
+  AusruestungBaum *Decke=&Rucksack->push_back(Ausruestung(1,"Decke",0,"warm","",false,false,""));
   Decke->setParent(Rucksack);
   AusruestungBaum *Lederbeutel=&Rucksack->push_back(Ausruestung("Lederbeutel"));
   Lederbeutel->setParent(Guertel);
-  AusruestungBaum *Geld=&Rucksack->push_back(Ausruestung("Geld",0,"","",false,false));
+  AusruestungBaum *Geld=&Rucksack->push_back(Ausruestung(1,"Geld",0,"","",false,false,""));
   Geld->setParent(Lederbeutel);
 
 //  return *Rucksack;
@@ -133,7 +149,7 @@ int Abenteurer::getSchublast() const
 
 double Abenteurer::getUeberlast() const
 {
-  double u=getBelastung()-getNormallast();
+  double u=getBelastung("Körper")-getNormallast();
   if (u<0) return  0;
   else     return  u;
 }

@@ -64,14 +64,15 @@ void Preise::get_Preise()
   kosten=tag->getFloatAttr("Preis");
   gewicht=tag->getFloatAttr("Gewicht");
   region=tag->getAttr("Region");
-  ruestung=tag->getBoolAttr("RÃ¼stung_ohne_Gewicht");
+  beschreibung=tag->getAttr("Beschreibung");
+  ruestung=tag->getBoolAttr("Rüstung_ohne_Gewicht");
   if(kosten<0) {kosten=0; unverkauflich=true;}
 }
 
 Preise_All::Preise_All(const std::string &filename,Tag &tag_eigene_artikel)
 {
  const Tag *preise=xml_data->find("PreiseNeu");
- if (preise)
+ if(preise)
  {  Tag::const_iterator b=preise->begin(),e=preise->end();
     FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Dinge")
     {  
@@ -170,7 +171,7 @@ PreiseNewMod_All::PreiseNewMod_All()
 void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
      const std::string &art,const std::string &art2,
      const std::string &name,const double &preis, const std::string &einheit,
-     const double &gewicht,const std::string &region)
+     const double &gewicht,const std::string &region,const std::string &beschreibung)
 {
    std::string filename=hauptfenster->MagusVerzeichnis()+"magus_preise.xml";
    std::ofstream datei(filename.c_str());
@@ -187,11 +188,12 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
 
    TeA.setAttr("Art",art);
    TeA.setAttr("Art2",art2);
-   TeA.setAttr("Name",name);
-   TeA.setAttr("WÃ¤hrung",einheit);
+   TeA.setAttr("Ware",name);
+   TeA.setAttr("Währung",einheit);
    TeA.setAttr("Preis",dtos(preis));
    TeA.setAttr("Gewicht",dtos(gewicht));
    TeA.setAttr("Region",region);
+   TeA.setAttr("Beschreibung",beschreibung);
 
    cH_Preise(name,art,&TeA);
 

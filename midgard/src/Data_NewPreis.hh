@@ -36,7 +36,8 @@ class Data_NewPreis : public RowDataBase
      Data_NewPreis(const cH_Preise P,const std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> &m) 
          : ware(P),kosten(P->Kosten()),M(m)  {}
       
-     enum spalten {ART,ART2,NAME,V_FARBE,V_MATERIAL,V_STAND,GEWICHT,KOSTEN,REGION};
+     enum spalten {ART,ART2,NAME,V_FARBE,V_MATERIAL,V_STAND,GEWICHT,
+                   KOSTEN,BESCHREIBUNG,REGION};
      
      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
       {
@@ -51,6 +52,7 @@ class Data_NewPreis : public RowDataBase
            case V_MATERIAL: return cH_EntryValueIntString(M_[table_ausruestung::Material].spezifikation);
            case V_FARBE: return cH_EntryValueIntString(M_[table_ausruestung::Farbe].spezifikation);
            case KOSTEN: return cH_EntryValueIntString(dtos(CalKosten())+" "+ware->Einheit());
+           case BESCHREIBUNG: return cH_EntryValueIntString(ware->Beschreibung());
            case REGION: return cH_EntryValueIntString(ware->Region());
          }
         return cH_EntryValueIntString();

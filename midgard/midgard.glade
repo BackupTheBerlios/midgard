@@ -9772,13 +9772,13 @@ eing.</property>
 					  <property name="spacing">0</property>
 
 					  <child>
-					    <widget class="GtkImage" id="pixmap129">
+					    <widget class="Custom" id="flashing_eigenschaft">
+					      <property agent="glademm" name="cxx_visibility">protected</property>
 					      <property name="visible">True</property>
-					      <property name="pixbuf">Red-Dice-trans-50.xpm</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
+					      <property name="creation_function">FlashingPixmap</property>
+					      <property name="int1">0</property>
+					      <property name="int2">0</property>
+					      <property name="last_modification_time">Tue, 05 Nov 2002 14:52:25 GMT</property>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>

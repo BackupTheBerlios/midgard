@@ -274,7 +274,6 @@ void table_steigern::set_zusatz_sensitive(bool an)
 void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
-//  modify(Zusatz,dt->getMBE(),dt->getZusatz(),0);
   dt->getMBE()->setZusatz(dt->getZusatz());
   if(dt->getZusatz().name==hauptfenster->getWerte().Herkunft()->Name())
      dt->getMBE()->setErfolgswert(9);
@@ -288,39 +287,3 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
   neue_fert_tree->set_sensitive(true);
 }
 
-/*
-void table_steigern::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte)
-{
-assert(!"NIX DA\n");
-  bool found=false;
-  int c=0;
-  while(true)
-   {
-     std::list<MBEmlt> *L;
-     if(c==0) L=&hauptfenster->getChar()->List_Fertigkeit();
-     else if(c==1) L=&hauptfenster->getChar()->List_Zauber();
-     else if(c==2) L=&hauptfenster->getChar()->List_Waffen();
-     else if(c==3) L=&hauptfenster->getChar()->List_Sprache();
-     else if(c==4) L=&hauptfenster->getChar()->List_Schrift();
-     else assert(!"never get here\n");
-     for(std::list<MBEmlt>::iterator i=L->begin();i!=L->end();++i)
-      {
-std::cout << (*i)->Zusatz().empty()<<'\t'<<(*(*i))->Name()<<' '<< (*M)->Name()<<'\n';
-        if( (*i)->Zusatz().empty() && (*(*i))->Name() == (*M)->Name())       
-         {
-           found=true;
-           if(modus==PP)
-             (*i)->setPraxispunkte(praxispunkte);
-           else if(modus==Zusatz)
-            {
-              (*i)->setZusatz(zusatz);
-              if(zusatz.name==hauptfenster->getWerte().Herkunft()->Name()) 
-                (*i)->setErfolgswert(9);
-            }
-         }
-      }
-    if(found) break;
-    else ++c;
-   }
-}
-*/

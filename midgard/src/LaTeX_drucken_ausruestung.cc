@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.19 2002/12/26 21:24:31 christof Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.20 2003/01/23 15:28:25 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,7 +42,7 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
  fout << "Normallast: "<<itos(A.getNormallast())<<"\\,kg\\qquad\n"
       << "HÃ¶chstlast: "<<itos(A.getHoechstlast())<<"\\,kg\\qquad\n"
       << "Schublast: " <<itos(A.getSchublast())<<"\\,kg\n\n";
- fout << "Belastung: "<<dtos1(A.getBelastung())<<"\\,kg}\\hfill\n";
+ fout << "Belastung: "<<dtos1(A.getBelastung("Körper"))<<"\\,kg}\\hfill\n";
  fout <<"\\parbox{"+hbreiteb+"}{";
  {
   bool ew1=false; bool ew2=false;
@@ -75,9 +75,12 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
     {      
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
-      fout <<"\\hspace{0.7cm}";
-      if(i->getAusruestung().Sichtbar())  fout << TeX::string2TeX(name)<<"\\\\\n" ;
-      else                                fout <<"\\textcolor{mygray}{"<< TeX::string2TeX(name)<<"}\\\\\n" ;
+//      fout <<"\\hspace{0.7cm}";
+      if(i->getAusruestung().Sichtbar())  fout << Gtk2TeX::string2TeX(name) ;
+      else                                fout <<"\\textcolor{mygray}{"<< Gtk2TeX::string2TeX(name)<<"}" ;
+      double last=hauptfenster->getAben().getBelastung(name);
+      fout << " \\footnotesize ("<<last<<"kg)";
+      fout << "\\\\\n";
       ausruestung_druck(fout,unsichtbar,i->getChildren(),1);
      }
   }
@@ -98,8 +101,10 @@ void LaTeX_drucken::ausruestung_druck(std::ostream &fout,bool unsichtbar,const s
       if (!i->getAusruestung().Material().empty() &&
            i->getAusruestung().Material()!="standard" ) 
          name +=" ("+i->getAusruestung().Material()+")";
-
-      fout <<"\\makebox[0.7cm]{\\raggedleft\\footnotesize "+i->getAusruestung().SGewicht()+"}"; 
+      name = i->getAusruestung().SAnzahl() + name;
+      fout <<"\\makebox[0.7cm]{\\raggedleft\\footnotesize "
+         <<i->getAusruestung().SAnzahl()
+         <<i->getAusruestung().SGewicht()+"}"; 
       double fdeep = deep*0.5;
       fout << "\\hspace*{"+dtos1(fdeep)+"cm} ";
       if(i->getAusruestung().Sichtbar())  fout << TeX::string2TeX(name)<<"\\\\\n" ;

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.57 2002/12/18 17:58:00 christof Exp $
+// $Id: WindowInfo.cc,v 1.58 2003/01/23 15:28:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,15 +52,18 @@ bool WindowInfo::on_WindowInfo_delete_event(GdkEventAny *ev)
 void WindowInfo::on_button_bestaetigen_clicked()
 {
  if (Modus==Elf_doppel)    hauptfenster->table_grundwerte->doppelcharaktere();
- else if (Modus==ZaubernLernen)    hauptfenster->table_grundwerte->kaempfer_lernt_zaubern();
+// else if (Modus==ZaubernLernen)    hauptfenster->table_grundwerte->kaempfer_lernt_zaubern();
+ else if(Modus==LernenMitSpruchrolle) {hauptfenster->table_steigern->lernen_von_spruchrolle_fragen(bonus_spruchrolle);bonus_spruchrolle=-99;}
  else if (Modus==Exit_ohne_speichern)  hauptfenster->on_button_quit_confirm_clicked();
  else assert(!"never get here");
+ 
  on_button_abbrechen_clicked();
 }
 
-
 void WindowInfo::on_button_auswahl_clicked(int connect)
 {
+ assert(!"never get here");
+#if 0
  assert(Modus==PraxisPunkteMBE);
  if(MBE)
   {
@@ -82,11 +85,12 @@ void WindowInfo::on_button_auswahl_clicked(int connect)
  hide();
  MBE=0;
  was=Enums::eMBEm;
+#endif
 }
 
-
 WindowInfo::WindowInfo(midgard_CG* h)
-: mystream(0), myLogstream(0),hauptfenster(h), MBE(0),was(Enums::eMBEm)
+: mystream(0), myLogstream(0),hauptfenster(h), MBE(0),was(Enums::eMBEm),
+  bonus_spruchrolle(-99)
 {
    scrolledwindow_status->hide();
    
@@ -113,6 +117,7 @@ void WindowInfo::AppendShow(const std::string& s, emodus modus,int anzahl)
   Modus=modus;
   Gtk::OStream os(LogWin->get_view());
   os << s <<'\n';
+  if(modus==LernenMitSpruchrolle) bonus_spruchrolle=anzahl;
   Flush(anzahl);
 }
 
@@ -137,7 +142,7 @@ void WindowInfo::Flush(int anzahl)
   if(!hauptfenster->MOptionen->OberCheck(Midgard_Optionen::NoInfoFenster).active)
      show();
   if (Modus==None || Modus==Autoclean) bestaetigen(false) ;
-  else if (Modus==PraxisPunkteMBE) auswahl(anzahl);
+//  else if (Modus==PraxisPunkteMBE) auswahl(anzahl);
   else bestaetigen(true);
 
 /*

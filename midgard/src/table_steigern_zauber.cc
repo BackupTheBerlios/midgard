@@ -48,17 +48,34 @@ void table_steigern::zauber_zeigen()
 void table_steigern::on_leaf_selected_alte_zauber(cH_RowDataBase d)
 {  
  if(MidgardBasicElement_leaf_alt(d))
-  {
    zauber_zeigen();
-  }
 }
 
 
 void table_steigern::on_leaf_selected_neue_zauber(cH_RowDataBase d)
 {  
+  if(togglebutton_spruchrolle->get_active() && radio_spruchrolle_wuerfeln->get_active())
+   {
+     wuerfel_lesen_von_zauberschrift();
+     return;
+   }   
   MidgardBasicElement_leaf_neu(d);
   zauber_zeigen();
 }
+
+void table_steigern::wuerfel_lesen_von_zauberschrift()
+{
+  Random random;
+  int x= random.integer(1,20);
+  int e=hauptfenster->getAben().Erfolgswert("Lesen von Zauberschrift",hauptfenster->getCDatabase()).first;
+  int bonus;
+  if(x+e >= 20) bonus=+4;
+  else          bonus=-4;
+  hauptfenster->InfoFenster->AppendShow("EW:Lesen von Zauberschrift => "+itos(x)+"+"+itos(e)+"="+itos(x+e)
+   +"\n    => Bonus= "+itos(bonus)+"\nSoll versucht werden den Zauberspruch zu lernen?"
+   ,WindowInfo::LernenMitSpruchrolle,bonus);
+}
+
 
 void table_steigern::on_togglebutton_zaubersalze_toggled()
 {

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.20 2002/12/12 11:00:50 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.21 2003/01/23 15:28:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -19,6 +19,7 @@
 
 #include "Abenteurer.hh"
 #include "Zauber.hh"
+#include "Sprache.hh"
 #include <Misc/itos.h>
 #include "zufall.h"
 
@@ -55,12 +56,7 @@ void Abenteurer::reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_s
 {
   if (bool_steigern.mitEP) desteigern(MBE->Reduzieren(*this),wie,bool_steigern);
       getWerte().addGFP(-MBE->Reduzieren(*this));
-
-//  std::list<MBEmlt> &MyList=get_known_list(MBE);
-
   MBE->addErfolgswert(-1);
-//  for (std::list<MBEmlt>::iterator i=MyList.begin();i!= MyList.end();++i )
-//       if ( (*i) == MBE) { (*i)->addErfolgswert(-1) ; break;}
 }
 
 void Abenteurer::verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
@@ -70,10 +66,9 @@ void Abenteurer::verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_st
       bool_steigern.Spruchrolle)    verlernen/=5  ;
   if (bool_steigern.mitEP) desteigern(verlernen,wie,bool_steigern);  
       getWerte().addGFP(-verlernen);
-
 }
 
-bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
+bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern,const int bonus)
 {
  if(((*MBE).What()==MidgardBasicElement::FERTIGKEIT ||  (*MBE).What()==MidgardBasicElement::WAFFE)
       && !(*MBE)->Voraussetzung(*this,false))
@@ -138,12 +133,13 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
  getWerte().addGFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
- if     ((*MBE).What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle &&  
-     bool_steigern.SpruchrolleAuto)    getWerte().addGFP(kosten);
+ if     ((*MBE).What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle   
+     &&   bool_steigern.SpruchrolleAuto)   
+      getWerte().addGFP(kosten);
  else if((*MBE).What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle &&
      !bool_steigern.SpruchrolleAuto)
    {
-     bool x=cH_Zauber(MBE->getMBE())->spruchrolle_wuerfeln(*this,info);
+     bool x=cH_Zauber(MBE->getMBE())->spruchrolle_wuerfeln(*this,info,bonus);
      if(!x) return false;
      else getWerte().addGFP(kosten);
    } 
@@ -158,7 +154,9 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
                               const st_bool_steigern &bool_steigern)
 {
  if (!bool_steigern.mitEP) // Steigern OHNE EP/Gold/PP
-   { set_lernzeit(wie,kosten,was,bool_steigern);
+   { 
+     if(bool_steigern.Spruchrolle) kosten=cH_Zauber(MBE->getMBE())->iStufe();
+     set_lernzeit(wie,kosten,was,bool_steigern);
      return true;
    }
 
@@ -214,7 +212,7 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
    if(bool_steigern.aep_fuellen)
     {
       if(pp>=use_pp)  ep_k = rest_aep; 
-      else ep_k = rest_aep + 40*(use_pp-pp);
+      else            {ep_k = rest_aep + 40*(use_pp-pp); use_pp=pp;}
     }  
    else
     {  
@@ -224,6 +222,7 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
     }
    pp=use_pp;
   }
+
    
   int aep0=0,kep0=0,zep0=0;
   bool ok=genug_EP(ep_k,bkep,bzep,aep0,kep0,zep0,info);
@@ -232,12 +231,13 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
   // jetzt darf gesteigert werden ...
   getWerte().addGold(-gold_k);
   
-  if(wie==Enums::ePraxis &&  !bool_steigern.Spruchrolle)
+  if(wie==Enums::ePraxis && !bool_steigern.Spruchrolle)
    {
      if(bool_steigern.pp_verfallen)  set_lernzeit(wie,kosten,was,bool_steigern); 
      else   
-      { set_lernzeit(wie,kosten-ep_k,was,bool_steigern); 
-        set_lernzeit(wie,ep_k,was,bool_steigern,true); 
+      { //set_lernzeit(wie,kosten-ep_k,was,bool_steigern); 
+        //set_lernzeit(wie,ep_k,was,bool_steigern,true); 
+        set_lernzeit(wie,kosten,was,bool_steigern);
       }
    }
   else 
@@ -267,11 +267,38 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
   return true;  
 }
 
+void Abenteurer::move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu_,const std::list<cH_MidgardBasicElement> *alleSprachen)
+{
+ std::list<MBEmlt> *MyList;//,*MyList_neu;
+ if((*MBE).What()==MidgardBasicElement::FERTIGKEIT) 
+  {
+//???kido steigern und nicht neu lernen     if ((*MBE)->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
+     MyList     = &List_Fertigkeit();
+   }
+ else if((*MBE).What()==MidgardBasicElement::WAFFE) MyList=&List_Waffen(); 
+   
+ else if((*MBE).What()==MidgardBasicElement::WAFFEGRUND) MyList=&List_WaffenGrund(); 
+ else if((*MBE).What()==MidgardBasicElement::ZAUBER) MyList=&List_Zauber();
+ else if((*MBE).What()==MidgardBasicElement::ZAUBERWERK) MyList=&List_Zauberwerk();
+ else if((*MBE).What()==MidgardBasicElement::KIDO) MyList= &List_Kido(); 
+ else if((*MBE).What()==MidgardBasicElement::SPRACHE) 
+   { MyList     = &List_Sprache();
+     // eventuell höherer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
+     int ungelernterErfolgswert=cH_Sprache(MBE->getMBE())->getHoeherenErfolgswert(List_Sprache(),*alleSprachen/*hauptfenster->getCDatabase().Sprache*/);
+     if (ungelernterErfolgswert > MBE->Erfolgswert()) MBE->setErfolgswert(ungelernterErfolgswert);
+     // bis hier
+   }
+ else if((*MBE).What()==MidgardBasicElement::SCHRIFT) MyList=&List_Schrift();
+ else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
+ move_element(*MyList_neu_,*MyList,MBE);
+}
+
+
+
 
 void Abenteurer::set_lernzeit(const e_wie_steigern wie,const int kosten,
                               const e_was_steigern was,
-                              const st_bool_steigern bool_steigern,
-                              const bool no_pp)
+                              const st_bool_steigern bool_steigern)
 {
   if(was==Enums::eAusdauer)
    { getWerte().addSteigertage(Grad_anstieg::AP_Maximum_Tage);
@@ -282,12 +309,11 @@ void Abenteurer::set_lernzeit(const e_wie_steigern wie,const int kosten,
      getWerte().addSteigertage(kosten*3);
      return;
    }
-  else if(wie==Enums::eUnterweisung) getWerte().addSteigertage(kosten/10);
+  if(wie==Enums::eUnterweisung) getWerte().addSteigertage(kosten/10);
   else if(wie==Enums::eSelbststudium) getWerte().addSteigertage(kosten/5.);
   else if(wie==Enums::ePraxis)       
    {
-     if(!no_pp) getWerte().addSteigertage(kosten/500.);
-     else       getWerte().addSteigertage(kosten/5.);
+     getWerte().addSteigertage(kosten/500.);
    }
 }   
 
@@ -556,13 +582,19 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
  return kosten;
 }
 
+bool Abenteurer::eigenschaften_steigern_erlaubt() const
+{
+ if(getWerte().Grad() > getWerte().get_Grad_Basiswerte()) return true;
+ return false;
+}
+
 void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf)
 {
-  if(getWerte().Grad() <= getWerte().get_Grad_Basiswerte())
-   {info+="FÃ¼r Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewÃ¼rfelt";
+  if(!eigenschaften_steigern_erlaubt())
+   {info+="Für Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewürfelt";
     return;
    }
-  // ErhÃ¶hen der Schicksalsgunst
+  // Erhöhen der Schicksalsgunst
   { int n=Database.GradAnstieg.get_Schicksalsgunst(getWerte().Grad());
     if(getWerte().Spezies()->Name()=="Halbling") n=n+2;
     getWerte().add_SG(n);
@@ -572,11 +604,11 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
   if(wurf==-1) wurf=random.integer(1,100);
 
   int z=wurf;  
-  info+="Beim WÃ¼rfeln zur ErhÃ¶hung einer Eigenschaft fÃ¼r Grad "
+  info+="Beim Würfeln zur Erhöhung einer Eigenschaft für Grad "
       + itos(getWerte().get_Grad_Basiswerte()+1) + " wurde eine ";
   info += itos(wurf);
-  info +=" gewÃ¼rfelt ==> ";
-  std::string was = "keine ErhÃ¶hung";
+  info +=" gewürfelt ==> ";
+  std::string was = "keine Erhöhung";
 
   int erh = random.integer(1,6)+1;
   int awko= getWerte().Ko(); //alter_wert;

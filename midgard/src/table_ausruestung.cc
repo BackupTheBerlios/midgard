@@ -58,7 +58,6 @@ void table_ausruestung::showAusruestung()
 
   besitz=0;
   std::vector<std::string> title;
-//  scrolledwindow_ausruestung->remove();
 
 #if 0
   Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
@@ -83,9 +82,8 @@ void table_ausruestung::showAusruestung()
   Ausruestung_tree->expand_all();
   Ausruestung_tree->get_selection()->signal_changed().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
 //  Ausruestung_tree->signal_tree_unselect_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
-            
   button_ausruestung_loeschen->set_sensitive(false);
-  label_gesamtlast->set_text(dtos1(hauptfenster->getAben().getBelastung())+" kg");
+  label_gesamtlast->set_text(dtos1(hauptfenster->getAben().getBelastung("Körper"))+" kg");
 }
 
 
@@ -318,10 +316,17 @@ void table_ausruestung::on_combo_entry_einheit_activate()
 //  combo_entry_region->grab_focus();
   button_artikel_speichern->grab_focus();
 }
+
 void table_ausruestung::on_combo_entry_einheit_changed()
+{
+ entry_beschreibung->grab_focus();
+}
+
+void table_ausruestung::on_entry_beschreibung_activate()
 {
  button_artikel_speichern->grab_focus();
 }
+
 
 void table_ausruestung::on_combo_entry_region_activate()
 {
@@ -345,13 +350,14 @@ void table_ausruestung::save_new_arikel()
  std::string art2 = combo_art2->get_entry()->get_text();
  std::string name = entry_name->get_text();
  std::string einheit=combo_einheit->get_entry()->get_text();
+ std::string beschreibung=entry_beschreibung->get_text();
  double preis = atof( spinbutton_preis->get_text().c_str());
  double gewicht = atof( spinbutton_gewicht->get_text().c_str());
 
   std::string region="EE";
   try{
   Preise::saveArtikel("",hauptfenster,
-                      art,art2,name,preis,einheit,gewicht,region);
+                      art,art2,name,preis,einheit,gewicht,region,beschreibung);
   hauptfenster->getDatabase().preise.push_back(cH_Preise(name));
   fill_new_preise();
   }catch(std::exception &e) {std::cerr << e.what()<<'\n';}

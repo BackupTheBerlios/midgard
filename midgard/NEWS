@@ -3,6 +3,62 @@ NEU in Version 0.9.0
 * Wechsel nach gtk+ 2.0 und gtkmm 2.0 (neuere Bibliotheken)
 
 ##########################################################################
+NEWS IN VERSION 0.8.15
+
+* Ausrüstung: Kein Absturz mehr bei fehlendem Ziel
+* Ausrüstung: negatives Gewicht für Gegenstände möglich
+* Klammern um ungelernte Sprachen korrekt und um gelernte Schriften 
+   entfernt
+* Nach den Hinzufügen von Ausrüstung -> Abfrage vor beenden.
+* Neueingegeben Waren nach dem Programmstart vorhanden.
+* Gewicht für jede Ausrüstungswurzel getrennt angegeben
+* Lernen von Spruchrolle:
+Zuerst ein geheimer EW:Lesen von Zauberschrift. Bei normalem Mißerfolg kann 
+man sich entscheiden, zu warten, bis man LvZ gesteigert hat und es dann 
+nochmal von vorne versuchen. Bei jedem 
+anderen Ergebnis erfährt man dieses nicht und es geht weiter.
+Danach ein EW:Zaubern mit Abzügen je nach Spruchstufe, Ausnahmezauber, 
+und abhängig vom Ergebnis des vorherigen EW:LvZ.
+* Spruchrolle: 3 Tage/Stufe auch beim lernen ohne EP/PP
+
+TODO
+
+* Subtraktion von PP funktioniert nicht
+* min 50% bei lernen von PP müssen durch PP bestritten werden.
+* Mehrseitige Ausrüstungen
+* Setzen der Handle-Fenster-Positionen :-(
+* KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
+* Ausrüstung: Expandieren
+* Verursachen von Krankheit PT nicht erlernbar (Lernpunkte)
+- Ausrüstung mit drag & drop
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? :
+   Unter "Lernschema" bleibt noch 
+   einiges stehen. Bei "Steigern" 
+   und "Optionen" sind auch noch bunte Bildchen, und bei 
+   "Ausrüstung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrüsten" das Verschwinden.
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+
+
+
+##########################################################################
+NEWS IN VERSION 0.8.14
+
+* Deutsche Sortierung von Fertigkeiten
+* Bösen Bug beim Steigern beseitigt
+* Blinkender 'Eigenschaften Knopf'
+* automatisches wechseln von GS<->SS<->KS  beim ausrüsten
+* Ausrüstungen: Stückzahlen eingeben 
+* Ausrüstung: Beschreibung eingeben
+* Ausrüstung: Etwas zum 'Root-Tree' hinzufügen
+* Ausrüstung: Nur am 'Körper' getragene Waren werden beim Gewicht 
+   berücksichtigt
+* Neuimplementation von 'Kämpfer lernt Zaubern'
+
+
+##########################################################################
 NEWS IN VERSION 0.8.13
 
 * Anzeige von verändertem Schaden durch regionale Waffen
@@ -20,22 +76,6 @@ NEWS IN VERSION 0.8.13
 * Nur EP für Lernen von Spruchrolle verwenden
 * Würfeln beim lernen von Spruchrolle geht wieder
 
-TODO
-
-* Mehrseitige Ausrüstungen
-** Setzen der Handle-Fenster-Positionen :-(
-* Ausrüstung: Etwas zum 'Root-Tree' hinzufügen
-* KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
-- Ausrüstung mit drag & drop
-- Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? :
-   Unter "Lernschema" bleibt noch 
-   einiges stehen. Bei "Steigern" 
-   und "Optionen" sind auch noch bunte Bildchen, und bei 
-   "Ausrüstung" verweigern die Icons von "Modifikatoren 
-   entfernen" und "mit Geld ausrüsten" das Verschwinden.
-- alle Ausdrucke unter Windows testen
-- wrapfig for Windows für Grafik in Beschreibung
 
 
 ##########################################################################

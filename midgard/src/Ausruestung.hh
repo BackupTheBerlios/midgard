@@ -29,29 +29,31 @@ class AusruestungBaum;
 
 class Ausruestung
 {
+     unsigned int anzahl;
      std::string name;
      double gewicht;
      std::string material,region;
      bool sichtbar;
      bool ruestung_ohne_gewicht;
+     std::string beschreibung;
 
    public:
-     Ausruestung() : gewicht(0), sichtbar(false),ruestung_ohne_gewicht(false) {}
+     Ausruestung() : anzahl(0), gewicht(0), sichtbar(false),ruestung_ohne_gewicht(false) {}
 
      Ausruestung(std::string n) 
-       : name(n), gewicht(0), sichtbar(true),ruestung_ohne_gewicht(false) {}
-     Ausruestung(std::string n,double g,std::string ma,std::string r,bool s,bool ru)
-         :name(n),gewicht(g),material(ma),region(r),sichtbar(s),ruestung_ohne_gewicht(ru) {}
+       : anzahl(1), name(n), gewicht(0), sichtbar(true),ruestung_ohne_gewicht(false) {}
+     Ausruestung(unsigned int a, std::string n,double g,std::string ma,std::string r,bool s,bool ru,const std::string b)
+         :anzahl(a),name(n),gewicht(g),material(ma),region(r),sichtbar(s),ruestung_ohne_gewicht(ru),beschreibung(b) {}
 
      bool operator==(const Ausruestung& b) const
          {return name==b.name && material==b.material;}
      
+     unsigned int Anzahl() const {return anzahl;}
+     std::string SAnzahl() const;
      std::string Name() const {return name;}
+     std::string Beschreibung() const {return beschreibung;}
      double Gewicht() const {return gewicht;}
-     std::string SGewicht() const { std::string gewicht;
-                                    if(Gewicht()!=0) gewicht= dtos1(Gewicht())+" kg";
-                                    return gewicht;
-                                  }
+     std::string SGewicht() const;
      std::string Region() const {return region;}
      std::string Material() const {return material;}
      bool Sichtbar() const {return sichtbar;}
@@ -59,12 +61,6 @@ class Ausruestung
      void setSichtbar(bool s) {sichtbar=s;}
      bool RuestungOhneGewicht() const {return ruestung_ohne_gewicht;}
 
-/*
-     static void save(const std::string &filename,midgard_CG *hauptfenster,
-                      const std::string &art,const std::string &art2,
-                      const std::string &name,const double &gewicht,
-                      const double &preis,const std::string &einheit);
-*/
 };
 
 class AusruestungBaum

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.68 2002/12/12 10:48:21 christof Exp $            
+// $Id: Abenteurer.cc,v 1.69 2003/01/23 15:28:24 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -385,7 +385,9 @@ void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &A
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
    {  Tag &Ggs=datei.push_back(Tag("Gegenstand"));
+      Ggs.setIntAttr("Anzahl", i->getAusruestung().Anzahl());
       Ggs.setAttr("Bezeichnung", i->getAusruestung().Name());
+      Ggs.setAttr("Beschreibung", i->getAusruestung().Beschreibung());
       Ggs.setAttr("Region", i->getAusruestung().Region());
       Ggs.setFloatAttr("Gewicht", i->getAusruestung().Gewicht());
       Ggs.setBoolAttr("RüstungOhneGewicht",i->getAusruestung().RuestungOhneGewicht());
@@ -580,10 +582,12 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
   FOR_EACH_CONST_TAG_OF(i,*tag,"Gegenstand")
    {  cH_Preise(i->getAttr("Bezeichnung"),true);
       AusruestungBaum *A = &AB->push_back(
-      	Ausruestung(i->getAttr("Bezeichnung"),i->getFloatAttr("Gewicht"),
+      	Ausruestung(i->getIntAttr("Anzahl",1),
+      	         i->getAttr("Bezeichnung"),i->getFloatAttr("Gewicht"),
       	         i->getAttr("Besonderheit"),
    					i->getAttr("Region"),i->getBoolAttr("sichtbar"),
-   					i->getBoolAttr("RüstungOhneGewicht")));
+   					i->getBoolAttr("R�stungOhneGewicht"),
+   					i->getAttr("Beschreibung")));
       A->setParent(AB);
       load_ausruestung(&*i,A);
    }
@@ -775,7 +779,7 @@ void Abenteurer::move_element(std::list<MBEmlt>& von,
                                        std::list<MBEmlt>& nach,
                                        const MBEmlt& MBE)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+ ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  for (std::list<MBEmlt>::iterator i=von.begin();i!= von.end();++i)
   {
     if(*i==MBE)

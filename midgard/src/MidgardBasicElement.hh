@@ -26,6 +26,7 @@
 #include "xml.h"
 #include "Enums.hh"
 #include <iostream> // wegen eines std::cerr ...
+#include <Misc/germanstring.h>
 
 class cH_Typen;
 class Grundwerte;
@@ -237,7 +238,7 @@ class MidgardBasicElement_mutable : public HandleContentCopyable
            { switch(es) {
                case(LERNPUNKTEPFLICHT) : return x.Pflicht() > y.Pflicht() ||
                   (x.Pflicht() == y.Pflicht()  &&  x.Lernpunkte() < y.Lernpunkte() ) ;
-               case(NAME) : return x->Name() < y->Name()  ;
+               case(NAME) : return germanstring(x->Name()) < germanstring(y->Name())  ;
                case(ERFOLGSWERT): return x.Erfolgswert() > y.Erfolgswert();
            }}
     };
@@ -265,7 +266,7 @@ class H_MidgardBasicElement_mutable : public Handle<MidgardBasicElement_mutable>
            { switch(es) {
                case(LERNPUNKTEPFLICHT) : return x->Pflicht() > y->Pflicht() ||
                   (x->Pflicht() == y->Pflicht()  &&  x->Lernpunkte() < y->Lernpunkte() ) ;
-               case(NAME) : return (*x)->Name() < (*y)->Name()  ;
+               case(NAME) : return germanstring((*x)->Name()) < germanstring((*y)->Name())  ;
                case(ERFOLGSWERT): return x->Erfolgswert() > y->Erfolgswert();
            }}
     };

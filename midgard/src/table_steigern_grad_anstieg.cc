@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.16 2002/12/12 11:20:14 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.17 2003/01/23 15:28:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,7 @@
 void table_steigern::on_grad_anstieg_clicked()
 {
  flashing_gradanstieg->setTime(0);
+ flashing_eigenschaft->setTime(0);
  radiobutton_steigern->set_active(true);
  int act_grad=hauptfenster->getWerte().Grad();
  int max_grad=hauptfenster->getCDatabase().GradAnstieg.get_Grad(hauptfenster->getWerte().GFP());
@@ -46,7 +47,6 @@ void table_steigern::on_grad_anstieg_clicked()
     get_ab_re_za(Enums::eZaubern);
     int wurf=hauptfenster->random.integer(1,100);
     get_grundwerte(wurf);
-//    ++old_grad;
   }
 }
 
@@ -77,6 +77,7 @@ void table_steigern::on_button_grad_resistenz_clicked()
 }
 void table_steigern::on_button_grad_basiswerte_clicked()
 {   
+  flashing_eigenschaft->setTime(0);
   int wurf=hauptfenster->random.integer(1,100);
   get_grundwerte(wurf);
   zeige_werte();

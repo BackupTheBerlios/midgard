@@ -39,7 +39,6 @@ public:
         void init(midgard_CG *hauptfenster);
         void fill_typauswahl();  
         void fill_typauswahl_2();
-        void kaempfer_lernt_zaubern();
         void neuer_charakter();
         void doppelcharaktere();
 

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.48 2002/12/11 16:51:17 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.49 2003/01/23 15:28:24 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -72,7 +72,10 @@ public:
    AusruestungBaum* rekursiv(std::list<AusruestungBaum> &AB,const std::string &name);
    const AusruestungBaum &getBesitz() const {return besitz;}
    void setStandardAusruestung();
-   double getBelastung() const;
+private:
+   std::map<std::string,double> getBelastung() const;
+public:
+   double getBelastung(const std::string &s) const;
    int getNormallast() const;
    int getHoechstlast() const;
    int getSchublast() const;
@@ -166,8 +169,8 @@ public:
    void verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
    bool steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie,
                  const st_bool_steigern &bool_steigern);
-   bool neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-
+   bool neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern,const int bonus=0);
+   void move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu,const std::list<cH_MidgardBasicElement> *alleSprachen=0);
 
    void desteigern(unsigned int kosten,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
    bool steigern_usp(const e_wie_steigern wie,int &kosten,
@@ -180,8 +183,7 @@ public:
                      int &stufen,const e_was_steigern was,
                      std::string &info,const st_bool_steigern &bool_steigern);
    void set_lernzeit(const e_wie_steigern wie,const int kosten,
-                     const e_was_steigern was,const st_bool_steigern bool_steigern,
-                     const bool no_pp=false);
+                     const e_was_steigern was,const st_bool_steigern bool_steigern);
    int genug_geld(const int kosten,const e_wie_steigern wie,const st_bool_steigern bool_steigern,
                            std::string &info);
    bool genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0,std::string &info);
@@ -198,6 +200,7 @@ public:
                               const bool bsteigern,const Datenbank &Database,
                               std::string &info,const st_bool_steigern &bool_steigern);
    void eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf=-1);
+   bool eigenschaften_steigern_erlaubt() const;
   
    std::list<MBEmlt> &get_known_list(const Enums::MBEListen was);
    std::list<MBEmlt> &get_known_list(const MBEmlt &MBE);

@@ -246,6 +246,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
 //  hauptfenster->undosave("Geschlecht gewählt");
 }
 
+/*
 void table_grundwerte::kaempfer_lernt_zaubern()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -256,3 +257,4 @@ void table_grundwerte::kaempfer_lernt_zaubern()
   if (hauptfenster->getWerte().Zaubern_wert()==2) 
       hauptfenster->getWerte().setZaubern_wert(10);
 }
+*/

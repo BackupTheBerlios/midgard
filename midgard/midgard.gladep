@@ -4,5 +4,6 @@
 <glade-project>
   <name>MAGuS</name>
   <program_name>magus</program_name>
+  <language>C++</language>
   <gnome_support>FALSE</gnome_support>
 </glade-project>

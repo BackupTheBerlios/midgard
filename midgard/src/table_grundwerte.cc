@@ -45,6 +45,7 @@ void table_grundwerte::init(midgard_CG *h)
    eventbox_werte_edit->show_all();
    _m->signal_toggled().connect(SigC::slot(*this, &table_grundwerte::on_togglebutton_edit_werte_toggled),true);
   }
+  edit_werte=false;
   edit_sensitive(false);
   zeige_werte();
 }

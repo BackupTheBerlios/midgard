@@ -141,7 +141,7 @@ std::string Zauber::Agens(const std::vector<cH_Typen> &Typ) const
    return agens;
 }
 
-bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info) const
+bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info,const int bonus_lesen_von_zauberschrift) const
 {
  Random random;
  int iaus=0;
@@ -166,11 +166,13 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info) const
  
  x += iaus;
  x += erf_z;
+ x += bonus_lesen_von_zauberschrift;
 
  info += "Lernversuch von Spruchrolle:
- gewÃ¼rfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n     "
-      +itos(xr)+"            -"+itos(iStufe())+"               "
-      +itos(iaus)+"             "+itos(erf_z)+"       =       "+ itos(x)+"\n";
+ gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Lesen von Zauberschrift  Gesamtergebnis\n     "
+      +itos(xr)+  "            -"+itos(iStufe())+"               "
+      +itos(iaus)+"             "+itos(erf_z)   +"               "+itos0p(bonus_lesen_von_zauberschrift,0,true)
+      +"       =       "+ itos(x)+"\n";
  if (x>=20) return true;
  else return false;
 }

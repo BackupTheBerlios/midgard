@@ -51,6 +51,7 @@ void table_ausruestung::fill_new_tree_titles(const std::map<e_spalten,std::strin
     preis_.push_back(i->second);
  preis_.push_back("Gewicht");
  preis_.push_back("Kosten");
+ preis_.push_back("Beschreibung");
  preis_.push_back("Region");
  preise_tree_neu->setTitles(preis_);
 } 
@@ -121,24 +122,69 @@ void table_ausruestung::fill_new_preise()
 }
 
 
+bool table_ausruestung::genug_geld(const std::string &_E_,const int kosten) const
+{
+  enum eeinheit{GS,SS,KS};
+  eeinheit einheit;
+  if     (_E_=="GS") einheit=GS;
+  else if(_E_=="SS") einheit=SS;
+  else if(_E_=="KS") einheit=KS;
+     
+  Grundwerte &W=hauptfenster->getWerte();
+  int vermoegen=W.Kupfer()+10*W.Silber()+100*W.Gold();
+
+  {int k=kosten;
+   if(einheit==GS)      k *= 100;
+   else if(einheit==SS) k *= 10;
+   if(k>vermoegen) { hauptfenster->set_status("Nicht genug Gold"); 
+                         return false; }
+  }
+gewechselt:
+  switch (einheit) {
+     case GS: {
+        if(W.Gold() >= kosten) {W.addGold(-kosten); return true;}
+
+        int sk=kosten-W.Gold();
+        if(W.Silber() >= 10*sk) {W.setGold(0); W.addSilber(-10*sk); 
+                                  return true;}
+         
+        int kk=kosten-W.Gold()-10*W.Silber();
+        if(W.Kupfer()>=100*kk) {W.setGold(0); W.setSilber(0);
+                                 W.addKupfer(-100*kk);return true;}
+      }
+     case SS: {
+        if(W.Silber() >= kosten) {W.addSilber(-kosten); return true;}
+        
+        int kk=kosten-W.Silber();
+        if(W.Kupfer() >= 10*kk) {W.setSilber(0);W.addKupfer(-10*kk);
+                                 return true;}
+
+        W.addSilber(10);
+        W.addGold(-1);
+        goto gewechselt;                
+      }
+     case KS: {
+        if(W.Kupfer() >= kosten) {W.addKupfer(-kosten); return true;}
+        if(W.Silber()) {W.addKupfer(10); W.addSilber(-1);}
+        W.addKupfer(100);
+        W.addGold(-1);
+        goto gewechselt;                
+      }
+   }
+  hauptfenster->set_status("Nicht genug Geld");
+  return false;
+}
+
+
+
 void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
 {
-  if(!besitz) return;
   const Data_NewPreis *dt=dynamic_cast<const Data_NewPreis*>(&*d);
+  spinbutton_anzahl->update();
+  unsigned int anzahl=spinbutton_anzahl->get_value_as_int();
   if(checkbutton_ausruestung_geld->get_active())
    {
-     int g=0,s=0,k=0;
-     if(dt->Ware()->Einheit()=="GS") g=int(dt->Kosten());
-     if(dt->Ware()->Einheit()=="SS") s=int(dt->Kosten());
-     if(dt->Ware()->Einheit()=="KS") k=int(dt->Kosten());
-     
-     Grundwerte &W=hauptfenster->getWerte();
-     if(g>W.Gold())   { hauptfenster->set_status("Nicht genug Gold"); return; }
-     if(s>W.Silber()) { hauptfenster->set_status("Nicht genug Silber"); return; }
-     if(k>W.Kupfer()) { hauptfenster->set_status("Nicht genug Kupfer"); return; }
-     W.addGold(-g);
-     W.addSilber(-s);
-     W.addKupfer(-k);
+     if(!genug_geld(dt->Ware()->Einheit(),dt->Kosten()*anzahl)) return;
      zeige_werte();
    }
   bool sichtbar=checkbutton_sichtbar->get_active();
@@ -147,11 +193,21 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
   for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
      material += i->second.spezifikation + ", ";
   ManuProC::remove_last_from(material,", ");
-  Ausruestung A(dt->Ware()->Name(),dt->Ware()->Gewicht(),material,dt->Ware()->Region(),
-      sichtbar,dt->Ware()->Ruestung());
+  Ausruestung A(anzahl,dt->Ware()->Name(),dt->Ware()->Gewicht(),material,dt->Ware()->Region(),
+      sichtbar,dt->Ware()->Ruestung(),dt->Ware()->Beschreibung());
   
-  AusruestungBaum &B=besitz->push_back(A);
-  B.setParent(besitz);
+  if(!besitz && dt->Ware()->Art()=="Neu")
+   {
+     AusruestungBaum &B=hauptfenster->getAben().getBesitz().push_back(A);
+     B.setParent(&hauptfenster->getAben().getBesitz());     
+   }
+  else if(besitz)
+   {
+     AusruestungBaum &B=besitz->push_back(A);
+     B.setParent(besitz);
+   }
+  else return;
+  hauptfenster->undosave("Ausrüstung "+dt->Ware()->Name()+" hinzugefügt");
   showAusruestung();
 }
 

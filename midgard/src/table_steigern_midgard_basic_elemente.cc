@@ -107,69 +107,55 @@ const Enums::st_bool_steigern table_steigern::get_bool_steigern()
       );
 }
 
+void table_steigern::lernen_von_spruchrolle_fragen(const int bonus)
+{
+ const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*(neue_zauber_tree->getSelectedRowDataBase()));
+ MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE()); 
+ neu_lernen(MBE,bonus);
+}
+
 void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE());
+ neu_lernen(MBE);
+}
 
+void table_steigern::neu_lernen(MBEmlt &MBE,const int bonus)
+{
  std::string info;
- bool ok=hauptfenster->getChar()->neu_lernen(MBE,info,get_wie_steigern(),get_bool_steigern());
+ bool ok=hauptfenster->getChar()->neu_lernen(MBE,info,get_wie_steigern(),get_bool_steigern(),bonus);
  hauptfenster->set_status(info);
  if(!ok) return ;
- 
- /////////////////////////////////////////////////////////////////////////
-
- std::list<MBEmlt> *MyList,*MyList_neu;
- if((*MBE).What()==MidgardBasicElement::FERTIGKEIT) 
+//ab hier neuer code:
+ Abenteurer &A=hauptfenster->getAben();
+ if     ((*MBE).What()==MidgardBasicElement::FERTIGKEIT) 
    { if((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
-      {  
+      {
         neue_fert_tree->set_sensitive(false);
         MBE=MBEmlt(new Fertigkeit(*cH_Fertigkeit(MBE->getMBE())));
         fillClistZusatz(MBE);
-        // Davor stellen, damit beim Kopieren dieses MBE Verschoben wird.
+        // Davor stellen, damit beim Kopieren dieses MBE Verschoben wird.   
         list_Fertigkeit_neu.push_front(MBE);
       }
-     if ((*MBE)->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
-     MyList     = &hauptfenster->getChar()->List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;
+     A.move_neues_element(MBE,&list_Fertigkeit_neu);
    }
- else if((*MBE).What()==MidgardBasicElement::WAFFE) 
-   { MyList     = &hauptfenster->getChar()->List_Waffen(); 
-     MyList_neu = &list_Waffen_neu;  
-   }
- else if((*MBE).What()==MidgardBasicElement::WAFFEGRUND) 
-   { MyList     = &hauptfenster->getChar()->List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }
+ else if((*MBE).What()==MidgardBasicElement::WAFFE) A.move_neues_element(MBE,&list_Waffen_neu);
+ else if((*MBE).What()==MidgardBasicElement::WAFFEGRUND) A.move_neues_element(MBE,&list_WaffenGrund_neu);
  else if((*MBE).What()==MidgardBasicElement::ZAUBER) 
-  {
-   { if((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
-      {  
-        MBE=MBEmlt(new Zauber(*cH_Zauber(MBE->getMBE())));
-        fillClistZusatz(MBE);
-        // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
-        list_Zauber_neu.push_front(MBE);
-      }
-   MyList     = &hauptfenster->getChar()->List_Zauber(); MyList_neu = &list_Zauber_neu;  }
+  { if((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
+     {  
+       MBE=MBEmlt(new Zauber(*cH_Zauber(MBE->getMBE())));
+       fillClistZusatz(MBE);
+       // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
+       list_Zauber_neu.push_front(MBE);
+     }
+    A.move_neues_element(MBE,&list_Zauber_neu);
   }
- else if((*MBE).What()==MidgardBasicElement::ZAUBERWERK) 
-   { MyList     = &hauptfenster->getChar()->List_Zauberwerk(); MyList_neu = &list_Zauberwerk_neu;  }
- else if((*MBE).What()==MidgardBasicElement::KIDO) 
-   { MyList     = &hauptfenster->getChar()->List_Kido(); MyList_neu = &list_Kido_neu;  }
- else if((*MBE).What()==MidgardBasicElement::SPRACHE) 
-   { MyList     = &hauptfenster->getChar()->List_Sprache(); MyList_neu = &list_Sprache_neu;  
-     // eventuell höherer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
-     int ungelernterErfolgswert=cH_Sprache(MBE->getMBE())->getHoeherenErfolgswert(hauptfenster->getChar()->List_Sprache(),hauptfenster->getCDatabase().Sprache);
-     if (ungelernterErfolgswert > MBE->Erfolgswert()) MBE->setErfolgswert(ungelernterErfolgswert);
-     // bis hier
-   }
- else if((*MBE).What()==MidgardBasicElement::SCHRIFT) 
-   { MyList     = &hauptfenster->getChar()->List_Schrift(); MyList_neu = &list_Schrift_neu;  }
- else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
-
-
-//cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
-
- Abenteurer::move_element(*MyList_neu,*MyList,MBE);
+ else if((*MBE).What()==MidgardBasicElement::ZAUBERWERK) A.move_neues_element(MBE,&list_Zauberwerk_neu);
+ else if((*MBE).What()==MidgardBasicElement::KIDO) A.move_neues_element(MBE,&list_Kido_neu);
+ else if((*MBE).What()==MidgardBasicElement::SPRACHE) A.move_neues_element(MBE,&list_Sprache_neu,&(hauptfenster->getCDatabase().Sprache));
+ else if((*MBE).What()==MidgardBasicElement::SCHRIFT) A.move_neues_element(MBE,&list_Schrift_neu);
  hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
-
-//cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
-}
+} 
 

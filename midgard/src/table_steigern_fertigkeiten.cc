@@ -81,10 +81,73 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
     }
   else if ((*MBE)->Name()=="Zaubern") 
     {  
-     hauptfenster->InfoFenster->AppendShow("Sicher, daß dieser Kämpfer Zaubern lernen soll?\nDiese Entscheidung kann nicht mehr Rückgängig gemacht werden.",WindowInfo::ZaubernLernen,&MBE);
+      kaempfer_lernt_zaubern();
     }
   else 
      MidgardBasicElement_leaf_neu(d);
   fertigkeiten_zeigen();
 }
+
+
+
+void table_steigern::kaempfer_lernt_zaubern() 
+{
+ Gtk::HBox *_b=manage(new Gtk::HBox());
+
+ Gtk::Button *_button=manage(new Gtk::Button("Abbrechen"));
+ _button->clicked.connect(SigC::slot(this, &table_steigern::zaubern_klasse_gewaehlt_abbrechen));
+ _b->pack_start(*_button,false, false, 0);
+
+ Gtk::Combo *_ct = manage(new class Gtk::Combo());
+ _ct->get_entry()->set_editable(false); 
+ bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
+ const std::vector<pair<cH_Typen,bool> > T=LL->getTypen(hauptfenster->getAben(),nsc_allowed);
+ std::list<std::string> L;
+ for(std::vector<pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
+  {
+    if( i->first->Zaubern()!="z") continue;
+    if(i->second)
+      L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
+    else
+      L.push_back("("+i->first->Name(hauptfenster->getWerte().Geschlecht())+")");
+  }
+ _ct->set_popdown_strings(L);
+ _ct->get_entry()->changed.connect(SigC::slot(this, &table_steigern::zaubern_klasse_gewaehlt));
+ _b->pack_start(*_ct,false, false, 0);
+ frame_spezielles->set_label("Zweite Abenteurerklasse ausw�hlen");
+ frame_spezielles->add(*_b);
+ frame_spezielles->show_all();
+// _ct->set_use_arrows(true);
+// _ct->set_use_arrows_always(false);
+}
+
+void table_steigern::zaubern_klasse_gewaehlt()
+{
+ Gtk::Widget *child=frame_spezielles->get_child();
+ Gtk::Box_Helpers::BoxList &ch=dynamic_cast<Gtk::Box*>(child)->children();
+
+ for(Gtk::Box_Helpers::BoxList::iterator i=ch.begin();i!=ch.end();++i)
+  {
+   if(!Gtk::Combo::isA((*i)->get_widget())) continue;
+   Gtk::Combo *C=dynamic_cast<Gtk::Combo*>((*i)->get_widget());
+   std::string typ=C->get_entry()->get_text();
+   if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
+     return;
+   hauptfenster->getChar()->setTyp2(cH_Typen(typ));
+   break;    
+  }
+
+ if (hauptfenster->getWerte().Zaubern_wert()==2) 
+     hauptfenster->getWerte().setZaubern_wert(10);
+ frame_spezielles->remove();
+ frame_spezielles->hide();
+ fertigkeiten_zeigen();
+}
+
+void table_steigern::zaubern_klasse_gewaehlt_abbrechen()
+{
+  frame_spezielles->remove();
+  frame_spezielles->hide();
+}
+
 

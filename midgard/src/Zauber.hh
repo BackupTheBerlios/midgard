@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.47 2002/12/11 18:18:50 christof Exp $               
+// $Id: Zauber.hh,v 1.48 2003/01/23 15:28:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -71,14 +71,13 @@ class Zauber : public MidgardBasicElement
          {return 0;} //wg. virtueller Funktion
    int get_spezial_zauber_for_magier(const Abenteurer &A,const std::string& standard) const;
 
-   bool spruchrolle_wuerfeln(const Abenteurer &A,std::string &info) const;
+   bool spruchrolle_wuerfeln(const Abenteurer &A,std::string &info,const int bonus_lesen_von_zauberschrift) const;
 
 
 //   static void set_Spruchrolle(std::list<cH_MidgardBasicElement>&,bool sp) const;
 };
 
 
-#include <Misc/germanstring.h>
 class cH_Zauber : public Handle<const Zauber>
 {
     typedef CacheStatic<std::string,cH_Zauber> cache_t;

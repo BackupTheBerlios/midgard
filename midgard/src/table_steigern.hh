@@ -60,8 +60,12 @@ private:
         void on_radiobutton_pp_all_toggled();
         bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
         void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);
+        void neu_lernen(MBEmlt &MBE,const int bonus=-99);
         void show_goldeingabe(bool b,int button=0);
         void show_EPeingabe(bool b,int button=0);
+        void kaempfer_lernt_zaubern() ;
+        void zaubern_klasse_gewaehlt() ;
+        void zaubern_klasse_gewaehlt_abbrechen();
         
         // Grad anstieg
 private:
@@ -92,6 +96,10 @@ private:
         void zauber_zeigen();
         void zauberwerk_laden();
         void zauberwerk_zeigen();
+        void wuerfel_lesen_von_zauberschrift();
+   public:
+        void lernen_von_spruchrolle_fragen(const int bonus);
+   private:
 
         // Sprache
        void schriften_zeigen();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.21 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.22 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -1616,6 +1616,8 @@
   <Dinge Art="Kleidung" Ware="warme Oberbekleidung" Gewicht="0" Preis="30" Währung="GS"/>
   <Dinge Art="Magische Gegenstände" Ware="Heiltrank (2W6)" Gewicht="0.2" Preis="100" Währung="GS"/>
   <Dinge Art="Magische Gegenstände" Ware="Heiltrank (W6)" Gewicht="0.2" Preis="10" Währung="GS"/>
+  <Dinge Art="Neu" Art2="Gebäude" Ware="Haus" Gewicht="0" Preis="100000" Währung="GS"/>
+  <Dinge Art="Neu" Art2="Tiere" Ware="Pferd" Gewicht="0" Preis="100" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Hals- und Nackenschutz" Gewicht="0.7" Preis="20" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Lederarmschienen" Gewicht="1" Preis="8" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Lederbeinschienen" Gewicht="1.2" Preis="10" Währung="GS"/>

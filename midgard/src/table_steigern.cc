@@ -14,6 +14,8 @@
 #include "LernListen.hh"
 #include "../pixmaps/Anpass-trans-50.xpm"
 #include "../pixmaps/Anpass-trans-50_invers.xpm"
+#include "../pixmaps/Red-Dice-trans-50.xpm"
+#include "../pixmaps/Red-Dice-trans-50_invers.xpm"
 #include "../pixmaps/EP-Steigern-50.xpm"
 #include <bool_CheckButton.hh>
 
@@ -24,6 +26,7 @@ void table_steigern::init(midgard_CG *h)
   if(LL) delete LL ;
   LL = new LernListen(hauptfenster->getDatabase());
   flashing_gradanstieg->set(Anpass_trans_50_xpm,Anpass_trans_50_invers_xpm,0);
+  flashing_eigenschaft->set(Red_Dice_trans_50_xpm,Red_Dice_trans_50_invers_xpm,0);
 
   zeige_werte();
   load_for_page(notebook_lernen->get_current_page());
@@ -181,6 +184,9 @@ void table_steigern::zeige_werte()
    label_grad_GFP->set_text(grad_GFP);
    if(grad_GFP=="erreicht") flashing_gradanstieg->setTime(1000);
    else                     flashing_gradanstieg->setTime(0);
+   if(hauptfenster->getAben().eigenschaften_steigern_erlaubt())
+      flashing_eigenschaft->setTime(1000);
+   else flashing_eigenschaft->setTime(0);
 
    label_ausdauer_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,W));
    label_abwehr_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
