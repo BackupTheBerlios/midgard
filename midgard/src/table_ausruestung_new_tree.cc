@@ -41,7 +41,7 @@ void table_ausruestung::fill_new_tree_titles(const std::map<e_spalten,std::strin
  for(std::map<e_spalten,std::string>::const_iterator i=V.begin();i!=V.end();++i)
     preis_.push_back(i->second);
  preis_.push_back("Gewicht");
- preis_.push_back("Kostenfaktor");
+ preis_.push_back("Kosten");
  preise_tree_neu->setTitles(preis_);
 } 
 
@@ -61,7 +61,6 @@ enum table_ausruestung::e_spalten &operator++(enum table_ausruestung::e_spalten 
 
 void table_ausruestung::fill_new_preise()
 {
-//  std::vector<cH_RowDataBase> datavec;
   std::map<e_spalten,std::string> SpaltenMap;
   std::list<cH_Data_NewPreis> LNP;
   for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=hauptfenster->getDatabase().preise.end();++i)
@@ -84,9 +83,10 @@ void table_ausruestung::fill_new_preise()
               MS[spalte.first].push_back(*l);
          }
         if(MS[e].empty()) continue;
-//        (*j)->getMod()[e]=*(MS[e].begin());
+        (*j)->getMod()[e]=*(MS[e].begin());
 
-         for(std::vector<PreiseNewMod::st_preismod>::const_iterator k=MS[e].begin();k!=MS[e].end();++k)
+         std::vector<PreiseNewMod::st_preismod>::const_iterator b=MS[e].begin();
+         for(std::vector<PreiseNewMod::st_preismod>::const_iterator k=++b;k!=MS[e].end();++k)
           {
            std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M=(*j)->getMod();
            M[e]=*k;                       
@@ -101,54 +101,6 @@ void table_ausruestung::fill_new_preise()
      datavec.push_back(&**j);
    }
 
-/*
-     std::map<std::string,std::vector<PreiseNewMod::st_preismod> > VM=cH_PreiseNewMod((*i)->Art(),true)->VSpezifikation();
-     if(//VM.empty()) 
-       { datavec.push_back(new Data_NewPreis(*i));
-//         continue;
-       }
-     
-
-     std::map<e_spalten,vector<PreiseNewMod::st_preismod> > MS;
-     for(std::map<std::string,std::vector<PreiseNewMod::st_preismod> >::const_iterator j=VM.begin();j!=VM.end();++j)
-      {
-        pair<e_spalten,std::string> spalte=enum_from_string(j->first);
-        SpaltenMap[spalte.first]=spalte.second;
-        for(std::vector<PreiseNewMod::st_preismod>::const_iterator k=j->second.begin();k!=j->second.end();++k)
-           MS[spalte.first].push_back(*k);
-      }
-
-    std::vector<std::map<e_spalten,PreiseNewMod::st_preismod> > X;
-
-    // Iteratoren für die einzelnen Spalten
-    typedef  pair<std::vector<PreiseNewMod::st_preismod>::iterator,
-                  std::vector<PreiseNewMod::st_preismod>::iterator> 
-                        beg_end_t;
-    std::map<e_spalten,beg_end_t> VCI;
-    for(std::map<e_spalten,std::vector<PreiseNewMod::st_preismod> >::iterator j=MS.begin();j!=MS.end();++j)
-       VCI[j->first]=beg_end_t(j->second.begin(),j->second.end());
-reloop:
-    std::map<e_spalten,PreiseNewMod::st_preismod> Y;
-    for(e_spalten e=e_spalten(int(None)+1);e<Max;++e)
-       if(VCI[e].first!=VCI[e].second) Y[e] = *(VCI[e].first) ;
-    X.push_back(Y); 
-
-    for(std::map<e_spalten,beg_end_t>::iterator k=VCI.begin();k!=VCI.end();++k)
-     {
-      if(k->second.first!=k->second.second)  ++(k->second.first);
-      if(k->second.first==k->second.second && k->first != Max-1) 
-{
-cout << "Zurücksetzen von "<<k->first<<'\n';
-//         k->second.first=MS[k->first].begin();
-//         goto reloop;
-}
-      if(k->second.first!=k->second.second)  goto reloop;
-     }
-
-    for(std::vector<std::map<e_spalten,PreiseNewMod::st_preismod> >::const_iterator j=X.begin();j!=X.end();++j)
-        datavec.push_back(new Data_NewPreis(*i,*j));
-   }
-*/
   fill_new_tree_titles(SpaltenMap);
   preise_tree_neu->setDataVec(datavec);
 }

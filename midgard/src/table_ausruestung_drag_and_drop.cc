@@ -80,8 +80,13 @@ void table_ausruestung::tree_drag_data_received(GdkDragContext *context,
 
       std::string sdp = (gchar *)data->data;
       int adresse = atoi(sdp.c_str());
+/*
+cout << "OUT:"<<sdp<<" at "<<adresse<<'\n';
+
 
       void *gp = reinterpret_cast<void*>(adresse);
+cout << "gp: "<<gp<<'t'<<'\n';
+*/
 //      Data_NewPreis *dp=reinterpret_cast<Data_NewPreis*>(gp);
 /*
       cH_Data_NewPreis P(dp);
@@ -130,6 +135,7 @@ cout << '\n';
    int *adresse=reinterpret_cast<int*>(dt->ref());
    std::string data=itos(*adresse);
 
+//cout << "IN: "<<data<<" at "<<*adresse<<'\n';
    gtk_selection_data_set(selection_data,selection_data->target,8, 
        reinterpret_cast < const unsigned char * > ( data.c_str() ) ,
        data.size() );

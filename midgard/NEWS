@@ -7,7 +7,8 @@ NEWS IN VERSION 0.8.6
 * Zufallsgenerator: Steigern Oberfläche überarbeitet, 
    Einstellungen bleiben erhalten
 * Neuimpelmentation der Preis-Modifikatoren in der Datenbank und der 
-   entsprechenden Klasse   
+   entsprechenden Klasse 
+* ANzeige der Waren völlig überarbeitet
 * Ein paar neue Icons von Ulf
 * In der exportierten TXT-Datei wird der Malus beim Zaubern von 
    nicht-Grundzaubern berücksichtigt.

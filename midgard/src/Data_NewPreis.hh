@@ -21,6 +21,8 @@
 
 #include "table_ausruestung.hh"
 #include <Misc/itos.h>
+#include <Misc/EntryValueEmptyInt.h>
+#include <Misc/EntryValueFixed.h>
 #include "dtos1.h"
 
 class Data_NewPreis : public RowDataBase
@@ -37,7 +39,7 @@ class Data_NewPreis : public RowDataBase
                 kosten*=i->second.preis_faktor;
          }
       
-     enum spalten {ART,ART2,NAME,V_STAND,V_MATERIAL,V_FARBE,GEWICHT,KOSTEN};
+     enum spalten {ART,ART2,NAME,V_FARBE,V_MATERIAL,V_STAND,GEWICHT,KOSTEN};
      
      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
       {
@@ -47,7 +49,7 @@ class Data_NewPreis : public RowDataBase
            case ART: return cH_EntryValueIntString(ware->Art());
            case ART2: return cH_EntryValueIntString(ware->Art2());
            case NAME: return cH_EntryValueIntString(ware->Name());
-           case GEWICHT: return cH_EntryValueIntString(ware->Gewicht());
+           case GEWICHT: return cH_EntryValueIntString(dtos(ware->Gewicht()));
            case V_STAND: return cH_EntryValueIntString(M_[table_ausruestung::Stand].spezifikation);
            case V_MATERIAL: return cH_EntryValueIntString(M_[table_ausruestung::Material].spezifikation);
            case V_FARBE: return cH_EntryValueIntString(M_[table_ausruestung::Farbe].spezifikation);
