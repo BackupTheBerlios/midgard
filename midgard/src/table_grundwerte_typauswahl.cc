@@ -87,12 +87,11 @@ void table_grundwerte::typauswahl_button()
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  std::string typ=combo_typ->get_entry()->get_text();
- if(!Typen::get_Typ_from_long(Datenbank.Typen,typ))
-   return;
+ try
+ { hauptfenster->getAben().setTyp1(Typen::getTyp(typ));
+ } catch (NotFound &n) { return; }
 
  hauptfenster->getChar().getWizard().done(Wizard::TYP,hauptfenster->getAben());
- hauptfenster->getAben().setTyp1(cH_Typen(typ));
-
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 
  if(hauptfenster->getAben().Spezies()->Land()) 
@@ -142,11 +141,9 @@ void table_grundwerte::typauswahl_2_button()
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  std::string typ=combo_typ2->get_entry()->get_text();
- if(!Typen::get_Typ_from_long(Datenbank.Typen,typ))
-   return;
-
- hauptfenster->getAben().setTyp2(cH_Typen(typ));
-
+ try
+ { hauptfenster->getAben().setTyp2(Typen::getTyp(typ));
+ } catch (NotFound &n) { return; }
 // if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }
 

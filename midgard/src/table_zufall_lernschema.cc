@@ -62,8 +62,9 @@ Zufall::e_Vorgabe table_zufall::getVorgaben(Abenteurer& oldAben) const
       if(checkbutton_typ->get_active())  
          {  v+=Zufall::B_Typ;
            std::string typ=combo_typ->get_entry()->get_text();
-           if(Typen::get_Typ_from_long(Datenbank.Typen,typ))
-              oldAben.setTyp1(cH_Typen(typ));
+           try
+           {  oldAben.setTyp1(Typen::getTyp(typ));
+           } catch (NotFound &n) { }
          }
       if(checkbutton_herkunft->get_active())
          { v+=Zufall::B_Herkunft;

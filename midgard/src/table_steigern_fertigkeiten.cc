@@ -133,9 +133,9 @@ void table_steigern::zaubern_klasse_gewaehlt()
    if(!dynamic_cast<Gtk::Combo*>((*i).get_widget())) continue;
    Gtk::Combo *C=dynamic_cast<Gtk::Combo*>((*i).get_widget());
    std::string typ=C->get_entry()->get_text();
-   if(!Typen::get_Typ_from_long(Datenbank.Typen,typ))
-     return;
-   hauptfenster->getAben().setTyp2(cH_Typen(typ));
+   try
+   {  hauptfenster->getAben().setTyp2(Typen::getTyp(typ));
+   } catch (NotFound &n) { return; }
    break;    
   }
 
