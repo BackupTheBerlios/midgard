@@ -9,9 +9,6 @@ login() {
 }
 
 checkout() {
-  echo ========= Petig.m4 ========
-  cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co m4
-  
   echo ========  ManuProC_Base ========
   cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co ManuProC_Base
   
@@ -30,8 +27,6 @@ checkout() {
 }
 
 update() {
-  echo ========= Petig.m4 ========
-  ( cd m4 && cvs -z3 update -dP )
   echo ========  ManuProC_Base ========
   ( cd ManuProC_Base && cvs -z3 update -dP )
   echo ========== GtkmmAddons ========
@@ -45,10 +40,6 @@ update() {
 }
 
 configure() {
-  echo ========= Petig.m4 ========
-  echo Bitte das root Passwort angeben
-  echo "(Für Installation von petig.m4 nach /usr/share/aclocal)"
-  ( cd m4 && (su -c "make install" || make install ) )
   echo ========  ManuProC_Base ========
   ( cd ManuProC_Base && (./autogen.sh $* ; make ) )
   echo ========== GtkmmAddons ========
@@ -61,13 +52,6 @@ configure() {
 }
 
 configure_if_needed() {
-  echo ========= Petig.m4 ========
-  if [ ! -f /usr/share/aclocal/petig.m4 ]
-  then 
-    echo Bitte das root Passwort angeben
-    echo "(Für Installation von petig.m4 nach /usr/share/aclocal)"
-    ( cd m4 && (su -c "make install" || make install ) )
-  fi
   echo ========  ManuProC_Base ========
   ( cd ManuProC_Base && \
   	(if [ ! -f config.status ] ; then ./autogen.sh $* ; fi ; \
@@ -123,7 +107,7 @@ then
   domake
   doinstall
 else
-  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.7 $aetsch"
+  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.8 $aetsch"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
