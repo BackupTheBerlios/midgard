@@ -3807,7 +3807,7 @@ gemischt
 	      <widget>
 		<class>GtkPixmap</class>
 		<name>pixmap46</name>
-		<filename>Select-trans-50.xpm</filename>
+		<filename>KiDo-trans-50.xpm</filename>
 		<xalign>0.5</xalign>
 		<yalign>0.5</yalign>
 		<xpad>0</xpad>
@@ -6602,7 +6602,7 @@ Praxispunkten</label>
 			    <last_modification_time>Wed, 04 Apr 2001 06:09:26 GMT</last_modification_time>
 			  </signal>
 			  <label>Techniken laden</label>
-			  <icon>Select-trans-50.xpm</icon>
+			  <icon>KiDo-trans-50.xpm</icon>
 			</widget>
 		      </widget>
 		    </widget>
@@ -6877,7 +6877,7 @@ Praxispunkten</label>
 		<widget>
 		  <class>GtkPixmap</class>
 		  <name>pixmap45</name>
-		  <filename>Select-trans-50.xpm</filename>
+		  <filename>KiDo-trans-50.xpm</filename>
 		  <xalign>0.5</xalign>
 		  <yalign>0.5</yalign>
 		  <xpad>0</xpad>
@@ -14942,7 +14942,7 @@ Verlust</label>
   <widget>
     <class>GtkTable</class>
     <name>table49</name>
-    <rows>15</rows>
+    <rows>16</rows>
     <columns>3</columns>
     <homogeneous>False</homogeneous>
     <row_spacing>0</row_spacing>
@@ -15104,7 +15104,7 @@ Verlust</label>
     <widget>
       <class>GtkPixmap</class>
       <name>pixmap4</name>
-      <filename>Weapon-trans-50.xpm</filename>
+      <filename>KiDo-trans-50.xpm</filename>
       <xalign>0.5</xalign>
       <yalign>0.5</yalign>
       <xpad>0</xpad>
@@ -15132,8 +15132,8 @@ Verlust</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>9</top_attach>
-	<bottom_attach>10</bottom_attach>
+	<top_attach>10</top_attach>
+	<bottom_attach>11</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>5</ypad>
 	<xexpand>False</xexpand>
@@ -15148,7 +15148,7 @@ Verlust</label>
     <widget>
       <class>GtkLabel</class>
       <name>label336</name>
-      <label>http://midgard.berlios.de</label>
+      <label></label>
       <justify>GTK_JUSTIFY_CENTER</justify>
       <wrap>False</wrap>
       <xalign>0</xalign>
@@ -15158,8 +15158,8 @@ Verlust</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>10</top_attach>
-	<bottom_attach>11</bottom_attach>
+	<top_attach>11</top_attach>
+	<bottom_attach>12</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15184,8 +15184,8 @@ Verlust</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>11</top_attach>
-	<bottom_attach>12</bottom_attach>
+	<top_attach>12</top_attach>
+	<bottom_attach>13</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15209,8 +15209,8 @@ Verlust</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>10</top_attach>
-	<bottom_attach>11</bottom_attach>
+	<top_attach>11</top_attach>
+	<bottom_attach>12</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15234,8 +15234,8 @@ Verlust</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>11</top_attach>
-	<bottom_attach>12</bottom_attach>
+	<top_attach>12</top_attach>
+	<bottom_attach>13</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15395,8 +15395,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>2</right_attach>
-	<top_attach>10</top_attach>
-	<bottom_attach>11</bottom_attach>
+	<top_attach>11</top_attach>
+	<bottom_attach>12</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15421,8 +15421,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>2</right_attach>
-	<top_attach>11</top_attach>
-	<bottom_attach>12</bottom_attach>
+	<top_attach>12</top_attach>
+	<bottom_attach>13</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15440,8 +15440,8 @@ Unterstützung</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>12</top_attach>
-	<bottom_attach>13</bottom_attach>
+	<top_attach>13</top_attach>
+	<bottom_attach>14</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15466,8 +15466,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>13</top_attach>
-	<bottom_attach>14</bottom_attach>
+	<top_attach>14</top_attach>
+	<bottom_attach>15</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>5</ypad>
 	<xexpand>False</xexpand>
@@ -15491,8 +15491,8 @@ Unterstützung</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>13</top_attach>
-	<bottom_attach>14</bottom_attach>
+	<top_attach>14</top_attach>
+	<bottom_attach>15</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15589,8 +15589,8 @@ Unterstützung</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>14</top_attach>
-	<bottom_attach>15</bottom_attach>
+	<top_attach>15</top_attach>
+	<bottom_attach>16</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15670,7 +15670,7 @@ Unterstützung</label>
     <widget>
       <class>GtkPixmap</class>
       <name>pixmap48</name>
-      <filename>Weapon-trans-50.xpm</filename>
+      <filename>Eschar-trans-50.xpm</filename>
       <xalign>0.5</xalign>
       <yalign>0.5</yalign>
       <xpad>0</xpad>
@@ -15715,6 +15715,84 @@ Unterstützung</label>
 	<yshrink>False</yshrink>
 	<xfill>True</xfill>
 	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label391</name>
+      <label>Hexenzauber
+&amp;Druidenkraft</label>
+      <justify>GTK_JUSTIFY_CENTER</justify>
+      <wrap>False</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>2</right_attach>
+	<top_attach>9</top_attach>
+	<bottom_attach>10</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label392</name>
+      <label>Joachim Jordan</label>
+      <justify>GTK_JUSTIFY_CENTER</justify>
+      <wrap>False</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>2</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>9</top_attach>
+	<bottom_attach>10</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap49</name>
+      <filename>Job-trans-50.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>9</top_attach>
+	<bottom_attach>10</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
       </child>
     </widget>
   </widget>

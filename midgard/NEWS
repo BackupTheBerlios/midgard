@@ -1,11 +1,13 @@
 ##########################################################################
 NEWS IN VERSION 0.4beta7
 - Bug für 'Zauber lernen' beseitigt
+- Pixmaps für KanThaiPan und Eschar sind fertig
+- Zauber für den Finstermagier sind drin (Dank an Joachim)
 
 ##########################################################################
 NEWS IN VERSION 0.4beta6
 - Es werden nur noch dann KiDo Techniken zum Lernen angeboten, wenn die
-   maximal mögliiche Anzahl für die entsprechende Stufe noch nicht erreicht ist.
+   maximal mögliche Anzahl für die entsprechende Stufe noch nicht erreicht ist.
 - 'alle Zauber' wirkt nun auch auf Zauberwerk
 - fehlende Tabelle 'spezialgebiete' ergänzt
 

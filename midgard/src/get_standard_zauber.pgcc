@@ -78,6 +78,7 @@ double midgard_CG::get_standard_zauber_(const string& ergebnis, const string&
          if (ergebnis=="G") fac = 0.5; 
          if (ergebnis=="S") fac = 1.0; 
          if (ergebnis=="A") fac = 5.0; 
+         if (ergebnis=="")  fac = 5.0; 
       }
    else
       {
