@@ -563,7 +563,6 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
 void table_lernschema::on_button_ausruestung_button_release_event()
 {  
   ausruestung_setzen();
-  return 0;
 }
 
 void table_lernschema::ausruestung_setzen()

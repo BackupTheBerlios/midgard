@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.28 2003/02/25 16:50:28 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.29 2003/02/25 21:53:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -28,7 +28,7 @@
 void table_lernschema::on_button_lernschema_waffen_button_release_event()
 {
   if(hauptfenster->getAben().List_Waffen().empty()) 
-   { hauptfenster->set_info("Fehler: Noch keine Waffen gewählt"); return false;}
+   { hauptfenster->set_info("Fehler: Noch keine Waffen gewählt"); return ;}
   for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
    {
      AusruestungBaum &AB=hauptfenster->getAben().getAusruestung_as_parent((*i)->Name());

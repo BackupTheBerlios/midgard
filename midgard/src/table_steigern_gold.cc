@@ -22,14 +22,14 @@
 
 void table_steigern::on_checkbutton_gfp_button_release_event()
 {
- if(ev->button==3) checkbutton_gfp->set_active(!checkbutton_gfp->get_active()); 
+// if(ev->button==3) checkbutton_gfp->set_active(!checkbutton_gfp->get_active()); 
  if(checkbutton_gfp->get_active())
   {
-    if     (ev->button == 1) LabelSpin_gfp->edit_new();
-    else if(ev->button == 3) LabelSpin_gfp->edit_add();
+    LabelSpin_gfp->edit_new();
+    //else if(ev->button == 3) LabelSpin_gfp->edit_add();
   }
  else  LabelSpin_gfp->deaktivate();
- return false;
+// return false;
 }
 
 void table_steigern::on_LabelSpin_gfp_activate()
@@ -45,7 +45,7 @@ void table_steigern::on_LabelSpin_gfp_activate()
 void table_steigern::on_button_gold_eingeben_button_release_event()
 {
  // if(ev->button==3) button_gold_eingeben->set_active(!button_gold_eingeben->get_active()); 
- show_goldeingabe(button_gold_eingeben->get_active(),ev->button);
+ show_goldeingabe(button_gold_eingeben->get_active(),1);
 }
 
 

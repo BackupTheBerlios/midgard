@@ -25,7 +25,6 @@ void midgard_CG::on_neuer_charakter_release_event()
    Char.push_back();
    on_neuer_charakter_clicked();
    on_wizard_starten_activate();
-   return false;
 }
 
 void midgard_CG::on_neuer_charakter_clicked()

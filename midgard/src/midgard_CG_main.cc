@@ -84,8 +84,7 @@ std::cout << "get_window()\t"; show_window(W1);
 std::cout << "get_bin_window()\t"; show_window(W2);
 std::cout << "get_float_window()\t"; show_window(W3);
 */
-  menu_kontext->popup(2,Gdk::CURRENT_TIME);
-  return true;
+  menu_kontext->popup(2,0); // Gdk::CURRENT_TIME);
 }
  
 

@@ -16699,16 +16699,16 @@ Liste löschen</property>
 				  </child>
 
 				  <child internal-child="list">
-				    <widget class="GtkList" id="convertwidget106">
+				    <widget class="GtkList" id="convertwidget1">
 				      <property name="visible">True</property>
 				      <property name="selection_mode">GTK_SELECTION_BROWSE</property>
 
 				      <child>
-					<widget class="GtkListItem" id="convertwidget107">
+					<widget class="GtkListItem" id="convertwidget2">
 					  <property name="visible">True</property>
 
 					  <child>
-					    <widget class="GtkLabel" id="convertwidget108">
+					    <widget class="GtkLabel" id="convertwidget3">
 					      <property name="visible">True</property>
 					      <property name="label" translatable="yes"></property>
 					      <property name="use_underline">False</property>
@@ -16766,16 +16766,16 @@ Liste löschen</property>
 				  </child>
 
 				  <child internal-child="list">
-				    <widget class="GtkList" id="convertwidget109">
+				    <widget class="GtkList" id="convertwidget4">
 				      <property name="visible">True</property>
 				      <property name="selection_mode">GTK_SELECTION_BROWSE</property>
 
 				      <child>
-					<widget class="GtkListItem" id="convertwidget110">
+					<widget class="GtkListItem" id="convertwidget5">
 					  <property name="visible">True</property>
 
 					  <child>
-					    <widget class="GtkLabel" id="convertwidget111">
+					    <widget class="GtkLabel" id="convertwidget6">
 					      <property name="visible">True</property>
 					      <property name="label" translatable="yes"></property>
 					      <property name="use_underline">False</property>
@@ -16833,16 +16833,16 @@ Liste löschen</property>
 				  </child>
 
 				  <child internal-child="list">
-				    <widget class="GtkList" id="convertwidget112">
+				    <widget class="GtkList" id="convertwidget7">
 				      <property name="visible">True</property>
 				      <property name="selection_mode">GTK_SELECTION_BROWSE</property>
 
 				      <child>
-					<widget class="GtkListItem" id="convertwidget113">
+					<widget class="GtkListItem" id="convertwidget8">
 					  <property name="visible">True</property>
 
 					  <child>
-					    <widget class="GtkLabel" id="convertwidget114">
+					    <widget class="GtkLabel" id="convertwidget9">
 					      <property name="visible">True</property>
 					      <property name="label" translatable="yes"></property>
 					      <property name="use_underline">False</property>
@@ -17442,7 +17442,7 @@ Liste löschen</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkLabel" id="label683">
+			    <widget class="GtkLabel" id="label691">
 			      <property name="visible">True</property>
 			      <property name="label" translatable="yes">Vorgaben</property>
 			      <property name="use_underline">False</property>
@@ -17507,7 +17507,7 @@ Liste löschen</property>
 				  <property name="visible">True</property>
 				  <property name="label" translatable="yes">Vorgaben
 machen</property>
-				  <property name="use_underline">False</property>
+				  <property name="use_underline">True</property>
 				  <property name="use_markup">False</property>
 				  <property name="justify">GTK_JUSTIFY_CENTER</property>
 				  <property name="wrap">False</property>
@@ -17571,7 +17571,7 @@ machen</property>
 				  <property name="visible">True</property>
 				  <property name="label" translatable="yes">Zufallsabenteurer
 Grad 1 erzeugen</property>
-				  <property name="use_underline">False</property>
+				  <property name="use_underline">True</property>
 				  <property name="use_markup">False</property>
 				  <property name="justify">GTK_JUSTIFY_CENTER</property>
 				  <property name="wrap">False</property>
@@ -17603,7 +17603,7 @@ Grad 1 erzeugen</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label682">
+		    <widget class="GtkLabel" id="label690">
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">Abenteurer erzeugen</property>
 		      <property name="use_underline">False</property>
@@ -17726,85 +17726,340 @@ Grad 1 erzeugen</property>
 			      <property name="column_spacing">0</property>
 
 			      <child>
-				<widget class="GtkTable" id="table176">
+				<widget class="GtkEventBox" id="eventbox23">
 				  <property name="visible">True</property>
-				  <property name="n_rows">2</property>
-				  <property name="n_columns">2</property>
-				  <property name="homogeneous">False</property>
-				  <property name="row_spacing">0</property>
-				  <property name="column_spacing">0</property>
 
 				  <child>
-				    <widget class="GtkFrame" id="frame116">
+				    <widget class="GtkTable" id="table176">
 				      <property name="visible">True</property>
-				      <property name="label_xalign">0</property>
-				      <property name="label_yalign">0.5</property>
-				      <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+				      <property name="n_rows">2</property>
+				      <property name="n_columns">2</property>
+				      <property name="homogeneous">False</property>
+				      <property name="row_spacing">0</property>
+				      <property name="column_spacing">0</property>
 
 				      <child>
-					<widget class="GtkTable" id="table174">
+					<widget class="GtkFrame" id="frame116">
 					  <property name="visible">True</property>
-					  <property name="n_rows">2</property>
-					  <property name="n_columns">1</property>
-					  <property name="homogeneous">False</property>
-					  <property name="row_spacing">0</property>
-					  <property name="column_spacing">0</property>
+					  <property name="label_xalign">0</property>
+					  <property name="label_yalign">0.5</property>
+					  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
 
 					  <child>
-					    <widget class="GtkRadioButton" id="radiobutton_proto_verteilen">
-					      <property agent="glademm" name="cxx_visibility">protected</property>
+					    <widget class="GtkTable" id="table174">
 					      <property name="visible">True</property>
-					      <property name="can_focus">True</property>
-					      <property name="label" translatable="yes">Verteile</property>
-					      <property name="use_underline">True</property>
-					      <property name="relief">GTK_RELIEF_NORMAL</property>
-					      <property name="active">False</property>
-					      <property name="inconsistent">False</property>
-					      <property name="draw_indicator">True</property>
-					      <signal name="toggled" handler="on_radiobutton_proto_verteilen_toggled"/>
+					      <property name="n_rows">2</property>
+					      <property name="n_columns">1</property>
+					      <property name="homogeneous">False</property>
+					      <property name="row_spacing">0</property>
+					      <property name="column_spacing">0</property>
+
+					      <child>
+						<widget class="GtkRadioButton" id="radiobutton_proto_verteilen">
+						  <property agent="glademm" name="cxx_visibility">protected</property>
+						  <property name="visible">True</property>
+						  <property name="can_focus">True</property>
+						  <property name="label" translatable="yes">Verteile</property>
+						  <property name="use_underline">True</property>
+						  <property name="relief">GTK_RELIEF_NORMAL</property>
+						  <property name="active">False</property>
+						  <property name="inconsistent">False</property>
+						  <property name="draw_indicator">True</property>
+						  <signal name="toggled" handler="on_radiobutton_proto_verteilen_toggled"/>
+						</widget>
+						<packing>
+						  <property name="left_attach">0</property>
+						  <property name="right_attach">1</property>
+						  <property name="top_attach">0</property>
+						  <property name="bottom_attach">1</property>
+						  <property name="x_options">fill</property>
+						  <property name="y_options"></property>
+						</packing>
+					      </child>
+
+					      <child>
+						<widget class="GtkRadioButton" id="radiobutton_proto_spezialisieren">
+						  <property agent="glademm" name="cxx_visibility">protected</property>
+						  <property name="visible">True</property>
+						  <property name="can_focus">True</property>
+						  <property name="label" translatable="yes">Spezialisieren</property>
+						  <property name="use_underline">True</property>
+						  <property name="relief">GTK_RELIEF_NORMAL</property>
+						  <property name="active">False</property>
+						  <property name="inconsistent">False</property>
+						  <property name="draw_indicator">True</property>
+						  <property name="group">radiobutton_proto_verteilen</property>
+						  <signal name="toggled" handler="on_radiobutton_proto_spezialisieren_toggled"/>
+						</widget>
+						<packing>
+						  <property name="left_attach">0</property>
+						  <property name="right_attach">1</property>
+						  <property name="top_attach">1</property>
+						  <property name="bottom_attach">2</property>
+						  <property name="x_options">fill</property>
+						  <property name="y_options"></property>
+						</packing>
+					      </child>
 					    </widget>
-					    <packing>
-					      <property name="left_attach">0</property>
-					      <property name="right_attach">1</property>
-					      <property name="top_attach">0</property>
-					      <property name="bottom_attach">1</property>
-					      <property name="x_options">fill</property>
-					      <property name="y_options"></property>
-					    </packing>
+					  </child>
+					</widget>
+					<packing>
+					  <property name="left_attach">0</property>
+					  <property name="right_attach">1</property>
+					  <property name="top_attach">0</property>
+					  <property name="bottom_attach">2</property>
+					</packing>
+				      </child>
+
+				      <child>
+					<widget class="GtkFrame" id="frame_verteilung_auf">
+					  <property agent="glademm" name="cxx_visibility">protected</property>
+					  <property name="visible">True</property>
+					  <property name="label_xalign">0</property>
+					  <property name="label_yalign">0.5</property>
+					  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+
+					  <child>
+					    <widget class="GtkTable" id="table173">
+					      <property name="visible">True</property>
+					      <property name="n_rows">2</property>
+					      <property name="n_columns">6</property>
+					      <property name="homogeneous">False</property>
+					      <property name="row_spacing">0</property>
+					      <property name="column_spacing">3</property>
+
+					      <child>
+						<widget class="GtkLabel" id="label627">
+						  <property name="visible">True</property>
+						  <property name="label" translatable="yes">Ausnahmekenntnisse</property>
+						  <property name="use_underline">False</property>
+						  <property name="use_markup">False</property>
+						  <property name="justify">GTK_JUSTIFY_CENTER</property>
+						  <property name="wrap">False</property>
+						  <property name="selectable">False</property>
+						  <property name="xalign">0</property>
+						  <property name="yalign">0.5</property>
+						  <property name="xpad">0</property>
+						  <property name="ypad">0</property>
+						</widget>
+						<packing>
+						  <property name="left_attach">4</property>
+						  <property name="right_attach">6</property>
+						  <property name="top_attach">0</property>
+						  <property name="bottom_attach">1</property>
+						  <property name="x_options">fill</property>
+						  <property name="y_options"></property>
+						</packing>
+					      </child>
+
+					      <child>
+						<widget class="GtkLabel" id="label625">
+						  <property name="visible">True</property>
+						  <property name="label" translatable="yes">Grundkenntnisse</property>
+						  <property name="use_underline">False</property>
+						  <property name="use_markup">False</property>
+						  <property name="justify">GTK_JUSTIFY_CENTER</property>
+						  <property name="wrap">False</property>
+						  <property name="selectable">False</property>
+						  <property name="xalign">0</property>
+						  <property name="yalign">0.5</property>
+						  <property name="xpad">0</property>
+						  <property name="ypad">0</property>
+						</widget>
+						<packing>
+						  <property name="left_attach">0</property>
+						  <property name="right_attach">2</property>
+						  <property name="top_attach">0</property>
+						  <property name="bottom_attach">1</property>
+						  <property name="x_options">fill</property>
+						  <property name="y_options"></property>
+						</packing>
+					      </child>
+
+					      <child>
+						<widget class="GtkLabel" id="label626">
+						  <property name="visible">True</property>
+						  <property name="label" translatable="yes">Standardkenntnisse</property>
+						  <property name="use_underline">False</property>
+						  <property name="use_markup">False</property>
+						  <property name="justify">GTK_JUSTIFY_CENTER</property>
+						  <property name="wrap">False</property>
+						  <property name="selectable">False</property>
+						  <property name="xalign">0</property>
+						  <property name="yalign">0.5</property>
+						  <property name="xpad">0</property>
+						  <property name="ypad">0</property>
+						</widget>
+						<packing>
+						  <property name="left_attach">2</property>
+						  <property name="right_attach">4</property>
+						  <property name="top_attach">0</property>
+						  <property name="bottom_attach">1</property>
+						  <property name="x_options">shrink|fill</property>
+						  <property name="y_options">shrink|fill</property>
+						</packing>
+					      </child>
+
+					      <child>
+						<widget class="GtkSpinButton" id="spinbutton_ausnahme">
+						  <property agent="glademm" name="cxx_visibility">protected</property>
+						  <property name="visible">True</property>
+						  <property name="can_focus">True</property>
+						  <property name="climb_rate">1</property>
+						  <property name="digits">0</property>
+						  <property name="numeric">False</property>
+						  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
+						  <property name="snap_to_ticks">False</property>
+						  <property name="wrap">False</property>
+						  <property name="adjustment">1 0 100 1 10 10</property>
+						  <signal name="activate" handler="on_spinbutton_ausnahme_activate"/>
+						</widget>
+						<packing>
+						  <property name="left_attach">4</property>
+						  <property name="right_attach">5</property>
+						  <property name="top_attach">1</property>
+						  <property name="bottom_attach">2</property>
+						  <property name="x_options">shrink|fill</property>
+						  <property name="y_options">shrink</property>
+						</packing>
+					      </child>
+
+					      <child>
+						<widget class="GtkSpinButton" id="spinbutton_standard">
+						  <property agent="glademm" name="cxx_visibility">protected</property>
+						  <property name="visible">True</property>
+						  <property name="can_focus">True</property>
+						  <property name="climb_rate">1</property>
+						  <property name="digits">0</property>
+						  <property name="numeric">False</property>
+						  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
+						  <property name="snap_to_ticks">False</property>
+						  <property name="wrap">False</property>
+						  <property name="adjustment">1 0 100 1 10 10</property>
+						  <signal name="activate" handler="on_spinbutton_standard_activate"/>
+						</widget>
+						<packing>
+						  <property name="left_attach">2</property>
+						  <property name="right_attach">3</property>
+						  <property name="top_attach">1</property>
+						  <property name="bottom_attach">2</property>
+						  <property name="x_options">shrink|fill</property>
+						  <property name="y_options">shrink</property>
+						</packing>
+					      </child>
+
+					      <child>
+						<widget class="GtkSpinButton" id="spinbutton_grund">
+						  <property agent="glademm" name="cxx_visibility">protected</property>
+						  <property name="visible">True</property>
+						  <property name="can_focus">True</property>
+						  <property name="climb_rate">1</property>
+						  <property name="digits">0</property>
+						  <property name="numeric">False</property>
+						  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
+						  <property name="snap_to_ticks">False</property>
+						  <property name="wrap">False</property>
+						  <property name="adjustment">1 0 100 1 10 10</property>
+						  <signal name="activate" handler="on_spinbutton_grund_activate"/>
+						</widget>
+						<packing>
+						  <property name="left_attach">0</property>
+						  <property name="right_attach">1</property>
+						  <property name="top_attach">1</property>
+						  <property name="bottom_attach">2</property>
+						  <property name="x_options">shrink|fill</property>
+						  <property name="y_options">shrink</property>
+						</packing>
+					      </child>
+					    </widget>
 					  </child>
 
 					  <child>
-					    <widget class="GtkRadioButton" id="radiobutton_proto_spezialisieren">
-					      <property agent="glademm" name="cxx_visibility">protected</property>
+					    <widget class="GtkLabel" id="label693">
 					      <property name="visible">True</property>
-					      <property name="can_focus">True</property>
-					      <property name="label" translatable="yes">Spezialisieren</property>
-					      <property name="use_underline">True</property>
-					      <property name="relief">GTK_RELIEF_NORMAL</property>
-					      <property name="active">False</property>
-					      <property name="inconsistent">False</property>
-					      <property name="draw_indicator">True</property>
-					      <property name="group">radiobutton_proto_verteilen</property>
-					      <signal name="toggled" handler="on_radiobutton_proto_spezialisieren_toggled"/>
+					      <property name="label" translatable="yes">Verteilung auf</property>
+					      <property name="use_underline">False</property>
+					      <property name="use_markup">False</property>
+					      <property name="justify">GTK_JUSTIFY_LEFT</property>
+					      <property name="wrap">False</property>
+					      <property name="selectable">False</property>
+					      <property name="xalign">0.5</property>
+					      <property name="yalign">0.5</property>
+					      <property name="xpad">0</property>
+					      <property name="ypad">0</property>
 					    </widget>
 					    <packing>
-					      <property name="left_attach">0</property>
-					      <property name="right_attach">1</property>
-					      <property name="top_attach">1</property>
-					      <property name="bottom_attach">2</property>
-					      <property name="x_options">fill</property>
-					      <property name="y_options"></property>
+					      <property name="type">label_item</property>
 					    </packing>
 					  </child>
 					</widget>
+					<packing>
+					  <property name="left_attach">1</property>
+					  <property name="right_attach">2</property>
+					  <property name="top_attach">0</property>
+					  <property name="bottom_attach">1</property>
+					  <property name="y_options">fill</property>
+					</packing>
+				      </child>
+
+				      <child>
+					<widget class="GtkFrame" id="frame_spezialist_typen">
+					  <property agent="glademm" name="cxx_visibility">protected</property>
+					  <property name="label_xalign">0</property>
+					  <property name="label_yalign">0.5</property>
+					  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+
+					  <child>
+					    <widget class="GtkScrolledWindow" id="scrolledwindow_prototyp">
+					      <property name="visible">True</property>
+					      <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+					      <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+					      <property name="shadow_type">GTK_SHADOW_NONE</property>
+					      <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+
+					      <child>
+						<widget class="Custom" id="tree_prototyp">
+						  <property agent="glademm" name="cxx_visibility">protected</property>
+						  <property name="visible">True</property>
+						  <property name="creation_function">SimpleTree</property>
+						  <property name="int1">4</property>
+						  <property name="int2">0</property>
+						  <property name="last_modification_time">Wed, 23 Oct 2002 09:52:45 GMT</property>
+						  <signal name="leaf_selected" handler="on_tree_prototyp_leaf_selected"/>
+						</widget>
+					      </child>
+					    </widget>
+					  </child>
+
+					  <child>
+					    <widget class="GtkLabel" id="label694">
+					      <property name="visible">True</property>
+					      <property name="label" translatable="yes">Spezialisieren auf einen oder mehrere Spezialisierungs-Typen</property>
+					      <property name="use_underline">False</property>
+					      <property name="use_markup">False</property>
+					      <property name="justify">GTK_JUSTIFY_LEFT</property>
+					      <property name="wrap">False</property>
+					      <property name="selectable">False</property>
+					      <property name="xalign">0.5</property>
+					      <property name="yalign">0.5</property>
+					      <property name="xpad">0</property>
+					      <property name="ypad">0</property>
+					    </widget>
+					    <packing>
+					      <property name="type">label_item</property>
+					    </packing>
+					  </child>
+					</widget>
+					<packing>
+					  <property name="left_attach">1</property>
+					  <property name="right_attach">2</property>
+					  <property name="top_attach">1</property>
+					  <property name="bottom_attach">2</property>
+					  <property name="x_options">fill</property>
+					  <property name="y_options">fill</property>
+					</packing>
 				      </child>
 				    </widget>
-				    <packing>
-				      <property name="left_attach">0</property>
-				      <property name="right_attach">1</property>
-				      <property name="top_attach">0</property>
-				      <property name="bottom_attach">1</property>
-				    </packing>
 				  </child>
 				</widget>
 				<packing>
@@ -17859,7 +18114,7 @@ Grad 1 erzeugen</property>
 					  <property name="visible">True</property>
 					  <property name="label" translatable="yes">Fertig-
 keiten</property>
-					  <property name="use_underline">False</property>
+					  <property name="use_underline">True</property>
 					  <property name="use_markup">False</property>
 					  <property name="justify">GTK_JUSTIFY_LEFT</property>
 					  <property name="wrap">False</property>
@@ -17908,7 +18163,7 @@ keiten</property>
 					  <property name="visible">True</property>
 					  <property name="label" translatable="yes">Waffen-
 Grund.</property>
-					  <property name="use_underline">False</property>
+					  <property name="use_underline">True</property>
 					  <property name="use_markup">False</property>
 					  <property name="justify">GTK_JUSTIFY_CENTER</property>
 					  <property name="wrap">False</property>
@@ -17957,7 +18212,7 @@ Grund.</property>
 					  <property name="visible">True</property>
 					  <property name="label" translatable="yes">Zauber-
 werk</property>
-					  <property name="use_underline">False</property>
+					  <property name="use_underline">True</property>
 					  <property name="use_markup">False</property>
 					  <property name="justify">GTK_JUSTIFY_LEFT</property>
 					  <property name="wrap">False</property>
@@ -18029,8 +18284,7 @@ werk</property>
 					<widget class="GtkButton" id="button_check100">
 					  <property name="visible">True</property>
 					  <property name="can_focus">True</property>
-					  <property name="label" translatable="yes">Eingestellte Werte
-übernehmen und testen</property>
+					  <property name="label" translatable="yes">Eingestellte Werte</property>
 					  <property name="use_underline">True</property>
 					  <property name="relief">GTK_RELIEF_NORMAL</property>
 					  <signal name="clicked" handler="on_button_check100_clicked"/>
@@ -18365,7 +18619,7 @@ werk</property>
 			  <child>
 			    <widget class="GtkEventBox" id="eventbox22">
 			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">'GFP': Vorgabe wieviel für GFP der Abenteurer lernen soll. 'Grad': Vorgabe in welchem Grad sich der Abenteurer nach dem Steigern befinden soll.</property>
+			      <property name="tooltip" translatable="yes">'GFP': Vorgabe wieviel f_ue_r GFP der Abenteurer lernen soll. 'Grad': Vorgabe in welchem Grad sich der Abenteurer nach dem Steigern befinden soll.</property>
 
 			      <child>
 				<widget class="GtkTable" id="table169">
@@ -18524,16 +18778,16 @@ werk</property>
 				  </child>
 
 				  <child internal-child="list">
-				    <widget class="GtkList" id="convertwidget117">
+				    <widget class="GtkList" id="convertwidget12">
 				      <property name="visible">True</property>
 				      <property name="selection_mode">GTK_SELECTION_BROWSE</property>
 
 				      <child>
-					<widget class="GtkListItem" id="convertwidget118">
+					<widget class="GtkListItem" id="convertwidget13">
 					  <property name="visible">True</property>
 
 					  <child>
-					    <widget class="GtkLabel" id="convertwidget119">
+					    <widget class="GtkLabel" id="convertwidget14">
 					      <property name="visible">True</property>
 					      <property name="label" translatable="yes"></property>
 					      <property name="use_underline">False</property>
@@ -18624,7 +18878,7 @@ werk</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkLabel" id="label687">
+			    <widget class="GtkLabel" id="label695">
 			      <property name="visible">True</property>
 			      <property name="label" translatable="yes">Prototyp</property>
 			      <property name="use_underline">False</property>
@@ -18655,7 +18909,7 @@ werk</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label684">
+		    <widget class="GtkLabel" id="label692">
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">Abenteurer steigern</property>
 		      <property name="use_underline">False</property>

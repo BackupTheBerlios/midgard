@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.24 2003/02/25 16:50:28 christof Exp $
+// $Id: customize_toolbars.cc,v 1.25 2003/02/25 21:53:09 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -28,6 +28,7 @@
 #include <gtkmm/eventbox.h>
 #include <typeinfo>
 // bin + container sind schon dabei
+#include <iostream>
 
 static bool hasOnlyPixmaps(Gtk::Box *w)
 {  Gtk::Box_Helpers::BoxList &ch2=dynamic_cast<Gtk::Box*>(w)->children();
