@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.20 $">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.21 $">
  <Fertigkeiten>
   <Fertigkeit Name="Geomantie" Region="TuT" Lernpunkte="4" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
    <Grund Typ="De"/>
@@ -810,6 +810,7 @@
    <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="12"/>
   </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
+   <Grund Typ="Fi"/>
    <Grund Typ="Km"/>
    <Grund Typ="RiN"/>
    <Grund Typ="RiS"/>
@@ -818,7 +819,6 @@
    <Standard Typ="Hj"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Sw"/>
-   <Ausnahme Typ="Fi"/>
    <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="15"/>
   </Fertigkeit>
   <Fertigkeit Name="Schätzen">
@@ -3849,10 +3849,10 @@
    <Standard Typ="Wi"/>
   </Spruch>
   <Spruch Name="Erkennen von Leben">
-   <Grund Typ="Fi"/>
    <Grund Typ="Km"/>
    <Grund Typ="Mg"/>
    <Grund Typ="Sw"/>
+   <Standard Typ="Fi"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Wi"/>
    <Lernschema Typ="Km" Lernpunkte="1"/>
@@ -3985,7 +3985,7 @@
    <Standard Typ="To"/>
   </Spruch>
   <Spruch Name="Geas">
-   <Grund Typ="Fi"/>
+   <Standard Typ="Fi"/>
   </Spruch>
   <Spruch Name="Geistesschild">
    <Grund Typ="Km"/>
@@ -4029,7 +4029,7 @@
    <Standard Typ="To"/>
   </Spruch>
   <Spruch Name="Heilen schwerer Wunden">
-   <Standard Typ="Fi"/>
+   <Grund Typ="Fi"/>
   </Spruch>
   <Spruch Name="Heilen von Wunden">
    <Grund Typ="Fi"/>
@@ -4199,9 +4199,9 @@
    <Lernschema Typ="Km" Lernpunkte="2"/>
   </Spruch>
   <Spruch Name="Macht über das Selbst">
-   <Grund Typ="Fi"/>
    <Grund Typ="Km"/>
    <Grund Typ="Sw"/>
+   <Standard Typ="Fi"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
@@ -4224,10 +4224,10 @@
    <Ausnahme Typ="To"/>
   </Spruch>
   <Spruch Name="Macht über die belebte Natur">
-   <Grund Typ="Fi"/>
    <Grund Typ="Km"/>
    <Grund Typ="Sw"/>
    <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
    <Lernschema Typ="Km" Lernpunkte="3"/>
    <Lernschema Typ="Wi" Lernpunkte="4"/>
    <Lernschema Typ="Fi" Lernpunkte="8"/>
@@ -4784,8 +4784,8 @@
    <Standard Typ="Wi"/>
   </Spruch>
   <Spruch Name="Zweite Haut">
-   <Grund Typ="Fi"/>
    <Grund Typ="Km"/>
+   <Standard Typ="Fi"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
@@ -4796,8 +4796,8 @@
    <Ausnahme Typ="To"/>
   </Spruch>
   <Spruch Name="Zähmen">
-   <Grund Typ="Fi"/>
    <Grund Typ="Wi"/>
+   <Standard Typ="Fi"/>
    <Standard Typ="Mg"/>
    <Ausnahme Typ="To"/>
    <Lernschema Typ="Wi" Lernpunkte="2"/>

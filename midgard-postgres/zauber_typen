@@ -1465,6 +1465,7 @@ Bruchbann	Th	G	\N
 Bruchbann	gHx	G	\N
 Bruchbann	sHx	G	\N
 Bruchbann	wHx	G	\N
+BÃ¤renwut	Fi	G	\N
 Bärenstärke	Dr	S	\N
 Bärenstärke	Km	A	\N
 Bärenstärke	MMa	A	\N
@@ -2884,7 +2885,7 @@ Erkennen von Krankheit	Wi	S	\N
 Erkennen von Leben	De	A	\N
 Erkennen von Leben	Dr	S	\N
 Erkennen von Leben	Dt	G	\N
-Erkennen von Leben	Fi	G	\N
+Erkennen von Leben	Fi	S	\N
 Erkennen von Leben	Hl	S	\N
 Erkennen von Leben	Km	G	\N
 Erkennen von Leben	MMa	G	\N
@@ -3885,7 +3886,7 @@ Fäulnis	sHx	S	\N
 Geas	De	S	\N
 Geas	Dr	G	\N
 Geas	Dt	S	\N
-Geas	Fi	G	\N
+Geas	Fi	S	\N
 Geas	Hl	G	\N
 Geas	PC	S	\N
 Geas	PF	S	\N
@@ -4791,7 +4792,7 @@ Haugskadi beschwören	wHx	A	\N
 Heilen schwerer Wunden	De	S	\N
 Heilen schwerer Wunden	Dr	A	\N
 Heilen schwerer Wunden	Dt	S	\N
-Heilen schwerer Wunden	Fi	S	\N
+Heilen schwerer Wunden	Fi	G	\N
 Heilen schwerer Wunden	Hl	G	\N
 Heilen schwerer Wunden	Or	G	\N
 Heilen schwerer Wunden	PC	S	\N
@@ -6800,7 +6801,7 @@ Macht über Unbelebtes	wHx	S	\N
 Macht über das Selbst	De	G	\N
 Macht über das Selbst	Dr	S	\N
 Macht über das Selbst	Dt	G	\N
-Macht über das Selbst	Fi	G	\N
+Macht über das Selbst	Fi	S	\N
 Macht über das Selbst	Hl	S	\N
 Macht über das Selbst	Km	G	\N
 Macht über das Selbst	MMa	G	\N
@@ -6862,7 +6863,7 @@ Macht über die Zeit	sHx	A	\N
 Macht über die Zeit	wHx	A	\N
 Macht über die belebte Natur	De	A	\N
 Macht über die belebte Natur	Dr	G	Holz
-Macht über die belebte Natur	Fi	G	\N
+Macht über die belebte Natur	Fi	S	\N
 Macht über die belebte Natur	Hl	G	Holz
 Macht über die belebte Natur	Km	G	\N
 Macht über die belebte Natur	MMa	G	\N
@@ -11918,7 +11919,7 @@ Zusammenfügen	Tr	G	\N
 Zweite Haut	De	S	\N
 Zweite Haut	Dr	S	\N
 Zweite Haut	Dt	S	\N
-Zweite Haut	Fi	G	\N
+Zweite Haut	Fi	S	\N
 Zweite Haut	Hj	S	\N
 Zweite Haut	Hl	G	\N
 Zweite Haut	Km	G	\N
@@ -12027,7 +12028,7 @@ Zwingkreis, Silberner	tBe	S	\N
 Zähmen	De	A	\N
 Zähmen	Dr	G	Holz
 Zähmen	Dt	G	\N
-Zähmen	Fi	G	\N
+Zähmen	Fi	S	\N
 Zähmen	Hl	G	Holz
 Zähmen	Mg	S	\N
 Zähmen	PF	S	\N

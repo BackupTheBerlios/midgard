@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.15 2004/03/08 18:26:19 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.16 2004/03/08 19:06:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -315,6 +315,7 @@ void Magus_Optionen::Icon_init()
 }
 
 // Lines marked with 'compat' are to maintain compatibility
+#include<iostream>
 void Magus_Optionen::load_options(const std::string &filename)
 {try {
   std::ifstream f(filename.c_str());
@@ -348,9 +349,12 @@ void Magus_Optionen::load_options(const std::string &filename)
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Einstellungen")
      setString(i->getAttr("Name"),i->getAttr("Wert"));
-  FOR_EACH_CONST_TAG_OF(i,*options,"Regionen")
+  const Tag *regionen=data->find("Regionen");
+  FOR_EACH_CONST_TAG_OF(i,*options,"Region")
+   {
      standard_regionen[i->getAttr("Name")]=i->getBoolAttr("Wert");
-
+std::cout << i->getAttr("Name")<<'\t'<<standard_regionen[i->getAttr("Name")]<<'\n';
+   }
   const Tag *data2=ts.find("MAGUS-fenster"); // compat
   if (!data2) data2=data->find("Fenster");
   if(data2)
@@ -463,7 +467,7 @@ void Magus_Optionen::save_options(const std::string &filename)
      Tag &reg=data.push_back(Tag("Regionen"));
      for(regionen_t::const_iterator i=standard_regionen.begin();i!=standard_regionen.end();++i)
       {
-        Tag &r=reg.push_back(Tag("Regionen"));
+        Tag &r=reg.push_back(Tag("Region"));
         r.setAttr("Name",i->first->Name());
         r.setBoolAttr("Wert",i->second);
       }
