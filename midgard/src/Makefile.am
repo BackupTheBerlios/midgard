@@ -1,7 +1,7 @@
-# $Id: Makefile.am,v 1.234 2004/07/01 09:10:53 christof Exp $
+# $Id: Makefile.am,v 1.235 2004/07/06 06:37:51 christof Exp $
 
-bin_PROGRAMS = magus
-noinst_PROGRAMS = text2c
+bin_PROGRAMS = magus$(EXEEXT)
+noinst_PROGRAMS = text2c$(EXEEXT)
 
 if WINDOWS
 PORT_FILES=magus.rc 
@@ -13,7 +13,8 @@ WIN_INCLUDES=
 #-I/usr/local/mingw/mingw32/include -I/usr/local/mingw/local/include/gdk
 
 #magus_res.o: magus.rc ; i586-mingw32msvc-windres --include-dir /usr/local/mingw2/include  magus.rc magus_res.o
-magus_res.o: magus.rc ; i586-mingw32msvc-windres magus.rc magus_res.o
+magus_res.o: magus.rc
+	WINDRES=i586-mingw32msvc-windres $(top_srcdir)/../ManuProC_Base/build/win32/compile-resource $< $@
 
 else
 PORT_FILES= xml_fileselection_glade.cc
@@ -71,9 +72,9 @@ WindowInfo_glade.hh WindowInfo.hh \
    Data_waffenbesitz.hh \
    Data_NewPreis.hh
 
-BUILT_SOURCES= text2c NEWS.h
+BUILT_SOURCES= text2c$(EXEEXT) NEWS.h
 
-NEWS.h: ../NEWS ../TODO text2c
+NEWS.h: ../NEWS ../TODO text2c$(EXEEXT)
 	csplit --prefix tmp_news. ../NEWS '/<<<TODO>>>/'
 	cat tmp_news.00 ../TODO tmp_news.0[1-9] | ./text2c | ./iso2utf8 >NEWS.h
 	rm tmp_news.??
