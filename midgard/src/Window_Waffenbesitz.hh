@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.22 2001/10/16 08:59:23 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.23 2001/10/16 13:50:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -77,24 +77,24 @@ class Data_waffenbesitz :  public RowDataBase
 {
       H_WaffeBesitz waffe;
       Grundwerte Werte;
-      std::string alias;
+//      std::string alias;
   public:
-      Data_waffenbesitz(const H_WaffeBesitz& w,const Grundwerte& g,const std::string& a)
-         : waffe(w), Werte(g),alias(a) {}
+      Data_waffenbesitz(const H_WaffeBesitz& w,const Grundwerte& g)
+         : waffe(w), Werte(g) {}
 
       enum SPALTEN_A {NAME_A,SCHADEN_A,REGION,MAGBONUS};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
           switch(seqnr) {
-            case NAME_A : return cH_EntryValueIntString(alias);
-            case SCHADEN_A : return cH_EntryValueIntString(waffe->Schaden(Werte,alias));
+            case NAME_A : return cH_EntryValueIntString(waffe->Name());
+            case SCHADEN_A : return cH_EntryValueIntString(waffe->Schaden(Werte,waffe->Name()));
             case REGION : return cH_EntryValueIntString(waffe->Region());
             case MAGBONUS : return cH_EntryValueIntString(waffe->Bonus());
            }
          return cH_EntryValueIntString("?");
        }
       H_WaffeBesitz get_Waffe() const {return waffe;}
-      std::string get_Alias() const {return alias;}
+//      std::string get_Alias() const {return alias;}
 };
 
 class cH_Data_waffenbesitz : public Handle<const Data_waffenbesitz>

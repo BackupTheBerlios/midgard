@@ -38,7 +38,7 @@ void Waffe::get_Waffe()
       coalesce(reichweite_n,-1),coalesce(reichweite_m,-1),
       coalesce(reichweite_f,-1)
       from waffen
-      where name = '"+Name()+"'";
+      where name = '"+get_waffe_from_alias(Name())+"'";
   strncpy(query,squery.c_str(),sizeof(query));
   Transaction tr;
   exec sql prepare cl_waffen_ein_ from :query ;
@@ -79,9 +79,10 @@ void Waffe::get_Alias()
    int db_schaden_b,db_angriffs_mod;
   exec sql end declare section; 
   std::string squery ="select alias,
-      coalesce(schaden,''),coalesce(schaden_b,''),
-      coalesce(angriffs_mod,''),region
-      from waffen_region_name where name = '"+Name()+"'";
+      coalesce(r.schaden,w.schaden,''),coalesce(r.schaden_b,w.schaden_b,0),
+      coalesce(angriffs_mod,''),r.region
+      from waffen_region_name r,waffen w where r.name=w.name
+      and r.name = '"+Name()+"'";
   strncpy(query,squery.c_str(),sizeof(query));
   Transaction tr;
   exec sql prepare cl_walias_ein_ from :query ;
@@ -177,6 +178,12 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
   abort(); //Never get here
 }
 
+std::string WaffeBesitz::Bonus() const 
+{ 
+  if (Magisch()=="" && av_Bonus()==0 && sl_Bonus()==0 ) return "";
+  return "("+itos(av_Bonus())+"/"+itos(sl_Bonus())+")";
+}
+
 
 
 std::string Waffe::Reichweite() const
@@ -229,17 +236,16 @@ std::string Waffe::Region(const std::string& name) const
 }
 
 
-std::string Waffe::get_waffe_from_alias(const std::string& alias, const std::string& region)
+std::string Waffe::get_waffe_from_alias(const std::string& alias)
 {
   exec sql begin declare section;
-   char db_alias[50],db_region[10];
+   char db_alias[50];
    char db_ergebnis[50];
   exec sql end declare section;
 
   strncpy(db_alias,alias.c_str(),sizeof(db_alias));
-  strncpy(db_region,region.c_str(),sizeof(db_region));
   exec sql select name into :db_ergebnis from waffen_region_name
-         where alias = :db_alias and region = :db_region limit 1;  
+         where alias = :db_alias limit 1;  
   SQLerror::test(__FILELINE__,100);
   if (sqlca.sqlcode) return(alias); // waffe = alias
   else return(db_ergebnis);

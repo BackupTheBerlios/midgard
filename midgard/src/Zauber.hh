@@ -49,7 +49,7 @@ class Zauber : public HandleContent
    std::string Beschreibung() const { return beschreibung;}
    std::string P_Element() const {return p_element;}
    std::string S_Element() const {return s_element;}
-   vector<std::string> Standard() const {return standard;}
+   const vector<std::string>& Standard() const {return standard;}
    std::string Region() const {return region;}
    int Kosten() const;
    int Kosten_eBe(const std::string& pe,const std::string& se) const;

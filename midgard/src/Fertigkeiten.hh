@@ -27,7 +27,7 @@ class Fertigkeit : public HandleContent
      std::string Attribut() const {return attribut;}
      std::string Region() const {return region;}
      std::string Standard__() const { return standard[0]+' '+standard[1];}
-     vector<std::string> Standard() const {return standard;}
+     const vector<std::string>& Standard() const {return standard;}
      int Lernpunkte() const {return lernpunkte;}
      int Anfangswert0() const {return anfangswert0;}
      int Anfangswert() const {return anfangswert;}

@@ -370,7 +370,7 @@ void midgard_CG::load_charakter()
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          list_Waffen_besitz.push_back(new 
-            WaffeBesitz(cH_Waffe(Waffe::get_waffe_from_alias(db_fertigkeit,db_region),Typ),
+            WaffeBesitz(cH_Waffe(Waffe::get_waffe_from_alias(db_fertigkeit),Typ),
                db_fertigkeit,db_region,db_av_bonus,db_sl_bonus,db_magisch));
       } 
    exec sql close besitz_w;

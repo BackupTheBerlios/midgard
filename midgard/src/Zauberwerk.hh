@@ -32,7 +32,7 @@ class Zauberwerk : public HandleContent
    int iStufe() const {  if (Stufe()=="groß") return 6; else return atoi(Stufe().c_str()); }
    std::string Zeitaufwand() const { return zeitaufwand;}
 //   std::string Beschreibung() const { return beschreibung;}
-   vector<std::string> Standard() const {return standard;}
+   const vector<std::string>& Standard() const {return standard;}
    std::string Region() const {return region;}
    int Kosten(const vector<H_Data_typen>& Typ) const;
    std::string Preis() const { return preis; }

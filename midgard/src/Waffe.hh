@@ -49,11 +49,11 @@ class Waffe : public HandleContent
      {get_Waffe(); get_Alias(); set_Standard(Typ);}
 
      std::string Name() const {return name;}
-     list<st_alias> Alias() const {return list_alias;}     
+     const list<st_alias>& Alias() const {return list_alias;}     
      std::string Grundkenntnis() const {return grundkenntnisse;}
      std::string Region(const std::string& name) const ;
      std::string Standard__() const { return standard[0]+' '+standard[1];}
-     vector<std::string> Standard() const {return standard;}
+     const vector<std::string>& Standard() const {return standard;}
 
      std::string Art() const {return art;}
      std::string Art2() const {return art2;}
@@ -77,7 +77,7 @@ class Waffe : public HandleContent
      bool SG_Voraussetzung(const Grundwerte& Werte) const;
      int Maxwert() const;
 
-     static std::string get_waffe_from_alias(const std::string& waffe, const std::string& region);
+     static std::string get_waffe_from_alias(const std::string& waffe);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<cH_Waffe>& list_Waffen,
          const std::list<H_WaffeBesitz>& list_Waffen_besitz,
@@ -131,8 +131,7 @@ class WaffeBesitz : public Waffe
      std::string Region() const {return region;}
      int av_Bonus() const {return av_bonus;}
      int sl_Bonus() const {return sl_bonus;}
-     std::string Bonus() const {if (Magisch()=="") return "";
-            return "("+itos(av_Bonus())+"/"+itos(sl_Bonus())+")";}
+     std::string Bonus() const;
      std::string Magisch() const {return magisch;}
      std::string Schaden(const Grundwerte& Werte,const std::string& name) const;
       

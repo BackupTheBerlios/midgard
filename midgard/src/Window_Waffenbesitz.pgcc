@@ -39,7 +39,7 @@ void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
 //  H_WaffeBesitz waffe=dt->get_Waffe();
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
-    move_waffe(Waffe_Besitz,Waffe_Besitz_neu,dt->get_Alias());
+    move_waffe(Waffe_Besitz,Waffe_Besitz_neu,dt->get_Waffe()->Name());
   else 
    {
      table_magbonus->show();
@@ -51,7 +51,7 @@ void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
        { label_av_bonus->set_text("Angriffsbonus");
          label_SL_bonus->set_text("Schadensbonus");
        }
-     label_waffe->set_text(dt->get_Waffe()->Name()+" "+dt->get_Alias());
+     label_waffe->set_text(dt->get_Waffe()->Name());
      spinbutton_av_bonus->set_value(dt->get_Waffe()->av_Bonus());
      spinbutton_sl_bonus->set_value(dt->get_Waffe()->sl_Bonus());
      entry_magisch->set_text(dt->get_Waffe()->Magisch());
@@ -97,8 +97,7 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
 void Window_Waffenbesitz::on_leaf_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-//  move_waffe(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe()->Name());
-  move_waffe(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Alias());
+  move_waffe(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe()->Name());
 }
 
 void Window_Waffenbesitz::move_waffe(std::list<H_WaffeBesitz>& von,std::list<H_WaffeBesitz>& nach,std::string name)
@@ -154,7 +153,7 @@ void  Window_Waffenbesitz::show_alte_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
   for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz.begin();i!=Waffe_Besitz.end();++i)
-     datavec.push_back(new Data_waffenbesitz(*i,Werte,(*i)->Name()));
+     datavec.push_back(new Data_waffenbesitz(*i,Werte));
   waffenbesitz_alt_tree->setDataVec(datavec);
 }
 
@@ -162,20 +161,8 @@ void  Window_Waffenbesitz::show_neue_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
   for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
-   {
-     datavec.push_back(new Data_waffenbesitz(*i,Werte,(*i)->Name()));
-cout << "Größe = " <<(*i)->Waffe()->Alias().size()<<'\t'<<(*i)->Waffe()->Name()<<'\n';
-int c=0;
-     for (list<Waffe::st_alias>::const_iterator j=(*i)->Waffe()->Alias().begin();j!=(*i)->Waffe()->Alias().end();++j)
-      {
-cout <<c<<' ' << (*i)->Name()<<' '<<(*i)->Waffe()->Name()<<' '<<(*j).name<<'\n';
-if(++c==10) break;
-//        if (hauptfenster->region_check((*j).region))
-         {
-//           datavec.push_back(new Data_waffenbesitz(*i,Werte,(*j).name));
-         }
-      }
-   }
+     if (hauptfenster->region_check((*i)->Waffe()->Region((*i)->Name())))
+        datavec.push_back(new Data_waffenbesitz(*i,Werte));
   waffenbesitz_neu_tree->setDataVec(datavec);
 }
 
@@ -214,7 +201,13 @@ void  Window_Waffenbesitz::lade_waffen()
      if (sqlca.sqlcode) break;
      cH_Waffe waffe(db_waffe,Typ);
      if (waffe->Name()!="waffenloser Kampf" )
+      {
        Waffe_Besitz_neu.push_back(new WaffeBesitz(waffe,waffe->Name(),"",0,0,""));
+       for (list<Waffe::st_alias>::const_iterator j=waffe->Alias().begin();j!=waffe->Alias().end();++j)
+        {
+         Waffe_Besitz_neu.push_back(new WaffeBesitz(waffe,(*j).name,"",0,0,""));
+        }
+      }
    }
   exec sql close ein;
   tr.close();

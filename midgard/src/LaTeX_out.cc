@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.42 2001/10/16 08:59:23 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.43 2001/10/16 13:50:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -232,7 +232,7 @@ void midgard_CG::LaTeX_write_values()
          { i_waffenlos=atoi(wert.c_str());}
       for (std::list<H_WaffeBesitz>::const_iterator j=list_Waffen_besitz.begin();j!=list_Waffen_besitz.end();++j)
      {
-      if ((*j)->Name()==(*i)->Name())
+      if ((*j)->Waffe()->Name()==(*i)->Name())
        {
 //         ++countwaffen;
          std::string b = LaTeX_string(countwaffen++);
@@ -240,7 +240,8 @@ void midgard_CG::LaTeX_write_values()
          std::string waffenname ;
          waffenname = (*j)->Name();
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
-         if ((*j)->Magisch()!="") waffenname+="$^*$" ;
+         if ((*j)->Magisch()!="" || 
+            ((*j)->av_Bonus()!=0 && (*j)->sl_Bonus()!=0)) waffenname+="$^*$ "+(*j)->Bonus() ;
          fout <<LaTeX_scalemag(waffenname,15,"2.5cm",(*j)->Magisch(),(*j)->Waffe()->Reichweite())<< "}\n";
          int mag_schadensbonus = (*j)->av_Bonus();
          int anbo = Werte.bo_An();
