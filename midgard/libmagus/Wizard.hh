@@ -12,7 +12,7 @@ struct Wizard
                   UEBERLEBEN, ANGEBORENEFERTIGKEITEN, LERNPUNKTE, WAEHLEN,
                   BERUF1, BERUF, GELD, WAFFEN, RUESTUNG, AUSRUESTUNG,
                   SPEZIALWAFFE, SPEZIALGEBIET, NAMEN, SPEICHERN, FERTIG,
-                  MAXSTEPS };
+                  ZWEITER_TYP, KIDO_STIL, MAXSTEPS };
     enum mode { Aus, Hints, Sensitive, Aktiv };
 private:
     Model_copyable<esteps> act_step;

@@ -1,11 +1,7 @@
-Beim 'make install' waere es nett ein $PREFIX/share/midgard anzulegen, und
-alle xml dateien dort automatisch hinzukopieren. Nett waere es ebenfalls
-eine environment variable zu haben in der form :
-  export MAGUSPATH=/usr/local/share/midgard:/home/kraehe/midgard
-damit es moeglich ist mehrere repositories zu verwenden.
-      
+- Beim 'make install' waere es nett ein $PREFIX/share/midgard anzulegen, und
+alle xml dateien dort automatisch hinzukopieren.
 
-g_locale_to_utf8()
+- g_locale_to_utf8() verwenden statt selbstgeschriebener Routine
 
 - dnd Ausrüstung
 
@@ -20,9 +16,9 @@ was bedeutet:
    on_eventbox_beschreibung_button_release_event
    on_eventbox_ausruestung_button_release_event
 
-eventuell Größe neu berechnen, wenn Optionen ausgewertet wurden.
+- eventuell Größe neu berechnen, wenn Optionen ausgewertet wurden.
 
-use StyleIcon for new Icons
+- use StyleIcon for new Icons
 
 - dfr4 hinter frame4/table_grundwerte
 - kurai hinter table_kido_steigern
@@ -61,3 +57,30 @@ use StyleIcon for new Icons
   Lernschema ändert min x, Steigern min y - warum?
 
 - Optionen werden nicht ausgewertet um Toolbar options zu setzen
+
+- DoubleButtons haben falschen Style
+
+- set_remember fehlt ganz
+
+- WindowInfo zeigt nichts an ...
+
+- Wizard implementieren
+
+- Model/View implementieren
+
+- VAbenteurer herauslösen (nicht mehr an midgard_CG koppeln = mehrere
+Fenster möglich, Neustart des Fensters möglich)
+
+- text/icon ja/nein bei DoubleButtons
+
+- Tooltips nach Möglichkeit (vor allem Statusbar)
+
+- Anzeigen in Statusbar sensitiv machen (Wizard, Eingeben)
+
+- Neue Icons: Wizard sensitiv (grau), Wizard Text ("Wizard"), 
+	Wizard aus (durchgestrichen)
+
+- Needsaction als Wizard steps implementieren ->"Jetzt ..."
+	(table_grundwerte_typauswahl.cc, table_steigern_fertigkeiten.cc)
+
+- geladene Regionen werden nicht angezeigt - warum?

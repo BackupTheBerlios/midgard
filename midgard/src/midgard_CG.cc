@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.315 2003/11/04 07:40:32 christof Exp $
+// $Id: midgard_CG.cc,v 1.316 2003/11/13 08:48:22 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,7 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
    image->show();
    label->show();
    vbox->show();
+   b->set_relief(Gtk::RELIEF_NONE);
 }
 
 midgard_CG::midgard_CG(WindowInfo *info,const std::vector<std::string> &dateien)
@@ -63,9 +64,12 @@ midgard_CG::midgard_CG(WindowInfo *info,const std::vector<std::string> &dateien)
 // ToolBar: StyleIcon
   button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter));
   button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
+  button_neuer_charakter->set_relief(Gtk::RELIEF_NONE);
   button_speichern->add(MagusImage("SaveChar-trans-50.xpm"),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
   button_speichern->add(MagusImage("SaveChar-trans-50.xpm"),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
+  button_speichern->set_relief(Gtk::RELIEF_NONE);
   button_main_drucken->add(MagusImage("PrintChar-trans-50.xpm"),"Drucken",SigC::slot(*this,&midgard_CG::on_latex));
+  button_main_drucken->set_relief(Gtk::RELIEF_NONE);
   ImageLabelKnopf(button_undo,MagusImage("Undo.xpm"),"Zurück");
   ImageLabelKnopf(button_redo,MagusImage("redo.xpm"),"Vorwärts");
   
@@ -102,6 +106,8 @@ midgard_CG::midgard_CG(WindowInfo *info,const std::vector<std::string> &dateien)
   os << 
 #include"NEWS.h" 
    <<'\n';
+   
+  Char.proxies.wizard.signal_changed().connect(SigC::slot(*this,&midgard_CG::wizard_changed));
 }
 
 midgard_CG::~midgard_CG()

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.340 2003/10/14 07:33:05 christof Exp $
+// $Id: midgard_CG.hh,v 1.341 2003/11/13 08:48:22 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -199,6 +199,7 @@ private:
 
 	// wird von Wizard verwendet
         void wizard_do_something(int page,const std::string &text);
+        void wizard_changed(gpointer);
         
 //        Wizard &getWizard() { return wizard; }
 };
