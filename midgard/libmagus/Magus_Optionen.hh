@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.11 2003/11/03 10:54:34 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.12 2003/11/03 13:54:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -25,6 +25,7 @@
 #include <BaseObjects/Model.h>
 #include <BaseObjects/RadioModel.h>
 #include "libmagus_dll.h"
+#include <map>
 
 class Magus_Optionen
 {
@@ -97,7 +98,7 @@ class Magus_Optionen
 		
 		st_Global_Settings_key(unsigned u,const std::string &p, const std::string &n)
 		: userid(u), program(p), name(n) {}
-		bool operator<(const st_Global_Settings_key &b)
+		bool operator<(const st_Global_Settings_key &b) const
 		{  return userid<b.userid || (userid==b.userid 
 			&& (program<b.program || (program==b.program 
 			&& name<b.name)));

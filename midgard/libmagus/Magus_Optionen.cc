@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.9 2003/11/03 10:54:34 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.10 2003/11/03 13:54:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -417,10 +417,10 @@ void Magus_Optionen::save_options(const std::string &filename)
  for(std::map<st_Global_Settings_key,std::string>::const_iterator i=my_global_settings.begin();i!=my_global_settings.end();++i)
    { if (i->second.empty()) continue;
      Tag &opt=optionen.push_back(Tag("Option"));
-     if (i->first.userid) opt.setAttr("Benutzer",i->first.userid);
+     if (i->first.userid) opt.setIntAttr("Benutzer",i->first.userid);
      opt.setAttr("Programm",i->first.program);
      opt.setAttr("Name",i->first.name);
-     opt.setBoolAttr("Wert", i->second);
+     opt.setAttr("Wert", i->second);
    }
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    { Tag &opt=optionen.push_back(Tag("Ansicht"));
@@ -467,12 +467,12 @@ void Magus_Optionen::setWindowPosition(const std::string &name,int x,int y,unsig
    else list_Windows.push_back(st_WindowPosition(name,x,y,w,h));
 }
 
-void global_settings_save(int userid,const std::string& program,
+void Magus_Optionen::global_settings_save(int userid,const std::string& program,
       		const std::string& name, const std::string& value)
-{  my_global_settings[st_Global_Settings_key(userid,program,name)]=value;
-   geaendert=true;
+{  Programmoptionen.my_global_settings[st_Global_Settings_key(userid,program,name)]=value;
+   Programmoptionen.geaendert=true;
 }
-std::string global_settings_load(int userid,const std::string& program,
+std::string Magus_Optionen::global_settings_load(int userid,const std::string& program,
       		const std::string& name)
-{  return my_global_settings[st_Global_Settings_key(userid,program,name)];
+{  return Programmoptionen.my_global_settings[st_Global_Settings_key(userid,program,name)];
 }
