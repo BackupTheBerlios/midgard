@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.4 2002/09/08 17:42:30 thoma Exp $
+// $Id: LernListen.hh,v 1.5 2002/09/09 05:32:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,14 +32,7 @@ class LernListen
       enum eMBE{MutterSprache,GastlandSprache,NachbarlandSprache,AlteSprache,
                 lFach,lAllg,lUnge,lWaff,lZaub };
       enum eZusatz{UeberlebenHeimat};
-//      enum eLernListe{Fach,Allg,Unge,Waff,Zaub};
-/*
-      struct st_mbe{cH_MidgardBasicElement MBE;int erfolgswert;bool erlaubt;
-                     int lernpunkte; std::string lernart;
-             st_mbe(cH_MidgardBasicElement m,int e,bool b,int l, std::string la)
-                  : MBE(m),erfolgswert(e),erlaubt(b),lernpunkte(l),lernart(la) {}
-               };
-*/      
+
       LernListen(const Datenbank& d) : D(d){}   
 
       bool nsc_check(bool nsc_allowed,bool nsc_only) const ;
@@ -54,23 +47,6 @@ class LernListen
                      int lernpunkte=0,std::string lernart="") const;
       std::vector<std::string> getZusatz(eZusatz ez) const; 
 
-//      std::list<cH_MidgardBasicElement> getLernschemaListe(eLernListe was);
-
-/*   
-
-     std::list<cH_MidgardBasicElement> getBeruf(){}; 
-     std::list<cH_MidgardBasicElement> getFertigkeit_ang(){}; 
-     std::list<cH_MidgardBasicElement> getFertigkeit(){};
-     std::list<cH_MidgardBasicElement> getFertigkeit_universal(){};
-     std::list<cH_MidgardBasicElement> getWaffenGrund() {};
-     std::list<cH_MidgardBasicElement> getWaffen() {};
-     std::list<cH_MidgardBasicElement> getWaffen_besitz(){};
-     std::list<cH_MidgardBasicElement> getZauber() {};
-     std::list<cH_MidgardBasicElement> getZauberwerk(){};
-     std::list<cH_MidgardBasicElement> getKido() {};
-     std::list<cH_MidgardBasicElement> getSprache(){}; 
-     std::list<cH_MidgardBasicElement> getSchrift(){}; 
-*/
 };
 
 

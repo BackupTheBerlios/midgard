@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.3 2002/09/08 17:42:30 thoma Exp $
+// $Id: LernListen.cc,v 1.4 2002/09/09 05:32:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,21 +58,37 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
       MidgardBasicElement_mutable M(&**i);
       M.setLernArt(lernart+"_"+(*i)->Name());
       M.setErlaubt(erlaubt);
-      M.setErfolgswert(erfolgswert);
-      M.setLernpunkte(lernpunkte);
+
+
+      int lp;
+      if(was==lUnge) lp = cH_Fertigkeit(*i)->LernUnge();
+      else if (was==lAllg)
+       {
+         if     (A.getWerte().Stadt_Land()==Enums::Land  ) lp=cH_Fertigkeit(*i)->LernLand();
+         else if(A.getWerte().Stadt_Land()==Enums::Stadt ) lp=cH_Fertigkeit(*i)->LernStadt();
+       }
+      M.setLernpunkte(lp);
+
+      if(was==lUnge || was==lAllg)
+           M.setErfolgswert((*i)->Anfangswert()+cH_Fertigkeit(*i)->AttributBonus(A.getWerte()));
+      else M.setErfolgswert(erfolgswert);
       V.push_back(M);
      }
    else if(!Vm.empty())
     for(std::list<MidgardBasicElement_mutable>::iterator i=Vm.begin();i!=Vm.end();++i)
      {
       if(was==lFach)
+       {
          VI=Lernschema::getIndex(A.getVTyp(),"Fachkenntnisse",(*i)->Name());
+         i->setErfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(A.getWerte()));
+       }
       if(was==lWaff)
          VI=Lernschema::getIndex(A.getVTyp(),"Waffenfertigkeiten",(*i)->Name());
       if(was==lZaub)
          VI=Lernschema::getIndex(A.getVTyp(),"Zauberkünste",(*i)->Name());
       int lp=D.lernschema.get_Lernpunkte(VI);
       i->setLernpunkte(lp);
+cout << (*i)->Name()<<' '<<i->Lernpunkte()<<' '<<i->Erfolgswert()<<'\n';
       V.push_back(*i);
      }     
   return V;

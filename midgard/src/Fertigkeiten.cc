@@ -210,7 +210,7 @@ int Fertigkeit::AttributBonus(const Grundwerte& Werte) const
 }
 
 
-void Fertigkeit::get_region_lp(int &lp,const midgard_CG* hauptfenster) const
+void Fertigkeit::get_region_lp(int &lp,const midgard_CG *hauptfenster) const
 {
   for(std::vector<st_region_lern>::const_iterator i=vec_region_lp.begin();i!=vec_region_lp.end();++i)
    {

@@ -70,6 +70,7 @@ class Zufall
                ;};
       void Lernschema();
       st_LL getLernlisten();
+      void Lernpunkte_verteilen(std::list<MidgardBasicElement_mutable> L,int lp);
    public:
       static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A, Random &random);
 };
