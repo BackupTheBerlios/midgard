@@ -71,12 +71,23 @@ void Zufall::Teil(e_Vorgabe vorgabe)
     if (i==B_B)  sv.b=false;
    }
 
-   if(sv.spezies)       Aben->getWerte().setSpezies(getSpezies());
+   if(sv.spezies)  Aben->getWerte().setSpezies(getSpezies());
+   else            Aben->getWerte().setSpezies(oldAben.getWerte().Spezies());
+
+//Spezies::getSpezies(hauptfenster->table_grundwerte->combo_spezies->get_entry()->get_text(),Database.Spezies));
+cout << "C\n"<<Aben->getWerte().Spezies()->Name()<<'\n';
+
    hauptfenster->table_grundwerte->Eigenschaften_variante(1);
    Aben->getWerte().setGeschlecht(getGeschlecht());
-   if(sv.typ)           Aben->setTyp1(getTyp());
+   if(sv.typ)      Aben->setTyp1(getTyp());
+   else            Aben->setTyp1(Typen::getTyp(hauptfenster->table_grundwerte->combo_typ->get_entry()->get_text(),Database.Typen));     
    hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
-   if(sv.herkunft)      Aben->getWerte().setHerkunft(getLand());
+   if(sv.herkunft) Aben->getWerte().setHerkunft(getLand());
+   else { std::string l=hauptfenster->table_grundwerte->entry_herkunft->get_text();
+          if(Land::ist_bekannt(l,Database.Laender))
+               Aben->getWerte().setHerkunft(cH_Land(l));
+          else Aben->getWerte().setHerkunft(cH_Land("Alba"));
+        }
    setMuttersprache();
    Aben->getWerte().setUeberleben(getUeberleben());
    Aben->List_Fertigkeit_ang().clear();

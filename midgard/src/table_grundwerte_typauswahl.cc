@@ -187,6 +187,10 @@ void table_grundwerte::spezieswahl_button()
  std::string spezies=combo_spezies->get_entry()->get_text();
  if(!Spezies::get_Spezies_from_long(hauptfenster->getCDatabase().Spezies,spezies))
    return;
+ hauptfenster->getWerte() = Grundwerte();
+ hauptfenster->getWerte().setSpezies(Spezies::getSpezies(spezies,hauptfenster->getDatabase().Spezies));
+
+/*
  bool ok=false;
  for(vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
    {
@@ -198,7 +202,7 @@ void table_grundwerte::spezieswahl_button()
       }
    }
  if(!ok) return;
-
+*/
 // hauptfenster->undosave("Spezies gewählt");
  fill_typauswahl();
 

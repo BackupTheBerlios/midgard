@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.27 2002/09/06 20:58:52 thoma Exp $               
+// $Id: Typen.hh,v 1.28 2002/09/11 11:09:22 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -100,6 +100,9 @@ public:
 
    static bool get_Typ_from_long(const std::vector<cH_Typen>& V,
                                         std::string& name);
+
+   static cH_Typen getTyp(std::string s,const std::vector<cH_Typen> V);
+
 };
 
 class cH_Typen : public Handle<const Typen>    

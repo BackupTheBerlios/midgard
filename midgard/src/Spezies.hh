@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.19 2002/09/06 20:58:52 thoma Exp $               
+// $Id: Spezies.hh,v 1.20 2002/09/11 11:09:22 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -116,6 +116,7 @@ public:
    static bool get_Spezies_from_long(const std::vector<cH_Spezies>& V,
                                         std::string& name);
 
+   static cH_Spezies getSpezies(std::string s,const std::vector<cH_Spezies> V);
 
    bool operator==(const Spezies &b) const
    {  return Name()==b.Name(); }

@@ -141,6 +141,17 @@ bool Typen::get_Typ_from_long(const std::vector<cH_Typen>& V,
   return false;
 }
 
+cH_Typen Typen::getTyp(std::string s,const std::vector<cH_Typen> V)
+{
+  for(std::vector<cH_Typen>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     if(s==(*i)->Name(Enums::Mann) || s==(*i)->Name(Enums::Frau)) return *i;
+   }
+  return cH_Typen("Kr");
+}
+
+
+
 
 std::string Typen::getLernpflichtenInfo(cH_Land herkunft) const
 { 

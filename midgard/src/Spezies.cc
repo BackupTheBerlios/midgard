@@ -264,3 +264,12 @@ bool Spezies::get_Spezies_from_long(const std::vector<cH_Spezies>& V,
   return false;
 }
 
+cH_Spezies Spezies::getSpezies(std::string s,const std::vector<cH_Spezies> V)
+{
+  for(std::vector<cH_Spezies>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     if(s==(*i)->Name()) return *i;
+   }
+  return cH_Spezies("Mensch");
+}
+

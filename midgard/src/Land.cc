@@ -63,6 +63,17 @@ bool Land::ist_erlaubt(const VAbenteurer& A) const
   return false;
 }
 
+bool Land::ist_bekannt(std::string s,const std::vector<cH_Land>& L)
+{
+  for( std::vector<cH_Land>::const_iterator i=L.begin();i!=L.end();++i)
+   {
+    if(s==(*i)->Name()) return true;
+   }
+  return false;
+}
+
+
+
 
 cH_Land::cH_Land(const std::string& kontinent,const Tag *tag)
 {

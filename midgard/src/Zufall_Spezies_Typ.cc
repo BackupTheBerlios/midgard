@@ -30,15 +30,8 @@
 cH_Spezies Zufall::getSpezies() const
 {
    std::vector<cH_Spezies> V=LL.getSpezies(true);
-   if(true)
-    {
-      return *find(V.begin(),V.end(),cH_Spezies("Mensch"));
-    }
-   else
-    {
-      int i=random.integer(0,V.size()-1);
-      return V[i];   
-    }
+   int i=random.integer(0,V.size()-1);
+   return V[i];   
 }
 
 Enums::geschlecht Zufall::getGeschlecht() const

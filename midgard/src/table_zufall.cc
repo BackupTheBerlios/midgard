@@ -38,29 +38,30 @@ void table_zufall::on_button_zufall_voll_clicked()
 {
    bool old_value=hauptfenster->MOptionen->OberCheck(Midgard_Optionen::NoInfoFenster).active;
    hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,true);
+   Abenteurer oldAben=hauptfenster->getChar().getCAbenteurer();
    hauptfenster->getChar().push_back();
    hauptfenster->on_neuer_charakter_clicked();
    hauptfenster->table_lernschema->init(hauptfenster);
    
-   Zufall zufall(hauptfenster);
+   Zufall zufall(hauptfenster,oldAben);
    if(!togglebutton_vorgaben->get_active()) zufall.Voll();
    else
     {
       Zufall::e_Vorgabe v=Zufall::e_Vorgabe(0);
-      if(!checkbutton_spezies->get_active()) v=Zufall::e_Vorgabe(v|Zufall::eSpezies);
-      if(!checkbutton_typ->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eTyp);
-      if(!checkbutton_herkunft->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eHerkunft);
-      if(!checkbutton_st->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eSt);
-      if(!checkbutton_gs->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eGs);
-      if(!checkbutton_gw->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eGw);
-      if(!checkbutton_ko->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eKo);
-      if(!checkbutton_in->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eIn);
-      if(!checkbutton_zt->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eZt);
-      if(!checkbutton_au->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eAu);
-      if(!checkbutton_pa->get_active())     v=Zufall::e_Vorgabe(v|Zufall::epA);
-      if(!checkbutton_wk->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eWk);
-      if(!checkbutton_sb->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eSb);
-      if(!checkbutton_b->get_active())      v=Zufall::e_Vorgabe(v|Zufall::eB);
+      if(checkbutton_spezies->get_active()) v=Zufall::e_Vorgabe(v|Zufall::eSpezies);
+      if(checkbutton_typ->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eTyp);
+      if(checkbutton_herkunft->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eHerkunft);
+      if(checkbutton_st->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eSt);
+      if(checkbutton_gs->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eGs);
+      if(checkbutton_gw->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eGw);
+      if(checkbutton_ko->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eKo);
+      if(checkbutton_in->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eIn);
+      if(checkbutton_zt->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eZt);
+      if(checkbutton_au->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eAu);
+      if(checkbutton_pa->get_active())     v=Zufall::e_Vorgabe(v|Zufall::epA);
+      if(checkbutton_wk->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eWk);
+      if(checkbutton_sb->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eSb);
+      if(checkbutton_b->get_active())      v=Zufall::e_Vorgabe(v|Zufall::eB);
       zufall.Teil(v);
     }
    hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,old_value);
