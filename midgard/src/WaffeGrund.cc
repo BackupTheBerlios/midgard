@@ -19,6 +19,7 @@
 #include "WaffeGrund.hh"
 #include "midgard_CG.hh"
 #include "Typen.hh"
+#include "LernListen.hh"
 
 cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
 
@@ -63,7 +64,7 @@ WaffeGrund_All::WaffeGrund_All()
 }
 
 bool WaffeGrund::is_sinnvoll(const std::list<cH_MidgardBasicElement> &WL,
-                             const Abenteurer &A) const
+                             const Abenteurer &A,const LernListen &LL) const
 {
   for(std::list<cH_MidgardBasicElement>::const_iterator i=WL.begin();i!=WL.end();++i)
    {
@@ -71,6 +72,7 @@ bool WaffeGrund::is_sinnvoll(const std::list<cH_MidgardBasicElement> &WL,
       {
 //cout << (*i)->Name()<<'\t'<<cH_Waffe(*i)->Grundkenntnis()<<'\t'<<Name()<<'\t'
 //<<(*i)->Voraussetzung(A,false)<<'\n';
+        if(!LL.region_check((*i)->Region())) continue;
         if((*i)->Voraussetzung(A,false)) return true;
       }
    }

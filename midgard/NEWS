@@ -1,4 +1,31 @@
 ##########################################################################
+NEWS IN VERSION 0.8.12
+
+
+
+TODO
+
+* Waffen-Grundkenntnisse nur noch dann lernbar wenn auch Waffen 
+   dieser Grundkenntnis gelernt werden können (MIT Regionauswahl)
+* KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
+* Region-Icons wechseln
+* Neue Ausrüstung eingeben (stürzt ab)
+* Hilfe Menü ans Ende
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
+  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
+* Deutsche Sortierung (Bärenwut vor Beschleunigen)
+- Ausrüstung mit drag & drop
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? :
+   Unter "Lernschema" bleibt noch 
+   einiges stehen. Bei "Steigern" 
+   und "Optionen" sind auch noch bunte Bildchen, und bei 
+   "Ausrüstung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrüsten" das Verschwinden.
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+
+##########################################################################
 NEWS IN VERSION 0.8.11
 
 * Kontextmenü nur noch einmal aufbauen (MVC für Regionen)
@@ -27,32 +54,13 @@ NEWS IN VERSION 0.8.11
    gelernt hatte blockierte die Oberfläche => Fixed
 * Wizard springt weiter, wenn man 'Spezialwaffe auswählen' abwählt.
 * Zufallsgenerator: Typenvorgabe durch aktuelle Speziesvorgabe einschränken
-** Waffen-Grundkenntnisse nur noch dann lernbar wenn auch Waffen 
+* Waffen-Grundkenntnisse nur noch dann lernbar wenn auch Waffen 
    dieser Grundkenntnis gelernt werden können (ohne Region
 
 
 
 TODO: ('-' zeigt CP an)
 
-* Waffen-Grundkenntnisse nur noch dann lernbar wenn auch Waffen 
-   dieser Grundkenntnis gelernt werden können (MIT Regionauswahl)
-* KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
-* Region-Icons wechseln
-* Neue Ausrüstung eingeben (stürzt ab)
-* Hilfe Menü ans Ende
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
-  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
-* Deutsche Sortierung (Bärenwut vor Beschleunigen)
-- Ausrüstung mit drag & drop
-- Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? :
-   Unter "Lernschema" bleibt noch 
-   einiges stehen. Bei "Steigern" 
-   und "Optionen" sind auch noch bunte Bildchen, und bei 
-   "Ausrüstung" verweigern die Icons von "Modifikatoren 
-   entfernen" und "mit Geld ausrüsten" das Verschwinden.
-- alle Ausdrucke unter Windows testen
-- wrapfig for Windows für Grafik in Beschreibung
 
 ##########################################################################
 NEWS IN VERSION 0.8.10

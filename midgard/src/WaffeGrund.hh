@@ -1,4 +1,4 @@
-// $Id: WaffeGrund.hh,v 1.16 2002/11/21 09:00:21 thoma Exp $               
+// $Id: WaffeGrund.hh,v 1.17 2002/11/22 08:06:16 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -26,6 +26,7 @@
 #include "Typen.hh"
 
 class cH_WaffeGrund;
+class LernListen;
 
 class WaffeGrund : public MidgardBasicElement
 {
@@ -38,7 +39,7 @@ class WaffeGrund : public MidgardBasicElement
      // Wenn Keine Waffe gelernt werden kann, die zu einer Grundkenntnis
      // gehört, dann ist eine Grundkenntnis nicht sinnvoll
      bool is_sinnvoll(const std::list<cH_MidgardBasicElement> &WL,
-                                  const Abenteurer &A) const;
+                      const Abenteurer &A,const LernListen &LL) const;
      enum MBEE What() const {return MidgardBasicElement::WAFFEGRUND;}
      std::string What_str() const {return "Grundkenntnis";}
      int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const 

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.16 2002/11/20 22:26:10 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.17 2002/11/22 08:06:16 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -567,7 +567,8 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
   int erh = random.integer(1,6)+1;
   int awko= getWerte().Ko(); //alter_wert;
   int aapb = getWerte().bo_Au(); // alter Wert
-  if( 76<=z && z<=78 ) { was="Stärke";           getWerte().add_St(erh); }
+  if     ( z<=76 ) ;//nichts steigern 
+  else if( z<=78 ) { was="Stärke";           getWerte().add_St(erh); }
   else if( z<=81 ) { was="Geschicklichkeit"; getWerte().add_Gs(erh); }
   else if( z<=84 ) { was="Gewandheit"; getWerte().add_Gw(erh); }
   else if( z<=87 ) { was="Konstitution"; getWerte().add_Ko(erh); }
@@ -576,7 +577,7 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
   else if( z<=95 ) { was="Selbstbeherrschung"; getWerte().add_Sb(erh); }
   else if( z<=97 ) { was="Willenskraft"; getWerte().add_Wk(erh); }
   else if( z<=99 ) { was="persönliche Ausstrahlung"; getWerte().add_pA(erh); }
-  else if( z==100)          { was="Aussehn"; getWerte().add_Au(erh); }
+  else if( z==100) { was="Aussehn"; getWerte().add_Au(erh); }
 
   {
    //Setzen von abgeleiteten Werten, die durch eine Steigerung 
