@@ -2567,18 +2567,18 @@ Werte</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkToolItem" id="toolitem11">
+			    <widget class="GtkToolItem" id="eventbox_werte_edit_dummy">
 			      <property name="visible">True</property>
 			      <property name="visible_horizontal">True</property>
 			      <property name="visible_vertical">True</property>
 			      <property name="is_important">False</property>
 
 			      <child>
-				<widget class="GtkEventBox" id="eventbox_werte_edit">
+				<widget class="GtkHBox" id="eventbox_werte_edit">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
-				  <property name="visible_window">True</property>
-				  <property name="above_child">False</property>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">0</property>
 
 				  <child>
 				    <placeholder/>

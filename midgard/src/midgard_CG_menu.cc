@@ -42,6 +42,8 @@ Gtk::Box &midgard_CG::make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::str
                        _v->pack_start(*_p,false,false); }
   else               { _v->pack_start(*_p,false,false);
                        _v->pack_start(*_l,false,false); }
+  _p->show();
+  _l->show();
   return *_v;
 }
  

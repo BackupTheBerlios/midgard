@@ -51,7 +51,8 @@ table_grundwerte::table_grundwerte(GlademmData *_data)
    bool_CheckButton *_m=manage(new bool_CheckButton(edit_werte,hauptfenster->make_gtk_box(MagusImage("EditChar-trans-50.xpm"),"Werte\neditieren",false,false)));
    _m->set_mode(false);
    eventbox_werte_edit->add(*_m);
-   eventbox_werte_edit->show_all();
+   _m->show();
+#warning eigentlich an das Model connectieren   !
    _m->signal_toggled().connect(SigC::slot(*this, &table_grundwerte::on_togglebutton_edit_werte_toggled),true);
    fill_spezies();
   edit_werte=false;
