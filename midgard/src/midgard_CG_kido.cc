@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.21 2001/10/09 09:03:43 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.22 2001/10/26 16:07:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,7 @@ void midgard_CG::show_kido()
       clist_kido->set_column_auto_resize(i,true);
 }
 
+/*
 void midgard_CG::kido_uebernehmen(const std::list<cH_KiDo>& technik)
 {
    clist_kido->clear();
@@ -56,7 +57,7 @@ void midgard_CG::kido_uebernehmen(const std::list<cH_KiDo>& technik)
    list_Kido=technik;
    show_kido();
 }
-
+*/
 void midgard_CG::stil_optionmenue()
 {
 //  static bool block=false;

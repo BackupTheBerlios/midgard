@@ -5,12 +5,14 @@
 #include <vector>
 #include <Aux/Handles.h>
 #include <Aux/CacheStatic.h>
+#include "MidgardBasicElement.hh"
 //#include "class_Grundwerte.hh"
 #include "class_typen.hh"
 #include "class_Ausnahmen.hh"
 #include "Fertigkeiten.hh"
 
-class KiDo : public HandleContent
+//class KiDo : public HandleContent
+class KiDo : public MidgardBasicElement
 {
    std::string hoho,name,stufe;
    int ap,kosten;
@@ -25,6 +27,8 @@ class KiDo : public HandleContent
    KiDo(const std::string& n,const vector<H_Data_typen>& T,const Ausnahmen& a)
      :hoho(n),Typ(T),ausnahmen(a) {get_KiDo();}
 
+ enum MBEE What() const {return MidgardBasicElement::KIDO;}
+
  std::string Hoho() const {  return hoho; }
  int Kosten() const { cH_Fertigkeit F("KiDo",Typ,ausnahmen);
                       return  (int)(F->Standard_Faktor() * kosten) ; }
@@ -33,7 +37,8 @@ class KiDo : public HandleContent
  int Ap() const {  return ap; }
  std::string Stil() const {  return stil; }
  std::string Effekt() const {  return effekt; }
-
+// std::string Region() const { return "K";}
+// int Erfolgswert()
 
  static int get_erfolgswert_kido(const std::list<cH_Fertigkeit>& L);
 };
@@ -57,6 +62,9 @@ class cH_KiDo : public Handle<const KiDo>
     cH_KiDo(){};
  public:
     cH_KiDo(const std::string& name,const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen);
+
+    cH_KiDo(const cH_MidgardBasicElement &x) : Handle<const KiDo>
+      (dynamic_cast<const KiDo *>(&*x)){}
 };
 
 class KiDo_sort_hoho

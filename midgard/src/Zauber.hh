@@ -34,12 +34,13 @@ class Zauber : public MidgardBasicElement
       : name(n),lernpunkte(l){get_Zauber();get_map_typ();} 
 
 
-   std::string What() const {return "Zauber";}
+   enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
 
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
    bool ist_lernbar(const vector<H_Data_typen>& Typ) const;
-   bool ist_gelernt(const std::list<cH_Zauber>& L) const;
+//   bool ist_gelernt(const std::list<cH_Zauber>& L) const;
+   bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
 
    std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
    std::string Art() const { return art;}
@@ -114,11 +115,11 @@ class Zauber_sort_ursprung
 
 class Zauber_All
 {
-   std::list<cH_Zauber> list_All;
-//   void fill_list();
+//   std::list<cH_Zauber> list_All;
+   std::list<cH_MidgardBasicElement> list_All;
   public:
    Zauber_All();// {fill_list();} 
-   std::list<cH_Zauber> get_All() const {return list_All;}
+   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 
 #endif

@@ -1,0 +1,7 @@
+#inlcude "MidgardBasicElement.hh"
+
+saveElementliste(const std::list<cH_MidgardBasicElement>& b)
+{
+
+}
+

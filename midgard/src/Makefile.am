@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.56 2001/10/23 07:41:53 thoma Exp $
+# $Id: Makefile.am,v 1.57 2001/10/26 16:07:30 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -65,6 +65,7 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
 BUILT_SOURCES_CG =  Zauber.cc Zauberwerk.cc Fertigkeiten.cc Waffe.cc KiDo.cc \
+   MidgardBasicElement_sql.cc \
    WaffeGrund.cc Fertigkeiten_angeboren.cc \
    steigern_fertigkeiten.cc  steigern_waffen.cc \
    get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
@@ -93,6 +94,7 @@ midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 midgard_SOURCES = \
    MidgardBasicElement.cc \
+   midgard_CG_basic_elemente.cc \
    $(BUILT_SOURCES_CG) \
    steigern_zauber.cc  \
    midgard_CG_menu.cc \

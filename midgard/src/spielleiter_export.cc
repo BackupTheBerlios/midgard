@@ -101,9 +101,10 @@ void midgard_CG::spielleiter_export()
    {
      fout << "\n\n";
      fout << "Zaubern+"<<Werte.Zaubern_wert()+Werte.bo_Za()<<": ";
-     for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();)
+     for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();)
       {
-        fout << (*i)->Name() ;
+        cH_Zauber z(*i);      
+        fout << z->Name() ;
 //        if (i!=zauber.size()-1) fout << ", ";
         if (i!=list_Zauber.end()) fout << ", ";
         ++i;

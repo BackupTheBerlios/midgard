@@ -67,17 +67,18 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
 //cout << db_zauber<<' '<<db_lernpunkte<<'\n';
-         list_zauber.push_back(cH_Zauber(db_zauber,db_lernpunkte));
+         list_zauber.push_back(new Zauber(db_zauber,db_lernpunkte));
       }
 
     exec sql close zauber;
     Gtk::OStream os(zauber_clist_auswahl);
     zauber_clist_auswahl->freeze();
-    for(std::list<cH_Zauber>::iterator i=list_zauber.begin();i!=list_zauber.end();++i)
+    for(std::list<cH_MidgardBasicElement>::iterator i=list_zauber.begin();i!=list_zauber.end();++i)
       {
-//         double fac=hauptfenster->get_standard_zauber(Typ,Typ2,(*i)->Name());
-         os << (*i)->Lernpunkte() <<"\t"<< (*i)->Name() <<"\t"
-            <<(*i)->Ap()<<"\t"<<(*i)->Kosten(Typ,Ausnahmen(Werte,Typ,vec_Beruf))<<"\n";
+         cH_Zauber z(*i);
+//         double fac=hauptfenster->get_standard_zauber(Typ,Typ2,z->Name());
+         os << z->Lernpunkte() <<"\t"<< z->Name() <<"\t"
+            <<z->Ap()<<"\t"<<z->Kosten(Typ,Ausnahmen(Werte,Typ,vec_Beruf))<<"\n";
          os.flush(&*i);
       }
     for (unsigned int i=0;i<zauber_clist_auswahl->columns().size();++i)
@@ -107,17 +108,17 @@ void Zauber_auswahl::on_zauber_clist_auswahl_unselect_row(gint row, gint column,
 
 void Zauber_auswahl::on_close_zauber_clicked()
 {   
-   std::list<cH_Zauber> saz;
+   std::list<cH_MidgardBasicElement> saz;
    for (Gtk::CList::SelectionList::iterator i=zauber_clist_auswahl->selection().begin();
          i!=zauber_clist_auswahl->selection().end();++i)
      {  
          // ptr=&fert[i->get_row_num()];
 //         H_Data_zauber *ptr = static_cast<H_Data_zauber*>(i->get_data());
-         cH_Zauber *ptr = static_cast<cH_Zauber*>(i->get_data());
+         cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
 //       saz.push_back(new Data_zauber((*ptr)->Name()));
 //       saz.push_back(cH_Zauber((*ptr)->Name(),Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
        saz.push_back(*ptr);
      }
-  hauptfenster->zauber_uebernehmen(saz);
+  hauptfenster->MidgardBasicElement_uebernehmen(saz);
   destroy();
 }

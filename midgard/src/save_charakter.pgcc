@@ -145,7 +145,7 @@ void midgard_CG::on_speichern_clicked()
             SQLerror::test(__FILELINE__);
       }
 */
-   for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();
          i!=list_Zauber.end();++i)
       {
          strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));

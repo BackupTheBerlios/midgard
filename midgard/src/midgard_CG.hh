@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.76 2001/10/23 07:41:53 thoma Exp $
+// $Id: midgard_CG.hh,v 1.77 2001/10/26 16:07:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,6 +79,7 @@ extern grad_anstieg Grad_Anstieg;
 
 class midgard_CG : public midgard_CG_glade
 {   
+   private:
         friend class midgard_CG_glade;
         Gtk::Menu *menu;
         void menu_init();
@@ -112,14 +113,12 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_WaffeGrund> list_WaffenGrund;
         std::list<cH_WaffeGrund> list_WaffenGrund_neu;
         std::vector<H_Data_beruf> vec_Beruf;
-        std::list<cH_Zauber> list_Zauber;
-        std::list<cH_Zauber> list_Zauber_neu;
-//        std::list<cH_MidgardBasicElement> list_Zauber;
-//        std::list<cH_MidgardBasicElement> list_Zauber_neu;
+        std::list<cH_MidgardBasicElement> list_Zauber;
+        std::list<cH_MidgardBasicElement> list_Zauber_neu;
         std::list<cH_Zauberwerk> list_Zauberwerk;
         std::list<cH_Zauberwerk> list_Zauberwerk_neu;
-        std::list<cH_KiDo> list_Kido;
-        std::list<cH_KiDo> list_Kido_neu;
+        std::list<cH_MidgardBasicElement> list_Kido;
+        std::list<cH_MidgardBasicElement> list_Kido_neu;
 
         bool kido_bool;
         int maxkido;
@@ -300,7 +299,7 @@ class midgard_CG : public midgard_CG_glade
 
         void on_zauber_laden_clicked();
         void zauber_zeigen();
-        void move_zauber(std::list<cH_Zauber>& von,std::list<cH_Zauber>& nach,const std::string& name);
+//        void move_zauber(std::list<cH_Zauber>& von,std::list<cH_Zauber>& nach,const std::string& name);
         void on_spruchrolle_toggled();
         void on_checkbutton_zaubersalze_toggled();
         void on_checkbutton_beschwoerungen_toggled();
@@ -323,7 +322,7 @@ class midgard_CG : public midgard_CG_glade
 
         void on_kido_laden_clicked();
         void kido_zeigen();
-        void move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,const std::string& name);
+//        void move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,const std::string& name);
         void on_leaf_selected_alte_kido(cH_RowDataBase d);
         void on_leaf_selected_neue_kido(cH_RowDataBase d);
         void show_alte_kido();
@@ -375,9 +374,9 @@ class midgard_CG : public midgard_CG_glade
          void show_fertigkeiten();
          void waffen_uebernehmen(const std::list<cH_Waffe>& saw,const std::list<cH_WaffeGrund> wg);
          void waffe_besitz_uebernehmen(const std::list<H_WaffeBesitz>& wbu);
-         void zauber_uebernehmen(const std::list<cH_Zauber>& saz);
+         void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe);
          void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
-         void kido_uebernehmen(const std::list<cH_KiDo>& technik);
+//         void kido_uebernehmen(const std::list<cH_KiDo>& technik);
 //         std::string get_region_waffen(const std::string& waffe, const std::string& region,int mod);
          void sprache_uebernehmen(const std::string& s, int wert);
          void schrift_uebernehmen(const std::string& s, const std::string& t);
