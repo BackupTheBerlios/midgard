@@ -221,7 +221,6 @@ void midgard_CG::xml_import_stream(istream& datei)
    
    set_title(getWerte().Name_Abenteurer());
    load_for_mainpage(notebook_main->get_current_page_num());
-   insert_into_CharList(Char);
 }
 
 void midgard_CG::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
@@ -272,9 +271,6 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
             fert->setZusatz(i->getAttr("Zusatz"));
          }
          Char.List_Fertigkeit().push_back(fert);
-//         if      (fert->Name()=="KiDo") kido_bool=true;
-//         else 
-//         if (fert->Name()=="Zaubern") magie_bool=true;
        }    
       else if(sart=="Waffe")
         {

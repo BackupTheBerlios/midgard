@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.247 2002/05/27 20:36:46 thoma Exp $
+// $Id: midgard_CG.hh,v 1.248 2002/05/28 08:20:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -142,13 +142,12 @@ class midgard_CG : public midgard_CG_glade
 
         // Charaktere
    private:
-        Abenteurer Char;
-        std::vector<Abenteurer> CharList;
+        VAbenteurer Char;
         Datenbank Database;
         gint on_neuer_charakter_release_event(GdkEventButton *ev);
         void fill_AbenteurerListe();
         void on_AbenteurerListe_leaf(cH_RowDataBase d);
-        void insert_into_CharList(Abenteurer &A);
+//        void insert_into_CharList(Abenteurer &A);
         void set_AbenteurerListe_Title();
         
    protected:
@@ -156,8 +155,8 @@ class midgard_CG : public midgard_CG_glade
         Datenbank &getDatabase() {return Database;}
         Grundwerte &getWerte() {return Char.getWerte();}
         const Grundwerte &getCWerte() const {return Char.getCWerte();}
-        const Abenteurer &getCChar() const {return Char;}
-        Abenteurer &getChar() {return Char;}
+        const VAbenteurer &getCChar() const {return Char;}
+        VAbenteurer &getChar() {return Char;}
         void Eigenschaften_variante(int i);
         void on_neuer_charakter_clicked();
         bool nsc_check(bool nsc_only);

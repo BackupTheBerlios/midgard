@@ -91,7 +91,7 @@ void table_grundwerte::typauswahl_button()
  std::string typ=combo_typ->get_entry()->get_text();
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;
- hauptfenster->Char.reset();
+//??? hauptfenster->Char.reset();
 // hauptfenster->clear_gtk();
 
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);

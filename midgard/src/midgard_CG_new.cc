@@ -31,8 +31,9 @@ void midgard_CG::on_neuer_charakter_clicked()
    filename="";
 //   table_grundwerte->neuer_charakter();
 
-   getWerte().clear(); 
-   Char.reset();
+//X   getWerte().clear(); 
+//X   Char.reset();
+   Char.push_back(Abenteurer());
    table_lernschema->label_lernschma_titel->set_text("");
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
@@ -57,30 +58,12 @@ void midgard_CG::on_neuer_charakter_clicked()
    table_lernschema->togglebutton_spezialwaffe->set_active(false);
    table_lernschema->togglebutton_spezialwaffe->hide();
       
-//   scrolledwindow_landauswahl->hide();
-//   spinbutton_pp_eingeben->hide();
-//   vbox_praxispunkte->hide();
-/*
-   table_gruppe->hide();
-   table_artikel->hide();
-   togglebutton_gruppe_neu->hide(); // nicht implementiert
-*/
-//   togglebutton_praxispunkte->set_active(false);
-
-/*
-   table_lernschema->vbox_berufsname->hide();
-   table_lernschema->button_kido_auswahl->set_sensitive(false);       
-   table_lernschema->button_angeborene_fert->set_sensitive(false);
-*/
-
    table_lernschema->lernpunkte.clear();
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
 
-   Char.getWerte().set_Grad_Basiswerte(1);
+//   Char.getWerte().set_Grad_Basiswerte(1);
    table_steigern->neuer_charakter();
-//   label_EP->set_text("50%");
-//   label_Gold->set_text("50%");
 
   menu_init();
   notebook_main->set_page(PAGE_GRUNDWERTE);
