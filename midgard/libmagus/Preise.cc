@@ -21,6 +21,9 @@
 #include <Misc/itos.h>
 #include <fstream>
 #include <Misc/TagStream.h>
+#include <iostream>
+#include "magus_paths.h"
+#include "Datenbank.hh"
 
 bool operator!=(const cH_Preise &a, const std::string &b)
 {  return a->Name()!=b; }
@@ -167,19 +170,20 @@ PreiseNewMod_All::PreiseNewMod_All()
 // use this tag to determine whether this is a user defined item
 //Tag Preise::Tag_eigene_Artikel("Dinge");
 
-void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
+void Preise::saveArtikel(const std::string &Filename,Datenbank &db,
      const std::string &art,const std::string &art2,
      const std::string &name,const double &preis, const std::string &einheit,
      const double &gewicht,const std::string &region,const std::string &beschreibung)
 {
-   std::string filename=hauptfenster->MagusVerzeichnis()+"magus_preise.xml";
+   std::string filename=magus_paths::MagusVerzeichnis()+"magus_preise.xml";
    std::ofstream datei(filename.c_str());
    if (!datei.good())
-    { hauptfenster->set_status("Kann die Ausrüstung nicht speichern");
+#warning logging   
+    { // hauptfenster->set_status("Kann die Ausrüstung nicht speichern");
       return;
     }
 
-   Tag &RootTag=hauptfenster->tag_eigene_artikel;
+   Tag &RootTag=db.tag_eigene_artikel;
    Tag *TeA_=RootTag.find("Preise");
    if(!TeA_) TeA_=&RootTag.push_back(Tag("Preise"));
 
