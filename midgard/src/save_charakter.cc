@@ -36,13 +36,15 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_export_auswahl()
 { 
+ modify_bool=false;
  manage (new xml_fileselection(this,xml_fileselection::Save/*"Abenteurer speichern"*/))
 	->set_filename(filename);
-  steigern_aktivieren();
 }
 
 void midgard_CG::xml_export(const std::string& dateiname)
-{  steigern_aktivieren();
+{  
+  frame_steigern->set_sensitive(true);
+
 /*   
   // eigentlich Unsinn da nur Version 8, aber besser als nichts zu tun
   std::string cname   = Werte.Name_Abenteurer();

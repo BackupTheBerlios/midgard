@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.184 2002/02/27 13:02:15 thoma Exp $
+// $Id: midgard_CG.hh,v 1.185 2002/02/28 17:07:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -543,34 +543,24 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          // Werte in der Oberfläche setzen (z.B. nach laden)
          void Typ_Geschlecht_Spezies_setzen(); // uvm.
 
+         Grundwerte Werte; // public?
+        bool SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert=0,bool auswahl=false);
    public:
          midgard_CG(const string &datei="");
-         Grundwerte Werte;
 
 	// werden von anderen Fenstern aufgerufen
          vector<cH_Typen> getVTyp() const {return Typ;}
-        bool SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert=0,bool auswahl=false);
          void kaempfer_lernt_zaubern(cH_MidgardBasicElement);
          void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
          void spielleiter_export_save(const std::string& dateiname);
          void charakter_beschreibung_uebernehmen(const std::string& b,bool drucken);
-//         void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe,bool beruf=false);
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();
-
-	 // diese Funktion sorgt für klare Verhältnisse beim Steigern,
-	 // wurde früher mittels on_speichern_clicked() aufgerufen
-         void steigern_aktivieren()
-         {  frame_steigern->set_sensitive(true);
-            on_radio_steigern_all();
-            modify_bool=false;
-         }
-//         void on_speichern_clicked();
 };
 #endif
