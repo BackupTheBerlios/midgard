@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream.cc,v 1.4 2002/12/18 10:18:24 christof Exp $
+// $Id: Gtk_OStream.cc,v 1.5 2002/12/18 10:21:15 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -22,7 +22,8 @@
 #include <cassert>
 
 std::streamsize Gtk::OStreamBase::data_cb(const char_type* __s, std::streamsize __n)
-{  if (data_impl) return (*data_impl)(s,n);
+{  if (data_impl) 
+      return (dynamic_cast<Gtk::OStream*>(this)->*data_impl)(s,n);
    return 0;
 }
 
