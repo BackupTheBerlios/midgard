@@ -53,8 +53,12 @@ int main(int argc,char **argv)
            .connect(SigC::bind(SigC::slot(&print2),"t.getWizard"));
 std::cout << "proxies &t="<< &t << "\n";
    t.proxies.wizard=Wizard::GRUNDWERTE;
-std::cout << "a direkt\n";
+std::cout << "t.getWiz direkt\n";
    t.getWizard().set(Wizard::GESCHLECHT);
+std::cout << "next_step\n";
+   t.getWizard().next_step();
+std::cout << "done\n";
+   t.getWizard().done(Wizard::TYP,a);
 std::cout << "size " << AbenteurerAuswahl::Chars.size() << '\n';
  } catch (NotFound &e)
  {  Ausgabe(Ausgabe::Error, "NotFound "+ e.Name());  }
