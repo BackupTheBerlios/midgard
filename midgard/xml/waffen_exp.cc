@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.18 2002/06/06 14:14:24 christof Exp $
+// $Id: waffen_exp.cc,v 1.19 2002/06/06 14:29:19 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -183,15 +183,14 @@ void waffen_speichern(Tag &o)
 	 o << "><Modifikationen";
          fetch_and_write_int_attrib(is2, o, "Angriff");
          o << "/>\n";
-         kaufpreis(o, "Waffen", varian);
+         kaufpreis(rV, "Waffen", varian);
          o << "    </regionaleVariante>\n";
       }
      }
 
-   grund_standard_ausnahme(o, "waffen_typen",waffe,"",true);
-   lernschema(o, MIDGARD3_4("Waffe","Waffenfertigkeiten"), waffe,true);
-   ausnahmen(o, "w", waffe,true);
-   o << "  </Waffe>\n";
+   grund_standard_ausnahme(Waffe, "waffen_typen",waffe,"",true);
+   lernschema(Waffe, MIDGARD3_4("Waffe","Waffenfertigkeiten"), waffe,true);
+   ausnahmen(Waffe, "w", waffe,true);
   }
   }
 
@@ -210,11 +209,7 @@ void waffen_speichern(Tag &o)
 //*************** Waffen Grund Typen ***************************
 
    // nicht erforderlich für Grundkenntnisse?
-      grund_standard_ausnahme(o, "waffen_grund_typen", grund);
-//      lernschema(o, MIDGARD3_4("Waffe","Waffenfertigkeiten"), grund);
-//      pflicht_lernen(o, grund);
-//      verbot_lernen(o, grund);
-//      ausnahmen(o, "w", grund);
+      grund_standard_ausnahme(WGk, "waffen_grund_typen", grund);
    o << "  </Waffen-Grundkenntnis>\n";
   }
 
@@ -264,8 +259,7 @@ void waffen_speichern(Tag &o)
    }
 
 //**************************** Waffen Typen ***************************
-   grund_standard_ausnahme(o, "waffen_typen", "Waffen");
-   o << " </Waffen-Steigern>\n";
+   grund_standard_ausnahme(Waffen_Steigern, "waffen_typen", "Waffen");
  }
 //******************************************************************
 }
