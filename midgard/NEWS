@@ -22,6 +22,7 @@ NEWS IN VERSION 0.7delta3
 * Abschalten der Zusatzeinschrängungen
 * Speziesauswahl nach Grundwerte würfeln und laden deaktiviert
 * Muttersprache nach Heimatland
+* Bezeichnung und Merkmale abspeichern&laden fixed
 
 TODO: ('-' zeigt CP an)
 * Herkunft für Kr, Hä (Negativauswahl)

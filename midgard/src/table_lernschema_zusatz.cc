@@ -30,11 +30,9 @@ static SigC::Connection connection;
 
 void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE)
 {
-//  was_mem=was;
-//  MBE_mem=&MBE;
   checkbutton_einschraenkungen_zusatz->set_active(false);
   // Weil Fertigkeiten mehrmals gelernt werden dürfen werde sie hier nicht 
-  // in die LIste geschrieben.
+  // in die Liste geschrieben.
   // eine Ausnamhe ist 'Landeskunde (Heimat)', das passiert unten
 // list_FertigkeitZusaetze.push_back(MBE->Name());
   if(MBE.Lernpunkte()==0) // Sprache/Schrift für '0' Lernpunkte nur einmal lernen
@@ -58,7 +56,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
        for (std::vector<cH_Land>::const_iterator i=hauptfenster->getDatabase().Laender.begin();i!=hauptfenster->getDatabase().Laender.end();++i)
         {
           bool erlaubt=false;
-          if((*i)->ist_erlaubt(hauptfenster->getChar().getVTyp())) erlaubt=true;
+          if((*i)->ist_erlaubt(hauptfenster->getChar())) erlaubt=true;
           datavec_zusatz.push_back(new Data_Herkunft(*i,erlaubt));
         }
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
@@ -91,9 +89,13 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
             bool erlaubt=true;
             if(MBE->Name()=="Muttersprache") // muß im Heimatland gesprochen werden
              {
+               if(!cH_Sprache(*i)->ist_erlaubt(hauptfenster->getChar()))
+                  erlaubt=false;
+/*
                std::vector<std::string> V=hauptfenster->getChar().getWerte().Herkunft()->Sprachen(); 
                std::vector<std::string>::const_iterator l=find(V.begin(),V.end(),(*i)->Name());
                if(l==V.end()) erlaubt=false;
+*/
              }
             if((MBE->Name()=="Muttersprache" || (MBE->Name()=="Gastlandsprache"))
                   && cH_Sprache(*i)->Alte_Sprache()) 

@@ -20,7 +20,7 @@
 #include "Land.hh"
 #include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
-#include "Typen.hh"
+#include "Abenteurer.hh"
 
 cH_Land::cache_t cH_Land::cache;
 
@@ -41,14 +41,26 @@ cH_Land::cH_Land(const std::string& name IF_XML(,bool create))
   }
 }
 
-bool Land::ist_erlaubt(const std::vector<cH_Typen>& Typ) const
+bool Land::ist_erlaubt(const VAbenteurer& A) const
 {
-  for(std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
-   {
-     const std::vector<std::string> V=(*i)->get_vec_herkunft();
-     for(std::vector<std::string>::const_iterator j=V.begin();j!=V.end();++j)
+  std::vector<std::string> V=A.getWerte().Spezies()->getVHerkunft();
+  if(V.empty()) // Keine Herkunftsvorgabe aufgrund der Spezies
+   { 
+     std::vector<cH_Typen> Typ=A.getVTyp();
+     for(std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
       {
-        if(*j==Name()) return true;
+        const std::vector<std::string> V=(*i)->get_vec_herkunft();
+        for(std::vector<std::string>::const_iterator j=V.begin();j!=V.end();++j)
+         {
+           if(*j==Name()) return true;
+         }
+      }
+   }
+  else
+   {
+     for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
+      {
+        if(*i==Name()) return true;
       }
    }
   return false;

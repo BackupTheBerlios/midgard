@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.15 2002/06/24 10:51:30 christof Exp $               
+// $Id: Spezies.hh,v 1.16 2002/06/30 20:37:08 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,6 +44,8 @@ class Spezies : public HandleContent
        gewicht_wanz, gewicht_bonus, 
        b_wanz,b_bonus,raufen;
   bool land,only_nsc;
+  std::vector<std::string> vec_herkunft;
+  std::vector<std::string> vec_sprache;
 
 protected:   
   struct st_spez {std::string typen;int maxgrad;
@@ -107,6 +109,10 @@ public:
    bool istVerboten(const cH_MidgardBasicElement &mbe) const;
    bool istVerbotenSpielbegin(const cH_MidgardBasicElement &mbe) const;
 
+   std::vector<std::string> getVHerkunft() const {return vec_herkunft;}
+   std::vector<std::string> getVSprache() const {return vec_sprache;}
+
+
    bool operator==(const Spezies &b) const
    {  return Name()==b.Name(); }
 };
@@ -120,9 +126,7 @@ class cH_Spezies : public Handle<const Spezies>
   public:
 //   cH_Spezies() {*this=new Spezies();}
    cH_Spezies(const std::string& name IF_XML(,bool create=false));
-#ifdef USE_XML
    cH_Spezies(const Tag *tag);
-#endif
     cH_Spezies(const Spezies *s) : Handle<const Spezies>(s) {};
 };
 

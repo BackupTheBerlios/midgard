@@ -24,6 +24,7 @@
 #include "ProgressBar.h"
 #include "Schrift.hh"
 #include "Grundwerte.hh"
+#include "Abenteurer.hh"
 
 cH_Sprache::cache_t cH_Sprache::cache;
 
@@ -153,6 +154,18 @@ std::list<MidgardBasicElement_mutable> Sprache::cleanVerwandteSprachen(std::list
    }
  return N;
 }
+
+bool Sprache::ist_erlaubt(const VAbenteurer& A) const 
+{
+  std::vector<std::string> V=A.getWerte().Spezies()->getVSprache();
+  if(V.empty()) // Keine Sprachenvorgabe aufgrund der Spezies
+     V=A.getWerte().Herkunft()->Sprachen();
+  std::vector<std::string>::const_iterator l=find(V.begin(),V.end(),Name());
+  if(l==V.end()) return false;
+  return true;
+}
+
+
 
 
 Sprachen_All::Sprachen_All(Gtk::ProgressBar *progressbar)

@@ -1,0 +1,30 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "spezies_herkunft";
+--
+--
+--
+
+CREATE TABLE "spezies_herkunft" (
+	"spezies" text NOT NULL,
+	"land" text,
+	"sprache" text
+);
+
+--
+--
+--
+
+
+COPY "spezies_herkunft" FROM stdin;
+Elf	Alba
+Elf	Clanngadarn
+Elf	Moravod
+Elf		Eldalyn
+Zwerge		Dvarska
+Halbling	Halfdal
+Halbling		Halftan
+Waldgnom		Gnomenon
+Berggnom		Gnomenon
+\.
