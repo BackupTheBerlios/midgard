@@ -124,7 +124,7 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
      gold_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
      if (gold_k > Werte.Gold()) 
          { regnot("Zu wenig Gold um zu steigern,\n es fehlen "+itos(gold_k-Werte.Gold())+" GS."); 
-cout << "Zu wenig Gold\n";
+//cout << "Zu wenig Gold\n";
            return false;
          }
    }  
