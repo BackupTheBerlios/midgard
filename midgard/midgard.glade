@@ -615,6 +615,7 @@
 		<widget class="GtkMenuItem" id="fenster1">
 		  <property name="visible">True</property>
 		  <property name="label" translatable="yes">Fenster</property>
+		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="use_underline">True</property>
 		</widget>
 	      </child>
