@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.123 2002/01/09 16:24:08 thoma Exp $
+// $Id: midgard_CG.hh,v 1.124 2002/01/09 16:27:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -160,6 +160,8 @@ class midgard_CG : public midgard_CG_glade
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
         Gtk::CheckMenuItem *menu_original;
         Gtk::CheckMenuItem *menu_info;
+        Gtk::CheckMenuItem *menu_region;
+
 /*
         Gtk::CheckMenuItem *menu_Eschar;
         Gtk::CheckMenuItem *menu_Rawindra;

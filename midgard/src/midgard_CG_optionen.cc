@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.26 2001/11/08 10:15:43 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.27 2002/01/09 16:24:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,6 +22,7 @@
 
 bool Originalbool=true;
 bool Infobool=true;
+/*
 bool Escharbool=false;
 bool Rawindrabool=false;
 bool KanThaiPanbool=false;
@@ -32,6 +33,7 @@ bool HDbool=false;
 bool BRbool=false;
 bool Gildenbriefbool=false;
 bool Kuestenstaatenbool=false;
+*/
 
 void midgard_CG::on_checkbutton_original_menu()
 {
@@ -47,15 +49,9 @@ void midgard_CG::on_checkbutton_original_toggled()
 
   if(Originalbool) 
     { checkbutton_alle_zauber->set_sensitive(false); 
-      checkbutton_HD->set_sensitive(false);
-      checkbutton_BR->set_sensitive(false);
-      checkbutton_Gildenbrief->set_sensitive(false);
     }      
   else 
     { checkbutton_alle_zauber->set_sensitive(true); 
-      checkbutton_HD->set_sensitive(true);
-      checkbutton_BR->set_sensitive(true);
-      checkbutton_Gildenbrief->set_sensitive(true);
     }      
 // menu_init();
 }
@@ -74,6 +70,16 @@ void midgard_CG::on_checkbutton_info_fenster_toggled()
   menu_info->set_active(Infobool);
 }
 
+void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,const cH_Region& region)
+{
+ cout << region->Name()<<'\n';
+ if(menu_item->get_active()) region->setActive(true);
+ else region->setActive(false);
+}
+
+
+
+/*
 void midgard_CG::on_checkbutton_Eschar_menu()
 {   
  checkbutton_Eschar->set_active(menu_Eschar->get_active());
@@ -215,6 +221,7 @@ void midgard_CG::on_checkbutton_Alba_toggled()
 //  clear_Ausnahmen();
   menu_Alba->set_active(Albabool);
 }
+*/
 
 void midgard_CG::regnot(std::string sadd)
 {

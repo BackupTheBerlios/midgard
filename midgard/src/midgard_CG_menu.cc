@@ -39,14 +39,14 @@ void midgard_CG::menu_init()
   regionen->set_submenu(*regionen_menu);
 
   
-  Gtk::CheckMenuItem *_mi;
+//  Gtk::CheckMenuItem *_mi;
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     _mi=manage(new Gtk::CheckMenuItem((*i)->Name()));         
-     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
-     regionen_menu->append(*_mi);
-     _mi->set_active(false);
-     _mi->show();
+     menu_region=manage(new Gtk::CheckMenuItem((*i)->Name()));         
+     menu_region->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),menu_region,*i));
+     regionen_menu->append(*menu_region);
+     menu_region->set_active(false);
+     menu_region->show();
    }
 
 /* 

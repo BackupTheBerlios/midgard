@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.85 2002/01/03 11:01:16 christof Exp $
+# $Id: Makefile.am,v 1.86 2002/01/09 16:24:08 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -18,6 +18,7 @@ noinst_HEADERS = \
    Grad_anstieg.hh \
    MidgardBasicTree.hh \
    MidgardBasicElement.hh \
+   Region.hh \
    Zauber.hh \
    Zauberwerk.hh \
    Beruf.hh \
@@ -80,6 +81,7 @@ BUILT_SOURCES_CG =  \
    Preise.cc \
    Beruf.cc \
    Lernschema.cc \
+   Region.cc \
    Praxispunkte.cc \
    Spezies.cc \
    Typen.cc \

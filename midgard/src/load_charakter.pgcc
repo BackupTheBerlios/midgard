@@ -476,21 +476,17 @@ void midgard_CG::load_fertigkeiten()
          schrift->set_Praxispunkte(db_av_bonus);
          list_Schrift.push_back(schrift);
         }
-      if(sart=="Region")
+      if(sart=="bool")
         {
          std::string reg=db_region;
          if (reg=="ORIG") {Originalbool=false ; checkbutton_original->set_active(false);}
          if (reg=="INFO") {Infobool=false ; checkbutton_info_fenster->set_active(false);}
-         if (reg=="A") {Albabool=true ; checkbutton_Alba->set_active(true);}
-         if (reg=="E") {Escharbool=true;      checkbutton_Eschar->set_active(true);}
-         if (reg=="R") {Rawindrabool=true;      checkbutton_Rawindra->set_active(true);}
-         if (reg=="K") {KanThaiPanbool=true;      checkbutton_KanThaiPan->set_active(true);}
-         if (reg=="W") {Waelandbool=true;      checkbutton_Waeland->set_active(true);}
-         if (reg=="N") {Nahuatlanbool=true;      checkbutton_Nahuatlan->set_active(true);}
-         if (reg=="HD") {HDbool=true;      checkbutton_HD->set_active(true);}
-         if (reg=="BR") {BRbool=true;      checkbutton_BR->set_active(true);}
-         if (reg=="S") {Kuestenstaatenbool=true;      checkbutton_Kuestenstaaten->set_active(true);}
-         if (reg=="G") {Gildenbriefbool=true;      checkbutton_Gildenbrief->set_active(true);}
+        }
+      if(sart=="Region")
+        {
+         cH_Region R(db_fert);
+         bool active=db_wert;         
+         Region::setActive(Database.Regionen,R,active);
         }
     } 
   exec sql close LFEIN;

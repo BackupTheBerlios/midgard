@@ -51,7 +51,7 @@ Laender_All::Laender_All(Gtk::ProgressBar *progressbar)
  Transaction tr;
  exec sql open LIein;
  SQLerror::test(__FILELINE__);
- double count;
+ double count=0;
  while(true)
   {
    progressbar->set_percentage(count/db_size);

@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.28 2002/01/08 17:14:48 thoma Exp $
+// $Id: Midgard_Info.hh,v 1.29 2002/01/09 16:24:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,6 +43,7 @@ class Midgard_Info : public Midgard_Info_glade
 
    public:
         Midgard_Info(midgard_CG* h=0,bool selfclean=false);
+        Gtk::ProgressBar *get_progressbar_regionen() const {return progressbar_regionen;}
         Gtk::ProgressBar *get_progressbar_laender() const {return progressbar_laender;}
         Gtk::ProgressBar *get_progressbar_ruestung() const {return progressbar_ruestung;}
         Gtk::ProgressBar *get_progressbar_lernschema() const {return progressbar_lernschema;}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.105 2002/01/08 17:14:48 thoma Exp $
+// $Id: midgard_CG.cc,v 1.106 2002/01/09 16:24:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,7 +59,8 @@ void midgard_CG::get_Database()
 {
    Midgard_Info *MI = manage(new Midgard_Info(this,true));
    try{
-   Database = st_Database( Laender_All(MI->get_progressbar_laender()).get_All(),
+   Database = st_Database( Regionen_All(MI->get_progressbar_regionen()).get_All(),
+                           Laender_All(MI->get_progressbar_laender()).get_All(),
                            Ruestung_All(MI->get_progressbar_ruestung()).get_All(),
                            Lernschema(MI->get_progressbar_lernschema()),
                            Beruf_All(MI->get_progressbar_beruf()).get_All(),
@@ -192,8 +193,8 @@ void midgard_CG::show_gtk()
  if (kido_stil_nr!=0)
   {   
     optionmenu_KiDo_Stile->set_history(kido_stil_nr);
-    checkbutton_KanThaiPan->set_active(true);
-    KanThaiPanbool=true;
+//    checkbutton_KanThaiPan->set_active(true);
+//    KanThaiPanbool=true;
   }
 }
 
@@ -334,9 +335,9 @@ void midgard_CG::on_neuer_charakter_clicked()
    Typ.resize(2);
    zeige_lernpunkte();
    zeige_werte(Werte);
-   
    Originalbool=true;  checkbutton_original->set_active(true);
    Infobool=true;      checkbutton_original->set_active(true);
+/*
    Albabool=false;      checkbutton_Alba->set_active(false);
    Escharbool=false;      checkbutton_Eschar->set_active(false);
    Rawindrabool=false;      checkbutton_Rawindra->set_active(false);
@@ -345,6 +346,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    Nahuatlanbool=false;      checkbutton_Nahuatlan->set_active(false);
    HDbool=false;             checkbutton_HD->set_active(false);
    BRbool=false;             checkbutton_BR->set_active(false);
+*/
    steigern_bool=true; checkbutton_EP_Geld->set_active(steigern_bool);
 
    Database.GradAnstieg.set_Grad_Basiswerte(1);
@@ -361,10 +363,6 @@ void midgard_CG::on_neuer_charakter_clicked()
  typauswahl_button(); // ruft clear_listen() und clear_gtk() auf
  show_gtk();
 
- // Verschwindet irgendwann
- checkbutton_Kuestenstaaten->set_sensitive(false);
- checkbutton_Nahuatlan->set_sensitive(false);
- checkbutton_Waeland->set_sensitive(false);
 }
 
 void midgard_CG::on_schliessen_CG_clicked()
