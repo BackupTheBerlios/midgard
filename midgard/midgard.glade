@@ -15225,9 +15225,14 @@ KS
 		<name>rückgängig1</name>
 		<accelerator>
 		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_U</key>
+		  <key>GDK_Z</key>
 		  <signal>activate</signal>
 		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_button_undo_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
+		</signal>
 		<label>Rückgängig</label>
 		<right_justify>False</right_justify>
 	      </widget>
@@ -15240,6 +15245,11 @@ KS
 		  <key>GDK_R</key>
 		  <signal>activate</signal>
 		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_button_redo_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
+		</signal>
 		<label>Erneut/Vorwärts</label>
 		<right_justify>False</right_justify>
 	      </widget>
