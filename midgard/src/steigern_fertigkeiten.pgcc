@@ -23,8 +23,8 @@ exec sql include sqlca;
 //#include <Gtk_OStream.h>
 //#include <algorithm>
 #include "WindowInfo.hh"
-#include <Aux/EntryValueIntString.h>
-#include <Aux/EntryValueEmptyInt.h>
+//#include <Aux/EntryValueIntString.h>
+//#include <Aux/EntryValueEmptyInt.h>
 #include "class_Ausnahmen.hh"
 
 
@@ -91,12 +91,54 @@ void midgard_CG::fertigkeiten_zeigen()
 
 
 void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
-{  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
-   on_steigern_fert_tree_alt_select(dt->Name(),dt->Erfolgswert(),dt->Steigern(),
-      dt->Reduzieren(),dt->Verlernen());
+{  
+ const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+
+ if (dt->Name()=="KiDo" && kido_steigern_check(dt->Erfolgswert())) return;
+ if (radio_fert_steigern->get_active() && dt->Steigern())
+    {
+      // Steigern mit lernen
+      if (!togglebutton_praxispunkte_fertigkeiten->get_active()) 
+         {
+            if (!steigern(dt->Steigern(),dt->Name())) return;
+            Werte.add_GFP(dt->Steigern());
+            for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
+                     i!= list_Fertigkeiten.end();++i )
+               if ( (*i)->Name() == dt->Name()) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
+         }
+      else  // Lernen mit Praxispunkten 
+         {
+            bool wuerfeln;
+            if (radiobutton_praxis_wuerfeln_fertigkeiten->get_active()) wuerfeln = true;
+            if (radiobutton_praxis_auto_fertigkeiten->get_active()) wuerfeln = false;
+            int gelungen = praxispunkte_wuerfeln(dt->Name(),dt->Erfolgswert(),"Fertigkeit",wuerfeln);
+            if (gelungen)
+               {
+                  Werte.add_GFP(dt->Steigern()/2);
+                  for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
+                        i!= list_Fertigkeiten.end();++i )
+                     if ( (*i)->Name() == dt->Name()) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
+               }
+         }     
+    }
+   if (radio_fert_reduzieren->get_active() && dt->Reduzieren())
+         {
+            if (steigern_bool) desteigern(dt->Reduzieren());
+            Werte.add_GFP(-dt->Reduzieren());
+            for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
+                     i!= list_Fertigkeiten.end();++i )
+               if ( (*i)->Name() == dt->Name()) (*i)->set_Erfolgswert((*i)->Erfolgswert()-1); 
+         }
+   if (radio_fert_verlernen->get_active() && dt->Verlernen())
+         {
+            if (steigern_bool) desteigern(dt->Verlernen());
+            Werte.add_GFP(-dt->Verlernen());
+            move_fertigkeiten(list_Fertigkeiten,list_Fertigkeiten_neu,dt->Name());
+         }
+   fertigkeiten_zeigen();
 }
 
-void midgard_CG::get_srv_kosten(cH_Fertigkeit fertigkeit, int &steigern,int &reduzieren,int &verlernen)
+void midgard_CG::get_srv_kosten(const cH_Fertigkeit& fertigkeit, int &steigern,int &reduzieren,int &verlernen) const
 {
   exec sql begin declare section;
     int db_steigern=0, db_reduzieren=0, db_verlernen;
@@ -159,7 +201,7 @@ void midgard_CG::get_srv_kosten(cH_Fertigkeit fertigkeit, int &steigern,int &red
 void midgard_CG::show_alte_fertigkeiten()
 {
    std::vector<cH_RowDataBase> datavec;
-   for ( std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i)
+   for ( std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i)
     {
       int steigern, reduzieren, verlernen;
       get_srv_kosten(*i,steigern,reduzieren,verlernen);
@@ -178,10 +220,6 @@ void midgard_CG::on_button_fertigkeiten_sort_clicked()
    }
 }
 
-void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
-{  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
-   on_steigern_fert_tree_neu_select(dt->Name(),dt->Erfolgswert(),dt->Lernkosten());
-}
 
 
 void midgard_CG::show_neue_fertigkeiten()
@@ -207,54 +245,8 @@ bool midgard_CG::kido_steigern_check(int wert)
 }
 
 
-void midgard_CG::on_steigern_fert_tree_alt_select(const std::string& fertigkeit, int wert,
-   int steigern,int reduzieren,int verlernen)
-{
- if (fertigkeit=="KiDo" && kido_steigern_check(wert)) return;
-   if (radio_fert_steigern->get_active() && steigern)
-    {
-      // Steigern mit lernen
-      if (!togglebutton_praxispunkte_fertigkeiten->get_active()) 
-         {
-            if (!midgard_CG::steigern(steigern,fertigkeit)) return;
-            Werte.add_GFP(steigern);
-            for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
-                     i!= list_Fertigkeiten.end();++i )
-               if ( (*i)->Name() == fertigkeit) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
-         }
-      else  // Lernen mit Praxispunkten 
-         {
-            bool wuerfeln;
-            if (radiobutton_praxis_wuerfeln_fertigkeiten->get_active()) wuerfeln = true;
-            if (radiobutton_praxis_auto_fertigkeiten->get_active()) wuerfeln = false;
-            int gelungen = midgard_CG::praxispunkte_wuerfeln(fertigkeit,wert,"Fertigkeit",wuerfeln);
-            if (gelungen)
-               {
-                  Werte.add_GFP(steigern/2);
-                  for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
-                        i!= list_Fertigkeiten.end();++i )
-                     if ( (*i)->Name() == fertigkeit) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
-               }
-         }     
-    }
-   if (radio_fert_reduzieren->get_active() && reduzieren)
-         {
-            if (steigern_bool) desteigern(reduzieren);
-            Werte.add_GFP(-reduzieren);
-            for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
-                     i!= list_Fertigkeiten.end();++i )
-               if ( (*i)->Name() == fertigkeit) (*i)->set_Erfolgswert((*i)->Erfolgswert()-1); 
-         }
-   if (radio_fert_verlernen->get_active() && verlernen)
-         {
-            if (steigern_bool) desteigern(verlernen);
-            Werte.add_GFP(-verlernen);
-            move_fertigkeiten(list_Fertigkeiten,list_Fertigkeiten_neu,fertigkeit);
-         }
-   fertigkeiten_zeigen();
-}
 
-void midgard_CG::move_fertigkeiten(std::list<cH_Fertigkeit>& von,std::list<cH_Fertigkeit>& nach,std::string name)
+void midgard_CG::move_fertigkeiten(std::list<cH_Fertigkeit>& von,std::list<cH_Fertigkeit>& nach,const std::string& name)
 {
  for (std::list<cH_Fertigkeit>::iterator i=von.begin();i!= von.end();++i)
      if ((*i)->Name()==name) 
@@ -262,18 +254,17 @@ void midgard_CG::move_fertigkeiten(std::list<cH_Fertigkeit>& von,std::list<cH_Fe
   fertigkeiten_zeigen();
 }
 
-void midgard_CG::on_steigern_fert_tree_neu_select(const std::string& fertigkeit, int wert, int lernkosten)
-{
-  if (!steigern(lernkosten,fertigkeit)) return;
-  Werte.add_GFP(lernkosten);
-//  for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten_neu.begin();i!=list_Fertigkeiten.end();++i)
-//    if ((*i)->Name()==fertigkeit) {(*i)->set_Erfolgswert(wert) ;break;}
-  move_fertigkeiten(list_Fertigkeiten_neu,list_Fertigkeiten,fertigkeit);
 
-  if (fertigkeit=="KiDo") {kido_bool=true;show_gtk();
+void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
+{  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
+  if (!steigern(dt->Lernkosten(),dt->Name())) return;
+  Werte.add_GFP(dt->Lernkosten());
+  move_fertigkeiten(list_Fertigkeiten_neu,list_Fertigkeiten,dt->Name());
+
+  if (dt->Name()=="KiDo") {kido_bool=true;show_gtk();
       std::string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
       manage (new WindowInfo(strinfo,true)); }
-  if (fertigkeit=="Wissen von der Magie") 
+  if (dt->Name()=="Wissen von der Magie") 
       {  doppelcharaktere();
          std::string strinfo ="Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n";
          strinfo += " und anschließend 'Fertigkeiten neu laden' klicken\n";

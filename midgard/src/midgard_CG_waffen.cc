@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.23 2001/10/07 08:05:32 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.24 2001/10/16 08:59:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,17 +24,18 @@
 void midgard_CG::on_waffen_wahl_clicked()
 {
   waffen_clist->clear();
-  manage(new Waffen_auswahl(this,Typ[0]->Short(),Typ[1]->Short(),lernpunkte.Waffen(),Werte));
+  manage(new Waffen_auswahl(this,Typ[0]->Short(),Typ[1]->Short(),lernpunkte.Waffen(),Werte,Typ));
 }
 
 void midgard_CG::show_waffen()
 {
    waffen_clist->clear();
    Gtk::OStream os(waffen_clist);
-   for(std::vector<H_Data_waffen>::iterator i=vec_Waffen.begin();
-         i!=vec_Waffen.end();++i)
+   for(std::list<cH_Waffe>::iterator i=list_Waffen.begin();
+         i!=list_Waffen.end();++i)
       {
          os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
+         os.flush(&*i);
       }
    for (unsigned int i=0;i<waffen_clist->columns().size();++i)
       waffen_clist->set_column_auto_resize(i,true);
@@ -42,11 +43,11 @@ void midgard_CG::show_waffen()
 
 }
 
-void midgard_CG::waffen_uebernehmen(const std::vector<H_Data_waffen>& saw, map<std::string,string> wg)
+void midgard_CG::waffen_uebernehmen(const std::list<cH_Waffe>& saw,std::list<cH_WaffeGrund> list_WaffenG)
 {
-   vec_Waffen = saw;
-   waffen_grundkenntnisse = wg;
-   midgard_CG::show_waffen();
+   list_Waffen = saw;
+   list_WaffenGrund = list_WaffenG;
+   show_waffen();
    button_geld_waffen->set_sensitive(true);
    button_ruestung->set_sensitive(true);   
 
@@ -54,7 +55,6 @@ void midgard_CG::waffen_uebernehmen(const std::vector<H_Data_waffen>& saw, map<s
    table_magier_lernen->set_sensitive(true);
    hbox_kido->set_sensitive(true);
    table_kido_lernen->set_sensitive(true);
-
 }
 
 void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *event)
@@ -62,14 +62,18 @@ void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *eve
  /* Funktion für Spezialwaffe */
  if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord")
    {
-    static int oldrow = -1;
-//    ++++vec_waffen[row].erfolgswert;    
-//    if(oldrow!=-1) ----vec_waffen[oldrow].erfolgswert;    
-    vec_Waffen[row]->set_Erfolgswert(vec_Waffen[row]->Erfolgswert()+2);    
-    if(oldrow!=-1) vec_Waffen[oldrow]->set_Erfolgswert(vec_Waffen[oldrow]->Erfolgswert()-2);    
-    oldrow=row;
-    Werte.Spezialisierung() = waffen_clist->get_text(row,0);
-    midgard_CG::waffen_uebernehmen(vec_Waffen,waffen_grundkenntnisse);
+    Gtk::CList::SelectionList::iterator i=waffen_clist->selection().begin();
+    cH_Waffe *ptr = static_cast<cH_Waffe*>(i->get_data());           
+    (*ptr)->set_Erfolgswert((*ptr)->Erfolgswert()+2);
+    Werte.set_Spezialisierung((*ptr)->Name());
+
+    static cH_Waffe *ptr_mem=0;
+    if(ptr_mem)
+     {
+      (*ptr_mem)->set_Erfolgswert((*ptr_mem)->Erfolgswert()-2);
+     }
+    ptr_mem=ptr;
+   show_waffen();
    }
 }
 

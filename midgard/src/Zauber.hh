@@ -86,6 +86,7 @@ class cH_Zauber : public Handle<const Zauber>
    cH_Zauber(const std::string& name,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int lernpunkte=0) ;
 };
 
+
 class Zauber_sort_name
 { public: bool operator() (cH_Zauber x,cH_Zauber y) const
    {return x->Name() < y->Name(); }};

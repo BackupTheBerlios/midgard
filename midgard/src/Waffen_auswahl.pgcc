@@ -33,68 +33,63 @@ exec sql include sqlca;
 
 
 Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::string& typ_2,
-   int lernpunkte, const Grundwerte& Werte)
+   int lernpunkte, const Grundwerte& Werte,const vector<H_Data_typen>& _Typ)
+:Typ(_Typ)
 {
   hauptfenster=h;
   std::vector<string> vorteile=hauptfenster->Berufs_Vorteile();
   maxpunkte = lernpunkte;
   waffen_auswahl_lernpunkte->set_text(itos(maxpunkte));
   exec sql begin declare section;
-   char db_art[100];
    int db_lernpunkte;
    char db_fertigkeiten[100];
    int db_erfolgswert;
-   char db_grund[100];
-   char db_zusatz[50];
-   char db_region[10];
    char query[1024];
   exec sql end declare section;
    
-   std::string squery = "select fertigkeit, l.art, max(wert), min(lernpunkte),
-      grundkenntnisse, \
-      coalesce(zusatz,''), coalesce(w.region,'') \
-      from lernschema l, waffen w where ";
-   if (typ_2!="") squery += " (typ = '"+typ+"' or typ = '"+typ_2+"') ";
-   else           squery += "  typ = '"+typ+"' ";
+   std::string squery = "select l.fertigkeit, max(l.wert), min(l.lernpunkte)
+        from lernschema l , waffen w where ";
+   if (typ_2!="") squery += " (l.typ = '"+typ+"' or l.typ = '"+typ_2+"') ";
+   else           squery += "  l.typ = '"+typ+"' ";
    squery += " and l.art = 'Waffe' and w.name = l.fertigkeit \
-      and  fertigkeit not in  \
+      and  l.fertigkeit not in  \
          (select verboten from pflicht_lernen where typ='"+Werte.Spezies()+"' and verboten is not null) \
-      and  grundkenntnisse not in  \
+      and  w.grundkenntnisse not in  \
          (select verboten from pflicht_lernen where typ='"+Werte.Spezies()+"' and verboten is not null) \
-      group by fertigkeit, l.art, grundkenntnisse, zusatz, w.region
-      order by min(lernpunkte) ";
+      group by fertigkeit  order by min(lernpunkte)" ;
 
    strncpy(query,squery.c_str(),sizeof(query));
    Transaction tr;
-    exec sql prepare swaffen from :query;
-    exec sql declare waffen cursor for swaffen;
-
-
-    exec sql open waffen;
-    SQLerror::test(__FILELINE__);
-    while (true)
-      {
-         exec sql fetch waffen into :db_fertigkeiten, :db_art,
-            :db_erfolgswert, :db_lernpunkte, :db_grund, 
-            :db_zusatz, :db_region;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         if (hauptfenster->region_check(db_region))
-            vec_Waffen.push_back(new Data_waffen(db_fertigkeiten,db_erfolgswert,db_lernpunkte,db_grund,db_zusatz));
+   exec sql prepare swaffen from :query;
+   exec sql declare waffen cursor for swaffen;
+   exec sql open waffen;
+   SQLerror::test(__FILELINE__);
+   while (true)
+     {
+       exec sql fetch waffen into :db_fertigkeiten, 
+            :db_erfolgswert, :db_lernpunkte;
+       SQLerror::test(__FILELINE__,100);
+       if (sqlca.sqlcode) break;
+       cH_Waffe waffe(db_fertigkeiten,Typ,db_lernpunkte);
+       waffe->set_Erfolgswert(db_erfolgswert);
+       if (hauptfenster->region_check(waffe->Region(waffe->Name())))
+         list_Waffen.push_back(waffe);
+//            vec_Waffen.push_back(new Data_waffen(db_fertigkeiten,db_erfolgswert,db_lernpunkte,db_grund,db_zusatz));
       }
     exec sql close waffen;
     Gtk::OStream os(waffen_clist_auswahl);
     waffen_clist_auswahl->freeze();
-    for(std::vector<H_Data_waffen>::iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
+    for(std::list<cH_Waffe>::iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
       {
+        int v=0;
         for (std::vector<string>::const_iterator j=vorteile.begin();
                j!=vorteile.end();++j)
-           if ((*j)==(*i)->Name()) (*i)->set_Lernpunkte((*i)->Lernpunkte()-1);
-        if (hauptfenster->Waffen_Voraussetzung((*i)->Name()))
+           if ((*j)==(*i)->Name()) v=1;
+        if ((*i)->SG_Voraussetzung(Werte))
          {
-            os << (*i)->Lernpunkte() <<"\t"<<(*i)->Voraussetzung()<<"\t"
+            os << (*i)->Lernpunkte()-v <<"\t"<<(*i)->Voraussetzung()<<"\t"
                << (*i)->Name() <<"\t"
-               << (*i)->Erfolgswert() <<"\t"<<(*i)->Grundkenntnisse()<<"\n";
+               << (*i)->Erfolgswert() <<"\t"<<(*i)->Grundkenntnis()<<"\n";
             os.flush(&*i);
          }
       }
@@ -116,7 +111,8 @@ void Waffen_auswahl::on_waffen_clist_auswahl_select_row(gint row, gint column, G
    maxpunkte -= atoi(waffen_clist_auswahl->get_text(row,0).c_str());
    waffen_auswahl_lernpunkte->set_text(itos(maxpunkte));
    std::string grund = waffen_clist_auswahl->get_text(row,4);
-   waffen_grundkenntnisse[grund] = "X";
+//   waffen_grundkenntnisse[grund] = "X";
+   list_WaffenGrund.push_back(cH_WaffeGrund(grund,Typ));
 }
 
 void Waffen_auswahl::on_waffen_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event)
@@ -127,16 +123,14 @@ void Waffen_auswahl::on_waffen_clist_auswahl_unselect_row(gint row, gint column,
 
 void Waffen_auswahl::on_close_waffen_clicked()
 {   
-   std::vector<H_Data_waffen> saw;
+   std::list<cH_Waffe> saw;
    for (Gtk::CList::SelectionList::iterator i=waffen_clist_auswahl->selection().begin();
          i!=waffen_clist_auswahl->selection().end();++i)
      {  
-      H_Data_waffen *ptr = static_cast<H_Data_waffen*>(i->get_data());
+      cH_Waffe *ptr = static_cast<cH_Waffe*>(i->get_data());
          // ptr=&fert[i->get_row_num()];
-//       std::cout << ptr ->waffe << ' ' << ptr -> erfolgswert << '\n';
-       saw.push_back(new Data_waffen((*ptr)->Name(),(*ptr)->Erfolgswert(),"" ));
+       saw.push_back(*ptr);
      }
-  hauptfenster->waffen_uebernehmen(saw,waffen_grundkenntnisse);
+  hauptfenster->waffen_uebernehmen(saw,list_WaffenGrund);
   destroy();
-
 }

@@ -42,24 +42,24 @@ void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *ev
 }
 
 Window_waffe::Window_waffe(int we,midgard_CG* h, 
-      Window_Waffe_Geld* o, Grundwerte& W, std::vector<H_Data_waffen>& wa)
-:vec_Waffen(wa) ,Werte(W)
+      Window_Waffe_Geld* o, Grundwerte& W,const vector<H_Data_typen>& T, const std::list<cH_Waffe>& wa)
+:list_Waffen(wa) ,Werte(W), Typ(T)
 {
   wurf=we;
   hauptfenster=h;
   oberfenster=o;
-  hauptfenster->on_speichern_clicked();
-  Window_waffe::wuerfeln();
+//  hauptfenster->on_speichern_clicked();
+  wuerfeln();
 }
 
 Window_waffe::Window_waffe(int we,midgard_CG* h, 
-      Grundwerte& W, std::vector<H_Data_waffen>& wa)
-:vec_Waffen(wa) ,Werte(W)
+      Grundwerte& W,const vector<H_Data_typen>& T, const std::list<cH_Waffe>& wa)
+:list_Waffen(wa) ,Werte(W), Typ(T)
 {
   wurf=we;
   hauptfenster=h;
-  hauptfenster->on_speichern_clicked();
-  Window_waffe::wuerfeln();
+//  hauptfenster->on_speichern_clicked();
+  wuerfeln();
 }
 
 void Window_waffe::wuerfeln()
@@ -75,14 +75,13 @@ void Window_waffe::wuerfeln()
        return;
    }
   exec sql begin declare section;
-   char db_waffe[50], db_grund[50], db_art[5] ;
+   char db_waffe[50];
    char db_name[50], db_version[50] ;
   exec sql end declare section;
   strncpy(db_name,(Werte.Name_Charakter()).c_str(),sizeof(db_name));
   strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
   exec sql declare ein cursor for
-   SELECT distinct w.name, w.grundkenntnisse, coalesce(w.art_2,'') FROM waffen w,
-   charaktere_fertigkeiten  c
+   SELECT distinct w.name FROM waffen w, charaktere_fertigkeiten  c
    WHERE c.fertigkeit=w.name AND c.charakter_name = :db_name
    AND c.version = :db_version AND c.art ='Waffe';
  Transaction tr;
@@ -90,29 +89,25 @@ void Window_waffe::wuerfeln()
  SQLerror::test(__FILELINE__);
  Gtk::OStream os(clist_waffe);
  std::string aartE,aartS,aartW,aartZ,aartA;
- if (wurf!=-1) Window_waffe::get_art(aartE,aartS,aartW,aartZ,aartA);
+ if (wurf!=-1) get_art(aartE,aartS,aartW,aartZ,aartA);
  if (wurf==-1) aartA="A";
 
  while(true)
    {
-     exec sql fetch ein into :db_waffe, :db_grund, :db_art;
+     exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     std::string waffe=db_waffe;
-
-     if (waffe == "waffenloser Kampf") continue;
-     std::string art = db_art;
-     std::string sch = hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),Werte,"Schaden");
-     if (aartE =="E" && art=="E" )
-         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
-     if (aartW =="W" && art=="W" )
-         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
-     if (aartS =="S" && art=="S" )
-         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
-     if (aartZ =="Z" && art=="Z" )
-         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
-     if (aartA =="A")
-         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
+     cH_Waffe waffe(db_waffe,Typ);
+      
+     if (waffe->Name() == "waffenloser Kampf") continue;
+     if ((aartE =="E" && waffe->Art2()=="E") ||
+         (aartW =="W" && waffe->Art2()=="W") ||
+         (aartS =="S" && waffe->Art2()=="S") ||
+         (aartZ =="Z" && waffe->Art2()=="Z") ||
+         (aartA =="A") )
+       os << waffe->Name() <<"\t"<<waffe->Grundkenntnis()
+          <<"\t"<<waffe->Schaden(waffe->Name())+"+"
+            +itos(waffe->Schaden_Bonus(waffe->Name()))<<"\n";
 
    }
      if (aartE=="E") strinfo += "Einhandwaffe ";
@@ -132,7 +127,6 @@ void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& a
 {
         if (Werte.Stand() == "Unfrei")
          {
-//        if ( 1<=wurf&&wurf<=10){Werte.add_Kupfer(10);strinfo+="10 Kupferstücke";} 
           if (11<=wurf&&wurf<=20){aartE="E";} 
           if (21<=wurf&&wurf<=40){aartE="E";} 
           if (41<=wurf&&wurf<=60){aartE="E";aartS="S";} 
@@ -143,7 +137,6 @@ void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& a
          }
         if (Werte.Stand() == "Volk")
          {
-//        if ( 1<=wurf&&wurf<=10){Werte.add_Kupfer(10);strinfo+="10 Kupferstücke";} 
           if (11<=wurf&&wurf<=20){aartE="E";} 
           if (21<=wurf&&wurf<=40){aartE="E";} 
           if (41<=wurf&&wurf<=60){aartE="E";aartW="W";} 
@@ -154,7 +147,6 @@ void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& a
          }
         if (Werte.Stand() == "Mittelschicht")
          {
-//        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
           if (11<=wurf&&wurf<=20){aartE="E";} 
           if (21<=wurf&&wurf<=40){aartE="E";} 
           if (41<=wurf&&wurf<=60){aartE="E";aartW="W";} 
@@ -165,7 +157,6 @@ void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& a
          }
         if (Werte.Stand() == "Adel")
          {
-//        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
           if (11<=wurf&&wurf<=20){aartE="E";} 
           if (21<=wurf&&wurf<=40){aartE="E";} 
           if (41<=wurf&&wurf<=60){aartE="E";aartZ="Z";} 

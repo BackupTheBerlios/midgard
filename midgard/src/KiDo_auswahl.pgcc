@@ -70,6 +70,7 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
    const vector<H_Data_typen>& Typ,const std::vector<H_Data_beruf>& vec_Beruf)
 : maxkido(m)
 {
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    hauptfenster=h;
    label_kido_techniken->set_text("Noch "+itos(maxkido)+" Techniken auswählen");
 

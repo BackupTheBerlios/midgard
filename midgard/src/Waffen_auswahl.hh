@@ -1,4 +1,4 @@
-// $Id: Waffen_auswahl.hh,v 1.22 2001/08/13 20:08:23 thoma Exp $
+// $Id: Waffen_auswahl.hh,v 1.23 2001/10/16 08:59:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,23 +32,29 @@
 #  include "Waffen_auswahl_glade.hh"
 #  define _WAFFEN_AUSWAHL_HH
 
+#include <list>
 #include <vector>
-#include <map>
+//#include <map>
 class midgard_CG;
-class H_Data_waffen;
+//class H_Data_waffen;
 class Grundwerte;
+class cH_Waffe;
+class cH_WaffeGrund;
+class H_Data_typen;
 
 class Waffen_auswahl : public Waffen_auswahl_glade
 {   
         int maxpunkte;
-        map<std::string,std::string> waffen_grundkenntnisse;
+        std::list<cH_WaffeGrund> list_WaffenGrund;
         midgard_CG* hauptfenster;
+        vector<H_Data_typen> Typ; 
         friend class Waffen_auswahl_glade;
-        std::vector<H_Data_waffen> vec_Waffen;
+        std::list<cH_Waffe> list_Waffen;
         void on_waffen_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_waffen_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_waffen_clicked();
   public:
-        Waffen_auswahl(midgard_CG* h,const std::string& typ,const std::string& typ_2, int lernpunkte, const Grundwerte& Werte);
+        Waffen_auswahl(midgard_CG* h,const std::string& typ,const std::string& typ_2, int lernpunkte, 
+               const Grundwerte& Werte,const vector<H_Data_typen>& Typ);
 };
 #endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_region_check.cc,v 1.20 2001/08/20 14:42:39 thoma Exp $
+// $Id: midgard_CG_region_check.cc,v 1.21 2001/10/16 08:59:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,7 @@
 
 bool midgard_CG::region_check(const std::string& region)
 {
-//std::cout << "region = "<<"\t"<<region<<"\t"<<BRbool<<"\n";
+//std::cout << "region = "<<"\t"<<flush<<region<<"\t"<<Escharbool<<"\n";
   if (region=="") return true;  
 
   if (region=="A" && Albabool)       return true;

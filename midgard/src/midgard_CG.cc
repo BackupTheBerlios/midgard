@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.66 2001/10/09 09:03:43 thoma Exp $
+// $Id: midgard_CG.cc,v 1.67 2001/10/16 08:59:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -214,7 +214,7 @@ void midgard_CG::show_gtk()
  steigern_gtk();
 
  // Spezialwaffe anzeigen?
- if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
+ if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nSelektieren auswählen");
  else label_spezialwaffe->set_text("");
 
  // Magie anzeigen?
@@ -308,7 +308,7 @@ void midgard_CG::on_button_ruestung_s_clicked()
 }
 void midgard_CG::on_button_waffen_s_clicked()
 {
-  manage (new Window_Waffenbesitz(this,vec_Waffen,vec_Waffen_besitz,Werte));
+  manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz,Werte,Typ));
 }
 
 
@@ -327,7 +327,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    frame_steigern->hide();//set_sensitive(false);
    frame_lernschema->hide();//set_sensitive(false);
 
-   button_geld_waffen->set_sensitive(false);
+//XXX   button_geld_waffen->set_sensitive(false);
    button_ruestung->set_sensitive(false);
 
    vbox_beruferfolgswert->hide();
@@ -348,22 +348,28 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_kido_auswahl->set_sensitive(false);       
 
    list_Fertigkeiten.clear();
+   list_Fertigkeiten_neu.clear();
    vec_an_Fertigkeit.clear();
-   vec_Waffen.clear();
-   vec_Waffen_besitz.clear();
+   list_Waffen.clear();
+   list_Waffen_neu.clear();
+   list_WaffenGrund.clear();
+   list_WaffenGrund_neu.clear();
+   list_Waffen_besitz.clear();
    list_Kido.clear();
+   list_Kido_neu.clear();
    vec_Beruf.clear();
    vec_Sprachen.clear();
    vec_Schriften.clear();
    list_Zauber.clear();
    list_Zauberwerk.clear();
+   list_Zauber_neu.clear();
+   list_Zauberwerk_neu.clear();
    Werte.clear();
    lernpunkte.clear();
    Typ.clear();
    Typ.resize(2);
    vec_Typen.clear();
    vec_Typen_2.clear();
-   waffen_grundkenntnisse.clear();
    zeige_lernpunkte();
    zeige_werte(Werte);
    berufe_clist->clear();

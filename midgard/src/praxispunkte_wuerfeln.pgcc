@@ -104,7 +104,7 @@ int midgard_CG::praxispunkte_wuerfeln(const std::string& fert,int alter_wert, co
       gelungen = false;
    }
  strinfo << char(0);
- manage (new WindowInfo(strinfo.str()));
+ manage (new WindowInfo(strinfo.str(),true));
  strinfo.freeze(0);
  return(gelungen);
 }

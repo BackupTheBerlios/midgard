@@ -50,10 +50,240 @@ void midgard_CG::xml_export(const std::string& datei)
   std::string strinfo = "Charakter "+cname+" exportiert\n";
   manage (new WindowInfo(strinfo));
 }
- 
+
 void midgard_CG::on_speichern_clicked()
 {
-   // Werte
+   grundwerte_speichern();
+   Transaction tr;
+
+   ///////////////////////////////////////////////////////////////////////   
+   // Berufe, (angeborene) Fertigkeiten, Waffen und Zauber
+   // Grundfertigkeiten (Waffen), Sprache, Schrift
+   exec sql begin declare section;
+      char db_name_ch[50];
+      char db_version[50];
+      int db_av_bonus,db_sl_bonus;
+       char db_region[20];
+      char db_fertigkeit[50];
+      int db_wert;
+      char db_wert_str[20];
+      char db_magisch[1024];
+   exec sql end declare section;
+   strncpy(db_name_ch,Werte.Name_Charakter().c_str(),sizeof(db_name_ch));
+   strncpy(db_version,Werte.Version().c_str(),sizeof(db_version));
+   // Alte einträge löschen
+
+   exec sql DELETE FROM charaktere_fertigkeiten WHERE charakter_name = :db_name_ch ;
+   for (std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
+         i!=vec_Beruf.end();++i)
+      {
+         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+         db_wert =  (*i)->Erfolgswert() ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Beruf') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (std::vector<H_Data_fert>::const_iterator i=vec_an_Fertigkeit.begin();
+         i!=vec_an_Fertigkeit.end();++i)
+      {
+         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
+         db_wert =  (*i)->Erfolgswert() ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'ang.Fertigkeit') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();
+         i!=list_Fertigkeiten.end();++i)
+      {
+         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
+         db_wert =  (*i)->Erfolgswert() ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Fertigkeit') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();
+         i!=list_Waffen.end();++i)
+      {
+         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+         db_wert =  (*i)->Erfolgswert() ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Waffe') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (std::list<H_WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
+         i!=list_Waffen_besitz.end();++i)
+      {
+         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+         strncpy(db_magisch, ((*i)->Magisch()).c_str(),sizeof(db_magisch));
+         db_av_bonus = (*i)->av_Bonus();
+         db_sl_bonus = (*i)->sl_Bonus();
+         strncpy(db_region,((*i)->Region()).c_str(),sizeof(db_region));
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus,region,magisch)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region,:db_magisch) ;
+            SQLerror::test(__FILELINE__);
+      }
+   for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();
+         i!=list_Zauber.end();++i)
+      {
+         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+         strncpy(db_wert_str,itos((*i)->Erfolgswert(Typ,Werte)).c_str(),sizeof(db_wert_str)) ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert_str,'Zauber') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (std::list<cH_Zauberwerk>::const_iterator i=list_Zauberwerk.begin();
+         i!=list_Zauberwerk.end();++i)
+      {
+         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+         db_wert = atoi((*i)->Stufe().c_str()) ;
+         if ((*i)->Stufe()=="G") db_wert = 99;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Zaubermittel') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
+      {
+         strncpy(db_fertigkeit, ((*i)->Hoho()).c_str(),sizeof(db_fertigkeit));
+//         strncpy(db_wert_str,"0",sizeof(db_wert_str)) ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,0,'KiDo') ;         
+            SQLerror::test(__FILELINE__);
+      }
+//   for (map<std::string,string>::const_iterator i=waffen_grundkenntnisse.begin();
+//            i!=waffen_grundkenntnisse.end();++i)
+   for (std::list<cH_WaffeGrund>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
+      {
+         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
+         exec sql INSERT INTO charaktere_fertigkeiten 
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Grundkenntnis');
+            SQLerror::test(__FILELINE__);
+      }
+   for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();
+         i!=vec_Sprachen.end();++i)
+      {
+         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
+         db_wert = (*i)->Wert();
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES(:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Sprache');
+            SQLerror::test(__FILELINE__);
+      }
+   for (std::vector<H_Data_schrift>::const_iterator i=vec_Schriften.begin();
+         i!=vec_Schriften.end();++i)
+      {
+         strncpy(db_fertigkeit, ((*i)->Urschrift()).c_str(),sizeof(db_fertigkeit));
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Urschrift');
+            SQLerror::test(__FILELINE__);
+      }
+   // Regionen & Ähnliches
+   if (!Originalbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','ORIG','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (!Infobool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','INFO','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (Albabool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','A','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (Escharbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','E','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (Rawindrabool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','R','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (KanThaiPanbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','K','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (Nahuatlanbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','N','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (Waelandbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','W','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (HDbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','HD','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (BRbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','BR','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (Gildenbriefbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','G','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (Kuestenstaatenbool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','S','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   tr.commit();
+}
+
+void midgard_CG::grundwerte_speichern()
+{
    exec sql begin declare section;
 //      char db_beschreibung[102400] ;
       char *db_beschreibung; 
@@ -75,8 +305,6 @@ void midgard_CG::on_speichern_clicked()
       char db_version[50] ;
       int db_gfp,db_gold ,db_silber,db_kupfer;
       char db_ruestung[20];
-      int db_av_bonus,db_sl_bonus;
-      char db_region[20];
       char db_spezies[50];
       int db_aep,db_kep,db_zep;
       bool db_steigern_bool;
@@ -202,225 +430,7 @@ void midgard_CG::on_speichern_clicked()
       grad_basiswerte =:db_grad_basiswerte
       WHERE charakter_name = :db_name_ch and version= :db_version;
    SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode==100) midgard_CG::charakter_db_anlegen();
-
-   ///////////////////////////////////////////////////////////////////////   
-   // Berufe, (angeborene) Fertigkeiten, Waffen und Zauber
-   // Grundfertigkeiten (Waffen), Sprache, Schrift
-   exec sql begin declare section;
-      char db_fertigkeit[50];
-      int db_wert;
-      char db_wert_str[20];
-      char db_magisch[1024];
-   exec sql end declare section;
-   Transaction tr;
-   // Alte einträge löschen
-   exec sql DELETE FROM charaktere_fertigkeiten WHERE charakter_name = :db_name_ch ;
-   for (std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
-         i!=vec_Beruf.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         db_wert =  (*i)->Erfolgswert() ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Beruf') ;         
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::vector<H_Data_fert>::const_iterator i=vec_an_Fertigkeit.begin();
-         i!=vec_an_Fertigkeit.end();++i)
-      {
-         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
-         db_wert =  (*i)->Erfolgswert() ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'ang.Fertigkeit') ;         
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();
-         i!=list_Fertigkeiten.end();++i)
-      {
-         strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
-         db_wert =  (*i)->Erfolgswert() ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Fertigkeit') ;         
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
-         i!=vec_Waffen.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         db_wert =  (*i)->Erfolgswert() ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Waffe') ;         
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::vector<H_Data_waffen>::const_iterator i=vec_Waffen_besitz.begin();
-         i!=vec_Waffen_besitz.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Alias()).c_str(),sizeof(db_fertigkeit));
-         strncpy(db_magisch, ((*i)->Magisch()).c_str(),sizeof(db_magisch));
-         db_av_bonus = (*i)->av_Bonus();
-         db_sl_bonus = (*i)->sl_Bonus();
-         strncpy(db_region,((*i)->Region()).c_str(),sizeof(db_region));
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus,region,magisch)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region,:db_magisch) ;
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();
-         i!=list_Zauber.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         strncpy(db_wert_str,itos((*i)->Erfolgswert(Typ,Werte)).c_str(),sizeof(db_wert_str)) ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert_str,'Zauber') ;         
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::list<cH_Zauberwerk>::const_iterator i=list_Zauberwerk.begin();
-         i!=list_Zauberwerk.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         db_wert = atoi((*i)->Stufe().c_str()) ;
-         if ((*i)->Stufe()=="G") db_wert = 99;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Zaubermittel') ;         
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Hoho()).c_str(),sizeof(db_fertigkeit));
-//         strncpy(db_wert_str,"0",sizeof(db_wert_str)) ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,0,'KiDo') ;         
-            SQLerror::test(__FILELINE__);
-      }
-   for (map<std::string,string>::const_iterator i=waffen_grundkenntnisse.begin();
-            i!=waffen_grundkenntnisse.end();++i)
-      {
-         strncpy(db_fertigkeit, i->first.c_str(),sizeof(db_fertigkeit));
-         exec sql INSERT INTO charaktere_fertigkeiten 
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Grundkenntnis');
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();
-         i!=vec_Sprachen.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         db_wert = (*i)->Wert();
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES(:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Sprache');
-            SQLerror::test(__FILELINE__);
-      }
-   for (std::vector<H_Data_schrift>::const_iterator i=vec_Schriften.begin();
-         i!=vec_Schriften.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Urschrift()).c_str(),sizeof(db_fertigkeit));
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Urschrift');
-            SQLerror::test(__FILELINE__);
-      }
-   // Regionen & Ähnliches
-   if (!Originalbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','ORIG','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (!Infobool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','INFO','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Albabool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','A','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Escharbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','E','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Rawindrabool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','R','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (KanThaiPanbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','K','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Nahuatlanbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','N','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Waelandbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','W','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (HDbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','HD','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (BRbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','BR','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Gildenbriefbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','G','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   if (Kuestenstaatenbool) 
-    {  
-     exec sql INSERT INTO charaktere_fertigkeiten
-        (charakter_name,version,fertigkeit,region,art)
-        VALUES(:db_name_ch,:db_version,'Region','S','Region');
-      SQLerror::test(__FILELINE__);
-    }
-   tr.commit();
+   if (sqlca.sqlcode==100) charakter_db_anlegen();
 }
 
 void midgard_CG::charakter_db_anlegen()

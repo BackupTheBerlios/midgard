@@ -20,11 +20,11 @@
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
-#include <cstring>
+//#include <cstring>
 //#include <strstream>
 #include "WindowInfo.hh"
-#include <Aux/EntryValueIntString.h>
-#include <Aux/EntryValueEmptyInt.h> 
+//#include <Aux/EntryValueIntString.h>
+//#include <Aux/EntryValueEmptyInt.h> 
 #include "class_kido.hh"
 
 #ifdef __MINGW32__
@@ -88,12 +88,21 @@ void midgard_CG::kido_zeigen()
 }
 
 void midgard_CG::on_leaf_selected_alte_kido(cH_RowDataBase d)
-{  const Data_kido *dt=dynamic_cast<const Data_kido*>(&*d);
-   on_steigern_kido_tree_alt_select(dt->Hoho(),dt->Kosten());
+{  
+   const Data_kido *dt=dynamic_cast<const Data_kido*>(&*d);
+   if (steigern_bool) desteigern(dt->Kosten());
+   Werte.add_GFP(-dt->Kosten());
+   move_kido(list_Kido,list_Kido_neu,dt->Hoho());
 }
+
+
+
 void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
-{  const Data_kido *dt=dynamic_cast<const Data_kido*>(&*d);
-   on_steigern_kido_tree_neu_select(dt->Hoho(),dt->Kosten());
+{  
+  const Data_kido *dt=dynamic_cast<const Data_kido*>(&*d);
+  if (!steigern(dt->Kosten(),"KiDo")) return;
+  Werte.add_GFP(dt->Kosten());
+  move_kido(list_Kido_neu,list_Kido,dt->Hoho());
 }
 
 
@@ -136,21 +145,9 @@ void midgard_CG::show_neue_kido()
 }
 
 
-void midgard_CG::on_steigern_kido_tree_alt_select(const std::string& name,int kosten)
-{   
-   if (steigern_bool) desteigern(kosten);
-   Werte.add_GFP(-kosten);
-   move_kido(list_Kido,list_Kido_neu,name);
-}
 
-void midgard_CG::on_steigern_kido_tree_neu_select(const std::string& name, int kosten)
-{   
-  if (!steigern(kosten,"KiDo")) return;
-  Werte.add_GFP(kosten);
-  move_kido(list_Kido_neu,list_Kido,name);
-}
 
-void midgard_CG::move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,std::string name)
+void midgard_CG::move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,const std::string& name)
 {
  for (std::list<cH_KiDo>::iterator i=von.begin();i!= von.end();++i)
      if ((*i)->Hoho()==name) 

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.41 2001/10/09 09:03:43 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.42 2001/10/16 08:59:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -83,10 +83,10 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\au}{"  <<Werte.Au() << "}\n";
  fout << "\\newcommand{\\pa}{"  <<Werte.pA() << "}\n";
  fout << "\\newcommand{\\sbb}{"  <<Werte.Sb() << "}\n";
- int reaktionswert = Werte.RW() - atoi(midgard_CG::ruestung("RW").c_str());
+ int reaktionswert = Werte.RW() - atoi(ruestung("RW").c_str());
  fout << "\\newcommand{\\rw}{"  << Werte.RW() << "\\scriptsize ("<<reaktionswert<<")}\n";
  fout << "\\newcommand{\\hgw}{"  <<Werte.HGW() << "}\n";
- int bewegungsweite = Werte.B() - atoi(midgard_CG::ruestung("B").c_str());
+ int bewegungsweite = Werte.B() - atoi(ruestung("B").c_str());
  fout << "\\newcommand{\\bb}{"  <<Werte.B() << "\\scriptsize ("<<bewegungsweite<<")}\n";
  fout << "\\newcommand{\\kaw}{"  <<Werte.KAW() << "}\n";
  fout << "\\newcommand{\\wlw}{"  <<Werte.WLW() << "}\n";
@@ -110,7 +110,7 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\abwehr}{"<<Werte.Abwehr_wert()<< "}\n";
  fout << "\\newcommand{\\abwehrfinal}{"<<Werte.Abwehr_wert()+Werte.bo_Ab()<< "}\n";
  int ohne_waffe=Werte.Abwehr_wert()+Werte.bo_Ab();
- std::string mit_waffe = midgard_CG::get_Verteidigungswaffe(ohne_waffe);
+ std::string mit_waffe = Waffe::get_Verteidigungswaffe(ohne_waffe,list_Waffen,list_Waffen_besitz,Typ,Werte);
  if (atoi(mit_waffe.c_str())!=Werte.Abwehr_wert()+Werte.bo_Ab())
     fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<< "}\n";
  else 
@@ -163,10 +163,11 @@ void midgard_CG::LaTeX_write_values()
 
  /////////////////////////////////////////////////////////////////////////////
  // Grundfertigkeiten (Waffen)
- for (map<std::string,string>::const_iterator i=waffen_grundkenntnisse.begin();
-         i!=waffen_grundkenntnisse.end();++i)
+// for (map<std::string,string>::const_iterator i=waffen_grundkenntnisse.begin();
+//         i!=waffen_grundkenntnisse.end();++i)
+   for (std::list<cH_WaffeGrund>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
    {
-      std::string sout = i->first;
+      std::string sout = (*i)->Name();
       if (sout =="Bögen") sout = "Bogen";
       if (sout =="Wurfspieß") sout = "Wurfspiess";
       if (sout =="Spießwaffe") sout = "Spiesswaffe";
@@ -218,9 +219,7 @@ void midgard_CG::LaTeX_write_values()
  // Waffen + Waffen/Besitz
  int  i_waffenlos = 4;
  unsigned int countwaffen=0;
-// for (unsigned int i=0;i<vec_Waffen.size();++i)
-// int jcount=0;
- for (std::vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
+ for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
    {
     count++;
     std::string a = LaTeX_string(count);
@@ -231,8 +230,7 @@ void midgard_CG::LaTeX_write_values()
     // waffenloser Kampf:
     if ((*i)->Name()=="waffenloser Kampf") 
          { i_waffenlos=atoi(wert.c_str());}
-//    for (unsigned int j=0; j<waffe_besitz.size();++j)
-      for (std::vector<H_Data_waffen>::const_iterator j=vec_Waffen_besitz.begin();j!=vec_Waffen_besitz.end();++j)
+      for (std::list<H_WaffeBesitz>::const_iterator j=list_Waffen_besitz.begin();j!=list_Waffen_besitz.end();++j)
      {
       if ((*j)->Name()==(*i)->Name())
        {
@@ -240,33 +238,38 @@ void midgard_CG::LaTeX_write_values()
          std::string b = LaTeX_string(countwaffen++);
 //std::cout << (*j)->Name()<<"\t"<<(*i)->Name()<<"\t"<<"latexstring = "<<b<<"\n";
          std::string waffenname ;
-         waffenname = (*j)->Alias();
+         waffenname = (*j)->Name();
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
          if ((*j)->Magisch()!="") waffenname+="$^*$" ;
-         fout <<LaTeX_scale(waffenname,15,"2.5cm",*j)<< "}\n";
+         fout <<LaTeX_scalemag(waffenname,15,"2.5cm",(*j)->Magisch(),(*j)->Waffe()->Reichweite())<< "}\n";
          int mag_schadensbonus = (*j)->av_Bonus();
          int anbo = Werte.bo_An();
-         int ang_mod = atoi(waffe_werte(*j,Werte,"WM_Angriff").c_str());
-         if (midgard_CG::waffe_werte(*j,Werte,"Verteidigung")=="true")
-            anbo = 0;
+         int ang_mod = (*j)->Waffe()->WM_Angriff((*j)->Name());
+         if ((*j)->Verteidigung()) anbo = 0;
          int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus + ang_mod ;
          fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert << "}\n";
-         std::string schaden=waffe_werte(*j,Werte,"Schaden+mag_Bonus");
+         std::string schaden=(*j)->Schaden(Werte,(*j)->Name());
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
-         std::string anm = midgard_CG::waffe_werte(*j,Werte,"Angriffsrangmodifikation");
-         fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
-         std::string abm = waffe_werte(*j,Werte,"WM_Abwehr");
-         fout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
+         std::string anm = (*j)->Waffe()->Angriffsrangmod();
+//         fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
+         fout << "\\newcommand{\\waffeA"<<b<<"}{"<<"?" << "}\n";
+         std::string abm = (*j)->Waffe()->WM_Abwehr();
+cout << (*j)->Name()<<'-'<<(*j)->Waffe()->Name()<<'-'<<anm  <<'-' <<abm<<"-\n";
+//         fout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
+         fout << "\\newcommand{\\waffeV"<<b<<"}{"<<"?"<< "}\n";
+cout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
+cout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
        }
      }
    }
  // waffenloser Kampf:
+ H_WaffeBesitz waffenlos(new WaffeBesitz(cH_Waffe("waffenloser Kampf",Typ),"waffenloser Kampf","",0,0,""));
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+Werte.bo_An() << "}\n";
- std::string schaden=midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),Werte,"Schaden");
+ std::string schaden= waffenlos->Schaden(Werte, waffenlos->Name());
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- std::string anm = midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),Werte,"Angriffsrangmodifikation");
+ std::string anm = waffenlos->Angriffsrangmod();
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- std::string abm = midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),Werte,"WM_Abwehr");
+ std::string abm = waffenlos->WM_Abwehr();
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
 
  // Fertigkeiten auffüllen
@@ -392,23 +395,30 @@ void midgard_CG::LaTeX_write_empty_values()
 
 
 
-std::string midgard_CG::LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale, const H_Data_waffen& Waffe)
+std::string midgard_CG::LaTeX_scale(const std::string& is, 
+      unsigned int maxlength, const std::string& scale)
 {
  std::string os;
  if (is.size() <= maxlength) os = is;
  else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+is+"}" ;
+ return os;
+}
 
- if (Waffe->Name()!="")
-   {
-     std::string l1=os,l2;
-     if (Waffe->Magisch()==""||Waffe->Magisch()=="*") l2 = midgard_CG::waffe_werte(Waffe,Werte,"Fern");
-     else  { if ((Waffe->Magisch()).size()<=25) l2 = "\\tiny "+Waffe->Magisch();
-             else l2 = "\\resizebox*{"+scale+"}{1.5ex}{\\tiny "+Waffe->Magisch()+"}" ;
+std::string midgard_CG::LaTeX_scalemag(const std::string& is, 
+      unsigned int maxlength, const std::string& scale,
+       const std::string& magisch,const std::string& reichweite)
+{
+ std::string os;
+ if (is.size() <= maxlength) os = is;
+ else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+is+"}" ;
+  std::string l1=os,l2;
+  if (magisch==""||magisch=="*") l2 = reichweite ;
+  else  { if (magisch.size()<=25) l2 = "\\tiny "+magisch;
+          else l2 = "\\resizebox*{"+scale+"}{1.5ex}{\\tiny "+magisch+"}" ;
        }
-     os = "\\parbox{2cm}{\\mbox{"+l1+"}" ;
-     if (l2!="")  os += "\\tiny\\\\ \\mbox{"+l2+"}";
-     os += "}";
-   }
+  os = "\\parbox{2cm}{\\mbox{"+l1+"}" ;
+  if (l2!="")  os += "\\tiny\\\\ \\mbox{"+l2+"}";
+  os += "}";
  return os;
 }
 

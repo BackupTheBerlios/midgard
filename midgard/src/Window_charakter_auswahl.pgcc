@@ -38,8 +38,8 @@ void Window_charakter_auswahl::on_clist_charakter_auswahl_select_row(gint row, g
   std::string version = clist_charakter_auswahl->get_text(row,1);
   if (checkbutton_loeschen->get_active()) 
     {
-        Window_charakter_auswahl::charakter_loeschen(name,version);
-        Window_charakter_auswahl::show_charakter();
+        charakter_loeschen(name,version);
+        show_charakter();
     }  
   else 
     { hauptfenster->select_charakter(name,version);
@@ -71,7 +71,7 @@ void Window_charakter_auswahl::on_auswahl_abbruch_clicked()
 Window_charakter_auswahl::Window_charakter_auswahl(midgard_CG* h)
 {
  hauptfenster=h;
- Window_charakter_auswahl::show_charakter();
+ show_charakter();
 }
 
 void Window_charakter_auswahl::show_charakter()

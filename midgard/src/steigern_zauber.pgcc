@@ -20,7 +20,7 @@
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
-#include <cstring>
+//#include <cstring>
 #include "WindowInfo.hh"
 #include "class_Ausnahmen.hh"
 #include "class_zauber.hh"
@@ -94,11 +94,6 @@ void midgard_CG::zauber_zeigen()
 }
 
 
-void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
-{  const Data_zauber *dt=dynamic_cast<const Data_zauber*>(&*d);
-   on_steigern_zauber_tree_alt_select(dt->Name(),dt->Kosten());
-}
-
 
 void midgard_CG::show_alte_zauber()
 {
@@ -112,11 +107,6 @@ void midgard_CG::show_alte_zauber()
         datavec.push_back(new Data_zauber((*i)->Name(),(*i)->Stufe(),(*i)->Ursprung(),kosten,(*i)->Standard__()));
     }
    alte_zauber_tree->setDataVec(datavec);
-}
-
-void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
-{  const Data_zauber *dt=dynamic_cast<const Data_zauber*>(&*d);
-   on_steigern_zauber_tree_neu_select(dt->Name(),dt->Kosten(),dt->Stufe(),dt->Standard());
 }
 
 void midgard_CG::show_neue_zauber()
@@ -134,41 +124,43 @@ void midgard_CG::show_neue_zauber()
 }
 
 
-void midgard_CG::on_steigern_zauber_tree_alt_select(const std::string& new_zauber, int kosten)
-{   
-   if (steigern_bool) desteigern(kosten);
-   Werte.add_GFP(-kosten);
-   move_zauber(list_Zauber,list_Zauber_neu,new_zauber);
+
+void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
+{  
+   const Data_zauber *dt=dynamic_cast<const Data_zauber*>(&*d);
+   if (steigern_bool) desteigern(dt->Kosten());
+   Werte.add_GFP(-dt->Kosten());
+   move_zauber(list_Zauber,list_Zauber_neu,dt->Name());
 }
 
-void midgard_CG::on_steigern_zauber_tree_neu_select(const std::string& new_zauber, int kosten, 
-   const std::string& stufe, const std::string& art)
-{   
-  if (!steigern(kosten,"Zauber")) return;
-  
+
+void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
+{  
+  const Data_zauber *dt=dynamic_cast<const Data_zauber*>(&*d);
+  if (!steigern(dt->Kosten(),"Zauber")) return;
   if (radio_spruchrolle_auto->get_active() && spruchrolle->get_active())
    {
-     Werte.add_GFP(2*kosten);
-     move_zauber(list_Zauber_neu,list_Zauber,new_zauber);
+     Werte.add_GFP(2*dt->Kosten());
+     move_zauber(list_Zauber_neu,list_Zauber,dt->Name());
    }
   else if (radio_spruchrolle_wuerfeln->get_active() && spruchrolle->get_active())
    {
-      int gelungen = spruchrolle_wuerfeln(new_zauber);
+      int gelungen = spruchrolle_wuerfeln(dt->Name());
       if (gelungen != 0)
         {
-         move_zauber(list_Zauber_neu,list_Zauber,new_zauber);
-         Werte.add_GFP(kosten);
+         move_zauber(list_Zauber_neu,list_Zauber,dt->Name());
+         Werte.add_GFP(dt->Kosten());
         }
-      Werte.add_GFP(kosten);
+      Werte.add_GFP(dt->Kosten());
    }
   else // normales lernen ohne Spruchrolle
    {
-     Werte.add_GFP(kosten);
-     move_zauber(list_Zauber_neu,list_Zauber,new_zauber);
+     Werte.add_GFP(dt->Kosten());
+     move_zauber(list_Zauber_neu,list_Zauber,dt->Name());
    }
 }
 
-void midgard_CG::move_zauber(std::list<cH_Zauber>& von,std::list<cH_Zauber>& nach,std::string name)
+void midgard_CG::move_zauber(std::list<cH_Zauber>& von,std::list<cH_Zauber>& nach,const std::string& name)
 {
  for (std::list<cH_Zauber>::iterator i=von.begin();i!= von.end();++i) 
      if ((*i)->Name()==name) 
@@ -269,17 +261,8 @@ void midgard_CG::on_button_zaubermittel_sort_clicked()
 }
 
 
-void midgard_CG::on_leaf_selected_alte_zauberwerk(cH_RowDataBase d)
-{  const Data_zaubermittel *dt=dynamic_cast<const Data_zaubermittel*>(&*d);
-   on_steigern_zauberwerk_tree_alt_select(dt->Name(),dt->Kosten());
-}
 
-void midgard_CG::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
-{  const Data_zaubermittel *dt=dynamic_cast<const Data_zaubermittel*>(&*d);
-   on_steigern_zauberwerk_tree_neu_select(dt->Name(),dt->Stufe(),dt->Kosten());
-}
-
-void midgard_CG::move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,std::string name)
+void midgard_CG::move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,const std::string& name)
 {
  for (std::list<cH_Zauberwerk>::iterator i=von.begin();i!= von.end();++i) 
      if ((*i)->Name()==name) 
@@ -290,11 +273,13 @@ void midgard_CG::move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zaub
 
 
 
-void midgard_CG::on_steigern_zauberwerk_tree_alt_select(const std::string& name, int kosten)
-{   
-   if (steigern_bool) desteigern(kosten);
-   Werte.add_GFP(-kosten);
-   move_zauberwerk(list_Zauberwerk,list_Zauberwerk_neu,name);
+
+void midgard_CG::on_leaf_selected_alte_zauberwerk(cH_RowDataBase d)
+{  
+  const Data_zaubermittel *dt=dynamic_cast<const Data_zaubermittel*>(&*d);
+  if (steigern_bool) desteigern(dt->Kosten());
+  Werte.add_GFP(-dt->Kosten());
+  move_zauberwerk(list_Zauberwerk,list_Zauberwerk_neu,dt->Name());
 }
 
 void midgard_CG::zauberwerk_zeigen()
@@ -306,11 +291,12 @@ void midgard_CG::zauberwerk_zeigen()
  show_neues_zauberwerk();
 }
 
-void midgard_CG::on_steigern_zauberwerk_tree_neu_select(const std::string& name, const std::string& stufe, int kosten)
-{   
-  if (!steigern(kosten,"Zauber")) return;
-  Werte.add_GFP(kosten);  
-  move_zauberwerk(list_Zauberwerk_neu,list_Zauberwerk,name);
+void midgard_CG::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
+{  
+  const Data_zaubermittel *dt=dynamic_cast<const Data_zaubermittel*>(&*d);
+  if (!steigern(dt->Kosten(),"Zauber")) return;
+  Werte.add_GFP(dt->Kosten());  
+  move_zauberwerk(list_Zauberwerk_neu,list_Zauberwerk,dt->Name());
 }
 
 void midgard_CG::show_altes_zauberwerk()

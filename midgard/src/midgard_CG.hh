@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.72 2001/10/09 09:03:43 thoma Exp $
+// $Id: midgard_CG.hh,v 1.73 2001/10/16 08:59:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,6 @@
 #include "WindowInfo.hh"
 
 
-
 #include <fstream>
 #include <string>
 #include <stdio.h>
@@ -44,16 +43,14 @@
 #include <gtk--/menuitem.h>
 #include <vector>
 #include <list>
-#include <map>
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
+#include "Waffe.hh"
+#include "WaffeGrund.hh"
 #include "KiDo.hh"
-//#include "class_zauber.hh"
 #include "class_fertigkeiten.hh"
 #include "class_berufe.hh"
-#include "class_waffen.hh"
-//#include "class_kido.hh"
 #include "class_sprache_schrift.hh"
 #include "class_lernpunkte.hh"
 #include "class_typen.hh"
@@ -108,8 +105,11 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_Fertigkeit> list_Fertigkeiten;
         std::list<cH_Fertigkeit> list_Fertigkeiten_neu;
         std::vector<H_Data_fert> vec_an_Fertigkeit;
-        std::vector<H_Data_waffen> vec_Waffen;
-        std::vector<H_Data_waffen> vec_Waffen_besitz;
+        std::list<cH_Waffe> list_Waffen;
+        std::list<cH_Waffe> list_Waffen_neu;
+        std::list<H_WaffeBesitz> list_Waffen_besitz;
+        std::list<cH_WaffeGrund> list_WaffenGrund;
+        std::list<cH_WaffeGrund> list_WaffenGrund_neu;
         std::vector<H_Data_beruf> vec_Beruf;
         std::list<cH_Zauber> list_Zauber;
         std::list<cH_Zauber> list_Zauber_neu;
@@ -126,7 +126,6 @@ class midgard_CG : public midgard_CG_glade
 
         std::vector<H_Data_sprache> vec_Sprachen;
         std::vector<H_Data_schrift> vec_Schriften;
-        map<std::string,string> waffen_grundkenntnisse;
         vector<H_Data_typen> Typ;
         Lernpunkte lernpunkte;
         Data_spezies Spezies_constraint;
@@ -167,7 +166,9 @@ class midgard_CG : public midgard_CG_glade
         void latex_beschreibung_drucken();
         void on_button_info_clicked();
         void LaTeX_zauber_main();
-        std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale, const H_Data_waffen& waffe=new Data_waffen());
+        std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale);
+        std::string LaTeX_scalemag(const std::string& is, unsigned int maxlength, const std::string& scale,
+            const std::string& magisch,const std::string& reichweite);
         void LaTeX_zauber();
         void LaTeX_zaubermittel();
         void LaTeX_kido_main();
@@ -254,12 +255,9 @@ class midgard_CG : public midgard_CG_glade
         int steigern_womit(const std::string& fert);
 
         void on_fertigkeiten_laden_clicked();
-//        void get_srv_kosten(const std::string& name, int erfolgswert, int &steigern,int &reduzieren,int &verlernen);
-        void get_srv_kosten(cH_Fertigkeit fertigkeit, int &steigern,int &reduzieren,int &verlernen);
+        void get_srv_kosten(const cH_Fertigkeit& fertigkeit, int &steigern,int &reduzieren,int &verlernen) const;
         void fertigkeiten_zeigen();
-        void move_fertigkeiten(std::list<cH_Fertigkeit>& von,std::list<cH_Fertigkeit>& nach,std::string name);
-        void on_steigern_fert_tree_alt_select(const std::string& fertigkeit, int wert, int steigern, int reduzieren, int verlernen);
-        void on_steigern_fert_tree_neu_select(const std::string& fertigkeit, int wert, int lernkosten);
+        void move_fertigkeiten(std::list<cH_Fertigkeit>& von,std::list<cH_Fertigkeit>& nach,const std::string& name);
         void show_alte_fertigkeiten();
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
         void show_neue_fertigkeiten();
@@ -276,30 +274,30 @@ class midgard_CG : public midgard_CG_glade
         bool kido_steigern_check(int wert);
    
         void on_waffen_laden_clicked();
+        void on_waffengrund_laden_clicked();
         void show_alte_grund();
         void show_neue_grund();
         void show_alte_waffen();
         void show_neue_waffen();
-        void on_steigern_grund_tree_alt_select(const std::string& name);
-        void on_steigern_grund_tree_neu_select(const std::string& name,int kosten);
+        void waffen_zeigen();
+        void move_waffe(std::list<cH_Waffe>& von,std::list<cH_Waffe>& nach,const std::string& name);
+        void move_waffegrund(std::list<cH_WaffeGrund>& von,std::list<cH_WaffeGrund>& nach,const std::string& name);
+        void get_srv_kosten(const cH_Waffe& waffe, int &steigern,int &reduzieren,int &verlernen) const;
         void on_leaf_selected_alte_grund(cH_RowDataBase d);
         void on_leaf_selected_neue_grund(cH_RowDataBase d);
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);
         void on_leaf_selected_neue_waffen(cH_RowDataBase d);
-        void on_steigern_waffen_tree_alt_select(const std::string& waffe, int erfolgswert, int steigern, int reduzieren);
-        void on_steigern_waffen_tree_neu_select(const std::string&  name, int erfolgswert);
         void on_button_waffen_sort_clicked();
         void on_radio_waffen_steigern_toggled();
         void on_radio_waffen_reduzieren_toggled();
         void on_togglebutton_praxispunkte_waffen_toggled();
         void on_radiobutton_praxis_wuerfeln_waffen_toggled();
         void on_radiobutton_praxis_auto_waffen_toggled();
-        std::string get_Verteidigungswaffe(int ohne_waffe);
 
 
         void on_zauber_laden_clicked();
         void zauber_zeigen();
-        void move_zauber(std::list<cH_Zauber>& von,std::list<cH_Zauber>& nach,std::string name);
+        void move_zauber(std::list<cH_Zauber>& von,std::list<cH_Zauber>& nach,const std::string& name);
         void on_spruchrolle_toggled();
         void on_checkbutton_zaubersalze_toggled();
         void on_checkbutton_beschwoerungen_toggled();
@@ -307,31 +305,24 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_zaubermittel_toggled();
         int spruchrolle_wuerfeln(std::string zauber);
         void on_leaf_selected_alte_zauber(cH_RowDataBase d);
-        void on_steigern_zauber_tree_alt_select(const std::string& zauber, int kosten);
         void on_leaf_selected_neue_zauber(cH_RowDataBase d);
-        void on_steigern_zauber_tree_neu_select(const std::string& zauber, int kosten, const std::string& stufe, const std::string& art);
         void show_alte_zauber();
         void show_neue_zauber();
-        void on_steigern_zauberwerk_tree_alt_select(const std::string& name, int kosten);
-        void on_steigern_zauberwerk_tree_neu_select(const std::string& name, const std::string& stufe, int kosten);
         void on_leaf_selected_alte_zauberwerk(cH_RowDataBase d);
         void on_leaf_selected_neue_zauberwerk(cH_RowDataBase d);
         void show_altes_zauberwerk();
         void show_neues_zauberwerk();
-        void move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,std::string name);
+        void move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,const std::string& name);
         void zauberwerk_laden();
         void zauberwerk_zeigen();
-//        bool zauberwerk_voraussetzung(const std::string& name);
         void on_button_zauber_sort_clicked();
         void on_button_zaubermittel_sort_clicked();
 
         void on_kido_laden_clicked();
         void kido_zeigen();
-        void move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,std::string name);
+        void move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,const std::string& name);
         void on_leaf_selected_alte_kido(cH_RowDataBase d);
         void on_leaf_selected_neue_kido(cH_RowDataBase d);
-        void on_steigern_kido_tree_alt_select(const std::string& name,int kosten);
-        void on_steigern_kido_tree_neu_select(const std::string& name,int kosten);
         void show_alte_kido();
         void show_neue_kido();
         void on_button_kido_sort_clicked();
@@ -366,6 +357,7 @@ class midgard_CG : public midgard_CG_glade
          Grundwerte Werte;
          void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
+         void grundwerte_speichern();
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
@@ -378,22 +370,17 @@ class midgard_CG : public midgard_CG_glade
          void setze_lernpunkte(const Lernpunkte& _lernpunkte);
          void fertigkeiten_uebernehmen(const std::list<cH_Fertigkeit>& saf);
          void show_fertigkeiten();
-         void waffen_uebernehmen(const std::vector<H_Data_waffen>& saw,map<std::string,string> wg);
-         void waffe_besitz_uebernehmen(const std::vector<H_Data_waffen>& wbu);
+         void waffen_uebernehmen(const std::list<cH_Waffe>& saw,const std::list<cH_WaffeGrund> wg);
+         void waffe_besitz_uebernehmen(const std::list<H_WaffeBesitz>& wbu);
          void zauber_uebernehmen(const std::list<cH_Zauber>& saz);
          void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
          void kido_uebernehmen(const std::list<cH_KiDo>& technik);
-         double get_standard_waffen(const std::string& typ, const std::string& typ2,const std::string& waffe);
-//         double get_standard_fertigkeit(const std::string& typ, const std::string& typ_2,const std::string& fertigkeit);
-//         double get_standard_fertigkeit_(const std::string& ergebnis,const std::string& ergebnis2,const std::string& fertigkeiten);
-         std::string get_region_waffen(const std::string& waffe, const std::string& region,int mod);
+//         std::string get_region_waffen(const std::string& waffe, const std::string& region,int mod);
          void sprache_uebernehmen(const std::string& s, int wert);
          void schrift_uebernehmen(const std::string& s, const std::string& t);
          void herkunft_uebernehmen(const std::string& s);
-         std::string waffe_werte(const H_Data_waffen& waffe,const Grundwerte& Werte, const std::string& mod);
          std::vector<string> Berufs_Vorteile();
          bool Fertigkeiten_Voraussetzung(const std::string& fertigkeit);
-         bool Waffen_Voraussetzung(const std::string& waffe);
          bool region_check(const std::string& region);
          void clear_Ausnahmen();
          void EP_uebernehmen();

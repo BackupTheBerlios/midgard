@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.26 2001/10/07 08:05:31 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.27 2001/10/16 08:59:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,7 @@ void midgard_CG::on_spinbutton_beruferfolgesert_activate()
 {
   gtk_spin_button_update(spinbutton_beruferfolgesert->gtkobj());
   int x=spinbutton_beruferfolgesert->get_value_as_int();
-  static int i=0;
+  static unsigned int i=0;
   vec_Beruf[i]->set_Erfolgswert(x);
   ++i;
   if (i==vec_Beruf.size())
@@ -79,7 +79,7 @@ void midgard_CG::on_spinbutton_beruferfolgesert_activate()
 void midgard_CG::on_beruf_erfolgswert_clicked()
 {
  Random random;
- int erfahrungswert =  (lernpunkte.Waffen() + lernpunkte.Fertigkeiten())/5.;
+ int erfahrungswert = (int)((lernpunkte.Waffen() + lernpunkte.Fertigkeiten())/5.);
  int inbo=0;
  if (atoi(in->get_text().c_str()) >= 81 ) ++inbo ;
  if (atoi(in->get_text().c_str()) >= 96 ) ++inbo ;

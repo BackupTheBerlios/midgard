@@ -7,29 +7,29 @@
 class Data_zauber : public RowDataBase
 {
      std::string ap, name;
-     int erfolgswert;
-     std::string  standard,art, stufe, zauberdauer, reichweite,
-       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
-       material, agens, prozess, reagens, beschreibung; 
-     int kosten,lernpunkte;
+//     int erfolgswert;
+     std::string  standard, stufe,//art, zauberdauer, reichweite,
+//       wirkungsziel, wirkungsbereich, wirkungsdauer, 
+ursprung;
+//       material, agens, prozess, reagens, beschreibung; 
+     int kosten;//,lernpunkte;
 
  public:
-      Data_zauber (const std::string& n, const std::string& a, int k,int l)
-         :ap(a),name(n),erfolgswert(0),kosten(k),lernpunkte(l) {}
+//      Data_zauber (const std::string& n, const std::string& a, int k,int l)
+//         :ap(a),name(n),erfolgswert(0),kosten(k),lernpunkte(l) {}
       Data_zauber(const std::string& n,const std::string& s, 
             const std::string& u, int k, const std::string& st)
-        :name(n),erfolgswert(0),standard(st),stufe(s),ursprung(u),kosten(k),lernpunkte(0) {}
-
+        :name(n),standard(st),stufe(s),ursprung(u),kosten(k) {}
+/*
       Data_zauber (const std::string& n, int e)
          :name(n),erfolgswert(e),kosten(0) {}
       Data_zauber (const std::string& n)
          :name(n),erfolgswert(0),kosten(0) {}
-
+*/
    enum Spalten_A {NAMEa,STUFEa,URSPRUNGa,KOSTENa} ;
    enum Spalten_N {NAMEn,STUFEn,URSPRUNGn,KOSTENn,STANDARDn};
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
  { 
-//   if (!strcmp(reinterpret_cast<const char*>(gp),"alte_zauber"))
    if (reinterpret_cast<int>(gp)=='A')
       switch (seqnr) {
          case NAMEa : return cH_EntryValueIntString(name);
@@ -47,53 +47,20 @@ class Data_zauber : public RowDataBase
         }
    return cH_EntryValueIntString("?");
  }
- std::string Ap() const { return ap;}
  std::string Name() const {  return name; }
- int Erfolgswert() const {return erfolgswert; }
  std::string Standard() const { return standard;}
- std::string Art() const { return art;}
  std::string Stufe() const {  return stufe; }
- std::string Zauberdauer() const { return zauberdauer;}
- std::string Reichweite() const {return reichweite;}
- std::string Wirkungsziel() const {return wirkungsziel;}
- std::string Wirkungsdauer() const {return wirkungsdauer;}
- std::string Wirkungsbereich() const {return wirkungsbereich;}
  std::string Ursprung() const {return ursprung;}
- std::string Material() const { return material;} 
- std::string Agens() const { return agens;}
- std::string Prozess() const { return prozess;}
- std::string Reagens() const { return reagens;}
- std::string Beschreibung() const { return beschreibung;}
  int Kosten() const {  return kosten; }
- int Lernpunkte() const {  return lernpunkte; }
-
- void set_Ap(const std::string& s)  {ap=s;}
- void set_Name(const std::string& s)  { name=s ;}
- void set_Erfolgswert(int s) { erfolgswert=s ;}
- void set_Art(const std::string& s)  {art=s;}
- void set_Stufe(const std::string& s)  { stufe=s ;}
- void set_Zauberdauer(const std::string& s)  {zauberdauer=s;}
- void set_Reichweite(const std::string& s)  { reichweite=s;}
- void set_Wirkungsziel(const std::string& s)  { wirkungsziel=s;}
- void set_Wirkungsdauer(const std::string& s)  { wirkungsdauer=s;}
- void set_Wirkungsbereich(const std::string& s)  { wirkungsbereich=s;}
- void set_Ursprung(const std::string& s)  { ursprung=s;}
- void set_Material(const std::string& s)  {material=s;} 
- void set_Agens(const std::string& s)  {agens=s;}
- void set_Prozess(const std::string& s)  {prozess=s;}
- void set_Reagens(const std::string& s)  {reagens=s;}
- void set_Beschreibung(const std::string& s)  {beschreibung=s;}
- void set_Kosten(int i)  { kosten=i; }
-
 };
 
 
-class H_Data_zauber : public Handle<Data_zauber>
+class cH_Data_zauber : public Handle<const Data_zauber>
 {
-protected:
- H_Data_zauber() {}
+//protected:
+// H_Data_zauber() {}
 public:
- H_Data_zauber(Data_zauber *r) : Handle<Data_zauber>(r){}
+ cH_Data_zauber(const Data_zauber *r) : Handle<const Data_zauber>(r){}
 };
 
 
@@ -106,8 +73,6 @@ class Data_zaubermittel : public RowDataBase
 
  public:
    Data_zaubermittel(const std::string& s, const std::string& n, const std::string& a, int k) : stufe(s),name(n),art(a),kosten(k){}
-//   Data_zaubermittel(const std::string& n)        : name(n),kosten(0){}
-//   Data_zaubermittel(const std::string& s,const std::string& n)  : stufe(s),name(n),kosten(0){}
    Data_zaubermittel(const std::string& s,const std::string& n, const std::string& a,int k,const std::string& p, const std::string& z)
       :stufe(s),name(n),art(a),kosten(k),preis(p),zeitaufwand(z) {}
 
@@ -140,34 +105,15 @@ class Data_zaubermittel : public RowDataBase
  int Kosten() const {  return kosten; }
  std::string Preis() const { return preis;}
  std::string Zeitaufwand() const { return zeitaufwand;}
-
- void set_Name(const std::string& s)  { name=s ;}
- void set_Art(const std::string& s)  {art=s;}
- void set_Stufe(const std::string& s)  { stufe=s ;}
- void set_Kosten(int s)  { kosten=s ;}
- void set_Preis(const std::string& s)  {preis=s;}
- void set_Zeitaufwand(const std::string& s)  {zeitaufwand=s;}
-
 };
 
 
-class H_Data_zaubermittel : public Handle<Data_zaubermittel>
+class cH_Data_zaubermittel : public Handle<const Data_zaubermittel>
 {
 protected:
- H_Data_zaubermittel() {}
+ cH_Data_zaubermittel() {}
 public:
- H_Data_zaubermittel(Data_zaubermittel *r) : Handle<Data_zaubermittel>(r){}
+ cH_Data_zaubermittel(const Data_zaubermittel *r) : Handle<const Data_zaubermittel>(r){}
 };
 
-/*
-class Data_zaubermittel_sort_name
-{ public: bool operator() (H_Data_zaubermittel x,H_Data_zaubermittel y) const
-   {return x->Name() < y->Name(); }};
-class Data_zaubermittel_sort_stufe
-{ public: bool operator() (H_Data_zaubermittel x,H_Data_zaubermittel y) const
-   {return x->Stufe()<y->Stufe(); }};
-class Data_zaubermittel_sort_art
-{ public: bool operator() (H_Data_zaubermittel x,H_Data_zaubermittel y) const
-   {return x->Art()<y->Art(); }};
-*/
 #endif

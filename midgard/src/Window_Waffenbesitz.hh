@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.21 2001/08/14 13:26:59 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.22 2001/10/16 08:59:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,76 +32,77 @@
 #  include "Window_Waffenbesitz_glade.hh"
 #  define _WINDOW_WAFFENBESITZ_HH
 
-#include <vector>
+#include <list>
 #include <string>
-#include "Window_mag_bonus.hh"
 #include <Aux/EntryValueIntString.h>
-
+#include <Waffe.hh>
 
 class midgard_CG;
-class H_Data_waffen;
+//class H_Data_waffen;
+//class H_WaffeBesitz;
+class cH_Waffe;
 class Grundwerte;
+class H_Data_typen;
 
 class Window_Waffenbesitz : public Window_Waffenbesitz_glade
 {   
         midgard_CG* hauptfenster;
-        std::vector<H_Data_waffen>& vec_Waffen;
-        std::vector<H_Data_waffen>& Waffe_Besitz;
+        std::list<cH_Waffe> list_Waffen;
+        std::list<H_WaffeBesitz> Waffe_Besitz;
+        std::list<H_WaffeBesitz> Waffe_Besitz_neu;
         Grundwerte& Werte;
-        bool mag_bonus_bool;
+        vector<H_Data_typen> Typ;
         int memwaffe;
         friend class Window_Waffenbesitz_glade;
         void on_leaf_selected_alt(cH_RowDataBase d);
         void on_leaf_selected_neu(cH_RowDataBase d);
-        void on_waffe_alt_select(std::string waffe,std::string bonus);
-        void on_waffe_neu_select(std::string waffe,std::string region);
         void show_alte_waffen();
         void show_neue_waffen();
+        void on_button_neuladen_clicked();
+        void lade_waffen();
+        void zeige_waffen();
+        void move_waffe(std::list<H_WaffeBesitz>& von,std::list<H_WaffeBesitz>& nach,std::string name);
         void on_button_close_clicked();
         void on_button_sort_clicked();
         void on_checkbutton_mag_waffenbonus_toggled();
+        void on_spinbutton_av_bonus_activate();
+        void on_spinbutton_sl_bonus_activate();
+        void on_entry_magisch_activate();
    public:
-        Window_Waffenbesitz(midgard_CG* h,std::vector<H_Data_waffen>& vw,std::vector<H_Data_waffen>& wb,Grundwerte& We);
-        void mag_boni_uebernehmen(H_Data_waffen& wa);
+        Window_Waffenbesitz(midgard_CG* h,const std::list<cH_Waffe>& vw,std::list<H_WaffeBesitz>& wb,
+            Grundwerte& We,const vector<H_Data_typen>& T);
 };
 
 class Data_waffenbesitz :  public RowDataBase
 {
-      std::string name,schaden,magbonus,region;
+      H_WaffeBesitz waffe;
+      Grundwerte Werte;
+      std::string alias;
   public:
-      Data_waffenbesitz(std::string n,std::string s,std::string m,std::string r)
-         :name(n),schaden(s),magbonus(m),region(r) {} 
+      Data_waffenbesitz(const H_WaffeBesitz& w,const Grundwerte& g,const std::string& a)
+         : waffe(w), Werte(g),alias(a) {}
 
-      enum SPALTEN_A {NAME_A,SCHADEN_A,MAGBONUS};
-      enum SPALTEN_N {NAME_N,SCHADEN_N,REGION};
+      enum SPALTEN_A {NAME_A,SCHADEN_A,REGION,MAGBONUS};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
-         if (reinterpret_cast<int>(gp)=='A')
           switch(seqnr) {
-            case NAME_A : return cH_EntryValueIntString(name);
-            case SCHADEN_A : return cH_EntryValueIntString(schaden);
-            case MAGBONUS : return cH_EntryValueIntString(magbonus);
-           }
-         if (reinterpret_cast<int>(gp)=='N')
-          switch(seqnr) {
-            case NAME_N : return cH_EntryValueIntString(name);
-            case SCHADEN_N : return cH_EntryValueIntString(schaden);
-            case REGION : return cH_EntryValueIntString(region);
+            case NAME_A : return cH_EntryValueIntString(alias);
+            case SCHADEN_A : return cH_EntryValueIntString(waffe->Schaden(Werte,alias));
+            case REGION : return cH_EntryValueIntString(waffe->Region());
+            case MAGBONUS : return cH_EntryValueIntString(waffe->Bonus());
            }
          return cH_EntryValueIntString("?");
        }
-   
-      std::string Name() const {  return name; }
-      std::string Region() const {  return region; }
-//      std::string Schaden() const {  return schaden; }
-      std::string Magbonus() const {  return magbonus; }
+      H_WaffeBesitz get_Waffe() const {return waffe;}
+      std::string get_Alias() const {return alias;}
 };
-class H_Data_waffenbesitz : public Handle<Data_waffenbesitz>
+
+class cH_Data_waffenbesitz : public Handle<const Data_waffenbesitz>
 {
 protected:
- H_Data_waffenbesitz() {}
+ cH_Data_waffenbesitz() {}
 public:
- H_Data_waffenbesitz(Data_waffenbesitz *r) : Handle<Data_waffenbesitz>(r){}
+ cH_Data_waffenbesitz(const Data_waffenbesitz *r) : Handle<const Data_waffenbesitz>(r){}
 };
 
 #endif

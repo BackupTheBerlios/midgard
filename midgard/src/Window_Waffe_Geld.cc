@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.26 2001/08/15 08:46:03 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.27 2001/10/16 08:59:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,6 +33,7 @@
 #include "Window_waffe.hh"
 #include <Gtk_OStream.h>
 #include "zufall.h"
+#include "Waffe.hh"
 
 void Window_Waffe_Geld::on_button_wuerfeln_clicked()
 {   
@@ -44,43 +45,44 @@ void Window_Waffe_Geld::on_button_wuerfeln_clicked()
    label_waffen_geld->set_text(s);
    Random random;
    int wurf = random.integer(1,100);
-   if (radio_geld->get_active()) Window_Waffe_Geld::Geld(wurf);
-   if (radio_waffe->get_active()) Window_Waffe_Geld::Waffe(wurf);
+   if (radio_geld->get_active()) Geld(wurf);
+   if (radio_waffe->get_active()) Waffe_(wurf);
 }
 
 void Window_Waffe_Geld::on_button_auswaehlen_clicked()
 {   
  if (radio_geld->get_active()) manage (new Window_Geld_eingeben::Window_Geld_eingeben(this,Werte));
- if (radio_waffe->get_active()) Window_Waffe_Geld::Waffe();
+ if (radio_waffe->get_active()) Waffe_();
 }
 
 void Window_Waffe_Geld::on_button_close_clicked()
 {
-  std::vector<H_Data_waffen> waffe;
+  std::list<H_WaffeBesitz> waffe;
   for (unsigned int i=0;i<clist_gewaehlte_waffen->rows().size();++i)
    {
      std::string swaffe=clist_gewaehlte_waffen->get_text(i,0);
-     waffe.push_back(new Data_waffen(swaffe,swaffe,"",0,0,""));
+     waffe.push_back(new WaffeBesitz(cH_Waffe(swaffe,Typ),swaffe,"",0,0,""));
    }
   hauptfenster->waffe_besitz_uebernehmen(waffe);
   hauptfenster->Geld_uebernehmen();
   destroy();
 }
 
-Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w, std::vector<H_Data_waffen>& wa)
-: Werte(w), vec_Waffen(wa)
+Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w,
+      const vector<H_Data_typen>& T, const std::list<cH_Waffe>& wa)
+: Werte(w), Typ(T), list_Waffen(wa)
 {
    hauptfenster = h;
 }
 
-void Window_Waffe_Geld::Waffe(int wurf)
+void Window_Waffe_Geld::Waffe_(int wurf)
 {
- manage (new Window_waffe(wurf,hauptfenster,this,Werte,vec_Waffen));
+ manage (new Window_waffe(wurf,hauptfenster,this,Werte,Typ,list_Waffen));
 }
  
-void Window_Waffe_Geld::Waffe()
+void Window_Waffe_Geld::Waffe_()
 {
- manage (new Window_waffe(-1,hauptfenster,this,Werte,vec_Waffen));
+ manage (new Window_waffe(-1,hauptfenster,this,Werte,Typ,list_Waffen));
 }
 
 void Window_Waffe_Geld::get_waffe(const std::string& waffe)

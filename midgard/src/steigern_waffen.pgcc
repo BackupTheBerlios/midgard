@@ -20,11 +20,10 @@
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
-#include <cstring>
-//#include <algorithm>
-#include <Aux/EntryValueIntString.h>
-#include <Aux/EntryValueEmptyInt.h>
+//#include <cstring>
 #include "zufall.h"
+#include "WaffeGrund.hh"
+#include "class_waffen.hh"
 
 #ifdef __MINGW32__
 extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
@@ -32,97 +31,144 @@ extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
 
 void midgard_CG::on_waffen_laden_clicked()
 {
-   midgard_CG::on_speichern_clicked();
-   midgard_CG::show_alte_grund();
-   midgard_CG::show_neue_grund();
-   midgard_CG::show_alte_waffen();
-   midgard_CG::show_neue_waffen();
+   exec sql begin declare section;
+      char db_waffe[50];
+      char query[1024];
+   exec sql end declare section;
+   std::string squery = "SELECT w.name FROM  waffen w, \
+   charaktere_fertigkeiten c WHERE  w.grundkenntnisse = c.fertigkeit \
+   AND c.charakter_name = '"+Werte.Name_Charakter()+"' AND w.name NOT IN \
+   (SELECT fertigkeit FROM charaktere_fertigkeiten WHERE art = 'Waffe' \
+   AND charakter_name = '"+Werte.Name_Charakter()+
+   "' AND version = '"+Werte.Version()+"') \
+   AND w.name  not in (select verboten from pflicht_lernen where typ='"+
+   Werte.Spezies()+"' and verboten is not null) AND  grundkenntnisse not in \
+    (select verboten from pflicht_lernen where typ='"+Werte.Spezies()+
+   "' and verboten is not null)";
+   strncpy(query,squery.c_str(),sizeof(query));
+   Transaction tr;
+   exec sql prepare wa_ein_ from :query;
+   exec sql declare wa_ein cursor for wa_ein_;
+   exec sql open wa_ein;
+   SQLerror::test(__FILELINE__);
+   while(true)
+      {
+         exec sql fetch wa_ein into :db_waffe;
+         SQLerror::test(__FILELINE__,100);
+         if (sqlca.sqlcode) break;
+         cH_Waffe waffe(db_waffe,Typ);
+         if (waffe->Art()=="Verteidigung") waffe->set_Erfolgswert(1);
+         else waffe->set_Erfolgswert(4);
+         if  (waffe->SG_Voraussetzung(Werte)&&region_check(waffe->Region(waffe->Name())))
+           list_Waffen_neu.push_back(waffe);
+      }
+   exec sql close wa_ein;
+   tr.close();
+
+  on_waffengrund_laden_clicked();
+  waffen_zeigen();
 }
 
 
-void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
-{  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
-   on_steigern_grund_tree_alt_select(dt->Name());
+void midgard_CG::waffen_zeigen()
+{
+   zeige_werte(Werte);
+   on_speichern_clicked();
+   show_alte_grund();
+   show_neue_grund();
+   show_alte_waffen();
+   show_neue_waffen();
+}
+
+
+void midgard_CG::move_waffe(std::list<cH_Waffe>& von,std::list<cH_Waffe>& nach,const std::string& name)
+{
+  for (std::list<cH_Waffe>::iterator i=von.begin();i!= von.end();++i)
+     if ((*i)->Name()==name) 
+       {nach.splice(nach.begin(),von,i);break;}
+  waffen_zeigen();
+}
+
+void midgard_CG::move_waffegrund(std::list<cH_WaffeGrund>& von,std::list<cH_WaffeGrund>& nach,const std::string& name)
+{
+  for (std::list<cH_WaffeGrund>::iterator i=von.begin();i!= von.end();++i)
+     if ((*i)->Name()==name) 
+       {nach.splice(nach.begin(),von,i);break;}
+  on_speichern_clicked();
+  list_Waffen_neu.clear();
+  on_waffen_laden_clicked();
+  waffen_zeigen();
 }
 
 
 void midgard_CG::show_alte_grund()
 {
-   std::vector<cH_RowDataBase> datavec;
- for (map<std::string,string>::const_iterator i=waffen_grundkenntnisse.begin();
-      i!=waffen_grundkenntnisse.end();++i)
+ std::vector<cH_RowDataBase> datavec;
+ for (std::list<cH_WaffeGrund>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
    {
-      datavec.push_back(new Data_grund(i->first));
+      datavec.push_back(new Data_grund((*i)->Name()));
    }
  alte_grund_tree->setDataVec(datavec);
 }
 
 
-void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
-{  const Data_waffen *dt=dynamic_cast<const Data_waffen*>(&*d);
-   on_steigern_waffen_tree_alt_select(dt->Name(),dt->Erfolgswert(),dt->Steigern(),
-      dt->Reduzieren());
+
+void midgard_CG::get_srv_kosten(const cH_Waffe& waffe, int &steigern,int &reduzieren,int &verlernen) const
+{
+   exec sql begin declare section;
+     int db_schwierigkeit;
+     int db_erfolgsfaktor_s;
+     int db_erfolgsfaktor_r;
+     char query[256];
+   exec sql end declare section;
+   std::string squery = "SELECT w.schwierigkeit, 
+      coalesce(s.p"+itos(waffe->Erfolgswert())+",0), 
+      coalesce(s.p"+itos(waffe->Erfolgswert()+1)+",0) 
+      FROM waffen w, waffen_steigern s 
+      WHERE w.art = s.name AND w.name = '"+waffe->Name()+"'";
+   strncpy(query,squery.c_str(),sizeof(query));
+   Transaction tr;
+   exec sql prepare w_ein_ from :query;
+   exec sql declare w_ein cursor for w_ein_;
+   exec sql open w_ein;
+   exec sql fetch w_ein into :db_schwierigkeit,:db_erfolgsfaktor_r, :db_erfolgsfaktor_s;
+   SQLerror::test(__FILELINE__);
+   exec sql close w_ein;
+   tr.close();
+         
+   double fac = waffe->Standard_Faktor();
+   
+   steigern = (int)(db_schwierigkeit*db_erfolgsfaktor_s*fac);
+   reduzieren = (int)(db_schwierigkeit*db_erfolgsfaktor_r*fac);
 }
 
 
 void midgard_CG::show_alte_waffen()
 {
-   std::vector<cH_RowDataBase> datavec;
-   for (std::vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
-            i!=vec_Waffen.end();++i)
-      {
-         exec sql begin declare section;
-            char db_alter_erfolgswert[10];
-            char db_neuer_erfolgswert[10];
-            int db_schwierigkeit;
-            int db_erfolgsfaktor_s;
-            int db_erfolgsfaktor_r;
-            char db_waffe[50];
-            char query[256];
-         exec sql end declare section;
-         strncpy(db_waffe,((*i)->Name()).c_str(),sizeof(db_waffe));
-         std::string ae = "p";  ae += itos((*i)->Erfolgswert());
-         std::string ne = "p";  ne += itos((*i)->Erfolgswert()+1);
-         strncpy(db_neuer_erfolgswert, ne.c_str(), sizeof(db_neuer_erfolgswert));
-         strncpy(db_alter_erfolgswert, ae.c_str(), sizeof(db_alter_erfolgswert));
-         snprintf(query,sizeof(query),"SELECT w.schwierigkeit, \
-coalesce(s.%s,0), coalesce(s.%s,0) FROM waffen w, waffen_steigern s WHERE w.art = s.name AND \
-w.name = '%s'",
-db_alter_erfolgswert,db_neuer_erfolgswert,db_waffe);
-
-         Transaction tr;
-         exec sql prepare w_ein_ from :query;
-         exec sql declare w_ein cursor for w_ein_;
-         exec sql open w_ein;
-         exec sql fetch w_ein into :db_schwierigkeit, 
-            :db_erfolgsfaktor_r, :db_erfolgsfaktor_s;
-         SQLerror::test(__FILELINE__);
-         exec sql close w_ein;
-         tr.close();
-         
-         double fac = midgard_CG::get_standard_waffen(Typ[0]->Short(),Typ[1]->Short(),(*i)->Name());
-         int kosten_steigern = db_schwierigkeit*db_erfolgsfaktor_s*fac;
-         int kosten_reduzieren = db_schwierigkeit*db_erfolgsfaktor_r*fac;
-         datavec.push_back(new Data_waffen((*i)->Name(),(*i)->Erfolgswert(),
-            kosten_steigern,kosten_reduzieren));
-      }
-   alte_waffen_tree->setDataVec(datavec);
+  std::vector<cH_RowDataBase> datavec;
+  for(std::list<cH_Waffe>::iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+   {
+    int steigern, reduzieren, verlernen;
+    get_srv_kosten(*i,steigern,reduzieren,verlernen);
+    datavec.push_back(new Data_waffen((*i)->Name(),(*i)->Erfolgswert(),steigern,reduzieren,verlernen));
+   } 
+  alte_waffen_tree->setDataVec(datavec);
 }
-
 
 
 void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
-{  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
-   on_steigern_grund_tree_neu_select(dt->Name(),dt->Kosten());
+{  
+  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
+  if (!steigern(dt->Kosten(),"Waffen")) return;
+  Werte.add_GFP(dt->Kosten());
+  move_waffegrund(list_WaffenGrund_neu,list_WaffenGrund,dt->Name());
 }
 
 
-void midgard_CG::show_neue_grund()
+void midgard_CG::on_waffengrund_laden_clicked()
 {
-  std::vector<cH_RowDataBase> datavec;
   exec sql begin declare section;
-   char db_name[50], db_region[10];
-   int db_fp;
+   char db_name[50];
    char db_cname[50],db_version[50];
    char db_spezies[50];
   exec sql end declare section;
@@ -131,7 +177,7 @@ void midgard_CG::show_neue_grund()
   strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
   Transaction tr;  
   exec sql declare grund_ein cursor for 
-   SELECT name, fp, coalesce(region,'') from waffen_grund 
+   SELECT name from waffen_grund 
    WHERE  name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten 
    WHERE art = 'Grundkenntnis' 
    AND charakter_name = :db_cname AND version = :db_version) 
@@ -141,142 +187,71 @@ void midgard_CG::show_neue_grund()
  exec sql open grund_ein;
   while (true)
    {
-      exec sql fetch grund_ein into :db_name, :db_fp, :db_region ;
+      exec sql fetch grund_ein into :db_name ;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
-
-      double fac = midgard_CG::get_standard_waffen(Typ[0]->Short(),Typ[1]->Short(),db_name);
-      if (midgard_CG::region_check(db_region))
-         datavec.push_back(new Data_grund(db_name,db_fp*fac));
+      list_WaffenGrund_neu.push_back(cH_WaffeGrund(db_name,Typ));
    }
  exec sql close grund_ein;
  tr.close();
- neue_grund_tree->setDataVec(datavec);
+}
+
+void midgard_CG::show_neue_grund()
+{
+  std::vector<cH_RowDataBase> datavec;
+  for (std::list<cH_WaffeGrund>::const_iterator i=list_WaffenGrund_neu.begin();i!=list_WaffenGrund_neu.end();++i)
+  if (region_check((*i)->Region()))
+    datavec.push_back(new Data_grund((*i)->Name(),(*i)->Kosten()));
+  neue_grund_tree->setDataVec(datavec);
 }
 
 void midgard_CG::on_leaf_selected_neue_waffen(cH_RowDataBase d)
 {  const Data_waffen *dt=dynamic_cast<const Data_waffen*>(&*d);
-   on_steigern_waffen_tree_neu_select(dt->Name(),dt->Erfolgswert());
+   move_waffe(list_Waffen_neu,list_Waffen,dt->Name());
 }
  
 
 void midgard_CG::show_neue_waffen()
 {
-   std::vector<cH_RowDataBase> datavec;
-   exec sql begin declare section;
-      char db_waffe[50];
-      char db_art[50];
-      char db_zusatz[50];
-      char query[1024];
-      char db_region[10];
-   exec sql end declare section;
-   snprintf(query,sizeof(query),"SELECT w.name, w.art, coalesce(w.zusatz,''), \
-   coalesce(w.region,'') FROM  waffen w, \
-   charaktere_fertigkeiten c WHERE  w.grundkenntnisse = c.fertigkeit \
-   AND c.charakter_name = '%s' AND w.name NOT IN \
-   (SELECT fertigkeit FROM charaktere_fertigkeiten WHERE art = 'Waffe' \
-   AND charakter_name = '%s' AND version = '%s') \
-   AND w.name  not in (select verboten from pflicht_lernen where typ='%s' \
-    and verboten is not null) AND  grundkenntnisse not in \
-    (select verboten from pflicht_lernen where typ='%s' and verboten is not null)",
-   (Werte.Name_Charakter()).c_str(),(Werte.Name_Charakter()).c_str(),
-      (Werte.Version()).c_str(),(Werte.Spezies()).c_str(),(Werte.Spezies()).c_str());
-   Transaction tr;
-   exec sql prepare wa_ein_ from :query;
-   exec sql declare wa_ein cursor for wa_ein_;
-   exec sql open wa_ein;
-   SQLerror::test(__FILELINE__);
-   while(true)
-      {
-         exec sql fetch wa_ein into :db_waffe, :db_art, :db_zusatz, :db_region;
-         SQLerror::test(__FILELINE__,100);
-         if (sqlca.sqlcode) break;
-         int wert=4;
-         if (!strcmp(db_art,"Verteidigung")) wert = 1;
-         if  (midgard_CG::Waffen_Voraussetzung(db_waffe)
-            &&midgard_CG::region_check(db_region))
-         datavec.push_back(new Data_waffen(db_waffe,wert,db_zusatz));
-      }
-   exec sql close wa_ein;
-   tr.close();
-   neue_waffen_tree->setDataVec(datavec);
+ std::vector<cH_RowDataBase> datavec;
+ for(std::list<cH_Waffe>::const_iterator i=list_Waffen_neu.begin();i!=list_Waffen_neu.end();++i)
+   datavec.push_back(new Data_waffen((*i)->Name(),(*i)->Erfolgswert(),(*i)->Voraussetzung()));
+ neue_waffen_tree->setDataVec(datavec);
 }
 
-
-void midgard_CG::on_steigern_grund_tree_neu_select(const std::string& name, int kosten)
-{
-  if (!steigern(kosten,"Waffen")) return;
-  Werte.add_GFP(kosten);
-  midgard_CG::zeige_werte(Werte);
-
-  waffen_grundkenntnisse[name] = "X";
-
-  midgard_CG::on_speichern_clicked();
-  midgard_CG::show_alte_grund();
-  midgard_CG::show_neue_grund();
-  midgard_CG::show_alte_waffen();
-  midgard_CG::show_neue_waffen();
-}
-
-void midgard_CG::on_steigern_grund_tree_alt_select(const std::string& name)
-{
- if (radiobutton_grundkenntnisse_verlernen->get_active())
-   {
-      radiobutton_grundkenntnisse_verlernen->set_active(false);
-      for (map<std::string,string>::iterator i=waffen_grundkenntnisse.begin();
-            i!= waffen_grundkenntnisse.end();++i) 
-         if (i->first==name) {waffen_grundkenntnisse.erase(i);break;}
-   }
+void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
+{  
   std::string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden weder die\n";
   strinfo +="GFP angepaßt, noch die bereits gelernten Waffen, die zu dieser\n";
   strinfo +="Grundkenntnis gehöhren, verlernt\n";
   WindowInfo(strinfo,true);
-  midgard_CG::on_speichern_clicked();
-  midgard_CG::show_alte_grund();
-  midgard_CG::show_neue_grund();
+ const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
+ if (radiobutton_grundkenntnisse_verlernen->get_active())
+   {
+      radiobutton_grundkenntnisse_verlernen->set_active(false);
+      move_waffegrund(list_WaffenGrund,list_WaffenGrund_neu,dt->Name());
+   }
 }
 
-
-
-void midgard_CG::on_steigern_waffen_tree_alt_select(const std::string& waffe, int erfolgswert, int steigern, int reduzieren)
-{
+void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
+{  
+   const Data_waffen *dt=dynamic_cast<const Data_waffen*>(&*d);
    if (radio_waffen_steigern->get_active())
       {
-       if (!midgard_CG::steigern(steigern,"Waffen")) return;
+       if (!steigern(dt->Steigern(),"Waffen")) return;
        if (!togglebutton_praxispunkte_waffen->get_active()) // normal Lernen
         {
-          int maxwert;
-          // Angriff oder Verteidigungswaffe?
-          exec sql begin declare section ;
-            char db_name[30], db_art[30];
-          exec sql end declare section;
-          strncpy(db_name,waffe.c_str(),sizeof(db_name));
-          exec sql select art into :db_art from waffen where name = :db_name ;
-          SQLerror::test(__FILELINE__);
-          std::string art = db_art;
-          if (art == "Angriff" || art == "Fern" )
-            {
-             maxwert = 17;
-             if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 19;
-             if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 14;
-            }
-          if (art == "Verteidigung")
-            {
-             maxwert = 7;
-             if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 8;
-             if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 6;
-            }
-          if (erfolgswert >=maxwert) 
+          if (dt->Erfolgswert() >=  cH_Waffe(dt->Name(),Typ)->Maxwert()) 
             {  
                std::string strinfo = "Maximal möglicher Erfolgswert erreicht\n";
                manage (new WindowInfo(strinfo));
                return ;
             }          
-          Werte.add_GFP(steigern);
-          if (steigern != 0)
-          for (std::vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
-             i!=vec_Waffen.end();++i)
-               if ((*i)->Name()==waffe) (*i)->set_Erfolgswert((*i)->Erfolgswert()+1);
+          Werte.add_GFP(dt->Steigern());
+          if (dt->Steigern() != 0)
+          for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+               if ((*i)->Name()==dt->Name()) 
+                  { (*i)->set_Erfolgswert((*i)->Erfolgswert()+1); break;}
         }
        else // steigern mit Praxispunkten
         {
@@ -285,47 +260,28 @@ void midgard_CG::on_steigern_waffen_tree_alt_select(const std::string& waffe, in
           if (radiobutton_praxis_wuerfeln_waffen->get_active()) wuerfeln = true;
 
           std::string art="Waffe";
-          int gelungen = midgard_CG::praxispunkte_wuerfeln(waffe,erfolgswert,art,wuerfeln);
+          int gelungen = praxispunkte_wuerfeln(dt->Name(),dt->Erfolgswert(),art,wuerfeln);
           if (gelungen)
             {
-              Werte.add_GFP(steigern);
-//              if (steigern != 0)
-              for (std::vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
-                i!=vec_Waffen.end();++i)
-                  if ((*i)->Name()==waffe) (*i)->set_Erfolgswert((*i)->Erfolgswert()+1);
+              Werte.add_GFP(dt->Steigern());
+              if (dt->Steigern() != 0)
+              for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();
+                i!=list_Waffen.end();++i)
+                  if ((*i)->Name()==dt->Name()) (*i)->set_Erfolgswert((*i)->Erfolgswert()+1);
             }
         }
       }
    if (radio_waffen_reduzieren->get_active())
       {
-        if (steigern_bool) desteigern(reduzieren);
-        Werte.add_GFP(-reduzieren);
-        if (reduzieren != 0)
-        for (std::vector<H_Data_waffen>::iterator i=vec_Waffen.begin();
-           i!=vec_Waffen.end();++i)
-              if ((*i)->Name()==waffe) (*i)->set_Erfolgswert((*i)->Erfolgswert()-1);  
+        if (steigern_bool) desteigern(dt->Reduzieren());
+        Werte.add_GFP(-dt->Reduzieren());
+        if (dt->Reduzieren() != 0)
+        for (std::list<cH_Waffe>::iterator i=list_Waffen.begin();
+           i!=list_Waffen.end();++i)
+              if ((*i)->Name()==dt->Name()) (*i)->set_Erfolgswert((*i)->Erfolgswert()-1);  
       }
-   midgard_CG::zeige_werte(Werte);
-   midgard_CG::on_speichern_clicked();
-   midgard_CG::show_alte_waffen();
-   midgard_CG::show_neue_waffen();
+   waffen_zeigen();
 }
-
-
-void midgard_CG::on_steigern_waffen_tree_neu_select(const std::string&  name, int erfolgswert)
-{
-//   int new_kosten = atoi(steigern_waffen_clist_neu->get_text(row,2).c_str());
-//   werte.gfp += kosten;
-//   midgard_CG::zeige_werte(werte);
-//   std::string new_fert = steigern_waffen_clist_neu->get_text(row,0);
-//   int erf = atoi(steigern_waffen_clist_neu->get_text(row,1).c_str());
-   vec_Waffen.push_back(new Data_waffen(name,erfolgswert,""));   
-   midgard_CG::on_speichern_clicked();
-   midgard_CG::show_alte_waffen();
-   midgard_CG::show_neue_waffen();
-}
-
-
 
 void midgard_CG::on_radio_waffen_steigern_toggled()
 {   
@@ -351,33 +307,12 @@ void midgard_CG::on_radiobutton_praxis_auto_waffen_toggled()
 {   
 }
 
-
-bool midgard_CG::Waffen_Voraussetzung(const std::string& waffe)
-{
-  exec sql begin declare section;
-   int db_st,db_ge;
-   char db_waffe[30], db_zusatz[30];
-  exec sql end declare section;
-  strncpy(db_waffe,waffe.c_str(),sizeof(db_waffe));
-
-  exec sql select distinct coalesce(st,'0'), coalesce(ge,'0'),
-   coalesce(zusatz,'')
-   into :db_st,:db_ge,:db_zusatz
-   from waffen where name= :db_waffe;
-  SQLerror::test(__FILELINE__);
-  if ( db_st<=Werte.St() && db_ge<=Werte.Ge() ) return true;
-  else return false ;
-}
-
-
 void midgard_CG::on_button_waffen_sort_clicked()
 {
   std::deque<guint> seq = alte_waffen_tree->get_seq();
-  std::vector<H_Data_waffen>::iterator IB=vec_Waffen.begin();
-  std::vector<H_Data_waffen>::iterator IE=vec_Waffen.end();  
   switch((Data_waffen::Spalten_A)seq[0]) {
-      case Data_waffen::WERTa : stable_sort(IB,IE,Data_waffen_sort_wert()); ;break;
-      case Data_waffen::NAMEa        : stable_sort(IB,IE,Data_waffen_sort_name()); ;break;
+      case Data_waffen::WERTa : list_Waffen.sort(Waffen_sort_wert()); ;break;
+      case Data_waffen::NAMEa : list_Waffen.sort(Waffen_sort_name()); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

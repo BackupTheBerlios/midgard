@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.51 2001/10/09 09:03:43 thoma Exp $
+# $Id: Makefile.am,v 1.52 2001/10/16 08:59:23 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -13,6 +13,7 @@ EXTRA_DIST = document_eingabe.tex.in \
 
 
 noinst_HEADERS = Zauber.hh Zauberwerk.hh Fertigkeiten.hh Waffe.hh KiDo.hh \
+WaffeGrund.hh \
 itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
@@ -22,8 +23,6 @@ WindowInfo_glade.hh WindowInfo.hh Window_lernpunkte_editieren_glade.hh  \
 Window_lernpunkte_editieren.hh Window_werte_editieren_glade.hh \
 Window_werte_editieren.hh Zauber_auswahl_glade.hh Zauber_auswahl.hh \
 Sprache_auswahl.hh Sprache_auswahl_glade.hh \
-   Window_mag_bonus_glade.hh \
-   Window_mag_bonus.hh \
    Window_herkunft_glade.hh \
    Window_herkunft.hh \
    Window_hilfe_glade.hh \
@@ -66,17 +65,18 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
 BUILT_SOURCES_CG =  Zauber.cc Zauberwerk.cc Fertigkeiten.cc Waffe.cc KiDo.cc \
+   WaffeGrund.cc \
    steigern_fertigkeiten.cc  steigern_zauber.cc steigern_waffen.cc \
    get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  \
-   get_standard_waffen.cc Berufe_auswahl.cc \
+   Berufe_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \
    get_typ.cc  Window_charakter_auswahl.cc \
    praxispunkte_wuerfeln.cc steigern_sprache.cc sprachen_schrift.cc \
    Sprache_auswahl.cc Window_herkunft.cc midgard_CG_ruestung.cc \
 	Window_ruestung.cc Window_waffe.cc Window_Waffenbesitz.cc \
-   midgard_CG_waffe_werte.cc get_berufs_vorteile.cc \
-   midgard_CG_typauswahl.cc  Window_mag_bonus.cc get_Verteidigungswaffe.cc \
+   get_berufs_vorteile.cc \
+   midgard_CG_typauswahl.cc \
 	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc \
    midgard_CG_magier_spezialgebiet.cc \
    steigern_EP_sql.cc \
@@ -109,7 +109,6 @@ midgard_SOURCES = \
    KiDo_auswahl_glade.cc \
    midgard_CG_region_check.cc \
 	Window_angeb_fert_glade.cc \
-   Window_mag_bonus_glade.cc \
    midgard_CG_optionen.cc \
 	Window_Waffenbesitz_glade.cc \
 	Window_waffe_glade.cc \

@@ -35,6 +35,7 @@ exec sql include sqlca;
 Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const std::string& TypZ, 
    const std::string& Typ2Z, int lernpunkte, const Grundwerte& Werte)
 {
+  while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
   hauptfenster=h;
   maxpunkte = lernpunkte;
   beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));

@@ -42,30 +42,26 @@ void midgard_CG::spielleiter_export()
   fout << "\n\n";
   fout << "Angriff: ";
 
-// for (unsigned int i=0;i<vec_waffen.size();++i)
-  for(std::vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
+  for(std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
    {
     std::string wert = itos((*i)->Erfolgswert());
-//    for (unsigned int j=0; j<waffe_besitz.size();++j)
-    for(std::vector<H_Data_waffen>::const_iterator j=vec_Waffen_besitz.begin();j!=vec_Waffen_besitz.end();++j)
+    for(std::list<H_WaffeBesitz>::const_iterator j=list_Waffen_besitz.begin();j!=list_Waffen_besitz.end();++j)
      {
       if ((*j)->Name()==(*i)->Name())
        {
          std::string waffenname ;
-         waffenname = (*j)->Alias();
+         waffenname = (*j)->Name();
          fout <<waffenname ;
          if ((*j)->av_Bonus()!=0 || (*j)->sl_Bonus()!=0) fout <<"$^*$";
          int mag_schadensbonus = (*j)->av_Bonus();
-         int ang_mod = atoi(waffe_werte(*j,Werte,"WM_Angriff").c_str());
+         int ang_mod = (*j)->WM_Angriff((*j)->Name());
          if ((*j)->av_Bonus()==-5 && (*j)->sl_Bonus()==-5) mag_schadensbonus = 0; 
          int anbo = Werte.bo_An();
-//         if (midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Verteidigung")=="true")
-         if (midgard_CG::waffe_werte(*j,Werte,"Verteidigung")=="true")
+         if ((*j)->Verteidigung())
             anbo = 0;
          int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
          fout << "+"<<wert << "(";
-//         std::string schaden=midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Schaden+mag_Bonus");
-         std::string schaden=midgard_CG::waffe_werte(*j,Werte,"Schaden+mag_Bonus");
+         std::string schaden=(*j)->Schaden(Werte,(*j)->Name());
          fout << schaden << ")";
        }
       fout << ", ";
