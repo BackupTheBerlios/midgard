@@ -48,4 +48,8 @@ EXTRA_DIST = \
        Eschar-trans-50.xpm \
        KiDo-trans-50.xpm \
        Load-Kido-trans-50.xpm \
-       Draco-small-frame-comp.xpm
+       Draco-small-frame-comp.xpm \
+       Mage-Tower-locol-20.xpm \
+       Szepter-trans-locol-30.xpm \
+       Phex-mod2-lowcol-20.xpm \
+       Falke-trans-lowCol-20.xpm

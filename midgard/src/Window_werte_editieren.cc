@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.9 2001/05/15 22:21:41 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.10 2001/05/21 06:48:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.25 2001/05/15 22:21:41 thoma Exp $
+# $Id: Makefile.am,v 1.26 2001/05/21 06:48:23 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
