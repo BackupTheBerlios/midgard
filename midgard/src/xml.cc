@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.34 2002/07/03 06:33:55 christof Exp $
+// $Id: xml.cc,v 1.35 2002/07/10 09:18:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -32,8 +32,9 @@ static Tag *xml_data_mutable; // local non const pointer for merging
 
 static void xml_merge(Tag *merge_here, const Tag *tomerge);
 
-void xml_init(Gtk::ProgressBar *progressbar, const std::string &filename)
-{  if (top) return; // oder merge?
+void xml_init(Gtk::ProgressBar *progressbar, midgard_CG *hauptfenster)
+{  std::string filename=hauptfenster->with_path("midgard.xml");
+   if (top) return; // oder merge?
    {  ifstream in(filename.c_str());
       top=new TagStream(in);
    }
@@ -45,9 +46,7 @@ void xml_init(Gtk::ProgressBar *progressbar, const std::string &filename)
    {  cerr << "Ladefehler XML Datei " << filename << "\n";
       exit(2);
    }
-//   std::string dir=xml_data_mutable->getAttr("XML-Verzeichnis",".");
-   std::string dir=filename;
-   dir.replace(dir.rfind("midgard.xml"),string("midgard.xml").size(),"");
+   
    double anzdateien=1;
    FOR_EACH_CONST_TAG(i,*xml_data_mutable)
    {  if (i->Type()!="MAGUS-include" && i->Type()!="MCG-include") continue;
@@ -60,7 +59,7 @@ reloop:
     FOR_EACH_TAG(i,*xml_data_mutable)
     {  if (i->Type()!="MAGUS-include" && i->Type()!="MCG-include") continue;
        Tag *t2=&*i;
-       std::string file=dir+t2->getAttr("File");
+       std::string file=hauptfenster->with_path(t2->getAttr("File"),false,true);
        if (t2->getBoolAttr("inactive",false))
           continue;
        ProgressBar::set_percentage(progressbar,++count/anzdateien);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.255 2002/07/08 12:05:53 thoma Exp $
+// $Id: midgard_CG.cc,v 1.256 2002/07/10 09:18:37 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,7 @@ midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
   MOptionen->load_options(with_path("magus_optionen.xml",false,true));
   
   srand(time(0));
-  Database.load(Midgard_Info,with_path("midgard.xml"));
+  Database.load(Midgard_Info,this);
 
   set_sensitive(true);
 

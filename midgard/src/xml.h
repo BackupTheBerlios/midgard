@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.10 2002/01/22 17:06:58 christof Exp $
+// $Id: xml.h,v 1.11 2002/07/10 09:18:37 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -46,6 +46,7 @@ const xml_liste *suche_Tageigenschaften(const std::string &list,const std::strin
 #define IF_XML(x,y...)
 #endif
 
-void xml_init(Gtk::ProgressBar *pb, const std::string &filename="midgard.xml");
+class midgard_CG;
+void xml_init(Gtk::ProgressBar *pb, midgard_CG *hauptfenster);
 void xml_free();
 #endif

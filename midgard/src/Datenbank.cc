@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.17 2002/06/28 07:36:51 thoma Exp $               
+// $Id: Datenbank.cc,v 1.18 2002/07/10 09:18:37 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -53,11 +53,11 @@ Datenbank::Datenbank()
 }
 
 
-void Datenbank::load(Midgard_Info* MI,const std::string &midgard_xml_datei)
+void Datenbank::load(Midgard_Info* MI, Midgard_CG *hauptfenster)
 {
     // wait for Window to appear
     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-    xml_init(MI->get_progressbar_regionen(),midgard_xml_datei);
+    xml_init(MI->get_progressbar_regionen(),hauptfenster);
     Regionen = Regionen_All(MI->get_progressbar_regionen()).get_All();
     MI->set_Regionen(Regionen);
     Laender = Laender_All(MI->get_progressbar_laender()).get_All();
