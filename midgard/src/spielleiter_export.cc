@@ -106,7 +106,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
          schaden=WB.Schaden(Char.getWerte(),WB->Name());
        }
      }
-    angriff += (*i)->Name()+"+"+itos(wert)+"("+schaden+"), ";
+    angriff += name+"+"+itos(wert)+"("+schaden+"), ";
    }
   std::string::size_type st2=angriff.find_last_of(",");
   if(st2!=std::string::npos) angriff.erase(st2,2);

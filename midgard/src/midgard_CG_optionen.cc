@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.99 2002/07/10 07:55:24 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.100 2002/07/10 08:35:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -152,8 +152,7 @@ void midgard_CG::show_3_Tasten_Maus(bool b)
    }
   else 
    { table_grundwerte->vbox_gw_wuerfeln->show();
-     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt."
-                  "Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen.\n"
+     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Basiseigenschaft auswürfeln\n"
                   "ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.\n");
      _tooltips.set_tip(*button_main_drucken,"Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei).\n"
                   "Rechte Maustaste: Ausrüstung drucken.");
