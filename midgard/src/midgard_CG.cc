@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.212 2002/04/29 07:02:52 thoma Exp $
+// $Id: midgard_CG.cc,v 1.213 2002/04/29 14:01:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,7 +58,7 @@ midgard_CG::midgard_CG(const string &datei)
 
   notebook_main->set_page(PAGE_GRUNDWERTE);
   if (!datei.empty()) xml_import(datei); // Charakter laden
-  else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) wizard_starten_clicked();
+  else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) on_wizard_starten_activate();
   // für die NEWS
   Gtk::OStream os(list_news);
   os << 

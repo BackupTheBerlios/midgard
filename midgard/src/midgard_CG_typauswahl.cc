@@ -111,7 +111,6 @@ void midgard_CG::spezieswahl_button()
 {
  Werte.clear();
  zeige_werte();
- if(wizard) wizard->next_step(Wizard::SPEZIES);
  cH_Spezies ptr = static_cast<Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
  Werte.setSpezies(ptr);
 
@@ -124,6 +123,7 @@ void midgard_CG::spezieswahl_button()
  typauswahl_2->hide();
  magie_bool=false;
  Typ[1]=cH_Typen();
+ if(wizard) wizard->next_step(Wizard::SPEZIES);
 }
 
 void midgard_CG::on_radiobutton_stadt_land_toggled()

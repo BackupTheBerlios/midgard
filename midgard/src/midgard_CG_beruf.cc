@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.65 2002/04/29 07:02:52 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.66 2002/04/29 14:01:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,7 @@
 
 gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
 {
-  if(wizard) wizard->next_step(Wizard::BERUF);
+  if(wizard) wizard->next_step(Wizard::BERUF1);
   deleteBerufsFertigekeit();
   if (ev->button==1) 
    {
@@ -200,6 +200,7 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
          set_status("");
          scrolledwindow_beruf->hide();
          label_lernschma_titel->set_text("");
+         if(wizard) wizard->next_step(Wizard::BERUF);
       }
     else
       {

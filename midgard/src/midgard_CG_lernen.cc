@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.107 2002/04/29 07:02:53 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.108 2002/04/29 14:01:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -315,7 +315,9 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
   cH_MidgardBasicElement MBE = dt->getMBE();
   if(togglebutton_spezialwaffe->get_active() && MBE->What()!= MidgardBasicElement::WAFFE)
       {
-        togglebutton_spezialwaffe->set_active(false); return ; 
+//        togglebutton_spezialwaffe->set_active(false); return ; 
+        set_status(MBE->What_str()+" kann nicht als Spezialwaffe verwendet werden.");
+        return;         
       }
   switch(MBE->What()) {
      case MidgardBasicElement::WAFFE : 
@@ -329,7 +331,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                Werte.setSpezialisierung(MBE->Name());
                Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
                togglebutton_spezialwaffe->set_active(false);
-               if(wizard) wizard->next_step(Wizard::SPEZIALWAFFE);
+//               if(wizard) wizard->next_step(Wizard::SPEZIALWAFFE);
               }
             }
            else

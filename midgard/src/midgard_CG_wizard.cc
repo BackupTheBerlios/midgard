@@ -27,6 +27,7 @@ void midgard_CG::wizard_do_something()
   if(e==Wizard::FERTIG)
       { on_wizard_beenden_activate();}
 
+cout<<"Herkunft: " << e<<' '<<Wizard::HERKUNFT<<'\n';
   if(e==Wizard::HERKUNFT)
       { on_herkunftsland_clicked();}
 

@@ -55,12 +55,19 @@ void Wizard::evaluate_step(esteps step)
 {
   assert(vecwiz.size()>(size_t)(step));
   vector<cH_Typen> Typ=hauptfenster->getVTyp();
+cout << step<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
   if(step==SPEZIALWAFFE&&(!Typ[0]->Spezialwaffe()&&!Typ[1]->Spezialwaffe()))
+{
+cout << "Automatisch weiter \n";
     next_step(SPEZIALGEBIET);
+}
   if(step==SPEZIALGEBIET&&(!Typ[0]->Spezialgebiet()&&!Typ[1]->Spezialgebiet()))
-    next_step(GELD);
+    next_step(SPEICHERN);
+cout << "AA "<<vecwiz[step].page<<'\n';
   hauptfenster->notebook_main->set_page(vecwiz[step].page);
+cout << "BB "<<vecwiz[step].page<<'\n';
   hauptfenster->set_wizard(vecwiz[step].text);
+  hauptfenster->wizard_do_something();
 
 /*
   Gtk::OStream os(LogWinWizard->get_list());
@@ -135,10 +142,15 @@ void Wizard::fill_vecwiz()
                           " verbraucht sind und anschließen den Beruf wählen.",
                           "Lernschema",
                           &midgard_CG::wizard_do_something));
-   //BERUF
+   //BERUF1
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Fertigkeit auswählen, die aufgrund der Berufswahl"
                           " gelernt werden kann, danach das Geld auswürfeln.",
+                          "Beruf1",
+                          &midgard_CG::wizard_do_something));
+   //BERUF
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Berufsfertigkeit aus Liste wählen",
                           "Beruf",
                           &midgard_CG::wizard_do_something));
    //GELD
