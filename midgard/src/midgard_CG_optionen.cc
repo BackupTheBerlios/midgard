@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.74 2002/04/17 09:04:02 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.75 2002/04/19 07:51:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,6 +33,12 @@ void midgard_CG::OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExec
 {
  MOptionen->OptionenExecute_setzen_from_menu(index);
 }
+
+void midgard_CG::Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index)
+{
+ MOptionen->Ober_setzen_from_menu(index,mi->get_active());
+}
+
 
 
 void midgard_CG::checkbutton_original(bool active)

@@ -220,10 +220,22 @@ void midgard_CG::menu_init()
 void midgard_CG::menubar_init()
 {
   ansicht_menu->remove();
-//  Gtk::Menu *menubar = manage(new class Gtk::Menu());
-  Gtk::MenuItem *mit = manage(new class Gtk::MenuItem("Ansicht & Fenster"));
-  mit->set_submenu(*menubar);
+  Gtk::Menu *menu0 = manage(new class Gtk::Menu());
+  Gtk::Menu *menu1 = manage(new class Gtk::Menu());
+  Gtk::Menu *menu2 = manage(new class Gtk::Menu());
+  Gtk::MenuItem *mi1 = manage(new class Gtk::MenuItem("Ansicht & Fenster"));
+  Gtk::MenuItem *mi2 = manage(new class Gtk::MenuItem("Gestaltung"));
+/*
+  mi1->set_submenu(*menu1);
+//  mi2->set_submenu(*menu2);
+  menu0->add(*mi1);
+//  menu0->add(*mi2);
+  ansicht_menu->add(*menu0);
+*/
+  ansicht_menu->show_all();
+  
 
+/*  
   std::list<Midgard_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
   for(std::list<Midgard_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
@@ -238,11 +250,17 @@ void midgard_CG::menubar_init()
     Gtk::MenuItem *mi=manage(new Gtk::MenuItem());
     mi->add(*_tab);    
     mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
-    menubar->append(*mi);
+    menu1->append(*mi);
    } 
-//  main_menubar->append(*mit);
-  ansicht_menu->append(*mit);
-  mit->show_all();
+  std::list<Midgard_Optionen::st_Ober> L=MOptionen->getOber();
+  for(std::list<Midgard_Optionen::st_Ober>::iterator i=L.begin();i!=L.end();++i)
+   {
+    Gtk::CheckMenuItem *mi=manage(new Gtk::CheckMenuItem(i->text));
+    mi->set_active(i->active);
+    mi->toggle.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_setzen_from_menu),mi,i->index));
+    menu2->append(*mi);
+   } 
+*/
 }
 
 

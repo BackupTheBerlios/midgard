@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.217 2002/04/19 06:21:57 thoma Exp $
+// $Id: midgard_CG.hh,v 1.218 2002/04/19 07:51:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -75,6 +75,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         Grundwerte Werte;
 
         Gtk::Menu *menu, *menu_gradanstieg;
+        Gtk::MenuItem *ansicht_menu;
    public:
         Midgard_Optionen* getOptionen() {return MOptionen;};
         void menu_init();
@@ -145,6 +146,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
    private:
 
         void OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index);
+        void Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index);
         void optionmenu_init();
         void optionmenu_stand_deactivate();
         void optionmenu_hand_deactivate();
