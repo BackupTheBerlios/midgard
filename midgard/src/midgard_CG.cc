@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.116 2002/01/16 06:24:50 thoma Exp $
+// $Id: midgard_CG.cc,v 1.117 2002/01/18 08:40:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -89,12 +89,15 @@ void midgard_CG::set_tree_titles()
 
 void midgard_CG::on_radiobutton_frau_toggled()
 {   
+ on_radiobutton_mann_toggled();
+/*
   if (radiobutton_frau->get_active()) Werte.Geschlecht()="w";
    else Werte.setGeschlecht("m");
   fill_typauswahl();
   fill_typauswahl_2();
   typauswahl->set_history(Typ[0]->Nr());
   typauswahl_2->set_history(Typ[1]->Nr());
+*/
 }
 
 void midgard_CG::on_radiobutton_mann_toggled()

@@ -61,18 +61,30 @@ void midgard_CG::menu_init()
   
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem((*i)->Name()));         
-     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
-     Gtk::HBox *_hb=manage(new class Gtk::HBox(false,0));
+  //   Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem((*i)->Name()));         
+     Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
+     _mi->remove();
 
-//     _hb->pack_start(*RegionenPic::Pic((*i)->Pic()));
-     _hb->pack_start(*_mi);
+     Gtk::Label *_l=manage (new Gtk::Label((*i)->Name()));
+     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
+     Gtk::Label *_o=0;
+     int row=1;
+     if(!(*i)->Offiziell()) 
+       {
+         _o=manage (new Gtk::Label("Inoffiziell"));
+        _tab->attach(*_o,1,2,1,2,0,0,0,0);
+        row=2;
+       }
+     _tab->attach(*_l,1,2,0,1,0,0,0,0);
+     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,0,0,0,0);
+
+     _mi->add(*_tab);
      regionen_menu->append(*_mi);
+     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      _mi->set_active((*i)->Active());
      if(!OptionBool.Original && ((*i)->Abkuerzung()=="H&D" ||(*i)->Abkuerzung()=="G"))
         _mi->set_sensitive(false);
-     _mi->show();
-     _hb->show();
+     _mi->show_all();
    }
   menu->append(*regionen);
   regionen->show();

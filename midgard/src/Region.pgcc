@@ -24,11 +24,18 @@ exec sql include sqlca;
 
 #include "../pixmaps/Eschar-trans-50.xpm"
 #include "../pixmaps/KiDo-trans-50.xpm"
+#include "../pixmaps/pinguin.xpm"
 
 Gtk::Pixmap *RegionenPic::Pic(epic typ)
-{  if (typ==Eschar) return manage(new Gtk::Pixmap(Eschar_trans_50_xpm));
+{  
+   if      (typ==Eschar)     return manage(new Gtk::Pixmap(Eschar_trans_50_xpm));
    else if (typ==KanThaiPan) return manage(new Gtk::Pixmap(KiDo_trans_50_xpm));
-   else return 0;
+   else if (typ==Rawindra)   return manage(new Gtk::Pixmap(pinguin_xpm));
+   else if (typ==Alba)       return manage(new Gtk::Pixmap(pinguin_xpm));
+   else if (typ==Gildenbrief)return manage(new Gtk::Pixmap(pinguin_xpm));
+   else if (typ==HD)         return manage(new Gtk::Pixmap(pinguin_xpm));
+   else return manage(new Gtk::Pixmap(pinguin_xpm));
+   abort();
 }
 
 
@@ -55,7 +62,7 @@ Region::Region(const std::string& n)
    int db_pic;
   exec sql end declare section;
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select abkuerzung,file,url,maintainer,version,copyright,offiziell,
+  exec sql select abkuerzung,coalesce(file,''),coalesce(url,''),maintainer,version,copyright,offiziell,
          coalesce(pic,0)
       into :db_abkuerzung,:db_file,:db_url, :db_maintainer,:db_version,
            :db_copyright,:db_offiziell,:db_pic
