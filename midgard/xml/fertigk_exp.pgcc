@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.33 2001/12/16 21:47:49 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.34 2001/12/17 09:53:44 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -183,7 +183,6 @@ void fert_speichern(std::ostream &o)
 
 //********************* Berufe ********************
    o << " <Berufe>\n";
-#warning hier noch ge durch gs,gw ersetzen
   {
 #ifdef MIDGARD3
    Query query("select beruf, region, lernpunkte, st, ge,"
@@ -252,8 +251,8 @@ void fert_speichern(std::ostream &o)
          o << "    <Stand>" << staende << "</Stand>\n";
    }
    {  Query query2(
-#ifdef 
-   		"select vorteil from berufe_vorteile where beruf='"+beruf
+   		"select vorteil from berufe_vorteile" MIDGARD3_4("","_4")
+   		" where beruf='"+beruf
       		+"' order by vorteil");
       FetchIStream is2;
       std::string vorteile;

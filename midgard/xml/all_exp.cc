@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.3 2001/12/16 21:52:42 christof Exp $
+// $Id: all_exp.cc,v 1.4 2001/12/17 09:53:44 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -19,6 +19,7 @@
 
 #include <fstream>
 #include <Aux/dbconnect.h>
+#include <export_common.h>
 
 void arkanum_speichern(std::ostream &o);
 void land_speichern(std::ostream &o);
