@@ -36,7 +36,7 @@ void MidgardBasicElement::get_map_typ()
     squery ="select typ,standard from zauber_typen where name ='"+Name()+"'";
  if(What()==ZAUBERWERK)
     squery ="select typ,standard from zauberwerk_typen where name ='"+Name()
-             +"' and stufe ='"+Stufe()+"' and art='"+cH_Zauberwerk(this)->Art()+"'";
+             +"' and stufe ='"+Stufe()+"' and art='"+static_cast<Zauberwerk*>(this)->Art()+"'";
  if(What()==FERTIGKEIT )
     squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
  if(What()==WAFFEGRUND)
@@ -69,7 +69,7 @@ void MidgardBasicElement::get_map_typ()
  else if(What()==ZAUBERWERK)
  {  vector<pair<std::string,std::string> > anforderungen;
     anforderungen.push_back(pair<std::string,std::string>("Name",Name()));
-    anforderungen.push_back(pair<std::string,std::string>("Art",cH_Zauberwerk(this)->Art()));
+    anforderungen.push_back(pair<std::string,std::string>("Art",static_cast<Zauberwerk*>(this)->Art()));
     anforderungen.push_back(pair<std::string,std::string>("Stufe",Stufe()));
     tag=find_Tag("Zauberwerke","Zauberwerk",anforderungen);
  }
