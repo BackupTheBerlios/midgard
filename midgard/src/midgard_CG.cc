@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.115 2002/01/15 12:21:18 thoma Exp $
+// $Id: midgard_CG.cc,v 1.116 2002/01/16 06:24:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -272,7 +272,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 {
 
    button_abg_werte->set_sensitive(false);
-   button_herkunft->set_sensitive(false);
+//   button_herkunft->set_sensitive(false);
 //   button_sprache->set_sensitive(false);
    button_beschreibung->set_sensitive(false);
    frame_steigern->set_sensitive(false);

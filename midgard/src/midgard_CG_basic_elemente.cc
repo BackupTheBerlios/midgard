@@ -168,7 +168,9 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
    { MyList     = &list_Schrift; MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
+//cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
  MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE);
+//cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
 }
 
 

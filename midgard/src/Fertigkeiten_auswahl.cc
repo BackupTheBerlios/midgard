@@ -194,7 +194,11 @@ void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
      {  
       cH_MidgardBasicElement ptr = static_cast<MidgardBasicElement*>(i->get_data());
       if(!SpracheSchrift(ptr->Name()))
+       {
+//         int bonus=cH_Fertigkeit(ptr)->AttributBonus(Werte);
+         ptr->set_Erfolgswert(cH_Fertigkeit(ptr)->Anfangswert0());
          saf.push_back(ptr);
+       }
      }
    for (Gtk::CList::SelectionList::iterator i=allgemein_clist_auswahl->selection().begin();i!=allgemein_clist_auswahl->selection().end();++i)
      {  

@@ -166,6 +166,8 @@ int Fertigkeit::AttributBonus(const Grundwerte& Werte) const
    if (Attribut()=="St" && Werte.St()>=81) ++b;
    if (Attribut()=="St" && Werte.St()>=96) ++b;
    if (Attribut()=="Gw" && Werte.Gw()>=81) ++b;
+   if (Attribut()=="Gw" && Werte.Gw()>=96) ++b;
+   if (Attribut()=="Gs" && Werte.Gs()>=81) ++b;
    if (Attribut()=="Gs" && Werte.Gs()>=96) ++b;
    if (Attribut()=="Ko" && Werte.Ko()>=81) ++b;
    if (Attribut()=="Ko" && Werte.Ko()>=96) ++b;

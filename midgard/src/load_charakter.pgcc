@@ -57,9 +57,11 @@ void midgard_CG::on_laden_clicked()
 void midgard_CG::select_charakter(const std::string& name, const std::string& version)
 {
   Werte.setNamen(name,"",version);
-  midgard_CG::load_charakter();
+  try{
+    midgard_CG::load_charakter();
+   }catch(SQLerror &e) {regnot("Laden Fehlgeschlagen");}
   button_abg_werte->set_sensitive(true);
-  button_herkunft->set_sensitive(true);
+//  button_herkunft->set_sensitive(true);
 //  button_sprache->set_sensitive(true);
   button_beschreibung->set_sensitive(true);
   frame_steigern->set_sensitive(true);
