@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MAGUS-data>
- <Preise/>
  <Midgard-Abenteurer Version="10">
   <Figur Name="Adreon McTuron" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="4"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Er" Spezialisierung="Langschwert" Überleben="Überleben Heimat" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Er" Spezialisierung="Langschwert" Überleben="Überleben im Wald" Muttersprache="Albisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
   <Basiseigenschaften St="95" Gw="86" Gs="93" Ko="90" In="97" Zt="76"/>
   <abgeleiteteEigenschaften Au="50" pA="53" Wk="100" Sb="47" B="25"/>
-  <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="11"/>
+  <Erfolgswerte Abwehr="13" Zaubern="2" ZauberResistenz="12"/>
   <Gesundheit LP="17" AP="22"/>
   <Beschreibung Alter="21" Gestalt="normal" Gewicht="82" Größe="180" Stand="Volk" Herkunft="Alba" Glaube="Dheis Albi"/>
   <Vermögen GS="44" SS="1"/>
-  <Steigern GFP="1245" AEP="4" EPproGFP="33" Basiswerte="3" benötigte_Tage="174.24">
-   <Praxispunkte Abwehr="1" Resistenz="1"/>
+  <Steigern GFP="1285" AEP="4" EPproGFP="33" Basiswerte="3" benötigte_Tage="174.32">
+   <Praxispunkte/>
   </Steigern>
   <Text Größe="8"/>
   <Ausrüstung>
@@ -21,15 +20,15 @@
    <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
    <Waffe Erfolgswert="0" Bezeichnung="Langschwert"/>
    <Waffe Erfolgswert="0" Bezeichnung="kleiner Schild"/>
-   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
     </Gegenstand>
    </Gegenstand>
   </Ausrüstung>
@@ -71,8 +70,12 @@
    <Sprache Bezeichnung="Comentang" Wert="12"/>
    <Urschrift Bezeichnung="Albisch" Wert="14"/>
    <Urschrift Bezeichnung="Comentang" Wert="4"/>
-   <Optionen Name="Originalregeln" Wert="false"/>
-   <Optionen Name="NSC zulassen" Wert="false"/>
   </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="true"/>
+  </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
