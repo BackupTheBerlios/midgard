@@ -6,11 +6,11 @@
   <Typ Spezies="Halbelfe" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand="Rechtshänderin"/>
   <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="6"/>
-  <Erfolgswerte Abwehr="14" Zaubern="17" ZauberResistenz="13"/>
+  <Erfolgswerte Abwehr="15" Zaubern="17" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="39"/>
   <Beschreibung Alter="29" Gestalt="breit" Gewicht="69" Größe="161" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Vermögen GS="72"/>
-  <Steigern GFP="15348" AEP="21" EPproGFP="33" benötigte_Tage="70.24">
+  <Vermögen GS="3"/>
+  <Steigern GFP="16343" AEP="25" EPproGFP="33" benötigte_Tage="165.24">
    <Praxispunkte Zaubern="2" Spezial="3" Resistenz="1"/>
   </Steigern>
   <Text/>
@@ -49,19 +49,20 @@
    <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz="Eschar"/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="15"/>
    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
-   <Fertigkeit Bezeichnung="Naturkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Musizieren" Wert="11" Zusatz="Harfe"/>
+   <Fertigkeit Bezeichnung="Naturkunde" Wert="5"/>
    <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="6"/>
    <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
-   <Fertigkeit Bezeichnung="Sagenkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
    <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="8"/>
    <Fertigkeit Bezeichnung="TaiTschi"/>
    <Fertigkeit Bezeichnung="Tierkunde" Wert="8" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="YangScheng" Wert="4"/>
    <Fertigkeit Bezeichnung="Zauberkunde" Wert="10" Praxispunkte="3"/>
    <Fertigkeit Bezeichnung="Zaubern"/>
-   <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
    <Waffe Bezeichnung="Magierstab" Wert="9"/>
    <Zauber Bezeichnung="Allheilung"/>
    <Zauber Bezeichnung="Austreibung des Bösen"/>
@@ -69,28 +70,29 @@
    <Zauber Bezeichnung="Bannen von Finsterwerk"/>
    <Zauber Bezeichnung="Bannen von Gift"/>
    <Zauber Bezeichnung="Bannen von Zauberwerk"/>
-   <Zauber Bezeichnung="Beschleunigen"/>
    <Zauber Bezeichnung="Besänftigen"/>
+   <Zauber Bezeichnung="Beschleunigen"/>
    <Zauber Bezeichnung="Entgiften"/>
-   <Zauber Bezeichnung="Erkennen von Krankheit"/>
    <Zauber Bezeichnung="Erkennen der Aura"/>
+   <Zauber Bezeichnung="Erkennen von Krankheit"/>
    <Zauber Bezeichnung="Erkennen von Leben"/>
    <Zauber Bezeichnung="Erscheinungen"/>
    <Zauber Bezeichnung="Freundesauge"/>
    <Zauber Bezeichnung="Funkenregen"/>
    <Zauber Bezeichnung="Geistesschild"/>
-   <Zauber Bezeichnung="Grüne Hand"/>
    <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
+   <Zauber Bezeichnung="Grüne Hand"/>
    <Zauber Bezeichnung="Handauflegen"/>
    <Zauber Bezeichnung="Heilen schwerer Wunden"/>
    <Zauber Bezeichnung="Heilen von Krankheit"/>
    <Zauber Bezeichnung="Heilen von Wunden"/>
    <Zauber Bezeichnung="Heranholen"/>
    <Zauber Bezeichnung="Hören von Fernem"/>
+   <Zauber Bezeichnung="Lähmung"/>
+   <Zauber Bezeichnung="Laufen wie der Wind"/>
    <Zauber Bezeichnung="Lehrersuche"/>
    <Zauber Bezeichnung="Lindern von Entkräftung"/>
    <Zauber Bezeichnung="Liniensicht"/>
-   <Zauber Bezeichnung="Lähmung"/>
    <Zauber Bezeichnung="Macht über das Selbst"/>
    <Zauber Bezeichnung="Macht über die belebte Natur"/>
    <Zauber Bezeichnung="Reinigen"/>
@@ -99,8 +101,8 @@
    <Zauber Bezeichnung="Schlaf"/>
    <Zauber Bezeichnung="Schmerzen"/>
    <Zauber Bezeichnung="Seelenheilung"/>
-   <Zauber Bezeichnung="Stille"/>
    <Zauber Bezeichnung="Stärke"/>
+   <Zauber Bezeichnung="Stille"/>
    <Zauber Bezeichnung="Tiere rufen" Zusatz="Säugetiere"/>
    <Zauber Bezeichnung="Tiersprache" Zusatz="Säugetiere"/>
    <Zauber Bezeichnung="Trunk des Lebens"/>
@@ -109,16 +111,15 @@
    <Zauber Bezeichnung="Vision"/>
    <Zauber Bezeichnung="Wasser spüren"/>
    <Zauber Bezeichnung="Wort des Lebens"/>
-   <Zauber Bezeichnung="Zwiesprache"/>
    <Zauber Bezeichnung="Zähmen"/>
+   <Zauber Bezeichnung="Zwiesprache"/>
    <Grundkenntnis Bezeichnung="Zauberstäbe"/>
    <Sprache Bezeichnung="Albisch" Wert="13"/>
    <Sprache Bezeichnung="Aranisch" Wert="6"/>
-   <Sprache Bezeichnung="Sritrasprache" Wert="16"/>
    <Sprache Bezeichnung="Chryseisch" Wert="13"/>
    <Sprache Bezeichnung="Comentang" Wert="10"/>
    <Sprache Bezeichnung="Dvarskar" Wert="10"/>
-   <Sprache Bezeichnung="Eldalyn" Wert="6"/>
+   <Sprache Bezeichnung="Eldalyn" Wert="12"/>
    <Sprache Bezeichnung="Erainnisch" Wert="20"/>
    <Sprache Bezeichnung="Gnomenon" Wert="10"/>
    <Sprache Bezeichnung="KanThaiTun" Wert="13"/>
@@ -127,6 +128,7 @@
    <Sprache Bezeichnung="Moravisch" Wert="13"/>
    <Sprache Bezeichnung="Nahuatlanisch" Wert="6"/>
    <Sprache Bezeichnung="Scharidisch" Wert="10"/>
+   <Sprache Bezeichnung="Sritrasprache" Wert="16"/>
    <Sprache Bezeichnung="Twyneddisch" Wert="4"/>
    <Urschrift Bezeichnung="Dvarskar" Wert="12"/>
    <Urschrift Bezeichnung="KanThaiTun(1)" Wert="12"/>
@@ -139,12 +141,22 @@
    <Urschrift Bezeichnung="Moravisch" Wert="8"/>
    <Urschrift Bezeichnung="Comentang" Wert="8"/>
    <Urschrift Bezeichnung="Zwergenrunen Futhark" Wert="8"/>
+   <Urschrift Bezeichnung="Eldalyn" Wert="8"/>
   </Fertigkeiten>
   <Optionen>
+   <Region Name="Kompendium" Region="TuT"/>
+   <Region Name="Alba" Region="A"/>
+   <Region Name="Eschar" Region="E"/>
+   <Region Name="KanThaiPan" Region="K"/>
+   <Region Name="Nahuatlan" Region="N"/>
+   <Region Name="Abenteuer" Region="X"/>
+   <Region Name="Gildenbrief" Region="G"/>
+   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
    <CheckOptions Name="Originalregeln" Wert="false"/>
    <CheckOptions Name="NSC zulassen" Wert="false"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
    <Hausregeln Name="Grundwerte über 100 zulassen" Wert="true"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
