@@ -50,6 +50,8 @@ try{
    hauptfenster->table_optionen->tmp_selected(this->get_filename());
  else if (ewas==speichern)
    hauptfenster->table_optionen->speicherplatz_selected(this->get_filename());
+ else if (ewas==pdfviewer)
+   hauptfenster->table_optionen->frame_drucken->pdf_viewer_selected(this->get_filename());
 #ifndef __MINGW32__  
  destroy();
 #endif
