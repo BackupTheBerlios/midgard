@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.50 2002/10/24 07:21:01 christof Exp $
+// $Id: midgard.cc,v 1.51 2002/10/29 07:57:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,10 +34,6 @@ int main(int argc, char **argv)
    std::string magus_verzeichnis,argv0=argv[0];
 
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
-   putenv("GTK_RC_FILES=gtkrc");
-   
-//   const char dirsep='\\';
-   
   char buf[1024];
   reg_key r1(HKEY_CURRENT_USER, KEY_READ, "Software", "Microsoft", "Windows",
   	"CurrentVersion", "Explorer", "User Shell Folders", NULL); // "AppData");?
@@ -110,6 +106,12 @@ int main(int argc, char **argv)
       std::cout << "argv0: " << argv0 << '\n';
    }
 
+#ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
+   std::string gtkrc="GTK_RC_FILES="
+   	+magus_paths(argv0,magus_verzeichnis).with_path("gtkrc");
+   std::cout << gtkrc << '\n';
+   putenv(gtkrc.c_str());
+#endif
    Gtk::Main m(&argc, &argv,true); 
 
    // und mehrere Dateien ? CP   

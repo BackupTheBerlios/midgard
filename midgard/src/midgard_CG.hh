@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.290 2002/10/27 18:25:23 thoma Exp $
+// $Id: midgard_CG.hh,v 1.291 2002/10/29 07:57:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,10 +42,22 @@ class Random;
 #include "Abenteurer.hh"
 //#include "Region.hh"
 
-class midgard_CG : public midgard_CG_glade
-{   
+// small class for determining file positions (originally part of midgard_CG)
+class magus_paths
+{
         std::string argv0; // Dateiname
         std::string magus_verzeichnis;
+public:
+         magus_paths(const std::string &_argv0,const std::string &_magus_verzeichnis)
+         	: argv0(_argv0), magus_verzeichnis(_magus_verzeichnis) {}
+         const std::string &MagusVerzeichnis() const {return magus_verzeichnis;}
+         const std::string &getArgv0() const { return argv0; }
+         std::string BinaryVerzeichnis() const;
+        std::string with_path(const std::string &name,bool path_only=false,bool noexit=false) const ;
+};
+
+class midgard_CG : public midgard_CG_glade, public magus_paths
+{   
         bool in_dtor;
 /////////////////////////////////////////////////////////////////////////////
         friend class Zufall;
@@ -260,9 +272,6 @@ class midgard_CG : public midgard_CG_glade
    public:
          midgard_CG(const std::string &argv0,const std::string &_magus_verzeichnis,
                     const std::string &datei="");
-         std::string MagusVerzeichnis() const {return magus_verzeichnis;}
-         std::string BinaryVerzeichnis() const;
-        std::string with_path(const std::string &name,bool path_only=false,bool noexit=false) const ;
          ~midgard_CG();
 };
 #endif

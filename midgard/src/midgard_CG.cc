@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.272 2002/10/27 18:25:23 thoma Exp $
+// $Id: midgard_CG.cc,v 1.273 2002/10/29 07:57:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@
 
 midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verzeichnis,
                        const std::string &datei)
-: argv0(_argv0),magus_verzeichnis(_magus_verzeichnis),in_dtor(false),
+: magus_paths(_argv0,_magus_verzeichnis),in_dtor(false),
 	InfoFenster(0),MOptionen(0),wizard(0),menu_kontext(0)
 {
   InfoFenster = manage(new WindowInfo(this));
@@ -107,10 +107,11 @@ void midgard_CG::set_region_statusbar(RegionenPic::epic pic,bool active)
 }
 
 
-std::string midgard_CG::with_path(const std::string &name,bool path_only,bool noexit) const
+std::string magus_paths::with_path(const std::string &name,bool path_only,bool noexit) const
 {
   std::vector<std::string> V;
 #ifndef __MINGW32__ // IMHO macht das unter Win32 keinen Sinn
+
   // vielleicht sollten wir das aktuelle Verzeichnis beim 
   // Programmstart einmal ermitteln und nicht immer
   char currentwd[10240];
@@ -145,7 +146,7 @@ cout <<"Suche nach "<< n<<'\n';
   return("");
 }
 
-std::string midgard_CG::BinaryVerzeichnis() const
+std::string magus_paths::BinaryVerzeichnis() const
 {  
    if (argv0.rfind(WinLux::dirsep)!=std::string::npos) 
       return argv0.substr(0,argv0.rfind(WinLux::dirsep)+1);

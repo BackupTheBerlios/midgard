@@ -96,7 +96,7 @@ reg_key::set_int (const char *name, int val)
 			       (unsigned char *) &value, sizeof (value));
 }
 
-/* Given the current registry key, return the specific string value
+/* Given the current registry key, return the specific std::string value
    requested.  Return zero on success, non-zero on failure. */
 
 int
@@ -116,7 +116,7 @@ reg_key::get_string (const char *name, char *dst, size_t max, const char * def)
   return (int) res;
 }
 
-/* Given the current registry key, set a specific string value. */
+/* Given the current registry key, set a specific std::string value. */
 
 int
 reg_key::set_string (const char *name, const char *src)
