@@ -5577,21 +5577,6 @@ setzen</property>
 				  <property name="draw_indicator">True</property>
 				  <signal name="toggled" handler="on_togglebutton_teure_anzeigen_toggled"/>
 
-				  <child>
-				    <widget class="GtkLabel" id="label565">
-				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">zu teure Fertigkeiten zeigen</property>
-				      <property name="use_underline">False</property>
-				      <property name="use_markup">False</property>
-				      <property name="justify">GTK_JUSTIFY_CENTER</property>
-				      <property name="wrap">False</property>
-				      <property name="selectable">False</property>
-				      <property name="xalign">0</property>
-				      <property name="yalign">0.5</property>
-				      <property name="xpad">0</property>
-				      <property name="ypad">0</property>
-				    </widget>
-				  </child>
 				</widget>
 				<packing>
 				  <property name="left_attach">1</property>
@@ -5616,21 +5601,6 @@ setzen</property>
 				  <property name="draw_indicator">True</property>
 				  <signal name="toggled" handler="on_togglebutton_gelernte_anzeigen_toggled"/>
 
-				  <child>
-				    <widget class="GtkLabel" id="label562">
-				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">Gelernte Fertigkeiten zeigen</property>
-				      <property name="use_underline">False</property>
-				      <property name="use_markup">False</property>
-				      <property name="justify">GTK_JUSTIFY_CENTER</property>
-				      <property name="wrap">False</property>
-				      <property name="selectable">False</property>
-				      <property name="xalign">7.45058e-09</property>
-				      <property name="yalign">0.5</property>
-				      <property name="xpad">0</property>
-				      <property name="ypad">0</property>
-				    </widget>
-				  </child>
 				</widget>
 				<packing>
 				  <property name="left_attach">1</property>
@@ -6155,21 +6125,6 @@ auswählen</property>
 				      <property name="draw_indicator">True</property>
 				      <signal name="toggled" handler="on_togglebutton_einschraenkungen_zusatz_anzeigen_toggled"/>
 
-				      <child>
-					<widget class="GtkLabel" id="label602">
-					  <property name="visible">True</property>
-					  <property name="label" translatable="yes">Einschränkungen aufheben</property>
-					  <property name="use_underline">True</property>
-					  <property name="use_markup">False</property>
-					  <property name="justify">GTK_JUSTIFY_CENTER</property>
-					  <property name="wrap">False</property>
-					  <property name="selectable">False</property>
-					  <property name="xalign">0</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
-					</widget>
-				      </child>
 				    </widget>
 				    <packing>
 				      <property name="left_attach">0</property>
