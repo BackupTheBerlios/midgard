@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.39 2002/07/10 07:25:34 christof Exp $
+// $Id: fertigk_exp.cc,v 1.40 2002/07/10 07:28:11 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -22,7 +22,7 @@
 #include "export_common.h"
 #include <Misc/itos.h>
 
-static void fertigkeiten_zusätze(Tag &fertigk, const std::string &fert)
+static void fertigkeiten_zusaetze(Tag &fertigk, const std::string &fert)
 {     Query queryZu("select name,typ,region,region_zusatz from fz_zusaetze "
    	" where art='"+fert+"' and coalesce(region,'')='"+region
    	+"' order by name");
@@ -112,7 +112,7 @@ void fert_speichern(Tag &o)
     }
 
       //********** fertigkeiten_zusätze **********************************
-     fertigkeiten_zusätze(fertigk, fert);
+     fertigkeiten_zusaetze(fertigk, fert);
 
       //********** fertigkeiten_besitz **********************************
    {  Query queryZu("select gegenstand,min,position from fertigkeiten_besitz "
@@ -244,7 +244,7 @@ void fert_speichern(Tag &o)
    std::string fert=fetch_and_set_string_attrib(is, fertigk, "Name");
    fetch_and_set_string_attrib(is, fertigk, "Region");
 
-   fertigkeiten_zusätze(fertigk, fert);
+   fertigkeiten_zusaetze(fertigk, fert);
   }
  }
 
