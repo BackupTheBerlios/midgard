@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.20 2002/01/11 07:43:35 christof Exp $
+// $Id: xml.cc,v 1.21 2002/01/11 15:46:43 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -181,7 +181,7 @@ static bool attr_is_key(const string &tag, const char * const *key)
 
 static void xml_merge_element(Tag &merge_here,
 	const Tag &tomerge,const char * const *key)
-{  bool a_full=true,b_full=true;
+{  bool a_full=false,b_full=false;
 
    for (Tag::const_attiterator i=merge_here.attbegin();i!=merge_here.attend();++i)
       if (!attr_is_key(i->first,key) && i->first!="Region")
@@ -194,7 +194,7 @@ static void xml_merge_element(Tag &merge_here,
       merge_here.debug();
       tomerge.debug();
    }
-   else if (b_full) // this is not well tested
+   else if (b_full) // this is not well tested but looks good
    {  Tag help=merge_here;
       merge_here=tomerge;
       FOR_EACH_CONST_TAG(i,help)
