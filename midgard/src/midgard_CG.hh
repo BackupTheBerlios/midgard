@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.58 2001/08/18 06:19:08 thoma Exp $
+// $Id: midgard_CG.hh,v 1.59 2001/08/19 06:28:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -176,6 +176,8 @@ class midgard_CG : public midgard_CG_glade
         void zeige_notebook();
         void Zauber_get_Daten(std::vector<H_Data_zauber>& zauber);
         void on_beruf_erfolgswert_clicked();
+        gint on_beruf_erfolgswert_release_event(GdkEventButton *ev);
+        void on_spinbutton_beruferfolgesert_activate();
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
         void on_angeborene_fertigkeit_clicked();
         void on_angeborene_fertigkeit_right_clicked();

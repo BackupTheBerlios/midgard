@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.22 2001/06/30 20:30:06 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.23 2001/08/19 06:28:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,9 +47,32 @@ void midgard_CG::berufe_uebernehmen(std::vector<H_Data_beruf>& sab)
    clear_Ausnahmen();
    midgard_CG::show_berufe();
    button_beruf_erfolgswert->set_sensitive(true);
-
-
 }
+
+gint midgard_CG::on_beruf_erfolgswert_release_event(GdkEventButton *ev)
+{
+  if (ev->button==1) on_beruf_erfolgswert_clicked();
+  if (ev->button==3) vbox_beruferfolgswert->show();
+  return false;
+}
+
+void midgard_CG::on_spinbutton_beruferfolgesert_activate()
+{
+  gtk_spin_button_update(spinbutton_beruferfolgesert->gtkobj());
+  int x=spinbutton_beruferfolgesert->get_value_as_int();
+  static int i=0;
+  vec_Beruf[i]->set_Erfolgswert(x);
+  ++i;
+  if (i==vec_Beruf.size())
+   {
+     i=0;
+     vbox_beruferfolgswert->hide();
+     label_beruf_ew->set_text("Wert eingeben");
+   }
+  else  label_beruf_ew->set_text(itos(i+1)+". Beruf");
+  berufe_uebernehmen(vec_Beruf);
+}
+
 
 void midgard_CG::on_beruf_erfolgswert_clicked()
 {
@@ -59,15 +82,13 @@ void midgard_CG::on_beruf_erfolgswert_clicked()
  if (atoi(in->get_text().c_str()) >= 81 ) ++inbo ;
  if (atoi(in->get_text().c_str()) >= 96 ) ++inbo ;
 
-// for(unsigned int  i=0; i<=vec_beruf.size();++i)
  for (std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
    {
     int ausbildungswert = random.integer(1,3)+6;
     if (i==vec_Beruf.begin()) (*i)->set_Erfolgswert(ausbildungswert+erfahrungswert+inbo);
     else (*i)->set_Erfolgswert(ausbildungswert+inbo);
-   }
- midgard_CG::berufe_uebernehmen(vec_Beruf);
- 
+   } 
+   midgard_CG::berufe_uebernehmen(vec_Beruf);
    hbox_fertigkeit->set_sensitive(true);
    table_fertigkeit->set_sensitive(true);
 }
