@@ -4,14 +4,14 @@
  <Preise/>
  <Midgard-Abenteurer Version="10">
   <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Grad 7" Grad="7"/>
-  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Asadi" Stadt_Land="Stadt" Hand=""/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand=""/>
   <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="4"/>
   <Erfolgswerte Abwehr="13" Zaubern="17" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="39"/>
   <Beschreibung Alter="28" Gestalt="breit" Gewicht="69" Größe="161" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Vermögen GS="200"/>
-  <Steigern GFP="12363" AEP="577" benötigte_Tage="198.24">
+  <Vermögen GS="0"/>
+  <Steigern GFP="13463" AEP="27" benötigte_Tage="308.24">
    <Praxispunkte Zaubern="1" Resistenz="1"/>
   </Steigern>
   <Text/>
@@ -75,6 +75,7 @@
    <Zauber Bezeichnung="Erkennen von Leben"/>
    <Zauber Bezeichnung="Freundesauge"/>
    <Zauber Bezeichnung="Funkenregen"/>
+   <Zauber Bezeichnung="Geistesschild"/>
    <Zauber Bezeichnung="Grüne Hand"/>
    <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
    <Zauber Bezeichnung="Handauflegen"/>
@@ -82,6 +83,7 @@
    <Zauber Bezeichnung="Heilen von Wunden"/>
    <Zauber Bezeichnung="Heranholen"/>
    <Zauber Bezeichnung="Lehrersuche"/>
+   <Zauber Bezeichnung="Lindern von Entkräftung"/>
    <Zauber Bezeichnung="Liniensicht"/>
    <Zauber Bezeichnung="Lähmung"/>
    <Zauber Bezeichnung="Macht über das Selbst"/>
@@ -105,7 +107,6 @@
    <Grundkenntnis Bezeichnung="Zauberstab"/>
    <Sprache Bezeichnung="Albisch" Wert="13"/>
    <Sprache Bezeichnung="Aranisch" Wert="6"/>
-   <Sprache Bezeichnung="Asadi" Wert="20"/>
    <Sprache Bezeichnung="Chryseisch" Wert="13"/>
    <Sprache Bezeichnung="Comentang" Wert="10"/>
    <Sprache Bezeichnung="Dvarskar" Wert="10"/>
