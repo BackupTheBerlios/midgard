@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.22 2004/05/18 13:26:57 christof Exp $            
+// $Id: Abenteurer.cc,v 1.23 2004/06/03 14:18:44 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -493,7 +493,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei)
    std::string ueberleben=Typ->getAttr("Überleben");
    if(ueberleben!="") 
      { 
-       MBEmlt M(&*cH_Fertigkeit(ueberleben));
+       MBEmlt M(&*cH_Fertigkeit(ueberleben,true));
        setUeberleben(M);
      }
    setMuttersprache(Typ->getAttr("Muttersprache"));
