@@ -281,7 +281,7 @@ void MidgardBasicElement::EP_steigern(const std::string fert)
     steigern=tag->find("EP-Typ");
  else 
     // globale Liste: Ausdauer, Waffen, Zauber
- {  cerr << "warning: full scan for verwendbareEP '"<<fert<<"'\n";    
+ {  // cerr << "warning: full scan for verwendbareEP '"<<fert<<"'\n";    
     steigern=find_Tag("verwendbareEP","EP-Typ","Fertigkeit",fert);
  }
 

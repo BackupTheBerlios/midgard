@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.10 2002/01/02 13:45:44 christof Exp $
+// $Id: xml.cc,v 1.11 2002/01/02 17:31:54 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,10 +25,7 @@
 static TagStream *top;
 const Tag *xml_data;
 
-static void xml_merge(Tag *merge_here, const Tag *tomerge)
-{  // suche nach tomerge->getAttr("name");
-   
-}
+static void xml_merge(Tag *merge_here, const Tag *tomerge);
 
 void xml_init(const std::string &filename="midgard.xml")
 {  if (top) return; // oder merge?
@@ -63,7 +60,7 @@ reloop:
                 xml_merge(const_cast<Tag*>(merge_here),&*j);
              }
              else 
-             {  cout << "initial Tag '"<< j->Type()<<"' from '"<< file << "'\n";
+             {  // cout << "initial Tag '"<< j->Type()<<"' from '"<< file << "'\n";
                 const_cast<Tag*>(xml_data)->push_back(*j);
                 // xml_data->debug();
              }
@@ -82,7 +79,7 @@ void xml_free()
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 		const vector<pair<std::string,std::string> > &anforderungen)
 {const Tag *liste=xml_data->find(listtag);
- cerr << "find_Tag("<< listtag<< "," << elementtag << ",...)\n";
+ cerr << "find_Tag("<< listtag<< "," << elementtag <<"," << anforderungen[0].second << ",...)\n";
  if (!liste)
     cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
  else
@@ -108,7 +105,45 @@ const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
    return find_Tag(listtag,elementtag,anforderungen);
 }
 
-//struct xml_liste
+static const char * const std_matching[] = { "Name",0 };
+static const char * const ep_matching[] = { "Fertigkeit",0 };
+static const char * const grad_matching[] = { "Grad",0 };
+static const char * const typ_matching[] = { "Abkürzung",0 };
+static const char * const zauberwerk_matching[] = { "Name","Stufe",0 };
+static const char * const preis_matching[] = { "Ware",0 }; // Region?
+static const char * const modifikation_matching[] = { "Art","Bezeichnung",0 };
+static const char * const waff_steig_matching[] = { "Schwierigkeit",0 };
+
+const struct xml_liste xml_tags[] =
+  {
+// Typ-Pflichten ???  
+// SteigernKosten ???
+   {  "angeboreneFertigkeiten",	"angeboreneFertigkeit",	std_matching },
+   {  "Berufe",		"Beruf",	std_matching },
+   {  "Fertigkeiten",	"Fertigkeit",	std_matching },
+   {  "Gradanstieg",	"Grad",		grad_matching },
+   {  "Kido-Fertigkeiten",	"KiDo",	std_matching },
+   {  "Länder",		"Land",		std_matching },
+   {  "Preise",		"Kaufpreis",	preis_matching },
+   {  "Preise",		"Modifikation",	modifikation_matching },
+   {  "Rüstungen",	"Rüstung",	std_matching },
+   {  "Schriften",	"Schrift",	std_matching },
+   {  "Spezialgebiete",	"Spezialgebiet",	std_matching },
+   {  "SpeziesListe",	"Spezies",	std_matching },
+   {  "Sprachen",	"Sprache",	std_matching },
+   {  "Typen",		"Typ",		typ_matching },
+   {  "verwendbareEP",	"EP-Typ",	ep_matching },
+   {  "Waffen:Grundkenntnisse",	"Waffen:Grundkenntnis",	std_matching },
+   {  "Waffen:Steigern",	"Kosten",	waff_steig_matching },
+   {  "Waffen",		"Waffe",	std_matching },
+   {  "Zauber",		"Spruch",	std_matching },
+   {  "Zauberwerke",	"Zauberwerk",	zauberwerk_matching },
+   {  (const char*)0,	(const char*)0,	(const char*const*)0 }};
+
+static void xml_merge(Tag *merge_here, const Tag *tomerge)
+{  // suche nach tomerge->getAttr("name");
+   
+}
 
 #else // no XML, no op
 
