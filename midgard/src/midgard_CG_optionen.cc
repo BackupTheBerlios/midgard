@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.58 2002/02/21 14:30:13 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.59 2002/02/22 09:46:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,6 +55,15 @@ void midgard_CG::Hausregeln_setzen_from_menu(HausIndex index)
    {
      if(i->index!=index) continue;
      i->active = i->menu->get_active();
+   }
+}
+
+void midgard_CG::pdfViewer_setzen_from_menu(pdfViewerIndex index)
+{
+  for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+   {
+     if(i->index!=index) continue;
+     i->active = i->radio_menu_item->get_active();
    }
 }
 
@@ -162,6 +171,13 @@ midgard_CG::st_Haus midgard_CG::HausregelCheck(HausIndex hi)
  assert(!"HausregelCheck: nicht gefunden");
  abort();
 }
+midgard_CG::st_pdfViewer midgard_CG::pdfViewerCheck(pdfViewerIndex pi)
+{
+ for(std::list<st_pdfViewer>::const_iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+   if(i->index==pi) return *i;
+ assert(!"pdfViewer: nicht gefunden");
+ abort();
+}
 
 
 void midgard_CG::setOption(std::string os,bool b)
@@ -182,6 +198,15 @@ void midgard_CG::setAllHausregeln(bool b)
 {
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
      i->active=b;
+}
+
+void midgard_CG::setpdfViewer(std::string is,bool b)
+{
+  for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+   {
+     if(i->text==is) i->active=b;
+     else i->active=!b;
+   }
 }
 
 
@@ -214,6 +239,14 @@ void midgard_CG::save_options()
      write_bool_attrib_force(datei, "Wert", i->active);
      datei << "/>\n";
    }
+  for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+   {
+     if(!i->active) continue;
+     datei << "  <pdfViewer";
+     write_string_attrib(datei, "pdfViewer" ,i->text);
+     write_bool_attrib(datei, "Wert", i->active);
+     datei << "/>\n";
+   }
  datei << "</MAGUS-optionen>\n";
 }
 
@@ -229,5 +262,7 @@ void midgard_CG::load_options()
      setOption(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"Hausregel")
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
+  FOR_EACH_CONST_TAG_OF(i,*data,"pdfViewer")
+     setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
 }
 

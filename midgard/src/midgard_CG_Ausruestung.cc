@@ -503,7 +503,10 @@ void midgard_CG::on_ausruestung_druck(bool unsichtbar)
  system("gv midgard_tmp_ausruestung.ps &");  
 */
  system("pdflatex midgard_tmp_ausruestung.tex");
- system("acroread midgard_tmp_ausruestung.pdf");  
+ if(pdfViewerCheck(gv).active)
+   system("gv midgard_tmp_ausruestung.pdf &");
+ else if (pdfViewerCheck(acroread).active)
+   system("acroread midgard_tmp_ausruestung.pdf");  
 }
 
 

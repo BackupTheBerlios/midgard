@@ -74,8 +74,8 @@
 \makebox[1.1cm]{Spieler}&{\namespieler}\\\hline
   \end{tabularx}
 }
-%\IfFileExists{drache.png}{\parbox{10cm}{\scalebox{-1 1}{\includegraphics[width=10cm]{drache.png}}}}%
-%{\parbox{10cm}{\scalebox{-1 1}{\includegraphics[width=10cm]{@PACKAGE_DATA_DIR@drache.png}}}}
+\IfFileExists{drache.png}{\parbox{10cm}{{\includegraphics[width=10cm]{drache.png}}}}%
+{\parbox{10cm}{{\includegraphics[width=10cm]{@PACKAGE_DATA_DIR@drache.png}}}}
 
 \vspace*{2ex}
 \begin{minipage}[t]{13cm}
@@ -196,8 +196,8 @@ Berufe&{\beruf}\\\hline
 \end{tabular}
 
 \vspace{1ex}
-\IfFileExists{MAGUS-Logo-Text.png}{\parbox{1.5cm}{\includegraphics[width=1.5cm]{MAGUS-Logo-Text.png}}}%
-{\parbox{1.5cm}{\includegraphics[width=1.5cm]{@PACKAGE_DATA_DIR@MAGUS-Logo-Text.png}}}
+\IfFileExists{MAGUS-Logo-grey.png}{\parbox{1.5cm}{\includegraphics[width=1.5cm]{MAGUS-Logo-grey.png}}}%
+{\parbox{1.5cm}{\includegraphics[width=1.5cm]{@PACKAGE_DATA_DIR@MAGUS-Logo-grey.png}}}
 \hfill
 \parbox[t]{7.5cm}{
 \tiny

@@ -20,29 +20,33 @@ NEWS IN VERSION 0.4delta4
    angezeigt werden. Für diesen (hoffentlich) seltenen Fall habe ich eine
    Option geschaffen: 'Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen'.
 * Praxispunkte für Abwehr/Zaubern/Resistenz im Ausdruck
-
+* Berufsauswahl neu implementiert
+* Berufsknopf kann nur EINMAL gedrückt werden.
+* Wizard ersteinmal nur über das Menü startbar 
+   (bis das Optionen laden funktioniert)
+* Lernschema mit Grund/Standard/Ausname
+* Grundwerte- und abgel. Werte Knopf deaktivieren nach clicken
+* KEP verwenden beim Waffensteigern, ZEP beim Zaubern
+* klein/mittel/groß im Ausdruck
+* Brüche getrennt abrunden
+* Ottmar Zimmers Quellcodeanmerkungen :-)
+* pdflatex statt latex
+* es kann gewählt werden, ob das Dokument mit 'gv' oder 'acroread' betrachtet 
+   werden soll.
+* Auswahlreihnfolge von 'linksoben' -> 'rechtsunten'
+* Grundwerte < 350 => Neuwürfeln
 
 TODO:
-*** Laden von Optionen 
-** Berufsknopf wird erst clickbar, wenn NULL Lernpunkte erreicht sind und
-   kann nur EINMAL gedrückt werden.
+* Laden von Optionen 
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes
 * Zaubern und Kido KEINE neuen Dokumente
-* Ottmar Zimmers Quellcodeanmerkungen
-* pdflatex statt latex
-* Text des Wizards 
-* Lernschema mit Grund/Standrd/Ausname
 * Herkunft für Nichtmenschen
-* Testen von Geld und Waffen auswählen
-* Grundwerte deaktivieren nach clicken
-* Auswahlreinfolge von 'linksoben' -> 'rechtsunten'
-* Brüche getrennt abrunden
-* klein/mittel/groß
-* Grundwerte < 350
 * Neuimplemenation des Sprachenfensters (so wie die anderen Zusätze)
 * Kurzanleitung drucken ... mal sehe, ob das sinnvoll ist.
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 
-   Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT
+   Da reagiert der "OK"- Button nicht. -> nun weiß ich warum, aber nicht
+   wie man es beseitigt :-( MAT
 * Landeskunde als Berufsfähigkeit für 3 Berufe
   (Karawanenführer, land, v,m
    Kaufmann, stadt,m,a

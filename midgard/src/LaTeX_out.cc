@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.100 2002/02/21 21:56:26 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.101 2002/02/22 09:46:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,7 +51,10 @@ void midgard_CG::on_latex_clicked(bool values=true)
  system("gv -seascape midgard_tmp_document_eingabe.ps &");
 */
  system("pdflatex midgard_tmp_document_eingabe.tex");
- system("acroread midgard_tmp_document_eingabe.pdf");
+ if(pdfViewerCheck(gv).active)
+    system("gv midgard_tmp_document_eingabe.pdf &");
+ else if (pdfViewerCheck(acroread).active)
+    system("acroread midgard_tmp_document_eingabe.pdf &");
  // Zauber
  if (list_Zauber.size()>0 || list_Zauberwerk.size()>0)
  {
@@ -64,7 +67,10 @@ void midgard_CG::on_latex_clicked(bool values=true)
     system("gv -seascape midgard_tmp_document_zauber.ps &");
 */
     system("pdflatex midgard_tmp_document_zauber.tex");
-    system("acroread midgard_tmp_document_zauber.pdf");
+    if(pdfViewerCheck(gv).active)
+       system("gv midgard_tmp_document_zauber.pdf &");
+    else if (pdfViewerCheck(acroread).active)
+       system("acroread midgard_tmp_document_zauber.pdf");
 
  }
 
@@ -79,7 +85,10 @@ void midgard_CG::on_latex_clicked(bool values=true)
     system("gv -seascape midgard_tmp_document_kido.ps &");
 */
     system("pdflatex midgard_tmp_document_kido.tex");
-    system("acroread midgard_tmp_document_kido.pdf");
+    if(pdfViewerCheck(gv).active)
+      system("gv midgard_tmp_document_kido.pdf &");
+    else if (pdfViewerCheck(acroread).active)
+      system("acroread midgard_tmp_document_kido.pdf");
 
  }
 }      

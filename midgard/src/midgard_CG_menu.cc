@@ -19,6 +19,7 @@
 #include "midgard_CG.hh"
 #include <gtk--/box.h>
 #include <gtk--/pixmap.h>
+//#include <gtk--/radiomenuitem.h>
 #include "../pixmaps/midgard_logo_tiny.xpm"
 #include "../pixmaps/Regio_Hausregel_small.xpm"
 
@@ -59,6 +60,19 @@ void midgard_CG::menu_init()
   drucken_menu->append(*latex_empty);
   latex_empty->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),false));
 
+  Gtk::RadioMenuItem::Group _RadioMGroup_pdfViewer;
+  for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+   {
+     Gtk::Label *_l=manage (new Gtk::Label(i->text));
+     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
+     _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
+     // hier könnte noch ein Icon dazukommen
+     if(!i->radio_menu_item) continue;
+     i->radio_menu_item = manage(new class Gtk::RadioMenuItem(_RadioMGroup_pdfViewer));
+     i->radio_menu_item->add(*_tab);
+     i->radio_menu_item->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::pdfViewer_setzen_from_menu),i->index));
+     drucken_menu->append(*(i->radio_menu_item));
+   }
   menu->append(*drucken);
 
 //Regionen/////////////////////////////////////////////////////////////////////
@@ -289,3 +303,14 @@ void midgard_CG::Hausregeln_init()
  list_Hausregeln.push_back(st_Haus(Gold,gold,"1 GS entspricht 1 GFP",false));
 }
 
+void midgard_CG::pdfViewer_init()
+{
+  Gtk::RadioMenuItem *menu_gv;
+  list_pdfViewer.push_back(st_pdfViewer(gv,menu_gv,
+                           "pdf Dokument mit 'gv' betrachten",
+                           false));
+  Gtk::RadioMenuItem *menu_acroread;
+  list_pdfViewer.push_back(st_pdfViewer(acroread,menu_acroread,
+                           "pdf Dokument mit 'acroread' betrachten",
+                           true));
+}

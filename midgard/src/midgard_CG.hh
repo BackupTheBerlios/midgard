@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.180 2002/02/21 21:56:26 thoma Exp $
+// $Id: midgard_CG.hh,v 1.181 2002/02/22 09:46:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -71,7 +71,18 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void menu_gradanstieg_init();
         void Optionen_init();
         void Hausregeln_init();
+        void pdfViewer_init();
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
+
+     
+        enum pdfViewerIndex {gv,acroread};
+        struct st_pdfViewer {pdfViewerIndex index; 
+                             Gtk::RadioMenuItem *radio_menu_item;
+                             std::string text;
+                             bool active;
+               st_pdfViewer(pdfViewerIndex i,Gtk::RadioMenuItem *r,
+                            std::string t, bool a) 
+                  : index(i),radio_menu_item(r),text(t),active(a) {} };
 
         enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,
                             WizardStarten,Wizard_immer_starten,gw_wuerfeln,
@@ -143,16 +154,21 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<st_Haus> list_Hausregeln;
         std::list<st_Optionen>  list_Optionen;
         std::list<st_OptionenM> list_OptionenM;
+        std::list<st_pdfViewer> list_pdfViewer;
 
         st_Optionen OptionenCheck(OptionenIndex oi);
         st_Haus HausregelCheck(HausIndex hi);
+        st_pdfViewer pdfViewerCheck(pdfViewerIndex pi);
+
         void setOption(std::string os,bool b);
         void setHausregeln(std::string hs,bool b);
+        void setpdfViewer(std::string is,bool b);
         void setAllHausregeln(bool b);
 
         void Hausregeln_setzen_from_menu(HausIndex index);
         void Optionen_setzen_from_menu(OptionenIndex index);
         void OptionenM_setzen_from_menu(OptionenIndex index);
+        void pdfViewer_setzen_from_menu(pdfViewerIndex index);
 
         bool modify_bool;
         bool kido_bool;
@@ -177,6 +193,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void optionmenu_init();
         void optionmenu_stand_deactivate();
         void optionmenu_hand_deactivate();
+        void pdf_viewer();
         void regnot(const std::string& sadd);
         void fill_typauswahl();
         void fill_typauswahl_2();
