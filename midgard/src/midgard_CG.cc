@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.348 2004/12/01 08:12:50 christof Exp $
+// $Id: midgard_CG.cc,v 1.349 2004/12/10 23:24:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,14 +84,15 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   
 //  srand(time(0));
 // ToolBar: StyleIcon
+  button_neuer_charakter->set_tooltips(&_tooltips);
   button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter));
   button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
   button_neuer_charakter->set_relief(Gtk::RELIEF_NONE);
-  button_neuer_charakter->set_tooltips(&_tooltips);
+  button_speichern->set_tooltips(&_tooltips);
   button_speichern->add(MagusImage("SaveChar-trans-50.xpm"),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
   button_speichern->add(MagusImage("SaveChar-trans-50.xpm"),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
   button_speichern->set_relief(Gtk::RELIEF_NONE);
-  button_speichern->set_tooltips(&_tooltips);
+  button_main_drucken->set_tooltips(&_tooltips);
   button_main_drucken->add(MagusImage("PrintChar-trans-50.xpm"),"Abenteurer\ndrucken",SigC::slot(*this,&midgard_CG::on_latex));
   button_main_drucken->add(MagusImage("PrintChar-trans-50.xpm"),"sichtbare\nAusrüstung\ndrucken",SigC::slot(*this,&midgard_CG::on_nur_sichtbares_drucken));
   button_main_drucken->add(MagusImage("PrintChar-trans-50.xpm"),"gesamte\nAusrüstung\ndrucken",SigC::slot(*this,&midgard_CG::on_auch_unsichtbares_drucken));
@@ -100,7 +101,6 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   button_main_drucken->add(MagusImage("PrintChar-trans-50.xpm"),"Leeres\nDokument\ndrucken",SigC::slot(*this,&midgard_CG::on_leeres_abenteurerdokument_drucken));
   button_main_drucken->add(MagusImage("PrintChar-trans-50.xpm"),"Spielleiter-\nübersicht\ndrucken",SigC::slot(*this,&midgard_CG::on_spielleiterbogen_drucken_activate));
   button_main_drucken->set_relief(Gtk::RELIEF_NONE);
-  button_main_drucken->set_tooltips(&_tooltips);
   ImageLabelKnopf(button_undo,MagusImage("Undo.xpm"),"Zurück");
   ImageLabelKnopf(button_redo,MagusImage("redo.xpm"),"Vorwärts");
   

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.15 2004/11/29 17:26:49 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.16 2004/12/10 23:24:32 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -643,6 +643,7 @@ void Abenteurer::desteigern(unsigned kosten)
     case ws_Unterweisung:
       gold_k = gold_kosten(kosten);
       ep_k = ep_kosten(kosten);
+      break;
     default: assert(!"desteigern: wie denn das?");
   }
   if(!optionen.HausregelCheck(Optionen::Gold).active) gold_k*=10;

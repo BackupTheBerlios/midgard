@@ -24,11 +24,6 @@ Beim Verlernen wird die Fertigkeit nicht gelöscht.
 Waffen (Grundfertigkeiten) steigern (außer Buckler) kostet jeweils 1000 FP, 
 reduzieren bringt 500 FP und lassen sich nicht auf Werte >8 Steigern 
 
-Bei den Buttons für Grad anpassen und Eigenschaften erscheinen die Icons
-erst, nachdem diese zum ersten mal aktiviert wurden (sobald die Punkte 
-für einen neuen Grad reichen, bzw. wenn auf die Eigenschaft gewürfelt 
-werden kann.)
-
 Dazu kommen sporadische Segfaults.
 
 + Filerequester Umstellung beenden 

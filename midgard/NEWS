@@ -4,6 +4,8 @@ Version 0.9.8
 - Komplettes Überarbeiten der Steigern API
 - Verlernen sollte jetzt gehen (neue überarbeitete API)
 - Viele Radiobutton-Felder durch ChoiceButtons ersetzt (spart Platz!)
+- Grafik in SteigernKnopffeld wieder da
+- Verlernen geht wieder (nur noch 1 Knopf für reduzieren/verlernen)
 
 -------------- TODO ----------------
 
