@@ -75,7 +75,7 @@ void Zauber::get_Zauber()
     agens=tag->getAttr("Agens");
     prozess=tag->getAttr("Prozess");
     reagens=tag->getAttr("Reagens");
-//    zusatzbool=tag->getBoolAttr("Zusätze",false);
+    enum_zusatz=tag->getIntAttr("Zusätze",ZNone);
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
          Vzusatz.push_back(i->getAttr("Name"));

@@ -28,7 +28,7 @@ CREATE TABLE "zauber" (
 	"material" text,
 	"spruchrolle" boolean DEFAULT 'f'::bool NOT NULL,
 	"thaumagram" text,
-	"zusaetze" boolean
+	"zusaetze" int
 );
 
 --
@@ -540,7 +540,7 @@ Tiefschlaf	3000	6	Geste	5	H&D	\N	\N				10 s	B	Körper	1 Ws	6 h	druidisch		f	Siege
 Tiere rufen	600	3-9	Wort	3	\N	\N	\N	Magan	beherrscht	Wasser	10 s	2 km	Geist	max 10 Ws	10 min	druidisch		t		\N
 Tiergestalt	2000	6	Geste	5	\N	\N	\N	Wasser	verwandelt	Erde	20 s	0	Körper	selbst	perm	druidisch	Fellstück oder Feder	f		\N
 Tierisches Handeln	3000	#Ws*6	Geste	5	\N	\N	\N	Wasser	beherrscht	Luft	20 s	30 m	Geist	max 3 Ws	var	dämonisch	Tierblutmischung	t	Siegel	\N
-Tiersprache	1500	4	Wort	4	\N	\N	\N	Wasser	erkennt	Luft	15 s	15 m	Körper	selbst	2 min	druidisch		t		t
+Tiersprache	1500	4	Wort	4	\N	\N	\N	Wasser	erkennt	Luft	15 s	15 m	Körper	selbst	2 min	druidisch		t		1
 Todeshauch	800	3	Geste	3	\N	\N	\N	Eis	erschafft	Wasser	1 s	0	Umgebung	3 m Uk/R	1 min	dämonisch	Fliegenpilzasche	t	Rune	\N
 Todeskeule	1000	3	Geste	3	\N	\N	\N	Eis	verändert	Erde	10 s	0	Umgebung	1 Ob	2 min	dämonisch		f		\N
 Todeszauber	10000	SchP	Wort	6	\N	\N	\N	Eis	zerstört	Holz	15 s	30 m	Körper	1 Ws	0	dämonisch		t		\N

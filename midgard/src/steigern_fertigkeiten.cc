@@ -28,7 +28,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
   list_Fertigkeit_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
-     if ((*i)->ist_gelernt(list_Fertigkeit) && !cH_Fertigkeit(*i)->ZusatzEnum(Typ)) continue ;
+     if ((*i)->ist_gelernt(list_Fertigkeit) && cH_Fertigkeit(*i)->ZusatzEnum(Typ)==MidgardBasicElement::ZNone) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
      if (f->Name()=="Zaubern" && Typ[0]->is_mage() || f->Name()=="Zaubern" && Typ[1]->is_mage() ) continue;
