@@ -64,6 +64,10 @@ midgard_CG_Ausnahmen.cc
 get_standard_zaubermittel.cc
 get_spezies_constraint.cc
 xml.cc
+xmlexport.cc
+xmlimport.cc
 xml
+midgard_xmlexport
+midgard_xmlimport
 midgard_CG_magier_spezialgebiet.cc
 Window_herkunft.cc
