@@ -238,8 +238,8 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'ang.Fertigkeit') ;         
             SQLerror::test(__FILELINE__);
       }
-   for (std::list<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();
-         i!=vec_Fertigkeiten.end();++i)
+   for (std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();
+         i!=list_Fertigkeiten.end();++i)
       {
          strncpy(db_fertigkeit, (*i)->Name().c_str(),sizeof(db_fertigkeit));
          db_wert =  (*i)->Erfolgswert() ;

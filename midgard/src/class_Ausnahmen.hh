@@ -53,14 +53,15 @@ class Ausnahmen : public cH_Data_Ausnahmen
 
 
  public:
+   Ausnahmen() {};
    Ausnahmen(const Grundwerte& Werte,const vector<H_Data_typen>& Typ, 
-      std::vector<H_Data_beruf>& vec_Beruf);
+      const std::vector<H_Data_beruf>& vec_Beruf);
 
    static void clear(){cache.clear();}
 
 //   vector<cH_Data_Ausnahmen> get_Ausnahmen() const {return vec_Ausnahmen;}
-   float Ausnahmen_float(const std::string& name);
-   std::string  Ausnahmen_string(const std::string& name, const std::string& alt,const std::string& alt2);
+   float Ausnahmen_float(const std::string& name) const;
+   void Ausnahmen_string(const std::string& name, vector<std::string>& standard) const;
 };
 
 #endif

@@ -32,7 +32,8 @@ exec sql include sqlca;
 
 void midgard_CG::get_kido(std::list<H_Data_kido>& vec_Kido)
 {
-  double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"KiDo");
+//  double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"KiDo");
+  cH_Fertigkeit kido("KiDo",Typ,Ausnahmen(Werte,Typ,vec_Beruf));
   exec sql begin declare section;
    char db_name_orig[50],db_name[50],db_stufe[20],db_stil[20],db_effekt[1024];
    int db_fp,db_ap;
@@ -48,7 +49,7 @@ void midgard_CG::get_kido(std::list<H_Data_kido>& vec_Kido)
      (*i)->set_Name(db_name);
      (*i)->set_Stufe(db_stufe);
      (*i)->set_Stil(db_stil);
-     (*i)->set_Kosten (db_fp*fac);
+     (*i)->set_Kosten (db_fp*kido->Standard_Faktor());
      (*i)->set_Ap(db_ap);
      (*i)->set_Effekt(db_effekt);  
    }

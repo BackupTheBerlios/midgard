@@ -45,12 +45,12 @@ void midgard_CG::on_zauber_laden_clicked()
       if (Typ[0]->is_mage() && !Typ[1]->is_mage()) alle_zauber += " AND ";
       if (Typ[1]->is_mage()) alle_zauber += "("+Typ[1]->Short()+" = 'G' OR "+Typ[1]->Short()+" = 'S' OR "+Typ[1]->Short()+" = 'A') AND ";
     }
-  std::string squery = "SELECT distinct z.name ";
-  squery +=" FROM arkanum_zauber z WHERE "+alle_zauber+"\
-      z.name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
+  std::string squery = "SELECT distinct name ";
+  squery +=" FROM arkanum_zauber WHERE "+alle_zauber+"\
+      name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
       WHERE charakter_name = '"+Werte.Name_Charakter()+"' \
       AND version = '"+Werte.Version()+"') \
-      ORDER BY z.name ";
+      ORDER BY name ";
 
    strncpy(query,squery.c_str(),sizeof(query));
    Transaction tr;
@@ -59,13 +59,16 @@ void midgard_CG::on_zauber_laden_clicked()
 
    exec sql open zauber_ein;
    SQLerror::test(__FILELINE__);
+   int count=0;
+   laden_label->show();
    while (true)
       {
        exec sql fetch zauber_ein into :db_name;
        SQLerror::test(__FILELINE__,100);  
        if (sqlca.sqlcode) break;
-       Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
-       cH_Zauber zauber(db_name,Typ);  
+       laden_label->set_text(itos(++count)+" Zauber geladen");
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       cH_Zauber zauber(db_name,Typ,Ausnahmen(Werte,Typ,vec_Beruf));  
        if (zauber->Zauberart()=="Zaubersalz" && !checkbutton_zaubersalze->get_active())
           continue;
        if (zauber->Zauberart()=="Beschwörung" && !checkbutton_beschwoerungen->get_active())
@@ -73,6 +76,7 @@ void midgard_CG::on_zauber_laden_clicked()
        if (region_check(zauber->Region()))
           list_Zauber_neu.push_back(zauber);            
       }
+   laden_label->hide();
    exec sql close zauber_ein;
    tr.commit();
    zauber_zeigen();
@@ -204,7 +208,7 @@ void midgard_CG::on_spruchrolle_toggled()
 
 int midgard_CG::spruchrolle_wuerfeln(std::string name)
 {
- cH_Zauber zauber(name,Typ);
+ cH_Zauber zauber(name,Typ,Ausnahmen(Werte,Typ,vec_Beruf));
 
  Random random;
  int erf_z = Werte.Zaubern_wert() + Werte.bo_Za() ;
@@ -280,8 +284,8 @@ void midgard_CG::move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zaub
  for (std::list<cH_Zauberwerk>::iterator i=von.begin();i!= von.end();++i) 
      if ((*i)->Name()==name) 
        {nach.splice(nach.begin(),von,i);break;}
-   zauberwerk_laden();
-   zauberwerk_zeigen();
+ zauberwerk_laden();
+ zauberwerk_zeigen();
 }
 
 
@@ -290,13 +294,7 @@ void midgard_CG::on_steigern_zauberwerk_tree_alt_select(const std::string& name,
 {   
    if (steigern_bool) desteigern(kosten);
    Werte.add_GFP(-kosten);
-
-/*   for (std::vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin();
-            i!= vec_Zaubermittel.end();++i) 
-      if ((*i)->Name()==name) {vec_Zaubermittel.erase(i);break;}
-*/
    move_zauberwerk(list_Zauberwerk,list_Zauberwerk_neu,name);
-//   on_checkbutton_zaubermittel_toggled();
 }
 
 void midgard_CG::zauberwerk_zeigen()
@@ -311,12 +309,8 @@ void midgard_CG::zauberwerk_zeigen()
 void midgard_CG::on_steigern_zauberwerk_tree_neu_select(const std::string& name, const std::string& stufe, int kosten)
 {   
   if (!steigern(kosten,"Zauber")) return;
-//  vec_Zaubermittel.push_back(new Data_zaubermittel(stufe,name));
   Werte.add_GFP(kosten);  
   move_zauberwerk(list_Zauberwerk_neu,list_Zauberwerk,name);
-
-//   get_Zaubermittel(vec_Zaubermittel);
-//   on_checkbutton_zaubermittel_toggled();
 }
 
 void midgard_CG::show_altes_zauberwerk()
@@ -366,100 +360,24 @@ void midgard_CG::zauberwerk_laden()
  exec sql declare zauberm_ein cursor for zauberm_ein_ ;
  exec sql open zauberm_ein;
  SQLerror::test(__FILELINE__);
+ int count=0;
+ laden_label->show();
  while (true)
    {
      exec sql fetch zauberm_ein into :db_name;
      SQLerror::test(__FILELINE__,100);  
      if (sqlca.sqlcode) break;
+     laden_label->set_text(itos(++count)+" Zauberwerk geladen");
+     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 
-//     double fac= midgard_CG::get_standard_zaubermittel(Typ,db_name);
-
-//     std::string art=db_art ;
      cH_Zauberwerk zauberwerk(db_name,Typ);
-     if ( (zauberwerk_voraussetzung(db_name) || checkbutton_alle_zauber->get_active() )
+     if ( (Zauber::zauberwerk_voraussetzung(db_name,Werte) || checkbutton_alle_zauber->get_active() )
          && region_check(zauberwerk->Region()))
        {
          list_Zauberwerk_neu.push_back(zauberwerk);
        }
    }
+ laden_label->hide();
  exec sql close zauberm_ein;
  tr.commit();
-}
-
-/*
-void midgard_CG::get_Zaubermittel(std::vector<H_Data_zaubermittel>& vec_Zaubermittel)
-{
- exec sql begin declare section;
-   char db_name[50], db_art[50], db_zeitaufwand[30], db_kosten[50];
-   int db_gfp;
-   char db_stufe[10];
- exec sql end declare section;
- for (std::vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin();
-      i!=vec_Zaubermittel.end();++i)
-   {
-    double fac= midgard_CG::get_standard_zaubermittel(Typ,(*i)->Name());
-    strncpy(db_name,((*i)->Name()).c_str(),sizeof(db_name));
-    strncpy(db_stufe,((*i)->Stufe()).c_str(),sizeof(db_name));
-    exec sql select kosten_gfp, art, zeitaufwand, kosten
-      into :db_gfp, :db_art, :db_zeitaufwand, :db_kosten
-      from zauberwerk where name = :db_name and stufe = :db_stufe;
-    SQLerror::test(__FILELINE__);    
-    (*i)->set_Kosten(db_gfp*fac);
-    (*i)->set_Art(db_art);
-//    (*i)->set_Stufe(db_stufe);
-    (*i)->set_Zeitaufwand(db_zeitaufwand);
-    (*i)->set_Preis(db_kosten);
-   }
-}
-*/
-
-bool midgard_CG::zauberwerk_voraussetzung(const std::string& name)
-{
- exec sql begin declare section;
-   char db_name[50];
-   char db_voraus[10][50];
-   char db_operator[10][50];
- exec sql end declare section;
- strncpy(db_name,name.c_str(),sizeof(db_name));
- exec sql select voraussetzung, coalesce(verbindung,'') into :db_voraus, :db_operator 
-   from zauberwerk_voraussetzung where name = :db_name;
- SQLerror::test(__FILELINE__,100);    
- if (sqlca.sqlcode) return true; // KEINE VORAUSSETZUNG
- int vanz=sqlca.sqlerrd[2];
- 
- exec sql begin declare section;
-   char query[1024]; 
-   int db_erg;
- exec sql end declare section;
- std::vector<bool> vb;
- for (int i=0;i<vanz;++i)
-   {
-    snprintf(query,sizeof(query),"select count(fertigkeit)\
-      from charaktere_fertigkeiten \
-      where charakter_name = '%s' and version = '%s' and fertigkeit = '%s'",
-      (Werte.Name_Charakter()).c_str(),(Werte.Version()).c_str(),db_voraus[i]);
-    exec sql prepare qein_ from :query ;
-    exec sql declare qein cursor for qein_;
-    exec sql open qein;
-    SQLerror::test(__FILELINE__);
-    exec sql fetch qein into :db_erg;
-    exec sql close qein;
-    SQLerror::test(__FILELINE__);    
-    if (db_erg==0) vb.push_back(false);
-    else vb.push_back(true);
-   }
- bool back ;
- for (int i=0;i<vanz;++i)
-   {
-     std::string op = db_operator[i];     
-//std::cout <<name <<"\t"<< db_voraus[i]<<"\t"<<vb[i]<<"\t"<<op<<"\n";
-     // EINE VORAUSSETZUNG
-     if (op==""    && vb[i]==true ) return true;
-     if (op==""    && vb[i]==false) return false;
-     // MEHRERE VORAUSSETZUNGEN
-     if (op=="or"  && vb[i]==true) return true; // EINE BELIEBIGE
-     if (op=="and" && vb[i]==true) back = true; // ALLE NÖTIG
-     else { back=false;break;}               
-   }
- return back;
 }

@@ -81,14 +81,14 @@ extern		"C"
 
 cH_Zauber::cache_t cH_Zauber::cache;
 
-cH_Zauber::cH_Zauber(const std::string& name,const vector<H_Data_typen>& Typ,int lernpunkte=0)
+cH_Zauber::cH_Zauber(const std::string& name,const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen,int lernpunkte=0)
 {
  st_index index(name,Typ,lernpunkte);
  cH_Zauber *cached(cache.lookup(index));
  if (cached) *this=*cached;
  else
   {
-   *this=cH_Zauber(new Zauber(name,Typ,lernpunkte));
+   *this=cH_Zauber(new Zauber(name,Typ,ausnahmen,lernpunkte));
    cache.Register(index,*this);
   }
 }
@@ -245,10 +245,12 @@ void Zauber::get_Zauber()
 
 int Zauber::Kosten() const
 {
-  double fac; 
-    if      (midgard_CG::standard_one_G(Standard()) ) fac = 0.5;
-    else if (midgard_CG::standard_all_S(Standard()) ) fac = 1.0;
-    else fac = 5.0; 
+  double fac = ausnahmen.Ausnahmen_float(Name()); 
+  if (fac!=0) return (int)(fac*GrundKosten());
+
+  if      (midgard_CG::standard_one_G(Standard()) ) fac = 0.5;
+  else if (midgard_CG::standard_all_S(Standard()) ) fac = 1.0;
+  else fac = 5.0; 
 
   return (int)(fac*GrundKosten());
 }
@@ -284,19 +286,19 @@ int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte) const
      
     
  
-#line 131 "Zauber.pgcc"
+#line 133 "Zauber.pgcc"
    char  db_ergebnis [ 20 ]   ;
  
-#line 132 "Zauber.pgcc"
+#line 134 "Zauber.pgcc"
    char  db_agens [ 20 ]   ;
  
-#line 133 "Zauber.pgcc"
+#line 135 "Zauber.pgcc"
    char  db_prozess [ 20 ]   ;
  
-#line 134 "Zauber.pgcc"
+#line 136 "Zauber.pgcc"
    char  db_zauber [ 100 ]   ;
 /* exec sql end declare section */
-#line 135 "Zauber.pgcc"
+#line 137 "Zauber.pgcc"
 
  strncpy(db_zauber,Name().c_str(),sizeof(db_zauber));
  
@@ -310,7 +312,7 @@ int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte) const
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, 
 	ECPGt_char,(db_prozess),20L,1L,20*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EORT);}
-#line 139 "Zauber.pgcc"
+#line 141 "Zauber.pgcc"
 
  SQLerror::test(__FILELINE__);
 
@@ -330,13 +332,13 @@ void Zauber::set_Standard(const vector<H_Data_typen>& Typ)
     
     
   
-#line 155 "Zauber.pgcc"
+#line 157 "Zauber.pgcc"
    char  db_standard [ 20 ]   ,  db_standard2 [ 20 ]   ;
  
-#line 156 "Zauber.pgcc"
+#line 158 "Zauber.pgcc"
    char  query [ 1000 ]   ;
 /* exec sql end declare section */
-#line 157 "Zauber.pgcc"
+#line 159 "Zauber.pgcc"
 
   strncpy(db_standard2,"",sizeof(db_standard2));
   std::string squery = "SELECT ";
@@ -347,15 +349,15 @@ void Zauber::set_Standard(const vector<H_Data_typen>& Typ)
   strncpy(query,squery.c_str(),sizeof(query));
   Transaction tr;
   { ECPGprepare(__LINE__, "standard_zauber_ein_", query);}
-#line 166 "Zauber.pgcc"
+#line 168 "Zauber.pgcc"
 
   /* declare standard_zauber_ein  cursor for ? */
-#line 167 "Zauber.pgcc"
+#line 169 "Zauber.pgcc"
 
   { ECPGdo(__LINE__, NULL, "declare standard_zauber_ein  cursor for ?", 
 	ECPGt_char_variable,(ECPGprepared_statement("standard_zauber_ein_")),1L,1L,1*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EOIT, ECPGt_EORT);}
-#line 168 "Zauber.pgcc"
+#line 170 "Zauber.pgcc"
 
   SQLerror::test(__FILELINE__);
   if (Typ[0]->is_mage() && Typ[1]->is_mage())     { ECPGdo(__LINE__, NULL, "fetch standard_zauber_ein", ECPGt_EOIT, 
@@ -363,15 +365,103 @@ void Zauber::set_Standard(const vector<H_Data_typen>& Typ)
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, 
 	ECPGt_char,(db_standard2),20L,1L,20*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EORT);}
-#line 171 "Zauber.pgcc"
+#line 173 "Zauber.pgcc"
 
   else     { ECPGdo(__LINE__, NULL, "fetch standard_zauber_ein", ECPGt_EOIT, 
 	ECPGt_char,(db_standard),20L,1L,20*sizeof(char), 
 	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EORT);}
-#line 173 "Zauber.pgcc"
+#line 175 "Zauber.pgcc"
 
   SQLerror::test(__FILELINE__);
   standard.clear();
   standard.push_back(db_standard);
   standard.push_back(db_standard2);
+  ausnahmen.Ausnahmen_string(Name(),standard);
+}
+
+
+bool Zauber::zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte)
+{
+ /* exec sql begin declare section */
+    
+    
+    
+ 
+#line 187 "Zauber.pgcc"
+   char  db_name [ 50 ]   ;
+ 
+#line 188 "Zauber.pgcc"
+   char  db_voraus [ 10 ] [ 50 ]   ;
+ 
+#line 189 "Zauber.pgcc"
+   char  db_operator [ 10 ] [ 50 ]   ;
+/* exec sql end declare section */
+#line 190 "Zauber.pgcc"
+
+ strncpy(db_name,name.c_str(),sizeof(db_name));
+ 
+{ ECPGdo(__LINE__, NULL, "select  voraussetzung  , coalesce( verbindung  , '' )  from zauberwerk_voraussetzung where name  = ?  ", 
+	ECPGt_char,(db_name),50L,1L,50*sizeof(char), 
+	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EOIT, 
+	ECPGt_char,(db_voraus),50L,10L,50*sizeof(char), 
+	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, 
+	ECPGt_char,(db_operator),50L,10L,50*sizeof(char), 
+	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EORT);}
+#line 193 "Zauber.pgcc"
+
+ SQLerror::test(__FILELINE__,100);    
+ if (sqlca.sqlcode) return true;  int vanz=sqlca.sqlerrd[2];
+ 
+ /* exec sql begin declare section */
+     
+    
+ 
+#line 199 "Zauber.pgcc"
+   char  query [ 1024 ]   ;
+ 
+#line 200 "Zauber.pgcc"
+   int  db_erg   ;
+/* exec sql end declare section */
+#line 201 "Zauber.pgcc"
+
+ std::vector<bool> vb;
+ for (int i=0;i<vanz;++i)
+   {
+    snprintf(query,sizeof(query),"select count(fertigkeit)\
+      from charaktere_fertigkeiten \
+      where charakter_name = '%s' and version = '%s' and fertigkeit = '%s'",
+      (Werte.Name_Charakter()).c_str(),(Werte.Version()).c_str(),db_voraus[i]);
+    { ECPGprepare(__LINE__, "qein_", query);}
+#line 209 "Zauber.pgcc"
+
+    /* declare qein  cursor for ? */
+#line 210 "Zauber.pgcc"
+
+    { ECPGdo(__LINE__, NULL, "declare qein  cursor for ?", 
+	ECPGt_char_variable,(ECPGprepared_statement("qein_")),1L,1L,1*sizeof(char), 
+	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EOIT, ECPGt_EORT);}
+#line 211 "Zauber.pgcc"
+
+    SQLerror::test(__FILELINE__);
+    { ECPGdo(__LINE__, NULL, "fetch qein", ECPGt_EOIT, 
+	ECPGt_int,&(db_erg),1L,1L,sizeof(int), 
+	ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EORT);}
+#line 213 "Zauber.pgcc"
+
+    { ECPGdo(__LINE__, NULL, "close qein", ECPGt_EOIT, ECPGt_EORT);}
+#line 214 "Zauber.pgcc"
+
+    SQLerror::test(__FILELINE__);    
+    if (db_erg==0) vb.push_back(false);
+    else vb.push_back(true);
+   }
+ bool back ;
+ for (int i=0;i<vanz;++i)
+   {
+     std::string op = db_operator[i];     
+          if (op==""    && vb[i]==true ) return true;
+     if (op==""    && vb[i]==false) return false;
+          if (op=="or"  && vb[i]==true) return true;      if (op=="and" && vb[i]==true) back = true;      else { back=false;break;}               
+   }
+ return back;
 }

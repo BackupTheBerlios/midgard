@@ -161,9 +161,9 @@ void midgard_CG::on_steigern_schrift_tree_neu_select(const std::string& name, co
 void midgard_CG::show_alte_sprachen()
 {
    std::vector<cH_RowDataBase> datavec;
-   double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Sprache");
-   for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();
-            i!=vec_Sprachen.end();++i)
+   cH_Fertigkeit sprache("Sprache",Typ,Ausnahmen(Werte,Typ,vec_Beruf));
+//   double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Sprache");
+   for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();i!=vec_Sprachen.end();++i)
       {
          exec sql begin declare section;
             int db_max_erfolgswert;
@@ -202,6 +202,7 @@ void midgard_CG::show_alte_sprachen()
          SQLerror::test(__FILELINE__);
          if (db_reduzieren !=0) db_verlernen = 0 ;
          if (db_max_erfolgswert==(*i)->Wert()) db_steigern=0;
+         double fac=sprache->Standard_Faktor();
          datavec.push_back(new Data_sprache((*i)->Name(),(*i)->Wert(),
             db_steigern*fac,db_reduzieren*fac,db_verlernen * fac));
       }
@@ -227,13 +228,14 @@ void midgard_CG::show_neue_sprachen()
    AND charakter_name = :db_cname AND version = :db_version) order by name;
   SQLerror::test(__FILELINE__);
  exec sql open ein;
- double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Sprache");
+// double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Sprache");
+ cH_Fertigkeit sprache("Sprache",Typ,Ausnahmen(Werte,Typ,vec_Beruf));
   while (true)
    {
       exec sql fetch ein into :db_name, :db_fp, :db_urschrift;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
-      datavec.push_back(new Data_sprache(db_name,db_urschrift,0,db_fp*fac));
+      datavec.push_back(new Data_sprache(db_name,db_urschrift,0,db_fp*sprache->Standard_Faktor()));
    }
  exec sql close ein;
  tr.close();
@@ -249,14 +251,15 @@ void midgard_CG::show_alte_schriften()
    char db_typ[20], db_name[20];
    int db_kosten;
   exec sql end declare section;
-  double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Lesen/Schreiben");
+//  double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Lesen/Schreiben");
+  cH_Fertigkeit schrift("Lesen/Schreiben",Typ,Ausnahmen(Werte,Typ,vec_Beruf));
   for (std::vector<H_Data_schrift>::const_iterator i=vec_Schriften.begin();
       i!=vec_Schriften.end();++i)
    {
       strncpy(db_name,((*i)->Urschrift()).c_str(),sizeof(db_name));
       exec sql select typ, kosten into :db_typ, :db_kosten 
                            from schrift where name = :db_name;
-      datavec.push_back(new Data_schrift((*i)->Urschrift(),db_typ,db_kosten*fac));
+      datavec.push_back(new Data_schrift((*i)->Urschrift(),db_typ,db_kosten*schrift->Standard_Faktor()));
    }
   alte_schrift_tree->setDataVec(datavec);
 }
@@ -279,14 +282,15 @@ void midgard_CG::show_neue_schriften()
    AND charakter_name = :db_cname AND version = :db_version) order by name, typ;
   SQLerror::test(__FILELINE__);
  exec sql open ein2;
- double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Lesen/Schreiben");
-  while (true)
+// double fac = midgard_CG::get_standard_fertigkeit(Typ[0]->Short(),Typ[1]->Short(),"Lesen/Schreiben");
+ cH_Fertigkeit schrift("Lesen/Schreiben",Typ,Ausnahmen(Werte,Typ,vec_Beruf));
+ while (true)
    {
       exec sql fetch ein2 into :db_name, :db_fp, :db_typ;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
 //      os << db_fp*fac <<"\t"<<db_name<<"\t"<<db_typ <<"\n";
-      datavec.push_back(new Data_schrift(db_name,db_typ,db_fp*fac));
+      datavec.push_back(new Data_schrift(db_name,db_typ,db_fp*schrift->Standard_Faktor()));
    }
  exec sql close ein2;
  tr.close();

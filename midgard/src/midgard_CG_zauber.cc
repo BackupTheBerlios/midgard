@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.30 2001/10/07 08:05:32 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.31 2001/10/08 12:53:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@ void midgard_CG::on_zauber_wahl_clicked()
       manage(new WindowInfo(strinfo));
       return;
    }
-  manage(new Zauber_auswahl(this,Werte,Typ,lernpunkte.Zauber()));
+  manage(new Zauber_auswahl(this,Werte,vec_Beruf,Typ,lernpunkte.Zauber()));
 }
 
 void midgard_CG::show_zauber()
@@ -63,7 +63,7 @@ void midgard_CG::zauber_uebernehmen(const std::list<cH_Zauber>& saz)
 void midgard_CG::angeborene_zauber()
 {
  if (Typ[0]->Short()=="eBe" || Typ[1]->Short()=="eBe" || Typ[0]->Short()=="dBe" || Typ[1]->Short()=="dBe" ) 
-    list_Zauber.push_back(cH_Zauber("Lehrersuche",Typ));
+    list_Zauber.push_back(cH_Zauber("Lehrersuche",Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
  if (Werte.Spezies()=="Elf") 
-    list_Zauber.push_back(cH_Zauber("Erkennen der Aura",Typ));
+    list_Zauber.push_back(cH_Zauber("Erkennen der Aura",Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
 }

@@ -87,14 +87,14 @@ void midgard_CG::spielleiter_export()
     fout << ", ";
    }
  // Fertigkeiten
- for(std::list<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
+ for(std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i)
 // for (unsigned int i=0;i<vec_fertigkeiten.size();++i)
    {
     std::string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
     fout <<(*i)->Name() << wert ;
 //    if (i!=vec_fertigkeiten.size()-1) fout << ", ";
-    if (i != vec_Fertigkeiten.end()) fout << ", ";
+    if (i != list_Fertigkeiten.end()) fout << ", ";
    }
  fout << " - ";
 // for (unsigned int i=0; i<vec_sprachen.size();++i)

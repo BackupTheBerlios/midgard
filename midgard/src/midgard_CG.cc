@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.64 2001/10/07 08:05:31 thoma Exp $
+// $Id: midgard_CG.cc,v 1.65 2001/10/08 12:53:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -71,7 +71,7 @@ void midgard_CG::set_tree_titles()
  neue_fert.push_back("Wert");
  neue_fert.push_back("Lernkosten");
  neue_fert.push_back("Art");
- neue_fert.push_back("Vorraussetzungen");
+ neue_fert.push_back("Voraussetzungen");
  neue_fert_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_fert_tree->setTitles(neue_fert);
 
@@ -85,7 +85,7 @@ void midgard_CG::set_tree_titles()
  std::vector<string> neue_waffen;
  neue_waffen.push_back("Waffe");
  neue_waffen.push_back("Wert");
- neue_waffen.push_back("Vorraussetzung");
+ neue_waffen.push_back("Voraussetzung");
  neue_waffen_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_waffen_tree->setTitles(neue_waffen);
 
@@ -317,6 +317,7 @@ void midgard_CG::on_button_waffen_s_clicked()
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
+   laden_label->hide();
    button_abg_werte->set_sensitive(false);
    button_herkunft->set_sensitive(false);
    button_sprache->set_sensitive(false);
@@ -346,7 +347,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_fertigkeiten->set_sensitive(false);
    button_kido_auswahl->set_sensitive(false);       
 
-   vec_Fertigkeiten.clear();
+   list_Fertigkeiten.clear();
    vec_an_Fertigkeit.clear();
    vec_Waffen.clear();
    vec_Waffen_besitz.clear();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.70 2001/10/07 08:05:31 thoma Exp $
+// $Id: midgard_CG.hh,v 1.71 2001/10/08 12:53:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,6 +47,7 @@
 #include <map>
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
+#include "Fertigkeiten.hh"
 //#include "class_zauber.hh"
 #include "class_fertigkeiten.hh"
 #include "class_berufe.hh"
@@ -103,8 +104,8 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_typen> vec_Typen_2;
         std::vector<std::string> vec_spezialgebiet;
         std::vector<std::string> spezies_vector;
-        std::list<H_Data_fert> vec_Fertigkeiten;
-        std::list<H_Data_fert> vec_Fertigkeiten_neu;
+        std::list<cH_Fertigkeit> list_Fertigkeiten;
+        std::list<cH_Fertigkeit> list_Fertigkeiten_neu;
         std::vector<H_Data_fert> vec_an_Fertigkeit;
         std::vector<H_Data_waffen> vec_Waffen;
         std::vector<H_Data_waffen> vec_Waffen_besitz;
@@ -118,8 +119,6 @@ class midgard_CG : public midgard_CG_glade
 
         bool kido_bool;
         int maxkido;
-//        int steigern_EP_prozent;
-//        int grad_basiswerte;
         bool magie_bool;
         grad_anstieg Grad_Anstieg;
 
@@ -256,9 +255,10 @@ class midgard_CG : public midgard_CG_glade
         int steigern_womit(const std::string& fert);
 
         void on_fertigkeiten_laden_clicked();
-        void get_srv_kosten(const std::string& name, int erfolgswert, int &steigern,int &reduzieren,int &verlernen);
+//        void get_srv_kosten(const std::string& name, int erfolgswert, int &steigern,int &reduzieren,int &verlernen);
+        void get_srv_kosten(cH_Fertigkeit fertigkeit, int &steigern,int &reduzieren,int &verlernen);
         void fertigkeiten_zeigen();
-        void move_fertigkeiten(std::list<H_Data_fert>& von,std::list<H_Data_fert>& nach,std::string name);
+        void move_fertigkeiten(std::list<cH_Fertigkeit>& von,std::list<cH_Fertigkeit>& nach,std::string name);
         void on_steigern_fert_tree_alt_select(const std::string& fertigkeit, int wert, int steigern, int reduzieren, int verlernen);
         void on_steigern_fert_tree_neu_select(const std::string& fertigkeit, int wert, int lernkosten);
         void show_alte_fertigkeiten();
@@ -322,9 +322,7 @@ class midgard_CG : public midgard_CG_glade
         void move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,std::string name);
         void zauberwerk_laden();
         void zauberwerk_zeigen();
-//        void get_Zaubermittel(std::vector<H_Data_zaubermittel>& vec_Zaubermittel);
-//        float get_standard_zaubermittel(const vector<H_Data_typen>& Typ,const std::string& name);
-        bool zauberwerk_voraussetzung(const std::string& name);
+//        bool zauberwerk_voraussetzung(const std::string& name);
         void on_button_zauber_sort_clicked();
         void on_button_zaubermittel_sort_clicked();
 
@@ -379,7 +377,7 @@ class midgard_CG : public midgard_CG_glade
          void select_charakter(const std::string& name, const std::string& version);
          void zeige_werte(const Grundwerte& w);
          void setze_lernpunkte(const Lernpunkte& _lernpunkte);
-         void fertigkeiten_uebernehmen(const std::list<H_Data_fert>& saf);
+         void fertigkeiten_uebernehmen(const std::list<cH_Fertigkeit>& saf);
          void show_fertigkeiten();
          void waffen_uebernehmen(const std::vector<H_Data_waffen>& saw,map<std::string,string> wg);
          void waffe_besitz_uebernehmen(const std::vector<H_Data_waffen>& wbu);
@@ -387,8 +385,8 @@ class midgard_CG : public midgard_CG_glade
          void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
          void kido_uebernehmen(std::vector<string>& technik);
          double get_standard_waffen(const std::string& typ, const std::string& typ2,const std::string& waffe);
-         double get_standard_fertigkeit(const std::string& typ, const std::string& typ_2,const std::string& fertigkeit);
-         double get_standard_fertigkeit_(const std::string& ergebnis,const std::string& ergebnis2,const std::string& fertigkeiten);
+//         double get_standard_fertigkeit(const std::string& typ, const std::string& typ_2,const std::string& fertigkeit);
+//         double get_standard_fertigkeit_(const std::string& ergebnis,const std::string& ergebnis2,const std::string& fertigkeiten);
          std::string get_region_waffen(const std::string& waffe, const std::string& region,int mod);
          void sprache_uebernehmen(const std::string& s, int wert);
          void schrift_uebernehmen(const std::string& s, const std::string& t);

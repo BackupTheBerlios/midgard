@@ -26,7 +26,7 @@ exec sql include sqlca;
 Ausnahmen::cache_t Ausnahmen::cache;
 
 Ausnahmen::Ausnahmen(const Grundwerte& Werte,const vector<H_Data_typen>& Typ, 
-   std::vector<H_Data_beruf>& vec_Beruf)
+   const std::vector<H_Data_beruf>& vec_Beruf)
 {
   st_index index(Werte.Name_Charakter(),Werte.Version());
   vector<cH_Data_Ausnahmen> *cached(cache.lookup(index));
@@ -55,7 +55,7 @@ Ausnahmen::Ausnahmen(const Grundwerte& Werte,const vector<H_Data_typen>& Typ,
        squery = "select name, art, standard from ausnahmen \
          where typ=null \
          and (herkunft = '"+Werte.Herkunft()+"'";
-         for(std::vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
+         for(std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
             squery += " or beruf = '"+(*i)->Name()+"' ";
          squery += " or  stand = '"+Werte.Stand()+"' )";
       }
@@ -101,7 +101,7 @@ Ausnahmen::Ausnahmen(const Grundwerte& Werte,const vector<H_Data_typen>& Typ,
 */
 }
 
-float Ausnahmen::Ausnahmen_float(const std::string& name)
+float Ausnahmen::Ausnahmen_float(const std::string& name) const
 {
  for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
          i!=vec_Ausnahmen.end();++i)
@@ -109,15 +109,19 @@ float Ausnahmen::Ausnahmen_float(const std::string& name)
  return 0;
 }
 
-std::string Ausnahmen::Ausnahmen_string(const std::string& name, 
-               const std::string& alt,const std::string& alt2)
+void Ausnahmen::Ausnahmen_string(const std::string& name, 
+                vector<std::string>& standard) const
 {
+ assert(standard.size()==2);
 // for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
 //         i!=vec_Ausnahmen.end();++i)
 //cout << "Ausnahmen = "<<(*i)->Name()<<'-'<<name << (*i)->Standard()<<'\n';
  for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
          i!=vec_Ausnahmen.end();++i)
-   if ((*i)->Name()==name) return (*i)->Standard();
-   return alt;
+   if ((*i)->Name()==name) 
+    { standard[0] = "*"+(*i)->Standard()+"*";
+      standard[1] = "";
+    }
+//   return alt;
 //  return alt+" "+alt2;
 }

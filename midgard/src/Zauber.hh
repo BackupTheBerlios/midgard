@@ -7,6 +7,7 @@
 #include <Aux/CacheStatic.h>
 #include "class_Grundwerte.hh"
 #include "class_typen.hh"
+#include "class_Ausnahmen.hh"
 
 class Zauber : public HandleContent
 {
@@ -19,18 +20,14 @@ class Zauber : public HandleContent
       zauberart,p_element,s_element,region; 
    int kosten;
    int lernpunkte;
+   Ausnahmen ausnahmen;
 
    void get_Zauber();
    int GrundKosten() const {  return kosten; }
    void set_Standard(const vector<H_Data_typen>& Typ) ;
  public: 
-//   Zauber(const std::string& n) : name(n) {get_Zauber();} 
-   Zauber(const std::string& n,const vector<H_Data_typen>& Typ,int l=0) 
-      : name(n),lernpunkte(l) {get_Zauber();set_Standard(Typ);} 
-
-//   void set_Standard(const vector<std::string>& s ) const 
-//         {assert(s.size()==2); standard.clear(); standard.push_back(s[0]); standard.push_back(s[1]);}
-//   void set_Lernpunkte(int l) const {lernpunkte=l;}
+   Zauber(const std::string& n,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int l=0) 
+      : name(n),lernpunkte(l), ausnahmen(a) {get_Zauber();set_Standard(Typ);} 
 
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
@@ -63,6 +60,7 @@ class Zauber : public HandleContent
    int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte) const;
    int get_spezial_zauber_for_magier(const Grundwerte& Werte) const;
 
+   static bool zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte);
 };
 
 class cH_Zauber : public Handle<const Zauber>
@@ -85,8 +83,7 @@ class cH_Zauber : public Handle<const Zauber>
     friend class std::map<st_index,cH_Zauber>;
     cH_Zauber(){};
  public:
-   cH_Zauber(const std::string& name,const vector<H_Data_typen>& Typ,int lernpunkte=0) ;
-//    cH_Zauber(const std::string& name);
+   cH_Zauber(const std::string& name,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int lernpunkte=0) ;
 };
 
 class Zauber_sort_name

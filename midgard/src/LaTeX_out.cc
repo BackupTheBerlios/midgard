@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.39 2001/10/07 08:05:31 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.40 2001/10/08 12:53:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -200,7 +200,7 @@ void midgard_CG::LaTeX_write_values()
    }
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten
- for(std::list<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i) 
+ for(std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i) 
    {
     std::string a = LaTeX_string(count);
     count++;

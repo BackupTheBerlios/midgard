@@ -73,11 +73,4 @@ public:
 };
 
 
-class Data_fert_sort_name 
-{ public : bool operator() (H_Data_fert x, H_Data_fert y) const
-      { return x->Name() < y->Name();}};
-class Data_fert_sort_wert 
-{ public : bool operator() (H_Data_fert x, H_Data_fert y) const
-      { return x->Erfolgswert() < y->Erfolgswert();}};
-
 #endif

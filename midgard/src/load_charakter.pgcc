@@ -340,10 +340,13 @@ void midgard_CG::load_charakter()
          exec sql fetch fertigkeiten into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_Fertigkeiten.push_back(new Data_fert(db_fertigkeit,db_wert));
-         std::string f = db_fertigkeit;
-         if (f=="KiDo") kido_bool=true;
-         if (f=="Wissen von der Magie") magie_bool=true;
+//         vec_Fertigkeiten.push_back(new Data_fert(db_fertigkeit,db_wert));
+         cH_Fertigkeit fertigkeit(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf));
+         fertigkeit->set_Erfolgswert(db_wert);
+         list_Fertigkeiten.push_back(fertigkeit);
+//         std::string f = db_fertigkeit;
+         if (fertigkeit->Name()=="KiDo") kido_bool=true;
+         if (fertigkeit->Name()=="Wissen von der Magie") magie_bool=true;
       } 
    exec sql close fertigkeit;
    // Waffen
@@ -397,7 +400,7 @@ void midgard_CG::load_charakter()
          exec sql fetch zauber into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         list_Zauber.push_back(cH_Zauber(db_fertigkeit,Typ));
+         list_Zauber.push_back(cH_Zauber(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
       } 
    exec sql close zauber;
 

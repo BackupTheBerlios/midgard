@@ -134,8 +134,8 @@ void midgard_CG::show_alte_kido()
 
 int midgard_CG::get_erfolgswert_kido()
 {
- for (std::list<H_Data_fert>::const_iterator
-      i= vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
+ for (std::list<cH_Fertigkeit>::const_iterator
+      i= list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i)
    {
       if ((*i)->Name() == "KiDo") return (*i)->Erfolgswert(); 
    }

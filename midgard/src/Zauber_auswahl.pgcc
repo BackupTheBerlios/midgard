@@ -32,8 +32,9 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 #include <class_zauber.hh>
 
-Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, const vector<H_Data_typen>& _Typ, int lernpunkte)
-: Typ(_Typ)
+Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, 
+   const std::vector<H_Data_beruf>& vec_Beruf,
+   const vector<H_Data_typen>& Typ, int lernpunkte)
 {
   assert (Typ.size()==2);
   hauptfenster=h;
@@ -65,7 +66,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, const vect
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
 //cout << db_zauber<<' '<<db_lernpunkte<<'\n';
-         list_zauber.push_back(cH_Zauber(db_zauber,Typ,db_lernpunkte));
+         list_zauber.push_back(cH_Zauber(db_zauber,Typ,Ausnahmen(Werte,Typ,vec_Beruf),db_lernpunkte));
       }
 
     exec sql close zauber;
@@ -108,10 +109,11 @@ void Zauber_auswahl::on_close_zauber_clicked()
          i!=zauber_clist_auswahl->selection().end();++i)
      {  
          // ptr=&fert[i->get_row_num()];
-         H_Data_zauber *ptr = static_cast<H_Data_zauber*>(i->get_data());
-//         cH_Zauber *ptr = static_cast<cH_Zauber*>(i->get_data());
+//         H_Data_zauber *ptr = static_cast<H_Data_zauber*>(i->get_data());
+         cH_Zauber *ptr = static_cast<cH_Zauber*>(i->get_data());
 //       saz.push_back(new Data_zauber((*ptr)->Name()));
-       saz.push_back(cH_Zauber((*ptr)->Name(),Typ));
+//       saz.push_back(cH_Zauber((*ptr)->Name(),Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
+       saz.push_back(*ptr);
      }
   hauptfenster->zauber_uebernehmen(saz);
   destroy();

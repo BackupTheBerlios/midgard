@@ -32,8 +32,9 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 #include "Sprache_auswahl.hh"
 
-Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
-   const std::string& typ_2,  int lernpunkte, const Grundwerte& Werte)
+
+Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const vector<H_Data_typen>& Typ,
+     int lernpunkte, const Grundwerte& Werte,const std::vector<H_Data_beruf>& vec_Beruf)
 {
 try{
   hauptfenster=h;
@@ -44,152 +45,86 @@ try{
 
   // Lernschema //////////////////////////////////////////////////////////////
   exec sql begin declare section;
-   char db_art[100];
    int db_lernpunkte;
-   char db_fertigkeiten[100]; 
-   int db_erfolgswert; 
-   int idb_erfolgswert; 
-   char db_attribut[100];
-   int idb_attribut;
-   int idb_art;
-   char db_pflicht[10];
-   int idb_pflicht;
-   int db_fp;
-   char db_voraussetzung[100];
-   char db_region[10];
+   int db_erfolgswert;
+   char db_fertigkeit[100]; 
    char query[10240];
+   bool db_pflicht;
    char db_spezies[50];
   exec sql end declare section;
   strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
   
    Transaction tr;
-   // Speziesspezifische Fertigkeiten
+   // Speziesspezifische Fertigkeiten ///////////////////////////////
    exec sql declare fert_spezies cursor for
       select coalesce(p.lernpunkte,0), coalesce(p.pflicht,''),
-            coalesce(p.erfolgswert,0), coalesce(f.attribut,'') 
-         from pflicht_lernen p, fertigkeiten f
-         where typ = :db_spezies and f.fertigkeit = p.pflicht
+            coalesce(p.erfolgswert,0) 
+         from pflicht_lernen p
+         where typ = :db_spezies 
          and p.pflicht  not in (select verboten from pflicht_lernen where
-   typ=:db_spezies  and verboten is not null);
+         typ=:db_spezies  and verboten is not null);
    exec sql open fert_spezies;
    SQLerror::test(__FILELINE__,100);
    while (true)
       {
-         exec sql fetch fert_spezies into :db_lernpunkte, :db_fertigkeiten,
-            :db_erfolgswert, :db_attribut ; 
+         exec sql fetch fert_spezies into :db_lernpunkte, :db_fertigkeit,:db_erfolgswert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-          vec_Fert.push_back(new Data_fert (db_fertigkeiten,
-               db_erfolgswert,0,Werte.Spezies(),db_attribut,"*",db_lernpunkte));
+         cH_Fertigkeit fertigkeit(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf),db_lernpunkte,true);
+         fertigkeit->set_Erfolgswert(db_erfolgswert);
+         list_Fert.push_back(fertigkeit);
       }
    exec sql close fert_spezies;
 
    // Lernschema
-#if 0
-   std::string squery = " select l.fertigkeit, art, wert, f.attribut, \
-             min(l.lernpunkte), pflicht_lernen.typ, \
-             coalesce(f.fp,0), coalesce(v.fertigkeit,''), coalesce(f.region,'') \
-      from fertigkeiten f, lernschema l, pflicht_lernen, \
-         fertigkeiten_voraussetzung v \
-      where ";
-   if (typ_2=="") squery += " l.typ = '"+typ+"' ";
-   if (typ_2!="") squery += " (l.typ = '"+typ+"' or l.typ = '"+typ_2+"') ";
-   squery +=" and art = 'Fertigkeit' \
-      and (f.fertigkeit = l.fertigkeit ) \
-      and (f.fertigkeit = v.name ) \
-      and l.typ=pflicht_lernen.typ \
-      and l.fertigkeit=pflicht_lernen.pflicht \
-      group by l.fertigkeit, art, wert, f.attribut, pflicht_lernen.typ, \
-         f.fp, v.fertigkeit, coalesce(f.region,'')  \
-      union all \
-      select l.fertigkeit, art, wert, f.attribut, \
-             min(l.lernpunkte), NULL, \
-             coalesce(f.fp,0), coalesce(v.fertigkeit,''), coalesce(f.region,'') \
-      from fertigkeiten f, lernschema l , \
-         fertigkeiten_voraussetzung v \
-      where ";
-   if (typ_2=="") squery += " l.typ = '"+typ+"' ";
-   if (typ_2!="") squery += " (l.typ = '"+typ+"' or l.typ = '"+typ_2+"') ";
-   squery += "  and art = 'Fertigkeit' \
-      and (f.fertigkeit = l.fertigkeit ) \
-      and (f.fertigkeit = v.name ) \
-      and not exists (select true from pflicht_lernen where \
-            pflicht=l.fertigkeit and l.typ=pflicht_lernen.typ) \
-      group by l.fertigkeit, art, wert, f.attribut, f.fp, v.fertigkeit, 
-      coalesce(f.region,'')  \
-      order by min,1";
-#endif
-     std::string squery = "select l.fertigkeit, min(art), min(wert), min(f.attribut), 
-             min(l.lernpunkte) as lp, min(pflicht_lernen.typ), 
-             coalesce(min(f.fp),0), coalesce(min(v.fertigkeit),''),
-             coalesce(min(f.region),'')  
-         from ((fertigkeiten f join lernschema l using (fertigkeit))
-               join fertigkeiten_voraussetzung v on f.fertigkeit = v.name)
-            left join pflicht_lernen 
-            on l.typ=pflicht_lernen.typ and l.fertigkeit=pflicht
+     std::string squery = " select fertigkeit,lernpunkte,pflicht 
+         from lernschema
          where ";
-      if (typ_2=="") squery += " l.typ = '"+typ+"' ";
-      if (typ_2!="") squery += " (l.typ = '"+typ+"' or l.typ = '"+typ_2+"') ";
-      squery +=" and art = 'Fertigkeit' 
-         and not exists (select true from pflicht_lernen where 
-            typ=:db_spezies  and verboten=l.fertigkeit) 
-         group by l.fertigkeit
-         order by lp, l.fertigkeit ";
-
+      if (Typ[1]->Short()=="") squery += " typ = '"+Typ[0]->Short()+"' ";
+      if (Typ[1]->Short()!="") squery += " (typ = '"+Typ[0]->Short()+"' or typ = '"+Typ[1]->Short()+"') ";
+      squery += " and art = 'Fertigkeit' and not exists (select true from 
+            pflicht_lernen where typ='"+Werte.Spezies()+"' 
+            and verboten=fertigkeit) order by lernpunkte";
    strncpy(query,squery.c_str(),sizeof(query));
    exec sql prepare sfert from :query;
-   exec sql declare fertigkeiten cursor for sfert;
-   exec sql open fertigkeiten using :db_spezies;
+   exec sql declare cfertigkeiten cursor for sfert;
+   exec sql open cfertigkeiten;// using :db_spezies;
    SQLerror::test(__FILELINE__);
    while (true)
       {
-         exec sql fetch fertigkeiten into :db_fertigkeiten, :db_art:idb_art ,
-            :db_erfolgswert:idb_erfolgswert, :db_attribut:idb_attribut, 
-            :db_lernpunkte, :db_pflicht:idb_pflicht, :db_fp, 
-            :db_voraussetzung, :db_region ; 
+         exec sql fetch cfertigkeiten into :db_fertigkeit, :db_lernpunkte,:db_pflicht;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-//std::cout << db_fertigkeiten<<"\n";
-         if (hauptfenster->region_check(db_region))
-           vec_Fert.push_back(new Data_fert (db_fertigkeiten,
-               idb_erfolgswert?0:db_erfolgswert,db_fp,db_voraussetzung, 
-               idb_attribut?"":db_attribut,
-               idb_pflicht?"":db_pflicht,db_lernpunkte));
+         cH_Fertigkeit fertigkeit(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf),db_lernpunkte,db_pflicht);
+         fertigkeit->set_Erfolgswert(fertigkeit->Anfangswert0());
+         if (hauptfenster->region_check(fertigkeit->Region()))
+              list_Fert.push_back(fertigkeit);
       }
-   exec sql close fertigkeiten;
+   exec sql close cfertigkeiten;
   
    Gtk::OStream os(fertigkeiten_clist_auswahl);
-   for(std::vector<H_Data_fert>::iterator i=vec_Fert.begin();i!=vec_Fert.end();++i)
+   for(std::list<cH_Fertigkeit>::iterator i=list_Fert.begin();i!=list_Fert.end();++i)
       {
-        double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,(*i)->Name());
-        for (std::vector<string>::const_iterator j=vorteile.begin();
-               j!=vorteile.end();++j)
-           if ((*j)==(*i)->Name()) (*i)->set_Lernpunkte((*i)->Lernpunkte()-1);
-        std::string pf="";
-        if ((*i)->Pflicht() != "") pf = "*";
+        int v=0;
+        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
+            if ((*j)==(*i)->Name()) v=1;
         std::string serfolgswert=itos((*i)->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
         if ( (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name())
                || Werte.Spezies()!="Mensch") &&
             Fertigkeiten_spezies_voraussetzung((*i)->Name(),Werte.Spezies()))
-         { os << (*i)->Lernpunkte()<<"\t"<<(*i)->Voraussetzung()<<"\t"<<pf<<"\t"<<(*i)->Name()<<"\t"
-               << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Lernkosten()*fac<<"\n";
+         { os << (*i)->Lernpunkte()-v <<"\t"<<(*i)->Voraussetzung()<<"\t"<<(*i)->Pflicht()<<"\t"<<(*i)->Name()<<"\t"
+               << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Kosten()<<"\n";
             os.flush(&*i);
          }
       }
    // andere Fertigkeiten ////////////////////////////////////////////////
 
-  squery = "SELECT f.anfangswert0, coalesce(f.lp,0), f.fertigkeit, \
-            f.attribut, coalesce(f.fp,0), coalesce(v.fertigkeit,''), \
-      coalesce(f.region,'') \
-      FROM fertigkeiten f, fertigkeiten_voraussetzung v \
-      WHERE v.name = f.fertigkeit \
-      AND f.fp != 0  \
-      AND f.fertigkeit NOT IN \
-      (SELECT fertigkeit from lernschema where ";
-   if (typ_2=="") squery += " typ = '"+typ+"') ";
-   if (typ_2!="") squery += " (typ = '"+typ+"' or typ = '"+typ_2+"')) ";
-      squery += " ORDER BY f.fertigkeit" ; 
+  squery = "SELECT fertigkeit FROM fertigkeiten where fp != 0  \
+      AND fertigkeit NOT IN (SELECT fertigkeit from lernschema where ";
+   if (Typ[1]->Short()=="") squery += " typ = '"+Typ[0]->Short()+"') ";
+   if (Typ[1]->Short()!="") squery += " (typ = '"+Typ[0]->Short()+"' or typ = '"+Typ[1]->Short()+"')) ";
+      squery += " ORDER BY fertigkeit" ; 
 
    strncpy(query,squery.c_str(),sizeof(query));
    exec sql prepare san_fert from :query;
@@ -199,33 +134,29 @@ try{
 
    while(true)
       {
-         exec sql fetch an_fert into 
-            :db_erfolgswert:idb_erfolgswert, :db_lernpunkte, :db_fertigkeiten, 
-            :db_attribut:idb_attribut, :db_fp, :db_voraussetzung, :db_region ;
+         exec sql fetch an_fert into :db_fertigkeit;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         if (hauptfenster->region_check(db_region))
-           vec_allg_Fert.push_back(new Data_fert(db_fertigkeiten,
-               idb_erfolgswert?0:db_erfolgswert, db_fp, db_voraussetzung,
-               idb_attribut?"":db_attribut,"",db_lernpunkte));
+
+         cH_Fertigkeit fertigkeit(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf));
+         fertigkeit->set_Erfolgswert(fertigkeit->Anfangswert0());
+         if (hauptfenster->region_check(fertigkeit->Region()))
+            list_allg_Fert.push_back(fertigkeit);
       }
    exec sql close an_fert;
 
    os <<"\n\n";   
-   for(std::vector<H_Data_fert>::iterator i=vec_allg_Fert.begin();
-                                                      i!=vec_allg_Fert.end();++i)
+   for(std::list<cH_Fertigkeit>::iterator i=list_allg_Fert.begin();i!=list_allg_Fert.end();++i)
       {
-        double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,(*i)->Name());
-        for (std::vector<string>::const_iterator j=vorteile.begin();
-               j!=vorteile.end();++j)
-           if ((*j)==(*i)->Name()) (*i)->set_Lernpunkte((*i)->Lernpunkte()-1);
-        std::string pf="";
+        int v=0;
+        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
+           if ((*j)==(*i)->Name()) v=1;
         std::string serfolgswert=itos((*i)->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
         if (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name()) &&
             Fertigkeiten_spezies_voraussetzung((*i)->Name(),Werte.Spezies()))
-         { os << (*i)->Lernpunkte()<<"\t"<<(*i)->Voraussetzung()<<"\t"<<""<<"\t"<<(*i)->Name()<<"\t"
-              << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Lernkosten()*fac<<"\n";
+         { os << (*i)->Lernpunkte()-v<<"\t"<<(*i)->Voraussetzung()<<"\t"<<""<<"\t"<<(*i)->Name()<<"\t"
+              << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Kosten()<<"\n";
            os.flush(&*i);
          }
       }
@@ -244,12 +175,15 @@ try{
 
 void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
 {
-   std::list<H_Data_fert> saf;
+   std::list<cH_Fertigkeit> saf;
    for (Gtk::CList::SelectionList::iterator i=fertigkeiten_clist_auswahl->selection().begin();
          i!=fertigkeiten_clist_auswahl->selection().end();++i)
      {  
-      H_Data_fert *ptr = static_cast<H_Data_fert*>(i->get_data());
-       saf.push_back(new Data_fert((*ptr)->Name(),(*ptr)->Erfolgswert(), (*ptr)->Attribut()));
+      cH_Fertigkeit *ptr = static_cast<cH_Fertigkeit*>(i->get_data());
+      saf.push_back(*ptr);
+//      cH_Fertigkeit F((*ptr)->Name(),Typ,Ausnahmen(Werte,Typ,vec_Beruf));
+//      F->set_Erfolgswert((*ptr)->Erfolgswert());
+//      saf.push_back(F);
      }
   hauptfenster->fertigkeiten_uebernehmen(saf);
   destroy();

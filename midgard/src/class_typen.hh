@@ -1,6 +1,7 @@
 #ifndef CLASS_TYPEN
 #define CLASS_TYPEN
 
+#include<string>
 
 class Data_typen : public HandleContent
 {
