@@ -23,7 +23,7 @@
 #include "WaffeGrund.hh"
 #include "class_lernpunkte.hh"
 #include "midgard_CG.hh"
-//#include <Misc/relops.h>
+#include <Misc/relops.h>
 //#include <Misc/relops.h>
 
 enum Zufall::eFAUWZ &operator++(enum Zufall::eFAUWZ &s)
