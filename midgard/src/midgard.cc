@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.82 2004/02/28 07:10:35 christof Exp $
+// $Id: midgard.cc,v 1.83 2004/02/29 21:34:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -162,6 +162,7 @@ int main(int argc, char **argv)
    {  if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
          manage(new BegruessungsWindow(magus));
    }
+AbenteurerAuswahl::Chars.begin()->proxies.checks[Optionen::NSC_only]=true;
    m.run(*magus);
 #warning nur wenn geändert ...
    Programmoptionen.save_options(magus_paths::MagusVerzeichnis()+"magus_optionen.xml");
