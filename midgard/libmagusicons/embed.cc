@@ -1,4 +1,4 @@
-// $Id: embed.cc,v 1.2 2003/04/27 21:13:41 christof Exp $
+// $Id: embed.cc,v 1.3 2003/04/30 07:53:28 christof Exp $
 
 #define MAKE_PNG
 
@@ -99,7 +99,7 @@ static unsigned embed_binary(const std::string &file, std::istream &is, const st
    std::cout << "};\n";
    std::cout << "static MagusIcons::data_registry " << CName(domain+file) << "_reg(";
    if (!domain.empty()) std::cout << "MagusIcons::" << domain << ", ";
-   std::cout << '"' << file << "\", " << filesize << ", " << CName(file) 
+   std::cout << '"' << file << "\", " << filesize << ", " << CName(domain+file) 
    	<< "_data);\n";
    return filesize;
 }
