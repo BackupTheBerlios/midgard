@@ -8,23 +8,6 @@ exec sql include sqlca;
 #include "Zauberwerk.hh"
 
 #ifdef USE_XML
-const Tag *find_Tag(const std::string &listtag, const std::string &tag,...)
-{const Tag *liste=xml_data->find(listtag);
- if (!liste)
-    cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
-// hier endete Meine Mitarbeit!
- else
- {  Tag::const_iterator b=liste->begin(),e=liste->end();
-    for (Tag::const_iterator i=liste->find(b,elementtag);
-    		i!=e;	i=liste->find(i+1,elementtag))
-    {  if (i->getAttr("Name")!=lookfor) continue;
-       if (What()==ZAUBERWERK && i->getAttr("Stufe")!=Stufe()) continue;
-       const Tag *Grund=i->find("Grund");
-    }
- }
- return 0;
-}
-
 static void Add(map<std::string,std::string> map_typ, std::string typen, std::string wert)
 {  while (!typen.empty())
    {  string::size_type komma=typen.find(',');
@@ -84,56 +67,50 @@ void MidgardBasicElement::get_map_typ()
   } 
 //cout << What()<<'\t'<<map_typ.size()<<'\n';
 #else // USE_XML
- std::string listtag;
- std::string elementtag;
- std::string lookfor=Name();
+ const Tag *tag=0;
+
  if(What()==ZAUBER)
- {  listtag="Zauber"; elementtag="Spruch"; }
+    tag=find_Tag("Zauber","Spruch","Name",Name()); 
  if(What()==ZAUBERWERK)
- {  listtag="Zauberwerke"; elementtag="Zauberwerk"; }
+ {  vector<pair<std::string,std::string> > anforderungen;
+    anforderungen.push_back(pair<std::string,std::string>("Name",Name()));
+    anforderungen.push_back(pair<std::string,std::string>("Stufe",Stufe()));
+    tag=find_Tag("Zauberwerke","Zauberwerk",anforderungen);
+ }
  if(What()==FERTIGKEIT )
- {  listtag="Fertigkeiten"; elementtag="Fertigkeit"; }
+    tag=find_Tag("Fertigkeiten","Fertigkeit","Name",Name());
  if(What()==WAFFEGRUND)
- {  listtag="Waffen:Grundkenntnisse"; elementtag="Waffen:Grundkenntnis"; }
+    tag=find_Tag("Waffen:Grundkenntnisse","Waffen:Grundkenntnis","Name",Name());
  // auch in Waffen:Steigern suchen
  if(What()==WAFFE)
- {  listtag="Waffen"; elementtag="Waffe"; }
+    tag=find_Tag("Waffen","Waffe","Name",Name());
  if(What()==SPRACHE)
- {  listtag="Fertigkeiten"; elementtag="Fertigkeit"; lookfor="Sprache"; }
+    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Sprache");
  if(What()==SCHRIFT)
- {  listtag="Fertigkeiten"; elementtag="Fertigkeit"; lookfor="Lesen/Schreiben"; }
+    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Lesen/Schreiben");
  if(What()==KIDO)
- {  listtag="Fertigkeiten"; elementtag="Fertigkeit"; lookfor="KiDo"; }
+    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","KiDo"); 
 
- const Tag *liste=xml_data->find(listtag);
- if (!liste)
-    cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
- else
- {  Tag::const_iterator b=liste->begin(),e=liste->end();
-    for (Tag::const_iterator i=liste->find(b,elementtag);
-    		i!=e;	i=liste->find(i+1,elementtag))
-    {  if (i->getAttr("Name")!=lookfor) continue;
-       if (What()==ZAUBERWERK && i->getAttr("Stufe")!=Stufe()) continue;
-       const Tag *Grund=i->find("Grund");
-       const Tag *Standard=i->find("Standard");
-       const Tag *Ausnahme=i->find("Ausnahme");
-       // auch in Waffen:Steigern suchen
-       if ((What()==WAFFEGRUND || What()==WAFFE)
-       		&& !Grund && !Standard && !Ausnahme)
-       {  liste=xml_data->find("Waffen:Steigern");
-          if (!liste)
-          {  cerr << "<Waffen:Steigern><Grund/>... nicht gefunden\n";
-             return;
-          }
-          const Tag *Grund=liste->find("Grund");
-          const Tag *Standard=liste->find("Standard");
-          const Tag *Ausnahme=liste->find("Ausnahme");
+ if (tag)
+ {  const Tag *Grund=tag->find("Grund");
+    const Tag *Standard=tag->find("Standard");
+    const Tag *Ausnahme=tag->find("Ausnahme");
+    // auch in Waffen:Steigern suchen
+    if ((What()==WAFFEGRUND || What()==WAFFE)
+    		&& !Grund && !Standard && !Ausnahme)
+    {  tag=xml_data->find("Waffen:Steigern");
+       if (!tag)
+       {  cerr << "<Waffen:Steigern><Grund/>... nicht gefunden\n";
+          return;
        }
-       if (Grund) Add(map_typ,Grund->Value(),"G");
-       if (Standard) Add(map_typ,Standard->Value(),"S");
-       if (Ausnahme) Add(map_typ,Ausnahme->Value(),"A");
-       return;
+       Grund=tag->find("Grund");
+       Standard=tag->find("Standard");
+       Ausnahme=tag->find("Ausnahme");
     }
+    if (Grund) Add(map_typ,Grund->Value(),"G");
+    if (Standard) Add(map_typ,Standard->Value(),"S");
+    if (Ausnahme) Add(map_typ,Ausnahme->Value(),"A");
+    return;
  }
 #endif    
 }
@@ -235,6 +212,7 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
   //Steigern von Fertigkeiten  
 void MidgardBasicElement::EP_steigern(const std::string fert)
 {
+#ifndef USE_XML 
   exec sql begin declare section;
    char db_fert[50],db_w[50];
   exec sql end declare section;
@@ -257,4 +235,21 @@ void MidgardBasicElement::EP_steigern(const std::string fert)
   exec sql close fwein;
   tr.close();
   steigern_mit_EP=back;
+#else // USE_XML
+ const Tag *tag=find_Tag("Fertigkeiten","Fertigkeit","Name",fert);
+ int back=0;
+ const Tag *steigern=0;
+ 
+ if (!tag)
+    steigern=tag->find(tag->begin(),"EP-Typ");
+ else 
+    // globale Liste: Ausdauer, Waffen, Zauber
+    steigern=find_Tag("verwendbareEP","EP-Typ","Fertigkeit",fert);
+
+ if (steigern)
+ {  if (steigern->getAttr("Typ").find("KEP")) back+=1;
+    if (steigern->getAttr("Typ").find("ZEP")) back+=2;
+ }
+ steigern_mit_EP=back;
+#endif
 }

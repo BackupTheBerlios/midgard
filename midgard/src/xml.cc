@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.2 2001/11/21 10:44:21 christof Exp $
+// $Id: xml.cc,v 1.3 2001/11/26 10:47:03 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -38,6 +38,33 @@ void xml_free()
    top=0;
 }
 
+const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
+		const vector<pair<std::string,std::string> > &anforderungen)
+{const Tag *liste=xml_data->find(listtag);
+ if (!liste)
+    cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
+ else
+ {  Tag::const_iterator b=liste->begin(),e=liste->end();
+    for (Tag::const_iterator i=liste->find(b,elementtag);
+    		i!=e;	i=liste->find(i+1,elementtag))
+    {  for (vector<pair<std::string,std::string> >::const_iterator j=anforderungen.begin();
+    		j!=anforderungen.end();++j)
+       {  if (i->getAttr(j->first)!=j->second) goto continue_outer;
+       }
+       return &*i;
+       
+       continue_outer: ;
+    }
+ }
+ return 0;
+}
+
+const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
+		const std::string &name, const std::string &wert)
+{  vector<pair<std::string,std::string> > anforderungen;
+   anforderungen.push_back(pair<std::string,std::string>(name,wert));
+   return find_Tag(listtag,elementtag,anforderungen);
+}
 #else // no XML, no op
 void xml_init(const std::string &filename="midgard.xml")
 {}
