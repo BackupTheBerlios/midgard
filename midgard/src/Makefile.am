@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.156 2002/05/08 21:31:24 thoma Exp $
+# $Id: Makefile.am,v 1.157 2002/05/09 10:37:55 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -208,7 +208,8 @@ CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
 midgard_CG_glade_o_DEPS=midgard_CG_glade.cc ../config.h midgard_CG.hh \
 	midgard_CG_glade.hh 
-	# und vieles mehr !!!
+
+# und vieles mehr !!!
 
 if UTF8
 
