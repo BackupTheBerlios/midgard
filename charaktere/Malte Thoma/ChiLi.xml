@@ -14,8 +14,8 @@
   <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="50"/>
   <Beschreibung Alter="29" Gestalt="schlank" Gewicht="53" Größe="160" Stand="Mittelschicht" Herkunft="KanThaiPan" Glaube="ChenMen"/>
-  <Vermögen GS="140"/>
-  <Steigern GFP="7936" AEP="61" EPproGFP="67" Basiswerte="1" benötigte_Tage="29">
+  <Vermögen GS="40"/>
+  <Steigern GFP="7966" AEP="41" EPproGFP="67" Basiswerte="1" benötigte_Tage="35">
    <Praxispunkte/>
   </Steigern>
   <Text/>
@@ -49,6 +49,7 @@
    <Beruf Bezeichnung="Gärtner"/>
    <Fertigkeit Bezeichnung="Balancieren" Wert="18"/>
    <Fertigkeit Bezeichnung="FengSchui" Wert="8"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="10"/>
    <Fertigkeit Bezeichnung="KarumiJutsu" Wert="17"/>
    <Fertigkeit Bezeichnung="KiDo" Wert="17" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="Klettern" Wert="20"/>
@@ -60,7 +61,6 @@
    <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="4"/>
    <Fertigkeit Bezeichnung="Rudern" Wert="12"/>
    <Fertigkeit Bezeichnung="Scharfschießen" Wert="8" Zusatz="leichte Armbrust"/>
-   <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
    <Fertigkeit Bezeichnung="Springen" Wert="15"/>
    <Fertigkeit Bezeichnung="TaiTschi" Wert="17"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
