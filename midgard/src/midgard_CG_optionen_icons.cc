@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.2 2002/08/28 08:43:07 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.3 2002/08/28 13:11:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,18 @@
 #include "../pixmaps/Info-trans-50.xpm"
 #include "../pixmaps/Help-trans-50.xpm"
 #include "../pixmaps/Exit-trans-50.xpm"
+// Ulfs Icons
+#include "../pixmaps/Anleitung.xpm"
+#include "../pixmaps/Drucken.xpm"
+#include "../pixmaps/Hilfe.xpm"
+#include "../pixmaps/Info.xpm"
+#include "../pixmaps/Menue.xpm"
+#include "../pixmaps/Neu.xpm"
+#include "../pixmaps/Oeffnen.xpm"
+#include "../pixmaps/Schliessen.xpm"
+#include "../pixmaps/Speichern.xpm"
+#include "../pixmaps/Vorwaerts.xpm"
+#include "../pixmaps/Zurueck.xpm"
 
 
 midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
@@ -49,8 +61,17 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
    {
-     return st_icons("Neu"         ,NewChar_trans_50_xpm   );
-//     return pair<std::string,Gtk::Pixmap *>("Neu",manage(new Gtk::Pixmap(NewChar_trans_50_xpm)));
+     if     (typ==iNew)        return st_icons("Neu"         ,Neu_xpm   );
+     else if(typ==iOpen)       return st_icons("Öffnen"      ,Oeffnen_xpm  );
+     else if(typ==iClose)      return st_icons("Speichern"   ,Speichern_xpm  );
+     else if(typ==iPrint)      return st_icons("Drucken"     ,Drucken_xpm );
+     else if(typ==iBack)       return st_icons("Zurück"      ,Zurueck_xpm               );
+     else if(typ==iForward)    return st_icons("Vorwärts"    ,Vorwaerts_xpm               );
+     else if(typ==iMenu)       return st_icons("Menü"        ,Menue_xpm );
+     else if(typ==iInfo)       return st_icons("Info"        ,Info_xpm      );
+     else if(typ==iHelp)       return st_icons("Hilfe"       ,Hilfe_xpm    );
+     else if(typ==iInstruction)return st_icons("Anleitung"   ,Anleitung_xpm    );
+     else if(typ==iExit)       return st_icons("Schließen"   ,Schliessen_xpm      );
    }
   assert(!"never get here");
   abort();

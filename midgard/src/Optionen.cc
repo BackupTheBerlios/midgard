@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.71 2002/08/28 08:43:07 thoma Exp $
+// $Id: Optionen.cc,v 1.72 2002/08/28 13:11:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -408,7 +408,7 @@ void Midgard_Optionen::Icon_init()
 {
  list_Icon.clear();  
  list_Icon.push_back(st_Icon(Self,"MAGUS Stil",true));
- list_Icon.push_back(st_Icon(Ulf,"M$-Stil",false));
+ list_Icon.push_back(st_Icon(Ulf,"Win32-Stil",false));
 }
 
 // Lines marked with 'compat' are to maintain compatibility
