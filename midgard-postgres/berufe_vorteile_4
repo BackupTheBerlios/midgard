@@ -131,8 +131,8 @@ Schmuggler	Rudern	10
 Schmuggler	Schleichen	6
 Schmuggler	Steuern	10
 Schreiber	Fälschen	12
-Schreiber	Schreiben	4
-Schreiber	Sprache	4
+Schreiber	Schreiben: Muttersprache(+12)	12
+Schreiber	Sprechen: Sprache(+12)	12
 Schreiner	Suchen	6
 Seemann	Klettern	10
 Seemann	Rudern	10
@@ -150,7 +150,7 @@ Träger	Athletik	4
 Verwalter	Landeskunde (Heimat)	9
 Verwalter	Menschenkenntnis	4
 Verwalter	Rechnen	6
-Verwalter	Schreiben	4
+Verwalter	Schreiben: Muttersprache(+12)	12
 Vorarbeiter	Athletik	4
 Vorarbeiter	Menschenkenntnis	4
 Vorkoster	Giftmischen	4

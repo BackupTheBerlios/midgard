@@ -55,7 +55,7 @@ COPY "fertigkeiten" FROM stdin;
 3	3	3	8	Überleben im Wald	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben in der Steppe	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben in der Wüste	6	50	\N	\N	In	\N	1	18	14	\N
-3	3	3	12	Sprechen: Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	5
+3	3	3	12	Sprechen: Sprache(+12)	12	0	\N	\N	In	\N	2	20	17	5
 3	3	\N	15	Geländelauf	10	60	\N	\N	Gw	8	1	18	18	\N
 3	3	\N	15	Klettern	10	60	\N	\N	Gw	8	1	18	18	\N
 3	3	\N	15	Schwimmen	10	60	\N	\N	Gw	3	1	18	18	\N
@@ -67,7 +67,7 @@ COPY "fertigkeiten" FROM stdin;
 3	\N	\N	1	Trinken	1	100	\N	\N	Ko	0	2	6	1	\N
 3	\N	\N	4	Laufen	4	50	\N	\N	Ko	\N	1	8	8	\N
 3	\N	\N	6	Lippenlesen	4	250	\N	\N	In	\N	\N	16	11	\N
-3	\N	\N	9	Schreiben	4	20	\N	\N	In	\N	1	20	17	6
+3	\N	\N	9	Schreiben	4	20	\N	\N	In	\N	\N	20	17	6
 3	\N	\N	15	Balancieren	10	100	\N	\N	Gw	8	1	18	18	\N
 3	\N	\N	15	Fangen	10	60	\N	\N	Gs	8	\N	18	18	\N
 3	\N	\N	15	Kamelreiten	12	100	E	\N	Gw	\N	\N	18	18	\N
