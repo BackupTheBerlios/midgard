@@ -1,2 +1,2 @@
 debuggen:
-	NOSPLASH=1 LD_LIBRARY_PATH=`pwd`/../libmagus/.libs:`pwd`/../libmagusicons/.libs:`pwd`/../../ManuProC_Base/src/.libs gdb .libs/magus
+	NOSPLASH=1 LD_LIBRARY_PATH=/usr/lib/debug:`pwd`/../libmagus/.libs:`pwd`/../libmagusicons/.libs:`pwd`/../../ManuProC_Base/src/.libs gdb .libs/magus
