@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.3 2003/05/07 13:29:41 christof Exp $            
+// $Id: Abenteurer.cc,v 1.4 2003/05/08 06:15:30 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -120,6 +120,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
   return UF;
 }
 
+#if 0
 void VAbenteurer::push_back()
 { 
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
@@ -133,16 +134,6 @@ void VAbenteurer::setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::ite
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  ai=i;
 }
-
-bool Abenteurer::is_mage() const 
-{  
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   if(Typ.size()!=2) return false;
-   if(Typ1()->is_mage() || Typ2()->is_mage()) return true;
-   else return false;
-}
-
-
 
 bool VAbenteurer::unsaved_exist()
 { 
@@ -165,6 +156,18 @@ void VAbenteurer::delete_empty()
         } 
     }
 }
+
+#endif
+
+bool Abenteurer::is_mage() const 
+{  
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+   if(Typ.size()!=2) return false;
+   if(Typ1()->is_mage() || Typ2()->is_mage()) return true;
+   else return false;
+}
+
+
 
 void Abenteurer::setAngebFert()
 {
@@ -200,7 +203,7 @@ bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
 
 
 
-void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen)
+void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    TagStream ts;
@@ -208,24 +211,6 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
    
    Tag &data=ts.push_back(Tag("MAGUS-data"));  
 
-// Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien
-// oder ganz unten?
-/*
-   Tag &Preise=data.push_back(Tag("Preise"));
-   for (std::list<cH_Preise>::const_iterator i=Database.preise.begin();i!=Database.preise.end();++i)
-   {  if ((*i)->ist_eigener_Artikel())
-      {  Tag &k=Preise.push_back(Tag("Kaufpreis"));
-         k.setAttr("Ware", (*i)->Name());
-         k.setAttr_ne("Art", (*i)->Art());
-         k.setAttr_ne("Art2", (*i)->Art2());
-         k.setAttr("Preis", dtos((*i)->Kosten()));
-         k.setAttr("Währung", (*i)->Einheit());
-         k.setAttr("Gewicht", dtos((*i)->Gewicht()));
-         k.setAttr("Region", (*i)->Region());
-      }
-   }
-*/
-   
    Tag &Abenteurer=data.push_back(Tag("Midgard-Abenteurer"));
    Abenteurer.setIntAttr("Version",10);
 
@@ -266,24 +251,24 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
 
    // Regionen & Optionen
    Tag &Opt=Abenteurer.push_back(Tag("Optionen"));
-  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
-   {  if (!(*i)->Active()) continue;
+  for(std::map<cH_Region,Model<bool> >::const_iterator i=regionen.begin();i!=regionen.end();++i)
+   {  if (!(*i)->second.Value()) continue;
       Tag &r=Opt.push_back(Tag("Region"));
-      r.setAttr("Name", (*i)->Name());
-      r.setAttr("Region", (*i)->Abkuerzung());
+      r.setAttr("Name", (*i)->first->Name());
+      r.setAttr("Region", (*i)->first->Abkuerzung());
    }
    // Optionen
-   std::list<Midgard_Optionen::st_OptionenCheck> LO=const_cast<Midgard_Optionen*>(Optionen)->getOptionenCheck();
-   for(std::list<Midgard_Optionen::st_OptionenCheck>::const_iterator i=LO.begin();i!=LO.end();++i)
+   std::list<Optionen::st_OptionenCheck> LO=const_cast<Optionen*>(optionen)->getOptionenCheck();
+   for(std::list<Optionen::st_OptionenCheck>::const_iterator i=LO.begin();i!=LO.end();++i)
    {
      // Option, die mit dem C. gespeichert werden müssen
-     if(i->index!=Midgard_Optionen::Original && i->index!=Midgard_Optionen::NSC_only) continue; 
+     if(i->index!=Optionen::Original && i->index!=Optionen::NSC_only) continue; 
      Tag &o=Opt.push_back(Tag("CheckOptions"));
      o.setAttr("Name", i->text);
      o.setBoolAttr("Wert", i->active);
    }
-   std::list<Midgard_Optionen::st_Haus> LH=const_cast<Midgard_Optionen*>(Optionen)->getHausregeln();
-   for(std::list<Midgard_Optionen::st_Haus>::const_iterator i=LH.begin();i!=LH.end();++i)
+   std::list<Optionen::st_Haus> LH=const_cast<Optionen*>(optionen)->getHausregeln();
+   for(std::list<Optionen::st_Haus>::const_iterator i=LH.begin();i!=LH.end();++i)
    {
      Tag &o=Opt.push_back(Tag("Hausregeln"));
      o.setAttr("Name", i->text);
@@ -408,8 +393,7 @@ const std::string Abenteurer::Beruf() const
 
 ///////////////////////////////////////////////////////////////////////////////
 
-bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
-   Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
+bool Abenteurer::xml_import_stream(std::istream& datei, const Datenbank &Database)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    reset();
@@ -592,7 +576,7 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
    }
 }
 
-void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
+void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Optionen *Optionen,midgard_CG *hauptfenster)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
     FOR_EACH_CONST_TAG(i,*tag)
@@ -735,11 +719,11 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
     }
 }
 
-void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
+void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,const Datenbank &Database)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
-      {   Region::setActive(Database.Regionen,(*i),false);  }
+    for(std::map<cH_Region,Model<bool> >::const_iterator i=regionen.begin();i!=regionen.end();++i)
+      {   i->second=false;  }
     if(!tag) return;
     FOR_EACH_CONST_TAG(i,*tag)
     {
@@ -747,7 +731,7 @@ void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,Datenban
       if(sart=="CheckOptions")
         {
          try{
-           Optionen->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getBoolAttr("Page"));
+           optionen->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
          {}
@@ -755,7 +739,7 @@ void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,Datenban
       else if(sart=="Hausregeln")
         {
          try{
-           Optionen->setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
+           optionen->setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
          {}
@@ -764,8 +748,7 @@ void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,Datenban
         {
          try
          {  cH_Region R(i->getAttr("Name",i->getAttr("Region")));
-            Region::setActive(Database.Regionen,R,true);
-            hauptfenster->set_region_statusbar(R->Pic(),true);
+            regionen[R]=true;
          }
          catch (const NotFound &e)
          {}

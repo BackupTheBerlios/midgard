@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.3 2003/05/07 10:57:50 christof Exp $               
+// $Id: Region.hh,v 1.4 2003/05/08 06:15:30 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -26,7 +26,7 @@
 #include <string>
 //#include "xml.h"
 //#include "Optionen.hh"
-#include <BaseObjects/Model.h>
+//#include <BaseObjects/Model.h>
 
 class cH_Region;
 class Tag;
@@ -48,7 +48,7 @@ class Region  : public HandleContent
    std::string name,titel,abkuerzung,file,url,maintainer,version,copyright,jahr; 
    RegionenPic_enum::epic pic;
    bool offiziell;
-   mutable Model<bool> active;
+//   mutable Model<bool> active;
 
   public:
    Region(const Tag *tag);
@@ -56,8 +56,8 @@ class Region  : public HandleContent
    int Nr()  const {return nr;}
    std::string Name() const   {return name; }
    std::string Titel() const   {return titel; }
-   Model<bool> &Active() const {return active; }
-   void setActive(bool a) const {active=a; }
+//   Model<bool> &Active() const {return active; }
+//   void setActive(bool a) const {active=a; }
    std::string Abkuerzung() const {return abkuerzung;}
    std::string File() const {return file;}
    std::string Url() const {return url;}
@@ -70,8 +70,8 @@ class Region  : public HandleContent
 
    bool operator==(const Region& b) const {return Name()==b.Name();}
 
-   static bool setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active);
-   static bool isActive(const std::vector<cH_Region>& LR,const cH_Region& R);
+//   static bool setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active);
+//   static bool isActive(const std::vector<cH_Region>& LR,const cH_Region& R);
 };
 
 class cH_Region : public Handle<const Region>

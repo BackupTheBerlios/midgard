@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.2 2003/05/07 07:25:18 christof Exp $
+// $Id: xml.cc,v 1.3 2003/05/08 06:15:30 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,11 +18,13 @@
  */
 
 #include "xml.h"
+#include <iostream>
+#include "magus_paths.h"
+#include <map>
 
 //#define PARANOIA
 #define VERBOSE
 #include <Misc/TagStream.h>
-#include "ProgressBar.h"
 
 static TagStream *top;
 const Tag *xml_data;
@@ -31,6 +33,7 @@ static Tag *xml_data_mutable; // local non const pointer for merging
 static void xml_merge(Tag *merge_here, const Tag *tomerge);
 
 typedef std::map<std::string,Tag::difference_type> fastfind_t;
+//typedef std::map<std::string,unsiged> fastfind_t;
 static fastfind_t fastfind_cache;
 static std::string make_key(const xml_liste &tagprops,const Tag &t);
 
@@ -65,8 +68,8 @@ static void reserve(Tag *t)
    reserve(t,"Kido-Fertigkeiten",64);
 }
 
-void xml_init(Gtk::ProgressBar *progressbar, midgard_CG *hauptfenster)
-{  std::string filename=hauptfenster->with_path("midgard.xml");
+void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::string> meldungen)
+{  std::string filename=magus_paths::with_path("midgard.xml");
    if (top) return; // oder merge?
    {  std::ifstream in(filename.c_str());
       top=new TagStream(in);
@@ -94,10 +97,10 @@ reloop:
     FOR_EACH_TAG(i,*xml_data_mutable)
     {  if (i->Type()!="MAGUS-include" && i->Type()!="MCG-include") continue;
        Tag *t2=&*i;
-       std::string file=hauptfenster->with_path(t2->getAttr("File"),false,true);
+       std::string file=magus_paths::with_path(t2->getAttr("File"),false,true);
        if (t2->getBoolAttr("inactive",false))
           continue;
-       ProgressBar::set_percentage(progressbar,++count/anzdateien);
+       progress(++count/anzdateien);
        t2->Type("Region"); // change Type of Tag "MAGUS-include" -> "Region"
        
 //       std::cerr << "loading XML " << file << '\n';

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
+// $Id: Abenteurer.hh,v 1.3 2003/05/08 06:15:30 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -24,10 +24,11 @@
 #include "Typen.hh"
 #include <vector>
 #include "Datenbank.hh"
-//#include "Optionen.hh"
-class Midgard_Optionen;
+#include "Optionen.hh"
 #include "Waffe.hh"
 #include "Enums.hh"
+#include "Region.hh"
+#include <map>
 
 class Abenteurer
 {
@@ -49,7 +50,8 @@ class Abenteurer
    std::list<MBEmlt> list_Schrift;        
 
    cH_Ruestung Ruestung(unsigned int i=0) const {return getWerte().Ruestung(i);}
-
+   std::map<cH_Region,Model<bool> > regionen; // aktive Regionen
+   Optionen optionen; // aktive Optionen
 
 public:
    Abenteurer() {Typ.resize(2);}
@@ -135,14 +137,14 @@ public:
    std::list<MBEmlt>& List_Sprache()  {return list_Sprache;} 
    std::list<MBEmlt>& List_Schrift()  {return list_Schrift;}
 
-   void speicherstream(std::ostream &datei, const Datenbank &Database,const Midgard_Optionen *Optionen);
+   void speicherstream(std::ostream &datei, const Datenbank &Database);
    void grundwerte_speichern(Tag &);
    void save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB);
 
-   bool xml_import_stream(std::istream &datei, Datenbank &Database,Midgard_Optionen *Optionen);
+   bool xml_import_stream(std::istream &datei, const Datenbank &Database);
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
-   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen);
-   void load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen);
+   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Optionen *Optionen);
+   void load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Optionen *Optionen);
 
 
    bool operator==(const Abenteurer& a) const
@@ -208,7 +210,7 @@ public:
 
 };
 
-
+#if 0 // nochmals überdenken
 class VAbenteurer
 {
    public:
@@ -260,6 +262,6 @@ class VAbenteurer
    {  return &ai->abenteurer; }
 
 };
-
+#endif
 
 #endif

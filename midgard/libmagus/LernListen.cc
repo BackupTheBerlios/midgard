@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.2 2003/05/07 07:25:18 christof Exp $
+// $Id: LernListen.cc,v 1.3 2003/05/08 06:15:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -283,8 +283,9 @@ bool LernListen::region_check(const std::string& region) const
   else if (region=="EE") return true; // eigene Erweiterungen
   for(std::vector<cH_Region>::const_iterator i=D.Regionen.begin();i!=D.Regionen.end();++i)
    {
-     if( (region==(*i)->Abkuerzung() || region==(*i)->Name() ) &&
-         (*i)->Active()) return true;
+#warning FIX me   
+     if( (region==(*i)->Abkuerzung() || region==(*i)->Name() ) /*&&
+         (*i)->Active()*/) return true;
    }
   return false;
 }
