@@ -30,7 +30,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
      if ((*i)->ist_gelernt(list_Fertigkeit) && f->Name()!="Landeskunde") continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
-     if (f->Name()=="Zaubern" && Typ[0].is_mage() || f->Name()=="Zaubern" && Typ[1].is_mage() ) continue;
+     if (f->Name()=="Zaubern" && Typ[0]->is_mage() || f->Name()=="Zaubern" && Typ[1]->is_mage() ) continue;
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
        if (region_check(f->Region()) )
         if (f->Voraussetzungen(Werte)) 

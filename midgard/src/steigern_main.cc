@@ -154,7 +154,7 @@ void midgard_CG::on_button_alter_clicked()
   int tage_pro_jahr=360;
   while(tage>tage_pro_jahr)
    {
-     alter+=tage_pro_jahr;
+     alter+=1;
      tage-=tage_pro_jahr;
    }
   Werte.set_Alter(alter);

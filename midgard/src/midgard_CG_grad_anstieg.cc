@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.37 2002/01/11 08:48:11 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.38 2002/01/11 10:22:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,9 +28,9 @@ void midgard_CG::on_grad_anstieg_clicked()
  while(old_grad<=Werte.Grad())
   {
 //cout << "Für Grad "<<old_grad<<"\n";
-    get_ab_re_za("Abwehr");
-    get_ab_re_za("Resistenz");
-    get_ab_re_za("Zaubern");
+    get_ab_re_za(Abwehr);
+    get_ab_re_za(Resistenz);
+    get_ab_re_za(Zaubern);
     get_grundwerte();
     ++old_grad;
   }
@@ -49,17 +49,17 @@ void midgard_CG::on_button_grad_ausdauer_clicked()
 }
 void midgard_CG::on_button_grad_abwehr_clicked()
 {   
- get_ab_re_za("Abwehr");
+ get_ab_re_za(Abwehr);
  zeige_werte(Werte);
 }
 void midgard_CG::on_button_grad_zaubern_clicked()
 {   
- get_ab_re_za("Zaubern");
+ get_ab_re_za(Zaubern);
  zeige_werte(Werte);
 }
 void midgard_CG::on_button_grad_resistenz_clicked()
 {   
- get_ab_re_za("Resistenz");
+ get_ab_re_za(Resistenz);
  zeige_werte(Werte);
 }
 void midgard_CG::on_button_grad_basiswerte_clicked()
@@ -143,7 +143,7 @@ void midgard_CG::get_ausdauer(int grad)
    if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; kosten =  1200;}
    if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  1500;}
    if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  2000;}
-   if (!steigern_usp(kosten,0,"Ausdauer")) return;
+   if (!steigern_usp(kosten,0,Ausdauer)) return;
    Werte.add_GFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += random.integer(1,6);

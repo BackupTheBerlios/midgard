@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.126 2002/01/11 08:48:11 thoma Exp $
+// $Id: midgard_CG.hh,v 1.127 2002/01/11 10:22:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -293,7 +293,7 @@ class midgard_CG : public midgard_CG_glade
         void get_ausdauer(int grad);
         void get_grundwerte();
         enum e_was_steigern{Nichts,Ausdauer,Abwehr,Zaubern,Resistenz};
-        void get_ab_re_za(const string& was);
+        void get_ab_re_za(e_was_steigern was);
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
