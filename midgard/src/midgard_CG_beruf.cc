@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.41 2002/01/27 12:49:16 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.42 2002/01/28 18:24:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,7 @@ gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
      vbox_berufsname->show();
      entry_berufsname->grab_focus();
    }
+  return false;
 }
 
 void midgard_CG::on_entry_berufsname_activate()

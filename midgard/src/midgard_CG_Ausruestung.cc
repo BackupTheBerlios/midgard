@@ -484,7 +484,7 @@ void midgard_CG::on_ausruestung_druck(bool unsichtbar)
  fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
   {
-   if(i->getAusruestung().Sichtbar() && unsichtbar)
+   if(i->getAusruestung().Sichtbar() || unsichtbar )
     {      
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
@@ -506,7 +506,7 @@ void midgard_CG::ausruestung_druck(ostream &fout,bool unsichtbar,const list<Ausr
 {
  for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
   {
-   if(i->getAusruestung().Sichtbar() && unsichtbar)
+   if(i->getAusruestung().Sichtbar() || unsichtbar)
     {      
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty() &&
