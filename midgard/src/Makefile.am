@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.160 2002/05/15 09:31:12 christof Exp $
+# $Id: Makefile.am,v 1.161 2002/05/15 10:18:23 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -212,7 +212,7 @@ magus_SOURCES = $(PORT_FILES) \
 
 CXXFLAGS = @CXXFLAGS@ 
 CPPFLAGS = @CPPFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
-           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(WIN_INCLUDES)
+           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(WIN_INCLUDES) -I..
 
 magus_LDADD = $(LINK_OBJS) @LIBS@ @KOMPONENTEN_NODB_LIBS@
 
