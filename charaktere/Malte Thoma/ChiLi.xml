@@ -14,8 +14,8 @@
   <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="50"/>
   <Beschreibung Alter="28" Gestalt="schlank" Gewicht="53" Größe="160" Stand="Mittelschicht" Herkunft="KanThaiPan" Glaube="ChenMen"/>
-  <Vermögen/>
-  <Steigern GFP="7231" Basiswerte="1" benötigte_Tage="315">
+  <Vermögen GS="250"/>
+  <Steigern GFP="7231" AEP="480" KEP="50" Basiswerte="1" benötigte_Tage="315">
    <Praxispunkte/>
   </Steigern>
   <Text/>
@@ -27,6 +27,17 @@
    <Waffe Erfolgswert="0" Bezeichnung="Dolch">GW+4</Waffe>
    <Waffe Erfolgswert="0" Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="2">Schwarzer Steindolch, Zaubern+20 'Kraftentzug' ABW 8</Waffe>
    <Waffe Erfolgswert="0" Bezeichnung="leichte Armbrust"/>
+   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
   </Ausrüstung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="8"/>

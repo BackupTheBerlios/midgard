@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Kylann NiBeorn" Spieler="Mona" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="PW" Spezialisierung="Weisheit" Überleben="Überleben im Wald" Stadt_Land="Land" Hand="Linkshänder"/>
+  <Basiseigenschaften St="62" Gw="83" Gs="65" Ko="74" In="96" Zt="81"/>
+  <abgeleiteteEigenschaften Au="51" pA="75" Wk="100" Sb="100" B="24"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="17" AP="10"/>
+  <Beschreibung Alter="24" Gestalt="schlank" Gewicht="50" Größe="175" Stand="Adel" Herkunft="Alba" Glaube="Vraidos"/>
+  <Vermögen GS="48"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8">rotbraune, lange Haare, grüne Augen, helle Haut mit Sommersprossen&#x0A;hagere Gestalt&#x0A;</Text>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Kampfstab"/>
+   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Robe" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Umhang" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="10"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Rechtsgelehrter"/>
+   <ang-Fertigkeit Bezeichnung="Hören" Wert="10"/>
+   <Fertigkeit Bezeichnung="Beredsamkeit" Wert="8"/>
+   <Fertigkeit Bezeichnung="Erzählen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="13" Zusatz="Alba"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="14"/>
+   <Fertigkeit Bezeichnung="Meditieren" Wert="10"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="7"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="6"/>
+   <Waffe Bezeichnung="Kampfstab" Wert="4"/>
+   <Zauber Bezeichnung="Austreibung des Bösen"/>
+   <Zauber Bezeichnung="Bannen von Dunkelheit"/>
+   <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+   <Zauber Bezeichnung="Erkennen der Aura"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Vision"/>
+   <Grundkenntnis Bezeichnung="Kampfstab"/>
+   <Sprache Bezeichnung="Albisch" Wert="20"/>
+   <Sprache Bezeichnung="Altoqua" Wert="14"/>
+   <Sprache Bezeichnung="Vallinga" Wert="14"/>
+   <Urschrift Bezeichnung="Albisch" Wert="14"/>
+   <Urschrift Bezeichnung="Altoqua" Wert="14"/>
+   <Urschrift Bezeichnung="Vallinga" Wert="8"/>
+   <Region Name="Alba" Region="A"/>
+   <Optionen Name="Originalregeln" Wert="true"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>
