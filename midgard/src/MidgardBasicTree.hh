@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.hh,v 1.13 2004/12/16 08:24:52 christof Exp $
+// $Id: MidgardBasicTree.hh,v 1.14 2004/12/22 08:10:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2004 Christof Petig
@@ -43,7 +43,8 @@ class MidgardBasicTree : public SimpleTree
   private:
 // nette Idee, ich brauche aber zum aktualisieren cH_RowDataBase!
 //      SigC::Signal1<void,const MBEmlt &> _clicked;
-      SigC::Signal1<void,cH_RowDataBase> _clicked;
+      // bool auf true setzen, wenn der Click geschluckt werden soll
+      SigC::Signal2<void,cH_RowDataBase,bool &> _clicked;
       variante was_isses;
       
       void set_tree_titles(variante V);
@@ -55,7 +56,7 @@ class MidgardBasicTree : public SimpleTree
             const std::list<MBEmlt>& BasicList,
             SimpleTree *Tree, VAbenteurer::const_iterator a);
 //            bool clear_me=true);
-      SigC::Signal1<void,cH_RowDataBase> &signal_clicked()
+      SigC::Signal2<void,cH_RowDataBase,bool &> &signal_clicked()
       {  return _clicked; }
 };
 

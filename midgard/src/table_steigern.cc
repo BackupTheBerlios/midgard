@@ -135,8 +135,6 @@ void table_steigern::on_notebook_lernen_switch_page(GtkNotebookPage *page,guint 
    refresh();
 }
 
-enum { Button_Unterweisung, Button_Selbststudium, Button_Praxis,
-       Button_Spruchrolle };
 
 void table_steigern::load_for_page(guint pagenr)
 { // Sensitive & Show
@@ -304,10 +302,6 @@ table_steigern::table_steigern(GlademmData *_data)
   button_gold->add(MagusImage("Money-50.xpm"),"Geld\neingeben",SigC::slot(*this,&table_steigern::on_button_gold_eingeben));
   button_gold->add(MagusImage("Money-50.xpm"),"Geld\naddieren",SigC::slot(*this,&table_steigern::on_button_gold_eingeben));
 }
-
-enum { Button_Steigern, Button_Verlernen, Button_PP_eingeben };
-// button_sonder
-enum { Button_GoldEP, Button_1Drittel, Button_1Halb, Button_2Drittel, Button_Ohne };
 
 // es geht hier nur um die Steigerneigenschaften ...
 void table_steigern::Abenteurer2Window()

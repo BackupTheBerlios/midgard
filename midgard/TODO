@@ -1,19 +1,20 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
-- Umsortieren des oberen Baumes nicht möglich (häh?)
-- Baum klappt nicht bis zu gewählter Tiefe auf !!!
 - Menü bewirkt gar nichts (?)
 - beim Laden wird nicht alles richtig angezeigt
-- Praxispunkte/Scroll nicht richtig aktiv/inaktiv
+- falsche Bezeichnung der aktiven Abenteurer (warum auch immer)
+? Praxispunkte eingeben geht nicht
 ####
 
+- Zauber durch Selbststudium?
++ Praxispunkte/Scroll nicht richtig aktiv/inaktiv
++ Baum klappt nicht bis zu gewählter Tiefe auf !!! (ist abgeschaltet)
 ? funktionieren Verzeichnisse unter Windows? (z.B. tmp)
 - Wizard
-? GFP, Steigertage, nocht X GFP werden bei Neulernen nicht aktualisiert
 - (zuviel Refresh bei Gradanstieg etc?)
-? Zeilen verdoppeln sich beim Lernen
 - alle MBTrees sollten auf clicks reagieren (statt select)
 - statt on_leaf_selected_alte_fert2 kann MidgardBasicElement_leaf_alt genommen werden
 		(abgesehen vom bool Rückgabewert)
+- View auf Programmoptionen (Execute etc.) statt OberSetzenFromMenu
 
 Bugreport Sanni:
 Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 

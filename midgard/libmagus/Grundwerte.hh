@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.12 2004/11/29 13:54:23 christof Exp $               
+// $Id: Grundwerte.hh,v 1.13 2004/12/22 08:10:31 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -94,7 +94,7 @@ public: // access these Models if you like ... ;-)
    Model_copyable<bool> reduzieren; // reduzieren/verlernen statt steigern
 
 public:
-   Grundwerte();
+   Grundwerte(bool initialize=false);
 
    void reset();
    void resetSinne() ;

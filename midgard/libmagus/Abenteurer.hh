@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.29 2004/11/29 17:26:49 christof Exp $               
+// $Id: Abenteurer.hh,v 1.30 2004/12/22 08:10:30 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -62,7 +62,7 @@ private:
    Optionen optionen; // aktive Optionen
 
 public:
-   Abenteurer();
+   Abenteurer(bool initialize=false);
    
    const std::string LastSavedAt() const;
    void reset();

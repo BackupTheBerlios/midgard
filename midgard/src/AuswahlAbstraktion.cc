@@ -1,4 +1,4 @@
-// $Id: AuswahlAbstraktion.cc,v 1.1 2004/12/21 07:24:14 christof Exp $
+// $Id: AuswahlAbstraktion.cc,v 1.2 2004/12/22 08:10:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2004 Christof Petig
  *
@@ -51,7 +51,7 @@ void AuswahlAbstraktion::add_sensitivity(Gtk::Widget &w)
 }
 
 void AuswahlAbstraktion::on_cancel()
-{
+{ signal_response()(Gtk::RESPONSE_CLOSE);
 }
 
 void AuswahlAbstraktion::set_title(const Glib::ustring &t)
@@ -65,14 +65,17 @@ namespace { struct RunInfo
   GMainLoop *loop;  
 
   RunInfo(AuswahlAbstraktion *_aa)
-  : aa(_aa), response_id(-1), loop()
+  : aa(_aa), response_id(Gtk::RESPONSE_NONE), loop()
   { loop = g_main_loop_new (NULL, FALSE);
   }
-  void shutdown(); 
-  void run()
+  void shutdown();
+  void shutdown2(int response)
+  { response_id=response; shutdown(); }
+  int run()
   { GDK_THREADS_LEAVE ();
     g_main_loop_run (loop);
     GDK_THREADS_ENTER ();
+    return response_id;
   }
   ~RunInfo()
   { g_main_loop_unref (loop);
@@ -85,17 +88,20 @@ void RunInfo::shutdown()
     g_main_loop_quit (loop);
 }
  
-void AuswahlAbstraktion::run()
+int AuswahlAbstraktion::run()
 { if (is_dialog)
-  { dialog->run();
+  { signal_response().connect(SigC::slot(*dialog,&Gtk::Dialog::response));
+    return dialog->run();
   }
   else
   { RunInfo ri;
     // connect to shutdown
-    ri.run();
+    signal_response().connect(SigC::slot(ri,&RunInfo::shutdown2));
+    return ri.run();
   }
 }
 
 std::string AuswahlAbstraktion::choose(Gtk::Window *mainwin, Gtk::Bin &no_dialog_container,const std::vector<std::string> &list)
 { //???
+  // ein Optionmenu erzeugen und warten was passiert
 }

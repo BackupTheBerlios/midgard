@@ -61,6 +61,11 @@ class table_steigern : public table_steigern_glade
         };
         RuestungColumns ruestung_columns;
                                   
+        enum { Button_Steigern, Button_Verlernen, Button_PP_eingeben };
+        // button_sonder
+        enum { Button_GoldEP, Button_1Drittel, Button_1Halb, Button_2Drittel, Button_Ohne };
+        enum { Button_Unterweisung, Button_Selbststudium, Button_Praxis,
+               Button_Spruchrolle };
 public:
         
         table_steigern(GlademmData *_data) ;
@@ -163,7 +168,7 @@ private:
 private:
         void on_steigern_zusatz_leaf_selected(cH_RowDataBase d);
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
-        void on_leaf_selected_alte_fert2(cH_RowDataBase d);
+        void on_leaf_selected_alte_fert2(cH_RowDataBase d,bool &handled);
         void on_alte_fert_reorder();
         void on_leaf_selected_neue_fert(cH_RowDataBase d);
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);

@@ -48,31 +48,15 @@ void table_steigern::alte_fertigkeiten_zeigen()
 }
 
 void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
-{  
-#if 0
- if (MidgardBasicElement_leaf_alt(d)) 
-   {  
-      dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_fert_tree);
-      neue_fertigkeiten_zeigen();
-      zeige_werte();
-      if (hauptfenster->getAben().reduzieren) alte_fertigkeiten_zeigen();
-   }
-#endif    
- if(!spinbutton_pp_eingeben->is_visible())
+{ if (button_was_tun->get_index()==Button_PP_eingeben)
     alte_fert_tree->get_selection()->unselect_all();
 }
 
-void table_steigern::on_leaf_selected_alte_fert2(cH_RowDataBase rdb)
-{//cH_RowDataBase rdb=new Data_SimpleTree(d,hauptfenster->getChar().actualIterator());
- if (MidgardBasicElement_leaf_alt(rdb))
-   {  
-#if 0 // automatisch?
-      rdb.cast_dynamic<const Data_SimpleTree>()->redisplay(alte_fert_tree);
-      neue_fertigkeiten_zeigen();
-      zeige_werte();
-      if(hauptfenster->getAben().reduzieren) alte_fertigkeiten_zeigen();
-#endif      
-   }
+void table_steigern::on_leaf_selected_alte_fert2(cH_RowDataBase rdb, bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { MidgardBasicElement_leaf_alt(rdb);
+    handled=true;
+  }
 }
 
 void table_steigern::on_alte_fert_reorder()

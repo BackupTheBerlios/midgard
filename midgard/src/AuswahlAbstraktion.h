@@ -1,4 +1,4 @@
-// $Id: AuswahlAbstraktion.h,v 1.1 2004/12/21 07:24:14 christof Exp $
+// $Id: AuswahlAbstraktion.h,v 1.2 2004/12/22 08:10:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2004 Christof Petig
  *
@@ -33,6 +33,7 @@ class AuswahlAbstraktion
   SigC::Slot1<void,> callback;
   bool is_dialog;
   std::vector<Gtk::Widget *> sensitivity;
+  SigC::Signal1<void,int> _response_sig;
   void on_cancel();
 public:
   AuswahlAbstraktion(Gtk::Window *mainwin, Gtk::Bin &no_dialog_container,const SigC::Slot1<void,> &cb);
@@ -41,7 +42,15 @@ public:
   void set_title(const Glib::ustring &t);
   void run(); // kein Rückgabewert?
   
-  static std::string choose(Gtk::Window *mainwin, Gtk::Bin &no_dialog_container,const std::vector<std::string> &list)
+  SigC::Signal1<void,int> &signal_response()
+  { return _response_sig; }
+  void response(int response_id)
+  { signal_response()(response_id);
+  }
+  
+//  static std::string choose(Gtk::Window *mainwin, Gtk::Bin &no_dialog_container,const std::vector<std::string> &list)
+  // member da so add_sensitivity genutzt werden kann ...
+  std::string choose(const std::vector<std::string> &list);
 };
 
 #endif

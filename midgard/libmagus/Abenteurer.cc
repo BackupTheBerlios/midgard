@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.30 2004/11/29 17:26:49 christof Exp $            
+// $Id: Abenteurer.cc,v 1.31 2004/12/22 08:10:30 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -39,7 +39,7 @@
 
 
 #include <Magus_Optionen.hh>
-Abenteurer::Abenteurer()
+Abenteurer::Abenteurer(bool initialize) : Grundwerte(initialize)
 {
    for(Magus_Optionen::regionen_t::const_iterator i=Programmoptionen->standard_regionen.begin();i!=Programmoptionen->standard_regionen.end();++i) 
       regionen[i->first] = i->second;

@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.18 2004/12/13 08:53:45 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.19 2004/12/22 08:10:31 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -71,7 +71,7 @@ namespace AbenteurerListe
 		VAbentModelProxy proxies; // proxy ist erforderlich um mit dem richtigen
 			// Model in den Undoschritten zu arbeiten
 		
-		Item(const Abenteurer &A=Abenteurer(),bool g=true);
+		Item(const Abenteurer &A=Abenteurer(true),bool g=true);
 		Item(const Item &i);
 		
 		Abenteurer &getAbenteurer() { return current_undo->abenteurer; }

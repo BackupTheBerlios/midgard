@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.14 2004/11/29 13:54:23 christof Exp $               
+// $Id: Grundwerte.cc,v 1.15 2004/12/22 08:10:31 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -433,7 +433,7 @@ void Grundwerte::setStadtLand(const std::string& _g)
   else                 setStadtLand(Enums::NoSL);
 }
 
-Grundwerte::Grundwerte()
+Grundwerte::Grundwerte(bool initialize)
 	:  Ueberleben_angeboren(&*cH_Fertigkeit("Überleben Heimat",true)),
              raufen(),au(),pa(),sb(), wk(),
              b(),lp(),ap(),gg(),sg(),abwehr_wert(),abwehr_pp(),
@@ -445,6 +445,6 @@ Grundwerte::Grundwerte()
              stadt_land(Enums::Stadt), /*steigern_EP_prozent(50),*/ grad_basiswerte(1),
              Typ(2), wie_steigern(ws_Unterweisung), wie_steigern_variante(),
              goldanteil(50), fpanteil(50)
-{ reset(); }
+{ if (initialize) reset(); }
 
 

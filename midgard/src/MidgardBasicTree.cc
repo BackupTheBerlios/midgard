@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.32 2004/12/16 08:24:52 christof Exp $
+// $Id: MidgardBasicTree.cc,v 1.33 2004/12/22 08:10:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2004 Malte Thoma
@@ -199,6 +199,7 @@ void MidgardBasicTree::show_list_in_tree(
 
 bool MidgardBasicTree::clicked_impl(SimpleTree_Basic *_this, const cH_RowDataBase &row, int col_idx)
 {  MidgardBasicTree *ths=static_cast<MidgardBasicTree*>(_this);
-   ths->_clicked(row); // .cast_dynamic<const Data_SimpleTree>()->getMBE());
-   return ths->was_isses==FERT_ALT; // true;
+   bool handled=false;
+   ths->_clicked(row,handled); // .cast_dynamic<const Data_SimpleTree>()->getMBE());
+   return handled;
 }
