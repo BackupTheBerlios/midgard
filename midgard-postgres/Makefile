@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.19 2001/06/18 05:57:02 thoma Exp $
+# $Id: Makefile,v 1.20 2001/06/18 07:05:17 christof Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten arkanum_zauber ausnahmen berufe_stand \
@@ -88,10 +88,10 @@ diff:
 	@for i in $(SYSTEM_TABLES) ; \
 	do \
 	  pg_dump $(PGDUMP_FLAGS) -t "$$i" midgard | \
-		diff -I '-- .*' -u - "$$i" ; \
+		diff -I '-- .*' -I '' -u - "$$i" ; \
 	done ; true
 	@for i in $(USER_TABLES) ; \
 	do \
 	  pg_dump $(PGDUMP_FLAGS) -s -t "$$i" midgard | \
-		diff -I '-- .*' -u - "$$i" ; \
+		diff -I '-- .*' -I '' -u - "$$i" ; \
 	done ; true
