@@ -3,16 +3,18 @@ NEWS IN VERSION 0.3delta3
 
 * kleinere Bugfixes
 * Oberflächenüberarbeitung (Lernen, Steigern: Praxispunkte und Zaubern)
-* XML: Laden beschleunigt (Fertigkeiten/Steigern_wie + Waffen/Schwierigkeit)
+* Magische Waffen funktionieren
 
 TODO:
-* Magische Waffen besitzen (mehrere von einer Sorte) (untersucht Christof)
-* Callbacks für 'steigern Menü'
+* die richtigen Callbacks für 'steigern Menü' eintragen (noch alle gleich)
 * Landeskunde als Berufsfähigkeit für 3 Berufe
   (Karawanenführer, land, v,m
    Kaufmann, stadt,m,a
    Verwalter, land, stadt, m,a,
-
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+* LaTeX Fehler bei Werfen?
 
 ##########################################################################
 NEWS IN VERSION 0.3delta2

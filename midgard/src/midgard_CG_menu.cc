@@ -167,42 +167,53 @@ void midgard_CG::menu_init()
 #include "../pixmaps/Resistenz-trans-32.xpm"
 #include "../pixmaps/Red-Dice-trans-50.xpm"
 
-/*
-struct midgard_CG::st_gradanstieg{const std::string label; const char** pix; void (*midgard_CG::funk)();
-      const std::string l; const char** p; void (*midgard_CG::funk)() f
+/* so ginge das ...
+struct midgard_CG::st_gradanstieg{const std::string label; const char** pix; void (midgard_CG::*f)();
+      const std::string l; const char** p; void (midgard_CG::*funk)();
       : label(l),pix(p),funk(f) {} };
 */
+
+struct SteigernMenueEintrag
+{    std::string text;
+     const char * const *bild;
+     void (midgard_CG::* funktion)();
+
+// so schön mit consts verziert :-P
+     SteigernMenueEintrag(const std::string &t, const char * const * const b,
+     		void (midgard_CG::* const f)())
+     	: text(t), bild(b), funktion(f) {}
+};
 
 void midgard_CG::menu_gradanstieg_init()
 {
   if (menu_gradanstieg) {menu_gradanstieg->destroy();menu_gradanstieg=0;}
   menu_gradanstieg=manage(new Gtk::Menu());
 
+  std::vector<SteigernMenueEintrag> labelpic;
+  labelpic.push_back(SteigernMenueEintrag("Grad anpassen",Anpass_trans_50_xpm,
+  		&midgard_CG::on_button_grad_clicked));
+  labelpic.push_back(SteigernMenueEintrag("Ausdauer würfeln",Dice_2W6_trans_50_xpm,
+  		&midgard_CG::on_button_grad_clicked));
+  labelpic.push_back(SteigernMenueEintrag("Abwehr",Armor_trans_50_xpm,
+  		&midgard_CG::on_button_grad_clicked));
+  labelpic.push_back(SteigernMenueEintrag("Zaubern",wizzard_trans_50_xpm,
+  		&midgard_CG::on_button_grad_clicked));
+  labelpic.push_back(SteigernMenueEintrag("Resistenz",Resistenz_trans_32_xpm,
+  		&midgard_CG::on_button_grad_clicked));
+  labelpic.push_back(SteigernMenueEintrag("Basiswerte",Red_Dice_trans_50_xpm,
+  		&midgard_CG::on_button_grad_clicked));
 
-  std::vector<pair<std::string,char**> > labelpic;
-  labelpic.push_back(pair<std::string,char**>("Grad anpassen",Anpass_trans_50_xpm));
-  labelpic.push_back(pair<std::string,char**>("Ausdauer würfeln",Dice_2W6_trans_50_xpm));
-  labelpic.push_back(pair<std::string,char**>("Abwehr",Armor_trans_50_xpm));
-  labelpic.push_back(pair<std::string,char**>("Zaubern",wizzard_trans_50_xpm));
-  labelpic.push_back(pair<std::string,char**>("Resistenz",Resistenz_trans_32_xpm));
-  labelpic.push_back(pair<std::string,char**>("Basiswerte",Red_Dice_trans_50_xpm));
-
-//  std::vector<void (*midgard_CG::funk)()> funk;
-//  funk.push_back()
-
-  for(std::vector<pair<std::string,char**> >::const_iterator i=labelpic.begin();i!=labelpic.end();++i)
+  for(std::vector<SteigernMenueEintrag>::const_iterator i=labelpic.begin();i!=labelpic.end();++i)
    {
      Gtk::MenuItem *mi=manage(new Gtk::MenuItem());
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
-     Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->second));
+     Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
      _tab->attach(*_o,0,1,0,1,0,0,0,0);
-     Gtk::Label *_l=manage (new Gtk::Label(i->first,0,0));
+     Gtk::Label *_l=manage (new Gtk::Label(i->text,0,0));
      _tab->attach(*_l,1,2,0,1,0,0,0,0);
      _tab->set_col_spacings(10);
      mi->add(*_tab);
-#warning DAS FUNKTIONIERT SO NOCH NICHT
-     mi->activate.connect(SigC::slot(this,&midgard_CG::on_button_grad_clicked));
-//     mi->activate.connect(SigC::slot(this,(*(i->funk))() ));
+     mi->activate.connect(SigC::slot(this,i->funktion));
      menu_gradanstieg->append(*mi);
    }
   menu_gradanstieg->show_all();
