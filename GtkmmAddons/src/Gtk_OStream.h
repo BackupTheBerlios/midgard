@@ -20,8 +20,8 @@
 
 #ifndef GTKMM_OSTREAM_H
 #define GTKMM_OSTREAM_H
-#include <iostream.h> // <iostream> for newer compilers
-#include <strstream.h> // <strstream> for newer compilers
+#include <iostream> // <iostream> for newer compilers
+#include <strstream> // <strstream> for newer compilers
 // <sstream> for upcoming compilers ;-)
 #include <gtkmm/menu.h>
 
@@ -30,18 +30,12 @@ class OptionMenu;
 class Label;
 };
 
-class ostream;
-
-#if (defined (__GNUC__) && __GNUC__ == 2 && __GNUC_MINOR__ < 8)
-#define throw(away...)
-#endif
-
 // 2do: option-menu, Button, ... (everything which has Text on it)
 // option-menu fertig MAT
 
 namespace Gtk {
 
-class OStream : public ostrstream
+class OStream : public std::ostrstream
 {
     private:
         void (OStream::*flush_impl)(gpointer user_data,GtkDestroyNotify d);
@@ -51,7 +45,7 @@ class OStream : public ostrstream
         int mode;
 
         // specific information
-        struct data_stream { ostream *os; };
+        struct data_stream { std::ostream *os; };
         struct data_optionmenu { Gtk::OptionMenu *widget; 
                 Gtk::Menu *menu; };
         struct data_label { Label *widget; };
@@ -73,24 +67,24 @@ class OStream : public ostrstream
 
         OStream()
                 : flush_impl(&OStream::flush_stream), close_impl(0),
-                        mode(ios::out)
+                        mode(std::ios::out)
         {
-            handler_data.stream.os=&cout;
+            handler_data.stream.os=&std::cout;
         }
-        OStream(ostream *stream)
+        OStream(std::ostream *stream)
                 : flush_impl(&OStream::flush_stream), close_impl(0),
-                        mode(ios::out)
+                        mode(std::ios::out)
         {
             handler_data.stream.os=stream;
         }
-        OStream(Gtk::OptionMenu *o,int _mode=(ios::out|ios::trunc)) throw()
+        OStream(Gtk::OptionMenu *o,int _mode=(std::ios::out|std::ios::trunc)) throw()
                 : flush_impl(&OStream::flush_OptionMenu), 
                   close_impl(&OStream::close_OptionMenu),
                         mode(_mode)
         {   handler_data.optionmenu.widget=o;
             erase_OptionMenu();
         }
-        OStream(Label *l,int _mode=(ios::out|ios::trunc)) throw()
+        OStream(Label *l,int _mode=(std::ios::out|std::ios::trunc)) throw()
                 : flush_impl(&OStream::flush_Label), close_impl(0),
                         mode(_mode)
         {

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.40 2002/10/23 16:30:51 christof Exp $
+# $Id: Makefile.am,v 1.41 2002/12/12 10:57:56 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
 
@@ -8,13 +8,8 @@ CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ $(MIDGARD3) -DREGION
 
 BUILT_SOURCES=TagStream.hh Tag.hh
 
-TagStream.cc: ../src/TagStream.cc ; ln -sf ../src/$@ .
-Tag.cc: ../src/Tag.cc ; ln -sf ../src/$@ .
-TagStream.hh: ../src/TagStream.hh ; ln -sf ../src/$@ .
-Tag.hh: ../src/Tag.hh ; ln -sf ../src/$@ .
-
 common_sources = export_common.cc common_exp.cc zauber_exp.cc \
-	Tag.cc TagStream.cc ki_speichern.cc
+	ki_speichern.cc
 arkanum_exp_SOURCES= arkanum_exp.cc $(common_sources)
 all_exp_SOURCES=all_exp.cc $(common_sources) \
 	kido_exp.cc fertigk_exp.cc land_sprache_exp.cc waffen_exp.cc

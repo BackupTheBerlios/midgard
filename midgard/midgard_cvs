@@ -1,6 +1,7 @@
 #!/bin/sh
 
 GTKMM1="-r GTKMM1"
+SIGC10="--enable-sigc1-0"
 
 login() {
   echo ========= Logging in ======
@@ -43,7 +44,7 @@ update() {
 
 configure() {
   echo ========  ManuProC_Base ========
-  ( cd ManuProC_Base && (./autogen.sh $* ; make ) )
+  ( cd ManuProC_Base && (./autogen.sh $* $SIGC10 ; make ) )
   echo ========== GtkmmAddons ========
   ( cd GtkmmAddons && (cd searchcombo ; ./autogen.sh $* ) ; \	
   	 ./autogen.sh $* ; make )
@@ -109,7 +110,7 @@ then
   domake
   doinstall
 else
-  echo "Magus anonymous-CVS Installierer, $Revision: 1.13 $"
+  echo "Magus anonymous-CVS Installierer, $Revision: 1.14 $"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
