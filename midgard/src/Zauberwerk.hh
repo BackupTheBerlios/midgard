@@ -30,10 +30,7 @@ class Zauberwerk : public MidgardBasicElement
             getVoraussetzungen();getVoraussetzungenFert();} 
 
    std::string Name() const {  return name; }
-   std::string Art() const 
-      { if (art=="AZ") return "Alchimistisches Zaubermittel";
-        if (art=="PZ") return "Pflanzliches Zaubermittel";
-        return art; }
+   std::string Art() const { return art; }
    std::string Stufe() const {  return stufe; }
    int iStufe() const {  if (Stufe()=="groß") return 6; else return atoi(Stufe().c_str()); }
    std::string Zeitaufwand() const { return zeitaufwand;}
