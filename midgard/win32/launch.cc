@@ -3,6 +3,7 @@
 #include <io.h>
 #include "registry.h"
 #include <process.h>
+#include <stdlib.h>
 
 #define CYGWIN_INFO_CYGNUS_REGISTRY_NAME "Cygnus Solutions"
 #define CYGWIN_INFO_CYGWIN_REGISTRY_NAME "Cygwin"
@@ -47,6 +48,7 @@ int main()
       subkey = reg_key (r1.get_key (),
                                 KEY_ALL_ACCESS,
                                 "/usr/bin", NULL);
+      printf("bin:native=%d\n",buf);
       subkey.set_string ("native", buf);
       subkey.set_int ("flags", 0xa);
 
@@ -70,6 +72,7 @@ int main()
    }
 
 
+// PATH
    putenv("PGDATA=/usr/share/postgresql/data");                                                           
    
       /* chdir("cygwin\\bin"); */
