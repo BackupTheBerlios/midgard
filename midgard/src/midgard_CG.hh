@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.304 2002/11/27 08:57:11 thoma Exp $
+// $Id: midgard_CG.hh,v 1.305 2002/11/28 06:11:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -275,7 +275,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         SigC::Connection connection_status;
         gint timeout_status();
         friend class Datenbank;
-        Tag *tag_eigene_artikel;
+        Tag tag_eigene_artikel;
    protected:
         Random random;   
 

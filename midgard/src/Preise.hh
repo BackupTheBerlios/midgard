@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.27 2002/11/25 12:09:47 thoma Exp $
+// $Id: Preise.hh,v 1.28 2002/11/28 06:11:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -99,7 +99,7 @@ class Preise_All
 {
    std::list<cH_Preise> list_All;
   public:
-   Preise_All(const std::string &filename,Tag *tag_eigene_artikel);
+   Preise_All(const std::string &filename,Tag &tag_eigene_artikel);
    std::list<cH_Preise> get_All() const {return list_All;}
 };
 

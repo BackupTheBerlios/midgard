@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.283 2002/11/25 22:25:18 thoma Exp $
+// $Id: midgard_CG.cc,v 1.284 2002/11/28 06:11:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
                        const std::string &datei)
 : magus_paths(_argv0,_magus_verzeichnis),in_dtor(false),
 	InfoFenster(0),MOptionen(0),wizard(0),menu_kontext(0),
-	tag_eigene_artikel(0)
+	tag_eigene_artikel(Tag("MAGUS-data"))
 {
 //  ManuProC::Tracer::Enable(ManuProC::Tracer::Auftrag);
   ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);

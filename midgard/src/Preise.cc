@@ -68,7 +68,7 @@ void Preise::get_Preise()
   if(kosten<0) {kosten=0; unverkauflich=true;}
 }
 
-Preise_All::Preise_All(const std::string &filename,Tag *tag_eigene_artikel)
+Preise_All::Preise_All(const std::string &filename,Tag &tag_eigene_artikel)
 {
  const Tag *preise=xml_data->find("PreiseNeu");
  if (preise)
@@ -88,9 +88,9 @@ Preise_All::Preise_All(const std::string &filename,Tag *tag_eigene_artikel)
       ts.debug();
       return;
     }
-cout << "LoadTag\t"<<tag_eigene_artikel<<'\n';
-  tag_eigene_artikel=const_cast<Tag*>(data);
-cout << "LoadTag\t"<<tag_eigene_artikel<<'\n';
+//cout << "LoadTag\t"<<tag_eigene_artikel<<'\n';
+  tag_eigene_artikel=*const_cast<Tag*>(data);
+//cout << "LoadTag\t"<<tag_eigene_artikel<<'\n';
 
   const Tag *preise=data->find("Preise");
   if (preise)
@@ -179,31 +179,27 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
       return;
     }
    TagStream ts;
+//Tag &ts=static_cast<Tag &>(ts)=hauptfenster->tag_eigene_artikel;
+//   Tag &TeA_=ts.push_back(Tag("Preise"));
+
    ts.setEncoding("ISO-8859-1");
 
-   if(!hauptfenster->tag_eigene_artikel) 
-    {
-cout << "Create NEW root Tag\n";
-      Tag RootTag_=Tag("MAGUS-data");
-      hauptfenster->tag_eigene_artikel=&RootTag_;
-cout <<  hauptfenster->tag_eigene_artikel<<'\n';
-    }
-   else      cout << "Old Root Tag: "<<hauptfenster->tag_eigene_artikel<<'\n';
+//???static_cast<Tag &>(ts)=tag_eigene_artikel;
 
-   Tag &RootTag=*(hauptfenster->tag_eigene_artikel);
+   Tag &RootTag=hauptfenster->tag_eigene_artikel;
+   Tag &TeA_=RootTag.push_back(Tag("Preise"));
 
-cout <<"Final Root Tag: "<< &RootTag<<' '<< hauptfenster->tag_eigene_artikel<<'\n';
-
-
-   Tag &TeA=RootTag.push_back(Tag("Preise"));
+   Tag &TeA=TeA_.push_back(Tag("Dinge"));
 
    TeA.setAttr("Art",art);
    TeA.setAttr("Art2",art2);
+   TeA.setAttr("Name",name);
    TeA.setAttr("Währung",einheit);
    TeA.setAttr("Preis",dtos(preis));
    TeA.setAttr("Gewicht",dtos(gewicht));
    TeA.setAttr("Region",region);
 
    cH_Preise(name,art,&TeA);
-   ts.write(datei);
+   ts.write(datei,RootTag);
+//   ts.write(datei,ts);
 }
