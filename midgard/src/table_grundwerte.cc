@@ -5,13 +5,10 @@
 #include <Misc/itos.h>
 #include <SelectMatching.h>
 #include <Misc/Trace.h>
-
-#include<gtkmm/label.h>
-#include<gtkmm/image.h>
-#include<gtkmm/box.h>
+#include <gtkmm/label.h>
+#include <gtkmm/image.h>
+#include <gtkmm/box.h>
 #include <bool_CheckButton.hh>
-extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
-
 #include <libmagus/Ausgabe.hh>
 
 void table_grundwerte::init(midgard_CG *h)
@@ -20,6 +17,10 @@ void table_grundwerte::init(midgard_CG *h)
   hauptfenster=h;
   label=0;
 
+  static bool only_once=false;
+  if(!only_once)
+  {
+   only_once=true;
   Vstand.resize(5);
   Vstand[1]="Unfrei";
   Vstand[2]="Volk";  
@@ -31,34 +32,18 @@ void table_grundwerte::init(midgard_CG *h)
   Vhand[1]="Linkshänder"; 
   Vhand[2]="Beidhändig";  
 
-  static bool only_once=false;
-  if(!only_once)
-  {
-   only_once=true;
     bool_CheckButton *_m=manage(new bool_CheckButton(edit_werte,hauptfenster->make_gtk_box(MagusImage("EditChar-trans-50.xpm"),"Werte\neditieren",false,false)));
    _m->set_mode(false);
    eventbox_werte_edit->add(*_m);
    eventbox_werte_edit->show_all();
    _m->signal_toggled().connect(SigC::slot(*this, &table_grundwerte::on_togglebutton_edit_werte_toggled),true);
 
-#if 0   
-   if (!h->get_window()) h->realize();
-   if (h->get_window())
-   {  Glib::RefPtr<Gdk::Pixbuf> pb=MagusImage("Gross_dfr4.light");
-      Glib::RefPtr<Gdk::Pixmap> pm=Gdk::Pixmap::create(h->get_window(),pb->get_width(),pb->get_height(),h->get_window()->get_depth());
-      Glib::RefPtr<Gdk::GC> gc=Gdk::GC::create(pm);
-      pm->draw_pixbuf(gc,pb,0,0,0,0,-1,-1,Gdk::RGB_DITHER_NORMAL,0,0);
-      Glib::RefPtr<Gtk::Style> st=h->grundwerte_background->get_style()->copy();
-      st->set_bg_pixmap(Gtk::STATE_NORMAL,pm);
-      h->grundwerte_background->set_style(st);
-   }
-#endif
   }
   edit_werte=false;
-  edit_sensitive(false);
-  zeige_werte();
+  edit_sensitive(false); // noch weg ?
+  zeige_werte(); // noch weg
 }
-    
+
 void table_grundwerte::zeige_werte(bool typ2_hide)
 { 
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
@@ -116,8 +101,6 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    combo_hand->set_popdown_strings(Vhand);
    combo_hand->get_entry()->set_text(hauptfenster->getChar()->Hand());
 
-Ausgabe(Ausgabe::Debug,"Herkunft");
-Ausgabe(Ausgabe::Debug,hauptfenster->getChar()->Herkunft()->Name());
    entry_herkunft->set_text(hauptfenster->getChar()->Herkunft()->Name());
    entry_glaube->set_text(hauptfenster->getChar()->Glaube());
    entry_nameC->set_text(hauptfenster->getChar()->Name_Abenteurer());

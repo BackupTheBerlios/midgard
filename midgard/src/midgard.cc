@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.67 2003/10/06 15:31:28 christof Exp $
+// $Id: midgard.cc,v 1.68 2003/10/13 06:33:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -109,7 +109,11 @@ std::cerr << "displaying images\n";
 //   setlocale(LC_ALL, "de_DE");
    // WindowInfo erzeugen und an midgard_CG übergeben
    midgard_CG *magus=new midgard_CG(dateien);
+   magus->show(); 
+   // darf nicht eher geschehen wegen realize (background) als virtuellem callback
    delete progresswin;
+  if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
+     manage(new BegruessungsWindow(magus));
    m.run(*magus);
    delete magus;
    return 0;

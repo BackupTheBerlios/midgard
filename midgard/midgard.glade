@@ -5,7 +5,6 @@
 
 <widget class="GtkWindow" id="midgard_CG">
   <property agent="glademm" name="cxx_visibility">protected</property>
-  <property name="visible">True</property>
   <property name="sensitive">False</property>
   <property name="events">GDK_BUTTON_PRESS_MASK</property>
   <property name="title" translatable="yes">Magus</property>
@@ -708,6 +707,7 @@
 		<widget class="GtkEventBox" id="grundwerte_background">
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
+		  <signal name="realize" handler="grundwerte_background" after="yes" last_modification_time="Sun, 12 Oct 2003 22:02:43 GMT"/>
 
 		  <child>
 		    <widget class="GtkTable" id="table_grundwerte">

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.309 2003/09/30 07:13:36 christof Exp $
+// $Id: midgard_CG.cc,v 1.310 2003/10/13 06:33:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -95,9 +95,6 @@ midgard_CG::midgard_CG(const std::vector<std::string> &dateien)
   os << 
 #include"NEWS.h" 
    <<'\n';
-
-  if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
-     manage(new BegruessungsWindow(this));
 }
 
 midgard_CG::~midgard_CG()
@@ -219,4 +216,16 @@ void midgard_CG::on_kompletter_export_activate()
 #include <libmagus/Ausgabe.hh>
 void midgard_CG::on_schlie__en1_activate()
 {  Ausgabe(Ausgabe::Error,"Noch nicht programmiert!");
+}
+
+void midgard_CG::grundwerte_background()
+{  assert (get_window());
+   {  Glib::RefPtr<Gdk::Pixbuf> pb=MagusImage("Gross_dfr4.light");
+      Glib::RefPtr<Gdk::Pixmap> pm=Gdk::Pixmap::create(get_window(),pb->get_width(),pb->get_height(),get_window()->get_depth());
+      Glib::RefPtr<Gdk::GC> gc=Gdk::GC::create(pm);
+      pm->draw_pixbuf(gc,pb,0,0,0,0,-1,-1,Gdk::RGB_DITHER_NORMAL,0,0);
+      Glib::RefPtr<Gtk::Style> st=grundwerte_background->get_style()->copy();
+      st->set_bg_pixmap(Gtk::STATE_NORMAL,pm);
+      grundwerte_background->set_style(st);
+   }
 }

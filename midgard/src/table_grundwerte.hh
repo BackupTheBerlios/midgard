@@ -50,6 +50,8 @@ private:
 
         void edit_sensitive(bool b);
         
+        void sync_wizard();
+        
         void fill_typauswahl_fill(int typ_1_2);
         void fill_spezies();
         void typauswahl_button();  
