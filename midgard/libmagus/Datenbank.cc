@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.3 2003/05/07 10:57:50 christof Exp $               
+// $Id: Datenbank.cc,v 1.4 2003/05/07 12:24:05 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -48,15 +48,16 @@
 //#include "Midgard_Info.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
+#include "magus_paths.h"
 
-Datenbank::Datenbank()
+Datenbank::Datenbank() : tag_eigene_artikel("MAGUS-data")
 {
 }
 
 void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::string> meldungen)
 {
     xml_init(progress,meldungen);
-    Regionen = Regionen_All();
+    Regionen = Regionen_All().get_All();
 //    MI->set_Regionen(Regionen);
     Laender = Laender_All().get_All();
     Ruestung = Ruestung_All().get_All();
@@ -76,7 +77,7 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,std::str
     Typen = Typen_All().get_All();
     GradAnstieg = Grad_anstieg(true);
     Spezialgebiet = Spezialgebiet_All().get_All();
-    preise = Preise_All(hauptfenster->with_path("magus_preise.xml",false,true),hauptfenster->tag_eigene_artikel).get_All();
+    preise = Preise_All(magus_paths::with_path("magus_preise.xml",false,true),tag_eigene_artikel).get_All();
     preisenewmod = PreiseNewMod_All().get_All();
     prototyp = Prototyp_All().get_All();
     prototyp2 = Prototyp2_All().get_All();
