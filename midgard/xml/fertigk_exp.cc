@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.12 2002/01/15 08:18:44 christof Exp $
+// $Id: fertigk_exp.cc,v 1.13 2002/01/18 08:09:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -155,7 +155,7 @@ void fert_speichern(std::ostream &o)
   }
   }
 #ifdef REGION // Lernschema für Typen dieser Region
-  if (region!="")
+  if (!region.empty())
  { FetchIStream is;
    Query q("select fertigkeit, region from fertigkeiten "
    	+ RegionErgaenzungQuery("fertigkeiten.fertigkeit","fertigkeiten_typen","Fertigkeit","f")
@@ -178,7 +178,7 @@ void fert_speichern(std::ostream &o)
    o << " </Fertigkeiten>\n";
 
 //********************* angeborene Fertigkeiten ********************
-  if (region=="")
+  if (region.empty())
   {o << " <angeboreneFertigkeiten>\n";
   {Query query("select name, min, max, wert"
   	" from angeborene_fertigkeiten"
@@ -286,7 +286,7 @@ void fert_speichern(std::ostream &o)
    o << " </Berufe>\n";
 
 //********************* Pflicht + verboten ********************
-  if (region=="")
+  if (region.empty())
   {o << " <Typ-Pflichten>\n";
    o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten/Berufe/Waffen(grund)fert. sind -->\n";
    Query query("select pflicht, typ, lernpunkte, verboten, spielbegin, erfolgswert"
@@ -329,7 +329,7 @@ void fert_speichern(std::ostream &o)
 
 //********************* praxispunkte ********************
 #ifdef MIDGARD3
-  if (region=="")
+  if (region.empty())
   {o << " <Praxispunkte>\n";
    Query query("select name, max_wert, lernfaktor"
    	" from praxispunkte"
@@ -348,7 +348,7 @@ void fert_speichern(std::ostream &o)
 #endif
 
 //********************* ZEP oder KEP oder beides? ********************
-  if (region=="")
+  if (region.empty())
   {o << " <verwendbareEP>\n";
    o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten sind -->\n";
    Query query("select name, ep"
@@ -375,7 +375,7 @@ void fert_speichern(std::ostream &o)
  }
 
 //*************************** Steigerungstabelle *******************
-  if (region=="")
+  if (region.empty())
   {o << " <SteigernKosten>\n";
    Query query("select name,"
       	    " coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),"

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.16 2002/01/18 07:07:04 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.17 2002/01/18 08:09:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -27,7 +27,7 @@ void land_speichern(std::ostream &o)
    Transaction t;
    FetchIStream is;
 
-  if (region=="")
+  if (region.empty())
   {o << " <Länder>\n";
   {Query query("select distinct kontinent from land"
    	" order by kontinent");
@@ -122,7 +122,7 @@ void land_speichern(std::ostream &o)
    o << " </Sprachen>\n";
 
 //******************************************************************
-  if (region=="")
+  if (region.empty())
   {o << " <SpeziesListe>\n";
    Query query("select spezies, nr,"
    		" ap_wert, alter, groesse_f, groesse_w, groesse_s, b_f, b_s,"
@@ -198,7 +198,7 @@ void land_speichern(std::ostream &o)
   }
 
 //******************************************************************
-  if (region=="")
+  if (region.empty())
   {o << " <Gradanstieg>\n";
    Query query("select grad, gfp, abwehr, resistenz, zaubern, schicksalsgunst,"
    	" abwehr_kosten, resistenz_kosten, zaubern_kosten"
@@ -249,7 +249,7 @@ void land_speichern(std::ostream &o)
    
 // ******************** preise ***********************
   
-  if (region=="")
+  if (region.empty())
   {o << " <Preise>\n";
   {Query query("select name, art, art2, kosten, einheit"MIDGARD3_4("",",gewicht")
    	" from preise"

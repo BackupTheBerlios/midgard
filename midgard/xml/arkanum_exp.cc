@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.10 2002/01/15 08:18:44 christof Exp $
+// $Id: arkanum_exp.cc,v 1.11 2002/01/18 08:09:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -73,7 +73,7 @@ void arkanum_speichern(std::ostream &o)
   }
  }
 #ifdef REGION // Lernschema für Typen dieser Region
-  if (region!="")
+  if (!region.empty())
  { FetchIStream is;
    Query q("select name, region from zauber "
    	+ RegionErgaenzungQuery("zauber.name","zauber_typen","Zauber","z")
@@ -139,7 +139,7 @@ void arkanum_speichern(std::ostream &o)
   }
  }
 #ifdef REGION // Lernschema für Typen dieser Region
-  if (region!="")
+  if (!region.empty())
   {FetchIStream is;
    Query q("select name, region, art, stufe from zauberwerk "
    	+ RegionErgaenzungQuery("zauberwerk.name","zauberwerk_typen","Zauber","z")
@@ -163,7 +163,7 @@ void arkanum_speichern(std::ostream &o)
 
 //********************* Spezialgebiete ********************
 #ifdef REGION
-  if (region=="")
+  if (region.empty())
 #endif  
   {o << " <Spezialgebiete>\n";
    Query query("select typ, spezialgebiet, nr, spezial, spezial2"
@@ -198,7 +198,7 @@ int main(int argc, char *argv[])
    write_string_attrib(std::cout, "Region",region.empty()?std::string("Arkanum"):region);
    {  Transaction tr;
       Query query("select name, file, url, maintainer, version, nr"
-   	" from regionen where abkuerzung='"+region+"'");
+   	" from regionen where abkuerzung='Arkanum'");
       FetchIStream is=query.Fetch();
       if (query.good())
       {  fetch_and_write_string_attrib(is, std::cout, "Name");

@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.14 2002/01/18 07:15:19 christof Exp $
+// $Id: common_exp.cc,v 1.15 2002/01/18 08:09:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,7 +20,7 @@
 #include "export_common.h"
 
 static void schwierigkeit(std::ostream &o, 
-	const std::string &_query, const std::string &tag)
+	const std::string &_query, const std::string &tag, int indent=4)
 {  std::string content;
    int in_this_line=0;
    int per_line=3;
@@ -30,11 +30,11 @@ static void schwierigkeit(std::ostream &o,
    FetchIStream is;
    while ((query>>is).good())
    {  if (++in_this_line>per_line) 
-      { content+="\n    "; in_this_line=1; }
+      { content+="\n"+string(indent,' '); in_this_line=1; }
       content+="<"+tag+" Typ=\""+toXML(fetch_typ(is))+"\"/>";
    }
    if (!content.empty())
-      o << "    " << content << '\n';
+      o << string(indent,' ') << content << '\n';
 }
 
 void grund_standard_ausnahme(std::ostream &o, 
@@ -210,7 +210,7 @@ std::string Herkunft(bool invert)
    else if (region=="E") herkunft="='Eschar'";
    else if (region=="K") herkunft="='KanThaiPan'";
    else if (region=="R") herkunft=" in ('Minangpahit','Rawindra')";
-   else if (region=="") herkunft=" in ('Küstenstaaten','Ikenga Becken')";
+   else if (region.empty()) herkunft=" in ('Küstenstaaten','Ikenga Becken')";
    else herkunft="='never'";
    if (invert)
    {  if (herkunft[0]=='=') return "!"+herkunft;
@@ -231,7 +231,8 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    	" on typ=typs where region='"+region+"'"
    	" and "+attribute+"="+typtable+".name) ";
    
-   result+="or exists (select true from "
+   if (typtable!="waffen_grund_typen")
+      result+="or exists (select true from "
    	MIDGARD3_4("lernschema","lernschema_4")
    	" join typen"
    	" on typ=typs where region='"+region+"'"
@@ -240,12 +241,14 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    	MIDGARD3_4("lernschema.fertigkeit","lernschema_4.name")
    	") ";
    	
-   result+="or exists (select true from pflicht_lernen join typen"
+   if (typtable!="waffen_grund_typen")
+      result+="or exists (select true from pflicht_lernen join typen"
    	" on typ=typs where region='"+region+"'"
    	" and ("+attribute+"=pflicht_lernen.verboten"
    	" or "+attribute+"=pflicht_lernen.pflicht)) ";
 
-   result+="or exists (select true from ausnahmen join typen"
+   if (typtable!="waffen_grund_typen")
+      result+="or exists (select true from ausnahmen join typen"
    	" on typ=typs"
    	" where (region='"+region+"' or herkunft"+herkunft+")"
    	" and art='"+ausnahmen_art+"'"
