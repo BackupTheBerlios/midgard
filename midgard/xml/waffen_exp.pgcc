@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.14 2001/12/07 16:10:23 christof Exp $
+// $Id: waffen_exp.pgcc,v 1.15 2001/12/10 15:38:50 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -32,21 +32,13 @@ void waffen_speichern(std::ostream &o)
    o << " <Rüstungen>\n";
 
    Transaction t;
-   exec sql allocate descriptor spalten;
-   
-   exec sql declare ruestung_curs cursor for
-   	select ruestung, region, ruestung_s, lp_verlust,
-   		min_staerke,rw_verlust,b_verlust
-   	from ruestung
-   	order by coalesce(region,''),lp_verlust;
-   exec sql open ruestung_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch ruestung_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Rüstung";
+   FetchIStream is;
+  {Query query("select ruestung, region, ruestung_s, lp_verlust,"
+   		" min_staerke,rw_verlust,b_verlust"
+   	" from ruestung"
+   	" order by coalesce(region,''),lp_verlust");
+  while ((query>>is).good())
+  {o << "  <Rüstung";
    std::string ruestung=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_string_attrib(is, o, "Abkürzung");
@@ -55,44 +47,31 @@ void waffen_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "RW-Verlust");
    fetch_and_write_int_attrib(is, o, "B-Verlust");
    //***** preise ******
-   {  exec sql begin declare section;
-      const char *RUESTUNG=ruestung.c_str(GARNIX);
-      float kosten;
-      char einheit[30];
-      exec sql end declare section;
-      
-      exec sql select kosten, einheit into :kosten, :einheit 
-      	from preise where name=:RUESTUNG and art='Rüstungen';
-      if (!sqlca.sqlcode)
-      {  write_int_attrib(o, "Preis", kosten);
-         write_string_attrib(o, "Währung", einheit);
+   {  Query query2("select kosten, einheit into :kosten, :einheit"
+   		" from preise where name='"+ruestung+"' and art='Rüstungen'");
+      FetchIStream is2=query2.Fetch();
+      if (is2.good())
+      {  fetch_and_write_int_attrib(is2, o, "Preis");
+         fetch_and_write_string_attrib(is2, o, "Währung");
       }
    }   
    o << "/>\n";
   }
-   exec sql close ruestung_curs;
-   SQLerror::test(__FILELINE__);
+  }
    o << " </Rüstungen>\n";
 
 //********************** waffen ********************************************
 
    o << " <Waffen>\n";
-   exec sql declare waffen_curs cursor for
-   	select name, region, grundkenntnisse, schwierigkeit,
-   		art, art_2, schaden, schaden_b, zusatz, angriffsrangmod,
-   		wm_abwehr_leicht, wm_abwehr_schwer, 
-   		st, ge, reichweite_0, reichweite_n,
-   		reichweite_m, reichweite_f
-   	from waffen
-   	order by coalesce(region,''),art,name;
-   exec sql open waffen_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch waffen_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Waffe";
+  {Query query("select name, region, grundkenntnisse, schwierigkeit,"
+   		"art, art_2, schaden, schaden_b, zusatz, angriffsrangmod,"
+   		"wm_abwehr_leicht, wm_abwehr_schwer,"
+   		"st, ge, reichweite_0, reichweite_n,"
+   		"reichweite_m, reichweite_f"
+   	" from waffen"
+   	" order by coalesce(region,''),art,name");
+  while ((query>>is).good())
+  {o << "  <Waffe";
    std::string waffe=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    std::string grund=fetch_and_write_string_attrib(is, o, "Grundkenntnisse",waffe);
@@ -117,22 +96,13 @@ void waffen_speichern(std::ostream &o)
    o << "/>\n";
 
  //************************* waffen_region_name ************************  
-   {  exec sql begin declare section;
-      const char *WAFFE=waffe.c_str(GARNIX);
-      exec sql end declare section;
-
-      exec sql declare cursor_reg cursor for 
-      	select alias,region,schaden,schaden_b,angriffs_mod
-      	from waffen_region_name
-      	where name=:WAFFE
-      	order by region,alias;
-      exec sql open cursor_reg;
-      SQLerror::test(__FILELINE__);
-      while (!sqlca.sqlcode) 
-      {  exec sql fetch from cursor_reg into sql descriptor spalten;
-         if (sqlca.sqlcode) break;
-         FetchIStream is2("spalten");
-         o << "    <regionaleVariante";
+   {  Query query2("select alias,region,schaden,schaden_b,angriffs_mod"
+      	" from waffen_region_name"
+      	" where name='"+waffe+"'"
+      	" order by region,alias");
+      FetchIStream is2;
+      while ((query2>>is2).good()) 
+      {  o << "    <regionaleVariante";
          fetch_and_write_string_attrib(is2, o, "Name");
          fetch_and_write_string_attrib(is2, o, "Region");
          fetch_and_write_string_attrib(is2, o, "Schaden");
@@ -141,21 +111,17 @@ void waffen_speichern(std::ostream &o)
          fetch_and_write_int_attrib(is2, o, "Angriff");
          o << "/></regionaleVariante>\n";
       }
-      exec sql close cursor_reg;
+     }
 
 //*************** Waffen Typen ***************************
       grund_standard_ausnahme(o, "waffen_typen", waffe);
 
       if (grund==waffe)
-      {  exec sql begin declare section; 
-         int kosten;
-         exec sql end declare section;
-         
-         exec sql select fp into :kosten from waffen_grund
-         	where name=:WAFFE;
-         if (!sqlca.sqlcode)
+      {  Query query2("select fp from waffen_grund where name='"+waffe+"'");
+         FetchIStream is2=query2.Fetch();
+         if (is2.good())
          {  o << "    <Waffen:Grundkenntnis";
-            write_int_attrib(o, "Kosten", kosten);
+            fetch_and_write_int_attrib(is2, o, "Kosten");
             o << "/>\n";
          }
      }
@@ -167,45 +133,30 @@ void waffen_speichern(std::ostream &o)
 //      ausnahmen(o, "w", waffe);
 
    //***** preise ******
-   {  exec sql begin declare section;
-      float kosten;
-      char einheit[30];
-      exec sql end declare section;
-      
-      exec sql select kosten, einheit into :kosten, :einheit 
-      	from preise where name=:WAFFE and art='Waffen';
-      if (!sqlca.sqlcode)
-      {  o << "    <Kaufpreis";
-         write_int_attrib(o, "Preis", kosten);
-         write_string_attrib(o, "Währung", einheit);
-         o << "/>\n";
+   {  Query query2("select kosten, einheit into :kosten, :einheit"
+   		" from preise where name='"+waffe+"' and art='Waffen'");
+      FetchIStream is2=query2.Fetch();
+      if (is2.good())
+      {  fetch_and_write_int_attrib(is2, o, "Preis");
+         fetch_and_write_string_attrib(is2, o, "Währung");
       }
    }   
-   }
       
    o << "  </Waffe>\n";
   }
-   exec sql close waffen_curs;
-   SQLerror::test(__FILELINE__);
    o << " </Waffen>\n";
+ }
 
 //******************waffen_grund************************************************
 
    o << " <Waffen:Grundkenntnisse>\n";
    o << "   <-- direkte Grundkenntnisse stehen bei den Waffen -->\n";
-   exec sql declare grund_curs cursor for
-   	select name, region, fp
-   	from waffen_grund where not exists 
-   	(select true from waffen where waffen.name=waffen_grund.name)
-   	order by coalesce(region,''),name;
-   exec sql open grund_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch grund_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Waffen:Grundkenntnis";
+  {Query query("select name, region, fp"
+   	" from waffen_grund where not exists"
+   	" (select true from waffen where waffen.name=waffen_grund.name)"
+   	" order by coalesce(region,''),name");
+  while ((query>>is).good())
+  {o << "  <Waffen:Grundkenntnis";
    std::string grund=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_int_attrib(is, o, "Kosten");
@@ -220,9 +171,8 @@ void waffen_speichern(std::ostream &o)
 //      ausnahmen(o, "w", grund);
    o << "  </Waffen:Grundkenntnis>\n";
   }
-   exec sql close grund_curs;
-   SQLerror::test(__FILELINE__);
    o << " </Waffen:Grundkenntnisse>\n";
+  }
 
 //********************* steigern_fertigkeiten_werte ********************
    o << " <Waffen:Steigern>\n";
@@ -253,8 +203,6 @@ void waffen_speichern(std::ostream &o)
    grund_standard_ausnahme(o, "waffen_typen", "Waffen");
    o << " </Waffen:Steigern>\n";
 //******************************************************************
-   
-   exec sql deallocate descriptor spalten;
 }
 
 #ifndef XML_NO_MAIN

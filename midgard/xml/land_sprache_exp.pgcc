@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.pgcc,v 1.9 2001/11/20 22:18:06 christof Exp $
+// $Id: land_sprache_exp.pgcc,v 1.10 2001/12/10 15:38:50 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,82 +20,55 @@
 #include <fstream>
 #include <Aux/Transaction.h>
 #include <Aux/dbconnect.h>
-exec sql include sqlca;
 #include "export_common.h"
-
-// wegen eines bugs in epcg <=V6.1
-#define GARNIX 
 
 void land_speichern(std::ostream &o)
 {  
    Transaction t;
-   exec sql allocate descriptor spalten;
 
    o << " <Länder>\n";
-   exec sql declare land_curs cursor for
-   	select land, kontinent, sprache
-   	from land
-   	order by kontinent,land;
-   exec sql open land_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch land_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Land";
+   FetchIStream is;
+  {Query query("select land, kontinent, sprache"
+   	" from land"
+   	" order by kontinent,land");
+  while ((query>>is).good())
+  {o << "  <Land";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Kontinent");
    fetch_and_write_string_attrib(is, o, "Sprache");
    o << "/>\n";
   }
-   exec sql close land_curs;
-   SQLerror::test(__FILELINE__);
+ }
    o << " </Länder>\n";
 
 //******************************************************************
    o << " <Schriften>\n";
-   exec sql declare schrift_curs cursor for
-   	select name, region, typ, kosten
-   	from schrift
-   	order by coalesce(region,''),name;
-   exec sql open schrift_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch schrift_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Schrift";
+  {Query query("select name, region, typ, kosten"
+   	" from schrift"
+   	" order by coalesce(region,''),name");
+  while ((query>>is).good())
+  {o << "  <Schrift";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_string_attrib(is, o, "Typ");
    fetch_and_write_int_attrib(is, o, "Kosten");
    o << "/>\n";
   }
-   exec sql close schrift_curs;
-   SQLerror::test(__FILELINE__);
+  }
    o << " </Schriften>\n";
 
 //******************************************************************
    o << " <SpeziesListe>\n";
-   exec sql declare spezies_curs cursor for
-   	select spezies, nr, 
-   		ap_wert, alter, groesse_f, groesse_w, groesse_s, b_f, b_s,
-   		lpbasis, ap_grad, gestalt, m_abb, 
-   		m_psy, m_phs, m_phk, gift, 
-		m_st,m_ge,m_ko,m_in,m_zt,m_sb,m_au,
-		h_st,h_ge,h_ko,h_in,h_zt,h_sb,h_au
-   	from spezies
-   	order by spezies;
-   exec sql open spezies_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch spezies_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Spezies";
+  {Query query("select spezies, nr,"
+   		" ap_wert, alter, groesse_f, groesse_w, groesse_s, b_f, b_s,"
+   		" lpbasis, ap_grad, gestalt, m_abb,"
+   		" m_psy, m_phs, m_phk, gift," 
+		" m_st,m_ge,m_ko,m_in,m_zt,m_sb,m_au,"
+		" h_st,h_ge,h_ko,h_in,h_zt,h_sb,h_au"
+   	" from spezies"
+   	" order by spezies");
+  while ((query>>is).good())
+  {o << "  <Spezies";
    string name=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_int_attrib(is, o, "MCG:Index");
    fetch_and_write_int_attrib(is, o, "MCG:AP_wert");
@@ -141,44 +114,32 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Sb");
    fetch_and_write_int_attrib(is, o, "Au");
    o << "/>\n";
-   {  exec sql begin declare section;
-      const char *SPEZIES=name.c_str(GARNIX);
-      char TYPEN[40][40];
-      exec sql end declare section;
-      
-      exec sql select typen into :TYPEN from spezies_typen
-      	where spezies=:SPEZIES 
-      	order by spezies,typen;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Typen>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Typen>\n";
+   {  Query query2("select typen from spezies_typen"
+      	" where spezies='"+name+"'"
+      	" order by spezies,typen");
+      FetchIStream is2;
+      std::string typen;
+      while ((query2>>is2).good()) 
+      {  if (!typen.empty()) typen+=",";
+         typen+=fetch_typ(is2);
+      }
+      if (!typen.empty()) 
+      {  o << "    <Typen>" << typen << "</Typen>\n";
       }
    }
    o << "  </Spezies>\n";
   }
-   exec sql close spezies_curs;
-   SQLerror::test(__FILELINE__);
    o << " </SpeziesListe>\n";
+  }
 
 //******************************************************************
    o << " <Gradanstieg>\n";
-   exec sql declare grad_curs cursor for
-   	select grad, gfp, abwehr, resistenz, zaubern, 
-   	abwehr_kosten, resistenz_kosten, zaubern_kosten
-   	from grad_anstieg
-   	order by grad;
-   exec sql open grad_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch grad_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Grad";
+  {Query query("select grad, gfp, abwehr, resistenz, zaubern,"
+   	" abwehr_kosten, resistenz_kosten, zaubern_kosten"
+   	" from grad_anstieg"
+   	" order by grad");
+  while ((query>>is).good())
+  {o << "  <Grad";
    fetch_and_write_int_attrib(is, o, "Grad");
    fetch_and_write_int_attrib(is, o, "GFP");
    fetch_and_write_int_attrib(is, o, "Abwehr");
@@ -190,25 +151,17 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Zaubern");
    o << "/></Grad>\n";
   }
-   exec sql close grad_curs;
-   SQLerror::test(__FILELINE__);
    o << " </Gradanstieg>\n";
+ }
 
 //********************** typen ****************************************
    o << " <Typen>\n";
-   exec sql declare typen_curs cursor for
-   	select typs, region, typnr, typl, typlw, typz, 
-   		ausdauer, stand, sb, ruestung
-   	from typen
-   	order by coalesce(region,''),typs;
-   exec sql open typen_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch typen_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Typ";
+  {Query query("select typs, region, typnr, typl, typlw, typz,"
+   		" ausdauer, stand, sb, ruestung"
+   	" from typen"
+   	" order by coalesce(region,''),typs");
+  while ((query>>is).good())
+  {o << "  <Typ";
    fetch_and_write_string_attrib(is, o, "Abkürzung");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_int_attrib(is, o, "MCG:Index");
@@ -223,13 +176,10 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Rüstung");
    o << "/></Typ>\n";
   }
-   exec sql close typen_curs;
-   SQLerror::test(__FILELINE__);
    o << " </Typen>\n";
+  }
 
 //******************************************************************
-   
-   exec sql deallocate descriptor spalten;
 }
 
 #ifndef XML_NO_MAIN

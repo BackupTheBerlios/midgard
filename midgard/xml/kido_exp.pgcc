@@ -1,4 +1,4 @@
-// $Id: kido_exp.pgcc,v 1.6 2001/11/20 22:18:06 christof Exp $
+// $Id: kido_exp.pgcc,v 1.7 2001/12/10 15:38:50 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,29 +20,18 @@
 #include <fstream>
 #include <Aux/Transaction.h>
 #include <Aux/dbconnect.h>
-exec sql include sqlca;
 #include "export_common.h"
-
-// wegen eines bugs in epcg <=V6.1
-#define GARNIX 
 
 void kido_speichern(std::ostream &o)
 {  
    Transaction t;
-   exec sql allocate descriptor spalten;
-   exec sql declare c cursor for
-   	select name_orig, name, stufe, stil, fp, ap, effekt
-   	from kido
-   	order by name_orig;
-   exec sql open c;
-   SQLerror::test(__FILELINE__);
+   Query query("select name_orig, name, stufe, stil, fp, ap, effekt"
+   	" from kido"
+   	" order by name_orig");
+   FetchIStream is;
    o << " <Kido-Fertigkeiten>\n";
-  while (true)
-  {exec sql fetch c into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <KiDo";
+  while ((query>>is).good())
+  {o << "  <KiDo";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Übersetzung");
    fetch_and_write_string_attrib(is, o, "Stufe");
@@ -54,11 +43,7 @@ void kido_speichern(std::ostream &o)
    if (Erklaerung.size())  o << toXML(Erklaerung); 
    o << "</KiDo>\n";
   }
-   exec sql close c;
-   SQLerror::test(__FILELINE__);
    o << " </Kido-Fertigkeiten>\n";
-   
-   exec sql deallocate descriptor spalten;
 }
 
 #ifndef XML_NO_MAIN
