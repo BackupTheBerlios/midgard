@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.146 2002/01/28 07:44:30 thoma Exp $
+// $Id: midgard_CG.hh,v 1.147 2002/01/28 15:30:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -399,8 +399,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void ausruestung_laden();
         void fill_preisliste();
-        void on_button_ausruestung_druck_clicked();
-        void ausruestung_druck(ostream &fout,const list<AusruestungBaum> &AB,int deep);
+        gint on_button_ausruestung_druck_release_event(GdkEventButton *event);
+        void on_ausruestung_druck(bool unsichtbar);
+        void ausruestung_druck(ostream &fout,bool unsichtbar,const list<AusruestungBaum> &AB,int deep);
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
         void on_preise_leaf_selected(cH_RowDataBase d);        
         void on_button_modi_clicked();

@@ -51,9 +51,12 @@ void midgard_CG::menu_init()
   drucken_menu->append(*latex_beschreibung);
   latex_beschreibung->activate.connect(SigC::slot(this,&midgard_CG::latex_beschreibung_drucken));
 
-  Gtk::MenuItem *latex_ausruestung = manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken"));
+  Gtk::MenuItem *latex_ausruestung = manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Alles)"));
   drucken_menu->append(*latex_ausruestung);
-  latex_ausruestung->activate.connect(SigC::slot(this,&midgard_CG::on_button_ausruestung_druck_clicked));
+  latex_ausruestung->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_ausruestung_druck),true));
+  Gtk::MenuItem *latex_ausruestung2 = manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Nur sichtbare Gegenstände)"));
+  drucken_menu->append(*latex_ausruestung2);
+  latex_ausruestung2->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_ausruestung_druck),false));
 
   Gtk::MenuItem *latex_empty = manage(new class Gtk::MenuItem("Leeres Charakterdokument drucken"));
   drucken_menu->append(*latex_empty);
