@@ -24,6 +24,7 @@ Armbrust	BN	S
 Armbrust	BS	S
 Armbrust	BW	S
 Armbrust	Ba	S
+Armbrust	De	A
 Armbrust	Dr	A
 Armbrust	Er	S
 Armbrust	Fi	S
@@ -68,6 +69,7 @@ Blasrohr	BN	S
 Blasrohr	BS	S
 Blasrohr	BW	S
 Blasrohr	Ba	S
+Blasrohr	De	A
 Blasrohr	Dr	A
 Blasrohr	Er	S
 Blasrohr	Fi	S
@@ -112,6 +114,7 @@ Bögen	BN	S
 Bögen	BS	G
 Bögen	BW	S
 Bögen	Ba	S
+Bögen	De	A
 Bögen	Dr	A
 Bögen	Er	S
 Bögen	Fi	S
@@ -156,6 +159,7 @@ ESchlagwaffe	BN	S
 ESchlagwaffe	BS	S
 ESchlagwaffe	BW	S
 ESchlagwaffe	Ba	S
+ESchlagwaffe	De	A
 ESchlagwaffe	Dr	A
 ESchlagwaffe	Er	S
 ESchlagwaffe	Fi	S
@@ -200,6 +204,7 @@ ESchwert	BN	S
 ESchwert	BS	S
 ESchwert	BW	S
 ESchwert	Ba	S
+ESchwert	De	A
 ESchwert	Dr	A
 ESchwert	Er	S
 ESchwert	Fi	S
@@ -244,6 +249,7 @@ Fesselwaffe	BN	S
 Fesselwaffe	BS	G
 Fesselwaffe	BW	S
 Fesselwaffe	Ba	S
+Fesselwaffe	De	A
 Fesselwaffe	Dr	A
 Fesselwaffe	Er	S
 Fesselwaffe	Fi	S
@@ -288,6 +294,7 @@ Garotte	BN	S
 Garotte	BS	S
 Garotte	BW	S
 Garotte	Ba	S
+Garotte	De	A
 Garotte	Dr	A
 Garotte	Er	S
 Garotte	Fi	S
@@ -332,6 +339,7 @@ Kampf ohne Waffen	BN	S
 Kampf ohne Waffen	BS	S
 Kampf ohne Waffen	BW	S
 Kampf ohne Waffen	Ba	S
+Kampf ohne Waffen	De	A
 Kampf ohne Waffen	Dr	A
 Kampf ohne Waffen	Er	S
 Kampf ohne Waffen	Fi	S
@@ -376,6 +384,7 @@ Kampfstab	BN	S
 Kampfstab	BS	S
 Kampfstab	BW	S
 Kampfstab	Ba	S
+Kampfstab	De	A
 Kampfstab	Dr	A
 Kampfstab	Er	S
 Kampfstab	Fi	S
@@ -420,6 +429,7 @@ Kettenwaffe	BN	S
 Kettenwaffe	BS	S
 Kettenwaffe	BW	S
 Kettenwaffe	Ba	S
+Kettenwaffe	De	A
 Kettenwaffe	Dr	A
 Kettenwaffe	Er	S
 Kettenwaffe	Fi	S
@@ -464,6 +474,7 @@ Kharrata	BN	S
 Kharrata	BS	S
 Kharrata	BW	S
 Kharrata	Ba	S
+Kharrata	De	A
 Kharrata	Dr	A
 Kharrata	Er	S
 Kharrata	Fi	S
@@ -506,6 +517,7 @@ Lasso	BN	S
 Lasso	BS	G
 Lasso	BW	S
 Lasso	Ba	S
+Lasso	De	A
 Lasso	Dr	A
 Lasso	Er	S
 Lasso	Fi	S
@@ -548,6 +560,7 @@ Namisritra	BN	S
 Namisritra	BS	S
 Namisritra	BW	S
 Namisritra	Ba	S
+Namisritra	De	A
 Namisritra	Dr	A
 Namisritra	Er	S
 Namisritra	Fi	S
@@ -590,6 +603,7 @@ Netz	BN	S
 Netz	BS	G
 Netz	BW	S
 Netz	Ba	S
+Netz	De	A
 Netz	Dr	A
 Netz	Er	S
 Netz	Fi	S
@@ -632,6 +646,7 @@ Parierwaffe	BN	S
 Parierwaffe	BS	S
 Parierwaffe	BW	S
 Parierwaffe	Ba	S
+Parierwaffe	De	A
 Parierwaffe	Dr	A
 Parierwaffe	Er	S
 Parierwaffe	Fi	S
@@ -676,6 +691,7 @@ Peitsche	BN	S
 Peitsche	BS	S
 Peitsche	BW	S
 Peitsche	Ba	S
+Peitsche	De	A
 Peitsche	Dr	A
 Peitsche	Er	S
 Peitsche	Fi	S
@@ -720,6 +736,7 @@ Schilde	BN	S
 Schilde	BS	S
 Schilde	BW	S
 Schilde	Ba	S
+Schilde	De	A
 Schilde	Dr	A
 Schilde	Er	S
 Schilde	Fi	S
@@ -764,6 +781,7 @@ Schleuder	BN	S
 Schleuder	BS	S
 Schleuder	BW	S
 Schleuder	Ba	S
+Schleuder	De	A
 Schleuder	Dr	S
 Schleuder	Er	S
 Schleuder	Fi	S
@@ -808,6 +826,7 @@ Spießwaffe	BN	S
 Spießwaffe	BS	S
 Spießwaffe	BW	S
 Spießwaffe	Ba	S
+Spießwaffe	De	A
 Spießwaffe	Dr	A
 Spießwaffe	Er	S
 Spießwaffe	Fi	S
@@ -852,6 +871,7 @@ Stangenwaffe	BN	S
 Stangenwaffe	BS	S
 Stangenwaffe	BW	S
 Stangenwaffe	Ba	S
+Stangenwaffe	De	A
 Stangenwaffe	Dr	A
 Stangenwaffe	Er	S
 Stangenwaffe	Fi	S
@@ -896,6 +916,7 @@ Stichwaffe	BN	S
 Stichwaffe	BS	S
 Stichwaffe	BW	S
 Stichwaffe	Ba	S
+Stichwaffe	De	A
 Stichwaffe	Dr	A
 Stichwaffe	Er	S
 Stichwaffe	Fi	S
@@ -940,6 +961,7 @@ Stielwurfwaffe	BN	S
 Stielwurfwaffe	BS	S
 Stielwurfwaffe	BW	S
 Stielwurfwaffe	Ba	S
+Stielwurfwaffe	De	A
 Stielwurfwaffe	Dr	A
 Stielwurfwaffe	Er	S
 Stielwurfwaffe	Fi	S
@@ -984,6 +1006,7 @@ Werfen	BN	S
 Werfen	BS	S
 Werfen	BW	S
 Werfen	Ba	S
+Werfen	De	A
 Werfen	Dr	A
 Werfen	Er	S
 Werfen	Fi	S
@@ -1028,6 +1051,7 @@ Wurfmesser	BN	S
 Wurfmesser	BS	S
 Wurfmesser	BW	S
 Wurfmesser	Ba	S
+Wurfmesser	De	A
 Wurfmesser	Dr	A
 Wurfmesser	Er	S
 Wurfmesser	Fi	S
@@ -1072,6 +1096,7 @@ Wurfpfeil	BN	S
 Wurfpfeil	BS	S
 Wurfpfeil	BW	S
 Wurfpfeil	Ba	S
+Wurfpfeil	De	A
 Wurfpfeil	Dr	A
 Wurfpfeil	Er	S
 Wurfpfeil	Fi	S
@@ -1116,6 +1141,7 @@ Wurfscheibe	BN	S
 Wurfscheibe	BS	S
 Wurfscheibe	BW	S
 Wurfscheibe	Ba	S
+Wurfscheibe	De	A
 Wurfscheibe	Dr	A
 Wurfscheibe	Er	S
 Wurfscheibe	Fi	S
@@ -1160,6 +1186,7 @@ Wurfspieß	BN	S
 Wurfspieß	BS	S
 Wurfspieß	BW	S
 Wurfspieß	Ba	S
+Wurfspieß	De	A
 Wurfspieß	Dr	A
 Wurfspieß	Er	S
 Wurfspieß	Fi	S
@@ -1204,6 +1231,7 @@ ZSchlagwaffe	BN	G
 ZSchlagwaffe	BS	S
 ZSchlagwaffe	BW	S
 ZSchlagwaffe	Ba	S
+ZSchlagwaffe	De	A
 ZSchlagwaffe	Dr	A
 ZSchlagwaffe	Er	S
 ZSchlagwaffe	Fi	S
@@ -1248,6 +1276,7 @@ ZSchwert	BN	S
 ZSchwert	BS	S
 ZSchwert	BW	S
 ZSchwert	Ba	S
+ZSchwert	De	S
 ZSchwert	Dr	A
 ZSchwert	Er	S
 ZSchwert	Fi	S
@@ -1287,6 +1316,7 @@ ZSchwert	eBe	A
 ZSchwert	gHx	A
 ZSchwert	sHx	A
 ZSchwert	wHx	A
+Zauberstäbe	De	S
 Zauberstäbe	Dr	S
 Zauberstäbe	Hl	S
 Zauberstäbe	Ma	S

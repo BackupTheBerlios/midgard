@@ -123,6 +123,12 @@ COPY "lernschema_4" FROM stdin;
 1	Ba	f	Singen	Fachkenntnisse	12
 1	Ba	f	Stimmen nachahmen	Fachkenntnisse	15
 1	Ba	f	Tanzen	Fachkenntnisse	15
+1	De	f	Haram fil-Din	Zauberkünste	0
+1	De	f	Heiliger Zorn	Zauberkünste	0
+1	De	f	Kamelreiten	Fachkenntnisse	15
+1	De	f	Überleben in der Wüste	Fachkenntnisse	8
+1	De	t	Springen	Fachkenntnisse	15
+1	De	t	t	Fachkenntnisse	15
 1	Dr	f	Geheimzeichen	Fachkenntnisse	12
 1	Dr	f	Liniensicht	Zauberkünste	0
 1	Dr	f	Naturkunde	Fachkenntnisse	5
@@ -635,6 +641,16 @@ COPY "lernschema_4" FROM stdin;
 2	Ba	f	großer Schild	Waffenfertigkeiten	1
 2	Ba	f	kleiner Schild	Waffenfertigkeiten	1
 2	Ba	f	leichter Speer	Waffenfertigkeiten	5
+2	De	f	Al-Mutadid	Zauberkünste	0
+2	De	f	Dolch	Waffenfertigkeiten	4
+2	De	f	Erste Hilfe	Fachkenntnisse	8
+2	De	f	Hitzeschutz	Zauberkünste	0
+2	De	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	De	f	Naturkunde	Fachkenntnisse	5
+2	De	f	Reiten	Fachkenntnisse	15
+2	De	f	Sagenkunde	Fachkenntnisse	5
+2	De	f	Tibb al-Mumani	Zauberkünste	0
+2	De	f	leichter Speer	Waffenfertigkeiten	4
 2	Dr	f	Dolch	Waffenfertigkeiten	4
 2	Dr	f	Handaxt	Waffenfertigkeiten	4
 2	Dr	f	Keule	Waffenfertigkeiten	4
@@ -1194,6 +1210,14 @@ COPY "lernschema_4" FROM stdin;
 3	Ba	f	Schleuder	Waffenfertigkeiten	5
 3	Ba	f	Stoßspeer	Waffenfertigkeiten	5
 3	Ba	f	Streitkolben	Waffenfertigkeiten	5
+3	De	f	Akbar fil-Ghadban	Zauberkünste	0
+3	De	f	Al-Karama	Zauberkünste	0
+3	De	f	Dalail al-Khairat	Zauberkünste	0
+3	De	f	Geomantie	Fachkenntnisse	15
+3	De	f	Krumsäbel	Waffenfertigkeiten	4
+3	De	f	Macht über das Selbst	Zauberkünste	0
+3	De	f	Meditieren	Fachkenntnisse	8
+3	De	f	kleiner Schild	Waffenfertigkeiten	4
 3	Dr	f	Abrichten	Fachkenntnisse	8
 3	Dr	f	Bärenwut	Zauberkünste	0
 3	Dr	f	Magierstecken	Waffenfertigkeiten	4
@@ -1454,6 +1478,12 @@ COPY "lernschema_4" FROM stdin;
 4	Ba	f	Schlachtbeil	Waffenfertigkeiten	5
 4	Ba	f	leichte Armbrust	Waffenfertigkeiten	5
 4	Ba	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	De	f	Al-Maharam	Zauberkünste	0
+4	De	f	Al-Tarka	Zauberkünste	0
+4	De	f	Anderthalbhänder	Waffenfertigkeiten	4
+4	De	f	Sadik es-Sidiki	Zauberkünste	0
+4	De	f	Saijidat el-Masin	Zauberkünste	0
+4	De	f	Wurfspeer	Waffenfertigkeiten	4
 4	Dr	f	Baum	Zauberkünste	0
 4	Dr	f	Kampfstab	Waffenfertigkeiten	4
 4	Dr	f	Macht über die belebte Natur	Zauberkünste	0
@@ -1627,6 +1657,7 @@ COPY "lernschema_4" FROM stdin;
 8	Sr	f	Srimarameisterschaft	Zauberkünste	\N
 8	Tm	f	Angst	Zauberkünste	0
 8	Tm	f	Tiersprache	Zauberkünste	0
+9	De	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	Hl	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	PF	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	PHa	f	waffenloser Kampf	Waffenfertigkeiten	4

@@ -511,7 +511,7 @@ Schutzkreis gegen Dämonen	2000	#*6	Geste	5	3	\N	Beschwörung	Luft	beherrscht	Eis	
 Schutzkreis gegen Elementarwesen	2000	#*6	Geste	5	3	\N	Beschwörung	Luft	beherrscht	Eis	3 h	0	Umgebung	var	24 h	elementar	magische Farbe, Kreide und Zutaten	f		\N	\N
 Schutzkreis gegen Geisterwesen	1500	#*4	Geste	4	3	\N	Beschwörung	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	f		\N	\N
 Schutzkreis gegen Hrimfolk	40	#*1	Geste	1	3	Eis	Beschwörung	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	f		\N	\N
-Schutzkreis gegen Hunar	600	#*4	Geste	4	3	\N	Beschwörung	Luft	beherrscht	Element	1 h	0	Umgebung	var	1 h	elemtar	magische Farbe, Kreide und Zutaten	f		\N	\N
+Schutzkreis gegen Hunar	600	#*4	Geste	4	3	\N	Beschwörung	Luft	beherrscht	Element	1 h	0	Umgebung	var	1 h	elementar	magische Farbe, Kreide und Zutaten	f		\N	\N
 Schutzkreis gegen Hyrrfolk	40	#*1	Geste	1	3	Feuer	Beschwörung	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	f		\N	\N
 Schutzkreis gegen Jördfolk	40	#*1	Geste	1	3	Feuer	Beschwörung	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	f		\N	\N
 Schutzkreis gegen Kaobargen	40	#*1	Geste	1	3	\N	Beschwörung	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	f		\N	\N
