@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.28 2005/01/31 07:37:36 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.29 2005/02/21 12:35:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -94,6 +94,8 @@ void LaTeX_drucken::Ausdrucken(const Abenteurer &A,bool values)
 
  if (!A.List_Zauber().empty() || !A.List_Zauberwerk().empty())  // Zauber
   {
+//    const_cast<MBEmlt>(&(A.List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::NAME))));
+//    A.List_Zauber().sort(MBEmlt::sort(MBEmlt::sort::NAME));
     LaTeX_zauber_main(A,*rfout);
   }
  if (!A.List_Kido().empty()) // KiDo
