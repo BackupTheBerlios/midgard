@@ -154,7 +154,7 @@ FertEnd:
  return true;
 }
 
-std::string add_plus_or_minus(const std::string &s,const int sb)
+std::string add_plus_or_minus(std::string &s,const int sb)
 {
   if(s.find("|")!=std::string::npos) s="("+s+")";
   if     (sb == 0) return s;
