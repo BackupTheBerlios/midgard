@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.10 2001/12/03 13:37:46 christof Exp $
+// $Id: waffen_exp.pgcc,v 1.11 2001/12/03 14:32:10 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -449,7 +449,7 @@ void waffen_speichern(std::ostream &o)
 //********************* steigern_fertigkeiten_werte ********************
    o << " <Waffen:Steigern>\n";
     exec sql declare steig_curs cursor for
-      		select name,
+      		select schwierigkeit,
       	    coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),
       	    coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),
       	    coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),
@@ -457,7 +457,7 @@ void waffen_speichern(std::ostream &o)
       	    coalesce(p16,0), coalesce(p17,0), coalesce(p18,0), coalesce(p19,0),
       	    coalesce(p20,0)
        		from waffen_steigern
-       		order by name;
+       		order by schwierigkeit;
        	exec sql open steig_curs;
        	SQLerror::test(__FILELINE__);
        while (true)
@@ -466,7 +466,7 @@ void waffen_speichern(std::ostream &o)
           if (sqlca.sqlcode) break;
           o << "    <Kosten";
           FetchIStream is("spalten");
-          fetch_and_write_string_attrib(is, o, "Kategorie");
+          fetch_and_write_int_attrib(is, o, "Schwierigkeit");
           for (int i=1;i<=20;++i) 
              fetch_and_write_int_attrib(is, o, "Wert"+itos(i));
           o << "/>\n";

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.21 2001/12/03 13:37:46 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.22 2001/12/03 14:32:10 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -94,7 +94,7 @@ void fert_speichern(std::ostream &o)
 
       //********** fertigkeiten_voraussetzung **********************************
       exec sql declare cursor_vor cursor for 
-      	select st,ge,ko,"in",zt,au,pa,sb,rw, fertigkeit
+      	select st,gw,gs,ko,"in",zt,au,pa,sb,rw, fertigkeit
       	from fertigkeiten_voraussetzung
       	where name=:FERTIGK 
       	order by fertigkeit;
@@ -105,7 +105,8 @@ void fert_speichern(std::ostream &o)
          FetchIStream is2("spalten");
          o << "    <Voraussetzungen";
          fetch_and_write_int_attrib(is2, o, "St");
-         fetch_and_write_int_attrib(is2, o, "Ge");
+         fetch_and_write_int_attrib(is2, o, "Gw");
+         fetch_and_write_int_attrib(is2, o, "Gs");
          fetch_and_write_int_attrib(is2, o, "Ko");
          fetch_and_write_int_attrib(is2, o, "In");
          fetch_and_write_int_attrib(is2, o, "Zt");
@@ -299,7 +300,7 @@ void fert_speichern(std::ostream &o)
 //********************* Berufe ********************
    o << " <Berufe>\n";
    exec sql declare beruf_curs cursor for
-   	select beruf, region, lernpunkte, st, ge, ko, "in", zt, pa, au, sb, 
+   	select beruf, region, lernpunkte, st, gw, gs, ko, "in", zt, pa, au, sb, 
    		typ, geschlecht
    	from berufe_voraussetzung
    	order by region, beruf;
@@ -317,7 +318,8 @@ void fert_speichern(std::ostream &o)
    o << ">\n";
    o << "    <Voraussetzungen";
    fetch_and_write_int_attrib(is, o, "St");
-   fetch_and_write_int_attrib(is, o, "Ge");
+   fetch_and_write_int_attrib(is, o, "Gw");
+   fetch_and_write_int_attrib(is, o, "Gs");
    fetch_and_write_int_attrib(is, o, "Ko");
    fetch_and_write_int_attrib(is, o, "In");
    fetch_and_write_int_attrib(is, o, "Zt");
