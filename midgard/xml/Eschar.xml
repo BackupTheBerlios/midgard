@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.18 $">
+<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.19 $">
  <Fertigkeiten>
   <Fertigkeit Name="Brettspiel" Region="E" Lernpunkte="1" Anfangswert="4" Lernkosten="20" Erfolgswert="2" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
    <Grund Typ="Ba"/>
@@ -113,7 +113,7 @@
    <Standard Typ="wHx"/>
    <Voraussetzungen Gw="31"/>
    <Lernschema Typ="De" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15"/>
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
@@ -555,6 +555,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Tanzen">
    <Grund Typ="De"/>
+   <Lernschema Typ="De" Lernpunkte="1" Erfolgswert="15"/>
   </Fertigkeit>
   <Fertigkeit Name="Tarnen">
    <Standard Typ="De"/>

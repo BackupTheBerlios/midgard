@@ -225,7 +225,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	PK	f	Hörnerklang	Zauberkünste	0
 1	eBe	f	Kallbjargi beschwören	Zauberkünste	\N
 1	De	f	Kamelreiten	Fachkenntnisse	15
-1	RiS	t	Kamelreiten	Fachkenntnisse	15
+1	RiS	f	Kamelreiten	Fachkenntnisse	15
 1	Kr	f	Kampf in Vollrüstung	Fachkenntnisse	15
 1	RiN	t	Kampf in Vollrüstung	Fachkenntnisse	15
 1	RiS	t	Kampf in Vollrüstung	Fachkenntnisse	15
@@ -318,7 +318,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Gl	f	Lanze	Waffenfertigkeiten	5
 1	Km	f	Lanze	Waffenfertigkeiten	5
 1	Kr	f	Lanze	Waffenfertigkeiten	5
-1	RiN	t	Lanze	Waffenfertigkeiten	5
+1	RiN	f	Lanze	Waffenfertigkeiten	5
 1	Sö	f	Lanze	Waffenfertigkeiten	5
 1	Wa	f	Laufen	Fachkenntnisse	4
 1	Km	f	Lauschen	Zauberkünste	0
@@ -414,7 +414,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Kr	f	Reiten	Fachkenntnisse	15
 1	Ku	f	Reiten	Fachkenntnisse	15
 1	Or	f	Reiten	Fachkenntnisse	15
-1	RiN	t	Reiten	Fachkenntnisse	15
+1	RiN	f	Reiten	Fachkenntnisse	15
 1	RiS	f	Reiten	Fachkenntnisse	15
 1	ScS	f	Reiten	Fachkenntnisse	15
 1	Sö	f	Reiten	Fachkenntnisse	15
@@ -544,7 +544,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Ku	f	Stoßspeer	Waffenfertigkeiten	5
 1	Or	f	Stoßspeer	Waffenfertigkeiten	5
 1	RiN	f	Stoßspeer	Waffenfertigkeiten	5
-1	RiS	f	Stoßspeer	Waffenfertigkeiten	1
+1	RiS	f	Stoßspeer	Waffenfertigkeiten	5
 1	Sö	f	Stoßspeer	Waffenfertigkeiten	5
 1	Tm	f	Stoßspeer	Waffenfertigkeiten	5
 1	Wa	f	Stoßspeer	Waffenfertigkeiten	5
@@ -553,8 +553,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Gl	f	Streitaxt	Waffenfertigkeiten	5
 1	Kr	f	Streitaxt	Waffenfertigkeiten	5
 1	Or	f	Streitaxt	Waffenfertigkeiten	5
-1	RiN	f	Streitaxt	Waffenfertigkeiten	5
-1	RiS	f	Streitaxt	Waffenfertigkeiten	5
 1	Se	f	Streitaxt	Waffenfertigkeiten	5
 1	Sr	f	Streitaxt	Waffenfertigkeiten	5
 1	Sö	f	Streitaxt	Waffenfertigkeiten	5
@@ -575,6 +573,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	BW	f	Tanzen	Fachkenntnisse	15
 1	Ba	f	Tanzen	Fachkenntnisse	15
 1	Gl	f	Tanzen	Fachkenntnisse	15
+1	De	f	Tanzen	Fachkenntnisse	15
 1	RiN	f	Tanzen	Fachkenntnisse	15
 1	ScN	f	Tanzen	Fachkenntnisse	15
 1	ScS	f	Tanzen	Fachkenntnisse	15
@@ -621,7 +620,10 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	BS	f	Wurfaxt	Waffenfertigkeiten	5
 1	BW	f	Wurfaxt	Waffenfertigkeiten	5
 1	Fi	f	Wurfaxt	Waffenfertigkeiten	5
-1	Hj	f	Wurfaxt	Waffenfertigkeiten	5
+2	Hj	f	Wurfaxt	Waffenfertigkeiten	5
+3	Hj	f	Kriegsflegel	Waffenfertigkeiten	5
+3	Hj	f	Schleuder	Waffenfertigkeiten	5
+3	Hj	f	Wurfmesser	Waffenfertigkeiten	5
 1	Km	f	Wurfaxt	Waffenfertigkeiten	5
 1	Kr	f	Wurfaxt	Waffenfertigkeiten	5
 1	Or	f	Wurfaxt	Waffenfertigkeiten	5
@@ -677,8 +679,8 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Km	f	großer Schild	Waffenfertigkeiten	1
 1	Kr	f	großer Schild	Waffenfertigkeiten	1
 1	Or	f	großer Schild	Waffenfertigkeiten	1
-1	RiN	t	großer Schild	Waffenfertigkeiten	1
-1	RiS	t	großer Schild	Waffenfertigkeiten	1
+1	RiN	f	großer Schild	Waffenfertigkeiten	1
+1	RiS	f	großer Schild	Waffenfertigkeiten	1
 1	Ru	f	großer Schild	Waffenfertigkeiten	1
 1	Sö	f	großer Schild	Waffenfertigkeiten	1
 1	BN	f	kleiner Schild	Waffenfertigkeiten	1
@@ -692,8 +694,8 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Kr	f	kleiner Schild	Waffenfertigkeiten	1
 1	Mg	f	kleiner Schild	Waffenfertigkeiten	1
 1	Or	f	kleiner Schild	Waffenfertigkeiten	1
-1	RiN	t	kleiner Schild	Waffenfertigkeiten	1
-1	RiS	t	kleiner Schild	Waffenfertigkeiten	1
+1	RiN	f	kleiner Schild	Waffenfertigkeiten	1
+1	RiS	f	kleiner Schild	Waffenfertigkeiten	1
 1	Se	f	kleiner Schild	Waffenfertigkeiten	1
 1	Sö	f	kleiner Schild	Waffenfertigkeiten	1
 1	Tm	f	kleiner Schild	Waffenfertigkeiten	1
@@ -895,7 +897,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 2	To	f	Garotte	Waffenfertigkeiten	5
 2	Er	f	Gassenwissen	Fachkenntnisse	5
 2	Hä	f	Gassenwissen	Fachkenntnisse	5
-2	Mg	f	Gassenwissen	Fachkenntnisse	5
+3	Mg	f	Gassenwissen	Fachkenntnisse	5
 2	Sp	f	Gassenwissen	Fachkenntnisse	5
 2	Sw	f	Gassenwissen	Fachkenntnisse	5
 2	To	f	Gassenwissen	Fachkenntnisse	5
@@ -960,7 +962,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 2	RiS	f	Hellebarde	Waffenfertigkeiten	5
 2	Sö	f	Hellebarde	Waffenfertigkeiten	5
 2	Dt	f	Himmelskunde	Fachkenntnisse	5
-2	Fi	f	Himmelskunde	Fachkenntnisse	5
 2	De	f	Hitzeschutz	Zauberkünste	0
 2	ScN	f	Hitzeschutz	Zauberkünste	0
 2	ScS	f	Hitzeschutz	Zauberkünste	0
@@ -986,8 +987,8 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 2	Kr	f	Kampf zu Pferd	Fachkenntnisse	15
 2	Ku	f	Kampf zu Pferd	Fachkenntnisse	15
 2	Or	f	Kampf zu Pferd	Fachkenntnisse	15
-2	RiN	t	Kampf zu Pferd	Fachkenntnisse	15
-2	RiS	t	Kampf zu Pferd	Fachkenntnisse	15
+2	RiN	f	Kampf zu Pferd	Fachkenntnisse	15
+2	RiS	f	Kampf zu Pferd	Fachkenntnisse	15
 2	Sö	f	Kampf zu Pferd	Fachkenntnisse	15
 2	As	f	Kampfstab	Waffenfertigkeiten	5
 2	Gl	f	Kampfstab	Waffenfertigkeiten	5
@@ -1446,7 +1447,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 2	Se	f	Wurfspeer	Waffenfertigkeiten	5
 2	Sk	f	Wurfspeer	Waffenfertigkeiten	5
 2	Sp	f	Wurfspeer	Waffenfertigkeiten	5
-2	Sw	f	Wurfspeer	Waffenfertigkeiten	5
 2	To	f	Wurfspeer	Waffenfertigkeiten	5
 2	Wa	f	Wurfspeer	Waffenfertigkeiten	5
 2	Gl	f	Wurfspieß	Waffenfertigkeiten	5
@@ -1612,6 +1612,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	Tt	f	Ixtantzutuhs Ekstase	Zauberkünste	\N
 3	dBe	f	Kaligin 1 beschwören	Zauberkünste	\N
 3	PK	f	Kampf zu Pferd	Fachkenntnisse	15
+3	Mg	f	Kampfstab	Waffenfertigkeiten	5
 3	Ba	f	Kampfstab	Waffenfertigkeiten	5
 3	Er	f	Kampfstab	Waffenfertigkeiten	5
 3	Fi	f	Kampfstab	Waffenfertigkeiten	5
@@ -1742,7 +1743,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	ScW	f	Segnen	Zauberkünste	0
 3	Ma	f	Sehen in Dunkelheit	Zauberkünste	0
 3	Hj	f	Spurenlesen	Fachkenntnisse	6
-3	To	t	Spurenlesen	Fachkenntnisse	6
 3	Gl	f	Stabkeule	Waffenfertigkeiten	5
 3	Hj	f	Stabkeule	Waffenfertigkeiten	5
 3	Se	f	Stabkeule	Waffenfertigkeiten	5
@@ -1870,7 +1870,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	Mg	f	waffenloser Kampf	Waffenfertigkeiten	5
 3	Se	f	waffenloser Kampf	Waffenfertigkeiten	5
 4	Tt	f	Ahuatls Sturm	Zauberkünste	\N
-4	De	f	Al-Maharam	Zauberkünste	0
+2	De	f	Al-Mahram 	Zauberkünste	0
 4	De	f	Al-Tarka	Zauberkünste	0
 4	Ba	f	Anderthalbhänder	Waffenfertigkeiten	5
 4	De	f	Anderthalbhänder	Waffenfertigkeiten	4

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.22 $">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.23 $">
  <Fertigkeiten>
   <Fertigkeit Name="Geomantie" Region="TuT" Lernpunkte="4" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
    <Grund Typ="De"/>
@@ -301,9 +301,9 @@
    <Standard Typ="Mg"/>
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
   </Fertigkeit>
   <Fertigkeit Name="Gaukeln">
    <Grund Typ="Sw"/>
@@ -412,7 +412,6 @@
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
    <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf in Dunkelheit">
    <Grund Typ="To"/>
@@ -473,8 +472,8 @@
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
    <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="15" Pflicht="true"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="15"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampftaktik">
    <Grund Typ="Km"/>
@@ -679,7 +678,7 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="15"/>
    <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15"/>
    <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="15"/>
   </Fertigkeit>
@@ -921,7 +920,6 @@
    <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="6" Pflicht="true"/>
    <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="6"/>
    <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="6"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="6" Pflicht="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Stehlen">
    <Standard Typ="Mg"/>
@@ -1272,7 +1270,7 @@
    <Standard Typ="RiS"/>
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf zu Kamel" Region="E">
    <Grund Typ="RiN"/>
@@ -2062,6 +2060,7 @@
    <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Wi" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
@@ -2116,6 +2115,7 @@
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
    <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Kriegshammer">
    <Grund Typ="RiN"/>
@@ -2224,7 +2224,7 @@
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
    <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5" Pflicht="true"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Lasso">
    <Grund Typ="RiN"/>
@@ -2371,6 +2371,7 @@
    <Standard Typ="Wi"/>
    <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Wi" Lernpunkte="3" Erfolgswert="5"/>
@@ -2444,10 +2445,10 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1"/>
    <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
@@ -2463,8 +2464,6 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Streitkolben">
@@ -2509,10 +2508,10 @@
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
    <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
@@ -2571,6 +2570,7 @@
    <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Wurfpfeil">
    <Grund Typ="RiN"/>
@@ -2613,7 +2613,6 @@
    <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Wurfspieß">
@@ -2650,8 +2649,8 @@
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
    <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1" Pflicht="true"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1" Pflicht="true"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1"/>
    <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="1"/>
    <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="1"/>
    <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="1"/>
@@ -2670,8 +2669,8 @@
    <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="1"/>
    <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="1"/>
    <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1" Pflicht="true"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1" Pflicht="true"/>
+   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1"/>
    <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="1"/>
    <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="1"/>
    <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="1"/>
