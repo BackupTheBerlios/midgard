@@ -2373,9 +2373,7 @@ Werte</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkFixed" id="fixed5">
-			      <property name="visible">True</property>
-			    </widget>
+			    <placeholder/>
 			  </child>
 			</widget>
 			<packing>
