@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.4 2001/11/13 08:32:07 christof Exp $
+# $Id: Makefile.am,v 1.5 2001/11/13 08:35:12 christof Exp $
 
 bin_PROGRAMS = arkanum_exp kido_exp fertigk_exp
 
@@ -16,3 +16,8 @@ BUILT_SOURCES=arkanum_exp.cc kido_exp.cc fertigk_exp.cc
 LDFLAGS = @KOMPONENTEN_LDFLAGS@
 CLEANFILES = *~ $(BUILT_SOURCES) 
 LIBS=@LIBS@ @COMMONXX_LIBS@
+
+export: arkanum_exp kido_exp fertigk_exp
+	./arkanum_exp >../../midgard-xml/Arkanum.xml
+	./kido_exp >../../midgard-xml/KiDo.xml
+	./fertigk_exp >../../midgard-xml/Fertigkeiten.xml
