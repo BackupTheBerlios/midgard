@@ -31,33 +31,33 @@ checkout() {
 
 update() {
   echo ========= Petig.m4 ========
-  cd m4 && cvs -z3 update -dP && cd ..
+  ( cd m4 && cvs -z3 update -dP )
   echo ========  ManuProC_Base ========
-  cd ManuProC_Base && cvs -z3 update -dP && cd ..
+  ( cd ManuProC_Base && cvs -z3 update -dP )
   echo ========== GtkmmAddons ========
-  cd GtkmmAddons && cvs -z3 update -dP && cd ..
+  ( cd GtkmmAddons && cvs -z3 update -dP )
   echo ========  ManuProC_Widgets ========
-  cd ManuProC_Widgets && cvs -z3 update -dP && cd ..
+  ( cd ManuProC_Widgets && cvs -z3 update -dP )
   echo =========== Midgard-Postgres ========
-  cd midgard-postgres && cvs -z3 update -dP && cd ..
+  ( cd midgard-postgres && cvs -z3 update -dP )
   echo ============ Midgard CG ========
-  cd midgard && cvs -z3 update -dP && cd ..
+  ( cd midgard && cvs -z3 update -dP )
 }
 
 configure() {
   echo ========= Petig.m4 ========
   echo Bitte das root Passwort angeben
   echo "(Für Installation von petig.m4 nach /usr/share/aclocal)"
-  cd m4 && (su -c "make install" || make install ; cd ..)
+  ( cd m4 && (su -c "make install" || make install ) )
   echo ========  ManuProC_Base ========
-  cd ManuProC_Base && (./autogen.sh $* ; make ; cd ..)
+  ( cd ManuProC_Base && (./autogen.sh $* ; make ) )
   echo ========== GtkmmAddons ========
-  cd GtkmmAddons && (cd searchcombo ; ./autogen.sh $* ; cd .. ) && \	
-  	 ( ./autogen.sh $* ; make ; cd .. )
+  ( cd GtkmmAddons && (cd searchcombo ; ./autogen.sh $* ) ; \	
+  	 ./autogen.sh $* ; make )
   echo ========  ManuProC_Widgets ========
-  cd ManuProC_Widgets && (./autogen.sh $* ; make ; cd ..)
+  ( cd ManuProC_Widgets && ( ./autogen.sh $* ; make ) )
   echo ============ Midgard CG ========
-  cd midgard && (./autogen.sh $* ; cd ..)
+  ( cd midgard && ./autogen.sh $* )
 }
 
 configure_if_needed() {
@@ -66,35 +66,35 @@ configure_if_needed() {
   then 
     echo Bitte das root Passwort angeben
     echo "(Für Installation von petig.m4 nach /usr/share/aclocal)"
-    cd m4 && (su -c "make install" || make install ; cd ..)
+    ( cd m4 && (su -c "make install" || make install ) )
   fi
   echo ========  ManuProC_Base ========
-  cd ManuProC_Base && \
+  ( cd ManuProC_Base && \
   	(if [ ! -f config.status ] ; then ./autogen.sh $* ; fi ; \
-  	 make ; cd ..)
+  	 make ) )
   echo ========== GtkmmAddons ========
-  cd ManuProC_Base && \
+  ( cd GtkmmAddons && \
   	(if [ ! -f config.status ] ; \
-  	 then (cd searchcombo ; ./autogen.sh $* ; cd .. ) ; \
+  	 then (cd searchcombo ; ./autogen.sh $* ) ; \
   	     ./autogen.sh $* ; \
   	 fi ; \
-  	 make ; cd ..)
+  	 make ) )
   echo ========  ManuProC_Widgets ========
-  cd ManuProC_Widgets && \
+  ( cd ManuProC_Widgets && \
   	(if [ ! -f config.status ] ; then ./autogen.sh $* ; fi ; \
-  	 make ; cd ..)
+  	 make ) )
   echo ============ Midgard CG ========
-  cd midgard && (./autogen.sh $* ; cd ..)
+  ( cd midgard && ./autogen.sh $* )
 }
 
 domake() {
   echo ============ Midgard CG ========
-  cd midgard && ( make ; cd ..)
+  ( cd midgard && make )
 }
 
 doinstall() {
   echo ============ Midgard-PostgreSQL ========
-  cd midgard-postgres && ( make install ; cd ..)
+  ( cd midgard-postgres && make install )
   echo ============ Midgard ========
   cd midgard || exit 1
   make install
@@ -123,7 +123,7 @@ then
   domake
   doinstall
 else
-  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.5 $aetsch"
+  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.6 $aetsch"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
