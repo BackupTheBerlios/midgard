@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.27 2002/11/30 08:18:08 thoma Exp $
+// $Id: waffen_exp.cc,v 1.28 2003/06/10 15:00:18 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -61,7 +61,7 @@ void waffen_speichern(Tag &o)
    		" zusatz, text, "
    		MIDGARD3_4("angriffsrangmod,","waffenrang,")
    		"wm_abwehr_leicht, wm_abwehr_schwer, st, "
-   		MIDGARD3_4("ge,","gw,gs,")
+   		MIDGARD3_4("ge,","gw,gs,min_st_einhand,")
    		" reichweite_0, reichweite_n,"
    		"reichweite_m, reichweite_f"
    		MIDGARD3_4("",",lern_land,lern_stadt")
@@ -96,6 +96,7 @@ void waffen_speichern(Tag &o)
 #else
    fetch_and_set_int_attrib(is, Vor, "Gw");
    fetch_and_set_int_attrib(is, Vor, "Gs");
+   fetch_and_set_int_attrib(is, Vor, "Min_St_Einhand");
 #endif   
    Tag &Rw=Waffe.push_back(Tag("Reichweite"));
    fetch_and_set_int_attrib(is, Rw, "null");

@@ -72,6 +72,7 @@ void Waffe::get_Waffe()
    {  st=Voraussetzungen->getIntAttr("St");
       gw=Voraussetzungen->getIntAttr("Gw");
       gs=Voraussetzungen->getIntAttr("Gs");
+      min_st_einhand=Voraussetzungen->getIntAttr("Min_St_Einhand");
    }
 
    const Tag *Reichweite=tag->find("Reichweite");
@@ -132,6 +133,12 @@ bool Waffe::Grundkenntnis_vorhanden(const std::list<MBEmlt>& list_WaffenGrund) c
  return false;
 }
 
+bool Waffe::Min_St_Einhand(const Abenteurer &A) const
+{
+   if(A.getWerte().St() >= min_st_einhand) return true;
+   return false;
+}
+      
 
 bool Waffe::Voraussetzung(const Abenteurer &A,bool anzeigen) const
 {

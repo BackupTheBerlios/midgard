@@ -42,7 +42,7 @@ class Waffe : public MidgardBasicElement
      std::string waffenrang, wm_abwehr_leicht, wm_abwehr_schwer,
          voraussetzung,text;
      int schwierigkeit,st,gw,gs,reichweite_0,reichweite_n,
-         reichweite_m,reichweite_f;
+         reichweite_m,reichweite_f,min_st_einhand;
      int lern_land,lern_stadt, anfangswert;
      int schaden_bonus,schaden_bonus2;
      std::list<st_alias> list_alias;
@@ -89,7 +89,7 @@ class Waffe : public MidgardBasicElement
      bool Grundkenntnis_vorhanden(const std::list<MBEmlt>&) const;
 //     int Maxwert(const std::vector<cH_Typen>& Typ) const;
      int MaxErfolgswert(const Abenteurer &A) const; 
-
+     bool Min_St_Einhand(const Abenteurer &A) const;
 
      static std::map<std::string,std::string> fill_map_alias_waffe();
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
