@@ -1,12 +1,12 @@
 Summary: MAGUS - Midgard Abenteurer Generieren Und Steigern
 Name: magus
-Version: 0.8.12pre_SuSE_8.1
+Version: 0.8.12_SuSE_8.1
 Release: 1
 Copyright: GPL
 Group: application/games
 Distribution: SuSE 8.1
 Url: http://midgard.berlios.de
-Requires: magus_data_0.8.12.rpm
+Requires: magus_data_0.8.12_1.rpm
 
 %description
 Dies ist ein RPM Packet für MAGUS. 
@@ -26,7 +26,9 @@ Paket auch unter einer anderen Konfiguration lauffähig ist.
 
 
 
+
 %clean
+
 
 
 

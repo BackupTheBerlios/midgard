@@ -1,6 +1,6 @@
 Summary: MAGUS - Midgard Abenteurer Generieren Und Steigern
 Name: magus-data
-Version: 0.8.12_0
+Version: 0.8.12_1
 Release: 1
 Copyright: misc
 Group: application/games
@@ -25,7 +25,9 @@ Daten und Hilfeseiten.
 
 
 
+
 %clean
+
 
 
 
@@ -91,6 +93,7 @@ Daten und Hilfeseiten.
 /usr/local/share/magus/docs/image/Bedienung/Buttons/St-Button-mit-EP.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/LS_Button-Geld.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/Button_Back.png
+/usr/local/share/magus/docs/image/Bedienung/Buttons/Welc_Button_Hack.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/GW_Button_AbgelWerte.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/LS-Button-SpezWaf.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/LS-Button-LPEdit.png
@@ -106,6 +109,8 @@ Daten und Hilfeseiten.
 /usr/local/share/magus/docs/image/Bedienung/Buttons/Win_Button_Save.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/Button_Print.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/LS-Button-Ausruest.png
+/usr/local/share/magus/docs/image/Bedienung/Buttons/Welc_Button_Active.png
+/usr/local/share/magus/docs/image/Bedienung/Buttons/Welc_Button_Rand.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/St-Button-Unterweisung.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/St-Button-Bes-Rue.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/Button_Exit.png
@@ -116,8 +121,10 @@ Daten und Hilfeseiten.
 /usr/local/share/magus/docs/image/Bedienung/Buttons/GW_Win_Button_Eigenschaften.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/St-Button-Red.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/Button_Menu.png
+/usr/local/share/magus/docs/image/Bedienung/Buttons/Welc_Button_New.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/St-Button-Abwehr.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/LS-Win-Button-LPEdit.png
+/usr/local/share/magus/docs/image/Bedienung/Buttons/Welc_Button_Load.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/St-Button-Grad.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/GW_Button_Eigenschaften.png
 /usr/local/share/magus/docs/image/Bedienung/Buttons/St-Button-Zauber.png
@@ -166,6 +173,7 @@ Daten und Hilfeseiten.
 /usr/local/share/magus/docs/image/Bedienung/Opt-View/Reiter-nur-Text.png
 /usr/local/share/magus/docs/image/Bedienung/Opt-View/P-Button-Text-u-Icon.png
 /usr/local/share/magus/docs/image/Bedienung/module/DS-66.png
+/usr/local/share/magus/docs/image/Bedienung/module/Welcome.png
 /usr/local/share/magus/docs/image/Bedienung/module/GW-66.png
 /usr/local/share/magus/docs/image/Bedienung/module/ZG-66.png
 /usr/local/share/magus/docs/image/Bedienung/module/NG-66.png
@@ -175,8 +183,10 @@ Daten und Hilfeseiten.
 /usr/local/share/magus/docs/image/Bedienung/module/LS-66.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/St-Notebook-Besitz.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook_Ausruestung.png
+/usr/local/share/magus/docs/image/Bedienung/Notebook/Win_Notebook_Zufall.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/St-Notebook-SprachUSchrift.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook_Geschichte.png
+/usr/local/share/magus/docs/image/Bedienung/Notebook/Win_Notebook_Geschichte.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook_Grundwerte.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook-Waffen.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/St-Notebook-Fertigk.png
@@ -185,11 +195,14 @@ Daten und Hilfeseiten.
 /usr/local/share/magus/docs/image/Bedienung/Notebook/St-Notebook-Waffen.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook_Steigern.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook_Beschreibung.png
+/usr/local/share/magus/docs/image/Bedienung/Notebook/Win_Notebook_Grundwerte.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook_Info.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook-SprachUSchrift.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook-Zauber.png
+/usr/local/share/magus/docs/image/Bedienung/Notebook/Win_Notebook_Optionen.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/St-Notebook-Zauber.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook_Lernschema.png
+/usr/local/share/magus/docs/image/Bedienung/Notebook/Win_Notebook_Steigern.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook-Besitz.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Notebook-Fertigkeiten.png
 /usr/local/share/magus/docs/image/Bedienung/Notebook/Win_Notebook_Lernschema.png
@@ -242,12 +255,12 @@ Daten und Hilfeseiten.
 /usr/local/share/magus/docs/image/Bedienung/Elemente/St-Grad-Buttons.png
 /usr/local/share/magus/docs/getitWin.html
 /usr/local/share/magus/docs/TroubFAQ.html
-/usr/local/share/magus/docs/XML.Versions
 /usr/local/share/magus/docs/BMod_Be.html
 /usr/local/share/magus/docs/BMod_St_SpraSchri.html
 /usr/local/share/magus/docs/BMod_Op.html
 /usr/local/share/magus/docs/About.html
 /usr/local/share/magus/docs/BMod_Au.html
+/usr/local/share/magus/docs/BMod_Welcome.html
 /usr/local/share/magus/docs/Bedienung_Genesis.html
 /usr/local/share/magus/docs/Trouble.html
 /usr/local/share/magus/docs/index.html
@@ -295,9 +308,11 @@ Daten und Hilfeseiten.
 /usr/local/share/magus/Alba.xml
 /usr/local/share/magus/midgard.xml
 /usr/local/share/magus/Kompendium.xml
+/usr/local/share/magus/saebel.png
 /usr/local/share/magus/Gildenbrief.xml
 /usr/local/share/magus/AbenteuerBaende.xml
 /usr/local/share/magus/MeisterDerSphaeren.xml
+/usr/local/share/magus/Money-gray.png
 /usr/local/share/magus/Alba-grey.png
 /usr/local/share/magus/HexenzauberDruidenkraft.xml
 /usr/local/share/magus/schwert.png
@@ -317,5 +332,4 @@ Daten und Hilfeseiten.
 /usr/local/share/magus/MAGUS-Logo-grey2.png
 /usr/local/share/magus/Regelwerk3.xml
 /usr/local/share/magus/Regelwerk4.xml
-/usr/local/share/magus/saebel.png
-/usr/local/share/magus/Money-gray.png
+
