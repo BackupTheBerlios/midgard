@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.1 2001/04/25 06:07:06 christof Exp $
+// $Id: xmlexport.pgcc,v 1.2 2001/04/25 07:47:49 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -91,16 +91,15 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    exec sql close c;
    SQLerror::test(__FILELINE__);
    FetchIStream is("spalten");
-   o << "<?xml version=\"1.0\"?>\n\n"
-   	"<Midgard-Charakter>\n"
-   	"  <XMLVersion>1</XMLVersion>\n";
+   o << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n"
+   	"<Midgard-Charakter Version=\"2\">\n";
    fetch_and_write_string(is, o, "Name",2);
    fetch_and_write_string(is, o, "Spieler", 2);
    fetch_and_write_string(is, o, "Zeitpunkt", 2);
    fetch_and_write_int(is, o, "Grad", 2);
    o << "  <Typ";
    fetch_and_write_string_attrib(is, o, "Bezeichnung");
-   fetch_and_write_string_attrib(is, o, "Abkuerzung");
+   fetch_and_write_string_attrib(is, o, "Abkürzung");
    fetch_and_write_string_attrib(is, o, "Spezialisierung");
    o << "/>\n";
    o << "  <Basiseigenschaften";
@@ -139,7 +138,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    fetch_and_write_int_attrib(is, o, "Alter");
    fetch_and_write_string_attrib(is, o, "Gestalt");
    fetch_and_write_int_attrib(is, o, "Gewicht");
-   fetch_and_write_int_attrib(is, o, "Groesse");
+   fetch_and_write_int_attrib(is, o, "Größe");
    fetch_and_write_string_attrib(is, o, "Stand");
    fetch_and_write_string_attrib(is, o, "Herkunft");
    fetch_and_write_string_attrib(is, o, "Glaube");
@@ -165,7 +164,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    fetch_and_write_int_attrib(is, o, "SS");
    fetch_and_write_int_attrib(is, o, "KS");
    o << "/>\n";
-   fetch_and_write_string(is, o, "Ruestung", 2);
+   fetch_and_write_string(is, o, "Rüstung", 2);
    fetch_and_write_string(is, o, "Text", 2);
 
    o << "  <Fertigkeiten>\n";   
