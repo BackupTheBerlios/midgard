@@ -119,9 +119,9 @@ Spezies::Spezies(const Tag *tag)
     vec_angebfert.push_back(st_angebfert(i->getAttr("Art"),
             i->getAttr("Name"),i->getIntAttr("Erfolgswert"),i->getIntAttr("LP")));
  FOR_EACH_CONST_TAG_OF(i,*tag,"Land")
-   if(i->getAttr("Name")!="") vec_herkunft.push_back(i->getAttr("Name"));
+   vec_herkunft.push_back(i->getAttr("Name"));
  FOR_EACH_CONST_TAG_OF(i,*tag,"Sprache")
-   if(i->getAttr("Name")!="") vec_sprache.push_back(i->getAttr("Name"));
+   vec_sprache.push_back(i->getAttr("Name"));
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.33 2002/07/01 19:11:33 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.34 2002/07/03 10:15:05 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -109,9 +109,9 @@ void fert_speichern(Tag &o)
    {  Query queryZu("select gegenstand,min,position from fertigkeiten_besitz "
    	" where name='"+fert+"' order by min,gegenstand");
       FetchIStream isZu;
-      Tag &b=fertigk.push_back(Tag("Besitz"));
       while ((queryZu>>isZu).good()) 
-      {  fetch_and_set_string_attrib(isZu, b, "Name");
+      {  Tag &b=fertigk.push_back(Tag("Besitz"));
+         fetch_and_set_string_attrib(isZu, b, "Name");
          fetch_and_set_int_attrib(isZu, b, "Min");
          fetch_and_set_string_attrib(isZu, b, "Position");      }
     }
