@@ -277,7 +277,7 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 
   set_zusatz_sensitive(false);
 
-  on_fertigkeiten_laden_clicked();
+  fertigkeiten_zeigen();
   neue_fert_tree->set_sensitive(true);
 }
 

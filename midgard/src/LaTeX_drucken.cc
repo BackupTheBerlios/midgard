@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.79 2002/11/07 11:29:34 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.80 2002/11/08 07:45:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -514,7 +514,7 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeB
         // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
         swert = itos(wert)+angriffsverlust;
       }
-     std::string schaden=i->Schaden(hauptfenster->getWerte(),i->AliasName(),true);
+     std::string schaden=Gtk2TeX::string2TeX(i->Schaden(hauptfenster->getWerte(),i->AliasName(),true));
      std::string anm = i->Waffe()->Waffenrang();
      std::string abm = i->Waffe()->WM_Abwehr();
 
