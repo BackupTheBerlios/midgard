@@ -333,13 +333,13 @@ Sprache&Wert&Schrift\\\hline\hline
 {
 \LI
 \scriptsize
-\hfill
+%\hfill
 \setlength{\tabcolsep}{0.2ex}
     \begin{tabular}{|l|c|c|l|c|} \cline{1-2}\cline{4-5}
       ~Rüstungsklasse & \makebox[3em]{\ruestung/\ruestungb}             &\hspace*{1em} & ~Abwehr         & \abwehrfinal \\\cline{1-2}\cline{4-5}
       ~Schutz vor LP--Verlust &\makebox[3em]{\ruestunglp/\ruestunglpb}  &              &  ~mit Verteidigungswaffe& \abwehrmitwaffe\\\cline{1-2}\cline{4-5}
     \end{tabular}
-\hfill
+%\hfill
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.34 2002/05/16 07:39:02 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.35 2002/05/17 10:24:28 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -141,7 +141,7 @@ public:
    int BeschreibungPixSize() const {return beschreibung.size;}
    std::string Merkmale() const {return merkmale;}
    std::string Stadt_Land() const {return stadt_land;}
-   cH_Ruestung Ruestung(int i=0) const;
+   cH_Ruestung Ruestung(unsigned int i=0) const;
    int GFP() const {return gfp;}
    float Steigertage() const {return steigertage;}
    int Gold() const {return gold;}
@@ -250,6 +250,13 @@ public:
               { steigern_EP_prozent=p; grad_basiswerte=b; }
    void set_Steigern_EP_Prozent(int i) {steigern_EP_prozent=i;}
    void set_Grad_Basiswerte(int i) {grad_basiswerte=i;}
+
+   // LaTeX code für die Rüstung
+   std::string Ruestung_RW_Verlust() const ;
+   std::string Ruestung_B_Verlust() const ;
+   std::string Ruestung_Abwehr_Verlust(const std::list<cH_MidgardBasicElement>& list_Fertigkeit) const;
+   std::string Ruestung_Angriff_Verlust(const std::list<cH_MidgardBasicElement>& list_Fertigkeit) const;
+
 };
 /*
 class H_Grundwerte : public Handle<Grundwerte>    

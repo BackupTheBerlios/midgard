@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.162 2002/05/16 15:21:53 christof Exp $
+# $Id: Makefile.am,v 1.163 2002/05/17 10:24:28 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -91,7 +91,9 @@ WindowInfo_glade.hh WindowInfo.hh \
    Typen.hh \
    Window_Erfahrungspunkte.hh \
    Window_Erfahrungspunkte_glade.hh \
-   ProgressBar.h
+   ProgressBar.h \
+   table_lernschema.hh \
+   table_lernschema_glade.hh
 
 BUILT_SOURCES= export_common.h registry.h text2c NEWS.h
 
@@ -104,13 +106,20 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 magus_SOURCES = $(PORT_FILES) \
+   table_lernschema_kido.cc \
+   table_lernschema_fertigkeiten.cc \
+   table_lernschema_waffen.cc \
+   table_lernschema_zauber.cc \
+   table_lernschema.cc \
+   table_lernschema_glade.cc \
+   table_lernschema_zusatz.cc \
+   table_lernschema_beruf.cc \
    LaTeX_drucken.cc \
    LaTeX_drucken_ausruestung.cc \
    LaTeX_drucken_beschreibung.cc \
    table_beschreibung.cc \
    table_beschreibung_glade.cc \
    midgard_CG_oberflaeche.cc \
-   midgard_CG_waffen.cc \
    Wizard.cc \
    frame_globale_optionen.cc \
    Optionen.cc \
@@ -168,7 +177,6 @@ magus_SOURCES = $(PORT_FILES) \
    steigern_EP.cc \
    xml_fileselection.cc \
    spielleiter_export.cc \
-   midgard_CG_kido.cc \
    midgard_CG_region_check.cc \
    midgard_CG_optionen.cc \
 	Window_Waffenbesitz_glade.cc \
@@ -179,17 +187,12 @@ magus_SOURCES = $(PORT_FILES) \
 	Midgard_Info_glade.cc \
 	Midgard_Info.cc \
 	midgard.cc \
-   midgard_CG_lernen.cc \
-   midgard_CG_lernen_zusatz.cc \
    midgard_CG_drucken.cc \
    midgard_CG_grad_anstieg.cc \
 	midgard_CG_glade.cc \
 	midgard_CG.cc \
 	table_grundwerte_abge_werte.cc \
    zeige_werte.cc \
-   midgard_CG_fertigkeiten.cc\
-   midgard_CG_zauber.cc\
-   midgard_CG_beruf.cc\
 	Window_Geld_eingeben_glade.cc \
 	Window_Geld_eingeben.cc \
    table_grundwerte_grundwere_edit.cc \

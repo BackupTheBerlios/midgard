@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.35 2002/05/14 14:01:44 thoma Exp $
+// $Id: Optionen.cc,v 1.36 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -178,8 +178,8 @@ void Midgard_Optionen::OptionenExecute_setzen_from_menu(OptionenExecuteIndex ind
 {
   if(index==LernschemaSensitive) hauptfenster->lernschema_sensitive(true);
 //  if(index==WizardStarten) hauptfenster->wizard_starten_clicked();
-  if(index==LernschemaZusaetzeLoeschen) {hauptfenster->list_FertigkeitZusaetze.clear();
-                                         hauptfenster->on_lernliste_wahl_toggled();}   
+//  if(index==LernschemaZusaetzeLoeschen) {hauptfenster->list_FertigkeitZusaetze.clear();
+//                                         hauptfenster->on_lernliste_wahl_toggled();}   
   if(index==show_InfoWindow) hauptfenster->InfoFenster->Show();
 }
 

@@ -31,7 +31,7 @@
 #include "Zauberwerk.hh"
 #include "KiDo.hh"
 #include "Beruf.hh"
-#include <SelectMatching.h>
+//#include <SelectMatching.h>
 
 #ifdef __MINGW__
 std::string utf82iso(const std::string &s);
@@ -229,19 +229,22 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen()
    table_grundwerte->fill_typauswahl();
    if(!Typ[1]->Short().empty()) table_grundwerte->fill_typauswahl_2();
    
+/*
    if (this->Typ[0]->Spezialwaffe() ||  this->Typ[1]->Spezialwaffe() )
          togglebutton_spezialwaffe->show();
    else {togglebutton_spezialwaffe->hide();
          togglebutton_spezialwaffe->set_active(false); }
-
+*/
    menu_init();
-   Gtk::Menu_Helpers::SelectMatching(*(table_grundwerte->optionmenu_spezies),Werte.Spezies());
+//   Gtk::Menu_Helpers::SelectMatching(*(table_grundwerte->optionmenu_spezies),Werte.Spezies());
    show_gtk();
+/*
    if(Werte.Spezialgebiet()->Name()!="") 
      { 
        show_magier_spezialgebiet(true);
        Gtk::Menu_Helpers::SelectMatching(*option_magier_spezialgebiet,Werte.Spezialgebiet());
      }
+*/
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.71 2002/05/11 06:51:31 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.1 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,23 +17,24 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "midgard_CG.hh"
+#include "table_lernschema.hh"
 //#include "Berufe_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Fertigkeiten.hh"
 #include "class_Beruf_Data.hh"
 #include "Beruf.hh"
 #include <Aux/itos.h>
+#include "midgard_CG.hh"
 
-gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
+gint table_lernschema::on_button_beruf_release_event(GdkEventButton *ev)
 {
-  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active)
+  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
       button_beruf->set_sensitive(false);
-  if(wizard) wizard->next_step(Wizard::BERUF1);
+  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::BERUF1);
   deleteBerufsFertigekeit();
   if (ev->button==1) 
    {
-     beruf_gewuerfelt(random.integer(1,100));
+     beruf_gewuerfelt(hauptfenster->random.integer(1,100));
 //     if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active) 
 //         frame_berufswahl->set_sensitive(false);
    }
@@ -46,11 +47,11 @@ gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
   return false;
 }
 
-void midgard_CG::on_entry_berufsname_activate()
+void table_lernschema::on_entry_berufsname_activate()
 {
   cH_MidgardBasicElement beruf(&*cH_Beruf(entry_berufsname->get_text(),true));
-  list_Beruf.clear();
-  list_Beruf.push_back(beruf);
+  hauptfenster->list_Beruf.clear();
+  hauptfenster->list_Beruf.push_back(beruf);
   vbox_berufsname->hide();
 //  frame_berufswahl->set_sensitive(false);
 //  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active)
@@ -58,10 +59,10 @@ void midgard_CG::on_entry_berufsname_activate()
   show_gelerntes();
 }
 
-gint midgard_CG::on_spinbutton_beruf_focus_in(GdkEventFocus *ev)
+gint table_lernschema::on_spinbutton_beruf_focus_in(GdkEventFocus *ev)
 { spinbutton_beruf->select_region(0,-1); return false;}
 
-void midgard_CG::on_spinbutton_beruf_activate()
+void table_lernschema::on_spinbutton_beruf_activate()
 {
   gtk_spin_button_update(spinbutton_beruf->gtkobj());
 //  frame_berufswahl->set_sensitive(false);
@@ -70,14 +71,14 @@ void midgard_CG::on_spinbutton_beruf_activate()
 }
 
 
-void midgard_CG::deleteBerufsFertigekeit()
+void table_lernschema::deleteBerufsFertigekeit()
 {
-  for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+  for(std::list<cH_MidgardBasicElement>::iterator i=hauptfenster->list_Fertigkeit.begin();i!=hauptfenster->list_Fertigkeit.end();++i)
    {
      cH_Fertigkeit f(*i);
      if(f->LernArt()=="Beruf") 
       {
-        list_Fertigkeit.erase(i);
+        hauptfenster->list_Fertigkeit.erase(i);
         break;
       }
      else if(f->LernArt()=="Beruf+") 
@@ -90,12 +91,12 @@ void midgard_CG::deleteBerufsFertigekeit()
 }
 
 
-void midgard_CG::showBerufsLernList()
+void table_lernschema::showBerufsLernList()
 {
   clean_lernschema_trees();
 
   Beruf_tree = manage(new SimpleTree(4,4));
-  Beruf_tree->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_beruf_tree_leaf_selected));
+  Beruf_tree->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_beruf_tree_leaf_selected));
   std::vector<std::string> beruf;
   beruf.push_back("Beruf"); 
   beruf.push_back("Gelernt"); 
@@ -105,14 +106,15 @@ void midgard_CG::showBerufsLernList()
 
   label_lernschma_titel->set_text("Beruf");
   std::list<cH_MidgardBasicElement> L;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Beruf.begin();i!=Database.Beruf.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Beruf.begin();i!=hauptfenster->getDatabase().Beruf.end();++i)
    {
-//     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
-     if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
+//     if (Database.pflicht.istVerboten(hauptfenster->getCWerte().Spezies()->Name(),hauptfenster->Typ,(*i)->Name())) continue;
+     if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      cH_Beruf b(*i);
-     if ( !b->Typ(Typ) ||  !b->Stand(Werte.Stand()) ) continue;
-     if(!b->Stadt() && Werte.Stadt_Land()=="Stadt") continue;
-     if(!b->Land()  && Werte.Stadt_Land()=="Land") continue;
+     if ( !b->Typ(hauptfenster->Typ) || 
+          !b->Stand(hauptfenster->getCWerte().Stand()) ) continue;
+     if(!b->Stadt() && hauptfenster->getCWerte().Stadt_Land()=="Stadt") continue;
+     if(!b->Land()  && hauptfenster->getCWerte().Stadt_Land()=="Land") continue;
      L.push_back(*i);
    }
 
@@ -131,7 +133,7 @@ void midgard_CG::showBerufsLernList()
          if( (kat==1 && BKategorie.kat_I)   || (kat==2 && BKategorie.kat_II) ||
              (kat==3 && BKategorie.kat_III) || (kat==4 && BKategorie.kat_IV ) )
            {
-             if(*j!="Schmecken+10" && cH_Fertigkeit(*j)->ist_gelernt(list_Fertigkeit))
+             if(*j!="Schmecken+10" && cH_Fertigkeit(*j)->ist_gelernt(hauptfenster->list_Fertigkeit))
                   gelerntes=true;
              else gelerntes=false;
              datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,gelerntes));
@@ -139,9 +141,9 @@ void midgard_CG::showBerufsLernList()
        }
     }
 //  if(gelerntes) label_berufsstern_erklaerung->show();
-  if(gelerntes) set_status(label_status->get_text()
-                           +"\nEin * bezeichnet eine bereits gelernte Fertigkeit."
-                            " Für diese wird dann der Erfolgswert um eins erhöht.",false);
+  if(gelerntes) hauptfenster->set_status(hauptfenster->label_status->get_text()
+               +"\nEin * bezeichnet eine bereits gelernte Fertigkeit."
+               " Für diese wird dann der Erfolgswert um eins erhöht.",false);
   Beruf_tree->setDataVec(datavec);
   Beruf_tree->show();
   Beruf_tree->Expand_recursively();
@@ -152,9 +154,9 @@ void midgard_CG::showBerufsLernList()
 //  scrolledwindow_ange_fert->hide();
 }
 
-void midgard_CG::beruf_gewuerfelt(int wurf)
+void table_lernschema::beruf_gewuerfelt(int wurf)
 {
- BKategorie=st_BKategorie();
+ BKategorie=BerufsKategorie();
 // spinbutton_beruf->set_value(wurf);
  std::string kat=itos(wurf)+" gewürfelt: ";
  if(wurf<=20) kat+="Kein(e) Beruf/Fertigkeit wählbar";
@@ -178,24 +180,24 @@ void midgard_CG::beruf_gewuerfelt(int wurf)
     BKategorie.kat_IV=true; }
 //    label_berufskategorie->set_text(kat);
 //    label_berufskategorie->show();
-    set_status(kat,false);
+    hauptfenster->set_status(kat,false);
 
   showBerufsLernList();
 }
 
-void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
+void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
 {
  try{
     const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
     cH_MidgardBasicElement mbe(&*cH_Beruf(dt->Beruf()));
-    list_Beruf.clear(); // es kann nur einen Beruf geben
-    list_Beruf.push_back(mbe);
+    hauptfenster->list_Beruf.clear(); // es kann nur einen Beruf geben
+    hauptfenster->list_Beruf.push_back(mbe);
 
     if(dt->Fert()=="Schmecken+10") 
-        Werte.setSinn("Schmecken",10);
+        hauptfenster->getWerte().setSinn("Schmecken",10);
     else if(dt->Gelernt()) // Erfolgswert um eins erhöhen
      {
-      for (std::list<cH_MidgardBasicElement>::const_iterator k=list_Fertigkeit.begin();k!=list_Fertigkeit.end();++k)
+      for (std::list<cH_MidgardBasicElement>::const_iterator k=hauptfenster->list_Fertigkeit.begin();k!=hauptfenster->list_Fertigkeit.end();++k)
         {
           if((*k)->Name()==dt->Fert())
            { (*k)->addErfolgswert(1);
@@ -208,19 +210,19 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
       {
          cH_MidgardBasicElement MBE(&*cH_Fertigkeit(dt->Fert()));
          cH_Fertigkeit(MBE)->setLernArt("Beruf");
-         if(MBE->ZusatzEnum(Typ)) lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
+         if(MBE->ZusatzEnum(hauptfenster->Typ)) lernen_zusatz(MBE->ZusatzEnum(hauptfenster->Typ),MBE);
          if(MBE->Name()!="Landeskunde (Heimat)")
-            list_Fertigkeit.push_back(MBE);
+            hauptfenster->list_Fertigkeit.push_back(MBE);
       }
 
     if (!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4))
       {
          if(tree_lernschema) tree_lernschema->clear();
-         set_status("");
+         hauptfenster->set_status("");
 //         scrolledwindow_beruf->hide();
          scrolledwindow_lernen->hide();
          label_lernschma_titel->set_text("");
-         if(wizard) wizard->next_step(Wizard::BERUF);
+         if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::BERUF);
       }
     else
       {

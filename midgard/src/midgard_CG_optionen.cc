@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.89 2002/05/14 14:01:44 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.90 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -61,15 +61,15 @@ void midgard_CG::lernschema_sensitive(bool active)
 //   button_beschreibung->set_sensitive(true);
    frame_steigern->set_sensitive(true);
    frame_lernschema->set_sensitive(true);
-   button_herkunft->set_sensitive(true);
-   button_lernpunkte->set_sensitive(true);
-   togglebutton_lernpunkte_edit->set_sensitive(true);
-   button_lernschema_geld->set_sensitive(true);
-   button_lernschema_waffen->set_sensitive(true);
-   button_ruestung->set_sensitive(true);   
-   button_angeborene_fert->show();
-   button_kido_auswahl->set_sensitive(true);
-   button_angeborene_fert->set_sensitive(true);
+   table_lernschema->button_herkunft->set_sensitive(true);
+   table_lernschema->button_lernpunkte->set_sensitive(true);
+   table_lernschema->togglebutton_lernpunkte_edit->set_sensitive(true);
+   table_lernschema->button_lernschema_geld->set_sensitive(true);
+   table_lernschema->button_lernschema_waffen->set_sensitive(true);
+   table_lernschema->button_ruestung->set_sensitive(true);   
+   table_lernschema->button_angeborene_fert->show();
+   table_lernschema->button_kido_auswahl->set_sensitive(true);
+   table_lernschema->button_angeborene_fert->set_sensitive(true);
 //   frame_berufswahl->set_sensitive(true);
 }
 
@@ -81,7 +81,7 @@ void midgard_CG::show_Pics(bool b)
   {
     table_grundwerte->pixmap_dfr4->show();
 //    pixmap_dfr3->show();
-    scrolledwindow_dfr3->show(); 
+    table_lernschema->scrolledwindow_dfr3->show(); 
     pixmap_kurai->show();
     table_gradsteigern_lang->show();
     button_steigern_kurz->hide();
@@ -90,7 +90,7 @@ void midgard_CG::show_Pics(bool b)
   {
     table_grundwerte->pixmap_dfr4->hide();
 //    pixmap_dfr3->hide();
-    scrolledwindow_dfr3->hide(); 
+    table_lernschema->scrolledwindow_dfr3->hide(); 
     pixmap_kurai->hide();
     table_gradsteigern_lang->hide();
     button_steigern_kurz->show();

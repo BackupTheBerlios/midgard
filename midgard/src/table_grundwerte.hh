@@ -20,7 +20,6 @@ class table_grundwerte : public table_grundwerte_glade
 {  
         
         friend class table_grundwerte_glade;
-//        friend class WindowInfo;
         friend class midgard_CG;
         midgard_CG *hauptfenster;
 public:
@@ -48,6 +47,7 @@ private:
         int  constraint_gw(int constraint);
         int  constraint_aw(int constraint);
         int  wuerfeln_best_of_two();
+        void original_midgard_check();
 
         void edit_sensitive(bool b);
         

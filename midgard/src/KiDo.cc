@@ -23,6 +23,43 @@
 #include <Aux/itos.h>
 #include "ProgressBar.h"
 
+KiDo_Stile::KiDo_Stile()
+{
+  // Muß mit Optionmenu in glade übereinstimmen
+  Vkido.clear();
+  Vkido.push_back("TECHNIK");
+  Vkido.push_back("Sanfte Techniken");
+  Vkido.push_back("Harte Techniken");
+  Vkido.push_back("Gemischte Techniken");
+}
+
+bool KiDo_Stile::ist_gelernt(std::string s)
+{
+  std::vector<std::string>::iterator i=find(Vkido.begin(),Vkido.end(),s);
+  if(i==Vkido.end()) return false;
+  return true;
+}
+
+bool KiDo_Stile::ist_sanft(std::string s)
+{
+ if(s==Vkido[1]) return true;
+ return false;
+}
+
+bool KiDo_Stile::ist_hart(std::string s)
+{
+ if(s==Vkido[2]) return true;
+ return false;
+}
+
+bool KiDo_Stile::ist_gemischt(std::string s)
+{
+ if(s==Vkido[3]) return true;
+ return false;
+}
+
+
+
 cH_KiDo::cache_t cH_KiDo::cache;
 
 cH_KiDo::cH_KiDo(const std::string& name IF_XML(,bool create))

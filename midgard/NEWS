@@ -2,10 +2,36 @@
 NEWS IN VERSION 0.6delta4
 
 * Vollrüstabzug und RW-Abzug waren vertauscht (Datenbank->xml export)
-
+* Zweite Rüstung ausdrucken
+* Neuimplementierung der LaTeX Anzeige für Rüstungen
+* Lernshcema in eigene Klasse umgewandelt
 
 TODO:
-* Zweite Rüstung ausdrucken
+* In der Waffenauswahl wird der Dolch angezeigt mit W6+-1. Sollte es W6-1
+heißen? Anderes Beispiel Parierdolch +-2.
+* Wieso bleibt beim Zwerg die Eigenschaft Trinken mit 1 Lernpunkt stehen,
+obwohl ich keine LP mehr habe? Oder in einem anderen Fall, wenn ich es
+bereits gelernt habe?
+* Ist gedacht für die Priester die Kultwaffen (DFR S. 49 rechts) zu
+implementieren? (Auch die Schenkungsregel für Fertigkeitspunkte?)
+* Bei der Berufsfertigkeit habe ich Schreiber ausgewählt. Es wurde
+Dvarskar im rechten Auswahlfenster angegeben (gut), als ich es anklickte
+wurde Magus wg. "ungültiger Seite in Modul GTKMM.DLL" beendet.
+* Wäre es möglich, Fertigkeiten, die 0 LP kosten wie "Kampf in
+Schlachtreihe" für Krieger, gleich "herüberzubuchen"?
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
+in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
+links). (Hat eigentlich irgendwer mal behauptet, dass es leicht sei, die
+ganzen Sonderregeln zu programmieren ;-) ?) Auch die ganzen verbotenen
+Waffen (DFR S.49/50) sind nicht ausgeschlossen, bzw. die speziellen
+Listen (DFR S. 50 rechts) werden nicht berücksichtigt. Beispiel: Meine
+Zwergenkriegerin könnte Krummsäbel und Parierdolch lernen.
+* Außerdem konnte sie Parierdolch lernen, ohne Dolch zu können. (Sollte
+das nicht in der neuen Fassung implementiert sein?)
+* Option LernschemaZusaetzeLoeschen löschen
+* Priester Sprache für 0 Lernpunkte nur EINMAL lernen
+* Fockus im Zustazfenster einfrieren
+* Gleiche SPrache nur einmal lernen
 * xml-speicherpfad
 * Ausdruck für Lange Listen
 * Searchcombo für Typen

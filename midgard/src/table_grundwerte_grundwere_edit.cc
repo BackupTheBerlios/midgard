@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.1 2002/05/14 14:01:44 thoma Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.2 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -333,3 +333,42 @@ void table_grundwerte::edit_sensitive(bool b)
   spinbutton_b->set_sensitive(b);
 }
 
+
+void table_grundwerte::original_midgard_check()
+{
+   int st=hauptfenster->getCWerte().St();
+   int gw=hauptfenster->getCWerte().Gw();
+   int gs=hauptfenster->getCWerte().Gs();
+   int ko=hauptfenster->getCWerte().Ko();
+   int in=hauptfenster->getCWerte().In();
+   int zt=hauptfenster->getCWerte().Zt();
+   if (st>100) st=100;
+   if (st<1)   st=1;  
+   if (gw>100) gw=100;
+   if (gw<1)   gw=1;  
+   if (gs>100) gs=100;
+   if (gs<1)   gs=1;  
+   if (ko>100) ko=100;
+   if (ko<1)   ko=1;  
+   if (in>100) in=100;
+   if (in<1)   in=1;  
+   if (zt>100) zt=100;
+   if (zt<1)   zt=1;  
+   hauptfenster->getWerte().setBasiswerte(st,gw,gs,ko,in,zt);
+
+
+   int au=hauptfenster->getCWerte().Au();
+   int pa=hauptfenster->getCWerte().pA();
+   int sb=hauptfenster->getCWerte().Sb();
+   int wk=hauptfenster->getCWerte().Wk();
+   if (au>100) au=100;
+   if (au<1)   au=1;  
+   if (pa>100) pa=100;
+   if (pa<1)   pa=1;  
+   if (sb>100) sb=100;
+   if (sb<1)   sb=1;  
+   if (wk>100) wk=100;
+   if (wk<1)   wk=1;  
+   hauptfenster->getWerte().setAbgeleitetewerte_small(au,pa,sb,wk);
+}
+ 

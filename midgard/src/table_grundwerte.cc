@@ -9,6 +9,7 @@
 #include "table_grundwerte.hh"
 #include "midgard_CG.hh"
 #include <Aux/itos.h>
+#include <SelectMatching.h>
 
 void table_grundwerte::init(midgard_CG *h)
 {
@@ -31,6 +32,9 @@ void table_grundwerte::init(midgard_CG *h)
 void table_grundwerte::zeige_werte()
 { 
    if(!hauptfenster) return;
+   if (hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Original).active)  
+      original_midgard_check();
+
    spinbutton_st->set_value(hauptfenster->getCWerte().St());
    spinbutton_gw->set_value(hauptfenster->getCWerte().Gw());
    spinbutton_gs->set_value(hauptfenster->getCWerte().Gs());
@@ -97,6 +101,9 @@ void table_grundwerte::zeige_werte()
    else                                   typauswahl_2->show();
    togglebutton_edit_werte->set_active(false);
    on_togglebutton_edit_werte_toggled();
+
+   if(optionmenu_spezies->get_menu()->items().size()==1) fill_spezies();
+   Gtk::Menu_Helpers::SelectMatching(*(optionmenu_spezies),hauptfenster->getCWerte().Spezies());
 
 //  hauptfenster->zeige_werte();
 }

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.4 2002/05/16 15:07:30 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.5 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -109,10 +109,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(LATIN(styp),10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<hauptfenster->getCWerte().St() << "}\n";
  fout << "\\newcommand{\\gs}{" <<hauptfenster->getCWerte().Gs() << "}\n";
- fout << "\\newcommand{\\gw}{"  << hauptfenster->getCWerte().Gw() ;
-  if( hauptfenster->getCWerte().Ruestung()->RW_Verlust() )
-    fout << "\\scriptsize ("<<hauptfenster->getCWerte().Gw()-hauptfenster->getCWerte().Ruestung()->RW_Verlust()<<")";
- fout << "}\n";
+ fout << "\\newcommand{\\gw}{"  << hauptfenster->getCWerte().Gw()<<hauptfenster->getCWerte().Ruestung_RW_Verlust()<<"}\n";
  fout << "\\newcommand{\\ko}{"  <<hauptfenster->getCWerte().Ko()<< "}\n";
  fout << "\\newcommand{\\inn}{" <<hauptfenster->getCWerte().In() << "}\n";
  fout << "\\newcommand{\\zt}{"  <<hauptfenster->getCWerte().Zt() << "}\n";
@@ -122,9 +119,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\newcommand{\\wk}{"  <<hauptfenster->getCWerte().Wk() << "}\n";
  fout << "\\newcommand{\\rw}{ X }\n";
  fout << "\\newcommand{\\hgw}{ X }\n";
- fout << "\\newcommand{\\bb}{"  <<hauptfenster->getCWerte().B() ;
- if(hauptfenster->getCWerte().Ruestung()->B_Verlust())
-   fout << "\\scriptsize ("<<hauptfenster->getCWerte().B() - hauptfenster->getCWerte().Ruestung()->B_Verlust()<<")";
+ fout << "\\newcommand{\\bb}{"  <<hauptfenster->getCWerte().B()<<hauptfenster->getCWerte().Ruestung_B_Verlust()<<"}\n";
  fout << "}\n";
  fout << "\\newcommand{\\kaw}{"  <<hauptfenster->getCWerte().KAW() << "}\n";
  fout << "\\newcommand{\\geistesblitz}{"  <<hauptfenster->getCWerte().Geistesblitz() << "}\n";
@@ -164,12 +159,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\newcommand{\\abwehr}{"<<hauptfenster->getCWerte().Abwehr_wert()<< "}\n";
  fout << "\\newcommand{\\ppabwehr}{"<<EmptyInt_4TeX(hauptfenster->getCWerte().AbwehrPP())<< "}\n";
  int ohne_waffe=hauptfenster->getCWerte().Abwehr_wert()+hauptfenster->getCWerte().bo_Ab();
- int abwehr_verlust = hauptfenster->getCWerte().Ruestung()->AbwehrBonus_Verlust(hauptfenster->getCWerte().bo_Ab());
- if(!cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(hauptfenster->list_Fertigkeit) &&
-      hauptfenster->getCWerte().Ruestung()->VollRuestungsAbzug()!=0)
-   abwehr_verlust += abs(hauptfenster->getCWerte().Ruestung()->VollRuestungsAbzug());
- std::string abwehr_verlust_string;
- if(abwehr_verlust) abwehr_verlust_string="--"+itos(abs(abwehr_verlust)); 
+ std::string abwehr_verlust_string = hauptfenster->getCWerte().Ruestung_Abwehr_Verlust(hauptfenster->list_Fertigkeit);
  fout << "\\newcommand{\\abwehrfinal}{"<<ohne_waffe<<abwehr_verlust_string<<"}\n";
 
  std::string mit_waffe = Waffe::get_Verteidigungswaffe(ohne_waffe,hauptfenster->list_Waffen,hauptfenster->list_Waffen_besitz,hauptfenster->Typ,hauptfenster->getCWerte());
@@ -315,13 +305,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  // Waffen + Waffen/Besitz
  int  i_waffenlos = 4;
  unsigned int countwaffen=0;
- int angriffsverlust = abs(hauptfenster->getCWerte().Ruestung()->AngriffsBonus_Verlust(hauptfenster->getCWerte().bo_An()));
- // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
- // entsprechende Fertigkeit nicht beherrscht wird.
- if(!cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(hauptfenster->list_Fertigkeit))
-       angriffsverlust += hauptfenster->getCWerte().Ruestung()->VollRuestungsAbzug();
- std::string angriffsverlust_string;
- if (angriffsverlust) angriffsverlust_string="--"+itos(angriffsverlust);            
+ std::string angriffsverlust_string = hauptfenster->getCWerte().Ruestung_Angriff_Verlust(hauptfenster->list_Fertigkeit);
  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->list_Waffen.begin();i!=hauptfenster->list_Waffen.end();++i)
    {cH_Waffe w(*i);
     count++;

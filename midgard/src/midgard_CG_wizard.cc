@@ -28,10 +28,10 @@ void midgard_CG::wizard_do_something()
       { on_wizard_beenden_activate();}
 
   if(e==Wizard::HERKUNFT)
-      { on_herkunftsland_clicked();}
+      { table_lernschema->on_herkunftsland_clicked();}
 
   if(e==Wizard::SPEZIALWAFFE)
-      { togglebutton_spezialwaffe->set_active(true);}
+      {  table_lernschema->togglebutton_spezialwaffe->set_active(true);}
 
   if(e==Wizard::NAMEN)
       { table_grundwerte->togglebutton_edit_werte->set_active(true);

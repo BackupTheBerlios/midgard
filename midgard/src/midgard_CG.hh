@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.241 2002/05/15 08:45:29 thoma Exp $
+// $Id: midgard_CG.hh,v 1.242 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,7 @@
 #include <list>
 #include "zufall.h"
 #include "Datenbank.hh"
-#include "class_lernpunkte.hh"
+//#include "class_lernpunkte.hh"
 #include "Ausruestung.hh"
 class Random;
 #include <fstream>
@@ -62,6 +62,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         friend class table_optionen;
         friend class table_beschreibung;
         friend class table_grundwerte;
+        friend class table_lernschema;
    private:
         // Drucken
         void on_alles_drucken();
@@ -102,7 +103,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                                  LZLAND};
 
 
-        std::vector<std::string> Vkido;
+//        std::vector<std::string> Vkido;
 
         friend class midgard_CG_glade;
         friend class Wizard;
@@ -134,23 +135,23 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void set_tree_titles();
 
-        struct st_BKategorie{bool kat_I; bool kat_II; bool kat_III; bool kat_IV;
-             st_BKategorie(): kat_I(false),kat_II(false),kat_III(false),kat_IV(false) {}
-             st_BKategorie(bool a,bool b, bool c, bool d)
-               : kat_I(a),kat_II(b),kat_III(c),kat_IV(d) {}
-             };
-        st_BKategorie BKategorie;
+//        struct st_BKategorie{bool kat_I; bool kat_II; bool kat_III; bool kat_IV;
+//             st_BKategorie(): kat_I(false),kat_II(false),kat_III(false),kat_IV(false) {}
+//             st_BKategorie(bool a,bool b, bool c, bool d)
+//               : kat_I(a),kat_II(b),kat_III(c),kat_IV(d) {}
+//             };
+//        st_BKategorie BKategorie;
 
 
         Datenbank Database;
         std::list<cH_MidgardBasicElement> list_Beruf;
-        std::list<cH_MidgardBasicElement> list_Fertigkeit_ang_neu;
+//        std::list<cH_MidgardBasicElement> list_Fertigkeit_ang_neu;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
    public:
         void setWindowPosition(int x,int y);
         void setWindowSize(int width,int height);
-        std::list<std::string>            list_FertigkeitZusaetze;
+//        std::list<std::string>            list_FertigkeitZusaetze;
    private:
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_universal;
@@ -173,20 +174,20 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
     public:
         bool fire_enabled;
     private:
-        MidgardBasicTree *tree_lernschema;
-        SimpleTree *Beruf_tree;
-        MidgardBasicTree *tree_angeb_fert;
-        MidgardBasicTree *tree_kido_lernschema;
-        MidgardBasicTree *tree_waffen_lernschema;
-        WaffeBesitzLernen waffebesitzlernen;
+//        MidgardBasicTree *tree_lernschema;
+//        SimpleTree *Beruf_tree;
+//        MidgardBasicTree *tree_angeb_fert;
+//        MidgardBasicTree *tree_kido_lernschema;
+//        MidgardBasicTree *tree_waffen_lernschema;
+//        WaffeBesitzLernen waffebesitzlernen;
 
     private:
         bool modify_bool;
-        int maxkido;
+//        int maxkido;
         bool steigern_mit_EP_bool;
 
         std::vector<cH_Typen> Typ;
-        Lernpunkte lernpunkte;
+//        Lernpunkte lernpunkte;
      
      	  std::string filename;
    
@@ -199,147 +200,22 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index);
         void Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index);
-        void optionmenu_init();
-//        void optionmenu_stand_deactivate();
- //       void optionmenu_hand_deactivate();
+//        void optionmenu_init();
         void pdf_viewer(const std::string& file);
         SigC::Connection connection_status;
         gint timeout_status();
-/*
-        void fill_typauswahl();
-        void fill_typauswahl_2();
-        void fill_typauswahl_fill(int typ_1_2);
-        void fill_spezies();
-        void typauswahl_button();
-        void typauswahl_2_button();
-        void on_radiobutton_stadt_land_toggled();
-        void on_radiobutton_frau_toggled();
-*/
    public:
         void set_info(const std::string& sadd);
         void set_status(std::string s,bool autoclean=true);
 private:
         void set_wizard(std::string s);
-//        void on_radiobutton_mann_toggled();
    private:
-//        void spezieswahl_button();
-        void on_herkunftsland_clicked();
+//        void on_herkunftsland_clicked();
         gint on_button_menu_button_release_event(GdkEventButton *ev);
-//        void gw_wuerfeln_2x();
-//        void check_350(const std::vector<int>& a);
-//        gint on_button_grundwerte_button_release_event(GdkEventButton *ev);
         void Eigenschaften_variante(int i);
-//        void grundwerte_wuerfeln();
-/*
-        void on_button_wert_1_clicked();
-        void on_button_wert_2_clicked();
-        void on_button_wert_3_clicked();
-        void on_button_wert_4_clicked();
-        void on_button_wert_5_clicked();
-        void on_button_wert_6_clicked();
-*/
-//        int werte_label_count;
-//        void set_werte_label_2();
-//        void set_werte_label_3(Gtk::Label *L=0);
-//        void gw_setzen(Gtk::Label *L=0,int button=0);
-//        int  constraint_gw(int constraint);
-//        int  constraint_aw(int constraint);
-//        int  wuerfeln_best_of_two();
-//        void on_togglebutton_edit_werte_toggled();
-//        void on_button_grda1setzen_clicked();
-/*
-        void on_entry_nameC_activate();
-        void on_entry_nameS_activate();
-        void on_entry_version_activate();
-        void on_entry_bezeichnung_activate();
-        void on_entry_merkmale_activate();
-        void on_entry_spezialisierung_activate();
-        void on_entry_glaube_activate();
-        void on_entry_herkunft_activate();
-        void on_spinbutton_grad_activate();
-        void on_spinbutton_lp_activate();
-        void on_spinbutton_ap_activate();
-        void on_spinbutton_Cgewicht_activate();
-        void on_spinbutton_groesse_activate();
-        void on_spinbutton_alter_activate();
-        void on_spinbutton_gfp_activate();
-        void on_spinbutton_tage_activate();
-        void on_spinbutton_gg_activate();
-        void on_spinbutton_sg_activate();
-        void on_spinbutton_st_activate();
-        void on_spinbutton_gw_activate();
-        void on_spinbutton_gs_activate();
-        void on_spinbutton_ko_activate();
-        void on_spinbutton_in_activate();
-        void on_spinbutton_zt_activate();
-        void on_spinbutton_sb_activate();
-        void on_spinbutton_wk_activate();
-        void on_spinbutton_au_activate();
-        void on_spinbutton_pa_activate();
-        void on_spinbutton_b_activate();
-        gint on_entry_nameC_focus_out_event(GdkEventFocus *ev);
-        gint on_entry_nameS_focus_out_event(GdkEventFocus *ev);
-        gint on_entry_version_focus_out_event(GdkEventFocus *ev);
-        gint on_entry_bezeichnung_focus_out_event(GdkEventFocus *ev);
-        gint on_entry_merkmale_focus_out_event(GdkEventFocus *ev);
-        gint on_entry_spezialisierung_focus_out_event(GdkEventFocus *ev);
-        gint on_entry_glaube_focus_out_event(GdkEventFocus *ev);
-        gint on_entry_herkunft_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_grad_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_lp_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_ap_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_Cgewicht_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_groesse_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_alter_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_gfp_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_tage_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_gg_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_sg_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_st_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_gw_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_gs_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_ko_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_in_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_zt_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_sb_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_wk_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_au_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_pa_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_b_focus_out_event(GdkEventFocus *ev);
-        gint on_entry_nameC_focus_in_event(GdkEventFocus *ev);
-        gint on_entry_nameS_focus_in_event(GdkEventFocus *ev);
-        gint on_entry_version_focus_in_event(GdkEventFocus *ev);
-        gint on_entry_bezeichnung_focus_in_event(GdkEventFocus *ev);
-        gint on_entry_merkmale_focus_in_event(GdkEventFocus *ev);
-        gint on_entry_spezialisierung_focus_in_event(GdkEventFocus *ev);
-        gint on_entry_glaube_focus_in_event(GdkEventFocus *ev);
-        gint on_entry_herkunft_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_grad_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_lp_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_ap_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_Cgewicht_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_groesse_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_alter_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_gfp_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_tage_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_gg_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_sg_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_st_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_gw_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_gs_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_ko_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_in_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_zt_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_sb_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_wk_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_au_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_pa_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_b_focus_in_event(GdkEventFocus *ev);
-*/
 
-        void edit_sensitive(bool b);
-        void on_abge_werte_setzen_clicked();
-        void original_midgard_check();
+//        void edit_sensitive(bool b);
+//        void on_abge_werte_setzen_clicked();
         void on_neuer_charakter_clicked();
         void clear_gtk();
         void clear_listen();
@@ -352,79 +228,13 @@ private:
         void on_schliessen_CG_clicked();
         gint on_midgard_CG_delete_event(GdkEventAny* event);
 
-
-        void on_lernpunkte_wuerfeln_clicked();
-        void on_tree_gelerntes_leaf_selected(cH_RowDataBase d);
-        void on_tree_lernschema_leaf_selected(cH_RowDataBase d);
-        void show_gelerntes();
-        void show_lernschema();
-        void clean_lernschema_trees();
-        void setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert);
-        void on_spinbutton_fach_activate();
-        void on_spinbutton_allgemein_activate();
-        void on_spinbutton_unge_activate();
-        void on_spinbutton_waffen_activate();
-        gint on_spinbutton_waffen_lernschema_focus_in_event(GdkEventFocus *ev);
-        void on_spinbutton_zaubern_activate();
-        gint on_spinbutton_fach_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_allgemein_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_unge_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_waffen_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_zaubern_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_fach_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_allgemein_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_unge_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_waffen_focus_in_event(GdkEventFocus *ev);
-        gint on_spinbutton_zaubern_focus_in_event(GdkEventFocus *ev);
-        void on_togglebutton_lernpunkte_edit_toggled();
-        void on_togglebutton_gelernte_anzeigen_toggled();
-        void on_togglebutton_teure_anzeigen_toggled();
-        void edit_lernpunkte(bool b);
-        void set_lernpunkte();
-        void on_button_fach_trans_clicked();
-        void on_button_waffe_trans_clicked();
-        gint on_button_ruestung_button_release_event(GdkEventButton *ev);
-        void on_button_ruestung_clicked();
-        gint on_button_lernschema_geld_button_release_event(GdkEventButton *ev);
-        gint on_button_lernschema_waffen_button_release_event(GdkEventButton *ev);
-        void on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d);
-        void on_spinbutton_waffen_lernschema_activate();
-        void show_WaffenBesitz_lernschema();
-        void WaffenBesitz_lernschema_wuerfeln(int wurf);
-//   public:
-        void lernschema_geld_wuerfeln();
-        void on_lernliste_wahl_toggled();
    private:
         void on_button_geld_s_clicked();
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
-        void on_button_waffen_clicked();
-        void spezialgebiet_button();
-        void spezialgebiet_button_fill();
-        void show_magier_spezialgebiet(bool show);
         void get_spezial_from_spezialgebiet();
-        gint on_button_beruf_release_event(GdkEventButton *ev);
-        void on_entry_berufsname_activate();
-        void on_spinbutton_beruf_activate();
-        gint on_spinbutton_beruf_focus_in(GdkEventFocus *ev);         
-        void on_beruf_tree_leaf_selected(cH_RowDataBase d);
-        void deleteBerufsFertigekeit();
-        void showBerufsLernList();
-        void beruf_gewuerfelt(int wurf);
-        void on_kido_wahl_clicked();
-        void fill_kido_lernschema();
-        void stil_optionmenue();
-        void zeige_lernpunkte();
-        gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
-        void on_angeborene_fertigkeit_clicked();
-        void on_angeborene_fertigkeit_right_clicked();
-        bool AngebSinn(int wurf,int wert);
-        std::string AngebFert_gewuerfelt(int wurf);
-        void on_ang_fert_leaf_selected(cH_RowDataBase d);
-        void on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d);
-        void universal_Fertigkeiten();
+//        void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
-//   public:
         void checkbutton_original(bool active);
         void lernschema_sensitive(bool active);
    private:
@@ -489,12 +299,6 @@ private:
         void on_radiobutton_pp_resistenz_toggled();
         void on_radiobutton_pp_all_toggled();
         void on_button_alter_clicked();
-        void lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& _MBE);
-        void lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE);
-        void on_herkunft_leaf_selected(cH_RowDataBase d);
-        void on_zusatz_leaf_selected(cH_RowDataBase d);
-        void on_zusatz_leaf_sprache_selected(cH_RowDataBase d);
-        void on_zusatz_leaf_schrift_selected(cH_RowDataBase d);
 
         void on_fertigkeiten_laden_clicked();
         void fertigkeiten_zeigen();
@@ -601,7 +405,7 @@ private:
          void xml_export_auswahl();
          void save_existing_filename();
          void xml_import_auswahl();
-         void checkAngeboreneSinne();
+//         void checkAngeboreneSinne();
          void speicherstream(ostream &datei);
          void show_undo_tree();
          void on_undo_leaf_selected(cH_RowDataBase d);
@@ -613,7 +417,6 @@ private:
          // Werte in der Oberfläche setzen (z.B. nach laden)
          void Typ_Geschlecht_Spezies_setzen(); // uvm.
 
-         bool SpracheSchrift(const cH_MidgardBasicElement& MBE);
          bool nsc_check(bool nsc_only);
          
 
@@ -626,17 +429,15 @@ private:
          void zeige_werte();
  
          cH_MidgardBasicElement getSelectedNotebookLernen();
-//         void kaempfer_lernt_zaubern(cH_MidgardBasicElement& MBE);
          void PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,bool alle_pp);
          int stufen_auf_einmal_steigern_fuer_aep(bool info,cH_MidgardBasicElement& MBE,int &kosten,int &aep);
-//         void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
          void xml_import_stream(istream &datei);
          const std::string get_filename() const { return filename; }
          void spielleiter_export_save(const std::string& dateiname);
-         void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
-                                              const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
+//         void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
+//                                              const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();

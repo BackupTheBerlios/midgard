@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.67 2002/05/08 11:12:58 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.1 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,7 +17,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "midgard_CG.hh"
+#include "table_lernschema.hh"
 //#include "Fertigkeiten_auswahl.hh"
 #include <Gtk_OStream.h>
 //#include "Window_angeb_fert.hh"
@@ -25,14 +25,15 @@
 #include "Fertigkeiten_angeboren.hh"
 #include <Aux/itos.h>
 #include "class_SimpleTree.hh"
+#include "midgard_CG.hh"
 
-gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
+gint table_lernschema::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
-  if(wizard) wizard->next_step(Wizard::ANGEBORENEFERTIGKEITEN);
-  list_Fertigkeit_ang.clear();
-  list_Fertigkeit_ang=Werte.Spezies()->getAngFertigkeiten();
-  list_Zauber=Werte.Spezies()->getZauber();
-  Werte.resetSinne();
+  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ANGEBORENEFERTIGKEITEN);
+  hauptfenster->list_Fertigkeit_ang.clear();
+  hauptfenster->list_Fertigkeit_ang=hauptfenster->getCWerte().Spezies()->getAngFertigkeiten();
+  hauptfenster->list_Zauber=hauptfenster->getWerte().Spezies()->getZauber();
+  hauptfenster->getWerte().resetSinne();
   checkAngeboreneSinne();
   
   if (event->button==1) on_angeborene_fertigkeit_clicked() ;
@@ -47,32 +48,32 @@ gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *e
   return false;
 }
 
-void midgard_CG::on_angeborene_fertigkeit_clicked()
+void table_lernschema::on_angeborene_fertigkeit_clicked()
 {
-  int wurf = random.integer(1,100);
+  int wurf = hauptfenster->random.integer(1,100);
 //wurf = 100; /*debug*/
   int count100=0;
   while (wurf==100)
    {
      ++count100; 
-     wurf = random.integer(1,100);
+     wurf = hauptfenster->random.integer(1,100);
    }
   if(count100>0) 
-    { set_info(itos(count100)+"x eine 100 gewürfelt, "+itos(count100)+" zusätzliche angeborende Fertigkeit nach Belieben wählen.");
+    { hauptfenster->set_info(itos(count100)+"x eine 100 gewürfelt, "+itos(count100)+" zusätzliche angeborende Fertigkeit nach Belieben wählen.");
       on_angeborene_fertigkeit_right_clicked();      
     }
-  set_status("Für die Angeborene Fertigkeit wurde eine "
+  hauptfenster->set_status("Für die Angeborene Fertigkeit wurde eine "
               +itos(wurf)+" gewürfelt => "+AngebFert_gewuerfelt(wurf));
 }
 
 
-void midgard_CG::on_angeborene_fertigkeit_right_clicked()
+void table_lernschema::on_angeborene_fertigkeit_right_clicked()
 {
   clean_lernschema_trees();
   tree_angeb_fert = manage(new MidgardBasicTree(MidgardBasicTree::ANGEBFERT));
-  tree_angeb_fert->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_ang_fert_leaf_selected));
-  list_Fertigkeit_ang_neu=Database.Fertigkeit_ang;
-  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,this);
+  tree_angeb_fert->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_ang_fert_leaf_selected));
+  list_Fertigkeit_ang_neu=hauptfenster->getDatabase().Fertigkeit_ang;
+  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,hauptfenster);
 
 //  scrolledwindow_beruf->hide();
   scrolledwindow_lernen->show();
@@ -81,48 +82,48 @@ void midgard_CG::on_angeborene_fertigkeit_right_clicked()
   viewport_lernen->add(*tree_angeb_fert);
 }
 
-void midgard_CG::on_ang_fert_leaf_selected(cH_RowDataBase d)
+void table_lernschema::on_ang_fert_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   cH_Fertigkeit_angeborene F(MBE);
   if(!AngebSinn(F->Min(),MBE->Erfolgswert()))
-    MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,MBE);
+    MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,hauptfenster->list_Fertigkeit_ang,MBE);
   else list_Fertigkeit_ang_neu.remove(MBE);
-  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,this);
+  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,hauptfenster);
   show_gelerntes();
   zeige_werte();
 }
 
-std::string midgard_CG::AngebFert_gewuerfelt(int wurf)
+std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
 {
   std::string name;
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit_ang.begin();i!=Database.Fertigkeit_ang.end();++i)
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Fertigkeit_ang.begin();i!=hauptfenster->getDatabase().Fertigkeit_ang.end();++i)
    {
      if (cH_Fertigkeit_angeborene(*i)->Min()<=wurf && wurf<=cH_Fertigkeit_angeborene(*i)->Max())
       {
          name=(*i)->Name();
          if(!AngebSinn(wurf,(*i)->Erfolgswert()))
-            list_Fertigkeit_ang.push_back(*i);
+            hauptfenster->list_Fertigkeit_ang.push_back(*i);
          break;
       }
    }
  return name;
 }
 
-bool midgard_CG::AngebSinn(int wurf,int wert)
+bool table_lernschema::AngebSinn(int wurf,int wert)
 {
-  if     ( 1<=wurf && wurf<= 2) Werte.setSinnCheck("Sehen",wert);    
-  else if( 3<=wurf && wurf<= 4) Werte.setSinnCheck("Hören",wert);    
-  else if( 5<=wurf && wurf<= 6) Werte.setSinnCheck("Riechen",wert);  
-  else if( 7<=wurf && wurf<= 8) Werte.setSinnCheck("Schmecken",wert);
-  else if( 9<=wurf && wurf<=10) Werte.setSinnCheck("Tasten",wert);
-  else if(11<=wurf && wurf<=20) Werte.setSinn("Sehen",wert);    
-  else if(21<=wurf && wurf<=30) Werte.setSinn("Hören",wert);    
-  else if(31<=wurf && wurf<=40) Werte.setSinn("Riechen",wert);  
-  else if(41<=wurf && wurf<=50) Werte.setSinn("Schmecken",wert);
-  else if(51<=wurf && wurf<=60) Werte.setSinn("Tasten",wert);
-  else if(61<=wurf && wurf<=65) Werte.setSinn("Sechster Sinn",wert);
+  if     ( 1<=wurf && wurf<= 2) hauptfenster->getWerte().setSinnCheck("Sehen",wert);    
+  else if( 3<=wurf && wurf<= 4) hauptfenster->getWerte().setSinnCheck("Hören",wert);    
+  else if( 5<=wurf && wurf<= 6) hauptfenster->getWerte().setSinnCheck("Riechen",wert);  
+  else if( 7<=wurf && wurf<= 8) hauptfenster->getWerte().setSinnCheck("Schmecken",wert);
+  else if( 9<=wurf && wurf<=10) hauptfenster->getWerte().setSinnCheck("Tasten",wert);
+  else if(11<=wurf && wurf<=20) hauptfenster->getWerte().setSinn("Sehen",wert);    
+  else if(21<=wurf && wurf<=30) hauptfenster->getWerte().setSinn("Hören",wert);    
+  else if(31<=wurf && wurf<=40) hauptfenster->getWerte().setSinn("Riechen",wert);  
+  else if(41<=wurf && wurf<=50) hauptfenster->getWerte().setSinn("Schmecken",wert);
+  else if(51<=wurf && wurf<=60) hauptfenster->getWerte().setSinn("Tasten",wert);
+  else if(61<=wurf && wurf<=65) hauptfenster->getWerte().setSinn("Sechster Sinn",wert);
   else return false;
 /*
 cout << "Sehen = "<<Werte.Sinne()["Sehen"]<<'\n';
@@ -136,10 +137,8 @@ cout << "Sechster Sinn = "<<Werte.Sinne()["Sechster Sinn"]<<'\n';
 }
 
 
-
-
-
-void midgard_CG::universal_Fertigkeiten()
+/*
+void table_lernschema::universal_Fertigkeiten()
 {
   list_Fertigkeit_universal.clear();
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
@@ -149,10 +148,11 @@ void midgard_CG::universal_Fertigkeiten()
        list_Fertigkeit_universal.push_back(*i);
    }
 }
+*/
 
-void midgard_CG::checkAngeboreneSinne()
+void table_lernschema::checkAngeboreneSinne()
 {
-  std::list<pair<std::string,int> > L=Werte.Spezies()->getSinne();
+  std::list<pair<std::string,int> > L=hauptfenster->getCWerte().Spezies()->getSinne();
   for(std::list<pair<std::string,int> >::const_iterator i=L.begin();i!=L.end();++i)
-     Werte.setSinn(i->first,i->second);
+     hauptfenster->getWerte().setSinn(i->first,i->second);
 }

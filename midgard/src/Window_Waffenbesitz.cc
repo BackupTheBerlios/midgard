@@ -113,7 +113,7 @@ Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
 
 void Window_Waffenbesitz::on_button_close_clicked()
 {
-   hauptfenster->MidgardBasicElement_uebernehmen(Waffe_Besitz);
+   hauptfenster->table_lernschema->WaffenBesitz_uebernehmen(Waffe_Besitz);
    destroy();
 }
 

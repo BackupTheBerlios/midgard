@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.23 2002/05/16 07:39:02 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.24 2002/05/17 10:24:28 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,7 @@
 #include "Grundwerte.hh"
 #include <Aux/itos.h>
 #include "Sinne.hh"
+#include "Fertigkeiten.hh"
 
 int Grundwerte::bo_Au() const 
 { 
@@ -246,8 +247,73 @@ void Grundwerte::setSinnCheck(const std::string &name,int wert)
 }
 
 
-cH_Ruestung Grundwerte::Ruestung(int i=0) const
+cH_Ruestung Grundwerte::Ruestung(unsigned int i=0) const
 {
  if(ruestung.size()<i+1) return cH_Ruestung("OR");
  else return ruestung[i];
 }
+
+std::string Grundwerte::Ruestung_RW_Verlust() const
+{
+ std::string s;
+ if(  Ruestung(0)->RW_Verlust() && !Ruestung(1)->RW_Verlust() )
+    s= "\\scriptsize ("+itos(Gw()-Ruestung(0)->RW_Verlust())+")";
+ else if( !Ruestung(0)->RW_Verlust() && Ruestung(1)->RW_Verlust() )
+    s= "\\scriptsize ("+itos(Gw()-Ruestung(1)->RW_Verlust())+")";
+ else if( Ruestung(0)->RW_Verlust() && Ruestung(1)->RW_Verlust() )
+    s= "\\tiny ("+itos(Gw()-Ruestung(0)->RW_Verlust())
+         +","+itos(Gw()-Ruestung(1)->RW_Verlust())+")";
+ return s;
+}
+
+std::string Grundwerte::Ruestung_B_Verlust() const
+{
+ std::string s;
+ if(  Ruestung(0)->B_Verlust() && !Ruestung(1)->B_Verlust() )
+    s= "\\scriptsize ("+itos(B()-Ruestung(0)->B_Verlust())+")";
+ else if( !Ruestung(0)->B_Verlust() && Ruestung(1)->B_Verlust() )
+    s= "\\scriptsize ("+itos(B()-Ruestung(1)->B_Verlust())+")";
+ else if( Ruestung(0)->B_Verlust() && Ruestung(1)->B_Verlust() )
+    s= "\\tiny ("+itos(B()-Ruestung(0)->B_Verlust())
+         +","+itos(B()-Ruestung(1)->B_Verlust())+")";
+ return s;
+}
+
+std::string Grundwerte::Ruestung_Abwehr_Verlust(const std::list<cH_MidgardBasicElement>& list_Fertigkeit) const
+{
+ int v0 = Ruestung(0)->AbwehrBonus_Verlust(bo_Ab());
+ int v1 = Ruestung(1)->AbwehrBonus_Verlust(bo_Ab());
+ // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
+ // entsprechende Fertigkeit nicht beherrscht wird.
+ bool kiv_gelernt=cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit);
+ if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
+   v0 += Ruestung(0)->VollRuestungsAbzug();
+ if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
+   v1 += Ruestung(1)->VollRuestungsAbzug();
+
+ std::string s;
+ if     ( v0 && !v1)  s="\\scriptsize --"+itos(v0);
+ else if(!v0 &&  v1)  s="\\scriptsize --"+itos(v1);
+ else if( v0 &&  v1)  s="\\tiny --("+itos(v0)+"/"+itos(v1)+")";
+ return s;
+}
+
+std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<cH_MidgardBasicElement>& list_Fertigkeit) const
+{
+ int v0 = Ruestung(0)->AngriffsBonus_Verlust(bo_An());
+ int v1 = Ruestung(1)->AngriffsBonus_Verlust(bo_An());
+ // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
+ // entsprechende Fertigkeit nicht beherrscht wird.
+ bool kiv_gelernt=cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit);
+ if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
+   v0 += Ruestung(0)->VollRuestungsAbzug();
+ if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
+   v1 += Ruestung(1)->VollRuestungsAbzug();
+
+ std::string s;
+ if     ( v0 && !v1) s="\\scriptsize --"+itos(abs(v0));
+ else if(!v0 &&  v1) s="\\scriptsize --"+itos(abs(v1));
+ else if( v0 &&  v1) s="\\tiny --("+itos(v0)+"/"+itos(v1)+")";
+ return s;
+}
+

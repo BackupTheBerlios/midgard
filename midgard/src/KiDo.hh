@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.19 2002/03/04 08:08:36 thoma Exp $               
+// $Id: KiDo.hh,v 1.20 2002/05/17 10:24:28 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,22 @@
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
 
+class KiDo_Stile
+{
+      std::vector<std::string> Vkido;
+   public:
+      KiDo_Stile() ;
+      bool ist_gelernt(std::string s);
+      bool ist_sanft(std::string s);
+      bool ist_hart(std::string s);
+      bool ist_gemischt(std::string s);
+      std::string sanft() {return Vkido[1];}
+      std::string hart() {return Vkido[2];}
+      std::string gemischt() {return Vkido[3];}
+};
+
+
+
 class KiDo : public MidgardBasicElement
 {
    std::string deutsch,stufe;
@@ -33,13 +49,8 @@ class KiDo : public MidgardBasicElement
 
    void get_KiDo();
  public:
-#ifndef USE_XML
-   KiDo(const std::string& n)
-     : MidgardBasicElement(n) {get_KiDo();get_map_typ();EP_steigern("KiDo");}
-#else
    KiDo(const Tag *tag)
      : MidgardBasicElement(tag,tag->getAttr("Name")) {get_KiDo();get_map_typ();EP_steigern("KiDo");}
-#endif     
 
  enum MBEE What() const {return MidgardBasicElement::KIDO;}
  std::string What_str() const {return "KiDo";}

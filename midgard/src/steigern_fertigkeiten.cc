@@ -92,9 +92,9 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   if (MBE->Name()=="KiDo") 
-    { /*kido_bool=true;*/show_gtk();
-      optionmenu_KiDo_Stile->set_sensitive(true);
-      button_kido_auswahl->set_sensitive(false);
+    { show_gtk();
+//      optionmenu_KiDo_Stile->set_sensitive(true);
+//      button_kido_auswahl->set_sensitive(false);
       InfoFenster->AppendShow("Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!",WindowInfo::None);
       MidgardBasicElement_leaf_neu(d);      
       lernschema_sensitive(true);
@@ -158,6 +158,7 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
       {
         assert("Never get here\n");
       }
+     default : assert("Never get here\n");
    }
   scrolledwindow_landauswahl->show();
 }

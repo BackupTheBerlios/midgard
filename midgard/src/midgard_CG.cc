@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.225 2002/05/15 08:45:28 thoma Exp $
+// $Id: midgard_CG.cc,v 1.226 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,9 +33,7 @@
 
 midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0),wizard(0), MOptionen(0),menu(0),menu_gradanstieg(0),
-  Database(Midgard_Info),fire_enabled(true),
-  tree_lernschema(0),Beruf_tree(0),tree_angeb_fert(0),tree_kido_lernschema(0),
-  tree_waffen_lernschema(0),maxkido(0)
+  Database(Midgard_Info),fire_enabled(true)
 {
   ansicht_menu = manage(new Gtk::MenuItem("Ansicht"));
   region_menu = manage(new Gtk::MenuItem("Regionen"));
@@ -54,7 +52,7 @@ midgard_CG::midgard_CG(const string &datei)
   table_optionen->set_Hauptfenster(this);
 
   set_tree_titles();
-  optionmenu_init();  
+//  optionmenu_init();  
   MOptionen->load_options();
 //  Midgard_Info->database_hide();
   on_neuer_charakter_clicked();
@@ -77,26 +75,16 @@ midgard_CG::~midgard_CG()
    if(wizard) delete wizard;
 }
 
+/*
 void midgard_CG::optionmenu_init()
 {
-/*
-  Vstand.resize(5);
-  Vstand[1]="Unfrei";
-  Vstand[2]="Volk";
-  Vstand[3]="Mittelschicht";
-  Vstand[4]="Adel";
-
-  Vhand.resize(3);
-  Vhand[0]="Rechtshänder";
-  Vhand[1]="Linkshänder";
-  Vhand[2]="Beidhändig";
-*/
   Vkido.resize(4);
   Vkido[0]="TECHNIK";
   Vkido[1]="Sanfte Techniken";
   Vkido[2]="Harte Techniken";
   Vkido[3]="Gemischte Techniken";
 }
+*/
 
 gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 
 { 
@@ -125,84 +113,57 @@ void midgard_CG::set_tree_titles()
  preise_tree->setTitles(preis);
 }
 
-/*
-void midgard_CG::on_radiobutton_frau_toggled()
-{ on_radiobutton_mann_toggled(); }
-void midgard_CG::on_radiobutton_mann_toggled()
-{
-  if(wizard) wizard->next_step(Wizard::GESCHLECHT);
-  std::string oldG=Werte.Geschlecht();
-  if (radiobutton_mann->get_active()) Werte.setGeschlecht("m");
-  else Werte.setGeschlecht("w");
-  if(oldG!=Werte.Geschlecht() && Werte.Groesse() && Werte.Spezies()->Name()=="Mensch")
-   {
-     if( Werte.Geschlecht()=="w") Werte.setGroesse(Werte.Groesse()-10);
-     if( Werte.Geschlecht()=="m") Werte.setGroesse(Werte.Groesse()+10);
-   }
-  if(oldG!=Werte.Geschlecht() && Werte.Gewicht() && Werte.Spezies()->Name()=="Mensch")
-   {
-     if( Werte.Geschlecht()=="w") Werte.setGewicht(Werte.Gewicht()-4);
-     if( Werte.Geschlecht()=="m") Werte.setGewicht(Werte.Gewicht()+4);
-   }
-  fill_typauswahl();
-  fill_typauswahl_2();
-  zeige_werte();
-}
-*/
 
 void midgard_CG::show_gtk()
 {
-/*
-  if (Typ[1]->Short()=="") typauswahl_2->hide();
-  else
-   { typauswahl_2->show(); 
-   }
-*/
- fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Abenteurerklasse im Lernfenster
- if (Typ[1]->Name(Werte.Geschlecht())!="") 
-   fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
  steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Abenteurerklasse im Lernfenster
  if (Typ[1]->Name(Werte.Geschlecht())!="") 
    steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
  
+ 
  zeige_werte();
- show_gelerntes();
+// show_gelerntes();
  EP_uebernehmen();
  Geld_uebernehmen();
  steigern_gtk();
 
+/*
  // Spezialwaffe anzeigen?
  if (Typ[0]->Spezialwaffe() || Typ[1]->Spezialwaffe()) 
     togglebutton_spezialwaffe->show(); 
  else 
    { togglebutton_spezialwaffe->set_active(false);
      togglebutton_spezialwaffe->hide(); }
-
+*/
 
  // Magie anzeigen?
  if (Typ[0]->is_mage() || Typ[1]->is_mage() )//|| magie_bool) 
-   { if (Typ[0]->Spezialgebiet() || Typ[1]->Spezialgebiet()) show_magier_spezialgebiet(true);
-     else show_magier_spezialgebiet(false);
-     button_zauber->set_sensitive(true);
+   { 
+//   if (Typ[0]->Spezialgebiet() || Typ[1]->Spezialgebiet()) show_magier_spezialgebiet(true);
+//     else show_magier_spezialgebiet(false);
+//     button_zauber->set_sensitive(true);
      table_magier_steigern->show();
    }
  else 
    { 
-     show_magier_spezialgebiet(false);
-     button_zauber->set_sensitive(false);
+//     show_magier_spezialgebiet(false);
+//     button_zauber->set_sensitive(false);
      table_magier_steigern->hide();
    }
  // KiDo anzeigen?
  if(cH_Fertigkeit("KiDo")->ist_gelernt(list_Fertigkeit))
-   { optionmenu_KiDo_Stile->show();
-     frame_KiDo_lernschema->show();     
+   {
+//     optionmenu_KiDo_Stile->show();
+//     frame_KiDo_lernschema->show();     
      table_kido_steigern->show();
    }
  else 
-   { optionmenu_KiDo_Stile->hide();
-     frame_KiDo_lernschema->hide();     
+   { 
+//     optionmenu_KiDo_Stile->hide();
+//     frame_KiDo_lernschema->hide();     
      table_kido_steigern->hide();
    }
+/*
  // KiDo Stil setzen
  int kido_stil_nr=0;
  if (Werte.Spezialisierung()==Vkido[2]) kido_stil_nr = 1;
@@ -212,6 +173,7 @@ void midgard_CG::show_gtk()
   {   
     optionmenu_KiDo_Stile->set_history(kido_stil_nr);
   }
+*/
 }
 
 
@@ -275,7 +237,7 @@ gint midgard_CG::timeout_status()
 void midgard_CG::clear_listen()
 {
    list_Fertigkeit.clear();
-   list_FertigkeitZusaetze.clear();
+   table_lernschema->list_FertigkeitZusaetze.clear();
    list_Fertigkeit_neu.clear();
    list_Fertigkeit_ang.clear();
    list_Waffen.clear();
@@ -299,7 +261,7 @@ void midgard_CG::clear_listen()
 
 void midgard_CG::clear_gtk()
 {
-   tree_gelerntes->clear();
+   table_lernschema->tree_gelerntes->clear();
 
    alte_fert_tree->clear();
    neue_fert_tree->clear();
@@ -318,8 +280,6 @@ void midgard_CG::clear_gtk()
    alte_schrift_tree->clear();
    neue_schrift_tree->clear();
   
-//   togglebutton_edit_werte->set_active(false);
-//   on_togglebutton_edit_werte_toggled();
 }
 
 gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
@@ -340,36 +300,31 @@ void midgard_CG::on_neuer_charakter_clicked()
    filename="";
   table_grundwerte->neuer_charakter();
 
-   label_lernschma_titel->set_text("");
-
-//   button_grundwerte->set_sensitive(true);
-//   button_abg_werte->set_sensitive(false);
+   table_lernschema->label_lernschma_titel->set_text("");
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
-   togglebutton_lernpunkte_edit->set_active(false);
-   button_beruf->set_sensitive(false);
+   table_lernschema->togglebutton_lernpunkte_edit->set_active(false);
+   table_lernschema->button_beruf->set_sensitive(false);
 
-   button_lernpunkte->set_sensitive(false);
-   togglebutton_lernpunkte_edit->set_sensitive(false);
-   button_lernschema_geld->set_sensitive(false);
-   button_lernschema_waffen->set_sensitive(false);
-   button_ruestung->set_sensitive(false);
+   table_lernschema->button_lernpunkte->set_sensitive(false);
+   table_lernschema->togglebutton_lernpunkte_edit->set_sensitive(false);
+   table_lernschema->button_lernschema_geld->set_sensitive(false);
+   table_lernschema->button_lernschema_waffen->set_sensitive(false);
+   table_lernschema->button_ruestung->set_sensitive(false);
    label_wizard->hide();
 
-   edit_lernpunkte(false);
-   frame_lernschema_zusatz->hide();
+   table_lernschema->edit_lernpunkte(false);
+   table_lernschema->frame_lernschema_zusatz->hide();
 
-   button_fachkenntnisse->set_sensitive(false);
-   button_allgemeinwissen->set_sensitive(false);
-   button_untyp_fertigkeiten->set_sensitive(false);
-   button_waffen->set_sensitive(false);
-   button_zauber->set_sensitive(false);
-   togglebutton_spezialwaffe->set_active(false);
-   togglebutton_spezialwaffe->hide();
+   table_lernschema->button_fachkenntnisse->set_sensitive(false);
+   table_lernschema->button_allgemeinwissen->set_sensitive(false);
+   table_lernschema->button_untyp_fertigkeiten->set_sensitive(false);
+   table_lernschema->button_waffen->set_sensitive(false);
+   table_lernschema->button_zauber->set_sensitive(false);
+   table_lernschema->togglebutton_spezialwaffe->set_active(false);
+   table_lernschema->togglebutton_spezialwaffe->hide();
       
    scrolledwindow_landauswahl->hide();
-//   table_werte_wuerfeln->hide();
-//   table_bw_wurf->hide();
    spinbutton_pp_eingeben->hide();
    vbox_praxispunkte->hide();
    table_gruppe->hide();
@@ -378,16 +333,13 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    togglebutton_praxispunkte->set_active(false);
 
-//   if(Werte.Stadt_Land()=="Land")  radiobutton_land->set_active(true);
-//   if(Werte.Stadt_Land()=="Stadt")  radiobutton_stadt->set_active(true);
-  
 
-   vbox_berufsname->hide();
-   button_kido_auswahl->set_sensitive(false);       
-   button_angeborene_fert->set_sensitive(false);
+   table_lernschema->vbox_berufsname->hide();
+   table_lernschema->button_kido_auswahl->set_sensitive(false);       
+   table_lernschema->button_angeborene_fert->set_sensitive(false);
 
 
-   lernpunkte.clear();
+   table_lernschema->lernpunkte.clear();
    Typ.clear();
    Typ.resize(2);
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
@@ -400,7 +352,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    label_Gold->set_text("50%");
 
   menu_init();
-  zeige_lernpunkte();
+//  zeige_lernpunkte();
   table_grundwerte->neuer_charakter();
 }
 
@@ -421,33 +373,4 @@ gint midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
 {
   on_schliessen_CG_clicked();
   return true;
-}
-
-void midgard_CG::original_midgard_check()
-{
-   int st=Werte.St(),gw=Werte.Gw(),gs=Werte.Gs(),ko=Werte.Ko(),in=Werte.In(),zt=Werte.Zt();
-   if (st>100) st=100;
-   if (st<1)   st=1;
-   if (gw>100) gw=100;
-   if (gw<1)   gw=1;
-   if (gs>100) gs=100;
-   if (gs<1)   gs=1;
-   if (ko>100) ko=100;
-   if (ko<1)   ko=1;
-   if (in>100) in=100;
-   if (in<1)   in=1;
-   if (zt>100) zt=100;
-   if (zt<1)   zt=1;
-   Werte.setBasiswerte(st,gw,gs,ko,in,zt);
-
-   int au=Werte.Au(),pa=Werte.pA(),sb=Werte.Sb(),wk=Werte.Wk();
-   if (au>100) au=100;
-   if (au<1)   au=1;
-   if (pa>100) pa=100;
-   if (pa<1)   pa=1;
-   if (sb>100) sb=100;
-   if (sb<1)   sb=1;
-   if (wk>100) wk=100;
-   if (wk<1)   wk=1;
-   Werte.setAbgeleitetewerte_small(au,pa,sb,wk);
 }

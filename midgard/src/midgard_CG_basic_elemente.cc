@@ -195,6 +195,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 }
 
 
+/*
 void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,const std::list<cH_MidgardBasicElement>& mbe2)
 {
   if(mbe.begin()==mbe.end()) return;
@@ -202,12 +203,12 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
    {
     list_Waffen_besitz=mbe;
    }
-  else if((*mbe.begin())->What()==MidgardBasicElement::KIDO)
-   {
-    list_Kido=mbe;
-   }
+//  else if((*mbe.begin())->What()==MidgardBasicElement::KIDO)
+//   {
+//    list_Kido=mbe;
+//   }
   else assert(0);
   undosave(itos(mbe.size())+" "+(*mbe.begin())->What_str()+"n übernommen");
   show_gelerntes();
 }
-
+*/

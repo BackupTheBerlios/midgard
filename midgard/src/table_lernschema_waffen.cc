@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.39 2002/05/11 06:51:31 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.1 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -17,7 +17,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "midgard_CG.hh"
+#include "table_grundwerte.hh"
 #include <Gtk_OStream.h>
 //#include "Fertigkeiten.hh"
 //#include "class_Beruf_Data.hh"
@@ -25,16 +25,17 @@
 #include <Aux/itos.h>
 //#include "Window_Waffenbesitz.hh"
 #include "class_SimpleTree.hh"
+#include "midgard_CG.hh"
 
-gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
+gint table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {
-  list_Waffen_besitz.clear();
-  if(wizard) wizard->next_step(Wizard::WAFFEN);
+  hauptfenster->list_Waffen_besitz.clear();
+  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::WAFFEN);
   button_lernschema_waffen->set_sensitive(false);
   if  (ev->button==1)
    {
      table_waffen_lernschema_eingabe->hide();
-     int wurf = random.integer(1,100);
+     int wurf = hauptfenster->random.integer(1,100);
      WaffenBesitz_lernschema_wuerfeln(wurf);     
    }
   else if (ev->button==3)
@@ -42,10 +43,10 @@ gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton
   return 0;
 }
 
-gint midgard_CG::on_spinbutton_waffen_lernschema_focus_in_event(GdkEventFocus *ev)
+gint table_lernschema::on_spinbutton_waffen_lernschema_focus_in_event(GdkEventFocus *ev)
 {spinbutton_waffen->select_region(0,-1); return false;}
 
-void midgard_CG::on_spinbutton_waffen_lernschema_activate()
+void table_lernschema::on_spinbutton_waffen_lernschema_activate()
 {
   spinbutton_waffen_lernschema->update();
   WaffenBesitz_lernschema_wuerfeln(spinbutton_waffen_lernschema->get_value_as_int());
@@ -53,24 +54,24 @@ void midgard_CG::on_spinbutton_waffen_lernschema_activate()
 }
 
 
-void midgard_CG::show_WaffenBesitz_lernschema()
+void table_lernschema::show_WaffenBesitz_lernschema()
 {
   clean_lernschema_trees();
 
   tree_waffen_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::WAFFE_LERNSCHEMA));
-  tree_waffen_lernschema->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_waffen_lernschema_tree_leaf_selected));
+  tree_waffen_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
   label_lernschma_titel->set_text("Waffenbesitz wählen");
 
   std::list<cH_MidgardBasicElement> L;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Waffe.begin();i!=hauptfenster->getDatabase().Waffe.end();++i)
    {
-     if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
+     if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      const cH_Waffe w(*i);
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
-     if (!(*i)->ist_gelernt(list_Waffen)) continue;
+     if (!(*i)->ist_gelernt(hauptfenster->list_Waffen)) continue;
      L.push_back(new WaffeBesitz(w,w->Name(),0,0,""));
    }
-  MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,this);
+  MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
   tree_waffen_lernschema->show();
   tree_waffen_lernschema->Expand_recursively();
   Gtk::Table *table=manage(new Gtk::Table(0,0,false));
@@ -90,7 +91,7 @@ void midgard_CG::show_WaffenBesitz_lernschema()
   scrolledwindow_lernen->show_all();
 }
 
-void midgard_CG::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
+void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
 {
  try{
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
@@ -109,20 +110,20 @@ void midgard_CG::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
      waffebesitzlernen.add_AWaffe(-1);
    else return;
 
-   list_Waffen_besitz.push_back(MBE);
+   hauptfenster->list_Waffen_besitz.push_back(MBE);
 
    show_gelerntes();
    show_WaffenBesitz_lernschema();
  }catch(std::exception &e) {cerr << e.what()<<'\n';}
 }
 
-void midgard_CG::WaffenBesitz_lernschema_wuerfeln(int wurf)
+void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
 {
   std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
-      +" gewürfelt, die Abenteurerklasse ist "+Typ[0]->Name(Werte.Geschlecht())+" ==> ";
+      +" gewürfelt, die Abenteurerklasse ist "+hauptfenster->Typ[0]->Name(hauptfenster->getCWerte().Geschlecht())+" ==> ";
  int E=0,A=0;
  bool M=false;
- if (Typ[0]->Geld() == 1)
+ if (hauptfenster->Typ[0]->Geld() == 1)
   { if      ( 1<=wurf&&wurf<=10 ) { E=3;      }
     else if (11<=wurf&&wurf<=20 ) { E=3; A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=2; A=2; }
@@ -131,7 +132,7 @@ void midgard_CG::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=5; }
     else if (96<=wurf&&wurf<=100) { E=1; A=4; M=true; }
   }  
- if (Typ[0]->Geld() == 2)
+ if (hauptfenster->Typ[0]->Geld() == 2)
   { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
     else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=2; A=1; }
@@ -140,7 +141,7 @@ void midgard_CG::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=4; }
     else if (96<=wurf&&wurf<=100) { E=1; A=3; M=true; }
   }  
- if (Typ[0]->Geld() == 3) 
+ if (hauptfenster->Typ[0]->Geld() == 3) 
   { if      ( 1<=wurf&&wurf<=10 ) { E=1;      }
     else if (11<=wurf&&wurf<=20 ) {      A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=2;      }
@@ -149,7 +150,7 @@ void midgard_CG::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=2; }
     else if (96<=wurf&&wurf<=100) { E=1; A=1; M=true; }
   }  
- if (Typ[0]->Geld() == 4) 
+ if (hauptfenster->Typ[0]->Geld() == 4) 
   { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
     else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=3;      }
@@ -159,9 +160,19 @@ void midgard_CG::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (96<=wurf&&wurf<=100) { E=1; A=2; M=true; }
   }  
  strinfo += itos(E)+" Einhand- und "+itos(A)+" beliebige Waffen";
- set_status(strinfo);
+ hauptfenster->set_status(strinfo);
  waffebesitzlernen.setMagisch(M);
  waffebesitzlernen.set_EWaffe(E);
  waffebesitzlernen.set_AWaffe(A);
  show_WaffenBesitz_lernschema();
+}
+
+void table_lernschema::WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe)
+{
+  if(mbe.begin()==mbe.end()) return;
+  if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
+      hauptfenster->list_Waffen_besitz=mbe;
+  else assert(0);
+  hauptfenster->undosave(itos(mbe.size())+" "+(*mbe.begin())->What_str()+"n übernommen");
+  show_gelerntes();
 }

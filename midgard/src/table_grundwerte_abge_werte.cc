@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.1 2002/05/14 14:01:44 thoma Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.2 2002/05/17 10:24:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -128,7 +128,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
   hauptfenster->getWerte().setGrad1Werte(hauptfenster->Typ);
 
   zeige_werte();
-  hauptfenster->button_herkunft->set_sensitive(true);
+  hauptfenster->table_lernschema->button_herkunft->set_sensitive(true);
   hauptfenster->frame_lernschema->set_sensitive(true);
 }
 

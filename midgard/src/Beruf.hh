@@ -22,6 +22,17 @@
 #include <gtk--/progressbar.h>
 #include "MidgardBasicElement.hh"
 
+class BerufsKategorie
+{
+ public:
+      bool kat_I, kat_II, kat_III, kat_IV;
+      BerufsKategorie()
+       : kat_I(false),kat_II(false),kat_III(false),kat_IV(false) {} 
+
+      BerufsKategorie(bool a,bool b, bool c, bool d)
+       : kat_I(a),kat_II(b),kat_III(c),kat_IV(d) {}
+};
+
 
 class Beruf : public MidgardBasicElement
 {
