@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.64 2002/03/11 15:58:33 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.65 2002/03/12 14:57:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -268,5 +268,8 @@ void midgard_CG::load_options()
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"pdfViewer")
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
+
+  menu_init();
+  if(OptionenCheck(Wizard_immer_starten).active) wizard_starten_clicked();
 }
 

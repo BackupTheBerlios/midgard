@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.93 2002/03/12 12:01:56 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.94 2002/03/12 14:57:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -281,16 +281,6 @@ void midgard_CG::on_button_ruestung_clicked()
 
 void midgard_CG::on_lernliste_wahl_toggled()
 {
-/*
-  if(button_fachkenntnisse->get_active())
-     show_lernschema();//MidgardBasicElement::FERTIGKEIT,"Fach");
-  if(button_allgemeinwissen->get_active())
-     show_lernschema(MidgardBasicElement::FERTIGKEIT,"Allg");
-  if(button_untyp_fertigkeiten->get_active())
-      show_lernschema(MidgardBasicElement::FERTIGKEIT,"Unge");
-  if(button_waffen->get_active())
-      show_lernschema(MidgardBasicElement::WAFFE);
-*/
   if(button_zauber->get_active())
    {
      if (Werte.Spezialgebiet()->Spezial2()=="" && Typ[0]->Short()=="eBe")
@@ -299,7 +289,6 @@ void midgard_CG::on_lernliste_wahl_toggled()
          InfoFenster->AppendShow(strinfo);
          return;
       }
-//    show_lernschema(MidgardBasicElement::ZAUBER);
    }
  show_lernschema();
 }
@@ -359,17 +348,8 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 
      default : break;
    }
-/*
-  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
-         show_lernschema(MBE->What(),cH_Fertigkeit(MBE)->LernArt());
-  else if(MBE->What()==MidgardBasicElement::FERTIGKEIT_ANG)
-     ;
-  else if(MBE->What()==MidgardBasicElement::SPRACHE ||
-          MBE->What()==MidgardBasicElement::SCHRIFT )
-         on_lernliste_wahl_toggled();
-  else   show_lernschema(MBE->What());
-*/
   show_gelerntes();
+  show_lernschema();
 }
 
 void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
@@ -445,17 +425,10 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 #warning Aus irgendwelchen Gründen setzet 'show_lernschema' den Erfolgswert 
 #warning NICHT auf den richtigen Wert, obwohl der dann eigentlich korrekt
 #warning angezeigt wird. Daher dieser HAck mit dem Erfolgswert.
-   int e=MBE->Erfolgswert();
-//cout <<"1 " <<MBE->Name()<<'a '<<MBE->Erfolgswert()<<'\n';
-/*
-  if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-         show_lernschema(MBE->What(),cH_Fertigkeit(MBE)->LernArt());
-  else   show_lernschema(MBE->What());
-*/
-//cout <<"2 " << MBE->Name()<<' '<<MBE->Erfolgswert()<<'\n';
-  MBE->set_Erfolgswert(e);
+  int e=MBE->Erfolgswert();
   show_lernschema();
   show_gelerntes();
+  MBE->set_Erfolgswert(e);
 }
 
 void midgard_CG::show_gelerntes()
@@ -500,16 +473,16 @@ void midgard_CG::show_lernschema()
   else 
     {  what=MidgardBasicElement::FERTIGKEIT;
        if(button_fachkenntnisse->get_active())
-         {  fert="Allg";
-            label_lernschma_titel->set_text("Allgemeinwissen");
+         {  fert="Fach";
+            label_lernschma_titel->set_text("Fachkenntnisse");
          }
         else if(button_untyp_fertigkeiten->get_active())
          {  fert="Unge";
             label_lernschma_titel->set_text("Ungewöhnliche Fertigkeiten");
          }
         else 
-         { fert="Fach";
-           label_lernschma_titel->set_text("Fachkenntnisse");
+         {  fert="Allg";
+            label_lernschma_titel->set_text("Allgemeinwissen");
          }
    }
 
@@ -538,7 +511,7 @@ void midgard_CG::show_lernschema()
         }
       if(lp == 99  ) continue;
 
-      if     (f->Name()=="Muttersprache"   && Werte.In()>30) f->set_Erfolgswert(14);
+      if     (f->Name()=="Muttersprache"   && 30<Werte.In()&&Werte.In()<=60) f->set_Erfolgswert(14);
       else if(f->Name()=="Muttersprache"   && Werte.In()>60) f->set_Erfolgswert(18+f->AttributBonus(Werte));
       else if(f->Name()=="Gastlandsprache" && Werte.In()>30) f->set_Erfolgswert(12);
       else f->set_Erfolgswert(f->Anfangswert()+f->AttributBonus(Werte));
@@ -562,6 +535,7 @@ void midgard_CG::show_lernschema()
      std::list<cH_MidgardBasicElement> LW=Werte.Spezies()->getFreiwilligeFertigkeiten(Werte);
      for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
       {
+       cH_Fertigkeit(*i)->setLernArt("Fach");
        bool gelernt=false;
        if ((*i)->ist_gelernt(list_Fertigkeit)) gelernt=true;
        if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
@@ -579,7 +553,8 @@ void midgard_CG::show_lernschema()
       for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
         {
           bool gelernt=false;
-//          if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+          if((*i)->What()==MidgardBasicElement::FERTIGKEIT) 
+               cH_Fertigkeit(*i)->setLernArt("Fach");
           if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
           if(what==MidgardBasicElement::WAFFE)  
                if (!region_check(cH_Waffe(*i)->Region((*i)->Name()))) continue;

@@ -36,7 +36,6 @@
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
   xml_import_auswahl();
-  frame_steigern->set_sensitive(true);
   return false;
 }
 
@@ -53,6 +52,10 @@ bool operator!=(const cH_Preise &a, const string &b)
 
 void midgard_CG::xml_import(const std::string& datei)
 {
+   on_neuer_charakter_clicked();
+   frame_steigern->set_sensitive(true);
+
+
    TagStream ts(datei);
    const Tag *data=&ts;
    const Tag *top=ts.find("Midgard-Charakter");    
@@ -95,7 +98,6 @@ void midgard_CG::xml_import(const std::string& datei)
       }
    }
 
- on_neuer_charakter_clicked();
    
    const Tag *Figur=top->find("Figur");
    const Tag *Typ=top->find("Typ");

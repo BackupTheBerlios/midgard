@@ -107,8 +107,8 @@ void midgard_CG::menu_init()
 
      _mi->add(*_tab);
      regionen_menu->append(*_mi);
-     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      _mi->set_active((*i)->Active());
+     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      if(!OptionenCheck(Original).active && (*i)->Offiziell() )
         _mi->set_sensitive(false);
    }
@@ -132,8 +132,8 @@ void midgard_CG::menu_init()
      }
     i->checkmenuitem=manage(new Gtk::CheckMenuItem());
     i->checkmenuitem->add(*_tab);    
-    i->checkmenuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Optionen_setzen_from_menu),i->index));
     i->checkmenuitem->set_active(i->active);
+    i->checkmenuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Optionen_setzen_from_menu),i->index));
     optionen_menu->append(*(i->checkmenuitem));
    } 
   for(std::list<st_OptionenM>::iterator i=list_OptionenM.begin();i!=list_OptionenM.end();++i)
@@ -151,7 +151,6 @@ void midgard_CG::menu_init()
        i->menuitem=manage(new Gtk::MenuItem());
        i->menuitem->add(*_tab);    
        i->menuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenM_setzen_from_menu),i->index));
-//       i->menuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenM_setzen_from_menu),*i));
        optionen_menu->append(*(i->menuitem));
      }
    } 

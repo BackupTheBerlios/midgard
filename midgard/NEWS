@@ -16,6 +16,7 @@ NEWS IN VERSION 0.4delta6
 * Waffenbesitz bei Spielbeginn funktioniert wieder
 * Zahlreiche Bugs aus der 'lernen' Routine herausgeholt
 * nach dem Laden ist 'steigern' wählbar
+* Schrift im Zaubernausdruck verkleinert -> jetzt paßt es (wieder)
 
 TODO:
 * geladene Optionen auswerten
