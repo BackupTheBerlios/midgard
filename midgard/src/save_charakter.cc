@@ -246,6 +246,7 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
    datei << "><Praxispunkte";
    write_int_attrib(datei, "Abwehr", Werte.AbwehrPP());
    write_int_attrib(datei, "Zaubern", Werte.ZaubernPP());
+   write_int_attrib(datei, "Spezial", Werte.SpezialPP());
    write_int_attrib(datei, "Resistenz", Werte.ResistenzPP());
    datei << "/></Steigern>\n";
    write_string(datei, "Text", Werte.Beschreibung(), 2);

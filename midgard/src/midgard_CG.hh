@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.218 2002/04/19 07:51:27 thoma Exp $
+// $Id: midgard_CG.hh,v 1.219 2002/04/23 08:33:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -371,6 +371,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         int genug_geld(const int kosten);
         int EP_kosten(const int kosten);
         int PP_vorrat(const cH_MidgardBasicElement *MBE,e_was_steigern was);
+        std::string SpruecheMitPP();
         bool genug_EP(const int ep_k,const bool bkep,const bool bzep,int &aep0,int &kep0,int &zep0);
         void steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was);
         void desteigern(unsigned int kosten);

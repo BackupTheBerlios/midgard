@@ -121,11 +121,17 @@ void midgard_CG::xml_import(const std::string& datei)
    Werte.setAP(Gesundheit->getIntAttr("AP"));
    Werte.setZaubern_wert(Erfolgswerte->getIntAttr("Zaubern"));
    Werte.setAbwehr_wert(Erfolgswerte->getIntAttr("Abwehr"));
-   Werte.setResistenz(Erfolgswerte->getIntAttr("ZauberResistenz",    	!Resistenzen?0:Resistenzen->getIntAttr("Zauber",    	Resistenzen->getIntAttr("Resistenz",    	Resistenzen->getIntAttr("psy")))));    if (Praxispunkte)
-   {  Werte.setZaubernPP(Praxispunkte->getIntAttr("Zaubern"));       Werte.setAbwehrPP(Praxispunkte->getIntAttr("Abwehr"));       Werte.setResistenzPP(Praxispunkte->getIntAttr("Resistenz"));    }
+   Werte.setResistenz(Erfolgswerte->getIntAttr("ZauberResistenz",
+  	!Resistenzen?0:Resistenzen->getIntAttr("Zauber",Resistenzen->getIntAttr("Resistenz",Resistenzen->getIntAttr("psy")))));
+   if (Praxispunkte)
+   {  Werte.setZaubernPP(Praxispunkte->getIntAttr("Zaubern"));
+      Werte.setSpezialPP(Praxispunkte->getIntAttr("Spezial"));
+      Werte.setAbwehrPP(Praxispunkte->getIntAttr("Abwehr"));
+      Werte.setResistenzPP(Praxispunkte->getIntAttr("Resistenz"));    }
    else
    {  Werte.setZaubernPP(0);
       Werte.setAbwehrPP(0);
+      Werte.setSpezialPP(0);
       Werte.setResistenzPP(0);
    }
    Werte.setHand(Typ->getAttr("Hand"));

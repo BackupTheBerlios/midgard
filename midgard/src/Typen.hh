@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.14 2002/03/14 07:06:24 thoma Exp $               
+// $Id: Typen.hh,v 1.15 2002/04/23 08:33:02 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,13 +37,13 @@ class Typen : public HandleContent
    int stand,sb,ruestung,geld;
 //   mutable int opionmenu_nr;
    bool stadt,land;
-   bool sprueche_mit_pp;
+   std::string sprueche_mit_pp;
    bool nsc_only;
 
 public:
    Typen(const Tag *tag);
    Typen() : typnr(0),stand(0),sb(0),ruestung(0),geld(0),
-         stadt(true),land(true),sprueche_mit_pp(false),nsc_only(false) {}
+         stadt(true),land(true),nsc_only(false) {}
    
    std::string Name(const std::string& geschlecht) const 
       { if (geschlecht=="m") return typl; else return typlw;}
@@ -58,7 +58,8 @@ public:
    std::string Beruf() const {return beruf;}
    bool Land() const {return land;}
    bool Stadt() const {return stadt;}
-   bool SpruecheMitPP() const {return sprueche_mit_pp;}
+   bool SpruecheMitPP() const {return !sprueche_mit_pp.empty();}
+   std::string SpruecheMitPP_Text() const {return sprueche_mit_pp;}
    bool NSC_only() const {return nsc_only;}
    bool Spezialwaffe() const;
    bool Spezialgebiet() const;

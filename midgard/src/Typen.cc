@@ -65,7 +65,7 @@ Typen::Typen(const Tag *tag)
  beruf=tag->getAttr("Berufswahl");
  land=tag->getBoolAttr("Land",true);
  stadt=tag->getBoolAttr("Stadt",true);
- sprueche_mit_pp=tag->getBoolAttr("SprücheMitPraxisPunkten");
+ sprueche_mit_pp=tag->getAttr("SprücheMitPraxisPunkten");
  nsc_only=tag->getBoolAttr("NSC_only",false);
 }
 

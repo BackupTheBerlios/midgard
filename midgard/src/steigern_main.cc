@@ -41,6 +41,7 @@ void midgard_CG::on_togglebutton_praxispunkte_toggled()
 {
   if(togglebutton_praxispunkte->get_active())
    {
+     radiobutton_pp_fertigkeit->set_active(true);
      vbox_praxispunkte->show();
      if(Typ[0]->is_mage() || Typ[1]->is_mage()) 
          radiobutton_pp_zauber->set_sensitive(true);//show();
@@ -50,6 +51,15 @@ void midgard_CG::on_togglebutton_praxispunkte_toggled()
   else
      vbox_praxispunkte->hide();
 }
+
+std::string midgard_CG::SpruecheMitPP()
+{
+  if(Typ[0]->SpruecheMitPP())
+       return Typ[0]->SpruecheMitPP_Text();
+  else if(Typ[1]->SpruecheMitPP())
+       return Typ[1]->SpruecheMitPP_Text();
+}
+
 
 /////////////////////////////////////////////////////////
 
@@ -106,6 +116,8 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
        Werte.setAbwehrPP(PPanz);
     else if(radiobutton_pp_zauber->get_active())
        Werte.setZaubernPP(PPanz);
+    else if(radiobutton_pp_spezial->get_active())
+       Werte.setSpezialPP(PPanz);
     else if(radiobutton_pp_resistenz->get_active())
        Werte.setResistenzPP(PPanz);
     spinbutton_pp_eingeben->hide();
@@ -226,6 +238,18 @@ void midgard_CG::load_for_mainpage(guint pagenr)
  if(pagenr==PAGE_STEIGERN)
   {
     menu_gradanstieg_init();
+    if(SpruecheMitPP().empty())
+      { radiobutton_pp_spezial->hide();
+        frame_pp_spezial->hide();
+      }
+    else
+      { 
+        radiobutton_pp_spezial->remove();
+        Gtk::Label *l=manage(new class Gtk::Label(SpruecheMitPP()));
+        l->show();
+        radiobutton_pp_spezial->add(*l);
+        frame_pp_spezial->set_label(SpruecheMitPP());
+      }
     load_for_page(notebook_lernen->get_current_page_num());
   }
  else if(pagenr==PAGE_BESCHREIBUNG)

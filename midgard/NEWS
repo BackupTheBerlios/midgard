@@ -22,14 +22,15 @@ NEWS IN VERSION 0.6delta0
 * Gründliche(!) Oberflächenüberarbeitung
 * Code aufgeräumt
 * Zauber lernen mit PP geht
+* Eschar: Derwisch
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Un-/Redo
+* PP Dweomer/Wundertaten/Bardenlieder
 * Ansichten Menü noch ohne Funktion
 * Waeland: Zauber
 * Nahuathlan: Komplett
-* Eschar: Derwisch
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.30 2002/04/15 06:57:11 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.31 2002/04/23 08:33:02 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,7 +40,7 @@ class Grundwerte
 
    int au,pa,sb,wk,b,lp,ap;
    int gg,sg;
-   int abwehr_wert,abwehr_pp,zaubern_wert,zauber_pp;
+   int abwehr_wert,abwehr_pp,zaubern_wert,zauber_pp,pp_spezialzauber;
    int resistenz,resistenz_pp;
    int alter;
    std::string geschlecht;
@@ -62,7 +62,7 @@ class Grundwerte
 public:
    Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
              b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
-             zaubern_wert(0),zauber_pp(0),resistenz(0),resistenz_pp(0),
+             zaubern_wert(0),zauber_pp(0),pp_spezialzauber(0),resistenz(0),resistenz_pp(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_abenteurer(""),version("Erschaffung"),
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
@@ -96,6 +96,7 @@ public:
    int AbwehrPP() const {return abwehr_pp;}
    int Zaubern_wert() const { return zaubern_wert;}
    int ZaubernPP() const { return zauber_pp;}
+   int SpezialPP() const { return pp_spezialzauber;}
    int Resistenz() const {return resistenz;}
    int ResistenzPP() const {return resistenz_pp;}
    int bo_Au() const;
@@ -188,9 +189,11 @@ public:
    void setAbwehr_wert(int i){abwehr_wert=i;}
    void setResistenz(int i){resistenz=i;}
    void setZaubernPP(int i){zauber_pp=i;}
+   void setSpezialPP(int i){pp_spezialzauber=i;}
    void setAbwehrPP(int i){abwehr_pp=i;}
    void setResistenzPP(int i){resistenz_pp=i;}
    void addZaubernPP(int i){zauber_pp+=i;}
+   void addSpezialPP(int i){pp_spezialzauber+=i;}
    void addAbwehrPP(int i){abwehr_pp+=i;}
    void addResistenzPP(int i){resistenz_pp+=i;}
    void setGrad(int i){grad=i;}
