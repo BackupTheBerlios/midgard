@@ -3,11 +3,13 @@ NEWS IN VERSION 0.8.3
 
 * Ulf hat seine Icons überarbeitet und vervollständigt und ich hab' sie
    eingebaut.
+* API für die neu zu lernenden MBEm geschrieben (Vorraussetzung für MAGUS-KI)
 
 TODO: ('-' zeigt CP an)
 
+* region_check und nsc_check aus Klasse midgard_CG entfernen
 * Schwarzer Balken im Lernschema bei Maximierung
-* Werte editieren setzet alten Zustand für Typen wieder her
+* Werte editieren setzt alten Zustand für Typen wieder her
 * Typ nach 'abgeleitete Werte' nicht mehr auswählbar
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 

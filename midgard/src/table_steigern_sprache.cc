@@ -20,10 +20,12 @@
 #include "table_steigern.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
+#include "LernListen.hh"
 #include "class_SimpleTree.hh"
 
 void table_steigern::on_schrift_laden_clicked()
 {   
+/*
    list_Schrift_neu.clear();
    for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Schrift.begin();i!=hauptfenster->getCDatabase().Schrift.end();++i)
     { cH_Schrift s(*i);
@@ -36,11 +38,16 @@ void table_steigern::on_schrift_laden_clicked()
              list_Schrift_neu.push_back(m) ;
            }
     }
+*/
+  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+  bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
+  list_Schrift_neu=LL->get_steigern_MBEm(A,LernListen::sSchr,nsc);
    schriften_zeigen();
 }
 
 void table_steigern::on_sprache_laden_clicked()
 {   
+/*
    list_Sprache_neu.clear();
    for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Sprache.begin();i!=hauptfenster->getCDatabase().Sprache.end();++i)
     { cH_Sprache s(*i);
@@ -53,6 +60,11 @@ void table_steigern::on_sprache_laden_clicked()
         }
     }
    sprachen_zeigen();
+*/
+  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+  bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
+  list_Sprache_neu=LL->get_steigern_MBEm(A,LernListen::sSpra,nsc);
+         
    on_schrift_laden_clicked();
 }   
 

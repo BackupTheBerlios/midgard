@@ -16,7 +16,6 @@
 
 void table_steigern::init(midgard_CG *h)
 {
-   togglebutton_spruchrolle->set_active(true); // bug in glade--
   hauptfenster=h;
   if(LL) delete LL ;
   LL = new LernListen(hauptfenster->getDatabase());

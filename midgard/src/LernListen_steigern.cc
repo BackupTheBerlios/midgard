@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.1 2002/09/16 12:01:13 thoma Exp $
+// $Id: LernListen_steigern.cc,v 1.2 2002/09/16 12:41:47 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,7 @@
 //#include "midgard_CG.hh"
 #include "Abenteurer.hh"
 //#include "Sprache.hh"
-//#include "Schrift.hh"
+#include "Schrift.hh"
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 
@@ -56,13 +56,40 @@ std::list<MidgardBasicElement_mutable> LernListen::get_steigern_MBEm(const Abent
           MBEm.setErfolgswert(f->Anfangswert());
           break;
          }
+       case sWaff: { const cH_Waffe w(*i);
+          if (MBEm.ist_gelernt(A.List_Waffen()) && 
+              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
+          if (!w->Grundkenntnis_vorhanden(A.List_WaffenGrund())) continue;
+          if (!w->Voraussetzung(A)) continue;
+          if (w->Art()=="Verteidigung") MBEm.setErfolgswert(1);
+          else MBEm.setErfolgswert(4);
+          break;
+         }
+       case sWGru: {
+          if (MBEm.ist_gelernt(A.List_WaffenGrund()) && 
+              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
+          break;
+         }
+       case sSpra: {
+          if (MBEm.ist_gelernt(A.List_Sprache()) && 
+              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
+          MBEm.setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
+          break;
+         }
+       case sSchr: {
+          if (MBEm.ist_gelernt(A.List_Schrift()) && 
+              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
+          if (!cH_Schrift(*i)->kann_Sprache(A.List_Sprache())) continue;
+          MBEm.setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
+          break;
+         }
        case sZaub: { 
-          if (MidgardBasicElement_mutable(*i).ist_gelernt(A.List_Zauber()) && 
+          if (MBEm.ist_gelernt(A.List_Zauber()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
          }
        case sZWerk: { 
-          if (MidgardBasicElement_mutable(*i).ist_gelernt(A.List_Zauberwerk()) && 
+          if (MBEm.ist_gelernt(A.List_Zauberwerk()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
          }
