@@ -19,6 +19,7 @@
 #include <gtk--/main.h>
 #include "Window_hilfe.hh"
 #include <unistd.h>
+#include "Windows_Linux.hh"
 
 void midgard_CG::set_status(const std::string &s,bool autoclean)
 {
