@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.75 2002/01/03 15:27:56 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.76 2002/01/04 10:05:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -336,7 +336,7 @@ void midgard_CG::LaTeX_write_values()
  for(std::list<cH_MidgardBasicElement>::iterator i=UF.begin();i!=UF.end();++i)
   {
     cH_Fertigkeit f(*i);
-    std::string a = LaTeX_string(countunifert++);
+    std::string a = LaTeX_string(countunifert);
     std::string wert;
     if      (f->Erfolgswert()>0) wert = "+"+itos(f->Erfolgswert());
     else if (f->Erfolgswert()<0) wert = "--"+itos(abs(f->Erfolgswert()));
@@ -355,11 +355,12 @@ void midgard_CG::LaTeX_write_values()
      }
     else
      {
+       ++countunifert;
        fout <<"\\newcommand{\\uni"<<a<<"}{"<<name<< "}\t\t";
        if (f->Voraussetzungen(Werte))
           fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
        else
-          fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << "$^*$)}\n";
+          fout << "\\newcommand{\\uniw"<<a<<"}{$^*\\!$("<<wert << ")}\n";
      }
   } 
 

@@ -27,15 +27,15 @@ void midgard_CG::on_waffen_laden_clicked()
  list_Waffen_neu.clear();
  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
    { cH_Waffe w(*i);
-     if (w->ist_gelernt(list_Waffen)) continue ;
+     if ((*i)->ist_gelernt(list_Waffen)) continue ;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,w->Name())) continue;
      if (w->Grundkenntnis_vorhanden(list_WaffenGrund))
        if (w->ist_lernbar(Typ,w->get_MapTyp()))
          if (region_check(w->Region(w->Name())) )
            if (w->SG_Voraussetzung(Werte))
              {
-              if(w->Art()=="Verteidigung") w->set_Erfolgswert(1);
-              else w->set_Erfolgswert(4);
+//              if(w->Art()=="Verteidigung") w->set_Erfolgswert(1);
+//              else w->set_Erfolgswert(10);
               list_Waffen_neu.push_back(*i);
              }
    }

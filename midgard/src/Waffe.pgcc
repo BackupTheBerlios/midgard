@@ -69,6 +69,9 @@ void Waffe::get_Waffe()
    reichweite_m=db_reichweite_m;reichweite_f=db_reichweite_f;
    lern_land=db_lern_l; lern_stadt=db_lern_s;
 
+   if(Art()=="Verteidigung") erfolgswert=1;
+   else erfolgswert=4;   
+
   exec sql close cl_waffen_ein;
   tr.close();
 }

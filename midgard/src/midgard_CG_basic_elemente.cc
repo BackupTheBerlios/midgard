@@ -40,8 +40,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
       if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return false;
-      if (  // MBE->What()==MidgardBasicElement::WAFFE &&
-          MBE->Erfolgswert() >= MBE->MaxErfolgswert(Werte,Typ)) 
+      if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(Werte,Typ)) 
           { regnot("Maximal möglicher Erfolgswert erreicht");
             return false; }
       Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));

@@ -45,14 +45,14 @@ void MidgardBasicElement::show_list_in_tree(
 void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,
                                        std::list<cH_MidgardBasicElement>& nach,
                                        const std::string& name,
-                                       const std::string& art)
+                                       const std::string& art)//,
+                                       //const std::string& stufe)
 {
  for (std::list<cH_MidgardBasicElement>::iterator i=von.begin();i!= von.end();++i)
   {
    if((*i)->What()==ZAUBERWERK)
     {
-//cout << (*i)->Name()<<' '<<name <<' '<< cH_Zauberwerk(*i)->Art()<<' '<<art<<'\n';
-      if ((*i)->Name()==name && cH_Zauberwerk(*i)->Art()==art) 
+      if ((*i)->Name()==name && cH_Zauberwerk(*i)->Art()==art)// && (*i)->Stufe()==stufe) 
         { nach.splice(nach.begin(),von,i);break; }
     }
    else
@@ -76,14 +76,19 @@ bool MidgardBasicElement::ist_gelernt(const std::list<cH_MidgardBasicElement>& L
  for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
    {
      if((*i)->What()==FERTIGKEIT)
+      {
         if((*i)->Name()==Name() && 
            cH_Fertigkeit(*i)->Zusatz()==static_cast<const Fertigkeit*>(this)->Zusatz()) return true;
-     if((*i)->What()==ZAUBERWERK)
+      }
+     else if((*i)->What()==ZAUBERWERK)
+      {
         if((*i)->Name()==Name() &&
            cH_Zauberwerk(*i)->Art()==static_cast<const Zauberwerk*>(this)->Art() &&
-           (*i)->Stufe()==Stufe()) return true;
+           (*i)->Stufe()==Stufe())  return true ;
+      }
      else 
-        if((*i)->Name()==Name()) return true;
+      {  
+       if((*i)->Name()==Name()) return true;}
    }
  return false;
 }
