@@ -22,6 +22,7 @@
 #include "xml_fileselection.hh"
 #include "midgard_CG.hh"
 #include "Windows_Linux.hh"
+#include <libmagus/Ausgabe.hh>
 
 #ifdef __MINGW32__
 # include <windows.h>
@@ -41,6 +42,8 @@ try{
    hauptfenster->spielleiter_export_save(this->get_filename(),false);
  else if (ewas==ExportFull)
    hauptfenster->spielleiter_export_save(this->get_filename(),true); 
+#warning hier fehlts   
+#if 0   
  else if (ewas==Pix)
    {
     VA->setBeschreibungPix(this->get_filename());
@@ -54,6 +57,7 @@ try{
    hauptfenster->table_optionen->speicherplatz_selected(this->get_filename());
  else if (ewas==pdfviewer)
    hauptfenster->table_optionen->frame_drucken->pdf_viewer_selected(this->get_filename());
+#endif   
  delete this;
 }catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());}
 }
@@ -128,7 +132,7 @@ static void register_magus(const std::string &argv0)
 xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
 : hauptfenster(h),ewas(_was),VA(hauptfenster->getChar())
 {
- std::string path=hauptfenster->getOptionen()->getString(Magus_Optionen::speicherpfad);
+ std::string path=Programmoptionen.getString(Magus_Optionen::speicherpfad);
  std::string fname=path;
 
  // path mit / (oder \) beenden, damit der Dateiname einfach dahinter kann
