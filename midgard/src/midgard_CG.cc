@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.318 2003/11/28 07:52:20 christof Exp $
+// $Id: midgard_CG.cc,v 1.319 2003/11/28 07:55:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -74,10 +74,10 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   ImageLabelKnopf(button_redo,MagusImage("redo.xpm"),"VorwÃ¤rts");
   
 // Statusbar MVC
-  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(Programmoptionen.WerteEingebenModel(),
+  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(aktiver.proxies.werte_eingeben,
   	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
-  wuerfelt_butt->set_tooltips("Werte werden ausgewürfelt. (Hier klicken zum eingeben)",
-  		"Werte werden eingegeben. (Hier klicken zum auswürfeln)");
+//  wuerfelt_butt->set_tooltips("Werte werden ausgewürfelt. (Hier klicken zum eingeben)",
+//  		"Werte werden eingegeben. (Hier klicken zum auswürfeln)");
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   wuerfelt_butt->show();
 
