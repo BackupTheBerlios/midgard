@@ -56,12 +56,13 @@ void midgard_CG::spielleiter_export()
          fout <<waffenname ;
          if ((*j)->av_Bonus()!=0 || (*j)->sl_Bonus()!=0) fout <<"$^*$";
          int mag_schadensbonus = (*j)->av_Bonus();
+         int ang_mod = atoi(waffe_werte(*j,Werte,"WM_Angriff").c_str());
          if ((*j)->av_Bonus()==-5 && (*j)->sl_Bonus()==-5) mag_schadensbonus = 0; 
          int anbo = Werte.bo_An();
 //         if (midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Verteidigung")=="true")
          if (midgard_CG::waffe_werte(*j,Werte,"Verteidigung")=="true")
             anbo = 0;
-         int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus;
+         int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
          fout << "+"<<wert << "(";
 //         std::string schaden=midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Schaden+mag_Bonus");
          std::string schaden=midgard_CG::waffe_werte(*j,Werte,"Schaden+mag_Bonus");

@@ -4888,7 +4888,7 @@ laden</label>
 		    </signal>
 		    <label>Fertigkeiten
 sortieren</label>
-		    <icon>Skills-trans-50.xpm</icon>
+		    <icon>Sort_Skill-trans-50.xpm</icon>
 		    <child>
 		      <new_group>True</new_group>
 		    </child>
@@ -5591,7 +5591,7 @@ Praxispunkten</label>
 		      <last_modification_time>Sat, 04 Aug 2001 14:39:52 GMT</last_modification_time>
 		    </signal>
 		    <label>Waffen sortieren</label>
-		    <icon>Weapon-trans-50.xpm</icon>
+		    <icon>Sort_Weapon-trans-50.xpm</icon>
 		    <child>
 		      <new_group>True</new_group>
 		    </child>
@@ -6004,7 +6004,7 @@ Praxispunkten</label>
 			  </signal>
 			  <label>Zauber
 sortieren</label>
-			  <icon>Zauber-trans-50.xpm</icon>
+			  <icon>Sort_Zauber-50.xpm</icon>
 			  <child>
 			    <new_group>True</new_group>
 			  </child>
@@ -6022,7 +6022,7 @@ sortieren</label>
 			  </signal>
 			  <label>Zaubermittel
 sortieren</label>
-			  <icon>Zauber-trans-50.xpm</icon>
+			  <icon>Sort_Zaubermittel-50.xpm</icon>
 			</widget>
 		      </widget>
 
@@ -6579,7 +6579,7 @@ sortieren</label>
 			    <last_modification_time>Sat, 04 Aug 2001 14:40:47 GMT</last_modification_time>
 			  </signal>
 			  <label>Techniken sortieren</label>
-			  <icon>KiDo-trans-50.xpm</icon>
+			  <icon>Sort_KiDo-trans-50.xpm</icon>
 			  <child>
 			    <new_group>True</new_group>
 			  </child>
@@ -7023,7 +7023,7 @@ laden</label>
 		    </signal>
 		    <label>Sprachen 
 sortieren</label>
-		    <icon>Lang-trans-50.xpm</icon>
+		    <icon>Sort_Lang-trans-50.xpm</icon>
 		    <child>
 		      <new_group>True</new_group>
 		    </child>
@@ -13760,168 +13760,6 @@ Verlust</label>
     <column_spacing>0</column_spacing>
 
     <widget>
-      <class>GtkScrolledWindow</class>
-      <name>scrolledwindow38</name>
-      <width>266</width>
-      <height>150</height>
-      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>2</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>True</xexpand>
-	<yexpand>True</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-
-      <widget>
-	<class>GtkCList</class>
-	<name>clist_waffe_alt</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<can_focus>True</can_focus>
-	<signal>
-	  <name>select_row</name>
-	  <handler>on_clist_waffe_alt_select_row</handler>
-	  <last_modification_time>Wed, 14 Mar 2001 07:34:38 GMT</last_modification_time>
-	</signal>
-	<columns>3</columns>
-	<column_widths>80,80,80</column_widths>
-	<selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-	<show_titles>True</show_titles>
-	<shadow_type>GTK_SHADOW_IN</shadow_type>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label311</name>
-	  <label>Waffe</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label312</name>
-	  <label>Schaden</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label319</name>
-	  <label>mag.Bonus</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-      </widget>
-    </widget>
-
-    <widget>
-      <class>GtkScrolledWindow</class>
-      <name>scrolledwindow39</name>
-      <width>270</width>
-      <height>150</height>
-      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-      <child>
-	<left_attach>2</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>2</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>True</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-
-      <widget>
-	<class>GtkCList</class>
-	<name>clist_waffe_neu</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<can_focus>True</can_focus>
-	<signal>
-	  <name>select_row</name>
-	  <handler>on_clist_waffe_neu_select_row</handler>
-	  <last_modification_time>Wed, 14 Mar 2001 08:35:14 GMT</last_modification_time>
-	</signal>
-	<columns>3</columns>
-	<column_widths>80,80,80</column_widths>
-	<selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-	<show_titles>True</show_titles>
-	<shadow_type>GTK_SHADOW_IN</shadow_type>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label313</name>
-	  <label>Waffe</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label314</name>
-	  <label>Schaden</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label378</name>
-	  <label>Region</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-      </widget>
-    </widget>
-
-    <widget>
       <class>GtkLabel</class>
       <name>label315</name>
       <label>Besitz</label>
@@ -13974,6 +13812,31 @@ Verlust</label>
     </widget>
 
     <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap9</name>
+      <filename>Weapon-trans-50.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>2</right_attach>
+	<top_attach>0</top_attach>
+	<bottom_attach>1</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>True</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+    </widget>
+
+    <widget>
       <class>GtkHBox</class>
       <name>hbox18</name>
       <homogeneous>False</homogeneous>
@@ -13986,11 +13849,11 @@ Verlust</label>
 	<xpad>0</xpad>
 	<ypad>3</ypad>
 	<xexpand>False</xexpand>
-	<yexpand>True</yexpand>
+	<yexpand>False</yexpand>
 	<xshrink>False</xshrink>
 	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
+	<xfill>False</xfill>
+	<yfill>False</yfill>
       </child>
 
       <widget>
@@ -14033,10 +13896,105 @@ Verlust</label>
     </widget>
 
     <widget>
-      <class>GtkHBox</class>
-      <name>hbox19</name>
+      <class>GtkScrolledWindow</class>
+      <name>scrolledwindow56</name>
+      <width>250</width>
+      <height>260</height>
+      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>1</top_attach>
+	<bottom_attach>2</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>True</xexpand>
+	<yexpand>True</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+
+      <widget>
+	<class>GtkViewport</class>
+	<name>viewport20</name>
+	<shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+	<widget>
+	  <class>Custom</class>
+	  <name>waffenbesitz_alt_tree</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <signal>
+	    <name>leaf_selected</name>
+	    <handler>on_leaf_selected_alt</handler>
+	    <last_modification_time>Tue, 14 Aug 2001 09:33:08 GMT</last_modification_time>
+	  </signal>
+	  <creation_function>SimpleTree</creation_function>
+	  <int1>3</int1>
+	  <int2>0</int2>
+	  <last_modification_time>Tue, 14 Aug 2001 09:30:13 GMT</last_modification_time>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkScrolledWindow</class>
+      <name>scrolledwindow57</name>
+      <width>250</width>
+      <height>260</height>
+      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+      <child>
+	<left_attach>2</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>1</top_attach>
+	<bottom_attach>2</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>True</xexpand>
+	<yexpand>True</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+
+      <widget>
+	<class>GtkViewport</class>
+	<name>viewport21</name>
+	<shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+	<widget>
+	  <class>Custom</class>
+	  <name>waffenbesitz_neu_tree</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <signal>
+	    <name>leaf_selected</name>
+	    <handler>on_leaf_selected_neu</handler>
+	    <last_modification_time>Tue, 14 Aug 2001 09:32:55 GMT</last_modification_time>
+	  </signal>
+	  <creation_function>SimpleTree</creation_function>
+	  <int1>3</int1>
+	  <int2>0</int2>
+	  <last_modification_time>Tue, 14 Aug 2001 09:30:13 GMT</last_modification_time>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkTable</class>
+      <name>table70</name>
+      <rows>1</rows>
+      <columns>2</columns>
       <homogeneous>False</homogeneous>
-      <spacing>0</spacing>
+      <row_spacing>0</row_spacing>
+      <column_spacing>0</column_spacing>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
@@ -14053,7 +14011,42 @@ Verlust</label>
       </child>
 
       <widget>
-	<class>Placeholder</class>
+	<class>GtkToolbar</class>
+	<name>toolbar35</name>
+	<orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	<type>GTK_TOOLBAR_BOTH</type>
+	<space_size>5</space_size>
+	<space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
+	<relief>GTK_RELIEF_NORMAL</relief>
+	<tooltips>True</tooltips>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>0</top_attach>
+	  <bottom_attach>1</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>False</xexpand>
+	  <yexpand>False</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
+	</child>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>button_sort</name>
+	  <border_width>5</border_width>
+	  <signal>
+	    <name>clicked</name>
+	    <handler>on_button_sort_clicked</handler>
+	    <last_modification_time>Tue, 14 Aug 2001 10:56:52 GMT</last_modification_time>
+	  </signal>
+	  <label>Waffen sortieren</label>
+	  <icon>Sort_Weapon-trans-50.xpm</icon>
+	</widget>
       </widget>
 
       <widget>
@@ -14071,40 +14064,20 @@ Verlust</label>
 	<active>False</active>
 	<draw_indicator>True</draw_indicator>
 	<child>
-	  <padding>0</padding>
-	  <expand>False</expand>
-	  <fill>False</fill>
+	  <left_attach>1</left_attach>
+	  <right_attach>2</right_attach>
+	  <top_attach>0</top_attach>
+	  <bottom_attach>1</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>False</xexpand>
+	  <yexpand>False</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
 	</child>
       </widget>
-
-      <widget>
-	<class>Placeholder</class>
-      </widget>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap9</name>
-      <filename>Weapon-trans-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>0</top_attach>
-	<bottom_attach>1</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>True</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
     </widget>
   </widget>
 </widget>

@@ -53,4 +53,11 @@ EXTRA_DIST = \
        Szepter-trans-locol-30.xpm \
        Phex-mod2-lowcol-20.xpm \
        Falke-trans-lowCol-20.xpm \
+       Sort_KiDo-trans-50.xpm \
+       Sort_Lang-trans-50.xpm \
+       Sort_Skill-trans-50.xpm \
+       Sort_Weapon-trans-50.xpm \
+       Sort_Zauber-50.xpm \
+       Sort_Zaubermittel-50.xpm \
+       Zaubermittel-50.xpm \
        pinguin.xpm

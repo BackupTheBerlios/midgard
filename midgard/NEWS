@@ -1,13 +1,19 @@
 ##########################################################################
 NEWS IN VERSION 0.7beta5
-- Oberfläche leicht überarbeitet
+- Oberfläche überarbeitet
 - Bug bei der Typauswahl jetzt beseitigt (vorher war es ein 'workaround':-)
 - Beim Abwählen von 'Eschar' erscheint KEIN Infofenster mehr, das nervte ...
 - Überschriftenreinfolge der 'neuen Zauber' war falsch
 - Sortierung der Sprachen nach Stufe im Ausdruck jetzt ABSTEIGEND
 - Sortierung der Zauber, Zaubermittel, Waffen und Fertigkeiten jetzt mit dem 
    Algorithmus 'stable_sort'
-
+- Neue 'Sortier'-Buttons von Alessandro eingefügt
+- Besonderheiten der Rawindiwaffen in Bezug auf Schaden & Angriffsmodifikation
+   werden berücksichtigt
+- Bugs in der Datenbank beseitigt (Rawindiwaffen)
+- Die Tabellen für Waffenbesitz sind jetzt auch umgearbeitet, d.h. unter anderem
+   daß die entsprechenden Tabellen jetzt umgestellt und sortiert werden können
+   (dies macht sich dann wieder auf dem Ausdruck bemerkbar)
 
 ##########################################################################
 NEWS IN VERSION 0.7beta4

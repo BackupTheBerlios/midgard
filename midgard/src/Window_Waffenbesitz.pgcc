@@ -29,31 +29,37 @@
 #include "midgard_CG.hh"
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
-#include <Gtk_OStream.h>
+//#include <Gtk_OStream.h>
 exec sql include sqlca;
 
-void Window_Waffenbesitz::on_clist_waffe_alt_select_row(gint row, gint column, GdkEvent *event)
+void Window_Waffenbesitz::on_waffe_alt_select(std::string waffe,std::string bonus)
 {   
-  std::string waffe = clist_waffe_alt->get_text(row,0);
-  memwaffe=row;
-  int count=0;
   for (std::vector<H_Data_waffen>::iterator i=Waffe_Besitz.begin();
          i!=Waffe_Besitz.end();++i)
    { 
-     if (((*i)->Region()) !="") waffe = hauptfenster->get_region_waffen(waffe,(*i)->Region(),2);
-     if (count==memwaffe &&  mag_bonus_bool) {manage (new Window_mag_bonus(this,*i)); break;}
-     if (count==memwaffe && !mag_bonus_bool) {Waffe_Besitz.erase(i);break;} 
-     ++count;
+     if ((*i)->Alias()==waffe && !mag_bonus_bool) 
+         { Waffe_Besitz.erase(i);break;}
+     std::string bonus_= "("+itos((*i)->av_Bonus())+"/"+itos((*i)->sl_Bonus())+")";
+     if (bonus_=="(0/0)") bonus_="";
+     if ((*i)->Alias()==waffe && mag_bonus_bool && bonus_==bonus) 
+         {manage (new Window_mag_bonus(this,*i));break;} 
    }
   hauptfenster->on_speichern_clicked();
   show_alte_waffen();   
   show_neue_waffen();   
 }
 
-void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, GdkEvent *event)
+void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
+{  const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
+   on_waffe_alt_select(dt->Name(),dt->Magbonus());
+}
+
+void Window_Waffenbesitz::on_leaf_selected_neu(cH_RowDataBase d)
+{  const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
+   on_waffe_neu_select(dt->Name(),dt->Region());
+}
+void Window_Waffenbesitz::on_waffe_neu_select(std::string waffe, std::string region)
 {   
- std::string waffe = clist_waffe_neu->get_text(row,0);
- std::string region = clist_waffe_neu->get_text(row,2);
  if (region!="") 
    { std::string wwaffe = hauptfenster->get_region_waffen(waffe,region,2);
      Waffe_Besitz.push_back(new Data_waffen(wwaffe,waffe,region,0,0,""));
@@ -72,6 +78,20 @@ Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
   mag_bonus_bool=false;
   hauptfenster=h;
   hauptfenster->on_speichern_clicked();
+
+  std::vector<string> alte_waffen;
+  alte_waffen.push_back("Name");
+  alte_waffen.push_back("Schaden");
+  alte_waffen.push_back("mag.Bonus");
+  std::vector<string> neue_waffen;
+  neue_waffen.push_back("Name");
+  neue_waffen.push_back("Schaden");
+  neue_waffen.push_back("Region");
+  waffenbesitz_alt_tree->set_value_data(reinterpret_cast<gpointer>('A'));
+  waffenbesitz_alt_tree->setTitles(alte_waffen);
+  waffenbesitz_neu_tree->set_value_data(reinterpret_cast<gpointer>('N'));
+  waffenbesitz_neu_tree->setTitles(neue_waffen);
+
   show_alte_waffen();   
   show_neue_waffen();   
 }
@@ -84,8 +104,8 @@ void Window_Waffenbesitz::on_button_close_clicked()
 
 void  Window_Waffenbesitz::show_alte_waffen()
 {
-  clist_waffe_alt->clear();
-  Gtk::OStream os(clist_waffe_alt);  
+  std::vector<cH_RowDataBase> datavec;
+
   for (std::vector<H_Data_waffen>::const_iterator i=Waffe_Besitz.begin();
             i!=Waffe_Besitz.end();++i)
    {
@@ -93,19 +113,16 @@ void  Window_Waffenbesitz::show_alte_waffen()
      std::string bonus= "("+itos((*i)->av_Bonus())+"/"+itos((*i)->sl_Bonus())+")";
      if ((*i)->Magisch()=="")   bonus = "";
      if ((*i)->Region()=="")
-        os << (*i)->Name() <<"\t"<<schaden<<"\t"<<bonus<<"\n";
+        datavec.push_back(new Data_waffenbesitz((*i)->Name(),schaden,bonus,""));
      else
-      {
-        os << (*i)->Alias() <<"\t"<<schaden<<"\t"<<bonus<<"\n";
-      }
+        datavec.push_back(new Data_waffenbesitz((*i)->Alias(),schaden,bonus,""));
    }
-  for (unsigned int i=0;i<clist_waffe_alt->columns().size();++i)
-   clist_waffe_neu->set_column_auto_resize(i,true);
+  waffenbesitz_alt_tree->setDataVec(datavec);
 }
 
 void  Window_Waffenbesitz::show_neue_waffen()
 {
-  clist_waffe_neu->clear();
+  std::vector<cH_RowDataBase> datavec;
   exec sql begin declare section;
    char db_waffe[50];
    char db_name[50] ;
@@ -127,16 +144,11 @@ void  Window_Waffenbesitz::show_neue_waffen()
   Transaction tr;
   exec sql open ein;
   SQLerror::test(__FILELINE__);
-  Gtk::OStream os(clist_waffe_neu);
   while(true)
    {
      exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     std::string schaden=hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),Werte,"Schaden");
-     std::string waffe=db_waffe;
-     if (waffe!="waffenloser Kampf" )
-        os << db_waffe<<"\t"<<schaden<<"\n";
 
      // Aliasnamen für Waffen aus anderen Regionen
      exec sql declare alias_ein cursor for 
@@ -155,16 +167,24 @@ void  Window_Waffenbesitz::show_neue_waffen()
         aliasregion.push_back(db_region);     
       }
      exec sql close alias_ein;
+
+
+     std::string schaden=hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),Werte,"Schaden");
+     std::string waffe=db_waffe;
+     if (waffe!="waffenloser Kampf" )
+        datavec.push_back(new Data_waffenbesitz(db_waffe,schaden,"",""));
      for (unsigned int i=0;i<aliaswaffen.size();++i)
       {
         if (hauptfenster->region_check(aliasregion[i]))
-           os << aliaswaffen[i]<<"\t"<<schaden<<"\t"<<db_region<<"\n";
+         {
+           schaden = hauptfenster->waffe_werte(new Data_waffen(db_waffe,aliaswaffen[i],"",0,0,""),Werte,"Schaden");
+           datavec.push_back(new Data_waffenbesitz(aliaswaffen[i],schaden,"",db_region));
+         }
       }
    }
   exec sql close ein;
   tr.close();
-  for (unsigned int i=0;i<clist_waffe_neu->columns().size();++i)
-   clist_waffe_neu->set_column_auto_resize(i,true);
+  waffenbesitz_neu_tree->setDataVec(datavec);
 }
 
 void Window_Waffenbesitz::on_checkbutton_mag_waffenbonus_toggled()
@@ -179,6 +199,19 @@ void Window_Waffenbesitz::mag_boni_uebernehmen(H_Data_waffen& wa)
   for (std::vector<H_Data_waffen>::iterator i=Waffe_Besitz.begin();
          i!=Waffe_Besitz.end();++i)
      if (count++ == memwaffe) (*i)=wa;
-  Window_Waffenbesitz::show_alte_waffen();
+  hauptfenster->on_speichern_clicked();
   Window_Waffenbesitz::show_neue_waffen();
+  Window_Waffenbesitz::show_alte_waffen();
+}
+
+void Window_Waffenbesitz::on_button_sort_clicked()
+{
+  std::deque<guint> seq = waffenbesitz_alt_tree->get_seq();
+  std::vector<H_Data_waffen>::iterator IB=Waffe_Besitz.begin();  
+  std::vector<H_Data_waffen>::iterator IE=Waffe_Besitz.end();  
+  switch((Data_waffenbesitz::SPALTEN_A)seq[0]) {
+      case Data_waffenbesitz::MAGBONUS : stable_sort(IB,IE,Data_waffen_sort_magbonus()); ;break;
+      case Data_waffenbesitz::NAME_A   : stable_sort(IB,IE,Data_waffen_sort_name()); ;break;
+      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+   }
 }

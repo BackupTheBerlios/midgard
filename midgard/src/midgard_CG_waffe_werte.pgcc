@@ -28,9 +28,12 @@ std::string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const Grundwerte&
 {
   exec sql begin declare section;
    char db_waffe[50];
+   char db_alias[50];
    char db_art[50];
    char db_s1[50] ;
    int  db_sb ;
+   char db_s1_R[50] ;
+   int  db_sb_R, db_am_R=0 ;
    char db_angriffsrangmod[10], db_wm_abwehr_leicht[10], db_wm_abwehr_schwer[10];
    int db_reich_0,db_reich_n,db_reich_m,db_reich_f;
   exec sql end declare section;
@@ -44,6 +47,17 @@ std::string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const Grundwerte&
             :db_reich_0, :db_reich_n, :db_reich_m, :db_reich_f
       from waffen where name = :db_waffe;
   SQLerror::test(__FILELINE__);
+  /*****************************/
+  /* Regionale Besonderheiten? */
+  strncpy(db_alias,(Waffe->Alias()).c_str(),sizeof(db_waffe));
+  exec sql select coalesce(schaden,''), coalesce(schaden_b,0), 
+         coalesce(angriffs_mod,0) 
+         into :db_s1_R, :db_sb_R, :db_am_R
+         from waffen_region_name where alias = :db_alias;
+  SQLerror::test(__FILELINE__,100);
+   std::string s1_R=db_s1_R;
+  if (!sqlca.sqlcode && s1_R!="") { db_s1=db_s1_R; db_sb=db_sb_R; }
+  /*****************************/
   std::string art=db_art;
   if (mod=="Verteidigung")
    {
@@ -61,11 +75,6 @@ std::string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const Grundwerte&
       std::string abs = db_wm_abwehr_schwer;
       if (abl==""&&abs=="") return "";
       else return abl+"$|$"+abs;
-   }
-  if (mod=="Angriffsrangmodifikation")
-   {
-      std::string ret = db_angriffsrangmod;
-      return ret;
    }
   if (mod=="Schaden" || mod=="Schaden+mag_Bonus")
    {
@@ -91,6 +100,10 @@ std::string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const Grundwerte&
      std::string s = itos(db_reich_0)+"/"+itos(db_reich_n)+"/"
               + itos(db_reich_m)+"/"+itos(db_reich_f); 
      return s; 
+   }
+ if (mod=="WM_Angriff")
+   {
+     return itos(db_am_R) ;
    }
  abort();
 }

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.32 2001/07/05 12:43:35 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.33 2001/08/14 13:26:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -210,24 +210,20 @@ void midgard_CG::on_latex_clicked()
          waffenname = (*j)->Alias();
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
          if ((*j)->Magisch()!="") waffenname+="$^*$" ;
-//         fout <<LaTeX_scale(waffenname,15,"2.5cm",waffe_besitz[j])<< "}\n";
          fout <<LaTeX_scale(waffenname,15,"2.5cm",*j)<< "}\n";
          int mag_schadensbonus = (*j)->av_Bonus();
          int anbo = Werte.bo_An();
+         int ang_mod = atoi(waffe_werte(*j,Werte,"WM_Angriff").c_str());
          if (midgard_CG::waffe_werte(*j,Werte,"Verteidigung")=="true")
             anbo = 0;
-         int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus;
+         int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus + ang_mod ;
          fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert << "}\n";
-//         std::string schaden=midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Schaden+mag_Bonus");
-         std::string schaden=midgard_CG::waffe_werte(*j,Werte,"Schaden+mag_Bonus");
+         std::string schaden=waffe_werte(*j,Werte,"Schaden+mag_Bonus");
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
-//         std::string anm = midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Angriffsrangmodifikation");
          std::string anm = midgard_CG::waffe_werte(*j,Werte,"Angriffsrangmodifikation");
          fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
-//         std::string abm = midgard_CG::waffe_werte(waffe_besitz[j],Werte,"WM_Abwehr");
-         std::string abm = midgard_CG::waffe_werte(*j,Werte,"WM_Abwehr");
+         std::string abm = waffe_werte(*j,Werte,"WM_Abwehr");
          fout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
-//         ++jcount;
        }
      }
    }
