@@ -42,11 +42,11 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   std::string strinfo = "Datei '"+dateiname+"' enthält nun die Daten des ";
   strinfo +="Abenteurers im Format für Midgard Publikationen\n";
   set_status(strinfo); 
-  ofstream fout2(dateiname.c_str());
+  std::ofstream fout2(dateiname.c_str());
 #ifdef __MINGW32__
   orecodestream fout(fout2);
 #else
-  ostream &fout=fout2;
+  std::ostream &fout=fout2;
 #endif
   Grundwerte W=Char->getWerte();
   fout << W.Name_Abenteurer()<<", "
@@ -183,7 +183,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  fout << W.Beschreibung()<<'\n';
 }
 
-void midgard_CG::spielleiter_export_save_zauber(ostream& fout)
+void midgard_CG::spielleiter_export_save_zauber(std::ostream& fout)
 {
   Grundwerte W=Char->getWerte();
   Abenteurer A=getAben();

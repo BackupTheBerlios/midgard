@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.17 2002/09/21 18:00:13 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.18 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,14 +59,14 @@ class LaTeX_drucken
     const midgard_CG *hauptfenster;
     bool bool_sprach,bool_fert,bool_waffen;
 
-    void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
-    void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
-    void write_grundwerte(ostream &fout,bool empty=false);
-    void write_sprachen(ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist=false);
-    void write_fertigkeiten(ostream &fout,const std::list<MBEmlt>& L,bool longlist=false);
-    void write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false);
-    void write_universelle(ostream &fout);
-    void write_long_list(ostream &fout,const std::vector<Sprache_und_Schrift> &S,
+    void LaTeX_write_values(std::ostream &fout,const std::string &install_latex_file);
+    void LaTeX_write_empty_values(std::ostream &fout,const std::string &install_latex_file);
+    void write_grundwerte(std::ostream &fout,bool empty=false);
+    void write_sprachen(std::ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist=false);
+    void write_fertigkeiten(std::ostream &fout,const std::list<MBEmlt>& L,bool longlist=false);
+    void write_waffenbesitz(std::ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false);
+    void write_universelle(std::ostream &fout);
+    void write_long_list(std::ostream &fout,const std::vector<Sprache_und_Schrift> &S,
                          const std::list<MBEmlt> &F,
                          const std::list<WaffeBesitz> &WB_druck);
 
@@ -79,22 +79,22 @@ class LaTeX_drucken
 
     std::string get_latex_filename(const LaTeX_Filenames what);
     std::string get_latex_pathname(const LaTeX_Pathnames what);
-    void LaTeX_newsavebox(ostream &fout);
-    void LaTeX_footer(ostream &fout);
-    void LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc=true);
-    void LaTeX_header(ostream &fout,bool landscape=true,bool kopfzeile=true);
-    void LaTeX_zauber_main(ostream &fout);
-    void LaTeX_zaubermittel(ostream &fout);
-    void LaTeX_zauber(ostream &fout);
-    void LaTeX_kido(ostream &fout);
-    void LaTeX_kido_main(ostream &fout);
+    void LaTeX_newsavebox(std::ostream &fout);
+    void LaTeX_footer(std::ostream &fout);
+    void LaTeX_kopfzeile(std::ostream &fout,bool landscape,bool newdoc=true);
+    void LaTeX_header(std::ostream &fout,bool landscape=true,bool kopfzeile=true);
+    void LaTeX_zauber_main(std::ostream &fout);
+    void LaTeX_zaubermittel(std::ostream &fout);
+    void LaTeX_zauber(std::ostream &fout);
+    void LaTeX_kido(std::ostream &fout);
+    void LaTeX_kido_main(std::ostream &fout);
 
-    void ausruestung_druck(ostream &fout,bool unsichtbar,const std::list<AusruestungBaum> &AB,int deep);
+    void ausruestung_druck(std::ostream &fout,bool unsichtbar,const std::list<AusruestungBaum> &AB,int deep);
     void pdf_viewer(const std::string& file);
     
-    void line(ostream &fout,const ewhat &what);
-    void for_each(ostream &fout,const ewhat &what);
-    void list_for_each(ostream &fout,const std::list<MBEmlt>& L,const int &maxlength,const std::string& cm);
+    void line(std::ostream &fout,const ewhat &what);
+    void for_each(std::ostream &fout,const ewhat &what);
+    void list_for_each(std::ostream &fout,const std::list<MBEmlt>& L,const int &maxlength,const std::string& cm);
  public:
     LaTeX_drucken(const midgard_CG* h)
       : hauptfenster(h),bool_sprach(false),bool_fert(false),bool_waffen(false)

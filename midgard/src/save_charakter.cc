@@ -64,7 +64,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
    Char.setFilename(dateiname);
    frame_steigern->set_sensitive(true);
 
-   ofstream datei(dateiname.c_str());
+   std::ofstream datei(dateiname.c_str());
    if (!datei.good())
    { 
       set_info("Ich kann die Datei '"+dateiname+"' nicht beschreiben");

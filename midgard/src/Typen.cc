@@ -27,7 +27,7 @@ cH_Typen::cH_Typen(const std::string& name ,bool create)
  cH_Typen *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
- {cerr << "Typen '" << name << "' nicht im Cache\n";
+ {std::cerr << "Typen '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Typ"); 
      // note that this Tag is shared ... works well for now
@@ -135,10 +135,10 @@ bool Typen::Gruppe(const std::string &gruppe) const
 bool Typen::get_Typ_from_long(const std::vector<cH_Typen>& V,
                                     std::string& name)
 {
-  string::size_type s1=name.find_first_of("(");
-  if(s1!=string::npos) name.erase(s1,1);
-  string::size_type s2=name.find_last_of(")");
-  if(s2!=string::npos) name.erase(s2,1);
+  std::string::size_type s1=name.find_first_of("(");
+  if(s1!=std::string::npos) name.erase(s1,1);
+  std::string::size_type s2=name.find_last_of(")");
+  if(s2!=std::string::npos) name.erase(s2,1);
   for(std::vector<cH_Typen>::const_iterator i=V.begin();i!=V.end();++i)
    {
      if((*i)->Typl()==name || (*i)->Typlw()==name) 

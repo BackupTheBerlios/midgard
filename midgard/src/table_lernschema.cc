@@ -928,7 +928,7 @@ void table_lernschema::show_lernschema()
  
 void table_lernschema::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)
 {
- vector<std::string> vs;
+ std::vector<std::string> vs;
  vs.push_back("LP");
  switch (what) {
    case MidgardBasicElement::WAFFE:

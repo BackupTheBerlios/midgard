@@ -1,4 +1,4 @@
-// $Id: WaffeGrund.hh,v 1.14 2002/10/04 06:20:12 thoma Exp $               
+// $Id: WaffeGrund.hh,v 1.15 2002/10/24 07:21:01 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -38,7 +38,7 @@ class WaffeGrund : public MidgardBasicElement
 
      enum MBEE What() const {return MidgardBasicElement::WAFFEGRUND;}
      std::string What_str() const {return "Grundkenntnis";}
-     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+     int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 };
 

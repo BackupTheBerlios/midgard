@@ -56,9 +56,9 @@ public:
 	{  return sub_specifications.end(); }
 	const Tag &back() const throw()
 	{  return sub_specifications.back(); }
-	vector<Tag>::size_type size() const throw()
+	std::vector<Tag>::size_type size() const throw()
 	{  return sub_specifications.size(); }
-	void reserve(vector<Tag>::size_type n) throw()
+	void reserve(std::vector<Tag>::size_type n) throw()
 	{  return sub_specifications.reserve(n); }
 	iterator begin() throw()
 	{  return sub_specifications.begin(); }

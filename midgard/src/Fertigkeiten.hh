@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.53 2002/10/04 06:20:12 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.54 2002/10/24 07:21:01 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ class Fertigkeit : public MidgardBasicElement
             : st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
               sb(_sb),rw(_rw),fert(_fert) {} };
      st_Voraussetzung voraussetzung;
-     vector<std::string> vec_voraussetzung;
+     std::vector<std::string> vec_voraussetzung;
 
      void get_Fertigkeit();
      struct st_region_lern {std::string region; int lp_stadt; int lp_land;
@@ -68,7 +68,7 @@ class Fertigkeit : public MidgardBasicElement
      std::string What_str() const {return "Fertigkeit";}
 
 
-     eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const;
+     eZusatz ZusatzEnum(const std::vector<cH_Typen>& Typ) const;
      std::string Attribut() const {return attribut;}
      int FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) const;
      int MaxErfolgswert(const Abenteurer &A) const;

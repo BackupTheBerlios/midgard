@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.52 2002/09/21 18:00:13 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.53 2002/10/24 07:21:01 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,7 +57,7 @@ class Grundwerte
    float steigertage;
    int gold,silber,kupfer,aep,kep,zep;
    cH_Land herkunft;
-   vector<cH_Ruestung> ruestung; 
+   std::vector<cH_Ruestung> ruestung; 
    cH_Spezies spezies;
    cH_Spezialgebiet spezialgebiet;
    Enums::StadtLand stadt_land;
@@ -111,16 +111,16 @@ public:
    int ZaubernPP() const { return zauber_pp;}
    int SpezialPP() const { return pp_spezialzauber;}
    int Resistenz() const {return resistenz;}
-   const std::string Resistenzen_alle(const vector<cH_Typen>& Typ) const;
+   const std::string Resistenzen_alle(const std::vector<cH_Typen>& Typ) const;
    int ResistenzPP() const {return resistenz_pp;}
    int bo_Au() const;
    int bo_Sc() const;
    int bo_An() const; 
    int bo_Ab() const;
    int bo_Za() const;
-   int bo_Psy(const vector<cH_Typen>& Typ) const;
-   int bo_Phs(const vector<cH_Typen>& Typ) const;
-   int bo_Phk(const vector<cH_Typen>& Typ) const;
+   int bo_Psy(const std::vector<cH_Typen>& Typ) const;
+   int bo_Phs(const std::vector<cH_Typen>& Typ) const;
+   int bo_Phk(const std::vector<cH_Typen>& Typ) const;
    int KAW() const {return St()/10;}
    int WLW() const {return 40+Ko()/2;}
    int Geistesblitz() const {return In()/10;}
@@ -203,7 +203,7 @@ public:
    int Tasten() const {return getSinn("Tasten");}
    int SechsterSinn() const {return getSinn("Sechster Sinn");}
 
-   void setGrad1Werte(const vector<cH_Typen>& Typ);
+   void setGrad1Werte(const std::vector<cH_Typen>& Typ);
 
    void setZaubern_wert(int i){zaubern_wert=i;}
    void setAbwehr_wert(int i){abwehr_wert=i;}

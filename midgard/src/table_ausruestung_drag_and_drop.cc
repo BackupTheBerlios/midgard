@@ -30,7 +30,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
   GtkTargetEntry tt[] = {
            { "STRING",     0, table_ausruestung::TARGET_STRING },
            { "text/plain", 0, table_ausruestung::TARGET_STRING },
-           { "text/uri-list", 0, table_ausruestung::TARGET_URL },
+           { "text/uri-std::list", 0, table_ausruestung::TARGET_URL },
            { "application/x-rootwin-drop", 0, table_ausruestung::TARGET_ROOTWIN}
            };
   target_table=tt;
@@ -72,7 +72,7 @@ void table_ausruestung::tree_drag_data_received(GdkDragContext *context,
   Gdk_DragContext gdc ( context );
   if ( ( data -> length >= 0 ) && ( data -> format == 8 ) )
     {
-      cout << "Received \""
+      std::cout << "Received \""
            << (gchar *)data->data
            << "\" in label"
            << " x="<<x<<" y="<<y
@@ -131,6 +131,6 @@ cout << "IN: "<<data<<" at "<<*adresse<<'\t'<<'\n';
        reinterpret_cast < const unsigned char * > ( data.c_str() ) ,
        data.size() );
 
-   }catch(std::exception &e) {cerr << e.what()<<'\n';}   
+   }catch(std::exception &e) {std::cerr << e.what()<<'\n';}   
 }
 

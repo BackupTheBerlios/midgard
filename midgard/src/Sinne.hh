@@ -33,7 +33,7 @@ class Sinne : public MidgardBasicElement
      enum MBEE What() const {return MidgardBasicElement::SINN;}
      std::string What_str() const {return "Sinn";}
 
-     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+     int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 
 };

@@ -93,7 +93,7 @@ void table_steigern::on_entry_magisch_activate()
       }
 
      table_magbonus->hide();
-  } catch(std::exception &e) {cerr<<e.what()<<'\n';
+  } catch(std::exception &e) {std::cerr<<e.what()<<'\n';
    hauptfenster->set_status("Keine Waffe selektiert");
      };
 //  zeige_waffen();

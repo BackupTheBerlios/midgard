@@ -22,7 +22,7 @@ void frame_ansicht::set_Hauptfenster(midgard_CG *h)
 /*
 static void wert_changed(gpointer gp)
 { 
-  cout << "WC: "<<  *(bool*)(gp)<<'\n';
+  std::cout << "WC: "<<  *(bool*)(gp)<<'\n';
 } 
 */
 

@@ -78,7 +78,7 @@ void window_Ausruestung::fill_optionmenu_typ()
 {
   cH_PreiseMod art=static_cast<PreiseMod*>(optionmenu_art->get_menu()->get_active()->get_user_data());
   Gtk::OStream os(optionmenu_typ);
-  for(vector<PreiseMod::st_vec>::const_iterator i=art->getVec().begin();i!=art->getVec().end();++i)
+  for(std::vector<PreiseMod::st_vec>::const_iterator i=art->getVec().begin();i!=art->getVec().end();++i)
    {
      os << i->typ;
      os.flush((gpointer)&*i);

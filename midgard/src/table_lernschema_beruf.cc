@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.17 2002/10/02 06:45:33 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.18 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -132,7 +132,7 @@ void table_lernschema::beruf_gewuerfelt(int wurf)
   std::string kat=BKategorie.wuerfeln(wurf);
   hauptfenster->set_status(kat,false);
   showBerufsLernList();
-  }catch(std::exception &e) { cerr << e.what() << '\n'; }
+  }catch(std::exception &e) { std::cerr << e.what() << '\n'; }
 }
 
 void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
@@ -164,5 +164,5 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
          BKategorie.kat_IV=false;
       }
  show_gelerntes();
- }catch(std::exception &e) {cerr << e.what()<<'\n';}
+ }catch(std::exception &e) {std::cerr << e.what()<<'\n';}
 }

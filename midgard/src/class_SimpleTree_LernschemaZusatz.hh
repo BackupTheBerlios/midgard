@@ -44,8 +44,8 @@ class Data_Herkunft : public RowDataBase
             case KONTINENT : return cH_EntryValueIntString(Land->Kontinent());
             case SPRACHEN  : 
               { std::string s;
-                vector<std::string> VS=Land->Sprachen();
-                for(vector<std::string>::const_iterator i=VS.begin();i!=VS.end();++i)
+                std::vector<std::string> VS=Land->Sprachen();
+                for(std::vector<std::string>::const_iterator i=VS.begin();i!=VS.end();++i)
                   s+= *i + " ";
                 return cH_EntryValueIntString(s);
               }

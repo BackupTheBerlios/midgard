@@ -31,7 +31,7 @@ cH_Beruf::cH_Beruf(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Beruf '" << name << "' nicht im Cache\n";
+  std::cerr << "Beruf '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Beruf"); 
      // note that this Tag is shared ... works well for now
@@ -79,7 +79,7 @@ void Beruf::get_Beruf()
 std::string Beruf::get_Vorteile() const
 {
   std::string s;
-  for(vector<st_vorteil>::const_iterator i=vorteile.begin();i!=vorteile.end();++i)
+  for(std::vector<st_vorteil>::const_iterator i=vorteile.begin();i!=vorteile.end();++i)
    {  
      s+= (*i);
      if(i+1!=vorteile.end()) s+=", ";
@@ -98,7 +98,7 @@ bool Beruf::Stand(const std::string& stand) const
   return false;
 }
 
-bool Beruf::Typ(const vector<cH_Typen>& Typ) const
+bool Beruf::Typ(const std::vector<cH_Typen>& Typ) const
 {
 //cout << "Typ  "<<Name()<<' '<<Typ[0]->Beruf()<<' '<<Typ[1]->Beruf()<<' '<<typ_z<<"<->"<<typ_k<<'\n';
   if(Typ[0]->Beruf()=="") return true;
@@ -115,7 +115,7 @@ Beruf_All::Beruf_All()
  const Tag *berufe=xml_data->find("Berufe");
 // int count=0;
  if (!berufe)
-    cerr << "<Berufe><Beruf/>... nicht gefunden\n";
+    std::cerr << "<Berufe><Beruf/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=berufe->begin(),e=berufe->end();
     FOR_EACH_CONST_TAG_OF_5(i,*berufe,b,e,"Beruf")

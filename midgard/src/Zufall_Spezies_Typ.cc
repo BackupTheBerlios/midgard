@@ -72,7 +72,7 @@ cH_Land Zufall::getLand() const
     {
       if(i->second) V.push_back(i->first) ;
     }
-   if(V.empty()){cerr << "Konnte kein Land wählen\n"; return cH_Land("Alba");}
+   if(V.empty()){std::cerr << "Konnte kein Land wählen\n"; return cH_Land("Alba");}
    int i=random.integer(0,V.size()-1);
    return V[i];   
 }

@@ -27,7 +27,7 @@ cH_Ruestung::cH_Ruestung(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Rüstung '" << name << "' nicht im Cache\n";
+  std::cerr << "Rüstung '" << name << "' nicht im Cache\n";
   const Tag *t=find_Tag("Rüstungen","Rüstung","Abkürzung",name);
   if (t) *this=cH_Ruestung(t);
   else if (create || !xml_data) // !xml_data = vor Einlesen der Daten

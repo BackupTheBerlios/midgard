@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.49 2002/07/05 12:46:19 christof Exp $
+// $Id: midgard.cc,v 1.50 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -71,7 +71,7 @@ int main(int argc, char **argv)
   std::cout << "magus_verzeichnis: " << magus_verzeichnis << '\n';
 
 #else
-   magus_verzeichnis=string(getenv("HOME"))+"/.magus";
+   magus_verzeichnis=std::string(getenv("HOME"))+"/.magus";
 #endif
 
    if(access(magus_verzeichnis.c_str(),R_OK)) 
@@ -105,9 +105,9 @@ int main(int argc, char **argv)
    {  char buf[10240];
       *buf=0;
       getcwd(buf,sizeof buf);
-      cout << "cwd: " << buf << '\n';
+      std::cout << "cwd: " << buf << '\n';
       argv0=buf+std::string(1,WinLux::dirsep)+argv0;
-      cout << "argv0: " << argv0 << '\n';
+      std::cout << "argv0: " << argv0 << '\n';
    }
 
    Gtk::Main m(&argc, &argv,true); 

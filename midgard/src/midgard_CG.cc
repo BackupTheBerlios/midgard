@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.270 2002/10/16 08:09:58 thoma Exp $
+// $Id: midgard_CG.cc,v 1.271 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,8 +29,8 @@
 #endif
 #include "Windows_Linux.hh"
 
-midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
-                       const string &datei)
+midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verzeichnis,
+                       const std::string &datei)
 : argv0(_argv0),magus_verzeichnis(_magus_verzeichnis),in_dtor(false),
 	InfoFenster(0),MOptionen(0),wizard(0),menu_kontext(0)
 {
@@ -140,7 +140,7 @@ cout <<"Suche nach "<< n<<'\n';
         else return n;
       }
    }
-  cout << "File "+name+" nowhere found\n";
+  std::cout << "File "+name+" nowhere found\n";
   if(!noexit) exit(1);
   return("");
 }

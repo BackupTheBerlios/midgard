@@ -57,12 +57,12 @@ static std::string quote_nonprintable(const std::string &in)
 }
 
 void Tag::debug(int recursion_depth,int indent) const
-{  std::cout << string(indent,' ') << '"' << Type() << '"';
+{  std::cout << std::string(indent,' ') << '"' << Type() << '"';
    if (Value()[0]) std::cout << "=\"" << quote_nonprintable(Value()) << '"';
    else std::cout << " @" << this;
    std::cout << "\n";
    for (attvec_t::const_iterator i=attributes.begin();i!=attend();++i)
-      std::cout << string(indent,' ') << '.' << i->first << "=\"" 
+      std::cout << std::string(indent,' ') << '.' << i->first << "=\"" 
       	<< quote_nonprintable(i->second) << "\"\n";
    if (recursion_depth>2 || (recursion_depth>0 && Type()!="widget"))
       for (const_iterator i=begin();i!=end();++i)

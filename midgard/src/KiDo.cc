@@ -67,7 +67,7 @@ cH_KiDo::cH_KiDo(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "KiDo '" << name << "' nicht im Cache\n";
+  std::cerr << "KiDo '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("KiDo"); 
      // note that this Tag is shared ... works well for now

@@ -31,7 +31,7 @@ cH_Spezies::cH_Spezies(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Spezies '" << name << "' nicht im Cache\n";
+  std::cerr << "Spezies '" << name << "' nicht im Cache\n";
   const Tag *t=find_Tag("SpeziesListe","Spezies","Name",name);
   if (t) *this=cH_Spezies(t);
   else if (create || !xml_data) // !xml_data = vor Einlesen der Daten
@@ -235,7 +235,7 @@ std::list<pair<std::string,int> > Spezies::getSinne() const
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="s")) continue;
-    S.push_back(pair<std::string,int>(i->name,i->erfolgswert));
+    S.push_back(std::pair<std::string,int>(i->name,i->erfolgswert));
    }
  return S;
 }

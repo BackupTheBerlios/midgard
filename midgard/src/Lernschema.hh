@@ -1,4 +1,4 @@
-// $Id: Lernschema.hh,v 1.11 2002/10/04 06:20:12 thoma Exp $               
+// $Id: Lernschema.hh,v 1.12 2002/10/24 07:21:01 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,7 +60,7 @@ class Lernschema
       bool get_Pflicht(const std::vector<st_index>& VI) const ;
       int get_Lernpunkte(const  std::vector<st_index>& VI) const ;
       std::list<MBEmlt> get_List(const std::string& art, 
-                                       const vector<cH_Typen>& _Typ,
+                                       const std::vector<cH_Typen>& _Typ,
                                        const std::list<MBEmlt>& Gelerntes) const;
       // Doppelklassen
       static std::vector<Lernschema::st_index> getIndex(const std::vector<cH_Typen>& Typ,const std::string& art,const std::string& name);

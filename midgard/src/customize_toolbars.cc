@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.16 2002/06/13 13:28:52 christof Exp $
+// $Id: customize_toolbars.cc,v 1.17 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -82,7 +82,7 @@ static void CustomizeButton(Gtk::Widget *w, bool show_icons, bool show_text)
 }
 
 void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, bool tab_text)
-{  // cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
+{  // std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
    if (!show_icons && !show_text) show_text=true;
    if (!show_icons && !tab_text) tab_text=true;
    if (Gtk::Button::isA(w))
@@ -107,9 +107,9 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
          CustomizeToolbars(*i,show_icons,show_text,tab_text);
 #endif
       // G_ListWrap<GtkTableChild*>
-      for (GList *list=GTK_TABLE(w->gtkobj())->children;list;
-      		list=list->next)
-      {  CustomizeToolbars(Gtk::wrap(((GtkTableChild*)(list->data))->widget),
+      for (GList *std::list=GTK_TABLE(w->gtkobj())->children;std::list;
+      		std::list=list->next)
+      {  CustomizeToolbars(Gtk::wrap(((GtkTableChild*)(std::list->data))->widget),
       		show_icons,show_text,tab_text);
       }
    }
@@ -123,6 +123,6 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
    }
    else if (Gtk::Container::isA(w))
    {  // und nun ?
-//      cout << typeid(*w).name() << '\n';
+//      std::cout << typeid(*w).name() << '\n';
    }
 }

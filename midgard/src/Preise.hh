@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.19 2002/10/04 20:26:18 thoma Exp $
+// $Id: Preise.hh,v 1.20 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -89,7 +89,7 @@ class Preise_All
    std::list<cH_Preise> get_All() const {return list_All;}
 };
 
-bool operator!=(const cH_Preise &a, const string &b);
+bool operator!=(const cH_Preise &a, const std::string &b);
 
 
 

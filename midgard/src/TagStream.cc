@@ -47,7 +47,7 @@ std::string utf82iso(const std::string &s)
          ret+=(unsigned char)((first<<6)|(second)&0x3f);
       }
       else if ((unsigned char)(*i)>=0x80)
-         cout << "UTF8 error " << int(*i) << '\n';
+         std::cout << "UTF8 error " << int(*i) << '\n';
       else ret+=*i;
    }
    return ret;
@@ -256,7 +256,7 @@ char *TagStream::next_tag(Tag *parent)
                {  encoding=newtag->getAttr("encoding");
                   if (encoding.empty()) encoding=host_encoding;
                   if (encoding!=host_encoding)
-                     cout << "Recoding " << encoding << "->" << host_encoding << '\n';
+                     std::cout << "Recoding " << encoding << "->" << host_encoding << '\n';
                }
                goto continue_outer;
             }
@@ -393,7 +393,7 @@ static std::string toXML(const std::string &s)
    return res;
 }
 
-void TagStream::write(ostream &o, const Tag &t, int indent,bool indent_first) const
+void TagStream::write(std::ostream &o, const Tag &t, int indent,bool indent_first) const
 {  if (indent_first) o << '\n' << std::string(indent,' ');
    if (!t.Type().empty()) 
    {  o << "<" << recode_save(t.Type());
@@ -419,7 +419,7 @@ void TagStream::write(ostream &o, const Tag &t, int indent,bool indent_first) co
    else o << t.Value();
 }
 
-void TagStream::write(ostream &o) const
+void TagStream::write(std::ostream &o) const
 {  o << "<?xml version=\"1.0\" encoding=\"" << encoding << "\"?>\n";
    write(o, getContent());
    o << '\n';

@@ -32,9 +32,9 @@ class TagStream : public Tag
 	bool read_again;
 	int pointer,end_pointer;
 
-	istream *is;
-	ifstream *ifs;
-	istrstream *iss;
+	std::istream *is;
+	std::ifstream *ifs;
+	std::istrstream *iss;
 
 	char *next_tag(Tag *parent);
 	char *next_tag_pointer(Tag *parent);
@@ -74,7 +74,7 @@ public:
 
 	TagStream(const std::string &path);
 	TagStream(const char *buf);
-	TagStream(istream &i);
+	TagStream(std::istream &i);
 	TagStream();
 	~TagStream();
 	
@@ -96,6 +96,6 @@ public:
 	void setEncoding(const std::string &s)
 	{  encoding=s; }
 	bool write(const std::string &filename="",const std::string &_encoding="");
-	void write(ostream &o) const;
-	void write(ostream &o, const Tag &t, int indent=0, bool indent_first=true) const;
+	void write(std::ostream &o) const;
+	void write(std::ostream &o, const Tag &t, int indent=0, bool indent_first=true) const;
 };

@@ -57,7 +57,7 @@ void MidgardBasicElement::show_list_in_tree(
 }
 
 
-bool MidgardBasicElement::ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const
+bool MidgardBasicElement::ist_lernbar(const std::vector<cH_Typen>& Typ,const std::map<std::string,std::string>& map_typ) const
 {
   for (std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
     if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") 
@@ -97,7 +97,7 @@ bool MidgardBasicElement::ist_gelernt(const std::list<std::string>& L) const
 
 std::string MidgardBasicElement::Standard__(const Abenteurer &A) const
 {
- vector<std::string> s = Standard(A);
+ std::vector<std::string> s = Standard(A);
  std::string s2=s[0];
  if(A.Typ1()->Short()!="" && A.Typ2()->Short()!="") s2+="/";
  if(A.Typ2()->Short()!="") s2+=s[1];
@@ -107,10 +107,10 @@ std::string MidgardBasicElement::Standard__(const Abenteurer &A) const
 vector<std::string> MidgardBasicElement::Standard(const Abenteurer &A) const
 {
  assert(A.getVTyp().size()==2);
- vector<std::string> s(2);
- for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
+ std::vector<std::string> s(2);
+ for(std::map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
    if(A.Typ1()->Short()==i->first) {s[0]=i->second; break;}
- for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
+ for(std::map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
    if(A.Typ2()->Short()==i->first) {s[1]=i->second; break;}
 
  s[0]=AusnahmenString(A.getWerte(),A.Typ1(),s[0]);
@@ -168,14 +168,14 @@ double MidgardBasicElement::Standard_Faktor(const Abenteurer &A) const
   return fac;
 }
 
-bool MidgardBasicElement::standard_one_G(const vector<std::string>& s) const 
+bool MidgardBasicElement::standard_one_G(const std::vector<std::string>& s) const 
 {
  assert(s.size()==2);
  if (s[0] == "G" || s[1] =="G" ) return true;
  return false;
 }
 
-bool MidgardBasicElement::standard_all_S(const vector<std::string>& s) const 
+bool MidgardBasicElement::standard_all_S(const std::vector<std::string>& s) const 
 {
  assert(s.size()==2);
  if (s[0] == "S" && (s[1] =="S" || s[1]=="" )) return true;
@@ -260,7 +260,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
  
  if(What()==WAFFE) 
  {  assert(tag);
-    typedef map<int,const Tag *> map_int_tag_t;
+    typedef std::map<int,const Tag *> map_int_tag_t;
     static map_int_tag_t waffen_schwierigkeit;
     int schwierigkeit=tag->getIntAttr("Schwierigkeit");
     
@@ -284,7 +284,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
     
     // Kosten für steigern_wie suchen: 
     // lokaler Cache, cH_Fertigkeit, dann SteigernKosten
-    typedef map<std::string,const Tag *> map_string_tag_t;
+    typedef std::map<std::string,const Tag *> map_string_tag_t;
     static map_string_tag_t steigern_kosten;
 
     try
@@ -301,7 +301,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
        if (!kosten)
        {  if (steigern_wie_t)
              kosten=steigern_wie_t->find("Kosten");
-          else cerr << "!steigern_wie_t: " << Name() << ',' << What() << '\n';
+          else std::cerr << "!steigern_wie_t: " << Name() << ',' << What() << '\n';
        }
     } 
     catch (const NotFound &e) // keine Fertigkeit
@@ -310,7 +310,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
     }
  }
  if (!kosten) 
- { cerr << "keine Kosten für '" << steigern_wie << "' gefunden\n";
+ { std::cerr << "keine Kosten für '" << steigern_wie << "' gefunden\n";
    return;
  }
  for (int i=1;i<=22;++i)
@@ -327,14 +327,14 @@ std::string utf82iso(const std::string &s);
 void MidgardBasicElement::saveElementliste(Tag &datei,
 			   const std::list<MBEmlt>& b,
                            const Grundwerte& Werte,
-                           const vector<cH_Typen>& Typ)
+                           const std::vector<cH_Typen>& Typ)
 {
   if(b.size()==0) return;
   for (std::list<MBEmlt>::const_iterator i=b.begin();i!=b.end();++i)
    {
       // oder <Beruf Wert=12>Arzt</Beruf> ?
       std::string type=(*(*i))->What_str();
-      if (type.find('.')!=string::npos)
+      if (type.find('.')!=std::string::npos)
          type.replace(type.find('.'),1,"-");
       Tag &t=datei.push_back(Tag(type));
       t.setAttr("Bezeichnung", (*(*i))->Name());

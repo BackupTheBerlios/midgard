@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.18 2002/09/27 19:56:21 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.19 2002/10/24 07:21:01 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -28,11 +28,11 @@ void LaTeX_drucken::Spielleiterbogen()
 {
  const_cast<midgard_CG*>(hauptfenster)->Char.sort_gw(); // sortieren nach Gw
  std::string filename=get_latex_pathname(LaTeX_drucken::TeX_tmp)+get_latex_filename(LaTeX_drucken::TeX_Spielleiter);
- ofstream fout2((filename+".tex").c_str());
+ std::ofstream fout2((filename+".tex").c_str());
 #ifdef __MINGW32__
  orecodestream fout(fout2);
 #else
- ostream &fout=fout2;
+ std::ostream &fout=fout2;
 #endif
  
  LaTeX_header(fout,false,false);           
@@ -58,7 +58,7 @@ void LaTeX_drucken::Spielleiterbogen()
  pdf_viewer(filename);
 }
 
-void LaTeX_drucken::line(ostream &fout,const ewhat &what)
+void LaTeX_drucken::line(std::ostream &fout,const ewhat &what)
 {
   std::string S;
   switch(what)
@@ -120,10 +120,10 @@ void LaTeX_drucken::line(ostream &fout,const ewhat &what)
 }
 
 struct st_is{int e;std::string s;
-      st_is(pair<int,bool> _e,std::string _s) : e(_e.first),s(_s){}
+      st_is(std::pair<int,bool> _e,std::string _s) : e(_e.first),s(_s){}
       st_is(int _e) : e(_e),s(itos(_e)) {}
    };
-void LaTeX_drucken::for_each(ostream &fout,const ewhat& what)
+void LaTeX_drucken::for_each(std::ostream &fout,const ewhat& what)
 {
  const Datenbank &Database=hauptfenster->getCDatabase();
  int maxlength=15;
@@ -204,7 +204,7 @@ void LaTeX_drucken::for_each(ostream &fout,const ewhat& what)
 }
 
 
-void LaTeX_drucken::list_for_each(ostream &fout,const std::list<MBEmlt>& L,const int &maxlength,const std::string& cm)
+void LaTeX_drucken::list_for_each(std::ostream &fout,const std::list<MBEmlt>& L,const int &maxlength,const std::string& cm)
 {
   fout << " & \\parbox{"<<cm<<"}{";
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();)

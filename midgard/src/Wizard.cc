@@ -42,7 +42,7 @@ void Wizard::restart()
 void Wizard::evaluate_step(esteps step)
 {
   assert(vecwiz.size()>(size_t)(step));
-//  vector<cH_Typen> Typ=hauptfenster->getVTyp();
+//  std::vector<cH_Typen> Typ=hauptfenster->getVTyp();
 //cout <<"evaluate_step " <<step<<' '<<LERNSCHEMA_SEITE<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
 //  if(step==LERNSCHEMA_SEITE) { next_step(LERNSCHEMA_SEITE); return;}
 

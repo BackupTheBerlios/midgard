@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.89 2002/10/18 08:36:47 thoma Exp $
+// $Id: Optionen.cc,v 1.90 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -174,7 +174,7 @@ void Midgard_Optionen::setString(std::string os,std::string b)
  
 void Midgard_Optionen::setHausregeln(std::string hs,bool b)
 {
-  for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+  for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
     if(i->text==hs)  
       { 
         i->active=b;
@@ -186,7 +186,7 @@ void Midgard_Optionen::setHausregeln(std::string hs,bool b)
 
 void Midgard_Optionen::setOber(std::string hs,bool b)
 {
-  for(list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
+  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    {
     if(i->text==hs)  
       { 
@@ -201,7 +201,7 @@ void Midgard_Optionen::setOber(std::string hs,bool b)
 
 void Midgard_Optionen::setIcon(std::string hs,bool b)
 {
-  for(list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
+  for(std::list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
    {
     if(i->text==hs)  
       { 
@@ -215,14 +215,14 @@ void Midgard_Optionen::setIcon(std::string hs,bool b)
 
 void Midgard_Optionen::setAllHausregeln(bool b)
 {
-  for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+  for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
      i->active=b;
 }
  
  
 void Midgard_Optionen::setpdfViewer(std::string is,bool b)
 {
-  for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+  for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    {
      if(i->text==is) i->active=b;
      else i->active=!b;
@@ -272,7 +272,7 @@ void Midgard_Optionen::OptionenExecute_setzen_from_menu(OptionenExecuteIndex ind
 
 void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index)
 {
-  for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+  for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
    {
      if(i->index==index) 
       { 
@@ -285,7 +285,7 @@ void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index)
     
 void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index)
 {
-  for(list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
+  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    {
      if(i->index==index) 
       { 
@@ -342,7 +342,7 @@ void Midgard_Optionen::Icon_setzen_from_menu(IconIndex index)
 //  assert(b);
   static bool setbool=true;
   if(setbool==false) return;
-  for(list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
+  for(std::list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
    {
      setbool=false;
      if(i->index!=index) i->active = false;
@@ -355,7 +355,7 @@ void Midgard_Optionen::Icon_setzen_from_menu(IconIndex index)
     
 void Midgard_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
 {
-  for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+  for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    {
      if(i->index==index) i->active = true  ;
      else                i->active = false ;
@@ -472,14 +472,14 @@ void Midgard_Optionen::Icon_init()
 // Lines marked with 'compat' are to maintain compatibility
 void Midgard_Optionen::load_options(const std::string &filename)
 {try {
-  ifstream f(filename.c_str());
-  if (!f.good()) cout << "Cannot open " << filename << '\n';
+  std::ifstream f(filename.c_str());
+  if (!f.good()) std::cout << "Cannot open " << filename << '\n';
   TagStream ts(f);
   // we should use ts.getContent once compatibility is not needed !
   const Tag *data=ts.find("MAGUS-optionen"); // compat
   if (!data) data=ts.find("MAGUS-data");
   if(!data)    
-    { cout << "Optionen konnten nicht geladen werden";
+    { std::cout << "Optionen konnten nicht geladen werden";
       ts.debug();
       return;
     }
@@ -521,13 +521,13 @@ void Midgard_Optionen::load_options(const std::string &filename)
        hauptfenster->push_back_LDateien(i->getAttr("Name"));
    }
 //  hauptfenster->menu_init();
- } catch (std::exception &e) { cerr << e.what() << '\n'; }
+ } catch (std::exception &e) { std::cerr << e.what() << '\n'; }
 }
 
                                                    
 void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *InfoFenster)
 {
-  ofstream datei(filename.c_str());
+  std::ofstream datei(filename.c_str());
   if (!datei.good())
    { 
     hauptfenster->set_status("Ich kann die Optionen nicht speichern");

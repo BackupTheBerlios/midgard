@@ -26,12 +26,12 @@
 #include "config.h"
 #include "glademm_support.hh"
 
-static map<const __STD::string,Gtk::Widget *> glademm_widgets;
+static std::map<const __STD::string,Gtk::Widget *> glademm_widgets;
 
 Gtk::Widget * glademm_get_Widget(const __STD::string &name)
 {   
    
-   map<const __STD::string,Gtk::Widget *>::iterator i=glademm_widgets.find(name);
+   std::map<const __STD::string,Gtk::Widget *>::iterator i=glademm_widgets.find(name);
    if (i==glademm_widgets.end()) return 0;
    return (*i).second;
 }

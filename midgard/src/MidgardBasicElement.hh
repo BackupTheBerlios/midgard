@@ -69,7 +69,7 @@ class MidgardBasicElement : public HandleContentCopyable
       eZusatz enum_zusatz;
 
       std::vector<st_zusatz> Vzusatz;
-      vector<st_ausnahmen> VAusnahmen;
+      std::vector<st_ausnahmen> VAusnahmen;
       bool nsc_only;
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
       /* EP_t (CP) */ int steigern_mit_EP;
@@ -92,10 +92,10 @@ class MidgardBasicElement : public HandleContentCopyable
                  ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT,SINN} ;
       enum TREE {OLD,NEW};
 
-      map<std::string,std::string> get_MapTyp() const {return map_typ;}
+      std::map<std::string,std::string> get_MapTyp() const {return map_typ;}
       
       std::vector<st_zusatz> VZusatz() const {return Vzusatz;}
-      virtual eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const {return enum_zusatz;}
+      virtual eZusatz ZusatzEnum(const std::vector<cH_Typen>& Typ) const {return enum_zusatz;}
  
       bool NSC_only() const {return nsc_only;}
       void EP_steigern(const std::string fert);
@@ -110,11 +110,11 @@ class MidgardBasicElement : public HandleContentCopyable
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
       virtual int MaxErfolgswert(const Abenteurer &A) const {return 0;};
-      bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
+      bool ist_lernbar(const std::vector<cH_Typen>& Typ,const std::map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<std::string>& L) const;
       virtual int FErfolgswert(const Abenteurer &abenteurer,const MBEmlt &mbem) const;
       virtual std::string Voraussetzung() const {return "B U G";}
-      virtual bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const {cerr<<"ERROR in Voraussetzung\n";return false;}
+      virtual bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const {std::cerr<<"ERROR in Voraussetzung\n";return false;}
 
       int get_Steigern_Kosten(int erfolgswert) const;
 
@@ -126,11 +126,11 @@ class MidgardBasicElement : public HandleContentCopyable
 private:
       std::string AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const;
 public:
-      std::string Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ,const std::string s) const;
+      std::string Standard_Faktor(const Grundwerte &Werte,const std::vector<cH_Typen>& Typ,const std::string s) const;
 
       int Kosten(const Abenteurer &A) const ;
-      bool standard_one_G(const vector<std::string>& s) const ;
-      bool standard_all_S(const vector<std::string>& s) const ;
+      bool standard_one_G(const std::vector<std::string>& s) const ;
+      bool standard_all_S(const std::vector<std::string>& s) const ;
       virtual bool operator == (const MidgardBasicElement& b) const 
          {return What()==b.What() && Name()==b.Name();}
       bool operator < (const MidgardBasicElement& b) const 
@@ -146,7 +146,7 @@ public:
       static void saveElementliste(Tag &datei,
       				const std::list<MBEmlt>& b,
                                    const Grundwerte& Werte,
-                                   const vector<cH_Typen>& Typ);
+                                   const std::vector<cH_Typen>& Typ);
 
 };
 

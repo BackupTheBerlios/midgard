@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.16 2002/10/16 08:09:58 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.17 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -194,7 +194,7 @@ void table_grundwerte::on_button_variante_2_clicked(Gtk::Button *button,e_eigen 
 void table_grundwerte::gw_variante_2_next()
 {
   if(!label) return;
-  vector<int> V;
+  std::vector<int> V;
   for(int j=0;j<2;++j) V.push_back(hauptfenster->random.integer(1,100)) ;
   sort(V.rbegin(),V.rend());
   std::string W=itos(V[0])+"("+itos(V[1])+")";
@@ -266,9 +266,9 @@ void table_grundwerte::set_Grundwerte(e_eigen eigenschaft,int wert)
   bool all_insensitive=true;
 //  Gtk::Table_Helpers::TableList &ch=tab->children();
 //  for(Gtk::Table_Helpers::TableList::iterator i=ch.begin();i!=ch.end();++i)
-  for(GList *list=GTK_TABLE(tab->gtkobj())->children;list;list=list->next)
+  for(GList *std::list=GTK_TABLE(tab->gtkobj())->children;std::list;list=std::list->next)
    {
-     Gtk::Widget *x=Gtk::wrap(((GtkTableChild*)(list->data))->widget);
+     Gtk::Widget *x=Gtk::wrap(((GtkTableChild*)(std::list->data))->widget);
      if(Gtk::Button::isA(x) && x->is_sensitive()) all_insensitive=false;
    }
   if(all_insensitive)

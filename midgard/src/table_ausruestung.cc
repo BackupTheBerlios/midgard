@@ -66,7 +66,7 @@ void table_ausruestung::showAusruestung()
   AusruestungBaum &be=hauptfenster->getChar()->getBesitz();
   for(AusruestungBaum::const_iterator i=be.begin();i!=be.end();++i)
    {
-     std::vector <string> v;
+     std::vector <std::string> v;
      v.push_back(i->getAusruestung().Name());
      v.push_back(i->getAusruestung().Material());
      v.push_back(i->getAusruestung().SichtbarStr());
@@ -89,12 +89,12 @@ void table_ausruestung::showAusruestung()
 }
 
 
-void table_ausruestung::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const list<AusruestungBaum> &AB)
+void table_ausruestung::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB)
 {
   Gtk::CTree_Helpers::RowList::iterator n;
   for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
    {
-     std::vector <string> v;
+     std::vector <std::string> v;
      v.push_back(i->getAusruestung().Name());
      v.push_back(i->getAusruestung().Material());
      v.push_back(i->getAusruestung().SichtbarStr());
@@ -111,13 +111,13 @@ bool table_ausruestung::tree_valid(Gtk::CTree_Helpers::SelectionList &selectionL
 {
   if(selectionList.empty())
    {
-      cout<< "Keine Zeile gewählt\n";
+      std::cout<< "Keine Zeile gewählt\n";
       button_ausruestung_loeschen->set_sensitive(true);
       return false;
    }
   if(selectionList.size()>1)
    {
-      cout<< "Zuviele Zeilen gewählt\n";
+      std::cout<< "Zuviele Zeilen gewählt\n";
       button_ausruestung_loeschen->set_sensitive(true);
       return false;
    }
@@ -142,9 +142,9 @@ void table_ausruestung::on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint 
 //cout << "SEL: "<<' '<<A<<'\t'<<  besitz<<'\t'<<A->getAusruestung().Sichtbar()<<'\n';
   besitz=A;
 //cout << "SEL: "<<' '<<A<<'\t'<<  besitz<<'\t'<<besitz->getAusruestung().Material()<<'#'<<'\n';
-//  cout << "SEL: "<<' '<<A<<'\t'<<A->getAusruestung().Name()<<'\n';
+//  std::cout << "SEL: "<<' '<<A<<'\t'<<A->getAusruestung().Name()<<'\n';
 
-//  cout << "SEL: "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
+//  std::cout << "SEL: "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
 }
 
 
@@ -161,7 +161,7 @@ void table_ausruestung::on_ausruestung_loeschen_clicked()
   if(!besitz) return;
   AusruestungBaum *Parent = besitz->getParent();
   if(Parent)  Parent->remove(*besitz);  
-  else cerr << "Keine Herkunftsnode gesetzt\n";
+  else std::cerr << "Keine Herkunftsnode gesetzt\n";
 
 /*
   Gtk::CTree_Helpers::Row parent = selectionList.begin()->get_parent();  

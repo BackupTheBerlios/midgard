@@ -30,7 +30,7 @@ cH_Waffe::cH_Waffe(const std::string& name , bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Waffe '" << name << "' nicht im Cache\n";
+  std::cerr << "Waffe '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Waffe"); 
      // note that this Tag is shared ... works well for now
@@ -213,7 +213,7 @@ std::string Waffe::WM_Abwehr() const
 int Waffe::WM_Angriff(const std::string& name) const 
 {
   if(Name()==name) return 0;
-  for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+  for(std::list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
 {
     if (name==(*i).name) return (*i).angriffs_mod;
 cout << name<<' '<<(*i).name<<'\n';
@@ -226,7 +226,7 @@ std::string Waffe::Schaden(const std::string& name) const
 {
 //cout << "Schaden: "<<name<<' '<<schaden<<'\n';
   if(Name()==name) return schaden;
-  for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+  for(std::list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
     if (name==(*i).name) 
       return (*i).schaden;
   assert(false);
@@ -235,7 +235,7 @@ std::string Waffe::Schaden(const std::string& name) const
 int Waffe::Schaden_Bonus(const std::string& name) const 
 {
   if(Name()==name) return schaden_bonus;
-  for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+  for(std::list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
     if (name==(*i).name) return (*i).schaden_bonus;
   assert(false);
 }
@@ -243,7 +243,7 @@ int Waffe::Schaden_Bonus(const std::string& name) const
 std::string Waffe::Region(const std::string& name) const
 {
   if(Name()==name) return region;
-  for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+  for(std::list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
    if (name==(*i).name) return (*i).region;
   assert(false);
 }
@@ -268,10 +268,10 @@ std::string Waffe::Schwierigkeit_str() const
 
 map<std::string,std::string> Waffe::fill_map_alias_waffe()
 {
-  map<std::string,std::string> M;
+  std::map<std::string,std::string> M;
  const Tag *waffen=xml_data->find("Waffen");
  if (!waffen)
-    cerr << "<Waffen><Waffe/>... nicht gefunden\n";
+    std::cerr << "<Waffen><Waffe/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
     FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
@@ -389,7 +389,7 @@ Waffe_All::Waffe_All()
 {
  const Tag *waffen=xml_data->find("Waffen");
  if (!waffen)
-    cerr << "<Waffen><Waffe/>... nicht gefunden\n";
+    std::cerr << "<Waffen><Waffe/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
     FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")

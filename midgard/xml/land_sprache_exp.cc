@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.53 2002/10/04 20:26:19 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.54 2002/10/24 07:24:02 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -32,14 +32,14 @@ void land_speichern(Tag &o)
    	" order by kontinent");
   while ((query>>is).good())
   {Tag &Kontinent=Laender.push_back(Tag("Kontinent"));
-   string kontinent=fetch_and_set_string_attrib(is, Kontinent, "Name");
+   std::string kontinent=fetch_and_set_string_attrib(is, Kontinent, "Name");
    Query query2("select distinct land from land"
    	" where kontinent='"+kontinent+"'"
    	" order by land");
    FetchIStream is2;
    while ((query2>>is2).good())
    {Tag &Land=Kontinent.push_back(Tag("Land"));
-    string land=fetch_and_set_string_attrib(is2, Land, "Name");
+    std::string land=fetch_and_set_string_attrib(is2, Land, "Name");
     Query query3("select sprache from land"
    	" where kontinent='"+kontinent+"'"
    	" and land='"+land+"'"
@@ -69,7 +69,7 @@ void land_speichern(Tag &o)
    	" order by coalesce(region,''),name");
   while ((query>>is).good())
   {Tag &Schrift=Schriften.push_back(Tag("Schrift"));
-   string schrift=fetch_and_set_string_attrib(is, Schrift, "Name");
+   std::string schrift=fetch_and_set_string_attrib(is, Schrift, "Name");
    fetch_and_set_string_attrib(is, Schrift, "Region");
    fetch_and_set_string_attrib(is, Schrift, "RegionZusatz");
    fetch_and_set_string_attrib(is, Schrift, "Typ");
@@ -259,7 +259,7 @@ void land_speichern(Tag &o)
    fetch_and_set_int_attrib(is, Typ, "MinIn");
    fetch_and_set_int_attrib(is, Typ, "MinpA");
    fetch_and_set_string_attrib(is, Typ, "Berufswahl");
-   string stadt_land=fetch_string(is);
+   std::string stadt_land=fetch_string(is);
    if (stadt_land=="s") Typ.setBoolAttr("Land", false);
    else if (stadt_land=="l") Typ.setBoolAttr("Stadt", false);
    fetch_and_set_string_attrib(is, Typ, "Ausdauer");

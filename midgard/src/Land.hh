@@ -1,4 +1,4 @@
-// $Id: Land.hh,v 1.21 2002/10/04 06:20:12 thoma Exp $               
+// $Id: Land.hh,v 1.22 2002/10/24 07:21:01 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,8 +32,8 @@ class Land  : public HandleContent
 {
    std::string name; 
    std::string kontinent;
-   vector<std::string> vec_sprache;
-   vector<std::string> nachbarlaender;
+   std::vector<std::string> vec_sprache;
+   std::vector<std::string> nachbarlaender;
 
   public:
    Land() {};

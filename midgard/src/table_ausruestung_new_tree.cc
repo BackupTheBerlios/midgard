@@ -24,16 +24,16 @@
 pair<table_ausruestung::e_spalten,std::string> table_ausruestung::enum_from_string(const std::string &s)
 {
   
-  if(s=="Farbe") return pair<table_ausruestung::e_spalten,std::string>(Farbe,"Farbe");
-  else if(s=="Material_K") return pair<table_ausruestung::e_spalten,std::string>(Material,"Material");
-  else if(s=="Material_W") return pair<table_ausruestung::e_spalten,std::string>(Material,"Material");
-  else if(s=="Stand") return pair<table_ausruestung::e_spalten,std::string>(Stand,"Stand");
-  else return pair<table_ausruestung::e_spalten,std::string>(None,"???");
+  if(s=="Farbe") return std::pair<table_ausruestung::e_spalten,std::string>(Farbe,"Farbe");
+  else if(s=="Material_K") return std::pair<table_ausruestung::e_spalten,std::string>(Material,"Material");
+  else if(s=="Material_W") return std::pair<table_ausruestung::e_spalten,std::string>(Material,"Material");
+  else if(s=="Stand") return std::pair<table_ausruestung::e_spalten,std::string>(Stand,"Stand");
+  else return std::pair<table_ausruestung::e_spalten,std::string>(None,"???");
 }
 
 void table_ausruestung::fill_new_tree_titles(const std::map<e_spalten,std::string> &V)
 {
- std::vector<string> preis_;
+ std::vector<std::string> preis_;
  preis_.push_back("Art");
  preis_.push_back("");
  preis_.push_back("Gegenstand");
@@ -77,7 +77,7 @@ void table_ausruestung::fill_new_preise()
         std::map<e_spalten,std::vector<PreiseNewMod::st_preismod> > MS;
         for(std::map<std::string,std::vector<PreiseNewMod::st_preismod> >::const_iterator k=VM.begin();k!=VM.end();++k)
          {
-           pair<e_spalten,std::string> spalte=enum_from_string(k->first);
+           std::pair<e_spalten,std::string> spalte=enum_from_string(k->first);
            for(std::vector<PreiseNewMod::st_preismod>::const_iterator l=k->second.begin();l!=k->second.end();++l)
               MS[spalte.first].push_back(*l);
          }

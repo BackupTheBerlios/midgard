@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.68 2002/10/11 10:35:05 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.69 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,11 +81,11 @@ void LaTeX_drucken::on_latex_clicked(bool values=true)
  
 cout <<"LaTeX: "<< filename<<'\n';
  {
- ofstream fout((filename+".tex").c_str());
+ std::ofstream fout((filename+".tex").c_str());
 #ifdef __MINGW32__
  orecodestream rfout(fout);
 #else
- ostream &rfout=fout;
+ std::ostream &rfout=fout;
 #endif
  if (values) LaTeX_write_values(rfout,installfile);
  else LaTeX_write_empty_values(rfout,installfile);
@@ -105,7 +105,7 @@ cout <<"LaTeX: "<< filename<<'\n';
  pdf_viewer(filename);
 }      
 
-void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_latex_file)
+void LaTeX_drucken::LaTeX_write_values(std::ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
 // fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
@@ -199,7 +199,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
 }
 
 
-void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file)
+void LaTeX_drucken::LaTeX_write_empty_values(std::ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
 // fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
@@ -220,7 +220,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
  fout << WinLux::active_tilde;
 }
 
-void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
+void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty=false)
 {
  for(ewhat was=enamecharakter;was<eMAX; was=ewhat(int(was)+1))
   {
@@ -406,7 +406,7 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
 }
 
 
-void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist=false)
+void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist=false)
 {
   unsigned int sprachanz=0;
   for(std::vector<Sprache_und_Schrift>::const_iterator i=L.begin();i!=L.end();++i)
@@ -447,7 +447,7 @@ void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<Sprache_und_S
    }
 }
 
-void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MBEmlt>& L,bool longlist=false)
+void LaTeX_drucken::write_fertigkeiten(std::ostream &fout,const std::list<MBEmlt>& L,bool longlist=false)
 {
   unsigned int count=0;
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
@@ -490,7 +490,7 @@ struct st_WB{std::string name;std::string wert;std::string schaden;
                                   std::string r,std::string m)
                     : name(n),wert(w),schaden(s),rang(r),modi(m) {}};
 
-void LaTeX_drucken::write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false)
+void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false)
 {
   std::string angriffsverlust = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar()->List_Fertigkeit());
   std::vector<st_WB> VWB;
@@ -559,7 +559,7 @@ void LaTeX_drucken::write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz
 }
 
 
-void LaTeX_drucken::write_universelle(ostream &fout)
+void LaTeX_drucken::write_universelle(std::ostream &fout)
 {
  std::list<Abenteurer::st_universell> UF=hauptfenster->getChar()->List_Universell(hauptfenster->getCDatabase());
  int countunifert=0;
@@ -598,7 +598,7 @@ void LaTeX_drucken::write_universelle(ostream &fout)
 }
 
 
-void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<Sprache_und_Schrift>& S,
+void LaTeX_drucken::write_long_list(std::ostream &fout,const std::vector<Sprache_und_Schrift>& S,
                      const std::list<MBEmlt> &F,
                      const std::list<WaffeBesitz> &WB_druck)
 {
@@ -684,7 +684,7 @@ std::string LaTeX_drucken::LaTeX_string(int i)
    return("0");
 }
 
-void LaTeX_drucken::LaTeX_newsavebox(ostream &fout)
+void LaTeX_drucken::LaTeX_newsavebox(std::ostream &fout)
 {
  fout << WinLux::normal_tilde;
  fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
@@ -720,7 +720,7 @@ void LaTeX_drucken::LaTeX_newsavebox(ostream &fout)
 }
 
 
-void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
+void LaTeX_drucken::LaTeX_kopfzeile(std::ostream &fout,bool landscape,bool newdoc)
 {
  if(newdoc)
   {
@@ -757,7 +757,7 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
  fout <<"\\vspace*{2ex}\n\n";
 }
 
-void LaTeX_drucken::LaTeX_header(ostream &fout,bool landscape,bool kopfzeile)
+void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeile)
 {
  if(landscape) fout << "\\documentclass[a4paper,10pt,landscape]{article}\n" ;
  else   fout << "\\documentclass[a4paper,10pt]{article}\n";
@@ -793,7 +793,7 @@ void LaTeX_drucken::LaTeX_header(ostream &fout,bool landscape,bool kopfzeile)
    fout << "\%% Listenumgebungen\n";
    fout << "\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n";
    fout << "\\newenvironment{punkte}{\n";
-   fout << "\\begin{list}{$\\bullet$}\n";
+   fout << "\\begin{std::list}{$\\bullet$}\n";
    fout << "{\n";
    fout << "\\setlength{\\labelwidth}{0.5cm}\n";
    fout << "\\setlength{\\leftmargin}{1.cm} \n";
@@ -803,12 +803,12 @@ void LaTeX_drucken::LaTeX_header(ostream &fout,bool landscape,bool kopfzeile)
    fout << "\\setlength{\\itemsep}{0.1ex plus0.1ex minus0.1ex}\n";
    fout << "}}\n";
    fout << "{\n";
-   fout << "\\end{list}\n";
+   fout << "\\end{std::list}\n";
    fout << "}\n";
 
 
    fout << "\\newenvironment{punkte2}{\n";
-   fout << "\\begin{list}{$\\star$}\n";   
+   fout << "\\begin{std::list}{$\\star$}\n";   
    fout << "{\n";
    fout << "\\setlength{\\labelwidth}{0.5cm}\n";
    fout << "\\setlength{\\leftmargin}{1.cm} \n";
@@ -818,7 +818,7 @@ void LaTeX_drucken::LaTeX_header(ostream &fout,bool landscape,bool kopfzeile)
    fout << "\\setlength{\\itemsep}{0.0ex plus0.1ex minus0.1ex}\n";
    fout << "}}\n";
    fout << "{\n"; 
-   fout << "\\end{list}\n";
+   fout << "\\end{std::list}\n";
    fout << "}\n";
   }
  fout << "\\newcommand{\\LI}{\\setlength{\\arrayrulewidth}{0.4mm}}\n";
@@ -830,7 +830,7 @@ void LaTeX_drucken::LaTeX_header(ostream &fout,bool landscape,bool kopfzeile)
     LaTeX_kopfzeile(fout,landscape);
 }
  
-void LaTeX_drucken::LaTeX_footer(ostream &fout)
+void LaTeX_drucken::LaTeX_footer(std::ostream &fout)
 {
   fout << "\\end{center}\n";
   fout << "\\end{document}\n\n";
@@ -876,7 +876,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
 
 ///////////////////////////////////////////////////////////////
 
-void LaTeX_drucken::LaTeX_zauber(ostream &fout)
+void LaTeX_drucken::LaTeX_zauber(std::ostream &fout)
 {
   for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Zauber().begin();i!=hauptfenster->getChar()->List_Zauber().end();++i)
    {
@@ -900,7 +900,7 @@ void LaTeX_drucken::LaTeX_zauber(ostream &fout)
    }
 }
 
-void LaTeX_drucken::LaTeX_zaubermittel(ostream &fout)
+void LaTeX_drucken::LaTeX_zaubermittel(std::ostream &fout)
 {
   for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Zauberwerk().begin();i!=hauptfenster->getChar()->List_Zauberwerk().end();++i)
    {
@@ -916,7 +916,7 @@ void LaTeX_drucken::LaTeX_zaubermittel(ostream &fout)
 }
 
 
-void LaTeX_drucken::LaTeX_zauber_main(ostream &fout)
+void LaTeX_drucken::LaTeX_zauber_main(std::ostream &fout)
 {
   fout << "\\begin{center}\n";
   LaTeX_kopfzeile(fout,true,false);
@@ -945,7 +945,7 @@ void LaTeX_drucken::LaTeX_zauber_main(ostream &fout)
 
 /////////////////////////////////////////////////////////////////
 
-void LaTeX_drucken::LaTeX_kido(ostream &fout)
+void LaTeX_drucken::LaTeX_kido(std::ostream &fout)
 {
   for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Kido().begin();i!=hauptfenster->getChar()->List_Kido().end();++i)
    {
@@ -966,7 +966,7 @@ void LaTeX_drucken::LaTeX_kido(ostream &fout)
 }
 
 
-void LaTeX_drucken::LaTeX_kido_main(ostream &fout)
+void LaTeX_drucken::LaTeX_kido_main(std::ostream &fout)
 {
 //  fout << "\\end{center}\n";
   LaTeX_kopfzeile(fout,true,false);

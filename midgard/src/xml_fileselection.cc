@@ -55,7 +55,7 @@ try{
 #ifndef __MINGW32__  
  destroy();
 #endif
-}catch(std::exception &e) {cerr<<e.what()<<'\n';}
+}catch(std::exception &e) {std::cerr<<e.what()<<'\n';}
 }
 
 #ifndef __MINGW32__  

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.288 2002/10/07 09:01:26 thoma Exp $
+// $Id: midgard_CG.hh,v 1.289 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -86,7 +86,7 @@ class midgard_CG : public midgard_CG_glade
         void on_nur_sichtbares_drucken();
         void on_auch_unsichtbares_drucken();
         void on_spielleiterbogen_drucken_activate();
-        void spielleiter_export_save_zauber(ostream& fout);
+        void spielleiter_export_save_zauber(std::ostream& fout);
         
         // Info Fenster
    private: 
@@ -258,8 +258,8 @@ class midgard_CG : public midgard_CG_glade
 
         void set_status(const std::string &s,bool autoclean=true);
    public:
-         midgard_CG(const string &argv0,const string &_magus_verzeichnis,
-                    const string &datei="");
+         midgard_CG(const std::string &argv0,const std::string &_magus_verzeichnis,
+                    const std::string &datei="");
          std::string MagusVerzeichnis() const {return magus_verzeichnis;}
          std::string BinaryVerzeichnis() const;
         std::string with_path(const std::string &name,bool path_only=false,bool noexit=false) const ;

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.41 2002/10/02 14:09:20 christof Exp $
+// $Id: xml.cc,v 1.42 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -69,7 +69,7 @@ static void reserve(Tag *t)
 void xml_init(Gtk::ProgressBar *progressbar, midgard_CG *hauptfenster)
 {  std::string filename=hauptfenster->with_path("midgard.xml");
    if (top) return; // oder merge?
-   {  ifstream in(filename.c_str());
+   {  std::ifstream in(filename.c_str());
       top=new TagStream(in);
    }
 //   xml_data_mutable=&ts.getContent();
@@ -77,7 +77,7 @@ void xml_init(Gtk::ProgressBar *progressbar, midgard_CG *hauptfenster)
    if (!xml_data_mutable) 
       xml_data_mutable=const_cast<Tag*>(top->find("MidgardCG-data"));
    if (!xml_data_mutable) 
-   {  cerr << "Ladefehler XML Datei " << filename << "\n";
+   {  std::cerr << "Ladefehler XML Datei " << filename << "\n";
       exit(2);
    }
    
@@ -101,8 +101,8 @@ reloop:
        ProgressBar::set_percentage(progressbar,++count/anzdateien);
        t2->Type("Region"); // change Type of Tag "MAGUS-include" -> "Region"
        
-       cerr << "loading XML " << file << '\n';
-       ifstream in2(file.c_str());
+       std::cerr << "loading XML " << file << '\n';
+       std::ifstream in2(file.c_str());
        // wenn nicht, URL holen?
        // ab hier sollte man nicht mehr auf i, t2 zugreifen (push_back) !!!
        if (in2.good()) 
@@ -119,11 +119,11 @@ reloop:
           {  if (j->Type().empty()) continue; // inter tag space
              Tag *merge_here;
              if ((merge_here=xml_data_mutable->find(j->Type())))
-             {  // cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
+             {  // std::cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
                 xml_merge(merge_here,&*j);
              }
              else 
-             {  // cout << "initial Tag '"<< j->Type()<<"' from '"<< file << "'\n";
+             {  // std::cout << "initial Tag '"<< j->Type()<<"' from '"<< file << "'\n";
                 xml_data_mutable->push_back(*j);
                 
                 const Tag &newtag=xml_data_mutable->back();
@@ -161,46 +161,46 @@ void xml_free()
 }
 
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
-		const vector<pair<std::string,std::string> > &anforderungen)
+		const std::vector<pair<std::string,std::string> > &anforderungen)
 {
    if (!xml_data)
-   {  cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
-      for (vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
-         cerr << '\'' << i->first << "'='" << i->second << "' ";
-      cerr << ") ohne Daten!\n";
+   {  std::cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
+      for (std::vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
+         std::cerr << '\'' << i->first << "'='" << i->second << "' ";
+      std::cerr << ") ohne Daten!\n";
       return 0;
    }
    
 #ifdef VERBOSE
 cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
-for (vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
+for (std::vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
 cerr << '\'' << i->first << "'='" << i->second << "' ";
 cerr << ")\n";
 #endif
 #ifdef PARANOIA
-{const xml_liste *list=suche_Tageigenschaften(listtag,elementtag);
- if (!list) cerr << "find_Tag " << listtag << ',' << elementtag << ": unbekannt\n";
+{const xml_liste *std::list=suche_Tageigenschaften(listtag,elementtag);
+ if (!std::list) std::cerr << "find_Tag " << listtag << ',' << elementtag << ": unbekannt\n";
  else
- {  const char * const *k=list->key;
-    vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();
+ {  const char * const *k=std::list->key;
+    std::vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();
     for (;*k && i!=anforderungen.end();++i,++k)
     {  if (*k!=i->first)
- 	  cerr << "find_Tag " << listtag << ',' << elementtag << ": key " << i->first << "!=" <<*k<<"\n";
+ 	  std::cerr << "find_Tag " << listtag << ',' << elementtag << ": key " << i->first << "!=" <<*k<<"\n";
     }
     if (*k)
-       cerr << "find_Tag " << listtag << ',' << elementtag << ": missing key " <<*k<<"\n";
+       std::cerr << "find_Tag " << listtag << ',' << elementtag << ": missing key " <<*k<<"\n";
     else if (i!=anforderungen.end())
-       cerr << "find_Tag " << listtag << ',' << elementtag << ": additional key " <<i->first<<"\n";
+       std::cerr << "find_Tag " << listtag << ',' << elementtag << ": additional key " <<i->first<<"\n";
  }
 }
 #endif
  const Tag *liste=xml_data->find(listtag);
  if (!liste)
-    cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
+    std::cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=liste->begin(),e=liste->end();
     FOR_EACH_CONST_TAG_OF_5(i,*liste,b,e,elementtag)
-    {  for (vector<pair<std::string,std::string> >::const_iterator j=anforderungen.begin();
+    {  for (std::vector<pair<std::string,std::string> >::const_iterator j=anforderungen.begin();
     		j!=anforderungen.end();++j)
        {  if (i->getAttr(j->first)!=j->second) goto continue_outer;
        }
@@ -214,8 +214,8 @@ cerr << ")\n";
 
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 		const std::string &name, const std::string &wert)
-{  vector<pair<std::string,std::string> > anforderungen;
-   anforderungen.push_back(pair<std::string,std::string>(name,wert));
+{  std::vector<pair<std::string,std::string> > anforderungen;
+   anforderungen.push_back(std::pair<std::string,std::string>(name,wert));
    return find_Tag(listtag,elementtag,anforderungen);
 }
 
@@ -258,15 +258,15 @@ const struct xml_liste xml_tags[] =
    {  "Zauberwerke",	"Zauberwerk",	zauberwerk_matching },
    {  (const char*)0,	(const char*)0,	(const char*const*)0 }};
    
-const xml_liste *suche_Tageigenschaften(const std::string &list, const std::string &elem)
+const xml_liste *suche_Tageigenschaften(const std::string &std::list, const std::string &elem)
 {  const xml_liste *result=xml_tags;
-//   cerr << "suche_Tageigenschaften " << art << '\n';
+//   std::cerr << "suche_Tageigenschaften " << art << '\n';
    for (;result->listtag;++result)
-      if (result->listtag==list && result->elementtag==elem) return result;
+      if (result->listtag==std::list && result->elementtag==elem) return result;
    return 0;
 }
 
-static bool attr_is_key(const string &tag, const char * const *key)
+static bool attr_is_key(const std::string &tag, const char * const *key)
 {  while (*key && *key!=tag) ++key;
    return (*key)!=0;
 }
@@ -324,7 +324,7 @@ static std::string make_key(const xml_liste &tagprops,const Tag &t)
 
 static void xml_merge(Tag *merge_here, const Tag *tomerge)
 {  // suche nach tomerge->getAttr("name");
-//   cout << "merge " << merge_here->Type() << ',' << tomerge->Type() << '\n';
+//   std::cout << "merge " << merge_here->Type() << ',' << tomerge->Type() << '\n';
    const xml_liste *tagprops=0;
    FOR_EACH_CONST_TAG(i,*tomerge)
    {  if (i->Type().empty()) continue;
@@ -332,7 +332,7 @@ static void xml_merge(Tag *merge_here, const Tag *tomerge)
       if (!tagprops || tagprops->elementtag!=i->Type())
          tagprops=suche_Tageigenschaften(tomerge->Type(),i->Type());
       if (!tagprops)
-      {  cerr << "Can't find properties for Tag '" << i->Type() << "'\n";
+      {  std::cerr << "Can't find properties for Tag '" << i->Type() << "'\n";
          continue;
       }
 //      std::cout << make_key(*tagprops,*i) << '\n';
@@ -353,7 +353,7 @@ static void xml_merge(Tag *merge_here, const Tag *tomerge)
          goto continue_i;
       }
       // not found
-//      cerr << "pushing back " << i->getAttr("Name") << '\n';
+//      std::cerr << "pushing back " << i->getAttr("Name") << '\n';
       merge_here->push_back(*i);
       fastfind_cache[make_key(*tagprops,*i)]=merge_here->end()-merge_here->begin()-1;
     continue_i:

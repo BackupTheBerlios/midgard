@@ -48,7 +48,7 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
       MBEmlt M=getSelectedNotebookLernen();
       spinbutton_pp_eingeben->set_value(M->Praxispunkte());
       spinbutton_pp_eingeben->show();
-     }catch(TreeBase::noRowSelected &e) {/*cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");*/}
+     }catch(TreeBase::noRowSelected &e) {/*std::cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");*/}
    }
   else
    {
@@ -164,7 +164,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  try{
  MBEmlt M=getSelectedNotebookLernen();
  modify(PP,M,MidgardBasicElement::st_zusatz(""),PPanz);
- }catch(TreeBase::noRowSelected &e) {cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
+ }catch(TreeBase::noRowSelected &e) {std::cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
      MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,hauptfenster); 

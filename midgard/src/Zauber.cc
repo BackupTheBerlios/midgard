@@ -33,7 +33,7 @@ cH_Zauber::cH_Zauber(const std::string& name, bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Zauber '" << name << "' nicht im Cache\n";
+  std::cerr << "Zauber '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Spruch"); 
      // note that this Tag is shared ... works well for now
@@ -186,7 +186,7 @@ Zauber_All::Zauber_All()
 {
  const Tag *zauber=xml_data->find("Zauber");
  if (!zauber)
-    cerr << "<Zauber><Spruch/>... nicht gefunden\n";
+    std::cerr << "<Zauber><Spruch/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=zauber->begin(),e=zauber->end();
     FOR_EACH_CONST_TAG_OF_5(i,*zauber,b,e,"Spruch")

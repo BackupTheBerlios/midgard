@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.37 2002/10/18 08:36:47 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.38 2002/10/24 07:21:00 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -74,7 +74,7 @@ public:
    std::string STyp() const ;
    void setTyp1(cH_Typen t) {Typ[0]=t;}
    void setTyp2(cH_Typen t) {Typ[1]=t;}
-   const vector<cH_Typen> &getVTyp() const {return Typ;}
+   const std::vector<cH_Typen> &getVTyp() const {return Typ;}
    bool is_mage() const ;
    std::string Muttersprache() const {return muttersprache;}
    void setMuttersprache(std::string s) {muttersprache=s;}
@@ -120,11 +120,11 @@ public:
    std::list<MBEmlt>& List_Sprache()  {return list_Sprache;} 
    std::list<MBEmlt>& List_Schrift()  {return list_Schrift;}
 
-   void speicherstream(ostream &datei, const Datenbank &Database,const Midgard_Optionen *Optionen);
+   void speicherstream(std::ostream &datei, const Datenbank &Database,const Midgard_Optionen *Optionen);
    void grundwerte_speichern(Tag &);
-   void save_ausruestung(Tag &datei,const list<AusruestungBaum> &AB);
+   void save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB);
 
-   bool xml_import_stream(istream &datei, Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
+   bool xml_import_stream(std::istream &datei, Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
    void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
 
@@ -135,7 +135,7 @@ public:
 
 
    // (bool==true) => gelernt ; (bool==false) => universell(oder garnicht)
-   const pair<int,bool> Erfolgswert(std::string name,const Datenbank &Database) const;
+   const std::pair<int,bool> Erfolgswert(std::string name,const Datenbank &Database) const;
    const std::string SErfolgswert(std::string name,const Datenbank &Database) const;
 
    void setAngebFert();

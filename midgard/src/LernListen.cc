@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.18 2002/10/18 08:36:47 thoma Exp $
+// $Id: LernListen.cc,v 1.19 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -144,9 +144,9 @@ std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer& A,bool 
       if (region_check((*i)->Region()) && nsc_check(nsc_allowed,(*i)->NSC_only()))       
        {
          if((*i)->Mindestwerte(A.getWerte()))
-            V.push_back(pair<cH_Typen,bool>(*i,true));
+            V.push_back(std::pair<cH_Typen,bool>(*i,true));
          else 
-            V.push_back(pair<cH_Typen,bool>(*i,false));
+            V.push_back(std::pair<cH_Typen,bool>(*i,false));
        }
    }
   return V;
@@ -160,7 +160,7 @@ std::vector<pair<cH_Land,bool> > LernListen::getHerkunft(const Abenteurer& A) co
   std::vector<pair<cH_Land,bool> > V;
   for (std::vector<cH_Land>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     V.push_back(pair<cH_Land,bool>(*i,(*i)->ist_erlaubt(A)));
+     V.push_back(std::pair<cH_Land,bool>(*i,(*i)->ist_erlaubt(A)));
    }
   return V;
 }

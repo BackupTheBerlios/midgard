@@ -30,7 +30,7 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name, bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Fertigkeit '" << name << "' nicht im Cache\n";
+  std::cerr << "Fertigkeit '" << name << "' nicht im Cache\n";
   const Tag *t=find_Tag("Fertigkeiten","Fertigkeit","Name",name);
   if (t) *this=cH_Fertigkeit(t);
   else if (create)
@@ -106,7 +106,7 @@ void Fertigkeit::get_Fertigkeit()
          std::string pos=i->getAttr("Position");
          if(pos=="Besitz") epos=Besitz;
          else if(pos=="Rucksack") epos=Rucksack;
-         else {cerr <<"Falsche Position für "<<Name()<<'\n'; continue;}
+         else {std::cerr <<"Falsche Position für "<<Name()<<'\n'; continue;}
          vec_Besitz.push_back(st_besitz(i->getAttr("Name"),
                               i->getIntAttr("Min"),
                               epos));
@@ -164,7 +164,7 @@ FertEnd:
 }
 
 
-MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const vector<cH_Typen>& Typ) const
+MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const std::vector<cH_Typen>& Typ) const
 {
   if(Name()=="Abrichten" && (Typ[0]->Short()=="Tm" || Typ[1]->Short()=="Tm" ||
                              Typ[0]->Short()=="Wi" || Typ[1]->Short()=="Wi"))
@@ -180,7 +180,7 @@ int Fertigkeit::FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) const
   else return mbem->Erfolgswert();
 }
 
-//int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+//int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const
 int Fertigkeit::MaxErfolgswert(const Abenteurer& A) const
 {
 //cout << Name()<<" Maximaler Erfolgswert = "<<maxerfolgswert<<'+'
@@ -231,7 +231,7 @@ Fertigkeiten_All::Fertigkeiten_All()
 {
  const Tag *fertigkeiten=xml_data->find("Fertigkeiten");
  if (!fertigkeiten)
-    cerr << "<Fertigkeiten><Fertigkeit/>... nicht gefunden\n";
+    std::cerr << "<Fertigkeiten><Fertigkeit/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=fertigkeiten->begin(),e=fertigkeiten->end();
     for (Tag::const_iterator i=fertigkeiten->find(b,"Fertigkeit");

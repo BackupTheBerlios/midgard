@@ -1,4 +1,4 @@
-// $Id: Midgard_Undo.hh,v 1.3 2002/06/24 10:51:30 christof Exp $
+// $Id: Midgard_Undo.hh,v 1.4 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ class Midgard_Undo
             st_undo(int c,std::string t,std::string s)
                    : count(c),text(t),speicher(s) {} };
   private:
-     vector<st_undo> VU;
+     std::vector<st_undo> VU;
      unsigned int count;
      void clear(unsigned int c) {VU.resize(c);}
 
@@ -39,7 +39,7 @@ class Midgard_Undo
     Midgard_Undo():count(0) {}
 
     void clear() {VU.clear();}
-    vector<st_undo> get_V() {return VU;}
+    std::vector<st_undo> get_V() {return VU;}
     void push_back(std::string text,std::string speicher);
      
     std::string get_last();

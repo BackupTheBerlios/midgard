@@ -36,7 +36,7 @@ cH_Prototyp::cH_Prototyp(const std::string& name,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Prototyp '" << name << "' nicht im Cache\n";
+  std::cerr << "Prototyp '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Prototyp"); 
      // note that this Tag is shared ... works well for now

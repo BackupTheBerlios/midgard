@@ -28,7 +28,7 @@ cH_WaffeGrund::cH_WaffeGrund(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Waffengrundfert. '" << name << "' nicht im Cache\n";
+  std::cerr << "Waffengrundfert. '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Waffen-Grundkenntnis");
      // note that this Tag is shared ... works well for now

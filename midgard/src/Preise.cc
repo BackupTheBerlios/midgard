@@ -20,7 +20,7 @@
 #include "Preise.hh"
 #include <Misc/itos.h>
 
-bool operator!=(const cH_Preise &a, const string &b)
+bool operator!=(const cH_Preise &a, const std::string &b)
 {  return a->Name()!=b; }
 
 
@@ -32,7 +32,7 @@ cH_Preise::cH_Preise(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Preis '" << name << "' nicht im Cache\n";
+  std::cerr << "Preis '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Kaufpreis"); 
      // note that this Tag is shared ... works well for now
@@ -116,7 +116,7 @@ cH_PreiseNewMod::cH_PreiseNewMod(const std::string& name, bool create)
  if (cached) *this=*cached;
  else
   {  
-  cerr << "PreiseNewMod '" << name << "' nicht im Cache\n";
+  std::cerr << "PreiseNewMod '" << name << "' nicht im Cache\n";
   if (create)
   {  
      static Tag t2("Spruch");

@@ -126,7 +126,7 @@ reloop:
          ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
 //         if(ci==V.end()) assert(!"Muttersprache nicht im Lernschema gefunden");
          if(ci==V.end()) 
-            { cerr << "Zu blöd für Schreiben: Muttersprache(+9)\n";
+            { std::cerr << "Zu blöd für Schreiben: Muttersprache(+9)\n";
 //              const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
               throw std::exception();
             }
@@ -138,14 +138,14 @@ reloop:
          mutter_12=false;
          ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+12)")));
          if(ci==V.end()) 
-            { cerr << "Zu blöd für Schreiben: Muttersprache(+12)\n";
+            { std::cerr << "Zu blöd für Schreiben: Muttersprache(+12)\n";
               const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
               throw std::exception();
             }
 //cout << Aben.Typ1()->Name(Enums::Mann) <<" lernt Fach Sprache\n";
        }
      else i=random.integer(0,V.size()-1);
-     }catch(std::exception &e){cerr << e.what()<<'\n';i=random.integer(0,V.size()-1);} 
+     }catch(std::exception &e){std::cerr << e.what()<<'\n';i=random.integer(0,V.size()-1);} 
 //if(i==0)
 //cout << V[0]->Name()<<'\t'<<V[0].Lernpunkte()<<'\t'<<V[0].Pflicht()<<'\n';
      MBEmlt M=V[0];

@@ -1,4 +1,4 @@
-// $Id: recodestream.h,v 1.1 2002/06/29 20:39:30 christof Exp $
+// $Id: recodestream.h,v 1.2 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -44,13 +44,13 @@ protected:
       return __n;
    }
 private:
-   ostream &o;
+   std::ostream &o;
 };
 
 class orecodestream : public std::ostream 
 {	recodebuf b;
 public:
-	orecodestream(ostream &o) : std::ostream(0), b(o)
+	orecodestream(std::ostream &o) : std::ostream(0), b(o)
 	{  this->init(&b);
 	}
 };

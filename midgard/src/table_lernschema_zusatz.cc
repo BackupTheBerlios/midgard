@@ -249,7 +249,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
         {
           std::vector<std::string> V=hauptfenster->getWerte().Herkunft()->Sprachen();
           std::vector<std::string> W;
-          for(vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
+          for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
             if(!cH_Sprache(*i)->Alte_Sprache()) W.push_back(*i) ;
           std::string s,label;
           for(std::vector<std::string>::const_iterator i=W.begin();i!=W.end();)
@@ -363,7 +363,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
 
 gint table_lernschema::on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev)
 {
-  cout << "leave out\n";
+  std::cout << "leave out\n";
   return false;
 }
 

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.48 2002/10/01 11:07:10 christof Exp $            
+// $Id: Abenteurer.cc,v 1.49 2002/10/24 07:21:00 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -54,24 +54,24 @@ std::string Abenteurer::STyp() const
 
 const std::string Abenteurer::SErfolgswert(std::string name,const Datenbank &Database) const
 {
-  pair<int,bool> w=Erfolgswert(name,Database);
+  std::pair<int,bool> w=Erfolgswert(name,Database);
   if(w.first==-99) return "";
   if(w.second) return itos(w.first);
   if(!w.second) return "("+itos(w.first)+")";
 }
 
-const pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
+const std::pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
 {
   for(std::list<MBEmlt>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
    {
-     if(name==(*(*i))->Name()) return pair<int,bool>((*i)->Erfolgswert(),true); 
+     if(name==(*(*i))->Name()) return std::pair<int,bool>((*i)->Erfolgswert(),true); 
    }   
   std::list<st_universell> UF=List_Universell(Database);
   for(std::list<st_universell>::const_iterator i=UF.begin();i!=UF.end();++i)
    {
-     if(name==(*i->mbe)->Name()) return pair<int,bool>(i->mbe->Erfolgswert(),false); 
+     if(name==(*i->mbe)->Name()) return std::pair<int,bool>(i->mbe->Erfolgswert(),false); 
    }   
-  return pair<int,bool>(-99,false);
+  return std::pair<int,bool>(-99,false);
 }
 
 
@@ -191,7 +191,7 @@ bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
 
 
 
-void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen)
+void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen)
 {
    TagStream ts;
    ts.setEncoding("ISO-8859-1");
@@ -357,7 +357,7 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Text.setAttr_ne("Bild", getWerte().BeschreibungPix());
 }
 
-void Abenteurer::save_ausruestung(Tag &datei,const list<AusruestungBaum> &AB)
+void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB)
 {  
   for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
    {  Tag &Ggs=datei.push_back(Tag("Gegenstand"));
@@ -379,7 +379,7 @@ const std::string Abenteurer::Beruf() const
 
 ///////////////////////////////////////////////////////////////////////////////
 
-bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
+bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
    Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
 {
    reset();

@@ -134,7 +134,7 @@ cH_Region::cH_Region(const std::string& name,bool create)
   }
  else
   {
-  cerr << "Region '" << name << "' nicht im Cache\n";
+  std::cerr << "Region '" << name << "' nicht im Cache\n";
   throw NotFound();
   }
 }

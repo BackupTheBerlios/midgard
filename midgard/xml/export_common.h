@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.27 2002/10/23 16:26:48 christof Exp $
+// $Id: export_common.h,v 1.28 2002/10/24 07:24:02 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -57,8 +57,8 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
 	const std::string &typtable, const std::string &lernsch_art,
 	const std::string &ausnahmen_art);
 std::string Herkunft(bool invert=false);
-void region_tags(Tag &t, const string &region, const string &version);
-void kaufpreis(Tag &t, const string &art, const string &name);
+void region_tags(Tag &t, const std::string &region, const std::string &version);
+void kaufpreis(Tag &t, const std::string &art, const std::string &name);
 
 void arkanum_speichern(Tag &t);
 void land_speichern(Tag &t);

@@ -151,7 +151,7 @@ void table_grundwerte::fill_spezies()
   std::vector<std::string> L;
   bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
   std::vector<cH_Spezies>V=LernListen(hauptfenster->getDatabase()).getSpezies(nsc_allowed);
-  for(vector<cH_Spezies>::const_iterator i=V.begin();i!=V.end();++i)
+  for(std::vector<cH_Spezies>::const_iterator i=V.begin();i!=V.end();++i)
    {
      L.push_back((*i)->Name());
    }
@@ -188,7 +188,7 @@ void table_grundwerte::spezieswahl_button()
 
 /*
  bool ok=false;
- for(vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
+ for(std::vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
    {
      if((*i)->Name()==spezies)
       {

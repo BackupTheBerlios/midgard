@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.12 2002/07/10 09:31:37 christof Exp $
+// $Id: xml.h,v 1.13 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,7 +25,7 @@
 
 extern const Tag *xml_data;
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
-		const vector<pair<std::string,std::string> > &anforderungen);
+		const std::vector<pair<std::string,std::string> > &anforderungen);
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 		const std::string &name, const std::string &wert);
 
@@ -37,7 +37,7 @@ struct xml_liste
 
 extern const struct xml_liste xml_tags[];
 // suche nach elementtag
-const xml_liste *suche_Tageigenschaften(const std::string &list,const std::string &elem);
+const xml_liste *suche_Tageigenschaften(const std::string &std::list,const std::string &elem);
 
 namespace Gtk { class ProgressBar; }
 class midgard_CG;

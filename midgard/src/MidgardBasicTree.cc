@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.22 2002/10/15 06:37:10 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.23 2002/10/24 07:21:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,7 +63,7 @@ int MidgardBasicTree::Cols(variante V)
 
 void MidgardBasicTree::set_tree_titles(variante V)
 {
-  vector<std::string> vs;
+  std::vector<std::string> vs;
   if(V==GELERNTES)
    {
       vs.push_back("Art");

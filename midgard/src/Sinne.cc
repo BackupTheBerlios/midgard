@@ -27,7 +27,7 @@ cH_Sinne::cH_Sinne(const std::string& name,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Sinne '" << name << "' nicht im Cache\n";
+  std::cerr << "Sinne '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Sinne"); 
      // note that this Tag is shared ... works well for now

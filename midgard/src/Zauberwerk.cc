@@ -32,7 +32,7 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
  if (cached) *this=*cached;
  else
   {
-  cerr << "Zauberwerk '" << name << "' nicht im Cache\n";
+  std::cerr << "Zauberwerk '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Zauberwerk"); 
      // note that this Tag is shared ... works well for now
@@ -138,7 +138,7 @@ Zauberwerk_All::Zauberwerk_All()
 {
  const Tag *zauberwerke=xml_data->find("Zauberwerke");
  if (!zauberwerke)
-    cerr << "<Zauberwerke><Zauberwerk/>... nicht gefunden\n";
+    std::cerr << "<Zauberwerke><Zauberwerk/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=zauberwerke->begin(),e=zauberwerke->end();
     FOR_EACH_CONST_TAG_OF_5(i,*zauberwerke,b,e,"Zauberwerk")

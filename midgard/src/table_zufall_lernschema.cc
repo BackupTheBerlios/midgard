@@ -53,7 +53,7 @@ void table_zufall::on_button_zufall_voll_clicked()
       Zufall::e_Vorgabe v=getVorgaben(oldAben);
       zufall.Teil(v,oldAben);
     }
-   }catch (std::exception &e) { cerr << e.what()<<'\n';}
+   }catch (std::exception &e) { std::cerr << e.what()<<'\n';}
    MO->setOber(noinfofenster,old_value);
    hauptfenster->frame_lernschema->set_sensitive(true);
    hauptfenster->frame_steigern->set_sensitive(true);

@@ -31,7 +31,7 @@ cH_Schrift::cH_Schrift(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
- cerr << "Schrift '" << name << "' nicht im Cache\n";
+ std::cerr << "Schrift '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Schrift"); 
      // note that this Tag is shared ... works well for now
@@ -64,8 +64,8 @@ bool Schrift::kann_Sprache(const std::list<MBEmlt>& sprache) const
 {
  for(std::list<MBEmlt>::const_iterator i=sprache.begin();i!=sprache.end();++i)
   {
-   vector<std::string> V=cH_Sprache((*i)->getMBE())->Schrift();
-   for(vector<std::string>::const_iterator j=V.begin();j!=V.end();++j)
+   std::vector<std::string> V=cH_Sprache((*i)->getMBE())->Schrift();
+   for(std::vector<std::string>::const_iterator j=V.begin();j!=V.end();++j)
       if(*j==Name()) return true ;
   }  
  return false;

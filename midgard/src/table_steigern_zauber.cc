@@ -32,7 +32,7 @@ void table_steigern::on_zauber_laden_clicked()
                                            hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,
                                            togglebutton_alle_zauber->get_active(),
                                            togglebutton_spruchrolle->get_active());
- }catch(std::exception &e) {cerr << e.what()<<'\n';}
+ }catch(std::exception &e) {std::cerr << e.what()<<'\n';}
   zauber_zeigen();
 }
 

@@ -70,8 +70,8 @@ void midgard_CG::menu_init()
      std::string labeltext=(*i)->Name();
 /*
      if (labeltext.size()>11)
-     {  string::size_type pos=0;
-        while ((pos=labeltext.find(' ',pos))!=string::npos)
+     {  std::string::size_type pos=0;
+        while ((pos=labeltext.find(' ',pos))!=std::string::npos)
         {  labeltext.replace(pos,1,'\n');
         }
      }
@@ -197,8 +197,8 @@ reloop:
      std::string labeltext=(*i)->Name();
 /*
      if (labeltext.size()>11)
-     {  string::size_type pos=0;
-        while ((pos=labeltext.find(' ',pos))!=string::npos)
+     {  std::string::size_type pos=0;
+        while ((pos=labeltext.find(' ',pos))!=std::string::npos)
         {  labeltext.replace(pos,1,'\n');
         }
      }

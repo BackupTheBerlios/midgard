@@ -34,7 +34,7 @@ cH_Sprache::cH_Sprache(const std::string& name,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Sprache '" << name << "' nicht im Cache\n";
+  std::cerr << "Sprache '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Sprache"); 
      // note that this Tag is shared ... works well for now
@@ -87,7 +87,7 @@ int Sprache::MaxErfolgswert(const Abenteurer& A) const
 std::string Sprache::Schriften() const
 {
   std::string s;
-  for(vector<std::string>::const_iterator j=VSchrift.begin();j!=VSchrift.end();)
+  for(std::vector<std::string>::const_iterator j=VSchrift.begin();j!=VSchrift.end();)
    {
      s=*j;
      if(++j!=VSchrift.end()) s+=", ";
@@ -102,7 +102,7 @@ const Sprache_und_Schrift Sprache::SchriftWert(int erfolgswert,bool gelernt,cons
  MBEmlt mbe(&*this);
  mbe->setErfolgswert(erfolgswert);
  Sprache_und_Schrift sus(mbe,gelernt);
- for(vector<std::string>::const_iterator i=VSchrift.begin();i!=VSchrift.end();++i)
+ for(std::vector<std::string>::const_iterator i=VSchrift.begin();i!=VSchrift.end();++i)
   {  
    for(std::list<MBEmlt>::const_iterator j=list_Schrift.begin();j!=list_Schrift.end();++j)
     {
@@ -115,8 +115,8 @@ const Sprache_und_Schrift Sprache::SchriftWert(int erfolgswert,bool gelernt,cons
 
 bool Sprache::Sprachgruppe(const std::vector<int>& V2) const
 {
-  for(vector<int>::const_iterator j=V_sprachgruppe.begin();j!=V_sprachgruppe.end();++j)
-    for(vector<int>::const_iterator k=V2.begin();k!=V2.end();++k)
+  for(std::vector<int>::const_iterator j=V_sprachgruppe.begin();j!=V_sprachgruppe.end();++j)
+    for(std::vector<int>::const_iterator k=V2.begin();k!=V2.end();++k)
       if(*j==*k) return true;
   return false;
 }

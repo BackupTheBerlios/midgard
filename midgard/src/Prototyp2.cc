@@ -38,7 +38,7 @@ double Prototyp2::fac_for(const std::string &art, const std::string &name, const
      std::vector<st_protolisten> PL;
      if     (art=="Z") PL=(*i)->LZauber();
      else if(art=="F") PL=(*i)->LFertigkeiten();
-     else {cerr << "Art = "<<art<<'\n'; assert(!"Art nicht definiert");}
+     else {std::cerr << "Art = "<<art<<'\n'; assert(!"Art nicht definiert");}
      std::vector<st_protolisten>::const_iterator j=find(PL.begin(),PL.end(),name);
      if(j!=PL.end())
       {
@@ -61,7 +61,7 @@ cH_Prototyp2::cH_Prototyp2(const std::string& name,bool create)
  if (cached) *this=*cached;
  else
   {
-  cerr << "Prototyp2 '" << name << "' nicht im Cache\n";
+  std::cerr << "Prototyp2 '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Prototyp2"); 
      // note that this Tag is shared ... works well for now
@@ -88,7 +88,7 @@ Prototyp2::Prototyp2(const Tag *tag)
                     i->getAttr("Name"),i->getFloatAttr("Faktor")));
       else if(art=="F") lfertigkeiten.push_back(st_protolisten(
                     i->getAttr("Name"),i->getFloatAttr("Faktor")));
-      else {cerr << "Art = "<<art<<'\n'; assert(!"Art nicht definiert");}
+      else {std::cerr << "Art = "<<art<<'\n'; assert(!"Art nicht definiert");}
     }
 
 }

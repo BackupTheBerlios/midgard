@@ -102,8 +102,8 @@ int Grad_anstieg::get_Schicksalsgunst(int grad)   const
 int Grad_anstieg::get_Grad(int gfp) const
 {
  if(gfp<0)gfp=0;
- map<int,st_grad>::const_reverse_iterator e=map_grad.rend();
- for(map<int,st_grad>::const_reverse_iterator i=map_grad.rbegin();i!=e;++i)
+ std::map<int,st_grad>::const_reverse_iterator e=map_grad.rend();
+ for(std::map<int,st_grad>::const_reverse_iterator i=map_grad.rbegin();i!=e;++i)
    { 
 //cout<<gfp<<'\t'<< i->second.gfp<<'\t'<<i->first<<'\n';
     if( i->second.gfp <= gfp) 

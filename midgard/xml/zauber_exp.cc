@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.19 2002/10/23 16:26:48 christof Exp $
+// $Id: zauber_exp.cc,v 1.20 2002/10/24 07:24:02 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -186,7 +186,7 @@ void arkanum_speichern(Tag &o)
   {Tag &sg=o.push_back(Tag("Spezialgebiete"));
    Query query("select typ, spezialgebiet, nr, spezial, spezial2"
   	" from spezialgebiete"
-   	" where typ in (" + string(region.empty()?"'Ma'":"'eBe'") +
+   	" where typ in (" + std::string(region.empty()?"'Ma'":"'eBe'") +
   	") order by typ,nr");
    FetchIStream is;
    while ((query>>is).good())

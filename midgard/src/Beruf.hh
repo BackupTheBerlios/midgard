@@ -59,13 +59,13 @@ class Beruf : public MidgardBasicElement
      std::string What_str() const {return "Beruf";}
 
      bool Stand(const std::string& stand) const;
-     bool Typ(const vector<cH_Typen>& Typ) const;
+     bool Typ(const std::vector<cH_Typen>& Typ) const;
      bool Land() const {return land;}
      bool Stadt() const {return stadt;}
 
      std::vector<st_vorteil> Vorteile() const {return vorteile;}
 //     std::string Beruf::get_Vorteile() const;
-     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+     int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 
       // true = Zusatzfertigkeit

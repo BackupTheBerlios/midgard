@@ -36,7 +36,7 @@ class Fertigkeit_angeborene : public MidgardBasicElement
      int FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) const;
      int Min() const {return min;}
      int Max() const {return max;}
-     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+     int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 };
 

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.41 2002/09/27 19:56:21 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.42 2002/10/24 07:21:01 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -136,7 +136,7 @@ int Grundwerte::bo_Za() const
   return bo_za;
 }
 
-int Grundwerte::bo_Psy(const vector<cH_Typen>& Typ) const
+int Grundwerte::bo_Psy(const std::vector<cH_Typen>& Typ) const
 {
  int bo_psy;  
  if(Spezies()->Psy(*this)) 
@@ -172,7 +172,7 @@ int Grundwerte::bo_Psy(const vector<cH_Typen>& Typ) const
   return bo_psy;
 }
 
-int Grundwerte::bo_Phs(const vector<cH_Typen>& Typ) const
+int Grundwerte::bo_Phs(const std::vector<cH_Typen>& Typ) const
 {
  int bo_phs;
  if(Spezies()->Phs(*this)) 
@@ -208,7 +208,7 @@ int Grundwerte::bo_Phs(const vector<cH_Typen>& Typ) const
   return bo_phs;
 }
 
-int Grundwerte::bo_Phk(const vector<cH_Typen>& Typ) const
+int Grundwerte::bo_Phk(const std::vector<cH_Typen>& Typ) const
 {
   int bo_phk =0;   
  if(Spezies()->Phk(*this)) 
@@ -226,7 +226,7 @@ int Grundwerte::bo_Phk(const vector<cH_Typen>& Typ) const
   return bo_phk;
 }
 
-const std::string Grundwerte::Resistenzen_alle(const vector<cH_Typen>& Typ) const
+const std::string Grundwerte::Resistenzen_alle(const std::vector<cH_Typen>& Typ) const
 {
  int R=Resistenz();
  int R1=R+bo_Psy(Typ);
@@ -282,7 +282,7 @@ std::string Grundwerte::Version() const
   return version;
 }
 
-void Grundwerte::setGrad1Werte(const vector<cH_Typen>& Typ)
+void Grundwerte::setGrad1Werte(const std::vector<cH_Typen>& Typ)
 {
   setSinn("Sechster Sinn",Zt()/25);
   setAbwehr_wert(11) ;

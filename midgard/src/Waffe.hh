@@ -62,7 +62,7 @@ class Waffe : public MidgardBasicElement
      enum MBEE What() const {return MidgardBasicElement::WAFFE;}
      std::string What_str() const {return "Waffe";}
 
-     const list<st_alias>& Alias() const {return list_alias;}     
+     const std::list<st_alias>& Alias() const {return list_alias;}     
      std::string Grundkenntnis() const {return grundkenntnisse;}
      int LernLand() const {return lern_land;}
      int LernStadt() const {return lern_stadt;}
@@ -85,7 +85,7 @@ class Waffe : public MidgardBasicElement
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
 
      bool Grundkenntnis_vorhanden(const std::list<MBEmlt>&) const;
-     int Maxwert(const vector<cH_Typen>& Typ) const;
+     int Maxwert(const std::vector<cH_Typen>& Typ) const;
      int MaxErfolgswert(const Abenteurer &A) const; 
 
 
