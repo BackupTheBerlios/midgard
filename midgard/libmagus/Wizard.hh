@@ -33,5 +33,7 @@ public:
     void next_step(const Abenteurer &A);
     void skip_if_possible(const Abenteurer &A);
     void done(esteps was,const Abenteurer &A);
+    
+    void restart(const Abenteurer &A) { set(START,A); }
 };
 #endif

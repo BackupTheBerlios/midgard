@@ -14,9 +14,9 @@
 #  define _FRAME_DRUCKEN_HH
 
 class midgard_CG;
-#include "Optionen.hh"
+#include "Magus_Optionen.hh"
 #include <gtkmm/radiobutton.h>
-
+#include <gtkmm/entry.h>
 
 class frame_drucken : public frame_drucken_glade
 {  

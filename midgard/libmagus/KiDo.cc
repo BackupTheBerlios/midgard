@@ -133,3 +133,16 @@ void KiDo_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
    if (is_new) list.push_back(&*z);
 }
 
+bool cH_KiDo::sort::operator() (MBEmlt _x,MBEmlt _y) const
+{ 
+   cH_KiDo x(_x->getMBE());
+   cH_KiDo y(_y->getMBE());
+   switch(es) {
+      default:
+      case(HOHO) : return x->HoHo() < y->HoHo()  ;
+      case(NAME) : return x->Deutsch() < y->Deutsch()  ;
+      case(STUFE): return x->Stufe() < y->Stufe();
+      case(AP)   : return x->Ap() < y->Ap() ;
+      case(STIL) : return x->Stil() < y->Stil() ;
+   }
+}

@@ -21,7 +21,7 @@
 #include "Waffe.hh"
 #include "xml_fileselection.hh"
 #include <Misc/itos.h>
-
+#include <libmagus/Ausgabe.hh>
 
 void midgard_CG::on_speichern()
 {
@@ -32,11 +32,9 @@ void midgard_CG::on_speichern()
 void midgard_CG::xml_export_auswahl()
 { 
    if(Char->Name_Abenteurer().empty())
-    { Ausgabe(Ausgabe::Error,"Der Abenteurer braucht noch einen Namen"); 
+    { Ausgabe(Ausgabe::ActionNeeded,"Der Abenteurer braucht noch einen Namen"); 
       notebook_main->set_current_page(PAGE_GRUNDWERTE);
-//      table_grundwerte->togglebutton_edit_werte->set_active(true);
-      table_grundwerte->edit_werte=true;
-      table_grundwerte->entry_nameC->grab_focus();
+      table_grundwerte->NamenEingeben();
       return;}
  (new xml_fileselection(this,xml_fileselection::Save/*"Abenteurer speichern"*/));
 }
@@ -51,11 +49,9 @@ void midgard_CG::save_existing_filename()
 void midgard_CG::xml_export(const std::string& dateiname)
 {  
    if(Char->Name_Abenteurer().empty())
-    { Ausgabe(Ausgabe::Error,"Der Abenteurer braucht noch einen Namen"); 
+    { Ausgabe(Ausgabe::ActionNeeded,"Der Abenteurer braucht noch einen Namen"); 
       notebook_main->set_current_page(PAGE_GRUNDWERTE);
-      table_grundwerte->edit_werte=true;
-//      table_grundwerte->togglebutton_edit_werte->set_active(true);
-      table_grundwerte->entry_nameC->grab_focus();
+      table_grundwerte->NamenEingeben();
       return;}
    Char.setFilename(dateiname);
    frame_steigern->set_sensitive(true);
@@ -66,7 +62,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
       Ausgabe(Ausgabe::Error,"Ich kann die Datei '"+dateiname+"' nicht beschreiben");
       return;
    }
-  Char->speicherstream(datei,getCDatabase(),getCOptionen());
+  Char->speicherstream(datei);
   Char.saved();   
   push_back_LDateien(dateiname);
   if(notebook_main->get_current_page() == PAGE_NEWS)

@@ -22,6 +22,7 @@
 #include <Misc/itos.h>
 #include <bool_CheckMenuItem.hh>
 #include <RefPtr_Pixmap.hh>
+#include "Region_GUI.hh"
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 Gtk::Box &midgard_CG::make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild,const bool hbox)
@@ -55,7 +56,7 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *trennlinie = (Gtk::MenuItem *)&schummel_menu->items().back();
   trennlinie->show();
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Magus_Optionen::Original).active,make_gtk_box(MagusImage("midgard_logo_tiny.xpm"),"Originalregeln ")));
+  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(getChar().proxies.check[Optionen::Original],make_gtk_box(MagusImage("midgard_logo_tiny.xpm"),"Originalregeln ")));
   schummel_menu->append(*_M);}
 
   {Gtk::MenuItem *_M = Gtk::manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
@@ -68,7 +69,7 @@ void midgard_CG::menu_init()
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
   schummel_menu->append(*_M);}
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Optionen::NSC_only).active,"NSC-Modus"));
+  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(getChar().proxies.check[Optionen::NSC_only],"NSC-Modus"));
   schummel_menu->append(*_M);}
 
   menu_kontext->append(*schummel);
@@ -102,7 +103,7 @@ void midgard_CG::menu_init()
   Gtk::Menu *regionen_menu = Gtk::manage(new class Gtk::Menu());
   Gtk::MenuItem *regionen = Gtk::manage(new class Gtk::MenuItem("Regionen")); 
   regionen->set_submenu(*regionen_menu);
-  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+  for(std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();i!=Datenbank.Regionen.end();++i)
    {
      if((*i)->Nr()<=0) continue;
      std::string labeltext=(*i)->Name();
@@ -215,7 +216,7 @@ void midgard_CG::menubar_init()
   Gtk::Menu *regionen_menu = Gtk::manage(new class Gtk::Menu());
   main_menubar->items().insert(--main_menubar->items().end(),Gtk::Menu_Helpers::MenuElem("_Regionen",Gtk::Menu_Helpers::AccelKey("<Control>R"), *regionen_menu));
 
-  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+  for(std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();i!=Datenbank.Regionen.end();++i)
    {
      if((*i)->Nr()<=0) continue;
      std::string labeltext=(*i)->Name();

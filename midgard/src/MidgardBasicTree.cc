@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.26 2003/09/01 06:47:58 christof Exp $
+// $Id: MidgardBasicTree.cc,v 1.27 2003/09/08 06:27:52 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,6 +18,7 @@
  */
 
 #include "MidgardBasicTree.hh"
+#include "class_SimpleTree.hh"
 
 MidgardBasicTree::MidgardBasicTree(variante V)
 : SimpleTree(Cols(V))

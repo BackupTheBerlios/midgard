@@ -25,8 +25,7 @@ void midgard_CG::set_wizard(std::string s)
   label_wizard->set_text(s);
 }
 
-
-
+#if 0
 void midgard_CG::wizard_do_something()
 {
   if(!wizard) return;
@@ -53,6 +52,7 @@ void midgard_CG::wizard_do_something()
   if(e==Wizard::SPEICHERN) xml_export_auswahl();
 
 }
+#endif
 
 void midgard_CG::on_neuer_abenteurer_mit_wizard_activate()
 {
@@ -62,8 +62,8 @@ void midgard_CG::on_neuer_abenteurer_mit_wizard_activate()
 void midgard_CG::on_wizard_starten_activate()
 {
  on_neuer_charakter_clicked();
- MOptionen->WerteEingebenModel()=false;
- wizard->restart();
+ Programmoptionen.WerteEingebenModel()=false;
+ getChar().getWizard().restart(getAben());
 }
 
 void midgard_CG::on_wizard_beenden_activate()

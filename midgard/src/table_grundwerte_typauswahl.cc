@@ -21,6 +21,7 @@
 #include <SelectMatching.h>
 #include "LernListen.hh"
 #include <Misc/Trace.h>
+#include "MagusDialog.hh"
 
 void table_grundwerte::fill_typauswahl()
 {
@@ -29,7 +30,7 @@ void table_grundwerte::fill_typauswahl()
   fill_typauswahl_fill(1);
   if (!hauptfenster->getAben().getVTyp().empty()) 
    {
-     combo_typ->get_entry()->set_text(hauptfenster->getAben().Typ1()->Name(hauptfenster->Geschlecht()));
+     combo_typ->get_entry()->set_text(hauptfenster->getAben().Typ1()->Name(hauptfenster->getAben().Geschlecht()));
    }
 }
 
@@ -38,7 +39,7 @@ void table_grundwerte::fill_typauswahl_2()
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(!hauptfenster) return;
   fill_typauswahl_fill(2);
-  combo_typ2->get_entry()->set_text(hauptfenster->getAben().Typ2()->Name(hauptfenster->Geschlecht()));
+  combo_typ2->get_entry()->set_text(hauptfenster->getAben().Typ2()->Name(hauptfenster->getAben().Geschlecht()));
 }
 
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
@@ -52,9 +53,9 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
      if(typ_1_2==2 && i->first->Zaubern()!="z") continue;
          {
            if(i->second)
-              L.push_back(i->first->Name(hauptfenster->Geschlecht()));
+              L.push_back(i->first->Name(hauptfenster->getAben().Geschlecht()));
            else
-              L.push_back("("+i->first->Name(hauptfenster->Geschlecht())+")");
+              L.push_back("("+i->first->Name(hauptfenster->getAben().Geschlecht())+")");
          }
    }
  block_changed=true;
@@ -93,7 +94,7 @@ void table_grundwerte::typauswahl_button()
 
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 
- if(hauptfenster->Spezies()->Land()) 
+ if(hauptfenster->getAben().Spezies()->Land()) 
    {
      radiobutton_land->set_active(true);
      radiobutton_stadt->set_sensitive(false);
@@ -153,7 +154,7 @@ void table_grundwerte::fill_spezies()
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   std::vector<std::string> L;
-  bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Optionen::NSC_only).active;
+  bool nsc_allowed = hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active;
   std::vector<cH_Spezies>V=LernListen().getSpezies(nsc_allowed);
   for(std::vector<cH_Spezies>::const_iterator i=V.begin();i!=V.end();++i)
    {
@@ -188,15 +189,17 @@ void table_grundwerte::spezieswahl_button()
  std::string spezies=combo_spezies->get_entry()->get_text();
  if(!Spezies::get_Spezies_from_long(Datenbank.Spezies,spezies))
    return;
- hauptfenster->getWerte() = Grundwerte();
- hauptfenster->setSpezies(Spezies::getSpezies(spezies,Datenbank.Spezies));
+ hauptfenster->getChar()->getWerte() = Grundwerte();
+ hauptfenster->getChar()->setSpezies(Spezies::getSpezies(spezies,Datenbank.Spezies));
 
 // hauptfenster->getChar().undosave("Spezies gewählt");
  fill_typauswahl();
 
- if (hauptfenster->Spezies()->Name()=="Elf")
-   hauptfenster->InfoFenster->AppendShow("Soll dieser Elf ein Doppeltyp-Abenteurer sein?",WindowInfo::Elf_doppel);
-   
+ if (hauptfenster->getChar()->Spezies()->Name()=="Elf")
+ { MagusDialog d(hauptfenster);
+   d.set_text("Soll dieser Elf ein Doppeltyp-Abenteurer sein?");
+   if (d.run()==Gtk::RESPONSE_OK) doppelcharaktere();
+ }  
  hauptfenster->getChar().getWizard().done(Wizard::SPEZIES,hauptfenster->getAben());
 }
 
@@ -206,8 +209,8 @@ void table_grundwerte::on_radiobutton_stadt_land_toggled()
   if(block_changed) return;
   hauptfenster->getChar().getWizard().done(Wizard::STADTLAND,hauptfenster->getAben());
 
-  if(radiobutton_stadt->get_active()) hauptfenster->setStadtLand(Enums::Stadt);   
-  else                                hauptfenster->setStadtLand(Enums::Land);   
+  if(radiobutton_stadt->get_active()) hauptfenster->getAben().setStadtLand(Enums::Stadt);   
+  else                                hauptfenster->getAben().setStadtLand(Enums::Land);   
 }
 
 
@@ -227,18 +230,18 @@ void table_grundwerte::on_radiobutton_mann_toggled()
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(block_changed) return;
   hauptfenster->getChar().getWizard().done(Wizard::GESCHLECHT,hauptfenster->getAben());
-  Enums::geschlecht oldG=hauptfenster->Geschlecht();
-  if (radiobutton_mann->get_active()) hauptfenster->setGeschlecht(Enums::Mann);
-  else hauptfenster->setGeschlecht(Enums::Frau);
-  if(oldG!=hauptfenster->Geschlecht() && hauptfenster->Groesse() && hauptfenster->Spezies()->Name()=="Mensch")
+  Enums::geschlecht oldG=hauptfenster->getAben().Geschlecht();
+  if (radiobutton_mann->get_active()) hauptfenster->getAben().setGeschlecht(Enums::Mann);
+  else hauptfenster->getAben().setGeschlecht(Enums::Frau);
+  if(oldG!=hauptfenster->getAben(). Geschlecht() && hauptfenster->getAben(). Groesse() && hauptfenster->getAben(). Spezies()->Name()=="Mensch")
    {
-     if( hauptfenster->Geschlecht()==Enums::Frau) hauptfenster->setGroesse(hauptfenster->Groesse()-10);
-     if( hauptfenster->Geschlecht()==Enums::Mann) hauptfenster->setGroesse(hauptfenster->Groesse()+10);
+     if( hauptfenster->getAben(). Geschlecht()==Enums::Frau) hauptfenster->getAben(). setGroesse(hauptfenster->getAben(). Groesse()-10);
+     if( hauptfenster->getAben(). Geschlecht()==Enums::Mann) hauptfenster->getAben(). setGroesse(hauptfenster->getAben(). Groesse()+10);
    }
-  if(oldG!=hauptfenster->Geschlecht() && hauptfenster->Gewicht() && hauptfenster->Spezies()->Name()=="Mensch")
+  if(oldG!=hauptfenster->getChar()->Geschlecht() && hauptfenster->getChar()->Gewicht() && hauptfenster->getChar()->Spezies()->Name()=="Mensch")
    {
-     if( hauptfenster->Geschlecht()==Enums::Frau) hauptfenster->setGewicht(hauptfenster->Gewicht()-4);
-     if( hauptfenster->Geschlecht()==Enums::Mann) hauptfenster->setGewicht(hauptfenster->Gewicht()+4);
+     if( hauptfenster->getChar()->Geschlecht()==Enums::Frau) hauptfenster->getChar()->setGewicht(hauptfenster->getChar()->Gewicht()-4);
+     if( hauptfenster->getChar()->Geschlecht()==Enums::Mann) hauptfenster->getChar()->setGewicht(hauptfenster->getChar()->Gewicht()+4);
    }
   fill_typauswahl();
   fill_typauswahl_2();
@@ -253,7 +256,7 @@ void table_grundwerte::kaempfer_lernt_zaubern()
   hauptfenster->notebook_main->set_current_page(midgard_CG::PAGE_GRUNDWERTE);
   doppelcharaktere();
   hauptfenster->InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
-  if (hauptfenster->Zaubern_wert()==2) 
-      hauptfenster->setZaubern_wert(10);
+  if (hauptfenster->getChar()->Zaubern_wert()==2) 
+      hauptfenster->getChar()->setZaubern_wert(10);
 }
 */

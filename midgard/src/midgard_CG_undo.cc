@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.18 2003/09/01 06:47:58 christof Exp $
+// $Id: midgard_CG_undo.cc,v 1.19 2003/09/08 06:27:52 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,21 +18,13 @@
  */
 
 #include "midgard_CG.hh"
-#include "Abenteurer.hh"
 #include <sstream>
-
-void midgard_CG::undosave(std::string s)
-{
-  Char.modified();
-//  modify_bool=true;
-  std::stringstream ss;
-  Char->speicherstream(ss,getCDatabase(),getCOptionen());
-  MidgardUndo.push_back(s,ss.str());
-}
+#include <libmagus/Ausgabe.hh>
+#include "Midgard_Undo.hh"
 
 void midgard_CG::show_undo_tree()
 {
-  const std::vector<Midgard_Undo::st_undo> &V=MidgardUndo.get_V();
+  const std::vector<Midgard_Undo::st_undo> &V=getChar().getUndo().get_V();
   std::vector<cH_RowDataBase> datavec;
   for(std::vector<Midgard_Undo::st_undo>::const_iterator i=V.begin();i!=V.end();++i)
      datavec.push_back(new Data_Undo(*i));
@@ -42,27 +34,24 @@ void midgard_CG::show_undo_tree()
 void midgard_CG::on_undo_leaf_selected(cH_RowDataBase d)
 {
   const Data_Undo *dt=dynamic_cast<const Data_Undo*>(&*d);
-  std::stringstream s;
-  s<<MidgardUndo.get(dt->getIndex());
-  Char->xml_import_stream(s,getDatabase(),getOptionen(),this);
+  std::stringstream s(getChar().getUndo().get(dt->getIndex()));
+  Char->xml_import_stream(s);
   Ausgabe(Ausgabe::Log,"Alten Zustand wieder hergestellt");
   undo_tree->get_selection()->unselect_all();
 }
 
 void midgard_CG::on_button_redo_clicked()
 {
-  std::stringstream s;
-  s<<MidgardUndo.get_next();
-  Char->xml_import_stream(s,getDatabase(),getOptionen(),this);
+  std::stringstream s(getChar().getUndo().get_next());
+  Char->xml_import_stream(s);
   load_for_mainpage(notebook_main->get_current_page());
 }
 
 
 void midgard_CG::on_button_undo_clicked()
 {
-  std::stringstream s;
-  s<<MidgardUndo.get_last();
-  Char->xml_import_stream(s,getDatabase(),getOptionen(),this);
+  std::stringstream s(getChar().getUndo().get_last());
+  Char->xml_import_stream(s);
   load_for_mainpage(notebook_main->get_current_page());
 }
 
@@ -72,13 +61,13 @@ static void PosCalc(GtkMenu *menu,gint *x,gint *y,gboolean *push_in,gpointer use
 }
 
 void midgard_CG::on_undo_secondpressed(int mbutton)
-{  if (MidgardUndo.get_V().size()!=undo_tree->getModel().getDataVec().size()) 
+{  if (getChar().getUndo().get_V().size()!=undo_tree->getModel().getDataVec().size()) 
       show_undo_tree();
    if (undo_menu) delete undo_menu;
    undo_menu=new Gtk::Menu();
    const SimpleTreeModel::datavec_t &vec=undo_tree->getModel().getDataVec();
-   Midgard_Undo::const_iterator i=MidgardUndo.current_iter();
-   if (i==MidgardUndo.end()) return;
+   Midgard_Undo::const_iterator i=getChar().getUndo().current_iter();
+   if (i==getChar().getUndo().end()) return;
    for (unsigned count=0; count<10; --i,++count)
    {  assert(i->count<vec.size());
       Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->text));
@@ -86,22 +75,22 @@ void midgard_CG::on_undo_secondpressed(int mbutton)
       mi->show();
       mi->signal_activate().connect(SigC::bind(SigC::slot(*this,
       		&midgard_CG::on_undo_leaf_selected),vec[i->count]));
-      if (i==MidgardUndo.begin()) break;
+      if (i==getChar().getUndo().begin()) break;
    }
    gtk_menu_popup(undo_menu->gobj(),0,0,&PosCalc,0,0,0);
 }
 
 void midgard_CG::on_redo_secondpressed(int mbutton)
-{  if (MidgardUndo.get_V().size()!=undo_tree->getModel().getDataVec().size()) 
+{  if (getChar().getUndo().get_V().size()!=undo_tree->getModel().getDataVec().size()) 
       show_undo_tree();
    if (undo_menu) delete undo_menu;
    undo_menu=new Gtk::Menu();
    const SimpleTreeModel::datavec_t &vec=undo_tree->getModel().getDataVec();
-   Midgard_Undo::const_iterator i=MidgardUndo.current_iter();
-   if (i==MidgardUndo.end()) return;
-   if (++i==MidgardUndo.end()) return;
+   Midgard_Undo::const_iterator i=getChar().getUndo().current_iter();
+   if (i==getChar().getUndo().end()) return;
+   if (++i==getChar().getUndo().end()) return;
    for (unsigned count=0; count<10; ++i,++count)
-   {  if (i==MidgardUndo.end()) break;
+   {  if (i==getChar().getUndo().end()) break;
       assert(i->count<vec.size());
       Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->text));
       undo_menu->add(*mi);

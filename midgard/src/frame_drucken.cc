@@ -3,7 +3,6 @@
 #include "frame_drucken.hh"
 
 #include<list>
-#include "Optionen.hh"
 #include "midgard_CG.hh"
 #include "xml_fileselection.hh"
 
@@ -16,10 +15,9 @@ void frame_drucken::set_Hauptfenster(midgard_CG *h)
 void frame_drucken::init()
 {
   bool_changed=false;
-  if(!hauptfenster) assert(!"");
-  if(!(hauptfenster->getOptionen())) assert(!"");
+  assert(hauptfenster);
   Gtk::Table *table=Gtk::manage(new Gtk::Table(1,1,false));
-  std::list<Magus_Optionen::st_pdfViewer> L=hauptfenster->getOptionen()->getPDF();  
+  std::list<Magus_Optionen::st_pdfViewer> L=Programmoptionen.getPDF();  
   Gtk::RadioButton::Group _RadioMGroup_pdfViewer;
   int count=0;
   for(std::list<Magus_Optionen::st_pdfViewer>::const_iterator i=L.begin();i!=L.end();++i)
@@ -37,7 +35,7 @@ void frame_drucken::init()
    }
  entry=Gtk::manage(new class Gtk::Entry());
  entry->signal_changed().connect(SigC::slot(*this,&frame_drucken::entry_changed));
- entry->set_text(hauptfenster->getOptionen()->Viewer());
+ entry->set_text(Programmoptionen.Viewer());
  entry->signal_focus_out_event().connect(SigC::slot(*this,&frame_drucken::entry_focus_out));
  table->attach(*entry,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
  table->show_all();
@@ -49,17 +47,17 @@ void frame_drucken::element_activate(Gtk::RadioButton *rb,Magus_Optionen::pdfVie
 {
  if(rb->get_active())
   {
-   hauptfenster->getOptionen()->pdfViewer_setzen_from_menu(index);       
+   Programmoptionen.pdfViewer_setzen_from_menu(index);       
    if(index==Magus_Optionen::anderer) 
-       hauptfenster->getOptionen()->setString(Magus_Optionen::pdf_viewer,entry->get_text());
+       Programmoptionen.setString(Magus_Optionen::pdf_viewer,entry->get_text());
   }
 }
 
 void frame_drucken::entry_changed()
 {
   bool_changed=true;
-  hauptfenster->getOptionen()->pdfViewer_setzen_from_menu(Magus_Optionen::anderer); 
-  hauptfenster->getOptionen()->setString(Magus_Optionen::pdf_viewer,entry->get_text());    
+  Programmoptionen.pdfViewer_setzen_from_menu(Magus_Optionen::anderer); 
+  Programmoptionen.setString(Magus_Optionen::pdf_viewer,entry->get_text());    
 }
 
 bool frame_drucken::entry_focus_out(GdkEventFocus *ev)

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.221 2003/09/01 06:47:58 christof Exp $
+# $Id: Makefile.am,v 1.222 2003/09/08 06:27:52 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -120,7 +120,7 @@ magus_SOURCES = $(PORT_FILES) \
    midgard_CG_new.cc \
    Wizard.cc \
    frame_globale_optionen.cc \
-   Midgard_Optionen.cc \
+   Optionen_GUI.cc \
    table_optionen.cc \
    table_optionen_glade.cc \
    frame_icons.cc \

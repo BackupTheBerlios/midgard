@@ -13,16 +13,13 @@
 #  include "frame_icons_glade.hh"
 #  define _FRAME_ICONS_HH
 
-
 class midgard_CG;
-#include "Optionen.hh"
+#include <libmagus/Magus_Optionen.hh>
 #include <gtkmm/radiobutton.h>
-
 
 class frame_icons : public frame_icons_glade
 {  
         
-        friend class frame_icons_glade;
         midgard_CG *hauptfenster;
 
 //        void element_activate(Gtk::RadioButton *rb,Magus_Optionen::IconIndex index);

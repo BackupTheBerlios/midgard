@@ -75,6 +75,16 @@ private:
         void set_Grundwerte(e_eigen eigenschaft,int wert);
         void Schwachpunkt_wuerfeln();
 
+	// besser noch mit libmagus realisieren
+	void grundwerte_wuerfeln();
+	void Eigenschaften_variante(int i);
+	void check_350(const std::vector<int>& a=std::vector<int>());
+	void gw_wuerfeln_2x();
+	int constraint_gw(int);
+	int constraint_aw(int);
+	int wuerfeln_best_of_two();
+	void midgard_check_werte100();
+
         // Für Variante 2
         int actual_wurf;
         void gw_variante_2();

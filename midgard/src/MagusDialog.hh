@@ -1,4 +1,4 @@
-// $Id: MagusDialog.hh,v 1.2 2003/09/02 06:22:47 christof Exp $
+// $Id: MagusDialog.hh,v 1.3 2003/09/08 06:27:52 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -25,16 +25,7 @@
 
 class MagusDialog : public MagusDialog_glade
 {  
-   public:
-        enum emodus {None,Autoclean/*,ZaubernLernen*//*,PraxisPunkteMBE*/,
-                     /*PraxisPunkteAnderes,*/Exit_ohne_speichern,Elf_doppel,
-                     LernenMitSpruchrolle};
-   private:
-//        void on_button_abbrechen_clicked();
-//        void on_button_bestaetigen_clicked();
-
         bool on_WindowInfo_delete_event(GdkEventAny *ev);
-        emodus Modus;
    public:
         MagusDialog(Gtk::Window *w);
         void set_text(const std::string& s);

@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.6 2003/09/04 12:17:40 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.7 2003/09/08 06:27:52 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -93,6 +93,7 @@ class VAbenteurer : public SigC::Object // um signale zu empfangen
       AbenteurerLernpunkte &getLernpunkte() { return actualIterator()->ab_lp; }
       const AbenteurerLernpunkte &getLernpunkte() const { return actualIterator()->ab_lp; }
       Wizard &getWizard() { return actualIterator()->wizard; }
+      Midgard_Undo &getUndo() { return actualIterator()->undo; }
       void undosave(const std::string &s);
    const Abenteurer *operator->() const
    {  return &actualIterator()->abenteurer; }

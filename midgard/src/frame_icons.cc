@@ -4,6 +4,7 @@
 
 #include "midgard_CG.hh"
 #include <bool_CheckButton.hh>
+#include <libmagus/Magus_Optionen.hh>
 
 void frame_icons::set_Hauptfenster(midgard_CG *h)
 {
@@ -12,10 +13,9 @@ void frame_icons::set_Hauptfenster(midgard_CG *h)
 
 void frame_icons::init() 
 {
- if(!hauptfenster) assert(!"");
- if(!(hauptfenster->getOptionen())) assert(!"");
+ assert(hauptfenster);
  Gtk::Table *table=manage(new Gtk::Table(1,1,false));
- std::list<Magus_Optionen::st_Icon> &L=hauptfenster->getOptionen()->getIcon();
+ std::list<Magus_Optionen::st_Icon> &L=Programmoptionen.getIcon();
  int count=0;
  for(std::list<Magus_Optionen::st_Icon>::iterator i=L.begin();i!=L.end();++i)
   {
@@ -30,6 +30,6 @@ void frame_icons::init()
 
 void frame_icons::element_activate(gpointer gp,Magus_Optionen::IconIndex index)
 {
-  hauptfenster->getOptionen()->Icon_setzen_from_menu(index);
+  Programmoptionen.Icon_setzen_from_menu(index);
 }
 

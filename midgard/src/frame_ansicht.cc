@@ -22,10 +22,9 @@ static void wert_changed(gpointer gp)
 
 void frame_ansicht::init()
 {
- if(!hauptfenster) assert(!"");
- if(!(hauptfenster->getOptionen())) assert(!"");
+ assert(hauptfenster);
  Gtk::Table *table=manage(new Gtk::Table(1,1,false));  
- std::list<Magus_Optionen::st_Ober> &L=hauptfenster->getOptionen()->getOber();
+ std::list<Magus_Optionen::st_Ober> &L=Programmoptionen.getOber();
  int count=0;
  for(std::list<Magus_Optionen::st_Ober>::iterator i=L.begin();i!=L.end();++i)
   {
@@ -42,5 +41,5 @@ void frame_ansicht::init()
 
 void frame_ansicht::element_activate(gpointer gp,Magus_Optionen::OberIndex index)
 {
-  hauptfenster->getOptionen()->Ober_setzen_from_menu(index);
+  Programmoptionen.Ober_setzen_from_menu(index);
 }   

@@ -23,6 +23,7 @@
 #include "Sprache.hh"
 #include "Zauber.hh"
 #include <Misc/itos.h>
+#include <libmagus/Ausgabe.hh>
 
 bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
@@ -59,14 +60,12 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
  //////////////////////////////////////////////////////////////////////////
- std::string info;
  Abenteurer::e_wie_steigern wie=get_wie_steigern();
  Abenteurer::st_bool_steigern bool_steigern=get_bool_steigern();
  
  if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getAben()))
     {
-      bool ok=hauptfenster->getAben().steigere(MBE,info,wie,bool_steigern);
-      Ausgabe(Ausgabe::Error,info);
+      bool ok=hauptfenster->getAben().steigere(MBE,wie,bool_steigern);
       if(!ok) return false;
     }
  else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getAben()))
@@ -97,7 +96,7 @@ const Enums::e_wie_steigern table_steigern::get_wie_steigern()
 const Enums::st_bool_steigern table_steigern::get_bool_steigern()
 {
  return Enums::st_bool_steigern(steigern_mit_EP_bool,
-         hauptfenster->getOptionen()->HausregelCheck(Magus_Optionen::Gold).active,
+         hauptfenster->getAben().getOptionen().HausregelCheck(Optionen::Gold).active,
          togglebutton_spruchrolle->get_active(),
          !radio_spruchrolle_wuerfeln->get_active(),
          radiobutton_pp_hoch_wie_geht->get_active(),
@@ -123,9 +122,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 
 void table_steigern::neu_lernen(MBEmlt &MBE,const int bonus)
 {
- std::string info;
  bool ok=hauptfenster->getAben().neu_lernen(MBE,get_wie_steigern(),get_bool_steigern(),bonus);
- Ausgabe(Ausgabe::Error,info,false);
  if(!ok) return ;
 //ab hier neuer code:
  Abenteurer &A=hauptfenster->getAben();

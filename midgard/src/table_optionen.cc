@@ -3,13 +3,14 @@
 #include "table_optionen.hh"
 #include "midgard_CG.hh"
 #include "xml_fileselection.hh"
+#include <libmagus/Magus_Optionen.hh>
 
 void table_optionen::init()
 {
- entry_html->set_text(hauptfenster->getOptionen()->getString(Magus_Optionen::html_viewer));
- entry_tmp_verz->set_text(hauptfenster->getOptionen()->getString(Magus_Optionen::tmppfad));
- entry_speicher_verz->set_text(hauptfenster->getOptionen()->getString(Magus_Optionen::speicherpfad));
- spinbutton_datei_history->set_value(hauptfenster->getOptionen()->DateiHistory());
+ entry_html->set_text(Programmoptionen.getString(Magus_Optionen::html_viewer));
+ entry_tmp_verz->set_text(Programmoptionen.getString(Magus_Optionen::tmppfad));
+ entry_speicher_verz->set_text(Programmoptionen.getString(Magus_Optionen::speicherpfad));
+ spinbutton_datei_history->set_value(Programmoptionen.DateiHistory());
  
  frame_drucken->init();
  frame_globale_optionen->init();
@@ -31,26 +32,26 @@ void table_optionen::set_Hauptfenster(midgard_CG *h)
 
 void table_optionen::on_entry_html_changed()
 {  
- hauptfenster->getOptionen()->setString(Magus_Optionen::html_viewer,
+ Programmoptionen.setString(Magus_Optionen::html_viewer,
       entry_html->get_text());
 }
 
 void table_optionen::on_entry_tmp_verz_changed()
 {  
- hauptfenster->getOptionen()->setString(Magus_Optionen::tmppfad,
+ Programmoptionen.setString(Magus_Optionen::tmppfad,
       entry_tmp_verz->get_text());
 }
 
 void table_optionen::on_entry_speicher_verz_changed()
 {  
- hauptfenster->getOptionen()->setString(Magus_Optionen::speicherpfad,
+ Programmoptionen.setString(Magus_Optionen::speicherpfad,
       entry_speicher_verz->get_text());
 }
 
 void table_optionen::on_spinbutton_datei_history_changed()
 {
   spinbutton_datei_history->update();
-  hauptfenster->getOptionen()->setDateiHistory(
+  Programmoptionen.setDateiHistory(
       spinbutton_datei_history->get_value_as_int());
 }
 

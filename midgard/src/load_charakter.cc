@@ -18,11 +18,11 @@
 
 #include "midgard_CG.hh"
 #include <Misc/itos.h>
-
 #include <Misc/TagStream.h>
 #include "WindowInfo.hh"
 #include "xml_fileselection.hh"
 //#include <SelectMatching.h>
+#include <libmagus/Ausgabe.hh>
 
 void midgard_CG::on_laden()
 {
@@ -44,17 +44,18 @@ void midgard_CG::xml_import(const std::string& datei)
 {
    on_wizard_beenden_activate();
    std::ifstream fi(datei.c_str());
-   table_grundwerte->combo_spezies->set_sensitive(false);
+//   hmmm
+//   table_grundwerte->combo_spezies->set_sensitive(false);
    Char.push_back();
    on_neuer_charakter_clicked();
    frame_steigern->set_sensitive(true);
-   if(!(Char->xml_import_stream(fi,getDatabase(),getOptionen(),this)))
+   if(!(Char->xml_import_stream(fi)))
      {
        Ausgabe(Ausgabe::Error,"Laden fehlgeschlagen");
        return;
      }
    Char.setFilename(datei);
-   set_title(Name_Abenteurer());
+   set_title(Char->Name_Abenteurer());
    Char.saved();
    Char.delete_empty();
    push_back_LDateien(datei);
