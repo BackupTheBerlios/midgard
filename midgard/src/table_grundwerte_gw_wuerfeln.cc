@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.22 2002/11/12 08:59:47 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.23 2002/11/13 16:59:01 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -163,11 +163,13 @@ struct spezies_mod_comp
 	}
 };
 
+#if 0
 ostream &operator<<(ostream &o,const table_grundwerte::st_eigen &a)
 {  o << '{' << int(a.eigenschaft) << ',' << a.lang << ',' << a.kurz
 	<< ',' << a.spezies_mod << '}';
    return o;
 }
+#endif
 
 void table_grundwerte::Schwachpunkt_wuerfeln()
 {  for (std::vector<st_eigen>::iterator i=Veigenschaften.begin();i!=Veigenschaften.end();)
@@ -180,7 +182,7 @@ void table_grundwerte::Schwachpunkt_wuerfeln()
    actual_eigen=Veigenschaften.begin();
    
    std::sort(Veigenschaften.begin(),Veigenschaften.end(),spezies_mod_comp());
-   std::copy(Veigenschaften.begin(),Veigenschaften.end(),std::ostream_iterator<st_eigen>(std::cout,"\n"));
+//   std::copy(Veigenschaften.begin(),Veigenschaften.end(),std::ostream_iterator<st_eigen>(std::cout,"\n"));
 }
 
 void table_grundwerte::gw_variante_2()
