@@ -195,7 +195,6 @@ COPY "fertigkeiten"  FROM stdin;
 2	\N	Heraldik		100	\N	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	In	A	G	S	A	\N	\N	\N	\N	\N	\N	\N
 4	8	Musizieren	8	150		S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	G	S	\N	\N	\N	\N	\N	\N	\N
 3	8	Überleben in der Steppe	6	50		S	S	S	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
-3	1	Tanzen	\N	150	B&R	S	G	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 4	8	Verbergen	6	300	B&R	G	S	S	S	S	G	S	S	S	S	S	G	S	S	S	G	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge	S	S	G	S	\N	\N	\N	\N	\N	\N	\N
 4	5	Werfen	5	400	B&R	G	S	S	S	S	G	S	S	S	G	S	G	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 4	4	Wetterkunde	2	25	B&R	A	G	S	S	S	S	S	A	A	G	A	S	G	G	S	S	S	S	A	S	S	G	A	S	G	S	G	S	S	S	S	S	In	S	S	S	A	\N	\N	\N	\N	\N	\N	\N
@@ -214,6 +213,7 @@ COPY "fertigkeiten"  FROM stdin;
 4	4	Siegelkunde	2	100	B&R	S	A	A	A	A	A	G	S	S	A	A	S	A	S	S	S	S	S	S	S	S	A	G	G	S	S	S	S	S	S	S	S	In	A	S	S	S	\N	\N	\N	\N	\N	\N	\N
 3	1	Singen (Stufe)	1	150	B&R	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	G	G	G	G	G	G	S	S	pA	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 3	8	Überleben im Sumpf	6	50		S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	A	S	\N	\N	\N	\N	\N	\N	\N
+3	1	Tanzen	\N	150		S	G	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 3	8	Überleben in der Wüste	6	50		S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 3	15	Schlittschuhlaufen	12	100	B&R	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 4	\N	Rechnen	\N	100		S	S	A	A	A	S	G	A	S	G	A	S	A	S	S	S	S	S	S	S	S	A	G	S	S	G	S	S	S	S	S	S	\N	S	A	A	S	\N	\N	\N	\N	\N	\N	\N
