@@ -24,6 +24,7 @@
 
 class Grad_anstieg{
 public:
+      static const int AP_Maximum_Tage=28;
       enum ewas{Grad,Abwehr,Zaubern,Resistenz,Ausdauer};
 private:
 

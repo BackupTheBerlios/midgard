@@ -32,6 +32,10 @@ NEWS IN VERSION 0.4delta6
 * Wenn NSC zugelassen werden, werden die 'würfel' Knöpfe NICHT deaktiviert
 * Schreiben kann jetzt angeklickt werden, auch wenn man noch keine Sprache
    gelernt hat, ohne daß es anschließend verschwindet.
+* Runden von EP/Gold überarbeitet
+* Herkunft korrigierbar
+* Landeskunde (Heimat): Erfolgswert 
+
 
 TODO:
 * Ausrüstung drucken, Abenteurer drucken -> absturz ??
@@ -43,6 +47,7 @@ TODO:
 * Doppelklassen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)
+* Es werden nur die ersten beiden pdf viewer zur Auswahl angeboten - komisch 
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)

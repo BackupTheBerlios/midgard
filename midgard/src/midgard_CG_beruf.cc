@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.58 2002/03/25 15:12:36 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.59 2002/03/27 09:08:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,13 +30,13 @@ gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
   if (ev->button==1) 
    {
      beruf_gewuerfelt(random.integer(1,100));
+     if(!OptionenCheck(NSC_only).active) table_berufswahl->set_sensitive(false);
    }
   if (ev->button==3) 
    {
      vbox_berufsname->show();
      entry_berufsname->grab_focus();
    }
-  if(!OptionenCheck(NSC_only).active) table_berufswahl->set_sensitive(false);
   return false;
 }
 
@@ -45,8 +45,9 @@ void midgard_CG::on_entry_berufsname_activate()
   cH_MidgardBasicElement beruf(&*cH_Beruf(entry_berufsname->get_text(),true));
   list_Beruf.clear();
   list_Beruf.push_back(beruf);
-//  MidgardBasicElement_uebernehmen(beruf);
   vbox_berufsname->hide();
+  if(!OptionenCheck(NSC_only).active) table_berufswahl->set_sensitive(false);
+  show_gelerntes();
 }
 
 void midgard_CG::on_spinbutton_beruf_activate()

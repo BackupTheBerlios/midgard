@@ -70,7 +70,7 @@ void Wizard_window::fill_vecwiz()
                           &midgard_CG::wizard_do_something));
    //GRUNDWERTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Grundwerte würfeln",
+                          "Eigenschaften würfeln",
                           &midgard_CG::wizard_do_something));
    //GESCHLECHT
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,

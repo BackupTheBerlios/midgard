@@ -4934,7 +4934,7 @@ setzen</label>
 		    <handler>on_button_grundwerte_button_release_event</handler>
 		    <last_modification_time>Thu, 13 Dec 2001 19:06:13 GMT</last_modification_time>
 		  </signal>
-		  <label>Grundwerte
+		  <label>Eigenschaften
 würfeln</label>
 		  <icon>Dice-W100-trans-50.xpm</icon>
 		</widget>
@@ -7239,7 +7239,8 @@ auswählen</label>
 
 	    <widget>
 	      <class>GtkScrolledWindow</class>
-	      <name>scrolledwindow74</name>
+	      <name>scrolledwindow_dfr3</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
 	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
@@ -7268,6 +7269,7 @@ auswählen</label>
 		<widget>
 		  <class>GtkPixmap</class>
 		  <name>pixmap_dfr3</name>
+		  <width>300</width>
 		  <cxx_visibility>protected</cxx_visibility>
 		  <filename>Gross_dfr3_pre.xpm</filename>
 		  <xalign>0.5</xalign>
@@ -10458,7 +10460,7 @@ zeigen, die zu teuer sind</label>
 		    <value_pos>GTK_POS_TOP</value_pos>
 		    <digits>1</digits>
 		    <policy>GTK_UPDATE_CONTINUOUS</policy>
-		    <value>50</value>
+		    <value>48.5</value>
 		    <lower>33</lower>
 		    <upper>68</upper>
 		    <step>1</step>

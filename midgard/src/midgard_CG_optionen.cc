@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.68 2002/03/18 17:04:24 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.69 2002/03/27 09:08:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -100,6 +100,7 @@ void midgard_CG::lernschema_sensitive(bool active)
 //   button_beschreibung->set_sensitive(true);
    frame_steigern->set_sensitive(true);
    frame_lernschema->set_sensitive(true);
+   button_herkunft->set_sensitive(true);
    button_lernpunkte->set_sensitive(true);
    togglebutton_lernpunkte_edit->set_sensitive(true);
    button_lernschema_geld->set_sensitive(true);
@@ -117,7 +118,8 @@ void midgard_CG::Pics(bool b)
  if(b)
   {
     pixmap_dfr4->show();
-    pixmap_dfr3->show();
+//    pixmap_dfr3->show();
+    scrolledwindow_dfr3->show(); 
     pixmap_kurai->show();
     table_gradsteigern_lang->show();
     button_steigern_kurz->hide();
@@ -125,7 +127,8 @@ void midgard_CG::Pics(bool b)
  else
   {
     pixmap_dfr4->hide();
-    pixmap_dfr3->hide();
+//    pixmap_dfr3->hide();
+    scrolledwindow_dfr3->hide(); 
     pixmap_kurai->hide();
     table_gradsteigern_lang->hide();
     button_steigern_kurz->show();

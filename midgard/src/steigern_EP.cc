@@ -27,7 +27,6 @@ gint midgard_CG::vscale_value_changed(GdkEventButton *ev)
 {
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
   int Av=(int)A->get_value();
-//  steigern_EP_prozent = 100-Av;
   Database.GradAnstieg.set_Steigern_EP_Prozent(100-Av);
   steigern_gtk();
   return false;
@@ -88,9 +87,9 @@ void midgard_CG::desteigern(unsigned int kosten)
    }
   else 
    {
-     gold_k = (int)(kosten 
+     gold_k = (int)(0.5+kosten 
                * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
-     ep_k = (int)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+     ep_k = (int)(0.5+kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
    }
   if( !HausregelCheck(Gold).active ) gold_k*=10;
   set_lernzeit(-ep_k);
@@ -120,16 +119,14 @@ bool midgard_CG::steigern_usp(int kosten,const cH_MidgardBasicElement* MBE, e_wa
   int gold_k=0,ep_k=0;
   if(radiobutton_unterweisung->get_active())
    {
-     // genug Geld? 
-     gold_k = (int)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
+     // genug Geld? +0.5 zum runden
+     gold_k = (int)(0.5 + kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
      if( !HausregelCheck(Gold).active ) gold_k*=10;
      if (gold_k > Werte.Gold()) 
          { regnot("Zu wenig Gold um zu steigern,\n es fehlen "+itos(gold_k-Werte.Gold())+" GS."); 
-//cout << "Zu wenig Gold\n";
            return false;
          }
    }  
-
   // genug EP?
   bool bkep=false,bzep=false;
   int womit;
@@ -148,10 +145,11 @@ bool midgard_CG::steigern_usp(int kosten,const cH_MidgardBasicElement* MBE, e_wa
   if(womit==1 || womit==3) bkep=true;
   if(womit==2 || womit==3) bzep=true;
 
-  if(radiobutton_unterweisung->get_active()) 
-      ep_k = (int)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+  if(radiobutton_unterweisung->get_active()) //+0.5 zum runden
+      ep_k = (int)(0.5 + kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
   else
       ep_k = (int)(kosten);
+
   guint aep=Werte.AEP();  
   guint kep=Werte.KEP();  
   guint zep=Werte.ZEP();  

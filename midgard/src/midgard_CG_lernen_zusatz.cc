@@ -47,6 +47,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
          {
            cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
            M->setZusatz(Werte.Herkunft()->Name());
+           M->set_Erfolgswert(MBE->Erfolgswert());
            list_Fertigkeit.push_back(M);
            return;
          }

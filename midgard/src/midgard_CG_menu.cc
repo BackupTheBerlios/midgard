@@ -63,8 +63,10 @@ void midgard_CG::menu_init()
   latex_empty->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),false));
 
   Gtk::RadioMenuItem::Group _RadioMGroup_pdfViewer;
+cout << "SIZE:  "<<list_pdfViewer.size()<<'\n';
   for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    {
+cout << i->text<<'\n';
      Gtk::Label *_l=manage (new Gtk::Label(i->text));
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
@@ -314,16 +316,16 @@ void midgard_CG::Hausregeln_init()
 
 void midgard_CG::pdfViewer_init()
 {
-  Gtk::RadioMenuItem *menu_gv;
-  list_pdfViewer.push_back(st_pdfViewer(gv,menu_gv,
-                           "pdf Dokument mit 'gv' betrachten",
+  Gtk::RadioMenuItem *menu_xpdf;
+  list_pdfViewer.push_back(st_pdfViewer(xpdf,menu_xpdf,
+                           "pdf Dokument mit 'xpdf' betrachten",
                            false));
   Gtk::RadioMenuItem *menu_acroread;
   list_pdfViewer.push_back(st_pdfViewer(acroread,menu_acroread,
                            "pdf Dokument mit 'acroread' betrachten",
                            true));
-  Gtk::RadioMenuItem *menu_xpdf;
-  list_pdfViewer.push_back(st_pdfViewer(xpdf,menu_xpdf,
-                           "pdf Dokument mit 'xpdf' betrachten",
+  Gtk::RadioMenuItem *menu_gv;
+  list_pdfViewer.push_back(st_pdfViewer(gv,menu_gv,
+                           "pdf Dokument mit 'gv' betrachten",
                            false));
 }

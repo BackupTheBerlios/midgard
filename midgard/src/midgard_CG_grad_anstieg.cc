@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.54 2002/03/06 17:06:27 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.55 2002/03/27 09:08:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -144,7 +144,7 @@ void midgard_CG::get_grundwerte()
 void midgard_CG::get_ausdauer(int grad)
 {
    int bonus_K, bonus_aK, bonus_Z;
-   int kosten = Database.GradAnstieg.get_Resistenz_Kosten(grad);
+   int kosten = Database.GradAnstieg.get_AP_Kosten(grad);
    if (grad == 1)  { bonus_K =  4, bonus_aK =  3; bonus_Z =  2; }
    if (grad == 2)  { bonus_K =  6, bonus_aK =  4; bonus_Z =  2; }
    if (grad == 3)  { bonus_K =  9, bonus_aK =  6; bonus_Z =  3; }
@@ -178,8 +178,7 @@ void midgard_CG::get_ausdauer(int grad)
   if (Werte.AP()<Werte.Grad()) Werte.setAP(Werte.Grad()); 
    // Neue AP höher als alte?
   if (nap>Werte.AP())  Werte.setAP(nap)  ;
-
-  Werte.addSteigertage(28);
+  Werte.addSteigertage(Grad_anstieg::AP_Maximum_Tage);
 }
 
 void midgard_CG::get_ab_re_za(e_was_steigern was)
