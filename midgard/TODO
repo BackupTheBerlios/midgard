@@ -5,18 +5,18 @@
 - Verlernen geht nicht
 
 Bugreport Sanni:
-Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
+Auswahl/Besitz: Teilweise als aufklappbare EintrÃ¤ge ohne Namen und 
 mit dem Wert +0
 
 Steigern:
-Beim Verlernen wird die Fertigkeit nicht gelöscht.
+Beim Verlernen wird die Fertigkeit nicht gelÃ¶scht.
 
-Waffen (Grundfertigkeiten) steigern (außer Buckler) kostet jeweils 1000 FP, 
+Waffen (Grundfertigkeiten) steigern (auÃŸer Buckler) kostet jeweils 1000 FP, 
 reduzieren bringt 500 FP und lassen sich nicht auf Werte >8 Steigern 
 
-Bei den Buttons für Grad anpassen und Eigenschaften erscheinen die Icons
+Bei den Buttons fÃ¼r Grad anpassen und Eigenschaften erscheinen die Icons
 erst, nachdem diese zum ersten mal aktiviert wurden (sobald die Punkte 
-für einen neuen Grad reichen, bzw. wenn auf die Eigenschaft gewürfelt 
+fÃ¼r einen neuen Grad reichen, bzw. wenn auf die Eigenschaft gewÃ¼rfelt 
 werden kann.)
 
 Dazu kommen sporadische Segfaults.
@@ -24,16 +24,16 @@ Dazu kommen sporadische Segfaults.
 + Filerequester Umstellung beenden 
 	(fehlt nur noch die Ersetzung von xml_fileselection durch WinFileReq)
 
-- Zauberbeschreibung drucken tatsächlich vom Abenteurer abhängig?
+- Zauberbeschreibung drucken tatsÃ¤chlich vom Abenteurer abhÃ¤ngig?
 
-- Wizard testen, vor allem die beiden Varianten des Begrüßungsfensters
+- Wizard testen, vor allem die beiden Varianten des BegrÃ¼ÃŸungsfensters
 - Einstellbarer Kontrast zum Hintergrundbild
 - Dialoge statt set_insensitive(nearly_everything):
 	- Zusatz
-	- Würfelvarianten
+	- WÃ¼rfelvarianten
 	- Herkunftsland etc.
 	- Spezialwaffe etc.
-- aktiver Wizard sollte focus und page direkt setzen (und wenn möglich
+- aktiver Wizard sollte focus und page direkt setzen (und wenn mÃ¶glich
 	machen)
 ######################################################################
 
@@ -48,21 +48,21 @@ Dazu kommen sporadische Segfaults.
 	entsprechend erweitert werden
 - WinFileReq sollte gtk 2.4 Requester nehmen
 - LICENSE.pdf
-- undosave _vor_ jeder Änderung (am Besten in libmagus selbst)
+- undosave _vor_ jeder Ã„nderung (am Besten in libmagus selbst)
 * Region nach Herkunft automatisch einschalten
-* Mehrseitige Ausrüstungen
+* Mehrseitige AusrÃ¼stungen
 * Setzen der Handle-Fenster-Positionen :-(
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
-* Ausrüstung: Expandieren
-- Würfelvarianten für Nichtmenschen!
+* AusrÃ¼stung: Expandieren
+- WÃ¼rfelvarianten fÃ¼r Nichtmenschen!
 - verschwinden alle Icons? :
    Unter "Lernschema" bleibt noch 
    einiges stehen. Bei "Steigern" 
    und "Optionen" sind auch noch bunte Bildchen, und bei 
-   "Ausrüstung" verweigern die Icons von "Modifikatoren 
-   entfernen" und "mit Geld ausrüsten" das Verschwinden.
+   "AusrÃ¼stung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrÃ¼sten" das Verschwinden.
 - alle Ausdrucke unter Windows testen
-- wrapfig for Windows für Grafik in Beschreibung
+- wrapfig for Windows fÃ¼r Grafik in Beschreibung
 - abspeichern der Reihenfolge/Wahl in ChoiceButtons
 
 - Beim 'make install' waere es nett ein $PREFIX/share/midgard anzulegen, und
@@ -70,7 +70,7 @@ alle xml dateien dort automatisch hinzukopieren.
 
 - g_locale_to_utf8() verwenden statt selbstgeschriebener Routine
 
-- dnd Ausrüstung
+- dnd AusrÃ¼stung
 
 - Zauberwerk kommt im Kompendium (XML Datei) vor (Unsinn)
 
@@ -90,7 +90,7 @@ was bedeutet:
 
 - Probleme Zufallsabenteurer: Verteidigungswaffen werden nicht als solche erkannt
 	Export: Waffen immer mit $$
-	Zusätze werden nicht ersetzt (Lernschema: Heimat, Gastland,
+	ZusÃ¤tze werden nicht ersetzt (Lernschema: Heimat, Gastland,
 		Nachbarland)
 
   Landeskunde geht, Schreiben: Alte Sprache nicht
@@ -100,8 +100,8 @@ was bedeutet:
 - Schummeln in Abenteurer? 
 	: Wizard auf off, NSC an, einige Auswahlen an
 
-- Preise und Lernschema sind Regionenäbhangig ... ??? Ein Wechsel der Region
-  ändert das aber noch nicht
+- Preise und Lernschema sind RegionenÃ¤bhangig ... ??? Ein Wechsel der Region
+  Ã¤ndert das aber noch nicht
 
 - InfoWindow: Button zum launchen in Leiste
 
@@ -113,7 +113,7 @@ was bedeutet:
 	(table_grundwerte_typauswahl.cc, table_steigern_fertigkeiten.cc)
 
 - Komponenten: Entries/Spinbuttons mit many_changed+activate (wie MVC)
-	und dann in Grundwerte ersetzen (Werte ändern ...)
+	und dann in Grundwerte ersetzen (Werte Ã¤ndern ...)
 
 - Lizenz
 
@@ -124,7 +124,7 @@ was bedeutet:
 
 - vabenteurer->getLernpunkte()  => (*vabenteurer)->getLernpunkte()
 
-- Grafik löschen können
+- Grafik lÃ¶schen kÃ¶nnen
 
 - Auf vereinheitlichten FileRequester umstellen (slot)
 
@@ -140,7 +140,7 @@ was bedeutet:
 
 - Lernschemata vereinheitlichen:
 	"Landeskunde Heimat", "Landeskunde (Heimat)" -> "Landeskunde"->"Heimat"
-	"Überleben Heimat" -> "Überleben"->"Heimat"
+	"Ãœberleben Heimat" -> "Ãœberleben"->"Heimat"
 	"+1 KiDo-Technik" -> "KiDo Technik"->"#1" oder KiDo("")->"#1" ?
 	"+1 KiDo-Technik " -> "KiDo Technik"->"#2"
 	"+1 KiDo-Technik  " -> "KiDo Technik"->"#3"

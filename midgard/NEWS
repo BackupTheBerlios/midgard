@@ -7,11 +7,11 @@ Version 0.9.8
 ------------------------------------
 
 Version 0.9.7
-- Wizard/Würfeln Buttons in der Statusleiste neu gestaltet
-- eingeklammerte Typen können jetzt ausgewählt werden
+- Wizard/WÃ¼rfeln Buttons in der Statusleiste neu gestaltet
+- eingeklammerte Typen kÃ¶nnen jetzt ausgewÃ¤hlt werden
 - VAbenteurer::const_iterator statt Abenteurer* in MidgardBasicTree 
 	(behebt Absturz)
-- Optionen im Menü
+- Optionen im MenÃ¼
 - Vereinheitlichung der MidgardBasicTree Enums
 - Vereinheitlichung des Fileselectors mit GtkmmAddons
 - Schwierigkeit/Kosten "Verteidigung" korrigiert
@@ -20,44 +20,44 @@ Version 0.9.7
 - Windows Version mit Installer und neuestem teTeX
 
 Version 0.9.6
-- Expander haben nun sinnvolle Überschriften
+- Expander haben nun sinnvolle Ãœberschriften
 - Auswahl bzgl. "wie Steigern" wird in Grundwerte festgehalten
 - NotFound (WaffeGrund) bei Verteidigungswaffen behoben
 - Wie gesteigert wird ist nun eine Eigenschaft des Abenteurers
-	(und setzt sich so nicht immer zurück)
+	(und setzt sich so nicht immer zurÃ¼ck)
 - Werte editieren Knopf sollte jetzt wieder da sein 
 	(ob das eine Toolbar sein sollte ...)
 - erstmalig wieder eine Windows Version
 
 Version 0.9.5
-- Wizard überarbeitet (geht jetzt erstmalig)
+- Wizard Ã¼berarbeitet (geht jetzt erstmalig)
 - Spezies vereinfacht
 - Ausdruck der Zauberbeschreibung verbessert
 - Abspeichern der Auswahl 'Zauberbeschreibung drucken' fixed
 - Berggnom Bug behoben (wegen zufall)
 - Speichern und Ausdrucken des Datums des letzen Speicherdatums
 - gtkmm 2.4 port (aka gnome 2.6, sigc++ 2.0, gtk+ 2.4)
-- Eingabe von PP für Fertigkeiten geht wieder
-- Abenteurer mit 'Überleben Heimat' können geladen werden.
+- Eingabe von PP fÃ¼r Fertigkeiten geht wieder
+- Abenteurer mit 'Ãœberleben Heimat' kÃ¶nnen geladen werden.
 
 Version 0.9.4
 
 - TODO unter NEWS lesbar
 - Eingebaute Debugging Funktion (Dr MinGW) unter Windows
-- Ausgabe von PP für Abwehr, Zaubern & Resistenz
+- Ausgabe von PP fÃ¼r Abwehr, Zaubern & Resistenz
 - Ausgabe von Zauberbeschreibungen (Option)
 - (^2 bug, Optionen bug) behoben
 - Gtk stil hat eigene Icons
-- Ausgabe der PP für Spezial-Zauber (Dweomer, Wunder, etc.)
+- Ausgabe der PP fÃ¼r Spezial-Zauber (Dweomer, Wunder, etc.)
 - StandardRegionen implementiert
 - Berufe aus dem Gildenbrief (in eigener Region)
 
 NEU in Version 0.9.3
 
 - Abenteurer wechseln/Undo geht jetzt (fast)
-- Tooltips in Abhängigkeit von Variablen
+- Tooltips in AbhÃ¤ngigkeit von Variablen
 - Bilder in der Beschreibung werden im Button angezeigt
-- Abenteurer öffnen/schließen implementiert
+- Abenteurer Ã¶ffnen/schlieÃŸen implementiert
 - Hintergrundbild zentriert
 
 NEU in Version 0.9.2
@@ -66,11 +66,11 @@ NEU in Version 0.9.2
 - MAGUSPATH Umgebungsvariable wird ausgewertet
 - Verbesserungen an SimpleTree
 - Konsequentere Umsetzung von MVC auf Abenteurer
-- Undo jetzt nicht über XML sondern direkt auf Liste
+- Undo jetzt nicht Ã¼ber XML sondern direkt auf Liste
 
 NEU in Version 0.9.1
 
-- Grafiken überarbeitet
+- Grafiken Ã¼berarbeitet
 - Splashscreen hinzugekommen
 - Spielleiter-Export jetzt ohne $$
 
@@ -80,16 +80,16 @@ NEU in Version 0.9.0
 - Icons in eigene (auswechselbare) DLL
 - Bilder sind jetzt im Hintergrund (statt neben den Elementen)
 - Neuorganisation mit libmagus:
-	weniger tiefe hauptfenster-> Verschachtelungen (VAbenteurer müsste
-			nun fast überall ausreichen)
-	Trennung der Oberfläche und (eines Teils) der Logik
-	Ausdruck, Laden der Regeltabellen usw. ist jetzt ohne Oberfläche
-		möglich
-	die Programmoptionen, Pfade etc sind nun sehr früh verfügbar (nicht
+	weniger tiefe hauptfenster-> Verschachtelungen (VAbenteurer mÃ¼sste
+			nun fast Ã¼berall ausreichen)
+	Trennung der OberflÃ¤che und (eines Teils) der Logik
+	Ausdruck, Laden der Regeltabellen usw. ist jetzt ohne OberflÃ¤che
+		mÃ¶glich
+	die Programmoptionen, Pfade etc sind nun sehr frÃ¼h verfÃ¼gbar (nicht
 		erst nachdem alles geladen wurde)
-	aktive Regionen und einige Optionen sind jetzt Abenteurerabhängig
-		(wurden früher bereits in .magus gespeichert und sind jetzt
-			auch in der Struktur verfügbar)
+	aktive Regionen und einige Optionen sind jetzt AbenteurerabhÃ¤ngig
+		(wurden frÃ¼her bereits in .magus gespeichert und sind jetzt
+			auch in der Struktur verfÃ¼gbar)
 	neue globale/statische Variablen: magus_paths, Datenbank,
 		Programmoptionen
 	Ausgabenklasse mit UTF8->ISO Wandlung und History, vereinheitlicht
@@ -98,7 +98,7 @@ NEU in Version 0.9.0
 ###################################################################
 durch merge:
 
-* PP eingeben für Sprachen funktioniert wieder
+* PP eingeben fÃ¼r Sprachen funktioniert wieder
 * Verursachen von Krankheit PT nicht erlernbar (Lernpunkte)
-* min 50% bei lernen von PP müssen durch PP bestritten werden.
+* min 50% bei lernen von PP mÃ¼ssen durch PP bestritten werden.
 - Verschiedenes von Version 0.8.14-0.8.18
