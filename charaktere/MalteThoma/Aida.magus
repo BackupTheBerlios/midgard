@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Aida" Spieler="Mona" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="gHx" Spezialisierung="Mentor: Rabe" Überleben="Überleben Heimat" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="78" Gw="80" Gs="80" Ko="85" In="92" Zt="90"/>
+  <abgeleiteteEigenschaften Au="88" pA="99" Wk="83" Sb="46" B="27"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="17" AP="11"/>
+  <Beschreibung Alter="25" Gestalt="schlank" Gewicht="52" Größe="161" Stand="Mittelschicht" Herkunft="Dinas Taran (Ywerddon)" Glaube="Nathir"/>
+  <Vermögen GS="18"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8">lange, schwarze Haare, grüne Augen</Text>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Wurfmesser"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Kleid" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="grün, Leinen, Mittelschicht" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="6"/>
+   <Beruf Bezeichnung="Kurtisane"/>
+   <Fertigkeit Bezeichnung="Gassenwissen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Geheimzeichen" Wert="7" Zusatz="Widerstand (Ywerddon)"/>
+   <Fertigkeit Bezeichnung="Giftmischen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="5"/>
+   <Fertigkeit Bezeichnung="Schauspielern" Wert="6"/>
+   <Fertigkeit Bezeichnung="Verführen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="6"/>
+   <Waffe Bezeichnung="Dolch" Wert="4"/>
+   <Waffe Bezeichnung="Wurfmesser" Wert="4"/>
+   <Zauber Bezeichnung="Anziehen"/>
+   <Zauber Bezeichnung="Beeinflussen"/>
+   <Zauber Bezeichnung="Binden des Vertrauten"/>
+   <Zauber Bezeichnung="Macht über das Selbst"/>
+   <Zauber Bezeichnung="Schmerzen"/>
+   <Grundkenntnis Bezeichnung="Wurfmesser"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Albisch" Wert="13"/>
+   <Sprache Bezeichnung="Comentang" Wert="5"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="19"/>
+   <Sprache Bezeichnung="Twyneddisch" Wert="19"/>
+   <Urschrift Bezeichnung="Albisch" Wert="8"/>
+   <Urschrift Bezeichnung="Twyneddisch" Wert="8"/>
+   <Urschrift Bezeichnung="Erainnisch" Wert="13"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

@@ -2,26 +2,26 @@
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Grad="3" Name="Morgan di'Mora" Spieler="Malte Thoma"/>
-  <Typ Abkürzung="Gl" Geschlecht="m" Hand="Rechtshänder" Spezialisierung="Rapier" Spezies="Mensch" Stadt_Land="Stadt" Überleben="Überleben im Gebirge"/>
-  <Basiseigenschaften Gs="98" Gw="96" In="81" Ko="97" St="95" Zt="36"/>
-  <abgeleiteteEigenschaften Au="59" B="23" SG="3" Sb="8" Wk="46" pA="67"/>
-  <Erfolgswerte Abwehr="12" ZauberResistenz="11" Zaubern="2"/>
-  <Gesundheit AP="21" LP="16"/>
-  <Beschreibung Alter="18" Gestalt="normal" Gewicht="65" Glaube="Alpanu" Größe="168" Herkunft="Küstenstaaten" Stand="Mittelschicht"/>
-  <Vermögen GS="376" SS="2"/>
-  <Steigern AEP="125" GFP="620" benötigte_Tage="133">
+  <Figur Name="Morgan di'Mora" Spieler="Malte Thoma" Grad="3"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Gl" Spezialisierung="Rapier" Überleben="Überleben im Gebirge" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="95" Gw="96" Gs="98" Ko="97" In="81" Zt="36"/>
+  <abgeleiteteEigenschaften Au="59" pA="67" Wk="46" Sb="8" B="23" SG="3"/>
+  <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="11"/>
+  <Gesundheit LP="16" AP="21"/>
+  <Beschreibung Alter="18" Gestalt="normal" Gewicht="65" Größe="168" Stand="Mittelschicht" Herkunft="Küstenstaaten" Glaube="Alpanu"/>
+  <Vermögen GS="196" SS="2"/>
+  <Steigern GFP="985" AEP="20" EPproGFP="33" benötigte_Tage="157.2">
    <Praxispunkte Resistenz="1"/>
   </Steigern>
   <Text/>
   <Ausrüstung>
    <Rüstung>KR</Rüstung>
    <Rüstung2>OR</Rüstung2>
-   <Waffe Bezeichnung="Bogen" Erfolgswert="0"/>
-   <Waffe Bezeichnung="Dolch" Erfolgswert="0"/>
-   <Waffe Bezeichnung="Parierdolch" Erfolgswert="0"/>
-   <Waffe Bezeichnung="Rapier" Erfolgswert="0"/>
-   <Waffe Bezeichnung="Stoßspeer" Erfolgswert="0"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Bogen"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Parierdolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Rapier"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Stoßspeer"/>
   </Ausrüstung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="8"/>
@@ -31,21 +31,26 @@
    <Sinn Bezeichnung="Tasten" Wert="8"/>
    <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
    <Fertigkeit Bezeichnung="Akrobatik" Wert="10"/>
+   <Fertigkeit Bezeichnung="Balancieren" Wert="12"/>
    <Fertigkeit Bezeichnung="Beidhändiger Kampf" Wert="5"/>
    <Fertigkeit Bezeichnung="Fechten" Wert="7"/>
-   <Fertigkeit Bezeichnung="Gassenwissen" Praxispunkte="2" Wert="6"/>
+   <Fertigkeit Bezeichnung="Gassenwissen" Wert="8"/>
    <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
    <Fertigkeit Bezeichnung="Reiten" Wert="17"/>
+   <Fertigkeit Bezeichnung="Schauspielern" Wert="9"/>
    <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Springen" Wert="12"/>
    <Fertigkeit Bezeichnung="Tanzen" Wert="16"/>
    <Fertigkeit Bezeichnung="Verbergen" Wert="6"/>
    <Fertigkeit Bezeichnung="Verführen" Wert="9"/>
    <Fertigkeit Bezeichnung="Verhören" Wert="8"/>
+   <Fertigkeit Bezeichnung="Verkleiden" Wert="15"/>
    <Waffe Bezeichnung="Bogen" Wert="5"/>
    <Waffe Bezeichnung="Dolch" Wert="5"/>
    <Waffe Bezeichnung="Parierdolch" Wert="2"/>
-   <Waffe Bezeichnung="Rapier" Wert="10"/>
+   <Waffe Bezeichnung="Rapier" Wert="10" Praxispunkte="1"/>
    <Waffe Bezeichnung="Stoßspeer" Wert="5"/>
    <Waffe Bezeichnung="waffenloser Kampf" Wert="5"/>
    <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
@@ -59,11 +64,11 @@
    <Urschrift Bezeichnung="Neu-Vallinga" Wert="9"/>
   </Fertigkeiten>
   <Optionen>
-   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
    <CheckOptions Name="NSC zulassen" Wert="false"/>
-   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
-   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
    <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
