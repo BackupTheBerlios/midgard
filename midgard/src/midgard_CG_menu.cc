@@ -49,10 +49,10 @@ void midgard_CG::menu_init()
 
 //Schummel-Menü/////////////////////////////////////////////////////////////////////
   Gtk::Menu *schummel_menu = Gtk::manage(new class Gtk::Menu());
-  Gtk::MenuItem *schummel = Gtk::manage(new class Gtk::MenuItem("Original-Regel-Menü")); 
+  Gtk::MenuItem *schummel = Gtk::manage(new class Gtk::MenuItem("Original-Regel-Menü"));
   schummel->set_submenu(*schummel_menu);
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(schummeln,make_gtk_box(MagusImage("NSC-Mode-26.xpm"),"alle Regeln abschalten")));
+  {Gtk::MenuItem *_M=Gtk::manage(new Gtk::MenuItem(make_gtk_box(MagusImage("NSC-Mode-26.xpm"),"alle Regeln abschalten")));
   schummel_menu->append(*_M);
   _M->signal_activate().connect(SigC::slot(*this,&midgard_CG::Schummeln),true);}
 

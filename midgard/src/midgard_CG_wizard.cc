@@ -18,6 +18,7 @@
 
 #include "midgard_CG.hh"
 #include <cstring>
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 void midgard_CG::set_wizard(std::string s)
 {
@@ -27,12 +28,12 @@ void midgard_CG::set_wizard(std::string s)
 
 void midgard_CG::on_neuer_abenteurer_mit_wizard_activate()
 {
+ on_neuer_charakter_clicked();
   on_wizard_starten_activate();
 }
 
 void midgard_CG::on_wizard_starten_activate()
 {
- on_neuer_charakter_clicked();
  getChar().proxies.werte_eingeben=false;
  getChar().getWizard().restart(getAben());
 }
@@ -156,4 +157,13 @@ void midgard_CG::wizard_changed(gpointer x)
 	 else if(e==Wizard::SPEICHERN) xml_export_auswahl();
       }
    }
+   if (aktiver.getWizard().getMode().Value()==Wizard::Aktiv)
+      pixmap_status_wizard->set(MagusImage("MAGUS_Logo_Tiny.xpm"));
+   else pixmap_status_wizard->set(MagusImage("MAGUS_Logo_Tiny.light"));
+}
+
+bool midgard_CG::wizard_aktiv_button_release_event(GdkEventButton *ev)
+{  if (getChar()->getWizard().getMode().Value()!=Wizard::Aktiv)
+      on_wizard_starten_activate();
+   return true;
 }

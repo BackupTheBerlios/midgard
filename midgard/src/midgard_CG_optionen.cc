@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.127 2004/01/08 13:32:35 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.128 2004/01/30 23:29:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,8 +48,11 @@ assert(active);
 }
 
 void midgard_CG::Schummeln()
-{
-#warning fehlt
+{  getAben().getOptionen().set_Original(false,Optionen::Original);
+   getAben().getOptionen().set_Original(true,Optionen::NSC_only);
+//   table_steigern->steigern_mit_EP_bool=false;
+   table_grundwerte->edit_werte=true;
+   getChar().proxies.wizard_mode=Wizard::Aus;
 #if 0
   if(schummeln)
    {

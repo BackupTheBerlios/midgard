@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.346 2004/01/19 10:54:14 christof Exp $
+// $Id: midgard_CG.hh,v 1.347 2004/01/30 23:29:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,8 +45,6 @@ private:
         TreeViewUtility::CListEmulator news_columns;
         Gtk::Menu *undo_menu,*menu_kontext;
 
-        Model<bool> schummeln; // weg hier ?! in Char? Programmoption?
-
 	WindowInfo *InfoFenster;
         SigC::Connection connection_status;
         TooltipViewList toolview;
@@ -83,6 +81,7 @@ private:
         void on_wizard_beenden_activate();
         void on_wizard_starten_activate();
         void show_wizard_active(bool b);
+        bool wizard_aktiv_button_release_event(GdkEventButton *ev);
 
         // Load & Save
         void on_exportieren_activate();

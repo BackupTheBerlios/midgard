@@ -55,7 +55,7 @@ was bedeutet:
 
 - set_remember fehlt ganz (ist auch nicht notwendig)
 
-- !!! Wizard implementieren
+- Wizard testen
 
 - mehrere Fenster, Neustart des Fensters
 
@@ -91,8 +91,6 @@ was bedeutet:
 - Dinge in Dialoge verschieben?
 
 - Expander ?
-
-- viele Buttons haben keine Tooltips wenn die Schrift abgestellt ist
 
 - Neuanzeigen wieder nach Tabs trennen (schneller!)
 

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.65 2003/11/11 08:10:25 christof Exp $
+// $Id: WindowInfo.cc,v 1.66 2004/01/30 23:29:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,6 @@
 #include <gtkmm/box.h>
 #include <Misc/itos.h>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
-#include <Gtk_OStream.h>
 #include <libmagus/Magus_Optionen.hh>
 
 void WindowInfo::on_button_abbrechen_clicked()
@@ -45,27 +44,30 @@ WindowInfo::WindowInfo()
   hide();
 }
 
-void WindowInfo::AppendShow(const std::string& s)
-{ 
-  Gtk::OStream os(LogWin->get_view());
-  os << s <<'\n';
-  os.flush();
-  Flush();
+void WindowInfo::AppendShow(const std::string& s,Ausgabe::Level l)
+{ Gdk::Color c;
+  switch(l)
+  {  case Ausgabe::Debug: c.set_rgb_p(.5,.5,.5); break;
+     case Ausgabe::Log: c.set_rgb_p(0,0,0); break;
+     case Ausgabe::Warning: c.set_rgb_p(1,1,0); break;
+     case Ausgabe::ActionNeeded: c.set_rgb_p(1,0,.7); break;
+     case Ausgabe::Error: c.set_rgb_p(1,.2,0); break;
+     case Ausgabe::Fatal: c.set_rgb_p(.9,0,0); break;
+  }
+  LogWin->append(s,c);
+  LogWin->scroll();
+  if(!Programmoptionen.OberCheck(Magus_Optionen::NoInfoFenster).active
+  		&& l>=Ausgabe::ActionNeeded)
+     show();
+//  des = Glib::signal_timeout().connect(slot(this,&WindowInfo::timeout),4000);
+//  Flush();
 }
 
+#if 0
 void WindowInfo::Flush()
 {
-//  Gtk::OStream os(LogWin->get_view());
-//  os.flush();
-  LogWin->scroll();
-
-  if(!Programmoptionen.OberCheck(Magus_Optionen::NoInfoFenster).active)
-     show();
-/*
-      des = Gtk::Main::signal_timeout().connect(slot(this,&WindowInfo::timeout),4000);
-*/
 }
-
+#endif
 
 gint WindowInfo::timeout() 
 { 

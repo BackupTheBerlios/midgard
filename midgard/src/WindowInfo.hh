@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.47 2003/09/02 06:22:47 christof Exp $
+// $Id: WindowInfo.hh,v 1.48 2004/01/30 23:29:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,7 @@
 //#include <gtkmm/image.h>
 //class midgard_CG;
 //#include "Enums.hh"
+#include <libmagus/Ausgabe.hh>
 
 class WindowInfo : public WindowInfo_glade
 {	void on_button_abbrechen_clicked();
@@ -36,7 +37,7 @@ class WindowInfo : public WindowInfo_glade
         bool on_WindowInfo_delete_event(GdkEventAny *ev);
    public:
         WindowInfo();
-        void AppendShow(const std::string& s); // color?
+        void AppendShow(const std::string& s,Ausgabe::Level l);
         void Show() { show();}
 };
 #endif

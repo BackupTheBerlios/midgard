@@ -18613,9 +18613,12 @@ werk</property>
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">Dieses Icon zeigt an, daß der Wizard aktiv ist.</property>
+		  <property name="events">GDK_BUTTON_RELEASE_MASK</property>
+		  <signal name="button_release_event" handler="wizard_aktiv_button_release_event" last_modification_time="Fri, 30 Jan 2004 21:20:13 GMT"/>
 
 		  <child>
-		    <widget class="GtkImage" id="pixmap165">
+		    <widget class="GtkImage" id="pixmap_status_wizard">
+		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="visible">True</property>
 		      <property name="pixbuf">MAGUS_Logo_Tiny.xpm</property>
 		      <property name="xalign">0.5</property>

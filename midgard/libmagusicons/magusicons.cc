@@ -1,4 +1,4 @@
-// $Id: magusicons.cc,v 1.8 2003/09/01 06:47:57 christof Exp $
+// $Id: magusicons.cc,v 1.9 2004/01/30 23:29:46 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>
@@ -80,6 +80,10 @@ Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name)
          pb=pb->copy();
          brighten(pb,brightfactor);
          images[key_t(Any,"Gross_dfr3.light")]=pb;
+         pb=images[key_t(Any,"MAGUS_Logo_Tiny.xpm")];
+         pb=pb->copy();
+         brighten(pb,0.5);
+         images[key_t(Any,"MAGUS_Logo_Tiny.light")]=pb;
       }
    }
    map_t::const_iterator res=images.find(key_t(current_style,name));
