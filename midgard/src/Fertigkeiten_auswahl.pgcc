@@ -86,7 +86,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
 
    string squery = " select l.fertigkeit, art, wert, f.attribut, \
              min(l.lernpunkte), pflicht_lernen.typ, \
-             coalesce(f.fp,0), coalesce(v.fertigkeit,'') \
+             coalesce(f.fp,0), coalesce(v.fertigkeit,''), coalesce(f.region,'') \
       from fertigkeiten f, lernschema l, pflicht_lernen, \
          fertigkeiten_voraussetzung v \
       where ";
@@ -98,11 +98,11 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
       and l.typ=pflicht_lernen.typ \
       and l.fertigkeit=pflicht_lernen.pflicht \
       group by l.fertigkeit, art, wert, f.attribut, pflicht_lernen.typ, \
-         f.fp, v.fertigkeit \
+         f.fp, v.fertigkeit, coalesce(f.region,'')  \
       union all \
       select l.fertigkeit, art, wert, f.attribut, \
              min(l.lernpunkte), NULL, \
-             coalesce(f.fp,0), coalesce(v.fertigkeit,'') \
+             coalesce(f.fp,0), coalesce(v.fertigkeit,''), coalesce(f.region,'') \
       from fertigkeiten f, lernschema l , \
          fertigkeiten_voraussetzung v \
       where ";
@@ -113,7 +113,8 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
       and (f.fertigkeit = v.name ) \
       and not exists (select true from pflicht_lernen where \
             pflicht=l.fertigkeit and l.typ=pflicht_lernen.typ) \
-      group by l.fertigkeit, art, wert, f.attribut, f.fp, v.fertigkeit \
+      group by l.fertigkeit, art, wert, f.attribut, f.fp, v.fertigkeit, 
+      coalesce(f.region,'')  \
       order by min,1";
 
    strncpy(query,squery.c_str(),sizeof(query));
@@ -140,11 +141,13 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
       {
          exec sql fetch fertigkeiten into :db_fertigkeiten, :db_art:idb_art ,
             :db_erfolgswert:idb_erfolgswert, :db_attribut:idb_attribut, 
-            :db_lernpunkte, :db_pflicht:idb_pflicht, :db_fp, :db_voraussetzung ; 
+            :db_lernpunkte, :db_pflicht:idb_pflicht, :db_fp, 
+            :db_voraussetzung, :db_region ; 
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
 //cout << db_fertigkeiten<<"\n";
-         fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
+         if (hauptfenster->region_check(db_region))
+           fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
                idb_erfolgswert?0:db_erfolgswert, idb_attribut?"":db_attribut,
                idb_pflicht?"":db_pflicht, db_fp, db_voraussetzung));
       }

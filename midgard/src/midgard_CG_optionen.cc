@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.15 2001/05/29 06:27:58 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.16 2001/05/30 11:56:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,7 +78,8 @@ void midgard_CG::on_checkbutton_Rawindra_toggled()
 {   
   if (checkbutton_Rawindra->get_active()) Rawindrabool=true;
   else Rawindrabool=false;
-  midgard_CG::regnot("Region noch in Arbeit: Fabian Wagner,\n Fabian.Wagner@01019freenet.de");
+//  midgard_CG::regnot("Region noch in Arbeit: Fabian Wagner,\n Fabian.Wagner@01019freenet.de");
+  midgard_CG::fill_typauswahl();
 }
 
 void midgard_CG::on_checkbutton_KanThaiPan_toggled()

@@ -338,8 +338,8 @@ bool midgard_CG::Fertigkeiten_Voraussetzung(const string& fertigkeit)
          db_zt<=werte.zt &&
          db_au<=werte.au &&
          db_pa<=werte.pa &&
-         db_sb<=werte.au &&
-         db_rw<=werte.pa   
+         db_sb<=werte.sb &&
+         db_rw<=werte.rw   
        )   
      return true;
   else return false ;

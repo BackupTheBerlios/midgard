@@ -104,7 +104,7 @@ void midgard_CG::show_neue_grund()
 {
   grundkenntnisse_clist_neu->clear();
   exec sql begin declare section;
-   char db_name[50];
+   char db_name[50], db_region[10];
    int db_fp;
    char db_cname[50],db_version[50];
    char db_spezies[50];
@@ -114,7 +114,7 @@ void midgard_CG::show_neue_grund()
   strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
   Transaction tr;  
   exec sql declare grund_ein cursor for 
-   SELECT name, fp from waffen_grund 
+   SELECT name, fp, coalesce(region,'') from waffen_grund 
    WHERE  name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten 
    WHERE art = 'Grundkenntnis' 
    AND charakter_name = :db_cname AND version = :db_version) 
@@ -125,12 +125,13 @@ void midgard_CG::show_neue_grund()
  exec sql open grund_ein;
   while (true)
    {
-      exec sql fetch grund_ein into :db_name, :db_fp;
+      exec sql fetch grund_ein into :db_name, :db_fp, :db_region ;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
 
       double fac = midgard_CG::get_standard_waffen(typ.s,typ_2.s,db_name);
-      os << db_name<<"\t"<<db_fp*fac <<"\n";
+      if (midgard_CG::region_check(db_region))
+         os << db_name<<"\t"<<db_fp*fac <<"\n";
    }
  exec sql close grund_ein;
  for (unsigned int i=0;i<grundkenntnisse_clist_neu->columns().size();++i)

@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.13 2001/05/29 06:27:58 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.14 2001/05/30 11:56:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,6 +47,8 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   if (typ.sb == 20 || typ_2.sb ) werte.sb += random.integer(1,20); 
   // Spitzbube
   if (typ.sb == -20&& typ_2.sb == -20) werte.sb -= random.integer(1,20); 
+  // Saddhu
+  if (typ.s == "Sa") werte.sb = 80+random.integer(1,20);
 //cout << typ.sb<<"\n";
   midgard_CG::grundwerte_boni_setzen();
 
