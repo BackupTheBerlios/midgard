@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.113 2002/01/14 10:46:43 thoma Exp $
+// $Id: midgard_CG.cc,v 1.114 2002/01/14 12:07:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,8 +38,6 @@ midgard_CG::midgard_CG(Datenbank& _Database)
 : menu(0),Database(_Database)
 {
   srand(time(0));
-  on_neuer_charakter_clicked();
-  set_tree_titles();
   
         Vstand.resize(5);
         Vstand[1]="Unfrei";
@@ -56,6 +54,9 @@ midgard_CG::midgard_CG(Datenbank& _Database)
         Vkido[1]="Sanfte Techniken";
         Vkido[2]="Harte Techniken";
         Vkido[3]="Gemischte Techniken";
+
+  on_neuer_charakter_clicked();
+  set_tree_titles();
 
 }
 
@@ -262,6 +263,9 @@ void midgard_CG::clear_gtk()
    neue_sprache_tree->clear();
    alte_schrift_tree->clear();
    neue_schrift_tree->clear();
+  
+   togglebutton_edit_werte->set_active(false);
+   on_togglebutton_edit_werte_toggled();
 }
 
 void midgard_CG::on_neuer_charakter_clicked()

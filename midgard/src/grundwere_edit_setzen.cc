@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.16 2002/01/14 10:29:27 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.17 2002/01/14 12:07:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -131,6 +131,7 @@ void midgard_CG::edit_sensitive(bool b)
 {
   entry_nameC->set_sensitive(b);
   entry_nameS->set_sensitive(b);
+  entry_version->set_sensitive(b);
   entry_spezialisierung->set_sensitive(b);
   entry_glaube->set_sensitive(b);
   spinbutton_alter->set_sensitive(b);

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.15 2002/01/14 10:29:27 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.16 2002/01/14 12:07:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -112,13 +112,7 @@ public:
    int Geistesblitz() const {return In()/10;}
    int Gift() const {if(Ko()) return 30 + Ko()/10; else return 0;}
    int Alter() const {return alter;}
-   std::string Gestalt() const 
-         { int g=groesse-100;  
-           double ge=gewicht/g;
-           if(ge>1.1)      return "breit";
-           else if(ge<0.9) return "schlank";
-           else            return "normal";
-         }         
+   std::string Gestalt() const ;
    std::string Geschlecht() const {return geschlecht;}
    std::string Hand() const {return hand;}
    int Gewicht() const {return gewicht;}
