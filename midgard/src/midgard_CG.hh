@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.207 2002/04/12 10:04:36 christof Exp $
+// $Id: midgard_CG.hh,v 1.208 2002/04/12 11:26:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -566,6 +566,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void undosave(std::string s); 
          void show_undo_tree();
          void on_undo_leaf_selected(cH_RowDataBase d);
+         void on_button_redo_clicked();
+         void on_button_undo_clicked();
          
          bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
          void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);

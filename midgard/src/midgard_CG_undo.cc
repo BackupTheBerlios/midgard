@@ -1,4 +1,4 @@
-// $Id: midgard_CG_update.cc,v 1.1 2002/04/12 07:40:34 thoma Exp $
+// $Id: midgard_CG_undo.cc,v 1.1 2002/04/12 11:26:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,3 +42,14 @@ void midgard_CG::on_undo_leaf_selected(cH_RowDataBase d)
   const Data_Undo *dt=dynamic_cast<const Data_Undo*>(&*d);
   xml_import(MidgardUndo.get(dt->getIndex()));
 }
+
+void midgard_CG::on_button_redo_clicked()
+{
+}
+
+
+void midgard_CG::on_button_undo_clicked()
+{
+}
+
+                  

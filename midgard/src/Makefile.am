@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.136 2002/04/12 07:02:24 thoma Exp $
+# $Id: Makefile.am,v 1.137 2002/04/12 11:26:54 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -76,7 +76,7 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 midgard_SOURCES = \
-   midgard_CG_update.cc \
+   midgard_CG_undo.cc \
    Wizard_window.cc \
    Wizard_window_glade.cc \
    midgard_CG_wizard.cc \
