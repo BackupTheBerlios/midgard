@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.19 2002/10/24 07:21:01 christof Exp $
+// $Id: LernListen.cc,v 1.20 2002/11/07 09:41:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -112,6 +112,7 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
          if (!region_check(cH_Waffe((*i)->getMBE())->Region((*(*i))->Name()))) continue;
       else if(!region_check((*(*i))->Region())) continue;
 //cout << (*i)->Name()<<"Region: "<<region_check((*i)->Region())<<' '<<i->Lernpunkte()<<' '<<i->Erfolgswert()<<'\n';
+      if(A.getWerte().Spezies()->istVerbotenSpielbegin((*i)->getMBE())) continue;
       V.push_back(*i);
      }     
    }

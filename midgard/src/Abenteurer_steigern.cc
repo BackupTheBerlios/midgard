@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.11 2002/11/05 07:24:19 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.12 2002/11/07 09:41:23 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -79,7 +79,9 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
  if(((*MBE).What()==MidgardBasicElement::FERTIGKEIT ||  (*MBE).What()==MidgardBasicElement::WAFFE)
       && !(*MBE)->Voraussetzung(*this,false))
   {
-    info+="Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden";
+    if((*MBE)->Voraussetzung()=="schlank")
+      info +="Können nur schlanke Abenteurer lernen";
+    else info+="Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden";
     return false;
   }
 

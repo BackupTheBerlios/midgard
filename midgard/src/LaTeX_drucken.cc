@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.76 2002/11/06 20:03:26 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.77 2002/11/07 09:41:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -323,7 +323,11 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case eko   : sfout += itos(W.Ko()); break ;
      case ein   : sfout += itos(W.In()); break ;
      case ezt   : sfout += itos(W.Zt()); break ;
-     case eau   : sfout += itos(W.Au()); break ;
+     case eau   : { int ia=hauptfenster->getChar()->Erfolgswert("Athletik",hauptfenster->getCDatabase()).first;
+         ia/=3;
+         std::string sa; if(ia>0) sa="^{+"+itos(ia)+"}"  ;
+         sfout += LaTeX_scale("$"+itos(W.Au())+sa+"$",8,"0.9cm"); break ;
+      }
      case epa   : sfout += itos(W.pA()); break ;
      case esb   : sfout += itos(W.Sb()); break ;
      case ewk   : sfout += itos(W.Wk()); break ;

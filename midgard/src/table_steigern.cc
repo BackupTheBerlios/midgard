@@ -163,8 +163,8 @@ void table_steigern::zeige_werte()
    label_alter->set_text(itos(W.Alter()));
    std::string grad_GFP=hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,W);
    label_grad_GFP->set_text(grad_GFP);
-   if(grad_GFP=="erreicht") 
-      flashing_gradanstieg->setTime(1000);
+   if(grad_GFP=="erreicht") flashing_gradanstieg->setTime(1000);
+   else                     flashing_gradanstieg->setTime(0);
 
    label_ausdauer_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,W));
    label_abwehr_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));

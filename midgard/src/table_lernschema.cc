@@ -144,15 +144,20 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
          { 
            if(togglebutton_spezialwaffe->get_active() )
             { 
-              if(cH_Waffe(MBE->getMBE())->Verteidigung())
-               hauptfenster->set_status("Eine Verteidingungswaffe kann keine Spezialwaffe werden.");
+             cH_Waffe W(MBE->getMBE());
+             if(W->Verteidigung())
+               { hauptfenster->set_status("Eine Verteidingungswaffe kann keine Spezialwaffe werden."); return;}
+             else if(W->Reichweite()=="" && (*MBE).Lernpunkte()>1 )
+               { hauptfenster->set_status("Nahkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 1 Lernpunkte gekostet haben");return;}
+             else if(W->Reichweite()!="" && (*MBE).Lernpunkte()>2 )
+               { hauptfenster->set_status("Fernkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 2 Lernpunkte gekostet haben");return;}
              else
-              {  
-               hauptfenster->getWerte().setSpezialisierung((*MBE)->Name());
-               Waffe::setSpezialWaffe(hauptfenster->getWerte().Spezialisierung(),hauptfenster->getChar()->List_Waffen());
-               togglebutton_spezialwaffe->set_active(false);
-               if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALWAFFE);
-              }
+               {  
+                hauptfenster->getWerte().setSpezialisierung((*MBE)->Name());
+                Waffe::setSpezialWaffe(hauptfenster->getWerte().Spezialisierung(),hauptfenster->getChar()->List_Waffen());
+                togglebutton_spezialwaffe->set_active(false);
+                if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALWAFFE);
+               }
             }  
            else
             {  
@@ -582,9 +587,6 @@ void table_lernschema::zeige_werte()
   label_ruestung_lernschema->set_text(hauptfenster->getWerte().Ruestung()->Long()); 
   label_herkunft_lernschema->set_text(hauptfenster->getWerte().Herkunft()->Name());
   fertig_typ->set_text(hauptfenster->getChar()->STyp());
-//  fertig_typ->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
-//  if (hauptfenster->getChar()->Typ2()->Name(hauptfenster->getWerte().Geschlecht())!="")
-//   fertig_typ->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht())+"/"+hauptfenster->getChar()->Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
 
   // Spezialwaffe anzeigen?
  if (hauptfenster->getChar()->Typ1()->Spezialwaffe() || 
@@ -651,7 +653,6 @@ void table_lernschema::show_gelerntes()
   LL.push_back(hauptfenster->getChar()->List_Schrift());
   LL.push_back(hauptfenster->getChar()->List_Beruf());  
   LL.push_back(hauptfenster->getWerte().Sinne());
-//  LL.push_back(hauptfenster->getChar()->List_Waffen_besitz());
   {
   std::list<MBEmlt> temp;
   for(std::list<WaffeBesitz>::iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
@@ -663,16 +664,6 @@ void table_lernschema::show_gelerntes()
       FL.push_back(*j);
   MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,hauptfenster);
 
-
-#warning TODO
-#if 0
-  // Waffenbesitz anzeigen
-  std::vector<cH_RowDataBase> datavec;
-  for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
-    datavec.push_back(new Data_SimpleTree(H_MidgardBasicElement_mutable(&*i),hauptfenster));
-//   datavec.push_back(new Data_SimpleTree(*i,hauptfenster));
-  tree_gelerntes->setDataVec(datavec,false);
-#endif
   tree_gelerntes->Expand_recursively();
   scrolledwindow_lernen->set_sensitive(true);
 }

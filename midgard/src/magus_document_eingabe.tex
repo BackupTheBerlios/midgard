@@ -410,25 +410,29 @@ Sprache&Wert&Schrift\\\hline\hline
     \end{tabular}
 
 \vspace{1ex}
+\parbox{5cm}{
 {
-\LI
+\Li
 \scriptsize
 %\hfill
-\setlength{\tabcolsep}{0.2ex}
-    \begin{tabular}{|l|c|c|l|c|} \cline{1-2}\cline{4-5}
-      ~Rüstungsklasse & \makebox[3em]{\ruestung/\ruestungb}             &\hspace*{1em} & ~Abwehr         & \abwehrfinal \\\cline{1-2}\cline{4-5}
-      ~Schutz vor LP--Verlust &\makebox[3em]{\ruestunglp/\ruestunglpb}  &              &  ~mit Verteidigungswaffe& \abwehrmitwaffe\\\cline{1-2}\cline{4-5}
-    \end{tabular}
+%\setlength{\tabcolsep}{0.3ex}
+%    \begin{tabular}{|l|c|c|l|c|} \cline{1-2}\cline{4-5}
+%\rule[-0.2ex]{0cm}{3.0ex} ~Rüstungsklasse & \makebox[3em]{\ruestung/\ruestungb}             &\hspace*{1em} & ~Abwehr         & \abwehrfinal \\\cline{1-2}\cline{4-5}
+%\rule[-0.2ex]{0cm}{3.0ex} ~Schutz vor LP--Verlust &\makebox[3em]{~\ruestunglp/\ruestunglpb}  &              &  ~mit Verteidigungswaffe& \abwehrmitwaffe\\\cline{1-2}\cline{4-5}
+    \begin{tabular}{|||l|c|||} \hline\hline\hline
+\rule[-0.2ex]{0cm}{3.0ex} Rüstungsklassen & \ruestung/\ruestungb \\\hline
+\rule[-0.2ex]{0cm}{3.0ex} Schutz vor LP--Verlust &\ruestunglp/\ruestunglpb \\\hline\hline
+\rule[-0.2ex]{0cm}{3.0ex} Abwehr         & \abwehrfinal \\\hline
+\rule[-0.2ex]{0cm}{3.0ex} mit Verteidigungswaffe& \abwehrmitwaffe\\\hline\hline\hline
+   \end{tabular}
 %\hfill
 }
 
-
-\vspace{0ex}
-%\IfFileExists{schwert.png}{\parbox{7.5cm}{\includegraphics[width=7.5cm]{schwert.png}}}%
-\parbox{7.5cm}{\includegraphics[width=7.5cm]{\installpath/schwert.png}}
+\vspace{1ex}
+%\parbox{7.5cm}{\includegraphics[width=7.5cm]{\installpath/schwert.png}}
 % \vspace*{2ex}
 
-\vspace{-2.5ex}
+%\vspace{-2.5ex}
 \scalebox{0.7}{
 \parbox{7.7cm}
 {
@@ -446,14 +450,19 @@ Sprache&Wert&Schrift\\\hline\hline
     \end{tabular}
 }
 }
-\vspace{1.5ex}
+}
+\hspace{-3.3em}\fbox{\parbox{0.5cm}{\includegraphics[width=3.5cm]{\installpath/wurfbeil.png}}}
+
+
+
+%\vspace{3.5ex}
 %\vfill
 \parbox{7.5cm}
 {\renewcommand{\arraystretch}{0.7}
 \tiny
 \begin{tabular}{|lrlrlr|}
 \hline
-\multicolumn{6}{|c|}{\footnotesize Ungelernte Fertigkeiten}\\\hline
+\multicolumn{6}{|c|}{\footnotesize \rule[-0.0ex]{0cm}{2.ex}Ungelernte Fertigkeiten}\\\hline
 \unia  & \uniwa  & \uniq  & \uniwq  & \uniag & \uniwag\\
 \unib  & \uniwb  & \unir  & \uniwr  & \uniah & \uniwah\\
 \unic  & \uniwc  & \unis  & \uniws  & \uniai & \uniwai\\
