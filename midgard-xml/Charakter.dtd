@@ -6,6 +6,8 @@
 <!ENTITY % Typ "(As|BN|BS|BW|Ba|Dr|Fi|Gl|Hl|Hä|Kd|Kr|Ma|Ny|Or|PF|PH|PK|PM|PT|PW|Ri|Sa|Sc|Se|Sp|Sr|Sö|Th|Wa|dBe|eBe|gHx|sHx|wHx)">
 <!ENTITY % Number "CDATA">
 
+<!ELEMENT MAGUS-data (Midgard-Abenteurer)>
+
 <!ELEMENT Figur EMPTY>
 <!ATTLIST Figur
 	Name	CDATA	#REQUIRED
@@ -139,6 +141,6 @@
 <!ATTLIST Region
 	Region	&Region;	#REQUIRED>
 
-<!ELEMENT Midgard-Charakter (Figur)(Typ)>
-<!ATTLIST Midgard-Charakter
-	Version	%Number;	#FIXED	"7">
+<!ELEMENT Midgard-Abenteurer (Figur)(Typ)(Basiseigenschaften)(abgeleiteteEigenschaften)(Erfolgswerte)(Gesundheit)(Beschreibung)(Vermögen)(Steigern)(Text)(Ausrüstung)(Fertigkeiten)(Optionen)>
+<!ATTLIST Midgard-Abenteurer
+	Version	%Number;	#FIXED	"10">
