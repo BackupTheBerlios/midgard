@@ -153,6 +153,7 @@ cout << "Zu wenig Gold\n";
      else if(was==Resistenz) pp=Werte.ResistenzPP() ;
      else if(was==Abwehr)    pp=Werte.AbwehrPP() ;
      else if(was==Zaubern)   pp=Werte.ZaubernPP() ;
+     else if(was==Ausdauer)  {regnot ("Ausdauer kann nicht mit Praxispunkten gesteigert werden.");return false;}
      else assert(!"Fehler in steigern_EP.cc");
    }
 
@@ -178,6 +179,7 @@ cout << "Zu wenig EP\n";
   else if(was==Resistenz)  Werte.addResistenzPP(-pp) ;
   else if(was==Abwehr)  Werte.addAbwehrPP(-pp) ;
   else if(was==Zaubern)  Werte.addZaubernPP(-pp) ;
+  else if(was==Ausdauer)  ;
   else assert(!"Fehler in steigern_EP.cc");
 
   if(bkep)

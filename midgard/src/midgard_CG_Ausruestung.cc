@@ -25,7 +25,7 @@
 #endif
 #include <fstream>
 #include <Aux/itos.h>
-#include "dtos1.h"
+//#include "dtos1.h"
 
 class Data_Preis : public RowDataBase
 {
