@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.145 2002/04/17 09:04:02 thoma Exp $
+# $Id: Makefile.am,v 1.146 2002/04/17 10:13:41 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -7,11 +7,11 @@ noinst_PROGRAMS = text2c
 EXTRA_PROGRAMS = midgard_xmlexport
 
 if WINDOWS
-	RC_FILES=magus.rc registry.cc
-	LINK_OPTIONS=-mwindows
+RC_FILES=magus.rc registry.cc
+LINK_OPTIONS=-mwindows
 else
-	RC_FILES=
-	LINK_OPTIONS=
+RC_FILES=
+LINK_OPTIONS=
 endif
 
 pkgdata_DATA = midgard_document_eingabe.tex \
