@@ -142,12 +142,11 @@ void midgard_CG::xml_export(const std::string& dateiname)
    // Optionen
    for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
    {
-     if(i->index!=Original || i->index!=NSC_only) continue; // Einzige Option, die mit dem C. gespeichert werden muﬂ
-     datei << "     <Optionen";
-      write_int_attrib(datei, "Index", i->index);
-      write_bool_attrib_force(datei, "Wert", i->active);
-      datei << "/>\n";
-     // Warnung, 'text' darf keine SPACE enthalten
+     if(i->index!=Original && i->index!=NSC_only) continue; // Einzige Option, die mit dem C. gespeichert werden muﬂ
+     datei << "    <Optionen";
+     write_string_attrib(datei, "Name", i->text);
+     write_bool_attrib_force(datei, "Wert", i->active);
+     datei << "/>\n";
    }
    datei << "  </Fertigkeiten>\n";   
    datei << " </Midgard-Abenteurer>\n";

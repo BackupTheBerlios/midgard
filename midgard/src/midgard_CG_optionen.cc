@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.67 2002/03/16 16:55:44 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.68 2002/03/18 17:04:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,9 +37,10 @@ void midgard_CG::Optionen_setzen_from_menu(OptionenIndex index)
    {
      if(i->index!=index) continue;
      i->active = i->checkmenuitem->get_active();
-     if(i->index==Original) { checkbutton_original(i->active); cerr << "NEUAUFBA\n";menu_init();}
+     if(i->index==Original) { checkbutton_original(i->active); menu_init();}
      if(i->index==showPics) Pics(i->active);
      if(i->index==gw_wuerfeln) show_gw_wuerfeln(i->active);
+     if(i->index==NSC_only) on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
    }
   fire_enabled=true;
 }
@@ -186,14 +187,22 @@ midgard_CG::st_pdfViewer midgard_CG::pdfViewerCheck(pdfViewerIndex pi)
 void midgard_CG::setOption(std::string os,bool b)
 {
  for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
-   if(i->text==os) { i->active=b; return; }
+   if(i->text==os) 
+     { i->active=b; 
+       i->checkmenuitem->set_active(i->active);
+       return; 
+     }
  throw NotFound();
 }
 
 void midgard_CG::setHausregeln(std::string hs,bool b)
 {
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-      if(i->text==hs)  {i->active=b; return;}
+    if(i->text==hs)  
+      { i->active=b; 
+        i->menu->set_active(i->active);
+        return;
+      }
  throw NotFound();
 }
 
@@ -269,5 +278,6 @@ void midgard_CG::load_options()
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"pdfViewer")
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
+  menu_init();
 }
 

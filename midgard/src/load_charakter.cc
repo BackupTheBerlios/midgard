@@ -170,7 +170,7 @@ void midgard_CG::xml_import(const std::string& datei)
      if(s!="") this->Typ[1]=cH_Typen(s,true);
    }
 
-         load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version);
+   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version);
    Typ_Geschlecht_Spezies_setzen();
    load_ausruestung(Ausruestung,&besitz);
    
@@ -179,7 +179,7 @@ void midgard_CG::xml_import(const std::string& datei)
 
 void midgard_CG::Typ_Geschlecht_Spezies_setzen() {  
 
-      if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
+   if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
    if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
 
    fill_typauswahl();
@@ -191,7 +191,6 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen() {
          togglebutton_spezialwaffe->set_active(false); }
 
    menu_init();
-
 
    Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
    
@@ -305,7 +304,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Optionen")
         {
          try{
-          OptionenCheck(OptionenIndex(i->getIntAttr("Index"))).active=i->getBoolAttr("Wert");
+           setOption(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
          {}
@@ -314,7 +313,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         {
          try
          {  cH_Region R(i->getAttr("Name",i->getAttr("Region")));
-            Region::setActive(Database.Regionen,R,false);
+            Region::setActive(Database.Regionen,R,true);
          }
          catch (const NotFound &e)
          {}
