@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.20 2004/03/06 16:55:41 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.21 2004/03/08 14:56:15 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -58,6 +58,8 @@ class Abenteurer : public Grundwerte
 
 public:
 
+   Abenteurer();
+   
    void reset();
    bool Valid() const;
 
