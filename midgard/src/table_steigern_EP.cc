@@ -18,7 +18,7 @@
 
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
-#include "Window_Erfahrungspunkte.hh"
+//#include "Window_Erfahrungspunkte.hh"
 #include <gtk--/adjustment.h>
 #include <Aux/itos.h>
 

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.3 2002/05/22 17:00:45 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.4 2002/05/25 08:38:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -40,7 +40,10 @@ gint table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEvent
      WaffenBesitz_lernschema_wuerfeln(wurf);     
    }
   else if (ev->button==3)
-     table_waffen_lernschema_eingabe->show();
+   {
+     gwr_auswahl=EWaffen;
+     set_gwr_eingabe();
+   }
   return 0;
 }
 
@@ -49,9 +52,40 @@ gint table_lernschema::on_spinbutton_waffen_lernschema_focus_in_event(GdkEventFo
 
 void table_lernschema::on_spinbutton_waffen_lernschema_activate()
 {
+  assert(gwr_auswahl!=ENone);
   spinbutton_waffen_lernschema->update();
-  WaffenBesitz_lernschema_wuerfeln(spinbutton_waffen_lernschema->get_value_as_int());
-  table_waffen_lernschema_eingabe->hide();
+  if(gwr_auswahl==EWaffen)
+   {
+     WaffenBesitz_lernschema_wuerfeln(spinbutton_waffen_lernschema->get_value_as_int());
+     table_waffen_lernschema_eingabe->hide();
+     gwr_auswahl=ENone;  
+   }
+  else if(gwr_auswahl==ERuestung)
+   {
+     on_button_ruestung_clicked(spinbutton_waffen_lernschema->get_value_as_int());
+     table_waffen_lernschema_eingabe->hide();
+     gwr_auswahl=ENone;  
+   }
+  else if(gwr_auswahl==EGeld1)
+     { VGeldwurf.clear();
+       VGeldwurf.push_back(spinbutton_waffen_lernschema->get_value_as_int());
+       gwr_auswahl=EGeld2;
+       set_gwr_eingabe();       
+     }
+  else if(gwr_auswahl==EGeld2)
+     { 
+       VGeldwurf.push_back(spinbutton_waffen_lernschema->get_value_as_int());
+       gwr_auswahl=EGeld3;
+       set_gwr_eingabe();       
+     }
+  else if(gwr_auswahl==EGeld3)
+     { 
+       VGeldwurf.push_back(spinbutton_waffen_lernschema->get_value_as_int());
+       gwr_auswahl=ENone;
+       lernschema_geld_wuerfeln(VGeldwurf);
+       table_waffen_lernschema_eingabe->hide();
+       gwr_auswahl=ENone;  
+     }
 }
 
 

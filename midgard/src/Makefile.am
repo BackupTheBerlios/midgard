@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.166 2002/05/24 14:06:52 thoma Exp $
+# $Id: Makefile.am,v 1.167 2002/05/25 08:38:40 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -74,12 +74,6 @@ midgard_CG_glade.hh midgard_CG.hh  \
 WindowInfo_glade.hh WindowInfo.hh \
    Window_hilfe_glade.hh \
    Window_hilfe.hh \
-	Window_Geld_eingeben_glade.hh \
-	Window_Geld_eingeben.hh \
-	Window_ruestung_glade.hh \
-	Window_ruestung.hh \
-	Window_Waffenbesitz_glade.hh \
-	Window_Waffenbesitz.hh \
 	Midgard_Info_glade.hh \
 	Midgard_Info.hh \
    Tag.hh TagStream.hh \
@@ -92,8 +86,6 @@ WindowInfo_glade.hh WindowInfo.hh \
    class_SimpleTree_LernschemaZusatz.hh \
    Spezies.hh \
    Typen.hh \
-   Window_Erfahrungspunkte.hh \
-   Window_Erfahrungspunkte_glade.hh \
    ProgressBar.h \
    table_lernschema.hh \
    table_lernschema_glade.hh \
@@ -181,21 +173,15 @@ magus_SOURCES = $(PORT_FILES) \
 	table_grundwerte_gw_wuerfeln.cc \
    table_grundwerte.cc \
    table_grundwerte_glade.cc \
-	Window_Waffenbesitz.cc \
    table_grundwerte_typauswahl.cc \
    MidgardBasicTree.cc \
    MidgardBasicElement.cc \
    table_steigern_midgard_basic_elemente.cc \
-   Window_ruestung.cc \
    midgard_CG_menu.cc \
-   Window_Erfahrungspunkte.cc \
-   Window_Erfahrungspunkte_glade.cc \
    xml_fileselection.cc \
    spielleiter_export.cc \
    midgard_CG_region_check.cc \
    midgard_CG_optionen.cc \
-	Window_Waffenbesitz_glade.cc \
-	Window_ruestung_glade.cc \
    Window_hilfe_glade.cc \
    Window_hilfe.cc \
    glademm_support.cc \
@@ -207,8 +193,6 @@ magus_SOURCES = $(PORT_FILES) \
 	midgard_CG.cc \
 	table_grundwerte_abge_werte.cc \
    zeige_werte.cc \
-	Window_Geld_eingeben_glade.cc \
-	Window_Geld_eingeben.cc \
    table_grundwerte_grundwere_edit.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \

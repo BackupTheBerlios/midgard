@@ -8,8 +8,8 @@
 #include "config.h"
 #include "table_steigern.hh"
 //#include "Window_Geld_eingeben.hh"
-#include "Window_ruestung.hh"
-#include "Window_Waffenbesitz.hh"
+//#include "Window_ruestung.hh"
+//#include "Window_Waffenbesitz.hh"
 //#include "MidgardBasicElement.hh"
 #include <Aux/itos.h>
 #include "Fertigkeiten.hh"

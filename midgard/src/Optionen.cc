@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.37 2002/05/18 06:49:33 thoma Exp $
+// $Id: Optionen.cc,v 1.38 2002/05/25 08:38:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -330,8 +330,8 @@ void Midgard_Optionen::Ober_init()
  list_Ober.push_back(st_Ober(Knopfleiste,"Knopfleiste",true));
  list_Ober.push_back(st_Ober(Icons,"Icons",true));
  list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen",true));
- list_Ober.push_back(st_Ober(NIcons,"Icons des Notebooks",true));
- list_Ober.push_back(st_Ober(NBeschriftungen,"Beschriftungen des Notebooks",true));
+ list_Ober.push_back(st_Ober(NIcons,"Icons der Notebooks",true));
+ list_Ober.push_back(st_Ober(NBeschriftungen,"Beschriftungen der Notebooks",true));
  list_Ober.push_back(st_Ober(Status,"Statuszeile",true));
 }
 

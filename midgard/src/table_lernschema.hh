@@ -39,11 +39,15 @@ class table_lernschema : public table_lernschema_glade
         BerufsKategorie BKategorie;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang_neu;                                        
         void checkAngeboreneSinne();
-
+        enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
+        GWR_Auswahl gwr_auswahl;
+        std::vector<int> VGeldwurf;
+        
 private:
        void lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& _MBE);
        void lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE);
 
+       void set_gwr_eingabe();
        void on_herkunft_leaf_selected(cH_RowDataBase d);
        void on_tree_lernschema_leaf_selected(cH_RowDataBase d);
        void on_zusatz_leaf_selected(cH_RowDataBase d);
@@ -55,8 +59,8 @@ private:
        void set_lernpunkte();
        void edit_lernpunkte(bool b);
        void zeige_werte();
-       void lernschema_geld_wuerfeln();
-       void on_button_ruestung_clicked();
+       void lernschema_geld_wuerfeln(const std::vector<int>& VGeldwurf);
+       void on_button_ruestung_clicked(int wurf);
        void setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert);
        void clean_lernschema_trees();        
        bool SpracheSchrift(const cH_MidgardBasicElement& MBE);

@@ -12,8 +12,6 @@
 #include "Fertigkeiten.hh"
 #include <Aux/itos.h>
 #include "WaffeGrund.hh"
-#include "Window_Geld_eingeben.hh"
-#include "Window_ruestung.hh"
 #include <SelectMatching.h>
 #include "KiDo.hh"
 
@@ -21,6 +19,7 @@ void table_lernschema::init(midgard_CG *h)
 {
   hauptfenster=h;
   maxkido=0;
+  gwr_auswahl=ENone;
   show_gelerntes();
   zeige_werte();
   
@@ -394,17 +393,47 @@ gint table_lernschema::on_button_lernschema_geld_button_release_event(GdkEventBu
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_lernschema_geld->set_sensitive(false);
   hauptfenster->getWerte().setGeld(0,0,0);
-  if      (ev->button==1)  lernschema_geld_wuerfeln();
-  else if (ev->button==3)  manage (new Window_Geld_eingeben(hauptfenster,hauptfenster->getWerte()));;
+  if      (ev->button==1) 
+   {
+     VGeldwurf.clear();
+     for(int i=0;i<3;++i) VGeldwurf.push_back(hauptfenster->random.integer(1,6));
+     lernschema_geld_wuerfeln(VGeldwurf);
+   }
+  else if (ev->button==3) 
+   {
+     gwr_auswahl=EGeld1;
+     set_gwr_eingabe();
+//    manage (new Window_Geld_eingeben(hauptfenster,hauptfenster->getWerte()));;
+   }
   return 0;
 }
 
-void table_lernschema::lernschema_geld_wuerfeln()
+void table_lernschema::set_gwr_eingabe()
 {
+  switch (gwr_auswahl) {
+    case ENone : assert(!"never get here"); break;
+    case EWaffen : label_gwr->set_text("%-Wurf für\nWaffen"); break;
+    case ERuestung: label_gwr->set_text("%-Wurf für\nRüstung"); break;
+    case EGeld1 :  label_gwr->set_text("1. W6-Wurf für\nGeld"); break;
+    case EGeld2 :  label_gwr->set_text("2. W6-Wurf für\nGeld"); break;
+    case EGeld3 :  label_gwr->set_text("3. W6-Wurf für\nGeld"); break;
+   }
+  if(gwr_auswahl==EWaffen || gwr_auswahl==ERuestung)
+    spinbutton_waffen_lernschema->get_adjustment()->set_upper(100);
+  else 
+    spinbutton_waffen_lernschema->get_adjustment()->set_upper(6);
+
+  table_waffen_lernschema_eingabe->show();
+  spinbutton_waffen_lernschema->select_region(0,-1);
+  spinbutton_waffen_lernschema->grab_focus();
+}
+
+
+void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwurf)
+{
+ assert(VGeldwurf.size()==3);
  int igold=0;  
- vector<int> V;
- for(int i=0;i<3;++i) V.push_back(hauptfenster->random.integer(1,6));
- igold=V[0]+V[1]+V[2];
+ igold=VGeldwurf[0]+VGeldwurf[1]+VGeldwurf[2];
  if      (hauptfenster->getCChar().CTyp1()->Geld() == 1) igold-=3;
  else if (hauptfenster->getCChar().CTyp1()->Geld() == 2) igold+=0;
  else if (hauptfenster->getCChar().CTyp1()->Geld() == 3) igold+=6;
@@ -412,10 +441,10 @@ void table_lernschema::lernschema_geld_wuerfeln()
 
  if(hauptfenster->getCWerte().Stand()=="Adel" ) igold*=2;  
  if(hauptfenster->getCWerte().Stand()=="Unfrei" ) igold/=2;
- if(V[0]==V[1] && V[1]==V[2]) igold += 100;
+ if(VGeldwurf[0]==VGeldwurf[1] && VGeldwurf[1]==VGeldwurf[2]) igold += 100;
 
  std::string strinfo ="Beim Auswürfeln von Geld wurden "
-   +itos(V[0])+"  "+itos(V[1])+"  "+itos(V[2])+" gewürfelt ==> "
+   +itos(VGeldwurf[0])+"  "+itos(VGeldwurf[1])+"  "+itos(VGeldwurf[2])+" gewürfelt ==> "
    +itos(igold)+" Gold";
  hauptfenster->set_status(strinfo);   
  hauptfenster->getWerte().addGold(igold);  
@@ -429,15 +458,22 @@ gint table_lernschema::on_button_ruestung_button_release_event(GdkEventButton *e
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::RUESTUNG);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_ruestung->set_sensitive(false);
-  if      (ev->button==1)  on_button_ruestung_clicked();
-  else if (ev->button==3)  manage (new Window_ruestung(hauptfenster->getWerte(),hauptfenster,hauptfenster->getDatabase()));
+  if      (ev->button==1)  
+   {  
+     int wurf = hauptfenster->random.integer(1,100);
+     on_button_ruestung_clicked(wurf);
+   }
+  else if (ev->button==3)  
+   { //manage (new Window_ruestung(hauptfenster->getWerte(),hauptfenster,hauptfenster->getDatabase()));
+     gwr_auswahl=ERuestung;
+     set_gwr_eingabe();  
+   }
   return 0;
 }
 
-void table_lernschema::on_button_ruestung_clicked()
+void table_lernschema::on_button_ruestung_clicked(int wurf)
 {
   std::string rue;
-  int wurf = hauptfenster->random.integer(1,100);
   if (hauptfenster->getCChar().CTyp1()->Ruestung() == 1)
    {
       if ( 1 <= wurf && wurf  <= 10 ) rue = "OR" ;
@@ -543,7 +579,6 @@ void table_lernschema::zeige_werte()
 //     table_kido_steigern->hide();
    }
  // KiDo Stil setzen
-#warning TODO
 // Gtk::Menu_Helpers::SelectMatching(*optionmenu_KiDo_Stile,hauptfenster->getCWerte().Spezialisierung());
  
  KiDo_Stile kido_stil;
