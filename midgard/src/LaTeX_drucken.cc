@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.1 2002/05/14 14:01:44 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.2 2002/05/15 08:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -913,7 +913,7 @@ void LaTeX_drucken::LaTeX_zauber(ostream &fout)
      fout << LATIN(z->Wirkungsdauer()) << " & ";
      fout << LATIN(z->Ursprung()) << " & " ;
      fout << LaTeX_scale(LATIN(z->Material()),20,"3cm") << " & " ;
-     fout << LATIN(z->Agens()) <<" " <<LATIN(z->Prozess()) <<" "<<LATIN(z->Reagens()) ;
+     fout << LATIN(z->Agens(hauptfenster->Typ)) <<" " <<LATIN(z->Prozess()) <<" "<<LATIN(z->Reagens()) ;
      fout << "\\\\\n";
    }
 }
