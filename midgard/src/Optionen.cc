@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.63 2002/07/03 08:11:19 thoma Exp $
+// $Id: Optionen.cc,v 1.64 2002/07/03 10:34:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -133,7 +133,7 @@ void Midgard_Optionen::setOptionCheck(std::string os,bool b)
      { OptionenCheck_setzen_from_menu(i->index,b);
        return; 
      }
- throw NotFound();
+ std::cerr << "Option "<<os<<" unbekannt\n";
 }
 
 void Midgard_Optionen::setString(std::string os,std::string b)
@@ -143,7 +143,7 @@ void Midgard_Optionen::setString(std::string os,std::string b)
      { i->name=b;
        return; 
      }
- throw NotFound();
+ std::cerr << "Option "<<os<<" unbekannt\n";
 }
  
 void Midgard_Optionen::setHausregeln(std::string hs,bool b)
@@ -153,7 +153,7 @@ void Midgard_Optionen::setHausregeln(std::string hs,bool b)
       { Hausregeln_setzen_from_menu(i->index,b);
         return;
       }
- throw NotFound();
+ std::cerr << "Option "<<os<<" unbekannt\n";
 }
 
 void Midgard_Optionen::setOber(std::string hs,bool b)
@@ -163,7 +163,7 @@ void Midgard_Optionen::setOber(std::string hs,bool b)
       { Ober_setzen_from_menu(i->index,b);
         return;
       }
- throw NotFound();
+ std::cerr << "Option "<<os<<" unbekannt\n";
 }
 
 void Midgard_Optionen::setAllHausregeln(bool b)
