@@ -2,15 +2,15 @@
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Grad 7" Grad="7"/>
+  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Grad 7" Grad="8"/>
   <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben Heimat" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand=""/>
   <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
-  <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="4"/>
-  <Erfolgswerte Abwehr="13" Zaubern="17" ZauberResistenz="13"/>
+  <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="6"/>
+  <Erfolgswerte Abwehr="14" Zaubern="17" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="39"/>
   <Beschreibung Alter="28" Gestalt="breit" Gewicht="69" Größe="161" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Vermögen/>
-  <Steigern GFP="13463" AEP="432" KEP="5" ZEP="341" benötigte_Tage="308.24">
+  <Vermögen GS="72"/>
+  <Steigern GFP="15348" AEP="21" EPproGFP="33" benötigte_Tage="430.24">
    <Praxispunkte Zaubern="2" Spezial="3" Resistenz="1"/>
   </Steigern>
   <Text/>
@@ -18,15 +18,15 @@
    <Rüstung>TR</Rüstung>
    <Rüstung2>OR</Rüstung2>
    <Waffe Erfolgswert="0" Bezeichnung="Magierstab"/>
-   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit=""/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
     </Gegenstand>
    </Gegenstand>
   </Ausrüstung>
@@ -46,12 +46,14 @@
    <Fertigkeit Bezeichnung="Kräuterkunde" Wert="11" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="Landeskunde" Wert="8" Zusatz=""/>
    <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz=""/>
-   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="14"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="15"/>
    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
    <Fertigkeit Bezeichnung="Naturkunde" Wert="4"/>
-   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
    <Fertigkeit Bezeichnung="Sagenkunde" Wert="4"/>
    <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Singen" Wert="9"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="8"/>
    <Fertigkeit Bezeichnung="TaiTschi"/>
    <Fertigkeit Bezeichnung="Tierkunde" Wert="8" Praxispunkte="1"/>
@@ -60,7 +62,7 @@
    <Fertigkeit Bezeichnung="Zauberkunde" Wert="10" Praxispunkte="3"/>
    <Fertigkeit Bezeichnung="Zaubern"/>
    <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
-   <Waffe Bezeichnung="Magierstab" Wert="6"/>
+   <Waffe Bezeichnung="Magierstab" Wert="9"/>
    <Zauber Bezeichnung="Allheilung"/>
    <Zauber Bezeichnung="Austreibung des Bösen"/>
    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
@@ -72,15 +74,18 @@
    <Zauber Bezeichnung="Entgiften"/>
    <Zauber Bezeichnung="Erkennen von Krankheit"/>
    <Zauber Bezeichnung="Erkennen von Leben"/>
+   <Zauber Bezeichnung="Erscheinungen"/>
    <Zauber Bezeichnung="Freundesauge"/>
    <Zauber Bezeichnung="Funkenregen"/>
    <Zauber Bezeichnung="Geistesschild"/>
    <Zauber Bezeichnung="Grüne Hand"/>
    <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
    <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Heilen schwerer Wunden"/>
    <Zauber Bezeichnung="Heilen von Krankheit"/>
    <Zauber Bezeichnung="Heilen von Wunden"/>
    <Zauber Bezeichnung="Heranholen"/>
+   <Zauber Bezeichnung="Hören von Fernem"/>
    <Zauber Bezeichnung="Lehrersuche"/>
    <Zauber Bezeichnung="Lindern von Entkräftung"/>
    <Zauber Bezeichnung="Liniensicht"/>
@@ -89,6 +94,7 @@
    <Zauber Bezeichnung="Macht über die belebte Natur"/>
    <Zauber Bezeichnung="Reinigen"/>
    <Zauber Bezeichnung="Rost"/>
+   <Zauber Bezeichnung="Scharfblick"/>
    <Zauber Bezeichnung="Schlaf"/>
    <Zauber Bezeichnung="Schmerzen"/>
    <Zauber Bezeichnung="Seelenheilung"/>
@@ -103,6 +109,7 @@
    <Zauber Bezeichnung="Wasser spüren"/>
    <Zauber Bezeichnung="Wort des Lebens"/>
    <Zauber Bezeichnung="Zwiesprache"/>
+   <Zauber Bezeichnung="Zähmen"/>
    <Grundkenntnis Bezeichnung="Zauberstab"/>
    <Sprache Bezeichnung="Albisch" Wert="13"/>
    <Sprache Bezeichnung="Aranisch" Wert="6"/>
