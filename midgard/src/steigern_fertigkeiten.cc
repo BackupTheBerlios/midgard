@@ -44,8 +44,11 @@ void midgard_CG::fertigkeiten_zeigen()
 {
  zeige_werte(Werte);
  on_speichern_clicked();
- show_alte_fertigkeiten();
- show_neue_fertigkeiten();
+ Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
+ MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,Werte,Typ,ausnahmen,'N');
+ MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,Werte,Typ,ausnahmen,'O');
+// show_alte_fertigkeiten();
+// show_neue_fertigkeiten();
 }
 
 
@@ -156,19 +159,6 @@ void midgard_CG::get_srv_kosten(const cH_Fertigkeit& fertigkeit, int &steigern,i
 }
 */
 
-
-void midgard_CG::show_alte_fertigkeiten()
-{
-   std::vector<cH_RowDataBase> datavec;
-   for ( std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
-    { cH_Fertigkeit f(*i);
-//      int steigern, reduzieren, verlernen;
-//      get_srv_kosten(*i,steigern,reduzieren,verlernen);
-      datavec.push_back(new Data_fert(f->Name(),f->Erfolgswert(),f->Steigern(),f->Reduzieren(),f->Verlernen()));
-    }
- alte_fert_tree->setDataVec(datavec);  
-}
-
 void midgard_CG::on_button_fertigkeiten_sort_clicked()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
@@ -180,19 +170,20 @@ void midgard_CG::on_button_fertigkeiten_sort_clicked()
 }
 
 
-
+/*
 void midgard_CG::show_neue_fertigkeiten()
 {
  std::vector<cH_RowDataBase> datavec;
  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_neu.begin();i!=list_Fertigkeit_neu.end();++i)
   { cH_Fertigkeit f(*i);
+// wieso dies??????? TESTEN!!!!!!!!!
    f->set_Erfolgswert(f->Anfangswert());   
    datavec.push_back(new Data_fert(f->Name(),f->Anfangswert(),
                f->Kosten(),f->Standard__(),f->Voraussetzung()));
   }
  neue_fert_tree->setDataVec(datavec);
 }
-
+*/
 bool midgard_CG::kido_steigern_check(int wert)
 {
   if (Werte.Grad()+10 > wert) return false;
@@ -247,7 +238,6 @@ void midgard_CG::on_togglebutton_praxispunkte_fertigkeiten_toggled()
 {
     if (togglebutton_praxispunkte_fertigkeiten->get_active())
       radio_fert_steigern->set_active(true);
-
 }
 
 void midgard_CG::on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled()

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.28 2001/10/17 12:31:17 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.29 2001/11/01 09:31:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,6 @@
 #include "Fertigkeiten_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Window_angeb_fert.hh"
-//#include <algorithm>
 #include "zufall.h"
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
@@ -34,11 +33,10 @@ void midgard_CG::show_fertigkeiten()
 {
    fertigkeiten_clist->clear();
    Gtk::OStream os(fertigkeiten_clist);
-   for(std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
-         i!=list_Fertigkeiten.end();++i)
-      {
-         os << (*i)->Name();
-         if ((*i)->Erfolgswert()!=0) os <<"\t" <<(*i)->Erfolgswert();
+   for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+      { cH_Fertigkeit f(*i);
+         os << f->Name();
+         if (f->Erfolgswert()!=0) os <<"\t" <<f->Erfolgswert();
          os << "\n";
       }
    for(std::list<cH_Fertigkeit_angeborene>::iterator i=list_an_Fertigkeit.begin();
@@ -51,33 +49,6 @@ void midgard_CG::show_fertigkeiten()
    for (unsigned int i=0;i<fertigkeiten_clist->columns().size();++i)
       fertigkeiten_clist->set_column_auto_resize(i,true);
    fertigkeiten_clist->set_reorderable(true);
-}
-
-void midgard_CG::fertigkeiten_uebernehmen(const std::list<cH_Fertigkeit>& saf)
-{
-   list_Fertigkeiten = saf;
-   maxkido=0;
-   if (Typ[0]->Short()=="Kd") maxkido=2;
-//XXX   std::vector<vector<st_ausgewaehlte_fertigkeiten>::iterator>  vi;
-   int KD_tech=0; //XXX
-   for(std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
-         i!=list_Fertigkeiten.end();++i)
-      {
-         int bonus = attribut_check((*i)->Attribut());
-         (*i)->set_Erfolgswert( (*i)->Erfolgswert() + bonus);
-         if ((*i)->Name()=="KiDo") {kido_bool=true; show_gtk();}
-         if ((*i)->Name()=="KiDo-Technik") { ++KD_tech;++maxkido;}
-      }
-
-   for (int j=0;j<KD_tech;++j)
-     for(std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
-         i!=list_Fertigkeiten.end();++i)
-       if ((*i)->Name()=="KiDo-Technik") {list_Fertigkeiten.erase(i);break;}
-      
-   show_fertigkeiten();
-
-   hbox_waffen->set_sensitive(true);
-   table_waffen->set_sensitive(true);
 }
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)

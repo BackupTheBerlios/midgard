@@ -18,17 +18,22 @@ class SimpleTree;
 
 class MidgardBasicElement : public HandleContent
 {
+   protected:
+      std::map<std::string,std::string> map_typ;
+      void get_map_typ();
+
    public:
       enum MBEE {FERTIGKEIT,WAFFEN,ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
       enum TREE {OLD,NEW};
 
+      map<std::string,std::string> get_MapTyp() const {return map_typ;}
       virtual std::string Name() const=0;
       virtual int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const {return 99;}
-      virtual int Erfolgswert() const {return 99;}
+//      int Erfolgswert() const {return 99;}
       virtual std::string Region() const {return "";}
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
-      virtual map<std::string,std::string> get_MapTyp() const=0;
+      virtual std::string Stufe() const;
       bool ist_lernbar(const vector<H_Data_typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
       

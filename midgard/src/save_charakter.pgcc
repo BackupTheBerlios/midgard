@@ -66,7 +66,6 @@ void midgard_CG::on_speichern_clicked()
        char db_region[20];
       char db_fertigkeit[50];
       int db_wert;
-      char db_wert_str[20];
       char db_magisch[1024];
    exec sql end declare section;
    strncpy(db_name_ch,Werte.Name_Charakter().c_str(),sizeof(db_name_ch));

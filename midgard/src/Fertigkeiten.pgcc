@@ -58,7 +58,28 @@ void Fertigkeit::get_Fertigkeit()
   exec sql close cl_fertigkeit_ein;
   tr.close();
 }
-
+/*
+void Fertigkeit::get_map_typ()
+{
+ exec sql begin declare section;
+   char query[1024], db_typ[10], db_standard[10];
+ exec sql end declare section;
+ std::string squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
+ strncpy(query,squery.c_str(),sizeof(query));
+ Transaction tr;
+ exec sql prepare FTein_ from :query ;
+ exec sql declare FTein cursor for FTein_ ;
+ exec sql open FTein;
+ SQLerror::test(__FILELINE__);
+ while(true)
+  {
+    exec sql fetch FTein into :db_typ,:db_standard;
+    SQLerror::test(__FILELINE__,100);
+    if (sqlca.sqlcode) break; 
+    map_typ[db_typ]=db_standard;
+  } 
+}
+*/
 bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 
 {
  if ( voraussetzung.st<=Werte.St() &&
@@ -75,46 +96,37 @@ bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const
  else return false ;
 }
 
-double Fertigkeit::Standard_Faktor() const
+double Fertigkeit::Standard_Faktor(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
 {
   double fac = ausnahmen.Ausnahmen_float(Name());
   if (fac!=0) return fac;
-  if      (midgard_CG::standard_one_G(Standard()) ) fac = 0.5;
-  else if (midgard_CG::standard_all_S(Standard()) ) fac = 1.0;
+  if      (midgard_CG::standard_one_G(Standard(Typ,ausnahmen)) ) fac = 0.5;
+  else if (midgard_CG::standard_all_S(Standard(Typ,ausnahmen)) ) fac = 1.0;
   else fac = 2.0; 
   return fac;
 }
 
-/*
-void Fertigkeit::set_Standard(const vector<H_Data_typen>& Typ)
+std::string Fertigkeit::Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& a) const
 {
-  assert(Typ.size()==2);
-  exec sql begin declare section;
-   char db_ergebnis[20],db_ergebnis2[20];
-   char query[200];
-  exec sql end declare section;
-  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
-  std::string squery = "select "+Typ[0]->Short() ;
-  if (Typ[1]->Short()!="") squery += ", " + Typ[1]->Short() ;
-  squery += " from fertigkeiten where fertigkeit  = '"+Name()+"'";
-  strncpy(query,squery.c_str(),sizeof(query));  
-
-   Transaction tr;
-   exec sql prepare fert from :query ;
-   exec sql declare fertig cursor for fert ;
-   exec sql open fertig;
-   SQLerror::test(__FILELINE__);
-   if (Typ[1]->Short()!="") exec sql fetch fertig into  :db_ergebnis, :db_ergebnis2;
-   else exec sql fetch fertig into  :db_ergebnis;
-   SQLerror::test(__FILELINE__,100,-209);
-   exec sql close fertig;
-   tr.close();
-   standard.clear();
-   standard.push_back(db_ergebnis);
-   standard.push_back(db_ergebnis2);
-   ausnahmen.Ausnahmen_string(Name(),standard);
+ vector<std::string> s = Standard(Typ,a);
+ std::string s2=s[0];
+ if(Typ[0]->Short()!="" && Typ[1]->Short()!="") s2+="/";
+ if(Typ[1]->Short()!="") s2+=s[1];
+ return s2;
 }
-*/
+
+vector<std::string> Fertigkeit::Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
+{
+ assert(Typ.size()==2);
+ vector<std::string> s(2);
+ for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
+   if(Typ[0]->Short()==i->first) {s[0]=i->second; break;}
+ for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
+   if(Typ[1]->Short()==i->first) {s[1]=i->second; break;}
+ ausnahmen.Ausnahmen_string(Name(),s);
+ return s;
+}
+
 
 void Fertigkeit::get_Steigern_Kosten_map()
 {
@@ -157,13 +169,6 @@ int Fertigkeit::get_Steigern_Kosten(int erfolgswert) const
 {
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
-/*
-void Fertigkeit::set_Erfolgswert(std::list<cH_Fertigkeit> L,std::string name,int e) const
-{
-  for (std::list<cH_Fertigkeit>::iterator i=L.begin();i!=L.end();++i)
-    if ((*i)->Name()==name) {(*i)->set_Erfolgswert(e) ;break;}
-}
-*/
 
 Fertigkeiten_All::Fertigkeiten_All(Gtk::Label *label)
 {

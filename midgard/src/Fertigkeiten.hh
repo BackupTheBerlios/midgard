@@ -12,7 +12,7 @@ class Fertigkeit : public MidgardBasicElement
      std::string name, region, attribut;
      int lernpunkte, anfangswert0, anfangswert, kosten;
      int mutable erfolgswert;
-     vector<std::string> standard;
+//     vector<std::string> standard;
      struct st_Voraussetzung {int st;int ge;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
          st_Voraussetzung()
@@ -26,21 +26,20 @@ class Fertigkeit : public MidgardBasicElement
      mutable bool pflicht;
      Ausnahmen ausnahmen;
      std::map<int,int> map_erfolgswert_kosten;
-     std::map<std::string,std::string> map_typ;
+//     std::map<std::string,std::string> map_typ;
 
      void get_Fertigkeit();
-     void get_map_typ();
+//     void get_map_typ();
      void get_Steigern_Kosten_map();
      int GrundKosten() const {  return kosten; }
-//     void set_Standard(const vector<H_Data_typen>& Typ) ;
-     int get_Steigern_Kosten(int erfolgswert) const;
-     
+     vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
+
   public:
      Fertigkeit(const std::string& n,int l=0,bool p=false)
       :name(n),lernpunkte(l),erfolgswert(0),pflicht(p) 
       {get_Fertigkeit(); get_map_typ();}
 
-     map<std::string,std::string> get_MapTyp() const {return map_typ;}
+  //   map<std::string,std::string> get_MapTyp() const {return map_typ;}
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
      std::string What_str() const {return "Fertigkeit";}
 
@@ -48,16 +47,17 @@ class Fertigkeit : public MidgardBasicElement
      std::string Name() const {return name;}
      std::string Attribut() const {return attribut;}
      std::string Region() const {return region;}
-     int Steigern() const {return int(Standard_Faktor()*get_Steigern_Kosten(Erfolgswert()+1));}
-     int Reduzieren() const {return int(Standard_Faktor()*get_Steigern_Kosten(Erfolgswert()-1));}
-     int Verlernen() const {return Kosten();}
-     std::string Standard__() const { return standard[0]+' '+standard[1];}
-     const vector<std::string>& Standard() const {return standard;}
+     int Steigern(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()+1));}
+     int Reduzieren(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return int(Standard_Faktor(Typ,ausnahmen)*get_Steigern_Kosten(Erfolgswert()-1));}
+     int Verlernen(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return Kosten(Typ,ausnahmen);}
+     std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
+//     const vector<std::string>& Standard() const {return standard;}
      int Lernpunkte() const {return lernpunkte;}
      int Anfangswert0() const {return anfangswert0;}
      int Anfangswert() const {return anfangswert;}
-     int Kosten() const {return (int)(Standard_Faktor()*GrundKosten());};
-     double Standard_Faktor() const;
+     int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const {return (int)(Standard_Faktor(Typ,ausnahmen)*GrundKosten());};
+     int get_Steigern_Kosten(int erfolgswert) const;
+     double Standard_Faktor(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
      int Erfolgswert() const {return erfolgswert;};
      std::string Voraussetzung() const {return voraussetzung.fert;}
      bool Voraussetzungen(const Grundwerte& Werte) const;

@@ -12,10 +12,10 @@ class KiDo : public MidgardBasicElement
    int ap,kosten;
    std::string stil, effekt;
 
-   map<std::string,std::string> map_typ; 
+//   map<std::string,std::string> map_typ; 
 
    void get_KiDo();
-   void get_map_typ();
+//   void get_map_typ();
 //   int GrundKosten() const {  return kosten; }
 //   void set_Standard(const vector<H_Data_typen>& Typ) ;
 //   const vector<H_Data_typen> Typ;
@@ -24,7 +24,7 @@ class KiDo : public MidgardBasicElement
    KiDo(const std::string& n)
      :hoho(n) {get_KiDo();get_map_typ();}
 
- map<std::string,std::string> get_MapTyp() const {return map_typ;}
+// map<std::string,std::string> get_MapTyp() const {return map_typ;}
  enum MBEE What() const {return MidgardBasicElement::KIDO;}
  std::string What_str() const {return "KiDo";}
 
@@ -32,7 +32,7 @@ class KiDo : public MidgardBasicElement
  std::string Name()  const {  return hoho; }
  int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const 
          { cH_Fertigkeit F("KiDo");
-                      return  (int)(F->Standard_Faktor() * kosten) ; }
+                      return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; }
  std::string Name_D()  const {  return name; }
  std::string Stufe() const {  return stufe; }
  int Ap() const {  return ap; }

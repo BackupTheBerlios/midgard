@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.59 2001/10/31 18:34:43 thoma Exp $
+# $Id: Makefile.am,v 1.60 2001/11/01 09:31:26 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -65,7 +65,7 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
 BUILT_SOURCES_CG =  Zauber.cc Zauberwerk.cc Fertigkeiten.cc Waffe.cc KiDo.cc \
-   MidgardBasicElement_sql.cc \
+   Sprache.cc Schrift.cc MidgardBasicElement_sql.cc \
    Pflicht.cc \
    WaffeGrund.cc Fertigkeiten_angeboren.cc \
     steigern_waffen.cc \

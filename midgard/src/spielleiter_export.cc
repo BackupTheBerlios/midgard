@@ -18,7 +18,7 @@
 
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
-
+#include "Sprache.hh"
 
 void midgard_CG::spielleiter_export()
 {
@@ -93,7 +93,7 @@ void midgard_CG::spielleiter_export()
  fout << " - ";
  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
    {
-      fout << (*i)->Name() << " " << (*i)->Erfolgswert() ;
+      fout << cH_Sprache(*i)->Name() << " " << cH_Sprache(*i)->Erfolgswert() ;
       if (i!=list_Sprache.end()) fout <<", ";
    }
   // Zauber

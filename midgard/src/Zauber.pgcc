@@ -89,6 +89,7 @@ void Zauber::get_Zauber()
    tr.close();
 }
 
+/*
 void Zauber::get_map_typ()
 {
  exec sql begin declare section;
@@ -109,7 +110,7 @@ void Zauber::get_map_typ()
     map_typ[db_typ]=db_standard;
   } 
 }
-
+*/
 int Zauber::Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
 {
   double fac = ausnahmen.Ausnahmen_float(Name()); 

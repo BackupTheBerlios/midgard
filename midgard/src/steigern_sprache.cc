@@ -82,13 +82,15 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
     {
       if (!steigern(dt->Steigern(),"Sprache")) return;
       Werte.add_GFP(dt->Steigern());
-      Sprache::Steigern(list_Sprache,dt->Name(),1);
+      for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
+         if ( cH_Sprache(*i)->Name() == dt->Name()) cH_Sprache(*i)->add_Erfolgswert(1);
     }
    if (radio_sprache_reduzieren->get_active() && dt->Reduzieren() )
     {
       if (steigern_bool) desteigern(dt->Reduzieren());
       Werte.add_GFP(-dt->Reduzieren());
-      Sprache::Steigern(list_Sprache,dt->Name(),-1);
+      for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
+         if ( cH_Sprache(*i)->Name() == dt->Name()) cH_Sprache(*i)->add_Erfolgswert(-1);
     }
    if (radio_sprache_verlernen->get_active() && dt->Verlernen() )
     {

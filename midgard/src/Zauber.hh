@@ -6,7 +6,6 @@
 class cH_Zauber;
 #include <gtk--/label.h>
 
-//class Zauber : public HandleContent
 class Zauber : public MidgardBasicElement
 {
    std::string ap, name;
@@ -17,19 +16,18 @@ class Zauber : public MidgardBasicElement
       zauberart,p_element,s_element,region; 
    int kosten;
    int lernpunkte;
-//   Ausnahmen ausnahmen;
 
-   map<std::string,std::string> map_typ;
+//   map<std::string,std::string> map_typ;
 
    void get_Zauber();
-   void get_map_typ();
+//   void get_map_typ();
    int GrundKosten() const {  return kosten; }
-   vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;   
+   vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
  public: 
    Zauber(const std::string& n,int l=0) 
       : name(n),lernpunkte(l){get_Zauber();get_map_typ();} 
 
-   map<std::string,std::string> get_MapTyp() const {return map_typ;}
+//   map<std::string,std::string> get_MapTyp() const {return map_typ;}
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
    std::string What_str() const {return "Zauber";}

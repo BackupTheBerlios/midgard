@@ -17,10 +17,10 @@ class Zauberwerk : public MidgardBasicElement
    std::string What_str() const {return "Zauberwerk";}
 
 
-   map<std::string,std::string> map_typ;
+//   map<std::string,std::string> map_typ;
 
    void get_Zauberwerk();
-   void get_map_typ();
+//   void get_map_typ();
    int GrundKosten() const {  return kosten; }
  public: 
    Zauberwerk(const std::string& n) 
@@ -28,7 +28,7 @@ class Zauberwerk : public MidgardBasicElement
 
 //   bool ist_lernbar(const vector<H_Data_typen>& Typ) const;
 //   bool ist_gelernt(const std::list<cH_Zauberwerk>& L) const;
-   map<std::string,std::string> get_MapTyp() const {return map_typ;}
+//   map<std::string,std::string> get_MapTyp() const {return map_typ;}
 
    std::string Name() const {  return name; }
    std::string Standard__(const vector<H_Data_typen>& Typ) const;

@@ -31,11 +31,12 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 #include "Sprache_auswahl.hh"
-
+//#include "class_Ausnahmen.hh"
 
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const vector<H_Data_typen>& Typ,
      int lernpunkte, const Grundwerte& Werte,const std::vector<H_Data_beruf>& vec_Beruf)
 {
+ Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
  while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 try{
   hauptfenster=h;
@@ -116,7 +117,7 @@ try{
              (f->Voraussetzungen(Werte) || Werte.Spezies()!="Mensch") &&
             Fertigkeiten_spezies_voraussetzung(f->Name(),Werte.Spezies()))
          { os << f->Lernpunkte()-v <<"\t"<<f->Voraussetzung()<<"\t"<<f->Pflicht()<<"\t"<<f->Name()<<"\t"
-               << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten()<<"\n";
+               << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,ausnahmen)<<"\n";
             os.flush(&*i);
          }
       }
@@ -158,7 +159,7 @@ try{
         if ( //hauptfenster->Fertigkeiten_Voraussetzung(f->Name()) &&
             f->Voraussetzungen(Werte) && Fertigkeiten_spezies_voraussetzung(f->Name(),Werte.Spezies()))
          { os << f->Lernpunkte()-v<<"\t"<<f->Voraussetzung()<<"\t"<<""<<"\t"<<f->Name()<<"\t"
-              << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten()<<"\n";
+              << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,ausnahmen)<<"\n";
            os.flush(&*i);
          }
       }

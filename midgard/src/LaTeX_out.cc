@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.46 2001/10/31 18:34:43 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.47 2001/11/01 09:31:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,7 @@
 #include "midgard_CG.hh"
 #include <unistd.h>
 #include <Aux/EmptyInt_4TeX.h>
+#include "Sprache.hh"
 
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
@@ -144,12 +145,12 @@ void midgard_CG::LaTeX_write_values()
  unsigned int sprachanz=0;
  unsigned int maxsprach=14;
  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
-   {
+   { cH_Sprache s(*i);
       std::string a = LaTeX_string(sprachanz);
       ++sprachanz;
-      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << (*i)->Name() <<"}\n";
-      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< (*i)->Erfolgswert() <<"}\n";
-//      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< (*i)->Urschrift() <<"}\n";
+      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << s->Name() <<"}\n";
+      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< s->Erfolgswert() <<"}\n";
+      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< s->Urschrift() <<"}\n";
    }
  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
    {

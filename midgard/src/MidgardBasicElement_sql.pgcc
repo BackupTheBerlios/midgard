@@ -2,9 +2,46 @@
 #include "class_Grundwerte.hh"
 #include "class_Ausnahmen.hh"
 #include <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
 exec sql include sqlca;
 
 
+
+
+void MidgardBasicElement::get_map_typ()
+{  
+ exec sql begin declare section;
+   char query[1024], db_typ[10], db_standard[10];
+ exec sql end declare section;
+ std::string squery;
+ if(What()==ZAUBER)
+    squery ="select typ,standard from zauber_typen where name ='"+Name()+"'";
+ if(What()==ZAUBERWERK)
+    squery ="select typ,standard from zauber_typen where name ='"+Name()
+             +"' and stufe ='"+Stufe()+"'";
+ if(What()==FERTIGKEIT )
+    squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
+ if(What()==SPRACHE)
+    squery ="select typ,standard from fertigkeiten_typen where name ='Sprache'";
+ if(What()==SCHRIFT)
+    squery ="select typ,standard from fertigkeiten_typen where name ='Lesen/Schreiben'";
+ if(What()==KIDO)
+    squery ="select typ,standard from fertigkeiten_typen where name ='KiDo'";
+ strncpy(query,squery.c_str(),sizeof(query));
+ Transaction tr;
+ exec sql prepare MBein_ from :query ;
+ exec sql declare MBein cursor for MBein_ ;
+ exec sql open MBein;
+ SQLerror::test(__FILELINE__);
+ while(true)
+  {
+    exec sql fetch MBein into :db_typ,:db_standard;
+    SQLerror::test(__FILELINE__,100);
+    if (sqlca.sqlcode) break;
+    map_typ[db_typ]=db_standard;
+  } 
+}
+ 
 void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
                            const vector<H_Data_typen>& Typ,
