@@ -96,18 +96,29 @@ void Fertigkeit::get_Fertigkeit()
 
 bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 
 {
- if ( voraussetzung.st<=Werte.St() &&
-      voraussetzung.gw<=Werte.Gw() &&
-      voraussetzung.gs<=Werte.Gs() &&
-      voraussetzung.ko<=Werte.Ko() &&
-      voraussetzung.in<=Werte.In() &&
-      voraussetzung.zt<=Werte.Zt() &&
-      voraussetzung.au<=Werte.Au() &&
-      voraussetzung.pa<=Werte.pA() &&
-      voraussetzung.sb<=Werte.Sb()
-     )   
-    return true;
- else return false ;
+ // Mindsetwerte
+ if(voraussetzung.st > 0 && voraussetzung.st > Werte.St()) return false;
+ if(voraussetzung.gw > 0 && voraussetzung.gw > Werte.Gw()) return false;
+ if(voraussetzung.gs > 0 && voraussetzung.gs > Werte.Gs()) return false;
+ if(voraussetzung.ko > 0 && voraussetzung.ko > Werte.Ko()) return false;
+ if(voraussetzung.in > 0 && voraussetzung.in > Werte.In()) return false;
+ if(voraussetzung.zt > 0 && voraussetzung.zt > Werte.Zt()) return false;
+ if(voraussetzung.au > 0 && voraussetzung.au > Werte.Au()) return false;
+ if(voraussetzung.pa > 0 && voraussetzung.pa > Werte.pA()) return false;
+ if(voraussetzung.sb > 0 && voraussetzung.sb > Werte.Sb()) return false;
+
+ // Höchstwerte
+ if(voraussetzung.st < 0 && -voraussetzung.st < Werte.St()) return false;
+ if(voraussetzung.gw < 0 && -voraussetzung.gw < Werte.Gw()) return false;
+ if(voraussetzung.gs < 0 && -voraussetzung.gs < Werte.Gs()) return false;
+ if(voraussetzung.ko < 0 && -voraussetzung.ko < Werte.Ko()) return false;
+ if(voraussetzung.in < 0 && -voraussetzung.in < Werte.In()) return false;
+ if(voraussetzung.zt < 0 && -voraussetzung.zt < Werte.Zt()) return false;
+ if(voraussetzung.au < 0 && -voraussetzung.au < Werte.Au()) return false;
+ if(voraussetzung.pa < 0 && -voraussetzung.pa < Werte.pA()) return false;
+ if(voraussetzung.sb < 0 && -voraussetzung.sb < Werte.Sb()) return false;
+
+ return true;
 }
 
 std::string Fertigkeit::Pflicht_str() const

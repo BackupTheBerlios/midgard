@@ -26,6 +26,8 @@ NEWS IN VERSION 0.6delta3
    gelernt werden
 * Zauberstabausdruckbug entfernt
 * Geschlecht 'weiblich' wird wieder geladen
+* Keleinere Datenbankkorrekturen
+* Höchsteigenschaften bei Fertigkeiten berücksichtigen
 
 TODO:
 * Gildenbrief funktioniert nicht
