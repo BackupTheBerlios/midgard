@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.77 2002/02/21 10:23:31 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.78 2002/02/21 14:30:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -383,7 +383,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
          cH_MidgardBasicElement saf(&*cH_Fertigkeit(dt->Fert()));
          MidgardBasicElement_uebernehmen(saf,true);
       }
-    if(!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4) ) 
+    if (!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4))
       {
          tree_lernschema->clear();
          label_berufskategorie->set_text("");
@@ -392,7 +392,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
       }
     else
       {
-#warning mehrere Berufe -> TODO
+         BKategorie.kat_IV=false;
       }
   }
   show_gelerntes();

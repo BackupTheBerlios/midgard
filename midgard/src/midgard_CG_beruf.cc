@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.48 2002/02/21 10:23:30 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.49 2002/02/21 14:30:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,15 +28,15 @@ gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
   deleteBerufsFertigekeit();
   if (ev->button==1) 
    {
-     manage(new Berufe_auswahl(this,Database,Typ,Werte,list_Fertigkeit));
-//     beruf_gewuerfelt(random.integer(1,100));
+//     manage(new Berufe_auswahl(this,Database,Typ,Werte,list_Fertigkeit));
+     beruf_gewuerfelt(random.integer(1,100));
    }
   if (ev->button==3) 
    {
      vbox_berufsname->show();
      entry_berufsname->grab_focus();
    }
-  button_beruf->set_sensitive(false);
+//  table_berufswahl->set_sensitive(false);
   return false;
 }
 
@@ -49,8 +49,8 @@ void midgard_CG::on_entry_berufsname_activate()
 
 void midgard_CG::on_spinbutton_beruf_activate()
 {
-  gtk_spin_button_update(spinbutton_wurf->gtkobj());
-  beruf_gewuerfelt(spinbutton_wurf->get_value_as_int());
+  gtk_spin_button_update(spinbutton_beruf->gtkobj());
+  beruf_gewuerfelt(spinbutton_beruf->get_value_as_int());
 }
 
 
@@ -79,12 +79,14 @@ void midgard_CG::showBerufsLernList(std::list<cH_MidgardBasicElement>& L)
   L.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
   std::vector<cH_RowDataBase> datavec;
   bool gelerntes=false;
+cout << "Show\n";
   for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
     {
       cH_Beruf b(*i);
       std::vector<string> fert=b->Vorteile();
       for(std::vector<string>::const_iterator j=fert.begin();j!=fert.end();++j)
        {
+cout << (*i)->Name()<<' '<<*j<<'\n';
          int kat;
          if(*j=="Schmecken+10") kat=1;
          else kat=cH_Fertigkeit(*j)->Berufskategorie();
@@ -132,5 +134,7 @@ void midgard_CG::beruf_gewuerfelt(int wurf)
     BKategorie.kat_IV=true; }
     label_berufskategorie->set_text(kat);
     label_berufskategorie->show();
+// showBerufsLernList();
+  show_lernschema(MidgardBasicElement::BERUF);
 }
 
