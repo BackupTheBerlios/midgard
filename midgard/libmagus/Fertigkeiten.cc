@@ -259,8 +259,9 @@ Fertigkeit::Fertigkeit(const Tag &t)
 }
 
 void Fertigkeit::load(const Tag &t)
-{get_Fertigkeit(t);get_map_typ(t);get_Steigern_Kosten_map(t);
- EP_steigern(t);
+{get_Fertigkeit(t); get_map_typ(t);
+ if (t.hasAttr("Lernkosten")) 
+ { get_Steigern_Kosten_map(t); EP_steigern(t); }
 }
 
 cH_Fertigkeit cH_Fertigkeit::load(const Tag &t,bool &is_new)

@@ -179,10 +179,10 @@ bool operator==(void *data,const cH_Typen &t)
 }
 
 cH_Typen cH_Typen::load(const Tag &t)
-{  cH_Typen *res=cache.lookup(t.getAttr("Name"));
+{  cH_Typen *res=cache.lookup(t.getAttr("Abkürzung"));
    assert (!res);
    {  cH_Typen r2=new Typen(t);
-      cache.Register(t.getAttr("Name"),r2);
+      cache.Register(t.getAttr("Abkürzung"),r2);
       return r2;
    }
 }

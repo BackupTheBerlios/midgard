@@ -116,11 +116,11 @@ int Ruestung::B_Verlust(const double &ueberlast,const Grundwerte &Werte,bool &ew
 }
 
 cH_Ruestung cH_Ruestung::load(const Tag &t,bool &is_new)
-{  cH_Ruestung *res=cache.lookup(t.getAttr("Name"));
+{  cH_Ruestung *res=cache.lookup(t.getAttr("Abkürzung"));
    assert (!res);
    {  cH_Ruestung r2=new Ruestung(t);
       is_new=true;
-      cache.Register(t.getAttr("Name"),r2);
+      cache.Register(t.getAttr("Abkürzung"),r2);
       return r2;
    }
 }
