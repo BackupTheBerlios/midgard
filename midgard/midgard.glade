@@ -5357,73 +5357,23 @@ Praxispunkten</label>
 			</child>
 
 			<widget>
-			  <class>GtkCList</class>
-			  <name>steigern_waffen_clist_alt</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>select_row</name>
-			    <handler>on_steigern_waffen_clist_alt_select_row</handler>
-			    <last_modification_time>Sun, 18 Feb 2001 22:30:32 GMT</last_modification_time>
-			  </signal>
-			  <columns>4</columns>
-			  <column_widths>80,80,80,80</column_widths>
-			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-			  <show_titles>True</show_titles>
-			  <shadow_type>GTK_SHADOW_IN</shadow_type>
+			  <class>GtkViewport</class>
+			  <name>viewport7</name>
+			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label213</name>
-			    <label>Waffe</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label214</name>
-			    <label>Wert</label>
-			    <justify>GTK_JUSTIFY_RIGHT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label215</name>
-			    <label>Steigern
-(nächste Stufe)</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label216</name>
-			    <label>Reduzieren
-(eine Stufe)</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
+			    <class>Custom</class>
+			    <name>alte_waffen_tree</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <signal>
+			      <name>leaf_selected</name>
+			      <handler>on_leaf_selected_alte_waffen</handler>
+			      <last_modification_time>Thu, 21 Jun 2001 17:25:54 GMT</last_modification_time>
+			    </signal>
+			    <creation_function>SimpleTree</creation_function>
+			    <int1>4</int1>
+			    <int2>4</int2>
+			    <last_modification_time>Thu, 21 Jun 2001 17:10:37 GMT</last_modification_time>
 			  </widget>
 			</widget>
 		      </widget>
@@ -5441,59 +5391,23 @@ Praxispunkten</label>
 			</child>
 
 			<widget>
-			  <class>GtkCList</class>
-			  <name>steigern_waffen_clist_neu</name>
-			  <width>179</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>select_row</name>
-			    <handler>on_steigern_waffen_clist_neu_select_row</handler>
-			    <last_modification_time>Sun, 18 Feb 2001 22:30:23 GMT</last_modification_time>
-			  </signal>
-			  <columns>3</columns>
-			  <column_widths>80,80,80</column_widths>
-			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-			  <show_titles>True</show_titles>
-			  <shadow_type>GTK_SHADOW_IN</shadow_type>
+			  <class>GtkViewport</class>
+			  <name>viewport8</name>
+			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label217</name>
-			    <label>Waffe</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label218</name>
-			    <label>Wert</label>
-			    <justify>GTK_JUSTIFY_RIGHT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label317</name>
-			    <label>Voraussetzung</label>
-			    <justify>GTK_JUSTIFY_RIGHT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
+			    <class>Custom</class>
+			    <name>neue_waffen_tree</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <signal>
+			      <name>leaf_selected</name>
+			      <handler>on_leaf_selected_neue_waffen</handler>
+			      <last_modification_time>Thu, 21 Jun 2001 17:25:48 GMT</last_modification_time>
+			    </signal>
+			    <creation_function>SimpleTree</creation_function>
+			    <int1>3</int1>
+			    <int2>3</int2>
+			    <last_modification_time>Thu, 21 Jun 2001 17:08:53 GMT</last_modification_time>
 			  </widget>
 			</widget>
 		      </widget>
@@ -5552,32 +5466,23 @@ Praxispunkten</label>
 			</child>
 
 			<widget>
-			  <class>GtkCList</class>
-			  <name>grundkenntnisse_clist_alt</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>select_row</name>
-			    <handler>on_grundkenntnisse_clist_alt_select_row</handler>
-			    <last_modification_time>Sun, 18 Feb 2001 20:29:46 GMT</last_modification_time>
-			  </signal>
-			  <columns>1</columns>
-			  <column_widths>80</column_widths>
-			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-			  <show_titles>True</show_titles>
-			  <shadow_type>GTK_SHADOW_IN</shadow_type>
+			  <class>GtkViewport</class>
+			  <name>viewport12</name>
+			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label246</name>
-			    <label>Grundkenntnisse in</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
+			    <class>Custom</class>
+			    <name>alte_grund_tree</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <signal>
+			      <name>leaf_selected</name>
+			      <handler>on_leaf_selected_alte_grund</handler>
+			      <last_modification_time>Thu, 21 Jun 2001 19:27:52 GMT</last_modification_time>
+			    </signal>
+			    <creation_function>SimpleTree</creation_function>
+			    <int1>1</int1>
+			    <int2>1</int2>
+			    <last_modification_time>Thu, 21 Jun 2001 19:27:58 GMT</last_modification_time>
 			  </widget>
 			</widget>
 		      </widget>
@@ -5595,45 +5500,23 @@ Praxispunkten</label>
 			</child>
 
 			<widget>
-			  <class>GtkCList</class>
-			  <name>grundkenntnisse_clist_neu</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>select_row</name>
-			    <handler>on_grundkenntnisse_clist_neu_select_row</handler>
-			    <last_modification_time>Sun, 18 Feb 2001 20:30:25 GMT</last_modification_time>
-			  </signal>
-			  <columns>2</columns>
-			  <column_widths>80,80</column_widths>
-			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-			  <show_titles>True</show_titles>
-			  <shadow_type>GTK_SHADOW_IN</shadow_type>
+			  <class>GtkViewport</class>
+			  <name>viewport13</name>
+			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label247</name>
-			    <label>Grundkenntnis</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label248</name>
-			    <label>Kosten</label>
-			    <justify>GTK_JUSTIFY_RIGHT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
+			    <class>Custom</class>
+			    <name>neue_grund_tree</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <signal>
+			      <name>leaf_selected</name>
+			      <handler>on_leaf_selected_neue_grund</handler>
+			      <last_modification_time>Thu, 21 Jun 2001 19:29:21 GMT</last_modification_time>
+			    </signal>
+			    <creation_function>SimpleTree</creation_function>
+			    <int1>2</int1>
+			    <int2>2</int2>
+			    <last_modification_time>Thu, 21 Jun 2001 19:27:58 GMT</last_modification_time>
 			  </widget>
 			</widget>
 		      </widget>
@@ -6417,46 +6300,23 @@ Praxispunkten</label>
 			</child>
 
 			<widget>
-			  <class>GtkCList</class>
-			  <name>clist_zaubermittel_alt</name>
-			  <width>250</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>select_row</name>
-			    <handler>on_clist_zaubermittel_alt_select_row</handler>
-			    <last_modification_time>Thu, 12 Apr 2001 07:39:03 GMT</last_modification_time>
-			  </signal>
-			  <columns>2</columns>
-			  <column_widths>80,80</column_widths>
-			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-			  <show_titles>True</show_titles>
-			  <shadow_type>GTK_SHADOW_IN</shadow_type>
+			  <class>GtkViewport</class>
+			  <name>viewport10</name>
+			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label381</name>
-			    <label>Name</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label382</name>
-			    <label>Kosten</label>
-			    <justify>GTK_JUSTIFY_RIGHT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
+			    <class>Custom</class>
+			    <name>alte_zaubermittel_tree</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <signal>
+			      <name>leaf_selected</name>
+			      <handler>on_leaf_selected_alte_zaubermittel</handler>
+			      <last_modification_time>Thu, 21 Jun 2001 19:10:42 GMT</last_modification_time>
+			    </signal>
+			    <creation_function>SimpleTree</creation_function>
+			    <int1>2</int1>
+			    <int2>2</int2>
+			    <last_modification_time>Thu, 21 Jun 2001 19:08:56 GMT</last_modification_time>
 			  </widget>
 			</widget>
 		      </widget>
@@ -6474,97 +6334,23 @@ Praxispunkten</label>
 			</child>
 
 			<widget>
-			  <class>GtkCList</class>
-			  <name>clist_zaubermittel_neu</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>select_row</name>
-			    <handler>on_clist_zaubermittel_neu_select_row</handler>
-			    <last_modification_time>Thu, 12 Apr 2001 07:39:16 GMT</last_modification_time>
-			  </signal>
-			  <columns>6</columns>
-			  <column_widths>80,80,80,80,80,80</column_widths>
-			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-			  <show_titles>True</show_titles>
-			  <shadow_type>GTK_SHADOW_IN</shadow_type>
+			  <class>GtkViewport</class>
+			  <name>viewport11</name>
+			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label383</name>
-			    <label>Stufe</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label384</name>
-			    <label>Name</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label387</name>
-			    <label>Art</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label385</name>
-			    <label>Kosten</label>
-			    <justify>GTK_JUSTIFY_RIGHT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label386</name>
-			    <label>Preis</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label388</name>
-			    <label>Zeitaufwand</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
+			    <class>Custom</class>
+			    <name>neue_zaubermittel_tree</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <signal>
+			      <name>leaf_selected</name>
+			      <handler>on_leaf_selected_neue_zaubermittel</handler>
+			      <last_modification_time>Thu, 21 Jun 2001 19:10:23 GMT</last_modification_time>
+			    </signal>
+			    <creation_function>SimpleTree</creation_function>
+			    <int1>6</int1>
+			    <int2>6</int2>
+			    <last_modification_time>Thu, 21 Jun 2001 19:09:34 GMT</last_modification_time>
 			  </widget>
 			</widget>
 		      </widget>
@@ -6753,97 +6539,23 @@ Praxispunkten</label>
 		    </child>
 
 		    <widget>
-		      <class>GtkCList</class>
-		      <name>steigern_kido_clist_alt</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>select_row</name>
-			<handler>on_steigern_kido_clist_alt_select_row</handler>
-			<last_modification_time>Wed, 04 Apr 2001 06:03:52 GMT</last_modification_time>
-		      </signal>
-		      <columns>6</columns>
-		      <column_widths>80,80,80,80,80,80</column_widths>
-		      <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-		      <show_titles>True</show_titles>
-		      <shadow_type>GTK_SHADOW_IN</shadow_type>
+		      <class>GtkViewport</class>
+		      <name>viewport14</name>
+		      <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label362</name>
-			<label>HoHo</label>
-			<justify>GTK_JUSTIFY_LEFT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label363</name>
-			<label>Technik</label>
-			<justify>GTK_JUSTIFY_LEFT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label374</name>
-			<label>Stufe</label>
-			<justify>GTK_JUSTIFY_LEFT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label375</name>
-			<label>AP</label>
-			<justify>GTK_JUSTIFY_RIGHT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label368</name>
-			<label>Kosten</label>
-			<justify>GTK_JUSTIFY_RIGHT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label369</name>
-			<label>Stil</label>
-			<justify>GTK_JUSTIFY_LEFT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
+			<class>Custom</class>
+			<name>alte_kido_tree</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<signal>
+			  <name>leaf_selected</name>
+			  <handler>on_leaf_selected_alte_kido</handler>
+			  <last_modification_time>Fri, 22 Jun 2001 06:20:10 GMT</last_modification_time>
+			</signal>
+			<creation_function>SimpleTree</creation_function>
+			<int1>6</int1>
+			<int2>6</int2>
+			<last_modification_time>Fri, 22 Jun 2001 06:19:28 GMT</last_modification_time>
 		      </widget>
 		    </widget>
 		  </widget>
@@ -6861,97 +6573,23 @@ Praxispunkten</label>
 		    </child>
 
 		    <widget>
-		      <class>GtkCList</class>
-		      <name>steigern_kido_clist_neu</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>select_row</name>
-			<handler>on_steigern_kido_clist_neu_select_row</handler>
-			<last_modification_time>Wed, 04 Apr 2001 06:04:03 GMT</last_modification_time>
-		      </signal>
-		      <columns>6</columns>
-		      <column_widths>80,80,80,80,80,80</column_widths>
-		      <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-		      <show_titles>True</show_titles>
-		      <shadow_type>GTK_SHADOW_IN</shadow_type>
+		      <class>GtkViewport</class>
+		      <name>viewport15</name>
+		      <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label364</name>
-			<label>HoHo</label>
-			<justify>GTK_JUSTIFY_LEFT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label365</name>
-			<label>Technik</label>
-			<justify>GTK_JUSTIFY_LEFT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label376</name>
-			<label>Stufe</label>
-			<justify>GTK_JUSTIFY_LEFT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label377</name>
-			<label>AP</label>
-			<justify>GTK_JUSTIFY_RIGHT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label366</name>
-			<label>Kosten</label>
-			<justify>GTK_JUSTIFY_RIGHT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label367</name>
-			<label>Stil</label>
-			<justify>GTK_JUSTIFY_LEFT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
+			<class>Custom</class>
+			<name>neue_kido_tree</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<signal>
+			  <name>leaf_selected</name>
+			  <handler>on_leaf_selected_neue_kido</handler>
+			  <last_modification_time>Fri, 22 Jun 2001 06:20:48 GMT</last_modification_time>
+			</signal>
+			<creation_function>SimpleTree</creation_function>
+			<int1>6</int1>
+			<int2>6</int2>
+			<last_modification_time>Fri, 22 Jun 2001 06:19:28 GMT</last_modification_time>
 		      </widget>
 		    </widget>
 		  </widget>

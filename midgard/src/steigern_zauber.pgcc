@@ -21,8 +21,6 @@
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
 #include <cstring>
-#include <Gtk_OStream.h>
-#include <strstream>
 #include "WindowInfo.hh"
 #include <Aux/EntryValueIntString.h>
 #include <Aux/EntryValueEmptyInt.h> 
@@ -189,7 +187,7 @@ void midgard_CG::show_neue_zauber()
 }
 
 
-void midgard_CG::on_steigern_zauber_tree_alt_select(string new_zauber, int kosten)
+void midgard_CG::on_steigern_zauber_tree_alt_select(const string& new_zauber, int kosten)
 {   
    werte.gfp -= kosten;
    for (vector<st_zauber>::iterator i=zauber.begin();
@@ -205,8 +203,8 @@ void midgard_CG::on_steigern_zauber_tree_alt_select(string new_zauber, int koste
    midgard_CG::show_neue_zaubermittel();
 }
 
-void midgard_CG::on_steigern_zauber_tree_neu_select(string new_zauber, int kosten, 
-   string stufe, string art)
+void midgard_CG::on_steigern_zauber_tree_neu_select(const string& new_zauber, int kosten, 
+   const string& stufe, const string& art)
 {   
   string erf = midgard_CG::get_erfolgswert_zaubern(typ,typ_2,new_zauber);
   
@@ -245,7 +243,6 @@ void midgard_CG::on_steigern_zauber_tree_neu_select(string new_zauber, int koste
 
 void midgard_CG::on_checkbutton_zaubersalze_toggled()
 {
- clist_zaubermittel_neu->clear();
  show_neue_zauber();
 }
 void midgard_CG::on_checkbutton_beschwoerungen_toggled()
@@ -259,7 +256,6 @@ void midgard_CG::on_checkbutton_alle_zauber_toggled()
 }
 void midgard_CG::on_checkbutton_zaubermittel_toggled()
 {
- clist_zaubermittel_neu->clear();
  midgard_CG::show_neue_zaubermittel();
  midgard_CG::show_alte_zaubermittel();
 }
@@ -297,26 +293,79 @@ int midgard_CG::spruchrolle_wuerfeln(int istufe, string art, string zauber)
  int x = xr-istufe;
  x += iaus;
  x += erf_z;
- strstream strinfo;
- strinfo << "Lernversuch von Spruchrolle:\n"
-      << " gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n"
-      << "    "<<xr<<"            -"<<istufe<<"               "<<iaus<<"             "<<erf_z<<"       =       "<< x<<"\n"<<char(0);
- manage (new WindowInfo(strinfo.str(),true));
- strinfo.freeze(0);
+ string strinfo = "Lernversuch von Spruchrolle:
+ gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n     "
+      +itos(xr)+"            -"+itos(istufe)+"               "
+      +itos(iaus)+"             "+itos(erf_z)+"       =       "+ itos(x)+"\n";
+ manage (new WindowInfo(strinfo.c_str(),true));
  if (x>=20) return(1);
  else return(0);
 }
 
 // Zaubermittel
 
-void midgard_CG::on_clist_zaubermittel_alt_select_row(gint row, gint column, GdkEvent *event)
+
+class Data_alt_zaubermittel : public RowDataBase
+{
+   string name;
+   int kosten;
+ public:
+   Data_alt_zaubermittel(const string& n, int k)
+   :name(n),kosten(k) {}
+
+   virtual const cH_EntryValue Value(int seqnr) const
+ { switch (seqnr) {
+      case 0 : return cH_EntryValueIntString(name);
+      case 1 : return cH_EntryValueEmptyInt(kosten);
+   }
+   return cH_EntryValueIntString("?");
+ }
+ string Name() const {  return name; }
+ int Kosten() const {  return kosten; }
+};
+
+void midgard_CG::on_leaf_selected_alte_zaubermittel(cH_RowDataBase d)
+{  const Data_alt_zaubermittel *dt=dynamic_cast<const Data_alt_zaubermittel*>(&*d);
+   on_steigern_zaubermittel_tree_alt_select(dt->Name(),dt->Kosten());
+}
+
+class Data_neu_zaubermittel : public RowDataBase
+{
+   int stufe;
+   string name, art;
+   int kosten;
+   string preis, zeitaufwand;
+ public:
+   Data_neu_zaubermittel(int s,const string& n, const string& a,int k,const string& p, const string& z)
+   :stufe(s),name(n),art(a),kosten(k),preis(p),zeitaufwand(z) {}
+
+   virtual const cH_EntryValue Value(int seqnr) const
+ { switch (seqnr) {
+      case 0 : return cH_EntryValueEmptyInt(stufe);
+      case 1 : return cH_EntryValueIntString(name);
+      case 2 : return cH_EntryValueIntString(art);
+      case 3 : return cH_EntryValueEmptyInt(kosten);
+      case 4 : return cH_EntryValueIntString(preis);
+      case 5 : return cH_EntryValueIntString(zeitaufwand);
+   }
+   return cH_EntryValueIntString("?");
+ }
+ string Name() const {  return name; }
+ int Kosten() const {  return kosten; }
+};
+
+void midgard_CG::on_leaf_selected_neue_zaubermittel(cH_RowDataBase d)
+{  const Data_alt_zaubermittel *dt=dynamic_cast<const Data_alt_zaubermittel*>(&*d);
+   on_steigern_zaubermittel_tree_neu_select(dt->Name(),dt->Kosten());
+}
+
+
+void midgard_CG::on_steigern_zaubermittel_tree_alt_select(const string& name, int kosten)
 {   
-   string alt_zauber = clist_zaubermittel_alt->get_text(row,0);
-   int alt_kosten = atoi(clist_zaubermittel_alt->get_text(row,1).c_str());
-   werte.gfp -= alt_kosten;
+   werte.gfp -= kosten;
    for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin();
             i!= vec_zaubermittel.end();++i) 
-      if (i->name==alt_zauber) {vec_zaubermittel.erase(i);break;}
+      if (i->name==name) {vec_zaubermittel.erase(i);break;}
 
    midgard_CG::zeige_werte(werte,"alle");
    midgard_CG::on_speichern_clicked();
@@ -324,14 +373,10 @@ void midgard_CG::on_clist_zaubermittel_alt_select_row(gint row, gint column, Gdk
    midgard_CG::show_neue_zaubermittel();
 }
 
-void midgard_CG::on_clist_zaubermittel_neu_select_row(gint row, gint column, GdkEvent *event)
+void midgard_CG::on_steigern_zaubermittel_tree_neu_select(const string& name, int kosten)
 {   
-  int new_kosten = atoi(clist_zaubermittel_neu->get_text(row,3).c_str());
-  string new_zaubermittel = clist_zaubermittel_neu->get_text(row,1);
-//  vec_zaubermittel.resize(vec_zaubermittel.size()+1);
-//  vec_zaubermittel[vec_zaubermittel.size()-1].name = new_zaubermittel;
-  vec_zaubermittel.push_back(st_zaubermittel(new_zaubermittel));
-  werte.gfp += new_kosten;  
+  vec_zaubermittel.push_back(st_zaubermittel(name));
+  werte.gfp += kosten;  
 
    get_zaubermittel(vec_zaubermittel);
    midgard_CG::zeige_werte(werte,"alle");
@@ -342,22 +387,19 @@ void midgard_CG::on_clist_zaubermittel_neu_select_row(gint row, gint column, Gdk
 
 void midgard_CG::show_alte_zaubermittel()
 {
+   vector<cH_RowDataBase> datavec;
    if (!checkbutton_zaubermittel->get_active()) return ;
-   clist_zaubermittel_alt->clear();
-   Gtk::OStream os(clist_zaubermittel_alt);
    for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin(); 
          i!=vec_zaubermittel.end();++i)
-     os << i->name<<"\t"<<i->gfp<<"\n";
-   for (unsigned int i=0;i<clist_zaubermittel_alt->columns().size();++i)
-      clist_zaubermittel_alt->set_column_auto_resize(i,true);
-   clist_zaubermittel_alt->set_reorderable(true);
+   datavec.push_back(new Data_alt_zaubermittel(i->name,i->gfp));
+   alte_zaubermittel_tree->setDataVec(datavec);
 }
 
 
 void midgard_CG::show_neue_zaubermittel()
 {
  if (!checkbutton_zaubermittel->get_active()) return ;
- clist_zaubermittel_neu->clear();
+ vector<cH_RowDataBase> datavec;
  exec sql begin declare section;
    char db_name[50], db_art[50], db_zeitaufwand[30], db_preis[50],
          db_standard[5],db_standard2[5], db_region[10];
@@ -388,7 +430,6 @@ void midgard_CG::show_neue_zaubermittel()
  exec sql declare zauberm_ein cursor for zauberm_ein_ ;
  exec sql open zauberm_ein;
  SQLerror::test(__FILELINE__);
- Gtk::OStream os(clist_zaubermittel_neu);
  while (true)
    {
 
@@ -409,17 +450,12 @@ void midgard_CG::show_neue_zaubermittel()
        {
          if (art=="AZ") art = "Alchimistisches Zaubermittel";
          if (art=="PZ") art = "Pflanzliches Zaubermittel";
-         os << db_stufe <<"\t"<< db_name <<"\t"<<art<<"\t"
-            << db_gfp*fac<<"\t"<<db_preis<<"\t"<<db_zeitaufwand<<"\n";
+         datavec.push_back(new Data_neu_zaubermittel(atoi(db_stufe),db_name,art,db_gfp*fac,db_preis,db_zeitaufwand));
        }
    }
  exec sql close zauberm_ein;
-
- for (unsigned int i=0;i<clist_zaubermittel_neu->columns().size();++i)
-      clist_zaubermittel_neu->set_column_auto_resize(i,true);
- clist_zaubermittel_neu->set_reorderable(true);
-
  tr.commit();
+ neue_zaubermittel_tree->setDataVec(datavec);
 }
 
 

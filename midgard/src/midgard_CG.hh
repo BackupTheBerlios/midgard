@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.44 2001/06/21 10:33:51 thoma Exp $
+// $Id: midgard_CG.hh,v 1.45 2001/06/22 07:45:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -101,9 +101,6 @@ struct st_ausgewaehlte_zauber {string name; string ap;
 struct st_ausgewaehlte_berufe {string name; string vorteile; int erfolgswert; 
       st_ausgewaehlte_berufe(const string n, const string v, int e)
       : name(n), vorteile(v), erfolgswert(e) {} };
-//struct st_spezialgebiet{string name;string spezial; string spezial2;
-//       st_spezialgebiet(string n, string s,string s2)
-//       :name(n),spezial(s),spezial2(s2){}};
 struct st_zauber{string ap; string name; string erfolgswert;string art; string stufe;
               string zauberdauer; string reichweite; string wirkungsziel;
               string wirkungsbereich; string wirkungsdauer; string ursprung;
@@ -285,10 +282,8 @@ class midgard_CG : public midgard_CG_glade
         void get_grundwerte();
          
         void on_fertigkeiten_laden_clicked();
-//        void on_steigern_fert_clist_alt_select_row(gint row, gint column, GdkEvent *event);
-        void on_steigern_fert_tree_alt_select(string fertigkeit, int wert, int steigern, int reduzieren, int verlernen);
-//        void on_steigern_fert_clist_neu_select_row(gint row, gint column, GdkEvent *event);
-        void on_steigern_fert_tree_neu_select(string fertigkeit, int wert, int lernkosten);
+        void on_steigern_fert_tree_alt_select(const string& fertigkeit, int wert, int steigern, int reduzieren, int verlernen);
+        void on_steigern_fert_tree_neu_select(const string& fertigkeit, int wert, int lernkosten);
         void show_alte_fertigkeiten();
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
         void show_neue_fertigkeiten();
@@ -308,10 +303,14 @@ class midgard_CG : public midgard_CG_glade
         void show_neue_grund();
         void show_alte_waffen();
         void show_neue_waffen();
-        void on_grundkenntnisse_clist_alt_select_row(gint row, gint column, GdkEvent *event);
-        void on_grundkenntnisse_clist_neu_select_row(gint row, gint column, GdkEvent *event);
-        void on_steigern_waffen_clist_alt_select_row(gint row, gint column, GdkEvent *event);
-        void on_steigern_waffen_clist_neu_select_row(gint row, gint column, GdkEvent *event);
+        void on_steigern_grund_tree_alt_select(const string& name);
+        void on_steigern_grund_tree_neu_select(const string& name,int kosten);
+        void on_leaf_selected_alte_grund(cH_RowDataBase d);
+        void on_leaf_selected_neue_grund(cH_RowDataBase d);
+        void on_leaf_selected_alte_waffen(cH_RowDataBase d);
+        void on_leaf_selected_neue_waffen(cH_RowDataBase d);
+        void on_steigern_waffen_tree_alt_select(const string& waffe, int erfolgswert, int steigern, int reduzieren);
+        void on_steigern_waffen_tree_neu_select(const string&  name, int erfolgswert);
         void on_radio_waffen_steigern_toggled();
         void on_radio_waffen_reduzieren_toggled();
         void on_togglebutton_praxispunkte_waffen_toggled();
@@ -327,16 +326,16 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_alle_zauber_toggled();
         void on_checkbutton_zaubermittel_toggled();
         int spruchrolle_wuerfeln(int istufe, string art, string zauber);
-//        void on_steigern_zauber_clist_alt_select_row(gint row, gint column, GdkEvent *event);
         void on_leaf_selected_alte_zauber(cH_RowDataBase d);
-        void on_steigern_zauber_tree_alt_select(string zauber, int kosten);
-//        void on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event);
+        void on_steigern_zauber_tree_alt_select(const string& zauber, int kosten);
         void on_leaf_selected_neue_zauber(cH_RowDataBase d);
-        void on_steigern_zauber_tree_neu_select(string zauber, int kosten, string stufe, string art);
+        void on_steigern_zauber_tree_neu_select(const string& zauber, int kosten, const string& stufe, const string& art);
         void show_alte_zauber();
         void show_neue_zauber();
-        void on_clist_zaubermittel_alt_select_row(gint row, gint column, GdkEvent *event);
-        void on_clist_zaubermittel_neu_select_row(gint row, gint column, GdkEvent *event);
+        void on_steigern_zaubermittel_tree_alt_select(const string& name, int kosten);
+        void on_steigern_zaubermittel_tree_neu_select(const string& name, int kosten);
+        void on_leaf_selected_alte_zaubermittel(cH_RowDataBase d);
+        void on_leaf_selected_neue_zaubermittel(cH_RowDataBase d);
         void show_alte_zaubermittel();
         void show_neue_zaubermittel();
         void get_zaubermittel(vector<st_zaubermittel>& vec_zaubermittel);
@@ -344,8 +343,10 @@ class midgard_CG : public midgard_CG_glade
         bool zauberwerk_voraussetzung(const string& name);
 
         void on_kido_laden_clicked();
-        void on_steigern_kido_clist_alt_select_row(gint row, gint column, GdkEvent *event);
-        void on_steigern_kido_clist_neu_select_row(gint row, gint column, GdkEvent *event);
+        void on_leaf_selected_alte_kido(cH_RowDataBase d);
+        void on_leaf_selected_neue_kido(cH_RowDataBase d);
+        void on_steigern_kido_tree_alt_select(const string& name,int kosten);
+        void on_steigern_kido_tree_neu_select(const string& name,int kosten);
         void show_alte_kido();
         void show_neue_kido();
 

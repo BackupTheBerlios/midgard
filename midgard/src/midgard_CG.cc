@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.38 2001/06/21 10:33:51 thoma Exp $
+// $Id: midgard_CG.cc,v 1.39 2001/06/22 07:45:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,6 @@ void midgard_CG::set_tree_titles()
  alte_fert.push_back("Reduzieren\n(eine Stufe)");
  alte_fert.push_back("Verlernen");
  alte_fert_tree->setTitles(alte_fert);
-
  vector<string> neue_fert;
  neue_fert.push_back("Fertigkeit");
  neue_fert.push_back("Wert");
@@ -59,12 +58,31 @@ void midgard_CG::set_tree_titles()
  neue_fert.push_back("Vorraussetzungen");
  neue_fert_tree->setTitles(neue_fert);
 
+ vector<string> alte_waffen;
+ alte_waffen.push_back("Waffe");
+ alte_waffen.push_back("Wert");
+ alte_waffen.push_back("Steigern\n(nächste Stufe)");
+ alte_waffen.push_back("Reduzieren\n(eine Stufe)");
+ alte_waffen_tree->setTitles(alte_waffen);
+ vector<string> neue_waffen;
+ neue_waffen.push_back("Waffe");
+ neue_waffen.push_back("Wert");
+ neue_waffen.push_back("Vorraussetzung");
+ neue_waffen_tree->setTitles(neue_waffen);
+
+ vector<string> alte_grund;
+ alte_grund.push_back("Grundkenntnisse");
+ alte_grund_tree->setTitles(alte_grund);
+ vector<string> neue_grund;
+ neue_grund.push_back("Grundkenntnisse");
+ neue_grund.push_back("Kosten");
+ neue_grund_tree->setTitles(neue_grund);
+ 
  vector<string> alte_zauber;
  alte_zauber.push_back("Name");
  alte_zauber.push_back("Ursprung");
  alte_zauber.push_back("Lernkosten");
  alte_zauber_tree->setTitles(alte_zauber);
-
  vector<string> neue_zauber;
  neue_zauber.push_back("Stufe");
  neue_zauber.push_back("Name");
@@ -73,6 +91,28 @@ void midgard_CG::set_tree_titles()
  neue_zauber.push_back("Art");
  neue_zauber_tree->setTitles(neue_zauber);
 
+ vector<string> alte_zaubermittel;
+ alte_zaubermittel.push_back("Name");
+ alte_zaubermittel.push_back("Kosten");
+ alte_zaubermittel_tree->setTitles(alte_zaubermittel); 
+ vector<string> neue_zaubermittel;
+ neue_zaubermittel.push_back("Stufe");
+ neue_zaubermittel.push_back("Name");
+ neue_zaubermittel.push_back("Art");
+ neue_zaubermittel.push_back("Kosten");
+ neue_zaubermittel.push_back("Preis");
+ neue_zaubermittel.push_back("Zeitaufwand");
+ neue_zaubermittel_tree->setTitles(neue_zaubermittel); 
+
+ vector<string> kido;
+ kido.push_back("HoHo");
+ kido.push_back("Technik");
+ kido.push_back("Stufe");
+ kido.push_back("AP");
+ kido.push_back("Kosten");
+ kido.push_back("Stil");
+ alte_kido_tree->setTitles(kido);
+ neue_kido_tree->setTitles(kido);
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
@@ -275,22 +315,18 @@ void midgard_CG::on_neuer_charakter_clicked()
    fertigkeiten_clist->clear();
    zauber_clist->clear();
    clist_kido->clear();
-//   steigern_fert_clist_alt->clear();
-//   steigern_fert_clist_neu->clear();
    alte_fert_tree->clear();
    neue_fert_tree->clear();
-   steigern_waffen_clist_alt->clear();
-   steigern_waffen_clist_neu->clear();
-   grundkenntnisse_clist_alt->clear();
-   grundkenntnisse_clist_neu->clear();
-//   steigern_zauber_clist_alt->clear();
-//   steigern_zauber_clist_neu->clear();
+   alte_waffen_tree->clear();
+   neue_waffen_tree->clear();
+   alte_grund_tree->clear();
+   neue_grund_tree->clear();
    alte_zauber_tree->clear();
    neue_zauber_tree->clear();
-   clist_zaubermittel_alt->clear();
-   clist_zaubermittel_neu->clear();
-   steigern_kido_clist_alt->clear();
-   steigern_kido_clist_neu->clear();
+   alte_zaubermittel_tree->clear();
+   neue_zaubermittel_tree->clear();
+   alte_kido_tree->clear();
+   neue_kido_tree->clear();
    clist_steigern_sprachen_alt->clear();
    clist_steigern_sprachen_neu->clear();
    clist_steigern_schrift_alt->clear();

@@ -21,8 +21,8 @@
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
 #include <cstring>
-#include <Gtk_OStream.h>
-#include <algorithm>
+//#include <Gtk_OStream.h>
+//#include <algorithm>
 #include "WindowInfo.hh"
 #include <Aux/EntryValueIntString.h>
 #include <Aux/EntryValueEmptyInt.h>
@@ -65,8 +65,6 @@ class Data_alt_fert : public RowDataBase
 
 void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  const Data_alt_fert *dt=dynamic_cast<const Data_alt_fert*>(&*d);
-   cout << "Data " << dt->Name() << '\n'; 
-   cout << "Data " << dt->Wert() << '\n'; 
    on_steigern_fert_tree_alt_select(dt->Name(),dt->Wert(),dt->Steigern(),
       dt->Reduzieren(),dt->Verlernen());
 }
@@ -248,7 +246,7 @@ bool midgard_CG::kido_steigern_check(int wert)
 }
 
 
-void midgard_CG::on_steigern_fert_tree_alt_select(string fertigkeit, int wert,
+void midgard_CG::on_steigern_fert_tree_alt_select(const string& fertigkeit, int wert,
    int steigern,int reduzieren,int verlernen)
 {
  if (fertigkeit=="KiDo" && kido_steigern_check(wert)) return;
@@ -300,7 +298,7 @@ void midgard_CG::on_steigern_fert_tree_alt_select(string fertigkeit, int wert,
    midgard_CG::show_neue_fertigkeiten();
 }
 
-void midgard_CG::on_steigern_fert_tree_neu_select(string fertigkeit, int wert, int lernkosten)
+void midgard_CG::on_steigern_fert_tree_neu_select(const string& fertigkeit, int wert, int lernkosten)
 {
   werte.gfp += lernkosten;
   midgard_CG::zeige_werte(werte,"alle");

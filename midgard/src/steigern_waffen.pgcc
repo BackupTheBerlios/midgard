@@ -21,8 +21,10 @@
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
 #include <cstring>
-#include <Gtk_OStream.h>
-#include <algorithm>
+//#include <algorithm>
+#include <Aux/EntryValueIntString.h>
+#include <Aux/EntryValueEmptyInt.h>
+
 
 
 void midgard_CG::on_waffen_laden_clicked()
@@ -34,25 +36,73 @@ void midgard_CG::on_waffen_laden_clicked()
    midgard_CG::show_neue_waffen();
 }
 
+
+class Data_alt_grund : public RowDataBase
+{
+   string name;
+ public:
+   Data_alt_grund(const string& n) :name(n) {}
+
+   virtual const cH_EntryValue Value(int seqnr) const
+ { switch (seqnr) {
+      case 0 : return cH_EntryValueIntString(name);
+   }
+   return cH_EntryValueIntString("?");
+ }
+ string Name() const {  return name; }
+};
+
+void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
+{  const Data_alt_grund *dt=dynamic_cast<const Data_alt_grund*>(&*d);
+   on_steigern_grund_tree_alt_select(dt->Name());
+}
+
+
 void midgard_CG::show_alte_grund()
 {
-   grundkenntnisse_clist_alt->clear();
-   Gtk::OStream os(grundkenntnisse_clist_alt);
+   vector<cH_RowDataBase> datavec;
  for (map<string,string>::const_iterator i=waffen_grundkenntnisse.begin();
       i!=waffen_grundkenntnisse.end();++i)
    {
-      os << i->first<<"\n";
+      datavec.push_back(new Data_alt_grund(i->first));
    }
-
- for (unsigned int i=0;i<grundkenntnisse_clist_alt->columns().size();++i)
-   grundkenntnisse_clist_alt->set_column_auto_resize(i,true);
- grundkenntnisse_clist_alt->set_reorderable(true);
+ alte_grund_tree->setDataVec(datavec);
 }
+
+
+class Data_alt_waffen : public RowDataBase
+{
+   string name;
+   int wert, steigern, reduzieren;
+ public:
+   Data_alt_waffen(const string& n, int w,int s,int r)
+   :name(n),wert(w),steigern(s),reduzieren(r) {}
+
+   virtual const cH_EntryValue Value(int seqnr) const
+ { switch (seqnr) {
+      case 0 : return cH_EntryValueIntString(name);
+      case 1 : return cH_EntryValueEmptyInt(wert); 
+      case 2 : return cH_EntryValueEmptyInt(steigern);
+      case 3 : return cH_EntryValueEmptyInt(reduzieren);
+   }
+   return cH_EntryValueIntString("?");
+ }
+ string Name() const {  return name; }
+ int  Wert() const {  return wert; }  
+ int  Steigern() const {  return steigern; }
+ int  Reduzieren() const {  return reduzieren; }
+};
+
+void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
+{  const Data_alt_waffen *dt=dynamic_cast<const Data_alt_waffen*>(&*d);
+   on_steigern_waffen_tree_alt_select(dt->Name(),dt->Wert(),dt->Steigern(),
+      dt->Reduzieren());
+}
+
 
 void midgard_CG::show_alte_waffen()
 {
-   steigern_waffen_clist_alt->clear();
-   Gtk::OStream os(steigern_waffen_clist_alt);
+   vector<cH_RowDataBase> datavec;
    for (vector<st_ausgewaehlte_waffen>::const_iterator i=vec_waffen.begin();
             i!=vec_waffen.end();++i)
       {
@@ -85,24 +135,43 @@ db_alter_erfolgswert,db_neuer_erfolgswert,db_waffe);
          exec sql close w_ein;
          tr.close();
          
-         
          double fac = midgard_CG::get_standard_waffen(typ.s,typ_2.s,i->name);
-         string kosten_steigern = itos(db_schwierigkeit*db_erfolgsfaktor_s*fac);
-         string kosten_reduzieren = itos(db_schwierigkeit*db_erfolgsfaktor_r*fac);
-         if (kosten_steigern=="0") kosten_steigern="";         
-         if (kosten_reduzieren=="0") kosten_reduzieren="";         
-         os << i->name<<"\t"<<i->erfolgswert<<"\t"
-            <<kosten_steigern<<"\t"<<kosten_reduzieren<<"\n";
+         int kosten_steigern = db_schwierigkeit*db_erfolgsfaktor_s*fac;
+         int kosten_reduzieren = db_schwierigkeit*db_erfolgsfaktor_r*fac;
+         datavec.push_back(new Data_alt_waffen(i->name,i->erfolgswert,
+            kosten_steigern,kosten_reduzieren));
       }
- for (unsigned int i=0;i<steigern_waffen_clist_alt->columns().size();++i)
-   steigern_waffen_clist_alt->set_column_auto_resize(i,true);
- steigern_waffen_clist_alt->set_reorderable(true);
-
+   alte_waffen_tree->setDataVec(datavec);
 }
+
+
+class Data_neu_grund : public RowDataBase
+{
+   string name;
+   int kosten;
+ public:
+   Data_neu_grund(const string& n, int k) :name(n),kosten(k) {}
+
+   virtual const cH_EntryValue Value(int seqnr) const
+ { switch (seqnr) {
+      case 0 : return cH_EntryValueIntString(name);
+      case 1 : return cH_EntryValueEmptyInt(kosten);
+   }
+   return cH_EntryValueIntString("?");
+ }
+ string Name() const {  return name; }
+ int Kosten() const {  return kosten; }
+};
+
+void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
+{  const Data_neu_grund *dt=dynamic_cast<const Data_neu_grund*>(&*d);
+   on_steigern_grund_tree_neu_select(dt->Name(),dt->Kosten());
+}
+
 
 void midgard_CG::show_neue_grund()
 {
-  grundkenntnisse_clist_neu->clear();
+  vector<cH_RowDataBase> datavec;
   exec sql begin declare section;
    char db_name[50], db_region[10];
    int db_fp;
@@ -121,7 +190,6 @@ void midgard_CG::show_neue_grund()
    AND name  not in (select verboten from pflicht_lernen where typ=:db_spezies
     and verboten is not null) order by name;
   SQLerror::test(__FILELINE__);
-  Gtk::OStream os(grundkenntnisse_clist_neu);
  exec sql open grund_ein;
   while (true)
    {
@@ -131,19 +199,45 @@ void midgard_CG::show_neue_grund()
 
       double fac = midgard_CG::get_standard_waffen(typ.s,typ_2.s,db_name);
       if (midgard_CG::region_check(db_region))
-         os << db_name<<"\t"<<db_fp*fac <<"\n";
+      datavec.push_back(new Data_neu_grund(db_name,db_fp*fac));
    }
  exec sql close grund_ein;
- for (unsigned int i=0;i<grundkenntnisse_clist_neu->columns().size();++i)
-   grundkenntnisse_clist_neu->set_column_auto_resize(i,true);
- grundkenntnisse_clist_neu->set_reorderable(true);
  tr.close();
+ neue_grund_tree->setDataVec(datavec);
 }
+
+
+class Data_neu_waffen : public RowDataBase
+{
+   string name;
+   int wert;
+   string vorraussetzung;
+ public:
+   Data_neu_waffen(const string& n, int w, const string& v)
+   :name(n),wert(w),vorraussetzung(v) {}
+
+   virtual const cH_EntryValue Value(int seqnr) const
+ { switch (seqnr) {
+      case 0 : return cH_EntryValueIntString(name);
+      case 1 : return cH_EntryValueEmptyInt(wert); 
+      case 2 : return cH_EntryValueIntString(vorraussetzung);
+   }
+   return cH_EntryValueIntString("?");
+ }
+ string Name() const {  return name; }
+ int  Wert() const {  return wert; }  
+// int  Vorraussetzung() const {  return vorraussetzung; }
+};
+
+void midgard_CG::on_leaf_selected_neue_waffen(cH_RowDataBase d)
+{  const Data_neu_waffen *dt=dynamic_cast<const Data_neu_waffen*>(&*d);
+   on_steigern_waffen_tree_neu_select(dt->Name(),dt->Wert());
+}
+ 
 
 void midgard_CG::show_neue_waffen()
 {
-   steigern_waffen_clist_neu->clear();
-   Gtk::OStream os(steigern_waffen_clist_neu);
+   vector<cH_RowDataBase> datavec;
    exec sql begin declare section;
       char db_waffe[50];
       char db_art[50];
@@ -176,25 +270,20 @@ void midgard_CG::show_neue_waffen()
          if (!strcmp(db_art,"Verteidigung")) wert = 1;
          if  (midgard_CG::Waffen_Voraussetzung(db_waffe)
             &&midgard_CG::region_check(db_region))
-            os << db_waffe<<"\t"<<wert<<"\t"<<db_zusatz<<"\n"; 
+         datavec.push_back(new Data_neu_waffen(db_waffe,wert,db_zusatz));
       }
    exec sql close wa_ein;
    tr.close();
- for (unsigned int i=0;i<steigern_waffen_clist_neu->columns().size();++i)
-   steigern_waffen_clist_neu->set_column_auto_resize(i,true);
- steigern_waffen_clist_neu->set_reorderable(true);
- 
+   neue_waffen_tree->setDataVec(datavec);
 }
 
 
-void midgard_CG::on_grundkenntnisse_clist_neu_select_row(gint row, gint column, GdkEvent *event)
+void midgard_CG::on_steigern_grund_tree_neu_select(const string& name, int kosten)
 {
-  int new_kosten = atoi(grundkenntnisse_clist_neu->get_text(row,1).c_str());
-  werte.gfp += new_kosten;
+  werte.gfp += kosten;
   midgard_CG::zeige_werte(werte,"alle");
 
-  string new_grund = grundkenntnisse_clist_neu->get_text(row,0);
-  waffen_grundkenntnisse[new_grund] = "X";
+  waffen_grundkenntnisse[name] = "X";
 
   midgard_CG::on_speichern_clicked();
   midgard_CG::show_alte_grund();
@@ -203,15 +292,14 @@ void midgard_CG::on_grundkenntnisse_clist_neu_select_row(gint row, gint column, 
   midgard_CG::show_neue_waffen();
 }
 
-void midgard_CG::on_grundkenntnisse_clist_alt_select_row(gint row, gint column, GdkEvent *event)
+void midgard_CG::on_steigern_grund_tree_alt_select(const string& name)
 {
  if (radiobutton_grundkenntnisse_verlernen->get_active())
    {
       radiobutton_grundkenntnisse_verlernen->set_active(false);
-      string altg=grundkenntnisse_clist_alt->get_text(row,0);
       for (map<string,string>::iterator i=waffen_grundkenntnisse.begin();
             i!= waffen_grundkenntnisse.end();++i) 
-         if (i->first==altg) {waffen_grundkenntnisse.erase(i);break;}
+         if (i->first==name) {waffen_grundkenntnisse.erase(i);break;}
    }
   string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden weder die\n";
   strinfo +="GFP angepaßt, noch die bereits gelernten Waffen, die zu dieser\n";
@@ -224,15 +312,11 @@ void midgard_CG::on_grundkenntnisse_clist_alt_select_row(gint row, gint column, 
 
 
 
-
-void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, GdkEvent *event)
+void midgard_CG::on_steigern_waffen_tree_alt_select(const string& waffe, int erfolgswert, int steigern, int reduzieren)
 {
-   string waffe=steigern_waffen_clist_alt->get_text(row,0);
-   int erfolgswert=atoi(steigern_waffen_clist_alt->get_text(row,1).c_str());
-
    if (radio_waffen_steigern->get_active())
       {
-       if (!togglebutton_praxispunkte_waffen->get_active()) // steigern mit Lernen
+       if (!togglebutton_praxispunkte_waffen->get_active()) // normal Lernen
         {
           int maxwert;
           // Angriff oder Verteidigungswaffe?
@@ -261,9 +345,8 @@ void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, 
                manage (new WindowInfo(strinfo));
                return ;
             }          
-          int kosten_steigern=atoi(steigern_waffen_clist_alt->get_text(row,2).c_str());
-          werte.gfp += kosten_steigern;
-          if (kosten_steigern != 0)
+          werte.gfp += steigern;
+          if (steigern != 0)
           for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
              i!=vec_waffen.end();++i)
                if (i->name==waffe) i->erfolgswert++;
@@ -275,14 +358,11 @@ void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, 
           if (radiobutton_praxis_wuerfeln_waffen->get_active()) wuerfeln = true;
 
           string art="Waffe";
-          string fert = steigern_waffen_clist_alt->get_text(row,0);
-          int alter_wert = atoi(steigern_waffen_clist_alt->get_text(row,1).c_str());
-          int gelungen = midgard_CG::praxispunkte_wuerfeln(fert,alter_wert,art,wuerfeln);
+          int gelungen = midgard_CG::praxispunkte_wuerfeln(waffe,erfolgswert,art,wuerfeln);
           if (gelungen)
             {
-              int kosten_steigern=atoi(steigern_waffen_clist_alt->get_text(row,2).c_str());
-              werte.gfp += kosten_steigern;
-//              if (kosten_steigern != 0)
+              werte.gfp += steigern;
+//              if (steigern != 0)
               for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
                 i!=vec_waffen.end();++i)
                   if (i->name==waffe) i->erfolgswert++;
@@ -291,9 +371,8 @@ void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, 
       }
    if (radio_waffen_reduzieren->get_active())
       {
-        int kosten_reduzieren=atoi(steigern_waffen_clist_alt->get_text(row,3).c_str());
-        werte.gfp -= kosten_reduzieren;
-        if (kosten_reduzieren != 0)
+        werte.gfp -= reduzieren;
+        if (reduzieren != 0)
         for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
            i!=vec_waffen.end();++i)
               if (i->name==waffe) i->erfolgswert--;  
@@ -302,19 +381,17 @@ void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, 
    midgard_CG::on_speichern_clicked();
    midgard_CG::show_alte_waffen();
    midgard_CG::show_neue_waffen();
-   
-   steigern_waffen_clist_alt->unselect_row(row);
 }
 
 
-void midgard_CG::on_steigern_waffen_clist_neu_select_row(gint row, gint column, GdkEvent *event)
+void midgard_CG::on_steigern_waffen_tree_neu_select(const string&  name, int erfolgswert)
 {
-   int new_kosten = atoi(steigern_waffen_clist_neu->get_text(row,2).c_str());
-   werte.gfp += new_kosten;
-   midgard_CG::zeige_werte(werte,"alle");
-   string new_fert = steigern_waffen_clist_neu->get_text(row,0);
-   int erf = atoi(steigern_waffen_clist_neu->get_text(row,1).c_str());
-   vec_waffen.push_back(st_ausgewaehlte_waffen(new_fert,erf));   
+//   int new_kosten = atoi(steigern_waffen_clist_neu->get_text(row,2).c_str());
+//   werte.gfp += kosten;
+//   midgard_CG::zeige_werte(werte,"alle");
+//   string new_fert = steigern_waffen_clist_neu->get_text(row,0);
+//   int erf = atoi(steigern_waffen_clist_neu->get_text(row,1).c_str());
+   vec_waffen.push_back(st_ausgewaehlte_waffen(name,erfolgswert));   
    midgard_CG::on_speichern_clicked();
    midgard_CG::show_alte_waffen();
    midgard_CG::show_neue_waffen();
