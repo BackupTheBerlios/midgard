@@ -68,6 +68,7 @@ cH_Zauber::cH_Zauber(const std::string& name, bool create)
   }
 }
 
+#include <iostream>
 void Zauber::get_Zauber(const Tag &t)
 {  if (t.hasAttr("Grad"))
    {ursprung=t.getAttr("Ursprung");
@@ -93,7 +94,13 @@ void Zauber::get_Zauber(const Tag &t)
 
     enum_zusatz=MidgardBasicElement::eZusatz(t.getIntAttr("Zusätze",ZNone));
    }
-    
+
+   const Tag *Beschreibung=t.find("Beschreibung");
+    if (Beschreibung) {beschreibung=t.Value();
+//    if (Beschreibung) beschreibung=t.getString(beschreibung);
+
+std::cout << beschreibung<<'\n';    
+    }
     FOR_EACH_CONST_TAG_OF(i,t,"Zusätze")
       Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
                          i->getAttr("Region"),i->getAttr("RegionZusatz"),""));
