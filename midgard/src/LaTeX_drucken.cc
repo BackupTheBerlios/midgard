@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.27 2002/06/28 19:05:45 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.28 2002/06/28 19:44:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -639,8 +639,8 @@ std::string LaTeX_drucken::LaTeX_scalemag(const std::string& is,
 
 
 std::string LaTeX_drucken::LaTeX_string(int i)
-{  if (i<=25) return std::string(1,char('a'+i));
-   if (i<=50) return "a"+std::string(1,char('a'+i-25));
+{  if (i<26) return std::string(1,char('a'+i));
+   if (i<52) return "a"+std::string(1,char('a'+i-26));
    //Never get here
    return("0");
 }
