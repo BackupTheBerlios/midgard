@@ -20,6 +20,9 @@ NEWS IN VERSION 0.8.10
 * PP eingeben geht wieder
 * gelernte Sprachen werden wieder angezeigt
 * Neue Sprachen Erfolgswert gefixed
+* 'Tiere rufen' jetzt wie 'Tiersprache' mit Zusätzen
+* Regionen als MVC realisiert
+* Ansicht-Menü stürzt nicht mehr ab (und ist jetzt als MVC realisiert)
 
 TODO: ('-' zeigt CP an)
 

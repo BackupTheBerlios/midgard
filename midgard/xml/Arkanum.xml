@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="Arkanum" Name="Arkanum" Titel="Das Arkanum" Copyright="Jürgen E. Franke" Jahr="2000" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-1" MAGUS-Bild="9" CVS="$Revision: 1.6 $">
+<MAGUS-data Region="Arkanum" Name="Arkanum" Titel="Das Arkanum" Copyright="Jürgen E. Franke" Jahr="2000" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-1" MAGUS-Bild="9" CVS="$Revision: 1.7 $">
  <Zauber>
   <Spruch Name="Allheilung" Grad="5" Lernkosten="2500" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
    <Grund Typ="Hl"/>
@@ -3623,7 +3623,7 @@
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
   </Spruch>
-  <Spruch Name="Tiere rufen" Grad="3" Lernkosten="600" AP="3-9" Typ="Wort" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="10 s" Reichweite="2 km" Wirkungsziel="Geist" Wirkungsbereich="max 10 Ws" Wirkungsdauer="10 min" Spruchrolle="true">
+  <Spruch Name="Tiere rufen" Grad="3" Lernkosten="600" AP="3-9" Typ="Wort" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="10 s" Reichweite="2 km" Wirkungsziel="Geist" Wirkungsbereich="max 10 Ws" Wirkungsdauer="10 min" Spruchrolle="true" Zusätze="1">
    <Grund Typ="Dr"/>
    <Grund Typ="Hl"/>
    <Standard Typ="PF"/>
@@ -3637,6 +3637,10 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Ma"/>
+   <Zusätze Name="Amphibien/Repilien"/>
+   <Zusätze Name="Fische"/>
+   <Zusätze Name="Säugetiere"/>
+   <Zusätze Name="Vögel"/>
    <AgensTyp Typ="Dr" Agens="Holz"/>
    <AgensTyp Typ="Hl" Agens="Holz"/>
   </Spruch>
@@ -3694,8 +3698,8 @@
    <Lernschema Typ="Dr" Lernpunkte="3"/>
    <Lernschema Typ="Hl" Lernpunkte="3"/>
    <Lernschema Typ="Tm" Lernpunkte="8"/>
+   <Zusätze Name="Amphibien/Repilien"/>
    <Zusätze Name="Fische"/>
-   <Zusätze Name="Repilien"/>
    <Zusätze Name="Säugetiere"/>
    <Zusätze Name="Vögel"/>
   </Spruch>

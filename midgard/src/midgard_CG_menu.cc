@@ -212,7 +212,7 @@ void midgard_CG::menubar_init()
      regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*mi));
      (*i)->Active().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
-        mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::Original).active);
+        mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,true);
    }
  regionen_menu->show_all();
 

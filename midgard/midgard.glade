@@ -10475,7 +10475,7 @@ eing.</label>
 		<yexpand>False</yexpand>
 		<xshrink>True</xshrink>
 		<yshrink>True</yshrink>
-		<xfill>False</xfill>
+		<xfill>True</xfill>
 		<yfill>True</yfill>
 	      </child>
 
