@@ -122,6 +122,10 @@ std::cout << "Dateiname " << fname << "->" << get_filename() << '\n';
    		ewas==Load ? "Abenteurer laden" : "Abenteurer speichern";
    ofn.Flags = OFN_PATHMUSTEXIST 
    		| (ewas==Pix||ewas==Load ? OFN_FILEMUSTEXIST : 0);
+   if (!filename.empty() && filename[filename.size()-1]==dirsep)
+   {  *buf=0;
+      ofn.lpstrInitialDir = filename.c_str();
+   }
 
    bool res=false;
    if (ewas==Pix||ewas==Load) res=GetOpenFileName(&ofn);
