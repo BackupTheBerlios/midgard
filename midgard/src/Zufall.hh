@@ -23,6 +23,8 @@
 #include "Enums.hh" 
 #include "LernListen.hh"
 
+class Lernpunkte;
+
 class Zufall
 {
       midgard_CG *hauptfenster;
@@ -48,7 +50,28 @@ class Zufall
       cH_Typen getTyp() const;
       Enums::StadtLand getStadtLand() const;
       cH_Land getLand() const;
+      MidgardBasicElement_mutable getMuttersprache() const;
+      MidgardBasicElement_mutable getUeberleben() const;
 
+      void setMuttersprache(); 
+
+      // Lernschema
+      struct st_LL{std::list<MidgardBasicElement_mutable> Fach;
+                   std::list<MidgardBasicElement_mutable> Allg;
+                   std::list<MidgardBasicElement_mutable> Unge;
+                   std::list<MidgardBasicElement_mutable> Waff;
+                   std::list<MidgardBasicElement_mutable> Zaub;
+             st_LL(std::list<MidgardBasicElement_mutable> f,
+                   std::list<MidgardBasicElement_mutable> a,
+                   std::list<MidgardBasicElement_mutable> u,
+                   std::list<MidgardBasicElement_mutable> w,
+                   std::list<MidgardBasicElement_mutable> z)
+                   :Fach(f),Allg(a),Unge(u),Waff(w),Zaub(z) {}
+               ;};
+      void Lernschema();
+      st_LL getLernlisten();
+   public:
+      static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A, Random &random);
 };
 
 #endif

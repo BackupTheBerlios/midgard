@@ -64,7 +64,6 @@ std::list<MidgardBasicElement_mutable> Lernschema::get_List(const std::string& a
      {
       if(art=="Fachkenntnisse") 
          { 
-//           cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->first.fertigkeit));
            MidgardBasicElement_mutable fert(&*cH_Fertigkeit(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
            if(!fert.ist_gelernt(Gelerntes))
@@ -73,7 +72,6 @@ std::list<MidgardBasicElement_mutable> Lernschema::get_List(const std::string& a
          }
       if(art=="Waffenfertigkeiten") 
          { 
-//           cH_MidgardBasicElement waffe(&*cH_Waffe(i->first.fertigkeit));
            MidgardBasicElement_mutable waffe(&*cH_Waffe(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
            if(!waffe.ist_gelernt(Gelerntes))
@@ -84,7 +82,6 @@ std::list<MidgardBasicElement_mutable> Lernschema::get_List(const std::string& a
          { 
            MidgardBasicElement_mutable z(&*cH_Zauber(i->first.fertigkeit));
            L.push_back(z);
-//           L.push_back(&*cH_Zauber(i->first.fertigkeit));
          }
      }   
   }

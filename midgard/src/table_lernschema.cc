@@ -221,41 +221,6 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            if(st!=std::string::npos)  --maxkido;
            break;
          }
-/*
-     case MidgardBasicElement::SPRACHE :
-          hauptfenster->getChar().List_Sprache().remove(MBE);
-          if(MBE.LernArt()=="Muttersprache" || MBE.LernArt()=="Gastlandsprache")
-            {   list_FertigkeitZusaetze.remove(MBE.LernArt()); break; }
-           // KEIN break 
-     case MidgardBasicElement::SCHRIFT :
-
-          hauptfenster->getChar().List_Schrift().remove(MBE);
-
-          if(MBE.LernArt().find("_Schreiben_Muttersprache")!=std::string::npos) 
-             { list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)"); 
-               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)"); 
-               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)");
-             }
-
-
-          if(MBE.LernArt()=="Allg_Schreiben_Muttersprache")
-            {  lernpunkte.addAllgemein(MBE.Lernpunkte());
-               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)"); 
-               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)");
-               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)"); 
-               break;}
-*/
-/*
-          if(button_fachkenntnisse->get_active())
-               lernpunkte.addFach(MBE.Lernpunkte());
-          else if(button_allgemeinwissen->get_active())
-               lernpunkte.addAllgemein(MBE.Lernpunkte());
-          else if(button_untyp_fertigkeiten->get_active())
-                lernpunkte.addUnge(MBE.Lernpunkte());
-          else hauptfenster->set_info("Da kein Fertigkeiten-Auswahl-Knopf gewählt wurde konnten die Lernpunkte ("
-                 +itos(MBE.Lernpunkte())+") für das Verlernen dieser Sprache nicht gut geschrieben werden.");
-          break;
-*/
      default : break;
    }
   if(MBE->What()==MidgardBasicElement::WAFFEBESITZ)
@@ -385,15 +350,20 @@ void table_lernschema::lernpflichten_info()
       hauptfenster->set_info(t1+"\n"+t2);
 }
 
+#include "Zufall.hh"
 void table_lernschema::on_lernpunkte_wuerfeln_clicked()
 {  
   lernpflichten_info();
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::LERNPUNKTE);
+
+/*
   //Speziesspezifische Fertigkeiten
   int lpspezies=0;
   hauptfenster->getChar().List_Fertigkeit()=hauptfenster->getWerte().Spezies()->getFertigkeiten(lpspezies,hauptfenster->getWerte());
+*/
+  Zufall::Lernpunkte_wuerfeln(lernpunkte,hauptfenster->getChar(),hauptfenster->random);
   show_gelerntes();
-
+/*
   int fachlern=hauptfenster->random.integer(1,6)+hauptfenster->random.integer(1,6);
   if(!hauptfenster->getChar().List_Fertigkeit().empty())
     hauptfenster->set_status("Die Lernpunkte ("+itos(lpspezies)+") für die Pflichtfertigkeiten"
@@ -414,6 +384,7 @@ void table_lernschema::on_lernpunkte_wuerfeln_clicked()
              + lernpunkte.Waffen() + lernpunkte.Zauber())/4+16;
 
   hauptfenster->getWerte().setAlter( age * hauptfenster->getWerte().Spezies()->AlterFaktor());
+*/
 //  spinbutton_alter->set_value(hauptfenster->getWerte().Alter());
   zeige_lernpunkte();
 

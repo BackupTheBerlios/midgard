@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.10 2002/07/04 08:43:51 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.11 2002/09/08 17:42:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -128,14 +128,6 @@ bool table_lernschema::AngebSinn(int wurf,int wert)
   else if(51<=wurf && wurf<=60) hauptfenster->getWerte().setSinn("Tasten",wert);
   else if(61<=wurf && wurf<=65) hauptfenster->getWerte().setSinn("Sechster Sinn",wert);
   else return false;
-/*
-cout << "Sehen = "<<Werte.Sinne()["Sehen"]<<'\n';
-cout << "Hören = "<<Werte.Sinne()["Hören"]<<'\n';
-cout << "Riechen = "<<Werte.Sinne()["Riechen"]<<'\n';
-cout << "Schmecken = "<<Werte.Sinne()["Schmecken"]<<'\n';
-cout << "Tasten = "<<Werte.Sinne()["Tasten"]<<'\n';
-cout << "Sechster Sinn = "<<Werte.Sinne()["Sechster Sinn"]<<'\n';
-*/
   return true;
 }
 

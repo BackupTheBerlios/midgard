@@ -174,6 +174,7 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
                               // und Zauber (Tiersprache)
       bool gelernt; // Fürs Lernschema
       bool pflicht;
+      bool erlaubt;
       std::string lernart; // Fach- Allgemeinwissen, ungew. Fert.
       
    
@@ -208,6 +209,8 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
      std::string LernArt() const {return lernart;}
      void setLernArt(std::string z)  {lernart=z;}   
      
+     bool Erlaubt() const {return erlaubt;}
+     void setErlaubt(bool e) {erlaubt=e;}
      bool Pflicht() const {return pflicht;}
      void setPflicht(bool p) {pflicht=p;}
      std::string Pflicht_str() const; 

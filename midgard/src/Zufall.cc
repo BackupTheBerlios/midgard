@@ -33,6 +33,18 @@ void Zufall::Voll()
    Aben->setTyp1(getTyp());
    hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
    Aben->getWerte().setHerkunft(getLand());
+   setMuttersprache();
+   Aben->getWerte().setUeberleben(getUeberleben());
+   Aben->List_Fertigkeit_ang().clear();
+   hauptfenster->table_lernschema->on_angeborene_fertigkeit_clicked();
+   Lernschema();
 }
 
+
+void Zufall::setMuttersprache()
+{
+  MidgardBasicElement_mutable sprache=getMuttersprache();
+  Aben->List_Sprache().push_back(sprache);
+  Aben->setMuttersprache(sprache->Name());  
+}
 

@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.2 2002/09/07 14:18:46 thoma Exp $
+// $Id: LernListen.cc,v 1.3 2002/09/08 17:42:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,79 @@
 
 #include "LernListen.hh"
 #include "midgard_CG.hh"
+#include "Sprache.hh"
+
+
+std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,eMBE was,
+                        int erfolgswert,int lernpunkte,std::string lernart) const
+{
+   std::list<cH_MidgardBasicElement> V_;
+   std::list<MidgardBasicElement_mutable> Vm;
+   std::vector<Lernschema::st_index> VI;
+   switch(was) {
+      case MutterSprache: 
+      case GastlandSprache: 
+      case NachbarlandSprache: 
+      case AlteSprache:
+                            V_=D.Sprache; break;
+      case lFach:           Vm=D.lernschema.get_List("Fachkenntnisse",A.getVTyp(),A.List_Fertigkeit());break;
+      case lAllg: 
+      case lUnge:           V_=D.Fertigkeit; break;
+      case lWaff:           Vm=D.lernschema.get_List("Waffenfertigkeiten",A.getVTyp(),A.List_Waffen());break;
+      case lZaub:           Vm=D.lernschema.get_List("Zauberkünste",A.getVTyp(),A.List_Waffen());break;
+    }  
+   std::list<MidgardBasicElement_mutable> V;
+   if(!V_.empty())
+    for(std::list<cH_MidgardBasicElement>::const_iterator i=V_.begin();i!=V_.end();++i)
+     {
+      bool erlaubt=false;
+      if(was==MutterSprache || was==NachbarlandSprache)
+       {
+         if(cH_Sprache(*i)->Alte_Sprache()) continue;
+         if(cH_Sprache(*i)->ist_erlaubt(A,was==NachbarlandSprache)) 
+               erlaubt=true;
+       }
+      else if(was==AlteSprache)
+         if(cH_Sprache(*i)->Alte_Sprache()) erlaubt=true;
+         else continue;
+      else erlaubt=true;
+      MidgardBasicElement_mutable M(&**i);
+      M.setLernArt(lernart+"_"+(*i)->Name());
+      M.setErlaubt(erlaubt);
+      M.setErfolgswert(erfolgswert);
+      M.setLernpunkte(lernpunkte);
+      V.push_back(M);
+     }
+   else if(!Vm.empty())
+    for(std::list<MidgardBasicElement_mutable>::iterator i=Vm.begin();i!=Vm.end();++i)
+     {
+      if(was==lFach)
+         VI=Lernschema::getIndex(A.getVTyp(),"Fachkenntnisse",(*i)->Name());
+      if(was==lWaff)
+         VI=Lernschema::getIndex(A.getVTyp(),"Waffenfertigkeiten",(*i)->Name());
+      if(was==lZaub)
+         VI=Lernschema::getIndex(A.getVTyp(),"Zauberkünste",(*i)->Name());
+      int lp=D.lernschema.get_Lernpunkte(VI);
+      i->setLernpunkte(lp);
+      V.push_back(*i);
+     }     
+  return V;
+}
+
+
+std::vector<std::string> LernListen::getZusatz(eZusatz ez) const
+{
+   assert(ez==UeberlebenHeimat);
+   std::vector<std::string> V;
+   for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Fertigkeit.begin();i!=D.Fertigkeit.end();++i)
+    {
+      if((*i)->Name().find("Überleben")!=std::string::npos)
+         V.push_back((*i)->Name());
+    }
+   return V;
+}
+
+
 
 std::vector<cH_Spezies> LernListen::getSpezies(bool nsc_allowed) const
 {
@@ -79,4 +152,3 @@ bool LernListen::nsc_check(bool nsc_allowd,bool nsc_only) const
   return true;
 }
 
-//!Mh->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active

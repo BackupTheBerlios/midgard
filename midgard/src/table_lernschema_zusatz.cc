@@ -323,9 +323,6 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
   zeige_werte();  
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_herkunft->set_sensitive(false);
-//XXX Das muß nach der Sprachenausawahl kommen:
-//  MidgardBasicElement_mutable dummy=hauptfenster->getWerte().Ueberleben();
-//  lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
   MidgardBasicElement_mutable M(&*cH_Fertigkeit("Muttersprache"));
   Sprache::setErfolgswertMuttersprache(M,hauptfenster->getWerte().In(),
            cH_Fertigkeit(M)->AttributBonus(hauptfenster->getWerte()));

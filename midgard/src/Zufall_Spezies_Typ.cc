@@ -25,6 +25,7 @@
 
 #include "Zufall.hh"
 #include "Spezies.hh"
+#include "Sprache.hh"
 
 cH_Spezies Zufall::getSpezies() const
 {
@@ -71,5 +72,30 @@ cH_Land Zufall::getLand() const
     }
    int i=random.integer(0,V.size()-1);
    return V[i];   
+}
+
+MidgardBasicElement_mutable Zufall::getMuttersprache() const
+{
+  
+  std::list<MidgardBasicElement_mutable> V_=LL.getMBEm(Aben,LernListen::MutterSprache,0,0,"Allg");
+  std::vector<MidgardBasicElement_mutable> V;
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=V_.begin();i!=V_.end();++i)
+   {
+      if(i->Erlaubt()) V.push_back(*i) ;
+   }
+  int i=random.integer(0,V.size()-1);
+
+  MidgardBasicElement_mutable sprache(&*cH_Sprache(V[i]->Name()));
+  Sprache::setErfolgswertMuttersprache(sprache,Aben->getWerte().In(),cH_Fertigkeit("Sprache")->AttributBonus(Aben->getWerte()));
+        
+  return sprache;   
+}
+
+MidgardBasicElement_mutable Zufall::getUeberleben() const
+{
+  std::vector<std::string> V=LL.getZusatz(LernListen::UeberlebenHeimat);
+  int i=random.integer(0,V.size()-1);
+  MidgardBasicElement_mutable M(&*cH_Fertigkeit(V[i]));
+  return M;
 }
 

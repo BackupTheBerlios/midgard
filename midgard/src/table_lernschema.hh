@@ -25,6 +25,8 @@ class table_lernschema : public table_lernschema_glade
         friend class table_lernschema_glade;
         friend class table_grundwerte;
         friend class midgard_CG;  
+        friend class Zufall;
+
 
         midgard_CG *hauptfenster; 
         Lernpunkte lernpunkte;

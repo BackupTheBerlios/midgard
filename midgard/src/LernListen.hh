@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.3 2002/09/07 14:18:46 thoma Exp $
+// $Id: LernListen.hh,v 1.4 2002/09/08 17:42:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,17 @@ class LernListen
 {
       const Datenbank D;
   public:
+      enum eMBE{MutterSprache,GastlandSprache,NachbarlandSprache,AlteSprache,
+                lFach,lAllg,lUnge,lWaff,lZaub };
+      enum eZusatz{UeberlebenHeimat};
+//      enum eLernListe{Fach,Allg,Unge,Waff,Zaub};
+/*
+      struct st_mbe{cH_MidgardBasicElement MBE;int erfolgswert;bool erlaubt;
+                     int lernpunkte; std::string lernart;
+             st_mbe(cH_MidgardBasicElement m,int e,bool b,int l, std::string la)
+                  : MBE(m),erfolgswert(e),erlaubt(b),lernpunkte(l),lernart(la) {}
+               };
+*/      
       LernListen(const Datenbank& d) : D(d){}   
 
       bool nsc_check(bool nsc_allowed,bool nsc_only) const ;
@@ -38,6 +49,12 @@ class LernListen
       std::vector<cH_Spezies> getSpezies(bool nsc_allowed) const ;
       std::vector<pair<cH_Typen,bool> > getTypen(const VAbenteurer& A,bool nsc_allowed) const ;
       std::vector<pair<cH_Land,bool> > getLand(const VAbenteurer& A) const;
+
+      std::list<MidgardBasicElement_mutable> getMBEm(const VAbenteurer& A,eMBE was, int erfolgswert=0,
+                     int lernpunkte=0,std::string lernart="") const;
+      std::vector<std::string> getZusatz(eZusatz ez) const; 
+
+//      std::list<cH_MidgardBasicElement> getLernschemaListe(eLernListe was);
 
 /*   
 
