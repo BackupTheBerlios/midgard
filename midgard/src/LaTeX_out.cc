@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.105 2002/03/04 08:08:36 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.106 2002/03/04 18:25:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -435,6 +435,8 @@ void midgard_CG::LaTeX_write_empty_values()
 {
  ofstream fout("midgard_tmp_latexwerte.tex");
  fout << "\\newcommand{\\typ}{}\n";
+ fout << "\\newcommand{\\merkmale}{}" ;
+ fout << "\\newcommand{\\hand}{""}\n";
  fout << "\\newcommand{\\st}{}\n";
  fout << "\\newcommand{\\gw}{}\n";
  fout << "\\newcommand{\\gs}{}\n";
@@ -464,6 +466,7 @@ void midgard_CG::LaTeX_write_empty_values()
  fout << "\\newcommand{\\bophs}{}\n";
  fout << "\\newcommand{\\bophk}{}\n";
  fout << "\\newcommand{\\bogi}{}\n";
+ fout << "\\newcommand{\\res}{}\n";
  fout << "\\newcommand{\\psy}{}\n";
  fout << "\\newcommand{\\phs}{}\n";
  fout << "\\newcommand{\\phk}{}\n";
@@ -482,6 +485,7 @@ void midgard_CG::LaTeX_write_empty_values()
  fout << "\\newcommand{\\gestalt}{}\n";
  fout << "\\newcommand{\\gewicht}{}\n";
  fout << "\\newcommand{\\koerpergroesse}{}\n";
+ fout << "\\newcommand{\\koerpergroessebez}{}\n";
  fout << "\\newcommand{\\grad}{}\n";
  fout << "\\newcommand{\\spezialisierung}{}\n";
  fout << "\\newcommand{\\stand}{}\n";

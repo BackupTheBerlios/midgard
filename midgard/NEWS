@@ -33,26 +33,31 @@ NEWS IN VERSION 0.4delta5
 * Alle Grundkenntnisse (Waffen) ausdrucken
 * Waeland: Typen, Fertigkeiten, Runen
 * Eschar: Fertigkeiten, Zauber
-* KanThaiPan: Typen, Fertigkeiten, Zauber, KiDo (ist aber noch nciht offiziell)
+* KanThaiPan: Typen, Fertigkeiten, Zauber, KiDo (ist aber noch nicht offiziell)
 * Rawindra: Typen, Fertigkeiten, Zauber, Zauberwerk (Körperbemalung, Kriegsbemalung)
 * Alba: Zauber
 * Bug gefunden, der für das dynamische Verhalten der angezeigten Regionen 
    zuständig war ...
 * Spezies erscheint im Ausdruck
-* Komplette neuimpelmentierung der Ausnahmen, dadurch fällt diese Klasse weg
+* Komplette Neuimpelmentierung der Ausnahmen, dadurch 
+   a) fällt diese Klasse weg (die Funktionalität ist jetzt in 
+      MidgardBasicElement drin)
+   b) funktioniert es wieder :-)
+* Tooltips Farbe -> Änderung der Datei 'gtkrc' nötig, das kann jeder 
+   selber machen
+* leeres Dokument ausdrucken geht wieder.
 
 TODO:
-* Ausnahmebehandlung bei Fertigkeiten testen
+* Testen von Alias Waffennamen
+* Testen von Magischen Waffen
 * Waeland: Zauber
 * Nahuathlan: Komplett
 * Eschar: Derwisch
 * Doppelklassen
 * Offielles Logo ist weg :-(
-* Tooltips Farbe
 * Laden von Optionen 
-* gv zeigt den falschen Ausschnitt des pdf Dokumentes
-* Kurzanleitung drucken ... mal sehe, ob das sinnvoll ist. Wahrscheinlich 
-   ist es sinnvoller die HTML-Seiten in einem Browser zu starten.
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
@@ -320,11 +325,11 @@ NEWS IN VERSION 0.4delta0
 
 
 TODO:
-** Pflicht lernen kennzeichnen
-** Es sind die beiden Infofenster, die beim Auswürfeln 
+* Pflicht lernen kennzeichnen
+* Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 
    Da reagiert der "OK"- Button nicht.
-*** Bei den Berufslisten wird offenbar nicht berücksichtigt, welchen STAND die
+* Bei den Berufslisten wird offenbar nicht berücksichtigt, welchen STAND die
  Figur hat, ebensowenig wie die Einschränkungen für "Kampfspezialisten" (in
  den Regelwerktabellen mit "k" ausgewiesen, dazu gehören Krieger, Söldner,
  Assasinnen und Ordenskrieger) oder die "Zauberspezialisten" (in den
