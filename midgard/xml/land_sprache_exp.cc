@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.38 2002/06/08 15:21:40 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.39 2002/06/13 12:45:03 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -218,7 +218,7 @@ void land_speichern(Tag &o)
    	" order by typnr,coalesce(region,''),typs");
   while ((query>>is).good())
   {Tag &Typ=Typen.push_back(Tag("Typ"));
-   fetch_and_set_string_attrib(is, Typ, "Abkürzung");
+   std::string typ=fetch_and_set_string_attrib(is, Typ, "Abkürzung");
    fetch_and_set_string_attrib(is, Typ, "Region");
    fetch_and_set_int_attrib(is, Typ, "MAGUS-Index");
    fetch_and_set_string_attrib(is, Typ, "Bezeichnung-Mann");
@@ -244,6 +244,13 @@ void land_speichern(Tag &o)
    fetch_and_set_int_attrib(is, Mod, "Sb");
    fetch_and_set_int_attrib(is, Mod, "Rüstung");
    fetch_and_set_int_attrib(is, Mod, "Geld");
+   { Query queryg("select gruppe from typen_gruppe where typ='"+typ+"'"
+   		" order by gruppe");
+     FetchIStream isg;
+     while ((queryg>>isg).good())
+     {  Typ.push_back(Tag("Gruppe")).setAttr("Name",fetch_string(isg));
+     }
+   }
   }
   }
    
