@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.26 2003/06/25 08:39:03 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.27 2003/07/01 10:03:57 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -290,8 +290,8 @@ void Abenteurer::move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu_,c
    { MyList     = &List_Sprache();
      // eventuell hÃ¶herer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
 // das entspricht wohl nicht den Regeln , oder doch???
-     int ungelernterErfolgswert=cH_Sprache(MBE->getMBE())->getHoeherenErfolgswert(List_Sprache(),*alleSprachen/*hauptfenster->getCDatabase().Sprache*/);
-     if (ungelernterErfolgswert > MBE->Erfolgswert()) MBE->setErfolgswert(ungelernterErfolgswert);
+//     int ungelernterErfolgswert=cH_Sprache(MBE->getMBE())->getHoeherenErfolgswert(List_Sprache(),*alleSprachen/*hauptfenster->getCDatabase().Sprache*/);
+//     if (ungelernterErfolgswert > MBE->Erfolgswert()) MBE->setErfolgswert(ungelernterErfolgswert);
      // bis hier
    }
  else if((*MBE).What()==MidgardBasicElement::SCHRIFT) MyList=&List_Schrift();
@@ -365,7 +365,7 @@ int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
       info+= " EW:Geschäftstüchtigkeit = "+itos(gestu.first)+"+"+itos(iw)
                +"="+itos(erg);
       int gold_gespart = int(gold_k*0.9);
-      if(erg>=20) info+=" => "+itos(gold_gespart)+" gespart";
+      if(erg>=20) info+=" => "+itos(gold_gespart)+" Gold gespart";
       gold_k-=gold_gespart;
    }
 
@@ -432,8 +432,8 @@ int Abenteurer::stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int 
      int ew=MBE->Erfolgswert();
      if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
          ew=(*MBE)->FErfolgswert(*this,MBE);
-std::cout << steiger_kosten<<' '<<kosten<<' '<<stufen<<'\t'<<ew<<' '
-<<(*MBE)->MaxErfolgswert(*this)<<'\n';
+//std::cout << steiger_kosten<<' '<<kosten<<' '<<stufen<<'\t'<<ew<<' '
+//<<(*MBE)->MaxErfolgswert(*this)<<'\n';
      if((*MBE)->MaxErfolgswert(*this)-1==ew) break;
    }      
   if(aep>0)

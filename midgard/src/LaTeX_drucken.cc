@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.99 2003/07/01 09:35:55 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.100 2003/07/01 10:03:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -117,7 +117,13 @@ void LaTeX_drucken::LaTeX_write_values(std::ostream &fout,const std::string &ins
  std::list<MBEmlt> verwandteSprachen=Sprache::getVerwandteSprachen(hauptfenster->getChar()->List_Sprache(),hauptfenster->getCDatabase().Sprache);
  for(std::list<MBEmlt>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { //cH_Sprache s(*i);
-     if((*i)->ist_gelernt(hauptfenster->getChar()->List_Sprache())) continue;
+     if((*i)->ist_gelernt(hauptfenster->getChar()->List_Sprache()) ) 
+      { 
+        // der ungelernte Erfolgswert ist besser als der gelernte
+        if((*i)->Erfolgswert() > hauptfenster->getAben().Erfolgswert((*(*i))->Name()).first)
+           Sprache_und_Schrift::ungelernte_ist_besser(S,(*(*i))->Name(),(*i)->Erfolgswert());
+        continue;
+      }
      S.push_back(Sprache_und_Schrift(*i,false));
    }
  write_sprachen(fout,S);
@@ -175,8 +181,11 @@ void LaTeX_drucken::LaTeX_write_values(std::ostream &fout,const std::string &ins
     for (std::list<H_WaffeBesitz>::const_iterator j=WBesitz.begin();j!=WBesitz.end();++j)
      {
       H_WaffeBesitz WB=*j;
-      WB->setErfolgswert((*i)->Erfolgswert());
-      if (WB->Waffe()->Name()==w->Name())  WB_druck.push_back(WB)  ;
+      if (WB->Waffe()->Name()==w->Name())  
+       {
+         WB->setErfolgswert((*i)->Erfolgswert());
+         WB_druck.push_back(WB)  ;
+       }
      }
    }
  write_waffenbesitz(fout,WB_druck);
@@ -357,7 +366,11 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case eabwehrfinal:
      case eabwehrmitwaffe:
       { if(was==eabwehrfinal)    sfout += itos0p(W.Abwehr_wert()+W.bo_Ab(),-1,true);
-        if(was==eabwehrmitwaffe) sfout += TeX::string2TeX(Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar()->List_Waffen(),hauptfenster->getChar()->List_Waffen_besitz(),hauptfenster->getAben()));
+        if(was==eabwehrmitwaffe) sfout += Gtk2TeX::string2TeX(
+            Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),
+               hauptfenster->getChar()->List_Waffen(),
+               hauptfenster->getChar()->List_Waffen_besitz(),
+               hauptfenster->getAben()));
         sfout += W.Ruestung_Abwehr_Verlust(hauptfenster->getChar()->List_Fertigkeit());
         break;
       }
@@ -421,11 +434,7 @@ void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_
 
       if(!longlist) fout << "\\newcommand{\\spraw"<<a<<"}";
       else fout << " & ";
-      fout << "{\\scriptsize ";
-      if(!i->getGelernt()) fout << "(";
-      fout << "+"<<i->getSprache()->Erfolgswert();
-      if(!i->getGelernt()) fout << ")";
-      fout <<"}\n";
+      fout << "{\\scriptsize " << i->getErfolgswert() <<"}\n";
 
       std::string ss;
       for(std::vector<Sprache_und_Schrift::st_sus>::const_iterator j=i->getSchriften().begin();j!=i->getSchriften().end();)
@@ -495,6 +504,7 @@ struct st_WB{std::string name;std::string wert;std::string schaden;
                                   std::string r,std::string m)
                     : name(n),wert(w),schaden(s),rang(r),modi(m) {}};
 
+#include "WaffeGrund.hh"
 void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_WaffeBesitz>& L,bool longlist)
 {
   std::string angriffsverlust = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar()->List_Fertigkeit());
@@ -887,6 +897,8 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
 //2x wg. longtable
   system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
   if (hauptfenster->getChar()->List_Zauber().size()>0 || hauptfenster->getChar()->List_Zauberwerk().size()>0)  // Zauber
+     system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
+  else if(tex_two_times)
      system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
 
   std::string pdfcommand=hauptfenster->getOptionen()->Viewer()+" "+file2+".pdf";
