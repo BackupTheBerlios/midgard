@@ -1,4 +1,4 @@
-// $Id: Land.hh,v 1.4 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Land.hh,v 1.5 2002/01/14 16:11:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,7 +33,11 @@ class Land  : public HandleContent
 
   public:
    Land() {};
+#ifndef USE_XML   
    Land(const std::string& n);
+#else
+   Land(const std::string& kontinent, const Tag *tag);
+#endif   
 
    std::string Name() const   {return name; }
    std::string Kontinent() const {return kontinent;}
@@ -48,6 +52,9 @@ class cH_Land : public Handle<const Land>
 //    cH_Land(){};
   public:
    cH_Land(Land *s) : Handle<const Land>(s) {};
+#ifdef USE_XML   
+   cH_Land(const std::string& kontinent, const Tag *tag);
+#endif   
    cH_Land() {*this=new Land();}
    cH_Land(const std::string& name);
 
