@@ -88,8 +88,9 @@ void midgard_CG::xml_import(const std::string& datei)
       return;
    }
    
-   if (top->getIntAttr("Version")<3 || top->getIntAttr("Version")>9)
-   {  manage(new WindowInfo("Version "+itos(top->getIntAttr("Version"))
+   const int xml_version=top->getIntAttr("Version");
+   if (xml_version<3 || xml_version>9)
+   {  manage(new WindowInfo("XML Version "+itos(xml_version)
    			+" wird noch nicht unterstützt"));
    }
 
@@ -206,7 +207,7 @@ void midgard_CG::xml_import(const std::string& datei)
 
    ///////////////////////////////////////////////////////////////////////   
    // Berufe, Fertigkeiten, Waffen und Zauber (KiDo), Grundkenntnisse (Waffen)
-   load_fertigkeiten(Fertigkeiten,Ausruestung);
+   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version);
    Typ_Geschlecht_Spezies_setzen();
    load_ausruestung(Ausruestung,&besitz);
    
@@ -565,7 +566,7 @@ void midgard_CG::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
 }
 #endif
 
-void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b))
+void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, int xml_version))
 {
 #ifndef USE_XML
   exec sql begin declare section;
