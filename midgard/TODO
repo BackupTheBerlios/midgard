@@ -5,21 +5,8 @@ eine environment variable zu haben in der form :
 damit es moeglich ist mehrere repositories zu verwenden.
       
 
---- Windows registry ---
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AcroExch.Document\shell\open\command]
-@="\"C:\\Programme\\Adobe\\Acrobat 4.0\\Reader\\AcroRd32.exe\" %1"
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.pdf]
-@="AcroExch.Document"
-"Content Type"="application/pdf"
-
----
-
 g_locale_to_utf8()
 
-- Pfade (mozilla, tmp, speichern)
-- Pfad zur Optionsdatei
-- XML Override?
 - dnd Ausrüstung
-- ISO (neues XML)
+
+- Zauberwerk kommt im Kompendium (XML Datei) vor (Unsinn)
