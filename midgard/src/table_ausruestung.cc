@@ -253,6 +253,7 @@ void table_ausruestung::fill_all_Combos_Art_Einheit_Region()
   combo_einheit->set_popdown_strings(LEinheit);
 }
 
+
 bool table_ausruestung::fill_all_Combo_Art2()
 {
   std::string art=combo_art->get_entry()->get_text();
