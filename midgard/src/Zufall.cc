@@ -100,7 +100,7 @@ void Zufall::Teil(e_Vorgabe vorgabe)
    if(sv.angefert) setAngebFert();
    else            Aben->List_Fertigkeit_ang()=oldAben.List_Fertigkeit_ang();
    Lernschema();
-// Lücke Beruf
+   setBeruf();
    hauptfenster->table_lernschema->geld_wuerfeln();
    setWaffenBesitz();
    hauptfenster->table_lernschema->on_button_ruestung_clicked(random.integer(1,100));
@@ -212,3 +212,4 @@ WaffeBesitzLernen Zufall::WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf)
   }  
  return l;
 }
+

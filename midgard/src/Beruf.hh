@@ -21,6 +21,8 @@
 
 #include <gtk--/progressbar.h>
 #include "MidgardBasicElement.hh"
+class VAbenteurer;
+
 
 class BerufsKategorie
 {
@@ -31,14 +33,17 @@ class BerufsKategorie
 
       BerufsKategorie(bool a,bool b, bool c, bool d)
        : kat_I(a),kat_II(b),kat_III(c),kat_IV(d) {}
+
+      std::string wuerfeln(int wurf);
 };
 
 
 class Beruf : public MidgardBasicElement
 {
    public:
-      struct st_vorteil{std::string name;int wert;
-             st_vorteil(std::string n,int w) : name(n),wert(w) {}};
+      struct st_vorteil{std::string name;int wert;bool gelernt;int kat;
+             st_vorteil(std::string n,int w) 
+               : name(n),wert(w),gelernt(false),kat(-1) {}};
    private:
       std::string geschlecht; 
       int klasse;
@@ -63,6 +68,9 @@ class Beruf : public MidgardBasicElement
 //     std::string Beruf::get_Vorteile() const;
      int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
+
+      // true = Zusatzfertigkeit
+     static bool Berufsfertigkeit(VAbenteurer& A,st_vorteil F);
 
 };
 

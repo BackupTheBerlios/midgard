@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.11 2002/09/13 06:20:14 thoma Exp $
+// $Id: LernListen.cc,v 1.12 2002/09/14 07:54:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 #include "midgard_CG.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
+#include "Beruf.hh"
 
 
 std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,eMBE was,
@@ -312,3 +313,44 @@ std::vector<std::string> LernListen::getSpezialgebiet(const VAbenteurer& A) cons
    }
   return L;
 }
+
+
+std::list<MidgardBasicElement_mutable> LernListen::getBeruf(const VAbenteurer& A) const
+{
+  std::list<MidgardBasicElement_mutable> L;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Beruf.begin();i!=D.Beruf.end();++i)
+   {
+     if(A.getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
+     cH_Beruf b(*i);
+     if ( !b->Typ(A.getVTyp()) || !b->Stand(A.getWerte().Stand()) ) continue;
+     if(!b->Stadt() && A.getWerte().Stadt_Land()==Enums::Stadt) continue;
+     if(!b->Land()  && A.getWerte().Stadt_Land()==Enums::Land) continue;
+     L.push_back(*i);
+   }
+ L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
+ return L;
+}
+
+std::vector<Beruf::st_vorteil> LernListen::getBerufsVorteil(const MidgardBasicElement_mutable& beruf,const BerufsKategorie &BKat,const VAbenteurer& A) const
+{
+  cH_Beruf b(beruf);
+  std::vector<Beruf::st_vorteil> fert=b->Vorteile();
+  std::vector<Beruf::st_vorteil> F;
+  for(std::vector<Beruf::st_vorteil>::iterator j=fert.begin();j!=fert.end();++j)
+   {
+     if(j->name=="Schmecken+10") j->kat=1;
+     else j->kat=cH_Fertigkeit(j->name)->Berufskategorie();
+     if( (j->kat==1 && BKat.kat_I)   || (j->kat==2 && BKat.kat_II) ||
+         (j->kat==3 && BKat.kat_III) || (j->kat==4 && BKat.kat_IV ) )
+        {
+          if(j->name!="Schmecken+10" && 
+             MidgardBasicElement_mutable(&*cH_Fertigkeit(j->name)).ist_gelernt(A.List_Fertigkeit()))
+                j->gelernt=true;
+          else if(j->name=="Schreiben: Muttersprache(+12)") j->gelernt=true;
+          F.push_back(*j);
+//datavec.push_back(new Beruf_Data(kat,(*i)->Name(),j->name,j->wert,gelerntes));
+        }
+    }
+  return F;  
+}
+

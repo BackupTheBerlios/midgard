@@ -1,6 +1,5 @@
-// $Id: table_lernschema_beruf.cc,v 1.10 2002/09/07 07:15:56 thoma Exp $
-/*  Midgard Character Generator
- *  Copyright (C) 2001 Malte Thoma
+// $Id: table_lernschema_beruf.cc,v 1.11 2002/09/14 07:54:46 thoma Exp $
+/*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -25,6 +24,7 @@
 #include "Beruf.hh"
 #include <Misc/itos.h>
 #include "midgard_CG.hh"
+#include "LernListen.hh"
 
 gint table_lernschema::on_button_beruf_release_event(GdkEventButton *ev)
 {
@@ -98,23 +98,23 @@ void table_lernschema::showBerufsLernList()
   Beruf_tree->setTitles(beruf);       
 
   label_lernschma_titel->set_text("Beruf");
-  std::list<MidgardBasicElement_mutable> L;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Beruf.begin();i!=hauptfenster->getDatabase().Beruf.end();++i)
-   {
-     if(hauptfenster->getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
-     cH_Beruf b(*i);
-     if ( !b->Typ(hauptfenster->getChar().getVTyp()) || 
-          !b->Stand(hauptfenster->getWerte().Stand()) ) continue;
-     if(!b->Stadt() && hauptfenster->getWerte().Stadt_Land()==Enums::Stadt) continue;
-     if(!b->Land()  && hauptfenster->getWerte().Stadt_Land()==Enums::Land) continue;
-     L.push_back(*i);
-   }
+  std::list<MidgardBasicElement_mutable> L=LernListen(hauptfenster->getDatabase()).getBeruf(hauptfenster->getChar());
 
-  L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
   std::vector<cH_RowDataBase> datavec;
   bool gelerntes=false;
   for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
     {
+      std::vector<Beruf::st_vorteil> V=LernListen(hauptfenster->getDatabase()).getBerufsVorteil(*i,BKategorie,hauptfenster->getChar());
+      for(std::vector<Beruf::st_vorteil>::const_iterator j=V.begin();j!=V.end();++j)
+       {
+//         int kat;
+//         if(j->name=="Schmecken+10") kat=1;
+//         else kat=cH_Fertigkeit(j->name)->Berufskategorie();
+//         datavec.push_back(new Beruf_Data(j->kat,(*i)->Name(),j->name,j->wert,j->gelernt));
+          datavec.push_back(new Beruf_Data((*i)->Name(),*j));
+         if(j->gelernt) gelerntes=true;
+       }
+/*
       cH_Beruf b(*i);
       std::vector<Beruf::st_vorteil> fert=b->Vorteile();
       for(std::vector<Beruf::st_vorteil>::const_iterator j=fert.begin();j!=fert.end();++j)
@@ -125,14 +125,17 @@ void table_lernschema::showBerufsLernList()
          if( (kat==1 && BKategorie.kat_I)   || (kat==2 && BKategorie.kat_II) ||
              (kat==3 && BKategorie.kat_III) || (kat==4 && BKategorie.kat_IV ) )
            {
-             if(j->name!="Schmecken+10" && MidgardBasicElement_mutable(&*cH_Fertigkeit(j->name)).ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))
+             if(j->name!="Schmecken+10" && MidgardBasicElement_mutable(&*cH_Fertigkeit(j->name)).
+                        ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))
                   gelerntes=true;
              else if(j->name=="Schreiben: Muttersprache(+12)") gelerntes=true;
              else gelerntes=false;
              datavec.push_back(new Beruf_Data(kat,(*i)->Name(),j->name,j->wert,gelerntes));
            }
        }
+*/
     }
+
   if(gelerntes) hauptfenster->set_status(hauptfenster->label_status->get_text()
                +"\nEin * bezeichnet eine bereits gelernte Fertigkeit."
                " Für diese wird dann der Erfolgswert um eins erhöht.",false);
@@ -147,42 +150,29 @@ void table_lernschema::showBerufsLernList()
 
 void table_lernschema::beruf_gewuerfelt(int wurf)
 {
- BKategorie=BerufsKategorie();
-// spinbutton_beruf->set_value(wurf);
- std::string kat=itos(wurf)+" gewürfelt: ";
- if(wurf<=20) kat+="Kein(e) Beruf/Fertigkeit wählbar";
- if(21<=wurf&&wurf<=50)
-  { kat+="Eine Fertigkeit aus der Kategorie I wählbar";
-    BKategorie.kat_I=true; }
- if(51<=wurf&&wurf<=80)
-  { kat+="Eine Fertigkeit aus der Kategorie I oder II wählbar";
-    BKategorie.kat_I=true; 
-    BKategorie.kat_II=true;}
- if(81<=wurf&&wurf<=95)
-  { kat+="Eine Fertigkeit aus der Kategorie I,II oder III wählbar";
-    BKategorie.kat_I=true; 
-    BKategorie.kat_II=true;
-    BKategorie.kat_III=true;}
- if(96<=wurf&&wurf<=100)
-  { kat+="Eine Fert. aus der Kat. III oder IV oder zwei aus den Kat. I und II wählbar (aber trotzdem nur EIN Beruf)";
-    BKategorie.kat_I=true; 
-    BKategorie.kat_II=true;
-    BKategorie.kat_III=true;
-    BKategorie.kat_IV=true; }
-    hauptfenster->set_status(kat,false);
-
+  try{
+  std::string kat=BKategorie.wuerfeln(wurf);
+  hauptfenster->set_status(kat,false);
   showBerufsLernList();
+  }catch(std::exception &e) { cerr << e.what() << '\n'; }
 }
 
 void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
 {
  try{
     const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
-    cH_MidgardBasicElement cmbe(&*cH_Beruf(dt->Beruf()));
+    cH_MidgardBasicElement cmbe(&*cH_Beruf(dt->getBeruf()));
     MidgardBasicElement_mutable mbe(cmbe);
     hauptfenster->getChar().List_Beruf().clear(); // es kann nur einen Beruf geben
     hauptfenster->getChar().List_Beruf().push_back(mbe);
 
+    bool zusatz = Beruf::Berufsfertigkeit(hauptfenster->getChar(),dt->getVorteil());
+    if(zusatz) 
+     { cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(dt->getVorteil().name));
+       MidgardBasicElement_mutable MBE(cMBE);
+       lernen_zusatz(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()),MBE);
+     }
+/*
     if(dt->Fert()=="Schmecken+10") 
         hauptfenster->getWerte().setSinn("Schmecken",10);
     else if(dt->Gelernt()) // Erfolgswert um eins erhöhen
@@ -219,12 +209,12 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
          if(MBE->Name()!="Landeskunde (Heimat)")
             hauptfenster->getChar().List_Fertigkeit().push_back(MBE);
       }
+*/
 
-    if (!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4))
+    if (!BKategorie.kat_IV || (dt->getVorteil().kat==3 || dt->getVorteil().kat==4))
       {
          if(tree_lernschema) tree_lernschema->clear();
          hauptfenster->set_status("");
-//         scrolledwindow_beruf->hide();
          scrolledwindow_lernen->hide();
          label_lernschma_titel->set_text("");
          if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::BERUF);

@@ -19,8 +19,10 @@
 
 #include "Beruf.hh"
 #include "Grundwerte.hh"
+#include "Abenteurer.hh"
 #include "ProgressBar.h"
 #include "Typen.hh"
+#include "itos.h"
 
 cH_Beruf::cache_t cH_Beruf::cache;
 
@@ -132,3 +134,70 @@ Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
  }
  ProgressBar::set_percentage(progressbar,1);
 }
+
+
+
+std::string BerufsKategorie::wuerfeln(int wurf)
+{
+ std::string kat=itos(wurf)+" gewürfelt: ";
+ if(wurf<=20) kat+="Kein(e) Beruf/Fertigkeit wählbar";
+ if(21<=wurf&&wurf<=50)
+  { kat+="Eine Fertigkeit aus der Kategorie I wählbar";
+    kat_I=true; }
+ if(51<=wurf&&wurf<=80)
+  { kat+="Eine Fertigkeit aus der Kategorie I oder II wählbar";
+    kat_I=true; 
+    kat_II=true;}
+ if(81<=wurf&&wurf<=95)
+  { kat+="Eine Fertigkeit aus der Kategorie I,II oder III wählbar";
+    kat_I=true; 
+    kat_II=true;
+    kat_III=true;}
+ if(96<=wurf&&wurf<=100)
+  { kat+="Eine Fert. aus der Kat. III oder IV oder zwei aus den Kat. I und II wählbar (aber trotzdem nur EIN Beruf)";
+    kat_I=true; 
+    kat_II=true;
+    kat_III=true;
+    kat_IV=true; }
+ return kat;
+}
+
+
+bool Beruf::Berufsfertigkeit(VAbenteurer& A,st_vorteil F)
+{
+  if(F.name=="Schmecken+10")  A.getWerte().setSinn("Schmecken",10);
+  else if(F.gelernt) // Erfolgswert um eins erhöhen
+   {
+    if(F.name=="Schreiben: Muttersprache(+12)")
+     {for(std::list<MidgardBasicElement_mutable>::iterator k=A.List_Schrift().begin();k!=A.List_Schrift().end();++k)
+       {
+         if((*k)->Name()==A->Muttersprache() ) 
+            { (*k).addErfolgswert(1); break  ;  }
+       }
+     }  
+    else
+     {for (std::list<MidgardBasicElement_mutable>::iterator k=A.List_Fertigkeit().begin();k!=A.List_Fertigkeit().end();++k)
+       {
+         if((*k)->Name()==F.name)
+           { (*k).addErfolgswert(1);
+             if((*k)->What()==MidgardBasicElement::FERTIGKEIT)
+                (*k).setLernArt("Beruf+");
+             break;
+           }
+       }  
+     }
+   }
+  else // neue Fertigkeit
+   {
+     cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(F.name));
+     MidgardBasicElement_mutable MBE(cMBE);
+     MBE.setLernArt("Beruf");
+     MBE.setErfolgswert(F.wert);
+     if(MBE->ZusatzEnum(A.getVTyp())) return true;
+//         lernen_zusatz(MBE->ZusatzEnum(A.getVTyp()),MBE);
+     if(MBE->Name()!="Landeskunde (Heimat)")
+          A.List_Fertigkeit().push_back(MBE);
+   }
+ return false;
+}
+

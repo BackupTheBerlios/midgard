@@ -82,7 +82,7 @@
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_neuer_charakter</name>
-	  <tooltip>Neuer Abenteurer.</tooltip>
+	  <tooltip>Neuer Abenteurer mit Wizard generieren</tooltip>
 	  <signal>
 	    <name>button_release_event</name>
 	    <handler>on_neuer_charakter_release_event</handler>

@@ -50,6 +50,7 @@ void Zufall::setSpezialwaffe()
      if(!cH_Waffe((*i))->Reichweite().empty() && i->Lernpunkte() > 2) continue; 
      V.push_back(*i);
    }
+  if(V.empty()) return;
   int i=random.integer(0,V.size()-1);
   Aben->getWerte().setSpezialisierung(V[i]->Name());      
   Waffe::setSpezialWaffe(Aben->getWerte().Spezialisierung(),Aben->List_Waffen());
@@ -249,5 +250,34 @@ reloop:
      Aben.List_Waffen_besitz().push_back(WB);
      L.remove(WB);
      goto reloop;
+   }
+}
+
+void Zufall::setBeruf()
+{
+  std::list<MidgardBasicElement_mutable> L=LL.getBeruf(Aben);
+  std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,99);
+  if(V.empty()) return;
+  int i=random.integer(0,V.size()-1);
+  hauptfenster->getChar().List_Beruf().clear();
+  hauptfenster->getChar().List_Beruf().push_back(V[i]);
+  
+  BerufsKategorie BKat;
+  BKat.wuerfeln(random.integer(1,100));
+  std::vector<Beruf::st_vorteil> F=LL.getBerufsVorteil(V[i],BKat,Aben);
+  if(F.empty()) return;
+
+  while(true)
+   {
+     i=random.integer(0,F.size()-1);
+     bool zusatz=Beruf::Berufsfertigkeit(Aben,F[i]);
+     if(zusatz) 
+      {
+         MidgardBasicElement_mutable M(&*cH_Fertigkeit(F[i].name));
+         getZusatz(M->ZusatzEnum(Aben->getVTyp()),M);
+      }
+     if(F[i].kat==3 || F[i].kat==4) break;
+     if(!BKat.kat_IV) break;
+     else BKat.kat_IV=false;
    }
 }
