@@ -2,3 +2,10 @@
 .libs
 Makefile
 Makefile.in
+tmp_alpha.pbm
+tmp.ppm
+tmp.png
+*.lo
+libmagusicons.la
+embed
+big_embedding_file.cc
