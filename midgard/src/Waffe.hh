@@ -85,17 +85,17 @@ class Waffe : public MidgardBasicElement
      bool Voraussetzung(const Abenteurer &A,bool anzeigen=true) const;
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
 
-     bool Grundkenntnis_vorhanden(const std::list<MidgardBasicElement_mutable>&) const;
+     bool Grundkenntnis_vorhanden(const std::list<MBEmlt>&) const;
      int Maxwert(const vector<cH_Typen>& Typ) const;
      int MaxErfolgswert(const Abenteurer &A) const; 
 
 
      static std::map<std::string,std::string> fill_map_alias_waffe(Gtk::ProgressBar *progressbar);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
-         const std::list<MidgardBasicElement_mutable>& list_Waffen,
+         const std::list<MBEmlt>& list_Waffen,
          const std::list<WaffeBesitz>& list_Waffen_besitz,
          const Abenteurer &A);
-     static void setSpezialWaffe(const std::string& name, std::list<MidgardBasicElement_mutable>& list_Waffen_gelernt);
+     static void setSpezialWaffe(const std::string& name, std::list<MBEmlt>& list_Waffen_gelernt);
 };
 
 class cH_Waffe : public Handle<const Waffe>
@@ -155,11 +155,10 @@ class WaffeBesitz : public MidgardBasicElement_mutable
   public:
      WaffeBesitz(const cH_Waffe& w,std::string b,
                   int a,int s,const std::string &m,const std::string &r)
-      :MidgardBasicElement_mutable(&*w),
+      :MBEmlt(&*w),
          waffe(w), alias_name(b),av_bonus(a),sl_bonus(s),magisch(m),region(r)
             {}
-     WaffeBesitz(const MidgardBasicElement_mutable& w)
-      :MidgardBasicElement_mutable(w),waffe(cH_Waffe("",true)),
+     WaffeBesitz(const MBEmlt& w) :MBEmlt(w),waffe(cH_Waffe("",true)),
          av_bonus(0),sl_bonus(0)       {}
 
      enum MidgardBasicElement::MBEE What() const {return MidgardBasicElement::WAFFEBESITZ;}

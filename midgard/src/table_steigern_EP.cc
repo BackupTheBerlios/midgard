@@ -124,7 +124,7 @@ void table_steigern::set_lernzeit(int kosten,e_was_steigern was,bool no_pp=false
    }
 }
 
-bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,int &stufen, e_was_steigern was)
+bool table_steigern::steigern_usp(int &kosten,MBEmlt *MBE,int &stufen, e_was_steigern was)
 {
   if (!steigern_mit_EP_bool) // Steigern OHNE EP/Gold/PP
       { set_lernzeit(kosten,was);
@@ -233,7 +233,7 @@ return false;
   return true;  
 }
 
-int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_mutable& MBE,int &kosten,int &aep)
+int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int &aep)
 {
   int steiger_kosten = MBE.Steigern(hauptfenster->getChar().getAbenteurer());
   int stufen=0;
@@ -275,7 +275,7 @@ bool table_steigern::genug_EP(const int ep_k,const bool bkep,const bool bzep, in
 }
 
 
-int table_steigern::PP_vorrat(const MidgardBasicElement_mutable *MBE,e_was_steigern was)
+int table_steigern::PP_vorrat(const MBEmlt *MBE,e_was_steigern was)
 {
   guint pp=0;
   if(radiobutton_praxis->get_active())
@@ -304,21 +304,22 @@ int table_steigern::EP_kosten(const int kosten)
 
 
 
-void table_steigern::steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was)
+//void table_steigern::steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was)
+void table_steigern::steigern_mit(bool &bkep,bool &bzep,const MBEmlt *MBE,e_was_steigern was)
 {
   int womit;
-  if     (MBE && (*MBE)->What()==MidgardBasicElement::WAFFE) womit = 1;
-  else if(MBE && (*MBE)->What()==MidgardBasicElement::WAFFEGRUND) womit = 1;
-  else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) womit = 2;
-  else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBERWERK) womit = 2;
-  else if(MBE && (*MBE)->What()==MidgardBasicElement::KIDO) womit = 3;
-  else if(MBE) womit = (*MBE)->Steigern_mit_EP();
+  if     (MBE && MBE->getMBE()->What()==MidgardBasicElement::WAFFE) womit = 1;
+  else if(MBE && MBE->getMBE()->What()==MidgardBasicElement::WAFFEGRUND) womit = 1;
+  else if(MBE && MBE->getMBE()->What()==MidgardBasicElement::ZAUBER) womit = 2;
+  else if(MBE && MBE->getMBE()->What()==MidgardBasicElement::ZAUBERWERK) womit = 2;
+  else if(MBE && MBE->getMBE()->What()==MidgardBasicElement::KIDO) womit = 3;
+  else if(MBE) womit = MBE->getMBE()->Steigern_mit_EP();
   else if (was==Ausdauer) womit=3; 
   else if (was==Zaubern) womit=2;  
   else if (was==Resistenz) womit=2;
   else if (was==Abwehr) womit=1;
   else assert(!"Fehler in steigern_EP.cc:steigern_usp");
-//cout << (*MBE)->Name()<<'\t'<<womit<<'\n';
+//cout << (MBE)->Name()<<'\t'<<womit<<'\n';
   if(womit==1 || womit==3) bkep=true;
   if(womit==2 || womit==3) bzep=true;
 }

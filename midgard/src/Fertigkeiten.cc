@@ -140,17 +140,17 @@ bool Fertigkeit::Voraussetzung(const Abenteurer &A,bool anzeigen) const
 
  if(anzeigen) return true;
 
- const std::list<MidgardBasicElement_mutable> &list_Fertigkeit=A.List_Fertigkeit();
- const std::list<MidgardBasicElement_mutable> &list_Waffen=A.List_Waffen();
- std::list<MidgardBasicElement_mutable> L=list_Fertigkeit;
- for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
+ const std::list<MBEmlt> &list_Fertigkeit=A.List_Fertigkeit();
+ const std::list<MBEmlt> &list_Waffen=A.List_Waffen();
+ std::list<MBEmlt> L=list_Fertigkeit;
+ for(std::list<MBEmlt>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
    L.push_back(*j);
        
  std::vector<std::string> VF=vec_voraussetzung;
 FertEnd:
  for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
   {
-    for(std::list<MidgardBasicElement_mutable>::const_iterator j=L.begin();j!=L.end();++j)
+    for(std::list<MBEmlt>::const_iterator j=L.begin();j!=L.end();++j)
      {
       if((*i)==(*j)->Name()) 
        { VF.erase(i); 
@@ -171,7 +171,7 @@ MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const vector<cH_Typen>& Typ)
   return enum_zusatz;
 }
 
-int Fertigkeit::FErfolgswert(const Abenteurer &a,const MidgardBasicElement_mutable &mbem) const
+int Fertigkeit::FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) const
 {
   if(Name()=="Trinken" && a.getWerte().Spezies()->Name()!="Zwerg") 
       return mbem.Erfolgswert()+a.getWerte().Ko()/10;

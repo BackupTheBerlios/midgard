@@ -24,7 +24,6 @@ public:
         }
         void set_Hauptfenster(midgard_CG *h); 
         void init();        
-        void set_values();
 private:
         void on_entry_html_changed();
         void on_entry_tmp_verz_changed();

@@ -28,6 +28,7 @@
 #include "midgard_CG.hh"
 #include "Zufall.hh"
 #include "KI.hh"
+#include "Optionen.hh"
 
 void table_zufall::init(midgard_CG *h)
 {
@@ -39,8 +40,10 @@ void table_zufall::init(midgard_CG *h)
 void table_zufall::on_button_zufall_voll_clicked()
 {
    hauptfenster->on_wizard_beenden_activate();
-   bool old_value=hauptfenster->MOptionen->OberCheck(Midgard_Optionen::NoInfoFenster).active;
-   hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,true);
+   Midgard_Optionen *MO=hauptfenster->MOptionen;
+   bool old_value=MO->OberCheck(Midgard_Optionen::NoInfoFenster).active;
+//   hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,true);
+   MO->setOber(MO->OberCheck(Midgard_Optionen::NoInfoFenster).text,true);
    LernListen LL(hauptfenster->getDatabase());
    Abenteurer oldAben=hauptfenster->getChar().getCAbenteurer();
    hauptfenster->getChar().push_back();
@@ -132,7 +135,8 @@ void table_zufall::on_button_zufall_voll_clicked()
       zufall.Teil(v,oldAben);
     }
    }catch (std::exception &e) { cerr << e.what()<<'\n';}
-   hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,old_value);
+   MO->setOber(MO->OberCheck(Midgard_Optionen::NoInfoFenster).text,old_value);
+//   hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,old_value);
    hauptfenster->frame_lernschema->set_sensitive(false);
 }
 

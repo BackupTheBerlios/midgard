@@ -27,7 +27,7 @@
 bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
- MidgardBasicElement_mutable &MBE = const_cast<MidgardBasicElement_mutable&>(dt->getMBE());
+ MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE());
  if(togglebutton_praxispunkte->get_active() && radiobutton_pp_fertigkeit->get_active()) 
   {
    spinbutton_pp_eingeben->set_value(MBE.Praxispunkte());
@@ -38,7 +38,7 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
   }
 
  ////////////////////////////////////////////////////////////////////////
- std::list<MidgardBasicElement_mutable> *MyList,*MyList_neu;
+ std::list<MBEmlt> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
    { if (MBE->Name()=="KiDo" && kido_steigern_check(MBE.Erfolgswert())) return false;
      MyList     = &hauptfenster->getChar().List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;   }
@@ -68,7 +68,7 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       if(radiobutton_unterweisung->get_active())
        {
          if( (MBE->What()==MidgardBasicElement::FERTIGKEIT &&
-              MBE.Erfolgswert() >= cH_Fertigkeit(MBE)->MaxUnterweisung()) ||
+              MBE.Erfolgswert() >= cH_Fertigkeit(MBE.getMBE())->MaxUnterweisung()) ||
              (MBE->What()==MidgardBasicElement::SPRACHE &&
               MBE.Erfolgswert() >= cH_Fertigkeit("Sprache")->MaxUnterweisung()) ||
              (MBE->What()==MidgardBasicElement::SCHRIFT &&
@@ -81,14 +81,14 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       int steigerkosten=MBE.Steigern(hauptfenster->getChar().getAbenteurer());
       if (!steigern_usp(steigerkosten,&MBE,stufen)) return false;
       hauptfenster->getChar().getWerte().addGFP(steigerkosten);
-      for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
+      for (std::list<MBEmlt>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i) == MBE) (*i).addErfolgswert(stufen) ; 
     }
  else if (radiobutton_reduzieren->get_active() && MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()))
     {
       if (checkbutton_EP_Geld->get_active()) desteigern(MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()));
       hauptfenster->getChar().getWerte().addGFP(-MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()));
-      for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
+      for (std::list<MBEmlt>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i) == MBE)  (*i).addErfolgswert(-1) ; 
     }
  else if (radiobutton_verlernen->get_active() && MBE.Verlernen(hauptfenster->getChar().getAbenteurer()))
@@ -98,11 +98,11 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (checkbutton_EP_Geld->get_active()) desteigern(verlernen);
       hauptfenster->getChar().getWerte().addGFP(-verlernen);
-      MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
+      Abenteurer::move_element(*MyList,*MyList_neu,MBE);
     }
  else if (radiobutton_verlernen->get_active() && MBE->What()==MidgardBasicElement::WAFFE)
     {
-      MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
+      Abenteurer::move_element(*MyList,*MyList_neu,MBE);
     }
  hauptfenster->undosave(MBE->Name()+" auf "+itos(MBE.Erfolgswert())+" gesteigert");
  return true;
@@ -113,7 +113,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 {
  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
- MidgardBasicElement_mutable &MBE = const_cast<MidgardBasicElement_mutable&>(dt->getMBE());
+ MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE());
  if((MBE->What()==MidgardBasicElement::FERTIGKEIT ||  MBE->What()==MidgardBasicElement::WAFFE)
    && !MBE->Voraussetzung(A,false))
   {
@@ -184,17 +184,20 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      togglebutton_spruchrolle->get_active() &&
      radio_spruchrolle_wuerfeln->get_active() )   
    {
-     if(!spruchrolle_wuerfeln(MBE)) return;
+     std::string info;
+     bool x=cH_Zauber(MBE.getMBE())->spruchrolle_wuerfeln(hauptfenster->getChar().getAbenteurer(),hauptfenster->random,info);
+     hauptfenster->set_info(info);    
+     if(!x) return;
      else hauptfenster->getChar().getWerte().addGFP(kosten);
    } 
  /////////////////////////////////////////////////////////////////////////
 
- std::list<MidgardBasicElement_mutable> *MyList,*MyList_neu;
+ std::list<MBEmlt> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
    { if(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()))
       {  
         neue_fert_tree->set_sensitive(false);
-        MBE=MidgardBasicElement_mutable(new Fertigkeit(*cH_Fertigkeit(MBE)));
+        MBE=MBEmlt(new Fertigkeit(*cH_Fertigkeit(MBE.getMBE())));
         fillClistZusatz(MBE);
         // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
         list_Fertigkeit_neu.push_front(MBE);
@@ -212,7 +215,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
   {
    { if(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()))
       {  
-        MBE=MidgardBasicElement_mutable(new Zauber(*cH_Zauber(MBE)));
+        MBE=MBEmlt(new Zauber(*cH_Zauber(MBE.getMBE())));
         fillClistZusatz(MBE);
         // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
         list_Zauber_neu.push_front(MBE);
@@ -226,7 +229,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
    { MyList     = &hauptfenster->getChar().List_Sprache(); MyList_neu = &list_Sprache_neu;  
      // eventuell höherer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
-     int ungelernterErfolgswert=cH_Sprache(MBE)->getHoeherenErfolgswert(hauptfenster->getChar()->List_Sprache(),hauptfenster->getCDatabase().Sprache);
+     int ungelernterErfolgswert=cH_Sprache(MBE.getMBE())->getHoeherenErfolgswert(hauptfenster->getChar()->List_Sprache(),hauptfenster->getCDatabase().Sprache);
      if (ungelernterErfolgswert) MBE.setErfolgswert(ungelernterErfolgswert);
      // bis hier
    }
@@ -237,7 +240,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 
 //cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
 
- MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE);
+ Abenteurer::move_element(*MyList_neu,*MyList,MBE);
  hauptfenster->undosave(MBE->Name()+" gelernt");
 
 //cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';

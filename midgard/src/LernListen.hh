@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.13 2002/09/16 19:09:21 thoma Exp $
+// $Id: LernListen.hh,v 1.14 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@ class midgard_CG;
 class VAbenteurer;
 class WaffeBesitz;
 #include "Beruf.hh"
+#include "Enums.hh"
 
 class LernListen
 {
@@ -47,27 +48,27 @@ class LernListen
       std::vector<pair<cH_Typen,bool> > getTypen(const VAbenteurer& A,bool nsc_allowed) const ;
       std::vector<pair<cH_Land,bool> > getHerkunft(const VAbenteurer& A) const;
       std::vector<MidgardBasicElement::st_zusatz> getLandZusatz() const;
-      std::vector<MidgardBasicElement::st_zusatz> getMBEZusatz(const MidgardBasicElement_mutable& MBE) const;
+      std::vector<MidgardBasicElement::st_zusatz> getMBEZusatz(const MBEmlt& MBE) const;
       std::vector<MidgardBasicElement::st_zusatz> getUeberlebenZusatz() const; 
-      static std::vector<MidgardBasicElement::st_zusatz> getWaffenZusatz(const std::list<MidgardBasicElement_mutable>& WL); 
-      std::vector<MidgardBasicElement::st_zusatz> getSprachenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben,bool nachbarland) const;
-      std::vector<MidgardBasicElement::st_zusatz> getSchriftenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben) const;
+      static std::vector<MidgardBasicElement::st_zusatz> getWaffenZusatz(const std::list<MBEmlt>& WL); 
+      std::vector<MidgardBasicElement::st_zusatz> getSprachenZusatz(const MBEmlt &MBE,const VAbenteurer& Aben,bool nachbarland) const;
+      std::vector<MidgardBasicElement::st_zusatz> getSchriftenZusatz(const MBEmlt &MBE,const VAbenteurer& Aben) const;
       std::vector<std::string> getSpezialgebiet(const VAbenteurer& A) const;
-      std::list<MidgardBasicElement_mutable> getBeruf(const VAbenteurer& A) const;      
-      std::vector<Beruf::st_vorteil> getBerufsVorteil(const MidgardBasicElement_mutable& beruf,const BerufsKategorie &BKat,const VAbenteurer& A) const;
+      std::list<MBEmlt> getBeruf(const VAbenteurer& A) const;      
+      std::vector<Beruf::st_vorteil> getBerufsVorteil(const MBEmlt& beruf,const BerufsKategorie &BKat,const VAbenteurer& A) const;
 
       std::list<WaffeBesitz> getWaffenBesitz(const VAbenteurer& Aben) const;      
 
-      std::list<MidgardBasicElement_mutable> getMBEm(const VAbenteurer& A,eMBE was, int erfolgswert=0,
+      std::list<MBEmlt> getMBEm(const VAbenteurer& A,eMBE was, int erfolgswert=0,
                      int lernpunkte=0,std::string lernart="") const;
 
 
-      std::list<MidgardBasicElement_mutable> get_steigern_MBEm(const Abenteurer& A,eMBE was,bool nsc_allowed) const;
-      std::list<MidgardBasicElement_mutable> get_steigern_Zauberliste(const Abenteurer& A,
+      std::list<MBEmlt> get_steigern_MBEm(const Abenteurer& A,eMBE was,bool nsc_allowed) const;
+      std::list<MBEmlt> get_steigern_Zauberliste(const Abenteurer& A,
             bool salz,bool beschwoerung,bool nsc, bool alle,bool spruchrolle) const;
-      std::list<MidgardBasicElement_mutable> get_steigern_ZauberWerkliste(const Abenteurer& A,
+      std::list<MBEmlt> get_steigern_ZauberWerkliste(const Abenteurer& A,
             bool nsc, bool alle) const;
-      void shorten_for_GFP(std::list<MidgardBasicElement_mutable> &L,const Abenteurer& A,int gfp) const;
+      void shorten_for_GFP(std::list<MBEmlt> &L,const Abenteurer& A,int gfp) const;
 
 };
 

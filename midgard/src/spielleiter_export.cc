@@ -86,9 +86,9 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   if(!boni.empty()) fout <<" - "<<boni<<'\n';
 
   std::string angriff;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Waffen().begin();i!=Char.List_Waffen().end();++i)
+  for(std::list<MBEmlt>::const_iterator i=Char.List_Waffen().begin();i!=Char.List_Waffen().end();++i)
    {
-    cH_Waffe w(*i);
+    cH_Waffe w(i->getMBE());
     std::string name = (*i)->Name();
     int anbo = Char.getWerte().bo_An();
     if (w->Verteidigung())
@@ -130,18 +130,18 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 
  // angeborene Fertigkeiten
  std::string fert;
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Fertigkeit_ang().begin();i!=Char.List_Fertigkeit_ang().end();++i)
-   {cH_Fertigkeit_angeborene f(*i);
+ for(std::list<MBEmlt>::const_iterator i=Char.List_Fertigkeit_ang().begin();i!=Char.List_Fertigkeit_ang().end();++i)
+   {//cH_Fertigkeit_angeborene f(i->getMBE());
     std::string wert = "+"+itos(i->Erfolgswert());
     if (wert == "+0") wert = "";
-    fert+=f->Name()+wert+", ";
+    fert+=(*i)->Name()+wert+", ";
    }
  // Fertigkeiten
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Fertigkeit().begin();i!=Char.List_Fertigkeit().end();++i)
-   { cH_Fertigkeit f(*i);
+ for(std::list<MBEmlt>::const_iterator i=Char.List_Fertigkeit().begin();i!=Char.List_Fertigkeit().end();++i)
+   { //cH_Fertigkeit f(i->getMBE());
     std::string wert = "+"+itos(i->Erfolgswert());
     if (wert == "+0") wert = "";
-    fert+=f->Name()+wert+", " ;
+    fert+=(*i)->Name()+wert+", " ;
    }
  ManuProC::remove_last_from(fert,",");
 // std::string::size_type st3=fert.find_last_of(",");
@@ -149,8 +149,8 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  fout << fert << "\n";
 
  std::string sinne;
- std::list<MidgardBasicElement_mutable> vsinne=getWerte().Sinne() ;
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=vsinne.begin();i!=vsinne.end();++i)
+ std::list<MBEmlt> vsinne=getWerte().Sinne() ;
+ for (std::list<MBEmlt>::const_iterator i=vsinne.begin();i!=vsinne.end();++i)
   {
       sinne += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
   }
@@ -158,12 +158,12 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  fout << sinne<<"\n";
 
  std::string sprache;
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Sprache().begin();i!=Char.List_Sprache().end();++i)
+ for (std::list<MBEmlt>::const_iterator i=Char.List_Sprache().begin();i!=Char.List_Sprache().end();++i)
    {
       sprache += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
    }
- std::list<MidgardBasicElement_mutable> verwandteSprachen=Sprache::getVerwandteSprachen(getChar().List_Sprache(),getCDatabase().Sprache);
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
+ std::list<MBEmlt> verwandteSprachen=Sprache::getVerwandteSprachen(getChar().List_Sprache(),getCDatabase().Sprache);
+ for (std::list<MBEmlt>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    {
       sprache += (*i)->Name()+"+("+itos(i->Erfolgswert())+"), ";
    }
@@ -174,7 +174,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 
  // Schreiben
  std::string schreiben;
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Schrift().begin();i!=Char.List_Schrift().end();++i)
+ for (std::list<MBEmlt>::const_iterator i=Char.List_Schrift().begin();i!=Char.List_Schrift().end();++i)
    {
       schreiben += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
    }
@@ -187,7 +187,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
    {
      std::string zauber;
      zauber+="Zaubern+"+itos(W.Zaubern_wert()+Char.getWerte().bo_Za())+": ";
-     for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Zauber().begin();i!=Char.List_Zauber().end();++i)
+     for (std::list<MBEmlt>::const_iterator i=Char.List_Zauber().begin();i!=Char.List_Zauber().end();++i)
         zauber += (*i)->Name()+", ";
      ManuProC::remove_last_from(zauber,",");
 //     std::string::size_type st=zauber.find_last_of(",");

@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.31 2002/09/16 19:09:21 thoma Exp $               
+// $Id: Sprache.hh,v 1.32 2002/09/21 18:00:13 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -36,14 +36,14 @@ class Sprache_und_Schrift
       struct st_sus{std::string schrift; int wert;
              st_sus(std::string s,int w) :schrift(s),wert(w) {}};
    private:
-      MidgardBasicElement_mutable sprache;
+      MBEmlt sprache;
       bool gelernt;
       std::vector<st_sus> schriften;
    public:
-      Sprache_und_Schrift(const MidgardBasicElement_mutable& M,bool g)
+      Sprache_und_Schrift(const MBEmlt& M,bool g)
          : sprache(M),gelernt(g) {}
 
-      MidgardBasicElement_mutable getSprache() const {return sprache;}
+      MBEmlt getSprache() const {return sprache;}
       bool getGelernt() const {return gelernt;}
       const std::vector<st_sus>& getSchriften() const {return schriften;}
       void push_back(std::string s,int w) {schriften.push_back(st_sus(s,w));};
@@ -73,7 +73,7 @@ class Sprache : public MidgardBasicElement
 
    std::string Schriften() const;
    const std::vector<std::string> &Schrift() const  {return VSchrift; }
-   const Sprache_und_Schrift SchriftWert(int erfolgswert,bool gelernt,const std::list<MidgardBasicElement_mutable>& list_Schrift) const;
+   const Sprache_und_Schrift SchriftWert(int erfolgswert,bool gelernt,const std::list<MBEmlt>& list_Schrift) const;
 
    bool Alte_Sprache() const {return alte_sprache;}    
    bool Minderheit() const {return minderheit;}    
@@ -81,24 +81,24 @@ class Sprache : public MidgardBasicElement
    int MaxErfolgswert(const Abenteurer& A) const;
    int Kosten(const Abenteurer& A) const;
 private:
-   std::list<MidgardBasicElement_mutable> VerwandteSprachen(const int erfolgswert,const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const;
-   static std::list<MidgardBasicElement_mutable> cleanVerwandteSprachen(std::list<MidgardBasicElement_mutable> L);
+   std::list<MBEmlt> VerwandteSprachen(const int erfolgswert,const std::list<MBEmlt>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const;
+   static std::list<MBEmlt> cleanVerwandteSprachen(std::list<MBEmlt> L);
 public:
-   static std::list<MidgardBasicElement_mutable> getVerwandteSprachen(const std::list<MidgardBasicElement_mutable>& gekonnteSprachen,const std::list<cH_MidgardBasicElement>& alleSprachen);
+   static std::list<MBEmlt> getVerwandteSprachen(const std::list<MBEmlt>& gekonnteSprachen,const std::list<cH_MidgardBasicElement>& alleSprachen);
 
    bool ist_erlaubt(const VAbenteurer& A,bool nachbarland=false) const;
-   int getHoeherenErfolgswert(const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,
+   int getHoeherenErfolgswert(const std::list<MBEmlt>& gelernte_listSprache,
                               const std::list<cH_MidgardBasicElement>& listSprache) const;
 
    void setMuttersprache(bool b) {muttersprache=b;}
    
 
-   static void setErfolgswertMuttersprache(MidgardBasicElement_mutable &M,int in,int bonus) 
+   static void setErfolgswertMuttersprache(MBEmlt &M,int in,int bonus) 
       {setErfolgswertMutterGastlandsprache(M,"Muttersprache",in,bonus);}
-   static void setErfolgswertGastlandsprache(MidgardBasicElement_mutable &M,int in) 
+   static void setErfolgswertGastlandsprache(MBEmlt &M,int in) 
       {setErfolgswertMutterGastlandsprache(M,"Gastlandsprache",in,0);}
 private:
-   static void setErfolgswertMutterGastlandsprache(MidgardBasicElement_mutable &M,std::string mode,int in,int bonus);
+   static void setErfolgswertMutterGastlandsprache(MBEmlt &M,std::string mode,int in,int bonus);
 };
 
 

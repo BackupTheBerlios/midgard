@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.14 2002/09/13 12:01:46 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.15 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -94,19 +94,8 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   tree_waffen_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::WAFFE_LERNSCHEMA));
   tree_waffen_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
   label_lernschma_titel->set_text("Waffenbesitz wählen");
-/*
-  std::list<MidgardBasicElement_mutable> L;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Waffe.begin();i!=hauptfenster->getDatabase().Waffe.end();++i)
-   {
-     if(hauptfenster->getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
-     const cH_Waffe w(*i);
-     if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
-     if (!MidgardBasicElement_mutable(&*w).ist_gelernt(hauptfenster->getChar().List_Waffen())) continue;
-     L.push_back(WaffeBesitz(w,w->Name(),0,0,"",""));
-   }
-*/
   std::list<WaffeBesitz> L1=LernListen(hauptfenster->getDatabase()).getWaffenBesitz(hauptfenster->getChar());
-  std::list<MidgardBasicElement_mutable> L;
+  std::list<MBEmlt> L;
   for(std::list<WaffeBesitz>::const_iterator i=L1.begin();i!=L1.end();++i) L.push_back(*i);
   MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
   tree_waffen_lernschema->show();
@@ -132,9 +121,10 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
 {
  try{
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-   MidgardBasicElement_mutable MBE = dt->getMBE();
-   std::string art=cH_Waffe(MBE)->Art2();
-   WaffeBesitz WB(MBE,MBE->Name(),0,0,"","");
+   MBEmlt MBE = dt->getMBE();
+   cH_Waffe W(MBE.getMBE());
+   std::string art=W->Art2();
+   WaffeBesitz WB(W,MBE->Name(),0,0,"","");
    if( (art=="E" || art=="W" || art=="V") && waffebesitzlernen.EWaffe()>0)
     {
       waffebesitzlernen.add_EWaffe(-1);

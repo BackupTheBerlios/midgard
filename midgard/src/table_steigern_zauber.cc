@@ -30,7 +30,7 @@ void table_steigern::on_zauber_laden_clicked()
   list_Zauber_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauber.begin();i!=hauptfenster->getCDatabase().Zauber.end();++i)
     { cH_Zauber z(*i);
-      if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getChar().List_Zauber()) && (*i)->ZusatzEnum(hauptfenster->getChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
+      if (MBEmlt(*i).ist_gelernt(hauptfenster->getChar().List_Zauber()) && (*i)->ZusatzEnum(hauptfenster->getChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
       if (z->Zauberart()=="Zaubersalz" && !togglebutton_zaubersalze->get_active())
          continue;
       if (z->Zauberart()=="Beschwörung" && !Region::isActive(hauptfenster->getCDatabase().Regionen,cH_Region("MdS")))
@@ -95,39 +95,6 @@ void table_steigern::on_spruchrolle_toggled()
  on_zauber_laden_clicked();
 }
 
-bool table_steigern::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
-{
- cH_Zauber zauber(z);
- int erf_z = hauptfenster->getWerte().Zaubern_wert() + hauptfenster->getWerte().bo_Za() ;
- int xr=hauptfenster->random.integer(1,20);
- int iaus=0;
- 
- if ((hauptfenster->getChar().Typ1()->Short()!="Ma" && hauptfenster->getChar().Typ2()->Short()!="Ma") && zauber->Art()=="A") 
-    iaus=-2;
-
- // Für Magier:
- std::string standard="";
- if (hauptfenster->getChar().Typ1()->Short()=="Ma") standard=z->Standard(hauptfenster->getChar().getAbenteurer())[0]; 
- if (hauptfenster->getChar().Typ2()->Short()=="Ma") standard=z->Standard(hauptfenster->getChar().getAbenteurer())[1]; 
- if(standard!="") 
-   {
-    iaus = zauber->get_spezial_zauber_for_magier(hauptfenster->getChar().getAbenteurer(),standard); 
-    if (!iaus)
-     { if (zauber->Art()=="S")  iaus=+1;
-       if (zauber->Art()=="A")  iaus=-1;  }
-   }
- 
- int x = xr-zauber->iStufe();
- x += iaus;
- x += erf_z;
- std::string strinfo = "Lernversuch von Spruchrolle:
- gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n     "
-      +itos(xr)+"            -"+itos(zauber->iStufe())+"               "
-      +itos(iaus)+"             "+itos(erf_z)+"       =       "+ itos(x)+"\n";
- hauptfenster->set_info(strinfo);
- if (x>=20) return true;
- else return false;
-}
 
 
 void table_steigern::on_alte_zauber_reorder()
@@ -182,18 +149,4 @@ void table_steigern::zauberwerk_laden()
  list_Zauberwerk_neu=LL->get_steigern_ZauberWerkliste(hauptfenster->getChar().getAbenteurer(),
                                                       hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,
                                                       togglebutton_alle_zauber->get_active());
-/*
- list_Zauberwerk_neu.clear();
- for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauberwerk.begin();i!=hauptfenster->getCDatabase().Zauberwerk.end();++i)
-  {
-   cH_Zauberwerk z(*i);
-   if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getChar().List_Zauberwerk())) continue ;
-   if (((*i)->ist_lernbar(hauptfenster->getChar().getVTyp(),z->get_MapTyp()) 
-         && z->Voraussetzungen(hauptfenster->getChar().List_Zauber())
-         && z->Voraussetzungen_Fertigkeit(hauptfenster->getChar().List_Fertigkeit())) 
-         || togglebutton_alle_zauber->get_active() )
-     if (hauptfenster->region_check(z->Region()) )
-       list_Zauberwerk_neu.push_back(*i);
-  }
-*/
 }

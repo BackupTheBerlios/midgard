@@ -21,11 +21,6 @@ void table_optionen::init()
  frame_icons->init();
 }
 
-void table_optionen::set_values()
-{
- frame_globale_optionen->set_values();
-}
-
 
 void table_optionen::set_Hauptfenster(midgard_CG *h) 
 {

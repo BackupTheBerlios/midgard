@@ -169,14 +169,14 @@ bool Beruf::Berufsfertigkeit(VAbenteurer& A,st_vorteil F)
   else if(F.gelernt) // Erfolgswert um eins erhöhen
    {
     if(F.name=="Schreiben: Muttersprache(+12)")
-     {for(std::list<MidgardBasicElement_mutable>::iterator k=A.List_Schrift().begin();k!=A.List_Schrift().end();++k)
+     {for(std::list<MBEmlt>::iterator k=A.List_Schrift().begin();k!=A.List_Schrift().end();++k)
        {
          if((*k)->Name()==A->Muttersprache() ) 
             { (*k).addErfolgswert(1); break  ;  }
        }
      }  
     else
-     {for (std::list<MidgardBasicElement_mutable>::iterator k=A.List_Fertigkeit().begin();k!=A.List_Fertigkeit().end();++k)
+     {for (std::list<MBEmlt>::iterator k=A.List_Fertigkeit().begin();k!=A.List_Fertigkeit().end();++k)
        {
          if((*k)->Name()==F.name)
            { (*k).addErfolgswert(1);
@@ -190,7 +190,7 @@ bool Beruf::Berufsfertigkeit(VAbenteurer& A,st_vorteil F)
   else // neue Fertigkeit
    {
      cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(F.name));
-     MidgardBasicElement_mutable MBE(cMBE);
+     MBEmlt MBE(cMBE);
      MBE.setLernArt("Beruf");
      MBE.setErfolgswert(F.wert);
      if(MBE->ZusatzEnum(A.getVTyp())) return true;

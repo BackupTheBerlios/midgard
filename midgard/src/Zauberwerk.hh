@@ -49,6 +49,12 @@ class Zauberwerk : public MidgardBasicElement
    {get_Zauberwerk();get_map_typ();
             getVoraussetzungen();getVoraussetzungenFert();} 
 
+   virtual bool operator==(const MidgardBasicElement& b) const
+      {return MidgardBasicElement::operator==(b) && 
+              Art()==static_cast<const Zauberwerk&>(b).Art() &&
+              Stufe()==static_cast<const Zauberwerk&>(b).Stufe() ;}
+                                                     
+
 //   std::string Name() const {  return name; }
    std::string Art() const { return art; }
    std::string Stufe() const {  return stufe; }
@@ -57,8 +63,8 @@ class Zauberwerk : public MidgardBasicElement
 //   std::string Region() const {return region;}
    std::string Preis() const { return preis; }
 
-   bool Voraussetzungen(const std::list<MidgardBasicElement_mutable>& listZauber) const;
-   bool Voraussetzungen_Fertigkeit(const std::list<MidgardBasicElement_mutable>& listZauber) const;
+   bool Voraussetzungen(const std::list<MBEmlt>& listZauber) const;
+   bool Voraussetzungen_Fertigkeit(const std::list<MBEmlt>& listZauber) const;
    int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 };
@@ -92,8 +98,11 @@ class cH_Zauberwerk : public Handle<const Zauberwerk>
          esort es;
       public:
          sort(enum esort _es):es(_es) {}
-         bool operator() (cH_Zauberwerk x,cH_Zauberwerk y) const
-           { switch(es) {
+         bool operator() (MBEmlt _x,MBEmlt _y) const
+           { 
+            cH_Zauberwerk x(_x.getMBE());
+            cH_Zauberwerk y(_y.getMBE());
+            switch(es) {
                case(NAME) : return x->Name() < y->Name()  ;
                case(STUFE): return x->Stufe() < y->Stufe();
                case(ART): return x->Art() < y->Art() ;  

@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.20 2002/09/11 11:09:22 thoma Exp $               
+// $Id: Spezies.hh,v 1.21 2002/09/21 18:00:13 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,10 +27,11 @@
 #include <string>
 #include "xml.h"
 #include <list>
+#include "Enums.hh"
 
 class Grundwerte;
 class cH_MidgardBasicElement;
-class MidgardBasicElement_mutable;
+//class MBEmlt;
 class cH_Spezies;
 
 class Spezies : public HandleContent
@@ -101,10 +102,10 @@ public:
    bool Land() const {return land;}
    bool NSC_only() const {return only_nsc;}
 
-   std::list<MidgardBasicElement_mutable> getZauber() const;
-   std::list<MidgardBasicElement_mutable> getAngFertigkeiten() const;
-   std::list<MidgardBasicElement_mutable> getFertigkeiten(int &lp,const Grundwerte &Werte) const;
-   std::list<MidgardBasicElement_mutable> getFreiwilligeFertigkeiten(const Grundwerte &Werte) const;
+   std::list<MBEmlt> getZauber() const;
+   std::list<MBEmlt> getAngFertigkeiten() const;
+   std::list<MBEmlt> getFertigkeiten(int &lp,const Grundwerte &Werte) const;
+   std::list<MBEmlt> getFreiwilligeFertigkeiten(const Grundwerte &Werte) const;
    std::list<pair<std::string,int> > getSinne() const;
 
    bool istVerboten(const cH_MidgardBasicElement &mbe) const;

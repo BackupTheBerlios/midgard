@@ -115,9 +115,9 @@ void Waffe::get_Alias()
 }
 
 
-bool Waffe::Grundkenntnis_vorhanden(const std::list<MidgardBasicElement_mutable>& list_WaffenGrund) const
+bool Waffe::Grundkenntnis_vorhanden(const std::list<MBEmlt>& list_WaffenGrund) const
 {
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
+ for (std::list<MBEmlt>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
    if (Grundkenntnis()==(*i)->Name()) return true;
  return false;
 }
@@ -129,10 +129,10 @@ bool Waffe::Voraussetzung(const Abenteurer &A,bool anzeigen) const
  if ( St()>Werte.St() || Gw()>Werte.Gw() || Gs()>Werte.Gs() ) return false;
  if(anzeigen) return true;
 
- const std::list<MidgardBasicElement_mutable> &list_Fertigkeit=A.List_Fertigkeit();
- const std::list<MidgardBasicElement_mutable> &list_Waffen=A.List_Waffen();
- std::list<MidgardBasicElement_mutable> L=list_Fertigkeit;
- for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
+ const std::list<MBEmlt> &list_Fertigkeit=A.List_Fertigkeit();
+ const std::list<MBEmlt> &list_Waffen=A.List_Waffen();
+ std::list<MBEmlt> L=list_Fertigkeit;
+ for(std::list<MBEmlt>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
    L.push_back(*j);
      
  std::vector<std::string> VF=vec_voraussetzung_F;
@@ -142,7 +142,7 @@ bool Waffe::Voraussetzung(const Abenteurer &A,bool anzeigen) const
 FertEnd:
  for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
    {
-    for(std::list<MidgardBasicElement_mutable>::const_iterator j=L.begin();j!=L.end();++j)
+    for(std::list<MBEmlt>::const_iterator j=L.begin();j!=L.end();++j)
       {
         if((*i)==(*j)->Name()) 
           { VF.erase(i);
@@ -321,12 +321,13 @@ int Waffe::MaxErfolgswert(const Abenteurer &A) const
 
 
 std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
-   const std::list<MidgardBasicElement_mutable>& list_Waffen,
+   const std::list<MBEmlt>& list_Waffen,
    const std::list<WaffeBesitz>& list_Waffen_besitz,
    const Abenteurer &A)
 {
    std::list<WaffeBesitz> Verteidigungswaffen;
-   MidgardBasicElement_mutable wl(&*cH_Waffe("waffenloser Kampf"));
+//   MBEmlt wl(&*cH_Waffe("waffenloser Kampf"));
+   cH_Waffe wl("waffenloser Kampf");
    Verteidigungswaffen.push_back(WaffeBesitz(wl,wl->Name(),0,0,"",""));
    for (std::list<WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
@@ -343,8 +344,8 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
      {
       WaffeBesitz WB=*i;
       std::vector<int> vwert;
-      for (std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)      
-         { cH_Waffe w(*j);
+      for (std::list<MBEmlt>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)      
+         { cH_Waffe w(j->getMBE());
             if (WB->Name() == w->Name()) 
                { 
                  int erf_wert;
@@ -374,13 +375,13 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
 
 
 
-void Waffe::setSpezialWaffe(const std::string& name,std::list<MidgardBasicElement_mutable>& list_Waffen_gelernt)
+void Waffe::setSpezialWaffe(const std::string& name,std::list<MBEmlt>& list_Waffen_gelernt)
 {
-  for(std::list<MidgardBasicElement_mutable>::iterator i=list_Waffen_gelernt.begin();i!=list_Waffen_gelernt.end();++i)
+  for(std::list<MBEmlt>::iterator i=list_Waffen_gelernt.begin();i!=list_Waffen_gelernt.end();++i)
    {
     if(name==(*i)->Name()) 
         (*i).setErfolgswert(7);
-    else if(cH_Waffe((*i))->Verteidigung())
+    else if(cH_Waffe(i->getMBE())->Verteidigung())
          (*i).setErfolgswert(1);
     else (*i).setErfolgswert(5);
    }

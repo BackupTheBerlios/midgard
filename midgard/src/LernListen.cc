@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.13 2002/09/16 12:00:41 thoma Exp $
+// $Id: LernListen.cc,v 1.14 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,11 +25,11 @@
 #include "Beruf.hh"
 
 
-std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,eMBE was,
+std::list<MBEmlt> LernListen::getMBEm(const VAbenteurer& A,eMBE was,
                         int erfolgswert,int lernpunkte,std::string lernart) const
 {
    std::list<cH_MidgardBasicElement> V_;
-   std::list<MidgardBasicElement_mutable> Vm;
+   std::list<MBEmlt> Vm;
    std::vector<Lernschema::st_index> VI;
    switch(was) {
       case MutterSprache: 
@@ -45,7 +45,7 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
       case lAngebFert:      V_=D.Fertigkeit_ang; break;
       default : assert(!"never get here\n");
     }  
-   std::list<MidgardBasicElement_mutable> V;
+   std::list<MBEmlt> V;
    if(!V_.empty())
    {
     for(std::list<cH_MidgardBasicElement>::const_iterator i=V_.begin();i!=V_.end();++i)
@@ -62,7 +62,7 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
          if(cH_Sprache(*i)->Alte_Sprache()) erlaubt=true;
          else continue;
       else erlaubt=true;
-      MidgardBasicElement_mutable M(&**i);
+      MBEmlt M(&**i);
       M.setLernArt(lernart+"_"+(*i)->Name());
       M.setErlaubt(erlaubt);
 
@@ -85,12 +85,12 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
     }
    else if(!Vm.empty())
    {
-    for(std::list<MidgardBasicElement_mutable>::iterator i=Vm.begin();i!=Vm.end();++i)
+    for(std::list<MBEmlt>::iterator i=Vm.begin();i!=Vm.end();++i)
      {
       if(was==lFach)
        {
          VI=Lernschema::getIndex(A.getVTyp(),"Fachkenntnisse",(*i)->Name());
-         i->setErfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(A.getWerte()));
+         i->setErfolgswert(cH_Fertigkeit(i->getMBE())->Anfangswert0()+cH_Fertigkeit(i->getMBE())->AttributBonus(A.getWerte()));
          i->setPflicht(D.lernschema.get_Pflicht(VI));
 //cout << (*i)->Name()<<"  ?: "<<i->Erfolgswert()<<'\t'<<i->Pflicht()<<'\n';
        }
@@ -130,7 +130,7 @@ std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const VAbenteurer& A,bool
   std::vector<pair<cH_Typen,bool> > V;
   for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
    {
-     if (A.getWerte().Spezies()->Name()=="Mensch" || A.getWerte().Spezies()->Typ_erlaubt((*i)->Short()))
+     if (A.getWerte().Spezies()->Typ_erlaubt((*i)->Short()))
       if (region_check((*i)->Region()) && nsc_check(nsc_allowed,(*i)->NSC_only()))       
        {
          if((*i)->Mindestwerte(A.getWerte()))
@@ -165,7 +165,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getLandZusatz() const
 }
 
 
-std::vector<MidgardBasicElement::st_zusatz> LernListen::getMBEZusatz(const MidgardBasicElement_mutable& MBE) const
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getMBEZusatz(const MBEmlt& MBE) const
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
   std::vector<MidgardBasicElement::st_zusatz> V=MBE->VZusatz();
@@ -189,23 +189,23 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getUeberlebenZusatz() co
    return B;
 }
 
-std::vector<MidgardBasicElement::st_zusatz> LernListen::getWaffenZusatz(const std::list<MidgardBasicElement_mutable> &WL)
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getWaffenZusatz(const std::list<MBEmlt> &WL)
 {
    std::vector<MidgardBasicElement::st_zusatz> B;
-   for(std::list<MidgardBasicElement_mutable>::const_iterator i=WL.begin();i!=WL.end();++i)
+   for(std::list<MBEmlt>::const_iterator i=WL.begin();i!=WL.end();++i)
     {
-      if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
+      if (cH_Waffe(i->getMBE())->Art()=="Schußwaffe" || cH_Waffe(i->getMBE())->Art()=="Wurfwaffe")
         B.push_back(MidgardBasicElement::st_zusatz((*i)->Name()));
     }
   return B;
 }
 
-std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben,bool nachbarland) const
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const MBEmlt &MBE,const VAbenteurer& Aben,bool nachbarland) const
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Sprache.begin();i!=D.Sprache.end();++i)
    {
-     if(MidgardBasicElement_mutable(&**i).ist_gelernt(Aben.List_Sprache())) continue;
+     if(MBEmlt(&**i).ist_gelernt(Aben.List_Sprache())) continue;
 
      bool erlaubt=true;
      if(MBE->Name()=="Muttersprache" || MBE->Name()=="Gastlandsprache")
@@ -224,12 +224,12 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const 
  return B;
 }
 
-std::vector<MidgardBasicElement::st_zusatz> LernListen::getSchriftenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben) const
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getSchriftenZusatz(const MBEmlt &MBE,const VAbenteurer& Aben) const
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Schrift.begin();i!=D.Schrift.end();++i)
    {
-     if(MidgardBasicElement_mutable(&**i).ist_gelernt(Aben.List_Schrift())) continue;
+     if(MBEmlt(&**i).ist_gelernt(Aben.List_Schrift())) continue;
      if(!cH_Schrift(*i)->kann_Sprache(Aben.List_Sprache())) continue;
      bool erlaubt=true;
      if( MBE->Name().find("Muttersprache") != std::string::npos)
@@ -293,7 +293,7 @@ std::list<WaffeBesitz> LernListen::getWaffenBesitz(const VAbenteurer& Aben) cons
      if(Aben.getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      const cH_Waffe w(*i);
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
-     if (!MidgardBasicElement_mutable(&*w).ist_gelernt(Aben.List_Waffen())) continue;
+     if (!MBEmlt(&*w).ist_gelernt(Aben.List_Waffen())) continue;
      L.push_back(WaffeBesitz(w,w->Name(),0,0,"","")); 
      for(std::list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
       {
@@ -317,9 +317,9 @@ std::vector<std::string> LernListen::getSpezialgebiet(const VAbenteurer& A) cons
 }
 
 
-std::list<MidgardBasicElement_mutable> LernListen::getBeruf(const VAbenteurer& A) const
+std::list<MBEmlt> LernListen::getBeruf(const VAbenteurer& A) const
 {
-  std::list<MidgardBasicElement_mutable> L;
+  std::list<MBEmlt> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Beruf.begin();i!=D.Beruf.end();++i)
    {
      if(A.getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
@@ -329,13 +329,13 @@ std::list<MidgardBasicElement_mutable> LernListen::getBeruf(const VAbenteurer& A
      if(!b->Land()  && A.getWerte().Stadt_Land()==Enums::Land) continue;
      L.push_back(*i);
    }
- L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
+ L.sort(MBEmlt::sort(MBEmlt::sort::NAME));
  return L;
 }
 
-std::vector<Beruf::st_vorteil> LernListen::getBerufsVorteil(const MidgardBasicElement_mutable& beruf,const BerufsKategorie &BKat,const VAbenteurer& A) const
+std::vector<Beruf::st_vorteil> LernListen::getBerufsVorteil(const MBEmlt& beruf,const BerufsKategorie &BKat,const VAbenteurer& A) const
 {
-  cH_Beruf b(beruf);
+  cH_Beruf b(beruf.getMBE());
   std::vector<Beruf::st_vorteil> fert=b->Vorteile();
   std::vector<Beruf::st_vorteil> F;
   for(std::vector<Beruf::st_vorteil>::iterator j=fert.begin();j!=fert.end();++j)
@@ -346,7 +346,7 @@ std::vector<Beruf::st_vorteil> LernListen::getBerufsVorteil(const MidgardBasicEl
          (j->kat==3 && BKat.kat_III) || (j->kat==4 && BKat.kat_IV ) )
         {
           if(j->name!="Schmecken+10" && 
-             MidgardBasicElement_mutable(&*cH_Fertigkeit(j->name)).ist_gelernt(A.List_Fertigkeit()))
+             MBEmlt(&*cH_Fertigkeit(j->name)).ist_gelernt(A.List_Fertigkeit()))
                 j->gelernt=true;
           else if(j->name=="Schreiben: Muttersprache(+12)") j->gelernt=true;
           F.push_back(*j);

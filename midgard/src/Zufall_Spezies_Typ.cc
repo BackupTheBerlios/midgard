@@ -75,28 +75,28 @@ cH_Land Zufall::getLand() const
    return V[i];   
 }
 
-MidgardBasicElement_mutable Zufall::getMuttersprache() const
+MBEmlt Zufall::getMuttersprache() const
 {
   
-  std::list<MidgardBasicElement_mutable> V_=LL.getMBEm(Aben,LernListen::MutterSprache,0,0,"Allg");
-  std::vector<MidgardBasicElement_mutable> V;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=V_.begin();i!=V_.end();++i)
+  std::list<MBEmlt> V_=LL.getMBEm(Aben,LernListen::MutterSprache,0,0,"Allg");
+  std::vector<MBEmlt> V;
+  for(std::list<MBEmlt>::const_iterator i=V_.begin();i!=V_.end();++i)
    {
       if(i->Erlaubt()) V.push_back(*i) ;
    }
   int i=random.integer(0,V.size()-1);
 
-  MidgardBasicElement_mutable sprache(&*cH_Sprache(V[i]->Name()));
+  MBEmlt sprache(&*cH_Sprache(V[i]->Name()));
   Sprache::setErfolgswertMuttersprache(sprache,Aben->getWerte().In(),cH_Fertigkeit("Sprache")->AttributBonus(Aben->getWerte()));
         
   return sprache;   
 }
 
-MidgardBasicElement_mutable Zufall::getUeberleben() const
+MBEmlt Zufall::getUeberleben() const
 {
   std::vector<MidgardBasicElement::st_zusatz> V=LL.getUeberlebenZusatz();
   int i=random.integer(0,V.size()-1);
-  MidgardBasicElement_mutable M(&*cH_Fertigkeit(V[i].name));
+  MBEmlt M(&*cH_Fertigkeit(V[i].name));
   return M;
 }
 

@@ -22,19 +22,6 @@ void frame_globale_optionen::set_Hauptfenster(midgard_CG *h)
  hauptfenster=h;
 }
 
-void frame_globale_optionen::set_values()
-{
-//  hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).spin
-//      ->set_value(hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).wert);
-}
-
-
-/*
-static void wert_changed(gpointer gp)
-{
-  cout << "WC: "<<  *(int*)(gp)<<'\n';
-}
-*/
 
 void frame_globale_optionen::init()
 {
@@ -43,9 +30,6 @@ void frame_globale_optionen::init()
       if(ini) return;
       ini=true;
 #endif
-/*
- remove();
-*/
  if(!hauptfenster) assert(!"");
  if(!(hauptfenster->getOptionen())) assert(!"");
  Gtk::Table *table=manage(new Gtk::Table(0,0,false));
@@ -57,14 +41,12 @@ void frame_globale_optionen::init()
    i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_C),i->index));
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
    t->attach(*cb,0,1,0,1,GTK_FILL,0,0,0);
-//cout << "AUFBAU: "<<i->text<<'\t'<<i->active<<'\t'<<i->wert<<'\n';
 
    if(i->wert!=hauptfenster->NOPAGE) 
     {
       int min=hauptfenster->PAGE_INFO;
       int max=hauptfenster->PAGE_ZUFALL;
       MVC_int_Widget *spin=manage(new MVC_int_Widget(i->wert, min, max));
-//i->wert.changed.connect(SigC::slot(&wert_changed));
       i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_show_or_hide),spin,&(i->wert)));
       t->attach(*spin,1,2,0,1,GTK_FILL,0,0,0);
     }
@@ -82,19 +64,12 @@ void frame_globale_optionen::init()
  Gtk::Label *label = manage(new class Gtk::Label("Hausregeln"));
  table->attach(*label, 0, 1, count, count+1, 0, 0, 0, 0);
  ++count;
- std::list<Midgard_Optionen::st_Haus> L2=hauptfenster->getOptionen()->getHausregeln();
- for(std::list<Midgard_Optionen::st_Haus>::const_iterator i=L2.begin();i!=L2.end();++i)
+ std::list<Midgard_Optionen::st_Haus> &L2=hauptfenster->getOptionen()->getHausregeln();
+ for(std::list<Midgard_Optionen::st_Haus>::iterator i=L2.begin();i!=L2.end();++i)
   {
-   Gtk::CheckButton *cb=manage(new Gtk::CheckButton(i->text,0,0.5));
-   
-   if(hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Original).active)
-    {
-      cb->set_sensitive(false);
-      cb->set_active(i->active);
-    }
-   else
-      cb->set_active(i->active);
-   cb->toggled.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_H),cb,i->index));
+   MVC_bool_Widget *cb = manage(new MVC_bool_Widget(i->active,i->text));
+   i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_H),i->index));
+
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
    t->attach(*cb,0,1,0,1,GTK_FILL,0,0,0);
    if(i->bild)
@@ -134,19 +109,7 @@ void frame_globale_optionen::element_activate_C(gpointer gp,Midgard_Optionen::Op
    }
 }
 
-/*
-void frame_globale_optionen::element_activate_C(Gtk::CheckButton *cb,Midgard_Optionen::OptionenCheckIndex index)
+void frame_globale_optionen::element_activate_H(gpointer gp,Midgard_Optionen::HausIndex index)
 {
-  hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(index,cb->get_active());
-  if(index==Midgard_Optionen::Original)
-   {
-    hauptfenster->getOptionen()->setAllHausregeln(false);
-    init();
-   }
-}
-*/
-
-void frame_globale_optionen::element_activate_H(Gtk::CheckButton *cb,Midgard_Optionen::HausIndex index)
-{
-  hauptfenster->getOptionen()->Hausregeln_setzen_from_menu(index,cb->get_active());
+  hauptfenster->getOptionen()->Hausregeln_setzen_from_menu(index);
 }

@@ -51,13 +51,13 @@ void Zufall::Lernschema()
 void Zufall::setSpezialwaffe()
 {
   if (!Aben->Typ1()->Spezialwaffe() && !Aben->Typ2()->Spezialwaffe()) return;
-  std::list<MidgardBasicElement_mutable> L=Aben->List_Waffen();
-  std::vector<MidgardBasicElement_mutable> V;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
+  std::list<MBEmlt> L=Aben->List_Waffen();
+  std::vector<MBEmlt> V;
+  for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     if(cH_Waffe(*i)->Verteidigung()) continue;
-     if(cH_Waffe((*i))->Reichweite().empty() && i->Lernpunkte() > 1) continue;
-     if(!cH_Waffe((*i))->Reichweite().empty() && i->Lernpunkte() > 2) continue; 
+     if(cH_Waffe(i->getMBE())->Verteidigung()) continue;
+     if(cH_Waffe(i->getMBE())->Reichweite().empty() && i->Lernpunkte() > 1) continue;
+     if(!cH_Waffe(i->getMBE())->Reichweite().empty() && i->Lernpunkte() > 2) continue; 
      V.push_back(*i);
    }
   if(V.empty()) return;
@@ -77,10 +77,10 @@ void Zufall::setSpezialgebiet()
 
 
 
-std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicElement_mutable> L,const VAbenteurer& Aben,int lp)
+std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const VAbenteurer& Aben,int lp)
 {
-  std::vector<MidgardBasicElement_mutable> V;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
+  std::vector<MBEmlt> V;
+  for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
    {
      // Vorraussetzungen?
      if(((*i)->What()==MidgardBasicElement::FERTIGKEIT || (*i)->What()==MidgardBasicElement::WAFFE)
@@ -92,7 +92,7 @@ std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicEl
 
 void Zufall:: Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte,const st_LL &Listen)
 {
- std::list<MidgardBasicElement_mutable> L;
+ std::list<MBEmlt> L;
  int lp=0;
  bool nachbarland=false;
  bool mutter_12=false,mutter_9=false;
@@ -104,16 +104,16 @@ void Zufall:: Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte
    case eUnge:   lp=lernpunkte.Unge();   L=Listen.Unge; break;
    default: return;
   }
-  std::list<MidgardBasicElement_mutable> List_gelerntes;
+  std::list<MBEmlt> List_gelerntes;
 reloop:
-  L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::LERNPUNKTEPFLICHT));
-  std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,lp); // Lernpunkte und Vorraussetzungen
+  L.sort(MBEmlt::sort(MidgardBasicElement_mutable::sort::LERNPUNKTEPFLICHT));
+  std::vector<MBEmlt> V=List_to_Vector(L,Aben,lp); // Lernpunkte und Vorraussetzungen
   while(lp>0)
    {
      if(V.begin()==V.end()) break;
      if(knows_everything(List_gelerntes,L)) break;
      int i;
-     std::vector<MidgardBasicElement_mutable>::const_iterator ci;
+     std::vector<MBEmlt>::const_iterator ci;
      try{
      if(V[0].Lernpunkte()==0) i=0;  // Fertigkeiten mit '0' Lernpunkten 
      else if(V[0].Pflicht()) i=0;   // Pflichtfertigkeiten 
@@ -121,7 +121,7 @@ reloop:
        { 
          i=-1;
          mutter_9=false;
-         ci=find(V.begin(),V.end(),MidgardBasicElement_mutable(&*cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
+         ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
 //         if(ci==V.end()) assert(!"Muttersprache nicht im Lernschema gefunden");
          if(ci==V.end()) 
             { cerr << "Zu blöd für Schreiben: Muttersprache(+9)\n";
@@ -134,7 +134,7 @@ reloop:
        { 
          i=-1;
          mutter_12=false;
-         ci=find(V.begin(),V.end(),MidgardBasicElement_mutable(&*cH_Fertigkeit("Schreiben: Muttersprache(+12)")));
+         ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+12)")));
          if(ci==V.end()) 
             { cerr << "Zu blöd für Schreiben: Muttersprache(+12)\n";
               const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
@@ -146,7 +146,7 @@ reloop:
      }catch(std::exception &e){cerr << e.what()<<'\n';i=random.integer(0,V.size()-1);} 
 //if(i==0)
 //cout << V[0]->Name()<<'\t'<<V[0].Lernpunkte()<<'\t'<<V[0].Pflicht()<<'\n';
-     MidgardBasicElement_mutable M=V[0];
+     MBEmlt M=V[0];
      if(i==-1)  M=*ci;
      else       M=V[i];
 
@@ -154,9 +154,9 @@ reloop:
      L.remove(M); // Die nächste Methode ändert 'M' daher muß es HIER entfernt werden
 
      if(M->What()==MidgardBasicElement::FERTIGKEIT) 
-       {  cH_Fertigkeit(M)->get_region_lp(lp,hauptfenster); 
+       {  cH_Fertigkeit(M.getMBE())->get_region_lp(lp,hauptfenster); 
           if (M->Name()=="Muttersprache")
-             Sprache::setErfolgswertMuttersprache(M,Aben.getWerte().In(),cH_Fertigkeit(M)->AttributBonus(Aben->getWerte()));
+             Sprache::setErfolgswertMuttersprache(M,Aben.getWerte().In(),cH_Fertigkeit(M.getMBE())->AttributBonus(Aben->getWerte()));
           else if(M->Name()=="Gastlandsprache")
              Sprache::setErfolgswertGastlandsprache(M,Aben.getWerte().In());
        }
@@ -186,8 +186,8 @@ reloop:
         {
           if(M.ist_gelernt(Aben.List_Waffen())) {List_gelerntes.push_back(M);goto reloop;}
           Aben.List_Waffen().push_back(M);
-          Aben.List_WaffenGrund().push_back(MidgardBasicElement_mutable(&*cH_WaffeGrund(cH_Waffe(M)->Grundkenntnis())));
-          Aben.List_WaffenGrund().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
+          Aben.List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(cH_Waffe(M.getMBE())->Grundkenntnis())));
+          Aben.List_WaffenGrund().sort(MBEmlt::sort(MidgardBasicElement_mutable::sort::NAME));
           Aben.List_WaffenGrund().unique();
         }
        else if(M->What()==MidgardBasicElement::ZAUBER)
@@ -201,12 +201,12 @@ reloop:
    }  
 }
 
-bool Zufall::knows_everything(const std::list<MidgardBasicElement_mutable> &List_gelerntes,const std::list<MidgardBasicElement_mutable> &L)
+bool Zufall::knows_everything(const std::list<MBEmlt> &List_gelerntes,const std::list<MBEmlt> &L)
 {
   
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
+  for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     std::list<MidgardBasicElement_mutable>::const_iterator j;
+     std::list<MBEmlt>::const_iterator j;
      j=find(List_gelerntes.begin(),List_gelerntes.end(),*i);
      if(j==List_gelerntes.end()) return false;
    }
@@ -230,7 +230,7 @@ Zufall::st_LL Zufall::getLernlisten()
 
 
 
-MidgardBasicElement_mutable Zufall::getZusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE,bool nachbarland) const
+MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachbarland) const
 {
 //cout << "Zusatz für "<<MBE->Name()<<'\n';
   std::vector<MidgardBasicElement::st_zusatz> VG;
@@ -255,18 +255,18 @@ MidgardBasicElement_mutable Zufall::getZusatz(MidgardBasicElement::eZusatz was,M
 
   MBE.setZusatz(V[i]);
 
-  MidgardBasicElement_mutable Mtmp=MBE;
+  MBEmlt Mtmp=MBE;
 
   if(was==MidgardBasicElement::ZLand && MBE->Name()=="Landeskunde (Heimat)")
    {
-     Mtmp=MidgardBasicElement_mutable(&*cH_Fertigkeit("Landeskunde"));
+     Mtmp=MBEmlt(&*cH_Fertigkeit("Landeskunde"));
      Mtmp.setZusatz(Aben.getWerte().Herkunft()->Name());
      MBE.setLernArt(MBE.LernArt()+"_Heimat");
    }
   if(was==MidgardBasicElement::ZSprache)
-       Mtmp=MidgardBasicElement_mutable(&*cH_Sprache(V[i].name));
+       Mtmp=MBEmlt(&*cH_Sprache(V[i].name));
   else if(was==MidgardBasicElement::ZSchrift)
-       Mtmp=MidgardBasicElement_mutable(&*cH_Schrift(V[i].name));
+       Mtmp=MBEmlt(&*cH_Schrift(V[i].name));
 
 
   if(MBE != Mtmp)
@@ -301,7 +301,7 @@ reloop:
    {
      int i=random.integer(0,V.size()-1);
      WaffeBesitz WB=V[i];
-     std::string art=cH_Waffe(WB)->Art2();     
+     std::string art=cH_Waffe(WB.getMBE())->Art2();     
      if( (art=="E" || art=="W" || art=="V") && wbl.EWaffe()>0)
       {
         wbl.add_EWaffe(-1);
@@ -321,8 +321,8 @@ reloop:
 
 void Zufall::setBeruf()
 {
-  std::list<MidgardBasicElement_mutable> L=LL.getBeruf(Aben);
-  std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,99);
+  std::list<MBEmlt> L=LL.getBeruf(Aben);
+  std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
   if(V.empty()) return;
   int i=random.integer(0,V.size()-1);
   hauptfenster->getChar().List_Beruf().clear();
@@ -339,7 +339,7 @@ void Zufall::setBeruf()
      bool zusatz=Beruf::Berufsfertigkeit(Aben,F[i]);
      if(zusatz) 
       {
-         MidgardBasicElement_mutable M(&*cH_Fertigkeit(F[i].name));
+         MBEmlt M(&*cH_Fertigkeit(F[i].name));
          getZusatz(M->ZusatzEnum(Aben->getVTyp()),M);
       }
      if(F[i].kat==3 || F[i].kat==4) break;

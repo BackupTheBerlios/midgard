@@ -65,18 +65,18 @@ public:
 ////////////////////////////////////////////////////////////////
 class Data_Zusatz : public RowDataBase
 {
-      MidgardBasicElement_mutable MBE;
+      MBEmlt MBE;
       MidgardBasicElement::st_zusatz zusatz;
       Datenbank Database;
    public:
-      Data_Zusatz(const MidgardBasicElement_mutable &mbe,MidgardBasicElement::st_zusatz z)
+      Data_Zusatz(const MBEmlt &mbe,MidgardBasicElement::st_zusatz z)
          : MBE(mbe),zusatz(z){}
 
 /*
-      Data_Zusatz(const MidgardBasicElement_mutable &mbe,MidgardBasicElement::st_zusatz z,bool e,const Datenbank &D)
+      Data_Zusatz(const MBEmlt &mbe,MidgardBasicElement::st_zusatz z,bool e,const Datenbank &D)
          : MBE(mbe),zusatz(z),erlaubt(e),Database(D) {}
 
-      Data_Zusatz(const MidgardBasicElement_mutable &mbe,std::string z,bool e,const Datenbank &D)
+      Data_Zusatz(const MBEmlt &mbe,std::string z,bool e,const Datenbank &D)
          : MBE(mbe),zusatz(z),erlaubt(e),Database(D) {}
 */
       enum Spalten {NAME,TYP,REGION};
@@ -93,7 +93,7 @@ class Data_Zusatz : public RowDataBase
            }
           return cH_EntryValueIntString();
         }
-      const MidgardBasicElement_mutable &getMBE() const {return MBE;}
+      const MBEmlt &getMBE() const {return MBE;}
       MidgardBasicElement::st_zusatz getZusatz() const {return zusatz;}
       bool Erlaubt() const {return zusatz.erlaubt;}
 };

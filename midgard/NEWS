@@ -11,13 +11,17 @@ NEWS IN VERSION 0.8.3
    Notebooks Magus startet.
 * Typ nach 'abgeleitete Werte' nicht mehr auswählbar
 * Neue Typen aus dem Kompendium: Fian, Ritter, Hexenjäger, Schattenweber,
-   Wildläufer
+   Wildläufer, Todeswirker, Klingenmagier
+* Die Implementation der Optionen ist jetzt mit ModelViewControlern realisiert
+   (ist aber immer noch verbesserungswürdig).
+* verbotene Typen für Menschen
+* Werte editieren setzt alten Zustand für Typen wieder her
 
 TODO: ('-' zeigt CP an)
 
+* Beim Verlernen einer Waffe wird die entsprechende Grundfähigkeit nicht verlernt
 * region_check und nsc_check aus Klasse midgard_CG entfernen
 * Schwarzer Balken im Lernschema bei Maximierung
-* Werte editieren setzt alten Zustand für Typen wieder her
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Ausrüstungsauswahl stürzt ab

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.34 2002/09/19 08:16:21 thoma Exp $
+// $Id: Optionen.hh,v 1.35 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,13 +45,21 @@ class Midgard_Optionen
       struct st_strings{StringIndex index; std::string text; std::string name;
              st_strings(StringIndex i,std::string t,std::string n)
                : index(i),text(t),name(n) {} };
+/*
       struct st_pdfViewer{pdfViewerIndex index;std::string text;bool active;
              st_pdfViewer(pdfViewerIndex i,std::string t, bool a) 
                   : index(i),text(t),active(a) {} };
+*/
       struct st_OptionenExecute{OptionenExecuteIndex index;std::string text;const char * const *bild;
                st_OptionenExecute(OptionenExecuteIndex i,std::string t,const char * const * const b)
                   :index(i),text(t),bild(b) {} };
 
+      struct st_pdfViewer{pdfViewerIndex index;std::string text;MVC<bool> active;
+             st_pdfViewer(pdfViewerIndex i,std::string t, bool a) 
+                  : index(i),text(t),active(a) {}
+             st_pdfViewer(const st_pdfViewer &b) 
+                      :index(b.index),text(b.text),active(b.active.get_value()) {}
+                   };
       struct st_OptionenCheck{OptionenCheckIndex index;std::string text;
                MVC<bool> active;
                const char * const *bild;
@@ -65,16 +73,25 @@ class Midgard_Optionen
                	  : index(b.index), text(b.text), active(b.active.get_value()), 
                	  	bild(b.bild), wert(b.wert.get_value()) {}
               };
-      struct st_Haus{HausIndex index;std::string text;const char * const *bild;bool active;
+      struct st_Haus{HausIndex index;std::string text;const char * const *bild;
+               MVC<bool> active;
                st_Haus(HausIndex i,std::string t,const char * const *b,bool a)
-                      :index(i),text(t),bild(b),active(a) {} };
-      struct st_Ober{OberIndex index;std::string text;bool active;bool show;
+                      :index(i),text(t),bild(b),active(a) {}
+               st_Haus(const st_Haus &b)
+                     :index(b.index),text(b.text),bild(b.bild),active(b.active.get_value()){}
+                   };
+      struct st_Ober{OberIndex index;std::string text;MVC<bool> active;bool show;
                st_Ober(OberIndex i,std::string t,bool a,bool s=true) // show=false => Wird nicht angezeigt
-                      :index(i),text(t),active(a),show(s) {} };
-      struct st_Icon{IconIndex index;std::string text;bool active;
+                      :index(i),text(t),active(a),show(s) {}
+               st_Ober(const st_Ober &b) 
+                      :index(b.index),text(b.text),active(b.active.get_value()),show(b.show) {}
+                       };
+      struct st_Icon{IconIndex index;std::string text;MVC<bool> active;
                st_Icon(IconIndex i,std::string t,bool a)
-                      :index(i),text(t),active(a) {} };
-
+                      :index(i),text(t),active(a) {}
+               st_Icon(const st_Icon &b)
+                     :index(b.index),text(b.text),active(b.active.get_value()){}
+                };
    private:
       int datei_history;
       std::list<st_strings> list_Strings;
@@ -92,6 +109,8 @@ class Midgard_Optionen
       void Icon_init();
       void pdfViewer_init();
 
+      void deactivate_Original();
+
       midgard_CG* hauptfenster;
    public:
       Midgard_Optionen(midgard_CG* h);
@@ -101,12 +120,12 @@ class Midgard_Optionen
       std::string getString(StringIndex index) const;
       void setString(StringIndex index,std::string n);
 
-      std::list<st_Haus> getHausregeln() const {return list_Hausregeln;}
-      std::list<st_Ober> getOber() const {return list_Ober;}
-      std::list<st_Icon> getIcon() const {return list_Icon;}
+      std::list<st_Haus> &getHausregeln()  {return list_Hausregeln;}
+      std::list<st_Ober> &getOber()  {return list_Ober;}
+      std::list<st_Icon> &getIcon()  {return list_Icon;}
       std::list<st_OptionenCheck> &getOptionenCheck() {return list_OptionenCheck;}
-      std::list<st_OptionenExecute> getOptionenExecute() const {return list_OptionenExecute;}
-      std::list<st_pdfViewer> getPDF() const {return list_pdfViewer;}
+      std::list<st_OptionenExecute> &getOptionenExecute()  {return list_OptionenExecute;}
+      std::list<st_pdfViewer> &getPDF()  {return list_pdfViewer;}
       int DateiHistory() const {return datei_history;}
 
       void save_options(const std::string &filename,WindowInfo *InfoFenster);
@@ -129,9 +148,9 @@ class Midgard_Optionen
       IconIndex getIconIndex() const;
       st_pdfViewer pdfViewerCheck(pdfViewerIndex pi) const ;
 
-      void Hausregeln_setzen_from_menu(HausIndex index,bool b);
-      void Ober_setzen_from_menu(OberIndex index,bool b);
-      void Icon_setzen_from_menu(IconIndex index,bool b);
+      void Hausregeln_setzen_from_menu(HausIndex index);
+      void Ober_setzen_from_menu(OberIndex index);
+      void Icon_setzen_from_menu(IconIndex index);
       void OptionenCheck_setzen_from_menu(OptionenCheckIndex index);
       void OptionenExecute_setzen_from_menu(OptionenExecuteIndex index);
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.9 2002/07/09 12:23:31 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.10 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,7 +48,7 @@ void table_lernschema::fill_kido_lernschema()
   tree_kido_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::KIDO_NEU));
   tree_kido_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_tree_kido_lernschema_leaf_selected));
 
-  std::list<MidgardBasicElement_mutable> newlist;
+  std::list<MBEmlt> newlist;
   KiDo_Stile kido_stil;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Kido.begin();i!=hauptfenster->getDatabase().Kido.end();++i)
    {
@@ -58,8 +58,8 @@ void table_lernschema::fill_kido_lernschema()
          if(kido_stil.ist_sanft(kd->Stil())) continue;
      if (kido_stil.ist_sanft(hauptfenster->getWerte().Spezialisierung()))
          if(kido_stil.ist_hart(kd->Stil())) continue;
-     if (MidgardBasicElement_mutable(&*kd).ist_gelernt(hauptfenster->getChar().List_Kido())) continue ;
-     newlist.push_back(MidgardBasicElement_mutable(*i));                                     
+     if (MBEmlt(&*kd).ist_gelernt(hauptfenster->getChar().List_Kido())) continue ;
+     newlist.push_back(MBEmlt(*i));                                     
    }
 
   MidgardBasicElement::show_list_in_tree(newlist,tree_kido_lernschema,hauptfenster);
@@ -71,7 +71,7 @@ void table_lernschema::fill_kido_lernschema()
 void table_lernschema::on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-  cH_MidgardBasicElement MBE = dt->getMBE();
+  cH_MidgardBasicElement MBE = dt->getMBE().getMBE();
   hauptfenster->getChar().List_Kido().push_back(MBE);
   --maxkido;
   hauptfenster->undosave(MBE->Name()+" gelernt");

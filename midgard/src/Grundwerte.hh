@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.51 2002/09/07 07:15:56 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.52 2002/09/21 18:00:13 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,8 +36,8 @@ class Grundwerte
              :  st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt) {}
          };         
    st_grund grund;
-   std::list<MidgardBasicElement_mutable> list_Sinne;
-   MidgardBasicElement_mutable Ueberleben_angeboren;
+   std::list<MBEmlt> list_Sinne;
+   MBEmlt Ueberleben_angeboren;
    int raufen;
 
    int au,pa,sb,wk,b,lp,ap;
@@ -101,8 +101,8 @@ public:
    int B() const {return b;}
    int LP() const {return lp;}
    int AP() const {return ap;}
-   std::list<MidgardBasicElement_mutable> Sinne() const {return list_Sinne;}
-   const MidgardBasicElement_mutable &Ueberleben() const {return Ueberleben_angeboren;};
+   std::list<MBEmlt> Sinne() const {return list_Sinne;}
+   const MBEmlt &Ueberleben() const {return Ueberleben_angeboren;};
    int Raufen() const;
    std::string RaufenSchaden() const;
    int Abwehr_wert() const {return abwehr_wert;}
@@ -193,7 +193,7 @@ public:
    void setSinnCheck(const std::string &name,int wert); // wg. Speziessinnen
    int getSinn(const std::string &name) const;
 
-   void setUeberleben(const MidgardBasicElement_mutable &m) {Ueberleben_angeboren=m;}
+   void setUeberleben(const MBEmlt &m) {Ueberleben_angeboren=m;}
 
 
    int Sehen() const {return getSinn("Sehen");}
@@ -283,8 +283,8 @@ public:
    // LaTeX code für die Rüstung
    std::string Ruestung_RW_Verlust() const ;
    std::string Ruestung_B_Verlust() const ;
-   std::string Ruestung_Abwehr_Verlust(const std::list<MidgardBasicElement_mutable>& list_Fertigkeit) const;
-   std::string Ruestung_Angriff_Verlust(const std::list<MidgardBasicElement_mutable>& list_Fertigkeit) const;
+   std::string Ruestung_Abwehr_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const;
+   std::string Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const;
 
 };
 #endif

@@ -23,6 +23,7 @@
 #include "Enums.hh" 
 #include "LernListen.hh"
 
+
 class Lernpunkte;
 
 class Zufall
@@ -64,9 +65,9 @@ class Zufall
       cH_Typen getTyp() const;
       Enums::StadtLand getStadtLand() const;
       cH_Land getLand() const;
-      MidgardBasicElement_mutable getMuttersprache() const;
-      MidgardBasicElement_mutable getUeberleben() const;
-      MidgardBasicElement_mutable getZusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE,bool ungew=true) const;
+      MBEmlt getMuttersprache() const;
+      MBEmlt getUeberleben() const;
+      MBEmlt getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool ungew=true) const;
 
       void setMuttersprache(); 
       void setWaffenBesitz();
@@ -76,16 +77,16 @@ class Zufall
       void setBeruf();
 
       // Lernschema
-      struct st_LL{std::list<MidgardBasicElement_mutable> Fach;
-                   std::list<MidgardBasicElement_mutable> Allg;
-                   std::list<MidgardBasicElement_mutable> Unge;
-                   std::list<MidgardBasicElement_mutable> Waff;
-                   std::list<MidgardBasicElement_mutable> Zaub;
-             st_LL(std::list<MidgardBasicElement_mutable> f,
-                   std::list<MidgardBasicElement_mutable> a,
-                   std::list<MidgardBasicElement_mutable> u,
-                   std::list<MidgardBasicElement_mutable> w,
-                   std::list<MidgardBasicElement_mutable> z)
+      struct st_LL{std::list<MBEmlt> Fach;
+                   std::list<MBEmlt> Allg;
+                   std::list<MBEmlt> Unge;
+                   std::list<MBEmlt> Waff;
+                   std::list<MBEmlt> Zaub;
+             st_LL(std::list<MBEmlt> f,
+                   std::list<MBEmlt> a,
+                   std::list<MBEmlt> u,
+                   std::list<MBEmlt> w,
+                   std::list<MBEmlt> z)
                    :Fach(f),Allg(a),Unge(u),Waff(w),Zaub(z) {}
                ;};
       void Lernschema();
@@ -93,7 +94,7 @@ class Zufall
       enum eFAUWZ {eWaffen,eZauber,eFach,eAllg,eUnge,eMAX};
       void Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte,
                                 const st_LL &Listen);
-      bool knows_everything(const std::list<MidgardBasicElement_mutable> &List_gelerntes,const std::list<MidgardBasicElement_mutable> &L);
+      bool knows_everything(const std::list<MBEmlt> &List_gelerntes,const std::list<MBEmlt> &L);
    public:
       static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A, Random &random);
       static WaffeBesitzLernen WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf);

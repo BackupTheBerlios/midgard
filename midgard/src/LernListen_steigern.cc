@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.3 2002/09/16 19:09:21 thoma Exp $
+// $Id: LernListen_steigern.cc,v 1.4 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 
-std::list<MidgardBasicElement_mutable> LernListen::get_steigern_MBEm(const Abenteurer& A,eMBE was,bool nsc_allowed) const
+std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,eMBE was,bool nsc_allowed) const
 {
   std::list<cH_MidgardBasicElement> V_;
   switch(was) {
@@ -38,7 +38,7 @@ std::list<MidgardBasicElement_mutable> LernListen::get_steigern_MBEm(const Abent
      case sZWerk:V_=D.Zauberwerk; break; 
      default : assert(!"never get here\n");
    }
-  std::list<MidgardBasicElement_mutable> V;
+  std::list<MBEmlt> V;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=V_.begin();i!=V_.end();++i)
    {
      if ((*i)->Name()=="Sprache" || (*i)->Name()=="Schreiben" || (*i)->Name()=="KiDo-Technik") continue;
@@ -47,10 +47,10 @@ std::list<MidgardBasicElement_mutable> LernListen::get_steigern_MBEm(const Abent
      if (!(*i)->ist_lernbar(A.getVTyp(),(*i)->get_MapTyp())) continue;
      if (!region_check((*i)->Region()) ) continue;
      if (!nsc_check(nsc_allowed,(*i)->NSC_only())) continue;
-     MidgardBasicElement_mutable MBEm(*i);
+     MBEmlt MBEm(*i);
      switch(was) {
        case sFert: { const cH_Fertigkeit f(*i);
-          if (MidgardBasicElement_mutable(*i).ist_gelernt(A.List_Fertigkeit()) && 
+          if (MBEmlt(*i).ist_gelernt(A.List_Fertigkeit()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!f->Voraussetzung(A)) continue;
           MBEm.setErfolgswert(f->Anfangswert());
@@ -100,14 +100,14 @@ std::list<MidgardBasicElement_mutable> LernListen::get_steigern_MBEm(const Abent
   return V;
 }
 
-std::list<MidgardBasicElement_mutable> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
+std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
       bool salz,bool beschwoerung,bool nsc, bool alle,bool spruchrolle) const
 {
-  std::list<MidgardBasicElement_mutable> L_=get_steigern_MBEm(A,sZaub,nsc);
-  std::list<MidgardBasicElement_mutable> L;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L_.begin();i!=L_.end();++i)
+  std::list<MBEmlt> L_=get_steigern_MBEm(A,sZaub,nsc);
+  std::list<MBEmlt> L;
+  for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
    {
-     cH_Zauber z(*i);
+     cH_Zauber z(i->getMBE());
      if (z->Spruchrolle()) z->setSpruchrolleFaktor(0.1);
      else z->setSpruchrolleFaktor(1);
      if(alle) L.push_back(*i);
@@ -122,13 +122,13 @@ std::list<MidgardBasicElement_mutable> LernListen::get_steigern_Zauberliste(cons
  return L;
 }
 
-std::list<MidgardBasicElement_mutable> LernListen::get_steigern_ZauberWerkliste(const Abenteurer& A,
+std::list<MBEmlt> LernListen::get_steigern_ZauberWerkliste(const Abenteurer& A,
       bool nsc, bool alle) const
 {
-  std::list<MidgardBasicElement_mutable> L_=get_steigern_MBEm(A,sZWerk,nsc);
-  std::list<MidgardBasicElement_mutable> L;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L_.begin();i!=L_.end();++i)
-   { const cH_Zauberwerk z(*i);
+  std::list<MBEmlt> L_=get_steigern_MBEm(A,sZWerk,nsc);
+  std::list<MBEmlt> L;
+  for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
+   { const cH_Zauberwerk z(i->getMBE());
      if(alle) L.push_back(*i); 
      else
       {  if (!z->Voraussetzungen(A.List_Zauber())) continue;
@@ -140,10 +140,10 @@ std::list<MidgardBasicElement_mutable> LernListen::get_steigern_ZauberWerkliste(
 }
 
 
-void LernListen::shorten_for_GFP(std::list<MidgardBasicElement_mutable> &L_,const Abenteurer& A,int gfp) const
+void LernListen::shorten_for_GFP(std::list<MBEmlt> &L_,const Abenteurer& A,int gfp) const
 {
-  std::list<MidgardBasicElement_mutable> L;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L_.begin();i!=L_.end();++i)
+  std::list<MBEmlt> L;
+  for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
    {
      if((*i)->Kosten(A) > gfp) continue;
      L.push_back(*i);

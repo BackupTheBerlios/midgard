@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.29 2002/09/18 08:35:46 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.30 2002/09/21 18:00:13 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #include "Datenbank.hh"
 #include "Optionen.hh"
 #include "Waffe.hh"
+#include "Enums.hh"
 
 
 class Abenteurer
@@ -35,18 +36,18 @@ class Abenteurer
    std::vector<cH_Typen> Typ;
    std::string muttersprache;
 
-   std::list<MidgardBasicElement_mutable> list_Beruf;
-   std::list<MidgardBasicElement_mutable> list_Fertigkeit_ang;
-   std::list<MidgardBasicElement_mutable> list_Fertigkeit;
-   std::list<MidgardBasicElement_mutable> list_WaffenGrund;
-   std::list<MidgardBasicElement_mutable> list_Waffen;
+   std::list<MBEmlt> list_Beruf;
+   std::list<MBEmlt> list_Fertigkeit_ang;
+   std::list<MBEmlt> list_Fertigkeit;
+   std::list<MBEmlt> list_WaffenGrund;
+   std::list<MBEmlt> list_Waffen;
    std::list<WaffeBesitz> list_Waffen_besitz;
-//   std::list<MidgardBasicElement_mutable> list_Waffen_besitz;
-   std::list<MidgardBasicElement_mutable> list_Zauber;
-   std::list<MidgardBasicElement_mutable> list_Zauberwerk;
-   std::list<MidgardBasicElement_mutable> list_Kido;
-   std::list<MidgardBasicElement_mutable> list_Sprache; 
-   std::list<MidgardBasicElement_mutable> list_Schrift;        
+//   std::list<MBEmlt> list_Waffen_besitz;
+   std::list<MBEmlt> list_Zauber;
+   std::list<MBEmlt> list_Zauberwerk;
+   std::list<MBEmlt> list_Kido;
+   std::list<MBEmlt> list_Sprache; 
+   std::list<MBEmlt> list_Schrift;        
 
 public:
    Abenteurer() {Typ.resize(2);}
@@ -80,20 +81,20 @@ public:
    void setMuttersprache(std::string s) {muttersprache=s;}
 
    const std::string Beruf() const;
-   const std::list<MidgardBasicElement_mutable>& List_Beruf() const {return list_Beruf;}
-   const std::list<MidgardBasicElement_mutable>& List_Fertigkeit_ang() const {return list_Fertigkeit_ang;}
-   const std::list<MidgardBasicElement_mutable>& List_Fertigkeit() const {return list_Fertigkeit;}
-   const std::list<MidgardBasicElement_mutable>& List_WaffenGrund() const {return list_WaffenGrund;}
-   const std::list<MidgardBasicElement_mutable>& List_Waffen() const {return list_Waffen;}
+   const std::list<MBEmlt>& List_Beruf() const {return list_Beruf;}
+   const std::list<MBEmlt>& List_Fertigkeit_ang() const {return list_Fertigkeit_ang;}
+   const std::list<MBEmlt>& List_Fertigkeit() const {return list_Fertigkeit;}
+   const std::list<MBEmlt>& List_WaffenGrund() const {return list_WaffenGrund;}
+   const std::list<MBEmlt>& List_Waffen() const {return list_Waffen;}
    const std::list<WaffeBesitz>& List_Waffen_besitz() const {return list_Waffen_besitz;}
-//   const std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() const {return list_Waffen_besitz;}
-   const std::list<MidgardBasicElement_mutable>& List_Zauber() const {return list_Zauber;}
-   const std::list<MidgardBasicElement_mutable>& List_Zauberwerk() const {return list_Zauberwerk;}
-   const std::list<MidgardBasicElement_mutable>& List_Kido() const {return list_Kido;}
-   const std::list<MidgardBasicElement_mutable>& List_Sprache() const {return list_Sprache;} 
-   const std::list<MidgardBasicElement_mutable>& List_Schrift() const {return list_Schrift;}
-   struct st_universell{MidgardBasicElement_mutable mbe;bool voraussetzung;bool gelernt;
-          st_universell(MidgardBasicElement_mutable m) 
+//   const std::list<MBEmlt>& List_Waffen_besitz() const {return list_Waffen_besitz;}
+   const std::list<MBEmlt>& List_Zauber() const {return list_Zauber;}
+   const std::list<MBEmlt>& List_Zauberwerk() const {return list_Zauberwerk;}
+   const std::list<MBEmlt>& List_Kido() const {return list_Kido;}
+   const std::list<MBEmlt>& List_Sprache() const {return list_Sprache;} 
+   const std::list<MBEmlt>& List_Schrift() const {return list_Schrift;}
+   struct st_universell{MBEmlt mbe;bool voraussetzung;bool gelernt;
+          st_universell(MBEmlt m) 
             : mbe(m),voraussetzung(true),gelernt(false) {}};
    const std::list<st_universell> List_Universell( const Datenbank &Database) const;
 
@@ -101,23 +102,23 @@ private:
       class sort_universell {
         public: sort_universell() {}
         bool operator()(st_universell x,st_universell y) const
-          { return x.mbe->Name() < y.mbe->Name() ;
+          { return (x.mbe)->Name() < (y.mbe)->Name() ;
           }
       };
 public:
 
-   std::list<MidgardBasicElement_mutable>& List_Beruf() {return list_Beruf;}
-   std::list<MidgardBasicElement_mutable>& List_Fertigkeit_ang() {return list_Fertigkeit_ang;}
-   std::list<MidgardBasicElement_mutable>& List_Fertigkeit()  {return list_Fertigkeit;}
-   std::list<MidgardBasicElement_mutable>& List_WaffenGrund() {return list_WaffenGrund;}
-   std::list<MidgardBasicElement_mutable>& List_Waffen()  {return list_Waffen;}
+   std::list<MBEmlt>& List_Beruf() {return list_Beruf;}
+   std::list<MBEmlt>& List_Fertigkeit_ang() {return list_Fertigkeit_ang;}
+   std::list<MBEmlt>& List_Fertigkeit()  {return list_Fertigkeit;}
+   std::list<MBEmlt>& List_WaffenGrund() {return list_WaffenGrund;}
+   std::list<MBEmlt>& List_Waffen()  {return list_Waffen;}
    std::list<WaffeBesitz>& List_Waffen_besitz() {return list_Waffen_besitz;}
-//   std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() {return list_Waffen_besitz;}
-   std::list<MidgardBasicElement_mutable>& List_Zauber()  {return list_Zauber;}
-   std::list<MidgardBasicElement_mutable>& List_Zauberwerk()  {return list_Zauberwerk;}
-   std::list<MidgardBasicElement_mutable>& List_Kido()  {return list_Kido;}
-   std::list<MidgardBasicElement_mutable>& List_Sprache()  {return list_Sprache;} 
-   std::list<MidgardBasicElement_mutable>& List_Schrift()  {return list_Schrift;}
+//   std::list<MBEmlt>& List_Waffen_besitz() {return list_Waffen_besitz;}
+   std::list<MBEmlt>& List_Zauber()  {return list_Zauber;}
+   std::list<MBEmlt>& List_Zauberwerk()  {return list_Zauberwerk;}
+   std::list<MBEmlt>& List_Kido()  {return list_Kido;}
+   std::list<MBEmlt>& List_Sprache()  {return list_Sprache;} 
+   std::list<MBEmlt>& List_Schrift()  {return list_Schrift;}
 
    void speicherstream(ostream &datei, const Datenbank &Database,const Midgard_Optionen *Optionen);
    void grundwerte_speichern(Tag &);
@@ -138,7 +139,15 @@ public:
    const std::string SErfolgswert(std::string name,const Datenbank &Database) const;
 
    void setAngebFert();
-   bool setAngebSinnFert(int wurf,const MidgardBasicElement_mutable &MBE);
+   bool setAngebSinnFert(int wurf,const MBEmlt &MBE);
+
+
+   static void move_element(std::list<MBEmlt>& von,
+                            std::list<MBEmlt>& nach,
+                            const MBEmlt& MBE);
+                                                                 
+                                                                 
+
 };
 
 class VAbenteurer
@@ -225,32 +234,32 @@ public:
                          return true;
                          else return false;}
 
-   const std::list<MidgardBasicElement_mutable>& List_Beruf() const {return ai->abenteurer.List_Beruf();}
-   const std::list<MidgardBasicElement_mutable>& List_Fertigkeit_ang() const {return ai->abenteurer.List_Fertigkeit_ang();}
-   const std::list<MidgardBasicElement_mutable>& List_Fertigkeit() const {return ai->abenteurer.List_Fertigkeit();}
-   const std::list<MidgardBasicElement_mutable>& List_WaffenGrund() const {return ai->abenteurer.List_WaffenGrund();}
-   const std::list<MidgardBasicElement_mutable>& List_Waffen() const {return ai->abenteurer.List_Waffen();}
+   const std::list<MBEmlt>& List_Beruf() const {return ai->abenteurer.List_Beruf();}
+   const std::list<MBEmlt>& List_Fertigkeit_ang() const {return ai->abenteurer.List_Fertigkeit_ang();}
+   const std::list<MBEmlt>& List_Fertigkeit() const {return ai->abenteurer.List_Fertigkeit();}
+   const std::list<MBEmlt>& List_WaffenGrund() const {return ai->abenteurer.List_WaffenGrund();}
+   const std::list<MBEmlt>& List_Waffen() const {return ai->abenteurer.List_Waffen();}
    const std::list<WaffeBesitz>& List_Waffen_besitz() const {return ai->abenteurer.List_Waffen_besitz();}
-//   const std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() const {return ai->abenteurer.List_Waffen_besitz();}
-   const std::list<MidgardBasicElement_mutable>& List_Zauber() const {return ai->abenteurer.List_Zauber();}
-   const std::list<MidgardBasicElement_mutable>& List_Zauberwerk() const {return ai->abenteurer.List_Zauberwerk();}
-   const std::list<MidgardBasicElement_mutable>& List_Kido() const {return ai->abenteurer.List_Kido();}
-   const std::list<MidgardBasicElement_mutable>& List_Sprache() const {return ai->abenteurer.List_Sprache();} 
-   const std::list<MidgardBasicElement_mutable>& List_Schrift() const {return ai->abenteurer.List_Schrift();}
+//   const std::list<MBEmlt>& List_Waffen_besitz() const {return ai->abenteurer.List_Waffen_besitz();}
+   const std::list<MBEmlt>& List_Zauber() const {return ai->abenteurer.List_Zauber();}
+   const std::list<MBEmlt>& List_Zauberwerk() const {return ai->abenteurer.List_Zauberwerk();}
+   const std::list<MBEmlt>& List_Kido() const {return ai->abenteurer.List_Kido();}
+   const std::list<MBEmlt>& List_Sprache() const {return ai->abenteurer.List_Sprache();} 
+   const std::list<MBEmlt>& List_Schrift() const {return ai->abenteurer.List_Schrift();}
    const std::list<Abenteurer::st_universell> List_Universell( const Datenbank &Database) const {return ai->abenteurer.List_Universell(Database);}
 
-   std::list<MidgardBasicElement_mutable>& List_Beruf() {return ai->abenteurer.List_Beruf();}
-   std::list<MidgardBasicElement_mutable>& List_Fertigkeit_ang() {return ai->abenteurer.List_Fertigkeit_ang();}
-   std::list<MidgardBasicElement_mutable>& List_Fertigkeit()  {return ai->abenteurer.List_Fertigkeit();}
-   std::list<MidgardBasicElement_mutable>& List_WaffenGrund() {return ai->abenteurer.List_WaffenGrund();}
-   std::list<MidgardBasicElement_mutable>& List_Waffen()  {return ai->abenteurer.List_Waffen();}
+   std::list<MBEmlt>& List_Beruf() {return ai->abenteurer.List_Beruf();}
+   std::list<MBEmlt>& List_Fertigkeit_ang() {return ai->abenteurer.List_Fertigkeit_ang();}
+   std::list<MBEmlt>& List_Fertigkeit()  {return ai->abenteurer.List_Fertigkeit();}
+   std::list<MBEmlt>& List_WaffenGrund() {return ai->abenteurer.List_WaffenGrund();}
+   std::list<MBEmlt>& List_Waffen()  {return ai->abenteurer.List_Waffen();}
    std::list<WaffeBesitz>& List_Waffen_besitz() {return ai->abenteurer.List_Waffen_besitz();}
-//   std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() {return ai->abenteurer.List_Waffen_besitz();}
-   std::list<MidgardBasicElement_mutable>& List_Zauber()  {return ai->abenteurer.List_Zauber();}
-   std::list<MidgardBasicElement_mutable>& List_Zauberwerk()  {return ai->abenteurer.List_Zauberwerk();}
-   std::list<MidgardBasicElement_mutable>& List_Kido()  {return ai->abenteurer.List_Kido();}
-   std::list<MidgardBasicElement_mutable>& List_Sprache()  {return ai->abenteurer.List_Sprache();} 
-   std::list<MidgardBasicElement_mutable>& List_Schrift()  {return ai->abenteurer.List_Schrift();}
+//   std::list<MBEmlt>& List_Waffen_besitz() {return ai->abenteurer.List_Waffen_besitz();}
+   std::list<MBEmlt>& List_Zauber()  {return ai->abenteurer.List_Zauber();}
+   std::list<MBEmlt>& List_Zauberwerk()  {return ai->abenteurer.List_Zauberwerk();}
+   std::list<MBEmlt>& List_Kido()  {return ai->abenteurer.List_Kido();}
+   std::list<MBEmlt>& List_Sprache()  {return ai->abenteurer.List_Sprache();} 
+   std::list<MBEmlt>& List_Schrift()  {return ai->abenteurer.List_Schrift();}
 
    const pair<int,bool> Erfolgswert(std::string name,const Datenbank &Database) const {return ai->abenteurer.Erfolgswert(name,Database);};
 };

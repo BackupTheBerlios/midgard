@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.40 2002/09/16 19:09:21 thoma Exp $               
+// $Id: Zauber.hh,v 1.41 2002/09/21 18:00:13 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,7 @@
 #include "Typen.hh"
 class cH_Zauber;
 #include <gtk--/progressbar.h>
-
+class Random;
 
 class Zauber : public MidgardBasicElement
 {
@@ -72,6 +72,9 @@ class Zauber : public MidgardBasicElement
          {return 0;} //wg. virtueller Funktion
    int get_spezial_zauber_for_magier(const Abenteurer &A,const std::string& standard) const;
 
+   bool spruchrolle_wuerfeln(const Abenteurer &A,const Random &random,std::string &info) const;
+
+
 //   static void set_Spruchrolle(std::list<cH_MidgardBasicElement>&,bool sp) const;
 };
 
@@ -96,8 +99,12 @@ class cH_Zauber : public Handle<const Zauber>
          esort es;
       public:
          sort(enum esort _es):es(_es) {}
-         bool operator() (cH_Zauber x,cH_Zauber y) const
-           { switch(es) {
+//         bool operator() (cH_Zauber x,cH_Zauber y) const
+         bool operator() (MBEmlt _x,MBEmlt _y) const
+           { 
+            cH_Zauber x(_x.getMBE());
+            cH_Zauber y(_y.getMBE());
+            switch(es) {
                case(NAME) : return x->Name() < y->Name()  ;
                case(STUFE): return x->Stufe() < y->Stufe();
                case(URSPRUNG): return x->Ursprung() < y->Ursprung() ;

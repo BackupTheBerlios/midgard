@@ -1,4 +1,4 @@
-// $Id: Enums.hh,v 1.1 2002/09/06 20:58:52 thoma Exp $               
+// $Id: Enums.hh,v 1.2 2002/09/21 18:00:13 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,5 +25,9 @@ namespace Enums
    enum geschlecht{NoFM,Mann,Frau};
    enum StadtLand{NoSL,Stadt,Land};
 };
+
+class MidgardBasicElement_mutable;
+
+typedef MidgardBasicElement_mutable MBEmlt;
 
 #endif

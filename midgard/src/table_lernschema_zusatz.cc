@@ -30,7 +30,7 @@ static SigC::Connection connection;
 
 #include <gdk/gdk.h>
 
-void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE)
+void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE)
 {
   checkbutton_einschraenkungen_zusatz->set_active(false);
   // Weil Fertigkeiten mehrmals gelernt werden dürfen werde sie hier nicht 
@@ -99,7 +99,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
          {
            list_FertigkeitZusaetze.push_back(MBE->Name());
            cH_MidgardBasicElement MBE_=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
-           MidgardBasicElement_mutable M(&*MBE_);
+           MBEmlt M(&*MBE_);
            M.setLernArt(M.LernArt()+"_Heimat");
            M.setZusatz(hauptfenster->getWerte().Herkunft()->Name());
            M.setErfolgswert(MBE.Erfolgswert());
@@ -155,7 +155,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
                 list_FertigkeitZusaetze.push_back(MBE->Name());
                 continue ;
               }
-            if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
+            if(MBEmlt(&**i).ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
             datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),erlaubt,hauptfenster->getCDatabase()));
          }
 */
@@ -172,7 +172,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
 /*
        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Schrift.begin();i!=hauptfenster->getDatabase().Schrift.end();++i)
          {
-           if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getChar().List_Schrift())) continue;
+           if(MBEmlt(&**i).ist_gelernt(hauptfenster->getChar().List_Schrift())) continue;
            if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getChar().List_Sprache())) continue;
            bool erlaubt=true;
            std::string::size_type s1=MBE->Name().find("Muttersprache");
@@ -208,7 +208,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
      case MidgardBasicElement::ZWaffe:
       {
 /*
-       for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
+       for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
         if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
           datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),true,hauptfenster->getCDatabase()));
 */
@@ -274,7 +274,7 @@ void table_lernschema::show_datavec_zusatz()
 }
 
 
-void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const MidgardBasicElement_mutable& MBE)
+void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const MBEmlt& MBE)
 {
   std::vector<std::string> vs;
   Tree_Lernschema_Zusatz->set_column_visibility(1,false);
@@ -359,9 +359,9 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
   zeige_werte();  
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_herkunft->set_sensitive(false);
-  MidgardBasicElement_mutable M(&*cH_Fertigkeit("Muttersprache"));
+  MBEmlt M(&*cH_Fertigkeit("Muttersprache"));
   Sprache::setErfolgswertMuttersprache(M,hauptfenster->getWerte().In(),
-           cH_Fertigkeit(M)->AttributBonus(hauptfenster->getWerte()));
+           cH_Fertigkeit(M.getMBE())->AttributBonus(hauptfenster->getWerte()));
   lernen_zusatz(MidgardBasicElement::ZSprache,M);
 }
 
@@ -370,7 +370,7 @@ void table_lernschema::on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d)
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::UEBERLEBEN);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
 
-  MidgardBasicElement_mutable M(&*cH_Fertigkeit(dt->getZusatz().name));
+  MBEmlt M(&*cH_Fertigkeit(dt->getZusatz().name));
   hauptfenster->getWerte().setUeberleben(M);
 
   button_angeborene_fert->set_sensitive(true);
@@ -384,14 +384,14 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
   if(tree_lernschema)
      tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
-  MidgardBasicElement_mutable MBE=dt->getMBE();
+  MBEmlt MBE=dt->getMBE();
 
   MBE.setZusatz(dt->getZusatz());
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
    {
      if(hauptfenster->getWerte().Herkunft()->Name()==MBE.Zusatz())
       {
-        MBE.setErfolgswert(10+cH_Fertigkeit(MBE)->AttributBonus(hauptfenster->getWerte())); 
+        MBE.setErfolgswert(10+cH_Fertigkeit(MBE.getMBE())->AttributBonus(hauptfenster->getWerte())); 
       }
      hauptfenster->getChar().List_Fertigkeit().push_back(MBE);
    }
@@ -408,7 +408,7 @@ void table_lernschema::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
   if(tree_lernschema) tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
 
-  MidgardBasicElement_mutable schrift(&*cH_Schrift(dt->getZusatz().name));
+  MBEmlt schrift(&*cH_Schrift(dt->getZusatz().name));
   schrift.setErfolgswert(dt->getMBE().Erfolgswert());
   schrift.setLernpunkte(dt->getMBE().Lernpunkte());
   schrift.setLernArt(dt->getMBE().LernArt());
@@ -424,7 +424,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   if(tree_lernschema) tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
 
-  MidgardBasicElement_mutable sprache(&*cH_Sprache(dt->getZusatz().name));
+  MBEmlt sprache(&*cH_Sprache(dt->getZusatz().name));
   sprache.setErfolgswert(dt->getMBE().Erfolgswert());
   sprache.setLernpunkte(dt->getMBE().Lernpunkte());
   sprache.setLernArt(dt->getMBE().LernArt());
@@ -435,7 +435,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   show_gelerntes();
   if(dt->getMBE()->Name()=="Muttersprache")
    {
-     MidgardBasicElement_mutable dummy=hauptfenster->getWerte().Ueberleben();
+     MBEmlt dummy=hauptfenster->getWerte().Ueberleben();
      lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
      hauptfenster->getChar()->setMuttersprache(sprache->Name());
    }

@@ -109,7 +109,7 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
    hauptfenster->table_grundwerte->zeige_werte();
 }
 
-extern std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicElement_mutable> L,const VAbenteurer& Aben,int lp);
+extern std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const VAbenteurer& Aben,int lp);
 
 
 void Zufall::setAngebFert()
@@ -119,11 +119,11 @@ void Zufall::setAngebFert()
    do{
       wurf=random.integer(0,100); 
       if(wurf==100) 
-       { std::list<MidgardBasicElement_mutable> L=LL.getMBEm(Aben,LernListen::lAngebFert);
-         std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,99);
+       { std::list<MBEmlt> L=LL.getMBEm(Aben,LernListen::lAngebFert);
+         std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
          if(V.empty()) break;
          int i=random.integer(0,V.size()-1);
-         cH_Fertigkeit_angeborene F(V[i]);
+         cH_Fertigkeit_angeborene F(V[i].getMBE());
          Aben->setAngebSinnFert(F->Min(),V[i]);
        }
       else hauptfenster->table_lernschema->AngebFert_gewuerfelt(wurf);
@@ -135,7 +135,7 @@ void Zufall::setAngebFert()
 
 void Zufall::setMuttersprache()
 {
-  MidgardBasicElement_mutable sprache=getMuttersprache();
+  MBEmlt sprache=getMuttersprache();
   Aben->List_Sprache().push_back(sprache);
   Aben->setMuttersprache(sprache->Name());  
 }

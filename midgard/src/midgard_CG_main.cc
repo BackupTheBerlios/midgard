@@ -98,7 +98,7 @@ void midgard_CG::load_for_mainpage(guint pagenr)
     table_ausruestung->init(this);
  else if(pagenr==PAGE_OPTIONEN)
    {
-     table_optionen->set_values();
+//     table_optionen->set_values();
    }
  else if(pagenr==PAGE_NEWS)
    {

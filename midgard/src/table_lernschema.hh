@@ -39,7 +39,7 @@ class table_lernschema : public table_lernschema_glade
         MidgardBasicTree *tree_waffen_lernschema;
         int maxkido;
         BerufsKategorie BKategorie;
-        std::list<MidgardBasicElement_mutable> list_Fertigkeit_ang_neu;                                        
+        std::list<MBEmlt> list_Fertigkeit_ang_neu;                                        
         enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
         GWR_Auswahl gwr_auswahl;
         std::vector<int> VGeldwurf;
@@ -47,8 +47,8 @@ class table_lernschema : public table_lernschema_glade
         
 private:
        void show_datavec_zusatz();
-       void lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& _MBE);
-       void lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const MidgardBasicElement_mutable& MBE);
+       void lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& _MBE);
+       void lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const MBEmlt& MBE);
 
        void set_gwr_eingabe();
        void on_herkunft_leaf_selected(cH_RowDataBase d);

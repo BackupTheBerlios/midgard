@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.36 2002/07/10 07:55:24 thoma Exp $
+// $Id: WindowInfo.hh,v 1.37 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,12 +64,12 @@ class WindowInfo : public WindowInfo_glade
         void on_button_auswahl_clicked(int connect);
         emodus Modus;
         midgard_CG* hauptfenster;
-        MidgardBasicElement_mutable *MBE;
+        MBEmlt *MBE;
         table_steigern::e_was_steigern was;
    public:
         WindowInfo(midgard_CG* h);
         void AppendShow(const std::string& s,emodus modus, table_steigern::e_was_steigern was,int anzahl);
-        void AppendShow(const std::string& s,emodus modus, MidgardBasicElement_mutable *MBE,int anzahl=0);
+        void AppendShow(const std::string& s,emodus modus, MBEmlt *MBE,int anzahl=0);
         void AppendShow(const std::string& s, emodus modus=Autoclean,int anzahl=0);
         void Show() {bestaetigen(false); show();}
         void show_pic(bool b);

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.11 2002/09/14 07:54:46 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.12 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -66,7 +66,7 @@ void table_lernschema::on_spinbutton_beruf_activate()
 
 void table_lernschema::deleteBerufsFertigekeit()
 {
-  for(std::list<MidgardBasicElement_mutable>::iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
+  for(std::list<MBEmlt>::iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
    {
      if((*i).LernArt()=="Beruf") 
       {
@@ -98,11 +98,11 @@ void table_lernschema::showBerufsLernList()
   Beruf_tree->setTitles(beruf);       
 
   label_lernschma_titel->set_text("Beruf");
-  std::list<MidgardBasicElement_mutable> L=LernListen(hauptfenster->getDatabase()).getBeruf(hauptfenster->getChar());
+  std::list<MBEmlt> L=LernListen(hauptfenster->getDatabase()).getBeruf(hauptfenster->getChar());
 
   std::vector<cH_RowDataBase> datavec;
   bool gelerntes=false;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
+  for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
     {
       std::vector<Beruf::st_vorteil> V=LernListen(hauptfenster->getDatabase()).getBerufsVorteil(*i,BKategorie,hauptfenster->getChar());
       for(std::vector<Beruf::st_vorteil>::const_iterator j=V.begin();j!=V.end();++j)
@@ -125,7 +125,7 @@ void table_lernschema::showBerufsLernList()
          if( (kat==1 && BKategorie.kat_I)   || (kat==2 && BKategorie.kat_II) ||
              (kat==3 && BKategorie.kat_III) || (kat==4 && BKategorie.kat_IV ) )
            {
-             if(j->name!="Schmecken+10" && MidgardBasicElement_mutable(&*cH_Fertigkeit(j->name)).
+             if(j->name!="Schmecken+10" && MBEmlt(&*cH_Fertigkeit(j->name)).
                         ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))
                   gelerntes=true;
              else if(j->name=="Schreiben: Muttersprache(+12)") gelerntes=true;
@@ -162,14 +162,14 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
  try{
     const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
     cH_MidgardBasicElement cmbe(&*cH_Beruf(dt->getBeruf()));
-    MidgardBasicElement_mutable mbe(cmbe);
+    MBEmlt mbe(cmbe);
     hauptfenster->getChar().List_Beruf().clear(); // es kann nur einen Beruf geben
     hauptfenster->getChar().List_Beruf().push_back(mbe);
 
     bool zusatz = Beruf::Berufsfertigkeit(hauptfenster->getChar(),dt->getVorteil());
     if(zusatz) 
      { cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(dt->getVorteil().name));
-       MidgardBasicElement_mutable MBE(cMBE);
+       MBEmlt MBE(cMBE);
        lernen_zusatz(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()),MBE);
      }
 /*
@@ -179,7 +179,7 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
      {
       if(dt->Fert()=="Schreiben: Muttersprache(+12)")
        {
-        for (std::list<MidgardBasicElement_mutable>::iterator k=hauptfenster->getChar().List_Schrift().begin();k!=hauptfenster->getChar().List_Schrift().end();++k)
+        for (std::list<MBEmlt>::iterator k=hauptfenster->getChar().List_Schrift().begin();k!=hauptfenster->getChar().List_Schrift().end();++k)
          {
            if((*k)->Name()==hauptfenster->getChar()->Muttersprache() ) 
              { (*k).addErfolgswert(1); break;}
@@ -187,7 +187,7 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
        }
       else 
        {
-        for (std::list<MidgardBasicElement_mutable>::iterator k=hauptfenster->getChar().List_Fertigkeit().begin();k!=hauptfenster->getChar().List_Fertigkeit().end();++k)
+        for (std::list<MBEmlt>::iterator k=hauptfenster->getChar().List_Fertigkeit().begin();k!=hauptfenster->getChar().List_Fertigkeit().end();++k)
          {
           if((*k)->Name()==dt->Fert())
            { (*k).addErfolgswert(1);
@@ -201,7 +201,7 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
     else // neue Fertigkeit
       {
          cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(dt->Fert()));
-         MidgardBasicElement_mutable MBE(cMBE);
+         MBEmlt MBE(cMBE);
          MBE.setLernArt("Beruf");
          MBE.setErfolgswert(dt->Wert());
          if(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp())) 

@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.24 2002/09/16 19:09:21 thoma Exp $               
+// $Id: KiDo.hh,v 1.25 2002/09/21 18:00:13 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,8 +66,8 @@ class KiDo : public MidgardBasicElement
  std::string Stil() const {  return stil; }
  std::string Effekt() const {  return effekt; }
 
- static int get_erfolgswert_kido(const std::list<MidgardBasicElement_mutable>& L);
- static std::map<std::string,int> maxkidostil(const std::list<MidgardBasicElement_mutable>& list_Kido);
+ static int get_erfolgswert_kido(const std::list<MBEmlt>& L);
+ static std::map<std::string,int> maxkidostil(const std::list<MBEmlt>& list_Kido);
  int MaxErfolgswert(const Abenteurer &A) const 
          {return 0;} //wg. virtueller Funktion
 
@@ -94,8 +94,12 @@ class cH_KiDo : public Handle<const KiDo>
          esort es;
       public:
          sort(enum esort _es):es(_es) {}
-         bool operator() (cH_KiDo x,cH_KiDo y) const
-           { switch(es) {
+//         bool operator() (cH_KiDo x,cH_KiDo y) const
+         bool operator() (MBEmlt _x,MBEmlt _y) const
+           { 
+             cH_KiDo x(_x.getMBE());
+             cH_KiDo y(_y.getMBE());
+             switch(es) {
                case(HOHO) : return x->HoHo() < y->HoHo()  ;
                case(NAME) : return x->Deutsch() < y->Deutsch()  ;
                case(STUFE): return x->Stufe() < y->Stufe();

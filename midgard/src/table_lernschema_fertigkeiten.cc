@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.13 2002/09/13 06:20:15 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.14 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,7 +69,7 @@ void table_lernschema::on_angeborene_fertigkeit_right_clicked()
   std::list<cH_MidgardBasicElement> L=hauptfenster->getDatabase().Fertigkeit_ang;
   list_Fertigkeit_ang_neu.clear();
   for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
-    list_Fertigkeit_ang_neu.push_back(MidgardBasicElement_mutable(*i));
+    list_Fertigkeit_ang_neu.push_back(MBEmlt(*i));
   MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,hauptfenster);
 
   scrolledwindow_lernen->show();
@@ -80,8 +80,8 @@ void table_lernschema::on_angeborene_fertigkeit_right_clicked()
 void table_lernschema::on_ang_fert_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-  MidgardBasicElement_mutable MBE = dt->getMBE();
-  cH_Fertigkeit_angeborene F(MBE);
+  MBEmlt MBE = dt->getMBE();
+  cH_Fertigkeit_angeborene F(MBE.getMBE());
 
   hauptfenster->getChar()->setAngebSinnFert(F->Min(),MBE);  
   list_Fertigkeit_ang_neu.remove(MBE);
@@ -98,7 +98,7 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
      if (cH_Fertigkeit_angeborene(*i)->Min()<=wurf && wurf<=cH_Fertigkeit_angeborene(*i)->Max())
       {
          name=(*i)->Name();
-         hauptfenster->getChar()->setAngebSinnFert(wurf,MidgardBasicElement_mutable(*i));  
+         hauptfenster->getChar()->setAngebSinnFert(wurf,MBEmlt(*i));  
          break;
       }
    }
@@ -108,9 +108,9 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
 void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
 {
   AusruestungBaum &besitz=hauptfenster->getChar().getBesitz();
-  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
+  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
    {
-     const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit(*i)->get_vec_Besitz();
+     const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit(i->getMBE())->get_vec_Besitz();
      for(std::vector<Fertigkeit::st_besitz>::const_iterator j=VB.begin();j!=VB.end();++j)
       {
         int wurf=hauptfenster->random.integer(1,100);

@@ -27,22 +27,22 @@ class table_steigern : public table_steigern_glade
         midgard_CG *hauptfenster;
         LernListen *LL;        
 
-        std::list<MidgardBasicElement_mutable> list_Fertigkeit_neu;
-        std::list<MidgardBasicElement_mutable> list_WaffenGrund_neu;
-        std::list<MidgardBasicElement_mutable> list_Waffen_neu;
-        std::list<MidgardBasicElement_mutable> list_Zauber_neu;
-        std::list<MidgardBasicElement_mutable> list_Zauberwerk_neu;
-        std::list<MidgardBasicElement_mutable> list_Kido_neu;
-        std::list<MidgardBasicElement_mutable> list_Sprache_neu;
-        std::list<MidgardBasicElement_mutable> list_Schrift_neu;
+        std::list<MBEmlt> list_Fertigkeit_neu;
+        std::list<MBEmlt> list_WaffenGrund_neu;
+        std::list<MBEmlt> list_Waffen_neu;
+        std::list<MBEmlt> list_Zauber_neu;
+        std::list<MBEmlt> list_Zauberwerk_neu;
+        std::list<MBEmlt> list_Kido_neu;
+        std::list<MBEmlt> list_Sprache_neu;
+        std::list<MBEmlt> list_Schrift_neu;
 
         bool steigern_mit_EP_bool;
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE,PAGE_BESITZ};
                                   
         enum modi_modus{Zusatz,PP};
-        void modify(modi_modus modus,const MidgardBasicElement_mutable &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
-        void modify(modi_modus modus,const MidgardBasicElement_mutable &M,const std::string &s,int praxispunkte)
+        void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
+        void modify(modi_modus modus,const MBEmlt &M,const std::string &s,int praxispunkte)
           {modify(modus,M,MidgardBasicElement::st_zusatz(s),praxispunkte);}
 public:
         
@@ -51,13 +51,13 @@ public:
         void init(midgard_CG *hauptfenster);
 
 private:
-        const MidgardBasicElement_mutable &getSelectedNotebookLernen() throw(TreeBase::noRowSelected); 
+        const MBEmlt &getSelectedNotebookLernen() throw(TreeBase::noRowSelected); 
         void load_for_page(guint pagenr);
         void zeige_werte();
         void neuer_charakter();
 
         // Main
-        void fillClistZusatz(MidgardBasicElement_mutable &MBE);
+        void fillClistZusatz(MBEmlt &MBE);
         void set_zusatz_sensitive(bool an);
         void on_radio_steigern_all();
         std::string SpruecheMitPP();
@@ -80,17 +80,18 @@ private:
         int steigern_womit(const std::string& fert);
         void desteigern(unsigned int kosten);
         void set_lernzeit(int kosten,e_was_steigern was,bool no_pp=false);
-        bool steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,int &stufen,e_was_steigern was=Nichts);
+        bool steigern_usp(int &kosten,MBEmlt *MBE,int &stufen,e_was_steigern was=Nichts);
         int genug_geld(const int kosten);
         int EP_kosten(const int kosten);
-        int PP_vorrat(const MidgardBasicElement_mutable *MBE,e_was_steigern was);
+        int PP_vorrat(const MBEmlt *MBE,e_was_steigern was);
         bool genug_EP(const int ep_k,const bool bkep,const bool bzep,int &aep0,int &kep0,int &zep0);
-        void steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was);
+//        void steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was);
+        void steigern_mit(bool &bkep,bool &bzep,const MBEmlt *MBE,e_was_steigern was);
 public:
-//        void PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp);
+//        void PraxisPunkt_to_AEP(MBEmlt& MBE,bool verfallen,bool alle_pp);
 //        void PraxisPunkt_fuer_Was(e_was_steigern was);
 private:
-         int stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_mutable& MBE,int &kosten,int &aep);
+         int stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int &aep);
 
 
         // Fertigkeiten
@@ -107,7 +108,7 @@ private:
         // Zauber
         void on_zauber_laden_clicked();
         void zauber_zeigen();
-        bool spruchrolle_wuerfeln(const cH_MidgardBasicElement& zauber);
+//        bool spruchrolle_wuerfeln(const cH_MidgardBasicElement& zauber,std::string &info);
         void zauberwerk_laden();
         void zauberwerk_zeigen();
 

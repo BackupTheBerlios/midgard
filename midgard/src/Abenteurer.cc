@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.41 2002/09/18 08:35:46 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.42 2002/09/21 18:00:13 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -60,7 +60,7 @@ const std::string Abenteurer::SErfolgswert(std::string name,const Datenbank &Dat
 
 const pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
 {
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+  for(std::list<MBEmlt>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
    {
      if(name==(*i)->Name()) return pair<int,bool>((*i).Erfolgswert(),true); 
    }   
@@ -80,10 +80,10 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
    {
      cH_Fertigkeit f(*i);
      if(f->Ungelernt()!=-99)
-     UF.push_back(MidgardBasicElement_mutable(*i));
+     UF.push_back(MBEmlt(*i));
    }
   cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen"));
-  UF.push_back(MidgardBasicElement_mutable(werfen));
+  UF.push_back(MBEmlt(werfen));
   UF.push_back(getWerte().Ueberleben());
   UF.sort(sort_universell());
 
@@ -92,7 +92,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
      int iwert=-99;
      if (i->mbe->What()==MidgardBasicElement::FERTIGKEIT)
       {
-        cH_Fertigkeit f(i->mbe);
+        cH_Fertigkeit f(i->mbe.getMBE());
         iwert = f->Ungelernt();
         if(f->Name()==getWerte().Ueberleben()->Name()) iwert=6;
         if (!f->Voraussetzung(*this,true))
@@ -100,7 +100,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
       }
      else if (i->mbe->What()==MidgardBasicElement::WAFFE)
       {
-        cH_Waffe f(i->mbe);
+        cH_Waffe f(i->mbe.getMBE());
         iwert = 4+getWerte().bo_An();
         if (!f->Voraussetzung(*this,true))
             {iwert=0; i->voraussetzung=false;}
@@ -158,7 +158,7 @@ void Abenteurer::setAngebFert()
        getWerte().setSinn(i->first,i->second);
 }
 
-bool Abenteurer::setAngebSinnFert(int wurf,const MidgardBasicElement_mutable &MBE)
+bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
 {
   int wert=MBE.Erfolgswert();
   if     ( 1<=wurf && wurf<= 2) getWerte().setSinnCheck("Sehen",wert);    
@@ -211,7 +211,7 @@ void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const M
      Ausruestung.push_back(Tag("Rüstung2", getWerte().Ruestung(1)->Name()));
    // Waffen Besitz
    for (std::list<WaffeBesitz>::const_iterator i=List_Waffen_besitz().begin();
-//   for (std::list<MidgardBasicElement_mutable>::const_iterator i=List_Waffen_besitz().begin();
+//   for (std::list<MBEmlt>::const_iterator i=List_Waffen_besitz().begin();
          i!=List_Waffen_besitz().end();++i)
       {  
 //         WaffeBesitz WB(*i) ;
@@ -481,7 +481,7 @@ bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
    std::string ueberleben=Typ->getAttr("Überleben");
    if(ueberleben!="") 
      { 
-       MidgardBasicElement_mutable M(&*cH_Fertigkeit(ueberleben));
+       MBEmlt M(&*cH_Fertigkeit(ueberleben));
        getWerte().setUeberleben(M);
      }
    setMuttersprache(Typ->getAttr("Muttersprache"));
@@ -556,21 +556,21 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Beruf")
         {
          cH_MidgardBasicElement beruf(&*cH_Beruf(i->getAttr("Bezeichnung"),true));
-         MidgardBasicElement_mutable B(beruf);
+         MBEmlt B(beruf);
          B.setErfolgswert(i->getIntAttr("Wert"));
          List_Beruf().push_back(B);
         }
       else if(sart=="ang-Fertigkeit" || sart=="ang.Fertigkeit")
        {
          cH_MidgardBasicElement fert_an(&*cH_Fertigkeit_angeborene(i->getAttr("Bezeichnung"),true));
-         MidgardBasicElement_mutable F(fert_an);
+         MBEmlt F(fert_an);
          F.setErfolgswert(i->getIntAttr("Wert"));
          List_Fertigkeit_ang().push_back(F);
        }    
       else if(sart=="Fertigkeit")
        {
          cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->getAttr("Bezeichnung"),true));
-         MidgardBasicElement_mutable F(fert);
+         MBEmlt F(fert);
          F.setErfolgswert(i->getIntAttr("Wert"));
          F.setPraxispunkte(i->getIntAttr("Praxispunkte"));
          if(cH_Fertigkeit(fert)->ZusatzEnum(getVTyp()))
@@ -584,7 +584,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Waffe")
         {
          cH_MidgardBasicElement waffe(&*cH_Waffe(i->getAttr("Bezeichnung"),true));
-         MidgardBasicElement_mutable W(waffe);
+         MBEmlt W(waffe);
          W.setErfolgswert(i->getIntAttr("Wert"));
          W.setPraxispunkte(i->getIntAttr("Praxispunkte"));
          List_Waffen().push_back(W);
@@ -595,7 +595,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Zauber")
         {
          cH_MidgardBasicElement zauber(&*cH_Zauber(i->getAttr("Bezeichnung"),true));
-         MidgardBasicElement_mutable Z(zauber);
+         MBEmlt Z(zauber);
          if(zauber->ZusatzEnum(getVTyp()))
           { zauber=new Zauber(*cH_Zauber(zauber));
             Z.setZusatz(i->getAttr("Zusatz"));
@@ -606,13 +606,13 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         {
           cH_MidgardBasicElement zauberwerk(&*cH_Zauberwerk(i->getAttr("Bezeichnung"),
                       i->getAttr("Art"),i->getAttr("Stufe"),true));
-          MidgardBasicElement_mutable Z(zauberwerk);
+          MBEmlt Z(zauberwerk);
           List_Zauberwerk().push_back(Z);
         }
       else if(sart=="KiDo")
         {
           cH_MidgardBasicElement kido(&*cH_KiDo(i->getAttr("Bezeichnung"),true));
-          MidgardBasicElement_mutable K(kido);
+          MBEmlt K(kido);
           List_Kido().push_back(K) ;
         }
       else if(sart=="Grundkenntnis")
@@ -623,13 +623,13 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
            else if (bez=="ZSchlagwaffe") bez="Zweihandschlagwaffe";
            else if (bez=="Schilde") bez="Schild";
            cH_MidgardBasicElement grund(&*cH_WaffeGrund(bez,true));
-           MidgardBasicElement_mutable G(grund);
+           MBEmlt G(grund);
            List_WaffenGrund().push_back(G);
         }
       else if(sart=="Sprache")
         {
          cH_MidgardBasicElement sprache(&*cH_Sprache(i->getAttr("Bezeichnung"),true));
-         MidgardBasicElement_mutable S(sprache);
+         MBEmlt S(sprache);
          int wert=i->getIntAttr("Wert");
          if (xml_version<8)          {  switch (wert)
             {  case 1: wert=4; break;
@@ -645,7 +645,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Urschrift") 
         {
          cH_MidgardBasicElement schrift(&*cH_Schrift(i->getAttr("Bezeichnung"),true));
-         MidgardBasicElement_mutable S(schrift);
+         MBEmlt S(schrift);
          int wert=i->getIntAttr("Wert");
          if (xml_version<8 && !wert) wert=12;
          S.setErfolgswert(wert);
@@ -684,3 +684,37 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
     }
 }
 
+
+
+void Abenteurer::move_element(std::list<MBEmlt>& von,
+                                       std::list<MBEmlt>& nach,
+                                       const MBEmlt& MBE)
+{
+ for (std::list<MBEmlt>::iterator i=von.begin();i!= von.end();++i)
+  {
+    if(*i==MBE)
+        { 
+          i->setErfolgswert(MBE.Erfolgswert());
+          nach.splice(nach.begin(),von,i);
+          break; 
+        }
+/*
+   if((*i)->What()==ZAUBERWERK)
+    {
+      if ( (*i)->Name()==MBE->Name() && 
+           cH_Zauberwerk(*i)->Art()==cH_Zauberwerk(MBE)->Art() && 
+           (*i)->Stufe()==MBE->Stufe() ) 
+        { nach.splice(nach.begin(),von,i);break; }
+    }
+   else
+    {
+      if ((*i)->Name()==MBE->Name()) 
+        { 
+          i->setErfolgswert(MBE.Erfolgswert());
+          nach.splice(nach.begin(),von,i);
+          break; 
+        }
+    }
+*/
+  }
+}

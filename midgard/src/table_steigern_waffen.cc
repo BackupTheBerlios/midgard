@@ -28,26 +28,6 @@ void table_steigern::on_waffen_laden_clicked()
   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
   list_Waffen_neu=LL->get_steigern_MBEm(A,LernListen::sWaff,nsc);
-/*
- list_Waffen_neu.clear();
- for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Waffe.begin();i!=hauptfenster->getCDatabase().Waffe.end();++i)
-   { 
-     Abenteurer &A=hauptfenster->getChar().getAbenteurer();
-     cH_Waffe w(*i);
-     MidgardBasicElement_mutable M(*i);
-     if (M.ist_gelernt(A.List_Waffen())) continue ;
-     if(A.getWerte().Spezies()->istVerboten(*i)) continue;
-     if (!w->Grundkenntnis_vorhanden(A.List_WaffenGrund())) continue;
-     if (!w->ist_lernbar(A.getVTyp(),w->get_MapTyp())) continue;
-     if (!hauptfenster->region_check(w->Region(w->Name())) ) continue;
-     if (w->Voraussetzung(A))
-      {
-        if(w->Art()=="Verteidigung") M.setErfolgswert(1);
-        else M.setErfolgswert(4);
-        list_Waffen_neu.push_back(M);
-     }
-   }
-*/
   on_waffengrund_laden_clicked();
   waffen_zeigen();
 }
@@ -76,17 +56,6 @@ void table_steigern::on_waffengrund_laden_clicked()
   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
   list_WaffenGrund_neu=LL->get_steigern_MBEm(A,LernListen::sWGru,nsc);
-/*
-  list_WaffenGrund_neu.clear();
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().WaffeGrund.begin();i!=hauptfenster->getCDatabase().WaffeGrund.end();++i)
-   { cH_WaffeGrund w(*i);
-     if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getChar().List_WaffenGrund())) continue ;
-     if(hauptfenster->getWerte().Spezies()->istVerboten(*i)) continue;
-     if((*i)->ist_lernbar(hauptfenster->getChar().getVTyp(),(*i)->get_MapTyp()))
-        if (hauptfenster->region_check(w->Region()) )
-         list_WaffenGrund_neu.push_back(*i);
-   }
-*/
 }
 
 void table_steigern::on_leaf_selected_neue_waffen(cH_RowDataBase d)

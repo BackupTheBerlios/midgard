@@ -32,7 +32,7 @@ void table_steigern::on_fertigkeiten_laden_clicked()
   list_Fertigkeit_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Fertigkeit.begin();i!=hauptfenster->getCDatabase().Fertigkeit.end();++i)
    { const cH_Fertigkeit f(*i);
-     if (MidgardBasicElement_mutable(*i).ist_gelernt(A.List_Fertigkeit()) && 
+     if (MBEmlt(*i).ist_gelernt(A.List_Fertigkeit()) && 
          cH_Fertigkeit(*i)->ZusatzEnum(hauptfenster->getChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
      if(A.getWerte().Spezies()->istVerboten(*i)) continue;
@@ -41,7 +41,7 @@ void table_steigern::on_fertigkeiten_laden_clicked()
      if (!hauptfenster->region_check(f->Region()) ) continue;
      if (f->Voraussetzung(A)) 
        {
-         MidgardBasicElement_mutable F(*i);
+         MBEmlt F(*i);
          F.setErfolgswert(f->Anfangswert());
          list_Fertigkeit_neu.push_back(F);
 //Kopie            list_Fertigkeit_neu.push_back(new Fertigkeit(*f));
@@ -79,7 +79,7 @@ void table_steigern::on_alte_fert_reorder()
 void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-  MidgardBasicElement_mutable MBE = dt->getMBE();
+  MBEmlt MBE = dt->getMBE();
   if (MBE->Name()=="KiDo") 
     { zeige_werte();
       hauptfenster->InfoFenster->AppendShow("Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!",WindowInfo::None);

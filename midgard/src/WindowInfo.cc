@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.49 2002/09/10 19:55:46 thoma Exp $
+// $Id: WindowInfo.cc,v 1.50 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -110,7 +110,7 @@ void WindowInfo::AppendShow(const std::string& s, emodus modus,int anzahl)
   Flush(anzahl);
 }
 
-void WindowInfo::AppendShow(const std::string& s, emodus modus,MidgardBasicElement_mutable *_MBE,int anzahl)
+void WindowInfo::AppendShow(const std::string& s, emodus modus,MBEmlt *_MBE,int anzahl)
 {
   MBE=_MBE;
   AppendShow(s,modus,anzahl); 

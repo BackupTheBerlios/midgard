@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.61 2002/09/16 19:09:21 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.62 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -115,13 +115,13 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
  std::vector<Sprache_und_Schrift> S;
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Sprache().begin();i!=hauptfenster->getChar().List_Sprache().end();++i)
+ for(std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Sprache().begin();i!=hauptfenster->getChar().List_Sprache().end();++i)
    {  
-      Sprache_und_Schrift sus=cH_Sprache(*i)->SchriftWert(i->Erfolgswert(),true,hauptfenster->getChar().List_Schrift());
+      Sprache_und_Schrift sus=cH_Sprache(i->getMBE())->SchriftWert(i->Erfolgswert(),true,hauptfenster->getChar().List_Schrift());
       S.push_back(sus);
    }
- std::list<MidgardBasicElement_mutable> verwandteSprachen=Sprache::getVerwandteSprachen(hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
+ std::list<MBEmlt> verwandteSprachen=Sprache::getVerwandteSprachen(hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
+ for(std::list<MBEmlt>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { //cH_Sprache s(*i);
      if(i->ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
      S.push_back(Sprache_und_Schrift(*i,false));
@@ -130,7 +130,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  if(S.size()>maxsprach) bool_sprach=true;
  /////////////////////////////////////////////////////////////////////////////
  // Grundfertigkeiten (Waffen)
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_WaffenGrund().begin();i!=hauptfenster->getChar().List_WaffenGrund().end();++i)
+ for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_WaffenGrund().begin();i!=hauptfenster->getChar().List_WaffenGrund().end();++i)
    {
       std::string sout = (*i)->Name();
       if (sout =="Bögen") sout = "Bogen";
@@ -145,7 +145,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  // Beruf
  fout << "\\newcommand{\\beruf}{" ;
  std::string beruf;
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Beruf().begin();i!=hauptfenster->getChar().List_Beruf().end();++i)
+ for(std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Beruf().begin();i!=hauptfenster->getChar().List_Beruf().end();++i)
      beruf += (*i)->Name(); 
  fout << LaTeX_scale(beruf,10,"1.5cm") <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
@@ -154,12 +154,12 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  // Fertigkeiten & Waffen
  /////////////////////////////////////////////////////////////////////////////
  // angeborene Fertigkeiten
- std::list<MidgardBasicElement_mutable> F;
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit_ang().begin();i!=hauptfenster->getChar().List_Fertigkeit_ang().end();++i) 
+ std::list<MBEmlt> F;
+ for(std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Fertigkeit_ang().begin();i!=hauptfenster->getChar().List_Fertigkeit_ang().end();++i) 
      F.push_back(*i);
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i) 
+ for(std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i) 
     F.push_back(*i);
 // Leerzeile ???
  /////////////////////////////////////////////////////////////////////////////
@@ -167,10 +167,10 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  std::string angriffsverlust_string = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar().List_Fertigkeit());
  std::list<WaffeBesitz> WBesitz=hauptfenster->getChar().List_Waffen_besitz();
  std::list<WaffeBesitz> WB_druck;
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
+ for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
    {
     F.push_back(*i);
-    cH_Waffe w(*i);
+    cH_Waffe w(i->getMBE());
     // waffenloser Kampf:
     if (w->Name()=="waffenloser Kampf" || w->Name()=="Faustkampf") 
      {
@@ -209,7 +209,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
  std::vector<Sprache_und_Schrift> L;
  write_sprachen(fout,L);
  fout << "\\newcommand{\\beruf}{}\n" ;
- std::list<MidgardBasicElement_mutable> F;
+ std::list<MBEmlt> F;
  write_fertigkeiten(fout,F);
  std::list<WaffeBesitz> B;
  write_waffenbesitz(fout,B);
@@ -447,10 +447,10 @@ void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<Sprache_und_S
    }
 }
 
-void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,bool longlist=false)
+void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MBEmlt>& L,bool longlist=false)
 {
   unsigned int count=0;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
+  for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
    {
      std::string a = LaTeX_string(count++);
      if(a=="0") break;
@@ -463,9 +463,9 @@ void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MidgardBasi
 
      std::string wert;
      if((*i)->What()==MidgardBasicElement::FERTIGKEIT)
-       wert=itos0p(cH_Fertigkeit(*i)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i),0,true);
+       wert=itos0p(cH_Fertigkeit(i->getMBE())->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i),0,true);
      else if((*i)->What()==MidgardBasicElement::FERTIGKEIT_ANG)
-       wert=itos0p(cH_Fertigkeit_angeborene(*i)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i),0,true);
+       wert=itos0p(cH_Fertigkeit_angeborene(i->getMBE())->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i),0,true);
      else if((*i)->What()==MidgardBasicElement::WAFFE)
        wert=itos0p(i->Erfolgswert(),0,true);
      if(!longlist) fout << "\\newcommand{\\wert"<<a<<"}";
@@ -599,7 +599,7 @@ void LaTeX_drucken::write_universelle(ostream &fout)
 
 
 void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<Sprache_und_Schrift>& S,
-                     const std::list<MidgardBasicElement_mutable> &F,
+                     const std::list<MBEmlt> &F,
                      const std::list<WaffeBesitz> &WB_druck)
 {
   fout << "\n\n\\newpage\n\n";
@@ -877,9 +877,9 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
 
 void LaTeX_drucken::LaTeX_zauber(ostream &fout)
 {
-  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Zauber().begin();i!=hauptfenster->getChar().List_Zauber().end();++i)
+  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Zauber().begin();i!=hauptfenster->getChar().List_Zauber().end();++i)
    {
-     cH_Zauber z(*i);
+     cH_Zauber z(i->getMBE());
      fout << z->Name() ;
      if(!(*i).Zusatz().empty()) fout << " ("<<(*i).Zusatz()<<")";
      fout <<" & ";
@@ -901,9 +901,9 @@ void LaTeX_drucken::LaTeX_zauber(ostream &fout)
 
 void LaTeX_drucken::LaTeX_zaubermittel(ostream &fout)
 {
-  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Zauberwerk().begin();i!=hauptfenster->getChar().List_Zauberwerk().end();++i)
+  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Zauberwerk().begin();i!=hauptfenster->getChar().List_Zauberwerk().end();++i)
    {
-     cH_Zauberwerk z(*i);
+     cH_Zauberwerk z(i->getMBE());
 //     std::string wert ;//= itos((*i)->Wert());
 //     fout << wert <<" & ";
      fout << z->Name()  <<" & ";
@@ -946,9 +946,9 @@ void LaTeX_drucken::LaTeX_zauber_main(ostream &fout)
 
 void LaTeX_drucken::LaTeX_kido(ostream &fout)
 {
-  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Kido().begin();i!=hauptfenster->getChar().List_Kido().end();++i)
+  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Kido().begin();i!=hauptfenster->getChar().List_Kido().end();++i)
    {
-     cH_KiDo kd(*i);
+     cH_KiDo kd(i->getMBE());
      std::string ap = itos(kd->Ap());
      if (ap=="0") ap="";
      std::string stufe=kd->Stufe();

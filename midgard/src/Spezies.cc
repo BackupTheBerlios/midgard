@@ -142,7 +142,14 @@ Spezies_All::Spezies_All(Gtk::ProgressBar *progressbar)
 bool Spezies::Typ_erlaubt(std::string typ) const
 {
   for(std::vector<st_spez>::const_iterator i=vec_typen.begin();i!=vec_typen.end();++i)
+   {
+    std::string s=i->typen.substr(0,1);
+    if(s=="-") 
+      {  std::string t=i->typen.substr(1,std::string::npos);
+         if(t==typ) return false;
+      }
     if(i->typen == typ) return true ;
+   }
   return false;
 }
 
@@ -162,41 +169,41 @@ int Spezies::Phk(const Grundwerte &W) const
   else return phk100;
 }
 
-std::list<MidgardBasicElement_mutable> Spezies::getZauber() const
+std::list<MBEmlt> Spezies::getZauber() const
 {
-  std::list<MidgardBasicElement_mutable> L;
+  std::list<MBEmlt> L;
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="z")) continue;
     cH_MidgardBasicElement z(&*cH_Zauber(i->name)); 
-    MidgardBasicElement_mutable Z(z);
+    MBEmlt Z(z);
     L.push_back(Z);
    }
  return L;
 }
 
-std::list<MidgardBasicElement_mutable> Spezies::getAngFertigkeiten() const
+std::list<MBEmlt> Spezies::getAngFertigkeiten() const
 {
-  std::list<MidgardBasicElement_mutable> L;
+  std::list<MBEmlt> L;
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="af")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit_angeborene(i->name)); 
-    MidgardBasicElement_mutable F(f);
+    MBEmlt F(f);
     F.setErfolgswert(i->erfolgswert);
     L.push_back(F);
    }
  return L;
 }
 
-std::list<MidgardBasicElement_mutable> Spezies::getFertigkeiten(int &lp,const Grundwerte &Werte) const
+std::list<MBEmlt> Spezies::getFertigkeiten(int &lp,const Grundwerte &Werte) const
 {
-  std::list<MidgardBasicElement_mutable> L;
+  std::list<MBEmlt> L;
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="f")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
-    MidgardBasicElement_mutable F(f);
+    MBEmlt F(f);
     F.setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte) );
     lp+=i->lp;
     L.push_back(F);
@@ -204,14 +211,14 @@ std::list<MidgardBasicElement_mutable> Spezies::getFertigkeiten(int &lp,const Gr
  return L;
 }
 
-std::list<MidgardBasicElement_mutable> Spezies::getFreiwilligeFertigkeiten(const Grundwerte &Werte) const
+std::list<MBEmlt> Spezies::getFreiwilligeFertigkeiten(const Grundwerte &Werte) const
 {
-  std::list<MidgardBasicElement_mutable> L;
+  std::list<MBEmlt> L;
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="ff")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
-    MidgardBasicElement_mutable F(f);
+    MBEmlt F(f);
     F.setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte));
 //cout << i->erfolgswert<<' '<<cH_Fertigkeit(f)->AttributBonus(Werte)<<'\n';
     F.setLernpunkte(i->lp);

@@ -22,6 +22,8 @@
 #include "Typen.hh"
 #include <xml.h>
 #include "ProgressBar.h"
+//#include "zufall.h"
+#include <Misc/itos.h>
 
 cH_Zauber::cache_t cH_Zauber::cache;
 
@@ -106,7 +108,6 @@ int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const
   return (int)(fac*GrundKosten());
 }
 
-//int Zauber::Erfolgswert_Z(const Zauber.ccvector<cH_Typen>& Typ,const Grundwerte& Werte) const
 int Zauber::Erfolgswert_Z(const Abenteurer &A) const
 {
    assert(A.getVTyp().size()==2);
@@ -141,6 +142,44 @@ std::string Zauber::Agens(const std::vector<cH_Typen> &Typ) const
    if(map_typ_agens[Typ[1]]!="") return map_typ_agens[Typ[0]];
    return agens;
 }
+
+bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,const Random &random,std::string &info) const
+{
+// cH_Zauber zauber(getMBE());
+ int erf_z = A.getWerte().Zaubern_wert() + A.getWerte().bo_Za() ;
+ int xr=random.integer(1,20);
+ int iaus=0;
+ 
+ if ((A.Typ1()->Short()!="Ma" && A.Typ2()->Short()!="Ma") && Art()=="A") 
+    iaus=-2;
+
+ // Für Magier:
+ std::string standard="";
+ if (A.Typ1()->Short()=="Ma") standard=Standard(A)[0]; 
+ if (A.Typ2()->Short()=="Ma") standard=Standard(A)[1]; 
+ if(standard!="") 
+   {
+    iaus = get_spezial_zauber_for_magier(A,standard); 
+    if (!iaus)
+     { if (Art()=="S")  iaus=+1;
+       if (Art()=="A")  iaus=-1;  }
+   }
+ 
+ int x = xr-iStufe();
+ x += iaus;
+ x += erf_z;
+ return x;
+
+ info = "Lernversuch von Spruchrolle:
+ gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n     "
+      +itos(xr)+"            -"+itos(iStufe())+"               "
+      +itos(iaus)+"             "+itos(erf_z)+"       =       "+ itos(x)+"\n";
+// hauptfenster->set_info(strinfo);
+ if (x>=20) return true;
+ else return false;
+}
+
+
 
 
 

@@ -45,7 +45,7 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
          radiobutton_pp_zauber->set_sensitive(true);
 
      try{
-      MidgardBasicElement_mutable M=getSelectedNotebookLernen();
+      MBEmlt M=getSelectedNotebookLernen();
       spinbutton_pp_eingeben->set_value(M.Praxispunkte());
       spinbutton_pp_eingeben->show();
      }catch(TreeBase::noRowSelected &e) {/*cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");*/}
@@ -162,7 +162,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  
  guint pagenr = notebook_lernen->get_current_page_num();
  try{
- MidgardBasicElement_mutable M=getSelectedNotebookLernen();
+ MBEmlt M=getSelectedNotebookLernen();
  modify(PP,M,MidgardBasicElement::st_zusatz(""),PPanz);
  }catch(TreeBase::noRowSelected &e) {cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
 
@@ -178,7 +178,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   spinbutton_pp_eingeben->hide();
 }
 
-const MidgardBasicElement_mutable &table_steigern::getSelectedNotebookLernen() throw(TreeBase::noRowSelected)
+const MBEmlt &table_steigern::getSelectedNotebookLernen() throw(TreeBase::noRowSelected)
 {
  const Data_SimpleTree *dt;
  guint pagenr = notebook_lernen->get_current_page_num();
@@ -219,7 +219,7 @@ void table_steigern::on_button_alter_clicked()
 }
 
 #include "LernListen.hh"
-void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
+void table_steigern::fillClistZusatz(MBEmlt &MBE)
 {
   std::vector<cH_RowDataBase> datavec;
   std::vector<std::string> title;
@@ -231,27 +231,12 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
       {        
         title.push_back("Land auswählen");
         VZusatz=LL.getLandZusatz();
-/*
-        for (std::vector<cH_Land>::const_iterator i=hauptfenster->getCDatabase().Laender.begin();i!=hauptfenster->getCDatabase().Laender.end();++i)
-         {
-           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true,hauptfenster->getCDatabase()));
-         }
-*/
         break;
       }
      case MidgardBasicElement::ZWaffe :
       {      
         title.push_back("Waffe auswählen");
         VZusatz=LL.getWaffenZusatz(hauptfenster->getChar().List_Waffen());
-/*
-        for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
-         {
-           if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
-            {
-              datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true,hauptfenster->getCDatabase()));
-            }
-         }
-*/
         break;
       }
      case MidgardBasicElement::ZTabelle : 
@@ -260,14 +245,6 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
         title.push_back("Typ");
         title.push_back("Region");
         VZusatz=LL.getMBEZusatz(MBE);
-/*
-        std::vector<MidgardBasicElement::st_zusatz> VZ=MBE->VZusatz();
-        for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VZ.begin();i!=VZ.end();++i)
-           {
-             if(hauptfenster->region_check(i->region))
-               datavec.push_back(new Data_Zusatz(MBE,*i,true,hauptfenster->getCDatabase()));
-           }
-*/
         break; 
        }
      default : assert("Never get here\n");
@@ -313,20 +290,20 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
   neue_fert_tree->set_sensitive(true);
 }
 
-void table_steigern::modify(modi_modus modus,const MidgardBasicElement_mutable &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte)
+void table_steigern::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte)
 {
   bool found=false;
   int c=0;
   while(true)
    {
-     std::list<MidgardBasicElement_mutable> *L;
+     std::list<MBEmlt> *L;
      if(c==0) L=&hauptfenster->getChar().List_Fertigkeit();
      else if(c==1) L=&hauptfenster->getChar().List_Zauber();
      else if(c==2) L=&hauptfenster->getChar().List_Waffen();
      else if(c==3) L=&hauptfenster->getChar().List_Sprache();
      else if(c==4) L=&hauptfenster->getChar().List_Schrift();
      else assert(!"never get here\n");
-     for(std::list<MidgardBasicElement_mutable>::iterator i=L->begin();i!=L->end();++i)
+     for(std::list<MBEmlt>::iterator i=L->begin();i!=L->end();++i)
       {
         if( i->Zusatz().empty() && (*i)->Name() == M->Name())       
          {

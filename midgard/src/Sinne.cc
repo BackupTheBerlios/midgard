@@ -53,17 +53,17 @@ void Sinne::get_Sinne()
 Sinne_All::Sinne_All()
 {
   list_All.clear();
-  MidgardBasicElement_mutable s1(&*cH_Sinne("Sehen",true));
+  MBEmlt s1(&*cH_Sinne("Sehen",true));
   s1.setErfolgswert(8);
-  MidgardBasicElement_mutable s2(&*cH_Sinne("Hören",true));
+  MBEmlt s2(&*cH_Sinne("Hören",true));
   s2.setErfolgswert(8);
-  MidgardBasicElement_mutable s3(&*cH_Sinne("Riechen",true));
+  MBEmlt s3(&*cH_Sinne("Riechen",true));
   s3.setErfolgswert(8);
-  MidgardBasicElement_mutable s4(&*cH_Sinne("Schmecken",true));
+  MBEmlt s4(&*cH_Sinne("Schmecken",true));
   s4.setErfolgswert(8);
-  MidgardBasicElement_mutable s5(&*cH_Sinne("Tasten",true));
+  MBEmlt s5(&*cH_Sinne("Tasten",true));
   s5.setErfolgswert(8);
-  MidgardBasicElement_mutable s6(&*cH_Sinne("Sechster Sinn",true));
+  MBEmlt s6(&*cH_Sinne("Sechster Sinn",true));
   s6.setErfolgswert(0);
   list_All.push_back(s1);
   list_All.push_back(s2);

@@ -28,13 +28,13 @@ class midgard_CG;
 class Data_SimpleTree : public RowDataBase
 {
  private:
-//   MidgardBasicElement_mutable MBE;
+//   MBEmlt MBE;
    WaffeBesitz MBE;
    const midgard_CG *hauptfenster; 
  public:
    Data_SimpleTree(const WaffeBesitz& _MBE, const midgard_CG *h) 
    : MBE(_MBE),hauptfenster(h) {}
-   Data_SimpleTree(const MidgardBasicElement_mutable& _MBE, const midgard_CG *h) 
+   Data_SimpleTree(const MBEmlt& _MBE, const midgard_CG *h) 
    : MBE(_MBE),hauptfenster(h) {}
 
    enum Spalten_ANGEBFERT  {WURFaf,NAMEaf,WERTaf};
@@ -53,7 +53,7 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_WAFFE_LERNSCHEMA {ART_WL,NAME_WL,GRUND_WL,SCHADEN_WL};
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
-   const MidgardBasicElement_mutable &getMBE() const {return MBE;}
+   const MBEmlt &getMBE() const {return MBE;}
 };
 
 class H_Data_SimpleTree : public Handle<Data_SimpleTree>

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.16 2002/08/21 09:03:57 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.17 2002/09/21 18:00:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,11 +63,11 @@ class LaTeX_drucken
     void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
     void write_grundwerte(ostream &fout,bool empty=false);
     void write_sprachen(ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist=false);
-    void write_fertigkeiten(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,bool longlist=false);
+    void write_fertigkeiten(ostream &fout,const std::list<MBEmlt>& L,bool longlist=false);
     void write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false);
     void write_universelle(ostream &fout);
     void write_long_list(ostream &fout,const std::vector<Sprache_und_Schrift> &S,
-                         const std::list<MidgardBasicElement_mutable> &F,
+                         const std::list<MBEmlt> &F,
                          const std::list<WaffeBesitz> &WB_druck);
 
     std::string LaTeX_scale(const std::string& is, 
@@ -94,7 +94,7 @@ class LaTeX_drucken
     
     void line(ostream &fout,const ewhat &what);
     void for_each(ostream &fout,const ewhat &what);
-    void list_for_each(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,const int &maxlength,const std::string& cm);
+    void list_for_each(ostream &fout,const std::list<MBEmlt>& L,const int &maxlength,const std::string& cm);
  public:
     LaTeX_drucken(const midgard_CG* h)
       : hauptfenster(h),bool_sprach(false),bool_fert(false),bool_waffen(false)

@@ -56,10 +56,10 @@ class cH_Sinne : public Handle<const Sinne>
 
 class Sinne_All
 {
-   std::list<MidgardBasicElement_mutable> list_All;
+   std::list<MBEmlt> list_All;
   public:
    Sinne_All();
-   std::list<MidgardBasicElement_mutable> get_All() const {return list_All;}
+   std::list<MBEmlt> get_All() const {return list_All;}
 };
 
 #endif

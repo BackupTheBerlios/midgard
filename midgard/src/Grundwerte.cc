@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.39 2002/09/07 07:15:55 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.40 2002/09/21 18:00:13 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -241,7 +241,7 @@ const std::string Grundwerte::Resistenzen_alle(const vector<cH_Typen>& Typ) cons
 
 void Grundwerte::setSinn(const std::string &name,int wert)
 {
-  for(std::list<MidgardBasicElement_mutable>::iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
+  for(std::list<MBEmlt>::iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
    {
      if((*i)->Name()==name) 
       {
@@ -254,7 +254,7 @@ void Grundwerte::setSinn(const std::string &name,int wert)
 
 int Grundwerte::getSinn(const std::string &name) const
 {
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
+  for(std::list<MBEmlt>::const_iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
    {
      if((*i)->Name()==name) 
       {
@@ -343,13 +343,13 @@ std::string Grundwerte::Ruestung_B_Verlust() const
  return "";
 }
 
-std::string Grundwerte::Ruestung_Abwehr_Verlust(const std::list<MidgardBasicElement_mutable>& list_Fertigkeit) const
+std::string Grundwerte::Ruestung_Abwehr_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const
 {
  int v0 = Ruestung(0)->AbwehrBonus_Verlust(bo_Ab());
  int v1 = Ruestung(1)->AbwehrBonus_Verlust(bo_Ab());
  // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=MidgardBasicElement_mutable(&*cH_Fertigkeit("Kampf in Vollrüstung")).ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung")).ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
@@ -362,13 +362,13 @@ std::string Grundwerte::Ruestung_Abwehr_Verlust(const std::list<MidgardBasicElem
  return s;
 }
 
-std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<MidgardBasicElement_mutable>& list_Fertigkeit) const
+std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const
 {
  int v0 = Ruestung(0)->AngriffsBonus_Verlust(bo_An());
  int v1 = Ruestung(1)->AngriffsBonus_Verlust(bo_An());
  // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=MidgardBasicElement_mutable(&*cH_Fertigkeit("Kampf in Vollrüstung")).ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung")).ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)

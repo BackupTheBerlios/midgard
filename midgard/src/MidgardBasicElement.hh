@@ -24,6 +24,7 @@
 #include <vector>
 #include <list>
 #include "xml.h"
+#include "Enums.hh"
 
 class cH_Typen;
 class Grundwerte;
@@ -108,11 +109,10 @@ class MidgardBasicElement : public HandleContentCopyable
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
-//      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const {return 0;};
       virtual int MaxErfolgswert(const Abenteurer &A) const {return 0;};
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<std::string>& L) const;
-      virtual int FErfolgswert(const Abenteurer &abenteurer,const MidgardBasicElement_mutable &mbem) const;
+      virtual int FErfolgswert(const Abenteurer &abenteurer,const MBEmlt &mbem) const;
       virtual std::string Voraussetzung() const {return "B U G";}
       virtual bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const {cerr<<"ERROR in Voraussetzung\n";return false;}
 
@@ -124,21 +124,13 @@ class MidgardBasicElement : public HandleContentCopyable
       bool Grundfertigkeit(const Abenteurer &A) const;
 private:
       std::string AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const;
-/*
-      std::vector<std::string> Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
-      std::string Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
-      double Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
-      bool Grundfertigkeit(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
-      int Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
-         {return (int)(Standard_Faktor(Werte,Typ)*GrundKosten());}
-*/
 public:
       std::string Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ,const std::string s) const;
 
       int Kosten(const Abenteurer &A) const ;
       bool standard_one_G(const vector<std::string>& s) const ;
       bool standard_all_S(const vector<std::string>& s) const ;
-      bool operator == (const MidgardBasicElement& b) const 
+      virtual bool operator == (const MidgardBasicElement& b) const 
          {return What()==b.What() && Name()==b.Name();}
       bool operator < (const MidgardBasicElement& b) const 
          {return  Name()<b.Name() ||
@@ -146,16 +138,12 @@ public:
          }
 
       static void show_list_in_tree(
-            const std::list<MidgardBasicElement_mutable>& BasicList,
+            const std::list<MBEmlt>& BasicList,
             SimpleTree *Tree, const midgard_CG *hauptfenster,
             bool clear_me=true);
 
-      static void move_element(std::list<MidgardBasicElement_mutable>& von,
-                               std::list<MidgardBasicElement_mutable>& nach,
-                               const MidgardBasicElement_mutable& MBE);
-
       static void saveElementliste(Tag &datei,
-      				const std::list<MidgardBasicElement_mutable>& b,
+      				const std::list<MBEmlt>& b,
                                    const Grundwerte& Werte,
                                    const vector<cH_Typen>& Typ);
 
@@ -171,13 +159,12 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
    public:
       cH_MidgardBasicElement(const MidgardBasicElement *r) 
             : Handle<const MidgardBasicElement>(r){}
-
-
 };
 
-class MidgardBasicElement_mutable : public cH_MidgardBasicElement
+class MidgardBasicElement_mutable : public HandleContentCopyable
 {
  private:
+      cH_MidgardBasicElement mbe;
       int praxispunkte,erfolgswert,lernpunkte;
       MidgardBasicElement::st_zusatz zusatz; // Für Zusätze bei Fertigkeiten 
                               // (z.B. Abrichten, Sprache, Geheimzeichen...)
@@ -189,17 +176,20 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
       
    
  public: 
-      MidgardBasicElement_mutable(const cH_MidgardBasicElement  &mbe)
-         : cH_MidgardBasicElement(mbe),praxispunkte(0),erfolgswert(0),
+      MidgardBasicElement_mutable(const cH_MidgardBasicElement  &_mbe)
+         : mbe(_mbe),praxispunkte(0),erfolgswert(0),
             lernpunkte(0),gelernt(false),pflicht(false) 
            {setErfolgswert(mbe->Anfangswert());}
+      const MidgardBasicElement *operator->() const
+         {return &*mbe;}
       bool operator == (const MidgardBasicElement_mutable& b) const 
-         {return (*this)->What()==b->What() && (*this)->Name()==b->Name() 
-           && Zusatz()==b.Zusatz();}
+         {return mbe==b.mbe && Zusatz()==b.Zusatz();}
       bool operator < (const MidgardBasicElement_mutable& b) const 
          {return  (*this)->Name()<b->Name() ||
                  ((*this)->Name()==b->Name() && Zusatz()<b.Zusatz());  
          }
+      const MidgardBasicElement *getMBE() const {return &*mbe;}
+
 
       int Lernpunkte() const {return lernpunkte;};
       void setLernpunkte(int l) {lernpunkte=l;}
@@ -225,7 +215,7 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
      void setPflicht(bool p) {pflicht=p;}
      std::string Pflicht_str() const; 
 
-     bool ist_gelernt(const std::list<MidgardBasicElement_mutable>& L) const;
+     bool ist_gelernt(const std::list<MBEmlt>& L) const;
      int Steigern(const Abenteurer &A) const; 
      int Reduzieren(const Abenteurer &A) const;
      int Verlernen(const Abenteurer &A) const; 
@@ -247,6 +237,15 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
     };
 
 };
+
+class H_MidgardBasicElement_mutable : public Handle<MidgardBasicElement_mutable>
+{
+      H_MidgardBasicElement_mutable(){}
+   public:
+      H_MidgardBasicElement_mutable(MidgardBasicElement_mutable *r) 
+            : Handle<MidgardBasicElement_mutable>(r){}
+};
+
 
 
 #endif

@@ -166,6 +166,7 @@ reloop:
   std::list<Midgard_Optionen::st_Ober> L=MOptionen->getOber();
   for(std::list<Midgard_Optionen::st_Ober>::iterator i=L.begin();i!=L.end();++i)
    {
+    if(!i->show) continue;
     Gtk::CheckMenuItem *mi=manage(new Gtk::CheckMenuItem(i->text));
     mi->set_active(i->active);
     mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_setzen_from_menu),mi,i->index));

@@ -52,11 +52,11 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
  ProgressBar::set_percentage(progressbar,1);
 }
 
-std::list<MidgardBasicElement_mutable> Lernschema::get_List(const std::string& art, 
+std::list<MBEmlt> Lernschema::get_List(const std::string& art, 
       const vector<cH_Typen>& Typ,
-      const std::list<MidgardBasicElement_mutable>& Gelerntes) const
+      const std::list<MBEmlt>& Gelerntes) const
 {
- std::list<MidgardBasicElement_mutable> L;
+ std::list<MBEmlt> L;
  for(std::map<st_index,st_wert>::const_iterator i=lern_map.begin();i!=lern_map.end();++i)
   {
    if( (i->first.typ==Typ[0]->Short() || i->first.typ==Typ[1]->Short()) &&
@@ -64,7 +64,7 @@ std::list<MidgardBasicElement_mutable> Lernschema::get_List(const std::string& a
      {
       if(art=="Fachkenntnisse") 
          { 
-           MidgardBasicElement_mutable fert(&*cH_Fertigkeit(i->first.fertigkeit));
+           MBEmlt fert(&*cH_Fertigkeit(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
            if(!fert.ist_gelernt(Gelerntes))
               fert.setErfolgswert(i->second.erfolgswert);
@@ -72,7 +72,7 @@ std::list<MidgardBasicElement_mutable> Lernschema::get_List(const std::string& a
          }
       if(art=="Waffenfertigkeiten") 
          { 
-           MidgardBasicElement_mutable waffe(&*cH_Waffe(i->first.fertigkeit));
+           MBEmlt waffe(&*cH_Waffe(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
            if(!waffe.ist_gelernt(Gelerntes))
               waffe.setErfolgswert(i->second.erfolgswert);
@@ -80,7 +80,7 @@ std::list<MidgardBasicElement_mutable> Lernschema::get_List(const std::string& a
          }
       if(art=="Zauberkünste") 
          { 
-           MidgardBasicElement_mutable z(&*cH_Zauber(i->first.fertigkeit));
+           MBEmlt z(&*cH_Zauber(i->first.fertigkeit));
            L.push_back(z);
          }
      }   
