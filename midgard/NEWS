@@ -16,13 +16,14 @@ NEWS IN VERSION 0.6delta0
 * Grifffelder um die meisten Knopfleisten, man kann sie abtrennen und
   woanders aufbewahren. Am sinnvollsten mit der Leiste, die Speichern 
   und Drucken enthält.
-* (zukünftige) Wizard Verbesserungen von Christof
+* Wizard Verbesserungen von Christof
 * Implementation der Optionen komplett(!) überarbeitet
 * Gründliche(!) Oberflächenüberarbeitung
 * Code aufgeräumt
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* Ansichten Menü noch ohne Funktion
 * Waeland: Zauber
 * Nahuathlan: Komplett
 * Eschar: Derwisch

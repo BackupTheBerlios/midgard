@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.196 2002/04/17 10:14:40 thoma Exp $
+// $Id: midgard_CG.cc,v 1.197 2002/04/18 14:34:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -372,6 +372,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 
 void midgard_CG::on_schliessen_CG_clicked()
 {
+     MOptionen->save_options(InfoFenster);
   if(modify_bool)
    {
      MOptionen->save_options(InfoFenster);
