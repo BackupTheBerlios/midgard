@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.65 2001/09/07 07:30:33 thoma Exp $
+// $Id: midgard_CG.hh,v 1.66 2001/09/17 07:20:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -352,7 +352,7 @@ class midgard_CG : public midgard_CG_glade
         bool get_typ_s(const std::string& mod,const Data_typen& t);
    
    public:
-         midgard_CG();
+         midgard_CG(int argc,char **argv);
          void doppelcharaktere();
          Grundwerte Werte;
          void on_speichern_clicked();

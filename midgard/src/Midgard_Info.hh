@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.16 2001/09/11 07:57:08 thoma Exp $
+// $Id: Midgard_Info.hh,v 1.17 2001/09/17 07:20:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,15 +33,18 @@
 #  define _MIDGARD_INFO_HH
 #include "glademm_support.hh"
 
+class midgard_CG;
+
 class Midgard_Info : public Midgard_Info_glade
 {   
         
+        midgard_CG* hauptfenster;
         friend class Midgard_Info_glade;
         void on_button_close_clicked();
         gint timeout();
         SigC::Connection des;
 
    public:
-        Midgard_Info(bool selfclean=false);
+        Midgard_Info(bool selfclean=false,midgard_CG* h=NULL);
 };
 #endif

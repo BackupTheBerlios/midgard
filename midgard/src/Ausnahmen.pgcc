@@ -23,13 +23,6 @@ exec sql include sqlca;
 #include <midgard_CG.hh>
 
 
-/*
-bool Data_Ausnahmen::Ausnahmen_bool(const std::string& name)
-{
- abort();
-}
-*/
-
 Ausnahmen::cache_t Ausnahmen::cache;
 
 Ausnahmen::Ausnahmen(const Grundwerte& Werte,const Data_typen& Typ, 

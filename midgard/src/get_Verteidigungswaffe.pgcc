@@ -41,7 +41,6 @@ std::string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
          Verteidigungswaffen.push_back(new Data_waffen((*i)->Name(),(*i)->Name(),(*i)->Region(),(*i)->av_Bonus(),(*i)->sl_Bonus(),""));
      }
    std::string Vwaffewert;
-//std::cout << Vwaffewert<<"\n";
    for(std::vector<H_Data_waffen>::const_iterator i=Verteidigungswaffen.begin();
          i!=Verteidigungswaffen.end();++i)
      {
@@ -59,7 +58,7 @@ std::string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
                  else if ((*i)->Name()=="GunSen"||(*i)->Name()=="BuKasa")
                   {erf_wert = (*j)->Erfolgswert(); (erf_wert<=10)?:erf_wert=10; }
                  else if ((*i)->Name()=="waffenloser Kampf")
-                  {if ( (*j)->Erfolgswert()<8)                     erf_wert = 0;
+                  {if ( (*j)->Erfolgswert()<8)              break       ;
                    if ( 8<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<12) erf_wert = 1;
                    if (12<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<16) erf_wert = 2;
                    if (16<=(*j)->Erfolgswert())                    erf_wert = 3;

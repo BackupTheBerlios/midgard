@@ -45,7 +45,6 @@ class Ausnahmen : public cH_Data_Ausnahmen
    st_index(){}
       };
 
-//   st_index index;
    vector<cH_Data_Ausnahmen> vec_Ausnahmen;
 
    typedef CacheStatic<st_index,vector<cH_Data_Ausnahmen> > cache_t;
