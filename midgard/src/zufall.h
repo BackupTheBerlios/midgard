@@ -1,3 +1,4 @@
+/* $Id: zufall.h,v 1.3 2001/04/19 11:44:21 christof Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

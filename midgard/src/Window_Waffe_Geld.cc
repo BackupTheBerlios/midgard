@@ -1,3 +1,4 @@
+// $Id: Window_Waffe_Geld.cc,v 1.9 2001/04/19 11:45:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

@@ -1,3 +1,4 @@
+// $Id: Midgard_Info_glade.cc,v 1.12 2001/04/19 11:45:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

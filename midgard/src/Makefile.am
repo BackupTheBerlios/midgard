@@ -1,7 +1,5 @@
-# generated 2001/2/2 12:25:52 CET by thoma@ig23.
-# using glademm V0.5_11c
-#
-# newer (non customized) versions of this file go to Makefile.am_glade
+# $Id: Makefile.am,v 1.13 2001/04/19 11:45:35 christof Exp $
+
 bin_PROGRAMS = midgard xml
 
 
