@@ -307,7 +307,7 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
   MBEmlt MBE=dt->getMBE();
 
   MBE->setZusatz(dt->getZusatz());
-  if((*MBE)->What()==MidgardBasicElement::FERTIGKEIT)
+  if((*MBE).What()==MidgardBasicElement::FERTIGKEIT)
    {
      if(hauptfenster->getWerte().Herkunft()->Name()==MBE->Zusatz())
       {
@@ -315,7 +315,7 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
       }
      hauptfenster->getChar()->List_Fertigkeit().push_back(MBE);
    }
-  else if((*MBE)->What()==MidgardBasicElement::ZAUBER)
+  else if((*MBE).What()==MidgardBasicElement::ZAUBER)
      hauptfenster->getChar()->List_Zauber().push_back(MBE);
 
   set_zusatz_sensitive(false);

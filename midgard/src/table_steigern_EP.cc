@@ -213,8 +213,8 @@ return false;
 
   if(pp)
    {
-     if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) modify(PP,*MBE,"",MBE->Praxispunkte()-pp) ;
-     else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) hauptfenster->getWerte().addSpezialPP(-pp) ;
+     if     (MBE&&(*MBE).What()!=MidgardBasicElement::ZAUBER) modify(PP,*MBE,"",MBE->Praxispunkte()-pp) ;
+     else if(MBE && (*MBE).What()==MidgardBasicElement::ZAUBER) hauptfenster->getWerte().addSpezialPP(-pp) ;
      else if(was==Resistenz)  hauptfenster->getWerte().addResistenzPP(-pp) ;
      else if(was==Abwehr)     hauptfenster->getWerte().addAbwehrPP(-pp) ;
      else if(was==Zaubern)    hauptfenster->getWerte().addZaubernPP(-pp) ;
@@ -281,8 +281,8 @@ int table_steigern::PP_vorrat(const MBEmlt *MBE,e_was_steigern was)
   guint pp=0;
   if(radiobutton_praxis->get_active())
    { 
-     if     (MBE && (*MBE)->What()!=MidgardBasicElement::ZAUBER) pp=(*MBE).Praxispunkte();
-     else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) pp=hauptfenster->getWerte().SpezialPP();
+     if     (MBE && (*MBE).What()!=MidgardBasicElement::ZAUBER) pp=(*MBE).Praxispunkte();
+     else if(MBE && (*MBE).What()==MidgardBasicElement::ZAUBER) pp=hauptfenster->getWerte().SpezialPP();
      else if(was==Resistenz) pp=hauptfenster->getWerte().ResistenzPP() ;
      else if(was==Abwehr)    pp=hauptfenster->getWerte().AbwehrPP() ;
      else if(was==Zaubern)   pp=hauptfenster->getWerte().ZaubernPP() ;
