@@ -279,7 +279,7 @@
     <Verbot Typ="Waldgnom"/>
   </Waffe>
   <Waffe Name="Magierstab" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6">
-    <Modifikationen/><Voraussetzungen St="1" Ge="61"/><Reichweite/>
+    <Modifikationen/><Voraussetzungen St="1" Ge="31"/><Reichweite/>
     <Waffen:Grundkenntnis Kosten="400"/>
     <Lernschema Typ="PT" Lernpunkte="3"/>
     <Lernschema Typ="PW" Lernpunkte="3"/>
