@@ -67,7 +67,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
          if ( (*i)->Name() == MBE->Name()) 
             (*i)->add_Erfolgswert(1); 
     }
- if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
+ else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
     {
       if (HausregelCheck(EPsteigern).active) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
       Werte.addGFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
@@ -75,13 +75,17 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
          if ( (*i)->Name() == MBE->Name())  
             (*i)->add_Erfolgswert(-1); 
     }
- if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
+ else if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
     {
       guint verlernen = MBE->Verlernen(Typ,Database.ausnahmen);
       if( MBE->What()==MidgardBasicElement::ZAUBER && 
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (HausregelCheck(EPsteigern).active) desteigern(verlernen);
       Werte.addGFP(-verlernen);
+      MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
+    }
+ else if (radiobutton_verlernen->get_active() && MBE->What()==MidgardBasicElement::WAFFE)
+    {
       MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
     }
  return true;

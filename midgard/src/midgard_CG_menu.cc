@@ -115,10 +115,13 @@ void midgard_CG::menu_init()
   for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
    {
     Gtk::Label *_l=manage (new Gtk::Label(i->text));
-    Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
     _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
-    _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
+    if(i->bild) 
+     {
+      Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
+      _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
+     }
     i->menuitem=manage(new Gtk::CheckMenuItem());
     i->menuitem->add(*_tab);    
     i->menuitem->activate.connect(SigC::bind(SigC::slot(this,i->funktion),*i));
