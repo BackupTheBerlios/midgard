@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.85 2004/05/18 13:26:58 christof Exp $
+// $Id: midgard.cc,v 1.86 2004/05/19 11:46:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,6 +36,7 @@
 #include "MagusAusgabe.hh"
 #include <libmagus/AbenteurerAuswahl.h>
 #include <fstream>
+#include <Misc/exception.h>
 
 static const unsigned steps=8;
 static Gtk::Window *progresswin;
@@ -87,6 +88,7 @@ int main(int argc, char **argv)
 #endif
 #ifdef __MINGW32__ // exedebug bewirkt DEBUG=1 NOSPLASH=1
    // vielleicht mit fstream realisieren?
+   if (!getenv("DEBUG"))
    {  FILE *f=fopen(argv[0],"rb");
       if (f)
       {  int flag=-1;
@@ -95,12 +97,13 @@ int main(int argc, char **argv)
          fclose(f);
          if (flag==3)
          {  putenv("DEBUG=1");
-            putenv("NOSPLASH=1");
          }
       }
    }
 #endif
    if (!getenv("DEBUG")) Magus_Ausgabe::register_Ausgabe();
+   else ManuProC::PrintUncaughtExceptions();
+
    Ausgabe::setLogLevel(Ausgabe::Debug);
    libmagus_init0(argc,const_cast<const char **>(argv));
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
@@ -114,7 +117,7 @@ int main(int argc, char **argv)
 
 #warning Zeitmessung wegen Anzahl der Zwischenschritte?
    Gtk::Main m(&argc, &argv,true); 
-   if (!getenv("NOSPLASH")) 
+   if (!getenv("NOSPLASH") && !getenv("DEBUG")) 
   {
 //std::cerr << "composing images\n";
    Load0=MagusImage("MAGUS-Logo.png")->copy();
