@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.36 2002/03/04 12:39:57 thoma Exp $
+// $Id: Midgard_Info.hh,v 1.37 2002/04/12 10:04:36 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,7 @@ class Midgard_Info : public Midgard_Info_glade
         friend class Midgard_Info_glade;
 
    public:
-        Midgard_Info();
+        Midgard_Info(GlademmData *data);
         void set_Regionen(const std::vector<cH_Region>& Regionen);
         Gtk::ProgressBar *get_progressbar_regionen() const {return progressbar_regionen;}
         Gtk::ProgressBar *get_progressbar_laender() const {return progressbar_laender;}

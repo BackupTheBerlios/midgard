@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.66 2002/02/14 07:06:48 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.67 2002/04/12 10:04:36 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,7 @@ void Midgard_Info::database_hide()
   frame_datenbank->hide();
 }
 
-Midgard_Info::Midgard_Info()
+Midgard_Info::Midgard_Info(GlademmData *data) : Midgard_Info_glade(data)
 {
    versionsnummer->set_text("Version: "+(std::string)VERSION);
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
