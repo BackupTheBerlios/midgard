@@ -59,7 +59,15 @@ Ahnengeist beschwören	Sa	S
 Ahnengeist beschwören	ScN	S
 Ahnengeist beschwören	ScS	S
 Ahnengeist beschwören	ScW	S
+Ahuatls Sturm	De	G
+Ahuatls Sturm	Sa	S
+Ahuatls Sturm	ScN	S
+Ahuatls Sturm	ScS	S
+Ahuatls Sturm	ScW	S
 Ahuatls Sturm	Tt	G
+Ahuatls Sturm	gHx	S
+Ahuatls Sturm	sHx	S
+Ahuatls Sturm	wHx	S
 Ain es-Samum	De	G
 Ain es-Samum	Sa	S
 Ain es-Samum	ScN	S
@@ -4619,8 +4627,24 @@ Indruwal 4 beschwören	eBe	A
 Indruwal 4 beschwören	gHx	A
 Indruwal 4 beschwören	sHx	A
 Indruwal 4 beschwören	wHx	A
+Iquibalams Ruhm	De	G
+Iquibalams Ruhm	Sa	S
+Iquibalams Ruhm	ScN	S
+Iquibalams Ruhm	ScS	S
+Iquibalams Ruhm	ScW	S
 Iquibalams Ruhm	Tt	G
+Iquibalams Ruhm	gHx	S
+Iquibalams Ruhm	sHx	S
+Iquibalams Ruhm	wHx	S
+Iquibalams Tapferkeit	De	G
+Iquibalams Tapferkeit	Sa	S
+Iquibalams Tapferkeit	ScN	S
+Iquibalams Tapferkeit	ScS	S
+Iquibalams Tapferkeit	ScW	S
 Iquibalams Tapferkeit	Tt	G
+Iquibalams Tapferkeit	gHx	S
+Iquibalams Tapferkeit	sHx	S
+Iquibalams Tapferkeit	wHx	S
 Iquibalams Verachtung	ScN	S
 Iquibalams Verachtung	ScS	S
 Iquibalams Verachtung	ScW	S
@@ -4651,8 +4675,23 @@ Ising beschwören	eBe	A
 Ising beschwören	gHx	A
 Ising beschwören	sHx	A
 Ising beschwören	wHx	A
-Ixtantzutuhs Ekstase	Tt	G
+Ixtantzutuhs Ekstase	PF	G
+Ixtantzutuhs Ekstase	Sa	S
+Ixtantzutuhs Ekstase	ScN	S
+Ixtantzutuhs Ekstase	ScS	S
+Ixtantzutuhs Ekstase	ScW	S
+Ixtantzutuhs Ekstase	Tt	S
+Ixtantzutuhs Ekstase	gHx	G
+Ixtantzutuhs Ekstase	sHx	G
+Ixtantzutuhs Ekstase	wHx	G
+Ixtantzutuhs Schönheit	PF	G
+Ixtantzutuhs Schönheit	ScN	S
+Ixtantzutuhs Schönheit	ScS	S
+Ixtantzutuhs Schönheit	ScW	S
 Ixtantzutuhs Schönheit	Tt	G
+Ixtantzutuhs Schönheit	gHx	G
+Ixtantzutuhs Schönheit	sHx	G
+Ixtantzutuhs Schönheit	wHx	G
 Jadezauber	Dt	A
 Jadezauber	Hl	A
 Jadezauber	Or	A
@@ -6219,8 +6258,22 @@ Myrknir beschwören	eBe	A
 Myrknir beschwören	gHx	A
 Myrknir beschwören	sHx	A
 Myrknir beschwören	wHx	A
+Nahuahauquihs Preis	De	G
+Nahuahauquihs Preis	Sa	S
+Nahuahauquihs Preis	ScN	S
+Nahuahauquihs Preis	ScS	S
+Nahuahauquihs Preis	ScW	S
 Nahuahauquihs Preis	Tt	G
+Nahuahauquihs Preis	gHx	S
+Nahuahauquihs Preis	sHx	S
+Nahuahauquihs Preis	wHx	S
+Nahuahauquihs Zorn	De	G
+Nahuahauquihs Zorn	Sa	S
+Nahuahauquihs Zorn	ScN	S
+Nahuahauquihs Zorn	ScS	S
+Nahuahauquihs Zorn	ScW	S
 Nahuahauquihs Zorn	Tt	G
+Nahuahauquihs Zorn	wHx	S
 Namenloses Grauen	De	S
 Namenloses Grauen	Dr	S
 Namenloses Grauen	Dt	S
@@ -8349,7 +8402,15 @@ Todeszauber	ScW	S
 Todeszauber	gHx	S
 Todeszauber	sHx	S
 Todeszauber	wHx	S
+Tolucans Gabe	De	G
+Tolucans Gabe	Sa	S
+Tolucans Gabe	ScN	S
+Tolucans Gabe	ScS	S
+Tolucans Gabe	ScW	S
 Tolucans Gabe	Tt	G
+Tolucans Gabe	gHx	S
+Tolucans Gabe	sHx	S
+Tolucans Gabe	wHx	S
 Tor schaffen	De	A
 Tor schaffen	Dr	A
 Tor schaffen	Dt	A

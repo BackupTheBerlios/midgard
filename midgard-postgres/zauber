@@ -536,7 +536,7 @@ Schadd wa-Tarka	1000	3	Tanz	3	E	\N	\N	Tanz	Wasser	beherrscht	Wasser	15 min	15 m	
 Scharade	600	1-10	Wort	3	N	\N	\N	\N	Magan	beherrscht	Luft	1 sec	15 m	Geist	1-10 Ws	GRad min	dämonisch	\N	f	Trickser	\N	\N
 Scharfblick	60	1	Gedanke	1	\N	\N	\N	\N	Magan	verändert	Feuer	1 min	0	Körper	1 Ws	10 min	dämonisch		f		\N	\N
 Schattenbruder	1500	6	Geste	4	H&D	\N	\N	\N				10 s	0	Umgebung	12m Uk	2 min	dämonisch		t	Runenstab	\N	\N
-Schattenjaguar	400	4	Geste	2	N	\N	\N	\N	Luft	beherrscht	Feuer	1 min		Körper	10m Uk	inf	göttlich	Jaguarhaar	t	Siegel	\N	\N
+Schattenjaguar	400	4	Geste	2	N	\N	\N	\N	Luft	beherrscht	Feuer	1 min	B	Körper	10m Uk	inf	göttlich	Jaguarhaar	t	Siegel	\N	\N
 Schattenroß	2000	12	Geste	4	H&Df	\N	\N	\N	Metall	verändert	Luft	10 min	0	Körper	0	var	finster		f		\N	t
 Scheintod	2400	6	Gedanke	5	K	\N	\N	\N				1 min	0	Körper	selbst	var			t		\N	\N
 Schildrune	400	2	Geste	2	W	\N	\N	Runen	Magan	verändert	Holz	10 min	-	Umgebung	1 Ob	1 h	göttlich	Holzschild, Spucke	f	\N	\N	\N
