@@ -123,9 +123,12 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
      if(dt->Ware()->Einheit()=="GS") g=int(dt->Kosten());
      if(dt->Ware()->Einheit()=="SS") s=int(dt->Kosten());
      if(dt->Ware()->Einheit()=="KS") k=int(dt->Kosten());
-     hauptfenster->getWerte().addGold(-g);
-     hauptfenster->getWerte().addSilber(-s);
-     hauptfenster->getWerte().addKupfer(-k);
+     
+     Grundwerte &W=hauptfenster->getWerte();
+     if(g>W.Gold() || s>W.Silber() || k>W.Kupfer()) return;
+     W.addGold(-g);
+     W.addSilber(-s);
+     W.addKupfer(-k);
      zeige_werte();
    }
   bool sichtbar=checkbutton_sichtbar->get_active();

@@ -18,6 +18,11 @@ NEWS IN VERSION 0.8.8
 * Gewicht im Ausrüstungsbaum anzeigen
 * Maximale Traglast und aktuelle Belastung anzeigen
 * Angabe der Normal/Höchst/Schublast 
+* Speichern von 'Float' jetzt OHNE Berücksichtigung von LOCALE,
+   sonst paßt es nicht zum Laden. Und das benötigt wg. Datenbank 
+   den '.' als Trennzeichen.
+* Ausrüstung: Überprüfung, ob genug Geld vorhanden ist.
+
 
 TODO: ('-' zeigt CP an)
 

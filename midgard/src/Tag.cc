@@ -192,7 +192,11 @@ void Tag::setIntAttr(const std::string &name, int val)
 
 void Tag::setFloatAttr(const std::string &name, double val)
 {  char buf[30];
+   /* Make sure we do NOT honor the locale for numeric input */
+   /* since the database gives the standard decimal point */
+   std::string oldlocale= setlocale(LC_NUMERIC, NULL);
+   setlocale(LC_NUMERIC, "C");
    snprintf(buf,sizeof buf,"%f",val);
+   setlocale(LC_NUMERIC, oldlocale.c_str());
    setAttr(name,buf);
 }
-

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.15 2002/10/16 08:09:58 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.16 2002/10/27 18:25:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -160,6 +160,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iRuestung)   return st_icons("Rüstung"  ,Dice_Armor_trans_50_xpm);
      else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,Dice_Ausruest_50_xpm);
      else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,MAGUS_Logo_Small_xpm);
+     else if(typ==iDeleteAusr  )return st_icons("Gegenstand löschen"  ,Erase_50_xpm);
      else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,Erase_50_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,MAGUS_Logo_Tiny_xpm);
      else if(typ==iStatusNPC)return st_icons(""  ,NSC_Mode_26_xpm);
@@ -194,6 +195,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iRuestung)   return st_icons("Rüstung"  ,ulf_notebook_24_wuerfel_xpm);
      else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,ulf_notebook_24_wuerfel_xpm);
      else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,ulf_notebook_24_bildeinfuegen_xpm);
+     else if(typ==iDeleteAusr  )return st_icons("Gegenstand\nlöschen"  ,ulf_notebook_24_loeschen_xpm);
      else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,ulf_notebook_24_loeschen_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,ulf_statusleiste_16_wizard_xpm);
      else if(typ==iStatusNPC)   return st_icons(""  ,ulf_statusleiste_16_npczulassen_xpm);

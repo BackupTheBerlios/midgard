@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.51 2002/10/26 07:32:24 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.52 2002/10/27 18:25:23 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -775,20 +775,32 @@ std::list<MBEmlt> &Abenteurer::get_known_list(const MBEmlt &MBE)
    assert(!"never get here"); abort();
 }
  
-std::string Abenteurer::Ruestung_B_Verlust() const
+std::string Abenteurer::Ruestung_B_Verlust(bool ueberlast_beruecksichtigen) const
 {
  std::string s;
- double u=getUeberlast();
- bool ew; // Erfolgswerte um zwei reduzieren
  int b=getWerte().B();
 
- if(  Ruestung(0)->B_Verlust(u,b,ew) && !Ruestung(1)->B_Verlust(u,b,ew) )
-    s= "\\scriptsize ("+itos(b-Ruestung(0)->B_Verlust(u,b,ew))+")";
- else if( !Ruestung(0)->B_Verlust(u,b,ew) && Ruestung(1)->B_Verlust(u,b,ew) )
-    s= "\\scriptsize ("+itos(b-Ruestung(1)->B_Verlust(u,b,ew))+")";
- else if( Ruestung(0)->B_Verlust(u,b,ew) && Ruestung(1)->B_Verlust(u,b,ew) )
-    s= "\\tiny ("+itos(b-Ruestung(0)->B_Verlust(u,b,ew))
-         +","+itos(b-Ruestung(1)->B_Verlust(u,b,ew))+")";
+ int R0; 
+ int R1; 
+
+ if(ueberlast_beruecksichtigen)
+  {
+    double u=getUeberlast();
+    bool ew; // Erfolgswerte um zwei reduzieren
+    R0 = Ruestung(0)->B_Verlust(u,b,ew);
+    R1 = Ruestung(1)->B_Verlust(u,b,ew);
+  }
+ else
+  {
+    R0 = Ruestung(0)->B_Verlust();
+    R1 = Ruestung(1)->B_Verlust();
+  }
+
+ if     (R0&&!R1) s="\\scriptsize("+itos(b-R0)+")";
+ else if(R1&&!R0) s="\\scriptsize("+itos(b-R1)+")";
+ else if(R0&&R1)  s="\\tiny("+itos(b-R0)+","+itos(b-R1)+")";
+
  if(s!="") return "_{"+s+"}";
  return "";
 }
+

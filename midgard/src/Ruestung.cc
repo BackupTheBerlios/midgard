@@ -90,6 +90,7 @@ int Ruestung::AngriffsBonus_Verlust(int angriffs_bonus) const
   abort();
 }
 
+
 int Ruestung::B_Verlust(const double &ueberlast,const int &maxB,bool &ew) const
 {
   if(ueberlast==0) return b_verlust;

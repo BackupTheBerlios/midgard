@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.70 2002/10/26 07:32:24 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.71 2002/10/27 18:25:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -331,9 +331,8 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty=false)
      case ewk   : sfout += itos(W.Wk()); break ;
      case eb    : {
         int b=hauptfenster->getChar()->Erfolgswert("Laufen",hauptfenster->getCDatabase()).first-2; 
-        std::string bs;
-        if(b>0) bs="^{+"+itos(b)+"}";
-        sfout += LaTeX_scale("$"+itos(W.B())+hauptfenster->getAben().Ruestung_B_Verlust()+bs+"$",8,"0.9cm"); break ;
+        std::string bs;  if(b>0) bs="^{+"+itos(b)+"}"  ;
+        sfout += LaTeX_scale("$"+itos(W.B())+hauptfenster->getAben().Ruestung_B_Verlust(true)+bs+"$",8,"0.9cm"); break ;
       }
      case ekaw  : sfout += itos(W.KAW()); break ;
      case egsb  : sfout += itos(W.Geistesblitz()); break ;

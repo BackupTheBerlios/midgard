@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.289 2002/10/24 07:21:01 christof Exp $
+// $Id: midgard_CG.hh,v 1.290 2002/10/27 18:25:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -115,7 +115,7 @@ class midgard_CG : public midgard_CG_glade
                      iEditGrund,iAngeFert,iLernpunkte,iLernEdit,iBeruf,
                      iGeld,iWaffen,
                      iRuestung,iAusruestung,iEigenschaft,iBildeinfuegen,
-                     iDeleteA,
+                     iDeleteA,iDeleteAusr,
                      iStatusWizard,iStatusNPC,iStatusHaus,
                      iNotebookLernen,iNotebookInfo};
                      

@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.14 2002/10/26 07:32:24 thoma Exp $               
+// $Id: Ruestung.hh,v 1.15 2002/10/27 18:25:23 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,6 +42,7 @@ class Ruestung  : public HandleContentCopyable
    int LP_Verlust() const {return lp_verlust;}
    int Min_Staerke() const {return min_staerke;}
    int RW_Verlust() const {return rw_verlust;}
+   int B_Verlust() const {return b_verlust;}
    int B_Verlust(const double &ueberlast,const int &maxB,bool &ew) const;
    int AbwehrBonus_Verlust(int abwehr_bonus) const;
    int AngriffsBonus_Verlust(int angriffs_bonus) const;

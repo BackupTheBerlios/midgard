@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.7 2002/10/18 08:36:47 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.8 2002/10/27 18:25:23 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -311,7 +311,7 @@ void Abenteurer::steigern_mit(bool &bkep,bool &bzep,const MBEmlt MBE,e_was_steig
 int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
                            const bool HausG1, std::string &info)
 {
-  if(wie!=Enums::eUnterweisung) return 0; // keine Untreweisung => kein Geld nötig
+  if(wie!=Enums::eUnterweisung) return 0; // keine Unterweisung => kein Geld nötig
   int gold_k = getWerte().gold_kosten(kosten);
   if( !HausG1 ) gold_k*=10;
   if (gold_k > getWerte().Gold())

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.40 2002/10/26 07:32:24 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.41 2002/10/27 18:25:23 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -75,7 +75,7 @@ public:
    int getHoechstlast() const;
    int getSchublast() const;
    double getUeberlast() const;
-   std::string Ruestung_B_Verlust() const;
+   std::string Ruestung_B_Verlust(bool ueberlast_beruecksichtigen=false) const;
 
 
    const cH_Typen &Typ1() const {return Typ[0];}
