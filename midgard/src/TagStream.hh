@@ -55,6 +55,8 @@ class TagStream : public Tag
 	static string de_xml(const string &cont);
 	void load_project_file(Tag *top);
 public:
+	const Tag *find(const string &type) const
+	{  return Tag::find(type); }
 	TagStream(const string &path);
 	TagStream(const char *buf);
 	TagStream(istream &i);
