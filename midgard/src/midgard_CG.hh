@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.21 2001/04/23 10:55:32 thoma Exp $
+// $Id: midgard_CG.hh,v 1.22 2001/04/24 14:31:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -225,6 +225,7 @@ class midgard_CG : public midgard_CG_glade
         void on_kido_wahl_clicked();
         void get_kido(vector<st_kido>& vec_kido);
         int get_erfolgswert_kido();
+        int maxkidostil(const string& stufe);
         void show_kido();
         void stil_optionmenue();
         string  get_erfolgswert_zaubern(const styp& typ,const string& name);

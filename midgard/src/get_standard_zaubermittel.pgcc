@@ -29,7 +29,7 @@ float midgard_CG::get_standard_zaubermittel(const string& typs, const string& na
    char db_ergebnis[20];
    char query[200];
   exec sql end declare section;
-  snprintf(query,sizeof(query),"select %s from zauberwerk where name = '%s'",
+  snprintf(query,sizeof(query),"select coalesce(%s,'A') from zauberwerk where name = '%s'",
                typs.c_str(), name.c_str());
    Transaction tr;
    exec sql prepare zaub from :query ;

@@ -44,10 +44,10 @@ double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
    char query[200];
   exec sql end declare section;
   if (typ!="eBe")
-     snprintf(query,sizeof(query),"select coalesce(%s,'') from arkanum_zauber where name = '%s'",
+     snprintf(query,sizeof(query),"select coalesce(%s,'A') from arkanum_zauber where name = '%s'",
                typ.c_str(), zauber.c_str());
   if (typ=="eBe")
-     snprintf(query,sizeof(query),"select coalesce(%s,''), coalesce(p_element,''),\
+     snprintf(query,sizeof(query),"select coalesce(%s,'A'), coalesce(p_element,''),\
                coalesce(s_element,'') from arkanum_zauber where name = '%s'", \
                typ.c_str(), zauber.c_str());
 //cout << query<<"\n";
@@ -67,7 +67,6 @@ double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
          if (!strcmp(db_ergebnis,"G")) fac = 0.5; 
          if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
          if (!strcmp(db_ergebnis,"A")) fac = 5.0; 
-         if (!strcmp(db_ergebnis,""))  fac = 5.0; // Eigentlich unlernbarer Zauber
       }
    else
       {

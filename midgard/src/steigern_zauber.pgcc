@@ -243,7 +243,6 @@ void midgard_CG::on_clist_zaubermittel_alt_select_row(gint row, gint column, Gdk
       if (i->name==alt_zauber) {vec_zaubermittel.erase(i);break;}
 
    midgard_CG::zeige_werte(werte,"alle");
-//   midgard_CG::show_zaubermittel();
    midgard_CG::on_speichern_clicked();
    midgard_CG::show_alte_zaubermittel();
    midgard_CG::show_neue_zaubermittel();
@@ -287,13 +286,16 @@ void midgard_CG::show_neue_zaubermittel()
    char db_stufe[10];
    char query[1024];
  exec sql end declare section;
- snprintf(query,sizeof(query),"select z.name, z.kosten_gfp, z.stufe, z.art, \
-z.zeitaufwand, z.kosten, z.%s, coalesce(z.region,'') from zauberwerk z \
-where (%s = 'G' OR %s = 'S' OR %s = 'A') \
-AND name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
-WHERE charakter_name = '%s' AND version = '%s') order by art, stufe, name"
-,typ.s.c_str(),typ.s.c_str(),typ.s.c_str(),typ.s.c_str(),
-werte.name_charakter.c_str(),werte.version.c_str());
+ string alle_zauber="";
+ if (!checkbutton_alle_zauber->get_active() )
+    alle_zauber = " ("+typ.s+" = 'G' OR "+typ.s+" = 'S' OR "+typ.s+" = 'A') AND ";
+ string squery = "select z.name, z.kosten_gfp, z.stufe, coalesce(z.art,''), \
+   z.zeitaufwand, z.kosten, coalesce(z."+typ.s+",'A'), coalesce(z.region,'') from zauberwerk z \
+   where "+alle_zauber+" name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
+   WHERE charakter_name = '"+werte.name_charakter+"' \
+   AND version = '"+werte.version+"') order by art, stufe, name";
+
+ strncpy(query,squery.c_str(),sizeof(query));
 
  Transaction tr;
  exec sql prepare zauberm_ein_ from :query ;
@@ -308,9 +310,11 @@ werte.name_charakter.c_str(),werte.version.c_str());
      SQLerror::test(__FILELINE__,100);  
      if (sqlca.sqlcode) break;
      double fac= midgard_CG::get_standard_zaubermittel(typ.s,db_name);
+
 //     string standard = midgard_CG::Ausnahmen_string(db_name,db_standard);
      string art=db_art ;
-     if (   midgard_CG::zauberwerk_voraussetzung(db_name) 
+     if (  (midgard_CG::zauberwerk_voraussetzung(db_name) 
+            || checkbutton_alle_zauber->get_active() )
          && midgard_CG::region_check(db_region))
        {
          if (art=="AZ") art = "Alchimistisches Zaubermittel";

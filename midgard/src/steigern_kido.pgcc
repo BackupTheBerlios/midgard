@@ -71,6 +71,7 @@ void midgard_CG::show_neue_kido()
    char query[1024];
   exec sql end declare section;
   string stufe_constraint ="";
+
   // Stufe
   if (werte.grad<=4 || get_erfolgswert_kido()+werte.bo_za <=15)
       stufe_constraint += " and stufe != 'Eingeweihter' ";
@@ -81,6 +82,25 @@ void midgard_CG::show_neue_kido()
       stufe_constraint += " and stil != 'Sanfte Techniken' ";
   if (werte.spezialisierung=="Sanfte Techniken")
       stufe_constraint += " and stil != 'Harte Techniken' ";
+  // Maximale mögliche Techniken einer Stufe erreicht
+  if (werte.spezialisierung=="Harte Techniken" || werte.spezialisierung=="Sanfte Techniken")
+   {
+     if (maxkidostil("Schüler") >= 12 )
+         stufe_constraint += " and stufe != 'Schüler' ";
+     if (maxkidostil("Eingeweihter") >= 7 )
+         stufe_constraint += " and stufe != 'Eingeweihter' ";
+     if (maxkidostil("Meister") >= 3 )
+         stufe_constraint += " and stufe != 'Meister' ";
+   }
+  else
+   {
+     if (maxkidostil("Schüler") >= 11 )
+         stufe_constraint += " and stufe != 'Schüler' ";
+     if (maxkidostil("Eingeweihter") >= 6 )
+         stufe_constraint += " and stufe != 'Eingeweihter' ";
+     if (maxkidostil("Meister") >= 2 )
+         stufe_constraint += " and stufe != 'Meister' ";
+   }
 
   string squery = "SELECT name_orig from kido \
    where name_orig not in (SELECT fertigkeit FROM charaktere_fertigkeiten \
@@ -148,3 +168,14 @@ void midgard_CG::on_steigern_kido_clist_neu_select_row(gint row, gint column, Gd
   midgard_CG::show_neue_kido();
 }
 
+int midgard_CG::maxkidostil(const string& stufe)
+{
+  int count=0;
+  for (vector<st_kido>::const_iterator i=vec_kido.begin();
+      i!=vec_kido.end();++i)
+   {
+     if (i->stufe==stufe) ++count;
+   }
+cout << count<<"\n";
+return count;
+}
