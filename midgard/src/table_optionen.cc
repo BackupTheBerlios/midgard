@@ -7,9 +7,10 @@
 
 void table_optionen::init()
 {
- entry_html->set_text(Programmoptionen.getString(Magus_Optionen::html_viewer));
- entry_tmp_verz->set_text(Programmoptionen.getString(Magus_Optionen::tmppfad));
- entry_speicher_verz->set_text(Programmoptionen.getString(Magus_Optionen::speicherpfad));
+#warning besser als MVC realisieren
+ entry_html->set_text(Programmoptionen.getString(Magus_Optionen::html_viewer).Value());
+ entry_tmp_verz->set_text(Programmoptionen.getString(Magus_Optionen::tmppfad).Value());
+ entry_speicher_verz->set_text(Programmoptionen.getString(Magus_Optionen::speicherpfad).Value());
  spinbutton_datei_history->set_value(Programmoptionen.DateiHistory());
  
  frame_drucken->init();
