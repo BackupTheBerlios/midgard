@@ -102,7 +102,7 @@ bool Schrift::Mutterschrift(const Abenteurer& A) const
 static MidgardBasicElement::EP_t Schrift_EP=MidgardBasicElement::EP_t_undefined;
 
 Schrift::Schrift(const std::string& name,const Tag &t)
-      : MidgardBasicElement(name),
+      : MidgardBasicElement(name)
 {get_Schrift(t);get_map_typ();
  get_Steigern_Kosten_map();
    if (Schrift_EP==EP_t_undefined) Schrift_EP=EP_steigern("Schreiben");
@@ -111,15 +111,15 @@ Schrift::Schrift(const std::string& name,const Tag &t)
 
 cH_Schrift cH_Schrift::load(const std::string &name,const Tag &t)
 {  cH_Schrift *res=cache.lookup(name);
-   assert (!res)
+   assert (!res);
    {  cH_Schrift r2=new Schrift(name,t);
       cache.Register(name,r2);
       return r2;
    }
 }
 
-void Schrift_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
-{  FOR_EACH_CONST_TAG_OF(j,*i,"Variante")
+void Schriften_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  FOR_EACH_CONST_TAG_OF(j,t,"Variante")
    {  cH_Schrift z=cH_Schrift::load(j->getAttr("Name"),t);
       // das &* dient dazu um aus einem cH_Schrift ein cH_MBE zu machen
       list.push_back(&*z);
