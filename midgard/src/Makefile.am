@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.150 2002/04/23 20:18:10 thoma Exp $
+# $Id: Makefile.am,v 1.151 2002/04/24 09:39:47 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -9,11 +9,16 @@ EXTRA_PROGRAMS = midgard_xmlexport
 if WINDOWS
 RC_FILES=magus.rc registry.cc
 LINK_OPTIONS=-mwindows
+LINK_OBJS=magus_res.o
 # sigh! local installation menace
 WIN_INCLUDES=-I/usr/local/mingw/mingw32/include
+
+magus_res.o: magus.rc ; windres --include-dir /usr/local/mingw/mingw32/include  magus.rc magus_res.o
+
 else
 RC_FILES=
 LINK_OPTIONS=
+LINK_OBJS=
 WIN_INCLUDES=
 endif
 
@@ -97,7 +102,7 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
-magus_SOURCES = \
+magus_SOURCES = $(RC_FILES) \
    frame_globale_optionen.cc \
    Optionen.cc \
    table_optionen.cc \
@@ -197,12 +202,12 @@ magus_SOURCES = \
    dtos1.cc snprintf.c \
    Midgard_Undo.cc \
    Tag.cc TagStream.cc xml.cc export_common.cc \
-   ProgressBar.cc $(RC_FILES)
+   ProgressBar.cc 
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(WIN_INCLUDES)
 
-magus_LDADD = @LIBS@ @KOMPONENTEN_NODB_LIBS@
+magus_LDADD = $(LINK_OBJS) @LIBS@ @KOMPONENTEN_NODB_LIBS@
 
 midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
 
@@ -252,3 +257,4 @@ midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	rm .deps/$(*F).pp
 
 endif
+
