@@ -2505,26 +2505,6 @@
 
 		  <widget>
 		    <class>GtkCheckButton</class>
-		    <name>checkbutton_info_fenster</name>
-		    <x>96</x>
-		    <y>0</y>
-		    <width>0</width>
-		    <height>0</height>
-		    <cxx_visibility>public</cxx_visibility>
-		    <tooltip>Anzeige/keine Anzeige des Info Fensters</tooltip>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_checkbutton_info_fenster_toggled</handler>
-		      <last_modification_time>Wed, 21 Mar 2001 07:26:33 GMT</last_modification_time>
-		    </signal>
-		    <label>Info fenster</label>
-		    <active>True</active>
-		    <draw_indicator>True</draw_indicator>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
 		    <name>checkbutton_original</name>
 		    <x>0</x>
 		    <y>0</y>
@@ -2539,6 +2519,26 @@
 		      <last_modification_time>Sun, 17 Jun 2001 12:18:53 GMT</last_modification_time>
 		    </signal>
 		    <label>Originalregeln</label>
+		    <active>True</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_info_fenster</name>
+		    <x>96</x>
+		    <y>0</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>public</cxx_visibility>
+		    <tooltip>Anzeige/keine Anzeige des Info Fensters</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_info_fenster_toggled</handler>
+		      <last_modification_time>Wed, 21 Mar 2001 07:26:33 GMT</last_modification_time>
+		    </signal>
+		    <label>Info fenster</label>
 		    <active>True</active>
 		    <draw_indicator>True</draw_indicator>
 		  </widget>
@@ -4404,44 +4404,6 @@ würfeln</label>
 		<column_spacing>0</column_spacing>
 
 		<widget>
-		  <class>GtkToolbar</class>
-		  <name>toolbar14</name>
-		  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-		  <type>GTK_TOOLBAR_BOTH</type>
-		  <space_size>5</space_size>
-		  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-		  <relief>GTK_RELIEF_NORMAL</relief>
-		  <tooltips>True</tooltips>
-		  <child>
-		    <left_attach>3</left_attach>
-		    <right_attach>4</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>False</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button43</name>
-		    <signal>
-		      <name>clicked</name>
-		      <handler>on_fertigkeiten_laden_clicked</handler>
-		      <last_modification_time>Mon, 02 Apr 2001 10:43:14 GMT</last_modification_time>
-		    </signal>
-		    <label>Fertigkeiten laden</label>
-		    <icon>LoadSkills-trans-50.xpm</icon>
-		  </widget>
-		</widget>
-
-		<widget>
 		  <class>GtkFrame</class>
 		  <name>frame43</name>
 		  <label_xalign>0</label_xalign>
@@ -4873,6 +4835,63 @@ Praxispunkten</label>
 			<last_modification_time>Wed, 20 Jun 2001 14:55:18 GMT</last_modification_time>
 		      </widget>
 		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkToolbar</class>
+		  <name>toolbar14</name>
+		  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+		  <type>GTK_TOOLBAR_BOTH</type>
+		  <space_size>10</space_size>
+		  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
+		  <relief>GTK_RELIEF_NORMAL</relief>
+		  <tooltips>True</tooltips>
+		  <child>
+		    <left_attach>3</left_attach>
+		    <right_attach>4</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
+		    <name>button43</name>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_fertigkeiten_laden_clicked</handler>
+		      <last_modification_time>Mon, 02 Apr 2001 10:43:14 GMT</last_modification_time>
+		    </signal>
+		    <label>Fertigkeiten
+laden</label>
+		    <icon>LoadSkills-trans-50.xpm</icon>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
+		    <name>button_fertigkeiten_sort</name>
+		    <tooltip>Die gelernten Fertigkeiten werden in der aktuellen Reinfolge für den Ausdruck sortiert</tooltip>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_button_fertigkeiten_sort_clicked</handler>
+		      <last_modification_time>Tue, 31 Jul 2001 19:08:10 GMT</last_modification_time>
+		    </signal>
+		    <label>Fertigkeiten
+sortieren</label>
+		    <icon>Skills-trans-50.xpm</icon>
+		    <child>
+		      <new_group>True</new_group>
+		    </child>
 		  </widget>
 		</widget>
 	      </widget>
@@ -5529,7 +5548,7 @@ Praxispunkten</label>
 		  <name>toolbar4</name>
 		  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
 		  <type>GTK_TOOLBAR_BOTH</type>
-		  <space_size>5</space_size>
+		  <space_size>10</space_size>
 		  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
 		  <relief>GTK_RELIEF_NORMAL</relief>
 		  <tooltips>True</tooltips>
@@ -5559,6 +5578,23 @@ Praxispunkten</label>
 		    </signal>
 		    <label>Waffen laden</label>
 		    <icon>LoadWeapon-trans-50.xpm</icon>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
+		    <name>button_waffen_sort</name>
+		    <tooltip>Die gelernten Waffen werden in der aktuellen Reinfolge für den Ausdruck sortiert</tooltip>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_button_waffen_sort_clicked</handler>
+		      <last_modification_time>Sat, 04 Aug 2001 14:39:52 GMT</last_modification_time>
+		    </signal>
+		    <label>Waffen sortieren</label>
+		    <icon>Weapon-trans-50.xpm</icon>
+		    <child>
+		      <new_group>True</new_group>
+		    </child>
 		  </widget>
 		</widget>
 
@@ -5924,7 +5960,7 @@ Praxispunkten</label>
 			<name>toolbar10</name>
 			<orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
 			<type>GTK_TOOLBAR_BOTH</type>
-			<space_size>5</space_size>
+			<space_size>10</space_size>
 			<space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
 			<relief>GTK_RELIEF_NORMAL</relief>
 			<tooltips>True</tooltips>
@@ -5954,6 +5990,39 @@ Praxispunkten</label>
 			  </signal>
 			  <label>Zauber laden</label>
 			  <icon>LoadZaub-trans-50.xpm</icon>
+			</widget>
+
+			<widget>
+			  <class>GtkButton</class>
+			  <child_name>Toolbar:button</child_name>
+			  <name>button_zauber_sort</name>
+			  <tooltip>Die gelernten Zauber werden in der aktuellen Reinfolge für den Ausdruck sortiert</tooltip>
+			  <signal>
+			    <name>clicked</name>
+			    <handler>on_button_zauber_sort_clicked</handler>
+			    <last_modification_time>Sat, 04 Aug 2001 14:38:39 GMT</last_modification_time>
+			  </signal>
+			  <label>Zauber
+sortieren</label>
+			  <icon>Zauber-trans-50.xpm</icon>
+			  <child>
+			    <new_group>True</new_group>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkButton</class>
+			  <child_name>Toolbar:button</child_name>
+			  <name>button_zaubermittel_sort</name>
+			  <tooltip>Die gelernten Zaubermittel werden in der aktuellen Reinfolge für den Ausdruck sortiert</tooltip>
+			  <signal>
+			    <name>clicked</name>
+			    <handler>on_button_zaubermittel_sort_clicked</handler>
+			    <last_modification_time>Sat, 04 Aug 2001 14:50:17 GMT</last_modification_time>
+			  </signal>
+			  <label>Zaubermittel
+sortieren</label>
+			  <icon>Zauber-trans-50.xpm</icon>
 			</widget>
 		      </widget>
 
@@ -6204,8 +6273,8 @@ Praxispunkten</label>
 			      <last_modification_time>Wed, 20 Jun 2001 17:07:25 GMT</last_modification_time>
 			    </signal>
 			    <creation_function>SimpleTree</creation_function>
-			    <int1>3</int1>
-			    <int2>3</int2>
+			    <int1>4</int1>
+			    <int2>4</int2>
 			    <last_modification_time>Wed, 20 Jun 2001 09:42:43 GMT</last_modification_time>
 			  </widget>
 			</widget>
@@ -6467,7 +6536,7 @@ Praxispunkten</label>
 			<name>toolbar34</name>
 			<orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
 			<type>GTK_TOOLBAR_BOTH</type>
-			<space_size>5</space_size>
+			<space_size>10</space_size>
 			<space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
 			<relief>GTK_RELIEF_NORMAL</relief>
 			<tooltips>True</tooltips>
@@ -6497,6 +6566,23 @@ Praxispunkten</label>
 			  </signal>
 			  <label>Techniken laden</label>
 			  <icon>Load-Kido-trans-50.xpm</icon>
+			</widget>
+
+			<widget>
+			  <class>GtkButton</class>
+			  <child_name>Toolbar:button</child_name>
+			  <name>button_kido_sort</name>
+			  <tooltip>Die gelernten Technicken werden in der aktuellen Reinfolge für den Ausdruck sortiert</tooltip>
+			  <signal>
+			    <name>clicked</name>
+			    <handler>on_button_kido_sort_clicked</handler>
+			    <last_modification_time>Sat, 04 Aug 2001 14:40:47 GMT</last_modification_time>
+			  </signal>
+			  <label>Techniken sortieren</label>
+			  <icon>KiDo-trans-50.xpm</icon>
+			  <child>
+			    <new_group>True</new_group>
+			  </child>
 			</widget>
 		      </widget>
 		    </widget>
@@ -6880,7 +6966,7 @@ Praxispunkten</label>
 		  <name>toolbar9</name>
 		  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
 		  <type>GTK_TOOLBAR_BOTH</type>
-		  <space_size>5</space_size>
+		  <space_size>10</space_size>
 		  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
 		  <relief>GTK_RELIEF_NORMAL</relief>
 		  <tooltips>True</tooltips>
@@ -6908,8 +6994,27 @@ Praxispunkten</label>
 		      <handler>on_sprache_laden_clicked</handler>
 		      <last_modification_time>Mon, 02 Apr 2001 06:27:49 GMT</last_modification_time>
 		    </signal>
-		    <label>Sprachen &amp; Schriften laden</label>
+		    <label>Sprachen &amp; Schriften 
+laden</label>
 		    <icon>LoadLang_u_Font-trans-50.xpm</icon>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
+		    <name>button_sprache_sort</name>
+		    <tooltip>Die gelernten Sprachen werden in der aktuellen Reinfolge für den Ausdruck sortiert</tooltip>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_button_sprache_sort_clicked</handler>
+		      <last_modification_time>Sat, 04 Aug 2001 14:42:03 GMT</last_modification_time>
+		    </signal>
+		    <label>Sprachen 
+sortieren</label>
+		    <icon>Lang-trans-50.xpm</icon>
+		    <child>
+		      <new_group>True</new_group>
+		    </child>
 		  </widget>
 		</widget>
 

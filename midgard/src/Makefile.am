@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.39 2001/06/30 20:30:06 thoma Exp $
+# $Id: Makefile.am,v 1.40 2001/08/04 17:58:00 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -63,11 +63,11 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
-BUILT_SOURCES_CG = get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
+BUILT_SOURCES_CG =   steigern_fertigkeiten.cc  steigern_zauber.cc steigern_waffen.cc \
+   get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  Zauber_get_daten.cc get_standard_zauber.cc \
    get_standard_fertigkeit.cc get_standard_waffen.cc Berufe_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \
-   steigern_zauber.cc steigern_fertigkeiten.cc steigern_waffen.cc \
    get_typ.cc get_spezial_zauber.cc  Window_charakter_auswahl.cc \
    praxispunkte_wuerfeln.cc steigern_sprache.cc sprachen_schrift.cc \
    Sprache_auswahl.cc Window_herkunft.cc midgard_CG_ruestung.cc \
@@ -81,7 +81,7 @@ BUILT_SOURCES_CG = get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.c
 BUILT_SOUCES_XMLE=xmlexport.cc
 BUILT_SOUCES_XMLI=xmlimport.cc
 
-BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE) $(BUILT_SOUCES_XMLI)
+BUILT_SOURCES= $(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE) $(BUILT_SOUCES_XMLI)
 
 midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
@@ -156,6 +156,7 @@ CXXFLAGS = @CXXFLAGS@ @COMMONXX_INCLUDES@ \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
 
 midgard_LDADD = @LIBS@ @COMMONXX_LIBS@ @COMMONGTK_LIBS@ @KOMPONENTEN_LIBS@
+
 
 midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
 midgard_xmlimport_LDADD = @LIBS@ @COMMONXX_LIBS@

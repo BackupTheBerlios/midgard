@@ -15,25 +15,28 @@ class Data_kido : public RowDataBase
        : hoho(h),name(n),stufe(s1),ap(a),kosten(k),stil(s) {}
    Data_kido(const std::string& h) : hoho(h),ap(0),kosten(0) {}
 
+   enum Spalten_A {HOHOa,NAMEa,STUFEa,APa,KOSTENa,STILa,} ;
+//   enum Spalten_N {HOHOn,NAMEn,STUFEn,APn,KOSTENn,STILn,} ;
+
    virtual const cH_EntryValue Value(guint seqnr, gpointer gp) const
     { 
       if (reinterpret_cast<int>(gp)=='A')
       switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(hoho);
-         case 1 : return cH_EntryValueIntString(name);
-         case 2 : return cH_EntryValueIntString(stufe);
-         case 3 : return cH_EntryValueEmptyInt(ap);
-         case 4 : return cH_EntryValueEmptyInt(kosten);
-         case 5 : return cH_EntryValueIntString(stil); 
+         case HOHOa    : return cH_EntryValueIntString(hoho);
+         case NAMEa    : return cH_EntryValueIntString(name);
+         case STUFEa   : return cH_EntryValueIntString(stufe);
+         case APa      : return cH_EntryValueEmptyInt(ap);
+         case KOSTENa  : return cH_EntryValueEmptyInt(kosten);
+         case STILa    : return cH_EntryValueIntString(stil); 
         }
       if (reinterpret_cast<int>(gp)=='N')
       switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(hoho);
-         case 1 : return cH_EntryValueIntString(name);
-         case 2 : return cH_EntryValueIntString(stufe);
-         case 3 : return cH_EntryValueEmptyInt(ap);
-         case 4 : return cH_EntryValueEmptyInt(kosten);
-         case 5 : return cH_EntryValueIntString(stil); 
+         case HOHOa    : return cH_EntryValueIntString(hoho);
+         case NAMEa    : return cH_EntryValueIntString(name);
+         case STUFEa   : return cH_EntryValueIntString(stufe);
+         case APa      : return cH_EntryValueEmptyInt(ap);
+         case KOSTENa  : return cH_EntryValueEmptyInt(kosten);
+         case STILa    : return cH_EntryValueIntString(stil); 
         }
    return cH_EntryValueIntString("?");
  }
@@ -61,6 +64,24 @@ protected:
 public:
  H_Data_kido(Data_kido *r) : Handle<Data_kido>(r){}
 };
+
+class Data_kido_sort_hoho
+{ public: bool operator() (H_Data_kido x,H_Data_kido y) const
+   {return x->Hoho() < y->Hoho(); }};
+class Data_kido_sort_name
+{ public: bool operator() (H_Data_kido x,H_Data_kido y) const
+   {return x->Name() < y->Name(); }};
+class Data_kido_sort_stufe
+{ public: bool operator() (H_Data_kido x,H_Data_kido y) const
+   {return x->Stufe() < y->Stufe(); }};
+class Data_kido_sort_ap
+{ public: bool operator() (H_Data_kido x,H_Data_kido y) const
+   {return x->Ap() < y->Ap(); }};
+class Data_kido_sort_stil
+{ public: bool operator() (H_Data_kido x,H_Data_kido y) const
+   {return x->Stil() < y->Stil(); }};
+
+
 #endif
 
 

@@ -93,6 +93,30 @@ void midgard_CG::on_radio_sprache_verlernen_toggled()
 {   
 }   
 
+void midgard_CG::on_button_sprache_sort_clicked()
+{
+  std::deque<guint> seq = alte_sprache_tree->get_seq();
+  std::vector<H_Data_sprache>::iterator IB=vec_Sprachen.begin();
+  std::vector<H_Data_sprache>::iterator IE=vec_Sprachen.end();   
+  switch((Data_sprache::Spalten_A)seq[0]) {
+      case Data_sprache::NAMEa : sort(IB,IE,Data_sprache_sort_name()); ;break;
+      case Data_sprache::WERTa : sort(IB,IE,Data_sprache_sort_wert()); ;break;
+      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+   }
+}
+/*
+void midgard_CG::on_button_schrift_sort_clicked()
+{
+  std::deque<guint> seq = alte_schrift_tree->get_seq();
+  std::vector<H_Data_schrift>::iterator IB=vec_Schreiften.begin();
+  std::vector<H_Data_schrift>::iterator IE=vec_Schriften.end();   
+  switch((Data_schrift::Spalten_A)seq[0]) {
+      case Data_schrift::NAMEa : sort(IB,IE,Data_schrift_sort_name()); ;break;
+      case Data_schrift::WERTa : sort(IB,IE,Data_schrift_sort_wert()); ;break;
+      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+   }
+}
+*/
 
 void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  const Data_schrift *dt=dynamic_cast<const Data_schrift*>(&*d);  

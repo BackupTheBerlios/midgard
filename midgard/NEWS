@@ -1,4 +1,14 @@
 ##########################################################################
+NEWS IN VERSION 0.7beta3
+- Anzeige der Charakterklasse nach dem Laden ging nicht
+- Anzeige der Grundkenntnisse funktionierte nicht
+- Körperbemalung ist eine Rawindi-fertigkeit
+- Heraldik ist eine B&W-fertigkeit
+- Eine größer Neuerung: Die Fertigkeiten, Zauber, Waffen, KiDo-Techniken,
+   Zaubermittel, Sprachen können jetzt nach (fast) beliebigen Kriterien
+   sortiert werden.
+
+##########################################################################
 NEWS IN VERSION 0.7beta2
 - Eine Handvoll Bugs beseitigt (Dank an Joachim fürs Melden derselben)
 

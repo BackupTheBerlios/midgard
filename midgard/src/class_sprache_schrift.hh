@@ -15,22 +15,24 @@ class Data_sprache : public RowDataBase
      Data_sprache(const std::string& n,int w, int s, int r, int v)
        :name(n),wert(w),steigern(s),reduzieren(r),verlernen(v),kosten(0) {}
 
+  enum Spalten_A {NAMEa,WERTa,STEIGERN,REDUZIEREN,VERLERNEN} ;
+  enum Spalten_N {NAMEn,URSCHRIFT,KOSTEN} ;
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
      if (reinterpret_cast<int>(gp)=='A')
       switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(name);
-         case 1 : return cH_EntryValueEmptyInt(wert);
-         case 2 : return cH_EntryValueEmptyInt(steigern);
-         case 3 : return cH_EntryValueEmptyInt(reduzieren);
-         case 4 : return cH_EntryValueEmptyInt(verlernen);
+         case NAMEa : return cH_EntryValueIntString(name);
+         case WERTa : return cH_EntryValueEmptyInt(wert);
+         case STEIGERN : return cH_EntryValueEmptyInt(steigern);
+         case REDUZIEREN : return cH_EntryValueEmptyInt(reduzieren);
+         case VERLERNEN : return cH_EntryValueEmptyInt(verlernen);
         }
      else if (reinterpret_cast<int>(gp)=='N')
       switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(name);
-         case 1 : return cH_EntryValueIntString(urschrift);
-         case 2 : return cH_EntryValueEmptyInt(kosten);
+         case NAMEn : return cH_EntryValueIntString(name);
+         case URSCHRIFT : return cH_EntryValueIntString(urschrift);
+         case KOSTEN : return cH_EntryValueEmptyInt(kosten);
         }
      return cH_EntryValueIntString("?");
     }
@@ -55,6 +57,14 @@ public:
  H_Data_sprache(Data_sprache *r) : Handle<Data_sprache>(r){}
 };
 
+class Data_sprache_sort_name 
+{ public : bool operator() (H_Data_sprache x, H_Data_sprache y) const
+      { return x->Name() < y->Name();}};
+class Data_sprache_sort_wert 
+{ public : bool operator() (H_Data_sprache x, H_Data_sprache y) const
+      { return x->Wert() < y->Wert();}};
+
+
 ///////////////////////////////////////////////////////////////////////////
 class Data_schrift : public RowDataBase
 {  
@@ -66,20 +76,21 @@ class Data_schrift : public RowDataBase
    Data_schrift(const std::string& u,const std::string& a)
        :urschrift(u),art(a),kosten(0) {}
 
+  enum Spalten_A {NAMEa,WERTa,KOSTENa} ;
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
      if (reinterpret_cast<int>(gp)=='A')
       switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(urschrift);
-         case 1 : return cH_EntryValueIntString(art);
-         case 2 : return cH_EntryValueEmptyInt(kosten);
+         case NAMEa : return cH_EntryValueIntString(urschrift);
+         case WERTa : return cH_EntryValueIntString(art);
+         case KOSTENa : return cH_EntryValueEmptyInt(kosten);
         }
      else if (reinterpret_cast<int>(gp)=='N')
       switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(urschrift);
-         case 1 : return cH_EntryValueIntString(art);
-         case 2 : return cH_EntryValueEmptyInt(kosten);
+         case NAMEa : return cH_EntryValueIntString(urschrift);
+         case WERTa : return cH_EntryValueIntString(art);
+         case KOSTENa : return cH_EntryValueEmptyInt(kosten);
         }
      return cH_EntryValueIntString("?");
     }

@@ -45,6 +45,20 @@ void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
 }
 
 
+void midgard_CG::on_button_kido_sort_clicked()
+{
+  std::deque<guint> seq = alte_kido_tree->get_seq();
+  std::vector<H_Data_kido>::iterator IB=vec_Kido.begin();
+  std::vector<H_Data_kido>::iterator IE=vec_Kido.end();  
+  switch((Data_kido::Spalten_A)seq[0]) {
+      case Data_kido::HOHOa  : sort(IB,IE,Data_kido_sort_hoho()); ;break;
+      case Data_kido::NAMEa  : sort(IB,IE,Data_kido_sort_name()); ;break;
+      case Data_kido::STUFEa : sort(IB,IE,Data_kido_sort_stufe()); ;break;
+      case Data_kido::APa    : sort(IB,IE,Data_kido_sort_ap()); ;break;
+      case Data_kido::STILa  : sort(IB,IE,Data_kido_sort_stil()); ;break;
+      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+   }
+}
 
 void midgard_CG::show_alte_kido()
 {

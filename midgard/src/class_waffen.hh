@@ -26,21 +26,23 @@ class Data_waffen : public RowDataBase
    Data_waffen(const std::string& n, int w,int s,int r)
       :name(n),av_bonus(0),sl_bonus(0),erfolgswert(w),lernkosten(0),steigern(s),reduzieren(r),verlernen(0),lernpunkte(0) {}
 
+   enum Spalten_A {NAMEa,WERTa,STEIGERN,REDUZIEREN} ;
+   enum Spalten_N {NAMEn,WERTn,VORAUSSETZUNG} ;
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
       if (reinterpret_cast<int>(gp)=='A')
        switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(name);
-         case 1 : return cH_EntryValueEmptyInt(erfolgswert); 
-         case 2 : return cH_EntryValueEmptyInt(steigern);
-         case 3 : return cH_EntryValueEmptyInt(reduzieren);
+         case NAMEa : return cH_EntryValueIntString(name);
+         case WERTa : return cH_EntryValueEmptyInt(erfolgswert); 
+         case STEIGERN : return cH_EntryValueEmptyInt(steigern);
+         case REDUZIEREN : return cH_EntryValueEmptyInt(reduzieren);
         }
       if (reinterpret_cast<int>(gp)=='N')
        switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(name);
-         case 1 : return cH_EntryValueEmptyInt(erfolgswert); 
-         case 2 : return cH_EntryValueIntString(voraussetzung);
+         case NAMEn : return cH_EntryValueIntString(name);
+         case WERTn : return cH_EntryValueEmptyInt(erfolgswert); 
+         case VORAUSSETZUNG : return cH_EntryValueIntString(voraussetzung);
         }
       return cH_EntryValueIntString("?");
     }
@@ -103,6 +105,12 @@ class Data_grund : public RowDataBase
  int Kosten() const {  return kosten; }
 };
 
+class Data_waffen_sort_name 
+{ public : bool operator() (H_Data_waffen x, H_Data_waffen y) const
+      { return x->Name() < y->Name();}};
+class Data_waffen_sort_wert
+{ public : bool operator() (H_Data_waffen x, H_Data_waffen y) const   
+      { return x->Erfolgswert() < y->Erfolgswert();}}; 
 
 
 

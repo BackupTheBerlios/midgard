@@ -34,7 +34,6 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
   midgard_CG::on_speichern_clicked();
   midgard_CG::show_alte_fertigkeiten();
   midgard_CG::show_neue_fertigkeiten();
-   
 }
 
 
@@ -108,6 +107,20 @@ void midgard_CG::show_alte_fertigkeiten()
       }
  alte_fert_tree->setDataVec(datavec);  
 }
+
+void midgard_CG::on_button_fertigkeiten_sort_clicked()
+{
+  std::deque<guint> seq = alte_fert_tree->get_seq();
+  std::vector<H_Data_fert>::iterator IB=vec_Fertigkeiten.begin();
+  std::vector<H_Data_fert>::iterator IE=vec_Fertigkeiten.end();
+  switch((Data_fert::Spalten_A)seq[0]) {
+      case Data_fert::NAMEa : sort(IB,IE,Data_fert_sort_name()); ;break;
+      case Data_fert::WERTa : sort(IB,IE,Data_fert_sort_wert()); ;break;
+      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+   }
+}
+
+
 
 void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
@@ -270,6 +283,8 @@ void midgard_CG::on_steigern_fert_tree_neu_select(const std::string& fertigkeit,
 void midgard_CG::on_radio_fert_steigern_toggled()
 {
 }
+
+
 
 void midgard_CG::on_radio_fert_reduzieren_toggled()
 {

@@ -4,6 +4,8 @@
 #include <Aux/EntryValueEmptyInt.h>
 #include <Aux/EntryValueIntString.h>
 
+
+
 class Data_fert : public RowDataBase
 {
    std::string name;
@@ -21,23 +23,26 @@ class Data_fert : public RowDataBase
       :name(n),wert(w),lernkosten(fp),steigern(0),reduzieren(0),verlernen(0),voraussetzungen(v),attribut(a),pflicht(p),lernpunkte(L) {}   
 
 
+   enum Spalten_A {NAMEa,WERTa,STEIGERN,REDUZIEREN,VERLERNEN} ;
+   enum Spalten_N {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
+
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
       if (reinterpret_cast<int>(gp)=='A')
-       switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(name);
-         case 1 : return cH_EntryValueEmptyInt(wert); 
-         case 2 : return cH_EntryValueEmptyInt(steigern);
-         case 3 : return cH_EntryValueEmptyInt(reduzieren);
-         case 4 : return cH_EntryValueEmptyInt(verlernen); 
+       switch((Spalten_A)seqnr) {
+         case NAMEa : return cH_EntryValueIntString(name);
+         case WERTa : return cH_EntryValueEmptyInt(wert); 
+         case STEIGERN : return cH_EntryValueEmptyInt(steigern);
+         case REDUZIEREN : return cH_EntryValueEmptyInt(reduzieren);
+         case VERLERNEN : return cH_EntryValueEmptyInt(verlernen); 
         }
       if (reinterpret_cast<int>(gp)=='N')
-       switch (seqnr) {
-         case 0 : return cH_EntryValueIntString(name);
-         case 1 : return cH_EntryValueEmptyInt(wert); 
-         case 2 : return cH_EntryValueEmptyInt(lernkosten);
-         case 3 : return cH_EntryValueIntString(art);
-         case 4 : return cH_EntryValueIntString(voraussetzungen);
+       switch ((Spalten_N)seqnr) {
+         case NAMEn : return cH_EntryValueIntString(name);
+         case WERTn : return cH_EntryValueEmptyInt(wert); 
+         case LERNKOSTEN : return cH_EntryValueEmptyInt(lernkosten);
+         case ART : return cH_EntryValueIntString(art);
+         case VORAUSSETZUNGEN : return cH_EntryValueIntString(voraussetzungen);
         }
       return cH_EntryValueIntString("?");
     }
@@ -56,15 +61,38 @@ class Data_fert : public RowDataBase
 
  void set_Erfolgswert(int i) {wert=i;}
  void set_Lernpunkte(int i) {lernpunkte=i;}
+
+/*
+ // Prädikate
+//  Data_fert_sort_name(const Data_fert& d) : name(d.Name()) {}
+      bool operator == (const Data_fert& b) const
+         {return Name()==b.Name();}
+      bool operator < (const Data_fert& b) const
+         {return Name()<b.Name();}
+*/
 };
 
 class H_Data_fert : public Handle<Data_fert>
 {
 protected:
+// Data_fert *rc;
  H_Data_fert() {}
 public:
- H_Data_fert(Data_fert *r) : Handle<Data_fert>(r){}
+ H_Data_fert(Data_fert *r) : Handle<Data_fert>(r) {}//,rc(r){}
+/*
+   bool operator == (const Data_fert& b) const
+         {return rc->Name()==b.Name();}
+   bool operator < (const Data_fert& b) const
+         {return rc->Name()<b.Name();}
+*/
 };
 
+
+class Data_fert_sort_name 
+{ public : bool operator() (H_Data_fert x, H_Data_fert y) const
+      { return x->Name() < y->Name();}};
+class Data_fert_sort_wert 
+{ public : bool operator() (H_Data_fert x, H_Data_fert y) const
+      { return x->Erfolgswert() < y->Erfolgswert();}};
 
 #endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.53 2001/07/05 09:17:28 thoma Exp $
+// $Id: midgard_CG.hh,v 1.54 2001/08/04 17:58:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -88,6 +88,7 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_zauber> vec_Zauber;
         std::vector<H_Data_zaubermittel> vec_Zaubermittel;
         std::vector<H_Data_kido> vec_Kido;
+
         bool kido_bool;
         int maxkido;
         bool magie_bool;
@@ -204,6 +205,7 @@ class midgard_CG : public midgard_CG_glade
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
         void show_neue_fertigkeiten();
         void on_leaf_selected_neue_fert(cH_RowDataBase d);
+        void on_button_fertigkeiten_sort_clicked();
         void on_radio_fert_steigern_toggled();
         void on_radio_fert_reduzieren_toggled();
         void on_radio_fert_verlernen_toggled();
@@ -227,6 +229,7 @@ class midgard_CG : public midgard_CG_glade
         void on_leaf_selected_neue_waffen(cH_RowDataBase d);
         void on_steigern_waffen_tree_alt_select(const std::string& waffe, int erfolgswert, int steigern, int reduzieren);
         void on_steigern_waffen_tree_neu_select(const std::string&  name, int erfolgswert);
+        void on_button_waffen_sort_clicked();
         void on_radio_waffen_steigern_toggled();
         void on_radio_waffen_reduzieren_toggled();
         void on_togglebutton_praxispunkte_waffen_toggled();
@@ -257,6 +260,8 @@ class midgard_CG : public midgard_CG_glade
         void get_Zaubermittel(std::vector<H_Data_zaubermittel>& vec_Zaubermittel);
         float get_standard_zaubermittel(const Data_typen& Typ,const Data_typen& Typ2,const std::string& name);
         bool zauberwerk_voraussetzung(const std::string& name);
+        void on_button_zauber_sort_clicked();
+        void on_button_zaubermittel_sort_clicked();
 
         void on_kido_laden_clicked();
         void on_leaf_selected_alte_kido(cH_RowDataBase d);
@@ -265,6 +270,7 @@ class midgard_CG : public midgard_CG_glade
         void on_steigern_kido_tree_neu_select(const std::string& name,int kosten);
         void show_alte_kido();
         void show_neue_kido();
+        void on_button_kido_sort_clicked();
 
 
         void on_sprache_laden_clicked();
@@ -284,6 +290,8 @@ class midgard_CG : public midgard_CG_glade
         void show_alte_sprachen();
         void show_neue_sprachen();
         void sprachen_schrift();
+        void on_button_sprache_sort_clicked();
+        void on_button_schrift_sort_clicked();
         void show_gtk();
         void get_typ_after_load();
         void get_optionmenu_typ_nr();
