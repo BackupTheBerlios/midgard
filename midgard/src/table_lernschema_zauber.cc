@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.8 2002/10/01 10:09:14 thoma Exp $
+// $Id: table_lernschema_zauber.cc,v 1.9 2002/10/31 10:36:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,15 +23,6 @@
 #include "midgard_CG.hh"
 #include "LernListen.hh"
 
-/*
-void table_lernschema::angeborene_zauber()
-{
- if (Typ[0]->Short()=="eBe" || Typ[1]->Short()=="eBe" || Typ[0]->Short()=="dBe" || Typ[1]->Short()=="dBe" ) 
-    list_Zauber.push_back(&*cH_Zauber("Lehrersuche"));
- if (hauptfenster->getWerte().Spezies()->Name()=="Elf") 
-    list_Zauber.push_back(&*cH_Zauber("Erkennen der Aura"));
-}
-*/
 
 void table_lernschema::show_magier_spezialgebiet(bool show)
 {
@@ -70,3 +61,6 @@ gint table_lernschema::on_combo_magier_spezialgebiet_focus_out_event(GdkEventFoc
   return false;
 }
 
+void table_lernschema::on_combo_magier_changed()
+{
+}

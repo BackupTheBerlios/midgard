@@ -159,5 +159,7 @@ private:
         void on_togglebutton_gelernte_anzeigen_toggled();
         void on_togglebutton_einschraenkungen_zusatz_anzeigen_toggled();
         gint on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev);
+        void on_combo_magier_changed();
+        void on_combo_kido_stil_changed();
 };
 #endif

@@ -6496,6 +6496,11 @@ editieren</label>
 			  <handler>on_combo_kido_stil_focus_out_event</handler>
 			  <last_modification_time>Mon, 27 May 2002 13:11:09 GMT</last_modification_time>
 			</signal>
+			<signal>
+			  <name>changed</name>
+			  <handler>on_combo_kido_stil_changed</handler>
+			  <last_modification_time>Thu, 31 Oct 2002 07:40:13 GMT</last_modification_time>
+			</signal>
 			<editable>True</editable>
 			<text_visible>True</text_visible>
 			<text_max_length>0</text_max_length>
@@ -6870,6 +6875,11 @@ auswählen</label>
 		      <name>focus_out_event</name>
 		      <handler>on_combo_magier_spezialgebiet_focus_out_event</handler>
 		      <last_modification_time>Mon, 27 May 2002 13:13:26 GMT</last_modification_time>
+		    </signal>
+		    <signal>
+		      <name>changed</name>
+		      <handler>on_combo_magier_changed</handler>
+		      <last_modification_time>Thu, 31 Oct 2002 07:38:26 GMT</last_modification_time>
 		    </signal>
 		    <editable>True</editable>
 		    <text_visible>True</text_visible>

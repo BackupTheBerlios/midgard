@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.13 2002/10/25 06:49:10 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.14 2002/10/31 10:36:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -102,3 +102,6 @@ gint table_lernschema::on_combo_kido_stil_focus_out_event(GdkEventFocus *ev)
 
         
 
+void table_lernschema::on_combo_kido_stil_changed()
+{
+}

@@ -48,6 +48,7 @@ void midgard_CG::xml_import_history(const std::string datei)
 
 void midgard_CG::xml_import(const std::string& datei)
 {
+   on_wizard_beenden_activate();
    std::ifstream fi(datei.c_str());
    table_grundwerte->combo_spezies->set_sensitive(false);
    Char.push_back();
