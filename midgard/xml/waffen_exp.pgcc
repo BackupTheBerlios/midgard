@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.6 2001/11/20 07:22:37 christof Exp $
+// $Id: waffen_exp.pgcc,v 1.7 2001/11/20 07:28:50 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -103,7 +103,6 @@ void waffen_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "fern");
    o << "/>\n";
 
-   if (grund==waffe)
  //************************* waffen_region_name ************************  
    {  exec sql begin declare section;
       const char *WAFFE=waffe.c_str(GARNIX);
