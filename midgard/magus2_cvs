@@ -1,13 +1,11 @@
 #!/bin/sh
 
-GTKMM1="-r GTKMM1"
-SIGC10="--enable-sigc1-0"
+HEAD=-A
 
 login() {
   echo ========= Logging in ======
   echo Bitte zweimal Return drücken
   cvs -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc login
-#  cvs -d :pserver:anonymous@anoncvs.gnome.org:/cvs/gnome login
   cvs -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard login
 }
 
@@ -16,35 +14,29 @@ checkout() {
   cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co ManuProC_Base
   
   echo ========== GtkmmAddons ========
-  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co $GTKMM1 GtkmmAddons
+  cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co GtkmmAddons
   
   echo ========  ManuProC_Widgets ========
-  cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co $GTKMM1 ManuProC_Widgets
-  
-#  echo =========== Midgard-Postgres ========
-#  echo not needed?
-#  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard-postgres
+  cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co ManuProC_Widgets
   
   echo ============ Magus ========
-  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co $GTKMM1 midgard
+  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard
 }
 
 update() {
   echo ========  ManuProC_Base ========
   ( cd ManuProC_Base && cvs -z3 update -dP )
   echo ========== GtkmmAddons ========
-  ( cd GtkmmAddons && cvs -z3 update -dP $GTKMM1 )
+  ( cd GtkmmAddons && cvs -z3 update -dP $HEAD )
   echo ========  ManuProC_Widgets ========
-  ( cd ManuProC_Widgets && cvs -z3 update -dP $GTKMM1 )
-#  echo =========== Midgard-Postgres ========
-#  ( cd midgard-postgres && cvs -z3 update -dP )
+  ( cd ManuProC_Widgets && cvs -z3 update -dP $HEAD )
   echo ============ Magus ========
-  ( cd midgard && cvs -z3 update -dP $GTKMM1 )
+  ( cd midgard && cvs -z3 update -dP $HEAD )
 }
 
 configure() {
   echo ========  ManuProC_Base ========
-  ( cd ManuProC_Base && (./autogen.sh $* $SIGC10 ; make ) )
+  ( cd ManuProC_Base && (./autogen.sh $* ; make ) )
   echo ========== GtkmmAddons ========
   ( cd GtkmmAddons && (cd searchcombo ; ./autogen.sh $* ) ; \	
   	 ./autogen.sh $* ; make )
@@ -110,7 +102,7 @@ then
   domake
   doinstall
 else
-  echo "Magus anonymous-CVS Installierer, Gtk1, $Revision: 1.15 $"
+  echo "Magus anonymous-CVS Installierer, Gtk2, $Revision: 1.1 $"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
