@@ -2,7 +2,7 @@
 
 CLEANFILES = *~
 
-GTKMMTOOLS=/home/christof/sourceforge/gtkmm-1.3/tools
+GTKMMTOOLS=$(HOME)/sourceforge/gtkmm-2.0/tools
 
 INCLUDES = -I. -I$(top_srcdir)/searchcombo/src @GTKMM_CFLAGS@ 
 
@@ -29,7 +29,7 @@ EXTRA_DIST=SearchCombo.gen_h private/SearchCombo_p.h
 SearchCombo.cc SearchCombo.h: SearchCombo.hg SearchCombo.ccg
 	if [ ! -e gtkmm ] ; then ln -s . gtkmm ; fi
 	if [ ! -d private ] ; then mkdir private ; fi
-	perl -I$(GTKMMTOOLS)/pm $(GTKMMTOOLS)/gtkmmproc -I $(GTKMMTOOLS)/m4 --defs . SearchCombo . .
+	echo perl -I$(GTKMMTOOLS)/pm $(GTKMMTOOLS)/gtkmmproc -I $(GTKMMTOOLS)/m4 --defs . SearchCombo . .
 
 gtksearchcombo.h: $(top_srcdir)/searchcombo/src/gtksearchcombo.h
 	ln -s $(top_srcdir)/searchcombo/src/gtksearchcombo.h .

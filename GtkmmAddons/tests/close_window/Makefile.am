@@ -1,6 +1,6 @@
 # $Id: Makefile.am,v 1.1 2001/06/06 13:20:53 christof Exp $
 
-noinst_PROGRAMS = close_window
+EXTRA_PROGRAMS = close_window
 
 close_window_SOURCES = \
 	close_window.cc\
