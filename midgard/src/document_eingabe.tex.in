@@ -42,7 +42,7 @@
 \newsavebox{\WSchlagwaffe}
 \newsavebox{\Schilde}
 %%
-\newsavebox{\Magierstab}
+\newsavebox{\Zauberstab}
 \newsavebox{\waffenlos} 
 \newsavebox{\Blasrohr}  
 \newsavebox{\Wurfpfeil} 
