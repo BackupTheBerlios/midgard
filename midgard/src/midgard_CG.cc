@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.294 2003/04/23 07:35:50 christof Exp $
+// $Id: midgard_CG.cc,v 1.295 2003/04/24 14:10:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@
 #endif
 #include "Windows_Linux.hh"
 #include <Misc/Trace.h>
-#include <char_Pixmap.hh>
+#include <RefPtr_Pixmap.hh>
 #include <gdkmm/pixbufloader.h>
 #include <bool_ImageButton.hh>
 
@@ -140,7 +140,7 @@ void midgard_CG::init_statusbar()
 //  Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     char_Pixmap *_pix=manage(new char_Pixmap((*i)->RegionPixSmall()));
+     RefPtr_Pixmap *_pix=manage(new RefPtr_Pixmap((*i)->RegionPixSmall()));
      hb_regionen_status->pack_start(*_pix);
      if((*i)->Active()) _pix->show();
      vec_region_status.push_back(st_reg_status((*i)->Pic(),_pix));

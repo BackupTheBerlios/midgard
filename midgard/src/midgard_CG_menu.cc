@@ -23,7 +23,7 @@
 #include <Misc/itos.h>
 #include <bool_CheckMenuItem.hh>
 #include "../pixmaps/NSC-Mode-26.xpm"
-#include <char_Pixmap.hh>
+#include <RefPtr_Pixmap.hh>
 
 Gtk::Box &midgard_CG::make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild,const bool hbox)
 {
@@ -117,7 +117,7 @@ void midgard_CG::menu_init()
        }
      Gtk::Label *_l=Gtk::manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
-     char_Pixmap *_pix=Gtk::manage(new char_Pixmap((*i)->RegionPix()));
+     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap((*i)->RegionPix()));
      _tab->attach(*_pix,0,1,0,row,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->set_col_spacings(10);
 
@@ -230,7 +230,7 @@ void midgard_CG::menubar_init()
        }
      Gtk::Label *_l=Gtk::manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
-     char_Pixmap *_pix=Gtk::manage(new char_Pixmap((*i)->RegionPix()));
+     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap((*i)->RegionPix()));
      _tab->attach(*_pix,0,1,0,row,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->set_col_spacings(10);
 
