@@ -26,6 +26,9 @@ class Window_Erfahrungspunkte : public Window_Erfahrungspunkte_glade
         
         friend class Window_Erfahrungspunkte_glade;
         void on_button_close_clicked();
+        void on_spinbutton_AEP_activate();
+        void on_spinbutton_KEP_activate();
+        void on_spinbutton_ZEP_activate();
    public:
         Window_Erfahrungspunkte(midgard_CG* h,Grundwerte& w);
 };

@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.cc,v 1.18 2001/08/16 10:00:58 thoma Exp $
+// $Id: Window_Geld_eingeben.cc,v 1.19 2001/08/17 14:31:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,6 +32,10 @@
 
 void Window_Geld_eingeben::on_button_close_clicked()
 {   
+#warning DAS finde ich blöd MAT
+  gtk_spin_button_update(spinbutton_gold->gtkobj());
+  gtk_spin_button_update(spinbutton_silber->gtkobj());
+  gtk_spin_button_update(spinbutton_kupfer->gtkobj());
    Werte.set_Geld(atoi(spinbutton_gold->get_text().c_str()),
                   atoi(spinbutton_silber->get_text().c_str()),
                   atoi(spinbutton_kupfer->get_text().c_str()));
@@ -63,3 +67,15 @@ Window_Geld_eingeben::Window_Geld_eingeben(midgard_CG* h,Grundwerte& w)
   spinbutton_kupfer->set_text(itos(Werte.Kupfer()));
 }
 
+void Window_Geld_eingeben::on_spinbutton_gold_activate()
+{   
+ spinbutton_silber->grab_focus();
+}   
+void Window_Geld_eingeben::on_spinbutton_silber_activate()
+{
+ spinbutton_kupfer->grab_focus();
+}
+void Window_Geld_eingeben::on_spinbutton_kupfer_activate()
+{
+ on_button_close_clicked();
+}

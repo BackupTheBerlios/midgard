@@ -12,6 +12,9 @@
 
 void Window_Erfahrungspunkte::on_button_close_clicked()
 {   
+  gtk_spin_button_update(spinbutton_AEP->gtkobj());
+  gtk_spin_button_update(spinbutton_KEP->gtkobj());
+  gtk_spin_button_update(spinbutton_ZEP->gtkobj());
   Werte.set_EP(spinbutton_AEP->get_value_as_int(),
                spinbutton_KEP->get_value_as_int(),
                spinbutton_ZEP->get_value_as_int());
@@ -26,4 +29,19 @@ Window_Erfahrungspunkte::Window_Erfahrungspunkte(midgard_CG* h,Grundwerte& w)
   spinbutton_AEP->set_value(Werte.AEP());
   spinbutton_KEP->set_value(Werte.KEP());
   spinbutton_ZEP->set_value(Werte.ZEP());
+}
+
+void Window_Erfahrungspunkte::on_spinbutton_AEP_activate()
+{
+ spinbutton_KEP->grab_focus();
+}
+
+void Window_Erfahrungspunkte::on_spinbutton_KEP_activate()
+{
+ spinbutton_ZEP->grab_focus();
+}
+
+void Window_Erfahrungspunkte::on_spinbutton_ZEP_activate()
+{
+ on_button_close_clicked();
 }

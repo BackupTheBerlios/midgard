@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.hh,v 1.17 2001/08/16 10:00:58 thoma Exp $
+// $Id: Window_Geld_eingeben.hh,v 1.18 2001/08/17 14:31:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,6 +44,9 @@ class Window_Geld_eingeben : public Window_Geld_eingeben_glade
         midgard_CG* hauptfenster;
         friend class Window_Geld_eingeben_glade;
         void on_button_close_clicked();
+        void on_spinbutton_silber_activate();
+        void on_spinbutton_kupfer_activate();
+        void on_spinbutton_gold_activate();
    public:
         Window_Geld_eingeben(Window_Waffe_Geld* h,Grundwerte& w);
         Window_Geld_eingeben(midgard_CG* h,Grundwerte& w);

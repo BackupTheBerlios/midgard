@@ -157,7 +157,7 @@ void midgard_CG::load_charakter()
          ruestung    ,
          spezies  ,
          coalesce(aep,0), coalesce(kep,0),coalesce(zep,0),
-         steigern_bool,steigern_EP_prozent
+         coalesce(steigern_bool,'f'),coalesce(steigern_EP_prozent,50)
       FROM charaktere WHERE charakter_name= :db_name_ch
             AND version= :db_version;
 

@@ -7,11 +7,20 @@ bool steigern_bool;
 gint midgard_CG::vscale_value_changed(GdkEventButton *ev)
 {
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
-  int Av=A->get_value();
-  label_EP->set_text(itos(100-Av)+"%");
-  label_Gold->set_text(itos(Av)+"%");
+  int Av=(int)A->get_value();
   steigern_EP_prozent = 100-Av;
+  steigern_gtk();
   return false;
+}
+
+void midgard_CG::steigern_gtk()
+{
+  label_EP->set_text(itos(steigern_EP_prozent)+"%");
+  label_Gold->set_text(itos(100-steigern_EP_prozent)+"%");
+  Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
+  A->set_value(100-steigern_EP_prozent);
+  if (steigern_bool) checkbutton_EP_Geld->set_active(true);
+  else               checkbutton_EP_Geld->set_active(false);
 }
 
 void midgard_CG::on_checkbutton_EP_Geld_toggled()
@@ -39,14 +48,24 @@ void midgard_CG::Geld_uebernehmen()
   label_kupfer->set_text(itos(Werte.Kupfer()));
 }
 
+
 bool midgard_CG::steigern(unsigned int kosten)
 {
-  unsigned int gold_k = kosten * ((100-steigern_EP_prozent)/100.);
-  unsigned int ep_k   = kosten * ((    steigern_EP_prozent)/100.);
-  unsigned int geld = Werte.Gold()+Werte.Silber()/10.+Werte.Kupfer()/100.;
+  if (!steigern_bool) return true;
+  // genug Geld? 
+  guint gold_k = (guint)(kosten * ((100-steigern_EP_prozent)/100.));
+  guint geld = Werte.Gold();// +Werte.Silber()/10.+Werte.Kupfer()/100.;
+  if (gold_k > geld) { regnot("Zu wenig Geld um zu steigern,\n es fehlen "+itos(gold_k-geld)+" GS."); return false;}
   
-//  if (gold_k > geld) { regnot("Zu wenig Geld um zu steigern"); return bool;}
+  // genug EP?
+  guint ep_k = (guint)(kosten * ((    steigern_EP_prozent)/100.));
+  guint aep=Werte.AEP();  
+  guint kep=Werte.KEP();  
+  guint zep=Werte.ZEP();  
 
-  abort();
+  guint restep = aep;  
+  if (ep_k > restep) { regnot("Zu wenig EP um zu steigern,\n es fehlen "+itos(ep_k-restep)+" Erfahrungspunkte (AEP)."); return false;}
+
+  return true;  
 }
 

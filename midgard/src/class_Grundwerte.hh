@@ -140,6 +140,7 @@ public:
    void add_Silber(int s) {silber+=s;}
    void add_Kupfer(int k) {kupfer+=k;}
    void set_EP(int a, int k, int z) {aep=a;kep=k;zep=z;}
+   void add_AEP(int a) {aep+=a;}
 
 };
 /*

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.53 2001/08/16 10:00:58 thoma Exp $
+// $Id: midgard_CG.cc,v 1.54 2001/08/17 14:31:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -196,6 +196,8 @@ void midgard_CG::show_gtk()
    midgard_CG::show_zauber();
 
  EP_uebernehmen();
+ Geld_uebernehmen();
+ steigern_gtk();
 
  // Spezialwaffe anzeigen?
  if (Typ.Zaubern()=="n" || Typ.Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");

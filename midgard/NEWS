@@ -1,5 +1,13 @@
 ##########################################################################
 NEWS IN VERSION 0.7beta5
+- ... und wieder etwas an der Oberfläche gebastelt 
+- Damit die Erfahrungspunkte und das Geld verrechnet werden habe ich:
+   * einen Scrollbar eingefügt
+   * einen Knopf mit dem man das wieder abschalten kann
+   * das abspeichern und laden von scrolbar und Knpof implementiert
+
+##########################################################################
+NEWS IN VERSION 0.7beta5
 - Oberfläche überarbeitet
 - Bug bei der Typauswahl jetzt beseitigt (vorher war es ein 'workaround':-)
 - Beim Abwählen von 'Eschar' erscheint KEIN Infofenster mehr, das nervte ...
