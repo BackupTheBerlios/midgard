@@ -107,18 +107,29 @@ void table_steigern::on_leaf_waffenbesitz_selected_neu(cH_RowDataBase d)
   show_alte_waffen();
 }
 
+std::vector<std::string> list_vector(std::list<std::string> L)
+{
+ std::vector<std::string> V;
+ for (std::list<std::string>::const_iterator i=L.begin();i!=L.end();++i)
+   V.push_back(*i);  
+ return V;
+}
+
 void table_steigern::init_waffenbesitz()
 {
   table_magbonus->hide();
 
-  std::vector<string> alte_waffen;
-  alte_waffen.push_back("Name");
+  std::list<std::string> alte_waffen;
   alte_waffen.push_back("Schaden");
   alte_waffen.push_back("Region");
   alte_waffen.push_back("mag.Bonus");
   alte_waffen.push_back("Beschreibung");
-  waffenbesitz_alt_tree->setTitles(alte_waffen);
-  waffenbesitz_neu_tree->setTitles(alte_waffen);
+  std::list<std::string> neue_waffen=alte_waffen ;
+  alte_waffen.push_front("Waffe (mitgeführt)");
+  neue_waffen.push_front("Waffenauswahl");
+
+  waffenbesitz_alt_tree->setTitles(list_vector(alte_waffen));
+  waffenbesitz_neu_tree->setTitles(list_vector(neue_waffen));
 
   lade_waffenbesitz();
   show_alte_waffen();

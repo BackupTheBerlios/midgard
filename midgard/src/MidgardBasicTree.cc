@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.18 2002/06/27 09:01:21 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.19 2002/07/09 12:23:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,22 +34,28 @@ MidgardBasicTree::MidgardBasicTree(variante V)
 int MidgardBasicTree::Cols(variante V)
 {
   switch(V) {
-     case (ANGEBFERT):      return 3;
-     case (GELERNTES):      return 4;
-     case (LERNSCHEMA):     return 9;
-     case (LERNSCHEMAZUSATZ):return 3;
-     case (LONG_ALT):       return 8;
-     case (LONG_NEU):       return 6;
-     case (LONG_NEU_WAFFE): return 4;
-     case (SPRACHE_NEU):    return 3;
-     case (SCHRIFT_ALT):    return 8;
-     case (SCHRIFT_NEU):    return 3;
-     case (WAFFEGRUND):     return 4;
-     case (ZAUBER):         return 6;
-     case (ZAUBERWERK):     return 7;
-     case (KIDO):           return 6;
-     case (WAFFE_LERNSCHEMA):return 4;
-     case (STEIGERNZUSATZ): return 1;
+     case (STEIGERNZUSATZ)  : return 1;
+     case (ANGEBFERT):  
+     case (LERNSCHEMAZUSATZ): return 3;
+     case (GELERNTES):      
+     case (LONG_NEU_WAFFE): 
+     case (SPRACHE_NEU):    
+     case (SCHRIFT_NEU):    
+     case (WAFFEGRUND_ALT): 
+     case (WAFFE_LERNSCHEMA): return 4;
+     case (LONG_NEU):
+     case (ZAUBER_ALT):
+     case (ZAUBER_NEU):
+     case (KIDO_NEU):        
+     case (KIDO_ALT):         return 6;
+     case (WAFFEGRUND_NEU):
+     case (ZAUBERWERK_NEU): 
+     case (ZAUBERWERK_ALT):   return 7;
+     case (SPRACHEN_ALT):
+     case (WAFFE_ALT):        
+     case (LONG_ALT_):        return 8;
+     case (LERNSCHEMA):
+     case (SCHRIFT_ALT):      return 9;
    }
   assert(!"MidgardBasicTree::Cols:     Falsche Variante \n");
   abort();
@@ -71,20 +77,11 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Fertigkeit");
       vs.push_back("Wert");  
    }
-/*
-  else if(V==LERNSCHEMA)
+  else if(V==LONG_ALT_ || V==SPRACHEN_ALT || V==WAFFE_ALT)
    {
-      vs.push_back("LP");    
-      vs.push_back("Fertigkeit");
-      vs.push_back("Wert");  
-      vs.push_back("Voraussetzung");    
-      vs.push_back("Grundkenntnnis");    
-      vs.push_back("Kosten");    
-   }
-*/
-  else if(V==LONG_ALT)
-   {
-      vs.push_back("Fertigkeit");
+      if(V==LONG_ALT_) vs.push_back("Fertigkeit (gelernt)");
+      else if(V==WAFFE_ALT) vs.push_back("Waffe (gesteigert)");
+      else vs.push_back("Sprache (gelernt)");
       vs.push_back("Wert");
       vs.push_back("PP");  
       vs.push_back("Art");    
@@ -95,7 +92,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
    }
   else if(V==LONG_NEU)
    {
-      vs.push_back("Fertigkeit");
+      vs.push_back("Fertigkeit (ungelernt)");
       vs.push_back("Wert");
       vs.push_back("Lernkosten");  
       vs.push_back("Art");    
@@ -104,29 +101,29 @@ void MidgardBasicTree::set_tree_titles(variante V)
    }
   else if(V==LONG_NEU_WAFFE)
    {
-      vs.push_back("Fertigkeit");
-//      vs.push_back("Wert");
-//      vs.push_back("Lernkosten");  
+      vs.push_back("(ungesteigert) Waffe)");
       vs.push_back("Art");    
       vs.push_back("Voraussetzungen");
       vs.push_back("Region");
    }
-  else if(V==WAFFEGRUND)
+  else if(V==WAFFEGRUND_NEU || V==WAFFEGRUND_ALT)
    {
-      vs.push_back("Grundkenntnisse");
+      if(V==WAFFEGRUND_ALT) vs.push_back("Grundkenntnisse (gelernt)");
+      else vs.push_back("Grundkenntnisse (ungelernt)");
       vs.push_back("Art");
       vs.push_back("Kosten");
       vs.push_back("Region");
    }
   else if(V==SPRACHE_NEU)
    {
-      vs.push_back("Sprache");
+      vs.push_back("Sprache (ungelernt)");
       vs.push_back("Schrift");
       vs.push_back("Lernkosten");  
+      vs.push_back("Region");  
    }
   else if(V==SCHRIFT_ALT)
    {
-      vs.push_back("Fertigkeit");
+      vs.push_back("Schrift (gelernt)");
       vs.push_back("Schrifttyp");
       vs.push_back("Wert");
       vs.push_back("PP");  
@@ -134,35 +131,40 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Steigern\n(nächste Stufe)");
       vs.push_back("Reduzieren\n(eine Stufe)"); 
       vs.push_back("Verlernen");
+      vs.push_back("Region");  
    }
   else if(V==SCHRIFT_NEU)
    {
-      vs.push_back("Schrift");
+      vs.push_back("Schrift (ungelernt)");
       vs.push_back("Schrifttyp");
       vs.push_back("Lernkosten");  
+      vs.push_back("Region");  
    }
-  else if(V==ZAUBER)
+  else if(V==ZAUBER_ALT || V==ZAUBER_NEU)
    {
-     vs.push_back("Name");   
+     if(V==ZAUBER_ALT) vs.push_back("Spruch (gelernt)");   
+     else vs.push_back("Spruch (ungelernt)");
      vs.push_back("Stufe");
      vs.push_back("Ursprung");
      vs.push_back("Lernkosten");
      vs.push_back("Art");
       vs.push_back("Region");
    }
-  else if(V==ZAUBERWERK)
+  else if(V==ZAUBERWERK_ALT || V==ZAUBERWERK_NEU)
    {
-     vs.push_back("Name");   
+     if(V==ZAUBERWERK_ALT) vs.push_back("Zaubermittel (gelernt)");   
+     else vs.push_back("Zaubermittel (ungelernt)");
      vs.push_back("Stufe");
      vs.push_back("Art");
      vs.push_back("Kosten");
      vs.push_back("Preis");
      vs.push_back("Zeitaufwand");
-      vs.push_back("Region");
+     vs.push_back("Region");
    }
-  else if(V==KIDO)
+  else if(V==KIDO_ALT || V==KIDO_NEU)
    {
-     vs.push_back("HoHo");   
+     if(V==KIDO_ALT) vs.push_back("HoHo (gelernt)");   
+     else vs.push_back("HoHo (ungelernt)");
      vs.push_back("Technik");
      vs.push_back("Stufe");
      vs.push_back("AP");

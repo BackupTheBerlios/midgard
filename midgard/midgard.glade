@@ -13157,11 +13157,11 @@ eingeben</label>
 			  <handler>on_alte_fert_reorder</handler>
 			  <last_modification_time>Thu, 27 Dec 2001 13:37:23 GMT</last_modification_time>
 			</signal>
-			<creation_function>MidgardBasicTree(MidgardBasicTree::LONG_ALT)</creation_function>
+			<creation_function>MidgardBasicTree(MidgardBasicTree::LONG_ALT_)</creation_function>
 			<string1></string1>
 			<int1>0</int1>
 			<int2>0</int2>
-			<last_modification_time>Mon, 31 Dec 2001 11:48:36 GMT</last_modification_time>
+			<last_modification_time>Tue, 09 Jul 2002 10:42:51 GMT</last_modification_time>
 		      </widget>
 		    </widget>
 		  </widget>
@@ -13344,10 +13344,10 @@ eingeben</label>
 			    <handler>on_alte_waffen_reorder</handler>
 			    <last_modification_time>Sat, 29 Dec 2001 13:05:52 GMT</last_modification_time>
 			  </signal>
-			  <creation_function>MidgardBasicTree(MidgardBasicTree::LONG_ALT)</creation_function>
+			  <creation_function>MidgardBasicTree(MidgardBasicTree::WAFFE_ALT)</creation_function>
 			  <int1>0</int1>
 			  <int2>0</int2>
-			  <last_modification_time>Mon, 31 Dec 2001 11:58:40 GMT</last_modification_time>
+			  <last_modification_time>Tue, 09 Jul 2002 10:44:01 GMT</last_modification_time>
 			</widget>
 		      </widget>
 		    </widget>
@@ -13452,10 +13452,10 @@ eingeben</label>
 			    <handler>on_leaf_selected_alte_grund</handler>
 			    <last_modification_time>Thu, 21 Jun 2001 19:27:52 GMT</last_modification_time>
 			  </signal>
-			  <creation_function>MidgardBasicTree(MidgardBasicTree::WAFFEGRUND)</creation_function>
+			  <creation_function>MidgardBasicTree(MidgardBasicTree::WAFFEGRUND_ALT)</creation_function>
 			  <int1>0</int1>
 			  <int2>0</int2>
-			  <last_modification_time>Mon, 31 Dec 2001 13:30:19 GMT</last_modification_time>
+			  <last_modification_time>Tue, 09 Jul 2002 10:16:23 GMT</last_modification_time>
 			</widget>
 		      </widget>
 		    </widget>
@@ -13486,10 +13486,10 @@ eingeben</label>
 			    <handler>on_leaf_selected_neue_grund</handler>
 			    <last_modification_time>Thu, 21 Jun 2001 19:29:21 GMT</last_modification_time>
 			  </signal>
-			  <creation_function>MidgardBasicTree(MidgardBasicTree::WAFFEGRUND)</creation_function>
+			  <creation_function>MidgardBasicTree(MidgardBasicTree::WAFFEGRUND_NEU)</creation_function>
 			  <int1>0</int1>
 			  <int2>0</int2>
-			  <last_modification_time>Mon, 31 Dec 2001 13:30:10 GMT</last_modification_time>
+			  <last_modification_time>Tue, 09 Jul 2002 10:16:30 GMT</last_modification_time>
 			</widget>
 		      </widget>
 		    </widget>
@@ -13640,10 +13640,10 @@ eingeben</label>
 			    <handler>on_alte_zauber_reorder</handler>
 			    <last_modification_time>Sat, 29 Dec 2001 13:07:18 GMT</last_modification_time>
 			  </signal>
-			  <creation_function>MidgardBasicTree(MidgardBasicTree::ZAUBER)</creation_function>
+			  <creation_function>MidgardBasicTree(MidgardBasicTree::ZAUBER_ALT)</creation_function>
 			  <int1>0</int1>
 			  <int2>0</int2>
-			  <last_modification_time>Mon, 31 Dec 2001 14:57:39 GMT</last_modification_time>
+			  <last_modification_time>Tue, 09 Jul 2002 10:21:16 GMT</last_modification_time>
 			</widget>
 		      </widget>
 		    </widget>
@@ -13674,10 +13674,10 @@ eingeben</label>
 			    <handler>on_leaf_selected_neue_zauber</handler>
 			    <last_modification_time>Wed, 20 Jun 2001 17:09:24 GMT</last_modification_time>
 			  </signal>
-			  <creation_function>MidgardBasicTree(MidgardBasicTree::ZAUBER)</creation_function>
+			  <creation_function>MidgardBasicTree(MidgardBasicTree::ZAUBER_NEU)</creation_function>
 			  <int1>0</int1>
 			  <int2>0</int2>
-			  <last_modification_time>Mon, 31 Dec 2001 15:32:10 GMT</last_modification_time>
+			  <last_modification_time>Tue, 09 Jul 2002 10:47:07 GMT</last_modification_time>
 			</widget>
 		      </widget>
 		    </widget>
@@ -13753,10 +13753,10 @@ eingeben</label>
 			    <handler>on_alte_zaubermittel_reorder</handler>
 			    <last_modification_time>Sat, 29 Dec 2001 13:09:41 GMT</last_modification_time>
 			  </signal>
-			  <creation_function>MidgardBasicTree(MidgardBasicTree::ZAUBERWERK)</creation_function>
+			  <creation_function>MidgardBasicTree(MidgardBasicTree::ZAUBERWERK_ALT)</creation_function>
 			  <int1>0</int1>
 			  <int2>0</int2>
-			  <last_modification_time>Mon, 31 Dec 2001 13:42:05 GMT</last_modification_time>
+			  <last_modification_time>Tue, 09 Jul 2002 10:21:32 GMT</last_modification_time>
 			</widget>
 		      </widget>
 		    </widget>
@@ -13787,10 +13787,10 @@ eingeben</label>
 			    <handler>on_leaf_selected_neue_zauberwerk</handler>
 			    <last_modification_time>Sun, 07 Oct 2001 06:32:55 GMT</last_modification_time>
 			  </signal>
-			  <creation_function>MidgardBasicTree(MidgardBasicTree::ZAUBERWERK)</creation_function>
+			  <creation_function>MidgardBasicTree(MidgardBasicTree::ZAUBERWERK_NEU)</creation_function>
 			  <int1>0</int1>
 			  <int2>0</int2>
-			  <last_modification_time>Mon, 31 Dec 2001 13:41:29 GMT</last_modification_time>
+			  <last_modification_time>Tue, 09 Jul 2002 10:21:38 GMT</last_modification_time>
 			</widget>
 		      </widget>
 		    </widget>
@@ -13903,10 +13903,10 @@ eingeben</label>
 			<handler>on_alte_kido_reorder</handler>
 			<last_modification_time>Sat, 29 Dec 2001 13:09:58 GMT</last_modification_time>
 		      </signal>
-		      <creation_function>MidgardBasicTree(MidgardBasicTree::KIDO)</creation_function>
+		      <creation_function>MidgardBasicTree(MidgardBasicTree::KIDO_ALT)</creation_function>
 		      <int1>0</int1>
 		      <int2>0</int2>
-		      <last_modification_time>Mon, 31 Dec 2001 12:57:51 GMT</last_modification_time>
+		      <last_modification_time>Tue, 09 Jul 2002 10:23:46 GMT</last_modification_time>
 		    </widget>
 		  </widget>
 		</widget>
@@ -13937,10 +13937,10 @@ eingeben</label>
 			<handler>on_leaf_selected_neue_kido</handler>
 			<last_modification_time>Fri, 22 Jun 2001 06:20:48 GMT</last_modification_time>
 		      </signal>
-		      <creation_function>MidgardBasicTree(MidgardBasicTree::KIDO)</creation_function>
+		      <creation_function>MidgardBasicTree(MidgardBasicTree::KIDO_NEU)</creation_function>
 		      <int1>0</int1>
 		      <int2>0</int2>
-		      <last_modification_time>Mon, 31 Dec 2001 12:57:42 GMT</last_modification_time>
+		      <last_modification_time>Tue, 09 Jul 2002 10:23:53 GMT</last_modification_time>
 		    </widget>
 		  </widget>
 		</widget>
@@ -14114,10 +14114,10 @@ eingeben</label>
 			    <handler>on_alte_sprache_reorder</handler>
 			    <last_modification_time>Sat, 29 Dec 2001 13:12:28 GMT</last_modification_time>
 			  </signal>
-			  <creation_function>MidgardBasicTree(MidgardBasicTree::LONG_ALT)</creation_function>
+			  <creation_function>MidgardBasicTree(MidgardBasicTree::SPRACHEN_ALT)</creation_function>
 			  <int1>0</int1>
 			  <int2>0</int2>
-			  <last_modification_time>Mon, 31 Dec 2001 12:15:51 GMT</last_modification_time>
+			  <last_modification_time>Tue, 09 Jul 2002 10:18:22 GMT</last_modification_time>
 			</widget>
 		      </widget>
 		    </widget>

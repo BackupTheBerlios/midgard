@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.8 2002/06/26 14:01:18 christof Exp $
+// $Id: table_lernschema_kido.cc,v 1.9 2002/07/09 12:23:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,7 +45,7 @@ void table_lernschema::fill_kido_lernschema()
   if(maxkido==0) return;
   else if(maxkido==1) label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Technik auswählen");
   else label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Techniken auswählen");
-  tree_kido_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::KIDO));
+  tree_kido_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::KIDO_NEU));
   tree_kido_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_tree_kido_lernschema_leaf_selected));
 
   std::list<MidgardBasicElement_mutable> newlist;
