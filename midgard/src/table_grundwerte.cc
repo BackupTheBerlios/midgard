@@ -27,6 +27,8 @@ void table_grundwerte::init(midgard_CG *h)
   Vhand[2]="Beidhändig";  
 
   zeige_werte();
+  togglebutton_edit_werte->set_active(false);
+  on_togglebutton_edit_werte_toggled();
 }
     
 void table_grundwerte::zeige_werte()
@@ -99,8 +101,6 @@ void table_grundwerte::zeige_werte()
    
    if (hauptfenster->Typ[1]->Short()=="") typauswahl_2->hide();
    else                                   typauswahl_2->show();
-   togglebutton_edit_werte->set_active(false);
-   on_togglebutton_edit_werte_toggled();
 
    if(optionmenu_spezies->get_menu()->items().size()==1) fill_spezies();
    Gtk::Menu_Helpers::SelectMatching(*(optionmenu_spezies),hauptfenster->getCWerte().Spezies());

@@ -63,7 +63,10 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
      return ;
    }
  if (MidgardBasicElement_leaf_alt(d))
-    fertigkeiten_zeigen();
+  {
+   on_fertigkeiten_laden_clicked();
+//    fertigkeiten_zeigen();
+  }
 }
 
 void midgard_CG::on_alte_fert_reorder()
@@ -105,7 +108,8 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
     }
   else 
      MidgardBasicElement_leaf_neu(d);
-  fertigkeiten_zeigen();
+   on_fertigkeiten_laden_clicked();
+//  fertigkeiten_zeigen();
 }
 
 void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)

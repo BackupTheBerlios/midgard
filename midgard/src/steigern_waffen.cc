@@ -28,13 +28,11 @@ void midgard_CG::on_waffen_laden_clicked()
    { cH_Waffe w(*i);
      if ((*i)->ist_gelernt(list_Waffen)) continue ;
      if(Werte.Spezies()->istVerboten(*i)) continue;
-     if (w->Grundkenntnis_vorhanden(list_WaffenGrund))
-       if (w->ist_lernbar(Typ,w->get_MapTyp()))
-         if (region_check(w->Region(w->Name())) )
-           if (w->SG_Voraussetzung(Werte,list_Fertigkeit,list_Waffen))
-             {
-              list_Waffen_neu.push_back(*i);
-             }
+     if (!w->Grundkenntnis_vorhanden(list_WaffenGrund)) continue;
+     if (!w->ist_lernbar(Typ,w->get_MapTyp())) continue;
+     if (!region_check(w->Region(w->Name())) ) continue;
+     if (w->SG_Voraussetzung(Werte,list_Fertigkeit,list_Waffen))
+        list_Waffen_neu.push_back(*i);
    }
   on_waffengrund_laden_clicked();
   waffen_zeigen();
@@ -75,7 +73,8 @@ void midgard_CG::on_waffengrund_laden_clicked()
 void midgard_CG::on_leaf_selected_neue_waffen(cH_RowDataBase d)
 {  
    MidgardBasicElement_leaf_neu(d);
-   waffen_zeigen();
+//   waffen_zeigen();
+   on_waffen_laden_clicked();
 }
  
 void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)

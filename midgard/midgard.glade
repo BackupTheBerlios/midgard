@@ -7584,33 +7584,6 @@ auswählen</label>
 		</widget>
 
 		<widget>
-		  <class>GtkLabel</class>
-		  <name>label_lernschma_titel</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <label>label547</label>
-		  <justify>GTK_JUSTIFY_CENTER</justify>
-		  <wrap>False</wrap>
-		  <xalign>0</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-		</widget>
-
-		<widget>
 		  <class>GtkFrame</class>
 		  <name>frame_lernschema_zusatz</name>
 		  <cxx_visibility>protected</cxx_visibility>
@@ -7625,7 +7598,7 @@ auswählen</label>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
 		    <xexpand>True</xexpand>
-		    <yexpand>False</yexpand>
+		    <yexpand>True</yexpand>
 		    <xshrink>False</xshrink>
 		    <yshrink>False</yshrink>
 		    <xfill>True</xfill>
@@ -7657,6 +7630,33 @@ auswählen</label>
 		      </widget>
 		    </widget>
 		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_lernschma_titel</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>label547</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>True</xshrink>
+		    <yshrink>True</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>False</yfill>
+		  </child>
 		</widget>
 	      </widget>
 	    </widget>
@@ -13665,7 +13665,10 @@ Drucken</label>
 
 	  <widget>
 	    <class>GtkTable</class>
-	    <name>table78</name>
+	    <name>table_ausruestung</name>
+	    <cxx_separate_file>True</cxx_separate_file>
+	    <cxx_separate_class>True</cxx_separate_class>
+	    <cxx_visibility>protected</cxx_visibility>
 	    <rows>2</rows>
 	    <columns>2</columns>
 	    <homogeneous>False</homogeneous>
