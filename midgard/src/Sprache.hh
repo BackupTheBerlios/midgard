@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.23 2002/06/30 20:37:08 thoma Exp $               
+// $Id: Sprache.hh,v 1.24 2002/07/04 13:54:36 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -56,7 +56,7 @@ class Sprache : public MidgardBasicElement
    int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
    int Kosten(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
    std::list<MidgardBasicElement_mutable> VerwandteSprachen(const int erfolgswert,const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const;
-   bool ist_erlaubt(const VAbenteurer& A) const;
+   bool ist_erlaubt(const VAbenteurer& A,bool nachbarland=false) const;
 
    static std::list<MidgardBasicElement_mutable> Sprache::cleanVerwandteSprachen(std::list<MidgardBasicElement_mutable> L);
 

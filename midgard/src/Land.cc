@@ -50,18 +50,12 @@ bool Land::ist_erlaubt(const VAbenteurer& A) const
      for(std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
       {
         const std::vector<std::string> V=(*i)->get_vec_herkunft();
-        for(std::vector<std::string>::const_iterator j=V.begin();j!=V.end();++j)
-         {
-           if(*j==Name()) return true;
-         }
+        if(find(V.begin(),V.end(),Name())!=V.end()) return true;
       }
    }
   else
    {
-     for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
-      {
-        if(*i==Name()) return true;
-      }
+     if(find(V.begin(),V.end(),Name())!=V.end()) return true;
    }
   return false;
 }
@@ -77,6 +71,8 @@ Land::Land(const std::string& _kontinent, const Tag *tag)
   : name(tag->getAttr("Name")), kontinent(_kontinent)
 {  FOR_EACH_CONST_TAG_OF(i,*tag,"Sprache")
       vec_sprache.push_back(i->getAttr("Name"));
+   FOR_EACH_CONST_TAG_OF(i,*tag,"Nachbarland")
+      nachbarlaender.push_back(i->getAttr("Name"));
 }
 
 Laender_All::Laender_All(Gtk::ProgressBar *progressbar)

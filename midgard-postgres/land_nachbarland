@@ -1,0 +1,29 @@
+--
+-- Selected TOC Entries:
+--
+DROP INDEX "land_nachbarland_land_1_land_2";
+DROP TABLE "land_nachbarland";
+--
+--
+--
+
+CREATE TABLE "land_nachbarland" (
+	"land_1" text NOT NULL,
+	"land_2" text NOT NULL
+);
+
+--
+--
+--
+
+
+COPY "land_nachbarland" FROM stdin;
+Alba	Chryseia
+Alba	Erainn
+\.
+--
+--
+--
+
+CREATE UNIQUE INDEX land_nachbarland_land_1_land_2 ON land_nachbarland USING btree (land_1, land_2);
+

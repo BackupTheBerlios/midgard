@@ -1,4 +1,4 @@
-// $Id: Land.hh,v 1.17 2002/06/30 20:37:08 thoma Exp $               
+// $Id: Land.hh,v 1.18 2002/07/04 13:54:36 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,6 +33,7 @@ class Land  : public HandleContent
    std::string name; 
    std::string kontinent;
    vector<std::string> vec_sprache;
+   vector<std::string> nachbarlaender;
 
   public:
    Land() {};
@@ -40,7 +41,8 @@ class Land  : public HandleContent
 
    std::string Name() const   {return name; }
    std::string Kontinent() const {return kontinent;}
-   vector<std::string> Sprachen() const {return vec_sprache;}
+   std::vector<std::string> Sprachen() const {return vec_sprache;}
+   std::vector<std::string> Nachbarlaender() const {return nachbarlaender;}
    bool ist_erlaubt(const VAbenteurer& A) const;
 };
 

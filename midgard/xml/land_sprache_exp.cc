@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.47 2002/07/04 10:20:20 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.48 2002/07/04 13:54:36 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -48,6 +48,14 @@ void land_speichern(Tag &o)
     while ((query3>>is3).good())
     { Land.push_back(Tag("Sprache")).setAttr("Name", fetch_string(is3));
     }
+    Query query4a("select land_2 from land_nachbarland where land_1='"+land+"'");
+    FetchIStream is4a;
+    while ((query4a>>is4a).good())
+      Land.push_back(Tag("Nachbarland")).setAttr("Name",fetch_string(is4a));
+    Query query4b("select land_1 from land_nachbarland where land_2='"+land+"'");
+    FetchIStream is4b;
+    while ((query4b>>is4b).good())
+      Land.push_back(Tag("Nachbarland")).setAttr("Name",fetch_string(is4b));
    }
   }
  }

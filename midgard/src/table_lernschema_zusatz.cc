@@ -109,6 +109,11 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
                if(cH_Sprache(*i)->Alte_Sprache()) continue;
                list_FertigkeitZusaetze.push_back(MBE->Name());
              }
+            else
+             {
+               if(button_allgemeinwissen->get_active())
+                 if(!cH_Sprache(*i)->ist_erlaubt(hauptfenster->getChar(),true)) erlaubt=false;
+             }
             if(MBE->Name()=="Sprechen: Alte Sprache" && !cH_Sprache(*i)->Alte_Sprache())
               {
                 list_FertigkeitZusaetze.push_back(MBE->Name());
@@ -230,6 +235,14 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
        vs.push_back("Sprache(n)");
        Tree_Lernschema_Zusatz->set_column_visibility(1,true);
        Tree_Lernschema_Zusatz->set_column_visibility(2,true);
+       break;
+      }
+     case MidgardBasicElement::ZUeberleben :
+      {
+       frame_lernschema_zusatz->set_label("In welcher Gegend beherrscht dieser Abenteurer 'Überleben' als Universelle Fertigkeit");
+       vs.push_back(MBE->Name());
+       vs.push_back("");
+       vs.push_back("");
        break;
       }
      case MidgardBasicElement::ZWaffe :

@@ -155,14 +155,26 @@ std::list<MidgardBasicElement_mutable> Sprache::cleanVerwandteSprachen(std::list
  return N;
 }
 
-bool Sprache::ist_erlaubt(const VAbenteurer& A) const 
+bool Sprache::ist_erlaubt(const VAbenteurer& A,bool nachbarland=false) const 
 {
-  std::vector<std::string> V=A.getWerte().Spezies()->getVSprache();
-  if(V.empty()) // Keine Sprachenvorgabe aufgrund der Spezies
-     V=A.getWerte().Herkunft()->Sprachen();
-  std::vector<std::string>::const_iterator l=find(V.begin(),V.end(),Name());
-  if(l==V.end()) return false;
-  return true;
+  if(nachbarland)
+   {
+     std::vector<std::string> L=A.getWerte().Herkunft()->Nachbarlaender();
+     for(std::vector<std::string>::const_iterator i=L.begin();i!=L.end();++i)
+      {
+        std::vector<std::string> V=cH_Land(*i)->Sprachen();
+        for(std::vector<std::string>::const_iterator j=V.begin();j!=V.end();++j)
+          if(!cH_Sprache(*j)->Alte_Sprache() && *j==Name())   return true  ;
+      }
+   }
+  else
+   {
+     std::vector<std::string> V=A.getWerte().Spezies()->getVSprache();
+     if(V.empty()) // Keine Sprachenvorgabe aufgrund der Spezies
+         V=A.getWerte().Herkunft()->Sprachen();
+     if(find(V.begin(),V.end(),Name())!=V.end()) return true;
+   }
+  return false;
 }
 
 
