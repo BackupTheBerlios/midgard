@@ -87,15 +87,14 @@ class Waffe : public MidgardBasicElement
 
      bool Grundkenntnis_vorhanden(const std::list<MidgardBasicElement_mutable>&) const;
      int Maxwert(const vector<cH_Typen>& Typ) const;
-     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const; 
+     int MaxErfolgswert(const Abenteurer &A) const; 
 
 
      static std::map<std::string,std::string> fill_map_alias_waffe(Gtk::ProgressBar *progressbar);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<MidgardBasicElement_mutable>& list_Waffen,
          const std::list<WaffeBesitz>& list_Waffen_besitz,
-         const vector<cH_Typen>& Typ,
-         const Grundwerte& Werte);
+         const Abenteurer &A);
      static void setSpezialWaffe(const std::string& name, std::list<MidgardBasicElement_mutable>& list_Waffen_gelernt);
 };
 

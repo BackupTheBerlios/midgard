@@ -106,30 +106,31 @@ int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const
   return (int)(fac*GrundKosten());
 }
 
-int Zauber::Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte) const
+//int Zauber::Erfolgswert_Z(const Zauber.ccvector<cH_Typen>& Typ,const Grundwerte& Werte) const
+int Zauber::Erfolgswert_Z(const Abenteurer &A) const
 {
-   assert(Typ.size()==2);
+   assert(A.getVTyp().size()==2);
    int ifac=-2;
-   vector<std::string> standard=Standard(Werte,Typ);
+   std::vector<std::string> standard=Standard(A);
    if (standard[0]=="G" || standard[1]=="G") ifac=0;
 
    int ispez=0;
-   if (Typ[0]->Short()=="Ma")
-      ispez = get_spezial_zauber_for_magier(Werte,Typ,standard[0]);
-   if (Typ[1]->Short()=="Ma") 
-      ispez = get_spezial_zauber_for_magier(Werte,Typ,standard[1]);
+   if (A.Typ1()->Short()=="Ma")
+      ispez = get_spezial_zauber_for_magier(A,standard[0]);
+   if (A.Typ2()->Short()=="Ma") 
+      ispez = get_spezial_zauber_for_magier(A,standard[1]);
 
 //cout << Name()<<' '<<Werte.Zaubern_wert()<<'+'<<Werte.bo_Za()<<'+'<<ifac<<'+'<<ispez<<'=';
-   int erf = Werte.Zaubern_wert()+Werte.bo_Za() + ifac + ispez ;
+   int erf = A.getWerte().Zaubern_wert()+A.getWerte().bo_Za() + ifac + ispez ;
 //cout << erf<<'\n';
    return erf;
 }
 
-int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::vector<cH_Typen> &Typ,const std::string& standard) const
+int Zauber::get_spezial_zauber_for_magier(const Abenteurer &A,const std::string& standard) const
 {
  int ispez=0;
- if (standard!="G" && Agens(Typ)==Werte.Spezialgebiet()->Spezial()) ispez = 2;
- if (standard!="G" && Prozess()==Werte.Spezialgebiet()->Spezial()) ispez = 2;
+ if (standard!="G" && Agens(A.getVTyp())==A.getWerte().Spezialgebiet()->Spezial()) ispez = 2;
+ if (standard!="G" && Prozess()==A.getWerte().Spezialgebiet()->Spezial()) ispez = 2;
  return ispez;
 }
 

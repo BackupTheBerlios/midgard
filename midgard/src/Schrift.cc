@@ -73,10 +73,10 @@ bool Schrift::kann_Sprache(const std::list<MidgardBasicElement_mutable>& sprache
  return false;
 }
 
-int Schrift::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+int Schrift::MaxErfolgswert(const Abenteurer &A) const
 {
-  if(w.In() < 61) return 14; 
-  return cH_Fertigkeit("Schreiben")->MaxErfolgswert(w,Typ) ;
+  if(A.getWerte().In() < 61) return 14; 
+  return cH_Fertigkeit("Schreiben")->MaxErfolgswert(A) ;
 }
 
 std::list<cH_MidgardBasicElement> Schrift::gleicheSchrift(const std::list<cH_MidgardBasicElement>& listSchrift) const

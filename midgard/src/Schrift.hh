@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.21 2002/07/10 09:31:37 christof Exp $               
+// $Id: Schrift.hh,v 1.22 2002/09/16 19:09:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,10 +47,11 @@ class Schrift : public MidgardBasicElement
    bool Alt() const {return alt;}
    bool kann_Sprache(const std::list<MidgardBasicElement_mutable>& sprache) const;
    bool Mutterschrift(const VAbenteurer& A) const;
-   int Schrift::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
-   int Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+//   int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
+   int MaxErfolgswert(const Abenteurer &A) const;
+   int Kosten(const Abenteurer &A) const
         { cH_Fertigkeit F("Lesen/Schreiben");
-             return  (int)(F->Standard_Faktor(Werte,Typ) * kosten) ; }
+             return  (int)(F->Standard_Faktor(A) * kosten) ; }
    std::list<cH_MidgardBasicElement> gleicheSchrift(const std::list<cH_MidgardBasicElement>& listSchrift) const;
 };
 

@@ -288,15 +288,15 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
 }
 
 
-int Waffe::MaxErfolgswert(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const
+int Waffe::MaxErfolgswert(const Abenteurer &A) const
 {
- assert(Typ.size()==2);
+ assert(A.getVTyp().size()==2);
  int maxwert=0;
- double x=Standard_Faktor(Werte,Typ);
+ double x=Standard_Faktor(A);
 
  if (art == "Verteidigung")
   {
-    if (Typ[0]->Zaubern() == "z" && Typ[1]->Short()!="") maxwert = 6;
+    if (A.Typ1()->Zaubern() == "z" && A.Typ2()->Short()!="") maxwert = 6;
     else
      {
       if     (x==1.0)  maxwert = 7;
@@ -307,7 +307,7 @@ int Waffe::MaxErfolgswert(const Grundwerte& Werte,const vector<cH_Typen>& Typ) c
   }
  else
   {
-    if (Typ[0]->Zaubern() == "z" && Typ[1]->Short()!="") maxwert = 14;
+    if (A.Typ1()->Zaubern() == "z" && A.Typ2()->Short()!="") maxwert = 14;
     else
      {
       if     (x==1.0)  maxwert = 17;
@@ -323,12 +323,9 @@ int Waffe::MaxErfolgswert(const Grundwerte& Werte,const vector<cH_Typen>& Typ) c
 std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
    const std::list<MidgardBasicElement_mutable>& list_Waffen,
    const std::list<WaffeBesitz>& list_Waffen_besitz,
-   const vector<cH_Typen>& Typ,
-   const Grundwerte& Werte)
+   const Abenteurer &A)
 {
    std::list<WaffeBesitz> Verteidigungswaffen;
-//   Verteidigungswaffen.push_back(new WaffeBesitz(
-//      cH_Waffe("waffenloser Kampf"),0,"waffenloser Kampf",0,0,""));
    MidgardBasicElement_mutable wl(&*cH_Waffe("waffenloser Kampf"));
    Verteidigungswaffen.push_back(WaffeBesitz(wl,wl->Name(),0,0,"",""));
    for (std::list<WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
@@ -364,7 +361,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
                    if (16<=j->Erfolgswert())                      erf_wert = 3;
                   }
                  else erf_wert = j->Erfolgswert();
-                 int ewert = Werte.Abwehr_wert()+Werte.bo_Ab() // Grundwerte
+                 int ewert = A.getWerte().Abwehr_wert()+A.getWerte().bo_Ab() // Grundwerte
                            + erf_wert + WB.av_Bonus() ;// Waffenwerte
                  Vwaffewert += itos(ewert);
                }

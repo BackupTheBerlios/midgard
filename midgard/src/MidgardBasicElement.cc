@@ -32,6 +32,7 @@
 #include <Misc/itos.h>
 #include "xml.h"
 #include "Datenbank.hh"
+#include "Abenteurer.hh"
 
 std::string MidgardBasicElement::RegionString(const Datenbank &D) const
 {
@@ -115,33 +116,33 @@ bool MidgardBasicElement::ist_gelernt(const std::list<std::string>& L) const
  return false;
 }
 
-std::string MidgardBasicElement::Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+std::string MidgardBasicElement::Standard__(const Abenteurer &A) const
 {
- vector<std::string> s = Standard(Werte,Typ);
+ vector<std::string> s = Standard(A);
  std::string s2=s[0];
- if(Typ[0]->Short()!="" && Typ[1]->Short()!="") s2+="/";
- if(Typ[1]->Short()!="") s2+=s[1];
+ if(A.Typ1()->Short()!="" && A.Typ2()->Short()!="") s2+="/";
+ if(A.Typ2()->Short()!="") s2+=s[1];
  return s2;
 }
 
-vector<std::string> MidgardBasicElement::Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+vector<std::string> MidgardBasicElement::Standard(const Abenteurer &A) const
 {
- assert(Typ.size()==2);
+ assert(A.getVTyp().size()==2);
  vector<std::string> s(2);
  for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
-   if(Typ[0]->Short()==i->first) {s[0]=i->second; break;}
+   if(A.Typ1()->Short()==i->first) {s[0]=i->second; break;}
  for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
-   if(Typ[1]->Short()==i->first) {s[1]=i->second; break;}
+   if(A.Typ2()->Short()==i->first) {s[1]=i->second; break;}
 
- s[0]=AusnahmenString(Werte,Typ[0],s[0]);
- s[1]=AusnahmenString(Werte,Typ[1],s[1]);
+ s[0]=AusnahmenString(A.getWerte(),A.Typ1(),s[0]);
+ s[1]=AusnahmenString(A.getWerte(),A.Typ2(),s[1]);
 
  return s;
 }
 
-bool MidgardBasicElement::Grundfertigkeit(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+bool MidgardBasicElement::Grundfertigkeit(const Abenteurer &A) const
 {
-  std::string standard=Standard__(Werte,Typ);
+  std::string standard=Standard__(A);
   std::string::size_type st=standard.find("G");
   if(st==std::string::npos) return false;
   return true;
@@ -165,11 +166,11 @@ std::string MidgardBasicElement::AusnahmenString(const Grundwerte &Werte,const c
 }
 
 
-double MidgardBasicElement::Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+double MidgardBasicElement::Standard_Faktor(const Abenteurer &A) const
 {
   double fac;
-  if      (standard_one_G(Standard(Werte,Typ)) ) fac = 0.5;
-  else if (standard_all_S(Standard(Werte,Typ)) ) fac = 1.0;
+  if      (standard_one_G(Standard(A)) ) fac = 0.5;
+  else if (standard_all_S(Standard(A)) ) fac = 1.0;
   else 
     { 
       fac = 2.0; 
@@ -208,34 +209,34 @@ cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
 
-int MidgardBasicElement_mutable::Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
+int MidgardBasicElement_mutable::Steigern(const Abenteurer &A) const 
 { 
    int kosten=0;
    if(Erfolgswert()>0)
       kosten = (*this)->get_Steigern_Kosten(Erfolgswert()+1);
    else 
       kosten = (*this)->get_Steigern_Kosten(abs(Erfolgswert())-1);
-   int back = int((*this)->Standard_Faktor(Werte,Typ)*kosten);
+   int back = int((*this)->Standard_Faktor(A)*kosten);
    return back;
 }
 
-int MidgardBasicElement_mutable::Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
+int MidgardBasicElement_mutable::Reduzieren(const Abenteurer &A) const 
 {
    int kosten=0;
    if(Erfolgswert()>0)
       kosten = (*this)->get_Steigern_Kosten(Erfolgswert());
    else 
       kosten = (*this)->get_Steigern_Kosten(abs(Erfolgswert()));
-   int back = int((*this)->Standard_Faktor(Werte,Typ)*kosten);
+   int back = int((*this)->Standard_Faktor(A)*kosten);
    return back;
 }
 
-int MidgardBasicElement_mutable::Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+int MidgardBasicElement_mutable::Verlernen(const Abenteurer &A) const
 {
 //cout << "MidgardBasicElement::Verlernen "<<Name()<<' ' << Reduzieren(Typ,ausnahmen)<<'\n';
-   if(Reduzieren(Werte,Typ)==0)
+   if(Reduzieren(A)==0)
     {
-        return (*this)->Kosten(Werte,Typ);
+        return (*this)->Kosten(A);
     }      
    else return 0;
 }
@@ -397,3 +398,20 @@ std::string MidgardBasicElement_mutable::Pflicht_str() const
 int MidgardBasicElement::FErfolgswert(const Abenteurer &abenteurer,const MidgardBasicElement_mutable &mbem) const
 {  return 0;
 }
+
+/*
+int MidgardBasicElement::Kosten(const Abenteurer &A) const 
+{return (int)(Standard_Faktor(A.getWerte(),A.getVTyp())*GrundKosten());}
+
+double MidgardBasicElement::Standard_Faktor(const Abenteurer &A) const 
+{return Standard_Faktor(A.getWerte(),A.getVTyp());}
+
+bool MidgardBasicElement::Grundfertigkeit(const Abenteurer &A) const
+{return Grundfertigkeit(A.getWerte(),A.getVTyp());}
+
+std::vector<std::string> MidgardBasicElement::Standard(const Abenteurer &A) const
+{return Standard(A.getWerte(),A.getVTyp());}
+
+std::string MidgardBasicElement::Standard__(const Abenteurer &A) const
+{return Standard__(A.getWerte(),A.getVTyp());}
+*/

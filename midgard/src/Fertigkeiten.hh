@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.49 2002/07/01 19:11:33 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.50 2002/09/16 19:09:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -71,7 +71,7 @@ class Fertigkeit : public MidgardBasicElement
      eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const;
      std::string Attribut() const {return attribut;}
      int FErfolgswert(const Abenteurer &a,const MidgardBasicElement_mutable &mbem) const;
-     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
+     int MaxErfolgswert(const Abenteurer &A) const;
      int MaxUnterweisung() const {return maxunterweisung;}
      int LernUnge() const {return lern_unge;}
      int LernLand() const {return lern_land;}

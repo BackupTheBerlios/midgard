@@ -60,9 +60,9 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 
  //////////////////////////////////////////////////////////////////////////
 
- if (radiobutton_steigern->get_active() && MBE.Steigern(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp()))
+ if (radiobutton_steigern->get_active() && MBE.Steigern(hauptfenster->getChar().getAbenteurer()))
     {
-      if ( MBE.Erfolgswert() >= MBE->MaxErfolgswert(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp())) 
+      if ( MBE.Erfolgswert() >= MBE->MaxErfolgswert(hauptfenster->getChar().getAbenteurer())) 
           { hauptfenster->set_status("Maximal möglicher Erfolgswert erreicht");
             return false; }
       if(radiobutton_unterweisung->get_active())
@@ -78,22 +78,22 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
             return false; }
        }      
       int stufen=1;
-      int steigerkosten=MBE.Steigern(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp());
+      int steigerkosten=MBE.Steigern(hauptfenster->getChar().getAbenteurer());
       if (!steigern_usp(steigerkosten,&MBE,stufen)) return false;
       hauptfenster->getChar().getWerte().addGFP(steigerkosten);
       for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i) == MBE) (*i).addErfolgswert(stufen) ; 
     }
- else if (radiobutton_reduzieren->get_active() && MBE.Reduzieren(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp()))
+ else if (radiobutton_reduzieren->get_active() && MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()))
     {
-      if (checkbutton_EP_Geld->get_active()) desteigern(MBE.Reduzieren(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp()));
-      hauptfenster->getChar().getWerte().addGFP(-MBE.Reduzieren(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp()));
+      if (checkbutton_EP_Geld->get_active()) desteigern(MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()));
+      hauptfenster->getChar().getWerte().addGFP(-MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()));
       for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i) == MBE)  (*i).addErfolgswert(-1) ; 
     }
- else if (radiobutton_verlernen->get_active() && MBE.Verlernen(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp()))
+ else if (radiobutton_verlernen->get_active() && MBE.Verlernen(hauptfenster->getChar().getAbenteurer()))
     {
-      guint verlernen = MBE.Verlernen(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp());
+      guint verlernen = MBE.Verlernen(hauptfenster->getChar().getAbenteurer());
       if( MBE->What()==MidgardBasicElement::ZAUBER && 
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (checkbutton_EP_Geld->get_active()) desteigern(verlernen);
@@ -144,14 +144,14 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
                      +" nicht durch Praxispunkte gelernt werden");
              return;
            }
-        else if(MBE->Standard__(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp())!="G")
+        else if(MBE->Standard__(hauptfenster->getChar().getAbenteurer())!="G")
            { hauptfenster->set_status("Nur Grundzauber können von "+hauptfenster->getChar().Typ1()->Name(hauptfenster->getChar().getWerte().Geschlecht())
                      +" mit Praxispunkten gelernt werden");
              return;
            }
       }
   }
- int kosten=MBE->Kosten(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp());
+ int kosten=MBE->Kosten(hauptfenster->getChar().getAbenteurer());
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if( MBE->What()==MidgardBasicElement::ZAUBER &&
@@ -167,7 +167,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  int dummy=1;
  if(neue_sprache_mit_pp) 
    { set_lernzeit(kosten,Nichts);
-     if(MBE->Grundfertigkeit(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp()))
+     if(MBE->Grundfertigkeit(hauptfenster->getChar().getAbenteurer()))
           MBE.setErfolgswert(9);
      else MBE.setErfolgswert(7);
    }

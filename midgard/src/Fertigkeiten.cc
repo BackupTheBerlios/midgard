@@ -178,11 +178,12 @@ int Fertigkeit::FErfolgswert(const Abenteurer &a,const MidgardBasicElement_mutab
   else return mbem.Erfolgswert();
 }
 
-int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+//int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+int Fertigkeit::MaxErfolgswert(const Abenteurer& A) const
 {
 //cout << Name()<<" Maximaler Erfolgswert = "<<maxerfolgswert<<'+'
 //  <<AttributBonus(w)<<" Attribut = "<<Attribut()<<'\n';
-  return maxerfolgswert + AttributBonus(w);
+  return maxerfolgswert + AttributBonus(A.getWerte());
 }
 
 

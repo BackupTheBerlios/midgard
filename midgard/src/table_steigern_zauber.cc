@@ -107,11 +107,11 @@ bool table_steigern::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
 
  // Für Magier:
  std::string standard="";
- if (hauptfenster->getChar().Typ1()->Short()=="Ma") standard=z->Standard(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp())[0]; 
- if (hauptfenster->getChar().Typ2()->Short()=="Ma") standard=z->Standard(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp())[1]; 
+ if (hauptfenster->getChar().Typ1()->Short()=="Ma") standard=z->Standard(hauptfenster->getChar().getAbenteurer())[0]; 
+ if (hauptfenster->getChar().Typ2()->Short()=="Ma") standard=z->Standard(hauptfenster->getChar().getAbenteurer())[1]; 
  if(standard!="") 
    {
-    iaus = zauber->get_spezial_zauber_for_magier(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp(),standard); 
+    iaus = zauber->get_spezial_zauber_for_magier(hauptfenster->getChar().getAbenteurer(),standard); 
     if (!iaus)
      { if (zauber->Art()=="S")  iaus=+1;
        if (zauber->Art()=="A")  iaus=-1;  }

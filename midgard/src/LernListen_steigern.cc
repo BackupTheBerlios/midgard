@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.2 2002/09/16 12:41:47 thoma Exp $
+// $Id: LernListen_steigern.cc,v 1.3 2002/09/16 19:09:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -138,3 +138,16 @@ std::list<MidgardBasicElement_mutable> LernListen::get_steigern_ZauberWerkliste(
    }
  return L;
 }
+
+
+void LernListen::shorten_for_GFP(std::list<MidgardBasicElement_mutable> &L_,const Abenteurer& A,int gfp) const
+{
+  std::list<MidgardBasicElement_mutable> L;
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L_.begin();i!=L_.end();++i)
+   {
+     if((*i)->Kosten(A) > gfp) continue;
+     L.push_back(*i);
+   }
+  L_=L;
+}
+

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.196 2002/09/16 12:00:41 thoma Exp $
+# $Id: Makefile.am,v 1.197 2002/09/16 19:09:21 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -81,8 +81,8 @@ midgard_CG_glade.hh midgard_CG.hh  \
 WindowInfo_glade.hh WindowInfo.hh \
    Window_hilfe_glade.hh \
    Window_hilfe.hh \
-	Midgard_Info_glade.hh \
 	Midgard_Info.hh \
+   Midgard_Info_glade.hh \
    Tag.hh TagStream.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh \
@@ -202,8 +202,8 @@ magus_SOURCES = $(PORT_FILES) \
    Window_hilfe_glade.cc \
    Window_hilfe.cc \
    glademm_support.cc \
-	Midgard_Info_glade.cc \
 	Midgard_Info.cc \
+   Midgard_Info_glade.cc \
 	midgard.cc \
    midgard_CG_drucken.cc \
 	midgard_CG_glade.cc \

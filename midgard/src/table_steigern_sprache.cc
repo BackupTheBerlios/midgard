@@ -59,13 +59,13 @@ void table_steigern::on_sprache_laden_clicked()
            list_Sprache_neu.push_back(m) ;
         }
     }
-   sprachen_zeigen();
 */
   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
   list_Sprache_neu=LL->get_steigern_MBEm(A,LernListen::sSpra,nsc);
+  sprachen_zeigen();
          
-   on_schrift_laden_clicked();
+  on_schrift_laden_clicked();
 }   
 
 void table_steigern::schriften_zeigen()

@@ -108,7 +108,8 @@ class MidgardBasicElement : public HandleContentCopyable
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
-      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const {return 0;};
+//      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const {return 0;};
+      virtual int MaxErfolgswert(const Abenteurer &A) const {return 0;};
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<std::string>& L) const;
       virtual int FErfolgswert(const Abenteurer &abenteurer,const MidgardBasicElement_mutable &mbem) const;
@@ -116,17 +117,25 @@ class MidgardBasicElement : public HandleContentCopyable
       virtual bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const {cerr<<"ERROR in Voraussetzung\n";return false;}
 
       int get_Steigern_Kosten(int erfolgswert) const;
-      vector<std::string> Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
+
+      std::vector<std::string> Standard(const Abenteurer &A) const; 
+      std::string Standard__(const Abenteurer &A) const;
+      double Standard_Faktor(const Abenteurer &A) const ;
+      bool Grundfertigkeit(const Abenteurer &A) const;
+private:
+      std::string AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const;
+/*
+      std::vector<std::string> Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
       std::string Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
       double Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
       bool Grundfertigkeit(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
-private:
-      std::string AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const;
+      int Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
+         {return (int)(Standard_Faktor(Werte,Typ)*GrundKosten());}
+*/
 public:
       std::string Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ,const std::string s) const;
 
-      int Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
-         {return (int)(Standard_Faktor(Werte,Typ)*GrundKosten());}
+      int Kosten(const Abenteurer &A) const ;
       bool standard_one_G(const vector<std::string>& s) const ;
       bool standard_all_S(const vector<std::string>& s) const ;
       bool operator == (const MidgardBasicElement& b) const 
@@ -217,9 +226,9 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
      std::string Pflicht_str() const; 
 
      bool ist_gelernt(const std::list<MidgardBasicElement_mutable>& L) const;
-     int Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
-     int Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
-     int Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
+     int Steigern(const Abenteurer &A) const; 
+     int Reduzieren(const Abenteurer &A) const;
+     int Verlernen(const Abenteurer &A) const; 
 
    class sort {
       public:

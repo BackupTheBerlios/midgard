@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.60 2002/09/06 11:42:55 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.61 2002/09/16 19:09:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -358,7 +358,7 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
      case eabwehrfinal:
      case eabwehrmitwaffe:
       { if(was==eabwehrfinal)    sfout += itos(W.Abwehr_wert()+W.bo_Ab());
-        if(was==eabwehrmitwaffe) sfout += Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar().List_Waffen(),hauptfenster->getChar().List_Waffen_besitz(),hauptfenster->getChar().getVTyp(),W);
+        if(was==eabwehrmitwaffe) sfout += Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar().List_Waffen(),hauptfenster->getChar().List_Waffen_besitz(),hauptfenster->getChar().getAbenteurer());
         sfout += W.Ruestung_Abwehr_Verlust(hauptfenster->getChar().List_Fertigkeit());
         break;
       }
@@ -883,7 +883,7 @@ void LaTeX_drucken::LaTeX_zauber(ostream &fout)
      fout << z->Name() ;
      if(!(*i).Zusatz().empty()) fout << " ("<<(*i).Zusatz()<<")";
      fout <<" & ";
-     fout << z->Erfolgswert_Z(hauptfenster->getChar().getVTyp(),hauptfenster->getWerte()) <<" & ";
+     fout << z->Erfolgswert_Z(hauptfenster->getChar().getAbenteurer()) <<" & ";
      fout << Gtk2TeX::string2TeX(z->Ap()) << " & ";
      fout << Gtk2TeX::string2TeX(z->Art())<< " & ";
      fout << Gtk2TeX::string2TeX(z->Stufe()) << " & ";

@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.12 2002/09/16 12:00:41 thoma Exp $
+// $Id: LernListen.hh,v 1.13 2002/09/16 19:09:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -67,6 +67,7 @@ class LernListen
             bool salz,bool beschwoerung,bool nsc, bool alle,bool spruchrolle) const;
       std::list<MidgardBasicElement_mutable> get_steigern_ZauberWerkliste(const Abenteurer& A,
             bool nsc, bool alle) const;
+      void shorten_for_GFP(std::list<MidgardBasicElement_mutable> &L,const Abenteurer& A,int gfp) const;
 
 };
 

@@ -68,18 +68,18 @@ void Sprache::get_Sprache()
      VSchrift.push_back(i->getAttr("Name",tag->getAttr("Name")));
 }
 
-int Sprache::Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+int Sprache::Kosten(const Abenteurer& A) const
 { 
   cH_Fertigkeit F("Sprechen: Sprache");
-  return  (int)(F->Standard_Faktor(Werte,Typ) * kosten) ; 
+  return  (int)(F->Standard_Faktor(A) * kosten) ; 
 }
 
-int Sprache::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+int Sprache::MaxErfolgswert(const Abenteurer& A) const
 {
-  if (w.In() < 31) return (11>maxwert ? maxwert : 11); 
-  if (w.In() < 61) return (18>maxwert ? maxwert : 18); 
+  if (A.getWerte().In() < 31) return (11>maxwert ? maxwert : 11); 
+  if (A.getWerte().In() < 61) return (18>maxwert ? maxwert : 18); 
 
-  int ab= cH_Fertigkeit("Sprache")->MaxErfolgswert(w,Typ);
+  int ab= cH_Fertigkeit("Sprache")->MaxErfolgswert(A);
   if(maxwert==20) return ab;
   else return (ab>maxwert ? maxwert : ab);
 }

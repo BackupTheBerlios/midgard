@@ -235,7 +235,7 @@ return false;
 
 int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_mutable& MBE,int &kosten,int &aep)
 {
-  int steiger_kosten = MBE.Steigern(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp());
+  int steiger_kosten = MBE.Steigern(hauptfenster->getChar().getAbenteurer());
   int stufen=0;
   int erfolgswert_mem=MBE.Erfolgswert();
   while(steiger_kosten<=aep)
@@ -244,7 +244,7 @@ int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_muta
      ++stufen;
      aep-=steiger_kosten;
      MBE.addErfolgswert(1);
-     steiger_kosten = MBE.Steigern(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp());
+     steiger_kosten = MBE.Steigern(hauptfenster->getChar().getAbenteurer());
    }      
   if(aep>0)
    {
