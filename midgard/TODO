@@ -35,9 +35,10 @@ was bedeutet:
 
 - Schummeln in Abenteurer?
 
-- Preise und Lernschema sind Regionenäbhangig ... ???
+- Preise und Lernschema sind Regionenäbhangig ... ??? Ein Wechsel der Region
+  ändert das aber noch nicht
 
-- InfoWindow neu erzeugen, eventuell einfärben
+- InfoWindow eventuell einfärben, Button zum launchen in Leiste
 
 - set_remember fehlt ganz (ist auch nicht notwendig)
 
@@ -60,8 +61,6 @@ was bedeutet:
 
 - Lizenz
 
-- beim Laden Abenteurerliste nicht da?
-
 - Hintergrundbilder ?
 
 - Schließen/Exit
@@ -71,3 +70,23 @@ was bedeutet:
 - Grafik löschen können
 
 - Auf vereinheitlichten FileRequester umstellen (slot)
+
+- 1. Grafik zentrieren
+
+- Spezialisierung?
+
+- Dinge in Dialoge verschieben?
+
+- Expander ?
+
+- Ausrüstung wird vorm Laden nicht gelöscht
+
+- viele Buttons haben keine Tooltips wenn die Schrift abgestellt ist
+
+- Zufall Grad1 stürzt ab
+
+- Neuanzeigen wieder nach Tabs trennen (schneller!)
+
+- Lernschema: Würfeln/Eingeben Button noch getrennt
+
+- Zu Anfang sind die letzten Dateien nicht dargestellt

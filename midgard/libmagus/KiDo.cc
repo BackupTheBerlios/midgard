@@ -96,7 +96,7 @@ int KiDo::get_erfolgswert_kido(const std::list<MBEmlt>& L)
 {
  for (std::list<MBEmlt>::const_iterator i= L.begin();i!=L.end();++i)
    if ((*(*i))->Name() == "KiDo") return (*i)->Erfolgswert();
- abort();
+ throw NotFound("KiDo");
 }   
 
 std::map<std::string,int> KiDo::maxkidostil(const std::list<MBEmlt>& list_Kido)

@@ -22,10 +22,12 @@
 #include "KiDo.hh"
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/Datenbank.hh>
+#include <libmagus/NotFound.h>
 
 void table_steigern::on_kido_laden_clicked()
 {   
   list_Kido_neu.clear();
+  try {
   int erfolgswert_kido = KiDo::get_erfolgswert_kido(hauptfenster->getAben().List_Fertigkeit());
   KiDo_Stile kido_stil;
   if (!kido_stil.ist_gelernt(hauptfenster->getAben().Spezialisierung())) 
@@ -61,6 +63,7 @@ void table_steigern::on_kido_laden_clicked()
         (kd->Stufe()=="Meister"     &&!gem_technik && maxM < 3) )
     list_Kido_neu.push_back(*i);
     }
+ } catch (NotFound &e) {}
  kido_zeigen();
 }
 
