@@ -1,4 +1,4 @@
-// $Id: ProgressBar.cc,v 1.1 2002/01/30 15:59:37 christof Exp $
+// $Id: ProgressBar.cc,v 1.2 2002/01/30 16:17:07 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Christof Petig
  *
@@ -26,7 +26,7 @@ void ProgressBar::set_percentage(Gtk::ProgressBar *progressbar, double value)
 #if 1
    static const int steps=5;
    static int old_val;
-   int new_val=value*steps;
+   int new_val=int(value*steps);
    if (old_val!=new_val)
    {  progressbar->set_percentage(new_val/(double)steps);
       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
