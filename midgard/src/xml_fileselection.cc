@@ -68,7 +68,7 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
    ZeroMemory(&ofn, sizeof (OPENFILENAME));
    ofn.lStructSize = sizeof (OPENFILENAME);
    		// (GTK_WIDGET(h->gtkobj())->window )
-   ofn.hwndOwner = GDK_DRAWABLE_XID(h->get_window().gdkobj()); 
+//   ofn.hwndOwner = GDK_DRAWABLE_XID(h->get_window()->gdkobj()); 
 		// GDK_WINDOW_HWND (win) 2.0
    ofn.lpstrFile = buf;
    ofn.nMaxFile = sizeof buf;
