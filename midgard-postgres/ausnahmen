@@ -39,6 +39,19 @@ Becherrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Becherrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Berserkerrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Berserkerrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Blumen erschaffen	z	\N	Nahuatlan	Ma	S	\N	\N
+Blumen erschaffen	z	\N	Nahuatlan	PT	G	\N	\N
+Blumen erschaffen	z	\N	Nahuatlan	gHx	S	\N	\N
+Blumen erschaffen	z	\N	Nahuatlan	sHx	S	\N	\N
+Blumen erschaffen	z	\N	Nahuatlan	wHx	S	\N	\N
+Blumengeist betrachten	z	\N	Nahuatlan	PC	S	\N	\N
+Blumengeist betrachten	z	\N	Nahuatlan	PF	S	\N	\N
+Blumengeist betrachten	z	\N	Nahuatlan	PHa	S	\N	\N
+Blumengeist betrachten	z	\N	Nahuatlan	PHe	S	\N	\N
+Blumengeist betrachten	z	\N	Nahuatlan	PK	S	\N	\N
+Blumengeist betrachten	z	\N	Nahuatlan	PM	S	\N	\N
+Blumengeist betrachten	z	\N	Nahuatlan	PT	S	\N	\N
+Blumengeist betrachten	z	\N	Nahuatlan	PW	S	\N	\N
 Drachenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Drachenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Elefanten lenken	f	\N	Minangpahit	BW	G	\N	\N
@@ -81,6 +94,34 @@ Hagelrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Hagelrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Heilsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Heilsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	Dr	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	Hl	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	Ma	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	PC	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	PF	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	PHa	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	PHe	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	PK	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	PM	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	PT	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	PW	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	ScN	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	ScS	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	ScW	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	Th	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	dBe	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	eBe	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	gHx	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	sHx	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	tBe	S	\N	\N
+Jadezauber	z	\N	KanThaiPan	wHx	S	\N	\N
+Jadezauber	z	\N	Nahuatlan	Hl	G	\N	\N
+Jadezauber	z	\N	Nahuatlan	PF	G	\N	\N
+Jadezauber	z	\N	Nahuatlan	PW	G	\N	\N
+Jadezauber	z	\N	Nahuatlan	ScN	G	\N	\N
+Jadezauber	z	\N	Nahuatlan	ScS	G	\N	\N
+Jadezauber	z	\N	Nahuatlan	ScW	G	\N	\N
+Jadezauber	z	\N	Nahuatlan	Th	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	As	S	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	BN	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	BS	G	\N	\N
@@ -220,6 +261,18 @@ Reiserune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScN	G	\N	\N
 Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScS	G	\N	\N
 Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScW	G	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	Or	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	PF	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	PHa	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	PHe	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	PK	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	PM	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	PT	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	PW	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	ScN	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	ScS	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	ScW	S	\N	\N
+Ruf des Herzens	z	\N	Nahuatlan	Tm	S	\N	\N
 Schildrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Schildrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Schlangen beschwören	f	\N	Rawindra	Ba	G	\N	\N
@@ -285,6 +338,20 @@ Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScW	G	\N	\N
 Srimara lenken	f	\N	Rawindra	Kr	S	\N	\N
 Srimara lenken	f	\N	Rawindra	Or	S	\N	\N
 Srimara lenken	f	\N	Rawindra	Sö	S	\N	\N
+Stigma	z	\N	Nahuatlan	PF	G	\N	\N
+Stigma	z	\N	Nahuatlan	PHa	G	\N	\N
+Stigma	z	\N	Nahuatlan	PHe	G	\N	\N
+Stigma	z	\N	Nahuatlan	PK	G	\N	\N
+Stigma	z	\N	Nahuatlan	PM	G	\N	\N
+Stigma	z	\N	Nahuatlan	PT	G	\N	\N
+Stigma	z	\N	Nahuatlan	PW	G	\N	\N
+Stigma lokalisieren	z	\N	Nahuatlan	PF	G	\N	\N
+Stigma lokalisieren	z	\N	Nahuatlan	PHa	G	\N	\N
+Stigma lokalisieren	z	\N	Nahuatlan	PHe	G	\N	\N
+Stigma lokalisieren	z	\N	Nahuatlan	PK	G	\N	\N
+Stigma lokalisieren	z	\N	Nahuatlan	PM	G	\N	\N
+Stigma lokalisieren	z	\N	Nahuatlan	PT	G	\N	\N
+Stigma lokalisieren	z	\N	Nahuatlan	PW	G	\N	\N
 Stärkerune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Stärkerune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Tierrune	z	Berggnom	Dvarheim	Th	S	\N	\N

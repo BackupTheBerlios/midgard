@@ -24,6 +24,7 @@ Abu es-Samum	Sa	S
 Abu es-Samum	ScN	S
 Abu es-Samum	ScS	S
 Abu es-Samum	ScW	S
+Abu es-Samum	Tt	G
 Abu es-Samum	gHx	S
 Abu es-Samum	sHx	S
 Abu es-Samum	wHx	S
@@ -57,6 +58,7 @@ Ahnengeist beschwören	Sa	S
 Ahnengeist beschwören	ScN	S
 Ahnengeist beschwören	ScS	S
 Ahnengeist beschwören	ScW	S
+Ahuatls Sturm	Tt	G
 Ain es-Samum	De	G
 Ain es-Samum	Sa	S
 Ain es-Samum	ScN	S
@@ -70,6 +72,7 @@ Akbar fil-Ghadban	Sa	S
 Akbar fil-Ghadban	ScN	S
 Akbar fil-Ghadban	ScS	S
 Akbar fil-Ghadban	ScW	S
+Akbar fil-Ghadban	Tt	G
 Akbar fil-Ghadban	gHx	S
 Akbar fil-Ghadban	sHx	S
 Akbar fil-Ghadban	wHx	S
@@ -78,12 +81,14 @@ Al-Ghussat	Sa	S
 Al-Ghussat	ScN	S
 Al-Ghussat	ScS	S
 Al-Ghussat	ScW	S
+Al-Ghussat	Tt	G
 Al-Ghussat	wHx	S
 Al-Karama	De	G
 Al-Karama	Sa	S
 Al-Karama	ScN	S
 Al-Karama	ScS	S
 Al-Karama	ScW	S
+Al-Karama	Tt	G
 Al-Karama	gHx	S
 Al-Karama	sHx	S
 Al-Karama	wHx	S
@@ -107,6 +112,7 @@ Al-Tarka	Sa	S
 Al-Tarka	ScN	S
 Al-Tarka	ScS	S
 Al-Tarka	ScW	S
+Al-Tarka	Tt	G
 Al-Tarka	gHx	S
 Al-Tarka	sHx	S
 Al-Tarka	wHx	S
@@ -243,6 +249,7 @@ Ballade der Begierde	Ba	G
 Ballade der Begierde	Sk	S
 Ballader der besiegten Gier	Ba	G
 Ballader der besiegten Gier	Sk	S
+Ballbalance	Tr	G
 Bann der wahren Eigentümerschaft	Ma	S
 Bann der wahren Eigentümerschaft	PC	S
 Bann der wahren Eigentümerschaft	PF	A
@@ -1104,6 +1111,25 @@ Blitze schleudern	Th	G
 Blitze schleudern	gHx	S
 Blitze schleudern	sHx	S
 Blitze schleudern	wHx	S
+Blumen erschaffen	Dr	S
+Blumen erschaffen	Hl	S
+Blumen erschaffen	Ma	A
+Blumen erschaffen	PC	A
+Blumen erschaffen	PF	G
+Blumen erschaffen	PHa	A
+Blumen erschaffen	PHe	A
+Blumen erschaffen	PK	A
+Blumen erschaffen	PM	A
+Blumen erschaffen	PT	A
+Blumen erschaffen	PW	A
+Blumen erschaffen	gHx	A
+Blumen erschaffen	sHx	A
+Blumen erschaffen	wHx	A
+Blumen herbeizaubern	Tr	G
+Blumenfee	Tr	G
+Blumengeist betrachten	Dt	G
+Blumengeist betrachten	PT	A
+Blumengeist betrachten	PW	A
 Blutmeisterschaft	De	A
 Blutmeisterschaft	Dr	A
 Blutmeisterschaft	Hl	S
@@ -1335,6 +1361,7 @@ Dalail ed-Dawahi	Sa	S
 Dalail ed-Dawahi	ScN	S
 Dalail ed-Dawahi	ScS	S
 Dalail ed-Dawahi	ScW	S
+Dalail ed-Dawahi	Tt	S
 Dalail ed-Dawahi	gHx	G
 Dalail ed-Dawahi	sHx	G
 Dalail ed-Dawahi	wHx	G
@@ -1361,6 +1388,7 @@ Dau ed-Datin	Sa	S
 Dau ed-Datin	ScN	S
 Dau ed-Datin	ScS	S
 Dau ed-Datin	ScW	S
+Dau ed-Datin	Tt	S
 Dau ed-Datin	gHx	G
 Dau ed-Datin	sHx	G
 Dau ed-Datin	wHx	G
@@ -1369,6 +1397,7 @@ Dau ed-Din	Sa	S
 Dau ed-Din	ScN	S
 Dau ed-Din	ScS	S
 Dau ed-Din	ScW	S
+Dau ed-Din	Tt	G
 Dau ed-Din	wHx	S
 Deckmantel	De	A
 Deckmantel	Dr	A
@@ -1435,6 +1464,7 @@ Die Wiesenheuschrecke zirpt...	sHx	G
 Die Wiesenheuschrecke zirpt...	wHx	G
 Die überzeugende Stimme	Ba	G
 Die überzeugende Stimme	Sk	G
+Dinge aufspüren	Tr	G
 Dinge rufen	Ma	S
 Dinge rufen	Th	G
 Dinge rufen	dBe	S
@@ -2402,6 +2432,7 @@ Farbensalz	eBe	A
 Farbensalz	gHx	S
 Farbensalz	sHx	S
 Farbensalz	wHx	S
+Farbenspiel	Tr	G
 Feenfluch	De	A
 Feenfluch	Dr	S
 Feenfluch	Hl	S
@@ -2440,6 +2471,7 @@ Feenzauber	ScW	A
 Feenzauber	gHx	G
 Feenzauber	sHx	G
 Feenzauber	wHx	G
+Fehlleistung	Tr	G
 Felldvegar beschwören	De	A
 Felldvegar beschwören	Dr	A
 Felldvegar beschwören	Hl	A
@@ -2985,6 +3017,19 @@ Frostball	eBe	S
 Frostball	gHx	S
 Frostball	sHx	S
 Frostball	wHx	S
+Fruchtbarkeit	Dr	S
+Fruchtbarkeit	Dt	G
+Fruchtbarkeit	Hl	G
+Fruchtbarkeit	PF	G
+Fruchtbarkeit	PHa	A
+Fruchtbarkeit	PHe	A
+Fruchtbarkeit	ScN	S
+Fruchtbarkeit	ScS	S
+Fruchtbarkeit	ScW	S
+Fruchtbarkeit	gHx	S
+Fruchtbarkeit	sHx	S
+Fruchtbarkeit	wHx	S
+Funkenflug	Tr	G
 Funkenregen	De	S
 Funkenregen	Dr	A
 Funkenregen	Hl	G
@@ -3137,6 +3182,7 @@ Geistesschlüssel	sHx	S
 Geizrune	Ru	G
 Geizrune	Sk	G
 Gelbe Glocke (1. Urton Kung)	Ba	S
+Geruch intensivieren	Tr	G
 Geruchsverlust	De	S
 Geruchsverlust	Dr	G
 Geruchsverlust	Hl	A
@@ -3163,6 +3209,7 @@ Ghussat el-Masin	Sa	S
 Ghussat el-Masin	ScN	S
 Ghussat el-Masin	ScS	S
 Ghussat el-Masin	ScW	S
+Ghussat el-Masin	Tt	S
 Ghussat el-Masin	gHx	G
 Ghussat el-Masin	sHx	G
 Ghussat el-Masin	wHx	G
@@ -3617,6 +3664,7 @@ Haram fil-Din	Sa	S
 Haram fil-Din	ScN	S
 Haram fil-Din	ScS	S
 Haram fil-Din	ScW	S
+Haram fil-Din	Tt	G
 Haram fil-Din	gHx	S
 Haram fil-Din	sHx	S
 Haram fil-Din	wHx	S
@@ -3933,6 +3981,38 @@ Hexenritt	ScS	S
 Hexenritt	ScW	S
 Hexenritt	gHx	G
 Hexenritt	sHx	G
+Hexenschuß	PC	S
+Hexenschuß	ScN	S
+Hexenschuß	ScS	S
+Hexenschuß	ScW	S
+Hexenschuß	gHx	G
+Hexenschuß	sHx	G
+Hexenschuß	wHx	G
+Hexenspüren	De	A
+Hexenspüren	Dr	A
+Hexenspüren	Dt	A
+Hexenspüren	Hl	A
+Hexenspüren	Ma	A
+Hexenspüren	Nb	A
+Hexenspüren	PF	S
+Hexenspüren	PHa	S
+Hexenspüren	PHe	S
+Hexenspüren	PK	S
+Hexenspüren	PM	S
+Hexenspüren	PT	S
+Hexenspüren	PW	S
+Hexenspüren	Sa	A
+Hexenspüren	ScN	A
+Hexenspüren	ScS	A
+Hexenspüren	ScW	A
+Hexenspüren	Th	A
+Hexenspüren	Tt	A
+Hexenspüren	dBe	A
+Hexenspüren	eBe	A
+Hexenspüren	gHx	A
+Hexenspüren	sHx	A
+Hexenspüren	tBe	A
+Hexenspüren	wHx	A
 Hexenwirbel	De	G
 Hexenwirbel	PW	S
 Hexenwirbel	ScN	G
@@ -4308,6 +4388,15 @@ Indruwal 4 beschwören	eBe	A
 Indruwal 4 beschwören	gHx	A
 Indruwal 4 beschwören	sHx	A
 Indruwal 4 beschwören	wHx	A
+Iquibalams Ruhm	Tt	G
+Iquibalams Tapferkeit	Tt	G
+Iquibalams Verachtung	ScN	S
+Iquibalams Verachtung	ScS	S
+Iquibalams Verachtung	ScW	S
+Iquibalams Verachtung	Tt	G
+Iquibalams Verachtung	gHx	S
+Iquibalams Verachtung	sHx	S
+Iquibalams Verachtung	wHx	S
 Ising beschwören	De	A
 Ising beschwören	Dr	A
 Ising beschwören	Hl	A
@@ -4330,6 +4419,16 @@ Ising beschwören	eBe	A
 Ising beschwören	gHx	A
 Ising beschwören	sHx	A
 Ising beschwören	wHx	A
+Ixtantzutuhs Ekstase	Tt	G
+Ixtantzutuhs Schönheit	Tt	G
+Jadezauber	Hl	A
+Jadezauber	Or	A
+Jadezauber	PF	A
+Jadezauber	PW	A
+Jadezauber	ScN	A
+Jadezauber	ScS	A
+Jadezauber	ScW	A
+Jadezauber	Th	A
 Jambani beschwören	De	A
 Jambani beschwören	Dr	A
 Jambani beschwören	Hl	A
@@ -4649,6 +4748,7 @@ Karing beschwören	eBe	A
 Karing beschwören	gHx	A
 Karing beschwören	sHx	A
 Karing beschwören	wHx	A
+Kernkleid	Tr	G
 Klebesalz	De	A
 Klebesalz	Dr	A
 Klebesalz	Hl	A
@@ -5065,6 +5165,7 @@ Liniensicht	De	S
 Liniensicht	Dr	G
 Liniensicht	Hl	G
 Liniensicht	Ma	S
+Liniensicht	Nb	G
 Liniensicht	PC	A
 Liniensicht	PF	A
 Liniensicht	PHa	A
@@ -5244,10 +5345,30 @@ Löschsalz	gHx	S
 Löschsalz	sHx	S
 Löschsalz	tBe	A
 Löschsalz	wHx	S
+Lösen	Dr	S
+Lösen	Hl	S
+Lösen	Ma	S
+Lösen	PC	S
+Lösen	PF	S
+Lösen	PHa	S
+Lösen	PHe	S
+Lösen	PK	S
+Lösen	PM	S
+Lösen	PT	S
+Lösen	PW	G
+Lösen	ScN	S
+Lösen	ScS	S
+Lösen	ScW	S
+Lösen	Th	S
+Lösen	gHx	S
+Lösen	sHx	S
+Lösen	wHx	S
 Lösungsrune	Ru	G
 Lösungsrune	Sk	A
 Macht der Finsternis	PC	S
 Macht der Finsternis	sHx	S
+Macht des Netzes	Dr	S
+Macht des Netzes	Nb	G
 Macht über Leben	De	A
 Macht über Leben	Ma	G
 Macht über Leben	PC	S
@@ -5606,6 +5727,7 @@ Marmorhaut	Tm	A
 Marmorhaut	gHx	S
 Marmorhaut	sHx	S
 Marmorhaut	wHx	S
+Maskieren	Tr	G
 Megant 1 beschwören	De	A
 Megant 1 beschwören	Dr	A
 Megant 1 beschwören	Hl	A
@@ -5797,6 +5919,8 @@ Myrknir beschwören	eBe	A
 Myrknir beschwören	gHx	A
 Myrknir beschwören	sHx	A
 Myrknir beschwören	wHx	A
+Nahuahauquihs Preis	Tt	G
+Nahuahauquihs Zorn	Tt	G
 Namenloses Grauen	De	S
 Namenloses Grauen	Dr	S
 Namenloses Grauen	Hl	S
@@ -5905,6 +6029,34 @@ Nefling beschwören	eBe	A
 Nefling beschwören	gHx	A
 Nefling beschwören	sHx	A
 Nefling beschwören	wHx	A
+Netz ahnen	Tr	G
+Netzfeuer	Dr	S
+Netzfeuer	Nb	G
+Netzkontakt	Dr	S
+Netzkontakt	Dt	S
+Netzkontakt	Hl	A
+Netzkontakt	Ma	A
+Netzkontakt	Nb	G
+Netzkontakt	PC	A
+Netzkontakt	PHa	A
+Netzkontakt	PHe	A
+Netzkontakt	PK	A
+Netzkontakt	ScN	A
+Netzkontakt	ScS	A
+Netzkontakt	ScW	A
+Netzkontakt	gHx	A
+Netzkontakt	sHx	A
+Netzkontakt	wHx	A
+Netzkraft	Dr	S
+Netzkraft	Nb	G
+Netzschlinge	Dr	S
+Netzschlinge	Nb	G
+Netzschutz	Dr	S
+Netzschutz	Nb	G
+Netzsehen	Dr	S
+Netzsehen	Nb	G
+Netzversteck	Dr	S
+Netzversteck	Nb	G
 Niessalz	De	A
 Niessalz	Dr	A
 Niessalz	Hl	A
@@ -5933,6 +6085,17 @@ NüQuang	Sa	S
 NüQuang	ScN	S
 NüQuang	ScS	S
 NüQuang	ScW	S
+Oysteins kleine Prophezeiung	PC	S
+Oysteins kleine Prophezeiung	PF	S
+Oysteins kleine Prophezeiung	PHa	S
+Oysteins kleine Prophezeiung	PHe	S
+Oysteins kleine Prophezeiung	PK	S
+Oysteins kleine Prophezeiung	PM	S
+Oysteins kleine Prophezeiung	PT	S
+Oysteins kleine Prophezeiung	PW	G
+Oysteins kleine Prophezeiung	ScN	S
+Oysteins kleine Prophezeiung	ScS	S
+Oysteins kleine Prophezeiung	ScW	S
 Paschuyana, der Weg des Tieres	De	S
 Paschuyana, der Weg des Tieres	Dr	A
 Paschuyana, der Weg des Tieres	PC	A
@@ -5946,6 +6109,7 @@ Paschuyana, der Weg des Tieres	PW	S
 Paschuyana, der Weg des Tieres	ScN	S
 Paschuyana, der Weg des Tieres	ScS	S
 Paschuyana, der Weg des Tieres	ScW	S
+Passieren	Tr	G
 Person beschwören	De	A
 Person beschwören	Dr	A
 Person beschwören	Hl	A
@@ -6019,12 +6183,15 @@ PiPingQuang	Sa	S
 PiPingQuang	ScN	S
 PiPingQuang	ScS	S
 PiPingQuang	ScW	S
+PiPingQuang	Tt	S
 PiYeúQuang	De	S
 PiYeúQuang	PC	S
 PiYeúQuang	Sa	S
 PiYeúQuang	ScN	S
 PiYeúQuang	ScS	S
 PiYeúQuang	ScW	S
+PiYeúQuang	Tt	S
+Rauchkringel	Tr	G
 Rauchsalz	De	A
 Rauchsalz	Dr	A
 Rauchsalz	Hl	A
@@ -6247,6 +6414,14 @@ Rost	gHx	S
 Rost	sHx	S
 Rost	wHx	S
 Roter Pirol (2. Urton Chih)	Ba	S
+Ruf des Herzens	PK	A
+Ruf des Herzens	ScN	A
+Ruf des Herzens	ScS	A
+Ruf des Herzens	ScW	A
+Ruf des Herzens	Tm	A
+Ruf des Herzens	gHx	A
+Ruf des Herzens	sHx	A
+Ruf des Herzens	wHx	A
 Rutschsalz	De	A
 Rutschsalz	Dr	A
 Rutschsalz	Hl	A
@@ -6389,9 +6564,11 @@ Schadd wa-Tarka	PF	G
 Schadd wa-Tarka	ScN	S
 Schadd wa-Tarka	ScS	S
 Schadd wa-Tarka	ScW	S
+Schadd wa-Tarka	Tt	G
 Schadd wa-Tarka	gHx	G
 Schadd wa-Tarka	sHx	G
 Schadd wa-Tarka	wHx	G
+Scharade	Tr	G
 Scharfblick	Dr	S
 Scharfblick	Hl	S
 Scharfblick	Ma	G
@@ -6418,6 +6595,27 @@ Schattenbruder	Th	S
 Schattenbruder	gHx	G
 Schattenbruder	sHx	G
 Schattenbruder	wHx	G
+Schattenjaguar	Dr	G
+Schattenjaguar	Hl	A
+Schattenjaguar	Ma	S
+Schattenjaguar	Nb	G
+Schattenjaguar	Or	G
+Schattenjaguar	PF	S
+Schattenjaguar	PHa	S
+Schattenjaguar	PHe	G
+Schattenjaguar	PK	G
+Schattenjaguar	PM	S
+Schattenjaguar	PT	G
+Schattenjaguar	PW	S
+Schattenjaguar	ScN	G
+Schattenjaguar	ScS	G
+Schattenjaguar	ScW	G
+Schattenjaguar	Th	G
+Schattenjaguar	Tm	G
+Schattenjaguar	Tr	A
+Schattenjaguar	gHx	A
+Schattenjaguar	sHx	A
+Schattenjaguar	wHx	A
 Schattenroß	Dr	S
 Schattenroß	PC	S
 Schattenroß	sHx	S
@@ -7309,6 +7507,8 @@ Steinwand	eBe	S
 Steinwand	gHx	S
 Steinwand	sHx	S
 Steinwand	wHx	S
+Stigma	Dt	S
+Stigma lokalisieren	Dt	A
 Stille	De	S
 Stille	Dr	S
 Stille	Hl	S
@@ -7379,6 +7579,7 @@ Stottersalz	gHx	S
 Stottersalz	sHx	S
 Stottersalz	tBe	A
 Stottersalz	wHx	S
+Stoß	Tr	G
 Sturmflut	De	A
 Sturmflut	Dr	S
 Sturmflut	Hl	S
@@ -7518,6 +7719,11 @@ Svalgrim beschwören	eBe	A
 Svalgrim beschwören	gHx	A
 Svalgrim beschwören	sHx	A
 Svalgrim beschwören	wHx	A
+TaiQuang	PC	S
+TaiQuang	ScN	S
+TaiQuang	ScS	S
+TaiQuang	ScW	S
+TaiQuang	Tt	S
 Tausch des Ba	De	G
 Tausch des Ba	Dr	S
 Tausch des Ba	PC	G
@@ -7743,6 +7949,7 @@ Todeszauber	ScW	S
 Todeszauber	gHx	S
 Todeszauber	sHx	S
 Todeszauber	wHx	S
+Tolucans Gabe	Tt	G
 Tor schaffen	De	A
 Tor schaffen	Dr	A
 Tor schaffen	Hl	A
@@ -7913,6 +8120,7 @@ Truscan 4 beschwören	eBe	A
 Truscan 4 beschwören	gHx	A
 Truscan 4 beschwören	sHx	A
 Truscan 4 beschwören	wHx	A
+Tüchertanz	Tr	G
 Umkehrschild	Dr	A
 Umkehrschild	Hl	A
 Umkehrschild	Ma	S
@@ -7930,6 +8138,16 @@ Umkehrschild	Th	G
 Umkehrschild	gHx	S
 Umkehrschild	sHx	S
 Umkehrschild	wHx	S
+Unfruchtbarkeit	Dt	S
+Unfruchtbarkeit	Hl	G
+Unfruchtbarkeit	PF	S
+Unfruchtbarkeit	PT	S
+Unfruchtbarkeit	ScN	A
+Unfruchtbarkeit	ScS	A
+Unfruchtbarkeit	ScW	A
+Unfruchtbarkeit	gHx	G
+Unfruchtbarkeit	sHx	G
+Unfruchtbarkeit	wHx	G
 Ungeheuer rufen	Ma	S
 Ungeheuer rufen	PC	G
 Ungeheuer rufen	Sa	S
@@ -7960,6 +8178,33 @@ Ungeziefer bannen	eBe	S
 Ungeziefer bannen	gHx	A
 Ungeziefer bannen	sHx	S
 Ungeziefer bannen	wHx	S
+Ungeziefer rufen	De	A
+Ungeziefer rufen	Dr	G
+Ungeziefer rufen	Dt	A
+Ungeziefer rufen	Hl	S
+Ungeziefer rufen	Ma	A
+Ungeziefer rufen	Nb	A
+Ungeziefer rufen	PC	S
+Ungeziefer rufen	PF	S
+Ungeziefer rufen	PHa	A
+Ungeziefer rufen	PHe	A
+Ungeziefer rufen	PK	A
+Ungeziefer rufen	PM	A
+Ungeziefer rufen	PT	A
+Ungeziefer rufen	PW	A
+Ungeziefer rufen	Sa	A
+Ungeziefer rufen	ScN	S
+Ungeziefer rufen	ScS	S
+Ungeziefer rufen	ScW	S
+Ungeziefer rufen	Th	A
+Ungeziefer rufen	Tm	S
+Ungeziefer rufen	Tt	A
+Ungeziefer rufen	dBe	A
+Ungeziefer rufen	eBe	A
+Ungeziefer rufen	gHx	G
+Ungeziefer rufen	sHx	G
+Ungeziefer rufen	tBe	A
+Ungeziefer rufen	wHx	G
 Unheilsrune	Ru	G
 Unheilsrune	Sk	A
 Unsichtbarkeit	De	S
@@ -7986,6 +8231,7 @@ Unsichtbarkeit	sHx	S
 Unsichtbarkeit	wHx	S
 Unwetter rufen	PC	S
 Unwetter rufen	sHx	S
+Verblüffen	Tr	G
 Verbotenes Wort	Dr	A
 Verbotenes Wort	PC	G
 Verbotenes Wort	Sa	A
@@ -8703,6 +8949,7 @@ Wasserwandlung	eBe	S
 Wasserwandlung	gHx	S
 Wasserwandlung	sHx	S
 Wasserwandlung	wHx	S
+Wegzauber	Tr	G
 Wehrrune	Ru	G
 Wehrrune	Sk	A
 Wehsalz	De	A
@@ -8751,6 +8998,7 @@ Weltentor schaffen	eBe	S
 Weltentor schaffen	gHx	A
 Weltentor schaffen	sHx	A
 Weltentor schaffen	wHx	A
+Wesen aufspüren	Tr	G
 Wetterrune	Ru	G
 Wetterrune	Sk	S
 Wetterzauber	De	G
@@ -8928,6 +9176,7 @@ Wort des Todes	PC	G
 Wort des Todes	PT	S
 Wort des Todes	gHx	A
 Wort des Todes	sHx	G
+Wunden schließen	Tr	G
 Wundersame Tarnung	De	A
 Wundersame Tarnung	Dr	G
 Wundersame Tarnung	Fi	G
@@ -8960,15 +9209,18 @@ Wüstenwind	gHx	G
 Wüstenwind	sHx	G
 Wüstenwind	wHx	G
 XiengBaQuang	De	S
+XiengBaQuang	PC	S
 XiengBaQuang	Sa	S
 XiengBaQuang	ScN	S
 XiengBaQuang	ScS	S
 XiengBaQuang	ScW	S
+XiengBaQuang	Tt	S
 YehKiQuang	De	S
 YehKiQuang	Sa	S
 YehKiQuang	ScN	S
 YehKiQuang	ScS	S
 YehKiQuang	ScW	S
+YehKiQuang	Tt	S
 Zauberauge	Ma	S
 Zauberauge	PC	S
 Zauberauge	PF	S
@@ -9196,6 +9448,7 @@ Zurückführen	Th	G
 Zurückführen	gHx	S
 Zurückführen	sHx	S
 Zurückführen	wHx	S
+Zusammenfügen	Tr	G
 Zweite Haut	De	S
 Zweite Haut	Dr	S
 Zweite Haut	Fi	G
