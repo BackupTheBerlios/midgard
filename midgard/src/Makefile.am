@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.218 2003/07/01 21:04:00 christof Exp $
+# $Id: Makefile.am,v 1.219 2003/07/03 13:14:07 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -32,15 +32,9 @@ EXTRA_DIST = midgard_document_eingabe.tex.in \
 noinst_HEADERS = \
    BegruessungsWindow_glade.hh \
    BegruessungsWindow.hh \
-   Prototyp.hh \
-   Prototyp2.hh \
    KI.hh \
-   Prozente100.hh \
-   Windows_Linux.hh \
    customize_toolbars.h \
    class_AbenteurerListe.hh \
-   Abenteurer.hh \
-   LernListen.hh \
    LaTeX_drucken.hh \
    table_beschreibung.hh \
    table_beschreibung_glade.hh \
@@ -63,25 +57,7 @@ noinst_HEADERS = \
    frame_icons_glade.hh \
    Optionen.hh \
    Midgard_Undo.hh \
-   Grad_anstieg.hh \
    MidgardBasicTree.hh \
-   MidgardBasicElement.hh \
-   Region.hh \
-   Zauber.hh \
-   Zauberwerk.hh \
-   Beruf.hh \
-   Fertigkeiten.hh \
-   Fertigkeiten_angeboren.hh \
-   Waffe.hh \
-   KiDo.hh \
-   Land.hh \
-   Grundwerte.hh \
-   Sinne.hh \
-   Ruestung.hh \
-   Spezialgebiet.hh \
-   Lernschema.hh \
-   Preise.hh dtos1.h \
-WaffeGrund.hh Fertigkeiten_angeboren.hh zufall.h \
 midgard_CG_glade.hh midgard_CG.hh  \
 WindowInfo_glade.hh WindowInfo.hh \
 	Midgard_Info.hh \
@@ -91,8 +67,6 @@ WindowInfo_glade.hh WindowInfo.hh \
    class_lernpunkte.hh \
    class_SimpleTree.hh \
    class_SimpleTree_LernschemaZusatz.hh \
-   Spezies.hh \
-   Typen.hh \
    ProgressBar.h \
    table_lernschema.hh \
    table_lernschema_glade.hh \
@@ -108,13 +82,8 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS | ./iso2utf8 >NEWS.h
 magus_SOURCES = $(PORT_FILES) \
    BegruessungsWindow.cc \
    BegruessungsWindow_glade.cc \
-   Prototyp.cc \
-   Prototyp2.cc \
    KI.cc \
-   Prozente100.cc \
-   Ausruestung.cc \
    LernListen_steigern.cc \
-   LernListen.cc \
    Zufall.cc \
    Zufall_Spezies_Typ.cc \
    Zufall_Lernschema.cc \
@@ -122,11 +91,8 @@ magus_SOURCES = $(PORT_FILES) \
    table_zufall_steigern.cc \
    table_zufall_lernschema.cc \
    table_zufall_glade.cc \
-   Windows_Linux.cc \
    customize_toolbars.cc \
-   Abenteurer.cc \
    Abenteurer_steigern.cc \
-   Abenteurer_besitz.cc \
    midgard_CG_AbenteurerListe.cc \
    table_steigern_gold.cc \
    table_steigern_waffenbesitz.cc \
@@ -181,32 +147,11 @@ magus_SOURCES = $(PORT_FILES) \
 	load_charakter.cc  \
    save_charakter.cc \
 	Fertigkeiten_angeboren.cc \
-   Typen.cc \
-   Spezies.cc \
-   Region.cc \
-   Lernschema.cc \
-   Zauber.cc \
-   Schrift.cc \
-   Sprache.cc \
-   KiDo.cc \
-   Waffe.cc \
-   Fertigkeiten.cc \
-   Zauberwerk.cc \
-   Land.cc \
-   WaffeGrund.cc \
-   Ruestung.cc \
-   Spezialgebiet.cc \
-   Grad_anstieg.cc \
-   Beruf.cc \
-   Preise.cc \
-   Sinne.cc \
-   Grundwerte.cc \
 	table_grundwerte_gw_wuerfeln.cc \
    table_grundwerte.cc \
    table_grundwerte_glade.cc \
    table_grundwerte_typauswahl.cc \
    MidgardBasicTree.cc \
-   MidgardBasicElement.cc \
    table_steigern_midgard_basic_elemente.cc \
    midgard_CG_menu.cc \
    xml_fileselection.cc \
@@ -224,19 +169,20 @@ magus_SOURCES = $(PORT_FILES) \
    table_grundwerte_grundwere_edit.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \
-   Datenbank.cc class_SimpleTree.cc \
-   dtos1.cc snprintf.c \
+   class_SimpleTree.cc \
+   snprintf.c \
    Midgard_Undo.cc \
-   xml.cc \
    ProgressBar.cc \
    embedded_images.cc
 
-AM_CXXFLAGS = @CXXFLAGS@ 
-CPPFLAGS = @CPPFLAGS@ @KOMPONENTEN2_INCLUDES@ -DUSE_XML $(WIN_INCLUDES) -I..
+#AM_CXXFLAGS = @CXXFLAGS@ 
+CPPFLAGS = @CPPFLAGS@ @KOMPONENTEN2_INCLUDES@ -DUSE_XML $(WIN_INCLUDES) \
+	-I.. -I../libmagus
 
-magus_LDADD = $(LINK_OBJS) -lmagusicons @LIBS@ @KOMPONENTEN2_NODB_LIBS@
+magus_LDADD = $(LINK_OBJS) -lmagusicons -lmagus @LIBS@ @KOMPONENTEN2_NODB_LIBS@
 
-AM_LDFLAGS = @KOMPONENTEN2_LDFLAGS@ $(LINK_OPTIONS) -L../libmagusicons
+AM_LDFLAGS = @KOMPONENTEN2_LDFLAGS@ $(LINK_OPTIONS) -L../libmagusicons \
+	-L../libmagus
 
 CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
