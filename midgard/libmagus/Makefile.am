@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.41 2004/03/03 07:47:19 christof Exp $
+# $Id: Makefile.am,v 1.42 2004/03/10 11:35:42 thoma Exp $
 
 if WINDOWS
 PORT_FILES=registry.cc TeX.cc
@@ -20,13 +20,14 @@ AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
 
 CLEANFILES = *~
 
-EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter model_test model_test2
+EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter model_test model_test2 OptionenTest
 
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
 registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 
 test_SOURCES=test.cc
 Zufallscharakter_SOURCES=Zufallscharakter.cc
+OptionenTest_SOURCES=OptionenTest.cc
 readxml_SOURCES=readxml.cc
 readxml2_SOURCES=readxml2.cc
 model_test_SOURCES=model_test.cc
@@ -59,6 +60,7 @@ libmagus_la_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 
 test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 Zufallscharakter_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
+OptionenTest_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
 readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
 readxml2_LDADD = @XMLPP_LIBS@
 model_test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@

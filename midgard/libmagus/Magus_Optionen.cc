@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.20 2004/03/10 10:55:34 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.21 2004/03/10 11:35:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -31,6 +31,7 @@
 //#include <libmagusicons/magusicons.h>
 #include <Misc/Global_Settings.h>
 #include <Region.hh>
+#include "NotFound.h"
 
 // HKEY_LOCAL_MACHINE\software\classes\http\shell\open\command ?
 
@@ -350,13 +351,15 @@ void Magus_Optionen::load_options(const std::string &filename)
   FOR_EACH_CONST_TAG_OF(i,*options,"Einstellungen")
      setString(i->getAttr("Name"),i->getAttr("Wert"));
 
-  const Tag *regionen=data->find("Regionen");
-std::cout << regionen<<'\n';
-  if(regionen) FOR_EACH_CONST_TAG_OF(i,*regionen,"Region")
+  const Tag *oregionen=data->find("Regionen");
+  if(oregionen) FOR_EACH_CONST_TAG_OF(i,*oregionen,"Region")
    {
-     standard_regionen[i->getAttr("Name")]=i->getBoolAttr("Wert");
-std::cout << i->getAttr("Name")<<'\t'<<standard_regionen[i->getAttr("Name")]<<'\n';
+     try{ cH_Region R(i->getAttr("Name"),true);
+          standard_regionen[R]=i->getBoolAttr("Wert");
+        }  catch (const NotFound &e)
+          {std::cout << "XXX: "<<e.what()<<'\n'; }
    }
+
   const Tag *data2=ts.find("MAGUS-fenster"); // compat
   if (!data2) data2=data->find("Fenster");
   if(data2)
