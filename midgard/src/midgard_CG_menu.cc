@@ -25,11 +25,7 @@
 
 void midgard_CG::menu_init()
 {
-//  table_optionen->init();
-
-//  if (menu_kontext) { menu_kontext->destroy(); menu_kontext=0; }
   menu_kontext=manage(new Gtk::Menu());
-
 
 //Drucken ///////////////////////////////////////////////////////////////////
   Gtk::Menu *drucken_menu = manage(new class Gtk::Menu());
@@ -139,7 +135,8 @@ void midgard_CG::menubar_init()
 
   // Ansicht
   Gtk::Menu *ansicht_menu = manage(new class Gtk::Menu());
-  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("Ansicht & _Fenster","<Control>F", *ansicht_menu));
+//  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("Ansicht & _Fenster","<Control>F", *ansicht_menu));
+  main_menubar->items().insert(--main_menubar->items().end(),Gtk::Menu_Helpers::MenuElem("Ansicht & _Fenster","<Control>F", *ansicht_menu));
 
   Gtk::Menu *menu1 = manage(new class Gtk::Menu());
   Gtk::Menu *menu2 = manage(new class Gtk::Menu());
@@ -183,7 +180,8 @@ void midgard_CG::menubar_init()
 
   // Regionen
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
-  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Regionen","<Control>R", *regionen_menu));
+//  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Regionen","<Control>R", *regionen_menu));
+  main_menubar->items().insert(--main_menubar->items().end(),Gtk::Menu_Helpers::MenuElem("_Regionen","<Control>R", *regionen_menu));
   Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
 
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
