@@ -19,34 +19,34 @@ CREATE TABLE "praxispunkte" (
 
 
 COPY "praxispunkte" FROM stdin;
-Angriff	17	7
-Verteidigung	7	15
-Abwehr	18	5
-Resistenz	17	5
-Zaubern	19	5
 Abenteuer	16	5
-Bewegung	18	2
-Wissen	16	2
+Abwehr	18	5
+Angriff	17	7
 Beredsamkeit	14	10
 Beschatten	16	10
+Bewegung	18	2
 Fechten	16	10
+Fern	17	7
 Gassenwissen	16	5
 Glückspiel	18	2
 Lippenlesen	14	10
 Menschenkenntnis	14	10
 Meucheln	20	10
+Resistenz	17	5
 Scharfschießen	16	10
 Seilkunst	16	5
 Stehlen	25	10
 Stimmen nachahmen	20	5
 Tauchen	14	2
-Überleben	16	5
 Verführen	16	2
 Verhören	16	5
 Verkleiden	20	10
+Verteidigung	7	15
 Wahrnehmung	6	15
 Winden	8	15
-Fern	17	7
+Wissen	16	2
+Zaubern	19	5
+Überleben	16	5
 \.
 --
 --

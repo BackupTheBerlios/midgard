@@ -17,106 +17,68 @@ CREATE TABLE "berufe_vorteile_4" (
 
 
 COPY "berufe_vorteile_4" FROM stdin;
-Akrobat	Springen
-Akrobat	Balancieren
-Alchimist	Zauberkunde
-Alchimist	Kräuterkunde
-Alchimist	Giftmischen
-Arzt	Kräuterkunde
-Arzt	Erste Hilfe
-Barbier	Menschenkenntnis
-Barbier	Beredsamkeit
-Bauer	Tierkunde
-Bauer	Pflanzenkunde
-Bettler	Verkleiden
-Bettler	Geheimzeichen
-Bettler	Gassenwissen
-Bote	Reiten
-Bote	Laufen
-Brauer	Trinken
-Dieb	Stehlen
-Dieb	Geheimzeichen
-Dieb	Gassenwissen
-Einbrecher	Schlösser öffnen
-Einbrecher	Klettern
-Einbrecher	Gassenwissen
-Fallensteller	Spurenlesen
-Fallensteller	Fallenstellen
-Fischer	Schwimmen
-Fischer	Rudern
-Flußschiffer	Schwimmen
-Flußschiffer	Rudern
-Fuhrmann	Streitwagen lenken
-Fuhrmann	Wagenlenken
-Gaukler	Stimmen nachahmen
-Gaukler	Stehlen
-Gaukler	Gassenwissen
-Goldschmied	Schlösser öffnen
-Grobschmied	Athletik
-Hirte	Tierkunde
-Sklavenhändler	Menschenkenntnis
-Karawanenführer	Überleben in der Wüste
-Karawanenführer	Reiten
-Karawanenführer	Himmelskunde
-Kaufmann	Geschäftstüchtigkeit
-Kaufmann	Beredsamkeit
-Koch	Kräuterkunde
-Köhler	Überleben im Wald
-Köhler	Überleben im Sumpf
-Köhler	Fallenstellen
-Krämer	Menschenkenntnis
-Krämer	Geschäftstüchtigkeit
-Kurtisane	Verführen
-Dewadasi	Verführen
-Seiler	Seilkunst
-Schlachter	Meucheln
-Müller	Wagenlenken
-Musikant	Tanzen
-Musikant	Musizieren
-Räuber	Tarnen
-Sattler	Reiten
-Scharfrichter	Seilkunst
-Bootsbauer	Rudern
-Schlosser	Schlösser öffnen
-Schmuggler	Schleichen
-Seemann	Rudern
-Seemann	Klettern
-Wagner	Wagenlenken
-Verwalter	Rechnen
-Vorarbeiter	Menschenkenntnis
-Vorarbeiter	Athletik
-Vorkoster	Giftmischen
-Vorkoster	Trinken
-Waffenschmied	Athletik
-Waldarbeiter	Geländelauf
-Winzer	Trinken
-Wirt	Menschenkenntnis
-Wirt	Beredsamkeit
-Wundheiler	Erste Hilfe
-Zureiter	Kampf zu Pferd
-Zureiter	Reiten
-Srimahaut	Srimara lenken
-Astrologe	Sagenkunde
-Astrologe	Rechnen
-Schlangenbeschwörer	Musizieren
-Schlangenbeschwörer	Schlangen beschwören
-Dewadasi	Tanzen
-Dewadasi	Natya
 Akrobat	Akrobatik
+Akrobat	Balancieren
+Akrobat	Springen
+Alchimist	Alchemie
+Alchimist	Giftmischen
+Alchimist	Kräuterkunde
+Alchimist	Zauberkunde
+Arzt	Erste Hilfe
 Arzt	Heilkunde
+Arzt	Kräuterkunde
+Astrologe	Rechnen
+Astrologe	Sagenkunde
 Aufseher	Menschenkenntnis
+Barbier	Beredsamkeit
+Barbier	Menschenkenntnis
+Bauer	Pflanzenkunde
+Bauer	Tierkunde
 Bergmann	Baukunde
-Bootsbauer	Steuern
 Bergmann	Kampf in Dunkelheit
+Bettler	Gassenwissen
+Bettler	Geheimzeichen
 Bettler	Schauspielern
+Bettler	Verkleiden
+Bootsbauer	Rudern
+Bootsbauer	Steuern
+Bote	Laufen
+Bote	Reiten
+Brauer	Schmecken+10
+Brauer	Trinken
+Brenner	Schmecken+10
+Brenner	Trinken
+Dewadasi	Natya
+Dewadasi	Tanzen
+Dewadasi	Verführen
+Dieb	Gassenwissen
+Dieb	Geheimzeichen
+Dieb	Stehlen
 Dieb	Verbergen
+Einbrecher	Gassenwissen
+Einbrecher	Klettern
+Einbrecher	Schlösser öffnen
 Einbrecher	Winden
 Falkner	Abrichten
-Fischer	Steuern
+Fallensteller	Fallenstellen
+Fallensteller	Spurenlesen
+Fischer	Rudern
+Fischer	Schwimmen
 Fischer	Seemannsgang
+Fischer	Steuern
+Flußschiffer	Rudern
+Flußschiffer	Schwimmen
 Flußschiffer	Seemannsgang
+Fuhrmann	Streitwagen lenken
+Fuhrmann	Wagenlenken
+Gaukler	Gassenwissen
 Gaukler	Gaukeln
+Gaukler	Stehlen
+Gaukler	Stimmen nachahmen
+Goldschmied	Schlösser öffnen
 Goldschmied	Schätzen
+Grobschmied	Athletik
+Hirte	Tierkunde
 Hirte	Überleben im Gebirge
 Hirte	Überleben im Wald
 Hirte	Überleben in der Steppe
@@ -124,47 +86,85 @@ Hirte	Überleben in der Wüste
 Hundeführer	Abrichten
 Jäger	Fallenstellen
 Jäger	Schleichen
-Jäger	Tarnen
 Jäger	Spurenlesen
+Jäger	Tarnen
+Karawanenführer	Himmelskunde
 Karawanenführer	Landeskunde
+Karawanenführer	Reiten
 Karawanenführer	Überleben im Dschungel
 Karawanenführer	Überleben im Gebirge
 Karawanenführer	Überleben im Schnee
 Karawanenführer	Überleben im Sumpf
 Karawanenführer	Überleben im Wald
 Karawanenführer	Überleben in der Steppe
+Karawanenführer	Überleben in der Wüste
+Kaufmann	Beredsamkeit
+Kaufmann	Geschäftstüchtigkeit
 Kaufmann	Rechnen
 Kaufmann	Schätzen
+Kaufmann (Heimat)	Landeskunde
+Koch	Kräuterkunde
+Koch	Schmecken+10
+Krämer	Geschäftstüchtigkeit
+Krämer	Menschenkenntnis
 Kurtisane	Menschenkenntnis
 Kurtisane	Schauspielern
+Kurtisane	Verführen
+Köhler	Fallenstellen
+Köhler	Überleben im Sumpf
+Köhler	Überleben im Wald
+Musikant	Musizieren
+Musikant	Tanzen
 Märchenerzähler	Dichten
 Märchenerzähler	Erzählen
 Märchenerzähler	Sagenkunde
+Müller	Wagenlenken
+Räuber	Tarnen
+Sattler	Reiten
+Scharfrichter	Seilkunst
+Schlachter	Meucheln
+Schlangenbeschwörer	Musizieren
+Schlangenbeschwörer	Schlangen beschwören
+Schlosser	Schlösser öffnen
 Schmuggler	Rudern
+Schmuggler	Schleichen
 Schmuggler	Steuern
 Schreiber	Fälschen
+Schreiber	Schreiben
+Schreiber	Sprechen: Sprache
 Schreiner	Suchen
+Seemann	Klettern
+Seemann	Rudern
 Seemann	Seemannsgang
+Seiler	Seilkunst
+Sklavenhändler	Menschenkenntnis
+Srimahaut	Srimara lenken
 Stadtwache	Suchen
 Stadtwache	Verhören
 Steuermann	Himmelskunde
-Steuermann	Steuern
 Steuermann	Rechnen
 Steuermann	Seemannsgang
+Steuermann	Steuern
 Träger	Athletik
 Verwalter	Menschenkenntnis
-Waffenschmied	Schätzen
-Zimmermann	Baukunde
-Zureiter	Abrichten
-Brauer	Schmecken+10
-Winzer	Schmecken+10
-Brenner	Trinken
-Brenner	Schmecken+10
-Koch	Schmecken+10
-Alchimist	Alchemie
-Schreiber	Schreiben
+Verwalter	Rechnen
 Verwalter	Schreiben
 Verwalter (Heimat)	Landeskunde
-Kaufmann (Heimat)	Landeskunde
-Schreiber	Sprechen: Sprache
+Vorarbeiter	Athletik
+Vorarbeiter	Menschenkenntnis
+Vorkoster	Giftmischen
+Vorkoster	Trinken
+Waffenschmied	Athletik
+Waffenschmied	Schätzen
+Wagner	Wagenlenken
+Waldarbeiter	Geländelauf
+Winzer	Schmecken+10
+Winzer	Trinken
+Wirt	Beredsamkeit
+Wirt	Menschenkenntnis
+Wundheiler	Erste Hilfe
+Zimmermann	Baukunde
+Zureiter	Abrichten
+Zureiter	Kampf zu Pferd
+Zureiter	Reiten
 \.

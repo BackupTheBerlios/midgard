@@ -22,45 +22,45 @@ CREATE TABLE "waffen_region_name" (
 
 
 COPY "waffen_region_name" FROM stdin;
-Dolch	Tanto	K	\N	\N	\N
-Parierdolch	Jitte	K	\N	\N	\N
-Stoﬂspeer	Yari	K	\N	\N	\N
-Wurfspeer	YariNage	K	\N	\N	\N
-leichte Armbrust	OjuMi	K	\N	\N	\N
-schwere Armbrust	SangMiau	K	\N	\N	\N
-Blasrohr	FukiDake	K	\N	\N	\N
-Morgenstern	KauSinKe	K	\N	\N	\N
-Kampfstab	Bo	K	\N	\N	\N
 Anderthalbh‰nder	Claemore	A	\N	\N	\N
-Langschwert	Breitschwert	A	\N	\N	\N
+Anderthalbh‰nder	Hamschar	R	\N	\N	\N
+Anderthalbh‰nder	Nimcha	E	\N	\N	\N
+Blasrohr	FukiDake	K	\N	\N	\N
+Bogen	Mukantar	E	\N	\N	\N
 Dolch	Dirgh	A	\N	\N	\N
-Kurzschwert	Laingdirgh	A	\N	\N	\N
 Dolch	Jambiya	E	\N	\N	\N
+Dolch	Katar	R	\N	\N	\N
+Dolch	Katar (Spreizklinge)	R	W6	0	-2
 Dolch	Khanjar	E	\N	\N	\N
 Dolch	Rilok	E	\N	\N	\N
+Dolch	Tanto	K	\N	\N	\N
 Dolch	Telek	E	\N	\N	\N
-Streitkolben	Dabus	E	\N	\N	\N
-leichter Speer	Jarid	E	\N	\N	\N
-Anderthalbh‰nder	Nimcha	E	\N	\N	\N
-Stoﬂspeer	Rumeh	E	\N	\N	\N
-Kumms‰bel	Saif	E	\N	\N	\N
-Langschwert	Takuba	E	\N	\N	\N
-Bogen	Mukantar	E	\N	\N	\N
-leichte Armbrust	Ud al-Khal	E	\N	\N	\N
-Anderthalbh‰nder	Hamschar	R	\N	\N	\N
-Langschwert	Aschwapatawar	R	\N	\N	\N
 Handaxt	Ankusch	R	\N	\N	\N
-Streitaxt	Sanghala	R	\N	\N	\N
-Schlachtbeil	Namikravyad	R	\N	\N	\N
-Wurfaxt	Dhauram	R	\N	\N	\N
-Wurfstern	Tschakram	R	\N	\N	\N
-Kurzschwert	Patawar	R	W6(+2)	\N	\N
-Krumms‰bel	Szimitar	R	W6(+2)	\N	\N
-Langbogen	Aginkha (Pfeil)	R	2W6	-2	-2
-Dolch	Katar	R	\N	\N	\N
+Kampfstab	Bo	K	\N	\N	\N
 Krumms‰bel	Ma`khirr	R	W6	1	\N
 Krumms‰bel	Schimschar	R	W6(+2)	\N	\N
-Dolch	Katar (Spreizklinge)	R	W6	0	-2
+Krumms‰bel	Szimitar	R	W6(+2)	\N	\N
+Kumms‰bel	Saif	E	\N	\N	\N
+Kurzschwert	Laingdirgh	A	\N	\N	\N
+Kurzschwert	Patawar	R	W6(+2)	\N	\N
+Langbogen	Aginkha (Pfeil)	R	2W6	-2	-2
+Langschwert	Aschwapatawar	R	\N	\N	\N
+Langschwert	Breitschwert	A	\N	\N	\N
+Langschwert	Takuba	E	\N	\N	\N
+Morgenstern	KauSinKe	K	\N	\N	\N
+Parierdolch	Jitte	K	\N	\N	\N
+Schlachtbeil	Namikravyad	R	\N	\N	\N
+Stoﬂspeer	Rumeh	E	\N	\N	\N
+Stoﬂspeer	Yari	K	\N	\N	\N
+Streitaxt	Sanghala	R	\N	\N	\N
+Streitkolben	Dabus	E	\N	\N	\N
+Wurfaxt	Dhauram	R	\N	\N	\N
+Wurfspeer	YariNage	K	\N	\N	\N
+Wurfstern	Tschakram	R	\N	\N	\N
+leichte Armbrust	OjuMi	K	\N	\N	\N
+leichte Armbrust	Ud al-Khal	E	\N	\N	\N
+leichter Speer	Jarid	E	\N	\N	\N
+schwere Armbrust	SangMiau	K	\N	\N	\N
 \.
 --
 --

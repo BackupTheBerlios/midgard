@@ -25,10 +25,10 @@ class cH_Land : public Handle<const Land>
 {
     typedef CacheStatic<std::string,cH_Land> cache_t;
     static cache_t cache;
-    cH_Land(Land *s) : Handle<const Land>(s) {};
     friend class std::map<std::string,cH_Land>;
 //    cH_Land(){};
   public:
+   cH_Land(Land *s) : Handle<const Land>(s) {};
    cH_Land() {*this=new Land();}
    cH_Land(const std::string& name);
 

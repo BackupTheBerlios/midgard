@@ -22,111 +22,111 @@ CREATE TABLE "pflicht_lernen" (
 
 
 COPY "pflicht_lernen" FROM stdin;
+Berggnom		0	Überleben im Dschungel	S	\N
+Berggnom		0	Überleben im Schnee	S	\N
+Berggnom		0	Überleben im Sumpf	S	\N
+Berggnom		0	Überleben im Wald	S	\N
+Berggnom		0	Überleben in der Steppe	S	\N
+Berggnom		0	Überleben in der Wüste	S	\N
 Berggnom	Bergmann	3	\N	\N	\N
+Berggnom	Fallen entdecken	1	\N	\N	6
+Berggnom	Geheimmechanismen öffnen	1	\N	\N	6
 Berggnom	Steinmetz	3	\N	\N	\N
-Zwerg	Bergmann	3	\N	\N	\N
-Zwerg	Steinmetz	3	\N	\N	\N
-Zwerg	Zimmermann	3	\N	\N	\N
-Berggnom	\N	\N	ZSchwert	\N	\N
-Berggnom	\N	\N	ZSchlagwaffe	\N	\N
-Berggnom	\N	\N	Stangenwaffe	\N	\N
-Waldgnom	\N	\N	ZSchwert	\N	\N
-Waldgnom	\N	\N	ZSchlagwaffe	\N	\N
-Waldgnom	\N	\N	Stangenwaffe	\N	\N
-Halbling	\N	\N	ZSchwert	\N	\N
-Halbling	\N	\N	ZSchlagwaffe	\N	\N
-Halbling	\N	\N	Stangenwaffe	\N	\N
-Berggnom	\N	\N	Lanze	\N	\N
-Berggnom	\N	\N	Kriegsflegel	\N	\N
 Berggnom	\N	\N	Kampfstab	\N	\N
+Berggnom	\N	\N	Kriegsflegel	\N	\N
+Berggnom	\N	\N	Langbogen	\N	\N
+Berggnom	\N	\N	Lanze	\N	\N
 Berggnom	\N	\N	Netz	\N	\N
 Berggnom	\N	\N	Peitsche	\N	\N
-Berggnom	\N	\N	Langbogen	\N	\N
-Berggnom	\N	\N	schwere Armbrust	\N	\N
+Berggnom	\N	\N	Stangenwaffe	\N	\N
 Berggnom	\N	\N	Stockschleuder	\N	\N
-Waldgnom	\N	\N	Lanze	\N	\N
-Waldgnom	\N	\N	Kriegsflegel	\N	\N
-Waldgnom	\N	\N	Kampfstab	\N	\N
-Waldgnom	\N	\N	Netz	\N	\N
-Waldgnom	\N	\N	Peitsche	\N	\N
-Waldgnom	\N	\N	Langbogen	\N	\N
-Waldgnom	\N	\N	schwere Armbrust	\N	\N
-Waldgnom	\N	\N	Stockschleuder	\N	\N
-Halbling	\N	\N	Lanze	\N	\N
-Halbling	\N	\N	Kriegsflegel	\N	\N
-Halbling	\N	\N	Kampfstab	\N	\N
-Halbling	\N	\N	Netz	\N	\N
-Halbling	\N	\N	Peitsche	\N	\N
-Halbling	\N	\N	Langbogen	\N	\N
-Halbling	\N	\N	schwere Armbrust	\N	\N
-Halbling	\N	\N	Stockschleuder	\N	\N
-Elf	\N	\N	Fälschen	\N	\N
-Elf	\N	\N	Meucheln	\N	\N
-Elf	\N	\N	Gassenwissen	\N	\N
-Elf	\N	\N	Giftmischen	\N	\N
-Elf	\N	\N	Glücksspiel	\N	\N
-Elf	\N	\N	Schlösser öffnen	\N	\N
-Elf	\N	\N	Stehlen	\N	\N
-Halbling		0	Überleben im Dschungel	S	\N
-Halbling		0	Überleben im Schnee	S	\N
-Halbling		0	Überleben in der Steppe	S	\N
-Halbling		0	Überleben im Sumpf	S	\N
-Halbling		0	Überleben im Wald	S	\N
-Halbling		0	Überleben in der Wüste	S	\N
-Halbling		0	Überleben im Gebirge	S	\N
+Berggnom	\N	\N	ZSchlagwaffe	\N	\N
+Berggnom	\N	\N	ZSchwert	\N	\N
+Berggnom	\N	\N	schwere Armbrust	\N	\N
+Elf		0	Ballista bedienen	S	\N
 Elf		0	Bogen zu Pferd	S	\N
 Elf		0	Fechten	S	\N
-Elf		0	Katapult bedienen	S	\N
-Elf		0	Trinken	S	\N
 Elf		0	Fechten tevarrischer Stil	S	\N
 Elf		0	Geschäftstüchtigkeit	S	\N
 Elf		0	Kampf in Vollrüstung	S	\N
-Elf		0	Ballista bedienen	S	\N
+Elf		0	Katapult bedienen	S	\N
+Elf		0	Trinken	S	\N
 Elf		0	Überleben im Dschungel	S	\N
-Elf		0	Überleben im Schnee	S	\N
-Elf		0	Überleben in der Steppe	S	\N
-Elf		0	Überleben im Sumpf	S	\N
-Elf		0	Überleben in der Wüste	S	\N
 Elf		0	Überleben im Gebirge	S	\N
-Berggnom		0	Überleben im Dschungel	S	\N
-Berggnom		0	Überleben im Schnee	S	\N
-Berggnom		0	Überleben in der Steppe	S	\N
-Berggnom		0	Überleben im Sumpf	S	\N
-Berggnom		0	Überleben in der Wüste	S	\N
-Berggnom		0	Überleben im Wald	S	\N
-Waldgnom		0	Überleben im Dschungel	S	\N
-Waldgnom		0	Überleben im Schnee	S	\N
-Waldgnom		0	Überleben in der Steppe	S	\N
-Waldgnom		0	Überleben im Sumpf	S	\N
-Waldgnom		0	Überleben in der Wüste	S	\N
-Waldgnom		0	Überleben im Gebirge	S	\N
-Zwerg		0	Überleben im Dschungel	S	\N
-Zwerg		0	Überleben in der Steppe	S	\N
-Zwerg		0	Überleben im Sumpf	S	\N
-Zwerg		0	Überleben im Wald	S	\N
-Zwerg		0	Überleben in der Wüste	S	\N
+Elf		0	Überleben im Schnee	S	\N
+Elf		0	Überleben im Sumpf	S	\N
+Elf		0	Überleben in der Steppe	S	\N
+Elf		0	Überleben in der Wüste	S	\N
 Elf	Schleichen	1			8
 Elf	Spurenlesen	1			6
 Elf	Tarnen	1			8
 Elf	Wahrnehmung	1			4
+Elf	\N	\N	Fälschen	\N	\N
+Elf	\N	\N	Gassenwissen	\N	\N
+Elf	\N	\N	Giftmischen	\N	\N
+Elf	\N	\N	Glücksspiel	\N	\N
+Elf	\N	\N	Meucheln	\N	\N
+Elf	\N	\N	Schlösser öffnen	\N	\N
+Elf	\N	\N	Stehlen	\N	\N
+Halbling		0	Überleben im Dschungel	S	\N
+Halbling		0	Überleben im Gebirge	S	\N
+Halbling		0	Überleben im Schnee	S	\N
+Halbling		0	Überleben im Sumpf	S	\N
+Halbling		0	Überleben im Wald	S	\N
+Halbling		0	Überleben in der Steppe	S	\N
+Halbling		0	Überleben in der Wüste	S	\N
 Halbling	Schleichen	1			10
 Halbling	Tarnen	1			10
+Halbling	\N	\N	Kampfstab	\N	\N
+Halbling	\N	\N	Kriegsflegel	\N	\N
+Halbling	\N	\N	Langbogen	\N	\N
+Halbling	\N	\N	Lanze	\N	\N
+Halbling	\N	\N	Netz	\N	\N
+Halbling	\N	\N	Peitsche	\N	\N
+Halbling	\N	\N	Stangenwaffe	\N	\N
+Halbling	\N	\N	Stockschleuder	\N	\N
+Halbling	\N	\N	ZSchlagwaffe	\N	\N
+Halbling	\N	\N	ZSchwert	\N	\N
+Halbling	\N	\N	schwere Armbrust	\N	\N
 Ri	\N	\N	Beschatten	\N	\N
+Ri	\N	\N	Fallenstellen	\N	\N
+Ri	\N	\N	Fälschen	\N	\N
 Ri	\N	\N	Gassenwissen	\N	\N
 Ri	\N	\N	Giftmischen	\N	\N
 Ri	\N	\N	Kampf vom Streitwagen	\N	\N
 Ri	\N	\N	Meucheln	\N	\N
-Ri	\N	\N	Fallenstellen	\N	\N
 Ri	\N	\N	Stehlen	\N	\N
-Ri	\N	\N	Fälschen	\N	\N
 Ri	\N	\N	Streitwagen lenken	\N	\N
 Ri	\N	\N	Tarnen	\N	\N
-Berggnom	Geheimmechanismen öffnen	1	\N	\N	6
+Waldgnom		0	Überleben im Dschungel	S	\N
+Waldgnom		0	Überleben im Gebirge	S	\N
+Waldgnom		0	Überleben im Schnee	S	\N
+Waldgnom		0	Überleben im Sumpf	S	\N
+Waldgnom		0	Überleben in der Steppe	S	\N
+Waldgnom		0	Überleben in der Wüste	S	\N
+Waldgnom	Fallenstellen	1	\N	\N	4
 Waldgnom	Spurenlesen	1	\N	\N	6
 Waldgnom	Tarnen	1	\N	\N	8
-Berggnom	Fallen entdecken	1	\N	\N	6
-Waldgnom	Fallenstellen	1	\N	\N	4
+Waldgnom	\N	\N	Kampfstab	\N	\N
+Waldgnom	\N	\N	Kriegsflegel	\N	\N
+Waldgnom	\N	\N	Langbogen	\N	\N
+Waldgnom	\N	\N	Lanze	\N	\N
+Waldgnom	\N	\N	Netz	\N	\N
+Waldgnom	\N	\N	Peitsche	\N	\N
+Waldgnom	\N	\N	Stangenwaffe	\N	\N
+Waldgnom	\N	\N	Stockschleuder	\N	\N
+Waldgnom	\N	\N	ZSchlagwaffe	\N	\N
+Waldgnom	\N	\N	ZSchwert	\N	\N
+Waldgnom	\N	\N	schwere Armbrust	\N	\N
+Zwerg		0	Überleben im Dschungel	S	\N
+Zwerg		0	Überleben im Sumpf	S	\N
+Zwerg		0	Überleben im Wald	S	\N
+Zwerg		0	Überleben in der Steppe	S	\N
+Zwerg		0	Überleben in der Wüste	S	\N
 Zwerg	Baukunde	1	\N	\N	8
+Zwerg	Bergmann	3	\N	\N	\N
+Zwerg	Steinmetz	3	\N	\N	\N
+Zwerg	Zimmermann	3	\N	\N	\N
 Zwerk	Trinken	1	\N	\N	12
 \.
 --

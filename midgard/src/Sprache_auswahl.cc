@@ -36,22 +36,20 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
 {   
   if (mod == LAND)
    {
-     cH_Land *s=static_cast<cH_Land*>(clist_sp_sc->selection().begin()->get_data());
+     cH_Land s=static_cast<Land*>(clist_sp_sc->selection().begin()->get_data());
      cH_MidgardBasicElement F(new Fertigkeit("Landeskunde"));
-     cH_Fertigkeit(F)->setZusatz((*s)->Name());     
+     cH_Fertigkeit(F)->setZusatz((s)->Name());     
      F->set_Erfolgswert(wert);
-//     std::list<cH_MidgardBasicElement> FL;
-//     FL.push_back(static_cast<cH_MidgardBasicElement&>(F));
      hauptfenster->MidgardBasicElement_uebernehmen(F);
    }
   else 
    {
-     cH_MidgardBasicElement *s=static_cast<cH_MidgardBasicElement*>(clist_sp_sc->selection().begin()->get_data());
-     if((*s)->What()==MidgardBasicElement::SPRACHE)
-        cH_Sprache(*s)->set_Erfolgswert(wert);
-     else if((*s)->What()==MidgardBasicElement::SCHRIFT)
-        cH_Schrift(*s)->set_Erfolgswert(wert);
-     hauptfenster->MidgardBasicElement_uebernehmen(*s);
+     cH_MidgardBasicElement s=static_cast<MidgardBasicElement*>(clist_sp_sc->selection().begin()->get_data());
+     if(s->What()==MidgardBasicElement::SPRACHE)
+        cH_Sprache(s)->set_Erfolgswert(wert);
+     else if(s->What()==MidgardBasicElement::SCHRIFT)
+        cH_Schrift(s)->set_Erfolgswert(wert);
+     hauptfenster->MidgardBasicElement_uebernehmen(s);
    }
   destroy();
 }
