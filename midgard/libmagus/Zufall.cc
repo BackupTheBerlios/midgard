@@ -27,11 +27,9 @@
 #include "Fertigkeiten_angeboren.hh"
 #include "midgard_CG.hh"
 
-Zufall::Zufall(midgard_CG *h) 
-: hauptfenster(h),  Aben(h->getChar().getAbenteurer()),oldAben(Aben),
-          Database(h->getCDatabase()),Random::h->Random:: ,
-          LL(Database)
-          {};
+Zufall::Zufall(Abenteurer &a) 
+: Aben(a),oldAben(Aben)
+          {}
 
 
 
@@ -151,7 +149,7 @@ void Zufall::setMuttersprache()
 // Würfeln
 ////////////////////////////////////////////////////////////////////////////
 
-void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A,Random &Random::
+void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A)
 {
   //Speziesspezifische Fertigkeiten
   int lpspezies=0;

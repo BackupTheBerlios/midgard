@@ -35,7 +35,7 @@ enum Zufall::eFAUWZ &operator++(enum Zufall::eFAUWZ &s)
 void Zufall::Lernschema()
 {
   Lernpunkte lernpunkte;
-  Lernpunkte_wuerfeln(lernpunkte,Aben,Random::;
+  Lernpunkte_wuerfeln(lernpunkte,Aben);
   st_LL FAUWZ_Listen=getLernlisten();
 
   if(Aben.Typ1()->getLernpflichtSchrift() || Aben.Typ2()->getLernpflichtSchrift())

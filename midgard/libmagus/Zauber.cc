@@ -168,7 +168,6 @@ std::string Zauber::Agens(const std::vector<cH_Typen> &Typ) const
 
 bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info,const int bonus_lesen_von_zauberschrift) const
 {
- Random Random::
  int iaus=0;
  
  if ((A.Typ1()->Short()!="Ma" && A.Typ2()->Short()!="Ma") && Art()=="A") 
