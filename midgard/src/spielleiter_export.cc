@@ -38,11 +38,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   strinfo +="Abenteurers im Format für Midgard Publikationen\n";
   set_status(strinfo); 
   std::ofstream fout2(dateiname.c_str());
-#ifdef __MINGW32__
   orecodestream fout(fout2);
-#else
-  std::ostream &fout=fout2;
-#endif
   Grundwerte W=Char->getWerte();
   fout << W.Name_Abenteurer()<<", "
       <<Char->Typ1()->Name(W.Geschlecht())

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_beschreibung.cc,v 1.7 2002/10/24 07:21:01 christof Exp $
+// $Id: LaTeX_drucken_beschreibung.cc,v 1.8 2002/12/26 21:24:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,11 +31,7 @@ void LaTeX_drucken::latex_beschreibung_drucken()
  std::string file=hauptfenster->getWerte().BeschreibungPix();
  std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_Beschreibung);
  std::ofstream fout2((filename+".tex").c_str());
-#ifdef __MINGW32__
  orecodestream fout(fout2);
-#else
- std::ostream &fout(fout2);
-#endif 
  LaTeX_header(fout,false); 
  fout << "\\fbox{\\parbox[t][23cm]{18cm}{ \n";
  if(file!="")

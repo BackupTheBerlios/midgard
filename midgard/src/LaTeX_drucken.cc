@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.89 2002/12/14 23:45:10 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.90 2002/12/26 21:24:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -80,11 +80,7 @@ void LaTeX_drucken::on_latex_clicked(bool values)
 //cout <<"LaTeX: "<< filename<<'\n';
  {
  std::ofstream fout((filename+".tex").c_str());
-#ifdef __MINGW32__
  orecodestream rfout(fout);
-#else
- std::ostream &rfout=fout;
-#endif
  if (values) LaTeX_write_values(rfout,installfile);
  else LaTeX_write_empty_values(rfout,installfile);
 

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.18 2002/12/14 23:45:10 christof Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.19 2002/12/26 21:24:31 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,11 +29,7 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
 {
  std::string filename=get_latex_pathname(LaTeX_drucken::TeX_tmp)+get_latex_filename(LaTeX_drucken::TeX_Ausruestung);
  std::ofstream fout2((filename+".tex").c_str());
-#ifdef __MINGW32__
  orecodestream fout(fout2);
-#else
- std::ostream &fout=fout2;
-#endif
  LaTeX_header(fout,false);           
 
  std::string breite="18cm";
