@@ -90,6 +90,12 @@ void Waffe::get_Waffe()
    if(Art()=="Verteidigung") erfolgswert=1;
    else erfolgswert=4;   
 
+   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_F")
+     vec_voraussetzung_F.push_back(i->getAttr("Name"));
+   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_W")
+     vec_voraussetzung_W.push_back(i->getAttr("Name"));
+             
+
     FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
                               i->getAttr("Spezies"),
@@ -120,10 +126,38 @@ bool Waffe::Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>& lis
 }
 
 
-bool Waffe::SG_Voraussetzung(const Grundwerte& Werte) const
+bool Waffe::SG_Voraussetzung(const Grundwerte& Werte,const std::list<cH_MidgardBasicElement> &list_Fertigkeit,const std::list<cH_MidgardBasicElement> &list_Waffen) const
 {
-  if ( St()<=Werte.St() && Gw()<=Werte.Gw() && Gs()<=Werte.Gs() ) return true;
-  else return false ;
+ if ( St()>Werte.St() || Gw()>Werte.Gw() || Gs()>Werte.Gs() ) return false;
+ bool fert_ok=true,waffe_ok=true;
+ std::vector<std::string> VF=vec_voraussetzung_F;
+FertEnd:
+ for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
+   {
+    for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Fertigkeit.begin();j!=list_Fertigkeit.end();++j)
+      {
+        if((*i)==(*j)->Name()) 
+          { VF.erase(i);
+            goto FertEnd;
+          }
+      }
+    fert_ok = false;
+   }
+ std::vector<std::string> VW=vec_voraussetzung_W;
+WaffEnd:
+ for(std::vector<std::string>::iterator i=VW.begin();i!=VW.end();++i)
+   {
+    for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
+      {
+        if((*i)==(*j)->Name()) 
+         { VW.erase(i); 
+           goto WaffEnd;
+         }
+      }
+    waffe_ok = false;
+   }
+  if(!fert_ok || !waffe_ok) return false;
+  return true;
 }
 
 ///////////////////////////////////////////////////////////////////

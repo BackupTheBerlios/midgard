@@ -34,7 +34,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
      if (f->Name()=="Zaubern" && Typ[0]->is_mage() || f->Name()=="Zaubern" && Typ[1]->is_mage() ) continue;
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
        if (region_check(f->Region()) )
-        if (f->Voraussetzungen(Werte)) 
+        if (f->Voraussetzungen(Werte,list_Fertigkeit)) 
          {
             f->setErfolgswert(f->Anfangswert());
             list_Fertigkeit_neu.push_back(*i);

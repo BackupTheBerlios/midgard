@@ -28,6 +28,9 @@ NEWS IN VERSION 0.6delta3
 * Geschlecht 'weiblich' wird wieder geladen
 * Keleinere Datenbankkorrekturen
 * Höchsteigenschaften bei Fertigkeiten berücksichtigen
+* Vorraussetzungen für Waffen und Fertigkeiten werden nicht nur angezeigt, 
+   sondern auch berücksichtigt
+
 
 TODO:
 * Gildenbrief funktioniert nicht

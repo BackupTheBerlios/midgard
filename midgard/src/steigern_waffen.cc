@@ -32,7 +32,7 @@ void midgard_CG::on_waffen_laden_clicked()
      if (w->Grundkenntnis_vorhanden(list_WaffenGrund))
        if (w->ist_lernbar(Typ,w->get_MapTyp()))
          if (region_check(w->Region(w->Name())) )
-           if (w->SG_Voraussetzung(Werte))
+           if (w->SG_Voraussetzung(Werte,list_Fertigkeit,list_Waffen))
              {
 //              if(w->Art()=="Verteidigung") w->setErfolgswert(1);
 //              else w->setErfolgswert(10);

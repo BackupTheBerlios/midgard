@@ -46,6 +46,7 @@ class Waffe : public MidgardBasicElement
      int lern_land,lern_stadt, anfangswert;
      int schaden_bonus;
      list<st_alias> list_alias;
+     vector<std::string> vec_voraussetzung_W, vec_voraussetzung_F;
 
      void get_Waffe();
      void get_Alias();
@@ -80,9 +81,9 @@ class Waffe : public MidgardBasicElement
      std::string Schwierigkeit_str() const;
      int Anfangswert() const {return anfangswert;}
      std::string Voraussetzung() const {return voraussetzung;}
+     bool SG_Voraussetzung(const Grundwerte& Werte,const std::list<cH_MidgardBasicElement> &list_Fertigkeit,const std::list<cH_MidgardBasicElement> &list_Waffen) const;
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
 
-     bool SG_Voraussetzung(const Grundwerte& Werte) const;
      bool Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>&) const;
      int Maxwert(const vector<cH_Typen>& Typ) const;
      int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const; 

@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.15 2002/03/05 08:12:38 thoma Exp $
+// $Id: waffen_exp.cc,v 1.16 2002/05/08 11:12:58 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -109,6 +109,27 @@ void waffen_speichern(std::ostream &o)
    o << "/>";
 #endif   
    o << "\n";
+
+   //********** waffen_voraussetzungen *****************************
+   {  Query queryV1("select voraussetzung from waffen_voraussetzung "
+      " where name='"+waffe+"' and art='F' order by voraussetzung");
+      FetchIStream isV1;
+      while ((queryV1>>isV1).good())   
+      {  o << "    <Voraussetzungen_F";
+         fetch_and_write_string_attrib(isV1, o, "Name");
+         o << "/>\n";
+      }
+      Query queryV2("select voraussetzung from waffen_voraussetzung "
+      " where name='"+waffe+"' and art='W' order by voraussetzung");
+      FetchIStream isV2;
+      while ((queryV2>>isV2).good())   
+      {  o << "    <Voraussetzungen_W";
+         fetch_and_write_string_attrib(isV2, o, "Name");
+         o << "/>\n";
+      }
+    }
+
+                                                             
 
  //************************* waffen_region_name ************************  
    {  Query query2("select r.alias,r.region,coalesce(r.schaden,w.schaden),"

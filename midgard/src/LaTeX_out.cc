@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.116 2002/05/08 07:01:40 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.117 2002/05/08 11:12:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -384,7 +384,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
     if ((*i)->What()==MidgardBasicElement::FERTIGKEIT) 
       { cH_Fertigkeit f(*i);
         int iwert = f->Ungelernt();
-        if (!f->Voraussetzungen(Werte)) {iwert-=2; voraussetzung=false;}
+        if (!f->Voraussetzungen(Werte,list_Fertigkeit)) {iwert-=2; voraussetzung=false;}
         if   (iwert>=0) wert = "+"+itos(iwert);
         else            wert = "--"+itos(abs(iwert));
 
@@ -394,7 +394,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
     else if ((*i)->What()==MidgardBasicElement::WAFFE)    
       { cH_Waffe f(*i);
         int iwert = 4+Werte.bo_An();
-        if (!f->SG_Voraussetzung(Werte)) {iwert=0; voraussetzung=false;}
+        if (!f->SG_Voraussetzung(Werte,list_Fertigkeit,list_Waffen)) {iwert=0; voraussetzung=false;}
         if   (iwert>=0) wert = "+"+itos(iwert);
         else            wert = "--"+itos(abs(iwert));
       }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.66 2002/04/30 08:25:04 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.67 2002/05/08 11:12:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -145,7 +145,7 @@ void midgard_CG::universal_Fertigkeiten()
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    {
 //     if((*i)->ist_gelernt(list_Fertigkeit)) continue ;
-     if(cH_Fertigkeit(*i)->Voraussetzungen(Werte) && cH_Fertigkeit(*i)->Ungelernt()!=-1)
+     if(cH_Fertigkeit(*i)->Voraussetzungen(Werte,list_Fertigkeit) && cH_Fertigkeit(*i)->Ungelernt()!=-1)
        list_Fertigkeit_universal.push_back(*i);
    }
 }

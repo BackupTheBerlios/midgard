@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.44 2002/03/05 08:12:38 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.45 2002/05/08 11:12:58 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,22 +41,16 @@ class Fertigkeit : public MidgardBasicElement
             : st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
               sb(_sb),rw(_rw),fert(_fert) {} };
      st_Voraussetzung voraussetzung;
+     vector<std::string> vec_voraussetzung;
      mutable bool pflicht;
 
      void get_Fertigkeit();
 
   public:
-#ifndef USE_XML  
-     Fertigkeit(const std::string& n)
-      : MidgardBasicElement(n),lern_unge(0),lern_land(0),lern_stadt(0),pflicht(false) 
-      {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
-       EP_steigern(Name());}
-#else
      Fertigkeit(const Tag *t)
       :MidgardBasicElement(t,t->getAttr("Name")),lern_unge(0),lern_land(0),lern_stadt(0),pflicht(false) 
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
-#endif
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
      std::string What_str() const {return "Fertigkeit";}
 
@@ -76,7 +70,7 @@ class Fertigkeit : public MidgardBasicElement
      int Ungelernt() const {return ungelernt;}
      int Berufskategorie() const {return berufskategorie;}
      std::string Voraussetzung() const {return voraussetzung.fert;}
-     bool Voraussetzungen(const Grundwerte& Werte) const;
+     bool Voraussetzungen(const Grundwerte& Werte,const std::list<cH_MidgardBasicElement> &list_Fertigkeit) const;
      bool Pflicht() const {return pflicht;}
      void setPflicht(bool p) const {pflicht=p;}
      std::string Pflicht_str() const; 

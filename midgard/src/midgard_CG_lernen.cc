@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.119 2002/05/07 09:40:00 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.120 2002/05/08 11:12:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -566,7 +566,7 @@ void midgard_CG::show_lernschema()
          f->setLernpunkte(lp);
         }
       if(!region_check((*i)->Region())) continue;
-      if(!f->Voraussetzungen(Werte)) continue;
+      if(!f->Voraussetzungen(Werte,list_Fertigkeit)) continue;
       // Fertigkeiten mit Zusätzen dürfen wiederholt gelernt werden, daher 'false'
       // statt 'true'
       if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(false);
@@ -618,7 +618,7 @@ cout << "Was ist gelernt? "<<(*i)->Name()<<' '
           if(what==MidgardBasicElement::WAFFE)  
            {
              if ((*i)->ist_gelernt(list_Waffen)) gelernt=true; 
-             if (!cH_Waffe(*i)->SG_Voraussetzung(Werte)) continue ;
+             if (!cH_Waffe(*i)->SG_Voraussetzung(Werte,list_Fertigkeit,list_Waffen)) continue ;
              VI=Lernschema::getIndex(Typ,"Waffenfertigkeiten",(*i)->Name());
             }
            else if(what==MidgardBasicElement::ZAUBER)
@@ -630,7 +630,7 @@ cout << "Was ist gelernt? "<<(*i)->Name()<<' '
            else if(what==MidgardBasicElement::FERTIGKEIT)
             {
              if ((*i)->ist_gelernt(newlist)) continue ; // Speziesfertigkeiten 
-             if (!cH_Fertigkeit(*i)->Voraussetzungen(Werte)) continue ;
+             if (!cH_Fertigkeit(*i)->Voraussetzungen(Werte,list_Fertigkeit)) continue ;
              if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
              if ((*i)->ist_gelernt(list_Fertigkeit)) gelernt=true;
              if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;

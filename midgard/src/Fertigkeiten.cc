@@ -81,6 +81,9 @@ void Fertigkeit::get_Fertigkeit()
                 Voraussetzungen->getIntAttr("RW"),
                 Voraussetzungen->getAttr("Fertigkeit"));
 
+    FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_2")
+      vec_voraussetzung.push_back(i->getAttr("Name"));
+
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
       Vzusatz.push_back(i->getAttr("Name"));
 
@@ -94,7 +97,7 @@ void Fertigkeit::get_Fertigkeit()
 
 }
 
-bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 
+bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte,const std::list<cH_MidgardBasicElement> &list_Fertigkeit) const 
 {
  // Mindsetwerte
  if(voraussetzung.st > 0 && voraussetzung.st > Werte.St()) return false;
@@ -118,6 +121,19 @@ bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const
  if(voraussetzung.pa < 0 && -voraussetzung.pa < Werte.pA()) return false;
  if(voraussetzung.sb < 0 && -voraussetzung.sb < Werte.Sb()) return false;
 
+ std::vector<std::string> VF=vec_voraussetzung;
+FertEnd:
+ for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
+  {
+    for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Fertigkeit.begin();j!=list_Fertigkeit.end();++j)
+     {
+      if((*i)==(*j)->Name()) 
+       { VF.erase(i); 
+         goto FertEnd;
+       }
+     }
+    return false;
+  }
  return true;
 }
 
