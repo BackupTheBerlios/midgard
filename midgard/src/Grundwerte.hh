@@ -8,13 +8,30 @@
 
 class Grundwerte
 {
-   int st,ge,ko,in,zt, au,pa,sb,rw,hgw,b,lp,ap,abwehr_wert;
-   int zaubern_wert;
+   struct st_grund{int st;int gw;int gs;int ko;int in;int zt;
+          st_grund() :st(0),gw(0),gs(0),ko(0),in(0),zt(0) {}
+          st_grund(int _st,int _gw,int _gs,int _ko,int _in,int _zt)
+             :  st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt) {}
+         };         
+   struct st_sinne {int sehen;int hoeren;int riechen;
+                    int schmecken;int tasten;int sechster_sinn;
+          st_sinne() : sehen(8), hoeren(8), riechen(8), schmecken(8),
+                tasten(8), sechster_sinn(0) {} 
+//          st_sinne(int s1,int s2,int s3,int s4,int s5,int s6)
+//            :sehen(s1), hoeren(s2), riechen(s3), schmecken(s4),
+//               tasten(s5), sechster_sinn(5) {}
+            };
+   st_grund grund;
+   st_sinne sinne;
+   int raufen;
+
+   int au,pa,sb,wk,rw,hgw,b,lp,ap;
+   int abwehr_wert,zaubern_wert;
    int resistenz,bo_au,bo_sc,bo_an,bo_ab,bo_za,
-      bo_psy,bo_phs,bo_phk, bo_gi,kaw,wlw,lpbasis,alter;
+      bo_psy,bo_phs,bo_phk, bo_gi,kaw,wlw,alter;
    std::string gestalt, geschlecht;
    int gewicht,groesse,grad;
-   std::string stand,spezialisierung,
+   std::string stand,spezialisierung,hand,
       glaube,name_charakter,name_spieler,version,beschreibung;
    int gfp,gold,silber,kupfer,aep,kep,zep;
    cH_Land herkunft;
@@ -23,30 +40,34 @@ class Grundwerte
    cH_Spezialgebiet spezialgebiet;
 
 public:
-   Grundwerte() : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0), rw(0),
+   Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0), rw(0),
              hgw(0),b(0),lp(0),ap(0),abwehr_wert(0),zaubern_wert(0),
              resistenz(0),
              bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
-             bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),lpbasis(0),
+             bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_charakter(""),version("Erschaffung"),
              gfp(0),gold(0), silber(0), kupfer(0),
              aep(0),kep(0),zep(0),ruestung("OR"),spezies("Mensch") {}
    void clear() {*this=Grundwerte();}
 
-   int St() const {return st;}
-   int Ge() const {return ge;}
-   int Ko() const {return ko;}
-   int In() const {return in;}
-   int Zt() const {return zt;}
+   int St() const {return grund.st;}
+   int Gw() const {return grund.gw;}
+   int Gs() const {return grund.gs;}
+   int Ko() const {return grund.ko;}
+   int In() const {return grund.in;}
+   int Zt() const {return grund.zt;}
    int Au() const {return au;}
    int pA() const {return pa;}
    int Sb() const {return sb;}
+   int Wk() const {return wk;}
    int RW() const {return rw;}
    int HGW() const {return hgw;}
    int B() const {return b;}
    int LP() const {return lp;}
    int AP() const {return ap;}
+   st_sinne Sinne() const {return sinne;}
+   int Raufen() const {return raufen;}
    int Abwehr_wert() const {return abwehr_wert;}
    int Zaubern_wert() const { return zaubern_wert;}
    int Resistenz() const {return resistenz;}
@@ -61,10 +82,10 @@ public:
    int bo_Gift() const {return bo_gi;}
    int KAW() const {return kaw;}
    int WLW() const {return wlw;}
-   int LPBasis() const {return lpbasis;}
    int Alter() const {return alter;}
    std::string Gestalt() const {return gestalt;}
    std::string Geschlecht() const {return geschlecht;}
+   std::string Hand() const {return hand;}
    int Gewicht() const {return gewicht;}
    int Groesse() const {return groesse;}
    int Grad() const {return grad;}
@@ -90,40 +111,49 @@ public:
    int KEP() const {return kep;}
    int ZEP() const {return zep;}
 
-   void add_St(int i) {st+=i;}
-   void add_Ge(int i) {ge+=i;}
-   void add_Ko(int i) {ko+=i;}
-   void add_In(int i) {in+=i;}
-   void add_Zt(int i) {zt+=i;}
+   void add_St(int i) {grund.st+=i;}
+   void add_Gw(int i) {grund.gw+=i;}
+   void add_Gs(int i) {grund.gs+=i;}
+   void add_Ko(int i) {grund.ko+=i;}
+   void add_In(int i) {grund.in+=i;}
+   void add_Zt(int i) {grund.zt+=i;}
    void add_Au(int i) {au+=i;}
    void add_pA(int i) {pa+=i;}
    void add_Sb(int i) {sb+=i;}
+   void add_Wk(int i) {wk+=i;}
    void add_RW(int i) {rw+=i;}
    void add_HGW(int i) {hgw+=i;}
 
-   void set_Basiswerte(int _st,int _ge,int _ko,int _in, int _zt)
-      {st=_st;ge=_ge;ko=_ko;in=_in;zt=_zt;}
-   void set_Abgeleitetewerte(int _au,int _pa,int _sb,int _rw,int _hgw,int _b,
+   void set_Basiswerte(int st,int gw,int gs,int ko,int in, int zt)
+         {grund=st_grund(st,gw,gs,ko,in,zt);}
+   void set_Abgeleitetewerte(int _au,int _pa,int _sb,int _wk,int _rw,int _hgw,int _b,
          int _lp, int _ap, int _abwehr_wert,int _zaubern_wert,
          int _resistenz,
-         std::string _gestalt,
+         std::string _gestalt, std::string _hand,
          int _gewicht,int _groesse,int _grad, std::string _stand)
-      { au=_au ;pa=_pa ;sb=_sb ;rw=_rw ;hgw=_hgw ;b=_b ;lp=_lp ;ap=_ap ;
+      { au=_au ;pa=_pa ;sb=_sb;wk=_wk ;rw=_rw ;hgw=_hgw ;b=_b ;lp=_lp ;ap=_ap ;
          abwehr_wert=_abwehr_wert ;zaubern_wert=_zaubern_wert ;
          resistenz=_resistenz ;
-         gestalt=_gestalt ;
+         gestalt=_gestalt ; hand=_hand;
          gewicht=_gewicht ;groesse=_groesse ;grad=_grad ;stand=_stand;
       }
-   void set_Abgeleitetewerte_small(int _au,int _pa,int _sb,int _rw,int _hgw)
-      { au=_au ;pa=_pa ;sb=_sb ;rw=_rw ;hgw=_hgw; }
+   void set_Abgeleitetewerte_small(int _au,int _pa,int _sb,int _wk,int _rw,int _hgw)
+      { au=_au ;pa=_pa ;sb=_sb; wk=_wk;rw=_rw ;hgw=_hgw; }
    void set_Abgeleitetewerte_Boni(int _bo_au,int _bo_sc,int _bo_an,int _bo_ab,
-         int _bo_za,int _bo_psy,int _bo_phs,int _bo_phk, int _bo_gi,
-         int _kaw,int _wlw,int _lpbasis)
+         int _bo_za,int _bo_psy,int _bo_phs,int _bo_phk)
       { bo_au=_bo_au ; bo_sc=_bo_sc ;bo_an=_bo_an ;
          bo_ab=_bo_ab ;bo_za=_bo_za ; bo_psy=_bo_psy ;bo_phs=_bo_phs ;
-         bo_phk=_bo_phk ;bo_gi=_bo_gi ;
-         kaw=_kaw ;wlw=_wlw ;lpbasis=_lpbasis;
+         bo_phk=_bo_phk ;
       }
+
+   void set_Sinne_Sehen(int s) {sinne.sehen=s;}
+   void set_Sinne_Hoeren(int s) {sinne.hoeren=s;}
+   void set_Sinne_Riechen(int s) {sinne.riechen=s;}
+   void set_Sinne_Schmecken(int s) {sinne.schmecken=s;}
+   void set_Sinne_Tasten(int s) {sinne.tasten=s;}
+   void set_Sinne_SechserSinn(int s) {sinne.sechster_sinn=s;}
+   void set_Raufen(int r) {raufen=r;}
+
    void set_magBoni(int psy,int phs,int phk) {bo_psy=psy;bo_phs=phs;bo_phk=phk;}
    void set_Zaubern_wert(int i){zaubern_wert=i;}
    void set_Abwehr_wert(int i){abwehr_wert=i;}

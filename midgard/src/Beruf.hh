@@ -11,14 +11,14 @@ class Beruf : public MidgardBasicElement
       int lernpunkte;
       vector<std::string> stand;
       vector<std::string> vorteile;
-      struct st_Voraussetzung {int st;int ge;int ko;int in;int zt;int au;int pa;
+      struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
                            int sb;std::string geschlecht;std::string typ;
          st_Voraussetzung()
-            : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0) {} 
-         st_Voraussetzung(int _st,int _ge,int _ko,int _in,int _zt,int _au,
+            : st(0),gw(0),gs(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0) {} 
+         st_Voraussetzung(int _st,int _gw,int _gs,int _ko,int _in,int _zt,int _au,
                        int _pa, int _sb,std::string _geschlecht,
                        std::string _typ)
-            : st(_st),ge(_ge),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
+            : st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
               sb(_sb),geschlecht(_geschlecht),typ(_typ) {} };
      st_Voraussetzung voraussetzung; 
 

@@ -62,7 +62,8 @@ Spezies::Spezies(const std::string& n)
  SQLerror::test(__FILELINE__); 
  nr=NR;
  st=ST;
- ge=GE;
+ gw=GE;
+ gs=GE;
  ko=KO;
  in=IN;
  zt=ZT;

@@ -10,12 +10,12 @@ Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;
    int db_a,db_r,db_z,db_ak,db_rk,db_zk;
-   int db_grad,db_gfp;
+   int db_grad,db_gfp,db_schicksal;
    int db_size;
  exec sql end declare section;
  exec sql select count (grad) into :db_size from grad_anstieg; 
  SQLerror::test(__FILELINE__);
- exec sql declare GREIN cursor for select grad,gfp,
+ exec sql declare GREIN cursor for select grad,gfp,schicksalsgunst,
    coalesce(abwehr,0),coalesce(abwehr_kosten,0),coalesce(resistenz,0),
    coalesce(resistenz_kosten,0),coalesce(zaubern,0),coalesce(zaubern_kosten,0)
    from grad_anstieg order by grad;
@@ -27,11 +27,11 @@ Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
   {
    progressbar->set_percentage(count/db_size);
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch GREIN into :db_grad,:db_gfp,
+   exec sql fetch GREIN into :db_grad,:db_gfp,:db_schicksal,
       :db_a,:db_ak,:db_r,:db_rk,:db_z,:db_zk;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
-   map_grad[db_grad] = st_grad(db_a,db_ak,db_r,db_rk,db_z,db_zk,db_gfp);
+   map_grad[db_grad] = st_grad(db_a,db_ak,db_r,db_rk,db_z,db_zk,db_gfp,db_schicksal);
    ++count;
   }
  progressbar->set_percentage(1);
@@ -71,6 +71,12 @@ int Grad_anstieg::get_Resistenz_Kosten(int grad)
 {
   int x=0; 
   while(x==0)   x = map_grad[grad--].resistenz_kosten;
+  return x;
+}
+int Grad_anstieg::get_Schicksalsgunst(int grad)   
+{
+  int x=0; 
+  while(x==0)   x = map_grad[grad--].schicksalsgunst;
   return x;
 }
 

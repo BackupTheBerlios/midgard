@@ -192,11 +192,12 @@ void midgard_CG::grundwerte_speichern()
       char *db_beschreibung; 
       char db_typ_s[5];
       char db_typ_2_s[5];
-      int db_st, db_ge, db_ko, db_in,db_zt,db_au,db_pa,db_sb,db_rw,db_hgw,
+      int db_st, db_gw, db_gs,db_ko, db_in,db_zt,db_au,db_pa,db_sb,db_wk,db_rw,db_hgw,
           db_b, db_lp, db_ap, db_kaw,db_wlw,db_abwehr,db_zaubern,
           db_resistenz, db_bo_au, db_bo_sc,db_bo_an,db_bo_ab,db_bo_za,  
           db_bo_psy, db_bo_phs , db_bo_phk, db_bo_gi,db_lpbasis, db_alter  ;
       char db_gestalt[20] ;
+      char db_hand[30] ;
       char db_geschlecht[5];
       int db_gewicht, db_groesse, db_grad ;
       char db_spez[30]    ;
@@ -217,13 +218,15 @@ void midgard_CG::grundwerte_speichern()
 
 
       db_st = Werte.St();      
-      db_ge = Werte.Ge();      
+      db_gw = Werte.Gw();      
+      db_gs = Werte.Gs();      
       db_ko = Werte.Ko();      
       db_in = Werte.In();      
       db_zt = Werte.Zt();      
       db_au = Werte.Au();      
       db_pa = Werte.pA();      
       db_sb = Werte.Sb();      
+      db_wk = Werte.Wk();      
       db_rw = Werte.RW();      
       db_hgw= Werte.HGW();      
       db_b  = Werte.B();      
@@ -243,7 +246,7 @@ void midgard_CG::grundwerte_speichern()
       db_bo_phs       = Werte.bo_Phs();      
       db_bo_phk       = Werte.bo_Phk();      
       db_bo_gi        = Werte.bo_Gift();      
-      db_lpbasis      = Werte.LPBasis();      
+//      db_lpbasis      = Werte.LPBasis();      
       db_alter        = Werte.Alter();      
       db_gewicht      = Werte.Gewicht();      
       db_groesse      = Werte.Groesse();      
@@ -261,6 +264,7 @@ void midgard_CG::grundwerte_speichern()
 
    db_beschreibung = (char *) (Werte.Beschreibung()).c_str();
    strncpy(db_gestalt,(Werte.Gestalt()).c_str(),sizeof(db_gestalt));
+   strncpy(db_hand,(Werte.Hand()).c_str(),sizeof(db_hand));
    strncpy(db_geschlecht,(Werte.Geschlecht()).c_str(),sizeof(db_geschlecht));
    strncpy(db_spez,(Werte.Spezialisierung()).c_str(),sizeof(db_spez));
    strncpy(db_stand,(Werte.Stand()).c_str(),sizeof(db_stand));
@@ -282,13 +286,15 @@ void midgard_CG::grundwerte_speichern()
       typ_2_s        = :db_typ_2_s    ,
       spieler_name   = :db_name_sp  , 
       st             = :db_st       ,
-      ge             = :db_ge       ,
+      gw             = :db_gw       ,
+      gs             = :db_gs       ,
       ko             = :db_ko       ,
       inn            = :db_in       ,
       zt             = :db_zt       ,
       au             = :db_au       ,
       pa             = :db_pa       ,
       sb             = :db_sb       ,
+      wk             = :db_wk       ,
       rw             = :db_rw       ,
       hgw            = :db_hgw      ,
       b              = :db_b        ,
@@ -302,6 +308,7 @@ void midgard_CG::grundwerte_speichern()
       lpbasis        = :db_lpbasis  ,
       alter          = :db_alter    ,
       gestalt        = :db_gestalt  ,
+      hand           = :db_hand     ,
       geschlecht     = :db_geschlecht  ,
       gewicht        = :db_gewicht  ,
       groesse        = :db_groesse  ,

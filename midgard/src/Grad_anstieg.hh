@@ -7,14 +7,15 @@ class Grad_anstieg{
 
       struct st_grad{int abwehr;int abwehr_kosten;int resistenz;
                      int resistenz_kosten;int zaubern;int zaubern_kosten;
-                     int gfp;
+                     int gfp;int schicksalsgunst;
                st_grad()
                   :abwehr(0),abwehr_kosten(0),resistenz(0),
-                   resistenz_kosten(0),zaubern(0),zaubern_kosten(0){}
-               st_grad(int a,int ak,int r, int rk,int z,int zk, int g)
+                   resistenz_kosten(0),zaubern(0),zaubern_kosten(0),
+                   schicksalsgunst(0) {}
+               st_grad(int a,int ak,int r, int rk,int z,int zk, int g,int s)
                   :abwehr(a),abwehr_kosten(ak),resistenz(r),
                    resistenz_kosten(rk),zaubern(z),zaubern_kosten(zk),
-                  gfp(g){}
+                   gfp(g),schicksalsgunst(s) {}
                };
       map<int,st_grad> map_grad;
 
@@ -37,6 +38,7 @@ class Grad_anstieg{
       int get_Zauber_Kosten(int grad);
 
       int get_Grad(int gfp) ;
+      int get_Schicksalsgunst(int gfp) ;
 
       void set_Grad_Anstieg(int p,int b) 
               { steigern_EP_prozent=p; grad_basiswerte=b; }

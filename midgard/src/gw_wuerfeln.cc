@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.18 2001/11/08 10:15:43 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.19 2001/12/03 08:08:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,8 @@ void midgard_CG::gw_wuerfeln()
 {   
  Random random;
  Werte.set_Basiswerte(constraint_gw(random,Werte.Spezies()->St()),
-     constraint_gw(random,Werte.Spezies()->Ge()),
+     constraint_gw(random,Werte.Spezies()->Gw()),
+     constraint_gw(random,Werte.Spezies()->Gs()),
      constraint_gw(random,Werte.Spezies()->Ko()),
      constraint_gw(random,Werte.Spezies()->In()),
      constraint_gw(random,Werte.Spezies()->Zt()));

@@ -24,7 +24,7 @@ class Waffe : public MidgardBasicElement
      std::string angriffsrangmod, wm_abwehr_leicht, wm_abwehr_schwer,
          voraussetzung;
      std::string region;
-     int schwierigkeit,st,ge,reichweite_0,reichweite_n,
+     int schwierigkeit,st,gw,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f;
      int lern_land,lern_stadt, anfangswert;
      int schaden_bonus;
@@ -34,7 +34,7 @@ class Waffe : public MidgardBasicElement
      void get_Waffe();
      void get_Alias();
      int St() const {return st;}
-     int Ge() const {return ge;}
+     int Gw() const {return gw;}
   public:
      Waffe(const std::string& n)
       :name(n),lern_land(0),lern_stadt(0)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.29 2001/11/09 12:43:45 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.30 2001/12/03 08:08:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -88,7 +88,7 @@ void midgard_CG::get_grundwerte()
 
   int erh = random.integer(1,6)+1;
   if( 81<=z && z>=83 ) { was="Stärke";           Werte.add_St(erh); }
-  if( 84<=z && z>=86 ) { was="Geschicklichkeit"; Werte.add_Ge(erh); }
+  if( 84<=z && z>=86 ) { was="Geschicklichkeit"; Werte.add_Gw(erh); }
   if( 87<=z && z>=89 ) { was="Konstitution"; Werte.add_Ko(erh); }
   if( 90<=z && z>=92 ) { was="Intelligenz"; Werte.add_In(erh); }
   if( 93<=z && z>=95 ) { was="Zaubertalent"; Werte.add_Zt(erh); }

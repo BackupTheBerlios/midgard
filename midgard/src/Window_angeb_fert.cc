@@ -29,27 +29,15 @@
 #include <Gtk_OStream.h>
 #include "WindowInfo.hh"
 
-/*
-void Window_angeb_fert::move_fertigkeiten(std::list<cH_Fertigkeit_angeborene>& von,std::list<cH_Fertigkeit_angeborene>& nach,const std::string& name)
-{
- for (std::list<cH_Fertigkeit_angeborene>::iterator i=von.begin();i!= von.end();++i)
-     if ((*i)->Name()==name) 
-       {nach.splice(nach.begin(),von,i);break;}
-  fertigkeiten_zeigen();
-}
-*/
-
 void Window_angeb_fert::fertigkeiten_zeigen()
 {
  show_alte_afert();
  show_neue_afert();
 }
 
-
 void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
   std::string altf = clist_ang_fert_alt->get_text(row,0);
-//  move_fertigkeiten(list_an_Fertigkeit_neu,list_an_Fertigkeit,altf);
   MidgardBasicElement::move_element(list_Fertigkeit_ang,list_Fertigkeit_ang_neu,altf);
   hauptfenster->on_speichern_clicked();
   show_alte_afert();
@@ -59,14 +47,13 @@ void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, 
 void Window_angeb_fert::on_clist_ang_fert_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
   std::string newf = clist_ang_fert_neu->get_text(row,1);
-//  move_fertigkeiten(list_an_Fertigkeit_neu,list_an_Fertigkeit,newf);
-  MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,newf);
+  if(!Sinn(wurf,atoi(clist_ang_fert_neu->get_text(row,2).c_str())))
+     MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,newf);
   hauptfenster->on_speichern_clicked();
   if (wurf==100) { on_button_close_clicked(); return;}
   show_alte_afert();
   show_neue_afert();
 }
-
 
 void Window_angeb_fert::show_alte_afert()
 {
@@ -101,7 +88,7 @@ void Window_angeb_fert::show_neue_afert()
 Window_angeb_fert::Window_angeb_fert(midgard_CG* h, 
    const midgard_CG::st_Database& Database,
    std::list<cH_MidgardBasicElement>& vaf, 
-   const Grundwerte& W,int wu)
+   Grundwerte& W,int wu)
 : list_Fertigkeit_ang(vaf),Werte(W),wurf(wu)
 {
  hauptfenster=h;
@@ -137,13 +124,30 @@ void Window_angeb_fert::gewuerfelt()
 {
   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang_neu.begin();i!=list_Fertigkeit_ang_neu.end();++i)
    {
-     if (cH_Fertigkeit_angeborene(*i)->Min()<=wurf && 
-         wurf<=cH_Fertigkeit_angeborene(*i)->Max()) 
+     if (cH_Fertigkeit_angeborene(*i)->Min()<=wurf && wurf<=cH_Fertigkeit_angeborene(*i)->Max()) 
       {
-//         move_fertigkeiten(list_an_Fertigkeit_neu,list_an_Fertigkeit,(*i)->Name());
-         MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,(*i)->Name());
+         if(!Sinn(wurf,(*i)->Erfolgswert()))
+            MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,(*i)->Name());
          break;
       }
    }  
   on_button_close_clicked();
 }
+
+bool Window_angeb_fert::Sinn(int wurf,int wert)
+{
+  if( 1<=wurf && wurf<= 2) Werte.set_Sinne_Sehen(wert);
+  if( 3<=wurf && wurf<= 4) Werte.set_Sinne_Hoeren(wert);
+  if( 5<=wurf && wurf<= 6) Werte.set_Sinne_Riechen(wert);
+  if( 7<=wurf && wurf<= 8) Werte.set_Sinne_Schmecken(wert);
+  if( 9<=wurf && wurf<=10) Werte.set_Sinne_Tasten(wert);
+  if(11<=wurf && wurf<=20) Werte.set_Sinne_Sehen(wert);
+  if(21<=wurf && wurf<=30) Werte.set_Sinne_Hoeren(wert);
+  if(31<=wurf && wurf<=40) Werte.set_Sinne_Riechen(wert);
+  if(41<=wurf && wurf<=50) Werte.set_Sinne_Schmecken(wert);
+  if(51<=wurf && wurf<=60) Werte.set_Sinne_Tasten(wert);
+
+  if (wurf<=60) return true;
+  return false;
+}
+

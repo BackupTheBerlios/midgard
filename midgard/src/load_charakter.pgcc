@@ -80,11 +80,12 @@ void midgard_CG::load_charakter()
       char *db_beschreibung=0;
       char db_typ_s[5]     ;
       char db_typ_2_s[5]     ;
-      int db_st,db_ge,db_ko,db_in,db_zt,db_au,db_pa,db_sb,db_rw,db_hgw,
+      int db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_au,db_pa,db_sb,db_wk,db_rw,db_hgw,
           db_b,db_lp,db_ap,db_kaw,db_wlw,db_abwehr,db_zaubern,db_resistenz,
           db_bo_au,db_bo_sc,db_bo_an,db_bo_ab,db_bo_za,db_bo_psy,db_bo_phs,
           db_bo_phk,db_bo_gi,db_lpbasis,db_alter;
       char db_gestalt[20] ;
+      char db_hand[30] ;
       char db_geschlecht[5];
       int db_gewicht,db_groesse,db_grad;
       char db_spez[30]    ;
@@ -118,13 +119,15 @@ void midgard_CG::load_charakter()
          coalesce(typ_2_s,'')          ,
          spieler_name   ,
          st             ,
-         ge             ,
+         gw             ,
+         gs             ,
          ko             ,
          inn            ,
          zt             ,
          au             ,
          pa             ,
          sb             ,
+         wk             ,
          rw             ,
          hgw            ,
          b              ,
@@ -138,6 +141,7 @@ void midgard_CG::load_charakter()
          lpbasis        ,
          alter          ,
          gestalt        ,
+         hand           ,
          geschlecht     ,
          gewicht        ,
          groesse        ,
@@ -179,13 +183,15 @@ void midgard_CG::load_charakter()
        :db_typ_2_s      ,
        :db_name_sp  , 
        :db_st       ,
-       :db_ge       ,
+       :db_gw       ,
+       :db_gs       ,
        :db_ko       ,
        :db_in       ,
        :db_zt       ,
        :db_au       ,
        :db_pa       ,
        :db_sb       ,
+       :db_wk       ,
        :db_rw       ,
        :db_hgw      ,
        :db_b        ,
@@ -199,6 +205,7 @@ void midgard_CG::load_charakter()
        :db_lpbasis  ,
        :db_alter    ,
        :db_gestalt  ,
+       :db_hand     ,
        :db_geschlecht,
        :db_gewicht  ,
        :db_groesse  ,
@@ -227,13 +234,12 @@ void midgard_CG::load_charakter()
        :db_grad_basiswerte;
    SQLerror::test(__FILELINE__);
    exec sql close cha;
-   Werte.set_Basiswerte(db_st,db_ge,db_ko,db_in,db_zt) ;    
-   Werte.set_Abgeleitetewerte(db_au,db_pa,db_sb,db_rw,db_hgw,db_b,
-       db_lp, db_ap,db_abwehr,db_zaubern,db_resistenz,db_gestalt,
+   Werte.set_Basiswerte(db_st,db_gw,db_gs,db_ko,db_in,db_zt) ;    
+   Werte.set_Abgeleitetewerte(db_au,db_pa,db_sb,db_wk,db_rw,db_hgw,db_b,
+       db_lp, db_ap,db_abwehr,db_zaubern,db_resistenz,db_gestalt,db_hand,
        db_gewicht,db_groesse,db_grad,db_stand);
    Werte.set_Abgeleitetewerte_Boni(db_bo_au,db_bo_sc, db_bo_an,db_bo_ab,
-      db_bo_za,db_bo_psy,db_bo_phs,db_bo_phk,db_bo_gi,db_kaw,db_wlw,
-      db_lpbasis);   
+      db_bo_za,db_bo_psy,db_bo_phs,db_bo_phk);   
    Werte.set_Alter(db_alter); 
    Werte.set_Geschlecht(db_geschlecht) ;
    Werte.set_Spezialisierung(db_spez) ;

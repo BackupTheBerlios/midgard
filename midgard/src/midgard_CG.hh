@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.99 2001/11/27 12:31:58 thoma Exp $
+// $Id: midgard_CG.hh,v 1.100 2001/12/03 08:08:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -168,6 +168,7 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
+        std::list<cH_MidgardBasicElement> list_Fertigkeit_universal;
         std::list<cH_MidgardBasicElement> list_WaffenGrund;
         std::list<cH_MidgardBasicElement> list_WaffenGrund_neu;
         std::list<cH_MidgardBasicElement> list_Waffen;
@@ -271,6 +272,7 @@ class midgard_CG : public midgard_CG_glade
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
         void on_angeborene_fertigkeit_clicked();
         void on_angeborene_fertigkeit_right_clicked();
+        void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
         void on_checkbutton_original_menu();
         void on_checkbutton_original_toggled();

@@ -47,7 +47,7 @@ void Beruf::get_Beruf()
      if (sqlca.sqlcode) break;
      lernpunkte=db_lernpunkte;
      region=db_region;
-     voraussetzung = st_Voraussetzung(db_st,db_ge,db_ko,db_in,db_zt,db_au,db_pa,
+     voraussetzung = st_Voraussetzung(db_st,db_ge,db_ge,db_ko,db_in,db_zt,db_au,db_pa,
                                    db_sb,db_geschlecht,db_typ);
 
      std::string squery2= "select stand from berufe_stand where beruf='"
@@ -102,7 +102,8 @@ std::string Beruf::get_Vorteile() const
 bool Beruf::Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const
 {
  if ( voraussetzung.st<=Werte.St() &&
-      voraussetzung.ge<=Werte.Ge() &&
+      voraussetzung.gs<=Werte.Gs() &&
+      voraussetzung.gw<=Werte.Gw() &&
       voraussetzung.ko<=Werte.Ko() &&
       voraussetzung.in<=Werte.In() &&
       voraussetzung.zt<=Werte.Zt() &&

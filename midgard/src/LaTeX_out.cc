@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.56 2001/11/18 09:38:40 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.57 2001/12/03 08:08:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,7 +78,7 @@ void midgard_CG::LaTeX_write_values()
       styp += "/"+Typ[1]->Name(Werte.Geschlecht());
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<Werte.St() << "}\n";
- fout << "\\newcommand{\\gee}{" <<Werte.Ge() << "}\n";
+ fout << "\\newcommand{\\gee}{" <<Werte.Gw() << "}\n";
  fout << "\\newcommand{\\ko}{"  <<Werte.Ko()<< "}\n";
  fout << "\\newcommand{\\inn}{" <<Werte.In() << "}\n";
  fout << "\\newcommand{\\zt}{"  <<Werte.Zt() << "}\n";
@@ -94,7 +94,7 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\bb}{"  <<Werte.B() << "\\scriptsize ("<<bewegungsweite<<")}\n";
  fout << "\\newcommand{\\kaw}{"  <<Werte.KAW() << "}\n";
  fout << "\\newcommand{\\wlw}{"  <<Werte.WLW() << "}\n";
- fout << "\\newcommand{\\lpbasis}{"  <<Werte.LPBasis() << "}\n";
+ fout << "\\newcommand{\\lpbasis}{"  <<Werte.Gs() << "}\n";
  fout << "\\newcommand{\\lp}{"  <<Werte.LP() << "}\n";
  fout << "\\newcommand{\\ap}{"  <<Werte.AP() << "}\n";
  fout << "\\newcommand{\\boau}{"<<Werte.bo_Au()<< "}\n";

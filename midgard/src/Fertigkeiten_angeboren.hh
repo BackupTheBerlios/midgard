@@ -2,15 +2,11 @@
 #  define _FERTIGKEITEN_A_HH
 #include <list>
 #include "MidgardBasicElement.hh"
-//#include "Typen.hh"
-//#include "Ausnahmen.hh"
 #include <gtk--/progressbar.h>
-
 
 class Fertigkeit_angeborene : public MidgardBasicElement
 {
      std::string name;
-//     mutable int erfolgswert;
      int min,max;
 
      void get_Fertigkeit();
@@ -23,11 +19,8 @@ class Fertigkeit_angeborene : public MidgardBasicElement
      std::string What_str() const {return "ang.Fertigkeit";}
 
      std::string Name() const {return name;}
-//     int Erfolgswert() const {return erfolgswert;};
-//     void set_Erfolgswert(int e) const {erfolgswert=e;};
      int Min() const {return min;}
      int Max() const {return max;}
-//     std::string Voraussetzung() const {return voraussetzung;}
 };
 
 class cH_Fertigkeit_angeborene : public Handle<const Fertigkeit_angeborene>

@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.26 2001/11/23 09:48:13 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.27 2001/12/03 08:08:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,6 +34,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
    groesse_ein->update();
    Werte.set_Basiswerte(atoi(st_ein->get_text().c_str()),
                         atoi( ge_ein->get_text().c_str()),
+                        atoi( ge_ein->get_text().c_str()),
                         atoi( ko_ein->get_text().c_str()),
                         atoi( in_ein->get_text().c_str()),
                         atoi( zt_ein->get_text().c_str()));
@@ -41,6 +42,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
    Werte.set_Abgeleitetewerte(atoi( au_ein->get_text().c_str()),
                               atoi( pa_ein->get_text().c_str()),
                               atoi( sb_ein->get_text().c_str()),
+                              atoi( sb_ein->get_text().c_str()),//Wk
                               atoi( rw_ein->get_text().c_str()),
                               atoi(hgw_ein->get_text().c_str()),
                               atoi(  b_ein->get_text().c_str()),
@@ -50,6 +52,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
                               atoi(zaubern_ein -> get_text().c_str()),
                               atoi (resistenz_ein ->   get_text().c_str()),
                               gestalt_ein->get_text(),
+                              gestalt_ein->get_text(), //HAND
                               atoi( gewicht_ein->get_text().c_str()),
                               atoi( groesse_ein->get_text().c_str()),
                               atoi( grad_ein->get_text().c_str()),
@@ -61,11 +64,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
                               atoi (bo_za_ein->get_text().c_str()),
                               atoi (bo_psy_ein->get_text().c_str()),
                               atoi (bo_phs_ein->get_text().c_str()),
-                              atoi (bo_phk_ein->get_text().c_str()),
-                              atoi (bo_gi_ein->get_text().c_str()),
-                              atoi (kaw_ein->get_text().c_str()),
-                              atoi (wlw_ein->get_text().c_str()), 
-                              atoi (lpbasis_ein-> get_text().c_str()));
+                              atoi (bo_phk_ein->get_text().c_str()));
 
    Werte.set_GFP(atoi (gfp_ein->get_text().c_str()));
    Werte.set_Alter(atoi( alter_ein->get_text().c_str()));
@@ -92,7 +91,8 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
 
 
  st_ein->set_value(Werte.St());   
- ge_ein->set_value(Werte.Ge());   
+ ge_ein->set_value(Werte.Gw());   
+ ge_ein->set_value(Werte.Gs());   
  ko_ein->set_value(Werte.Ko());   
  in_ein->set_value(Werte.In());   
  zt_ein->set_value(Werte.Zt());     
@@ -103,7 +103,7 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  hgw_ein->set_value(Werte.HGW());   
  b_ein->set_value(Werte.B());     
  lp_ein->set_value(Werte.LP());   
- lpbasis_ein->set_value(Werte.LPBasis());   
+// lpbasis_ein->set_value(Werte.LPBasis());   
  kaw_ein->set_value(Werte.KAW());   
  wlw_ein->set_value(Werte.WLW());   
  ap_ein->set_value(Werte.AP());          
