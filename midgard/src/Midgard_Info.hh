@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.43 2003/09/29 06:56:09 christof Exp $
+// $Id: Midgard_Info.hh,v 1.44 2003/09/29 09:38:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,6 +34,7 @@ class Midgard_Info : public Midgard_Info_glade
    public:
         Midgard_Info(GlademmData *data);
         void set_Regionen(const std::vector<cH_Region>& Regionen);
+        void lizenz_anzeigen();
 //        Gtk::ProgressBar *get_progressbar_regionen() const {return progressbar_regionen;}
 //        void database_hide();
 };
