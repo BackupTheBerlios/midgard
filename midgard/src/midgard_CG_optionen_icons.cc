@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.27 2002/12/11 18:18:50 christof Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.28 2002/12/12 08:35:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,8 +29,8 @@ void midgard_CG::Icons_setzen()
      st_icons I=StyleIcon(icon_counter);
      icon_counter=e_icon(int(icon_counter)+1);
 
-     if(Gtk::Pixmap::isA((*i)->get_content())) 
-        dynamic_cast<Gtk::Pixmap*>((*i)->get_content())->set(I.icon);
+     if(Gtk::Image::isA((*i)->get_content())) 
+        dynamic_cast<Gtk::Image*>((*i)->get_content())->set(I.icon);
      if(Gtk::Label::isA((*i)->get_label())) 
         (*i)->get_label()->set_text(I.text);
    }
@@ -62,8 +62,8 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
      Gtk::Box_Helpers::BoxList &ch=dynamic_cast<Gtk::Box*>(child)->children();
      for(Gtk::Box_Helpers::BoxList::iterator i=ch.begin();i!=ch.end();++i)
       {
-        if(Gtk::Pixmap::isA((*i)->get_widget())) 
-            dynamic_cast<Gtk::Pixmap*>((*i)->get_widget())->set(I.icon);
+        if(Gtk::Image::isA((*i)->get_widget())) 
+            dynamic_cast<Gtk::Image*>((*i)->get_widget())->set(I.icon);
         if(Gtk::Label::isA((*i)->get_widget()) )
             dynamic_cast<Gtk::Label*>((*i)->get_widget())->set_text(I.text);
       }
@@ -74,8 +74,8 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
 
 void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 {
-  if(child && Gtk::Pixmap::isA(child))
-     dynamic_cast<Gtk::Pixmap*>(child)->set(I.icon);
+  if(child && Gtk::Image::isA(child))
+     dynamic_cast<Gtk::Image*>(child)->set(I.icon);
 }
 
 #include "../pixmaps/pinguin.xpm"

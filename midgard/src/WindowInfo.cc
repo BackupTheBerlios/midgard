@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.53 2002/12/11 18:18:50 christof Exp $
+// $Id: WindowInfo.cc,v 1.54 2002/12/12 08:35:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -157,7 +157,7 @@ void WindowInfo::auswahl(int anz)
   Gtk::Table *table_auswahl = manage(new class Gtk::Table(1, anz, true));
   for(int i=0;i<anz;++i)
    {
-     Gtk::Pixmap *p = manage(new class Gtk::Pixmap(Excl_32_xpm));
+     Gtk::Image *p = manage(new class Gtk::Image(Excl_32_xpm));
      Gtk::Label  *l = manage(new class Gtk::Label(itos(i+1)+"."));
      Gtk::Button *b = auswahl_button(p,l,i+1);
      table_auswahl->attach(*b, i, i+1, 0, 1, Gtk::FILL, 0, 0, 0);
@@ -166,7 +166,7 @@ void WindowInfo::auswahl(int anz)
   frame_auswahl->add(*table_auswahl);
 }
 
-Gtk::Button* WindowInfo::auswahl_button(Gtk::Pixmap *p,Gtk::Label *l,signal_int().connect)
+Gtk::Button* WindowInfo::auswahl_button(Gtk::Image *p,Gtk::Label *l,signal_int().connect)
 {
   p->set_alignment(0.5, 0.5);
   p->set_padding(0.5, 0.5);

@@ -296,7 +296,7 @@ void table_ausruestung::on_combo_entry_artikel_art_changed()
   on_combo_entry_artikel_art_activate();
 }
 
-gint table_ausruestung::on_combo_entry_artikel_art_focus_out_event(GdkEventFocus *ev)
+bool table_ausruestung::on_combo_entry_artikel_art_focus_out_event(GdkEventFocus *ev)
 {
 //  on_combo_entry_artikel_art_activate();
   return false;
@@ -319,7 +319,7 @@ void table_ausruestung::on_combo_entry_art2_changed()
 {
   on_combo_entry_art2_activate();
 }
-gint table_ausruestung::on_combo_entry_art2_focus_out_event(GdkEventFocus *ev)
+bool table_ausruestung::on_combo_entry_art2_focus_out_event(GdkEventFocus *ev)
 {
 //  on_combo_entry_art2_activate();
   return false;
@@ -383,7 +383,7 @@ void table_ausruestung::save_new_arikel()
 // table_artikel->hide();
 }
 
-gint table_ausruestung::on_button_ausruestung_druck_release_event(GdkEventButton *event)
+bool table_ausruestung::on_button_ausruestung_druck_release_event(GdkEventButton *event)
 {
   if (event->button==1) hauptfenster->on_auch_unsichtbares_drucken();
   if (event->button==3) hauptfenster->on_nur_sichtbares_drucken();

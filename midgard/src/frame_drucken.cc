@@ -68,7 +68,7 @@ void frame_drucken::entry_changed()
   hauptfenster->getOptionen()->setString(Midgard_Optionen::pdf_viewer,entry->get_text());    
 }
 
-gint frame_drucken::entry_focus_out(GdkEventFocus *ev)
+bool frame_drucken::entry_focus_out(GdkEventFocus *ev)
 {
   if(bool_changed) init();
   return 0;

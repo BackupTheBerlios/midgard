@@ -28,12 +28,12 @@ public:
         void init(midgard_CG *hauptfenster);
 private:
         void show_beschreibung();        
-        gint on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev);
+        bool on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev);
         void on_button_beschreibung_drucken_clicked();
         void on_button_grafik_clicked();
-        gint on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev);
-        gint on_button_grafik_button_release_event(GdkEventButton *event);
+        bool on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
+        bool on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev);
+        bool on_button_grafik_button_release_event(GdkEventButton *event);
         void on_button_fett_clicked();
         void on_button_kursiv_clicked();
         void on_button_liste_clicked();

@@ -89,7 +89,7 @@ private:
         void on_preise_tree_neu_leaf_selected(cH_RowDataBase d);
         void on_checkbutton_ausruestung_geld_toggled();
         void on_ausruestung_loeschen_clicked();
-        gint on_button_ausruestung_druck_release_event(GdkEventButton *ev);
+        bool on_button_ausruestung_druck_release_event(GdkEventButton *ev);
         void on_togglebutton_gruppe_neu_toggled();
         void on_togglebutton_artikel_neu_toggled();
         void on_combo_entry_artikel_art_activate();
@@ -101,8 +101,8 @@ private:
         void on_spinbutton_gewicht_activate();
         void on_entry_name_activate();
         void on_combo_entry_art2_activate();
-        gint on_combo_entry_art2_focus_out_event(GdkEventFocus *ev);
-        gint on_combo_entry_artikel_art_focus_out_event(GdkEventFocus *ev);
+        bool on_combo_entry_art2_focus_out_event(GdkEventFocus *ev);
+        bool on_combo_entry_artikel_art_focus_out_event(GdkEventFocus *ev);
         void on_combo_entry_artikel_art_changed();
         void on_combo_entry_art2_changed();
         void on_combo_entry_einheit_changed();

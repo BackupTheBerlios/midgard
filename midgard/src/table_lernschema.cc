@@ -51,26 +51,26 @@ void table_lernschema::on_button_fach_trans_clicked()
  zeige_lernpunkte();
 }
 
-gint table_lernschema::on_spinbutton_fach_focus_out_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_fach_focus_out_event(GdkEventFocus *ev)
 {  set_lernpunkte(); return 0;}
-gint table_lernschema::on_spinbutton_allgemein_focus_out_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_allgemein_focus_out_event(GdkEventFocus *ev)
 {  set_lernpunkte(); return 0;}
-gint table_lernschema::on_spinbutton_waffen_focus_out_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_waffen_focus_out_event(GdkEventFocus *ev)
 {  set_lernpunkte(); return 0;}
-gint table_lernschema::on_spinbutton_zaubern_focus_out_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_zaubern_focus_out_event(GdkEventFocus *ev)
 {  set_lernpunkte(); return 0; }
-gint table_lernschema::on_spinbutton_unge_focus_out_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_unge_focus_out_event(GdkEventFocus *ev)
 {  set_lernpunkte(); return 0; }
 
-gint table_lernschema::on_spinbutton_fach_focus_in_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_fach_focus_in_event(GdkEventFocus *ev)
 { spinbutton_fach->select_region(0,-1);   return false;}
-gint table_lernschema::on_spinbutton_allgemein_focus_in_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_allgemein_focus_in_event(GdkEventFocus *ev)
 { spinbutton_allgemein->select_region(0,-1);   return false;}
-gint table_lernschema::on_spinbutton_unge_focus_in_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_unge_focus_in_event(GdkEventFocus *ev)
 { spinbutton_unge->select_region(0,-1);   return false;}
-gint table_lernschema::on_spinbutton_waffen_focus_in_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_waffen_focus_in_event(GdkEventFocus *ev)
 { spinbutton_waffen->select_region(0,-1);   return false;}
-gint table_lernschema::on_spinbutton_zaubern_focus_in_event(GdkEventFocus *ev)
+bool table_lernschema::on_spinbutton_zaubern_focus_in_event(GdkEventFocus *ev)
 { spinbutton_zauber->select_region(0,-1);   return false;}
 
 void table_lernschema::on_spinbutton_fach_activate()
@@ -420,7 +420,7 @@ void table_lernschema::edit_lernpunkte(bool b)
 }
 
 
-gint table_lernschema::on_button_lernschema_geld_button_release_event(GdkEventButton *ev)
+bool table_lernschema::on_button_lernschema_geld_button_release_event(GdkEventButton *ev)
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GELD);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
@@ -486,7 +486,7 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
 }
 
 
-gint table_lernschema::on_button_ruestung_button_release_event(GdkEventButton *ev)
+bool table_lernschema::on_button_ruestung_button_release_event(GdkEventButton *ev)
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::RUESTUNG);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
@@ -555,7 +555,7 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
 }
 
 
-gint table_lernschema::on_button_ausruestung_button_release_event(GdkEventButton *ev)
+bool table_lernschema::on_button_ausruestung_button_release_event(GdkEventButton *ev)
 {  
   ausruestung_setzen();
   return 0;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.309 2002/12/11 18:18:50 christof Exp $
+// $Id: midgard_CG.hh,v 1.310 2002/12/12 08:35:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@
 #include <string>
 #include <gtkmm/menu.h>
 #include <gtkmm/menuitem.h>
-#include <gtkmm/pixmap.h>
+#include <gtkmm/image.h>
 
 #include <vector>
 #include <list>
@@ -254,8 +254,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
 
         // Oberfläche Statusbar
         void init_statusbar();
-        struct st_reg_status{RegionenPic::epic name; Gtk::Pixmap *pix;
-               st_reg_status(RegionenPic::epic n, Gtk::Pixmap *p):name(n),pix(p){}};
+        struct st_reg_status{RegionenPic::epic name; Gtk::Image *pix;
+               st_reg_status(RegionenPic::epic n, Gtk::Image *p):name(n),pix(p){}};
         std::vector<st_reg_status> vec_region_status;
         void set_region_statusbar(RegionenPic::epic pic,bool active);
 

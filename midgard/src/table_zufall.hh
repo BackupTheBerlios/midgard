@@ -74,10 +74,10 @@ class table_zufall : public table_zufall_glade
         void on_checkbutton_sb_toggled();
         void on_checkbutton_b_toggled();
         void on_combo_spezies_activate();
-        gint on_combo_spezies_focus_out_event(GdkEventFocus *ev);
+        bool on_combo_spezies_focus_out_event(GdkEventFocus *ev);
         void on_combo_spezies_changed();
         void on_combo_typ_activate();
-        gint on_combo_typ__focus_out_event(GdkEventFocus *ev);
+        bool on_combo_typ__focus_out_event(GdkEventFocus *ev);
         void on_combo_typ__changed();
         void on_button_zufall_voll_clicked();
         void on_togglebutton_vorgaben_toggled();
@@ -87,7 +87,7 @@ class table_zufall : public table_zufall_glade
         void on_radiobutton_steigern_gfp_toggled();
         void on_button_check100_clicked();
         void on_combo_prototyp_activate();
-        gint on_combo_prototyp_focus_out_event(GdkEventFocus *ev);
+        bool on_combo_prototyp_focus_out_event(GdkEventFocus *ev);
         void on_combo_prototyp_changed();
 
         void on_scale_fert_activate();

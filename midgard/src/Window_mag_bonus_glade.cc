@@ -32,9 +32,9 @@ Window_mag_bonus_glade::Window_mag_bonus_glade(
    label_SL_bonus = manage(new class Gtk::Label("SLbonus"));
    label_av_bonus = manage(new class Gtk::Label("AVbonus"));
    
-   Gtk::Pixmap *pixmap14 = manage(new class Gtk::Pixmap(Weapon_trans_50_xpm));
+   Gtk::Image *pixmap14 = manage(new class Gtk::Image(Weapon_trans_50_xpm));
    Gtk::Toolbar *toolbar30 = manage(new class Gtk::Toolbar(Gtk::ORIENTATION_HORIZONTAL, Gtk::TOOLBAR_ICONS));
-   Gtk::Button *button59 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(Gtk::TOOLBAR(toolbar30->gobj()), Gtk::TOOLBAR_CHILD_BUTTON, 0, "", 0, 0, Gtk::WIDGET(manage(new Gtk::Pixmap(SchliessenIII_50_xpm))->gobj()), 0, 0));
+   Gtk::Button *button59 = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(Gtk::TOOLBAR(toolbar30->gobj()), Gtk::TOOLBAR_CHILD_BUTTON, 0, "", 0, 0, Gtk::WIDGET(manage(new Gtk::Image(SchliessenIII_50_xpm))->gobj()), 0, 0));
    Gtk::Label *label395 = manage(new class Gtk::Label("Kurzbeschreibung"));
    entry_magisch = manage(new class Gtk::Entry());
    

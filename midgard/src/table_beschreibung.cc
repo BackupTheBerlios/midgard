@@ -24,7 +24,7 @@ void table_beschreibung::save_beschreibung()
   hauptfenster->undosave("Beschreibung geändert");
 }
 
-gint table_beschreibung::on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev)
+bool table_beschreibung::on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev)
 {  
   save_beschreibung();
   return 0;
@@ -35,7 +35,7 @@ void table_beschreibung::on_button_beschreibung_drucken_clicked()
   hauptfenster->on_beschreibung_drucken();
 }
 
-gint table_beschreibung::on_button_grafik_button_release_event(GdkEventButton *ev)
+bool table_beschreibung::on_button_grafik_button_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) on_button_grafik_clicked();
   if (ev->button==3) 
@@ -57,14 +57,14 @@ void table_beschreibung::on_button_grafik_clicked()
   hauptfenster->undosave("Bild geändert");
 }
 
-gint table_beschreibung::on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev)
+bool table_beschreibung::on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev)
 { 
  hauptfenster->getWerte().setBeschreibungPixSize(spinbutton_pix_breite->get_value_as_int());
  hauptfenster->undosave("Bildgröße geändert");
  return 0;
 }
 
-gint table_beschreibung::on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev)
+bool table_beschreibung::on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev)
 {  
   spinbutton_pix_breite->select_region(0,-1);   
   return 0;

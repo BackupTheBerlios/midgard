@@ -14,7 +14,7 @@
 BegruessungsWindow::BegruessungsWindow(midgard_CG* h) 
  : hauptfenster(h) 
 {
-  Gtk::Pixmap *p= manage(new class Gtk::Pixmap(KillChar_32_xpm));
+  Gtk::Image *p= manage(new class Gtk::Image(KillChar_32_xpm));
   bool_CheckButton *W = manage(new bool_CheckButton(hauptfenster->MOptionen->OberCheck(Midgard_Optionen::BegruessungsFenster).active,*p));
   W->set_mode(false);
   W->show_all();

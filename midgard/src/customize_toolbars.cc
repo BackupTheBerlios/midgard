@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.20 2002/12/11 18:18:50 christof Exp $
+// $Id: customize_toolbars.cc,v 1.21 2002/12/12 08:35:34 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -34,7 +34,7 @@ static bool hasOnlyPixmaps(Gtk::Box *w)
    Gtk::Box_Helpers::BoxList::iterator i2=ch2.begin();
    if (i2==ch2.end()) return false;
    for (;i2!=ch2.end();++i2)
-   {  if (!(*i2)->get_widget() || !Gtk::Pixmap::isA((*i2)->get_widget())) 
+   {  if (!(*i2)->get_widget() || !Gtk::Image::isA((*i2)->get_widget())) 
          return false;
    }
    return true;
@@ -48,13 +48,13 @@ static void CustomizeBox(Gtk::Widget *child, bool show_icons, bool tab_text)
    {  Gtk::Widget *w1=(*i)->get_widget();
       Gtk::Widget *w2=(*j)->get_widget();
       
-      if (Gtk::Pixmap::isA(w1) && Gtk::Label::isA(w2))
+      if (Gtk::Image::isA(w1) && Gtk::Label::isA(w2))
       {  if (show_icons) w1->show();
          else w1->hide();
          if (tab_text) w2->show();
          else w2->hide();
       }
-      else if (Gtk::Label::isA(w1) && Gtk::Pixmap::isA(w2))
+      else if (Gtk::Label::isA(w1) && Gtk::Image::isA(w2))
       {  if (show_icons) w2->show();
          else w2->hide();
          if (tab_text) w1->show();

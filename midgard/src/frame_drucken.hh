@@ -25,7 +25,7 @@ class frame_drucken : public frame_drucken_glade
         midgard_CG *hauptfenster;
         void element_activate(Gtk::RadioButton *rb,Midgard_Optionen::pdfViewerIndex index);
         void entry_changed();
-        gint entry_focus_out(GdkEventFocus *ev);
+        bool entry_focus_out(GdkEventFocus *ev);
         Gtk::Entry *entry;
         bool bool_changed;
         void on_button_pdf_viewer_clicked();

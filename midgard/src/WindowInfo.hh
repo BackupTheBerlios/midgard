@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.41 2002/12/11 18:18:50 christof Exp $
+// $Id: WindowInfo.hh,v 1.42 2002/12/12 08:35:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,7 @@ class WindowInfo : public WindowInfo_glade
         void on_button_erase_clicked();
         gint on_WindowInfo_delete_event(GdkEventAny *ev);
         void auswahl(int anz);
-        Gtk::Button *WindowInfo::auswahl_button(Gtk::Pixmap *p,Gtk::Label *l,signal_int().connect);
+        Gtk::Button *WindowInfo::auswahl_button(Gtk::Image *p,Gtk::Label *l,signal_int().connect);
         void on_button_auswahl_clicked(signal_int().connect);
         emodus Modus;
         midgard_CG* hauptfenster;

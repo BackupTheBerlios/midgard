@@ -30,8 +30,8 @@ window_Ausruestung_glade::window_Ausruestung_glade(
    optionmenu_typ = manage(new class Gtk::OptionMenu());
    
    Gtk::Toolbar *toolbar39 = manage(new class Gtk::Toolbar(Gtk::ORIENTATION_HORIZONTAL, Gtk::TOOLBAR_BOTH));
-   Gtk::Button *button_druck = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(Gtk::TOOLBAR(toolbar39->gobj()), Gtk::TOOLBAR_CHILD_BUTTON, 0, "Drucken", 0, 0, Gtk::WIDGET(manage(new Gtk::Pixmap(PrintChar_trans_50_xpm))->gobj()), 0, 0));
-   Gtk::Button *button_close = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(Gtk::TOOLBAR(toolbar39->gobj()), Gtk::TOOLBAR_CHILD_BUTTON, 0, "Schließen", 0, 0, Gtk::WIDGET(manage(new Gtk::Pixmap(SchliessenIII_50_xpm))->gobj()), 0, 0));
+   Gtk::Button *button_druck = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(Gtk::TOOLBAR(toolbar39->gobj()), Gtk::TOOLBAR_CHILD_BUTTON, 0, "Drucken", 0, 0, Gtk::WIDGET(manage(new Gtk::Image(PrintChar_trans_50_xpm))->gobj()), 0, 0));
+   Gtk::Button *button_close = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(Gtk::TOOLBAR(toolbar39->gobj()), Gtk::TOOLBAR_CHILD_BUTTON, 0, "Schließen", 0, 0, Gtk::WIDGET(manage(new Gtk::Image(SchliessenIII_50_xpm))->gobj()), 0, 0));
    clist_preisliste = manage(new class Gtk::CList(3));
    
    Gtk::Viewport *viewport22 = manage(new class Gtk::Viewport());
