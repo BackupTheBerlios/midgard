@@ -131,6 +131,16 @@ void midgard_CG::menu_init()
      if(!(*i)->Offiziell())
          mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
    }
+  
+  Gtk::MenuItem *standard_regionen = Gtk::manage(new class Gtk::MenuItem("Ausgewählte Regionen zum Standard machen"));
+  regionen_menu->append(*standard_regionen);
+#if 0
+  standard_regionen->signal_activate().connect(
+     SigC::bind(SigC::slot(Programmoptionen,
+      &Magus_Optionen::setStandardRegionen),getAben()));
+#else
+   standard_regionen->signal_activate().connect(SigC::slot(*this,&midgard_CG::SetStandardRegionen));
+#endif
   menu_kontext->append(*regionen);
   
 
@@ -245,6 +255,11 @@ void midgard_CG::menubar_init()
      if(!(*i)->Offiziell())
         mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
    }
+
+  Gtk::MenuItem *standard_regionen = Gtk::manage(new class Gtk::MenuItem("Ausgewählte Regionen zum Standard machen"));
+  regionen_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(*standard_regionen));
+  standard_regionen->signal_activate().connect(SigC::slot(*this,&midgard_CG::SetStandardRegionen));
+
  regionen_menu->show_all();
  menu_history_init(-1);
 }
@@ -290,3 +305,7 @@ void midgard_CG::OptionenExecute_setzen_from_menu(Magus_Optionen::OptionenExecut
    else if(index==Magus_Optionen::show_InfoWindow) InfoFenster->show();
 }
 
+void midgard_CG::SetStandardRegionen() const
+{
+   Programmoptionen.setStandardRegionen(getAben());
+}

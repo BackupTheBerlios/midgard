@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.347 2004/01/30 23:29:46 christof Exp $
+// $Id: midgard_CG.hh,v 1.348 2004/03/09 12:53:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -140,6 +140,7 @@ private:
         void on_news_menu_activate();
         void push_back_LDateien(std::string s);
         void Schummeln();
+        void SetStandardRegionen() const;
 
         // Oberfläche Statusbar
         void init_statusbar();
