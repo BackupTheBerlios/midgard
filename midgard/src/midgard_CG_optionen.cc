@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.100 2002/07/10 08:35:10 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.101 2002/08/19 06:31:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,7 +60,6 @@ void midgard_CG::checkbutton_original(bool active)
 void midgard_CG::lernschema_sensitive(bool active)
 {
 assert(active);
-//   button_beschreibung->set_sensitive(true);
    table_lernschema->frame_lernpunkte->set_sensitive(true);
    frame_steigern->set_sensitive(true);
    frame_lernschema->set_sensitive(true);
@@ -75,7 +74,6 @@ assert(active);
    table_lernschema->button_kido_auswahl->set_sensitive(true);
    table_lernschema->button_angeborene_fert->set_sensitive(true);
    table_lernschema->button_beruf->set_sensitive(true);
-//   frame_berufswahl->set_sensitive(true);
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.25 2002/07/18 15:50:03 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.26 2002/08/19 06:31:14 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -33,6 +33,7 @@ class Abenteurer
    AusruestungBaum besitz;
    Grundwerte Werte;
    std::vector<cH_Typen> Typ;
+   std::string muttersprache;
 
    std::list<MidgardBasicElement_mutable> list_Beruf;
    std::list<MidgardBasicElement_mutable> list_Fertigkeit_ang;
@@ -72,6 +73,8 @@ public:
    const vector<cH_Typen> &getVTyp() const {return Typ;}
    bool is_mage() const {if(Typ1()->is_mage() || Typ2()->is_mage()) return true;
                          else return false;}
+   std::string Muttersprache() const {return muttersprache;}
+   void setMuttersprache(std::string s) {muttersprache=s;}
 
    const std::string Beruf() const;
    const std::list<MidgardBasicElement_mutable>& List_Beruf() const {return list_Beruf;}

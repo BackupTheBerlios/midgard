@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.26 2002/07/11 21:00:09 thoma Exp $               
+// $Id: Sprache.hh,v 1.27 2002/08/19 06:31:14 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -26,11 +26,12 @@
 #include <gtk--/progressbar.h>
 class cH_Sprache;
 class VAbenteurer;
+class midgard_CG;
 
 class Sprache : public MidgardBasicElement
 {
      std::vector<std::string> VSchrift;
-     bool alte_sprache,minderheit;
+     bool alte_sprache,minderheit,muttersprache;
      int maxwert;
      std::vector<int> V_sprachgruppe;
 
@@ -53,11 +54,16 @@ class Sprache : public MidgardBasicElement
 
    bool Alte_Sprache() const {return alte_sprache;}    
    bool Minderheit() const {return minderheit;}    
+   bool Muttersprache() const {return muttersprache;}    
    int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
    int Kosten(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
    std::list<MidgardBasicElement_mutable> VerwandteSprachen(const int erfolgswert,const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const;
    bool ist_erlaubt(const VAbenteurer& A,bool nachbarland=false) const;
+   int getHoeherenErfolgswert(const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,
+                              const std::list<cH_MidgardBasicElement>& listSprache) const;
 
+   void setMuttersprache(bool b) {muttersprache=b;}
+   
    static std::list<MidgardBasicElement_mutable> Sprache::cleanVerwandteSprachen(std::list<MidgardBasicElement_mutable> L);
 
    static void setErfolgswertMuttersprache(MidgardBasicElement_mutable &M,int in,int bonus) 

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.48 2002/07/03 16:58:51 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.49 2002/08/19 06:34:08 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -104,6 +104,7 @@ public:
    std::list<MidgardBasicElement_mutable> Sinne() const {return list_Sinne;}
    const MidgardBasicElement_mutable &Ueberleben() const {return Ueberleben_angeboren;};
    int Raufen() const;
+   std::string RaufenSchaden() const;
    int Abwehr_wert() const {return abwehr_wert;}
    int AbwehrPP() const {return abwehr_pp;}
    int Zaubern_wert() const { return zaubern_wert;}

@@ -25,6 +25,7 @@
 #include "Schrift.hh"
 #include "Grundwerte.hh"
 #include "Abenteurer.hh"
+#include "midgard_CG.hh"
 
 cH_Sprache::cache_t cH_Sprache::cache;
 
@@ -154,6 +155,22 @@ std::list<MidgardBasicElement_mutable> Sprache::cleanVerwandteSprachen(std::list
    }
  return N;
 }
+
+int Sprache::getHoeherenErfolgswert(const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const
+{
+ int e=0;
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=gelernte_listSprache.begin();i!=gelernte_listSprache.end();++i)
+  {
+    assert(Name()!=(*i)->Name());
+    std::list<MidgardBasicElement_mutable> tmplist=cH_Sprache(*i)->VerwandteSprachen((*i).Erfolgswert(),gelernte_listSprache,listSprache);
+    for(std::list<MidgardBasicElement_mutable>::const_iterator j=tmplist.begin();j!=tmplist.end();++j)
+     {
+       if(Name()==(*j)->Name() && j->Erfolgswert()>e) e=j->Erfolgswert();
+     }
+  }
+ return e;
+}
+
 
 bool Sprache::ist_erlaubt(const VAbenteurer& A,bool nachbarland=false) const 
 {
