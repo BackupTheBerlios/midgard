@@ -95,7 +95,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
     std::string schaden;
     bool besitz=false;
     {WaffeBesitz WB(w,w->Name(),0,0,"","");
-    schaden= WB.Schaden(getWerte(),w->Name(),true);
+    schaden= "$"+WB.Schaden(getWerte(),w->Name())+"$";
     }
     for(std::list<WaffeBesitz>::const_iterator j=Char->List_Waffen_besitz().begin();j!=Char->List_Waffen_besitz().end();++j)
      {
