@@ -9,15 +9,15 @@
   <Erfolgswerte Abwehr="15" Zaubern="17" ZauberResistenz="14"/>
   <Gesundheit LP="16" AP="34"/>
   <Beschreibung Alter="29" Gestalt="schlank" Gewicht="69" Größe="161" Stand="Mittelschicht" Merkmale="weiße Haare, permanent -4AP" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Vermögen GS="1668" SS="4"/>
-  <Steigern GFP="16633" AEP="522" EPproGFP="33" benötigte_Tage="211.24">
+  <Vermögen GS="1656" SS="4"/>
+  <Steigern GFP="16653" AEP="514" EPproGFP="33" benötigte_Tage="211.24">
    <Praxispunkte Zaubern="2" Spezial="3" Resistenz="1"/>
   </Steigern>
   <Text/>
   <Ausrüstung>
    <Rüstung>TR</Rüstung>
    <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="9" Bezeichnung="Magierstab"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Magierstab"/>
    <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
     <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
     <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
@@ -132,7 +132,7 @@
    <Sprache Bezeichnung="Scharidisch" Wert="10"/>
    <Sprache Bezeichnung="Sritrasprache" Wert="16"/>
    <Sprache Bezeichnung="Twyneddisch" Wert="4"/>
-   <Urschrift Bezeichnung="Scharidisch" Wert="8"/>
+   <Urschrift Bezeichnung="Scharidisch" Wert="12"/>
    <Urschrift Bezeichnung="Dunkle Sprache" Wert="10"/>
    <Urschrift Bezeichnung="Dvarskar" Wert="12"/>
    <Urschrift Bezeichnung="KanThaiTun(1)" Wert="12"/>
@@ -148,6 +148,7 @@
    <Urschrift Bezeichnung="Eldalyn" Wert="8"/>
    <Urschrift Bezeichnung="Neu-Vallinga" Wert="8"/>
    <Urschrift Bezeichnung="Maralinga" Wert="8"/>
+   <Urschrift Bezeichnung="Aranisch" Wert="8"/>
   </Fertigkeiten>
   <Optionen>
    <Region Name="Kompendium" Region="TuT"/>
