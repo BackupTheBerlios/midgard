@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.27 2002/05/06 12:03:01 thoma Exp $
+// $Id: Optionen.cc,v 1.28 2002/05/06 14:03:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -221,7 +221,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
          }
         else if(index==NIcons) 
            hauptfenster->show_NIcons(i->active);
-        else if(index==Beschriftungen) 
+        else if(index==NBeschriftungen) 
            hauptfenster->show_NBeschriftungen(i->active);
         hauptfenster->menu_init();
         return;
