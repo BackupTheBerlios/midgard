@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.3 2003/07/15 06:09:10 christof Exp $               
+// $Id: Grundwerte.hh,v 1.4 2003/07/24 08:00:30 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -278,5 +278,29 @@ public:
    std::string Ruestung_Abwehr_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const;
    std::string Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const;
 
+   // ================= aus table_grundwerte.hh ======================
+        void grundwerte_wuerfeln();
+        void Eigenschaften_variante(int i);
+        void check_350(const std::vector<int>& a = std::vector<int>());
+        void gw_wuerfeln_2x();
+        int  constraint_gw(int constraint);
+        int  constraint_aw(int constraint);
+        int  wuerfeln_best_of_two();
+        void midgard_check_werte100();
+
+#if 0
+        // Für Variante 2 + 3
+        enum e_eigen{est,egw,egs,eko,ein,ezt,eMAX};
+//        friend e_eigen &operator++(e_eigen &s);
+//	friend class spezies_mod_comp;
+        struct st_eigen{e_eigen eigenschaft;std::string lang;std::string kurz;
+        		int spezies_mod; 
+               st_eigen(e_eigen e,std::string l,std::string k,int spezies_m=0)  
+                   : eigenschaft(e),lang(l),kurz(k),spezies_mod(spezies_m){}
+               bool operator==(const e_eigen& b) const 
+                           {return eigenschaft== b;}
+                    };
+        static std::vector<st_eigen>::const_iterator actual_eigen;
+#endif        
 };
 #endif

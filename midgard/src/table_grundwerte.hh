@@ -47,15 +47,6 @@ public:
 private:
         std::vector<std::string> Vstand, Vhand;
 
-        void grundwerte_wuerfeln();
-        void Eigenschaften_variante(int i);
-        void check_350(const std::vector<int>& a = std::vector<int>());
-        void gw_wuerfeln_2x();
-        int  constraint_gw(int constraint);
-        int  constraint_aw(int constraint);
-        int  wuerfeln_best_of_two();
-        void midgard_check_werte100();
-
         void edit_sensitive(bool b);
         
         void fill_typauswahl_fill(int typ_1_2);
