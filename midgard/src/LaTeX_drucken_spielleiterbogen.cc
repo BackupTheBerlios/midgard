@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.3 2002/06/04 13:56:11 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.4 2002/06/05 07:31:22 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -21,63 +21,70 @@
 #include "LaTeX_drucken.hh"
 #include "midgard_CG.hh"
 #include "dtos1.h"
+#include <Aux/itos.h>
 
 void LaTeX_drucken::Spielleiterbogen()
 {
  std::string filename=get_latex_pathname(LaTeX_drucken::TeX_tmp)+get_latex_filename(LaTeX_drucken::TeX_Spielleiter);
  ofstream fout((filename+".tex").c_str());
- LaTeX_header(fout,false);           
+ LaTeX_header(fout,false,false);           
  fout << "\\newcommand{\\n}{\\normalsize\\rule[-0.5ex]{0ex}{2.5ex}}\n";
  fout << "\\setlength{\\doublerulesep}{0.1mm}\n";
- fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
+// fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
 
- fout << "\\scalebox{0.97}{\n";
+ fout << "\\scalebox{0.97}{\\footnotesize\n";
  fout << "\\begin{tabular}{|||l|||\n";
  for(unsigned int i=0;i<hauptfenster->Char.getList().size();++i)
    fout << "c|"; // Anzahl der Spalten/Abenteurer
  fout << "||}\\hline\\hline\\hline\n";
 
- fout << "\\n Spieler "; for_each(fout,SName); fout << "\\\\\\hline\n";
- fout << "\\n Figur "; for_each(fout,AName); fout << "\\\\\\hline\n";
- fout << "\\n Spezies "; for_each(fout,Spezies); fout << "\\\\\\hline\n";
- fout << "\\n Typ "; for_each(fout,Typ); fout << "\\\\\\hline\n";
- fout << "\\n Grad "; for_each(fout,Grad); fout << "\\\\\\hline\n";
- fout << "\\n Herkunft "; for_each(fout,Herkunft); fout << "\\\\\\hline\n";
- fout << "\\n Stand "; for_each(fout,Stand); fout << "\\\\\\hline\n";
- fout << "\\n Gestalt "; for_each(fout,Gestalt); fout << "\\\\\\hline\n";
- fout << "\\n Grösse "; for_each(fout,Groesse); fout << "\\\\\\hline\n";
- fout << "\\n Gewicht "; for_each(fout,Gewicht); fout << "\\\\\\hline\n";
- fout << "\\n Beruf "; for_each(fout,Beruf); fout << "\\\\\\hline\n";
- fout << "\\n Glaube "; for_each(fout,Glaube); fout << "\\\\\\hline\n";
- fout << "\\n  St "; for_each(fout,St); fout << "\\\\\\hline\n";
- fout << "\\n  Gw "; for_each(fout,Gw); fout << "\\\\\\hline\n";
- fout << "\\n  Gs "; for_each(fout,Gs); fout << "\\\\\\hline\n";
- fout << "\\n  Ko "; for_each(fout,Ko); fout << "\\\\\\hline\n";
- fout << "\\n  In "; for_each(fout,In); fout << "\\\\\\hline\n";
- fout << "\\n  Zt "; for_each(fout,Zt); fout << "\\\\\\hline\n";
- fout << "\\n  Au "; for_each(fout,Au); fout << "\\\\\\hline\n";
- fout << "\\n  pA "; for_each(fout,pA); fout << "\\\\\\hline\n";
- fout << "\\n  Wk "; for_each(fout,Wk); fout << "\\\\\\hline\n";
- fout << "\\n  Sb "; for_each(fout,Sb); fout << "\\\\\\hline\n";
- fout << "\\n  B "; for_each(fout,B); fout << "\\\\\\hline\n";
- fout << "\\n  Resistenzen"; for_each(fout,Resistenz); fout << "\\\\\\hline\n";
- fout << "\\n  Sehen "; for_each(fout,Sehen); fout << "\\\\\\hline\n";
- fout << "\\n  Hören "; for_each(fout,Hoeren); fout << "\\\\\\hline\n";
- fout << "\\n  Riechen "; for_each(fout,Riechen); fout << "\\\\\\hline\n";
- fout << "\\n  Schmecken "; for_each(fout,Schmecken); fout << "\\\\\\hline\n";
- fout << "\\n  Tasten "; for_each(fout,Tasten); fout << "\\\\\\hline\n";
- fout << "\\n  Sechster Sinn "; for_each(fout,SechsterSinn); fout << "\\\\\\hline\n";
- fout << "\\n  Wahrnehmung "; for_each(fout,Wahrnehmung); fout << "\\\\\\hline\n";
- fout << "\\n  Spurenlesen "; for_each(fout,Spurenlesen); fout << "\\\\\\hline\n";
- fout << "\\n  Fallen entdecken "; for_each(fout,Fallen_entdecken); fout << "\\\\\\hline\n";
-// fout << "\\n   "; for_each(fout,); fout << "\\\\\\hline\n";
-// fout << "\\n   "; for_each(fout,); fout << "\\\\\\hline\n";
-// fout << "\\n   "; for_each(fout,); fout << "\\\\\\hline\n";
- 
+ line(fout,SName);
+ line(fout,AName);
+ line(fout,Spezies);
+ line(fout,Typ);
+ line(fout,Grad);
+ line(fout,Herkunft);
+ line(fout,Stand);
+ line(fout,Gestalt);
+ line(fout,Groesse);
+ line(fout,Gewicht);
+ line(fout,Beruf);
+ line(fout,Glaube);
+ line(fout,St);
+ line(fout,Gw);
+ line(fout,Gs);
+ line(fout,Ko);
+ line(fout,In);
+ line(fout,Zt);
+ line(fout,Au);
+ line(fout,pA);
+ line(fout,Wk);
+ line(fout,Sb);
+ line(fout,B);
+ line(fout,Resistenz);
+ line(fout,Sehen);
+ line(fout,Hoeren);
+ line(fout,Riechen);
+ line(fout,Schmecken);
+ line(fout,Tasten);
+ line(fout,SechsterSinn);
+ line(fout,Wahrnehmung);
+ line(fout,Spurenlesen);
+ line(fout,Fallen_entdecken);
+ line(fout,Suchen);
+ line(fout,Menschenkenntnis);
+ line(fout,Sagenkunde);
+ line(fout,Zauberkunde);
+ line(fout,Gassenwissen);
+ line(fout,Himmelskunde);
+ line(fout,Schaetzen);
+ line(fout,angFert);
+ line(fout,Sprachen);
+ line(fout,Schriften);
 
  fout << "\\end{tabular}\n";
  fout << "}\n"; //scalebox
- fout << "}}\n";
+// fout << "}}\n"; //fbox+parbox
  LaTeX_footer(fout);
  fout.close();
  pdf_viewer(filename);
@@ -121,10 +128,16 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
      case Wahrnehmung: fout << "Wahrnehmung"; break; 
      case Spurenlesen: fout << "Spurenlesen"; break; 
      case Fallen_entdecken: fout << "Fallen entdecken"; break; 
+     case Suchen: fout << "Suchen"; break; 
+     case Menschenkenntnis: fout << "Menschenkenntnis"; break; 
+     case Sagenkunde: fout << "Sagenkunde"; break; 
+     case Zauberkunde: fout << "Zauberkunde"; break; 
+     case Gassenwissen: fout << "Gassenwissen"; break; 
+     case Himmelskunde: fout << "Himmelskunde"; break; 
+     case Schaetzen: fout << "Schätzen"; break; 
+     case angFert: fout << "angeborne\\newline Fertigkeiten"; break; 
      case Sprachen: fout << "Sprachen"; break; 
      case Schriften: fout << "Schriften"; break; 
-//     case : fout << ""; break; 
-//     case : fout << ""; break; 
    }
   for_each(fout,what);
   fout << "\\\\\\hline\n";
@@ -133,8 +146,8 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
 void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
 {
  const Datenbank Database=hauptfenster->getCDatabase();
- int maxlength=10;
- std::string cm="2cm";
+ int maxlength=12;
+ std::string cm="2.2cm";
  for(std::list<VAbenteurer::st_abenteurer>::const_iterator i=hauptfenster->Char.getList().begin();i!=hauptfenster->Char.getList().end();++i)
   {
     switch(what)
@@ -169,12 +182,47 @@ void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
        case Schmecken: fout << " & "<<i->abenteurer.getCWerte().Schmecken(); break; 
        case Tasten: fout << " & "<<i->abenteurer.getCWerte().Tasten(); break; 
        case SechsterSinn: fout << " & "<<i->abenteurer.getCWerte().SechsterSinn(); break; 
-       case Wahrnehmung: fout << " & "<<i->abenteurer.Erfolgswert("Wahrnehmung",Database); break; 
-       case Spurenlesen: fout << " & "<<i->abenteurer.Erfolgswert("Spurenlesen",Database); break; 
+       case Wahrnehmung: fout << " & "<<i->abenteurer.SErfolgswert("Wahrnehmung",Database); break; 
+       case Spurenlesen: fout << " & "<<i->abenteurer.SErfolgswert("Spurenlesen",Database); break; 
        case Fallen_entdecken: fout << " & "<<i->abenteurer.SErfolgswert("Fallen entdecken",Database); break; 
-       case Sprachen: fout << "Sprachen"; break; 
-       case Schriften: fout << "Schriften"; break; 
+       case Suchen: fout << " & "<<i->abenteurer.SErfolgswert("Suchen",Database); break; 
+       case Menschenkenntnis: fout << " & "<<i->abenteurer.SErfolgswert("Menschenkenntnis",Database); break;
+       case Sagenkunde: fout << " & "<<i->abenteurer.SErfolgswert("Sagenkunde",Database); break;
+       case Zauberkunde: fout << " & "<<i->abenteurer.SErfolgswert("Zauberkunde",Database); break;
+       case Gassenwissen: fout << " & "<<i->abenteurer.SErfolgswert("Gassenwissen",Database); break;
+       case Himmelskunde: fout << " & "<<i->abenteurer.SErfolgswert("Himmelskunde",Database); break;
+       case Schaetzen: fout << " & "<<i->abenteurer.SErfolgswert("Schaetzen",Database); break;
+       case angFert: 
+         { fout << " & \\parbox{"<<cm<<"}{";
+           for(std::list<cH_MidgardBasicElement>::const_iterator j=i->abenteurer.CList_Fertigkeit_ang().begin();j!=i->abenteurer.CList_Fertigkeit_ang().end();++j)
+            {
+              std::string s=(*j)->Name()+" (+"+itos((*j)->Erfolgswert())+")";
+              fout << LaTeX_scale(s,maxlength,cm)<<"\\newline ";
+            }
+           fout <<"}\n\t";
+           break;
+         }
+       case Sprachen:  
+         { fout << " & \\parbox{"<<cm<<"}{";
+           for(std::list<cH_MidgardBasicElement>::const_iterator j=i->abenteurer.CList_Sprache().begin();j!=i->abenteurer.CList_Sprache().end();++j)
+            {
+              std::string s=(*j)->Name()+" (+"+itos((*j)->Erfolgswert())+")";
+              fout << LaTeX_scale(s,maxlength,cm)<<"\\newline ";
+            }
+           fout <<"}\n\t";
+           break;
+         }
+       case Schriften: 
+         { fout << " & \\parbox{"<<cm<<"}{";
+           for(std::list<cH_MidgardBasicElement>::const_iterator j=i->abenteurer.CList_Schrift().begin();j!=i->abenteurer.CList_Schrift().end();++j)
+            {
+              std::string s=(*j)->Name()+" (+"+itos((*j)->Erfolgswert())+")";
+              fout << LaTeX_scale(s,maxlength,cm)<<"\\newline ";
+            }
+           fout <<"}\n\t";
+           break;
+         }
      }
-  }
+   }
 }
 

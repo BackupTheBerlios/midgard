@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.12 2002/06/04 13:56:11 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.13 2002/06/05 07:31:22 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -760,7 +760,6 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
        fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(hauptfenster->getCWerte().Name_Spieler(),20,"4.cm") << "}\n";
      }
   }
- fout << "\\begin{center}\n";
  std::string     drache="9.9cm", namensbox="7cm";
  if(!landscape) {drache="7cm" , namensbox="5cm";}
  fout << "\\IfFileExists{drache.png}{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{drache.png}}}\n";
@@ -781,7 +780,7 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
  fout <<"\\vspace*{2ex}\n\n";
 }
 
-void LaTeX_drucken::LaTeX_header(ostream &fout,bool landscape)
+void LaTeX_drucken::LaTeX_header(ostream &fout,bool landscape,bool kopfzeile)
 {
  if(landscape) fout << "\\documentclass[a4paper,10pt,landscape]{article}\n" ;
  else   fout << "\\documentclass[a4paper,10pt]{article}\n";
@@ -793,7 +792,6 @@ void LaTeX_drucken::LaTeX_header(ostream &fout,bool landscape)
  fout << "\\usepackage{color}\n";
  fout << "\\usepackage{wrapfig}\n";
  fout << "\\definecolor{mygray}{gray}{0.75}\n";
-
 
  if(landscape)
   {
@@ -850,7 +848,9 @@ void LaTeX_drucken::LaTeX_header(ostream &fout,bool landscape)
  fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
  fout << "\\setlength{\\doublerulesep}{0mm}\n";
  fout << "\\begin{document}\n";
- LaTeX_kopfzeile(fout,landscape);
+ fout << "\\begin{center}\n";
+ if(kopfzeile)
+    LaTeX_kopfzeile(fout,landscape);
 }
  
 void LaTeX_drucken::LaTeX_footer(ostream &fout)
@@ -885,7 +885,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   system(("pdflatex --interaction scrollmode "+file+".tex").c_str());
   system((hauptfenster->getOptionen()->Viewer()+" "+file+".pdf &").c_str());
 
-  unlink((file+".tex").c_str());
+//  unlink((file+".tex").c_str());
   unlink((file+".aux").c_str());
   unlink((file+".log").c_str());
 //  unlink((file+".pdf").c_str());

@@ -11,9 +11,10 @@ NEWS IN VERSION 0.6delta6
 * History abspeichern
 * Impelmentierung der 'Universellen Fähigkeiten' ist in die 'Abenteurer' Klasse
    gewandert, ist so viel(!) konsistenter und nötig für den
-* Spielleiterbogen
+* Spielleiterbogen (erste Version)
 * Abenteurer kann aus der 'History-Liste' gelöscht werden. 
    (Ebenfalls nötig für den Spielleiterbogen)
+* Anzahl der Dateien in der History einstellbar
 
 TODO:
 * Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 

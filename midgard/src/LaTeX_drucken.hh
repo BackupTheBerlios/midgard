@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.3 2002/06/04 11:13:41 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.4 2002/06/05 07:31:22 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,7 +48,7 @@ class LaTeX_drucken
     void LaTeX_newsavebox(ostream &fout);
     void LaTeX_footer(ostream &fout);
     void LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc=true);
-    void LaTeX_header(ostream &fout,bool landscape=true);
+    void LaTeX_header(ostream &fout,bool landscape=true,bool kopfzeile=true);
     void LaTeX_zauber_main(ostream &fout);
     void LaTeX_zaubermittel(ostream &fout);
     void LaTeX_zauber(ostream &fout);
@@ -61,7 +61,9 @@ class LaTeX_drucken
     enum ewhat{SName,AName,Spezies,Typ,Grad,Herkunft,Stand,Gestalt,Groesse,
                Gewicht,Beruf,Glaube,Sprachen,Schriften,St,Gw,Gs,Ko,In,Zt,
                Au,pA,Wk,Sb,B,Resistenz,Sehen,Hoeren,Riechen,Schmecken,Tasten,
-               SechsterSinn,Wahrnehmung,Spurenlesen,Fallen_entdecken};
+               SechsterSinn,Wahrnehmung,Spurenlesen,Fallen_entdecken,
+               Suchen,Menschenkenntnis, Sagenkunde,Zauberkunde,Gassenwissen,
+               Himmelskunde,Schaetzen,angFert};
     void line(ofstream &fout,const ewhat &what);
     void for_each(ofstream &fout,const ewhat &what);
  public:

@@ -12998,7 +12998,7 @@ eingeben</label>
 		<xpad>0</xpad>
 		<ypad>0</ypad>
 		<xexpand>False</xexpand>
-		<yexpand>True</yexpand>
+		<yexpand>False</yexpand>
 		<xshrink>True</xshrink>
 		<yshrink>True</yshrink>
 		<xfill>True</xfill>
