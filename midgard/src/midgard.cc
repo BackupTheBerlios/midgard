@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.62 2003/09/29 06:56:09 christof Exp $
+// $Id: midgard.cc,v 1.63 2003/09/29 09:17:10 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,7 +54,7 @@ static void progress(double d)
          {  if (dest_pixel[0]!=b_pixel[0]) dest_pixel[0]= beta*dest_pixel[0]+ gamma*b_pixel[0];
             if (dest_pixel[1]!=b_pixel[1]) dest_pixel[1]= beta*dest_pixel[1]+ gamma*b_pixel[1];
             if (dest_pixel[2]!=b_pixel[2]) dest_pixel[2]= beta*dest_pixel[2]+ gamma*b_pixel[2];
-            if (bytes_per_pixel==4 && dest_pixel[3]!=b_pixel[3]) )
+            if (bytes_per_pixel==4 && dest_pixel[3]!=b_pixel[3])
                dest_pixel[3]= beta*dest_pixel[3]+ gamma*b_pixel[3];
             dest_pixel+=bytes_per_pixel;
             b_pixel+=bytes_per_pixel;
