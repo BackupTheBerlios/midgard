@@ -20,7 +20,6 @@
 #include "Window_hilfe.hh"
 #include <unistd.h>
 
-
 void midgard_CG::set_status(const std::string &s,bool autoclean)
 {
   label_status->set_text(s);
@@ -42,12 +41,9 @@ void midgard_CG::on_button_hilfe_clicked()
 void midgard_CG::on_button_html_hilfe_clicked()
 {
   std::string pfad="file://"+with_path("index.html",false,false);
-  std::string s =MOptionen->getString(Midgard_Optionen::html_viewer)+" \""+pfad+"\""
-#ifndef __MINGW32__  
-							  " &"
-#endif  
-							  	;
-  system(s.c_str());
+  std::string s =MOptionen->getString(Midgard_Optionen::html_viewer)+" \""+pfad+"\"";
+  if (!WinLux::CreateProcess(s))
+	set_status("Fehler: "+s+" funktioniert nicht",false);
 }
 
 void midgard_CG::on_button_info_clicked()

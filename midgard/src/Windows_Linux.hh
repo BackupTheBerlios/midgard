@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.hh,v 1.9 2002/07/10 08:07:04 thoma Exp $
+// $Id: Windows_Linux.hh,v 1.10 2002/10/11 10:35:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -38,6 +38,8 @@ namespace WinLux
   extern const std::string normal_tilde, active_tilde;
   
   std::string recodePathForTeX(std::string p);
+  
+  bool CreateProcess(const std::string &cmdline);
 };
 
 #endif

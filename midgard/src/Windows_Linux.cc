@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.cc,v 1.7 2002/07/10 08:07:04 thoma Exp $
+// $Id: Windows_Linux.cc,v 1.8 2002/10/11 10:35:05 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -39,3 +39,24 @@ std::string WinLux::recodePathForTeX(std::string p)
 
 const std::string WinLux::normal_tilde="\\catcode`\\~=12\n";
 const std::string WinLux::active_tilde="\\catcode`\\~=\\active\n";
+
+#undef CreateProcess
+
+bool WinLux::CreateProcess(const std::string &cmdline)
+{
+#ifndef __MINGW32__
+   system((cmdline+"&").c_str());
+   return true;
+#else
+  STARTUPINFO si;
+  PROCESS_INFORMATION pi;
+  char CMDLINE[10240];
+  
+  ZeroMemory( &si, sizeof(si) );
+  si.cb = sizeof(si);
+  ZeroMemory( &pi, sizeof(pi) );
+  strncpy(CMDLINE,cmdline.c_str(),sizeof CMDLINE);
+
+  return CreateProcessA(NULL,CMDLINE,NULL,NULL,FALSE,0,NULL,NULL,&si,&pi );
+#endif
+}
