@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.33 2001/11/12 09:20:37 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.34 2001/12/05 15:02:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,8 +25,9 @@
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {
   Random random;
-  lernpunkte.set_Fertigkeit(random.integer(1,6)+random.integer(1,6));
-  lernpunkte.set_Beruf(random.integer(1,6)+random.integer(1,6));
+  lernpunkte.set_Fach(random.integer(1,6)+random.integer(1,6));
+  lernpunkte.set_Allgemein(random.integer(1,6)+1);
+  lernpunkte.set_Unge(random.integer(1,6));
   if (Typ[1]->Short()=="") lernpunkte.set_Waffen(random.integer(1,6)+random.integer(1,6));
   else                  lernpunkte.set_Waffen(random.integer(1,6)+1); // Doppelcharakter
   if (Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" && Typ[1]->Short()=="") 
@@ -36,15 +37,16 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 
   if (Werte.Alter()==0)
    {
-     int age = lernpunkte.Beruf() + lernpunkte.Fertigkeiten() 
-             + lernpunkte.Waffen() + lernpunkte.Zauber();
+     int age = (lernpunkte.Allgemein() + lernpunkte.Unge() 
+             + lernpunkte.Fach()
+             + lernpunkte.Waffen() + lernpunkte.Zauber())/4+16;
 
-     if (Typ[0]->Zaubern()=="z" ) age = age/4+19;
-     if (Typ[0]->Zaubern()=="n" || Typ[0]->Zaubern()=="j") age = age/4+16;
+//     if (Typ[0]->Zaubern()=="z" ) age = age/4+19;
+//     if (Typ[0]->Zaubern()=="n" || Typ[0]->Zaubern()=="j") age = age/4+16;
      Werte.set_Alter( age * Werte.Spezies()->Alter());
      alter->set_text(itos(Werte.Alter()));
    }
-  midgard_CG::zeige_lernpunkte();
+  zeige_lernpunkte();
   zeige_notebook();
 }
 
@@ -57,13 +59,14 @@ void midgard_CG::on_lernpunkte_editieren_clicked()
 void midgard_CG::setze_lernpunkte(const Lernpunkte& l)
 {
  lernpunkte = l;
- midgard_CG::zeige_lernpunkte();
+ zeige_lernpunkte();
 }
 
 void midgard_CG::zeige_lernpunkte()
 {
- lernpunkte_b->set_text(itos(lernpunkte.Beruf()));
- lernpunkte_f->set_text(itos(lernpunkte.Fertigkeiten()));
+ lernpunkte_fach->set_text(itos(lernpunkte.Fach()));
+ lernpunkte_allgemein->set_text(itos(lernpunkte.Allgemein()));
+ lernpunkte_unge->set_text(itos(lernpunkte.Unge()));
  lernpunkte_w->set_text(itos(lernpunkte.Waffen()));
  lernpunkte_z->set_text(itos(lernpunkte.Zauber()));
 }

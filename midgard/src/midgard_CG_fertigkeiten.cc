@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.35 2001/12/04 13:07:17 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.36 2001/12/05 15:02:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,8 +25,8 @@
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
-  manage(new Fertigkeiten_auswahl(this,Database,Typ,lernpunkte.Fertigkeiten(),
-      Werte,list_Sprache,list_Schrift,list_Zauber));
+  manage(new Fertigkeiten_auswahl(this,Database,Typ,lernpunkte,
+      Werte,list_Sprache,list_Schrift));
 }
 
 void midgard_CG::show_fertigkeiten()
@@ -49,11 +49,14 @@ void midgard_CG::show_fertigkeiten()
    for (unsigned int i=0;i<fertigkeiten_clist->columns().size();++i)
       fertigkeiten_clist->set_column_auto_resize(i,true);
    fertigkeiten_clist->set_reorderable(true);
+
+   show_sinne();
 }
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
   list_Fertigkeit_ang.clear();
+  Werte.resetSinne();
   if (Werte.Spezies()->Name()=="Zwerg" || Werte.Spezies()->Name()=="Elf") 
       list_Fertigkeit_ang.push_back(new Fertigkeit_angeborene("Nachtsicht",0));
   if (event->button==1) on_angeborene_fertigkeit_clicked() ;
@@ -76,7 +79,6 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
   std::string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";stinfo+=itos(wurf);stinfo+=" gewürfelt.\n";
   manage(new WindowInfo(stinfo));
   show_fertigkeiten();
-  show_sinne();
 }
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()

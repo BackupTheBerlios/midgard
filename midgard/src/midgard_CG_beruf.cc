@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.31 2001/11/23 09:48:13 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.32 2001/12/05 15:02:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@
 void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
-  manage(new Berufe_auswahl(this,Database,Typ,lernpunkte.Beruf(),Werte));
+//  manage(new Berufe_auswahl(this,Database,Typ,lernpunkte.Beruf(),Werte));
 }
 
 void midgard_CG::show_berufe()
@@ -82,7 +82,7 @@ void midgard_CG::on_spinbutton_beruferfolgesert_activate()
 void midgard_CG::on_beruf_erfolgswert_clicked()
 {
  Random random;
- int erfahrungswert = (int)((lernpunkte.Waffen() + lernpunkte.Fertigkeiten())/5.);
+// int erfahrungswert = (int)((lernpunkte.Waffen() + lernpunkte.Fertigkeiten())/5.);
  int inbo=0;
  if (atoi(in->get_text().c_str()) >= 81 ) ++inbo ;
  if (atoi(in->get_text().c_str()) >= 96 ) ++inbo ;
@@ -90,8 +90,8 @@ void midgard_CG::on_beruf_erfolgswert_clicked()
  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Beruf.begin();i!=list_Beruf.end();++i)
    {
     int ausbildungswert = random.integer(1,3)+6;
-    if (i==list_Beruf.begin()) (*i)->set_Erfolgswert(ausbildungswert+erfahrungswert+inbo);
-    else (*i)->set_Erfolgswert(ausbildungswert+inbo);
+//    if (i==list_Beruf.begin()) (*i)->set_Erfolgswert(ausbildungswert+erfahrungswert+inbo);
+//    else (*i)->set_Erfolgswert(ausbildungswert+inbo);
    } 
   MidgardBasicElement_uebernehmen(list_Beruf);
 }
