@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.21 2002/02/13 12:17:00 christof Exp $
+// $Id: fertigk_exp.cc,v 1.22 2002/02/14 09:33:04 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -58,7 +58,6 @@ void fert_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Berufskategorie");
    fetch_and_write_int_attrib(is, o, "Maximalwert");
    fetch_and_write_int_attrib(is, o, "MaximalMitUnterweisung");
-   fetch_and_write_bool_attrib(is, o, "Zusätze");
 #endif
    o << ">\n";
    
@@ -91,7 +90,7 @@ void fert_speichern(std::ostream &o)
     }
 
       //********** fertigkeiten_zusätze **********************************
-   {  Query queryZu("select name from fertigkeiten_zusaetze "
+   {  Query queryZu("select name from fz_zusaetze "
    	" where art='"+fert+"' order by name");
       FetchIStream isZu;
       while ((queryZu>>isZu).good()) 
