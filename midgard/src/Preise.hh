@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.28 2002/11/28 06:11:18 thoma Exp $
+// $Id: Preise.hh,v 1.29 2002/11/28 09:09:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,8 +33,6 @@ class Preise : public HandleContent
    double kosten,gewicht;
    const Tag *tag;
    friend class Preise_All;
-//   static Tag Tag_eigene_Artikel;
-//   Tag *Tag_eigene_Artikel;
    bool unverkauflich;
    bool ruestung; // Ruestung wird bei der Belastung nicht mitgezählt
 

@@ -33,6 +33,7 @@ void table_ausruestung::init(midgard_CG *h)
    ausruestung_laden();
    table_gruppe->hide();
    table_artikel->hide();      
+   togglebutton_artikel_neu->set_sensitive(false);
    togglebutton_gruppe_neu->hide(); // nicht implementiert
    label_normallast->set_text(itos(h->getAben().getNormallast())+" kg");
    label_hoechstlast->set_text(itos(h->getAben().getHoechstlast())+" kg");
@@ -213,10 +214,12 @@ void table_ausruestung::on_togglebutton_gruppe_neu_toggled()
  else 
   table_gruppe->hide();
 }
+/*
 void table_ausruestung::on_entry_art_activate()
 {
   entry_typ->grab_focus();
 }
+*/
 void table_ausruestung::on_entry_typ_activate()
 {
   entry_eigenschaft->grab_focus();
@@ -232,44 +235,112 @@ void table_ausruestung::on_entry_eigenschaft_activate()
 
 
 //Neueingeben eines Artikels:
-void table_ausruestung::on_entry_artikel_art_activate()
+void table_ausruestung::fill_all_Combos_Art_Einheit_Region()
 {
- entry_artikel_art2->grab_focus();
+  std::list<std::string> LArt;
+  std::list<std::string> LEinheit;
+  std::list<std::string> LRegion;
+  std::list<cH_Preise> P=hauptfenster->getCDatabase().preise; 
+  LRegion.push_back("Eigene Erweiterung");
+  for(std::list<cH_Preise>::const_iterator i=P.begin();i!=P.end();++i)
+   {
+     LArt.push_back((*i)->Art());
+     LEinheit.push_back((*i)->Einheit());
+   }
+  LArt.unique();
+  LArt.sort();
+  combo_art->set_popdown_strings(LArt);
+  combo_einheit->set_popdown_strings(LEinheit);
 }
-void table_ausruestung::on_entry_artikel_art2_activate()
+
+bool table_ausruestung::fill_all_Combo_Art2()
+{
+  std::string art=combo_art->get_entry()->get_text();
+  std::list<std::string> LArt2;
+  std::list<cH_Preise> P=hauptfenster->getCDatabase().preise; 
+  for(std::list<cH_Preise>::const_iterator i=P.begin();i!=P.end();++i)
+   {
+     if(art==(*i)->Art())
+        LArt2.push_back((*i)->Art2());
+   }
+  LArt2.unique();
+  LArt2.sort();
+  combo_art2->set_popdown_strings(LArt2);
+  if(LArt2.empty()) return false;
+  return true;
+}
+
+gint table_ausruestung::on_combo_entry_art_focus_out_event(GdkEventFocus *ev)
+{
+  on_combo_entry_artikel_art_activate();
+  return false;
+}
+void table_ausruestung::on_combo_entry_artikel_art_activate()
+{
+ if(fill_all_Combo_Art2())
+   {
+    combo_art2->set_sensitive(true);
+    combo_art2->get_entry()->grab_focus();
+   }
+ else 
+   {
+    combo_art2->set_sensitive(false);
+    entry_name->grab_focus();
+   }
+}
+
+gint table_ausruestung::on_combo_entry_art2_focus_out_event(GdkEventFocus *ev)
+{
+  on_combo_entry_art2_activate();
+  return false;
+}
+void table_ausruestung::on_combo_entry_art2_activate()
 {
  entry_name->grab_focus();
 }
+
 void table_ausruestung::on_entry_name_activate()
-{
- spinbutton_preis->grab_focus();
-}
-void table_ausruestung::on_spinbutton_preis_activate()
-{
- optionmenu_einheit->grab_focus();
-}
-void table_ausruestung::on_optionmenu_einheit_deactivate()
 {
  spinbutton_gewicht->grab_focus();
 }
+void table_ausruestung::on_spinbutton_preis_activate()
+{
+  combo_einheit->get_entry()->grab_focus();
+}
+void table_ausruestung::on_combo_entry_einheit_activate()
+{
+//  combo_entry_region->grab_focus();
+  button_artikel_speichern->grab_focus();
+}
+void table_ausruestung::on_combo_entry_region_activate()
+{
+  button_artikel_speichern->grab_focus();
+}
 void table_ausruestung::on_spinbutton_gewicht_activate()
 {
- std::string art = entry_artikel_art->get_text();
- std::string art2 = entry_artikel_art2->get_text();
+ spinbutton_preis->grab_focus();
+}
+
+void table_ausruestung::on_button_artikel_speichern_clicked()
+{
+  save_new_arikel();
+}
+
+void table_ausruestung::save_new_arikel()
+{
+ std::string art = combo_art->get_entry()->get_text();
+ std::string art2 = combo_art2->get_entry()->get_text();
  std::string name = entry_name->get_text();
- std::string einheit;
- int ieinheit = int(optionmenu_einheit->get_menu()->get_active()->get_user_data()); 
- if(ieinheit==optionmenu_einheit::GS) einheit="GS";
- if(ieinheit==optionmenu_einheit::SS) einheit="SS";
- if(ieinheit==optionmenu_einheit::KS) einheit="KS";
+ std::string einheit=combo_einheit->get_entry()->get_text();
  double preis = atof( spinbutton_preis->get_text().c_str());
  double gewicht = atof( spinbutton_gewicht->get_text().c_str());
 
-  std::string region="";
+  std::string region="EE";
   try{
   Preise::saveArtikel("",hauptfenster,
                       art,art2,name,preis,einheit,gewicht,region);
   hauptfenster->getDatabase().preise.push_back(cH_Preise(name));
+  fill_new_preise();
   }catch(std::exception &e) {cerr << e.what()<<'\n';}
   ausruestung_laden();
 // table_artikel->hide();

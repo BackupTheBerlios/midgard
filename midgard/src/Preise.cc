@@ -179,17 +179,15 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
       return;
     }
    TagStream ts;
-//Tag &ts=static_cast<Tag &>(ts)=hauptfenster->tag_eigene_artikel;
-//   Tag &TeA_=ts.push_back(Tag("Preise"));
-
    ts.setEncoding("ISO-8859-1");
 
-//???static_cast<Tag &>(ts)=tag_eigene_artikel;
-
    Tag &RootTag=hauptfenster->tag_eigene_artikel;
-   Tag &TeA_=RootTag.push_back(Tag("Preise"));
+   Tag *TeA_=RootTag->find("Preise");
+   if(!TeA_) TeA_=&RootTag.push_back(Tag("Preise"));
 
-   Tag &TeA=TeA_.push_back(Tag("Dinge"));
+//   Tag &TeA_=RootTag.push_back(Tag("Preise"));
+
+   Tag &TeA=TeA_->push_back(Tag("Dinge"));
 
    TeA.setAttr("Art",art);
    TeA.setAttr("Art2",art2);
