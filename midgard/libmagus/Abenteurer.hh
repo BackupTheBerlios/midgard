@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.18 2004/03/02 07:09:19 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.19 2004/03/02 07:14:58 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -197,7 +197,7 @@ public:
    std::list<MBEmlt> &get_known_list(const MBEmlt &MBE);
 
    bool SpruchVonSpruchrolleGelernt(const std::string &zauber)
-      {return find(list_Gelernt_von_Spruchrolle.begin(),list_Gelernt_von_Spruchrolle.end(),zauber)!=list_Gelernt_von_Spruchrolle.end() }
+      {return find(list_Gelernt_von_Spruchrolle.begin(),list_Gelernt_von_Spruchrolle.end(),zauber)!=list_Gelernt_von_Spruchrolle.end() ; }
 
 };
 
