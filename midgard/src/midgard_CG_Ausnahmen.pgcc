@@ -25,7 +25,7 @@ exec sql include sqlca;
 bool midgard_CG::Ausnahmen_bool(const string& name)
 {
 
-
+ abort();
 }
 
 

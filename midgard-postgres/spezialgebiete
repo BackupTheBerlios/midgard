@@ -3,7 +3,7 @@
 --
 DROP TABLE "spezialgebiete";
 --
--- TOC Entry ID 2 (OID 832872)
+-- TOC Entry ID 2 (OID 832930)
 --
 -- Name: spezialgebiete Type: TABLE Owner: thoma
 --
@@ -12,35 +12,36 @@ CREATE TABLE "spezialgebiete" (
 	"typ" text,
 	"nr" integer,
 	"spezialgebiet" text,
-	"spezial" text
+	"spezial" text,
+	"spezial2" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 832872) TABLE DATA spezialgebiete
+-- Data for TOC Entry ID 3 (OID 832930) TABLE DATA spezialgebiete
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'spezialgebiete';
 COPY "spezialgebiete"  FROM stdin;
-Ma	0	Spezialgebiet	\N
-Ma	1	Adept der Herrschaft	beherrscht
-Ma	2	Adept der Bewegung	bewegt
-Ma	3	Adept der Erkenntnis	erkennt
-Ma	4	Adept der Schöfung	erschafft
-Ma	5	Adept der Veränderung	verändert
-Ma	6	Adept der Wandlung	verwandelt
-Ma	7	Adept der Zerstörung	zerstört
-Ma	8	Erdmagier	Erde
-Ma	9	Feuermagier	Feuer
-Ma	10	Luftmagier	Luft
-Ma	11	Wassermagier	Wasser
-Ma	12	Eismagier	Eis
-Ma	13	Adept der göttlichen Ordnung	Metall
-Ma	14	Adept des formbaren Chaos	Magan
-Ma	15	Adept des Todes	Eis
-eBe	0	Primär- und Sekundärelement	\N
-eBe	1	Wasser Luft	\N
-eBe	2	Feuer Erde	\N
+Ma	0	Spezialgebiet	\N	\N
+Ma	1	Adept der Herrschaft	beherrscht	\N
+Ma	2	Adept der Bewegung	bewegt	\N
+Ma	3	Adept der Erkenntnis	erkennt	\N
+Ma	4	Adept der Schöfung	erschafft	\N
+Ma	5	Adept der Veränderung	verändert	\N
+Ma	6	Adept der Wandlung	verwandelt	\N
+Ma	7	Adept der Zerstörung	zerstört	\N
+Ma	8	Erdmagier	Erde	\N
+Ma	9	Feuermagier	Feuer	\N
+Ma	10	Luftmagier	Luft	\N
+Ma	11	Wassermagier	Wasser	\N
+Ma	12	Eismagier	Eis	\N
+Ma	13	Adept der göttlichen Ordnung	Metall	\N
+Ma	14	Adept des formbaren Chaos	Magan	\N
+Ma	15	Adept des Todes	Eis	\N
+eBe	0	Primär- und Sekundärelement	\N	\N
+eBe	1	Wasser Luft Wasser	Luft	\N
+eBe	2	Feuer Erde  Feuer	Erde	\N
 \.
 -- Enable triggers
 BEGIN TRANSACTION;
