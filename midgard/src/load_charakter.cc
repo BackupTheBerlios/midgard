@@ -27,7 +27,6 @@
 void midgard_CG::on_laden_release_event()
 {
   xml_import_auswahl();
-  return false;
 }
 
 void midgard_CG::xml_import_auswahl()
