@@ -1,0 +1,62 @@
+#include "Lernschema.hh"
+#include <Aux/SQLerror.h>
+#include <Aux/Transaction.h>
+exec sql include sqlca;
+#include <gtk--/main.h>
+#include "Typen.hh"
+#include "Waffe.hh"
+#include "Zauber.hh"
+
+Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
+{
+  exec sql begin declare section;
+   char TYP[10],FERTIGKEIT[50],ART[50],ATTR[10],PE[30],SE[30];
+   bool PFLICHT;
+   int WERT,LERNPUNKTE,db_size;
+  exec sql end declare section;
+  exec sql select count(typ) into :db_size from lernschema;
+  exec sql declare LEin cursor for select distinct
+   typ, pflicht, fertigkeit, art, coalesce(wert,0), 
+   lernpunkte, coalesce(attribut),
+   coalesce(p_element),coalesce(s_element) from lernschema;
+ Transaction tr;
+ exec sql open LEin;
+ SQLerror::test(__FILELINE__);
+ double count=0;  
+ while(true)   
+   {
+     progressbar->set_percentage(count/db_size);
+     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+     exec sql fetch LEin into :TYP,:PFLICHT,:FERTIGKEIT,:ART,
+      :WERT,:LERNPUNKTE,:ATTR,:PE,:SE;
+     lern_map[st_index(TYP,ART,FERTIGKEIT)] 
+            = st_wert(PFLICHT,WERT,ATTR,LERNPUNKTE,PE,SE); 
+     ++count;
+   }
+}
+
+std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art, 
+                                          const vector<cH_Typen>& Typ) const
+{
+ std::list<cH_MidgardBasicElement> L;
+ for(std::map<st_index,st_wert>::const_iterator i=lern_map.begin();i!=lern_map.end();++i)
+  {
+   if( (i->first.typ==Typ[0]->Short() || i->first.typ==Typ[1]->Short()) &&
+       i->first.art==art)
+     {
+      if(art=="Waffe") 
+         { 
+           cH_MidgardBasicElement waffe(new Waffe(i->first.fertigkeit));
+           cH_Waffe(waffe)->set_Erfolgswert(i->second.erfolgswert);
+           L.push_back(waffe); 
+         }
+      if(art=="Zauber") 
+         { 
+//           cH_MidgardBasicElement zauber(new Zauber(i->first.fertigkeit));
+//           cH_Waffe(waffe)->set_Erfolgswert(i->second.erfolgswert);
+           L.push_back(new Zauber(i->first.fertigkeit)); 
+         }
+     }   
+  }
+ return L;
+}

@@ -46,23 +46,24 @@ void midgard_CG::spielleiter_export()
   for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
    {cH_Waffe w(*i);
     std::string wert = itos(w->Erfolgswert());
-    for(std::list<H_WaffeBesitz>::const_iterator j=list_Waffen_besitz.begin();j!=list_Waffen_besitz.end();++j)
+    for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Waffen_besitz.begin();j!=list_Waffen_besitz.end();++j)
      {
-      if ((*j)->Name()==w->Name())
+      cH_WaffeBesitz WB(*j);
+      if (WB->Waffe()->Name()==w->Name())
        {
          std::string waffenname ;
-         waffenname = (*j)->Name();
+         waffenname = WB->Name();
          fout <<waffenname ;
-         if ((*j)->av_Bonus()!=0 || (*j)->sl_Bonus()!=0) fout <<"$^*$";
-         int mag_schadensbonus = (*j)->av_Bonus();
-         int ang_mod = (*j)->WM_Angriff((*j)->Name());
-//         if ((*j)->av_Bonus()==-5 && (*j)->sl_Bonus()==-5) mag_schadensbonus = 0; 
+         if (WB->av_Bonus()!=0 || WB->sl_Bonus()!=0) fout <<"$^*$";
+         int mag_schadensbonus = WB->av_Bonus();
+         int ang_mod = WB->WM_Angriff((*j)->Name());
+//         if (WB->av_Bonus()==-5 && WB->sl_Bonus()==-5) mag_schadensbonus = 0; 
          int anbo = Werte.bo_An();
-         if ((*j)->Verteidigung())
+         if (WB->Verteidigung())
             anbo = 0;
          int wert = w->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
          fout << "+"<<wert << "(";
-         std::string schaden=(*j)->Schaden(Werte,(*j)->Name());
+         std::string schaden=WB->Schaden(Werte,WB->Name());
          fout << schaden << ")";
        }
       fout << ", ";

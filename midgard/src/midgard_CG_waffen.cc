@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.26 2001/11/06 10:42:52 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.27 2001/11/12 09:20:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 void midgard_CG::on_waffen_wahl_clicked()
 {
   waffen_clist->clear();
-  manage(new Waffen_auswahl(this,Typ[0]->Short(),Typ[1]->Short(),lernpunkte.Waffen(),Werte,Typ));
+  manage(new Waffen_auswahl(this,Database,lernpunkte.Waffen(),Werte,Typ));
 }
 
 void midgard_CG::show_waffen()
@@ -43,21 +43,6 @@ void midgard_CG::show_waffen()
 
 }
 
-/*
-void midgard_CG::waffen_uebernehmen(const std::list<cH_MidgardBasicElement>& saw,std::list<cH_MidgardBasicElement> list_WaffenG)
-{
-   list_Waffen = saw;
-   list_WaffenGrund = list_WaffenG;
-   show_waffen();
-   button_geld_waffen->set_sensitive(true);
-   button_ruestung->set_sensitive(true);   
-
-   hbox_zauber->set_sensitive(true); 
-   table_magier_lernen->set_sensitive(true);
-   hbox_kido->set_sensitive(true);
-   table_kido_lernen->set_sensitive(true);
-}
-*/
 void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *event)
 {   
  /* Funktion für Spezialwaffe */

@@ -25,9 +25,6 @@
 
 #include "config.h"
 #include "KiDo_auswahl.hh"
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
 #include "midgard_CG.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
@@ -63,10 +60,11 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
    const vector<cH_Typen>& Typ,const std::vector<H_Data_beruf>& vec_Beruf)
 : maxkido(m)
 {
-   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+//   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    hauptfenster=h;
    label_kido_techniken->set_text("Noch "+itos(maxkido)+" Techniken auswählen");
 
+/*
    exec sql begin declare section;
     char db_name_orig[50];
     char query[1024];
@@ -91,6 +89,17 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
       kido_technik.push_back(kido);
      }
    exec sql close ein;
+*/
+   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Kido.begin();i!=Database.Kido.end();++i)
+    {
+      cH_KiDo kd(*i);
+      if(kd->Stufe()!="Schüler") continue;
+      if (Werte.Spezialisierung()=="Harte Techniken")
+           if(kd->Stil()=="Sanfte Techniken") continue; 
+      if (Werte.Spezialisierung()=="Sanfte Techniken")
+           if(kd->Stil()=="Harte Techniken") continue;   
+      kido_technik.push_back(*i);
+    }
    Gtk::OStream os(clist_kido_auswahl);
    clist_kido_auswahl->freeze();
    for (std::list<cH_MidgardBasicElement>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)

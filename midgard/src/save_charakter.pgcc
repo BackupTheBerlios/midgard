@@ -87,14 +87,15 @@ void midgard_CG::on_speichern_clicked()
    MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::saveElementliste(list_Waffen,Werte,Typ,Database.ausnahmen);
-   for (std::list<H_WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
       {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         strncpy(db_magisch, ((*i)->Magisch()).c_str(),sizeof(db_magisch));
-         db_av_bonus = (*i)->av_Bonus();
-         db_sl_bonus = (*i)->sl_Bonus();
-         strncpy(db_region,((*i)->Region()).c_str(),sizeof(db_region));
+         cH_WaffeBesitz WB(*i);
+         strncpy(db_fertigkeit, (WB->Name()).c_str(),sizeof(db_fertigkeit));
+         strncpy(db_magisch, (WB->Magisch()).c_str(),sizeof(db_magisch));
+         db_av_bonus = WB->av_Bonus();
+         db_sl_bonus = WB->sl_Bonus();
+         strncpy(db_region,(WB->Region()).c_str(),sizeof(db_region));
          exec sql INSERT INTO charaktere_fertigkeiten
             (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus,region,magisch)
          VALUES

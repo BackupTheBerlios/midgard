@@ -30,6 +30,8 @@ class MidgardBasicElement : public HandleContent
 
 
    public:
+      MidgardBasicElement() : kosten(0),erfolgswert(0),steigern_mit_EP(0) {}                              
+
       enum MBEE {FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,ZAUBER,
                   ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
       enum TREE {OLD,NEW};
@@ -86,6 +88,7 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
       friend class std::map<std::string,cH_MidgardBasicElement>;
       cH_MidgardBasicElement(){}
    public:
+//      cH_MidgardBasicElement(){*this=new MidgardBasicElement();}
       cH_MidgardBasicElement(const MidgardBasicElement *r) 
             : Handle<const MidgardBasicElement>(r){}
 //      bool operator== (const cH_MidgardBasicElement b) 

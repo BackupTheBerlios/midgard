@@ -24,7 +24,7 @@ class Pflicht //: public HandleContent
       enum LE {LERNPUNKTE,ERFOLGSWERT};
 
       int istPflicht(const std::string& spezies,const vector<cH_Typen>& Typ,
-                     const std::string& s,LE le) const ;
+                     const std::string& name,LE le) const ;
       bool istVerboten(const std::string& spezies,const vector<cH_Typen>& Typ,
                        const std::string& s,bool spielbeginn=false) const;
          

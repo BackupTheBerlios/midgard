@@ -7,15 +7,15 @@ exec sql include sqlca;
 
 cH_Zauber::cache_t cH_Zauber::cache;
 
-cH_Zauber::cH_Zauber(const std::string& name,int lernpunkte=0)
+cH_Zauber::cH_Zauber(const std::string& name)
 {
- st_index index(name,lernpunkte);
- cH_Zauber *cached(cache.lookup(index));
+// st_index index(name);
+ cH_Zauber *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
   {
-   *this=cH_Zauber(new Zauber(name,lernpunkte));
-   cache.Register(index,*this);
+   *this=cH_Zauber(new Zauber(name));
+   cache.Register(name,*this);
   }
 }
 

@@ -4427,7 +4427,7 @@ würfeln</label>
 	    <widget>
 	      <class>GtkTable</class>
 	      <name>table14</name>
-	      <rows>3</rows>
+	      <rows>2</rows>
 	      <columns>6</columns>
 	      <homogeneous>False</homogeneous>
 	      <row_spacing>0</row_spacing>
@@ -5340,8 +5340,8 @@ würfeln</label>
 		<child>
 		  <left_attach>0</left_attach>
 		  <right_attach>6</right_attach>
-		  <top_attach>2</top_attach>
-		  <bottom_attach>3</bottom_attach>
+		  <top_attach>1</top_attach>
+		  <bottom_attach>2</bottom_attach>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <xexpand>True</xexpand>
@@ -8224,33 +8224,6 @@ sortieren</label>
 		    </child>
 		  </widget>
 		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkLabel</class>
-		<name>laden_label</name>
-		<cxx_visibility>protected</cxx_visibility>
-		<label>ladenlabel</label>
-		<justify>GTK_JUSTIFY_CENTER</justify>
-		<wrap>False</wrap>
-		<xalign>0</xalign>
-		<yalign>0.5</yalign>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>3</right_attach>
-		  <top_attach>1</top_attach>
-		  <bottom_attach>2</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
 	      </widget>
 
 	      <widget>
@@ -13004,7 +12977,7 @@ setzung</label>
       <widget>
 	<class>GtkLabel</class>
 	<name>infotext</name>
-	<width>350</width>
+	<width>550</width>
 	<cxx_visibility>protected</cxx_visibility>
 	<label>infotext</label>
 	<justify>GTK_JUSTIFY_CENTER</justify>
@@ -16096,57 +16069,6 @@ Unterstützung</label>
     </widget>
 
     <widget>
-      <class>GtkLabel</class>
-      <name>label339</name>
-      <label>MIDGARD ist Copyright 1981-2001 by Verlag für F&amp;SF-Spiele, Stelzenberg</label>
-      <justify>GTK_JUSTIFY_LEFT</justify>
-      <wrap>True</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>16</top_attach>
-	<bottom_attach>17</bottom_attach>
-	<xpad>5</xpad>
-	<ypad>5</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap7</name>
-      <filename>Money-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>16</top_attach>
-	<bottom_attach>17</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
       <class>GtkHSeparator</class>
       <name>hseparator19</name>
       <child>
@@ -16493,57 +16415,6 @@ Unterstützung</label>
 
     <widget>
       <class>GtkLabel</class>
-      <name>label401</name>
-      <label>Der MCG unterliegt der GNU Public Licence</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>17</top_attach>
-	<bottom_attach>18</bottom_attach>
-	<xpad>5</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap57</name>
-      <filename>pinguin.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>17</top_attach>
-	<bottom_attach>18</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
       <name>label406</name>
       <label>Christof Petig</label>
       <justify>GTK_JUSTIFY_CENTER</justify>
@@ -16714,7 +16585,7 @@ portierung</label>
       <widget>
 	<class>GtkTable</class>
 	<name>table77</name>
-	<rows>17</rows>
+	<rows>21</rows>
 	<columns>3</columns>
 	<homogeneous>False</homogeneous>
 	<row_spacing>0</row_spacing>
@@ -16785,8 +16656,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>2</top_attach>
-	    <bottom_attach>3</bottom_attach>
+	    <top_attach>4</top_attach>
+	    <bottom_attach>5</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -16811,8 +16682,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>3</top_attach>
-	    <bottom_attach>4</bottom_attach>
+	    <top_attach>5</top_attach>
+	    <bottom_attach>6</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -16837,8 +16708,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>6</top_attach>
-	    <bottom_attach>7</bottom_attach>
+	    <top_attach>9</top_attach>
+	    <bottom_attach>10</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -16863,8 +16734,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>7</top_attach>
-	    <bottom_attach>8</bottom_attach>
+	    <top_attach>10</top_attach>
+	    <bottom_attach>11</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -16889,8 +16760,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>10</top_attach>
-	    <bottom_attach>11</bottom_attach>
+	    <top_attach>13</top_attach>
+	    <bottom_attach>14</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -16915,8 +16786,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>9</top_attach>
-	    <bottom_attach>10</bottom_attach>
+	    <top_attach>12</top_attach>
+	    <bottom_attach>13</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -16941,8 +16812,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>8</top_attach>
-	    <bottom_attach>9</bottom_attach>
+	    <top_attach>11</top_attach>
+	    <bottom_attach>12</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17031,8 +16902,8 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>2</top_attach>
-	    <bottom_attach>3</bottom_attach>
+	    <top_attach>4</top_attach>
+	    <bottom_attach>5</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17061,8 +16932,8 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>3</top_attach>
-	    <bottom_attach>4</bottom_attach>
+	    <top_attach>5</top_attach>
+	    <bottom_attach>6</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17077,36 +16948,6 @@ portierung</label>
 	<widget>
 	  <class>GtkProgressBar</class>
 	  <name>progressbar_zauber</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <value>0</value>
-	  <lower>0</lower>
-	  <upper>100</upper>
-	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
-	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
-	  <activity_mode>False</activity_mode>
-	  <show_text>False</show_text>
-	  <format>%P %%</format>
-	  <text_xalign>0.5</text_xalign>
-	  <text_yalign>0.5</text_yalign>
-	  <child>
-	    <left_attach>1</left_attach>
-	    <right_attach>2</right_attach>
-	    <top_attach>6</top_attach>
-	    <bottom_attach>7</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>False</yfill>
-	  </child>
-	</widget>
-
-	<widget>
-	  <class>GtkProgressBar</class>
-	  <name>progressbar_sprache</name>
 	  <cxx_visibility>protected</cxx_visibility>
 	  <value>0</value>
 	  <lower>0</lower>
@@ -17136,67 +16977,37 @@ portierung</label>
 
 	<widget>
 	  <class>GtkProgressBar</class>
+	  <name>progressbar_sprache</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <value>0</value>
+	  <lower>0</lower>
+	  <upper>100</upper>
+	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+	  <activity_mode>False</activity_mode>
+	  <show_text>False</show_text>
+	  <format>%P %%</format>
+	  <text_xalign>0.5</text_xalign>
+	  <text_yalign>0.5</text_yalign>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>12</top_attach>
+	    <bottom_attach>13</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkProgressBar</class>
 	  <name>progressbar_zauberwerk</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <value>0</value>
-	  <lower>0</lower>
-	  <upper>100</upper>
-	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
-	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
-	  <activity_mode>False</activity_mode>
-	  <show_text>False</show_text>
-	  <format>%P %%</format>
-	  <text_xalign>0.5</text_xalign>
-	  <text_yalign>0.5</text_yalign>
-	  <child>
-	    <left_attach>1</left_attach>
-	    <right_attach>2</right_attach>
-	    <top_attach>7</top_attach>
-	    <bottom_attach>8</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>False</yfill>
-	  </child>
-	</widget>
-
-	<widget>
-	  <class>GtkProgressBar</class>
-	  <name>progressbar_kido</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <value>0</value>
-	  <lower>0</lower>
-	  <upper>100</upper>
-	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
-	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
-	  <activity_mode>False</activity_mode>
-	  <show_text>False</show_text>
-	  <format>%P %%</format>
-	  <text_xalign>0.5</text_xalign>
-	  <text_yalign>0.5</text_yalign>
-	  <child>
-	    <left_attach>1</left_attach>
-	    <right_attach>2</right_attach>
-	    <top_attach>8</top_attach>
-	    <bottom_attach>9</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>False</yfill>
-	  </child>
-	</widget>
-
-	<widget>
-	  <class>GtkProgressBar</class>
-	  <name>progressbar_schrift</name>
 	  <cxx_visibility>protected</cxx_visibility>
 	  <value>0</value>
 	  <lower>0</lower>
@@ -17225,6 +17036,66 @@ portierung</label>
 	</widget>
 
 	<widget>
+	  <class>GtkProgressBar</class>
+	  <name>progressbar_kido</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <value>0</value>
+	  <lower>0</lower>
+	  <upper>100</upper>
+	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+	  <activity_mode>False</activity_mode>
+	  <show_text>False</show_text>
+	  <format>%P %%</format>
+	  <text_xalign>0.5</text_xalign>
+	  <text_yalign>0.5</text_yalign>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>11</top_attach>
+	    <bottom_attach>12</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkProgressBar</class>
+	  <name>progressbar_schrift</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <value>0</value>
+	  <lower>0</lower>
+	  <upper>100</upper>
+	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+	  <activity_mode>False</activity_mode>
+	  <show_text>False</show_text>
+	  <format>%P %%</format>
+	  <text_xalign>0.5</text_xalign>
+	  <text_yalign>0.5</text_yalign>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>13</top_attach>
+	    <bottom_attach>14</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
 	  <class>GtkLabel</class>
 	  <name>label421</name>
 	  <label>Grundkenntnisse</label>
@@ -17237,8 +17108,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>4</top_attach>
-	    <bottom_attach>5</bottom_attach>
+	    <top_attach>6</top_attach>
+	    <bottom_attach>7</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17267,8 +17138,8 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>4</top_attach>
-	    <bottom_attach>5</bottom_attach>
+	    <top_attach>6</top_attach>
+	    <bottom_attach>7</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17293,8 +17164,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>5</top_attach>
-	    <bottom_attach>6</bottom_attach>
+	    <top_attach>7</top_attach>
+	    <bottom_attach>8</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17323,8 +17194,8 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>5</top_attach>
-	    <bottom_attach>6</bottom_attach>
+	    <top_attach>7</top_attach>
+	    <bottom_attach>8</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17349,8 +17220,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>11</top_attach>
-	    <bottom_attach>12</bottom_attach>
+	    <top_attach>14</top_attach>
+	    <bottom_attach>15</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17375,8 +17246,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>12</top_attach>
-	    <bottom_attach>13</bottom_attach>
+	    <top_attach>15</top_attach>
+	    <bottom_attach>16</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17405,8 +17276,8 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>11</top_attach>
-	    <bottom_attach>12</bottom_attach>
+	    <top_attach>14</top_attach>
+	    <bottom_attach>15</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17435,8 +17306,8 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>12</top_attach>
-	    <bottom_attach>13</bottom_attach>
+	    <top_attach>15</top_attach>
+	    <bottom_attach>16</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17461,8 +17332,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>13</top_attach>
-	    <bottom_attach>14</bottom_attach>
+	    <top_attach>16</top_attach>
+	    <bottom_attach>17</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17487,8 +17358,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>14</top_attach>
-	    <bottom_attach>15</bottom_attach>
+	    <top_attach>17</top_attach>
+	    <bottom_attach>18</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17517,8 +17388,8 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>13</top_attach>
-	    <bottom_attach>14</bottom_attach>
+	    <top_attach>16</top_attach>
+	    <bottom_attach>17</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17547,8 +17418,8 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>14</top_attach>
-	    <bottom_attach>15</bottom_attach>
+	    <top_attach>17</top_attach>
+	    <bottom_attach>18</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17573,8 +17444,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>15</top_attach>
-	    <bottom_attach>16</bottom_attach>
+	    <top_attach>18</top_attach>
+	    <bottom_attach>19</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17603,8 +17474,8 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>15</top_attach>
-	    <bottom_attach>16</bottom_attach>
+	    <top_attach>18</top_attach>
+	    <bottom_attach>19</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17629,8 +17500,8 @@ portierung</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>16</top_attach>
-	    <bottom_attach>17</bottom_attach>
+	    <top_attach>19</top_attach>
+	    <bottom_attach>20</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17659,8 +17530,232 @@ portierung</label>
 	  <child>
 	    <left_attach>1</left_attach>
 	    <right_attach>2</right_attach>
-	    <top_attach>16</top_attach>
-	    <bottom_attach>17</bottom_attach>
+	    <top_attach>19</top_attach>
+	    <bottom_attach>20</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label429</name>
+	  <label>Praxispunkte</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <left_attach>0</left_attach>
+	    <right_attach>1</right_attach>
+	    <top_attach>20</top_attach>
+	    <bottom_attach>21</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkProgressBar</class>
+	  <name>progressbar_praxispunkte</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <value>0</value>
+	  <lower>0</lower>
+	  <upper>100</upper>
+	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+	  <activity_mode>False</activity_mode>
+	  <show_text>False</show_text>
+	  <format>%P %%</format>
+	  <text_xalign>0.5</text_xalign>
+	  <text_yalign>0.5</text_yalign>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>20</top_attach>
+	    <bottom_attach>21</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label430</name>
+	  <label>Regionale Waffen</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <left_attach>0</left_attach>
+	    <right_attach>1</right_attach>
+	    <top_attach>8</top_attach>
+	    <bottom_attach>9</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkProgressBar</class>
+	  <name>progressbar_aliaswaffen</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <value>0</value>
+	  <lower>0</lower>
+	  <upper>100</upper>
+	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+	  <activity_mode>False</activity_mode>
+	  <show_text>False</show_text>
+	  <format>%P %%</format>
+	  <text_xalign>0.5</text_xalign>
+	  <text_yalign>0.5</text_yalign>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>8</top_attach>
+	    <bottom_attach>9</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label431</name>
+	  <label>Berufe</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <left_attach>0</left_attach>
+	    <right_attach>1</right_attach>
+	    <top_attach>2</top_attach>
+	    <bottom_attach>3</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkProgressBar</class>
+	  <name>progressbar_beruf</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <value>0</value>
+	  <lower>0</lower>
+	  <upper>100</upper>
+	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+	  <activity_mode>False</activity_mode>
+	  <show_text>False</show_text>
+	  <format>%P %%</format>
+	  <text_xalign>0.5</text_xalign>
+	  <text_yalign>0.5</text_yalign>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>2</top_attach>
+	    <bottom_attach>3</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label432</name>
+	  <label>Lernschema</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <left_attach>0</left_attach>
+	    <right_attach>1</right_attach>
+	    <top_attach>3</top_attach>
+	    <bottom_attach>4</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkProgressBar</class>
+	  <name>progressbar_lernschema</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <value>0</value>
+	  <lower>0</lower>
+	  <upper>100</upper>
+	  <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+	  <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+	  <activity_mode>False</activity_mode>
+	  <show_text>False</show_text>
+	  <format>%P %%</format>
+	  <text_xalign>0.5</text_xalign>
+	  <text_yalign>0.5</text_yalign>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>3</top_attach>
+	    <bottom_attach>4</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -17672,6 +17767,108 @@ portierung</label>
 	  </child>
 	</widget>
       </widget>
+    </widget>
+
+    <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap57</name>
+      <filename>pinguin.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>16</top_attach>
+	<bottom_attach>17</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap7</name>
+      <filename>Money-50.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>17</top_attach>
+	<bottom_attach>18</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label401</name>
+      <label>Der MCG unterliegt der GNU Public Licence</label>
+      <justify>GTK_JUSTIFY_CENTER</justify>
+      <wrap>False</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>16</top_attach>
+	<bottom_attach>17</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label339</name>
+      <label>MIDGARD ist Copyright 1981-2001 by Verlag für F&amp;SF-Spiele, Stelzenberg</label>
+      <justify>GTK_JUSTIFY_LEFT</justify>
+      <wrap>True</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>17</top_attach>
+	<bottom_attach>18</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
     </widget>
   </widget>
 </widget>

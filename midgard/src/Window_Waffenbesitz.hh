@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.28 2001/11/09 17:12:56 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.29 2001/11/12 09:20:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,11 +48,11 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         midgard_CG::st_Database Database;
         midgard_CG* hauptfenster;
         std::list<cH_MidgardBasicElement> list_Waffen;
-        std::list<H_WaffeBesitz> Waffe_Besitz;
-        std::list<H_WaffeBesitz> Waffe_Besitz_neu;
+        std::list<cH_MidgardBasicElement> Waffe_Besitz;
+        std::list<cH_MidgardBasicElement> Waffe_Besitz_neu;
         Grundwerte& Werte;
         vector<cH_Typen> Typ;
-        H_WaffeBesitz selected_weapon;
+        cH_MidgardBasicElement *selected_weapon;
         friend class Window_Waffenbesitz_glade;
         void on_leaf_selected_alt(cH_RowDataBase d);
         void on_leaf_selected_neu(cH_RowDataBase d);
@@ -61,7 +61,7 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         void on_button_neuladen_clicked();
         void lade_waffen();
         void zeige_waffen();
-        void move_waffe(std::list<H_WaffeBesitz>& von,std::list<H_WaffeBesitz>& nach,std::string name);
+//        void move_waffe(std::list<H_WaffeBesitz>& von,std::list<H_WaffeBesitz>& nach,std::string name);
         void on_button_close_clicked();
         void on_button_sort_clicked();
         void on_checkbutton_mag_waffenbonus_toggled();
@@ -71,16 +71,18 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
    public:
         Window_Waffenbesitz(midgard_CG* h,
             const midgard_CG::st_Database& Database,
-            const std::list<cH_MidgardBasicElement>& vw,std::list<H_WaffeBesitz>& wb,
+            const std::list<cH_MidgardBasicElement>& vw,
+            std::list<cH_MidgardBasicElement>& wb,
             Grundwerte& We,const vector<cH_Typen>& T);
 };
 
 class Data_waffenbesitz :  public RowDataBase
 {
-      H_WaffeBesitz waffe;
+//      cH_WaffeBesitz waffe;
+      cH_MidgardBasicElement waffe;
       Grundwerte Werte;
   public:
-      Data_waffenbesitz(const H_WaffeBesitz& w,const Grundwerte& g)
+      Data_waffenbesitz(const cH_MidgardBasicElement& w,const Grundwerte& g)
          : waffe(w), Werte(g) {}
 
       enum SPALTEN_A {NAME_A,SCHADEN_A,REGION,MAGBONUS,MAGTEXT};
@@ -88,14 +90,15 @@ class Data_waffenbesitz :  public RowDataBase
        {
           switch(seqnr) {
             case NAME_A : return cH_EntryValueIntString(waffe->Name());
-            case SCHADEN_A : return cH_EntryValueIntString(waffe->Schaden(Werte,waffe->Name()));
-            case REGION : return cH_EntryValueIntString(waffe->Region());
-            case MAGBONUS : return cH_EntryValueIntString(waffe->Bonus());
-            case MAGTEXT : return cH_EntryValueIntString(waffe->Magisch());
+            case SCHADEN_A : return cH_EntryValueIntString(cH_WaffeBesitz(waffe)->Schaden(Werte,waffe->Name()));
+            case REGION : return cH_EntryValueIntString(cH_WaffeBesitz(waffe)->Region());
+            case MAGBONUS : return cH_EntryValueIntString(cH_WaffeBesitz(waffe)->Bonus());
+            case MAGTEXT : return cH_EntryValueIntString(cH_WaffeBesitz(waffe)->Magisch());
            }
          return cH_EntryValueIntString("?");
        }
-      H_WaffeBesitz get_Waffe() const {return waffe;}
+//      H_WaffeBesitz get_Waffe() const {return waffe;}
+      cH_MidgardBasicElement get_Waffe() const {return waffe;}
 };
 
 class cH_Data_waffenbesitz : public Handle<const Data_waffenbesitz>

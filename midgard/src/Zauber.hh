@@ -14,13 +14,13 @@ class Zauber : public MidgardBasicElement
       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
       material, agens, prozess, reagens, beschreibung,spruchrolle,
       zauberart,p_element,s_element,region; 
-   int lernpunkte;
+//   int lernpunkte;
 //   mutable bool spruchrolle;
 
    void get_Zauber();
  public: 
-   Zauber(const std::string& n,int l=0) 
-      : name(n),lernpunkte(l)
+   Zauber(const std::string& n) 
+      : name(n)
    {get_Zauber();get_map_typ();EP_steigern("Zauber");} 
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
@@ -50,7 +50,7 @@ class Zauber : public MidgardBasicElement
 //   bool Spruchrolle() const {return spruchrolle;}
 //   void set_Spruchrolle(bool s) const {spruchrolle=s;}
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
-   int Lernpunkte() const {  return lernpunkte; }
+//   int Lernpunkte() const {  return lernpunkte; }
    bool Spruchrolle() const 
       { if (spruchrolle=="nicht") return false; 
         else return true; }
@@ -62,6 +62,7 @@ class Zauber : public MidgardBasicElement
 
 class cH_Zauber : public Handle<const Zauber>
 {
+/*
    struct st_index {std::string name; int lernpunkte;
       bool operator == (const st_index& b) const
          {return (name==b.name  && lernpunkte==b.lernpunkte);}
@@ -71,13 +72,14 @@ class cH_Zauber : public Handle<const Zauber>
       st_index(std::string n,int l):name(n),lernpunkte(l){}
       st_index(){}
       };
-    typedef CacheStatic<st_index,cH_Zauber> cache_t;
+*/
+    typedef CacheStatic<std::string,cH_Zauber> cache_t;
     static cache_t cache;
     cH_Zauber(Zauber *s) : Handle<const Zauber>(s) {};
-    friend class std::map<st_index,cH_Zauber>;
+    friend class std::map<std::string,cH_Zauber>;
     cH_Zauber(){};
  public:
-   cH_Zauber(const std::string& name,int lernpunkte=0) ;
+   cH_Zauber(const std::string& name) ;
 
    cH_Zauber(const cH_MidgardBasicElement &x) : Handle<const Zauber> 
       (dynamic_cast<const Zauber *>(&*x)){}

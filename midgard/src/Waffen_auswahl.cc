@@ -24,15 +24,11 @@
 // This file is for your program, I won't touch it again!
 
 #include "Waffen_auswahl.hh"
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-#include "midgard_CG.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
 
 
-Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::string& typ_2,
+Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const midgard_CG::st_Database& D,
    int lernpunkte, const Grundwerte& Werte,const vector<cH_Typen>& _Typ)
 :Typ(_Typ)
 {
@@ -40,53 +36,28 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::
   std::vector<string> vorteile=hauptfenster->Berufs_Vorteile();
   maxpunkte = lernpunkte;
   waffen_auswahl_lernpunkte->set_text(itos(maxpunkte));
-  exec sql begin declare section;
-   int db_lernpunkte;
-   char db_fertigkeiten[100];
-   int db_erfolgswert;
-   char query[1024];
-  exec sql end declare section;
-   
-   std::string squery = "select l.fertigkeit, max(l.wert), min(l.lernpunkte)
-        from lernschema l , waffen w where ";
-   if (typ_2!="") squery += " (l.typ = '"+typ+"' or l.typ = '"+typ_2+"') ";
-   else           squery += "  l.typ = '"+typ+"' ";
-   squery += " and l.art = 'Waffe' and w.name = l.fertigkeit \
-      and  l.fertigkeit not in  \
-         (select verboten from pflicht_lernen where typ='"+Werte.Spezies()->Name()+"' and verboten is not null) \
-      and  w.grundkenntnisse not in  \
-         (select verboten from pflicht_lernen where typ='"+Werte.Spezies()->Name()+"' and verboten is not null) \
-      group by fertigkeit  order by min(lernpunkte)" ;
+  std::list<cH_MidgardBasicElement> LW=D.lernschema.get_List("Waffe",Typ);
 
-   strncpy(query,squery.c_str(),sizeof(query));
-   Transaction tr;
-   exec sql prepare swaffen from :query;
-   exec sql declare waffen cursor for swaffen;
-   exec sql open waffen;
-   SQLerror::test(__FILELINE__);
-   while (true)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
      {
-       exec sql fetch waffen into :db_fertigkeiten, 
-            :db_erfolgswert, :db_lernpunkte;
-       SQLerror::test(__FILELINE__,100);
-       if (sqlca.sqlcode) break;
-       cH_MidgardBasicElement waffe(new Waffe(db_fertigkeiten,db_lernpunkte));
-       cH_Waffe(waffe)->set_Erfolgswert(db_erfolgswert);
-       if (hauptfenster->region_check(cH_Waffe(waffe)->Region(waffe->Name())))
-         list_Waffen.push_back(waffe);
-      }
-    exec sql close waffen;
+//       cH_Waffe waffe(*i);
+//       if (hauptfenster->region_check(cH_Waffe(waffe)->Region(waffe->Name())))
+         list_Waffen.push_back(*i);
+     }
     Gtk::OStream os(waffen_clist_auswahl);
     waffen_clist_auswahl->freeze();
+    
     for(std::list<cH_MidgardBasicElement>::iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
       {
         cH_Waffe w(*i);
+        if (D.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,w->Name())) continue;
         int v=0;
         for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
            if ((*j)==w->Name()) v=1;
         if (w->SG_Voraussetzung(Werte))
          {
-            os << w->Lernpunkte()-v <<"\t"<<w->Voraussetzung()<<"\t"
+            Lernschema::st_index I(Typ[0]->Short(),"Waffe",w->Name());
+            os << D.lernschema.get_Lernpunkte(I)-v <<"\t"<<w->Voraussetzung()<<"\t"
                << w->Name() <<"\t"
                << w->Erfolgswert() <<"\t"<<w->Grundkenntnis()<<"\n";
             os.flush(&*i);
@@ -98,7 +69,6 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::
     waffen_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
     waffen_clist_auswahl->set_reorderable(true);
     waffen_clist_auswahl->thaw();
-
 }
 
 void Waffen_auswahl::on_waffen_clist_auswahl_select_row(gint row, gint column, GdkEvent *event)

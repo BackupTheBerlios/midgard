@@ -6,7 +6,7 @@
 #include <gtk--/progressbar.h>
 
 class cH_Waffe;
-class H_WaffeBesitz;
+//class H_WaffeBesitz;
 
 class Waffe : public MidgardBasicElement
 {
@@ -26,9 +26,9 @@ class Waffe : public MidgardBasicElement
      std::string region;
      int schwierigkeit,st,ge,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f;
-     int lernpunkte, anfangswert;
+     int /*lernpunkte,*/ anfangswert;
      int schaden_bonus;
-     bool pflicht;
+//     bool pflicht;
      list<st_alias> list_alias;
 
      void get_Waffe();
@@ -36,8 +36,10 @@ class Waffe : public MidgardBasicElement
      int St() const {return st;}
      int Ge() const {return ge;}
   public:
-     Waffe(const std::string& n,int l=0,bool p=false)
-      :name(n),lernpunkte(l),pflicht(p)
+//     Waffe(const std::string& n,int l=0,bool p=false)
+//      :name(n),lernpunkte(l),pflicht(p)
+     Waffe(const std::string& n)
+      :name(n)
      {get_Waffe(); get_Alias(); get_map_typ();get_Steigern_Kosten_map();
       EP_steigern("Waffen"); }
 
@@ -59,11 +61,11 @@ class Waffe : public MidgardBasicElement
      std::string Reichweite() const ;
 
      int Schwierigkeit() const {return schwierigkeit;}
-     int Lernpunkte() const {return lernpunkte;}
+//     int Lernpunkte() const {return lernpunkte;}
      int Anfangswert() const {return anfangswert;}
      int Erfolgswert() const {return erfolgswert;};
      std::string Voraussetzung() const {return voraussetzung;}
-     std::string Pflicht() const {if (pflicht) return "*"; return "";}
+//     std::string Pflicht() const {if (pflicht) return "*"; return "";}
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
 
      bool SG_Voraussetzung(const Grundwerte& Werte) const;
@@ -74,13 +76,14 @@ class Waffe : public MidgardBasicElement
      static std::map<std::string,std::string> fill_map_alias_waffe(Gtk::ProgressBar *progressbar);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<cH_MidgardBasicElement>& list_Waffen,
-         const std::list<H_WaffeBesitz>& list_Waffen_besitz,
+         const std::list<cH_MidgardBasicElement>& list_Waffen_besitz,
          const vector<cH_Typen>& Typ,
          const Grundwerte& Werte);
 };
 
 class cH_Waffe : public Handle<const Waffe>
 {
+/*
    struct st_index {std::string name; int lernpunkte;
       bool operator == (const st_index& b) const
          {return (name==b.name && lernpunkte==b.lernpunkte);}
@@ -91,13 +94,14 @@ class cH_Waffe : public Handle<const Waffe>
          :name(n),lernpunkte(l){}
       st_index(){}
       };
-    typedef CacheStatic<st_index,cH_Waffe> cache_t;
+*/
+    typedef CacheStatic<std::string,cH_Waffe> cache_t;
     static cache_t cache;
     cH_Waffe() {};
     cH_Waffe(Waffe *s) : Handle<const Waffe>(s) {};
-    friend class std::map<st_index,cH_Waffe>;
+    friend class std::map<std::string,cH_Waffe>;
  public:
-    cH_Waffe(const std::string& n,int l=0,bool b=false);
+    cH_Waffe(const std::string& n);
 
     cH_Waffe(const cH_MidgardBasicElement &x) : Handle<const Waffe>
       (dynamic_cast<const Waffe *>(&*x)){}
@@ -134,8 +138,8 @@ class WaffeBesitz : public Waffe
 {
      cH_Waffe waffe;
      std::string name,region;
-     int av_bonus,sl_bonus;
-     std::string magisch;
+     mutable int av_bonus,sl_bonus;
+     mutable std::string magisch;
 //     bool magisch;
 
   public:
@@ -156,18 +160,22 @@ class WaffeBesitz : public Waffe
       
 //     bool Magisch() const {return magisch;}
 
-     void set_av_Bonus(int a) {av_bonus=a;}
-     void set_sl_Bonus(int a) {sl_bonus=a;}
-     void set_Magisch(std::string a) {magisch=a;}
+     void set_av_Bonus(int a) const {av_bonus=a;}
+     void set_sl_Bonus(int a) const {sl_bonus=a;}
+     void set_Magisch(std::string a) const {magisch=a;}
 };
 
-class H_WaffeBesitz : public Handle<WaffeBesitz>
+class cH_WaffeBesitz : public Handle<const WaffeBesitz>
 {
  public:
-    H_WaffeBesitz() {}
-    H_WaffeBesitz(WaffeBesitz *s) : Handle<WaffeBesitz>(s) {}
+    cH_WaffeBesitz() {}
+    cH_WaffeBesitz(WaffeBesitz *s) : Handle<const WaffeBesitz>(s) {}
 
-    bool operator == (const H_WaffeBesitz& b) const
+    cH_WaffeBesitz(const cH_MidgardBasicElement &x) : Handle<const WaffeBesitz>
+      (dynamic_cast<const WaffeBesitz *>(&*x)){}
+
+
+    bool operator == (const cH_WaffeBesitz& b) const
       {return (*this)->Name()==b->Name() && (*this)->Region() == b->Region() &&
               (*this)->av_Bonus()==b->av_Bonus() && (*this)->sl_Bonus()==b->sl_Bonus() &&
                (*this)->Magisch()==b->Magisch(); }
@@ -175,13 +183,13 @@ class H_WaffeBesitz : public Handle<WaffeBesitz>
 };
 
 class WaffenBesitz_sort_magbonus
-{ public : bool operator() (H_WaffeBesitz x, H_WaffeBesitz y) const
+{ public : bool operator() (cH_WaffeBesitz x, cH_WaffeBesitz y) const
       { return x->av_Bonus() > y->av_Bonus()  || 
               (x->av_Bonus() == y->av_Bonus() && x->sl_Bonus() > y->sl_Bonus())||
               (x->av_Bonus() == y->av_Bonus() && x->sl_Bonus()== y->sl_Bonus() &&
                x->Magisch() > y->Magisch() );}}; 
 class WaffenBesitz_sort_name
-{ public : bool operator() (H_WaffeBesitz x, H_WaffeBesitz y) const
+{ public : bool operator() (cH_WaffeBesitz x, cH_WaffeBesitz y) const
       { return x->Name() < y->Name();}};
 
 #endif

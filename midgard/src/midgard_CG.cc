@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.83 2001/11/09 17:12:56 thoma Exp $
+// $Id: midgard_CG.cc,v 1.84 2001/11/12 09:20:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,6 +58,7 @@ void midgard_CG::get_Database()
    Midgard_Info *MI = manage(new Midgard_Info(true,this));
    Database = st_Database( Laender_All(MI->get_progressbar_laender()).get_All(),
                            Ruestung_All(MI->get_progressbar_ruestung()).get_All(),
+                           Lernschema(MI->get_progressbar_lernschema()),
                            Fertigkeiten_angeborene_All(MI->get_progressbar_ang_fert()).get_All(),
                            Fertigkeiten_All(MI->get_progressbar_fertigkeiten()).get_All(),
                            WaffeGrund_All(MI->get_progressbar_grundkenntnisse()).get_All(),
