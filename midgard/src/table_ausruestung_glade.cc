@@ -21,8 +21,6 @@
 #define GMM_GTKMM_22_24(a,b) a
 #endif //
 #include "table_ausruestung_glade.hh"
-#include <gtkmm/toolbutton.h>
-#include <gtkmm/separatortoolitem.h>
 #include <gtkmm/toolbar.h>
 #include <gtkmm/label.h>
 #include <gtkmm/treeview.h>
@@ -42,21 +40,19 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 table_ausruestung_glade::table_ausruestung_glade(GlademmData *gmm_data
 ) : Gtk::Table(2, 2, false)
 {  table_ausruestung = this;
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
-   
    Gtk::Image *button_ausruestung_druck_img = Gtk::manage(new class Gtk::Image(MagusImage("PrintChar-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::ToolButton *button_ausruestung_druck = Gtk::manage(new class Gtk::ToolButton(*button_ausruestung_druck_img, "Drucken"));
 #endif //
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::SeparatorToolItem *separatortoolitem6 = Gtk::manage(new class Gtk::SeparatorToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *togglebutton_gruppe_neu_img = Gtk::manage(new class Gtk::Image(MagusImage("New_Art-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    togglebutton_gruppe_neu = Gtk::manage(new class Gtk::ToggleToolButton(*togglebutton_gruppe_neu_img, "Neue Art"));
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
-   
    Gtk::Image *togglebutton_artikel_neu_img = Gtk::manage(new class Gtk::Image(MagusImage("New_Art-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    togglebutton_artikel_neu = Gtk::manage(new class Gtk::ToggleToolButton(*togglebutton_artikel_neu_img, "Neuer Artikel"));
 #endif //
    
