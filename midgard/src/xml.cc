@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.13 2002/01/03 09:35:27 christof Exp $
+// $Id: xml.cc,v 1.14 2002/01/04 11:15:36 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -56,7 +56,7 @@ reloop:
           {  if (j->Type().empty()) continue; // inter tag space
              const Tag *merge_here;
              if ((merge_here=xml_data->find(j->Type())))
-             {  cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
+             {  // cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
                 xml_merge(const_cast<Tag*>(merge_here),&*j);
              }
              else 
@@ -68,6 +68,7 @@ reloop:
        }
        goto reloop;
     }
+    xml_data->debug();
 }
 
 void xml_free()
@@ -139,10 +140,42 @@ const struct xml_liste xml_tags[] =
    {  "Zauber",		"Spruch",	std_matching },
    {  "Zauberwerke",	"Zauberwerk",	zauberwerk_matching },
    {  (const char*)0,	(const char*)0,	(const char*const*)0 }};
+   
+const xml_liste *suche_Tageigenschaften(const std::string &art)
+{  const xml_liste *result=xml_tags;
+//   cerr << "suche_Tageigenschaften " << art << '\n';
+   for (;result->listtag;++result)
+      if (result->elementtag==art) return result;
+   return 0;
+}
 
 static void xml_merge(Tag *merge_here, const Tag *tomerge)
 {  // suche nach tomerge->getAttr("name");
-   
+//   cout << "merge " << merge_here->Type() << ',' << tomerge->Type() << '\n';
+   for (Tag::const_iterator i=tomerge->begin();i!=tomerge->end();++i)
+   {  if (i->Type().empty()) continue;
+      const xml_liste *tagprops=suche_Tageigenschaften(i->Type());
+      if (!tagprops)
+      {  cerr << "Can't find properties for Tag '" << i->Type() << "'\n";
+         continue;
+      }
+      for (Tag::const_iterator j=merge_here->begin();j!=merge_here->end();++j)
+      {  if (j->Type().empty()) continue;
+         const char * const *k=0;
+         for (k=tagprops->key;*k && i->getAttr(*k)==j->getAttr(*k);++k) ;
+         if (!*k) // full match
+         {  cerr << "found match, can't merge yet :"; 
+            i->debug();
+            cerr << '\n';
+            goto continue_i;
+         }
+      }
+      // not found
+//      cerr << "pushing back " << i->getAttr("Name") << '\n';
+      merge_here->push_back(*i);
+    continue_i:
+      ;
+   }
 }
 
 #else // no XML, no op

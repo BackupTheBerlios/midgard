@@ -1,4 +1,4 @@
-// $Id: xmlexport.cc,v 1.2 2002/01/03 11:00:01 christof Exp $
+// $Id: xmlexport.cc,v 1.3 2002/01/04 11:15:36 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -26,7 +26,7 @@
 #include "../xml/export_common.h"
 
 void charakter_speichern(std::ostream &o, const std::string &name,const std::string &version="")
-{  Transaction t;
+{  //Transaction t;
    Query query1("select charakter_name, spieler_name, version, grad, "
    		"spezies, geschlecht, typ_s, typ_2_s, "
    		"spezialisierung, stadt_land,"
@@ -157,13 +157,30 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
       }
    }
   }
+  {Query query2("select fertigkeit, region, magisch, av_bonus, sl_bonus "
+   	"from charaktere_fertigkeiten "
+   	"where charakter_name='"+name+"' and version='"+version+"' "
+   	"and art='Ausruestung' "
+   	"order by sl_bonus");
+   FetchIStream is2;
+   while ((query2>>is2).good())
+   {  std::string typ;
+      o << "    <Gegenstand";
+      fetch_and_write_string_attrib(is2, o, "Bezeichnung");
+      fetch_and_write_string_attrib(is2, o, "Region");
+      fetch_and_write_string_attrib(is2, o, "Besonderheit");
+      fetch_and_write_int_attrib(is2, o, "Parent-ID");
+      fetch_and_write_int_attrib(is2, o, "ID");
+      o << "/>\n";
+   }
+  }
    o << "  </Ausrüstung>\n";
    
    o << "  <Fertigkeiten>\n";   
   {Query query2("select art, fertigkeit, wert, region, magisch, zauberwerk_stufe "
    	"from charaktere_fertigkeiten "
    	"where charakter_name='"+name+"' and version='"+version+"' "
-   	"and art!='Besitz_W' and art!='Ausrüstung' "
+   	"and art!='Besitz_W' and art!='Ausrüstung' and art!='Ausruestung' "
    	"order by art, fertigkeit");
    FetchIStream is2;
    while ((query2>>is2).good())
@@ -197,10 +214,11 @@ int main(int argc, char *argv[])
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data>\n";
+   Transaction tr;
    if (argc==3) charakter_speichern(std::cout,argv[1],argv[2]);
    else if (argc==2)
    {  
-      Transaction tr;
+//      Transaction tr;
       Query query0("select charakter_name, version "
    	"from charaktere "
    	"where charakter_name like '"+std::string(argv[1])+"' "
@@ -213,7 +231,7 @@ int main(int argc, char *argv[])
       }
    }
    else // argc==1
-   {  Transaction tr;
+   {  //Transaction tr;
       Query query0("select charakter_name, version "
    	"from charaktere "
    	"order by charakter_name, version");
