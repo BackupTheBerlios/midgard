@@ -74,7 +74,7 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
 const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
 { 
       MidgardBasicTree::variante Variante = 
-               MidgardBasicTree::variante(reinterpret_cast<int>(gp));
+               MidgardBasicTree::variante(reinterpret_cast<long>(gp));
       if (Variante==MidgardBasicTree::ANGEBFERT)
        switch((Spalten_ANGEBFERT)seqnr) {
          case WURFaf  : return retEV(FWurf);
