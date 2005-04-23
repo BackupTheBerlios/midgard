@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.20 2005/04/23 14:24:12 christof Exp $               
+// $Id: Grundwerte.cc,v 1.21 2005/04/23 14:24:15 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -56,7 +56,8 @@ void Grundwerte::reset()
   grad=1;
   stand="";
   glaube="";
-  name_abenteurer="Neu "+itos(++neucount);
+  if (name_abenteurer.empty()) 
+    name_abenteurer="Neu "+itos(++neucount);
   version="Erschaffung";
   gfp=0;
   steigertage=0;

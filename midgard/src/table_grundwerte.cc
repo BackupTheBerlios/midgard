@@ -1,6 +1,6 @@
 /*  MAGuS: Midgard Abenteurer Generieren Und Steigern
  *  Copyright (C) 2002 Malte Thoma
- *  Copyright (C) 2004 Christof Petig
+ *  Copyright (C) 2004-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -30,6 +30,7 @@
 #include <bool_CheckButton.hh>
 #include <libmagus/Ausgabe.hh>
 #include <Misc/inbetween.h>
+#include <Misc/TemporaryValue.h>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #if MPC_SIGC_VERSION > 0x120
 #  include <sigc++/bind.h>
@@ -104,7 +105,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    if(!hauptfenster) return;
    if (hauptfenster->get_current_page()!=midgard_CG::PAGE_GRUNDWERTE) return;
    
-   block_changed=true;
+  TemporaryValue<bool> tv(block_changed,true);
   fill_typauswahl();
 //   fill_spezies(); // sobald Mann/Frau interessant wird
    midgard_check_werte100();
@@ -183,7 +184,6 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    combo_spezies->get_entry()->set_text(A.Spezies()->Name());
    combo_typ ->get_entry()->set_text(A.Typ1()->Name(A.Geschlecht()));
    combo_typ2->get_entry()->set_text(A.Typ2()->Name(A.Geschlecht()));
-   block_changed=false;
 }
 
 #include <Misc/Trace.h>

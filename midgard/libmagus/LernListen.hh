@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.11 2004/11/29 17:26:50 christof Exp $
+// $Id: LernListen.hh,v 1.12 2005/04/23 14:24:15 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -53,6 +53,7 @@ namespace LernListen
       
       std::vector<cH_Spezies> getSpezies(bool nsc_allowed);
       std::vector<std::pair<cH_Typen,bool> > getTypen(const Abenteurer& A);
+      std::vector<std::pair<cH_Typen,bool> > getTypen(const cH_Spezies &s);
       std::vector<std::pair<cH_Land,bool> > getHerkunft(const Abenteurer& A);
       std::vector<MidgardBasicElement::st_zusatz> getLandZusatz();
       std::vector<MidgardBasicElement::st_zusatz> getMBEZusatz(const Abenteurer& A,const MBEmlt& MBE);

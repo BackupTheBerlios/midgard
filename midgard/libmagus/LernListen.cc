@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.10 2003/12/09 11:41:30 christof Exp $
+// $Id: LernListen.cc,v 1.11 2005/04/23 14:24:15 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -144,7 +144,6 @@ std::vector<cH_Spezies> LernListen::getSpezies(bool nsc_allowed)
 }
 
 std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer &A)
- //W,const cH_Spezies &S,bool nsc_allowed)
 {
   const std::vector<cH_Typen> &T=Datenbank.Typen;
   std::vector<std::pair<cH_Typen,bool> > V;
@@ -165,6 +164,17 @@ std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer &A)
   return V;
 }
 
+// Variant without an Abenteurer
+std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const cH_Spezies &S)
+{
+  const std::vector<cH_Typen> &T=Datenbank.Typen;
+  std::vector<std::pair<cH_Typen,bool> > V;
+  for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
+   { if (S->Typ_erlaubt((*i)->Short()))
+            V.push_back(std::pair<cH_Typen,bool>(*i,true));
+   }
+  return V;
+}
 
 
 std::vector<std::pair<cH_Land,bool> > LernListen::getHerkunft(const Abenteurer& A)

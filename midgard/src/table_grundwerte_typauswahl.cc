@@ -24,6 +24,7 @@
 #include "MagusDialog.hh"
 #include <libmagus/Datenbank.hh>
 #include <libmagus/NotFound.h>
+#include <Misc/TemporaryValue.h>
 
 void table_grundwerte::fill_typauswahl()
 {
@@ -61,10 +62,9 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
               L.push_back("("+i->first->Name(hauptfenster->getAben().Geschlecht())+")");
          }
    }
- block_changed=true;
+ TemporaryValue<bool> tv(block_changed,true);
  if(typ_1_2==1) combo_typ->set_popdown_strings(L);
  else           combo_typ2->set_popdown_strings(L);
- block_changed=false;
 }
 
 void table_grundwerte::on_combo_typ_activate()
@@ -159,9 +159,8 @@ void table_grundwerte::fill_spezies()
    {
      L.push_back((*i)->Name());
    }
- block_changed=true;
+ TemporaryValue<bool> tv(block_changed,true);
  combo_spezies->set_popdown_strings(L);
- block_changed=false;
 }
 
 void table_grundwerte::on_combo_spezies_activate()
@@ -188,7 +187,7 @@ void table_grundwerte::spezieswahl_button()
  std::string spezies=combo_spezies->get_entry()->get_text();
  if(!Spezies::get_Spezies_from_long(spezies))
    return;
- hauptfenster->getAben().getWerte() = Grundwerte();
+ hauptfenster->getAben().getWerte().reset(); // = Grundwerte(true);
  hauptfenster->getAben().setSpezies(Spezies::getSpezies(spezies));
 
 // hauptfenster->getChar().undosave("Spezies gewählt");

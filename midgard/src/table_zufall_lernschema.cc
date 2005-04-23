@@ -204,14 +204,12 @@ void table_zufall::fill_combo_typen(const bool nsc_allowed)
   if(Spezies::get_Spezies_from_long(ss))
      spezies=Spezies::getSpezies(ss)  ;
   else return;
-  
-  Abenteurer A;
-  A.setSpezies(spezies);
-  // Geschlecht?
 
-  const std::vector<std::pair<cH_Typen,bool> > T=LernListen::getTypen(A);
+  // Geschlecht?  
+  // nsc_allowed?
+  const std::vector<std::pair<cH_Typen,bool> > T=LernListen::getTypen(ss);
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
-     L.push_back(i->first->Name(A.Geschlecht()));
+     L.push_back(i->first->Name(Enums::Mann));
   combo_typ->set_popdown_strings(L);
 }
 
@@ -302,9 +300,12 @@ bool table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 
 void table_zufall::on_combo_spezies_changed()
 {  
-  bool nsc_allowed = hauptfenster
+  bool nsc_allowed = true; // Zufall = NSC!
+#if 0  
+        hauptfenster
   	?bool(hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
   	:true;
+#endif
   fill_combo_typen(nsc_allowed);
 }
 
