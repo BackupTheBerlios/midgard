@@ -1,7 +1,7 @@
-// $Id: Grundwerte.cc,v 1.19 2005/03/18 14:07:13 christof Exp $               
+// $Id: Grundwerte.cc,v 1.20 2005/04/23 14:24:12 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003-2004 Christof Petig
+ *  Copyright (C) 2003-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -22,11 +22,14 @@
 #include <Misc/itos.h>
 #include "Sinne.hh"
 #include "Fertigkeiten.hh"
+#include "magustrace.h"
+#include <Misc/TraceNV.h>
 
 static unsigned neucount;
 
 void Grundwerte::reset()
 {
+  ManuProC::Trace _t2(LibMagus::trace_vector,__PRETTY_FUNCTION__);
 // *this=Grundwerte(); 
   raufen=0;
   au=0;
@@ -448,7 +451,8 @@ Grundwerte::Grundwerte(bool initialize)
              stadt_land(Enums::Stadt), /*steigern_EP_prozent(50),*/ grad_basiswerte(1),
              Typ(2), wie_steigern(ws_Unterweisung), wie_steigern_variante(),
              goldanteil(50), fpanteil(50)
-{ if (!initialize)
+{ ManuProC::Trace _t2(LibMagus::trace_vector,__PRETTY_FUNCTION__,NV1(initialize));
+  if (!initialize)
   { //std::cerr << "no init requested, ignored\n";
     initialize=true;
   }

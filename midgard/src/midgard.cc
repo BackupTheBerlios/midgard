@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.87 2004/05/24 16:02:26 christof Exp $
+// $Id: midgard.cc,v 1.88 2005/04/23 14:24:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -155,9 +155,15 @@ int main(int argc, char **argv)
    }
 
 //   setlocale(LC_ALL, "de_DE");
-   if(!Programmoptionen->OberCheck(Magus_Optionen::BegruessungsFenster).active
+   if (AbenteurerAuswahl::Chars->empty()) AbenteurerAuswahl::Chars->push_back();
+#if 0
+   if(!(Programmoptionen->OberCheck(Magus_Optionen::BegruessungsFenster).active.Value())
       && AbenteurerAuswahl::Chars->empty())
          AbenteurerAuswahl::Chars->push_back();
+   else
+     std::cerr << "main: " << Programmoptionen->OberCheck(Magus_Optionen::BegruessungsFenster).active.Value() <<','
+      << AbenteurerAuswahl::Chars->empty() << '\n';
+#endif      
    midgard_CG *magus=new midgard_CG(info,AbenteurerAuswahl::Chars->begin());
    // darf nicht eher geschehen wegen realize (background) als virtuellem callback
    magus->show();
