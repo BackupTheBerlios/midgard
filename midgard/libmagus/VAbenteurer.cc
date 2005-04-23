@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.19 2004/12/15 08:11:30 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.20 2005/04/23 14:24:09 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -20,7 +20,7 @@
 
 #include "AbenteurerAuswahl.h"
 #include <sstream>
-#include <Misc/Trace.h>
+#include <Misc/TraceNV.h>
 #include "magustrace.h"
 #include <sigc++/object_slot.h>
 #include <stdexcept>
@@ -30,6 +30,7 @@
 VAbenteurer::iterator VAbenteurer::push_back_silent()
 { 
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__);
    VA.push_back(st_abenteurer());
    iterator res=--VA.end(); 
    // reinitialize proxy connects (they have been copied)
@@ -40,6 +41,7 @@ VAbenteurer::iterator VAbenteurer::push_back_silent()
 VAbenteurer::iterator VAbenteurer::push_back()
 { 
    ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__);
    VAbenteurer::iterator i=push_back_silent();
    list_changed();
    return i;
@@ -60,7 +62,8 @@ void VAbenteurer::delete_empty()
    for(VAbenteurer::iterator i=begin();i!=end();++i)
     { const Grundwerte &W=i->getAbenteurer(); 
       if(i->gespeichert() && W.Name_Abenteurer().empty())
-        { VA.erase(i); 
+        { ManuProC::Trace(LibMagus::trace_vector,"delete_empty: VA.erase",NV1(&*i));
+          VA.erase(i); 
           goto reloop;
         } 
     }
@@ -86,6 +89,7 @@ VAbenteurer::iterator VAbenteurer::load(std::istream &datei)
 
 VAbenteurer::iterator VAbenteurer::load(const std::string &dateiname)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,dateiname);
+  ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__);
    std::ifstream fi(dateiname.c_str());
    if (!fi.good()) 
    {  Ausgabe(Ausgabe::Error,"Kann '"+dateiname+"' nicht öffnen/lesen");
@@ -104,7 +108,8 @@ VAbenteurer::iterator VAbenteurer::load(const std::string &dateiname)
 }
 
 VAbenteurer::iterator VAbenteurer::erase_silent(iterator i)
-{  return VA.erase(i);
+{ ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__);
+  return VA.erase(i);
 }
 
 VAbenteurer::iterator VAbenteurer::erase(iterator j)
@@ -117,12 +122,15 @@ VAbenteurer::iterator VAbenteurer::erase(iterator j)
 
 void VAbenteurer::Item::divert_proxy()
 {  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this);
+   ManuProC::Trace _t2(LibMagus::trace_vector,__PRETTY_FUNCTION__,this);
+   // twice? perhaps to make sure that even size changing vectors are correct
    proxies.divert(*current_undo);
    proxies.divert(*current_undo);
 }
 
 void VAbenteurer::Item::init()
 {  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this);
+   ManuProC::Trace _t2(LibMagus::trace_vector,__PRETTY_FUNCTION__,this);
    current_undo=--undos.end();
    _signal_undo_changed.connect(SigC::slot(*this,&Item::divert_proxy));
    divert_proxy();
@@ -131,6 +139,7 @@ void VAbenteurer::Item::init()
 VAbenteurer::Item::Item(const Abenteurer &A,bool g) 
 	: bgespeichert(g) 
 {  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,g);
+   ManuProC::Trace _t2(LibMagus::trace_vector,__PRETTY_FUNCTION__,this,g);
    undos.push_back(st_undo(A)); 
    init(); 
 }
@@ -138,6 +147,7 @@ VAbenteurer::Item::Item(const Abenteurer &A,bool g)
 VAbenteurer::Item::Item(const Item &i) 
 	: undos(i.undos), filename(i.filename), bgespeichert(i.bgespeichert)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,"Item");
+   ManuProC::Trace _t2(LibMagus::trace_vector,__PRETTY_FUNCTION__,this,"Item");
    init(); }
 
 
@@ -148,6 +158,7 @@ static VAbenteurer::Item::iterator unconstify(const VAbenteurer::Item::const_ite
 // I recommend begin_undo
 void VAbenteurer::Item::undosave(const std::string &s)
 { ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,s);
+  ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__,this,s);
   iterator i=unconstify(current_undo);
   ++i;
   if (i!=end()) undos.erase(i,unconstify(end()));
@@ -161,6 +172,7 @@ void VAbenteurer::Item::undosave(const std::string &s)
 
 void VAbenteurer::Item::setUndo(const_iterator it)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,this,&*it);
+   ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__,this,&*it);
    current_undo=unconstify(it);
    _signal_undo_changed();
 }
@@ -168,6 +180,7 @@ void VAbenteurer::Item::setUndo(const_iterator it)
 // is a bit like undosave
 void VAbenteurer::Item::begin_undo()
 { ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this);
+  ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__,this);
   // delete any pending redo steps
   { iterator i=unconstify(current_undo);
     ++i;
@@ -180,6 +193,7 @@ void VAbenteurer::Item::begin_undo()
 
 void VAbenteurer::Item::name_undo(const std::string &s)
 { ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,s);
+  ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__,this,s);
   modified();
   current_undo->text=s;
   signal_undo_list_changed()();
@@ -187,6 +201,7 @@ void VAbenteurer::Item::name_undo(const std::string &s)
 
 void VAbenteurer::Item::cancel_undo()
 { ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this);
+  ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__,this);
   iterator i=unconstify(current_undo);
   assert(i!=begin());
   --current_undo;
@@ -199,6 +214,7 @@ void VAbenteurer::Item::cancel_undo()
 void AbenteurerAuswahl::setAbenteurer(const VAbenteurer::iterator &i)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t2(LibMagus::trace_vector,__FUNCTION__);
  ai=i;
  signal_anderer_abenteurer()();
 }
@@ -216,6 +232,7 @@ bool AbenteurerAuswahl::valid() const
 
 void AbenteurerAuswahl::divert_proxy()
 {  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__);
+   ManuProC::Trace _t2(LibMagus::trace_vector,__PRETTY_FUNCTION__);
    if (valid()) proxies.divert(*actualIterator());
    else proxies.divert();
 }
@@ -227,7 +244,11 @@ VAbenteurer::iterator AbenteurerAuswahl::actualIterator()
 #if 0 // ndef __MINGW32__
    assert(ai!=Chars->end());
 #else   
-   if (ai==Chars->end()) ai=Chars->push_back();
+   if (ai==Chars->end()) 
+   { 
+     ManuProC::Trace _t2(LibMagus::trace_vector,__PRETTY_FUNCTION__,"!generate!");
+     ai=Chars->push_back();
+   }
 #endif
    return ai;
 }

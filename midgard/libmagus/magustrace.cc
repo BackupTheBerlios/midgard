@@ -1,7 +1,7 @@
-// $Id: magustrace.cc,v 1.5 2004/08/30 13:17:56 christof Exp $
+// $Id: magustrace.cc,v 1.6 2005/04/23 14:24:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003-2004 Christof Petig
+ *  Copyright (C) 2003-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -23,3 +23,6 @@
 const UniqueValue::value_t LibMagus::trace_channel
                   =ManuProC::Tracer::channels.get();
 static ManuProC::Tracer::Environment trace_channel_e("DEBUG_LIBMAGUS",LibMagus::trace_channel);
+const UniqueValue::value_t LibMagus::trace_vector
+                  =ManuProC::Tracer::channels.get();
+static ManuProC::Tracer::Environment trace_vector_("DEBUG_VECTOR",LibMagus::trace_vector);

@@ -1,4 +1,4 @@
-// $Id: magustrace.h,v 1.3 2003/09/01 06:47:57 christof Exp $               
+// $Id: magustrace.h,v 1.4 2005/04/23 14:24:09 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -24,6 +24,7 @@
 
 namespace LibMagus
 {  extern const UniqueValue::value_t trace_channel;
+   extern const UniqueValue::value_t trace_vector;
 }
 
 #endif
