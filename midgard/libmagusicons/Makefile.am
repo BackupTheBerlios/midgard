@@ -1,8 +1,11 @@
-# $Id: Makefile.am,v 1.9 2004/12/15 09:17:30 christof Exp $
+# $Id: Makefile.am,v 1.10 2005/04/23 14:24:07 christof Exp $
 
 if WINDOWS
 WIN_LDFLAGS=-no-undefined -export-symbols libmagusicons.def -L../libmagus
-DLL_LDADD=@COMMONXX_LIBS@ @GTKMM2_LIBS@ @SIGC_LIBS@ -lmagus libmagusicons_res.lo
+DLL_LDADD=@COMMONXX_LIBS@ @GTKMM2_LIBS@ @SIGC_LIBS@ \
+	-lglibmm-2.4 -lgdkmm-2.4 -lgtk-win32-2.0 -lgdk_pixbuf-2.0 \
+	-lgobject-2.0 -lglib-2.0 \
+	-lmagus libmagusicons_res.lo
 else
 WIN_LDFLAGS=
 DLL_LDADD=

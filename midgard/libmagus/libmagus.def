@@ -1353,3 +1353,5 @@ EXPORTS
 	_ZTV9Prototyp2  DATA
 	_ZTV9recodebuf  DATA
 	_ZTVSt12out_of_range  DATA
+	_ZN10Grundwerte12setRuestung1ERKSsb
+	_ZN10Grundwerte12setRuestung2ERKSsb
