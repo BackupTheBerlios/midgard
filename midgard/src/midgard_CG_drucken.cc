@@ -1,4 +1,4 @@
-// $Id: midgard_CG_drucken.cc,v 1.13 2005/02/16 14:58:14 thoma Exp $   
+// $Id: midgard_CG_drucken.cc,v 1.14 2005/04/25 13:43:17 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,13 @@ void midgard_CG::on_beschreibung_drucken()
 void midgard_CG::on_abenteurerdokument_drucken()
 {
   LaTeX_drucken L;
+// MAT: eigentlich sollten diese Listen IMMER sortiert vorgehalten werden, oder?
+//      aber das funktioniert offenbar nicht richtig.
+//      Vorschlag: nach JEDEM neulernen von irgendetwas wird sofort(!)
+//      die entsprechende Sortierroutine aufgerufen.
   getAben().List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::NAME));
+  getAben().List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::NAME));
+  getAben().List_Sprache().sort(MBEmlt::sort(MBEmlt::sort::NAME));
   L.Ausdrucken(getAben());
 }
  
