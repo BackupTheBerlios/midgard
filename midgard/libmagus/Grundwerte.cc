@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.21 2005/04/23 14:24:15 christof Exp $               
+// $Id: Grundwerte.cc,v 1.22 2005/04/26 10:14:19 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -258,7 +258,8 @@ const std::string Grundwerte::Resistenzen_alle() const
 
 void Grundwerte::setSinn(const std::string &name,int wert)
 {
-  if (name=="Sechster Sinn") return; // accepting it doesn't hurt for now
+//  if (name=="Sechster Sinn") return; // accepting it doesn't hurt for now
+// MAT: 26.4.2005: ist glaube ich nicht nötig
   for(std::list<MBEmlt>::iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
    {
      if((*(*i))->Name()==name) 
@@ -267,6 +268,7 @@ void Grundwerte::setSinn(const std::string &name,int wert)
         return;
       }
    }
+  std::cerr << "Sinn "<<name<<" not found\n";
   assert(!"Sinn nicht gefunden\n");
 }
 
