@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <glademm-callbacks>
+  <class name="TreeBase" parent="GtkCList">
+    <callback name="leaf_selected" args="cH_RowDataBase leaf"/>
+    <callback name="leaf_unselected" args="cH_RowDataBase leaf"/>
+    <callback name="node_selected" args="const TreeRow &amp;node"/>
+  </class>
+  <class name="ManuProC::DoubleButton" parent="GtkButton" include="DoubleButton.h">
+    <callback name="secondpressed" args="int mousebutton"/>
+  </class>
+  <class name="DoubleButton" parent="GtkButton">
+    <callback name="secondpressed" args="int mousebutton"/>
+  </class>
+  <class name="SimpleTree" parent="TreeBase" include="SimpleTree.hh"/>
+  <class name="SearchCombo">
+    <callback name="search" args="gboolean *cont,GtkSCContext context" proxy="true"/>
+  </class>
   <class name="MidgardBasicTree" parent="SimpleTree">
     <callback name="clicked" args="cH_RowDataBase row,bool &handled"/>
   </class>
