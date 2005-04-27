@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.31 2004/12/22 08:10:30 christof Exp $            
+// $Id: Abenteurer.cc,v 1.32 2005/04/27 08:54:45 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -57,7 +57,7 @@ bool Abenteurer::Valid() const
 const std::string Abenteurer::LastSavedAt() const
 {
   tm *t=localtime(&last_saved_time);
-  return itos(t->tm_mday) +"."+ itos(t->tm_mon) +"."+ itos(1900+t->tm_year);
+  return itos(t->tm_mday) +"."+ itos(t->tm_mon+1) +"."+ itos(1900+t->tm_year);
 }
 
 
