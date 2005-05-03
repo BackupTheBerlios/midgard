@@ -29,6 +29,11 @@ AC_LANG_CPLUSPLUS
 #PKG_CHECK_MODULES(XMLPP,[libxml++-1.0],,[echo libxml++ is not needed])
 PETIG_CHECK_KOMPONENTEN2
 
+# hack for my new computer - don't know why this is not in gtkmm-2.4 ...
+GTKMM_DEP_LIBS=`pkg-config --libs glibmm-2.4 gdkmm-2.4 gtk+-2.0 gdk-2.0 gdk-pixbuf-2.0 \
+	atkmm-1.6 atk pangomm-1.4 pango gobject-2.0 glib-2.0`
+AC_SUBST(GTKMM_DEP_LIBS)
+
 if echo __MINGW32__ | $CPP - - | fgrep -q __MINGW32__
 then mingw=false
 else mingw=true
