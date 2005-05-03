@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2004 Christof Petig
+ *  Copyright (C) 2004-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -27,6 +27,8 @@
 #include "Optionen_GUI.hh"
 #include "WindowInfo.hh"
 #include <libmagus/Datenbank.hh>
+#include <libmagus/magustrace.h>
+#include <Misc/Trace.h>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #if MPC_SIGC_VERSION > 0x120
 #  include <sigc++/bind.h>
@@ -139,6 +141,7 @@ static Gtk::Table *make_tab(const Glib::ustring &name,
 
 void midgard_CG::menu_init()
 {
+  ManuProC::Trace _t(LibMagus::trace_vector,__FUNCTION__,menu_kontext);
   menu_kontext=Gtk::manage(new Gtk::Menu());
 
 //Schummel-Menü/////////////////////////////////////////////////////////////////////
@@ -240,6 +243,7 @@ static void wert_changed(gpointer gp)
 
 void midgard_CG::menubar_init()
 {
+  ManuProC::Trace _t(LibMagus::trace_vector,__FUNCTION__);
   // Ansicht
   Gtk::Menu *ansicht_menu = Gtk::manage(new class Gtk::Menu());
   main_menubar->items().insert(--main_menubar->items().end(),Gtk::Menu_Helpers::MenuElem("Ansicht & _Fenster", Gtk:: GTKMM22(Menu_Helpers::)AccelKey("<Control>F"), *ansicht_menu));
@@ -288,6 +292,7 @@ void midgard_CG::menubar_init()
 void midgard_CG::menu_history_init(int oldsize)
 // oldsize is not used ...
 {
+  ManuProC::Trace _t(LibMagus::trace_vector,__FUNCTION__);
   Gtk::Menu *M=manage(new Gtk::Menu); // main_menubar->items()[0].get_submenu();
   zuletzt_geladen_mi->set_submenu(*M);
   Gtk::Menu::MenuList L=M->items();
