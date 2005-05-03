@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.51 2005/03/07 09:37:34 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.52 2005/05/03 07:17:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,7 @@ void table_grundwerte::on_button_grundwerte()
 //      combo_spezies->set_sensitive(false);
 }
 
-enum { Button_Standard=1, Button_Zuweisen=2, Button_69=3 };
+enum { Button_Standard=0, Button_Zuweisen=1, Button_69=2 };
 
 void table_grundwerte::grundwerte_wuerfeln()
 {
