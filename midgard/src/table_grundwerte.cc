@@ -112,6 +112,8 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    
    Abenteurer &A=abentaus->getAbenteurer();
 
+   label_last_edited->set_text(A.LastSavedAt());
+
    spinbutton_st->set_value(A.St());
    spinbutton_gw->set_value(A.Gw());
    spinbutton_gs->set_value(A.Gs());
