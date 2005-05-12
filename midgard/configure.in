@@ -64,8 +64,11 @@ AC_SUBST(COMMONGTK2_ONLY)
 
 NATIVE_BUILD=`pwd`
 if test $cross_compiling = yes
-then 
-  NATIVE_BUILD=$HOME/berlios/midgard
+then
+  NB_TEMP=$HOME/berlios/midgard
+  if test -x $NB_TEMP/libmagusicons/embed ; then NATIVE_BUILD=$NB_TEMP ; fi
+  NB_TEMP=$HOME/berlios/magus2/midgard
+  if test -x $NB_TEMP/libmagusicons/embed ; then NATIVE_BUILD=$NB_TEMP ; fi
 fi
 AC_SUBST(NATIVE_BUILD)
 

@@ -1,0 +1,9 @@
+mount /ia32/usr/share/texmf /usr/share/texmf -t none -o bind
+mount /ia32/etc/texmf /etc/texmf -t none -o bind
+
+TO_STRIP=*.exe
+i586-mingw32msvc-strip 
+
+dchroot
+cd ~/winhome/midgard/win32/ 
+wine ~/sourceforge/NSIS/NSIS.exe magus.nsi

@@ -135,6 +135,7 @@ EXPORTS
 	_ZN10LernListen7getMBEmERK10AbenteurerNS_4eMBEEiiSs 
 	_ZN10LernListen8getBerufERK10Abenteurer 
 	_ZN10LernListen8getTypenERK10Abenteurer 
+	_ZN10LernListen8getTypenERK10cH_Spezies 
 	_ZN10LernListen9nsc_checkEbb 
 	_ZN10LernListen9nsc_checkERK10Abenteurerb 
 	_ZN10Lernschema4loadERK3TagRKSs 
@@ -578,6 +579,7 @@ EXPORTS
 	_ZN8cH_WaffeC2ERKSsb 
 	_ZN8KiDo_All4loadERSt4listI22cH_MidgardBasicElementSaIS1_EERK3Tag 
 	_ZN8LibMagus13trace_channelE  DATA
+	_ZN8LibMagus12trace_vectorE  DATA
 	_ZN8NotFoundD0Ev 
 	_ZN8NotFoundD1Ev 
 	_ZN8Optionen12set_OriginalEbNS_18OptionenCheckIndexE 
