@@ -28,7 +28,7 @@
 void table_optionen::init()
 {
 #warning besser als MVC realisieren
- Association(*entry_pdf).set_model(Programmoptionen->getString(Magus_Optionen::pdf_viewer));
+ ManuProC::Association(*entry_pdf).set_model(Programmoptionen->getString(Magus_Optionen::pdf_viewer));
  entry_html->set_text(Programmoptionen->getString(Magus_Optionen::html_viewer).Value());
  entry_tmp_verz->set_text(Programmoptionen->getString(Magus_Optionen::tmppfad).Value());
  entry_speicher_verz->set_text(Programmoptionen->getString(Magus_Optionen::speicherpfad).Value());
