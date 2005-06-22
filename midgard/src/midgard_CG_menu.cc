@@ -305,7 +305,8 @@ void midgard_CG::menubar_init()
   std::list<Optionen::st_Haus> &L3=getAben().getOptionen().getHausregeln();
   for(std::list<Optionen::st_Haus>::iterator i=L3.begin();i!=L3.end();++i)
   { Gtk::Table *_tab=make_tab(i->text,Optionen_GUI::Haus_bild(i->index));
-    AddItem(options_menu,*_tab,Model_ref<bool>(getChar().proxies.hausregeln[i->index]));
+    bool_CheckMenuItem *mi =AddItem(options_menu,*_tab,Model_ref<bool>(getChar().proxies.hausregeln[i->index]));
+    mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
   }
   options_menu->show_all();
  }
