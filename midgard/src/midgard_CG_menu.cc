@@ -178,18 +178,9 @@ void midgard_CG::menu_init()
   AddItem(drucken_menu,"Leeres Abenteurerdokument drucken",
         SigC::slot(*this,&midgard_CG::on_leeres_abenteurerdokument_drucken));
 
-// Abent. Optionen (Original, NSC, ...)
- {Gtk::Menu *char_opt_menu = AddMenu(menu_kontext,"Abent.-Einst.");
-   std::list<Optionen::st_OptionenCheck> &L2=getAben().getOptionen().getOptionenCheck();
-   for(std::list<Optionen::st_OptionenCheck>::iterator i=L2.begin();i!=L2.end();++i)
-    {
-     Gtk::Table *_tab=make_tab(i->text,Optionen_GUI::Check_bild(i->index));
-     AddItem(char_opt_menu,*_tab,Model_ref<bool>(getChar().proxies.checks[i->index]));
-#warning undosave?
-   }
- }
 
 //Regionen/////////////////////////////////////////////////////////////////////
+#warning undosave?
   Gtk::Menu *regionen_menu = AddMenu(menu_kontext,"Regionen");
   for(std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();i!=Datenbank.Regionen.end();++i)
    {
@@ -209,6 +200,22 @@ void midgard_CG::menu_init()
       &Magus_Optionen::setStandardRegionen),getAben()));
 #endif
 
+//Erweiterungen/////////////////////////////////////////////////////////////////////
+  Gtk::Menu *options_menu = AddMenu(menu_kontext,"Erweiterungen");
+  std::list<Optionen::st_OptionenCheck> &L2=getAben().getOptionen().getOptionenCheck();
+  for(std::list<Optionen::st_OptionenCheck>::iterator i=L2.begin();i!=L2.end();++i)
+  { Gtk::Table *_tab=make_tab(i->text,Optionen_GUI::Check_bild(i->index));
+    AddItem(options_menu,*_tab,Model_ref<bool>(getChar().proxies.checks[i->index]));
+  }
+  AddLine(options_menu);
+  
+  std::list<Optionen::st_Haus> &L3=getAben().getOptionen().getHausregeln();
+  for(std::list<Optionen::st_Haus>::iterator i=L3.begin();i!=L3.end();++i)
+  { Gtk::Table *_tab=make_tab(i->text,Optionen_GUI::Haus_bild(i->index));
+    bool_CheckMenuItem *mi =AddItem(options_menu,*_tab,Model_ref<bool>(getChar().proxies.hausregeln[i->index]));
+    mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
+  }
+
 //Optionen/////////////////////////////////////////////////////////////////////
  {Gtk::Menu *optionen_menu = AddMenu(menu_kontext,"Ansicht & Fenster");
 
@@ -217,8 +224,6 @@ void midgard_CG::menu_init()
    {
      Gtk::Table *_tab=make_tab(i->text,Optionen_GUI::Execute_bild(i->index));
      AddItem(optionen_menu,*_tab,SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
-//    mi->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
-//    optionen_menu->append(*mi);
    } 
  }
 ///////////////////////////////////////////////////////////////////////////////
