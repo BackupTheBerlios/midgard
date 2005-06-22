@@ -70,8 +70,7 @@ void frame_globale_optionen::init()
  table->attach(*hseparator, 0, 1, count, count+1, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
  ++count;
 
-#warning das geht so noch nicht!!!
-#if 1 
+#if 0
  std::list<Optionen::st_OptionenCheck> &L2=hauptfenster->getAben().getOptionen().getOptionenCheck();
  for(std::list<Optionen::st_OptionenCheck>::iterator i=L2.begin();i!=L2.end();++i)
   {
@@ -134,7 +133,9 @@ void frame_globale_optionen::element_activate_C(gpointer gp,Magus_Optionen::Opti
 #endif
 }
 
+#if 0
 void frame_globale_optionen::element_activate_H(gpointer gp,Optionen::HausIndex index)
 {
 //  hauptfenster->getAben().getOptionen().Hausregeln_setzen_from_menu(index);
 }
+#endif

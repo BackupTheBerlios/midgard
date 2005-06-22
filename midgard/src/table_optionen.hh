@@ -1,6 +1,6 @@
 /*  MAGuS: Midgard Abenteurer Generieren Und Steigern
  *  Copyright (C) 2002 Malte Thoma
- *  Copyright (C) 2004 Christof Petig
+ *  Copyright (C) 2004-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,17 +16,6 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-// generated 2002/4/16 8:33:14 CEST by thoma@Tiger.(none)
-// using glademm V0.6.4b_cvs
-//
-// newer (non customized) versions of this file go to table_optionen.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
 
 #ifndef _TABLE_OPTIONEN_HH
 #  include "table_optionen_glade.hh"
@@ -56,5 +45,7 @@ private:
         void tmp_selected(const std::string& dateiname);
         void on_button_speicherplatz_clicked();
         void speicherplatz_selected(const std::string& dateiname);
+        void on_button_pdf_browser_clicked();
+        void pdf_viewer_selected(const std::string& dateiname);
 };
 #endif

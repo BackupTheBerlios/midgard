@@ -23,16 +23,17 @@
 #include "midgard_CG.hh"
 #include <WinFileReq.hh>
 #include <libmagus/Magus_Optionen.hh>
+#include <Association.h>
 
 void table_optionen::init()
 {
 #warning besser als MVC realisieren
+ Association(*entry_pdf).set_model(Programmoptionen->getString(Magus_Optionen::pdf_viewer));
  entry_html->set_text(Programmoptionen->getString(Magus_Optionen::html_viewer).Value());
  entry_tmp_verz->set_text(Programmoptionen->getString(Magus_Optionen::tmppfad).Value());
  entry_speicher_verz->set_text(Programmoptionen->getString(Magus_Optionen::speicherpfad).Value());
  spinbutton_datei_history->set_value(Programmoptionen->DateiHistory());
  
- frame_drucken->init();
  frame_globale_optionen->init();
  frame_ansicht->init();
  frame_icons->init();
@@ -42,7 +43,6 @@ void table_optionen::init()
 void table_optionen::set_Hauptfenster(midgard_CG *h) 
 {
   hauptfenster=h;
-  frame_drucken->set_Hauptfenster(h);
   frame_globale_optionen->set_Hauptfenster(h);
   frame_ansicht->set_Hauptfenster(h);
   frame_icons->set_Hauptfenster(h);
@@ -84,6 +84,16 @@ void table_optionen::on_button_html_browser_clicked()
 }
 void table_optionen::html_browser_selected(const std::string& dateiname)
 {entry_html->set_text(dateiname);}
+
+void table_optionen::on_button_pdf_browser_clicked()
+{WinFileReq::create(SigC::slot(*this,&table_optionen::pdf_viewer_selected),
+      Programmoptionen->getString(Magus_Optionen::pdf_viewer).Value(),
+      "Programme (*.exe,*.bat)\0*.exe;*.bat\0",std::string(),
+      "Welches Programm soll die PDF-Dokumente anzeigen?",true,
+      hauptfenster);
+}
+void table_optionen::pdf_viewer_selected(const std::string& dateiname)
+{ Programmoptionen->getString(Magus_Optionen::pdf_viewer)=dateiname; }
 
 void table_optionen::on_button_tmp_clicked()
 {WinFileReq::create(SigC::slot(*this,&table_optionen::tmp_selected),
