@@ -139,6 +139,12 @@ static Gtk::Table *make_tab(const Glib::ustring &name,
   return _tab;
 }
 
+#if 0
+static void print(std::string x)
+{ std::cerr << x << '\n';
+}
+#endif
+
 void midgard_CG::menu_init()
 {
   ManuProC::Trace _t(LibMagus::trace_vector,__FUNCTION__,menu_kontext);
