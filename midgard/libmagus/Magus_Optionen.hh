@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.28 2005/06/22 13:51:17 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.29 2005/06/22 13:51:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -41,8 +41,8 @@ class Magus_Optionen
                             Notebook_start, Hintergrund_Kontrast,
                             OneClick};
       enum OptionenExecuteIndex {LernschemaSensitive,show_InfoWindow};
-      enum OberIndex {AutoShrink,SaveFenster,Bilder,Menueleiste,Knopfleiste,
-               Icons,Beschriftungen,Customize_Icons,Customize_Text,
+      enum OberIndex {/*AutoShrink,*/SaveFenster,Bilder,Menueleiste,Knopfleiste,
+               /*Icons,Beschriftungen,*/ Customize_Icons,Customize_Text,
                Customize_Tab,Status,NoInfoFenster,BegruessungsFenster,
                UTF8TeX,AvoidDialogues};
       enum IconIndex{Self,Ulf,Gtk2};
