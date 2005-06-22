@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.32 2005/04/27 08:54:45 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.33 2005/06/22 13:51:17 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -40,11 +40,17 @@
 
 #include <Magus_Optionen.hh>
 Abenteurer::Abenteurer(bool initialize) : Grundwerte(initialize)
-{
-   for(Magus_Optionen::regionen_t::const_iterator i=Programmoptionen->standard_regionen.begin();i!=Programmoptionen->standard_regionen.end();++i) 
+{ if (initialize)
+  { for(Magus_Optionen::regionen_t::const_iterator i=Programmoptionen->standard_regionen.begin();i!=Programmoptionen->standard_regionen.end();++i) 
       regionen[i->first] = i->second;
+    for(std::list<Optionen::st_Haus>::iterator i=getOptionen().getHausregeln().begin();
+                  i!=getOptionen().getHausregeln().end();++i)
+      i->active=Programmoptionen->standard_erweiterungen[i->text];    
+    for(std::list<Optionen::st_OptionenCheck>::iterator i=getOptionen().getOptionenCheck().begin();
+                  i!=getOptionen().getOptionenCheck().end();++i)
+      i->active=Programmoptionen->standard_erweiterungen[i->text];    
+  }
 }
-
 
 bool Abenteurer::Valid() const
 {
@@ -59,9 +65,6 @@ const std::string Abenteurer::LastSavedAt() const
   tm *t=localtime(&last_saved_time);
   return itos(t->tm_mday) +"."+ itos(t->tm_mon+1) +"."+ itos(1900+t->tm_year);
 }
-
-
-
 
 std::string Grundwerte::STyp() const
 {
@@ -205,10 +208,8 @@ void Abenteurer::speichern(std::ostream &datei) const
      Ausruestung.push_back(Tag("Rüstung2", Ruestung(1)->Name()));
    // Waffen Besitz
    for (std::list<H_WaffeBesitz>::const_iterator i=List_Waffen_besitz().begin();
-//   for (std::list<MBEmlt>::const_iterator i=List_Waffen_besitz().begin();
          i!=List_Waffen_besitz().end();++i)
       {  
-//         WaffeBesitz WB(*i) ;
          Tag &w=Ausruestung.push_back(Tag("Waffe"));
          w.setIntAttr("Erfolgswert", (*i)->Erfolgswert());
          w.setAttr("Bezeichnung", (*i)->AliasName());

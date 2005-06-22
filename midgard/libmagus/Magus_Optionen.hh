@@ -1,7 +1,7 @@
-// $Id: Magus_Optionen.hh,v 1.27 2005/06/22 13:51:08 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.28 2005/06/22 13:51:17 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003-2004 Christof Petig
+ *  Copyright (C) 2003-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -188,6 +188,7 @@ class Magus_Optionen
       
       typedef std::map<std::string,bool > regionen_t;
       regionen_t standard_regionen;  // aktive Standardregionen
+      regionen_t standard_erweiterungen; // aktive Standarderweiterungen
       void setStandardRegionen(const Abenteurer &A) ;
 };
 

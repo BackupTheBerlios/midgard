@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.33 2005/06/22 13:51:08 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.34 2005/06/22 13:51:17 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -50,7 +50,7 @@ static std::string CommandByExtension(const std::string &ext)
      std::string path=extclass;
      if (path.size()>3 && path.substr(path.size()-3)==" %1") 
         path=path.substr(0, path.size()-3);
-     else if (path.size()>5 && path.substr(path.size()-5)==" \"%1\"") 
+     else if (path.size()>5 && path.substr(path.size()-5)==" \"%1\"") // " für joe ;-)
         path=path.substr(0, path.size()-5);
      Ausgabe(Ausgabe::Debug,"Found "+ext+" Viewer @"+path);
      return path;
@@ -200,7 +200,7 @@ void Magus_Optionen::Optionen_init()
                            "Lernschema/Steigern auswählbar machen"));
 
   list_OptionenCheck.push_back(st_OptionenCheck(Hintergrund_Kontrast, 
-                           "Kontrast der Hintergrundbilder",false,0));
+                           "Hintergrundbilder: Kontrast",false,0));
 
   list_OptionenCheck.push_back(st_OptionenCheck(OneClick, 
                            "1-click Oberfläche",true));
@@ -307,6 +307,11 @@ void Magus_Optionen::load_options(const std::string &filename)
   if(regionen) FOR_EACH_CONST_TAG_OF(i,*regionen,"Region")
     standard_regionen[i->getAttr("Name")]=i->getBoolAttr("Wert");
 
+  const Tag *erweiterungen=data->find("Erweiterungen");
+  if(erweiterungen) FOR_EACH_CONST_TAG_OF(i,*erweiterungen,"Option")
+    standard_erweiterungen[i->getAttr("Name")]=i->getBoolAttr("Wert");
+  else standard_erweiterungen["Originalregeln"]=true;
+
   ManuProC::Trace (LibMagus::trace_channel,"","Fenster");
   const Tag *data2=ts.find("MAGUS-fenster"); // compat
   if (!data2) data2=data->find("Fenster");
@@ -329,7 +334,7 @@ void Magus_Optionen::load_options(const std::string &filename)
   if(data3)
    {
      FOR_EACH_CONST_TAG_OF(i,*data3,"DateiHistory")
-       setDateiHistory(i->getIntAttr("Anzahl"));
+       datei_history=i->getIntAttr("Anzahl");
      FOR_EACH_CONST_TAG_OF(i,*data3,"Datei")
        LDateien.push_back(i->getAttr("Name"));
    }
@@ -416,6 +421,13 @@ void Magus_Optionen::save_options(const std::string &filename)
       r.setAttr("Name",i->first);
       r.setBoolAttr("Wert",i->second);
     }
+  Tag &copt=data.push_back(Tag("Erweiterungen"));
+  for(regionen_t::const_iterator i=standard_erweiterungen.begin();i!=standard_erweiterungen.end();++i)
+    {
+      Tag &r=copt.push_back(Tag("Option"));
+      r.setAttr("Name",i->first);
+      r.setBoolAttr("Wert",i->second);
+    }
   ts.write(datei);
   geaendert=false;
 }
@@ -436,13 +448,19 @@ void Magus_Optionen::setWindowPosition(const std::string &name,int x,int y,unsig
 }
 
 #include "Abenteurer.hh"
+#include "Optionen.hh"
 void Magus_Optionen::setStandardRegionen(const Abenteurer &A)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   for(Abenteurer::regionen_t::const_iterator i=A.getRegionen().begin();i!=A.getRegionen().end();++i)
+   for(Abenteurer::regionen_t::const_iterator i=A.getRegionen().begin();
+   		i!=A.getRegionen().end();++i)
      standard_regionen[i->first->Name()] = i->second;    
+   for(std::list<Optionen::st_Haus>::const_iterator i=A.getOptionen().getHausregeln().begin();
+   		i!=A.getOptionen().getHausregeln().end();++i)
+     standard_erweiterungen[i->text] = i->active.Value();    
+   for(std::list<Optionen::st_OptionenCheck>::const_iterator i=A.getOptionen().getOptionenCheck().begin();
+   		i!=A.getOptionen().getOptionenCheck().end();++i)
+     standard_erweiterungen[i->text] = i->active.Value();    
 }
-
-
 
 void Magus_Optionen::global_settings_save(int userid,const std::string& program,
       		const std::string& name, const std::string& value)
