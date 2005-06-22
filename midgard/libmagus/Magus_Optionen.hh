@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.25 2004/12/21 07:24:14 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.26 2005/06/22 13:50:48 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -35,10 +35,11 @@ class Magus_Optionen
 {
    public:
       enum StringIndex{pdf_viewer,html_viewer,tmppfad,speicherpfad};
-      enum pdfViewerIndex {gv,acroread,xpdf,anderer};
+//      enum pdfViewerIndex {gv,acroread,xpdf,anderer};
       enum OptionenCheckIndex {Info,//RegionenAuswahlSpeichern,
-                            Wizard_immer_starten,Drei_Tasten_Maus,
-                            Notebook_start, Hintergrund_Kontrast};
+                            Wizard_immer_starten,
+                            Notebook_start, Hintergrund_Kontrast,
+                            OneClick};
       enum OptionenExecuteIndex {LernschemaSensitive,show_InfoWindow};
       enum OberIndex {AutoShrink,SaveFenster,Bilder,Menueleiste,Knopfleiste,
                Icons,Beschriftungen,Customize_Icons,Customize_Text,
@@ -65,7 +66,7 @@ class Magus_Optionen
         st_base_bool(const st_base_bool<X> &b)
         : st_base<X>(b.index,b.text), active(b.active.get_value()) {}
       };
-      typedef st_base_bool<pdfViewerIndex> st_pdfViewer;
+//      typedef st_base_bool<pdfViewerIndex> st_pdfViewer;
       // mit Wert!!!
       struct st_OptionenCheck : st_base_bool<OptionenCheckIndex>
       {	Model_copyable<int> wert; 
@@ -119,7 +120,7 @@ class Magus_Optionen
       std::list<st_Icon> list_Icon;
       std::list<st_OptionenExecute>  list_OptionenExecute;
       std::list<st_OptionenCheck> list_OptionenCheck; 
-      std::list<st_pdfViewer> list_pdfViewer;
+//      std::list<st_pdfViewer> list_pdfViewer;
       std::list<st_WindowPosition> list_Windows;
 //      Model<bool> werte_eingeben;
       std::list<std::string> LDateien;
@@ -134,7 +135,7 @@ class Magus_Optionen
       void Optionen_init();
       void Ober_init();
       void Icon_init();
-      void pdfViewer_init();
+//      void pdfViewer_init();
       void init_all();
       
       static void global_settings_save(int userid,const std::string& program,
@@ -161,7 +162,7 @@ class Magus_Optionen
       std::list<st_Icon> &getIcon()  {return list_Icon;}
       std::list<st_OptionenCheck> &getOptionenCheck() {return list_OptionenCheck;}
       std::list<st_OptionenExecute> &getOptionenExecute()  {return list_OptionenExecute;}
-      std::list<st_pdfViewer> &getPDF()  {return list_pdfViewer;}
+//      std::list<st_pdfViewer> &getPDF()  {return list_pdfViewer;}
       int DateiHistory() const {return datei_history;}
 
       void save_options(const std::string &filename);
@@ -180,8 +181,8 @@ class Magus_Optionen
       st_Ober &OberCheck(OberIndex hi)  ;
       st_Icon &IconCheck(IconIndex i) ;
       IconIndex getIconIndex() const;
-      st_pdfViewer &pdfViewerCheck(pdfViewerIndex pi);
-      const st_pdfViewer &pdfViewerCheck(pdfViewerIndex pi) const;
+//      st_pdfViewer &pdfViewerCheck(pdfViewerIndex pi);
+//      const st_pdfViewer &pdfViewerCheck(pdfViewerIndex pi) const;
       const st_WindowPosition &WindowPosition(const std::string &name) const;
       const std::list<std::string> &LetzteDateien() const 
       { return LDateien; }
@@ -192,7 +193,7 @@ class Magus_Optionen
       void Icon_setzen_from_menu(IconIndex index);
       void OptionenCheck_setzen_from_menu(OptionenCheckIndex index);
       void OptionenExecute_setzen_from_menu(OptionenExecuteIndex index);
-      void pdfViewer_setzen_from_menu(pdfViewerIndex index);
+//      void pdfViewer_setzen_from_menu(pdfViewerIndex index);
       SigC::Signal0<void> &signal_history_changed() { return sig_history_geaendert; }
       
       typedef std::map<std::string,bool > regionen_t;

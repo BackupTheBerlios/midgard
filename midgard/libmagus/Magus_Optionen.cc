@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.31 2004/12/21 07:24:13 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.32 2005/06/22 13:50:48 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -66,7 +66,7 @@ void Magus_Optionen::init_all()
    Ober_init();
    Icon_init();
    Strings_init();
-   pdfViewer_init();
+//   pdfViewer_init();
 }
 
 void Magus_Optionen::init()
@@ -79,7 +79,7 @@ void Magus_Optionen::init()
 
 std::string Magus_Optionen::Viewer() const
 {
-#ifndef __MINGW32__
+#if 0
   if     (pdfViewerCheck(Magus_Optionen::gv).active)       return "gv";
   else if(pdfViewerCheck(Magus_Optionen::xpdf).active)     return "xpdf";
   else if(pdfViewerCheck(Magus_Optionen::acroread).active) return "acroread";
@@ -144,19 +144,6 @@ Magus_Optionen::IconIndex Magus_Optionen::getIconIndex() const
  throw std::out_of_range("getIconIndex");
 }
 
-Magus_Optionen::st_pdfViewer &Magus_Optionen::pdfViewerCheck(pdfViewerIndex pi)
-{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,pi);
- for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
-   if(i->index==pi) return *i;
- assert(!"pdfViewer: nicht gefunden");
- abort();
-}
- 
-const Magus_Optionen::st_pdfViewer &Magus_Optionen::pdfViewerCheck(pdfViewerIndex pi) const
-{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,pi);
- return const_cast<Magus_Optionen*>(this)->pdfViewerCheck(pi);
-}
- 
 void Magus_Optionen::setOptionCheck(std::string os,bool b,int wert)
 {
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
@@ -209,12 +196,7 @@ void Magus_Optionen::setIcon(std::string hs,bool b)
 }
 
 void Magus_Optionen::setpdfViewer(std::string is,bool b)
-{
-  for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
-   {
-     if(i->text==is) i->active=b;
-     else i->active=!b;
-   }
+{ setString(pdf_viewer, is);
 }
 
 void Magus_Optionen::Optionen_init()
@@ -256,36 +238,6 @@ void Magus_Optionen::Strings_init()
   list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",magus_paths::MagusVerzeichnis()));
 #endif
 }
-
-
-void Magus_Optionen::pdfViewer_init()
-{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-#ifndef __MINGW32__
-  std::vector<Model_ref<bool> > v;
-  list_pdfViewer.push_back(st_pdfViewer(acroread,
-                           "acroread",
-                           true));
-  v.push_back(list_pdfViewer.back().active);
-  list_pdfViewer.push_back(st_pdfViewer(gv,
-                           "gv",
-                           false));
-  v.push_back(list_pdfViewer.back().active);
-  list_pdfViewer.push_back(st_pdfViewer(xpdf,
-                           "xpdf",
-                           false));
-  v.push_back(list_pdfViewer.back().active);
-  list_pdfViewer.push_back(st_pdfViewer(anderer,
-                           "anderer",
-                           false));
-  v.push_back(list_pdfViewer.back().active);
-  ausschluesse.push_back(RadioModel(v));
-#else
-  list_pdfViewer.push_back(st_pdfViewer(anderer,
-                           "PDF Programm",
-                           true));
-#endif
-}
-
 
 void Magus_Optionen::Ober_init()
 { ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
@@ -457,13 +409,6 @@ void Magus_Optionen::save_options(const std::string &filename)
    { 
      if(!i->active) continue;
      Tag &opt=optionen.push_back(Tag("Icon"));
-     opt.setAttr("Name",i->text);
-     opt.setBoolAttr("Wert", i->active);
-   }
-  for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
-   {
-     if(!i->active) continue;
-     Tag &opt=optionen.push_back(Tag("pdfViewer"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
    }
