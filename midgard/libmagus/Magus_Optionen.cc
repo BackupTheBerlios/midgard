@@ -1,7 +1,7 @@
-// $Id: Magus_Optionen.cc,v 1.32 2005/06/22 13:50:48 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.33 2005/06/22 13:51:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003-2004 Christof Petig
+ *  Copyright (C) 2003-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -28,7 +28,6 @@
 #include "Windows_Linux.hh"
 #include <Ausgabe.hh>
 #include <magus_paths.h>
-//#include <libmagusicons/magusicons.h>
 #include <Misc/Global_Settings.h>
 #include <Region.hh>
 #include "NotFound.h"
@@ -66,7 +65,6 @@ void Magus_Optionen::init_all()
    Ober_init();
    Icon_init();
    Strings_init();
-//   pdfViewer_init();
 }
 
 void Magus_Optionen::init()
@@ -79,15 +77,7 @@ void Magus_Optionen::init()
 
 std::string Magus_Optionen::Viewer() const
 {
-#if 0
-  if     (pdfViewerCheck(Magus_Optionen::gv).active)       return "gv";
-  else if(pdfViewerCheck(Magus_Optionen::xpdf).active)     return "xpdf";
-  else if(pdfViewerCheck(Magus_Optionen::acroread).active) return "acroread";
-  else if(pdfViewerCheck(Magus_Optionen::anderer).active)  return getString(pdf_viewer);
-  return("no_legal_pdf_viewer_selected");
-#else
   return getString(pdf_viewer);
-#endif  
 }
 
 std::string Magus_Optionen::getString(StringIndex index) const 
@@ -173,7 +163,6 @@ void Magus_Optionen::setOber(std::string hs,bool b)
     if(i->text==hs)  
       { 
         i->active=b;
-//cout << "setOber: "<<hs<<'\t'<<i->active<<'\n';
         return;
       }
    }
@@ -188,7 +177,6 @@ void Magus_Optionen::setIcon(std::string hs,bool b)
       { 
         i->active=b;
         found=true;
-//        return;
       }
     else if (b) i->active=false;
    }
@@ -213,8 +201,10 @@ void Magus_Optionen::Optionen_init()
 
   list_OptionenCheck.push_back(st_OptionenCheck(Hintergrund_Kontrast, 
                            "Kontrast der Hintergrundbilder",false,0));
-}
 
+  list_OptionenCheck.push_back(st_OptionenCheck(OneClick, 
+                           "1-click Oberfläche",true));
+}
 
 void Magus_Optionen::Strings_init()
 { ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);

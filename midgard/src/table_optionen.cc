@@ -27,12 +27,11 @@
 
 void table_optionen::init()
 {
-#warning besser als MVC realisieren
  ManuProC::Association(*entry_pdf).set_model(Programmoptionen->getString(Magus_Optionen::pdf_viewer));
- entry_html->set_text(Programmoptionen->getString(Magus_Optionen::html_viewer).Value());
- entry_tmp_verz->set_text(Programmoptionen->getString(Magus_Optionen::tmppfad).Value());
- entry_speicher_verz->set_text(Programmoptionen->getString(Magus_Optionen::speicherpfad).Value());
- spinbutton_datei_history->set_value(Programmoptionen->DateiHistory());
+ ManuProC::Association(*entry_html).set_model(Programmoptionen->getString(Magus_Optionen::html_viewer));
+ ManuProC::Association(*entry_tmp_verz).set_model(Programmoptionen->getString(Magus_Optionen::tmppfad));
+ ManuProC::Association(*entry_speicher_verz).set_model(Programmoptionen->getString(Magus_Optionen::speicherpfad));
+ ManuProC::Association(*spinbutton_datei_history).set_model(Programmoptionen->DateiHistory());
  
  frame_globale_optionen->init();
  frame_ansicht->init();
@@ -52,27 +51,18 @@ void table_optionen::set_Hauptfenster(midgard_CG *h)
 
 void table_optionen::on_entry_html_changed()
 {  
- Programmoptionen->setString(Magus_Optionen::html_viewer,
-      entry_html->get_text());
 }
 
 void table_optionen::on_entry_tmp_verz_changed()
 {  
- Programmoptionen->setString(Magus_Optionen::tmppfad,
-      entry_tmp_verz->get_text());
 }
 
 void table_optionen::on_entry_speicher_verz_changed()
 {  
- Programmoptionen->setString(Magus_Optionen::speicherpfad,
-      entry_speicher_verz->get_text());
 }
 
 void table_optionen::on_spinbutton_datei_history_changed()
 {
-  spinbutton_datei_history->update();
-  Programmoptionen->setDateiHistory(
-      spinbutton_datei_history->get_value_as_int());
 }
 
 
