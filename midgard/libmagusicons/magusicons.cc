@@ -1,4 +1,4 @@
-// $Id: magusicons.cc,v 1.15 2004/06/08 10:36:36 christof Exp $
+// $Id: magusicons.cc,v 1.16 2005/06/22 13:51:25 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>
@@ -96,7 +96,9 @@ Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name)
 //         GTK_ICON("Info-trans-50.xpm",REMOVE);
          GTK_ICON("Trash-32.xpm",DELETE);
       }
-      const gfloat brightfactor=0.4;
+      gfloat brightfactor=0.4;
+      if (Programmoptionen->OptionenCheck(Magus_Optionen::Hintergrund_Kontrast).active.Value())
+        brightfactor=1.0-0.1*Programmoptionen->OptionenCheck(Magus_Optionen::Hintergrund_Kontrast).wert.Value();
       {  Glib::RefPtr<Gdk::Pixbuf> pb;
          pb=images[key_t(Any,"Gross_ark_pre.xpm")];
          pb=pb->copy();
