@@ -1,6 +1,6 @@
 /*  MAGuS: Midgard Abenteurer Generieren Und Steigern
  *  Copyright (C) 2002 Malte Thoma
- *  Copyright (C) 2004 Christof Petig
+ *  Copyright (C) 2004-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -47,33 +47,15 @@ void table_optionen::set_Hauptfenster(midgard_CG *h)
   frame_icons->set_Hauptfenster(h);
 }
 
-
-
-void table_optionen::on_entry_html_changed()
-{  
-}
-
-void table_optionen::on_entry_tmp_verz_changed()
-{  
-}
-
-void table_optionen::on_entry_speicher_verz_changed()
-{  
-}
-
-void table_optionen::on_spinbutton_datei_history_changed()
-{
-}
-
-
 void table_optionen::on_button_html_browser_clicked()
 {WinFileReq::create(SigC::slot(*this,&table_optionen::html_browser_selected),
-      entry_html->get_text(),"Programme (*.exe,*.bat)\0*.exe;*.bat\0",std::string(),
+      Programmoptionen->getString(Magus_Optionen::html_viewer).Value(),
+      "Programme (*.exe,*.bat)\0*.exe;*.bat\0",std::string(),
       "Welches Programm soll die HTML-Hilfe anzeigen?",true,
       hauptfenster);
 }
 void table_optionen::html_browser_selected(const std::string& dateiname)
-{entry_html->set_text(dateiname);}
+{ Programmoptionen->getString(Magus_Optionen::html_viewer)=dateiname; }
 
 void table_optionen::on_button_pdf_browser_clicked()
 {WinFileReq::create(SigC::slot(*this,&table_optionen::pdf_viewer_selected),
@@ -87,19 +69,20 @@ void table_optionen::pdf_viewer_selected(const std::string& dateiname)
 
 void table_optionen::on_button_tmp_clicked()
 {WinFileReq::create(SigC::slot(*this,&table_optionen::tmp_selected),
-      entry_tmp_verz->get_text(),std::string(),std::string(),
+      Programmoptionen->getString(Magus_Optionen::tmppfad).Value(),
+      std::string(),std::string(),
       "In welchem Verzeichnis sollen Druckdateien erzeugt werden?",true,
       hauptfenster);
 }
 void table_optionen::tmp_selected(const std::string& dateiname)
-{entry_tmp_verz->set_text(dateiname);}
+{ Programmoptionen->getString(Magus_Optionen::tmppfad)=dateiname; }
 
 void table_optionen::on_button_speicherplatz_clicked()
 {WinFileReq::create(SigC::slot(*this,&table_optionen::speicherplatz_selected),
-      entry_speicher_verz->get_text(),std::string(),std::string(),
+      Programmoptionen->getString(Magus_Optionen::speicherpfad).Value(),
+      std::string(),std::string(),
       "In welchem Verzeichnis sollen die Abenteurer gespeichert werden?",true,
       hauptfenster);
 }
 void table_optionen::speicherplatz_selected(const std::string& dateiname)
-{entry_speicher_verz->set_text(dateiname);}
-
+{ Programmoptionen->getString(Magus_Optionen::speicherpfad)=dateiname; }
