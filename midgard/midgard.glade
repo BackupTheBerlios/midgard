@@ -7657,6 +7657,7 @@ auswählen</property>
 					      <property name="last_modification_time">Tue, 09 Jul 2002 10:44:01 GMT</property>
 					      <signal name="leaf_selected" handler="on_leaf_selected_alte_waffen"/>
 					      <signal name="reorder" handler="on_alte_waffen_reorder"/>
+					      <signal name="clicked" handler="on_alte_waffen_clicked" last_modification_time="Wed, 22 Jun 2005 06:26:27 GMT"/>
 					    </widget>
 					  </child>
 					</widget>
@@ -7683,6 +7684,7 @@ auswählen</property>
 					      <property name="int2">0</property>
 					      <property name="last_modification_time">Wed, 12 Jun 2002 06:37:31 GMT</property>
 					      <signal name="leaf_selected" handler="on_leaf_selected_neue_waffen"/>
+					      <signal name="clicked" handler="on_neue_waffen_clicked" last_modification_time="Wed, 22 Jun 2005 06:26:44 GMT"/>
 					    </widget>
 					  </child>
 					</widget>
@@ -7757,6 +7759,7 @@ auswählen</property>
 					      <property name="int2">0</property>
 					      <property name="last_modification_time">Tue, 09 Jul 2002 10:16:23 GMT</property>
 					      <signal name="leaf_selected" handler="on_leaf_selected_alte_grund"/>
+					      <signal name="clicked" handler="on_alte_grund_clicked" last_modification_time="Wed, 22 Jun 2005 06:27:11 GMT"/>
 					    </widget>
 					  </child>
 					</widget>
@@ -7783,6 +7786,7 @@ auswählen</property>
 					      <property name="int2">0</property>
 					      <property name="last_modification_time">Tue, 09 Jul 2002 10:16:30 GMT</property>
 					      <signal name="leaf_selected" handler="on_leaf_selected_neue_grund"/>
+					      <signal name="clicked" handler="on_neue_grund_clicked" last_modification_time="Wed, 22 Jun 2005 06:27:30 GMT"/>
 					    </widget>
 					  </child>
 					</widget>
@@ -8364,6 +8368,7 @@ auswählen</property>
 					      <property name="last_modification_time">Tue, 09 Jul 2002 10:18:22 GMT</property>
 					      <signal name="leaf_selected" handler="on_leaf_selected_alte_sprache"/>
 					      <signal name="reorder" handler="on_alte_sprache_reorder"/>
+					      <signal name="clicked" handler="on_alte_sprache_clicked" last_modification_time="Wed, 22 Jun 2005 06:28:09 GMT"/>
 					    </widget>
 					  </child>
 					</widget>
@@ -8497,6 +8502,7 @@ PP lernen</property>
 						  <property name="int2">0</property>
 						  <property name="last_modification_time">Mon, 31 Dec 2001 12:19:29 GMT</property>
 						  <signal name="leaf_selected" handler="on_leaf_selected_neue_sprache"/>
+						  <signal name="clicked" handler="on_neue_sprache_clicked" last_modification_time="Wed, 22 Jun 2005 06:28:29 GMT"/>
 						</widget>
 					      </child>
 					    </widget>
@@ -8581,6 +8587,7 @@ PP lernen</property>
 					      <property name="int2">0</property>
 					      <property name="last_modification_time">Mon, 07 Jan 2002 08:31:23 GMT</property>
 					      <signal name="leaf_selected" handler="on_leaf_selected_alte_schrift"/>
+					      <signal name="clicked" handler="on_alte_schrift_clicked" last_modification_time="Wed, 22 Jun 2005 06:29:05 GMT"/>
 					    </widget>
 					  </child>
 					</widget>
@@ -8607,6 +8614,7 @@ PP lernen</property>
 					      <property name="int2">0</property>
 					      <property name="last_modification_time">Mon, 31 Dec 2001 12:52:54 GMT</property>
 					      <signal name="leaf_selected" handler="on_leaf_selected_neue_schrift"/>
+					      <signal name="clicked" handler="on_neue_schrift_clicked" last_modification_time="Wed, 22 Jun 2005 06:29:19 GMT"/>
 					    </widget>
 					  </child>
 					</widget>

@@ -1,5 +1,5 @@
 /*  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2004 Christof Petig
+ *  Copyright (C) 2004-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -48,10 +48,13 @@ void table_steigern::alte_fertigkeiten_zeigen()
 }
 
 void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
-{ if (button_was_tun->get_index()==Button_PP_eingeben)
+{
+#warning wozu das?
+  if (button_was_tun->get_index()==Button_PP_eingeben)
     alte_fert_tree->get_selection()->unselect_all();
 }
 
+#warning !1-click
 void table_steigern::on_leaf_selected_alte_fert2(cH_RowDataBase rdb, bool &handled)
 { if (button_was_tun->get_index()!=Button_PP_eingeben)
   { MidgardBasicElement_leaf_alt(rdb);
