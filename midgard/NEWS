@@ -2,6 +2,10 @@ Version 0.9.9
 - Es werden keine unnötigen Abenteurer mehr erzeugt
 - Begrüßungsfenster erscheint jetzt zu den richtigen Zeiten
 - Menü geht wieder (auch mit der linken Maustaste!)
+- Vereinheitlichung der Optionen
+- Hausregeln werden mit Regionen zum Standard gemacht
+- Darstellungsoptionen sollten zum großen Teil wieder etwas bewirken
+	(einige erfordern noch einen Neustart)
 
 Version 0.9.8
 - nerviges Zuklappen der ungelernten Fertigkeiten/Zauber behoben !!!

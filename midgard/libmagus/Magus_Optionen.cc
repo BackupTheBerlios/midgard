@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.34 2005/06/22 13:51:17 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.35 2005/06/22 13:51:20 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -200,7 +200,7 @@ void Magus_Optionen::Optionen_init()
                            "Lernschema/Steigern auswählbar machen"));
 
   list_OptionenCheck.push_back(st_OptionenCheck(Hintergrund_Kontrast, 
-                           "Hintergrundbilder: Kontrast",false,0));
+                           "Kontrast der Hintergrundbilder",false,0));
 
   list_OptionenCheck.push_back(st_OptionenCheck(OneClick, 
                            "1-click Oberfläche",true));
@@ -233,15 +233,15 @@ void Magus_Optionen::Ober_init()
 { ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  list_Ober.clear();  
  list_Ober.push_back(st_Ober(SaveFenster,"Fenstergröße und -position speichern",false));
- list_Ober.push_back(st_Ober(AutoShrink,"Fenster automatisch verkleinern",false));
- list_Ober.push_back(st_Ober(Bilder,"Bilder anzeigen",true));
+// list_Ober.push_back(st_Ober(AutoShrink,"Fenster automatisch verkleinern",false));
+ list_Ober.push_back(st_Ober(Bilder,"Hintergrundbilder",true));
  list_Ober.push_back(st_Ober(Menueleiste,"Menüleiste",true));
  list_Ober.push_back(st_Ober(Knopfleiste,"Knopfleiste",true));
  list_Ober.push_back(st_Ober(Customize_Icons,"Icons anzeigen",true));
- list_Ober.push_back(st_Ober(Customize_Text,"Text anzeigen",true));
+ list_Ober.push_back(st_Ober(Customize_Text,"Text der Knöpfe anzeigen",true));
  list_Ober.push_back(st_Ober(Customize_Tab,"Text der Reiter anzeigen",true));
- list_Ober.push_back(st_Ober(Icons,"Icons der Knopfleiste",true));
- list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen der Knopfleiste",true));
+// list_Ober.push_back(st_Ober(Icons,"Icons der Knopfleiste",true));
+// list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen der Knopfleiste",true));
  list_Ober.push_back(st_Ober(Status,"Statuszeile",true));
  list_Ober.push_back(st_Ober(NoInfoFenster,"Kein automatisches Öffnen des Infofensters",false,false));
  list_Ober.push_back(st_Ober(BegruessungsFenster,"Automatisches Öffnen des Begrüssungsfensters",true));

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.351 2004/12/16 08:24:52 christof Exp $
+// $Id: midgard_CG.cc,v 1.352 2005/06/22 13:51:20 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -147,8 +147,9 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   else notebook_main->set_current_page(PAGE_GRUNDWERTE);
   
   // Optionen setzen:
-  Ober_setzen_from_menu(0,Magus_Optionen::Customize_Icons);
-  Ober_setzen_from_menu(0,Magus_Optionen::AutoShrink);
+  connect_options();
+//  Ober_setzen_from_menu(0,Magus_Optionen::Customize_Icons);
+//  Ober_setzen_from_menu(0,Magus_Optionen::AutoShrink);
 
   // für die NEWS
   Gtk::OStream os(list_news);

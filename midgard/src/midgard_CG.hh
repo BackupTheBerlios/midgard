@@ -1,6 +1,7 @@
-// $Id: midgard_CG.hh,v 1.351 2004/11/29 13:54:23 christof Exp $
+// $Id: midgard_CG.hh,v 1.352 2005/06/22 13:51:20 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyrihgt (C) 2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -173,6 +174,8 @@ private:
 
 // besser in Einzelfunktionen zerlegen
 	void Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex index);
+	void customize_view(gpointer x);
+	void connect_options();
 
    public:
         midgard_CG(WindowInfo *inf,VAbenteurer::iterator i); // const std::vector<std::string> &dateien);
