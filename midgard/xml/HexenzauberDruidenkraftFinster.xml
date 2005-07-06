@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.14 $" Copyright="Alexander Huiskes" Jahr="1994" MAGUS-Bild="14" MAGUS-Index="11" Maintainer="Malte Thoma" Name="H&amp;D (Finstere Magie)" Region="H&amp;Df" Titel="Hexenzauber und Druidenkraft" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.15 $" Copyright="Alexander Huiskes" Jahr="1994" MAGUS-Bild="14" MAGUS-Index="11" Maintainer="Malte Thoma" Name="H&amp;D (Finstere Magie)" Region="H&amp;Df" Titel="Hexenzauber und Druidenkraft" Version="1.0" offiziell="true">
  <Fertigkeiten/>
  <Berufe/>
  <Schriften/>
@@ -37,16 +37,18 @@
   <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="60" NSC_only="true" Name="Farbensalz" Prozess="verändert" Reagens="Holz" Region="H&amp;Df" Reichweite="500 m" Spruchrolle="true" Typ="Gedanke" Ursprung="finster" Wirkungsbereich="50x50cm" Wirkungsdauer="3 h" Wirkungsziel="Umgebung" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
-   <Standard Typ="To"/>
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PHa"/>
@@ -58,8 +60,11 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
+  </Spruch>
+  <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="1500" Material="Faules Holz" NSC_only="true" Name="Fäulnis" Prozess="zerstört" Reagens="Erde" Region="H&amp;Df" Reichweite="24 m" Typ="Geste" Ursprung="finster" Wirkungsbereich="1 Ob" Wirkungsdauer="var" Wirkungsziel="Umgebung" Zauberdauer="10 s">
+   <Standard Typ="PC"/>
+   <Standard Typ="sHx"/>
+   <Beschreibung>GZ 1. Totes organisches Material verfault rapide. Obst in 2 min, eine Eichentuür in 2 h. Der Zauberer kann nur 3 kg * Grad verfaulen lassen.</Beschreibung>
   </Spruch>
   <Spruch AP="2" Agens="Metall" Grad="2" Lernkosten="200" NSC_only="true" Name="Finsterer Blick" Prozess="verändert" Reagens="Luft" Region="H&amp;Df" Reichweite="12 m" Typ="Gedanke" Ursprung="finster" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberdauer="1 s">
    <Standard Typ="PC"/>
@@ -74,11 +79,6 @@
   <Spruch AP="9" Agens="Metall" Grad="5" Lernkosten="4000" NSC_only="true" Name="Flucht des Geistes" Prozess="verändert" Reagens="Luft" Region="H&amp;Df" Reichweite="0" Typ="Gedanke" Ursprung="finster" Wirkungsbereich="Zauberer" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="10 s">
    <Standard Typ="PC"/>
    <Standard Typ="sHx"/>
-  </Spruch>
-  <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="1500" Material="Faules Holz" NSC_only="true" Name="Fäulnis" Prozess="zerstört" Reagens="Erde" Region="H&amp;Df" Reichweite="24 m" Typ="Geste" Ursprung="finster" Wirkungsbereich="1 Ob" Wirkungsdauer="var" Wirkungsziel="Umgebung" Zauberdauer="10 s">
-   <Standard Typ="PC"/>
-   <Standard Typ="sHx"/>
-   <Beschreibung>GZ 1. Totes organisches Material verfault rapide. Obst in 2 min, eine Eichentuür in 2 h. Der Zauberer kann nur 3 kg * Grad verfaulen lassen.</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Metall" Grad="3" Lernkosten="500" Material="Marder- oder Fledermaus-schädel" NSC_only="true" Name="Geister der Finsternis" Prozess="verändert" Reagens="Luft" Region="H&amp;Df" Reichweite="200 m" Typ="Geste" Ursprung="finster" Wirkungsbereich="0" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberdauer="10 s">
    <Standard Typ="PC"/>
@@ -97,16 +97,18 @@
   <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="60" NSC_only="true" Name="Glühsalz" Prozess="erschafft" Reagens="Feuer" Region="H&amp;Df" Reichweite="500 m" Spruchrolle="true" Typ="Gedanke" Ursprung="finster" Wirkungsdauer="10 s" Wirkungsziel="Umgebung" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
-   <Standard Typ="To"/>
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PHa"/>
@@ -118,8 +120,6 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
   </Spruch>
   <Spruch AP="alle(mind 9)" Agens="Metall" Element="Eis" Grad="5" Lernkosten="3500" NSC_only="true" Name="Höllenbote rufen" Prozess="verändert" Reagens="Luft" Region="H&amp;Df" Reichweite="100 km" Typ="Wort" Ursprung="finster" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Wirkungsziel="Umgebung" Zauberdauer="1 h">
    <Standard Typ="PC"/>

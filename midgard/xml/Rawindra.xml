@@ -1,29 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.19 $" Copyright="Ludger Fischer und Thomas Kreutz" MAGUS-Bild="1" MAGUS-Index="8" Maintainer="Malte Thoma" Name="Rawindra" Region="R" Titel="Rawindra - Im Bann der Todesechsen" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.20 $" Copyright="Ludger Fischer und Thomas Kreutz" MAGUS-Bild="1" MAGUS-Index="8" Maintainer="Malte Thoma" Name="Rawindra" Region="R" Titel="Rawindra - Im Bann der Todesechsen" Version="1.0" offiziell="true">
  <Fertigkeiten>
   <Fertigkeit Anfangswert="15" Attribut="Gw" Erfolgswert="10" Lernkosten="1000" Lernpunkte="6" MaximalMitUnterweisung="18" Maximalwert="18" Name="Elefanten lenken" Region="R">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
    <Ausnahme Typ="As"/>
+   <Ausnahme Typ="Ba"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
-   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ny"/>
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="PC"/>
@@ -40,19 +43,16 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="Sk"/>
-   <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
    <Ausnahme Typ="Wa"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gw="31" Sb="31"/>
    <regionaleBesonderheit Herkunft="Minangpahit" Standard="G" Typ="BW"/>
@@ -72,12 +72,14 @@
   </Fertigkeit>
   <Fertigkeit Anfangswert="1" Attribut="Sb" Berufskategorie="2" Erfolgswert="1" Lernkosten="1500" Lernpunkte="6" MaximalMitUnterweisung="18" Maximalwert="18" Name="Askese" Region="R">
    <Grund Typ="Sa"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="eBe"/>
    <Standard Typ="Hl"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="PK"/>
    <Standard Typ="PM"/>
@@ -87,20 +89,19 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Sw"/>
+   <Standard Typ="tBe"/>
    <Standard Typ="Th"/>
    <Standard Typ="Tt"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
-   <Standard Typ="tBe"/>
    <Ausnahme Typ="As"/>
+   <Ausnahme Typ="Ba"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
-   <Ausnahme Typ="Ba"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Gl"/>
-   <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Mg"/>
@@ -112,15 +113,14 @@
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Ru"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Wa"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Sb="61"/>
    <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Sa"/>
@@ -141,27 +141,27 @@
    <Grund Typ="PW"/>
    <Grund Typ="Th"/>
    <Standard Typ="Ba"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="Hä"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Hl"/>
-   <Standard Typ="Hä"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Mg"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
+   <Standard Typ="sHx"/>
    <Standard Typ="Sk"/>
    <Standard Typ="Sw"/>
-   <Standard Typ="Tt"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
-   <Standard Typ="gHx"/>
-   <Standard Typ="sHx"/>
    <Standard Typ="tBe"/>
+   <Standard Typ="Tt"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="As"/>
    <Ausnahme Typ="BN"/>
@@ -178,9 +178,9 @@
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Ru"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Wa"/>
@@ -193,23 +193,26 @@
   </Fertigkeit>
   <Fertigkeit Anfangswert="15" Erfolgswert="12" Lernkosten="200" MaximalMitUnterweisung="18" Maximalwert="18" Name="Augensalbe herstellen" Region="R">
    <Standard Typ="As"/>
+   <Standard Typ="Ba"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
    <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="eBe"/>
    <Standard Typ="Fi"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Gl"/>
+   <Standard Typ="Hä"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Hl"/>
-   <Standard Typ="Hä"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ny"/>
    <Standard Typ="Or"/>
    <Standard Typ="PC"/>
@@ -227,21 +230,18 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Se"/>
+   <Standard Typ="sHx"/>
    <Standard Typ="Sk"/>
+   <Standard Typ="Sö"/>
    <Standard Typ="Sp"/>
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
-   <Standard Typ="Sö"/>
+   <Standard Typ="tBe"/>
    <Standard Typ="Th"/>
    <Standard Typ="To"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
    <Standard Typ="Wa"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
-   <Standard Typ="gHx"/>
-   <Standard Typ="sHx"/>
-   <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
    <Voraussetzungen Fertigkeit="Alchemie, Thaumaturgie" Gw="31"/>
    <Voraussetzungen_2 Name="Alchemie"/>
@@ -254,23 +254,26 @@
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="As"/>
+   <Ausnahme Typ="Ba"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
-   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ny"/>
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="PC"/>
@@ -287,20 +290,17 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sw"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
    <Ausnahme Typ="Wa"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gw="21"/>
    <steigern_wie Fertigkeit="Kampf zu Pferd"/>
@@ -311,23 +311,26 @@
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
    <Ausnahme Typ="As"/>
+   <Ausnahme Typ="Ba"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
-   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ny"/>
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="PC"/>
@@ -344,32 +347,32 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="Sk"/>
-   <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
    <Ausnahme Typ="Wa"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen In="61" Ko="61" Sb="61"/>
    <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Sa"/>
    <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Sr"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="As"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ba"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BN"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BS"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BW"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="dBe"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Gl"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Hä"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Kr"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ma"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Or"/>
@@ -384,15 +387,12 @@
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScN"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScS"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScW"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sp"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="sHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sö"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sp"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Th"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Wa"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="dBe"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="eBe"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="gHx"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="sHx"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="sHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="wHx"/>
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ ZEP="true"/>
@@ -412,18 +412,21 @@
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ny"/>
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="Ri"/>
@@ -435,19 +438,16 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
    <Ausnahme Typ="Wa"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Fertigkeit="Tanzen" Gw="61" Sb="31" pA="61"/>
    <Voraussetzungen_2 Name="Tanzen"/>
@@ -467,22 +467,25 @@
    <Grund Typ="Sa"/>
    <Standard Typ="Sw"/>
    <Ausnahme Typ="As"/>
+   <Ausnahme Typ="Ba"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
-   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kr"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -498,26 +501,26 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
    <Ausnahme Typ="Wa"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Fertigkeit="Musizieren" Gw="61" Sb="31"/>
    <Voraussetzungen_2 Name="Musizieren"/>
    <Lernschema Lernpunkte="1" Typ="Sa"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="dBe"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ma"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PC"/>
@@ -529,11 +532,8 @@
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScN"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScS"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScW"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Th"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="dBe"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="eBe"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Th"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="wHx"/>
    <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
@@ -543,23 +543,26 @@
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
    <Ausnahme Typ="As"/>
+   <Ausnahme Typ="Ba"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
-   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ny"/>
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="PC"/>
@@ -575,32 +578,32 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="Sk"/>
-   <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
    <Ausnahme Typ="Wa"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Sb="81"/>
    <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sa"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="As"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ba"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BN"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BS"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BW"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ba"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="dBe"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Gl"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Hä"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Kr"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ma"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Or"/>
@@ -614,14 +617,11 @@
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScS"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScW"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Se"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="sHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sö"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sr"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Th"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Wa"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="dBe"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="eBe"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="gHx"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="sHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="wHx"/>
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ ZEP="true"/>
@@ -630,23 +630,26 @@
    <Grund Typ="Sr"/>
    <Standard Typ="Sw"/>
    <Ausnahme Typ="As"/>
+   <Ausnahme Typ="Ba"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
-   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Gl"/>
+   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="Hä"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="Mg"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ny"/>
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="PC"/>
@@ -664,19 +667,16 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="Sk"/>
-   <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="Sp"/>
+   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
    <Ausnahme Typ="Wa"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gw="31" Sb="61"/>
    <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Sr"/>
@@ -755,6 +755,10 @@
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
   </Fertigkeit>
+  <Fertigkeit Name="Fälschen">
+   <Ausnahme Typ="Sa"/>
+   <Ausnahme Typ="Sr"/>
+  </Fertigkeit>
   <Fertigkeit Name="Fangen">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
@@ -766,10 +770,6 @@
   <Fertigkeit Name="Fechten tevarrischer Stil">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Fälschen">
-   <Ausnahme Typ="Sa"/>
-   <Ausnahme Typ="Sr"/>
   </Fertigkeit>
   <Fertigkeit Name="Gassenwissen">
    <Standard Typ="Sa"/>
@@ -820,6 +820,11 @@
    <Standard Typ="Sr"/>
    <Lernschema Erfolgswert="15" Lernpunkte="4" Typ="Sr"/>
   </Fertigkeit>
+  <Fertigkeit Name="Kampftaktik">
+   <Grund Typ="Sa"/>
+   <Standard Typ="Sr"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Sr"/>
+  </Fertigkeit>
   <Fertigkeit Name="Kampf vom Streitwagen">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
@@ -827,11 +832,6 @@
   <Fertigkeit Name="Kampf zu Pferd">
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Kampftaktik">
-   <Grund Typ="Sa"/>
-   <Standard Typ="Sr"/>
-   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Sr"/>
   </Fertigkeit>
   <Fertigkeit Name="Katapult bedienen">
    <Standard Typ="Sr"/>
@@ -868,7 +868,10 @@
    <Grund Typ="Sr"/>
    <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Sa"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="dBe"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ma"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PC"/>
@@ -880,11 +883,8 @@
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScN"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScS"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScW"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Th"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="dBe"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="eBe"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Th"/>
    <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="wHx"/>
   </Fertigkeit>
   <Fertigkeit Name="Menschenkenntnis">
@@ -933,6 +933,10 @@
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
   </Fertigkeit>
+  <Fertigkeit Name="Schätzen">
+   <Standard Typ="Sa"/>
+   <Standard Typ="Sr"/>
+  </Fertigkeit>
   <Fertigkeit Name="Schauspielern">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
@@ -968,10 +972,6 @@
   <Fertigkeit Name="Schwimmen">
    <Grund Typ="Sa"/>
    <Grund Typ="Sr"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Schätzen">
-   <Standard Typ="Sa"/>
-   <Standard Typ="Sr"/>
   </Fertigkeit>
   <Fertigkeit Name="Seemannsgang">
    <Standard Typ="Sr"/>
@@ -1045,6 +1045,34 @@
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
   </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Dschungel">
+   <Standard Typ="Sa"/>
+   <Standard Typ="Sr"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Gebirge">
+   <Standard Typ="Sa"/>
+   <Standard Typ="Sr"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Schnee">
+   <Standard Typ="Sa"/>
+   <Standard Typ="Sr"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Sumpf">
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="Sa"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Wald">
+   <Standard Typ="Sa"/>
+   <Standard Typ="Sr"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben in der Steppe">
+   <Standard Typ="Sa"/>
+   <Standard Typ="Sr"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben in der Wüste">
+   <Standard Typ="Sa"/>
+   <Standard Typ="Sr"/>
+  </Fertigkeit>
   <Fertigkeit Name="Verbergen">
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
@@ -1085,34 +1113,6 @@
   <Fertigkeit Name="Zeichensprache">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Dschungel">
-   <Standard Typ="Sa"/>
-   <Standard Typ="Sr"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Gebirge">
-   <Standard Typ="Sa"/>
-   <Standard Typ="Sr"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Schnee">
-   <Standard Typ="Sa"/>
-   <Standard Typ="Sr"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Sumpf">
-   <Standard Typ="Sr"/>
-   <Ausnahme Typ="Sa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Wald">
-   <Standard Typ="Sa"/>
-   <Standard Typ="Sr"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben in der Steppe">
-   <Standard Typ="Sa"/>
-   <Standard Typ="Sr"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben in der Wüste">
-   <Standard Typ="Sa"/>
-   <Standard Typ="Sr"/>
   </Fertigkeit>
   <Fertigkeit Name="Brettspiel" Region="E">
    <Standard Typ="Sa"/>
@@ -1334,15 +1334,15 @@
    <Lernkosten/>
    <Voraussetzungen_W Name="waffenloser Kampf"/>
    <Grund Typ="As"/>
+   <Standard Typ="Ba"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
    <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
    <Standard Typ="Er"/>
    <Standard Typ="Fi"/>
    <Standard Typ="Gl"/>
-   <Standard Typ="Hj"/>
    <Standard Typ="Hä"/>
+   <Standard Typ="Hj"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Km"/>
    <Standard Typ="Kr"/>
@@ -1356,19 +1356,22 @@
    <Standard Typ="Ru"/>
    <Standard Typ="Se"/>
    <Standard Typ="Sk"/>
+   <Standard Typ="Sö"/>
    <Standard Typ="Sp"/>
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
-   <Standard Typ="Sö"/>
    <Standard Typ="Tm"/>
    <Standard Typ="To"/>
    <Standard Typ="Wa"/>
    <Standard Typ="Wi"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PK"/>
@@ -1379,11 +1382,8 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="Th"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
   <Waffe Name="Anderthalbhänder">
@@ -1438,6 +1438,10 @@
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Waffe>
+  <Waffe Name="gro�&#x9F;er Schild">
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="Sa"/>
+  </Waffe>
   <Waffe Name="Handarmbrust">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
@@ -1467,6 +1471,10 @@
    <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Kharrata">
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="Sa"/>
+  </Waffe>
+  <Waffe Name="kleiner Schild">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Waffe>
@@ -1523,6 +1531,15 @@
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Waffe>
+  <Waffe Name="leichte Armbrust">
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="Sa"/>
+  </Waffe>
+  <Waffe Name="leichter Speer">
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="Sa"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
+  </Waffe>
   <Waffe Name="Morgenstern">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
@@ -1560,6 +1577,10 @@
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Waffe>
+  <Waffe Name="schwere Armbrust">
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="Sa"/>
+  </Waffe>
   <Waffe Name="Skhallanta">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
@@ -1594,6 +1615,11 @@
   <Waffe Name="Streitkolben">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
+  </Waffe>
+  <Waffe Name="waffenloser Kampf">
+   <Standard Typ="Sr"/>
+   <Ausnahme Typ="Sa"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sa"/>
   </Waffe>
   <Waffe Name="Werfen">
    <Standard Typ="Sr"/>
@@ -1640,32 +1666,6 @@
    <regionaleVariante Name="Tschakram" Region="R" Schaden="W6" Schadensbonus="-3"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-  </Waffe>
-  <Waffe Name="gro�&#x9F;er Schild">
-   <Standard Typ="Sr"/>
-   <Ausnahme Typ="Sa"/>
-  </Waffe>
-  <Waffe Name="kleiner Schild">
-   <Standard Typ="Sr"/>
-   <Ausnahme Typ="Sa"/>
-  </Waffe>
-  <Waffe Name="leichte Armbrust">
-   <Standard Typ="Sr"/>
-   <Ausnahme Typ="Sa"/>
-  </Waffe>
-  <Waffe Name="leichter Speer">
-   <Standard Typ="Sr"/>
-   <Ausnahme Typ="Sa"/>
-   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
-  </Waffe>
-  <Waffe Name="schwere Armbrust">
-   <Standard Typ="Sr"/>
-   <Ausnahme Typ="Sa"/>
-  </Waffe>
-  <Waffe Name="waffenloser Kampf">
-   <Standard Typ="Sr"/>
-   <Ausnahme Typ="Sa"/>
-   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sa"/>
   </Waffe>
   <Waffe Name="Pilum" Region="3">
    <Standard Typ="Sr"/>
@@ -1719,15 +1719,15 @@
  <Waffen-Grundkenntnisse>
   <Waffen-Grundkenntnis Kosten="200" Name="Kharrata" Region="R">
    <Grund Typ="As"/>
+   <Standard Typ="Ba"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
    <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
    <Standard Typ="Er"/>
    <Standard Typ="Fi"/>
    <Standard Typ="Gl"/>
-   <Standard Typ="Hj"/>
    <Standard Typ="Hä"/>
+   <Standard Typ="Hj"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Km"/>
    <Standard Typ="Kr"/>
@@ -1741,19 +1741,22 @@
    <Standard Typ="Ru"/>
    <Standard Typ="Se"/>
    <Standard Typ="Sk"/>
+   <Standard Typ="Sö"/>
    <Standard Typ="Sp"/>
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
-   <Standard Typ="Sö"/>
    <Standard Typ="Tm"/>
    <Standard Typ="To"/>
    <Standard Typ="Wa"/>
    <Standard Typ="Wi"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PK"/>
@@ -1764,24 +1767,21 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="Th"/>
    <Ausnahme Typ="wHx"/>
   </Waffen-Grundkenntnis>
   <Waffen-Grundkenntnis Kosten="200" Name="Namisritra" Region="R">
    <Grund Typ="As"/>
+   <Standard Typ="Ba"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
    <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
    <Standard Typ="Er"/>
    <Standard Typ="Fi"/>
    <Standard Typ="Gl"/>
-   <Standard Typ="Hj"/>
    <Standard Typ="Hä"/>
+   <Standard Typ="Hj"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Km"/>
    <Standard Typ="Kr"/>
@@ -1795,19 +1795,22 @@
    <Standard Typ="Ru"/>
    <Standard Typ="Se"/>
    <Standard Typ="Sk"/>
+   <Standard Typ="Sö"/>
    <Standard Typ="Sp"/>
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
-   <Standard Typ="Sö"/>
    <Standard Typ="Tm"/>
    <Standard Typ="To"/>
    <Standard Typ="Wa"/>
    <Standard Typ="Wi"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PK"/>
@@ -1818,11 +1821,8 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="Th"/>
    <Ausnahme Typ="wHx"/>
   </Waffen-Grundkenntnis>
   <Waffen-Grundkenntnis Name="Armbrust">
@@ -1942,24 +1942,24 @@
   <Spruch AP="6" Agens="Magan" Grad="5" Lernkosten="6000" Name="Der gro�&#x9F;e Seiltrick" Prozess="bewegt" Reagens="Erde" Region="R" Reichweite="0 m" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Umgebung" Zauberdauer="-">
    <Grund Typ="Ba"/>
    <Grund Typ="Sa"/>
-   <Standard Typ="To"/>
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch AP="4" Agens="Magan" Grad="4" Lernkosten="1600" Name="Der kleine Seiltrick" Prozess="bewegt" Reagens="Erde" Region="R" Reichweite="500 m" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="5 min" Wirkungsziel="Umgebung" Zauberdauer="-">
    <Grund Typ="Ba"/>
    <Grund Typ="Sa"/>
-   <Standard Typ="To"/>
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch AP="4" Agens="Holz" Grad="4" Lernkosten="1500" Name="Götterarme" Prozess="verändert" Reagens="Erde" Region="R" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="Z" Wirkungsdauer="10 min" Wirkungsziel="Körper" Zauberdauer="10 s">
    <Standard Typ="Sa"/>
@@ -1967,13 +1967,16 @@
   </Spruch>
   <Spruch AP="4" Agens="Luft" Grad="4" Lernkosten="1500" Name="Levitation" Prozess="bewegt" Reagens="Erde" Region="R" Reichweite="-" Typ="Gedanke" Ursprung="göttlich" Wirkungsbereich="Z" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberdauer="20 s">
    <Grund Typ="Sa"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
    <Standard Typ="PHa"/>
@@ -1985,14 +1988,11 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
+   <Standard Typ="sHx"/>
    <Standard Typ="Sw"/>
+   <Standard Typ="tBe"/>
    <Standard Typ="Th"/>
    <Standard Typ="To"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
-   <Standard Typ="gHx"/>
-   <Standard Typ="sHx"/>
-   <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="8" Typ="Sa"/>
   </Spruch>
@@ -2043,9 +2043,9 @@
    <Grund Typ="PT"/>
    <Grund Typ="PW"/>
    <Grund Typ="Sa"/>
-   <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="To"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
   <Spruch AP="SGr*2" Agens="Magan" Grad="2" Lernkosten="400" Name="Srimarameisterschaft I" Prozess="beherrscht" Reagens="Wasser" Region="R" Reichweite="30 m" Thaumagramm="Siegel" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="Gr Ws" Wirkungsdauer="var h" Wirkungsziel="Geist" Zauberdauer="10 s">
@@ -2053,11 +2053,11 @@
    <Standard Typ="Dr"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="sHx"/>
-   <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="To"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
   <Spruch AP="SGr*3" Agens="Magan" Grad="3" Lernkosten="600" Name="Srimarameisterschaft II" Prozess="beherrscht" Reagens="Luft" Region="R" Reichweite="30 m" Thaumagramm="Siegel" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="Gr Ws" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="20 s">
@@ -2065,11 +2065,11 @@
    <Standard Typ="Dr"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="sHx"/>
-   <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="To"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
   <Spruch AP="18" Agens="Element" Grad="6" Lernkosten="6000" Name="Wandlung" Prozess="verwandelt" Reagens="Erde" Region="R" Reichweite="-" Typ="Gedanke" Ursprung="elementar" Wirkungsbereich="Z" Wirkungsdauer="6 h" Wirkungsziel="Körper" Zauberdauer="10 sec">
@@ -2133,6 +2133,9 @@
    <Grund Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Bärenwut">
+   <Grund Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Baumkämpfer">
    <Standard Typ="Sa"/>
   </Spruch>
@@ -2145,12 +2148,12 @@
   <Spruch Name="Belebungshauch">
    <Ausnahme Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Besänftigen">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Beschleunigen">
    <Grund Typ="Sr"/>
    <Standard Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Besänftigen">
-   <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Bittersalz">
    <Ausnahme Typ="Sa"/>
@@ -2168,11 +2171,11 @@
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
   </Spruch>
-  <Spruch Name="Bärenwut">
-   <Grund Typ="Sa"/>
-  </Spruch>
   <Spruch Name="Böser Blick">
    <Ausnahme Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Dämonenfeuer">
+   <Standard Typ="Sa"/>
   </Spruch>
   <Spruch Name="Deckmantel">
    <Ausnahme Typ="Sa"/>
@@ -2185,9 +2188,6 @@
   </Spruch>
   <Spruch Name="Durstsalz">
    <Ausnahme Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Dämonenfeuer">
-   <Standard Typ="Sa"/>
   </Spruch>
   <Spruch Name="Eisenhaut">
    <Grund Typ="Sr"/>
@@ -2246,6 +2246,9 @@
   </Spruch>
   <Spruch Name="Erscheinungen">
    <Standard Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Färbersalz">
+   <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Feenfluch">
    <Ausnahme Typ="Sa"/>
@@ -2306,9 +2309,6 @@
   <Spruch Name="Funkensalz">
    <Ausnahme Typ="Sa"/>
   </Spruch>
-  <Spruch Name="Färbersalz">
-   <Ausnahme Typ="Sa"/>
-  </Spruch>
   <Spruch Name="Geas">
    <Standard Typ="Sa"/>
   </Spruch>
@@ -2322,28 +2322,28 @@
    <Grund Typ="Sr"/>
    <Lernschema Lernpunkte="8" Typ="Sr"/>
   </Spruch>
-  <Spruch Name="Graue Hand">
-   <Standard Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Grüne Hand">
-   <Ausnahme Typ="Sa"/>
-  </Spruch>
   <Spruch Name="Göttliche Eingebung">
    <Grund Typ="Sr"/>
   </Spruch>
-  <Spruch Name="Göttliche Strafe">
-   <Grund Typ="Sa"/>
-   <Standard Typ="Sr"/>
-  </Spruch>
   <Spruch Name="Göttlicher Blitz">
+   <Grund Typ="Sr"/>
+  </Spruch>
+  <Spruch Name="Göttlicher Schutz vor dem Bösen">
    <Grund Typ="Sr"/>
   </Spruch>
   <Spruch Name="Göttlicher Schutz vor Magie">
    <Grund Typ="Sr"/>
    <Lernschema Lernpunkte="8" Typ="Sr"/>
   </Spruch>
-  <Spruch Name="Göttlicher Schutz vor dem Bösen">
-   <Grund Typ="Sr"/>
+  <Spruch Name="Göttliche Strafe">
+   <Grund Typ="Sa"/>
+   <Standard Typ="Sr"/>
+  </Spruch>
+  <Spruch Name="Graue Hand">
+   <Standard Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Grüne Hand">
+   <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Haarsalz">
    <Ausnahme Typ="Sa"/>
@@ -2383,12 +2383,6 @@
   <Spruch Name="Hitzsalz">
    <Ausnahme Typ="Sa"/>
   </Spruch>
-  <Spruch Name="Hort der Natur">
-   <Grund Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Hungersalz">
-   <Ausnahme Typ="Sa"/>
-  </Spruch>
   <Spruch Name="Hören der Geister">
    <Grund Typ="Sa"/>
   </Spruch>
@@ -2399,11 +2393,21 @@
    <Grund Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Hort der Natur">
+   <Grund Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Hungersalz">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Jucksalz">
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Juwelenauge">
    <Ausnahme Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Kälteschutz">
+   <Grund Typ="Sa"/>
+   <Lernschema Lernpunkte="1" Typ="Sa"/>
   </Spruch>
   <Spruch Name="Knochenbestie">
    <Grund Typ="Sa"/>
@@ -2411,14 +2415,13 @@
   <Spruch Name="Kraft entziehen">
    <Standard Typ="Sa"/>
   </Spruch>
-  <Spruch Name="Kälteschutz">
-   <Grund Typ="Sa"/>
-   <Lernschema Lernpunkte="1" Typ="Sa"/>
-  </Spruch>
   <Spruch Name="Kühlsalz">
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Lachsalz">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Lähmung">
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Liebeszauber">
@@ -2431,13 +2434,26 @@
   <Spruch Name="Liniensicht">
    <Standard Typ="Sa"/>
   </Spruch>
-  <Spruch Name="Lähmung">
-   <Ausnahme Typ="Sa"/>
-  </Spruch>
   <Spruch Name="Löschsalz">
    <Ausnahme Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Macht über das Selbst">
+   <Standard Typ="Sr"/>
+  </Spruch>
+  <Spruch Name="Macht über den Tod">
+   <Standard Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Macht über die belebte Natur">
+   <Standard Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Macht über die Sinne">
+   <Grund Typ="Sa"/>
+   <Lernschema Lernpunkte="2" Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Macht über Leben">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Macht über magische Wesen">
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Macht über Menschen">
@@ -2446,22 +2462,6 @@
   <Spruch Name="Macht über Unbelebtes">
    <Grund Typ="Sa"/>
    <Lernschema Lernpunkte="2" Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Macht über das Selbst">
-   <Standard Typ="Sr"/>
-  </Spruch>
-  <Spruch Name="Macht über den Tod">
-   <Standard Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Macht über die Sinne">
-   <Grund Typ="Sa"/>
-   <Lernschema Lernpunkte="2" Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Macht über die belebte Natur">
-   <Standard Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Macht über magische Wesen">
-   <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Magischer Kreis des Widerstehens">
    <Standard Typ="Sa"/>
@@ -2549,6 +2549,9 @@
    <Grund Typ="Sr"/>
    <Standard Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Schwäche">
+   <Grund Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Schwarze Zone">
    <Standard Typ="Sa"/>
   </Spruch>
@@ -2556,9 +2559,6 @@
    <Standard Typ="Sa"/>
   </Spruch>
   <Spruch Name="Schwingenkeule">
-   <Grund Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Schwäche">
    <Grund Typ="Sa"/>
   </Spruch>
   <Spruch Name="Seelenkompa�&#x9F;">
@@ -2577,6 +2577,9 @@
   </Spruch>
   <Spruch Name="Spruch intensivieren">
    <Standard Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Stärke">
+   <Grund Typ="Sa"/>
   </Spruch>
   <Spruch Name="Staubkämpfer">
    <Ausnahme Typ="Sa"/>
@@ -2603,9 +2606,6 @@
    <Standard Typ="Sa"/>
   </Spruch>
   <Spruch Name="Sturmwind">
-   <Grund Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Stärke">
    <Grund Typ="Sa"/>
   </Spruch>
   <Spruch Name="Sumpfboden">
@@ -2782,6 +2782,9 @@
   <Spruch Name="Wundersame Tarnung">
    <Standard Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Zähmen">
+   <Grund Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Zaubermacht">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
@@ -2805,17 +2808,14 @@
   <Spruch Name="Zielsuche">
    <Grund Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Zündersalz">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Zweite Haut">
    <Standard Typ="Sa"/>
   </Spruch>
   <Spruch Name="Zwiesprache">
    <Standard Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Zähmen">
-   <Grund Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Zündersalz">
-   <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Bannen von Dunebargen" Region="3">
    <Ausnahme Typ="Sa"/>
@@ -2877,6 +2877,15 @@
   <Spruch Name="Coluscar 4 beschwören" Region="3">
    <Ausnahme Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Dämonenbann" Region="3">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Dämonen binden" Region="3">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Dämonenschar beschwören" Region="3">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Dschinn beschwören" Region="3">
    <Ausnahme Typ="Sa"/>
   </Spruch>
@@ -2899,15 +2908,6 @@
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Dunskrat beschwören" Region="3">
-   <Ausnahme Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Dämonen binden" Region="3">
-   <Ausnahme Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Dämonenbann" Region="3">
-   <Ausnahme Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Dämonenschar beschwören" Region="3">
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Eiselementargeist beschwören" Region="3">
@@ -3033,13 +3033,13 @@
   <Spruch Name="Jokulskadi beschwören" Region="3">
    <Ausnahme Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Jördmand beschwören" Region="3">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Jurugu beschwören" Region="3">
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Jurugu rufen" Region="3">
-   <Ausnahme Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Jördmand beschwören" Region="3">
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Kaligin 1 beschwören" Region="3">
@@ -3123,13 +3123,13 @@
   <Spruch Name="Saeldverg beschwören" Region="3">
    <Ausnahme Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Schutzkreis gegen Dämonen" Region="3">
+   <Ausnahme Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Schutzkreis gegen Dunebargen" Region="3">
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Dvergar" Region="3">
-   <Ausnahme Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Schutzkreis gegen Dämonen" Region="3">
    <Ausnahme Typ="Sa"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Elementarwesen" Region="3">
@@ -3268,12 +3268,6 @@
   <Spruch Name="Mumie erwecken" Region="E">
    <Standard Typ="Sa"/>
   </Spruch>
-  <Spruch Name="Sa rauben" Region="E">
-   <Standard Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Sa spenden" Region="E">
-   <Standard Typ="Sa"/>
-  </Spruch>
   <Spruch Name="Sadik es-Sidiki" Region="E">
    <Standard Typ="Sa"/>
   </Spruch>
@@ -3281,6 +3275,12 @@
    <Standard Typ="Sa"/>
   </Spruch>
   <Spruch Name="Sandmeisterschaft" Region="E">
+   <Standard Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Sa rauben" Region="E">
+   <Standard Typ="Sa"/>
+  </Spruch>
+  <Spruch Name="Sa spenden" Region="E">
    <Standard Typ="Sa"/>
   </Spruch>
   <Spruch Name="Seelenraub" Region="E">
@@ -3319,6 +3319,9 @@
   <Spruch Name="Bannen von Fäulnis" Region="H&amp;D">
    <Ausnahme Typ="Sa"/>
   </Spruch>
+  <Spruch Name="Bärenstärke" Region="H&amp;D">
+   <Grund Typ="Sa"/>
+  </Spruch>
   <Spruch Name="Baumtor" Region="H&amp;D">
    <Grund Typ="Sa"/>
   </Spruch>
@@ -3330,9 +3333,6 @@
   </Spruch>
   <Spruch Name="Bruchbann" Region="H&amp;D">
    <Ausnahme Typ="Sa"/>
-  </Spruch>
-  <Spruch Name="Bärenstärke" Region="H&amp;D">
-   <Grund Typ="Sa"/>
   </Spruch>
   <Spruch Name="Fiebersalz" Region="H&amp;D">
    <Ausnahme Typ="Sa"/>

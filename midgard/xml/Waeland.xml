@@ -1,9 +1,10 @@
 ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.17 $" Copyright="Olaf MÃ¶hle, Stephanie Lammers u.a." Jahr="1991-1997" MAGUS-Bild="7" MAGUS-Index="9" Maintainer="Malte Thoma" Name="Waeland" Region="W" Titel="Waeland - Die Krieger des Nordens" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.18 $" Copyright="Olaf MÃ¶hle, Stephanie Lammers u.a." Jahr="1991-1997" MAGUS-Bild="7" MAGUS-Index="9" Maintainer="Malte Thoma" Name="Waeland" Region="W" Titel="Waeland - Die Krieger des Nordens" Version="1.0" offiziell="true">
  <Fertigkeiten>
   <Fertigkeit Anfangswert="12" Attribut="In" Erfolgswert="6" Lernkosten="20" MaximalMitUnterweisung="15" Maximalwert="18" Name="Lesen von Zauberrunen" Region="W">
    <Grund Typ="De"/>
+   <Grund Typ="gHx"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
    <Grund Typ="PHa"/>
@@ -16,24 +17,23 @@
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
+   <Grund Typ="sHx"/>
    <Grund Typ="Sk"/>
    <Grund Typ="Th"/>
    <Grund Typ="Tt"/>
-   <Grund Typ="gHx"/>
-   <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
    <Standard Typ="Ba"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="eBe"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Hl"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Sa"/>
    <Standard Typ="Sw"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
    <Ausnahme Typ="As"/>
    <Ausnahme Typ="BN"/>
@@ -53,9 +53,9 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Se"/>
+   <Ausnahme Typ="SÃ¶"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="SÃ¶"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
@@ -137,6 +137,10 @@
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Fertigkeit>
+  <Fertigkeit Name="FÃ¤lschen">
+   <Standard Typ="Sk"/>
+   <Ausnahme Typ="Ru"/>
+  </Fertigkeit>
   <Fertigkeit Name="Fangen">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
@@ -148,10 +152,6 @@
   <Fertigkeit Name="Fechten tevarrischer Stil">
    <Grund Typ="Sk"/>
    <Standard Typ="Ru"/>
-  </Fertigkeit>
-  <Fertigkeit Name="FÃ¤lschen">
-   <Standard Typ="Sk"/>
-   <Ausnahme Typ="Ru"/>
   </Fertigkeit>
   <Fertigkeit Name="Gassenwissen">
    <Standard Typ="Ru"/>
@@ -205,6 +205,10 @@
    <Standard Typ="Ru"/>
    <Ausnahme Typ="Sk"/>
   </Fertigkeit>
+  <Fertigkeit Name="Kampftaktik">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
   <Fertigkeit Name="Kampf vom Streitwagen">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
@@ -212,10 +216,6 @@
   <Fertigkeit Name="Kampf zu Pferd">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Kampftaktik">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Katapult bedienen">
    <Standard Typ="Ru"/>
@@ -293,6 +293,10 @@
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Fertigkeit>
+  <Fertigkeit Name="SchÃ¤tzen">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
   <Fertigkeit Name="Schauspielern">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
@@ -329,10 +333,6 @@
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
    <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Ru"/>
-  </Fertigkeit>
-  <Fertigkeit Name="SchÃ¤tzen">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Seemannsgang">
    <Standard Typ="Ru"/>
@@ -403,6 +403,34 @@
    <Grund Typ="Sk"/>
    <Standard Typ="Ru"/>
   </Fertigkeit>
+  <Fertigkeit Name="Ã&#x9C;berleben im Dschungel">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ã&#x9C;berleben im Gebirge">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ã&#x9C;berleben im Schnee">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ã&#x9C;berleben im Sumpf">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ã&#x9C;berleben im Wald">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ã&#x9C;berleben in der Steppe">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ã&#x9C;berleben in der WÃ¼ste">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Fertigkeit>
   <Fertigkeit Name="Verbergen">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
@@ -441,34 +469,6 @@
    <Standard Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Zeichensprache">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Ã&#x9C;berleben im Dschungel">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Ã&#x9C;berleben im Gebirge">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Ã&#x9C;berleben im Schnee">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Ã&#x9C;berleben im Sumpf">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Ã&#x9C;berleben im Wald">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Ã&#x9C;berleben in der Steppe">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Ã&#x9C;berleben in der WÃ¼ste">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Fertigkeit>
@@ -731,6 +731,12 @@
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Waffe>
+  <Waffe Name="groÃ&#x9F;er Schild">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Ru"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Sk"/>
+  </Waffe>
   <Waffe Name="Handarmbrust">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
@@ -756,6 +762,10 @@
    <Standard Typ="Sk"/>
   </Waffe>
   <Waffe Name="Kharrata">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="kleiner Schild">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Waffe>
@@ -801,6 +811,16 @@
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Waffe>
+  <Waffe Name="leichte Armbrust">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="leichter Speer">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Ru"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sk"/>
+  </Waffe>
   <Waffe Name="Magierstab">
    <Ausnahme Typ="Ru"/>
   </Waffe>
@@ -845,6 +865,10 @@
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Waffe>
+  <Waffe Name="schwere Armbrust">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
   <Waffe Name="Skhallanta">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
@@ -876,6 +900,10 @@
    <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sk"/>
   </Waffe>
   <Waffe Name="Streitkolben">
+   <Standard Typ="Ru"/>
+   <Standard Typ="Sk"/>
+  </Waffe>
+  <Waffe Name="waffenloser Kampf">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Waffe>
@@ -922,34 +950,6 @@
    <Standard Typ="Sk"/>
   </Waffe>
   <Waffe Name="Wurfstern">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Waffe>
-  <Waffe Name="groÃ&#x9F;er Schild">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Ru"/>
-   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Sk"/>
-  </Waffe>
-  <Waffe Name="kleiner Schild">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Waffe>
-  <Waffe Name="leichte Armbrust">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Waffe>
-  <Waffe Name="leichter Speer">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Ru"/>
-   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sk"/>
-  </Waffe>
-  <Waffe Name="schwere Armbrust">
-   <Standard Typ="Ru"/>
-   <Standard Typ="Sk"/>
-  </Waffe>
-  <Waffe Name="waffenloser Kampf">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
   </Waffe>
@@ -1210,13 +1210,13 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch AP="5" Agens="Magan" Grad="4" Lernkosten="1200" Material="Klingenwaffe, eigenes blut" Name="Klingenrune" Prozess="verÃ¤ndert" Reagens="Metall" Region="W" Reichweite="B" Typ="Geste" Ursprung="gÃ¶ttlich" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="10 min">
+  <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="100" Material="Seehundknochen" Name="KÃ¤lterune" Prozess="verÃ¤ndert" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="gÃ¶ttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="24 h" Wirkungsziel="KÃ¶rper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
    <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
    <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="100" Material="Seehundknochen" Name="KÃ¤lterune" Prozess="verÃ¤ndert" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="gÃ¶ttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="24 h" Wirkungsziel="KÃ¶rper" Zauberart="Runen" Zauberdauer="30 min">
+  <Spruch AP="5" Agens="Magan" Grad="4" Lernkosten="1200" Material="Klingenwaffe, eigenes blut" Name="Klingenrune" Prozess="verÃ¤ndert" Reagens="Metall" Region="W" Reichweite="B" Typ="Geste" Ursprung="gÃ¶ttlich" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="10 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
    <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
@@ -1232,10 +1232,11 @@
    <Grund Typ="PW"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
    <Standard Typ="PHa"/>
@@ -1246,11 +1247,10 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
+   <Standard Typ="sHx"/>
    <Standard Typ="Sw"/>
    <Standard Typ="Th"/>
    <Standard Typ="To"/>
-   <Standard Typ="gHx"/>
-   <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
   <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Material="StÃ¼ck Espenholz" Name="LÃ¶sungsrune" Prozess="zerstÃ¶rt" Reagens="Magan" Region="W" Reichweite="-" Typ="Geste" Ursprung="gÃ¶ttlich" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
@@ -1402,11 +1402,11 @@
   <Spruch Name="Das Lied der Tapferkeit">
    <Grund Typ="Sk"/>
   </Spruch>
-  <Spruch Name="Das Lied der VerfÃ¼hrung">
-   <Standard Typ="Sk"/>
-  </Spruch>
   <Spruch Name="Das Lied der verborgenen Kraft">
    <Grund Typ="Sk"/>
+  </Spruch>
+  <Spruch Name="Das Lied der VerfÃ¼hrung">
+   <Standard Typ="Sk"/>
   </Spruch>
   <Spruch Name="Das Lied des Erinnerns">
    <Grund Typ="Sk"/>

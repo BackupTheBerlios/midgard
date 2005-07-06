@@ -1,26 +1,29 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.12 $" Copyright="var." Jahr="1981-" MAGUS-Bild="13" MAGUS-Index="12" Maintainer="Malte Thoma" Name="Abenteuer" Region="X" Titel="Abenteuer" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.13 $" Copyright="var." Jahr="1981-" MAGUS-Bild="13" MAGUS-Index="12" Maintainer="Malte Thoma" Name="Abenteuer" Region="X" Titel="Abenteuer" Version="1.0" offiziell="true">
  <Fertigkeiten>
   <Fertigkeit Anfangswert="15" Attribut="Gs" Erfolgswert="10" Lernkosten="60" Lernpunkte="3" Lernpunkte-Land="2" MaximalMitUnterweisung="18" Maximalwert="18" Name="Schlittschuhlaufen" Region="X" RegionZusatz="Smaskrifter">
    <Grund Typ="BN"/>
    <Standard Typ="As"/>
+   <Standard Typ="Ba"/>
    <Standard Typ="BS"/>
    <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="eBe"/>
    <Standard Typ="Fi"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Gl"/>
+   <Standard Typ="Hä"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Hl"/>
-   <Standard Typ="Hä"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ny"/>
    <Standard Typ="Or"/>
    <Standard Typ="PC"/>
@@ -38,21 +41,18 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Se"/>
+   <Standard Typ="sHx"/>
    <Standard Typ="Sk"/>
+   <Standard Typ="Sö"/>
    <Standard Typ="Sp"/>
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
-   <Standard Typ="Sö"/>
+   <Standard Typ="tBe"/>
    <Standard Typ="Th"/>
    <Standard Typ="To"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
    <Standard Typ="Wa"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
-   <Standard Typ="gHx"/>
-   <Standard Typ="sHx"/>
-   <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
    <Voraussetzungen Gw="21"/>
    <steigern_wie Fertigkeit="Bewegung"/>

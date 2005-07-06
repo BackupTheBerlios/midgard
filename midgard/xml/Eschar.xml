@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.22 $" Copyright="Stephanie Lammers" MAGUS-Bild="4" MAGUS-Index="4" Maintainer="Malte Thoma" Name="Eschar" Region="E" Titel="Die Pyramiden von Eschar" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.23 $" Copyright="Stephanie Lammers" MAGUS-Bild="4" MAGUS-Index="4" Maintainer="Malte Thoma" Name="Eschar" Region="E" Titel="Die Pyramiden von Eschar" Version="1.0" offiziell="true">
  <Fertigkeiten>
   <Fertigkeit Anfangswert="4" Attribut="In" Erfolgswert="2" Lernkosten="20" Lernpunkte="1" MaximalMitUnterweisung="18" Maximalwert="18" Name="Brettspiel" Region="E">
    <Grund Typ="Ba"/>
    <Grund Typ="Dr"/>
    <Grund Typ="Dt"/>
    <Grund Typ="Gl"/>
-   <Grund Typ="Hl"/>
    <Grund Typ="Hä"/>
+   <Grund Typ="Hl"/>
    <Grund Typ="Ma"/>
    <Grund Typ="Mg"/>
    <Grund Typ="PC"/>
@@ -20,7 +20,10 @@
    <Grund Typ="Sk"/>
    <Grund Typ="Th"/>
    <Standard Typ="As"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
    <Standard Typ="Fi"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
@@ -33,17 +36,14 @@
    <Standard Typ="Ru"/>
    <Standard Typ="Sa"/>
    <Standard Typ="Se"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="Sö"/>
    <Standard Typ="Sp"/>
    <Standard Typ="Sr"/>
-   <Standard Typ="Sö"/>
+   <Standard Typ="tBe"/>
    <Standard Typ="To"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Wa"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
-   <Standard Typ="gHx"/>
-   <Standard Typ="sHx"/>
-   <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
@@ -68,19 +68,22 @@
    <Grund Typ="ScS"/>
    <Grund Typ="Sö"/>
    <Standard Typ="As"/>
+   <Standard Typ="Ba"/>
    <Standard Typ="BN"/>
    <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="eBe"/>
    <Standard Typ="Fi"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Kd"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
    <Standard Typ="Mg"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ny"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
@@ -96,20 +99,17 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Se"/>
+   <Standard Typ="sHx"/>
    <Standard Typ="Sk"/>
    <Standard Typ="Sp"/>
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
+   <Standard Typ="tBe"/>
    <Standard Typ="Th"/>
    <Standard Typ="To"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
    <Standard Typ="Wa"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
-   <Standard Typ="gHx"/>
-   <Standard Typ="sHx"/>
-   <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
    <Voraussetzungen Gw="31"/>
    <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="De"/>
@@ -143,13 +143,16 @@
    <Standard Typ="Wa"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BW"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PK"/>
@@ -159,15 +162,12 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
+   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="Sw"/>
+   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tt"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Fertigkeit="Kamelreiten" Gw="21"/>
    <Voraussetzungen_2 Name="Kamelreiten"/>
@@ -184,26 +184,28 @@
    <Grund Typ="Tt"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
-   <Standard Typ="MMa"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
    <Standard Typ="PK"/>
    <Standard Typ="PM"/>
    <Standard Typ="PW"/>
-   <Standard Typ="Sw"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="Sw"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="As"/>
+   <Ausnahme Typ="Ba"/>
    <Ausnahme Typ="BN"/>
    <Ausnahme Typ="BS"/>
    <Ausnahme Typ="BW"/>
-   <Ausnahme Typ="Ba"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="Fi"/>
    <Ausnahme Typ="Gl"/>
-   <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Mg"/>
@@ -216,16 +218,14 @@
    <Ausnahme Typ="Sa"/>
    <Ausnahme Typ="Se"/>
    <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
+   <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Wa"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="tBe"/>
    <Voraussetzungen Fertigkeit="Kräuterkunde, Naturkunde" Gw="31" In="31"/>
    <Voraussetzungen_2 Name="Kräuterkunde"/>
    <Voraussetzungen_2 Name="Naturkunde"/>
@@ -243,32 +243,32 @@
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
    <Grund Typ="To"/>
+   <Standard Typ="Ba"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
    <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
-   <Standard Typ="Dt"/>
-   <Standard Typ="Hl"/>
-   <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
-   <Standard Typ="Ma"/>
-   <Standard Typ="Mg"/>
-   <Standard Typ="Ny"/>
-   <Standard Typ="Sa"/>
-   <Standard Typ="Sw"/>
-   <Standard Typ="Th"/>
    <Standard Typ="dBe"/>
+   <Standard Typ="Dt"/>
    <Standard Typ="eBe"/>
    <Standard Typ="gHx"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="Mg"/>
+   <Standard Typ="MMa"/>
+   <Standard Typ="Ny"/>
+   <Standard Typ="Sa"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="Sw"/>
    <Standard Typ="tBe"/>
+   <Standard Typ="Th"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Fi"/>
    <Ausnahme Typ="Gl"/>
-   <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hä"/>
+   <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Kd"/>
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Or"/>
@@ -278,11 +278,12 @@
    <Ausnahme Typ="Ru"/>
    <Ausnahme Typ="Se"/>
    <Ausnahme Typ="Sk"/>
+   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Sp"/>
    <Ausnahme Typ="Sr"/>
-   <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Wa"/>
+   <Ausnahme Typ="Wi"/>
    <Voraussetzungen In="61" Zt="61"/>
    <Lernschema Lernpunkte="1" Typ="Ny"/>
    <steigern_wie Fertigkeit="Geomantie"/>
@@ -292,6 +293,7 @@
    <Grund Typ="Dr"/>
    <Grund Typ="PHa"/>
    <Grund Typ="PHe"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Hl"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
@@ -302,18 +304,17 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
-   <Ausnahme Typ="Ma"/>
-   <Ausnahme Typ="Or"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="Wi"/>
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="Km"/>
+   <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
+   <Ausnahme Typ="Or"/>
    <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="Th"/>
+   <Ausnahme Typ="Wi"/>
    <Voraussetzungen Fertigkeit="Zaubern" Zt="61"/>
    <steigern_wie Fertigkeit="Geomantie"/>
    <EP-Typ ZEP="true"/>
@@ -370,6 +371,9 @@
   <Fertigkeit Name="Fallenstellen">
    <Grund Typ="De"/>
   </Fertigkeit>
+  <Fertigkeit Name="Fälschen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
   <Fertigkeit Name="Fangen">
    <Standard Typ="De"/>
   </Fertigkeit>
@@ -377,9 +381,6 @@
    <Ausnahme Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Fechten tevarrischer Stil">
-   <Ausnahme Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Fälschen">
    <Ausnahme Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Gassenwissen">
@@ -421,13 +422,13 @@
   <Fertigkeit Name="Kampf in Vollrüstung">
    <Ausnahme Typ="De"/>
   </Fertigkeit>
+  <Fertigkeit Name="Kampftaktik">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
   <Fertigkeit Name="Kampf vom Streitwagen">
    <Ausnahme Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf zu Pferd">
-   <Ausnahme Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Kampftaktik">
    <Ausnahme Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Katapult bedienen">
@@ -489,6 +490,9 @@
   <Fertigkeit Name="Scharfschie�&#x9F;en">
    <Ausnahme Typ="De"/>
   </Fertigkeit>
+  <Fertigkeit Name="Schätzen">
+   <Ausnahme Typ="De"/>
+  </Fertigkeit>
   <Fertigkeit Name="Schauspielern">
    <Standard Typ="De"/>
   </Fertigkeit>
@@ -512,9 +516,6 @@
   </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Standard Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Schätzen">
-   <Ausnahme Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Seemannsgang">
    <Standard Typ="De"/>
@@ -572,6 +573,31 @@
   <Fertigkeit Name="Trinken">
    <Standard Typ="De"/>
   </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Dschungel">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Gebirge">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Schnee">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Sumpf">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Wald">
+   <Standard Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben in der Steppe">
+   <Grund Typ="De"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben in der Wüste">
+   <Grund Typ="De"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="De"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScW"/>
+  </Fertigkeit>
   <Fertigkeit Name="Verbergen">
    <Standard Typ="De"/>
   </Fertigkeit>
@@ -601,31 +627,6 @@
   </Fertigkeit>
   <Fertigkeit Name="Zeichensprache">
    <Standard Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Dschungel">
-   <Standard Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Gebirge">
-   <Standard Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Schnee">
-   <Standard Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Sumpf">
-   <Standard Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Wald">
-   <Standard Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben in der Steppe">
-   <Grund Typ="De"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben in der Wüste">
-   <Grund Typ="De"/>
-   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="De"/>
-   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScN"/>
-   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScS"/>
-   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScW"/>
   </Fertigkeit>
   <Fertigkeit Name="Wetterkunde" Region="H&amp;D">
    <Grund Typ="De"/>
@@ -817,6 +818,9 @@
   <Waffe Name="Glefe">
    <Ausnahme Typ="De"/>
   </Waffe>
+  <Waffe Name="gro�&#x9F;er Schild">
+   <Ausnahme Typ="De"/>
+  </Waffe>
   <Waffe Name="Handarmbrust">
    <Ausnahme Typ="De"/>
   </Waffe>
@@ -837,6 +841,10 @@
   </Waffe>
   <Waffe Name="Kharrata">
    <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="kleiner Schild">
+   <Ausnahme Typ="De"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="3" Typ="De"/>
   </Waffe>
   <Waffe Name="Kompositbogen">
    <Ausnahme Typ="De"/>
@@ -868,6 +876,15 @@
   </Waffe>
   <Waffe Name="Lasso">
    <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="leichte Armbrust">
+   <regionaleVariante Name="Ud al-Khal" Region="E" Schaden="W6"/>
+   <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="leichter Speer">
+   <regionaleVariante Name="Jarid" Region="E" Schaden="W6" Schadensbonus="-1"/>
+   <Ausnahme Typ="De"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="De"/>
   </Waffe>
   <Waffe Name="Magierstab">
    <Standard Typ="De"/>
@@ -902,6 +919,9 @@
   <Waffe Name="Schleuder">
    <Ausnahme Typ="De"/>
   </Waffe>
+  <Waffe Name="schwere Armbrust">
+   <Ausnahme Typ="De"/>
+  </Waffe>
   <Waffe Name="Skhallanta">
    <Ausnahme Typ="De"/>
   </Waffe>
@@ -927,6 +947,10 @@
   <Waffe Name="Streitkolben">
    <regionaleVariante Name="Dabus" Region="E" Schaden="W6" St="31"/>
    <Ausnahme Typ="De"/>
+  </Waffe>
+  <Waffe Name="waffenloser Kampf">
+   <Ausnahme Typ="De"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="9" Typ="De"/>
   </Waffe>
   <Waffe Name="Werfen">
    <Ausnahme Typ="De"/>
@@ -961,29 +985,6 @@
   </Waffe>
   <Waffe Name="Wurfstern">
    <Ausnahme Typ="De"/>
-  </Waffe>
-  <Waffe Name="gro�&#x9F;er Schild">
-   <Ausnahme Typ="De"/>
-  </Waffe>
-  <Waffe Name="kleiner Schild">
-   <Ausnahme Typ="De"/>
-   <Lernschema Erfolgswert="1" Lernpunkte="3" Typ="De"/>
-  </Waffe>
-  <Waffe Name="leichte Armbrust">
-   <regionaleVariante Name="Ud al-Khal" Region="E" Schaden="W6"/>
-   <Ausnahme Typ="De"/>
-  </Waffe>
-  <Waffe Name="leichter Speer">
-   <regionaleVariante Name="Jarid" Region="E" Schaden="W6" Schadensbonus="-1"/>
-   <Ausnahme Typ="De"/>
-   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="De"/>
-  </Waffe>
-  <Waffe Name="schwere Armbrust">
-   <Ausnahme Typ="De"/>
-  </Waffe>
-  <Waffe Name="waffenloser Kampf">
-   <Ausnahme Typ="De"/>
-   <Lernschema Erfolgswert="4" Lernpunkte="9" Typ="De"/>
   </Waffe>
   <Waffe Name="Pilum" Region="3">
    <Ausnahme Typ="De"/>
@@ -1115,21 +1116,21 @@
   <Spruch AP="9" Agens="Luft" Grad="6" Lernkosten="8000" Name="Abu es-Samum" Prozess="bewegt" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="elementar" Wirkungsbereich="10 km Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Beschreibung>Vater des Sturms, Sandsturm, wenige Meter Sichtweite, unbefestigte Gegenstände werden mit 10&#x25; fortgeweht. Eine Fortbewegung mit B/2 kostet 1AP/10min.</Beschreibung>
   </Spruch>
   <Spruch AP="4" Agens="Luft" Grad="4" Lernkosten="1500" Name="Ain es-Samum" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="elementar" Wirkungsbereich="30 m Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Beschreibung>Auge des Sturms, erzeugt um den Zauberer herum eine unbewegte Zone im Sandsturm</Beschreibung>
@@ -1137,11 +1138,11 @@
   <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Name="Akbar fil-Ghadban" Prozess="verändert" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="3 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="3" Typ="De"/>
@@ -1160,11 +1161,11 @@
   <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Al-Karama" Prozess="erkennt" Reagens="Luft" Region="E" Reichweite="5 m" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="3" Typ="De"/>
@@ -1172,10 +1173,10 @@
   </Spruch>
   <Spruch AP="3" Agens="Luft" Grad="2" Lernkosten="400" Name="Al-Mahram" Prozess="beherrscht" Reagens="Eis" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="6 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
   </Spruch>
   <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Al-Mutadid" Prozess="beherrscht" Reagens="Feuer" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="6m Uk" Wirkungsdauer="30 min" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="5 min">
@@ -1185,20 +1186,20 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="wHx"/>
-   <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="To"/>
    <Lernschema Lernpunkte="2" Typ="De"/>
    <Beschreibung>Dem Ormut hilft, Bannsphäre gegen Dämonen, Elementarwesen, Untote und Geisterwesen</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Al-Tarka" Prozess="beherrscht" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="4" Typ="De"/>
@@ -1221,20 +1222,20 @@
    <Grund Typ="Th"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="PHa"/>
    <Standard Typ="PT"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Beschreibung>Ein glei�&#x9F;endes Licht blendet alle Wesen im Wirkungsbereich. WM-6 auf Erfolg- und Widerstandswürfe und Fertigkeiten, die die Augen erfordern. Gelingt die Resistenz nur WM-2.</Beschreibung>
   </Spruch>
   <Spruch AP="4" Agens="Wasser" Grad="2" Lernkosten="150" Name="Blutwandlung" Prozess="verwandelt" Reagens="Erde" Region="E" Reichweite="0 m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="-" Wirkungsdauer="-" Wirkungsziel="Umgebung" Zauberdauer="10 min">
-   <Grund Typ="PC"/>
    <Grund Typ="gHx"/>
+   <Grund Typ="PC"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
    <Standard Typ="Hl"/>
@@ -1256,37 +1257,37 @@
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="PHa"/>
    <Standard Typ="PHe"/>
    <Standard Typ="PK"/>
    <Standard Typ="PM"/>
    <Standard Typ="PT"/>
-   <Standard Typ="To"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Beschreibung>Erzeugt eine faustgro�&#x9F;e erdfarbene Kröte, die sich mit B6 auf das Opfer zubewegt und anspuckt+6 (Verwirren &amp; Eingebung), bis es dem Zauber erliegt.</Beschreibung>
   </Spruch>
   <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Name="Dalail al-Khairat" Prozess="verändert" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="To"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="3" Typ="De"/>
    <Beschreibung>Zeichen des Segens, Gläubige erhalten WM+1 auf Erfolgs- und Widerstandswürfe und WM-5 auf Prüfwürfe.</Beschreibung>
   </Spruch>
   <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="300" Name="Dalail ed-Dawahi" Prozess="verändert" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="dämonisch" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
-   <Grund Typ="PF"/>
    <Grund Typ="gHx"/>
+   <Grund Typ="PF"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
    <Standard Typ="Sa"/>
@@ -1297,8 +1298,8 @@
    <Beschreibung>Zeichen des Unheils, sieht aus wie Zeichen des Segens, wirkt wie Verwirren, WM-1 auf Erfolgs- und Widerstandswürfe, WM+5 auf Prüfwürfe</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="800" Name="Dau ed-Datin" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="dämonisch" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="15 min">
-   <Grund Typ="PF"/>
    <Grund Typ="gHx"/>
+   <Grund Typ="PF"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
    <Standard Typ="Sa"/>
@@ -1323,20 +1324,20 @@
    <Grund Typ="PHa"/>
    <Grund Typ="PHe"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Ma"/>
    <Standard Typ="PF"/>
    <Standard Typ="PK"/>
    <Standard Typ="PW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="MMa"/>
    <Beschreibung>Entzünden von brennbaren Materialien und löschen von maximal Lagerfeuer. Heller oder Dunkler machen von Flammen, Rauchen lassen.</Beschreibung>
   </Spruch>
   <Spruch AP="6" Agens="Eis" Grad="4" Lernkosten="1600" Name="Ghussat el-Masin" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="dämonisch" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
-   <Grund Typ="PF"/>
    <Grund Typ="gHx"/>
+   <Grund Typ="PF"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
    <Standard Typ="Sa"/>
@@ -1349,11 +1350,11 @@
   <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="100" Name="Haram fil-Din" Prozess="verwandelt" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="elementar" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="2 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="1" Typ="De"/>
@@ -1365,15 +1366,15 @@
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Dr"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Dt"/>
@@ -1389,25 +1390,26 @@
    <Grund Typ="PHe"/>
    <Grund Typ="PT"/>
    <Grund Typ="PW"/>
+   <Standard Typ="dBe"/>
+   <Standard Typ="eBe"/>
    <Standard Typ="PF"/>
    <Standard Typ="PK"/>
    <Standard Typ="PM"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
    <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Beschreibung>Erwecken einer Statue aus dem richtigen roten Sandstein.</Beschreibung>
   </Spruch>
   <Spruch AP="3" Agens="Feuer" Grad="3" Lernkosten="600" Material="Quarz und Silberstaub" Name="Luftspiegelung" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="30 km" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="-" Wirkungsdauer="30 min" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="De"/>
    <Grund Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
    <Standard Typ="PHa"/>
@@ -1420,7 +1422,6 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Beschreibung>Nur an hei�&#x9F;en Tagen unter blauem Himmel kann die Luftspiegelung weit entfernte Dinge erscheinen lassen. (mindestens 1km Abstand)</Beschreibung>
@@ -1430,19 +1431,21 @@
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
    <Grund Typ="tBe"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="dBe"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Beschreibung>Der Zauberer kann aus einem mumifizierten Leichnam eine Schu-Imumet (Mumie ohne Eigenintelligenz) schaffen. (Erfordert Macht über den Tod)</Beschreibung>
   </Spruch>
   <Spruch AP="18" Agens="Magan" Grad="G" Lernkosten="15000" Material="Wachsbad mit seltenen Essenzen" Name="Manifestation des Ka" Prozess="erschafft" Reagens="Erde" Region="E" Reichweite="3 m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="6 h">
+   <Grund Typ="dBe"/>
    <Grund Typ="Dt"/>
+   <Grund Typ="eBe"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
    <Grund Typ="PHa"/>
@@ -1451,18 +1454,16 @@
    <Grund Typ="PM"/>
    <Grund Typ="PT"/>
    <Grund Typ="PW"/>
-   <Grund Typ="dBe"/>
-   <Grund Typ="eBe"/>
    <Grund Typ="tBe"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="To"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Beschreibung>Der Zauberer erschafft einen Doppelgänger eines Menschen, den er leicht beeinflussen kann.</Beschreibung>
   </Spruch>
@@ -1477,18 +1478,68 @@
    <Grund Typ="PT"/>
    <Grund Typ="PW"/>
    <Grund Typ="tBe"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="De"/>
+   <Standard Typ="eBe"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="To"/>
-   <Standard Typ="dBe"/>
-   <Standard Typ="eBe"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Beschreibung>Der Zauberer erweckt eine Ib-Imumet oder eine Ankh-Imumet. Das Herz der Mumie darf nicht entnommen sein.</Beschreibung>
+  </Spruch>
+  <Spruch AP="4" Agens="Luft" Grad="2" Lernkosten="400" Name="Sadik es-Sidiki" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
+   <Grund Typ="De"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="To"/>
+   <Lernschema Lernpunkte="4" Typ="De"/>
+   <Beschreibung>Freund der Wahrheit, Alle Opfer müssen die Wahrheit sagen oder schweigen.</Beschreibung>
+  </Spruch>
+  <Spruch AP="6" Agens="Luft" Grad="3" Lernkosten="600" Name="Saijidat el-Masin" Prozess="beherrscht" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
+   <Grund Typ="De"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Lernschema Lernpunkte="4" Typ="De"/>
+   <Beschreibung>Herrin der Menschen, Verzauberte tanzen bis zur Erschöpfung (1AP/Runde). Gläubige können Visionen erhalten.</Beschreibung>
+  </Spruch>
+  <Spruch AP="9" Agens="Luft" Grad="6" Lernkosten="6000" Material="10g Sandwurmhaut" Name="Sandmeisterschaft" Prozess="bewegt" Reagens="Erde" Region="E" Reichweite="2 km" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="500m Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberdauer="30 s">
+   <Grund Typ="De"/>
+   <Grund Typ="PF"/>
+   <Standard Typ="Dr"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="gHx"/>
+   <Standard Typ="Hl"/>
+   <Standard Typ="Km"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
+   <Standard Typ="PC"/>
+   <Standard Typ="PT"/>
+   <Standard Typ="PW"/>
+   <Standard Typ="Sa"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="wHx"/>
+   <Ausnahme Typ="PHa"/>
+   <Ausnahme Typ="PHe"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PM"/>
+   <Beschreibung>Bis zu 1km lange Düne wandern lassen, Treibsand spuckt Verschlungene wieder aus. Menschen können nicht vergraben werden, solange sie bei Bewusstsein sind.</Beschreibung>
   </Spruch>
   <Spruch AP="5" Agens="Eis" Grad="2" Lernkosten="250" Name="Sa rauben" Prozess="zerstört" Reagens="Holz" Region="E" Reichweite="0" Typ="Geste" Ursprung="schwarzmagisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="1 s">
    <Grund Typ="PC"/>
@@ -1498,8 +1549,8 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Ausnahme Typ="Dr"/>
-   <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="To"/>
    <Beschreibung>Der Zauberer entzieht seinem Opfer 2W6 AP für sich selbst.</Beschreibung>
   </Spruch>
   <Spruch AP="4 vom Max" Agens="Holz" Grad="4" Lernkosten="1500" Name="Sa spenden" Prozess="zerstört" Reagens="Holz" Region="E" Reichweite="0" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberdauer="30 min">
@@ -1519,61 +1570,11 @@
    <Standard Typ="ScW"/>
    <Beschreibung>Der Zauber überträgt 1W6 permanente AP auf den Empfänger.</Beschreibung>
   </Spruch>
-  <Spruch AP="4" Agens="Luft" Grad="2" Lernkosten="400" Name="Sadik es-Sidiki" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
-   <Grund Typ="De"/>
-   <Standard Typ="Sa"/>
-   <Standard Typ="ScN"/>
-   <Standard Typ="ScS"/>
-   <Standard Typ="ScW"/>
-   <Standard Typ="wHx"/>
-   <Ausnahme Typ="To"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
-   <Lernschema Lernpunkte="4" Typ="De"/>
-   <Beschreibung>Freund der Wahrheit, Alle Opfer müssen die Wahrheit sagen oder schweigen.</Beschreibung>
-  </Spruch>
-  <Spruch AP="6" Agens="Luft" Grad="3" Lernkosten="600" Name="Saijidat el-Masin" Prozess="beherrscht" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
-   <Grund Typ="De"/>
-   <Standard Typ="Sa"/>
-   <Standard Typ="ScN"/>
-   <Standard Typ="ScS"/>
-   <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
-   <Standard Typ="sHx"/>
-   <Standard Typ="wHx"/>
-   <Lernschema Lernpunkte="4" Typ="De"/>
-   <Beschreibung>Herrin der Menschen, Verzauberte tanzen bis zur Erschöpfung (1AP/Runde). Gläubige können Visionen erhalten.</Beschreibung>
-  </Spruch>
-  <Spruch AP="9" Agens="Luft" Grad="6" Lernkosten="6000" Material="10g Sandwurmhaut" Name="Sandmeisterschaft" Prozess="bewegt" Reagens="Erde" Region="E" Reichweite="2 km" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="500m Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberdauer="30 s">
-   <Grund Typ="De"/>
-   <Grund Typ="PF"/>
-   <Standard Typ="Dr"/>
-   <Standard Typ="Dt"/>
-   <Standard Typ="Hl"/>
-   <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
-   <Standard Typ="Ma"/>
-   <Standard Typ="PC"/>
-   <Standard Typ="PT"/>
-   <Standard Typ="PW"/>
-   <Standard Typ="Sa"/>
-   <Standard Typ="ScN"/>
-   <Standard Typ="ScS"/>
-   <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
-   <Standard Typ="sHx"/>
-   <Standard Typ="wHx"/>
-   <Ausnahme Typ="PHa"/>
-   <Ausnahme Typ="PHe"/>
-   <Ausnahme Typ="PK"/>
-   <Ausnahme Typ="PM"/>
-   <Beschreibung>Bis zu 1km lange Düne wandern lassen, Treibsand spuckt Verschlungene wieder aus. Menschen können nicht vergraben werden, solange sie bei Bewusstsein sind.</Beschreibung>
-  </Spruch>
   <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="1000" Name="Schadd wa-Tarka" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="15 m" Typ="Tanz" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="15 min">
-   <Grund Typ="PF"/>
-   <Grund Typ="Tt"/>
    <Grund Typ="gHx"/>
+   <Grund Typ="PF"/>
    <Grund Typ="sHx"/>
+   <Grund Typ="Tt"/>
    <Grund Typ="wHx"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
@@ -1588,9 +1589,9 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Ausnahme Typ="To"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="To"/>
    <Beschreibung>Der Zauber trennt die Seele vom Körper. Der Körper wird zum Marab, die Seele verbleibt in einer Bleiflasche.</Beschreibung>
   </Spruch>
   <Spruch AP="4" Agens="Holz" Grad="4" Lernkosten="2000" Name="Seelenschock" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="15 m" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="15 s">
@@ -1598,9 +1599,10 @@
    <Grund Typ="Hl"/>
    <Standard Typ="De"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
    <Standard Typ="PHa"/>
@@ -1613,9 +1615,8 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="To"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Beschreibung>[eigentlich Schock] Ein Schock macht das Opfer wehr- und teilnahmslos.</Beschreibung>
   </Spruch>
@@ -1629,17 +1630,17 @@
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
    <Standard Typ="PK"/>
    <Standard Typ="PM"/>
    <Standard Typ="PW"/>
-   <Standard Typ="To"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Beschreibung>Erzeugt einen Handgro�&#x9F;en roten Skorpion, der das Opfer mit B6 aufspürt und mit einem Stich+6 (5W6 Gift) tötet.</Beschreibung>
   </Spruch>
@@ -1647,36 +1648,37 @@
    <Grund Typ="PK"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="To"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PW"/>
    <Beschreibung>Der Zauberer ruft 4W6 Krokodile zu sich und kontrolliert sie.</Beschreibung>
   </Spruch>
   <Spruch AP="18" Agens="Magan" Grad="G" Lernkosten="20000" Material="Silberdraht" Name="Tausch des Ba" Prozess="bewegt" Reagens="Luft" Region="E" Reichweite="15 m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="2 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="3 h">
+   <Grund Typ="dBe"/>
    <Grund Typ="De"/>
+   <Grund Typ="eBe"/>
    <Grund Typ="PC"/>
    <Grund Typ="Sa"/>
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
-   <Grund Typ="dBe"/>
-   <Grund Typ="eBe"/>
    <Grund Typ="tBe"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="PF"/>
    <Standard Typ="PHa"/>
    <Standard Typ="PHe"/>
@@ -1684,19 +1686,18 @@
    <Standard Typ="PM"/>
    <Standard Typ="PT"/>
    <Standard Typ="PW"/>
-   <Standard Typ="To"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
+   <Standard Typ="To"/>
    <Standard Typ="wHx"/>
    <Beschreibung>Der Zauberer wechselt mit dem Opfer den Körper.</Beschreibung>
   </Spruch>
   <Spruch AP="6" Agens="Magan" Grad="3" Lernkosten="600" Name="Tibb al-Mumani" Prozess="bewegt" Reagens="Feuer" Region="E" Reichweite="15 m" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="1 Ws, 1Ob" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="20 min">
    <Grund Typ="De"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Lernpunkte="2" Typ="De"/>
@@ -1710,18 +1711,18 @@
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Dt"/>
+   <Standard Typ="gHx"/>
    <Standard Typ="Hl"/>
    <Standard Typ="PW"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Km"/>
-   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
+   <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PT"/>
    <Beschreibung>Der Zauberer spürt, wieviel Wasser sich im Bereich befindet. (5m Tiefe in Sand)</Beschreibung>
@@ -1788,11 +1789,11 @@
   <Spruch Name="Belebungshauch">
    <Ausnahme Typ="De"/>
   </Spruch>
-  <Spruch Name="Beschleunigen">
-   <Grund Typ="De"/>
-  </Spruch>
   <Spruch Name="Besänftigen">
    <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Beschleunigen">
+   <Grund Typ="De"/>
   </Spruch>
   <Spruch Name="Bittersalz">
    <Ausnahme Typ="De"/>
@@ -1812,6 +1813,9 @@
   <Spruch Name="Brot und Wasser">
    <Standard Typ="De"/>
   </Spruch>
+  <Spruch Name="Dämonenfeuer">
+   <Ausnahme Typ="De"/>
+  </Spruch>
   <Spruch Name="Deckmantel">
    <Ausnahme Typ="De"/>
   </Spruch>
@@ -1822,9 +1826,6 @@
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Durstsalz">
-   <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Dämonenfeuer">
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Eisenhaut">
@@ -1877,6 +1878,9 @@
   </Spruch>
   <Spruch Name="Erscheinungen">
    <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Färbersalz">
+   <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Feenfluch">
    <Ausnahme Typ="De"/>
@@ -1938,9 +1942,6 @@
   <Spruch Name="Funkensalz">
    <Ausnahme Typ="De"/>
   </Spruch>
-  <Spruch Name="Färbersalz">
-   <Ausnahme Typ="De"/>
-  </Spruch>
   <Spruch Name="Geas">
    <Standard Typ="De"/>
   </Spruch>
@@ -1950,20 +1951,20 @@
   <Spruch Name="Geistesschild">
    <Ausnahme Typ="De"/>
   </Spruch>
-  <Spruch Name="Grüne Hand">
-   <Ausnahme Typ="De"/>
-  </Spruch>
   <Spruch Name="Göttliche Eingebung">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Göttlicher Schutz vor dem Bösen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Göttlicher Schutz vor Magie">
    <Standard Typ="De"/>
   </Spruch>
   <Spruch Name="Göttliche Strafe">
    <Grund Typ="De"/>
   </Spruch>
-  <Spruch Name="Göttlicher Schutz vor Magie">
-   <Standard Typ="De"/>
-  </Spruch>
-  <Spruch Name="Göttlicher Schutz vor dem Bösen">
-   <Standard Typ="De"/>
+  <Spruch Name="Grüne Hand">
+   <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Haarsalz">
    <Ausnahme Typ="De"/>
@@ -2009,12 +2010,6 @@
   <Spruch Name="Hitzsalz">
    <Ausnahme Typ="De"/>
   </Spruch>
-  <Spruch Name="Hort der Natur">
-   <Grund Typ="De"/>
-  </Spruch>
-  <Spruch Name="Hungersalz">
-   <Ausnahme Typ="De"/>
-  </Spruch>
   <Spruch Name="Hören der Geister">
    <Grund Typ="De"/>
   </Spruch>
@@ -2022,6 +2017,12 @@
    <Standard Typ="De"/>
   </Spruch>
   <Spruch Name="Hörnerklang">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hort der Natur">
+   <Grund Typ="De"/>
+  </Spruch>
+  <Spruch Name="Hungersalz">
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Jucksalz">
@@ -2039,6 +2040,9 @@
   <Spruch Name="Lachsalz">
    <Ausnahme Typ="De"/>
   </Spruch>
+  <Spruch Name="Lähmung">
+   <Standard Typ="De"/>
+  </Spruch>
   <Spruch Name="Lichtbrücke">
    <Standard Typ="De"/>
   </Spruch>
@@ -2048,32 +2052,29 @@
   <Spruch Name="Liniensicht">
    <Standard Typ="De"/>
   </Spruch>
-  <Spruch Name="Lähmung">
-   <Standard Typ="De"/>
-  </Spruch>
   <Spruch Name="Löschsalz">
    <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Macht über Leben">
-   <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Macht über Menschen">
-   <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Macht über Unbelebtes">
-   <Standard Typ="De"/>
   </Spruch>
   <Spruch Name="Macht über das Selbst">
    <Grund Typ="De"/>
    <Lernschema Lernpunkte="3" Typ="De"/>
   </Spruch>
-  <Spruch Name="Macht über die Sinne">
-   <Standard Typ="De"/>
-  </Spruch>
   <Spruch Name="Macht über die belebte Natur">
    <Ausnahme Typ="De"/>
   </Spruch>
+  <Spruch Name="Macht über die Sinne">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Macht über Leben">
+   <Ausnahme Typ="De"/>
+  </Spruch>
   <Spruch Name="Macht über magische Wesen">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Macht über Menschen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Macht über Unbelebtes">
    <Standard Typ="De"/>
   </Spruch>
   <Spruch Name="Magischer Kreis des Widerstehens">
@@ -2157,6 +2158,9 @@
   <Spruch Name="Schutzgeist">
    <Standard Typ="De"/>
   </Spruch>
+  <Spruch Name="Schwäche">
+   <Grund Typ="De"/>
+  </Spruch>
   <Spruch Name="Schwarze Zone">
    <Standard Typ="De"/>
   </Spruch>
@@ -2165,9 +2169,6 @@
   </Spruch>
   <Spruch Name="Schwingenkeule">
    <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Schwäche">
-   <Grund Typ="De"/>
   </Spruch>
   <Spruch Name="Seelenheilung">
    <Standard Typ="De"/>
@@ -2185,6 +2186,9 @@
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Spruch intensivieren">
+   <Standard Typ="De"/>
+  </Spruch>
+  <Spruch Name="Stärke">
    <Standard Typ="De"/>
   </Spruch>
   <Spruch Name="Staubkämpfer">
@@ -2213,9 +2217,6 @@
   </Spruch>
   <Spruch Name="Sturmwind">
    <Grund Typ="De"/>
-  </Spruch>
-  <Spruch Name="Stärke">
-   <Standard Typ="De"/>
   </Spruch>
   <Spruch Name="Sumpfboden">
    <Ausnahme Typ="De"/>
@@ -2343,6 +2344,9 @@
   <Spruch Name="Wundersame Tarnung">
    <Ausnahme Typ="De"/>
   </Spruch>
+  <Spruch Name="Zähmen">
+   <Ausnahme Typ="De"/>
+  </Spruch>
   <Spruch Name="Zauberhand">
    <Standard Typ="De"/>
   </Spruch>
@@ -2367,17 +2371,14 @@
   <Spruch Name="Zielsuche">
    <Grund Typ="De"/>
   </Spruch>
+  <Spruch Name="Zündersalz">
+   <Ausnahme Typ="De"/>
+  </Spruch>
   <Spruch Name="Zweite Haut">
    <Standard Typ="De"/>
   </Spruch>
   <Spruch Name="Zwiesprache">
    <Standard Typ="De"/>
-  </Spruch>
-  <Spruch Name="Zähmen">
-   <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Zündersalz">
-   <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Bannen von Dunebargen" Region="3">
    <Ausnahme Typ="De"/>
@@ -2439,6 +2440,15 @@
   <Spruch Name="Coluscar 4 beschwören" Region="3">
    <Ausnahme Typ="De"/>
   </Spruch>
+  <Spruch Name="Dämonenbann" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dämonen binden" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
+  <Spruch Name="Dämonenschar beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
   <Spruch Name="Dschinn beschwören" Region="3">
    <Ausnahme Typ="De"/>
   </Spruch>
@@ -2461,15 +2471,6 @@
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Dunskrat beschwören" Region="3">
-   <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Dämonen binden" Region="3">
-   <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Dämonenbann" Region="3">
-   <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Dämonenschar beschwören" Region="3">
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Eldring beschwören" Region="3">
@@ -2589,13 +2590,13 @@
   <Spruch Name="Jokulskadi beschwören" Region="3">
    <Ausnahme Typ="De"/>
   </Spruch>
+  <Spruch Name="Jördmand beschwören" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
   <Spruch Name="Jurugu beschwören" Region="3">
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Jurugu rufen" Region="3">
-   <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Jördmand beschwören" Region="3">
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Kaligin 1 beschwören" Region="3">
@@ -2676,13 +2677,13 @@
   <Spruch Name="Saeldverg beschwören" Region="3">
    <Ausnahme Typ="De"/>
   </Spruch>
+  <Spruch Name="Schutzkreis gegen Dämonen" Region="3">
+   <Ausnahme Typ="De"/>
+  </Spruch>
   <Spruch Name="Schutzkreis gegen Dunebargen" Region="3">
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Dvergar" Region="3">
-   <Ausnahme Typ="De"/>
-  </Spruch>
-  <Spruch Name="Schutzkreis gegen Dämonen" Region="3">
    <Ausnahme Typ="De"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Elementarwesen" Region="3">

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.19 $" Copyright="var." MAGUS-Bild="5" MAGUS-Index="13" Maintainer="Malte Thoma" Name="Gildenbrief" Region="G" Titel="Gildenbrief" Version="1.0">
+<MAGUS-data CVS="$Revision: 1.20 $" Copyright="var." MAGUS-Bild="5" MAGUS-Index="13" Maintainer="Malte Thoma" Name="Gildenbrief" Region="G" Titel="Gildenbrief" Version="1.0">
  <Fertigkeiten>
   <Fertigkeit Name="Abrichten">
    <Ausnahme Typ="MMa"/>
@@ -53,6 +53,9 @@
   <Fertigkeit Name="Fallenstellen">
    <Ausnahme Typ="MMa"/>
   </Fertigkeit>
+  <Fertigkeit Name="Fälschen">
+   <Standard Typ="MMa"/>
+  </Fertigkeit>
   <Fertigkeit Name="Fangen">
    <Standard Typ="MMa"/>
   </Fertigkeit>
@@ -61,9 +64,6 @@
   </Fertigkeit>
   <Fertigkeit Name="Fechten tevarrischer Stil">
    <Ausnahme Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Fälschen">
-   <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Gassenwissen">
    <Standard Typ="MMa"/>
@@ -105,13 +105,13 @@
   <Fertigkeit Name="Kampf in Vollrüstung">
    <Ausnahme Typ="MMa"/>
   </Fertigkeit>
+  <Fertigkeit Name="Kampftaktik">
+   <Ausnahme Typ="MMa"/>
+  </Fertigkeit>
   <Fertigkeit Name="Kampf vom Streitwagen">
    <Ausnahme Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf zu Pferd">
-   <Ausnahme Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Kampftaktik">
    <Ausnahme Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Katapult bedienen">
@@ -170,6 +170,9 @@
   <Fertigkeit Name="Scharfschie�&#x9F;en">
    <Ausnahme Typ="MMa"/>
   </Fertigkeit>
+  <Fertigkeit Name="Schätzen">
+   <Standard Typ="MMa"/>
+  </Fertigkeit>
   <Fertigkeit Name="Schauspielern">
    <Standard Typ="MMa"/>
   </Fertigkeit>
@@ -197,9 +200,6 @@
   <Fertigkeit Name="Schwimmen">
    <Grund Typ="MMa"/>
    <Lernschema Erfolgswert="15" Lernpunkte="3" Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="Schätzen">
-   <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Seemannsgang">
    <Grund Typ="MMa"/>
@@ -261,6 +261,27 @@
   <Fertigkeit Name="Trinken">
    <Standard Typ="MMa"/>
   </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Dschungel">
+   <Standard Typ="MMa"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Gebirge">
+   <Standard Typ="MMa"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Schnee">
+   <Standard Typ="MMa"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Sumpf">
+   <Standard Typ="MMa"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben im Wald">
+   <Standard Typ="MMa"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben in der Steppe">
+   <Standard Typ="MMa"/>
+  </Fertigkeit>
+  <Fertigkeit Name="�&#x9C;berleben in der Wüste">
+   <Standard Typ="MMa"/>
+  </Fertigkeit>
   <Fertigkeit Name="Verbergen">
    <Standard Typ="MMa"/>
   </Fertigkeit>
@@ -290,27 +311,6 @@
    <Grund Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Zeichensprache">
-   <Standard Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Dschungel">
-   <Standard Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Gebirge">
-   <Standard Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Schnee">
-   <Standard Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Sumpf">
-   <Standard Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben im Wald">
-   <Standard Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben in der Steppe">
-   <Standard Typ="MMa"/>
-  </Fertigkeit>
-  <Fertigkeit Name="�&#x9C;berleben in der Wüste">
    <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Brettspiel" Region="E">
@@ -491,10 +491,10 @@
    <Grund Typ="Kr"/>
    <Grund Typ="Sö"/>
    <Standard Typ="As"/>
+   <Standard Typ="Ba"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
    <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
    <Standard Typ="Er"/>
    <Standard Typ="Fi"/>
    <Standard Typ="Gl"/>
@@ -502,8 +502,8 @@
    <Standard Typ="Kd"/>
    <Standard Typ="Km"/>
    <Standard Typ="Ku"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Mg"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ny"/>
    <Standard Typ="Or"/>
    <Standard Typ="PK"/>
@@ -520,9 +520,12 @@
    <Standard Typ="Tt"/>
    <Standard Typ="Wa"/>
    <Standard Typ="Wi"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Ma"/>
@@ -537,13 +540,10 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Sw"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="Th"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Erfolgswert="5" Lernpunkte="8" Typ="MMa"/>
   </Waffe>
@@ -555,10 +555,10 @@
    <Grund Typ="Kr"/>
    <Grund Typ="Sö"/>
    <Standard Typ="As"/>
+   <Standard Typ="Ba"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
    <Standard Typ="BW"/>
-   <Standard Typ="Ba"/>
    <Standard Typ="Er"/>
    <Standard Typ="Fi"/>
    <Standard Typ="Gl"/>
@@ -566,8 +566,8 @@
    <Standard Typ="Kd"/>
    <Standard Typ="Km"/>
    <Standard Typ="Ku"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Mg"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ny"/>
    <Standard Typ="Or"/>
    <Standard Typ="PK"/>
@@ -584,9 +584,12 @@
    <Standard Typ="Tt"/>
    <Standard Typ="Wa"/>
    <Standard Typ="Wi"/>
+   <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Dr"/>
    <Ausnahme Typ="Dt"/>
+   <Ausnahme Typ="eBe"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Ma"/>
@@ -601,13 +604,10 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Ausnahme Typ="Sw"/>
-   <Ausnahme Typ="Th"/>
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="tBe"/>
+   <Ausnahme Typ="Th"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Erfolgswert="4" Lernpunkte="6" Typ="MMa"/>
   </Waffe>
@@ -645,6 +645,9 @@
   <Waffe Name="Glefe">
    <Ausnahme Typ="MMa"/>
   </Waffe>
+  <Waffe Name="gro�&#x9F;er Schild">
+   <Ausnahme Typ="MMa"/>
+  </Waffe>
   <Waffe Name="Handarmbrust">
    <Ausnahme Typ="MMa"/>
   </Waffe>
@@ -664,6 +667,9 @@
    <Ausnahme Typ="MMa"/>
   </Waffe>
   <Waffe Name="Kharrata">
+   <Ausnahme Typ="MMa"/>
+  </Waffe>
+  <Waffe Name="kleiner Schild">
    <Ausnahme Typ="MMa"/>
   </Waffe>
   <Waffe Name="Kompositbogen">
@@ -695,6 +701,12 @@
   </Waffe>
   <Waffe Name="Lasso">
    <Ausnahme Typ="MMa"/>
+  </Waffe>
+  <Waffe Name="leichte Armbrust">
+   <Ausnahme Typ="MMa"/>
+  </Waffe>
+  <Waffe Name="leichter Speer">
+   <Standard Typ="MMa"/>
   </Waffe>
   <Waffe Name="Magierstab">
    <Ausnahme Typ="MMa"/>
@@ -729,6 +741,9 @@
   <Waffe Name="Schleuder">
    <Ausnahme Typ="MMa"/>
   </Waffe>
+  <Waffe Name="schwere Armbrust">
+   <Ausnahme Typ="MMa"/>
+  </Waffe>
   <Waffe Name="Skhallanta">
    <Ausnahme Typ="MMa"/>
   </Waffe>
@@ -751,6 +766,9 @@
    <Ausnahme Typ="MMa"/>
   </Waffe>
   <Waffe Name="Streitkolben">
+   <Ausnahme Typ="MMa"/>
+  </Waffe>
+  <Waffe Name="waffenloser Kampf">
    <Ausnahme Typ="MMa"/>
   </Waffe>
   <Waffe Name="Werfen">
@@ -784,24 +802,6 @@
    <Ausnahme Typ="MMa"/>
   </Waffe>
   <Waffe Name="Wurfstern">
-   <Ausnahme Typ="MMa"/>
-  </Waffe>
-  <Waffe Name="gro�&#x9F;er Schild">
-   <Ausnahme Typ="MMa"/>
-  </Waffe>
-  <Waffe Name="kleiner Schild">
-   <Ausnahme Typ="MMa"/>
-  </Waffe>
-  <Waffe Name="leichte Armbrust">
-   <Ausnahme Typ="MMa"/>
-  </Waffe>
-  <Waffe Name="leichter Speer">
-   <Standard Typ="MMa"/>
-  </Waffe>
-  <Waffe Name="schwere Armbrust">
-   <Ausnahme Typ="MMa"/>
-  </Waffe>
-  <Waffe Name="waffenloser Kampf">
    <Ausnahme Typ="MMa"/>
   </Waffe>
   <Waffe Name="Pilum" Region="3">
@@ -931,57 +931,23 @@
    <Grund Typ="Or"/>
    <Grund Typ="PW"/>
    <Standard Typ="Km"/>
-   <Standard Typ="MMa"/>
    <Standard Typ="Ma"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="PHe"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Ausnahme Typ="PK"/>
-   <Ausnahme Typ="PT"/>
-   <Ausnahme Typ="To"/>
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="PK"/>
+   <Ausnahme Typ="PT"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="To"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
   <Spruch AP="2" Grad="2" Lernkosten="400" Material="Flöte oder Laute" Name="Charivari Klänge" Region="G" RegionZusatz="?" Reichweite="-" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="15m Uk" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="-">
    <Grund Typ="Ba"/>
-  </Spruch>
-  <Spruch AP="2/Tänzer" Agens="Luft" Grad="3" Lernkosten="1000" Material="Gruppentanz (min 3)" Name="Damhsa Claimh (Schwerttanz)" Prozess="verändert" Reagens="Feuer" Region="G" RegionZusatz="46" Reichweite="15 m" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="Mittänzer" Wirkungsdauer="24 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
-   <Grund Typ="Fi"/>
-   <Standard Typ="ScN"/>
-   <Standard Typ="ScS"/>
-   <Standard Typ="ScW"/>
-   <Standard Typ="Tm"/>
-   <Standard Typ="Tt"/>
-   <Standard Typ="sHx"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="wHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
-  </Spruch>
-  <Spruch AP="2" Agens="Wasser" Grad="1" Lernkosten="80" Material="Solotanz" Name="Damhsa Meallim (Locktanz)" Prozess="beherrscht" Reagens="Wasser" Region="G" RegionZusatz="46" Reichweite="15 m" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
-   <Grund Typ="Fi"/>
-   <Standard Typ="ScN"/>
-   <Standard Typ="ScS"/>
-   <Standard Typ="ScW"/>
-   <Standard Typ="Tm"/>
-   <Standard Typ="Tt"/>
-   <Standard Typ="sHx"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="wHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
   <Spruch AP="6" Agens="Magan" Grad="5" Lernkosten="1600" Material="Solotanz" Name="Damhsa an Duiseacht (Tanz des Erwachens)" Prozess="beherrscht" Reagens="Wasser" Region="G" RegionZusatz="46" Reichweite="-" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="Zauberer" Wirkungsdauer="inf" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="Fi"/>
@@ -993,9 +959,43 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
+  </Spruch>
+  <Spruch AP="2/Tänzer" Agens="Luft" Grad="3" Lernkosten="1000" Material="Gruppentanz (min 3)" Name="Damhsa Claimh (Schwerttanz)" Prozess="verändert" Reagens="Feuer" Region="G" RegionZusatz="46" Reichweite="15 m" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="Mittänzer" Wirkungsdauer="24 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
+   <Grund Typ="Fi"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="Tt"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="wHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
+  </Spruch>
+  <Spruch AP="2" Agens="Wasser" Grad="1" Lernkosten="80" Material="Solotanz" Name="Damhsa Meallim (Locktanz)" Prozess="beherrscht" Reagens="Wasser" Region="G" RegionZusatz="46" Reichweite="15 m" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
+   <Grund Typ="Fi"/>
+   <Standard Typ="ScN"/>
+   <Standard Typ="ScS"/>
+   <Standard Typ="ScW"/>
+   <Standard Typ="sHx"/>
+   <Standard Typ="Tm"/>
+   <Standard Typ="Tt"/>
+   <Ausnahme Typ="gHx"/>
+   <Ausnahme Typ="wHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
@@ -1007,30 +1007,30 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
+   <Standard Typ="sHx"/>
    <Standard Typ="Tm"/>
    <Standard Typ="Tt"/>
-   <Standard Typ="sHx"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="wHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
   <Spruch AP="6" Grad="5" Lernkosten="2000" Material="Hundeurin       " Name="Fluch des Hundes" Region="G" RegionZusatz="?" Reichweite="0" Spruchrolle="true" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="1 s">
    <Grund Typ="De"/>
    <Grund Typ="Dt"/>
+   <Grund Typ="eBe"/>
    <Grund Typ="PW"/>
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
    <Grund Typ="Tm"/>
-   <Grund Typ="eBe"/>
+   <Standard Typ="dBe"/>
    <Standard Typ="Hl"/>
    <Standard Typ="Or"/>
-   <Standard Typ="dBe"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PHa"/>
@@ -1051,6 +1051,7 @@
    <Standard Typ="ScW"/>
    <Standard Typ="Tm"/>
    <Ausnahme Typ="De"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Ma"/>
@@ -1060,9 +1061,8 @@
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
-   <Ausnahme Typ="To"/>
-   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="To"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Lernpunkte="2" Typ="MMa"/>
   </Spruch>
@@ -1074,6 +1074,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Ausnahme Typ="Fi"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Ma"/>
@@ -1084,12 +1085,11 @@
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
+   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="To"/>
-   <Ausnahme Typ="Wi"/>
-   <Ausnahme Typ="gHx"/>
-   <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
+   <Ausnahme Typ="Wi"/>
   </Spruch>
   <Spruch AP="alle (mind. 9)" Agens="Holz" Grad="6" Lernkosten="3000" Material="Gruppentanz (min 4)" Name="Rince an Coisreacan (Reigen der Weihe)" Prozess="zerstört" Reagens="Eis" Region="G" RegionZusatz="46" Reichweite="0m" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="var. Uk" Wirkungsdauer="inf" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="1 h">
    <Standard Typ="Fi"/>
@@ -1098,9 +1098,9 @@
    <Standard Typ="ScW"/>
    <Standard Typ="Tm"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
@@ -1111,9 +1111,9 @@
    <Standard Typ="ScW"/>
    <Standard Typ="Tm"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
-   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
    <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
@@ -1127,6 +1127,7 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
+   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PF"/>
@@ -1134,9 +1135,8 @@
    <Ausnahme Typ="PHe"/>
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PT"/>
-   <Ausnahme Typ="To"/>
-   <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
+   <Ausnahme Typ="To"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
   <Spruch Name="Angst">
@@ -1208,6 +1208,9 @@
   <Spruch Name="Brot und Wasser">
    <Standard Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Dämonenfeuer">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Deckmantel">
    <Ausnahme Typ="MMa"/>
   </Spruch>
@@ -1233,9 +1236,6 @@
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Durstsalz">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Dämonenfeuer">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Eisenhaut">
@@ -1281,6 +1281,9 @@
   </Spruch>
   <Spruch Name="Erscheinungen">
    <Standard Typ="MMa"/>
+  </Spruch>
+  <Spruch Name="Färbersalz">
+   <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Feenfluch">
    <Ausnahme Typ="MMa"/>
@@ -1348,9 +1351,6 @@
   <Spruch Name="Funkensalz">
    <Ausnahme Typ="MMa"/>
   </Spruch>
-  <Spruch Name="Färbersalz">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
   <Spruch Name="Geistesschild">
    <Grund Typ="MMa"/>
   </Spruch>
@@ -1392,9 +1392,6 @@
   <Spruch Name="Hitzsalz">
    <Ausnahme Typ="MMa"/>
   </Spruch>
-  <Spruch Name="Hungersalz">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
   <Spruch Name="Hören der Geister">
    <Standard Typ="MMa"/>
   </Spruch>
@@ -1404,16 +1401,19 @@
   <Spruch Name="Hörnerklang">
    <Standard Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Hungersalz">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Jucksalz">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Juwelenauge">
    <Grund Typ="MMa"/>
   </Spruch>
-  <Spruch Name="Knochenbestie">
+  <Spruch Name="Kälteschutz">
    <Ausnahme Typ="MMa"/>
   </Spruch>
-  <Spruch Name="Kälteschutz">
+  <Spruch Name="Knochenbestie">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Kühlsalz">
@@ -1421,6 +1421,9 @@
   </Spruch>
   <Spruch Name="Lachsalz">
    <Ausnahme Typ="MMa"/>
+  </Spruch>
+  <Spruch Name="Lähmung">
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Lauschen">
    <Grund Typ="MMa"/>
@@ -1437,27 +1440,14 @@
   <Spruch Name="Liniensicht">
    <Standard Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Löschsalz">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Luftlauf">
    <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Luftsphäre">
    <Grund Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Lähmung">
-   <Standard Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Löschsalz">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Macht über Leben">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Macht über Menschen">
-   <Standard Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Macht über Unbelebtes">
-   <Grund Typ="MMa"/>
-   <Lernschema Lernpunkte="2" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über das Selbst">
    <Grund Typ="MMa"/>
@@ -1466,18 +1456,28 @@
   <Spruch Name="Macht über den Tod">
    <Ausnahme Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Macht über die belebte Natur">
+   <Grund Typ="MMa"/>
+   <Lernschema Lernpunkte="3" Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Macht über die Sinne">
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über die Zeit">
    <Standard Typ="MMa"/>
   </Spruch>
-  <Spruch Name="Macht über die belebte Natur">
-   <Grund Typ="MMa"/>
-   <Lernschema Lernpunkte="3" Typ="MMa"/>
+  <Spruch Name="Macht über Leben">
+   <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über magische Wesen">
    <Grund Typ="MMa"/>
+  </Spruch>
+  <Spruch Name="Macht über Menschen">
+   <Standard Typ="MMa"/>
+  </Spruch>
+  <Spruch Name="Macht über Unbelebtes">
+   <Grund Typ="MMa"/>
+   <Lernschema Lernpunkte="2" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Magischer Kreis des Bewachens">
    <Standard Typ="MMa"/>
@@ -1571,6 +1571,9 @@
   <Spruch Name="Schrumpfen">
    <Standard Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Schwäche">
+   <Standard Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Schwarm">
    <Ausnahme Typ="MMa"/>
   </Spruch>
@@ -1578,9 +1581,6 @@
    <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Schweben">
-   <Standard Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Schwäche">
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Seelenkompa�&#x9F;">
@@ -1597,6 +1597,9 @@
   </Spruch>
   <Spruch Name="Spruch intensivieren">
    <Grund Typ="MMa"/>
+  </Spruch>
+  <Spruch Name="Stärke">
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Staubkämpfer">
    <Ausnahme Typ="MMa"/>
@@ -1624,9 +1627,6 @@
   </Spruch>
   <Spruch Name="Sturmwind">
    <Grund Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Stärke">
-   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Sumpfboden">
    <Grund Typ="MMa"/>
@@ -1796,14 +1796,14 @@
   <Spruch Name="Zielsuche">
    <Standard Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Zündersalz">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Zweite Haut">
    <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Zwiesprache">
    <Standard Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Zündersalz">
-   <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Bannen von Dunebargen" Region="3">
    <Ausnahme Typ="MMa"/>
@@ -1865,6 +1865,15 @@
   <Spruch Name="Coluscar 4 beschwören" Region="3">
    <Ausnahme Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Dämonenbann" Region="3">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
+  <Spruch Name="Dämonen binden" Region="3">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
+  <Spruch Name="Dämonenschar beschwören" Region="3">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Dschinn beschwören" Region="3">
    <Ausnahme Typ="MMa"/>
   </Spruch>
@@ -1887,15 +1896,6 @@
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Dunskrat beschwören" Region="3">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Dämonen binden" Region="3">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Dämonenbann" Region="3">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Dämonenschar beschwören" Region="3">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Eiselementargeist beschwören" Region="3">
@@ -2021,13 +2021,13 @@
   <Spruch Name="Jokulskadi beschwören" Region="3">
    <Ausnahme Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Jördmand beschwören" Region="3">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Jurugu beschwören" Region="3">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Jurugu rufen" Region="3">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Jördmand beschwören" Region="3">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Kaligin 1 beschwören" Region="3">
@@ -2111,13 +2111,13 @@
   <Spruch Name="Saeldverg beschwören" Region="3">
    <Ausnahme Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Schutzkreis gegen Dämonen" Region="3">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Schutzkreis gegen Dunebargen" Region="3">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Dvergar" Region="3">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Schutzkreis gegen Dämonen" Region="3">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Schutzkreis gegen Elementarwesen" Region="3">
@@ -2240,6 +2240,9 @@
   <Spruch Name="Bannen von Fäulnis" Region="H&amp;D">
    <Ausnahme Typ="MMa"/>
   </Spruch>
+  <Spruch Name="Bärenstärke" Region="H&amp;D">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
   <Spruch Name="Blindsalz" Region="H&amp;D">
    <Ausnahme Typ="MMa"/>
   </Spruch>
@@ -2248,9 +2251,6 @@
   </Spruch>
   <Spruch Name="Bruchbann" Region="H&amp;D">
    <Grund Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Bärenstärke" Region="H&amp;D">
-   <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Der Gro�&#x9F;e Knall" Region="H&amp;D">
    <Grund Typ="MMa"/>
@@ -2444,13 +2444,13 @@
   <Spruch Name="Rauchbild" Region="TuT">
    <Ausnahme Typ="MMa"/>
   </Spruch>
-  <Spruch Name="Schatten verstärken" Region="TuT">
-   <Ausnahme Typ="MMa"/>
-  </Spruch>
   <Spruch Name="Schattenrobe" Region="TuT">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Schattenschrecken" Region="TuT">
+   <Ausnahme Typ="MMa"/>
+  </Spruch>
+  <Spruch Name="Schatten verstärken" Region="TuT">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Torwandeln" Region="TuT">
